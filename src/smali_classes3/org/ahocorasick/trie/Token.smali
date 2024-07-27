@@ -1,0 +1,39 @@
+.class public abstract Lorg/ahocorasick/trie/Token;
+.super Ljava/lang/Object;
+.source "Token.java"
+
+
+# instance fields
+.field private fragment:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;)V
+    .registers 2
+
+    .line 7
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 8
+    iput-object p1, p0, Lorg/ahocorasick/trie/Token;->fragment:Ljava/lang/String;
+
+    .line 9
+    return-void
+.end method
+
+
+# virtual methods
+.method public abstract getEmit()Lorg/ahocorasick/trie/Emit;
+.end method
+
+.method public getFragment()Ljava/lang/String;
+    .registers 2
+
+    .line 12
+    iget-object v0, p0, Lorg/ahocorasick/trie/Token;->fragment:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public abstract isMatch()Z
+.end method

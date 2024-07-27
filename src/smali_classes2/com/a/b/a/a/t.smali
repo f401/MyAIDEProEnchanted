@@ -1,0 +1,71 @@
+.class public abstract Lcom/a/b/a/a/t;
+.super Lcom/a/b/a/a/u;
+
+
+# instance fields
+.field private final a:Lcom/a/b/e/a/c;
+
+.field private final b:I
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;Lcom/a/b/e/a/c;I)V
+    .registers 6
+
+    invoke-direct {p0, p1}, Lcom/a/b/a/a/u;-><init>(Ljava/lang/String;)V
+
+    :try_start_0
+    invoke-virtual {p2}, Lcom/a/b/e/a/c;->b_()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/a/b/g/u;
+
+    const-string v1, "annotations.isMutable()"
+
+    invoke-direct {v0, v1}, Lcom/a/b/g/u;-><init>(Ljava/lang/String;)V
+
+    throw v0
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string v1, "annotations == null"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    iput-object p2, p0, Lcom/a/b/a/a/t;->a:Lcom/a/b/e/a/c;
+
+    iput p3, p0, Lcom/a/b/a/a/t;->b:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a()I
+    .registers 2
+
+    iget v0, p0, Lcom/a/b/a/a/t;->b:I
+
+    add-int/lit8 v0, v0, 0x6
+
+    return v0
+.end method
+
+.method public final b()Lcom/a/b/e/a/c;
+    .registers 2
+
+    iget-object v0, p0, Lcom/a/b/a/a/t;->a:Lcom/a/b/e/a/c;
+
+    return-object v0
+.end method

@@ -1,0 +1,57 @@
+.class Lcom/s1243808733/util/Json2Bean$100000009$100000004$100000003;
+.super Ljava/lang/Object;
+.source "Json2Bean.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnDismissListener;
+
+
+# instance fields
+.field private final this$0:Lcom/s1243808733/util/Json2Bean$100000009$100000004;
+
+.field private final val$dialog:Landroid/app/AlertDialog;
+
+
+# direct methods
+.method constructor <init>(Lcom/s1243808733/util/Json2Bean$100000009$100000004;Landroid/app/AlertDialog;)V
+    .registers 3
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/s1243808733/util/Json2Bean$100000009$100000004$100000003;->this$0:Lcom/s1243808733/util/Json2Bean$100000009$100000004;
+
+    iput-object p2, p0, Lcom/s1243808733/util/Json2Bean$100000009$100000004$100000003;->val$dialog:Landroid/app/AlertDialog;
+
+    return-void
+.end method
+
+.method static access$0(Lcom/s1243808733/util/Json2Bean$100000009$100000004$100000003;)Lcom/s1243808733/util/Json2Bean$100000009$100000004;
+    .registers 2
+
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$100000009$100000004$100000003;->this$0:Lcom/s1243808733/util/Json2Bean$100000009$100000004;
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/DialogInterface;",
+            ")V"
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Override;
+    .end annotation
+
+    .line 179
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$100000009$100000004$100000003;->val$dialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+
+    return-void
+.end method

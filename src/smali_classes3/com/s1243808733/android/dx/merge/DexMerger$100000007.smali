@@ -1,0 +1,159 @@
+.class Lcom/s1243808733/android/dx/merge/DexMerger$100000007;
+.super Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;
+.source "DexMerger.java"
+
+
+# instance fields
+.field private final this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+
+# direct methods
+.method constructor <init>(Lcom/s1243808733/android/dx/merge/DexMerger;Lcom/s1243808733/android/dx/merge/DexMerger;Lcom/s1243808733/android/dex/Dex$Section;)V
+    .registers 4
+
+    invoke-direct {p0, p2, p3}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;-><init>(Lcom/s1243808733/android/dx/merge/DexMerger;Lcom/s1243808733/android/dex/Dex$Section;)V
+
+    iput-object p1, p0, Lcom/s1243808733/android/dx/merge/DexMerger$100000007;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+    return-void
+.end method
+
+.method static access$0(Lcom/s1243808733/android/dx/merge/DexMerger$100000007;)Lcom/s1243808733/android/dx/merge/DexMerger;
+    .registers 2
+
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$100000007;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
+    .registers 3
+    .annotation runtime Ljava/lang/Override;
+    .end annotation
+
+    .line 555
+    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->methodIds:Lcom/s1243808733/android/dex/TableOfContents$Section;
+
+    return-object v0
+.end method
+
+.method read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Lcom/s1243808733/android/dex/MethodId;
+    .registers 5
+    .annotation runtime Ljava/lang/Override;
+    .end annotation
+
+    .line 559
+    invoke-virtual {p1}, Lcom/s1243808733/android/dex/Dex$Section;->readMethodId()Lcom/s1243808733/android/dex/MethodId;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Lcom/s1243808733/android/dx/merge/IndexMap;->adjust(Lcom/s1243808733/android/dex/MethodId;)Lcom/s1243808733/android/dex/MethodId;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method bridge read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Ljava/lang/Comparable;
+    .registers 5
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/merge/DexMerger$100000007;->read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Lcom/s1243808733/android/dex/MethodId;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method updateIndex(ILcom/s1243808733/android/dx/merge/IndexMap;II)V
+    .registers 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Lcom/s1243808733/android/dx/merge/IndexMap;",
+            "II)V"
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Override;
+    .end annotation
+
+    .line 563
+    if-ltz p4, :cond_0
+
+    const v0, 0xffff
+
+    if-le p4, v0, :cond_1
+
+    .line 564
+    :cond_0
+    new-instance v0, Lcom/s1243808733/android/dex/DexIndexOverflowException;
+
+    new-instance v1, Ljava/lang/StringBuffer;
+
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    const-string v2, "method ID not in [0, 0xffff]: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p4}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dex/DexIndexOverflowException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 567
+    :cond_1
+    iget-object v0, p2, Lcom/s1243808733/android/dx/merge/IndexMap;->methodIds:[S
+
+    int-to-short v1, p4
+
+    aput-short v1, v0, p3
+
+    return-void
+.end method
+
+.method write(Lcom/s1243808733/android/dex/MethodId;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/s1243808733/android/dex/MethodId;",
+            ")V"
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Override;
+    .end annotation
+
+    .line 571
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$100000007;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->access$L1000007(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/Dex$Section;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lcom/s1243808733/android/dex/MethodId;->writeTo(Lcom/s1243808733/android/dex/Dex$Section;)V
+
+    return-void
+.end method
+
+.method bridge write(Ljava/lang/Comparable;)V
+    .registers 2
+
+    check-cast p1, Lcom/s1243808733/android/dex/MethodId;
+
+    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/merge/DexMerger$100000007;->write(Lcom/s1243808733/android/dex/MethodId;)V
+
+    return-void
+.end method

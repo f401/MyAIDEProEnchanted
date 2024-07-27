@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.AlertDialogThemeDark" parent="@style/Base.V31.AlertDialogThemeDark" />
+    <style name="Base.DialogThemeDark" parent="@style/Base.V31.DialogThemeDark" />
+    <style name="Base.DialogThemeLight" parent="@style/Base.V31.DialogThemeLight" />
+    <style name="Base.Theme.Material.Light.Dialog.Alert" parent="@style/Base.V31.Theme.Material.Light.Dialog.Alert" />
+    <style name="AlertDialogThemeDark.Blur" parent="@style/Base.V21.AlertDialogThemeDark">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="AlertDialogThemeDark_Indigo.Blur" parent="@style/Base.V21.AlertDialogThemeDark_Indigo">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="AlertDialogThemeDark_Red.Blur" parent="@style/Base.V21.AlertDialogThemeDark_Red">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="AlertDialogThemeDark_Teal.Blur" parent="@style/Base.V21.AlertDialogThemeDark_Teal">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="AlertDialogThemeLight.Blur" parent="@style/Base.V27.Theme.Material.Light.Dialog.Alert">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="Base.V31.AlertDialogThemeDark" parent="@style/Base.V21.AlertDialogThemeDark" />
+    <style name="Base.V31.DialogThemeDark" parent="@style/Base.V21.DialogThemeDark" />
+    <style name="Base.V31.DialogThemeLight" parent="@style/Base.V23.DialogThemeLight" />
+    <style name="Base.V31.Theme.Material.Light.Dialog.Alert" parent="@style/Base.V27.Theme.Material.Light.Dialog.Alert" />
+    <style name="DialogThemeDark.Blur" parent="@style/Base.V21.DialogThemeDark">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="DialogThemeDark_Indigo.Blur" parent="@style/Base.V21.DialogThemeDark_Indigo">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="DialogThemeDark_Red.Blur" parent="@style/Base.V21.DialogThemeDark_Red">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="DialogThemeDark_Teal.Blur" parent="@style/Base.V21.DialogThemeDark_Teal">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="DialogThemeLight.Blur" parent="@style/Base.V21.DialogThemeLight">
+        <item name="android:backgroundDimAmount">0.0</item>
+        <item name="android:windowBackground">@drawable/dialog_bg_blur</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBlurBehindRadius">0.0dip</item>
+        <item name="android:windowBlurBehindEnabled">true</item>
+        <item name="android:windowBackgroundBlurRadius">@dimen/windowBackgroundBlurRadius</item>
+     
+    </style>
+    <style name="Style.Dialog.Blur.Dark" parent="">
+        <item name="android:dialogTheme">@style/DialogThemeDark.Blur</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogThemeDark.Blur</item>
+    </style>
+    <style name="Style.Dialog.Blur.Indigo" parent="">
+        <item name="android:dialogTheme">@style/DialogThemeDark_Indigo.Blur</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogThemeDark_Indigo.Blur</item>
+    </style>
+    <style name="Style.Dialog.Blur.Light" parent="">
+        <item name="android:dialogTheme">@style/DialogThemeLight.Blur</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogThemeLight.Blur</item>
+    </style>
+    <style name="Style.Dialog.Blur.Red" parent="">
+        <item name="android:dialogTheme">@style/DialogThemeDark_Red.Blur</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogThemeDark_Red.Blur</item>
+    </style>
+    <style name="Style.Dialog.Blur.Teal" parent="">
+        <item name="android:dialogTheme">@style/DialogThemeDark_Teal.Blur</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogThemeDark_Teal.Blur</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+.class synthetic Lsun/misc/SoftCache$1;
+.super Ljava/lang/Object;
+.source "SoftCache.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lsun/misc/SoftCache;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1008
+    name = null
+.end annotation

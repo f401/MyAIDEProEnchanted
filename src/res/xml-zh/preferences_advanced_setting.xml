@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    android:key="preference_screen"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen
+        android:layout="@layout/preference_header_item"
+        android:title="@string/preference_head_title_application"
+        android:summary="@string/preference_head_summary_application">
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="主题">
+            <com.s1243808733.aide.preference.PreferenceTheme />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="权限"
+            android:key="managePermissionCategory">
+            <PreferenceScreen
+                android:title="授予可选权限"
+                android:key="managePermissionScreen">
+                <Preference
+                    android:title="管理所有文件管理权限"
+                    android:key="requestManageAllFile" />
+                <Preference
+                    android:title="管理悬浮窗权限"
+                    android:key="requestAlertWindow"
+                    android:summary="软件会创造一个1x1像素的视图，用于稳定后台" />
+                <Preference
+                    android:title="请求忽略电池优化"
+                    android:key="requestIgnoreBatteryOptimizations" />
+            </PreferenceScreen>
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="文件浏览器">
+            <SwitchPreference
+                android:title="启用侧滑栏"
+                android:key="advanced_setting_enable_drawer"
+                android:defaultValue="true" />
+            <SwitchPreference
+                android:title="启用FAB按钮"
+                android:key="enableMainMasterButton"
+                android:dependency="advanced_setting_enable_drawer"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="启用DrawerToggle"
+                android:key="enableDrawerToggle"
+                android:dependency="advanced_setting_enable_drawer"
+                android:defaultValue="true" />
+            <SwitchPreference
+                android:title="显示文件夹信息"
+                android:key="file_browser_display_folder_info"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="显示文件信息"
+                android:key="file_browser_display_file_info"
+                android:defaultValue="false" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="窗口">
+            <SwitchPreference
+                android:title="ActionBar Tab 文字小写"
+                android:key="tab_text_lowercase"
+                android:defaultValue="true" />
+            <SwitchPreference
+                android:title="ActionBar Tab 显示文件图标"
+                android:key="tab_display_file_icon"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="ActionBar显示阴影"
+                android:key="action_bar_container_use_elevation"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="沉浸状态条"
+                android:key="immersion_statusbar"
+                android:defaultValue="true" />
+            <SwitchPreference
+                android:title="滑动返回窗口（如果卡顿请关闭）"
+                android:key="aide_pro_drag_back"
+                android:defaultValue="false" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:layout="@layout/preference_header_item"
+        android:title="@string/preference_head_title_editor"
+        android:summary="@string/preference_head_summary_editor">
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="代码高亮">
+            <Preference
+                android:title="代码高亮配置"
+                android:key="preference_highlight" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="代码补全">
+            <SwitchPreference
+                android:title="显示ApiVersion信息"
+                android:key="completion_show_api_info"
+                android:summary="显示Api是在哪个SDK版本中添加/弃用/移除的"
+                android:defaultValue="true" />
+            <SwitchPreference
+                android:title="扩大Api搜索范围"
+                android:key="completion_use_contains"
+                android:summary="包含符合的结果都会显示出来"
+                android:defaultValue="false" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="快捷符号">
+            <Preference
+                android:title="自定义快捷符号"
+                android:key="preference_quick_key"
+                android:summary="自定义编辑框快捷符号" />
+            <SwitchPreference
+                android:title="禁用快捷键"
+                android:key="disable_quickkeybar"
+                android:defaultValue="false" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="字体">
+            <EditTextPreference
+                android:hint="字体路径"
+                android:selectAllOnFocus="true"
+                android:title="编辑框字体"
+                android:key="advanced_setting_editor_font"
+                android:summary="留空则使用默认" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="背景">
+            <EditTextPreference
+                android:hint="编辑框背景"
+                android:selectAllOnFocus="true"
+                android:title="编辑器背景"
+                android:key="advanced_setting_editor_bg"
+                android:summary="设置编辑器背景图片" />
+            <Preference
+                android:title="选择图片"
+                android:key="choose_bg_image" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:layout="@layout/preference_header_item"
+        android:title="@string/preference_head_title_build"
+        android:summary="@string/preference_head_summary_build">
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="Gradle">
+            <SwitchPreference
+                android:title="启用Gradle构建器"
+                android:key="advanced_setting_enable_gradle"
+                android:summary="Gradle 是一个基于 Apache Ant 和 Apache Maven 概念的项目自动化构建工具"
+                android:defaultValue="false" />
+            <Preference
+                android:title="Gradle安装/卸载"
+                android:key="aidepro_gradle_configure" />
+            <Preference
+                android:title="NDK安装/卸载"
+                android:key="aidepro_gradle_ndk"
+                android:summary="如果使用Gradle方式构建且项目包含C/C++代码，则需要先在此处安装Gradle专用的NDK" />
+            <Preference
+                android:title="自定义命令"
+                android:key="aidepro_custom_cmd" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="应用">
+            <PreferenceScreen
+                android:title="应用防护"
+                android:summary="优化或者防护你的应用">
+                <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+                    android:title="Res混淆">
+                    <SwitchPreference
+                        android:title="启用 Res资源混淆"
+                        android:key="advanced_setting_enable_resguard"
+                        android:summary="混淆res，简短文件名，减少APK体积。"
+                        android:defaultValue="false" />
+                    <Preference
+                        android:title="添加配置文件到工程"
+                        android:key="add_proguard_config"
+                        android:summary="添加Res混淆配置文件到工程" />
+                </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+                <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+                    android:title="StringFog">
+                    <SwitchPreference
+                        android:title="启用String Fog"
+                        android:key="advanced_setting_enable_stringfog"
+                        android:summary="编译时加密Class中的字符串，建议在release时再开启"
+                        android:defaultValue="false" />
+                    <Preference
+                        android:title="功能说明"
+                        android:key="preference_stringfog" />
+                </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+                <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+                    android:title="proguard">
+                    <SwitchPreference
+                        android:title="@string/proguard_title"
+                        android:key="use_proguard"
+                        android:summary="@string/proguard_summary"
+                        android:defaultValue="false" />
+                </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+                <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+                    android:title="扁平化混淆">
+                    <SwitchPreference
+                        android:title="使用混淆"
+                        android:key="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                    <SwitchPreference
+                        android:title="强化字符串加密"
+                        android:key="advanced_setting_enable_glitch"
+                        android:dependency="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                    <SwitchPreference
+                        android:title="加密字符串"
+                        android:key="advanced_setting_enable_stringobfuscation"
+                        android:summary="不要和proguard同时使用"
+                        android:dependency="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                    <SwitchPreference
+                        android:title="在类中隐藏代码"
+                        android:key="advanced_setting_enable_hideobfuscation"
+                        android:dependency="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                    <SwitchPreference
+                        android:title="混淆局部变量"
+                        android:key="advanced_setting_enable_localobfuscation"
+                        android:dependency="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                    <SwitchPreference
+                        android:title="混淆布尔值"
+                        android:key="advanced_setting_enable_booleanobfuscation"
+                        android:dependency="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                    <SwitchPreference
+                        android:title="流混淆"
+                        android:key="advanced_setting_enable_flowobfuscation"
+                        android:dependency="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                    <SwitchPreference
+                        android:title="混淆数字"
+                        android:key="advanced_setting_enable_intobfuscation"
+                        android:dependency="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                    <SwitchPreference
+                        android:title="混淆参数"
+                        android:key="advanced_setting_enable_argobfuscation"
+                        android:dependency="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                    <SwitchPreference
+                        android:title="重构代码"
+                        android:key="advanced_setting_enable_mutatorobfuscation"
+                        android:dependency="advanced_setting_enable_obfuscation"
+                        android:defaultValue="false" />
+                </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+            </PreferenceScreen>
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="默认构建APK签名">
+            <Preference
+                android:title="APK签名设置"
+                android:key="apk_signs"
+                android:summary="设置使用默认构建器编译APK签名时是否使用v1、v2、v3" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="构建">
+            <SwitchPreference
+                android:title="使用Zipalign 4K对齐"
+                android:key="advanced_setting_enable_zipalign"
+                android:defaultValue="true" />
+            <SwitchPreference
+                android:title="重新分配Dex"
+                android:key="adset_use_dexmerger"
+                android:defaultValue="true" />
+            <SwitchPreference
+                android:title="使用D8方式分配"
+                android:key="adset_use_dexmerger_d8"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="启用 adrt调试文件"
+                android:key="advanced_setting_enable_adrt"
+                android:summary="关闭后将无法使用debug调试模式。重启AIDE并重新构建工程生效"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="重定义Apk构建路径"
+                android:key="advanced_setting_adjust_apk_build_path"
+                android:summary="重定义到工程/build/bin/"
+                android:defaultValue="true" />
+            <SwitchPreference
+                android:title="Java项目的安卓 Api"
+                android:key="javaproject_api"
+                android:summary="在安卓上的Java项目怎么能没有安卓的Api"
+                android:defaultValue="false" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="新的Class解析库">
+            <SwitchPreference
+                android:title="启用新的Class解析库"
+                android:key="useReaderClass"
+                android:summary="修复原版本--接口默认方法有注解时拦截不全问题，启用优化导入，Java8 API 功能依赖依赖此库，构建刷新生效(无报错不用)"
+                android:defaultValue="true" />
+            <SwitchPreference
+                android:title="禁用接口默认方法(Java8 API)"
+                android:key="disableDefaultMethod"
+                android:summary="禁用则注释Java8 API，构建刷新生效(无报错不用)"
+                android:defaultValue="false" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:layout="@layout/preference_header_item"
+        android:title="工程设置"
+        android:summary="配置工程相关">
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="模版">
+            <SwitchPreference
+                android:title="启用自定义工程模版"
+                android:key="isEnableCustomTemplate"
+                android:defaultValue="false" />
+            <EditTextPreference
+                android:selectAllOnFocus="true"
+                android:title="自定义工程模版路径"
+                android:key="CustomTemplateDir"
+                android:defaultValue="/sdcard/.aide/data/templates" />
+            <Preference
+                android:title="初始化模板"
+                android:key="init_custom_template"
+                android:summary="将内置模板解压到当前模板路径" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="工程设置">
+            <EditTextPreference
+                android:hint="com.example."
+                android:selectAllOnFocus="true"
+                android:title="包名前缀"
+                android:key="advanced_setting_package_prefix"
+                android:summary="设置创建工程的包名前缀，留空则使用默认。包名规范：xxx.开发者名.应用名"
+                android:defaultValue="com.example." />
+            <EditTextPreference
+                android:selectAllOnFocus="true"
+                android:title="自定义工程路径"
+                android:key="project_home"
+                android:summary="默认工程路径：/sdcard/AppProject" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="添加新类">
+            <SwitchPreference
+                android:title="类头部注释"
+                android:key="class_header_annotation"
+                android:summary="新建类时自动在开头添加一段注释"
+                android:defaultValue="false" />
+            <EditTextPreference
+                android:selectAllOnFocus="true"
+                android:title="配置作者名称"
+                android:key="class_header_annotation_author_name" />
+            <EditTextPreference
+                android:hint="yyyy/MM/dd HH:mm"
+                android:selectAllOnFocus="true"
+                android:title="配置时间格式"
+                android:key="class_header_annotation_date_format"
+                android:defaultValue="yyyy/MM/dd HH:mm" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="maven">
+            <SwitchPreference
+                android:title="启用自定义Maven下载路径"
+                android:key="advanced_setting_enable_mavenDownloadDir"
+                android:defaultValue="false" />
+            <EditTextPreference
+                android:selectAllOnFocus="true"
+                android:title="自定义Maven下载路径"
+                android:key="advanced_setting_mavenDownloadDir" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:layout="@layout/preference_header_item"
+        android:title="翻译"
+        android:summary="配置翻译相关">
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="中文补全">
+            <SwitchPreference
+                android:title="启用中文补全"
+                android:key="advanced_setting_enable_translate"
+                android:summary="补全翻译，添加中文注释（/sdcard/.aide/data/translate/translate.db）"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="不要自动翻译"
+                android:key="not_translate"
+                android:summary="开启后对数据库仅读"
+                android:defaultValue="false" />
+            <Preference
+                android:title="设置翻译首选项"
+                android:key="ytfyssxt"
+                android:summary="设置翻译优先调用的api" />
+            <EditTextPreference
+                android:selectAllOnFocus="true"
+                android:title="自定义翻译数据库文件路径"
+                android:key="translate_file"
+                android:summary="不设置则使用默认" />
+            <Preference
+                android:title="清除翻译文件"
+                android:key="clear_translate"
+                android:summary="清除已翻译的内容，清除后下次需重新翻译" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="UI设计器">
+            <SwitchPreference
+                android:title="汉化UI设计器"
+                android:key="uidesign_language_chinese"
+                android:summary="部分内容汉化。划掉后台重新打开即可生效"
+                android:defaultValue="false" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="文字翻译">
+            <EditTextPreference
+                android:selectAllOnFocus="true"
+                android:title="设置网页翻译接口"
+                android:key="api_web_translation"
+                android:summary="设置文字翻译接口网址，%s为翻译词" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:layout="@layout/preference_header_item"
+        android:title="快捷代码"
+        android:summary="配置快捷代码">
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="菜单栏常用代码">
+            <SwitchPreference
+                android:title="启用"
+                android:key="advanced_setting_enable_menu_code"
+                android:summary="请打开 /sdcard/.aide/data/menucode 来配置"
+                android:defaultValue="true" />
+            <EditTextPreference
+                android:selectAllOnFocus="true"
+                android:title="自定义常用代码文件路径"
+                android:key="menucode_file"
+                android:summary="不设置则使用默认" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="Gradle补全">
+            <SwitchPreference
+                android:title="启用"
+                android:key="enable_gradle_comple"
+                android:summary="重启生效"
+                android:defaultValue="false" />
+            <Preference
+                android:title="Gradle代码补全"
+                android:key="gradle_comple"
+                android:summary="多个以换行符隔开" />
+            <EditTextPreference
+                android:title="自定义Gradle补全文件"
+                android:key="gradle_comple_file" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:layout="@layout/preference_header_item"
+        android:title="备份和还原"
+        android:summary="卸载和升级前强烈建议">
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="备份">
+            <Preference
+                android:title="备份"
+                android:key="aidepro_backup"
+                android:summary="导出设置" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="还原">
+            <Preference
+                android:title="还原"
+                android:key="aidepro_restore"
+                android:summary="导入设置" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:layout="@layout/preference_header_item"
+        android:title="实验性功能"
+        android:summary="可能会在未来的版本添加或删除">
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="构建">
+            <SwitchPreference
+                android:title="使用D8构建Dex"
+                android:key="apk_d8builder"
+                android:defaultValue="false" />
+            <EditTextPreference
+                android:title="设置MinApiLevel"
+                android:key="apk_d8builder_min_version_num"
+                android:summary="会增加更多打包时间"
+                android:defaultValue="1" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="Aapt2">
+            <SwitchPreference
+                android:title="启用Aapt2"
+                android:key="test_setting_enable_aapt2"
+                android:summary="只支持gradle工程"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="启用构建Aab/Apks"
+                android:key="test_setting_enable_build_aab_apks"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="启用自定义Apks签名"
+                android:key="test_setting_enable_custom_apkssign"
+                android:dependency="test_setting_enable_build_aab_apks"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="启用ViewBinding"
+                android:key="test_setting_enable_view_binding"
+                android:summary="需要添加databinding-runtime库依赖。"
+                android:dependency="test_setting_enable_aapt2"
+                android:defaultValue="false" />
+            <SwitchPreference
+                android:title="ViewBinding使用AndroidX"
+                android:key="test_setting_enable_view_binding_use_androidx"
+                android:dependency="test_setting_enable_view_binding"
+                android:defaultValue="true" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="其它">
+            <SwitchPreference
+                android:title="对话框背景模糊"
+                android:key="test_dialog_blur"
+                android:summary="android12+"
+                android:defaultValue="false" />
+            <Preference
+                android:title="test crash"
+                android:key="beta_test_crash" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:layout="@layout/preference_header_item"
+        android:title="关于此版本"
+        android:summary="检查更新、赞助支持我们">
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="更新">
+            <SwitchPreference
+                android:title="自动检查更新"
+                android:key="aidero_auto_update"
+                android:summary="每次启动时自动检测更新"
+                android:defaultValue="true" />
+            <ListPreference
+                android:entries="@array/pref_update_channel_entries"
+                android:title="更新渠道"
+                android:key="aidepro_update_channel"
+                android:summary="Beta版会包含一些最新功能和优化，但没有正式版稳定，如果你想更稳定地使用，建议你关闭该选项"
+                android:defaultValue="release"
+                android:entryValues="@array/pref_update_channel_values" />
+            <Preference
+                android:title="检查更新"
+                android:key="aidepro_check_update" />
+            <Preference
+                android:title="当前版本"
+                android:key="aidepro_update_log" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="联系">
+            <Preference
+                android:title="官方网站"
+                android:key="aidero_sponsor"
+                android:summary="https://aidepro.top" />
+            <Preference
+                android:title="QQ频道"
+                android:key="aidepro_contact_qq_guild"
+                android:summary="r90h7p6zo6" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
+            android:title="其它">
+            <Preference
+                android:title="参与开发的人员"
+                android:key="aidero_get_mgry"
+                android:summary="感谢这些人士的无私奉献" />
+            <Preference
+                android:title="特别鸣谢"
+                android:key="aidero_get_sponsor"
+                android:summary="感谢这些人士的支持" />
+            <Preference
+                android:title="赞助支持"
+                android:key="aidero_set_sponsor"
+                android:summary="觉得好用那就赞助支持下我们呗 (￣∀￣)" />
+        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+    </PreferenceScreen>
+    <Preference
+        android:key="edit_env_var"
+        android:title="@string/preference_edit_env_var"
+        android:summary="@string/preference_edit_env_var_summary">
+    </Preference>
+            
+</PreferenceScreen>

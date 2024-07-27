@@ -1,0 +1,260 @@
+.class public final Labcd/Rp;
+.super Labcd/Gp;
+
+
+# instance fields
+.field private final v5:Labcd/Ss;
+
+
+# direct methods
+.method public constructor <init>(Labcd/Ss;)V
+    .registers 4
+
+    const/4 v0, 0x4
+
+    invoke-interface {p1}, Labcd/Ss;->size()I
+
+    move-result v1
+
+    mul-int/lit8 v1, v1, 0x2
+
+    add-int/lit8 v1, v1, 0x4
+
+    invoke-direct {p0, v0, v1}, Labcd/Gp;-><init>(II)V
+
+    iput-object p1, p0, Labcd/Rp;->v5:Labcd/Ss;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method protected DW(Labcd/Gp;)I
+    .registers 4
+
+    iget-object v0, p0, Labcd/Rp;->v5:Labcd/Ss;
+
+    check-cast p1, Labcd/Rp;
+
+    iget-object v1, p1, Labcd/Rp;->v5:Labcd/Ss;
+
+    invoke-static {v0, v1}, Labcd/Ps;->j6(Labcd/Ss;Labcd/Ss;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected DW(Labcd/jp;Labcd/Lt;)V
+    .registers 11
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1}, Labcd/jp;->Ws()Labcd/Qp;
+
+    move-result-object v2
+
+    iget-object v1, p0, Labcd/Rp;->v5:Labcd/Ss;
+
+    invoke-interface {v1}, Labcd/Ss;->size()I
+
+    move-result v3
+
+    invoke-interface {p2}, Labcd/Lt;->Hw()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Labcd/Gp;->Ws()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " type_list"
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {p2, v0, v1}, Labcd/Lt;->j6(ILjava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "  size: "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v3}, Labcd/Yt;->gn(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v4, 0x4
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {p2, v4, v1}, Labcd/Lt;->j6(ILjava/lang/String;)V
+
+    move v1, v0
+
+    :goto_0
+    if-ge v1, v3, :cond_0
+
+    iget-object v4, p0, Labcd/Rp;->v5:Labcd/Ss;
+
+    invoke-interface {v4, v1}, Labcd/Ss;->getType(I)Labcd/Qs;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Labcd/Qp;->j6(Labcd/Qs;)I
+
+    move-result v5
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "  "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v5}, Labcd/Yt;->v5(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, " // "
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Labcd/Qs;->aM()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v4, 0x2
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {p2, v4, v5}, Labcd/Lt;->j6(ILjava/lang/String;)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p2, v3}, Labcd/ku;->writeInt(I)V
+
+    :goto_1
+    if-ge v0, v3, :cond_1
+
+    iget-object v1, p0, Labcd/Rp;->v5:Labcd/Ss;
+
+    invoke-interface {v1, v0}, Labcd/Ss;->getType(I)Labcd/Qs;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Labcd/Qp;->j6(Labcd/Qs;)I
+
+    move-result v1
+
+    invoke-interface {p2, v1}, Labcd/ku;->writeShort(I)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    return-void
+.end method
+
+.method public Hw()Labcd/wp;
+    .registers 2
+
+    sget-object v0, Labcd/wp;->u7:Labcd/wp;
+
+    return-object v0
+.end method
+
+.method public aM()Ljava/lang/String;
+    .registers 3
+
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string v1, "unsupported"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public hashCode()I
+    .registers 2
+
+    iget-object v0, p0, Labcd/Rp;->v5:Labcd/Ss;
+
+    invoke-static {v0}, Labcd/Ps;->j6(Labcd/Ss;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public j3()Labcd/Ss;
+    .registers 2
+
+    iget-object v0, p0, Labcd/Rp;->v5:Labcd/Ss;
+
+    return-object v0
+.end method
+
+.method public j6(Labcd/jp;)V
+    .registers 6
+
+    invoke-virtual {p1}, Labcd/jp;->Ws()Labcd/Qp;
+
+    move-result-object v1
+
+    iget-object v0, p0, Labcd/Rp;->v5:Labcd/Ss;
+
+    invoke-interface {v0}, Labcd/Ss;->size()I
+
+    move-result v2
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v2, :cond_0
+
+    iget-object v3, p0, Labcd/Rp;->v5:Labcd/Ss;
+
+    invoke-interface {v3, v0}, Labcd/Ss;->getType(I)Labcd/Qs;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Labcd/Qp;->DW(Labcd/Qs;)Labcd/Pp;
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method

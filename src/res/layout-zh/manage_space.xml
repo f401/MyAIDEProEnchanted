@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:paddingLeft="16.0dip"
+    android:paddingTop="16.0dip"
+    android:paddingRight="16.0dip"
+    android:paddingBottom="16.0dip"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button
+        android:id="@id/clearAll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="清除全部数据" />
+    <Button
+        android:id="@id/clearCache"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="清除缓存数据" />
+    <Button
+        android:id="@id/clearGradle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="清除Gradle数据" />
+    <Button
+        android:id="@id/clearTerminal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="清除终端数据" />
+    <Button
+        android:id="@id/clearMaven"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="清除已下载的Maven数据" />
+    <Button
+        android:id="@id/clearPreference"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="清除设置数据" />
+</LinearLayout>
