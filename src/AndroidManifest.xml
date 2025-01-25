@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    android:compileSdkVersion="31"
-    android:compileSdkVersionCodename="12"
+    android:compileSdkVersion="34"
+    android:compileSdkVersionCodename="14"
     package="aidepro.top"
-    platformBuildVersionCode="31"
-    platformBuildVersionName="12"
+    platformBuildVersionCode="34"
     android:sharedUserId="com.termux"
+    platformBuildVersionName="14"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission
         android:name="android.permission.INTERNET" />
@@ -38,7 +38,7 @@
     <uses-permission
         android:name="aidepro.top.permission.C2D_MESSAGE" />
     <permission
-        android:name="aidepro.top.permission.C2D_MESSAGE"
+        android:name=".permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -61,6 +61,8 @@
     <supports-screens
         android:largeScreens="true"
         android:xlargeScreens="true" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:theme="@android:style/Theme.Material.Light.NoActionBar"
         android:label="@string/app_name"
@@ -71,6 +73,27 @@
         android:extractNativeLibs="true"
         android:resizeableActivity="true"
         android:appCategory="productivity">
+        <service
+            android:name="io.github.zeroaicy.aide.services.ZeroAicyExternalPackagingService"
+            android:exported="false"
+            android:process=":PackagingService" />
+        <activity
+            android:name="bin.mt.file.content.MTDataFilesWakeUpActivity"
+            android:exported="true"
+            android:taskAffinity=".MTDataFilesWakeUp"
+            android:excludeFromRecents="true"
+            android:noHistory="true" />
+        <provider
+            android:name="bin.mt.file.content.MTDataFilesProvider"
+            android:permission="android.permission.MANAGE_DOCUMENTS"
+            android:exported="true"
+            android:authorities=".MTDataFilesProvider"
+            android:grantUriPermissions="true">
+            <intent-filter>
+                <action
+                    android:name="android.content.action.DOCUMENTS_PROVIDER" />
+            </intent-filter>
+        </provider>
         <activity
             android:theme="@style/SplashTheme_Light"
             android:icon="@mipmap/ic_launcher"
@@ -98,21 +121,6 @@
             android:icon="@mipmap/ic_launcher_dark"
             android:name="com.s1243808733.aide.application.activity.DarkLaunchActivity"
             android:launchMode="singleTask" />
-        <activity
-            android:theme="@style/SplashTheme_Indigo"
-            android:icon="@mipmap/ic_launcher_indigo"
-            android:name="com.s1243808733.aide.application.activity.IndigoLaunchActivity"
-            android:launchMode="singleTask" />
-        <activity
-            android:theme="@style/SplashTheme_Teal"
-            android:icon="@mipmap/ic_launcher_teal"
-            android:name="com.s1243808733.aide.application.activity.TealLaunchActivity"
-            android:launchMode="singleTask" />
-        <activity
-            android:theme="@style/SplashTheme_Red"
-            android:icon="@mipmap/ic_launcher_red"
-            android:name="com.s1243808733.aide.application.activity.RedLaunchActivity"
-            android:launchMode="singleTask" />
         <activity-alias
             android:icon="@mipmap/ic_launcher"
             android:name="com.aide.ui.DarkActivity"
@@ -134,11 +142,16 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity-alias>
+        <activity
+            android:theme="@style/SplashTheme_Indigo"
+            android:icon="@mipmap/ic_launcher_indigo"
+            android:name="com.s1243808733.aide.application.activity.IndigoLaunchActivity"
+            android:launchMode="singleTask" />
         <activity-alias
-            android:icon="@mipmap/ic_launcher_red"
-            android:name="com.aide.ui.RedActivity"
+            android:icon="@mipmap/ic_launcher_indigo"
+            android:name="com.aide.ui.IndigoActivity"
             android:enabled="false"
-            android:targetActivity="com.s1243808733.aide.application.activity.RedLaunchActivity">
+            android:targetActivity="com.s1243808733.aide.application.activity.IndigoLaunchActivity">
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN" />
@@ -155,6 +168,11 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity-alias>
+        <activity
+            android:theme="@style/SplashTheme_Teal"
+            android:icon="@mipmap/ic_launcher_teal"
+            android:name="com.s1243808733.aide.application.activity.TealLaunchActivity"
+            android:launchMode="singleTask" />
         <activity-alias
             android:icon="@mipmap/ic_launcher_teal"
             android:name="com.aide.ui.TealActivity"
@@ -176,11 +194,16 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity-alias>
+        <activity
+            android:theme="@style/SplashTheme_Red"
+            android:icon="@mipmap/ic_launcher_red"
+            android:name="com.s1243808733.aide.application.activity.RedLaunchActivity"
+            android:launchMode="singleTask" />
         <activity-alias
-            android:icon="@mipmap/ic_launcher_indigo"
-            android:name="com.aide.ui.IndigoActivity"
+            android:icon="@mipmap/ic_launcher_red"
+            android:name="com.aide.ui.RedActivity"
             android:enabled="false"
-            android:targetActivity="com.s1243808733.aide.application.activity.IndigoLaunchActivity">
+            android:targetActivity="com.s1243808733.aide.application.activity.RedLaunchActivity">
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN" />
@@ -393,10 +416,6 @@
             android:screenOrientation="user"
             android:configChanges="keyboard|keyboardHidden|locale" />
         <service
-            android:name="com.aide.ui.build.packagingservice.ExternalPackagingService"
-            android:exported="false"
-            android:process=":PackagingService" />
-        <service
             android:name="com.aide.engine.service.CodeAnalysisEngineService"
             android:exported="false"
             android:process=":EngineService" />
@@ -469,7 +488,7 @@
         <provider
             android:name="com.crashlytics.android.CrashlyticsInitProvider"
             android:exported="false"
-            android:authorities="aidepro.top.crashlyticsinitprovider"
+            android:authorities=".crashlyticsinitprovider"
             android:initOrder="90" />
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
@@ -512,7 +531,7 @@
         <provider
             android:name="com.google.android.gms.ads.MobileAdsInitProvider"
             android:exported="false"
-            android:authorities="aidepro.top.mobileadsinitprovider"
+            android:authorities=".mobileadsinitprovider"
             android:initOrder="100" />
         <receiver
             android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
@@ -535,7 +554,7 @@
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
             android:exported="false"
-            android:authorities="aidepro.top.firebaseinitprovider"
+            android:authorities=".firebaseinitprovider"
             android:initOrder="100" />
         <activity
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
@@ -651,7 +670,7 @@
             android:name="com.termux.filepicker.TermuxDocumentsProvider"
             android:permission="android.permission.MANAGE_DOCUMENTS"
             android:exported="true"
-            android:authorities="aidepro.top_com.termuxs.documents"
+            android:authorities="_com.termuxs.documents"
             android:grantUriPermissions="true">
             <intent-filter>
                 <action
@@ -672,7 +691,7 @@
             android:name="com.termux.app.TermuxOpenReceiver$ContentProvider"
             android:readPermission="android.permission.permRead"
             android:exported="true"
-            android:authorities="aidepro.top_com.termuxs.files"
+            android:authorities="_com.termuxs.files"
             android:grantUriPermissions="true" />
         <service
             android:name="com.s1243808733.aide.application.service.ClearApplUserDataService" />

@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shortcuts
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:icon="@drawable/ic_new_session"
+        android:enabled="true">
+        <intent
+            android:targetPackage="com.termux"
+            android:action="android.intent.action.RUN"
+            android:targetClass="com.termux.app.TermuxActivity" />
+    </shortcut>
+</shortcuts>

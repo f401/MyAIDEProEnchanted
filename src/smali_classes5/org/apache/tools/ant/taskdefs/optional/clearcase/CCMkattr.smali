@@ -1,0 +1,704 @@
+.class public Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;
+.super Lorg/apache/tools/ant/taskdefs/optional/clearcase/ClearCase;
+.source "CCMkattr.java"
+
+
+# static fields
+.field public static final FLAG_COMMENT:Ljava/lang/String; = "-c"
+
+.field public static final FLAG_COMMENTFILE:Ljava/lang/String; = "-cfile"
+
+.field public static final FLAG_NOCOMMENT:Ljava/lang/String; = "-nc"
+
+.field public static final FLAG_RECURSE:Ljava/lang/String; = "-recurse"
+
+.field public static final FLAG_REPLACE:Ljava/lang/String; = "-replace"
+
+.field public static final FLAG_VERSION:Ljava/lang/String; = "-version"
+
+
+# instance fields
+.field private mCfile:Ljava/lang/String;
+
+.field private mComment:Ljava/lang/String;
+
+.field private mRecurse:Z
+
+.field private mReplace:Z
+
+.field private mTypeName:Ljava/lang/String;
+
+.field private mTypeValue:Ljava/lang/String;
+
+.field private mVersion:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 3
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x0
+
+    .line 86
+    invoke-direct {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/ClearCase;-><init>()V
+
+    .line 112
+    iput-boolean v1, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mReplace:Z
+
+    .line 113
+    iput-boolean v1, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mRecurse:Z
+
+    .line 114
+    iput-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mVersion:Ljava/lang/String;
+
+    .line 115
+    iput-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mTypeName:Ljava/lang/String;
+
+    .line 116
+    iput-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mTypeValue:Ljava/lang/String;
+
+    .line 117
+    iput-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mComment:Ljava/lang/String;
+
+    .line 118
+    iput-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mCfile:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method private checkOptions(Lorg/apache/tools/ant/types/Commandline;)V
+    .registers 4
+
+    .line 172
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getReplace()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    .line 174
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    const-string v1, "-replace"
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 177
+    :cond_f
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getRecurse()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1e
+
+    .line 179
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    const-string v1, "-recurse"
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 182
+    :cond_1e
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getVersion()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_27
+
+    .line 184
+    invoke-direct {p0, p1}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getVersionCommand(Lorg/apache/tools/ant/types/Commandline;)V
+
+    .line 187
+    :cond_27
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getComment()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_4e
+
+    .line 189
+    invoke-direct {p0, p1}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getCommentCommand(Lorg/apache/tools/ant/types/Commandline;)V
+
+    .line 197
+    :goto_30
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getTypeName()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_39
+
+    .line 199
+    invoke-direct {p0, p1}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getTypeCommand(Lorg/apache/tools/ant/types/Commandline;)V
+
+    .line 201
+    :cond_39
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getTypeValue()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_42
+
+    .line 203
+    invoke-direct {p0, p1}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getTypeValueCommand(Lorg/apache/tools/ant/types/Commandline;)V
+
+    .line 206
+    :cond_42
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getViewPath()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 207
+    return-void
+
+    .line 190
+    :cond_4e
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getCommentFile()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_58
+
+    .line 192
+    invoke-direct {p0, p1}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getCommentFileCommand(Lorg/apache/tools/ant/types/Commandline;)V
+
+    goto :goto_30
+
+    .line 194
+    :cond_58
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    const-string v1, "-nc"
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    goto :goto_30
+.end method
+
+.method private getCommentCommand(Lorg/apache/tools/ant/types/Commandline;)V
+    .registers 4
+
+    .line 360
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getComment()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1a
+
+    .line 366
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    const-string v1, "-c"
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 367
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getComment()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 369
+    :cond_1a
+    return-void
+.end method
+
+.method private getCommentFileCommand(Lorg/apache/tools/ant/types/Commandline;)V
+    .registers 4
+
+    .line 378
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getCommentFile()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1a
+
+    .line 384
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    const-string v1, "-cfile"
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 385
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getCommentFile()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 387
+    :cond_1a
+    return-void
+.end method
+
+.method private getTypeCommand(Lorg/apache/tools/ant/types/Commandline;)V
+    .registers 4
+
+    .line 396
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getTypeName()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 398
+    if-eqz v0, :cond_d
+
+    .line 399
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 401
+    :cond_d
+    return-void
+.end method
+
+.method private getTypeValueCommand(Lorg/apache/tools/ant/types/Commandline;)V
+    .registers 5
+
+    .line 410
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getTypeValue()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 412
+    if-eqz v0, :cond_2b
+
+    .line 413
+    const-string v1, "windows"
+
+    invoke-static {v1}, Lorg/apache/tools/ant/taskdefs/condition/Os;->isFamily(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2c
+
+    .line 414
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "\\\""
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "\\\""
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 418
+    :goto_24
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 420
+    :cond_2b
+    return-void
+
+    .line 416
+    :cond_2c
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "\""
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "\""
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_24
+.end method
+
+.method private getVersionCommand(Lorg/apache/tools/ant/types/Commandline;)V
+    .registers 4
+
+    .line 342
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getVersion()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1a
+
+    .line 348
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    const-string v1, "-version"
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 349
+    invoke-virtual {p1}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getVersion()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 351
+    :cond_1a
+    return-void
+.end method
+
+
+# virtual methods
+.method public execute()V
+    .registers 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/apache/tools/ant/BuildException;
+        }
+    .end annotation
+
+    .line 129
+    new-instance v0, Lorg/apache/tools/ant/types/Commandline;
+
+    invoke-direct {v0}, Lorg/apache/tools/ant/types/Commandline;-><init>()V
+
+    .line 130
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getProject()Lorg/apache/tools/ant/Project;
+
+    move-result-object v1
+
+    .line 133
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getTypeName()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_90
+
+    .line 136
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getTypeValue()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_88
+
+    .line 140
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getViewPath()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-nez v2, :cond_26
+
+    .line 141
+    invoke-virtual {v1}, Lorg/apache/tools/ant/Project;->getBaseDir()Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->setViewPath(Ljava/lang/String;)V
+
+    .line 147
+    :cond_26
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getClearToolCommand()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lorg/apache/tools/ant/types/Commandline;->setExecutable(Ljava/lang/String;)V
+
+    .line 148
+    invoke-virtual {v0}, Lorg/apache/tools/ant/types/Commandline;->createArgument()Lorg/apache/tools/ant/types/Commandline$Argument;
+
+    move-result-object v1
+
+    const-string v2, "mkattr"
+
+    invoke-virtual {v1, v2}, Lorg/apache/tools/ant/types/Commandline$Argument;->setValue(Ljava/lang/String;)V
+
+    .line 150
+    invoke-direct {p0, v0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->checkOptions(Lorg/apache/tools/ant/types/Commandline;)V
+
+    .line 152
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getFailOnErr()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5c
+
+    .line 153
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getProject()Lorg/apache/tools/ant/Project;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Ignoring any errors that occur for: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 154
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getViewPathBasename()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 153
+    const/4 v3, 0x3
+
+    invoke-virtual {v1, v2, v3}, Lorg/apache/tools/ant/Project;->log(Ljava/lang/String;I)V
+
+    .line 160
+    :cond_5c
+    invoke-virtual {p0, v0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->run(Lorg/apache/tools/ant/types/Commandline;)I
+
+    move-result v1
+
+    .line 161
+    invoke-static {v1}, Lorg/apache/tools/ant/taskdefs/Execute;->isFailure(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6c
+
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getFailOnErr()Z
+
+    move-result v1
+
+    if-nez v1, :cond_6d
+
+    .line 165
+    :cond_6c
+    return-void
+
+    .line 162
+    :cond_6d
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Failed executing: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 163
+    new-instance v1, Lorg/apache/tools/ant/BuildException;
+
+    invoke-virtual {p0}, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->getLocation()Lorg/apache/tools/ant/Location;
+
+    move-result-object v2
+
+    invoke-direct {v1, v0, v2}, Lorg/apache/tools/ant/BuildException;-><init>(Ljava/lang/String;Lorg/apache/tools/ant/Location;)V
+
+    throw v1
+
+    .line 137
+    :cond_88
+    new-instance v0, Lorg/apache/tools/ant/BuildException;
+
+    const-string v1, "Required attribute TypeValue not specified"
+
+    invoke-direct {v0, v1}, Lorg/apache/tools/ant/BuildException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 134
+    :cond_90
+    new-instance v0, Lorg/apache/tools/ant/BuildException;
+
+    const-string v1, "Required attribute TypeName not specified"
+
+    invoke-direct {v0, v1}, Lorg/apache/tools/ant/BuildException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public getComment()Ljava/lang/String;
+    .registers 2
+
+    .line 278
+    iget-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mComment:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getCommentFile()Ljava/lang/String;
+    .registers 2
+
+    .line 296
+    iget-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mCfile:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getRecurse()Z
+    .registers 2
+
+    .line 242
+    iget-boolean v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mRecurse:Z
+
+    return v0
+.end method
+
+.method public getReplace()Z
+    .registers 2
+
+    .line 224
+    iget-boolean v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mReplace:Z
+
+    return v0
+.end method
+
+.method public getTypeName()Ljava/lang/String;
+    .registers 2
+
+    .line 314
+    iget-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mTypeName:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getTypeValue()Ljava/lang/String;
+    .registers 2
+
+    .line 332
+    iget-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mTypeValue:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getVersion()Ljava/lang/String;
+    .registers 2
+
+    .line 260
+    iget-object v0, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mVersion:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public setComment(Ljava/lang/String;)V
+    .registers 2
+
+    .line 269
+    iput-object p1, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mComment:Ljava/lang/String;
+
+    .line 270
+    return-void
+.end method
+
+.method public setCommentFile(Ljava/lang/String;)V
+    .registers 2
+
+    .line 287
+    iput-object p1, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mCfile:Ljava/lang/String;
+
+    .line 288
+    return-void
+.end method
+
+.method public setRecurse(Z)V
+    .registers 2
+
+    .line 233
+    iput-boolean p1, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mRecurse:Z
+
+    .line 234
+    return-void
+.end method
+
+.method public setReplace(Z)V
+    .registers 2
+
+    .line 215
+    iput-boolean p1, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mReplace:Z
+
+    .line 216
+    return-void
+.end method
+
+.method public setTypeName(Ljava/lang/String;)V
+    .registers 2
+
+    .line 305
+    iput-object p1, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mTypeName:Ljava/lang/String;
+
+    .line 306
+    return-void
+.end method
+
+.method public setTypeValue(Ljava/lang/String;)V
+    .registers 2
+
+    .line 323
+    iput-object p1, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mTypeValue:Ljava/lang/String;
+
+    .line 324
+    return-void
+.end method
+
+.method public setVersion(Ljava/lang/String;)V
+    .registers 2
+
+    .line 251
+    iput-object p1, p0, Lorg/apache/tools/ant/taskdefs/optional/clearcase/CCMkattr;->mVersion:Ljava/lang/String;
+
+    .line 252
+    return-void
+.end method

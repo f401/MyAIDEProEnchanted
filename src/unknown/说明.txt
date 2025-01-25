@@ -1,0 +1,24 @@
+
+
+有文件读写权限时
+日志在 /storage/emulated/0/AIDE_CrashLog/[包名]
+没文件读写权限
+/storage/emulated/0/Android/data/[包名]/cache
+
+修改清单文件
+application用 io.github.zeroaicy.util.crash.CrashApplication
+或在你的Application
+加上
+static{
+	DebugUtil.debug();
+	
+}
+
+自定义Application
+需要在 Application onCreated();里加
+CrashApphandler.getInstance().onCreated();
+然后清单文件
+<activity
+	android:name="io.github.zeroaicy.util.crash.CrashActivity">
+</activity>
+

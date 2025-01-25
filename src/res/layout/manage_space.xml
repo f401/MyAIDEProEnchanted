@@ -9,33 +9,27 @@
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <Button
+        android:gravity="center|left"
         android:id="@id/clearAll"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Clear All data" />
-    <Button
-        android:id="@id/clearCache"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Clear Cache data" />
+        android:text="清除全部数据" />
     <Button
         android:id="@id/clearGradle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Clear Gradle data" />
+        android:text="清除Gradle数据" />
     <Button
         android:id="@id/clearTerminal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Clear Terminal data" />
+        android:text="清除终端数据" />
     <Button
         android:id="@id/clearMaven"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Clear downloaded Maven data" />
-    <Button
-        android:id="@id/clearPreference"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Clear Preference" />
+        android:text="清除已下载的Maven数据" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

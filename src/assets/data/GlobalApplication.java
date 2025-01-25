@@ -41,13 +41,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GlobalApplication extends Application {
 
-    private static Handler MAIN_HANDLER = new Handler(Looper.getMainLooper());
-
     @Override
     public void onCreate() {
         super.onCreate();
         CrashHandler.getInstance().registerGlobal(this);
-        CrashHandler.getInstance().registerPart(this);
     }
 
     public static void write(InputStream input, OutputStream output) throws IOException {
@@ -95,8 +92,6 @@ public class GlobalApplication extends Application {
 
         private static CrashHandler sInstance;
 
-        private PartCrashHandler mPartCrashHandler;
-
         public static CrashHandler getInstance() {
             if (sInstance == null) {
                 sInstance = new CrashHandler();
@@ -114,56 +109,6 @@ public class GlobalApplication extends Application {
 
         public void unregister() {
             Thread.setDefaultUncaughtExceptionHandler(DEFAULT_UNCAUGHT_EXCEPTION_HANDLER);
-        }
-
-        public void registerPart(Context context) {
-            unregisterPart(context);
-            mPartCrashHandler = new PartCrashHandler(context.getApplicationContext());
-            MAIN_HANDLER.postAtFrontOfQueue(mPartCrashHandler);
-        }
-
-        public void unregisterPart(Context context) {
-            if (mPartCrashHandler != null) {
-                mPartCrashHandler.isRunning.set(false);
-                mPartCrashHandler = null;
-            }
-        }
-
-        private static class PartCrashHandler implements Runnable {
-
-            private final Context mContext;
-
-            public AtomicBoolean isRunning = new AtomicBoolean(true);
-
-            public PartCrashHandler(Context context) {
-                this.mContext = context;
-            }
-
-            @Override
-            public void run() {
-                while (isRunning.get()) {
-                    try {
-                        Looper.loop();
-                    } catch (final Throwable e) {
-                        e.printStackTrace();
-                        if (isRunning.get()) {
-                            MAIN_HANDLER.post(new Runnable(){
-
-                                    @Override
-                                    public void run() {
-                                        Toast.makeText(mContext, e.toString(), Toast.LENGTH_LONG).show();
-                                    }
-                                });
-                        } else {
-                            if (e instanceof RuntimeException) {
-                                throw (RuntimeException)e;
-                            } else {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                    }
-                }
-            }
         }
 
         private static class UncaughtExceptionHandlerImpl implements UncaughtExceptionHandler {

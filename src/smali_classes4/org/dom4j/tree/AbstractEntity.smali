@@ -1,0 +1,252 @@
+.class public abstract Lorg/dom4j/tree/AbstractEntity;
+.super Lorg/dom4j/tree/AbstractNode;
+
+# interfaces
+.implements Lorg/dom4j/Entity;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    invoke-direct {p0}, Lorg/dom4j/tree/AbstractNode;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public accept(Lorg/dom4j/Visitor;)V
+    .registers 2
+
+    invoke-interface {p1, p0}, Lorg/dom4j/Visitor;->visit(Lorg/dom4j/Entity;)V
+
+    return-void
+.end method
+
+.method public asXML()Ljava/lang/String;
+    .registers 3
+
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+
+    const-string v1, "&"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/dom4j/tree/AbstractEntity;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    const-string v1, ";"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getNodeType()S
+    .registers 2
+
+    const/4 v0, 0x5
+
+    return v0
+.end method
+
+.method public getPath(Lorg/dom4j/Element;)Ljava/lang/String;
+    .registers 4
+
+    invoke-virtual {p0}, Lorg/dom4j/tree/AbstractEntity;->getParent()Lorg/dom4j/Element;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_20
+
+    if-eq v0, p1, :cond_20
+
+    new-instance v1, Ljava/lang/StringBuffer;
+
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    invoke-interface {v0, p1}, Lorg/dom4j/Element;->getPath(Lorg/dom4j/Element;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    const-string v1, "/text()"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_1f
+    return-object v0
+
+    :cond_20
+    const-string v0, "text()"
+
+    goto :goto_1f
+.end method
+
+.method public getStringValue()Ljava/lang/String;
+    .registers 3
+
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+
+    const-string v1, "&"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/dom4j/tree/AbstractEntity;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    const-string v1, ";"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getUniquePath(Lorg/dom4j/Element;)Ljava/lang/String;
+    .registers 4
+
+    invoke-virtual {p0}, Lorg/dom4j/tree/AbstractEntity;->getParent()Lorg/dom4j/Element;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_20
+
+    if-eq v0, p1, :cond_20
+
+    new-instance v1, Ljava/lang/StringBuffer;
+
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    invoke-interface {v0, p1}, Lorg/dom4j/Element;->getUniquePath(Lorg/dom4j/Element;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    const-string v1, "/text()"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_1f
+    return-object v0
+
+    :cond_20
+    const-string v0, "text()"
+
+    goto :goto_1f
+.end method
+
+.method public toString()Ljava/lang/String;
+    .registers 3
+
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+
+    invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    const-string v1, " [Entity: &"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/dom4j/tree/AbstractEntity;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    const-string v1, ";]"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public write(Ljava/io/Writer;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const-string v0, "&"
+
+    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lorg/dom4j/tree/AbstractEntity;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+
+    const-string v0, ";"
+
+    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+
+    return-void
+.end method

@@ -148,10 +148,6 @@
                 android:title="Gradle安装/卸载"
                 android:key="aidepro_gradle_configure" />
             <Preference
-                android:title="NDK安装/卸载"
-                android:key="aidepro_gradle_ndk"
-                android:summary="如果使用Gradle方式构建且项目包含C/C++代码，则需要先在此处安装Gradle专用的NDK" />
-            <Preference
                 android:title="自定义命令"
                 android:key="aidepro_custom_cmd" />
         </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
@@ -519,60 +515,22 @@
     </PreferenceScreen>
     <PreferenceScreen
         android:layout="@layout/preference_header_item"
-        android:title="关于此版本"
-        android:summary="检查更新、赞助支持我们">
-        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
-            android:title="更新">
-            <SwitchPreference
-                android:title="自动检查更新"
-                android:key="aidero_auto_update"
-                android:summary="每次启动时自动检测更新"
-                android:defaultValue="true" />
-            <ListPreference
-                android:entries="@array/pref_update_channel_entries"
-                android:title="更新渠道"
-                android:key="aidepro_update_channel"
-                android:summary="Beta版会包含一些最新功能和优化，但没有正式版稳定，如果你想更稳定地使用，建议你关闭该选项"
-                android:defaultValue="release"
-                android:entryValues="@array/pref_update_channel_values" />
-            <Preference
-                android:title="检查更新"
-                android:key="aidepro_check_update" />
-            <Preference
-                android:title="当前版本"
-                android:key="aidepro_update_log" />
-        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
-        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
-            android:title="联系">
-            <Preference
-                android:title="官方网站"
-                android:key="aidero_sponsor"
-                android:summary="https://aidepro.top" />
-            <Preference
-                android:title="QQ频道"
-                android:key="aidepro_contact_qq_guild"
-                android:summary="r90h7p6zo6" />
-        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
-        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
-            android:title="其它">
-            <Preference
-                android:title="参与开发的人员"
-                android:key="aidero_get_mgry"
-                android:summary="感谢这些人士的无私奉献" />
-            <Preference
-                android:title="特别鸣谢"
-                android:key="aidero_get_sponsor"
-                android:summary="感谢这些人士的支持" />
-            <Preference
-                android:title="赞助支持"
-                android:key="aidero_set_sponsor"
-                android:summary="觉得好用那就赞助支持下我们呗 (￣∀￣)" />
-        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        android:title="关于"
+        android:summary="查看此版本信息">
+        <Preference
+            android:title="软件版本"
+            android:key="app_version" />
+        <Preference
+            android:title="Github"
+            android:key="github"
+            android:summary="https://github.com/AndroidIDE-CN" />
+        <Preference
+            android:summary="二次分发修改需保留原作信息。" />
     </PreferenceScreen>
     <Preference
+        android:layout="@layout/preference_header_item"
         android:key="edit_env_var"
-        android:title="@string/preference_edit_env_var"
-        android:summary="@string/preference_edit_env_var_summary">
+        android:title="环境变量"
+        android:summary="修改环境变量">
     </Preference>
-            
 </PreferenceScreen>

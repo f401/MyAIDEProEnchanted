@@ -1,0 +1,34 @@
+.class public Lgroovyjarjarantlr/collections/impl/LList;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lgroovyjarjarantlr/collections/List;
+.implements Lgroovyjarjarantlr/collections/Stack;
+
+
+# instance fields
+.field protected DW:Lgroovyjarjarantlr/collections/impl/LLCell;
+
+.field protected FH:I
+
+.field protected j6:Lgroovyjarjarantlr/collections/impl/LLCell;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lgroovyjarjarantlr/collections/impl/LList;->j6:Lgroovyjarjarantlr/collections/impl/LLCell;
+
+    iput-object v0, p0, Lgroovyjarjarantlr/collections/impl/LList;->DW:Lgroovyjarjarantlr/collections/impl/LLCell;
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lgroovyjarjarantlr/collections/impl/LList;->FH:I
+
+    return-void
+.end method

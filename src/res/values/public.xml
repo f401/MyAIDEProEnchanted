@@ -15,7 +15,7 @@
     <public type="array" name="APKTOOL_DUMMY_7" id="0x7f020007" />
     <public type="array" name="pref_update_channel_entries" id="0x7f020009" />
     <public type="array" name="pref_update_channel_values" id="0x7f02000a" />
-    <public type="array" name="layout_design_activity_xml_theme" id="0x7f020008" />
+    <public type="array" name="APKTOOL_DUMMY_7f020008" id="0x7f020008" />
     <public type="attr" name="Android_Widget" id="0x7f030000" />
     <public type="attr" name="Android_Widget_AbsListView" id="0x7f030001" />
     <public type="attr" name="Android_Widget_ActionBar" id="0x7f030002" />
@@ -642,6 +642,8 @@
     <public type="drawable" name="ic_run_refresh" id="0x7f070172" />
     <public type="drawable" name="spinner_bg" id="0x7f070174" />
     <public type="drawable" name="spinner_bg_2" id="0x7f070175" />
+    <public type="drawable" name="ic_materialdesign_" id="0x7f070176" />
+    <public type="drawable" name="ic_sun_snowflake" id="0x7f070177" />
     <public type="drawable" name="toast_frame" id="0x7f07013e" />
     <public type="drawable" name="common_google_signin_btn_icon_dark_normal_background" id="0x7f07001e" />
     <public type="drawable" name="common_google_signin_btn_icon_light_normal_background" id="0x7f070023" />
@@ -3029,6 +3031,7 @@
     <public type="id" name="drawerLayoutLeft" id="0x7f08086a" />
     <public type="id" name="mainBrowserContainer" id="0x7f08086b" />
     <public type="id" name="no_open_file_image" id="0x7f08086c" />
+    <public type="id" name="item" id="0x7f08086d" />
     <public type="integer" name="cancel_button_image_alpha" id="0x7f090000" />
     <public type="integer" name="google_play_services_version" id="0x7f090001" />
     <public type="integer" name="status_bar_notification_info_maxnum" id="0x7f090002" />
@@ -3127,6 +3130,8 @@
     <public type="layout" name="preference_header_item" id="0x7f0a005c" />
     <public type="layout" name="preference_category_material" id="0x7f0a005d" />
     <public type="layout" name="preference_category_my" id="0x7f0a005e" />
+    <public type="layout" name="a" id="0x7f0a005f" />
+    <public type="layout" name="l" id="0x7f0a0060" />
     <public type="menu" name="commit_options_menu" id="0x7f0b0000" />
     <public type="menu" name="designer_options_menu" id="0x7f0b0001" />
     <public type="menu" name="editor_context_menu" id="0x7f0b0002" />
@@ -3142,6 +3147,7 @@
     <public type="menu" name="main_options_menu" id="0x7f0b000c" />
     <public type="menu" name="main_trainer_options_menu" id="0x7f0b000d" />
     <public type="menu" name="trainer_options_menu" id="0x7f0b000e" />
+    <public type="menu" name="test" id="0x7f0b000f" />
     <public type="raw" name="click" id="0x7f0c0000" />
     <public type="raw" name="fail" id="0x7f0c0001" />
     <public type="raw" name="ouya_key" id="0x7f0c0002" />
@@ -5307,6 +5313,9 @@
     <public type="string" name="writing_failed" id="0x7f0d086b" />
     <public type="string" name="preference_title_keystore_password" id="0x7f0d086c" />
     <public type="string" name="course_android_removed_features" id="0x7f0d086d" />
+    <public type="string" name="aidepro" id="0x7f0d086e" />
+    <public type="string" name="application_name2" id="0x7f0d086f" />
+    <public type="string" name="application_name23" id="0x7f0d0870" />
     <public type="style" name="ActionBarButton" id="0x7f0e0000" />
     <public type="style" name="ActionBarLabel" id="0x7f0e0001" />
     <public type="style" name="ActionBarTopRight" id="0x7f0e0002" />

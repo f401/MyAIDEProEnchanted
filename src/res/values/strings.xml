@@ -2174,6 +2174,6 @@ Check your network connection and try again."</string>
     <string name="writing_failed">Failed to install file:</string>
     <string name="preference_title_keystore_password">Set a custom key password</string>
     <string name="course_android_removed_features">已移除的功能</string>
-    <string name="preference_edit_env_var">终端环境变量</string>
-    <string name="preference_edit_env_var_summary">自定义终端环境变量</string>
+    <string name="aidepro">AIDE Pro</string>
+    <string name="application_name2">Termux2</string>
 </resources>

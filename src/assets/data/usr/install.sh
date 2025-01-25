@@ -1,7 +1,7 @@
 #!/system/bin/sh
 
 GRADLE_FILE="$1/framework/gradle/bin/gradle"
-DOWNLOAD_URL="https://api.aidepro.top/resources?key=gradle&download=1"
+DOWNLOAD_URL="https://api.androidide.cn/pro/resources?key=gradle&download=1"
 TEMP_FILE="$1/gradle.tar.xz"
 FRAMEWORK_DIR="$1/framework/"
 

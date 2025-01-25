@@ -149,10 +149,6 @@
                 android:title="Gradle install/uninstall"
                 android:key="aidepro_gradle_configure" />
             <Preference
-                android:title="NDK install/uninstall"
-                android:key="aidepro_gradle_ndk"
-                android:summary="If you use Gradle to build and the project contains C/C++ code, you need to install Gradle-specific NDK here first" />
-            <Preference
                 android:title="Custom commands"
                 android:key="aidepro_custom_cmd" />
         </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
@@ -479,53 +475,15 @@
     <PreferenceScreen
         android:layout="@layout/preference_header_item"
         android:title="About"
-        android:summary="Check for updates and donations">
-        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
-            android:title="update settings">
-            <SwitchPreference
-                android:title="Automatically check for updates"
-                android:key="aidero_auto_update"
-                android:summary="Automatically check for updates every time you start"
-                android:defaultValue="true" />
-            <ListPreference
-                android:entries="@array/pref_update_channel_entries"
-                android:title="Update channel"
-                android:key="aidepro_update_channel"
-                android:summary="The Beta version will contain some latest features and optimizations, but it is not as stable as the official version. If you want to use it more stably, it is recommended that you turn off this option"
-                android:defaultValue="release"
-                android:entryValues="@array/pref_update_channel_values" />
-            <Preference
-                android:title="Check for updates"
-                android:key="aidepro_check_update" />
-            <Preference
-                android:title="Current version"
-                android:key="aidepro_update_log" />
-        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
-        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
-            android:title="contact">
-            <Preference
-                android:title="Official website"
-                android:key="aidero_sponsor"
-                android:summary="https://aidepro.top" />
-            <Preference
-                android:title="Telegram"
-                android:key="aidepro_telegram"
-                android:summary="https://t.me/aidemgb" />
-        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
-        <com.s1243808733.aide.preference.NiuBiPreferenceCategory
-            android:title="Other">
-            <Preference
-                android:title="Developers"
-                android:key="aidero_get_mgry"
-                android:summary="People involved in aide development" />
-            <Preference
-                android:title="Donation"
-                android:key="aidero_set_sponsor"
-                android:summary="If you think it is useful, you can choose to sponsor" />
-            <Preference
-                android:title="Special Thanks"
-                android:key="aidero_get_sponsor"
-                android:summary="Thank you for your support" />
-        </com.s1243808733.aide.preference.NiuBiPreferenceCategory>
+        android:summary="View this version information">
+        <Preference
+            android:title="Version"
+            android:key="app_version" />
+        <Preference
+            android:title="Github"
+            android:key="github"
+            android:summary="https://github.com/AndroidIDE-CN" />
+        <Preference
+            android:summary="The second distribution modification requires the retention of the original work information." />
     </PreferenceScreen>
 </PreferenceScreen>

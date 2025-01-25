@@ -46,4 +46,5 @@
         <item>release</item>
         <item>beta</item>
     </string-array>
+    <array name="APKTOOL_DUMMY_7f020008" />
 </resources>

@@ -1,0 +1,111 @@
+.class final enum Lcom/google/common/hash/LittleEndianByteArray$JavaLittleEndianBytes$1;
+.super Lcom/google/common/hash/LittleEndianByteArray$JavaLittleEndianBytes;
+.source "LittleEndianByteArray.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/common/hash/LittleEndianByteArray$JavaLittleEndianBytes;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4018
+    name = null
+.end annotation
+
+
+# direct methods
+.method constructor <init>(Ljava/lang/String;I)V
+    .registers 4
+
+    .line 207
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/google/common/hash/LittleEndianByteArray$JavaLittleEndianBytes;-><init>(Ljava/lang/String;ILcom/google/common/hash/LittleEndianByteArray$1;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getLongLittleEndian([BI)J
+    .registers 11
+
+    .line 210
+    add-int/lit8 v0, p2, 0x7
+
+    aget-byte v0, p1, v0
+
+    add-int/lit8 v1, p2, 0x6
+
+    aget-byte v1, p1, v1
+
+    add-int/lit8 v2, p2, 0x5
+
+    aget-byte v2, p1, v2
+
+    add-int/lit8 v3, p2, 0x4
+
+    aget-byte v3, p1, v3
+
+    add-int/lit8 v4, p2, 0x3
+
+    aget-byte v4, p1, v4
+
+    add-int/lit8 v5, p2, 0x2
+
+    aget-byte v5, p1, v5
+
+    add-int/lit8 v6, p2, 0x1
+
+    aget-byte v6, p1, v6
+
+    aget-byte v7, p1, p2
+
+    invoke-static/range {v0 .. v7}, Lcom/google/common/primitives/Longs;->fromBytes(BBBBBBBB)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public putLongLittleEndian([BIJ)V
+    .registers 14
+
+    const/16 v7, 0x8
+
+    .line 223
+    const-wide/16 v0, 0xff
+
+    .line 224
+    const/4 v2, 0x0
+
+    :goto_5
+    if-ge v2, v7, :cond_16
+
+    .line 225
+    add-int v3, p2, v2
+
+    and-long v4, p3, v0
+
+    mul-int/lit8 v6, v2, 0x8
+
+    shr-long/2addr v4, v6
+
+    long-to-int v4, v4
+
+    int-to-byte v4, v4
+
+    aput-byte v4, p1, v3
+
+    .line 224
+    shl-long/2addr v0, v7
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_5
+
+    .line 227
+    :cond_16
+    return-void
+.end method
