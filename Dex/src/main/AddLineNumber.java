@@ -63,9 +63,10 @@ public class AddLineNumber{
 			DexFile rewriteDexFile = rewriter.getDexFileRewriter().rewrite(loadDexFile);
 
 			File outFile = new File(outDir.getAbsolutePath(), file.getName());
-			System.out.println("修改 " + outFile.getAbsolutePath());
-			DexFileFactory.writeDexFile(outFile.getAbsolutePath(), rewriteDexFile);
-			System.out.println("写入 " + outFile.getAbsolutePath());
+			String absolutePath = outFile.getAbsolutePath();
+			System.out.println("修改 " + absolutePath);
+			DexFileFactory.writeDexFile(absolutePath, rewriteDexFile);
+			System.out.println("写入 " + absolutePath);
 
 		}
 		System.out.println("ok");

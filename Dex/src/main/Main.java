@@ -1,5 +1,6 @@
 import com.google.common.base.Throwables;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Ordering;
 import com.google.common.collect.Sets;
 
 import java.io.*;
@@ -50,6 +51,7 @@ public class Main {
             public void back(String config, String type, String key, String value, int id) {
                 System.out.printf("Got config %s, type %s, key %s, value %s id %x\n", config, type, key, value, id);
                 RESID_MAP.put(new Pair<>(type, key), id);
+
             }
         });
 
