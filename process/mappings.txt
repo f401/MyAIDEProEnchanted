@@ -96,6 +96,30 @@ abcd/Vl abcd/FileSystemUtils
 		static
 	j3 (Ljava/lang/String;)Z isFileButNotJarOrZip
 		static
+	EQ (Ljava/lang/String;)Ljava/lang/String; getParentDir
+		static
+	gn (Ljava/lang/String;)J lastModified
+		static
+	j6 (Ljava/lang/String;)V mkdir
+		static
+	j6 (Ljava/lang/String;Ljava/io/Reader;)V appendToFileFromReader
+		static
+	j6 (Ljava/lang/String;Ljava/lang/String;)V writeStringToFileIfExist
+		static
+	rN (Ljava/lang/String;)V addFileLengthThenRestoreLength
+		static
+	tp (Ljava/lang/String;)Ljava/lang/String; getFileName
+		static
+	er (Ljava/lang/String;)Ljava/lang/String; obtainZipOrJarArchieveDirInPath
+		static
+	yS (Ljava/lang/String;)Ljava/lang/String; relativePathToZipOrJarArchieveDirInPath
+		static
+	QX (Ljava/lang/String;)Z isIsInZipOrJarArchieveDirInPath
+		static
+	U2 (Ljava/lang/String;)Z isAbsPathAndParentDirVaild
+		static 
+	VH (Ljava/lang/String;)Ljava/lang/String; getExtendName
+		static
 abcd/Ui abcd/IProject
 	gn ()Ljava/lang/String; getProjectAttribute
 abcd/lj abcd/EclipseJavaProject
@@ -103,6 +127,7 @@ abcd/lj abcd/EclipseJavaProject
 		static 
 		0 o projectRoot
 		1 o debugBuild
+abcd/nj abcd/JavaScriptProject
 abcd/Kl abcd/DoubleOutputStream
 	FH first
 	Hw second
@@ -112,10 +137,17 @@ abcd/Ol abcd/ProcessExecutorWrapper
 	XL shouldRedirectErrorStream
 	QX workingDir
 	Hw envMap
+	VH lock
 	J0 inputStream
 	J8 errorStream
 	we processInstance
 	FH ()Ljava/io/OutputStream; start
+	Zo (Labcd/ProcessExecutorWrapper;)Ljava/io/InputStream; getInputStream
+		static
+	j6 (Labcd/ProcessExecutorWrapper;)Ljava/lang/Process; getProcessInstance
+		static
+	tp (Labcd/ProcessExecutorWrapper;)Ljava/io/InputStream; getErrorStream
+		static
 abcd/Ll abcd/ProcessExitMonitor
 	FH processWrapper
 abcd/Vi abcd/ProjectFilesUtil
@@ -165,6 +197,16 @@ abcd/Vi abcd/ProjectFilesUtil
 		static
 	rN (Ljava/lang/String;)Ljava/lang/String; getParentSettingsGradleConfigFile
 		static
+	j3 (Ljava/lang/String;)Ljava/lang/String; getGradleProjectProjectProperties
+		static
+	j6 (Ljava/lang/String;)Ljava/lang/String; getClassesJarOutputDir
+		static
+	u7 (Ljava/lang/String;)Ljava/lang/String; getExplodedAarOutputDir
+		static
+	aM (Ljava/lang/String;)Ljava/lang/String; getWebProjectStaticResDir
+		static
+	Hw (Ljava/lang/String;)Ljava/lang/String; getBinaryTempResDir
+		static
 abcd/i abcd/as/graphics/drawable/TintAwareDrawable
 abcd/e abcd/as/graphics/drawable/WrappedDrawable
 abcd/d abcd/as/graphics/drawable/DrawableCompat
@@ -190,10 +232,10 @@ abcd/d$e abcd/as/graphics/drawable/DrawableCompat$BaseDrawableImpl
 		static
 	j6 (Landroid/graphics/drawable/Drawable;I)Z setLayoutDirection
 		static
-abcd/d$a abcd/as/graphics/drawable/DrawableCompat$MDrawableImpl
-abcd/d$b abcd/as/graphics/drawable/DrawableCompat$LollipopDrawableImpl
-abcd/d$c abcd/as/graphics/drawable/DrawableCompat$KitKatDrawableImpl
-abcd/d$d abcd/as/graphics/drawable/DrawableCompat$JellybeanMr1DrawableImpl
+abcd/d$a abcd/as/graphics/drawable/DrawableCompat$JellybeanMr1DrawableImpl
+abcd/d$b abcd/as/graphics/drawable/DrawableCompat$KitKatDrawableImpl
+abcd/d$c abcd/as/graphics/drawable/DrawableCompat$LollipopDrawableImpl
+abcd/d$d abcd/as/graphics/drawable/DrawableCompat$MDrawableImpl
 abcd/f abcd/as/graphics/drawable/DrawableWrapperGingerbread
 	j6 DEFAULT_TINT_MODE
 	DW mCurrentColor
@@ -217,4 +259,7 @@ abcd/vj abcd/vj
 	j6 (Ljava/lang/String;)Ljava/io/InputStream; findDeviceCompatibilableFile
 		static
 	gn ()Ljava/lang/String; apkSourceDirLastModified
+		static
+com/aide/ui/U com/aide/UI
+	Hw ()[Labcd/IProject; getAllProjectSupport
 		static
