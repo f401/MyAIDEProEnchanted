@@ -1,0 +1,169 @@
+{
+ "android/support/customtabs/g": {
+  "j6|(J)Z": "warmup"
+ },
+ "android/support/customtabs/n": {
+  "DW|()Landroid/content/ComponentName;": "getComponentName",
+  "j6|()Landroid/os/IBinder;": "getBinder",
+  "j6|(Landroid/net/Uri;Landroid/os/Bundle;Ljava/util/List;)Z": "mayLaunchUrl"
+ },
+ "android/support/v4/app/a": {
+  "DW|()Landroid/graphics/drawable/Drawable;": "getThemeUpIndicator",
+  "j6|(Landroid/graphics/drawable/Drawable;I)V": "setActionBarUpIndicator",
+  "j6|(Landroid/content/Context;)Z": "assumeMaterial",
+  "j6|(Landroid/content/res/Configuration;)V": "onConfigurationChanged",
+  "j6|(Landroid/view/View;F)V": "onDrawerSlide",
+  "j6|(Landroid/view/MenuItem;)Z": "onOptionsItemSelected"
+ },
+ "android/support/v4/app/c": {
+  "j6|(Landroid/app/Activity;Landroid/content/Intent;ILandroid/os/Bundle;)V": "startActivityForResult",
+  "j6|(Landroid/app/Activity;[Ljava/lang/String;I)V": "requestPermissions"
+ },
+ "android/support/v4/app/j": {
+  "Hw|(Landroid/os/Bundle;)Landroid/view/LayoutInflater;": "onGetLayoutInflater",
+  "J8|(Landroid/os/Bundle;)Landroid/app/Dialog;": "onCreateDialog",
+  "j6|(Landroid/app/Dialog;I)V": "setupDialog",
+  "j6|(Landroid/content/Context;)V": "onAttach"
+ },
+ "android/support/v4/app/r": {
+  "j6|(II)V": "popBackStack",
+  "j6|(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V": "dump"
+ },
+ "android/support/v4/app/B": {
+  "FH|()Landroid/os/Parcelable;": "saveState",
+  "j6|(Landroid/view/ViewGroup;I)Ljava/lang/Object;": "instantiateItem",
+  "j6|(Landroid/os/Parcelable;Ljava/lang/ClassLoader;)V": "restoreState",
+  "j6|(Landroid/view/View;Ljava/lang/Object;)Z": "isViewFromObject"
+ },
+ "android/support/v4/content/b": {
+  "DW|(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;": "getDrawable",
+  "DW|(Landroid/content/Context;Ljava/lang/String;)[Ljava/io/File;": "getExternalFilesDirs",
+  "FH|(Landroid/content/Context;)Z": "isDeviceProtectedStorage",
+  "j6|(Landroid/content/Context;I)I": "getColor",
+  "j6|(Landroid/content/Context;Ljava/lang/String;)I": "checkSelfPermission",
+  "j6|(Ljava/io/File;)Ljava/io/File;": "createFilesDir"
+ },
+ "android/support/v4/content/h": {
+  "j6|(Landroid/content/Context;Ljava/lang/String;IILjava/lang/String;)I": "checkPermission"
+ },
+ "android/support/v4/view/o": {
+  "DW|(I)F": "getPageWidth",
+  "FH|()Landroid/os/Parcelable;": "saveState",
+  "j6|()I": "getCount",
+  "j6|(Ljava/lang/Object;)I": "getItemPosition",
+  "j6|(I)Ljava/lang/CharSequence;": "getPageTitle",
+  "j6|(Landroid/view/View;I)Ljava/lang/Object;": "instantiateItem",
+  "j6|(Landroid/view/ViewGroup;I)Ljava/lang/Object;": "instantiateItem",
+  "j6|(Landroid/os/Parcelable;Ljava/lang/ClassLoader;)V": "restoreState",
+  "j6|(Landroid/view/View;Ljava/lang/Object;)Z": "isViewFromObject"
+ },
+ "android/support/v4/view/s": {
+  "Zo|(Landroid/view/View;)Ljava/lang/String;": "getTransitionName",
+  "j6|(Landroid/view/View;Landroid/graphics/Paint;)V": "setLayerPaint",
+  "j6|(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V": "setBackground",
+  "j6|(Landroid/view/View;Ljava/lang/Runnable;)V": "postOnAnimation",
+  "j6|(Landroid/view/ViewGroup;Z)V": "setChildrenDrawingOrderEnabled",
+  "v5|(Landroid/view/View;)Landroid/view/ViewParent;": "getParentForAccessibility"
+ },
+ "android/support/v4/app/Fragment": {
+  "DW|(IZI)Landroid/animation/Animator;": "onCreateAnimator",
+  "DW|(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;": "onCreateView",
+  "DW|(Landroid/view/Menu;Landroid/view/MenuInflater;)Z": "performCreateOptionsMenu",
+  "Hw|(Landroid/view/Menu;)Z": "performPrepareOptionsMenu",
+  "Zo|()Landroid/animation/Animator;": "getAnimator",
+  "aM|()Landroid/content/res/Resources;": "getResources",
+  "j6|(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;": "onCreateView",
+  "j6|(IZI)Landroid/view/animation/Animation;": "onCreateAnimation",
+  "j6|(IILandroid/content/Intent;)V": "onActivityResult",
+  "j6|(I[Ljava/lang/String;[I)V": "onRequestPermissionsResult",
+  "j6|(Landroid/animation/Animator;)V": "setAnimator",
+  "j6|(Landroid/app/Activity;)V": "onAttach",
+  "j6|(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V": "onInflate",
+  "j6|(Landroid/content/Context;)V": "onAttach",
+  "j6|(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/os/Bundle;)V": "onInflate",
+  "j6|(Landroid/content/Intent;I)V": "startActivityForResult",
+  "j6|(Landroid/content/Intent;ILandroid/os/Bundle;)V": "startActivityForResult",
+  "j6|(Landroid/view/Menu;Landroid/view/MenuInflater;)V": "onCreateOptionsMenu",
+  "j6|(Landroid/view/View;Landroid/os/Bundle;)V": "onViewCreated",
+  "j6|(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V": "dump"
+ },
+ "android/support/v4/app/FragmentActivity": {
+  "j6|(Landroid/view/View;Landroid/view/Menu;)Z": "onPrepareOptionsPanel",
+  "onSaveInstanceState|(Landroid/os/Bundle;)V": "onCreate"
+ },
+ "android/support/v4/app/NotificationCompat": {
+  "<clinit>|()V": "<init>",
+  "j6|(Landroid/app/Notification;)Landroid/os/Bundle;": "getExtras"
+ },
+ "android/support/v4/app/NotificationCompat$Builder": {
+  "j6|(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;": "limitCharSequenceLength",
+  "j6|(IZ)V": "setFlag"
+ },
+ "android/support/v4/content/FileProvider": {
+  "j6|(Ljava/lang/String;)I": "modeToMode",
+  "j6|(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;)Landroid/net/Uri;": "getUriForFile",
+  "j6|(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;": "buildPath",
+  "j6|([Ljava/lang/Object;I)[Ljava/lang/Object;": "copyOf",
+  "j6|([Ljava/lang/String;I)[Ljava/lang/String;": "copyOf"
+ },
+ "android/support/v4/view/ViewPager": {
+  "DW|(F)Z": "performDrag",
+  "FH|(Landroid/view/View;)Z": "isDecorView",
+  "j6|(IFII)I": "determineTargetPage",
+  "j6|(Landroid/graphics/Rect;Landroid/view/View;)Landroid/graphics/Rect;": "getChildRectInPagerCoordinates",
+  "j6|(IZIZ)V": "scrollToItem",
+  "j6|(Landroid/view/MotionEvent;)V": "onSecondaryPointerUp",
+  "j6|(FF)Z": "isGutterDrag",
+  "j6|(F)F": "distanceInfluenceForSnapDuration",
+  "j6|(III)V": "smoothScrollTo",
+  "j6|(IZ)V": "setCurrentItem",
+  "j6|(IZZ)V": "setCurrentItemInternal",
+  "j6|(IZZI)V": "setCurrentItemInternal",
+  "j6|(Landroid/view/View;ZIII)Z": "canScroll"
+ },
+ "android/support/v4/view/PagerTitleStrip": {
+  "j6|(IF)V": "setTextSize",
+  "j6|(IFZ)V": "updateTextPositions"
+ },
+ "android/support/v4/view/ViewPager$e": {
+  "j6|(IFI)V": "onPageScrolled"
+ },
+ "android/support/v4/view/ViewPager$h": {
+  "<init>|()V": "<clinit>"
+ },
+ "android/support/v4/widget/DrawerLayout": {
+  "j6|(Landroid/graphics/drawable/Drawable;I)Z": "mirror",
+  "v5|(I)Ljava/lang/String;": "gravityToString",
+  "DW|(I)Landroid/view/View;": "findDrawerWithGravity",
+  "FH|(I)I": "getDrawerLockMode",
+  "Hw|(I)Ljava/lang/CharSequence;": "getDrawerTitle",
+  "Zo|(Landroid/view/View;)F": "getDrawerViewOffset",
+  "j6|(IILandroid/view/View;)V": "updateDrawerState",
+  "j6|(Ljava/lang/Object;Z)V": "setChildInsets",
+  "j6|(Landroid/view/View;I)Z": "checkDrawerViewAbsoluteGravity"
+ },
+ "android/support/v4/widget/DrawerLayout$c": {
+  "j6|(I)V": "onDrawerStateChanged",
+  "j6|(Landroid/view/View;F)V": "onDrawerSlide"
+ },
+ "android/support/v4/widget/NestedScrollView": {
+  "DW|(III)Z": "scrollAndFocus",
+  "j6|(III)I": "clamp",
+  "j6|(ZII)Landroid/view/View;": "findFocusableViewInBounds",
+  "j6|(Landroid/view/MotionEvent;)V": "onSecondaryPointerUp",
+  "j6|(Landroid/graphics/Rect;Z)Z": "scrollToChildRect",
+  "j6|(Landroid/view/View;)Z": "isOffScreen",
+  "j6|(Landroid/view/View;II)Z": "isWithinDeltaOfScreen",
+  "j6|(Landroid/view/View;Landroid/view/View;)Z": "isViewDescendantOf",
+  "j6|(Landroid/graphics/Rect;)I": "computeScrollDeltaToGetChildRectOnScreen",
+  "j6|(IIIIIIIIZ)Z": "overScrollByCompat",
+  "j6|(IIII[II)Z": "dispatchNestedScroll",
+  "j6|(II[I[II)Z": "dispatchNestedPreScroll"
+ },
+ "android/support/v4/widget/SwipeRefreshLayout": {
+  "j6|(II)Landroid/view/animation/Animation;": "startAlphaAnimation",
+  "j6|(Landroid/view/MotionEvent;)V": "onSecondaryPointerUp",
+  "j6|(ZZ)V": "setRefreshing",
+  "j6|(Landroid/view/animation/Animation;)Z": "isAnimationRunning"
+ }
+}

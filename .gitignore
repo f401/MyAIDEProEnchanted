@@ -1,3 +1,7 @@
 /src/build/**
 /target/**
 /.idea
+/src/*.apk
+/src/*.apk.orig
+/src/*.apk.bak*
+/process/src/old/
