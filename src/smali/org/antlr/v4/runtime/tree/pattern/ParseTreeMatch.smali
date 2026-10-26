@@ -7,7 +7,8 @@
 .field private final labels:Lorg/antlr/v4/runtime/misc/MultiMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lorg/antlr/v4/runtime/misc/MultiMap<",
+            "Lorg/antlr/v4/runtime/misc/MultiMap",
+            "<",
             "Ljava/lang/String;",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
@@ -24,13 +25,14 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/tree/ParseTree;Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;Lorg/antlr/v4/runtime/misc/MultiMap;Lorg/antlr/v4/runtime/tree/ParseTree;)V
-    .registers 5
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             "Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;",
-            "Lorg/antlr/v4/runtime/misc/MultiMap<",
+            "Lorg/antlr/v4/runtime/misc/MultiMap",
+            "<",
             "Ljava/lang/String;",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;",
@@ -42,11 +44,11 @@
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_22
+    if-eqz p1, :cond_2
 
-    if-eqz p2, :cond_1a
+    if-eqz p2, :cond_1
 
-    if-eqz p3, :cond_12
+    if-eqz p3, :cond_0
 
     .line 67
     iput-object p1, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->tree:Lorg/antlr/v4/runtime/tree/ParseTree;
@@ -63,92 +65,91 @@
     return-void
 
     .line 64
-    :cond_12
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "labels cannot be null"
+    const-string v1, "labels cannot be null"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 60
-    :cond_1a
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "pattern cannot be null"
+    const-string v1, "pattern cannot be null"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 56
-    :cond_22
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "tree cannot be null"
+    const-string v1, "tree cannot be null"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public get(Ljava/lang/String;)Lorg/antlr/v4/runtime/tree/ParseTree;
-    .registers 3
+    .locals 2
 
     .line 91
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->labels:Lorg/antlr/v4/runtime/misc/MultiMap;
 
     invoke-virtual {v0, p1}, Lorg/antlr/v4/runtime/misc/MultiMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/util/List;
+    check-cast v0, Ljava/util/List;
 
-    if-eqz p1, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 92
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_11
-
-    goto :goto_1e
+    if-nez v1, :cond_1
 
     .line 96
-    :cond_11
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    :cond_0
+    const/4 v0, 0x0
 
-    move-result v0
+    :goto_0
+    return-object v0
 
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result v1
 
-    move-result-object p1
+    add-int/lit8 v1, v1, -0x1
 
-    check-cast p1, Lorg/antlr/v4/runtime/tree/ParseTree;
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    return-object p1
+    move-result-object v0
 
-    :cond_1e
-    :goto_1e
-    const/4 p1, 0x0
+    check-cast v0, Lorg/antlr/v4/runtime/tree/ParseTree;
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public getAll(Ljava/lang/String;)Ljava/util/List;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
         }
@@ -159,27 +160,28 @@
 
     invoke-virtual {v0, p1}, Lorg/antlr/v4/runtime/misc/MultiMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/util/List;
+    check-cast v0, Ljava/util/List;
 
-    if-nez p1, :cond_e
+    if-nez v0, :cond_0
 
     .line 126
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    :cond_e
-    return-object p1
+    :cond_0
+    return-object v0
 .end method
 
 .method public getLabels()Lorg/antlr/v4/runtime/misc/MultiMap;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lorg/antlr/v4/runtime/misc/MultiMap<",
+            "Lorg/antlr/v4/runtime/misc/MultiMap",
+            "<",
             "Ljava/lang/String;",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
@@ -193,7 +195,7 @@
 .end method
 
 .method public getMismatchedNode()Lorg/antlr/v4/runtime/tree/ParseTree;
-    .registers 2
+    .locals 1
 
     .line 155
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->mismatchedNode:Lorg/antlr/v4/runtime/tree/ParseTree;
@@ -202,7 +204,7 @@
 .end method
 
 .method public getPattern()Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;
-    .registers 2
+    .locals 1
 
     .line 175
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->pattern:Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;
@@ -211,7 +213,7 @@
 .end method
 
 .method public getTree()Lorg/antlr/v4/runtime/tree/ParseTree;
-    .registers 2
+    .locals 1
 
     .line 185
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->tree:Lorg/antlr/v4/runtime/tree/ParseTree;
@@ -220,71 +222,71 @@
 .end method
 
 .method public succeeded()Z
-    .registers 2
+    .locals 1
 
     .line 165
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->mismatchedNode:Lorg/antlr/v4/runtime/tree/ParseTree;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_7
+    :goto_0
+    return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_7
-    return v0
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 4
 
     .line 193
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->succeeded()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     const-string v0, "succeeded"
 
-    goto :goto_b
+    :goto_0
+    const-string v1, "Match %s; found %d labels"
 
-    :cond_9
-    const-string v0, "failed"
+    const/4 v2, 0x2
 
-    :goto_b
-    const/4 v1, 0x2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    aput-object v0, v2, v3
 
-    aput-object v0, v1, v2
+    const/4 v0, 0x1
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->getLabels()Lorg/antlr/v4/runtime/misc/MultiMap;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Lorg/antlr/v4/runtime/misc/MultiMap;->size()I
+    invoke-virtual {v3}, Lorg/antlr/v4/runtime/misc/MultiMap;->size()I
 
-    move-result v0
+    move-result v3
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/4 v2, 0x1
+    aput-object v3, v2, v0
 
-    aput-object v0, v1, v2
-
-    const-string v0, "Match %s; found %d labels"
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
+
+    :cond_0
+    const-string v0, "failed"
+
+    goto :goto_0
 .end method

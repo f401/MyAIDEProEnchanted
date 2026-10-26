@@ -27,7 +27,8 @@
 .field public static final serializationNames:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -37,9 +38,10 @@
 .field public static final serializationTypes:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
-            "Ljava/lang/Class<",
-            "+",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/Class",
+            "<+",
             "Lorg/antlr/v4/runtime/atn/Transition;",
             ">;",
             "Ljava/lang/Integer;",
@@ -55,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 43
     const/16 v0, 0xb
@@ -153,12 +155,12 @@
 .end method
 
 .method protected constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;)V
-    .registers 3
+    .locals 2
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     .line 81
     iput-object p1, p0, Lorg/antlr/v4/runtime/atn/Transition;->target:Lorg/antlr/v4/runtime/atn/ATNState;
@@ -166,14 +168,14 @@
     return-void
 
     .line 78
-    :cond_8
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "target cannot be null."
+    const-string v1, "target cannot be null."
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
@@ -182,7 +184,7 @@
 .end method
 
 .method public isEpsilon()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -190,7 +192,7 @@
 .end method
 
 .method public label()Lorg/antlr/v4/runtime/misc/IntervalSet;
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 

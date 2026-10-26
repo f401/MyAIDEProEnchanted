@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJII)V
-    .registers 10
+    .locals 0
 
     .line 38
     invoke-direct/range {p0 .. p7}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJ)V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getA()I
-    .registers 2
+    .locals 1
 
     .line 53
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;->a:I
@@ -37,7 +37,7 @@
 .end method
 
 .method public getRegisterCount()I
-    .registers 2
+    .locals 1
 
     .line 47
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;->registerCount:I
@@ -46,12 +46,9 @@
 .end method
 
 .method public withIndex(I)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 13
+    .locals 10
 
     .line 59
-    nop
-
-    .line 60
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;->getFormat()Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
 
     move-result-object v1
@@ -65,7 +62,7 @@
     move-result-object v4
 
     .line 61
-    new-instance v10, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;->getTarget()I
 
@@ -79,11 +76,9 @@
 
     iget v9, p0, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;->registerCount:I
 
-    move-object v0, v10
-
     move v3, p1
 
     invoke-direct/range {v0 .. v9}, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJII)V
 
-    return-object v10
+    return-object v0
 .end method

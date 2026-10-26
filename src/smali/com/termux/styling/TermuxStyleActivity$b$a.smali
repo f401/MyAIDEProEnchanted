@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/styling/TermuxStyleActivity$b;Landroid/app/AlertDialog;)V
-    .registers 3
+    .locals 0
 
     iput-object p1, p0, Lcom/termux/styling/TermuxStyleActivity$b$a;->a:Lcom/termux/styling/TermuxStyleActivity$b;
 
@@ -39,23 +39,23 @@
 
 # virtual methods
 .method public final onShow(Landroid/content/DialogInterface;)V
-    .registers 3
+    .locals 2
 
-    iget-object p1, p0, Lcom/termux/styling/TermuxStyleActivity$b$a;->b:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/termux/styling/TermuxStyleActivity$b$a;->b:Landroid/app/AlertDialog;
 
-    const-string v0, "dialog"
+    const-string v1, "dialog"
 
-    invoke-static {p1, v0}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance v0, Lcom/termux/styling/TermuxStyleActivity$b$a$a;
+    new-instance v1, Lcom/termux/styling/TermuxStyleActivity$b$a$a;
 
-    invoke-direct {v0, p0}, Lcom/termux/styling/TermuxStyleActivity$b$a$a;-><init>(Lcom/termux/styling/TermuxStyleActivity$b$a;)V
+    invoke-direct {v1, p0}, Lcom/termux/styling/TermuxStyleActivity$b$a$a;-><init>(Lcom/termux/styling/TermuxStyleActivity$b$a;)V
 
-    invoke-virtual {p1, v0}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
 
     return-void
 .end method

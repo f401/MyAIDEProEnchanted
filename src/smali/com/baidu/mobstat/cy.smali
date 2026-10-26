@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 12
     new-instance v0, Lcom/baidu/mobstat/cy;
@@ -22,7 +22,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 14
     invoke-direct {p0}, Lcom/baidu/mobstat/cv;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method public static c()Lcom/baidu/mobstat/cy;
-    .registers 1
+    .locals 1
 
     .line 18
     sget-object v0, Lcom/baidu/mobstat/cy;->b:Lcom/baidu/mobstat/cy;
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public a()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 23
     const-string v0, "mtj.autotrace"
@@ -51,7 +51,7 @@
 .end method
 
 .method public b()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 

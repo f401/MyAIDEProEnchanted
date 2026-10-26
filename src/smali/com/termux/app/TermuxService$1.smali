@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxService;Lcom/termux/app/BackgroundJob;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .line 355
     iget-object v0, p0, Lcom/termux/app/TermuxService$1;->this$0:Lcom/termux/app/TermuxService;

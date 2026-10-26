@@ -13,7 +13,7 @@
 
 
 # static fields
-.field static final $assertionsDisabled:Z = false
+.field static final $assertionsDisabled:Z
 
 
 # instance fields
@@ -28,13 +28,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method private constructor <init>(Lorg/antlr/v4/runtime/CodePointBuffer$Type;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Ljava/nio/IntBuffer;)V
-    .registers 5
+    .locals 0
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/antlr/v4/runtime/CodePointBuffer$Type;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Ljava/nio/IntBuffer;Lorg/antlr/v4/runtime/CodePointBuffer$1;)V
-    .registers 6
+    .locals 0
 
     .line 19
     invoke-direct {p0, p1, p2, p3, p4}, Lorg/antlr/v4/runtime/CodePointBuffer;-><init>(Lorg/antlr/v4/runtime/CodePointBuffer$Type;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Ljava/nio/IntBuffer;)V
@@ -64,7 +64,7 @@
 .end method
 
 .method public static builder(I)Lorg/antlr/v4/runtime/CodePointBuffer$Builder;
-    .registers 3
+    .locals 2
 
     .line 131
     new-instance v0, Lorg/antlr/v4/runtime/CodePointBuffer$Builder;
@@ -77,14 +77,14 @@
 .end method
 
 .method public static withBytes(Ljava/nio/ByteBuffer;)Lorg/antlr/v4/runtime/CodePointBuffer;
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 38
     new-instance v0, Lorg/antlr/v4/runtime/CodePointBuffer;
 
     sget-object v1, Lorg/antlr/v4/runtime/CodePointBuffer$Type;->BYTE:Lorg/antlr/v4/runtime/CodePointBuffer$Type;
-
-    const/4 v2, 0x0
 
     invoke-direct {v0, v1, p0, v2, v2}, Lorg/antlr/v4/runtime/CodePointBuffer;-><init>(Lorg/antlr/v4/runtime/CodePointBuffer$Type;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Ljava/nio/IntBuffer;)V
 
@@ -92,14 +92,14 @@
 .end method
 
 .method public static withChars(Ljava/nio/CharBuffer;)Lorg/antlr/v4/runtime/CodePointBuffer;
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 42
     new-instance v0, Lorg/antlr/v4/runtime/CodePointBuffer;
 
     sget-object v1, Lorg/antlr/v4/runtime/CodePointBuffer$Type;->CHAR:Lorg/antlr/v4/runtime/CodePointBuffer$Type;
-
-    const/4 v2, 0x0
 
     invoke-direct {v0, v1, v2, p0, v2}, Lorg/antlr/v4/runtime/CodePointBuffer;-><init>(Lorg/antlr/v4/runtime/CodePointBuffer$Type;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Ljava/nio/IntBuffer;)V
 
@@ -107,14 +107,14 @@
 .end method
 
 .method public static withInts(Ljava/nio/IntBuffer;)Lorg/antlr/v4/runtime/CodePointBuffer;
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 46
     new-instance v0, Lorg/antlr/v4/runtime/CodePointBuffer;
 
     sget-object v1, Lorg/antlr/v4/runtime/CodePointBuffer$Type;->INT:Lorg/antlr/v4/runtime/CodePointBuffer$Type;
-
-    const/4 v2, 0x0
 
     invoke-direct {v0, v1, v2, v2, p0}, Lorg/antlr/v4/runtime/CodePointBuffer;-><init>(Lorg/antlr/v4/runtime/CodePointBuffer$Type;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Ljava/nio/IntBuffer;)V
 
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method arrayOffset()I
-    .registers 3
+    .locals 2
 
     .line 104
     sget-object v0, Lorg/antlr/v4/runtime/CodePointBuffer$1;->$SwitchMap$org$antlr$v4$runtime$CodePointBuffer$Type:[I
@@ -139,15 +139,15 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_29
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_22
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     .line 110
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->intBuffer:Ljava/nio/IntBuffer;
@@ -156,10 +156,11 @@
 
     move-result v0
 
+    :goto_0
     return v0
 
     .line 112
-    :cond_1a
+    :cond_0
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Not reached"
@@ -169,28 +170,28 @@
     throw v0
 
     .line 108
-    :cond_22
+    :cond_1
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->charBuffer:Ljava/nio/CharBuffer;
 
     invoke-virtual {v0}, Ljava/nio/CharBuffer;->arrayOffset()I
 
     move-result v0
 
-    return v0
+    goto :goto_0
 
     .line 106
-    :cond_29
+    :cond_2
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->arrayOffset()I
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method byteArray()[B
-    .registers 2
+    .locals 1
 
     .line 117
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->byteBuffer:Ljava/nio/ByteBuffer;
@@ -203,7 +204,7 @@
 .end method
 
 .method charArray()[C
-    .registers 2
+    .locals 1
 
     .line 122
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->charBuffer:Ljava/nio/CharBuffer;
@@ -216,7 +217,7 @@
 .end method
 
 .method public get(I)I
-    .registers 4
+    .locals 2
 
     .line 88
     sget-object v0, Lorg/antlr/v4/runtime/CodePointBuffer$1;->$SwitchMap$org$antlr$v4$runtime$CodePointBuffer$Type:[I
@@ -231,58 +232,59 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_29
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_22
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     .line 94
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->intBuffer:Ljava/nio/IntBuffer;
 
     invoke-virtual {v0, p1}, Ljava/nio/IntBuffer;->get(I)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    :goto_0
+    return v0
 
     .line 96
-    :cond_1a
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :cond_0
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v0, "Not reached"
+    const-string v1, "Not reached"
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 92
-    :cond_22
+    :cond_1
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->charBuffer:Ljava/nio/CharBuffer;
 
     invoke-virtual {v0, p1}, Ljava/nio/CharBuffer;->get(I)C
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 
     .line 90
-    :cond_29
+    :cond_2
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->get(I)B
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method getType()Lorg/antlr/v4/runtime/CodePointBuffer$Type;
-    .registers 2
+    .locals 1
 
     .line 100
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->type:Lorg/antlr/v4/runtime/CodePointBuffer$Type;
@@ -291,7 +293,7 @@
 .end method
 
 .method intArray()[I
-    .registers 2
+    .locals 1
 
     .line 127
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->intBuffer:Ljava/nio/IntBuffer;
@@ -304,7 +306,7 @@
 .end method
 
 .method public position()I
-    .registers 3
+    .locals 2
 
     .line 50
     sget-object v0, Lorg/antlr/v4/runtime/CodePointBuffer$1;->$SwitchMap$org$antlr$v4$runtime$CodePointBuffer$Type:[I
@@ -319,15 +321,15 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_29
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_22
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     .line 56
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->intBuffer:Ljava/nio/IntBuffer;
@@ -336,10 +338,11 @@
 
     move-result v0
 
+    :goto_0
     return v0
 
     .line 58
-    :cond_1a
+    :cond_0
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Not reached"
@@ -349,28 +352,28 @@
     throw v0
 
     .line 54
-    :cond_22
+    :cond_1
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->charBuffer:Ljava/nio/CharBuffer;
 
     invoke-virtual {v0}, Ljava/nio/CharBuffer;->position()I
 
     move-result v0
 
-    return v0
+    goto :goto_0
 
     .line 52
-    :cond_29
+    :cond_2
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public position(I)V
-    .registers 4
+    .locals 2
 
     .line 62
     sget-object v0, Lorg/antlr/v4/runtime/CodePointBuffer$1;->$SwitchMap$org$antlr$v4$runtime$CodePointBuffer$Type:[I
@@ -385,46 +388,47 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_20
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1a
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_14
+    if-eq v0, v1, :cond_0
 
-    goto :goto_25
+    .line 64
+    :goto_0
+    return-void
 
     .line 70
-    :cond_14
+    :cond_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->intBuffer:Ljava/nio/IntBuffer;
 
     invoke-virtual {v0, p1}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
 
-    goto :goto_25
+    goto :goto_0
 
     .line 67
-    :cond_1a
+    :cond_1
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->charBuffer:Ljava/nio/CharBuffer;
 
     invoke-virtual {v0, p1}, Ljava/nio/CharBuffer;->position(I)Ljava/nio/Buffer;
 
-    goto :goto_25
+    goto :goto_0
 
     .line 64
-    :cond_20
+    :cond_2
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    :goto_25
-    return-void
+    goto :goto_0
 .end method
 
 .method public remaining()I
-    .registers 3
+    .locals 2
 
     .line 76
     sget-object v0, Lorg/antlr/v4/runtime/CodePointBuffer$1;->$SwitchMap$org$antlr$v4$runtime$CodePointBuffer$Type:[I
@@ -439,15 +443,15 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_29
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_22
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     .line 82
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->intBuffer:Ljava/nio/IntBuffer;
@@ -456,10 +460,11 @@
 
     move-result v0
 
+    :goto_0
     return v0
 
     .line 84
-    :cond_1a
+    :cond_0
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Not reached"
@@ -469,22 +474,22 @@
     throw v0
 
     .line 80
-    :cond_22
+    :cond_1
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->charBuffer:Ljava/nio/CharBuffer;
 
     invoke-virtual {v0}, Ljava/nio/CharBuffer;->remaining()I
 
     move-result v0
 
-    return v0
+    goto :goto_0
 
     .line 78
-    :cond_29
+    :cond_2
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointBuffer;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method

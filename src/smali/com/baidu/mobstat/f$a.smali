@@ -24,35 +24,33 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
 
     .line 296
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 297
-    const-string v0, ""
+    if-nez p1, :cond_0
 
-    if-nez p1, :cond_8
+    const-string p1, ""
 
-    move-object p1, v0
-
-    :cond_8
+    :cond_0
     iput-object p1, p0, Lcom/baidu/mobstat/f$a;->a:Ljava/lang/String;
 
-    if-nez p2, :cond_d
+    if-nez p2, :cond_1
 
-    move-object p2, v0
+    const-string p2, ""
 
     .line 298
-    :cond_d
+    :cond_1
     iput-object p2, p0, Lcom/baidu/mobstat/f$a;->b:Ljava/lang/String;
 
-    if-nez p3, :cond_12
+    if-nez p3, :cond_2
 
-    move-object p3, v0
+    const-string p3, ""
 
     .line 299
-    :cond_12
+    :cond_2
     iput-object p3, p0, Lcom/baidu/mobstat/f$a;->c:Ljava/lang/String;
 
     return-void
@@ -61,7 +59,7 @@
 
 # virtual methods
 .method public a()Lorg/json/JSONObject;
-    .registers 4
+    .locals 3
 
     .line 303
     new-instance v0, Lorg/json/JSONObject;
@@ -69,7 +67,7 @@
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
     .line 305
-    :try_start_5
+    :try_start_0
     const-string v1, "n"
 
     iget-object v2, p0, Lcom/baidu/mobstat/f$a;->a:Ljava/lang/String;
@@ -89,12 +87,15 @@
     iget-object v2, p0, Lcom/baidu/mobstat/f$a;->c:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_1a
-    .catch Lorg/json/JSONException; {:try_start_5 .. :try_end_1a} :catch_1b
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 311
+    :goto_0
     return-object v0
 
-    :catch_1b
+    .line 307
+    :catch_0
     move-exception v0
 
     .line 311
@@ -106,11 +107,11 @@
 
     const/4 v0, 0x0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public b()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 318
     iget-object v0, p0, Lcom/baidu/mobstat/f$a;->a:Ljava/lang/String;

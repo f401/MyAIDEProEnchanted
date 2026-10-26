@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJIII)V
-    .registers 11
+    .locals 0
 
     .line 40
     invoke-direct/range {p0 .. p7}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJ)V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getA()I
-    .registers 2
+    .locals 1
 
     .line 56
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;->a:I
@@ -42,7 +42,7 @@
 .end method
 
 .method public getB()I
-    .registers 2
+    .locals 1
 
     .line 62
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;->b:I
@@ -51,7 +51,7 @@
 .end method
 
 .method public getC()I
-    .registers 2
+    .locals 1
 
     .line 68
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;->c:I
@@ -60,7 +60,7 @@
 .end method
 
 .method public getRegisterCount()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x3
 
@@ -68,12 +68,9 @@
 .end method
 
 .method public withIndex(I)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 14
+    .locals 11
 
     .line 74
-    nop
-
-    .line 75
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;->getFormat()Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
 
     move-result-object v1
@@ -87,7 +84,7 @@
     move-result-object v4
 
     .line 76
-    new-instance v11, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;->getTarget()I
 
@@ -103,11 +100,9 @@
 
     iget v10, p0, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;->c:I
 
-    move-object v0, v11
-
     move v3, p1
 
     invoke-direct/range {v0 .. v10}, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJIII)V
 
-    return-object v11
+    return-object v0
 .end method

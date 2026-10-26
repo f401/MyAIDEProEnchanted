@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/Parser;)V
-    .registers 2
+    .locals 0
 
     .line 38
     iput-object p1, p0, Lorg/antlr/v4/runtime/Parser$TraceListener;->this$0:Lorg/antlr/v4/runtime/Parser;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public enterEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
-    .registers 5
+    .locals 4
 
     .line 41
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -55,43 +55,43 @@
 
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/ParserRuleContext;->getRuleIndex()I
 
-    move-result p1
+    move-result v3
 
-    aget-object p1, v2, p1
+    aget-object v2, v2, v3
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, ", LT(1)="
+    const-string v2, ", LT(1)="
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser$TraceListener;->this$0:Lorg/antlr/v4/runtime/Parser;
+    iget-object v2, p0, Lorg/antlr/v4/runtime/Parser$TraceListener;->this$0:Lorg/antlr/v4/runtime/Parser;
 
-    iget-object p1, p1, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
+    iget-object v2, v2, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-interface {p1, v2}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
+    invoke-interface {v2, v3}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getText()Ljava/lang/String;
+    invoke-interface {v2}, Lorg/antlr/v4/runtime/Token;->getText()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public exitEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
-    .registers 5
+    .locals 4
 
     .line 57
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -110,49 +110,49 @@
 
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/ParserRuleContext;->getRuleIndex()I
 
-    move-result p1
+    move-result v3
 
-    aget-object p1, v2, p1
+    aget-object v2, v2, v3
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, ", LT(1)="
+    const-string v2, ", LT(1)="
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser$TraceListener;->this$0:Lorg/antlr/v4/runtime/Parser;
+    iget-object v2, p0, Lorg/antlr/v4/runtime/Parser$TraceListener;->this$0:Lorg/antlr/v4/runtime/Parser;
 
-    iget-object p1, p1, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
+    iget-object v2, v2, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-interface {p1, v2}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
+    invoke-interface {v2, v3}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getText()Ljava/lang/String;
+    invoke-interface {v2}, Lorg/antlr/v4/runtime/Token;->getText()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public visitErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitTerminal(Lorg/antlr/v4/runtime/tree/TerminalNode;)V
-    .registers 5
+    .locals 4
 
     .line 47
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -165,37 +165,37 @@
 
     invoke-interface {p1}, Lorg/antlr/v4/runtime/tree/TerminalNode;->getSymbol()Lorg/antlr/v4/runtime/Token;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, " rule "
+    const-string v2, " rule "
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser$TraceListener;->this$0:Lorg/antlr/v4/runtime/Parser;
-
-    invoke-virtual {p1}, Lorg/antlr/v4/runtime/Parser;->getRuleNames()[Ljava/lang/String;
-
-    move-result-object p1
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lorg/antlr/v4/runtime/Parser$TraceListener;->this$0:Lorg/antlr/v4/runtime/Parser;
 
-    iget-object v2, v2, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    invoke-virtual {v2}, Lorg/antlr/v4/runtime/Parser;->getRuleNames()[Ljava/lang/String;
 
-    invoke-virtual {v2}, Lorg/antlr/v4/runtime/ParserRuleContext;->getRuleIndex()I
+    move-result-object v2
 
-    move-result v2
+    iget-object v3, p0, Lorg/antlr/v4/runtime/Parser$TraceListener;->this$0:Lorg/antlr/v4/runtime/Parser;
 
-    aget-object p1, p1, v2
+    iget-object v3, v3, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Lorg/antlr/v4/runtime/ParserRuleContext;->getRuleIndex()I
+
+    move-result v3
+
+    aget-object v2, v2, v3
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 1155
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$18;->this$0:Lcom/termux/app/TermuxActivity;
@@ -36,24 +36,24 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 4
 
     .line 1158
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$18;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$18;->this$0:Lcom/termux/app/TermuxActivity;
 
-    new-instance p2, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v0, "http://play.google.com/store/apps/details?id=com.termux.styling"
+    const-string v2, "android.intent.action.VIEW"
 
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    const-string v3, "http://play.google.com/store/apps/details?id=com.termux.styling"
 
-    move-result-object v0
+    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    const-string v1, "android.intent.action.VIEW"
+    move-result-object v3
 
-    invoke-direct {p2, v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v1, v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    invoke-static {p1, p2}, Lcom/s1243808733/util/Utils;->startActivity(Landroid/content/Context;Landroid/content/Intent;)V
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->startActivity(Landroid/content/Context;Landroid/content/Intent;)V
 
     return-void
 .end method

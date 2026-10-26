@@ -12,7 +12,8 @@
     value = {
         "Ljava/lang/Object;",
         "Lcom/s1243808733/android/dx/util/ToHuman;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dx/rop/cst/Constant;",
         ">;"
     }
@@ -21,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +33,7 @@
 
 # virtual methods
 .method public final compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
-    .registers 4
+    .locals 2
 
     .line 50
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -44,43 +45,44 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_17
+    if-eq v0, v1, :cond_0
 
     .line 54
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result p1
-
-    return p1
+    move-result v0
 
     .line 57
-    :cond_17
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/rop/cst/Constant;->compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 24
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/rop/cst/Constant;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method protected abstract compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I

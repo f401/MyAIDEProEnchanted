@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>([C)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Lc/s;-><init>()V
 
@@ -24,75 +24,63 @@
 
 # virtual methods
 .method public final d(Lc/s;)Z
-    .registers 7
-
-    instance-of v0, p1, Lc/ao;
+    .locals 6
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_6
+    instance-of v0, p1, Lc/ao;
 
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
     return v1
 
-    :cond_6
+    :cond_1
     check-cast p1, Lc/ao;
 
-    iget-object v0, p0, Lc/ao;->a:[C
+    iget-object v2, p0, Lc/ao;->a:[C
 
-    iget-object p1, p1, Lc/ao;->a:[C
+    iget-object v3, p1, Lc/ao;->a:[C
 
-    if-ne v0, p1, :cond_f
+    if-ne v2, v3, :cond_3
 
-    goto :goto_27
-
-    :cond_f
-    if-eqz v0, :cond_28
-
-    if-nez p1, :cond_14
-
-    goto :goto_28
-
-    :cond_14
-    array-length v2, v0
-
-    array-length v3, p1
-
-    if-eq v2, v3, :cond_19
-
-    goto :goto_28
-
-    :cond_19
-    const/4 v2, 0x0
-
-    :goto_1a
-    array-length v3, v0
-
-    if-eq v2, v3, :cond_27
-
-    aget-char v3, v0, v2
-
-    aget-char v4, p1, v2
-
-    if-eq v3, v4, :cond_24
-
-    goto :goto_28
-
-    :cond_24
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1a
-
-    :cond_27
-    :goto_27
+    :cond_2
     const/4 v1, 0x1
 
-    :cond_28
-    :goto_28
-    return v1
+    goto :goto_0
+
+    :cond_3
+    if-eqz v2, :cond_0
+
+    if-eqz v3, :cond_0
+
+    array-length v0, v2
+
+    array-length v4, v3
+
+    if-ne v0, v4, :cond_0
+
+    move v0, v1
+
+    :goto_1
+    array-length v4, v2
+
+    if-eq v0, v4, :cond_2
+
+    aget-char v4, v2, v0
+
+    aget-char v5, v3, v0
+
+    if-ne v4, v5, :cond_0
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
 .end method
 
 .method public final e(Lc/q;)V
-    .registers 5
+    .locals 3
 
     const/16 v0, 0x1e
 
@@ -108,12 +96,12 @@
 
     const/4 v0, 0x0
 
-    :goto_e
+    :goto_0
     iget-object v1, p0, Lc/ao;->a:[C
 
     array-length v2, v1
 
-    if-eq v0, v2, :cond_22
+    if-eq v0, v2, :cond_0
 
     aget-char v1, v1, v0
 
@@ -129,14 +117,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
-    :cond_22
+    :cond_0
     return-void
 .end method
 
 .method public final f()I
-    .registers 3
+    .locals 2
 
     iget-object v0, p0, Lc/ao;->a:[C
 
@@ -156,13 +144,13 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    add-int/2addr v1, v0
+    add-int/2addr v0, v1
 
-    return v1
+    return v0
 .end method
 
 .method public final g()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -170,7 +158,7 @@
 .end method
 
 .method public final h()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/String;
 
@@ -182,43 +170,38 @@
 .end method
 
 .method public final hashCode()I
-    .registers 5
+    .locals 4
 
-    iget-object v0, p0, Lc/ao;->a:[C
+    iget-object v2, p0, Lc/ao;->a:[C
 
-    if-nez v0, :cond_6
+    if-nez v2, :cond_1
 
     const/4 v0, 0x0
 
-    goto :goto_14
+    :cond_0
+    return v0
 
-    :cond_6
-    array-length v1, v0
+    :cond_1
+    array-length v1, v2
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    :goto_9
+    :goto_0
     add-int/lit8 v1, v1, -0x1
 
-    if-ltz v1, :cond_13
+    if-ltz v1, :cond_0
 
-    mul-int/lit16 v2, v2, 0x101
+    mul-int/lit16 v0, v0, 0x101
 
-    aget-char v3, v0, v1
+    aget-char v3, v2, v1
 
-    xor-int/2addr v2, v3
+    xor-int/2addr v0, v3
 
-    goto :goto_9
-
-    :cond_13
-    move v0, v2
-
-    :goto_14
-    return v0
+    goto :goto_0
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     invoke-virtual {p0}, Lc/ao;->h()Ljava/lang/String;
 

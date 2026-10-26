@@ -51,31 +51,31 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetpackageName(Lcom/s1243808733/aide/project/ProjectDialog$9;)Ljava/lang/String;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetprojectInfo(Lcom/s1243808733/aide/project/ProjectDialog$9;)Lcom/s1243808733/aide/project/jsonbean/Project;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectInfo:Lcom/s1243808733/aide/project/jsonbean/Project;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectInfo:Lcom/s1243808733/aide/project/jsonbean/Project;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetprojectName(Lcom/s1243808733/aide/project/ProjectDialog$9;)Ljava/lang/String;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectName:Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectName:Ljava/lang/String;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$mreplaces(Lcom/s1243808733/aide/project/ProjectDialog$9;Ljava/io/File;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/project/ProjectDialog$9;->replaces(Ljava/io/File;)V
 
@@ -83,7 +83,7 @@
 .end method
 
 .method constructor <init>(Landroid/widget/EditText;Landroid/widget/EditText;Lcom/s1243808733/aide/project/ProjectDialog$CreateProjectView;Lcom/s1243808733/aide/project/jsonbean/Category$Templates;Landroid/app/AlertDialog;Landroid/app/Activity;Ljava/io/File;)V
-    .registers 8
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -111,96 +111,103 @@
 .end method
 
 .method private canWrite(Ljava/io/File;)Z
-    .registers 6
+    .locals 6
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
 
     .line 363
-    new-instance v0, Ljava/io/File;
+    new-instance v2, Ljava/io/File;
 
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/util/UUID;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    const-string v2, "/"
+    const-string v4, "/"
 
-    const-string v3, "_"
+    const-string v5, "_"
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v3, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {v0, p1, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v2, p1, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 365
-    invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
+    invoke-virtual {v2}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object p1
+    move-result-object v3
 
-    if-eqz p1, :cond_22
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
+    invoke-virtual {v2}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object p1
+    move-result-object v3
 
-    invoke-virtual {p1}, Ljava/io/File;->mkdirs()Z
+    invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
 
     .line 367
-    :cond_22
-    const/4 p1, 0x0
+    :cond_0
+    :try_start_0
+    invoke-virtual {v2}, Ljava/io/File;->createNewFile()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v1, 0x1
+    move-result v3
 
-    :try_start_24
-    invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
-
-    move-result v2
-    :try_end_28
-    .catchall {:try_start_24 .. :try_end_28} :catchall_2e
-
-    if-eqz v2, :cond_38
+    if-eqz v3, :cond_1
 
     .line 373
-    invoke-static {v0}, Lcom/blankj/utilcode/util/FileUtils;->delete(Ljava/io/File;)Z
+    invoke-static {v2}, Lcom/blankj/utilcode/util/FileUtils;->delete(Ljava/io/File;)Z
 
-    return v1
+    :goto_0
+    return v0
 
-    :catchall_2e
-    move-exception v2
+    :catchall_0
+    move-exception v0
 
     .line 371
-    :try_start_2f
+    :try_start_1
     const-string v3, "testCanWrite"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v4, 0x1
 
-    aput-object v2, v1, p1
+    new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-static {v3, v1}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
-    :try_end_38
-    .catchall {:try_start_2f .. :try_end_38} :catchall_3c
+    const/4 v5, 0x0
+
+    aput-object v0, v4, v5
+
+    invoke-static {v3, v4}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 373
-    :cond_38
-    invoke-static {v0}, Lcom/blankj/utilcode/util/FileUtils;->delete(Ljava/io/File;)Z
+    :cond_1
+    invoke-static {v2}, Lcom/blankj/utilcode/util/FileUtils;->delete(Ljava/io/File;)Z
+
+    move v0, v1
 
     .line 371
-    return p1
+    goto :goto_0
 
-    :catchall_3c
-    move-exception p1
+    :catchall_1
+    move-exception v0
 
     .line 373
-    invoke-static {v0}, Lcom/blankj/utilcode/util/FileUtils;->delete(Ljava/io/File;)Z
+    invoke-static {v2}, Lcom/blankj/utilcode/util/FileUtils;->delete(Ljava/io/File;)Z
 
     .line 374
-    throw p1
+    throw v0
 .end method
 
 .method private replaces(Ljava/io/File;)V
-    .registers 9
+    .locals 7
 
     .line 473
     new-instance v0, Lcom/s1243808733/aide/project/ProjectDialog$9$1;
@@ -209,248 +216,260 @@
 
     invoke-virtual {p1, v0}, Ljava/io/File;->listFiles(Ljava/io/FileFilter;)[Ljava/io/File;
 
-    move-result-object p1
+    move-result-object v3
 
-    if-nez p1, :cond_c
+    if-nez v3, :cond_1
 
+    .line 514
+    :cond_0
     return-void
 
     .line 490
-    :cond_c
-    array-length v0, p1
+    :cond_1
+    array-length v4, v3
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_e
-    if-ge v1, v0, :cond_87
+    move v2, v0
 
-    aget-object v2, p1, v1
+    :goto_0
+    if-ge v2, v4, :cond_0
+
+    aget-object v1, v3, v2
 
     .line 492
-    invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    const-string v4, "$package_name$"
+    const-string v5, "$package_name$"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_57
+    if-eqz v0, :cond_6
 
     .line 493
-    invoke-virtual {v2}, Ljava/io/File;->isDirectory()Z
+    invoke-virtual {v1}, Ljava/io/File;->isDirectory()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_2f
+    if-eqz v0, :cond_3
 
-    iget-object v3, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
 
     const-string v5, "."
 
     const-string v6, "/"
 
-    invoke-virtual {v3, v5, v6}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v0, v5, v6}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v3
-
-    goto :goto_31
-
-    :cond_2f
-    iget-object v3, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
+    move-result-object v0
 
     .line 494
-    :goto_31
-    invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
+    :goto_1
+    invoke-virtual {v1}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v5, v4, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    const-string v6, "$package_name$"
 
-    move-result-object v3
+    invoke-virtual {v5, v6, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v5
 
     .line 495
-    new-instance v5, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
-    invoke-virtual {v2}, Ljava/io/File;->getParentFile()Ljava/io/File;
+    invoke-virtual {v1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v6
 
-    invoke-direct {v5, v6, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, v6, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 496
-    invoke-virtual {v5}, Ljava/io/File;->isDirectory()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4c
-
-    .line 497
-    invoke-virtual {v5}, Ljava/io/File;->mkdirs()Z
-
-    goto :goto_53
-
-    .line 499
-    :cond_4c
-    invoke-virtual {v5}, Ljava/io/File;->getParentFile()Ljava/io/File;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
-
-    .line 501
-    :goto_53
-    invoke-virtual {v2, v5}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
-
-    move-object v2, v5
-
-    .line 505
-    :cond_57
-    invoke-virtual {v2}, Ljava/io/File;->isFile()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_81
-
-    .line 506
-    invoke-static {v2}, Lcom/blankj/utilcode/util/FileIOUtils;->readFile2String(Ljava/io/File;)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 507
-    invoke-static {v3}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
+    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
     move-result v5
 
-    if-nez v5, :cond_84
+    if-eqz v5, :cond_4
+
+    .line 497
+    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+
+    .line 501
+    :goto_2
+    invoke-virtual {v1, v0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+
+    .line 505
+    :goto_3
+    invoke-virtual {v0}, Ljava/io/File;->isFile()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    .line 506
+    invoke-static {v0}, Lcom/blankj/utilcode/util/FileIOUtils;->readFile2String(Ljava/io/File;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 507
+    invoke-static {v1}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_2
 
     .line 508
-    iget-object v5, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
+    const-string v5, "$package_name$"
 
-    invoke-virtual {v3, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    iget-object v6, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
 
-    move-result-object v3
+    invoke-virtual {v1, v5, v6}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    iget-object v4, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectName:Ljava/lang/String;
+    move-result-object v1
+
+    iget-object v5, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectName:Ljava/lang/String;
 
     .line 509
-    const-string v5, "$project_name$"
+    const-string v6, "$project_name$"
 
-    invoke-virtual {v3, v5, v4}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v1, v6, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    iget-object v4, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageNameJNI:Ljava/lang/String;
+    iget-object v5, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageNameJNI:Ljava/lang/String;
 
     .line 510
-    const-string v5, "$package_name_jni$"
+    const-string v6, "$package_name_jni$"
 
-    invoke-virtual {v3, v5, v4}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v1, v6, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 511
-    invoke-static {v2, v3}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/io/File;Ljava/lang/String;)Z
-
-    goto :goto_84
+    invoke-static {v0, v1}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/io/File;Ljava/lang/String;)Z
 
     .line 514
-    :cond_81
-    invoke-direct {p0, v2}, Lcom/s1243808733/aide/project/ProjectDialog$9;->replaces(Ljava/io/File;)V
+    :cond_2
+    :goto_4
+    add-int/lit8 v0, v2, 0x1
 
-    :cond_84
-    :goto_84
-    add-int/lit8 v1, v1, 0x1
+    move v2, v0
 
-    goto :goto_e
+    goto :goto_0
 
-    :cond_87
-    return-void
+    .line 493
+    :cond_3
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
+
+    goto :goto_1
+
+    .line 499
+    :cond_4
+    invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/io/File;->mkdirs()Z
+
+    goto :goto_2
+
+    .line 514
+    :cond_5
+    invoke-direct {p0, v0}, Lcom/s1243808733/aide/project/ProjectDialog$9;->replaces(Ljava/io/File;)V
+
+    goto :goto_4
+
+    :cond_6
+    move-object v0, v1
+
+    goto :goto_3
 .end method
 
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 352
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$input_projectName:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$input_projectName:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectName:Ljava/lang/String;
 
     .line 353
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$input_packageName:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$input_packageName:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageName:Ljava/lang/String;
 
     .line 354
-    const-string v0, "."
+    const-string v1, "."
 
-    const-string v1, "_"
+    const-string v2, "_"
 
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageNameJNI:Ljava/lang/String;
+    iput-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->packageNameJNI:Ljava/lang/String;
 
     .line 355
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$view:Lcom/s1243808733/aide/project/ProjectDialog$CreateProjectView;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$view:Lcom/s1243808733/aide/project/ProjectDialog$CreateProjectView;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/project/ProjectDialog$CreateProjectView;->-$$Nest$fgetAddcrashhandler(Lcom/s1243808733/aide/project/ProjectDialog$CreateProjectView;)Landroid/widget/CheckBox;
+    invoke-static {v0}, Lcom/s1243808733/aide/project/ProjectDialog$CreateProjectView;->-$$Nest$fgetAddcrashhandler(Lcom/s1243808733/aide/project/ProjectDialog$CreateProjectView;)Landroid/widget/CheckBox;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
 
-    move-result p1
+    move-result v0
 
-    iput-boolean p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->isAddcrashhandler:Z
+    iput-boolean v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->isAddcrashhandler:Z
 
     .line 357
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$templates:Lcom/s1243808733/aide/project/jsonbean/Category$Templates;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$templates:Lcom/s1243808733/aide/project/jsonbean/Category$Templates;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;->getProject()Lcom/s1243808733/aide/project/jsonbean/Project;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;->getProject()Lcom/s1243808733/aide/project/jsonbean/Project;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectInfo:Lcom/s1243808733/aide/project/jsonbean/Project;
+    iput-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->projectInfo:Lcom/s1243808733/aide/project/jsonbean/Project;
 
     .line 358
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
     .line 359
-    new-instance p1, Lcom/s1243808733/aide/project/ProjectDialog$9$CreateTask;
+    new-instance v0, Lcom/s1243808733/aide/project/ProjectDialog$9$CreateTask;
 
-    invoke-direct {p1, p0}, Lcom/s1243808733/aide/project/ProjectDialog$9$CreateTask;-><init>(Lcom/s1243808733/aide/project/ProjectDialog$9;)V
+    invoke-direct {v0, p0}, Lcom/s1243808733/aide/project/ProjectDialog$9$CreateTask;-><init>(Lcom/s1243808733/aide/project/ProjectDialog$9;)V
 
-    sget-object v0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object v1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    new-array v1, v1, [Ljava/lang/Void;
+    new-array v2, v2, [Ljava/lang/Void;
 
-    invoke-virtual {p1, v0, v1}, Lcom/s1243808733/aide/project/ProjectDialog$9$CreateTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1, v2}, Lcom/s1243808733/aide/project/ProjectDialog$9$CreateTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     return-void
 .end method

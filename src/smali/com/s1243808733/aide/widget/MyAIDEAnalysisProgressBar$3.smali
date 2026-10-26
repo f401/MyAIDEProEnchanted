@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,33 +45,33 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .registers 3
+    .locals 2
 
     .line 86
-    iget-object p1, p0, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar$3;->this$0:Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;
+    iget-object v0, p0, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar$3;->this$0:Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;
 
-    iget v0, p0, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar$3;->val$visibility:I
+    iget v1, p0, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar$3;->val$visibility:I
 
-    invoke-static {p1, v0}, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;->access$001(Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;I)V
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;->access$001(Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;I)V
 
     .line 87
-    iget-object p1, p0, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar$3;->this$0:Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;
+    iget-object v0, p0, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar$3;->this$0:Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;->setProgress(I)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;->setProgress(I)V
 
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

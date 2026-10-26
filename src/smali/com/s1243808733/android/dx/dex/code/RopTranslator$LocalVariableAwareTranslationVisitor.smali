@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/dex/code/RopTranslator;Lcom/s1243808733/android/dx/dex/code/OutputCollector;Lcom/s1243808733/android/dx/rop/code/LocalVariableInfo;)V
-    .registers 4
+    .locals 0
 
     .line 889
     iput-object p1, p0, Lcom/s1243808733/android/dx/dex/code/RopTranslator$LocalVariableAwareTranslationVisitor;->this$0:Lcom/s1243808733/android/dx/dex/code/RopTranslator;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public addIntroductionIfNecessary(Lcom/s1243808733/android/dx/rop/code/Insn;)V
-    .registers 4
+    .locals 3
 
     .line 936
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/RopTranslator$LocalVariableAwareTranslationVisitor;->locals:Lcom/s1243808733/android/dx/rop/code/LocalVariableInfo;
@@ -48,25 +48,25 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 939
     new-instance v1, Lcom/s1243808733/android/dx/dex/code/LocalStart;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/Insn;->getPosition()Lcom/s1243808733/android/dx/rop/code/SourcePosition;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-direct {v1, p1, v0}, Lcom/s1243808733/android/dx/dex/code/LocalStart;-><init>(Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
+    invoke-direct {v1, v2, v0}, Lcom/s1243808733/android/dx/dex/code/LocalStart;-><init>(Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
 
     invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/dex/code/RopTranslator$LocalVariableAwareTranslationVisitor;->addOutput(Lcom/s1243808733/android/dx/dex/code/DalvInsn;)V
 
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method public visitPlainCstInsn(Lcom/s1243808733/android/dx/rop/code/PlainCstInsn;)V
-    .registers 2
+    .locals 0
 
     .line 904
     invoke-super {p0, p1}, Lcom/s1243808733/android/dx/dex/code/RopTranslator$TranslationVisitor;->visitPlainCstInsn(Lcom/s1243808733/android/dx/rop/code/PlainCstInsn;)V
@@ -78,7 +78,7 @@
 .end method
 
 .method public visitPlainInsn(Lcom/s1243808733/android/dx/rop/code/PlainInsn;)V
-    .registers 2
+    .locals 0
 
     .line 897
     invoke-super {p0, p1}, Lcom/s1243808733/android/dx/dex/code/RopTranslator$TranslationVisitor;->visitPlainInsn(Lcom/s1243808733/android/dx/rop/code/PlainInsn;)V
@@ -90,7 +90,7 @@
 .end method
 
 .method public visitSwitchInsn(Lcom/s1243808733/android/dx/rop/code/SwitchInsn;)V
-    .registers 2
+    .locals 0
 
     .line 911
     invoke-super {p0, p1}, Lcom/s1243808733/android/dx/dex/code/RopTranslator$TranslationVisitor;->visitSwitchInsn(Lcom/s1243808733/android/dx/rop/code/SwitchInsn;)V
@@ -102,7 +102,7 @@
 .end method
 
 .method public visitThrowingCstInsn(Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;)V
-    .registers 2
+    .locals 0
 
     .line 918
     invoke-super {p0, p1}, Lcom/s1243808733/android/dx/dex/code/RopTranslator$TranslationVisitor;->visitThrowingCstInsn(Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;)V
@@ -114,7 +114,7 @@
 .end method
 
 .method public visitThrowingInsn(Lcom/s1243808733/android/dx/rop/code/ThrowingInsn;)V
-    .registers 2
+    .locals 0
 
     .line 925
     invoke-super {p0, p1}, Lcom/s1243808733/android/dx/dex/code/RopTranslator$TranslationVisitor;->visitThrowingInsn(Lcom/s1243808733/android/dx/rop/code/ThrowingInsn;)V

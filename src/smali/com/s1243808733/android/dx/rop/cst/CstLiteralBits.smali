@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 22
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/cst/TypedConstant;-><init>()V
@@ -16,63 +16,65 @@
 
 # virtual methods
 .method public fitsIn16Bits()Z
-    .registers 4
+    .locals 3
+
+    const/4 v0, 0x0
 
     .line 60
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstLiteralBits;->fitsInInt()Z
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_8
-
-    return v1
+    if-nez v1, :cond_1
 
     .line 64
-    :cond_8
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstLiteralBits;->getIntBits()I
 
-    move-result v0
+    move-result v1
 
-    int-to-short v2, v0
+    int-to-short v2, v1
 
-    if-ne v2, v0, :cond_10
+    if-ne v2, v1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_10
-    return v1
+    goto :goto_0
 .end method
 
 .method public fitsIn8Bits()Z
-    .registers 4
+    .locals 3
+
+    const/4 v0, 0x0
 
     .line 75
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstLiteralBits;->fitsInInt()Z
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_8
-
-    return v1
+    if-nez v1, :cond_1
 
     .line 79
-    :cond_8
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstLiteralBits;->getIntBits()I
 
-    move-result v0
+    move-result v1
 
-    int-to-byte v2, v0
+    int-to-byte v2, v1
 
-    if-ne v2, v0, :cond_10
+    if-ne v2, v1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_10
-    return v1
+    goto :goto_0
 .end method
 
 .method public abstract fitsInInt()Z

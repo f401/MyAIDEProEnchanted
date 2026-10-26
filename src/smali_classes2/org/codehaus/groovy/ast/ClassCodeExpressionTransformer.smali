@@ -1,0 +1,15 @@
+.class public abstract Lorg/codehaus/groovy/ast/ClassCodeExpressionTransformer;
+.super Lorg/codehaus/groovy/ast/ClassCodeVisitorSupport;
+
+# interfaces
+.implements Lorg/codehaus/groovy/ast/expr/ExpressionTransformer;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Lorg/codehaus/groovy/ast/ClassCodeVisitorSupport;-><init>()V
+
+    return-void
+.end method

@@ -26,23 +26,23 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 3
+    .locals 2
+
+    const/4 v1, -0x1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 44
-    const/4 v0, -0x1
-
-    iput v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->index:I
+    iput v1, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->index:I
 
     .line 45
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput v1, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->line:I
+    iput v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->line:I
 
     .line 46
-    iput v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->charPos:I
+    iput v1, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->charPos:I
 
     return-void
 .end method
@@ -50,20 +50,20 @@
 
 # virtual methods
 .method protected reset()V
-    .registers 3
+    .locals 2
+
+    const/4 v1, -0x1
 
     .line 50
-    const/4 v0, -0x1
-
-    iput v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->index:I
+    iput v1, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->index:I
 
     .line 51
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput v1, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->line:I
+    iput v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->line:I
 
     .line 52
-    iput v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->charPos:I
+    iput v1, p0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator$SimState;->charPos:I
 
     .line 53
     const/4 v0, 0x0

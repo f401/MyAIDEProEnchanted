@@ -9,20 +9,20 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/s1243808733/android/dx/cf/code/LocalVariableList;)V
-    .registers 3
+    .locals 2
 
     .line 38
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/cf/attrib/BaseAttribute;-><init>(Ljava/lang/String;)V
 
     .line 41
-    :try_start_3
+    :try_start_0
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->isMutable()Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result p1
-    :try_end_7
-    .catch Ljava/lang/NullPointerException; {:try_start_3 .. :try_end_7} :catch_14
+    move-result v0
 
-    if-nez p1, :cond_c
+    if-nez v0, :cond_0
 
     .line 49
     iput-object p2, p0, Lcom/s1243808733/android/dx/cf/attrib/BaseLocalVariables;->localVariables:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
@@ -30,35 +30,35 @@
     return-void
 
     .line 42
-    :cond_c
-    :try_start_c
-    new-instance p1, Lcom/s1243808733/android/dx/util/MutabilityException;
+    :cond_0
+    :try_start_1
+    new-instance v0, Lcom/s1243808733/android/dx/util/MutabilityException;
 
-    const-string p2, "localVariables.isMutable()"
+    const-string v1, "localVariables.isMutable()"
 
-    invoke-direct {p1, p2}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
 
-    throw p1
-    :try_end_14
-    .catch Ljava/lang/NullPointerException; {:try_start_c .. :try_end_14} :catch_14
+    throw v0
+    :try_end_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 46
-    :catch_14
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "localVariables == null"
+    const-string v1, "localVariables == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public final byteLength()I
-    .registers 2
+    .locals 1
 
     .line 55
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/BaseLocalVariables;->localVariables:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
@@ -75,7 +75,7 @@
 .end method
 
 .method public final getLocalVariables()Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
-    .registers 2
+    .locals 1
 
     .line 64
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/BaseLocalVariables;->localVariables:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;

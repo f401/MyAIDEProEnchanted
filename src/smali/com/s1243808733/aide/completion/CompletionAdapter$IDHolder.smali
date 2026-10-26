@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 6
+    .locals 5
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,15 +46,15 @@
     move-result-object v1
 
     .line 51
+    const-string v2, "translation"
+
+    const-string v3, "id"
+
     invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string v3, "translation"
-
-    const-string v4, "id"
-
-    invoke-virtual {v1, v3, v4, v2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2, v3, v4}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
@@ -63,11 +63,13 @@
     .line 52
     const-string v2, "apiInfo"
 
+    const-string v3, "id"
+
     invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v1, v2, v4, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2, v3, v4}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
@@ -76,11 +78,13 @@
     .line 53
     const-string v2, "apiInfoView"
 
+    const-string v3, "id"
+
     invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v1, v2, v4, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2, v3, v4}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
@@ -89,11 +93,13 @@
     .line 54
     const-string v2, "completionEntryName"
 
+    const-string v3, "id"
+
     invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v1, v2, v4, v0}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2, v3, v0}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 

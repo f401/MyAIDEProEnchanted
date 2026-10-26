@@ -4,17 +4,17 @@
 
 # direct methods
 .method public static a()[B
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x101
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         0x0t
         -0x56t
@@ -277,19 +277,19 @@
 .end method
 
 .method public static b()[B
-    .registers 1
+    .locals 1
 
     const/4 v0, 0x3
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
     nop
 
-    :array_8
+    :array_0
     .array-data 1
         0x1t
         0x0t

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>([BI)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lc/b;-><init>([BI)V
 
@@ -15,7 +15,9 @@
 
 # virtual methods
 .method public final e(Lc/q;)V
-    .registers 7
+    .locals 5
+
+    const/4 v4, 0x0
 
     iget-object v0, p0, Lc/b;->b:[B
 
@@ -31,8 +33,6 @@
     int-to-byte v3, v3
 
     .line 2
-    const/4 v4, 0x0
-
     aput-byte v3, v2, v4
 
     const/4 v3, 0x1
@@ -47,7 +47,7 @@
 .end method
 
 .method public final f()I
-    .registers 3
+    .locals 2
 
     iget-object v0, p0, Lc/b;->b:[B
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public final g()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 

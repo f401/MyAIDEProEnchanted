@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/type/Prototype;)V
-    .registers 2
+    .locals 0
 
     .line 29
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/cst/TypedConstant;-><init>()V
@@ -21,29 +21,29 @@
 .end method
 
 .method public static make(Lcom/s1243808733/android/dx/rop/cst/CstString;)Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
-    .registers 2
+    .locals 2
 
     .line 41
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->getString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/s1243808733/android/dx/rop/type/Prototype;->fromDescriptor(Ljava/lang/String;)Lcom/s1243808733/android/dx/rop/type/Prototype;
+    invoke-static {v0}, Lcom/s1243808733/android/dx/rop/type/Prototype;->fromDescriptor(Ljava/lang/String;)Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 42
-    new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
+    new-instance v1, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
 
-    invoke-direct {v0, p0}, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;-><init>(Lcom/s1243808733/android/dx/rop/type/Prototype;)V
+    invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;-><init>(Lcom/s1243808733/android/dx/rop/type/Prototype;)V
 
-    return-object v0
+    return-object v1
 .end method
 
 
 # virtual methods
 .method protected compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
-    .registers 3
+    .locals 2
 
     .line 75
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
@@ -53,29 +53,31 @@
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;->getPrototype()Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/type/Prototype;->compareTo(Lcom/s1243808733/android/dx/rop/type/Prototype;)I
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/type/Prototype;->compareTo(Lcom/s1243808733/android/dx/rop/type/Prototype;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 2
 
     .line 48
     instance-of v0, p1, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    .line 52
+    :goto_0
+    return v0
 
     .line 51
-    :cond_6
+    :cond_0
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
 
     .line 52
@@ -85,17 +87,17 @@
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;->getPrototype()Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/type/Prototype;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/type/Prototype;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public getPrototype()Lcom/s1243808733/android/dx/rop/type/Prototype;
-    .registers 2
+    .locals 1
 
     .line 92
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;->prototype:Lcom/s1243808733/android/dx/rop/type/Prototype;
@@ -104,7 +106,7 @@
 .end method
 
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 97
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->METHOD_TYPE:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -113,7 +115,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .line 57
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;->prototype:Lcom/s1243808733/android/dx/rop/type/Prototype;
@@ -126,7 +128,7 @@
 .end method
 
 .method public isCategory2()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -134,7 +136,7 @@
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 82
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;->prototype:Lcom/s1243808733/android/dx/rop/type/Prototype;
@@ -147,7 +149,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 88
     new-instance v0, Ljava/lang/StringBuilder;
@@ -182,7 +184,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 69
     const-string v0, "proto"

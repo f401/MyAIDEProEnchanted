@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxHelpActivity$2;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,28 +45,28 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 3
 
     .line 88
-    iget-object p1, p0, Lcom/termux/app/TermuxHelpActivity$2$2;->val$url:Ljava/lang/String;
+    iget-object v0, p0, Lcom/termux/app/TermuxHelpActivity$2$2;->val$url:Ljava/lang/String;
 
-    invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 89
-    new-instance p2, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v0, "android.intent.action.VIEW"
+    const-string v2, "android.intent.action.VIEW"
 
-    invoke-direct {p2, v0, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v1, v2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     .line 90
-    iget-object p1, p0, Lcom/termux/app/TermuxHelpActivity$2$2;->this$1:Lcom/termux/app/TermuxHelpActivity$2;
+    iget-object v0, p0, Lcom/termux/app/TermuxHelpActivity$2$2;->this$1:Lcom/termux/app/TermuxHelpActivity$2;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxHelpActivity$2;->this$0:Lcom/termux/app/TermuxHelpActivity;
+    iget-object v0, v0, Lcom/termux/app/TermuxHelpActivity$2;->this$0:Lcom/termux/app/TermuxHelpActivity;
 
-    invoke-virtual {p1, p2}, Lcom/termux/app/TermuxHelpActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxHelpActivity;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method

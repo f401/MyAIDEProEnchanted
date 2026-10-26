@@ -15,8 +15,10 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lio/github/zeroaicy/serialize/Value<",
-        "Ljava/util/Map<",
+        "Lio/github/zeroaicy/serialize/Value",
+        "<",
+        "Ljava/util/Map",
+        "<",
         "Lio/github/zeroaicy/serialize/Value;",
         "Lio/github/zeroaicy/serialize/Value;",
         ">;>;"
@@ -26,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 33
     invoke-direct {p0}, Lio/github/zeroaicy/serialize/Value;-><init>()V

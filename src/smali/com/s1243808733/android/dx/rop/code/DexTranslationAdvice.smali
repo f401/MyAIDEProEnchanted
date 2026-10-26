@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 29
     new-instance v0, Lcom/s1243808733/android/dx/rop/code/DexTranslationAdvice;
@@ -42,7 +42,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>(Z)V
-    .registers 2
+    .locals 0
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,43 +68,47 @@
 .end method
 
 .method private totalRopWidth(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)I
-    .registers 6
+    .locals 4
+
+    const/4 v1, 0x0
 
     .line 118
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
-    move-result v0
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    :goto_6
-    if-ge v1, v0, :cond_14
-
-    .line 122
-    invoke-virtual {p1, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getCategory()I
-
     move-result v3
 
-    add-int/2addr v2, v3
+    move v0, v1
 
-    add-int/lit8 v1, v1, 0x1
+    move v2, v1
 
-    goto :goto_6
+    :goto_0
+    if-ge v2, v3, :cond_0
 
-    :cond_14
-    return v2
+    .line 122
+    invoke-virtual {p1, v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getCategory()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
+
+    goto :goto_0
+
+    :cond_0
+    return v0
 .end method
 
 
 # virtual methods
 .method public getMaxOptimalRegisterCount()I
-    .registers 2
+    .locals 1
 
     const/16 v0, 0x10
 
@@ -112,166 +116,176 @@
 .end method
 
 .method public hasConstantOperation(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)Z
-    .registers 7
+    .locals 3
+
+    const/4 v1, 0x0
 
     .line 60
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getType()Lcom/s1243808733/android/dx/rop/type/Type;
 
     move-result-object v0
 
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    const/4 v2, 0x0
+    if-eq v0, v2, :cond_0
 
-    if-eq v0, v1, :cond_a
+    move v0, v1
 
-    return v2
+    .line 96
+    :goto_0
+    return v0
 
     .line 65
-    :cond_a
+    :cond_0
     invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getTypeBearer()Lcom/s1243808733/android/dx/rop/type/TypeBearer;
 
     move-result-object v0
 
     instance-of v0, v0, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
-    if-nez v0, :cond_2e
+    if-nez v0, :cond_2
 
     .line 67
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getTypeBearer()Lcom/s1243808733/android/dx/rop/type/TypeBearer;
 
-    move-result-object p3
+    move-result-object v0
 
-    instance-of p3, p3, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
+    instance-of v0, v0, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
-    if-eqz p3, :cond_2d
+    if-eqz v0, :cond_1
 
     .line 68
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/Rop;->getOpcode()I
 
-    move-result p1
+    move-result v0
 
-    const/16 p3, 0xf
+    const/16 v2, 0xf
 
-    if-ne p1, p3, :cond_2d
+    if-ne v0, v2, :cond_1
 
     .line 69
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getTypeBearer()Lcom/s1243808733/android/dx/rop/type/TypeBearer;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
     .line 70
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->fitsIn16Bits()Z
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->fitsIn16Bits()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 
-    :cond_2d
-    return v2
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
 
     .line 76
-    :cond_2e
+    :cond_2
     invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getTypeBearer()Lcom/s1243808733/android/dx/rop/type/TypeBearer;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
     .line 78
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/Rop;->getOpcode()I
 
-    move-result p1
+    move-result v2
 
-    packed-switch p1, :pswitch_data_54
+    packed-switch v2, :pswitch_data_0
 
-    :pswitch_3b  #0x13
-    return v2
+    :pswitch_0
+    move v0, v1
+
+    goto :goto_0
 
     .line 92
-    :pswitch_3c  #0x17, 0x18, 0x19
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->fitsIn8Bits()Z
+    :pswitch_1
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->fitsIn8Bits()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 
     .line 95
-    :pswitch_41  #0xf
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->getValue()I
+    :pswitch_2
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->getValue()I
 
-    move-result p1
+    move-result v0
 
-    neg-int p1, p1
+    neg-int v0, v0
 
-    invoke-static {p1}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->make(I)Lcom/s1243808733/android/dx/rop/cst/CstInteger;
+    invoke-static {v0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->make(I)Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 96
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->fitsIn16Bits()Z
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->fitsIn16Bits()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 
     .line 87
-    :pswitch_4f  #0xe, 0x10, 0x11, 0x12, 0x14, 0x15, 0x16
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->fitsIn16Bits()Z
+    :pswitch_3
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->fitsIn16Bits()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 
-    :pswitch_data_54
+    nop
+
+    :pswitch_data_0
     .packed-switch 0xe
-        :pswitch_4f  #0000000e
-        :pswitch_41  #0000000f
-        :pswitch_4f  #00000010
-        :pswitch_4f  #00000011
-        :pswitch_4f  #00000012
-        :pswitch_3b  #00000013
-        :pswitch_4f  #00000014
-        :pswitch_4f  #00000015
-        :pswitch_4f  #00000016
-        :pswitch_3c  #00000017
-        :pswitch_3c  #00000018
-        :pswitch_3c  #00000019
+        :pswitch_3
+        :pswitch_2
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_0
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public requiresSourcesInOrder(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)Z
-    .registers 4
+    .locals 2
 
     .line 107
     iget-boolean v0, p0, Lcom/s1243808733/android/dx/rop/code/DexTranslationAdvice;->disableSourcesInOrder:Z
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/Rop;->isCallLike()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_13
+    if-eqz v0, :cond_0
 
     .line 108
     invoke-direct {p0, p2}, Lcom/s1243808733/android/dx/rop/code/DexTranslationAdvice;->totalRopWidth(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)I
 
-    move-result p1
+    move-result v0
 
-    const/4 p2, 0x6
+    const/4 v1, 0x6
 
-    if-lt p1, p2, :cond_13
+    if-lt v0, v1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_14
+    :goto_0
+    return v0
 
-    :cond_13
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_14
-    return p1
+    goto :goto_0
 .end method

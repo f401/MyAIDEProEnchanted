@@ -4,32 +4,32 @@
 
 # direct methods
 .method static a(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;I)V
-    .registers 7
+    .locals 3
 
-    if-ltz p3, :cond_28
+    if-ltz p3, :cond_0
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v0
 
-    if-lt v0, p3, :cond_28
+    if-lt v0, p3, :cond_0
 
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v0
 
-    if-lt v0, p3, :cond_28
+    if-lt v0, p3, :cond_0
 
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v0
 
-    if-lt v0, p3, :cond_28
+    if-lt v0, p3, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_15
-    if-ge v0, p3, :cond_27
+    :goto_0
+    if-ge v0, p3, :cond_1
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->get()B
 
@@ -47,23 +47,17 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
-    :cond_27
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "That combination of buffers, offsets and length to xor result in out-of-bond accesses."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
     return-void
-
-    :cond_28
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "That combination of buffers, offsets and length to xor result in out-of-bond accesses."
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    goto :goto_31
-
-    :goto_30
-    throw p0
-
-    :goto_31
-    goto :goto_30
 .end method

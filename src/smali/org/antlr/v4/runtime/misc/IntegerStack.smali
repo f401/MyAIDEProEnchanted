@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 14
     invoke-direct {p0}, Lorg/antlr/v4/runtime/misc/IntegerList;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 18
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/misc/IntegerList;-><init>(I)V
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/misc/IntegerStack;)V
-    .registers 2
+    .locals 0
 
     .line 22
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/misc/IntegerList;-><init>(Lorg/antlr/v4/runtime/misc/IntegerList;)V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public final peek()I
-    .registers 2
+    .locals 1
 
     .line 34
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/misc/IntegerStack;->size()I
@@ -51,7 +51,7 @@
 .end method
 
 .method public final pop()I
-    .registers 2
+    .locals 1
 
     .line 30
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/misc/IntegerStack;->size()I
@@ -68,7 +68,7 @@
 .end method
 
 .method public final push(I)V
-    .registers 2
+    .locals 0
 
     .line 26
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/IntegerStack;->add(I)V

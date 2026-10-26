@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(III)V
-    .registers 4
+    .locals 1
 
     invoke-direct {p0}, Lcom/termux/yinli_a/h/f;-><init>()V
 
@@ -23,81 +23,78 @@
 
     iput p2, p0, Lcom/termux/yinli_a/l/b;->a:I
 
-    if-lez p3, :cond_c
+    if-lez p3, :cond_1
 
-    if-gt p1, p2, :cond_e
+    if-gt p1, p2, :cond_2
 
-    goto :goto_10
+    :cond_0
+    const/4 v0, 0x1
 
-    :cond_c
-    if-ge p1, p2, :cond_10
+    :goto_0
+    iput-boolean v0, p0, Lcom/termux/yinli_a/l/b;->b:Z
 
-    :cond_e
-    const/4 p3, 0x0
+    if-eqz v0, :cond_3
 
-    goto :goto_11
-
-    :cond_10
-    :goto_10
-    const/4 p3, 0x1
-
-    :goto_11
-    iput-boolean p3, p0, Lcom/termux/yinli_a/l/b;->b:Z
-
-    if-eqz p3, :cond_16
-
-    goto :goto_17
-
-    :cond_16
-    move p1, p2
-
-    :goto_17
+    :goto_1
     iput p1, p0, Lcom/termux/yinli_a/l/b;->c:I
 
     return-void
+
+    :cond_1
+    if-ge p1, p2, :cond_0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    move p1, p2
+
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public a()I
-    .registers 3
+    .locals 2
 
     iget v0, p0, Lcom/termux/yinli_a/l/b;->c:I
 
     iget v1, p0, Lcom/termux/yinli_a/l/b;->a:I
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_1
 
     iget-boolean v1, p0, Lcom/termux/yinli_a/l/b;->b:Z
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/termux/yinli_a/l/b;->b:Z
 
-    goto :goto_19
+    :goto_0
+    return v0
 
-    :cond_e
+    :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v0
 
-    :cond_14
+    :cond_1
     iget v1, p0, Lcom/termux/yinli_a/l/b;->d:I
 
     add-int/2addr v1, v0
 
     iput v1, p0, Lcom/termux/yinli_a/l/b;->c:I
 
-    :goto_19
-    return v0
+    goto :goto_0
 .end method
 
 .method public hasNext()Z
-    .registers 2
+    .locals 1
 
     iget-boolean v0, p0, Lcom/termux/yinli_a/l/b;->b:Z
 

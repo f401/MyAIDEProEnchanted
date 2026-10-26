@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/project/ProjectDialog$9;)V
-    .registers 2
+    .locals 0
 
     .line 473
     iput-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$9$1;->this$0:Lcom/s1243808733/aide/project/ProjectDialog$9;
@@ -36,21 +36,25 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .registers 6
+    .locals 4
+
+    const/4 v1, 0x1
 
     .line 477
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
 
     move-result v0
 
-    const/4 v1, 0x1
+    if-eqz v0, :cond_0
 
-    if-eqz v0, :cond_8
+    move v0, v1
 
-    return v1
+    .line 481
+    :goto_0
+    return v0
 
     .line 480
-    :cond_8
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$9$1;->this$0:Lcom/s1243808733/aide/project/ProjectDialog$9;
 
     invoke-static {v0}, Lcom/s1243808733/aide/project/ProjectDialog$9;->-$$Nest$fgetprojectInfo(Lcom/s1243808733/aide/project/ProjectDialog$9;)Lcom/s1243808733/aide/project/jsonbean/Project;
@@ -63,36 +67,38 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :cond_16
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2d
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Ljava/lang/String;
+    :cond_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
 
     .line 481
     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
+    invoke-static {v0, v3}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_16
+    if-eqz v0, :cond_1
 
-    return v1
+    move v0, v1
 
-    :cond_2d
-    const/4 p1, 0x0
+    goto :goto_0
 
-    return p1
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

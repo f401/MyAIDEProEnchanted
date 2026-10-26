@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/cr;Landroid/content/Context;Lcom/baidu/mobstat/cj;)V
-    .registers 4
+    .locals 0
 
     .line 705
     iput-object p1, p0, Lcom/baidu/mobstat/cr$4;->c:Lcom/baidu/mobstat/cr;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 4
 
     .line 708
     invoke-static {}, Lcom/baidu/mobstat/BDStatCore;->instance()Lcom/baidu/mobstat/BDStatCore;
@@ -57,14 +57,15 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-gtz v4, :cond_f
-
-    return-void
+    if-gtz v0, :cond_0
 
     .line 713
-    :cond_f
+    :goto_0
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/cr$4;->c:Lcom/baidu/mobstat/cr;
 
     iget-object v1, p0, Lcom/baidu/mobstat/cr$4;->a:Landroid/content/Context;
@@ -73,5 +74,5 @@
 
     invoke-static {v0, v1, v2}, Lcom/baidu/mobstat/cr;->a(Lcom/baidu/mobstat/cr;Landroid/content/Context;Lcom/baidu/mobstat/cj;)V
 
-    return-void
+    goto :goto_0
 .end method

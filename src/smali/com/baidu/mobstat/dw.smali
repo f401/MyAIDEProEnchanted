@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 8
     new-instance v0, Lcom/baidu/mobstat/dw;
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method public static a()Lcom/baidu/mobstat/dw;
-    .registers 1
+    .locals 1
 
     .line 11
     sget-object v0, Lcom/baidu/mobstat/dw;->a:Lcom/baidu/mobstat/dw;
@@ -47,7 +47,7 @@
 .end method
 
 .method static synthetic a(Ljava/lang/String;)Ljava/lang/String;
-    .registers 1
+    .locals 0
 
     .line 6
     sput-object p0, Lcom/baidu/mobstat/dw;->b:Ljava/lang/String;
@@ -56,7 +56,7 @@
 .end method
 
 .method static synthetic b()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .line 6
     sget-object v0, Lcom/baidu/mobstat/dw;->b:Ljava/lang/String;
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public a(Landroid/content/Context;Lcom/baidu/mobstat/dv;)V
-    .registers 4
+    .locals 1
 
     .line 18
     invoke-static {p1}, Lcom/baidu/mobstat/dy;->a(Landroid/content/Context;)Ljava/lang/String;
@@ -81,26 +81,26 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_1
 
-    if-eqz p2, :cond_1c
+    if-eqz p2, :cond_0
 
     .line 23
-    sget-object p1, Lcom/baidu/mobstat/dw;->b:Ljava/lang/String;
+    sget-object v0, Lcom/baidu/mobstat/dw;->b:Ljava/lang/String;
 
-    invoke-interface {p2, p1}, Lcom/baidu/mobstat/dv;->a(Ljava/lang/String;)V
-
-    goto :goto_1c
+    invoke-interface {p2, v0}, Lcom/baidu/mobstat/dv;->a(Ljava/lang/String;)V
 
     .line 26
-    :cond_14
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     new-instance v0, Lcom/baidu/mobstat/dw$1;
 
     invoke-direct {v0, p0, p2}, Lcom/baidu/mobstat/dw$1;-><init>(Lcom/baidu/mobstat/dw;Lcom/baidu/mobstat/dv;)V
 
     invoke-static {p1, v0}, Lcom/baidu/mobstat/du;->a(Landroid/content/Context;Lcom/baidu/mobstat/dx;)V
 
-    :cond_1c
-    :goto_1c
-    return-void
+    goto :goto_0
 .end method

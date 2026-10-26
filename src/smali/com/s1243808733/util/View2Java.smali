@@ -13,7 +13,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$sfgetcheckedItems()[Z
-    .registers 1
+    .locals 1
 
     sget-object v0, Lcom/s1243808733/util/View2Java;->checkedItems:[Z
 
@@ -21,7 +21,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$sfgetitems()[Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lcom/s1243808733/util/View2Java;->items:[Ljava/lang/String;
 
@@ -29,7 +29,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smgetSp()Landroid/content/SharedPreferences;
-    .registers 1
+    .locals 1
 
     invoke-static {}, Lcom/s1243808733/util/View2Java;->getSp()Landroid/content/SharedPreferences;
 
@@ -39,60 +39,60 @@
 .end method
 
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
+
+    const/4 v3, 0x6
 
     .line 19
-    const/4 v0, 0x6
+    new-array v0, v3, [Ljava/lang/String;
 
-    new-array v1, v0, [Ljava/lang/String;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "add field"
 
-    const-string v3, "add field"
+    aput-object v2, v0, v1
 
-    aput-object v3, v1, v2
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const-string v2, "add private"
 
-    const-string v3, "add private"
+    aput-object v2, v0, v1
 
-    aput-object v3, v1, v2
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    const-string v2, "add m"
 
-    const-string v3, "add m"
+    aput-object v2, v0, v1
 
-    aput-object v3, v1, v2
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    const-string v2, "root view"
 
-    const-string v3, "root view"
+    aput-object v2, v0, v1
 
-    aput-object v3, v1, v2
+    const/4 v1, 0x4
 
-    const/4 v2, 0x4
+    const-string v2, "root Activity"
 
-    const-string v3, "root Activity"
+    aput-object v2, v0, v1
 
-    aput-object v3, v1, v2
+    const/4 v1, 0x5
 
-    const/4 v2, 0x5
+    const-string v2, "type conversion"
 
-    const-string v3, "type conversion"
+    aput-object v2, v0, v1
 
-    aput-object v3, v1, v2
-
-    sput-object v1, Lcom/s1243808733/util/View2Java;->items:[Ljava/lang/String;
+    sput-object v0, Lcom/s1243808733/util/View2Java;->items:[Ljava/lang/String;
 
     .line 22
-    new-array v1, v0, [Z
+    new-array v0, v3, [Z
 
-    fill-array-data v1, :array_30
+    fill-array-data v0, :array_0
 
-    sput-object v1, Lcom/s1243808733/util/View2Java;->checkedItems_default:[Z
+    sput-object v0, Lcom/s1243808733/util/View2Java;->checkedItems_default:[Z
 
     .line 25
-    new-array v0, v0, [Z
+    new-array v0, v3, [Z
 
     sput-object v0, Lcom/s1243808733/util/View2Java;->checkedItems:[Z
 
@@ -100,7 +100,7 @@
 
     nop
 
-    :array_30
+    :array_0
     .array-data 1
         0x1t
         0x1t
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -121,7 +121,7 @@
 .end method
 
 .method public static getCode(Ljava/lang/String;[Z)Ljava/lang/String;
-    .registers 20
+    .locals 18
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -130,171 +130,184 @@
     .end annotation
 
     .line 98
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     .line 99
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v5, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
     .line 101
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v6, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 102
-    new-instance v3, Ljava/lang/StringBuffer;
+    new-instance v7, Ljava/lang/StringBuffer;
 
-    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 104
     invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
 
-    move-result-object v4
+    move-result-object v1
 
     .line 105
-    invoke-virtual {v4}, Lorg/xmlpull/v1/XmlPullParserFactory;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
+    invoke-virtual {v1}, Lorg/xmlpull/v1/XmlPullParserFactory;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
-    move-result-object v4
+    move-result-object v3
 
     .line 106
-    new-instance v5, Ljava/io/StringReader;
+    new-instance v1, Ljava/io/StringReader;
 
-    move-object/from16 v6, p0
+    move-object/from16 v0, p0
 
-    invoke-direct {v5, v6}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
 
-    invoke-interface {v4, v5}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
+    invoke-interface {v3, v1}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
 
     .line 107
-    :goto_26
-    invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
+    :goto_0
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
-    move-result v5
+    move-result v2
 
-    const/4 v6, 0x0
+    const/4 v1, 0x0
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    if-eq v5, v7, :cond_ae
+    if-eq v2, v8, :cond_5
 
     .line 108
-    invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v8
 
     .line 109
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v2
 
-    if-nez v8, :cond_a9
+    if-nez v2, :cond_4
 
-    invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
-    move-result v8
+    move-result v2
 
-    if-lez v8, :cond_a9
+    if-lez v2, :cond_4
+
+    move v2, v1
 
     .line 110
-    :goto_3e
-    invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+    :goto_1
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
-    move-result v8
+    move-result v1
 
-    if-ge v6, v8, :cond_a6
+    if-ge v2, v1, :cond_3
 
     .line 111
-    const-string v8, "android:id"
+    const-string v1, "android:id"
 
-    invoke-interface {v4, v6}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+    invoke-interface {v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v1
 
-    if-eqz v8, :cond_a3
+    if-eqz v1, :cond_0
 
     .line 112
-    invoke-interface {v4, v6}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+    invoke-interface {v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v1
 
     .line 113
     const-string v9, "@"
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v1, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_7b
+    if-eqz v9, :cond_1
 
     .line 114
     const-string v9, ":id/"
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_7b
-
-    .line 115
-    invoke-virtual {v8, v7}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 116
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_a3
-
-    .line 117
-    invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 118
-    const-string v10, ".R.id."
-
-    invoke-virtual {v8, v9, v10}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-interface {v1, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_a3
-
-    .line 121
-    :cond_7b
-    const-string v9, "/"
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {v1, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v9
 
-    if-ltz v9, :cond_89
+    if-eqz v9, :cond_1
+
+    .line 115
+    const/4 v9, 0x1
+
+    invoke-virtual {v1, v9}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 116
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_0
+
+    .line 117
+    invoke-interface {v4, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 118
+    const-string v9, ":id/"
+
+    const-string v10, ".R.id."
+
+    invoke-virtual {v1, v9, v10}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v5, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 125
+    :cond_0
+    :goto_2
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
+
+    goto :goto_1
+
+    .line 121
+    :cond_1
+    const-string v9, "/"
+
+    invoke-virtual {v1, v9}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v9
+
+    if-ltz v9, :cond_2
 
     .line 122
     add-int/lit8 v9, v9, 0x1
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v1, v9}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v1
 
     .line 123
-    :cond_89
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :cond_2
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v9
 
-    if-nez v9, :cond_a3
+    if-nez v9, :cond_0
 
     .line 124
-    invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v4, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 125
     new-instance v9, Ljava/lang/StringBuilder;
@@ -303,422 +316,440 @@
 
     invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v1
 
-    invoke-interface {v1, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v5, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_a3
-    :goto_a3
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_3e
+    goto :goto_2
 
     .line 131
-    :cond_a6
-    invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    :cond_3
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     .line 133
-    :cond_a9
-    invoke-interface {v4}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    :cond_4
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    goto/16 :goto_26
+    goto/16 :goto_0
 
     .line 137
-    :cond_ae
-    aget-boolean v4, p1, v6
+    :cond_5
+    const/4 v1, 0x0
+
+    aget-boolean v8, p1, v1
 
     .line 138
-    aget-boolean v5, p1, v7
+    const/4 v1, 0x1
+
+    aget-boolean v9, p1, v1
 
     .line 139
-    const/4 v8, 0x2
+    const/4 v1, 0x2
 
-    aget-boolean v9, p1, v8
+    aget-boolean v10, p1, v1
 
     .line 140
-    const/4 v10, 0x3
+    const/4 v1, 0x3
 
-    aget-boolean v10, p1, v10
+    aget-boolean v11, p1, v1
 
     .line 141
-    const/4 v11, 0x4
+    const/4 v1, 0x4
 
-    aget-boolean v11, p1, v11
+    aget-boolean v12, p1, v1
 
     .line 142
-    const/4 v12, 0x5
+    const/4 v1, 0x5
 
-    aget-boolean v12, p1, v12
+    aget-boolean v13, p1, v1
 
-    const/4 v13, 0x0
+    const/4 v1, 0x0
+
+    move v3, v1
 
     .line 144
-    :goto_bf
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v14
-
-    if-ge v13, v14, :cond_14a
-
-    .line 145
-    invoke-interface {v0, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Ljava/lang/String;
-
-    .line 146
-    invoke-interface {v1, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Ljava/lang/String;
-
-    .line 148
-    invoke-static {v14}, Lcom/s1243808733/util/View2Java;->getViewName(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v14
-
-    .line 149
-    invoke-static {v15, v9}, Lcom/s1243808733/util/View2Java;->getIdName(Ljava/lang/String;Z)Ljava/lang/String;
-
-    move-result-object v7
-
-    if-eqz v4, :cond_f5
-
-    if-eqz v5, :cond_e2
-
-    .line 153
-    const-string v6, "private "
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 155
-    :cond_e2
-    new-array v6, v8, [Ljava/lang/Object;
-
-    const/16 v16, 0x0
-
-    aput-object v14, v6, v16
-
-    const/16 v17, 0x1
-
-    aput-object v7, v6, v17
-
-    const-string v8, "%1$s %2$s;\n"
-
-    invoke-static {v8, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 158
-    :cond_f5
-    const-string v6, "    "
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    if-nez v4, :cond_105
-
-    .line 160
-    invoke-virtual {v2, v14}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 161
-    const-string v6, " "
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto :goto_10c
-
-    :cond_105
-    if-eqz v10, :cond_10c
-
-    .line 164
-    const-string v6, "this."
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 167
-    :cond_10c
-    :goto_10c
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 168
-    const-string v6, " = "
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    if-eqz v12, :cond_125
-
-    .line 170
-    const/4 v6, 0x1
-
-    new-array v7, v6, [Ljava/lang/Object;
-
-    const/4 v6, 0x0
-
-    aput-object v14, v7, v6
-
-    const-string v6, "(%s)"
-
-    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :cond_125
-    if-eqz v10, :cond_12d
-
-    .line 173
-    const-string v6, "view."
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto :goto_134
-
-    :cond_12d
-    if-eqz v11, :cond_134
-
-    .line 175
-    const-string v6, "activity."
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 177
-    :cond_134
-    :goto_134
-    const/4 v6, 0x1
-
-    new-array v7, v6, [Ljava/lang/Object;
-
-    const/4 v8, 0x0
-
-    aput-object v15, v7, v8
-
-    const-string v14, "findViewById(%s);\n"
-
-    invoke-static {v14, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    add-int/lit8 v13, v13, 0x1
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x1
-
-    const/4 v8, 0x2
-
-    goto/16 :goto_bf
-
-    .line 181
-    :cond_14a
-    new-instance v0, Ljava/lang/StringBuffer;
-
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
-    .line 182
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->length()I
+    :goto_3
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_176
+    if-ge v3, v1, :cond_d
 
-    .line 183
-    const-string v1, "private void initView("
+    .line 145
+    invoke-interface {v4, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v1
 
-    if-eqz v10, :cond_162
+    move-object v2, v1
 
-    .line 185
-    const-string v1, "View view"
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    .line 146
+    invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    goto :goto_169
+    move-result-object v1
 
-    :cond_162
-    if-eqz v11, :cond_169
+    check-cast v1, Ljava/lang/String;
 
-    .line 187
-    const-string v1, "Activity activity"
+    .line 148
+    invoke-static {v2}, Lcom/s1243808733/util/View2Java;->getViewName(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v2
 
-    .line 189
-    :cond_169
-    :goto_169
-    const-string v1, ") {\n"
+    .line 149
+    invoke-static {v1, v10}, Lcom/s1243808733/util/View2Java;->getIdName(Ljava/lang/String;Z)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v14
 
-    .line 190
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
+    if-eqz v8, :cond_7
 
-    .line 191
-    const-string v1, "}"
+    if-eqz v9, :cond_6
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    .line 153
+    const-string v15, "private "
 
-    .line 194
-    :cond_176
+    invoke-virtual {v7, v15}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 155
+    :cond_6
+    const-string v15, "%1$s %2$s;\n"
+
+    const/16 v16, 0x2
+
+    move/from16 v0, v16
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v16, v0
+
+    const/16 v17, 0x0
+
+    aput-object v2, v16, v17
+
+    const/16 v17, 0x1
+
+    aput-object v14, v16, v17
+
+    invoke-static/range {v15 .. v16}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v7, v15}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 158
+    :cond_7
+    const-string v15, "    "
+
+    invoke-virtual {v6, v15}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    if-nez v8, :cond_b
+
+    .line 160
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 161
+    const-string v15, " "
+
+    invoke-virtual {v6, v15}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 167
+    :cond_8
+    :goto_4
+    invoke-virtual {v6, v14}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 168
+    const-string v14, " = "
+
+    invoke-virtual {v6, v14}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    if-eqz v13, :cond_9
+
+    .line 170
+    const-string v14, "(%s)"
+
+    const/4 v15, 0x1
+
+    new-array v15, v15, [Ljava/lang/Object;
+
+    const/16 v16, 0x0
+
+    aput-object v2, v15, v16
+
+    invoke-static {v14, v15}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    :cond_9
+    if-eqz v11, :cond_c
+
+    .line 173
+    const-string v2, "view."
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 177
+    :cond_a
+    :goto_5
+    const-string v2, "findViewById(%s);\n"
+
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    const/4 v15, 0x0
+
+    aput-object v1, v14, v15
+
+    invoke-static {v2, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    add-int/lit8 v1, v3, 0x1
+
+    move v3, v1
+
+    goto :goto_3
+
+    .line 161
+    :cond_b
+    if-eqz v11, :cond_8
+
+    .line 164
+    const-string v15, "this."
+
+    invoke-virtual {v6, v15}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_4
+
+    .line 173
+    :cond_c
+    if-eqz v12, :cond_a
+
+    .line 175
+    const-string v2, "activity."
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_5
+
+    .line 181
+    :cond_d
     new-instance v1, Ljava/lang/StringBuffer;
 
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    if-eqz v4, :cond_185
+    .line 182
+    invoke-virtual {v6}, Ljava/lang/StringBuffer;->length()I
 
-    .line 196
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
+    move-result v2
 
-    .line 197
-    const-string v2, "\n"
+    if-lez v2, :cond_f
+
+    .line 183
+    const-string v2, "private void initView("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    if-eqz v11, :cond_11
+
+    .line 185
+    const-string v2, "View view"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 189
+    :cond_e
+    :goto_6
+    const-string v2, ") {\n"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 190
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
+
+    .line 191
+    const-string v2, "}"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 194
+    :cond_f
+    new-instance v2, Ljava/lang/StringBuffer;
+
+    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+
+    if-eqz v8, :cond_10
+
+    .line 196
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
+
+    .line 197
+    const-string v3, "\n"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
     .line 199
-    :cond_185
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
+    :cond_10
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     .line 201
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
+
+    .line 185
+    :cond_11
+    if-eqz v12, :cond_e
+
+    .line 187
+    const-string v2, "Activity activity"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_6
 .end method
 
 .method private static getIdName(Ljava/lang/String;Z)Ljava/lang/String;
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x1
 
     .line 205
     const-string v0, "."
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x1
-
-    if-ltz v1, :cond_12
+    if-ltz v0, :cond_3
 
     .line 206
+    const-string v0, "."
+
     invoke-virtual {p0, v0}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
     move-result v0
 
-    add-int/2addr v0, v2
+    add-int/lit8 v0, v0, 0x1
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    :cond_12
-    if-nez p1, :cond_15
-
-    return-object p0
-
-    .line 211
-    :cond_15
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result p1
-
-    if-gt p1, v2, :cond_22
-
-    .line 212
-    sget-object p1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_40
-
-    .line 214
-    :cond_22
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object p1
-
-    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 215
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 217
-    :goto_40
-    const-string p1, "M"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_52
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result p1
-
-    if-le p1, v2, :cond_52
-
-    .line 218
-    invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p0
+    :goto_0
+    if-nez p1, :cond_0
 
     .line 220
-    :cond_52
-    new-instance p1, Ljava/lang/StringBuilder;
+    :goto_1
+    return-object v0
 
-    const-string v0, "m"
+    .line 211
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result v1
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-gt v1, v3, :cond_2
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 212
+    sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    move-result-object p0
+    invoke-virtual {v0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    return-object p0
+    move-result-object v0
+
+    .line 217
+    :goto_2
+    const-string v1, "M"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    if-le v1, v3, :cond_1
+
+    .line 218
+    invoke-virtual {v0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 220
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "m"
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_1
+
+    .line 214
+    :cond_2
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v1
+
+    sget-object v2, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 215
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_2
+
+    :cond_3
+    move-object v0, p0
+
+    goto :goto_0
 .end method
 
 .method private static getSp()Landroid/content/SharedPreferences;
-    .registers 1
+    .locals 1
 
     .line 29
     const-string v0, "View2Java"
@@ -731,7 +762,7 @@
 .end method
 
 .method private static getViewName(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 225
     const-string v0, "."
@@ -740,7 +771,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_e
+    if-ltz v0, :cond_0
 
     .line 227
     add-int/lit8 v0, v0, 0x1
@@ -749,22 +780,24 @@
 
     move-result-object p0
 
-    :cond_e
+    :cond_0
     return-object p0
 .end method
 
 .method public static showDialog(Landroid/app/Activity;Ljava/lang/String;)V
-    .registers 8
+    .locals 7
+
+    const/4 v6, 0x0
 
     const/4 v0, 0x0
 
     .line 33
-    :goto_1
+    :goto_0
     sget-object v1, Lcom/s1243808733/util/View2Java;->items:[Ljava/lang/String;
 
     array-length v2, v1
 
-    if-ge v0, v2, :cond_23
+    if-ge v0, v2, :cond_0
 
     .line 34
     sget-object v2, Lcom/s1243808733/util/View2Java;->checkedItems:[Z
@@ -795,30 +828,25 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 36
-    :cond_23
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    :cond_0
+    new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 37
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_31
+    if-eqz v0, :cond_1
 
-    const-string v2, "配置"
+    const-string v0, "\u914d\u7f6e"
 
-    goto :goto_33
-
-    :cond_31
-    const-string v2, "Configured"
-
-    :goto_33
-    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    :goto_1
+    invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -831,33 +859,26 @@
     .line 38
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 45
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_4b
+    if-eqz v0, :cond_2
 
-    const-string v1, "生成"
+    const-string v0, "\u751f\u6210"
 
-    goto :goto_4d
-
-    :cond_4b
-    const-string v1, "Generate"
-
-    :goto_4d
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    :goto_2
+    invoke-virtual {v1, v0, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
     .line 46
     const/high16 v1, 0x1040000
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v6}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -883,4 +904,16 @@
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
+
+    .line 37
+    :cond_1
+    const-string v0, "Configured"
+
+    goto :goto_1
+
+    .line 45
+    :cond_2
+    const-string v0, "Generate"
+
+    goto :goto_2
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lio/github/zeroaicy/util/Log$AsyncOutputStreamHold$AsyncOutStream;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 624
     :try_start_0
@@ -56,12 +56,15 @@
     iget v1, p0, Lio/github/zeroaicy/util/Log$AsyncOutputStreamHold$AsyncOutStream$3;->val$b:I
 
     invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write(I)V
-    :try_end_9
-    .catchall {:try_start_0 .. :try_end_9} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_17
+    .line 626
+    :goto_0
+    return-void
 
-    :catchall_a
+    .line 624
+    :catchall_0
     move-exception v0
 
     .line 626
@@ -75,6 +78,5 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintStream;)V
 
-    :goto_17
-    return-void
+    goto :goto_0
 .end method

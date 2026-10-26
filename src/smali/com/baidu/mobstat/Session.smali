@@ -27,7 +27,8 @@
 .field private g:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/baidu/mobstat/Session$a;",
             ">;"
         }
@@ -39,14 +40,14 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
+
+    const-wide/16 v0, 0x0
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 19
-    const-wide/16 v0, 0x0
-
     iput-wide v0, p0, Lcom/baidu/mobstat/Session;->a:J
 
     .line 22
@@ -82,11 +83,12 @@
 .end method
 
 .method private a(Ljava/util/List;Lcom/baidu/mobstat/Session$a;)V
-    .registers 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/baidu/mobstat/Session$a;",
             ">;",
             "Lcom/baidu/mobstat/Session$a;",
@@ -104,35 +106,39 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_1
 
+    .line 120
+    :cond_0
+    :goto_0
     return-void
 
-    :cond_b
-    if-nez p1, :cond_e
+    .line 95
+    :cond_1
+    if-eqz p1, :cond_0
 
-    return-void
-
-    :cond_e
-    if-nez p2, :cond_11
-
-    return-void
+    if-eqz p2, :cond_0
 
     .line 106
-    :cond_11
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_2
 
     .line 108
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    return-void
+    goto :goto_0
+
+    .line 115
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 
     .line 112
-    :cond_1b
+    :cond_2
     add-int/lit8 v0, v0, -0x1
 
     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -150,7 +156,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5f
+    if-nez v1, :cond_3
 
     invoke-static {p2}, Lcom/baidu/mobstat/Session$a;->b(Lcom/baidu/mobstat/Session$a;)Ljava/lang/String;
 
@@ -160,12 +166,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_4
 
-    goto :goto_5f
+    .line 115
+    :cond_3
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
 
     .line 119
-    :cond_38
+    :cond_4
     invoke-static {v0}, Lcom/baidu/mobstat/Session$a;->b(Lcom/baidu/mobstat/Session$a;)Ljava/lang/String;
 
     move-result-object v1
@@ -178,7 +188,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5b
+    if-eqz v1, :cond_5
 
     invoke-static {v0}, Lcom/baidu/mobstat/Session$a;->c(Lcom/baidu/mobstat/Session$a;)Z
 
@@ -188,166 +198,152 @@
 
     move-result v2
 
-    if-ne v1, v2, :cond_51
+    if-ne v1, v2, :cond_6
 
-    goto :goto_5b
+    .line 120
+    :cond_5
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
 
     .line 124
-    :cond_51
+    :cond_6
     invoke-static {v0}, Lcom/baidu/mobstat/Session$a;->c(Lcom/baidu/mobstat/Session$a;)Z
 
-    move-result p1
+    move-result v1
 
-    if-eqz p1, :cond_64
+    if-eqz v1, :cond_0
 
     .line 125
     invoke-virtual {v0, p2}, Lcom/baidu/mobstat/Session$a;->a(Lcom/baidu/mobstat/Session$a;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_64
-
-    .line 120
-    :cond_5b
-    :goto_5b
-    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-
-    .line 115
-    :cond_5f
-    :goto_5f
-    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_62
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_62} :catch_63
-
-    goto :goto_64
-
-    :catch_63
-    move-exception p1
-
-    :cond_64
-    :goto_64
-    return-void
+    goto :goto_0
 .end method
 
 .method public static getPVJson(Lcom/baidu/mobstat/Session$a;J)Lorg/json/JSONObject;
-    .registers 7
+    .locals 9
+
+    const-wide/16 v0, 0x0
 
     .line 249
-    new-instance v0, Lorg/json/JSONObject;
+    new-instance v4, Lorg/json/JSONObject;
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v4}, Lorg/json/JSONObject;-><init>()V
 
     .line 252
-    :try_start_5
-    const-string v1, "n"
+    :try_start_0
+    const-string v2, "n"
 
     invoke-virtual {p0}, Lcom/baidu/mobstat/Session$a;->a()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v4, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 253
-    const-string v1, "d"
+    const-string v2, "d"
 
     invoke-virtual {p0}, Lcom/baidu/mobstat/Session$a;->c()J
 
-    move-result-wide v2
+    move-result-wide v6
 
-    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v4, v2, v6, v7}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 255
     invoke-virtual {p0}, Lcom/baidu/mobstat/Session$a;->d()J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    sub-long/2addr v1, p1
+    sub-long/2addr v2, p1
 
     .line 256
-    const-wide/16 p1, 0x0
+    cmp-long v5, v2, v0
 
-    cmp-long v3, v1, p1
+    if-gez v5, :cond_1
 
-    if-gez v3, :cond_23
+    :goto_0
+    const-string v2, "ps"
 
-    move-wide v1, p1
-
-    :cond_23
-    const-string p1, "ps"
-
-    invoke-virtual {v0, p1, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v4, v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 258
-    const-string p1, "t"
+    const-string v0, "t"
 
     invoke-virtual {p0}, Lcom/baidu/mobstat/Session$a;->b()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {v0, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v4, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 259
-    const-string p1, "at"
+    const-string v0, "at"
 
     invoke-virtual {p0}, Lcom/baidu/mobstat/Session$a;->f()Z
 
-    move-result p2
+    move-result v1
 
-    invoke-virtual {v0, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v4, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 261
     invoke-virtual {p0}, Lcom/baidu/mobstat/Session$a;->e()Lorg/json/JSONObject;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_4b
+    if-eqz v0, :cond_0
 
     .line 262
-    invoke-virtual {p1}, Lorg/json/JSONObject;->length()I
+    invoke-virtual {v0}, Lorg/json/JSONObject;->length()I
 
-    move-result p2
+    move-result v1
 
-    if-eqz p2, :cond_4b
+    if-eqz v1, :cond_0
 
     .line 263
-    const-string p2, "ext"
+    const-string v1, "ext"
 
-    invoke-virtual {v0, p2, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v4, v1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 266
-    :cond_4b
-    const-string p1, "h5"
+    :cond_0
+    const-string v0, "h5"
 
     invoke-static {p0}, Lcom/baidu/mobstat/Session$a;->d(Lcom/baidu/mobstat/Session$a;)Z
 
-    move-result p2
+    move-result v1
 
-    invoke-virtual {v0, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v4, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 267
-    const-string p1, "py"
+    const-string v0, "py"
 
     invoke-virtual {p0}, Lcom/baidu/mobstat/Session$a;->g()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v0, p1, p0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_5d
-    .catch Lorg/json/JSONException; {:try_start_5 .. :try_end_5d} :catch_5e
+    invoke-virtual {v4, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_5f
+    :goto_1
+    return-object v4
 
-    :catch_5e
-    move-exception p0
+    :catch_0
+    move-exception v0
 
-    :goto_5f
-    return-object v0
+    goto :goto_1
+
+    :cond_1
+    move-wide v0, v2
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public addPageView(Lcom/baidu/mobstat/Session$a;)V
-    .registers 3
+    .locals 1
 
     .line 89
     iget-object v0, p0, Lcom/baidu/mobstat/Session;->g:Ljava/util/List;
@@ -358,340 +354,345 @@
 .end method
 
 .method public addPageView(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJZLcom/baidu/mobstat/ExtraInfo;ZLjava/lang/String;)V
-    .registers 26
+    .locals 12
 
     .line 83
-    move-object v0, p0
+    new-instance v0, Lcom/baidu/mobstat/Session$a;
 
-    new-instance v13, Lcom/baidu/mobstat/Session$a;
+    move-object v1, p1
 
-    move-object v1, v13
+    move-object v2, p2
 
-    move-object v2, p1
+    move-object v3, p3
 
-    move-object/from16 v3, p2
+    move-wide/from16 v4, p4
 
-    move-object/from16 v4, p3
+    move-wide/from16 v6, p6
 
-    move-wide/from16 v5, p4
+    move/from16 v8, p8
 
-    move-wide/from16 v7, p6
+    move-object/from16 v9, p9
 
-    move/from16 v9, p8
+    move/from16 v10, p10
 
-    move-object/from16 v10, p9
+    move-object/from16 v11, p11
 
-    move/from16 v11, p10
-
-    move-object/from16 v12, p11
-
-    invoke-direct/range {v1 .. v12}, Lcom/baidu/mobstat/Session$a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJZLcom/baidu/mobstat/ExtraInfo;ZLjava/lang/String;)V
+    invoke-direct/range {v0 .. v11}, Lcom/baidu/mobstat/Session$a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJZLcom/baidu/mobstat/ExtraInfo;ZLjava/lang/String;)V
 
     .line 85
-    iget-object v1, v0, Lcom/baidu/mobstat/Session;->g:Ljava/util/List;
+    iget-object v1, p0, Lcom/baidu/mobstat/Session;->g:Ljava/util/List;
 
-    invoke-direct {p0, v1, v13}, Lcom/baidu/mobstat/Session;->a(Ljava/util/List;Lcom/baidu/mobstat/Session$a;)V
+    invoke-direct {p0, v1, v0}, Lcom/baidu/mobstat/Session;->a(Ljava/util/List;Lcom/baidu/mobstat/Session$a;)V
 
     return-void
 .end method
 
 .method public constructJSONObject()Lorg/json/JSONObject;
-    .registers 7
+    .locals 8
+
+    const-wide/16 v6, 0x0
 
     .line 187
-    new-instance v0, Lorg/json/JSONObject;
+    new-instance v2, Lorg/json/JSONObject;
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
 
     .line 190
-    :try_start_5
-    const-string v1, "s"
+    :try_start_0
+    const-string v0, "s"
 
-    iget-wide v2, p0, Lcom/baidu/mobstat/Session;->a:J
+    iget-wide v4, p0, Lcom/baidu/mobstat/Session;->a:J
 
-    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 191
-    const-string v1, "e"
+    const-string v0, "e"
 
-    iget-wide v2, p0, Lcom/baidu/mobstat/Session;->b:J
+    iget-wide v4, p0, Lcom/baidu/mobstat/Session;->b:J
 
-    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 192
-    const-string v1, "i"
+    const-string v0, "i"
 
-    iget-wide v2, p0, Lcom/baidu/mobstat/Session;->e:J
+    iget-wide v4, p0, Lcom/baidu/mobstat/Session;->e:J
 
-    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 194
-    const-string v1, "c"
+    const-string v0, "c"
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 195
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->c:J
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->c:J
 
-    const-wide/16 v3, 0x0
+    cmp-long v0, v0, v6
 
-    cmp-long v5, v1, v3
+    if-nez v0, :cond_1
 
-    if-nez v5, :cond_2b
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->a:J
 
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->a:J
+    :goto_0
+    const-string v3, "s2"
 
-    goto :goto_2d
-
-    :cond_2b
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->c:J
-
-    :goto_2d
-    const-string v5, "s2"
-
-    invoke-virtual {v0, v5, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v3, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 196
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->d:J
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->d:J
 
-    cmp-long v5, v1, v3
+    cmp-long v0, v0, v6
 
-    if-nez v5, :cond_3b
+    if-nez v0, :cond_2
 
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->b:J
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->b:J
 
-    goto :goto_3d
-
-    :cond_3b
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->d:J
-
-    :goto_3d
+    :goto_1
     const-string v3, "e2"
 
-    invoke-virtual {v0, v3, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v3, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 197
-    const-string v1, "pc"
+    const-string v0, "pc"
 
-    iget v2, p0, Lcom/baidu/mobstat/Session;->f:I
+    iget v1, p0, Lcom/baidu/mobstat/Session;->f:I
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 199
-    iget-object v1, p0, Lcom/baidu/mobstat/Session;->h:Lorg/json/JSONObject;
+    iget-object v0, p0, Lcom/baidu/mobstat/Session;->h:Lorg/json/JSONObject;
 
-    if-eqz v1, :cond_5c
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/baidu/mobstat/Session;->h:Lorg/json/JSONObject;
+    iget-object v0, p0, Lcom/baidu/mobstat/Session;->h:Lorg/json/JSONObject;
 
-    invoke-virtual {v1}, Lorg/json/JSONObject;->length()I
+    invoke-virtual {v0}, Lorg/json/JSONObject;->length()I
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_5c
+    if-eqz v0, :cond_0
 
     .line 201
-    const-string v1, "launch"
+    const-string v0, "launch"
 
-    iget-object v2, p0, Lcom/baidu/mobstat/Session;->h:Lorg/json/JSONObject;
+    iget-object v1, p0, Lcom/baidu/mobstat/Session;->h:Lorg/json/JSONObject;
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 204
-    :cond_5c
-    new-instance v1, Lorg/json/JSONArray;
+    :cond_0
+    new-instance v3, Lorg/json/JSONArray;
 
-    invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
+    invoke-direct {v3}, Lorg/json/JSONArray;-><init>()V
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
+
+    move v1, v0
 
     .line 205
-    :goto_62
-    iget-object v3, p0, Lcom/baidu/mobstat/Session;->g:Ljava/util/List;
+    :goto_2
+    iget-object v0, p0, Lcom/baidu/mobstat/Session;->g:Ljava/util/List;
 
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v0
 
-    if-ge v2, v3, :cond_7e
+    if-ge v1, v0, :cond_3
 
     .line 206
-    iget-object v3, p0, Lcom/baidu/mobstat/Session;->g:Ljava/util/List;
+    iget-object v0, p0, Lcom/baidu/mobstat/Session;->g:Ljava/util/List;
 
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Lcom/baidu/mobstat/Session$a;
+    check-cast v0, Lcom/baidu/mobstat/Session$a;
 
     .line 207
     iget-wide v4, p0, Lcom/baidu/mobstat/Session;->a:J
 
-    invoke-static {v3, v4, v5}, Lcom/baidu/mobstat/Session;->getPVJson(Lcom/baidu/mobstat/Session$a;J)Lorg/json/JSONObject;
+    invoke-static {v0, v4, v5}, Lcom/baidu/mobstat/Session;->getPVJson(Lcom/baidu/mobstat/Session$a;J)Lorg/json/JSONObject;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 208
-    invoke-virtual {v1, v3}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+    invoke-virtual {v3, v0}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_62
+    move v1, v0
+
+    goto :goto_2
+
+    .line 195
+    :cond_1
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->c:J
+
+    goto :goto_0
+
+    .line 196
+    :cond_2
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->d:J
+
+    goto :goto_1
 
     .line 211
-    :cond_7e
+    :cond_3
     invoke-static {}, Lcom/baidu/mobstat/dq;->a()Lcom/baidu/mobstat/dq;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Lcom/baidu/mobstat/dq;->d()Z
+    invoke-virtual {v0}, Lcom/baidu/mobstat/dq;->d()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_8d
+    if-eqz v0, :cond_4
 
     .line 212
-    const-string v2, "p"
+    const-string v0, "p"
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 215
-    :cond_8d
-    const-string v1, "py"
+    :cond_4
+    const-string v0, "py"
 
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/baidu/mobstat/DataCore;->getSessionPy()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/baidu/mobstat/DataCore;->getSessionPy()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_9a
-    .catch Lorg/json/JSONException; {:try_start_5 .. :try_end_9a} :catch_9b
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_9c
+    :goto_3
+    return-object v2
 
-    :catch_9b
-    move-exception v1
+    :catch_0
+    move-exception v0
 
-    :goto_9c
-    return-object v0
+    goto :goto_3
 .end method
 
 .method public getPageSessionHead()Lorg/json/JSONObject;
-    .registers 7
+    .locals 8
+
+    const-wide/16 v6, 0x0
 
     .line 224
-    new-instance v0, Lorg/json/JSONObject;
+    new-instance v2, Lorg/json/JSONObject;
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
 
     .line 227
-    :try_start_5
-    const-string v1, "s"
+    :try_start_0
+    const-string v0, "s"
 
-    iget-wide v2, p0, Lcom/baidu/mobstat/Session;->a:J
+    iget-wide v4, p0, Lcom/baidu/mobstat/Session;->a:J
 
-    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 228
-    const-string v1, "e"
+    const-string v0, "e"
 
-    iget-wide v2, p0, Lcom/baidu/mobstat/Session;->b:J
+    iget-wide v4, p0, Lcom/baidu/mobstat/Session;->b:J
 
-    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 229
-    const-string v1, "i"
+    const-string v0, "i"
 
-    iget-wide v2, p0, Lcom/baidu/mobstat/Session;->e:J
+    iget-wide v4, p0, Lcom/baidu/mobstat/Session;->e:J
 
-    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 231
-    const-string v1, "c"
+    const-string v0, "c"
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 232
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->c:J
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->c:J
 
-    const-wide/16 v3, 0x0
+    cmp-long v0, v0, v6
 
-    cmp-long v5, v1, v3
+    if-nez v0, :cond_0
 
-    if-nez v5, :cond_2b
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->a:J
 
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->a:J
+    :goto_0
+    const-string v3, "s2"
 
-    goto :goto_2d
-
-    :cond_2b
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->c:J
-
-    :goto_2d
-    const-string v5, "s2"
-
-    invoke-virtual {v0, v5, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v3, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 233
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->d:J
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->d:J
 
-    cmp-long v5, v1, v3
+    cmp-long v0, v0, v6
 
-    if-nez v5, :cond_3b
+    if-nez v0, :cond_1
 
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->b:J
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->b:J
 
-    goto :goto_3d
-
-    :cond_3b
-    iget-wide v1, p0, Lcom/baidu/mobstat/Session;->d:J
-
-    :goto_3d
+    :goto_1
     const-string v3, "e2"
 
-    invoke-virtual {v0, v3, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v2, v3, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 234
-    const-string v1, "pc"
+    const-string v0, "pc"
 
-    iget v2, p0, Lcom/baidu/mobstat/Session;->f:I
+    iget v1, p0, Lcom/baidu/mobstat/Session;->f:I
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 235
-    const-string v1, "py"
+    const-string v0, "py"
 
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/baidu/mobstat/DataCore;->getSessionPy()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/baidu/mobstat/DataCore;->getSessionPy()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_56
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_56} :catch_57
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    goto :goto_58
+    :goto_2
+    return-object v2
 
-    :catch_57
-    move-exception v1
+    .line 232
+    :cond_0
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->c:J
 
-    :goto_58
-    return-object v0
+    goto :goto_0
+
+    .line 233
+    :cond_1
+    iget-wide v0, p0, Lcom/baidu/mobstat/Session;->d:J
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    .line 235
+    :catch_0
+    move-exception v0
+
+    goto :goto_2
 .end method
 
 .method public getStartTime()J
-    .registers 3
+    .locals 2
 
     .line 154
     iget-wide v0, p0, Lcom/baidu/mobstat/Session;->a:J
@@ -700,7 +701,7 @@
 .end method
 
 .method public getTrackEndTime()J
-    .registers 3
+    .locals 2
 
     .line 70
     iget-wide v0, p0, Lcom/baidu/mobstat/Session;->d:J
@@ -709,7 +710,7 @@
 .end method
 
 .method public getTrackStartTime()J
-    .registers 3
+    .locals 2
 
     .line 66
     iget-wide v0, p0, Lcom/baidu/mobstat/Session;->c:J
@@ -718,57 +719,57 @@
 .end method
 
 .method public hasEnd()Z
-    .registers 6
+    .locals 4
 
     .line 167
     iget-wide v0, p0, Lcom/baidu/mobstat/Session;->b:J
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_a
+    if-lez v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_b
+    :goto_0
+    return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_b
-    return v0
+    goto :goto_0
 .end method
 
 .method public hasStart()Z
-    .registers 6
+    .locals 4
 
     .line 158
     iget-wide v0, p0, Lcom/baidu/mobstat/Session;->a:J
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_a
+    if-lez v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_b
+    :goto_0
+    return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_b
-    return v0
+    goto :goto_0
 .end method
 
 .method public reset()V
-    .registers 3
+    .locals 2
 
-    .line 45
     const-wide/16 v0, 0x0
 
+    .line 45
     iput-wide v0, p0, Lcom/baidu/mobstat/Session;->a:J
 
     .line 47
@@ -794,7 +795,7 @@
 .end method
 
 .method public setEndTime(J)V
-    .registers 3
+    .locals 1
 
     .line 176
     iput-wide p1, p0, Lcom/baidu/mobstat/Session;->b:J
@@ -803,7 +804,7 @@
 .end method
 
 .method public setInvokeType(I)V
-    .registers 2
+    .locals 0
 
     .line 78
     iput p1, p0, Lcom/baidu/mobstat/Session;->f:I
@@ -812,7 +813,7 @@
 .end method
 
 .method public setLaunchInfo(Lorg/json/JSONObject;)V
-    .registers 2
+    .locals 0
 
     .line 180
     iput-object p1, p0, Lcom/baidu/mobstat/Session;->h:Lorg/json/JSONObject;
@@ -821,31 +822,33 @@
 .end method
 
 .method public setStartTime(J)V
-    .registers 8
+    .locals 5
 
     .line 140
     iget-wide v0, p0, Lcom/baidu/mobstat/Session;->a:J
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_9
+    if-lez v0, :cond_0
 
+    .line 145
+    :goto_0
     return-void
 
     .line 144
-    :cond_9
+    :cond_0
     iput-wide p1, p0, Lcom/baidu/mobstat/Session;->a:J
 
     .line 145
     iput-wide p1, p0, Lcom/baidu/mobstat/Session;->e:J
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public setTrackEndTime(J)V
-    .registers 3
+    .locals 1
 
     .line 74
     iput-wide p1, p0, Lcom/baidu/mobstat/Session;->d:J
@@ -854,28 +857,29 @@
 .end method
 
 .method public setTrackStartTime(J)V
-    .registers 8
+    .locals 5
 
     .line 59
     iget-wide v0, p0, Lcom/baidu/mobstat/Session;->c:J
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_9
-
-    return-void
+    if-lez v0, :cond_0
 
     .line 62
-    :cond_9
+    :goto_0
+    return-void
+
+    :cond_0
     iput-wide p1, p0, Lcom/baidu/mobstat/Session;->c:J
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 245
     invoke-virtual {p0}, Lcom/baidu/mobstat/Session;->constructJSONObject()Lorg/json/JSONObject;

@@ -7,7 +7,8 @@
 .field private static final MAP:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashMap<",
+            "Ljava/util/HashMap",
+            "<",
             "Lcom/s1243808733/android/dx/rop/code/Rop;",
             "Lcom/s1243808733/android/dx/dex/code/Dop;",
             ">;"
@@ -18,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 231
     new-instance v0, Ljava/util/HashMap;
@@ -1083,7 +1084,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -1092,516 +1093,515 @@
 .end method
 
 .method public static dopFor(Lcom/s1243808733/android/dx/rop/code/Insn;)Lcom/s1243808733/android/dx/dex/code/Dop;
-    .registers 8
+    .locals 8
+
+    const/16 v7, 0x8
+
+    const/4 v6, 0x6
+
+    const/4 v5, 0x3
+
+    const/4 v4, 0x2
+
+    const/4 v3, 0x1
 
     .line 463
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/Insn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
 
-    move-result-object v0
-
-    .line 469
-    sget-object v1, Lcom/s1243808733/android/dx/dex/code/RopToDop;->MAP:Ljava/util/HashMap;
-
-    invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lcom/s1243808733/android/dx/dex/code/Dop;
+    .line 469
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/RopToDop;->MAP:Ljava/util/HashMap;
 
-    if-eqz v1, :cond_f
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    return-object v1
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/Dop;
+
+    if-eqz v0, :cond_0
+
+    .line 590
+    :goto_0
+    return-object v0
 
     .line 491
-    :cond_f
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/Rop;->getOpcode()I
+    :cond_0
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/Rop;->getOpcode()I
 
-    move-result v1
+    move-result v0
 
     const/4 v2, 0x4
 
-    if-eq v1, v2, :cond_144
+    if-eq v0, v2, :cond_1b
 
     const/4 v2, 0x5
 
-    if-eq v1, v2, :cond_11a
+    if-eq v0, v2, :cond_16
 
     const/16 v2, 0x29
 
-    if-eq v1, v2, :cond_117
+    if-eq v0, v2, :cond_15
 
     const/16 v2, 0x2a
 
-    if-eq v1, v2, :cond_114
+    if-eq v0, v2, :cond_14
 
     const/16 v2, 0x37
 
-    if-eq v1, v2, :cond_f3
+    if-eq v0, v2, :cond_12
 
-    const/16 v2, 0x8
+    packed-switch v0, :pswitch_data_0
 
-    const/4 v3, 0x6
+    packed-switch v0, :pswitch_data_1
 
-    const/4 v4, 0x3
+    .line 597
+    :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const/4 v5, 0x2
+    const-string v2, "unknown rop: "
 
-    const/4 v6, 0x1
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    packed-switch v1, :pswitch_data_148
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    packed-switch v1, :pswitch_data_15e
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    goto/16 :goto_df
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 
     .line 497
-    :pswitch_33  #0x35
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_INTERFACE:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_0
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_INTERFACE:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 496
-    :pswitch_36  #0x34
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_DIRECT:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_1
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_DIRECT:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 495
-    :pswitch_39  #0x33
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_SUPER:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_2
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_SUPER:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 494
-    :pswitch_3c  #0x32
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_VIRTUAL:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_3
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_VIRTUAL:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 493
-    :pswitch_3f  #0x31
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_STATIC:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_4
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_STATIC:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 569
-    :pswitch_42  #0x30
+    :pswitch_5
     check-cast p0, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;
 
     .line 570
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
     .line 571
-    invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getBasicType()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getBasicType()I
 
-    move-result p0
+    move-result v0
 
-    if-eq p0, v6, :cond_64
+    if-eq v0, v3, :cond_5
 
-    if-eq p0, v5, :cond_61
+    if-eq v0, v4, :cond_4
 
-    if-eq p0, v4, :cond_5e
+    if-eq v0, v5, :cond_3
 
-    if-eq p0, v3, :cond_5b
+    if-eq v0, v6, :cond_2
 
-    if-ne p0, v2, :cond_df
+    if-ne v0, v7, :cond_1
 
     .line 576
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT_SHORT:Lcom/s1243808733/android/dx/dex/code/Dop;
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT_SHORT:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 577
-    :cond_5b
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_2
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 575
-    :cond_5e
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT_CHAR:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_3
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT_CHAR:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 574
-    :cond_61
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT_BYTE:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_4
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT_BYTE:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 573
-    :cond_64
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT_BOOLEAN:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_5
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPUT_BOOLEAN:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 543
-    :pswitch_67  #0x2f
+    :pswitch_6
     check-cast p0, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;
 
     .line 544
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
     .line 545
-    invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getBasicType()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getBasicType()I
 
-    move-result p0
+    move-result v0
 
-    if-eq p0, v6, :cond_89
+    if-eq v0, v3, :cond_9
 
-    if-eq p0, v5, :cond_86
+    if-eq v0, v4, :cond_8
 
-    if-eq p0, v4, :cond_83
+    if-eq v0, v5, :cond_7
 
-    if-eq p0, v3, :cond_80
+    if-eq v0, v6, :cond_6
 
-    if-ne p0, v2, :cond_df
+    if-ne v0, v7, :cond_1
 
     .line 550
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT_SHORT:Lcom/s1243808733/android/dx/dex/code/Dop;
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT_SHORT:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 551
-    :cond_80
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_6
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto :goto_0
 
     .line 549
-    :cond_83
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT_CHAR:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_7
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT_CHAR:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 548
-    :cond_86
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT_BYTE:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_8
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT_BYTE:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 547
-    :cond_89
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT_BOOLEAN:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_9
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IPUT_BOOLEAN:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 556
-    :pswitch_8c  #0x2e
+    :pswitch_7
     check-cast p0, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;
 
     .line 557
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
     .line 558
-    invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getBasicType()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getBasicType()I
 
-    move-result p0
+    move-result v0
 
-    if-eq p0, v6, :cond_ae
+    if-eq v0, v3, :cond_d
 
-    if-eq p0, v5, :cond_ab
+    if-eq v0, v4, :cond_c
 
-    if-eq p0, v4, :cond_a8
+    if-eq v0, v5, :cond_b
 
-    if-eq p0, v3, :cond_a5
+    if-eq v0, v6, :cond_a
 
-    if-ne p0, v2, :cond_df
+    if-ne v0, v7, :cond_1
 
     .line 563
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET_SHORT:Lcom/s1243808733/android/dx/dex/code/Dop;
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET_SHORT:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 564
-    :cond_a5
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_a
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 562
-    :cond_a8
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET_CHAR:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_b
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET_CHAR:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 561
-    :cond_ab
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET_BYTE:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_c
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET_BYTE:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 560
-    :cond_ae
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET_BOOLEAN:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_d
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SGET_BOOLEAN:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 530
-    :pswitch_b1  #0x2d
+    :pswitch_8
     check-cast p0, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;
 
     .line 531
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
     .line 532
-    invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getBasicType()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getBasicType()I
 
-    move-result p0
+    move-result v0
 
-    if-eq p0, v6, :cond_d3
+    if-eq v0, v3, :cond_11
 
-    if-eq p0, v5, :cond_d0
+    if-eq v0, v4, :cond_10
 
-    if-eq p0, v4, :cond_cd
+    if-eq v0, v5, :cond_f
 
-    if-eq p0, v3, :cond_ca
+    if-eq v0, v6, :cond_e
 
-    if-ne p0, v2, :cond_df
+    if-ne v0, v7, :cond_1
 
     .line 537
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET_SHORT:Lcom/s1243808733/android/dx/dex/code/Dop;
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET_SHORT:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 538
-    :cond_ca
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_e
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 536
-    :cond_cd
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET_CHAR:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_f
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET_CHAR:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 535
-    :cond_d0
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET_BYTE:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_10
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET_BYTE:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 534
-    :cond_d3
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET_BOOLEAN:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_11
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->IGET_BOOLEAN:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 499
-    :pswitch_d6  #0x3b
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_CUSTOM:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_9
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_CUSTOM:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 498
-    :pswitch_d9  #0x3a
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_POLYMORPHIC:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_a
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->INVOKE_POLYMORPHIC:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 502
-    :pswitch_dc  #0x39
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->FILL_ARRAY_DATA:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_b
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->FILL_ARRAY_DATA:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
-    .line 597
-    :cond_df
-    :goto_df
-    new-instance p0, Ljava/lang/StringBuilder;
+    .line 504
+    :cond_12
+    invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/Insn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    const-string v1, "unknown rop: "
+    move-result-object v0
 
-    invoke-direct {p0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    if-nez v0, :cond_13
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    .line 507
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->NOP:Lcom/s1243808733/android/dx/dex/code/Dop;
 
+    goto/16 :goto_0
+
+    .line 509
+    :cond_13
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getBasicType()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_2
+
+    .line 523
     new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v1, "Unexpected basic type"
 
-    move-result-object p0
-
-    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 504
-    :cond_f3
-    invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/Insn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-
-    move-result-object p0
-
-    if-nez p0, :cond_fc
-
-    .line 507
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->NOP:Lcom/s1243808733/android/dx/dex/code/Dop;
-
-    return-object p0
-
-    .line 509
-    :cond_fc
-    invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getBasicType()I
-
-    move-result p0
-
-    packed-switch p0, :pswitch_data_168
-
-    .line 523
-    new-instance p0, Ljava/lang/RuntimeException;
-
-    const-string v0, "Unexpected basic type"
-
-    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
     .line 521
-    :pswitch_10b  #0x9
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->MOVE_RESULT_OBJECT:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_c
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->MOVE_RESULT_OBJECT:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 519
-    :pswitch_10e  #0x4, 0x7
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->MOVE_RESULT_WIDE:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_d
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->MOVE_RESULT_WIDE:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 516
-    :pswitch_111  #0x1, 0x2, 0x3, 0x5, 0x6, 0x8
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->MOVE_RESULT:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :pswitch_e
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->MOVE_RESULT:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 501
-    :cond_114
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->FILLED_NEW_ARRAY:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_14
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->FILLED_NEW_ARRAY:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 500
-    :cond_117
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->NEW_ARRAY:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_15
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->NEW_ARRAY:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 582
-    :cond_11a
+    :cond_16
     check-cast p0, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 583
-    instance-of v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;
+    instance-of v1, v0, Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    if-eqz v0, :cond_127
+    if-eqz v1, :cond_17
 
     .line 584
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->CONST_CLASS:Lcom/s1243808733/android/dx/dex/code/Dop;
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->CONST_CLASS:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 585
-    :cond_127
-    instance-of v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;
+    :cond_17
+    instance-of v1, v0, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-eqz v0, :cond_12e
+    if-eqz v1, :cond_18
 
     .line 586
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->CONST_STRING:Lcom/s1243808733/android/dx/dex/code/Dop;
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->CONST_STRING:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 587
-    :cond_12e
-    instance-of v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;
+    :cond_18
+    instance-of v1, v0, Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;
 
-    if-eqz v0, :cond_135
+    if-eqz v1, :cond_19
 
     .line 588
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->CONST_METHOD_HANDLE:Lcom/s1243808733/android/dx/dex/code/Dop;
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->CONST_METHOD_HANDLE:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 589
-    :cond_135
-    instance-of p0, p0, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
+    :cond_19
+    instance-of v0, v0, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
 
-    if-eqz p0, :cond_13c
+    if-eqz v0, :cond_1a
 
     .line 590
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->CONST_METHOD_TYPE:Lcom/s1243808733/android/dx/dex/code/Dop;
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->CONST_METHOD_TYPE:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 592
-    :cond_13c
-    new-instance p0, Ljava/lang/RuntimeException;
+    :cond_1a
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string v0, "Unexpected constant type"
+    const-string v1, "Unexpected constant type"
 
-    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
     .line 492
-    :cond_144
-    sget-object p0, Lcom/s1243808733/android/dx/dex/code/Dops;->MOVE_EXCEPTION:Lcom/s1243808733/android/dx/dex/code/Dop;
+    :cond_1b
+    sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->MOVE_EXCEPTION:Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    return-object p0
+    goto/16 :goto_0
 
-    nop
-
-    :pswitch_data_148
+    .line 491
+    :pswitch_data_0
     .packed-switch 0x2d
-        :pswitch_b1  #0000002d
-        :pswitch_8c  #0000002e
-        :pswitch_67  #0000002f
-        :pswitch_42  #00000030
-        :pswitch_3f  #00000031
-        :pswitch_3c  #00000032
-        :pswitch_39  #00000033
-        :pswitch_36  #00000034
-        :pswitch_33  #00000035
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 
-    :pswitch_data_15e
+    :pswitch_data_1
     .packed-switch 0x39
-        :pswitch_dc  #00000039
-        :pswitch_d9  #0000003a
-        :pswitch_d6  #0000003b
+        :pswitch_b
+        :pswitch_a
+        :pswitch_9
     .end packed-switch
 
-    :pswitch_data_168
+    .line 509
+    :pswitch_data_2
     .packed-switch 0x1
-        :pswitch_111  #00000001
-        :pswitch_111  #00000002
-        :pswitch_111  #00000003
-        :pswitch_10e  #00000004
-        :pswitch_111  #00000005
-        :pswitch_111  #00000006
-        :pswitch_10e  #00000007
-        :pswitch_111  #00000008
-        :pswitch_10b  #00000009
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_d
+        :pswitch_e
+        :pswitch_e
+        :pswitch_d
+        :pswitch_e
+        :pswitch_c
     .end packed-switch
 .end method

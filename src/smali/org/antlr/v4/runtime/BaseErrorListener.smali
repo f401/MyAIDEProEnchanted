@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,30 +19,30 @@
 
 # virtual methods
 .method public reportAmbiguity(Lorg/antlr/v4/runtime/Parser;Lorg/antlr/v4/runtime/dfa/DFA;IIZLjava/util/BitSet;Lorg/antlr/v4/runtime/atn/ATNConfigSet;)V
-    .registers 8
+    .locals 0
 
     return-void
 .end method
 
 .method public reportAttemptingFullContext(Lorg/antlr/v4/runtime/Parser;Lorg/antlr/v4/runtime/dfa/DFA;IILjava/util/BitSet;Lorg/antlr/v4/runtime/atn/ATNConfigSet;)V
-    .registers 7
+    .locals 0
 
     return-void
 .end method
 
 .method public reportContextSensitivity(Lorg/antlr/v4/runtime/Parser;Lorg/antlr/v4/runtime/dfa/DFA;IIILorg/antlr/v4/runtime/atn/ATNConfigSet;)V
-    .registers 7
+    .locals 0
 
     return-void
 .end method
 
 .method public syntaxError(Lorg/antlr/v4/runtime/Recognizer;Ljava/lang/Object;IILjava/lang/String;Lorg/antlr/v4/runtime/RecognitionException;)V
-    .registers 7
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;",
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;",
             "Ljava/lang/Object;",
             "II",
             "Ljava/lang/String;",

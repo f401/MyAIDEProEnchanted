@@ -13,17 +13,17 @@
 
 # direct methods
 .method public static synthetic m(Ljava/lang/Object;)Z
-    .registers 1
+    .locals 1
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_0
 
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_5
+    :goto_0
+    return v0
 
-    :cond_4
-    const/4 p0, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_5
-    return p0
+    goto :goto_0
 .end method

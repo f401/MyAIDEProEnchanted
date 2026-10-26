@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public getType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 68
     iget-object v0, p0, Lcom/s1243808733/data/OutputApk$OutputType;->type:Ljava/lang/String;
@@ -44,7 +44,7 @@
 .end method
 
 .method public setType(Ljava/lang/String;)Lcom/s1243808733/data/OutputApk$OutputType;
-    .registers 2
+    .locals 0
 
     .line 63
     iput-object p1, p0, Lcom/s1243808733/data/OutputApk$OutputType;->type:Ljava/lang/String;

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Ljava/lang/String;Landroid/content/Context;IJ)V
-    .registers 7
+    .locals 1
 
     .line 297
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$22;->e:Lcom/baidu/mobstat/BDStatCore;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 8
+    .locals 6
 
     .line 301
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
@@ -80,17 +80,17 @@
 
     invoke-static {v0}, Lcom/baidu/mobstat/BDStatCore;->b(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/SessionAnalysis;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/baidu/mobstat/BDStatCore$22;->b:Landroid/content/Context;
+    iget-object v1, p0, Lcom/baidu/mobstat/BDStatCore$22;->b:Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/baidu/mobstat/BDStatCore$22;->a:Ljava/lang/String;
+    iget-object v2, p0, Lcom/baidu/mobstat/BDStatCore$22;->a:Ljava/lang/String;
 
-    iget v4, p0, Lcom/baidu/mobstat/BDStatCore$22;->c:I
+    iget v3, p0, Lcom/baidu/mobstat/BDStatCore$22;->c:I
 
-    iget-wide v5, p0, Lcom/baidu/mobstat/BDStatCore$22;->d:J
+    iget-wide v4, p0, Lcom/baidu/mobstat/BDStatCore$22;->d:J
 
-    invoke-virtual/range {v1 .. v6}, Lcom/baidu/mobstat/SessionAnalysis;->onPageStart(Landroid/content/Context;Ljava/lang/String;IJ)V
+    invoke-virtual/range {v0 .. v5}, Lcom/baidu/mobstat/SessionAnalysis;->onPageStart(Landroid/content/Context;Ljava/lang/String;IJ)V
 
     return-void
 .end method

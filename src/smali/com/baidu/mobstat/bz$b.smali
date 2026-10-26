@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;Lcom/baidu/mobstat/dg;)V
-    .registers 6
+    .locals 2
 
     .line 148
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
@@ -41,7 +41,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 149
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
@@ -53,7 +53,7 @@
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
 
     .line 152
-    :cond_13
+    :cond_0
     const-string v0, "WebViewInterface"
 
     invoke-virtual {p1, p3, v0}, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
@@ -69,33 +69,33 @@
 .end method
 
 .method public onPageStarted(Landroid/webkit/WebView;Ljava/lang/String;Lcom/baidu/mobstat/dg;)V
-    .registers 5
+    .locals 2
 
     .line 135
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p2}, Lcom/baidu/mobstat/cy;->b()Z
+    invoke-virtual {v0}, Lcom/baidu/mobstat/cy;->b()Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_13
+    if-eqz v0, :cond_0
 
     .line 136
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
 
-    move-result-object p2
+    move-result-object v0
 
-    const-string v0, "WebView onPageStarted"
+    const-string v1, "WebView onPageStarted"
 
-    invoke-virtual {p2, v0}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
 
     .line 139
-    :cond_13
-    const-string p2, "WebViewInterface"
+    :cond_0
+    const-string v0, "WebViewInterface"
 
-    invoke-virtual {p1, p3, p2}, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p1, p3, v0}, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity;[Ljava/lang/Object;Landroid/widget/EditText;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,64 +49,65 @@
 
 # virtual methods
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
     .line 377
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$8;->val$items:[Ljava/lang/Object;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$8;->val$items:[Ljava/lang/Object;
 
-    aget-object p1, p1, p3
+    aget-object v0, v0, p3
 
     .line 378
-    instance-of p2, p1, Ljava/lang/String;
+    instance-of v1, v0, Ljava/lang/String;
 
-    if-eqz p2, :cond_f
+    if-eqz v1, :cond_0
 
     .line 379
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$8;->val$view2_editor:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$8;->val$view2_editor:Landroid/widget/EditText;
 
-    const/4 p2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, p2}, Landroid/widget/EditText;->setVisibility(I)V
-
-    goto :goto_1f
-
-    .line 381
-    :cond_f
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$8;->val$view2_editor:Landroid/widget/EditText;
-
-    const/16 p3, 0x8
-
-    invoke-virtual {p2, p3}, Landroid/widget/EditText;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setVisibility(I)V
 
     .line 382
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$8;->val$view2_editor:Landroid/widget/EditText;
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    :goto_1f
+    :goto_0
     return-void
+
+    .line 381
+    :cond_0
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$8;->val$view2_editor:Landroid/widget/EditText;
+
+    const/16 v2, 0x8
+
+    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setVisibility(I)V
+
+    .line 382
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$8;->val$view2_editor:Landroid/widget/EditText;
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
 .end method
 
 .method public onNothingSelected(Landroid/widget/AdapterView;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;)V"
+            "Landroid/widget/AdapterView",
+            "<*>;)V"
         }
     .end annotation
 

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 334
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$4;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -36,16 +36,16 @@
 
 # virtual methods
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
 
     .line 338
     invoke-static {}, Lcom/s1243808733/aide/AideMainActivity;->getActivity()Lcom/s1243808733/aide/AideMainActivity;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/AideMainActivity;->adjutActionBar()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/AideMainActivity;->adjutActionBar()V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method

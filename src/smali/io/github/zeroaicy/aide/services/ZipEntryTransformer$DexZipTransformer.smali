@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,66 +37,67 @@
 .end method
 
 .method private isNotClassesDex(Ljava/util/zip/ZipEntry;Ljava/lang/String;)Z
-    .registers 3
+    .locals 2
 
     .line 44
     invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 45
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->isDirectory()Z
 
-    move-result p1
+    move-result v1
 
-    if-nez p1, :cond_25
+    if-nez v1, :cond_0
 
     .line 46
-    const-string p1, "/"
+    const-string v1, "/"
 
-    invoke-virtual {p2, p1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result p1
+    move-result v1
 
-    if-nez p1, :cond_25
+    if-nez v1, :cond_0
 
     .line 47
-    const-string p1, "classes"
+    const-string v1, "classes"
 
-    invoke-virtual {p2, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v1
 
-    if-eqz p1, :cond_25
+    if-eqz v1, :cond_0
 
     .line 48
-    const-string p1, ".dex"
+    const-string v1, ".dex"
 
-    invoke-virtual {p2, p1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_23
+    if-nez v0, :cond_1
 
-    goto :goto_25
+    :cond_0
+    const/4 v0, 0x1
 
-    :cond_23
-    const/4 p1, 0x0
+    :goto_0
+    return v0
 
-    goto :goto_26
+    :cond_1
+    const/4 v0, 0x0
 
-    :cond_25
-    :goto_25
-    const/4 p1, 0x1
-
-    :goto_26
-    return p1
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public transformer(Ljava/util/zip/ZipEntry;Lio/github/zeroaicy/aide/services/PackagingStream;)Ljava/util/zip/ZipEntry;
-    .registers 8
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const/4 v3, 0x1
 
     .line 20
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getName()Ljava/lang/String;
@@ -108,95 +109,96 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_1
 
     .line 24
     invoke-virtual {p2, v0}, Lio/github/zeroaicy/aide/services/PackagingStream;->contains(Ljava/lang/String;)Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_11
+    if-eqz v0, :cond_0
 
     const/4 p1, 0x0
 
-    :cond_11
+    .line 37
+    :cond_0
+    :goto_0
     return-object p1
 
     .line 30
-    :cond_12
-    iget p1, p0, Lio/github/zeroaicy/aide/services/ZipEntryTransformer$DexZipTransformer;->classesCountDex:I
+    :cond_1
+    iget v0, p0, Lio/github/zeroaicy/aide/services/ZipEntryTransformer$DexZipTransformer;->classesCountDex:I
 
-    const/4 v0, 0x0
+    if-le v0, v3, :cond_2
 
     const-string v1, "classes%d.dex"
 
-    const/4 v2, 0x1
+    new-array v2, v3, [Ljava/lang/Object;
 
-    if-le p1, v2, :cond_27
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    new-array v3, v2, [Ljava/lang/Object;
+    move-result-object v0
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aput-object v0, v2, v4
 
-    move-result-object p1
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    aput-object p1, v3, v0
-
-    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_29
-
-    :cond_27
-    const-string p1, "classes.dex"
+    move-result-object v0
 
     .line 32
-    :goto_29
-    invoke-virtual {p2, p1}, Lio/github/zeroaicy/aide/services/PackagingStream;->contains(Ljava/lang/String;)Z
+    :goto_1
+    invoke-virtual {p2, v0}, Lio/github/zeroaicy/aide/services/PackagingStream;->contains(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_4a
+    if-eqz v1, :cond_3
 
-    iget v3, p0, Lio/github/zeroaicy/aide/services/ZipEntryTransformer$DexZipTransformer;->classesCountDex:I
+    iget v1, p0, Lio/github/zeroaicy/aide/services/ZipEntryTransformer$DexZipTransformer;->classesCountDex:I
 
     .line 33
     invoke-virtual {p2}, Lio/github/zeroaicy/aide/services/PackagingStream;->getZipEntryCount()I
 
-    move-result v4
+    move-result v2
 
-    add-int/2addr v4, v2
+    add-int/lit8 v2, v2, 0x1
 
-    if-ge v3, v4, :cond_4a
+    if-ge v1, v2, :cond_3
 
     .line 34
-    iget p1, p0, Lio/github/zeroaicy/aide/services/ZipEntryTransformer$DexZipTransformer;->classesCountDex:I
+    iget v0, p0, Lio/github/zeroaicy/aide/services/ZipEntryTransformer$DexZipTransformer;->classesCountDex:I
 
-    add-int/2addr p1, v2
+    add-int/lit8 v0, v0, 0x1
 
-    iput p1, p0, Lio/github/zeroaicy/aide/services/ZipEntryTransformer$DexZipTransformer;->classesCountDex:I
+    iput v0, p0, Lio/github/zeroaicy/aide/services/ZipEntryTransformer$DexZipTransformer;->classesCountDex:I
 
     .line 35
-    new-array v3, v2, [Ljava/lang/Object;
+    const-string v1, "classes%d.dex"
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    new-array v2, v3, [Ljava/lang/Object;
 
-    move-result-object p1
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object p1, v3, v0
+    move-result-object v0
 
-    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v0, v2, v4
 
-    move-result-object p1
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    goto :goto_29
+    move-result-object v0
+
+    goto :goto_1
+
+    .line 30
+    :cond_2
+    const-string v0, "classes.dex"
+
+    goto :goto_1
 
     .line 37
-    :cond_4a
-    new-instance p2, Ljava/util/zip/ZipEntry;
+    :cond_3
+    new-instance p1, Ljava/util/zip/ZipEntry;
 
-    invoke-direct {p2, p1}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/util/zip/ZipEntry;-><init>(Ljava/lang/String;)V
 
-    return-object p2
+    goto :goto_0
 .end method

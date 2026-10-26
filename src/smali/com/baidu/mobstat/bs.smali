@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;ZZ)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -26,307 +26,320 @@
 .end method
 
 .method private static a(I)I
-    .registers 4
-
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_16
-
-    const/4 v1, 0x2
+    .locals 4
 
     const/4 v2, 0x4
 
-    if-eq p0, v1, :cond_15
-
     const/4 v1, 0x3
 
-    if-eq p0, v1, :cond_14
+    const/4 v0, 0x1
 
-    if-eq p0, v2, :cond_13
+    if-eq p0, v0, :cond_4
+
+    const/4 v3, 0x2
+
+    if-eq p0, v3, :cond_3
+
+    if-eq p0, v1, :cond_2
+
+    if-eq p0, v2, :cond_0
 
     const/4 v0, 0x5
 
-    if-eq p0, v0, :cond_11
+    if-eq p0, v0, :cond_1
 
-    const/4 p0, -0x1
+    const/4 v0, -0x1
 
-    return p0
-
-    :cond_11
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_13
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_14
-    return v1
+    :cond_1
+    const/4 v0, 0x0
 
-    :cond_15
-    return v2
+    goto :goto_0
 
-    :cond_16
-    const/4 p0, 0x6
+    :cond_2
+    move v0, v1
 
-    return p0
+    goto :goto_0
+
+    :cond_3
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_4
+    const/4 v0, 0x6
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public a([B)Ljava/lang/String;
-    .registers 26
+    .locals 16
+
+    new-instance v4, Ljava/io/ByteArrayOutputStream;
+
+    invoke-direct {v4}, Ljava/io/ByteArrayOutputStream;-><init>()V
+
+    const/4 v1, 0x0
+
+    :goto_0
+    move-object/from16 v0, p1
+
+    array-length v2, v0
+
+    add-int/lit8 v2, v2, 0x4
+
+    div-int/lit8 v2, v2, 0x5
+
+    if-ge v1, v2, :cond_5
+
+    const/4 v2, 0x5
+
+    new-array v5, v2, [S
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x5
+
+    :goto_1
+    const/4 v6, 0x5
+
+    if-ge v3, v6, :cond_1
+
+    mul-int/lit8 v6, v1, 0x5
+
+    add-int/2addr v6, v3
+
+    move-object/from16 v0, p1
+
+    array-length v7, v0
+
+    if-ge v6, v7, :cond_0
+
+    aget-byte v6, p1, v6
+
+    and-int/lit16 v6, v6, 0xff
+
+    int-to-short v6, v6
+
+    aput-short v6, v5, v3
+
+    :goto_2
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_1
+
+    :cond_0
+    const/4 v6, 0x0
+
+    aput-short v6, v5, v3
+
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_2
+
+    :cond_1
+    invoke-static {v2}, Lcom/baidu/mobstat/bs;->a(I)I
+
+    move-result v6
+
+    const/4 v2, 0x0
+
+    aget-short v2, v5, v2
+
+    shr-int/lit8 v3, v2, 0x3
+
+    and-int/lit8 v3, v3, 0x1f
+
+    int-to-byte v7, v3
+
+    const/4 v3, 0x1
+
+    aget-short v3, v5, v3
+
+    and-int/lit8 v2, v2, 0x7
+
+    shl-int/lit8 v2, v2, 0x2
+
+    shr-int/lit8 v8, v3, 0x6
+
+    and-int/lit8 v8, v8, 0x3
+
+    or-int/2addr v2, v8
+
+    int-to-byte v8, v2
+
+    shr-int/lit8 v2, v3, 0x1
+
+    and-int/lit8 v2, v2, 0x1f
+
+    int-to-byte v9, v2
+
+    const/4 v2, 0x2
+
+    aget-short v2, v5, v2
+
+    and-int/lit8 v3, v3, 0x1
+
+    shl-int/lit8 v3, v3, 0x4
+
+    shr-int/lit8 v10, v2, 0x4
+
+    and-int/lit8 v10, v10, 0xf
+
+    or-int/2addr v3, v10
+
+    int-to-byte v10, v3
+
+    const/4 v3, 0x3
+
+    aget-short v3, v5, v3
+
+    and-int/lit8 v2, v2, 0xf
+
+    shl-int/lit8 v2, v2, 0x1
+
+    shr-int/lit8 v11, v3, 0x7
+
+    and-int/lit8 v11, v11, 0x1
+
+    or-int/2addr v2, v11
+
+    int-to-byte v11, v2
+
+    shr-int/lit8 v2, v3, 0x2
+
+    and-int/lit8 v2, v2, 0x1f
+
+    int-to-byte v12, v2
+
+    const/4 v2, 0x4
+
+    aget-short v2, v5, v2
+
+    shr-int/lit8 v5, v2, 0x5
+
+    and-int/lit8 v5, v5, 0x7
+
+    and-int/lit8 v3, v3, 0x3
+
+    shl-int/lit8 v3, v3, 0x3
+
+    or-int/2addr v3, v5
+
+    int-to-byte v5, v3
+
+    and-int/lit8 v2, v2, 0x1f
+
+    int-to-byte v13, v2
+
+    const/4 v2, 0x0
+
+    move v3, v2
+
+    :goto_3
+    rsub-int/lit8 v2, v6, 0x8
+
+    if-ge v3, v2, :cond_3
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, p1
+    iget-object v2, v0, Lcom/baidu/mobstat/bs;->a:Ljava/lang/String;
 
-    new-instance v2, Ljava/io/ByteArrayOutputStream;
+    const/16 v14, 0x8
 
-    invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V
+    new-array v14, v14, [I
 
-    const/4 v3, 0x0
+    const/4 v15, 0x0
 
-    const/4 v4, 0x0
+    aput v7, v14, v15
 
-    :goto_b
-    array-length v5, v1
+    const/4 v15, 0x1
 
-    const/4 v6, 0x4
+    aput v8, v14, v15
 
-    add-int/2addr v5, v6
+    const/4 v15, 0x2
 
-    const/4 v7, 0x5
+    aput v9, v14, v15
 
-    div-int/2addr v5, v7
+    const/4 v15, 0x3
 
-    if-ge v4, v5, :cond_cc
+    aput v10, v14, v15
 
-    new-array v5, v7, [S
+    const/4 v15, 0x4
 
-    const/4 v8, 0x0
+    aput v11, v14, v15
 
-    const/4 v9, 0x5
+    const/4 v15, 0x5
 
-    :goto_16
-    if-ge v8, v7, :cond_2d
+    aput v12, v14, v15
 
-    mul-int/lit8 v10, v4, 0x5
+    const/4 v15, 0x6
 
-    add-int/2addr v10, v8
+    aput v5, v14, v15
 
-    array-length v11, v1
+    const/4 v15, 0x7
 
-    if-ge v10, v11, :cond_26
+    aput v13, v14, v15
 
-    aget-byte v10, v1, v10
+    aget v14, v14, v3
 
-    and-int/lit16 v10, v10, 0xff
+    invoke-virtual {v2, v14}, Ljava/lang/String;->charAt(I)C
 
-    int-to-short v10, v10
+    move-result v2
 
-    aput-short v10, v5, v8
+    move-object/from16 v0, p0
 
-    goto :goto_2a
+    iget-boolean v14, v0, Lcom/baidu/mobstat/bs;->c:Z
 
-    :cond_26
-    aput-short v3, v5, v8
+    if-eqz v14, :cond_2
 
-    add-int/lit8 v9, v9, -0x1
+    invoke-static {v2}, Ljava/lang/Character;->toLowerCase(C)C
 
-    :goto_2a
-    add-int/lit8 v8, v8, 0x1
+    move-result v2
 
-    goto :goto_16
+    :cond_2
+    invoke-virtual {v4, v2}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    :cond_2d
-    invoke-static {v9}, Lcom/baidu/mobstat/bs;->a(I)I
+    add-int/lit8 v2, v3, 0x1
 
-    move-result v8
+    move v3, v2
 
-    aget-short v9, v5, v3
+    goto :goto_3
 
-    shr-int/lit8 v10, v9, 0x3
+    :cond_3
+    move-object/from16 v0, p0
 
-    and-int/lit8 v10, v10, 0x1f
+    iget-boolean v3, v0, Lcom/baidu/mobstat/bs;->b:Z
 
-    int-to-byte v10, v10
+    if-eqz v3, :cond_4
 
-    const/4 v11, 0x1
+    :goto_4
+    const/16 v3, 0x8
 
-    aget-short v12, v5, v11
+    if-ge v2, v3, :cond_4
 
-    const/4 v13, 0x7
+    const/16 v3, 0x3d
 
-    and-int/2addr v9, v13
+    invoke-virtual {v4, v3}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    const/4 v14, 0x2
+    add-int/lit8 v2, v2, 0x1
 
-    shl-int/2addr v9, v14
+    goto :goto_4
 
-    shr-int/lit8 v15, v12, 0x6
+    :cond_4
+    add-int/lit8 v1, v1, 0x1
 
-    const/16 v16, 0x3
+    goto/16 :goto_0
 
-    and-int/lit8 v15, v15, 0x3
-
-    or-int/2addr v9, v15
-
-    int-to-byte v9, v9
-
-    shr-int/lit8 v15, v12, 0x1
-
-    and-int/lit8 v15, v15, 0x1f
-
-    int-to-byte v15, v15
-
-    aget-short v17, v5, v14
-
-    and-int/2addr v12, v11
-
-    shl-int/2addr v12, v6
-
-    shr-int/lit8 v18, v17, 0x4
-
-    and-int/lit8 v18, v18, 0xf
-
-    or-int v12, v12, v18
-
-    int-to-byte v12, v12
-
-    aget-short v18, v5, v16
-
-    and-int/lit8 v17, v17, 0xf
-
-    shl-int/lit8 v17, v17, 0x1
-
-    shr-int/lit8 v19, v18, 0x7
-
-    and-int/lit8 v19, v19, 0x1
-
-    or-int v7, v17, v19
-
-    int-to-byte v7, v7
-
-    shr-int/lit8 v17, v18, 0x2
-
-    and-int/lit8 v14, v17, 0x1f
-
-    int-to-byte v14, v14
-
-    aget-short v5, v5, v6
-
-    shr-int/lit8 v17, v5, 0x5
-
-    and-int/lit8 v17, v17, 0x7
-
-    and-int/lit8 v18, v18, 0x3
-
-    shl-int/lit8 v18, v18, 0x3
-
-    or-int v13, v17, v18
-
-    int-to-byte v13, v13
-
-    and-int/lit8 v5, v5, 0x1f
-
-    int-to-byte v5, v5
-
-    const/4 v6, 0x0
-
-    :goto_7a
-    const/16 v11, 0x8
-
-    rsub-int/lit8 v3, v8, 0x8
-
-    if-ge v6, v3, :cond_b7
-
-    iget-object v3, v0, Lcom/baidu/mobstat/bs;->a:Ljava/lang/String;
-
-    new-array v11, v11, [I
-
-    const/16 v22, 0x0
-
-    aput v10, v11, v22
-
-    const/16 v18, 0x1
-
-    aput v9, v11, v18
-
-    const/16 v19, 0x2
-
-    aput v15, v11, v19
-
-    aput v12, v11, v16
-
-    const/16 v17, 0x4
-
-    aput v7, v11, v17
-
-    const/16 v20, 0x5
-
-    aput v14, v11, v20
-
-    const/16 v23, 0x6
-
-    aput v13, v11, v23
-
-    const/16 v21, 0x7
-
-    aput v5, v11, v21
-
-    aget v11, v11, v6
-
-    invoke-virtual {v3, v11}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    iget-boolean v11, v0, Lcom/baidu/mobstat/bs;->c:Z
-
-    if-eqz v11, :cond_b0
-
-    invoke-static {v3}, Ljava/lang/Character;->toLowerCase(C)C
-
-    move-result v3
-
-    :cond_b0
-    invoke-virtual {v2, v3}, Ljava/io/ByteArrayOutputStream;->write(I)V
-
-    add-int/lit8 v6, v6, 0x1
-
-    const/4 v3, 0x0
-
-    goto :goto_7a
-
-    :cond_b7
-    const/16 v22, 0x0
-
-    iget-boolean v5, v0, Lcom/baidu/mobstat/bs;->b:Z
-
-    if-eqz v5, :cond_c7
-
-    :goto_bd
-    if-ge v3, v11, :cond_c7
-
-    const/16 v5, 0x3d
-
-    invoke-virtual {v2, v5}, Ljava/io/ByteArrayOutputStream;->write(I)V
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_bd
-
-    :cond_c7
-    add-int/lit8 v4, v4, 0x1
-
-    const/4 v3, 0x0
-
-    goto/16 :goto_b
-
-    :cond_cc
+    :cond_5
     new-instance v1, Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+    invoke-virtual {v4}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v2
 

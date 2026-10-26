@@ -22,8 +22,10 @@
 .field private mGroupDexs:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/android/dex/Dex;",
             ">;>;"
         }
@@ -33,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +56,7 @@
 
 # virtual methods
 .method public getCollisionPolicy()Lcom/s1243808733/android/dx/merge/CollisionPolicy;
-    .registers 2
+    .locals 1
 
     .line 78
     iget-object v0, p0, Lcom/s1243808733/android/dexmerger/MultDexMerger$Parameter;->mCollisionPolicy:Lcom/s1243808733/android/dx/merge/CollisionPolicy;
@@ -63,7 +65,7 @@
 .end method
 
 .method public getCompactWasteThreshold()I
-    .registers 2
+    .locals 1
 
     .line 87
     iget v0, p0, Lcom/s1243808733/android/dexmerger/MultDexMerger$Parameter;->mCompactWasteThreshold:I
@@ -72,12 +74,14 @@
 .end method
 
 .method public getGroupDexs()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/android/dex/Dex;",
             ">;>;"
         }
@@ -90,7 +94,7 @@
 .end method
 
 .method public setCollisionPolicy(Lcom/s1243808733/android/dx/merge/CollisionPolicy;)Lcom/s1243808733/android/dexmerger/MultDexMerger$Parameter;
-    .registers 2
+    .locals 0
 
     .line 73
     iput-object p1, p0, Lcom/s1243808733/android/dexmerger/MultDexMerger$Parameter;->mCollisionPolicy:Lcom/s1243808733/android/dx/merge/CollisionPolicy;
@@ -99,7 +103,7 @@
 .end method
 
 .method public setCompactWasteThreshold(I)Lcom/s1243808733/android/dexmerger/MultDexMerger$Parameter;
-    .registers 2
+    .locals 0
 
     .line 82
     iput p1, p0, Lcom/s1243808733/android/dexmerger/MultDexMerger$Parameter;->mCompactWasteThreshold:I
@@ -108,12 +112,14 @@
 .end method
 
 .method public setGroupDexs(Ljava/util/List;)Lcom/s1243808733/android/dexmerger/MultDexMerger$Parameter;
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/android/dex/Dex;",
             ">;>;)",
             "Lcom/s1243808733/android/dexmerger/MultDexMerger$Parameter;"

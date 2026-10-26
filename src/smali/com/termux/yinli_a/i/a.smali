@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method public a(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    .registers 6
+    .locals 3
 
     const-string v0, "cause"
 
@@ -35,7 +35,7 @@
 
     sget-object v0, Lcom/termux/yinli_a/i/a$a;->a:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     const/4 v1, 0x1
 
@@ -47,6 +47,6 @@
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_17
+    :cond_0
     return-void
 .end method

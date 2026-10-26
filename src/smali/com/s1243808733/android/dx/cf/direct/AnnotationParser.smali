@@ -19,12 +19,12 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;IILcom/s1243808733/android/dx/cf/iface/ParseObserver;)V
-    .registers 6
+    .locals 2
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_24
+    if-eqz p1, :cond_0
 
     .line 86
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->cf:Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;
@@ -42,43 +42,43 @@
     .line 89
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->getBytes()Lcom/s1243808733/android/dx/util/ByteArray;
 
-    move-result-object p1
+    move-result-object v0
 
-    add-int/2addr p3, p2
+    add-int v1, p3, p2
 
-    invoke-virtual {p1, p2, p3}, Lcom/s1243808733/android/dx/util/ByteArray;->slice(II)Lcom/s1243808733/android/dx/util/ByteArray;
+    invoke-virtual {v0, p2, v1}, Lcom/s1243808733/android/dx/util/ByteArray;->slice(II)Lcom/s1243808733/android/dx/util/ByteArray;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->bytes:Lcom/s1243808733/android/dx/util/ByteArray;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->bytes:Lcom/s1243808733/android/dx/util/ByteArray;
 
     .line 90
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/util/ByteArray;->makeDataInputStream()Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/ByteArray;->makeDataInputStream()Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
 
     .line 91
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseCursor:I
+    iput v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseCursor:I
 
     return-void
 
     .line 83
-    :cond_24
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "cf == null"
+    const-string v1, "cf == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method private changeIndent(I)V
-    .registers 3
+    .locals 1
 
     .line 468
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
@@ -89,12 +89,16 @@
 .end method
 
 .method private parseAnnotation(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/Annotation;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
+
+    const/4 v5, 0x2
+
+    const/4 v1, 0x0
 
     .line 243
     const/4 v0, 0x4
@@ -109,23 +113,23 @@
     move-result v0
 
     .line 246
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->readUnsignedShort()I
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->readUnsignedShort()I
 
-    move-result v1
+    move-result v2
 
     .line 247
-    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->pool:Lcom/s1243808733/android/dx/rop/cst/ConstantPool;
+    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->pool:Lcom/s1243808733/android/dx/rop/cst/ConstantPool;
 
-    invoke-interface {v2, v0}, Lcom/s1243808733/android/dx/rop/cst/ConstantPool;->get(I)Lcom/s1243808733/android/dx/rop/cst/Constant;
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/rop/cst/ConstantPool;->get(I)Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
 
     check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
     .line 248
-    new-instance v2, Lcom/s1243808733/android/dx/rop/cst/CstType;
+    new-instance v3, Lcom/s1243808733/android/dx/rop/cst/CstType;
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->getString()Ljava/lang/String;
 
@@ -135,33 +139,31 @@
 
     move-result-object v0
 
-    invoke-direct {v2, v0}, Lcom/s1243808733/android/dx/rop/cst/CstType;-><init>(Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-direct {v3, v0}, Lcom/s1243808733/android/dx/rop/cst/CstType;-><init>(Lcom/s1243808733/android/dx/rop/type/Type;)V
 
     .line 250
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v0, :cond_50
+    if-eqz v0, :cond_0
 
     .line 251
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v3, "type: "
+    const-string v4, "type: "
 
-    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/cst/CstType;->toHuman()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/cst/CstType;->toHuman()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    const/4 v3, 0x2
-
-    invoke-direct {p0, v3, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v5, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 252
     new-instance v0, Ljava/lang/StringBuilder;
@@ -170,50 +172,48 @@
 
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v3, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v5, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 255
-    :cond_50
-    new-instance v0, Lcom/s1243808733/android/dx/rop/annotation/Annotation;
+    :cond_0
+    new-instance v4, Lcom/s1243808733/android/dx/rop/annotation/Annotation;
 
-    invoke-direct {v0, v2, p1}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)V
+    invoke-direct {v4, v3, p1}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)V
 
-    const/4 p1, 0x0
+    move v0, v1
 
-    const/4 v2, 0x0
-
-    :goto_57
-    if-ge v2, v1, :cond_89
+    :goto_0
+    if-ge v0, v2, :cond_3
 
     .line 258
     iget-object v3, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v3, :cond_77
+    if-eqz v3, :cond_1
 
     .line 259
     new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v4, "elements["
+    const-string v5, "elements["
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v4, "]:"
+    const-string v5, "]:"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-direct {p0, p1, v3}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v1, v3}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 260
     const/4 v3, 0x1
@@ -221,94 +221,94 @@
     invoke-direct {p0, v3}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
 
     .line 263
-    :cond_77
+    :cond_1
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseElement()Lcom/s1243808733/android/dx/rop/annotation/NameValuePair;
 
     move-result-object v3
 
     .line 264
-    invoke-virtual {v0, v3}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;->add(Lcom/s1243808733/android/dx/rop/annotation/NameValuePair;)V
+    invoke-virtual {v4, v3}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;->add(Lcom/s1243808733/android/dx/rop/annotation/NameValuePair;)V
 
     .line 266
     iget-object v3, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v3, :cond_86
+    if-eqz v3, :cond_2
 
     .line 267
     const/4 v3, -0x1
 
     invoke-direct {p0, v3}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
 
-    :cond_86
-    add-int/lit8 v2, v2, 0x1
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_57
+    goto :goto_0
 
     .line 271
-    :cond_89
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;->setImmutable()V
+    :cond_3
+    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;->setImmutable()V
 
-    return-object v0
+    return-object v4
 .end method
 
 .method private parseAnnotations(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/Annotations;
-    .registers 8
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    const/4 v1, 0x0
+
     .line 209
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->readUnsignedShort()I
 
-    move-result v0
+    move-result v2
 
     .line 211
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v1, :cond_20
+    if-eqz v0, :cond_0
 
     .line 212
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v2, "num_annotations: "
+    const-string v3, "num_annotations: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Hex;->u2(I)Ljava/lang/String;
+    invoke-static {v2}, Lcom/s1243808733/android/dx/util/Hex;->u2(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {p0, v2, v1}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v3, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 215
-    :cond_20
-    new-instance v1, Lcom/s1243808733/android/dx/rop/annotation/Annotations;
+    :cond_0
+    new-instance v3, Lcom/s1243808733/android/dx/rop/annotation/Annotations;
 
-    invoke-direct {v1}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;-><init>()V
+    invoke-direct {v3}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;-><init>()V
 
-    const/4 v2, 0x0
+    move v0, v1
 
-    const/4 v3, 0x0
-
-    :goto_27
-    if-ge v3, v0, :cond_59
+    :goto_0
+    if-ge v0, v2, :cond_3
 
     .line 218
     iget-object v4, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v4, :cond_47
+    if-eqz v4, :cond_1
 
     .line 219
     new-instance v4, Ljava/lang/StringBuilder;
@@ -317,7 +317,7 @@
 
     invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v5, "]:"
 
@@ -327,7 +327,7 @@
 
     move-result-object v4
 
-    invoke-direct {p0, v2, v4}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v1, v4}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 220
     const/4 v4, 0x1
@@ -335,150 +335,150 @@
     invoke-direct {p0, v4}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
 
     .line 223
-    :cond_47
+    :cond_1
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseAnnotation(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/Annotation;
 
     move-result-object v4
 
     .line 224
-    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;->add(Lcom/s1243808733/android/dx/rop/annotation/Annotation;)V
+    invoke-virtual {v3, v4}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;->add(Lcom/s1243808733/android/dx/rop/annotation/Annotation;)V
 
     .line 226
     iget-object v4, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v4, :cond_56
+    if-eqz v4, :cond_2
 
     .line 227
     const/4 v5, -0x1
 
     invoke-interface {v4, v5}, Lcom/s1243808733/android/dx/cf/iface/ParseObserver;->changeIndent(I)V
 
-    :cond_56
-    add-int/lit8 v3, v3, 0x1
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_27
+    goto :goto_0
 
     .line 231
-    :cond_59
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;->setImmutable()V
+    :cond_3
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;->setImmutable()V
 
-    return-object v1
+    return-object v3
 .end method
 
 .method private parseAnnotationsList(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;
-    .registers 9
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    const/4 v6, 0x1
+
+    const/4 v1, 0x0
+
     .line 174
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->readUnsignedByte()I
 
-    move-result v0
+    move-result v2
 
     .line 176
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    const/4 v2, 0x1
-
-    if-eqz v1, :cond_20
+    if-eqz v0, :cond_0
 
     .line 177
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v3, "num_parameters: "
 
-    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Hex;->u1(I)Ljava/lang/String;
+    invoke-static {v2}, Lcom/s1243808733/android/dx/util/Hex;->u1(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {p0, v2, v1}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v6, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 180
-    :cond_20
-    new-instance v1, Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;
+    :cond_0
+    new-instance v3, Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;
 
-    invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;-><init>(I)V
+    invoke-direct {v3, v2}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;-><init>(I)V
 
-    const/4 v3, 0x0
+    move v0, v1
 
-    const/4 v4, 0x0
-
-    :goto_27
-    if-ge v4, v0, :cond_58
+    :goto_0
+    if-ge v0, v2, :cond_3
 
     .line 183
-    iget-object v5, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
+    iget-object v4, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v5, :cond_46
+    if-eqz v4, :cond_1
 
     .line 184
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string v6, "parameter_annotations["
+    const-string v5, "parameter_annotations["
 
-    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v6, "]:"
+    const-string v5, "]:"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-direct {p0, v3, v5}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v1, v4}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 185
-    invoke-direct {p0, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
+    invoke-direct {p0, v6}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
 
     .line 188
-    :cond_46
+    :cond_1
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseAnnotations(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/Annotations;
 
-    move-result-object v5
+    move-result-object v4
 
     .line 189
-    invoke-virtual {v1, v4, v5}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;->set(ILcom/s1243808733/android/dx/rop/annotation/Annotations;)V
+    invoke-virtual {v3, v0, v4}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;->set(ILcom/s1243808733/android/dx/rop/annotation/Annotations;)V
 
     .line 191
-    iget-object v5, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
+    iget-object v4, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v5, :cond_55
+    if-eqz v4, :cond_2
 
     .line 192
-    const/4 v6, -0x1
+    const/4 v5, -0x1
 
-    invoke-interface {v5, v6}, Lcom/s1243808733/android/dx/cf/iface/ParseObserver;->changeIndent(I)V
+    invoke-interface {v4, v5}, Lcom/s1243808733/android/dx/cf/iface/ParseObserver;->changeIndent(I)V
 
-    :cond_55
-    add-int/lit8 v4, v4, 0x1
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_27
+    goto :goto_0
 
     .line 196
-    :cond_58
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;->setImmutable()V
+    :cond_3
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;->setImmutable()V
 
-    return-object v1
+    return-object v3
 .end method
 
 .method private parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -497,59 +497,59 @@
 
     invoke-interface {v1, v0}, Lcom/s1243808733/android/dx/rop/cst/ConstantPool;->get(I)Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 426
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v1, :cond_32
+    if-eqz v0, :cond_0
 
     .line 427
-    instance-of v1, v0, Lcom/s1243808733/android/dx/rop/cst/CstString;
+    instance-of v0, v1, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-eqz v1, :cond_1c
+    if-eqz v0, :cond_1
+
+    move-object v0, v1
 
     .line 428
-    move-object v1, v0
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    check-cast v1, Lcom/s1243808733/android/dx/rop/cst/CstString;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_20
-
-    .line 429
-    :cond_1c
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/Constant;->toHuman()Ljava/lang/String;
-
-    move-result-object v1
+    move-result-object v0
 
     .line 430
-    :goto_20
+    :goto_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string v3, "constant_value: "
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {p0, v1, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v0, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
-    :cond_32
-    return-object v0
+    :cond_0
+    return-object v1
+
+    .line 429
+    :cond_1
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/Constant;->toHuman()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method private parseElement()Lcom/s1243808733/android/dx/rop/annotation/NameValuePair;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -580,7 +580,7 @@
     .line 286
     iget-object v1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v1, :cond_36
+    if-eqz v1, :cond_0
 
     .line 287
     new-instance v1, Ljava/lang/StringBuilder;
@@ -616,7 +616,7 @@
     invoke-direct {p0, v1}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
 
     .line 292
-    :cond_36
+    :cond_0
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseValue()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v1
@@ -624,7 +624,7 @@
     .line 294
     iget-object v2, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v2, :cond_42
+    if-eqz v2, :cond_1
 
     .line 295
     const/4 v2, -0x1
@@ -632,7 +632,7 @@
     invoke-direct {p0, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
 
     .line 298
-    :cond_42
+    :cond_1
     new-instance v2, Lcom/s1243808733/android/dx/rop/annotation/NameValuePair;
 
     invoke-direct {v2, v0, v1}, Lcom/s1243808733/android/dx/rop/annotation/NameValuePair;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstString;Lcom/s1243808733/android/dx/rop/cst/Constant;)V
@@ -641,12 +641,20 @@
 .end method
 
 .method private parseValue()Lcom/s1243808733/android/dx/rop/cst/Constant;
-    .registers 8
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
+
+    const/4 v1, 0x0
+
+    const/4 v7, -0x1
+
+    const/4 v6, 0x1
+
+    const/4 v5, 0x2
 
     .line 307
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
@@ -656,14 +664,12 @@
     move-result v0
 
     .line 309
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    const/4 v2, 0x1
-
-    if-eqz v1, :cond_2a
+    if-eqz v2, :cond_0
 
     .line 310
-    new-instance v1, Lcom/s1243808733/android/dx/rop/cst/CstString;
+    new-instance v2, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
     int-to-char v3, v0
 
@@ -671,7 +677,7 @@
 
     move-result-object v3
 
-    invoke-direct {v1, v3}, Lcom/s1243808733/android/dx/rop/cst/CstString;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lcom/s1243808733/android/dx/rop/cst/CstString;-><init>(Ljava/lang/String;)V
 
     .line 311
     new-instance v3, Ljava/lang/StringBuilder;
@@ -680,62 +686,60 @@
 
     invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {p0, v2, v1}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v6, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
-    :cond_2a
-    const/16 v1, 0x40
+    :cond_0
+    const/16 v2, 0x40
 
-    if-eq v0, v1, :cond_1c1
+    if-eq v0, v2, :cond_10
 
-    const/16 v1, 0x46
+    const/16 v2, 0x46
 
-    if-eq v0, v1, :cond_1ba
+    if-eq v0, v2, :cond_f
 
-    const/16 v1, 0x53
+    const/16 v2, 0x53
 
-    if-eq v0, v1, :cond_1ab
+    if-eq v0, v2, :cond_e
 
-    const/16 v1, 0x63
+    const/16 v2, 0x63
 
-    const/4 v3, 0x2
+    if-eq v0, v2, :cond_c
 
-    if-eq v0, v1, :cond_176
+    const/16 v2, 0x65
 
-    const/16 v1, 0x65
+    if-eq v0, v2, :cond_a
 
-    if-eq v0, v1, :cond_11d
+    const/16 v2, 0x73
 
-    const/16 v1, 0x73
+    if-eq v0, v2, :cond_9
 
-    if-eq v0, v1, :cond_118
+    const/16 v2, 0x49
 
-    const/16 v1, 0x49
+    if-eq v0, v2, :cond_8
 
-    if-eq v0, v1, :cond_111
+    const/16 v2, 0x4a
 
-    const/16 v1, 0x4a
+    if-eq v0, v2, :cond_7
 
-    if-eq v0, v1, :cond_10a
+    const/16 v2, 0x5a
 
-    const/16 v1, 0x5a
+    if-eq v0, v2, :cond_6
 
-    if-eq v0, v1, :cond_fb
+    const/16 v2, 0x5b
 
-    const/16 v1, 0x5b
+    if-eq v0, v2, :cond_1
 
-    if-eq v0, v1, :cond_96
-
-    packed-switch v0, :pswitch_data_1ce
+    packed-switch v0, :pswitch_data_0
 
     .line 410
     new-instance v1, Ljava/lang/StringBuilder;
@@ -762,17 +766,19 @@
     throw v0
 
     .line 325
-    :pswitch_6e  #0x44
+    :pswitch_0
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
 
     check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstDouble;
 
+    .line 407
+    :goto_0
     return-object v0
 
     .line 320
-    :pswitch_75  #0x43
+    :pswitch_1
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
@@ -791,10 +797,10 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 316
-    :pswitch_87  #0x42
+    :pswitch_2
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
@@ -810,121 +816,117 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 383
-    :cond_96
-    invoke-direct {p0, v3}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->requireLength(I)V
+    :cond_1
+    invoke-direct {p0, v5}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->requireLength(I)V
 
     .line 385
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->readUnsignedShort()I
 
-    move-result v0
+    move-result v2
 
     .line 386
-    new-instance v1, Lcom/s1243808733/android/dx/rop/cst/CstArray$List;
+    new-instance v3, Lcom/s1243808733/android/dx/rop/cst/CstArray$List;
 
-    invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/rop/cst/CstArray$List;-><init>(I)V
+    invoke-direct {v3, v2}, Lcom/s1243808733/android/dx/rop/cst/CstArray$List;-><init>(I)V
 
     .line 388
-    iget-object v4, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v4, :cond_bc
+    if-eqz v0, :cond_2
 
     .line 389
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v4, "num_values: "
+
+    invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v5, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+
+    .line 390
+    invoke-direct {p0, v6}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
+
+    :cond_2
+    move v0, v1
+
+    :goto_1
+    if-ge v0, v2, :cond_4
+
+    .line 394
+    iget-object v4, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
+
+    if-eqz v4, :cond_3
+
+    .line 395
+    invoke-direct {p0, v7}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
+
+    .line 396
     new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string v5, "num_values: "
+    const-string v5, "element_value["
 
     invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    const-string v5, "]:"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-direct {p0, v3, v4}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
-
-    .line 390
-    invoke-direct {p0, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
-
-    :cond_bc
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    :goto_be
-    const/4 v5, -0x1
-
-    if-ge v4, v0, :cond_eb
-
-    .line 394
-    iget-object v6, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
-
-    if-eqz v6, :cond_e1
-
-    .line 395
-    invoke-direct {p0, v5}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
-
-    .line 396
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    const-string v6, "element_value["
-
-    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v6, "]:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {p0, v3, v5}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v1, v4}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 397
-    invoke-direct {p0, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
+    invoke-direct {p0, v6}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
 
     .line 399
-    :cond_e1
+    :cond_3
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseValue()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v1, v4, v5}, Lcom/s1243808733/android/dx/rop/cst/CstArray$List;->set(ILcom/s1243808733/android/dx/rop/cst/Constant;)V
+    invoke-virtual {v3, v0, v4}, Lcom/s1243808733/android/dx/rop/cst/CstArray$List;->set(ILcom/s1243808733/android/dx/rop/cst/Constant;)V
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_be
+    goto :goto_1
 
     .line 402
-    :cond_eb
+    :cond_4
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v0, :cond_f2
+    if-eqz v0, :cond_5
 
     .line 403
-    invoke-direct {p0, v5}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
+    invoke-direct {p0, v7}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->changeIndent(I)V
 
     .line 406
-    :cond_f2
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/CstArray$List;->setImmutable()V
+    :cond_5
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/cst/CstArray$List;->setImmutable()V
 
     .line 407
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstArray;
 
-    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstArray;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstArray$List;)V
+    invoke-direct {v0, v3}, Lcom/s1243808733/android/dx/rop/cst/CstArray;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstArray$List;)V
 
-    return-object v0
+    goto/16 :goto_0
 
     .line 345
-    :cond_fb
+    :cond_6
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
@@ -940,38 +942,38 @@
 
     move-result-object v0
 
-    return-object v0
+    goto/16 :goto_0
 
     .line 337
-    :cond_10a
+    :cond_7
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
 
     check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstLong;
 
-    return-object v0
+    goto/16 :goto_0
 
     .line 333
-    :cond_111
+    :cond_8
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
 
     check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
-    return-object v0
+    goto/16 :goto_0
 
     .line 360
-    :cond_118
+    :cond_9
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
 
-    return-object v0
+    goto/16 :goto_0
 
     .line 363
-    :cond_11d
+    :cond_a
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->requireLength(I)V
@@ -1011,48 +1013,48 @@
     .line 370
     iget-object v2, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v2, :cond_16b
+    if-eqz v2, :cond_b
 
     .line 371
     new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v4, "type_name: "
+    const-string v3, "type_name: "
 
-    invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toHuman()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {p0, v3, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v5, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 372
     new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v4, "const_name: "
+    const-string v3, "const_name: "
 
-    invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toHuman()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {p0, v3, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v5, v2}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 375
-    :cond_16b
+    :cond_b
     new-instance v2, Lcom/s1243808733/android/dx/rop/cst/CstEnumRef;
 
     new-instance v3, Lcom/s1243808733/android/dx/rop/cst/CstNat;
@@ -1061,10 +1063,12 @@
 
     invoke-direct {v2, v3}, Lcom/s1243808733/android/dx/rop/cst/CstEnumRef;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
 
-    return-object v2
+    move-object v0, v2
+
+    goto/16 :goto_0
 
     .line 349
-    :cond_176
+    :cond_c
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->readUnsignedShort()I
@@ -1087,42 +1091,42 @@
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->internReturnType(Ljava/lang/String;)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 353
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
 
-    if-eqz v1, :cond_1a5
+    if-eqz v0, :cond_d
 
     .line 354
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v2, "class_info: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->toHuman()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->toHuman()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {p0, v3, v1}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
+    invoke-direct {p0, v5, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parsed(ILjava/lang/String;)V
 
     .line 357
-    :cond_1a5
-    new-instance v1, Lcom/s1243808733/android/dx/rop/cst/CstType;
+    :cond_d
+    new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/rop/cst/CstType;-><init>(Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstType;-><init>(Lcom/s1243808733/android/dx/rop/type/Type;)V
 
-    return-object v1
+    goto/16 :goto_0
 
     .line 341
-    :cond_1ab
+    :cond_e
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
@@ -1138,46 +1142,45 @@
 
     move-result-object v0
 
-    return-object v0
+    goto/16 :goto_0
 
     .line 329
-    :cond_1ba
+    :cond_f
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
     move-result-object v0
 
     check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstFloat;
 
-    return-object v0
+    goto/16 :goto_0
 
     .line 378
-    :cond_1c1
+    :cond_10
     sget-object v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;->EMBEDDED:Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
     .line 379
     invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseAnnotation(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 380
-    new-instance v1, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;
+    new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;
 
-    invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;-><init>(Lcom/s1243808733/android/dx/rop/annotation/Annotation;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;-><init>(Lcom/s1243808733/android/dx/rop/annotation/Annotation;)V
 
-    return-object v1
+    goto/16 :goto_0
 
-    nop
-
-    :pswitch_data_1ce
+    .line 311
+    :pswitch_data_0
     .packed-switch 0x42
-        :pswitch_87  #00000042
-        :pswitch_75  #00000043
-        :pswitch_6e  #00000044
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private parsed(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
 
     .line 457
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->observer:Lcom/s1243808733/android/dx/cf/iface/ParseObserver;
@@ -1189,17 +1192,17 @@
     invoke-interface {v0, v1, v2, p1, p2}, Lcom/s1243808733/android/dx/cf/iface/ParseObserver;->parsed(Lcom/s1243808733/android/dx/util/ByteArray;IILjava/lang/String;)V
 
     .line 458
-    iget p2, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseCursor:I
+    iget v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseCursor:I
 
-    add-int/2addr p2, p1
+    add-int/2addr v0, p1
 
-    iput p2, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseCursor:I
+    iput v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseCursor:I
 
     return-void
 .end method
 
 .method private requireLength(I)V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1213,115 +1216,115 @@
 
     move-result v0
 
-    if-lt v0, p1, :cond_9
+    if-lt v0, p1, :cond_0
 
     return-void
 
     .line 444
-    :cond_9
-    new-instance p1, Lcom/s1243808733/android/dx/cf/iface/ParseException;
+    :cond_0
+    new-instance v0, Lcom/s1243808733/android/dx/cf/iface/ParseException;
 
-    const-string v0, "truncated annotation attribute"
+    const-string v1, "truncated annotation attribute"
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/cf/iface/ParseException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/cf/iface/ParseException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public parseAnnotationAttribute(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/Annotations;
-    .registers 4
+    .locals 3
 
     .line 152
     :try_start_0
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseAnnotations(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/Annotations;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 154
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->available()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->available()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_d
+    if-nez v1, :cond_0
 
-    return-object p1
+    return-object v0
 
     .line 155
-    :cond_d
-    new-instance p1, Lcom/s1243808733/android/dx/cf/iface/ParseException;
+    :cond_0
+    new-instance v0, Lcom/s1243808733/android/dx/cf/iface/ParseException;
 
-    const-string v0, "extra data in attribute"
+    const-string v1, "extra data in attribute"
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/cf/iface/ParseException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_15} :catch_15
-
-    :catch_15
-    move-exception p1
-
-    .line 159
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string v1, "shouldn\'t happen"
-
-    invoke-direct {v0, v1, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/cf/iface/ParseException;-><init>(Ljava/lang/String;)V
 
     throw v0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    .line 159
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    const-string v2, "shouldn\'t happen"
+
+    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
 .end method
 
 .method public parseParameterAttribute(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;
-    .registers 4
+    .locals 3
 
     .line 127
     :try_start_0
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->parseAnnotationsList(Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;)Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 129
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/direct/AnnotationParser;->input:Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->available()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;->available()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_d
+    if-nez v1, :cond_0
 
-    return-object p1
+    return-object v0
 
     .line 130
-    :cond_d
-    new-instance p1, Lcom/s1243808733/android/dx/cf/iface/ParseException;
+    :cond_0
+    new-instance v0, Lcom/s1243808733/android/dx/cf/iface/ParseException;
 
-    const-string v0, "extra data in attribute"
+    const-string v1, "extra data in attribute"
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/cf/iface/ParseException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_15} :catch_15
-
-    :catch_15
-    move-exception p1
-
-    .line 134
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string v1, "shouldn\'t happen"
-
-    invoke-direct {v0, v1, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/cf/iface/ParseException;-><init>(Ljava/lang/String;)V
 
     throw v0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    .line 134
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    const-string v2, "shouldn\'t happen"
+
+    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
 .end method
 
 .method public parseValueAttribute()Lcom/s1243808733/android/dx/rop/cst/Constant;
-    .registers 4
+    .locals 3
 
     .line 103
     :try_start_0
@@ -1336,12 +1339,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_0
 
     return-object v0
 
     .line 106
-    :cond_d
+    :cond_0
     new-instance v0, Lcom/s1243808733/android/dx/cf/iface/ParseException;
 
     const-string v1, "extra data in attribute"
@@ -1349,10 +1352,10 @@
     invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/cf/iface/ParseException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_15} :catch_15
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 110

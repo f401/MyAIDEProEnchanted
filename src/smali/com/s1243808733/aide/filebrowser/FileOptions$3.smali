@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/io/File;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,14 +45,14 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 2
 
     .line 127
-    iget-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$3;->val$context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$3;->val$context:Landroid/content/Context;
 
-    iget-object p2, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$3;->val$file:Ljava/io/File;
+    iget-object v1, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$3;->val$file:Ljava/io/File;
 
-    invoke-static {p1, p2}, Lcom/s1243808733/aide/filebrowser/FileOptions;->installApk(Landroid/content/Context;Ljava/io/File;)V
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/filebrowser/FileOptions;->installApk(Landroid/content/Context;Ljava/io/File;)V
 
     return-void
 .end method

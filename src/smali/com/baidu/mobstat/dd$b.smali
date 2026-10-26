@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/baidu/mobstat/dd;Ljava/lang/String;Ljava/lang/String;ZI)V
-    .registers 6
+    .locals 0
 
     .line 166
     iput-object p1, p0, Lcom/baidu/mobstat/dd$b;->e:Lcom/baidu/mobstat/dd;

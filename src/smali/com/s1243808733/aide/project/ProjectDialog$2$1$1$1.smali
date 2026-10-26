@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/project/ProjectDialog$2$1$1;)V
-    .registers 2
+    .locals 0
 
     .line 146
     iput-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$2$1$1$1;->this$2:Lcom/s1243808733/aide/project/ProjectDialog$2$1$1;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .line 150
     iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$2$1$1$1;->this$2:Lcom/s1243808733/aide/project/ProjectDialog$2$1$1;
@@ -46,7 +46,7 @@
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->cancel()V
 
     .line 151
-    const-string v0, "导入项目成功"
+    const-string v0, "\u5bfc\u5165\u9879\u76ee\u6210\u529f"
 
     const-string v1, "Import project succeeded"
 

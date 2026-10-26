@@ -19,8 +19,10 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
-        "Ljava/util/Map$Entry<",
+        "Ljava/util/Comparator",
+        "<",
+        "Ljava/util/Map$Entry",
+        "<",
         "Landroid/view/View;",
         "Ljava/lang/Integer;",
         ">;>;"
@@ -34,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/co;)V
-    .registers 2
+    .locals 0
 
     .line 753
     iput-object p1, p0, Lcom/baidu/mobstat/co$3;->a:Lcom/baidu/mobstat/co;
@@ -47,15 +49,17 @@
 
 # virtual methods
 .method public a(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Map$Entry<",
+            "Ljava/util/Map$Entry",
+            "<",
             "Landroid/view/View;",
             "Ljava/lang/Integer;",
             ">;",
-            "Ljava/util/Map$Entry<",
+            "Ljava/util/Map$Entry",
+            "<",
             "Landroid/view/View;",
             "Ljava/lang/Integer;",
             ">;)I"
@@ -65,25 +69,25 @@
     .line 756
     invoke-interface {p2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v1
 
-    check-cast p1, Ljava/lang/Integer;
+    check-cast v1, Ljava/lang/Integer;
 
-    invoke-virtual {p2, p1}, Ljava/lang/Integer;->compareTo(Ljava/lang/Integer;)I
+    invoke-virtual {v0, v1}, Ljava/lang/Integer;->compareTo(Ljava/lang/Integer;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 753
     check-cast p1, Ljava/util/Map$Entry;
@@ -92,7 +96,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/baidu/mobstat/co$3;->a(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

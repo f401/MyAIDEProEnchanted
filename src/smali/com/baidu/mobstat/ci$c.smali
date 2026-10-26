@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/view/View;)V
-    .registers 3
+    .locals 1
 
     .line 466
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,14 +38,14 @@
     iput-object p2, p0, Lcom/baidu/mobstat/ci$c;->b:Landroid/view/View;
 
     .line 469
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lcom/baidu/mobstat/ci$c;->c:Lcom/baidu/mobstat/ci$a;
+    iput-object v0, p0, Lcom/baidu/mobstat/ci$c;->c:Lcom/baidu/mobstat/ci$a;
 
     .line 470
-    const/high16 p1, 0x3f800000  # 1.0f
+    const/high16 v0, 0x3f800000    # 1.0f
 
-    iput p1, p0, Lcom/baidu/mobstat/ci$c;->d:F
+    iput v0, p0, Lcom/baidu/mobstat/ci$c;->d:F
 
     return-void
 .end method

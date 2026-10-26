@@ -4,7 +4,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 5
+    .locals 2
 
     invoke-direct {p0}, Lcom/baidu/mobstat/ah;-><init>()V
 
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public a([BII)Lcom/baidu/mobstat/ac;
-    .registers 6
+    .locals 6
 
     new-instance v0, Lcom/baidu/mobstat/ak;
 
@@ -38,21 +38,21 @@
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/baidu/mobstat/ak;->a([BII)V
 
-    const/4 p1, 0x1
+    const/4 v1, 0x1
 
-    new-array p1, p1, [J
+    new-array v1, v1, [J
 
-    const/4 p2, 0x0
+    const/4 v2, 0x0
 
     invoke-virtual {v0}, Lcom/baidu/mobstat/ak;->a()J
 
-    move-result-wide v0
+    move-result-wide v4
 
-    aput-wide v0, p1, p2
+    aput-wide v4, v1, v2
 
-    invoke-static {p1}, Lcom/baidu/mobstat/ac;->a([J)Lcom/baidu/mobstat/ac;
+    invoke-static {v1}, Lcom/baidu/mobstat/ac;->a([J)Lcom/baidu/mobstat/ac;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

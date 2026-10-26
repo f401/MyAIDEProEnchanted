@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lc/t;)V
-    .registers 5
+    .locals 4
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -29,16 +29,16 @@
 
     invoke-virtual {p1}, Lc/t;->o()Ljava/util/Enumeration;
 
-    move-result-object p1
+    move-result-object v2
 
-    :goto_15
-    invoke-interface {p1}, Ljava/util/Enumeration;->hasMoreElements()Z
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Enumeration;->hasMoreElements()Z
 
     move-result v0
 
-    if-eqz v0, :cond_45
+    if-eqz v0, :cond_2
 
-    invoke-interface {p1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -47,14 +47,33 @@
     .line 1
     instance-of v1, v0, Lr/c;
 
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_0
 
     check-cast v0, Lr/c;
 
-    goto :goto_36
+    .line 2
+    :goto_1
+    iget-object v1, p0, Lr/d;->a:Ljava/util/Hashtable;
 
-    :cond_28
-    if-eqz v0, :cond_35
+    .line 3
+    iget-object v3, v0, Lr/c;->b:Lc/n;
+
+    .line 4
+    invoke-virtual {v1, v3, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v1, p0, Lr/d;->b:Ljava/util/Vector;
+
+    .line 5
+    iget-object v0, v0, Lr/c;->b:Lc/n;
+
+    .line 6
+    invoke-virtual {v1, v0}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    goto :goto_0
+
+    .line 1
+    :cond_0
+    if-eqz v0, :cond_1
 
     new-instance v1, Lr/c;
 
@@ -66,37 +85,20 @@
 
     move-object v0, v1
 
-    goto :goto_36
+    goto :goto_1
 
-    :cond_35
+    :cond_1
     const/4 v0, 0x0
 
-    .line 2
-    :goto_36
-    iget-object v1, p0, Lr/d;->a:Ljava/util/Hashtable;
-
-    .line 3
-    iget-object v2, v0, Lr/c;->b:Lc/n;
-
-    .line 4
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v1, p0, Lr/d;->b:Ljava/util/Vector;
-
-    .line 5
-    iget-object v0, v0, Lr/c;->b:Lc/n;
+    goto :goto_1
 
     .line 6
-    invoke-virtual {v1, v0}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
-
-    goto :goto_15
-
-    :cond_45
+    :cond_2
     return-void
 .end method
 
 .method public constructor <init>([Lr/c;)V
-    .registers 6
+    .locals 4
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -114,10 +116,10 @@
 
     const/4 v0, 0x0
 
-    :goto_12
+    :goto_0
     array-length v1, p1
 
-    if-eq v0, v1, :cond_28
+    if-eq v0, v1, :cond_0
 
     aget-object v1, p1, v0
 
@@ -139,58 +141,58 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_12
+    goto :goto_0
 
-    :cond_28
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public final l()Lc/s;
-    .registers 5
+    .locals 4
 
-    new-instance v0, Lc/f;
+    new-instance v1, Lc/f;
 
-    invoke-direct {v0}, Lc/f;-><init>()V
+    invoke-direct {v1}, Lc/f;-><init>()V
 
-    iget-object v1, p0, Lr/d;->b:Ljava/util/Vector;
+    iget-object v0, p0, Lr/d;->b:Ljava/util/Vector;
 
-    invoke-virtual {v1}, Ljava/util/Vector;->elements()Ljava/util/Enumeration;
-
-    move-result-object v1
-
-    :goto_b
-    invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_23
-
-    invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/Vector;->elements()Ljava/util/Enumeration;
 
     move-result-object v2
 
-    check-cast v2, Lc/n;
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Enumeration;->hasMoreElements()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lc/n;
 
     iget-object v3, p0, Lr/d;->a:Ljava/util/Hashtable;
 
-    invoke-virtual {v3, v2}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v0}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lr/c;
+    check-cast v0, Lr/c;
 
-    invoke-virtual {v0, v2}, Lc/f;->b(Lc/e;)V
+    invoke-virtual {v1, v0}, Lc/f;->b(Lc/e;)V
 
-    goto :goto_b
+    goto :goto_0
 
-    :cond_23
-    new-instance v1, Lc/bc;
+    :cond_0
+    new-instance v0, Lc/bc;
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, v0, v2}, Lc/bc;-><init>(Lc/f;I)V
+    invoke-direct {v0, v1, v2}, Lc/bc;-><init>(Lc/f;I)V
 
-    return-object v1
+    return-object v0
 .end method

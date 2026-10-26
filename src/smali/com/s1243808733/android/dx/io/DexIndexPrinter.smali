@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -31,15 +31,15 @@
     .line 37
     invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->getTableOfContents()Lcom/s1243808733/android/dex/TableOfContents;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
 
     return-void
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -53,9 +53,9 @@
 
     const/4 v2, 0x0
 
-    aget-object p0, p0, v2
+    aget-object v2, p0, v2
 
-    invoke-direct {v1, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/io/DexIndexPrinter;-><init>(Ljava/io/File;)V
 
@@ -87,7 +87,7 @@
 .end method
 
 .method private printClassDefs()V
-    .registers 7
+    .locals 6
 
     .line 112
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->dex:Lcom/s1243808733/android/dex/Dex;
@@ -98,22 +98,24 @@
 
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    :goto_b
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_35
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Lcom/s1243808733/android/dex/ClassDef;
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dex/ClassDef;
 
     .line 113
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -130,24 +132,26 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v3, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_b
+    move v1, v0
 
-    :cond_35
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
 .method private printFieldIds()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -163,22 +167,24 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    :goto_b
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_35
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Lcom/s1243808733/android/dex/FieldId;
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dex/FieldId;
 
     .line 78
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -195,45 +201,47 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v3, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_b
+    move v1, v0
 
-    :cond_35
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
 .method private printMap()V
-    .registers 8
+    .locals 7
 
     .line 41
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
 
-    iget-object v0, v0, Lcom/s1243808733/android/dex/TableOfContents;->sections:[Lcom/s1243808733/android/dex/TableOfContents$Section;
+    iget-object v1, v0, Lcom/s1243808733/android/dex/TableOfContents;->sections:[Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    array-length v1, v0
+    array-length v2, v1
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    :goto_6
-    if-ge v2, v1, :cond_55
+    :goto_0
+    if-ge v0, v2, :cond_1
 
-    aget-object v3, v0, v2
+    aget-object v3, v1, v0
 
     .line 42
     iget v4, v3, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_52
+    if-eq v4, v5, :cond_0
 
     .line 43
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -298,17 +306,17 @@
     .line 43
     invoke-virtual {v4, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    :cond_52
-    add-int/lit8 v2, v2, 0x1
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_55
+    :cond_1
     return-void
 .end method
 
 .method private printMethodIds()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -324,22 +332,24 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    :goto_b
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_35
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Lcom/s1243808733/android/dex/MethodId;
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dex/MethodId;
 
     .line 86
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -356,24 +366,26 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v3, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_b
+    move v1, v0
 
-    :cond_35
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
 .method private printProtoIds()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -389,22 +401,24 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    :goto_b
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_35
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Lcom/s1243808733/android/dex/ProtoId;
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dex/ProtoId;
 
     .line 70
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -421,24 +435,26 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v3, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_b
+    move v1, v0
 
-    :cond_35
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
 .method private printStrings()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -454,22 +470,24 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    :goto_b
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_35
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Ljava/lang/String;
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
 
     .line 54
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -486,24 +504,26 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v3, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_b
+    move v1, v0
 
-    :cond_35
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
 .method private printTypeIds()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -519,22 +539,24 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    :goto_b
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_45
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Ljava/lang/Integer;
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
 
     .line 62
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -557,39 +579,43 @@
 
     move-result-object v5
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result v0
 
-    invoke-interface {v5, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v5, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v3, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v3, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_b
+    move v1, v0
 
-    :cond_45
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
 .method private printTypeLists()V
-    .registers 10
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
+
+    const/4 v2, 0x0
 
     .line 92
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
@@ -600,7 +626,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_1
 
     .line 93
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -609,10 +635,12 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
+    .line 106
+    :cond_0
     return-void
 
     .line 96
-    :cond_11
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->dex:Lcom/s1243808733/android/dex/Dex;
 
     iget-object v1, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
@@ -623,117 +651,116 @@
 
     invoke-virtual {v0, v1}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
 
-    move-result-object v0
+    move-result-object v4
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
+    move v1, v2
 
     .line 97
-    :goto_1f
-    iget-object v3, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
+    :goto_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
 
-    iget-object v3, v3, Lcom/s1243808733/android/dex/TableOfContents;->typeLists:Lcom/s1243808733/android/dex/TableOfContents$Section;
+    iget-object v0, v0, Lcom/s1243808733/android/dex/TableOfContents;->typeLists:Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    iget v3, v3, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
+    iget v0, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
 
-    if-ge v2, v3, :cond_84
+    if-ge v1, v0, :cond_0
 
     .line 98
-    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex$Section;->readInt()I
+    invoke-virtual {v4}, Lcom/s1243808733/android/dex/Dex$Section;->readInt()I
 
-    move-result v3
+    move-result v5
 
     .line 99
-    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
     const-string v6, "Type list i="
 
-    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v6, ", size="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v6, ", elements="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v4, v5}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
 
-    const/4 v4, 0x0
+    move v3, v2
 
-    :goto_4c
-    if-ge v4, v3, :cond_74
+    :goto_1
+    if-ge v3, v5, :cond_2
 
     .line 101
-    sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v6, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string v7, " "
+    const-string v0, " "
 
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v7, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->dex:Lcom/s1243808733/android/dex/Dex;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/io/DexIndexPrinter;->dex:Lcom/s1243808733/android/dex/Dex;
 
-    invoke-virtual {v7}, Lcom/s1243808733/android/dex/Dex;->typeNames()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->typeNames()Ljava/util/List;
 
-    move-result-object v7
+    move-result-object v0
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex$Section;->readShort()S
+    invoke-virtual {v4}, Lcom/s1243808733/android/dex/Dex$Section;->readShort()S
 
     move-result v8
 
-    invoke-interface {v7, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v0
 
-    check-cast v7, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v5, v6}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
+    invoke-virtual {v6, v0}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v0, v3, 0x1
 
-    goto :goto_4c
+    move v3, v0
+
+    goto :goto_1
 
     .line 103
-    :cond_74
-    rem-int/lit8 v3, v3, 0x2
+    :cond_2
+    rem-int/lit8 v0, v5, 0x2
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    if-ne v3, v4, :cond_7c
+    if-ne v0, v3, :cond_3
 
     .line 104
-    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex$Section;->readShort()S
+    invoke-virtual {v4}, Lcom/s1243808733/android/dex/Dex$Section;->readShort()S
 
     .line 106
-    :cond_7c
-    sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_3
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {v3}, Ljava/io/PrintStream;->println()V
+    invoke-virtual {v0}, Ljava/io/PrintStream;->println()V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_1f
+    move v1, v0
 
-    :cond_84
-    return-void
+    goto :goto_0
 .end method

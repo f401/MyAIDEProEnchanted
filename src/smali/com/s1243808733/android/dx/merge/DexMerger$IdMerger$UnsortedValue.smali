@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;
+    value = Lcom/s1243808733/android/dx/merge/DexMerger;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,9 +19,10 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
-        "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger<",
-        "TT;>.UnsortedValue;>;"
+        "Ljava/lang/Comparable",
+        "<",
+        "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger",
+        "<TT;>.UnsortedValue;>;"
     }
 .end annotation
 
@@ -48,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dx/merge/IndexMap;Ljava/lang/Comparable;II)V
-    .registers 7
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,36 +85,36 @@
 
 # virtual methods
 .method public compareTo(Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;)I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger<",
-            "TT;>.UnsortedValue;)I"
+            "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger",
+            "<TT;>.UnsortedValue;)I"
         }
     .end annotation
 
     .line 375
     iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->value:Ljava/lang/Comparable;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->value:Ljava/lang/Comparable;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->value:Ljava/lang/Comparable;
 
-    invoke-interface {v0, p1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
+    invoke-interface {v0, v1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 358
     check-cast p1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->compareTo(Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
-    .registers 3
+    .locals 0
 
     .line 47
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
@@ -14,18 +14,18 @@
 .end method
 
 .method public static forPrimitiveType(Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
-    .registers 3
+    .locals 3
 
     .line 36
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/rop/cst/CstType;->forBoxedPrimitiveType(Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    move-result-object p0
+    move-result-object v1
 
-    sget-object v1, Lcom/s1243808733/android/dx/rop/cst/CstNat;->PRIMITIVE_TYPE_NAT:Lcom/s1243808733/android/dx/rop/cst/CstNat;
+    sget-object v2, Lcom/s1243808733/android/dx/rop/cst/CstNat;->PRIMITIVE_TYPE_NAT:Lcom/s1243808733/android/dx/rop/cst/CstNat;
 
-    invoke-direct {v0, p0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
+    invoke-direct {v0, v1, v2}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
 
     return-object v0
 .end method
@@ -33,19 +33,21 @@
 
 # virtual methods
 .method protected compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
-    .registers 3
+    .locals 2
 
     .line 69
     invoke-super {p0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
+    .line 78
+    :goto_0
     return v0
 
     .line 75
-    :cond_7
+    :cond_0
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
     .line 76
@@ -60,22 +62,22 @@
     .line 77
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getNat()Lcom/s1243808733/android/dx/rop/cst/CstNat;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstNat;->getDescriptor()Lcom/s1243808733/android/dx/rop/cst/CstString;
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/CstNat;->getDescriptor()Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 78
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 63
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getNat()Lcom/s1243808733/android/dx/rop/cst/CstNat;
@@ -90,7 +92,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 53
     const-string v0, "field"

@@ -26,16 +26,16 @@
 
 # direct methods
 .method public constructor <init>(IIILcom/s1243808733/android/dx/rop/cst/CstType;)V
-    .registers 5
+    .locals 2
 
     .line 249
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-ltz p1, :cond_22
+    if-ltz p1, :cond_2
 
-    if-lt p2, p1, :cond_1a
+    if-lt p2, p1, :cond_1
 
-    if-ltz p3, :cond_12
+    if-ltz p3, :cond_0
 
     .line 262
     iput p1, p0, Lcom/s1243808733/android/dx/cf/code/ByteCatchList$Item;->startPc:I
@@ -52,63 +52,63 @@
     return-void
 
     .line 259
-    :cond_12
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "handlerPc < 0"
+    const-string v1, "handlerPc < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 255
-    :cond_1a
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "endPc < startPc"
+    const-string v1, "endPc < startPc"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 251
-    :cond_22
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "startPc < 0"
+    const-string v1, "startPc < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public covers(I)Z
-    .registers 3
+    .locals 1
 
     .line 314
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteCatchList$Item;->startPc:I
 
-    if-lt p1, v0, :cond_a
+    if-lt p1, v0, :cond_0
 
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteCatchList$Item;->endPc:I
 
-    if-ge p1, v0, :cond_a
+    if-ge p1, v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_b
+    :goto_0
+    return v0
 
-    :cond_a
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_b
-    return p1
+    goto :goto_0
 .end method
 
 .method public getEndPc()I
-    .registers 2
+    .locals 1
 
     .line 284
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteCatchList$Item;->endPc:I
@@ -117,25 +117,25 @@
 .end method
 
 .method public getExceptionClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 303
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteCatchList$Item;->exceptionClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    if-eqz v0, :cond_5
-
-    goto :goto_7
+    if-eqz v0, :cond_0
 
     .line 304
-    :cond_5
+    :goto_0
+    return-object v0
+
+    :cond_0
     sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->OBJECT:Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    :goto_7
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getHandlerPc()I
-    .registers 2
+    .locals 1
 
     .line 293
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteCatchList$Item;->handlerPc:I
@@ -144,7 +144,7 @@
 .end method
 
 .method public getStartPc()I
-    .registers 2
+    .locals 1
 
     .line 274
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteCatchList$Item;->startPc:I

@@ -28,7 +28,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$mexpandRegister(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;I)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->expandRegister(I)V
 
@@ -36,17 +36,17 @@
 .end method
 
 .method static bridge synthetic -$$Nest$mgetResult(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;)Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
-    .registers 1
+    .locals 1
 
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method private constructor <init>(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;Ljava/util/BitSet;IZ)V
-    .registers 5
+    .locals 2
 
     .line 402
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,15 +61,15 @@
     iput p3, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->base:I
 
     .line 406
-    new-instance p2, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
+    new-instance v0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
-    move-result p1
+    move-result v1
 
-    invoke-direct {p2, p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;-><init>(I)V
 
-    iput-object p2, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
     .line 407
     iput-boolean p4, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->duplicateFirst:Z
@@ -78,7 +78,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;Ljava/util/BitSet;IZLcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander-IA;)V
-    .registers 6
+    .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;-><init>(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;Ljava/util/BitSet;IZ)V
 
@@ -86,7 +86,7 @@
 .end method
 
 .method private expandRegister(I)V
-    .registers 3
+    .locals 1
 
     .line 411
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->regSpecList:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
@@ -103,24 +103,15 @@
 .end method
 
 .method private expandRegister(ILcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
-    .registers 5
+    .locals 2
 
     .line 415
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->compatRegs:Ljava/util/BitSet;
 
-    if-nez v0, :cond_5
-
-    goto :goto_b
-
-    :cond_5
-    invoke-virtual {v0, p1}, Ljava/util/BitSet;->get(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_1
 
     .line 419
-    :goto_b
+    :goto_0
     iget v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->base:I
 
     invoke-virtual {p2, v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->withReg(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
@@ -130,7 +121,7 @@
     .line 420
     iget-boolean v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->duplicateFirst:Z
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_0
 
     .line 421
     iget v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->base:I
@@ -144,7 +135,7 @@
     iput v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->base:I
 
     .line 428
-    :cond_1e
+    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->duplicateFirst:Z
@@ -155,10 +146,20 @@
     invoke-static {v0, p1, p2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->access$100(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;ILjava/lang/Object;)V
 
     return-void
+
+    .line 415
+    :cond_1
+    invoke-virtual {v0, p1}, Ljava/util/BitSet;->get(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
 .end method
 
 .method private getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
-    .registers 2
+    .locals 1
 
     .line 434
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->regSpecList:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
@@ -167,7 +168,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 435
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
@@ -175,7 +176,7 @@
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->setImmutable()V
 
     .line 438
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList$Expander;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
     return-object v0

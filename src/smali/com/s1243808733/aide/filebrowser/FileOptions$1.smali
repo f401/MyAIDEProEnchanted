@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/File;Landroid/content/Context;Landroid/content/pm/PackageInfo;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,15 +49,15 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 147
-    new-instance p1, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;
+    new-instance v0, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;
 
-    invoke-direct {p1, p0}, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;-><init>(Lcom/s1243808733/aide/filebrowser/FileOptions$1;)V
+    invoke-direct {v0, p0}, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;-><init>(Lcom/s1243808733/aide/filebrowser/FileOptions$1;)V
 
     .line 176
-    invoke-virtual {p1}, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;->start()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;->start()V
 
     return-void
 .end method

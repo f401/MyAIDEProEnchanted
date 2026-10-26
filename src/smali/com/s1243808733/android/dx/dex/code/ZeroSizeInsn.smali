@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)V
-    .registers 4
+    .locals 2
 
     .line 36
     sget-object v0, Lcom/s1243808733/android/dx/dex/code/Dops;->SPECIAL_FORMAT:Lcom/s1243808733/android/dx/dex/code/Dop;
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public final codeSize()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -28,20 +28,20 @@
 .end method
 
 .method public final withOpcode(Lcom/s1243808733/android/dx/dex/code/Dop;)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
-    .registers 3
+    .locals 2
 
     .line 54
-    new-instance p1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string v0, "unsupported"
+    const-string v1, "unsupported"
 
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public withRegisterOffset(I)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
-    .registers 3
+    .locals 1
 
     .line 60
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/ZeroSizeInsn;->getRegisters()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
@@ -50,17 +50,17 @@
 
     invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->withOffset(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/code/ZeroSizeInsn;->withRegisters(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/dex/code/ZeroSizeInsn;->withRegisters(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public final writeTo(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

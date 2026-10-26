@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 17
     const-string v0, "*"
@@ -18,13 +18,14 @@
 
 # virtual methods
 .method public evaluate(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/util/Collection;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ")",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
         }
@@ -33,19 +34,20 @@
     .line 22
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardAnywhereElement;->invert:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
-    new-instance p1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
-
-    return-object p1
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 23
-    :cond_a
+    :goto_0
+    return-object v0
+
+    :cond_0
     invoke-static {p1}, Lorg/antlr/v4/runtime/tree/Trees;->getDescendants(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_0
 .end method

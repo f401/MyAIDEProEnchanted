@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;TB;TC;)V"
@@ -71,76 +71,78 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_4
+    const/4 v1, 0x0
 
+    if-ne p1, p0, :cond_1
+
+    .line 30
+    :cond_0
+    :goto_0
     return v0
 
     .line 25
-    :cond_4
-    instance-of v1, p1, Lorg/antlr/v4/runtime/misc/Triple;
+    :cond_1
+    instance-of v2, p1, Lorg/antlr/v4/runtime/misc/Triple;
 
-    const/4 v2, 0x0
+    if-nez v2, :cond_2
 
-    if-nez v1, :cond_a
+    move v0, v1
 
-    return v2
+    goto :goto_0
 
     .line 29
-    :cond_a
+    :cond_2
     check-cast p1, Lorg/antlr/v4/runtime/misc/Triple;
 
     .line 30
-    sget-object v1, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;
+    sget-object v2, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;
 
     iget-object v3, p0, Lorg/antlr/v4/runtime/misc/Triple;->a:Ljava/lang/Object;
 
     iget-object v4, p1, Lorg/antlr/v4/runtime/misc/Triple;->a:Ljava/lang/Object;
 
-    invoke-virtual {v1, v3, v4}, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3, v4}, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_31
+    if-eqz v2, :cond_3
 
-    sget-object v1, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;
+    sget-object v2, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;
 
     iget-object v3, p0, Lorg/antlr/v4/runtime/misc/Triple;->b:Ljava/lang/Object;
 
     iget-object v4, p1, Lorg/antlr/v4/runtime/misc/Triple;->b:Ljava/lang/Object;
 
-    invoke-virtual {v1, v3, v4}, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3, v4}, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_31
+    if-eqz v2, :cond_3
 
-    sget-object v1, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;
+    sget-object v2, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;
 
     iget-object v3, p0, Lorg/antlr/v4/runtime/misc/Triple;->c:Ljava/lang/Object;
 
-    iget-object p1, p1, Lorg/antlr/v4/runtime/misc/Triple;->c:Ljava/lang/Object;
+    iget-object v4, p1, Lorg/antlr/v4/runtime/misc/Triple;->c:Ljava/lang/Object;
 
-    invoke-virtual {v1, v3, p1}, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3, v4}, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v2
 
-    if-eqz p1, :cond_31
+    if-nez v2, :cond_0
 
-    goto :goto_32
+    :cond_3
+    move v0, v1
 
-    :cond_31
-    const/4 v0, 0x0
-
-    :goto_32
-    return v0
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .line 37
     invoke-static {}, Lorg/antlr/v4/runtime/misc/MurmurHash;->initialize()I
@@ -179,34 +181,34 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 4
 
     .line 46
-    const/4 v0, 0x3
+    const-string v0, "(%s, %s, %s)"
 
-    new-array v0, v0, [Ljava/lang/Object;
+    const/4 v1, 0x3
 
-    const/4 v1, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    iget-object v2, p0, Lorg/antlr/v4/runtime/misc/Triple;->a:Ljava/lang/Object;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    iget-object v3, p0, Lorg/antlr/v4/runtime/misc/Triple;->a:Ljava/lang/Object;
 
-    const/4 v1, 0x1
+    aput-object v3, v1, v2
 
-    iget-object v2, p0, Lorg/antlr/v4/runtime/misc/Triple;->b:Ljava/lang/Object;
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    iget-object v3, p0, Lorg/antlr/v4/runtime/misc/Triple;->b:Ljava/lang/Object;
 
-    const/4 v1, 0x2
+    aput-object v3, v1, v2
 
-    iget-object v2, p0, Lorg/antlr/v4/runtime/misc/Triple;->c:Ljava/lang/Object;
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    iget-object v3, p0, Lorg/antlr/v4/runtime/misc/Triple;->c:Ljava/lang/Object;
 
-    const-string v1, "(%s, %s, %s)"
+    aput-object v3, v1, v2
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

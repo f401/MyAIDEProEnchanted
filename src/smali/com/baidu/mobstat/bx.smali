@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 8
     new-instance v0, Lcom/baidu/mobstat/bx;
@@ -31,7 +31,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method public static a()Lcom/baidu/mobstat/bx;
-    .registers 1
+    .locals 1
 
     .line 11
     sget-object v0, Lcom/baidu/mobstat/bx;->a:Lcom/baidu/mobstat/bx;
@@ -51,32 +51,32 @@
 
 # virtual methods
 .method public a(Landroid/content/Context;)V
-    .registers 2
+    .locals 1
 
     .line 21
     iput-object p1, p0, Lcom/baidu/mobstat/bx;->c:Landroid/content/Context;
 
     .line 23
-    iget-object p1, p0, Lcom/baidu/mobstat/bx;->b:Ljava/lang/Thread$UncaughtExceptionHandler;
+    iget-object v0, p0, Lcom/baidu/mobstat/bx;->b:Ljava/lang/Thread$UncaughtExceptionHandler;
 
-    if-nez p1, :cond_f
+    if-nez v0, :cond_0
 
     .line 24
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/baidu/mobstat/bx;->b:Ljava/lang/Thread$UncaughtExceptionHandler;
+    iput-object v0, p0, Lcom/baidu/mobstat/bx;->b:Ljava/lang/Thread$UncaughtExceptionHandler;
 
     .line 25
     invoke-static {p0}, Ljava/lang/Thread;->setDefaultUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
 
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    .registers 6
+    .locals 3
 
     .line 31
     invoke-static {}, Lcom/baidu/mobstat/CooperService;->instance()Lcom/baidu/mobstat/CooperService;
@@ -87,7 +87,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 33
     invoke-static {}, Lcom/baidu/mobstat/ExceptionAnalysis;->getInstance()Lcom/baidu/mobstat/ExceptionAnalysis;
@@ -101,20 +101,20 @@
     invoke-virtual {v0, v1, p2, v2}, Lcom/baidu/mobstat/ExceptionAnalysis;->saveCrashInfo(Landroid/content/Context;Ljava/lang/Throwable;Z)V
 
     .line 36
-    :cond_14
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/bx;->b:Ljava/lang/Thread$UncaughtExceptionHandler;
 
     invoke-virtual {v0, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_1
 
     .line 37
     iget-object v0, p0, Lcom/baidu/mobstat/bx;->b:Ljava/lang/Thread$UncaughtExceptionHandler;
 
     invoke-interface {v0, p1, p2}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
 
-    :cond_21
+    :cond_1
     return-void
 .end method

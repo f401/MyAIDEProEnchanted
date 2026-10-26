@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,229 +14,242 @@
 .end method
 
 .method public static methodsParamToSmali(Ljava/lang/String;)Ljava/lang/String;
-    .registers 10
-
-    .line 6
-    const-string v0, ")"
-
-    const-string v1, "("
-
-    .line 8
-    const/4 v2, 0x0
-
-    :try_start_5
-    invoke-virtual {p0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v3
-
-    add-int/lit8 v3, v3, 0x1
-
-    invoke-virtual {p0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v3
-    :try_end_f
-    .catchall {:try_start_5 .. :try_end_f} :catchall_1a
-
-    .line 9
-    :try_start_f
-    invoke-virtual {v3, v0}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
-
-    move-result v4
-
-    invoke-virtual {v3, v2, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v3
-    :try_end_17
-    .catchall {:try_start_f .. :try_end_17} :catchall_18
-
-    goto :goto_1c
-
-    .line 38
-    :catchall_18
-    move-exception v4
-
-    goto :goto_1c
-
-    .line 9
-    :catchall_1a
-    move-exception v3
-
-    move-object v3, p0
-
-    .line 13
-    :goto_1c
-    new-instance v4, Ljava/lang/StringBuffer;
-
-    invoke-direct {v4}, Ljava/lang/StringBuffer;-><init>()V
-
-    .line 14
-    invoke-virtual {p0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v5
-
-    invoke-virtual {p0, v2, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {v4, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 15
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 16
-    const-string p0, ","
-
-    invoke-virtual {v3, p0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object p0
+    .locals 8
 
     const/4 v1, 0x0
 
-    .line 17
-    :goto_36
-    array-length v3, p0
+    .line 6
+    :try_start_0
+    const-string v0, "("
 
-    if-ge v1, v3, :cond_a0
+    invoke-virtual {p0, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    .line 9
+    const/4 v2, 0x0
+
+    :try_start_1
+    const-string v3, ")"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-result-object v0
+
+    .line 13
+    :goto_0
+    new-instance v3, Ljava/lang/StringBuffer;
+
+    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
+
+    .line 14
+    const-string v2, "("
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 15
+    const-string v2, "("
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 16
+    const-string v2, ","
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v4
+
+    move v0, v1
+
+    .line 17
+    :goto_1
+    array-length v2, v4
+
+    if-ge v0, v2, :cond_5
 
     .line 18
-    aget-object v3, p0, v1
+    aget-object v2, v4, v0
 
     .line 20
-    invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 21
     const-string v5, " "
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4f
-
-    invoke-virtual {v3, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {v2, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    invoke-virtual {v3, v2, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    if-eqz v5, :cond_0
 
-    move-result-object v3
+    const-string v5, " "
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v5
+
+    invoke-virtual {v2, v1, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
 
     .line 22
-    :cond_4f
+    :cond_0
     const-string v5, "..."
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_5f
-
-    invoke-virtual {v3, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {v2, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    invoke-virtual {v3, v2, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    if-eqz v5, :cond_1
 
-    move-result-object v3
+    const-string v5, "..."
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v5
+
+    invoke-virtual {v2, v1, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
 
     .line 23
-    :cond_5f
-    invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 25
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    if-nez v5, :cond_6a
-
-    goto :goto_9d
-
-    .line 26
-    :cond_6a
-    const-string v5, "[]"
-
-    invoke-virtual {v3, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_96
-
-    .line 27
-    const-string v5, "\\["
-
-    invoke-virtual {v3, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    :cond_1
+    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v5
 
-    array-length v5, v5
+    .line 25
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    const/4 v6, 0x0
+    move-result v2
 
-    .line 28
-    :goto_7a
-    add-int/lit8 v7, v5, -0x1
-
-    const-string v8, "["
-
-    if-ge v6, v7, :cond_86
-
-    .line 29
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_7a
-
-    .line 31
-    :cond_86
-    invoke-virtual {v3, v8}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v5
-
-    invoke-virtual {v3, v2, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/s1243808733/aide/completion/apiversion/AVUtils;->typeToSmali(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto :goto_9d
+    if-nez v2, :cond_2
 
     .line 33
-    :cond_96
-    invoke-static {v3}, Lcom/s1243808733/aide/completion/apiversion/AVUtils;->typeToSmali(Ljava/lang/String;)Ljava/lang/String;
+    :goto_2
+    add-int/lit8 v0, v0, 0x1
 
-    move-result-object v3
+    goto :goto_1
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    .line 9
+    :catchall_0
+    move-exception v0
 
-    :goto_9d
-    add-int/lit8 v1, v1, 0x1
+    move-object v0, p0
 
-    goto :goto_36
+    goto :goto_0
+
+    .line 26
+    :cond_2
+    const-string v2, "[]"
+
+    invoke-virtual {v5, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    .line 27
+    const-string v2, "\\["
+
+    invoke-virtual {v5, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    array-length v6, v2
+
+    move v2, v1
+
+    .line 28
+    :goto_3
+    add-int/lit8 v7, v6, -0x1
+
+    if-ge v2, v7, :cond_3
+
+    .line 29
+    const-string v7, "["
+
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_3
+
+    .line 31
+    :cond_3
+    const-string v2, "["
+
+    invoke-virtual {v5, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual {v5, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/s1243808733/aide/completion/apiversion/AVUtils;->typeToSmali(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_2
+
+    .line 33
+    :cond_4
+    invoke-static {v5}, Lcom/s1243808733/aide/completion/apiversion/AVUtils;->typeToSmali(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_2
 
     .line 36
-    :cond_a0
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    :cond_5
+    const-string v0, ")"
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 38
-    invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
+
+    :catchall_1
+    move-exception v2
+
+    goto/16 :goto_0
 .end method
 
 .method private static typeToSmali(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 42
     const-string v0, "boolean"
@@ -245,174 +258,180 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_1
 
     .line 43
     const-string p0, "Z"
 
+    .line 67
+    :cond_0
+    :goto_0
     return-object p0
 
     .line 44
-    :cond_b
+    :cond_1
     const-string v0, "byte"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_2
 
     .line 45
     const-string p0, "B"
 
-    return-object p0
+    goto :goto_0
 
     .line 46
-    :cond_16
+    :cond_2
     const-string v0, "short"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_3
 
     .line 47
     const-string p0, "S"
 
-    return-object p0
+    goto :goto_0
 
     .line 48
-    :cond_21
+    :cond_3
     const-string v0, "char"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_4
 
     .line 49
     const-string p0, "C"
 
-    return-object p0
+    goto :goto_0
 
     .line 50
-    :cond_2c
+    :cond_4
     const-string v0, "int"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_5
 
     .line 51
     const-string p0, "I"
 
-    return-object p0
+    goto :goto_0
 
     .line 52
-    :cond_37
+    :cond_5
     const-string v0, "long"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_6
 
     .line 53
     const-string p0, "J"
 
-    return-object p0
+    goto :goto_0
 
     .line 54
-    :cond_42
+    :cond_6
     const-string v0, "float"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4d
+    if-eqz v0, :cond_7
 
     .line 55
     const-string p0, "F"
 
-    return-object p0
+    goto :goto_0
 
     .line 56
-    :cond_4d
+    :cond_7
     const-string v0, "double"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_58
+    if-eqz v0, :cond_8
 
     .line 57
     const-string p0, "D"
 
-    return-object p0
+    goto :goto_0
 
-    :cond_58
-    if-eqz p0, :cond_87
+    :cond_8
+    if-eqz p0, :cond_0
 
     .line 61
     const-string v0, "."
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_64
+    if-nez v0, :cond_9
 
     .line 62
     const-string p0, "java.lang.Object"
 
     .line 64
-    :cond_64
-    const-string v1, "<"
+    :cond_9
+    const-string v0, "<"
 
-    invoke-virtual {p0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_75
+    if-eqz v0, :cond_a
 
     .line 65
-    const/4 v2, 0x0
+    const/4 v0, 0x0
+
+    const-string v1, "<"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v1
 
-    invoke-virtual {p0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object p0
 
     .line 67
-    :cond_75
-    const-string v1, "/"
-
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object p0
-
+    :cond_a
     const-string v0, "L"
 
-    invoke-virtual {v0, p0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+    const-string v1, "."
+
+    const-string v2, "/"
+
+    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, ";"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
-    const-string v0, ";"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    :cond_87
-    return-object p0
+    goto/16 :goto_0
 .end method

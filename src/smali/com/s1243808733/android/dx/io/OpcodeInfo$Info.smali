@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;Lcom/s1243808733/android/dx/io/IndexType;)V
-    .registers 5
+    .locals 0
 
     .line 1272
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getFormat()Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
-    .registers 2
+    .locals 1
 
     .line 1288
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/OpcodeInfo$Info;->format:Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
@@ -58,7 +58,7 @@
 .end method
 
 .method public getIndexType()Lcom/s1243808733/android/dx/io/IndexType;
-    .registers 2
+    .locals 1
 
     .line 1292
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/OpcodeInfo$Info;->indexType:Lcom/s1243808733/android/dx/io/IndexType;
@@ -67,7 +67,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 1284
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/OpcodeInfo$Info;->name:Ljava/lang/String;
@@ -76,7 +76,7 @@
 .end method
 
 .method public getOpcode()I
-    .registers 2
+    .locals 1
 
     .line 1280
     iget v0, p0, Lcom/s1243808733/android/dx/io/OpcodeInfo$Info;->opcode:I

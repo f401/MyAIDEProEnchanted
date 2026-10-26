@@ -29,14 +29,16 @@
 
 # direct methods
 .method public constructor <init>(ILcom/s1243808733/android/dx/dex/code/OutputFinisher;Lcom/s1243808733/android/dx/dex/code/CatchBuilder;)V
-    .registers 4
+    .locals 2
+
+    const/4 v0, 0x0
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p2, :cond_1f
+    if-eqz p2, :cond_1
 
-    if-eqz p3, :cond_17
+    if-eqz p3, :cond_0
 
     .line 90
     iput p1, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->positionInfo:I
@@ -48,54 +50,56 @@
     iput-object p3, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedCatches:Lcom/s1243808733/android/dx/dex/code/CatchBuilder;
 
     .line 93
-    const/4 p1, 0x0
-
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->catches:Lcom/s1243808733/android/dx/dex/code/CatchTable;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->catches:Lcom/s1243808733/android/dx/dex/code/CatchTable;
 
     .line 94
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->positions:Lcom/s1243808733/android/dx/dex/code/PositionList;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->positions:Lcom/s1243808733/android/dx/dex/code/PositionList;
 
     .line 95
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->locals:Lcom/s1243808733/android/dx/dex/code/LocalList;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->locals:Lcom/s1243808733/android/dx/dex/code/LocalList;
 
     .line 96
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->insns:Lcom/s1243808733/android/dx/dex/code/DalvInsnList;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->insns:Lcom/s1243808733/android/dx/dex/code/DalvInsnList;
 
     return-void
 
     .line 87
-    :cond_17
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "unprocessedCatches == null"
+    const-string v1, "unprocessedCatches == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 83
-    :cond_1f
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "unprocessedInsns == null"
+    const-string v1, "unprocessedInsns == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method private finishProcessingIfNecessary()V
-    .registers 3
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 103
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->insns:Lcom/s1243808733/android/dx/dex/code/DalvInsnList;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
+    .line 114
+    :goto_0
     return-void
 
     .line 107
-    :cond_5
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedInsns:Lcom/s1243808733/android/dx/dex/code/OutputFinisher;
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/code/OutputFinisher;->finishProcessingAndGetList()Lcom/s1243808733/android/dx/dex/code/DalvInsnList;
@@ -132,20 +136,18 @@
     iput-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->catches:Lcom/s1243808733/android/dx/dex/code/CatchTable;
 
     .line 113
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedInsns:Lcom/s1243808733/android/dx/dex/code/OutputFinisher;
+    iput-object v2, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedInsns:Lcom/s1243808733/android/dx/dex/code/OutputFinisher;
 
     .line 114
-    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedCatches:Lcom/s1243808733/android/dx/dex/code/CatchBuilder;
+    iput-object v2, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedCatches:Lcom/s1243808733/android/dx/dex/code/CatchBuilder;
 
-    return-void
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public assignIndices(Lcom/s1243808733/android/dx/dex/code/DalvCode$AssignIndicesCallback;)V
-    .registers 3
+    .locals 1
 
     .line 125
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedInsns:Lcom/s1243808733/android/dx/dex/code/OutputFinisher;
@@ -156,11 +158,12 @@
 .end method
 
 .method public getCatchTypes()Ljava/util/HashSet;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/HashSet<",
+            "Ljava/util/HashSet",
+            "<",
             "Lcom/s1243808733/android/dx/rop/type/Type;",
             ">;"
         }
@@ -177,7 +180,7 @@
 .end method
 
 .method public getCatches()Lcom/s1243808733/android/dx/dex/code/CatchTable;
-    .registers 2
+    .locals 1
 
     .line 194
     invoke-direct {p0}, Lcom/s1243808733/android/dx/dex/code/DalvCode;->finishProcessingIfNecessary()V
@@ -189,11 +192,12 @@
 .end method
 
 .method public getInsnConstants()Ljava/util/HashSet;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/HashSet<",
+            "Ljava/util/HashSet",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/Constant;",
             ">;"
         }
@@ -210,7 +214,7 @@
 .end method
 
 .method public getInsns()Lcom/s1243808733/android/dx/dex/code/DalvInsnList;
-    .registers 2
+    .locals 1
 
     .line 184
     invoke-direct {p0}, Lcom/s1243808733/android/dx/dex/code/DalvCode;->finishProcessingIfNecessary()V
@@ -222,7 +226,7 @@
 .end method
 
 .method public getLocals()Lcom/s1243808733/android/dx/dex/code/LocalList;
-    .registers 2
+    .locals 1
 
     .line 214
     invoke-direct {p0}, Lcom/s1243808733/android/dx/dex/code/DalvCode;->finishProcessingIfNecessary()V
@@ -234,7 +238,7 @@
 .end method
 
 .method public getPositions()Lcom/s1243808733/android/dx/dex/code/PositionList;
-    .registers 2
+    .locals 1
 
     .line 204
     invoke-direct {p0}, Lcom/s1243808733/android/dx/dex/code/DalvCode;->finishProcessingIfNecessary()V
@@ -246,7 +250,7 @@
 .end method
 
 .method public hasAnyCatches()Z
-    .registers 2
+    .locals 1
 
     .line 156
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedCatches:Lcom/s1243808733/android/dx/dex/code/CatchBuilder;
@@ -259,7 +263,7 @@
 .end method
 
 .method public hasLocals()Z
-    .registers 2
+    .locals 1
 
     .line 146
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedInsns:Lcom/s1243808733/android/dx/dex/code/OutputFinisher;
@@ -272,29 +276,29 @@
 .end method
 
 .method public hasPositions()Z
-    .registers 3
+    .locals 2
+
+    const/4 v0, 0x1
 
     .line 135
-    iget v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->positionInfo:I
+    iget v1, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->positionInfo:I
 
-    const/4 v1, 0x1
+    if-eq v1, v0, :cond_0
 
-    if-eq v0, v1, :cond_e
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedInsns:Lcom/s1243808733/android/dx/dex/code/OutputFinisher;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/code/DalvCode;->unprocessedInsns:Lcom/s1243808733/android/dx/dex/code/OutputFinisher;
 
     .line 136
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/code/OutputFinisher;->hasAnyPositionInfo()Z
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/dex/code/OutputFinisher;->hasAnyPositionInfo()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_e
+    if-eqz v1, :cond_0
 
-    goto :goto_f
+    :goto_0
+    return v0
 
-    :cond_e
-    const/4 v1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_f
-    return v1
+    goto :goto_0
 .end method

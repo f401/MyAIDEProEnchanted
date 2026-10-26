@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(IILjava/lang/String;)V
-    .registers 4
+    .locals 0
 
     .line 591
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
 
     .line 604
     const v0, 0x7fffffff
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public getEnd()I
-    .registers 2
+    .locals 1
 
     .line 643
     iget v0, p0, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput$Annotation;->end:I
@@ -64,7 +64,7 @@
 .end method
 
 .method public getStart()I
-    .registers 2
+    .locals 1
 
     .line 634
     iget v0, p0, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput$Annotation;->start:I
@@ -73,7 +73,7 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 652
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput$Annotation;->text:Ljava/lang/String;
@@ -82,7 +82,7 @@
 .end method
 
 .method public setEnd(I)V
-    .registers 2
+    .locals 0
 
     .line 625
     iput p1, p0, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput$Annotation;->end:I
@@ -91,18 +91,18 @@
 .end method
 
 .method public setEndIfUnset(I)V
-    .registers 4
+    .locals 2
 
     .line 614
     iget v0, p0, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput$Annotation;->end:I
 
     const v1, 0x7fffffff
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     .line 615
     iput p1, p0, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput$Annotation;->end:I
 
-    :cond_9
+    :cond_0
     return-void
 .end method

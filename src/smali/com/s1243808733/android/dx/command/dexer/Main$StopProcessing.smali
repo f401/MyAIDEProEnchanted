@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 1245
     invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dx/command/dexer/Main$StopProcessing-IA;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Lcom/s1243808733/android/dx/command/dexer/Main$StopProcessing;-><init>()V
 

@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 67
     const-string v0, "/AIDE_CrashLog/"
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,71 +46,75 @@
 .end method
 
 .method public static Files2Strings(Ljava/util/List;)Ljava/util/List;
-    .registers 3
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/io/File;",
             ">;)",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
     .end annotation
 
     .line 83
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 84
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object p0
+    move-result-object v2
 
-    :goto_9
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1d
+    if-eqz v0, :cond_0
 
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/io/File;
+    check-cast v0, Ljava/io/File;
 
     .line 85
-    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_1d
-    return-object v0
+    :cond_0
+    return-object v1
 .end method
 
 .method public static copy(Ljava/lang/String;Ljava/lang/String;Z)V
-    .registers 5
+    .locals 2
 
     .line 26
     const/4 v0, 0x0
 
-    :try_start_1
-    new-array v1, v0, [Ljava/lang/String;
+    :try_start_0
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-static {p0, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
+    invoke-static {p0, v0}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-array v0, v0, [Ljava/nio/file/FileVisitOption;
+    const/4 v1, 0x0
 
-    invoke-static {v1, v0}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/FileVisitOption;)Ljava/util/stream/Stream;
+    new-array v1, v1, [Ljava/nio/file/FileVisitOption;
+
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/FileVisitOption;)Ljava/util/stream/Stream;
 
     move-result-object v0
 
@@ -119,20 +123,20 @@
     invoke-direct {v1, p0, p1, p2}, Lio/github/zeroaicy/util/FileUtil$1;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
 
     invoke-static {v0, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/util/stream/Stream;Ljava/util/function/Consumer;)V
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_15} :catch_16
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_17
-
-    :catch_16
-    move-exception p0
-
-    :goto_17
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method public static copyNotCover(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     .line 50
     const/4 v0, 0x0
@@ -143,146 +147,154 @@
 .end method
 
 .method public static findFile(Ljava/io/File;Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/io/File;",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Ljava/io/File;",
             ">;"
         }
     .end annotation
 
     .line 99
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 100
     invoke-virtual {p0}, Ljava/io/File;->isFile()Z
 
-    move-result v1
+    move-result v0
 
-    const-string v2, "."
-
-    if-eqz v1, :cond_22
+    if-eqz v0, :cond_1
 
     .line 101
     invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz p1, :cond_1f
+    if-eqz p1, :cond_0
 
     .line 102
-    invoke-virtual {v1, p1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_22
+    if-eqz v2, :cond_1
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    const-string v2, "."
 
-    move-result v1
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    if-nez v1, :cond_22
+    move-result v0
+
+    if-nez v0, :cond_1
 
     .line 103
-    :cond_1f
-    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :cond_0
+    invoke-virtual {v1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 106
-    :cond_22
+    :cond_1
     invoke-virtual {p0}, Ljava/io/File;->isDirectory()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_80
+    if-eqz v0, :cond_6
 
     .line 107
-    new-instance v1, Ljava/util/Stack;
+    new-instance v2, Ljava/util/Stack;
 
-    invoke-direct {v1}, Ljava/util/Stack;-><init>()V
+    invoke-direct {v2}, Ljava/util/Stack;-><init>()V
 
     .line 108
-    invoke-virtual {v1, p0}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p0}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 109
-    :cond_30
-    invoke-virtual {v1}, Ljava/util/Stack;->isEmpty()Z
+    :cond_2
+    invoke-virtual {v2}, Ljava/util/Stack;->isEmpty()Z
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_80
+    if-nez v0, :cond_6
 
     .line 110
-    invoke-virtual {v1}, Ljava/util/Stack;->pop()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Ljava/io/File;
+    check-cast v0, Ljava/io/File;
 
     .line 111
-    invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
+    invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v3
 
-    if-eqz p0, :cond_30
+    if-eqz v0, :cond_2
 
     .line 113
-    invoke-virtual {p0}, Ljava/io/File;->isDirectory()Z
+    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_30
+    if-eqz v0, :cond_2
 
-    if-eqz v3, :cond_30
+    if-eqz v3, :cond_2
 
     .line 114
-    array-length p0, v3
+    array-length v4, v3
 
-    const/4 v4, 0x0
+    const/4 v0, 0x0
 
-    :goto_4c
-    if-ge v4, p0, :cond_30
+    :goto_0
+    if-ge v0, v4, :cond_2
 
-    aget-object v5, v3, v4
+    aget-object v5, v3, v0
 
     .line 116
     invoke-virtual {v5}, Ljava/io/File;->isDirectory()Z
 
     move-result v6
 
-    if-eqz v6, :cond_64
+    if-eqz v6, :cond_4
 
     .line 118
     invoke-virtual {v5}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {v6, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    const-string v7, "."
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-nez v6, :cond_7d
+    if-nez v6, :cond_3
 
     .line 119
-    invoke-virtual {v1, v5}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v5}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_7d
+    .line 123
+    :cond_3
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
 
     .line 121
-    :cond_64
+    :cond_4
     invoke-virtual {v5}, Ljava/io/File;->isFile()Z
 
     move-result v6
 
-    if-eqz v6, :cond_7d
+    if-eqz v6, :cond_3
 
-    if-eqz p1, :cond_7a
+    if-eqz p1, :cond_5
 
     .line 122
     invoke-virtual {v5}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -297,30 +309,27 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7d
+    if-eqz v6, :cond_3
 
     .line 123
-    :cond_7a
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :cond_5
+    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_7d
-    :goto_7d
-    add-int/lit8 v4, v4, 0x1
+    goto :goto_1
 
-    goto :goto_4c
-
-    :cond_80
-    return-object v0
+    :cond_6
+    return-object v1
 .end method
 
 .method public static findJavaFile(Ljava/io/File;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/io/File;",
             ")",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Ljava/io/File;",
             ">;"
         }
@@ -331,19 +340,20 @@
 
     invoke-static {p0, v0}, Lio/github/zeroaicy/util/FileUtil;->findFile(Ljava/io/File;Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static findJavaFile(Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Ljava/io/File;",
             ">;"
         }
@@ -354,17 +364,17 @@
 
     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    const-string p0, ".java"
+    const-string v1, ".java"
 
-    invoke-static {v0, p0}, Lio/github/zeroaicy/util/FileUtil;->findFile(Ljava/io/File;Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-static {v0, v1}, Lio/github/zeroaicy/util/FileUtil;->findFile(Ljava/io/File;Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method private static getCrashLogPath(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 74
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
@@ -393,67 +403,69 @@
 
     invoke-static {}, Lio/github/zeroaicy/util/ContextUtil;->getPackageName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getLogCatPath(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 4
 
     .line 54
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 55
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 56
-    sget-object p0, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object v0, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 57
     invoke-static {}, Lio/github/zeroaicy/util/ContextUtil;->getProcessName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 58
-    const-string v1, ":"
+    const-string v2, ":"
 
-    invoke-virtual {p0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_0
 
     .line 59
-    const-string v2, "--"
+    const-string v2, ":"
 
-    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    const-string v3, "--"
 
-    move-result-object p0
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
 
     .line 61
-    :cond_1f
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_0
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 62
-    const-string p0, ".txt"
+    const-string v0, ".txt"
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 63
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method

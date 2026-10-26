@@ -16,19 +16,19 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x10
 
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Lc/bi;->a:[C
 
     return-void
 
-    :array_a
+    :array_0
     .array-data 2
         0x30s
         0x31s
@@ -50,15 +50,15 @@
 .end method
 
 .method public constructor <init>([B)V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0}, Lc/s;-><init>()V
 
     invoke-static {p1}, Lx/a;->b([B)[B
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lc/bi;->b:[B
+    iput-object v0, p0, Lc/bi;->b:[B
 
     return-void
 .end method
@@ -66,32 +66,33 @@
 
 # virtual methods
 .method public final d(Lc/s;)Z
-    .registers 3
+    .locals 2
 
     instance-of v0, p1, Lc/bi;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Lc/bi;->b:[B
 
     check-cast p1, Lc/bi;
 
-    iget-object p1, p1, Lc/bi;->b:[B
+    iget-object v1, p1, Lc/bi;->b:[B
 
-    invoke-static {v0, p1}, Lx/a;->a([B[B)Z
+    invoke-static {v0, v1}, Lx/a;->a([B[B)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public final e(Lc/q;)V
-    .registers 4
+    .locals 2
 
     .line 1
     iget-object v0, p0, Lc/bi;->b:[B
@@ -109,7 +110,7 @@
 .end method
 
 .method public final f()I
-    .registers 3
+    .locals 2
 
     iget-object v0, p0, Lc/bi;->b:[B
 
@@ -131,7 +132,7 @@
 .end method
 
 .method public final g()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -139,41 +140,41 @@
 .end method
 
 .method public final h()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
-    new-instance v0, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    const-string v1, "#"
+    const-string v0, "#"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    new-instance v1, Ljava/io/ByteArrayOutputStream;
+    new-instance v0, Ljava/io/ByteArrayOutputStream;
 
-    invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
+    invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
     new-instance v2, Lc/q;
 
-    invoke-direct {v2, v1}, Lc/q;-><init>(Ljava/io/OutputStream;)V
+    invoke-direct {v2, v0}, Lc/q;-><init>(Ljava/io/OutputStream;)V
 
-    :try_start_11
+    :try_start_0
     invoke-virtual {v2, p0}, Lc/q;->j(Lc/e;)V
-    :try_end_14
-    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_14} :catch_3a
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+    invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    :goto_19
-    array-length v3, v1
+    :goto_0
+    array-length v3, v2
 
-    if-eq v2, v3, :cond_35
+    if-eq v0, v3, :cond_0
 
     sget-object v3, Lc/bi;->a:[C
 
-    aget-byte v4, v1, v2
+    aget-byte v4, v2, v0
 
     ushr-int/lit8 v4, v4, 0x4
 
@@ -181,28 +182,28 @@
 
     aget-char v4, v3, v4
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    aget-byte v4, v1, v2
+    aget-byte v4, v2, v0
 
     and-int/lit8 v4, v4, 0xf
 
     aget-char v3, v3, v4
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_19
+    goto :goto_0
 
-    :cond_35
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    :cond_0
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
-    :catch_3a
+    :catch_0
     move-exception v0
 
     new-instance v0, Lc/r;
@@ -211,17 +212,11 @@
 
     invoke-direct {v0, v1}, Lc/r;-><init>(Ljava/lang/String;)V
 
-    goto :goto_44
-
-    :goto_43
     throw v0
-
-    :goto_44
-    goto :goto_43
 .end method
 
 .method public final hashCode()I
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lc/bi;->b:[B
 
@@ -233,7 +228,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     invoke-virtual {p0}, Lc/bi;->h()Ljava/lang/String;
 

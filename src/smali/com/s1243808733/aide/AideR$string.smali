@@ -15,38 +15,6 @@
 
 
 # static fields
-.field public static final APKTOOL_DUMMY_165:I = 0x7f0d0165
-
-.field public static final APKTOOL_DUMMY_18f:I = 0x7f0d018f
-
-.field public static final APKTOOL_DUMMY_1a6:I = 0x7f0d01a6
-
-.field public static final APKTOOL_DUMMY_21a:I = 0x7f0d021a
-
-.field public static final APKTOOL_DUMMY_21d:I = 0x7f0d021d
-
-.field public static final APKTOOL_DUMMY_220:I = 0x7f0d0220
-
-.field public static final APKTOOL_DUMMY_223:I = 0x7f0d0223
-
-.field public static final APKTOOL_DUMMY_2a8:I = 0x7f0d02a8
-
-.field public static final APKTOOL_DUMMY_41c:I = 0x7f0d041c
-
-.field public static final APKTOOL_DUMMY_442:I = 0x7f0d0442
-
-.field public static final APKTOOL_DUMMY_47b:I = 0x7f0d047b
-
-.field public static final APKTOOL_DUMMY_4c2:I = 0x7f0d04c2
-
-.field public static final APKTOOL_DUMMY_4e8:I = 0x7f0d04e8
-
-.field public static final APKTOOL_DUMMY_50e:I = 0x7f0d050e
-
-.field public static final APKTOOL_DUMMY_629:I = 0x7f0d0629
-
-.field public static final APKTOOL_DUMMY_e4:I = 0x7f0d00e4
-
 .field public static final a4455jkjh_permissions_dialog:I = 0x7f0d083a
 
 .field public static final a4455jkjh_permissions_title:I = 0x7f0d0839
@@ -4061,6 +4029,38 @@
 
 .field public static final status_bar_notification_info_overflow:I = 0x7f0d0621
 
+.field public static final string_165:I = 0x7f0d0165
+
+.field public static final string_18f:I = 0x7f0d018f
+
+.field public static final string_1a6:I = 0x7f0d01a6
+
+.field public static final string_21a:I = 0x7f0d021a
+
+.field public static final string_21d:I = 0x7f0d021d
+
+.field public static final string_220:I = 0x7f0d0220
+
+.field public static final string_223:I = 0x7f0d0223
+
+.field public static final string_2a8:I = 0x7f0d02a8
+
+.field public static final string_41c:I = 0x7f0d041c
+
+.field public static final string_442:I = 0x7f0d0442
+
+.field public static final string_47b:I = 0x7f0d047b
+
+.field public static final string_4c2:I = 0x7f0d04c2
+
+.field public static final string_4e8:I = 0x7f0d04e8
+
+.field public static final string_50e:I = 0x7f0d050e
+
+.field public static final string_629:I = 0x7f0d0629
+
+.field public static final string_e4:I = 0x7f0d00e4
+
 .field public static final toast_flavor_added:I = 0x7f0d06f1
 
 .field public static final toast_git_cancelled:I = 0x7f0d06f8
@@ -4238,7 +4238,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 2490
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

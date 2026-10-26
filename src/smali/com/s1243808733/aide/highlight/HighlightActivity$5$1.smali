@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/highlight/HighlightActivity$5;Landroid/app/AlertDialog;Landroid/widget/EditText;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,46 +49,46 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
 
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 2
 
     .line 258
-    iget-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$5$1;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$5$1;->val$dialog:Landroid/app/AlertDialog;
 
-    const/4 p2, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
-    move-result-object p1
+    move-result-object v1
 
-    iget-object p2, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$5$1;->val$input:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$5$1;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {p2}, Landroid/widget/EditText;->length()I
+    invoke-virtual {v0}, Landroid/widget/EditText;->length()I
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_11
+    if-eqz v0, :cond_0
 
-    const/4 p2, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_12
-
-    :cond_11
-    const/4 p2, 0x0
-
-    :goto_12
-    invoke-virtual {p1, p2}, Landroid/widget/Button;->setEnabled(Z)V
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/widget/Button;->setEnabled(Z)V
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

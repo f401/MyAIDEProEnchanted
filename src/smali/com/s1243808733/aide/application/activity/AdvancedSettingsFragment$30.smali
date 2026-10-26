@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 1147
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$30;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 2
+    .locals 1
 
     .line 1151
-    const-string p1, "https://github.com/AndroidIDE-CN"
+    const-string v0, "https://github.com/AndroidIDE-CN"
 
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->openUrl(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->openUrl(Ljava/lang/String;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(III)V
-    .registers 4
+    .locals 0
 
     .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getCatchHandlerIndex()I
-    .registers 2
+    .locals 1
 
     .line 91
     iget v0, p0, Lcom/s1243808733/android/dex/Code$Try;->catchHandlerIndex:I
@@ -53,7 +53,7 @@
 .end method
 
 .method public getInstructionCount()I
-    .registers 2
+    .locals 1
 
     .line 83
     iget v0, p0, Lcom/s1243808733/android/dex/Code$Try;->instructionCount:I
@@ -62,7 +62,7 @@
 .end method
 
 .method public getStartAddress()I
-    .registers 2
+    .locals 1
 
     .line 79
     iget v0, p0, Lcom/s1243808733/android/dex/Code$Try;->startAddress:I

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/EditText;Ljava/lang/String;Landroid/app/Activity;Landroid/app/AlertDialog;)V
-    .registers 5
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -53,113 +53,116 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 42
-    iget-object p1, p0, Lcom/s1243808733/util/View2Style$1;->val$et_input:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/util/View2Style$1;->val$et_input:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 44
-    :try_start_e
-    iget-object v0, p0, Lcom/s1243808733/util/View2Style$1;->val$selectionContent:Ljava/lang/String;
+    :try_start_0
+    iget-object v1, p0, Lcom/s1243808733/util/View2Style$1;->val$selectionContent:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/s1243808733/util/View2Style;->xml2Style(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v0}, Lcom/s1243808733/util/View2Style;->xml2Style(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 45
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    iget-object v1, p0, Lcom/s1243808733/util/View2Style$1;->val$activity:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/s1243808733/util/View2Style$1;->val$activity:Landroid/app/Activity;
 
-    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 46
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v1
-    :try_end_1f
-    .catchall {:try_start_e .. :try_end_1f} :catchall_51
+    move-result v0
 
-    if-eqz v1, :cond_24
+    if-eqz v0, :cond_0
 
-    const-string v1, "结果"
+    const-string v0, "\u7ed3\u679c"
 
-    goto :goto_26
-
-    :cond_24
-    const-string v1, "Result"
-
-    :goto_26
-    :try_start_26
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    :goto_0
+    :try_start_1
+    invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
     .line 47
-    invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/s1243808733/util/View2Style$1$1;
+    new-instance v2, Lcom/s1243808733/util/View2Style$1$1;
 
-    invoke-direct {v1, p0, p1}, Lcom/s1243808733/util/View2Style$1$1;-><init>(Lcom/s1243808733/util/View2Style$1;Ljava/lang/String;)V
+    invoke-direct {v2, p0, v1}, Lcom/s1243808733/util/View2Style$1$1;-><init>(Lcom/s1243808733/util/View2Style$1;Ljava/lang/String;)V
 
     .line 48
-    const p1, 0x1040001
+    const v1, 0x1040001
 
-    invoke-virtual {v0, p1, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 55
-    const/high16 v0, 0x1040000
+    const/high16 v1, 0x1040000
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 56
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 57
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     .line 58
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->setMessageIsSelectable(Landroid/app/AlertDialog;)V
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->setMessageIsSelectable(Landroid/app/AlertDialog;)V
 
     .line 59
-    iget-object p1, p0, Lcom/s1243808733/util/View2Style$1;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/util/View2Style$1;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
-    :try_end_50
-    .catchall {:try_start_26 .. :try_end_50} :catchall_51
-
-    goto :goto_57
-
-    :catchall_51
-    move-exception p1
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 62
-    iget-object v0, p0, Lcom/s1243808733/util/View2Style$1;->val$activity:Landroid/app/Activity;
-
-    invoke-static {v0, p1}, Lcom/s1243808733/util/Utils;->showExDialog(Landroid/content/Context;Ljava/lang/Throwable;)V
-
-    :goto_57
+    :goto_1
     return-void
+
+    .line 46
+    :cond_0
+    const-string v0, "Result"
+
+    goto :goto_0
+
+    .line 59
+    :catchall_0
+    move-exception v0
+
+    .line 62
+    iget-object v1, p0, Lcom/s1243808733/util/View2Style$1;->val$activity:Landroid/app/Activity;
+
+    invoke-static {v1, v0}, Lcom/s1243808733/util/Utils;->showExDialog(Landroid/content/Context;Ljava/lang/Throwable;)V
+
+    goto :goto_1
 .end method

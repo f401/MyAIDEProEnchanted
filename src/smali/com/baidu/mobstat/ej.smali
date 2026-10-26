@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Exception;-><init>()V
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
 
     .line 34
     invoke-direct {p0, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/Throwable;)V
-    .registers 3
+    .locals 0
 
     .line 45
     invoke-direct {p0, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/Throwable;)V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public a()I
-    .registers 2
+    .locals 1
 
     .line 67
     iget v0, p0, Lcom/baidu/mobstat/ej;->a:I

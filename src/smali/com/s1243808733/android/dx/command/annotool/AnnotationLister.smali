@@ -13,7 +13,8 @@
 .field matchInnerClassesOf:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashSet<",
+            "Ljava/util/HashSet",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -23,7 +24,8 @@
 .field matchPackages:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashSet<",
+            "Ljava/util/HashSet",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -33,27 +35,27 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$misMatchingInnerClass(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->isMatchingInnerClass(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$misMatchingPackage(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->isMatchingPackage(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$mprintMatch(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->printMatch(Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;)V
 
@@ -61,7 +63,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$mvisitClassAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->visitClassAnnotation(Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
 
@@ -69,7 +71,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$mvisitPackageAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->visitPackageAnnotation(Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
 
@@ -77,7 +79,7 @@
 .end method
 
 .method constructor <init>(Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;)V
-    .registers 3
+    .locals 1
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -103,46 +105,42 @@
 .end method
 
 .method private isMatchingInnerClass(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
+
+    const/4 v0, 0x0
 
     .line 255
-    nop
+    :cond_0
+    const/16 v1, 0x24
 
-    :cond_1
-    const/16 v0, 0x24
+    invoke-virtual {p1, v1}, Ljava/lang/String;->lastIndexOf(I)I
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->lastIndexOf(I)I
+    move-result v1
 
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-lez v0, :cond_18
+    if-lez v1, :cond_1
 
     .line 256
-    invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object p1
 
     .line 257
-    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->matchInnerClassesOf:Ljava/util/HashSet;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->matchInnerClassesOf:Ljava/util/HashSet;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
-
-    :cond_18
-    return v1
+    :cond_1
+    return v0
 .end method
 
 .method private isMatchingPackage(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
 
     .line 273
     const/16 v0, 0x2f
@@ -153,34 +151,34 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     .line 277
-    const-string p1, ""
+    const-string v0, ""
 
-    goto :goto_11
+    .line 283
+    :goto_0
+    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->matchPackages:Ljava/util/HashSet;
+
+    invoke-virtual {v1, v0}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 
     .line 280
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    .line 283
-    :goto_11
-    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->matchPackages:Ljava/util/HashSet;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    return p1
+    goto :goto_0
 .end method
 
 .method private printMatch(Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;)V
-    .registers 6
+    .locals 4
 
     .line 223
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->args:Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;
@@ -189,43 +187,41 @@
 
     invoke-virtual {v0}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :goto_8
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4f
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;
 
     .line 224
     sget-object v2, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$2;->$SwitchMap$com$s1243808733$android$dx$command$annotool$Main$PrintType:[I
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;->ordinal()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;->ordinal()I
 
-    move-result v1
+    move-result v0
 
-    aget v1, v2, v1
+    aget v0, v2, v0
 
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_35
+    if-eq v0, v2, :cond_1
 
     const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_23
-
-    goto :goto_8
+    if-ne v0, v2, :cond_0
 
     .line 233
-    :cond_23
-    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->matchInnerClassesOf:Ljava/util/HashSet;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->matchInnerClassesOf:Ljava/util/HashSet;
 
     .line 234
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->getThisClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -241,46 +237,46 @@
     move-result-object v2
 
     .line 233
-    invoke-virtual {v1, v2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_8
+    goto :goto_0
 
     .line 228
-    :cond_35
+    :cond_1
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->getThisClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/CstType;->getClassType()Lcom/s1243808733/android/dx/rop/type/Type;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstType;->getClassType()Lcom/s1243808733/android/dx/rop/type/Type;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->getClassName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->getClassName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 229
     const/16 v2, 0x2f
 
     const/16 v3, 0x2e
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 230
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {v2, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_4f
+    :cond_2
     return-void
 .end method
 
 .method private printMatchPackage(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
 
     .line 202
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->args:Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;
@@ -289,51 +285,49 @@
 
     invoke-virtual {v0}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :goto_8
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3d
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;
 
     .line 203
     sget-object v2, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$2;->$SwitchMap$com$s1243808733$android$dx$command$annotool$Main$PrintType:[I
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;->ordinal()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;->ordinal()I
 
-    move-result v1
+    move-result v0
 
-    aget v1, v2, v1
+    aget v0, v2, v0
 
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_37
+    if-eq v0, v2, :cond_1
 
     const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_37
+    if-eq v0, v2, :cond_1
 
     const/4 v2, 0x3
 
-    if-eq v1, v2, :cond_37
+    if-eq v0, v2, :cond_1
 
     const/4 v2, 0x4
 
-    if-eq v1, v2, :cond_29
-
-    goto :goto_8
+    if-ne v0, v2, :cond_0
 
     .line 210
-    :cond_29
-    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const/16 v2, 0x2f
 
@@ -343,24 +337,24 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 207
-    :cond_37
-    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->matchPackages:Ljava/util/HashSet;
+    :cond_1
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->matchPackages:Ljava/util/HashSet;
 
-    invoke-virtual {v1, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_3d
+    :cond_2
     return-void
 .end method
 
 .method private visitClassAnnotation(Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
-    .registers 5
+    .locals 3
 
     .line 147
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->args:Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;
@@ -373,33 +367,35 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_1
 
+    .line 155
+    :cond_0
     return-void
 
     .line 151
-    :cond_d
+    :cond_1
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;->getAnnotations()Lcom/s1243808733/android/dx/rop/annotation/Annotations;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;->getAnnotations()Ljava/util/Collection;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;->getAnnotations()Ljava/util/Collection;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object p2
+    move-result-object v1
 
-    :cond_19
-    :goto_19
-    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+    :cond_2
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_0
 
-    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -419,27 +415,24 @@
     move-result-object v0
 
     .line 154
-    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->args:Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->args:Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;
 
-    iget-object v1, v1, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->aclass:Ljava/lang/String;
+    iget-object v2, v2, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->aclass:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_2
 
     .line 155
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->printMatch(Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;)V
 
-    goto :goto_19
-
-    :cond_3f
-    return-void
+    goto :goto_0
 .end method
 
 .method private visitPackageAnnotation(Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
-    .registers 5
+    .locals 4
 
     .line 169
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->args:Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;
@@ -452,71 +445,65 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_1
 
+    .line 189
+    :cond_0
     return-void
 
     .line 173
-    :cond_d
+    :cond_1
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->getThisClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstType;->getClassType()Lcom/s1243808733/android/dx/rop/type/Type;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstType;->getClassType()Lcom/s1243808733/android/dx/rop/type/Type;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/type/Type;->getClassName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->getClassName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 175
-    const/16 v0, 0x2f
+    const/16 v1, 0x2f
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->lastIndexOf(I)I
+    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    if-ne v0, v1, :cond_25
+    if-ne v1, v2, :cond_3
 
     .line 178
-    const-string p1, ""
+    const-string v0, ""
 
-    goto :goto_2a
-
-    .line 181
-    :cond_25
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object p1
+    move-object v1, v0
 
     .line 185
-    :goto_2a
+    :goto_0
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;->getAnnotations()Lcom/s1243808733/android/dx/rop/annotation/Annotations;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;->getAnnotations()Ljava/util/Collection;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/annotation/Annotations;->getAnnotations()Ljava/util/Collection;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object p2
+    move-result-object v2
 
-    :cond_36
-    :goto_36
-    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+    :cond_2
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5c
+    if-eqz v0, :cond_0
 
-    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -536,62 +523,71 @@
     move-result-object v0
 
     .line 188
-    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->args:Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;
+    iget-object v3, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->args:Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;
 
-    iget-object v1, v1, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->aclass:Ljava/lang/String;
+    iget-object v3, v3, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->aclass:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_36
+    if-eqz v0, :cond_2
 
     .line 189
-    invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->printMatchPackage(Ljava/lang/String;)V
+    invoke-direct {p0, v1}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->printMatchPackage(Ljava/lang/String;)V
 
-    goto :goto_36
+    goto :goto_1
 
-    :cond_5c
-    return-void
+    .line 181
+    :cond_3
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    move-object v1, v0
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method process()V
-    .registers 8
+    .locals 7
 
     .line 60
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->args:Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;
 
-    iget-object v0, v0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->files:[Ljava/lang/String;
+    iget-object v1, v0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->files:[Ljava/lang/String;
 
-    array-length v1, v0
+    array-length v2, v1
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    :goto_6
-    if-ge v2, v1, :cond_1b
+    :goto_0
+    if-ge v0, v2, :cond_0
 
-    aget-object v3, v0, v2
+    aget-object v3, v1, v0
 
     .line 63
     new-instance v4, Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener;
 
-    new-instance v5, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;
+    const/4 v5, 0x1
 
-    invoke-direct {v5, p0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;-><init>(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;)V
+    new-instance v6, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;
 
-    const/4 v6, 0x1
+    invoke-direct {v6, p0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;-><init>(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;)V
 
-    invoke-direct {v4, v3, v6, v5}, Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener;-><init>(Ljava/lang/String;ZLcom/s1243808733/android/dx/cf/direct/ClassPathOpener$Consumer;)V
+    invoke-direct {v4, v3, v5, v6}, Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener;-><init>(Ljava/lang/String;ZLcom/s1243808733/android/dx/cf/direct/ClassPathOpener$Consumer;)V
 
     .line 134
     invoke-virtual {v4}, Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener;->process()Z
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_1b
+    :cond_0
     return-void
 .end method

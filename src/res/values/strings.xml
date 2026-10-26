@@ -228,7 +228,7 @@
     <string name="course_android_app_basics_9_success">"Awesome! You've increased the text size even more."</string>
     <string name="course_android_app_basics_9_task">"Now increase the text size even more to %1$s. Tap the 'Design' button in the action bar and use the designer to do this."</string>
     <string name="course_android_app_basics_description">"In this lesson you'll learn about the basic structure of an Android app with a basic user interface."</string>
-    <item type="string" name="APKTOOL_DUMMY_e4">false</item>
+    <item type="string" name="string_e4">false</item>
     <string name="course_android_buttons">Buttons</string>
     <string name="course_android_buttons_10_success">Awesome! Press the %1$s button and see what happens.</string>
     <string name="course_android_buttons_10_task">We have already added a Java method %1$s below. Run the app and check it out.</string>
@@ -357,7 +357,7 @@
     <string name="course_android_hello_world_2_task">Now change the text at the blue arrow below to %1$s. Then press run again.</string>
     <string name="course_android_hello_world_3_task">"Congratulations! You've finished the first app development lesson. You can play with the code on your own now and for example try different texts. Then continue with the next lesson and learn more."</string>
     <string name="course_android_hello_world_description">"In this lesson you'll develop your first Android app."</string>
-    <item type="string" name="APKTOOL_DUMMY_165">false</item>
+    <item type="string" name="string_165">false</item>
     <string name="course_android_hello_world_section">Start from here to become an expert Android app developer! In these interactive lessons you will step-by-step learn to make full fledged Android apps</string>
     <string name="course_android_images">Images</string>
     <string name="course_android_images_1_success">"Great! Let's set a background image next."</string>
@@ -399,7 +399,7 @@
     <string name="course_android_intents_6_task">Now make the button open %1$s by changing the %2$s.</string>
     <string name="course_android_intents_7_task">"Congratulations! You've learned to start activities in other apps using intents. Play with the code on your own a bit. Then learn to share data using share intents in the next lesson."</string>
     <string name="course_android_intents_description">"In this lesson you'll learn to start activities of other apps using intents."</string>
-    <item type="string" name="APKTOOL_DUMMY_18f">false</item>
+    <item type="string" name="string_18f">false</item>
     <string name="course_android_linear_layouts">Linear Layouts</string>
     <string name="course_android_linear_layouts_1_success">"Great! Let's change the arrangement of the buttons."</string>
     <string name="course_android_linear_layouts_1_task">Run this app which shows three buttons below each other.</string>
@@ -422,7 +422,7 @@
     <string name="course_android_linear_layouts_6_task">Set the %1$s attribute of the first %2$s back to %3$s and add %4$s with value %5$s instead.</string>
     <string name="course_android_linear_layouts_7_task">"Congratulations! You've finished the lesson. Do some experiments with %1$s, %2$s, %3$s, %4$s and %5$s on your own now. Then continue with the next lesson."</string>
     <string name="course_android_linear_layouts_description">"In this lesson you'll learn to use LinearLayout to arrange widgets."</string>
-    <item type="string" name="APKTOOL_DUMMY_1a6">false</item>
+    <item type="string" name="string_1a6">false</item>
     <string name="course_android_list_views">List Views</string>
     <string name="course_android_list_views_10_fail_1">Add %1$s inside the %2$s method.</string>
     <string name="course_android_list_views_10_fail_2">Add %1$s inside the %2$s method.</string>
@@ -538,22 +538,22 @@
     <string name="course_android_options_menu_description">"In this lesson you'll learn to define a main menu."</string>
     <string name="course_android_options_menu_section">Add menus and an action bar to your app</string>
     <string name="course_android_sample_api_demos">API Demos</string>
-    <item type="string" name="APKTOOL_DUMMY_21a">false</item>
+    <item type="string" name="string_21a">false</item>
     <string name="course_android_sample_api_demos_text">"Explore the use of various Android APIs to implement features for your app.
 
 This app demos Notifications, Alarms, Progress Dialogs, Intents, Menus, Search, Preferences, App Widgets, Voice Recognition and more."</string>
     <string name="course_android_sample_bitmaps">Displaying Bitmaps</string>
-    <item type="string" name="APKTOOL_DUMMY_21d">false</item>
+    <item type="string" name="string_21d">false</item>
     <string name="course_android_sample_bitmaps_text">"Explore how to effectively load, cache and display large bitmaps.
 
 This is a sample gallery app, which loads images in the background."</string>
     <string name="course_android_sample_custom_choice_list">Custom Choice List</string>
-    <item type="string" name="APKTOOL_DUMMY_220">false</item>
+    <item type="string" name="string_220">false</item>
     <string name="course_android_sample_custom_choice_list_text">"Explore how to build a custom multiple-choice list.
 
 This app lets the user select items from a list with a custom user interface."</string>
     <string name="course_android_sample_immersive_mode">Immersive Mode</string>
-    <item type="string" name="APKTOOL_DUMMY_223">false</item>
+    <item type="string" name="string_223">false</item>
     <string name="course_android_sample_immersive_mode_text">"Explore how to implement a immersive screen experience in your app.
 
 This app lets users show or hide the status bar and navigation bar with a swipe."</string>
@@ -688,7 +688,7 @@ This app lets users show or hide the status bar and navigation bar with a swipe.
     <string name="course_android_widgets_6_task">Set the text of the new button to %1$s. Again use the designer to do this.</string>
     <string name="course_android_widgets_7_task">"Congratulations! You've learned to add widgets in this lesson. Play with the code a bit on your own and add some other widgets. Then continue with the next lesson and learn how to position widgets with layouts."</string>
     <string name="course_android_widgets_description">"In this lesson you'll learn to add widgets to your user interface."</string>
-    <item type="string" name="APKTOOL_DUMMY_2a8">false</item>
+    <item type="string" name="string_2a8">false</item>
     <string name="course_android_widgets_section">Create your own app user interface layouts</string>
     <string name="course_game">Game Development</string>
     <string name="course_game_animating_objects">Animating Objects</string>
@@ -1060,7 +1060,7 @@ This app lets users show or hide the status bar and navigation bar with a swipe.
     <string name="course_java_data_types_8_task">Make the program print the boolean value %1$s as well.</string>
     <string name="course_java_data_types_9_task">"Congratulations, you've learned a bit about data types in this lesson! Play a bit more with the code. Then continue with the lesson about operators."</string>
     <string name="course_java_data_types_description">"In this lesson you'll learn about different types of data: strings, numbers and boolean values."</string>
-    <item type="string" name="APKTOOL_DUMMY_41c">false</item>
+    <item type="string" name="string_41c">false</item>
     <string name="course_java_data_types_section">Continue with programming basics</string>
     <string name="course_java_for_loops">For Loops</string>
     <string name="course_java_for_loops_1_task">Check out this for loop, which is a shortcut for a while loop. First it declares a variable %1$s.</string>
@@ -1098,7 +1098,7 @@ This app lets users show or hide the status bar and navigation bar with a swipe.
     <string name="course_java_hello_world_2_task">Now modify the %1$s statement at the blue arrow in the program below to print %2$s. Then run.</string>
     <string name="course_java_hello_world_3_task">"Congratulations, you've finished the first Java programming lesson! Now play with the code a bit on your own. Change the text which the program prints and run it as often as you like. Then continue with the next lesson."</string>
     <string name="course_java_hello_world_description">"In this lesson you'll learn to run your first Java program."</string>
-    <item type="string" name="APKTOOL_DUMMY_442">false</item>
+    <item type="string" name="string_442">false</item>
     <string name="course_java_hello_world_section">Start from here to learn Java programming! In these interactive lessons you will step-by-step learn Java programming skills</string>
     <string name="course_java_if_else_statements">If-Else Statements</string>
     <string name="course_java_if_else_statements_1_fail_1">"Don't change the program, just run it."</string>
@@ -1155,7 +1155,7 @@ This app lets users show or hide the status bar and navigation bar with a swipe.
     <string name="course_java_inheritance_9_success">Great! The program does the same as before and prints the area of the the square.</string>
     <string name="course_java_inheritance_9_task">Now change the type of the variable to %1$s. Even though the actual object is a %2$s you can use the type of the inherited class %3$s for the variable. This concept is called polymorphism.</string>
     <string name="course_java_inheritance_description">"In this lesson you'll learn how to use inheritance to define classes which extend other classes."</string>
-    <item type="string" name="APKTOOL_DUMMY_47b">false</item>
+    <item type="string" name="string_47b">false</item>
     <string name="course_java_long_title">Java programming skills</string>
     <string name="course_java_methods">Methods</string>
     <string name="course_java_methods_10_fail_1">The program should print the area of the rectangle after setting width and height.</string>
@@ -1226,7 +1226,7 @@ This app lets users show or hide the status bar and navigation bar with a swipe.
     <string name="course_java_operators_8_task">Now use the string concatenation operator to print %1$s where %2$s is given as a number.</string>
     <string name="course_java_operators_9_task">Congratulations! You have learned how to use operators. Try some more calculations on your own now. Then learn about relational operators in the next lesson.</string>
     <string name="course_java_operators_description">"In this lesson you'll learn how to perform calculations on data using operators."</string>
-    <item type="string" name="APKTOOL_DUMMY_4c2">false</item>
+    <item type="string" name="string_4c2">false</item>
     <string name="course_java_packages_and_imports">Packages and Imports</string>
     <string name="course_java_packages_and_imports_1_task">This Java file declares a Java class %1$s.</string>
     <string name="course_java_packages_and_imports_2_task">The package declaration at the top places the class inside the package %1$s. Note that the parent directories of the file also match that package name.</string>
@@ -1264,7 +1264,7 @@ This app lets users show or hide the status bar and navigation bar with a swipe.
     <string name="course_java_program_structure_8_task">Now add a second comment %1$s at the blue arrow in the program.</string>
     <string name="course_java_program_structure_9_task">"Congratulations! You've mastered the Java program structure lesson. Now you can play with the code on your own. Add some more %1$s statements and run. Then continue with the next lesson."</string>
     <string name="course_java_program_structure_description">"In this lesson you'll learn about the general structure of a Java program, how a program executes statements and how to fix syntax errors."</string>
-    <item type="string" name="APKTOOL_DUMMY_4e8">false</item>
+    <item type="string" name="string_4e8">false</item>
     <string name="course_java_relational_operators">Relational Operators</string>
     <string name="course_java_relational_operators_10_task">"Congratulations! You've finished the relational operators lesson. Now try some more comparisons on your own. Then continue."</string>
     <string name="course_java_relational_operators_1_fail_1">"Don't change the program, just run it."</string>
@@ -1302,7 +1302,7 @@ This app lets users show or hide the status bar and navigation bar with a swipe.
     <string name="course_java_relational_operators_9_success">Good job!</string>
     <string name="course_java_relational_operators_9_task">Use the %1$s method to check whether the string %2$s is equal to %3$s.</string>
     <string name="course_java_relational_operators_description">"In this lesson you'll learn to use relational and equality operators to compare data."</string>
-    <item type="string" name="APKTOOL_DUMMY_50e">false</item>
+    <item type="string" name="string_50e">false</item>
     <string name="course_java_static_methods">Static Methods</string>
     <string name="course_java_static_methods_10_task">Check out the %1$s method below. It takes two integers as parameters and prints the sum.</string>
     <string name="course_java_static_methods_11_fail_1">"Don't change the program, just run it."</string>
@@ -1585,7 +1585,7 @@ This app lets users show or hide the status bar and navigation bar with a swipe.
     <string name="trainer_continue">Continue</string>
     <string name="trainer_design">Design</string>
     <string name="trainer_explore">Explore</string>
-    <item type="string" name="APKTOOL_DUMMY_629">false</item>
+    <item type="string" name="string_629">false</item>
     <string name="trainer_next_exercise">Next Exercise</string>
     <string name="trainer_next_lesson">Next Lesson</string>
     <string name="trainer_next_lesson_no_changes_message">Do you want to continue without trying some changes on your own?</string>
@@ -2124,7 +2124,7 @@ The APK has been signed with your key in %2$s. Make sure to keep this file for f
     <string name="menu_tools">Tools..</string>
     <string name="advanced_settings">Advanced Settings</string>
     <string name="app_clone_name">AIDE clone</string>
-    <item type="string" name="APKTOOL_DUMMY_83e">false</item>
+    <item type="string" name="string_83e">false</item>
     <string name="copy_text">Copy</string>
     <string name="paste_text">Paste</string>
     <string name="text_selection_more">More…</string>

@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 21
     new-instance v0, Lcom/baidu/mobstat/cn;
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     iput-boolean v0, p0, Lcom/baidu/mobstat/cn;->a:Z
 
     .line 15
-    const/high16 v0, 0x42480000  # 50.0f
+    const/high16 v0, 0x42480000    # 50.0f
 
     iput v0, p0, Lcom/baidu/mobstat/cn;->b:F
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public static a()Lcom/baidu/mobstat/cn;
-    .registers 1
+    .locals 1
 
     .line 24
     sget-object v0, Lcom/baidu/mobstat/cn;->e:Lcom/baidu/mobstat/cn;
@@ -67,138 +67,141 @@
 
 # virtual methods
 .method public a(Ljava/lang/String;)V
-    .registers 6
+    .locals 5
+
+    const/4 v1, 0x1
 
     .line 37
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
+    .line 72
+    :goto_0
     return-void
 
     .line 42
-    :cond_7
-    const/4 v0, 0x1
+    :cond_0
+    :try_start_0
+    new-instance v0, Lorg/json/JSONObject;
 
-    :try_start_8
-    new-instance v1, Lorg/json/JSONObject;
-
-    invoke-direct {v1, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
     .line 43
-    const-string p1, "sv"
+    const-string v2, "sv"
 
-    invoke-virtual {v1, p1}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lorg/json/JSONObject;
+    check-cast v0, Lorg/json/JSONObject;
 
-    if-eqz p1, :cond_54
+    if-eqz v0, :cond_2
 
     .line 46
-    const-string v1, "close"
+    const-string v2, "close"
 
-    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
-    move-result v1
+    move-result v2
 
     .line 47
-    const-string v2, "area"
+    const-string v3, "area"
 
-    invoke-virtual {p1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     .line 48
-    const-string v3, "duration"
+    const-string v4, "duration"
 
-    invoke-virtual {p1, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v4
 
-    if-eqz v1, :cond_2d
+    if-eqz v2, :cond_3
 
-    const/4 v1, 0x1
-
-    goto :goto_2e
-
-    :cond_2d
-    const/4 v1, 0x0
+    move v0, v1
 
     .line 50
-    :goto_2e
-    iput-boolean v1, p0, Lcom/baidu/mobstat/cn;->a:Z
+    :goto_1
+    iput-boolean v0, p0, Lcom/baidu/mobstat/cn;->a:Z
 
     .line 52
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
-    :try_end_34
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_34} :catch_53
+    move-result v0
 
-    if-nez v1, :cond_42
+    if-nez v0, :cond_1
 
     .line 54
-    :try_start_36
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(Ljava/lang/String;)Ljava/lang/Float;
+    :try_start_1
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(Ljava/lang/String;)Ljava/lang/Float;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lcom/baidu/mobstat/cn;->b:F
-    :try_end_40
-    .catch Ljava/lang/Exception; {:try_start_36 .. :try_end_40} :catch_41
-
-    goto :goto_42
-
-    .line 72
-    :catch_41
-    move-exception v1
+    iput v0, p0, Lcom/baidu/mobstat/cn;->b:F
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 60
-    :cond_42
-    :goto_42
-    :try_start_42
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :cond_1
+    :goto_2
+    :try_start_2
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_54
+    if-nez v0, :cond_2
 
     .line 62
-    invoke-static {p1}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
+    invoke-static {v4}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    iput-wide v1, p0, Lcom/baidu/mobstat/cn;->c:J
-    :try_end_52
-    .catch Ljava/lang/Exception; {:try_start_42 .. :try_end_52} :catch_53
-
-    goto :goto_54
+    iput-wide v2, p0, Lcom/baidu/mobstat/cn;->c:J
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 72
-    :catch_53
-    move-exception p1
+    :cond_2
+    :goto_3
+    iput-boolean v1, p0, Lcom/baidu/mobstat/cn;->d:Z
 
-    :cond_54
-    :goto_54
-    iput-boolean v0, p0, Lcom/baidu/mobstat/cn;->d:Z
+    goto :goto_0
 
-    return-void
+    .line 48
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    .line 72
+    :catch_0
+    move-exception v0
+
+    goto :goto_3
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_2
 .end method
 
 .method public b()Z
-    .registers 2
+    .locals 1
 
     .line 76
     iget-boolean v0, p0, Lcom/baidu/mobstat/cn;->a:Z
@@ -207,39 +210,41 @@
 .end method
 
 .method public c()F
-    .registers 5
-
-    .line 80
-    iget v0, p0, Lcom/baidu/mobstat/cn;->b:F
-
-    const/high16 v1, 0x42c80000  # 100.0f
-
-    const/4 v2, 0x0
-
-    cmpg-float v3, v0, v2
-
-    if-gez v3, :cond_b
+    .locals 4
 
     const/4 v0, 0x0
 
-    goto :goto_11
+    const/high16 v1, 0x42c80000    # 100.0f
 
-    :cond_b
-    cmpl-float v2, v0, v1
+    .line 80
+    iget v2, p0, Lcom/baidu/mobstat/cn;->b:F
 
-    if-lez v2, :cond_11
+    cmpg-float v3, v2, v0
 
-    const/high16 v0, 0x42c80000  # 100.0f
+    if-gez v3, :cond_0
 
-    :cond_11
-    :goto_11
+    :goto_0
     div-float/2addr v0, v1
 
     return v0
+
+    :cond_0
+    cmpl-float v0, v2, v1
+
+    if-lez v0, :cond_1
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v2
+
+    goto :goto_0
 .end method
 
 .method public d()J
-    .registers 3
+    .locals 2
 
     .line 91
     iget-wide v0, p0, Lcom/baidu/mobstat/cn;->c:J

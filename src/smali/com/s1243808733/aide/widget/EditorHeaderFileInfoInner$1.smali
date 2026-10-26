@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/widget/EditorHeaderFileInfoInner;)V
-    .registers 2
+    .locals 0
 
     .line 21
     iput-object p1, p0, Lcom/s1243808733/aide/widget/EditorHeaderFileInfoInner$1;->this$0:Lcom/s1243808733/aide/widget/EditorHeaderFileInfoInner;
@@ -36,16 +36,16 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 3
+    .locals 2
 
     .line 26
     invoke-static {}, Lcom/s1243808733/aide/AideMainActivity;->getActivity()Lcom/s1243808733/aide/AideMainActivity;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/s1243808733/aide/AideMainActivity;->openFileTabMenu(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/AideMainActivity;->openFileTabMenu(Landroid/view/View;)V
 
     return-void
 .end method

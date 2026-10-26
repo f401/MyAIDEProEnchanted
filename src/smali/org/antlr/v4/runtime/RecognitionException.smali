@@ -15,8 +15,8 @@
 .field private final recognizer:Lorg/antlr/v4/runtime/Recognizer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;"
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;"
         }
     .end annotation
 .end field
@@ -24,13 +24,13 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/antlr/v4/runtime/Recognizer;Lorg/antlr/v4/runtime/IntStream;Lorg/antlr/v4/runtime/ParserRuleContext;)V
-    .registers 5
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;",
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;",
             "Lorg/antlr/v4/runtime/IntStream;",
             "Lorg/antlr/v4/runtime/ParserRuleContext;",
             ")V"
@@ -41,9 +41,9 @@
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 32
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    iput p1, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingState:I
+    iput v0, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingState:I
 
     .line 50
     iput-object p2, p0, Lorg/antlr/v4/runtime/RecognitionException;->recognizer:Lorg/antlr/v4/runtime/Recognizer;
@@ -54,26 +54,26 @@
     .line 52
     iput-object p4, p0, Lorg/antlr/v4/runtime/RecognitionException;->ctx:Lorg/antlr/v4/runtime/RuleContext;
 
-    if-eqz p2, :cond_14
+    if-eqz p2, :cond_0
 
     .line 53
     invoke-virtual {p2}, Lorg/antlr/v4/runtime/Recognizer;->getState()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingState:I
+    iput v0, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingState:I
 
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/Recognizer;Lorg/antlr/v4/runtime/IntStream;Lorg/antlr/v4/runtime/ParserRuleContext;)V
-    .registers 5
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;",
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;",
             "Lorg/antlr/v4/runtime/IntStream;",
             "Lorg/antlr/v4/runtime/ParserRuleContext;",
             ")V"
@@ -97,23 +97,23 @@
     .line 40
     iput-object p3, p0, Lorg/antlr/v4/runtime/RecognitionException;->ctx:Lorg/antlr/v4/runtime/RuleContext;
 
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_0
 
     .line 41
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/Recognizer;->getState()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingState:I
+    iput v0, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingState:I
 
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getCtx()Lorg/antlr/v4/runtime/RuleContext;
-    .registers 2
+    .locals 1
 
     .line 100
     iget-object v0, p0, Lorg/antlr/v4/runtime/RecognitionException;->ctx:Lorg/antlr/v4/runtime/RuleContext;
@@ -122,12 +122,12 @@
 .end method
 
 .method public getExpectedTokens()Lorg/antlr/v4/runtime/misc/IntervalSet;
-    .registers 4
+    .locals 3
 
     .line 84
     iget-object v0, p0, Lorg/antlr/v4/runtime/RecognitionException;->recognizer:Lorg/antlr/v4/runtime/Recognizer;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 85
     invoke-virtual {v0}, Lorg/antlr/v4/runtime/Recognizer;->getATN()Lorg/antlr/v4/runtime/atn/ATN;
@@ -142,16 +142,17 @@
 
     move-result-object v0
 
+    :goto_0
     return-object v0
 
-    :cond_11
+    :cond_0
     const/4 v0, 0x0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getInputStream()Lorg/antlr/v4/runtime/IntStream;
-    .registers 2
+    .locals 1
 
     .line 114
     iget-object v0, p0, Lorg/antlr/v4/runtime/RecognitionException;->input:Lorg/antlr/v4/runtime/IntStream;
@@ -160,7 +161,7 @@
 .end method
 
 .method public getOffendingState()I
-    .registers 2
+    .locals 1
 
     .line 66
     iget v0, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingState:I
@@ -169,7 +170,7 @@
 .end method
 
 .method public getOffendingToken()Lorg/antlr/v4/runtime/Token;
-    .registers 2
+    .locals 1
 
     .line 119
     iget-object v0, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingToken:Lorg/antlr/v4/runtime/Token;
@@ -178,12 +179,12 @@
 .end method
 
 .method public getRecognizer()Lorg/antlr/v4/runtime/Recognizer;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;"
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;"
         }
     .end annotation
 
@@ -194,7 +195,7 @@
 .end method
 
 .method protected final setOffendingState(I)V
-    .registers 2
+    .locals 0
 
     .line 70
     iput p1, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingState:I
@@ -203,7 +204,7 @@
 .end method
 
 .method protected final setOffendingToken(Lorg/antlr/v4/runtime/Token;)V
-    .registers 2
+    .locals 0
 
     .line 123
     iput-object p1, p0, Lorg/antlr/v4/runtime/RecognitionException;->offendingToken:Lorg/antlr/v4/runtime/Token;

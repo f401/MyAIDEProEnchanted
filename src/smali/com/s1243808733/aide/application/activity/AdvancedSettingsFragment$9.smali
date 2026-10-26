@@ -23,7 +23,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$mshowUnInstallDialog(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;)V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->showUnInstallDialog()V
 
@@ -31,7 +31,7 @@
 .end method
 
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 408
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -42,89 +42,89 @@
 .end method
 
 .method private show(Landroid/widget/TextView;)V
-    .registers 9
+    .locals 8
+
+    const/4 v3, 0x2
+
+    const/4 v7, 0x1
+
+    const/4 v2, 0x0
 
     .line 429
-    const/4 v0, 0x2
+    new-array v0, v3, [Ljava/lang/CharSequence;
 
-    new-array v1, v0, [Ljava/lang/CharSequence;
+    const-string v1, "\u672c\u5730\u5b89\u88c5"
 
-    const-string v2, "本地安装"
+    aput-object v1, v0, v2
 
-    const/4 v3, 0x0
+    const-string v1, "\u5378\u8f7dGradle"
 
-    aput-object v2, v1, v3
+    aput-object v1, v0, v7
 
-    const-string v2, "卸载Gradle"
+    new-array v1, v3, [Ljava/lang/CharSequence;
 
-    const/4 v4, 0x1
+    const-string v3, "Local installation"
 
-    aput-object v2, v1, v4
+    aput-object v3, v1, v2
 
-    new-array v0, v0, [Ljava/lang/CharSequence;
+    const-string v3, "Uninstall Gradle"
 
-    const-string v2, "Local installation"
+    aput-object v3, v1, v7
 
-    aput-object v2, v0, v3
-
-    const-string v2, "Uninstall Gradle"
-
-    aput-object v2, v0, v4
-
-    invoke-static {v1, v0}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, [Ljava/lang/CharSequence;
 
     .line 431
-    new-instance v1, Landroid/widget/PopupMenu;
+    new-instance v3, Landroid/widget/PopupMenu;
 
     invoke-virtual {p1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
+    invoke-direct {v3, v1, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
 
     .line 432
-    invoke-virtual {v1}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
+    invoke-virtual {v3}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
 
-    move-result-object p1
+    move-result-object v4
 
-    const/4 v2, 0x0
+    move v1, v2
 
     .line 433
-    :goto_2b
+    :goto_0
     array-length v5, v0
 
-    if-ge v2, v5, :cond_3f
+    if-ge v1, v5, :cond_0
 
     .line 435
-    aget-object v5, v0, v2
+    aget-object v5, v0, v1
 
-    invoke-interface {p1, v4, v3, v3, v5}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {v4, v7, v2, v2, v5}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v5
 
     new-instance v6, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9$1;
 
-    invoke-direct {v6, p0, v2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9$1;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;I)V
+    invoke-direct {v6, p0, v1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9$1;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;I)V
 
     invoke-interface {v5, v6}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 454
-    :cond_3f
-    invoke-virtual {v1}, Landroid/widget/PopupMenu;->show()V
+    :cond_0
+    invoke-virtual {v3}, Landroid/widget/PopupMenu;->show()V
 
     return-void
 .end method
 
 .method private showUnInstallDialog()V
-    .registers 5
+    .locals 5
 
     .line 458
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -133,31 +133,31 @@
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    const-string v1, "rm -rvf %s/framework/&&exit"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x1
 
-    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
-
-    invoke-virtual {v2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/app/Activity;->getFilesDir()Ljava/io/File;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v2
+    new-array v2, v2, [Ljava/lang/Object;
 
     const/4 v3, 0x0
 
-    aput-object v2, v1, v3
+    iget-object v4, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
 
-    const-string v2, "rm -rvf %s/framework/&&exit"
+    invoke-virtual {v4}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/app/Activity;->getFilesDir()Ljava/io/File;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v2, v3
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -169,42 +169,42 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 8
+    .locals 6
+
+    const/4 v2, 0x0
 
     .line 412
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
 
     invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getCurrentList()Landroid/widget/ListView;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
+    move v1, v2
 
     .line 414
-    :goto_8
-    invoke-virtual {v0}, Landroid/widget/ListView;->getChildCount()I
+    :goto_0
+    invoke-virtual {v3}, Landroid/widget/ListView;->getChildCount()I
 
-    move-result v3
+    move-result v0
 
-    if-ge v2, v3, :cond_3a
+    if-ge v1, v0, :cond_0
 
     .line 415
-    invoke-virtual {v0, v2}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v1}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 416
     const v4, 0x1020016
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    if-eqz v3, :cond_37
+    if-eqz v0, :cond_1
 
     .line 417
     invoke-virtual {p1}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
@@ -215,7 +215,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v3}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v5
 
@@ -227,18 +227,18 @@
 
     move-result v4
 
-    if-eqz v4, :cond_37
+    if-eqz v4, :cond_1
 
     .line 418
-    invoke-direct {p0, v3}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->show(Landroid/widget/TextView;)V
+    invoke-direct {p0, v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->show(Landroid/widget/TextView;)V
 
-    return v1
+    :cond_0
+    return v2
 
-    :cond_37
-    add-int/lit8 v2, v2, 0x1
+    :cond_1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_8
+    move v1, v0
 
-    :cond_3a
-    return v1
+    goto :goto_0
 .end method

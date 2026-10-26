@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 12
     new-instance v0, Lorg/antlr/v4/runtime/tree/ParseTreeWalker;
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,73 +33,75 @@
 
 # virtual methods
 .method protected enterRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;Lorg/antlr/v4/runtime/tree/RuleNode;)V
-    .registers 3
+    .locals 1
 
     .line 48
     invoke-interface {p2}, Lorg/antlr/v4/runtime/tree/RuleNode;->getRuleContext()Lorg/antlr/v4/runtime/RuleContext;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Lorg/antlr/v4/runtime/ParserRuleContext;
+    check-cast v0, Lorg/antlr/v4/runtime/ParserRuleContext;
 
     .line 49
-    invoke-interface {p1, p2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->enterEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
+    invoke-interface {p1, v0}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->enterEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
 
     .line 50
-    invoke-virtual {p2, p1}, Lorg/antlr/v4/runtime/ParserRuleContext;->enterRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
+    invoke-virtual {v0, p1}, Lorg/antlr/v4/runtime/ParserRuleContext;->enterRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
 
     return-void
 .end method
 
 .method protected exitRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;Lorg/antlr/v4/runtime/tree/RuleNode;)V
-    .registers 3
+    .locals 1
 
     .line 61
     invoke-interface {p2}, Lorg/antlr/v4/runtime/tree/RuleNode;->getRuleContext()Lorg/antlr/v4/runtime/RuleContext;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Lorg/antlr/v4/runtime/ParserRuleContext;
+    check-cast v0, Lorg/antlr/v4/runtime/ParserRuleContext;
 
     .line 62
-    invoke-virtual {p2, p1}, Lorg/antlr/v4/runtime/ParserRuleContext;->exitRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
+    invoke-virtual {v0, p1}, Lorg/antlr/v4/runtime/ParserRuleContext;->exitRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
 
     .line 63
-    invoke-interface {p1, p2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->exitEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
+    invoke-interface {p1, v0}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->exitEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
 
     return-void
 .end method
 
 .method public walk(Lorg/antlr/v4/runtime/tree/ParseTreeListener;Lorg/antlr/v4/runtime/tree/ParseTree;)V
-    .registers 6
+    .locals 3
 
     .line 24
     instance-of v0, p2, Lorg/antlr/v4/runtime/tree/ErrorNode;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 25
     check-cast p2, Lorg/antlr/v4/runtime/tree/ErrorNode;
 
     invoke-interface {p1, p2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->visitErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)V
 
+    .line 38
+    :goto_0
     return-void
 
     .line 28
-    :cond_a
+    :cond_0
     instance-of v0, p2, Lorg/antlr/v4/runtime/tree/TerminalNode;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_1
 
     .line 29
     check-cast p2, Lorg/antlr/v4/runtime/tree/TerminalNode;
 
     invoke-interface {p1, p2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->visitTerminal(Lorg/antlr/v4/runtime/tree/TerminalNode;)V
 
-    return-void
+    goto :goto_0
 
     .line 32
-    :cond_14
+    :cond_1
     check-cast p2, Lorg/antlr/v4/runtime/tree/RuleNode;
 
     .line 33
@@ -108,27 +110,27 @@
     .line 34
     invoke-interface {p2}, Lorg/antlr/v4/runtime/tree/RuleNode;->getChildCount()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_1e
-    if-ge v1, v0, :cond_2a
+    :goto_1
+    if-ge v0, v1, :cond_2
 
     .line 36
-    invoke-interface {p2, v1}, Lorg/antlr/v4/runtime/tree/RuleNode;->getChild(I)Lorg/antlr/v4/runtime/tree/ParseTree;
+    invoke-interface {p2, v0}, Lorg/antlr/v4/runtime/tree/RuleNode;->getChild(I)Lorg/antlr/v4/runtime/tree/ParseTree;
 
     move-result-object v2
 
     invoke-virtual {p0, p1, v2}, Lorg/antlr/v4/runtime/tree/ParseTreeWalker;->walk(Lorg/antlr/v4/runtime/tree/ParseTreeListener;Lorg/antlr/v4/runtime/tree/ParseTree;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 38
-    :cond_2a
+    :cond_2
     invoke-virtual {p0, p1, p2}, Lorg/antlr/v4/runtime/tree/ParseTreeWalker;->exitRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;Lorg/antlr/v4/runtime/tree/RuleNode;)V
 
-    return-void
+    goto :goto_0
 .end method

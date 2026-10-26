@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static request(Ljava/lang/String;Lcom/s1243808733/translate/YouDaoTranslation$OnTranslationCallback;)V
-    .registers 4
+    .locals 3
 
     .line 15
     new-instance v0, Lorg/xutils/http/RequestParams;
@@ -43,13 +43,13 @@
     .line 18
     invoke-static {}, Lorg/xutils/x;->http()Lorg/xutils/HttpManager;
 
-    move-result-object p0
+    move-result-object v1
 
-    new-instance v1, Lcom/s1243808733/translate/YouDaoTranslation$TranslationCallback;
+    new-instance v2, Lcom/s1243808733/translate/YouDaoTranslation$TranslationCallback;
 
-    invoke-direct {v1, p1}, Lcom/s1243808733/translate/YouDaoTranslation$TranslationCallback;-><init>(Lcom/s1243808733/translate/YouDaoTranslation$OnTranslationCallback;)V
+    invoke-direct {v2, p1}, Lcom/s1243808733/translate/YouDaoTranslation$TranslationCallback;-><init>(Lcom/s1243808733/translate/YouDaoTranslation$OnTranslationCallback;)V
 
-    invoke-interface {p0, v0, v1}, Lorg/xutils/HttpManager;->get(Lorg/xutils/http/RequestParams;Lorg/xutils/common/Callback$CommonCallback;)Lorg/xutils/common/Callback$Cancelable;
+    invoke-interface {v1, v0, v2}, Lorg/xutils/HttpManager;->get(Lorg/xutils/http/RequestParams;Lorg/xutils/common/Callback$CommonCallback;)Lorg/xutils/common/Callback$Cancelable;
 
     return-void
 .end method

@@ -44,111 +44,111 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetannotation(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetannotationsDirectory(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotationsDirectory:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotationsDirectory:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetannotationsSet(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotationsSet:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotationsSet:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetannotationsSetRefList(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotationsSetRefList:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotationsSetRefList:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetclassData(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetcode(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetdebugInfo(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetencodedArray(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetheader(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->header:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->header:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetidsDefs(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->idsDefs:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->idsDefs:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetmapList(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->mapList:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->mapList:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetstringData(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->stringData:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->stringData:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgettypeList(Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->typeList:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->typeList:I
 
-    return p0
+    return v0
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/android/dx/merge/DexMerger;)V
-    .registers 3
+    .locals 1
 
     .line 1095
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -293,13 +293,13 @@
     .line 1108
     invoke-static {p1}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetannotationOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/Dex$Section;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dex/Dex$Section;->used()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex$Section;->used()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
 
     .line 1109
     invoke-direct {p0}, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->fourByteAlign()V
@@ -308,7 +308,9 @@
 .end method
 
 .method public constructor <init>([Lcom/s1243808733/android/dex/Dex;)V
-    .registers 5
+    .locals 3
+
+    const/4 v1, 0x0
 
     .line 1088
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -318,48 +320,46 @@
 
     iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->header:I
 
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
+    move v0, v1
 
     .line 1089
-    :goto_9
+    :goto_0
     array-length v2, p1
 
-    if-ge v1, v2, :cond_18
+    if-ge v0, v2, :cond_0
 
     .line 1090
-    aget-object v2, p1, v1
+    aget-object v2, p1, v0
 
     invoke-virtual {v2}, Lcom/s1243808733/android/dex/Dex;->getTableOfContents()Lcom/s1243808733/android/dex/TableOfContents;
 
     move-result-object v2
 
-    invoke-direct {p0, v2, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->plus(Lcom/s1243808733/android/dex/TableOfContents;Z)V
+    invoke-direct {p0, v2, v1}, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->plus(Lcom/s1243808733/android/dex/TableOfContents;Z)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 1092
-    :cond_18
+    :cond_0
     invoke-direct {p0}, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->fourByteAlign()V
 
     return-void
 .end method
 
 .method private static fourByteAlign(I)I
-    .registers 1
+    .locals 1
 
-    add-int/lit8 p0, p0, 0x3
+    add-int/lit8 v0, p0, 0x3
 
-    and-int/lit8 p0, p0, -0x4
+    and-int/lit8 v0, v0, -0x4
 
-    return p0
+    return v0
 .end method
 
 .method private fourByteAlign()V
-    .registers 2
+    .locals 1
 
     .line 1155
     iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->header:I
@@ -482,7 +482,7 @@
 .end method
 
 .method private plus(Lcom/s1243808733/android/dex/TableOfContents;Z)V
-    .registers 7
+    .locals 6
 
     .line 1113
     iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->idsDefs:I
@@ -607,173 +607,174 @@
 
     iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotationsSetRefList:I
 
-    if-eqz p2, :cond_98
+    if-eqz p2, :cond_0
 
     .line 1132
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
 
-    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->codes:Lcom/s1243808733/android/dex/TableOfContents$Section;
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->codes:Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    iget v0, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
 
-    add-int/2addr p2, v0
+    add-int/2addr v0, v1
 
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
 
     .line 1133
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
 
-    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->classDatas:Lcom/s1243808733/android/dex/TableOfContents$Section;
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->classDatas:Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    iget v0, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
 
-    add-int/2addr p2, v0
+    add-int/2addr v0, v1
 
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
 
     .line 1134
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
 
-    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->encodedArrays:Lcom/s1243808733/android/dex/TableOfContents$Section;
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->encodedArrays:Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    iget v0, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
 
-    add-int/2addr p2, v0
+    add-int/2addr v0, v1
 
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
 
     .line 1135
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
 
-    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->annotations:Lcom/s1243808733/android/dex/TableOfContents$Section;
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->annotations:Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    iget v0, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
 
-    add-int/2addr p2, v0
+    add-int/2addr v0, v1
 
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
 
     .line 1136
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
 
-    iget-object p1, p1, Lcom/s1243808733/android/dex/TableOfContents;->debugInfos:Lcom/s1243808733/android/dex/TableOfContents$Section;
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->debugInfos:Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    iget p1, p1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
 
-    add-int/2addr p2, p1
+    add-int/2addr v0, v1
 
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
-
-    goto :goto_f0
-
-    .line 1139
-    :cond_98
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
-
-    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->codes:Lcom/s1243808733/android/dex/TableOfContents$Section;
-
-    iget v0, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
-
-    int-to-double v0, v0
-
-    const-wide/high16 v2, 0x3ff4000000000000L  # 1.25
-
-    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v0, v0, v2
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v0
-
-    double-to-int v0, v0
-
-    add-int/2addr p2, v0
-
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
-
-    .line 1142
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
-
-    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->classDatas:Lcom/s1243808733/android/dex/TableOfContents$Section;
-
-    iget v0, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
-
-    int-to-double v0, v0
-
-    const-wide v2, 0x3ffab851eb851eb8L  # 1.67
-
-    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
-
-    mul-double v0, v0, v2
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v0
-
-    double-to-int v0, v0
-
-    add-int/2addr p2, v0
-
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
-
-    .line 1144
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
-
-    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->encodedArrays:Lcom/s1243808733/android/dex/TableOfContents$Section;
-
-    iget v0, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
-
-    mul-int/lit8 v0, v0, 0x2
-
-    add-int/2addr p2, v0
-
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
-
-    .line 1146
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
-
-    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->annotations:Lcom/s1243808733/android/dex/TableOfContents$Section;
-
-    iget v0, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
-
-    mul-int/lit8 v0, v0, 0x2
-
-    int-to-double v0, v0
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v0
-
-    double-to-int v0, v0
-
-    add-int/2addr p2, v0
-
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
 
     .line 1150
-    iget p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
-
-    iget-object p1, p1, Lcom/s1243808733/android/dex/TableOfContents;->debugInfos:Lcom/s1243808733/android/dex/TableOfContents$Section;
-
-    iget p1, p1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
-
-    mul-int/lit8 p1, p1, 0x2
-
-    add-int/lit8 p1, p1, 0x8
-
-    add-int/2addr p2, p1
-
-    iput p2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
-
-    :goto_f0
+    :goto_0
     return-void
+
+    .line 1139
+    :cond_0
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
+
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->codes:Lcom/s1243808733/android/dex/TableOfContents$Section;
+
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+
+    int-to-double v2, v1
+
+    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
+
+    const-wide/high16 v4, 0x3ff4000000000000L    # 1.25
+
+    mul-double/2addr v2, v4
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v2
+
+    double-to-int v1, v2
+
+    add-int/2addr v0, v1
+
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->code:I
+
+    .line 1142
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
+
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->classDatas:Lcom/s1243808733/android/dex/TableOfContents$Section;
+
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+
+    int-to-double v2, v1
+
+    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
+
+    const-wide v4, 0x3ffab851eb851eb8L    # 1.67
+
+    mul-double/2addr v2, v4
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v2
+
+    double-to-int v1, v2
+
+    add-int/2addr v0, v1
+
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->classData:I
+
+    .line 1144
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
+
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->encodedArrays:Lcom/s1243808733/android/dex/TableOfContents$Section;
+
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+
+    mul-int/lit8 v1, v1, 0x2
+
+    add-int/2addr v0, v1
+
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->encodedArray:I
+
+    .line 1146
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
+
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->annotations:Lcom/s1243808733/android/dex/TableOfContents$Section;
+
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+
+    mul-int/lit8 v1, v1, 0x2
+
+    int-to-double v2, v1
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v2
+
+    double-to-int v1, v2
+
+    add-int/2addr v0, v1
+
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->annotation:I
+
+    .line 1150
+    iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
+
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TableOfContents;->debugInfos:Lcom/s1243808733/android/dex/TableOfContents$Section;
+
+    iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->byteCount:I
+
+    mul-int/lit8 v1, v1, 0x2
+
+    add-int/lit8 v1, v1, 0x8
+
+    add-int/2addr v0, v1
+
+    iput v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->debugInfo:I
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public size()I
-    .registers 3
+    .locals 2
 
     .line 1175
     iget v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$WriterSizes;->header:I

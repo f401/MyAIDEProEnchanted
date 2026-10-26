@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .registers 2
+    .locals 0
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,109 +24,111 @@
 .end method
 
 .method private collect(Ljava/io/File;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .registers 9
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/io/File;",
             "Ljava/lang/String;",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Ljava/lang/String;",
             ">;)V"
         }
     .end annotation
 
+    const/16 v6, 0x2f
+
     .line 54
     invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
-    move-result-object p1
+    move-result-object v1
 
-    array-length v0, p1
+    array-length v2, v1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_6
-    if-ge v1, v0, :cond_48
+    :goto_0
+    if-ge v0, v2, :cond_1
 
-    aget-object v2, p1, v1
+    aget-object v3, v1, v0
 
     .line 55
-    invoke-virtual {v2}, Ljava/io/File;->isDirectory()Z
+    invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
 
-    move-result v3
+    move-result v4
 
-    const/16 v4, 0x2f
-
-    if-eqz v3, :cond_2c
+    if-eqz v4, :cond_0
 
     .line 56
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p0, v3, v4, p3}, Lcom/s1243808733/android/multidex/FolderPathElement;->collect(Ljava/io/File;Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 58
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-direct {p0, v2, v3, p3}, Lcom/s1243808733/android/multidex/FolderPathElement;->collect(Ljava/io/File;Ljava/lang/String;Ljava/util/ArrayList;)V
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_45
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 58
-    :cond_2c
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p3, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :goto_45
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_6
-
-    :cond_48
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .registers 1
+    .locals 0
 
     return-void
 .end method
 
 .method public list()Ljava/lang/Iterable;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/lang/Iterable<",
+            "Ljava/lang/Iterable",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -148,7 +150,7 @@
 .end method
 
 .method public open(Ljava/lang/String;)Ljava/io/InputStream;
-    .registers 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -169,9 +171,9 @@
 
     invoke-virtual {p1, v4, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {v3, v0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v3, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     invoke-direct {v2, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 

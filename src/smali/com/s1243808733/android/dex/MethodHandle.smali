@@ -16,7 +16,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dex/MethodHandle;",
         ">;"
     }
@@ -37,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;III)V
-    .registers 6
+    .locals 0
 
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,50 +64,51 @@
 
 # virtual methods
 .method public compareTo(Lcom/s1243808733/android/dex/MethodHandle;)I
-    .registers 4
+    .locals 2
 
     .line 92
     iget-object v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
 
     iget-object v1, p1, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v1, :cond_0
 
     .line 93
     invoke-virtual {v0, v1}, Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;->compareTo(Ljava/lang/Enum;)I
 
-    move-result p1
-
-    return p1
+    move-result v0
 
     .line 95
-    :cond_b
+    :goto_0
+    return v0
+
+    :cond_0
     iget v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->fieldOrMethodId:I
 
-    iget p1, p1, Lcom/s1243808733/android/dex/MethodHandle;->fieldOrMethodId:I
+    iget v1, p1, Lcom/s1243808733/android/dex/MethodHandle;->fieldOrMethodId:I
 
-    invoke-static {v0, p1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 26
     check-cast p1, Lcom/s1243808733/android/dex/MethodHandle;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/MethodHandle;->compareTo(Lcom/s1243808733/android/dex/MethodHandle;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getFieldOrMethodId()I
-    .registers 2
+    .locals 1
 
     .line 107
     iget v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->fieldOrMethodId:I
@@ -115,7 +117,7 @@
 .end method
 
 .method public getMethodHandleType()Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
-    .registers 2
+    .locals 1
 
     .line 99
     iget-object v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
@@ -124,7 +126,7 @@
 .end method
 
 .method public getUnused1()I
-    .registers 2
+    .locals 1
 
     .line 103
     iget v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->unused1:I
@@ -133,7 +135,7 @@
 .end method
 
 .method public getUnused2()I
-    .registers 2
+    .locals 1
 
     .line 111
     iget v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->unused2:I
@@ -142,23 +144,23 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 123
     iget-object v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->dex:Lcom/s1243808733/android/dex/Dex;
 
-    const-string v1, " "
-
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_0
 
     .line 124
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, p0, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
+    iget-object v1, p0, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, " "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -170,74 +172,78 @@
 
     move-result-object v0
 
+    .line 130
+    :goto_0
     return-object v0
 
     .line 126
-    :cond_1d
-    new-instance v0, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, p0, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
+    iget-object v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " "
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 128
-    iget-object v1, p0, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
+    iget-object v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;->isField()Z
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;->isField()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_41
+    if-eqz v0, :cond_1
 
     .line 129
-    iget-object v1, p0, Lcom/s1243808733/android/dex/MethodHandle;->dex:Lcom/s1243808733/android/dex/Dex;
+    iget-object v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->dex:Lcom/s1243808733/android/dex/Dex;
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dex/Dex;->fieldIds()Ljava/util/List;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/s1243808733/android/dex/MethodHandle;->fieldOrMethodId:I
-
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Comparable;
-
-    goto :goto_4f
-
-    .line 130
-    :cond_41
-    iget-object v1, p0, Lcom/s1243808733/android/dex/MethodHandle;->dex:Lcom/s1243808733/android/dex/Dex;
-
-    invoke-virtual {v1}, Lcom/s1243808733/android/dex/Dex;->methodIds()Ljava/util/List;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/s1243808733/android/dex/MethodHandle;->fieldOrMethodId:I
-
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Comparable;
-
-    :goto_4f
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->fieldIds()Ljava/util/List;
 
     move-result-object v0
 
-    return-object v0
+    iget v2, p0, Lcom/s1243808733/android/dex/MethodHandle;->fieldOrMethodId:I
+
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Comparable;
+
+    .line 130
+    :goto_1
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->dex:Lcom/s1243808733/android/dex/Dex;
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->methodIds()Ljava/util/List;
+
+    move-result-object v0
+
+    iget v2, p0, Lcom/s1243808733/android/dex/MethodHandle;->fieldOrMethodId:I
+
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Comparable;
+
+    goto :goto_1
 .end method
 
 .method public writeTo(Lcom/s1243808733/android/dex/Dex$Section;)V
-    .registers 3
+    .locals 1
 
     .line 115
     iget-object v0, p0, Lcom/s1243808733/android/dex/MethodHandle;->methodHandleType:Lcom/s1243808733/android/dex/MethodHandle$MethodHandleType;

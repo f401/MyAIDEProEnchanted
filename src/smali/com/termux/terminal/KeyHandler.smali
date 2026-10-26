@@ -13,7 +13,8 @@
 .field private static final TERMCAP_TO_KEYCODE:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/Integer;",
             ">;"
@@ -24,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 6
+    .locals 6
 
     .line 63
     new-instance v0, Ljava/util/HashMap;
@@ -34,334 +35,334 @@
     sput-object v0, Lcom/termux/terminal/KeyHandler;->TERMCAP_TO_KEYCODE:Ljava/util/Map;
 
     .line 68
-    const v1, 0x20000016
+    const-string v1, "%i"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x20000016
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "%i"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 69
-    const v1, 0x2000007a
+    const-string v1, "#2"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x2000007a
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "#2"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 70
-    const v1, 0x20000015
+    const-string v1, "#4"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x20000015
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "#4"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 71
-    const v1, 0x2000007b
+    const-string v1, "*7"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x2000007b
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "*7"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 73
-    const/16 v1, 0x83
+    const-string v1, "k1"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x83
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k1"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 74
-    const/16 v1, 0x84
+    const-string v1, "k2"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x84
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k2"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 75
-    const/16 v1, 0x85
+    const-string v1, "k3"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x85
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k3"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 76
-    const/16 v1, 0x86
+    const-string v1, "k4"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x86
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k4"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 77
-    const/16 v1, 0x87
+    const-string v1, "k5"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x87
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k5"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 78
-    const/16 v1, 0x88
+    const-string v1, "k6"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x88
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k6"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 79
-    const/16 v1, 0x89
+    const-string v1, "k7"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x89
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k7"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 80
-    const/16 v1, 0x8a
+    const-string v1, "k8"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x8a
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k8"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 81
-    const/16 v1, 0x8b
+    const-string v1, "k9"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x8b
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k9"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 82
-    const/16 v1, 0x8c
+    const-string v1, "k;"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x8c
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "k;"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 83
-    const/16 v1, 0x8d
+    const-string v1, "F1"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x8d
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "F1"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 84
-    const/16 v1, 0x8e
+    const-string v1, "F2"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x8e
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "F2"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 85
-    const v1, 0x20000083
+    const-string v1, "F3"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x20000083
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "F3"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 86
-    const v1, 0x20000084
+    const-string v1, "F4"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x20000084
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "F4"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 87
-    const v1, 0x20000085
+    const-string v1, "F5"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x20000085
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "F5"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 88
-    const v1, 0x20000086
+    const-string v1, "F6"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x20000086
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "F6"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 89
-    const v1, 0x20000087
+    const-string v1, "F7"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x20000087
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "F7"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 90
-    const v1, 0x20000088
+    const-string v1, "F8"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x20000088
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "F8"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 91
-    const v1, 0x20000089
+    const-string v1, "F9"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x20000089
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "F9"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 92
-    const v1, 0x2000008a
+    const-string v1, "FA"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x2000008a
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "FA"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 93
-    const v1, 0x2000008b
+    const-string v1, "FB"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x2000008b
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "FB"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 94
-    const v1, 0x2000008c
+    const-string v1, "FC"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x2000008c
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "FC"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 95
-    const v1, 0x2000008d
+    const-string v1, "FD"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x2000008d
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "FD"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 96
-    const v1, 0x2000008e
+    const-string v1, "FE"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x2000008e
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "FE"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 98
-    const/16 v1, 0x43
+    const-string v1, "kb"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x43
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "kb"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 100
-    const/16 v1, 0x14
+    const-string v1, "kd"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x14
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "kd"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 101
     const/16 v1, 0x7a
@@ -375,26 +376,26 @@
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 102
-    const/16 v2, 0x15
+    const-string v2, "kl"
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v3, 0x15
 
-    move-result-object v2
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v3, "kl"
+    move-result-object v3
 
-    invoke-interface {v0, v3, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 103
-    const/16 v2, 0x16
+    const-string v2, "kr"
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v3, 0x16
 
-    move-result-object v2
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v3, "kr"
+    move-result-object v3
 
-    invoke-interface {v0, v3, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 110
     const-string v2, "K1"
@@ -435,37 +436,37 @@
     invoke-interface {v0, v4, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 115
-    const/16 v4, 0x13
+    const-string v4, "ku"
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v5, 0x13
 
-    move-result-object v4
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v5, "ku"
+    move-result-object v5
 
-    invoke-interface {v0, v5, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 117
-    const v4, 0x2000003d
+    const-string v4, "kB"
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v5, 0x2000003d
 
-    move-result-object v4
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v5, "kB"
+    move-result-object v5
 
-    invoke-interface {v0, v5, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 118
-    const/16 v4, 0x70
+    const-string v4, "kD"
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v5, 0x70
 
-    move-result-object v4
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v5, "kD"
+    move-result-object v5
 
-    invoke-interface {v0, v5, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 119
     const v4, 0x20000014
@@ -484,15 +485,15 @@
     invoke-interface {v0, v5, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 121
-    const/16 v4, 0x7c
+    const-string v4, "kI"
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v5, 0x7c
 
-    move-result-object v4
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v5, "kI"
+    move-result-object v5
 
-    invoke-interface {v0, v5, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 122
     const-string v4, "kN"
@@ -526,21 +527,21 @@
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 128
-    const/16 v1, 0xa0
+    const-string v1, "@8"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0xa0
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "@8"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -549,1028 +550,1075 @@
 .end method
 
 .method public static getCode(IIZZ)Ljava/lang/String;
-    .registers 12
-
-    .line 152
-    const/4 v0, 0x4
-
-    const-string v1, "\u001b"
-
-    if-eq p0, v0, :cond_218
-
-    const/16 v0, 0x3d
-
-    if-eq p0, v0, :cond_20d
-
-    const/16 v0, 0x3e
-
-    const/high16 v2, 0x40000000  # 2.0f
-
-    const/4 v3, 0x0
-
-    if-eq p0, v0, :cond_205
-
-    const/high16 v0, -0x80000000
-
-    const/16 v4, 0x42
-
-    const-string v5, "\r"
-
-    if-eq p0, v4, :cond_1fd
+    .locals 7
 
     const/16 v6, 0x43
 
-    if-eq p0, v6, :cond_1e9
+    const/16 v5, 0x42
+
+    const/high16 v4, -0x80000000
+
+    const/4 v1, 0x0
+
+    const/16 v3, 0x7e
+
+    .line 152
+    const-string v2, "\u001b"
+
+    const/4 v0, 0x4
+
+    if-eq p0, v0, :cond_2b
+
+    const/16 v0, 0x3d
+
+    if-eq p0, v0, :cond_29
+
+    const/16 v0, 0x3e
+
+    if-eq p0, v0, :cond_27
+
+    const-string v0, "\r"
+
+    if-eq p0, v5, :cond_26
+
+    if-eq p0, v6, :cond_24
 
     const/16 v0, 0x5c
 
-    if-eq p0, v0, :cond_1e6
+    if-eq p0, v0, :cond_23
 
     const/16 v0, 0x5d
 
-    if-eq p0, v0, :cond_1e3
+    if-eq p0, v0, :cond_22
 
     const/16 v0, 0x6f
 
-    if-eq p0, v0, :cond_218
+    if-eq p0, v0, :cond_2b
+
+    const/16 v0, 0x70
+
+    if-eq p0, v0, :cond_21
+
+    packed-switch p0, :pswitch_data_0
+
+    packed-switch p0, :pswitch_data_1
+
+    const-string v0, "\u001bOP"
+
+    packed-switch p0, :pswitch_data_2
+
+    move-object v0, v1
+
+    .line 278
+    :cond_0
+    :goto_0
+    return-object v0
+
+    .line 208
+    :pswitch_0
+    const-string v0, "\r"
+
+    goto :goto_0
+
+    :pswitch_1
+    if-nez p1, :cond_2
+
+    if-eqz p2, :cond_1
+
+    .line 161
+    const-string v0, "\u001bOC"
+
+    goto :goto_0
+
+    :cond_1
+    const-string v0, "\u001b[C"
+
+    goto :goto_0
+
+    :cond_2
+    const-string v0, "\u001b[1"
+
+    invoke-static {v0, p1, v6}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :pswitch_2
+    if-nez p1, :cond_4
+
+    if-eqz p2, :cond_3
+
+    .line 163
+    const-string v0, "\u001bOD"
+
+    goto :goto_0
+
+    :cond_3
+    const-string v0, "\u001b[D"
+
+    goto :goto_0
+
+    :cond_4
+    const-string v0, "\u001b[1"
+
+    const/16 v1, 0x44
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :pswitch_3
+    if-nez p1, :cond_6
+
+    if-eqz p2, :cond_5
+
+    .line 159
+    const-string v0, "\u001bOB"
+
+    goto :goto_0
+
+    :cond_5
+    const-string v0, "\u001b[B"
+
+    goto :goto_0
+
+    :cond_6
+    const-string v0, "\u001b[1"
+
+    invoke-static {v0, p1, v5}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :pswitch_4
+    if-nez p1, :cond_8
+
+    if-eqz p2, :cond_7
+
+    .line 157
+    const-string v0, "\u001bOA"
+
+    goto :goto_0
+
+    :cond_7
+    const-string v0, "\u001b[A"
+
+    goto :goto_0
+
+    :cond_8
+    const-string v0, "\u001b[1"
+
+    const/16 v1, 0x41
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 218
+    :pswitch_5
+    const-string v0, "\u001b[2"
+
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :pswitch_6
+    if-nez p1, :cond_a
+
+    if-eqz p2, :cond_9
+
+    .line 170
+    const-string v0, "\u001bOF"
+
+    goto :goto_0
+
+    :cond_9
+    const-string v0, "\u001b[F"
+
+    goto :goto_0
+
+    :cond_a
+    const-string v0, "\u001b[1"
+
+    const/16 v1, 0x46
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :pswitch_7
+    if-nez p1, :cond_c
+
+    if-eqz p2, :cond_b
+
+    .line 168
+    const-string v0, "\u001bOH"
+
+    goto :goto_0
+
+    :cond_b
+    const-string v0, "\u001b[H"
+
+    goto :goto_0
+
+    :cond_c
+    const-string v0, "\u001b[1"
+
+    const/16 v1, 0x48
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 211
+    :pswitch_8
+    const-string v0, "\u001b[34~"
+
+    goto :goto_0
+
+    .line 208
+    :pswitch_9
+    const-string v0, "\u001b[32~"
+
+    goto :goto_0
+
+    .line 152
+    :pswitch_a
+    if-eqz p3, :cond_d
+
+    .line 278
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x58
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_d
+    const-string v0, "="
+
+    goto/16 :goto_0
+
+    :pswitch_b
+    if-eqz p3, :cond_e
+
+    .line 244
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x4d
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_e
+    const-string v0, "\n"
+
+    goto/16 :goto_0
+
+    .line 250
+    :pswitch_c
+    const-string v0, ","
+
+    goto/16 :goto_0
+
+    :pswitch_d
+    if-eqz p3, :cond_f
+
+    .line 252
+    const-string v0, "\u001bOn"
+
+    goto/16 :goto_0
+
+    :cond_f
+    const-string v0, "."
+
+    goto/16 :goto_0
+
+    :pswitch_e
+    if-eqz p3, :cond_10
+
+    .line 248
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x6b
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_10
+    const-string v0, "+"
+
+    goto/16 :goto_0
+
+    :pswitch_f
+    if-eqz p3, :cond_11
+
+    .line 254
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x6d
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_11
+    const-string v0, "-"
+
+    goto/16 :goto_0
+
+    :pswitch_10
+    if-eqz p3, :cond_12
+
+    .line 246
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x6a
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_12
+    const-string v0, "*"
+
+    goto/16 :goto_0
+
+    :pswitch_11
+    if-eqz p3, :cond_13
+
+    .line 256
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x6f
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_13
+    const-string v0, "/"
+
+    goto/16 :goto_0
+
+    :pswitch_12
+    if-eqz p3, :cond_14
+
+    .line 276
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x79
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_14
+    const-string v0, "9"
+
+    goto/16 :goto_0
+
+    :pswitch_13
+    if-eqz p3, :cond_15
+
+    .line 274
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x78
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_15
+    const-string v0, "8"
+
+    goto/16 :goto_0
+
+    :pswitch_14
+    if-eqz p3, :cond_16
+
+    .line 272
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x77
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_16
+    const-string v0, "7"
+
+    goto/16 :goto_0
+
+    :pswitch_15
+    if-eqz p3, :cond_17
+
+    .line 270
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x76
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_17
+    const-string v0, "6"
+
+    goto/16 :goto_0
+
+    :pswitch_16
+    if-eqz p3, :cond_18
+
+    .line 268
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x75
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_18
+    const-string v0, "5"
+
+    goto/16 :goto_0
+
+    :pswitch_17
+    if-eqz p3, :cond_19
+
+    .line 266
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x74
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_19
+    const-string v0, "4"
+
+    goto/16 :goto_0
+
+    :pswitch_18
+    if-eqz p3, :cond_1a
+
+    .line 264
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x73
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_1a
+    const-string v0, "3"
+
+    goto/16 :goto_0
+
+    :pswitch_19
+    if-eqz p3, :cond_1b
+
+    .line 262
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x72
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_1b
+    const-string v0, "2"
+
+    goto/16 :goto_0
+
+    :pswitch_1a
+    if-eqz p3, :cond_1c
+
+    .line 260
+    const-string v0, "\u001bO"
+
+    const/16 v1, 0x71
+
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_1c
+    const-string v0, "1"
+
+    goto/16 :goto_0
+
+    :pswitch_1b
+    if-eqz p3, :cond_1d
+
+    .line 258
+    const-string v0, "\u001bO"
 
     const/16 v1, 0x70
 
-    const/16 v2, 0x7e
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    if-eq p0, v1, :cond_1dc
+    move-result-object v0
 
-    const-string v7, "\u001b[1"
+    goto/16 :goto_0
 
-    packed-switch p0, :pswitch_data_21a
+    :cond_1d
+    const-string v0, "0"
 
-    packed-switch p0, :pswitch_data_228
+    goto/16 :goto_0
 
-    const-string p2, "\u001bOP"
+    :pswitch_1c
+    const-string v0, "\u001bOP"
 
-    const-string v4, "\u001bO"
-
-    packed-switch p0, :pswitch_data_236
-
-    return-object v3
-
-    .line 208
-    :pswitch_3e  #0x17
-    return-object v5
-
-    :pswitch_3f  #0x16
-    if-nez p1, :cond_49
-
-    if-eqz p2, :cond_46
-
-    .line 161
-    const-string p0, "\u001bOC"
-
-    goto :goto_4d
-
-    :cond_46
-    const-string p0, "\u001b[C"
-
-    goto :goto_4d
-
-    :cond_49
-    invoke-static {v7, p1, v6}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    :goto_4d
-    return-object p0
-
-    :pswitch_4e  #0x15
-    if-nez p1, :cond_58
-
-    if-eqz p2, :cond_55
-
-    .line 163
-    const-string p0, "\u001bOD"
-
-    goto :goto_5e
-
-    :cond_55
-    const-string p0, "\u001b[D"
-
-    goto :goto_5e
-
-    :cond_58
-    const/16 p0, 0x44
-
-    invoke-static {v7, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    :goto_5e
-    return-object p0
-
-    :pswitch_5f  #0x14
-    if-nez p1, :cond_69
-
-    if-eqz p2, :cond_66
-
-    .line 159
-    const-string p0, "\u001bOB"
-
-    goto :goto_6d
-
-    :cond_66
-    const-string p0, "\u001b[B"
-
-    goto :goto_6d
-
-    :cond_69
-    invoke-static {v7, p1, v4}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    :goto_6d
-    return-object p0
-
-    :pswitch_6e  #0x13
-    if-nez p1, :cond_78
-
-    if-eqz p2, :cond_75
-
-    .line 157
-    const-string p0, "\u001bOA"
-
-    goto :goto_7e
-
-    :cond_75
-    const-string p0, "\u001b[A"
-
-    goto :goto_7e
-
-    :cond_78
-    const/16 p0, 0x41
-
-    invoke-static {v7, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    :goto_7e
-    return-object p0
-
-    .line 218
-    :pswitch_7f  #0x7c
-    const-string p0, "\u001b[2"
-
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_86  #0x7b
-    if-nez p1, :cond_90
-
-    if-eqz p2, :cond_8d
-
-    .line 170
-    const-string p0, "\u001bOF"
-
-    goto :goto_96
-
-    :cond_8d
-    const-string p0, "\u001b[F"
-
-    goto :goto_96
-
-    :cond_90
-    const/16 p0, 0x46
-
-    invoke-static {v7, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    :goto_96
-    return-object p0
-
-    :pswitch_97  #0x7a
-    if-nez p1, :cond_a1
-
-    if-eqz p2, :cond_9e
-
-    .line 168
-    const-string p0, "\u001bOH"
-
-    goto :goto_a7
-
-    :cond_9e
-    const-string p0, "\u001b[H"
-
-    goto :goto_a7
-
-    :cond_a1
-    const/16 p0, 0x48
-
-    invoke-static {v7, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    :goto_a7
-    return-object p0
-
-    .line 211
-    :pswitch_a8  #0x79
-    const-string p0, "\u001b[34~"
-
-    return-object p0
-
-    .line 208
-    :pswitch_ab  #0x78
-    const-string p0, "\u001b[32~"
-
-    return-object p0
-
-    .line 152
-    :pswitch_ae  #0xa1
-    if-eqz p3, :cond_b7
-
-    .line 278
-    const/16 p0, 0x58
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_b9
-
-    :cond_b7
-    const-string p0, "="
-
-    :goto_b9
-    return-object p0
-
-    :pswitch_ba  #0xa0
-    if-eqz p3, :cond_c3
-
-    .line 244
-    const/16 p0, 0x4d
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_c5
-
-    :cond_c3
-    const-string p0, "\n"
-
-    :goto_c5
-    return-object p0
-
-    .line 250
-    :pswitch_c6  #0x9f
-    const-string p0, ","
-
-    return-object p0
-
-    :pswitch_c9  #0x9e
-    if-eqz p3, :cond_ce
-
-    .line 252
-    const-string p0, "\u001bOn"
-
-    goto :goto_d0
-
-    :cond_ce
-    const-string p0, "."
-
-    :goto_d0
-    return-object p0
-
-    :pswitch_d1  #0x9d
-    if-eqz p3, :cond_da
-
-    .line 248
-    const/16 p0, 0x6b
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_dc
-
-    :cond_da
-    const-string p0, "+"
-
-    :goto_dc
-    return-object p0
-
-    :pswitch_dd  #0x9c
-    if-eqz p3, :cond_e6
-
-    .line 254
-    const/16 p0, 0x6d
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_e8
-
-    :cond_e6
-    const-string p0, "-"
-
-    :goto_e8
-    return-object p0
-
-    :pswitch_e9  #0x9b
-    if-eqz p3, :cond_f2
-
-    .line 246
-    const/16 p0, 0x6a
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_f4
-
-    :cond_f2
-    const-string p0, "*"
-
-    :goto_f4
-    return-object p0
-
-    :pswitch_f5  #0x9a
-    if-eqz p3, :cond_fc
-
-    .line 256
-    invoke-static {v4, p1, v0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_fe
-
-    :cond_fc
-    const-string p0, "/"
-
-    :goto_fe
-    return-object p0
-
-    :pswitch_ff  #0x99
-    if-eqz p3, :cond_108
-
-    .line 276
-    const/16 p0, 0x79
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_10a
-
-    :cond_108
-    const-string p0, "9"
-
-    :goto_10a
-    return-object p0
-
-    :pswitch_10b  #0x98
-    if-eqz p3, :cond_114
-
-    .line 274
-    const/16 p0, 0x78
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_116
-
-    :cond_114
-    const-string p0, "8"
-
-    :goto_116
-    return-object p0
-
-    :pswitch_117  #0x97
-    if-eqz p3, :cond_120
-
-    .line 272
-    const/16 p0, 0x77
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_122
-
-    :cond_120
-    const-string p0, "7"
-
-    :goto_122
-    return-object p0
-
-    :pswitch_123  #0x96
-    if-eqz p3, :cond_12c
-
-    .line 270
-    const/16 p0, 0x76
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_12e
-
-    :cond_12c
-    const-string p0, "6"
-
-    :goto_12e
-    return-object p0
-
-    :pswitch_12f  #0x95
-    if-eqz p3, :cond_138
-
-    .line 268
-    const/16 p0, 0x75
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_13a
-
-    :cond_138
-    const-string p0, "5"
-
-    :goto_13a
-    return-object p0
-
-    :pswitch_13b  #0x94
-    if-eqz p3, :cond_144
-
-    .line 266
-    const/16 p0, 0x74
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_146
-
-    :cond_144
-    const-string p0, "4"
-
-    :goto_146
-    return-object p0
-
-    :pswitch_147  #0x93
-    if-eqz p3, :cond_150
-
-    .line 264
-    const/16 p0, 0x73
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_152
-
-    :cond_150
-    const-string p0, "3"
-
-    :goto_152
-    return-object p0
-
-    :pswitch_153  #0x92
-    if-eqz p3, :cond_15c
-
-    .line 262
-    const/16 p0, 0x72
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_15e
-
-    :cond_15c
-    const-string p0, "2"
-
-    :goto_15e
-    return-object p0
-
-    :pswitch_15f  #0x91
-    if-eqz p3, :cond_168
-
-    .line 260
-    const/16 p0, 0x71
-
-    invoke-static {v4, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_16a
-
-    :cond_168
-    const-string p0, "1"
-
-    :goto_16a
-    return-object p0
-
-    :pswitch_16b  #0x90
-    if-eqz p3, :cond_172
-
-    .line 258
-    invoke-static {v4, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_174
-
-    :cond_172
-    const-string p0, "0"
-
-    :goto_174
-    return-object p0
-
-    :pswitch_175  #0x8f
-    return-object p2
+    goto/16 :goto_0
 
     .line 205
-    :pswitch_176  #0x8e
-    const-string p0, "\u001b[24"
+    :pswitch_1d
+    const-string v0, "\u001b[24"
 
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 203
-    :pswitch_17d  #0x8d
-    const-string p0, "\u001b[23"
+    :pswitch_1e
+    const-string v0, "\u001b[23"
 
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 201
-    :pswitch_184  #0x8c
-    const-string p0, "\u001b[21"
+    :pswitch_1f
+    const-string v0, "\u001b[21"
 
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 199
-    :pswitch_18b  #0x8b
-    const-string p0, "\u001b[20"
+    :pswitch_20
+    const-string v0, "\u001b[20"
 
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 197
-    :pswitch_192  #0x8a
-    const-string p0, "\u001b[19"
+    :pswitch_21
+    const-string v0, "\u001b[19"
 
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 195
-    :pswitch_199  #0x89
-    const-string p0, "\u001b[18"
+    :pswitch_22
+    const-string v0, "\u001b[18"
 
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 193
-    :pswitch_1a0  #0x88
-    const-string p0, "\u001b[17"
+    :pswitch_23
+    const-string v0, "\u001b[17"
 
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 191
-    :pswitch_1a7  #0x87
-    const-string p0, "\u001b[15"
+    :pswitch_24
+    const-string v0, "\u001b[15"
 
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto/16 :goto_0
 
-    :pswitch_1ae  #0x86
-    if-nez p1, :cond_1b3
+    :pswitch_25
+    if-nez p1, :cond_1e
 
     .line 189
-    const-string p0, "\u001bOS"
+    const-string v0, "\u001bOS"
 
-    goto :goto_1b9
+    goto/16 :goto_0
 
-    :cond_1b3
-    const/16 p0, 0x53
+    :cond_1e
+    const-string v0, "\u001b[1"
 
-    invoke-static {v7, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    const/16 v1, 0x53
 
-    move-result-object p0
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    :goto_1b9
-    return-object p0
+    move-result-object v0
 
-    :pswitch_1ba  #0x85
-    if-nez p1, :cond_1bf
+    goto/16 :goto_0
+
+    :pswitch_26
+    if-nez p1, :cond_1f
 
     .line 187
-    const-string p0, "\u001bOR"
+    const-string v0, "\u001bOR"
 
-    goto :goto_1c5
+    goto/16 :goto_0
 
-    :cond_1bf
-    const/16 p0, 0x52
+    :cond_1f
+    const-string v0, "\u001b[1"
 
-    invoke-static {v7, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    const/16 v1, 0x52
 
-    move-result-object p0
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    :goto_1c5
-    return-object p0
+    move-result-object v0
 
-    :pswitch_1c6  #0x84
-    if-nez p1, :cond_1cb
+    goto/16 :goto_0
+
+    :pswitch_27
+    if-nez p1, :cond_20
 
     .line 185
-    const-string p0, "\u001bOQ"
+    const-string v0, "\u001bOQ"
 
-    goto :goto_1d1
+    goto/16 :goto_0
 
-    :cond_1cb
-    const/16 p0, 0x51
+    :cond_20
+    const-string v0, "\u001b[1"
 
-    invoke-static {v7, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    const/16 v1, 0x51
 
-    move-result-object p0
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    :goto_1d1
-    return-object p0
+    move-result-object v0
 
-    :pswitch_1d2  #0x83
-    if-nez p1, :cond_1d5
+    goto/16 :goto_0
 
-    goto :goto_1db
+    :pswitch_28
+    if-eqz p1, :cond_0
 
     .line 183
-    :cond_1d5
-    const/16 p0, 0x50
+    const-string v0, "\u001b[1"
 
-    invoke-static {v7, p1, p0}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    const/16 v1, 0x50
 
-    move-result-object p2
+    invoke-static {v0, p1, v1}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    :goto_1db
-    return-object p2
+    move-result-object v0
+
+    goto/16 :goto_0
 
     .line 220
-    :cond_1dc
-    const-string p0, "\u001b[3"
+    :cond_21
+    const-string v0, "\u001b[3"
 
-    invoke-static {p0, p1, v2}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
+    invoke-static {v0, p1, v3}, Lcom/termux/terminal/KeyHandler;->transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 225
-    :cond_1e3
-    const-string p0, "\u001b[6~"
+    :cond_22
+    const-string v0, "\u001b[6~"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 223
-    :cond_1e6
-    const-string p0, "\u001b[5~"
+    :cond_23
+    const-string v0, "\u001b[5~"
 
-    return-object p0
+    goto/16 :goto_0
 
-    :cond_1e9
-    and-int p0, p1, v0
+    :cond_24
+    and-int v0, p1, v4
 
-    if-nez p0, :cond_1ef
+    if-nez v0, :cond_2c
 
     .line 227
-    const-string v1, ""
+    const-string v0, ""
 
-    :cond_1ef
-    and-int p0, p1, v2
+    move-object v1, v0
 
-    if-nez p0, :cond_1f6
+    :goto_1
+    const/high16 v0, 0x40000000    # 2.0f
+
+    and-int/2addr v0, p1
+
+    if-nez v0, :cond_25
 
     .line 229
-    const-string p0, "\u007f"
+    const-string v0, "\u007f"
 
-    goto :goto_1f8
+    :goto_2
+    invoke-virtual {v1, v0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
-    :cond_1f6
-    const-string p0, "\b"
+    move-result-object v0
 
-    :goto_1f8
-    invoke-virtual {v1, p0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+    goto/16 :goto_0
 
-    move-result-object p0
+    :cond_25
+    const-string v0, "\u0008"
 
-    return-object p0
+    goto :goto_2
 
-    :cond_1fd
-    and-int p0, p1, v0
+    :cond_26
+    and-int v1, p1, v4
 
-    if-nez p0, :cond_202
-
-    goto :goto_204
+    if-eqz v1, :cond_0
 
     .line 241
-    :cond_202
-    const-string v5, "\u001b\r"
+    const-string v0, "\u001b\r"
 
-    :goto_204
-    return-object v5
+    goto/16 :goto_0
 
-    :cond_205
-    and-int p0, p1, v2
+    :cond_27
+    const/high16 v0, 0x40000000    # 2.0f
 
-    if-nez p0, :cond_20a
+    and-int/2addr v0, p1
 
-    goto :goto_20c
+    if-nez v0, :cond_28
+
+    move-object v0, v1
+
+    goto/16 :goto_0
 
     .line 236
-    :cond_20a
-    const-string v3, "\u0000"
+    :cond_28
+    const-string v0, "\u0000"
 
-    :goto_20c
-    return-object v3
+    goto/16 :goto_0
 
-    :cond_20d
-    const/high16 p0, 0x20000000
+    :cond_29
+    const/high16 v0, 0x20000000
 
-    and-int/2addr p0, p1
+    and-int/2addr v0, p1
 
-    if-nez p0, :cond_215
+    if-nez v0, :cond_2a
 
     .line 239
-    const-string p0, "\t"
+    const-string v0, "\t"
 
-    goto :goto_217
+    goto/16 :goto_0
 
-    :cond_215
-    const-string p0, "\u001b[Z"
+    :cond_2a
+    const-string v0, "\u001b[Z"
 
-    :goto_217
-    return-object p0
+    goto/16 :goto_0
 
-    :cond_218
-    return-object v1
+    :cond_2b
+    const-string v0, "\u001b"
+
+    goto/16 :goto_0
+
+    :cond_2c
+    move-object v1, v2
+
+    goto :goto_1
 
     nop
 
-    :pswitch_data_21a
+    :pswitch_data_0
     .packed-switch 0x13
-        :pswitch_6e  #00000013
-        :pswitch_5f  #00000014
-        :pswitch_4e  #00000015
-        :pswitch_3f  #00000016
-        :pswitch_3e  #00000017
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 
-    :pswitch_data_228
+    :pswitch_data_1
     .packed-switch 0x78
-        :pswitch_ab  #00000078
-        :pswitch_a8  #00000079
-        :pswitch_97  #0000007a
-        :pswitch_86  #0000007b
-        :pswitch_7f  #0000007c
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
     .end packed-switch
 
-    :pswitch_data_236
+    :pswitch_data_2
     .packed-switch 0x83
-        :pswitch_1d2  #00000083
-        :pswitch_1c6  #00000084
-        :pswitch_1ba  #00000085
-        :pswitch_1ae  #00000086
-        :pswitch_1a7  #00000087
-        :pswitch_1a0  #00000088
-        :pswitch_199  #00000089
-        :pswitch_192  #0000008a
-        :pswitch_18b  #0000008b
-        :pswitch_184  #0000008c
-        :pswitch_17d  #0000008d
-        :pswitch_176  #0000008e
-        :pswitch_175  #0000008f
-        :pswitch_16b  #00000090
-        :pswitch_15f  #00000091
-        :pswitch_153  #00000092
-        :pswitch_147  #00000093
-        :pswitch_13b  #00000094
-        :pswitch_12f  #00000095
-        :pswitch_123  #00000096
-        :pswitch_117  #00000097
-        :pswitch_10b  #00000098
-        :pswitch_ff  #00000099
-        :pswitch_f5  #0000009a
-        :pswitch_e9  #0000009b
-        :pswitch_dd  #0000009c
-        :pswitch_d1  #0000009d
-        :pswitch_c9  #0000009e
-        :pswitch_c6  #0000009f
-        :pswitch_ba  #000000a0
-        :pswitch_ae  #000000a1
+        :pswitch_28
+        :pswitch_27
+        :pswitch_26
+        :pswitch_25
+        :pswitch_24
+        :pswitch_23
+        :pswitch_22
+        :pswitch_21
+        :pswitch_20
+        :pswitch_1f
+        :pswitch_1e
+        :pswitch_1d
+        :pswitch_1c
+        :pswitch_1b
+        :pswitch_1a
+        :pswitch_19
+        :pswitch_18
+        :pswitch_17
+        :pswitch_16
+        :pswitch_15
+        :pswitch_14
+        :pswitch_13
+        :pswitch_12
+        :pswitch_11
+        :pswitch_10
+        :pswitch_f
+        :pswitch_e
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_a
     .end packed-switch
 .end method
 
 .method static getCodeFromTermcap(Ljava/lang/String;ZZ)Ljava/lang/String;
-    .registers 6
+    .locals 5
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    const/high16 v2, 0x20000000
+
+    const/high16 v3, -0x80000000
 
     .line 132
     sget-object v0, Lcom/termux/terminal/KeyHandler;->TERMCAP_TO_KEYCODE:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    if-nez p0, :cond_c
+    if-nez v0, :cond_0
 
-    const/4 p0, 0x0
-
-    return-object p0
-
-    .line 134
-    :cond_c
-    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
-
-    move-result p0
-
-    const/high16 v0, 0x20000000
-
-    and-int v1, p0, v0
-
-    if-eqz v1, :cond_1b
-
-    const v1, -0x20000001
-
-    and-int/2addr p0, v1
-
-    goto :goto_1c
-
-    :cond_1b
     const/4 v0, 0x0
 
-    :goto_1c
-    const/high16 v1, 0x40000000  # 2.0f
+    .line 148
+    :goto_0
+    return-object v0
 
-    and-int v2, p0, v1
+    .line 134
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    if-eqz v2, :cond_27
+    move-result v1
 
-    or-int/2addr v0, v1
+    and-int v0, v1, v2
 
-    const v1, -0x40000001  # -1.9999999f
+    if-eqz v0, :cond_3
 
-    and-int/2addr p0, v1
+    const v0, -0x20000001
 
-    :cond_27
-    const/high16 v1, -0x80000000
+    and-int/2addr v1, v0
 
-    and-int v2, p0, v1
+    move v0, v2
 
-    if-eqz v2, :cond_32
+    :goto_1
+    and-int v2, v1, v4
 
-    or-int/2addr v0, v1
+    if-eqz v2, :cond_1
 
-    const v1, 0x7fffffff
+    or-int/2addr v0, v4
 
-    and-int/2addr p0, v1
+    const v2, -0x40000001    # -1.9999999f
+
+    and-int/2addr v1, v2
+
+    :cond_1
+    and-int v2, v1, v3
+
+    if-eqz v2, :cond_2
+
+    or-int/2addr v0, v3
+
+    const v2, 0x7fffffff
+
+    and-int/2addr v1, v2
 
     .line 148
-    :cond_32
-    invoke-static {p0, v0, p1, p2}, Lcom/termux/terminal/KeyHandler;->getCode(IIZZ)Ljava/lang/String;
+    :cond_2
+    invoke-static {v1, v0, p1, p2}, Lcom/termux/terminal/KeyHandler;->getCode(IIZZ)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_0
+
+    .line 134
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 .method private static transformForModifiers(Ljava/lang/String;IC)Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     const/high16 v0, -0x80000000
 
-    if-eq p1, v0, :cond_39
+    if-eq p1, v0, :cond_6
 
     const/high16 v0, -0x60000000
 
-    if-eq p1, v0, :cond_37
+    if-eq p1, v0, :cond_5
 
-    const/high16 v0, -0x40000000  # -2.0f
+    const/high16 v0, -0x40000000    # -2.0f
 
-    if-eq p1, v0, :cond_35
+    if-eq p1, v0, :cond_4
 
     const/high16 v0, -0x20000000
 
-    if-eq p1, v0, :cond_32
+    if-eq p1, v0, :cond_3
 
     const/high16 v0, 0x20000000
 
-    if-eq p1, v0, :cond_30
+    if-eq p1, v0, :cond_2
 
-    const/high16 v0, 0x40000000  # 2.0f
+    const/high16 v0, 0x40000000    # 2.0f
 
-    if-eq p1, v0, :cond_2e
+    if-eq p1, v0, :cond_1
 
     const/high16 v0, 0x60000000
 
-    if-eq p1, v0, :cond_2c
+    if-eq p1, v0, :cond_0
 
     .line 309
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_2c
-    const/4 p1, 0x6
-
-    goto :goto_3a
-
-    :cond_2e
-    const/4 p1, 0x5
-
-    goto :goto_3a
-
-    :cond_30
-    const/4 p1, 0x2
-
-    goto :goto_3a
-
-    :cond_32
-    const/16 p1, 0x8
-
-    goto :goto_3a
-
-    :cond_35
-    const/4 p1, 0x7
-
-    goto :goto_3a
-
-    :cond_37
-    const/4 p1, 0x4
-
-    goto :goto_3a
-
-    :cond_39
-    const/4 p1, 0x3
-
-    .line 311
-    :goto_3a
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, ";"
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    .line 311
+    :goto_0
+    return-object v0
+
+    .line 309
+    :cond_0
+    const/4 v0, 0x6
+
+    .line 311
+    :goto_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, ";"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 309
+    :cond_1
+    const/4 v0, 0x5
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v0, 0x2
+
+    goto :goto_1
+
+    :cond_3
+    const/16 v0, 0x8
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v0, 0x7
+
+    goto :goto_1
+
+    :cond_5
+    const/4 v0, 0x4
+
+    goto :goto_1
+
+    :cond_6
+    const/4 v0, 0x3
+
+    goto :goto_1
 .end method

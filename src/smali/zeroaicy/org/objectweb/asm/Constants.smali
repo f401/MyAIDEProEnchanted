@@ -205,7 +205,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 183
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -214,7 +214,7 @@
 .end method
 
 .method static checkAsmExperimental(Ljava/lang/Object;)V
-    .registers 4
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -226,63 +226,63 @@
     .line 186
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 187
-    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/16 v1, 0x2e
+    const/16 v2, 0x2e
 
-    const/16 v2, 0x2f
+    const/16 v3, 0x2f
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 188
-    invoke-static {v0}, Lzeroaicy/org/objectweb/asm/Constants;->isWhitelisted(Ljava/lang/String;)Z
+    invoke-static {v1}, Lzeroaicy/org/objectweb/asm/Constants;->isWhitelisted(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_34
+    if-nez v2, :cond_0
 
     .line 189
-    invoke-virtual {p0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object p0
-
-    new-instance v1, Ljava/lang/StringBuffer;
-
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
-    const-string v1, ".class"
+    new-instance v2, Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    const-string v2, ".class"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/ClassLoader;->getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-static {v0}, Lzeroaicy/org/objectweb/asm/Constants;->checkIsPreview(Ljava/io/InputStream;)V
 
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Ljava/lang/ClassLoader;->getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
-
-    move-result-object p0
-
-    invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Constants;->checkIsPreview(Ljava/io/InputStream;)V
-
-    :cond_34
+    :cond_0
     return-void
 .end method
 
 .method static checkIsPreview(Ljava/io/InputStream;)V
-    .registers 4
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -291,180 +291,176 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_3e
+    const/4 v1, 0x0
+
+    if-eqz p0, :cond_2
+
+    move-object v0, v1
 
     .line 210
-    const/4 v0, 0x0
-
-    move-object v1, v0
-
-    check-cast v1, Ljava/io/DataInputStream;
+    check-cast v0, Ljava/io/DataInputStream;
 
     .line 212
-    :try_start_6
-    new-instance v1, Ljava/io/DataInputStream;
+    :try_start_0
+    new-instance v2, Ljava/io/DataInputStream;
 
-    invoke-direct {v1, p0}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
-    :try_end_b
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_b} :catch_2c
-    .catchall {:try_start_6 .. :try_end_b} :catchall_2a
+    invoke-direct {v2, p0}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 213
-    :try_start_b
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
+    :try_start_1
+    invoke-virtual {v2}, Ljava/io/DataInputStream;->readInt()I
 
     .line 214
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->readUnsignedShort()I
+    invoke-virtual {v2}, Ljava/io/DataInputStream;->readUnsignedShort()I
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-result p0
-    :try_end_12
-    .catch Ljava/io/IOException; {:try_start_b .. :try_end_12} :catch_27
-    .catchall {:try_start_b .. :try_end_12} :catchall_25
+    move-result v0
 
     .line 219
-    :try_start_12
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->close()V
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_15} :catch_16
+    :try_start_2
+    invoke-virtual {v2}, Ljava/io/DataInputStream;->close()V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
-    goto :goto_17
+    :goto_0
+    const v1, 0xffff
 
-    :catch_16
-    move-exception v0
-
-    :goto_17
-    const v0, 0xffff
-
-    if-ne p0, v0, :cond_1d
+    if-ne v0, v1, :cond_0
 
     return-void
 
     .line 224
-    :cond_1d
-    new-instance p0, Ljava/lang/IllegalStateException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v0, "ASM9_EXPERIMENTAL can only be used by classes compiled with --enable-preview"
+    const-string v1, "ASM9_EXPERIMENTAL can only be used by classes compiled with --enable-preview"
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
-    :catchall_25
-    move-exception p0
-
-    goto :goto_36
-
-    :catch_27
-    move-exception p0
-
-    move-object v0, v1
-
-    goto :goto_2d
-
-    :catchall_2a
-    move-exception p0
-
-    goto :goto_35
-
-    :catch_2c
-    move-exception p0
-
-    .line 216
-    :goto_2d
-    :try_start_2d
-    new-instance v1, Ljava/lang/IllegalStateException;
-
-    const-string v2, "I/O error, can\'t check class version"
-
-    invoke-direct {v1, v2, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v1
-    :try_end_35
-    .catchall {:try_start_2d .. :try_end_35} :catchall_2a
-
-    .line 224
-    :goto_35
-    move-object v1, v0
-
-    .line 216
-    :goto_36
-    if-eqz v1, :cond_3d
-
-    .line 219
-    :try_start_38
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->close()V
-    :try_end_3b
-    .catch Ljava/io/IOException; {:try_start_38 .. :try_end_3b} :catch_3c
-
-    goto :goto_3d
-
-    .line 207
-    :catch_3c
+    :catch_0
     move-exception v0
 
+    move-object v1, v2
+
+    .line 216
+    :goto_1
+    :try_start_3
+    new-instance v2, Ljava/lang/IllegalStateException;
+
+    const-string v3, "I/O error, can\'t check class version"
+
+    invoke-direct {v2, v3, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    .line 224
+    :catchall_0
+    move-exception v0
+
+    move-object v2, v1
+
+    :goto_2
+    if-eqz v2, :cond_1
+
     .line 219
-    :cond_3d
-    :goto_3d
-    throw p0
+    :try_start_4
+    invoke-virtual {v2}, Ljava/io/DataInputStream;->close()V
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
+
+    :cond_1
+    :goto_3
+    throw v0
 
     .line 207
-    :cond_3e
-    new-instance p0, Ljava/lang/IllegalStateException;
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v0, "Bytecode not available, can\'t check class version"
+    const-string v1, "Bytecode not available, can\'t check class version"
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
+
+    .line 219
+    :catch_1
+    move-exception v1
+
+    goto :goto_0
+
+    .line 207
+    :catch_2
+    move-exception v1
+
+    goto :goto_3
+
+    .line 224
+    :catch_3
+    move-exception v0
+
+    goto :goto_1
+
+    :catchall_1
+    move-exception v0
+
+    goto :goto_2
 .end method
 
 .method static isWhitelisted(Ljava/lang/String;)Z
-    .registers 3
+    .locals 2
+
+    const/4 v0, 0x0
 
     .line 194
-    const-string v0, "org/objectweb/asm/"
+    const-string v1, "org/objectweb/asm/"
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_a
-
-    return v1
+    if-nez v1, :cond_1
 
     .line 198
-    :cond_a
-    const-string v0, "Test$"
+    :cond_0
+    :goto_0
+    return v0
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    :cond_1
+    const-string v1, "Test$"
 
-    move-result v0
+    invoke-virtual {p0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    if-nez v0, :cond_23
+    move-result v1
 
-    const-string v0, "org/objectweb/asm/util/Trace(Annotation|Class|Field|Method|Module|RecordComponent|Signature)Visitor(\\$.*)?"
+    if-nez v1, :cond_2
 
-    invoke-static {v0, p0}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
+    const-string v1, "org/objectweb/asm/util/Trace(Annotation|Class|Field|Method|Module|RecordComponent|Signature)Visitor(\\$.*)?"
 
-    move-result v0
+    invoke-static {v1, p0}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
 
-    if-nez v0, :cond_23
+    move-result v1
 
-    const-string v0, "org/objectweb/asm/util/Check(Annotation|Class|Field|Method|Module|RecordComponent|Signature)Adapter(\\$.*)?"
+    if-nez v1, :cond_2
 
-    invoke-static {v0, p0}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
+    const-string v1, "org/objectweb/asm/util/Check(Annotation|Class|Field|Method|Module|RecordComponent|Signature)Adapter(\\$.*)?"
 
-    move-result p0
+    invoke-static {v1, p0}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
 
-    if-nez p0, :cond_23
+    move-result v1
 
-    goto :goto_24
+    if-eqz v1, :cond_0
 
-    :cond_23
-    const/4 v1, 0x1
+    :cond_2
+    const/4 v0, 0x1
 
-    :goto_24
-    return v1
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/Json2Bean$1$3;)V
-    .registers 2
+    .locals 0
 
     .line 212
     iput-object p1, p0, Lcom/s1243808733/util/Json2Bean$1$3$2;->this$1:Lcom/s1243808733/util/Json2Bean$1$3;
@@ -36,16 +36,16 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .registers 2
+    .locals 1
 
     .line 216
-    iget-object p1, p0, Lcom/s1243808733/util/Json2Bean$1$3$2;->this$1:Lcom/s1243808733/util/Json2Bean$1$3;
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$1$3$2;->this$1:Lcom/s1243808733/util/Json2Bean$1$3;
 
-    iget-object p1, p1, Lcom/s1243808733/util/Json2Bean$1$3;->this$0:Lcom/s1243808733/util/Json2Bean$1;
+    iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$1$3;->this$0:Lcom/s1243808733/util/Json2Bean$1;
 
-    iget-object p1, p1, Lcom/s1243808733/util/Json2Bean$1;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$1;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     return-void
 .end method

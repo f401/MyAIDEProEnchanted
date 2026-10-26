@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 16
     new-instance v0, Lcom/baidu/mobstat/cs;
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method public static a()Lcom/baidu/mobstat/cs;
-    .registers 1
+    .locals 1
 
     .line 19
     sget-object v0, Lcom/baidu/mobstat/cs;->c:Lcom/baidu/mobstat/cs;
@@ -53,76 +53,85 @@
 
 # virtual methods
 .method public a(Ljava/lang/String;)V
-    .registers 5
+    .locals 4
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     .line 32
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
+    .line 51
+    :goto_0
     return-void
 
     .line 37
-    :cond_7
-    const/4 v0, 0x1
+    :cond_0
+    :try_start_0
+    new-instance v0, Lorg/json/JSONObject;
 
-    :try_start_8
-    new-instance v1, Lorg/json/JSONObject;
-
-    invoke-direct {v1, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
     .line 40
-    const-string p1, "full"
+    const-string v3, "full"
 
-    invoke-virtual {v1, p1}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lorg/json/JSONObject;
+    check-cast v0, Lorg/json/JSONObject;
 
-    const/4 v1, 0x0
-
-    if-eqz p1, :cond_1f
+    if-eqz v0, :cond_1
 
     .line 43
-    const-string v2, "close"
+    const-string v3, "close"
 
-    invoke-virtual {p1, v2}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    goto :goto_20
+    :goto_1
+    if-eqz v0, :cond_2
 
-    :cond_1f
-    const/4 p1, 0x0
-
-    :goto_20
-    if-eqz p1, :cond_23
-
-    const/4 v1, 0x1
+    move v0, v1
 
     .line 46
-    :cond_23
-    iput-boolean v1, p0, Lcom/baidu/mobstat/cs;->a:Z
-    :try_end_25
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_25} :catch_26
-
-    goto :goto_27
+    :goto_2
+    iput-boolean v0, p0, Lcom/baidu/mobstat/cs;->a:Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 51
-    :catch_26
-    move-exception p1
+    :goto_3
+    iput-boolean v1, p0, Lcom/baidu/mobstat/cs;->b:Z
 
-    :goto_27
-    iput-boolean v0, p0, Lcom/baidu/mobstat/cs;->b:Z
+    goto :goto_0
 
-    return-void
+    :cond_1
+    move v0, v2
+
+    .line 43
+    goto :goto_1
+
+    .line 51
+    :catch_0
+    move-exception v0
+
+    goto :goto_3
+
+    :cond_2
+    move v0, v2
+
+    goto :goto_2
 .end method
 
 .method public b()Z
-    .registers 2
+    .locals 1
 
     .line 55
     iget-boolean v0, p0, Lcom/baidu/mobstat/cs;->a:Z

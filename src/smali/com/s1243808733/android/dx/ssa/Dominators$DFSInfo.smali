@@ -20,7 +20,8 @@
 .field public bucket:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;",
             ">;"
         }
@@ -36,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 282
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0}, Lc/s;-><init>()V
 
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Lc/f;)V
-    .registers 5
+    .locals 3
 
     invoke-direct {p0}, Lc/s;-><init>()V
 
@@ -47,12 +47,12 @@
 
     const/4 v0, 0x0
 
-    :goto_b
+    :goto_0
     invoke-virtual {p1}, Lc/f;->d()I
 
     move-result v1
 
-    if-eq v0, v1, :cond_1d
+    if-eq v0, v1, :cond_0
 
     iget-object v1, p0, Lc/t;->a:Ljava/util/Vector;
 
@@ -64,14 +64,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
-    :cond_1d
+    :cond_0
     return-void
 .end method
 
 .method public constructor <init>([Lc/e;)V
-    .registers 5
+    .locals 3
 
     invoke-direct {p0}, Lc/s;-><init>()V
 
@@ -83,10 +83,10 @@
 
     const/4 v0, 0x0
 
-    :goto_b
+    :goto_0
     array-length v1, p1
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_0
 
     iget-object v1, p0, Lc/t;->a:Ljava/util/Vector;
 
@@ -96,91 +96,99 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
-    :cond_18
+    :cond_0
     return-void
 .end method
 
 .method public static b(Ljava/lang/Object;)Lc/t;
-    .registers 3
+    .locals 2
 
-    if-eqz p0, :cond_6a
+    if-eqz p0, :cond_0
 
     instance-of v0, p0, Lc/t;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_1
 
-    goto :goto_6a
+    .line 4
+    :cond_0
+    check-cast p0, Lc/t;
 
-    :cond_7
+    move-object v0, p0
+
+    :goto_0
+    return-object v0
+
+    .line 4294967295
+    :cond_1
     instance-of v0, p0, Lc/u;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_2
 
     check-cast p0, Lc/u;
 
     invoke-interface {p0}, Lc/e;->l()Lc/s;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lc/t;->b(Ljava/lang/Object;)Lc/t;
+    invoke-static {v0}, Lc/t;->b(Ljava/lang/Object;)Lc/t;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_0
 
-    :cond_16
+    :cond_2
     instance-of v0, p0, [B
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_3
 
-    :try_start_1a
+    :try_start_0
     check-cast p0, [B
 
     invoke-static {p0}, Lc/s;->t([B)Lc/s;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lc/t;->b(Ljava/lang/Object;)Lc/t;
+    invoke-static {v0}, Lc/t;->b(Ljava/lang/Object;)Lc/t;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object p0
-    :try_end_24
-    .catch Ljava/io/IOException; {:try_start_1a .. :try_end_24} :catch_25
+    move-result-object v0
 
-    return-object p0
+    goto :goto_0
 
-    :catch_25
-    move-exception p0
+    :catch_0
+    move-exception v0
 
     .line 1
-    const-string v0, "failed to construct sequence from byte[]: "
+    const-string v1, "failed to construct sequence from byte[]: "
 
-    invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 2
-    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw p0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    :cond_3d
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_3
     instance-of v0, p0, Lc/e;
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_4
 
     move-object v0, p0
 
@@ -192,14 +200,14 @@
 
     instance-of v1, v0, Lc/t;
 
-    if-eqz v1, :cond_4f
+    if-eqz v1, :cond_4
 
     check-cast v0, Lc/t;
 
-    return-object v0
+    goto :goto_0
 
     .line 3
-    :cond_4f
+    :cond_4
     const-string v0, "unknown object in getInstance: "
 
     invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -209,76 +217,75 @@
     .line 4
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
-
-    :cond_6a
-    :goto_6a
-    check-cast p0, Lc/t;
-
-    return-object p0
+    throw v1
 .end method
 
 .method public static c(Lc/z;)Lc/t;
-    .registers 2
+    .locals 2
 
     .line 1
     iget-boolean v0, p0, Lc/z;->b:Z
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 2
     invoke-virtual {p0}, Lc/z;->k()Lc/s;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {p0}, Lc/t;->b(Ljava/lang/Object;)Lc/t;
+    invoke-static {v0}, Lc/t;->b(Ljava/lang/Object;)Lc/t;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
-    :cond_10
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "object implicit - explicit expected."
+    const-string v1, "object implicit - explicit expected."
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 .end method
 
 
 # virtual methods
 .method public final d(Lc/s;)Z
-    .registers 6
-
-    instance-of v0, p1, Lc/t;
+    .locals 5
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_6
+    instance-of v0, p1, Lc/t;
 
-    return v1
+    if-nez v0, :cond_0
 
-    :cond_6
+    move v0, v1
+
+    .line 2
+    :goto_0
+    return v0
+
+    .line 4294967295
+    :cond_0
     check-cast p1, Lc/t;
 
     invoke-virtual {p0}, Lc/t;->p()I
@@ -289,68 +296,68 @@
 
     move-result v2
 
-    if-eq v0, v2, :cond_13
+    if-eq v0, v2, :cond_1
 
-    return v1
+    move v0, v1
 
-    :cond_13
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {p0}, Lc/t;->o()Ljava/util/Enumeration;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-virtual {p1}, Lc/t;->o()Ljava/util/Enumeration;
 
-    move-result-object p1
+    move-result-object v3
 
-    :cond_1b
-    :goto_1b
-    invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
+    :cond_2
+    invoke-interface {v2}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_3d
+    if-eqz v0, :cond_3
 
     .line 1
-    invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lc/e;
+    check-cast v0, Lc/e;
 
     .line 2
-    invoke-virtual {p0, p1}, Lc/t;->h(Ljava/util/Enumeration;)Lc/e;
+    invoke-virtual {p0, v3}, Lc/t;->h(Ljava/util/Enumeration;)Lc/e;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v2}, Lc/e;->l()Lc/s;
+    invoke-interface {v0}, Lc/e;->l()Lc/s;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v3}, Lc/e;->l()Lc/s;
+    invoke-interface {v4}, Lc/e;->l()Lc/s;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-eq v2, v3, :cond_1b
+    if-eq v0, v4, :cond_2
 
-    invoke-virtual {v2, v3}, Lc/s;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Lc/s;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_3c
+    if-nez v0, :cond_2
 
-    goto :goto_1b
+    move v0, v1
 
-    :cond_3c
-    return v1
+    goto :goto_0
 
-    :cond_3d
-    const/4 p1, 0x1
+    :cond_3
+    const/4 v0, 0x1
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public final g()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -358,59 +365,63 @@
 .end method
 
 .method public final h(Ljava/util/Enumeration;)Lc/e;
-    .registers 2
+    .locals 1
 
     invoke-interface {p1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lc/e;
+    check-cast v0, Lc/e;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public final hashCode()I
-    .registers 4
+    .locals 3
 
     invoke-virtual {p0}, Lc/t;->o()Ljava/util/Enumeration;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-virtual {p0}, Lc/t;->p()I
 
-    move-result v1
+    move-result v0
 
-    :goto_8
-    invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
+    move v1, v0
 
-    move-result v2
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    if-eqz v2, :cond_1c
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     .line 1
-    invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lc/e;
+    check-cast v0, Lc/e;
 
     .line 2
     mul-int/lit8 v1, v1, 0x11
 
-    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v2
+    move-result v0
 
-    xor-int/2addr v1, v2
+    xor-int/2addr v0, v1
 
-    goto :goto_8
+    move v1, v0
 
-    :cond_1c
+    goto :goto_0
+
+    :cond_0
     return v1
 .end method
 
 .method public i()Lc/s;
-    .registers 3
+    .locals 2
 
     new-instance v0, Lc/bc;
 
@@ -426,11 +437,12 @@
 .end method
 
 .method public final iterator()Ljava/util/Iterator;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Iterator<",
+            "Ljava/util/Iterator",
+            "<",
             "Lc/e;",
             ">;"
         }
@@ -441,38 +453,38 @@
 
     move-result v0
 
-    new-array v0, v0, [Lc/e;
+    new-array v1, v0, [Lc/e;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_7
+    :goto_0
     invoke-virtual {p0}, Lc/t;->p()I
 
     move-result v2
 
-    if-eq v1, v2, :cond_16
+    if-eq v0, v2, :cond_0
 
-    invoke-virtual {p0, v1}, Lc/t;->k(I)Lc/e;
+    invoke-virtual {p0, v0}, Lc/t;->k(I)Lc/e;
 
     move-result-object v2
 
-    aput-object v2, v0, v1
+    aput-object v2, v1, v0
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 2
-    :cond_16
-    new-instance v1, Lx/a$a;
+    :cond_0
+    new-instance v0, Lx/a$a;
 
-    invoke-direct {v1, v0}, Lx/a$a;-><init>([Ljava/lang/Object;)V
+    invoke-direct {v0, v1}, Lx/a$a;-><init>([Ljava/lang/Object;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public j()Lc/s;
-    .registers 3
+    .locals 2
 
     new-instance v0, Lc/bc;
 
@@ -488,21 +500,21 @@
 .end method
 
 .method public k(I)Lc/e;
-    .registers 3
+    .locals 1
 
     iget-object v0, p0, Lc/t;->a:Ljava/util/Vector;
 
     invoke-virtual {v0, p1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lc/e;
+    check-cast v0, Lc/e;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public o()Ljava/util/Enumeration;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lc/t;->a:Ljava/util/Vector;
 
@@ -514,7 +526,7 @@
 .end method
 
 .method public p()I
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lc/t;->a:Ljava/util/Vector;
 
@@ -526,7 +538,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lc/t;->a:Ljava/util/Vector;
 

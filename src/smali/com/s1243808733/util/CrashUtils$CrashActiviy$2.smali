@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/CrashUtils$CrashActiviy;)V
-    .registers 2
+    .locals 0
 
     .line 202
     iput-object p1, p0, Lcom/s1243808733/util/CrashUtils$CrashActiviy$2;->this$0:Lcom/s1243808733/util/CrashUtils$CrashActiviy;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 2
+    .locals 1
 
     .line 206
-    iget-object p1, p0, Lcom/s1243808733/util/CrashUtils$CrashActiviy$2;->this$0:Lcom/s1243808733/util/CrashUtils$CrashActiviy;
+    iget-object v0, p0, Lcom/s1243808733/util/CrashUtils$CrashActiviy$2;->this$0:Lcom/s1243808733/util/CrashUtils$CrashActiviy;
 
-    invoke-static {p1}, Lcom/s1243808733/util/CrashUtils$CrashActiviy;->-$$Nest$mreset(Lcom/s1243808733/util/CrashUtils$CrashActiviy;)V
+    invoke-static {v0}, Lcom/s1243808733/util/CrashUtils$CrashActiviy;->-$$Nest$mreset(Lcom/s1243808733/util/CrashUtils$CrashActiviy;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

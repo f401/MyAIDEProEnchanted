@@ -7,7 +7,8 @@
 .field private static final STATUS:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/Integer;",
             ">;"
@@ -22,7 +23,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$sfgetSTATUS()Ljava/util/Map;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lcom/s1243808733/aide/completion/translate/Translate;->STATUS:Ljava/util/Map;
 
@@ -30,7 +31,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smdr(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     invoke-static {p0, p1}, Lcom/s1243808733/aide/completion/translate/Translate;->dr(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -38,7 +39,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 38
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
@@ -51,7 +52,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +61,9 @@
 .end method
 
 .method private static dr(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x1
 
     .line 18
     :try_start_0
@@ -71,75 +74,74 @@
     .line 19
     invoke-static {p0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->query(Ljava/lang/String;)Lcom/s1243808733/aide/completion/translate/TranslateTable;
 
-    move-result-object p0
+    move-result-object v0
 
-    if-eqz p0, :cond_34
+    if-eqz v0, :cond_0
 
     .line 20
-    invoke-virtual {p0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
+    invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x1
+    if-ne v1, v2, :cond_1
 
-    if-ne v0, v1, :cond_13
+    .line 30
+    :cond_0
+    :goto_0
+    return-void
 
-    goto :goto_34
-
-    :cond_13
-    if-eqz p1, :cond_2b
+    .line 20
+    :cond_1
+    if-eqz p1, :cond_2
 
     .line 23
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2b
+    if-nez v1, :cond_2
 
-    const-string v0, ""
+    const-string v1, ""
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_24
-
-    goto :goto_2b
-
-    .line 27
-    :cond_24
-    invoke-virtual {p0, p1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setTranslation(Ljava/lang/String;)V
-
-    .line 28
-    invoke-virtual {p0, v1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
-
-    goto :goto_2f
+    if-eqz v1, :cond_3
 
     .line 24
-    :cond_2b
-    :goto_2b
-    const/4 p1, -0x1
+    :cond_2
+    const/4 v1, -0x1
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
 
     .line 30
-    :goto_2f
-    invoke-static {p0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->update(Lcom/s1243808733/aide/completion/translate/TranslateTable;)V
-    :try_end_32
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_32} :catch_33
+    :goto_1
+    invoke-static {v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->update(Lcom/s1243808733/aide/completion/translate/TranslateTable;)V
 
-    goto :goto_34
+    goto :goto_0
 
-    :catch_33
-    move-exception p0
+    :catch_0
+    move-exception v0
 
-    :cond_34
-    :goto_34
-    return-void
+    goto :goto_0
+
+    .line 27
+    :cond_3
+    invoke-virtual {v0, p1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setTranslation(Ljava/lang/String;)V
+
+    .line 28
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
 .end method
 
 .method public static youdaoTranslate(Ljava/lang/String;)V
-    .registers 3
+    .locals 2
 
     .line 41
     sget-object v0, Lcom/s1243808733/aide/completion/translate/Translate;->STATUS:Ljava/util/Map;
@@ -148,7 +150,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_0
 
     .line 42
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -163,12 +165,14 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_0
 
+    .line 104
+    :goto_0
     return-void
 
     .line 46
-    :cond_16
+    :cond_0
     new-instance v0, Lcom/s1243808733/aide/completion/translate/Translate$1;
 
     invoke-direct {v0, p0}, Lcom/s1243808733/aide/completion/translate/Translate$1;-><init>(Ljava/lang/String;)V
@@ -176,5 +180,5 @@
     .line 104
     invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/Translate$1;->start()V
 
-    return-void
+    goto :goto_0
 .end method

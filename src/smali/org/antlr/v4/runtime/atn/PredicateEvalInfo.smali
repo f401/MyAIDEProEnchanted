@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(ILorg/antlr/v4/runtime/TokenStream;IILorg/antlr/v4/runtime/atn/SemanticContext;ZIZ)V
-    .registers 16
+    .locals 7
 
     .line 68
     new-instance v2, Lorg/antlr/v4/runtime/atn/ATNConfigSet;

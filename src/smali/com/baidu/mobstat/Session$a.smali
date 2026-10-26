@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJZLcom/baidu/mobstat/ExtraInfo;ZLjava/lang/String;)V
-    .registers 12
+    .locals 2
 
     .line 303
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,20 +63,20 @@
     iput-object p11, p0, Lcom/baidu/mobstat/Session$a;->i:Ljava/lang/String;
 
     .line 312
-    new-instance p1, Lorg/json/JSONObject;
+    new-instance v0, Lorg/json/JSONObject;
 
-    invoke-direct {p1}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    if-eqz p9, :cond_1c
+    if-eqz p9, :cond_0
 
     .line 314
     invoke-virtual {p9}, Lcom/baidu/mobstat/ExtraInfo;->dumpToJson()Lorg/json/JSONObject;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 316
-    :cond_1c
-    iput-object p1, p0, Lcom/baidu/mobstat/Session$a;->g:Lorg/json/JSONObject;
+    :cond_0
+    iput-object v0, p0, Lcom/baidu/mobstat/Session$a;->g:Lorg/json/JSONObject;
 
     .line 318
     iput-boolean p10, p0, Lcom/baidu/mobstat/Session$a;->h:Z
@@ -85,36 +85,36 @@
 .end method
 
 .method static synthetic b(Lcom/baidu/mobstat/Session$a;)Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .line 278
-    iget-object p0, p0, Lcom/baidu/mobstat/Session$a;->a:Ljava/lang/String;
+    iget-object v0, p0, Lcom/baidu/mobstat/Session$a;->a:Ljava/lang/String;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static synthetic c(Lcom/baidu/mobstat/Session$a;)Z
-    .registers 1
+    .locals 1
 
     .line 278
-    iget-boolean p0, p0, Lcom/baidu/mobstat/Session$a;->f:Z
+    iget-boolean v0, p0, Lcom/baidu/mobstat/Session$a;->f:Z
 
-    return p0
+    return v0
 .end method
 
 .method static synthetic d(Lcom/baidu/mobstat/Session$a;)Z
-    .registers 1
+    .locals 1
 
     .line 278
-    iget-boolean p0, p0, Lcom/baidu/mobstat/Session$a;->h:Z
+    iget-boolean v0, p0, Lcom/baidu/mobstat/Session$a;->h:Z
 
-    return p0
+    return v0
 .end method
 
 
 # virtual methods
 .method public a()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 322
     iget-object v0, p0, Lcom/baidu/mobstat/Session$a;->b:Ljava/lang/String;
@@ -123,7 +123,7 @@
 .end method
 
 .method public a(Lcom/baidu/mobstat/Session$a;)V
-    .registers 4
+    .locals 2
 
     .line 350
     iget-object v0, p1, Lcom/baidu/mobstat/Session$a;->a:Ljava/lang/String;
@@ -166,15 +166,15 @@
     iput-boolean v0, p0, Lcom/baidu/mobstat/Session$a;->h:Z
 
     .line 358
-    iget-object p1, p1, Lcom/baidu/mobstat/Session$a;->i:Ljava/lang/String;
+    iget-object v0, p1, Lcom/baidu/mobstat/Session$a;->i:Ljava/lang/String;
 
-    iput-object p1, p0, Lcom/baidu/mobstat/Session$a;->i:Ljava/lang/String;
+    iput-object v0, p0, Lcom/baidu/mobstat/Session$a;->i:Ljava/lang/String;
 
     return-void
 .end method
 
 .method public b()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 326
     iget-object v0, p0, Lcom/baidu/mobstat/Session$a;->c:Ljava/lang/String;
@@ -183,7 +183,7 @@
 .end method
 
 .method public c()J
-    .registers 3
+    .locals 2
 
     .line 330
     iget-wide v0, p0, Lcom/baidu/mobstat/Session$a;->d:J
@@ -192,7 +192,7 @@
 .end method
 
 .method public d()J
-    .registers 3
+    .locals 2
 
     .line 334
     iget-wide v0, p0, Lcom/baidu/mobstat/Session$a;->e:J
@@ -201,7 +201,7 @@
 .end method
 
 .method public e()Lorg/json/JSONObject;
-    .registers 2
+    .locals 1
 
     .line 338
     iget-object v0, p0, Lcom/baidu/mobstat/Session$a;->g:Lorg/json/JSONObject;
@@ -210,7 +210,7 @@
 .end method
 
 .method public f()Z
-    .registers 2
+    .locals 1
 
     .line 342
     iget-boolean v0, p0, Lcom/baidu/mobstat/Session$a;->f:Z
@@ -219,7 +219,7 @@
 .end method
 
 .method public g()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 346
     iget-object v0, p0, Lcom/baidu/mobstat/Session$a;->i:Ljava/lang/String;

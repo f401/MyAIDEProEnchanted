@@ -11,7 +11,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     new-instance v0, Lc/ax;
 
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Lc/l;-><init>()V
 
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public final e(Lc/q;)V
-    .registers 4
+    .locals 2
 
     const/4 v0, 0x5
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public final f()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x2
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public final g()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 

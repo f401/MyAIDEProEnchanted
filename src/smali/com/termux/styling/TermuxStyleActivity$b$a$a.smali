@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/styling/TermuxStyleActivity$b$a;)V
-    .registers 2
+    .locals 0
 
     iput-object p1, p0, Lcom/termux/styling/TermuxStyleActivity$b$a$a;->a:Lcom/termux/styling/TermuxStyleActivity$b$a;
 
@@ -35,45 +35,45 @@
 
 # virtual methods
 .method public final onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
-    .registers 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)Z"
         }
     .end annotation
 
-    iget-object p1, p0, Lcom/termux/styling/TermuxStyleActivity$b$a$a;->a:Lcom/termux/styling/TermuxStyleActivity$b$a;
+    const/4 v2, 0x1
 
-    iget-object p1, p1, Lcom/termux/styling/TermuxStyleActivity$b$a;->a:Lcom/termux/styling/TermuxStyleActivity$b;
+    iget-object v0, p0, Lcom/termux/styling/TermuxStyleActivity$b$a$a;->a:Lcom/termux/styling/TermuxStyleActivity$b$a;
 
-    iget-object p2, p1, Lcom/termux/styling/TermuxStyleActivity$b;->a:Lcom/termux/styling/TermuxStyleActivity;
+    iget-object v0, v0, Lcom/termux/styling/TermuxStyleActivity$b$a;->a:Lcom/termux/styling/TermuxStyleActivity$b;
 
-    iget-object p1, p1, Lcom/termux/styling/TermuxStyleActivity$b;->b:Landroid/widget/ArrayAdapter;
+    iget-object v1, v0, Lcom/termux/styling/TermuxStyleActivity$b;->a:Lcom/termux/styling/TermuxStyleActivity;
 
-    invoke-virtual {p1, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
+    iget-object v0, v0, Lcom/termux/styling/TermuxStyleActivity$b;->b:Landroid/widget/ArrayAdapter;
 
-    move-result-object p1
+    invoke-virtual {v0, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
-    if-eqz p1, :cond_15
+    move-result-object v0
 
-    check-cast p1, Lcom/termux/styling/TermuxStyleActivity$a;
+    if-eqz v0, :cond_0
 
-    const/4 p3, 0x1
+    check-cast v0, Lcom/termux/styling/TermuxStyleActivity$a;
 
-    invoke-static {p2, p1, p3}, Lcom/termux/styling/TermuxStyleActivity;->b(Lcom/termux/styling/TermuxStyleActivity;Lcom/termux/styling/TermuxStyleActivity$a;Z)V
+    invoke-static {v1, v0, v2}, Lcom/termux/styling/TermuxStyleActivity;->b(Lcom/termux/styling/TermuxStyleActivity;Lcom/termux/styling/TermuxStyleActivity$a;Z)V
 
-    return p3
+    return v2
 
-    :cond_15
-    new-instance p1, Lcom/termux/yinli_a/f;
+    :cond_0
+    new-instance v0, Lcom/termux/yinli_a/f;
 
-    const-string p2, "null cannot be cast to non-null type com.termux.styling.TermuxStyleActivity.Selectable"
+    const-string v1, "null cannot be cast to non-null type com.termux.styling.TermuxStyleActivity.Selectable"
 
-    invoke-direct {p1, p2}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$33;Landroid/app/Dialog;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,12 +45,12 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 2
+    .locals 1
 
     .line 1484
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$33$1;->val$dialog:Landroid/app/Dialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$33$1;->val$dialog:Landroid/app/Dialog;
 
-    invoke-virtual {p1}, Landroid/app/Dialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     return-void
 .end method

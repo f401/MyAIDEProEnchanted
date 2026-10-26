@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lio/github/zeroaicy/util/reflect/ReflectPie;Z)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,55 +45,64 @@
 
 # virtual methods
 .method public invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 9
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
         }
     .end annotation
 
+    const/4 v6, 0x3
+
+    const/4 v3, 0x0
+
     .line 686
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v4
 
     .line 690
-    :try_start_4
-    iget-object p2, p0, Lio/github/zeroaicy/util/reflect/ReflectPie$1;->this$0:Lio/github/zeroaicy/util/reflect/ReflectPie;
-
-    invoke-static {p2}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$fgettype(Lio/github/zeroaicy/util/reflect/ReflectPie;)Ljava/lang/Class;
-
-    move-result-object p2
-
+    :try_start_0
     iget-object v0, p0, Lio/github/zeroaicy/util/reflect/ReflectPie$1;->this$0:Lio/github/zeroaicy/util/reflect/ReflectPie;
 
-    invoke-static {v0}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$fgetobject(Lio/github/zeroaicy/util/reflect/ReflectPie;)Ljava/lang/Object;
+    invoke-static {v0}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$fgettype(Lio/github/zeroaicy/util/reflect/ReflectPie;)Ljava/lang/Class;
 
     move-result-object v0
 
-    invoke-static {p2, v0}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$smon(Ljava/lang/Class;Ljava/lang/Object;)Lio/github/zeroaicy/util/reflect/ReflectPie;
+    iget-object v1, p0, Lio/github/zeroaicy/util/reflect/ReflectPie$1;->this$0:Lio/github/zeroaicy/util/reflect/ReflectPie;
 
-    move-result-object p2
+    invoke-static {v1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$fgetobject(Lio/github/zeroaicy/util/reflect/ReflectPie;)Ljava/lang/Object;
 
-    invoke-virtual {p2, p1, p3}, Lio/github/zeroaicy/util/reflect/ReflectPie;->call(Ljava/lang/String;[Ljava/lang/Object;)Lio/github/zeroaicy/util/reflect/ReflectPie;
+    move-result-object v1
 
-    move-result-object p2
+    invoke-static {v0, v1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$smon(Ljava/lang/Class;Ljava/lang/Object;)Lio/github/zeroaicy/util/reflect/ReflectPie;
 
-    invoke-virtual {p2}, Lio/github/zeroaicy/util/reflect/ReflectPie;->get()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object p1
-    :try_end_1c
-    .catch Lio/github/zeroaicy/util/reflect/ReflectPieException; {:try_start_4 .. :try_end_1c} :catch_1d
+    invoke-virtual {v0, v4, p3}, Lio/github/zeroaicy/util/reflect/ReflectPie;->call(Ljava/lang/String;[Ljava/lang/Object;)Lio/github/zeroaicy/util/reflect/ReflectPie;
 
-    return-object p1
+    move-result-object v0
 
-    :catch_1d
-    move-exception p2
+    invoke-virtual {v0}, Lio/github/zeroaicy/util/reflect/ReflectPie;->get()Ljava/lang/Object;
+    :try_end_0
+    .catch Lio/github/zeroaicy/util/reflect/ReflectPieException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    .line 703
+    :goto_0
+    return-object v0
+
+    .line 690
+    :catch_0
+    move-exception v0
+
+    move-object v1, v0
 
     .line 692
     iget-boolean v0, p0, Lio/github/zeroaicy/util/reflect/ReflectPie$1;->val$isMap:Z
 
-    if-eqz v0, :cond_7a
+    if-eqz v0, :cond_3
 
     .line 693
     iget-object v0, p0, Lio/github/zeroaicy/util/reflect/ReflectPie$1;->this$0:Lio/github/zeroaicy/util/reflect/ReflectPie;
@@ -104,108 +113,106 @@
 
     check-cast v0, Ljava/util/Map;
 
-    const/4 v1, 0x0
+    if-nez p3, :cond_0
 
-    if-nez p3, :cond_2f
-
-    const/4 v2, 0x0
-
-    goto :goto_30
+    move v2, v3
 
     .line 694
-    :cond_2f
-    array-length v2, p3
-
-    :goto_30
-    const/4 v3, 0x3
-
-    if-nez v2, :cond_48
+    :goto_1
+    if-nez v2, :cond_1
 
     .line 696
-    const-string v4, "get"
+    const-string v5, "get"
 
-    invoke-virtual {p1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_48
+    if-eqz v5, :cond_1
 
     .line 697
-    invoke-virtual {p1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v4, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {p1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$smproperty(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$smproperty(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_0
 
-    :cond_48
-    if-nez v2, :cond_60
+    .line 694
+    :cond_0
+    array-length v2, p3
+
+    goto :goto_1
+
+    .line 697
+    :cond_1
+    if-nez v2, :cond_2
 
     .line 699
-    const-string v4, "is"
+    const-string v5, "is"
 
-    invoke-virtual {p1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_60
+    if-eqz v5, :cond_2
 
     .line 700
-    const/4 p2, 0x2
+    const/4 v1, 0x2
 
-    invoke-virtual {p1, p2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v4, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {p1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$smproperty(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$smproperty(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_0
 
-    :cond_60
-    const/4 v4, 0x1
+    :cond_2
+    const/4 v5, 0x1
 
-    if-ne v2, v4, :cond_7a
+    if-ne v2, v5, :cond_3
 
     .line 702
     const-string v2, "set"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v4, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_7a
+    if-eqz v2, :cond_3
 
     .line 703
-    invoke-virtual {p1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v4, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {p1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$smproperty(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->-$$Nest$smproperty(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    aget-object p2, p3, v1
+    aget-object v2, p3, v3
 
-    invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return-object p1
+    goto :goto_0
 
     .line 732
-    :cond_7a
-    throw p2
+    :cond_3
+    throw v1
 .end method

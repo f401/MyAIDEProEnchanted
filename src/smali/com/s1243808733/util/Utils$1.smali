@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/Throwable;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,83 +45,84 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 3
 
     .line 810
-    new-instance p1, Landroid/app/AlertDialog$Builder;
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    iget-object p2, p0, Lcom/s1243808733/util/Utils$1;->val$activity:Landroid/content/Context;
+    iget-object v0, p0, Lcom/s1243808733/util/Utils$1;->val$activity:Landroid/content/Context;
 
-    invoke-direct {p1, p2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 811
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_10
+    if-eqz v0, :cond_0
 
-    const-string p2, "错误详情"
+    const-string v0, "\u9519\u8bef\u8be6\u60c5"
 
-    goto :goto_12
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    :cond_10
-    const-string p2, "Error Detail"
+    move-result-object v0
 
-    :goto_12
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
-
-    iget-object p2, p0, Lcom/s1243808733/util/Utils$1;->val$e:Ljava/lang/Throwable;
+    iget-object v1, p0, Lcom/s1243808733/util/Utils$1;->val$e:Ljava/lang/Throwable;
 
     .line 812
-    invoke-static {p2}, Lcom/s1243808733/util/Utils;->getStackTrace(Ljava/lang/Throwable;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/s1243808733/util/Utils;->getStackTrace(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance p2, Lcom/s1243808733/util/Utils$1$1;
+    new-instance v1, Lcom/s1243808733/util/Utils$1$1;
 
-    invoke-direct {p2, p0}, Lcom/s1243808733/util/Utils$1$1;-><init>(Lcom/s1243808733/util/Utils$1;)V
+    invoke-direct {v1, p0}, Lcom/s1243808733/util/Utils$1$1;-><init>(Lcom/s1243808733/util/Utils$1;)V
 
     .line 813
-    const v0, 0x1040001
+    const v2, 0x1040001
 
-    invoke-virtual {p1, v0, p2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 820
     invoke-static {}, Lcom/s1243808733/util/Utils;->getApp()Landroid/app/Application;
 
-    move-result-object p2
+    move-result-object v1
 
-    const/high16 v0, 0x1040000
+    const/high16 v2, 0x1040000
 
-    invoke-virtual {p2, v0}, Landroid/app/Application;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/app/Application;->getString(I)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, p2, v0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 821
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 822
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     .line 823
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->setMessageIsSelectable(Landroid/app/AlertDialog;)V
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->setMessageIsSelectable(Landroid/app/AlertDialog;)V
 
     return-void
+
+    .line 811
+    :cond_0
+    const-string v0, "Error Detail"
+
+    goto :goto_0
 .end method

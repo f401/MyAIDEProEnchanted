@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -60,252 +60,250 @@
 .end method
 
 .method private a(ILcom/baidu/mobstat/bi;Ljava/security/SecureRandom;Ljava/security/spec/AlgorithmParameterSpec;)V
-    .registers 12
+    .locals 8
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    const/4 v1, 0x3
+    const/4 v7, 0x3
 
-    const/4 v2, 0x4
+    const/4 v5, 0x2
 
-    const/4 v3, 0x2
+    const/4 v4, 0x4
 
-    const/4 v4, 0x1
+    const/4 v2, 0x1
 
-    if-eq p1, v4, :cond_24
+    if-eq p1, v2, :cond_2
 
-    if-eq p1, v3, :cond_22
+    if-eq p1, v5, :cond_0
 
-    if-eq p1, v1, :cond_24
+    if-eq p1, v7, :cond_2
 
-    if-ne p1, v2, :cond_e
+    if-ne p1, v4, :cond_1
 
-    goto :goto_22
+    :cond_0
+    move v0, v1
 
-    :cond_e
-    new-instance p2, Ljava/lang/StringBuilder;
+    :goto_0
+    instance-of v3, p2, Lcom/baidu/mobstat/bi;
 
-    const-string p3, "Unknown mode: "
+    if-eqz v3, :cond_e
 
-    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    if-eqz v0, :cond_3
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move v3, v2
 
-    new-instance p1, Ljava/security/InvalidKeyException;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-direct {p1, p2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :cond_22
-    :goto_22
-    const/4 p1, 0x0
-
-    goto :goto_25
-
-    :cond_24
-    const/4 p1, 0x1
-
-    :goto_25
-    instance-of v5, p2, Lcom/baidu/mobstat/bi;
-
-    if-eqz v5, :cond_c3
-
-    if-eqz p1, :cond_2d
-
-    const/4 v5, 0x1
-
-    goto :goto_2e
-
-    :cond_2d
-    const/4 v5, 0x4
-
-    :goto_2e
-    iput v5, p0, Lcom/baidu/mobstat/bh;->b:I
+    :goto_1
+    iput v3, p0, Lcom/baidu/mobstat/bh;->b:I
 
     iput-object p2, p0, Lcom/baidu/mobstat/bh;->i:Lcom/baidu/mobstat/bi;
 
     invoke-interface {p2}, Lcom/baidu/mobstat/bi;->a()Ljava/math/BigInteger;
 
-    move-result-object p2
+    move-result-object v3
 
-    invoke-static {p2}, Lcom/baidu/mobstat/bg;->a(Ljava/math/BigInteger;)I
+    invoke-static {v3}, Lcom/baidu/mobstat/bg;->a(Ljava/math/BigInteger;)I
 
-    move-result p2
+    move-result v3
 
-    iput p2, p0, Lcom/baidu/mobstat/bh;->h:I
+    iput v3, p0, Lcom/baidu/mobstat/bh;->h:I
 
-    iput v0, p0, Lcom/baidu/mobstat/bh;->g:I
+    iput v1, p0, Lcom/baidu/mobstat/bh;->g:I
 
-    iget-object v0, p0, Lcom/baidu/mobstat/bh;->c:Ljava/lang/String;
+    iget-object v1, p0, Lcom/baidu/mobstat/bh;->c:Ljava/lang/String;
 
-    const-string v5, "NoPadding"
+    const-string v6, "NoPadding"
 
-    const-string v6, "Parameters not supported"
+    if-ne v1, v6, :cond_5
 
-    if-ne v0, v5, :cond_59
+    if-nez p4, :cond_4
 
-    if-nez p4, :cond_53
+    invoke-static {v7, v3, p3}, Lcom/baidu/mobstat/bk;->a(IILjava/security/SecureRandom;)Lcom/baidu/mobstat/bk;
 
-    invoke-static {v1, p2, p3}, Lcom/baidu/mobstat/bk;->a(IILjava/security/SecureRandom;)Lcom/baidu/mobstat/bk;
+    move-result-object v0
 
-    move-result-object p1
+    iput-object v0, p0, Lcom/baidu/mobstat/bh;->d:Lcom/baidu/mobstat/bk;
 
-    iput-object p1, p0, Lcom/baidu/mobstat/bh;->d:Lcom/baidu/mobstat/bk;
+    new-array v0, v3, [B
 
-    new-array p1, p2, [B
+    iput-object v0, p0, Lcom/baidu/mobstat/bh;->f:[B
 
-    iput-object p1, p0, Lcom/baidu/mobstat/bh;->f:[B
+    :goto_2
+    return-void
 
-    goto :goto_ba
+    :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    :cond_53
-    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
+    const-string v1, "Unknown mode: "
 
-    invoke-direct {p1, v6}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :cond_59
-    const-string v5, "PKCS1Padding"
+    new-instance v1, Ljava/security/InvalidKeyException;
 
-    if-ne v0, v5, :cond_81
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-nez p4, :cond_7b
+    move-result-object v0
 
-    iget p4, p0, Lcom/baidu/mobstat/bh;->b:I
+    invoke-direct {v1, v0}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
-    if-gt p4, v3, :cond_64
+    throw v1
 
-    goto :goto_65
+    :cond_2
+    move v0, v2
 
-    :cond_64
-    const/4 v3, 0x1
+    goto :goto_0
 
-    :goto_65
-    invoke-static {v3, p2, p3}, Lcom/baidu/mobstat/bk;->a(IILjava/security/SecureRandom;)Lcom/baidu/mobstat/bk;
+    :cond_3
+    move v3, v4
 
-    move-result-object p3
+    goto :goto_1
 
-    iput-object p3, p0, Lcom/baidu/mobstat/bh;->d:Lcom/baidu/mobstat/bk;
+    :cond_4
+    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
 
-    if-eqz p1, :cond_76
+    const-string v1, "Parameters not supported"
 
-    invoke-virtual {p3}, Lcom/baidu/mobstat/bk;->a()I
+    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
 
-    move-result p1
+    throw v0
 
-    new-array p1, p1, [B
+    :cond_5
+    const-string v6, "PKCS1Padding"
 
-    iput-object p1, p0, Lcom/baidu/mobstat/bh;->f:[B
+    if-ne v1, v6, :cond_9
 
-    goto :goto_ba
+    if-nez p4, :cond_8
 
-    :cond_76
-    new-array p1, p2, [B
+    iget v1, p0, Lcom/baidu/mobstat/bh;->b:I
 
-    iput-object p1, p0, Lcom/baidu/mobstat/bh;->f:[B
+    if-gt v1, v5, :cond_6
 
-    goto :goto_ba
+    move v2, v5
 
-    :cond_7b
-    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
+    :cond_6
+    invoke-static {v2, v3, p3}, Lcom/baidu/mobstat/bk;->a(IILjava/security/SecureRandom;)Lcom/baidu/mobstat/bk;
 
-    invoke-direct {p1, v6}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    move-result-object v1
 
-    throw p1
+    iput-object v1, p0, Lcom/baidu/mobstat/bh;->d:Lcom/baidu/mobstat/bk;
 
-    :cond_81
-    iget v0, p0, Lcom/baidu/mobstat/bh;->b:I
+    if-eqz v0, :cond_7
 
-    if-eq v0, v1, :cond_bb
+    invoke-virtual {v1}, Lcom/baidu/mobstat/bk;->a()I
 
-    if-eq v0, v2, :cond_bb
+    move-result v0
 
-    if-eqz p4, :cond_98
+    new-array v0, v0, [B
 
-    instance-of v0, p4, Ljavax/crypto/spec/OAEPParameterSpec;
+    iput-object v0, p0, Lcom/baidu/mobstat/bh;->f:[B
 
-    if-eqz v0, :cond_90
+    goto :goto_2
+
+    :cond_7
+    new-array v0, v3, [B
+
+    iput-object v0, p0, Lcom/baidu/mobstat/bh;->f:[B
+
+    goto :goto_2
+
+    :cond_8
+    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
+
+    const-string v1, "Parameters not supported"
+
+    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_9
+    iget v1, p0, Lcom/baidu/mobstat/bh;->b:I
+
+    if-eq v1, v7, :cond_d
+
+    if-eq v1, v4, :cond_d
+
+    if-eqz p4, :cond_b
+
+    instance-of v1, p4, Ljavax/crypto/spec/OAEPParameterSpec;
+
+    if-eqz v1, :cond_a
 
     check-cast p4, Ljavax/crypto/spec/OAEPParameterSpec;
 
-    goto :goto_a5
+    :goto_3
+    invoke-static {v4, v3, p3, p4}, Lcom/baidu/mobstat/bk;->a(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)Lcom/baidu/mobstat/bk;
 
-    :cond_90
-    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
+    move-result-object v1
 
-    const-string p2, "Wrong Parameters for OAEP Padding"
+    iput-object v1, p0, Lcom/baidu/mobstat/bh;->d:Lcom/baidu/mobstat/bk;
 
-    invoke-direct {p1, p2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    if-eqz v0, :cond_c
 
-    throw p1
+    invoke-virtual {v1}, Lcom/baidu/mobstat/bk;->a()I
 
-    :cond_98
+    move-result v0
+
+    new-array v0, v0, [B
+
+    iput-object v0, p0, Lcom/baidu/mobstat/bh;->f:[B
+
+    goto :goto_2
+
+    :cond_a
+    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
+
+    const-string v1, "Wrong Parameters for OAEP Padding"
+
+    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_b
     new-instance p4, Ljavax/crypto/spec/OAEPParameterSpec;
 
-    iget-object v0, p0, Lcom/baidu/mobstat/bh;->j:Ljava/lang/String;
+    iget-object v1, p0, Lcom/baidu/mobstat/bh;->j:Ljava/lang/String;
 
-    sget-object v1, Ljava/security/spec/MGF1ParameterSpec;->SHA1:Ljava/security/spec/MGF1ParameterSpec;
+    const-string v2, "MGF1"
 
-    sget-object v3, Ljavax/crypto/spec/PSource$PSpecified;->DEFAULT:Ljavax/crypto/spec/PSource$PSpecified;
+    sget-object v5, Ljava/security/spec/MGF1ParameterSpec;->SHA1:Ljava/security/spec/MGF1ParameterSpec;
 
-    const-string v4, "MGF1"
+    sget-object v6, Ljavax/crypto/spec/PSource$PSpecified;->DEFAULT:Ljavax/crypto/spec/PSource$PSpecified;
 
-    invoke-direct {p4, v0, v4, v1, v3}, Ljavax/crypto/spec/OAEPParameterSpec;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/spec/PSource;)V
+    invoke-direct {p4, v1, v2, v5, v6}, Ljavax/crypto/spec/OAEPParameterSpec;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/spec/PSource;)V
 
-    :goto_a5
-    invoke-static {v2, p2, p3, p4}, Lcom/baidu/mobstat/bk;->a(IILjava/security/SecureRandom;Ljavax/crypto/spec/OAEPParameterSpec;)Lcom/baidu/mobstat/bk;
+    goto :goto_3
 
-    move-result-object p3
+    :cond_c
+    new-array v0, v3, [B
 
-    iput-object p3, p0, Lcom/baidu/mobstat/bh;->d:Lcom/baidu/mobstat/bk;
+    iput-object v0, p0, Lcom/baidu/mobstat/bh;->f:[B
 
-    if-eqz p1, :cond_b6
+    goto/16 :goto_2
 
-    invoke-virtual {p3}, Lcom/baidu/mobstat/bk;->a()I
+    :cond_d
+    new-instance v0, Ljava/security/InvalidKeyException;
 
-    move-result p1
+    const-string v1, "OAEP cannot be used to sign or verify signatures"
 
-    new-array p1, p1, [B
+    invoke-direct {v0, v1}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
-    iput-object p1, p0, Lcom/baidu/mobstat/bh;->f:[B
+    throw v0
 
-    goto :goto_ba
+    :cond_e
+    new-instance v0, Ljava/security/InvalidKeyException;
 
-    :cond_b6
-    new-array p1, p2, [B
+    const-string v1, "only support helios key"
 
-    iput-object p1, p0, Lcom/baidu/mobstat/bh;->f:[B
+    invoke-direct {v0, v1}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
-    :goto_ba
-    return-void
-
-    :cond_bb
-    new-instance p1, Ljava/security/InvalidKeyException;
-
-    const-string p2, "OAEP cannot be used to sign or verify signatures"
-
-    invoke-direct {p1, p2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :cond_c3
-    new-instance p1, Ljava/security/InvalidKeyException;
-
-    const-string p2, "only support helios key"
-
-    invoke-direct {p1, p2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
-
-    throw p1
+    throw v0
 .end method
 
 .method private a()[B
-    .registers 7
+    .locals 5
+
+    const/4 v4, 0x0
 
     iget v0, p0, Lcom/baidu/mobstat/bh;->g:I
 
@@ -313,34 +311,29 @@
 
     array-length v2, v1
 
-    if-gt v0, v2, :cond_52
+    if-gt v0, v2, :cond_4
+
+    :try_start_0
+    iget v2, p0, Lcom/baidu/mobstat/bh;->b:I
+
+    const/4 v3, 0x1
+
+    if-eq v2, v3, :cond_3
+
+    const/4 v3, 0x2
+
+    if-eq v2, v3, :cond_2
+
+    const/4 v3, 0x3
+
+    if-eq v2, v3, :cond_1
+
+    const/4 v3, 0x4
+
+    if-ne v2, v3, :cond_0
 
     const/4 v2, 0x0
 
-    :try_start_8
-    iget v3, p0, Lcom/baidu/mobstat/bh;->b:I
-    :try_end_a
-    .catchall {:try_start_8 .. :try_end_a} :catchall_4e
-
-    const/4 v4, 0x1
-
-    if-eq v3, v4, :cond_3f
-
-    const/4 v4, 0x2
-
-    const-string v5, "only verify supported"
-
-    if-eq v3, v4, :cond_39
-
-    const/4 v4, 0x3
-
-    if-eq v3, v4, :cond_33
-
-    const/4 v4, 0x4
-
-    if-ne v3, v4, :cond_2b
-
-    :try_start_18
     invoke-static {v1, v2, v0}, Lcom/baidu/mobstat/bg;->a([BII)[B
 
     move-result-object v0
@@ -354,17 +347,18 @@
     iget-object v1, p0, Lcom/baidu/mobstat/bh;->d:Lcom/baidu/mobstat/bk;
 
     invoke-virtual {v1, v0}, Lcom/baidu/mobstat/bk;->b([B)[B
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
-    :try_end_28
-    .catchall {:try_start_18 .. :try_end_28} :catchall_4e
 
-    iput v2, p0, Lcom/baidu/mobstat/bh;->g:I
+    iput v4, p0, Lcom/baidu/mobstat/bh;->g:I
 
+    :goto_0
     return-object v0
 
-    :cond_2b
-    :try_start_2b
+    :cond_0
+    :try_start_1
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "Internal error"
@@ -372,48 +366,57 @@
     invoke-direct {v0, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
     throw v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_33
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    :catchall_0
+    move-exception v0
 
-    invoke-direct {v0, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_39
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
-
-    invoke-direct {v0, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    iput v4, p0, Lcom/baidu/mobstat/bh;->g:I
 
     throw v0
 
-    :cond_3f
-    iget-object v3, p0, Lcom/baidu/mobstat/bh;->d:Lcom/baidu/mobstat/bk;
+    :cond_1
+    :try_start_2
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-virtual {v3, v1, v2, v0}, Lcom/baidu/mobstat/bk;->a([BII)[B
+    const-string v1, "only verify supported"
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_2
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string v1, "only verify supported"
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_3
+    iget-object v2, p0, Lcom/baidu/mobstat/bh;->d:Lcom/baidu/mobstat/bk;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v1, v3, v0}, Lcom/baidu/mobstat/bk;->a([BII)[B
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/baidu/mobstat/bh;->i:Lcom/baidu/mobstat/bi;
 
     invoke-static {v0, v1}, Lcom/baidu/mobstat/bg;->a([BLcom/baidu/mobstat/bi;)[B
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v0
-    :try_end_4b
-    .catchall {:try_start_2b .. :try_end_4b} :catchall_4e
 
-    iput v2, p0, Lcom/baidu/mobstat/bh;->g:I
+    iput v4, p0, Lcom/baidu/mobstat/bh;->g:I
 
-    return-object v0
+    goto :goto_0
 
-    :catchall_4e
-    move-exception v0
-
-    iput v2, p0, Lcom/baidu/mobstat/bh;->g:I
-
-    throw v0
-
-    :cond_52
+    :cond_4
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "Data must not be longer than "
@@ -442,15 +445,17 @@
 .end method
 
 .method private b([BII)V
-    .registers 8
+    .locals 4
 
-    if-eqz p3, :cond_1a
+    if-eqz p3, :cond_0
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_1
 
-    goto :goto_1a
+    :cond_0
+    :goto_0
+    return-void
 
-    :cond_5
+    :cond_1
     iget v0, p0, Lcom/baidu/mobstat/bh;->g:I
 
     iget-object v1, p0, Lcom/baidu/mobstat/bh;->f:[B
@@ -459,85 +464,85 @@
 
     array-length v3, v1
 
-    if-le v2, v3, :cond_12
+    if-le v2, v3, :cond_2
 
-    array-length p1, v1
+    array-length v0, v1
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_18
+    :goto_1
+    iput v0, p0, Lcom/baidu/mobstat/bh;->g:I
 
-    :cond_12
+    goto :goto_0
+
+    :cond_2
     invoke-static {p1, p2, v1, v0, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iget p1, p0, Lcom/baidu/mobstat/bh;->g:I
+    iget v0, p0, Lcom/baidu/mobstat/bh;->g:I
 
-    add-int/2addr p1, p3
+    add-int/2addr v0, p3
 
-    :goto_18
-    iput p1, p0, Lcom/baidu/mobstat/bh;->g:I
-
-    :cond_1a
-    :goto_1a
-    return-void
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public a(ILcom/baidu/mobstat/bi;Ljava/security/SecureRandom;)V
-    .registers 5
+    .locals 3
 
     const/4 v0, 0x0
 
-    :try_start_1
+    :try_start_0
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/baidu/mobstat/bh;->a(ILcom/baidu/mobstat/bi;Ljava/security/SecureRandom;Ljava/security/spec/AlgorithmParameterSpec;)V
-    :try_end_4
-    .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_1 .. :try_end_4} :catch_5
+    :try_end_0
+    .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_5
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p2, Ljava/security/InvalidKeyException;
+    new-instance v1, Ljava/security/InvalidKeyException;
 
-    const-string p3, "Wrong parameters"
+    const-string v2, "Wrong parameters"
 
-    invoke-direct {p2, p3}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p2, p1}, Ljava/security/InvalidKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v1, v0}, Ljava/security/InvalidKeyException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    throw p2
+    throw v1
 .end method
 
 .method public a(Ljava/lang/String;)V
-    .registers 5
+    .locals 2
 
     const-string v0, "NoPadding"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    const-string v1, "NoPadding"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_1
 
-    goto :goto_11
-
-    :cond_9
-    const-string v0, "PKCS1Padding"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_14
-
-    :goto_11
+    :cond_0
     iput-object v0, p0, Lcom/baidu/mobstat/bh;->c:Ljava/lang/String;
 
-    goto :goto_26
+    :goto_0
+    return-void
 
-    :cond_14
+    :cond_1
+    const-string v0, "PKCS1Padding"
+
+    const-string v1, "PKCS1Padding"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
     sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
@@ -550,23 +555,22 @@
 
     move-result v1
 
-    const-string v2, "OAEP"
+    if-eqz v1, :cond_2
 
-    if-eqz v1, :cond_27
+    const-string v0, "OAEP"
 
-    iput-object v2, p0, Lcom/baidu/mobstat/bh;->c:Ljava/lang/String;
+    iput-object v0, p0, Lcom/baidu/mobstat/bh;->c:Ljava/lang/String;
 
-    :goto_26
-    return-void
+    goto :goto_0
 
-    :cond_27
+    :cond_2
     const-string v1, "oaepwith"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5b
+    if-eqz v1, :cond_3
 
     const-string v1, "andmgf1padding"
 
@@ -574,19 +578,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5b
+    if-eqz v0, :cond_3
 
-    iput-object v2, p0, Lcom/baidu/mobstat/bh;->c:Ljava/lang/String;
+    const-string v0, "OAEP"
+
+    iput-object v0, p0, Lcom/baidu/mobstat/bh;->c:Ljava/lang/String;
+
+    const/16 v0, 0x8
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v1
 
-    add-int/lit8 v0, v0, -0xe
+    add-int/lit8 v1, v1, -0xe
 
-    const/16 v1, 0x8
-
-    invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
@@ -600,17 +606,17 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljavax/crypto/NoSuchPaddingException;
+    new-instance v1, Ljavax/crypto/NoSuchPaddingException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljavax/crypto/NoSuchPaddingException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljavax/crypto/NoSuchPaddingException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 
-    :cond_5b
+    :cond_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "Padding "
@@ -619,29 +625,29 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " not supported"
+    const-string v1, " not supported"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljavax/crypto/NoSuchPaddingException;
+    new-instance v1, Ljavax/crypto/NoSuchPaddingException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljavax/crypto/NoSuchPaddingException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljavax/crypto/NoSuchPaddingException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method public a([BII)[B
-    .registers 4
+    .locals 1
 
     invoke-direct {p0, p1, p2, p3}, Lcom/baidu/mobstat/bh;->b([BII)V
 
     invoke-direct {p0}, Lcom/baidu/mobstat/bh;->a()[B
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

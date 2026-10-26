@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
 
     .line 594
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/io/instructions/InstructionCodec$27-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec$27;-><init>(Ljava/lang/String;I)V
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public decode(ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -47,13 +47,13 @@
     .line 598
     invoke-static {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smdecodeRegisterList(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public encode(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 3
+    .locals 0
 
     .line 603
     invoke-static {p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smencodeRegisterList(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V

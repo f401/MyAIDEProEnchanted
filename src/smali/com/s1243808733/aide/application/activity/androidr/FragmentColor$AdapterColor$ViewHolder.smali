@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor;
+    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentColor;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor;)V
-    .registers 2
+    .locals 0
 
     .line 78
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;->this$1:Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor;
@@ -35,7 +35,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor;Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;-><init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor;)V
 

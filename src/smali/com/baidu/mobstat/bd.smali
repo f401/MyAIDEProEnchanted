@@ -16,33 +16,33 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
-    const/16 v0, 0x100
-
-    new-array v1, v0, [B
-
-    fill-array-data v1, :array_2a
-
-    sput-object v1, Lcom/baidu/mobstat/bd;->a:[B
+    const/16 v2, 0x100
 
     const/16 v1, 0x81
 
-    new-array v2, v1, [B
+    new-array v0, v2, [B
 
-    fill-array-data v2, :array_ae
+    fill-array-data v0, :array_0
 
-    sput-object v2, Lcom/baidu/mobstat/bd;->b:[B
+    sput-object v0, Lcom/baidu/mobstat/bd;->a:[B
 
-    new-array v0, v0, [B
+    new-array v0, v1, [B
 
-    fill-array-data v0, :array_f4
+    fill-array-data v0, :array_1
+
+    sput-object v0, Lcom/baidu/mobstat/bd;->b:[B
+
+    new-array v0, v2, [B
+
+    fill-array-data v0, :array_2
 
     sput-object v0, Lcom/baidu/mobstat/bd;->c:[B
 
     new-array v0, v1, [B
 
-    fill-array-data v0, :array_178
+    fill-array-data v0, :array_3
 
     sput-object v0, Lcom/baidu/mobstat/bd;->d:[B
 
@@ -50,13 +50,13 @@
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_1be
+    fill-array-data v0, :array_4
 
     sput-object v0, Lcom/baidu/mobstat/bd;->e:[B
 
     return-void
 
-    :array_2a
+    :array_0
     .array-data 1
         0x22t
         0x3ct
@@ -316,7 +316,7 @@
         -0x33t
     .end array-data
 
-    :array_ae
+    :array_1
     .array-data 1
         0x0t
         -0x5ft
@@ -451,7 +451,7 @@
 
     nop
 
-    :array_f4
+    :array_2
     .array-data 1
         0x22t
         0x78t
@@ -711,7 +711,7 @@
         0x17t
     .end array-data
 
-    :array_178
+    :array_3
     .array-data 1
         0x0t
         -0x46t
@@ -846,7 +846,7 @@
 
     nop
 
-    :array_1be
+    :array_4
     .array-data 1
         0x0t
         -0x71t

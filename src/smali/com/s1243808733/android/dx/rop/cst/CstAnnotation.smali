@@ -9,12 +9,12 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/annotation/Annotation;)V
-    .registers 3
+    .locals 2
 
     .line 33
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/cst/Constant;-><init>()V
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     .line 38
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;->throwIfMutable()V
@@ -25,64 +25,65 @@
     return-void
 
     .line 35
-    :cond_b
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "annotation == null"
+    const-string v1, "annotation == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method protected compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
-    .registers 3
+    .locals 2
 
     .line 62
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
 
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;->compareTo(Lcom/s1243808733/android/dx/rop/annotation/Annotation;)I
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;->compareTo(Lcom/s1243808733/android/dx/rop/annotation/Annotation;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 2
 
     .line 46
     instance-of v0, p1, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x0
-
-    return p1
+    const/4 v0, 0x0
 
     .line 50
-    :cond_6
+    :goto_0
+    return v0
+
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
 
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/annotation/Annotation;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public getAnnotation()Lcom/s1243808733/android/dx/rop/annotation/Annotation;
-    .registers 2
+    .locals 1
 
     .line 95
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
@@ -91,7 +92,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .line 56
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
@@ -104,7 +105,7 @@
 .end method
 
 .method public isCategory2()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -112,7 +113,7 @@
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 86
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
@@ -125,7 +126,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 68
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstAnnotation;->annotation:Lcom/s1243808733/android/dx/rop/annotation/Annotation;
@@ -138,7 +139,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 74
     const-string v0, "annotation"

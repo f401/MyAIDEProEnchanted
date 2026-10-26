@@ -18,7 +18,8 @@
 .field childSets:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeSet;",
             ">;"
         }
@@ -30,7 +31,8 @@
 .field parentSets:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeSet;",
             ">;"
         }
@@ -44,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(IILcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeState;)V
-    .registers 5
+    .locals 1
 
     .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,23 +65,23 @@
     iput-object p3, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeSet;->escape:Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeState;
 
     .line 78
-    new-instance p1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeSet;->childSets:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeSet;->childSets:Ljava/util/ArrayList;
 
     .line 79
-    new-instance p1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeSet;->parentSets:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeSet;->parentSets:Ljava/util/ArrayList;
 
     .line 80
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-boolean p1, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeSet;->replaceableArray:Z
+    iput-boolean v0, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$EscapeSet;->replaceableArray:Z
 
     return-void
 .end method

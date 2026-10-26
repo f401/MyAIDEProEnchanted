@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/ChooseDir;Lcom/s1243808733/util/ChooseDir$ChooseListener;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,22 +45,22 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 2
 
     .line 52
-    iget-object p1, p0, Lcom/s1243808733/util/ChooseDir$1;->val$chooseListener:Lcom/s1243808733/util/ChooseDir$ChooseListener;
+    iget-object v0, p0, Lcom/s1243808733/util/ChooseDir$1;->val$chooseListener:Lcom/s1243808733/util/ChooseDir$ChooseListener;
 
-    iget-object p2, p0, Lcom/s1243808733/util/ChooseDir$1;->this$0:Lcom/s1243808733/util/ChooseDir;
+    iget-object v1, p0, Lcom/s1243808733/util/ChooseDir$1;->this$0:Lcom/s1243808733/util/ChooseDir;
 
-    invoke-static {p2}, Lcom/s1243808733/util/ChooseDir;->-$$Nest$fgetadapter(Lcom/s1243808733/util/ChooseDir;)Lcom/s1243808733/util/ChooseDir$FileAdapter;
+    invoke-static {v1}, Lcom/s1243808733/util/ChooseDir;->-$$Nest$fgetadapter(Lcom/s1243808733/util/ChooseDir;)Lcom/s1243808733/util/ChooseDir$FileAdapter;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p2}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->-$$Nest$fgetcurrentDir(Lcom/s1243808733/util/ChooseDir$FileAdapter;)Ljava/io/File;
+    invoke-static {v1}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->-$$Nest$fgetcurrentDir(Lcom/s1243808733/util/ChooseDir$FileAdapter;)Ljava/io/File;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-interface {p1, p2}, Lcom/s1243808733/util/ChooseDir$ChooseListener;->onChooseed(Ljava/io/File;)V
+    invoke-interface {v0, v1}, Lcom/s1243808733/util/ChooseDir$ChooseListener;->onChooseed(Ljava/io/File;)V
 
     return-void
 .end method

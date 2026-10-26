@@ -22,7 +22,11 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 15
+    .locals 6
+
+    const/4 v5, 0x0
+
+    const/4 v3, 0x0
 
     const-string v0, "fileName"
 
@@ -32,80 +36,65 @@
 
     iput-object p1, p0, Lcom/termux/styling/TermuxStyleActivity$a;->b:Ljava/lang/String;
 
-    const/16 v2, 0x2d
+    const/16 v1, 0x2d
 
-    const/16 v3, 0x20
+    const/16 v2, 0x20
 
-    const/4 v4, 0x0
+    const/4 v4, 0x4
 
-    const/4 v5, 0x4
+    move-object v0, p1
 
-    const/4 v6, 0x0
+    invoke-static/range {v0 .. v5}, Lcom/termux/yinli_a/n/e;->a(Ljava/lang/String;CCZILjava/lang/Object;)Ljava/lang/String;
 
-    move-object v1, p1
+    move-result-object v0
 
-    invoke-static/range {v1 .. v6}, Lcom/termux/yinli_a/n/e;->a(Ljava/lang/String;CCZILjava/lang/Object;)Ljava/lang/String;
+    const/16 v1, 0x2e
 
-    move-result-object p1
+    const/4 v4, 0x6
 
-    const/16 v8, 0x2e
+    move v2, v3
 
-    const/4 v9, 0x0
+    invoke-static/range {v0 .. v5}, Lcom/termux/yinli_a/n/e;->b(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
 
-    const/4 v10, 0x0
+    move-result v1
 
-    const/4 v11, 0x6
+    const/4 v2, -0x1
 
-    const/4 v12, 0x0
+    if-eq v1, v2, :cond_0
 
-    move-object v7, p1
+    if-eqz v0, :cond_1
 
-    invoke-static/range {v7 .. v12}, Lcom/termux/yinli_a/n/e;->b(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
+    invoke-virtual {v0, v3, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result v0
+    move-result-object v0
 
-    const/4 v1, -0x1
+    const-string v1, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
 
-    if-eq v0, v1, :cond_39
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-eqz p1, :cond_31
+    :cond_0
+    invoke-static {v0}, Lcom/termux/styling/a;->a(Ljava/lang/String;)Ljava/lang/String;
 
-    const/4 v1, 0x0
+    move-result-object v0
 
-    invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v0, "(this as java.lang.Strin…ing(startIndex, endIndex)"
-
-    invoke-static {p1, v0}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    goto :goto_39
-
-    :cond_31
-    new-instance p1, Lcom/termux/yinli_a/f;
-
-    const-string v0, "null cannot be cast to non-null type java.lang.String"
-
-    invoke-direct {p1, v0}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :cond_39
-    :goto_39
-    invoke-static {p1}, Lcom/termux/styling/a;->a(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/termux/styling/TermuxStyleActivity$a;->a:Ljava/lang/String;
+    iput-object v0, p0, Lcom/termux/styling/TermuxStyleActivity$a;->a:Ljava/lang/String;
 
     return-void
+
+    :cond_1
+    new-instance v0, Lcom/termux/yinli_a/f;
+
+    const-string v1, "null cannot be cast to non-null type java.lang.String"
+
+    invoke-direct {v0, v1}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 
 # virtual methods
 .method public final a()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lcom/termux/styling/TermuxStyleActivity$a;->a:Ljava/lang/String;
 
@@ -113,7 +102,7 @@
 .end method
 
 .method public final b()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lcom/termux/styling/TermuxStyleActivity$a;->b:Ljava/lang/String;
 
@@ -121,7 +110,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lcom/termux/styling/TermuxStyleActivity$a;->a:Ljava/lang/String;
 

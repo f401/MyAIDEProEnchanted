@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/aide/ui/MainActivity;Landroid/app/ActionBar$Tab;Ljava/lang/String;)V
-    .registers 7
+    .locals 3
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,25 +54,25 @@
 
     aput-object p1, v1, v2
 
-    const/4 p1, 0x1
+    const/4 v2, 0x1
 
-    aput-object p2, v1, p1
+    aput-object p2, v1, v2
 
-    const/4 p1, 0x2
+    const/4 v2, 0x2
 
-    aput-object p3, v1, p1
+    aput-object p3, v1, v2
 
     invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->newInstance([Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/app/ActionBar$TabListener;
+    check-cast v0, Landroid/app/ActionBar$TabListener;
 
-    iput-object p1, p0, Lcom/s1243808733/aide/FileTabListener;->_tabListener:Landroid/app/ActionBar$TabListener;
+    iput-object v0, p0, Lcom/s1243808733/aide/FileTabListener;->_tabListener:Landroid/app/ActionBar$TabListener;
 
     .line 34
     sput-object p0, Lcom/s1243808733/aide/FileTabListener;->sFileTabListener:Lcom/s1243808733/aide/FileTabListener;
@@ -81,123 +81,124 @@
 .end method
 
 .method public static editorMenuClose(Ljava/lang/Object;)Z
-    .registers 5
-
-    .line 57
-    invoke-static {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object p0
-
-    .line 58
-    const-string v0, "run_"
-
-    invoke-virtual {p0, v0}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/lang/Boolean;
-
-    .line 59
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainActivity()Lcom/s1243808733/aide/AideMainActivity;
-
-    move-result-object v0
-
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getCurrentEditorFile()Ljava/io/File;
-
-    move-result-object v1
+    .locals 5
 
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_1e
+    .line 57
+    invoke-static {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    const/4 v1, 0x1
+    move-result-object v0
 
-    goto :goto_1f
+    .line 58
+    const-string v1, "run_"
 
-    :cond_1e
-    const/4 v1, 0x0
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    :goto_1f
-    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/AideMainActivity;->setFileTabVisible(Z)V
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    .line 59
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainActivity()Lcom/s1243808733/aide/AideMainActivity;
+
+    move-result-object v4
+
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getCurrentEditorFile()Ljava/io/File;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    move v1, v2
+
+    :goto_0
+    invoke-virtual {v4, v1}, Lcom/s1243808733/aide/AideMainActivity;->setFileTabVisible(Z)V
 
     .line 60
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getCurrentEditorFile()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_41
+    if-nez v1, :cond_0
 
     .line 61
     invoke-static {}, Lcom/s1243808733/util/Utils;->getApp()Landroid/app/Application;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v1, "input_method"
+    const-string v4, "input_method"
 
-    invoke-virtual {v0, v1}, Landroid/app/Application;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v1, v4}, Landroid/app/Application;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
+    check-cast v1, Landroid/view/inputmethod/InputMethodManager;
 
     .line 62
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainActivity()Lcom/s1243808733/aide/AideMainActivity;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-static {v1}, Lcom/blankj/utilcode/util/KeyboardUtils;->isSoftInputVisible(Landroid/app/Activity;)Z
+    invoke-static {v4}, Lcom/blankj/utilcode/util/KeyboardUtils;->isSoftInputVisible(Landroid/app/Activity;)Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_41
+    if-eqz v4, :cond_0
 
     .line 63
-    invoke-virtual {v0, v2, v3}, Landroid/view/inputmethod/InputMethodManager;->toggleSoftInput(II)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/inputmethod/InputMethodManager;->toggleSoftInput(II)V
 
     .line 67
-    :cond_41
+    :cond_0
     invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter;->notifyDataSetChanged()V
 
     .line 68
-    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
+
+    :cond_1
+    move v1, v3
+
+    .line 59
+    goto :goto_0
 .end method
 
 .method public static filetabMenuCloseAll(Ljava/lang/Object;)Z
-    .registers 1
+    .locals 1
 
     .line 73
     invoke-static {p0}, Lcom/s1243808733/aide/FileTabListener;->editorMenuClose(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static filetabMenuCloseOthers(Ljava/lang/Object;)Z
-    .registers 1
+    .locals 1
 
     .line 78
     invoke-static {p0}, Lcom/s1243808733/aide/FileTabListener;->editorMenuClose(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 
 # virtual methods
 .method public onTabReselected(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V
-    .registers 4
+    .locals 1
 
     .line 52
     iget-object v0, p0, Lcom/s1243808733/aide/FileTabListener;->_tabListener:Landroid/app/ActionBar$TabListener;
@@ -208,7 +209,7 @@
 .end method
 
 .method public onTabSelected(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V
-    .registers 4
+    .locals 2
 
     .line 39
     iget-object v0, p0, Lcom/s1243808733/aide/FileTabListener;->_tabListener:Landroid/app/ActionBar$TabListener;
@@ -218,11 +219,11 @@
     .line 40
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getCurrentEditorFile()Ljava/io/File;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 p2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, p2}, Lcom/s1243808733/aide/util/AIDEUtils;->appendOpenFile(Ljava/io/File;I)V
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/util/AIDEUtils;->appendOpenFile(Ljava/io/File;I)V
 
     .line 41
     invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter;->notifyDataSetChanged()V
@@ -231,7 +232,7 @@
 .end method
 
 .method public onTabUnselected(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V
-    .registers 4
+    .locals 1
 
     .line 47
     iget-object v0, p0, Lcom/s1243808733/aide/FileTabListener;->_tabListener:Landroid/app/ActionBar$TabListener;

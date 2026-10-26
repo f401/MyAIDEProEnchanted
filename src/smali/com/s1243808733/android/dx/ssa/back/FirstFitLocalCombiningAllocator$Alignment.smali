@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;",
         ">;"
     }
@@ -34,7 +35,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;
-    .registers 3
+    .locals 3
 
     .line 52
     const/4 v0, 0x3
@@ -63,7 +64,9 @@
 .end method
 
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 53
     new-instance v0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment$1;
@@ -71,8 +74,6 @@
     const-string v1, "EVEN"
 
     const/4 v2, 0x0
-
-    const/4 v3, 0x0
 
     invoke-direct {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment$1;-><init>(Ljava/lang/String;ILcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment$1-IA;)V
 
@@ -111,7 +112,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -125,7 +126,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;-><init>(Ljava/lang/String;I)V
 
@@ -133,22 +134,22 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;
-    .registers 2
+    .locals 1
 
     .line 52
     const-class v0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;
+    check-cast v0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;
-    .registers 1
+    .locals 1
 
     .line 52
     sget-object v0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;->$VALUES:[Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment;

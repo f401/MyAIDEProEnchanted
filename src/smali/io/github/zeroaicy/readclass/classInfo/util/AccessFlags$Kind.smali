@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;",
         ">;"
     }
@@ -36,67 +37,67 @@
 
 # direct methods
 .method static final constructor <clinit>()V
-    .registers 9
+    .locals 9
+
+    const/4 v8, 0x3
+
+    const/4 v7, 0x2
+
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
 
     new-instance v0, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
 
     const-string v1, "Class"
 
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v5}, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->Class:Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
 
     new-instance v1, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
 
-    const-string v3, "InnerClass"
+    const-string v2, "InnerClass"
 
-    const/4 v4, 0x1
-
-    invoke-direct {v1, v3, v4}, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v6}, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;-><init>(Ljava/lang/String;I)V
 
     sput-object v1, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->InnerClass:Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
 
+    new-instance v2, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
+
+    const-string v3, "Field"
+
+    invoke-direct {v2, v3, v7}, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->Field:Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
+
     new-instance v3, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
 
-    const-string v5, "Field"
+    const-string v4, "Method"
 
-    const/4 v6, 0x2
+    invoke-direct {v3, v4, v8}, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v3, v5, v6}, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;-><init>(Ljava/lang/String;I)V
+    sput-object v3, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->Method:Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
 
-    sput-object v3, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->Field:Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
+    const/4 v4, 0x4
 
-    new-instance v5, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
+    new-array v4, v4, [Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
 
-    const-string v7, "Method"
+    aput-object v0, v4, v5
 
-    const/4 v8, 0x3
+    aput-object v1, v4, v6
 
-    invoke-direct {v5, v7, v8}, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;-><init>(Ljava/lang/String;I)V
+    aput-object v2, v4, v7
 
-    sput-object v5, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->Method:Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
+    aput-object v3, v4, v8
 
-    const/4 v7, 0x4
-
-    new-array v7, v7, [Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
-
-    aput-object v0, v7, v2
-
-    aput-object v1, v7, v4
-
-    aput-object v3, v7, v6
-
-    aput-object v5, v7, v8
-
-    sput-object v7, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->$VALUES:[Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
+    sput-object v4, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->$VALUES:[Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
 
     .line 42
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
@@ -105,19 +106,19 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
-    .registers 5
+    .locals 4
 
     .line 42
-    sget-object v0, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->$VALUES:[Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
+    sget-object v1, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->$VALUES:[Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_3
-    array-length v2, v0
+    :goto_0
+    array-length v2, v1
 
-    if-ge v1, v2, :cond_16
+    if-ge v0, v2, :cond_1
 
-    aget-object v2, v0, v1
+    aget-object v2, v1, v0
 
     invoke-virtual {v2}, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->name()Ljava/lang/String;
 
@@ -127,31 +128,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_13
+    if-eqz v3, :cond_0
 
     return-object v2
 
-    :cond_13
-    add-int/lit8 v1, v1, 0x1
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
-    :cond_16
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    goto :goto_1d
-
-    :goto_1c
-    throw p0
-
-    :goto_1d
-    goto :goto_1c
+    throw v0
 .end method
 
 .method public static final values()[Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;
-    .registers 1
+    .locals 1
 
     .line 42
     sget-object v0, Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;->$VALUES:[Lio/github/zeroaicy/readclass/classInfo/util/AccessFlags$Kind;

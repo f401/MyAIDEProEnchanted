@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Ljava/io/File;Lcom/s1243808733/aide/application/activity/icons/Icon;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,32 +49,32 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 5
+    .locals 4
 
     .line 205
-    new-instance p1, Ljava/io/File;
-
     new-instance v0, Ljava/io/File;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$4;->val$pictures:Ljava/io/File;
+    new-instance v1, Ljava/io/File;
 
-    const-string v2, "vector"
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$4;->val$pictures:Ljava/io/File;
+
+    const-string v3, "vector"
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$4;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
+
+    const-string v3, ".xml"
+
+    invoke-virtual {v2, v3}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getFileName(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$4;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
-
-    const-string v2, ".xml"
-
-    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getFileName(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v1
-
-    invoke-direct {p1, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object p1
 
     .line 206
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$4;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
@@ -84,28 +84,28 @@
     move-result-object v0
 
     .line 207
-    invoke-static {p1, v0}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v1, v0}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 208
-    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$4;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$4;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2e
+    if-eqz v0, :cond_0
 
-    const-string v1, "已导出至"
+    const-string v0, "\u5df2\u5bfc\u51fa\u81f3"
 
-    goto :goto_30
+    :goto_0
+    invoke-static {v2, v0, v1}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->-$$Nest$mshowMsgDialog(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2e
-    const-string v1, "Exported to"
+    const/4 v0, 0x0
 
-    :goto_30
-    invoke-static {v0, v1, p1}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->-$$Nest$mshowMsgDialog(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Ljava/lang/String;Ljava/lang/String;)V
+    return v0
 
-    const/4 p1, 0x0
+    :cond_0
+    const-string v0, "Exported to"
 
-    return p1
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 729
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$10;->this$0:Lcom/termux/app/TermuxActivity;
@@ -36,41 +36,41 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 6
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
     .line 732
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$10;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$10;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
 
-    invoke-virtual {p1, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v0, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/termux/terminal/TerminalSession;
+    check-cast v0, Lcom/termux/terminal/TerminalSession;
 
     .line 733
-    iget-object p2, p0, Lcom/termux/app/TermuxActivity$10;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity$10;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p2, p1}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
+    invoke-virtual {v1, v0}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
 
     .line 734
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$10;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$10;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
+    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
 
     return-void
 .end method

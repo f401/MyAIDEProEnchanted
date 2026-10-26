@@ -35,15 +35,15 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$mmultipleMode(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->multipleMode()V
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$msave(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;Z)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->save(Z)V
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 32
     invoke-direct {p0}, Lcom/s1243808733/app/base/BaseActivity;-><init>()V
@@ -68,87 +68,88 @@
 .end method
 
 .method private getContentView()Landroid/view/View;
-    .registers 4
+    .locals 4
+
+    const/4 v3, -0x1
 
     .line 93
-    new-instance v0, Landroid/widget/FrameLayout;
+    new-instance v1, Landroid/widget/FrameLayout;
 
-    invoke-direct {v0, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     .line 94
-    new-instance v1, Lcom/s1243808733/aide/application/activity/permission/ManifestView;
+    new-instance v0, Lcom/s1243808733/aide/application/activity/permission/ManifestView;
 
-    invoke-direct {v1, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestView;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->manifestView:Lcom/s1243808733/aide/application/activity/permission/ManifestView;
+    iput-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->manifestView:Lcom/s1243808733/aide/application/activity/permission/ManifestView;
 
     .line 95
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
     .line 96
-    new-instance v1, Landroid/widget/TextView;
+    new-instance v0, Landroid/widget/TextView;
 
-    invoke-direct {v1, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
 
     .line 97
     const/16 v2, 0x11
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setGravity(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setGravity(I)V
 
     .line 98
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_26
+    if-eqz v0, :cond_0
 
-    const-string v2, "没有权限"
+    const-string v0, "\u6ca1\u6709\u6743\u9650"
 
-    goto :goto_28
-
-    :cond_26
-    const-string v2, "No Permission"
-
-    :goto_28
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    :goto_0
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 99
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
 
     const v2, 0x1030042
 
-    invoke-virtual {v1, p0, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    invoke-virtual {v0, p0, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     .line 100
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
 
-    const/high16 v2, 0x41900000  # 18.0f
+    const/high16 v2, 0x41900000    # 18.0f
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextSize(F)V
 
     .line 101
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
 
     const/16 v2, 0x8
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 102
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
 
-    const/4 v2, -0x1
+    invoke-virtual {v1, v0, v3, v3}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;II)V
 
-    invoke-virtual {v0, v1, v2, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;II)V
+    return-object v1
 
-    return-object v0
+    .line 98
+    :cond_0
+    const-string v0, "No Permission"
+
+    goto :goto_0
 .end method
 
 .method public static isAnnotationPermission()Z
-    .registers 3
+    .locals 3
 
     .line 319
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -167,39 +168,41 @@
 .end method
 
 .method private load()V
-    .registers 4
+    .locals 3
 
     .line 71
-    const-string v0, "path"
+    :try_start_0
+    invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->getIntent()Landroid/content/Intent;
 
-    :try_start_2
+    move-result-object v0
+
+    const-string v1, "path"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 72
+    new-instance v0, Ljava/io/File;
+
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+    const-string v2, "path"
 
-    move-result v1
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    if-eqz v1, :cond_1b
+    move-result-object v1
 
-    .line 72
-    new-instance v1, Ljava/io/File;
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    iput-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->manifestFile:Ljava/io/File;
+    iput-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->manifestFile:Ljava/io/File;
 
     .line 76
-    :cond_1b
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->manifestFile:Ljava/io/File;
 
     invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/PManifestUtils;->load(Ljava/io/File;)Ljava/util/List;
@@ -225,8 +228,8 @@
 
     .line 80
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->onDataSetChanged()V
-    :try_end_35
-    .catchall {:try_start_2 .. :try_end_35} :catchall_40
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 87
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->manifestView:Lcom/s1243808733/aide/application/activity/permission/ManifestView;
@@ -238,9 +241,10 @@
 
     invoke-virtual {v0, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
 
+    :goto_0
     return-void
 
-    :catchall_40
+    :catchall_0
     move-exception v0
 
     .line 82
@@ -259,35 +263,30 @@
     .line 83
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->finish()V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method private multipleMode()V
-    .registers 3
+    .locals 2
 
     .line 220
     invoke-virtual {p0, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->actionMode:Landroid/view/ActionMode;
+    iput-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->actionMode:Landroid/view/ActionMode;
 
     .line 222
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_f
+    if-eqz v0, :cond_0
 
-    const-string v1, "多选操作"
+    const-string v0, "\u591a\u9009\u64cd\u4f5c"
 
-    goto :goto_11
-
-    :cond_f
-    const-string v1, "Multi select"
-
-    :goto_11
-    invoke-virtual {v0, v1}, Landroid/view/ActionMode;->setTitle(Ljava/lang/CharSequence;)V
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/view/ActionMode;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 223
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->actionMode:Landroid/view/ActionMode;
@@ -297,10 +296,16 @@
     invoke-virtual {v0, v1}, Landroid/view/ActionMode;->setSubtitle(Ljava/lang/CharSequence;)V
 
     return-void
+
+    .line 222
+    :cond_0
+    const-string v0, "Multi select"
+
+    goto :goto_0
 .end method
 
 .method private save(Z)V
-    .registers 6
+    .locals 5
 
     .line 355
     :try_start_0
@@ -339,11 +344,11 @@
     iget-object v2, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->manifestFile:Ljava/io/File;
 
     invoke-direct {v1, v2}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
-    :try_end_23
-    .catchall {:try_start_0 .. :try_end_23} :catchall_4e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 358
-    :try_start_23
+    :try_start_1
     invoke-virtual {v1, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
     .line 359
@@ -353,139 +358,151 @@
 
     .line 360
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_7
 
-    move-result v2
-    :try_end_2e
-    .catchall {:try_start_23 .. :try_end_2e} :catchall_4c
+    move-result v0
 
-    if-eqz v2, :cond_33
+    if-eqz v0, :cond_1
 
-    const-string v2, "保存成功"
+    const-string v0, "\u4fdd\u5b58\u6210\u529f"
 
-    goto :goto_35
+    :goto_0
+    :try_start_2
+    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
 
-    :cond_33
-    const-string v2, "Saved success"
-
-    :goto_35
-    :try_start_35
-    invoke-static {v2}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
-
-    move-result-object v2
+    move-result-object v0
 
     .line 361
-    const/16 v3, 0x11
+    const/16 v2, 0x11
 
-    invoke-virtual {v2, v3, v0, v0}, Landroid/widget/Toast;->setGravity(III)V
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v2, v3, v4}, Landroid/widget/Toast;->setGravity(III)V
 
     .line 362
-    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    if-eqz p1, :cond_46
+    if-eqz p1, :cond_0
 
     .line 364
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->finish()V
-    :try_end_46
-    .catchall {:try_start_35 .. :try_end_46} :catchall_4c
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_7
 
     .line 370
-    :cond_46
-    :try_start_46
+    :cond_0
+    :try_start_3
     invoke-virtual {v1}, Ljava/io/FileWriter;->flush()V
-    :try_end_49
-    .catchall {:try_start_46 .. :try_end_49} :catchall_4a
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_58
-
-    .line 375
-    :catchall_4a
-    move-exception p1
-
-    goto :goto_58
+    move-object v0, v1
 
     .line 373
-    :catchall_4c
-    move-exception p1
+    :goto_1
+    :try_start_4
+    invoke-virtual {v0}, Ljava/io/FileWriter;->close()V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_4
 
-    goto :goto_50
+    :goto_2
+    return-void
 
-    :catchall_4e
-    move-exception p1
+    .line 360
+    :cond_1
+    const-string v0, "Saved success"
+
+    goto :goto_0
+
+    .line 375
+    :catchall_0
+    move-exception v0
+
+    move-object v0, v1
+
+    goto :goto_1
+
+    .line 373
+    :catchall_1
+    move-exception v0
 
     const/4 v1, 0x0
 
     .line 367
-    :goto_50
-    :try_start_50
-    invoke-static {p0, p1}, Lcom/s1243808733/util/Utils;->showExDialog(Landroid/content/Context;Ljava/lang/Throwable;)V
-    :try_end_53
-    .catchall {:try_start_50 .. :try_end_53} :catchall_5e
+    :goto_3
+    :try_start_5
+    invoke-static {p0, v0}, Lcom/s1243808733/util/Utils;->showExDialog(Landroid/content/Context;Ljava/lang/Throwable;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_3
 
     .line 370
-    :try_start_53
+    :try_start_6
     invoke-virtual {v1}, Ljava/io/FileWriter;->flush()V
-    :try_end_56
-    .catchall {:try_start_53 .. :try_end_56} :catchall_57
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
-    goto :goto_58
+    move-object v0, v1
 
-    .line 375
-    :catchall_57
-    move-exception p1
-
-    .line 373
-    :goto_58
-    :try_start_58
-    invoke-virtual {v1}, Ljava/io/FileWriter;->close()V
-    :try_end_5b
-    .catchall {:try_start_58 .. :try_end_5b} :catchall_5c
-
-    goto :goto_5d
+    goto :goto_1
 
     .line 375
-    :catchall_5c
-    move-exception p1
+    :catchall_2
+    move-exception v0
+
+    move-object v0, v1
+
+    goto :goto_1
 
     .line 373
-    :goto_5d
-    return-void
-
-    :catchall_5e
-    move-exception p1
+    :catchall_3
+    move-exception v0
 
     .line 370
-    :try_start_5f
+    :try_start_7
     invoke-virtual {v1}, Ljava/io/FileWriter;->flush()V
-    :try_end_62
-    .catchall {:try_start_5f .. :try_end_62} :catchall_63
-
-    goto :goto_64
-
-    .line 375
-    :catchall_63
-    move-exception v0
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_5
 
     .line 373
-    :goto_64
-    :try_start_64
+    :goto_4
+    :try_start_8
     invoke-virtual {v1}, Ljava/io/FileWriter;->close()V
-    :try_end_67
-    .catchall {:try_start_64 .. :try_end_67} :catchall_68
-
-    goto :goto_69
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_6
 
     .line 375
-    :catchall_68
+    :goto_5
+    throw v0
+
+    :catchall_4
     move-exception v0
 
-    :goto_69
-    throw p1
+    goto :goto_2
+
+    :catchall_5
+    move-exception v2
+
+    goto :goto_4
+
+    :catchall_6
+    move-exception v1
+
+    goto :goto_5
+
+    .line 373
+    :catchall_7
+    move-exception v0
+
+    goto :goto_3
 .end method
 
 
 # virtual methods
 .method getSp()Landroid/content/SharedPreferences;
-    .registers 2
+    .locals 1
 
     .line 323
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -496,7 +513,7 @@
 .end method
 
 .method public isDataChange()Z
-    .registers 2
+    .locals 1
 
     .line 58
     iget-boolean v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->dataChange:Z
@@ -505,109 +522,89 @@
 .end method
 
 .method public onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
-    .registers 3
+    .locals 1
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public onBackPressed()V
-    .registers 4
+    .locals 3
 
     .line 328
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->isDataChange()Z
 
     move-result v0
 
-    if-eqz v0, :cond_59
+    if-eqz v0, :cond_4
 
     .line 329
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 330
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_14
+    if-eqz v0, :cond_0
 
-    const-string v1, "保存修改"
+    const-string v0, "\u4fdd\u5b58\u4fee\u6539"
 
-    goto :goto_16
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    :cond_14
-    const-string v1, "Save modified"
-
-    :goto_16
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
+    move-result-object v1
 
     .line 331
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_23
+    if-eqz v0, :cond_1
 
-    const-string v1, "数据已发生变化，是否保存？"
+    const-string v0, "\u6570\u636e\u5df2\u53d1\u751f\u53d8\u5316\uff0c\u662f\u5426\u4fdd\u5b58\uff1f"
 
-    goto :goto_25
+    :goto_1
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    :cond_23
-    const-string v1, "Data has changed, do you want to save?"
-
-    :goto_25
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
+    move-result-object v1
 
     .line 332
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_32
+    if-eqz v0, :cond_2
 
-    const-string v1, "保存"
+    const-string v0, "\u4fdd\u5b58"
 
-    goto :goto_34
-
-    :cond_32
-    const-string v1, "Save"
-
-    :goto_34
+    :goto_2
     new-instance v2, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$11;
 
     invoke-direct {v2, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$11;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 339
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_46
+    if-eqz v0, :cond_3
 
-    const-string v1, "不保存"
+    const-string v0, "\u4e0d\u4fdd\u5b58"
 
-    goto :goto_48
-
-    :cond_46
-    const-string v1, "no"
-
-    :goto_48
+    :goto_3
     new-instance v2, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$10;
 
     invoke-direct {v2, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$10;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -619,17 +616,43 @@
     .line 347
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
+    .line 350
+    :goto_4
     return-void
+
+    .line 330
+    :cond_0
+    const-string v0, "Save modified"
+
+    goto :goto_0
+
+    .line 331
+    :cond_1
+    const-string v0, "Data has changed, do you want to save?"
+
+    goto :goto_1
+
+    .line 332
+    :cond_2
+    const-string v0, "Save"
+
+    goto :goto_2
+
+    .line 339
+    :cond_3
+    const-string v0, "no"
+
+    goto :goto_3
 
     .line 350
-    :cond_59
+    :cond_4
     invoke-super {p0}, Lcom/s1243808733/app/base/BaseActivity;->onBackPressed()V
 
-    return-void
+    goto :goto_4
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 2
 
     .line 62
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/BaseActivity;->onCreate(Landroid/os/Bundle;)V
@@ -637,52 +660,55 @@
     .line 63
     invoke-direct {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->getContentView()Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->setContentView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->setContentView(Landroid/view/View;)V
 
     .line 64
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->getActionBar()Landroid/app/ActionBar;
 
-    move-result-object p1
+    move-result-object v1
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
-    const-string v0, "权限编辑"
+    const-string v0, "\u6743\u9650\u7f16\u8f91"
 
-    goto :goto_19
-
-    :cond_17
-    const-string v0, "Permission Edit"
-
-    :goto_19
-    invoke-virtual {p1, v0}, Landroid/app/ActionBar;->setTitle(Ljava/lang/CharSequence;)V
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/app/ActionBar;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 66
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->getActionBar()Landroid/app/ActionBar;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, v0}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     return-void
+
+    .line 64
+    :cond_0
+    const-string v0, "Permission Edit"
+
+    goto :goto_0
 .end method
 
 .method public onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 6
+    .locals 4
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
 
     .line 229
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->setSelectMode(Z)V
+    invoke-virtual {v0, v3}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->setSelectMode(Z)V
 
     .line 230
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
@@ -694,134 +720,132 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
-    const-string v0, "删除"
+    const-string v0, "\u5220\u9664"
 
-    goto :goto_16
-
-    :cond_14
-    const-string v0, "Delect"
-
-    :goto_16
+    :goto_0
     invoke-interface {p2, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    new-instance v2, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;
+    new-instance v1, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;
 
-    invoke-direct {v2, p0, p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;Landroid/view/ActionMode;)V
+    invoke-direct {v1, p0, p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;Landroid/view/ActionMode;)V
 
-    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 244
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    invoke-interface {p1, v0}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 246
-    const p1, 0x104000d
+    const v0, 0x104000d
 
-    invoke-interface {p2, p1}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
+    invoke-interface {p2, v0}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance v0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$7;
+    new-instance v1, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$7;
 
-    invoke-direct {v0, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$7;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
+    invoke-direct {v1, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$7;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
 
-    invoke-interface {p1, v0}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 257
-    const/4 v0, 0x0
-
-    invoke-interface {p1, v0}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 259
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_44
+    if-eqz v0, :cond_1
 
-    const-string p1, "全不选"
+    const-string v0, "\u5168\u4e0d\u9009"
 
-    goto :goto_46
+    :goto_1
+    invoke-interface {p2, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    :cond_44
-    const-string p1, "Unselect all"
+    move-result-object v0
 
-    :goto_46
-    invoke-interface {p2, p1}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    new-instance v1, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$8;
 
-    move-result-object p1
+    invoke-direct {v1, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$8;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
 
-    new-instance v2, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$8;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    invoke-direct {v2, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$8;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
-
-    invoke-interface {p1, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
-
-    move-result-object p1
+    move-result-object v0
 
     .line 267
-    invoke-interface {p1, v0}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 269
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_5f
+    if-eqz v0, :cond_2
 
-    const-string p1, "反选"
+    const-string v0, "\u53cd\u9009"
 
-    goto :goto_61
+    :goto_2
+    invoke-interface {p2, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    :cond_5f
-    const-string p1, "Invert Select"
+    move-result-object v0
 
-    :goto_61
-    invoke-interface {p2, p1}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    new-instance v1, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$9;
 
-    move-result-object p1
+    invoke-direct {v1, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$9;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
 
-    new-instance p2, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$9;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    invoke-direct {p2, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$9;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
-
-    invoke-interface {p1, p2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
-
-    move-result-object p1
+    move-result-object v0
 
     .line 285
-    invoke-interface {p1, v0}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    return v1
+    return v3
+
+    .line 231
+    :cond_0
+    const-string v0, "Delect"
+
+    goto :goto_0
+
+    .line 259
+    :cond_1
+    const-string v0, "Unselect all"
+
+    goto :goto_1
+
+    .line 269
+    :cond_2
+    const-string v0, "Invert Select"
+
+    goto :goto_2
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .registers 5
+    .locals 3
+
+    const/4 v2, 0x2
 
     .line 169
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
-    const-string v0, "保存"
+    const-string v0, "\u4fdd\u5b58"
 
-    goto :goto_b
-
-    :cond_9
-    const-string v0, "Sava"
-
-    :goto_b
+    :goto_0
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
@@ -844,55 +868,43 @@
     iput-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->item_save:Landroid/view/MenuItem;
 
     .line 177
-    const/4 v1, 0x2
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 179
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_1
 
-    const-string v0, "添加"
+    const-string v0, "\u6dfb\u52a0"
 
-    goto :goto_2e
-
-    :cond_2c
-    const-string v0, "Add"
-
-    :goto_2e
+    :goto_1
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    new-instance v2, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$3;
+    new-instance v1, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$3;
 
-    invoke-direct {v2, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$3;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
+    invoke-direct {v1, p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$3;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
 
-    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     move-result-object v0
 
     .line 195
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 196
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_2
 
-    const-string v0, "自动注释权限"
+    const-string v0, "\u81ea\u52a8\u6ce8\u91ca\u6743\u9650"
 
-    goto :goto_49
-
-    :cond_47
-    const-string v0, "Comment permission"
-
-    :goto_49
+    :goto_2
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
@@ -925,16 +937,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6b
+    if-eqz v0, :cond_3
 
-    const-string v0, "多选操作"
+    const-string v0, "\u591a\u9009\u64cd\u4f5c"
 
-    goto :goto_6d
-
-    :cond_6b
-    const-string v0, "Multi select"
-
-    :goto_6d
+    :goto_3
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
@@ -951,13 +958,37 @@
     .line 216
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/BaseActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
+
+    .line 169
+    :cond_0
+    const-string v0, "Sava"
+
+    goto :goto_0
+
+    .line 179
+    :cond_1
+    const-string v0, "Add"
+
+    goto :goto_1
+
+    .line 196
+    :cond_2
+    const-string v0, "Comment permission"
+
+    goto :goto_2
+
+    .line 207
+    :cond_3
+    const-string v0, "Multi select"
+
+    goto :goto_3
 .end method
 
 .method public onDataSetChanged()V
-    .registers 3
+    .locals 2
 
     .line 109
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
@@ -966,7 +997,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 110
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
@@ -975,175 +1006,180 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_16
-
     .line 112
-    :cond_f
+    :goto_0
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->emptyView:Landroid/widget/TextView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :goto_16
-    return-void
+    goto :goto_0
 .end method
 
 .method public onDestroyActionMode(Landroid/view/ActionMode;)V
-    .registers 3
+    .locals 2
 
     .line 302
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->setSelectMode(Z)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->setSelectMode(Z)V
 
     .line 303
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
     .line 126
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    invoke-virtual {p1, p3}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/permission/Permission;
+    invoke-virtual {v0, p3}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/permission/Permission;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 127
-    iget-object p3, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    invoke-virtual {p3}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->isSelectMode()Z
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->isSelectMode()Z
 
-    move-result p3
+    move-result v0
 
-    if-eqz p3, :cond_21
+    if-eqz v0, :cond_0
 
     .line 128
     check-cast p2, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ItemView;
 
     .line 129
-    iget-object p2, p2, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ItemView;->holder:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;
+    iget-object v0, p2, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ItemView;->holder:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;
 
     .line 130
-    iget-object p3, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    invoke-virtual {p2}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->invertSelection()Z
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->invertSelection()Z
 
-    move-result p2
+    move-result v0
 
-    invoke-virtual {p3, p1, p2}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->setSelected(Lcom/s1243808733/aide/application/activity/permission/Permission;Z)V
+    invoke-virtual {v2, v1, v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->setSelected(Lcom/s1243808733/aide/application/activity/permission/Permission;Z)V
 
     .line 131
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
 
+    .line 148
+    :goto_0
     return-void
 
     .line 134
-    :cond_21
-    new-instance p2, Landroid/app/AlertDialog$Builder;
+    :cond_0
+    new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {p2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 135
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getLabel()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getLabel()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 136
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getDescribe()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getDescribe()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p2
+    move-result-object v2
 
     .line 137
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p3
+    move-result v0
 
-    if-eqz p3, :cond_3f
+    if-eqz v0, :cond_1
 
-    const-string p3, "删除"
+    const-string v0, "\u5220\u9664"
 
-    goto :goto_41
+    :goto_1
+    new-instance v3, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;
 
-    :cond_3f
-    const-string p3, "Delect"
+    invoke-direct {v3, p0, v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;Lcom/s1243808733/aide/application/activity/permission/Permission;)V
 
-    :goto_41
-    new-instance p4, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;
+    invoke-virtual {v2, v0, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {p4, p0, p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;-><init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;Lcom/s1243808733/aide/application/activity/permission/Permission;)V
-
-    invoke-virtual {p2, p3, p4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
+    move-result-object v0
 
     .line 146
-    const/high16 p2, 0x1040000
+    const/high16 v1, 0x1040000
 
-    const/4 p3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, p2, p3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 147
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 148
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    return-void
+    goto :goto_0
+
+    .line 137
+    :cond_1
+    const-string v0, "Delect"
+
+    goto :goto_1
 .end method
 
 .method public onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
-    .registers 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)Z"
         }
     .end annotation
 
+    const/4 v0, 0x1
+
     .line 154
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->isSelectMode()Z
+    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->isSelectMode()Z
 
-    move-result p1
+    move-result v1
 
-    if-nez p1, :cond_24
+    if-nez v1, :cond_0
 
     .line 155
     invoke-direct {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->multipleMode()V
@@ -1152,40 +1188,39 @@
     check-cast p2, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ItemView;
 
     .line 157
-    iget-object p1, p2, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ItemView;->holder:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;
+    iget-object v1, p2, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ItemView;->holder:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;
 
     .line 158
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    invoke-virtual {p2, p3}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/permission/Permission;
+    invoke-virtual {v2, p3}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/permission/Permission;
 
-    move-result-object p2
+    move-result-object v2
 
     .line 159
-    const/4 p3, 0x1
-
-    invoke-virtual {p1, p3}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->setSelection(Z)V
+    invoke-virtual {v1, v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->setSelection(Z)V
 
     .line 160
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    invoke-virtual {p1, p2, p3}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->setSelected(Lcom/s1243808733/aide/application/activity/permission/Permission;Z)V
+    invoke-virtual {v1, v2, v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->setSelected(Lcom/s1243808733/aide/application/activity/permission/Permission;Z)V
 
     .line 161
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
 
-    return p3
+    :goto_0
+    return v0
 
-    :cond_24
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 2
 
     .line 309
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
@@ -1194,89 +1229,90 @@
 
     const v1, 0x102002c
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_0
 
     .line 311
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->onBackPressed()V
 
-    const/4 p1, 0x1
-
-    return p1
+    const/4 v0, 0x1
 
     .line 314
-    :cond_e
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/BaseActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 3
+    .locals 1
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public onSelection(Lcom/s1243808733/aide/application/activity/permission/Permission;Z)V
-    .registers 6
+    .locals 5
 
     .line 118
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->actionMode:Landroid/view/ActionMode;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->actionMode:Landroid/view/ActionMode;
 
-    if-eqz p1, :cond_2a
+    if-eqz v1, :cond_0
 
     .line 119
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_d
+    if-eqz v0, :cond_1
 
-    const-string p2, "已选 %d 项"
+    const-string v0, "\u5df2\u9009 %d \u9879"
 
-    goto :goto_f
+    :goto_0
+    const/4 v2, 0x1
 
-    :cond_d
-    const-string p2, "%d selected items"
+    new-array v2, v2, [Ljava/lang/Object;
 
-    :goto_f
-    const/4 v0, 0x1
+    const/4 v3, 0x0
 
-    new-array v0, v0, [Ljava/lang/Object;
+    iget-object v4, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->mainAdapter:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    invoke-virtual {v4}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getSelected()Ljava/util/Map;
 
-    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getSelected()Ljava/util/Map;
+    move-result-object v4
 
-    move-result-object v1
+    invoke-interface {v4}, Ljava/util/Map;->size()I
 
-    invoke-interface {v1}, Ljava/util/Map;->size()I
+    move-result v4
 
-    move-result v1
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v4
 
-    move-result-object v1
+    aput-object v4, v2, v3
 
-    const/4 v2, 0x0
+    invoke-static {v0, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    aput-object v1, v0, v2
+    move-result-object v0
 
-    invoke-static {p2, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v0}, Landroid/view/ActionMode;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/view/ActionMode;->setSubtitle(Ljava/lang/CharSequence;)V
-
-    :cond_2a
+    :cond_0
     return-void
+
+    :cond_1
+    const-string v0, "%d selected items"
+
+    goto :goto_0
 .end method
 
 .method public setDataChange(Z)V
-    .registers 3
+    .locals 1
 
     .line 51
     iput-boolean p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->dataChange:Z
@@ -1284,11 +1320,11 @@
     .line 52
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->item_save:Landroid/view/MenuItem;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 53
     invoke-interface {v0, p1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    :cond_9
+    :cond_0
     return-void
 .end method

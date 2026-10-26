@@ -15,14 +15,14 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
-    .registers 4
+    .locals 2
 
     .line 44
     const-string v0, "EnclosingMethod"
 
     invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/cf/attrib/BaseAttribute;-><init>(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     .line 50
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/attrib/AttEnclosingMethod;->type:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -33,20 +33,20 @@
     return-void
 
     .line 47
-    :cond_c
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "type == null"
+    const-string v1, "type == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public byteLength()I
-    .registers 2
+    .locals 1
 
     const/16 v0, 0xa
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public getEnclosingClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 66
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttEnclosingMethod;->type:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -63,7 +63,7 @@
 .end method
 
 .method public getMethod()Lcom/s1243808733/android/dx/rop/cst/CstNat;
-    .registers 2
+    .locals 1
 
     .line 77
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttEnclosingMethod;->method:Lcom/s1243808733/android/dx/rop/cst/CstNat;

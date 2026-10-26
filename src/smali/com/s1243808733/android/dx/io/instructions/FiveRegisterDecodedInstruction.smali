@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJIIIII)V
-    .registers 13
+    .locals 0
 
     .line 46
     invoke-direct/range {p0 .. p7}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJ)V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public getA()I
-    .registers 2
+    .locals 1
 
     .line 64
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;->a:I
@@ -52,7 +52,7 @@
 .end method
 
 .method public getB()I
-    .registers 2
+    .locals 1
 
     .line 70
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;->b:I
@@ -61,7 +61,7 @@
 .end method
 
 .method public getC()I
-    .registers 2
+    .locals 1
 
     .line 76
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;->c:I
@@ -70,7 +70,7 @@
 .end method
 
 .method public getD()I
-    .registers 2
+    .locals 1
 
     .line 82
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;->d:I
@@ -79,7 +79,7 @@
 .end method
 
 .method public getE()I
-    .registers 2
+    .locals 1
 
     .line 88
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;->e:I
@@ -88,7 +88,7 @@
 .end method
 
 .method public getRegisterCount()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x5
 
@@ -96,12 +96,9 @@
 .end method
 
 .method public withIndex(I)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 16
+    .locals 13
 
     .line 94
-    nop
-
-    .line 95
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;->getFormat()Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
 
     move-result-object v1
@@ -115,7 +112,7 @@
     move-result-object v4
 
     .line 96
-    new-instance v13, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;->getTarget()I
 
@@ -135,11 +132,9 @@
 
     iget v12, p0, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;->e:I
 
-    move-object v0, v13
-
     move v3, p1
 
     invoke-direct/range {v0 .. v12}, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJIIIII)V
 
-    return-object v13
+    return-object v0
 .end method

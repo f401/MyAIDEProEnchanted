@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/highlight/HighlightActivity;)V
-    .registers 2
+    .locals 0
 
     .line 176
     iput-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$3;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
@@ -36,20 +36,24 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 9
+    .locals 9
+
+    const/4 v8, 0x1
+
+    const/4 v1, 0x0
 
     .line 180
     invoke-static {}, Lcom/s1243808733/aide/highlight/HighlightUtils;->getHSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 181
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 182
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->clear()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->clear()Landroid/content/SharedPreferences$Editor;
 
     .line 183
     invoke-static {}, Lcom/s1243808733/aide/highlight/HighlightUtils;->getHighlightColor()Lcom/s1243808733/aide/highlight/color/Colors;
@@ -58,91 +62,87 @@
 
     invoke-virtual {v0}, Lcom/s1243808733/aide/highlight/color/Colors;->values()[Lcom/s1243808733/aide/highlight/color/Color;
 
-    move-result-object v0
+    move-result-object v3
 
-    array-length v1, v0
+    array-length v4, v3
 
-    const/4 v2, 0x0
+    move v0, v1
 
-    const/4 v3, 0x0
+    :goto_0
+    if-ge v0, v4, :cond_0
 
-    :goto_16
-    const/4 v4, 0x1
-
-    if-ge v3, v1, :cond_34
-
-    aget-object v5, v0, v3
+    aget-object v5, v3, v0
 
     .line 184
     iget-object v6, v5, Lcom/s1243808733/aide/highlight/color/Color;->name:Ljava/lang/String;
 
-    invoke-static {v6, v4}, Lcom/s1243808733/aide/highlight/HighlightUtils;->getSpKey(Ljava/lang/String;Z)Ljava/lang/String;
+    invoke-static {v6, v8}, Lcom/s1243808733/aide/highlight/HighlightUtils;->getSpKey(Ljava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    iget-object v6, v5, Lcom/s1243808733/aide/highlight/color/Color;->lightColor:Ljava/lang/String;
+    iget-object v7, v5, Lcom/s1243808733/aide/highlight/color/Color;->lightColor:Ljava/lang/String;
 
-    invoke-interface {p1, v4, v6}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v2, v6, v7}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     .line 185
-    iget-object v4, v5, Lcom/s1243808733/aide/highlight/color/Color;->name:Ljava/lang/String;
+    iget-object v6, v5, Lcom/s1243808733/aide/highlight/color/Color;->name:Ljava/lang/String;
 
-    invoke-static {v4, v2}, Lcom/s1243808733/aide/highlight/HighlightUtils;->getSpKey(Ljava/lang/String;Z)Ljava/lang/String;
+    invoke-static {v6, v1}, Lcom/s1243808733/aide/highlight/HighlightUtils;->getSpKey(Ljava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
     iget-object v5, v5, Lcom/s1243808733/aide/highlight/color/Color;->darkColor:Ljava/lang/String;
 
-    invoke-interface {p1, v4, v5}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v2, v6, v5}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 188
-    :cond_34
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    :cond_0
+    invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     .line 190
-    iget-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$3;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$3;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/highlight/HighlightActivity;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/highlight/HighlightActivity;->getActionBar()Landroid/app/ActionBar;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Landroid/app/ActionBar;->getSelectedTab()Landroid/app/ActionBar$Tab;
+    invoke-virtual {v2}, Landroid/app/ActionBar;->getSelectedTab()Landroid/app/ActionBar$Tab;
 
-    move-result-object v0
+    move-result-object v2
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {p1, v0, v1}, Lcom/s1243808733/aide/highlight/HighlightActivity;->onTabSelected(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V
+    invoke-virtual {v0, v2, v3}, Lcom/s1243808733/aide/highlight/HighlightActivity;->onTabSelected(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V
 
     .line 192
-    iget-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$3;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$3;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
 
-    invoke-static {p1, v4}, Lcom/s1243808733/aide/highlight/HighlightActivity;->-$$Nest$fputisDataChangeed(Lcom/s1243808733/aide/highlight/HighlightActivity;Z)V
+    invoke-static {v0, v8}, Lcom/s1243808733/aide/highlight/HighlightActivity;->-$$Nest$fputisDataChangeed(Lcom/s1243808733/aide/highlight/HighlightActivity;Z)V
 
     .line 193
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_53
+    if-eqz v0, :cond_1
 
-    const-string p1, "已还原至默认"
+    const-string v0, "\u5df2\u8fd8\u539f\u81f3\u9ed8\u8ba4"
 
-    goto :goto_55
+    :goto_1
+    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
 
-    :cond_53
-    const-string p1, "Reset to default"
+    move-result-object v0
 
-    :goto_55
-    invoke-static {p1}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    move-result-object p1
+    return v1
 
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+    :cond_1
+    const-string v0, "Reset to default"
 
-    return v2
+    goto :goto_1
 .end method

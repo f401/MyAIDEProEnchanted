@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static getAutoCustomTemplateDir()Ljava/io/File;
-    .registers 3
+    .locals 3
 
     .line 124
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -33,21 +33,24 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_12
-
-    return-object v0
+    if-eqz v0, :cond_0
 
     .line 126
-    :cond_12
+    :goto_0
+    return-object v0
+
+    :cond_0
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->getDefaultCustomTemplateDir()Ljava/io/File;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static getBuildApkPath(Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 6
+
+    const/4 v4, 0x1
 
     .line 256
     new-instance v0, Ljava/io/File;
@@ -57,102 +60,104 @@
     .line 257
     invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 258
-    const-string v0, ".apk"
+    const-string v1, ".apk"
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_20
+    if-nez v1, :cond_0
 
     .line 259
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, ".apk"
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
-
-    .line 262
-    :cond_20
-    invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
-
     move-result-object v0
 
-    const-string v1, "advanced_setting_adjust_apk_build_path"
+    .line 262
+    :cond_0
+    invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    const/4 v2, 0x1
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    const-string v2, "advanced_setting_adjust_apk_build_path"
 
-    move-result v0
+    invoke-interface {v1, v2, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    if-eqz v0, :cond_3f
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     .line 263
     invoke-static {}, Lcom/s1243808733/aide/util/ProjectUtils;->getCurrentProject()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/s1243808733/aide/util/ProjectUtils;->getBin(Ljava/io/File;)Ljava/io/File;
+    invoke-static {v1}, Lcom/s1243808733/aide/util/ProjectUtils;->getBin(Ljava/io/File;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 264
-    new-instance v1, Ljava/io/File;
+    new-instance v2, Ljava/io/File;
 
-    invoke-direct {v1, v0, p0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    .line 268
+    :goto_0
+    return-object v0
 
     .line 267
-    :cond_3f
-    new-instance v0, Ljava/io/File;
+    :cond_1
+    new-instance v1, Ljava/io/File;
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->getApp()Landroid/app/Application;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/app/Application;->getExternalCacheDir()Ljava/io/File;
+    invoke-virtual {v2}, Landroid/app/Application;->getExternalCacheDir()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object v2
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string v3, "apk/%s"
 
-    const/4 v3, 0x0
+    new-array v4, v4, [Ljava/lang/Object;
 
-    aput-object p0, v2, v3
+    const/4 v5, 0x0
 
-    const-string p0, "apk/%s"
+    aput-object v0, v4, v5
 
-    invoke-static {p0, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-direct {v0, v1, p0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 268
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static getCustomTemplateDir()Ljava/io/File;
-    .registers 3
+    .locals 3
 
     .line 130
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -175,7 +180,7 @@
 .end method
 
 .method public static getDefGradleCompleFile()Ljava/io/File;
-    .registers 3
+    .locals 3
 
     .line 202
     new-instance v0, Ljava/io/File;
@@ -197,26 +202,26 @@
 
     move-result v1
 
-    if-nez v1, :cond_1a
+    if-nez v1, :cond_0
 
     .line 205
-    :try_start_15
+    :try_start_0
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
-    :try_end_18
-    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_18} :catch_19
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1a
+    :cond_0
+    :goto_0
+    return-object v0
 
-    :catch_19
+    :catch_0
     move-exception v1
 
-    :cond_1a
-    :goto_1a
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static getDefaultCustomTemplateDir()Ljava/io/File;
-    .registers 1
+    .locals 1
 
     .line 134
     const-string v0, "templates"
@@ -229,7 +234,7 @@
 .end method
 
 .method public static getDefaultMavenDownloadDir()Ljava/lang/String;
-    .registers 2
+    .locals 2
 
     .line 95
     new-instance v0, Ljava/lang/StringBuilder;
@@ -254,11 +259,12 @@
 .end method
 
 .method public static getDependencyList()Ljava/util/List;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -273,7 +279,7 @@
 .end method
 
 .method public static getEditorQuickKey()Ljava/lang/String;
-    .registers 3
+    .locals 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -282,7 +288,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 275
     invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -295,12 +301,22 @@
 
     move-result v1
 
-    if-gez v1, :cond_13
+    if-gez v1, :cond_1
 
-    goto :goto_1c
+    .line 276
+    :cond_0
+    const-string v0, ".java"
+
+    .line 274
+    :goto_0
+    invoke-static {v0}, Lcom/s1243808733/aide/util/QuickKey;->getKey(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 
     .line 277
-    :cond_13
+    :cond_1
     invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v0
@@ -309,24 +325,11 @@
 
     move-result-object v0
 
-    goto :goto_1e
-
-    .line 276
-    :cond_1c
-    :goto_1c
-    const-string v0, ".java"
-
-    .line 274
-    :goto_1e
-    invoke-static {v0}, Lcom/s1243808733/aide/util/QuickKey;->getKey(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static getEditorTypeface()Landroid/graphics/Typeface;
-    .registers 3
+    .locals 3
 
     .line 282
     :try_start_0
@@ -343,24 +346,27 @@
     move-result-object v0
 
     invoke-static {v0}, Landroid/graphics/Typeface;->createFromFile(Ljava/lang/String;)Landroid/graphics/Typeface;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_f
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_f} :catch_10
-
-    return-object v0
 
     .line 285
-    :catch_10
+    :goto_0
+    return-object v0
+
+    :catch_0
     move-exception v0
 
     sget-object v0, Landroid/graphics/Typeface;->MONOSPACE:Landroid/graphics/Typeface;
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static getGradleComple()[Ljava/lang/String;
-    .registers 4
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 163
     new-instance v0, Ljava/util/ArrayList;
@@ -432,12 +438,10 @@
 
     move-result v1
 
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_51
+    if-nez v1, :cond_0
 
     .line 182
-    new-array v1, v2, [Ljava/lang/String;
+    new-array v1, v3, [Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
@@ -445,42 +449,27 @@
 
     check-cast v0, [Ljava/lang/String;
 
+    .line 192
+    :goto_0
     return-object v0
 
     .line 185
-    :cond_51
+    :cond_0
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->getGradleCompleFile()Ljava/io/File;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6a
+    if-eqz v1, :cond_1
 
     .line 186
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_5e
-
-    goto :goto_6a
-
-    .line 189
-    :cond_5e
-    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/blankj/utilcode/util/FileIOUtils;->readFile2List(Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
-
-    goto :goto_79
+    if-nez v2, :cond_2
 
     .line 187
-    :cond_6a
-    :goto_6a
+    :cond_1
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->getDefGradleCompleFile()Ljava/io/File;
 
     move-result-object v1
@@ -496,8 +485,8 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     .line 192
-    :goto_79
-    new-array v1, v2, [Ljava/lang/String;
+    :goto_1
+    new-array v1, v3, [Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
@@ -505,68 +494,80 @@
 
     check-cast v0, [Ljava/lang/String;
 
-    return-object v0
+    goto :goto_0
+
+    .line 189
+    :cond_2
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/blankj/utilcode/util/FileIOUtils;->readFile2List(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    goto :goto_1
 .end method
 
 .method public static getGradleCompleFile()Ljava/io/File;
-    .registers 3
+    .locals 3
+
+    const/4 v0, 0x0
 
     .line 196
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v1, "gradle_comple_file"
+    const-string v2, "gradle_comple_file"
 
-    const/4 v2, 0x0
+    invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
-
-    if-eqz v0, :cond_1c
+    if-eqz v1, :cond_0
 
     .line 197
-    const-string v1, "/"
+    const-string v2, "/"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_16
-
-    goto :goto_1c
+    if-nez v2, :cond_1
 
     .line 198
-    :cond_16
-    new-instance v1, Ljava/io/File;
+    :cond_0
+    :goto_0
+    return-object v0
 
-    invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    :cond_1
+    new-instance v0, Ljava/io/File;
 
-    return-object v1
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    :cond_1c
-    :goto_1c
-    return-object v2
+    goto :goto_0
 .end method
 
 .method public static getInstallType()Ljava/lang/String;
-    .registers 3
+    .locals 3
 
     .line 154
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    sget-object v1, Lcom/s1243808733/aide/functions/installer/Installer$TYPE;->SHIZUKU:Lcom/s1243808733/aide/functions/installer/Installer$TYPE;
+    const-string v1, "install_type"
 
-    invoke-virtual {v1}, Lcom/s1243808733/aide/functions/installer/Installer$TYPE;->toString()Ljava/lang/String;
+    sget-object v2, Lcom/s1243808733/aide/functions/installer/Installer$TYPE;->SHIZUKU:Lcom/s1243808733/aide/functions/installer/Installer$TYPE;
 
-    move-result-object v1
+    invoke-virtual {v2}, Lcom/s1243808733/aide/functions/installer/Installer$TYPE;->toString()Ljava/lang/String;
 
-    const-string v2, "install_type"
+    move-result-object v2
 
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -574,7 +575,7 @@
 .end method
 
 .method public static getMavenDownloadDir()Ljava/lang/String;
-    .registers 3
+    .locals 3
 
     .line 99
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -589,17 +590,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_1
 
     .line 100
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->getDefaultMavenDownloadDir()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 104
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 102
-    :cond_12
+    :cond_1
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
     move-result-object v0
@@ -617,37 +621,36 @@
 
     move-result v1
 
-    if-nez v1, :cond_29
+    if-nez v1, :cond_2
 
     invoke-static {v0}, Lcom/s1243808733/util/Utils;->checkDirectoryWritable(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2d
+    if-nez v1, :cond_0
 
     .line 104
-    :cond_29
+    :cond_2
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->getDefaultMavenDownloadDir()Ljava/lang/String;
 
     move-result-object v0
 
-    :cond_2d
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static getPackagePrefix(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 289
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    const-string v1, "advanced_setting_package_prefix"
 
-    const-string v2, "advanced_setting_package_prefix"
+    const/4 v2, 0x0
 
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -656,7 +659,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_0
 
     .line 292
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -667,41 +670,45 @@
 
     move-result-object v0
 
-    const-string v1, "com.example."
+    const-string v1, "advanced_setting_package_prefix"
 
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    const-string v2, "com.example."
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    move-object v0, v1
+    const-string v0, "com.example."
 
     .line 294
-    :cond_23
+    :cond_0
     const-string v1, "."
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_3a
+    if-nez v1, :cond_1
 
     .line 295
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "."
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 297
-    :cond_3a
+    :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -712,19 +719,19 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static isEnableAapt2()Z
-    .registers 3
+    .locals 3
 
     .line 26
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -743,7 +750,7 @@
 .end method
 
 .method public static isEnableAdrt()Z
-    .registers 3
+    .locals 3
 
     .line 225
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -762,7 +769,7 @@
 .end method
 
 .method public static isEnableAndroidApi()Z
-    .registers 3
+    .locals 3
 
     .line 146
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -781,7 +788,7 @@
 .end method
 
 .method public static isEnableBlurDialog()Z
-    .registers 3
+    .locals 3
 
     .line 111
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -800,7 +807,7 @@
 .end method
 
 .method public static isEnableBuildAabAndApks()Z
-    .registers 3
+    .locals 3
 
     .line 40
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -819,7 +826,7 @@
 .end method
 
 .method public static isEnableCustomApksSign()Z
-    .registers 3
+    .locals 3
 
     .line 45
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -838,7 +845,7 @@
 .end method
 
 .method public static isEnableCustomTemplate()Z
-    .registers 3
+    .locals 3
 
     .line 120
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -857,7 +864,7 @@
 .end method
 
 .method public static isEnableDragBack()Z
-    .registers 3
+    .locals 3
 
     .line 116
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -876,7 +883,7 @@
 .end method
 
 .method public static isEnableDrawer()Z
-    .registers 3
+    .locals 3
 
     .line 233
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -895,7 +902,7 @@
 .end method
 
 .method public static isEnableGradle()Z
-    .registers 3
+    .locals 3
 
     .line 237
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -914,7 +921,7 @@
 .end method
 
 .method public static isEnableGradleComple()Z
-    .registers 3
+    .locals 3
 
     .line 150
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -933,7 +940,7 @@
 .end method
 
 .method public static isEnableMenuCode()Z
-    .registers 3
+    .locals 3
 
     .line 229
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -952,7 +959,7 @@
 .end method
 
 .method public static isEnableResGuard()Z
-    .registers 3
+    .locals 3
 
     .line 217
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -971,7 +978,7 @@
 .end method
 
 .method public static isEnableStringFog()Z
-    .registers 3
+    .locals 3
 
     .line 213
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -990,7 +997,7 @@
 .end method
 
 .method public static isEnableTranslate()Z
-    .registers 3
+    .locals 3
 
     .line 221
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1009,7 +1016,7 @@
 .end method
 
 .method public static isEnableViewBinding()Z
-    .registers 3
+    .locals 3
 
     .line 31
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1028,7 +1035,7 @@
 .end method
 
 .method public static isFlowCodeAsm()Z
-    .registers 3
+    .locals 3
 
     .line 76
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1047,7 +1054,7 @@
 .end method
 
 .method public static isGlitch()Z
-    .registers 3
+    .locals 3
 
     .line 56
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1066,7 +1073,7 @@
 .end method
 
 .method public static isHideArgAsm()Z
-    .registers 3
+    .locals 3
 
     .line 84
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1085,7 +1092,7 @@
 .end method
 
 .method public static isHideBooleanAsm()Z
-    .registers 3
+    .locals 3
 
     .line 72
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1104,7 +1111,7 @@
 .end method
 
 .method public static isHideCodeAsm()Z
-    .registers 3
+    .locals 3
 
     .line 64
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1123,7 +1130,7 @@
 .end method
 
 .method public static isHideIntegerAsm()Z
-    .registers 3
+    .locals 3
 
     .line 80
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1142,7 +1149,7 @@
 .end method
 
 .method public static isHideStringAsm()Z
-    .registers 3
+    .locals 3
 
     .line 60
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1161,7 +1168,7 @@
 .end method
 
 .method public static isLocalVariableAsm()Z
-    .registers 3
+    .locals 3
 
     .line 68
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1180,7 +1187,7 @@
 .end method
 
 .method public static isMutatorAsm()Z
-    .registers 3
+    .locals 3
 
     .line 88
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1199,7 +1206,7 @@
 .end method
 
 .method public static isObfuscationAsm()Z
-    .registers 3
+    .locals 3
 
     .line 52
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1218,7 +1225,7 @@
 .end method
 
 .method public static isShowAapt2Warning()Z
-    .registers 3
+    .locals 3
 
     .line 142
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1237,7 +1244,7 @@
 .end method
 
 .method public static isTabTextLowercase()Z
-    .registers 3
+    .locals 3
 
     .line 138
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1256,7 +1263,7 @@
 .end method
 
 .method public static isViewBindingAndroidX()Z
-    .registers 3
+    .locals 3
 
     .line 35
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1275,7 +1282,7 @@
 .end method
 
 .method public static setFindResultTextView(Landroid/widget/TextView;)V
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1290,7 +1297,7 @@
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setMaxLines(I)V
 
     .line 245
-    const/high16 v0, 0x41600000  # 14.0f
+    const/high16 v0, 0x41600000    # 14.0f
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextSize(F)V
 
@@ -1298,7 +1305,7 @@
 .end method
 
 .method public static setInstallType(Lcom/s1243808733/aide/functions/installer/Installer$TYPE;)V
-    .registers 3
+    .locals 3
 
     .line 158
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -1313,9 +1320,9 @@
 
     invoke-virtual {p0}, Lcom/s1243808733/aide/functions/installer/Installer$TYPE;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v2
 
-    invoke-interface {v0, v1, p0}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     return-void
 .end method

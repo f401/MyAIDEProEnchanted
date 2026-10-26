@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;)V
-    .registers 2
+    .locals 0
 
     .line 1343
     iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$23;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 0
 
     return-void
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;[Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Ljava/util/HashSet;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,13 +49,13 @@
 
 # virtual methods
 .method public visitMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitNonMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 7
+    .locals 5
 
     .line 69
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
@@ -68,12 +68,15 @@
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_1
 
+    .line 136
+    :cond_0
+    :goto_0
     return-void
 
     .line 73
-    :cond_c
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;->this$0:Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;
 
     invoke-static {v0, p1}, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;->-$$Nest$mgetParamIndex(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)I
@@ -85,22 +88,22 @@
 
     aget-object v2, v1, v0
 
-    if-nez v2, :cond_1f
+    if-nez v2, :cond_2
 
     .line 76
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object p1
+    move-result-object v2
 
-    aput-object p1, v1, v0
+    aput-object v2, v1, v0
 
-    goto :goto_75
+    goto :goto_0
 
     .line 79
-    :cond_1f
+    :cond_2
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object v0
+    move-result-object v3
 
     .line 80
     invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
@@ -108,106 +111,111 @@
     move-result-object v1
 
     .line 81
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
 
-    move-result-object v3
+    move-result-object v0
 
-    if-nez v1, :cond_2f
-
-    move-object v1, v3
-
-    goto :goto_38
-
-    :cond_2f
-    if-nez v3, :cond_32
-
-    goto :goto_38
-
-    .line 92
-    :cond_32
-    invoke-virtual {v1, v3}, Lcom/s1243808733/android/dx/rop/code/LocalItem;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_75
+    if-nez v1, :cond_3
 
     .line 102
-    :goto_38
-    iget-object v3, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;->this$0:Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;
+    :goto_1
+    iget-object v1, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;->this$0:Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;
 
-    invoke-static {v3}, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;->-$$Nest$fgetssaMeth(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;)Lcom/s1243808733/android/dx/ssa/SsaMethod;
+    invoke-static {v1}, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;->-$$Nest$fgetssaMeth(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;)Lcom/s1243808733/android/dx/ssa/SsaMethod;
 
-    move-result-object v3
+    move-result-object v1
 
     invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
 
     move-result v4
 
-    invoke-virtual {v3, v4}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getDefinitionForRegister(I)Lcom/s1243808733/android/dx/ssa/SsaInsn;
+    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getDefinitionForRegister(I)Lcom/s1243808733/android/dx/ssa/SsaInsn;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 103
-    invoke-virtual {v3, v1}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->setResultLocal(Lcom/s1243808733/android/dx/rop/code/LocalItem;)V
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->setResultLocal(Lcom/s1243808733/android/dx/rop/code/LocalItem;)V
 
     .line 109
-    new-instance v1, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1$1;
+    new-instance v4, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1$1;
 
-    invoke-direct {v1, p0, v0, v2}, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1$1;-><init>(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
+    invoke-direct {v4, p0, v3, v2}, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1$1;-><init>(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
 
     .line 127
-    iget-object v2, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;->this$0:Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;->this$0:Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;
 
-    invoke-static {v2}, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;->-$$Nest$fgetssaMeth(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;)Lcom/s1243808733/android/dx/ssa/SsaMethod;
-
-    move-result-object v2
-
-    .line 128
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
-
-    move-result v0
-
-    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getUseListForRegister(I)Ljava/util/List;
+    invoke-static {v0}, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;->-$$Nest$fgetssaMeth(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;)Lcom/s1243808733/android/dx/ssa/SsaMethod;
 
     move-result-object v0
 
+    .line 128
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getUseListForRegister(I)Ljava/util/List;
+
+    move-result-object v2
+
     .line 131
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v0
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    :goto_62
-    if-ltz v2, :cond_70
+    move v1, v0
+
+    :goto_2
+    if-ltz v1, :cond_5
 
     .line 132
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Lcom/s1243808733/android/dx/ssa/SsaInsn;
+    check-cast v0, Lcom/s1243808733/android/dx/ssa/SsaInsn;
 
     .line 133
-    invoke-virtual {v3, v1}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->mapSourceRegisters(Lcom/s1243808733/android/dx/ssa/RegisterMapper;)V
+    invoke-virtual {v0, v4}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->mapSourceRegisters(Lcom/s1243808733/android/dx/ssa/RegisterMapper;)V
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v0, v1, -0x1
 
-    goto :goto_62
+    move v1, v0
+
+    goto :goto_2
+
+    .line 81
+    :cond_3
+    if-nez v0, :cond_4
+
+    move-object v0, v1
+
+    goto :goto_1
+
+    .line 92
+    :cond_4
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/rop/code/LocalItem;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move-object v0, v1
+
+    goto :goto_1
 
     .line 136
-    :cond_70
+    :cond_5
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;->val$deletedInsns:Ljava/util/HashSet;
 
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    :cond_75
-    :goto_75
-    return-void
+    goto :goto_0
 .end method
 
 .method public visitPhiInsn(Lcom/s1243808733/android/dx/ssa/PhiInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

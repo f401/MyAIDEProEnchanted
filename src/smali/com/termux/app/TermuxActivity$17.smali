@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 1124
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$17;->this$0:Lcom/termux/app/TermuxActivity;
@@ -36,19 +36,19 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 1127
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
     .line 1128
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$17;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$17;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/termux/terminal/TerminalSession;->finishIfRunning()V
+    invoke-virtual {v0}, Lcom/termux/terminal/TerminalSession;->finishIfRunning()V
 
     return-void
 .end method

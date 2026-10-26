@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/baidu/mobstat/a;)V
-    .registers 3
+    .locals 0
 
     .line 72
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method private a()V
-    .registers 11
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -47,7 +47,7 @@
     monitor-enter p0
 
     .line 103
-    :try_start_1
+    :try_start_0
     invoke-static {}, Lcom/baidu/mobstat/cw;->c()Lcom/baidu/mobstat/cw;
 
     move-result-object v0
@@ -88,13 +88,13 @@
 
     .line 111
     invoke-static {v0, v2}, Lcom/baidu/mobstat/dj;->d(Landroid/content/Context;Ljava/lang/String;)Ljava/net/HttpURLConnection;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     move-result-object v2
-    :try_end_2b
-    .catchall {:try_start_1 .. :try_end_2b} :catchall_f2
 
     .line 113
-    :try_start_2b
+    :try_start_1
     invoke-virtual {v2}, Ljava/net/HttpURLConnection;->connect()V
 
     .line 115
@@ -199,7 +199,7 @@
 
     const/16 v6, 0xc8
 
-    if-ne v5, v6, :cond_a3
+    if-ne v5, v6, :cond_0
 
     .line 128
     invoke-static {}, Lcom/baidu/mobstat/cw;->c()Lcom/baidu/mobstat/cw;
@@ -211,12 +211,12 @@
     invoke-virtual {v5, v6}, Lcom/baidu/mobstat/cw;->a(Ljava/lang/String;)V
 
     .line 131
-    :cond_a3
+    :cond_0
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-nez v5, :cond_c1
+    if-nez v5, :cond_1
 
     .line 132
     invoke-static {}, Lcom/baidu/mobstat/cw;->c()Lcom/baidu/mobstat/cw;
@@ -241,12 +241,12 @@
     invoke-interface {v1, v0, v3}, Lcom/baidu/mobstat/a;->a(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 137
-    :cond_c1
+    :cond_1
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_df
+    if-nez v3, :cond_2
 
     .line 138
     invoke-static {}, Lcom/baidu/mobstat/cw;->c()Lcom/baidu/mobstat/cw;
@@ -269,12 +269,12 @@
 
     .line 139
     invoke-interface {v1, v0, v4}, Lcom/baidu/mobstat/a;->b(Landroid/content/Context;Ljava/lang/String;)V
-    :try_end_df
-    .catchall {:try_start_2b .. :try_end_df} :catchall_ed
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 143
-    :cond_df
-    :try_start_df
+    :cond_2
+    :try_start_2
     invoke-virtual {v2}, Ljava/net/HttpURLConnection;->disconnect()V
 
     .line 147
@@ -285,26 +285,26 @@
     const-string v1, "finish get config"
 
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cw;->a(Ljava/lang/String;)V
-    :try_end_eb
-    .catchall {:try_start_df .. :try_end_eb} :catchall_f2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 148
     monitor-exit p0
 
     return-void
 
-    :catchall_ed
+    :catchall_0
     move-exception v0
 
     .line 143
-    :try_start_ee
+    :try_start_3
     invoke-virtual {v2}, Ljava/net/HttpURLConnection;->disconnect()V
 
     throw v0
-    :try_end_f2
-    .catchall {:try_start_ee .. :try_end_f2} :catchall_f2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    :catchall_f2
+    :catchall_1
     move-exception v0
 
     monitor-exit p0
@@ -313,266 +313,268 @@
 .end method
 
 .method private a(Landroid/content/Context;)V
-    .registers 5
+    .locals 4
 
     .line 95
     iget-object v0, p0, Lcom/baidu/mobstat/v$a;->b:Lcom/baidu/mobstat/a;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    invoke-interface {v0, p1, v1, v2}, Lcom/baidu/mobstat/a;->a(Landroid/content/Context;J)V
+    invoke-interface {v0, p1, v2, v3}, Lcom/baidu/mobstat/a;->a(Landroid/content/Context;J)V
 
     return-void
 .end method
 
 .method private b(Landroid/content/Context;)Ljava/lang/String;
-    .registers 9
+    .locals 6
 
     .line 151
-    const-string v0, "UTF-8"
+    new-instance v0, Ljava/util/ArrayList;
 
-    .line 152
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 153
-    new-instance v2, Landroid/util/Pair;
+    new-instance v1, Landroid/util/Pair;
 
-    const-string v3, "dynamicVersion"
+    const-string v2, "dynamicVersion"
 
-    const-string v4, "35"
+    const-string v3, "35"
 
-    invoke-direct {v2, v3, v4}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 154
-    new-instance v2, Landroid/util/Pair;
+    new-instance v1, Landroid/util/Pair;
 
-    const-string v3, "packageName"
+    const-string v2, "packageName"
 
     invoke-static {p1}, Lcom/baidu/mobstat/ds;->r(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-direct {v2, v3, v5}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 155
-    new-instance v2, Landroid/util/Pair;
+    new-instance v1, Landroid/util/Pair;
 
-    const-string v3, "appVersion"
+    const-string v2, "appVersion"
 
     invoke-static {p1}, Lcom/baidu/mobstat/ds;->g(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-direct {v2, v3, v5}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 156
-    new-instance v2, Landroid/util/Pair;
+    new-instance v1, Landroid/util/Pair;
 
-    const-string v3, "cuid"
+    const-string v2, "cuid"
 
     invoke-static {p1}, Lcom/baidu/mobstat/ds;->a(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v3
 
-    invoke-direct {v2, v3, p1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 157
-    new-instance p1, Landroid/util/Pair;
+    new-instance v1, Landroid/util/Pair;
 
     const-string v2, "platform"
 
     const-string v3, "Android"
 
-    invoke-direct {p1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 160
-    new-instance p1, Landroid/util/Pair;
+    new-instance v1, Landroid/util/Pair;
 
     const-string v2, "m"
 
     sget-object v3, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
-    invoke-direct {p1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 161
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v2, ""
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     new-instance v2, Landroid/util/Pair;
 
     const-string v3, "s"
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {v2, v3, p1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v2, v3, v1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 162
-    new-instance p1, Landroid/util/Pair;
+    new-instance v1, Landroid/util/Pair;
 
     const-string v2, "o"
 
     sget-object v3, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
 
-    invoke-direct {p1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 164
-    new-instance p1, Landroid/util/Pair;
+    new-instance v1, Landroid/util/Pair;
 
     const-string v2, "i"
 
-    invoke-direct {p1, v2, v4}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    const-string v3, "35"
 
-    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-direct {v1, v2, v3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 166
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 167
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/util/Pair;
+
+    .line 169
+    :try_start_0
+    iget-object v1, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_91
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    const-string v4, "UTF-8"
 
-    move-result v2
+    invoke-static {v1, v4}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    if-eqz v2, :cond_f4
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/util/Pair;
-
-    .line 169
-    :try_start_9d
-    iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v3, Ljava/lang/String;
-
-    invoke-virtual {v3}, Ljava/lang/String;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
+    move-result-object v1
 
     .line 170
-    iget-object v2, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v0, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/String;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v2, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string v4, "UTF-8"
 
-    move-result-object v2
+    invoke-static {v0, v4}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
 
     .line 172
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
-    :try_end_bd
-    .catch Ljava/lang/Exception; {:try_start_9d .. :try_end_bd} :catch_f2
 
-    const-string v5, "="
-
-    if-eqz v4, :cond_d7
+    if-eqz v4, :cond_0
 
     .line 173
-    :try_start_c1
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "="
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_91
+    goto :goto_0
 
     .line 175
-    :cond_d7
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+
+    :cond_0
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "&"
-
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v5, "&"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "="
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_f1
-    .catch Ljava/lang/Exception; {:try_start_c1 .. :try_end_f1} :catch_f2
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_91
-
-    :catch_f2
-    move-exception v2
-
-    goto :goto_91
+    goto :goto_0
 
     .line 182
-    :cond_f4
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -585,39 +587,34 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 80
     :try_start_0
     sget-boolean v0, Lcom/baidu/mobstat/y;->a:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x3
 
-    goto :goto_8
-
-    :cond_6
-    const/16 v0, 0xa
-
     .line 81
-    :goto_8
+    :goto_0
     invoke-static {}, Lcom/baidu/mobstat/cw;->c()Lcom/baidu/mobstat/cw;
 
     move-result-object v1
@@ -654,12 +651,25 @@
     iget-object v0, p0, Lcom/baidu/mobstat/v$a;->a:Landroid/content/Context;
 
     invoke-direct {p0, v0}, Lcom/baidu/mobstat/v$a;->a(Landroid/content/Context;)V
-    :try_end_30
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_30} :catch_31
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_39
+    .line 91
+    :goto_1
+    const/4 v0, 0x0
 
-    :catch_31
+    invoke-static {v0}, Lcom/baidu/mobstat/v;->a(Z)Z
+
+    return-void
+
+    .line 80
+    :cond_0
+    const/16 v0, 0xa
+
+    goto :goto_0
+
+    .line 85
+    :catch_0
     move-exception v0
 
     .line 88
@@ -669,11 +679,5 @@
 
     invoke-virtual {v1, v0}, Lcom/baidu/mobstat/cw;->a(Ljava/lang/Throwable;)V
 
-    .line 91
-    :goto_39
-    const/4 v0, 0x0
-
-    invoke-static {v0}, Lcom/baidu/mobstat/v;->a(Z)Z
-
-    return-void
+    goto :goto_1
 .end method

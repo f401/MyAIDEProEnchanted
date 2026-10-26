@@ -12,12 +12,12 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 2
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-ltz p1, :cond_8
+    if-ltz p1, :cond_0
 
     .line 45
     iput p1, p0, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;->subroutineAddress:I
@@ -25,48 +25,49 @@
     return-void
 
     .line 42
-    :cond_8
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "subroutineAddress < 0"
+    const-string v1, "subroutineAddress < 0"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 3
+
+    const/4 v0, 0x0
 
     .line 93
-    instance-of v0, p1, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;
+    instance-of v1, p1, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;
 
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_6
-
-    return v1
+    if-nez v1, :cond_1
 
     .line 97
-    :cond_6
-    iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;->subroutineAddress:I
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    iget v1, p0, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;->subroutineAddress:I
 
     check-cast p1, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;
 
-    iget p1, p1, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;->subroutineAddress:I
+    iget v2, p1, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;->subroutineAddress:I
 
-    if-ne v0, p1, :cond_f
+    if-ne v1, v2, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_f
-    return v1
+    goto :goto_0
 .end method
 
 .method public getBasicFrameType()I
-    .registers 2
+    .locals 1
 
     .line 81
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->RETURN_ADDRESS:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -79,7 +80,7 @@
 .end method
 
 .method public getBasicType()I
-    .registers 2
+    .locals 1
 
     .line 75
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->RETURN_ADDRESS:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -92,13 +93,13 @@
 .end method
 
 .method public getFrameType()Lcom/s1243808733/android/dx/rop/type/TypeBearer;
-    .registers 1
+    .locals 0
 
     return-object p0
 .end method
 
 .method public getSubroutineAddress()I
-    .registers 2
+    .locals 1
 
     .line 112
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;->subroutineAddress:I
@@ -107,7 +108,7 @@
 .end method
 
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 63
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->RETURN_ADDRESS:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -116,7 +117,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .line 103
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;->subroutineAddress:I
@@ -125,7 +126,7 @@
 .end method
 
 .method public isConstant()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -133,7 +134,7 @@
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 57
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/code/ReturnAddress;->toString()Ljava/lang/String;
@@ -144,7 +145,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 51
     new-instance v0, Ljava/lang/StringBuilder;

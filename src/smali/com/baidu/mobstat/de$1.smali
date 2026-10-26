@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Landroid/view/View;",
         ">;"
     }
@@ -28,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 412
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,24 +40,24 @@
 
 # virtual methods
 .method public a(Landroid/view/View;Landroid/view/View;)I
-    .registers 3
+    .locals 2
 
     .line 415
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
-    move-result p1
+    move-result v0
 
     invoke-virtual {p2}, Landroid/view/View;->getLeft()I
 
-    move-result p2
+    move-result v1
 
-    sub-int/2addr p1, p2
+    sub-int/2addr v0, v1
 
-    return p1
+    return v0
 .end method
 
 .method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 412
     check-cast p1, Landroid/view/View;
@@ -65,7 +66,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/baidu/mobstat/de$1;->a(Landroid/view/View;Landroid/view/View;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

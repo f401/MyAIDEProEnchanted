@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static a(Landroid/content/Context;Lcom/baidu/mobstat/dx;)V
-    .registers 4
+    .locals 3
 
     .line 16
     new-instance v0, Landroid/content/Intent;
@@ -24,9 +24,9 @@
 
     invoke-direct {v1, p1}, Lcom/baidu/mobstat/du$1;-><init>(Lcom/baidu/mobstat/dx;)V
 
-    const/4 p1, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {p0, v0, v1, p1}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
     return-void
 .end method

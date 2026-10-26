@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/ExpandableListView;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,46 +41,46 @@
 
 # virtual methods
 .method public onGroupExpand(I)V
-    .registers 5
+    .locals 3
 
     .line 230
     iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$5;->val$expandableListView:Landroid/widget/ExpandableListView;
 
     invoke-virtual {v0}, Landroid/widget/ExpandableListView;->getExpandableListAdapter()Landroid/widget/ExpandableListAdapter;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 231
-    :goto_7
-    invoke-interface {v0}, Landroid/widget/ExpandableListAdapter;->getGroupCount()I
+    :goto_0
+    invoke-interface {v1}, Landroid/widget/ExpandableListAdapter;->getGroupCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1f
+    if-ge v0, v2, :cond_1
 
-    if-eq v1, p1, :cond_1c
+    if-eq v0, p1, :cond_0
 
     .line 232
     iget-object v2, p0, Lcom/s1243808733/aide/project/ProjectDialog$5;->val$expandableListView:Landroid/widget/ExpandableListView;
 
-    invoke-virtual {v2, v1}, Landroid/widget/ExpandableListView;->isGroupExpanded(I)Z
+    invoke-virtual {v2, v0}, Landroid/widget/ExpandableListView;->isGroupExpanded(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_0
 
     .line 233
     iget-object v2, p0, Lcom/s1243808733/aide/project/ProjectDialog$5;->val$expandableListView:Landroid/widget/ExpandableListView;
 
-    invoke-virtual {v2, v1}, Landroid/widget/ExpandableListView;->collapseGroup(I)Z
+    invoke-virtual {v2, v0}, Landroid/widget/ExpandableListView;->collapseGroup(I)Z
 
-    :cond_1c
-    add-int/lit8 v1, v1, 0x1
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
-    :cond_1f
+    :cond_1
     return-void
 .end method

@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 11
     const/4 v0, 0x0
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Lcom/baidu/mobstat/es$a;)V
-    .registers 2
+    .locals 1
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,19 +53,19 @@
     iput-object p1, p0, Lcom/baidu/mobstat/et;->d:Lcom/baidu/mobstat/es$a;
 
     .line 22
-    sget-object p1, Lcom/baidu/mobstat/et;->b:[B
+    sget-object v0, Lcom/baidu/mobstat/et;->b:[B
 
-    invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
+    invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/baidu/mobstat/et;->a:Ljava/nio/ByteBuffer;
+    iput-object v0, p0, Lcom/baidu/mobstat/et;->a:Ljava/nio/ByteBuffer;
 
     return-void
 .end method
 
 .method public constructor <init>(Lcom/baidu/mobstat/es;)V
-    .registers 3
+    .locals 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -94,9 +94,9 @@
     .line 34
     invoke-interface {p1}, Lcom/baidu/mobstat/es;->e()Z
 
-    move-result p1
+    move-result v0
 
-    iput-boolean p1, p0, Lcom/baidu/mobstat/et;->e:Z
+    iput-boolean v0, p0, Lcom/baidu/mobstat/et;->e:Z
 
     return-void
 .end method
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public a(Lcom/baidu/mobstat/es$a;)V
-    .registers 2
+    .locals 0
 
     .line 64
     iput-object p1, p0, Lcom/baidu/mobstat/et;->d:Lcom/baidu/mobstat/es$a;
@@ -113,7 +113,7 @@
 .end method
 
 .method public a(Lcom/baidu/mobstat/es;)V
-    .registers 5
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/baidu/mobstat/ek;
@@ -128,7 +128,7 @@
     .line 80
     iget-object v1, p0, Lcom/baidu/mobstat/et;->a:Ljava/nio/ByteBuffer;
 
-    if-nez v1, :cond_1e
+    if-nez v1, :cond_0
 
     .line 81
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
@@ -152,10 +152,18 @@
     .line 84
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->reset()Ljava/nio/Buffer;
 
-    goto :goto_6b
+    .line 103
+    :goto_0
+    invoke-interface {p1}, Lcom/baidu/mobstat/es;->d()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/baidu/mobstat/et;->c:Z
+
+    return-void
 
     .line 86
-    :cond_1e
+    :cond_0
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->mark()Ljava/nio/Buffer;
 
     .line 87
@@ -187,7 +195,7 @@
 
     move-result v2
 
-    if-le v1, v2, :cond_5e
+    if-le v1, v2, :cond_1
 
     .line 91
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
@@ -222,16 +230,8 @@
     .line 95
     iput-object v1, p0, Lcom/baidu/mobstat/et;->a:Ljava/nio/ByteBuffer;
 
-    goto :goto_63
-
-    .line 98
-    :cond_5e
-    iget-object v1, p0, Lcom/baidu/mobstat/et;->a:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->put(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
-
     .line 100
-    :goto_63
+    :goto_1
     iget-object v1, p0, Lcom/baidu/mobstat/et;->a:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->rewind()Ljava/nio/Buffer;
@@ -239,19 +239,19 @@
     .line 101
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->reset()Ljava/nio/Buffer;
 
-    .line 103
-    :goto_6b
-    invoke-interface {p1}, Lcom/baidu/mobstat/es;->d()Z
+    goto :goto_0
 
-    move-result p1
+    .line 98
+    :cond_1
+    iget-object v1, p0, Lcom/baidu/mobstat/et;->a:Ljava/nio/ByteBuffer;
 
-    iput-boolean p1, p0, Lcom/baidu/mobstat/et;->c:Z
+    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->put(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
 
-    return-void
+    goto :goto_1
 .end method
 
 .method public a(Ljava/nio/ByteBuffer;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/baidu/mobstat/ej;
@@ -265,7 +265,7 @@
 .end method
 
 .method public a(Z)V
-    .registers 2
+    .locals 0
 
     .line 59
     iput-boolean p1, p0, Lcom/baidu/mobstat/et;->c:Z
@@ -274,7 +274,7 @@
 .end method
 
 .method public b(Z)V
-    .registers 2
+    .locals 0
 
     .line 74
     iput-boolean p1, p0, Lcom/baidu/mobstat/et;->e:Z
@@ -283,7 +283,7 @@
 .end method
 
 .method public c()Ljava/nio/ByteBuffer;
-    .registers 2
+    .locals 1
 
     .line 54
     iget-object v0, p0, Lcom/baidu/mobstat/et;->a:Ljava/nio/ByteBuffer;
@@ -292,7 +292,7 @@
 .end method
 
 .method public d()Z
-    .registers 2
+    .locals 1
 
     .line 39
     iget-boolean v0, p0, Lcom/baidu/mobstat/et;->c:Z
@@ -301,7 +301,7 @@
 .end method
 
 .method public e()Z
-    .registers 2
+    .locals 1
 
     .line 49
     iget-boolean v0, p0, Lcom/baidu/mobstat/et;->e:Z
@@ -310,7 +310,7 @@
 .end method
 
 .method public f()Lcom/baidu/mobstat/es$a;
-    .registers 2
+    .locals 1
 
     .line 44
     iget-object v0, p0, Lcom/baidu/mobstat/et;->d:Lcom/baidu/mobstat/es$a;
@@ -319,7 +319,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 108
     new-instance v0, Ljava/lang/StringBuilder;

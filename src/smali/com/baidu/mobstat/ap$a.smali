@@ -18,7 +18,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/baidu/mobstat/ap$a;",
         ">;"
     }
@@ -35,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     const/16 v0, 0x10
 
@@ -143,7 +144,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -153,35 +154,35 @@
 .end method
 
 .method public static a(BZ)Lcom/baidu/mobstat/ap$a;
-    .registers 2
+    .locals 1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_0
 
-    and-int/lit16 p0, p0, 0xff
+    and-int/lit16 v0, p0, 0xff
 
-    shr-int/lit8 p0, p0, 0x4
+    shr-int/lit8 v0, v0, 0x4
 
-    goto :goto_9
+    :goto_0
+    invoke-static {v0}, Lcom/baidu/mobstat/ap$a;->a(I)Lcom/baidu/mobstat/ap$a;
 
-    :cond_7
-    and-int/lit8 p0, p0, 0xf
+    move-result-object v0
 
-    :goto_9
-    invoke-static {p0}, Lcom/baidu/mobstat/ap$a;->a(I)Lcom/baidu/mobstat/ap$a;
+    return-object v0
 
-    move-result-object p0
+    :cond_0
+    and-int/lit8 v0, p0, 0xf
 
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static a(I)Lcom/baidu/mobstat/ap$a;
-    .registers 3
+    .locals 2
 
-    if-ltz p0, :cond_c
+    if-ltz p0, :cond_0
 
     const/16 v0, 0x10
 
-    if-ge p0, v0, :cond_c
+    if-ge p0, v0, :cond_0
 
     new-instance v0, Lcom/baidu/mobstat/ap$a;
 
@@ -189,7 +190,7 @@
 
     return-object v0
 
-    :cond_c
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "invalid idx "
@@ -198,33 +199,33 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v1
 .end method
 
 
 # virtual methods
 .method public a(Lcom/baidu/mobstat/ap$a;)I
-    .registers 3
+    .locals 2
 
     iget v0, p0, Lcom/baidu/mobstat/ap$a;->b:I
 
-    iget p1, p1, Lcom/baidu/mobstat/ap$a;->b:I
+    iget v1, p1, Lcom/baidu/mobstat/ap$a;->b:I
 
-    sub-int/2addr v0, p1
+    sub-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public a()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     sget-object v0, Lcom/baidu/mobstat/ap$a;->a:[Ljava/lang/String;
 
@@ -236,7 +237,7 @@
 .end method
 
 .method public b()B
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lcom/baidu/mobstat/ap$a;->b:I
 
@@ -246,30 +247,32 @@
 .end method
 
 .method public synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     check-cast p1, Lcom/baidu/mobstat/ap$a;
 
     invoke-virtual {p0, p1}, Lcom/baidu/mobstat/ap$a;->a(Lcom/baidu/mobstat/ap$a;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_4
-
-    return v0
-
-    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_1d
+    if-ne p0, p1, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -279,34 +282,29 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_12
+    if-eq v2, v3, :cond_3
 
-    goto :goto_1d
+    :cond_2
+    move v0, v1
 
-    :cond_12
+    goto :goto_0
+
+    :cond_3
     check-cast p1, Lcom/baidu/mobstat/ap$a;
 
     iget v2, p0, Lcom/baidu/mobstat/ap$a;->b:I
 
-    iget p1, p1, Lcom/baidu/mobstat/ap$a;->b:I
+    iget v3, p1, Lcom/baidu/mobstat/ap$a;->b:I
 
-    if-ne v2, p1, :cond_1b
+    if-eq v2, v3, :cond_0
 
-    goto :goto_1c
+    move v0, v1
 
-    :cond_1b
-    const/4 v0, 0x0
-
-    :goto_1c
-    return v0
-
-    :cond_1d
-    :goto_1d
-    return v1
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lcom/baidu/mobstat/ap$a;->b:I
 

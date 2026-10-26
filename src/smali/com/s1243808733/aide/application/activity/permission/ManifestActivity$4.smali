@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
-    .registers 2
+    .locals 0
 
     .line 197
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
@@ -36,21 +36,21 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 3
 
     .line 201
     invoke-interface {p1}, Landroid/view/MenuItem;->isChecked()Z
 
     move-result v0
 
-    const/4 v1, 0x1
-
-    xor-int/2addr v0, v1
+    xor-int/lit8 v0, v0, 0x1
 
     invoke-interface {p1, v0}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
     .line 202
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->setDataChange(Z)V
 
@@ -69,15 +69,15 @@
 
     invoke-interface {p1}, Landroid/view/MenuItem;->isChecked()Z
 
-    move-result p1
+    move-result v2
 
-    invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

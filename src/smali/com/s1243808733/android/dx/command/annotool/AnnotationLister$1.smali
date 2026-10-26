@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;)V
-    .registers 2
+    .locals 0
 
     .line 64
     iput-object p1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onException(Ljava/lang/Exception;)V
-    .registers 3
+    .locals 1
 
     .line 124
     new-instance v0, Ljava/lang/RuntimeException;
@@ -47,205 +47,208 @@
 .end method
 
 .method public onProcessArchiveStart(Ljava/io/File;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public processFileBytes(Ljava/lang/String;J[B)Z
-    .registers 8
+    .locals 6
+
+    const/4 v5, 0x1
 
     .line 67
-    const-string p2, ".class"
+    const-string v0, ".class"
 
-    invoke-virtual {p1, p2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result p2
-
-    const/4 p3, 0x1
-
-    if-nez p2, :cond_a
-
-    return p3
-
-    .line 71
-    :cond_a
-    new-instance p2, Lcom/s1243808733/android/dx/util/ByteArray;
-
-    invoke-direct {p2, p4}, Lcom/s1243808733/android/dx/util/ByteArray;-><init>([B)V
-
-    .line 72
-    new-instance p4, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;
-
-    invoke-direct {p4, p2, p1, p3}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;-><init>(Lcom/s1243808733/android/dx/util/ByteArray;Ljava/lang/String;Z)V
-
-    .line 75
-    sget-object p1, Lcom/s1243808733/android/dx/cf/direct/StdAttributeFactory;->THE_ONE:Lcom/s1243808733/android/dx/cf/direct/StdAttributeFactory;
-
-    invoke-virtual {p4, p1}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->setAttributeFactory(Lcom/s1243808733/android/dx/cf/direct/AttributeFactory;)V
-
-    .line 76
-    invoke-virtual {p4}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->getAttributes()Lcom/s1243808733/android/dx/cf/iface/AttributeList;
-
-    move-result-object p1
-
-    .line 80
-    invoke-virtual {p4}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->getThisClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/cst/CstType;->getClassType()Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/type/Type;->getClassName()Ljava/lang/String;
-
-    move-result-object p2
-
-    .line 82
-    const-string v0, "package-info"
-
-    invoke-virtual {p2, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    const-string v1, "RuntimeVisibleAnnotations"
+    if-nez v0, :cond_1
 
-    const-string v2, "RuntimeInvisibleAnnotations"
+    .line 100
+    :cond_0
+    :goto_0
+    return v5
 
-    if-eqz v0, :cond_5b
+    .line 71
+    :cond_1
+    new-instance v0, Lcom/s1243808733/android/dx/util/ByteArray;
+
+    invoke-direct {v0, p4}, Lcom/s1243808733/android/dx/util/ByteArray;-><init>([B)V
+
+    .line 72
+    new-instance v2, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;
+
+    invoke-direct {v2, v0, p1, v5}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;-><init>(Lcom/s1243808733/android/dx/util/ByteArray;Ljava/lang/String;Z)V
+
+    .line 75
+    sget-object v0, Lcom/s1243808733/android/dx/cf/direct/StdAttributeFactory;->THE_ONE:Lcom/s1243808733/android/dx/cf/direct/StdAttributeFactory;
+
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->setAttributeFactory(Lcom/s1243808733/android/dx/cf/direct/AttributeFactory;)V
+
+    .line 76
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->getAttributes()Lcom/s1243808733/android/dx/cf/iface/AttributeList;
+
+    move-result-object v3
+
+    .line 80
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;->getThisClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstType;->getClassType()Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->getClassName()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 82
+    const-string v1, "package-info"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
 
     .line 83
-    invoke-interface {p1, v2}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    const-string v0, "RuntimeInvisibleAnnotations"
 
-    move-result-object p2
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    :goto_39
-    if-eqz p2, :cond_48
+    move-result-object v1
+
+    :goto_1
+    if-eqz v1, :cond_2
+
+    move-object v0, v1
 
     .line 87
-    move-object v0, p2
-
     check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;
 
     .line 88
-    iget-object v2, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
+    iget-object v4, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
 
-    invoke-static {v2, p4, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mvisitPackageAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
+    invoke-static {v4, v2, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mvisitPackageAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
 
     .line 86
-    invoke-interface {p1, p2}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    invoke-interface {v3, v1}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    move-result-object p2
+    move-result-object v1
 
-    goto :goto_39
+    goto :goto_1
 
     .line 91
-    :cond_48
-    invoke-interface {p1, v1}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    :cond_2
+    const-string v0, "RuntimeVisibleAnnotations"
 
-    move-result-object p2
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    :goto_4c
-    if-eqz p2, :cond_97
+    move-result-object v1
+
+    :goto_2
+    if-eqz v1, :cond_0
+
+    move-object v0, v1
 
     .line 95
-    move-object v0, p2
-
     check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;
 
     .line 96
-    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
+    iget-object v4, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
 
-    invoke-static {v1, p4, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mvisitPackageAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
+    invoke-static {v4, v2, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mvisitPackageAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
 
     .line 94
-    invoke-interface {p1, p2}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    invoke-interface {v3, v1}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    move-result-object p2
+    move-result-object v1
 
-    goto :goto_4c
+    goto :goto_2
 
     .line 98
-    :cond_5b
-    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
+    :cond_3
+    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
 
-    invoke-static {v0, p2}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$misMatchingInnerClass(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Ljava/lang/String;)Z
+    invoke-static {v1, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$misMatchingInnerClass(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
+
+    .line 99
+    invoke-static {v1, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$misMatchingPackage(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_92
+    if-eqz v0, :cond_5
 
+    .line 100
+    :cond_4
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
 
-    .line 99
-    invoke-static {v0, p2}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$misMatchingPackage(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Ljava/lang/String;)Z
+    invoke-static {v0, v2}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mprintMatch(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;)V
 
-    move-result p2
-
-    if-eqz p2, :cond_6c
-
-    goto :goto_92
+    goto :goto_0
 
     .line 102
-    :cond_6c
-    invoke-interface {p1, v2}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    :cond_5
+    const-string v0, "RuntimeInvisibleAnnotations"
 
-    move-result-object p2
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    :goto_70
-    if-eqz p2, :cond_7f
+    move-result-object v1
+
+    :goto_3
+    if-eqz v1, :cond_6
+
+    move-object v0, v1
 
     .line 106
-    move-object v0, p2
-
     check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;
 
     .line 107
-    iget-object v2, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
+    iget-object v4, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
 
-    invoke-static {v2, p4, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mvisitClassAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
+    invoke-static {v4, v2, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mvisitClassAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
 
     .line 105
-    invoke-interface {p1, p2}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    invoke-interface {v3, v1}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    move-result-object p2
+    move-result-object v1
 
-    goto :goto_70
+    goto :goto_3
 
     .line 110
-    :cond_7f
-    invoke-interface {p1, v1}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    :cond_6
+    const-string v0, "RuntimeVisibleAnnotations"
 
-    move-result-object p2
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    :goto_83
-    if-eqz p2, :cond_97
+    move-result-object v1
+
+    :goto_4
+    if-eqz v1, :cond_0
+
+    move-object v0, v1
 
     .line 114
-    move-object v0, p2
-
     check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;
 
     .line 115
-    iget-object v1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
+    iget-object v4, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
 
-    invoke-static {v1, p4, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mvisitClassAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
+    invoke-static {v4, v2, v0}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mvisitClassAnnotation(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/cf/attrib/BaseAnnotations;)V
 
     .line 113
-    invoke-interface {p1, p2}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    invoke-interface {v3, v1}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    move-result-object p2
+    move-result-object v1
 
-    goto :goto_83
-
-    .line 100
-    :cond_92
-    :goto_92
-    iget-object p1, p0, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister$1;->this$0:Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;
-
-    invoke-static {p1, p4}, Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;->-$$Nest$mprintMatch(Lcom/s1243808733/android/dx/command/annotool/AnnotationLister;Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;)V
-
-    :cond_97
-    return p3
+    goto :goto_4
 .end method

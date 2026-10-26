@@ -19,63 +19,63 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    new-array v1, v0, [B
+    const/4 v2, 0x0
 
-    const/4 v2, -0x1
+    new-array v0, v3, [B
 
-    const/4 v3, 0x0
+    const/4 v1, -0x1
 
-    aput-byte v2, v1, v3
+    aput-byte v1, v0, v2
 
-    sput-object v1, Lc/c;->a:[B
+    sput-object v0, Lc/c;->a:[B
 
-    new-array v1, v0, [B
+    new-array v0, v3, [B
 
-    aput-byte v3, v1, v3
+    aput-byte v2, v0, v2
 
-    sput-object v1, Lc/c;->b:[B
+    sput-object v0, Lc/c;->b:[B
 
-    new-instance v1, Lc/c;
+    new-instance v0, Lc/c;
 
-    invoke-direct {v1, v3}, Lc/c;-><init>(Z)V
+    invoke-direct {v0, v2}, Lc/c;-><init>(Z)V
 
-    sput-object v1, Lc/c;->c:Lc/c;
+    sput-object v0, Lc/c;->c:Lc/c;
 
-    new-instance v1, Lc/c;
+    new-instance v0, Lc/c;
 
-    invoke-direct {v1, v0}, Lc/c;-><init>(Z)V
+    invoke-direct {v0, v3}, Lc/c;-><init>(Z)V
 
-    sput-object v1, Lc/c;->h:Lc/c;
+    sput-object v0, Lc/c;->h:Lc/c;
 
     return-void
 .end method
 
 .method public constructor <init>(Z)V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0}, Lc/s;-><init>()V
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
-    sget-object p1, Lc/c;->a:[B
+    sget-object v0, Lc/c;->a:[B
 
-    goto :goto_a
-
-    :cond_8
-    sget-object p1, Lc/c;->b:[B
-
-    :goto_a
-    iput-object p1, p0, Lc/c;->k:[B
+    :goto_0
+    iput-object v0, p0, Lc/c;->k:[B
 
     return-void
+
+    :cond_0
+    sget-object v0, Lc/c;->b:[B
+
+    goto :goto_0
 .end method
 
 .method public constructor <init>([B)V
-    .registers 4
+    .locals 2
 
     invoke-direct {p0}, Lc/s;-><init>()V
 
@@ -83,84 +83,84 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_22
+    if-ne v0, v1, :cond_2
 
     const/4 v0, 0x0
 
     aget-byte v0, p1, v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
-    sget-object p1, Lc/c;->b:[B
+    sget-object v0, Lc/c;->b:[B
 
-    iput-object p1, p0, Lc/c;->k:[B
+    iput-object v0, p0, Lc/c;->k:[B
 
-    goto :goto_21
-
-    :cond_11
-    const/16 v1, 0xff
-
-    and-int/2addr v0, v1
-
-    if-ne v0, v1, :cond_1b
-
-    sget-object p1, Lc/c;->a:[B
-
-    iput-object p1, p0, Lc/c;->k:[B
-
-    goto :goto_21
-
-    :cond_1b
-    invoke-static {p1}, Lx/a;->b([B)[B
-
-    move-result-object p1
-
-    iput-object p1, p0, Lc/c;->k:[B
-
-    :goto_21
+    :goto_0
     return-void
 
-    :cond_22
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    and-int/lit16 v0, v0, 0xff
 
-    const-string v0, "byte value should have 1 byte in it"
+    const/16 v1, 0xff
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    if-ne v0, v1, :cond_1
 
-    throw p1
+    sget-object v0, Lc/c;->a:[B
+
+    iput-object v0, p0, Lc/c;->k:[B
+
+    goto :goto_0
+
+    :cond_1
+    invoke-static {p1}, Lx/a;->b([B)[B
+
+    move-result-object v0
+
+    iput-object v0, p0, Lc/c;->k:[B
+
+    goto :goto_0
+
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "byte value should have 1 byte in it"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 
 # virtual methods
 .method public final d(Lc/s;)Z
-    .registers 4
+    .locals 3
 
-    instance-of v0, p1, Lc/c;
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    instance-of v1, p1, Lc/c;
 
-    if-eqz v0, :cond_12
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lc/c;->k:[B
+    iget-object v1, p0, Lc/c;->k:[B
 
-    aget-byte v0, v0, v1
+    aget-byte v1, v1, v0
 
     check-cast p1, Lc/c;
 
-    iget-object p1, p1, Lc/c;->k:[B
+    iget-object v2, p1, Lc/c;->k:[B
 
-    aget-byte p1, p1, v1
+    aget-byte v2, v2, v0
 
-    if-ne v0, p1, :cond_12
+    if-ne v1, v2, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_12
-    return v1
+    :cond_0
+    return v0
 .end method
 
 .method public final e(Lc/q;)V
-    .registers 4
+    .locals 2
 
     const/4 v0, 0x1
 
@@ -172,7 +172,7 @@
 .end method
 
 .method public final f()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x3
 
@@ -180,7 +180,7 @@
 .end method
 
 .method public final g()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public final hashCode()I
-    .registers 3
+    .locals 2
 
     iget-object v0, p0, Lc/c;->k:[B
 
@@ -200,7 +200,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     iget-object v0, p0, Lc/c;->k:[B
 
@@ -208,15 +208,15 @@
 
     aget-byte v0, v0, v1
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const-string v0, "TRUE"
 
-    goto :goto_c
+    :goto_0
+    return-object v0
 
-    :cond_a
+    :cond_0
     const-string v0, "FALSE"
 
-    :goto_c
-    return-object v0
+    goto :goto_0
 .end method

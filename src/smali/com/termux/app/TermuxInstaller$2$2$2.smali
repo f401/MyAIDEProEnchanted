@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxInstaller$2$2;)V
-    .registers 2
+    .locals 0
 
     .line 153
     iput-object p1, p0, Lcom/termux/app/TermuxInstaller$2$2$2;->this$1:Lcom/termux/app/TermuxInstaller$2$2;
@@ -36,19 +36,19 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 156
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
     .line 157
-    iget-object p1, p0, Lcom/termux/app/TermuxInstaller$2$2$2;->this$1:Lcom/termux/app/TermuxInstaller$2$2;
+    iget-object v0, p0, Lcom/termux/app/TermuxInstaller$2$2$2;->this$1:Lcom/termux/app/TermuxInstaller$2$2;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxInstaller$2$2;->this$0:Lcom/termux/app/TermuxInstaller$2;
+    iget-object v0, v0, Lcom/termux/app/TermuxInstaller$2$2;->this$0:Lcom/termux/app/TermuxInstaller$2;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxInstaller$2;->val$activity:Landroid/app/Activity;
+    iget-object v0, v0, Lcom/termux/app/TermuxInstaller$2;->val$activity:Landroid/app/Activity;
 
-    invoke-virtual {p1}, Landroid/app/Activity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lio/github/zeroaicy/aide/cmake/CmakeBuild;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public DW()I
-    .registers 2
+    .locals 1
 
     const/4 v0, -0x1
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public j6()[B
-    .registers 2
+    .locals 1
 
     .line 99
     iget-object v0, p0, Lio/github/zeroaicy/aide/extend/DistributeEvents$1;->val$build:Lio/github/zeroaicy/aide/cmake/CmakeBuild;

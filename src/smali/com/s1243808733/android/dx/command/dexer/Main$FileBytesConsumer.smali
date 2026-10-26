@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/command/dexer/Main;)V
-    .registers 2
+    .locals 0
 
     .line 1714
     iput-object p1, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dx/command/dexer/Main;Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;-><init>(Lcom/s1243808733/android/dx/command/dexer/Main;)V
 
@@ -44,17 +44,17 @@
 
 # virtual methods
 .method public onException(Ljava/lang/Exception;)V
-    .registers 5
+    .locals 3
 
     .line 1724
     instance-of v0, p1, Lcom/s1243808733/android/dx/command/dexer/Main$StopProcessing;
 
-    if-nez v0, :cond_9e
+    if-nez v0, :cond_3
 
     .line 1726
     instance-of v0, p1, Lcom/s1243808733/android/dx/cf/code/SimException;
 
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_0
 
     .line 1727
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -111,17 +111,27 @@
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/code/SimException;->getContext()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_94
+    .line 1742
+    :goto_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
+
+    invoke-static {v0}, Lcom/s1243808733/android/dx/command/dexer/Main;->-$$Nest$fgeterrors(Lcom/s1243808733/android/dx/command/dexer/Main;)Ljava/util/concurrent/atomic/AtomicInteger;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
+
+    return-void
 
     .line 1730
-    :cond_47
+    :cond_0
     instance-of v0, p1, Lcom/s1243808733/android/dx/cf/iface/ParseException;
 
-    if-eqz v0, :cond_7c
+    if-eqz v0, :cond_2
 
     .line 1731
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -148,7 +158,7 @@
 
     iget-boolean v0, v0, Lcom/s1243808733/android/dx/command/dexer/Main$Arguments;->debug:Z
 
-    if-eqz v0, :cond_70
+    if-eqz v0, :cond_1
 
     .line 1734
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -161,10 +171,10 @@
 
     invoke-virtual {p1, v0}, Lcom/s1243808733/android/dx/cf/iface/ParseException;->printStackTrace(Ljava/io/PrintStream;)V
 
-    goto :goto_94
+    goto :goto_0
 
     .line 1736
-    :cond_70
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/command/dexer/Main;->-$$Nest$fgetcontext(Lcom/s1243808733/android/dx/command/dexer/Main;)Lcom/s1243808733/android/dx/command/dexer/DxContext;
@@ -175,10 +185,10 @@
 
     invoke-virtual {p1, v0}, Lcom/s1243808733/android/dx/cf/iface/ParseException;->printContext(Ljava/io/PrintStream;)V
 
-    goto :goto_94
+    goto :goto_0
 
     .line 1739
-    :cond_7c
+    :cond_2
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/command/dexer/Main;->-$$Nest$fgetcontext(Lcom/s1243808733/android/dx/command/dexer/Main;)Lcom/s1243808733/android/dx/command/dexer/DxContext;
@@ -202,27 +212,17 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/Exception;->printStackTrace(Ljava/io/PrintStream;)V
 
-    .line 1742
-    :goto_94
-    iget-object p1, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
-
-    invoke-static {p1}, Lcom/s1243808733/android/dx/command/dexer/Main;->-$$Nest$fgeterrors(Lcom/s1243808733/android/dx/command/dexer/Main;)Ljava/util/concurrent/atomic/AtomicInteger;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
-
-    return-void
+    goto :goto_0
 
     .line 1725
-    :cond_9e
+    :cond_3
     check-cast p1, Lcom/s1243808733/android/dx/command/dexer/Main$StopProcessing;
 
     throw p1
 .end method
 
 .method public onProcessArchiveStart(Ljava/io/File;)V
-    .registers 5
+    .locals 3
 
     .line 1747
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -233,7 +233,7 @@
 
     iget-boolean v0, v0, Lcom/s1243808733/android/dx/command/dexer/Main$Arguments;->verbose:Z
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
     .line 1748
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -252,29 +252,29 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, "..."
+    const-string v2, "..."
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    :cond_28
+    :cond_0
     return-void
 .end method
 
 .method public processFileBytes(Ljava/lang/String;J[B)Z
-    .registers 6
+    .locals 2
 
     .line 1719
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$FileBytesConsumer;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
 
     invoke-static {v0, p1, p2, p3, p4}, Lcom/s1243808733/android/dx/command/dexer/Main;->-$$Nest$mprocessFileBytes(Lcom/s1243808733/android/dx/command/dexer/Main;Ljava/lang/String;J[B)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

@@ -17,7 +17,8 @@
 .field private final references:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;",
             ">;"
         }
@@ -27,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(ILcom/s1243808733/android/dx/rop/cst/CstNat;)V
-    .registers 3
+    .locals 1
 
     .line 65
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/cst/Constant;-><init>()V
@@ -41,30 +42,30 @@
     .line 68
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/cst/CstNat;->getDescriptor()Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toHuman()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toHuman()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/android/dx/rop/type/Prototype;->fromDescriptor(Ljava/lang/String;)Lcom/s1243808733/android/dx/rop/type/Prototype;
+    invoke-static {v0}, Lcom/s1243808733/android/dx/rop/type/Prototype;->fromDescriptor(Ljava/lang/String;)Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->prototype:Lcom/s1243808733/android/dx/rop/type/Prototype;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->prototype:Lcom/s1243808733/android/dx/rop/type/Prototype;
 
     .line 69
-    new-instance p1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->references:Ljava/util/List;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->references:Ljava/util/List;
 
     return-void
 .end method
 
 .method public static make(ILcom/s1243808733/android/dx/rop/cst/CstNat;)Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;
-    .registers 3
+    .locals 1
 
     .line 56
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;
@@ -77,7 +78,7 @@
 
 # virtual methods
 .method public addReference()Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;
-    .registers 3
+    .locals 2
 
     .line 78
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;
@@ -99,7 +100,7 @@
 .end method
 
 .method protected compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
-    .registers 4
+    .locals 2
 
     .line 120
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;
@@ -115,12 +116,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_1
 
+    .line 136
+    :cond_0
+    :goto_0
     return v0
 
     .line 126
-    :cond_f
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->getNat()Lcom/s1243808733/android/dx/rop/cst/CstNat;
@@ -131,12 +135,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1c
-
-    return v0
+    if-nez v0, :cond_0
 
     .line 131
-    :cond_1c
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->declaringClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->getDeclaringClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -147,27 +148,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_29
-
-    return v0
+    if-nez v0, :cond_0
 
     .line 136
-    :cond_29
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->callSite:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->getCallSite()Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstCallSite;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstCallSite;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public getBootstrapMethodIndex()I
-    .registers 2
+    .locals 1
 
     .line 145
     iget v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->bootstrapMethodIndex:I
@@ -176,7 +174,7 @@
 .end method
 
 .method public getCallSite()Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
-    .registers 2
+    .locals 1
 
     .line 222
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->callSite:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
@@ -185,7 +183,7 @@
 .end method
 
 .method public getDeclaringClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 197
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->declaringClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -194,7 +192,7 @@
 .end method
 
 .method public getNat()Lcom/s1243808733/android/dx/rop/cst/CstNat;
-    .registers 2
+    .locals 1
 
     .line 154
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
@@ -203,7 +201,7 @@
 .end method
 
 .method public getPrototype()Lcom/s1243808733/android/dx/rop/type/Prototype;
-    .registers 2
+    .locals 1
 
     .line 163
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->prototype:Lcom/s1243808733/android/dx/rop/type/Prototype;
@@ -212,11 +210,12 @@
 .end method
 
 .method public getReferences()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;",
             ">;"
         }
@@ -229,7 +228,7 @@
 .end method
 
 .method public getReturnType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 172
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->prototype:Lcom/s1243808733/android/dx/rop/type/Prototype;
@@ -242,7 +241,7 @@
 .end method
 
 .method public isCategory2()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -250,14 +249,14 @@
 .end method
 
 .method public setCallSite(Lcom/s1243808733/android/dx/rop/cst/CstCallSite;)V
-    .registers 3
+    .locals 2
 
     .line 208
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->callSite:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_1
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 213
     iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->callSite:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
@@ -265,35 +264,35 @@
     return-void
 
     .line 211
-    :cond_9
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "callSite == null"
+    const-string v1, "callSite == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 209
-    :cond_11
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "already added call site"
+    const-string v1, "already added call site"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public setDeclaringClass(Lcom/s1243808733/android/dx/rop/cst/CstType;)V
-    .registers 3
+    .locals 2
 
     .line 183
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->declaringClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_1
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 188
     iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->declaringClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -301,45 +300,40 @@
     return-void
 
     .line 186
-    :cond_9
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "declaringClass == null"
+    const-string v1, "declaringClass == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 184
-    :cond_11
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "already added declaring class"
+    const-string v1, "already added declaring class"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 107
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->declaringClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstType;->toHuman()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_b
-
-    :cond_9
-    const-string v0, "Unknown"
-
     .line 108
-    :goto_b
+    :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string v2, "InvokeDynamic("
@@ -377,10 +371,16 @@
     move-result-object v0
 
     return-object v0
+
+    .line 107
+    :cond_0
+    const-string v0, "Unknown"
+
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 95
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->toHuman()Ljava/lang/String;
@@ -391,7 +391,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 101
     const-string v0, "InvokeDynamic"

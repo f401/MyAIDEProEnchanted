@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public getAccessFlags()I
-    .registers 2
+    .locals 1
 
     .line 77
     iget v0, p0, Lcom/s1243808733/android/dex/ClassData$Field;->accessFlags:I
@@ -48,7 +48,7 @@
 .end method
 
 .method public getFieldIndex()I
-    .registers 2
+    .locals 1
 
     .line 73
     iget v0, p0, Lcom/s1243808733/android/dex/ClassData$Field;->fieldIndex:I

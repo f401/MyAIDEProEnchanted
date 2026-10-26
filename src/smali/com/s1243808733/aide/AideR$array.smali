@@ -15,9 +15,9 @@
 
 
 # static fields
-.field public static final APKTOOL_DUMMY_6:I = 0x7f020006
+.field public static final array_6:I = 0x7f020006
 
-.field public static final APKTOOL_DUMMY_7:I = 0x7f020007
+.field public static final array_7:I = 0x7f020007
 
 .field public static final layout_design_activity_xml_theme:I = 0x7f020008
 
@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

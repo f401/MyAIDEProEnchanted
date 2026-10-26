@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/GradleBuildEvent;Lcom/s1243808733/aide/util/Command;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,24 +45,24 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 3
+    .locals 2
 
     .line 216
-    iget-object p1, p0, Lcom/s1243808733/aide/GradleBuildEvent$3;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
+    iget-object v0, p0, Lcom/s1243808733/aide/GradleBuildEvent$3;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/s1243808733/aide/GradleBuildEvent$3;->val$item:Lcom/s1243808733/aide/util/Command;
-
-    invoke-virtual {v0}, Lcom/s1243808733/aide/util/Command;->getCmd()Ljava/lang/String;
+    invoke-static {v0}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/termux/app/TermuxActivity;->start(Landroid/app/Activity;Ljava/lang/String;)V
+    iget-object v1, p0, Lcom/s1243808733/aide/GradleBuildEvent$3;->val$item:Lcom/s1243808733/aide/util/Command;
 
-    const/4 p1, 0x0
+    invoke-virtual {v1}, Lcom/s1243808733/aide/util/Command;->getCmd()Ljava/lang/String;
 
-    return p1
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/termux/app/TermuxActivity;->start(Landroid/app/Activity;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    return v0
 .end method

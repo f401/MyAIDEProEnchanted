@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/aide/ui/MainActivity;Landroid/view/ActionMode;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,23 +45,23 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 3
+    .locals 2
 
     .line 489
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$4;->val$activity:Lcom/aide/ui/MainActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$4;->val$activity:Lcom/aide/ui/MainActivity;
 
     invoke-static {}, Lcom/s1243808733/aide/MainListener;->-$$Nest$smgetSelectionContent()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {p1, v0}, Lcom/s1243808733/util/View2Java;->showDialog(Landroid/app/Activity;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/s1243808733/util/View2Java;->showDialog(Landroid/app/Activity;Ljava/lang/String;)V
 
     .line 490
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$4;->val$actionMode:Landroid/view/ActionMode;
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$4;->val$actionMode:Landroid/view/ActionMode;
 
-    invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
+    invoke-virtual {v0}, Landroid/view/ActionMode;->finish()V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

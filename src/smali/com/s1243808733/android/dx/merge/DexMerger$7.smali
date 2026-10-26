@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger<",
+        "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger",
+        "<",
         "Lcom/s1243808733/android/dex/FieldId;",
         ">;"
     }
@@ -28,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/merge/DexMerger;Lcom/s1243808733/android/dex/Dex$Section;)V
-    .registers 3
+    .locals 0
 
     .line 530
     iput-object p1, p0, Lcom/s1243808733/android/dx/merge/DexMerger$7;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
@@ -41,81 +42,81 @@
 
 # virtual methods
 .method getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
-    .registers 2
+    .locals 1
 
     .line 532
-    iget-object p1, p1, Lcom/s1243808733/android/dex/TableOfContents;->fieldIds:Lcom/s1243808733/android/dex/TableOfContents$Section;
+    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->fieldIds:Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Lcom/s1243808733/android/dex/FieldId;
-    .registers 4
+    .locals 1
 
     .line 536
     invoke-virtual {p1}, Lcom/s1243808733/android/dex/Dex$Section;->readFieldId()Lcom/s1243808733/android/dex/FieldId;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p2, p1}, Lcom/s1243808733/android/dx/merge/IndexMap;->adjust(Lcom/s1243808733/android/dex/FieldId;)Lcom/s1243808733/android/dex/FieldId;
+    invoke-virtual {p2, v0}, Lcom/s1243808733/android/dx/merge/IndexMap;->adjust(Lcom/s1243808733/android/dex/FieldId;)Lcom/s1243808733/android/dex/FieldId;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method bridge synthetic read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Ljava/lang/Comparable;
-    .registers 4
+    .locals 1
 
     .line 530
     invoke-virtual {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/merge/DexMerger$7;->read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Lcom/s1243808733/android/dex/FieldId;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method updateIndex(ILcom/s1243808733/android/dx/merge/IndexMap;II)V
-    .registers 5
+    .locals 2
 
-    if-ltz p4, :cond_d
+    if-ltz p4, :cond_0
 
-    const p1, 0xffff
+    const v0, 0xffff
 
-    if-gt p4, p1, :cond_d
+    if-gt p4, v0, :cond_0
 
     .line 543
-    iget-object p1, p2, Lcom/s1243808733/android/dx/merge/IndexMap;->fieldIds:[S
+    iget-object v0, p2, Lcom/s1243808733/android/dx/merge/IndexMap;->fieldIds:[S
 
-    int-to-short p2, p4
+    int-to-short v1, p4
 
-    aput-short p2, p1, p3
+    aput-short v1, v0, p3
 
     return-void
 
     .line 541
-    :cond_d
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string p2, "field ID not in [0, 0xffff]: "
+    const-string v1, "field ID not in [0, 0xffff]: "
 
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p2, Lcom/s1243808733/android/dex/DexIndexOverflowException;
+    new-instance v1, Lcom/s1243808733/android/dex/DexIndexOverflowException;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p2, p1}, Lcom/s1243808733/android/dex/DexIndexOverflowException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Lcom/s1243808733/android/dex/DexIndexOverflowException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v1
 .end method
 
 .method write(Lcom/s1243808733/android/dex/FieldId;)V
-    .registers 3
+    .locals 1
 
     .line 547
     iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$7;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
@@ -130,7 +131,7 @@
 .end method
 
 .method bridge synthetic write(Ljava/lang/Comparable;)V
-    .registers 2
+    .locals 0
 
     .line 530
     check-cast p1, Lcom/s1243808733/android/dex/FieldId;

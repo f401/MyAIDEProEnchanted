@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/cf/code/Ropper;)V
-    .registers 3
+    .locals 2
 
     .line 1459
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionSetupLabelAllocator;->this$0:Lcom/s1243808733/android/dx/cf/code/Ropper;
@@ -41,17 +41,17 @@
 
     invoke-static {p1}, Lcom/s1243808733/android/dx/cf/code/Ropper;->-$$Nest$fgetmethod(Lcom/s1243808733/android/dx/cf/code/Ropper;)Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getCatches()Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getCatches()Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->size()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->size()I
 
-    move-result p1
+    move-result v1
 
-    add-int/2addr v0, p1
+    add-int/2addr v0, v1
 
     iput v0, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionSetupLabelAllocator;->maxSetupLabel:I
 
@@ -61,14 +61,14 @@
 
 # virtual methods
 .method getNextLabel()I
-    .registers 3
+    .locals 2
 
     .line 1466
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionSetupLabelAllocator;->nextAvailableLabel:I
 
     iget v1, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionSetupLabelAllocator;->maxSetupLabel:I
 
-    if-ge v0, v1, :cond_d
+    if-ge v0, v1, :cond_0
 
     .line 1469
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionSetupLabelAllocator;->nextAvailableLabel:I
@@ -80,7 +80,7 @@
     return v0
 
     .line 1467
-    :cond_d
+    :cond_0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V

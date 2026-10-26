@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(IILjava/lang/String;)V
-    .registers 4
+    .locals 0
 
     .line 11
     invoke-direct {p0, p1, p2}, Lorg/ahocorasick/interval/Interval;-><init>(II)V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public getKeyword()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 16
     iget-object v0, p0, Lorg/ahocorasick/trie/Emit;->keyword:Ljava/lang/String;
@@ -35,7 +35,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 21
     new-instance v0, Ljava/lang/StringBuilder;

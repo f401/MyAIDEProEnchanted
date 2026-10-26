@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 12
     invoke-direct {p0}, Lcom/s1243808733/aide/api/MainActivityEventWrapper;-><init>()V
@@ -14,336 +14,351 @@
 .end method
 
 .method private d8Merger(Ljava/io/File;Ljava/lang/Object;)V
-    .registers 8
+    .locals 5
+
+    const/4 v3, 0x1
+
+    const/4 v0, 0x0
 
     .line 53
-    const/4 v0, 0x1
-
-    new-array v1, v0, [Ljava/lang/Object;
+    new-array v1, v3, [Ljava/lang/Object;
 
     const-string v2, "useing d8Merger"
 
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
+    aput-object v2, v1, v0
 
     invoke-static {v1}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
 
     .line 56
-    :try_start_b
+    :try_start_0
     invoke-static {p1}, Lcom/s1243808733/android/dexmerger/ApkDexMerger;->getClassesDexPathsFormApk(Ljava/io/File;)Ljava/util/List;
 
     move-result-object v1
 
     invoke-interface {v1}, Ljava/util/List;->size()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_3
 
-    move-result v1
-    :try_end_13
-    .catchall {:try_start_b .. :try_end_13} :catchall_14
+    move-result v0
 
-    goto :goto_16
-
-    :catchall_14
-    move-exception v1
-
-    const/4 v1, 0x0
-
-    :goto_16
-    if-le v1, v0, :cond_72
+    :goto_0
+    if-le v0, v3, :cond_0
 
     .line 60
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_21
+    if-eqz v0, :cond_1
 
-    const-string v1, "使用D8重新合并Dex中.."
+    const-string v0, "\u4f7f\u7528D8\u91cd\u65b0\u5408\u5e76Dex\u4e2d.."
 
-    goto :goto_23
-
-    :cond_21
-    const-string v1, "Mergeing Dex.."
-
-    :goto_23
-    invoke-virtual {p0, p2, v1}, Lcom/s1243808733/aide/DexMergerEvent;->updateBuildDialog(Ljava/lang/Object;Ljava/lang/String;)V
+    :goto_1
+    invoke-virtual {p0, p2, v0}, Lcom/s1243808733/aide/DexMergerEvent;->updateBuildDialog(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 63
-    :try_start_26
+    :try_start_1
     invoke-static {}, Lcom/s1243808733/aide/util/ProjectUtils;->getCurrentProject()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "d8_merger.log"
+    const-string v1, "d8_merger.log"
 
-    invoke-static {v1, v2}, Lcom/s1243808733/aide/util/ProjectUtils;->getBin(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/util/ProjectUtils;->getBin(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v1
 
     .line 64
-    new-instance v2, Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    new-instance v0, Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    new-instance v4, Ljava/io/FileOutputStream;
+    new-instance v2, Ljava/io/FileOutputStream;
 
-    invoke-direct {v4, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v2, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
-    invoke-direct {v2, v4}, Lcom/s1243808733/aide/functions/r8merger/R8Log;-><init>(Ljava/io/FileOutputStream;)V
-    :try_end_3a
-    .catchall {:try_start_26 .. :try_end_3a} :catchall_48
+    invoke-direct {v0, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;-><init>(Ljava/io/FileOutputStream;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 65
-    :try_start_3a
+    :try_start_2
     new-instance v1, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;
 
-    invoke-direct {v1, v2, p1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;-><init>(Lcom/s1243808733/aide/functions/r8merger/R8Log;Ljava/io/File;)V
+    invoke-direct {v1, v0, p1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;-><init>(Lcom/s1243808733/aide/functions/r8merger/R8Log;Ljava/io/File;)V
 
     .line 66
     invoke-virtual {v1, p1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->merger(Ljava/io/File;)V
-    :try_end_42
-    .catchall {:try_start_3a .. :try_end_42} :catchall_46
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     .line 75
-    :goto_42
-    invoke-virtual {v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->close()V
+    :goto_2
+    invoke-virtual {v0}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->close()V
 
-    goto :goto_72
+    .line 77
+    :cond_0
+    return-void
 
-    :catchall_46
-    move-exception p1
+    .line 60
+    :cond_1
+    const-string v0, "Mergeing Dex.."
 
-    goto :goto_4a
+    goto :goto_1
 
-    :catchall_48
-    move-exception p1
+    .line 75
+    :catchall_0
+    move-exception v0
 
-    const/4 v2, 0x0
+    move-object v1, v0
+
+    const/4 v0, 0x0
 
     .line 68
-    :goto_4a
-    :try_start_4a
-    const-string v1, "DexMerger Fail"
+    :goto_3
+    :try_start_3
+    const-string v2, "DexMerger Fail"
 
-    new-array v0, v0, [Ljava/lang/Object;
+    const/4 v3, 0x1
 
-    aput-object p1, v0, v3
+    new-array v3, v3, [Ljava/lang/Object;
 
-    invoke-static {v1, v0}, Lcom/blankj/utilcode/util/LogUtils;->iTag(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v4, 0x0
+
+    aput-object v1, v3, v4
+
+    invoke-static {v2, v3}, Lcom/blankj/utilcode/util/LogUtils;->iTag(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 69
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    move-result p1
-    :try_end_57
-    .catchall {:try_start_4a .. :try_end_57} :catchall_6b
+    move-result v1
 
-    if-eqz p1, :cond_5c
+    if-eqz v1, :cond_2
 
-    const-string p1, "合并Dex失败，请到cache/log查看原因"
+    const-string v1, "\u5408\u5e76Dex\u5931\u8d25\uff0c\u8bf7\u5230cache/log\u67e5\u770b\u539f\u56e0"
 
-    goto :goto_5e
-
-    :cond_5c
-    const-string p1, "Failed to merge Dex"
-
-    :goto_5e
-    :try_start_5e
-    invoke-virtual {p0, p2, p1}, Lcom/s1243808733/aide/DexMergerEvent;->updateBuildDialog(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_61
-    .catchall {:try_start_5e .. :try_end_61} :catchall_6b
+    :goto_4
+    :try_start_4
+    invoke-virtual {p0, p2, v1}, Lcom/s1243808733/aide/DexMergerEvent;->updateBuildDialog(Ljava/lang/Object;Ljava/lang/String;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 71
-    const-wide/16 p1, 0xbb8
+    const-wide/16 v2, 0xbb8
 
-    :try_start_63
-    invoke-static {p1, p2}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_66
-    .catch Ljava/lang/InterruptedException; {:try_start_63 .. :try_end_66} :catch_67
-    .catchall {:try_start_63 .. :try_end_66} :catchall_6b
+    :try_start_5
+    invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_5
+    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    goto :goto_68
+    :goto_5
+    if-eqz v0, :cond_0
 
-    :catch_67
-    move-exception p1
+    goto :goto_2
 
-    :goto_68
-    if-eqz v2, :cond_72
+    .line 69
+    :cond_2
+    const-string v1, "Failed to merge Dex"
+
+    goto :goto_4
 
     .line 75
-    goto :goto_42
+    :catchall_1
+    move-exception v1
 
-    :catchall_6b
-    move-exception p1
+    if-eqz v0, :cond_3
 
-    if-eqz v2, :cond_71
-
-    invoke-virtual {v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->close()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->close()V
 
     .line 77
-    :cond_71
-    throw p1
+    :cond_3
+    throw v1
 
-    :cond_72
-    :goto_72
-    return-void
+    .line 71
+    :catch_0
+    move-exception v1
+
+    goto :goto_5
+
+    .line 75
+    :catchall_2
+    move-exception v1
+
+    goto :goto_3
+
+    .line 56
+    :catchall_3
+    move-exception v1
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onBeforeSigningAPK(Ljava/io/File;Ljava/lang/Object;)V
-    .registers 7
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v1, 0x0
 
     .line 17
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    const-string v1, "adset_use_dexmerger"
+    const-string v2, "adset_use_dexmerger"
 
-    const/4 v2, 0x1
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v0, v2, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_71
+    if-eqz v0, :cond_0
 
     .line 18
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    const-string v1, "adset_use_dexmerger_d8"
+    const-string v2, "adset_use_dexmerger_d8"
 
-    const/4 v3, 0x0
-
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_1
 
     .line 19
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/aide/DexMergerEvent;->d8Merger(Ljava/io/File;Ljava/lang/Object;)V
 
-    goto :goto_71
+    .line 44
+    :cond_0
+    :goto_0
+    return-void
 
     .line 23
-    :cond_1e
-    :try_start_1e
+    :cond_1
+    :try_start_0
     invoke-static {p1}, Lcom/s1243808733/android/dexmerger/ApkDexMerger;->getClassesDexPathsFormApk(Ljava/io/File;)Ljava/util/List;
 
     move-result-object v0
 
     invoke-interface {v0}, Ljava/util/List;->size()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     move-result v0
-    :try_end_26
-    .catchall {:try_start_1e .. :try_end_26} :catchall_27
-
-    goto :goto_32
-
-    :catchall_27
-    move-exception v0
 
     .line 25
-    new-array v1, v2, [Ljava/lang/Object;
-
-    aput-object v0, v1, v3
-
-    const-string v0, "GetDexCountError"
-
-    invoke-static {v0, v1}, Lcom/blankj/utilcode/util/LogUtils;->iTag(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    const/4 v0, 0x0
-
-    :goto_32
-    if-le v0, v2, :cond_71
+    :goto_1
+    if-le v0, v4, :cond_0
 
     .line 28
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_2
 
-    const-string v0, "重新合并Dex.."
+    const-string v0, "\u91cd\u65b0\u5408\u5e76Dex.."
 
-    goto :goto_3f
-
-    :cond_3d
-    const-string v0, "Mergeing Dex.."
-
-    :goto_3f
+    :goto_2
     invoke-virtual {p0, p2, v0}, Lcom/s1243808733/aide/DexMergerEvent;->updateBuildDialog(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 31
-    :try_start_42
+    :try_start_1
     new-instance v0, Lcom/s1243808733/android/dx/command/dexer/DxContext;
 
     invoke-direct {v0}, Lcom/s1243808733/android/dx/command/dexer/DxContext;-><init>()V
 
     .line 32
-    new-instance v1, Lcom/s1243808733/android/dexmerger/ApkDexMerger;
+    new-instance v2, Lcom/s1243808733/android/dexmerger/ApkDexMerger;
 
-    invoke-direct {v1, v0, p1}, Lcom/s1243808733/android/dexmerger/ApkDexMerger;-><init>(Lcom/s1243808733/android/dx/command/dexer/DxContext;Ljava/io/File;)V
+    invoke-direct {v2, v0, p1}, Lcom/s1243808733/android/dexmerger/ApkDexMerger;-><init>(Lcom/s1243808733/android/dx/command/dexer/DxContext;Ljava/io/File;)V
 
     .line 33
-    invoke-virtual {v1, p1}, Lcom/s1243808733/android/dexmerger/ApkDexMerger;->merger(Ljava/io/File;)V
-    :try_end_4f
-    .catchall {:try_start_42 .. :try_end_4f} :catchall_50
+    invoke-virtual {v2, p1}, Lcom/s1243808733/android/dexmerger/ApkDexMerger;->merger(Ljava/io/File;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_71
+    goto :goto_0
 
-    :catchall_50
-    move-exception p1
+    :catchall_0
+    move-exception v0
 
     .line 35
-    new-array v0, v2, [Ljava/lang/Object;
+    const-string v2, "DexMerger Fail"
 
-    aput-object p1, v0, v3
+    new-array v3, v4, [Ljava/lang/Object;
 
-    const-string p1, "DexMerger Fail"
+    aput-object v0, v3, v1
 
-    invoke-static {p1, v0}, Lcom/blankj/utilcode/util/LogUtils;->iTag(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v2, v3}, Lcom/blankj/utilcode/util/LogUtils;->iTag(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 36
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_63
+    if-eqz v0, :cond_3
 
-    const-string p1, "合并Dex失败，请到cache/log查看原因"
+    const-string v0, "\u5408\u5e76Dex\u5931\u8d25\uff0c\u8bf7\u5230cache/log\u67e5\u770b\u539f\u56e0"
 
-    goto :goto_65
-
-    :cond_63
-    const-string p1, "Failed to merge Dex"
-
-    :goto_65
-    invoke-virtual {p0, p2, p1}, Lcom/s1243808733/aide/DexMergerEvent;->updateBuildDialog(Ljava/lang/Object;Ljava/lang/String;)V
+    :goto_3
+    invoke-virtual {p0, p2, v0}, Lcom/s1243808733/aide/DexMergerEvent;->updateBuildDialog(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 38
-    const-wide/16 p1, 0xbb8
+    const-wide/16 v0, 0xbb8
 
-    :try_start_6a
-    invoke-static {p1, p2}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_6d
-    .catch Ljava/lang/InterruptedException; {:try_start_6a .. :try_end_6d} :catch_70
-    .catchall {:try_start_6a .. :try_end_6d} :catchall_6e
+    :try_start_2
+    invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_2
+    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    goto :goto_71
-
-    :catchall_6e
-    move-exception p1
+    goto :goto_0
 
     .line 44
-    throw p1
+    :catch_0
+    move-exception v0
 
-    :catch_70
-    move-exception p1
+    goto :goto_0
 
-    :cond_71
-    :goto_71
-    return-void
+    .line 23
+    :catchall_1
+    move-exception v0
+
+    .line 25
+    const-string v2, "GetDexCountError"
+
+    new-array v3, v4, [Ljava/lang/Object;
+
+    aput-object v0, v3, v1
+
+    invoke-static {v2, v3}, Lcom/blankj/utilcode/util/LogUtils;->iTag(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    move v0, v1
+
+    goto :goto_1
+
+    .line 28
+    :cond_2
+    const-string v0, "Mergeing Dex.."
+
+    goto :goto_2
+
+    .line 36
+    :cond_3
+    const-string v0, "Failed to merge Dex"
+
+    goto :goto_3
+
+    .line 38
+    :catchall_2
+    move-exception v0
+
+    .line 44
+    throw v0
 .end method

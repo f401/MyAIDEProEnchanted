@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/command/dexer/Main;)V
-    .registers 2
+    .locals 0
 
     .line 1180
     iput-object p1, p0, Lcom/s1243808733/android/dx/command/dexer/Main$MainDexListFilter;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dx/command/dexer/Main;Lcom/s1243808733/android/dx/command/dexer/Main$MainDexListFilter-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/command/dexer/Main$MainDexListFilter;-><init>(Lcom/s1243808733/android/dx/command/dexer/Main;)V
 
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/String;)Z
-    .registers 3
+    .locals 2
 
     .line 1184
     const-string v0, ".class"
@@ -53,28 +53,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 1185
     invoke-static {p1}, Lcom/s1243808733/android/dx/command/dexer/Main;->-$$Nest$smfixPath(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
-
-    .line 1186
-    iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$MainDexListFilter;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
-
-    invoke-static {v0}, Lcom/s1243808733/android/dx/command/dexer/Main;->-$$Nest$fgetclassesInMainDex(Lcom/s1243808733/android/dx/command/dexer/Main;)Ljava/util/Set;
-
     move-result-object v0
 
-    invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    .line 1186
+    iget-object v1, p0, Lcom/s1243808733/android/dx/command/dexer/Main$MainDexListFilter;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
 
-    move-result p1
+    invoke-static {v1}, Lcom/s1243808733/android/dx/command/dexer/Main;->-$$Nest$fgetclassesInMainDex(Lcom/s1243808733/android/dx/command/dexer/Main;)Ljava/util/Set;
 
-    return p1
+    move-result-object v1
 
-    :cond_17
-    const/4 p1, 0x1
+    invoke-interface {v1, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    return p1
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method

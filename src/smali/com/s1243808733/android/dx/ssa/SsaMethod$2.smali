@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/SsaMethod;)V
-    .registers 2
+    .locals 0
 
     .line 431
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/SsaMethod$2;->this$0:Lcom/s1243808733/android/dx/ssa/SsaMethod;
@@ -34,22 +34,22 @@
 .end method
 
 .method private addToUses(Lcom/s1243808733/android/dx/ssa/SsaInsn;)V
-    .registers 7
+    .locals 5
 
     .line 452
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getSources()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 453
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    :goto_9
-    if-ge v2, v1, :cond_21
+    :goto_0
+    if-ge v0, v2, :cond_0
 
     .line 456
     iget-object v3, p0, Lcom/s1243808733/android/dx/ssa/SsaMethod$2;->this$0:Lcom/s1243808733/android/dx/ssa/SsaMethod;
@@ -58,7 +58,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
     move-result-object v4
 
@@ -70,18 +70,18 @@
 
     invoke-virtual {v3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_21
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public visitMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 2
+    .locals 0
 
     .line 435
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/SsaMethod$2;->addToUses(Lcom/s1243808733/android/dx/ssa/SsaInsn;)V
@@ -90,7 +90,7 @@
 .end method
 
 .method public visitNonMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 2
+    .locals 0
 
     .line 445
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/SsaMethod$2;->addToUses(Lcom/s1243808733/android/dx/ssa/SsaInsn;)V
@@ -99,7 +99,7 @@
 .end method
 
 .method public visitPhiInsn(Lcom/s1243808733/android/dx/ssa/PhiInsn;)V
-    .registers 2
+    .locals 0
 
     .line 440
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/SsaMethod$2;->addToUses(Lcom/s1243808733/android/dx/ssa/SsaInsn;)V

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;[Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,64 +45,64 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;IZ)V
-    .registers 5
+    .locals 2
 
     .line 691
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->val$apksignv:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->val$apksignv:[Ljava/lang/String;
 
-    aget-object p1, p1, p2
+    aget-object v0, v0, p2
 
-    const-string v0, "v1"
+    const-string v1, "v1"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_11
+    if-eqz v0, :cond_0
 
     .line 692
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    invoke-static {p1, p3}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fputisapksignv1(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;Z)V
+    invoke-static {v0, p3}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fputisapksignv1(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;Z)V
 
     .line 695
-    :cond_11
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->val$apksignv:[Ljava/lang/String;
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->val$apksignv:[Ljava/lang/String;
 
-    aget-object p1, p1, p2
+    aget-object v0, v0, p2
 
-    const-string v0, "v2"
+    const-string v1, "v2"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_22
+    if-eqz v0, :cond_1
 
     .line 696
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    invoke-static {p1, p3}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fputisapksignv2(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;Z)V
+    invoke-static {v0, p3}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fputisapksignv2(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;Z)V
 
     .line 699
-    :cond_22
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->val$apksignv:[Ljava/lang/String;
+    :cond_1
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->val$apksignv:[Ljava/lang/String;
 
-    aget-object p1, p1, p2
+    aget-object v0, v0, p2
 
-    const-string p2, "v3"
+    const-string v1, "v3"
 
-    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_33
+    if-eqz v0, :cond_2
 
     .line 700
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$2;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    invoke-static {p1, p3}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fputisapksignv3(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;Z)V
+    invoke-static {v0, p3}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fputisapksignv3(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;Z)V
 
-    :cond_33
+    :cond_2
     return-void
 .end method

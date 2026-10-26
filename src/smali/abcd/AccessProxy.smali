@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,23 +14,23 @@
 .end method
 
 .method public static isAndroidNdkProject(Ljava/lang/String;)Z
-    .registers 1
+    .locals 1
 
     .line 8
     invoke-static {p0}, Labcd/ProjectFilesUtil;->containsNDKFiles(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static isGradle(Ljava/lang/String;)Z
-    .registers 1
+    .locals 1
 
     .line 5
     invoke-static {p0}, Labcd/ProjectFilesUtil;->isGradleProject(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method

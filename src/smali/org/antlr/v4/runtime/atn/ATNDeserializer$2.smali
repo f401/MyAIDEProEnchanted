@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,18 +30,18 @@
 
 # virtual methods
 .method public readUnicode([CI)I
-    .registers 3
+    .locals 1
 
     .line 113
     invoke-static {p1, p2}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->toInt32([CI)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x2
 

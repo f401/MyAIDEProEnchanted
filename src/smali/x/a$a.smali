@@ -22,8 +22,8 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Ljava/util/Iterator<",
-        "TT;>;"
+        "Ljava/util/Iterator",
+        "<TT;>;"
     }
 .end annotation
 
@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>([Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;)V"
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public final hasNext()Z
-    .registers 3
+    .locals 2
 
     iget v0, p0, Lx/a$a;->b:I
 
@@ -71,21 +71,21 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_9
+    if-ge v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_a
+    :goto_0
+    return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_a
-    return v0
+    goto :goto_0
 .end method
 
 .method public final next()Ljava/lang/Object;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -98,7 +98,7 @@
 
     array-length v2, v1
 
-    if-eq v0, v2, :cond_e
+    if-eq v0, v2, :cond_0
 
     add-int/lit8 v2, v0, 0x1
 
@@ -109,7 +109,7 @@
     return-object v0
 
     .line 1
-    :cond_e
+    :cond_0
     const-string v0, "Out of elements: "
 
     invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -133,7 +133,7 @@
 .end method
 
 .method public final remove()V
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
 
     .line 15
     invoke-direct {p0, p1}, Lcom/aide/ui/views/SplitView;-><init>(Landroid/content/Context;)V
@@ -14,7 +14,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
 
     .line 19
     invoke-direct {p0, p1, p2}, Lcom/aide/ui/views/SplitView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
 
     .line 23
     invoke-direct {p0, p1, p2, p3}, Lcom/aide/ui/views/SplitView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public getBottomView()Landroid/view/View;
-    .registers 3
+    .locals 2
 
     .line 37
     const-string v0, "BrowserPager"
@@ -43,12 +43,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     return-object v0
 
     .line 39
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "BrowserPager is null"
@@ -59,7 +59,7 @@
 .end method
 
 .method public getSeparatorView()Landroid/view/View;
-    .registers 3
+    .locals 2
 
     .line 28
     const-string v0, "split_separator"
@@ -68,12 +68,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     return-object v0
 
     .line 30
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "split_separator is null"
@@ -84,49 +84,46 @@
 .end method
 
 .method public setSwipeEnabled(Z)V
-    .registers 4
+    .locals 2
+
+    const/4 v0, 0x0
 
     .line 46
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    if-eqz v1, :cond_0
 
-    if-eqz v0, :cond_8
-
-    const/4 p1, 0x0
+    move p1, v0
 
     .line 49
-    :cond_8
+    :cond_0
     invoke-virtual {p0}, Lcom/s1243808733/aide/widget/CustomSplitView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/s1243808733/util/Utils;->isLandscape(Landroid/content/res/Configuration;)Z
+    invoke-static {v1}, Lcom/s1243808733/util/Utils;->isLandscape(Landroid/content/res/Configuration;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1d
+    if-eqz v1, :cond_1
 
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->isEnableDrawer()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1d
+    if-eqz v1, :cond_1
 
-    goto :goto_1e
+    move p1, v0
 
     .line 52
-    :cond_1d
-    move v1, p1
-
-    :goto_1e
-    invoke-super {p0, v1}, Lcom/aide/ui/views/SplitView;->setSwipeEnabled(Z)V
+    :cond_1
+    invoke-super {p0, p1}, Lcom/aide/ui/views/SplitView;->setSwipeEnabled(Z)V
 
     return-void
 .end method

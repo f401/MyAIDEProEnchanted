@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
 
     .line 544
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/io/instructions/InstructionCodec$24-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec$24;-><init>(Ljava/lang/String;I)V
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public decode(ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 12
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -65,23 +65,21 @@
     move-result-object v4
 
     .line 552
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
 
     const/4 v5, 0x0
 
     const-wide/16 v6, 0x0
 
-    move-object v0, p1
-
     move-object v1, p0
 
     invoke-direct/range {v0 .. v8}, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJI)V
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public encode(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 5
+    .locals 3
 
     .line 560
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getIndex()I
@@ -95,16 +93,16 @@
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getA()I
 
-    move-result p1
+    move-result v2
 
-    invoke-static {v1, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smcodeUnit(II)S
+    invoke-static {v1, v2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smcodeUnit(II)S
 
-    move-result p1
+    move-result v1
 
     .line 563
     invoke-static {v0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smunit0(I)S
 
-    move-result v1
+    move-result v2
 
     .line 564
     invoke-static {v0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smunit1(I)S
@@ -112,7 +110,7 @@
     move-result v0
 
     .line 561
-    invoke-interface {p2, p1, v1, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSS)V
+    invoke-interface {p2, v1, v2, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSS)V
 
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 804
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -36,34 +36,34 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 10
+    .locals 9
+
+    const/4 v6, 0x2
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
 
     .line 808
-    const/4 p1, 0x2
+    new-array v0, v6, [Ljava/lang/String;
 
-    new-array v0, p1, [Ljava/lang/String;
+    const-string v1, "\u7a0b\u5e8f\u8bbe\u7f6e"
 
-    const-string v1, "程序设置"
+    aput-object v1, v0, v7
 
-    const/4 v2, 0x0
+    const-string v1, "\u4ee3\u7801\u9ad8\u4eae\u914d\u7f6e"
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v8
 
-    const-string v1, "代码高亮配置"
+    new-array v1, v6, [Ljava/lang/String;
 
-    const/4 v3, 0x1
+    const-string v2, "Program setting"
 
-    aput-object v1, v0, v3
+    aput-object v2, v1, v7
 
-    new-array v1, p1, [Ljava/lang/String;
+    const-string v2, "Color Scheme"
 
-    const-string v4, "Program setting"
-
-    aput-object v4, v1, v2
-
-    const-string v4, "Color Scheme"
-
-    aput-object v4, v1, v3
+    aput-object v2, v1, v8
 
     invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -72,117 +72,122 @@
     check-cast v0, [Ljava/lang/String;
 
     .line 810
-    new-instance v1, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
     .line 811
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v4
+    move-result-object v1
 
-    const-string v5, "application"
+    const-string v3, "application"
 
-    invoke-virtual {v1, v5, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 812
-    const-string v6, "colorscheme"
+    const-string v3, "colorscheme"
 
-    invoke-virtual {v1, v6, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 814
-    new-instance v4, Landroid/app/AlertDialog$Builder;
+    new-instance v3, Landroid/app/AlertDialog$Builder;
 
-    iget-object v7, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
 
-    invoke-virtual {v7}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-direct {v4, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 815
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v7
+    move-result v1
 
-    if-eqz v7, :cond_44
+    if-eqz v1, :cond_0
 
-    const-string v7, "选择备份的内容"
+    const-string v1, "\u9009\u62e9\u5907\u4efd\u7684\u5185\u5bb9"
 
-    goto :goto_46
+    :goto_0
+    invoke-virtual {v3, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    :cond_44
-    const-string v7, "Select the content of backup"
-
-    :goto_46
-    invoke-virtual {v4, v7}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v4
+    move-result-object v3
 
     .line 817
-    invoke-virtual {v1, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "application"
 
-    move-result-object v5
+    invoke-virtual {v2, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v5, Ljava/lang/Boolean;
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/Boolean;->booleanValue()Z
+    check-cast v1, Ljava/lang/Boolean;
 
-    move-result v5
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v1, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result v4
 
-    move-result-object v6
+    const-string v1, "colorscheme"
 
-    check-cast v6, Ljava/lang/Boolean;
+    invoke-virtual {v2, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result-object v1
 
-    move-result v6
+    check-cast v1, Ljava/lang/Boolean;
 
-    new-instance v7, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$2;
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-direct {v7, p0, v1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$2;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22;Ljava/util/HashMap;)V
+    move-result v1
+
+    new-instance v5, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$2;
+
+    invoke-direct {v5, p0, v2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$2;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22;Ljava/util/HashMap;)V
 
     .line 816
-    new-array p1, p1, [Z
+    new-array v6, v6, [Z
 
-    aput-boolean v5, p1, v2
+    aput-boolean v4, v6, v7
 
-    aput-boolean v6, p1, v3
+    aput-boolean v1, v6, v8
 
-    invoke-virtual {v4, v0, p1, v7}, Landroid/app/AlertDialog$Builder;->setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v3, v0, v6, v5}, Landroid/app/AlertDialog$Builder;->setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance v0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$1;
+    new-instance v1, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$1;
 
-    invoke-direct {v0, p0, v1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$1;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22;Ljava/util/HashMap;)V
+    invoke-direct {v1, p0, v2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$1;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22;Ljava/util/HashMap;)V
 
     .line 825
-    const v1, 0x104000a
+    const v2, 0x104000a
 
-    invoke-virtual {p1, v1, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 873
-    const/high16 v0, 0x1040000
+    const/high16 v1, 0x1040000
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 874
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 875
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    return v2
+    return v7
+
+    .line 815
+    :cond_0
+    const-string v1, "Select the content of backup"
+
+    goto :goto_0
 .end method

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     invoke-static {p0}, Lcom/termux/yinli_a/k/b/e;->a(Lcom/termux/yinli_a/k/b/d;)Ljava/lang/String;
 

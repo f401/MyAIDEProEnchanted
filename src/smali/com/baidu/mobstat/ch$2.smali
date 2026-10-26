@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/ch;)V
-    .registers 2
+    .locals 0
 
     .line 183
     iput-object p1, p0, Lcom/baidu/mobstat/ch$2;->a:Lcom/baidu/mobstat/ch;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public a()V
-    .registers 3
+    .locals 2
 
     .line 187
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
@@ -47,7 +47,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 188
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
@@ -59,7 +59,7 @@
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
 
     .line 191
-    :cond_13
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/ch$2;->a:Lcom/baidu/mobstat/ch;
 
     invoke-static {v0}, Lcom/baidu/mobstat/ch;->d(Lcom/baidu/mobstat/ch;)V

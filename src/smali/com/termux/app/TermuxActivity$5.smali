@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 371
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$5;->this$0:Lcom/termux/app/TermuxActivity;
@@ -36,22 +36,24 @@
 
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
-    .registers 12
+    .locals 10
+
+    const/4 v2, 0x0
 
     .line 374
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$5;->this$0:Lcom/termux/app/TermuxActivity;
 
     .line 376
-    const-string p1, "session_new_named_title"
+    const-string v1, "session_new_named_title"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
     move-result v1
 
     .line 378
-    const-string p1, "session_new_named_positive_button"
+    const-string v3, "session_new_named_positive_button"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
     move-result v3
 
@@ -60,9 +62,9 @@
     invoke-direct {v4, p0}, Lcom/termux/app/TermuxActivity$5$1;-><init>(Lcom/termux/app/TermuxActivity$5;)V
 
     .line 385
-    const-string p1, "new_session_failsafe"
+    const-string v5, "new_session_failsafe"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v5}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
     move-result v5
 
@@ -71,17 +73,15 @@
     invoke-direct {v6, p0}, Lcom/termux/app/TermuxActivity$5$2;-><init>(Lcom/termux/app/TermuxActivity$5;)V
 
     .line 374
-    const/4 v2, 0x0
-
     const/4 v7, -0x1
 
-    const/4 v8, 0x0
+    move-object v8, v2
 
-    const/4 v9, 0x0
+    move-object v9, v2
 
     invoke-static/range {v0 .. v9}, Lcom/termux/app/DialogUtils;->textInput(Landroid/app/Activity;ILjava/lang/String;ILcom/termux/app/DialogUtils$TextSetListener;ILcom/termux/app/DialogUtils$TextSetListener;ILcom/termux/app/DialogUtils$TextSetListener;Landroid/content/DialogInterface$OnDismissListener;)V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method

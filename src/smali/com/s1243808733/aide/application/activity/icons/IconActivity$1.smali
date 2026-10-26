@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Lcom/s1243808733/aide/application/activity/icons/Icon;Ljava/io/File;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,7 +49,9 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 9
+    .locals 7
+
+    const/4 v6, 0x0
 
     .line 132
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
@@ -64,17 +66,13 @@
 
     const-string v4, "drawable"
 
-    const-string p1, ".png"
+    const-string v5, ".png"
 
-    invoke-virtual {v2, p1}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getFileName(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v5}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getFileName(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    const/4 v6, 0x0
-
     invoke-static/range {v0 .. v6}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->-$$Nest$mexportToPNG(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Landroid/app/Activity;Lcom/s1243808733/aide/application/activity/icons/Icon;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;I)V
 
-    const/4 p1, 0x0
-
-    return p1
+    return v6
 .end method

@@ -18,16 +18,16 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstType;ILcom/s1243808733/android/dx/rop/cst/CstNat;Lcom/s1243808733/android/dx/cf/iface/AttributeList;)V
-    .registers 5
+    .locals 2
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_22
+    if-eqz p1, :cond_2
 
-    if-eqz p3, :cond_1a
+    if-eqz p3, :cond_1
 
-    if-eqz p4, :cond_12
+    if-eqz p4, :cond_0
 
     .line 62
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/iface/StdMember;->definingClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -44,40 +44,40 @@
     return-void
 
     .line 59
-    :cond_12
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "attributes == null"
+    const-string v1, "attributes == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 55
-    :cond_1a
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "nat == null"
+    const-string v1, "nat == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 51
-    :cond_22
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_2
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "definingClass == null"
+    const-string v1, "definingClass == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public final getAccessFlags()I
-    .registers 2
+    .locals 1
 
     .line 90
     iget v0, p0, Lcom/s1243808733/android/dx/cf/iface/StdMember;->accessFlags:I
@@ -86,7 +86,7 @@
 .end method
 
 .method public final getAttributes()Lcom/s1243808733/android/dx/cf/iface/AttributeList;
-    .registers 2
+    .locals 1
 
     .line 114
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/iface/StdMember;->attributes:Lcom/s1243808733/android/dx/cf/iface/AttributeList;
@@ -95,7 +95,7 @@
 .end method
 
 .method public final getDefiningClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 84
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/iface/StdMember;->definingClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -104,7 +104,7 @@
 .end method
 
 .method public final getDescriptor()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 2
+    .locals 1
 
     .line 108
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/iface/StdMember;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
@@ -117,7 +117,7 @@
 .end method
 
 .method public final getName()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 2
+    .locals 1
 
     .line 102
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/iface/StdMember;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
@@ -130,7 +130,7 @@
 .end method
 
 .method public final getNat()Lcom/s1243808733/android/dx/rop/cst/CstNat;
-    .registers 2
+    .locals 1
 
     .line 96
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/iface/StdMember;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
@@ -139,7 +139,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 71
     new-instance v0, Ljava/lang/StringBuilder;

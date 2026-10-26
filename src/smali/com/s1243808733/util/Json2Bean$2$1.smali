@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/Json2Bean$2;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,56 +45,57 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 3
+    .locals 2
 
     .line 244
     :try_start_0
-    iget-object p1, p0, Lcom/s1243808733/util/Json2Bean$2$1;->val$jsonData:Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$2$1;->val$jsonData:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/s1243808733/util/Json2Bean;->compressionJson(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/s1243808733/util/Json2Bean;->compressionJson(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_23
+    if-eqz v0, :cond_0
 
     .line 245
-    const-string v0, "null"
+    const-string v1, "null"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_11
-
-    goto :goto_23
-
-    .line 248
-    :cond_11
-    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$2$1;->this$0:Lcom/s1243808733/util/Json2Bean$2;
-
-    iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$2;->val$dialogView:Lcom/s1243808733/util/Json2Bean$DialogView;
-
-    iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$DialogView;->input_json:Landroid/widget/EditText;
-
-    invoke-virtual {v0, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-    :try_end_1a
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1a} :catch_1b
-
-    goto :goto_23
-
-    :catch_1b
-    move-exception p1
+    if-eqz v1, :cond_1
 
     .line 251
-    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$2$1;->this$0:Lcom/s1243808733/util/Json2Bean$2;
+    :cond_0
+    :goto_0
+    const/4 v0, 0x0
 
-    iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$2;->val$activity:Landroid/app/Activity;
+    return v0
 
-    invoke-static {v0, p1}, Lcom/s1243808733/util/Utils;->showExDialog(Landroid/content/Context;Ljava/lang/Throwable;)V
+    .line 248
+    :cond_1
+    iget-object v1, p0, Lcom/s1243808733/util/Json2Bean$2$1;->this$0:Lcom/s1243808733/util/Json2Bean$2;
 
-    :cond_23
-    :goto_23
-    const/4 p1, 0x0
+    iget-object v1, v1, Lcom/s1243808733/util/Json2Bean$2;->val$dialogView:Lcom/s1243808733/util/Json2Bean$DialogView;
 
-    return p1
+    iget-object v1, v1, Lcom/s1243808733/util/Json2Bean$DialogView;->input_json:Landroid/widget/EditText;
+
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    .line 251
+    iget-object v1, p0, Lcom/s1243808733/util/Json2Bean$2$1;->this$0:Lcom/s1243808733/util/Json2Bean$2;
+
+    iget-object v1, v1, Lcom/s1243808733/util/Json2Bean$2;->val$activity:Landroid/app/Activity;
+
+    invoke-static {v1, v0}, Lcom/s1243808733/util/Utils;->showExDialog(Landroid/content/Context;Ljava/lang/Throwable;)V
+
+    goto :goto_0
 .end method

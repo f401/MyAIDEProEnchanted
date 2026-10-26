@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;
+    value = Lcom/s1243808733/android/dx/ssa/SsaRenamer;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;)V
-    .registers 2
+    .locals 0
 
     .line 328
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer$RenamingMapper;->this$1:Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getNewRegisterCount()I
-    .registers 2
+    .locals 1
 
     .line 335
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer$RenamingMapper;->this$1:Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;
@@ -48,16 +48,18 @@
 .end method
 
 .method public map(Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-    .registers 4
+    .locals 2
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return-object p1
+    .line 359
+    :goto_0
+    return-object v0
 
     .line 343
-    :cond_4
+    :cond_0
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
 
     move-result v0
@@ -77,7 +79,7 @@
 
     invoke-virtual {p1, v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->withReg(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_0
 .end method

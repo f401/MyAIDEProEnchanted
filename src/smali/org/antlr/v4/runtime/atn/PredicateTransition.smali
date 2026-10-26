@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;IIZ)V
-    .registers 5
+    .locals 0
 
     .line 21
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/atn/AbstractPredicateTransition;-><init>(Lorg/antlr/v4/runtime/atn/ATNState;)V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getPredicate()Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;
-    .registers 5
+    .locals 4
 
     .line 41
     new-instance v0, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;
@@ -50,7 +50,7 @@
 .end method
 
 .method public getSerializationType()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x4
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public isEpsilon()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -66,15 +66,15 @@
 .end method
 
 .method public matches(III)Z
-    .registers 4
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 46
     new-instance v0, Ljava/lang/StringBuilder;

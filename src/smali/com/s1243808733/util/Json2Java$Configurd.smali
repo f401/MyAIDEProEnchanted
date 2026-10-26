@@ -22,7 +22,8 @@
 .field private imports:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/Void;",
             ">;"
@@ -49,7 +50,9 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 2
+
+    const/4 v1, 0x1
 
     .line 399
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,12 +63,10 @@
     iput v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->indentation:I
 
     .line 383
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->setters:Z
+    iput-boolean v1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->setters:Z
 
     .line 385
-    iput-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->getters:Z
+    iput-boolean v1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->getters:Z
 
     .line 397
     new-instance v0, Ljava/util/HashMap;
@@ -78,7 +79,9 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 2
+
+    const/4 v1, 0x1
 
     .line 401
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -89,12 +92,10 @@
     iput v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->indentation:I
 
     .line 383
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->setters:Z
+    iput-boolean v1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->setters:Z
 
     .line 385
-    iput-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->getters:Z
+    iput-boolean v1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->getters:Z
 
     .line 397
     new-instance v0, Ljava/util/HashMap;
@@ -115,7 +116,7 @@
 
 # virtual methods
 .method public addImport(Ljava/lang/String;)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 4
+    .locals 2
 
     .line 500
     invoke-virtual {p0}, Lcom/s1243808733/util/Json2Java$Configurd;->getImports()Ljava/util/Map;
@@ -130,7 +131,7 @@
 .end method
 
 .method public getClassName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 438
     iget-object v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->className:Ljava/lang/String;
@@ -139,11 +140,12 @@
 .end method
 
 .method public getImports()Ljava/util/Map;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/Void;",
             ">;"
@@ -157,7 +159,7 @@
 .end method
 
 .method public getIndentation()I
-    .registers 2
+    .locals 1
 
     .line 420
     iget v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->indentation:I
@@ -166,7 +168,7 @@
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 429
     iget-object v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->packageName:Ljava/lang/String;
@@ -175,35 +177,35 @@
 .end method
 
 .method public getSpace()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 505
-    new-instance v0, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 506
-    :goto_6
+    :goto_0
     invoke-virtual {p0}, Lcom/s1243808733/util/Json2Java$Configurd;->getIndentation()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_14
+    if-ge v0, v2, :cond_0
 
     .line 507
     const-string v2, " "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 509
-    :cond_14
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    :cond_0
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -211,7 +213,7 @@
 .end method
 
 .method public isGetters()Z
-    .registers 2
+    .locals 1
 
     .line 456
     iget-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->getters:Z
@@ -220,7 +222,7 @@
 .end method
 
 .method public isPublicField()Z
-    .registers 2
+    .locals 1
 
     .line 474
     iget-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->publicField:Z
@@ -229,7 +231,7 @@
 .end method
 
 .method public isSetters()Z
-    .registers 2
+    .locals 1
 
     .line 447
     iget-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->setters:Z
@@ -238,7 +240,7 @@
 .end method
 
 .method public isSortMethod()Z
-    .registers 2
+    .locals 1
 
     .line 465
     iget-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->sortMethod:Z
@@ -247,7 +249,7 @@
 .end method
 
 .method public isToString()Z
-    .registers 2
+    .locals 1
 
     .line 492
     iget-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->toString:Z
@@ -256,7 +258,7 @@
 .end method
 
 .method public isUseArray()Z
-    .registers 2
+    .locals 1
 
     .line 483
     iget-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->useArray:Z
@@ -265,7 +267,7 @@
 .end method
 
 .method public isUseInteger()Z
-    .registers 2
+    .locals 1
 
     .line 411
     iget-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Configurd;->useInteger:Z
@@ -274,7 +276,7 @@
 .end method
 
 .method public setClassName(Ljava/lang/String;)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 2
+    .locals 0
 
     .line 433
     iput-object p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->className:Ljava/lang/String;
@@ -283,7 +285,7 @@
 .end method
 
 .method public setGetters(Z)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 2
+    .locals 0
 
     .line 451
     iput-boolean p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->getters:Z
@@ -292,7 +294,7 @@
 .end method
 
 .method public setIndentation(I)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 2
+    .locals 0
 
     .line 415
     iput p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->indentation:I
@@ -301,7 +303,7 @@
 .end method
 
 .method public setPackageName(Ljava/lang/String;)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 2
+    .locals 0
 
     .line 424
     iput-object p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->packageName:Ljava/lang/String;
@@ -310,7 +312,7 @@
 .end method
 
 .method public setPublicField(Z)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 2
+    .locals 0
 
     .line 469
     iput-boolean p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->publicField:Z
@@ -319,7 +321,7 @@
 .end method
 
 .method public setSetters(Z)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 2
+    .locals 0
 
     .line 442
     iput-boolean p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->setters:Z
@@ -328,7 +330,7 @@
 .end method
 
 .method public setSortMethod(Z)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 2
+    .locals 0
 
     .line 460
     iput-boolean p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->sortMethod:Z
@@ -337,7 +339,7 @@
 .end method
 
 .method public setToString(Z)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 2
+    .locals 0
 
     .line 487
     iput-boolean p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->toString:Z
@@ -346,7 +348,7 @@
 .end method
 
 .method public setUseArray(Z)Lcom/s1243808733/util/Json2Java$Configurd;
-    .registers 2
+    .locals 0
 
     .line 478
     iput-boolean p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->useArray:Z
@@ -355,7 +357,7 @@
 .end method
 
 .method public setUseInteger(Z)V
-    .registers 2
+    .locals 0
 
     .line 407
     iput-boolean p1, p0, Lcom/s1243808733/util/Json2Java$Configurd;->useInteger:Z

@@ -23,41 +23,41 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetbytes(Lcom/s1243808733/android/dx/util/ByteArray;)[B
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->bytes:[B
+    iget-object v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->bytes:[B
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetsize(Lcom/s1243808733/android/dx/util/ByteArray;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->size:I
+    iget v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->size:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgetstart(Lcom/s1243808733/android/dx/util/ByteArray;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->start:I
+    iget v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->start:I
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$mgetUnsignedByte0(Lcom/s1243808733/android/dx/util/ByteArray;I)I
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public constructor <init>([B)V
-    .registers 4
+    .locals 2
 
     .line 77
     const/4 v0, 0x0
@@ -70,21 +70,21 @@
 .end method
 
 .method public constructor <init>([BII)V
-    .registers 5
+    .locals 2
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_3
 
-    if-ltz p2, :cond_24
+    if-ltz p2, :cond_2
 
-    if-lt p3, p2, :cond_1c
+    if-lt p3, p2, :cond_1
 
     .line 62
     array-length v0, p1
 
-    if-gt p3, v0, :cond_14
+    if-gt p3, v0, :cond_0
 
     .line 66
     iput-object p1, p0, Lcom/s1243808733/android/dx/util/ByteArray;->bytes:[B
@@ -93,69 +93,69 @@
     iput p2, p0, Lcom/s1243808733/android/dx/util/ByteArray;->start:I
 
     .line 68
-    sub-int/2addr p3, p2
+    sub-int v0, p3, p2
 
-    iput p3, p0, Lcom/s1243808733/android/dx/util/ByteArray;->size:I
+    iput v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->size:I
 
     return-void
 
     .line 63
-    :cond_14
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "end > bytes.length"
+    const-string v1, "end > bytes.length"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 59
-    :cond_1c
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "end < start"
+    const-string v1, "end < start"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 55
-    :cond_24
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "start < 0"
+    const-string v1, "start < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 51
-    :cond_2c
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_3
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "bytes == null"
+    const-string v1, "bytes == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method private checkOffsets(II)V
-    .registers 5
+    .locals 2
 
-    if-ltz p1, :cond_9
+    if-ltz p1, :cond_0
 
-    if-lt p2, p1, :cond_9
+    if-lt p2, p1, :cond_0
 
     .line 219
     iget v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->size:I
 
-    if-gt p2, v0, :cond_9
+    if-gt p2, v0, :cond_0
 
     return-void
 
     .line 220
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "bad range: "
@@ -164,33 +164,33 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, ".."
+    const-string v1, ".."
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, "; actual size "
+    const-string v1, "; actual size "
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget p1, p0, Lcom/s1243808733/android/dx/util/ByteArray;->size:I
+    iget v1, p0, Lcom/s1243808733/android/dx/util/ByteArray;->size:I
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method private getByte0(I)I
-    .registers 4
+    .locals 2
 
     .line 233
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->bytes:[B
@@ -199,13 +199,13 @@
 
     add-int/2addr v1, p1
 
-    aget-byte p1, v0, v1
+    aget-byte v0, v0, v1
 
-    return p1
+    return v0
 .end method
 
 .method private getUnsignedByte0(I)I
-    .registers 4
+    .locals 2
 
     .line 244
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->bytes:[B
@@ -214,17 +214,17 @@
 
     add-int/2addr v1, p1
 
-    aget-byte p1, v0, v1
+    aget-byte v0, v0, v1
 
-    and-int/lit16 p1, p1, 0xff
+    and-int/lit16 v0, v0, 0xff
 
-    return p1
+    return v0
 .end method
 
 
 # virtual methods
 .method public getByte(I)I
-    .registers 3
+    .locals 1
 
     .line 123
     add-int/lit8 v0, p1, 0x1
@@ -234,13 +234,13 @@
     .line 124
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/ByteArray;->getByte0(I)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getBytes([BI)V
-    .registers 6
+    .locals 3
 
     .line 204
     array-length v0, p1
@@ -249,7 +249,7 @@
 
     sub-int/2addr v0, p2
 
-    if-lt v0, v1, :cond_e
+    if-lt v0, v1, :cond_0
 
     .line 209
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->bytes:[B
@@ -261,18 +261,18 @@
     return-void
 
     .line 205
-    :cond_e
-    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
+    :cond_0
+    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    const-string p2, "(out.length - offset) < size()"
+    const-string v1, "(out.length - offset) < size()"
 
-    invoke-direct {p1, p2}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public getInt(I)I
-    .registers 5
+    .locals 4
 
     .line 145
     add-int/lit8 v0, p1, 0x4
@@ -299,11 +299,11 @@
     move-result v2
 
     .line 149
-    add-int/lit8 p1, p1, 0x3
+    add-int/lit8 v3, p1, 0x3
 
-    invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
+    invoke-direct {p0, v3}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
 
-    move-result p1
+    move-result v3
 
     shl-int/lit8 v0, v0, 0x18
 
@@ -315,13 +315,13 @@
 
     or-int/2addr v0, v1
 
-    or-int/2addr p1, v0
+    or-int/2addr v0, v3
 
-    return p1
+    return v0
 .end method
 
 .method public getLong(I)J
-    .registers 10
+    .locals 8
 
     .line 159
     add-int/lit8 v0, p1, 0x8
@@ -376,11 +376,11 @@
     move-result v6
 
     .line 167
-    add-int/lit8 p1, p1, 0x7
+    add-int/lit8 v7, p1, 0x7
 
-    invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
+    invoke-direct {p0, v7}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
 
-    move-result p1
+    move-result v7
 
     shl-int/lit8 v4, v4, 0x18
 
@@ -392,39 +392,39 @@
 
     or-int/2addr v4, v5
 
-    or-int/2addr p1, v4
+    or-int/2addr v4, v7
 
-    int-to-long v4, p1
+    int-to-long v4, v4
 
-    const-wide v6, 0xffffffffL
+    shl-int/lit8 v0, v0, 0x18
 
-    and-long/2addr v4, v6
+    shl-int/lit8 v1, v1, 0x10
 
-    shl-int/lit8 p1, v0, 0x18
+    or-int/2addr v0, v1
 
-    shl-int/lit8 v0, v1, 0x10
+    shl-int/lit8 v1, v2, 0x8
 
-    or-int/2addr p1, v0
+    or-int/2addr v0, v1
 
-    shl-int/lit8 v0, v2, 0x8
+    or-int/2addr v0, v3
 
-    or-int/2addr p1, v0
+    int-to-long v0, v0
 
-    or-int/2addr p1, v3
+    const/16 v2, 0x20
 
-    int-to-long v0, p1
+    shl-long/2addr v0, v2
 
-    const/16 p1, 0x20
+    const-wide v2, 0xffffffffL
 
-    shl-long/2addr v0, p1
+    and-long/2addr v2, v4
 
-    or-long/2addr v0, v4
+    or-long/2addr v0, v2
 
     return-wide v0
 .end method
 
 .method public getShort(I)I
-    .registers 3
+    .locals 2
 
     .line 134
     add-int/lit8 v0, p1, 0x2
@@ -436,21 +436,21 @@
 
     move-result v0
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v1, p1, 0x1
 
-    invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
+    invoke-direct {p0, v1}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
 
-    move-result p1
+    move-result v1
 
     shl-int/lit8 v0, v0, 0x8
 
-    or-int/2addr p1, v0
+    or-int/2addr v0, v1
 
-    return p1
+    return v0
 .end method
 
 .method public getUnsignedByte(I)I
-    .registers 3
+    .locals 1
 
     .line 179
     add-int/lit8 v0, p1, 0x1
@@ -460,13 +460,13 @@
     .line 180
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getUnsignedShort(I)I
-    .registers 3
+    .locals 2
 
     .line 190
     add-int/lit8 v0, p1, 0x2
@@ -478,21 +478,21 @@
 
     move-result v0
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v1, p1, 0x1
 
-    invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
+    invoke-direct {p0, v1}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte0(I)I
 
-    move-result p1
+    move-result v1
 
     shl-int/lit8 v0, v0, 0x8
 
-    or-int/2addr p1, v0
+    or-int/2addr v0, v1
 
-    return p1
+    return v0
 .end method
 
 .method public makeDataInputStream()Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
-    .registers 3
+    .locals 2
 
     .line 257
     new-instance v0, Lcom/s1243808733/android/dx/util/ByteArray$MyDataInputStream;
@@ -507,7 +507,7 @@
 .end method
 
 .method public makeInputStream()Lcom/s1243808733/android/dx/util/ByteArray$MyInputStream;
-    .registers 2
+    .locals 1
 
     .line 270
     new-instance v0, Lcom/s1243808733/android/dx/util/ByteArray$MyInputStream;
@@ -518,7 +518,7 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .line 86
     iget v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->size:I
@@ -527,7 +527,7 @@
 .end method
 
 .method public slice(II)Lcom/s1243808733/android/dx/util/ByteArray;
-    .registers 4
+    .locals 2
 
     .line 98
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/util/ByteArray;->checkOffsets(II)V
@@ -537,18 +537,18 @@
 
     invoke-static {v0, p1, p2}, Ljava/util/Arrays;->copyOfRange([BII)[B
 
-    move-result-object p1
+    move-result-object v0
 
     .line 100
-    new-instance p2, Lcom/s1243808733/android/dx/util/ByteArray;
+    new-instance v1, Lcom/s1243808733/android/dx/util/ByteArray;
 
-    invoke-direct {p2, p1}, Lcom/s1243808733/android/dx/util/ByteArray;-><init>([B)V
+    invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/util/ByteArray;-><init>([B)V
 
-    return-object p2
+    return-object v1
 .end method
 
 .method public underlyingOffset(I)I
-    .registers 3
+    .locals 1
 
     .line 113
     iget v0, p0, Lcom/s1243808733/android/dx/util/ByteArray;->start:I

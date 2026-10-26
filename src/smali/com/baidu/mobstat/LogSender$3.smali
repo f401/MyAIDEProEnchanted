@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/LogSender;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     .line 220
     iput-object p1, p0, Lcom/baidu/mobstat/LogSender$3;->b:Lcom/baidu/mobstat/LogSender;
@@ -40,23 +40,24 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
 
     .line 224
-    iget-object p1, p0, Lcom/baidu/mobstat/LogSender$3;->a:Ljava/lang/String;
+    iget-object v0, p0, Lcom/baidu/mobstat/LogSender$3;->a:Ljava/lang/String;
 
-    invoke-virtual {p2, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p2, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_a
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_a
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method

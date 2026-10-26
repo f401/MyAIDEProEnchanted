@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/view/GestureAndScaleRecognizer;)V
-    .registers 2
+    .locals 0
 
     .line 60
     iput-object p1, p0, Lcom/termux/view/GestureAndScaleRecognizer$2;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onDoubleTap(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
 
     .line 68
     iget-object v0, p0, Lcom/termux/view/GestureAndScaleRecognizer$2;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
@@ -45,21 +45,21 @@
 
     invoke-interface {v0, p1}, Lcom/termux/view/GestureAndScaleRecognizer$Listener;->onDoubleTap(Landroid/view/MotionEvent;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public onDoubleTapEvent(Landroid/view/MotionEvent;)Z
-    .registers 2
+    .locals 1
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public onSingleTapConfirmed(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
 
     .line 63
     iget-object v0, p0, Lcom/termux/view/GestureAndScaleRecognizer$2;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
@@ -68,7 +68,7 @@
 
     invoke-interface {v0, p1}, Lcom/termux/view/GestureAndScaleRecognizer$Listener;->onSingleTapUp(Landroid/view/MotionEvent;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

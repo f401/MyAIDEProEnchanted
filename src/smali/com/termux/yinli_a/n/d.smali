@@ -25,10 +25,12 @@
 .field private final d:Lcom/termux/yinli_a/k/a/b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "La/k/a/b<",
+            "La/k/a/b",
+            "<",
             "Ljava/lang/CharSequence;",
             "Ljava/lang/Integer;",
-            "La/d<",
+            "La/d",
+            "<",
             "Ljava/lang/Integer;",
             "Ljava/lang/Integer;",
             ">;>;"
@@ -39,18 +41,19 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;IILcom/termux/yinli_a/k/a/b;)V
-    .registers 6
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/CharSequence;",
             "II",
-            "La/k/a/b<",
-            "-",
+            "La/k/a/b",
+            "<-",
             "Ljava/lang/CharSequence;",
             "-",
             "Ljava/lang/Integer;",
-            "La/d<",
+            "La/d",
+            "<",
             "Ljava/lang/Integer;",
             "Ljava/lang/Integer;",
             ">;>;)V"
@@ -79,45 +82,46 @@
 .end method
 
 .method public static final synthetic a(Lcom/termux/yinli_a/n/d;)Lcom/termux/yinli_a/k/a/b;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/termux/yinli_a/n/d;->d:Lcom/termux/yinli_a/k/a/b;
+    iget-object v0, p0, Lcom/termux/yinli_a/n/d;->d:Lcom/termux/yinli_a/k/a/b;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static final synthetic b(Lcom/termux/yinli_a/n/d;)Ljava/lang/CharSequence;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/termux/yinli_a/n/d;->a:Ljava/lang/CharSequence;
+    iget-object v0, p0, Lcom/termux/yinli_a/n/d;->a:Ljava/lang/CharSequence;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static final synthetic c(Lcom/termux/yinli_a/n/d;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/termux/yinli_a/n/d;->c:I
+    iget v0, p0, Lcom/termux/yinli_a/n/d;->c:I
 
-    return p0
+    return v0
 .end method
 
 .method public static final synthetic d(Lcom/termux/yinli_a/n/d;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/termux/yinli_a/n/d;->b:I
+    iget v0, p0, Lcom/termux/yinli_a/n/d;->b:I
 
-    return p0
+    return v0
 .end method
 
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Iterator<",
+            "Ljava/util/Iterator",
+            "<",
             "Lcom/termux/yinli_a/l/c;",
             ">;"
         }

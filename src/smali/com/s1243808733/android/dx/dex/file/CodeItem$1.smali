@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/dex/file/CodeItem;Lcom/s1243808733/android/dx/dex/file/DexFile;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,26 +45,27 @@
 
 # virtual methods
 .method public getIndex(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
-    .registers 3
+    .locals 1
 
     .line 195
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/CodeItem$1;->val$file:Lcom/s1243808733/android/dx/dex/file/DexFile;
 
     invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/dex/file/DexFile;->findItemOrNull(Lcom/s1243808733/android/dx/rop/cst/Constant;)Lcom/s1243808733/android/dx/dex/file/IndexedItem;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-nez p1, :cond_a
+    if-nez v0, :cond_0
 
-    const/4 p1, -0x1
-
-    return p1
+    const/4 v0, -0x1
 
     .line 199
-    :cond_a
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/IndexedItem;->getIndex()I
+    :goto_0
+    return v0
 
-    move-result p1
+    :cond_0
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/IndexedItem;->getIndex()I
 
-    return p1
+    move-result v0
+
+    goto :goto_0
 .end method

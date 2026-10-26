@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29;Ljava/io/File;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,22 +45,22 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 2
 
     .line 1134
-    const-string p1, "templates"
+    const-string v0, "templates"
 
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->getAssetsDataFile(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->getAssetsDataFile(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29$1;->val$dest:Ljava/io/File;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29$1;->val$dest:Ljava/io/File;
 
-    invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p1, p2}, Lcom/blankj/utilcode/util/ResourceUtils;->copyFileFromAssets(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v0, v1}, Lcom/blankj/utilcode/util/ResourceUtils;->copyFileFromAssets(Ljava/lang/String;Ljava/lang/String;)Z
 
     return-void
 .end method

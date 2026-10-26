@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lorg/antlr/v4/runtime/atn/ATNType;",
         ">;"
     }
@@ -23,46 +24,46 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
 
     .line 19
     new-instance v0, Lorg/antlr/v4/runtime/atn/ATNType;
 
     const-string v1, "LEXER"
 
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Lorg/antlr/v4/runtime/atn/ATNType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v3}, Lorg/antlr/v4/runtime/atn/ATNType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lorg/antlr/v4/runtime/atn/ATNType;->LEXER:Lorg/antlr/v4/runtime/atn/ATNType;
 
     .line 24
     new-instance v1, Lorg/antlr/v4/runtime/atn/ATNType;
 
-    const-string v3, "PARSER"
+    const-string v2, "PARSER"
 
-    const/4 v4, 0x1
-
-    invoke-direct {v1, v3, v4}, Lorg/antlr/v4/runtime/atn/ATNType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v4}, Lorg/antlr/v4/runtime/atn/ATNType;-><init>(Ljava/lang/String;I)V
 
     sput-object v1, Lorg/antlr/v4/runtime/atn/ATNType;->PARSER:Lorg/antlr/v4/runtime/atn/ATNType;
 
     .line 14
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    new-array v3, v3, [Lorg/antlr/v4/runtime/atn/ATNType;
+    new-array v2, v2, [Lorg/antlr/v4/runtime/atn/ATNType;
 
-    aput-object v0, v3, v2
+    aput-object v0, v2, v3
 
-    aput-object v1, v3, v4
+    aput-object v1, v2, v4
 
-    sput-object v3, Lorg/antlr/v4/runtime/atn/ATNType;->$VALUES:[Lorg/antlr/v4/runtime/atn/ATNType;
+    sput-object v2, Lorg/antlr/v4/runtime/atn/ATNType;->$VALUES:[Lorg/antlr/v4/runtime/atn/ATNType;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -76,22 +77,22 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/antlr/v4/runtime/atn/ATNType;
-    .registers 2
+    .locals 1
 
     .line 14
     const-class v0, Lorg/antlr/v4/runtime/atn/ATNType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lorg/antlr/v4/runtime/atn/ATNType;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ATNType;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lorg/antlr/v4/runtime/atn/ATNType;
-    .registers 1
+    .locals 1
 
     .line 14
     sget-object v0, Lorg/antlr/v4/runtime/atn/ATNType;->$VALUES:[Lorg/antlr/v4/runtime/atn/ATNType;

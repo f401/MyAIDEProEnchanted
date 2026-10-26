@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity$16;)V
-    .registers 2
+    .locals 0
 
     .line 1077
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$16$1;->this$1:Lcom/termux/app/TermuxActivity$16;
@@ -36,74 +36,76 @@
 
 # virtual methods
 .method public onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
-    .registers 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)Z"
         }
     .end annotation
 
+    const/4 v3, 0x0
+
     .line 1080
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$16$1;->this$1:Lcom/termux/app/TermuxActivity$16;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$16$1;->this$1:Lcom/termux/app/TermuxActivity$16;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity$16;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity$16;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
     .line 1081
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$16$1;->this$1:Lcom/termux/app/TermuxActivity$16;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$16$1;->this$1:Lcom/termux/app/TermuxActivity$16;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity$16;->val$urls:[Ljava/lang/CharSequence;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity$16;->val$urls:[Ljava/lang/CharSequence;
 
-    aget-object p1, p1, p3
+    aget-object v0, v0, p3
 
-    check-cast p1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 1082
-    new-instance p2, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
-    const-string p3, "android.intent.action.VIEW"
+    const-string v2, "android.intent.action.VIEW"
 
-    invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p2, p3, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v1, v2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     .line 1084
-    const/4 p1, 0x0
+    :try_start_0
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$16$1;->this$1:Lcom/termux/app/TermuxActivity$16;
 
-    :try_start_1b
-    iget-object p3, p0, Lcom/termux/app/TermuxActivity$16$1;->this$1:Lcom/termux/app/TermuxActivity$16;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity$16;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p3, p3, Lcom/termux/app/TermuxActivity$16;->this$0:Lcom/termux/app/TermuxActivity;
+    const/4 v2, 0x0
 
-    invoke-virtual {p3, p2, p1}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
-    :try_end_22
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_1b .. :try_end_22} :catch_23
-
-    goto :goto_2f
+    invoke-virtual {v0, v1, v2}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1087
-    :catch_23
-    move-exception p3
+    :goto_0
+    const/4 v0, 0x1
 
-    iget-object p3, p0, Lcom/termux/app/TermuxActivity$16$1;->this$1:Lcom/termux/app/TermuxActivity$16;
+    return v0
 
-    iget-object p3, p3, Lcom/termux/app/TermuxActivity$16;->this$0:Lcom/termux/app/TermuxActivity;
+    :catch_0
+    move-exception v0
 
-    invoke-static {p2, p1}, Landroid/content/Intent;->createChooser(Landroid/content/Intent;Ljava/lang/CharSequence;)Landroid/content/Intent;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$16$1;->this$1:Lcom/termux/app/TermuxActivity$16;
 
-    move-result-object p1
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity$16;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p3, p1}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-static {v1, v3}, Landroid/content/Intent;->createChooser(Landroid/content/Intent;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    :goto_2f
-    const/4 p1, 0x1
+    move-result-object v1
 
-    return p1
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_0
 .end method

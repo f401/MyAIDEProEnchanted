@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 107
     invoke-direct {p0}, Landroid/content/ContentProvider;-><init>()V
@@ -27,31 +27,31 @@
 
 # virtual methods
 .method public delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-    .registers 4
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public getType(Landroid/net/Uri;)Ljava/lang/String;
-    .registers 2
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    .registers 3
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public onCreate()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public openFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -67,211 +67,207 @@
     .end annotation
 
     .line 173
-    new-instance p2, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
     invoke-virtual {p1}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {p2, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 174
-    const/high16 p1, 0x10000000
+    const/high16 v1, 0x10000000
 
-    invoke-static {p2, p1}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
+    invoke-static {v0, v1}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 13
+    .locals 10
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v2, 0x0
 
     .line 116
-    new-instance p3, Ljava/io/File;
+    new-instance v5, Ljava/io/File;
 
     invoke-virtual {p1}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p3, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 118
-    const-string p1, "_id"
+    if-nez p2, :cond_0
 
-    const/4 p4, 0x2
+    .line 119
+    const/4 v0, 0x3
 
-    const-string p5, "_size"
+    new-array p2, v0, [Ljava/lang/String;
 
     const-string v0, "_display_name"
 
-    const/4 v1, 0x0
+    aput-object v0, p2, v2
 
-    const/4 v2, 0x1
+    const-string v0, "_size"
 
-    if-nez p2, :cond_1d
+    aput-object v0, p2, v4
 
-    .line 119
-    const/4 p2, 0x3
+    const-string v0, "_id"
 
-    new-array p2, p2, [Ljava/lang/String;
-
-    aput-object v0, p2, v1
-
-    aput-object p5, p2, v2
-
-    aput-object p1, p2, p4
+    aput-object v0, p2, v3
 
     .line 126
-    :cond_1d
-    array-length v3, p2
+    :cond_0
+    array-length v0, p2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v6, v0, [Ljava/lang/Object;
 
-    const/4 v4, 0x0
+    move v1, v2
 
     .line 127
-    :goto_21
-    array-length v5, p2
+    :goto_0
+    array-length v0, p2
 
-    if-ge v4, v5, :cond_6a
+    if-ge v1, v0, :cond_2
 
     .line 128
-    aget-object v5, p2, v4
+    aget-object v0, p2, v1
 
     .line 130
-    invoke-virtual {v5}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {v5}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
-    move-result v6
+    move-result v7
 
-    sparse-switch v6, :sswitch_data_74
+    sparse-switch v7, :sswitch_data_0
 
-    :goto_30
-    goto :goto_4c
+    :cond_1
+    const/4 v0, -0x1
 
-    :sswitch_31
-    invoke-virtual {v5, p5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :goto_1
+    packed-switch v0, :pswitch_data_0
 
-    move-result v5
-
-    if-nez v5, :cond_38
-
-    goto :goto_30
-
-    :cond_38
-    const/4 v5, 0x2
-
-    goto :goto_4d
-
-    :sswitch_3a
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_41
-
-    goto :goto_30
-
-    :cond_41
-    const/4 v5, 0x1
-
-    goto :goto_4d
-
-    :sswitch_43
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_4a
-
-    goto :goto_30
-
-    :cond_4a
-    const/4 v5, 0x0
-
-    goto :goto_4d
-
-    :goto_4c
-    const/4 v5, -0x1
-
-    :goto_4d
-    packed-switch v5, :pswitch_data_82
-
-    const/4 v5, 0x0
-
-    goto :goto_65
-
-    .line 135
-    :pswitch_52  #0x2
-    invoke-virtual {p3}, Ljava/io/File;->length()J
-
-    move-result-wide v5
-
-    long-to-int v6, v5
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    goto :goto_65
-
-    .line 138
-    :pswitch_5c  #0x1
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    goto :goto_65
-
-    .line 132
-    :pswitch_61  #0x0
-    invoke-virtual {p3}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v5
+    const/4 v0, 0x0
 
     .line 143
-    :goto_65
-    aput-object v5, v3, v4
+    :goto_2
+    aput-object v0, v6, v1
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_21
+    move v1, v0
+
+    goto :goto_0
+
+    .line 130
+    :sswitch_0
+    const-string v7, "_size"
+
+    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move v0, v3
+
+    goto :goto_1
+
+    :sswitch_1
+    const-string v7, "_id"
+
+    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move v0, v4
+
+    goto :goto_1
+
+    :sswitch_2
+    const-string v7, "_display_name"
+
+    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move v0, v2
+
+    goto :goto_1
+
+    .line 135
+    :pswitch_0
+    invoke-virtual {v5}, Ljava/io/File;->length()J
+
+    move-result-wide v8
+
+    long-to-int v0, v8
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    goto :goto_2
+
+    .line 138
+    :pswitch_1
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    goto :goto_2
+
+    .line 132
+    :pswitch_2
+    invoke-virtual {v5}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_2
 
     .line 146
-    :cond_6a
-    new-instance p1, Landroid/database/MatrixCursor;
+    :cond_2
+    new-instance v0, Landroid/database/MatrixCursor;
 
-    invoke-direct {p1, p2}, Landroid/database/MatrixCursor;-><init>([Ljava/lang/String;)V
+    invoke-direct {v0, p2}, Landroid/database/MatrixCursor;-><init>([Ljava/lang/String;)V
 
     .line 147
-    invoke-virtual {p1, v3}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
+    invoke-virtual {v0, v6}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
-    return-object p1
+    return-object v0
 
-    nop
-
-    :sswitch_data_74
+    .line 130
+    :sswitch_data_0
     .sparse-switch
-        -0x1d1c5239 -> :sswitch_43
-        0x171ba -> :sswitch_3a
-        0x57098e0 -> :sswitch_31
+        -0x1d1c5239 -> :sswitch_2
+        0x171ba -> :sswitch_1
+        0x57098e0 -> :sswitch_0
     .end sparse-switch
 
-    :pswitch_data_82
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_61  #00000000
-        :pswitch_5c  #00000001
-        :pswitch_52  #00000002
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    .registers 5
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxInstaller$2;)V
-    .registers 2
+    .locals 0
 
     .line 172
     iput-object p1, p0, Lcom/termux/app/TermuxInstaller$2$3;->this$0:Lcom/termux/app/TermuxInstaller$2;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .line 176
     :try_start_0
@@ -45,14 +45,14 @@
     iget-object v0, v0, Lcom/termux/app/TermuxInstaller$2;->val$progress:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
-    :try_end_7
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_9
+    :goto_0
+    return-void
 
-    :catch_8
+    :catch_0
     move-exception v0
 
-    :goto_9
-    return-void
+    goto :goto_0
 .end method

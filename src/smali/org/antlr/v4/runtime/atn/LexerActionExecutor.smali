@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>([Lorg/antlr/v4/runtime/atn/LexerAction;)V
-    .registers 6
+    .locals 4
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,270 +25,299 @@
     move-result v0
 
     .line 45
-    array-length v1, p1
+    array-length v2, p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    :goto_b
-    if-ge v2, v1, :cond_16
+    :goto_0
+    if-ge v1, v2, :cond_0
 
-    aget-object v3, p1, v2
+    aget-object v3, p1, v1
 
     .line 46
     invoke-static {v0, v3}, Lorg/antlr/v4/runtime/misc/MurmurHash;->update(ILjava/lang/Object;)I
 
     move-result v0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 49
-    :cond_16
-    array-length p1, p1
+    :cond_0
+    array-length v1, p1
 
-    invoke-static {v0, p1}, Lorg/antlr/v4/runtime/misc/MurmurHash;->finish(II)I
+    invoke-static {v0, v1}, Lorg/antlr/v4/runtime/misc/MurmurHash;->finish(II)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->hashCode:I
+    iput v0, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->hashCode:I
 
     return-void
 .end method
 
 .method public static append(Lorg/antlr/v4/runtime/atn/LexerActionExecutor;Lorg/antlr/v4/runtime/atn/LexerAction;)Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
-    .registers 4
+    .locals 3
 
-    const/4 v0, 0x1
-
-    if-nez p0, :cond_e
+    if-nez p0, :cond_0
 
     .line 69
-    new-instance p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
+    new-instance v0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
 
-    new-array v0, v0, [Lorg/antlr/v4/runtime/atn/LexerAction;
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    new-array v1, v1, [Lorg/antlr/v4/runtime/atn/LexerAction;
+
+    const/4 v2, 0x0
+
+    aput-object p1, v1, v2
+
+    invoke-direct {v0, v1}, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;-><init>([Lorg/antlr/v4/runtime/atn/LexerAction;)V
+
+    .line 74
+    :goto_0
+    return-object v0
+
+    .line 72
+    :cond_0
+    iget-object v0, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
+
+    array-length v1, v0
+
+    add-int/lit8 v1, v1, 0x1
+
+    invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Lorg/antlr/v4/runtime/atn/LexerAction;
+
+    .line 73
+    array-length v1, v0
+
+    add-int/lit8 v1, v1, -0x1
 
     aput-object p1, v0, v1
 
-    invoke-direct {p0, v0}, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;-><init>([Lorg/antlr/v4/runtime/atn/LexerAction;)V
-
-    return-object p0
-
-    .line 72
-    :cond_e
-    iget-object p0, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
-
-    array-length v1, p0
-
-    add-int/2addr v1, v0
-
-    invoke-static {p0, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, [Lorg/antlr/v4/runtime/atn/LexerAction;
-
-    .line 73
-    array-length v1, p0
-
-    sub-int/2addr v1, v0
-
-    aput-object p1, p0, v1
-
     .line 74
-    new-instance p1, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
+    new-instance v1, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
 
-    invoke-direct {p1, p0}, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;-><init>([Lorg/antlr/v4/runtime/atn/LexerAction;)V
+    invoke-direct {v1, v0}, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;-><init>([Lorg/antlr/v4/runtime/atn/LexerAction;)V
 
-    return-object p1
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_4
+    const/4 v1, 0x0
 
+    if-ne p1, p0, :cond_1
+
+    .line 193
+    :cond_0
+    :goto_0
     return v0
 
     .line 188
-    :cond_4
-    instance-of v1, p1, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
+    :cond_1
+    instance-of v2, p1, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
 
-    const/4 v2, 0x0
+    if-nez v2, :cond_2
 
-    if-nez v1, :cond_a
+    move v0, v1
 
-    return v2
+    goto :goto_0
 
     .line 192
-    :cond_a
+    :cond_2
     check-cast p1, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
 
     .line 193
-    iget v1, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->hashCode:I
+    iget v2, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->hashCode:I
 
     iget v3, p1, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->hashCode:I
 
-    if-ne v1, v3, :cond_1d
+    if-ne v2, v3, :cond_3
 
-    iget-object v1, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
+    iget-object v2, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
 
-    iget-object p1, p1, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
+    iget-object v3, p1, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
 
-    invoke-static {v1, p1}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v2
 
-    if-eqz p1, :cond_1d
+    if-nez v2, :cond_0
 
-    goto :goto_1e
+    :cond_3
+    move v0, v1
 
-    :cond_1d
-    const/4 v0, 0x0
-
-    :goto_1e
-    return v0
+    goto :goto_0
 .end method
 
 .method public execute(Lorg/antlr/v4/runtime/Lexer;Lorg/antlr/v4/runtime/CharStream;I)V
-    .registers 12
+    .locals 9
+
+    const/4 v4, 0x0
 
     .line 154
     invoke-interface {p2}, Lorg/antlr/v4/runtime/CharStream;->index()I
 
-    move-result v0
+    move-result v6
 
     .line 156
-    const/4 v1, 0x0
+    :try_start_0
+    iget-object v7, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
 
-    :try_start_5
-    iget-object v2, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
+    array-length v8, v7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    array-length v3, v2
-    :try_end_8
-    .catchall {:try_start_5 .. :try_end_8} :catchall_40
+    move v5, v4
 
-    const/4 v4, 0x0
+    move v3, v4
 
-    const/4 v5, 0x0
+    :goto_0
+    if-ge v5, v8, :cond_2
 
-    :goto_a
-    if-ge v4, v3, :cond_3a
-
-    aget-object v6, v2, v4
+    aget-object v2, v7, v5
 
     .line 157
-    :try_start_e
-    instance-of v7, v6, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;
+    :try_start_1
+    instance-of v1, v2, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;
 
-    if-eqz v7, :cond_27
+    if-eqz v1, :cond_0
 
     .line 158
-    move-object v7, v6
+    move-object v0, v2
 
-    check-cast v7, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;
 
-    invoke-virtual {v7}, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;->getOffset()I
+    move-object v1, v0
 
-    move-result v7
+    invoke-virtual {v1}, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;->getOffset()I
 
-    add-int/2addr v7, p3
+    move-result v1
+
+    add-int/2addr v1, p3
 
     .line 159
-    invoke-interface {p2, v7}, Lorg/antlr/v4/runtime/CharStream;->seek(I)V
+    invoke-interface {p2, v1}, Lorg/antlr/v4/runtime/CharStream;->seek(I)V
 
     .line 160
-    check-cast v6, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;
+    check-cast v2, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;
 
-    invoke-virtual {v6}, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;->getAction()Lorg/antlr/v4/runtime/atn/LexerAction;
+    invoke-virtual {v2}, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;->getAction()Lorg/antlr/v4/runtime/atn/LexerAction;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-result-object v6
+    move-result-object v2
 
-    if-eq v7, v0, :cond_30
+    if-eq v1, v6, :cond_1
 
-    const/4 v5, 0x1
-
-    goto :goto_31
-
-    .line 163
-    :cond_27
-    invoke-interface {v6}, Lorg/antlr/v4/runtime/atn/LexerAction;->isPositionDependent()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_31
-
-    .line 164
-    invoke-interface {p2, v0}, Lorg/antlr/v4/runtime/CharStream;->seek(I)V
-
-    :cond_30
-    const/4 v5, 0x0
+    const/4 v1, 0x1
 
     .line 168
-    :cond_31
-    :goto_31
-    invoke-interface {v6, p1}, Lorg/antlr/v4/runtime/atn/LexerAction;->execute(Lorg/antlr/v4/runtime/Lexer;)V
-    :try_end_34
-    .catchall {:try_start_e .. :try_end_34} :catchall_37
+    :goto_1
+    :try_start_2
+    invoke-interface {v2, p1}, Lorg/antlr/v4/runtime/atn/LexerAction;->execute(Lorg/antlr/v4/runtime/Lexer;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v5, 0x1
 
-    goto :goto_a
+    move v5, v2
 
-    :catchall_37
-    move-exception p1
+    move v3, v1
 
-    move v1, v5
+    goto :goto_0
 
-    goto :goto_41
+    .line 163
+    :cond_0
+    :try_start_3
+    invoke-interface {v2}, Lorg/antlr/v4/runtime/atn/LexerAction;->isPositionDependent()Z
 
-    :cond_3a
-    if-eqz v5, :cond_3f
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    .line 164
+    invoke-interface {p2, v6}, Lorg/antlr/v4/runtime/CharStream;->seek(I)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    :cond_1
+    move v1, v4
+
+    goto :goto_1
+
+    .line 168
+    :cond_2
+    if-eqz v3, :cond_3
 
     .line 173
-    invoke-interface {p2, v0}, Lorg/antlr/v4/runtime/CharStream;->seek(I)V
+    invoke-interface {p2, v6}, Lorg/antlr/v4/runtime/CharStream;->seek(I)V
 
-    :cond_3f
+    :cond_3
     return-void
 
-    :catchall_40
-    move-exception p1
+    :catchall_0
+    move-exception v1
 
-    :goto_41
-    if-eqz v1, :cond_46
+    move v3, v4
 
-    invoke-interface {p2, v0}, Lorg/antlr/v4/runtime/CharStream;->seek(I)V
+    move-object v2, v1
 
-    :cond_46
-    goto :goto_48
+    :goto_2
+    if-eqz v3, :cond_4
 
-    :goto_47
-    throw p1
+    invoke-interface {p2, v6}, Lorg/antlr/v4/runtime/CharStream;->seek(I)V
 
-    :goto_48
-    goto :goto_47
+    :cond_4
+    throw v2
+
+    .line 168
+    :catchall_1
+    move-exception v1
+
+    move-object v2, v1
+
+    goto :goto_2
+
+    :catchall_2
+    move-exception v2
+
+    move v3, v1
+
+    goto :goto_2
+
+    :cond_5
+    move v1, v3
+
+    goto :goto_1
 .end method
 
 .method public fixOffsetBeforeMatch(I)Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
-    .registers 6
+    .locals 4
 
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
     .line 108
-    :goto_2
+    :goto_0
     iget-object v2, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
 
     array-length v3, v2
 
-    if-ge v1, v3, :cond_2d
+    if-ge v1, v3, :cond_2
 
     .line 109
     aget-object v2, v2, v1
@@ -297,7 +326,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2a
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
 
@@ -305,9 +334,9 @@
 
     instance-of v3, v3, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;
 
-    if-nez v3, :cond_2a
+    if-nez v3, :cond_1
 
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_0
 
     .line 111
     invoke-virtual {v2}, [Lorg/antlr/v4/runtime/atn/LexerAction;->clone()Ljava/lang/Object;
@@ -317,7 +346,7 @@
     check-cast v0, [Lorg/antlr/v4/runtime/atn/LexerAction;
 
     .line 114
-    :cond_1f
+    :cond_0
     new-instance v2, Lorg/antlr/v4/runtime/atn/LexerIndexedCustomAction;
 
     iget-object v3, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
@@ -328,27 +357,28 @@
 
     aput-object v2, v0, v1
 
-    :cond_2a
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_2d
-    if-nez v0, :cond_30
-
-    return-object p0
+    :cond_2
+    if-nez v0, :cond_3
 
     .line 122
-    :cond_30
-    new-instance p1, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
+    :goto_1
+    return-object p0
 
-    invoke-direct {p1, v0}, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;-><init>([Lorg/antlr/v4/runtime/atn/LexerAction;)V
+    :cond_3
+    new-instance p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
 
-    return-object p1
+    invoke-direct {p0, v0}, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;-><init>([Lorg/antlr/v4/runtime/atn/LexerAction;)V
+
+    goto :goto_1
 .end method
 
 .method public getLexerActions()[Lorg/antlr/v4/runtime/atn/LexerAction;
-    .registers 2
+    .locals 1
 
     .line 130
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->lexerActions:[Lorg/antlr/v4/runtime/atn/LexerAction;
@@ -357,7 +387,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .line 180
     iget v0, p0, Lorg/antlr/v4/runtime/atn/LexerActionExecutor;->hashCode:I

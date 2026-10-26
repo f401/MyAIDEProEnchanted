@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static final a(Ljava/io/InputStream;Ljava/io/OutputStream;I)J
-    .registers 8
+    .locals 6
 
     const-string v0, "$this$copyTo"
 
@@ -15,48 +15,48 @@
 
     invoke-static {p1, v0}, Lcom/termux/yinli_a/k/b/c;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    new-array p2, p2, [B
+    new-array v3, p2, [B
 
-    invoke-virtual {p0, p2}, Ljava/io/InputStream;->read([B)I
+    invoke-virtual {p0, v3}, Ljava/io/InputStream;->read([B)I
 
-    move-result v0
+    move-result v2
 
-    const-wide/16 v1, 0x0
+    const-wide/16 v0, 0x0
 
-    :goto_12
-    if-ltz v0, :cond_1f
+    :goto_0
+    if-ltz v2, :cond_0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p1, p2, v3, v0}, Ljava/io/OutputStream;->write([BII)V
+    invoke-virtual {p1, v3, v4, v2}, Ljava/io/OutputStream;->write([BII)V
 
-    int-to-long v3, v0
+    int-to-long v4, v2
 
-    add-long/2addr v1, v3
+    add-long/2addr v0, v4
 
-    invoke-virtual {p0, p2}, Ljava/io/InputStream;->read([B)I
+    invoke-virtual {p0, v3}, Ljava/io/InputStream;->read([B)I
 
-    move-result v0
+    move-result v2
 
-    goto :goto_12
+    goto :goto_0
 
-    :cond_1f
-    return-wide v1
+    :cond_0
+    return-wide v0
 .end method
 
 .method public static synthetic a(Ljava/io/InputStream;Ljava/io/OutputStream;IILjava/lang/Object;)J
-    .registers 5
+    .locals 2
 
-    and-int/lit8 p3, p3, 0x2
+    and-int/lit8 v0, p3, 0x2
 
-    if-eqz p3, :cond_6
+    if-eqz v0, :cond_0
 
     const/16 p2, 0x2000
 
-    :cond_6
+    :cond_0
     invoke-static {p0, p1, p2}, Lcom/termux/yinli_a/j/a;->a(Ljava/io/InputStream;Ljava/io/OutputStream;I)J
 
-    move-result-wide p0
+    move-result-wide v0
 
-    return-wide p0
+    return-wide v0
 .end method

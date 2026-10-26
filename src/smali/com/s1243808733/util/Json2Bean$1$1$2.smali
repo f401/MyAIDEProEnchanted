@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/Json2Bean$1$1;Landroid/widget/EditText;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,43 +45,44 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 159
-    iget-object p1, p0, Lcom/s1243808733/util/Json2Bean$1$1$2;->this$1:Lcom/s1243808733/util/Json2Bean$1$1;
-
-    iget-object p1, p1, Lcom/s1243808733/util/Json2Bean$1$1;->this$0:Lcom/s1243808733/util/Json2Bean$1;
-
-    iget-object p1, p1, Lcom/s1243808733/util/Json2Bean$1;->val$srcJavaPackageName:Ljava/io/File;
-
-    if-nez p1, :cond_d
-
-    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
-
-    move-result-object p1
-
-    goto :goto_13
-
-    :cond_d
-    iget-object p1, p0, Lcom/s1243808733/util/Json2Bean$1$1$2;->this$1:Lcom/s1243808733/util/Json2Bean$1$1;
-
-    iget-object p1, p1, Lcom/s1243808733/util/Json2Bean$1$1;->this$0:Lcom/s1243808733/util/Json2Bean$1;
-
-    iget-object p1, p1, Lcom/s1243808733/util/Json2Bean$1;->val$srcJavaPackageName:Ljava/io/File;
-
-    .line 160
-    :goto_13
     iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$1$1$2;->this$1:Lcom/s1243808733/util/Json2Bean$1$1;
 
     iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$1$1;->this$0:Lcom/s1243808733/util/Json2Bean$1;
 
-    iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$1;->val$activity:Landroid/app/Activity;
+    iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$1;->val$srcJavaPackageName:Ljava/io/File;
 
-    new-instance v1, Lcom/s1243808733/util/Json2Bean$1$1$2$1;
+    if-nez v0, :cond_0
 
-    invoke-direct {v1, p0}, Lcom/s1243808733/util/Json2Bean$1$1$2$1;-><init>(Lcom/s1243808733/util/Json2Bean$1$1$2;)V
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
-    invoke-static {v0, p1, v1}, Lcom/s1243808733/util/ChooseDir;->showDialog(Landroid/app/Activity;Ljava/io/File;Lcom/s1243808733/util/ChooseDir$ChooseListener;)V
+    move-result-object v0
+
+    .line 160
+    :goto_0
+    iget-object v1, p0, Lcom/s1243808733/util/Json2Bean$1$1$2;->this$1:Lcom/s1243808733/util/Json2Bean$1$1;
+
+    iget-object v1, v1, Lcom/s1243808733/util/Json2Bean$1$1;->this$0:Lcom/s1243808733/util/Json2Bean$1;
+
+    iget-object v1, v1, Lcom/s1243808733/util/Json2Bean$1;->val$activity:Landroid/app/Activity;
+
+    new-instance v2, Lcom/s1243808733/util/Json2Bean$1$1$2$1;
+
+    invoke-direct {v2, p0}, Lcom/s1243808733/util/Json2Bean$1$1$2$1;-><init>(Lcom/s1243808733/util/Json2Bean$1$1$2;)V
+
+    invoke-static {v1, v0, v2}, Lcom/s1243808733/util/ChooseDir;->showDialog(Landroid/app/Activity;Ljava/io/File;Lcom/s1243808733/util/ChooseDir$ChooseListener;)V
 
     return-void
+
+    .line 159
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$1$1$2;->this$1:Lcom/s1243808733/util/Json2Bean$1$1;
+
+    iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$1$1;->this$0:Lcom/s1243808733/util/Json2Bean$1;
+
+    iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$1;->val$srcJavaPackageName:Ljava/io/File;
+
+    goto :goto_0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/yt/plugin/WebActivity$1;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,12 +45,12 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 255
-    iget-object p1, p0, Lcom/yt/plugin/WebActivity$1$1;->val$url:Ljava/lang/String;
+    iget-object v0, p0, Lcom/yt/plugin/WebActivity$1$1;->val$url:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->openUrl(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->openUrl(Ljava/lang/String;)V
 
     return-void
 .end method

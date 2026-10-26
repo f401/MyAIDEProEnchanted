@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lc/x;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public final c()Lc/s;
-    .registers 5
+    .locals 4
 
     :try_start_0
     new-instance v0, Lc/aq;
@@ -37,12 +37,12 @@
     move-result-object v1
 
     invoke-direct {v0, v1}, Lc/aq;-><init>(Lc/f;)V
-    :try_end_b
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v0
 
-    :catch_c
+    :catch_0
     move-exception v0
 
     new-instance v1, Lc/h;
@@ -59,37 +59,39 @@
 .end method
 
 .method public final l()Lc/s;
-    .registers 5
+    .locals 4
 
-    const-string v0, "unable to get DER object"
+    const/4 v3, 0x0
 
-    const/4 v1, 0x0
-
-    :try_start_3
+    :try_start_0
     invoke-virtual {p0}, Lc/ar;->c()Lc/s;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_7} :catch_f
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_3 .. :try_end_7} :catch_8
 
     return-object v0
 
-    :catch_8
-    move-exception v2
+    :catch_0
+    move-exception v0
 
-    new-instance v3, Lc/r;
+    new-instance v1, Lc/r;
 
-    invoke-direct {v3, v0, v2, v1}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+    const-string v2, "unable to get DER object"
 
-    throw v3
+    invoke-direct {v1, v2, v0, v3}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
 
-    :catch_f
-    move-exception v2
+    throw v1
 
-    new-instance v3, Lc/r;
+    :catch_1
+    move-exception v0
 
-    invoke-direct {v3, v0, v2, v1}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+    new-instance v1, Lc/r;
 
-    throw v3
+    const-string v2, "unable to get DER object"
+
+    invoke-direct {v1, v2, v0, v3}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+
+    throw v1
 .end method

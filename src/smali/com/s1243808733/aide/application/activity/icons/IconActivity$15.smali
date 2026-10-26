@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity;)V
-    .registers 2
+    .locals 0
 
     .line 828
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
@@ -36,7 +36,11 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 14
+    .locals 12
+
+    const/4 v11, 0x2
+
+    const/4 v5, 0x0
 
     .line 832
     invoke-static {}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->-$$Nest$sfgetsData()Ljava/util/Map;
@@ -47,189 +51,196 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    new-array v1, v5, [Ljava/lang/String;
 
-    new-array v2, v1, [Ljava/lang/String;
-
-    invoke-interface {v0, v2}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, [Ljava/lang/String;
 
     .line 835
-    array-length v2, v0
+    array-length v1, v0
 
-    new-array v2, v2, [Ljava/lang/CharSequence;
+    new-array v6, v1, [Ljava/lang/CharSequence;
 
-    const/4 v3, -0x1
+    const/4 v1, -0x1
 
-    const/4 v4, 0x0
+    move v3, v1
+
+    move v4, v5
 
     .line 836
-    :goto_16
-    array-length v5, v0
+    :goto_0
+    array-length v1, v0
 
-    if-ge v4, v5, :cond_87
+    if-ge v4, v1, :cond_1
 
     .line 837
-    aget-object v5, v0, v4
+    aget-object v7, v0, v4
 
     .line 838
     invoke-static {}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->-$$Nest$sfgetsData()Ljava/util/Map;
 
-    move-result-object v6
+    move-result-object v1
 
-    invoke-interface {v6, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v1
 
-    check-cast v6, Ljava/util/List;
+    check-cast v1, Ljava/util/List;
 
     .line 840
-    const/4 v7, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v7}, Lcom/blankj/utilcode/util/SpanUtils;->with(Landroid/widget/TextView;)Lcom/blankj/utilcode/util/SpanUtils;
+    invoke-static {v2}, Lcom/blankj/utilcode/util/SpanUtils;->with(Landroid/widget/TextView;)Lcom/blankj/utilcode/util/SpanUtils;
 
-    move-result-object v7
+    move-result-object v8
 
     .line 841
-    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v8
+    move-result v2
 
-    const/4 v9, 0x2
-
-    if-nez v8, :cond_5b
+    if-nez v2, :cond_0
 
     .line 842
-    invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v2
 
-    check-cast v8, Lcom/s1243808733/aide/application/activity/icons/Icon;
+    check-cast v2, Lcom/s1243808733/aide/application/activity/icons/Icon;
 
     .line 844
-    const/high16 v10, 0x41b00000  # 22.0f
+    const/high16 v9, 0x41b00000    # 22.0f
 
-    invoke-static {v10}, Lcom/s1243808733/util/Utils;->dp2px(F)I
+    invoke-static {v9}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
-    move-result v10
+    move-result v9
 
-    invoke-virtual {v8, v10}, Lcom/s1243808733/aide/application/activity/icons/Icon;->createBitmap(I)Landroid/graphics/Bitmap;
+    invoke-virtual {v2, v9}, Lcom/s1243808733/aide/application/activity/icons/Icon;->createBitmap(I)Landroid/graphics/Bitmap;
 
-    move-result-object v8
+    move-result-object v2
 
-    iget-object v10, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
+    iget-object v9, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
 
-    const v11, 0x1010036
+    const v10, 0x1010036
 
-    invoke-static {v10, v11}, Lcom/s1243808733/util/Utils;->getThemeAttrColor(Landroid/content/Context;I)I
+    invoke-static {v9, v10}, Lcom/s1243808733/util/Utils;->getThemeAttrColor(Landroid/content/Context;I)I
 
-    move-result v10
+    move-result v9
 
-    invoke-static {v8, v10}, Lcom/s1243808733/aide/application/activity/icons/IconActivity$ImageUtils;->drawColor(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
+    invoke-static {v2, v9}, Lcom/s1243808733/aide/application/activity/icons/IconActivity$ImageUtils;->drawColor(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
 
-    move-result-object v8
+    move-result-object v2
 
     .line 846
-    invoke-virtual {v7, v8, v9}, Lcom/blankj/utilcode/util/SpanUtils;->appendImage(Landroid/graphics/Bitmap;I)Lcom/blankj/utilcode/util/SpanUtils;
+    invoke-virtual {v8, v2, v11}, Lcom/blankj/utilcode/util/SpanUtils;->appendImage(Landroid/graphics/Bitmap;I)Lcom/blankj/utilcode/util/SpanUtils;
 
-    move-result-object v8
+    move-result-object v2
 
     .line 847
-    const/high16 v10, 0x41200000  # 10.0f
+    const/high16 v9, 0x41200000    # 10.0f
 
-    invoke-static {v10}, Lcom/s1243808733/util/Utils;->dp2px(F)I
+    invoke-static {v9}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
-    move-result v10
+    move-result v9
 
-    invoke-virtual {v8, v10}, Lcom/blankj/utilcode/util/SpanUtils;->appendSpace(I)Lcom/blankj/utilcode/util/SpanUtils;
+    invoke-virtual {v2, v9}, Lcom/blankj/utilcode/util/SpanUtils;->appendSpace(I)Lcom/blankj/utilcode/util/SpanUtils;
 
     .line 850
-    :cond_5b
-    new-array v8, v9, [Ljava/lang/Object;
+    :cond_0
+    const-string v2, "%s (%d)"
 
-    aput-object v5, v8, v1
+    new-array v9, v11, [Ljava/lang/Object;
 
-    invoke-interface {v6}, Ljava/util/List;->size()I
+    aput-object v7, v9, v5
 
-    move-result v6
+    const/4 v10, 0x1
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result-object v6
+    move-result v1
 
-    const/4 v9, 0x1
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v6, v8, v9
+    move-result-object v1
 
-    const-string v6, "%s (%d)"
+    aput-object v1, v9, v10
 
-    invoke-static {v6, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v1
 
-    invoke-virtual {v7, v6}, Lcom/blankj/utilcode/util/SpanUtils;->append(Ljava/lang/CharSequence;)Lcom/blankj/utilcode/util/SpanUtils;
+    invoke-virtual {v8, v1}, Lcom/blankj/utilcode/util/SpanUtils;->append(Ljava/lang/CharSequence;)Lcom/blankj/utilcode/util/SpanUtils;
 
     .line 852
-    invoke-virtual {v7}, Lcom/blankj/utilcode/util/SpanUtils;->create()Landroid/text/SpannableStringBuilder;
+    invoke-virtual {v8}, Lcom/blankj/utilcode/util/SpanUtils;->create()Landroid/text/SpannableStringBuilder;
 
-    move-result-object v6
+    move-result-object v1
 
-    aput-object v6, v2, v4
+    aput-object v1, v6, v4
 
     .line 854
-    iget-object v6, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
 
-    iget-object v6, v6, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->currentTag:Ljava/lang/String;
+    iget-object v1, v1, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->currentTag:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_84
+    if-eqz v1, :cond_2
 
-    move v3, v4
+    move v1, v4
 
-    :cond_84
-    add-int/lit8 v4, v4, 0x1
+    :goto_1
+    add-int/lit8 v2, v4, 0x1
 
-    goto :goto_16
+    move v3, v1
+
+    move v4, v2
+
+    goto :goto_0
 
     .line 859
-    :cond_87
-    new-instance v4, Landroid/app/AlertDialog$Builder;
+    :cond_1
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    iget-object v5, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
 
-    invoke-direct {v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 860
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {v4, p1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v1
 
-    new-instance v4, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15$1;
+    new-instance v2, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15$1;
 
-    invoke-direct {v4, p0, v0}, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15$1;-><init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$15;[Ljava/lang/String;)V
+    invoke-direct {v2, p0, v0}, Lcom/s1243808733/aide/application/activity/icons/IconActivity$15$1;-><init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$15;[Ljava/lang/String;)V
 
     .line 861
-    invoke-virtual {p1, v2, v3, v4}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v6, v3, v2}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 870
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 871
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    return v1
+    return v5
+
+    :cond_2
+    move v1, v3
+
+    goto :goto_1
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;Landroid/app/Activity;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,126 +45,127 @@
 
 # virtual methods
 .method public onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
-    .registers 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)Z"
         }
     .end annotation
 
     .line 221
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1, p3}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/permission/Permission;
+    invoke-virtual {v0, p3}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/permission/Permission;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 222
-    new-instance p4, Landroid/app/AlertDialog$Builder;
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    iget-object p5, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5;->val$activity:Landroid/app/Activity;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5;->val$activity:Landroid/app/Activity;
 
-    invoke-direct {p4, p5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 223
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getLabel()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getLabel()Ljava/lang/String;
 
-    move-result-object p5
+    move-result-object v2
 
-    invoke-virtual {p4, p5}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p4
+    move-result-object v1
 
     .line 224
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getDescribe()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getDescribe()Ljava/lang/String;
 
-    move-result-object p5
+    move-result-object v2
 
-    invoke-virtual {p4, p5}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p4
+    move-result-object v1
 
     .line 225
-    iget-object p5, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
 
-    invoke-static {p5}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
+    invoke-static {v2}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
 
-    move-result-object p5
+    move-result-object v2
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/Permission;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p5, p1}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->isSelected(Ljava/lang/String;)Z
+    invoke-virtual {v2, v0}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->isSelected(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_3d
+    if-eqz v0, :cond_1
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_3a
+    if-eqz v0, :cond_0
 
-    const-string p1, "取消选择"
+    const-string v0, "\u53d6\u6d88\u9009\u62e9"
 
-    goto :goto_48
+    :goto_0
+    new-instance v2, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5$1;
 
-    :cond_3a
-    const-string p1, "cancel select"
+    invoke-direct {v2, p0, p3, p2}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5$1;-><init>(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5;ILandroid/view/View;)V
 
-    goto :goto_48
+    invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    :cond_3d
-    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_46
-
-    const-string p1, "选择"
-
-    goto :goto_48
-
-    :cond_46
-    const-string p1, "select"
-
-    :goto_48
-    new-instance p5, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5$1;
-
-    invoke-direct {p5, p0, p3, p2}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5$1;-><init>(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$5;ILandroid/view/View;)V
-
-    invoke-virtual {p4, p1, p5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
+    move-result-object v0
 
     .line 243
-    const/high16 p2, 0x1040000
+    const/high16 v1, 0x1040000
 
-    const/4 p3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, p2, p3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 244
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 245
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
+
+    .line 225
+    :cond_0
+    const-string v0, "cancel select"
+
+    goto :goto_0
+
+    :cond_1
+    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "\u9009\u62e9"
+
+    goto :goto_0
+
+    :cond_2
+    const-string v0, "select"
+
+    goto :goto_0
 .end method

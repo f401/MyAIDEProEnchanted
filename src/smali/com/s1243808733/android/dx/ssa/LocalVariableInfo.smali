@@ -11,7 +11,8 @@
 .field private final insnAssignments:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashMap<",
+            "Ljava/util/HashMap",
+            "<",
             "Lcom/s1243808733/android/dx/ssa/SsaInsn;",
             "Lcom/s1243808733/android/dx/rop/code/RegisterSpec;",
             ">;"
@@ -24,12 +25,12 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/ssa/SsaMethod;)V
-    .registers 4
+    .locals 3
 
     .line 56
     invoke-direct {p0}, Lcom/s1243808733/android/dx/util/MutabilityControl;-><init>()V
 
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 61
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getBlocks()Ljava/util/ArrayList;
@@ -39,86 +40,86 @@
     .line 63
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getRegCount()I
 
-    move-result p1
+    move-result v1
 
-    iput p1, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->regCount:I
+    iput v1, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->regCount:I
 
     .line 64
-    new-instance v1, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+    new-instance v2, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    invoke-direct {v1, p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;-><init>(I)V
+    invoke-direct {v2, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;-><init>(I)V
 
-    iput-object v1, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->emptySet:Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+    iput-object v2, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->emptySet:Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
     .line 65
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result p1
+    move-result v0
 
-    new-array p1, p1, [Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+    new-array v0, v0, [Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->blockStarts:[Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->blockStarts:[Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
     .line 66
-    new-instance p1, Ljava/util/HashMap;
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->insnAssignments:Ljava/util/HashMap;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->insnAssignments:Ljava/util/HashMap;
 
     .line 69
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->setImmutable()V
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->setImmutable()V
 
     return-void
 
     .line 58
-    :cond_29
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "method == null"
+    const-string v1, "method == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method private getStarts0(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
-    .registers 3
+    .locals 2
 
     .line 244
     :try_start_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->blockStarts:[Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    aget-object p1, v0, p1
-    :try_end_4
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_4} :catch_5
+    aget-object v0, v0, p1
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object p1
+    return-object v0
 
     .line 247
-    :catch_5
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "bogus index"
+    const-string v1, "bogus index"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public addAssignment(Lcom/s1243808733/android/dx/ssa/SsaInsn;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
-    .registers 4
+    .locals 2
 
     .line 187
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->throwIfImmutable()V
 
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_1
 
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_0
 
     .line 197
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->insnAssignments:Ljava/util/HashMap;
@@ -128,123 +129,124 @@
     return-void
 
     .line 194
-    :cond_d
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "spec == null"
+    const-string v1, "spec == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 190
-    :cond_15
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "insn == null"
+    const-string v1, "insn == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public debugDump()V
-    .registers 7
+    .locals 7
 
-    const/4 v0, 0x0
+    const/4 v6, 0x1
 
     const/4 v1, 0x0
 
+    move v0, v1
+
     .line 221
-    :goto_2
+    :goto_0
     iget-object v2, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->blockStarts:[Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
     array-length v3, v2
 
-    if-ge v1, v3, :cond_3a
+    if-ge v0, v3, :cond_2
 
     .line 222
-    aget-object v2, v2, v1
+    aget-object v2, v2, v0
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_0
 
-    goto :goto_37
+    .line 229
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
 
     .line 226
-    :cond_c
+    :cond_0
     iget-object v3, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->emptySet:Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    const/4 v4, 0x1
-
-    if-ne v2, v3, :cond_21
+    if-ne v2, v3, :cond_1
 
     .line 227
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-array v3, v4, [Ljava/lang/Object;
+    const-string v3, "%04x: empty set\n"
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    new-array v4, v6, [Ljava/lang/Object;
 
-    move-result-object v4
-
-    aput-object v4, v3, v0
-
-    const-string v4, "%04x: empty set\n"
-
-    invoke-virtual {v2, v4, v3}, Ljava/io/PrintStream;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
-
-    goto :goto_37
-
-    .line 229
-    :cond_21
-    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
-    aput-object v5, v3, v0
+    aput-object v5, v4, v1
+
+    invoke-virtual {v2, v3, v4}, Ljava/io/PrintStream;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+
+    goto :goto_1
+
+    .line 229
+    :cond_1
+    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string v3, "%04x: %s\n"
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v1
 
     iget-object v5, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->blockStarts:[Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    aget-object v5, v5, v1
+    aget-object v5, v5, v0
 
-    aput-object v5, v3, v4
+    aput-object v5, v4, v6
 
-    const-string v4, "%04x: %s\n"
+    invoke-virtual {v2, v3, v4}, Ljava/io/PrintStream;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
 
-    invoke-virtual {v2, v4, v3}, Ljava/io/PrintStream;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+    goto :goto_1
 
-    :goto_37
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_2
-
-    :cond_3a
+    :cond_2
     return-void
 .end method
 
 .method public getAssignment(Lcom/s1243808733/android/dx/ssa/SsaInsn;)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-    .registers 3
+    .locals 1
 
     .line 208
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->insnAssignments:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getAssignmentCount()I
-    .registers 2
+    .locals 1
 
     .line 217
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->insnAssignments:Ljava/util/HashMap;
@@ -257,152 +259,154 @@
 .end method
 
 .method public getStarts(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
-    .registers 2
+    .locals 1
 
     .line 139
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->getStarts0(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_7
-
-    goto :goto_9
+    if-eqz v0, :cond_0
 
     .line 141
-    :cond_7
-    iget-object p1, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->emptySet:Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+    :goto_0
+    return-object v0
 
-    :goto_9
-    return-object p1
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->emptySet:Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+
+    goto :goto_0
 .end method
 
 .method public getStarts(Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;)Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
-    .registers 2
+    .locals 1
 
     .line 153
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->getIndex()I
 
-    move-result p1
+    move-result v0
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->getStarts(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->getStarts(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public mergeStarts(ILcom/s1243808733/android/dx/rop/code/RegisterSpecSet;)Z
-    .registers 6
+    .locals 3
+
+    const/4 v0, 0x1
 
     .line 109
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->getStarts0(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x1
-
-    if-nez v0, :cond_b
+    if-nez v1, :cond_0
 
     .line 113
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->setStarts(ILcom/s1243808733/android/dx/rop/code/RegisterSpecSet;)V
 
-    return v1
+    .line 125
+    :goto_0
+    return v0
 
     .line 117
-    :cond_b
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->mutableCopy()Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+    :cond_0
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->mutableCopy()Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
     move-result-object v2
 
     .line 118
-    invoke-virtual {v2, p2, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->intersect(Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;Z)V
+    invoke-virtual {v2, p2, v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->intersect(Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;Z)V
 
     .line 120
-    invoke-virtual {v0, v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->equals(Ljava/lang/Object;)Z
 
-    move-result p2
+    move-result v1
 
-    if-eqz p2, :cond_1a
+    if-eqz v1, :cond_1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 
     .line 124
-    :cond_1a
+    :cond_1
     invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->setImmutable()V
 
     .line 125
     invoke-virtual {p0, p1, v2}, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->setStarts(ILcom/s1243808733/android/dx/rop/code/RegisterSpecSet;)V
 
-    return v1
+    goto :goto_0
 .end method
 
 .method public mutableCopyOfStarts(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
-    .registers 3
+    .locals 2
 
     .line 166
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->getStarts0(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_b
+    if-eqz v0, :cond_0
 
     .line 169
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->mutableCopy()Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;->mutableCopy()Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    move-result-object p1
+    move-result-object v0
 
-    goto :goto_12
+    :goto_0
+    return-object v0
 
-    :cond_b
-    new-instance p1, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
+    :cond_0
+    new-instance v0, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
-    iget v0, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->regCount:I
+    iget v1, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->regCount:I
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;-><init>(I)V
 
-    :goto_12
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public setStarts(ILcom/s1243808733/android/dx/rop/code/RegisterSpecSet;)V
-    .registers 4
+    .locals 2
 
     .line 80
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->throwIfImmutable()V
 
-    if-eqz p2, :cond_13
+    if-eqz p2, :cond_0
 
     .line 87
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/LocalVariableInfo;->blockStarts:[Lcom/s1243808733/android/dx/rop/code/RegisterSpecSet;
 
     aput-object p2, v0, p1
-    :try_end_9
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_5 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
     .line 90
-    :catch_a
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "bogus index"
+    const-string v1, "bogus index"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 83
-    :cond_13
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "specs == null"
+    const-string v1, "specs == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method

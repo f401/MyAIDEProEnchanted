@@ -24,12 +24,12 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;)V
-    .registers 3
+    .locals 2
 
     .line 94
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_2f
+    if-eqz p1, :cond_0
 
     .line 99
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->method:Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;
@@ -37,65 +37,65 @@
     .line 107
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getCode()Lcom/s1243808733/android/dx/cf/code/BytecodeArray;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/code/BytecodeArray;->size()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/BytecodeArray;->size()I
 
-    move-result p1
+    move-result v0
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 109
-    invoke-static {p1}, Lcom/s1243808733/android/dx/util/Bits;->makeBitSet(I)[I
+    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Bits;->makeBitSet(I)[I
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->workSet:[I
+    iput-object v1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->workSet:[I
 
     .line 110
-    invoke-static {p1}, Lcom/s1243808733/android/dx/util/Bits;->makeBitSet(I)[I
+    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Bits;->makeBitSet(I)[I
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->liveSet:[I
+    iput-object v1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->liveSet:[I
 
     .line 111
-    invoke-static {p1}, Lcom/s1243808733/android/dx/util/Bits;->makeBitSet(I)[I
+    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Bits;->makeBitSet(I)[I
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
+    iput-object v1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
 
     .line 112
-    new-array v0, p1, [Lcom/s1243808733/android/dx/util/IntList;
+    new-array v1, v0, [Lcom/s1243808733/android/dx/util/IntList;
 
-    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
+    iput-object v1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
 
     .line 113
-    new-array p1, p1, [Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
+    new-array v0, v0, [Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->catchLists:[Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->catchLists:[Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
 
     .line 114
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    iput p1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->previousOffset:I
+    iput v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->previousOffset:I
 
     return-void
 
     .line 96
-    :cond_2f
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "method == null"
+    const-string v1, "method == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method private addWorkIfNecessary(IZ)V
-    .registers 4
+    .locals 1
 
     .line 387
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->liveSet:[I
@@ -104,84 +104,84 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 388
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->workSet:[I
 
     invoke-static {v0, p1}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
 
-    :cond_d
-    if-eqz p2, :cond_14
+    :cond_0
+    if-eqz p2, :cond_1
 
     .line 392
-    iget-object p2, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
 
-    invoke-static {p2, p1}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
+    invoke-static {v0, p1}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
 
-    :cond_14
+    :cond_1
     return-void
 .end method
 
 .method private doit()V
-    .registers 10
+    .locals 9
+
+    const/4 v1, 0x0
 
     .line 339
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->method:Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getCode()Lcom/s1243808733/android/dx/cf/code/BytecodeArray;
 
-    move-result-object v0
+    move-result-object v2
 
     .line 340
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->method:Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->method:Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getCatches()Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getCatches()Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
 
-    move-result-object v1
+    move-result-object v3
 
     .line 341
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->size()I
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->size()I
 
-    move-result v2
+    move-result v4
 
     .line 347
-    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->workSet:[I
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->workSet:[I
 
-    const/4 v4, 0x0
-
-    invoke-static {v3, v4}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
 
     .line 348
-    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
 
-    invoke-static {v3, v4}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
 
     .line 355
-    :cond_1b
-    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->workSet:[I
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->workSet:[I
 
-    invoke-static {v3}, Lcom/s1243808733/android/dx/util/Bits;->isEmpty([I)Z
+    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Bits;->isEmpty([I)Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_5d
+    if-nez v0, :cond_2
 
     .line 357
-    :try_start_23
-    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->workSet:[I
+    :try_start_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->workSet:[I
 
-    invoke-virtual {v0, v3, p0}, Lcom/s1243808733/android/dx/cf/code/BytecodeArray;->processWorkSet([ILcom/s1243808733/android/dx/cf/code/BytecodeArray$Visitor;)V
-    :try_end_28
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_23 .. :try_end_28} :catch_54
+    invoke-virtual {v2, v0, p0}, Lcom/s1243808733/android/dx/cf/code/BytecodeArray;->processWorkSet([ILcom/s1243808733/android/dx/cf/code/BytecodeArray$Visitor;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v3, 0x0
+    move v0, v1
 
-    :goto_29
-    if-ge v3, v2, :cond_1b
+    :goto_0
+    if-ge v0, v4, :cond_0
 
     .line 366
-    invoke-virtual {v1, v3}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->get(I)Lcom/s1243808733/android/dx/cf/code/ByteCatchList$Item;
+    invoke-virtual {v3, v0}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->get(I)Lcom/s1243808733/android/dx/cf/code/ByteCatchList$Item;
 
     move-result-object v5
 
@@ -202,7 +202,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_51
+    if-eqz v8, :cond_1
 
     .line 370
     iget-object v8, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
@@ -223,12 +223,12 @@
 
     invoke-direct {p0, v5, v6}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
 
-    :cond_51
-    add-int/lit8 v3, v3, 0x1
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_29
+    goto :goto_0
 
-    :catch_54
+    :catch_0
     move-exception v0
 
     .line 360
@@ -240,12 +240,14 @@
 
     throw v1
 
-    :cond_5d
+    :cond_2
     return-void
 .end method
 
 .method private getBlockList()Lcom/s1243808733/android/dx/cf/code/ByteBlockList;
-    .registers 12
+    .locals 9
+
+    const/4 v7, 0x0
 
     .line 283
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->method:Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;
@@ -259,137 +261,132 @@
 
     move-result v0
 
-    new-array v0, v0, [Lcom/s1243808733/android/dx/cf/code/ByteBlock;
+    new-array v8, v0, [Lcom/s1243808733/android/dx/cf/code/ByteBlock;
 
-    const/4 v1, 0x0
+    move v1, v7
+
+    move v6, v7
+
+    .line 288
+    :goto_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
+
+    add-int/lit8 v2, v1, 0x1
+
+    invoke-static {v0, v2}, Lcom/s1243808733/android/dx/util/Bits;->findFirst([II)I
+
+    move-result v3
+
+    if-gez v3, :cond_0
+
+    .line 327
+    new-instance v0, Lcom/s1243808733/android/dx/cf/code/ByteBlockList;
+
+    invoke-direct {v0, v6}, Lcom/s1243808733/android/dx/cf/code/ByteBlockList;-><init>(I)V
+
+    :goto_1
+    if-ge v7, v6, :cond_5
+
+    .line 329
+    aget-object v1, v8, v7
+
+    invoke-virtual {v0, v7, v1}, Lcom/s1243808733/android/dx/cf/code/ByteBlockList;->set(ILcom/s1243808733/android/dx/cf/code/ByteBlock;)V
+
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_1
+
+    .line 293
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->liveSet:[I
+
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/util/Bits;->get([II)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    add-int/lit8 v0, v3, -0x1
 
     const/4 v4, 0x0
 
-    const/4 v8, 0x0
-
-    .line 288
-    :goto_f
-    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
-
-    add-int/lit8 v3, v4, 0x1
-
-    invoke-static {v2, v3}, Lcom/s1243808733/android/dx/util/Bits;->findFirst([II)I
-
-    move-result v9
-
-    if-gez v9, :cond_29
-
-    .line 327
-    new-instance v2, Lcom/s1243808733/android/dx/cf/code/ByteBlockList;
-
-    invoke-direct {v2, v8}, Lcom/s1243808733/android/dx/cf/code/ByteBlockList;-><init>(I)V
-
-    :goto_1e
-    if-ge v1, v8, :cond_28
-
-    .line 329
-    aget-object v3, v0, v1
-
-    invoke-virtual {v2, v1, v3}, Lcom/s1243808733/android/dx/cf/code/ByteBlockList;->set(ILcom/s1243808733/android/dx/cf/code/ByteBlock;)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1e
-
-    :cond_28
-    return-object v2
-
-    .line 293
-    :cond_29
-    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->liveSet:[I
-
-    invoke-static {v2, v4}, Lcom/s1243808733/android/dx/util/Bits;->get([II)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_62
-
-    add-int/lit8 v2, v9, -0x1
-
-    const/4 v3, 0x0
-
-    :goto_34
-    if-lt v2, v4, :cond_40
+    :goto_2
+    if-lt v0, v1, :cond_3
 
     .line 304
-    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
 
-    aget-object v3, v3, v2
+    aget-object v4, v2, v0
 
-    if-eqz v3, :cond_3d
+    if-eqz v4, :cond_2
 
-    goto :goto_41
-
-    :cond_3d
-    add-int/lit8 v2, v2, -0x1
-
-    goto :goto_34
-
-    :cond_40
-    const/4 v2, -0x1
-
-    :goto_41
-    if-nez v3, :cond_4c
+    :goto_3
+    if-nez v4, :cond_4
 
     .line 312
-    invoke-static {v9}, Lcom/s1243808733/android/dx/util/IntList;->makeImmutable(I)Lcom/s1243808733/android/dx/util/IntList;
+    invoke-static {v3}, Lcom/s1243808733/android/dx/util/IntList;->makeImmutable(I)Lcom/s1243808733/android/dx/util/IntList;
 
-    move-result-object v2
+    move-result-object v4
 
     .line 313
-    sget-object v3, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
-
-    move-object v6, v2
-
-    move-object v7, v3
-
-    goto :goto_56
-
-    .line 315
-    :cond_4c
-    iget-object v5, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->catchLists:[Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
-
-    aget-object v2, v5, v2
-
-    if-nez v2, :cond_54
-
-    .line 317
-    sget-object v2, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
-
-    :cond_54
-    move-object v7, v2
-
-    move-object v6, v3
+    sget-object v5, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
 
     .line 321
-    :goto_56
-    new-instance v10, Lcom/s1243808733/android/dx/cf/code/ByteBlock;
+    :cond_1
+    :goto_4
+    new-instance v0, Lcom/s1243808733/android/dx/cf/code/ByteBlock;
 
-    move-object v2, v10
+    move v2, v1
 
-    move v3, v4
+    invoke-direct/range {v0 .. v5}, Lcom/s1243808733/android/dx/cf/code/ByteBlock;-><init>(IIILcom/s1243808733/android/dx/util/IntList;Lcom/s1243808733/android/dx/cf/code/ByteCatchList;)V
 
-    move v5, v9
+    aput-object v0, v8, v6
 
-    invoke-direct/range {v2 .. v7}, Lcom/s1243808733/android/dx/cf/code/ByteBlock;-><init>(IIILcom/s1243808733/android/dx/util/IntList;Lcom/s1243808733/android/dx/cf/code/ByteCatchList;)V
+    add-int/lit8 v0, v6, 0x1
 
-    aput-object v10, v0, v8
+    :goto_5
+    move v1, v3
 
-    add-int/lit8 v8, v8, 0x1
+    move v6, v0
 
-    :cond_62
-    move v4, v9
+    goto :goto_0
 
-    goto :goto_f
+    .line 304
+    :cond_2
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_2
+
+    :cond_3
+    const/4 v0, -0x1
+
+    goto :goto_3
+
+    .line 315
+    :cond_4
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->catchLists:[Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
+
+    aget-object v5, v2, v0
+
+    if-nez v5, :cond_1
+
+    .line 317
+    sget-object v5, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
+
+    goto :goto_4
+
+    .line 329
+    :cond_5
+    return-object v0
+
+    :cond_6
+    move v0, v6
+
+    goto :goto_5
 .end method
 
 .method public static identifyBlocks(Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;)Lcom/s1243808733/android/dx/cf/code/ByteBlockList;
-    .registers 2
+    .locals 1
 
     .line 82
     new-instance v0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;
@@ -402,95 +399,95 @@
     .line 85
     invoke-direct {v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->getBlockList()Lcom/s1243808733/android/dx/cf/code/ByteBlockList;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method private visitCommon(IIZ)V
-    .registers 5
+    .locals 2
 
     .line 406
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->liveSet:[I
 
     invoke-static {v0, p1}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
 
-    if-eqz p3, :cond_d
+    if-eqz p3, :cond_0
 
     .line 414
-    add-int/2addr p1, p2
+    add-int v0, p1, p2
 
-    const/4 p2, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
-
-    goto :goto_13
+    invoke-direct {p0, v0, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
 
     .line 423
-    :cond_d
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
-
-    add-int/2addr p1, p2
-
-    invoke-static {p3, p1}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
-
-    :goto_13
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->blockSet:[I
+
+    add-int v1, p1, p2
+
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/util/Bits;->set([II)V
+
+    goto :goto_0
 .end method
 
 .method private visitThrowing(IIZ)V
-    .registers 6
+    .locals 3
 
-    add-int/2addr p2, p1
+    add-int v0, p2, p1
 
-    if-eqz p3, :cond_7
+    if-eqz p3, :cond_0
 
     .line 442
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-direct {p0, p2, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
+    invoke-direct {p0, v0, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
 
     .line 445
-    :cond_7
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->method:Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;
+    :cond_0
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->method:Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getCatches()Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getCatches()Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->listFor(I)Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
+    invoke-virtual {v1, p1}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->listFor(I)Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 446
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->catchLists:[Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->catchLists:[Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
 
-    aput-object v0, v1, p1
+    aput-object v1, v2, p1
 
     .line 447
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
 
-    if-eqz p3, :cond_1a
+    if-eqz p3, :cond_1
 
-    goto :goto_1b
+    :goto_0
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->toTargetList(I)Lcom/s1243808733/android/dx/util/IntList;
 
-    :cond_1a
-    const/4 p2, -0x1
+    move-result-object v0
 
-    :goto_1b
-    invoke-virtual {v0, p2}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->toTargetList(I)Lcom/s1243808733/android/dx/util/IntList;
-
-    move-result-object p2
-
-    aput-object p2, v1, p1
+    aput-object v0, v2, p1
 
     return-void
+
+    :cond_1
+    const/4 v0, -0x1
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getPreviousOffset()I
-    .registers 2
+    .locals 1
 
     .line 463
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->previousOffset:I
@@ -499,7 +496,7 @@
 .end method
 
 .method public setPreviousOffset(I)V
-    .registers 2
+    .locals 0
 
     .line 455
     iput p1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->previousOffset:I
@@ -508,345 +505,348 @@
 .end method
 
 .method public visitBranch(IIII)V
-    .registers 7
+    .locals 3
+
+    const/4 v2, 0x1
 
     const/16 v0, 0xa7
 
-    const/4 v1, 0x1
-
-    if-eq p1, v0, :cond_1e
+    if-eq p1, v0, :cond_1
 
     const/16 v0, 0xa8
 
-    if-eq p1, v0, :cond_a
-
-    goto :goto_d
+    if-eq p1, v0, :cond_0
 
     .line 239
-    :cond_a
-    invoke-direct {p0, p2, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
-
-    :goto_d
-    add-int p1, p2, p3
+    :goto_0
+    add-int v0, p2, p3
 
     .line 244
-    invoke-direct {p0, p2, p3, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+    invoke-direct {p0, p2, p3, v2}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 245
-    invoke-direct {p0, p1, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
+    invoke-direct {p0, v0, v2}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
 
     .line 246
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-static {p1, p4}, Lcom/s1243808733/android/dx/util/IntList;->makeImmutable(II)Lcom/s1243808733/android/dx/util/IntList;
+    invoke-static {v0, p4}, Lcom/s1243808733/android/dx/util/IntList;->makeImmutable(II)Lcom/s1243808733/android/dx/util/IntList;
 
-    move-result-object p1
+    move-result-object v0
 
-    aput-object p1, p3, p2
+    aput-object v0, v1, p2
 
-    goto :goto_2a
+    .line 251
+    :goto_1
+    invoke-direct {p0, p4, v2}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
+
+    return-void
+
+    .line 239
+    :cond_0
+    invoke-direct {p0, p2, v2}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
+
+    goto :goto_0
 
     .line 228
-    :cond_1e
-    const/4 p1, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
-    invoke-direct {p0, p2, p3, p1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+    invoke-direct {p0, p2, p3, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 229
-    iget-object p1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
 
     invoke-static {p4}, Lcom/s1243808733/android/dx/util/IntList;->makeImmutable(I)Lcom/s1243808733/android/dx/util/IntList;
 
-    move-result-object p3
+    move-result-object v1
 
-    aput-object p3, p1, p2
+    aput-object v1, v0, p2
 
-    .line 251
-    :goto_2a
-    invoke-direct {p0, p4, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
-
-    return-void
+    goto :goto_1
 .end method
 
 .method public visitConstant(IIILcom/s1243808733/android/dx/rop/cst/Constant;I)V
-    .registers 6
+    .locals 2
+
+    const/4 v1, 0x1
 
     .line 207
-    const/4 p1, 0x1
-
-    invoke-direct {p0, p2, p3, p1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+    invoke-direct {p0, p2, p3, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 209
-    instance-of p5, p4, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;
+    instance-of v0, p4, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;
 
-    if-nez p5, :cond_1c
+    if-nez v0, :cond_0
 
-    instance-of p5, p4, Lcom/s1243808733/android/dx/rop/cst/CstType;
+    instance-of v0, p4, Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    if-nez p5, :cond_1c
+    if-nez v0, :cond_0
 
-    instance-of p5, p4, Lcom/s1243808733/android/dx/rop/cst/CstString;
+    instance-of v0, p4, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-nez p5, :cond_1c
+    if-nez v0, :cond_0
 
-    instance-of p5, p4, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;
+    instance-of v0, p4, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;
 
-    if-nez p5, :cond_1c
+    if-nez v0, :cond_0
 
-    instance-of p5, p4, Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;
+    instance-of v0, p4, Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;
 
-    if-nez p5, :cond_1c
+    if-nez v0, :cond_0
 
-    instance-of p4, p4, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
+    instance-of v0, p4, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
 
-    if-eqz p4, :cond_1f
+    if-eqz v0, :cond_1
 
     .line 218
-    :cond_1c
-    invoke-direct {p0, p2, p3, p1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitThrowing(IIZ)V
+    :cond_0
+    invoke-direct {p0, p2, p3, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitThrowing(IIZ)V
 
-    :cond_1f
+    :cond_1
     return-void
 .end method
 
 .method public visitInvalid(III)V
-    .registers 4
+    .locals 1
 
     .line 127
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    invoke-direct {p0, p2, p3, p1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+    invoke-direct {p0, p2, p3, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     return-void
 .end method
 
 .method public visitLocal(IIIILcom/s1243808733/android/dx/rop/type/Type;I)V
-    .registers 7
+    .locals 2
 
-    const/16 p4, 0xa9
+    const/16 v0, 0xa9
 
-    if-ne p1, p4, :cond_f
+    if-ne p1, v0, :cond_0
 
     .line 196
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {p0, p2, p3, p1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+    invoke-direct {p0, p2, p3, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 197
-    iget-object p1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
 
-    sget-object p3, Lcom/s1243808733/android/dx/util/IntList;->EMPTY:Lcom/s1243808733/android/dx/util/IntList;
+    sget-object v1, Lcom/s1243808733/android/dx/util/IntList;->EMPTY:Lcom/s1243808733/android/dx/util/IntList;
 
-    aput-object p3, p1, p2
-
-    goto :goto_13
+    aput-object v1, v0, p2
 
     .line 199
-    :cond_f
-    const/4 p1, 0x1
-
-    invoke-direct {p0, p2, p3, p1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
-
-    :goto_13
+    :goto_0
     return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    invoke-direct {p0, p2, p3, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+
+    goto :goto_0
 .end method
 
 .method public visitNewarray(IILcom/s1243808733/android/dx/rop/cst/CstType;Ljava/util/ArrayList;)V
-    .registers 5
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
             "Lcom/s1243808733/android/dx/rop/cst/CstType;",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/Constant;",
             ">;)V"
         }
     .end annotation
 
-    .line 273
-    const/4 p3, 0x1
+    const/4 v0, 0x1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+    .line 273
+    invoke-direct {p0, p1, p2, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 274
-    invoke-direct {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitThrowing(IIZ)V
+    invoke-direct {p0, p1, p2, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitThrowing(IIZ)V
 
     return-void
 .end method
 
 .method public visitNoArgs(IIILcom/s1243808733/android/dx/rop/type/Type;)V
-    .registers 7
+    .locals 3
 
-    const/16 v0, 0x6c
+    const/4 v2, 0x0
 
     const/4 v1, 0x1
 
-    if-eq p1, v0, :cond_44
+    const/16 v0, 0x6c
+
+    if-eq p1, v0, :cond_4
 
     const/16 v0, 0x70
 
-    if-eq p1, v0, :cond_44
+    if-eq p1, v0, :cond_4
 
-    const/16 p4, 0xac
+    const/16 v0, 0xac
 
-    const/4 v0, 0x0
+    if-eq p1, v0, :cond_3
 
-    if-eq p1, p4, :cond_3a
+    const/16 v0, 0xb1
 
-    const/16 p4, 0xb1
+    if-eq p1, v0, :cond_3
 
-    if-eq p1, p4, :cond_3a
+    const/16 v0, 0xbe
 
-    const/16 p4, 0xbe
+    if-eq p1, v0, :cond_2
 
-    if-eq p1, p4, :cond_33
+    const/16 v0, 0xbf
 
-    const/16 p4, 0xbf
+    if-eq p1, v0, :cond_1
 
-    if-eq p1, p4, :cond_2c
+    const/16 v0, 0xc2
 
-    const/16 p4, 0xc2
+    if-eq p1, v0, :cond_2
 
-    if-eq p1, p4, :cond_33
+    const/16 v0, 0xc3
 
-    const/16 p4, 0xc3
+    if-eq p1, v0, :cond_2
 
-    if-eq p1, p4, :cond_33
+    packed-switch p1, :pswitch_data_0
 
-    packed-switch p1, :pswitch_data_54
-
-    packed-switch p1, :pswitch_data_68
+    packed-switch p1, :pswitch_data_1
 
     .line 185
     invoke-direct {p0, p2, p3, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
-    goto :goto_52
+    .line 180
+    :cond_0
+    :goto_0
+    return-void
 
     .line 141
-    :cond_2c
-    invoke-direct {p0, p2, p3, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+    :cond_1
+    invoke-direct {p0, p2, p3, v2}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 142
-    invoke-direct {p0, p2, p3, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitThrowing(IIZ)V
+    invoke-direct {p0, p2, p3, v2}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitThrowing(IIZ)V
 
-    goto :goto_52
+    goto :goto_0
 
     .line 168
-    :cond_33
-    :pswitch_33  #0x2e, 0x2f, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x4f, 0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56
+    :cond_2
+    :pswitch_0
     invoke-direct {p0, p2, p3, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 169
     invoke-direct {p0, p2, p3, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitThrowing(IIZ)V
 
-    goto :goto_52
+    goto :goto_0
 
     .line 136
-    :cond_3a
-    invoke-direct {p0, p2, p3, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+    :cond_3
+    invoke-direct {p0, p2, p3, v2}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 137
-    iget-object p1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
 
-    sget-object p3, Lcom/s1243808733/android/dx/util/IntList;->EMPTY:Lcom/s1243808733/android/dx/util/IntList;
+    sget-object v1, Lcom/s1243808733/android/dx/util/IntList;->EMPTY:Lcom/s1243808733/android/dx/util/IntList;
 
-    aput-object p3, p1, p2
+    aput-object v1, v0, p2
 
-    goto :goto_52
+    goto :goto_0
 
     .line 178
-    :cond_44
+    :cond_4
     invoke-direct {p0, p2, p3, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 179
-    sget-object p1, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    if-eq p4, p1, :cond_4f
+    if-eq p4, v0, :cond_5
 
-    sget-object p1, Lcom/s1243808733/android/dx/rop/type/Type;->LONG:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->LONG:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    if-ne p4, p1, :cond_52
+    if-ne p4, v0, :cond_0
 
     .line 180
-    :cond_4f
+    :cond_5
     invoke-direct {p0, p2, p3, v1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitThrowing(IIZ)V
 
-    :cond_52
-    :goto_52
-    return-void
+    goto :goto_0
 
     nop
 
-    :pswitch_data_54
+    :pswitch_data_0
     .packed-switch 0x2e
-        :pswitch_33  #0000002e
-        :pswitch_33  #0000002f
-        :pswitch_33  #00000030
-        :pswitch_33  #00000031
-        :pswitch_33  #00000032
-        :pswitch_33  #00000033
-        :pswitch_33  #00000034
-        :pswitch_33  #00000035
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 
-    :pswitch_data_68
+    :pswitch_data_1
     .packed-switch 0x4f
-        :pswitch_33  #0000004f
-        :pswitch_33  #00000050
-        :pswitch_33  #00000051
-        :pswitch_33  #00000052
-        :pswitch_33  #00000053
-        :pswitch_33  #00000054
-        :pswitch_33  #00000055
-        :pswitch_33  #00000056
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public visitSwitch(IIILcom/s1243808733/android/dx/cf/code/SwitchList;I)V
-    .registers 7
+    .locals 4
+
+    const/4 v3, 0x1
+
+    const/4 v0, 0x0
 
     .line 258
-    const/4 p1, 0x0
-
-    invoke-direct {p0, p2, p3, p1}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
+    invoke-direct {p0, p2, p3, v0}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->visitCommon(IIZ)V
 
     .line 259
     invoke-virtual {p4}, Lcom/s1243808733/android/dx/cf/code/SwitchList;->getDefaultTarget()I
 
-    move-result p3
+    move-result v1
 
-    const/4 p5, 0x1
-
-    invoke-direct {p0, p3, p5}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
+    invoke-direct {p0, v1, v3}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
 
     .line 261
     invoke-virtual {p4}, Lcom/s1243808733/android/dx/cf/code/SwitchList;->size()I
 
-    move-result p3
+    move-result v1
 
-    :goto_10
-    if-ge p1, p3, :cond_1c
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 263
-    invoke-virtual {p4, p1}, Lcom/s1243808733/android/dx/cf/code/SwitchList;->getTarget(I)I
+    invoke-virtual {p4, v0}, Lcom/s1243808733/android/dx/cf/code/SwitchList;->getTarget(I)I
 
-    move-result v0
+    move-result v2
 
-    invoke-direct {p0, v0, p5}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
+    invoke-direct {p0, v2, v3}, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->addWorkIfNecessary(IZ)V
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 266
-    :cond_1c
-    iget-object p1, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BasicBlocker;->targetLists:[Lcom/s1243808733/android/dx/util/IntList;
 
     invoke-virtual {p4}, Lcom/s1243808733/android/dx/cf/code/SwitchList;->getTargets()Lcom/s1243808733/android/dx/util/IntList;
 
-    move-result-object p3
+    move-result-object v1
 
-    aput-object p3, p1, p2
+    aput-object v1, v0, p2
 
     return-void
 .end method

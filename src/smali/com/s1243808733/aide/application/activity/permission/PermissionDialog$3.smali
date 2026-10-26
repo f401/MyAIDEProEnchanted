@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)V
-    .registers 2
+    .locals 0
 
     .line 181
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$3;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
@@ -36,18 +36,18 @@
 
 # virtual methods
 .method public onDataSetChanged()V
-    .registers 1
+    .locals 0
 
     return-void
 .end method
 
 .method public onSelection(Lcom/s1243808733/aide/application/activity/permission/Permission;Z)V
-    .registers 3
+    .locals 1
 
     .line 185
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$3;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$3;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$mupdateDialogTitle(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)V
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$mupdateDialogTitle(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)V
 
     return-void
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001;ILzeroaicy/org/objectweb/asm/MethodVisitor;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p2, p3}, Lzeroaicy/org/objectweb/asm/MethodVisitor;-><init>(ILzeroaicy/org/objectweb/asm/MethodVisitor;)V
 
@@ -19,17 +19,17 @@
 .end method
 
 .method static access$0(Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001$100000000;)Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001$100000000;->this$0:Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001;
+    iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001$100000000;->this$0:Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001;
 
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public visitLdcInsn(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 74
     invoke-static {}, Lio/github/zeroaicy/util/ContextUtil;->getPackageName()Ljava/lang/String;
@@ -56,7 +56,7 @@
     move-result-object p1
 
     .line 77
-    :cond_c
+    :cond_0
     invoke-super {p0, p1}, Lzeroaicy/org/objectweb/asm/MethodVisitor;->visitLdcInsn(Ljava/lang/Object;)V
 
     return-void

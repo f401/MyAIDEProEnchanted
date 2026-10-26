@@ -22,7 +22,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/baidu/mobstat/ck;",
             ">;)V"
         }
@@ -33,7 +34,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/baidu/mobstat/cl;",
             ">;)V"
         }

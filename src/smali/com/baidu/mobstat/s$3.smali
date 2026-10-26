@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;II)V
-    .registers 5
+    .locals 1
 
     .line 54
     const/4 v0, 0x0
@@ -29,7 +29,9 @@
 
 # virtual methods
 .method public a(Landroid/content/Context;)V
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x0
 
     .line 58
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -39,32 +41,30 @@
     .line 59
     invoke-static {p1}, Lcom/baidu/mobstat/t;->a(Landroid/content/Context;)Lcom/baidu/mobstat/a;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 61
-    new-instance v1, Lcom/baidu/mobstat/aa;
+    new-instance v2, Lcom/baidu/mobstat/aa;
 
-    invoke-direct {v1}, Lcom/baidu/mobstat/aa;-><init>()V
+    invoke-direct {v2}, Lcom/baidu/mobstat/aa;-><init>()V
 
     .line 62
-    const/4 v2, 0x0
-
-    iput-boolean v2, v1, Lcom/baidu/mobstat/aa;->a:Z
+    iput-boolean v4, v2, Lcom/baidu/mobstat/aa;->a:Z
 
     .line 63
     const-string v3, "R"
 
-    iput-object v3, v1, Lcom/baidu/mobstat/aa;->b:Ljava/lang/String;
+    iput-object v3, v2, Lcom/baidu/mobstat/aa;->b:Ljava/lang/String;
 
     .line 64
-    iput-boolean v2, v1, Lcom/baidu/mobstat/aa;->c:Z
+    iput-boolean v4, v2, Lcom/baidu/mobstat/aa;->c:Z
 
     .line 67
-    invoke-virtual {v1}, Lcom/baidu/mobstat/aa;->a()Lorg/json/JSONObject;
+    invoke-virtual {v2}, Lcom/baidu/mobstat/aa;->a()Lorg/json/JSONObject;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {p1, v0, v1}, Lcom/baidu/mobstat/a;->a(Landroid/content/Context;Lorg/json/JSONObject;)V
+    invoke-interface {v1, v0, v2}, Lcom/baidu/mobstat/a;->a(Landroid/content/Context;Lorg/json/JSONObject;)V
 
     return-void
 .end method

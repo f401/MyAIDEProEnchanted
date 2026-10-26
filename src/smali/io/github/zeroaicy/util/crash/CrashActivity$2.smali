@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lio/github/zeroaicy/util/crash/CrashActivity;)V
-    .registers 2
+    .locals 0
 
     .line 59
     iput-object p1, p0, Lio/github/zeroaicy/util/crash/CrashActivity$2;->this$0:Lio/github/zeroaicy/util/crash/CrashActivity;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 2
+    .locals 1
 
     .line 63
-    iget-object p1, p0, Lio/github/zeroaicy/util/crash/CrashActivity$2;->this$0:Lio/github/zeroaicy/util/crash/CrashActivity;
+    iget-object v0, p0, Lio/github/zeroaicy/util/crash/CrashActivity$2;->this$0:Lio/github/zeroaicy/util/crash/CrashActivity;
 
-    invoke-static {p1}, Lio/github/zeroaicy/util/crash/CrashActivity;->-$$Nest$mreset(Lio/github/zeroaicy/util/crash/CrashActivity;)V
+    invoke-static {v0}, Lio/github/zeroaicy/util/crash/CrashActivity;->-$$Nest$mreset(Lio/github/zeroaicy/util/crash/CrashActivity;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

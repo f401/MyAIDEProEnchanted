@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     const-wide/16 v0, 0x0
 
@@ -18,7 +18,7 @@
 .end method
 
 .method public constructor <init>(J)V
-    .registers 3
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -30,37 +30,37 @@
 
 # virtual methods
 .method public a(JJ)Z
-    .registers 9
+    .locals 7
 
     iget-wide v0, p0, Lcom/baidu/mobstat/bt;->a:J
 
-    and-long/2addr p1, p3
+    and-long v2, p1, p3
 
-    const-wide/16 v2, -0x1
+    const-wide/16 v4, -0x1
 
-    xor-long/2addr p3, v2
+    xor-long/2addr v4, p3
 
-    and-long/2addr p3, v0
+    and-long/2addr v4, v0
 
-    or-long/2addr p1, p3
+    or-long/2addr v2, v4
 
-    iput-wide p1, p0, Lcom/baidu/mobstat/bt;->a:J
+    iput-wide v2, p0, Lcom/baidu/mobstat/bt;->a:J
 
-    xor-long/2addr p1, v0
+    xor-long/2addr v0, v2
 
-    const-wide/16 p3, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v0, p1, p3
+    cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_14
+    :goto_0
+    return v0
 
-    :cond_13
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_14
-    return p1
+    goto :goto_0
 .end method

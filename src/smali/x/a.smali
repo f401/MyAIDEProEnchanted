@@ -13,111 +13,103 @@
 
 # direct methods
 .method public static a([B[B)Z
-    .registers 7
+    .locals 5
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    if-ne p0, p1, :cond_4
-
-    return v0
-
-    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p0, :cond_1e
+    if-ne p0, p1, :cond_1
 
-    if-nez p1, :cond_a
+    move v1, v2
 
-    goto :goto_1e
+    :cond_0
+    :goto_0
+    return v1
 
-    :cond_a
-    array-length v2, p0
+    :cond_1
+    if-eqz p0, :cond_0
+
+    if-eqz p1, :cond_0
+
+    array-length v0, p0
 
     array-length v3, p1
 
-    if-eq v2, v3, :cond_f
+    if-ne v0, v3, :cond_0
 
-    return v1
+    move v0, v1
 
-    :cond_f
-    const/4 v2, 0x0
-
-    :goto_10
+    :goto_1
     array-length v3, p0
 
-    if-eq v2, v3, :cond_1d
+    if-eq v0, v3, :cond_2
 
-    aget-byte v3, p0, v2
+    aget-byte v3, p0, v0
 
-    aget-byte v4, p1, v2
+    aget-byte v4, p1, v0
 
-    if-eq v3, v4, :cond_1a
+    if-ne v3, v4, :cond_0
 
-    return v1
+    add-int/lit8 v0, v0, 0x1
 
-    :cond_1a
-    add-int/lit8 v2, v2, 0x1
+    goto :goto_1
 
-    goto :goto_10
+    :cond_2
+    move v1, v2
 
-    :cond_1d
-    return v0
-
-    :cond_1e
-    :goto_1e
-    return v1
+    goto :goto_0
 .end method
 
 .method public static b([B)[B
-    .registers 4
+    .locals 3
 
-    if-nez p0, :cond_4
+    const/4 v2, 0x0
 
-    const/4 p0, 0x0
+    if-nez p0, :cond_0
 
-    return-object p0
+    const/4 v0, 0x0
 
-    :cond_4
+    :goto_0
+    return-object v0
+
+    :cond_0
     array-length v0, p0
 
     new-array v0, v0, [B
 
     array-length v1, p0
 
-    const/4 v2, 0x0
-
     invoke-static {p0, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static c([B)I
-    .registers 4
+    .locals 3
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_1
 
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return p0
+    :cond_0
+    return v0
 
-    :cond_4
-    array-length v0, p0
+    :cond_1
+    array-length v1, p0
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    :goto_7
-    add-int/lit8 v0, v0, -0x1
+    :goto_0
+    add-int/lit8 v1, v1, -0x1
 
-    if-ltz v0, :cond_11
+    if-ltz v1, :cond_0
 
-    mul-int/lit16 v1, v1, 0x101
+    mul-int/lit16 v0, v0, 0x101
 
-    aget-byte v2, p0, v0
+    aget-byte v2, p0, v1
 
-    xor-int/2addr v1, v2
+    xor-int/2addr v0, v2
 
-    goto :goto_7
-
-    :cond_11
-    return v1
+    goto :goto_0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 300
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$2;->this$0:Lcom/termux/app/TermuxActivity;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public destroyItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
-    .registers 4
+    .locals 0
 
     .line 345
     check-cast p3, Landroid/view/View;
@@ -44,7 +44,7 @@
 .end method
 
 .method public getCount()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x2
 
@@ -52,7 +52,9 @@
 .end method
 
 .method public instantiateItem(Landroid/view/ViewGroup;I)Ljava/lang/Object;
-    .registers 6
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 313
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$2;->this$0:Lcom/termux/app/TermuxActivity;
@@ -61,12 +63,10 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    if-nez p2, :cond_1a
+    if-nez p2, :cond_0
 
     .line 316
-    iget-object p2, p0, Lcom/termux/app/TermuxActivity$2;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity$2;->this$0:Lcom/termux/app/TermuxActivity;
 
     const-string v2, "extra_keys_main"
 
@@ -74,67 +74,69 @@
 
     move-result v2
 
-    invoke-virtual {v0, v2, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v0, v2, p1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Lcom/termux/app/ExtraKeysView;
 
-    iput-object v0, p2, Lcom/termux/app/TermuxActivity;->mExtraKeysView:Lcom/termux/app/ExtraKeysView;
-
-    goto :goto_38
-
-    .line 318
-    :cond_1a
-    const-string p2, "extra_keys_right"
-
-    invoke-static {p2}, Lcom/blankj/utilcode/util/ResourceUtils;->getLayoutIdByName(Ljava/lang/String;)I
-
-    move-result p2
-
-    invoke-virtual {v0, p2, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 319
-    const-string p2, "text_input"
-
-    invoke-static {p2}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
-
-    move-result p2
-
-    invoke-virtual {v0, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object p2
-
-    check-cast p2, Landroid/widget/EditText;
-
-    .line 320
-    new-instance v1, Lcom/termux/app/TermuxActivity$2$1;
-
-    invoke-direct {v1, p0, p2}, Lcom/termux/app/TermuxActivity$2$1;-><init>(Lcom/termux/app/TermuxActivity$2;Landroid/widget/EditText;)V
-
-    invoke-virtual {p2, v1}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+    iput-object v0, v1, Lcom/termux/app/TermuxActivity;->mExtraKeysView:Lcom/termux/app/ExtraKeysView;
 
     .line 339
-    :goto_38
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     return-object v0
+
+    .line 318
+    :cond_0
+    const-string v1, "extra_keys_right"
+
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getLayoutIdByName(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1, p1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v1
+
+    .line 319
+    const-string v0, "text_input"
+
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    .line 320
+    new-instance v2, Lcom/termux/app/TermuxActivity$2$1;
+
+    invoke-direct {v2, p0, v0}, Lcom/termux/app/TermuxActivity$2$1;-><init>(Lcom/termux/app/TermuxActivity$2;Landroid/widget/EditText;)V
+
+    invoke-virtual {v0, v2}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 .method public isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
 
-    if-ne p1, p2, :cond_4
+    if-ne p1, p2, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_5
+    :goto_0
+    return v0
 
-    :cond_4
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_5
-    return p1
+    goto :goto_0
 .end method

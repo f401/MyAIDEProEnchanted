@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,12 +30,12 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .registers 2
+    .locals 1
 
     .line 81
     invoke-virtual {p1}, Ljava/io/File;->isFile()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

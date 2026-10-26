@@ -13,7 +13,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lorg/antlr/v4/runtime/Recognizer<",
+        "Lorg/antlr/v4/runtime/Recognizer",
+        "<",
         "Lorg/antlr/v4/runtime/Token;",
         "Lorg/antlr/v4/runtime/atn/ParserATNSimulator;",
         ">;"
@@ -25,7 +26,8 @@
 .field private static final bypassAltsAtnCache:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lorg/antlr/v4/runtime/atn/ATN;",
             ">;"
@@ -46,7 +48,8 @@
 .field protected _parseListeners:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTreeListener;",
             ">;"
         }
@@ -64,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 88
     new-instance v0, Ljava/util/WeakHashMap;
@@ -77,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/TokenStream;)V
-    .registers 4
+    .locals 2
 
     .line 157
     invoke-direct {p0}, Lorg/antlr/v4/runtime/Recognizer;-><init>()V
@@ -115,7 +118,7 @@
 
 # virtual methods
 .method protected addContextToParseTree()V
-    .registers 3
+    .locals 2
 
     .line 614
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
@@ -124,26 +127,26 @@
 
     check-cast v0, Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 617
     iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     invoke-virtual {v0, v1}, Lorg/antlr/v4/runtime/ParserRuleContext;->addChild(Lorg/antlr/v4/runtime/RuleContext;)Lorg/antlr/v4/runtime/RuleContext;
 
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public addParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
-    .registers 3
+    .locals 2
 
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_1
 
     .line 351
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 352
     new-instance v0, Ljava/util/ArrayList;
@@ -153,7 +156,7 @@
     iput-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
     .line 355
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -161,25 +164,25 @@
     return-void
 
     .line 348
-    :cond_13
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "listener"
+    const-string v1, "listener"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public compileParseTreePattern(Ljava/lang/String;I)Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;
-    .registers 5
+    .locals 2
 
     .line 473
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getTokenStream()Lorg/antlr/v4/runtime/TokenStream;
 
     move-result-object v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 474
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getTokenStream()Lorg/antlr/v4/runtime/TokenStream;
@@ -193,7 +196,7 @@
     .line 475
     instance-of v1, v0, Lorg/antlr/v4/runtime/Lexer;
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     .line 476
     check-cast v0, Lorg/antlr/v4/runtime/Lexer;
@@ -201,23 +204,23 @@
     .line 477
     invoke-virtual {p0, p1, p2, v0}, Lorg/antlr/v4/runtime/Parser;->compileParseTreePattern(Ljava/lang/String;ILorg/antlr/v4/runtime/Lexer;)Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
     .line 480
-    :cond_19
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :cond_0
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string p2, "Parser can\'t discover a lexer to use"
+    const-string v1, "Parser can\'t discover a lexer to use"
 
-    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public compileParseTreePattern(Ljava/lang/String;ILorg/antlr/v4/runtime/Lexer;)Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;
-    .registers 5
+    .locals 1
 
     .line 490
     new-instance v0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePatternMatcher;
@@ -227,336 +230,342 @@
     .line 491
     invoke-virtual {v0, p1, p2}, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePatternMatcher;->compile(Ljava/lang/String;I)Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public consume()Lorg/antlr/v4/runtime/Token;
-    .registers 5
+    .locals 4
 
     .line 569
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getCurrentToken()Lorg/antlr/v4/runtime/Token;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 570
-    invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getType()I
+    invoke-interface {v1}, Lorg/antlr/v4/runtime/Token;->getType()I
 
-    move-result v1
+    move-result v0
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_12
+    if-eq v0, v2, :cond_0
 
     .line 571
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInputStream()Lorg/antlr/v4/runtime/TokenStream;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Lorg/antlr/v4/runtime/TokenStream;->consume()V
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/TokenStream;->consume()V
 
     .line 573
-    :cond_12
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+    :cond_0
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-eqz v1, :cond_1e
+    if-eqz v0, :cond_2
 
-    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_1e
+    if-nez v0, :cond_2
 
-    const/4 v1, 0x1
-
-    goto :goto_1f
-
-    :cond_1e
-    const/4 v1, 0x0
+    const/4 v0, 0x1
 
     .line 574
-    :goto_1f
+    :goto_0
     iget-boolean v2, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
 
-    if-nez v2, :cond_25
+    if-nez v2, :cond_1
 
-    if-eqz v1, :cond_71
+    if-eqz v0, :cond_4
 
     .line 575
-    :cond_25
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
+    :cond_1
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
 
-    invoke-interface {v1, p0}, Lorg/antlr/v4/runtime/ANTLRErrorStrategy;->inErrorRecoveryMode(Lorg/antlr/v4/runtime/Parser;)Z
+    invoke-interface {v0, p0}, Lorg/antlr/v4/runtime/ANTLRErrorStrategy;->inErrorRecoveryMode(Lorg/antlr/v4/runtime/Parser;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_4f
+    if-eqz v0, :cond_3
 
     .line 576
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    invoke-virtual {p0, v1, v0}, Lorg/antlr/v4/runtime/Parser;->createErrorNode(Lorg/antlr/v4/runtime/ParserRuleContext;Lorg/antlr/v4/runtime/Token;)Lorg/antlr/v4/runtime/tree/ErrorNode;
+    invoke-virtual {p0, v0, v1}, Lorg/antlr/v4/runtime/Parser;->createErrorNode(Lorg/antlr/v4/runtime/ParserRuleContext;Lorg/antlr/v4/runtime/Token;)Lorg/antlr/v4/runtime/tree/ErrorNode;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lorg/antlr/v4/runtime/ParserRuleContext;->addErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)Lorg/antlr/v4/runtime/tree/ErrorNode;
+    invoke-virtual {v0, v2}, Lorg/antlr/v4/runtime/ParserRuleContext;->addErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)Lorg/antlr/v4/runtime/tree/ErrorNode;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 577
-    iget-object v2, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-eqz v2, :cond_71
+    if-eqz v0, :cond_4
 
     .line 578
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_3f
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_71
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    check-cast v3, Lorg/antlr/v4/runtime/tree/ParseTreeListener;
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/tree/ParseTreeListener;
 
     .line 579
-    invoke-interface {v3, v1}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->visitErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)V
+    invoke-interface {v0, v2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->visitErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)V
 
-    goto :goto_3f
+    goto :goto_1
+
+    .line 573
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
 
     .line 584
-    :cond_4f
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    :cond_3
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    invoke-virtual {p0, v1, v0}, Lorg/antlr/v4/runtime/Parser;->createTerminalNode(Lorg/antlr/v4/runtime/ParserRuleContext;Lorg/antlr/v4/runtime/Token;)Lorg/antlr/v4/runtime/tree/TerminalNode;
+    invoke-virtual {p0, v0, v1}, Lorg/antlr/v4/runtime/Parser;->createTerminalNode(Lorg/antlr/v4/runtime/ParserRuleContext;Lorg/antlr/v4/runtime/Token;)Lorg/antlr/v4/runtime/tree/TerminalNode;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lorg/antlr/v4/runtime/ParserRuleContext;->addChild(Lorg/antlr/v4/runtime/tree/TerminalNode;)Lorg/antlr/v4/runtime/tree/TerminalNode;
+    invoke-virtual {v0, v2}, Lorg/antlr/v4/runtime/ParserRuleContext;->addChild(Lorg/antlr/v4/runtime/tree/TerminalNode;)Lorg/antlr/v4/runtime/tree/TerminalNode;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 585
-    iget-object v2, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-eqz v2, :cond_71
+    if-eqz v0, :cond_4
 
     .line 586
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_61
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_71
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    check-cast v3, Lorg/antlr/v4/runtime/tree/ParseTreeListener;
+    :goto_2
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/tree/ParseTreeListener;
 
     .line 587
-    invoke-interface {v3, v1}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->visitTerminal(Lorg/antlr/v4/runtime/tree/TerminalNode;)V
+    invoke-interface {v0, v2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->visitTerminal(Lorg/antlr/v4/runtime/tree/TerminalNode;)V
 
-    goto :goto_61
+    goto :goto_2
 
-    :cond_71
-    return-object v0
+    :cond_4
+    return-object v1
 .end method
 
 .method public createErrorNode(Lorg/antlr/v4/runtime/ParserRuleContext;Lorg/antlr/v4/runtime/Token;)Lorg/antlr/v4/runtime/tree/ErrorNode;
-    .registers 3
+    .locals 1
 
     .line 610
-    new-instance p1, Lorg/antlr/v4/runtime/tree/ErrorNodeImpl;
+    new-instance v0, Lorg/antlr/v4/runtime/tree/ErrorNodeImpl;
 
-    invoke-direct {p1, p2}, Lorg/antlr/v4/runtime/tree/ErrorNodeImpl;-><init>(Lorg/antlr/v4/runtime/Token;)V
+    invoke-direct {v0, p2}, Lorg/antlr/v4/runtime/tree/ErrorNodeImpl;-><init>(Lorg/antlr/v4/runtime/Token;)V
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public createTerminalNode(Lorg/antlr/v4/runtime/ParserRuleContext;Lorg/antlr/v4/runtime/Token;)Lorg/antlr/v4/runtime/tree/TerminalNode;
-    .registers 3
+    .locals 1
 
     .line 601
-    new-instance p1, Lorg/antlr/v4/runtime/tree/TerminalNodeImpl;
+    new-instance v0, Lorg/antlr/v4/runtime/tree/TerminalNodeImpl;
 
-    invoke-direct {p1, p2}, Lorg/antlr/v4/runtime/tree/TerminalNodeImpl;-><init>(Lorg/antlr/v4/runtime/Token;)V
+    invoke-direct {v0, p2}, Lorg/antlr/v4/runtime/tree/TerminalNodeImpl;-><init>(Lorg/antlr/v4/runtime/Token;)V
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public dumpDFA()V
-    .registers 7
+    .locals 6
+
+    const/4 v2, 0x0
 
     .line 879
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
     check-cast v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
 
-    iget-object v0, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    iget-object v4, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
-    monitor-enter v0
+    monitor-enter v4
 
-    const/4 v1, 0x0
+    move v1, v2
 
-    const/4 v2, 0x0
+    move v3, v2
 
     .line 881
-    :goto_9
-    :try_start_9
-    iget-object v3, p0, Lorg/antlr/v4/runtime/Parser;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
+    :goto_0
+    :try_start_0
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
-    check-cast v3, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
 
-    iget-object v3, v3, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    iget-object v0, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
-    array-length v3, v3
+    array-length v0, v0
 
-    if-ge v1, v3, :cond_57
+    if-ge v3, v0, :cond_1
 
     .line 882
-    iget-object v3, p0, Lorg/antlr/v4/runtime/Parser;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
-    check-cast v3, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
 
-    iget-object v3, v3, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    iget-object v0, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
-    aget-object v3, v3, v1
+    aget-object v0, v0, v3
 
     .line 883
-    iget-object v4, v3, Lorg/antlr/v4/runtime/dfa/DFA;->states:Ljava/util/Map;
+    iget-object v2, v0, Lorg/antlr/v4/runtime/dfa/DFA;->states:Ljava/util/Map;
 
-    invoke-interface {v4}, Ljava/util/Map;->isEmpty()Z
+    invoke-interface {v2}, Ljava/util/Map;->isEmpty()Z
 
-    move-result v4
+    move-result v2
 
-    if-nez v4, :cond_54
+    if-nez v2, :cond_2
 
-    if-eqz v2, :cond_29
+    if-eqz v1, :cond_0
 
     .line 884
-    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {v2}, Ljava/io/PrintStream;->println()V
+    invoke-virtual {v1}, Ljava/io/PrintStream;->println()V
 
     .line 885
-    :cond_29
-    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_0
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v5, "Decision "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v5, v3, Lorg/antlr/v4/runtime/dfa/DFA;->decision:I
+    iget v5, v0, Lorg/antlr/v4/runtime/dfa/DFA;->decision:I
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v5, ":"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v2, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 886
-    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getVocabulary()Lorg/antlr/v4/runtime/Vocabulary;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Lorg/antlr/v4/runtime/dfa/DFA;->toString(Lorg/antlr/v4/runtime/Vocabulary;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Lorg/antlr/v4/runtime/dfa/DFA;->toString(Lorg/antlr/v4/runtime/Vocabulary;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    :cond_54
-    add-int/lit8 v1, v1, 0x1
+    :goto_1
+    add-int/lit8 v2, v3, 0x1
 
-    goto :goto_9
+    move v1, v0
+
+    move v3, v2
+
+    goto :goto_0
 
     .line 890
-    :cond_57
-    monitor-exit v0
+    :cond_1
+    monitor-exit v4
 
     return-void
 
-    :catchall_59
-    move-exception v1
+    :catchall_0
+    move-exception v0
 
-    monitor-exit v0
-    :try_end_5b
-    .catchall {:try_start_9 .. :try_end_5b} :catchall_59
+    monitor-exit v4
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_5d
+    throw v0
 
-    :goto_5c
-    throw v1
+    :cond_2
+    move v0, v1
 
-    :goto_5d
-    goto :goto_5c
+    goto :goto_1
 .end method
 
 .method public enterOuterAlt(Lorg/antlr/v4/runtime/ParserRuleContext;I)V
-    .registers 3
+    .locals 1
 
     .line 648
     invoke-virtual {p1, p2}, Lorg/antlr/v4/runtime/ParserRuleContext;->setAltNumber(I)V
 
     .line 651
-    iget-boolean p2, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
+    iget-boolean v0, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
 
-    if-eqz p2, :cond_17
+    if-eqz v0, :cond_0
 
-    iget-object p2, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    if-eq p2, p1, :cond_17
+    if-eq v0, p1, :cond_0
 
     .line 652
-    iget-object p2, p2, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
+    iget-object v0, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
 
-    check-cast p2, Lorg/antlr/v4/runtime/ParserRuleContext;
+    check-cast v0, Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    if-eqz p2, :cond_17
+    if-eqz v0, :cond_0
 
     .line 654
-    invoke-virtual {p2}, Lorg/antlr/v4/runtime/ParserRuleContext;->removeLastChild()V
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/ParserRuleContext;->removeLastChild()V
 
     .line 655
-    invoke-virtual {p2, p1}, Lorg/antlr/v4/runtime/ParserRuleContext;->addChild(Lorg/antlr/v4/runtime/RuleContext;)Lorg/antlr/v4/runtime/RuleContext;
+    invoke-virtual {v0, p1}, Lorg/antlr/v4/runtime/ParserRuleContext;->addChild(Lorg/antlr/v4/runtime/RuleContext;)Lorg/antlr/v4/runtime/RuleContext;
 
     .line 658
-    :cond_17
+    :cond_0
     iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     return-void
 .end method
 
 .method public enterRecursionRule(Lorg/antlr/v4/runtime/ParserRuleContext;I)V
-    .registers 5
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -579,44 +588,44 @@
 .end method
 
 .method public enterRecursionRule(Lorg/antlr/v4/runtime/ParserRuleContext;III)V
-    .registers 5
+    .locals 2
 
     .line 685
     invoke-virtual {p0, p2}, Lorg/antlr/v4/runtime/Parser;->setState(I)V
 
     .line 686
-    iget-object p2, p0, Lorg/antlr/v4/runtime/Parser;->_precedenceStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_precedenceStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
 
-    invoke-virtual {p2, p4}, Lorg/antlr/v4/runtime/misc/IntegerStack;->push(I)V
+    invoke-virtual {v0, p4}, Lorg/antlr/v4/runtime/misc/IntegerStack;->push(I)V
 
     .line 687
     iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     .line 688
-    iget-object p2, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
 
-    const/4 p3, 0x1
+    const/4 v1, 0x1
 
-    invoke-interface {p2, p3}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
+    invoke-interface {v0, v1}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
 
-    move-result-object p2
+    move-result-object v0
 
-    iput-object p2, p1, Lorg/antlr/v4/runtime/ParserRuleContext;->start:Lorg/antlr/v4/runtime/Token;
+    iput-object v0, p1, Lorg/antlr/v4/runtime/ParserRuleContext;->start:Lorg/antlr/v4/runtime/Token;
 
     .line 689
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-eqz p1, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 690
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->triggerEnterRuleEvent()V
 
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 .method public enterRule(Lorg/antlr/v4/runtime/ParserRuleContext;II)V
-    .registers 4
+    .locals 2
 
     .line 626
     invoke-virtual {p0, p2}, Lorg/antlr/v4/runtime/Parser;->setState(I)V
@@ -625,42 +634,42 @@
     iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     .line 628
-    iget-object p2, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
 
-    const/4 p3, 0x1
+    const/4 v1, 0x1
 
-    invoke-interface {p2, p3}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
+    invoke-interface {v0, v1}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
 
-    move-result-object p2
+    move-result-object v0
 
-    iput-object p2, p1, Lorg/antlr/v4/runtime/ParserRuleContext;->start:Lorg/antlr/v4/runtime/Token;
+    iput-object v0, p1, Lorg/antlr/v4/runtime/ParserRuleContext;->start:Lorg/antlr/v4/runtime/Token;
 
     .line 629
-    iget-boolean p1, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
+    iget-boolean v0, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
 
-    if-eqz p1, :cond_15
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->addContextToParseTree()V
 
     .line 630
-    :cond_15
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+    :cond_0
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-eqz p1, :cond_1c
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->triggerEnterRuleEvent()V
 
-    :cond_1c
+    :cond_1
     return-void
 .end method
 
 .method public exitRule()V
-    .registers 4
+    .locals 3
 
     .line 634
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/Parser;->matchedEOF:Z
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     .line 636
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
@@ -675,32 +684,16 @@
 
     iput-object v1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->stop:Lorg/antlr/v4/runtime/Token;
 
-    goto :goto_1b
-
-    .line 639
-    :cond_10
-    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
-
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
-
-    const/4 v2, -0x1
-
-    invoke-interface {v1, v2}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->stop:Lorg/antlr/v4/runtime/Token;
-
     .line 642
-    :goto_1b
+    :goto_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->triggerExitRuleEvent()V
 
     .line 643
-    :cond_22
+    :cond_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     iget v0, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->invokingState:I
@@ -717,77 +710,93 @@
     iput-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     return-void
+
+    .line 639
+    :cond_1
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+
+    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
+
+    const/4 v2, -0x1
+
+    invoke-interface {v1, v2}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->stop:Lorg/antlr/v4/runtime/Token;
+
+    goto :goto_0
 .end method
 
 .method public getATNWithBypassAlts()Lorg/antlr/v4/runtime/atn/ATN;
-    .registers 5
+    .locals 4
 
     .line 443
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getSerializedATN()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_2f
+    if-eqz v1, :cond_1
 
     .line 448
-    sget-object v1, Lorg/antlr/v4/runtime/Parser;->bypassAltsAtnCache:Ljava/util/Map;
+    sget-object v2, Lorg/antlr/v4/runtime/Parser;->bypassAltsAtnCache:Ljava/util/Map;
 
-    monitor-enter v1
+    monitor-enter v2
 
     .line 449
-    :try_start_9
-    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_start_0
+    invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lorg/antlr/v4/runtime/atn/ATN;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ATN;
 
-    if-nez v2, :cond_2a
+    if-nez v0, :cond_0
 
     .line 451
-    new-instance v2, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;
+    new-instance v0, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;
 
-    invoke-direct {v2}, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;-><init>()V
+    invoke-direct {v0}, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;-><init>()V
 
     .line 452
     const/4 v3, 0x1
 
-    invoke-virtual {v2, v3}, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->setGenerateRuleBypassTransitions(Z)V
+    invoke-virtual {v0, v3}, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->setGenerateRuleBypassTransitions(Z)V
 
     .line 453
     new-instance v3, Lorg/antlr/v4/runtime/atn/ATNDeserializer;
 
-    invoke-direct {v3, v2}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;-><init>(Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;)V
+    invoke-direct {v3, v0}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;-><init>(Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;)V
 
-    invoke-virtual {v0}, Ljava/lang/String;->toCharArray()[C
+    invoke-virtual {v1}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v3, v2}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->deserialize([C)Lorg/antlr/v4/runtime/atn/ATN;
+    invoke-virtual {v3, v0}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->deserialize([C)Lorg/antlr/v4/runtime/atn/ATN;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 454
-    invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 457
-    :cond_2a
-    monitor-exit v1
+    :cond_0
+    monitor-exit v2
 
-    return-object v2
+    return-object v0
 
-    :catchall_2c
+    :catchall_0
     move-exception v0
 
     .line 458
-    monitor-exit v1
-    :try_end_2e
-    .catchall {:try_start_9 .. :try_end_2e} :catchall_2c
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 445
-    :cond_2f
+    :cond_1
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "The current parser does not support an ATN with bypass alternatives."
@@ -798,7 +807,7 @@
 .end method
 
 .method public getBuildParseTree()Z
-    .registers 2
+    .locals 1
 
     .line 279
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
@@ -807,7 +816,7 @@
 .end method
 
 .method public getContext()Lorg/antlr/v4/runtime/ParserRuleContext;
-    .registers 2
+    .locals 1
 
     .line 749
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
@@ -816,7 +825,7 @@
 .end method
 
 .method public getCurrentToken()Lorg/antlr/v4/runtime/Token;
-    .registers 3
+    .locals 2
 
     .line 527
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
@@ -831,11 +840,12 @@
 .end method
 
 .method public getDFAStrings()Ljava/util/List;
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -846,79 +856,77 @@
 
     check-cast v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
 
-    iget-object v0, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    iget-object v2, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
-    monitor-enter v0
+    monitor-enter v2
 
     .line 868
-    :try_start_7
-    new-instance v1, Ljava/util/ArrayList;
+    :try_start_0
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
+
+    move v1, v0
 
     .line 869
-    :goto_d
-    iget-object v3, p0, Lorg/antlr/v4/runtime/Parser;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
+    :goto_0
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
-    check-cast v3, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
 
-    iget-object v3, v3, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    iget-object v0, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
-    array-length v3, v3
+    array-length v0, v0
 
-    if-ge v2, v3, :cond_2c
+    if-ge v1, v0, :cond_0
 
     .line 870
-    iget-object v3, p0, Lorg/antlr/v4/runtime/Parser;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
-    check-cast v3, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
 
-    iget-object v3, v3, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    iget-object v0, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
-    aget-object v3, v3, v2
+    aget-object v0, v0, v1
 
     .line 871
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getVocabulary()Lorg/antlr/v4/runtime/Vocabulary;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Lorg/antlr/v4/runtime/dfa/DFA;->toString(Lorg/antlr/v4/runtime/Vocabulary;)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Lorg/antlr/v4/runtime/dfa/DFA;->toString(Lorg/antlr/v4/runtime/Vocabulary;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_d
+    move v1, v0
+
+    goto :goto_0
 
     .line 873
-    :cond_2c
-    monitor-exit v0
+    :cond_0
+    monitor-exit v2
 
-    return-object v1
+    return-object v3
 
-    :catchall_2e
-    move-exception v1
+    :catchall_0
+    move-exception v0
 
     .line 874
-    monitor-exit v0
-    :try_end_30
-    .catchall {:try_start_7 .. :try_end_30} :catchall_2e
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_32
-
-    :goto_31
-    throw v1
-
-    :goto_32
-    goto :goto_31
+    throw v0
 .end method
 
 .method public getErrorHandler()Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
-    .registers 2
+    .locals 1
 
     .line 496
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
@@ -927,7 +935,7 @@
 .end method
 
 .method public getExpectedTokens()Lorg/antlr/v4/runtime/misc/IntervalSet;
-    .registers 4
+    .locals 3
 
     .line 822
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getATN()Lorg/antlr/v4/runtime/atn/ATN;
@@ -950,7 +958,7 @@
 .end method
 
 .method public getExpectedTokensWithinCurrentRule()Lorg/antlr/v4/runtime/misc/IntervalSet;
-    .registers 4
+    .locals 3
 
     .line 827
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
@@ -959,23 +967,23 @@
 
     check-cast v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
 
-    iget-object v0, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->atn:Lorg/antlr/v4/runtime/atn/ATN;
+    iget-object v1, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->atn:Lorg/antlr/v4/runtime/atn/ATN;
 
     .line 828
-    iget-object v1, v0, Lorg/antlr/v4/runtime/atn/ATN;->states:Ljava/util/List;
+    iget-object v0, v1, Lorg/antlr/v4/runtime/atn/ATN;->states:Ljava/util/List;
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getState()I
 
     move-result v2
 
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lorg/antlr/v4/runtime/atn/ATNState;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ATNState;
 
     .line 829
-    invoke-virtual {v0, v1}, Lorg/antlr/v4/runtime/atn/ATN;->nextTokens(Lorg/antlr/v4/runtime/atn/ATNState;)Lorg/antlr/v4/runtime/misc/IntervalSet;
+    invoke-virtual {v1, v0}, Lorg/antlr/v4/runtime/atn/ATN;->nextTokens(Lorg/antlr/v4/runtime/atn/ATNState;)Lorg/antlr/v4/runtime/misc/IntervalSet;
 
     move-result-object v0
 
@@ -983,7 +991,7 @@
 .end method
 
 .method public bridge synthetic getInputStream()Lorg/antlr/v4/runtime/IntStream;
-    .registers 2
+    .locals 1
 
     .line 37
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInputStream()Lorg/antlr/v4/runtime/TokenStream;
@@ -994,7 +1002,7 @@
 .end method
 
 .method public getInputStream()Lorg/antlr/v4/runtime/TokenStream;
-    .registers 2
+    .locals 1
 
     .line 504
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getTokenStream()Lorg/antlr/v4/runtime/TokenStream;
@@ -1005,39 +1013,40 @@
 .end method
 
 .method public getInvokingContext(I)Lorg/antlr/v4/runtime/ParserRuleContext;
-    .registers 4
+    .locals 2
 
     .line 740
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    :goto_2
-    if-eqz v0, :cond_10
+    :goto_0
+    if-eqz v0, :cond_1
 
     .line 742
     invoke-virtual {v0}, Lorg/antlr/v4/runtime/ParserRuleContext;->getRuleIndex()I
 
     move-result v1
 
-    if-ne v1, p1, :cond_b
-
-    return-object v0
+    if-ne v1, p1, :cond_0
 
     .line 743
-    :cond_b
+    :goto_1
+    return-object v0
+
+    :cond_0
     iget-object v0, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
 
     check-cast v0, Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_10
-    const/4 p1, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
-    return-object p1
+    goto :goto_1
 .end method
 
 .method public getNumberOfSyntaxErrors()I
-    .registers 2
+    .locals 1
 
     .line 420
     iget v0, p0, Lorg/antlr/v4/runtime/Parser;->_syntaxErrors:I
@@ -1046,7 +1055,7 @@
 .end method
 
 .method public getParseInfo()Lorg/antlr/v4/runtime/atn/ParseInfo;
-    .registers 3
+    .locals 2
 
     .line 899
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
@@ -1058,7 +1067,7 @@
     .line 900
     instance-of v1, v0, Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 901
     new-instance v1, Lorg/antlr/v4/runtime/atn/ParseInfo;
@@ -1067,20 +1076,24 @@
 
     invoke-direct {v1, v0}, Lorg/antlr/v4/runtime/atn/ParseInfo;-><init>(Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;)V
 
-    return-object v1
+    move-object v0, v1
 
-    :cond_12
+    :goto_0
+    return-object v0
+
+    :cond_0
     const/4 v0, 0x0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getParseListeners()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTreeListener;",
             ">;"
         }
@@ -1089,19 +1102,19 @@
     .line 309
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 311
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    :cond_8
+    :cond_0
     return-object v0
 .end method
 
 .method public final getPrecedence()I
-    .registers 2
+    .locals 1
 
     .line 668
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_precedenceStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
@@ -1110,25 +1123,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const/4 v0, -0x1
 
+    .line 672
+    :goto_0
     return v0
 
-    .line 672
-    :cond_a
+    :cond_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_precedenceStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
 
     invoke-virtual {v0}, Lorg/antlr/v4/runtime/misc/IntegerStack;->peek()I
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public getRuleContext()Lorg/antlr/v4/runtime/ParserRuleContext;
-    .registers 2
+    .locals 1
 
     .line 839
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
@@ -1137,7 +1151,7 @@
 .end method
 
 .method public getRuleIndex(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
 
     .line 834
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getRuleIndexMap()Ljava/util/Map;
@@ -1146,31 +1160,33 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    if-eqz p1, :cond_11
+    if-eqz v0, :cond_0
 
     .line 835
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_11
-    const/4 p1, -0x1
+    :cond_0
+    const/4 v0, -0x1
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public getRuleInvocationStack()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -1187,13 +1203,14 @@
 .end method
 
 .method public getRuleInvocationStack(Lorg/antlr/v4/runtime/RuleContext;)Ljava/util/List;
-    .registers 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lorg/antlr/v4/runtime/RuleContext;",
             ")",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -1209,41 +1226,42 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    :goto_9
-    if-eqz p1, :cond_1f
+    :goto_0
+    if-eqz p1, :cond_1
 
     .line 857
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/RuleContext;->getRuleIndex()I
 
     move-result v2
 
-    if-gez v2, :cond_17
+    if-gez v2, :cond_0
 
     .line 858
     const-string v2, "n/a"
 
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1c
+    .line 860
+    :goto_1
+    iget-object p1, p1, Lorg/antlr/v4/runtime/RuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
+
+    goto :goto_0
 
     .line 859
-    :cond_17
+    :cond_0
     aget-object v2, v0, v2
 
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    goto :goto_1
+
     .line 860
-    :goto_1c
-    iget-object p1, p1, Lorg/antlr/v4/runtime/RuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
-
-    goto :goto_9
-
-    :cond_1f
+    :cond_1
     return-object v1
 .end method
 
 .method public getSourceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 894
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
@@ -1256,12 +1274,12 @@
 .end method
 
 .method public getTokenFactory()Lorg/antlr/v4/runtime/TokenFactory;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;"
         }
     .end annotation
 
@@ -1280,7 +1298,7 @@
 .end method
 
 .method public getTokenStream()Lorg/antlr/v4/runtime/TokenStream;
-    .registers 2
+    .locals 1
 
     .line 512
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
@@ -1289,7 +1307,7 @@
 .end method
 
 .method public getTrimParseTree()Z
-    .registers 3
+    .locals 2
 
     .line 304
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getParseListeners()Ljava/util/List;
@@ -1306,15 +1324,21 @@
 .end method
 
 .method public inContext(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public isExpectedToken(I)Z
-    .registers 9
+    .locals 7
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    const/4 v6, -0x2
 
     .line 782
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
@@ -1323,131 +1347,142 @@
 
     check-cast v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
 
-    iget-object v0, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->atn:Lorg/antlr/v4/runtime/atn/ATN;
+    iget-object v5, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->atn:Lorg/antlr/v4/runtime/atn/ATN;
 
     .line 783
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    iget-object v4, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     .line 784
-    iget-object v2, v0, Lorg/antlr/v4/runtime/atn/ATN;->states:Ljava/util/List;
+    iget-object v0, v5, Lorg/antlr/v4/runtime/atn/ATN;->states:Ljava/util/List;
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getState()I
 
     move-result v3
 
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lorg/antlr/v4/runtime/atn/ATNState;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ATNState;
 
     .line 785
-    invoke-virtual {v0, v2}, Lorg/antlr/v4/runtime/atn/ATN;->nextTokens(Lorg/antlr/v4/runtime/atn/ATNState;)Lorg/antlr/v4/runtime/misc/IntervalSet;
+    invoke-virtual {v5, v0}, Lorg/antlr/v4/runtime/atn/ATN;->nextTokens(Lorg/antlr/v4/runtime/atn/ATNState;)Lorg/antlr/v4/runtime/misc/IntervalSet;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 786
-    invoke-virtual {v2, p1}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
+    invoke-virtual {v0, p1}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
 
     move-result v3
 
-    const/4 v4, 0x1
+    if-eqz v3, :cond_0
 
-    if-eqz v3, :cond_22
-
-    return v4
-
-    .line 790
-    :cond_22
-    const/4 v3, -0x2
-
-    invoke-virtual {v2, v3}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
-
-    move-result v5
-
-    const/4 v6, 0x0
-
-    if-nez v5, :cond_2b
-
-    return v6
-
-    :cond_2b
-    :goto_2b
-    if-eqz v1, :cond_59
-
-    .line 792
-    iget v5, v1, Lorg/antlr/v4/runtime/ParserRuleContext;->invokingState:I
-
-    if-ltz v5, :cond_59
-
-    invoke-virtual {v2, v3}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_59
-
-    .line 793
-    iget-object v2, v0, Lorg/antlr/v4/runtime/atn/ATN;->states:Ljava/util/List;
-
-    iget v5, v1, Lorg/antlr/v4/runtime/ParserRuleContext;->invokingState:I
-
-    invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lorg/antlr/v4/runtime/atn/ATNState;
-
-    .line 794
-    invoke-virtual {v2, v6}, Lorg/antlr/v4/runtime/atn/ATNState;->transition(I)Lorg/antlr/v4/runtime/atn/Transition;
-
-    move-result-object v2
-
-    check-cast v2, Lorg/antlr/v4/runtime/atn/RuleTransition;
-
-    .line 795
-    iget-object v2, v2, Lorg/antlr/v4/runtime/atn/RuleTransition;->followState:Lorg/antlr/v4/runtime/atn/ATNState;
-
-    invoke-virtual {v0, v2}, Lorg/antlr/v4/runtime/atn/ATN;->nextTokens(Lorg/antlr/v4/runtime/atn/ATNState;)Lorg/antlr/v4/runtime/misc/IntervalSet;
-
-    move-result-object v2
-
-    .line 796
-    invoke-virtual {v2, p1}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_54
-
-    return v4
-
-    .line 800
-    :cond_54
-    iget-object v1, v1, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
-
-    check-cast v1, Lorg/antlr/v4/runtime/ParserRuleContext;
-
-    goto :goto_2b
+    move v0, v1
 
     .line 803
-    :cond_59
-    invoke-virtual {v2, v3}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
+    :goto_0
+    return v0
+
+    .line 790
+    :cond_0
+    invoke-virtual {v0, v6}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
+
+    move v0, v2
+
+    goto :goto_0
+
+    .line 800
+    :cond_1
+    iget-object v0, v4, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
+
+    check-cast v0, Lorg/antlr/v4/runtime/ParserRuleContext;
+
+    move-object v4, v0
+
+    .line 790
+    :goto_1
+    if-eqz v4, :cond_2
+
+    .line 792
+    iget v0, v4, Lorg/antlr/v4/runtime/ParserRuleContext;->invokingState:I
+
+    if-ltz v0, :cond_2
+
+    invoke-virtual {v3, v6}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_63
+    if-eqz v0, :cond_2
+
+    .line 793
+    iget-object v0, v5, Lorg/antlr/v4/runtime/atn/ATN;->states:Ljava/util/List;
+
+    iget v3, v4, Lorg/antlr/v4/runtime/ParserRuleContext;->invokingState:I
+
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ATNState;
+
+    .line 794
+    invoke-virtual {v0, v2}, Lorg/antlr/v4/runtime/atn/ATNState;->transition(I)Lorg/antlr/v4/runtime/atn/Transition;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/atn/RuleTransition;
+
+    .line 795
+    iget-object v0, v0, Lorg/antlr/v4/runtime/atn/RuleTransition;->followState:Lorg/antlr/v4/runtime/atn/ATNState;
+
+    invoke-virtual {v5, v0}, Lorg/antlr/v4/runtime/atn/ATN;->nextTokens(Lorg/antlr/v4/runtime/atn/ATNState;)Lorg/antlr/v4/runtime/misc/IntervalSet;
+
+    move-result-object v3
+
+    .line 796
+    invoke-virtual {v3, p1}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move v0, v1
+
+    goto :goto_0
+
+    .line 803
+    :cond_2
+    invoke-virtual {v3, v6}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
 
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_63
+    if-ne p1, v0, :cond_3
 
-    return v4
+    move v0, v1
 
-    :cond_63
-    return v6
+    goto :goto_0
+
+    :cond_3
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_4
+    move-object v3, v0
+
+    goto :goto_1
 .end method
 
 .method public isMatchedEOF()Z
-    .registers 2
+    .locals 1
 
     .line 811
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/Parser;->matchedEOF:Z
@@ -1456,31 +1491,33 @@
 .end method
 
 .method public isTrace()Z
-    .registers 2
+    .locals 1
 
     .line 947
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_7
+    :goto_0
+    return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_7
-    return v0
+    goto :goto_0
 .end method
 
 .method public match(I)Lorg/antlr/v4/runtime/Token;
-    .registers 5
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/antlr/v4/runtime/RecognitionException;
         }
     .end annotation
+
+    const/4 v2, -0x1
 
     .line 197
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getCurrentToken()Lorg/antlr/v4/runtime/Token;
@@ -1492,63 +1529,62 @@
 
     move-result v1
 
-    const/4 v2, -0x1
+    if-ne v1, p1, :cond_2
 
-    if-ne v1, p1, :cond_19
-
-    if-ne p1, v2, :cond_10
+    if-ne p1, v2, :cond_0
 
     .line 200
-    const/4 p1, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean p1, p0, Lorg/antlr/v4/runtime/Parser;->matchedEOF:Z
+    iput-boolean v1, p0, Lorg/antlr/v4/runtime/Parser;->matchedEOF:Z
 
     .line 202
-    :cond_10
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
+    :cond_0
+    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
 
-    invoke-interface {p1, p0}, Lorg/antlr/v4/runtime/ANTLRErrorStrategy;->reportMatch(Lorg/antlr/v4/runtime/Parser;)V
+    invoke-interface {v1, p0}, Lorg/antlr/v4/runtime/ANTLRErrorStrategy;->reportMatch(Lorg/antlr/v4/runtime/Parser;)V
 
     .line 203
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->consume()Lorg/antlr/v4/runtime/Token;
 
-    goto :goto_32
+    .line 210
+    :cond_1
+    :goto_0
+    return-object v0
 
     .line 206
-    :cond_19
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
+    :cond_2
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
 
-    invoke-interface {p1, p0}, Lorg/antlr/v4/runtime/ANTLRErrorStrategy;->recoverInline(Lorg/antlr/v4/runtime/Parser;)Lorg/antlr/v4/runtime/Token;
+    invoke-interface {v0, p0}, Lorg/antlr/v4/runtime/ANTLRErrorStrategy;->recoverInline(Lorg/antlr/v4/runtime/Parser;)Lorg/antlr/v4/runtime/Token;
 
     move-result-object v0
 
     .line 207
-    iget-boolean p1, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
+    iget-boolean v1, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
 
-    if-eqz p1, :cond_32
+    if-eqz v1, :cond_1
 
     invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getTokenIndex()I
 
-    move-result p1
+    move-result v1
 
-    if-ne p1, v2, :cond_32
+    if-ne v1, v2, :cond_1
 
     .line 210
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    invoke-virtual {p0, p1, v0}, Lorg/antlr/v4/runtime/Parser;->createErrorNode(Lorg/antlr/v4/runtime/ParserRuleContext;Lorg/antlr/v4/runtime/Token;)Lorg/antlr/v4/runtime/tree/ErrorNode;
+    invoke-virtual {p0, v1, v0}, Lorg/antlr/v4/runtime/Parser;->createErrorNode(Lorg/antlr/v4/runtime/ParserRuleContext;Lorg/antlr/v4/runtime/Token;)Lorg/antlr/v4/runtime/tree/ErrorNode;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {p1, v1}, Lorg/antlr/v4/runtime/ParserRuleContext;->addErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)Lorg/antlr/v4/runtime/tree/ErrorNode;
+    invoke-virtual {v1, v2}, Lorg/antlr/v4/runtime/ParserRuleContext;->addErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)Lorg/antlr/v4/runtime/tree/ErrorNode;
 
-    :cond_32
-    :goto_32
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public matchWildcard()Lorg/antlr/v4/runtime/Token;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/antlr/v4/runtime/RecognitionException;
@@ -1565,7 +1601,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_13
+    if-lez v1, :cond_1
 
     .line 237
     iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
@@ -1575,10 +1611,13 @@
     .line 238
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->consume()Lorg/antlr/v4/runtime/Token;
 
-    goto :goto_2d
+    .line 245
+    :cond_0
+    :goto_0
+    return-object v0
 
     .line 241
-    :cond_13
+    :cond_1
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
 
     invoke-interface {v0, p0}, Lorg/antlr/v4/runtime/ANTLRErrorStrategy;->recoverInline(Lorg/antlr/v4/runtime/Parser;)Lorg/antlr/v4/runtime/Token;
@@ -1588,7 +1627,7 @@
     .line 242
     iget-boolean v1, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_0
 
     invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getTokenIndex()I
 
@@ -1596,7 +1635,7 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_2d
+    if-ne v1, v2, :cond_0
 
     .line 245
     iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
@@ -1607,13 +1646,11 @@
 
     invoke-virtual {v1, v2}, Lorg/antlr/v4/runtime/ParserRuleContext;->addErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)Lorg/antlr/v4/runtime/tree/ErrorNode;
 
-    :cond_2d
-    :goto_2d
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public final notifyErrorListeners(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
 
     .line 531
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getCurrentToken()Lorg/antlr/v4/runtime/Token;
@@ -1628,7 +1665,7 @@
 .end method
 
 .method public notifyErrorListeners(Lorg/antlr/v4/runtime/Token;Ljava/lang/String;Lorg/antlr/v4/runtime/RecognitionException;)V
-    .registers 12
+    .locals 7
 
     .line 537
     iget v0, p0, Lorg/antlr/v4/runtime/Parser;->_syntaxErrors:I
@@ -1640,144 +1677,144 @@
     .line 540
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getLine()I
 
-    move-result v4
+    move-result v3
 
     .line 541
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getCharPositionInLine()I
 
-    move-result v5
+    move-result v4
 
     .line 543
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getErrorListenerDispatch()Lorg/antlr/v4/runtime/ANTLRErrorListener;
 
-    move-result-object v1
+    move-result-object v0
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v5, p2
+
+    move-object v6, p3
 
     .line 544
-    move-object v2, p0
-
-    move-object v3, p1
-
-    move-object v6, p2
-
-    move-object v7, p3
-
-    invoke-interface/range {v1 .. v7}, Lorg/antlr/v4/runtime/ANTLRErrorListener;->syntaxError(Lorg/antlr/v4/runtime/Recognizer;Ljava/lang/Object;IILjava/lang/String;Lorg/antlr/v4/runtime/RecognitionException;)V
+    invoke-interface/range {v0 .. v6}, Lorg/antlr/v4/runtime/ANTLRErrorListener;->syntaxError(Lorg/antlr/v4/runtime/Recognizer;Ljava/lang/Object;IILjava/lang/String;Lorg/antlr/v4/runtime/RecognitionException;)V
 
     return-void
 .end method
 
 .method public precpred(Lorg/antlr/v4/runtime/RuleContext;I)Z
-    .registers 3
+    .locals 1
 
     .line 758
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_precedenceStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_precedenceStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
 
-    invoke-virtual {p1}, Lorg/antlr/v4/runtime/misc/IntegerStack;->peek()I
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/misc/IntegerStack;->peek()I
 
-    move-result p1
+    move-result v0
 
-    if-lt p2, p1, :cond_a
+    if-lt p2, v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_b
+    :goto_0
+    return v0
 
-    :cond_a
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_b
-    return p1
+    goto :goto_0
 .end method
 
 .method public pushNewRecursionContext(Lorg/antlr/v4/runtime/ParserRuleContext;II)V
-    .registers 5
+    .locals 3
 
     .line 698
-    iget-object p3, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     .line 699
-    iput-object p1, p3, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
+    iput-object p1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
 
     .line 700
-    iput p2, p3, Lorg/antlr/v4/runtime/ParserRuleContext;->invokingState:I
+    iput p2, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->invokingState:I
 
     .line 701
-    iget-object p2, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_input:Lorg/antlr/v4/runtime/TokenStream;
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    invoke-interface {p2, v0}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
+    invoke-interface {v1, v2}, Lorg/antlr/v4/runtime/TokenStream;->LT(I)Lorg/antlr/v4/runtime/Token;
 
-    move-result-object p2
+    move-result-object v1
 
-    iput-object p2, p3, Lorg/antlr/v4/runtime/ParserRuleContext;->stop:Lorg/antlr/v4/runtime/Token;
+    iput-object v1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->stop:Lorg/antlr/v4/runtime/Token;
 
     .line 703
     iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     .line 704
-    iget-object p2, p3, Lorg/antlr/v4/runtime/ParserRuleContext;->start:Lorg/antlr/v4/runtime/Token;
+    iget-object v1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->start:Lorg/antlr/v4/runtime/Token;
 
-    iput-object p2, p1, Lorg/antlr/v4/runtime/ParserRuleContext;->start:Lorg/antlr/v4/runtime/Token;
+    iput-object v1, p1, Lorg/antlr/v4/runtime/ParserRuleContext;->start:Lorg/antlr/v4/runtime/Token;
 
     .line 705
-    iget-boolean p1, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
+    iget-boolean v1, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
 
-    if-eqz p1, :cond_1e
+    if-eqz v1, :cond_0
 
     .line 706
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    invoke-virtual {p1, p3}, Lorg/antlr/v4/runtime/ParserRuleContext;->addChild(Lorg/antlr/v4/runtime/RuleContext;)Lorg/antlr/v4/runtime/RuleContext;
+    invoke-virtual {v1, v0}, Lorg/antlr/v4/runtime/ParserRuleContext;->addChild(Lorg/antlr/v4/runtime/RuleContext;)Lorg/antlr/v4/runtime/RuleContext;
 
     .line 709
-    :cond_1e
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+    :cond_0
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-eqz p1, :cond_25
+    if-eqz v0, :cond_1
 
     .line 710
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->triggerEnterRuleEvent()V
 
-    :cond_25
+    :cond_1
     return-void
 .end method
 
 .method public removeParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
-    .registers 3
+    .locals 1
 
     .line 369
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 370
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_15
+    if-eqz v0, :cond_0
 
     .line 371
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_15
+    if-eqz v0, :cond_0
 
     .line 372
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public removeParseListeners()V
-    .registers 2
+    .locals 1
 
     .line 384
     const/4 v0, 0x0
@@ -1788,16 +1825,16 @@
 .end method
 
 .method public reset()V
-    .registers 3
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 163
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInputStream()Lorg/antlr/v4/runtime/TokenStream;
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInputStream()Lorg/antlr/v4/runtime/TokenStream;
 
@@ -1806,7 +1843,7 @@
     invoke-interface {v0, v1}, Lorg/antlr/v4/runtime/TokenStream;->seek(I)V
 
     .line 164
-    :cond_e
+    :cond_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
 
     invoke-interface {v0, p0}, Lorg/antlr/v4/runtime/ANTLRErrorStrategy;->reset(Lorg/antlr/v4/runtime/Parser;)V
@@ -1840,17 +1877,17 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_1
 
     .line 173
     invoke-virtual {v0}, Lorg/antlr/v4/runtime/atn/ATNSimulator;->reset()V
 
-    :cond_30
+    :cond_1
     return-void
 .end method
 
 .method public setBuildParseTree(Z)V
-    .registers 2
+    .locals 0
 
     .line 268
     iput-boolean p1, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
@@ -1859,7 +1896,7 @@
 .end method
 
 .method public setContext(Lorg/antlr/v4/runtime/ParserRuleContext;)V
-    .registers 2
+    .locals 0
 
     .line 753
     iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
@@ -1868,7 +1905,7 @@
 .end method
 
 .method public setErrorHandler(Lorg/antlr/v4/runtime/ANTLRErrorStrategy;)V
-    .registers 2
+    .locals 0
 
     .line 500
     iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_errHandler:Lorg/antlr/v4/runtime/ANTLRErrorStrategy;
@@ -1877,7 +1914,7 @@
 .end method
 
 .method public final setInputStream(Lorg/antlr/v4/runtime/IntStream;)V
-    .registers 2
+    .locals 0
 
     .line 508
     check-cast p1, Lorg/antlr/v4/runtime/TokenStream;
@@ -1888,7 +1925,7 @@
 .end method
 
 .method public setProfile(Z)V
-    .registers 6
+    .locals 5
 
     .line 910
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
@@ -1902,67 +1939,67 @@
 
     move-result-object v1
 
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_1
 
     .line 913
-    instance-of p1, v0, Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;
+    instance-of v0, v0, Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;
 
-    if-nez p1, :cond_2f
+    if-nez v0, :cond_0
 
     .line 914
-    new-instance p1, Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;
+    new-instance v0, Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;
 
-    invoke-direct {p1, p0}, Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;-><init>(Lorg/antlr/v4/runtime/Parser;)V
+    invoke-direct {v0, p0}, Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;-><init>(Lorg/antlr/v4/runtime/Parser;)V
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/Parser;->setInterpreter(Lorg/antlr/v4/runtime/atn/ATNSimulator;)V
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/Parser;->setInterpreter(Lorg/antlr/v4/runtime/atn/ATNSimulator;)V
 
-    goto :goto_2f
+    .line 922
+    :cond_0
+    :goto_0
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
+
+    invoke-virtual {v0, v1}, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->setPredictionMode(Lorg/antlr/v4/runtime/atn/PredictionMode;)V
+
+    return-void
 
     .line 917
-    :cond_19
-    instance-of p1, v0, Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;
+    :cond_1
+    instance-of v2, v0, Lorg/antlr/v4/runtime/atn/ProfilingATNSimulator;
 
-    if-eqz p1, :cond_2f
+    if-eqz v2, :cond_0
 
     .line 918
-    new-instance p1, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
+    new-instance v2, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getATN()Lorg/antlr/v4/runtime/atn/ATN;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v3, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    iget-object v4, v0, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
     invoke-virtual {v0}, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->getSharedContextCache()Lorg/antlr/v4/runtime/atn/PredictionContextCache;
 
     move-result-object v0
 
-    invoke-direct {p1, p0, v2, v3, v0}, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;-><init>(Lorg/antlr/v4/runtime/Parser;Lorg/antlr/v4/runtime/atn/ATN;[Lorg/antlr/v4/runtime/dfa/DFA;Lorg/antlr/v4/runtime/atn/PredictionContextCache;)V
+    invoke-direct {v2, p0, v3, v4, v0}, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;-><init>(Lorg/antlr/v4/runtime/Parser;Lorg/antlr/v4/runtime/atn/ATN;[Lorg/antlr/v4/runtime/dfa/DFA;Lorg/antlr/v4/runtime/atn/PredictionContextCache;)V
 
     .line 920
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/Parser;->setInterpreter(Lorg/antlr/v4/runtime/atn/ATNSimulator;)V
+    invoke-virtual {p0, v2}, Lorg/antlr/v4/runtime/Parser;->setInterpreter(Lorg/antlr/v4/runtime/atn/ATNSimulator;)V
 
-    .line 922
-    :cond_2f
-    :goto_2f
-    invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
-
-    move-result-object p1
-
-    check-cast p1, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;
-
-    invoke-virtual {p1, v1}, Lorg/antlr/v4/runtime/atn/ParserATNSimulator;->setPredictionMode(Lorg/antlr/v4/runtime/atn/PredictionMode;)V
-
-    return-void
+    goto :goto_0
 .end method
 
 .method public setTokenFactory(Lorg/antlr/v4/runtime/TokenFactory;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;)V"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;)V"
         }
     .end annotation
 
@@ -1979,7 +2016,7 @@
 .end method
 
 .method public setTokenStream(Lorg/antlr/v4/runtime/TokenStream;)V
-    .registers 3
+    .locals 1
 
     .line 517
     const/4 v0, 0x0
@@ -1996,123 +2033,125 @@
 .end method
 
 .method public setTrace(Z)V
-    .registers 2
+    .locals 1
 
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 930
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/Parser;->removeParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/Parser;->removeParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
 
     .line 931
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
-
-    goto :goto_1f
-
-    .line 934
-    :cond_b
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
-
-    if-eqz p1, :cond_13
-
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/Parser;->removeParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
-
-    goto :goto_1a
-
-    .line 935
-    :cond_13
-    new-instance p1, Lorg/antlr/v4/runtime/Parser$TraceListener;
-
-    invoke-direct {p1, p0}, Lorg/antlr/v4/runtime/Parser$TraceListener;-><init>(Lorg/antlr/v4/runtime/Parser;)V
-
-    iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
 
     .line 936
-    :goto_1a
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
-
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/Parser;->addParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
-
-    :goto_1f
+    :goto_0
     return-void
+
+    .line 934
+    :cond_0
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/Parser;->removeParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
+
+    .line 936
+    :goto_1
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
+
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/Parser;->addParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
+
+    goto :goto_0
+
+    .line 935
+    :cond_1
+    new-instance v0, Lorg/antlr/v4/runtime/Parser$TraceListener;
+
+    invoke-direct {v0, p0}, Lorg/antlr/v4/runtime/Parser$TraceListener;-><init>(Lorg/antlr/v4/runtime/Parser;)V
+
+    iput-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_tracer:Lorg/antlr/v4/runtime/Parser$TraceListener;
+
+    goto :goto_1
 .end method
 
 .method public setTrimParseTree(Z)V
-    .registers 2
+    .locals 1
 
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_1
 
     .line 291
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->getTrimParseTree()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_9
+    if-eqz v0, :cond_0
 
+    .line 295
+    :goto_0
     return-void
 
     .line 292
-    :cond_9
-    sget-object p1, Lorg/antlr/v4/runtime/Parser$TrimToSizeListener;->INSTANCE:Lorg/antlr/v4/runtime/Parser$TrimToSizeListener;
+    :cond_0
+    sget-object v0, Lorg/antlr/v4/runtime/Parser$TrimToSizeListener;->INSTANCE:Lorg/antlr/v4/runtime/Parser$TrimToSizeListener;
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/Parser;->addParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/Parser;->addParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
 
-    goto :goto_14
+    goto :goto_0
 
     .line 295
-    :cond_f
-    sget-object p1, Lorg/antlr/v4/runtime/Parser$TrimToSizeListener;->INSTANCE:Lorg/antlr/v4/runtime/Parser$TrimToSizeListener;
+    :cond_1
+    sget-object v0, Lorg/antlr/v4/runtime/Parser$TrimToSizeListener;->INSTANCE:Lorg/antlr/v4/runtime/Parser$TrimToSizeListener;
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/Parser;->removeParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/Parser;->removeParseListener(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
 
-    :goto_14
-    return-void
+    goto :goto_0
 .end method
 
 .method protected triggerEnterRuleEvent()V
-    .registers 4
+    .locals 3
 
     .line 393
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :goto_6
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1d
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lorg/antlr/v4/runtime/tree/ParseTreeListener;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/tree/ParseTreeListener;
 
     .line 394
     iget-object v2, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    invoke-interface {v1, v2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->enterEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
+    invoke-interface {v0, v2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->enterEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
 
     .line 395
     iget-object v2, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    invoke-virtual {v2, v1}, Lorg/antlr/v4/runtime/ParserRuleContext;->enterRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
+    invoke-virtual {v2, v0}, Lorg/antlr/v4/runtime/ParserRuleContext;->enterRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_1d
+    :cond_0
     return-void
 .end method
 
 .method protected triggerExitRuleEvent()V
-    .registers 4
+    .locals 3
 
     .line 406
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
@@ -2123,38 +2162,42 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    :goto_8
-    if-ltz v0, :cond_1f
+    move v1, v0
+
+    :goto_0
+    if-ltz v1, :cond_0
 
     .line 407
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lorg/antlr/v4/runtime/tree/ParseTreeListener;
+    check-cast v0, Lorg/antlr/v4/runtime/tree/ParseTreeListener;
 
     .line 408
     iget-object v2, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    invoke-virtual {v2, v1}, Lorg/antlr/v4/runtime/ParserRuleContext;->exitRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
+    invoke-virtual {v2, v0}, Lorg/antlr/v4/runtime/ParserRuleContext;->exitRule(Lorg/antlr/v4/runtime/tree/ParseTreeListener;)V
 
     .line 409
     iget-object v2, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    invoke-interface {v1, v2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->exitEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
+    invoke-interface {v0, v2}, Lorg/antlr/v4/runtime/tree/ParseTreeListener;->exitEveryRule(Lorg/antlr/v4/runtime/ParserRuleContext;)V
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v0, v1, -0x1
 
-    goto :goto_8
+    move v1, v0
 
-    :cond_1f
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
 .method public unrollRecursionContexts(Lorg/antlr/v4/runtime/ParserRuleContext;)V
-    .registers 5
+    .locals 3
 
     .line 715
     iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_precedenceStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
@@ -2175,51 +2218,51 @@
     iput-object v1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->stop:Lorg/antlr/v4/runtime/Token;
 
     .line 717
-    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
-
-    .line 720
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
-
-    if-eqz v1, :cond_26
-
-    .line 721
-    :goto_16
     iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    if-eq v1, p1, :cond_28
+    .line 720
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_parseListeners:Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    .line 721
+    :goto_0
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+
+    if-eq v0, p1, :cond_1
 
     .line 722
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Parser;->triggerExitRuleEvent()V
 
     .line 723
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    iget-object v1, v1, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
+    iget-object v0, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
 
-    check-cast v1, Lorg/antlr/v4/runtime/ParserRuleContext;
+    check-cast v0, Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    iput-object v1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    goto :goto_16
+    goto :goto_0
 
     .line 727
-    :cond_26
+    :cond_0
     iput-object p1, p0, Lorg/antlr/v4/runtime/Parser;->_ctx:Lorg/antlr/v4/runtime/ParserRuleContext;
 
     .line 731
-    :cond_28
-    iput-object p1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
+    :cond_1
+    iput-object p1, v1, Lorg/antlr/v4/runtime/ParserRuleContext;->parent:Lorg/antlr/v4/runtime/RuleContext;
 
     .line 733
-    iget-boolean v1, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
+    iget-boolean v0, p0, Lorg/antlr/v4/runtime/Parser;->_buildParseTrees:Z
 
-    if-eqz v1, :cond_33
+    if-eqz v0, :cond_2
 
-    if-eqz p1, :cond_33
+    if-eqz p1, :cond_2
 
     .line 735
-    invoke-virtual {p1, v0}, Lorg/antlr/v4/runtime/ParserRuleContext;->addChild(Lorg/antlr/v4/runtime/RuleContext;)Lorg/antlr/v4/runtime/RuleContext;
+    invoke-virtual {p1, v1}, Lorg/antlr/v4/runtime/ParserRuleContext;->addChild(Lorg/antlr/v4/runtime/RuleContext;)Lorg/antlr/v4/runtime/RuleContext;
 
-    :cond_33
+    :cond_2
     return-void
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/highlight/HighlightActivity;Lcom/s1243808733/aide/highlight/Item;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onColorChanged(I)V
-    .registers 5
+    .locals 3
 
     .line 131
     invoke-static {}, Lcom/s1243808733/aide/highlight/HighlightUtils;->getHSp()Landroid/content/SharedPreferences;
@@ -74,29 +74,29 @@
 
     invoke-static {p1}, Lnet/margaritov/preference/colorpicker/ColorPickerPreference;->convertToARGB(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     .line 132
-    iget-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$1;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$1;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/highlight/HighlightActivity;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/highlight/HighlightActivity;)Lcom/s1243808733/aide/highlight/HighlightAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/highlight/HighlightActivity;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/highlight/HighlightActivity;)Lcom/s1243808733/aide/highlight/HighlightAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/highlight/HighlightAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/highlight/HighlightAdapter;->notifyDataSetChanged()V
 
     .line 133
-    iget-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$1;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$1;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {p1, v0}, Lcom/s1243808733/aide/highlight/HighlightActivity;->-$$Nest$fputisDataChangeed(Lcom/s1243808733/aide/highlight/HighlightActivity;Z)V
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/highlight/HighlightActivity;->-$$Nest$fputisDataChangeed(Lcom/s1243808733/aide/highlight/HighlightActivity;Z)V
 
     return-void
 .end method

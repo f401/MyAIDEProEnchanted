@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,12 +30,12 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .registers 2
+    .locals 1
 
     .line 67
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {p1}, Ljava/lang/System;->exit(I)V
+    invoke-static {v0}, Ljava/lang/System;->exit(I)V
 
     return-void
 .end method

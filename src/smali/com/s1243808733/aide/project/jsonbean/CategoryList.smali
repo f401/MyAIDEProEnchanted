@@ -7,7 +7,8 @@
 .field private category:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/aide/project/jsonbean/Category;",
             ">;"
         }
@@ -17,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,11 +29,12 @@
 
 # virtual methods
 .method public getCategory()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/aide/project/jsonbean/Category;",
             ">;"
         }
@@ -45,11 +47,12 @@
 .end method
 
 .method public setCategory(Ljava/util/List;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/aide/project/jsonbean/Category;",
             ">;)V"
         }

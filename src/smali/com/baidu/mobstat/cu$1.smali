@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/cu;)V
-    .registers 2
+    .locals 0
 
     .line 104
     iput-object p1, p0, Lcom/baidu/mobstat/cu$1;->a:Lcom/baidu/mobstat/cu;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public a(Landroid/view/KeyEvent;)V
-    .registers 2
+    .locals 0
 
     .line 134
     invoke-static {p1}, Lcom/baidu/mobstat/cm;->a(Landroid/view/KeyEvent;)V
@@ -45,21 +45,23 @@
 .end method
 
 .method public a(Landroid/view/MotionEvent;)V
-    .registers 4
+    .locals 3
+
+    const/4 v1, 0x1
 
     .line 108
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
-    const/4 v1, 0x1
+    if-eq v0, v1, :cond_0
 
-    if-eq v0, v1, :cond_8
-
-    goto :goto_2e
+    .line 118
+    :goto_0
+    return-void
 
     .line 113
-    :cond_8
+    :cond_0
     invoke-static {v1}, Lcom/baidu/mobstat/cu;->a(Z)V
 
     .line 115
@@ -69,7 +71,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_1
 
     .line 116
     iget-object v0, p0, Lcom/baidu/mobstat/cu$1;->a:Lcom/baidu/mobstat/cu;
@@ -81,7 +83,7 @@
     invoke-static {v0, v1}, Lcom/baidu/mobstat/cu;->a(Lcom/baidu/mobstat/cu;Landroid/graphics/PointF;)Landroid/graphics/PointF;
 
     .line 118
-    :cond_1d
+    :cond_1
     iget-object v0, p0, Lcom/baidu/mobstat/cu$1;->a:Lcom/baidu/mobstat/cu;
 
     invoke-static {v0}, Lcom/baidu/mobstat/cu;->a(Lcom/baidu/mobstat/cu;)Landroid/graphics/PointF;
@@ -94,10 +96,9 @@
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
-    move-result p1
+    move-result v2
 
-    invoke-virtual {v0, v1, p1}, Landroid/graphics/PointF;->set(FF)V
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/PointF;->set(FF)V
 
-    :goto_2e
-    return-void
+    goto :goto_0
 .end method

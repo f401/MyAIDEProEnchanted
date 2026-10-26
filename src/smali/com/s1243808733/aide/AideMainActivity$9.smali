@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/s1243808733/util/Filter<",
+        "Lcom/s1243808733/util/Filter",
+        "<",
         "Landroid/view/View;",
         ">;"
     }
@@ -34,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -54,47 +55,48 @@
 
 # virtual methods
 .method public accept(Landroid/view/View;)Z
-    .registers 3
+    .locals 2
 
     .line 545
     instance-of v0, p1, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 546
     check-cast p1, Landroid/widget/TextView;
 
     invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$9;->val$actionSubTitle:Ljava/lang/String;
+    iget-object v1, p0, Lcom/s1243808733/aide/AideMainActivity$9;->val$actionSubTitle:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_15
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)Z
-    .registers 2
+    .locals 1
 
     .line 541
     check-cast p1, Landroid/view/View;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/aide/AideMainActivity$9;->accept(Landroid/view/View;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

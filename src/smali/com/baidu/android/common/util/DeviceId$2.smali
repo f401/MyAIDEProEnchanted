@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/android/common/util/DeviceId;Lcom/baidu/mobstat/bw$a;)V
-    .registers 3
+    .locals 0
 
     iput-object p1, p0, Lcom/baidu/android/common/util/DeviceId$2;->b:Lcom/baidu/android/common/util/DeviceId;
 
@@ -38,26 +38,27 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 4
 
     const-class v0, Lcom/baidu/mobstat/br;
 
     monitor-enter v0
 
-    :try_start_3
+    :try_start_0
     invoke-static {}, Lcom/baidu/android/common/util/DeviceId;->b()Lcom/baidu/android/common/util/DeviceId$CuidChangeCallback;
 
     move-result-object v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     const-class v0, Lcom/baidu/mobstat/br;
 
     monitor-exit v0
 
+    :goto_0
     return-void
 
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/baidu/android/common/util/DeviceId$2;->b:Lcom/baidu/android/common/util/DeviceId;
 
     invoke-static {v0}, Lcom/baidu/android/common/util/DeviceId;->a(Lcom/baidu/android/common/util/DeviceId;)Lcom/baidu/mobstat/bw;
@@ -65,10 +66,10 @@
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/baidu/mobstat/bw;->c()Z
-    :try_end_16
-    .catchall {:try_start_3 .. :try_end_16} :catchall_43
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :try_start_16
+    :try_start_1
     iget-object v0, p0, Lcom/baidu/android/common/util/DeviceId$2;->a:Lcom/baidu/mobstat/bw$a;
 
     const/4 v1, 0x1
@@ -81,17 +82,21 @@
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/baidu/android/common/util/DeviceId$2;->a:Lcom/baidu/mobstat/bw$a;
+    iget-object v1, p0, Lcom/baidu/android/common/util/DeviceId$2;->a:Lcom/baidu/mobstat/bw$a;
 
-    invoke-virtual {v0, v2, v1, v1}, Lcom/baidu/mobstat/bw;->a(Lcom/baidu/mobstat/bw$a;ZZ)Z
+    const/4 v2, 0x1
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/baidu/mobstat/bw;->a(Lcom/baidu/mobstat/bw$a;ZZ)Z
 
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/baidu/android/common/util/DeviceId;->a(Lcom/baidu/android/common/util/DeviceId$CuidChangeCallback;)Lcom/baidu/android/common/util/DeviceId$CuidChangeCallback;
-    :try_end_2b
-    .catchall {:try_start_16 .. :try_end_2b} :catchall_38
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    :try_start_2b
+    :try_start_2
     iget-object v0, p0, Lcom/baidu/android/common/util/DeviceId$2;->b:Lcom/baidu/android/common/util/DeviceId;
 
     invoke-static {v0}, Lcom/baidu/android/common/util/DeviceId;->a(Lcom/baidu/android/common/util/DeviceId;)Lcom/baidu/mobstat/bw;
@@ -104,11 +109,23 @@
 
     monitor-exit v0
 
-    return-void
+    goto :goto_0
 
-    :catchall_38
+    :catchall_0
     move-exception v0
 
+    const-class v1, Lcom/baidu/mobstat/br;
+
+    monitor-exit v1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw v0
+
+    :catchall_1
+    move-exception v0
+
+    :try_start_3
     iget-object v1, p0, Lcom/baidu/android/common/util/DeviceId$2;->b:Lcom/baidu/android/common/util/DeviceId;
 
     invoke-static {v1}, Lcom/baidu/android/common/util/DeviceId;->a(Lcom/baidu/android/common/util/DeviceId;)Lcom/baidu/mobstat/bw;
@@ -118,15 +135,6 @@
     invoke-virtual {v1}, Lcom/baidu/mobstat/bw;->d()V
 
     throw v0
-
-    :catchall_43
-    move-exception v0
-
-    const-class v1, Lcom/baidu/mobstat/br;
-
-    monitor-exit v1
-    :try_end_47
-    .catchall {:try_start_2b .. :try_end_47} :catchall_43
-
-    throw v0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 .end method

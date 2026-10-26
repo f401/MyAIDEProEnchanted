@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Ljava/lang/ref/WeakReference;ZLandroid/content/Context;Lcom/baidu/mobstat/ExtraInfo;)V
-    .registers 6
+    .locals 0
 
     .line 485
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$5;->e:Lcom/baidu/mobstat/BDStatCore;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 13
+    .locals 10
 
     .line 489
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$5;->a:Ljava/lang/ref/WeakReference;
@@ -63,29 +63,29 @@
 
     check-cast v0, Landroid/app/Activity;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_1
 
+    .line 510
+    :cond_0
+    :goto_0
     return-void
 
     .line 494
-    :cond_b
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    if-nez v1, :cond_12
-
-    return-void
+    if-eqz v1, :cond_0
 
     .line 499
-    :cond_12
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
     .line 500
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -94,32 +94,23 @@
 
     invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
     .line 502
     invoke-virtual {v0}, Landroid/app/Activity;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_3
 
     .line 503
-    const-string v0, ""
-
-    goto :goto_2f
-
-    :cond_2b
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_2f
-    move-object v7, v0
+    const-string v5, ""
 
     .line 505
+    :goto_1
     iget-boolean v0, p0, Lcom/baidu/mobstat/BDStatCore$5;->b:Z
 
-    if-nez v0, :cond_4d
+    if-nez v0, :cond_2
 
     .line 506
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
@@ -128,9 +119,9 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v3, "End page view "
+    const-string v6, "End page view "
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
@@ -145,25 +136,33 @@
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cx;->a(Ljava/lang/String;)V
 
     .line 508
-    :cond_4d
+    :cond_2
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v6
 
     .line 510
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$5;->e:Lcom/baidu/mobstat/BDStatCore;
 
     invoke-static {v0}, Lcom/baidu/mobstat/BDStatCore;->b(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/SessionAnalysis;
 
-    move-result-object v3
+    move-result-object v1
 
-    iget-object v4, p0, Lcom/baidu/mobstat/BDStatCore$5;->c:Landroid/content/Context;
+    iget-object v2, p0, Lcom/baidu/mobstat/BDStatCore$5;->c:Landroid/content/Context;
 
-    iget-boolean v10, p0, Lcom/baidu/mobstat/BDStatCore$5;->b:Z
+    iget-boolean v8, p0, Lcom/baidu/mobstat/BDStatCore$5;->b:Z
 
-    iget-object v11, p0, Lcom/baidu/mobstat/BDStatCore$5;->d:Lcom/baidu/mobstat/ExtraInfo;
+    iget-object v9, p0, Lcom/baidu/mobstat/BDStatCore$5;->d:Lcom/baidu/mobstat/ExtraInfo;
 
-    invoke-virtual/range {v3 .. v11}, Lcom/baidu/mobstat/SessionAnalysis;->onPageEndAct(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZLcom/baidu/mobstat/ExtraInfo;)V
+    invoke-virtual/range {v1 .. v9}, Lcom/baidu/mobstat/SessionAnalysis;->onPageEndAct(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZLcom/baidu/mobstat/ExtraInfo;)V
 
-    return-void
+    goto :goto_0
+
+    .line 503
+    :cond_3
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    goto :goto_1
 .end method

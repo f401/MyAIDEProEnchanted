@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lc/n;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>(Lc/n;Lc/e;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -33,7 +33,11 @@
 .end method
 
 .method public constructor <init>(Lc/t;)V
-    .registers 5
+    .locals 3
+
+    const/4 v2, 0x2
+
+    const/4 v1, 0x1
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -41,17 +45,13 @@
 
     move-result v0
 
-    const/4 v1, 0x1
-
-    if-lt v0, v1, :cond_2b
+    if-lt v0, v1, :cond_1
 
     invoke-virtual {p1}, Lc/t;->p()I
 
     move-result v0
 
-    const/4 v2, 0x2
-
-    if-gt v0, v2, :cond_2b
+    if-gt v0, v2, :cond_1
 
     const/4 v0, 0x0
 
@@ -69,24 +69,24 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_27
+    if-ne v0, v2, :cond_0
 
     invoke-virtual {p1, v1}, Lc/t;->k(I)Lc/e;
 
-    move-result-object p1
+    move-result-object v0
 
-    goto :goto_28
-
-    :cond_27
-    const/4 p1, 0x0
-
-    :goto_28
-    iput-object p1, p0, Lr/a;->b:Lc/e;
+    :goto_0
+    iput-object v0, p0, Lr/a;->b:Lc/e;
 
     return-void
 
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
     .line 1
-    :cond_2b
+    :cond_1
     const-string v0, "Bad sequence size: "
 
     invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -96,55 +96,58 @@
     .line 2
     invoke-virtual {p1}, Lc/t;->p()I
 
-    move-result p1
+    move-result v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method public static c(Ljava/lang/Object;)Lr/a;
-    .registers 2
+    .locals 2
 
     instance-of v0, p0, Lr/a;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     check-cast p0, Lr/a;
 
+    :goto_0
     return-object p0
 
-    :cond_7
-    if-eqz p0, :cond_13
+    :cond_0
+    if-eqz p0, :cond_1
 
     new-instance v0, Lr/a;
 
     invoke-static {p0}, Lc/t;->b(Ljava/lang/Object;)Lc/t;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {v0, p0}, Lr/a;-><init>(Lc/t;)V
+    invoke-direct {v0, v1}, Lr/a;-><init>(Lc/t;)V
 
-    return-object v0
+    move-object p0, v0
 
-    :cond_13
+    goto :goto_0
+
+    :cond_1
     const/4 p0, 0x0
 
-    return-object p0
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public final l()Lc/s;
-    .registers 4
+    .locals 3
 
     new-instance v0, Lc/f;
 
@@ -156,11 +159,11 @@
 
     iget-object v1, p0, Lr/a;->b:Lc/e;
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     invoke-virtual {v0, v1}, Lc/f;->b(Lc/e;)V
 
-    :cond_11
+    :cond_0
     new-instance v1, Lc/bc;
 
     const/4 v2, 0x0

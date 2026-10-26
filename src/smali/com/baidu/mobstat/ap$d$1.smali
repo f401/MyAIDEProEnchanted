@@ -18,7 +18,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Lcom/baidu/mobstat/ap$d$a;",
         ">;"
     }
@@ -31,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/ap$d;)V
-    .registers 2
+    .locals 0
 
     iput-object p1, p0, Lcom/baidu/mobstat/ap$d$1;->a:Lcom/baidu/mobstat/ap$d;
 
@@ -43,23 +44,23 @@
 
 # virtual methods
 .method public a(Lcom/baidu/mobstat/ap$d$a;Lcom/baidu/mobstat/ap$d$a;)I
-    .registers 3
+    .locals 2
 
     invoke-static {p1}, Lcom/baidu/mobstat/ap$d$a;->a(Lcom/baidu/mobstat/ap$d$a;)I
 
-    move-result p1
+    move-result v0
 
     invoke-static {p2}, Lcom/baidu/mobstat/ap$d$a;->a(Lcom/baidu/mobstat/ap$d$a;)I
 
-    move-result p2
+    move-result v1
 
-    sub-int/2addr p1, p2
+    sub-int/2addr v0, v1
 
-    return p1
+    return v0
 .end method
 
 .method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     check-cast p1, Lcom/baidu/mobstat/ap$d$a;
 
@@ -67,7 +68,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/baidu/mobstat/ap$d$1;->a(Lcom/baidu/mobstat/ap$d$a;Lcom/baidu/mobstat/ap$d$a;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

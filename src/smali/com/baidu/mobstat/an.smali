@@ -16,7 +16,8 @@
 .field private b:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lcom/baidu/mobstat/am;",
             ">;"
@@ -27,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/baidu/mobstat/an$a;)V
-    .registers 5
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,61 +42,62 @@
 
     invoke-interface {p1}, Lcom/baidu/mobstat/an$a;->a()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v1
 
-    :goto_14
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/baidu/mobstat/am;
 
-    iget-object v1, p0, Lcom/baidu/mobstat/an;->b:Ljava/util/Map;
+    iget-object v2, p0, Lcom/baidu/mobstat/an;->b:Ljava/util/Map;
 
     invoke-virtual {v0}, Lcom/baidu/mobstat/am;->a()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v3, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_14
+    goto :goto_0
 
-    :cond_2a
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public a(Ljava/lang/String;)Lcom/baidu/mobstat/am;
-    .registers 3
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/an;->b:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/baidu/mobstat/am;
+    check-cast v0, Lcom/baidu/mobstat/am;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public a()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/baidu/mobstat/am;",
             ">;"
         }

@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,45 +26,46 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 4
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_4
+    const/4 v1, 0x0
 
+    if-ne p1, p0, :cond_1
+
+    .line 85
+    :cond_0
+    :goto_0
     return v0
 
     .line 81
-    :cond_4
-    instance-of v1, p1, Lorg/antlr/v4/runtime/atn/LexerModeAction;
+    :cond_1
+    instance-of v2, p1, Lorg/antlr/v4/runtime/atn/LexerModeAction;
 
-    const/4 v2, 0x0
+    if-nez v2, :cond_2
 
-    if-nez v1, :cond_a
+    move v0, v1
 
-    return v2
+    goto :goto_0
 
     .line 85
-    :cond_a
-    iget v1, p0, Lorg/antlr/v4/runtime/atn/LexerModeAction;->mode:I
+    :cond_2
+    iget v2, p0, Lorg/antlr/v4/runtime/atn/LexerModeAction;->mode:I
 
     check-cast p1, Lorg/antlr/v4/runtime/atn/LexerModeAction;
 
-    iget p1, p1, Lorg/antlr/v4/runtime/atn/LexerModeAction;->mode:I
+    iget v3, p1, Lorg/antlr/v4/runtime/atn/LexerModeAction;->mode:I
 
-    if-ne v1, p1, :cond_13
+    if-eq v2, v3, :cond_0
 
-    goto :goto_14
+    move v0, v1
 
-    :cond_13
-    const/4 v0, 0x0
-
-    :goto_14
-    return v0
+    goto :goto_0
 .end method
 
 .method public execute(Lorg/antlr/v4/runtime/Lexer;)V
-    .registers 3
+    .locals 1
 
     .line 65
     iget v0, p0, Lorg/antlr/v4/runtime/atn/LexerModeAction;->mode:I
@@ -75,7 +76,7 @@
 .end method
 
 .method public getActionType()Lorg/antlr/v4/runtime/atn/LexerActionType;
-    .registers 2
+    .locals 1
 
     .line 45
     sget-object v0, Lorg/antlr/v4/runtime/atn/LexerActionType;->MODE:Lorg/antlr/v4/runtime/atn/LexerActionType;
@@ -84,7 +85,7 @@
 .end method
 
 .method public getMode()I
-    .registers 2
+    .locals 1
 
     .line 36
     iget v0, p0, Lorg/antlr/v4/runtime/atn/LexerModeAction;->mode:I
@@ -93,7 +94,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .line 70
     invoke-static {}, Lorg/antlr/v4/runtime/misc/MurmurHash;->initialize()I
@@ -131,7 +132,7 @@
 .end method
 
 .method public isPositionDependent()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -139,26 +140,26 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 4
 
     .line 90
-    const/4 v0, 0x1
+    const-string v0, "mode(%d)"
 
-    new-array v0, v0, [Ljava/lang/Object;
+    const/4 v1, 0x1
 
-    iget v1, p0, Lorg/antlr/v4/runtime/atn/LexerModeAction;->mode:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
+    new-array v1, v1, [Ljava/lang/Object;
 
     const/4 v2, 0x0
 
-    aput-object v1, v0, v2
+    iget v3, p0, Lorg/antlr/v4/runtime/atn/LexerModeAction;->mode:I
 
-    const-string v1, "mode(%d)"
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/project/adapter/TemplateView;)V
-    .registers 2
+    .locals 0
 
     .line 16
     iput-object p1, p0, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->this$0:Lcom/s1243808733/aide/project/adapter/TemplateView;
@@ -41,50 +41,50 @@
 .end method
 
 .method private checkEmpty(Landroid/view/View;Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
 
-    if-nez p2, :cond_8
+    if-nez p2, :cond_0
 
     .line 39
-    const/16 p2, 0x8
+    const/16 v0, 0x8
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setVisibility(I)V
-
-    goto :goto_c
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 41
-    :cond_8
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2}, Landroid/view/View;->setVisibility(I)V
-
-    :goto_c
+    :goto_0
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public setIcon(Landroid/graphics/Bitmap;Z)V
-    .registers 4
+    .locals 1
 
     .line 23
     iget-object v0, p0, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->icon:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    if-eqz p2, :cond_c
+    if-eqz p2, :cond_0
 
     .line 24
-    iget-object p2, p0, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->icon:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    invoke-direct {p0, p2, p1}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->checkEmpty(Landroid/view/View;Ljava/lang/Object;)V
+    invoke-direct {p0, v0, p1}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->checkEmpty(Landroid/view/View;Ljava/lang/Object;)V
 
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
 
     .line 33
     iget-object v0, p0, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->subtitle:Landroid/widget/TextView;
@@ -100,7 +100,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
 
     .line 28
     iget-object v0, p0, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->title:Landroid/widget/TextView;

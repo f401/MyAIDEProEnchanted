@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 412
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$7;->this$0:Lcom/termux/app/TermuxActivity;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
-    .registers 2
+    .locals 1
 
     .line 415
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$7;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$7;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->toggleShowExtraKeys()V
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->toggleShowExtraKeys()V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method

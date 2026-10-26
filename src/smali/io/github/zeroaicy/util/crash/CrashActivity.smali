@@ -9,15 +9,15 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetlog(Lio/github/zeroaicy/util/crash/CrashActivity;)Ljava/lang/String;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lio/github/zeroaicy/util/crash/CrashActivity;->log:Ljava/lang/String;
+    iget-object v0, p0, Lio/github/zeroaicy/util/crash/CrashActivity;->log:Ljava/lang/String;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$mcopyText(Lio/github/zeroaicy/util/crash/CrashActivity;Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0, p1}, Lio/github/zeroaicy/util/crash/CrashActivity;->copyText(Ljava/lang/String;)V
 
@@ -25,7 +25,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$mreset(Lio/github/zeroaicy/util/crash/CrashActivity;)V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Lio/github/zeroaicy/util/crash/CrashActivity;->reset()V
 
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 14
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method private copyText(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
 
     .line 83
     const-string v0, "clipboard"
@@ -60,16 +60,16 @@
 
     invoke-static {v1, p1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 86
-    invoke-virtual {v0, p1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
+    invoke-virtual {v0, v1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
 
     return-void
 .end method
 
 .method private reset()V
-    .registers 3
+    .locals 2
 
     .line 73
     invoke-virtual {p0}, Lio/github/zeroaicy/util/crash/CrashActivity;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public onBackPressed()V
-    .registers 1
+    .locals 0
 
     .line 45
     invoke-direct {p0}, Lio/github/zeroaicy/util/crash/CrashActivity;->reset()V
@@ -122,7 +122,13 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 5
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v3, -0x1
+
+    const/16 v4, 0x18
 
     .line 20
     const v0, 0x1030237
@@ -138,65 +144,61 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 24
-    new-instance p1, Landroid/widget/ScrollView;
+    new-instance v0, Landroid/widget/ScrollView;
 
-    invoke-direct {p1, p0}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
     .line 25
-    new-instance v0, Landroid/widget/HorizontalScrollView;
+    new-instance v1, Landroid/widget/HorizontalScrollView;
 
-    invoke-direct {v0, p0}, Landroid/widget/HorizontalScrollView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Landroid/widget/HorizontalScrollView;-><init>(Landroid/content/Context;)V
 
     .line 26
-    new-instance v1, Landroid/widget/TextView;
+    new-instance v2, Landroid/widget/TextView;
 
-    invoke-direct {v1, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     .line 28
-    invoke-virtual {v0, v1}, Landroid/widget/HorizontalScrollView;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v2}, Landroid/widget/HorizontalScrollView;->addView(Landroid/view/View;)V
 
     .line 29
-    const/4 v2, -0x1
-
-    invoke-virtual {p1, v0, v2, v2}, Landroid/widget/ScrollView;->addView(Landroid/view/View;II)V
+    invoke-virtual {v0, v1, v3, v3}, Landroid/widget/ScrollView;->addView(Landroid/view/View;II)V
 
     .line 31
-    invoke-virtual {p0, p1}, Lio/github/zeroaicy/util/crash/CrashActivity;->setContentView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lio/github/zeroaicy/util/crash/CrashActivity;->setContentView(Landroid/view/View;)V
 
     .line 33
     invoke-virtual {p0}, Lio/github/zeroaicy/util/crash/CrashActivity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v2, "crash_log"
+    const-string v3, "crash_log"
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lio/github/zeroaicy/util/crash/CrashActivity;->log:Ljava/lang/String;
+    iput-object v1, p0, Lio/github/zeroaicy/util/crash/CrashActivity;->log:Ljava/lang/String;
 
     .line 34
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 35
-    const/4 v0, 0x1
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
+    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
 
     .line 38
-    const/16 v2, 0x18
-
-    invoke-virtual {v1, v2, v2, v2, v2}, Landroid/widget/TextView;->setPadding(IIII)V
+    invoke-virtual {v2, v4, v4, v4, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 40
-    invoke-virtual {p1, v0}, Landroid/widget/ScrollView;->setFillViewport(Z)V
+    invoke-virtual {v0, v5}, Landroid/widget/ScrollView;->setFillViewport(Z)V
 
     return-void
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .registers 5
+    .locals 3
+
+    const/4 v2, 0x1
 
     .line 50
     const v0, 0x1040001
@@ -214,32 +216,30 @@
     move-result-object v0
 
     .line 57
-    const/4 v1, 0x1
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 59
-    const-string v0, "重启"
+    const-string v0, "\u91cd\u542f"
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    new-instance v2, Lio/github/zeroaicy/util/crash/CrashActivity$2;
+    new-instance v1, Lio/github/zeroaicy/util/crash/CrashActivity$2;
 
-    invoke-direct {v2, p0}, Lio/github/zeroaicy/util/crash/CrashActivity$2;-><init>(Lio/github/zeroaicy/util/crash/CrashActivity;)V
+    invoke-direct {v1, p0}, Lio/github/zeroaicy/util/crash/CrashActivity$2;-><init>(Lio/github/zeroaicy/util/crash/CrashActivity;)V
 
-    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     move-result-object v0
 
     .line 67
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 69
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

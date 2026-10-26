@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Lc/s;-><init>()V
 
@@ -15,24 +15,25 @@
 
 # virtual methods
 .method public final d(Lc/s;)Z
-    .registers 2
+    .locals 1
 
-    instance-of p1, p1, Lc/l;
+    instance-of v0, p1, Lc/l;
 
-    if-nez p1, :cond_6
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_6
-    const/4 p1, 0x1
+    :cond_0
+    const/4 v0, 0x1
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public final hashCode()I
-    .registers 2
+    .locals 1
 
     const/4 v0, -0x1
 
@@ -40,7 +41,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     const-string v0, "NULL"
 

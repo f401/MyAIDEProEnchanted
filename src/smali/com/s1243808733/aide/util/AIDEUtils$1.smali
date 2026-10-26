@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,9 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 6
+
+    const/4 v5, 0x0
 
     .line 166
     iget-object v0, p0, Lcom/s1243808733/aide/util/AIDEUtils$1;->val$a:Ljava/lang/Object;
@@ -76,39 +78,37 @@
     iget-object v2, p0, Lcom/s1243808733/aide/util/AIDEUtils$1;->val$msg:Ljava/lang/String;
 
     .line 169
-    const/4 v3, 0x4
+    const-string v3, "j6"
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v4, 0x4
 
-    const/4 v4, 0x0
+    new-array v4, v4, [Ljava/lang/Object;
 
-    aput-object v0, v3, v4
+    aput-object v0, v4, v5
 
     const/4 v0, 0x1
 
-    aput-object v2, v3, v0
+    aput-object v2, v4, v0
 
-    const/16 v0, 0x32
+    const/4 v0, 0x2
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x32
 
-    move-result-object v0
-
-    const/4 v2, 0x2
-
-    aput-object v0, v3, v2
-
-    const/4 v0, 0x3
-
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    aput-object v2, v3, v0
+    aput-object v2, v4, v0
 
-    const-string v0, "j6"
+    const/4 v0, 0x3
 
-    invoke-virtual {v1, v0, v3}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    aput-object v2, v4, v0
+
+    invoke-virtual {v1, v3, v4}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     return-void
 .end method

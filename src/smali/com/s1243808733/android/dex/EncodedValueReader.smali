@@ -55,33 +55,33 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dex/EncodedValue;)V
-    .registers 2
+    .locals 1
 
     .line 57
     invoke-virtual {p1}, Lcom/s1243808733/android/dex/EncodedValue;->asByteInput()Lcom/s1243808733/android/dex/util/ByteInput;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Lcom/s1243808733/android/dex/EncodedValueReader;-><init>(Lcom/s1243808733/android/dex/util/ByteInput;)V
+    invoke-direct {p0, v0}, Lcom/s1243808733/android/dex/EncodedValueReader;-><init>(Lcom/s1243808733/android/dex/util/ByteInput;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/android/dex/EncodedValue;I)V
-    .registers 3
+    .locals 1
 
     .line 72
     invoke-virtual {p1}, Lcom/s1243808733/android/dex/EncodedValue;->asByteInput()Lcom/s1243808733/android/dex/util/ByteInput;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dex/EncodedValueReader;-><init>(Lcom/s1243808733/android/dex/util/ByteInput;I)V
+    invoke-direct {p0, v0, p2}, Lcom/s1243808733/android/dex/EncodedValueReader;-><init>(Lcom/s1243808733/android/dex/util/ByteInput;I)V
 
     return-void
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/android/dex/util/ByteInput;)V
-    .registers 3
+    .locals 1
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/android/dex/util/ByteInput;I)V
-    .registers 3
+    .locals 0
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -113,55 +113,52 @@
 .end method
 
 .method private checkType(I)V
-    .registers 5
+    .locals 5
 
     .line 302
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->peek()I
 
     move-result v0
 
-    if-ne v0, p1, :cond_7
+    if-ne v0, p1, :cond_0
 
     return-void
 
     .line 303
-    :cond_7
-    nop
-
-    .line 304
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    const/4 v1, 0x2
+    const-string v1, "Expected %x but was %x"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x2
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v4
 
-    aput-object p1, v1, v2
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->peek()I
 
-    move-result p1
+    move-result v4
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v4
 
-    const/4 v2, 0x1
+    aput-object v4, v2, v3
 
-    aput-object p1, v1, v2
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    const-string p1, "Expected %x but was %x"
+    move-result-object v1
 
-    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -169,7 +166,7 @@
 
 # virtual methods
 .method public getAnnotationType()I
-    .registers 2
+    .locals 1
 
     .line 129
     iget v0, p0, Lcom/s1243808733/android/dex/EncodedValueReader;->annotationType:I
@@ -178,14 +175,14 @@
 .end method
 
 .method public peek()I
-    .registers 3
+    .locals 2
 
     .line 79
     iget v0, p0, Lcom/s1243808733/android/dex/EncodedValueReader;->type:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_0
 
     .line 80
     iget-object v0, p0, Lcom/s1243808733/android/dex/EncodedValueReader;->in:Lcom/s1243808733/android/dex/util/ByteInput;
@@ -207,14 +204,14 @@
     iput v0, p0, Lcom/s1243808733/android/dex/EncodedValueReader;->arg:I
 
     .line 84
-    :cond_15
+    :cond_0
     iget v0, p0, Lcom/s1243808733/android/dex/EncodedValueReader;->type:I
 
     return v0
 .end method
 
 .method public readAnnotation()I
-    .registers 2
+    .locals 1
 
     .line 117
     const/16 v0, 0x1d
@@ -246,7 +243,7 @@
 .end method
 
 .method public readAnnotationName()I
-    .registers 2
+    .locals 1
 
     .line 133
     iget-object v0, p0, Lcom/s1243808733/android/dex/EncodedValueReader;->in:Lcom/s1243808733/android/dex/util/ByteInput;
@@ -259,7 +256,7 @@
 .end method
 
 .method public readArray()I
-    .registers 2
+    .locals 1
 
     .line 98
     const/16 v0, 0x1c
@@ -282,7 +279,7 @@
 .end method
 
 .method public readBoolean()Z
-    .registers 2
+    .locals 1
 
     .line 226
     const/16 v0, 0x1f
@@ -297,21 +294,21 @@
     .line 228
     iget v0, p0, Lcom/s1243808733/android/dex/EncodedValueReader;->arg:I
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_f
+    :goto_0
+    return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_f
-    return v0
+    goto :goto_0
 .end method
 
 .method public readByte()B
-    .registers 3
+    .locals 2
 
     .line 137
     const/4 v0, 0x0
@@ -338,7 +335,7 @@
 .end method
 
 .method public readChar()C
-    .registers 4
+    .locals 3
 
     .line 149
     const/4 v0, 0x3
@@ -367,7 +364,7 @@
 .end method
 
 .method public readDouble()D
-    .registers 4
+    .locals 3
 
     .line 173
     const/16 v0, 0x11
@@ -398,7 +395,7 @@
 .end method
 
 .method public readEnum()I
-    .registers 4
+    .locals 3
 
     .line 209
     const/16 v0, 0x1b
@@ -425,7 +422,7 @@
 .end method
 
 .method public readField()I
-    .registers 4
+    .locals 3
 
     .line 203
     const/16 v0, 0x19
@@ -452,7 +449,7 @@
 .end method
 
 .method public readFloat()F
-    .registers 4
+    .locals 3
 
     .line 167
     const/16 v0, 0x10
@@ -483,7 +480,7 @@
 .end method
 
 .method public readInt()I
-    .registers 3
+    .locals 2
 
     .line 155
     const/4 v0, 0x4
@@ -508,7 +505,7 @@
 .end method
 
 .method public readLong()J
-    .registers 3
+    .locals 2
 
     .line 161
     const/4 v0, 0x6
@@ -533,7 +530,7 @@
 .end method
 
 .method public readMethod()I
-    .registers 4
+    .locals 3
 
     .line 215
     const/16 v0, 0x1a
@@ -560,7 +557,7 @@
 .end method
 
 .method public readMethodHandle()I
-    .registers 4
+    .locals 3
 
     .line 185
     const/16 v0, 0x16
@@ -587,7 +584,7 @@
 .end method
 
 .method public readMethodType()I
-    .registers 4
+    .locals 3
 
     .line 179
     const/16 v0, 0x15
@@ -614,7 +611,7 @@
 .end method
 
 .method public readNull()V
-    .registers 2
+    .locals 1
 
     .line 221
     const/16 v0, 0x1e
@@ -630,7 +627,7 @@
 .end method
 
 .method public readShort()S
-    .registers 3
+    .locals 2
 
     .line 143
     const/4 v0, 0x2
@@ -657,7 +654,7 @@
 .end method
 
 .method public readString()I
-    .registers 4
+    .locals 3
 
     .line 191
     const/16 v0, 0x17
@@ -684,7 +681,7 @@
 .end method
 
 .method public readType()I
-    .registers 4
+    .locals 3
 
     .line 197
     const/16 v0, 0x18
@@ -711,42 +708,42 @@
 .end method
 
 .method public skipValue()V
-    .registers 3
+    .locals 3
+
+    const/4 v0, 0x0
 
     .line 236
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->peek()I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_8f
+    if-eqz v1, :cond_7
 
-    const/4 v1, 0x6
+    const/4 v2, 0x6
 
-    if-eq v0, v1, :cond_8b
+    if-eq v1, v2, :cond_6
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    if-eq v0, v1, :cond_87
+    if-eq v1, v2, :cond_5
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    if-eq v0, v1, :cond_83
+    if-eq v1, v2, :cond_4
 
-    const/4 v1, 0x4
+    const/4 v2, 0x4
 
-    if-eq v0, v1, :cond_7f
+    if-eq v1, v2, :cond_3
 
-    const/16 v1, 0x10
+    const/16 v2, 0x10
 
-    if-eq v0, v1, :cond_7b
+    if-eq v1, v2, :cond_2
 
-    const/16 v1, 0x11
+    const/16 v2, 0x11
 
-    if-eq v0, v1, :cond_77
+    if-eq v1, v2, :cond_1
 
-    const/4 v1, 0x0
-
-    packed-switch v0, :pswitch_data_94
+    packed-switch v1, :pswitch_data_0
 
     .line 297
     new-instance v0, Ljava/lang/StringBuilder;
@@ -774,25 +771,28 @@
     throw v1
 
     .line 294
-    :pswitch_38  #0x1f
+    :pswitch_0
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readBoolean()Z
 
-    goto :goto_92
+    .line 238
+    :cond_0
+    :goto_0
+    return-void
 
     .line 291
-    :pswitch_3c  #0x1e
+    :pswitch_1
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readNull()V
 
-    goto :goto_92
+    goto :goto_0
 
     .line 285
-    :pswitch_40  #0x1d
+    :pswitch_2
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readAnnotation()I
 
-    move-result v0
+    move-result v1
 
-    :goto_44
-    if-ge v1, v0, :cond_92
+    :goto_1
+    if-ge v0, v1, :cond_0
 
     .line 286
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readAnnotationName()I
@@ -800,126 +800,124 @@
     .line 287
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->skipValue()V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_44
+    goto :goto_1
 
     .line 280
-    :pswitch_4f  #0x1c
+    :pswitch_3
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readArray()I
 
-    move-result v0
+    move-result v1
 
-    :goto_53
-    if-ge v1, v0, :cond_92
+    :goto_2
+    if-ge v0, v1, :cond_0
 
     .line 281
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->skipValue()V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_53
+    goto :goto_2
 
     .line 274
-    :pswitch_5b  #0x1b
+    :pswitch_4
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readEnum()I
 
-    goto :goto_92
+    goto :goto_0
 
     .line 277
-    :pswitch_5f  #0x1a
+    :pswitch_5
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readMethod()I
 
-    goto :goto_92
+    goto :goto_0
 
     .line 271
-    :pswitch_63  #0x19
+    :pswitch_6
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readField()I
 
-    goto :goto_92
+    goto :goto_0
 
     .line 268
-    :pswitch_67  #0x18
+    :pswitch_7
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readType()I
 
-    goto :goto_92
+    goto :goto_0
 
     .line 265
-    :pswitch_6b  #0x17
+    :pswitch_8
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readString()I
 
-    goto :goto_92
+    goto :goto_0
 
     .line 262
-    :pswitch_6f  #0x16
+    :pswitch_9
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readMethodHandle()I
 
-    goto :goto_92
+    goto :goto_0
 
     .line 259
-    :pswitch_73  #0x15
+    :pswitch_a
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readMethodType()I
 
-    goto :goto_92
+    goto :goto_0
 
     .line 256
-    :cond_77
+    :cond_1
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readDouble()D
 
-    goto :goto_92
+    goto :goto_0
 
     .line 253
-    :cond_7b
+    :cond_2
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readFloat()F
 
-    goto :goto_92
+    goto :goto_0
 
     .line 247
-    :cond_7f
+    :cond_3
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readInt()I
 
-    goto :goto_92
+    goto :goto_0
 
     .line 244
-    :cond_83
+    :cond_4
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readChar()C
 
-    goto :goto_92
+    goto :goto_0
 
     .line 241
-    :cond_87
+    :cond_5
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readShort()S
 
-    goto :goto_92
+    goto :goto_0
 
     .line 250
-    :cond_8b
+    :cond_6
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readLong()J
 
-    goto :goto_92
+    goto :goto_0
 
     .line 238
-    :cond_8f
+    :cond_7
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/EncodedValueReader;->readByte()B
 
-    :cond_92
-    :goto_92
-    return-void
+    goto :goto_0
 
     nop
 
-    :pswitch_data_94
+    :pswitch_data_0
     .packed-switch 0x15
-        :pswitch_73  #00000015
-        :pswitch_6f  #00000016
-        :pswitch_6b  #00000017
-        :pswitch_67  #00000018
-        :pswitch_63  #00000019
-        :pswitch_5f  #0000001a
-        :pswitch_5b  #0000001b
-        :pswitch_4f  #0000001c
-        :pswitch_40  #0000001d
-        :pswitch_3c  #0000001e
-        :pswitch_38  #0000001f
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

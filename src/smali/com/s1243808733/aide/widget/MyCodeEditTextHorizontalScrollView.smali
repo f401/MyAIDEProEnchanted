@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
 
     .line 10
     invoke-direct {p0, p1}, Lcom/aide/ui/views/CodeEditTextHorizontalScrollView;-><init>(Landroid/content/Context;)V
@@ -17,7 +17,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
 
     .line 15
     invoke-direct {p0, p1, p2}, Lcom/aide/ui/views/CodeEditTextHorizontalScrollView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -29,7 +29,7 @@
 .end method
 
 .method private init(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

@@ -35,461 +35,501 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 19
+    .locals 21
 
     .line 6
-    move-object/from16 v0, p0
-
     invoke-direct/range {p0 .. p0}, Lcom/s1243808733/aide/highlight/color/Colors;-><init>()V
 
     .line 8
-    nop
-
-    .line 9
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_f
+    if-eqz v4, :cond_0
 
-    const-string v1, "背景颜色"
+    const-string v4, "\u80cc\u666f\u989c\u8272"
 
-    goto :goto_11
-
-    :cond_f
-    const-string v1, "Background"
-
-    :goto_11
-    new-instance v2, Lcom/s1243808733/aide/highlight/color/Color;
-
-    const-string v3, "#00FFFFFF"
-
-    const-string v4, "#FF181818"
-
-    const-string v5, "background"
-
-    invoke-direct {v2, v5, v1, v3, v4}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iput-object v2, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->BACKGROUND:Lcom/s1243808733/aide/highlight/color/Color;
-
-    .line 11
-    nop
-
-    .line 12
-    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
-
-    move-result v1
-
-    const-string v3, "Plain"
-
-    if-eqz v1, :cond_2a
-
-    const-string v1, "文字颜色"
-
-    goto :goto_2b
-
-    :cond_2a
-    move-object v1, v3
-
-    :goto_2b
-    new-instance v4, Lcom/s1243808733/aide/highlight/color/Color;
-
-    const-string v5, "#FFFFFFFF"
-
-    const-string v6, "#FF000000"
-
-    invoke-direct {v4, v3, v1, v6, v5}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iput-object v4, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->PLAIN:Lcom/s1243808733/aide/highlight/color/Color;
-
-    .line 14
-    nop
-
-    .line 15
-    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
-
-    move-result v1
-
-    const-string v3, "Keyword"
-
-    if-eqz v1, :cond_42
-
-    const-string v1, "关键词颜色"
-
-    goto :goto_43
-
-    :cond_42
-    move-object v1, v3
-
-    :goto_43
+    :goto_0
     new-instance v5, Lcom/s1243808733/aide/highlight/color/Color;
 
-    const-string v7, "#FFFF5252"
+    const-string v6, "background"
 
-    const-string v8, "#FF0096FF"
+    const-string v7, "#00FFFFFF"
 
-    invoke-direct {v5, v3, v1, v8, v7}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v8, "#FF181818"
 
-    iput-object v5, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->KEYWORD:Lcom/s1243808733/aide/highlight/color/Color;
+    invoke-direct {v5, v6, v4, v7, v8}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 17
-    nop
+    move-object/from16 v0, p0
 
-    .line 18
+    iput-object v5, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->BACKGROUND:Lcom/s1243808733/aide/highlight/color/Color;
+
+    .line 11
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    const-string v3, "Identifier"
+    if-eqz v4, :cond_1
 
-    if-eqz v1, :cond_5a
+    const-string v4, "\u6587\u5b57\u989c\u8272"
 
-    const-string v1, "标识符颜色"
-
-    goto :goto_5b
-
-    :cond_5a
-    move-object v1, v3
-
-    :goto_5b
-    new-instance v7, Lcom/s1243808733/aide/highlight/color/Color;
-
-    const-string v9, "#FFFFD740"
-
-    invoke-direct {v7, v3, v1, v6, v9}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iput-object v7, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->IDENTIFIER:Lcom/s1243808733/aide/highlight/color/Color;
-
-    .line 20
-    nop
-
-    .line 21
-    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
-
-    move-result v1
-
-    const-string v3, "Literal"
-
-    if-eqz v1, :cond_70
-
-    const-string v1, "字符串、数字、布尔值颜色"
-
-    goto :goto_71
-
-    :cond_70
-    move-object v1, v3
-
-    :goto_71
+    :goto_1
     new-instance v6, Lcom/s1243808733/aide/highlight/color/Color;
 
-    const-string v10, "#FFE91E63"
+    const-string v7, "Plain"
 
-    const-string v11, "#FF8BC34A"
+    const-string v8, "#FF000000"
 
-    invoke-direct {v6, v3, v1, v10, v11}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v9, "#FFFFFFFF"
 
-    iput-object v6, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->LITERAL:Lcom/s1243808733/aide/highlight/color/Color;
+    invoke-direct {v6, v7, v4, v8, v9}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 23
-    nop
+    move-object/from16 v0, p0
 
-    .line 24
+    iput-object v6, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->PLAIN:Lcom/s1243808733/aide/highlight/color/Color;
+
+    .line 14
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    const-string v3, "Operator"
+    if-eqz v4, :cond_2
 
-    if-eqz v1, :cond_88
+    const-string v4, "\u5173\u952e\u8bcd\u989c\u8272"
 
-    const-string v1, "操作符颜色"
+    :goto_2
+    new-instance v7, Lcom/s1243808733/aide/highlight/color/Color;
 
-    goto :goto_89
+    const-string v8, "Keyword"
 
-    :cond_88
-    move-object v1, v3
+    const-string v9, "#FF0096FF"
 
-    :goto_89
+    const-string v10, "#FFFF5252"
+
+    invoke-direct {v7, v8, v4, v9, v10}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v7, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->KEYWORD:Lcom/s1243808733/aide/highlight/color/Color;
+
+    .line 17
+    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const-string v4, "\u6807\u8bc6\u7b26\u989c\u8272"
+
+    :goto_3
+    new-instance v8, Lcom/s1243808733/aide/highlight/color/Color;
+
+    const-string v9, "Identifier"
+
+    const-string v10, "#FF000000"
+
+    const-string v11, "#FFFFD740"
+
+    invoke-direct {v8, v9, v4, v10, v11}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v8, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->IDENTIFIER:Lcom/s1243808733/aide/highlight/color/Color;
+
+    .line 20
+    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    const-string v4, "\u5b57\u7b26\u4e32\u3001\u6570\u5b57\u3001\u5e03\u5c14\u503c\u989c\u8272"
+
+    :goto_4
+    new-instance v9, Lcom/s1243808733/aide/highlight/color/Color;
+
+    const-string v10, "Literal"
+
+    const-string v11, "#FFE91E63"
+
+    const-string v12, "#FF8BC34A"
+
+    invoke-direct {v9, v10, v4, v11, v12}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v9, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->LITERAL:Lcom/s1243808733/aide/highlight/color/Color;
+
+    .line 23
+    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    const-string v4, "\u64cd\u4f5c\u7b26\u989c\u8272"
+
+    :goto_5
     new-instance v10, Lcom/s1243808733/aide/highlight/color/Color;
 
-    const-string v11, "#FF03A9F4"
+    const-string v11, "Operator"
 
-    const-string v12, "#FFEC407A"
+    const-string v12, "#FF03A9F4"
 
-    invoke-direct {v10, v3, v1, v11, v12}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v13, "#FFEC407A"
+
+    invoke-direct {v10, v11, v4, v12, v13}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
 
     iput-object v10, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->OPERATOR:Lcom/s1243808733/aide/highlight/color/Color;
 
     .line 26
-    nop
-
-    .line 27
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    const-string v3, "Type Identifier"
+    if-eqz v4, :cond_6
 
-    if-eqz v1, :cond_a0
+    const-string v4, "\u7c7b\u578b\u6807\u8bc6\u7b26\u989c\u8272"
 
-    const-string v1, "类型标识符颜色"
-
-    goto :goto_a1
-
-    :cond_a0
-    move-object v1, v3
-
-    :goto_a1
+    :goto_6
     new-instance v11, Lcom/s1243808733/aide/highlight/color/Color;
 
-    const-string v12, "#FF23BBFF"
+    const-string v12, "Type Identifier"
 
-    invoke-direct {v11, v3, v1, v8, v12}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v13, "#FF0096FF"
+
+    const-string v14, "#FF23BBFF"
+
+    invoke-direct {v11, v12, v4, v13, v14}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
 
     iput-object v11, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->TYPE_IDENTIFIER:Lcom/s1243808733/aide/highlight/color/Color;
 
     .line 29
-    nop
-
-    .line 30
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    const-string v3, "Namespace/Package Identifier"
+    if-eqz v4, :cond_7
 
-    if-eqz v1, :cond_b6
+    const-string v4, "\u5305\u540d\u989c\u8272"
 
-    const-string v1, "包名颜色"
+    :goto_7
+    new-instance v12, Lcom/s1243808733/aide/highlight/color/Color;
 
-    goto :goto_b7
-
-    :cond_b6
-    move-object v1, v3
-
-    :goto_b7
-    new-instance v13, Lcom/s1243808733/aide/highlight/color/Color;
+    const-string v13, "Namespace/Package Identifier"
 
     const-string v14, "#FF818181"
 
-    invoke-direct {v13, v3, v1, v14, v9}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const-string v15, "#FFFFD740"
 
-    iput-object v13, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->NAMESPACE_IDENTIFIER:Lcom/s1243808733/aide/highlight/color/Color;
+    invoke-direct {v12, v13, v4, v14, v15}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v12, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->NAMESPACE_IDENTIFIER:Lcom/s1243808733/aide/highlight/color/Color;
 
     .line 32
-    nop
-
-    .line 33
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    const-string v3, "Separator/Punctuator"
+    if-eqz v4, :cond_8
 
-    if-eqz v1, :cond_cc
+    const-string v4, "\u62ec\u53f7\u3001\u6807\u70b9\u989c\u8272"
 
-    const-string v1, "括号、标点颜色"
+    :goto_8
+    new-instance v13, Lcom/s1243808733/aide/highlight/color/Color;
 
-    goto :goto_cd
+    const-string v14, "Separator/Punctuator"
 
-    :cond_cc
-    move-object v1, v3
+    const-string v15, "#FF0096FF"
 
-    :goto_cd
-    new-instance v9, Lcom/s1243808733/aide/highlight/color/Color;
+    const-string v16, "#FF4DD0E1"
 
-    const-string v15, "#FF4DD0E1"
+    move-object/from16 v0, v16
 
-    invoke-direct {v9, v3, v1, v8, v15}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v13, v14, v4, v15, v0}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    iput-object v9, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->SEPARATOR:Lcom/s1243808733/aide/highlight/color/Color;
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->SEPARATOR:Lcom/s1243808733/aide/highlight/color/Color;
 
     .line 35
-    nop
-
-    .line 36
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    const-string v3, "Comment"
+    if-eqz v4, :cond_9
 
-    if-eqz v1, :cond_e2
+    const-string v4, "\u4ee3\u7801\u6ce8\u91ca\u989c\u8272"
 
-    const-string v1, "代码注释颜色"
+    :goto_9
+    new-instance v14, Lcom/s1243808733/aide/highlight/color/Color;
 
-    goto :goto_e3
+    const-string v15, "Comment"
 
-    :cond_e2
-    move-object v1, v3
+    const-string v16, "#FF818181"
 
-    :goto_e3
-    new-instance v8, Lcom/s1243808733/aide/highlight/color/Color;
+    const-string v17, "#FF00C853"
 
-    const-string v15, "#FF00C853"
+    move-object/from16 v0, v16
 
-    invoke-direct {v8, v3, v1, v14, v15}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v1, v17
 
-    iput-object v8, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->COMMENT:Lcom/s1243808733/aide/highlight/color/Color;
+    invoke-direct {v14, v15, v4, v0, v1}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v14, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->COMMENT:Lcom/s1243808733/aide/highlight/color/Color;
 
     .line 40
-    nop
-
-    .line 41
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_f6
+    if-eqz v4, :cond_a
 
-    const-string v1, "行号颜色"
+    const-string v4, "\u884c\u53f7\u989c\u8272"
 
-    goto :goto_f8
+    :goto_a
+    new-instance v15, Lcom/s1243808733/aide/highlight/color/Color;
 
-    :cond_f6
-    const-string v1, "Line number"
+    const-string v16, "line number"
 
-    :goto_f8
-    new-instance v3, Lcom/s1243808733/aide/highlight/color/Color;
+    const-string v17, "#FFBDBDBD"
 
-    const-string v14, "line number"
+    const-string v18, "#FF23BBFF"
 
-    const-string v15, "#FFBDBDBD"
+    move-object/from16 v0, v16
 
-    invoke-direct {v3, v14, v1, v15, v12}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v1, v17
 
-    iput-object v3, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->LINE_NUMBER:Lcom/s1243808733/aide/highlight/color/Color;
+    move-object/from16 v2, v18
+
+    invoke-direct {v15, v0, v4, v1, v2}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iput-object v15, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->LINE_NUMBER:Lcom/s1243808733/aide/highlight/color/Color;
 
     .line 43
-    nop
-
-    .line 44
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_10d
+    if-eqz v4, :cond_b
 
-    const-string v1, "已选行背景颜色"
+    const-string v4, "\u5df2\u9009\u884c\u80cc\u666f\u989c\u8272"
 
-    goto :goto_10f
+    :goto_b
+    new-instance v16, Lcom/s1243808733/aide/highlight/color/Color;
 
-    :cond_10d
-    const-string v1, "Selested line background"
+    const-string v17, "line background"
 
-    :goto_10f
-    new-instance v12, Lcom/s1243808733/aide/highlight/color/Color;
+    const-string v18, "#10000000"
 
-    const-string v14, "#10000000"
+    const-string v19, "#15FFFFFF"
 
-    const-string v15, "#15FFFFFF"
+    move-object/from16 v0, v16
 
-    move-object/from16 v16, v3
+    move-object/from16 v1, v17
 
-    const-string v3, "line background"
+    move-object/from16 v2, v18
 
-    invoke-direct {v12, v3, v1, v14, v15}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v3, v19
 
-    iput-object v12, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->LINE_BACKGROUND:Lcom/s1243808733/aide/highlight/color/Color;
+    invoke-direct {v0, v1, v4, v2, v3}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/s1243808733/aide/highlight/color/ColorDefault;->LINE_BACKGROUND:Lcom/s1243808733/aide/highlight/color/Color;
 
     .line 46
-    nop
-
-    .line 47
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_128
+    if-eqz v4, :cond_c
 
-    const-string v1, "已选文字背景颜色"
+    const-string v4, "\u5df2\u9009\u6587\u5b57\u80cc\u666f\u989c\u8272"
 
-    goto :goto_12a
+    :goto_c
+    new-instance v17, Lcom/s1243808733/aide/highlight/color/Color;
 
-    :cond_128
-    const-string v1, "Selected text background"
+    const-string v18, "selected background"
 
-    :goto_12a
-    new-instance v3, Lcom/s1243808733/aide/highlight/color/Color;
+    const-string v19, "#FF2ABFFF"
 
-    const-string v14, "#FF2ABFFF"
+    const-string v20, "#FF2E94C2"
 
-    const-string v15, "#FF2E94C2"
+    move-object/from16 v0, v17
 
-    move-object/from16 v17, v12
+    move-object/from16 v1, v18
 
-    const-string v12, "selected background"
+    move-object/from16 v2, v19
 
-    invoke-direct {v3, v12, v1, v14, v15}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v3, v20
 
-    iput-object v3, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->SELECTED_BACKGROUND:Lcom/s1243808733/aide/highlight/color/Color;
+    invoke-direct {v0, v1, v4, v2, v3}, Lcom/s1243808733/aide/highlight/color/Color;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/s1243808733/aide/highlight/color/ColorDefault;->SELECTED_BACKGROUND:Lcom/s1243808733/aide/highlight/color/Color;
 
     .line 49
-    const/16 v1, 0xd
+    const/16 v4, 0xd
 
-    new-array v1, v1, [Lcom/s1243808733/aide/highlight/color/Color;
+    new-array v4, v4, [Lcom/s1243808733/aide/highlight/color/Color;
 
-    const/4 v12, 0x0
+    const/16 v18, 0x0
 
-    aput-object v2, v1, v12
+    aput-object v5, v4, v18
 
-    const/4 v2, 0x1
+    const/4 v5, 0x1
 
-    aput-object v4, v1, v2
+    aput-object v6, v4, v5
 
-    const/4 v2, 0x2
+    const/4 v5, 0x2
 
-    aput-object v5, v1, v2
+    aput-object v7, v4, v5
 
-    const/4 v2, 0x3
+    const/4 v5, 0x3
 
-    aput-object v7, v1, v2
+    aput-object v8, v4, v5
 
-    const/4 v2, 0x4
+    const/4 v5, 0x4
 
-    aput-object v6, v1, v2
+    aput-object v9, v4, v5
 
-    const/4 v2, 0x5
+    const/4 v5, 0x5
 
-    aput-object v10, v1, v2
+    aput-object v10, v4, v5
 
-    const/4 v2, 0x6
+    const/4 v5, 0x6
 
-    aput-object v11, v1, v2
+    aput-object v11, v4, v5
 
-    const/4 v2, 0x7
+    const/4 v5, 0x7
 
-    aput-object v13, v1, v2
+    aput-object v12, v4, v5
 
-    const/16 v2, 0x8
+    const/16 v5, 0x8
 
-    aput-object v9, v1, v2
+    aput-object v13, v4, v5
 
-    const/16 v2, 0x9
+    const/16 v5, 0x9
 
-    aput-object v8, v1, v2
+    aput-object v14, v4, v5
 
-    const/16 v2, 0xa
+    const/16 v5, 0xa
 
-    aput-object v16, v1, v2
+    aput-object v15, v4, v5
 
-    const/16 v2, 0xb
+    const/16 v5, 0xb
 
-    aput-object v17, v1, v2
+    aput-object v16, v4, v5
 
-    const/16 v2, 0xc
+    const/16 v5, 0xc
 
-    aput-object v3, v1, v2
+    aput-object v17, v4, v5
 
-    iput-object v1, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->colors:[Lcom/s1243808733/aide/highlight/color/Color;
+    move-object/from16 v0, p0
+
+    iput-object v4, v0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->colors:[Lcom/s1243808733/aide/highlight/color/Color;
 
     return-void
+
+    .line 8
+    :cond_0
+    const-string v4, "Background"
+
+    goto/16 :goto_0
+
+    .line 11
+    :cond_1
+    const-string v4, "Plain"
+
+    goto/16 :goto_1
+
+    .line 14
+    :cond_2
+    const-string v4, "Keyword"
+
+    goto/16 :goto_2
+
+    .line 17
+    :cond_3
+    const-string v4, "Identifier"
+
+    goto/16 :goto_3
+
+    .line 20
+    :cond_4
+    const-string v4, "Literal"
+
+    goto/16 :goto_4
+
+    .line 23
+    :cond_5
+    const-string v4, "Operator"
+
+    goto/16 :goto_5
+
+    .line 26
+    :cond_6
+    const-string v4, "Type Identifier"
+
+    goto/16 :goto_6
+
+    .line 29
+    :cond_7
+    const-string v4, "Namespace/Package Identifier"
+
+    goto/16 :goto_7
+
+    .line 32
+    :cond_8
+    const-string v4, "Separator/Punctuator"
+
+    goto/16 :goto_8
+
+    .line 35
+    :cond_9
+    const-string v4, "Comment"
+
+    goto/16 :goto_9
+
+    .line 40
+    :cond_a
+    const-string v4, "Line number"
+
+    goto/16 :goto_a
+
+    .line 43
+    :cond_b
+    const-string v4, "Selested line background"
+
+    goto/16 :goto_b
+
+    .line 46
+    :cond_c
+    const-string v4, "Selected text background"
+
+    goto/16 :goto_c
 .end method
 
 
 # virtual methods
 .method public values()[Lcom/s1243808733/aide/highlight/color/Color;
-    .registers 2
+    .locals 1
 
     .line 67
     iget-object v0, p0, Lcom/s1243808733/aide/highlight/color/ColorDefault;->colors:[Lcom/s1243808733/aide/highlight/color/Color;

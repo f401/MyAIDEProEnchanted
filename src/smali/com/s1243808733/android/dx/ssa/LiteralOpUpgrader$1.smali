@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;Lcom/s1243808733/android/dx/rop/code/TranslationAdvice;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,13 +45,19 @@
 
 # virtual methods
 .method public visitMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitNonMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 9
+    .locals 7
+
+    const/4 v4, 0x0
+
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
 
     .line 98
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;->getOriginalRopInsn()Lcom/s1243808733/android/dx/rop/code/Insn;
@@ -75,35 +81,31 @@
 
     move-result v2
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_1
 
+    .line 135
+    :cond_0
+    :goto_0
     return-void
 
     .line 105
-    :cond_15
+    :cond_1
     invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
     move-result v2
 
     const/4 v3, 0x2
 
-    if-eq v2, v3, :cond_1d
-
-    return-void
+    if-ne v2, v3, :cond_0
 
     .line 110
-    :cond_1d
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/Rop;->getBranchingness()I
 
     move-result v2
 
     const/4 v3, 0x4
 
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    if-ne v2, v3, :cond_5b
+    if-ne v2, v3, :cond_3
 
     .line 114
     invoke-virtual {v1, v5}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
@@ -114,9 +116,7 @@
 
     move-result v2
 
-    const/4 v3, 0x0
-
-    if-eqz v2, :cond_43
+    if-eqz v2, :cond_2
 
     .line 115
     iget-object v2, p0, Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader$1;->this$0:Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;
@@ -135,13 +135,13 @@
     move-result v0
 
     .line 115
-    invoke-static {v2, p1, v1, v0, v3}, Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;->-$$Nest$mreplacePlainInsn(Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;ILcom/s1243808733/android/dx/rop/cst/Constant;)V
+    invoke-static {v2, p1, v1, v0, v4}, Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;->-$$Nest$mreplacePlainInsn(Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;ILcom/s1243808733/android/dx/rop/cst/Constant;)V
 
-    goto :goto_97
+    goto :goto_0
 
     .line 117
-    :cond_43
-    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    :cond_2
+    invoke-virtual {v1, v6}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
     move-result-object v2
 
@@ -149,7 +149,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_97
+    if-eqz v2, :cond_0
 
     .line 118
     iget-object v2, p0, Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader$1;->this$0:Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;
@@ -164,12 +164,12 @@
     move-result v0
 
     .line 118
-    invoke-static {v2, p1, v1, v0, v3}, Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;->-$$Nest$mreplacePlainInsn(Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;ILcom/s1243808733/android/dx/rop/cst/Constant;)V
+    invoke-static {v2, p1, v1, v0, v4}, Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;->-$$Nest$mreplacePlainInsn(Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader;Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;ILcom/s1243808733/android/dx/rop/cst/Constant;)V
 
-    goto :goto_97
+    goto :goto_0
 
     .line 121
-    :cond_5b
+    :cond_3
     iget-object v2, p0, Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader$1;->val$advice:Lcom/s1243808733/android/dx/rop/code/TranslationAdvice;
 
     .line 122
@@ -177,50 +177,50 @@
 
     move-result-object v3
 
-    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v1, v6}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object v6
+    move-result-object v4
 
     .line 121
-    invoke-interface {v2, v0, v3, v6}, Lcom/s1243808733/android/dx/rop/code/TranslationAdvice;->hasConstantOperation(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)Z
+    invoke-interface {v2, v0, v3, v4}, Lcom/s1243808733/android/dx/rop/code/TranslationAdvice;->hasConstantOperation(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_6f
+    if-eqz v2, :cond_4
 
     .line 123
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;->upgradeToLiteral()V
 
-    goto :goto_97
+    goto :goto_0
 
     .line 124
-    :cond_6f
+    :cond_4
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/Rop;->isCommutative()Z
 
     move-result v2
 
-    if-eqz v2, :cond_97
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/s1243808733/android/dx/ssa/LiteralOpUpgrader$1;->val$advice:Lcom/s1243808733/android/dx/rop/code/TranslationAdvice;
 
     .line 126
-    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v1, v6}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
     move-result-object v3
 
     invoke-virtual {v1, v5}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object v6
+    move-result-object v4
 
     .line 125
-    invoke-interface {v2, v0, v3, v6}, Lcom/s1243808733/android/dx/rop/code/TranslationAdvice;->hasConstantOperation(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)Z
+    invoke-interface {v2, v0, v3, v4}, Lcom/s1243808733/android/dx/rop/code/TranslationAdvice;->hasConstantOperation(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_97
+    if-eqz v0, :cond_0
 
     .line 133
-    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v1, v6}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
     move-result-object v0
 
@@ -239,13 +239,11 @@
     .line 135
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;->upgradeToLiteral()V
 
-    :cond_97
-    :goto_97
-    return-void
+    goto :goto_0
 .end method
 
 .method public visitPhiInsn(Lcom/s1243808733/android/dx/ssa/PhiInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

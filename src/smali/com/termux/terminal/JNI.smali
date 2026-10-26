@@ -5,7 +5,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 9
     const-string v0, "termux"
@@ -16,7 +16,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

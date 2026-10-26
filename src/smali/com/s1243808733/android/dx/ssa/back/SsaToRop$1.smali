@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/back/SsaToRop;Ljava/util/ArrayList;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,62 +45,64 @@
 
 # virtual methods
 .method public visitBlock(Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;)V
-    .registers 7
+    .locals 5
+
+    const/4 v3, 0x0
 
     .line 144
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->getInsns()Ljava/util/ArrayList;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 146
-    invoke-virtual {p2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-ne v0, v1, :cond_44
+    if-ne v1, v2, :cond_0
 
     .line 147
-    const/4 v0, 0x0
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {p2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object p2
+    check-cast v0, Lcom/s1243808733/android/dx/ssa/SsaInsn;
 
-    check-cast p2, Lcom/s1243808733/android/dx/ssa/SsaInsn;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
 
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
-
-    move-result-object p2
+    move-result-object v0
 
     sget-object v1, Lcom/s1243808733/android/dx/rop/code/Rops;->GOTO:Lcom/s1243808733/android/dx/rop/code/Rop;
 
-    if-ne p2, v1, :cond_44
+    if-ne v0, v1, :cond_0
 
     .line 148
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->getPredecessors()Ljava/util/BitSet;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p2}, Ljava/util/BitSet;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/BitSet;->clone()Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Ljava/util/BitSet;
+    check-cast v0, Ljava/util/BitSet;
 
     .line 150
-    invoke-virtual {p2, v0}, Ljava/util/BitSet;->nextSetBit(I)I
+    invoke-virtual {v0, v3}, Ljava/util/BitSet;->nextSetBit(I)I
 
-    move-result v0
+    move-result v1
 
-    :goto_28
-    if-ltz v0, :cond_44
+    move v2, v1
+
+    :goto_0
+    if-ltz v2, :cond_0
 
     .line 152
     iget-object v1, p0, Lcom/s1243808733/android/dx/ssa/back/SsaToRop$1;->val$blocks:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -109,25 +111,27 @@
     .line 153
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->getIndex()I
 
-    move-result v2
+    move-result v3
 
     .line 154
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->getPrimarySuccessorIndex()I
 
-    move-result v3
+    move-result v4
 
     .line 153
-    invoke-virtual {v1, v2, v3}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->replaceSuccessor(II)V
+    invoke-virtual {v1, v3, v4}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->replaceSuccessor(II)V
 
     .line 151
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v2, 0x1
 
-    invoke-virtual {p2, v0}, Ljava/util/BitSet;->nextSetBit(I)I
+    invoke-virtual {v0, v1}, Ljava/util/BitSet;->nextSetBit(I)I
 
-    move-result v0
+    move-result v1
 
-    goto :goto_28
+    move v2, v1
 
-    :cond_44
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method

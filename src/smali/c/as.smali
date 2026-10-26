@@ -11,11 +11,11 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 2
-
-    new-instance v0, Lc/bc;
+    .locals 2
 
     const/4 v1, 0x0
+
+    new-instance v0, Lc/bc;
 
     invoke-direct {v0, v1}, Lc/bc;-><init>(I)V
 

@@ -12,7 +12,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public a(Landroid/content/Context;J)V
-    .registers 5
+    .locals 2
 
     .line 40
     iget-object v0, p0, Lcom/baidu/mobstat/u;->a:Lcom/baidu/mobstat/x;
@@ -39,7 +39,7 @@
 .end method
 
 .method public a(Landroid/content/Context;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
 
     .line 30
     iget-object v0, p0, Lcom/baidu/mobstat/u;->a:Lcom/baidu/mobstat/x;
@@ -50,7 +50,7 @@
 .end method
 
 .method public a(Landroid/content/Context;Lorg/json/JSONObject;)V
-    .registers 4
+    .locals 1
 
     .line 25
     iget-object v0, p0, Lcom/baidu/mobstat/u;->a:Lcom/baidu/mobstat/x;
@@ -61,20 +61,20 @@
 .end method
 
 .method public a(Landroid/content/Context;)Z
-    .registers 3
+    .locals 1
 
     .line 50
     iget-object v0, p0, Lcom/baidu/mobstat/u;->a:Lcom/baidu/mobstat/x;
 
     invoke-virtual {v0, p1}, Lcom/baidu/mobstat/x;->a(Landroid/content/Context;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public b(Landroid/content/Context;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
 
     .line 35
     iget-object v0, p0, Lcom/baidu/mobstat/u;->a:Lcom/baidu/mobstat/x;
@@ -85,14 +85,14 @@
 .end method
 
 .method public b(Landroid/content/Context;)Z
-    .registers 3
+    .locals 1
 
     .line 55
     iget-object v0, p0, Lcom/baidu/mobstat/u;->a:Lcom/baidu/mobstat/x;
 
     invoke-virtual {v0, p1}, Lcom/baidu/mobstat/x;->b(Landroid/content/Context;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

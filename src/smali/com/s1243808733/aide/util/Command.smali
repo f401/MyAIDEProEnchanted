@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,31 +28,32 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_1
 
+    .line 41
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_4
-    if-ne p1, p0, :cond_8
+    .line 4294967295
+    :cond_1
+    if-ne p1, p0, :cond_2
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    goto :goto_0
 
     .line 36
-    :cond_8
+    :cond_2
     instance-of v1, p1, Lcom/s1243808733/aide/util/Command;
 
-    if-nez v1, :cond_d
-
-    return v0
+    if-eqz v1, :cond_0
 
     .line 37
-    :cond_d
     check-cast p1, Lcom/s1243808733/aide/util/Command;
 
     .line 38
@@ -71,23 +72,23 @@
 
     iget-object v1, p0, Lcom/s1243808733/aide/util/Command;->cmd:Ljava/lang/String;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/util/Command;->cmd:Ljava/lang/String;
+    iget-object v2, p1, Lcom/s1243808733/aide/util/Command;->cmd:Ljava/lang/String;
 
     .line 40
-    invoke-virtual {v0, v1, p1}, Lorg/apache/commons/lang3/builder/EqualsBuilder;->append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang3/builder/EqualsBuilder;
+    invoke-virtual {v0, v1, v2}, Lorg/apache/commons/lang3/builder/EqualsBuilder;->append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang3/builder/EqualsBuilder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 41
-    invoke-virtual {p1}, Lorg/apache/commons/lang3/builder/EqualsBuilder;->isEquals()Z
+    invoke-virtual {v0}, Lorg/apache/commons/lang3/builder/EqualsBuilder;->isEquals()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public getCmd()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 29
     iget-object v0, p0, Lcom/s1243808733/aide/util/Command;->cmd:Ljava/lang/String;
@@ -96,7 +97,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 21
     iget-object v0, p0, Lcom/s1243808733/aide/util/Command;->name:Ljava/lang/String;
@@ -105,7 +106,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .line 46
     new-instance v0, Lorg/apache/commons/lang3/builder/HashCodeBuilder;
@@ -135,7 +136,7 @@
 .end method
 
 .method public setCmd(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 25
     iput-object p1, p0, Lcom/s1243808733/aide/util/Command;->cmd:Ljava/lang/String;
@@ -144,7 +145,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 17
     iput-object p1, p0, Lcom/s1243808733/aide/util/Command;->name:Ljava/lang/String;

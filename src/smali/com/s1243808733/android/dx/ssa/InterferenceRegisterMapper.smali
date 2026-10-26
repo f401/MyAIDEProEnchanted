@@ -7,7 +7,8 @@
 .field private final newRegInterference:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/util/BitIntSet;",
             ">;"
         }
@@ -19,17 +20,17 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;I)V
-    .registers 3
+    .locals 1
 
     .line 55
     invoke-direct {p0, p2}, Lcom/s1243808733/android/dx/ssa/BasicRegisterMapper;-><init>(I)V
 
     .line 57
-    new-instance p2, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p2, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->newRegInterference:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->newRegInterference:Ljava/util/ArrayList;
 
     .line 58
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->oldRegInterference:Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;
@@ -38,7 +39,7 @@
 .end method
 
 .method private addInterfence(II)V
-    .registers 6
+    .locals 3
 
     .line 119
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->newRegInterference:Ljava/util/ArrayList;
@@ -48,14 +49,14 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->ensureCapacity(I)V
 
     .line 121
-    :goto_7
+    :goto_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->newRegInterference:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-lt p1, v0, :cond_1a
+    if-lt p1, v0, :cond_0
 
     .line 122
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->newRegInterference:Ljava/util/ArrayList;
@@ -66,23 +67,23 @@
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_7
+    goto :goto_0
 
     .line 125
-    :cond_1a
-    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->oldRegInterference:Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;
+    :cond_0
+    iget-object v1, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->oldRegInterference:Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;
 
-    iget-object v1, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->newRegInterference:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->newRegInterference:Ljava/util/ArrayList;
 
     .line 126
-    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/util/IntSet;
+    check-cast v0, Lcom/s1243808733/android/dx/util/IntSet;
 
     .line 125
-    invoke-virtual {v0, p2, p1}, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;->mergeInterferenceSet(ILcom/s1243808733/android/dx/util/IntSet;)V
+    invoke-virtual {v1, p2, v0}, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;->mergeInterferenceSet(ILcom/s1243808733/android/dx/util/IntSet;)V
 
     return-void
 .end method
@@ -90,7 +91,7 @@
 
 # virtual methods
 .method public addMapping(III)V
-    .registers 5
+    .locals 1
 
     .line 64
     invoke-super {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/ssa/BasicRegisterMapper;->addMapping(III)V
@@ -100,34 +101,36 @@
 
     const/4 v0, 0x2
 
-    if-ne p3, v0, :cond_e
+    if-ne p3, v0, :cond_0
 
     .line 69
-    add-int/lit8 p2, p2, 0x1
+    add-int/lit8 v0, p2, 0x1
 
-    invoke-direct {p0, p2, p1}, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->addInterfence(II)V
+    invoke-direct {p0, v0, p1}, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->addInterfence(II)V
 
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public areAnyPinned(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;II)Z
-    .registers 10
+    .locals 6
+
+    const/4 v5, 0x2
+
+    const/4 v0, 0x0
 
     .line 143
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
-    move-result v0
+    move-result v2
 
-    const/4 v1, 0x0
+    move v1, v0
 
-    const/4 v2, 0x0
-
-    :goto_6
-    if-ge v2, v0, :cond_2d
+    :goto_0
+    if-ge v1, v2, :cond_2
 
     .line 146
-    invoke-virtual {p1, v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {p1, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
     move-result-object v3
 
@@ -140,47 +143,44 @@
 
     move-result v4
 
-    if-eq v4, p2, :cond_2b
+    if-eq v4, p2, :cond_1
 
     .line 154
     invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getCategory()I
 
     move-result v3
 
-    const/4 v5, 0x2
-
-    if-ne v3, v5, :cond_21
+    if-ne v3, v5, :cond_0
 
     add-int/lit8 v3, v4, 0x1
 
-    if-eq v3, p2, :cond_2b
+    if-eq v3, p2, :cond_1
 
-    :cond_21
-    if-ne p3, v5, :cond_28
+    :cond_0
+    if-ne p3, v5, :cond_3
 
     add-int/lit8 v3, p2, 0x1
 
-    if-ne v4, v3, :cond_28
+    if-ne v4, v3, :cond_3
 
-    goto :goto_2b
+    :cond_1
+    const/4 v0, 0x1
 
-    :cond_28
-    add-int/lit8 v2, v2, 0x1
+    :cond_2
+    return v0
 
-    goto :goto_6
+    :cond_3
+    add-int/lit8 v1, v1, 0x1
 
-    :cond_2b
-    :goto_2b
-    const/4 p1, 0x1
-
-    return p1
-
-    :cond_2d
-    return v1
+    goto :goto_0
 .end method
 
 .method public interferes(III)Z
-    .registers 7
+    .locals 4
+
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
 
     .line 83
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->newRegInterference:Ljava/util/ArrayList;
@@ -189,14 +189,15 @@
 
     move-result v0
 
-    const/4 v1, 0x0
+    if-lt p2, v0, :cond_1
 
-    if-lt p2, v0, :cond_a
-
+    .line 94
+    :cond_0
+    :goto_0
     return v1
 
     .line 86
-    :cond_a
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->newRegInterference:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -205,50 +206,52 @@
 
     check-cast v0, Lcom/s1243808733/android/dx/util/IntSet;
 
-    if-nez v0, :cond_15
+    if-eqz v0, :cond_0
 
-    return v1
-
-    :cond_15
-    const/4 v2, 0x1
-
-    if-ne p3, v2, :cond_1d
+    if-ne p3, v2, :cond_2
 
     .line 91
     invoke-interface {v0, p1}, Lcom/s1243808733/android/dx/util/IntSet;->has(I)Z
 
-    move-result p1
+    move-result v1
 
-    return p1
+    goto :goto_0
 
     .line 93
-    :cond_1d
+    :cond_2
     invoke-interface {v0, p1}, Lcom/s1243808733/android/dx/util/IntSet;->has(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_3
 
     .line 94
-    add-int/2addr p2, v2
+    add-int/lit8 v0, p2, 0x1
 
-    sub-int/2addr p3, v2
+    add-int/lit8 v3, p3, -0x1
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->interferes(III)Z
+    invoke-virtual {p0, p1, v0, v3}, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->interferes(III)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_2c
+    if-eqz v0, :cond_4
 
-    :cond_2b
-    const/4 v1, 0x1
+    :cond_3
+    move v0, v2
 
-    :cond_2c
-    return v1
+    :goto_1
+    move v1, v0
+
+    goto :goto_0
+
+    :cond_4
+    move v0, v1
+
+    goto :goto_1
 .end method
 
 .method public interferes(Lcom/s1243808733/android/dx/rop/code/RegisterSpec;I)Z
-    .registers 4
+    .locals 2
 
     .line 108
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
@@ -257,11 +260,11 @@
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getCategory()I
 
-    move-result p1
+    move-result v1
 
-    invoke-virtual {p0, v0, p2, p1}, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->interferes(III)Z
+    invoke-virtual {p0, v0, p2, v1}, Lcom/s1243808733/android/dx/ssa/InterferenceRegisterMapper;->interferes(III)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

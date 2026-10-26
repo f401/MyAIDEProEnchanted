@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/SsaRenamer;)V
-    .registers 2
+    .locals 0
 
     .line 164
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/SsaRenamer$1;->this$0:Lcom/s1243808733/android/dx/ssa/SsaRenamer;
@@ -36,16 +36,16 @@
 
 # virtual methods
 .method public visitBlock(Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;)V
-    .registers 4
+    .locals 2
 
     .line 168
-    new-instance p2, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;
+    new-instance v0, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/SsaRenamer$1;->this$0:Lcom/s1243808733/android/dx/ssa/SsaRenamer;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/ssa/SsaRenamer$1;->this$0:Lcom/s1243808733/android/dx/ssa/SsaRenamer;
 
-    invoke-direct {p2, v0, p1}, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;-><init>(Lcom/s1243808733/android/dx/ssa/SsaRenamer;Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;)V
+    invoke-direct {v0, v1, p1}, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;-><init>(Lcom/s1243808733/android/dx/ssa/SsaRenamer;Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;)V
 
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;->process()V
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;->process()V
 
     return-void
 .end method

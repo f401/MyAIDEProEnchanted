@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 15
     new-instance v0, Lcom/s1243808733/util/XMLEscape;
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method public static showDialog(Landroid/app/Activity;Ljava/lang/String;Lcom/s1243808733/util/EscapeUtils;)V
-    .registers 5
+    .locals 2
 
     .line 18
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -57,15 +57,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
-
-    return-void
+    if-eqz v0, :cond_0
 
     .line 20
-    :cond_19
+    :goto_0
+    return-void
+
+    :cond_0
     invoke-virtual {p2, p0, p1}, Lcom/s1243808733/util/EscapeUtils;->showDialog(Landroid/app/Activity;Ljava/lang/String;)V
 
-    return-void
+    goto :goto_0
 .end method
 
 
@@ -74,7 +75,17 @@
 .end method
 
 .method public showDialog(Landroid/app/Activity;Ljava/lang/String;)V
-    .registers 7
+    .locals 7
+
+    const/4 v3, 0x0
+
+    const/4 v6, -0x2
+
+    const/high16 v2, 0x41c00000    # 24.0f
+
+    const/4 v5, 0x0
+
+    const/4 v4, -0x1
 
     .line 24
     new-instance v0, Landroid/widget/LinearLayout;
@@ -87,176 +98,169 @@
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     .line 26
-    const/high16 v1, 0x41c00000  # 24.0f
-
-    invoke-static {v1}, Lcom/s1243808733/util/Utils;->dp2px(F)I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    invoke-static {v1}, Lcom/s1243808733/util/Utils;->dp2px(F)I
+    invoke-static {v2}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
     move-result v1
 
-    invoke-virtual {v0, v2, v3, v1, v3}, Landroid/widget/LinearLayout;->setPadding(IIII)V
+    invoke-static {v2}, Lcom/s1243808733/util/Utils;->dp2px(F)I
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v3, v2, v3}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
     .line 28
     new-instance v1, Landroid/widget/EditText;
 
     invoke-direct {v1, p1}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
-    if-eqz p2, :cond_21
+    if-eqz p2, :cond_0
 
     .line 30
     invoke-virtual {v1, p2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 33
-    :cond_21
-    const/4 p2, -0x1
-
-    const/4 v2, -0x2
-
-    invoke-virtual {v0, v1, p2, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
+    :cond_0
+    invoke-virtual {v0, v1, v4, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
 
     .line 35
-    new-instance v3, Landroid/widget/ScrollView;
+    new-instance v2, Landroid/widget/ScrollView;
 
-    invoke-direct {v3, p1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, p1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
     .line 36
-    invoke-virtual {v3, v0, p2, p2}, Landroid/widget/ScrollView;->addView(Landroid/view/View;II)V
+    invoke-virtual {v2, v0, v4, v4}, Landroid/widget/ScrollView;->addView(Landroid/view/View;II)V
 
     .line 38
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    new-instance v3, Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {v0, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 39
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_3c
+    if-eqz v0, :cond_1
 
-    const-string p1, "XML转义"
+    const-string v0, "XML\u8f6c\u4e49"
 
-    goto :goto_3e
+    :goto_0
+    invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    :cond_3c
-    const-string p1, "XML escape"
-
-    :goto_3e
-    invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
+    move-result-object v0
 
     .line 40
-    invoke-virtual {p1, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 42
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_2
 
-    const-string v0, "转义"
+    const-string v0, "\u8f6c\u4e49"
 
-    goto :goto_51
+    :goto_1
+    invoke-virtual {v2, v0, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    :cond_4f
-    const-string v0, "Escape"
-
-    :goto_51
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v0, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
+    move-result-object v2
 
     .line 43
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5f
+    if-eqz v0, :cond_3
 
-    const-string v0, "反转义"
+    const-string v0, "\u53cd\u8f6c\u4e49"
 
-    goto :goto_61
+    :goto_2
+    invoke-virtual {v2, v0, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    :cond_5f
-    const-string v0, "Invert escape"
-
-    :goto_61
-    invoke-virtual {p1, v0, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
+    move-result-object v0
 
     .line 44
-    const v0, 0x1040001
+    const v2, 0x1040001
 
-    invoke-virtual {p1, v0, v3}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2, v5}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 45
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 46
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     .line 47
-    new-instance v0, Lcom/s1243808733/util/EscapeUtils$1;
+    new-instance v2, Lcom/s1243808733/util/EscapeUtils$1;
 
-    invoke-direct {v0, p0, p1}, Lcom/s1243808733/util/EscapeUtils$1;-><init>(Lcom/s1243808733/util/EscapeUtils;Landroid/app/AlertDialog;)V
+    invoke-direct {v2, p0, v0}, Lcom/s1243808733/util/EscapeUtils$1;-><init>(Lcom/s1243808733/util/EscapeUtils;Landroid/app/AlertDialog;)V
 
-    invoke-virtual {p1, v0}, Landroid/app/AlertDialog;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)V
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)V
 
     .line 57
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v4}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
-    move-result-object p2
+    move-result-object v2
 
-    new-instance v0, Lcom/s1243808733/util/EscapeUtils$2;
+    new-instance v3, Lcom/s1243808733/util/EscapeUtils$2;
 
-    invoke-direct {v0, p0, v1}, Lcom/s1243808733/util/EscapeUtils$2;-><init>(Lcom/s1243808733/util/EscapeUtils;Landroid/widget/EditText;)V
+    invoke-direct {v3, p0, v1}, Lcom/s1243808733/util/EscapeUtils$2;-><init>(Lcom/s1243808733/util/EscapeUtils;Landroid/widget/EditText;)V
 
     .line 58
-    invoke-virtual {p2, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 65
-    invoke-virtual {p1, v2}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v6}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
-    move-result-object p2
+    move-result-object v2
 
-    new-instance v0, Lcom/s1243808733/util/EscapeUtils$3;
+    new-instance v3, Lcom/s1243808733/util/EscapeUtils$3;
 
-    invoke-direct {v0, p0, v1}, Lcom/s1243808733/util/EscapeUtils$3;-><init>(Lcom/s1243808733/util/EscapeUtils;Landroid/widget/EditText;)V
+    invoke-direct {v3, p0, v1}, Lcom/s1243808733/util/EscapeUtils$3;-><init>(Lcom/s1243808733/util/EscapeUtils;Landroid/widget/EditText;)V
 
     .line 66
-    invoke-virtual {p2, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 73
-    const/4 p2, -0x3
+    const/4 v2, -0x3
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance p2, Lcom/s1243808733/util/EscapeUtils$4;
+    new-instance v2, Lcom/s1243808733/util/EscapeUtils$4;
 
-    invoke-direct {p2, p0, v1}, Lcom/s1243808733/util/EscapeUtils$4;-><init>(Lcom/s1243808733/util/EscapeUtils;Landroid/widget/EditText;)V
+    invoke-direct {v2, p0, v1}, Lcom/s1243808733/util/EscapeUtils$4;-><init>(Lcom/s1243808733/util/EscapeUtils;Landroid/widget/EditText;)V
 
     .line 74
-    invoke-virtual {p1, p2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
+
+    .line 39
+    :cond_1
+    const-string v0, "XML escape"
+
+    goto :goto_0
+
+    .line 42
+    :cond_2
+    const-string v0, "Escape"
+
+    goto :goto_1
+
+    .line 43
+    :cond_3
+    const-string v0, "Invert escape"
+
+    goto :goto_2
 .end method
 
 .method public abstract unEscapeText(Ljava/lang/String;)Ljava/lang/String;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;)V
-    .registers 2
+    .locals 0
 
     .line 268
     iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$4;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -36,39 +36,43 @@
 
 # virtual methods
 .method public onSoftInputChanged(I)V
-    .registers 7
+    .locals 7
 
-    if-nez p1, :cond_4e
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
+
+    if-nez p1, :cond_0
 
     .line 272
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_4e
+    if-eqz v0, :cond_0
 
     .line 273
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->isDrawerOpen()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_4e
+    if-eqz v0, :cond_0
 
     .line 274
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getAIDEEditorPager()Lcom/aide/ui/AIDEEditorPager;
 
-    move-result-object p1
+    move-result-object v1
 
-    if-eqz p1, :cond_4e
+    if-eqz v1, :cond_0
 
     .line 276
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v0
 
-    const-string v1, "hz"
+    const-string v2, "hz"
 
-    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v0
 
@@ -80,21 +84,17 @@
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    const-string v2, "j6"
 
-    new-array v2, v1, [Ljava/lang/Object;
+    new-array v3, v6, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
-
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v4
 
-    aput-object v4, v2, v3
+    aput-object v4, v3, v5
 
-    const-string v4, "j6"
-
-    invoke-virtual {v0, v4, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v2, v3}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     .line 277
     const-string v0, "com.aide.ui.K"
@@ -103,11 +103,11 @@
 
     move-result-object v0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v2, v6, [Ljava/lang/Object;
 
-    aput-object p1, v1, v3
+    aput-object v1, v2, v5
 
-    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->newInstance([Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->newInstance([Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v0
 
@@ -117,10 +117,10 @@
 
     check-cast v0, Ljava/lang/Runnable;
 
-    const-wide/16 v1, 0x64
+    const-wide/16 v2, 0x64
 
-    invoke-virtual {p1, v0, v1, v2}, Lcom/aide/ui/AIDEEditorPager;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v1, v0, v2, v3}, Lcom/aide/ui/AIDEEditorPager;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_4e
+    :cond_0
     return-void
 .end method

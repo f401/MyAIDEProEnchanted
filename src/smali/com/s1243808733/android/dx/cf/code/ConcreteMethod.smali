@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/cf/iface/Method;Lcom/s1243808733/android/dx/cf/iface/ClassFile;ZZ)V
-    .registers 6
+    .locals 5
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,165 +34,163 @@
     .line 70
     invoke-interface {p1}, Lcom/s1243808733/android/dx/cf/iface/Method;->getAttributes()Lcom/s1243808733/android/dx/cf/iface/AttributeList;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 71
-    const-string p2, "Code"
+    const-string v1, "Code"
 
-    invoke-interface {p1, p2}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    invoke-interface {v0, v1}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/cf/attrib/AttCode;
+    check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/AttCode;
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->attCode:Lcom/s1243808733/android/dx/cf/attrib/AttCode;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->attCode:Lcom/s1243808733/android/dx/cf/attrib/AttCode;
 
     .line 73
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/attrib/AttCode;->getAttributes()Lcom/s1243808733/android/dx/cf/iface/AttributeList;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/attrib/AttCode;->getAttributes()Lcom/s1243808733/android/dx/cf/iface/AttributeList;
 
-    move-result-object p1
+    move-result-object v3
 
     .line 82
-    sget-object p2, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/LineNumberList;
+    sget-object v1, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/LineNumberList;
 
-    if-eqz p3, :cond_37
+    if-eqz p3, :cond_0
 
     .line 84
-    nop
+    const-string v0, "LineNumberTable"
 
-    .line 85
-    const-string p3, "LineNumberTable"
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    invoke-interface {p1, p3}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    move-result-object v0
 
-    move-result-object p3
+    check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/AttLineNumberTable;
 
-    check-cast p3, Lcom/s1243808733/android/dx/cf/attrib/AttLineNumberTable;
-
-    :goto_26
-    if-eqz p3, :cond_37
+    :goto_0
+    if-eqz v0, :cond_0
 
     .line 88
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/attrib/AttLineNumberTable;->getLineNumbers()Lcom/s1243808733/android/dx/cf/code/LineNumberList;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/attrib/AttLineNumberTable;->getLineNumbers()Lcom/s1243808733/android/dx/cf/code/LineNumberList;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {p2, v0}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->concat(Lcom/s1243808733/android/dx/cf/code/LineNumberList;Lcom/s1243808733/android/dx/cf/code/LineNumberList;)Lcom/s1243808733/android/dx/cf/code/LineNumberList;
+    invoke-static {v1, v2}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->concat(Lcom/s1243808733/android/dx/cf/code/LineNumberList;Lcom/s1243808733/android/dx/cf/code/LineNumberList;)Lcom/s1243808733/android/dx/cf/code/LineNumberList;
 
-    move-result-object p2
+    move-result-object v1
 
     .line 87
-    invoke-interface {p1, p3}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
-
-    move-result-object p3
-
-    check-cast p3, Lcom/s1243808733/android/dx/cf/attrib/AttLineNumberTable;
-
-    goto :goto_26
-
-    .line 91
-    :cond_37
-    iput-object p2, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->lineNumbers:Lcom/s1243808733/android/dx/cf/code/LineNumberList;
-
-    .line 93
-    sget-object p2, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
-
-    if-eqz p4, :cond_7d
-
-    .line 101
-    nop
-
-    .line 102
-    const-string p3, "LocalVariableTable"
-
-    invoke-interface {p1, p3}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
-
-    move-result-object p3
-
-    check-cast p3, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTable;
-
-    :goto_46
-    if-eqz p3, :cond_57
-
-    .line 107
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTable;->getLocalVariables()Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
-
-    move-result-object p4
-
-    invoke-static {p2, p4}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->concat(Lcom/s1243808733/android/dx/cf/code/LocalVariableList;Lcom/s1243808733/android/dx/cf/code/LocalVariableList;)Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
-
-    move-result-object p2
-
-    .line 105
-    invoke-interface {p1, p3}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
-
-    move-result-object p3
-
-    check-cast p3, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTable;
-
-    goto :goto_46
-
-    .line 110
-    :cond_57
-    sget-object p3, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
-
-    .line 111
-    nop
-
-    .line 112
-    const-string p4, "LocalVariableTypeTable"
-
-    invoke-interface {p1, p4}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
-
-    move-result-object p4
-
-    check-cast p4, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTypeTable;
-
-    :goto_62
-    if-eqz p4, :cond_73
-
-    .line 116
-    invoke-virtual {p4}, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTypeTable;->getLocalVariables()Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
     move-result-object v0
 
-    invoke-static {p3, v0}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->concat(Lcom/s1243808733/android/dx/cf/code/LocalVariableList;Lcom/s1243808733/android/dx/cf/code/LocalVariableList;)Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+    check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/AttLineNumberTable;
 
-    move-result-object p3
+    goto :goto_0
+
+    :cond_0
+    move-object v0, v1
+
+    .line 91
+    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->lineNumbers:Lcom/s1243808733/android/dx/cf/code/LineNumberList;
+
+    .line 93
+    sget-object v1, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+
+    if-eqz p4, :cond_3
+
+    .line 101
+    const-string v0, "LocalVariableTable"
+
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTable;
+
+    :goto_1
+    if-eqz v0, :cond_1
+
+    .line 107
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTable;->getLocalVariables()Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->concat(Lcom/s1243808733/android/dx/cf/code/LocalVariableList;Lcom/s1243808733/android/dx/cf/code/LocalVariableList;)Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+
+    move-result-object v1
+
+    .line 105
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTable;
+
+    goto :goto_1
+
+    .line 110
+    :cond_1
+    sget-object v2, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+
+    .line 111
+    const-string v0, "LocalVariableTypeTable"
+
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTypeTable;
+
+    :goto_2
+    if-eqz v0, :cond_2
+
+    .line 116
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTypeTable;->getLocalVariables()Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+
+    move-result-object v4
+
+    invoke-static {v2, v4}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->concat(Lcom/s1243808733/android/dx/cf/code/LocalVariableList;Lcom/s1243808733/android/dx/cf/code/LocalVariableList;)Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+
+    move-result-object v2
 
     .line 115
-    invoke-interface {p1, p4}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    invoke-interface {v3, v0}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    move-result-object p4
+    move-result-object v0
 
-    check-cast p4, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTypeTable;
+    check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/AttLocalVariableTypeTable;
 
-    goto :goto_62
+    goto :goto_2
 
     .line 119
-    :cond_73
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->size()I
+    :cond_2
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->size()I
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_7d
+    if-eqz v0, :cond_3
 
     .line 121
-    invoke-static {p2, p3}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->mergeDescriptorsAndSignatures(Lcom/s1243808733/android/dx/cf/code/LocalVariableList;Lcom/s1243808733/android/dx/cf/code/LocalVariableList;)Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+    invoke-static {v1, v2}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->mergeDescriptorsAndSignatures(Lcom/s1243808733/android/dx/cf/code/LocalVariableList;Lcom/s1243808733/android/dx/cf/code/LocalVariableList;)Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 124
-    :cond_7d
-    iput-object p2, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->localVariables:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
+    :goto_3
+    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->localVariables:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
 
     return-void
+
+    :cond_3
+    move-object v0, v1
+
+    goto :goto_3
 .end method
 
 
 # virtual methods
 .method public getAccessFlags()I
-    .registers 2
+    .locals 1
 
     .line 174
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->method:Lcom/s1243808733/android/dx/cf/iface/Method;
@@ -205,7 +203,7 @@
 .end method
 
 .method public getAttributes()Lcom/s1243808733/android/dx/cf/iface/AttributeList;
-    .registers 2
+    .locals 1
 
     .line 180
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->method:Lcom/s1243808733/android/dx/cf/iface/Method;
@@ -218,7 +216,7 @@
 .end method
 
 .method public getCatches()Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
-    .registers 2
+    .locals 1
 
     .line 228
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->attCode:Lcom/s1243808733/android/dx/cf/attrib/AttCode;
@@ -231,7 +229,7 @@
 .end method
 
 .method public getCode()Lcom/s1243808733/android/dx/cf/code/BytecodeArray;
-    .registers 2
+    .locals 1
 
     .line 219
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->attCode:Lcom/s1243808733/android/dx/cf/attrib/AttCode;
@@ -244,7 +242,7 @@
 .end method
 
 .method public getDefiningClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 186
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->method:Lcom/s1243808733/android/dx/cf/iface/Method;
@@ -257,7 +255,7 @@
 .end method
 
 .method public getDescriptor()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 2
+    .locals 1
 
     .line 168
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->method:Lcom/s1243808733/android/dx/cf/iface/Method;
@@ -270,7 +268,7 @@
 .end method
 
 .method public getEffectiveDescriptor()Lcom/s1243808733/android/dx/rop/type/Prototype;
-    .registers 2
+    .locals 1
 
     .line 192
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->method:Lcom/s1243808733/android/dx/cf/iface/Method;
@@ -283,7 +281,7 @@
 .end method
 
 .method public getLineNumbers()Lcom/s1243808733/android/dx/cf/code/LineNumberList;
-    .registers 2
+    .locals 1
 
     .line 237
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->lineNumbers:Lcom/s1243808733/android/dx/cf/code/LineNumberList;
@@ -292,7 +290,7 @@
 .end method
 
 .method public getLocalVariables()Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
-    .registers 2
+    .locals 1
 
     .line 246
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->localVariables:Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
@@ -301,7 +299,7 @@
 .end method
 
 .method public getMaxLocals()I
-    .registers 2
+    .locals 1
 
     .line 210
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->attCode:Lcom/s1243808733/android/dx/cf/attrib/AttCode;
@@ -314,7 +312,7 @@
 .end method
 
 .method public getMaxStack()I
-    .registers 2
+    .locals 1
 
     .line 201
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->attCode:Lcom/s1243808733/android/dx/cf/attrib/AttCode;
@@ -327,7 +325,7 @@
 .end method
 
 .method public getName()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 2
+    .locals 1
 
     .line 162
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->method:Lcom/s1243808733/android/dx/cf/iface/Method;
@@ -340,7 +338,7 @@
 .end method
 
 .method public getNat()Lcom/s1243808733/android/dx/rop/cst/CstNat;
-    .registers 2
+    .locals 1
 
     .line 156
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->method:Lcom/s1243808733/android/dx/cf/iface/Method;
@@ -353,7 +351,7 @@
 .end method
 
 .method public getSourceFile()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 2
+    .locals 1
 
     .line 133
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->classFile:Lcom/s1243808733/android/dx/cf/iface/ClassFile;
@@ -366,7 +364,7 @@
 .end method
 
 .method public final isDefaultOrStaticInterfaceMethod()Z
-    .registers 2
+    .locals 1
 
     .line 141
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->classFile:Lcom/s1243808733/android/dx/cf/iface/ClassFile;
@@ -377,7 +375,7 @@
 
     and-int/lit16 v0, v0, 0x200
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 142
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getNat()Lcom/s1243808733/android/dx/rop/cst/CstNat;
@@ -388,21 +386,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_17
+    :goto_0
+    return v0
 
-    :cond_16
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_17
-    return v0
+    goto :goto_0
 .end method
 
 .method public final isStaticMethod()Z
-    .registers 2
+    .locals 1
 
     .line 150
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getAccessFlags()I
@@ -411,21 +409,21 @@
 
     and-int/lit8 v0, v0, 0x8
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_b
+    :goto_0
+    return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_b
-    return v0
+    goto :goto_0
 .end method
 
 .method public makeSourcePosistion(I)Lcom/s1243808733/android/dx/rop/code/SourcePosition;
-    .registers 5
+    .locals 3
 
     .line 257
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getSourceFile()Lcom/s1243808733/android/dx/rop/cst/CstString;

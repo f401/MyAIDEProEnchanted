@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Lcom/termux/yinli_a/i/a;-><init>()V
 
@@ -15,7 +15,7 @@
 
 # virtual methods
 .method public a(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    .registers 4
+    .locals 1
 
     const-string v0, "cause"
 

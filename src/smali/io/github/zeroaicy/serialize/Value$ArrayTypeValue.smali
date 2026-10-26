@@ -15,8 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lio/github/zeroaicy/serialize/Value<",
-        "[",
+        "Lio/github/zeroaicy/serialize/Value",
+        "<[",
         "Lio/github/zeroaicy/serialize/Value;",
         ">;"
     }
@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 56
     invoke-direct {p0}, Lio/github/zeroaicy/serialize/Value;-><init>()V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 61
     iget-object v0, p0, Lio/github/zeroaicy/serialize/Value$ArrayTypeValue;->value:Ljava/lang/Object;

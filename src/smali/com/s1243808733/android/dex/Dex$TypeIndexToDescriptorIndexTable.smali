@@ -18,7 +18,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/util/AbstractList<",
+        "Ljava/util/AbstractList",
+        "<",
         "Ljava/lang/Integer;",
         ">;",
         "Ljava/util/RandomAccess;"
@@ -32,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dex/Dex;)V
-    .registers 2
+    .locals 0
 
     .line 726
     iput-object p1, p0, Lcom/s1243808733/android/dex/Dex$TypeIndexToDescriptorIndexTable;->this$0:Lcom/s1243808733/android/dex/Dex;
@@ -43,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dex/Dex$TypeIndexToDescriptorIndexTable-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dex/Dex$TypeIndexToDescriptorIndexTable;-><init>(Lcom/s1243808733/android/dex/Dex;)V
 
@@ -53,35 +54,35 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Integer;
-    .registers 3
+    .locals 1
 
     .line 730
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex$TypeIndexToDescriptorIndexTable;->this$0:Lcom/s1243808733/android/dex/Dex;
 
     invoke-virtual {v0, p1}, Lcom/s1243808733/android/dex/Dex;->descriptorIndexFromTypeIndex(I)I
 
-    move-result p1
+    move-result v0
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 726
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/Dex$TypeIndexToDescriptorIndexTable;->get(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .line 734
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex$TypeIndexToDescriptorIndexTable;->this$0:Lcom/s1243808733/android/dex/Dex;

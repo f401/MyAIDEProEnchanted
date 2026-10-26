@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;Lcom/s1243808733/aide/application/activity/permission/Permission;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,42 +45,42 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 2
 
     .line 141
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getCurrentList()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getCurrentList()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->val$item:Lcom/s1243808733/aide/application/activity/permission/Permission;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->val$item:Lcom/s1243808733/aide/application/activity/permission/Permission;
 
-    invoke-static {p1, p2}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->remove(Ljava/util/List;Lcom/s1243808733/aide/application/activity/permission/Permission;)V
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->remove(Ljava/util/List;Lcom/s1243808733/aide/application/activity/permission/Permission;)V
 
     .line 142
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
 
     .line 143
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
 
-    const/4 p2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, p2}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->setDataChange(Z)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->setDataChange(Z)V
 
     return-void
 .end method

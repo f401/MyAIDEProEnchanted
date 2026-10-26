@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static final a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/termux/yinli_a/d;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -13,8 +13,8 @@
             "B:",
             "Ljava/lang/Object;",
             ">(TA;TB;)",
-            "La/d<",
-            "TA;TB;>;"
+            "La/d",
+            "<TA;TB;>;"
         }
     .end annotation
 

@@ -20,73 +20,73 @@
 
 # direct methods
 .method public constructor <init>(IIILcom/s1243808733/android/dx/util/IntList;Lcom/s1243808733/android/dx/cf/code/ByteCatchList;)V
-    .registers 9
+    .locals 3
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-ltz p1, :cond_68
+    if-ltz p1, :cond_6
 
-    if-ltz p2, :cond_60
+    if-ltz p2, :cond_5
 
-    if-le p3, p2, :cond_58
+    if-le p3, p2, :cond_4
 
-    if-eqz p4, :cond_50
+    if-eqz p4, :cond_3
 
     .line 73
     invoke-virtual {p4}, Lcom/s1243808733/android/dx/util/IntList;->size()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_10
-    if-ge v1, v0, :cond_3b
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 75
-    invoke-virtual {p4, v1}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+    invoke-virtual {p4, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
 
     move-result v2
 
-    if-ltz v2, :cond_1b
+    if-ltz v2, :cond_0
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 76
-    :cond_1b
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string p2, "successors["
+    const-string v2, "successors["
 
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p2, "] == "
+    const-string v2, "] == "
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 78
-    invoke-virtual {p4, v1}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+    invoke-virtual {p4, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
 
-    move-result p2
+    move-result v0
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p2, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v0
 
-    :cond_3b
-    if-eqz p5, :cond_48
+    :cond_1
+    if-eqz p5, :cond_2
 
     .line 86
     iput p1, p0, Lcom/s1243808733/android/dx/cf/code/ByteBlock;->label:I
@@ -106,66 +106,60 @@
     return-void
 
     .line 83
-    :cond_48
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_2
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "catches == null"
+    const-string v1, "catches == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 70
-    :cond_50
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_3
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "targets == null"
+    const-string v1, "targets == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 66
-    :cond_58
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_4
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "end <= start"
+    const-string v1, "end <= start"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 62
-    :cond_60
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_5
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "start < 0"
+    const-string v1, "start < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 58
-    :cond_68
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_6
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "label < 0"
+    const-string v1, "label < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_71
-
-    :goto_70
-    throw p1
-
-    :goto_71
-    goto :goto_70
+    throw v0
 .end method
 
 
 # virtual methods
 .method public getCatches()Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
-    .registers 2
+    .locals 1
 
     .line 144
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteBlock;->catches:Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
@@ -174,7 +168,7 @@
 .end method
 
 .method public getEnd()I
-    .registers 2
+    .locals 1
 
     .line 125
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteBlock;->end:I
@@ -183,7 +177,7 @@
 .end method
 
 .method public getLabel()I
-    .registers 2
+    .locals 1
 
     .line 107
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteBlock;->label:I
@@ -192,7 +186,7 @@
 .end method
 
 .method public getStart()I
-    .registers 2
+    .locals 1
 
     .line 116
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteBlock;->start:I
@@ -201,7 +195,7 @@
 .end method
 
 .method public getSuccessors()Lcom/s1243808733/android/dx/util/IntList;
-    .registers 2
+    .locals 1
 
     .line 135
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/ByteBlock;->successors:Lcom/s1243808733/android/dx/util/IntList;
@@ -210,7 +204,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 96
     new-instance v0, Ljava/lang/StringBuilder;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static debug()V
-    .registers 1
+    .locals 1
 
     .line 9
     const/4 v0, 0x1
@@ -33,7 +33,7 @@
 .end method
 
 .method public static debug(Landroid/content/Context;)V
-    .registers 2
+    .locals 1
 
     .line 15
     const/4 v0, 0x1
@@ -52,7 +52,7 @@
 .end method
 
 .method public static notDebug()V
-    .registers 0
+    .locals 0
 
     .line 23
     invoke-static {}, Lio/github/zeroaicy/util/Log;->disable()V

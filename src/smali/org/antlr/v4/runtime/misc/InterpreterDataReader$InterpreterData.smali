@@ -20,7 +20,8 @@
 .field channels:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -30,7 +31,8 @@
 .field modes:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -40,7 +42,8 @@
 .field ruleNames:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -52,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

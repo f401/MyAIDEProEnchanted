@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 7
     new-instance v0, Lcom/termux/terminal/TerminalColorScheme;
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,50 +45,36 @@
 .end method
 
 .method static parse(Ljava/lang/String;)I
-    .registers 9
+    .locals 10
 
-    .line 38
+    const/4 v2, 0x1
+
     const/4 v0, 0x0
 
-    :try_start_1
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    const/16 v2, 0x23
-
-    const/4 v3, 0x1
-
-    if-ne v1, v2, :cond_c
-
+    .line 38
     const/4 v1, 0x0
 
-    goto :goto_17
-
-    .line 42
-    :cond_c
-    const-string v1, "rgb:"
-
-    invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    :try_start_0
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    if-eqz v1, :cond_7c
+    const/16 v3, 0x23
 
-    const/4 v1, 0x4
+    if-ne v1, v3, :cond_1
 
-    const/4 v1, 0x1
+    move v1, v0
 
-    const/4 v3, 0x4
+    move v3, v2
 
     .line 49
-    :goto_17
+    :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v2
-    :try_end_1b
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1b} :catch_7b
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1b} :catch_79
 
     sub-int/2addr v2, v3
 
@@ -99,13 +85,32 @@
     .line 50
     rem-int/lit8 v4, v2, 0x3
 
-    if-eqz v4, :cond_24
+    if-eqz v4, :cond_2
 
+    .line 63
+    :cond_0
+    :goto_1
     return v0
 
+    .line 42
+    :cond_1
+    :try_start_1
+    const-string v1, "rgb:"
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v3, 0x4
+
+    move v1, v2
+
+    goto :goto_0
+
     .line 51
-    :cond_24
-    :try_start_24
+    :cond_2
     div-int/lit8 v2, v2, 0x3
 
     mul-int/lit8 v4, v2, 0x4
@@ -113,130 +118,134 @@
     int-to-double v4, v4
 
     .line 52
-    const-wide/high16 v6, 0x4000000000000000L  # 2.0
+    const-wide v6, 0x406fe00000000000L    # 255.0
 
-    invoke-static {v6, v7, v4, v5}, Ljava/lang/Math;->pow(DD)D
+    const-wide/high16 v8, 0x4000000000000000L    # 2.0
+
+    invoke-static {v8, v9, v4, v5}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v4
 
-    const-wide/high16 v6, 0x3ff0000000000000L  # 1.0
+    const-wide/high16 v8, 0x3ff0000000000000L    # 1.0
 
-    sub-double/2addr v4, v6
+    sub-double/2addr v4, v8
 
-    const-wide v6, 0x406fe00000000000L  # 255.0
-
-    div-double/2addr v6, v4
+    div-double v4, v6, v4
 
     .line 55
-    add-int v4, v3, v2
+    add-int v6, v3, v2
 
-    invoke-virtual {p0, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p0, v3, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
     add-int/2addr v1, v2
 
     add-int/2addr v3, v1
 
     .line 57
-    add-int v5, v3, v2
+    add-int v7, v3, v2
 
-    invoke-virtual {p0, v3, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p0, v3, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    add-int/2addr v3, v1
+    add-int/2addr v1, v3
 
     .line 59
-    add-int/2addr v2, v3
+    add-int/2addr v2, v1
 
-    invoke-virtual {p0, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
     .line 61
-    const/16 v1, 0x10
+    const/16 v2, 0x10
 
-    invoke-static {v4, v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    invoke-static {v6, v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result v2
-    :try_end_52
-    .catch Ljava/lang/NumberFormatException; {:try_start_24 .. :try_end_52} :catch_7b
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_24 .. :try_end_52} :catch_79
 
     int-to-double v2, v2
 
     invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v2, v2, v6
+    mul-double/2addr v2, v4
 
     double-to-int v2, v2
 
     .line 62
-    :try_start_59
-    invoke-static {v5, v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    const/16 v3, 0x10
+
+    :try_start_2
+    invoke-static {v7, v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    :try_end_2
+    .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_1
 
     move-result v3
-    :try_end_5d
-    .catch Ljava/lang/NumberFormatException; {:try_start_59 .. :try_end_5d} :catch_7b
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_59 .. :try_end_5d} :catch_79
 
-    int-to-double v3, v3
+    int-to-double v6, v3
 
-    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v6, v7}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v3, v3, v6
+    mul-double/2addr v6, v4
 
-    double-to-int v3, v3
+    double-to-int v3, v6
 
     .line 63
-    :try_start_64
-    invoke-static {p0, v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    const/16 v6, 0x10
 
-    move-result p0
-    :try_end_68
-    .catch Ljava/lang/NumberFormatException; {:try_start_64 .. :try_end_68} :catch_7b
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_64 .. :try_end_68} :catch_79
+    :try_start_3
+    invoke-static {v1, v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    :try_end_3
+    .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_1
 
-    int-to-double v4, p0
+    move-result v0
 
-    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
+    int-to-double v0, v0
 
-    mul-double v4, v4, v6
+    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
 
-    double-to-int p0, v4
+    mul-double/2addr v0, v4
 
-    const/high16 v0, -0x1000000
+    double-to-int v0, v0
 
-    shl-int/lit8 v1, v2, 0x10
+    const/high16 v1, -0x1000000
+
+    shl-int/lit8 v2, v2, 0x10
+
+    or-int/2addr v1, v2
+
+    shl-int/lit8 v2, v3, 0x8
+
+    or-int/2addr v1, v2
 
     or-int/2addr v0, v1
 
-    shl-int/lit8 v1, v3, 0x8
+    goto :goto_1
 
-    or-int/2addr v0, v1
+    :catch_0
+    move-exception v1
 
-    or-int/2addr p0, v0
+    goto :goto_1
 
-    return p0
+    :catch_1
+    move-exception v1
 
-    :catch_79
-    move-exception p0
-
-    goto :goto_7c
-
-    :catch_7b
-    move-exception p0
-
-    :cond_7c
-    :goto_7c
-    return v0
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public reset()V
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 27
     sget-object v0, Lcom/termux/terminal/TerminalColors;->COLOR_SCHEME:Lcom/termux/terminal/TerminalColorScheme;
@@ -247,15 +256,13 @@
 
     const/16 v2, 0x103
 
-    const/4 v3, 0x0
-
     invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return-void
 .end method
 
 .method public reset(I)V
-    .registers 4
+    .locals 2
 
     .line 22
     iget-object v0, p0, Lcom/termux/terminal/TerminalColors;->mCurrentColors:[I
@@ -272,20 +279,20 @@
 .end method
 
 .method public tryParseColor(ILjava/lang/String;)V
-    .registers 4
+    .locals 2
 
     .line 72
     invoke-static {p2}, Lcom/termux/terminal/TerminalColors;->parse(Ljava/lang/String;)I
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_a
+    if-eqz v0, :cond_0
 
     .line 73
-    iget-object v0, p0, Lcom/termux/terminal/TerminalColors;->mCurrentColors:[I
+    iget-object v1, p0, Lcom/termux/terminal/TerminalColors;->mCurrentColors:[I
 
-    aput p2, v0, p1
+    aput v0, v1, p1
 
-    :cond_a
+    :cond_0
     return-void
 .end method

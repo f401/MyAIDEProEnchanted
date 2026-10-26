@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 9
     invoke-direct {p0}, Lorg/antlr/v4/runtime/atn/ATNState;-><init>()V

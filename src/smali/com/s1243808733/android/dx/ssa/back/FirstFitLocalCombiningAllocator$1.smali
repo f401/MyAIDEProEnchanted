@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;)V
-    .registers 2
+    .locals 0
 
     .line 699
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->this$0:Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;
@@ -34,40 +34,40 @@
 .end method
 
 .method private processInsn(Lcom/s1243808733/android/dx/ssa/SsaInsn;)V
-    .registers 6
+    .locals 4
 
     .line 733
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getLocalAssignment()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object v0
-
-    if-eqz v0, :cond_29
-
-    .line 736
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
-
     move-result-object v1
 
-    .line 738
-    iget-object v2, p0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->this$0:Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;
+    if-eqz v1, :cond_1
 
-    invoke-static {v2}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;->-$$Nest$fgetlocalVariables(Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;)Ljava/util/Map;
+    .line 736
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
 
     move-result-object v2
+
+    .line 738
+    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->this$0:Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;
+
+    invoke-static {v0}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;->-$$Nest$fgetlocalVariables(Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;)Ljava/util/Map;
+
+    move-result-object v0
 
     .line 739
-    invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/util/ArrayList;
+    check-cast v0, Ljava/util/ArrayList;
 
-    if-nez v2, :cond_26
+    if-nez v0, :cond_0
 
     .line 742
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 743
     iget-object v3, p0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->this$0:Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;
@@ -76,17 +76,17 @@
 
     move-result-object v3
 
-    invoke-interface {v3, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 746
-    :cond_26
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :cond_0
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 749
-    :cond_29
+    :cond_1
     instance-of v0, p1, Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;
 
-    if-eqz v0, :cond_67
+    if-eqz v0, :cond_4
 
     .line 750
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
@@ -99,7 +99,7 @@
 
     const/16 v1, 0x38
 
-    if-ne v0, v1, :cond_45
+    if-ne v0, v1, :cond_3
 
     .line 752
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->this$0:Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;
@@ -112,10 +112,13 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_76
+    .line 759
+    :cond_2
+    :goto_0
+    return-void
 
     .line 753
-    :cond_45
+    :cond_3
     invoke-static {}, Lcom/s1243808733/android/dx/ssa/Optimizer;->getAdvice()Lcom/s1243808733/android/dx/rop/code/TranslationAdvice;
 
     move-result-object v0
@@ -139,7 +142,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_76
+    if-eqz v0, :cond_2
 
     .line 756
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->this$0:Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;
@@ -152,13 +155,13 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_76
+    goto :goto_0
 
     .line 758
-    :cond_67
+    :cond_4
     instance-of v0, p1, Lcom/s1243808733/android/dx/ssa/PhiInsn;
 
-    if-eqz v0, :cond_76
+    if-eqz v0, :cond_2
 
     .line 759
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->this$0:Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;
@@ -171,15 +174,13 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_76
-    :goto_76
-    return-void
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public visitMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 2
+    .locals 0
 
     .line 703
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->processInsn(Lcom/s1243808733/android/dx/ssa/SsaInsn;)V
@@ -188,7 +189,7 @@
 .end method
 
 .method public visitNonMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 2
+    .locals 0
 
     .line 715
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->processInsn(Lcom/s1243808733/android/dx/ssa/SsaInsn;)V
@@ -197,7 +198,7 @@
 .end method
 
 .method public visitPhiInsn(Lcom/s1243808733/android/dx/ssa/PhiInsn;)V
-    .registers 2
+    .locals 0
 
     .line 709
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1;->processInsn(Lcom/s1243808733/android/dx/ssa/SsaInsn;)V

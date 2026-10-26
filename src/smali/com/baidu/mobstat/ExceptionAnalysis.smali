@@ -27,7 +27,8 @@
 .field private f:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -41,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 23
     new-instance v0, Lcom/baidu/mobstat/ExceptionAnalysis;
@@ -54,7 +55,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Lcom/baidu/mobstat/ExceptionAnalysis$Callback;)V
-    .registers 3
+    .locals 1
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -109,7 +110,7 @@
 .end method
 
 .method private a()Lorg/json/JSONObject;
-    .registers 4
+    .locals 3
 
     .line 232
     new-instance v0, Lorg/json/JSONObject;
@@ -117,105 +118,108 @@
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
     .line 234
-    const/4 v1, 0x0
+    :try_start_0
+    const-string v1, "app_session"
 
-    :try_start_6
-    const-string v2, "app_session"
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_b} :catch_c
-
-    goto :goto_d
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 241
-    :catch_c
-    move-exception v2
+    :goto_0
+    :try_start_1
+    const-string v1, "failed_cnt"
 
-    :goto_d
-    :try_start_d
-    const-string v2, "failed_cnt"
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-    :try_end_12
-    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_12} :catch_13
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_14
+    :goto_1
+    return-object v0
 
-    :catch_13
+    :catch_0
     move-exception v1
 
-    :goto_14
-    return-object v0
+    goto :goto_1
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_0
 .end method
 
 .method private a(Landroid/content/Context;)Lorg/json/JSONObject;
-    .registers 6
+    .locals 6
 
     .line 251
     const-string v0, "activity"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/app/ActivityManager;
+    check-cast v0, Landroid/app/ActivityManager;
 
-    if-nez p1, :cond_c
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x0
-
-    return-object p1
-
-    .line 256
-    :cond_c
-    new-instance v0, Landroid/app/ActivityManager$MemoryInfo;
-
-    invoke-direct {v0}, Landroid/app/ActivityManager$MemoryInfo;-><init>()V
-
-    .line 257
-    invoke-virtual {p1, v0}, Landroid/app/ActivityManager;->getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V
-
-    .line 259
-    new-instance p1, Lorg/json/JSONObject;
-
-    invoke-direct {p1}, Lorg/json/JSONObject;-><init>()V
-
-    .line 262
-    :try_start_19
-    const-string v1, "total"
-
-    iget-wide v2, v0, Landroid/app/ActivityManager$MemoryInfo;->totalMem:J
-
-    invoke-virtual {p1, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
-
-    .line 265
-    const-string v1, "free"
-
-    iget-wide v2, v0, Landroid/app/ActivityManager$MemoryInfo;->availMem:J
-
-    invoke-virtual {p1, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    const/4 v0, 0x0
 
     .line 266
-    const-string v1, "low"
+    :goto_0
+    return-object v0
 
-    iget-boolean v0, v0, Landroid/app/ActivityManager$MemoryInfo;->lowMemory:Z
+    .line 256
+    :cond_0
+    new-instance v1, Landroid/app/ActivityManager$MemoryInfo;
 
-    invoke-virtual {p1, v1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-    :try_end_2e
-    .catch Ljava/lang/Exception; {:try_start_19 .. :try_end_2e} :catch_2f
+    invoke-direct {v1}, Landroid/app/ActivityManager$MemoryInfo;-><init>()V
 
-    goto :goto_30
+    .line 257
+    invoke-virtual {v0, v1}, Landroid/app/ActivityManager;->getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V
 
-    :catch_2f
-    move-exception v0
+    .line 259
+    new-instance v0, Lorg/json/JSONObject;
 
-    :goto_30
-    return-object p1
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+
+    .line 262
+    :try_start_0
+    const-string v2, "total"
+
+    iget-wide v4, v1, Landroid/app/ActivityManager$MemoryInfo;->totalMem:J
+
+    invoke-virtual {v0, v2, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+
+    .line 265
+    const-string v2, "free"
+
+    iget-wide v4, v1, Landroid/app/ActivityManager$MemoryInfo;->availMem:J
+
+    invoke-virtual {v0, v2, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+
+    .line 266
+    const-string v2, "low"
+
+    iget-boolean v1, v1, Landroid/app/ActivityManager$MemoryInfo;->lowMemory:Z
+
+    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_0
 .end method
 
 .method public static getInstance()Lcom/baidu/mobstat/ExceptionAnalysis;
-    .registers 1
+    .locals 1
 
     .line 26
     sget-object v0, Lcom/baidu/mobstat/ExceptionAnalysis;->a:Lcom/baidu/mobstat/ExceptionAnalysis;
@@ -226,62 +230,61 @@
 
 # virtual methods
 .method public openExceptionAnalysis(Landroid/content/Context;Z)V
-    .registers 4
+    .locals 2
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     .line 61
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
+    iput-object v0, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
 
     .line 63
-    :cond_8
-    iget-object p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
+    :cond_0
+    iget-object v0, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
 
-    if-nez p1, :cond_d
+    if-nez v0, :cond_2
 
+    .line 75
+    :cond_1
+    :goto_0
     return-void
 
     .line 67
-    :cond_d
-    iget-boolean p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->b:Z
+    :cond_2
+    iget-boolean v0, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->b:Z
 
-    if-eqz p1, :cond_12
-
-    return-void
+    if-nez v0, :cond_1
 
     .line 70
-    :cond_12
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->b:Z
+    iput-boolean v0, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->b:Z
 
     .line 72
     invoke-static {}, Lcom/baidu/mobstat/bx;->a()Lcom/baidu/mobstat/bx;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 73
-    iget-object v0, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
+    iget-object v1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
 
-    invoke-virtual {p1, v0}, Lcom/baidu/mobstat/bx;->a(Landroid/content/Context;)V
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/bx;->a(Landroid/content/Context;)V
 
-    if-nez p2, :cond_25
+    if-nez p2, :cond_1
 
     .line 75
-    iget-object p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
+    iget-object v0, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
 
-    invoke-static {p1}, Lcom/baidu/mobstat/NativeCrashHandler;->init(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/baidu/mobstat/NativeCrashHandler;->init(Landroid/content/Context;)V
 
-    :cond_25
-    return-void
+    goto :goto_0
 .end method
 
 .method public saveCrashInfo(Landroid/content/Context;JLjava/lang/String;Ljava/lang/String;II)V
-    .registers 12
+    .locals 6
 
     .line 162
     invoke-static {}, Lcom/baidu/mobstat/BDStatCore;->instance()Lcom/baidu/mobstat/BDStatCore;
@@ -290,9 +293,9 @@
 
     invoke-virtual {v0, p1}, Lcom/baidu/mobstat/BDStatCore;->autoTrackSessionEndTime(Landroid/content/Context;)V
 
-    if-eqz p1, :cond_f2
+    if-eqz p1, :cond_0
 
-    if-eqz p4, :cond_f2
+    if-eqz p4, :cond_0
 
     .line 164
     invoke-virtual {p4}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -305,13 +308,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
-    goto/16 :goto_f2
+    .line 215
+    :cond_0
+    :goto_0
+    return-void
 
     .line 169
-    :cond_19
-    :try_start_19
+    :cond_1
+    :try_start_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0, p4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
@@ -323,7 +329,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_30
+    if-nez v1, :cond_2
 
     .line 172
     const-string v1, "\nExtraInfo:"
@@ -336,7 +342,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 177
-    :cond_30
+    :cond_2
     invoke-static {}, Lcom/baidu/mobstat/CooperService;->instance()Lcom/baidu/mobstat/CooperService;
 
     move-result-object v1
@@ -356,363 +362,363 @@
     invoke-virtual {v2, v3, p2, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 181
-    const-string p2, "c"
+    const-string v3, "c"
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v0
 
-    invoke-virtual {v2, p2, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v3, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 182
-    const-string p2, "y"
+    const-string v0, "y"
 
-    invoke-virtual {v2, p2, p5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, p5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 183
-    const-string p2, "v"
+    const-string v0, "v"
 
-    invoke-virtual {v2, p2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 184
-    const-string p2, "ct"
+    const-string v0, "ct"
 
-    invoke-virtual {v2, p2, p6}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, p6}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 185
-    const-string p2, "mem"
+    const-string v0, "mem"
 
     invoke-direct {p0, p1}, Lcom/baidu/mobstat/ExceptionAnalysis;->a(Landroid/content/Context;)Lorg/json/JSONObject;
 
-    move-result-object p3
+    move-result-object v1
 
-    invoke-virtual {v2, p2, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 186
-    const-string p2, "ty"
+    const-string v0, "ty"
 
-    invoke-virtual {v2, p2, p7}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, p7}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 187
-    const-string p2, "sv"
+    const-string v0, "sv"
 
-    const-string p3, "4.0.10.5"
+    const-string v1, "4.0.10.5"
 
-    invoke-virtual {v2, p2, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 190
-    new-instance p2, Lorg/json/JSONArray;
+    new-instance v0, Lorg/json/JSONArray;
 
-    invoke-direct {p2}, Lorg/json/JSONArray;-><init>()V
+    invoke-direct {v0}, Lorg/json/JSONArray;-><init>()V
 
     .line 191
-    invoke-virtual {p2, v2}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+    invoke-virtual {v0, v2}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
     .line 193
-    new-instance p3, Lorg/json/JSONObject;
+    new-instance v1, Lorg/json/JSONObject;
 
-    invoke-direct {p3}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
 
     .line 194
-    iget-object p5, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->d:Lcom/baidu/mobstat/HeadObject;
+    iget-object v2, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->d:Lcom/baidu/mobstat/HeadObject;
 
-    invoke-virtual {p5, p1, p3}, Lcom/baidu/mobstat/HeadObject;->installHeader(Landroid/content/Context;Lorg/json/JSONObject;)V
+    invoke-virtual {v2, p1, v1}, Lcom/baidu/mobstat/HeadObject;->installHeader(Landroid/content/Context;Lorg/json/JSONObject;)V
 
     .line 196
-    const-string p5, "ss"
+    const-string v2, "ss"
 
-    const/4 p6, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {p3, p5, p6}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 198
-    const-string p5, "sq"
+    const-string v2, "sq"
 
-    invoke-virtual {p3, p5, p6}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 200
-    new-instance p5, Lorg/json/JSONObject;
+    new-instance v2, Lorg/json/JSONObject;
 
-    invoke-direct {p5}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
 
     .line 201
-    const-string p7, "he"
+    const-string v3, "he"
 
-    invoke-virtual {p5, p7, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v3, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 202
-    new-instance p3, Lorg/json/JSONArray;
+    new-instance v1, Lorg/json/JSONArray;
 
-    invoke-direct {p3}, Lorg/json/JSONArray;-><init>()V
+    invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
 
-    const-string p7, "pr"
+    const-string v3, "pr"
 
-    invoke-virtual {p5, p7, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v3, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 203
-    new-instance p3, Lorg/json/JSONArray;
+    new-instance v1, Lorg/json/JSONArray;
 
-    invoke-direct {p3}, Lorg/json/JSONArray;-><init>()V
+    invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
 
-    const-string p7, "ev"
+    const-string v3, "ev"
 
-    invoke-virtual {p5, p7, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v3, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 204
-    const-string p3, "ex"
+    const-string v1, "ex"
 
-    invoke-virtual {p5, p3, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 205
-    const-string p2, "trace"
+    const-string v0, "trace"
 
     invoke-direct {p0}, Lcom/baidu/mobstat/ExceptionAnalysis;->a()Lorg/json/JSONObject;
 
-    move-result-object p3
+    move-result-object v1
 
-    invoke-virtual {p5, p2, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 207
-    iget-object p2, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->mCallback:Lcom/baidu/mobstat/ExceptionAnalysis$Callback;
+    iget-object v0, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->mCallback:Lcom/baidu/mobstat/ExceptionAnalysis$Callback;
 
-    if-eqz p2, :cond_bf
+    if-eqz v0, :cond_3
 
     .line 208
-    invoke-interface {p2, p5}, Lcom/baidu/mobstat/ExceptionAnalysis$Callback;->onCallback(Lorg/json/JSONObject;)V
+    invoke-interface {v0, v2}, Lcom/baidu/mobstat/ExceptionAnalysis$Callback;->onCallback(Lorg/json/JSONObject;)V
 
     .line 211
-    :cond_bf
-    new-instance p2, Ljava/lang/StringBuilder;
+    :cond_3
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object p3, Lcom/baidu/mobstat/Config;->PREFIX_SEND_DATA:Ljava/lang/String;
+    sget-object v1, Lcom/baidu/mobstat/Config;->PREFIX_SEND_DATA:Ljava/lang/String;
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v0
+    move-result-wide v4
 
-    invoke-virtual {p2, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 212
-    invoke-virtual {p5}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v1
 
-    invoke-static {p1, p2, p3, p6}, Lcom/baidu/mobstat/dj;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)V
+    const/4 v2, 0x0
+
+    invoke-static {p1, v0, v1, v2}, Lcom/baidu/mobstat/dj;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)V
 
     .line 214
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string p2, "dump exception, exception: "
+    const-string v1, "dump exception, exception: "
 
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 215
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p2, p1}, Lcom/baidu/mobstat/cx;->a(Ljava/lang/String;)V
-    :try_end_f0
-    .catch Ljava/lang/Exception; {:try_start_19 .. :try_end_f0} :catch_f1
+    invoke-virtual {v1, v0}, Lcom/baidu/mobstat/cx;->a(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_f2
+    goto/16 :goto_0
 
-    :catch_f1
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    :cond_f2
-    :goto_f2
-    return-void
+    goto/16 :goto_0
 .end method
 
 .method public saveCrashInfo(Landroid/content/Context;Ljava/lang/Throwable;Z)V
-    .registers 15
+    .locals 8
 
-    if-eqz p1, :cond_8
+    const/4 v6, 0x0
+
+    if-eqz p1, :cond_0
 
     .line 88
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
+    iput-object v0, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
 
     .line 90
-    :cond_8
-    iget-object p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
+    :cond_0
+    iget-object v0, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
 
-    if-nez p1, :cond_d
+    if-nez v0, :cond_1
 
+    .line 155
+    :goto_0
     return-void
 
     .line 94
-    :cond_d
+    :cond_1
     invoke-virtual {p2}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 96
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_28
+    if-nez v0, :cond_3
 
     .line 98
-    :try_start_18
+    :try_start_0
     const-string v0, ":"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v1, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
     .line 99
     array-length v2, v0
-    :try_end_1f
-    .catch Ljava/lang/Exception; {:try_start_18 .. :try_end_1f} :catch_27
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     const/4 v3, 0x1
 
-    if-le v2, v3, :cond_25
+    if-le v2, v3, :cond_2
 
     .line 100
-    aget-object v0, v0, v1
-
-    goto :goto_2a
-
-    :cond_25
-    move-object v0, p1
-
-    goto :goto_2a
-
-    :catch_27
-    move-exception v0
+    aget-object v0, v0, v6
 
     .line 109
-    :cond_28
-    const-string v0, ""
-
-    :goto_2a
+    :goto_1
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_7
 
-    move-object v8, p1
-
-    goto :goto_33
-
-    :cond_32
-    move-object v8, v0
+    move-object v5, v1
 
     .line 113
-    :goto_33
-    new-instance p1, Ljava/io/StringWriter;
+    :goto_2
+    new-instance v0, Ljava/io/StringWriter;
 
-    invoke-direct {p1}, Ljava/io/StringWriter;-><init>()V
+    invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V
 
     .line 114
-    new-instance v0, Ljava/io/PrintWriter;
+    new-instance v1, Ljava/io/PrintWriter;
 
-    invoke-direct {v0, p1}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
+    invoke-direct {v1, v0}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
-    invoke-virtual {p2, v0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
+    invoke-virtual {p2, v1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
 
     .line 115
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v4
 
-    if-nez p3, :cond_5d
+    if-nez p3, :cond_6
 
     .line 146
-    instance-of p1, p2, Ljava/lang/Exception;
+    instance-of v0, p2, Ljava/lang/Exception;
 
-    if-eqz p1, :cond_4f
+    if-eqz v0, :cond_4
 
-    const/16 v1, 0xb
-
-    const/16 v10, 0xb
-
-    goto :goto_5e
-
-    .line 148
-    :cond_4f
-    instance-of p1, p2, Ljava/lang/Error;
-
-    if-eqz p1, :cond_58
-
-    const/16 v1, 0xc
-
-    const/16 v10, 0xc
-
-    goto :goto_5e
-
-    :cond_58
-    const/16 v1, 0xd
-
-    const/16 v10, 0xd
-
-    goto :goto_5e
-
-    :cond_5d
-    const/4 v10, 0x0
+    const/16 v7, 0xb
 
     .line 155
-    :goto_5e
-    iget-object v4, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
+    :goto_3
+    iget-object v1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->c:Landroid/content/Context;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v5
+    move-result-wide v2
 
-    const/4 v9, 0x0
+    move-object v0, p0
 
-    move-object v3, p0
+    invoke-virtual/range {v0 .. v7}, Lcom/baidu/mobstat/ExceptionAnalysis;->saveCrashInfo(Landroid/content/Context;JLjava/lang/String;Ljava/lang/String;II)V
 
-    invoke-virtual/range {v3 .. v10}, Lcom/baidu/mobstat/ExceptionAnalysis;->saveCrashInfo(Landroid/content/Context;JLjava/lang/String;Ljava/lang/String;II)V
+    goto :goto_0
 
-    return-void
+    :cond_2
+    move-object v0, v1
+
+    .line 100
+    goto :goto_1
+
+    :catch_0
+    move-exception v0
+
+    .line 109
+    :cond_3
+    const-string v0, ""
+
+    goto :goto_1
+
+    .line 148
+    :cond_4
+    instance-of v0, p2, Ljava/lang/Error;
+
+    if-eqz v0, :cond_5
+
+    const/16 v7, 0xc
+
+    goto :goto_3
+
+    :cond_5
+    const/16 v7, 0xd
+
+    goto :goto_3
+
+    :cond_6
+    move v7, v6
+
+    goto :goto_3
+
+    :cond_7
+    move-object v5, v0
+
+    goto :goto_2
 .end method
 
 .method public setCrashExtraInfo(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
+
+    const/16 v1, 0x100
 
     .line 290
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
+    .line 297
+    :goto_0
     return-void
 
     .line 294
-    :cond_7
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    const/16 v1, 0x100
-
-    if-le v0, v1, :cond_14
+    if-le v0, v1, :cond_1
 
     .line 295
     const/4 v0, 0x0
@@ -722,14 +728,14 @@
     move-result-object p1
 
     .line 297
-    :cond_14
+    :cond_1
     iput-object p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->e:Ljava/lang/String;
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public setEnableSend(Z)V
-    .registers 2
+    .locals 0
 
     .line 310
     iput-boolean p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->g:Z
@@ -738,32 +744,33 @@
 .end method
 
 .method public setFilterPackageList(Ljava/util/List;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)V"
         }
     .end annotation
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     .line 301
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-gtz v0, :cond_9
-
-    goto :goto_b
+    if-gtz v0, :cond_1
 
     .line 305
-    :cond_9
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     iput-object p1, p0, Lcom/baidu/mobstat/ExceptionAnalysis;->f:Ljava/util/List;
 
-    :cond_b
-    :goto_b
-    return-void
+    goto :goto_0
 .end method

@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Iterable<",
+        "Ljava/lang/Iterable",
+        "<",
         "Ljava/lang/String;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/multidex/ArchivePathElement;)V
-    .registers 2
+    .locals 0
 
     .line 61
     iput-object p1, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1;->this$0:Lcom/s1243808733/android/multidex/ArchivePathElement;
@@ -45,11 +46,12 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Iterator<",
+            "Ljava/util/Iterator",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }

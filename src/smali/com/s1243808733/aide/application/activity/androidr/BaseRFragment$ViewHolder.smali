@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;)V
-    .registers 2
+    .locals 0
 
     .line 37
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$ViewHolder;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;

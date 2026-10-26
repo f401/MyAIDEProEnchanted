@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -13,7 +13,7 @@
 .end method
 
 .method private static a(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -34,7 +34,7 @@
 .end method
 
 .method static a(Ljava/lang/Throwable;Ljava/lang/String;)Ljava/lang/Throwable;
-    .registers 7
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -47,18 +47,18 @@
 
     invoke-virtual {p0}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
 
-    move-result-object v0
+    move-result-object v2
 
-    array-length v1, v0
+    array-length v3, v2
 
-    const/4 v2, -0x1
+    const/4 v0, -0x1
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    :goto_7
-    if-ge v3, v1, :cond_19
+    :goto_0
+    if-ge v1, v3, :cond_1
 
-    aget-object v4, v0, v3
+    aget-object v4, v2, v1
 
     invoke-virtual {v4}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
 
@@ -68,82 +68,82 @@
 
     move-result v4
 
-    if-eqz v4, :cond_16
+    if-eqz v4, :cond_0
 
-    move v2, v3
+    move v0, v1
 
-    :cond_16
-    add-int/lit8 v3, v3, 0x1
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
-    :cond_19
-    add-int/lit8 v2, v2, 0x1
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-static {v0, v2, v1}, Ljava/util/Arrays;->copyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
+    invoke-static {v2, v0, v3}, Ljava/util/Arrays;->copyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, [Ljava/lang/StackTraceElement;
+    check-cast v0, [Ljava/lang/StackTraceElement;
 
-    invoke-virtual {p0, p1}, Ljava/lang/Throwable;->setStackTrace([Ljava/lang/StackTraceElement;)V
+    invoke-virtual {p0, v0}, Ljava/lang/Throwable;->setStackTrace([Ljava/lang/StackTraceElement;)V
 
     return-object p0
 .end method
 
 .method public static a()V
-    .registers 2
+    .locals 2
 
-    new-instance v0, Lcom/termux/yinli_a/c;
+    new-instance v1, Lcom/termux/yinli_a/c;
 
-    invoke-direct {v0}, Lcom/termux/yinli_a/c;-><init>()V
+    invoke-direct {v1}, Lcom/termux/yinli_a/c;-><init>()V
 
-    invoke-static {v0}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-static {v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-object v1, v0
+    move-object v0, v1
 
-    check-cast v1, Lcom/termux/yinli_a/c;
+    check-cast v0, Lcom/termux/yinli_a/c;
 
-    throw v0
+    throw v1
 .end method
 
 .method public static a(Ljava/lang/Object;Ljava/lang/String;)V
-    .registers 2
+    .locals 2
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_0
 
     return-void
 
-    :cond_3
-    new-instance p0, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " must not be null"
+    const-string v1, " must not be null"
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    invoke-static {p1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-static {v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-object p0, p1
+    move-object v0, v1
 
-    check-cast p0, Ljava/lang/IllegalStateException;
+    check-cast v0, Ljava/lang/IllegalStateException;
 
-    throw p1
+    throw v1
 .end method
 
 .method private static a(Ljava/lang/String;)V
-    .registers 5
+    .locals 4
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -185,59 +185,59 @@
 
     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-static {p0}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-static {v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-object v0, p0
+    move-object v0, v1
 
     check-cast v0, Ljava/lang/IllegalArgumentException;
 
-    throw p0
+    throw v1
 .end method
 
 .method public static a(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .registers 2
+    .locals 1
 
-    if-nez p0, :cond_8
+    if-nez p0, :cond_1
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_c
+    :goto_0
+    return v0
 
-    :cond_6
-    const/4 p0, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 
-    :cond_8
+    :cond_1
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    :goto_c
-    return p0
+    goto :goto_0
 .end method
 
 .method public static b(Ljava/lang/Object;Ljava/lang/String;)V
-    .registers 2
+    .locals 1
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_0
 
     return-void
 
-    :cond_3
+    :cond_0
     invoke-static {p1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/String;)V
 
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    throw p0
+    throw v0
 .end method

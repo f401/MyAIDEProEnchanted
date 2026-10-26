@@ -11,7 +11,8 @@
 .field protected static final EMPTY_SOURCE:Lorg/antlr/v4/runtime/misc/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lorg/antlr/v4/runtime/misc/Pair<",
+            "Lorg/antlr/v4/runtime/misc/Pair",
+            "<",
             "Lorg/antlr/v4/runtime/TokenSource;",
             "Lorg/antlr/v4/runtime/CharStream;",
             ">;"
@@ -32,7 +33,8 @@
 .field protected source:Lorg/antlr/v4/runtime/misc/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lorg/antlr/v4/runtime/misc/Pair<",
+            "Lorg/antlr/v4/runtime/misc/Pair",
+            "<",
             "Lorg/antlr/v4/runtime/TokenSource;",
             "Lorg/antlr/v4/runtime/CharStream;",
             ">;"
@@ -51,12 +53,12 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 18
     new-instance v0, Lorg/antlr/v4/runtime/misc/Pair;
-
-    const/4 v1, 0x0
 
     invoke-direct {v0, v1, v1}, Lorg/antlr/v4/runtime/misc/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
@@ -66,44 +68,44 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 4
+    .locals 2
+
+    const/4 v1, -0x1
 
     .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
-    const/4 v0, -0x1
-
-    iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
+    iput v1, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
 
     .line 41
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput v1, p0, Lorg/antlr/v4/runtime/CommonToken;->channel:I
+    iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->channel:I
 
     .line 68
-    iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->index:I
+    iput v1, p0, Lorg/antlr/v4/runtime/CommonToken;->index:I
 
     .line 88
     iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->type:I
 
     .line 89
-    sget-object p1, Lorg/antlr/v4/runtime/CommonToken;->EMPTY_SOURCE:Lorg/antlr/v4/runtime/misc/Pair;
+    sget-object v0, Lorg/antlr/v4/runtime/CommonToken;->EMPTY_SOURCE:Lorg/antlr/v4/runtime/misc/Pair;
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
 
     return-void
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
+
+    const/4 v0, -0x1
 
     .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
-    const/4 v0, -0x1
-
     iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
 
     .line 68
@@ -113,39 +115,39 @@
     iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->type:I
 
     .line 113
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->channel:I
+    iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->channel:I
 
     .line 114
     iput-object p2, p0, Lorg/antlr/v4/runtime/CommonToken;->text:Ljava/lang/String;
 
     .line 115
-    sget-object p1, Lorg/antlr/v4/runtime/CommonToken;->EMPTY_SOURCE:Lorg/antlr/v4/runtime/misc/Pair;
+    sget-object v0, Lorg/antlr/v4/runtime/CommonToken;->EMPTY_SOURCE:Lorg/antlr/v4/runtime/misc/Pair;
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/Token;)V
-    .registers 4
+    .locals 3
+
+    const/4 v1, -0x1
 
     .line 131
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
-    const/4 v0, -0x1
-
-    iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
+    iput v1, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
 
     .line 41
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput v1, p0, Lorg/antlr/v4/runtime/CommonToken;->channel:I
+    iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->channel:I
 
     .line 68
-    iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->index:I
+    iput v1, p0, Lorg/antlr/v4/runtime/CommonToken;->index:I
 
     .line 132
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getType()I
@@ -199,7 +201,7 @@
     .line 140
     instance-of v0, p1, Lorg/antlr/v4/runtime/CommonToken;
 
-    if-eqz v0, :cond_44
+    if-eqz v0, :cond_0
 
     .line 141
     check-cast p1, Lorg/antlr/v4/runtime/CommonToken;
@@ -209,14 +211,16 @@
     iput-object v0, p0, Lorg/antlr/v4/runtime/CommonToken;->text:Ljava/lang/String;
 
     .line 142
-    iget-object p1, p1, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
+    iget-object v0, p1, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
 
-    goto :goto_59
+    .line 146
+    :goto_0
+    return-void
 
     .line 145
-    :cond_44
+    :cond_0
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getText()Ljava/lang/String;
 
     move-result-object v0
@@ -232,34 +236,34 @@
 
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getInputStream()Lorg/antlr/v4/runtime/CharStream;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-direct {v0, v1, p1}, Lorg/antlr/v4/runtime/misc/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v0, v1, v2}, Lorg/antlr/v4/runtime/misc/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     iput-object v0, p0, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
 
-    :goto_59
-    return-void
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/misc/Pair;IIII)V
-    .registers 7
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/misc/Pair<",
+            "Lorg/antlr/v4/runtime/misc/Pair",
+            "<",
             "Lorg/antlr/v4/runtime/TokenSource;",
             "Lorg/antlr/v4/runtime/CharStream;",
             ">;IIII)V"
         }
     .end annotation
 
+    const/4 v0, -0x1
+
     .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
-    const/4 v0, -0x1
-
     iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
 
     .line 68
@@ -281,40 +285,40 @@
     iput p5, p0, Lorg/antlr/v4/runtime/CommonToken;->stop:I
 
     .line 98
-    iget-object p2, p1, Lorg/antlr/v4/runtime/misc/Pair;->a:Ljava/lang/Object;
+    iget-object v0, p1, Lorg/antlr/v4/runtime/misc/Pair;->a:Ljava/lang/Object;
 
-    if-eqz p2, :cond_2a
+    if-eqz v0, :cond_0
 
     .line 99
-    iget-object p2, p1, Lorg/antlr/v4/runtime/misc/Pair;->a:Ljava/lang/Object;
+    iget-object v0, p1, Lorg/antlr/v4/runtime/misc/Pair;->a:Ljava/lang/Object;
 
-    check-cast p2, Lorg/antlr/v4/runtime/TokenSource;
+    check-cast v0, Lorg/antlr/v4/runtime/TokenSource;
 
-    invoke-interface {p2}, Lorg/antlr/v4/runtime/TokenSource;->getLine()I
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/TokenSource;->getLine()I
 
-    move-result p2
+    move-result v0
 
-    iput p2, p0, Lorg/antlr/v4/runtime/CommonToken;->line:I
+    iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->line:I
 
     .line 100
-    iget-object p1, p1, Lorg/antlr/v4/runtime/misc/Pair;->a:Ljava/lang/Object;
+    iget-object v0, p1, Lorg/antlr/v4/runtime/misc/Pair;->a:Ljava/lang/Object;
 
-    check-cast p1, Lorg/antlr/v4/runtime/TokenSource;
+    check-cast v0, Lorg/antlr/v4/runtime/TokenSource;
 
-    invoke-interface {p1}, Lorg/antlr/v4/runtime/TokenSource;->getCharPositionInLine()I
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/TokenSource;->getCharPositionInLine()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
+    iput v0, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
 
-    :cond_2a
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getChannel()I
-    .registers 2
+    .locals 1
 
     .line 208
     iget v0, p0, Lorg/antlr/v4/runtime/CommonToken;->channel:I
@@ -323,7 +327,7 @@
 .end method
 
 .method public getCharPositionInLine()I
-    .registers 2
+    .locals 1
 
     .line 198
     iget v0, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
@@ -332,7 +336,7 @@
 .end method
 
 .method public getInputStream()Lorg/antlr/v4/runtime/CharStream;
-    .registers 2
+    .locals 1
 
     .line 256
     iget-object v0, p0, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
@@ -345,7 +349,7 @@
 .end method
 
 .method public getLine()I
-    .registers 2
+    .locals 1
 
     .line 193
     iget v0, p0, Lorg/antlr/v4/runtime/CommonToken;->line:I
@@ -354,7 +358,7 @@
 .end method
 
 .method public getStartIndex()I
-    .registers 2
+    .locals 1
 
     .line 223
     iget v0, p0, Lorg/antlr/v4/runtime/CommonToken;->start:I
@@ -363,7 +367,7 @@
 .end method
 
 .method public getStopIndex()I
-    .registers 2
+    .locals 1
 
     .line 232
     iget v0, p0, Lorg/antlr/v4/runtime/CommonToken;->stop:I
@@ -372,29 +376,31 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .line 162
     iget-object v0, p0, Lorg/antlr/v4/runtime/CommonToken;->text:Ljava/lang/String;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
+    .line 173
+    :goto_0
     return-object v0
 
     .line 166
-    :cond_5
+    :cond_0
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/CommonToken;->getInputStream()Lorg/antlr/v4/runtime/CharStream;
 
     move-result-object v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_1
 
     const/4 v0, 0x0
 
-    return-object v0
+    goto :goto_0
 
     .line 168
-    :cond_d
+    :cond_1
     invoke-interface {v0}, Lorg/antlr/v4/runtime/CharStream;->size()I
 
     move-result v1
@@ -402,11 +408,11 @@
     .line 169
     iget v2, p0, Lorg/antlr/v4/runtime/CommonToken;->start:I
 
-    if-ge v2, v1, :cond_22
+    if-ge v2, v1, :cond_2
 
     iget v3, p0, Lorg/antlr/v4/runtime/CommonToken;->stop:I
 
-    if-ge v3, v1, :cond_22
+    if-ge v3, v1, :cond_2
 
     .line 170
     invoke-static {v2, v3}, Lorg/antlr/v4/runtime/misc/Interval;->of(II)Lorg/antlr/v4/runtime/misc/Interval;
@@ -417,17 +423,17 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 173
-    :cond_22
+    :cond_2
     const-string v0, "<EOF>"
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getTokenIndex()I
-    .registers 2
+    .locals 1
 
     .line 241
     iget v0, p0, Lorg/antlr/v4/runtime/CommonToken;->index:I
@@ -436,7 +442,7 @@
 .end method
 
 .method public getTokenSource()Lorg/antlr/v4/runtime/TokenSource;
-    .registers 2
+    .locals 1
 
     .line 251
     iget-object v0, p0, Lorg/antlr/v4/runtime/CommonToken;->source:Lorg/antlr/v4/runtime/misc/Pair;
@@ -449,7 +455,7 @@
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .line 152
     iget v0, p0, Lorg/antlr/v4/runtime/CommonToken;->type:I
@@ -458,7 +464,7 @@
 .end method
 
 .method public setChannel(I)V
-    .registers 2
+    .locals 0
 
     .line 213
     iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->channel:I
@@ -467,7 +473,7 @@
 .end method
 
 .method public setCharPositionInLine(I)V
-    .registers 2
+    .locals 0
 
     .line 203
     iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->charPositionInLine:I
@@ -476,7 +482,7 @@
 .end method
 
 .method public setLine(I)V
-    .registers 2
+    .locals 0
 
     .line 157
     iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->line:I
@@ -485,7 +491,7 @@
 .end method
 
 .method public setStartIndex(I)V
-    .registers 2
+    .locals 0
 
     .line 227
     iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->start:I
@@ -494,7 +500,7 @@
 .end method
 
 .method public setStopIndex(I)V
-    .registers 2
+    .locals 0
 
     .line 236
     iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->stop:I
@@ -503,7 +509,7 @@
 .end method
 
 .method public setText(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 188
     iput-object p1, p0, Lorg/antlr/v4/runtime/CommonToken;->text:Ljava/lang/String;
@@ -512,7 +518,7 @@
 .end method
 
 .method public setTokenIndex(I)V
-    .registers 2
+    .locals 0
 
     .line 246
     iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->index:I
@@ -521,7 +527,7 @@
 .end method
 
 .method public setType(I)V
-    .registers 2
+    .locals 0
 
     .line 218
     iput p1, p0, Lorg/antlr/v4/runtime/CommonToken;->type:I
@@ -530,7 +536,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 261
     const/4 v0, 0x0
@@ -543,12 +549,12 @@
 .end method
 
 .method public toString(Lorg/antlr/v4/runtime/Recognizer;)Ljava/lang/String;
-    .registers 8
+    .locals 5
 
     .line 267
     iget v0, p0, Lorg/antlr/v4/runtime/CommonToken;->channel:I
 
-    if-lez v0, :cond_15
+    if-lez v0, :cond_1
 
     .line 268
     new-instance v0, Ljava/lang/StringBuilder;
@@ -565,19 +571,13 @@
 
     move-result-object v0
 
-    goto :goto_17
-
-    .line 267
-    :cond_15
-    const-string v0, ""
-
     .line 270
-    :goto_17
+    :goto_0
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/CommonToken;->getText()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_36
+    if-eqz v1, :cond_2
 
     .line 272
     const-string v2, "\n"
@@ -606,102 +606,112 @@
 
     move-result-object v1
 
-    goto :goto_38
-
-    .line 277
-    :cond_36
-    const-string v1, "<no text>"
-
     .line 279
-    :goto_38
+    :goto_1
     iget v2, p0, Lorg/antlr/v4/runtime/CommonToken;->type:I
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz p1, :cond_4a
+    if-eqz p1, :cond_0
 
     .line 281
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/Recognizer;->getVocabulary()Lorg/antlr/v4/runtime/Vocabulary;
 
-    move-result-object p1
+    move-result-object v2
 
-    iget v2, p0, Lorg/antlr/v4/runtime/CommonToken;->type:I
+    iget v3, p0, Lorg/antlr/v4/runtime/CommonToken;->type:I
 
-    invoke-interface {p1, v2}, Lorg/antlr/v4/runtime/Vocabulary;->getDisplayName(I)Ljava/lang/String;
+    invoke-interface {v2, v3}, Lorg/antlr/v4/runtime/Vocabulary;->getDisplayName(I)Ljava/lang/String;
 
     move-result-object v2
 
     .line 283
-    :cond_4a
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v3, "[@"
+    const-string v4, "[@"
 
-    invoke-direct {p1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/CommonToken;->getTokenIndex()I
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, ","
+    const-string v4, ","
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget v4, p0, Lorg/antlr/v4/runtime/CommonToken;->start:I
 
-    invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v4, ":"
 
-    invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v5, p0, Lorg/antlr/v4/runtime/CommonToken;->stop:I
+    iget v4, p0, Lorg/antlr/v4/runtime/CommonToken;->stop:I
 
-    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v5, "=\'"
+    const-string v4, "=\'"
 
-    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v1, "\',<"
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v1, ">"
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ","
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget v0, p0, Lorg/antlr/v4/runtime/CommonToken;->line:I
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ":"
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/CommonToken;->getCharPositionInLine()I
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v0, "]"
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
+
+    .line 267
+    :cond_1
+    const-string v0, ""
+
+    goto/16 :goto_0
+
+    .line 277
+    :cond_2
+    const-string v1, "<no text>"
+
+    goto :goto_1
 .end method

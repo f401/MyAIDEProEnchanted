@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity$27;Ljava/util/List;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,30 +45,30 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 1432
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$27$1;->val$permissionsDeniedForever:Ljava/util/List;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$27$1;->val$permissionsDeniedForever:Ljava/util/List;
 
-    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_10
+    if-eqz v0, :cond_0
 
     .line 1433
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$27$1;->this$1:Lcom/s1243808733/aide/AideMainActivity$27;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$27$1;->this$1:Lcom/s1243808733/aide/AideMainActivity$27;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
+    iget-object v0, v0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/AideMainActivity;->-$$Nest$mrequestPermission(Lcom/s1243808733/aide/AideMainActivity;)V
-
-    goto :goto_13
+    invoke-static {v0}, Lcom/s1243808733/aide/AideMainActivity;->-$$Nest$mrequestPermission(Lcom/s1243808733/aide/AideMainActivity;)V
 
     .line 1435
-    :cond_10
+    :goto_0
+    return-void
+
+    :cond_0
     invoke-static {}, Lcom/blankj/utilcode/util/PermissionUtils;->launchAppDetailsSettings()V
 
-    :goto_13
-    return-void
+    goto :goto_0
 .end method

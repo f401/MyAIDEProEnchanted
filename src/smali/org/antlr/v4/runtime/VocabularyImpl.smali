@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 17
     const/4 v0, 0x0
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 4
+    .locals 1
 
     .line 51
     const/4 v0, 0x0
@@ -55,80 +55,93 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 4
+    .locals 3
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_6
-
-    goto :goto_8
+    if-eqz p1, :cond_0
 
     .line 72
-    :cond_6
-    sget-object p1, Lorg/antlr/v4/runtime/VocabularyImpl;->EMPTY_NAMES:[Ljava/lang/String;
-
-    :goto_8
+    :goto_0
     iput-object p1, p0, Lorg/antlr/v4/runtime/VocabularyImpl;->literalNames:[Ljava/lang/String;
 
-    if-eqz p2, :cond_d
-
-    goto :goto_f
+    if-eqz p2, :cond_1
 
     .line 73
-    :cond_d
-    sget-object p2, Lorg/antlr/v4/runtime/VocabularyImpl;->EMPTY_NAMES:[Ljava/lang/String;
-
-    :goto_f
+    :goto_1
     iput-object p2, p0, Lorg/antlr/v4/runtime/VocabularyImpl;->symbolicNames:[Ljava/lang/String;
 
-    if-eqz p3, :cond_14
-
-    goto :goto_16
+    if-eqz p3, :cond_2
 
     .line 74
-    :cond_14
-    sget-object p3, Lorg/antlr/v4/runtime/VocabularyImpl;->EMPTY_NAMES:[Ljava/lang/String;
-
-    :goto_16
+    :goto_2
     iput-object p3, p0, Lorg/antlr/v4/runtime/VocabularyImpl;->displayNames:[Ljava/lang/String;
 
     .line 76
-    array-length p3, p3
+    array-length v0, p3
 
-    array-length p1, p1
+    array-length v1, p1
 
-    array-length p2, p2
+    array-length v2, p2
 
-    invoke-static {p1, p2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
 
-    move-result p1
+    move-result v1
 
-    invoke-static {p3, p1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result p1
+    move-result v0
 
-    add-int/lit8 p1, p1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    iput p1, p0, Lorg/antlr/v4/runtime/VocabularyImpl;->maxTokenType:I
+    iput v0, p0, Lorg/antlr/v4/runtime/VocabularyImpl;->maxTokenType:I
 
     return-void
+
+    .line 72
+    :cond_0
+    sget-object p1, Lorg/antlr/v4/runtime/VocabularyImpl;->EMPTY_NAMES:[Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 73
+    :cond_1
+    sget-object p2, Lorg/antlr/v4/runtime/VocabularyImpl;->EMPTY_NAMES:[Ljava/lang/String;
+
+    goto :goto_1
+
+    .line 74
+    :cond_2
+    sget-object p3, Lorg/antlr/v4/runtime/VocabularyImpl;->EMPTY_NAMES:[Ljava/lang/String;
+
+    goto :goto_2
 .end method
 
 .method public static fromTokenNames([Ljava/lang/String;)Lorg/antlr/v4/runtime/Vocabulary;
-    .registers 8
+    .locals 7
 
-    if-eqz p0, :cond_46
+    const/4 v3, 0x0
+
+    const/4 v6, 0x0
+
+    if-eqz p0, :cond_0
 
     .line 96
     array-length v0, p0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_1
 
-    goto :goto_46
+    .line 97
+    :cond_0
+    sget-object v0, Lorg/antlr/v4/runtime/VocabularyImpl;->EMPTY_VOCABULARY:Lorg/antlr/v4/runtime/VocabularyImpl;
+
+    .line 125
+    :goto_0
+    return-object v0
 
     .line 100
-    :cond_6
+    :cond_1
     array-length v0, p0
 
     invoke-static {p0, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
@@ -146,163 +159,153 @@
 
     check-cast v1, [Ljava/lang/String;
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
+    move v2, v3
 
     .line 102
-    :goto_16
+    :goto_1
     array-length v4, p0
 
-    if-ge v3, v4, :cond_40
+    if-ge v2, v4, :cond_5
 
     .line 103
-    aget-object v4, p0, v3
+    aget-object v4, p0, v2
 
-    if-nez v4, :cond_1e
+    if-nez v4, :cond_2
 
-    goto :goto_3d
+    .line 122
+    :goto_2
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
 
     .line 108
-    :cond_1e
+    :cond_2
     invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
 
     move-result v5
 
-    const/4 v6, 0x0
-
-    if-nez v5, :cond_39
+    if-nez v5, :cond_4
 
     .line 109
-    invoke-virtual {v4, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v4, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
 
     const/16 v5, 0x27
 
-    if-ne v4, v5, :cond_30
+    if-ne v4, v5, :cond_3
 
     .line 111
-    aput-object v6, v1, v3
+    aput-object v6, v1, v2
 
-    goto :goto_3d
+    goto :goto_2
 
     .line 114
-    :cond_30
+    :cond_3
     invoke-static {v4}, Ljava/lang/Character;->isUpperCase(C)Z
 
     move-result v4
 
-    if-eqz v4, :cond_39
+    if-eqz v4, :cond_4
 
     .line 115
-    aput-object v6, v0, v3
+    aput-object v6, v0, v2
 
-    goto :goto_3d
+    goto :goto_2
 
     .line 121
-    :cond_39
-    aput-object v6, v0, v3
+    :cond_4
+    aput-object v6, v0, v2
 
     .line 122
-    aput-object v6, v1, v3
+    aput-object v6, v1, v2
 
-    :goto_3d
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_16
+    goto :goto_2
 
     .line 125
-    :cond_40
+    :cond_5
     new-instance v2, Lorg/antlr/v4/runtime/VocabularyImpl;
 
     invoke-direct {v2, v0, v1, p0}, Lorg/antlr/v4/runtime/VocabularyImpl;-><init>([Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
 
-    return-object v2
+    move-object v0, v2
 
-    .line 97
-    :cond_46
-    :goto_46
-    sget-object p0, Lorg/antlr/v4/runtime/VocabularyImpl;->EMPTY_VOCABULARY:Lorg/antlr/v4/runtime/VocabularyImpl;
-
-    return-object p0
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getDisplayName(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
 
-    if-ltz p1, :cond_c
+    if-ltz p1, :cond_1
 
     .line 157
     iget-object v0, p0, Lorg/antlr/v4/runtime/VocabularyImpl;->displayNames:[Ljava/lang/String;
 
     array-length v1, v0
 
-    if-ge p1, v1, :cond_c
+    if-ge p1, v1, :cond_1
 
     .line 158
     aget-object v0, v0, p1
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
+    .line 174
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 164
-    :cond_c
+    :cond_1
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/VocabularyImpl;->getLiteralName(I)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_13
-
-    return-object v0
+    if-nez v0, :cond_0
 
     .line 169
-    :cond_13
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/VocabularyImpl;->getSymbolicName(I)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1a
-
-    return-object v0
+    if-nez v0, :cond_0
 
     .line 174
-    :cond_1a
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public getLiteralName(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
 
-    if-ltz p1, :cond_a
+    if-ltz p1, :cond_0
 
     .line 135
     iget-object v0, p0, Lorg/antlr/v4/runtime/VocabularyImpl;->literalNames:[Ljava/lang/String;
 
     array-length v1, v0
 
-    if-ge p1, v1, :cond_a
+    if-ge p1, v1, :cond_0
 
     .line 136
-    aget-object p1, v0, p1
+    aget-object v0, v0, p1
 
-    return-object p1
+    :goto_0
+    return-object v0
 
-    :cond_a
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public getMaxTokenType()I
-    .registers 2
+    .locals 1
 
     .line 130
     iget v0, p0, Lorg/antlr/v4/runtime/VocabularyImpl;->maxTokenType:I
@@ -311,34 +314,37 @@
 .end method
 
 .method public getSymbolicName(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
 
-    if-ltz p1, :cond_a
+    if-ltz p1, :cond_0
 
     .line 144
     iget-object v0, p0, Lorg/antlr/v4/runtime/VocabularyImpl;->symbolicNames:[Ljava/lang/String;
 
     array-length v1, v0
 
-    if-ge p1, v1, :cond_a
+    if-ge p1, v1, :cond_0
 
     .line 145
-    aget-object p1, v0, p1
-
-    return-object p1
-
-    :cond_a
-    const/4 v0, -0x1
-
-    if-ne p1, v0, :cond_10
+    aget-object v0, v0, p1
 
     .line 149
-    const-string p1, "EOF"
+    :goto_0
+    return-object v0
 
-    return-object p1
+    .line 145
+    :cond_0
+    const/4 v0, -0x1
 
-    :cond_10
-    const/4 p1, 0x0
+    if-ne p1, v0, :cond_1
 
-    return-object p1
+    .line 149
+    const-string v0, "EOF"
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

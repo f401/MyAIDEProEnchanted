@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/concurrent/Callable<",
+        "Ljava/util/concurrent/Callable",
+        "<",
         "Ljava/lang/Object;",
         ">;"
     }
@@ -40,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/LogSender;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)V
-    .registers 6
+    .locals 0
 
     .line 265
     iput-object p1, p0, Lcom/baidu/mobstat/LogSender$a;->a:Lcom/baidu/mobstat/LogSender;
@@ -65,7 +66,7 @@
 
 # virtual methods
 .method public call()Ljava/lang/Object;
-    .registers 5
+    .locals 4
 
     .line 274
     iget-object v0, p0, Lcom/baidu/mobstat/LogSender$a;->a:Lcom/baidu/mobstat/LogSender;
@@ -80,7 +81,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 275
     iget-object v0, p0, Lcom/baidu/mobstat/LogSender$a;->b:Landroid/content/Context;
@@ -91,10 +92,16 @@
 
     const/4 v0, 0x1
 
-    goto :goto_21
+    .line 283
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
 
     .line 279
-    :cond_17
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/LogSender$a;->b:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/baidu/mobstat/LogSender$a;->d:Ljava/lang/String;
@@ -105,11 +112,5 @@
 
     const/4 v0, 0x0
 
-    .line 283
-    :goto_21
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    return-object v0
+    goto :goto_0
 .end method

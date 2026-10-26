@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Ljava/io/File;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lio/github/zeroaicy/util/crash/CrashAppLog;)V
-    .registers 2
+    .locals 0
 
     .line 303
     iput-object p1, p0, Lio/github/zeroaicy/util/crash/CrashAppLog$1;->this$0:Lio/github/zeroaicy/util/crash/CrashAppLog;
@@ -45,7 +46,7 @@
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .registers 8
+    .locals 4
 
     .line 307
     invoke-virtual {p1}, Ljava/io/File;->lastModified()J
@@ -56,40 +57,41 @@
 
     move-result-wide v2
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_e
+    if-lez v0, :cond_0
 
-    const/4 p1, 0x1
-
-    return p1
+    const/4 v0, 0x1
 
     .line 309
-    :cond_e
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-virtual {p1}, Ljava/io/File;->lastModified()J
 
     move-result-wide v0
 
     invoke-virtual {p2}, Ljava/io/File;->lastModified()J
 
-    move-result-wide p1
+    move-result-wide v2
 
-    cmp-long v2, v0, p1
+    cmp-long v0, v0, v2
 
-    if-gez v2, :cond_1c
+    if-gez v0, :cond_1
 
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    return p1
+    goto :goto_0
 
-    :cond_1c
-    const/4 p1, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 303
     check-cast p1, Ljava/io/File;
@@ -98,7 +100,7 @@
 
     invoke-virtual {p0, p1, p2}, Lio/github/zeroaicy/util/crash/CrashAppLog$1;->compare(Ljava/io/File;Ljava/io/File;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

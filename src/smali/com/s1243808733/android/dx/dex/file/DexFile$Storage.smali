@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .registers 2
+    .locals 0
 
     .line 584
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,14 +34,14 @@
 
 # virtual methods
 .method public getStorage(I)[B
-    .registers 6
+    .locals 4
 
     .line 589
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/DexFile$Storage;->storage:[B
 
     array-length v0, v0
 
-    if-ge v0, p1, :cond_2b
+    if-ge v0, p1, :cond_0
 
     .line 590
     invoke-static {}, Ljava/util/logging/Logger;->getAnonymousLogger()Ljava/util/logging/Logger;
@@ -75,13 +75,13 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     .line 596
-    new-array p1, p1, [B
+    new-array v0, p1, [B
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/file/DexFile$Storage;->storage:[B
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/file/DexFile$Storage;->storage:[B
 
     .line 598
-    :cond_2b
-    iget-object p1, p0, Lcom/s1243808733/android/dx/dex/file/DexFile$Storage;->storage:[B
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/DexFile$Storage;->storage:[B
 
-    return-object p1
+    return-object v0
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,50 +49,50 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 4
 
     .line 97
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
-
-    new-instance p2, Landroid/content/Intent;
-
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
 
-    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->getActivity()Landroid/app/Activity;
+    new-instance v1, Landroid/content/Intent;
 
-    move-result-object v0
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
 
-    const-class v1, Lcom/s1243808733/aide/application/activity/androidr/AndroidRActivity;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->getActivity()Landroid/app/Activity;
 
-    invoke-direct {p2, v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    move-result-object v2
 
-    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$1;->val$item:Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;
+    const-class v3, Lcom/s1243808733/aide/application/activity/androidr/AndroidRActivity;
 
-    iget v0, v0, Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;->id:I
+    invoke-direct {v1, v2, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    const-string v1, "themeid"
+    const-string v2, "themeid"
 
-    invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    iget-object v3, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$1;->val$item:Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;
 
-    move-result-object p2
+    iget v3, v3, Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;->id:I
 
-    const-string v0, "tag"
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    const-string v1, "FragmentThemePreview"
+    move-result-object v1
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const-string v2, "tag"
 
-    move-result-object p2
+    const-string v3, "FragmentThemePreview"
 
-    const-string v0, "title"
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$1;->val$name:Ljava/lang/String;
+    move-result-object v1
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const-string v2, "title"
 
-    move-result-object p2
+    iget-object v3, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$1;->val$name:Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static a([C)C
-    .registers 3
+    .locals 2
 
     const-string v0, "$this$single"
 
@@ -13,39 +13,39 @@
 
     array-length v0, p0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_1
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x0
 
-    aget-char p0, p0, v0
+    aget-char v0, p0, v0
 
-    return p0
+    return v0
 
-    :cond_f
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "Array has more than one element."
+    const-string v1, "Array has more than one element."
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
-    :cond_17
-    new-instance p0, Ljava/util/NoSuchElementException;
+    :cond_1
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    const-string v0, "Array is empty."
+    const-string v1, "Array is empty."
 
-    invoke-direct {p0, v0}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 .end method
 
 .method public static a([Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -62,17 +62,17 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x0
 
-    aget-object p0, p0, v0
+    aget-object v0, p0, v0
 
-    goto :goto_e
+    :goto_0
+    return-object v0
 
-    :cond_d
-    const/4 p0, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_e
-    return-object p0
+    goto :goto_0
 .end method

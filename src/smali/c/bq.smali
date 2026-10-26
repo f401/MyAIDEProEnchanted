@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .registers 4
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,11 +28,11 @@
 
     invoke-virtual {p0}, Lc/bq;->c()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lc/s;
+    check-cast v0, Lc/s;
 
-    iput-object p1, p0, Lc/bq;->b:Lc/s;
+    iput-object v0, p0, Lc/bq;->b:Lc/s;
 
     return-void
 .end method
@@ -40,20 +40,20 @@
 
 # virtual methods
 .method public final c()Ljava/lang/Object;
-    .registers 5
+    .locals 4
 
     :try_start_0
     iget-object v0, p0, Lc/bq;->a:Lc/j;
 
     invoke-virtual {v0}, Lc/j;->j()Lc/s;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
-    :catch_7
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -78,35 +78,35 @@
 .end method
 
 .method public final hasMoreElements()Z
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lc/bq;->b:Lc/s;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_7
+    :goto_0
+    return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_7
-    return v0
+    goto :goto_0
 .end method
 
 .method public final nextElement()Ljava/lang/Object;
-    .registers 3
+    .locals 2
 
-    iget-object v0, p0, Lc/bq;->b:Lc/s;
+    iget-object v1, p0, Lc/bq;->b:Lc/s;
 
     invoke-virtual {p0}, Lc/bq;->c()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lc/s;
+    check-cast v0, Lc/s;
 
-    iput-object v1, p0, Lc/bq;->b:Lc/s;
+    iput-object v0, p0, Lc/bq;->b:Lc/s;
 
-    return-object v0
+    return-object v1
 .end method

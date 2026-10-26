@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
-    .registers 3
+    .locals 0
 
     .line 31
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/rop/cst/CstBaseMethodRef;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 37
     const-string v0, "method"

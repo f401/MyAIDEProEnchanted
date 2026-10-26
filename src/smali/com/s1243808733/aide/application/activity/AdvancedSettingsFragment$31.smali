@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/EditText;Landroid/app/Activity;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,116 +45,116 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 5
+    .locals 5
+
+    const/4 v4, 0x0
 
     .line 1183
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$31;->val$input:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$31;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1184
-    invoke-static {p1}, Lcom/blankj/utilcode/util/FileUtils;->getFileByPath(Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v0}, Lcom/blankj/utilcode/util/FileUtils;->getFileByPath(Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 v0, 0x0
-
-    if-eqz p1, :cond_4c
+    if-eqz v0, :cond_0
 
     .line 1185
-    invoke-virtual {p1}, Ljava/io/File;->exists()Z
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4c
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p1}, Ljava/io/File;->isFile()Z
+    invoke-virtual {v0}, Ljava/io/File;->isFile()Z
 
     move-result v1
 
-    if-nez v1, :cond_1e
+    if-nez v1, :cond_1
 
-    goto :goto_4c
+    .line 1186
+    :cond_0
+    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "\u65e0\u6548\u6587\u4ef6"
+
+    :goto_0
+    invoke-static {v0, v4}, Lcom/s1243808733/util/Toasty;->warning(Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    .line 1187
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    .line 1194
+    :goto_1
+    return-void
 
     .line 1191
-    :cond_1e
+    :cond_1
     new-instance v1, Ljava/lang/StringBuffer;
 
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 1192
-    const/4 v2, 0x2
+    const-string v2, "tar xvJf %1$s -C %2$s&&chmod 777 -R %2$s/framework/*&&exit"
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/4 v3, 0x2
 
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    move-result-object p1
-
-    aput-object p1, v2, v0
-
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$31;->val$activity:Landroid/app/Activity;
-
-    invoke-virtual {p1}, Landroid/app/Activity;->getFilesDir()Ljava/io/File;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object p1
-
-    const/4 v0, 0x1
-
-    aput-object p1, v2, v0
-
-    const-string p1, "tar xvJf %1$s -C %2$s&&chmod 777 -R %2$s/framework/*&&exit"
-
-    invoke-static {p1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 1194
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$31;->val$activity:Landroid/app/Activity;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/termux/app/TermuxActivity;->start(Landroid/app/Activity;Ljava/lang/String;)V
+    aput-object v0, v3, v4
 
-    return-void
+    const/4 v0, 0x1
+
+    iget-object v4, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$31;->val$activity:Landroid/app/Activity;
+
+    invoke-virtual {v4}, Landroid/app/Activity;->getFilesDir()Ljava/io/File;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v3, v0
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 1194
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$31;->val$activity:Landroid/app/Activity;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/termux/app/TermuxActivity;->start(Landroid/app/Activity;Ljava/lang/String;)V
+
+    goto :goto_1
 
     .line 1186
-    :cond_4c
-    :goto_4c
-    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+    :cond_2
+    const-string v0, "Invalid file"
 
-    move-result p1
-
-    if-eqz p1, :cond_55
-
-    const-string p1, "无效文件"
-
-    goto :goto_57
-
-    :cond_55
-    const-string p1, "Invalid file"
-
-    :goto_57
-    invoke-static {p1, v0}, Lcom/s1243808733/util/Toasty;->warning(Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object p1
-
-    .line 1187
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
-
-    return-void
+    goto :goto_0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$mviewChineseDoc(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->viewChineseDoc(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -33,7 +33,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$mviewChineseDoc2(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->viewChineseDoc2(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -41,7 +41,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$mviewChineseDoc3(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->viewChineseDoc3(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -49,7 +49,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Lcom/aide/engine/SourceEntity;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -67,7 +67,7 @@
 .end method
 
 .method private openBrowser(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
 
     .line 254
     new-instance v0, Landroid/content/Intent;
@@ -82,25 +82,25 @@
     .line 256
     invoke-static {p2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object p2
+    move-result-object v1
 
     .line 257
-    invoke-virtual {v0, p2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 258
-    iget-object p2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->val$context:Landroid/content/Context;
+    iget-object v1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->val$context:Landroid/content/Context;
 
     invoke-static {v0, p1}, Landroid/content/Intent;->createChooser(Landroid/content/Intent;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p2, p1}, Lcom/s1243808733/util/Utils;->startActivity(Landroid/content/Context;Landroid/content/Intent;)V
+    invoke-static {v1, v0}, Lcom/s1243808733/util/Utils;->startActivity(Landroid/content/Context;Landroid/content/Intent;)V
 
     return-void
 .end method
 
 .method private viewChineseDoc(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
 
     .line 267
     new-instance v0, Ljava/lang/StringBuilder;
@@ -113,15 +113,15 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p0, p1, p2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->openBrowser(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, p1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->openBrowser(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method private viewChineseDoc2(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
 
     .line 271
     new-instance v0, Ljava/lang/StringBuilder;
@@ -134,15 +134,15 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p0, p1, p2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->openBrowser(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, p1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->openBrowser(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method private viewChineseDoc3(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
 
     .line 274
     new-instance v0, Ljava/lang/StringBuilder;
@@ -155,15 +155,15 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p0, p1, p2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->openBrowser(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, p1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->openBrowser(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method private viewDoc(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
 
     .line 263
     new-instance v0, Ljava/lang/StringBuilder;
@@ -176,9 +176,9 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p0, p1, p2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->openBrowser(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, p1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->openBrowser(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -186,7 +186,9 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 7
+    .locals 6
+
+    const/4 v5, 0x0
 
     .line 281
     iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->val$sourceEntity:Lcom/aide/engine/SourceEntity;
@@ -212,80 +214,75 @@
 
     move-result v1
 
-    const/4 v2, 0x0
-
-    if-eqz v1, :cond_4b
+    if-eqz v1, :cond_0
 
     .line 284
-    nop
-
-    .line 285
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    iget-object v3, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->val$context:Landroid/content/Context;
+    iget-object v2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->val$context:Landroid/content/Context;
 
-    invoke-direct {v1, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 287
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    new-instance v3, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;
+    new-instance v2, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;
 
-    invoke-direct {v3, p0, p1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;-><init>(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Landroid/view/MenuItem;Ljava/lang/String;)V
+    invoke-direct {v2, p0, p1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;-><init>(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Landroid/view/MenuItem;Ljava/lang/String;)V
 
     .line 288
-    const/4 p1, 0x3
+    const/4 v0, 0x3
 
-    new-array p1, p1, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    const-string v0, "Android Api"
+    const-string v3, "Android Api"
 
-    aput-object v0, p1, v2
+    aput-object v3, v0, v5
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    const-string v4, "Android Api（android-doc）"
+    const-string v4, "Android Api\uff08android-doc\uff09"
 
-    aput-object v4, p1, v0
+    aput-object v4, v0, v3
 
-    const/4 v0, 0x2
+    const/4 v3, 0x2
 
-    const-string v4, "Android Api（apiref）"
+    const-string v4, "Android Api\uff08apiref\uff09"
 
-    aput-object v4, p1, v0
+    aput-object v4, v0, v3
 
-    invoke-virtual {v1, p1, v3}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 308
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 309
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
-
-    goto :goto_56
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     .line 311
-    :cond_4b
+    :goto_0
+    return v5
+
+    :cond_0
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {p0, p1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->viewDoc(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, v1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->viewDoc(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_56
-    return v2
+    goto :goto_0
 .end method

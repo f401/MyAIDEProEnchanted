@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 1112
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$28;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 3
+    .locals 2
 
     .line 1116
-    new-instance p1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string v0, "\ud83d\udc7e"
+    const-string v1, "\ud83d\udc7e"
 
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method

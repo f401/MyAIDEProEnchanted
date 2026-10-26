@@ -12,7 +12,8 @@
 .field public final mDefaultMethods:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -24,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .line 492
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -2789,7 +2790,7 @@
 
 # virtual methods
 .method public addDefaultMethod(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2805,7 +2806,7 @@
 .end method
 
 .method public hasDefaultMethod(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -2814,7 +2815,7 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

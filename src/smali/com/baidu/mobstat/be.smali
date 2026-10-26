@@ -10,15 +10,16 @@
 
 # direct methods
 .method public static a()[B
-    .registers 4
+    .locals 4
 
     sget-object v0, Lcom/baidu/mobstat/be;->a:[B
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
+    :goto_0
     return-object v0
 
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/math/BigInteger;
 
     sget-object v1, Lcom/baidu/mobstat/bd;->a:[B
@@ -47,19 +48,20 @@
 
     sput-object v0, Lcom/baidu/mobstat/be;->a:[B
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static b()[B
-    .registers 4
+    .locals 4
 
     sget-object v0, Lcom/baidu/mobstat/be;->b:[B
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
+    :goto_0
     return-object v0
 
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/math/BigInteger;
 
     sget-object v1, Lcom/baidu/mobstat/bd;->c:[B
@@ -88,5 +90,5 @@
 
     sput-object v0, Lcom/baidu/mobstat/be;->b:[B
 
-    return-object v0
+    goto :goto_0
 .end method

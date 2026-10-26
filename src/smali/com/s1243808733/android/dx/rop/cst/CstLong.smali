@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 28
     const-wide/16 v0, 0x0
@@ -35,7 +35,7 @@
 .end method
 
 .method private constructor <init>(J)V
-    .registers 3
+    .locals 1
 
     .line 53
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/rop/cst/CstLiteral64;-><init>(J)V
@@ -44,7 +44,7 @@
 .end method
 
 .method public static make(J)Lcom/s1243808733/android/dx/rop/cst/CstLong;
-    .registers 3
+    .locals 2
 
     .line 44
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstLong;
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 66
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->LONG:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -66,7 +66,7 @@
 .end method
 
 .method public getValue()J
-    .registers 3
+    .locals 2
 
     .line 87
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstLong;->getLongBits()J
@@ -77,7 +77,7 @@
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 78
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstLong;->getLongBits()J
@@ -92,7 +92,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .line 59
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstLong;->getLongBits()J
@@ -130,7 +130,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 72
     const-string v0, "long"

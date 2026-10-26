@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Lcom/baidu/mobstat/ck;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/co;)V
-    .registers 2
+    .locals 0
 
     .line 1027
     iput-object p1, p0, Lcom/baidu/mobstat/co$4;->a:Lcom/baidu/mobstat/co;
@@ -45,7 +46,7 @@
 
 # virtual methods
 .method public a(Lcom/baidu/mobstat/ck;Lcom/baidu/mobstat/ck;)I
-    .registers 6
+    .locals 4
 
     .line 1031
     invoke-virtual {p1}, Lcom/baidu/mobstat/ck;->b()J
@@ -54,35 +55,36 @@
 
     invoke-virtual {p2}, Lcom/baidu/mobstat/ck;->b()J
 
-    move-result-wide p1
+    move-result-wide v2
 
-    sub-long/2addr v0, p1
+    sub-long/2addr v0, v2
 
-    const-wide/16 p1, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v2, v0, p1
+    cmp-long v0, v0, v2
 
-    if-lez v2, :cond_11
+    if-lez v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_11
-    if-gez v2, :cond_15
+    :cond_0
+    if-gez v0, :cond_1
 
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    return p1
+    goto :goto_0
 
-    :cond_15
-    const/4 p1, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 1027
     check-cast p1, Lcom/baidu/mobstat/ck;
@@ -91,7 +93,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/baidu/mobstat/co$4;->a(Lcom/baidu/mobstat/ck;Lcom/baidu/mobstat/ck;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

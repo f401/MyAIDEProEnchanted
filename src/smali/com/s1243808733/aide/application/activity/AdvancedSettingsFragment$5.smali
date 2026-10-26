@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 346
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$5;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -36,18 +36,18 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 2
+    .locals 1
 
     .line 350
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$5;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$5;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/aide/util/CustomCommand;->showDialog(Landroid/app/Activity;)V
+    invoke-static {v0}, Lcom/s1243808733/aide/util/CustomCommand;->showDialog(Landroid/app/Activity;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;)V
-    .registers 2
+    .locals 1
 
     .line 367
     iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$6;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -33,11 +33,11 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 368
-    new-instance p1, Labcd/tg;
+    new-instance v0, Labcd/tg;
 
-    invoke-direct {p1}, Labcd/tg;-><init>()V
+    invoke-direct {v0}, Labcd/tg;-><init>()V
 
-    iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$6;->instance:Labcd/tg;
+    iput-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$6;->instance:Labcd/tg;
 
     return-void
 .end method
@@ -45,14 +45,14 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 2
+    .locals 1
 
     .line 372
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$6;->instance:Labcd/tg;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$6;->instance:Labcd/tg;
 
-    invoke-virtual {p1}, Labcd/tg;->run()Z
+    invoke-virtual {v0}, Labcd/tg;->run()Z
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

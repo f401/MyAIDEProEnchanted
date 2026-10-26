@@ -4,7 +4,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/baidu/mobstat/ap$d;
+    value = Lcom/baidu/mobstat/ap;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/baidu/mobstat/ap$a;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -31,25 +31,25 @@
 .end method
 
 .method static synthetic a(Lcom/baidu/mobstat/ap$d$a;)I
-    .registers 1
+    .locals 1
 
-    iget p0, p0, Lcom/baidu/mobstat/ap$d$a;->a:I
+    iget v0, p0, Lcom/baidu/mobstat/ap$d$a;->a:I
 
-    return p0
+    return v0
 .end method
 
 .method static synthetic b(Lcom/baidu/mobstat/ap$d$a;)Lcom/baidu/mobstat/ap$a;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/baidu/mobstat/ap$d$a;->b:Lcom/baidu/mobstat/ap$a;
+    iget-object v0, p0, Lcom/baidu/mobstat/ap$d$a;->b:Lcom/baidu/mobstat/ap$a;
 
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public a()V
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lcom/baidu/mobstat/ap$d$a;->a:I
 

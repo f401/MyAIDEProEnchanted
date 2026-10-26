@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Ljava/lang/String;Landroid/content/Context;JLjava/lang/String;ILjava/lang/String;Ljava/lang/String;IZ)V
-    .registers 12
+    .locals 0
 
     .line 738
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$9;->j:Lcom/baidu/mobstat/BDStatCore;
@@ -72,113 +72,151 @@
 
 # virtual methods
 .method public run()V
-    .registers 15
+    .locals 19
 
     .line 742
-    iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$9;->a:Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/baidu/mobstat/BDStatCore$9;->a:Ljava/lang/String;
 
     .line 743
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_a
+    if-eqz v2, :cond_0
 
     .line 744
-    const-string v0, ""
+    const-string v4, ""
 
     .line 747
-    :cond_a
-    iget-object v1, p0, Lcom/baidu/mobstat/BDStatCore$9;->j:Lcom/baidu/mobstat/BDStatCore;
+    :cond_0
+    move-object/from16 v0, p0
 
-    invoke-static {v1}, Lcom/baidu/mobstat/BDStatCore;->b(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/SessionAnalysis;
+    iget-object v2, v0, Lcom/baidu/mobstat/BDStatCore$9;->j:Lcom/baidu/mobstat/BDStatCore;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/baidu/mobstat/BDStatCore;->b(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/SessionAnalysis;
 
-    iget-object v2, p0, Lcom/baidu/mobstat/BDStatCore$9;->b:Landroid/content/Context;
+    move-result-object v2
 
-    iget-wide v3, p0, Lcom/baidu/mobstat/BDStatCore$9;->c:J
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/baidu/mobstat/BDStatCore$9;->b:Landroid/content/Context;
+
+    move-object/from16 v0, p0
+
+    iget-wide v6, v0, Lcom/baidu/mobstat/BDStatCore$9;->c:J
 
     const/4 v5, 0x0
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Lcom/baidu/mobstat/SessionAnalysis;->onSessionStart(Landroid/content/Context;JZ)V
+    invoke-virtual {v2, v3, v6, v7, v5}, Lcom/baidu/mobstat/SessionAnalysis;->onSessionStart(Landroid/content/Context;JZ)V
 
     .line 749
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    const-string v1, "Put event"
+    const-string v2, "Put event"
 
-    invoke-direct {v9, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v10, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/baidu/mobstat/BDStatCore$9;->j:Lcom/baidu/mobstat/BDStatCore;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lcom/baidu/mobstat/BDStatCore$9;->d:Ljava/lang/String;
+    iget-object v2, v0, Lcom/baidu/mobstat/BDStatCore$9;->j:Lcom/baidu/mobstat/BDStatCore;
 
-    iget v4, p0, Lcom/baidu/mobstat/BDStatCore$9;->e:I
+    move-object/from16 v0, p0
 
-    const-wide/16 v5, 0x0
+    iget-object v3, v0, Lcom/baidu/mobstat/BDStatCore$9;->d:Ljava/lang/String;
 
-    const/4 v7, 0x0
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/baidu/mobstat/BDStatCore$9;->e:I
+
+    const-wide/16 v6, 0x0
 
     const/4 v8, 0x0
 
-    move-object v3, v0
+    const/4 v9, 0x0
 
-    invoke-static/range {v1 .. v8}, Lcom/baidu/mobstat/BDStatCore;->a(Lcom/baidu/mobstat/BDStatCore;Ljava/lang/String;Ljava/lang/String;IJLjava/util/Map;Lcom/baidu/mobstat/ExtraInfo;)Ljava/lang/String;
+    invoke-static/range {v2 .. v9}, Lcom/baidu/mobstat/BDStatCore;->a(Lcom/baidu/mobstat/BDStatCore;Ljava/lang/String;Ljava/lang/String;IJLjava/util/Map;Lcom/baidu/mobstat/ExtraInfo;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 750
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v1}, Lcom/baidu/mobstat/cx;->a(Ljava/lang/String;)V
+    invoke-virtual {v3, v2}, Lcom/baidu/mobstat/cx;->a(Ljava/lang/String;)V
 
     .line 752
-    iget-object v1, p0, Lcom/baidu/mobstat/BDStatCore$9;->j:Lcom/baidu/mobstat/BDStatCore;
+    move-object/from16 v0, p0
 
-    invoke-static {v1}, Lcom/baidu/mobstat/BDStatCore;->b(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/SessionAnalysis;
+    iget-object v2, v0, Lcom/baidu/mobstat/BDStatCore$9;->j:Lcom/baidu/mobstat/BDStatCore;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/baidu/mobstat/BDStatCore;->b(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/SessionAnalysis;
 
-    invoke-virtual {v1}, Lcom/baidu/mobstat/SessionAnalysis;->getSessionStartTime()J
+    move-result-object v2
 
-    move-result-wide v3
+    invoke-virtual {v2}, Lcom/baidu/mobstat/SessionAnalysis;->getSessionStartTime()J
+
+    move-result-wide v8
 
     .line 753
-    iget-object v1, p0, Lcom/baidu/mobstat/BDStatCore$9;->j:Lcom/baidu/mobstat/BDStatCore;
+    move-object/from16 v0, p0
 
-    invoke-static {v1}, Lcom/baidu/mobstat/BDStatCore;->c(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/EventAnalysis;
+    iget-object v2, v0, Lcom/baidu/mobstat/BDStatCore$9;->j:Lcom/baidu/mobstat/BDStatCore;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/baidu/mobstat/BDStatCore;->c(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/EventAnalysis;
 
-    iget-object v2, p0, Lcom/baidu/mobstat/BDStatCore$9;->b:Landroid/content/Context;
+    move-result-object v6
 
-    iget-object v5, p0, Lcom/baidu/mobstat/BDStatCore$9;->d:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget v7, p0, Lcom/baidu/mobstat/BDStatCore$9;->e:I
+    iget-object v7, v0, Lcom/baidu/mobstat/BDStatCore$9;->b:Landroid/content/Context;
 
-    iget-wide v8, p0, Lcom/baidu/mobstat/BDStatCore$9;->c:J
+    move-object/from16 v0, p0
 
-    iget-object v10, p0, Lcom/baidu/mobstat/BDStatCore$9;->f:Ljava/lang/String;
+    iget-object v10, v0, Lcom/baidu/mobstat/BDStatCore$9;->d:Ljava/lang/String;
 
-    iget-object v11, p0, Lcom/baidu/mobstat/BDStatCore$9;->g:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget v12, p0, Lcom/baidu/mobstat/BDStatCore$9;->h:I
+    iget v12, v0, Lcom/baidu/mobstat/BDStatCore$9;->e:I
 
-    iget-boolean v13, p0, Lcom/baidu/mobstat/BDStatCore$9;->i:Z
+    move-object/from16 v0, p0
+
+    iget-wide v13, v0, Lcom/baidu/mobstat/BDStatCore$9;->c:J
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/baidu/mobstat/BDStatCore$9;->f:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/baidu/mobstat/BDStatCore$9;->g:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/baidu/mobstat/BDStatCore$9;->h:I
+
+    move/from16 v17, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/baidu/mobstat/BDStatCore$9;->i:Z
+
+    move/from16 v18, v0
+
+    move-object v11, v4
 
     .line 754
-    move-object v6, v0
-
-    invoke-virtual/range {v1 .. v13}, Lcom/baidu/mobstat/EventAnalysis;->onEvent(Landroid/content/Context;JLjava/lang/String;Ljava/lang/String;IJLjava/lang/String;Ljava/lang/String;IZ)V
+    invoke-virtual/range {v6 .. v18}, Lcom/baidu/mobstat/EventAnalysis;->onEvent(Landroid/content/Context;JLjava/lang/String;Ljava/lang/String;IJLjava/lang/String;Ljava/lang/String;IZ)V
 
     return-void
 .end method

@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lorg/xutils/common/Callback$CommonCallback<",
+        "Lorg/xutils/common/Callback$CommonCallback",
+        "<",
         "Lcom/s1243808733/translate/YouDaoTransltionResponse;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/translate/YouDaoTranslation$OnTranslationCallback;)V
-    .registers 2
+    .locals 0
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,30 +47,30 @@
 
 # virtual methods
 .method public onCancelled(Lorg/xutils/common/Callback$CancelledException;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;Z)V
-    .registers 3
+    .locals 1
 
     .line 39
-    iget-object p2, p0, Lcom/s1243808733/translate/YouDaoTranslation$TranslationCallback;->mOnTranslationCallback:Lcom/s1243808733/translate/YouDaoTranslation$OnTranslationCallback;
+    iget-object v0, p0, Lcom/s1243808733/translate/YouDaoTranslation$TranslationCallback;->mOnTranslationCallback:Lcom/s1243808733/translate/YouDaoTranslation$OnTranslationCallback;
 
-    invoke-interface {p2, p1}, Lcom/s1243808733/translate/YouDaoTranslation$OnTranslationCallback;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lcom/s1243808733/translate/YouDaoTranslation$OnTranslationCallback;->onError(Ljava/lang/Throwable;)V
 
     return-void
 .end method
 
 .method public onFinished()V
-    .registers 1
+    .locals 0
 
     return-void
 .end method
 
 .method public onSuccess(Lcom/s1243808733/translate/YouDaoTransltionResponse;)V
-    .registers 3
+    .locals 1
 
     .line 30
     iget-object v0, p0, Lcom/s1243808733/translate/YouDaoTranslation$TranslationCallback;->mOnTranslationCallback:Lcom/s1243808733/translate/YouDaoTranslation$OnTranslationCallback;
@@ -80,7 +81,7 @@
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
 
     .line 22
     check-cast p1, Lcom/s1243808733/translate/YouDaoTransltionResponse;

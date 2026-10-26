@@ -39,16 +39,16 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 47
-    const/16 v0, 0x101
+    const/16 v0, 0x100
 
-    const/4 v1, 0x0
+    const/16 v1, 0x101
 
-    const/16 v2, 0x100
+    const/4 v2, 0x0
 
-    invoke-static {v2, v0, v1}, Lcom/termux/terminal/TextStyle;->encode(III)J
+    invoke-static {v0, v1, v2}, Lcom/termux/terminal/TextStyle;->encode(III)J
 
     move-result-wide v0
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,161 +67,167 @@
 .end method
 
 .method public static decodeBackColor(J)I
-    .registers 8
+    .locals 6
 
-    const-wide/16 v0, 0x400
+    const/16 v0, 0x10
 
-    and-long/2addr v0, p0
-
-    const-wide/16 v2, 0x0
-
-    const/16 v4, 0x10
-
-    cmp-long v5, v0, v2
-
-    ushr-long/2addr p0, v4
-
-    if-nez v5, :cond_11
-
-    const-wide/16 v0, 0x1ff
-
-    and-long/2addr p0, v0
-
-    long-to-int p1, p0
-
-    return p1
-
-    :cond_11
-    const-wide/32 v0, 0xffffff
-
-    and-long/2addr p0, v0
-
-    long-to-int p1, p0
-
-    const/high16 p0, -0x1000000
-
-    or-int/2addr p0, p1
-
-    return p0
-.end method
-
-.method public static decodeEffect(J)I
-    .registers 4
-
-    const-wide/16 v0, 0x7ff
-
-    and-long/2addr p0, v0
-
-    long-to-int p1, p0
-
-    return p1
-.end method
-
-.method public static decodeForeColor(J)I
-    .registers 8
-
-    const-wide/16 v0, 0x200
-
-    and-long/2addr v0, p0
-
-    const-wide/16 v2, 0x0
-
-    const/16 v4, 0x28
-
-    cmp-long v5, v0, v2
-
-    ushr-long/2addr p0, v4
-
-    if-nez v5, :cond_11
-
-    const-wide/16 v0, 0x1ff
-
-    and-long/2addr p0, v0
-
-    long-to-int p1, p0
-
-    return p1
-
-    :cond_11
-    const-wide/32 v0, 0xffffff
-
-    and-long/2addr p0, v0
-
-    long-to-int p1, p0
-
-    const/high16 p0, -0x1000000
-
-    or-int/2addr p0, p1
-
-    return p0
-.end method
-
-.method static encode(III)J
-    .registers 15
-
-    and-int/lit16 p2, p2, 0x1ff
-
-    int-to-long v0, p2
-
-    const/high16 p2, -0x1000000
-
-    and-int v2, p0, p2
-
-    const-wide/32 v3, 0xffffff
-
-    const/16 v5, 0x28
-
-    const-wide/16 v6, 0x1ff
-
-    int-to-long v8, p0
-
-    if-ne v2, p2, :cond_17
-
-    and-long/2addr v8, v3
-
-    shl-long/2addr v8, v5
-
-    const-wide/16 v10, 0x200
-
-    or-long/2addr v8, v10
-
-    goto :goto_19
-
-    :cond_17
-    and-long/2addr v8, v6
-
-    shl-long/2addr v8, v5
-
-    :goto_19
-    and-int p0, p1, p2
-
-    const/16 v2, 0x10
-
-    if-ne p0, p2, :cond_26
-
-    int-to-long p0, p1
-
-    and-long/2addr p0, v3
-
-    shl-long/2addr p0, v2
+    ushr-long v0, p0, v0
 
     const-wide/16 v2, 0x400
 
-    or-long/2addr p0, v2
+    and-long/2addr v2, p0
 
-    goto :goto_29
+    const-wide/16 v4, 0x0
 
-    :cond_26
-    int-to-long p0, p1
+    cmp-long v2, v2, v4
 
-    and-long/2addr p0, v6
+    if-nez v2, :cond_0
 
-    shl-long/2addr p0, v2
+    const-wide/16 v2, 0x1ff
 
-    :goto_29
-    or-long/2addr v0, v8
+    and-long/2addr v0, v2
 
-    or-long/2addr p0, v0
+    long-to-int v0, v0
 
-    return-wide p0
+    :goto_0
+    return v0
+
+    :cond_0
+    const/high16 v2, -0x1000000
+
+    const-wide/32 v4, 0xffffff
+
+    and-long/2addr v0, v4
+
+    long-to-int v0, v0
+
+    or-int/2addr v0, v2
+
+    goto :goto_0
+.end method
+
+.method public static decodeEffect(J)I
+    .locals 2
+
+    const-wide/16 v0, 0x7ff
+
+    and-long/2addr v0, p0
+
+    long-to-int v0, v0
+
+    return v0
+.end method
+
+.method public static decodeForeColor(J)I
+    .locals 6
+
+    const/16 v0, 0x28
+
+    ushr-long v0, p0, v0
+
+    const-wide/16 v2, 0x200
+
+    and-long/2addr v2, p0
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_0
+
+    const-wide/16 v2, 0x1ff
+
+    and-long/2addr v0, v2
+
+    long-to-int v0, v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/high16 v2, -0x1000000
+
+    const-wide/32 v4, 0xffffff
+
+    and-long/2addr v0, v4
+
+    long-to-int v0, v0
+
+    or-int/2addr v0, v2
+
+    goto :goto_0
+.end method
+
+.method static encode(III)J
+    .locals 12
+
+    const-wide/32 v10, 0xffffff
+
+    const-wide/16 v8, 0x1ff
+
+    const/16 v3, 0x28
+
+    const/16 v7, 0x10
+
+    const/high16 v6, -0x1000000
+
+    and-int/lit16 v0, p2, 0x1ff
+
+    int-to-long v4, v0
+
+    int-to-long v0, p0
+
+    and-int v2, p0, v6
+
+    if-ne v2, v6, :cond_0
+
+    and-long/2addr v0, v10
+
+    shl-long/2addr v0, v3
+
+    const-wide/16 v2, 0x200
+
+    or-long/2addr v0, v2
+
+    move-wide v2, v0
+
+    :goto_0
+    and-int v0, p1, v6
+
+    if-ne v0, v6, :cond_1
+
+    int-to-long v0, p1
+
+    and-long/2addr v0, v10
+
+    shl-long/2addr v0, v7
+
+    const-wide/16 v6, 0x400
+
+    or-long/2addr v0, v6
+
+    :goto_1
+    or-long/2addr v2, v4
+
+    or-long/2addr v0, v2
+
+    return-wide v0
+
+    :cond_0
+    and-long/2addr v0, v8
+
+    shl-long/2addr v0, v3
+
+    move-wide v2, v0
+
+    goto :goto_0
+
+    :cond_1
+    int-to-long v0, p1
+
+    and-long/2addr v0, v8
+
+    shl-long/2addr v0, v7
+
+    goto :goto_1
 .end method

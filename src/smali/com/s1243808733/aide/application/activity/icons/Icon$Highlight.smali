@@ -24,7 +24,9 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/application/activity/icons/Icon;)V
-    .registers 2
+    .locals 1
+
+    const/4 v0, -0x1
 
     .line 66
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Icon$Highlight;->this$0:Lcom/s1243808733/aide/application/activity/icons/Icon;
@@ -32,12 +34,10 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
-    const/4 p1, -0x1
-
-    iput p1, p0, Lcom/s1243808733/aide/application/activity/icons/Icon$Highlight;->start:I
+    iput v0, p0, Lcom/s1243808733/aide/application/activity/icons/Icon$Highlight;->start:I
 
     .line 68
-    iput p1, p0, Lcom/s1243808733/aide/application/activity/icons/Icon$Highlight;->end:I
+    iput v0, p0, Lcom/s1243808733/aide/application/activity/icons/Icon$Highlight;->end:I
 
     return-void
 .end method

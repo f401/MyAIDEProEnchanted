@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/cf/code/Simulator;)V
-    .registers 2
+    .locals 1
 
     .line 236
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
@@ -39,20 +39,20 @@
     .line 237
     invoke-static {p1}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$fgetmachine(Lcom/s1243808733/android/dx/cf/code/Simulator;)Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
     .line 238
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
     return-void
 .end method
 
 .method private checkReturnType(Lcom/s1243808733/android/dx/rop/type/Type;)V
-    .registers 6
+    .locals 4
 
     .line 566
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
@@ -70,7 +70,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_33
+    if-nez v1, :cond_0
 
     .line 575
     iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
@@ -95,25 +95,25 @@
     .line 577
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/type/Type;->toHuman()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 575
-    invoke-static {v1, p1}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mfail(Lcom/s1243808733/android/dx/cf/code/Simulator;Ljava/lang/String;)V
+    invoke-static {v1, v0}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mfail(Lcom/s1243808733/android/dx/cf/code/Simulator;Ljava/lang/String;)V
 
-    :cond_33
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getPreviousOffset()I
-    .registers 2
+    .locals 1
 
     .line 833
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->previousOffset:I
@@ -122,9 +122,9 @@
 .end method
 
 .method public setFrame(Lcom/s1243808733/android/dx/cf/code/Frame;)V
-    .registers 3
+    .locals 2
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_0
 
     .line 251
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
@@ -132,18 +132,18 @@
     return-void
 
     .line 248
-    :cond_5
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "frame == null"
+    const-string v1, "frame == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public setPreviousOffset(I)V
-    .registers 2
+    .locals 0
 
     .line 827
     iput p1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->previousOffset:I
@@ -152,160 +152,181 @@
 .end method
 
 .method public visitBranch(IIII)V
-    .registers 8
+    .locals 4
 
-    packed-switch p1, :pswitch_data_48
+    packed-switch p1, :pswitch_data_0
 
-    packed-switch p1, :pswitch_data_6c
+    packed-switch p1, :pswitch_data_1
 
     .line 795
     invoke-virtual {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->visitInvalid(III)V
 
+    .line 801
+    :goto_0
     return-void
 
     .line 784
-    :pswitch_a  #0xa5, 0xa6
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :pswitch_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
     sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-interface {p3, v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+    sget-object v3, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    goto :goto_3b
+    invoke-interface {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    .line 800
+    :goto_1
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxTargetArg(I)V
+
+    .line 801
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v0, v1, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
+
+    goto :goto_0
 
     .line 779
-    :pswitch_16  #0x9f, 0xa0, 0xa1, 0xa2, 0xa3, 0xa4
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :pswitch_1
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
     sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-interface {p3, v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+    sget-object v3, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    goto :goto_3b
+    invoke-interface {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto :goto_1
 
     .line 765
-    :pswitch_22  #0x99, 0x9a, 0x9b, 0x9c, 0x9d, 0x9e
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :pswitch_2
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
 
-    goto :goto_3b
+    goto :goto_1
 
     .line 791
-    :pswitch_2c  #0xa7, 0xa8, 0xc8, 0xc9
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :pswitch_3
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
 
-    goto :goto_3b
+    goto :goto_1
 
     .line 770
-    :pswitch_32  #0xc6, 0xc7
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :pswitch_4
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
 
-    .line 800
-    :goto_3b
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    goto :goto_1
 
-    invoke-interface {p3, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxTargetArg(I)V
-
-    .line 801
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object p4, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, p4, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
-
-    return-void
-
-    :pswitch_data_48
+    .line 4294967295
+    :pswitch_data_0
     .packed-switch 0x99
-        :pswitch_22  #00000099
-        :pswitch_22  #0000009a
-        :pswitch_22  #0000009b
-        :pswitch_22  #0000009c
-        :pswitch_22  #0000009d
-        :pswitch_22  #0000009e
-        :pswitch_16  #0000009f
-        :pswitch_16  #000000a0
-        :pswitch_16  #000000a1
-        :pswitch_16  #000000a2
-        :pswitch_16  #000000a3
-        :pswitch_16  #000000a4
-        :pswitch_a  #000000a5
-        :pswitch_a  #000000a6
-        :pswitch_2c  #000000a7
-        :pswitch_2c  #000000a8
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_3
+        :pswitch_3
     .end packed-switch
 
-    :pswitch_data_6c
+    :pswitch_data_1
     .packed-switch 0xc6
-        :pswitch_32  #000000c6
-        :pswitch_32  #000000c7
-        :pswitch_2c  #000000c8
-        :pswitch_2c  #000000c9
+        :pswitch_4
+        :pswitch_4
+        :pswitch_3
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public visitConstant(IIILcom/s1243808733/android/dx/rop/cst/Constant;I)V
-    .registers 9
+    .locals 4
 
-    const/16 p3, 0x12
+    const/16 v0, 0x12
 
-    if-eq p1, p3, :cond_b6
+    if-eq p1, v0, :cond_5
 
-    const/16 p3, 0x13
+    const/16 v0, 0x13
 
-    if-eq p1, p3, :cond_b6
+    if-eq p1, v0, :cond_5
 
-    const/16 p3, 0xbd
+    const/16 v0, 0xbd
 
-    if-eq p1, p3, :cond_ac
+    if-eq p1, v0, :cond_4
 
-    const/16 p3, 0xc5
+    const/16 v0, 0xc5
 
-    if-eq p1, p3, :cond_9e
+    if-eq p1, v0, :cond_3
 
-    const/16 p3, 0xc0
+    const/16 v0, 0xc0
 
-    if-eq p1, p3, :cond_94
+    if-eq p1, v0, :cond_2
 
-    const/16 p3, 0xc1
+    const/16 v0, 0xc1
 
-    if-eq p1, p3, :cond_94
+    if-eq p1, v0, :cond_2
 
-    packed-switch p1, :pswitch_data_da
+    packed-switch p1, :pswitch_data_0
 
     .line 744
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
 
-    goto/16 :goto_c8
+    .line 749
+    :goto_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+
+    .line 750
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxCstArg(Lcom/s1243808733/android/dx/rop/cst/Constant;)V
+
+    .line 751
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v0, v1, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
+
+    return-void
 
     .line 711
-    :pswitch_22  #0xba
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
+    :pswitch_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
 
-    invoke-static {p3, p1}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mcheckInvokeDynamicSupported(Lcom/s1243808733/android/dx/cf/code/Simulator;I)V
+    invoke-static {v0, p1}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mcheckInvokeDynamicSupported(Lcom/s1243808733/android/dx/cf/code/Simulator;I)V
 
     .line 712
     check-cast p4, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;
@@ -313,280 +334,273 @@
     .line 713
     invoke-virtual {p4}, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->getPrototype()Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object p3
+    move-result-object v0
 
     .line 714
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-interface {v0, v1, p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Prototype;)V
+    invoke-interface {v1, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Prototype;)V
 
     .line 717
     invoke-virtual {p4}, Lcom/s1243808733/android/dx/rop/cst/CstInvokeDynamic;->addReference()Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;
 
     move-result-object p4
 
-    goto/16 :goto_c8
+    goto :goto_0
 
     .line 685
-    :pswitch_3a  #0xb6, 0xb7, 0xb8, 0xb9
-    instance-of p3, p4, Lcom/s1243808733/android/dx/rop/cst/CstInterfaceMethodRef;
+    :pswitch_1
+    instance-of v0, p4, Lcom/s1243808733/android/dx/rop/cst/CstInterfaceMethodRef;
 
-    if-eqz p3, :cond_4c
+    if-eqz v0, :cond_8
 
     .line 686
     check-cast p4, Lcom/s1243808733/android/dx/rop/cst/CstInterfaceMethodRef;
 
     invoke-virtual {p4}, Lcom/s1243808733/android/dx/rop/cst/CstInterfaceMethodRef;->toMethodRef()Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;
 
-    move-result-object p4
+    move-result-object v1
 
     .line 687
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
 
-    move-object v0, p4
+    move-object v0, v1
 
     check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;
 
-    invoke-static {p3, p1, p4}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mcheckInvokeInterfaceSupported(Lcom/s1243808733/android/dx/cf/code/Simulator;ILcom/s1243808733/android/dx/rop/cst/CstMethodRef;)V
+    invoke-static {v2, p1, v1}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mcheckInvokeInterfaceSupported(Lcom/s1243808733/android/dx/cf/code/Simulator;ILcom/s1243808733/android/dx/rop/cst/CstMethodRef;)V
 
     .line 693
-    :cond_4c
-    instance-of p3, p4, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;
+    :goto_1
+    instance-of v0, v1, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;
 
-    if-eqz p3, :cond_5e
+    if-eqz v0, :cond_0
+
+    move-object v0, v1
 
     .line 694
-    move-object p3, p4
-
-    check-cast p3, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;
 
     .line 695
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;->isSignaturePolymorphic()Z
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;->isSignaturePolymorphic()Z
 
-    move-result p3
+    move-result v0
 
-    if-eqz p3, :cond_5e
+    if-eqz v0, :cond_0
 
     .line 696
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
 
-    invoke-static {p3, p1}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mcheckInvokeSignaturePolymorphic(Lcom/s1243808733/android/dx/cf/code/Simulator;I)V
+    invoke-static {v0, p1}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mcheckInvokeSignaturePolymorphic(Lcom/s1243808733/android/dx/cf/code/Simulator;I)V
 
-    :cond_5e
-    const/16 p3, 0xb8
+    :cond_0
+    const/16 v0, 0xb8
 
-    if-ne p1, p3, :cond_64
+    if-ne p1, v0, :cond_1
 
-    const/4 p3, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_65
+    move v2, v0
 
-    :cond_64
-    const/4 p3, 0x0
+    :goto_2
+    move-object v0, v1
 
     .line 705
-    :goto_65
-    move-object v0, p4
-
     check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;
 
     .line 706
-    invoke-virtual {v0, p3}, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;->getPrototype(Z)Lcom/s1243808733/android/dx/rop/type/Prototype;
+    invoke-virtual {v0, v2}, Lcom/s1243808733/android/dx/rop/cst/CstMethodRef;->getPrototype(Z)Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object p3
+    move-result-object v0
 
     .line 707
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-interface {v0, v1, p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Prototype;)V
+    invoke-interface {v2, v3, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Prototype;)V
 
-    goto :goto_c8
+    move-object p4, v1
+
+    goto :goto_0
+
+    .line 696
+    :cond_1
+    const/4 v0, 0x0
+
+    move v2, v0
+
+    goto :goto_2
+
+    :pswitch_2
+    move-object v0, p4
 
     .line 673
-    :pswitch_74  #0xb5
-    move-object p3, p4
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
-    check-cast p3, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getType()Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getType()Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p3
+    move-result-object v0
 
     .line 674
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v3, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v1, v2, v3, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto :goto_0
+
+    :pswitch_3
+    move-object v0, p4
+
+    .line 662
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getType()Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v0
+
+    .line 663
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v1, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_0
+
+    .line 669
+    :cond_2
+    :pswitch_4
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
     iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
     sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-interface {v0, v1, v2, p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
 
-    goto :goto_c8
-
-    .line 662
-    :pswitch_85  #0xb3
-    move-object p3, p4
-
-    check-cast p3, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;->getType()Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p3
-
-    .line 663
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {v0, v1, p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto :goto_c8
-
-    .line 669
-    :cond_94
-    :pswitch_94  #0xb4
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto :goto_c8
+    goto/16 :goto_0
 
     .line 730
-    :cond_9e
-    sget-object p3, Lcom/s1243808733/android/dx/rop/type/Type;->VOID:Lcom/s1243808733/android/dx/rop/type/Type;
+    :cond_3
+    sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->VOID:Lcom/s1243808733/android/dx/rop/type/Type;
 
     .line 731
-    invoke-static {p3, p5}, Lcom/s1243808733/android/dx/rop/type/Prototype;->internInts(Lcom/s1243808733/android/dx/rop/type/Type;I)Lcom/s1243808733/android/dx/rop/type/Prototype;
+    invoke-static {v0, p5}, Lcom/s1243808733/android/dx/rop/type/Prototype;->internInts(Lcom/s1243808733/android/dx/rop/type/Type;I)Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object p3
+    move-result-object v0
 
     .line 732
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v1, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Prototype;)V
+
+    goto/16 :goto_0
+
+    .line 658
+    :cond_4
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
     iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-interface {v0, v1, p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Prototype;)V
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    goto :goto_c8
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
 
-    .line 658
-    :cond_ac
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto :goto_c8
+    goto/16 :goto_0
 
     .line 737
-    :cond_b6
-    instance-of p3, p4, Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;
+    :cond_5
+    instance-of v0, p4, Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;
 
-    if-nez p3, :cond_be
+    if-nez v0, :cond_6
 
-    instance-of p3, p4, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
+    instance-of v0, p4, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
 
-    if-eqz p3, :cond_c3
+    if-eqz v0, :cond_7
 
     .line 738
-    :cond_be
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
+    :cond_6
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
 
-    invoke-static {p3, p4}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mcheckConstMethodHandleSupported(Lcom/s1243808733/android/dx/cf/code/Simulator;Lcom/s1243808733/android/dx/rop/cst/Constant;)V
+    invoke-static {v0, p4}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mcheckConstMethodHandleSupported(Lcom/s1243808733/android/dx/cf/code/Simulator;Lcom/s1243808733/android/dx/rop/cst/Constant;)V
 
     .line 740
-    :cond_c3
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :cond_7
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
 
-    .line 749
-    :goto_c8
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    goto/16 :goto_0
 
-    invoke-interface {p3, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+    :cond_8
+    move-object v1, p4
 
-    .line 750
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    goto/16 :goto_1
 
-    invoke-interface {p3, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxCstArg(Lcom/s1243808733/android/dx/rop/cst/Constant;)V
+    nop
 
-    .line 751
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object p4, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, p4, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
-
-    return-void
-
-    :pswitch_data_da
+    :pswitch_data_0
     .packed-switch 0xb3
-        :pswitch_85  #000000b3
-        :pswitch_94  #000000b4
-        :pswitch_74  #000000b5
-        :pswitch_3a  #000000b6
-        :pswitch_3a  #000000b7
-        :pswitch_3a  #000000b8
-        :pswitch_3a  #000000b9
-        :pswitch_22  #000000ba
+        :pswitch_3
+        :pswitch_4
+        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public visitInvalid(III)V
-    .registers 4
+    .locals 2
 
     .line 257
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string p3, "invalid opcode "
+    const-string v1, "invalid opcode "
 
-    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-static {p1}, Lcom/s1243808733/android/dx/util/Hex;->u1(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Lcom/s1243808733/android/dx/cf/code/SimException;
+    new-instance v1, Lcom/s1243808733/android/dx/cf/code/SimException;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p1, p2}, Lcom/s1243808733/android/dx/cf/code/SimException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/cf/code/SimException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method public visitLocal(IIIILcom/s1243808733/android/dx/rop/type/Type;I)V
-    .registers 13
+    .locals 6
 
-    const/16 v0, 0x36
+    const/16 v5, 0x36
 
-    if-ne p1, v0, :cond_7
+    const/4 v1, 0x0
 
-    add-int v1, p2, p3
+    if-ne p1, v5, :cond_1
 
-    goto :goto_8
-
-    :cond_7
-    move v1, p2
+    add-int v0, p2, p3
 
     .line 601
-    :goto_8
+    :goto_0
     iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
 
     invoke-static {v2}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$fgetlocalVariables(Lcom/s1243808733/android/dx/cf/code/Simulator;)Lcom/s1243808733/android/dx/cf/code/LocalVariableList;
@@ -594,592 +608,504 @@
     move-result-object v2
 
     .line 602
-    invoke-virtual {v2, v1, p4}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->pcAndIndexToLocal(II)Lcom/s1243808733/android/dx/cf/code/LocalVariableList$Item;
+    invoke-virtual {v2, v0, p4}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList;->pcAndIndexToLocal(II)Lcom/s1243808733/android/dx/cf/code/LocalVariableList$Item;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
-
-    if-eqz v1, :cond_26
+    if-eqz v0, :cond_2
 
     .line 606
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList$Item;->getType()Lcom/s1243808733/android/dx/rop/type/Type;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList$Item;->getType()Lcom/s1243808733/android/dx/rop/type/Type;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 607
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/type/Type;->getBasicFrameType()I
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/type/Type;->getBasicFrameType()I
 
-    move-result v4
+    move-result v3
 
     .line 608
     invoke-virtual {p5}, Lcom/s1243808733/android/dx/rop/type/Type;->getBasicFrameType()I
 
-    move-result v5
+    move-result v4
 
-    if-eq v4, v5, :cond_27
+    if-eq v3, v4, :cond_0
 
-    move-object v3, p5
+    move-object v0, v1
 
-    move-object v1, v2
+    move-object v2, p5
 
-    goto :goto_27
+    :cond_0
+    :goto_1
+    const/16 v3, 0x15
 
-    :cond_26
-    move-object v3, p5
+    if-eq p1, v3, :cond_7
 
-    :cond_27
-    :goto_27
-    const/16 v4, 0x15
+    if-eq p1, v5, :cond_5
 
-    if-eq p1, v4, :cond_79
+    const/16 v3, 0x84
 
-    if-eq p1, v0, :cond_60
+    if-eq p1, v3, :cond_3
 
-    const/16 v0, 0x84
+    const/16 v1, 0xa9
 
-    if-eq p1, v0, :cond_39
-
-    const/16 p6, 0xa9
-
-    if-eq p1, p6, :cond_79
+    if-eq p1, v1, :cond_7
 
     .line 644
     invoke-virtual {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->visitInvalid(III)V
 
+    .line 649
+    :goto_2
     return-void
 
-    :cond_39
-    if-nez v1, :cond_3c
+    :cond_1
+    move v0, p2
 
-    goto :goto_40
+    .line 4294967295
+    goto :goto_0
 
-    .line 635
-    :cond_3c
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList$Item;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
+    :cond_2
+    move-object v2, p5
 
-    move-result-object v2
+    .line 608
+    goto :goto_1
+
+    .line 644
+    :cond_3
+    if-nez v0, :cond_4
+
+    move-object v0, v1
 
     .line 636
-    :goto_40
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :goto_3
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-interface {p3, v0, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->localArg(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+    invoke-interface {v1, v3, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->localArg(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
 
     .line 637
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3, p4, v3, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->localTarget(ILcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/code/LocalItem;)V
+    invoke-interface {v1, p4, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->localTarget(ILcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/code/LocalItem;)V
 
     .line 638
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxType(Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-interface {v0, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxType(Lcom/s1243808733/android/dx/rop/type/Type;)V
 
     .line 639
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3, p6}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+    invoke-interface {v0, p6}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
 
     .line 640
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
     invoke-static {p6}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->make(I)Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
-    move-result-object p4
+    move-result-object v1
 
-    invoke-interface {p3, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxCstArg(Lcom/s1243808733/android/dx/rop/cst/Constant;)V
-
-    goto :goto_8f
-
-    :cond_60
-    if-nez v1, :cond_63
-
-    goto :goto_67
-
-    .line 627
-    :cond_63
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList$Item;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
-
-    move-result-object v2
-
-    .line 628
-    :goto_67
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object p6, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, p6, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    .line 629
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxType(Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    .line 630
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, p4, v3, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->localTarget(ILcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/code/LocalItem;)V
-
-    goto :goto_8f
-
-    .line 620
-    :cond_79
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object p6, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, p6, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->localArg(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 621
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    if-eqz v1, :cond_86
-
-    const/4 p4, 0x1
-
-    goto :goto_87
-
-    :cond_86
-    const/4 p4, 0x0
-
-    :goto_87
-    invoke-interface {p3, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->localInfo(Z)V
-
-    .line 622
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxType(Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-interface {v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxCstArg(Lcom/s1243808733/android/dx/rop/cst/Constant;)V
 
     .line 649
-    :goto_8f
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :goto_4
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object p4, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-interface {p3, p4, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
+    invoke-interface {v0, v1, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
 
-    return-void
+    goto :goto_2
+
+    .line 635
+    :cond_4
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList$Item;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
+
+    move-result-object v0
+
+    goto :goto_3
+
+    .line 640
+    :cond_5
+    if-nez v0, :cond_6
+
+    .line 628
+    :goto_5
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v0, v3, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    .line 629
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxType(Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    .line 630
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, p4, v2, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->localTarget(ILcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/code/LocalItem;)V
+
+    goto :goto_4
+
+    .line 627
+    :cond_6
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/LocalVariableList$Item;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
+
+    move-result-object v1
+
+    goto :goto_5
+
+    .line 620
+    :cond_7
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v1, v2, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->localArg(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    .line 621
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    if-eqz v0, :cond_8
+
+    const/4 v0, 0x1
+
+    :goto_6
+    invoke-interface {v1, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->localInfo(Z)V
+
+    .line 622
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxType(Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto :goto_4
+
+    .line 621
+    :cond_8
+    const/4 v0, 0x0
+
+    goto :goto_6
 .end method
 
 .method public visitNewarray(IILcom/s1243808733/android/dx/rop/cst/CstType;Ljava/util/ArrayList;)V
-    .registers 7
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
             "Lcom/s1243808733/android/dx/rop/cst/CstType;",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/Constant;",
             ">;)V"
         }
     .end annotation
 
     .line 818
-    iget-object p2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-interface {p2, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
 
     .line 819
-    iget-object p2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p2, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxInitValues(Ljava/util/ArrayList;)V
+    invoke-interface {v0, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxInitValues(Ljava/util/ArrayList;)V
 
     .line 820
-    iget-object p2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p2, p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxCstArg(Lcom/s1243808733/android/dx/rop/cst/Constant;)V
+    invoke-interface {v0, p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxCstArg(Lcom/s1243808733/android/dx/rop/cst/Constant;)V
 
     .line 821
-    iget-object p2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    const/16 p4, 0xbc
+    const/16 v2, 0xbc
 
-    invoke-interface {p2, p3, p1, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
+    invoke-interface {v0, v1, p1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
 
     return-void
 .end method
 
 .method public visitNoArgs(IIILcom/s1243808733/android/dx/rop/type/Type;)V
-    .registers 13
+    .locals 6
 
-    if-eqz p1, :cond_352
+    const/16 v5, 0x212
 
-    const/16 v0, 0xbe
+    const/4 v1, 0x3
 
-    const/4 v1, 0x0
+    const/4 v4, 0x1
 
-    if-eq p1, v0, :cond_321
+    const/4 v3, 0x0
 
-    const/16 v0, 0xbf
+    const/4 v0, 0x2
 
-    if-eq p1, v0, :cond_317
+    if-eqz p1, :cond_1a
 
-    const/16 v0, 0xc2
+    const/16 v2, 0xbe
 
-    if-eq p1, v0, :cond_317
+    if-eq p1, v2, :cond_18
 
-    const/16 v0, 0xc3
+    const/16 v2, 0xbf
 
-    if-eq p1, v0, :cond_317
+    if-eq p1, v2, :cond_17
 
-    const/4 v0, 0x3
+    const/16 v2, 0xc2
 
-    const/4 v2, 0x1
+    if-eq p1, v2, :cond_17
 
-    const/4 v3, 0x2
+    const/16 v2, 0xc3
 
-    sparse-switch p1, :sswitch_data_364
+    if-eq p1, v2, :cond_17
 
-    const v4, 0x32132
+    sparse-switch p1, :sswitch_data_0
 
-    const/16 v5, 0x3213
+    const/16 v2, 0x11
 
-    const/16 v6, 0x11
+    packed-switch p1, :pswitch_data_0
 
-    const/16 v7, 0x212
-
-    packed-switch p1, :pswitch_data_3a6
-
-    packed-switch p1, :pswitch_data_3be
+    packed-switch p1, :pswitch_data_1
 
     .line 550
     invoke-virtual {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->visitInvalid(III)V
 
+    .line 556
+    :goto_0
     return-void
 
     .line 301
-    :sswitch_2c
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :sswitch_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
 
     .line 302
-    sget-object p3, Lcom/s1243808733/android/dx/rop/type/Type;->VOID:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->VOID:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-direct {p0, p3}, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->checkReturnType(Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->checkReturnType(Lcom/s1243808733/android/dx/rop/type/Type;)V
 
-    goto/16 :goto_357
+    .line 555
+    :cond_0
+    :goto_1
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxType(Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    .line 556
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v0, v1, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
+
+    goto :goto_0
 
     .line 307
-    :sswitch_38
-    sget-object p3, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
+    :sswitch_1
+    sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    if-ne p4, p3, :cond_47
+    if-ne p4, v0, :cond_1
 
     .line 312
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
 
-    move-result-object p3
+    move-result-object v0
 
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    invoke-virtual {v0, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    move-result-object p3
-
-    goto :goto_48
-
-    :cond_47
-    move-object p3, p4
+    move-result-object v0
 
     .line 314
-    :goto_48
+    :goto_2
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v1, v2, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    .line 315
+    invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->checkReturnType(Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto :goto_1
+
+    :cond_1
+    move-object v0, p4
+
+    .line 312
+    goto :goto_2
+
+    .line 372
+    :sswitch_2
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, p4, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto :goto_1
+
+    .line 270
+    :sswitch_3
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
     iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
     invoke-interface {v0, v1, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
 
-    .line 315
-    invoke-direct {p0, p3}, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->checkReturnType(Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto/16 :goto_357
-
-    .line 372
-    :sswitch_54
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, p4, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto/16 :goto_357
-
-    .line 270
-    :sswitch_5f
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v0, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto/16 :goto_357
+    goto :goto_1
 
     .line 398
-    :sswitch_68
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    :sswitch_4
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
 
-    move-result-object p3
+    move-result-object v2
 
     .line 399
     invoke-virtual {p4}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_75
-
-    const/4 v0, 0x2
+    if-eqz v3, :cond_1b
 
     .line 400
-    :cond_75
-    invoke-virtual {p3, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    :goto_3
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
     move-result-object v1
 
     .line 401
-    invoke-virtual {p3, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekLocal(I)Z
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekLocal(I)Z
 
-    move-result p3
+    move-result v0
 
     .line 404
     invoke-static {p4, v1}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smrequiredArrayTypeFor(Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz p3, :cond_8e
+    if-eqz v0, :cond_2
 
     .line 411
-    sget-object p3, Lcom/s1243808733/android/dx/rop/type/Type;->KNOWN_NULL:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->KNOWN_NULL:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    if-ne v0, p3, :cond_8a
+    if-ne v1, v0, :cond_3
 
     .line 412
     sget-object p4, Lcom/s1243808733/android/dx/rop/type/Type;->KNOWN_NULL:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    goto :goto_8e
+    .line 416
+    :cond_2
+    :goto_4
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v3, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v2, v1, v3, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto :goto_1
 
     .line 413
-    :cond_8a
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->getComponentType()Lcom/s1243808733/android/dx/rop/type/Type;
+    :cond_3
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->getComponentType()Lcom/s1243808733/android/dx/rop/type/Type;
 
     move-result-object p4
 
-    .line 416
-    :cond_8e
-    :goto_8e
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v1, v0, v2, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto/16 :goto_357
+    goto :goto_4
 
     .line 346
-    :sswitch_99
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    :sswitch_5
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
 
-    move-result-object p3
+    move-result-object v0
 
-    invoke-virtual {p3, v2}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    invoke-virtual {v0, v4}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    move-result-object p3
+    move-result-object v0
 
     .line 348
-    invoke-static {p4, p3}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smrequiredArrayTypeFor(Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/rop/type/Type;
+    invoke-static {p4, v0}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smrequiredArrayTypeFor(Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    move-result-object p3
+    move-result-object v1
 
     .line 351
-    sget-object p4, Lcom/s1243808733/android/dx/rop/type/Type;->KNOWN_NULL:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->KNOWN_NULL:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    if-ne p3, p4, :cond_ae
+    if-ne v1, v0, :cond_4
 
     .line 352
-    sget-object p4, Lcom/s1243808733/android/dx/rop/type/Type;->KNOWN_NULL:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    goto :goto_b2
-
-    .line 353
-    :cond_ae
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->getComponentType()Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p4
+    sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->KNOWN_NULL:Lcom/s1243808733/android/dx/rop/type/Type;
 
     .line 355
-    :goto_b2
+    :goto_5
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v4, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v2, v3, v1, v4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    move-object p4, v0
+
+    goto/16 :goto_1
+
+    .line 353
+    :cond_4
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->getComponentType()Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v0
+
+    goto :goto_5
+
+    .line 366
+    :pswitch_0
+    :sswitch_6
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
     iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+    invoke-interface {v0, v1, p4, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
 
-    invoke-interface {v0, v1, p3, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto/16 :goto_357
-
-    .line 366
-    :pswitch_bd  #0x60
-    :sswitch_bd
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v0, p4, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto/16 :goto_357
+    goto/16 :goto_1
 
     .line 538
-    :pswitch_c6  #0x5f
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
-
-    move-result-object p3
-
-    .line 540
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_f0
-
-    .line 541
-    invoke-virtual {p3, v2}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p3
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
-
-    move-result p3
-
-    if-eqz p3, :cond_f0
-
-    .line 545
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v0, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 546
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    const/16 v0, 0x12
-
-    invoke-interface {p3, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 542
-    :cond_f0
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
-
-    move-result-object p1
-
-    throw p1
-
-    .line 506
-    :pswitch_f5  #0x5e
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
-
-    move-result-object p3
-
-    .line 508
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_13a
-
-    .line 509
-    invoke-virtual {p3, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_11d
-
-    .line 511
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v0, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 512
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, v7}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 513
-    :cond_11d
-    invoke-virtual {p3, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p3
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
-
-    move-result p3
-
-    if-eqz p3, :cond_135
-
-    .line 515
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
+    :pswitch_1
     iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-interface {p3, v1, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
 
-    .line 516
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    move-result-object v1
 
-    invoke-interface {p3, v5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+    .line 540
+    invoke-virtual {v1, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    goto/16 :goto_357
+    move-result-object v2
 
-    .line 518
-    :cond_135
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
 
-    move-result-object p1
+    move-result v2
 
-    throw p1
+    if-eqz v2, :cond_5
 
-    .line 520
-    :cond_13a
-    invoke-virtual {p3, v2}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    .line 541
+    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
     move-result-object v1
 
@@ -1187,272 +1113,79 @@
 
     move-result v1
 
-    if-eqz v1, :cond_17d
+    if-eqz v1, :cond_5
 
-    .line 521
-    invoke-virtual {p3, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    .line 545
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    move-result-object v1
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+    invoke-interface {v1, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
 
-    move-result v1
+    .line 546
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    if-eqz v1, :cond_15c
+    const/16 v1, 0x12
 
-    .line 523
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    invoke-interface {v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
 
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    goto/16 :goto_1
 
-    invoke-interface {p3, v1, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 524
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, v4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 525
-    :cond_15c
-    invoke-virtual {p3, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p3
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
-
-    move-result p3
-
-    if-eqz p3, :cond_178
-
-    .line 527
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    const/4 v1, 0x4
-
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 528
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    const v0, 0x432143
-
-    invoke-interface {p3, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 530
-    :cond_178
+    .line 542
+    :cond_5
     invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
 
-    move-result-object p1
+    move-result-object v0
 
-    throw p1
+    throw v0
 
-    .line 533
-    :cond_17d
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+    .line 506
+    :pswitch_2
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    move-result-object p1
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
 
-    throw p1
+    move-result-object v2
 
-    .line 485
-    :pswitch_182  #0x5d
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    .line 508
+    invoke-virtual {v2, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+    move-result-object v3
 
-    move-result-object p3
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
 
-    .line 487
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    move-result v3
 
-    move-result-object v1
+    if-eqz v3, :cond_8
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+    .line 509
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    move-result v1
+    move-result-object v3
 
-    if-eqz v1, :cond_1af
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
 
-    .line 489
-    invoke-virtual {p3, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    move-result v3
 
-    move-result-object p3
+    if-eqz v3, :cond_6
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+    .line 511
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    move-result p3
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    if-nez p3, :cond_1aa
+    invoke-interface {v1, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
 
-    .line 492
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    .line 512
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    invoke-interface {v0, v5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
 
-    invoke-interface {p3, v0, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+    goto/16 :goto_1
 
-    .line 493
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, v7}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 490
-    :cond_1aa
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
-
-    move-result-object p1
-
-    throw p1
-
-    .line 496
-    :cond_1af
-    invoke-virtual {p3, v2}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1d1
-
-    .line 497
-    invoke-virtual {p3, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p3
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
-
-    move-result p3
-
-    if-nez p3, :cond_1d1
-
-    .line 500
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v1, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 501
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, v4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 498
-    :cond_1d1
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
-
-    move-result-object p1
-
-    throw p1
-
-    .line 465
-    :pswitch_1d6  #0x5b
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
-
-    move-result-object p3
-
-    .line 467
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
-
-    move-result v1
-
-    if-nez v1, :cond_21b
-
-    .line 471
-    invoke-virtual {p3, v2}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1fe
-
-    .line 473
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v0, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 474
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, v7}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 475
-    :cond_1fe
-    invoke-virtual {p3, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p3
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
-
-    move-result p3
-
-    if-eqz p3, :cond_216
-
-    .line 477
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v1, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 478
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, v5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 480
-    :cond_216
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
-
-    move-result-object p1
-
-    throw p1
-
-    .line 468
-    :cond_21b
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
-
-    move-result-object p1
-
-    throw p1
-
-    .line 453
-    :pswitch_220  #0x5a
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
-
-    move-result-object p3
-
-    .line 455
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    .line 513
+    :cond_6
+    invoke-virtual {v2, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
     move-result-object v0
 
@@ -1460,92 +1193,46 @@
 
     move-result v0
 
-    if-eqz v0, :cond_248
+    if-eqz v0, :cond_7
 
-    .line 456
-    invoke-virtual {p3, v2}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    .line 515
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    move-result-object p3
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
+    invoke-interface {v0, v2, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
 
-    move-result p3
+    .line 516
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    if-eqz p3, :cond_248
+    const/16 v1, 0x3213
 
-    .line 460
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    invoke-interface {v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    goto/16 :goto_1
 
-    invoke-interface {p3, v0, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 461
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, v7}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 457
-    :cond_248
+    .line 518
+    :cond_7
     invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
 
-    move-result-object p1
+    move-result-object v0
 
-    throw p1
+    throw v0
 
-    .line 442
-    :pswitch_24d  #0x59
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    .line 520
+    :cond_8
+    invoke-virtual {v2, v4}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+    move-result-object v3
 
-    move-result-object p3
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
 
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    move-result v3
 
-    move-result-object p3
+    if-eqz v3, :cond_b
 
-    .line 444
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
-
-    move-result p3
-
-    if-nez p3, :cond_26b
-
-    .line 448
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v0, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    .line 449
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, v6}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 445
-    :cond_26b
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
-
-    move-result-object p1
-
-    throw p1
-
-    .line 421
-    :pswitch_270  #0x58, 0x5c
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
-
-    move-result-object p3
-
-    .line 424
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    .line 521
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
     move-result-object v0
 
@@ -1553,360 +1240,718 @@
 
     move-result v0
 
-    if-eqz v0, :cond_288
+    if-eqz v0, :cond_9
 
-    .line 426
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    .line 523
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-interface {p3, v0, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+    invoke-interface {v0, v2, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
 
-    goto :goto_29b
+    .line 524
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    .line 428
-    :cond_288
-    invoke-virtual {p3, v2}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+    const v1, 0x32132
 
-    move-result-object p3
+    invoke-interface {v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
+    goto/16 :goto_1
 
-    move-result p3
+    .line 525
+    :cond_9
+    invoke-virtual {v2, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
 
-    if-eqz p3, :cond_2a6
+    move-result-object v0
 
-    .line 430
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v0, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    const/16 v6, 0x2121
-
-    :goto_29b
-    const/16 p3, 0x5c
-
-    if-ne p1, p3, :cond_357
-
-    .line 437
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    invoke-interface {p3, v6}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
-
-    goto/16 :goto_357
-
-    .line 433
-    :cond_2a6
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
-
-    move-result-object p1
-
-    throw p1
-
-    .line 319
-    :pswitch_2ab  #0x57
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
-
-    move-result-object p3
-
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p3
-
-    .line 320
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
-
-    move-result p3
-
-    if-nez p3, :cond_2c4
-
-    .line 323
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, v0, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
-
-    goto/16 :goto_357
-
-    .line 321
-    :cond_2c4
-    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
-
-    move-result-object p1
-
-    throw p1
-
-    .line 386
-    :pswitch_2c9  #0x97, 0x98
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->DOUBLE:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->DOUBLE:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto/16 :goto_357
-
-    .line 381
-    :pswitch_2d6  #0x95, 0x96
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->FLOAT:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->FLOAT:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto/16 :goto_357
-
-    .line 376
-    :pswitch_2e3  #0x94
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->LONG:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->LONG:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto :goto_357
-
-    .line 297
-    :pswitch_2ef  #0x8e, 0x8f, 0x90
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->DOUBLE:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto :goto_357
-
-    .line 291
-    :pswitch_2f9  #0x8b, 0x8c, 0x8d
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->FLOAT:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto :goto_357
-
-    .line 285
-    :pswitch_303  #0x88, 0x89, 0x8a
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->LONG:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto :goto_357
-
-    .line 279
-    :pswitch_30d  #0x85, 0x86, 0x87, 0x91, 0x92, 0x93
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto :goto_357
-
-    .line 338
-    :cond_317
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
-
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
-
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
-
-    goto :goto_357
-
-    .line 327
-    :cond_321
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
-
-    move-result-object p3
-
-    invoke-virtual {p3, v1}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
-
-    move-result-object p3
-
-    .line 328
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->isArrayOrKnownNull()Z
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
 
     move-result v0
 
-    if-nez v0, :cond_348
+    if-eqz v0, :cond_a
 
-    .line 329
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
+    .line 527
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    const-string v2, "type mismatch: expected array type but encountered "
+    const/4 v2, 0x4
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
 
-    .line 330
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/type/Type;->toHuman()Ljava/lang/String;
+    .line 528
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    move-result-object p3
+    const v1, 0x432143
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    goto/16 :goto_1
 
-    move-result-object p3
+    .line 530
+    :cond_a
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
 
-    .line 329
-    invoke-static {v0, p3}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mfail(Lcom/s1243808733/android/dx/cf/code/Simulator;Ljava/lang/String;)V
+    move-result-object v0
 
-    .line 332
-    :cond_348
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    throw v0
 
+    .line 533
+    :cond_b
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 485
+    :pswitch_3
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+
+    move-result-object v2
+
+    .line 487
+    invoke-virtual {v2, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_d
+
+    .line 489
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+
+    move-result v1
+
+    if-nez v1, :cond_c
+
+    .line 492
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v1, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    .line 493
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, v5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+
+    goto/16 :goto_1
+
+    .line 490
+    :cond_c
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 496
+    :cond_d
+    invoke-virtual {v2, v4}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+
+    move-result v3
+
+    if-nez v3, :cond_e
+
+    .line 497
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+
+    move-result v0
+
+    if-nez v0, :cond_e
+
+    .line 500
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v0, v2, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    .line 501
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    const v1, 0x32132
+
+    invoke-interface {v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+
+    goto/16 :goto_1
+
+    .line 498
+    :cond_e
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 465
+    :pswitch_4
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+
+    move-result-object v2
+
+    .line 467
+    invoke-virtual {v2, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+
+    move-result v3
+
+    if-nez v3, :cond_11
+
+    .line 471
+    invoke-virtual {v2, v4}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_f
+
+    .line 473
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v1, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    .line 474
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, v5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+
+    goto/16 :goto_1
+
+    .line 475
+    :cond_f
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
+
+    .line 477
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v0, v2, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    .line 478
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    const/16 v1, 0x3213
+
+    invoke-interface {v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+
+    goto/16 :goto_1
+
+    .line 480
+    :cond_10
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 468
+    :cond_11
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 453
+    :pswitch_5
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+
+    move-result-object v1
+
+    .line 455
+    invoke-virtual {v1, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_12
+
+    .line 456
+    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_12
+
+    .line 460
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v1, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    .line 461
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v0, v5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+
+    goto/16 :goto_1
+
+    .line 457
+    :cond_12
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 442
+    :pswitch_6
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
 
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+    move-result-object v0
 
-    goto :goto_357
+    invoke-virtual {v0, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v0
+
+    .line 444
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+
+    move-result v0
+
+    if-nez v0, :cond_13
+
+    .line 448
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v0, v1, v4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    .line 449
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    const/16 v1, 0x11
+
+    invoke-interface {v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+
+    goto/16 :goto_1
+
+    .line 445
+    :cond_13
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 421
+    :pswitch_7
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+
+    move-result-object v1
+
+    .line 424
+    invoke-virtual {v1, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_14
+
+    .line 426
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v0, v1, v4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    move v0, v2
+
+    .line 430
+    :goto_6
+    const/16 v1, 0x5c
+
+    if-ne p1, v1, :cond_0
+
+    .line 437
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    invoke-interface {v1, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+
+    goto/16 :goto_1
+
+    .line 428
+    :cond_14
+    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory1()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_15
+
+    .line 430
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v1, v2, v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    const/16 v0, 0x2121
+
+    goto :goto_6
+
+    .line 433
+    :cond_15
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 319
+    :pswitch_8
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v0
+
+    .line 320
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->isCategory2()Z
+
+    move-result v0
+
+    if-nez v0, :cond_16
+
+    .line 323
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-interface {v0, v1, v4}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;I)V
+
+    goto/16 :goto_1
+
+    .line 321
+    :cond_16
+    invoke-static {}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$smillegalTos()Lcom/s1243808733/android/dx/cf/code/SimException;
+
+    move-result-object v0
+
+    throw v0
+
+    .line 386
+    :pswitch_9
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->DOUBLE:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    sget-object v3, Lcom/s1243808733/android/dx/rop/type/Type;->DOUBLE:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_1
+
+    .line 381
+    :pswitch_a
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->FLOAT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    sget-object v3, Lcom/s1243808733/android/dx/rop/type/Type;->FLOAT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_1
+
+    .line 376
+    :pswitch_b
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->LONG:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    sget-object v3, Lcom/s1243808733/android/dx/rop/type/Type;->LONG:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_1
+
+    .line 297
+    :pswitch_c
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->DOUBLE:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_1
+
+    .line 291
+    :pswitch_d
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->FLOAT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_1
+
+    .line 285
+    :pswitch_e
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->LONG:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_1
+
+    .line 279
+    :pswitch_f
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_1
+
+    .line 338
+    :cond_17
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_1
+
+    .line 327
+    :cond_18
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/Frame;->getStack()Lcom/s1243808733/android/dx/cf/code/ExecutionStack;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Lcom/s1243808733/android/dx/cf/code/ExecutionStack;->peekType(I)Lcom/s1243808733/android/dx/rop/type/Type;
+
+    move-result-object v0
+
+    .line 328
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->isArrayOrKnownNull()Z
+
+    move-result v1
+
+    if-nez v1, :cond_19
+
+    .line 329
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/Simulator;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "type mismatch: expected array type but encountered "
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    .line 330
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Type;->toHuman()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 329
+    invoke-static {v1, v0}, Lcom/s1243808733/android/dx/cf/code/Simulator;->-$$Nest$mfail(Lcom/s1243808733/android/dx/cf/code/Simulator;Ljava/lang/String;)V
+
+    .line 332
+    :cond_19
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->OBJECT:Lcom/s1243808733/android/dx/rop/type/Type;
+
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+
+    goto/16 :goto_1
 
     .line 266
-    :cond_352
-    :sswitch_352
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    :cond_1a
+    :sswitch_7
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/cf/code/Machine;->clearArgs()V
 
-    .line 555
-    :cond_357
-    :goto_357
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    goto/16 :goto_1
 
-    invoke-interface {p3, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxType(Lcom/s1243808733/android/dx/rop/type/Type;)V
+    :cond_1b
+    move v0, v1
 
-    .line 556
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    goto/16 :goto_3
 
-    iget-object p4, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
-
-    invoke-interface {p3, p4, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
-
-    return-void
-
-    :sswitch_data_364
+    .line 4294967295
+    :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_352
-        0x2e -> :sswitch_99
-        0x4f -> :sswitch_68
-        0x64 -> :sswitch_bd
-        0x68 -> :sswitch_bd
-        0x6c -> :sswitch_bd
-        0x70 -> :sswitch_bd
-        0x74 -> :sswitch_5f
-        0x78 -> :sswitch_54
-        0x7a -> :sswitch_54
-        0x7c -> :sswitch_54
-        0x7e -> :sswitch_bd
-        0x80 -> :sswitch_bd
-        0x82 -> :sswitch_bd
-        0xac -> :sswitch_38
-        0xb1 -> :sswitch_2c
+        0x0 -> :sswitch_7
+        0x2e -> :sswitch_5
+        0x4f -> :sswitch_4
+        0x64 -> :sswitch_6
+        0x68 -> :sswitch_6
+        0x6c -> :sswitch_6
+        0x70 -> :sswitch_6
+        0x74 -> :sswitch_3
+        0x78 -> :sswitch_2
+        0x7a -> :sswitch_2
+        0x7c -> :sswitch_2
+        0x7e -> :sswitch_6
+        0x80 -> :sswitch_6
+        0x82 -> :sswitch_6
+        0xac -> :sswitch_1
+        0xb1 -> :sswitch_0
     .end sparse-switch
 
-    :pswitch_data_3a6
+    :pswitch_data_0
     .packed-switch 0x57
-        :pswitch_2ab  #00000057
-        :pswitch_270  #00000058
-        :pswitch_24d  #00000059
-        :pswitch_220  #0000005a
-        :pswitch_1d6  #0000005b
-        :pswitch_270  #0000005c
-        :pswitch_182  #0000005d
-        :pswitch_f5  #0000005e
-        :pswitch_c6  #0000005f
-        :pswitch_bd  #00000060
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_7
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 
-    :pswitch_data_3be
+    :pswitch_data_1
     .packed-switch 0x85
-        :pswitch_30d  #00000085
-        :pswitch_30d  #00000086
-        :pswitch_30d  #00000087
-        :pswitch_303  #00000088
-        :pswitch_303  #00000089
-        :pswitch_303  #0000008a
-        :pswitch_2f9  #0000008b
-        :pswitch_2f9  #0000008c
-        :pswitch_2f9  #0000008d
-        :pswitch_2ef  #0000008e
-        :pswitch_2ef  #0000008f
-        :pswitch_2ef  #00000090
-        :pswitch_30d  #00000091
-        :pswitch_30d  #00000092
-        :pswitch_30d  #00000093
-        :pswitch_2e3  #00000094
-        :pswitch_2d6  #00000095
-        :pswitch_2d6  #00000096
-        :pswitch_2c9  #00000097
-        :pswitch_2c9  #00000098
+        :pswitch_f
+        :pswitch_f
+        :pswitch_f
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_d
+        :pswitch_d
+        :pswitch_d
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_f
+        :pswitch_f
+        :pswitch_f
+        :pswitch_b
+        :pswitch_a
+        :pswitch_a
+        :pswitch_9
+        :pswitch_9
     .end packed-switch
 .end method
 
 .method public visitSwitch(IIILcom/s1243808733/android/dx/cf/code/SwitchList;I)V
-    .registers 8
+    .locals 3
 
     .line 808
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    sget-object v1, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
+    sget-object v2, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-interface {p3, v0, v1}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-interface {v0, v1, v2}, Lcom/s1243808733/android/dx/cf/code/Machine;->popArgs(Lcom/s1243808733/android/dx/cf/code/Frame;Lcom/s1243808733/android/dx/rop/type/Type;)V
 
     .line 809
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
+    invoke-interface {v0, p5}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxIntArg(I)V
 
     .line 810
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    invoke-interface {p3, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxSwitchArg(Lcom/s1243808733/android/dx/cf/code/SwitchList;)V
+    invoke-interface {v0, p4}, Lcom/s1243808733/android/dx/cf/code/Machine;->auxSwitchArg(Lcom/s1243808733/android/dx/cf/code/SwitchList;)V
 
     .line 811
-    iget-object p3, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->machine:Lcom/s1243808733/android/dx/cf/code/Machine;
 
-    iget-object p4, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Simulator$SimVisitor;->frame:Lcom/s1243808733/android/dx/cf/code/Frame;
 
-    invoke-interface {p3, p4, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
+    invoke-interface {v0, v1, p2, p1}, Lcom/s1243808733/android/dx/cf/code/Machine;->run(Lcom/s1243808733/android/dx/cf/code/Frame;II)V
 
     return-void
 .end method

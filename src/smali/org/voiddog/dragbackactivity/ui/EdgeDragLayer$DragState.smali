@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;",
         ">;"
     }
@@ -38,7 +39,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
-    .registers 3
+    .locals 3
 
     .line 378
     const/4 v0, 0x5
@@ -79,7 +80,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 379
     new-instance v0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
@@ -147,7 +148,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -161,22 +162,22 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
-    .registers 2
+    .locals 1
 
     .line 378
     const-class v0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
+    check-cast v0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
-    .registers 1
+    .locals 1
 
     .line 378
     sget-object v0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;->$VALUES:[Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;

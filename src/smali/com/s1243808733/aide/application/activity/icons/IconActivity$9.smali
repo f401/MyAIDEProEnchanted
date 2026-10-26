@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Landroid/app/Activity;Lcom/s1243808733/view/ColorBackgroundTextView;Landroid/widget/TextView;)V
-    .registers 5
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -53,47 +53,47 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 425
-    new-instance p1, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;
+    new-instance v0, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;
 
-    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;->val$activity:Landroid/app/Activity;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;->val$activity:Landroid/app/Activity;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;->val$view3_bth:Lcom/s1243808733/view/ColorBackgroundTextView;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;->val$view3_bth:Lcom/s1243808733/view/ColorBackgroundTextView;
 
-    invoke-virtual {v1}, Lcom/s1243808733/view/ColorBackgroundTextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Lcom/s1243808733/view/ColorBackgroundTextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+    invoke-static {v2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
-    move-result v1
+    move-result v2
 
-    invoke-direct {p1, v0, v1}, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v0, v1, v2}, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;-><init>(Landroid/content/Context;I)V
 
     .line 426
-    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;->val$view3_txt:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;->val$view3_txt:Landroid/widget/TextView;
 
-    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 427
-    new-instance v0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9$1;
+    new-instance v1, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9$1;
 
-    invoke-direct {v0, p0}, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9$1;-><init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;)V
+    invoke-direct {v1, p0}, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9$1;-><init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;)V
 
-    invoke-virtual {p1, v0}, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;->setOnColorChangedListener(Lnet/margaritov/preference/colorpicker/ColorPickerDialog$OnColorChangedListener;)V
+    invoke-virtual {v0, v1}, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;->setOnColorChangedListener(Lnet/margaritov/preference/colorpicker/ColorPickerDialog$OnColorChangedListener;)V
 
     .line 435
-    invoke-virtual {p1}, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;->show()V
+    invoke-virtual {v0}, Lnet/margaritov/preference/colorpicker/ColorPickerDialog;->show()V
 
     return-void
 .end method

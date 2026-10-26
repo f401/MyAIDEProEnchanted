@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -13,7 +13,7 @@
 .end method
 
 .method public static a(Ljava/util/Hashtable;)Ljava/util/Hashtable;
-    .registers 5
+    .locals 4
 
     new-instance v0, Ljava/util/Hashtable;
 
@@ -23,12 +23,12 @@
 
     move-result-object v1
 
-    :goto_9
+    :goto_0
     invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1b
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
@@ -40,55 +40,59 @@
 
     invoke-virtual {v0, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_1b
+    :cond_0
     return-object v0
 .end method
 
 
 # virtual methods
 .method public final b(Lp/c;Lp/c;)Z
-    .registers 11
+    .locals 9
+
+    const/4 v8, 0x0
+
+    const/4 v1, 0x0
 
     invoke-virtual {p1}, Lp/c;->g()[Lp/b;
 
-    move-result-object p1
+    move-result-object v4
 
     invoke-virtual {p2}, Lp/c;->g()[Lp/b;
 
-    move-result-object p2
+    move-result-object v5
 
-    array-length v0, p1
+    array-length v0, v4
 
-    array-length v1, p2
+    array-length v2, v5
 
-    const/4 v2, 0x0
+    if-eq v0, v2, :cond_1
 
-    if-eq v0, v1, :cond_e
+    .line 5
+    :cond_0
+    :goto_0
+    return v1
 
-    return v2
-
-    :cond_e
-    aget-object v0, p1, v2
-
-    invoke-virtual {v0}, Lp/b;->b()Lp/a;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_35
-
-    aget-object v0, p2, v2
+    .line 4294967295
+    :cond_1
+    aget-object v0, v4, v1
 
     invoke-virtual {v0}, Lp/b;->b()Lp/a;
 
     move-result-object v0
 
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_2
 
-    aget-object v0, p1, v2
+    aget-object v0, v5, v1
+
+    invoke-virtual {v0}, Lp/b;->b()Lp/a;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    aget-object v0, v4, v1
 
     invoke-virtual {v0}, Lp/b;->b()Lp/a;
 
@@ -98,229 +102,223 @@
     iget-object v0, v0, Lp/a;->a:Lc/n;
 
     .line 2
-    aget-object v3, p2, v2
+    aget-object v2, v5, v1
 
-    invoke-virtual {v3}, Lp/b;->b()Lp/a;
+    invoke-virtual {v2}, Lp/b;->b()Lp/a;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 3
-    iget-object v3, v3, Lp/a;->a:Lc/n;
+    iget-object v2, v2, Lp/a;->a:Lc/n;
 
     .line 4
-    invoke-virtual {v0, v3}, Lc/s;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Lc/s;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    xor-int/2addr v0, v1
+    xor-int/lit8 v0, v0, 0x1
 
-    goto :goto_36
+    :goto_1
+    move v2, v1
 
-    :cond_35
-    const/4 v0, 0x0
+    :goto_2
+    array-length v3, v4
 
-    :goto_36
-    const/4 v3, 0x0
+    if-eq v2, v3, :cond_6
 
-    :goto_37
-    array-length v4, p1
+    aget-object v6, v4, v2
 
-    if-eq v3, v4, :cond_6a
-
-    aget-object v4, p1, v3
-
-    const/4 v5, 0x0
-
-    if-eqz v0, :cond_53
+    if-eqz v0, :cond_4
 
     .line 5
-    array-length v6, p2
+    array-length v3, v5
 
-    sub-int/2addr v6, v1
+    add-int/lit8 v3, v3, -0x1
 
-    :goto_41
-    if-ltz v6, :cond_69
+    :goto_3
+    if-ltz v3, :cond_0
 
-    aget-object v7, p2, v6
+    aget-object v7, v5, v3
 
-    if-eqz v7, :cond_50
+    if-eqz v7, :cond_3
 
-    invoke-virtual {p0, v4, v7}, Lq/a;->c(Lp/b;Lp/b;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_50
-
-    aput-object v5, p2, v6
-
-    goto :goto_63
-
-    :cond_50
-    add-int/lit8 v6, v6, -0x1
-
-    goto :goto_41
-
-    :cond_53
-    const/4 v6, 0x0
-
-    :goto_54
-    array-length v7, p2
-
-    if-eq v6, v7, :cond_69
-
-    aget-object v7, p2, v6
-
-    if-eqz v7, :cond_66
-
-    invoke-virtual {p0, v4, v7}, Lq/a;->c(Lp/b;Lp/b;)Z
+    invoke-virtual {p0, v6, v7}, Lq/a;->c(Lp/b;Lp/b;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_66
+    if-eqz v7, :cond_3
 
-    aput-object v5, p2, v6
+    aput-object v8, v5, v3
 
-    :goto_63
+    :goto_4
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_2
+
+    :cond_2
+    move v0, v1
+
+    .line 4
+    goto :goto_1
+
+    .line 5
+    :cond_3
+    add-int/lit8 v3, v3, -0x1
+
+    goto :goto_3
+
+    :cond_4
+    move v3, v1
+
+    :goto_5
+    array-length v7, v5
+
+    if-eq v3, v7, :cond_0
+
+    aget-object v7, v5, v3
+
+    if-eqz v7, :cond_5
+
+    invoke-virtual {p0, v6, v7}, Lq/a;->c(Lp/b;Lp/b;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    aput-object v8, v5, v3
+
+    goto :goto_4
+
+    :cond_5
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_37
+    goto :goto_5
 
-    :cond_66
-    add-int/lit8 v6, v6, 0x1
+    :cond_6
+    const/4 v1, 0x1
 
-    goto :goto_54
-
-    :cond_69
-    return v2
-
-    :cond_6a
-    return v1
+    goto :goto_0
 .end method
 
 .method public final c(Lp/b;Lp/b;)Z
-    .registers 7
+    .locals 6
+
+    const/4 v1, 0x0
 
     invoke-virtual {p1}, Lp/b;->d()Z
 
     move-result v0
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_3
 
     invoke-virtual {p2}, Lp/b;->d()Z
 
     move-result v0
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_0
 
     invoke-virtual {p1}, Lp/b;->c()[Lp/a;
 
-    move-result-object p1
+    move-result-object v2
 
     invoke-virtual {p2}, Lp/b;->c()[Lp/a;
 
-    move-result-object p2
+    move-result-object v3
 
-    array-length v0, p1
+    array-length v0, v2
 
-    array-length v2, p2
+    array-length v4, v3
 
-    if-eq v0, v2, :cond_1a
+    if-eq v0, v4, :cond_1
 
-    goto :goto_40
+    :cond_0
+    :goto_0
+    return v1
 
-    :cond_1a
-    const/4 v0, 0x0
+    :cond_1
+    move v0, v1
 
-    :goto_1b
-    array-length v2, p1
+    :goto_1
+    array-length v4, v2
 
-    if-eq v0, v2, :cond_2c
+    if-eq v0, v4, :cond_2
 
-    aget-object v2, p1, v0
+    aget-object v4, v2, v0
 
-    aget-object v3, p2, v0
+    aget-object v5, v3, v0
 
-    invoke-static {v2, v3}, Lq/c;->b(Lp/a;Lp/a;)Z
+    invoke-static {v4, v5}, Lq/c;->b(Lp/a;Lp/a;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_29
+    if-eqz v4, :cond_0
 
-    goto :goto_40
-
-    :cond_29
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1b
+    goto :goto_1
 
-    :cond_2c
+    :cond_2
     const/4 v1, 0x1
 
-    goto :goto_40
+    goto :goto_0
 
-    :cond_2e
+    :cond_3
     invoke-virtual {p2}, Lp/b;->d()Z
 
     move-result v0
 
-    if-nez v0, :cond_40
+    if-nez v0, :cond_0
 
     invoke-virtual {p1}, Lp/b;->b()Lp/a;
 
-    move-result-object p1
+    move-result-object v0
 
     invoke-virtual {p2}, Lp/b;->b()Lp/a;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p1, p2}, Lq/c;->b(Lp/a;Lp/a;)Z
+    invoke-static {v0, v1}, Lq/c;->b(Lp/a;Lp/a;)Z
 
     move-result v1
 
-    :cond_40
-    :goto_40
-    return v1
+    goto :goto_0
 .end method
 
 .method public final d(Lc/n;Ljava/lang/String;)Lc/e;
-    .registers 8
+    .locals 5
+
+    const/4 v0, 0x0
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x1
+    if-eqz v1, :cond_1
 
-    const/4 v2, 0x0
+    invoke-virtual {p2, v0}, Ljava/lang/String;->charAt(I)C
 
-    if-eqz v0, :cond_55
+    move-result v1
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->charAt(I)C
+    const/16 v2, 0x23
 
-    move-result v0
-
-    const/16 v3, 0x23
-
-    if-ne v0, v3, :cond_55
+    if-ne v1, v2, :cond_1
 
     .line 1
-    :try_start_10
+    :try_start_0
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v1
 
-    sub-int/2addr v0, v1
+    add-int/lit8 v1, v1, -0x1
 
-    div-int/lit8 v0, v0, 0x2
+    div-int/lit8 v1, v1, 0x2
 
-    new-array v1, v0, [B
+    new-array v2, v1, [B
 
-    :goto_19
-    if-eq v2, v0, :cond_3a
+    :goto_0
+    if-eq v0, v1, :cond_0
 
-    mul-int/lit8 v3, v2, 0x2
+    mul-int/lit8 v3, v0, 0x2
 
     add-int/lit8 v4, v3, 0x1
 
@@ -348,75 +346,79 @@
 
     int-to-byte v3, v3
 
-    aput-byte v3, v1, v2
+    aput-byte v3, v2, v0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_19
+    goto :goto_0
 
-    :cond_3a
-    invoke-static {v1}, Lc/s;->t([B)Lc/s;
+    :cond_0
+    invoke-static {v2}, Lc/s;->t([B)Lc/s;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object p1
-    :try_end_3e
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_3e} :catch_3f
+    move-result-object v0
 
-    return-object p1
+    .line 8
+    :goto_1
+    return-object v0
 
     .line 3
-    :catch_3f
-    move-exception p2
+    :catch_0
+    move-exception v0
 
-    const-string p2, "can\'t recode value for oid "
+    const-string v0, "can\'t recode value for oid "
 
-    invoke-static {p2}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 4
-    iget-object p1, p1, Lc/n;->b:Ljava/lang/String;
+    iget-object v1, p1, Lc/n;->b:Ljava/lang/String;
 
     .line 5
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Lc/r;
+    new-instance v1, Lc/r;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p1, p2}, Lc/r;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Lc/r;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 
-    :cond_55
+    :cond_1
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->charAt(I)C
+
     move-result v0
 
-    if-eqz v0, :cond_67
+    const/16 v1, 0x5c
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->charAt(I)C
+    if-ne v0, v1, :cond_2
 
-    move-result v0
+    const/4 v0, 0x1
 
-    const/16 v2, 0x5c
-
-    if-ne v0, v2, :cond_67
-
-    invoke-virtual {p2, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p2, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object p2
 
     .line 6
-    :cond_67
+    :cond_2
     sget-object v0, Lq/b;->j:Lc/n;
 
     invoke-virtual {p1, v0}, Lc/s;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_b3
+    if-nez v0, :cond_3
 
     sget-object v0, Lq/b;->k:Lc/n;
 
@@ -424,33 +426,40 @@
 
     move-result v0
 
-    if-eqz v0, :cond_78
+    if-eqz v0, :cond_4
 
-    goto :goto_b3
+    .line 8
+    :cond_3
+    new-instance v0, Lc/aw;
 
-    :cond_78
+    invoke-direct {v0, p2}, Lc/aw;-><init>(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    .line 6
+    :cond_4
     sget-object v0, Lq/b;->h:Lc/n;
 
     invoke-virtual {p1, v0}, Lc/s;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_86
+    if-eqz v0, :cond_5
 
-    new-instance p1, Lc/i;
+    new-instance v0, Lc/i;
 
-    invoke-direct {p1, p2}, Lc/i;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p2}, Lc/i;-><init>(Ljava/lang/String;)V
 
-    goto :goto_b8
+    goto :goto_1
 
-    :cond_86
+    :cond_5
     sget-object v0, Lq/b;->e:Lc/n;
 
     invoke-virtual {p1, v0}, Lc/s;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_ad
+    if-nez v0, :cond_6
 
     sget-object v0, Lq/b;->f:Lc/n;
 
@@ -458,7 +467,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_ad
+    if-nez v0, :cond_6
 
     sget-object v0, Lq/b;->g:Lc/n;
 
@@ -466,41 +475,29 @@
 
     move-result v0
 
-    if-nez v0, :cond_ad
+    if-nez v0, :cond_6
 
     sget-object v0, Lq/b;->i:Lc/n;
 
     invoke-virtual {p1, v0}, Lc/s;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_a7
-
-    goto :goto_ad
-
-    .line 7
-    :cond_a7
-    new-instance p1, Lc/bh;
-
-    invoke-direct {p1, p2}, Lc/bh;-><init>(Ljava/lang/String;)V
-
-    goto :goto_b8
+    if-eqz v0, :cond_7
 
     .line 8
-    :cond_ad
-    :goto_ad
-    new-instance p1, Lc/bb;
+    :cond_6
+    new-instance v0, Lc/bb;
 
-    invoke-direct {p1, p2}, Lc/bb;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p2}, Lc/bb;-><init>(Ljava/lang/String;)V
 
-    goto :goto_b8
+    goto :goto_1
 
-    :cond_b3
-    :goto_b3
-    new-instance p1, Lc/aw;
+    .line 7
+    :cond_7
+    new-instance v0, Lc/bh;
 
-    invoke-direct {p1, p2}, Lc/aw;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p2}, Lc/bh;-><init>(Ljava/lang/String;)V
 
-    :goto_b8
-    return-object p1
+    goto :goto_1
 .end method

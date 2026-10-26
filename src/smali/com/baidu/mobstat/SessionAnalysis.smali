@@ -18,7 +18,8 @@
 .field private b:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lcom/baidu/mobstat/SessionAnalysis$a;",
             ">;"
@@ -53,60 +54,60 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 5
+    .locals 4
+
+    const-wide/16 v2, 0x0
+
+    const/4 v1, 0x0
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 29
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->a:Z
+    iput-boolean v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->a:Z
 
     .line 31
-    new-instance v1, Ljava/util/HashMap;
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->b:Ljava/util/Map;
+    iput-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->b:Ljava/util/Map;
 
     .line 33
-    new-instance v1, Lcom/baidu/mobstat/SessionAnalysis$a;
+    new-instance v0, Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    invoke-direct {v1}, Lcom/baidu/mobstat/SessionAnalysis$a;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/SessionAnalysis$a;-><init>()V
 
-    iput-object v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->c:Lcom/baidu/mobstat/SessionAnalysis$a;
+    iput-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->c:Lcom/baidu/mobstat/SessionAnalysis$a;
 
     .line 35
-    new-instance v1, Lcom/baidu/mobstat/SessionAnalysis$a;
+    new-instance v0, Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    invoke-direct {v1}, Lcom/baidu/mobstat/SessionAnalysis$a;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/SessionAnalysis$a;-><init>()V
 
-    iput-object v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->d:Lcom/baidu/mobstat/SessionAnalysis$a;
+    iput-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->d:Lcom/baidu/mobstat/SessionAnalysis$a;
 
     .line 37
-    iput-boolean v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
+    iput-boolean v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
 
     .line 39
-    const-wide/16 v1, 0x0
-
-    iput-wide v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+    iput-wide v2, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
 
     .line 41
-    new-instance v3, Lcom/baidu/mobstat/Session;
+    new-instance v0, Lcom/baidu/mobstat/Session;
 
-    invoke-direct {v3}, Lcom/baidu/mobstat/Session;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/Session;-><init>()V
 
-    iput-object v3, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    iput-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
     .line 43
-    iput v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->h:I
+    iput v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->h:I
 
     .line 45
-    iput v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->i:I
+    iput v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->i:I
 
     .line 47
-    iput-wide v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->j:J
+    iput-wide v2, p0, Lcom/baidu/mobstat/SessionAnalysis;->j:J
 
     .line 49
     const/4 v0, 0x1
@@ -117,60 +118,60 @@
 .end method
 
 .method public constructor <init>(Lcom/baidu/mobstat/SessionAnalysis$Callback;)V
-    .registers 6
+    .locals 4
+
+    const-wide/16 v2, 0x0
+
+    const/4 v1, 0x0
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 29
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->a:Z
+    iput-boolean v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->a:Z
 
     .line 31
-    new-instance v1, Ljava/util/HashMap;
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->b:Ljava/util/Map;
+    iput-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->b:Ljava/util/Map;
 
     .line 33
-    new-instance v1, Lcom/baidu/mobstat/SessionAnalysis$a;
+    new-instance v0, Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    invoke-direct {v1}, Lcom/baidu/mobstat/SessionAnalysis$a;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/SessionAnalysis$a;-><init>()V
 
-    iput-object v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->c:Lcom/baidu/mobstat/SessionAnalysis$a;
+    iput-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->c:Lcom/baidu/mobstat/SessionAnalysis$a;
 
     .line 35
-    new-instance v1, Lcom/baidu/mobstat/SessionAnalysis$a;
+    new-instance v0, Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    invoke-direct {v1}, Lcom/baidu/mobstat/SessionAnalysis$a;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/SessionAnalysis$a;-><init>()V
 
-    iput-object v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->d:Lcom/baidu/mobstat/SessionAnalysis$a;
+    iput-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->d:Lcom/baidu/mobstat/SessionAnalysis$a;
 
     .line 37
-    iput-boolean v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
+    iput-boolean v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
 
     .line 39
-    const-wide/16 v1, 0x0
-
-    iput-wide v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+    iput-wide v2, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
 
     .line 41
-    new-instance v3, Lcom/baidu/mobstat/Session;
+    new-instance v0, Lcom/baidu/mobstat/Session;
 
-    invoke-direct {v3}, Lcom/baidu/mobstat/Session;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/Session;-><init>()V
 
-    iput-object v3, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    iput-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
     .line 43
-    iput v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->h:I
+    iput v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->h:I
 
     .line 45
-    iput v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->i:I
+    iput v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->i:I
 
     .line 47
-    iput-wide v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->j:J
+    iput-wide v2, p0, Lcom/baidu/mobstat/SessionAnalysis;->j:J
 
     .line 49
     const/4 v0, 0x1
@@ -184,7 +185,7 @@
 .end method
 
 .method private a(Ljava/lang/String;)Lcom/baidu/mobstat/SessionAnalysis$a;
-    .registers 4
+    .locals 2
 
     .line 441
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->b:Ljava/util/Map;
@@ -193,7 +194,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 442
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->b:Ljava/util/Map;
@@ -205,20 +206,20 @@
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 445
-    :cond_12
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->b:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/baidu/mobstat/SessionAnalysis$a;
+    check-cast v0, Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method private a(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
 
     .line 524
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
@@ -227,7 +228,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_0
 
     .line 531
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
@@ -275,12 +276,14 @@
 
     invoke-static {p1, v1, v0, v2}, Lcom/baidu/mobstat/dj;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)V
 
-    :cond_32
+    :cond_0
     return-void
 .end method
 
 .method private a(Landroid/content/Context;JJII)V
-    .registers 15
+    .locals 8
+
+    const/4 v4, 0x0
 
     .line 375
     sub-long v0, p4, p2
@@ -291,504 +294,463 @@
 
     int-to-long v2, v2
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_39
+    if-lez v0, :cond_2
 
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p2, v0
+    cmp-long v0, p2, v0
 
-    if-lez v2, :cond_2d
+    if-lez v0, :cond_1
 
     const/4 v0, 0x2
 
-    if-ne v0, p7, :cond_19
+    if-ne v0, p7, :cond_0
 
     .line 385
-    iget-object p7, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    invoke-virtual {p7, p2, p3}, Lcom/baidu/mobstat/Session;->setEndTime(J)V
+    invoke-virtual {v0, p2, p3}, Lcom/baidu/mobstat/Session;->setEndTime(J)V
 
     .line 389
-    :cond_19
-    iget-object p2, p0, Lcom/baidu/mobstat/SessionAnalysis;->m:Lcom/baidu/mobstat/LaunchInfo;
+    :cond_0
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->m:Lcom/baidu/mobstat/LaunchInfo;
 
-    if-eqz p2, :cond_23
+    if-eqz v0, :cond_3
 
     .line 390
-    invoke-virtual {p2, p1}, Lcom/baidu/mobstat/LaunchInfo;->getLaunchType(Landroid/content/Context;)I
+    invoke-virtual {v0, p1}, Lcom/baidu/mobstat/LaunchInfo;->getLaunchType(Landroid/content/Context;)I
 
-    move-result p2
+    move-result v6
 
-    move v6, p2
-
-    goto :goto_25
-
-    :cond_23
-    const/4 p2, 0x0
-
-    const/4 v6, 0x0
-
-    .line 392
-    :goto_25
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
+    :goto_0
     move-object v0, p0
 
     move-object v1, p1
 
     move-wide v2, p4
 
+    move v5, v4
+
+    .line 392
     invoke-direct/range {v0 .. v6}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JZZI)V
 
     .line 396
-    :cond_2d
-    iget-object p1, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    :cond_1
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    iget-wide p2, p0, Lcom/baidu/mobstat/SessionAnalysis;->j:J
+    iget-wide v2, p0, Lcom/baidu/mobstat/SessionAnalysis;->j:J
 
-    invoke-virtual {p1, p2, p3}, Lcom/baidu/mobstat/Session;->setTrackStartTime(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/baidu/mobstat/Session;->setTrackStartTime(J)V
 
     .line 397
-    iget-object p1, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    invoke-virtual {p1, p6}, Lcom/baidu/mobstat/Session;->setInvokeType(I)V
+    invoke-virtual {v0, p6}, Lcom/baidu/mobstat/Session;->setInvokeType(I)V
 
-    :cond_39
+    :cond_2
     return-void
+
+    :cond_3
+    move v6, v4
+
+    .line 390
+    goto :goto_0
 .end method
 
 .method private a(Landroid/content/Context;JZZI)V
-    .registers 19
+    .locals 8
+
+    const-wide/16 v2, 0x0
 
     .line 456
-    move-object v0, p0
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    move-object v9, p1
+    invoke-virtual {v0}, Lcom/baidu/mobstat/Session;->hasEnd()Z
 
-    move-wide v1, p2
+    move-result v0
 
-    move/from16 v3, p6
-
-    iget-object v4, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
-
-    invoke-virtual {v4}, Lcom/baidu/mobstat/Session;->hasEnd()Z
-
-    move-result v4
-
-    const-wide/16 v5, 0x0
-
-    if-eqz v4, :cond_2d
+    if-eqz v0, :cond_0
 
     .line 457
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
 
-    move-result-object v4
+    move-result-object v0
 
-    iget-object v7, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    iget-object v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    invoke-virtual {v4, v7}, Lcom/baidu/mobstat/DataCore;->putSession(Lcom/baidu/mobstat/Session;)V
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/DataCore;->putSession(Lcom/baidu/mobstat/Session;)V
 
     .line 458
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4, p1}, Lcom/baidu/mobstat/DataCore;->flush(Landroid/content/Context;)V
+    invoke-virtual {v0, p1}, Lcom/baidu/mobstat/DataCore;->flush(Landroid/content/Context;)V
 
     .line 460
-    iget-object v4, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    invoke-virtual {v4}, Lcom/baidu/mobstat/Session;->getPageSessionHead()Lorg/json/JSONObject;
+    invoke-virtual {v0}, Lcom/baidu/mobstat/Session;->getPageSessionHead()Lorg/json/JSONObject;
 
-    move-result-object v4
+    move-result-object v0
 
     .line 461
-    invoke-static {v4}, Lcom/baidu/mobstat/cq;->a(Lorg/json/JSONObject;)V
+    invoke-static {v0}, Lcom/baidu/mobstat/cq;->a(Lorg/json/JSONObject;)V
 
     .line 464
-    iget-object v4, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    invoke-virtual {v4, v5, v6}, Lcom/baidu/mobstat/Session;->setEndTime(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/baidu/mobstat/Session;->setEndTime(J)V
 
-    :cond_2d
-    cmp-long v4, v1, v5
+    :cond_0
+    cmp-long v0, p2, v2
 
-    if-lez v4, :cond_34
+    if-lez v0, :cond_5
 
-    const/4 v4, 0x1
+    const/4 v2, 0x1
 
-    const/4 v10, 0x1
+    :goto_0
+    if-eqz v2, :cond_6
 
-    goto :goto_36
-
-    :cond_34
-    const/4 v4, 0x0
-
-    const/4 v10, 0x0
-
-    :goto_36
-    if-eqz v10, :cond_3a
-
-    move-wide v5, v1
-
-    goto :goto_41
-
-    .line 468
-    :cond_3a
-    iget-object v4, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
-
-    invoke-virtual {v4}, Lcom/baidu/mobstat/Session;->getStartTime()J
-
-    move-result-wide v4
-
-    move-wide v5, v4
+    move-wide v4, p2
 
     .line 477
-    :goto_41
-    const-string v4, ""
+    :goto_1
+    const-string v1, ""
 
-    if-eqz v3, :cond_6d
+    if-eqz p6, :cond_9
 
-    if-eqz p5, :cond_59
+    if-eqz p5, :cond_7
 
     .line 479
-    iget-object v7, v0, Lcom/baidu/mobstat/SessionAnalysis;->l:Lcom/baidu/mobstat/LaunchInfo;
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->l:Lcom/baidu/mobstat/LaunchInfo;
 
-    if-eqz v7, :cond_6b
+    if-eqz v0, :cond_8
 
     .line 480
-    invoke-virtual {v7}, Lcom/baidu/mobstat/LaunchInfo;->getPushContent()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/baidu/mobstat/LaunchInfo;->getPushContent()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
     .line 481
-    iget-object v7, v0, Lcom/baidu/mobstat/SessionAnalysis;->l:Lcom/baidu/mobstat/LaunchInfo;
+    iget-object v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->l:Lcom/baidu/mobstat/LaunchInfo;
 
-    invoke-virtual {v7}, Lcom/baidu/mobstat/LaunchInfo;->getRefererPkgName()Ljava/lang/String;
-
-    move-result-object v7
-
-    move-object v11, v7
-
-    move-object v7, v4
-
-    move-object v4, v11
-
-    goto :goto_74
-
-    .line 484
-    :cond_59
-    iget-object v7, v0, Lcom/baidu/mobstat/SessionAnalysis;->m:Lcom/baidu/mobstat/LaunchInfo;
-
-    if-eqz v7, :cond_6b
-
-    .line 485
-    invoke-virtual {v7}, Lcom/baidu/mobstat/LaunchInfo;->getPushContent()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 486
-    iget-object v7, v0, Lcom/baidu/mobstat/SessionAnalysis;->m:Lcom/baidu/mobstat/LaunchInfo;
-
-    invoke-virtual {v7}, Lcom/baidu/mobstat/LaunchInfo;->getRefererPkgName()Ljava/lang/String;
-
-    move-result-object v7
-
-    move-object v11, v7
-
-    move-object v7, v4
-
-    move-object v4, v11
-
-    goto :goto_74
-
-    :cond_6b
-    move-object v7, v4
-
-    goto :goto_74
-
-    .line 491
-    :cond_6d
-    invoke-static {p1}, Lcom/baidu/mobstat/LaunchInfo;->getLauncherHomePkgName(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v7
-
-    move-object v11, v7
-
-    move-object v7, v4
-
-    move-object v4, v11
-
-    .line 494
-    :goto_74
-    invoke-static {}, Lcom/baidu/mobstat/dq;->a()Lcom/baidu/mobstat/dq;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Lcom/baidu/mobstat/dq;->d()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_83
-
-    .line 495
-    invoke-static {v3, v4, v7}, Lcom/baidu/mobstat/LaunchInfo;->getConvertedJson(ILjava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v3
-
-    goto :goto_84
-
-    :cond_83
-    const/4 v3, 0x0
-
-    :goto_84
-    move-object v8, v3
-
-    if-eqz v10, :cond_98
-
-    .line 500
-    iget-object v3, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
-
-    invoke-virtual {v3}, Lcom/baidu/mobstat/Session;->reset()V
-
-    .line 501
-    iget-object v3, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
-
-    invoke-virtual {v3, p2, p3}, Lcom/baidu/mobstat/Session;->setStartTime(J)V
-
-    if-eqz v8, :cond_98
-
-    .line 504
-    iget-object v1, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
-
-    invoke-virtual {v1, v8}, Lcom/baidu/mobstat/Session;->setLaunchInfo(Lorg/json/JSONObject;)V
-
-    .line 508
-    :cond_98
-    invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
+    invoke-virtual {v1}, Lcom/baidu/mobstat/LaunchInfo;->getRefererPkgName()Ljava/lang/String;
 
     move-result-object v1
 
-    move-object v2, p1
+    .line 494
+    :goto_2
+    invoke-static {}, Lcom/baidu/mobstat/dq;->a()Lcom/baidu/mobstat/dq;
 
-    move v3, v10
+    move-result-object v3
 
-    move/from16 v4, p4
+    invoke-virtual {v3}, Lcom/baidu/mobstat/dq;->d()Z
 
-    move/from16 v7, p5
+    move-result v3
 
-    invoke-virtual/range {v1 .. v8}, Lcom/baidu/mobstat/DataCore;->saveLogData(Landroid/content/Context;ZZJZLorg/json/JSONObject;)V
+    if-eqz v3, :cond_a
+
+    .line 495
+    invoke-static {p6, v1, v0}, Lcom/baidu/mobstat/LaunchInfo;->getConvertedJson(ILjava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v7
+
+    :goto_3
+    if-eqz v2, :cond_1
+
+    .line 500
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+
+    invoke-virtual {v0}, Lcom/baidu/mobstat/Session;->reset()V
+
+    .line 501
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+
+    invoke-virtual {v0, p2, p3}, Lcom/baidu/mobstat/Session;->setStartTime(J)V
+
+    if-eqz v7, :cond_1
+
+    .line 504
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+
+    invoke-virtual {v0, v7}, Lcom/baidu/mobstat/Session;->setLaunchInfo(Lorg/json/JSONObject;)V
+
+    .line 508
+    :cond_1
+    invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
+
+    move-result-object v0
+
+    move-object v1, p1
+
+    move v3, p4
+
+    move v6, p5
+
+    invoke-virtual/range {v0 .. v7}, Lcom/baidu/mobstat/DataCore;->saveLogData(Landroid/content/Context;ZZJZLorg/json/JSONObject;)V
 
     .line 510
-    iget-object v1, v0, Lcom/baidu/mobstat/SessionAnalysis;->mCallback:Lcom/baidu/mobstat/SessionAnalysis$Callback;
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->mCallback:Lcom/baidu/mobstat/SessionAnalysis$Callback;
 
-    if-eqz v1, :cond_b4
+    if-eqz v0, :cond_2
 
     .line 511
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/baidu/mobstat/DataCore;->getLogData()Lorg/json/JSONObject;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Lcom/baidu/mobstat/SessionAnalysis$Callback;->onCallback(Lorg/json/JSONObject;)V
-
-    :cond_b4
-    if-nez v10, :cond_ba
-
-    .line 516
-    iget-boolean v1, v0, Lcom/baidu/mobstat/SessionAnalysis;->k:Z
-
-    if-eqz v1, :cond_c1
-
-    .line 517
-    :cond_ba
-    invoke-static {}, Lcom/baidu/mobstat/LogSender;->instance()Lcom/baidu/mobstat/LogSender;
+    invoke-virtual {v1}, Lcom/baidu/mobstat/DataCore;->getLogData()Lorg/json/JSONObject;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Lcom/baidu/mobstat/LogSender;->onSend(Landroid/content/Context;)V
+    invoke-interface {v0, v1}, Lcom/baidu/mobstat/SessionAnalysis$Callback;->onCallback(Lorg/json/JSONObject;)V
+
+    :cond_2
+    if-nez v2, :cond_3
+
+    .line 516
+    iget-boolean v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->k:Z
+
+    if-eqz v0, :cond_4
+
+    .line 517
+    :cond_3
+    invoke-static {}, Lcom/baidu/mobstat/LogSender;->instance()Lcom/baidu/mobstat/LogSender;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/baidu/mobstat/LogSender;->onSend(Landroid/content/Context;)V
 
     .line 520
-    :cond_c1
+    :cond_4
     invoke-virtual {p0, p1}, Lcom/baidu/mobstat/SessionAnalysis;->clearLastSessionCache(Landroid/content/Context;)V
 
     return-void
+
+    .line 464
+    :cond_5
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    .line 468
+    :cond_6
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+
+    invoke-virtual {v0}, Lcom/baidu/mobstat/Session;->getStartTime()J
+
+    move-result-wide v4
+
+    goto :goto_1
+
+    .line 484
+    :cond_7
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->m:Lcom/baidu/mobstat/LaunchInfo;
+
+    if-eqz v0, :cond_8
+
+    .line 485
+    invoke-virtual {v0}, Lcom/baidu/mobstat/LaunchInfo;->getPushContent()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 486
+    iget-object v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->m:Lcom/baidu/mobstat/LaunchInfo;
+
+    invoke-virtual {v1}, Lcom/baidu/mobstat/LaunchInfo;->getRefererPkgName()Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_2
+
+    :cond_8
+    const-string v0, ""
+
+    goto :goto_2
+
+    .line 491
+    :cond_9
+    invoke-static {p1}, Lcom/baidu/mobstat/LaunchInfo;->getLauncherHomePkgName(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v0, ""
+
+    goto :goto_2
+
+    .line 495
+    :cond_a
+    const/4 v7, 0x0
+
+    goto :goto_3
 .end method
 
 .method private a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/baidu/mobstat/ExtraInfo;Z)V
-    .registers 30
+    .locals 14
 
     .line 409
-    move-object/from16 v0, p0
-
-    move-wide/from16 v1, p6
-
     invoke-static/range {p2 .. p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_5a
+    if-nez v2, :cond_0
 
     invoke-static/range {p3 .. p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_11
+    if-eqz v2, :cond_1
 
-    goto :goto_5a
-
-    .line 413
-    :cond_11
-    invoke-virtual/range {p2 .. p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_18
-
+    .line 435
+    :cond_0
+    :goto_0
     return-void
 
+    .line 413
+    :cond_1
+    invoke-virtual/range {p2 .. p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
     .line 419
-    :cond_18
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lcom/baidu/mobstat/DataCore;->getPagePy()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/baidu/mobstat/DataCore;->getPagePy()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v13
 
     .line 421
-    new-instance v3, Lcom/baidu/mobstat/Session$a;
+    new-instance v2, Lcom/baidu/mobstat/Session$a;
 
-    sub-long v8, v1, p4
+    sub-long v6, p6, p4
 
-    move-object v4, v3
+    move-object/from16 v3, p8
 
-    move-object/from16 v5, p8
+    move-object/from16 v4, p9
 
-    move-object/from16 v6, p9
+    move-object/from16 v5, p10
 
-    move-object/from16 v7, p10
+    move-wide/from16 v8, p4
 
-    move-wide/from16 v10, p4
+    move/from16 v10, p11
 
-    move/from16 v12, p11
+    move-object/from16 v11, p12
 
-    move-object/from16 v13, p12
+    move/from16 v12, p13
 
-    move/from16 v14, p13
-
-    invoke-direct/range {v4 .. v15}, Lcom/baidu/mobstat/Session$a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJZLcom/baidu/mobstat/ExtraInfo;ZLjava/lang/String;)V
+    invoke-direct/range {v2 .. v13}, Lcom/baidu/mobstat/Session$a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJZLcom/baidu/mobstat/ExtraInfo;ZLjava/lang/String;)V
 
     .line 429
-    iget-object v4, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    iget-object v3, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    invoke-virtual {v4, v3}, Lcom/baidu/mobstat/Session;->addPageView(Lcom/baidu/mobstat/Session$a;)V
+    invoke-virtual {v3, v2}, Lcom/baidu/mobstat/Session;->addPageView(Lcom/baidu/mobstat/Session$a;)V
 
     .line 430
-    iget-object v3, v0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    iget-object v2, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    invoke-virtual {v3, v1, v2}, Lcom/baidu/mobstat/Session;->setEndTime(J)V
+    move-wide/from16 v0, p6
+
+    invoke-virtual {v2, v0, v1}, Lcom/baidu/mobstat/Session;->setEndTime(J)V
 
     .line 432
-    invoke-direct/range {p0 .. p1}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;)V
 
     .line 434
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lcom/baidu/mobstat/DataCore;->getTempPyd()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/baidu/mobstat/DataCore;->getTempPyd()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_5a
+    if-nez v2, :cond_0
 
     .line 435
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
 
-    move-result-object v1
+    move-result-object v2
 
-    move-object/from16 v2, p1
+    invoke-virtual {v2, p1}, Lcom/baidu/mobstat/DataCore;->flush(Landroid/content/Context;)V
 
-    invoke-virtual {v1, v2}, Lcom/baidu/mobstat/DataCore;->flush(Landroid/content/Context;)V
-
-    :cond_5a
-    :goto_5a
-    return-void
+    goto :goto_0
 .end method
 
 .method private b(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     .line 556
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_1
 
+    .line 561
+    :cond_0
+    :goto_0
     return-void
 
     .line 560
-    :cond_7
+    :cond_1
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->b:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 561
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->b:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_14
-    return-void
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public autoTrackLaunchInfo(Lcom/baidu/mobstat/LaunchInfo;Z)V
-    .registers 3
+    .locals 0
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_0
 
     .line 142
     iput-object p1, p0, Lcom/baidu/mobstat/SessionAnalysis;->l:Lcom/baidu/mobstat/LaunchInfo;
 
-    goto :goto_7
-
     .line 144
-    :cond_5
+    :goto_0
+    return-void
+
+    :cond_0
     iput-object p1, p0, Lcom/baidu/mobstat/SessionAnalysis;->m:Lcom/baidu/mobstat/LaunchInfo;
 
-    :goto_7
-    return-void
+    goto :goto_0
 .end method
 
 .method public autoTrackSessionEndTime(Landroid/content/Context;J)V
-    .registers 5
+    .locals 2
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_0
 
+    .line 163
+    :goto_0
     return-void
 
     .line 162
-    :cond_3
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
     invoke-virtual {v0, p2, p3}, Lcom/baidu/mobstat/Session;->setTrackEndTime(J)V
@@ -796,37 +758,41 @@
     .line 163
     invoke-direct {p0, p1}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public autoTrackSessionStartTime(Landroid/content/Context;J)V
-    .registers 4
+    .locals 2
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_0
 
+    .line 154
+    :goto_0
     return-void
 
     .line 153
-    :cond_3
-    iget-object p1, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
+    :cond_0
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
 
-    invoke-virtual {p1, p2, p3}, Lcom/baidu/mobstat/Session;->setTrackStartTime(J)V
+    invoke-virtual {v0, p2, p3}, Lcom/baidu/mobstat/Session;->setTrackStartTime(J)V
 
     .line 154
     iput-wide p2, p0, Lcom/baidu/mobstat/SessionAnalysis;->j:J
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public clearLastSessionCache(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_0
 
+    .line 552
+    :goto_0
     return-void
 
     .line 548
-    :cond_3
+    :cond_0
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
@@ -860,61 +826,61 @@
 
     invoke-static {p1, v1, v0, v2}, Lcom/baidu/mobstat/dj;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public doSendLogCheck(Landroid/content/Context;J)V
-    .registers 14
+    .locals 8
+
+    const/4 v4, 0x0
 
     .line 99
     iget-wide v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v2, v0, v2
 
-    if-lez v4, :cond_1c
+    if-lez v2, :cond_0
 
     .line 101
-    sub-long/2addr p2, v0
+    sub-long v0, p2, v0
 
     invoke-virtual {p0}, Lcom/baidu/mobstat/SessionAnalysis;->getSessionTimeOut()I
 
-    move-result v0
+    move-result v2
 
-    int-to-long v0, v0
+    int-to-long v2, v2
 
-    cmp-long v2, p2, v0
+    cmp-long v0, v0, v2
 
-    if-lez v2, :cond_1c
+    if-lez v0, :cond_0
 
     .line 103
-    const-wide/16 v5, -0x1
+    const-wide/16 v2, -0x1
 
-    const/4 v7, 0x0
+    move-object v0, p0
 
-    const/4 v8, 0x0
+    move-object v1, p1
 
-    const/4 v9, 0x0
+    move v5, v4
 
-    move-object v3, p0
+    move v6, v4
 
-    move-object v4, p1
+    invoke-direct/range {v0 .. v6}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JZZI)V
 
-    invoke-direct/range {v3 .. v9}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JZZI)V
-
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
 .method public doSendNewSessionLog(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public getPageSessionHead()Lorg/json/JSONObject;
-    .registers 2
+    .locals 1
 
     .line 87
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
@@ -927,7 +893,7 @@
 .end method
 
 .method public getSessionSize()I
-    .registers 2
+    .locals 1
 
     .line 91
     iget v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->i:I
@@ -936,7 +902,7 @@
 .end method
 
 .method public getSessionStartTime()J
-    .registers 3
+    .locals 2
 
     .line 83
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
@@ -949,12 +915,12 @@
 .end method
 
 .method public getSessionTimeOut()I
-    .registers 2
+    .locals 1
 
     .line 75
     iget v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->h:I
 
-    if-gtz v0, :cond_8
+    if-gtz v0, :cond_0
 
     .line 76
     const/16 v0, 0x7530
@@ -962,14 +928,14 @@
     iput v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->h:I
 
     .line 79
-    :cond_8
+    :cond_0
     iget v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->h:I
 
     return v0
 .end method
 
 .method public isSessionStart()Z
-    .registers 6
+    .locals 4
 
     .line 566
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->g:Lcom/baidu/mobstat/Session;
@@ -980,309 +946,346 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v0, v0, v2
 
-    if-lez v4, :cond_e
+    if-lez v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_f
+    :goto_0
+    return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_f
-    return v0
+    goto :goto_0
 .end method
 
 .method public onPageEnd(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLcom/baidu/mobstat/ExtraInfo;Z)V
-    .registers 25
+    .locals 19
 
     .line 232
-    move-object/from16 v14, p0
+    const/4 v4, 0x0
 
-    move-object/from16 v15, p2
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, v14, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
+    iput-boolean v4, v0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
 
     .line 234
     invoke-static/range {p2 .. p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_e
+    if-eqz v4, :cond_1
 
+    .line 253
+    :cond_0
+    :goto_0
     return-void
 
     .line 238
-    :cond_e
-    invoke-direct {v14, v15}, Lcom/baidu/mobstat/SessionAnalysis;->a(Ljava/lang/String;)Lcom/baidu/mobstat/SessionAnalysis$a;
+    :cond_1
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    move-object/from16 v1, p2
 
-    if-nez v0, :cond_15
+    invoke-direct {v0, v1}, Lcom/baidu/mobstat/SessionAnalysis;->a(Ljava/lang/String;)Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    return-void
+    move-result-object v4
+
+    if-eqz v4, :cond_0
 
     .line 243
-    :cond_15
-    iget-boolean v1, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    iget-boolean v5, v4, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
 
-    if-nez v1, :cond_2f
+    if-nez v5, :cond_2
 
     .line 244
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
-    move-result-object v0
+    move-result-object v4
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string v2, "[WARNING] 遗漏StatService.onPageStart(), 请检查邻近页面埋点: "
+    const-string v6, "[WARNING] \u9057\u6f0fStatService.onPageStart(), \u8bf7\u68c0\u67e5\u90bb\u8fd1\u9875\u9762\u57cb\u70b9: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
+    move-result-object v5
 
-    return-void
+    invoke-virtual {v4, v5}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
+
+    goto :goto_0
 
     .line 248
-    :cond_2f
-    iget-object v2, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
+    :cond_2
+    iget-object v6, v4, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
 
-    iget-wide v4, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
+    iget-wide v8, v4, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
 
-    const-string v9, ""
+    const-string v13, ""
 
-    const/4 v11, 0x0
+    const/4 v15, 0x0
 
-    move-object/from16 v0, p0
+    move-object/from16 v4, p0
 
-    move-object/from16 v1, p1
+    move-object/from16 v5, p1
 
-    move-object/from16 v3, p2
+    move-object/from16 v7, p2
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v10, p5
 
-    move-object/from16 v8, p3
+    move-object/from16 v12, p3
 
-    move-object/from16 v10, p4
+    move-object/from16 v14, p4
 
-    move-object/from16 v12, p7
+    move-object/from16 v16, p7
 
-    move/from16 v13, p8
+    move/from16 v17, p8
 
-    invoke-direct/range {v0 .. v13}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/baidu/mobstat/ExtraInfo;Z)V
+    invoke-direct/range {v4 .. v17}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/baidu/mobstat/ExtraInfo;Z)V
 
     .line 251
-    invoke-direct {v14, v15}, Lcom/baidu/mobstat/SessionAnalysis;->b(Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-direct {v0, v1}, Lcom/baidu/mobstat/SessionAnalysis;->b(Ljava/lang/String;)V
 
     .line 253
     move-wide/from16 v0, p5
 
-    iput-wide v0, v14, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+    move-object/from16 v2, p0
 
-    return-void
+    iput-wide v0, v2, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+
+    goto :goto_0
 .end method
 
 .method public onPageEndAct(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JZLcom/baidu/mobstat/ExtraInfo;)V
-    .registers 26
+    .locals 19
 
     .line 293
-    move-object/from16 v14, p0
+    const/4 v4, 0x0
 
-    const/4 v15, 0x0
+    move-object/from16 v0, p0
 
-    iput-boolean v15, v14, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
+    iput-boolean v4, v0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
 
-    if-eqz p7, :cond_a
+    if-eqz p7, :cond_1
 
     .line 295
-    iget-object v0, v14, Lcom/baidu/mobstat/SessionAnalysis;->d:Lcom/baidu/mobstat/SessionAnalysis$a;
+    move-object/from16 v0, p0
 
-    goto :goto_c
+    iget-object v4, v0, Lcom/baidu/mobstat/SessionAnalysis;->d:Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    :cond_a
-    iget-object v0, v14, Lcom/baidu/mobstat/SessionAnalysis;->c:Lcom/baidu/mobstat/SessionAnalysis$a;
-
-    :goto_c
-    move-object v13, v0
+    move-object/from16 v18, v4
 
     .line 297
-    iget-boolean v0, v13, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    :goto_0
+    move-object/from16 v0, v18
 
-    if-nez v0, :cond_2b
+    iget-boolean v4, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
 
-    if-nez p7, :cond_2a
+    if-nez v4, :cond_2
+
+    if-nez p7, :cond_0
 
     .line 299
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
-    move-result-object v0
+    move-result-object v4
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string v2, "[WARNING] 遗漏StatService.onResume(Activity), 请检查邻近页面埋点: "
+    const-string v6, "[WARNING] \u9057\u6f0fStatService.onResume(Activity), \u8bf7\u68c0\u67e5\u90bb\u8fd1\u9875\u9762\u57cb\u70b9: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-object/from16 v10, p2
+    move-object/from16 v0, p2
 
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
-
-    :cond_2a
-    return-void
-
-    .line 306
-    :cond_2b
-    move-object/from16 v10, p2
-
-    iget-object v2, v13, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
-
-    iget-wide v4, v13, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
-
-    const/16 v16, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v3, p2
-
-    move-wide/from16 v6, p5
-
-    move-object/from16 v8, p3
-
-    move-object/from16 v9, p4
-
-    move/from16 v11, p7
-
-    move-object/from16 v12, p8
-
-    move-object v14, v13
-
-    move/from16 v13, v16
-
-    invoke-direct/range {v0 .. v13}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/baidu/mobstat/ExtraInfo;Z)V
-
-    .line 309
-    iput-boolean v15, v14, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    invoke-virtual {v4, v5}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
 
     .line 311
-    move-wide/from16 v1, p5
-
-    iput-wide v1, v0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
-
+    :cond_0
+    :goto_1
     return-void
+
+    .line 295
+    :cond_1
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/baidu/mobstat/SessionAnalysis;->c:Lcom/baidu/mobstat/SessionAnalysis$a;
+
+    move-object/from16 v18, v4
+
+    goto :goto_0
+
+    .line 306
+    :cond_2
+    move-object/from16 v0, v18
+
+    iget-object v6, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
+
+    move-object/from16 v0, v18
+
+    iget-wide v8, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
+
+    const/16 v17, 0x0
+
+    move-object/from16 v4, p0
+
+    move-object/from16 v5, p1
+
+    move-object/from16 v7, p2
+
+    move-wide/from16 v10, p5
+
+    move-object/from16 v12, p3
+
+    move-object/from16 v13, p4
+
+    move-object/from16 v14, p2
+
+    move/from16 v15, p7
+
+    move-object/from16 v16, p8
+
+    invoke-direct/range {v4 .. v17}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/baidu/mobstat/ExtraInfo;Z)V
+
+    .line 309
+    const/4 v4, 0x0
+
+    move-object/from16 v0, v18
+
+    iput-boolean v4, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+
+    .line 311
+    move-wide/from16 v0, p5
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+
+    goto :goto_1
 .end method
 
 .method public onPageEndFrag(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
-    .registers 23
+    .locals 19
 
     .line 344
-    move-object/from16 v14, p0
-
-    move-object/from16 v15, p2
-
     invoke-static/range {p2 .. p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_b
+    if-eqz v4, :cond_1
 
+    .line 363
+    :cond_0
+    :goto_0
     return-void
 
     .line 348
-    :cond_b
-    invoke-direct {v14, v15}, Lcom/baidu/mobstat/SessionAnalysis;->a(Ljava/lang/String;)Lcom/baidu/mobstat/SessionAnalysis$a;
+    :cond_1
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    move-object/from16 v1, p2
 
-    if-nez v0, :cond_12
+    invoke-direct {v0, v1}, Lcom/baidu/mobstat/SessionAnalysis;->a(Ljava/lang/String;)Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    return-void
+    move-result-object v4
+
+    if-eqz v4, :cond_0
 
     .line 353
-    :cond_12
-    iget-boolean v1, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    iget-boolean v5, v4, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
 
-    if-nez v1, :cond_2c
+    if-nez v5, :cond_2
 
     .line 354
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
-    move-result-object v0
+    move-result-object v4
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string v2, "[WARNING] 遗漏StatService.onResume(Fragment), 请检查邻近页面埋点: "
+    const-string v6, "[WARNING] \u9057\u6f0fStatService.onResume(Fragment), \u8bf7\u68c0\u67e5\u90bb\u8fd1\u9875\u9762\u57cb\u70b9: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
+    move-result-object v5
 
-    return-void
+    invoke-virtual {v4, v5}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
+
+    goto :goto_0
 
     .line 358
-    :cond_2c
-    iget-object v2, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
+    :cond_2
+    iget-object v6, v4, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
 
-    iget-wide v4, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
+    iget-wide v8, v4, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
 
-    const/4 v10, 0x0
+    const/4 v14, 0x0
 
-    const/4 v11, 0x0
+    const/4 v15, 0x0
 
-    const/4 v12, 0x0
+    const/16 v16, 0x0
 
-    const/4 v13, 0x0
+    const/16 v17, 0x0
 
-    move-object/from16 v0, p0
+    move-object/from16 v4, p0
 
-    move-object/from16 v1, p1
+    move-object/from16 v5, p1
 
-    move-object/from16 v3, p2
+    move-object/from16 v7, p2
 
-    move-wide/from16 v6, p5
+    move-wide/from16 v10, p5
 
-    move-object/from16 v8, p3
+    move-object/from16 v12, p3
 
-    move-object/from16 v9, p4
+    move-object/from16 v13, p4
 
-    invoke-direct/range {v0 .. v13}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/baidu/mobstat/ExtraInfo;Z)V
+    invoke-direct/range {v4 .. v17}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/baidu/mobstat/ExtraInfo;Z)V
 
     .line 361
-    invoke-direct {v14, v15}, Lcom/baidu/mobstat/SessionAnalysis;->b(Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-direct {v0, v1}, Lcom/baidu/mobstat/SessionAnalysis;->b(Ljava/lang/String;)V
 
     .line 363
     move-wide/from16 v0, p5
 
-    iput-wide v0, v14, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+    move-object/from16 v2, p0
 
-    return-void
+    iput-wide v0, v2, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+
+    goto :goto_0
 .end method
 
 .method public onPageStart(Landroid/content/Context;Ljava/lang/String;IJ)V
-    .registers 16
+    .locals 10
+
+    const/4 v9, 0x1
 
     .line 200
     const/4 v0, 0x0
@@ -1294,83 +1297,83 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_1
 
+    .line 222
+    :cond_0
+    :goto_0
     return-void
 
     .line 206
-    :cond_b
+    :cond_1
     invoke-direct {p0, p2}, Lcom/baidu/mobstat/SessionAnalysis;->a(Ljava/lang/String;)Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_12
-
-    return-void
+    if-eqz v8, :cond_0
 
     .line 211
-    :cond_12
-    iget-boolean v1, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    iget-boolean v0, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
 
-    if-eqz v1, :cond_2b
+    if-eqz v0, :cond_2
 
     .line 212
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "[WARNING] \u9057\u6f0fStatService.onPageEnd(), \u8bf7\u68c0\u67e5\u90bb\u8fd1\u9875\u9762\u57cb\u70b9: "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
     move-result-object v1
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    const-string v3, "[WARNING] 遗漏StatService.onPageEnd(), 请检查邻近页面埋点: "
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {v1, p2}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
 
     .line 215
-    :cond_2b
-    iget-boolean p2, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
+    :cond_2
+    iget-boolean v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
 
-    const/4 v1, 0x1
-
-    if-nez p2, :cond_3c
+    if-nez v0, :cond_3
 
     .line 216
-    iget-wide v4, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+    iget-wide v2, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
 
-    const/4 v9, 0x3
+    const/4 v7, 0x3
 
-    move-object v2, p0
+    move-object v0, p0
 
-    move-object v3, p1
+    move-object v1, p1
 
-    move-wide v6, p4
+    move-wide v4, p4
 
-    move v8, p3
+    move v6, p3
 
-    invoke-direct/range {v2 .. v9}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JJII)V
+    invoke-direct/range {v0 .. v7}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JJII)V
 
     .line 218
-    iput-boolean v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
+    iput-boolean v9, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
 
     .line 221
-    :cond_3c
-    iput-boolean v1, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    :cond_3
+    iput-boolean v9, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
 
     .line 222
-    iput-wide p4, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
+    iput-wide p4, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public onPageStartAct(Landroid/content/Context;Ljava/lang/String;JZ)V
-    .registers 16
+    .locals 9
+
+    const/4 v6, 0x1
 
     .line 263
     const/4 v0, 0x0
@@ -1382,37 +1385,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
+    .line 283
+    :goto_0
     return-void
 
-    :cond_b
-    if-eqz p5, :cond_10
+    .line 265
+    :cond_0
+    if-eqz p5, :cond_3
 
     .line 269
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->d:Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    goto :goto_12
-
-    :cond_10
-    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->c:Lcom/baidu/mobstat/SessionAnalysis$a;
+    move-object v8, v0
 
     .line 271
-    :goto_12
-    iget-boolean v1, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    :goto_1
+    iget-boolean v0, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
 
-    if-eqz v1, :cond_2d
+    if-eqz v0, :cond_1
 
-    if-nez p5, :cond_2d
+    if-nez p5, :cond_1
 
     .line 272
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
-    move-result-object p5
+    move-result-object v0
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v2, "[WARNING] 遗漏StatService.onPause(Activity), 请检查邻近页面埋点: "
+    const-string v2, "[WARNING] \u9057\u6f0fStatService.onPause(Activity), \u8bf7\u68c0\u67e5\u90bb\u8fd1\u9875\u9762\u57cb\u70b9: "
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
@@ -1422,49 +1425,55 @@
 
     move-result-object v1
 
-    invoke-virtual {p5, v1}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
 
     .line 275
-    :cond_2d
-    iget-boolean p5, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
+    :cond_1
+    iget-boolean v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
 
-    const/4 v1, 0x1
-
-    if-nez p5, :cond_3e
+    if-nez v0, :cond_2
 
     .line 276
-    iget-wide v4, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+    iget-wide v2, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
 
-    const/4 v8, 0x1
+    move-object v0, p0
 
-    const/4 v9, 0x1
+    move-object v1, p1
 
-    move-object v2, p0
+    move-wide v4, p3
 
-    move-object v3, p1
+    move v7, v6
 
-    move-wide v6, p3
-
-    invoke-direct/range {v2 .. v9}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JJII)V
+    invoke-direct/range {v0 .. v7}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JJII)V
 
     .line 278
-    iput-boolean v1, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
+    iput-boolean v6, p0, Lcom/baidu/mobstat/SessionAnalysis;->e:Z
 
     .line 281
-    :cond_3e
-    iput-boolean v1, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    :cond_2
+    iput-boolean v6, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
 
     .line 282
-    iput-object p2, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
+    iput-object p2, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
 
     .line 283
-    iput-wide p3, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
+    iput-wide p3, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
 
-    return-void
+    goto :goto_0
+
+    .line 269
+    :cond_3
+    iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->c:Lcom/baidu/mobstat/SessionAnalysis$a;
+
+    move-object v8, v0
+
+    goto :goto_1
 .end method
 
 .method public onPageStartFrag(Landroid/content/Context;Ljava/lang/String;J)V
-    .registers 16
+    .locals 9
+
+    const/4 v6, 0x2
 
     .line 319
     const/4 v0, 0x0
@@ -1476,82 +1485,86 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
+    .line 335
+    :goto_0
     return-void
 
     .line 325
-    :cond_b
+    :cond_0
     invoke-direct {p0, p2}, Lcom/baidu/mobstat/SessionAnalysis;->a(Ljava/lang/String;)Lcom/baidu/mobstat/SessionAnalysis$a;
 
-    move-result-object v0
+    move-result-object v8
 
     .line 327
-    iget-boolean v1, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    iget-boolean v0, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
 
-    if-eqz v1, :cond_28
+    if-eqz v0, :cond_1
 
     .line 328
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "[WARNING] \u9057\u6f0fStatService.onPause(Fragment), \u8bf7\u68c0\u67e5\u90bb\u8fd1\u9875\u9762\u57cb\u70b9: "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
     move-result-object v1
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    const-string v3, "[WARNING] 遗漏StatService.onPause(Fragment), 请检查邻近页面埋点: "
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cx;->c(Ljava/lang/String;)V
 
     .line 331
-    :cond_28
-    iget-wide v5, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
+    :cond_1
+    iget-wide v2, p0, Lcom/baidu/mobstat/SessionAnalysis;->f:J
 
-    const/4 v9, 0x2
+    move-object v0, p0
 
-    const/4 v10, 0x2
+    move-object v1, p1
 
-    move-object v3, p0
+    move-wide v4, p3
 
-    move-object v4, p1
+    move v7, v6
 
-    move-wide v7, p3
-
-    invoke-direct/range {v3 .. v10}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JJII)V
+    invoke-direct/range {v0 .. v7}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JJII)V
 
     .line 333
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
+    iput-boolean v0, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->c:Z
 
     .line 334
-    iput-object p2, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
+    iput-object p2, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->a:Ljava/lang/String;
 
     .line 335
-    iput-wide p3, v0, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
+    iput-wide p3, v8, Lcom/baidu/mobstat/SessionAnalysis$a;->b:J
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public onSessionStart(Landroid/content/Context;JZ)V
-    .registers 13
+    .locals 8
+
+    const/4 v5, 0x1
 
     .line 167
     iget-boolean v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->a:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
+    .line 191
+    :goto_0
     return-void
 
     .line 171
-    :cond_5
+    :cond_0
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
 
     move-result-object v0
@@ -1561,60 +1574,54 @@
     .line 177
     const-wide/16 v0, 0xbb8
 
-    :try_start_e
+    :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_11
-    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_11} :catch_12
-
-    goto :goto_13
-
-    :catch_12
-    move-exception v0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 185
-    :goto_13
+    :goto_1
     iget-object v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->l:Lcom/baidu/mobstat/LaunchInfo;
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1
 
     .line 186
     invoke-virtual {v0, p1}, Lcom/baidu/mobstat/LaunchInfo;->getLaunchType(Landroid/content/Context;)I
 
-    move-result v0
+    move-result v6
 
-    move v7, v0
+    :goto_2
+    move-object v0, p0
 
-    goto :goto_1f
+    move-object v1, p1
 
-    :cond_1d
-    const/4 v0, 0x0
+    move-wide v2, p2
 
-    const/4 v7, 0x0
+    move v4, p4
 
     .line 189
-    :goto_1f
-    const/4 v6, 0x1
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-wide v3, p2
-
-    move v5, p4
-
-    invoke-direct/range {v1 .. v7}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JZZI)V
+    invoke-direct/range {v0 .. v6}, Lcom/baidu/mobstat/SessionAnalysis;->a(Landroid/content/Context;JZZI)V
 
     .line 191
-    const/4 p1, 0x1
+    iput-boolean v5, p0, Lcom/baidu/mobstat/SessionAnalysis;->a:Z
 
-    iput-boolean p1, p0, Lcom/baidu/mobstat/SessionAnalysis;->a:Z
+    goto :goto_0
 
-    return-void
+    .line 186
+    :cond_1
+    const/4 v6, 0x0
+
+    goto :goto_2
+
+    .line 177
+    :catch_0
+    move-exception v0
+
+    goto :goto_1
 .end method
 
 .method public setAutoSend(Z)V
-    .registers 2
+    .locals 0
 
     .line 137
     iput-boolean p1, p0, Lcom/baidu/mobstat/SessionAnalysis;->k:Z
@@ -1623,49 +1630,50 @@
 .end method
 
 .method public setSessionTimeOut(I)V
-    .registers 4
+    .locals 3
 
-    const/4 v0, 0x1
+    const/16 v0, 0x258
 
-    if-ge p1, v0, :cond_f
+    const/4 v1, 0x1
+
+    if-ge p1, v1, :cond_1
 
     .line 63
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 64
-    const-string v0, "[WARNING] SessionTimeout should be between 1 and 600. Default value[30] is used"
+    const-string v1, "[WARNING] SessionTimeout should be between 1 and 600. Default value[30] is used"
 
-    invoke-virtual {p1, v0}, Lcom/baidu/mobstat/cx;->b(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cx;->b(Ljava/lang/String;)V
 
     const/16 p1, 0x1e
 
-    goto :goto_1e
+    .line 71
+    :cond_0
+    :goto_0
+    mul-int/lit16 v0, p1, 0x3e8
 
-    :cond_f
-    const/16 v0, 0x258
+    iput v0, p0, Lcom/baidu/mobstat/SessionAnalysis;->h:I
 
-    if-le p1, v0, :cond_1e
+    return-void
+
+    .line 64
+    :cond_1
+    if-le p1, v0, :cond_0
 
     .line 67
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 68
-    const-string v1, "[WARNING] SessionTimeout should be between 1 and 600. Default value[600] is used"
+    const-string v2, "[WARNING] SessionTimeout should be between 1 and 600. Default value[600] is used"
 
-    invoke-virtual {p1, v1}, Lcom/baidu/mobstat/cx;->b(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/baidu/mobstat/cx;->b(Ljava/lang/String;)V
 
-    const/16 p1, 0x258
+    move p1, v0
 
-    .line 71
-    :cond_1e
-    :goto_1e
-    mul-int/lit16 p1, p1, 0x3e8
-
-    iput p1, p0, Lcom/baidu/mobstat/SessionAnalysis;->h:I
-
-    return-void
+    goto :goto_0
 .end method

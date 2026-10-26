@@ -20,13 +20,13 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;)V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lc/q;-><init>(Ljava/io/OutputStream;)V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lc/q$a;->l:Z
+    iput-boolean v0, p0, Lc/q$a;->l:Z
 
     return-void
 .end method
@@ -34,21 +34,21 @@
 
 # virtual methods
 .method public final d(I)V
-    .registers 3
+    .locals 1
 
     iget-boolean v0, p0, Lc/q$a;->l:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-boolean p1, p0, Lc/q$a;->l:Z
+    iput-boolean v0, p0, Lc/q$a;->l:Z
 
-    goto :goto_b
+    :goto_0
+    return-void
 
-    :cond_8
+    :cond_0
     invoke-super {p0, p1}, Lc/q;->d(I)V
 
-    :goto_b
-    return-void
+    goto :goto_0
 .end method

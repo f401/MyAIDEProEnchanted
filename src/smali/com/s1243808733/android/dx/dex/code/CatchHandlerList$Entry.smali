@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;",
         ">;"
     }
@@ -34,14 +35,14 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstType;I)V
-    .registers 3
+    .locals 2
 
     .line 182
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-ltz p2, :cond_14
+    if-ltz p2, :cond_1
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     .line 191
     iput p2, p0, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->handler:I
@@ -52,105 +53,108 @@
     return-void
 
     .line 188
-    :cond_c
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "exceptionType == null"
+    const-string v1, "exceptionType == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 184
-    :cond_14
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "handler < 0"
+    const-string v1, "handler < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;)I
-    .registers 4
+    .locals 2
 
     .line 214
     iget v0, p0, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->handler:I
 
     iget v1, p1, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->handler:I
 
-    if-ge v0, v1, :cond_8
+    if-ge v0, v1, :cond_0
 
-    const/4 p1, -0x1
-
-    return p1
-
-    :cond_8
-    if-le v0, v1, :cond_c
-
-    const/4 p1, 0x1
-
-    return p1
+    const/4 v0, -0x1
 
     .line 220
-    :cond_c
+    :goto_0
+    return v0
+
+    .line 214
+    :cond_0
+    if-le v0, v1, :cond_1
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 220
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->exceptionType:Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->exceptionType:Lcom/s1243808733/android/dx/rop/cst/CstType;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->exceptionType:Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstType;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstType;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 169
     check-cast p1, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->compareTo(Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
 
     .line 204
     instance-of v0, p1, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 205
     check-cast p1, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->compareTo(Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;)I
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_e
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_f
+    :goto_0
+    return v0
 
-    :cond_e
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_f
-    return p1
+    goto :goto_0
 .end method
 
 .method public getExceptionType()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 229
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->exceptionType:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -159,7 +163,7 @@
 .end method
 
 .method public getHandler()I
-    .registers 2
+    .locals 1
 
     .line 238
     iget v0, p0, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->handler:I
@@ -168,7 +172,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .line 198
     iget v0, p0, Lcom/s1243808733/android/dx/dex/code/CatchHandlerList$Entry;->handler:I

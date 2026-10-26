@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     new-instance v0, Lcom/termux/yinli_a/l/c$a;
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public static final synthetic f()Lcom/termux/yinli_a/l/c;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lcom/termux/yinli_a/l/c;->d:Lcom/termux/yinli_a/l/c;
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public c()Ljava/lang/Integer;
-    .registers 2
+    .locals 1
 
     invoke-virtual {p0}, Lcom/termux/yinli_a/l/a;->b()I
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public d()Ljava/lang/Integer;
-    .registers 2
+    .locals 1
 
     invoke-virtual {p0}, Lcom/termux/yinli_a/l/a;->a()I
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public e()Z
-    .registers 3
+    .locals 2
 
     invoke-virtual {p0}, Lcom/termux/yinli_a/l/a;->a()I
 
@@ -107,31 +107,31 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_c
+    if-le v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_d
+    :goto_0
+    return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_d
-    return v0
+    goto :goto_0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
 
     instance-of v0, p1, Lcom/termux/yinli_a/l/c;
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2
 
     invoke-virtual {p0}, Lcom/termux/yinli_a/l/c;->e()Z
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     move-object v0, p1
 
@@ -141,9 +141,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_29
+    if-nez v0, :cond_1
 
-    :cond_13
+    :cond_0
     invoke-virtual {p0}, Lcom/termux/yinli_a/l/a;->a()I
 
     move-result v0
@@ -154,7 +154,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_2b
+    if-ne v0, v1, :cond_2
 
     invoke-virtual {p0}, Lcom/termux/yinli_a/l/a;->b()I
 
@@ -162,36 +162,37 @@
 
     invoke-virtual {p1}, Lcom/termux/yinli_a/l/a;->b()I
 
-    move-result p1
+    move-result v1
 
-    if-ne v0, p1, :cond_2b
+    if-ne v0, v1, :cond_2
 
-    :cond_29
-    const/4 p1, 0x1
+    :cond_1
+    const/4 v0, 0x1
 
-    goto :goto_2c
+    :goto_0
+    return v0
 
-    :cond_2b
-    const/4 p1, 0x0
+    :cond_2
+    const/4 v0, 0x0
 
-    :goto_2c
-    return p1
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     invoke-virtual {p0}, Lcom/termux/yinli_a/l/c;->e()Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, -0x1
 
-    goto :goto_13
+    :goto_0
+    return v0
 
-    :cond_8
+    :cond_0
     invoke-virtual {p0}, Lcom/termux/yinli_a/l/a;->a()I
 
     move-result v0
@@ -204,12 +205,11 @@
 
     add-int/2addr v0, v1
 
-    :goto_13
-    return v0
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 

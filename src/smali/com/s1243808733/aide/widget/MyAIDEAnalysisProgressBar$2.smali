@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;Landroid/graphics/drawable/shapes/Shape;I)V
-    .registers 4
+    .locals 1
 
     .line 58
     iput-object p1, p0, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar$2;->this$0:Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar;
@@ -34,9 +34,9 @@
     .line 59
     invoke-virtual {p0}, Lcom/s1243808733/aide/widget/MyAIDEAnalysisProgressBar$2;->getPaint()Landroid/graphics/Paint;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1, p3}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, p3}, Landroid/graphics/Paint;->setColor(I)V
 
     return-void
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/CountDownLatch;)V
-    .registers 4
+    .locals 0
 
     .line 46
     iput-object p1, p0, Lcom/yt/plugin/translate/GoogleCNTranslator$1;->val$s:Ljava/lang/String;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 50
     :try_start_0
@@ -119,32 +119,35 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5e
+    if-eqz v0, :cond_0
 
     .line 59
     iget-object v0, p0, Lcom/yt/plugin/translate/GoogleCNTranslator$1;->val$newIP:Ljava/util/concurrent/atomic/AtomicReference;
 
-    iget-object v1, p0, Lcom/yt/plugin/translate/GoogleCNTranslator$1;->val$s:Ljava/lang/String;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/yt/plugin/translate/GoogleCNTranslator$1;->val$s:Ljava/lang/String;
 
-    invoke-static {v0, v2, v1}, Lcom/yt/plugin/translate/GoogleCNTranslator$1$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
-    :try_end_50
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_50} :catch_53
-    .catchall {:try_start_0 .. :try_end_50} :catchall_51
+    invoke-static {v0, v1, v2}, Lcom/yt/plugin/translate/GoogleCNTranslator$1$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_5e
+    .line 64
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/yt/plugin/translate/GoogleCNTranslator$1;->val$countDownLatch:Ljava/util/concurrent/CountDownLatch;
 
-    :catchall_51
-    move-exception v0
+    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    goto :goto_64
+    return-void
 
-    :catch_53
+    .line 59
+    :catch_0
     move-exception v0
 
     .line 62
-    :try_start_54
+    :try_start_1
     new-instance v1, Ljava/lang/Exception;
 
     iget-object v2, p0, Lcom/yt/plugin/translate/GoogleCNTranslator$1;->val$s:Ljava/lang/String;
@@ -152,19 +155,16 @@
     invoke-direct {v1, v2, v0}, Ljava/lang/Exception;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_5e
-    .catchall {:try_start_54 .. :try_end_5e} :catchall_51
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    .line 59
+    :catchall_0
+    move-exception v0
 
     .line 64
-    :cond_5e
-    :goto_5e
-    iget-object v0, p0, Lcom/yt/plugin/translate/GoogleCNTranslator$1;->val$countDownLatch:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    return-void
-
-    :goto_64
     iget-object v1, p0, Lcom/yt/plugin/translate/GoogleCNTranslator$1;->val$countDownLatch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V

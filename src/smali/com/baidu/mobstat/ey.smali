@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 7
     invoke-direct {p0}, Lcom/baidu/mobstat/fa;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public a()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 12
     iget-object v0, p0, Lcom/baidu/mobstat/ey;->b:Ljava/lang/String;
@@ -34,7 +34,7 @@
 .end method
 
 .method public a(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 21
     iput-object p1, p0, Lcom/baidu/mobstat/ey;->b:Ljava/lang/String;
@@ -43,7 +43,7 @@
 .end method
 
 .method public a(S)V
-    .registers 2
+    .locals 0
 
     .line 25
     iput-short p1, p0, Lcom/baidu/mobstat/ey;->a:S

@@ -7,7 +7,8 @@
 .field public apiInfos:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lcom/s1243808733/aide/completion/apiversion/ApiInfo;",
             ">;"
@@ -18,7 +19,8 @@
 .field public apiInfosCache:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lcom/s1243808733/aide/completion/apiversion/ApiInfo;",
             ">;"
@@ -29,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 9
     invoke-direct {p0}, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;-><init>()V
@@ -59,7 +61,7 @@
 
 # virtual methods
 .method public findApi(Ljava/lang/String;)Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
-    .registers 4
+    .locals 2
 
     .line 16
     iget-object v0, p0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->apiInfosCache:Ljava/util/Map;
@@ -70,12 +72,15 @@
 
     check-cast v0, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_1
 
+    .line 19
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 18
-    :cond_b
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->apiInfos:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -84,13 +89,12 @@
 
     check-cast v0, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 19
     iget-object v1, p0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->apiInfosCache:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1a
-    return-object v0
+    goto :goto_0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxInstaller$2;Ljava/lang/Exception;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 152
     :try_start_0
@@ -109,14 +109,14 @@
 
     .line 165
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
-    :try_end_3e
-    .catch Landroid/view/WindowManager$BadTokenException; {:try_start_0 .. :try_end_3e} :catch_3f
+    :try_end_0
+    .catch Landroid/view/WindowManager$BadTokenException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_40
+    :goto_0
+    return-void
 
-    :catch_3f
+    :catch_0
     move-exception v0
 
-    :goto_40
-    return-void
+    goto :goto_0
 .end method

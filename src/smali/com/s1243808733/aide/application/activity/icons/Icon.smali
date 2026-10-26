@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/application/activity/icons/Meta;)V
-    .registers 3
+    .locals 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,22 +45,24 @@
 .end method
 
 .method public static createDrawable(Landroid/graphics/Picture;II)Landroid/graphics/drawable/PictureDrawable;
-    .registers 4
+    .locals 2
 
     .line 110
     new-instance v0, Landroid/graphics/drawable/PictureDrawable;
 
     invoke-static {p0, p1, p2}, Lcom/s1243808733/aide/application/activity/icons/Icon;->createPicture(Landroid/graphics/Picture;II)Landroid/graphics/Picture;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {v0, p0}, Landroid/graphics/drawable/PictureDrawable;-><init>(Landroid/graphics/Picture;)V
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/PictureDrawable;-><init>(Landroid/graphics/Picture;)V
 
     return-object v0
 .end method
 
 .method public static createPicture(Landroid/graphics/Picture;II)Landroid/graphics/Picture;
-    .registers 7
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 92
     new-instance v0, Landroid/graphics/Picture;
@@ -87,8 +89,6 @@
     .line 96
     new-instance v2, Landroid/graphics/Rect;
 
-    const/4 v3, 0x0
-
     invoke-direct {v2, v3, v3, p1, p2}, Landroid/graphics/Rect;-><init>(IIII)V
 
     invoke-virtual {v1, p0, v2}, Landroid/graphics/Canvas;->drawPicture(Landroid/graphics/Picture;Landroid/graphics/Rect;)V
@@ -102,44 +102,44 @@
 
 # virtual methods
 .method public createBitmap(I)Landroid/graphics/Bitmap;
-    .registers 2
+    .locals 1
 
     .line 114
     invoke-virtual {p0, p1, p1}, Lcom/s1243808733/aide/application/activity/icons/Icon;->createBitmap(II)Landroid/graphics/Bitmap;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public createBitmap(II)Landroid/graphics/Bitmap;
-    .registers 3
+    .locals 1
 
     .line 118
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/aide/application/activity/icons/Icon;->createDrawable(II)Landroid/graphics/drawable/PictureDrawable;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ImageUtils;->drawable2Bitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ImageUtils;->drawable2Bitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public createDrawable(I)Landroid/graphics/drawable/PictureDrawable;
-    .registers 2
+    .locals 1
 
     .line 102
     invoke-virtual {p0, p1, p1}, Lcom/s1243808733/aide/application/activity/icons/Icon;->createDrawable(II)Landroid/graphics/drawable/PictureDrawable;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public createDrawable(II)Landroid/graphics/drawable/PictureDrawable;
-    .registers 4
+    .locals 1
 
     .line 106
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->svg:Lcom/caverock/androidsvg/SVG;
@@ -150,24 +150,24 @@
 
     invoke-static {v0, p1, p2}, Lcom/s1243808733/aide/application/activity/icons/Icon;->createDrawable(Landroid/graphics/Picture;II)Landroid/graphics/drawable/PictureDrawable;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public createPicture(I)Landroid/graphics/Picture;
-    .registers 2
+    .locals 1
 
     .line 84
     invoke-virtual {p0, p1, p1}, Lcom/s1243808733/aide/application/activity/icons/Icon;->createPicture(II)Landroid/graphics/Picture;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public createPicture(II)Landroid/graphics/Picture;
-    .registers 4
+    .locals 1
 
     .line 88
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->svg:Lcom/caverock/androidsvg/SVG;
@@ -178,13 +178,13 @@
 
     invoke-static {v0, p1, p2}, Lcom/s1243808733/aide/application/activity/icons/Icon;->createPicture(Landroid/graphics/Picture;II)Landroid/graphics/Picture;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getFileName(Ljava/lang/String;)Ljava/lang/String;
-    .registers 6
+    .locals 4
 
     .line 41
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getName()Ljava/lang/String;
@@ -198,7 +198,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_15
+    if-lez v1, :cond_0
 
     .line 44
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getFilePath()Ljava/lang/String;
@@ -212,7 +212,7 @@
     move-result-object v0
 
     .line 46
-    :cond_15
+    :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string v2, "ic_"
@@ -233,19 +233,19 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getFileNameNoExtension()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 63
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getName()Ljava/lang/String;
@@ -260,7 +260,7 @@
 .end method
 
 .method public getFilePath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 54
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->filePath:Ljava/lang/String;
@@ -269,12 +269,12 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 59
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->name:Ljava/lang/String;
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->meta:Lcom/s1243808733/aide/application/activity/icons/Meta;
 
@@ -282,12 +282,12 @@
 
     move-result-object v0
 
-    :cond_a
+    :cond_0
     return-object v0
 .end method
 
 .method public getSvg()Lcom/caverock/androidsvg/SVG;
-    .registers 2
+    .locals 1
 
     .line 37
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->svg:Lcom/caverock/androidsvg/SVG;
@@ -296,7 +296,7 @@
 .end method
 
 .method public renderToPicture()Landroid/graphics/Picture;
-    .registers 2
+    .locals 1
 
     .line 80
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->svg:Lcom/caverock/androidsvg/SVG;
@@ -309,7 +309,7 @@
 .end method
 
 .method public setFilePath(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 50
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->filePath:Ljava/lang/String;
@@ -318,7 +318,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 29
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->name:Ljava/lang/String;
@@ -327,7 +327,7 @@
 .end method
 
 .method public setSvg(Lcom/caverock/androidsvg/SVG;)V
-    .registers 2
+    .locals 0
 
     .line 33
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Icon;->svg:Lcom/caverock/androidsvg/SVG;

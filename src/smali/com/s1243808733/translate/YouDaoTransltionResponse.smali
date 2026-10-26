@@ -17,7 +17,8 @@
 .field private translation:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -27,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +39,7 @@
 
 # virtual methods
 .method public getErrorCode()I
-    .registers 2
+    .locals 1
 
     .line 37
     iget v0, p0, Lcom/s1243808733/translate/YouDaoTransltionResponse;->errorCode:I
@@ -47,7 +48,7 @@
 .end method
 
 .method public getQuery()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 29
     iget-object v0, p0, Lcom/s1243808733/translate/YouDaoTransltionResponse;->query:Ljava/lang/String;
@@ -56,11 +57,12 @@
 .end method
 
 .method public getTranslation()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -73,7 +75,7 @@
 .end method
 
 .method public setErrorCode(I)V
-    .registers 2
+    .locals 0
 
     .line 33
     iput p1, p0, Lcom/s1243808733/translate/YouDaoTransltionResponse;->errorCode:I
@@ -82,7 +84,7 @@
 .end method
 
 .method public setQuery(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 25
     iput-object p1, p0, Lcom/s1243808733/translate/YouDaoTransltionResponse;->query:Ljava/lang/String;
@@ -91,11 +93,12 @@
 .end method
 
 .method public setTranslation(Ljava/util/List;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)V"
         }

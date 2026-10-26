@@ -9,7 +9,8 @@
 .field private final initValues:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/Constant;",
             ">;"
         }
@@ -19,14 +20,15 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;Ljava/util/ArrayList;Lcom/s1243808733/android/dx/rop/cst/Constant;)V
-    .registers 7
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/s1243808733/android/dx/rop/code/Rop;",
             "Lcom/s1243808733/android/dx/rop/code/SourcePosition;",
             "Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/Constant;",
             ">;",
             "Lcom/s1243808733/android/dx/rop/cst/Constant;",
@@ -42,11 +44,11 @@
     .line 56
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/Rop;->getBranchingness()I
 
-    move-result p2
+    move-result v0
 
-    const/4 p3, 0x1
+    const/4 v1, 0x1
 
-    if-ne p2, p3, :cond_10
+    if-ne v0, v1, :cond_0
 
     .line 60
     iput-object p4, p0, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;->initValues:Ljava/util/ArrayList;
@@ -57,34 +59,34 @@
     return-void
 
     .line 57
-    :cond_10
-    new-instance p2, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string p3, "opcode with invalid branchingness: "
+    const-string v1, "opcode with invalid branchingness: "
 
-    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/Rop;->getBranchingness()I
 
-    move-result p1
+    move-result v1
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 
 # virtual methods
 .method public accept(Lcom/s1243808733/android/dx/rop/code/Insn$Visitor;)V
-    .registers 2
+    .locals 0
 
     .line 90
     invoke-interface {p1, p0}, Lcom/s1243808733/android/dx/rop/code/Insn$Visitor;->visitFillArrayDataInsn(Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;)V
@@ -93,7 +95,7 @@
 .end method
 
 .method public getCatches()Lcom/s1243808733/android/dx/rop/type/TypeList;
-    .registers 2
+    .locals 1
 
     .line 68
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/StdTypeList;->EMPTY:Lcom/s1243808733/android/dx/rop/type/StdTypeList;
@@ -102,7 +104,7 @@
 .end method
 
 .method public getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
-    .registers 2
+    .locals 1
 
     .line 84
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;->arrayType:Lcom/s1243808733/android/dx/rop/cst/Constant;
@@ -111,11 +113,12 @@
 .end method
 
 .method public getInitValues()Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/Constant;",
             ">;"
         }
@@ -128,23 +131,23 @@
 .end method
 
 .method public withAddedCatch(Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/rop/code/Insn;
-    .registers 3
+    .locals 2
 
     .line 96
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v0, "unsupported"
+    const-string v1, "unsupported"
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public withNewRegisters(Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)Lcom/s1243808733/android/dx/rop/code/Insn;
-    .registers 9
+    .locals 6
 
     .line 112
-    new-instance p1, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;
+    new-instance v0, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
 
@@ -158,17 +161,15 @@
 
     iget-object v5, p0, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;->arrayType:Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-object v0, p1
-
     move-object v3, p2
 
     invoke-direct/range {v0 .. v5}, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;-><init>(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;Ljava/util/ArrayList;Lcom/s1243808733/android/dx/rop/cst/Constant;)V
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public withRegisterOffset(I)Lcom/s1243808733/android/dx/rop/code/Insn;
-    .registers 9
+    .locals 6
 
     .line 102
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
@@ -180,13 +181,13 @@
     move-result-object v2
 
     .line 103
-    new-instance v6, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;
+    new-instance v0, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;->getSources()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->withOffset(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
+    invoke-virtual {v3, p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->withOffset(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
     move-result-object v3
 
@@ -194,9 +195,7 @@
 
     iget-object v5, p0, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;->arrayType:Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-object v0, v6
-
     invoke-direct/range {v0 .. v5}, Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;-><init>(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;Ljava/util/ArrayList;Lcom/s1243808733/android/dx/rop/cst/Constant;)V
 
-    return-object v6
+    return-object v0
 .end method

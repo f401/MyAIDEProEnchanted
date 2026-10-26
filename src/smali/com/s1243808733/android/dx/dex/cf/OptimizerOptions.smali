@@ -7,7 +7,8 @@
 .field private dontOptimizeList:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashSet<",
+            "Ljava/util/HashSet",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -17,7 +18,8 @@
 .field private optimizeList:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashSet<",
+            "Ljava/util/HashSet",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -29,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,13 +40,14 @@
 .end method
 
 .method private static loadStringsFromFile(Ljava/lang/String;)Ljava/util/HashSet;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/HashSet<",
+            "Ljava/util/HashSet",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -56,7 +59,7 @@
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     .line 93
-    :try_start_5
+    :try_start_0
     new-instance v1, Ljava/io/FileReader;
 
     invoke-direct {v1, p0}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
@@ -67,27 +70,22 @@
     invoke-direct {v2, v1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
     .line 98
-    :goto_f
+    :goto_0
     invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_19
+    if-eqz v3, :cond_0
 
     .line 99
     invoke-virtual {v0, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_f
+    goto :goto_0
 
     .line 102
-    :cond_19
-    invoke-virtual {v1}, Ljava/io/FileReader;->close()V
-    :try_end_1c
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_1c} :catch_1d
-
-    return-object v0
-
-    :catch_1d
+    :catch_0
     move-exception v0
 
     .line 105
@@ -99,308 +97,312 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/RuntimeException;
+    new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {p0, v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v2, v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_33
+    throw v2
 
-    :goto_32
-    throw p0
+    .line 102
+    :cond_0
+    :try_start_1
+    invoke-virtual {v1}, Ljava/io/FileReader;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    :goto_33
-    goto :goto_32
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public compareOptimizerStep(Lcom/s1243808733/android/dx/rop/code/RopMethod;IZLcom/s1243808733/android/dx/dex/cf/CfOptions;Lcom/s1243808733/android/dx/rop/code/TranslationAdvice;Lcom/s1243808733/android/dx/rop/code/RopMethod;)V
-    .registers 14
+    .locals 16
 
     .line 128
-    const-class v0, Lcom/s1243808733/android/dx/ssa/Optimizer$OptionalStep;
+    const-class v2, Lcom/s1243808733/android/dx/ssa/Optimizer$OptionalStep;
 
-    invoke-static {v0}, Ljava/util/EnumSet;->allOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+    invoke-static {v2}, Ljava/util/EnumSet;->allOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+
+    move-result-object v7
+
+    .line 131
+    sget-object v2, Lcom/s1243808733/android/dx/ssa/Optimizer$OptionalStep;->CONST_COLLECTOR:Lcom/s1243808733/android/dx/ssa/Optimizer$OptionalStep;
+
+    invoke-virtual {v7, v2}, Ljava/util/EnumSet;->remove(Ljava/lang/Object;)Z
+
+    .line 133
+    move-object/from16 v0, p4
+
+    iget-boolean v5, v0, Lcom/s1243808733/android/dx/dex/cf/CfOptions;->localInfo:Z
+
+    move-object/from16 v2, p1
+
+    move/from16 v3, p2
+
+    move/from16 v4, p3
+
+    move-object/from16 v6, p5
+
+    .line 134
+    invoke-static/range {v2 .. v7}, Lcom/s1243808733/android/dx/ssa/Optimizer;->optimize(Lcom/s1243808733/android/dx/rop/code/RopMethod;IZZLcom/s1243808733/android/dx/rop/code/TranslationAdvice;Ljava/util/EnumSet;)Lcom/s1243808733/android/dx/rop/code/RopMethod;
+
+    move-result-object v2
+
+    .line 138
+    invoke-virtual/range {p6 .. p6}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getEffectiveInstructionCount()I
+
+    move-result v3
+
+    .line 140
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getEffectiveInstructionCount()I
+
+    move-result v4
+
+    .line 142
+    sget-object v5, Ljava/lang/System;->err:Ljava/io/PrintStream;
+
+    .line 145
+    invoke-virtual/range {p6 .. p6}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
 
     move-result-object v6
 
-    .line 131
-    sget-object v0, Lcom/s1243808733/android/dx/ssa/Optimizer$OptionalStep;->CONST_COLLECTOR:Lcom/s1243808733/android/dx/ssa/Optimizer$OptionalStep;
+    invoke-virtual {v6}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
 
-    invoke-virtual {v6, v0}, Ljava/util/EnumSet;->remove(Ljava/lang/Object;)Z
-
-    .line 133
-    iget-boolean v4, p4, Lcom/s1243808733/android/dx/dex/cf/CfOptions;->localInfo:Z
-
-    .line 134
-    move-object v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move-object v5, p5
-
-    invoke-static/range {v1 .. v6}, Lcom/s1243808733/android/dx/ssa/Optimizer;->optimize(Lcom/s1243808733/android/dx/rop/code/RopMethod;IZZLcom/s1243808733/android/dx/rop/code/TranslationAdvice;Ljava/util/EnumSet;)Lcom/s1243808733/android/dx/rop/code/RopMethod;
-
-    move-result-object p1
-
-    .line 138
-    invoke-virtual {p6}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getEffectiveInstructionCount()I
-
-    move-result p2
-
-    .line 140
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
-
-    move-result-object p3
-
-    invoke-virtual {p3}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getEffectiveInstructionCount()I
-
-    move-result p3
-
-    .line 142
-    sget-object p4, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    .line 145
-    invoke-virtual {p6}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
-
-    move-result-object p5
-
-    invoke-virtual {p5}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
-
-    move-result p5
+    move-result v6
 
     .line 146
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
 
-    move-result-object v0
+    move-result-object v7
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
+    invoke-virtual {v7}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
 
-    move-result v0
+    move-result v7
 
     .line 147
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
 
-    move-result-object v1
+    move-result-object v8
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
+    invoke-virtual {v8}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
 
-    move-result v1
+    move-result v8
 
     .line 148
-    invoke-virtual {p6}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
+    invoke-virtual/range {p6 .. p6}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
 
-    move-result-object p6
+    move-result-object v9
 
-    invoke-virtual {p6}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
+    invoke-virtual {v9}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
 
-    move-result p6
+    move-result v9
 
-    sub-int/2addr v1, p6
+    sub-int/2addr v8, v9
 
-    int-to-float p6, v1
+    int-to-float v8, v8
 
     .line 149
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->getRegCount()I
 
-    move-result p1
+    move-result v2
 
-    int-to-float p1, p1
+    int-to-float v2, v2
 
-    div-float/2addr p6, p1
+    div-float v2, v8, v2
 
-    float-to-double v1, p6
+    float-to-double v8, v2
 
     .line 147
-    nop
+    sub-int v2, v4, v3
 
-    .line 150
-    sub-int p1, p3, p2
+    int-to-float v2, v2
 
-    int-to-float p1, p1
+    int-to-float v10, v4
 
-    int-to-float p6, p3
+    div-float/2addr v2, v10
 
-    div-float/2addr p1, p6
-
-    float-to-double v3, p1
+    float-to-double v10, v2
 
     .line 151
-    nop
+    invoke-static {v8, v9}, Ljava/lang/Double;->isNaN(D)Z
 
-    .line 142
-    const/4 p1, 0x6
+    invoke-static {v10, v11}, Ljava/lang/Double;->isNaN(D)Z
 
-    new-array p1, p1, [Ljava/lang/Object;
+    const-string v2, "optimize step regs:(%d/%d/%.2f%%) insns:(%d/%d/%.2f%%)\n"
 
-    const/4 p6, 0x0
+    const/4 v12, 0x6
 
-    invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    new-array v12, v12, [Ljava/lang/Object;
 
-    move-result-object p5
+    const/4 v13, 0x0
 
-    aput-object p5, p1, p6
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const/4 p5, 0x1
+    move-result-object v6
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aput-object v6, v12, v13
 
-    move-result-object p6
+    const/4 v6, 0x1
 
-    aput-object p6, p1, p5
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-wide/high16 p5, 0x4059000000000000L  # 100.0
+    move-result-object v7
 
-    invoke-static {v1, v2}, Ljava/lang/Double;->isNaN(D)Z
+    aput-object v7, v12, v6
 
-    mul-double v1, v1, p5
+    const/4 v6, 0x2
 
-    invoke-static {v1, v2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    const-wide/high16 v14, 0x4059000000000000L    # 100.0
 
-    move-result-object v0
+    mul-double/2addr v8, v14
 
-    const/4 v1, 0x2
+    invoke-static {v8, v9}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    aput-object v0, p1, v1
+    move-result-object v7
 
-    const/4 v0, 0x3
+    aput-object v7, v12, v6
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v6, 0x3
 
-    move-result-object p2
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object p2, p1, v0
+    move-result-object v3
 
-    const/4 p2, 0x4
+    aput-object v3, v12, v6
 
-    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v3, 0x4
 
-    move-result-object p3
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object p3, p1, p2
+    move-result-object v4
 
-    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
+    aput-object v4, v12, v3
 
-    mul-double v3, v3, p5
+    const/4 v3, 0x5
 
-    invoke-static {v3, v4}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    const-wide/high16 v6, 0x4059000000000000L    # 100.0
 
-    move-result-object p2
+    mul-double/2addr v6, v10
 
-    const/4 p3, 0x5
+    invoke-static {v6, v7}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    aput-object p2, p1, p3
+    move-result-object v4
 
-    const-string p2, "optimize step regs:(%d/%d/%.2f%%) insns:(%d/%d/%.2f%%)\n"
+    aput-object v4, v12, v3
 
-    invoke-virtual {p4, p2, p1}, Ljava/io/PrintStream;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+    invoke-virtual {v5, v2, v12}, Ljava/io/PrintStream;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
 
     return-void
 .end method
 
 .method public loadOptimizeLists(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 2
 
     .line 58
     iget-boolean v0, p0, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->optimizeListsLoaded:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
+    .line 79
+    :goto_0
     return-void
 
-    :cond_5
-    if-eqz p1, :cond_12
+    .line 58
+    :cond_0
+    if-eqz p1, :cond_1
 
-    if-nez p2, :cond_a
-
-    goto :goto_12
+    if-nez p2, :cond_4
 
     .line 67
-    :cond_a
-    new-instance p1, Ljava/lang/RuntimeException;
-
-    const-string p2, "optimize and don\'t optimize lists  are mutually exclusive."
-
-    invoke-direct {p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :cond_12
-    :goto_12
-    if-eqz p1, :cond_1a
+    :cond_1
+    if-eqz p1, :cond_2
 
     .line 72
     invoke-static {p1}, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->loadStringsFromFile(Ljava/lang/String;)Ljava/util/HashSet;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->optimizeList:Ljava/util/HashSet;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->optimizeList:Ljava/util/HashSet;
 
-    :cond_1a
-    if-eqz p2, :cond_22
+    :cond_2
+    if-eqz p2, :cond_3
 
     .line 76
     invoke-static {p2}, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->loadStringsFromFile(Ljava/lang/String;)Ljava/util/HashSet;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->dontOptimizeList:Ljava/util/HashSet;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->dontOptimizeList:Ljava/util/HashSet;
 
     .line 79
-    :cond_22
-    const/4 p1, 0x1
+    :cond_3
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->optimizeListsLoaded:Z
+    iput-boolean v0, p0, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->optimizeListsLoaded:Z
 
-    return-void
+    goto :goto_0
+
+    .line 67
+    :cond_4
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string v1, "optimize and don\'t optimize lists  are mutually exclusive."
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public shouldOptimize(Ljava/lang/String;)Z
-    .registers 4
+    .locals 1
 
     .line 162
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->optimizeList:Ljava/util/HashSet;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 163
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    .line 172
+    :goto_0
+    return v0
 
     .line 171
-    :cond_9
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/cf/OptimizerOptions;->dontOptimizeList:Ljava/util/HashSet;
 
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_1
 
     .line 172
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    xor-int/2addr p1, v1
+    xor-int/lit8 v0, v0, 0x1
 
-    return p1
+    goto :goto_0
 
-    :cond_14
-    return v1
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 6
     invoke-direct {p0}, Lorg/voiddog/dragbackactivity/DragBackActivity;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 1
 
     .line 10
     invoke-super {p0, p1}, Lorg/voiddog/dragbackactivity/DragBackActivity;->onCreate(Landroid/os/Bundle;)V
@@ -27,13 +27,13 @@
     .line 11
     invoke-virtual {p0}, Lcom/s1243808733/app/base/AbsActivity;->isApplyTheme()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_c
+    if-eqz v0, :cond_0
 
     .line 12
     invoke-static {p0}, Lcom/s1243808733/aide/application/AppTheme;->initTheme(Landroid/app/Activity;)V
 
-    :cond_c
+    :cond_0
     return-void
 .end method

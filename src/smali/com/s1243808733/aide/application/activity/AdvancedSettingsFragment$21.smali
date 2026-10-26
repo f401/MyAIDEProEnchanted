@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 756
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -34,72 +34,69 @@
 .end method
 
 .method private show(Landroid/widget/TextView;)V
-    .registers 9
+    .locals 9
 
-    .line 774
-    nop
-
-    .line 776
-    new-instance v0, Landroid/widget/PopupMenu;
-
-    invoke-virtual {p1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
-
-    .line 777
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
-
-    move-result-object p1
+    const/4 v8, 0x4
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v7, 0x1
 
-    :goto_10
-    const/4 v3, 0x4
+    .line 774
+    new-instance v2, Landroid/widget/PopupMenu;
 
-    const/4 v4, 0x1
+    invoke-virtual {p1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
-    if-ge v2, v3, :cond_49
+    move-result-object v0
+
+    invoke-direct {v2, v0, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
+
+    .line 777
+    invoke-virtual {v2}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
+
+    move-result-object v3
+
+    move v0, v1
+
+    :goto_0
+    if-ge v0, v8, :cond_1
 
     .line 780
-    new-array v3, v3, [Ljava/lang/CharSequence;
+    new-array v4, v8, [Ljava/lang/CharSequence;
 
-    const-string v5, "谷歌翻译CN"
+    const-string v5, "\u8c37\u6b4c\u7ffb\u8bd1CN"
 
-    aput-object v5, v3, v1
+    aput-object v5, v4, v1
 
-    const-string v5, "Yandex翻译"
+    const-string v5, "Yandex\u7ffb\u8bd1"
 
-    aput-object v5, v3, v4
+    aput-object v5, v4, v7
 
     const/4 v5, 0x2
 
-    const-string v6, "有道翻译"
+    const-string v6, "\u6709\u9053\u7ffb\u8bd1"
 
-    aput-object v6, v3, v5
+    aput-object v6, v4, v5
 
     const/4 v5, 0x3
 
-    const-string v6, "必应翻译"
+    const-string v6, "\u5fc5\u5e94\u7ffb\u8bd1"
 
-    aput-object v6, v3, v5
+    aput-object v6, v4, v5
 
-    aget-object v3, v3, v2
+    aget-object v4, v4, v0
 
-    invoke-interface {p1, v4, v1, v1, v3}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {v3, v7, v1, v1, v4}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    move-result-object v3
+    move-result-object v4
 
     new-instance v5, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21$1;
 
-    invoke-direct {v5, p0, v2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21$1;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21;I)V
+    invoke-direct {v5, p0, v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21$1;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21;I)V
 
-    invoke-interface {v3, v5}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v4, v5}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 792
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -112,22 +109,22 @@
 
     move-result v5
 
-    if-ne v5, v2, :cond_46
+    if-ne v5, v0, :cond_0
 
     .line 793
-    invoke-interface {v3, v4}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    invoke-interface {v4, v7}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    :cond_46
-    add-int/lit8 v2, v2, 0x1
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 796
-    :cond_49
-    invoke-interface {p1, v4, v4, v4}, Landroid/view/Menu;->setGroupCheckable(IZZ)V
+    :cond_1
+    invoke-interface {v3, v7, v7, v7}, Landroid/view/Menu;->setGroupCheckable(IZZ)V
 
     .line 798
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->show()V
+    invoke-virtual {v2}, Landroid/widget/PopupMenu;->show()V
 
     return-void
 .end method
@@ -135,42 +132,42 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 8
+    .locals 6
+
+    const/4 v2, 0x0
 
     .line 760
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
 
     invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getCurrentList()Landroid/widget/ListView;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
+    move v1, v2
 
     .line 762
-    :goto_8
-    invoke-virtual {v0}, Landroid/widget/ListView;->getChildCount()I
+    :goto_0
+    invoke-virtual {v3}, Landroid/widget/ListView;->getChildCount()I
 
-    move-result v3
+    move-result v0
 
-    if-ge v2, v3, :cond_3a
+    if-ge v1, v0, :cond_0
 
     .line 763
-    invoke-virtual {v0, v2}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v1}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 764
     const v4, 0x1020016
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    if-eqz v3, :cond_37
+    if-eqz v0, :cond_1
 
     .line 765
     invoke-virtual {p1}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
@@ -181,7 +178,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v3}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v5
 
@@ -193,18 +190,18 @@
 
     move-result v4
 
-    if-eqz v4, :cond_37
+    if-eqz v4, :cond_1
 
     .line 766
-    invoke-direct {p0, v3}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21;->show(Landroid/widget/TextView;)V
+    invoke-direct {p0, v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21;->show(Landroid/widget/TextView;)V
 
-    return v1
+    :cond_0
+    return v2
 
-    :cond_37
-    add-int/lit8 v2, v2, 0x1
+    :cond_1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_8
+    move v1, v0
 
-    :cond_3a
-    return v1
+    goto :goto_0
 .end method

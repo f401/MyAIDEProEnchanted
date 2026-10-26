@@ -5,95 +5,98 @@
 
 # direct methods
 .method public static a(Landroid/content/Context;F)I
-    .registers 2
+    .locals 2
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
-    const/4 p0, 0x0
-
-    return p0
+    const/4 v0, 0x0
 
     .line 19
-    :cond_4
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object p0
+    move-result-object v0
 
-    iget p0, p0, Landroid/util/DisplayMetrics;->density:F
+    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    div-float/2addr p1, p0
+    div-float v0, p1, v0
 
-    const/high16 p0, 0x3f000000  # 0.5f
+    const/high16 v1, 0x3f000000    # 0.5f
 
-    add-float/2addr p1, p0
+    add-float/2addr v0, v1
 
-    float-to-int p0, p1
+    float-to-int v0, v0
 
-    return p0
+    goto :goto_0
 .end method
 
 .method public static b(Landroid/content/Context;F)F
-    .registers 2
+    .locals 2
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
-    const/4 p0, 0x0
-
-    return p0
+    const/4 v0, 0x0
 
     .line 28
-    :cond_4
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object p0
+    move-result-object v0
 
-    iget p0, p0, Landroid/util/DisplayMetrics;->density:F
+    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    div-float/2addr p1, p0
+    div-float v0, p1, v0
 
-    const/high16 p0, 0x3f000000  # 0.5f
+    const/high16 v1, 0x3f000000    # 0.5f
 
-    add-float/2addr p1, p0
+    add-float/2addr v0, v1
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public static c(Landroid/content/Context;F)I
-    .registers 2
+    .locals 2
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
-    const/4 p0, 0x0
-
-    return p0
+    const/4 v0, 0x0
 
     .line 45
-    :cond_4
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object p0
+    move-result-object v0
 
-    iget p0, p0, Landroid/util/DisplayMetrics;->density:F
+    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float p1, p1, p0
+    mul-float/2addr v0, p1
 
-    const/high16 p0, 0x3f000000  # 0.5f
+    const/high16 v1, 0x3f000000    # 0.5f
 
-    add-float/2addr p1, p0
+    add-float/2addr v0, v1
 
-    float-to-int p0, p1
+    float-to-int v0, v0
 
-    return p0
+    goto :goto_0
 .end method

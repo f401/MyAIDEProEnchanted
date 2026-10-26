@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/util/ByteArray$MyInputStream;)V
-    .registers 2
+    .locals 0
 
     .line 359
     invoke-direct {p0, p1}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V

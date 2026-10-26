@@ -12,7 +12,7 @@
 
 # direct methods
 .method public static a([B)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     invoke-static {}, Lcom/baidu/mobstat/ax;->a()[B
 
@@ -22,35 +22,35 @@
 
     invoke-static {v0, v0, p0}, Lcom/baidu/mobstat/at;->b([B[B[B)[B
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-direct {v1, p0}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v1, v0}, Ljava/lang/String;-><init>([B)V
 
     return-object v1
 .end method
 
 .method public static a(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/Class<",
-            "*>;",
+            "Ljava/lang/Class",
+            "<*>;",
             "Ljava/lang/String;",
             "[",
-            "Ljava/lang/Class<",
-            "*>;)",
+            "Ljava/lang/Class",
+            "<*>;)",
             "Ljava/lang/reflect/Method;"
         }
     .end annotation
 
     invoke-virtual {p0, p1, p2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object p0
+    move-result-object v0
 
-    const/4 p1, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p0, p1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
-    return-object p0
+    return-object v0
 .end method

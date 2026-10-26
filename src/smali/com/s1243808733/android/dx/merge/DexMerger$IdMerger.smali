@@ -22,8 +22,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T::",
-        "Ljava/lang/Comparable<",
-        "TT;>;>",
+        "Ljava/lang/Comparable",
+        "<TT;>;>",
         "Ljava/lang/Object;"
     }
 .end annotation
@@ -37,7 +37,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/s1243808733/android/dx/merge/DexMerger;Lcom/s1243808733/android/dex/Dex$Section;)V
-    .registers 3
+    .locals 0
 
     .line 238
     iput-object p1, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
@@ -51,7 +51,7 @@
 .end method
 
 .method private readIntoMap(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dex/TableOfContents$Section;Lcom/s1243808733/android/dx/merge/IndexMap;ILjava/util/TreeMap;I)I
-    .registers 8
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,79 +59,88 @@
             "Lcom/s1243808733/android/dex/TableOfContents$Section;",
             "Lcom/s1243808733/android/dx/merge/IndexMap;",
             "I",
-            "Ljava/util/TreeMap<",
-            "TT;",
-            "Ljava/util/List<",
+            "Ljava/util/TreeMap",
+            "<TT;",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/Integer;",
             ">;>;I)I"
         }
     .end annotation
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_2
 
     .line 289
     invoke-virtual {p1}, Lcom/s1243808733/android/dex/Dex$Section;->getPosition()I
 
     move-result v0
 
-    goto :goto_8
-
-    :cond_7
-    const/4 v0, -0x1
+    move v1, v0
 
     .line 290
-    :goto_8
-    iget p2, p2, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
+    :goto_0
+    iget v0, p2, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
 
-    if-ge p4, p2, :cond_27
+    if-ge p4, v0, :cond_1
 
     .line 291
     invoke-virtual {p0, p1, p3, p4}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Ljava/lang/Comparable;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 292
-    invoke-virtual {p5, p1}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p5, v2}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Ljava/util/List;
+    check-cast v0, Ljava/util/List;
 
-    if-nez p2, :cond_20
+    if-nez v0, :cond_0
 
     .line 294
-    new-instance p2, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 295
-    invoke-virtual {p5, p1, p2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p5, v2, v0}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 297
-    :cond_20
+    :cond_0
     invoke-static {p6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_27
-    return v0
+    :cond_1
+    return v1
+
+    .line 289
+    :cond_2
+    const/4 v0, -0x1
+
+    move v1, v0
+
+    goto :goto_0
 .end method
 
 .method private readUnsortedValues(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dx/merge/IndexMap;)Ljava/util/List;
-    .registers 16
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/s1243808733/android/dex/Dex;",
             "Lcom/s1243808733/android/dx/merge/IndexMap;",
             ")",
-            "Ljava/util/List<",
-            "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger<",
-            "TT;>.UnsortedValue;>;"
+            "Ljava/util/List",
+            "<",
+            "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger",
+            "<TT;>.UnsortedValue;>;"
         }
     .end annotation
+
+    const/4 v7, 0x0
 
     .line 338
     invoke-virtual {p1}, Lcom/s1243808733/android/dex/Dex;->getTableOfContents()Lcom/s1243808733/android/dex/TableOfContents;
@@ -140,78 +149,76 @@
 
     invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    move-result-object v0
+    move-result-object v9
 
     .line 339
-    invoke-virtual {v0}, Lcom/s1243808733/android/dex/TableOfContents$Section;->exists()Z
+    invoke-virtual {v9}, Lcom/s1243808733/android/dex/TableOfContents$Section;->exists()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_13
+    if-nez v0, :cond_0
 
     .line 340
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object p1
-
-    return-object p1
-
-    .line 343
-    :cond_13
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    .line 344
-    iget v2, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
-
-    invoke-virtual {p1, v2}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    const/4 v11, 0x0
-
-    .line 345
-    :goto_20
-    iget v4, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
-
-    if-ge v11, v4, :cond_3c
-
-    .line 346
-    invoke-virtual {v2}, Lcom/s1243808733/android/dex/Dex$Section;->getPosition()I
-
-    move-result v10
-
-    .line 347
-    invoke-virtual {p0, v2, p2, v3}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Ljava/lang/Comparable;
-
-    move-result-object v8
+    move-result-object v0
 
     .line 348
-    new-instance v12, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;
+    :goto_0
+    return-object v0
 
-    move-object v4, v12
+    .line 343
+    :cond_0
+    new-instance v8, Ljava/util/ArrayList;
 
-    move-object v5, p0
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
-    move-object v6, p1
+    .line 344
+    iget v0, v9, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
 
-    move-object v7, p2
+    invoke-virtual {p1, v0}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
 
-    move v9, v11
+    move-result-object v10
 
-    invoke-direct/range {v4 .. v10}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;-><init>(Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dx/merge/IndexMap;Ljava/lang/Comparable;II)V
+    move v5, v7
 
-    invoke-interface {v1, v12}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    .line 345
+    :goto_1
+    iget v0, v9, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
 
-    add-int/lit8 v11, v11, 0x1
+    if-ge v5, v0, :cond_1
 
-    goto :goto_20
+    .line 346
+    invoke-virtual {v10}, Lcom/s1243808733/android/dex/Dex$Section;->getPosition()I
 
-    :cond_3c
-    return-object v1
+    move-result v6
+
+    .line 347
+    invoke-virtual {p0, v10, p2, v7}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Ljava/lang/Comparable;
+
+    move-result-object v4
+
+    .line 348
+    new-instance v0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    invoke-direct/range {v0 .. v6}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;-><init>(Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dx/merge/IndexMap;Ljava/lang/Comparable;II)V
+
+    invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    move-object v0, v8
+
+    goto :goto_0
 .end method
 
 
@@ -220,12 +227,12 @@
 .end method
 
 .method public final mergeSorted()V
-    .registers 18
+    .locals 14
+
+    const/4 v7, 0x0
 
     .line 247
-    move-object/from16 v7, p0
-
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
 
@@ -236,7 +243,7 @@
     new-array v8, v0, [Lcom/s1243808733/android/dex/TableOfContents$Section;
 
     .line 248
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
 
@@ -247,7 +254,7 @@
     new-array v9, v0, [Lcom/s1243808733/android/dex/Dex$Section;
 
     .line 249
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
 
@@ -258,7 +265,7 @@
     new-array v10, v0, [I
 
     .line 250
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
 
@@ -269,17 +276,15 @@
     new-array v11, v0, [I
 
     .line 255
-    new-instance v12, Ljava/util/TreeMap;
+    new-instance v5, Ljava/util/TreeMap;
 
-    invoke-direct {v12}, Ljava/util/TreeMap;-><init>()V
+    invoke-direct {v5}, Ljava/util/TreeMap;-><init>()V
 
-    const/4 v13, 0x0
-
-    const/4 v14, 0x0
+    move v6, v7
 
     .line 257
-    :goto_2d
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    :goto_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
 
@@ -287,269 +292,124 @@
 
     array-length v0, v0
 
-    if-ge v14, v0, :cond_7c
+    if-ge v6, v0, :cond_1
 
     .line 258
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
 
     move-result-object v0
 
-    aget-object v0, v0, v14
+    aget-object v0, v0, v6
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->getTableOfContents()Lcom/s1243808733/android/dex/TableOfContents;
 
     move-result-object v0
 
-    invoke-virtual {v7, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
 
     move-result-object v0
 
-    aput-object v0, v8, v14
+    aput-object v0, v8, v6
 
     .line 259
     invoke-virtual {v0}, Lcom/s1243808733/android/dex/TableOfContents$Section;->exists()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5f
+    if-eqz v0, :cond_0
 
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
 
     move-result-object v0
 
-    aget-object v0, v0, v14
+    aget-object v0, v0, v6
 
-    aget-object v1, v8, v14
+    aget-object v1, v8, v6
 
     iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
 
     invoke-virtual {v0, v1}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
 
-    move-result-object v0
+    move-result-object v1
 
-    goto :goto_60
-
-    :cond_5f
-    const/4 v0, 0x0
-
-    :goto_60
-    move-object v1, v0
-
-    aput-object v1, v9, v14
+    :goto_1
+    aput-object v1, v9, v6
 
     .line 261
-    aget-object v2, v8, v14
+    aget-object v2, v8, v6
 
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetindexMaps(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dx/merge/IndexMap;
 
     move-result-object v0
 
-    aget-object v3, v0, v14
+    aget-object v3, v0, v6
 
-    aget v4, v11, v14
+    aget v4, v11, v6
 
-    move-object/from16 v0, p0
-
-    move-object v5, v12
-
-    move v6, v14
+    move-object v0, p0
 
     invoke-direct/range {v0 .. v6}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->readIntoMap(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dex/TableOfContents$Section;Lcom/s1243808733/android/dx/merge/IndexMap;ILjava/util/TreeMap;I)I
 
     move-result v0
 
-    aput v0, v10, v14
+    aput v0, v10, v6
 
-    add-int/lit8 v14, v14, 0x1
+    add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2d
+    goto :goto_0
+
+    .line 259
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_1
 
     .line 264
-    :cond_7c
-    invoke-virtual {v12}, Ljava/util/TreeMap;->isEmpty()Z
+    :cond_1
+    invoke-virtual {v5}, Ljava/util/TreeMap;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9b
+    if-eqz v0, :cond_2
 
     .line 265
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetcontentsOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/TableOfContents;
 
     move-result-object v0
 
-    invoke-virtual {v7, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
 
     move-result-object v0
 
-    iput v13, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
+    iput v7, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
 
     .line 266
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetcontentsOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/TableOfContents;
 
     move-result-object v0
 
-    invoke-virtual {v7, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
 
     move-result-object v0
 
-    iput v13, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
+    iput v7, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
 
+    .line 284
+    :goto_2
     return-void
 
     .line 269
-    :cond_9b
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
-
-    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetcontentsOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/TableOfContents;
-
-    move-result-object v0
-
-    invoke-virtual {v7, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
-
-    move-result-object v0
-
-    iget-object v1, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->out:Lcom/s1243808733/android/dex/Dex$Section;
-
-    invoke-virtual {v1}, Lcom/s1243808733/android/dex/Dex$Section;->getPosition()I
-
-    move-result v1
-
-    iput v1, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
-
-    .line 272
-    :goto_ad
-    invoke-virtual {v12}, Ljava/util/TreeMap;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_10a
-
-    .line 273
-    invoke-virtual {v12}, Ljava/util/TreeMap;->pollFirstEntry()Ljava/util/Map$Entry;
-
-    move-result-object v14
-
-    .line 274
-    invoke-interface {v14}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v15
-
-    :goto_c1
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_fe
-
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v16
-
-    .line 275
-    aget v0, v10, v16
-
-    iget-object v1, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
-
-    invoke-static {v1}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetindexMaps(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dx/merge/IndexMap;
-
-    move-result-object v1
-
-    aget-object v1, v1, v16
-
-    aget v2, v11, v16
-
-    add-int/lit8 v3, v2, 0x1
-
-    aput v3, v11, v16
-
-    invoke-virtual {v7, v0, v1, v2, v13}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->updateIndex(ILcom/s1243808733/android/dx/merge/IndexMap;II)V
-
-    .line 277
-    aget-object v1, v9, v16
-
-    aget-object v2, v8, v16
-
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
-
-    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetindexMaps(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dx/merge/IndexMap;
-
-    move-result-object v0
-
-    aget-object v3, v0, v16
-
-    aget v4, v11, v16
-
-    move-object/from16 v0, p0
-
-    move-object v5, v12
-
-    move/from16 v6, v16
-
-    invoke-direct/range {v0 .. v6}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->readIntoMap(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dex/TableOfContents$Section;Lcom/s1243808733/android/dx/merge/IndexMap;ILjava/util/TreeMap;I)I
-
-    move-result v0
-
-    aput v0, v10, v16
-
-    goto :goto_c1
-
-    .line 280
-    :cond_fe
-    invoke-interface {v14}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Comparable;
-
-    invoke-virtual {v7, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->write(Ljava/lang/Comparable;)V
-
-    add-int/lit8 v13, v13, 0x1
-
-    goto :goto_ad
-
-    .line 284
-    :cond_10a
-    iget-object v0, v7, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
-
-    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetcontentsOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/TableOfContents;
-
-    move-result-object v0
-
-    invoke-virtual {v7, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
-
-    move-result-object v0
-
-    iput v13, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
-
-    return-void
-.end method
-
-.method public final mergeUnsorted()V
-    .registers 9
-
-    .line 307
+    :cond_2
     iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetcontentsOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/TableOfContents;
@@ -568,61 +428,199 @@
 
     iput v1, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
 
-    .line 309
-    new-instance v0, Ljava/util/ArrayList;
+    .line 272
+    :goto_3
+    invoke-virtual {v5}, Ljava/util/TreeMap;->isEmpty()Z
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    .line 273
+    invoke-virtual {v5}, Ljava/util/TreeMap;->pollFirstEntry()Ljava/util/Map$Entry;
+
+    move-result-object v12
+
+    .line 274
+    invoke-interface {v12}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v13
+
+    :goto_4
+    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v6
+
+    .line 275
+    aget v0, v10, v6
+
+    iget-object v1, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+    invoke-static {v1}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetindexMaps(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dx/merge/IndexMap;
+
+    move-result-object v1
+
+    aget-object v1, v1, v6
+
+    aget v2, v11, v6
+
+    add-int/lit8 v3, v2, 0x1
+
+    aput v3, v11, v6
+
+    invoke-virtual {p0, v0, v1, v2, v7}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->updateIndex(ILcom/s1243808733/android/dx/merge/IndexMap;II)V
+
+    .line 277
+    aget-object v1, v9, v6
+
+    aget-object v2, v8, v6
+
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetindexMaps(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dx/merge/IndexMap;
+
+    move-result-object v0
+
+    aget-object v3, v0, v6
+
+    aget v4, v11, v6
+
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v6}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->readIntoMap(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dex/TableOfContents$Section;Lcom/s1243808733/android/dx/merge/IndexMap;ILjava/util/TreeMap;I)I
+
+    move-result v0
+
+    aput v0, v10, v6
+
+    goto :goto_4
+
+    .line 280
+    :cond_3
+    invoke-interface {v12}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Comparable;
+
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->write(Ljava/lang/Comparable;)V
+
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_3
+
+    .line 284
+    :cond_4
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetcontentsOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/TableOfContents;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
+
+    move-result-object v0
+
+    iput v7, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
+
+    goto :goto_2
+.end method
+
+.method public final mergeUnsorted()V
+    .locals 8
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    .line 307
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
-    .line 310
-    :goto_19
-    iget-object v3, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetcontentsOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/TableOfContents;
 
-    invoke-static {v3}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
+    move-result-object v0
 
-    move-result-object v3
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    array-length v3, v3
+    move-result-object v0
 
-    if-ge v2, v3, :cond_3c
+    iget-object v2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->out:Lcom/s1243808733/android/dex/Dex$Section;
 
-    .line 311
-    iget-object v3, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
-
-    invoke-static {v3}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
-
-    move-result-object v3
-
-    aget-object v3, v3, v2
-
-    iget-object v4, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
-
-    invoke-static {v4}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetindexMaps(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dx/merge/IndexMap;
-
-    move-result-object v4
-
-    aget-object v4, v4, v2
-
-    invoke-direct {p0, v3, v4}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->readUnsortedValues(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dx/merge/IndexMap;)Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-interface {v0, v3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_19
-
-    .line 313
-    :cond_3c
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {v2}, Lcom/s1243808733/android/dex/Dex$Section;->getPosition()I
 
     move-result v2
 
-    if-eqz v2, :cond_5b
+    iput v2, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
+
+    .line 309
+    new-instance v4, Ljava/util/ArrayList;
+
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+
+    move v0, v1
+
+    .line 310
+    :goto_0
+    iget-object v2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+    invoke-static {v2}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
+
+    move-result-object v2
+
+    array-length v2, v2
+
+    if-ge v0, v2, :cond_0
+
+    .line 311
+    iget-object v2, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+    invoke-static {v2}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetdexes(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dex/Dex;
+
+    move-result-object v2
+
+    aget-object v2, v2, v0
+
+    iget-object v3, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+
+    invoke-static {v3}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetindexMaps(Lcom/s1243808733/android/dx/merge/DexMerger;)[Lcom/s1243808733/android/dx/merge/IndexMap;
+
+    move-result-object v3
+
+    aget-object v3, v3, v0
+
+    invoke-direct {p0, v2, v3}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->readUnsortedValues(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dx/merge/IndexMap;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v4, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 313
+    :cond_0
+    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     .line 314
     iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
@@ -650,96 +648,102 @@
 
     iput v1, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
 
+    .line 334
+    :goto_1
     return-void
 
     .line 318
-    :cond_5b
-    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+    :cond_1
+    invoke-static {v4}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    const/4 v2, 0x0
+    move v2, v1
+
+    move v0, v1
 
     .line 321
-    :goto_5f
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    :goto_2
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v1
 
-    if-ge v1, v3, :cond_a5
+    if-ge v0, v1, :cond_3
 
-    add-int/lit8 v3, v1, 0x1
+    add-int/lit8 v3, v0, 0x1
 
     .line 322
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;
+
+    .line 323
+    iget v1, v0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->offset:I
+
+    iget-object v5, v0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->indexMap:Lcom/s1243808733/android/dx/merge/IndexMap;
+
+    iget v6, v0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->index:I
+
+    add-int/lit8 v7, v2, -0x1
+
+    invoke-virtual {p0, v1, v5, v6, v7}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->updateIndex(ILcom/s1243808733/android/dx/merge/IndexMap;II)V
+
+    .line 325
+    :goto_3
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-ge v3, v1, :cond_2
+
+    invoke-interface {v4, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;
 
-    .line 323
-    iget v4, v1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->offset:I
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->compareTo(Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;)I
 
-    iget-object v5, v1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->indexMap:Lcom/s1243808733/android/dx/merge/IndexMap;
+    move-result v1
 
-    iget v6, v1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->index:I
-
-    add-int/lit8 v7, v2, -0x1
-
-    invoke-virtual {p0, v4, v5, v6, v7}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->updateIndex(ILcom/s1243808733/android/dx/merge/IndexMap;II)V
-
-    .line 325
-    :goto_78
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v4
-
-    if-ge v3, v4, :cond_9c
-
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;
-
-    invoke-virtual {v1, v4}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->compareTo(Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;)I
-
-    move-result v4
-
-    if-nez v4, :cond_9c
+    if-nez v1, :cond_2
 
     .line 326
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;
+    check-cast v1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;
 
     .line 327
-    iget v5, v4, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->offset:I
+    iget v5, v1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->offset:I
 
-    iget-object v6, v4, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->indexMap:Lcom/s1243808733/android/dx/merge/IndexMap;
+    iget-object v6, v1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->indexMap:Lcom/s1243808733/android/dx/merge/IndexMap;
 
-    iget v4, v4, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->index:I
+    iget v1, v1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->index:I
 
-    invoke-virtual {p0, v5, v6, v4, v7}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->updateIndex(ILcom/s1243808733/android/dx/merge/IndexMap;II)V
+    invoke-virtual {p0, v5, v6, v1, v7}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->updateIndex(ILcom/s1243808733/android/dx/merge/IndexMap;II)V
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_78
+    goto :goto_3
 
     .line 330
-    :cond_9c
-    iget-object v1, v1, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->value:Ljava/lang/Comparable;
+    :cond_2
+    iget-object v0, v0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger$UnsortedValue;->value:Ljava/lang/Comparable;
 
-    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->write(Ljava/lang/Comparable;)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->write(Ljava/lang/Comparable;)V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v2, 0x1
 
-    move v1, v3
+    move v2, v1
 
-    goto :goto_5f
+    move v0, v3
+
+    goto :goto_2
 
     .line 334
-    :cond_a5
+    :cond_3
     iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgetcontentsOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/TableOfContents;
@@ -752,7 +756,7 @@
 
     iput v2, v0, Lcom/s1243808733/android/dex/TableOfContents$Section;->size:I
 
-    return-void
+    goto :goto_1
 .end method
 
 .method abstract read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Ljava/lang/Comparable;

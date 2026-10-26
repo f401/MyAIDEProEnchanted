@@ -13,8 +13,8 @@
             "<T:",
             "Ljava/lang/Object;",
             ">(",
-            "Lorg/antlr/v4/runtime/tree/ParseTreeVisitor<",
-            "+TT;>;)TT;"
+            "Lorg/antlr/v4/runtime/tree/ParseTreeVisitor",
+            "<+TT;>;)TT;"
         }
     .end annotation
 .end method

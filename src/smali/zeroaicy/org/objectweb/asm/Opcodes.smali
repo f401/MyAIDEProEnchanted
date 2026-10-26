@@ -494,7 +494,7 @@
 
 # direct methods
 .method static final constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     new-instance v0, Ljava/lang/Integer;
 

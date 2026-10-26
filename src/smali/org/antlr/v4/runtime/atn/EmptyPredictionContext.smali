@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 11
     const/4 v0, 0x0
@@ -20,40 +20,40 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 2
+    .locals 1
 
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_5
+    :goto_0
+    return v0
 
-    :cond_4
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_5
-    return p1
+    goto :goto_0
 .end method
 
 .method public getParent(I)Lorg/antlr/v4/runtime/atn/PredictionContext;
-    .registers 2
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getReturnState(I)I
-    .registers 2
+    .locals 1
 
     .line 29
-    iget p1, p0, Lorg/antlr/v4/runtime/atn/EmptyPredictionContext;->returnState:I
+    iget v0, p0, Lorg/antlr/v4/runtime/atn/EmptyPredictionContext;->returnState:I
 
-    return p1
+    return v0
 .end method
 
 .method public isEmpty()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 39
     const-string v0, "$"

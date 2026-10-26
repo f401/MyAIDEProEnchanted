@@ -177,7 +177,8 @@
 .field public static TERMUX_FLOAT_PROPERTIES_FILE_PATHS_LIST:Ljava/util/List; = null
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -241,7 +242,8 @@
 .field public static TERMUX_PLUGIN_APP_NAMES_LIST:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -251,7 +253,8 @@
 .field public static TERMUX_PLUGIN_APP_PACKAGE_NAMES_LIST:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -267,7 +270,8 @@
 .field public static TERMUX_PREFIX_DIR_IGNORED_SUB_FILES_PATHS_TO_CONSIDER_AS_EMPTY:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -279,7 +283,8 @@
 .field public static TERMUX_PROPERTIES_FILE_PATHS_LIST:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -401,7 +406,17 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 12
+    .locals 8
+
+    const/4 v7, 0x4
+
+    const/4 v6, 0x3
+
+    const/4 v5, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
 
     .line 334
     new-instance v0, Ljava/lang/StringBuilder;
@@ -448,9 +463,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_REPO_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_REPO_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -463,13 +478,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/issues"
+    const-string v1, "/issues"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -482,15 +497,17 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+    const-string v1, "/"
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -508,13 +525,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ".api"
+    const-string v1, ".api"
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -528,668 +545,704 @@
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_API_GITHUB_REPO_NAME:Ljava/lang/String;
 
     .line 374
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_API_GITHUB_REPO_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_API_GITHUB_REPO_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_API_GITHUB_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_API_GITHUB_REPO_URL:Ljava/lang/String;
 
     .line 376
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_API_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_API_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/issues"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_API_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_API_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
 
     .line 378
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_API_PACKAGE_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_API_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_API_FDROID_PACKAGE_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_API_FDROID_PACKAGE_URL:Ljava/lang/String;
 
     .line 382
-    const-string v3, "Termux:Boot"
+    const-string v0, "Termux:Boot"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_APP_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_APP_NAME:Ljava/lang/String;
 
     .line 384
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, ".boot"
+    const-string v1, ".boot"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_PACKAGE_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_PACKAGE_NAME:Ljava/lang/String;
 
     .line 386
-    const-string v3, "termux-boot"
+    const-string v0, "termux-boot"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_REPO_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_REPO_NAME:Ljava/lang/String;
 
     .line 388
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_REPO_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_REPO_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_REPO_URL:Ljava/lang/String;
 
     .line 390
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/issues"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
 
     .line 392
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_PACKAGE_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_FDROID_PACKAGE_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_FDROID_PACKAGE_URL:Ljava/lang/String;
 
     .line 396
-    const-string v3, "Termux:Float"
+    const-string v0, "Termux:Float"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_APP_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_APP_NAME:Ljava/lang/String;
 
     .line 398
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, ".window"
+    const-string v1, ".window"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PACKAGE_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PACKAGE_NAME:Ljava/lang/String;
 
     .line 400
-    const-string v3, "termux-float"
+    const-string v0, "termux-float"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_REPO_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_REPO_NAME:Ljava/lang/String;
 
     .line 402
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_REPO_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_REPO_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_REPO_URL:Ljava/lang/String;
 
     .line 404
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/issues"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
 
     .line 406
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PACKAGE_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_FDROID_PACKAGE_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_FDROID_PACKAGE_URL:Ljava/lang/String;
 
     .line 410
-    const-string v3, "Termux:Styling"
+    const-string v0, "Termux:Styling"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_APP_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_APP_NAME:Ljava/lang/String;
 
     .line 412
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, ".styling"
+    const-string v1, ".styling"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_PACKAGE_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_PACKAGE_NAME:Ljava/lang/String;
 
     .line 414
-    const-string v3, "termux-styling"
+    const-string v0, "termux-styling"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_REPO_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_REPO_NAME:Ljava/lang/String;
 
     .line 416
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_REPO_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_REPO_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_REPO_URL:Ljava/lang/String;
 
     .line 418
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/issues"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
 
     .line 420
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_PACKAGE_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_FDROID_PACKAGE_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_FDROID_PACKAGE_URL:Ljava/lang/String;
 
     .line 424
-    const-string v3, "Termux:Tasker"
+    const-string v0, "Termux:Tasker"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_APP_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_APP_NAME:Ljava/lang/String;
 
     .line 426
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, ".tasker"
+    const-string v1, ".tasker"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_PACKAGE_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_PACKAGE_NAME:Ljava/lang/String;
 
     .line 428
-    const-string v3, "termux-tasker"
+    const-string v0, "termux-tasker"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_REPO_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_REPO_NAME:Ljava/lang/String;
 
     .line 430
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_REPO_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_REPO_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_REPO_URL:Ljava/lang/String;
 
     .line 432
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/issues"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
 
     .line 434
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_PACKAGE_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_FDROID_PACKAGE_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_FDROID_PACKAGE_URL:Ljava/lang/String;
 
     .line 438
-    const-string v3, "Termux:Widget"
+    const-string v0, "Termux:Widget"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_APP_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_APP_NAME:Ljava/lang/String;
 
     .line 440
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, ".widget"
+    const-string v1, ".widget"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_PACKAGE_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_PACKAGE_NAME:Ljava/lang/String;
 
     .line 442
-    const-string v3, "termux-widget"
+    const-string v0, "termux-widget"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_REPO_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_REPO_NAME:Ljava/lang/String;
 
     .line 444
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_REPO_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_REPO_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_REPO_URL:Ljava/lang/String;
 
     .line 446
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/issues"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
 
     .line 448
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->FDROID_PACKAGES_BASE_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_PACKAGE_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_FDROID_PACKAGE_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_FDROID_PACKAGE_URL:Ljava/lang/String;
 
     .line 458
-    const/4 v3, 0x6
+    const/4 v0, 0x6
 
-    new-array v4, v3, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    sget-object v5, Lcom/termux/app/TermuxConstants;->TERMUX_API_APP_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_API_APP_NAME:Ljava/lang/String;
 
-    const/4 v6, 0x0
+    aput-object v1, v0, v3
 
-    aput-object v5, v4, v6
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_APP_NAME:Ljava/lang/String;
 
-    sget-object v5, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_APP_NAME:Ljava/lang/String;
+    aput-object v1, v0, v4
 
-    const/4 v7, 0x1
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_APP_NAME:Ljava/lang/String;
 
-    aput-object v5, v4, v7
+    aput-object v1, v0, v5
 
-    sget-object v5, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_APP_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_APP_NAME:Ljava/lang/String;
 
-    const/4 v8, 0x2
+    aput-object v1, v0, v6
 
-    aput-object v5, v4, v8
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_APP_NAME:Ljava/lang/String;
 
-    sget-object v5, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_APP_NAME:Ljava/lang/String;
+    aput-object v1, v0, v7
 
-    const/4 v9, 0x3
+    const/4 v1, 0x5
 
-    aput-object v5, v4, v9
+    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_APP_NAME:Ljava/lang/String;
 
-    sget-object v5, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_APP_NAME:Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    const/4 v10, 0x4
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    aput-object v5, v4, v10
+    move-result-object v0
 
-    sget-object v5, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_APP_NAME:Ljava/lang/String;
-
-    const/4 v11, 0x5
-
-    aput-object v5, v4, v11
-
-    invoke-static {v4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v4
-
-    sput-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_PLUGIN_APP_NAMES_LIST:Ljava/util/List;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_PLUGIN_APP_NAMES_LIST:Ljava/util/List;
 
     .line 466
-    new-array v3, v3, [Ljava/lang/String;
+    const/4 v0, 0x6
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_API_PACKAGE_NAME:Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v4, v3, v6
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_API_PACKAGE_NAME:Ljava/lang/String;
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_PACKAGE_NAME:Ljava/lang/String;
+    aput-object v1, v0, v3
 
-    aput-object v4, v3, v7
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_PACKAGE_NAME:Ljava/lang/String;
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PACKAGE_NAME:Ljava/lang/String;
+    aput-object v1, v0, v4
 
-    aput-object v4, v3, v8
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PACKAGE_NAME:Ljava/lang/String;
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_PACKAGE_NAME:Ljava/lang/String;
+    aput-object v1, v0, v5
 
-    aput-object v4, v3, v9
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_PACKAGE_NAME:Ljava/lang/String;
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_PACKAGE_NAME:Ljava/lang/String;
+    aput-object v1, v0, v6
 
-    aput-object v4, v3, v10
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_PACKAGE_NAME:Ljava/lang/String;
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_PACKAGE_NAME:Ljava/lang/String;
+    aput-object v1, v0, v7
 
-    aput-object v4, v3, v11
+    const/4 v1, 0x5
 
-    invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_PACKAGE_NAME:Ljava/lang/String;
 
-    move-result-object v3
+    aput-object v2, v0, v1
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_PLUGIN_APP_PACKAGE_NAMES_LIST:Ljava/util/List;
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_PLUGIN_APP_PACKAGE_NAMES_LIST:Ljava/util/List;
 
     .line 483
-    const-string v3, "F-Droid"
+    const-string v0, "F-Droid"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->APK_RELEASE_FDROID:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->APK_RELEASE_FDROID:Ljava/lang/String;
 
     .line 486
-    const-string v3, "228FB2CFE90831C1499EC3CCAF61E96E8E1CE70766B9474672CE427334D41C42"
+    const-string v0, "228FB2CFE90831C1499EC3CCAF61E96E8E1CE70766B9474672CE427334D41C42"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->APK_RELEASE_FDROID_SIGNING_CERTIFICATE_SHA256_DIGEST:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->APK_RELEASE_FDROID_SIGNING_CERTIFICATE_SHA256_DIGEST:Ljava/lang/String;
 
     .line 489
-    const-string v3, "Github"
+    const-string v0, "Github"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->APK_RELEASE_GITHUB:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->APK_RELEASE_GITHUB:Ljava/lang/String;
 
     .line 492
-    const-string v3, "B6DA01480EEFD5FBF2CD3771B8D1021EC791304BDD6C4BF41D3FAABAD48EE5E1"
+    const-string v0, "B6DA01480EEFD5FBF2CD3771B8D1021EC791304BDD6C4BF41D3FAABAD48EE5E1"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->APK_RELEASE_GITHUB_SIGNING_CERTIFICATE_SHA256_DIGEST:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->APK_RELEASE_GITHUB_SIGNING_CERTIFICATE_SHA256_DIGEST:Ljava/lang/String;
 
     .line 495
-    const-string v3, "Google Play Store"
+    const-string v0, "Google Play Store"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->APK_RELEASE_GOOGLE_PLAYSTORE:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->APK_RELEASE_GOOGLE_PLAYSTORE:Ljava/lang/String;
 
     .line 498
-    const-string v3, "738F0A30A04D3C8A1BE304AF18D0779BCF3EA88FB60808F657A3521861C2EBF9"
+    const-string v0, "738F0A30A04D3C8A1BE304AF18D0779BCF3EA88FB60808F657A3521861C2EBF9"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->APK_RELEASE_GOOGLE_PLAYSTORE_SIGNING_CERTIFICATE_SHA256_DIGEST:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->APK_RELEASE_GOOGLE_PLAYSTORE_SIGNING_CERTIFICATE_SHA256_DIGEST:Ljava/lang/String;
 
     .line 501
-    const-string v3, "Termux Devs"
+    const-string v0, "Termux Devs"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->APK_RELEASE_TERMUX_DEVS:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->APK_RELEASE_TERMUX_DEVS:Ljava/lang/String;
 
     .line 504
-    const-string v3, "F7A038EB551F1BE8FDF388686B784ABAB4552A5D82DF423E3D8F1B5CBE1C69AE"
+    const-string v0, "F7A038EB551F1BE8FDF388686B784ABAB4552A5D82DF423E3D8F1B5CBE1C69AE"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->APK_RELEASE_TERMUX_DEVS_SIGNING_CERTIFICATE_SHA256_DIGEST:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->APK_RELEASE_TERMUX_DEVS_SIGNING_CERTIFICATE_SHA256_DIGEST:Ljava/lang/String;
 
     .line 515
-    const-string v3, "termux-packages"
+    const-string v0, "termux-packages"
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_NAME:Ljava/lang/String;
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_NAME:Ljava/lang/String;
 
     .line 517
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/"
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_NAME:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_NAME:Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_URL:Ljava/lang/String;
 
     .line 519
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v4, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/issues"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sput-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
+    move-result-object v0
+
+    sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_ISSUES_REPO_URL:Ljava/lang/String;
 
     .line 523
+    const-string v0, "termux-api"
+
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_API_APT_PACKAGE_NAME:Ljava/lang/String;
 
     .line 525
@@ -1202,15 +1255,17 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_ORGANIZATION_URL:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_API_APT_GITHUB_REPO_NAME:Ljava/lang/String;
+    const-string v1, "/"
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_API_APT_GITHUB_REPO_NAME:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1223,11 +1278,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_API_APT_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_API_APT_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/issues"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1240,13 +1297,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " Site"
+    const-string v1, " Site"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1264,13 +1321,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " Wiki"
+    const-string v1, " Wiki"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1288,13 +1345,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/wiki"
+    const-string v1, "/wiki"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1307,11 +1364,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGES_GITHUB_REPO_URL:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/wiki"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1327,13 +1386,13 @@
     .line 562
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v2, "mailto:"
+    const-string v1, "mailto:"
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_SUPPORT_EMAIL_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_SUPPORT_EMAIL_URL:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1356,13 +1415,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_SITE_URL:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_SITE_URL:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/donate"
+    const-string v1, "/donate"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1373,13 +1432,13 @@
     .line 585
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v2, "/data/data/"
+    const-string v1, "/data/data/"
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1390,9 +1449,9 @@
     .line 587
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_INTERNAL_PRIVATE_APP_DATA_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_INTERNAL_PRIVATE_APP_DATA_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_INTERNAL_PRIVATE_APP_DATA_DIR:Ljava/io/File;
 
@@ -1401,13 +1460,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_INTERNAL_PRIVATE_APP_DATA_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_INTERNAL_PRIVATE_APP_DATA_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/files"
+    const-string v1, "/files"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1418,9 +1477,9 @@
     .line 594
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR:Ljava/io/File;
 
@@ -1429,13 +1488,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/usr"
+    const-string v1, "/usr"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1446,9 +1505,9 @@
     .line 601
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR:Ljava/io/File;
 
@@ -1457,13 +1516,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/bin"
+    const-string v1, "/bin"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1474,9 +1533,9 @@
     .line 607
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_BIN_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_BIN_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_BIN_PREFIX_DIR:Ljava/io/File;
 
@@ -1485,13 +1544,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/etc"
+    const-string v1, "/etc"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1502,9 +1561,9 @@
     .line 613
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_ETC_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_ETC_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_ETC_PREFIX_DIR:Ljava/io/File;
 
@@ -1513,13 +1572,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/include"
+    const-string v1, "/include"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1530,9 +1589,9 @@
     .line 619
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_INCLUDE_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_INCLUDE_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_INCLUDE_PREFIX_DIR:Ljava/io/File;
 
@@ -1541,13 +1600,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/lib"
+    const-string v1, "/lib"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1558,9 +1617,9 @@
     .line 625
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_LIB_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_LIB_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_LIB_PREFIX_DIR:Ljava/io/File;
 
@@ -1569,13 +1628,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/libexec"
+    const-string v1, "/libexec"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1586,9 +1645,9 @@
     .line 631
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_LIBEXEC_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_LIBEXEC_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_LIBEXEC_PREFIX_DIR:Ljava/io/File;
 
@@ -1597,13 +1656,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/share"
+    const-string v1, "/share"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1614,9 +1673,9 @@
     .line 637
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_SHARE_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_SHARE_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_SHARE_PREFIX_DIR:Ljava/io/File;
 
@@ -1625,13 +1684,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/tmp"
+    const-string v1, "/tmp"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1642,9 +1701,9 @@
     .line 643
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_TMP_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_TMP_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_TMP_PREFIX_DIR:Ljava/io/File;
 
@@ -1653,13 +1712,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/var"
+    const-string v1, "/var"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1670,9 +1729,9 @@
     .line 649
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_VAR_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_VAR_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_VAR_PREFIX_DIR:Ljava/io/File;
 
@@ -1681,13 +1740,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/usr-staging"
+    const-string v1, "/usr-staging"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1698,9 +1757,9 @@
     .line 656
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_STAGING_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_STAGING_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_STAGING_PREFIX_DIR:Ljava/io/File;
 
@@ -1709,13 +1768,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/home"
+    const-string v1, "/home"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1726,9 +1785,9 @@
     .line 663
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR:Ljava/io/File;
 
@@ -1737,13 +1796,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/.config/termux"
+    const-string v1, "/.config/termux"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1754,9 +1813,9 @@
     .line 669
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_HOME_DIR:Ljava/io/File;
 
@@ -1765,13 +1824,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_ETC_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_ETC_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/termux"
+    const-string v1, "/termux"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1782,9 +1841,9 @@
     .line 674
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_PREFIX_DIR:Ljava/io/File;
 
@@ -1793,13 +1852,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/.termux"
+    const-string v1, "/.termux"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1810,9 +1869,9 @@
     .line 680
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR:Ljava/io/File;
 
@@ -1821,13 +1880,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/storage"
+    const-string v1, "/storage"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1838,9 +1897,9 @@
     .line 686
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_STORAGE_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_STORAGE_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_STORAGE_HOME_DIR:Ljava/io/File;
 
@@ -1849,13 +1908,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FILES_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/apps"
+    const-string v1, "/apps"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1866,26 +1925,26 @@
     .line 693
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_APPS_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_APPS_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_APPS_DIR:Ljava/io/File;
 
     .line 697
-    new-array v0, v9, [Ljava/lang/String;
+    new-array v0, v6, [Ljava/lang/String;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_TMP_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_TMP_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    aput-object v2, v0, v6
+    aput-object v1, v0, v3
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_ENV_TEMP_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_ENV_TEMP_FILE_PATH:Ljava/lang/String;
 
-    aput-object v2, v0, v7
+    aput-object v1, v0, v4
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_ENV_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_ENV_FILE_PATH:Ljava/lang/String;
 
-    aput-object v2, v0, v8
+    aput-object v1, v0, v5
 
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -1898,13 +1957,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "_preferences"
+    const-string v1, "_preferences"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1917,11 +1976,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_API_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_API_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "_preferences"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1934,11 +1995,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "_preferences"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1951,11 +2014,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "_preferences"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1968,11 +2033,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_STYLING_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "_preferences"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1985,11 +2052,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_TASKER_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "_preferences"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2002,11 +2071,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_PACKAGE_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_WIDGET_PACKAGE_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "_preferences"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2019,13 +2090,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/termux.properties"
+    const-string v1, "/termux.properties"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2036,9 +2107,9 @@
     .line 732
     new-instance v0, Ljava/io/File;
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_PRIMARY_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_PRIMARY_FILE_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_PRIMARY_FILE:Ljava/io/File;
 
@@ -2047,11 +2118,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/termux.properties"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2062,22 +2135,22 @@
     .line 737
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_SECONDARY_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_SECONDARY_FILE_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_SECONDARY_FILE:Ljava/io/File;
 
     .line 743
-    new-array v0, v8, [Ljava/lang/String;
+    new-array v0, v5, [Ljava/lang/String;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_PRIMARY_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_PRIMARY_FILE_PATH:Ljava/lang/String;
 
-    aput-object v2, v0, v6
+    aput-object v1, v0, v3
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_SECONDARY_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_PROPERTIES_SECONDARY_FILE_PATH:Ljava/lang/String;
 
-    aput-object v2, v0, v7
+    aput-object v1, v0, v4
 
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -2090,13 +2163,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/termux.float.properties"
+    const-string v1, "/termux.float.properties"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2107,9 +2180,9 @@
     .line 752
     new-instance v0, Ljava/io/File;
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_PRIMARY_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_PRIMARY_FILE_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_PRIMARY_FILE:Ljava/io/File;
 
@@ -2118,11 +2191,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v3, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "/termux.float.properties"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2133,22 +2208,22 @@
     .line 757
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_SECONDARY_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_SECONDARY_FILE_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_SECONDARY_FILE:Ljava/io/File;
 
     .line 763
-    new-array v0, v8, [Ljava/lang/String;
+    new-array v0, v5, [Ljava/lang/String;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_PRIMARY_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_PRIMARY_FILE_PATH:Ljava/lang/String;
 
-    aput-object v2, v0, v6
+    aput-object v1, v0, v3
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_SECONDARY_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_PROPERTIES_SECONDARY_FILE_PATH:Ljava/lang/String;
 
-    aput-object v2, v0, v7
+    aput-object v1, v0, v4
 
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -2161,13 +2236,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/colors.properties"
+    const-string v1, "/colors.properties"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2178,9 +2253,9 @@
     .line 772
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_COLOR_PROPERTIES_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_COLOR_PROPERTIES_FILE_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_COLOR_PROPERTIES_FILE:Ljava/io/File;
 
@@ -2189,13 +2264,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/font.ttf"
+    const-string v1, "/font.ttf"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2206,9 +2281,9 @@
     .line 777
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FONT_FILE_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FONT_FILE_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_FONT_FILE:Ljava/io/File;
 
@@ -2217,13 +2292,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/crash_log.md"
+    const-string v1, "/crash_log.md"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2236,13 +2311,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/crash_log_backup.md"
+    const-string v1, "/crash_log_backup.md"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2255,13 +2330,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/termux.env"
+    const-string v1, "/termux.env"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2274,13 +2349,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_PREFIX_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_CONFIG_PREFIX_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/termux.env.tmp"
+    const-string v1, "/termux.env.tmp"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2293,13 +2368,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_DATA_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/boot"
+    const-string v1, "/boot"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2310,9 +2385,9 @@
     .line 803
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_SCRIPTS_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_SCRIPTS_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_BOOT_SCRIPTS_DIR:Ljava/io/File;
 
@@ -2321,13 +2396,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_HOME_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "/.shortcuts"
+    const-string v1, "/.shortcuts"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2338,9 +2413,9 @@
     .line 810
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_SCRIPTS_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_SCRIPTS_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_SCRIPTS_DIR:Ljava/io/File;
 
@@ -2354,15 +2429,17 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_SCRIPTS_DIR_PATH:Ljava/lang/String;
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_SCRIPTS_DIR_PATH:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_TASKS_SCRIPTS_DIR_BASENAME:Ljava/lang/String;
+    const-string v1, "/"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_TASKS_SCRIPTS_DIR_BASENAME:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2373,9 +2450,9 @@
     .line 820
     new-instance v0, Ljava/io/File;
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_TASKS_SCRIPTS_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_TASKS_SCRIPTS_DIR_PATH:Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_TASKS_SCRIPTS_DIR:Ljava/io/File;
 
@@ -2389,9 +2466,11 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_SCRIPTS_DIR_PATH:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_SHORTCUT_SCRIPTS_DIR_PATH:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "/"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2481,13 +2560,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " RunCommandService"
+    const-string v1, " RunCommandService"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2510,13 +2589,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " Plugin Commands Errors"
+    const-string v1, " Plugin Commands Errors"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2534,13 +2613,13 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_APP_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " Crash Reports"
+    const-string v1, " Crash Reports"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2558,9 +2637,11 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    sget-object v2, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_APP_NAME:Ljava/lang/String;
+    sget-object v1, Lcom/termux/app/TermuxConstants;->TERMUX_FLOAT_APP_NAME:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, " App"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2648,7 +2729,7 @@
     sput-object v0, Lcom/termux/app/TermuxConstants;->COMMA_NORMAL:Ljava/lang/String;
 
     .line 909
-    const-string v0, "‚"
+    const-string v0, "\u201a"
 
     sput-object v0, Lcom/termux/app/TermuxConstants;->COMMA_ALTERNATIVE:Ljava/lang/String;
 
@@ -2661,7 +2742,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 324
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

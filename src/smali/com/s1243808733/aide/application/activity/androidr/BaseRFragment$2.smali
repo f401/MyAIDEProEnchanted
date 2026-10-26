@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -57,146 +57,150 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 5
+    .locals 4
 
     .line 111
-    new-instance v0, Landroid/widget/PopupMenu;
+    new-instance v1, Landroid/widget/PopupMenu;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
 
-    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
+    invoke-direct {v1, v0, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
 
     .line 112
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
+    invoke-virtual {v1}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 113
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_18
+    if-eqz v0, :cond_1
 
-    const-string v1, "复制名称"
+    const-string v0, "\u590d\u5236\u540d\u79f0"
 
-    goto :goto_1a
+    :goto_0
+    invoke-interface {v2, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    :cond_18
-    const-string v1, "Copy name"
+    move-result-object v0
 
-    :goto_1a
-    invoke-interface {p1, v1}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    new-instance v3, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$1;
 
-    move-result-object v1
-
-    new-instance v2, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$1;
-
-    invoke-direct {v2, p0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$1;-><init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;)V
+    invoke-direct {v3, p0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$1;-><init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;)V
 
     .line 114
-    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 123
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2f
+    if-eqz v0, :cond_2
 
-    const-string v1, "复制ID"
+    const-string v0, "\u590d\u5236ID"
 
-    goto :goto_31
+    :goto_1
+    invoke-interface {v2, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    :cond_2f
-    const-string v1, "Copy id"
+    move-result-object v0
 
-    :goto_31
-    invoke-interface {p1, v1}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    new-instance v3, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$2;
 
-    move-result-object v1
-
-    new-instance v2, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$2;
-
-    invoke-direct {v2, p0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$2;-><init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;)V
+    invoke-direct {v3, p0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$2;-><init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;)V
 
     .line 124
-    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 133
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_46
+    if-eqz v0, :cond_3
 
-    const-string v1, "复制Java引用"
+    const-string v0, "\u590d\u5236Java\u5f15\u7528"
 
-    goto :goto_48
+    :goto_2
+    invoke-interface {v2, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    :cond_46
-    const-string v1, "Copy java Quote"
+    move-result-object v0
 
-    :goto_48
-    invoke-interface {p1, v1}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    new-instance v3, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$3;
 
-    move-result-object v1
-
-    new-instance v2, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$3;
-
-    invoke-direct {v2, p0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$3;-><init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;)V
+    invoke-direct {v3, p0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$3;-><init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;)V
 
     .line 134
-    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 144
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
+    const-string v0, "FragmentTextAppearance"
 
-    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->getTag()Ljava/lang/String;
+    iget-object v3, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
 
-    move-result-object v1
+    invoke-virtual {v3}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->getTag()Ljava/lang/String;
 
-    const-string v2, "FragmentTextAppearance"
+    move-result-object v3
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_79
+    if-nez v0, :cond_0
 
     .line 145
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_6b
+    if-eqz v0, :cond_4
 
-    const-string v1, "复制XML引用"
+    const-string v0, "\u590d\u5236XML\u5f15\u7528"
 
-    goto :goto_6d
+    :goto_3
+    invoke-interface {v2, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    :cond_6b
-    const-string v1, "Copy Xml Quote"
+    move-result-object v0
 
-    :goto_6d
-    invoke-interface {p1, v1}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    new-instance v2, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$4;
 
-    move-result-object p1
-
-    new-instance v1, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$4;
-
-    invoke-direct {v1, p0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$4;-><init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;)V
+    invoke-direct {v2, p0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$4;-><init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;)V
 
     .line 146
-    invoke-interface {p1, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 157
-    :cond_79
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->show()V
+    :cond_0
+    invoke-virtual {v1}, Landroid/widget/PopupMenu;->show()V
 
     return-void
+
+    .line 113
+    :cond_1
+    const-string v0, "Copy name"
+
+    goto :goto_0
+
+    .line 123
+    :cond_2
+    const-string v0, "Copy id"
+
+    goto :goto_1
+
+    .line 133
+    :cond_3
+    const-string v0, "Copy java Quote"
+
+    goto :goto_2
+
+    .line 145
+    :cond_4
+    const-string v0, "Copy Xml Quote"
+
+    goto :goto_3
 .end method

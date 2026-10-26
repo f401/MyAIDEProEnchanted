@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/yt/plugin/WebActivity$MyWebChromeClient;)V
-    .registers 2
+    .locals 0
 
     .line 341
     iput-object p1, p0, Lcom/yt/plugin/WebActivity$MyWebChromeClient$1;->this$1:Lcom/yt/plugin/WebActivity$MyWebChromeClient;
@@ -36,32 +36,32 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .registers 3
+    .locals 2
 
     .line 345
-    iget-object p1, p0, Lcom/yt/plugin/WebActivity$MyWebChromeClient$1;->this$1:Lcom/yt/plugin/WebActivity$MyWebChromeClient;
+    iget-object v0, p0, Lcom/yt/plugin/WebActivity$MyWebChromeClient$1;->this$1:Lcom/yt/plugin/WebActivity$MyWebChromeClient;
 
-    iget-object p1, p1, Lcom/yt/plugin/WebActivity$MyWebChromeClient;->this$0:Lcom/yt/plugin/WebActivity;
+    iget-object v0, v0, Lcom/yt/plugin/WebActivity$MyWebChromeClient;->this$0:Lcom/yt/plugin/WebActivity;
 
-    invoke-static {p1}, Lcom/yt/plugin/WebActivity;->-$$Nest$fgetmProgressView(Lcom/yt/plugin/WebActivity;)Landroid/widget/LinearLayout;
+    invoke-static {v0}, Lcom/yt/plugin/WebActivity;->-$$Nest$fgetmProgressView(Lcom/yt/plugin/WebActivity;)Landroid/widget/LinearLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/16 v0, 0x8
+    const/16 v1, 0x8
 
-    invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

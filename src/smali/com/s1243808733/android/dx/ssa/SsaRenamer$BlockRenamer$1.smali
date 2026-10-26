@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;)V
-    .registers 2
+    .locals 0
 
     .line 633
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer$1;->this$1:Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public visitPhiInsn(Lcom/s1243808733/android/dx/ssa/PhiInsn;)V
-    .registers 5
+    .locals 3
 
     .line 638
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/PhiInsn;->getRopResultReg()I
@@ -52,12 +52,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_1
 
+    .line 654
+    :cond_0
+    :goto_0
     return-void
 
     .line 652
-    :cond_f
+    :cond_1
     iget-object v1, p0, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer$1;->this$1:Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;
 
     invoke-static {v1}, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;->-$$Nest$fgetcurrentMapping(Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;)[Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
@@ -79,7 +82,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2e
+    if-nez v1, :cond_0
 
     .line 654
     iget-object v1, p0, Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer$1;->this$1:Lcom/s1243808733/android/dx/ssa/SsaRenamer$BlockRenamer;
@@ -90,6 +93,5 @@
 
     invoke-virtual {p1, v0, v1}, Lcom/s1243808733/android/dx/ssa/PhiInsn;->addPhiOperand(Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;)V
 
-    :cond_2e
-    return-void
+    goto :goto_0
 .end method

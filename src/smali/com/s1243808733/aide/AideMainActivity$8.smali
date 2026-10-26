@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;)V
-    .registers 2
+    .locals 0
 
     .line 399
     iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$8;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 5
+    .locals 4
 
     .line 404
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$8;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -49,29 +49,29 @@
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    const-string v1, "j6"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
 
-    aput-object p1, v1, v2
+    const/4 v3, 0x0
 
-    const-string p1, "j6"
+    aput-object p1, v2, v3
 
-    invoke-virtual {v0, p1, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Boolean;
+    check-cast v0, Ljava/lang/Boolean;
 
-    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;II)V
-    .registers 5
+    .locals 1
 
     .line 16
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public a(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
 
     .line 20
     invoke-static {p1}, Lcom/baidu/mobstat/t;->a(Landroid/content/Context;)Lcom/baidu/mobstat/a;
@@ -40,13 +40,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
+    .line 32
+    :goto_0
     return-void
 
     .line 26
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_0
     const-string v0, "com.baidu.bottom.service.BottomService"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -67,21 +69,20 @@
 
     .line 30
     invoke-virtual {p1, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-    :try_end_20
-    .catchall {:try_start_b .. :try_end_20} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_29
+    goto :goto_0
 
-    :catchall_21
-    move-exception p1
+    :catchall_0
+    move-exception v0
 
     .line 32
     invoke-static {}, Lcom/baidu/mobstat/cw;->c()Lcom/baidu/mobstat/cw;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Lcom/baidu/mobstat/cw;->b(Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v0}, Lcom/baidu/mobstat/cw;->b(Ljava/lang/Throwable;)V
 
-    :goto_29
-    return-void
+    goto :goto_0
 .end method

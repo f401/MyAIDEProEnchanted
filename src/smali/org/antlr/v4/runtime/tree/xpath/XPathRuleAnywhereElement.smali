@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
 
     .line 20
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/tree/xpath/XPathElement;-><init>(Ljava/lang/String;)V
@@ -23,13 +23,14 @@
 
 # virtual methods
 .method public evaluate(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/util/Collection;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ")",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
         }
@@ -40,7 +41,7 @@
 
     invoke-static {p1, v0}, Lorg/antlr/v4/runtime/tree/Trees;->findAllRuleNodes(Lorg/antlr/v4/runtime/tree/ParseTree;I)Ljava/util/Collection;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

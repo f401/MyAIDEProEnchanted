@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,28 +41,28 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 3
 
     .line 76
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    iget-object p2, p0, Lcom/s1243808733/aide/util/QuickKey$3;->val$key:Ljava/lang/String;
-
-    invoke-static {p2}, Lcom/s1243808733/aide/util/QuickKey;->-$$Nest$smgetDefaultKey(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    invoke-interface {p1, p2, v0}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    iget-object v1, p0, Lcom/s1243808733/aide/util/QuickKey$3;->val$key:Ljava/lang/String;
 
-    move-result-object p1
+    invoke-static {v1}, Lcom/s1243808733/aide/util/QuickKey;->-$$Nest$smgetDefaultKey(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     .line 77
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->initQuickKey()V

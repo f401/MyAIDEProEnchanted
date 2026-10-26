@@ -14,9 +14,9 @@
 
 
 # static fields
-.field public static APKTOOL_DUMMY_6:I = 0x7f020006
+.field public static array_6:I = 0x7f020006
 
-.field public static APKTOOL_DUMMY_7:I = 0x7f020007
+.field public static array_7:I = 0x7f020007
 
 .field public static pref_autosave_entries:I = 0x7f020000
 
@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

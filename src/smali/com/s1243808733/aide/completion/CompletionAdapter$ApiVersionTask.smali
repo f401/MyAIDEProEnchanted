@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/aide/engine/SourceEntity;Ljava/lang/String;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;Landroid/view/View;)V
-    .registers 7
+    .locals 0
 
     .line 234
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,117 +60,118 @@
 .end method
 
 .method private execute()Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
-    .registers 7
+    .locals 6
 
-    .line 264
-    :try_start_0
-    iget-object v0, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->type:Ljava/lang/String;
+    const/4 v2, 0x2
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
-
-    move-result v1
-
-    const v2, -0x76d542ff
-
-    const/4 v3, 0x2
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    if-eq v1, v2, :cond_2d
-
-    const v2, 0x3e2b958
-
-    if-eq v1, v2, :cond_23
-
-    const v2, 0x40bb0da
-
-    if-eq v1, v2, :cond_19
-
-    goto :goto_37
-
-    :cond_19
-    const-string v1, "Field"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_37
-
-    const/4 v0, 0x1
-
-    goto :goto_38
-
-    :cond_23
-    const-string v1, "Class"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_37
+    const/4 v1, 0x1
 
     const/4 v0, 0x0
 
-    goto :goto_38
+    .line 264
+    :try_start_0
+    iget-object v3, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->type:Ljava/lang/String;
 
-    :cond_2d
-    const-string v1, "Method"
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v4
 
-    move-result v0
-    :try_end_33
-    .catchall {:try_start_0 .. :try_end_33} :catchall_8c
+    const v5, -0x76d542ff
 
-    if-eqz v0, :cond_37
+    if-eq v4, v5, :cond_3
 
-    const/4 v0, 0x2
+    const v5, 0x3e2b958
 
-    goto :goto_38
+    if-eq v4, v5, :cond_2
 
-    :cond_37
-    :goto_37
+    const v0, 0x40bb0da
+
+    if-eq v4, v0, :cond_1
+
+    :cond_0
     const/4 v0, -0x1
 
-    :goto_38
-    if-eqz v0, :cond_7b
+    :goto_0
+    if-eqz v0, :cond_6
 
-    const-string v1, "#"
+    if-eq v0, v1, :cond_5
 
-    const-string v2, ".html#"
+    if-eq v0, v2, :cond_4
 
-    if-eq v0, v4, :cond_61
+    .line 268
+    :goto_1
+    const/4 v0, 0x0
 
-    if-eq v0, v3, :cond_43
+    .line 282
+    :goto_2
+    return-object v0
 
-    goto :goto_8d
+    .line 264
+    :cond_1
+    const-string v0, "Field"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
+    const-string v4, "Class"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    goto :goto_0
+
+    :cond_3
+    const-string v0, "Method"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
 
     .line 280
-    :cond_43
-    :try_start_43
+    :cond_4
     iget-object v0, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->url:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, ".html#"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v2
 
-    invoke-virtual {v0, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
     .line 281
-    iget-object v2, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->url:Ljava/lang/String;
+    iget-object v1, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->url:Ljava/lang/String;
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    const-string v2, "#"
 
-    move-result v1
+    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    add-int/2addr v1, v4
+    move-result v2
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    add-int/lit8 v2, v2, 0x1
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -183,30 +184,36 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_2
 
     .line 273
-    :cond_61
+    :cond_5
     iget-object v0, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->url:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, ".html#"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v2
 
-    invoke-virtual {v0, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
     .line 274
-    iget-object v2, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->url:Ljava/lang/String;
+    iget-object v1, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->url:Ljava/lang/String;
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    const-string v2, "#"
 
-    move-result v1
+    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    add-int/2addr v1, v4
+    move-result v2
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    add-int/lit8 v2, v2, 0x1
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -215,42 +222,43 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_2
 
     .line 267
-    :cond_7b
+    :cond_6
     iget-object v0, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->url:Ljava/lang/String;
 
-    const-string v1, ".html"
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    const-string v2, ".html"
 
-    move-result v1
+    invoke-virtual {v0, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    invoke-virtual {v0, v5, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
     .line 268
     invoke-static {v0}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->findClass(Ljava/lang/String;)Lcom/s1243808733/aide/completion/apiversion/ClassApi;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
-    :try_end_8b
-    .catchall {:try_start_43 .. :try_end_8b} :catchall_8c
 
-    return-object v0
+    goto :goto_2
 
-    :catchall_8c
+    :catchall_0
     move-exception v0
 
-    :goto_8d
-    const/4 v0, 0x0
-
-    return-object v0
+    goto :goto_1
 .end method
 
 .method public static setTo(Landroid/widget/TextView;Lcom/s1243808733/aide/completion/apiversion/ApiInfo;)V
-    .registers 7
+    .locals 5
+
+    const/4 v4, 0x0
 
     .line 295
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCnFast()Z
@@ -266,7 +274,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_63
+    if-lez v1, :cond_1
 
     .line 297
     new-instance v1, Landroid/text/SpannableString;
@@ -286,8 +294,6 @@
 
     const/16 v3, 0x21
 
-    const/4 v4, 0x0
-
     invoke-virtual {v1, v0, v4, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
     .line 299
@@ -296,83 +302,83 @@
     .line 300
     invoke-virtual {p0}, Landroid/widget/TextView;->getParent()Landroid/view/ViewParent;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/view/View;
+    check-cast v0, Landroid/view/View;
 
     .line 301
-    invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_37
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p0, v4}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 303
-    :cond_37
+    :cond_0
     invoke-virtual {p1}, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->isRemoved()Z
 
-    move-result p1
+    move-result v1
 
-    if-eqz p1, :cond_63
+    if-eqz v1, :cond_1
 
     .line 304
-    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/view/ViewGroup;
+    check-cast v0, Landroid/view/ViewGroup;
 
     .line 305
     invoke-static {}, Lcom/s1243808733/aide/completion/CompletionAdapter;->-$$Nest$sfgetsIDHolder()Lcom/s1243808733/aide/completion/CompletionAdapter$IDHolder;
 
-    move-result-object p1
+    move-result-object v1
 
-    iget p1, p1, Lcom/s1243808733/aide/completion/CompletionAdapter$IDHolder;->completionEntryName:I
+    iget v1, v1, Lcom/s1243808733/aide/completion/CompletionAdapter$IDHolder;->completionEntryName:I
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/widget/TextView;
-
-    .line 307
-    invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/text/TextPaint;->getFlags()I
-
-    move-result p1
-
-    .line 310
-    invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    or-int/lit8 p1, p1, 0x10
+    check-cast v0, Landroid/widget/TextView;
 
-    invoke-virtual {v0, p1}, Landroid/text/TextPaint;->setFlags(I)V
+    .line 307
+    invoke-virtual {v0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/text/TextPaint;->getFlags()I
+
+    move-result v1
+
+    .line 310
+    invoke-virtual {v0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+
+    move-result-object v2
+
+    or-int/lit8 v1, v1, 0x10
+
+    invoke-virtual {v2, v1}, Landroid/text/TextPaint;->setFlags(I)V
 
     .line 311
-    invoke-virtual {p0}, Landroid/widget/TextView;->invalidate()V
+    invoke-virtual {v0}, Landroid/widget/TextView;->invalidate()V
 
-    :cond_63
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 245
     invoke-direct {p0}, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->execute()Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
 
     move-result-object v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 247
     invoke-static {}, Lorg/xutils/x;->task()Lorg/xutils/common/TaskController;
@@ -385,6 +391,6 @@
 
     invoke-interface {v1, v2}, Lorg/xutils/common/TaskController;->post(Ljava/lang/Runnable;)V
 
-    :cond_12
+    :cond_0
     return-void
 .end method

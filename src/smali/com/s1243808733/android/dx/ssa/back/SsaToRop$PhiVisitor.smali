@@ -21,7 +21,8 @@
 .field private final blocks:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;",
             ">;"
         }
@@ -31,11 +32,12 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/ArrayList;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;",
             ">;)V"
         }
@@ -53,55 +55,59 @@
 
 # virtual methods
 .method public visitPhiInsn(Lcom/s1243808733/android/dx/ssa/PhiInsn;)V
-    .registers 9
+    .locals 7
 
     .line 199
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/PhiInsn;->getSources()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    move-result-object v0
+    move-result-object v2
 
     .line 200
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/PhiInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object v1
+    move-result-object v3
 
     .line 201
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
-    move-result v2
+    move-result v4
 
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
-    :goto_d
-    if-ge v3, v2, :cond_25
+    move v1, v0
+
+    :goto_0
+    if-ge v1, v4, :cond_0
 
     .line 204
-    invoke-virtual {v0, v3}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v2, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object v4
+    move-result-object v5
 
     .line 205
-    iget-object v5, p0, Lcom/s1243808733/android/dx/ssa/back/SsaToRop$PhiVisitor;->blocks:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/SsaToRop$PhiVisitor;->blocks:Ljava/util/ArrayList;
 
     .line 206
-    invoke-virtual {p1, v3}, Lcom/s1243808733/android/dx/ssa/PhiInsn;->predBlockIndexForSourcesIndex(I)I
+    invoke-virtual {p1, v1}, Lcom/s1243808733/android/dx/ssa/PhiInsn;->predBlockIndexForSourcesIndex(I)I
 
     move-result v6
 
     .line 205
-    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v0
 
-    check-cast v5, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
+    check-cast v0, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
 
     .line 208
-    invoke-virtual {v5, v1, v4}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->addMoveToEnd(Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
+    invoke-virtual {v0, v3, v5}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->addMoveToEnd(Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_d
+    move v1, v0
 
-    :cond_25
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method

@@ -17,13 +17,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,89 +32,91 @@
 .end method
 
 .method private static a(Landroid/content/Context;)V
-    .registers 2
+    .locals 2
 
-    const-class p0, Lcom/baidu/mobstat/ActivityLifeTask;
+    const-class v0, Lcom/baidu/mobstat/ActivityLifeTask;
 
-    monitor-enter p0
+    monitor-enter v0
 
     .line 57
-    :try_start_3
-    new-instance p0, Lcom/baidu/mobstat/AutoTrack$MyActivityLifeCallback;
+    :try_start_0
+    new-instance v0, Lcom/baidu/mobstat/AutoTrack$MyActivityLifeCallback;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-direct {p0, v0}, Lcom/baidu/mobstat/AutoTrack$MyActivityLifeCallback;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/baidu/mobstat/AutoTrack$MyActivityLifeCallback;-><init>(I)V
 
-    sput-object p0, Lcom/baidu/mobstat/ActivityLifeTask;->b:Lcom/baidu/mobstat/ActivityLifeObserver$IActivityLifeCallback;
+    sput-object v0, Lcom/baidu/mobstat/ActivityLifeTask;->b:Lcom/baidu/mobstat/ActivityLifeObserver$IActivityLifeCallback;
 
     .line 58
-    new-instance p0, Lcom/baidu/mobstat/bz$a;
+    new-instance v0, Lcom/baidu/mobstat/bz$a;
 
-    invoke-direct {p0}, Lcom/baidu/mobstat/bz$a;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/bz$a;-><init>()V
 
-    sput-object p0, Lcom/baidu/mobstat/ActivityLifeTask;->d:Lcom/baidu/mobstat/ActivityLifeObserver$IActivityLifeCallback;
+    sput-object v0, Lcom/baidu/mobstat/ActivityLifeTask;->d:Lcom/baidu/mobstat/ActivityLifeObserver$IActivityLifeCallback;
 
     .line 59
-    new-instance p0, Lcom/baidu/mobstat/cq$a;
+    new-instance v0, Lcom/baidu/mobstat/cq$a;
 
-    invoke-direct {p0}, Lcom/baidu/mobstat/cq$a;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/cq$a;-><init>()V
 
-    sput-object p0, Lcom/baidu/mobstat/ActivityLifeTask;->c:Lcom/baidu/mobstat/ActivityLifeObserver$IActivityLifeCallback;
+    sput-object v0, Lcom/baidu/mobstat/ActivityLifeTask;->c:Lcom/baidu/mobstat/ActivityLifeObserver$IActivityLifeCallback;
 
     .line 60
-    new-instance p0, Lcom/baidu/mobstat/AutoTrack$MyActivityLifeCallback;
+    new-instance v0, Lcom/baidu/mobstat/AutoTrack$MyActivityLifeCallback;
 
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    invoke-direct {p0, v0}, Lcom/baidu/mobstat/AutoTrack$MyActivityLifeCallback;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/baidu/mobstat/AutoTrack$MyActivityLifeCallback;-><init>(I)V
 
-    sput-object p0, Lcom/baidu/mobstat/ActivityLifeTask;->e:Lcom/baidu/mobstat/ActivityLifeObserver$IActivityLifeCallback;
-    :try_end_21
-    .catchall {:try_start_3 .. :try_end_21} :catchall_25
+    sput-object v0, Lcom/baidu/mobstat/ActivityLifeTask;->e:Lcom/baidu/mobstat/ActivityLifeObserver$IActivityLifeCallback;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 61
-    const-class p0, Lcom/baidu/mobstat/ActivityLifeTask;
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_25
-    move-exception p0
-
     const-class v0, Lcom/baidu/mobstat/ActivityLifeTask;
 
     monitor-exit v0
 
-    throw p0
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    const-class v1, Lcom/baidu/mobstat/ActivityLifeTask;
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public static registerActivityLifeCallback(Landroid/content/Context;)V
-    .registers 3
+    .locals 2
 
     const-class v0, Lcom/baidu/mobstat/ActivityLifeTask;
 
     monitor-enter v0
 
     .line 24
-    :try_start_3
+    :try_start_0
     sget-boolean v0, Lcom/baidu/mobstat/ActivityLifeTask;->a:Z
-    :try_end_5
-    .catchall {:try_start_3 .. :try_end_5} :catchall_47
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 25
-    const-class p0, Lcom/baidu/mobstat/ActivityLifeTask;
+    const-class v0, Lcom/baidu/mobstat/ActivityLifeTask;
 
-    monitor-exit p0
+    monitor-exit v0
 
+    .line 54
+    :goto_0
     return-void
 
     .line 28
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_1
     invoke-static {p0}, Lcom/baidu/mobstat/ActivityLifeTask;->a(Landroid/content/Context;)V
 
     .line 31
@@ -168,25 +170,25 @@
     invoke-virtual {v0, p0}, Lcom/baidu/mobstat/ActivityLifeObserver;->registerActivityLifeCallback(Landroid/content/Context;)V
 
     .line 53
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    sput-boolean p0, Lcom/baidu/mobstat/ActivityLifeTask;->a:Z
-    :try_end_43
-    .catchall {:try_start_b .. :try_end_43} :catchall_47
+    sput-boolean v0, Lcom/baidu/mobstat/ActivityLifeTask;->a:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 54
-    const-class p0, Lcom/baidu/mobstat/ActivityLifeTask;
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_47
-    move-exception p0
-
     const-class v0, Lcom/baidu/mobstat/ActivityLifeTask;
 
     monitor-exit v0
 
-    throw p0
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    const-class v1, Lcom/baidu/mobstat/ActivityLifeTask;
+
+    monitor-exit v1
+
+    throw v0
 .end method

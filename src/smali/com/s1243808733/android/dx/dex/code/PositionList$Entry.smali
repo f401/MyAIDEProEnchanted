@@ -22,14 +22,14 @@
 
 # direct methods
 .method public constructor <init>(ILcom/s1243808733/android/dx/rop/code/SourcePosition;)V
-    .registers 3
+    .locals 2
 
     .line 161
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-ltz p1, :cond_14
+    if-ltz p1, :cond_1
 
-    if-eqz p2, :cond_c
+    if-eqz p2, :cond_0
 
     .line 170
     iput p1, p0, Lcom/s1243808733/android/dx/dex/code/PositionList$Entry;->address:I
@@ -40,30 +40,30 @@
     return-void
 
     .line 167
-    :cond_c
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "position == null"
+    const-string v1, "position == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 163
-    :cond_14
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "address < 0"
+    const-string v1, "address < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public getAddress()I
-    .registers 2
+    .locals 1
 
     .line 180
     iget v0, p0, Lcom/s1243808733/android/dx/dex/code/PositionList$Entry;->address:I
@@ -72,7 +72,7 @@
 .end method
 
 .method public getPosition()Lcom/s1243808733/android/dx/rop/code/SourcePosition;
-    .registers 2
+    .locals 1
 
     .line 189
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/PositionList$Entry;->position:Lcom/s1243808733/android/dx/rop/code/SourcePosition;

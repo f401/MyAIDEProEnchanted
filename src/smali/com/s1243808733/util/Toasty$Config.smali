@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 460
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public static getInstance()Lcom/s1243808733/util/Toasty$Config;
-    .registers 1
+    .locals 1
 
     .line 466
     new-instance v0, Lcom/s1243808733/util/Toasty$Config;
@@ -72,7 +72,9 @@
 .end method
 
 .method public static reset()V
-    .registers 1
+    .locals 2
+
+    const/4 v1, 0x1
 
     .line 470
     invoke-static {}, Lcom/s1243808733/util/Toasty;->-$$Nest$sfgetLOADED_TOAST_TYPEFACE()Landroid/graphics/Typeface;
@@ -87,12 +89,10 @@
     invoke-static {v0}, Lcom/s1243808733/util/Toasty;->-$$Nest$sfputtextSize(I)V
 
     .line 472
-    const/4 v0, 0x1
-
-    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->-$$Nest$sfputtintIcon(Z)V
+    invoke-static {v1}, Lcom/s1243808733/util/Toasty;->-$$Nest$sfputtintIcon(Z)V
 
     .line 473
-    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->-$$Nest$sfputallowQueue(Z)V
+    invoke-static {v1}, Lcom/s1243808733/util/Toasty;->-$$Nest$sfputallowQueue(Z)V
 
     return-void
 .end method
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public allowQueue(Z)Lcom/s1243808733/util/Toasty$Config;
-    .registers 2
+    .locals 0
 
     .line 496
     iput-boolean p1, p0, Lcom/s1243808733/util/Toasty$Config;->allowQueue:Z
@@ -109,7 +109,7 @@
 .end method
 
 .method public apply()V
-    .registers 2
+    .locals 1
 
     .line 501
     iget-object v0, p0, Lcom/s1243808733/util/Toasty$Config;->typeface:Landroid/graphics/Typeface;
@@ -135,7 +135,7 @@
 .end method
 
 .method public setTextSize(I)Lcom/s1243808733/util/Toasty$Config;
-    .registers 2
+    .locals 0
 
     .line 484
     iput p1, p0, Lcom/s1243808733/util/Toasty$Config;->textSize:I
@@ -144,7 +144,7 @@
 .end method
 
 .method public setToastTypeface(Landroid/graphics/Typeface;)Lcom/s1243808733/util/Toasty$Config;
-    .registers 2
+    .locals 0
 
     .line 478
     iput-object p1, p0, Lcom/s1243808733/util/Toasty$Config;->typeface:Landroid/graphics/Typeface;
@@ -153,7 +153,7 @@
 .end method
 
 .method public tintIcon(Z)Lcom/s1243808733/util/Toasty$Config;
-    .registers 2
+    .locals 0
 
     .line 490
     iput-boolean p1, p0, Lcom/s1243808733/util/Toasty$Config;->tintIcon:Z

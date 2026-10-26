@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Lorg/ahocorasick/interval/Intervalable;",
         ">;"
     }
@@ -19,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +31,7 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 5
     check-cast p1, Lorg/ahocorasick/interval/Intervalable;
@@ -39,13 +40,13 @@
 
     invoke-virtual {p0, p1, p2}, Lorg/ahocorasick/interval/IntervalableComparatorBySize;->compare(Lorg/ahocorasick/interval/Intervalable;Lorg/ahocorasick/interval/Intervalable;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public compare(Lorg/ahocorasick/interval/Intervalable;Lorg/ahocorasick/interval/Intervalable;)I
-    .registers 5
+    .locals 2
 
     .line 9
     invoke-interface {p2}, Lorg/ahocorasick/interval/Intervalable;->size()I
@@ -58,19 +59,19 @@
 
     sub-int/2addr v0, v1
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 11
     invoke-interface {p1}, Lorg/ahocorasick/interval/Intervalable;->getStart()I
 
-    move-result p1
+    move-result v0
 
     invoke-interface {p2}, Lorg/ahocorasick/interval/Intervalable;->getStart()I
 
-    move-result p2
+    move-result v1
 
-    sub-int v0, p1, p2
+    sub-int/2addr v0, v1
 
-    :cond_15
+    :cond_0
     return v0
 .end method

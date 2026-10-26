@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/cf;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
 
     .line 47
     iput-object p1, p0, Lcom/baidu/mobstat/cf$1;->a:Lcom/baidu/mobstat/cf;
@@ -33,37 +33,38 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 3
+    .locals 2
 
     .line 51
-    iget p1, p1, Landroid/os/Message;->what:I
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    const/16 v0, 0x64
+    const/16 v1, 0x64
 
-    if-eq p1, v0, :cond_7
-
-    goto :goto_18
-
-    .line 53
-    :cond_7
-    iget-object p1, p0, Lcom/baidu/mobstat/cf$1;->a:Lcom/baidu/mobstat/cf;
-
-    invoke-static {p1}, Lcom/baidu/mobstat/cf;->a(Lcom/baidu/mobstat/cf;)Lcom/baidu/mobstat/cf$a;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_18
+    if-eq v0, v1, :cond_1
 
     .line 54
-    iget-object p1, p0, Lcom/baidu/mobstat/cf$1;->a:Lcom/baidu/mobstat/cf;
-
-    invoke-static {p1}, Lcom/baidu/mobstat/cf;->a(Lcom/baidu/mobstat/cf;)Lcom/baidu/mobstat/cf$a;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Lcom/baidu/mobstat/cf$a;->a()V
-
-    :cond_18
-    :goto_18
+    :cond_0
+    :goto_0
     return-void
+
+    .line 53
+    :cond_1
+    iget-object v0, p0, Lcom/baidu/mobstat/cf$1;->a:Lcom/baidu/mobstat/cf;
+
+    invoke-static {v0}, Lcom/baidu/mobstat/cf;->a(Lcom/baidu/mobstat/cf;)Lcom/baidu/mobstat/cf$a;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 54
+    iget-object v0, p0, Lcom/baidu/mobstat/cf$1;->a:Lcom/baidu/mobstat/cf;
+
+    invoke-static {v0}, Lcom/baidu/mobstat/cf;->a(Lcom/baidu/mobstat/cf;)Lcom/baidu/mobstat/cf$a;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/baidu/mobstat/cf$a;->a()V
+
+    goto :goto_0
 .end method

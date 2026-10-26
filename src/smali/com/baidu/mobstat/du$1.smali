@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/dx;)V
-    .registers 2
+    .locals 0
 
     .line 18
     iput-object p1, p0, Lcom/baidu/mobstat/du$1;->a:Lcom/baidu/mobstat/dx;
@@ -36,54 +36,56 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 3
+    .locals 2
 
     .line 23
     :try_start_0
     invoke-static {p2}, Lcom/baidu/mobstat/dz$a;->a(Landroid/os/IBinder;)Lcom/baidu/mobstat/dz;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 24
-    invoke-interface {p1}, Lcom/baidu/mobstat/dz;->a()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/baidu/mobstat/dz;->a()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p2
+    move-result v1
 
-    if-nez p2, :cond_1e
+    if-nez v1, :cond_0
 
     .line 25
-    iget-object p2, p0, Lcom/baidu/mobstat/du$1;->a:Lcom/baidu/mobstat/dx;
+    iget-object v1, p0, Lcom/baidu/mobstat/du$1;->a:Lcom/baidu/mobstat/dx;
 
-    if-eqz p2, :cond_1e
+    if-eqz v1, :cond_0
 
     .line 26
-    invoke-interface {p1}, Lcom/baidu/mobstat/dz;->a()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/baidu/mobstat/dz;->a()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p2, p1}, Lcom/baidu/mobstat/dx;->a(Ljava/lang/String;)V
-    :try_end_19
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_19} :catch_1a
-
-    goto :goto_1e
-
-    :catch_1a
-    move-exception p1
+    invoke-interface {v1, v0}, Lcom/baidu/mobstat/dx;->a(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 30
-    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
-
-    :cond_1e
-    :goto_1e
+    :cond_0
+    :goto_0
     return-void
+
+    .line 26
+    :catch_0
+    move-exception v0
+
+    .line 30
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

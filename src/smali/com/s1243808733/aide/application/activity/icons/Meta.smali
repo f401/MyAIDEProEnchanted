@@ -11,7 +11,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -61,7 +62,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -75,7 +77,8 @@
 
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -91,7 +94,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -123,11 +126,12 @@
 
 # virtual methods
 .method public getAliases()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -140,7 +144,7 @@
 .end method
 
 .method public getAuthor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 126
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->author:Ljava/lang/String;
@@ -149,7 +153,7 @@
 .end method
 
 .method public getBaseIconId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 54
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->baseIconId:Ljava/lang/String;
@@ -158,7 +162,7 @@
 .end method
 
 .method public getCodepoint()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 72
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->codepoint:Ljava/lang/String;
@@ -167,7 +171,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 45
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->id:Ljava/lang/String;
@@ -176,7 +180,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 63
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->name:Ljava/lang/String;
@@ -185,11 +189,12 @@
 .end method
 
 .method public getStyles()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -202,11 +207,12 @@
 .end method
 
 .method public getTags()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -219,7 +225,7 @@
 .end method
 
 .method public getVersion()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 99
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->version:Ljava/lang/String;
@@ -228,7 +234,7 @@
 .end method
 
 .method public isDeprecated()Z
-    .registers 2
+    .locals 1
 
     .line 108
     iget-boolean v0, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->deprecated:Z
@@ -237,11 +243,12 @@
 .end method
 
 .method public setAliases(Ljava/util/List;)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)",
             "Lcom/s1243808733/aide/application/activity/icons/Meta;"
@@ -255,7 +262,7 @@
 .end method
 
 .method public setAuthor(Ljava/lang/String;)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
 
     .line 121
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->author:Ljava/lang/String;
@@ -264,7 +271,7 @@
 .end method
 
 .method public setBaseIconId(Ljava/lang/String;)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
 
     .line 49
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->baseIconId:Ljava/lang/String;
@@ -273,7 +280,7 @@
 .end method
 
 .method public setCodepoint(Ljava/lang/String;)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
 
     .line 67
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->codepoint:Ljava/lang/String;
@@ -282,7 +289,7 @@
 .end method
 
 .method public setDeprecated(Z)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
 
     .line 103
     iput-boolean p1, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->deprecated:Z
@@ -291,7 +298,7 @@
 .end method
 
 .method public setId(Ljava/lang/String;)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
 
     .line 40
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->id:Ljava/lang/String;
@@ -300,7 +307,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
 
     .line 58
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->name:Ljava/lang/String;
@@ -309,11 +316,12 @@
 .end method
 
 .method public setStyles(Ljava/util/List;)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)",
             "Lcom/s1243808733/aide/application/activity/icons/Meta;"
@@ -327,11 +335,12 @@
 .end method
 
 .method public setTags(Ljava/util/List;)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)",
             "Lcom/s1243808733/aide/application/activity/icons/Meta;"
@@ -345,7 +354,7 @@
 .end method
 
 .method public setVersion(Ljava/lang/String;)Lcom/s1243808733/aide/application/activity/icons/Meta;
-    .registers 2
+    .locals 0
 
     .line 94
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Meta;->version:Ljava/lang/String;

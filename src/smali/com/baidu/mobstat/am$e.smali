@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(IILjava/lang/Exception;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,21 +37,21 @@
 .end method
 
 .method public static a()Lcom/baidu/mobstat/am$e;
-    .registers 3
+    .locals 3
+
+    const/4 v2, 0x0
 
     new-instance v0, Lcom/baidu/mobstat/am$e;
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v1, v2}, Lcom/baidu/mobstat/am$e;-><init>(IILjava/lang/Exception;)V
+    invoke-direct {v0, v2, v2, v1}, Lcom/baidu/mobstat/am$e;-><init>(IILjava/lang/Exception;)V
 
     return-object v0
 .end method
 
 .method public static a(I)Lcom/baidu/mobstat/am$e;
-    .registers 4
+    .locals 3
 
     new-instance v0, Lcom/baidu/mobstat/am$e;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public static b()Lcom/baidu/mobstat/am$e;
-    .registers 1
+    .locals 1
 
     const/4 v0, 0x0
 

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxInstaller$2;)V
-    .registers 2
+    .locals 0
 
     .line 140
     iput-object p1, p0, Lcom/termux/app/TermuxInstaller$2$1;->this$0:Lcom/termux/app/TermuxInstaller$2;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .line 143
     iget-object v0, p0, Lcom/termux/app/TermuxInstaller$2$1;->this$0:Lcom/termux/app/TermuxInstaller$2;

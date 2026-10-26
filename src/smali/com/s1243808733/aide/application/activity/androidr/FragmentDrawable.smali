@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 16
     invoke-direct {p0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;-><init>()V
@@ -26,12 +26,12 @@
 
 # virtual methods
 .method public getClazz()Ljava/lang/Class;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/lang/Class<",
-            "*>;"
+            "Ljava/lang/Class",
+            "<*>;"
         }
     .end annotation
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public onCreateAdapter(Landroid/os/Bundle;)Lcom/s1243808733/aide/application/activity/androidr/BaseRBaseAdapter;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -51,9 +51,9 @@
     .end annotation
 
     .line 20
-    new-instance p1, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 21
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable;->getClazz()Ljava/lang/Class;
@@ -62,57 +62,57 @@
 
     invoke-virtual {v0}, Ljava/lang/Class;->getFields()[Ljava/lang/reflect/Field;
 
-    move-result-object v0
+    move-result-object v2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 22
-    :goto_e
-    array-length v2, v0
+    :goto_0
+    array-length v3, v2
 
-    if-ge v1, v2, :cond_2b
+    if-ge v0, v3, :cond_0
 
     .line 23
-    aget-object v2, v0, v1
+    aget-object v3, v2, v0
 
     .line 24
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {v2, v3}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+    invoke-virtual {v3, v4}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
     .line 25
-    invoke-virtual {v2}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 26
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {v2, v4}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
+    invoke-virtual {v3, v5}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
 
-    move-result v2
+    move-result v3
 
     .line 27
-    new-instance v4, Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;
+    new-instance v5, Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;
 
-    invoke-direct {v4, v3, v2}, Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v4, v3}, Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;-><init>(Ljava/lang/String;I)V
 
     .line 28
-    invoke-interface {p1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 30
-    :cond_2b
+    :cond_0
     new-instance v0, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;
 
     invoke-virtual {p0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, p0, v1, p1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;-><init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable;Landroid/content/Context;Ljava/util/List;)V
+    invoke-direct {v0, p0, v2, v1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;-><init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable;Landroid/content/Context;Ljava/util/List;)V
 
     return-object v0
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Landroid/widget/LinearLayout;Landroid/widget/TextView;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,37 +49,38 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .registers 4
+    .locals 3
 
-    const/16 p1, 0x8
+    const/16 v2, 0x8
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    if-eqz p2, :cond_10
+    if-eqz p2, :cond_0
 
     .line 458
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$10;->val$view2:Landroid/widget/LinearLayout;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$10;->val$view2:Landroid/widget/LinearLayout;
 
-    invoke-virtual {p2, p1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     .line 459
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$10;->val$tips:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$10;->val$tips:Landroid/widget/TextView;
 
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
-
-    goto :goto_1a
-
-    .line 461
-    :cond_10
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$10;->val$view2:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p2, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 462
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$10;->val$tips:Landroid/widget/TextView;
-
-    invoke-virtual {p2, p1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :goto_1a
+    :goto_0
     return-void
+
+    .line 461
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$10;->val$view2:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    .line 462
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$10;->val$tips:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_0
 .end method

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 24
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/cst/Constant;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public final getBasicFrameType()I
-    .registers 2
+    .locals 1
 
     .line 45
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/TypedConstant;->getType()Lcom/s1243808733/android/dx/rop/type/Type;
@@ -34,7 +34,7 @@
 .end method
 
 .method public final getBasicType()I
-    .registers 2
+    .locals 1
 
     .line 39
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/TypedConstant;->getType()Lcom/s1243808733/android/dx/rop/type/Type;
@@ -49,13 +49,13 @@
 .end method
 
 .method public final getFrameType()Lcom/s1243808733/android/dx/rop/type/TypeBearer;
-    .registers 1
+    .locals 0
 
     return-object p0
 .end method
 
 .method public final isConstant()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 

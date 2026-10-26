@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$10;Ljava/io/File;Landroid/widget/EditText;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,38 +49,38 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 2
 
     .line 498
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$10$1;->val$finalGradleCompleFile:Ljava/io/File;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$10$1;->val$finalGradleCompleFile:Ljava/io/File;
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$10$1;->val$luaedit:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$10$1;->val$luaedit:Landroid/widget/EditText;
 
     .line 499
-    invoke-virtual {p2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
     .line 498
-    invoke-static {p1, p2}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/io/File;Ljava/lang/String;)Z
+    invoke-static {v0, v1}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/io/File;Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_1b
+    if-nez v0, :cond_0
 
     .line 500
-    const-string p1, "failed"
+    const-string v0, "failed"
 
-    invoke-static {p1}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
+    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    :cond_1b
+    :cond_0
     return-void
 .end method

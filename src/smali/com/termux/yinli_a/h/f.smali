@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Iterator<",
+        "Ljava/util/Iterator",
+        "<",
         "Ljava/lang/Integer;",
         ">;"
     }
@@ -19,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -32,7 +33,7 @@
 .end method
 
 .method public final next()Ljava/lang/Integer;
-    .registers 2
+    .locals 1
 
     invoke-virtual {p0}, Lcom/termux/yinli_a/h/f;->a()I
 
@@ -46,7 +47,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     invoke-virtual {p0}, Lcom/termux/yinli_a/h/f;->next()Ljava/lang/Integer;
 
@@ -56,7 +57,7 @@
 .end method
 
 .method public remove()V
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/os/AsyncTask<",
+        "Landroid/os/AsyncTask",
+        "<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
         "Landroid/graphics/drawable/Drawable;",
@@ -28,7 +29,8 @@
 .field private static iconMaps:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Landroid/graphics/drawable/Drawable;",
             ">;"
@@ -45,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 445
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
@@ -58,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/ImageView;Ljava/io/File;)V
-    .registers 3
+    .locals 0
 
     .line 447
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -73,28 +75,31 @@
 .end method
 
 .method private getAppIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .registers 2
+    .locals 1
 
     .line 474
     :try_start_0
     invoke-static {p1}, Lcom/blankj/utilcode/util/AppUtils;->getAppIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object p1
-    :try_end_4
-    .catchall {:try_start_0 .. :try_end_4} :catchall_5
+    move-result-object v0
 
-    return-object p1
+    :goto_0
+    return-object v0
 
-    :catchall_5
-    move-exception p1
+    :catchall_0
+    move-exception v0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method private getProjectAppIcon()Landroid/graphics/drawable/Drawable;
-    .registers 7
+    .locals 6
+
+    const/4 v1, 0x0
 
     .line 536
     iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
@@ -103,47 +108,47 @@
 
     move-result v0
 
-    const-string v1, "AndroidManifest.xml"
-
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 537
     new-instance v0, Ljava/io/File;
 
-    iget-object v2, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+    iget-object v1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
-    invoke-direct {v0, v2, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    const-string v2, "AndroidManifest.xml"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 538
     invoke-static {v0}, Lcom/s1243808733/aide/util/ProjectUtils;->getAppIconFromManifest(Ljava/io/File;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
+    .line 606
+    :goto_0
     return-object v0
 
     .line 542
-    :cond_16
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
     invoke-static {v0}, Lcom/s1243808733/aide/util/ProjectUtils;->isJavaProject(Ljava/io/File;)Z
 
     move-result v0
 
-    const/4 v2, 0x0
-
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_1
 
     .line 544
-    :try_start_1f
+    :try_start_0
     new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->getApp()Landroid/app/Application;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/app/Application;->getAssets()Landroid/content/res/AssetManager;
+    invoke-virtual {v2}, Landroid/app/Application;->getAssets()Landroid/content/res/AssetManager;
 
-    move-result-object v1
+    move-result-object v2
 
     const-string v3, "java_project.png"
 
@@ -151,118 +156,122 @@
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+    invoke-virtual {v2, v3}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v1}, Lcom/blankj/utilcode/util/ImageUtils;->getBitmap(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ImageUtils;->getBitmap(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
-    :try_end_3a
-    .catch Ljava/io/IOException; {:try_start_1f .. :try_end_3a} :catch_3b
+    invoke-direct {v0, v2}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    goto :goto_0
 
-    :catch_3b
+    :catch_0
     move-exception v0
 
-    return-object v2
+    move-object v0, v1
+
+    goto :goto_0
 
     .line 552
-    :cond_3d
+    :cond_1
     new-instance v0, Ljava/io/File;
 
-    iget-object v3, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+    iget-object v2, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
-    invoke-direct {v0, v3, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    const-string v3, "AndroidManifest.xml"
+
+    invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 553
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_5e
+    if-eqz v2, :cond_2
 
-    new-instance v1, Ljava/io/File;
+    new-instance v2, Ljava/io/File;
 
     iget-object v3, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
     const-string v4, "apktool.json"
 
-    invoke-direct {v1, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v2, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 554
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_5e
+    if-eqz v2, :cond_2
 
     .line 555
     invoke-static {v0}, Lcom/s1243808733/aide/util/ProjectUtils;->getAppIconFromManifest(Ljava/io/File;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 560
-    :cond_5e
+    :cond_2
     new-instance v0, Ljava/io/File;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+    iget-object v2, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
     const-string v3, "settings.gradle"
 
-    invoke-direct {v0, v1, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 561
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_102
+    if-eqz v2, :cond_7
 
     .line 563
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 565
     invoke-static {v0}, Lcom/blankj/utilcode/util/FileIOUtils;->readFile2List(Ljava/io/File;)Ljava/util/List;
 
     move-result-object v0
 
-    if-eqz v0, :cond_b7
+    if-eqz v0, :cond_4
 
     .line 567
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_b7
+    if-nez v3, :cond_4
 
     .line 568
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :cond_82
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_b7
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v3
 
-    check-cast v3, Ljava/lang/String;
+    :cond_3
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
 
     .line 570
-    invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v4
 
@@ -272,7 +281,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_82
+    if-eqz v4, :cond_3
 
     .line 571
     const-string v4, "(?<=\':).*(?=\')|(?<=\":).*(?=\")"
@@ -282,34 +291,34 @@
     move-result-object v4
 
     .line 572
-    invoke-virtual {v4, v3}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    invoke-virtual {v4, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 573
-    invoke-virtual {v3}, Ljava/util/regex/Matcher;->find()Z
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v4
 
-    if-eqz v4, :cond_82
+    if-eqz v4, :cond_3
 
     .line 574
-    invoke-virtual {v3}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 575
-    invoke-static {v3}, Lcom/blankj/utilcode/util/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Lcom/blankj/utilcode/util/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-nez v4, :cond_82
+    if-nez v4, :cond_3
 
     .line 576
-    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 588
-    :cond_b7
+    :cond_4
     iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
     new-instance v3, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask$1;
@@ -320,86 +329,88 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_ce
+    if-eqz v0, :cond_5
 
     .line 595
     array-length v3, v0
 
-    if-lez v3, :cond_ce
+    if-lez v3, :cond_5
 
     .line 596
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     .line 600
-    :cond_ce
-    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    :cond_5
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_6
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :cond_d2
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_102
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 601
     new-instance v3, Ljava/io/File;
 
     iget-object v4, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
-    invoke-direct {v3, v4, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v3, v4, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 603
     invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_d2
+    if-eqz v0, :cond_6
 
     .line 604
     invoke-static {v3}, Lcom/s1243808733/aide/util/ProjectUtils;->getAndroidManifest(Ljava/io/File;)Ljava/io/File;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_d2
+    if-eqz v0, :cond_6
 
     .line 605
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v3
 
-    if-eqz v3, :cond_d2
+    if-eqz v3, :cond_6
 
-    invoke-virtual {v1}, Ljava/io/File;->isFile()Z
+    invoke-virtual {v0}, Ljava/io/File;->isFile()Z
 
     move-result v3
 
-    if-eqz v3, :cond_d2
+    if-eqz v3, :cond_6
 
     .line 606
-    invoke-static {v1}, Lcom/s1243808733/aide/util/ProjectUtils;->getAppIconFromManifest(Ljava/io/File;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0}, Lcom/s1243808733/aide/util/ProjectUtils;->getAppIconFromManifest(Ljava/io/File;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    return-object v0
+    goto/16 :goto_0
 
-    :cond_102
-    return-object v2
+    :cond_7
+    move-object v0, v1
+
+    goto/16 :goto_0
 .end method
 
 .method public static setIcon(Landroid/widget/ImageView;Ljava/io/File;)V
-    .registers 6
+    .locals 4
 
     .line 453
     invoke-virtual {p0}, Landroid/widget/ImageView;->getContext()Landroid/content/Context;
@@ -421,7 +432,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4d
+    if-nez v0, :cond_0
 
     .line 456
     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -446,12 +457,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_1
 
-    goto :goto_4d
+    .line 459
+    :cond_0
+    invoke-static {}, Lcom/blankj/utilcode/util/AppUtils;->getAppIcon()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 467
+    :goto_0
+    return-void
 
     .line 462
-    :cond_2f
+    :cond_1
     sget-object v0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->iconMaps:Ljava/util/Map;
 
     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -464,188 +485,179 @@
 
     check-cast v0, Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_49
+    if-nez v0, :cond_2
 
     .line 464
     new-instance v0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;
 
     invoke-direct {v0, p0, p1}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;-><init>(Landroid/widget/ImageView;Ljava/io/File;)V
 
-    const/4 p0, 0x0
+    const/4 v1, 0x0
 
-    new-array p0, p0, [Ljava/lang/Void;
+    new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, p0}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    goto :goto_4c
+    goto :goto_0
 
     .line 467
-    :cond_49
+    :cond_2
     invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :goto_4c
-    return-void
-
-    .line 459
-    :cond_4d
-    :goto_4d
-    invoke-static {}, Lcom/blankj/utilcode/util/AppUtils;->getAppIcon()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    return-void
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected doInBackground([Ljava/lang/Void;)Landroid/graphics/drawable/Drawable;
-    .registers 6
+    .locals 5
+
+    const/4 v2, 0x0
 
     .line 490
-    iget-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+    iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
-    invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_31
-
-    iget-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
-
-    invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v0, "."
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result p1
-
-    const/4 v0, -0x1
-
-    if-eq p1, v0, :cond_31
-
-    iget-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
-
-    invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result p1
-
-    const/4 v0, 0x3
-
-    if-lt p1, v0, :cond_31
-
-    .line 491
-    iget-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
-
-    invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->getAppIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_31
-
-    return-object p1
-
-    .line 495
-    :cond_31
-    iget-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
-
-    invoke-virtual {p1}, Ljava/io/File;->getParentFile()Ljava/io/File;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_51
-
-    .line 496
-    invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
+    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
     move-result v0
 
-    if-eqz v0, :cond_51
+    if-eqz v0, :cond_1
 
-    .line 497
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+
+    invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v0
 
+    const-string v1, "."
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_1
+
+    iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+
+    invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    const/4 v1, 0x3
+
+    if-lt v0, v1, :cond_1
+
+    .line 491
+    iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+
+    invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->getAppIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    .line 527
+    :cond_0
+    :goto_0
+    return-object v0
+
+    .line 495
+    :cond_1
+    iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+
+    invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    .line 496
+    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 497
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_69
+    if-nez v1, :cond_3
 
     .line 498
-    :cond_51
-    const-string v0, "/sdcard"
+    :cond_2
+    const-string v1, "/sdcard"
 
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    .line 499
+    const-string v1, "/mnt/sdcard"
+
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_69
+    if-eqz v0, :cond_6
 
-    .line 499
-    const-string v0, "/mnt/sdcard"
-
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_99
-
-    :cond_69
-    const/4 p1, 0x0
-
-    const/4 v0, 0x0
+    :cond_3
+    move v1, v2
 
     .line 504
-    :goto_6b
-    sget-object v1, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter;->SDCARD_DIR:[[Ljava/lang/String;
+    :goto_1
+    sget-object v0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter;->SDCARD_DIR:[[Ljava/lang/String;
 
-    array-length v1, v1
+    array-length v0, v0
 
-    if-ge v0, v1, :cond_99
+    if-ge v1, v0, :cond_6
 
     .line 505
-    sget-object v1, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter;->SDCARD_DIR:[[Ljava/lang/String;
+    sget-object v0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter;->SDCARD_DIR:[[Ljava/lang/String;
 
-    aget-object v1, v1, v0
+    aget-object v4, v0, v1
 
     .line 506
-    array-length v2, v1
+    array-length v0, v4
 
     const/4 v3, 0x2
 
-    if-lt v2, v3, :cond_96
+    if-lt v0, v3, :cond_5
 
-    aget-object v2, v1, p1
+    aget-object v0, v4, v2
 
     iget-object v3, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
@@ -653,100 +665,104 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_96
+    if-eqz v0, :cond_5
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
     .line 507
-    :goto_87
-    array-length v3, v1
+    :goto_2
+    array-length v3, v4
 
-    if-ge v2, v3, :cond_96
+    if-ge v0, v3, :cond_5
 
     .line 508
-    aget-object v3, v1, v2
+    aget-object v3, v4, v0
 
     .line 509
     invoke-direct {p0, v3}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->getAppIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
-    if-eqz v3, :cond_93
+    if-eqz v3, :cond_4
 
-    return-object v3
+    move-object v0, v3
 
-    :cond_93
-    add-int/lit8 v2, v2, 0x1
+    goto :goto_0
 
-    goto :goto_87
-
-    :cond_96
+    :cond_4
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6b
+    goto :goto_2
+
+    :cond_5
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    goto :goto_1
 
     .line 521
-    :cond_99
-    iget-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+    :cond_6
+    iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
-    invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
+    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_a8
+    if-eqz v0, :cond_7
 
     .line 522
     invoke-direct {p0}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->getProjectAppIcon()Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_ad
-
-    return-object p1
+    if-nez v0, :cond_0
 
     .line 527
-    :cond_a8
-    iget-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
+    :goto_3
+    const/4 v0, 0x0
 
-    invoke-virtual {p1}, Ljava/io/File;->isFile()Z
+    goto :goto_0
 
-    :cond_ad
-    const/4 p1, 0x0
+    :cond_7
+    iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->file:Ljava/io/File;
 
-    return-object p1
+    invoke-virtual {v0}, Ljava/io/File;->isFile()Z
+
+    goto :goto_3
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 442
     check-cast p1, [Ljava/lang/Void;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->doInBackground([Ljava/lang/Void;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method protected onPostExecute(Landroid/graphics/drawable/Drawable;)V
-    .registers 5
+    .locals 4
 
     .line 619
     invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    if-eqz p1, :cond_42
+    if-eqz p1, :cond_0
 
     .line 621
     invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_0
 
     .line 622
     invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter;->getListView()Landroid/widget/ListView;
@@ -765,7 +781,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_0
 
     .line 624
     sget-object v1, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;->iconMaps:Ljava/util/Map;
@@ -782,38 +798,38 @@
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 626
-    const/4 p1, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v0, p1}, Landroidx/core/view/ViewCompat;->setAlpha(Landroid/view/View;F)V
+    invoke-static {v0, v1}, Landroidx/core/view/ViewCompat;->setAlpha(Landroid/view/View;F)V
 
     .line 627
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->animate(Landroid/view/View;)Landroidx/core/view/ViewPropertyAnimatorCompat;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 628
-    const/high16 v0, 0x3f800000  # 1.0f
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-virtual {p1, v0}, Landroidx/core/view/ViewPropertyAnimatorCompat;->alpha(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
+    invoke-virtual {v0, v1}, Landroidx/core/view/ViewPropertyAnimatorCompat;->alpha(F)Landroidx/core/view/ViewPropertyAnimatorCompat;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 629
-    const-wide/16 v0, 0x64
+    const-wide/16 v2, 0x64
 
-    invoke-virtual {p1, v0, v1}, Landroidx/core/view/ViewPropertyAnimatorCompat;->setDuration(J)Landroidx/core/view/ViewPropertyAnimatorCompat;
+    invoke-virtual {v0, v2, v3}, Landroidx/core/view/ViewPropertyAnimatorCompat;->setDuration(J)Landroidx/core/view/ViewPropertyAnimatorCompat;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 630
-    invoke-virtual {p1}, Landroidx/core/view/ViewPropertyAnimatorCompat;->start()V
+    invoke-virtual {v0}, Landroidx/core/view/ViewPropertyAnimatorCompat;->start()V
 
-    :cond_42
+    :cond_0
     return-void
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
 
     .line 442
     check-cast p1, Landroid/graphics/drawable/Drawable;
@@ -824,7 +840,7 @@
 .end method
 
 .method protected onPreExecute()V
-    .registers 3
+    .locals 2
 
     .line 483
     invoke-super {p0}, Landroid/os/AsyncTask;->onPreExecute()V

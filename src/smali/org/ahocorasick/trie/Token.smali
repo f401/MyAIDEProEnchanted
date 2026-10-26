@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public getFragment()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 12
     iget-object v0, p0, Lorg/ahocorasick/trie/Token;->fragment:Ljava/lang/String;

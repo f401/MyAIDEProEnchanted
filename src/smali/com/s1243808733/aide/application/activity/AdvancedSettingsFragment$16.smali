@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 601
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$16;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
 
     .line 605
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    sput-object p1, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->db:Lorg/xutils/DbManager;
+    sput-object v0, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->db:Lorg/xutils/DbManager;
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method

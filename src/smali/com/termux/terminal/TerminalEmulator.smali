@@ -163,7 +163,8 @@
 .field private final mTitleStack:Ljava/util/Stack;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Stack<",
+            "Ljava/util/Stack",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -187,7 +188,9 @@
 
 # direct methods
 .method public constructor <init>(Lcom/termux/terminal/TerminalOutput;III)V
-    .registers 7
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 281
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -200,45 +203,43 @@
     iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
 
     .line 136
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
 
     .line 159
-    const/16 v1, 0x10
+    const/16 v0, 0x10
 
-    new-array v1, v1, [I
+    new-array v0, v0, [I
 
-    iput-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
+    iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
 
     .line 162
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iput-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
+    iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
 
     .line 173
-    new-instance v1, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    new-instance v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    invoke-direct {v1}, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;-><init>()V
+    invoke-direct {v0}, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;-><init>()V
 
-    iput-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
     .line 174
-    new-instance v1, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    new-instance v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    invoke-direct {v1}, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;-><init>()V
+    invoke-direct {v0}, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;-><init>()V
 
-    iput-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
     .line 177
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
+    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
 
     .line 222
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScrollCounter:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mScrollCounter:I
 
     .line 225
     const/4 v0, 0x4
@@ -258,20 +259,20 @@
     iput-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
     .line 283
-    new-instance p1, Lcom/termux/terminal/TerminalBuffer;
+    new-instance v0, Lcom/termux/terminal/TerminalBuffer;
 
-    invoke-direct {p1, p2, p4, p3}, Lcom/termux/terminal/TerminalBuffer;-><init>(III)V
+    invoke-direct {v0, p2, p4, p3}, Lcom/termux/terminal/TerminalBuffer;-><init>(III)V
 
-    iput-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mMainBuffer:Lcom/termux/terminal/TerminalBuffer;
+    iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mMainBuffer:Lcom/termux/terminal/TerminalBuffer;
 
-    iput-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
     .line 284
-    new-instance p1, Lcom/termux/terminal/TerminalBuffer;
+    new-instance v0, Lcom/termux/terminal/TerminalBuffer;
 
-    invoke-direct {p1, p2, p3, p3}, Lcom/termux/terminal/TerminalBuffer;-><init>(III)V
+    invoke-direct {v0, p2, p3, p3}, Lcom/termux/terminal/TerminalBuffer;-><init>(III)V
 
-    iput-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
+    iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
 
     .line 285
     iput p3, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
@@ -280,9 +281,9 @@
     iput p2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
     .line 287
-    new-array p1, p2, [Z
+    new-array v0, p2, [Z
 
-    iput-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
+    iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
 
     .line 288
     invoke-virtual {p0}, Lcom/termux/terminal/TerminalEmulator;->reset()V
@@ -291,7 +292,7 @@
 .end method
 
 .method private blockClear(III)V
-    .registers 5
+    .locals 1
 
     .line 1929
     const/4 v0, 0x1
@@ -302,7 +303,7 @@
 .end method
 
 .method private blockClear(IIII)V
-    .registers 13
+    .locals 8
 
     .line 1933
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
@@ -327,7 +328,7 @@
 .end method
 
 .method private collectOSCArgs(I)V
-    .registers 4
+    .locals 2
 
     .line 2030
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
@@ -338,7 +339,7 @@
 
     const/16 v1, 0x2000
 
-    if-ge v0, v1, :cond_15
+    if-ge v0, v1, :cond_0
 
     .line 2031
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
@@ -346,885 +347,771 @@
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->appendCodePoint(I)Ljava/lang/StringBuilder;
 
     .line 2032
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto :goto_18
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
     .line 2034
-    :cond_15
+    :goto_0
+    return-void
+
+    :cond_0
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    :goto_18
-    return-void
+    goto :goto_0
 .end method
 
 .method private continueSequence(I)V
-    .registers 2
+    .locals 1
 
     .line 1202
     iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
 
     .line 1203
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lcom/termux/terminal/TerminalEmulator;->mContinueSequence:Z
+    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mContinueSequence:Z
 
     return-void
 .end method
 
 .method private doCsi(I)V
-    .registers 11
+    .locals 8
 
-    const/16 v0, 0x24
+    const/4 v3, 0x4
 
-    if-eq p1, v0, :cond_458
+    const/4 v5, 0x2
 
-    const/16 v0, 0x27
-
-    if-eq p1, v0, :cond_452
-
-    const/16 v0, 0x2a
-
-    if-eq p1, v0, :cond_44c
-
-    const/16 v0, 0x50
+    const/4 v4, 0x1
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x1
+    const/16 v0, 0x24
 
-    if-eq p1, v0, :cond_425
+    if-eq p1, v0, :cond_18
+
+    const/16 v0, 0x27
+
+    if-eq p1, v0, :cond_17
+
+    const/16 v0, 0x2a
+
+    if-eq p1, v0, :cond_16
+
+    const/16 v0, 0x50
+
+    if-eq p1, v0, :cond_15
 
     const/16 v0, 0x58
 
-    if-eq p1, v0, :cond_404
+    if-eq p1, v0, :cond_14
 
     const/16 v0, 0x5a
 
-    if-eq p1, v0, :cond_3e2
+    if-eq p1, v0, :cond_12
 
     const/16 v0, 0x53
 
-    if-eq p1, v0, :cond_3d6
+    if-eq p1, v0, :cond_11
 
     const/16 v0, 0x54
 
-    if-eq p1, v0, :cond_3a8
+    if-eq p1, v0, :cond_f
 
     const/16 v0, 0x60
 
-    if-eq p1, v0, :cond_39e
+    if-eq p1, v0, :cond_e
 
     const/16 v0, 0x61
 
-    if-eq p1, v0, :cond_38b
+    if-eq p1, v0, :cond_d
 
-    packed-switch p1, :pswitch_data_45e
+    packed-switch p1, :pswitch_data_0
 
-    const/16 v0, 0xc
+    packed-switch p1, :pswitch_data_1
 
-    const/4 v3, 0x2
+    packed-switch p1, :pswitch_data_2
 
-    packed-switch p1, :pswitch_data_468
+    packed-switch p1, :pswitch_data_3
 
-    packed-switch p1, :pswitch_data_48c
-
-    packed-switch p1, :pswitch_data_49c
-
-    packed-switch p1, :pswitch_data_4a6
+    packed-switch p1, :pswitch_data_4
 
     .line 1642
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->parseArg(I)V
 
-    goto/16 :goto_45d
+    .line 1425
+    :cond_0
+    :goto_0
+    return-void
 
     .line 1342
-    :pswitch_41  #0x22
-    const/16 p1, 0x11
+    :pswitch_0
+    const/16 v0, 0x11
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
-    goto/16 :goto_45d
+    goto :goto_0
 
     .line 1339
-    :pswitch_48  #0x21
-    const/16 p1, 0x13
+    :pswitch_1
+    const/16 v0, 0x13
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
-    goto/16 :goto_45d
+    goto :goto_0
 
     .line 1639
-    :pswitch_4f  #0x20
-    const/16 p1, 0xf
+    :pswitch_2
+    const/16 v0, 0xf
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
-    goto/16 :goto_45d
+    goto :goto_0
 
     .line 1441
-    :pswitch_56  #0x4d
+    :pswitch_3
     iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
     .line 1442
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    sub-int/2addr p1, v0
-
-    .line 1443
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v0
-
-    invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
-
-    move-result v0
-
-    sub-int/2addr p1, v0
-
-    .line 1445
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v8, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    const/4 v3, 0x0
-
-    add-int v4, v8, v0
-
-    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    const/4 v7, 0x0
-
-    move v6, p1
-
-    invoke-virtual/range {v2 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    .line 1446
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    add-int/2addr v2, p1
+    sub-int/2addr v0, v2
 
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    .line 1443
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    invoke-direct {p0, v1, v2, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+    move-result v2
 
-    goto/16 :goto_45d
+    invoke-static {v2, v0}, Ljava/lang/Math;->min(II)I
 
-    .line 1432
-    :pswitch_7e  #0x4c
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    move-result v7
 
+    sub-int v4, v0, v7
+
+    .line 1445
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    add-int v2, v6, v7
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    move v5, v1
+
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    .line 1446
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    sub-int/2addr p1, v0
-
-    .line 1433
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v0
-
-    invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
-
-    move-result v0
-
-    .line 1435
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    const/4 v3, 0x0
-
-    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    sub-int v6, p1, v0
-
-    const/4 v7, 0x0
-
-    add-int v8, v4, v0
-
-    invoke-virtual/range {v2 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    .line 1436
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    add-int/2addr v0, v4
 
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    invoke-direct {p0, v1, p1, v2, v0}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+    invoke-direct {p0, v1, v0, v2, v7}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
 
-    goto/16 :goto_45d
+    goto :goto_0
+
+    .line 1432
+    :pswitch_4
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    sub-int v5, v0, v2
+
+    .line 1433
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+
+    move-result v0
+
+    invoke-static {v0, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v7
+
+    .line 1435
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    sub-int v4, v5, v7
+
+    add-int v6, v2, v7
+
+    move v5, v1
+
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    .line 1436
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    invoke-direct {p0, v1, v0, v2, v7}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+
+    goto :goto_0
 
     .line 1414
-    :pswitch_a3  #0x4b
+    :pswitch_5
     invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_c2
+    if-eqz v0, :cond_3
 
-    if-eq v0, v2, :cond_b9
+    if-eq v0, v4, :cond_2
 
-    if-eq v0, v3, :cond_b1
+    if-eq v0, v5, :cond_1
 
     .line 1425
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    return-void
+    goto :goto_0
 
     .line 1422
-    :cond_b1
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    invoke-direct {p0, v1, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
-
-    goto :goto_cc
-
-    .line 1419
-    :cond_b9
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    add-int/2addr v0, v2
-
-    invoke-direct {p0, v1, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
-
-    goto :goto_cc
-
-    .line 1416
-    :cond_c2
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
+    :cond_1
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    sub-int/2addr v2, p1
-
-    invoke-direct {p0, p1, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
+    invoke-direct {p0, v1, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
 
     .line 1428
-    :goto_cc
+    :goto_1
     iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
-    goto/16 :goto_45d
+    goto :goto_0
+
+    .line 1419
+    :cond_2
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    invoke-direct {p0, v1, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
+
+    goto :goto_1
+
+    .line 1416
+    :cond_3
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    sub-int/2addr v3, v0
+
+    invoke-direct {p0, v0, v2, v3}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
+
+    goto :goto_1
 
     .line 1394
-    :pswitch_d0  #0x4a
+    :pswitch_6
     invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_f6
+    if-eqz v0, :cond_6
 
-    if-eq v0, v2, :cond_e6
+    if-eq v0, v4, :cond_5
 
-    if-eq v0, v3, :cond_de
+    if-eq v0, v5, :cond_4
 
     .line 1408
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    return-void
+    goto/16 :goto_0
 
     .line 1405
-    :cond_de
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    invoke-direct {p0, v1, v1, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
-
-    goto :goto_10b
-
-    .line 1400
-    :cond_e6
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    invoke-direct {p0, v1, v1, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
-
-    .line 1401
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    add-int/2addr v0, v2
-
-    invoke-direct {p0, v1, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
-
-    goto :goto_10b
-
-    .line 1396
-    :cond_f6
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    sub-int/2addr v3, p1
-
-    invoke-direct {p0, p1, v0, v3}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
-
-    .line 1397
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    add-int/2addr p1, v2
-
+    :cond_4
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    sub-int/2addr v2, p1
-
-    invoke-direct {p0, v1, p1, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+    invoke-direct {p0, v1, v1, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
 
     .line 1411
-    :goto_10b
+    :goto_2
     iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
-    .line 1390
-    :pswitch_10f  #0x49
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result p1
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->nextTabStop(I)I
-
-    move-result p1
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
-
-    goto/16 :goto_45d
-
-    .line 1383
-    :pswitch_11c  #0x47
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result p1
-
-    invoke-static {v2, p1}, Ljava/lang/Math;->max(II)I
-
-    move-result p1
-
+    .line 1400
+    :cond_5
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    move-result p1
+    invoke-direct {p0, v1, v1, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
 
-    sub-int/2addr p1, v2
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
-
-    goto/16 :goto_45d
-
-    .line 1380
-    :pswitch_130  #0x46
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v0
-
-    sub-int/2addr p1, v0
-
-    invoke-direct {p0, v1, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
-
-    goto/16 :goto_45d
-
-    .line 1377
-    :pswitch_13c  #0x45
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v0
-
-    add-int/2addr p1, v0
-
-    invoke-direct {p0, v1, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
-
-    goto/16 :goto_45d
-
-    .line 1374
-    :pswitch_148  #0x44
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v1
-
-    sub-int/2addr v0, v1
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result p1
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
-
-    goto/16 :goto_45d
-
-    .line 1367
-    :pswitch_15a  #0x42
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
-
-    sub-int/2addr p1, v2
-
+    .line 1401
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorRow(I)V
-
-    goto/16 :goto_45d
-
-    .line 1364
-    :pswitch_16d  #0x41
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v1
-
-    sub-int/2addr v0, v1
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result p1
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorRow(I)V
-
-    goto/16 :goto_45d
-
-    .line 1355
-    :pswitch_17f  #0x40
-    iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
-
-    .line 1356
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    sub-int/2addr p1, v0
-
-    .line 1357
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v0
-
-    invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
-
-    move-result v0
-
-    .line 1359
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    iget v7, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    add-int/lit8 v2, v2, 0x1
 
-    sub-int v4, p1, v0
+    invoke-direct {p0, v1, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
 
-    const/4 v5, 0x1
+    goto :goto_2
 
-    add-int v6, v2, v0
-
-    move v3, v7
-
-    invoke-virtual/range {v1 .. v7}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    .line 1360
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    invoke-direct {p0, p1, v1, v0}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
-
-    goto/16 :goto_45d
-
-    .line 1503
-    :pswitch_1a6  #0x3f
-    const/4 p1, 0x7
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto/16 :goto_45d
-
-    .line 1506
-    :pswitch_1ac  #0x3e
-    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto/16 :goto_45d
-
-    .line 1540
-    :pswitch_1b1  #0x68
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->doSetMode(Z)V
-
-    goto/16 :goto_45d
-
-    .line 1525
-    :pswitch_1b6  #0x67
-    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result p1
-
-    if-eqz p1, :cond_1cd
-
-    const/4 v0, 0x3
-
-    if-eq p1, v0, :cond_1c1
-
-    goto/16 :goto_45d
-
-    :cond_1c1
-    const/4 p1, 0x0
-
-    .line 1530
-    :goto_1c2
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    if-ge p1, v0, :cond_45d
-
-    .line 1531
-    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
-
-    aput-boolean v1, v0, p1
-
-    add-int/lit8 p1, p1, 0x1
-
-    goto :goto_1c2
-
-    .line 1527
-    :cond_1cd
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
-
+    .line 1396
+    :cond_6
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    aput-boolean v1, p1, v0
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    goto/16 :goto_45d
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    .line 1387
-    :pswitch_1d5  #0x48, 0x66
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg1(I)I
+    sub-int/2addr v3, v0
 
-    move-result p1
+    invoke-direct {p0, v0, v2, v3}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
 
-    sub-int/2addr p1, v2
+    .line 1397
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    add-int/lit8 v0, v0, 0x1
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    sub-int/2addr v3, v0
+
+    invoke-direct {p0, v1, v0, v2, v3}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+
+    goto :goto_2
+
+    .line 1390
+    :pswitch_7
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
     move-result v0
 
-    sub-int/2addr v0, v2
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->nextTabStop(I)I
 
-    invoke-direct {p0, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
+    move-result v0
 
-    goto/16 :goto_45d
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
 
-    .line 1521
-    :pswitch_1e4  #0x65
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    goto/16 :goto_0
 
+    .line 1383
+    :pswitch_8
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+
+    move-result v0
+
+    invoke-static {v4, v0}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
+
+    goto/16 :goto_0
+
+    .line 1380
+    :pswitch_9
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result v1
+    move-result v2
 
-    add-int/2addr v0, v1
+    sub-int/2addr v0, v2
 
-    invoke-direct {p0, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
+    invoke-direct {p0, v1, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
-    .line 1518
-    :pswitch_1f2  #0x64
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    .line 1377
+    :pswitch_a
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    move-result p1
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    invoke-static {v2, p1}, Ljava/lang/Math;->max(II)I
+    move-result v2
 
-    move-result p1
+    add-int/2addr v0, v2
 
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    invoke-direct {p0, v1, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
+    goto/16 :goto_0
 
-    move-result p1
-
-    sub-int/2addr p1, v2
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorRow(I)V
-
-    goto/16 :goto_45d
-
-    .line 1515
-    :pswitch_206  #0x63
-    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result p1
-
-    if-nez p1, :cond_45d
-
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    const-string v0, "\u001b[?64;1;2;6;9;15;18;21;22c"
-
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
-
-    goto/16 :goto_45d
-
-    .line 1550
-    :pswitch_215  #0x6e
-    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result p1
-
-    const/4 v0, 0x5
-
-    if-eq p1, v0, :cond_244
-
-    const/4 v0, 0x6
-
-    if-eq p1, v0, :cond_221
-
-    goto/16 :goto_45d
-
-    .line 1559
-    :cond_221
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    add-int/2addr v4, v2
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v3, v1
+    .line 1374
+    :pswitch_b
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+
+    move-result v2
+
+    sub-int/2addr v1, v2
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
+
+    goto/16 :goto_0
+
+    .line 1367
+    :pswitch_c
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+
+    add-int/lit8 v0, v0, -0x1
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+
+    move-result v2
+
     add-int/2addr v1, v2
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
-    move-result-object v1
+    move-result v0
 
-    aput-object v1, v3, v2
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorRow(I)V
 
-    const-string v1, "\u001b[%d;%dR"
+    goto/16 :goto_0
 
-    invoke-static {v0, v1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    .line 1364
+    :pswitch_d
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
 
-    move-result-object v0
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    goto/16 :goto_45d
+    move-result v2
 
-    .line 1553
-    :cond_244
-    nop
+    sub-int/2addr v1, v2
 
-    .line 1554
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
-    const/4 v0, 0x4
+    move-result v0
 
-    new-array v2, v0, [B
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorRow(I)V
 
-    fill-array-data v2, :array_4c2
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2, v1, v0}, Lcom/termux/terminal/TerminalOutput;->write([BII)V
+    .line 1355
+    :pswitch_e
+    iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
-    goto/16 :goto_45d
+    .line 1356
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    .line 1546
-    :pswitch_252  #0x6d
-    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->selectGraphicRendition()V
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    goto/16 :goto_45d
+    sub-int v3, v0, v1
 
-    .line 1543
-    :pswitch_257  #0x6c
-    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->doSetMode(Z)V
+    .line 1357
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    goto/16 :goto_45d
+    move-result v0
 
-    .line 1636
-    :pswitch_25c  #0x75
-    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->restoreCursor()V
+    invoke-static {v0, v3}, Ljava/lang/Math;->min(II)I
 
-    goto/16 :goto_45d
+    move-result v7
 
-    .line 1593
-    :pswitch_261  #0x74
+    .line 1359
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    sub-int/2addr v3, v7
+
+    add-int v5, v1, v7
+
+    move v6, v2
+
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    .line 1360
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    invoke-direct {p0, v0, v1, v7}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
+
+    goto/16 :goto_0
+
+    .line 1503
+    :pswitch_f
+    const/4 v0, 0x7
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+
+    goto/16 :goto_0
+
+    .line 1506
+    :pswitch_10
+    const/16 v0, 0xc
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+
+    goto/16 :goto_0
+
+    .line 1540
+    :pswitch_11
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->doSetMode(Z)V
+
+    goto/16 :goto_0
+
+    .line 1525
+    :pswitch_12
     invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result p1
+    move-result v0
 
-    const/16 v4, 0xb
+    if-eqz v0, :cond_7
 
-    if-eq p1, v4, :cond_325
+    const/4 v2, 0x3
 
-    const/16 v4, 0xd
+    if-ne v0, v2, :cond_0
 
-    if-eq p1, v4, :cond_31c
+    move v0, v1
 
-    const/16 v4, 0xe
+    .line 1530
+    :goto_3
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-eq p1, v4, :cond_2f7
+    if-ge v0, v2, :cond_0
 
-    packed-switch p1, :pswitch_data_4b2
+    .line 1531
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
 
-    goto/16 :goto_45d
+    aput-boolean v1, v2, v0
 
-    .line 1628
-    :pswitch_276  #0x17
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {p1}, Ljava/util/Stack;->isEmpty()Z
+    goto :goto_3
 
-    move-result p1
+    .line 1527
+    :cond_7
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
 
-    if-nez p1, :cond_45d
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+    aput-boolean v1, v0, v2
 
-    invoke-virtual {p1}, Ljava/util/Stack;->pop()Ljava/lang/Object;
+    goto/16 :goto_0
 
-    move-result-object p1
+    .line 1387
+    :pswitch_13
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg1(I)I
 
-    check-cast p1, Ljava/lang/String;
+    move-result v0
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->setTitle(Ljava/lang/String;)V
+    add-int/lit8 v0, v0, -0x1
 
-    goto/16 :goto_45d
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    .line 1621
-    :pswitch_28b  #0x16
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+    move-result v1
 
-    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTitle:Ljava/lang/String;
+    add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p1, v0}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {p0, v0, v1}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
 
-    .line 1622
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+    goto/16 :goto_0
 
-    invoke-virtual {p1}, Ljava/util/Stack;->size()I
+    .line 1521
+    :pswitch_14
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    move-result p1
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    const/16 v0, 0x14
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    if-le p1, v0, :cond_45d
+    move-result v2
 
-    .line 1624
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+    add-int/2addr v1, v2
 
-    invoke-virtual {p1, v1}, Ljava/util/Stack;->remove(I)Ljava/lang/Object;
+    invoke-direct {p0, v0, v1}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
-    .line 1615
-    :pswitch_2a3  #0x15
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    .line 1518
+    :pswitch_15
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    const-string v0, "\u001b]l\u001b\\"
+    move-result v0
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    invoke-static {v4, v0}, Ljava/lang/Math;->max(II)I
 
-    goto/16 :goto_45d
+    move-result v0
 
-    .line 1612
-    :pswitch_2ac  #0x14
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    const-string v0, "\u001b]LIconLabel\u001b\\"
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    move-result v0
 
-    goto/16 :goto_45d
+    add-int/lit8 v0, v0, -0x1
 
-    .line 1609
-    :pswitch_2b5  #0x13
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorRow(I)V
 
-    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+    goto/16 :goto_0
 
-    new-array v3, v3, [Ljava/lang/Object;
+    .line 1515
+    :pswitch_16
+    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    move-result v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    if-nez v0, :cond_0
 
-    move-result-object v4
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    aput-object v4, v3, v1
+    const-string v1, "\u001b[?64;1;2;6;9;15;18;21;22c"
 
-    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 1550
+    :pswitch_17
+    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+
+    move-result v0
+
+    const/4 v2, 0x5
+
+    if-eq v0, v2, :cond_8
+
+    const/4 v2, 0x6
+
+    if-ne v0, v2, :cond_0
+
+    .line 1559
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    const-string v3, "\u001b[%d;%dR"
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    add-int/lit8 v6, v6, 0x1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v1
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    add-int/lit8 v1, v1, 0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    aput-object v1, v3, v2
+    aput-object v1, v5, v4
 
-    const-string v1, "\u001b[9;%d;%dt"
+    invoke-static {v2, v3, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v0, v1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    goto/16 :goto_0
 
-    goto/16 :goto_45d
+    .line 1553
+    :cond_8
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    new-array v2, v3, [B
+
+    fill-array-data v2, :array_0
+
+    invoke-virtual {v0, v2, v1, v3}, Lcom/termux/terminal/TerminalOutput;->write([BII)V
+
+    goto/16 :goto_0
+
+    .line 1546
+    :pswitch_18
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->selectGraphicRendition()V
+
+    goto/16 :goto_0
+
+    .line 1543
+    :pswitch_19
+    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->doSetMode(Z)V
+
+    goto/16 :goto_0
+
+    .line 1636
+    :pswitch_1a
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->restoreCursor()V
+
+    goto/16 :goto_0
+
+    .line 1593
+    :pswitch_1b
+    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+
+    move-result v0
+
+    const/16 v2, 0xb
+
+    if-eq v0, v2, :cond_b
+
+    const/16 v2, 0xd
+
+    if-eq v0, v2, :cond_a
+
+    const/16 v2, 0xe
+
+    if-eq v0, v2, :cond_9
+
+    packed-switch v0, :pswitch_data_5
+
+    goto/16 :goto_0
 
     .line 1605
-    :pswitch_2d6  #0x12
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    :pswitch_1c
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const-string v3, "\u001b[8;%d;%dt"
 
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    new-array v5, v5, [Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    move-result-object v4
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v4, v3, v1
+    move-result-object v6
+
+    aput-object v6, v5, v1
 
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
@@ -1232,35 +1119,137 @@
 
     move-result-object v1
 
-    aput-object v1, v3, v2
+    aput-object v1, v5, v4
 
-    const-string v1, "\u001b[8;%d;%dt"
+    invoke-static {v2, v3, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v0, v1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 1628
+    :pswitch_1d
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+
+    invoke-virtual {v0}, Ljava/util/Stack;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+
+    invoke-virtual {v0}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    check-cast v0, Ljava/lang/String;
 
-    goto/16 :goto_45d
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setTitle(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 1621
+    :pswitch_1e
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTitle:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 1622
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+
+    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+
+    move-result v0
+
+    const/16 v2, 0x14
+
+    if-le v0, v2, :cond_0
+
+    .line 1624
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTitleStack:Ljava/util/Stack;
+
+    invoke-virtual {v0, v1}, Ljava/util/Stack;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_0
+
+    .line 1615
+    :pswitch_1f
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    const-string v1, "\u001b]l\u001b\\"
+
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 1612
+    :pswitch_20
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    const-string v1, "\u001b]LIconLabel\u001b\\"
+
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 1609
+    :pswitch_21
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    const-string v3, "\u001b[9;%d;%dt"
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v1
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    aput-object v1, v5, v4
+
+    invoke-static {v2, v3, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+
+    goto/16 :goto_0
 
     .line 1602
-    :cond_2f7
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    :cond_9
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const-string v3, "\u001b[4;%d;%dt"
 
-    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    new-array v5, v5, [Ljava/lang/Object;
 
-    mul-int/lit8 v5, v5, 0xc
+    iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    mul-int/lit8 v6, v6, 0xc
 
-    move-result-object v5
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v5, v3, v1
+    move-result-object v6
+
+    aput-object v6, v5, v1
 
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
@@ -1268,1011 +1257,1020 @@
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v1
 
-    aput-object v0, v3, v2
+    aput-object v1, v5, v4
 
-    const-string v0, "\u001b[4;%d;%dt"
+    invoke-static {v2, v3, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v4, v0, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
-
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1598
-    :cond_31c
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    :cond_a
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    const-string v0, "\u001b[3;0;0t"
+    const-string v1, "\u001b[3;0;0t"
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1595
-    :cond_325
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    :cond_b
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    const-string v0, "\u001b[1t"
+    const-string v1, "\u001b[1t"
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1581
-    :pswitch_32e  #0x73
-    const/16 p1, 0x800
+    :pswitch_22
+    const/16 v0, 0x800
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_35c
-
-    .line 1583
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result p1
-
-    sub-int/2addr p1, v2
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    sub-int/2addr v0, v3
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    .line 1584
-    add-int/2addr p1, v2
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->getArg1(I)I
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
 
     move-result v0
 
+    if-eqz v0, :cond_c
+
+    .line 1583
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    add-int/lit8 v2, v2, -0x2
 
     invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
-    move-result p1
+    .line 1584
+    add-int/lit8 v0, v0, 0x1
 
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg1(I)I
+
+    move-result v2
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
     .line 1586
     invoke-direct {p0, v1, v1}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1589
-    :cond_35c
+    :cond_c
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->saveCursor()V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1574
-    :pswitch_361  #0x72
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result p1
-
-    sub-int/2addr p1, v2
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    sub-int/2addr v0, v3
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
-
-    invoke-static {v1, p1}, Ljava/lang/Math;->max(II)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    .line 1575
-    add-int/2addr p1, v3
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->getArg1(I)I
+    :pswitch_23
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
     move-result v0
 
+    add-int/lit8 v0, v0, -0x1
+
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    add-int/lit8 v2, v2, -0x2
 
     invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+
+    .line 1575
+    add-int/lit8 v0, v0, 0x2
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg1(I)I
+
+    move-result v2
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
     .line 1577
     invoke-direct {p0, v1, v1}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1371
-    :cond_38b
-    :pswitch_38b  #0x43
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    :cond_d
+    :pswitch_24
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    sub-int/2addr p1, v2
+    add-int/lit8 v0, v0, -0x1
 
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result v1
+    move-result v2
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v2
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
-    move-result p1
+    move-result v0
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1509
-    :cond_39e
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    :cond_e
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result p1
+    move-result v0
 
-    sub-int/2addr p1, v2
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorColRespectingOriginMode(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorColRespectingOriginMode(I)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1471
-    :cond_3a8
+    :cond_f
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    if-nez v0, :cond_3d1
+    if-nez v0, :cond_10
 
     .line 1476
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result p1
+    move-result v0
 
     .line 1477
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+
+    sub-int v4, v2, v3
+
+    .line 1478
+    invoke-static {v4, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v7
+
+    .line 1479
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
 
-    sub-int/2addr v0, v2
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    .line 1478
-    invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
+    sub-int/2addr v4, v7
 
-    move-result p1
+    add-int v6, v2, v7
 
-    .line 1479
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    move v5, v1
 
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    const/4 v3, 0x0
-
-    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    sub-int v6, v0, p1
-
-    const/4 v7, 0x0
-
-    add-int v8, v4, p1
-
-    invoke-virtual/range {v2 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
 
     .line 1480
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
 
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    invoke-direct {p0, v1, v0, v2, p1}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+    invoke-direct {p0, v1, v0, v2, v7}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1483
-    :cond_3d1
+    :cond_10
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->unimplementedSequence(I)V
 
-    goto/16 :goto_45d
+    goto/16 :goto_0
 
     .line 1465
-    :cond_3d6
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    :cond_11
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result p1
+    move-result v0
 
-    :goto_3da
-    if-ge v1, p1, :cond_45d
+    :goto_4
+    if-ge v1, v0, :cond_0
 
     .line 1467
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->scrollDownOneLine()V
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3da
+    goto :goto_4
 
     .line 1491
-    :cond_3e2
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result p1
-
-    .line 1492
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    .line 1493
-    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    sub-int/2addr v1, v2
-
-    :goto_3eb
-    if-ltz v1, :cond_401
-
-    .line 1494
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
-
-    aget-boolean v2, v2, v1
-
-    if-eqz v2, :cond_3fe
-
-    add-int/lit8 p1, p1, -0x1
-
-    if-nez p1, :cond_3fe
-
-    .line 1496
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    invoke-static {v1, p1}, Ljava/lang/Math;->max(II)I
+    :cond_12
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
     move-result v0
 
-    goto :goto_401
+    .line 1492
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
-    :cond_3fe
-    add-int/lit8 v1, v1, -0x1
+    .line 1493
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    goto :goto_3eb
+    add-int/lit8 v2, v2, -0x1
+
+    :goto_5
+    if-ltz v2, :cond_19
+
+    .line 1494
+    iget-object v3, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
+
+    aget-boolean v3, v3, v2
+
+    if-eqz v3, :cond_13
+
+    add-int/lit8 v0, v0, -0x1
+
+    if-nez v0, :cond_13
+
+    .line 1496
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+
+    invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
 
     .line 1500
-    :cond_401
-    :goto_401
+    :goto_6
     iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    goto :goto_45d
+    goto/16 :goto_0
+
+    .line 1496
+    :cond_13
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_5
 
     .line 1487
-    :cond_404
+    :cond_14
     iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
     .line 1488
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result v0
+    move-result v3
 
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    sub-int/2addr v2, v4
-
-    invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
-
-    move-result v4
-
-    const/4 v5, 0x1
-
-    const/16 v6, 0x20
-
-    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
-
-    move-result-wide v7
-
-    move v2, p1
-
-    invoke-virtual/range {v1 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
-
-    goto :goto_45d
-
-    .line 1456
-    :cond_425
-    iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
-
-    .line 1457
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    sub-int/2addr p1, v0
-
-    .line 1458
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v0
-
-    invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
-
-    move-result v0
-
-    sub-int/2addr p1, v0
-
-    .line 1460
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
     iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    iget v7, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    sub-int/2addr v5, v6
 
-    add-int v2, v6, v0
+    invoke-static {v3, v5}, Ljava/lang/Math;->min(II)I
 
-    const/4 v5, 0x1
+    move-result v3
 
-    move v3, v7
+    const/16 v5, 0x20
 
-    move v4, p1
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
 
-    invoke-virtual/range {v1 .. v7}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+    move-result-wide v6
 
-    .line 1461
+    invoke-virtual/range {v0 .. v7}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
+
+    goto/16 :goto_0
+
+    .line 1456
+    :cond_15
+    iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
+
+    .line 1457
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    add-int/2addr v1, p1
+    sub-int/2addr v0, v1
 
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    .line 1458
+    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    invoke-direct {p0, v1, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
+    move-result v1
 
-    goto :goto_45d
+    invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v7
+
+    sub-int v3, v0, v7
+
+    .line 1460
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    add-int v1, v5, v7
+
+    move v6, v2
+
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    .line 1461
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    add-int/2addr v0, v3
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    invoke-direct {p0, v0, v1, v7}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
+
+    goto/16 :goto_0
 
     .line 1351
-    :cond_44c
-    const/16 p1, 0x10
+    :cond_16
+    const/16 v0, 0x10
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
-    goto :goto_45d
+    goto/16 :goto_0
 
     .line 1345
-    :cond_452
-    const/16 p1, 0x12
+    :cond_17
+    const/16 v0, 0x12
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
-    goto :goto_45d
+    goto/16 :goto_0
 
     .line 1348
-    :cond_458
-    const/16 p1, 0x8
+    :cond_18
+    const/16 v0, 0x8
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
-    :cond_45d
-    :goto_45d
-    return-void
+    goto/16 :goto_0
 
-    :pswitch_data_45e
+    :cond_19
+    move v0, v1
+
+    goto :goto_6
+
+    nop
+
+    :pswitch_data_0
     .packed-switch 0x20
-        :pswitch_4f  #00000020
-        :pswitch_48  #00000021
-        :pswitch_41  #00000022
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 
-    :pswitch_data_468
+    :pswitch_data_1
     .packed-switch 0x3e
-        :pswitch_1ac  #0000003e
-        :pswitch_1a6  #0000003f
-        :pswitch_17f  #00000040
-        :pswitch_16d  #00000041
-        :pswitch_15a  #00000042
-        :pswitch_38b  #00000043
-        :pswitch_148  #00000044
-        :pswitch_13c  #00000045
-        :pswitch_130  #00000046
-        :pswitch_11c  #00000047
-        :pswitch_1d5  #00000048
-        :pswitch_10f  #00000049
-        :pswitch_d0  #0000004a
-        :pswitch_a3  #0000004b
-        :pswitch_7e  #0000004c
-        :pswitch_56  #0000004d
+        :pswitch_10
+        :pswitch_f
+        :pswitch_e
+        :pswitch_d
+        :pswitch_c
+        :pswitch_24
+        :pswitch_b
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_13
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
     .end packed-switch
 
-    :pswitch_data_48c
+    :pswitch_data_2
     .packed-switch 0x63
-        :pswitch_206  #00000063
-        :pswitch_1f2  #00000064
-        :pswitch_1e4  #00000065
-        :pswitch_1d5  #00000066
-        :pswitch_1b6  #00000067
-        :pswitch_1b1  #00000068
+        :pswitch_16
+        :pswitch_15
+        :pswitch_14
+        :pswitch_13
+        :pswitch_12
+        :pswitch_11
     .end packed-switch
 
-    :pswitch_data_49c
+    :pswitch_data_3
     .packed-switch 0x6c
-        :pswitch_257  #0000006c
-        :pswitch_252  #0000006d
-        :pswitch_215  #0000006e
+        :pswitch_19
+        :pswitch_18
+        :pswitch_17
     .end packed-switch
 
-    :pswitch_data_4a6
+    :pswitch_data_4
     .packed-switch 0x72
-        :pswitch_361  #00000072
-        :pswitch_32e  #00000073
-        :pswitch_261  #00000074
-        :pswitch_25c  #00000075
+        :pswitch_23
+        :pswitch_22
+        :pswitch_1b
+        :pswitch_1a
     .end packed-switch
 
-    :pswitch_data_4b2
-    .packed-switch 0x12
-        :pswitch_2d6  #00000012
-        :pswitch_2b5  #00000013
-        :pswitch_2ac  #00000014
-        :pswitch_2a3  #00000015
-        :pswitch_28b  #00000016
-        :pswitch_276  #00000017
-    .end packed-switch
-
-    :array_4c2
+    .line 1553
+    :array_0
     .array-data 1
         0x1bt
         0x5bt
         0x30t
         0x6et
     .end array-data
+
+    .line 1593
+    :pswitch_data_5
+    .packed-switch 0x12
+        :pswitch_1c
+        :pswitch_21
+        :pswitch_20
+        :pswitch_1f
+        :pswitch_1e
+        :pswitch_1d
+    .end packed-switch
 .end method
 
 .method private doCsiBiggerThan(I)V
-    .registers 4
+    .locals 3
+
+    const/4 v2, -0x1
 
     const/16 v0, 0x63
 
-    if-eq p1, v0, :cond_31
+    if-eq p1, v0, :cond_1
 
     const/16 v0, 0x6d
 
-    if-eq p1, v0, :cond_c
+    if-eq p1, v0, :cond_0
 
     .line 1181
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->parseArg(I)V
 
-    goto :goto_38
+    .line 1119
+    :goto_0
+    return-void
 
     .line 1178
-    :cond_c
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v0, "(ignored) CSI > MODIFY RESOURCE: "
+    const-string v1, "(ignored) CSI > MODIFY RESOURCE: "
 
-    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const/4 v0, -0x1
-
-    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
     move-result v1
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v1, " to "
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->getArg1(I)I
+    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg1(I)I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v0, "termux"
+    const-string v1, "termux"
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_38
+    goto :goto_0
 
     .line 1119
-    :cond_31
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    :cond_1
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    const-string v0, "\u001b[>41;320;0c"
+    const-string v1, "\u001b[>41;320;0c"
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
-    :goto_38
-    return-void
+    goto :goto_0
 .end method
 
 .method private doCsiQuestionMark(I)V
-    .registers 15
+    .locals 12
 
-    const/16 v0, 0x24
+    const/16 v2, 0x4b
 
-    if-eq p1, v0, :cond_137
+    const/4 v5, 0x2
 
-    const/16 v0, 0x68
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-eq p1, v0, :cond_117
-
-    const/16 v3, 0x6c
-
-    if-eq p1, v3, :cond_117
-
-    const/16 v0, 0x6e
-
-    const/4 v3, 0x2
+    const/4 v3, 0x1
 
     const/4 v4, -0x1
 
-    if-eq p1, v0, :cond_ea
+    const/4 v1, 0x0
+
+    const/16 v0, 0x24
+
+    if-eq p1, v0, :cond_16
+
+    const/16 v0, 0x68
+
+    if-eq p1, v0, :cond_13
+
+    const/16 v0, 0x6c
+
+    if-eq p1, v0, :cond_13
+
+    const/16 v0, 0x6e
+
+    if-eq p1, v0, :cond_11
 
     const/16 v0, 0x4a
 
-    const/16 v5, 0x4b
+    if-eq p1, v0, :cond_6
 
-    if-eq p1, v0, :cond_6d
-
-    if-eq p1, v5, :cond_6d
+    if-eq p1, v2, :cond_6
 
     const/16 v0, 0x72
 
-    const/16 v3, 0x73
+    if-eq p1, v0, :cond_1
 
-    if-eq p1, v0, :cond_29
+    const/16 v0, 0x73
 
-    if-eq p1, v3, :cond_29
+    if-eq p1, v0, :cond_1
 
     .line 1005
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->parseArg(I)V
 
-    goto/16 :goto_136
+    .line 1002
+    :cond_0
+    :goto_0
+    return-void
 
     .line 986
-    :cond_29
+    :cond_1
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    iget-object v5, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
 
-    array-length v6, v5
+    array-length v5, v2
 
-    if-lt v0, v6, :cond_34
+    if-lt v0, v5, :cond_2
 
-    array-length v0, v5
+    array-length v0, v2
 
-    sub-int/2addr v0, v2
+    add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    :cond_34
-    const/4 v0, 0x0
+    :cond_2
+    move v0, v1
 
     .line 987
-    :goto_35
-    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+    :goto_1
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    if-gt v0, v5, :cond_136
+    if-gt v0, v2, :cond_0
 
     .line 988
-    iget-object v5, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
 
-    aget v5, v5, v0
+    aget v5, v2, v0
 
     .line 989
     invoke-static {v5}, Lcom/termux/terminal/TerminalEmulator;->mapDecSetBitToInternalBit(I)I
 
-    move-result v6
+    move-result v2
 
-    if-ne v6, v4, :cond_57
+    if-ne v2, v4, :cond_3
 
     .line 991
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v7, "Ignoring request to save/recall decset bit="
+    const-string v6, "Ignoring request to save/recall decset bit="
 
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v5, "termux"
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6a
+    .line 996
+    :goto_2
+    add-int/lit8 v0, v0, 0x1
 
-    :cond_57
-    if-ne p1, v3, :cond_5f
+    goto :goto_1
+
+    .line 991
+    :cond_3
+    const/16 v6, 0x73
+
+    if-ne p1, v6, :cond_4
 
     .line 994
     iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedDecSetFlags:I
 
-    or-int/2addr v5, v6
+    or-int/2addr v2, v5
 
-    iput v5, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedDecSetFlags:I
+    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedDecSetFlags:I
 
-    goto :goto_6a
+    goto :goto_2
 
     .line 996
-    :cond_5f
-    iget v7, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedDecSetFlags:I
+    :cond_4
+    iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedDecSetFlags:I
 
-    and-int/2addr v6, v7
+    and-int/2addr v2, v6
 
-    if-eqz v6, :cond_66
+    if-eqz v2, :cond_5
 
-    const/4 v6, 0x1
+    move v2, v3
 
-    goto :goto_67
+    :goto_3
+    invoke-virtual {p0, v2, v5}, Lcom/termux/terminal/TerminalEmulator;->doDecSetOrReset(ZI)V
 
-    :cond_66
-    const/4 v6, 0x0
+    goto :goto_2
 
-    :goto_67
-    invoke-virtual {p0, v6, v5}, Lcom/termux/terminal/TerminalEmulator;->doDecSetOrReset(ZI)V
+    :cond_5
+    move v2, v1
 
-    :goto_6a
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_35
+    goto :goto_3
 
     .line 929
-    :cond_6d
+    :cond_6
     iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
-    if-ne p1, v5, :cond_73
+    if-ne p1, v2, :cond_8
 
-    const/4 v0, 0x1
-
-    goto :goto_74
-
-    :cond_73
-    const/4 v0, 0x0
+    move v0, v3
 
     .line 936
-    :goto_74
+    :goto_4
     invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_ae
+    if-eqz v2, :cond_e
 
-    if-eq v5, v2, :cond_9a
+    if-eq v2, v3, :cond_c
 
-    if-eq v5, v3, :cond_85
+    if-eq v2, v5, :cond_9
 
     .line 956
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    const/4 p1, -0x1
+    move v6, v4
 
-    const/4 v0, -0x1
+    move v7, v4
 
-    const/4 v1, -0x1
+    move v8, v4
 
-    goto :goto_c3
+    move v3, v4
 
-    :cond_85
-    if-eqz v0, :cond_8b
+    .line 959
+    :goto_5
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
+
+    move-result-wide v4
+
+    move v2, v3
+
+    :goto_6
+    if-ge v2, v7, :cond_0
+
+    move v1, v6
+
+    :goto_7
+    if-ge v1, v8, :cond_10
+
+    .line 962
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    invoke-virtual {v0, v2, v1}, Lcom/termux/terminal/TerminalBuffer;->getStyleAt(II)J
+
+    move-result-wide v10
+
+    invoke-static {v10, v11}, Lcom/termux/terminal/TextStyle;->decodeEffect(J)I
+
+    move-result v0
+
+    and-int/lit16 v0, v0, 0x80
+
+    if-nez v0, :cond_7
+
+    .line 963
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    const/16 v3, 0x20
+
+    invoke-virtual/range {v0 .. v5}, Lcom/termux/terminal/TerminalBuffer;->setChar(IIIJ)V
+
+    :cond_7
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_7
+
+    :cond_8
+    move v0, v1
+
+    .line 929
+    goto :goto_4
+
+    .line 956
+    :cond_9
+    if-eqz v0, :cond_a
 
     .line 951
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    move v4, p1
-
-    goto :goto_8c
-
-    :cond_8b
-    const/4 v4, 0x0
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
     .line 952
-    :goto_8c
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    :goto_8
+    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-eqz v0, :cond_93
+    if-eqz v0, :cond_b
 
     .line 953
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    goto :goto_a8
+    move v3, v0
 
-    :cond_93
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    move v12, v0
-
-    move v0, p1
-
-    move p1, v4
-
-    move v4, v12
-
-    goto :goto_c3
-
-    :cond_9a
-    if-eqz v0, :cond_9f
-
-    .line 945
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    goto :goto_a0
-
-    :cond_9f
-    const/4 p1, 0x0
-
-    .line 946
-    :goto_a0
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    add-int/2addr v0, v2
+    move v5, v2
 
     .line 947
-    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    :goto_9
+    add-int/lit8 v0, v3, 0x1
 
-    move v4, p1
+    move v6, v1
 
-    move p1, v0
+    move v7, v0
 
-    move v0, v3
+    move v8, v4
 
-    :goto_a8
-    add-int/2addr v0, v2
+    move v3, v5
 
-    move v12, v0
+    goto :goto_5
 
-    move v0, p1
+    :cond_a
+    move v2, v1
 
-    move p1, v4
+    .line 951
+    goto :goto_8
 
-    move v4, v12
+    .line 953
+    :cond_b
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    goto :goto_c3
+    move v6, v1
+
+    move v7, v0
+
+    move v8, v4
+
+    move v3, v2
+
+    goto :goto_5
+
+    :cond_c
+    if-eqz v0, :cond_d
+
+    .line 945
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    .line 946
+    :goto_a
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    .line 947
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    add-int/lit8 v4, v3, 0x1
+
+    move v3, v2
+
+    move v5, v0
+
+    goto :goto_9
+
+    :cond_d
+    move v0, v1
+
+    .line 945
+    goto :goto_a
 
     .line 938
-    :cond_ae
+    :cond_e
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
     .line 939
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
     .line 940
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-eqz v0, :cond_bd
+    if-eqz v0, :cond_f
 
-    add-int/lit8 v0, v4, 0x1
+    add-int/lit8 v4, v5, 0x1
 
-    move v12, v0
+    move v6, v1
 
-    move v0, p1
+    move v7, v4
 
-    move p1, v4
+    move v8, v2
 
-    move v4, v12
+    move v3, v5
 
-    goto :goto_c3
+    goto :goto_5
 
     .line 941
-    :cond_bd
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    :cond_f
+    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    move v12, v0
+    move v6, v1
 
-    move v0, p1
+    move v7, v4
 
-    move p1, v4
+    move v8, v2
 
-    move v4, v12
+    move v3, v5
 
-    .line 959
-    :goto_c3
-    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
-
-    move-result-wide v2
-
-    :goto_c7
-    if-ge p1, v4, :cond_136
-
-    move v11, v1
-
-    :goto_ca
-    if-ge v11, v0, :cond_e7
-
-    .line 962
-    iget-object v5, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    invoke-virtual {v5, p1, v11}, Lcom/termux/terminal/TerminalBuffer;->getStyleAt(II)J
-
-    move-result-wide v5
-
-    invoke-static {v5, v6}, Lcom/termux/terminal/TextStyle;->decodeEffect(J)I
-
-    move-result v5
-
-    and-int/lit16 v5, v5, 0x80
-
-    if-nez v5, :cond_e4
+    goto :goto_5
 
     .line 963
-    iget-object v5, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    :cond_10
+    add-int/lit8 v2, v2, 0x1
 
-    const/16 v8, 0x20
-
-    move v6, v11
-
-    move v7, p1
-
-    move-wide v9, v2
-
-    invoke-virtual/range {v5 .. v10}, Lcom/termux/terminal/TerminalBuffer;->setChar(IIIJ)V
-
-    :cond_e4
-    add-int/lit8 v11, v11, 0x1
-
-    goto :goto_ca
-
-    :cond_e7
-    add-int/lit8 p1, p1, 0x1
-
-    goto :goto_c7
+    goto :goto_6
 
     .line 974
-    :cond_ea
+    :cond_11
     invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result p1
+    move-result v0
 
-    const/4 v0, 0x6
+    const/4 v2, 0x6
 
-    if-eq p1, v0, :cond_f5
+    if-eq v0, v2, :cond_12
 
     .line 980
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
 
-    return-void
+    goto/16 :goto_0
 
     .line 977
-    :cond_f5
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    :cond_12
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const-string v4, "\u001b[?%d;%d;1R"
 
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    new-array v5, v5, [Ljava/lang/Object;
 
-    add-int/2addr v4, v2
+    iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    add-int/lit8 v6, v6, 0x1
 
-    move-result-object v4
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v4, v3, v1
+    move-result-object v6
+
+    aput-object v6, v5, v1
 
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    add-int/2addr v1, v2
+    add-int/lit8 v1, v1, 0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    aput-object v1, v3, v2
+    aput-object v1, v5, v3
 
-    const-string v1, "\u001b[?%d;%d;1R"
+    invoke-static {v2, v4, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v0, v1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
-
-    goto :goto_136
+    goto/16 :goto_0
 
     .line 969
-    :cond_117
-    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+    :cond_13
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    iget-object v4, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
 
-    array-length v5, v4
+    array-length v4, v2
 
-    if-lt v3, v5, :cond_122
+    if-lt v0, v4, :cond_14
 
-    array-length v3, v4
+    array-length v0, v2
 
-    sub-int/2addr v3, v2
+    add-int/lit8 v0, v0, -0x1
 
-    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    :cond_122
-    const/4 v3, 0x0
+    :cond_14
+    move v0, v1
 
     .line 970
-    :goto_123
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+    :goto_b
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    if-gt v3, v4, :cond_136
+    if-gt v0, v2, :cond_0
 
-    if-ne p1, v0, :cond_12b
+    const/16 v2, 0x68
 
-    const/4 v4, 0x1
+    if-ne p1, v2, :cond_15
 
-    goto :goto_12c
-
-    :cond_12b
-    const/4 v4, 0x0
+    move v2, v3
 
     .line 971
-    :goto_12c
-    iget-object v5, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
+    :goto_c
+    iget-object v4, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
 
-    aget v5, v5, v3
+    aget v4, v4, v0
 
-    invoke-virtual {p0, v4, v5}, Lcom/termux/terminal/TerminalEmulator;->doDecSetOrReset(ZI)V
+    invoke-virtual {p0, v2, v4}, Lcom/termux/terminal/TerminalEmulator;->doDecSetOrReset(ZI)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_123
+    goto :goto_b
 
-    :cond_136
-    :goto_136
-    return-void
+    :cond_15
+    move v2, v1
+
+    .line 970
+    goto :goto_c
 
     .line 1002
-    :cond_137
-    const/16 p1, 0xe
+    :cond_16
+    const/16 v0, 0xe
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
-    return-void
+    goto/16 :goto_0
 .end method
 
 .method private doDeviceControl(I)V
-    .registers 15
+    .locals 13
 
-    const/16 v0, 0x5c
+    const/4 v4, 0x2
+
+    const/4 v5, 0x1
 
     const/4 v1, 0x0
 
-    if-eq p1, v0, :cond_25
+    const/16 v0, 0x5c
+
+    if-eq p1, v0, :cond_1
 
     .line 907
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
@@ -2283,145 +2281,148 @@
 
     const/16 v2, 0x2000
 
-    if-le v0, v2, :cond_19
+    if-le v0, v2, :cond_0
 
     .line 909
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->setLength(I)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->setLength(I)V
 
     .line 910
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
 
-    goto/16 :goto_1ab
+    .line 903
+    :goto_0
+    return-void
 
     .line 912
-    :cond_19
+    :cond_0
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->appendCodePoint(I)Ljava/lang/StringBuilder;
 
     .line 913
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
-    goto/16 :goto_1ab
+    goto :goto_0
 
     .line 807
-    :cond_25
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 809
-    const-string v0, "$q"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    const-string v2, "\'"
-
-    if-eqz v0, :cond_5c
-
-    .line 810
-    const-string v0, "$q\"p"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_46
-
-    .line 813
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    const-string v0, "\u001bP1$r64;1\"p\u001b\\"
-
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
-
-    goto/16 :goto_1a8
-
-    .line 815
-    :cond_46
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    const-string v1, "Unrecognized DECRQSS string: \'"
-
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_1
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->finishSequenceAndLogError(Ljava/lang/String;)V
+    .line 809
+    const-string v2, "$q"
 
-    goto/16 :goto_1a8
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    .line 810
+    const-string v1, "$q\"p"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    .line 813
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    const-string v1, "\u001bP1$r64;1\"p\u001b\\"
+
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+
+    .line 903
+    :cond_2
+    :goto_1
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
+
+    goto :goto_0
+
+    .line 815
+    :cond_3
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "Unrecognized DECRQSS string: \'"
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "\'"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->finishSequenceAndLogError(Ljava/lang/String;)V
+
+    goto :goto_1
 
     .line 817
-    :cond_5c
-    const-string v0, "+q"
+    :cond_4
+    const-string v2, "+q"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 855
+    invoke-virtual {v0, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, ";"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v6
+
+    array-length v7, v6
+
+    move v2, v1
+
+    :goto_2
+    if-ge v2, v7, :cond_2
+
+    aget-object v8, v6, v2
+
+    .line 856
+    invoke-virtual {v8}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-eqz v0, :cond_1a8
+    rem-int/lit8 v0, v0, 0x2
 
-    .line 855
-    const/4 v0, 0x2
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v3, ";"
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object p1
-
-    array-length v3, p1
-
-    const/4 v4, 0x0
-
-    :goto_71
-    if-ge v4, v3, :cond_1a8
-
-    aget-object v5, p1, v4
-
-    .line 856
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v6
-
-    rem-int/2addr v6, v0
-
-    const-string v7, "termux"
-
-    if-nez v6, :cond_193
+    if-nez v0, :cond_a
 
     .line 857
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v8, 0x0
+    move v0, v1
 
     .line 858
-    :goto_84
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
+    :goto_3
+    invoke-virtual {v8}, Ljava/lang/String;->length()I
 
     move-result v9
 
-    if-ge v8, v9, :cond_ba
+    if-ge v0, v9, :cond_5
 
     .line 859
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2430,7 +2431,7 @@
 
     invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v8}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v8, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v10
 
@@ -2440,9 +2441,9 @@
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v10, v8, 0x1
+    add-int/lit8 v10, v0, 0x1
 
-    invoke-virtual {v5, v10}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v8, v10}, Ljava/lang/String;->charAt(I)C
 
     move-result v10
 
@@ -2458,222 +2459,224 @@
 
     invoke-virtual {v9}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v9
+    move-result-wide v10
 
-    long-to-int v10, v9
+    long-to-int v9, v10
 
-    int-to-char v9, v10
+    int-to-char v9, v9
 
     .line 860
-    invoke-virtual {v6, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v8, v8, 0x2
+    add-int/lit8 v0, v0, 0x2
 
-    goto :goto_84
+    goto :goto_3
 
     .line 862
-    :cond_ba
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_5
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v9
 
     .line 864
-    invoke-virtual {v6}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v9}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {v6}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v9}, Ljava/lang/String;->hashCode()I
 
-    move-result v8
+    move-result v0
 
-    const/4 v9, 0x1
+    sparse-switch v0, :sswitch_data_0
 
-    sparse-switch v8, :sswitch_data_1ac
+    :cond_6
+    const/4 v0, -0x1
 
-    :goto_c9
-    goto :goto_f6
-
-    :sswitch_ca
-    const-string v8, "name"
-
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_d3
-
-    goto :goto_c9
-
-    :cond_d3
-    const/4 v8, 0x3
-
-    goto :goto_f7
-
-    :sswitch_d5
-    const-string v8, "TN"
-
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_de
-
-    goto :goto_c9
-
-    :cond_de
-    const/4 v8, 0x2
-
-    goto :goto_f7
-
-    :sswitch_e0
-    const-string v8, "Co"
-
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_e9
-
-    goto :goto_c9
-
-    :cond_e9
-    const/4 v8, 0x1
-
-    goto :goto_f7
-
-    :sswitch_eb
-    const-string v8, "colors"
-
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_f4
-
-    goto :goto_c9
-
-    :cond_f4
-    const/4 v8, 0x0
-
-    goto :goto_f7
-
-    :goto_f6
-    const/4 v8, -0x1
-
-    :goto_f7
-    packed-switch v8, :pswitch_data_1be
+    :goto_4
+    packed-switch v0, :pswitch_data_0
 
     .line 874
-    invoke-direct {p0, v9}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+    invoke-direct {p0, v5}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
 
-    move-result v8
+    move-result v0
 
     .line 875
-    const/16 v10, 0x20
+    const/16 v3, 0x20
 
-    invoke-direct {p0, v10}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+    invoke-direct {p0, v3}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+
+    move-result v3
+
+    .line 874
+    invoke-static {v9, v0, v3}, Lcom/termux/terminal/KeyHandler;->getCodeFromTermcap(Ljava/lang/String;ZZ)Ljava/lang/String;
+
+    move-result-object v0
+
+    move-object v3, v0
+
+    .line 878
+    :goto_5
+    if-nez v3, :cond_8
+
+    .line 879
+    invoke-virtual {v9}, Ljava/lang/String;->hashCode()I
+
+    const-string v0, "%1"
+
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    const-string v0, "&8"
+
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    .line 884
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v3, "Unhandled termcap/terminfo name: \'"
+
+    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "\'"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "termux"
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 887
+    :cond_7
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    const-string v9, "\u001bP0+r"
+
+    invoke-direct {v3, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, "\u001b\\"
+
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+
+    .line 896
+    :goto_6
+    add-int/lit8 v0, v2, 0x1
+
+    move v2, v0
+
+    goto/16 :goto_2
+
+    .line 864
+    :sswitch_0
+    const-string v0, "name"
+
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const/4 v0, 0x3
+
+    goto :goto_4
+
+    :sswitch_1
+    const-string v0, "TN"
+
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    move v0, v4
+
+    goto :goto_4
+
+    :sswitch_2
+    const-string v0, "Co"
+
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    move v0, v5
+
+    goto :goto_4
+
+    :sswitch_3
+    const-string v0, "colors"
+
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    move v0, v1
+
+    goto/16 :goto_4
+
+    .line 872
+    :pswitch_0
+    const-string v0, "xterm"
+
+    move-object v3, v0
+
+    goto :goto_5
+
+    .line 868
+    :pswitch_1
+    const-string v0, "256"
+
+    move-object v3, v0
+
+    goto :goto_5
+
+    .line 889
+    :cond_8
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    move v0, v1
+
+    .line 890
+    :goto_7
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v10
 
-    .line 874
-    invoke-static {v6, v8, v10}, Lcom/termux/terminal/KeyHandler;->getCodeFromTermcap(Ljava/lang/String;ZZ)Ljava/lang/String;
-
-    move-result-object v8
-
-    goto :goto_10e
-
-    .line 872
-    :pswitch_109  #0x2, 0x3
-    const-string v8, "xterm"
-
-    goto :goto_10e
-
-    .line 868
-    :pswitch_10c  #0x0, 0x1
-    const-string v8, "256"
-
-    .line 878
-    :goto_10e
-    const-string v10, "\u001b\\"
-
-    if-nez v8, :cond_150
-
-    .line 879
-    invoke-virtual {v6}, Ljava/lang/String;->hashCode()I
-
-    const-string v8, "%1"
-
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_139
-
-    const-string v8, "&8"
-
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_139
-
-    .line 884
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    const-string v9, "Unhandled termcap/terminfo name: \'"
-
-    invoke-direct {v8, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v7, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 887
-    :cond_139
-    iget-object v6, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    const-string v8, "\u001bP0+r"
-
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v6, v5}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
-
-    goto :goto_1a4
-
-    .line 889
-    :cond_150
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const/4 v7, 0x0
-
-    .line 890
-    :goto_156
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-
-    move-result v11
-
-    if-ge v7, v11, :cond_174
+    if-ge v0, v10, :cond_9
 
     .line 891
-    new-array v11, v9, [Ljava/lang/Object;
+    const-string v10, "%02X"
 
-    invoke-virtual {v8, v7}, Ljava/lang/String;->charAt(I)C
+    new-array v11, v5, [Ljava/lang/Object;
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v12
 
@@ -2683,536 +2686,529 @@
 
     aput-object v12, v11, v1
 
-    const-string v12, "%02X"
+    invoke-static {v10, v11}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v12, v11}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v10
 
-    move-result-object v11
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    add-int/lit8 v0, v0, 0x1
 
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_156
+    goto :goto_7
 
     .line 893
-    :cond_174
-    iget-object v7, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    :cond_9
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v9, "\u001bP1+r"
+    const-string v10, "\u001bP1+r"
 
-    invoke-direct {v8, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, "="
+    const-string v8, "="
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v8, "\u001b\\"
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v7, v5}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    move-result-object v3
 
-    goto :goto_1a4
+    invoke-virtual {v0, v3}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+
+    goto :goto_6
 
     .line 896
-    :cond_193
-    new-instance v6, Ljava/lang/StringBuilder;
+    :cond_a
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v8, "Invalid device termcap/terminfo name of odd length: "
+    const-string v3, "Invalid device termcap/terminfo name of odd length: "
 
-    invoke-direct {v6, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v3, "termux"
 
-    move-result-object v5
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v7, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v0
 
-    :goto_1a4
-    add-int/lit8 v4, v4, 0x1
+    invoke-static {v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_71
+    goto/16 :goto_6
 
-    .line 903
-    :cond_1a8
-    :goto_1a8
-    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
+    nop
 
-    :goto_1ab
-    return-void
-
-    :sswitch_data_1ac
+    :sswitch_data_0
     .sparse-switch
-        -0x50c14290 -> :sswitch_eb
-        0x88c -> :sswitch_e0
-        0xa7a -> :sswitch_d5
-        0x337a8b -> :sswitch_ca
+        -0x50c14290 -> :sswitch_3
+        0x88c -> :sswitch_2
+        0xa7a -> :sswitch_1
+        0x337a8b -> :sswitch_0
     .end sparse-switch
 
-    :pswitch_data_1be
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_10c  #00000000
-        :pswitch_10c  #00000001
-        :pswitch_109  #00000002
-        :pswitch_109  #00000003
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private doEsc(I)V
-    .registers 22
+    .locals 10
 
-    move-object/from16 v0, p0
+    const/4 v1, 0x4
 
-    move/from16 v1, p1
+    const/16 v9, 0x20
 
-    const/16 v2, 0x23
+    const/4 v8, 0x1
 
-    if-eq v1, v2, :cond_141
+    const/4 v7, 0x0
 
-    const/16 v2, 0x30
+    const/16 v0, 0x23
 
-    if-eq v1, v2, :cond_145
+    if-eq p1, v0, :cond_e
 
-    const/16 v2, 0x48
+    const/16 v0, 0x30
 
-    const/4 v3, 0x1
+    if-eq p1, v0, :cond_0
 
-    if-eq v1, v2, :cond_13a
+    const/16 v0, 0x48
 
-    const/16 v2, 0x50
+    if-eq p1, v0, :cond_d
 
-    const/4 v4, 0x0
+    const/16 v0, 0x50
 
-    if-eq v1, v2, :cond_12f
+    if-eq p1, v0, :cond_c
 
-    const/16 v2, 0x5b
+    const/16 v0, 0x5b
 
-    if-eq v1, v2, :cond_12a
+    if-eq p1, v0, :cond_b
 
-    const/16 v2, 0x5d
+    const/16 v0, 0x5d
 
-    if-eq v1, v2, :cond_11f
+    if-eq p1, v0, :cond_a
 
-    const/16 v2, 0x63
+    const/16 v0, 0x63
 
-    if-eq v1, v2, :cond_111
+    if-eq p1, v0, :cond_9
 
-    const/16 v2, 0x28
+    const/16 v0, 0x28
 
-    if-eq v1, v2, :cond_10c
+    if-eq p1, v0, :cond_8
 
-    const/16 v2, 0x29
+    const/16 v0, 0x29
 
-    const/4 v5, 0x4
+    if-eq p1, v0, :cond_7
 
-    if-eq v1, v2, :cond_108
+    const/16 v0, 0x3d
 
-    const/16 v2, 0x3d
+    if-eq p1, v0, :cond_6
 
-    const/16 v6, 0x20
+    const/16 v0, 0x3e
 
-    if-eq v1, v2, :cond_104
+    if-eq p1, v0, :cond_5
 
-    const/16 v2, 0x3e
+    const/16 v0, 0x4d
 
-    if-eq v1, v2, :cond_100
+    if-eq p1, v0, :cond_3
 
-    const/16 v2, 0x4d
+    const/16 v0, 0x4e
 
-    if-eq v1, v2, :cond_df
+    if-eq p1, v0, :cond_0
 
-    const/16 v2, 0x4e
+    packed-switch p1, :pswitch_data_0
 
-    if-eq v1, v2, :cond_145
-
-    packed-switch v1, :pswitch_data_146
-
-    packed-switch v1, :pswitch_data_152
+    packed-switch p1, :pswitch_data_1
 
     .line 1302
-    invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
-
-    goto/16 :goto_145
-
-    .line 1245
-    :pswitch_48  #0x39
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
-
-    add-int/lit8 v5, v2, -0x1
-
-    if-ge v1, v5, :cond_55
-
-    .line 1246
-    add-int/2addr v1, v3
-
-    iput v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    goto/16 :goto_145
-
-    .line 1248
-    :cond_55
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
-
-    iget v11, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    sub-int v16, v1, v11
-
-    .line 1249
-    iget-object v5, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v10, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    add-int/lit8 v6, v10, 0x1
-
-    sub-int/2addr v2, v10
-
-    add-int/lit8 v8, v2, -0x1
-
-    move v7, v11
-
-    move/from16 v9, v16
-
-    invoke-virtual/range {v5 .. v11}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    .line 1250
-    iget-object v12, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
-
-    add-int/lit8 v13, v1, -0x1
-
-    iget v14, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    const/4 v15, 0x1
-
-    const/16 v17, 0x20
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
-
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
-
-    invoke-static {v1, v2, v4}, Lcom/termux/terminal/TextStyle;->encode(III)J
-
-    move-result-wide v18
-
-    invoke-virtual/range {v12 .. v19}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
-
-    goto/16 :goto_145
-
-    .line 1242
-    :pswitch_82  #0x38
-    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->restoreCursor()V
-
-    goto/16 :goto_145
-
-    .line 1239
-    :pswitch_87  #0x37
-    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->saveCursor()V
-
-    goto/16 :goto_145
-
-    .line 1230
-    :pswitch_8c  #0x36
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    iget v6, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    if-le v1, v6, :cond_97
-
-    .line 1231
-    sub-int/2addr v1, v3
-
-    iput v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    goto/16 :goto_145
-
-    .line 1233
-    :cond_97
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
-
-    iget v11, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    sub-int v16, v1, v11
-
-    .line 1234
-    iget-object v5, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
-
-    sub-int/2addr v1, v6
-
-    add-int/lit8 v8, v1, -0x1
-
-    add-int/lit8 v10, v6, 0x1
-
-    move v7, v11
-
-    move/from16 v9, v16
-
-    invoke-virtual/range {v5 .. v11}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    .line 1235
-    iget-object v12, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v13, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    iget v14, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    const/4 v15, 0x1
-
-    const/16 v17, 0x20
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
-
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
-
-    invoke-static {v1, v2, v4}, Lcom/termux/terminal/TextStyle;->encode(III)J
-
-    move-result-wide v18
-
-    invoke-virtual/range {v12 .. v19}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
-
-    goto/16 :goto_145
-
-    .line 1266
-    :pswitch_c2  #0x46
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
-
-    sub-int/2addr v1, v3
-
-    invoke-direct {v0, v4, v1}, Lcom/termux/terminal/TerminalEmulator;->setCursorRowCol(II)V
-
-    goto/16 :goto_145
-
-    .line 1262
-    :pswitch_ca  #0x45
-    invoke-direct {v0, v5}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_d2
-
-    iget v4, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    :cond_d2
-    invoke-direct {v0, v4}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
-
-    .line 1263
-    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->doLinefeed()V
-
-    goto/16 :goto_145
-
-    .line 1259
-    :pswitch_da  #0x44
-    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->doLinefeed()V
-
-    goto/16 :goto_145
-
-    .line 1274
-    :cond_df
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    iget v7, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    if-gt v1, v7, :cond_fc
-
-    .line 1275
-    iget-object v5, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    const/4 v6, 0x0
-
-    iget v8, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
-
-    add-int/lit8 v11, v7, 0x1
-
-    sub-int v9, v1, v11
-
-    const/4 v10, 0x0
-
-    invoke-virtual/range {v5 .. v11}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    .line 1276
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    invoke-direct {v0, v4, v1, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
-
-    goto :goto_145
-
-    .line 1278
-    :cond_fc
-    sub-int/2addr v1, v3
-
-    iput v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    goto :goto_145
-
-    .line 1299
-    :cond_100
-    invoke-direct {v0, v6, v4}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
-
-    goto :goto_145
-
-    .line 1292
-    :cond_104
-    invoke-direct {v0, v6, v3}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
-
-    goto :goto_145
-
-    .line 1227
-    :cond_108
-    invoke-direct {v0, v5}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto :goto_145
-
-    .line 1224
-    :cond_10c
-    const/4 v1, 0x3
-
-    invoke-direct {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto :goto_145
-
-    .line 1254
-    :cond_111
-    invoke-virtual/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->reset()V
-
-    .line 1255
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    invoke-direct {v0, v4, v4, v1, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
-
-    .line 1256
-    invoke-direct {v0, v4, v4}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
-
-    goto :goto_145
-
-    .line 1295
-    :cond_11f
-    iget-object v1, v0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->setLength(I)V
-
-    .line 1296
-    const/16 v1, 0xa
-
-    invoke-direct {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto :goto_145
-
-    .line 1289
-    :cond_12a
-    const/4 v1, 0x6
-
-    invoke-direct {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto :goto_145
-
-    .line 1285
-    :cond_12f
-    iget-object v1, v0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->setLength(I)V
-
-    .line 1286
-    const/16 v1, 0xd
-
-    invoke-direct {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto :goto_145
-
-    .line 1269
-    :cond_13a
-    iget-object v1, v0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
-
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    aput-boolean v3, v1, v2
-
-    goto :goto_145
+    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
     .line 1221
-    :cond_141
-    const/4 v1, 0x2
-
-    invoke-direct {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    :cond_145
-    :goto_145
+    :cond_0
+    :goto_0
     return-void
 
-    :pswitch_data_146
+    .line 1245
+    :pswitch_0
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+
+    add-int/lit8 v1, v3, -0x1
+
+    if-ge v0, v1, :cond_1
+
+    .line 1246
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    goto :goto_0
+
+    .line 1248
+    :cond_1
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+
+    sub-int v4, v0, v2
+
+    .line 1249
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+
+    add-int/lit8 v1, v5, 0x1
+
+    sub-int/2addr v3, v5
+
+    add-int/lit8 v3, v3, -0x1
+
+    move v6, v2
+
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    .line 1250
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+
+    add-int/lit8 v1, v1, -0x1
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
+
+    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
+
+    invoke-static {v3, v5, v7}, Lcom/termux/terminal/TextStyle;->encode(III)J
+
+    move-result-wide v6
+
+    move v3, v8
+
+    move v5, v9
+
+    invoke-virtual/range {v0 .. v7}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
+
+    goto :goto_0
+
+    .line 1242
+    :pswitch_1
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->restoreCursor()V
+
+    goto :goto_0
+
+    .line 1239
+    :pswitch_2
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->saveCursor()V
+
+    goto :goto_0
+
+    .line 1230
+    :pswitch_3
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+
+    if-le v0, v1, :cond_2
+
+    .line 1231
+    add-int/lit8 v0, v0, -0x1
+
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    goto :goto_0
+
+    .line 1233
+    :cond_2
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+
+    sub-int v4, v0, v2
+
+    .line 1234
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+
+    sub-int/2addr v3, v1
+
+    add-int/lit8 v3, v3, -0x1
+
+    add-int/lit8 v5, v1, 0x1
+
+    move v6, v2
+
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    .line 1235
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
+
+    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
+
+    invoke-static {v3, v5, v7}, Lcom/termux/terminal/TextStyle;->encode(III)J
+
+    move-result-wide v6
+
+    move v3, v8
+
+    move v5, v9
+
+    invoke-virtual/range {v0 .. v7}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
+
+    goto :goto_0
+
+    .line 1266
+    :pswitch_4
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+
+    add-int/lit8 v0, v0, -0x1
+
+    invoke-direct {p0, v7, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorRowCol(II)V
+
+    goto :goto_0
+
+    .line 1262
+    :pswitch_5
+    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+
+    :goto_1
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
+
+    .line 1263
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->doLinefeed()V
+
+    goto/16 :goto_0
+
+    .line 1259
+    :pswitch_6
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->doLinefeed()V
+
+    goto/16 :goto_0
+
+    .line 1274
+    :cond_3
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+
+    if-gt v0, v2, :cond_4
+
+    .line 1275
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+
+    add-int/lit8 v6, v2, 0x1
+
+    sub-int v4, v1, v6
+
+    move v1, v7
+
+    move v5, v7
+
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    .line 1276
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    invoke-direct {p0, v7, v0, v1}, Lcom/termux/terminal/TerminalEmulator;->blockClear(III)V
+
+    goto/16 :goto_0
+
+    .line 1278
+    :cond_4
+    add-int/lit8 v0, v0, -0x1
+
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    goto/16 :goto_0
+
+    .line 1299
+    :cond_5
+    invoke-direct {p0, v9, v7}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
+
+    goto/16 :goto_0
+
+    .line 1292
+    :cond_6
+    invoke-direct {p0, v9, v8}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
+
+    goto/16 :goto_0
+
+    .line 1227
+    :cond_7
+    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+
+    goto/16 :goto_0
+
+    .line 1224
+    :cond_8
+    const/4 v0, 0x3
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+
+    goto/16 :goto_0
+
+    .line 1254
+    :cond_9
+    invoke-virtual {p0}, Lcom/termux/terminal/TerminalEmulator;->reset()V
+
+    .line 1255
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    invoke-direct {p0, v7, v7, v0, v1}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+
+    .line 1256
+    invoke-direct {p0, v7, v7}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
+
+    goto/16 :goto_0
+
+    .line 1295
+    :cond_a
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->setLength(I)V
+
+    .line 1296
+    const/16 v0, 0xa
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+
+    goto/16 :goto_0
+
+    .line 1289
+    :cond_b
+    const/4 v0, 0x6
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+
+    goto/16 :goto_0
+
+    .line 1285
+    :cond_c
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->setLength(I)V
+
+    .line 1286
+    const/16 v0, 0xd
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+
+    goto/16 :goto_0
+
+    .line 1269
+    :cond_d
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    aput-boolean v8, v0, v1
+
+    goto/16 :goto_0
+
+    .line 1221
+    :cond_e
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+
+    goto/16 :goto_0
+
+    :cond_f
+    move v0, v7
+
+    goto/16 :goto_1
+
+    nop
+
+    :pswitch_data_0
     .packed-switch 0x36
-        :pswitch_8c  #00000036
-        :pswitch_87  #00000037
-        :pswitch_82  #00000038
-        :pswitch_48  #00000039
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 
-    :pswitch_data_152
+    :pswitch_data_1
     .packed-switch 0x44
-        :pswitch_da  #00000044
-        :pswitch_ca  #00000045
-        :pswitch_c2  #00000046
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method private doEscPound(I)V
-    .registers 11
+    .locals 8
+
+    const/4 v1, 0x0
 
     const/16 v0, 0x38
 
-    if-eq p1, v0, :cond_8
+    if-eq p1, v0, :cond_0
 
     .line 1212
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    goto :goto_19
-
     .line 1209
-    :cond_8
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    :goto_0
+    return-void
 
-    const/4 v2, 0x0
+    :cond_0
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    const/4 v3, 0x0
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    const/16 v6, 0x45
+    const/16 v5, 0x45
 
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
 
-    move-result-wide v7
+    move-result-wide v6
 
-    invoke-virtual/range {v1 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
+    move v2, v1
 
-    :goto_19
-    return-void
+    invoke-virtual/range {v0 .. v7}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
+
+    goto :goto_0
 .end method
 
 .method private doLinefeed()V
-    .registers 3
+    .locals 2
 
     .line 1193
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
@@ -3222,7 +3218,7 @@
     .line 1194
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
-    if-lt v0, v1, :cond_f
+    if-lt v0, v1, :cond_0
 
     .line 1195
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->scrollDownOneLine()V
@@ -3233,52 +3229,53 @@
     add-int/lit8 v0, v0, -0x1
 
     .line 1198
-    :cond_f
+    :cond_0
     invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorRow(I)V
 
     return-void
 .end method
 
 .method private doOsc(I)V
-    .registers 3
+    .locals 1
 
     const/4 v0, 0x7
 
-    if-eq p1, v0, :cond_11
+    if-eq p1, v0, :cond_1
 
     const/16 v0, 0x1b
 
-    if-eq p1, v0, :cond_b
+    if-eq p1, v0, :cond_0
 
     .line 1763
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->collectOSCArgs(I)V
 
-    goto :goto_16
+    .line 1757
+    :goto_0
+    return-void
 
     .line 1760
-    :cond_b
-    const/16 p1, 0xb
+    :cond_0
+    const/16 v0, 0xb
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1757
-    :cond_11
-    const-string p1, "\u0007"
+    :cond_1
+    const-string v0, "\u0007"
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->doOscSetTextParameters(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->doOscSetTextParameters(Ljava/lang/String;)V
 
-    :goto_16
-    return-void
+    goto :goto_0
 .end method
 
 .method private doOscEsc(I)V
-    .registers 3
+    .locals 1
 
     const/16 v0, 0x5c
 
-    if-eq p1, v0, :cond_12
+    if-eq p1, v0, :cond_0
 
     .line 1776
     const/16 v0, 0x1b
@@ -3289,494 +3286,498 @@
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->collectOSCArgs(I)V
 
     .line 1778
-    const/16 p1, 0xa
+    const/16 v0, 0xa
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto :goto_17
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
     .line 1771
-    :cond_12
-    const-string p1, "\u001b\\"
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->doOscSetTextParameters(Ljava/lang/String;)V
-
-    :goto_17
+    :goto_0
     return-void
+
+    :cond_0
+    const-string v0, "\u001b\\"
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->doOscSetTextParameters(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method private doOscSetTextParameters(Ljava/lang/String;)V
-    .registers 21
+    .locals 16
 
     .line 1785
-    move-object/from16 v1, p0
+    const/4 v2, 0x0
 
-    const-string v2, "/"
-
-    const-string v3, "%04x"
-
-    const/4 v0, -0x1
-
-    const/4 v5, 0x0
-
-    const/4 v6, -0x1
+    const/4 v1, -0x1
 
     .line 1788
-    :goto_9
-    iget-object v7, v1, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
+    :goto_0
+    move-object/from16 v0, p0
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->length()I
+    iget-object v3, v0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
 
-    move-result v7
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->length()I
 
-    const/16 v8, 0x39
+    move-result v3
 
-    const-string v9, ""
-
-    const/16 v10, 0x30
-
-    const/16 v11, 0x3b
-
-    const/4 v12, 0x1
-
-    if-ge v5, v7, :cond_3e
+    if-ge v2, v3, :cond_4
 
     .line 1789
-    iget-object v7, v1, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->charAt(I)C
+    iget-object v3, v0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
 
-    move-result v7
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->charAt(I)C
 
-    if-ne v7, v11, :cond_2a
+    move-result v3
+
+    const/16 v4, 0x3b
+
+    if-ne v3, v4, :cond_1
 
     .line 1791
-    iget-object v7, v1, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    add-int/2addr v5, v12
+    iget-object v3, v0, Lcom/termux/terminal/TerminalEmulator;->mOSCOrDeviceControlArgs:Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->substring(I)Ljava/lang/String;
+    add-int/lit8 v2, v2, 0x1
 
-    move-result-object v5
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->substring(I)Ljava/lang/String;
 
-    goto :goto_3f
+    move-result-object v2
 
-    :cond_2a
-    if-lt v7, v10, :cond_3a
-
-    if-gt v7, v8, :cond_3a
-
-    if-gez v6, :cond_32
-
-    const/4 v6, 0x0
-
-    goto :goto_34
-
-    :cond_32
-    mul-int/lit8 v6, v6, 0xa
-
-    :goto_34
-    add-int/lit8 v7, v7, -0x30
-
-    add-int/2addr v6, v7
-
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_9
+    move-object v6, v2
 
     .line 1796
-    :cond_3a
-    invoke-direct {v1, v7}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
+    :goto_1
+    if-eqz v1, :cond_18
 
-    return-void
+    const/4 v2, 0x1
 
-    :cond_3e
-    move-object v5, v9
+    if-eq v1, v2, :cond_18
 
-    :goto_3f
-    if-eqz v6, :cond_22a
+    const/4 v2, 0x2
 
-    if-eq v6, v12, :cond_22a
+    if-eq v1, v2, :cond_18
 
-    const/4 v7, 0x2
+    const/4 v2, 0x4
 
-    if-eq v6, v7, :cond_22a
+    if-eq v1, v2, :cond_e
 
-    const/4 v7, 0x4
+    const/16 v2, 0x34
 
-    const/16 v13, 0xff
+    if-eq v1, v2, :cond_d
 
-    if-eq v6, v7, :cond_1cd
+    const/16 v2, 0x68
 
-    const/16 v0, 0x34
+    if-eq v1, v2, :cond_9
 
-    if-eq v6, v0, :cond_196
+    const/16 v2, 0x77
 
-    const/16 v0, 0x68
+    if-eq v1, v2, :cond_0
 
-    if-eq v6, v0, :cond_152
+    packed-switch v1, :pswitch_data_0
 
-    const/16 v0, 0x77
-
-    if-eq v6, v0, :cond_22d
-
-    packed-switch v6, :pswitch_data_232
-
-    packed-switch v6, :pswitch_data_23c
+    packed-switch v1, :pswitch_data_1
 
     .line 1922
-    invoke-direct {v1, v6}, Lcom/termux/terminal/TerminalEmulator;->unknownParameter(I)V
+    move-object/from16 v0, p0
 
-    goto/16 :goto_22d
-
-    .line 1917
-    :pswitch_62  #0xa, 0xb, 0xc
-    add-int/lit16 v0, v6, 0xf6
-
-    move v7, v0
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    .line 1851
-    :goto_67
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    if-ne v8, v0, :cond_6f
-
-    const/4 v0, 0x1
-
-    goto :goto_70
-
-    :cond_6f
-    const/4 v0, 0x0
-
-    :goto_70
-    if-nez v0, :cond_7f
-
-    .line 1852
-    invoke-virtual {v5, v8}, Ljava/lang/String;->charAt(I)C
-
-    move-result v10
-
-    if-ne v10, v11, :cond_79
-
-    goto :goto_7f
-
-    :cond_79
-    move-object/from16 v4, p1
-
-    move/from16 v18, v9
-
-    goto/16 :goto_13a
-
-    .line 1854
-    :cond_7f
-    :goto_7f
-    :try_start_7f
-    invoke-virtual {v5, v9, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v10
-
-    .line 1855
-    const-string v14, "?"
-
-    invoke-virtual {v14, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v14
-
-    if-eqz v14, :cond_10f
-
-    .line 1857
-    iget-object v10, v1, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
-
-    iget-object v10, v10, Lcom/termux/terminal/TerminalColors;->mCurrentColors:[I
-
-    aget v10, v10, v7
-
-    .line 1858
-    const/high16 v14, 0xff0000
-
-    and-int/2addr v14, v10
-
-    shr-int/lit8 v14, v14, 0x10
-
-    const v15, 0xffff
-
-    mul-int v14, v14, v15
-
-    div-int/2addr v14, v13
-
-    .line 1859
-    const v16, 0xff00
-
-    and-int v16, v10, v16
-
-    shr-int/lit8 v16, v16, 0x8
-
-    mul-int v11, v16, v15
-
-    div-int/2addr v11, v13
-
-    .line 1860
-    and-int/lit16 v10, v10, 0xff
-
-    mul-int v10, v10, v15
-
-    div-int/2addr v10, v13
-
-    .line 1861
-    iget-object v15, v1, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "\u001b]"
-
-    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v13, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v4, ";rgb:"
-
-    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
-    :try_end_c1
-    .catch Ljava/lang/NumberFormatException; {:try_start_7f .. :try_end_c1} :catch_135
-
-    move/from16 v18, v9
-
-    :try_start_c3
-    new-array v9, v12, [Ljava/lang/Object;
-
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v14
-
-    const/16 v17, 0x0
-
-    aput-object v14, v9, v17
-
-    invoke-static {v4, v3, v9}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v13, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    new-array v9, v12, [Ljava/lang/Object;
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v11
-
-    const/4 v14, 0x0
-
-    aput-object v11, v9, v14
-
-    invoke-static {v4, v3, v9}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v13, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    .line 1862
-    new-array v9, v12, [Ljava/lang/Object;
-
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v10
-
-    const/4 v11, 0x0
-
-    aput-object v10, v9, v11
-
-    invoke-static {v4, v3, v9}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_fe
-    .catch Ljava/lang/NumberFormatException; {:try_start_c3 .. :try_end_fe} :catch_10b
-
-    move-object/from16 v4, p1
-
-    :try_start_100
-    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    .line 1861
-    invoke-virtual {v15, v9}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
-
-    goto :goto_11d
-
-    :catch_10b
-    move-exception v0
-
-    move-object/from16 v4, p1
-
-    goto :goto_13b
-
-    .line 1864
-    :cond_10f
-    move-object/from16 v4, p1
-
-    move/from16 v18, v9
-
-    iget-object v9, v1, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
-
-    invoke-virtual {v9, v7, v10}, Lcom/termux/terminal/TerminalColors;->tryParseColor(ILjava/lang/String;)V
-
-    .line 1865
-    iget-object v9, v1, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    invoke-virtual {v9}, Lcom/termux/terminal/TerminalOutput;->onColorsChanged()V
-
-    :goto_11d
-    add-int/lit8 v7, v7, 0x1
-
-    if-nez v0, :cond_22d
-
-    const/16 v0, 0x102
-
-    if-gt v7, v0, :cond_22d
-
-    add-int/lit8 v8, v8, 0x1
-
-    .line 1868
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v0
-    :try_end_12b
-    .catch Ljava/lang/NumberFormatException; {:try_start_100 .. :try_end_12b} :catch_131
-
-    if-lt v8, v0, :cond_12f
-
-    goto/16 :goto_22d
-
-    :cond_12f
-    move v9, v8
-
-    goto :goto_13d
+    invoke-direct {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->unknownParameter(I)V
 
     .line 1925
-    :catch_131
-    move-exception v0
+    :cond_0
+    :goto_2
+    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
 
-    move/from16 v9, v18
+    :goto_3
+    return-void
 
-    goto :goto_13d
+    .line 1791
+    :cond_1
+    const/16 v4, 0x30
 
-    :catch_135
-    move-exception v0
+    if-lt v3, v4, :cond_3
 
-    move-object/from16 v4, p1
+    const/16 v4, 0x39
 
-    move/from16 v18, v9
+    if-gt v3, v4, :cond_3
 
-    .line 1852
-    :goto_13a
-    nop
+    if-gez v1, :cond_2
 
-    .line 1868
-    :goto_13b
-    move/from16 v9, v18
+    const/4 v1, 0x0
 
-    :goto_13d
-    add-int/2addr v8, v12
+    :goto_4
+    add-int/lit8 v3, v3, -0x30
 
-    const/16 v11, 0x3b
+    add-int/2addr v1, v3
 
-    const/16 v13, 0xff
+    add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_67
+    goto :goto_0
 
-    .line 1916
-    :pswitch_144  #0x6e, 0x6f, 0x70
-    iget-object v0, v1, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
+    :cond_2
+    mul-int/lit8 v1, v1, 0xa
 
-    add-int/lit16 v6, v6, 0x92
+    goto :goto_4
 
-    invoke-virtual {v0, v6}, Lcom/termux/terminal/TerminalColors;->reset(I)V
+    .line 1796
+    :cond_3
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
+
+    goto :goto_3
+
+    :cond_4
+    const-string v2, ""
+
+    move-object v6, v2
+
+    goto :goto_1
 
     .line 1917
-    iget-object v0, v1, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    invoke-virtual {v0}, Lcom/termux/terminal/TerminalOutput;->onColorsChanged()V
-
-    goto/16 :goto_22d
-
-    .line 1891
-    :cond_152
-    invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_164
-
-    .line 1892
-    iget-object v0, v1, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
-
-    invoke-virtual {v0}, Lcom/termux/terminal/TerminalColors;->reset()V
-
-    .line 1893
-    iget-object v0, v1, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    invoke-virtual {v0}, Lcom/termux/terminal/TerminalOutput;->onColorsChanged()V
-
-    goto/16 :goto_22d
-
-    :cond_164
-    const/4 v2, 0x0
+    :pswitch_0
+    add-int/lit16 v2, v1, 0xf6
 
     const/4 v3, 0x0
 
+    const/4 v4, 0x0
+
+    .line 1851
+    :goto_5
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-ne v3, v5, :cond_7
+
+    const/4 v5, 0x1
+
+    :goto_6
+    if-nez v5, :cond_5
+
+    .line 1852
+    invoke-virtual {v6, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v7
+
+    const/16 v8, 0x3b
+
+    if-ne v7, v8, :cond_6
+
+    .line 1854
+    :cond_5
+    :try_start_0
+    invoke-virtual {v6, v4, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 1855
+    const-string v8, "?"
+
+    invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_8
+
+    .line 1857
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
+
+    iget-object v7, v7, Lcom/termux/terminal/TerminalColors;->mCurrentColors:[I
+
+    aget v7, v7, v2
+
+    .line 1858
+    const/high16 v8, 0xff0000
+
+    and-int/2addr v8, v7
+
+    shr-int/lit8 v8, v8, 0x10
+
+    const v9, 0xffff
+
+    mul-int/2addr v8, v9
+
+    div-int/lit16 v8, v8, 0xff
+
+    .line 1859
+    const v9, 0xff00
+
+    and-int/2addr v9, v7
+
+    shr-int/lit8 v9, v9, 0x8
+
+    const v10, 0xffff
+
+    mul-int/2addr v9, v10
+
+    div-int/lit16 v9, v9, 0xff
+
+    .line 1860
+    and-int/lit16 v7, v7, 0xff
+
+    const v10, 0xffff
+
+    mul-int/2addr v7, v10
+
+    div-int/lit16 v7, v7, 0xff
+
+    .line 1861
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "\u001b]"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v11, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v12, ";rgb:"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v12, Ljava/util/Locale;->US:Ljava/util/Locale;
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_3
+
+    :try_start_1
+    const-string v13, "%04x"
+
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    const/4 v15, 0x0
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    aput-object v8, v14, v15
+
+    invoke-static {v12, v13, v14}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, "/"
+
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v8, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    const-string v12, "%04x"
+
+    const/4 v13, 0x1
+
+    new-array v13, v13, [Ljava/lang/Object;
+
+    const/4 v14, 0x0
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v9
+
+    aput-object v9, v13, v14
+
+    invoke-static {v8, v12, v13}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, "/"
+
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v8, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    .line 1862
+    const-string v9, "%04x"
+
+    const/4 v12, 0x1
+
+    new-array v12, v12, [Ljava/lang/Object;
+
+    const/4 v13, 0x0
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v12, v13
+
+    invoke-static {v8, v9, v12}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_5
+
+    :try_start_2
+    move-object/from16 v0, p1
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 1861
+    invoke-virtual {v10, v7}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    :try_end_2
+    .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_0
+
+    .line 1865
+    :goto_7
+    add-int/lit8 v2, v2, 0x1
+
+    if-nez v5, :cond_0
+
+    const/16 v5, 0x102
+
+    if-gt v2, v5, :cond_0
+
+    add-int/lit8 v5, v3, 0x1
+
+    .line 1868
+    :try_start_3
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+    :try_end_3
+    .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_4
+
+    move-result v3
+
+    if-ge v5, v3, :cond_0
+
+    move v3, v5
+
+    move v4, v5
+
+    .line 1852
+    :cond_6
+    :goto_8
+    add-int/lit8 v3, v3, 0x1
+
+    goto/16 :goto_5
+
+    .line 1851
+    :cond_7
+    const/4 v5, 0x0
+
+    goto/16 :goto_6
+
+    .line 1864
+    :cond_8
+    :try_start_4
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
+
+    invoke-virtual {v8, v2, v7}, Lcom/termux/terminal/TerminalColors;->tryParseColor(ILjava/lang/String;)V
+
+    .line 1865
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    invoke-virtual {v7}, Lcom/termux/terminal/TerminalOutput;->onColorsChanged()V
+    :try_end_4
+    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_4} :catch_0
+
+    goto :goto_7
+
+    .line 1925
+    :catch_0
+    move-exception v5
+
+    goto :goto_8
+
+    .line 1916
+    :pswitch_1
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
+
+    add-int/lit16 v1, v1, 0x92
+
+    invoke-virtual {v2, v1}, Lcom/termux/terminal/TerminalColors;->reset(I)V
+
+    .line 1917
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    invoke-virtual {v1}, Lcom/termux/terminal/TerminalOutput;->onColorsChanged()V
+
+    goto/16 :goto_2
+
+    .line 1891
+    :cond_9
+    invoke-virtual {v6}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    .line 1892
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
+
+    invoke-virtual {v1}, Lcom/termux/terminal/TerminalColors;->reset()V
+
+    .line 1893
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    invoke-virtual {v1}, Lcom/termux/terminal/TerminalOutput;->onColorsChanged()V
+
+    goto/16 :goto_2
+
+    :cond_a
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
     .line 1897
-    :goto_166
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
+    :goto_9
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v3
 
-    if-ne v2, v0, :cond_16e
+    if-ne v1, v3, :cond_c
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    goto :goto_16f
-
-    :cond_16e
-    const/4 v0, 0x0
-
-    :goto_16f
-    if-nez v0, :cond_179
+    :goto_a
+    if-nez v3, :cond_b
 
     .line 1898
-    invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v6, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
 
-    const/16 v6, 0x3b
+    const/16 v5, 0x3b
 
-    if-ne v4, v6, :cond_194
+    if-ne v4, v5, :cond_19
 
     .line 1900
-    :cond_179
-    :try_start_179
-    invoke-virtual {v5, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    :cond_b
+    :try_start_5
+    invoke-virtual {v6, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v4
 
@@ -3785,261 +3786,303 @@
     move-result v4
 
     .line 1901
-    iget-object v6, v1, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v6, v4}, Lcom/termux/terminal/TerminalColors;->reset(I)V
+    iget-object v5, v0, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
+
+    invoke-virtual {v5, v4}, Lcom/termux/terminal/TerminalColors;->reset(I)V
 
     .line 1902
-    iget-object v4, v1, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
     invoke-virtual {v4}, Lcom/termux/terminal/TerminalOutput;->onColorsChanged()V
-    :try_end_18b
-    .catch Ljava/lang/NumberFormatException; {:try_start_179 .. :try_end_18b} :catch_193
+    :try_end_5
+    .catch Ljava/lang/NumberFormatException; {:try_start_5 .. :try_end_5} :catch_1
 
-    if-eqz v0, :cond_18f
+    if-nez v3, :cond_0
 
-    goto/16 :goto_22d
+    add-int/lit8 v2, v1, 0x1
 
-    :cond_18f
-    add-int/lit8 v2, v2, 0x1
+    move v1, v2
 
     move v3, v2
 
-    goto :goto_194
+    :goto_b
+    add-int/lit8 v1, v1, 0x1
+
+    move v2, v3
+
+    goto :goto_9
+
+    .line 1897
+    :cond_c
+    const/4 v3, 0x0
+
+    goto :goto_a
 
     .line 1925
-    :catch_193
-    move-exception v0
+    :catch_1
+    move-exception v3
 
-    .line 1902
-    :cond_194
-    :goto_194
-    add-int/2addr v2, v12
+    move v3, v2
 
-    goto :goto_166
+    goto :goto_b
 
     .line 1878
-    :cond_196
-    const-string v0, ";"
+    :cond_d
+    const-string v1, ";"
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {v6, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v1
 
     .line 1880
-    :try_start_19c
+    :try_start_6
     new-instance v2, Ljava/lang/String;
 
-    add-int/2addr v0, v12
+    add-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v6, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     const/4 v3, 0x0
 
-    invoke-static {v0, v3}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+    invoke-static {v1, v3}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
 
-    move-result-object v0
+    move-result-object v1
 
     sget-object v3, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-direct {v2, v0, v3}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+    invoke-direct {v2, v1, v3}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
 
     .line 1881
-    iget-object v0, v1, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Lcom/termux/terminal/TerminalOutput;->clipboardText(Ljava/lang/String;)V
-    :try_end_1b2
-    .catch Ljava/lang/Exception; {:try_start_19c .. :try_end_1b2} :catch_1b4
+    iget-object v1, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    goto/16 :goto_22d
+    invoke-virtual {v1, v2}, Lcom/termux/terminal/TerminalOutput;->clipboardText(Ljava/lang/String;)V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_2
+
+    goto/16 :goto_2
 
     .line 1883
-    :catch_1b4
-    move-exception v0
+    :catch_2
+    move-exception v1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
     const-string v2, "OSC Manipulate selection, invalid string \'"
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ""
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v2, "termux"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_22d
+    goto/16 :goto_2
 
-    :cond_1cd
-    const/4 v3, 0x0
+    :cond_e
+    const/4 v1, 0x0
+
+    const/4 v3, -0x1
+
+    const/4 v2, -0x1
+
+    .line 1818
+    :goto_c
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    if-ne v1, v4, :cond_10
+
+    const/4 v4, 0x1
+
+    move v5, v4
+
+    :goto_d
+    if-eqz v5, :cond_11
+
+    const/16 v4, 0x3b
+
+    .line 1819
+    :goto_e
+    const/16 v7, 0x3b
+
+    if-ne v4, v7, :cond_15
+
+    if-gez v3, :cond_12
+
+    add-int/lit8 v3, v1, 0x1
+
+    .line 1825
+    :cond_f
+    :goto_f
+    if-nez v5, :cond_0
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_c
+
+    .line 1818
+    :cond_10
+    const/4 v4, 0x0
+
+    move v5, v4
+
+    goto :goto_d
+
+    .line 1819
+    :cond_11
+    invoke-virtual {v6, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    goto :goto_e
+
+    :cond_12
+    if-ltz v2, :cond_13
+
+    const/16 v7, 0xff
+
+    if-le v2, v7, :cond_14
+
+    .line 1825
+    :cond_13
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
+
+    goto/16 :goto_3
+
+    .line 1828
+    :cond_14
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
+
+    invoke-virtual {v6, v3, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v4, v2, v3}, Lcom/termux/terminal/TerminalColors;->tryParseColor(ILjava/lang/String;)V
+
+    .line 1829
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    invoke-virtual {v2}, Lcom/termux/terminal/TerminalOutput;->onColorsChanged()V
+
+    const/4 v3, -0x1
+
+    const/4 v2, -0x1
+
+    goto :goto_f
+
+    .line 1825
+    :cond_15
+    if-gez v3, :cond_f
+
+    if-gez v3, :cond_17
+
+    const/16 v7, 0x30
+
+    if-lt v4, v7, :cond_17
+
+    const/16 v7, 0x39
+
+    if-gt v4, v7, :cond_17
+
+    if-gez v2, :cond_16
 
     const/4 v2, 0x0
 
-    const/4 v4, -0x1
+    :goto_10
+    add-int/lit8 v4, v4, -0x30
 
-    const/4 v6, -0x1
+    add-int/2addr v2, v4
 
-    .line 1818
-    :goto_1d1
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
+    goto :goto_f
 
-    move-result v7
+    :cond_16
+    mul-int/lit8 v2, v2, 0xa
 
-    if-ne v2, v7, :cond_1da
-
-    const/16 v17, 0x1
-
-    goto :goto_1dc
-
-    :cond_1da
-    const/16 v17, 0x0
-
-    :goto_1dc
-    if-eqz v17, :cond_1e1
-
-    const/16 v7, 0x3b
-
-    goto :goto_1e5
-
-    .line 1819
-    :cond_1e1
-    invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v7
-
-    :goto_1e5
-    const/16 v9, 0x3b
-
-    if-ne v7, v9, :cond_20c
-
-    if-gez v4, :cond_1f0
-
-    add-int/lit8 v4, v2, 0x1
-
-    const/16 v11, 0xff
-
-    goto :goto_220
-
-    :cond_1f0
-    if-ltz v6, :cond_208
-
-    const/16 v11, 0xff
-
-    if-le v6, v11, :cond_1f7
-
-    goto :goto_208
-
-    .line 1828
-    :cond_1f7
-    iget-object v7, v1, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
-
-    invoke-virtual {v5, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v7, v6, v4}, Lcom/termux/terminal/TerminalColors;->tryParseColor(ILjava/lang/String;)V
-
-    .line 1829
-    iget-object v4, v1, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    invoke-virtual {v4}, Lcom/termux/terminal/TerminalOutput;->onColorsChanged()V
-
-    const/4 v4, -0x1
-
-    const/4 v6, -0x1
-
-    goto :goto_220
-
-    .line 1825
-    :cond_208
-    :goto_208
-    invoke-direct {v1, v7}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
-
-    return-void
-
-    :cond_20c
-    const/16 v11, 0xff
-
-    if-ltz v4, :cond_211
-
-    goto :goto_220
-
-    :cond_211
-    if-gez v4, :cond_226
-
-    if-lt v7, v10, :cond_226
-
-    if-gt v7, v8, :cond_226
-
-    if-gez v6, :cond_21b
-
-    const/4 v6, 0x0
-
-    goto :goto_21d
-
-    :cond_21b
-    mul-int/lit8 v6, v6, 0xa
-
-    :goto_21d
-    add-int/lit8 v7, v7, -0x30
-
-    add-int/2addr v6, v7
-
-    :goto_220
-    if-eqz v17, :cond_223
-
-    goto :goto_22d
-
-    :cond_223
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1d1
+    goto :goto_10
 
     .line 1839
-    :cond_226
-    invoke-direct {v1, v7}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
+    :cond_17
+    move-object/from16 v0, p0
 
-    return-void
+    invoke-direct {v0, v4}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
+
+    goto/16 :goto_3
 
     .line 1805
-    :cond_22a
-    invoke-direct {v1, v5}, Lcom/termux/terminal/TerminalEmulator;->setTitle(Ljava/lang/String;)V
+    :cond_18
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6}, Lcom/termux/terminal/TerminalEmulator;->setTitle(Ljava/lang/String;)V
+
+    goto/16 :goto_2
 
     .line 1925
-    :cond_22d
-    :goto_22d
-    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
+    :catch_3
+    move-exception v5
 
-    return-void
+    goto/16 :goto_8
+
+    :catch_4
+    move-exception v3
+
+    move v3, v5
+
+    goto/16 :goto_8
+
+    .line 1861
+    :catch_5
+    move-exception v5
+
+    goto/16 :goto_8
+
+    :cond_19
+    move v3, v2
+
+    goto/16 :goto_b
 
     nop
 
-    :pswitch_data_232
+    :pswitch_data_0
     .packed-switch 0xa
-        :pswitch_62  #0000000a
-        :pswitch_62  #0000000b
-        :pswitch_62  #0000000c
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 
-    :pswitch_data_23c
+    :pswitch_data_1
     .packed-switch 0x6e
-        :pswitch_144  #0000006e
-        :pswitch_144  #0000006f
-        :pswitch_144  #00000070
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private doSetMode(Z)V
-    .registers 4
+    .locals 2
 
     .line 1942
     const/4 v0, 0x0
@@ -4050,549 +4093,477 @@
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_2
 
-    const/16 p1, 0x14
+    const/16 v1, 0x14
 
-    if-eq v0, p1, :cond_14
+    if-eq v0, v1, :cond_1
 
-    const/16 p1, 0x22
+    const/16 v1, 0x22
 
-    if-eq v0, p1, :cond_1a
+    if-eq v0, v1, :cond_0
 
     .line 1956
     invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->unknownParameter(I)V
 
-    goto :goto_1a
+    .line 1945
+    :cond_0
+    :goto_0
+    return-void
 
     .line 1948
-    :cond_14
+    :cond_1
     invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->unknownParameter(I)V
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 1945
-    :cond_18
+    :cond_2
     iput-boolean p1, p0, Lcom/termux/terminal/TerminalEmulator;->mInsertMode:Z
 
-    :cond_1a
-    :goto_1a
-    return-void
+    goto :goto_0
 .end method
 
 .method private emitCodePoint(I)V
-    .registers 20
+    .locals 10
 
     .line 2093
-    move-object/from16 v0, p0
+    iget-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
 
-    move/from16 v1, p1
+    if-eqz v0, :cond_6
 
-    iget-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
+    iget-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG0:Z
 
-    if-eqz v2, :cond_d
+    if-eqz v0, :cond_0
 
-    iget-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG0:Z
+    :goto_0
+    const/16 v0, 0x30
 
-    if-eqz v2, :cond_ce
+    if-eq p1, v0, :cond_7
 
-    goto :goto_11
-
-    :cond_d
-    iget-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG1:Z
-
-    if-eqz v2, :cond_ce
-
-    :goto_11
-    const/16 v2, 0x30
-
-    if-eq v1, v2, :cond_c9
-
-    packed-switch v1, :pswitch_data_168
-
-    goto/16 :goto_ce
-
-    :pswitch_1a  #0x7e
-    const/16 v1, 0xb7
-
-    const/16 v5, 0xb7
-
-    goto/16 :goto_cf
-
-    :pswitch_20  #0x7d
-    const/16 v1, 0xa3
-
-    const/16 v5, 0xa3
-
-    goto/16 :goto_cf
-
-    :pswitch_26  #0x7c
-    const/16 v1, 0x2260
-
-    const/16 v5, 0x2260
-
-    goto/16 :goto_cf
-
-    :pswitch_2c  #0x7b
-    const/16 v1, 0x3c0
-
-    const/16 v5, 0x3c0
-
-    goto/16 :goto_cf
-
-    :pswitch_32  #0x7a
-    const/16 v1, 0x2265
-
-    const/16 v5, 0x2265
-
-    goto/16 :goto_cf
-
-    :pswitch_38  #0x79
-    const/16 v1, 0x2264
-
-    const/16 v5, 0x2264
-
-    goto/16 :goto_cf
-
-    :pswitch_3e  #0x78
-    const/16 v1, 0x2502
-
-    const/16 v5, 0x2502
-
-    goto/16 :goto_cf
-
-    :pswitch_44  #0x77
-    const/16 v1, 0x252c
-
-    const/16 v5, 0x252c
-
-    goto/16 :goto_cf
-
-    :pswitch_4a  #0x76
-    const/16 v1, 0x2534
-
-    const/16 v5, 0x2534
-
-    goto/16 :goto_cf
-
-    :pswitch_50  #0x75
-    const/16 v1, 0x2524
-
-    const/16 v5, 0x2524
-
-    goto/16 :goto_cf
-
-    :pswitch_56  #0x74
-    const/16 v1, 0x251c
-
-    const/16 v5, 0x251c
-
-    goto/16 :goto_cf
-
-    :pswitch_5c  #0x73
-    const/16 v1, 0x23bd
-
-    const/16 v5, 0x23bd
-
-    goto/16 :goto_cf
-
-    :pswitch_62  #0x72
-    const/16 v1, 0x23bc
-
-    const/16 v5, 0x23bc
-
-    goto/16 :goto_cf
-
-    :pswitch_68  #0x71
-    const/16 v1, 0x2500
-
-    const/16 v5, 0x2500
-
-    goto/16 :goto_cf
-
-    :pswitch_6e  #0x70
-    const/16 v1, 0x23bb
-
-    const/16 v5, 0x23bb
-
-    goto/16 :goto_cf
-
-    :pswitch_74  #0x6f
-    const/16 v1, 0x23ba
-
-    const/16 v5, 0x23ba
-
-    goto :goto_cf
-
-    :pswitch_79  #0x6e
-    const/16 v1, 0x253c
-
-    const/16 v5, 0x253c
-
-    goto :goto_cf
-
-    :pswitch_7e  #0x6d
-    const/16 v1, 0x2514
-
-    const/16 v5, 0x2514
-
-    goto :goto_cf
-
-    :pswitch_83  #0x6c
-    const/16 v1, 0x250c
-
-    const/16 v5, 0x250c
-
-    goto :goto_cf
-
-    :pswitch_88  #0x6b
-    const/16 v1, 0x2510
-
-    const/16 v5, 0x2510
-
-    goto :goto_cf
-
-    :pswitch_8d  #0x6a
-    const/16 v1, 0x2518
-
-    const/16 v5, 0x2518
-
-    goto :goto_cf
-
-    :pswitch_92  #0x69
-    const/16 v1, 0x240b
-
-    const/16 v5, 0x240b
-
-    goto :goto_cf
-
-    :pswitch_97  #0x68
-    const/16 v1, 0xa
-
-    const/16 v5, 0xa
-
-    goto :goto_cf
-
-    :pswitch_9c  #0x67
-    const/16 v1, 0xb1
-
-    const/16 v5, 0xb1
-
-    goto :goto_cf
-
-    :pswitch_a1  #0x66
-    const/16 v1, 0xb0
-
-    const/16 v5, 0xb0
-
-    goto :goto_cf
-
-    :pswitch_a6  #0x65
-    const/16 v1, 0x240a
-
-    const/16 v5, 0x240a
-
-    goto :goto_cf
-
-    :pswitch_ab  #0x64
-    const/16 v1, 0xd
-
-    const/16 v5, 0xd
-
-    goto :goto_cf
-
-    :pswitch_b0  #0x63
-    const/16 v1, 0x240c
-
-    const/16 v5, 0x240c
-
-    goto :goto_cf
-
-    :pswitch_b5  #0x62
-    const/16 v1, 0x2409
-
-    const/16 v5, 0x2409
-
-    goto :goto_cf
-
-    :pswitch_ba  #0x61
-    const/16 v1, 0x2592
-
-    const/16 v5, 0x2592
-
-    goto :goto_cf
-
-    :pswitch_bf  #0x60
-    const/16 v1, 0x25c6
-
-    const/16 v5, 0x25c6
-
-    goto :goto_cf
-
-    :pswitch_c4  #0x5f
-    const/16 v1, 0x20
-
-    const/16 v5, 0x20
-
-    goto :goto_cf
-
-    :cond_c9
-    const/16 v1, 0x2588
-
-    const/16 v5, 0x2588
-
-    goto :goto_cf
+    packed-switch p1, :pswitch_data_0
 
     .line 2198
-    :cond_ce
-    :goto_ce
-    move v5, v1
+    :cond_0
+    :goto_1
+    const/16 v0, 0x8
 
-    :goto_cf
-    const/16 v1, 0x8
-
-    invoke-direct {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
-
-    move-result v1
-
-    .line 2199
-    invoke-static {v5}, Lcom/termux/terminal/WcWidth;->width(I)I
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
 
     move-result v8
 
+    .line 2199
+    invoke-static {p1}, Lcom/termux/terminal/WcWidth;->width(I)I
+
+    move-result v9
+
     .line 2200
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    const/4 v9, 0x1
+    const/4 v7, 0x0
 
-    sub-int/2addr v3, v9
+    add-int/lit8 v1, v1, -0x1
 
-    const/4 v10, 0x0
+    if-ne v0, v1, :cond_8
 
-    if-ne v2, v3, :cond_e4
+    const/4 v0, 0x1
 
-    const/4 v2, 0x1
+    :goto_2
+    if-eqz v8, :cond_a
 
-    goto :goto_e5
-
-    :cond_e4
-    const/4 v2, 0x0
-
-    :goto_e5
-    const/4 v3, 0x2
-
-    if-eqz v1, :cond_10b
-
-    if-eqz v2, :cond_110
+    if-eqz v0, :cond_3
 
     .line 2203
-    iget-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
+    iget-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
-    if-eqz v2, :cond_f0
+    if-eqz v0, :cond_1
 
-    if-eq v8, v9, :cond_f2
+    const/4 v0, 0x1
 
-    :cond_f0
-    if-ne v8, v3, :cond_110
+    if-eq v9, v0, :cond_2
+
+    :cond_1
+    const/4 v0, 0x2
+
+    if-ne v9, v0, :cond_3
 
     .line 2204
-    :cond_f2
-    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    :cond_2
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    invoke-virtual {v2, v3}, Lcom/termux/terminal/TerminalBuffer;->setLineWrap(I)V
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalBuffer;->setLineWrap(I)V
 
     .line 2205
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
-    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
     .line 2206
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    add-int/2addr v2, v9
+    add-int/lit8 v0, v0, 0x1
 
-    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
-    if-ge v2, v3, :cond_107
+    if-ge v0, v1, :cond_9
 
     .line 2207
-    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    goto :goto_110
-
-    .line 2209
-    :cond_107
-    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->scrollDownOneLine()V
-
-    goto :goto_110
-
-    :cond_10b
-    if-eqz v2, :cond_110
-
-    if-ne v8, v3, :cond_110
-
-    return-void
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
     .line 2218
-    :cond_110
-    :goto_110
-    iget-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mInsertMode:Z
+    :cond_3
+    :goto_3
+    iget-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mInsertMode:Z
 
-    if-eqz v2, :cond_12d
+    if-eqz v0, :cond_4
 
-    if-lez v8, :cond_12d
+    if-lez v9, :cond_4
 
     .line 2220
-    iget v12, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    add-int v2, v12, v8
+    add-int v5, v1, v9
 
     .line 2221
-    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    if-ge v2, v3, :cond_12d
+    if-ge v5, v3, :cond_4
 
     .line 2222
-    iget-object v11, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    iget v4, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    sub-int v14, v3, v2
+    sub-int/2addr v3, v5
 
-    const/4 v15, 0x1
+    const/4 v4, 0x1
 
-    move v13, v4
+    move v6, v2
 
-    move/from16 v16, v2
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
 
-    move/from16 v17, v4
-
-    invoke-virtual/range {v11 .. v17}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    :cond_12d
-    if-gtz v8, :cond_139
+    :cond_4
+    if-gtz v9, :cond_b
 
     .line 2225
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    if-lez v2, :cond_139
+    if-lez v0, :cond_b
 
-    iget-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
+    iget-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
-    if-nez v2, :cond_139
+    if-nez v0, :cond_b
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_13a
-
-    :cond_139
-    const/4 v2, 0x0
+    move v1, v0
 
     .line 2226
-    :goto_13a
-    iget-object v3, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    :goto_4
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    iget v4, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    sub-int/2addr v4, v2
+    sub-int v1, v2, v1
 
-    iget v6, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
 
-    move-result-wide v11
+    move-result-wide v4
 
-    move-object v2, v3
+    move v3, p1
 
-    move v3, v4
+    invoke-virtual/range {v0 .. v5}, Lcom/termux/terminal/TerminalBuffer;->setChar(IIIJ)V
 
-    move v4, v6
+    if-eqz v8, :cond_5
 
-    move-wide v6, v11
-
-    invoke-virtual/range {v2 .. v7}, Lcom/termux/terminal/TerminalBuffer;->setChar(IIIJ)V
-
-    if-eqz v1, :cond_15a
-
-    if-lez v8, :cond_15a
+    if-lez v9, :cond_5
 
     .line 2229
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    sub-int/2addr v2, v8
+    sub-int/2addr v1, v9
 
-    if-ne v1, v2, :cond_158
+    if-ne v0, v1, :cond_c
 
-    const/4 v10, 0x1
+    const/4 v0, 0x1
 
-    :cond_158
-    iput-boolean v10, v0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
+    :goto_5
+    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
     .line 2231
-    :cond_15a
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    :cond_5
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    add-int/2addr v1, v8
+    add-int/2addr v0, v9
 
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    sub-int/2addr v2, v9
+    add-int/lit8 v1, v1, -0x1
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
+    :goto_6
     return-void
 
-    nop
+    .line 2093
+    :cond_6
+    iget-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG1:Z
 
-    :pswitch_data_168
+    if-eqz v0, :cond_0
+
+    goto/16 :goto_0
+
+    :pswitch_0
+    const/16 p1, 0xb7
+
+    goto/16 :goto_1
+
+    :pswitch_1
+    const/16 p1, 0xa3
+
+    goto/16 :goto_1
+
+    :pswitch_2
+    const/16 p1, 0x2260
+
+    goto/16 :goto_1
+
+    :pswitch_3
+    const/16 p1, 0x3c0
+
+    goto/16 :goto_1
+
+    :pswitch_4
+    const/16 p1, 0x2265
+
+    goto/16 :goto_1
+
+    :pswitch_5
+    const/16 p1, 0x2264
+
+    goto/16 :goto_1
+
+    :pswitch_6
+    const/16 p1, 0x2502
+
+    goto/16 :goto_1
+
+    :pswitch_7
+    const/16 p1, 0x252c
+
+    goto/16 :goto_1
+
+    :pswitch_8
+    const/16 p1, 0x2534
+
+    goto/16 :goto_1
+
+    :pswitch_9
+    const/16 p1, 0x2524
+
+    goto/16 :goto_1
+
+    :pswitch_a
+    const/16 p1, 0x251c
+
+    goto/16 :goto_1
+
+    :pswitch_b
+    const/16 p1, 0x23bd
+
+    goto/16 :goto_1
+
+    :pswitch_c
+    const/16 p1, 0x23bc
+
+    goto/16 :goto_1
+
+    :pswitch_d
+    const/16 p1, 0x2500
+
+    goto/16 :goto_1
+
+    :pswitch_e
+    const/16 p1, 0x23bb
+
+    goto/16 :goto_1
+
+    :pswitch_f
+    const/16 p1, 0x23ba
+
+    goto/16 :goto_1
+
+    :pswitch_10
+    const/16 p1, 0x253c
+
+    goto/16 :goto_1
+
+    :pswitch_11
+    const/16 p1, 0x2514
+
+    goto/16 :goto_1
+
+    :pswitch_12
+    const/16 p1, 0x250c
+
+    goto/16 :goto_1
+
+    :pswitch_13
+    const/16 p1, 0x2510
+
+    goto/16 :goto_1
+
+    :pswitch_14
+    const/16 p1, 0x2518
+
+    goto/16 :goto_1
+
+    :pswitch_15
+    const/16 p1, 0x240b
+
+    goto/16 :goto_1
+
+    :pswitch_16
+    const/16 p1, 0xa
+
+    goto/16 :goto_1
+
+    :pswitch_17
+    const/16 p1, 0xb1
+
+    goto/16 :goto_1
+
+    :pswitch_18
+    const/16 p1, 0xb0
+
+    goto/16 :goto_1
+
+    :pswitch_19
+    const/16 p1, 0x240a
+
+    goto/16 :goto_1
+
+    :pswitch_1a
+    const/16 p1, 0xd
+
+    goto/16 :goto_1
+
+    :pswitch_1b
+    const/16 p1, 0x240c
+
+    goto/16 :goto_1
+
+    :pswitch_1c
+    const/16 p1, 0x2409
+
+    goto/16 :goto_1
+
+    :pswitch_1d
+    const/16 p1, 0x2592
+
+    goto/16 :goto_1
+
+    :pswitch_1e
+    const/16 p1, 0x25c6
+
+    goto/16 :goto_1
+
+    :pswitch_1f
+    const/16 p1, 0x20
+
+    goto/16 :goto_1
+
+    :cond_7
+    const/16 p1, 0x2588
+
+    goto/16 :goto_1
+
+    .line 2200
+    :cond_8
+    const/4 v0, 0x0
+
+    goto/16 :goto_2
+
+    .line 2209
+    :cond_9
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->scrollDownOneLine()V
+
+    goto/16 :goto_3
+
+    :cond_a
+    if-eqz v0, :cond_3
+
+    const/4 v0, 0x2
+
+    if-ne v9, v0, :cond_3
+
+    goto/16 :goto_6
+
+    .line 2225
+    :cond_b
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    goto/16 :goto_4
+
+    :cond_c
+    move v0, v7
+
+    goto/16 :goto_5
+
+    .line 2093
+    :pswitch_data_0
     .packed-switch 0x5f
-        :pswitch_c4  #0000005f
-        :pswitch_bf  #00000060
-        :pswitch_ba  #00000061
-        :pswitch_b5  #00000062
-        :pswitch_b0  #00000063
-        :pswitch_ab  #00000064
-        :pswitch_a6  #00000065
-        :pswitch_a1  #00000066
-        :pswitch_9c  #00000067
-        :pswitch_97  #00000068
-        :pswitch_92  #00000069
-        :pswitch_8d  #0000006a
-        :pswitch_88  #0000006b
-        :pswitch_83  #0000006c
-        :pswitch_7e  #0000006d
-        :pswitch_79  #0000006e
-        :pswitch_74  #0000006f
-        :pswitch_6e  #00000070
-        :pswitch_68  #00000071
-        :pswitch_62  #00000072
-        :pswitch_5c  #00000073
-        :pswitch_56  #00000074
-        :pswitch_50  #00000075
-        :pswitch_4a  #00000076
-        :pswitch_44  #00000077
-        :pswitch_3e  #00000078
-        :pswitch_38  #00000079
-        :pswitch_32  #0000007a
-        :pswitch_2c  #0000007b
-        :pswitch_26  #0000007c
-        :pswitch_20  #0000007d
-        :pswitch_1a  #0000007e
+        :pswitch_1f
+        :pswitch_1e
+        :pswitch_1d
+        :pswitch_1c
+        :pswitch_1b
+        :pswitch_1a
+        :pswitch_19
+        :pswitch_18
+        :pswitch_17
+        :pswitch_16
+        :pswitch_15
+        :pswitch_14
+        :pswitch_13
+        :pswitch_12
+        :pswitch_11
+        :pswitch_10
+        :pswitch_f
+        :pswitch_e
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private finishSequence()V
-    .registers 2
+    .locals 1
 
     .line 2084
     const/4 v0, 0x0
@@ -4603,7 +4574,7 @@
 .end method
 
 .method private finishSequenceAndLogError(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 2080
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
@@ -4612,31 +4583,31 @@
 .end method
 
 .method private getArg(IIZ)I
-    .registers 5
+    .locals 1
 
     .line 2022
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
 
-    aget p1, v0, p1
+    aget v0, v0, p1
 
-    if-ltz p1, :cond_c
+    if-ltz v0, :cond_0
 
-    if-nez p1, :cond_b
+    if-nez v0, :cond_1
 
-    if-eqz p3, :cond_b
+    if-eqz p3, :cond_1
 
-    goto :goto_c
-
-    :cond_b
-    move p2, p1
-
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return p2
+
+    :cond_1
+    move p2, v0
+
+    goto :goto_0
 .end method
 
 .method private getArg0(I)I
-    .registers 4
+    .locals 2
 
     .line 2014
     const/4 v0, 0x0
@@ -4645,26 +4616,26 @@
 
     invoke-direct {p0, v0, p1, v1}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method private getArg1(I)I
-    .registers 3
+    .locals 1
 
-    .line 2018
     const/4 v0, 0x1
 
+    .line 2018
     invoke-direct {p0, v0, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method private getStyle()J
-    .registers 4
+    .locals 3
 
     .line 1937
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
@@ -4681,488 +4652,473 @@
 .end method
 
 .method private isDecsetInternalBitSet(I)Z
-    .registers 3
+    .locals 1
 
     .line 230
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
 
-    and-int/2addr p1, v0
+    and-int/2addr v0, p1
 
-    if-eqz p1, :cond_7
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_8
+    :goto_0
+    return v0
 
-    :cond_7
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_8
-    return p1
+    goto :goto_0
 .end method
 
 .method private logError(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method static mapDecSetBitToInternalBit(I)I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
-    if-eq p0, v0, :cond_4d
+    if-eq p0, v0, :cond_0
 
     const/16 v0, 0x19
 
-    if-eq p0, v0, :cond_4a
+    if-eq p0, v0, :cond_b
 
     const/16 v0, 0x42
 
-    if-eq p0, v0, :cond_47
+    if-eq p0, v0, :cond_a
 
     const/16 v0, 0x45
 
-    if-eq p0, v0, :cond_44
+    if-eq p0, v0, :cond_9
 
     const/16 v0, 0x3e8
 
-    if-eq p0, v0, :cond_41
+    if-eq p0, v0, :cond_8
 
     const/16 v0, 0x3ea
 
-    if-eq p0, v0, :cond_3e
+    if-eq p0, v0, :cond_7
 
     const/16 v0, 0x3ec
 
-    if-eq p0, v0, :cond_3b
+    if-eq p0, v0, :cond_6
 
     const/16 v0, 0x3ee
 
-    if-eq p0, v0, :cond_38
+    if-eq p0, v0, :cond_5
 
     const/16 v0, 0x7d4
 
-    if-eq p0, v0, :cond_35
+    if-eq p0, v0, :cond_4
 
     const/4 v0, 0x5
 
-    if-eq p0, v0, :cond_33
+    if-eq p0, v0, :cond_3
 
     const/4 v0, 0x6
 
-    if-eq p0, v0, :cond_31
+    if-eq p0, v0, :cond_2
 
     const/4 v0, 0x7
 
-    if-eq p0, v0, :cond_2e
+    if-eq p0, v0, :cond_1
 
-    const/4 p0, -0x1
+    const/4 v0, -0x1
 
-    return p0
-
-    :cond_2e
-    const/16 p0, 0x8
-
-    return p0
-
-    :cond_31
-    const/4 p0, 0x4
-
-    return p0
-
-    :cond_33
-    const/4 p0, 0x2
-
-    return p0
-
-    :cond_35
-    const/16 p0, 0x400
-
-    return p0
-
-    :cond_38
-    const/16 p0, 0x200
-
-    return p0
-
-    :cond_3b
-    const/16 p0, 0x100
-
-    return p0
-
-    :cond_3e
-    const/16 p0, 0x80
-
-    return p0
-
-    :cond_41
-    const/16 p0, 0x40
-
-    return p0
-
-    :cond_44
-    const/16 p0, 0x800
-
-    return p0
-
-    :cond_47
-    const/16 p0, 0x20
-
-    return p0
-
-    :cond_4a
-    const/16 p0, 0x10
-
-    return p0
-
-    :cond_4d
+    :cond_0
+    :goto_0
     return v0
+
+    :cond_1
+    const/16 v0, 0x8
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x4
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v0, 0x2
+
+    goto :goto_0
+
+    :cond_4
+    const/16 v0, 0x400
+
+    goto :goto_0
+
+    :cond_5
+    const/16 v0, 0x200
+
+    goto :goto_0
+
+    :cond_6
+    const/16 v0, 0x100
+
+    goto :goto_0
+
+    :cond_7
+    const/16 v0, 0x80
+
+    goto :goto_0
+
+    :cond_8
+    const/16 v0, 0x40
+
+    goto :goto_0
+
+    :cond_9
+    const/16 v0, 0x800
+
+    goto :goto_0
+
+    :cond_a
+    const/16 v0, 0x20
+
+    goto :goto_0
+
+    :cond_b
+    const/16 v0, 0x10
+
+    goto :goto_0
 .end method
 
 .method private nextTabStop(I)I
-    .registers 4
+    .locals 2
 
     .line 919
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    :cond_2
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-ge v0, v1, :cond_19
+    if-ge v0, v1, :cond_1
 
     .line 920
     iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
 
     aget-boolean v1, v1, v0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_0
 
     add-int/lit8 p1, p1, -0x1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_0
 
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
-    move-result p1
-
-    return p1
+    move-result v0
 
     .line 921
-    :cond_19
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    :goto_0
+    return v0
 
-    add-int/lit8 p1, p1, -0x1
+    :cond_1
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    return p1
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
 .end method
 
 .method private parseArg(I)V
-    .registers 6
+    .locals 4
 
     const/16 v0, 0x30
 
-    if-lt p1, v0, :cond_1f
+    if-lt p1, v0, :cond_2
 
-    const/16 v1, 0x39
+    const/16 v0, 0x39
 
-    if-gt p1, v1, :cond_1f
+    if-gt p1, v0, :cond_2
 
     .line 1991
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
     iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
 
-    array-length v3, v2
+    array-length v0, v2
 
-    if-ge v1, v3, :cond_19
+    if-ge v1, v0, :cond_1
 
     .line 1992
     aget v3, v2, v1
 
-    sub-int/2addr p1, v0
+    add-int/lit8 v0, p1, -0x30
 
-    if-ltz v3, :cond_17
+    if-ltz v3, :cond_0
 
     mul-int/lit8 v3, v3, 0xa
 
-    add-int/2addr p1, v3
+    add-int/2addr v0, v3
 
     .line 2000
-    :cond_17
-    aput p1, v2, v1
+    :cond_0
+    aput v0, v2, v1
 
     .line 2002
-    :cond_19
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+    :cond_1
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto :goto_37
-
-    :cond_1f
-    const/16 v0, 0x3b
-
-    if-ne p1, v0, :cond_34
-
-    .line 2004
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
-
-    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
-
-    array-length v0, v0
-
-    if-ge p1, v0, :cond_2e
-
-    .line 2005
-    add-int/lit8 p1, p1, 0x1
-
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
-
-    .line 2007
-    :cond_2e
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
-
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
-
-    goto :goto_37
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
 
     .line 2009
-    :cond_34
+    :goto_0
+    return-void
+
+    .line 2002
+    :cond_2
+    const/16 v0, 0x3b
+
+    if-ne p1, v0, :cond_4
+
+    .line 2004
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+
+    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
+
+    array-length v1, v1
+
+    if-ge v0, v1, :cond_3
+
+    .line 2005
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+
+    .line 2007
+    :cond_3
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->continueSequence(I)V
+
+    goto :goto_0
+
+    .line 2009
+    :cond_4
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    :goto_37
-    return-void
+    goto :goto_0
 .end method
 
 .method private processByte(B)V
-    .registers 12
+    .locals 9
+
+    const/4 v8, 0x3
+
+    const/4 v7, 0x2
+
+    const/4 v1, 0x1
+
+    const v3, 0xfffd
+
+    const/4 v6, 0x0
 
     .line 404
     iget-byte v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
 
-    const/4 v1, 0x3
+    if-lez v0, :cond_b
 
-    const/4 v2, 0x2
+    and-int/lit16 v2, p1, 0xc0
 
-    const/4 v3, 0x1
+    const/16 v4, 0x80
 
-    const v4, 0xfffd
-
-    if-lez v0, :cond_88
-
-    and-int/lit16 v5, p1, 0xc0
-
-    const/16 v6, 0x80
-
-    const/4 v7, 0x0
-
-    if-ne v5, v6, :cond_7d
+    if-ne v2, v4, :cond_a
 
     .line 407
-    iget-object v5, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8InputBuffer:[B
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8InputBuffer:[B
 
-    iget-byte v8, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
+    iget-byte v4, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
 
-    add-int/lit8 v9, v8, 0x1
+    add-int/lit8 v5, v4, 0x1
 
-    int-to-byte v9, v9
+    int-to-byte v5, v5
 
-    iput-byte v9, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
+    iput-byte v5, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
 
-    aput-byte p1, v5, v8
+    aput-byte p1, v2, v4
 
-    sub-int/2addr v0, v3
+    add-int/lit8 v0, v0, -0x1
 
-    int-to-byte p1, v0
+    int-to-byte v0, v0
 
     .line 408
-    iput-byte p1, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
+    iput-byte v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
 
-    if-nez p1, :cond_b5
+    if-nez v0, :cond_7
 
-    if-ne v9, v2, :cond_27
+    if-ne v5, v7, :cond_0
 
-    const/16 p1, 0x1f
+    const/16 v0, 0x1f
 
-    goto :goto_2d
-
-    :cond_27
-    if-ne v9, v1, :cond_2c
-
-    const/16 p1, 0xf
-
-    goto :goto_2d
-
-    :cond_2c
-    const/4 p1, 0x7
-
-    :goto_2d
-    int-to-byte p1, p1
+    :goto_0
+    int-to-byte v0, v0
 
     .line 410
-    aget-byte v0, v5, v7
+    aget-byte v2, v2, v6
 
-    and-int/2addr p1, v0
+    and-int/2addr v2, v0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     .line 411
-    :goto_32
-    iget-byte v5, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
+    :goto_1
+    iget-byte v4, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
 
-    if-ge v0, v5, :cond_42
+    if-ge v0, v4, :cond_2
 
     .line 412
-    shl-int/lit8 p1, p1, 0x6
+    shl-int/lit8 v2, v2, 0x6
 
-    iget-object v5, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8InputBuffer:[B
+    iget-object v4, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8InputBuffer:[B
 
-    aget-byte v5, v5, v0
+    aget-byte v4, v4, v0
 
-    and-int/lit8 v5, v5, 0x3f
+    and-int/lit8 v4, v4, 0x3f
 
-    or-int/2addr p1, v5
+    or-int/2addr v2, v4
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_32
+    goto :goto_1
 
-    :cond_42
+    .line 408
+    :cond_0
+    if-ne v5, v8, :cond_1
+
+    const/16 v0, 0xf
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x7
+
+    goto :goto_0
+
+    .line 412
+    :cond_2
     const/16 v0, 0x7f
 
-    if-gt p1, v0, :cond_48
+    if-gt v2, v0, :cond_3
 
-    if-gt v5, v3, :cond_55
+    if-gt v4, v1, :cond_5
 
-    :cond_48
-    const/16 v3, 0x7ff
+    :cond_3
+    const/16 v0, 0x7ff
 
-    if-ge p1, v3, :cond_4e
+    if-ge v2, v0, :cond_4
 
-    if-gt v5, v2, :cond_55
+    if-gt v4, v7, :cond_5
 
-    :cond_4e
-    const v2, 0xffff
+    :cond_4
+    const v0, 0xffff
 
-    if-ge p1, v2, :cond_58
+    if-ge v2, v0, :cond_6
 
-    if-le v5, v1, :cond_58
+    if-le v4, v8, :cond_6
 
-    :cond_55
-    const p1, 0xfffd
+    :cond_5
+    move v2, v3
 
     .line 419
-    :cond_58
-    iput-byte v7, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
+    :cond_6
+    iput-byte v6, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
 
-    iput-byte v7, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
+    iput-byte v6, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
 
-    if-lt p1, v6, :cond_6e
+    const/16 v0, 0x80
 
-    const/16 v1, 0x9f
+    if-lt v2, v0, :cond_8
 
-    if-gt p1, v1, :cond_6e
+    const/16 v0, 0x9f
+
+    if-gt v2, v0, :cond_8
 
     .line 424
-    const/16 v1, 0x1b
+    const/16 v0, 0x1b
 
-    invoke-virtual {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->processCodePoint(I)V
+    invoke-virtual {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->processCodePoint(I)V
 
     .line 425
-    and-int/2addr p1, v0
+    and-int/lit8 v0, v2, 0x7f
 
-    add-int/lit8 p1, p1, 0x40
+    add-int/lit8 v0, v0, 0x40
 
-    invoke-virtual {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->processCodePoint(I)V
+    invoke-virtual {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->processCodePoint(I)V
 
-    goto :goto_b5
+    .line 463
+    :cond_7
+    :goto_2
+    return-void
 
     .line 427
-    :cond_6e
-    invoke-static {p1}, Ljava/lang/Character;->getType(I)I
+    :cond_8
+    invoke-static {v2}, Ljava/lang/Character;->getType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_79
+    if-eqz v0, :cond_9
 
     const/16 v1, 0x13
 
-    if-eq v0, v1, :cond_79
+    if-eq v0, v1, :cond_9
 
-    move v4, p1
+    move v3, v2
 
     .line 432
-    :cond_79
-    invoke-virtual {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->processCodePoint(I)V
+    :cond_9
+    invoke-virtual {p0, v3}, Lcom/termux/terminal/TerminalEmulator;->processCodePoint(I)V
 
-    goto :goto_b5
+    goto :goto_2
 
     .line 437
-    :cond_7d
-    iput-byte v7, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
+    :cond_a
+    iput-byte v6, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
 
-    iput-byte v7, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
+    iput-byte v6, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
 
     .line 438
-    invoke-direct {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->emitCodePoint(I)V
+    invoke-direct {p0, v3}, Lcom/termux/terminal/TerminalEmulator;->emitCodePoint(I)V
 
     .line 446
     invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->processByte(B)V
 
-    goto :goto_b5
+    goto :goto_2
 
-    :cond_88
+    :cond_b
     and-int/lit16 v0, p1, 0x80
 
-    if-nez v0, :cond_90
+    if-nez v0, :cond_c
 
     .line 450
     invoke-virtual {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->processCodePoint(I)V
 
-    return-void
+    goto :goto_2
 
-    :cond_90
+    :cond_c
     and-int/lit16 v0, p1, 0xe0
 
-    const/16 v5, 0xc0
+    const/16 v2, 0xc0
 
-    if-ne v0, v5, :cond_99
+    if-ne v0, v2, :cond_d
 
     .line 453
-    iput-byte v3, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
-
-    goto :goto_aa
-
-    :cond_99
-    and-int/lit16 v0, p1, 0xf0
-
-    const/16 v3, 0xe0
-
-    if-ne v0, v3, :cond_a2
-
-    .line 455
-    iput-byte v2, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
-
-    goto :goto_aa
-
-    :cond_a2
-    and-int/lit16 v0, p1, 0xf8
-
-    const/16 v2, 0xf0
-
-    if-ne v0, v2, :cond_b6
-
-    .line 457
     iput-byte v1, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
 
     .line 463
-    :goto_aa
+    :goto_3
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8InputBuffer:[B
 
     iget-byte v1, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
@@ -5175,103 +5131,122 @@
 
     aput-byte p1, v0, v1
 
-    :cond_b5
-    :goto_b5
-    return-void
+    goto :goto_2
+
+    .line 453
+    :cond_d
+    and-int/lit16 v0, p1, 0xf0
+
+    const/16 v1, 0xe0
+
+    if-ne v0, v1, :cond_e
+
+    .line 455
+    iput-byte v7, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
+
+    goto :goto_3
+
+    :cond_e
+    and-int/lit16 v0, p1, 0xf8
+
+    const/16 v1, 0xf0
+
+    if-ne v0, v1, :cond_f
+
+    .line 457
+    iput-byte v8, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
+
+    goto :goto_3
 
     .line 460
-    :cond_b6
-    invoke-virtual {p0, v4}, Lcom/termux/terminal/TerminalEmulator;->processCodePoint(I)V
+    :cond_f
+    invoke-virtual {p0, v3}, Lcom/termux/terminal/TerminalEmulator;->processCodePoint(I)V
 
-    return-void
+    goto :goto_2
 .end method
 
 .method private resizeScreen()V
-    .registers 11
+    .locals 11
+
+    const/4 v10, 0x1
+
+    const/4 v9, 0x0
 
     .line 346
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    filled-new-array {v0, v1}, [I
+    const/4 v2, 0x2
 
-    move-result-object v0
+    new-array v5, v2, [I
+
+    aput v0, v5, v9
+
+    aput v1, v5, v10
 
     .line 347
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
+    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
 
-    if-ne v1, v2, :cond_11
-
-    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    goto :goto_15
-
-    :cond_11
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mMainBuffer:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v1, v1, Lcom/termux/terminal/TerminalBuffer;->mTotalRows:I
-
-    :goto_15
-    move v5, v1
-
-    .line 348
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    if-ne v0, v1, :cond_0
 
     iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
+    .line 348
+    :goto_0
+    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
 
-    move-result-wide v7
+    move-result-wide v6
 
     invoke-virtual {p0}, Lcom/termux/terminal/TerminalEmulator;->isAlternateBufferActive()Z
 
-    move-result v9
+    move-result v8
 
-    move-object v6, v0
-
-    invoke-virtual/range {v2 .. v9}, Lcom/termux/terminal/TerminalBuffer;->resize(III[IJZ)V
+    invoke-virtual/range {v1 .. v8}, Lcom/termux/terminal/TerminalBuffer;->resize(III[IJZ)V
 
     .line 349
-    const/4 v1, 0x0
+    aget v0, v5, v9
 
-    aget v1, v0, v1
-
-    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
     .line 350
-    const/4 v1, 0x1
-
-    aget v0, v0, v1
+    aget v0, v5, v10
 
     iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
     return-void
+
+    .line 347
+    :cond_0
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mMainBuffer:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v4, v0, Lcom/termux/terminal/TerminalBuffer;->mTotalRows:I
+
+    goto :goto_0
 .end method
 
 .method private restoreCursor()V
-    .registers 4
+    .locals 3
 
     .line 1323
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
     iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mMainBuffer:Lcom/termux/terminal/TerminalBuffer;
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    goto :goto_b
-
-    :cond_9
-    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
-
     .line 1324
-    :goto_b
+    :goto_0
     iget v1, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorRow:I
 
     iget v2, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorCol:I
@@ -5322,27 +5297,28 @@
     iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
 
     return-void
+
+    .line 1323
+    :cond_0
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+
+    goto :goto_0
 .end method
 
 .method private saveCursor()V
-    .registers 3
+    .locals 2
 
     .line 1309
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
     iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mMainBuffer:Lcom/termux/terminal/TerminalBuffer;
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    goto :goto_b
-
-    :cond_9
-    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
-
     .line 1310
-    :goto_b
+    :goto_0
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
     iput v1, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorRow:I
@@ -5388,103 +5364,112 @@
     iput-boolean v1, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mUseLineDrawingUsesG0:Z
 
     return-void
+
+    .line 1309
+    :cond_0
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+
+    goto :goto_0
 .end method
 
 .method private scrollDownOneLine()V
-    .registers 18
+    .locals 8
 
     .line 1977
-    move-object/from16 v0, p0
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScrollCounter:I
 
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mScrollCounter:I
+    add-int/lit8 v0, v0, 0x1
 
-    add-int/lit8 v1, v1, 0x1
-
-    iput v1, v0, Lcom/termux/terminal/TerminalEmulator;->mScrollCounter:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScrollCounter:I
 
     .line 1978
-    iget v7, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
-    if-nez v7, :cond_21
+    if-nez v1, :cond_0
 
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-eq v1, v2, :cond_13
+    if-eq v0, v2, :cond_1
 
-    goto :goto_21
+    .line 1980
+    :cond_0
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+
+    add-int/lit8 v2, v6, 0x1
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+
+    sub-int/2addr v3, v1
+
+    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+
+    sub-int/2addr v4, v6
+
+    add-int/lit8 v4, v4, -0x1
+
+    move v5, v1
+
+    invoke-virtual/range {v0 .. v6}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    .line 1982
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+
+    add-int/lit8 v2, v2, -0x1
+
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+
+    sub-int/2addr v3, v1
+
+    const/4 v4, 0x1
+
+    const/16 v5, 0x20
+
+    iget v6, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+
+    int-to-long v6, v6
+
+    invoke-virtual/range {v0 .. v7}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
+
+    :goto_0
+    return-void
 
     .line 1984
-    :cond_13
-    iget-object v1, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    :cond_1
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
 
-    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
-    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
+    invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
 
     move-result-wide v4
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Lcom/termux/terminal/TerminalBuffer;->scrollDownOneLine(IIJ)V
+    invoke-virtual {v0, v1, v2, v4, v5}, Lcom/termux/terminal/TerminalBuffer;->scrollDownOneLine(IIJ)V
 
-    goto :goto_4a
-
-    .line 1980
-    :cond_21
-    :goto_21
-    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v8, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
-
-    add-int/lit8 v4, v8, 0x1
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
-
-    sub-int v5, v1, v7
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
-
-    sub-int/2addr v1, v8
-
-    add-int/lit8 v6, v1, -0x1
-
-    move v3, v7
-
-    invoke-virtual/range {v2 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    .line 1982
-    iget-object v9, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v10, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
-
-    add-int/lit8 v11, v1, -0x1
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
-
-    sub-int v12, v1, v10
-
-    const/4 v13, 0x1
-
-    const/16 v14, 0x20
-
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
-
-    int-to-long v1, v1
-
-    move-wide v15, v1
-
-    invoke-virtual/range {v9 .. v16}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
-
-    :goto_4a
-    return-void
+    goto :goto_0
 .end method
 
 .method private selectGraphicRendition()V
-    .registers 13
+    .locals 11
+
+    const/4 v10, 0x5
+
+    const/4 v9, 0x2
+
+    const/16 v8, 0xff
+
+    const/16 v7, 0x26
+
+    const/4 v3, 0x0
 
     .line 1649
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
@@ -5493,448 +5478,469 @@
 
     array-length v2, v1
 
-    const/4 v3, 0x1
-
-    if-lt v0, v2, :cond_c
+    if-lt v0, v2, :cond_0
 
     array-length v0, v1
 
-    sub-int/2addr v0, v3
+    add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    :cond_c
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
+    :cond_0
+    move v0, v3
 
     .line 1650
-    :goto_e
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+    :goto_0
+    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    if-gt v1, v2, :cond_1c9
+    if-gt v0, v5, :cond_22
 
     .line 1651
-    iget-object v4, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
+    iget-object v6, p0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
 
-    aget v5, v4, v1
+    aget v1, v6, v0
 
-    if-gez v5, :cond_1d
+    if-gez v1, :cond_23
 
-    if-lez v2, :cond_1c
+    if-lez v5, :cond_2
 
-    goto/16 :goto_1c6
+    .line 1735
+    :cond_1
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
 
-    :cond_1c
-    const/4 v5, 0x0
+    goto :goto_0
 
-    :cond_1d
-    const/16 v6, 0x101
+    :cond_2
+    move v4, v3
 
-    const/16 v7, 0x100
-
-    if-nez v5, :cond_2b
+    .line 1651
+    :goto_2
+    if-nez v4, :cond_3
 
     .line 1660
-    iput v7, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
+    const/16 v1, 0x100
+
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
 
     .line 1661
-    iput v6, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
+    const/16 v1, 0x101
+
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
 
     .line 1662
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_2b
-    if-ne v5, v3, :cond_34
+    :cond_3
+    const/4 v1, 0x1
+
+    if-ne v4, v1, :cond_4
 
     .line 1664
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    or-int/2addr v2, v3
+    or-int/lit8 v1, v1, 0x1
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_34
-    const/4 v8, 0x2
-
-    if-ne v5, v8, :cond_3e
+    :cond_4
+    if-ne v4, v9, :cond_5
 
     .line 1666
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    or-int/2addr v2, v7
+    or-int/lit16 v1, v1, 0x100
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_3e
-    const/4 v9, 0x3
+    :cond_5
+    const/4 v1, 0x3
 
-    if-ne v5, v9, :cond_48
+    if-ne v4, v1, :cond_6
 
     .line 1668
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    or-int/2addr v2, v8
+    or-int/lit8 v1, v1, 0x2
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_48
-    const/4 v9, 0x4
+    :cond_6
+    const/4 v1, 0x4
 
-    if-ne v5, v9, :cond_52
+    if-ne v4, v1, :cond_7
 
     .line 1670
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    or-int/2addr v2, v9
+    or-int/lit8 v1, v1, 0x4
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_52
-    const/4 v9, 0x5
-
-    const/16 v10, 0x8
-
-    if-ne v5, v9, :cond_5e
+    :cond_7
+    if-ne v4, v10, :cond_8
 
     .line 1672
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    or-int/2addr v2, v10
+    or-int/lit8 v1, v1, 0x8
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_5e
-    const/4 v11, 0x7
+    :cond_8
+    const/4 v1, 0x7
 
-    if-ne v5, v11, :cond_69
+    if-ne v4, v1, :cond_9
 
     .line 1674
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    or-int/lit8 v2, v2, 0x10
+    or-int/lit8 v1, v1, 0x10
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_69
-    if-ne v5, v10, :cond_73
+    :cond_9
+    const/16 v1, 0x8
+
+    if-ne v4, v1, :cond_a
 
     .line 1676
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    or-int/lit8 v2, v2, 0x20
+    or-int/lit8 v1, v1, 0x20
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_73
-    const/16 v10, 0x9
+    :cond_a
+    const/16 v1, 0x9
 
-    if-ne v5, v10, :cond_7f
+    if-ne v4, v1, :cond_b
 
     .line 1678
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    or-int/lit8 v2, v2, 0x40
+    or-int/lit8 v1, v1, 0x40
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_7f
-    const/16 v10, 0xa
+    :cond_b
+    const/16 v1, 0xa
 
-    if-ne v5, v10, :cond_85
+    if-eq v4, v1, :cond_1
 
-    :goto_83
-    goto/16 :goto_1c6
+    const/16 v1, 0xb
 
-    :cond_85
-    const/16 v10, 0xb
+    if-eq v4, v1, :cond_1
 
-    if-ne v5, v10, :cond_8a
+    const/16 v1, 0x16
 
-    goto :goto_83
-
-    :cond_8a
-    const/16 v10, 0x16
-
-    if-ne v5, v10, :cond_96
+    if-ne v4, v1, :cond_c
 
     .line 1684
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    and-int/lit16 v2, v2, -0x102
+    and-int/lit16 v1, v1, -0x102
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_96
-    const/16 v10, 0x17
+    :cond_c
+    const/16 v1, 0x17
 
-    if-ne v5, v10, :cond_a2
+    if-ne v4, v1, :cond_d
 
     .line 1686
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    and-int/lit8 v2, v2, -0x3
+    and-int/lit8 v1, v1, -0x3
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto :goto_1
 
-    :cond_a2
-    const/16 v10, 0x18
+    :cond_d
+    const/16 v1, 0x18
 
-    if-ne v5, v10, :cond_ae
+    if-ne v4, v1, :cond_e
 
     .line 1688
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    and-int/lit8 v2, v2, -0x5
+    and-int/lit8 v1, v1, -0x5
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto/16 :goto_1
 
-    :cond_ae
-    const/16 v10, 0x19
+    :cond_e
+    const/16 v1, 0x19
 
-    if-ne v5, v10, :cond_ba
+    if-ne v4, v1, :cond_f
 
     .line 1690
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    and-int/lit8 v2, v2, -0x9
+    and-int/lit8 v1, v1, -0x9
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto/16 :goto_1
 
-    :cond_ba
-    const/16 v10, 0x1b
+    :cond_f
+    const/16 v1, 0x1b
 
-    if-ne v5, v10, :cond_c6
+    if-ne v4, v1, :cond_10
 
     .line 1692
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    and-int/lit8 v2, v2, -0x11
+    and-int/lit8 v1, v1, -0x11
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto/16 :goto_1
 
-    :cond_c6
-    const/16 v10, 0x1c
+    :cond_10
+    const/16 v1, 0x1c
 
-    if-ne v5, v10, :cond_d2
+    if-ne v4, v1, :cond_11
 
     .line 1694
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    and-int/lit8 v2, v2, -0x21
+    and-int/lit8 v1, v1, -0x21
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto/16 :goto_1
 
-    :cond_d2
-    const/16 v10, 0x1d
+    :cond_11
+    const/16 v1, 0x1d
 
-    if-ne v5, v10, :cond_de
+    if-ne v4, v1, :cond_12
 
     .line 1696
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    and-int/lit8 v2, v2, -0x41
+    and-int/lit8 v1, v1, -0x41
 
-    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    goto/16 :goto_1c6
+    goto/16 :goto_1
 
-    :cond_de
-    const/16 v10, 0x1e
+    :cond_12
+    const/16 v1, 0x1e
 
-    if-lt v5, v10, :cond_ec
+    if-lt v4, v1, :cond_13
 
-    const/16 v10, 0x25
+    const/16 v1, 0x25
 
-    if-gt v5, v10, :cond_ec
+    if-gt v4, v1, :cond_13
 
     .line 1698
-    add-int/lit8 v5, v5, -0x1e
+    add-int/lit8 v1, v4, -0x1e
 
-    iput v5, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
 
-    goto/16 :goto_1c6
+    goto/16 :goto_1
 
-    :cond_ec
-    const/16 v10, 0x26
+    :cond_13
+    if-eq v4, v7, :cond_14
 
-    if-eq v5, v10, :cond_12f
+    const/16 v1, 0x30
 
-    const/16 v11, 0x30
-
-    if-ne v5, v11, :cond_f5
-
-    goto :goto_12f
-
-    :cond_f5
-    const/16 v2, 0x27
-
-    if-ne v5, v2, :cond_fd
-
-    .line 1738
-    iput v7, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
-
-    goto/16 :goto_1c6
-
-    :cond_fd
-    const/16 v2, 0x28
-
-    if-lt v5, v2, :cond_10b
-
-    const/16 v2, 0x2f
-
-    if-gt v5, v2, :cond_10b
-
-    .line 1740
-    add-int/lit8 v5, v5, -0x28
-
-    iput v5, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
-
-    goto/16 :goto_1c6
-
-    :cond_10b
-    const/16 v2, 0x31
-
-    if-ne v5, v2, :cond_113
-
-    .line 1742
-    iput v6, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
-
-    goto/16 :goto_1c6
-
-    :cond_113
-    const/16 v2, 0x5a
-
-    if-lt v5, v2, :cond_121
-
-    const/16 v2, 0x61
-
-    if-gt v5, v2, :cond_121
-
-    .line 1744
-    add-int/lit8 v5, v5, -0x52
-
-    iput v5, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
-
-    goto/16 :goto_1c6
-
-    :cond_121
-    const/16 v2, 0x64
-
-    if-lt v5, v2, :cond_1c6
-
-    const/16 v2, 0x6b
-
-    if-gt v5, v2, :cond_1c6
+    if-ne v4, v1, :cond_15
 
     .line 1746
-    add-int/lit8 v5, v5, -0x5c
+    :cond_14
+    add-int/lit8 v2, v0, 0x2
 
-    iput v5, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
-
-    goto/16 :goto_1c6
-
-    :cond_12f
-    :goto_12f
-    add-int/lit8 v6, v1, 0x2
-
-    if-le v6, v2, :cond_135
-
-    goto/16 :goto_1c6
+    if-gt v2, v5, :cond_1
 
     .line 1704
-    :cond_135
-    add-int/lit8 v7, v1, 0x1
+    add-int/lit8 v1, v0, 0x1
 
-    aget v7, v4, v7
+    aget v1, v6, v1
 
-    if-ne v7, v8, :cond_1a2
+    if-ne v1, v9, :cond_1e
 
-    add-int/lit8 v7, v1, 0x4
+    add-int/lit8 v1, v0, 0x4
 
-    if-le v7, v2, :cond_159
+    if-le v1, v5, :cond_1a
 
     .line 1707
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v4, "Too few CSI"
+    const-string v2, "Too few CSI"
 
-    invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v4, ";2 RGB arguments"
+    const-string v2, ";2 RGB arguments"
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "termux"
+    const-string v2, "termux"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v4, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1c6
+    goto/16 :goto_1
+
+    .line 1698
+    :cond_15
+    const/16 v1, 0x27
+
+    if-ne v4, v1, :cond_16
+
+    .line 1738
+    const/16 v1, 0x100
+
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
+
+    goto/16 :goto_1
+
+    :cond_16
+    const/16 v1, 0x28
+
+    if-lt v4, v1, :cond_17
+
+    const/16 v1, 0x2f
+
+    if-gt v4, v1, :cond_17
+
+    .line 1740
+    add-int/lit8 v1, v4, -0x28
+
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
+
+    goto/16 :goto_1
+
+    :cond_17
+    const/16 v1, 0x31
+
+    if-ne v4, v1, :cond_18
+
+    .line 1742
+    const/16 v1, 0x101
+
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
+
+    goto/16 :goto_1
+
+    :cond_18
+    const/16 v1, 0x5a
+
+    if-lt v4, v1, :cond_19
+
+    const/16 v1, 0x61
+
+    if-gt v4, v1, :cond_19
+
+    .line 1744
+    add-int/lit8 v1, v4, -0x52
+
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
+
+    goto/16 :goto_1
+
+    :cond_19
+    const/16 v1, 0x64
+
+    if-lt v4, v1, :cond_1
+
+    const/16 v1, 0x6b
+
+    if-gt v4, v1, :cond_1
+
+    .line 1746
+    add-int/lit8 v1, v4, -0x5c
+
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
+
+    goto/16 :goto_1
 
     .line 1709
-    :cond_159
-    aget v2, v4, v6
+    :cond_1a
+    aget v2, v6, v2
 
-    add-int/lit8 v1, v1, 0x3
+    add-int/lit8 v0, v0, 0x3
 
-    aget v1, v4, v1
+    aget v0, v6, v0
 
-    aget v4, v4, v7
+    aget v5, v6, v1
 
-    if-ltz v2, :cond_181
+    if-ltz v2, :cond_1b
 
-    if-ltz v1, :cond_181
+    if-ltz v0, :cond_1b
 
-    if-ltz v4, :cond_181
+    if-ltz v5, :cond_1b
 
-    const/16 v6, 0xff
+    if-gt v2, v8, :cond_1b
 
-    if-gt v2, v6, :cond_181
+    if-gt v0, v8, :cond_1b
 
-    if-gt v1, v6, :cond_181
+    if-le v5, v8, :cond_1c
 
-    if-le v4, v6, :cond_170
+    .line 1711
+    :cond_1b
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    goto :goto_181
+    const-string v6, "Invalid RGB: "
 
-    :cond_170
-    shl-int/lit8 v1, v1, 0x8
+    invoke-direct {v4, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, ","
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, ","
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->finishSequenceAndLogError(Ljava/lang/String;)V
+
+    :goto_3
+    move v0, v1
+
+    goto/16 :goto_1
+
+    .line 1709
+    :cond_1c
+    shl-int/lit8 v0, v0, 0x8
 
     shl-int/lit8 v2, v2, 0x10
 
@@ -5942,126 +5948,96 @@
 
     or-int/2addr v2, v6
 
-    or-int/2addr v1, v2
+    or-int/2addr v0, v2
 
-    or-int/2addr v1, v4
+    or-int/2addr v0, v5
 
-    if-ne v5, v10, :cond_17e
+    if-ne v4, v7, :cond_1d
 
     .line 1715
-    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
 
-    goto :goto_1a0
+    goto :goto_3
 
     .line 1717
-    :cond_17e
-    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
+    :cond_1d
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
 
-    goto :goto_1a0
+    goto :goto_3
 
     .line 1711
-    :cond_181
-    :goto_181
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    const-string v6, "Invalid RGB: "
-
-    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, ","
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->finishSequenceAndLogError(Ljava/lang/String;)V
-
-    :goto_1a0
-    move v1, v7
-
-    goto :goto_1c6
-
-    :cond_1a2
-    if-ne v7, v9, :cond_1b5
+    :cond_1e
+    if-ne v1, v10, :cond_21
 
     .line 1723
-    aget v1, v4, v6
+    aget v0, v6, v2
 
-    if-ltz v1, :cond_1b3
+    if-ltz v0, :cond_1f
 
-    const/16 v2, 0x103
+    const/16 v1, 0x103
 
-    if-ge v1, v2, :cond_1b3
+    if-ge v0, v1, :cond_1f
 
-    if-ne v5, v10, :cond_1b1
+    if-ne v4, v7, :cond_20
 
     .line 1727
-    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
 
-    goto :goto_1b3
+    :cond_1f
+    :goto_4
+    move v0, v2
 
     .line 1729
-    :cond_1b1
-    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
+    goto/16 :goto_1
 
-    :cond_1b3
-    :goto_1b3
-    move v1, v6
+    :cond_20
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
 
-    goto :goto_1c6
+    goto :goto_4
 
     .line 1735
-    :cond_1b5
+    :cond_21
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string v4, "Invalid ISO-8613-3 SGR first argument: "
 
     invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {p0, v2}, Lcom/termux/terminal/TerminalEmulator;->finishSequenceAndLogError(Ljava/lang/String;)V
+    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->finishSequenceAndLogError(Ljava/lang/String;)V
 
-    :cond_1c6
-    :goto_1c6
-    add-int/2addr v1, v3
+    goto/16 :goto_1
 
-    goto/16 :goto_e
-
-    :cond_1c9
+    :cond_22
     return-void
+
+    :cond_23
+    move v4, v1
+
+    goto/16 :goto_2
 .end method
 
 .method private setCursorCol(I)V
-    .registers 2
+    .locals 1
 
     .line 2240
     iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
     .line 2241
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-boolean p1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
+    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
     return-void
 .end method
 
 .method private setCursorColRespectingOriginMode(I)V
-    .registers 3
+    .locals 1
 
     .line 2246
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
@@ -6072,104 +6048,122 @@
 .end method
 
 .method private setCursorPosition(II)V
-    .registers 7
+    .locals 5
+
+    const/4 v0, 0x0
 
     .line 1966
-    const/4 v0, 0x4
+    const/4 v1, 0x4
 
-    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
 
-    move-result v0
+    move-result v4
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_b
+    if-eqz v4, :cond_0
 
     .line 1967
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
 
-    goto :goto_c
+    move v3, v1
 
-    :cond_b
-    const/4 v2, 0x0
-
-    :goto_c
-    if-eqz v0, :cond_11
+    :goto_0
+    if-eqz v4, :cond_1
 
     .line 1968
-    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
-    goto :goto_13
+    move v2, v1
 
-    :cond_11
-    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    :goto_13
-    if-eqz v0, :cond_17
+    :goto_1
+    if-eqz v4, :cond_3
 
     .line 1969
-    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
-    :cond_17
-    if-eqz v0, :cond_1c
+    move v1, v0
+
+    :goto_2
+    if-eqz v4, :cond_2
 
     .line 1970
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    goto :goto_1e
-
-    :cond_1c
-    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
     .line 1971
-    :goto_1e
-    add-int/2addr p2, v2
+    :goto_3
+    add-int v4, p2, v3
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    invoke-static {p2, v3}, Ljava/lang/Math;->min(II)I
+    invoke-static {v4, v2}, Ljava/lang/Math;->min(II)I
 
-    move-result p2
+    move-result v2
 
-    invoke-static {v2, p2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v3, v2}, Ljava/lang/Math;->max(II)I
 
-    move-result p2
+    move-result v2
 
     .line 1972
-    add-int/2addr p1, v1
+    add-int v3, p1, v1
 
     add-int/lit8 v0, v0, -0x1
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
+    invoke-static {v3, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result p1
+    move-result v0
 
-    invoke-static {v1, p1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result p1
+    move-result v0
 
     .line 1973
-    invoke-direct {p0, p2, p1}, Lcom/termux/terminal/TerminalEmulator;->setCursorRowCol(II)V
+    invoke-direct {p0, v2, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorRowCol(II)V
 
     return-void
+
+    :cond_0
+    move v3, v0
+
+    .line 1967
+    goto :goto_0
+
+    .line 1968
+    :cond_1
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    move v2, v1
+
+    goto :goto_1
+
+    .line 1970
+    :cond_2
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    goto :goto_3
+
+    :cond_3
+    move v1, v0
+
+    goto :goto_2
 .end method
 
 .method private setCursorRow(I)V
-    .registers 2
+    .locals 1
 
     .line 2235
     iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
     .line 2236
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-boolean p1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
+    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
     return-void
 .end method
 
 .method private setCursorRowCol(II)V
-    .registers 4
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 2251
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
@@ -6178,130 +6172,131 @@
 
     invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result p1
+    move-result v0
 
-    const/4 v0, 0x0
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
-    invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
+    move-result v0
 
-    move-result p1
-
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
     .line 2252
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    add-int/lit8 p1, p1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
+    invoke-static {p2, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result p1
+    move-result v0
 
-    invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
     .line 2253
-    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
+    iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
     return-void
 .end method
 
 .method private setDecsetinternalBit(IZ)V
-    .registers 6
+    .locals 3
 
-    if-eqz p2, :cond_12
+    const/16 v2, 0x80
+
+    const/16 v1, 0x40
 
     const/4 v0, 0x0
 
-    const/16 v1, 0x80
+    if-eqz p2, :cond_0
 
-    const/16 v2, 0x40
-
-    if-ne p1, v2, :cond_d
+    if-ne p1, v1, :cond_1
 
     .line 237
-    invoke-direct {p0, v1, v0}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
-
-    goto :goto_12
-
-    :cond_d
-    if-ne p1, v1, :cond_12
-
-    .line 239
     invoke-direct {p0, v2, v0}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
 
-    :cond_12
-    :goto_12
-    if-eqz p2, :cond_1a
+    .line 239
+    :cond_0
+    :goto_0
+    if-eqz p2, :cond_2
 
     .line 243
-    iget p2, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
 
-    or-int/2addr p1, p2
+    or-int/2addr v0, p1
 
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
-
-    goto :goto_21
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
 
     .line 245
-    :cond_1a
-    xor-int/lit8 p1, p1, -0x1
-
-    iget p2, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
-
-    and-int/2addr p1, p2
-
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
-
-    :goto_21
+    :goto_1
     return-void
+
+    .line 237
+    :cond_1
+    if-ne p1, v2, :cond_0
+
+    .line 239
+    invoke-direct {p0, v1, v0}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
+
+    goto :goto_0
+
+    .line 245
+    :cond_2
+    xor-int/lit8 v0, p1, -0x1
+
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
+
+    and-int/2addr v0, v1
+
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
+
+    goto :goto_1
 .end method
 
 .method private setDefaultTabStops()V
-    .registers 5
-
-    const/4 v0, 0x0
+    .locals 4
 
     const/4 v1, 0x0
 
+    move v0, v1
+
     .line 388
-    :goto_2
+    :goto_0
     iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-ge v1, v2, :cond_16
+    if-ge v0, v2, :cond_1
 
     .line 389
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
+    iget-object v3, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
 
-    and-int/lit8 v3, v1, 0x7
+    and-int/lit8 v2, v0, 0x7
 
-    if-nez v3, :cond_10
+    if-nez v2, :cond_0
 
-    if-eqz v1, :cond_10
+    if-eqz v0, :cond_0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    goto :goto_11
+    :goto_1
+    aput-boolean v2, v3, v0
 
-    :cond_10
-    const/4 v3, 0x0
+    add-int/lit8 v0, v0, 0x1
 
-    :goto_11
-    aput-boolean v3, v2, v1
+    goto :goto_0
 
-    add-int/lit8 v1, v1, 0x1
+    :cond_0
+    move v2, v1
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_16
+    :cond_1
     return-void
 .end method
 
 .method private setTitle(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
 
     .line 2308
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTitle:Ljava/lang/String;
@@ -6314,19 +6309,19 @@
 
     move-result v1
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_0
 
     .line 2311
     iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
     invoke-virtual {v1, v0, p1}, Lcom/termux/terminal/TerminalOutput;->titleChanged(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method private startEscapeSequence()V
-    .registers 3
+    .locals 2
 
     .line 1187
     const/4 v0, 0x1
@@ -6349,7 +6344,7 @@
 .end method
 
 .method private unimplementedSequence(I)V
-    .registers 5
+    .locals 5
 
     .line 2039
     new-instance v0, Ljava/lang/StringBuilder;
@@ -6366,35 +6361,35 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v1, 0x1
+    const-string v1, "%04x"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v4
 
-    aput-object p1, v1, v2
+    aput-object v4, v2, v3
 
-    const-string p1, "%04x"
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object p1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ")"
 
-    const-string p1, ")"
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->logError(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->logError(Ljava/lang/String;)V
 
     .line 2040
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
@@ -6403,7 +6398,7 @@
 .end method
 
 .method private unknownParameter(I)V
-    .registers 4
+    .locals 2
 
     .line 2049
     new-instance v0, Ljava/lang/StringBuilder;
@@ -6416,9 +6411,9 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->logError(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->logError(Ljava/lang/String;)V
 
     .line 2050
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
@@ -6427,7 +6422,7 @@
 .end method
 
 .method private unknownSequence(I)V
-    .registers 4
+    .locals 2
 
     .line 2044
     new-instance v0, Ljava/lang/StringBuilder;
@@ -6446,15 +6441,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, ")"
+    const-string v1, ")"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Lcom/termux/terminal/TerminalEmulator;->logError(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->logError(Ljava/lang/String;)V
 
     .line 2045
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->finishSequence()V
@@ -6465,12 +6460,12 @@
 
 # virtual methods
 .method public append([BI)V
-    .registers 5
+    .locals 2
 
     const/4 v0, 0x0
 
-    :goto_1
-    if-ge v0, p2, :cond_b
+    :goto_0
+    if-ge v0, p2, :cond_0
 
     .line 400
     aget-byte v1, p1, v0
@@ -6479,14 +6474,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public clearScrollCounter()V
-    .registers 2
+    .locals 1
 
     .line 2261
     const/4 v0, 0x0
@@ -6497,261 +6492,263 @@
 .end method
 
 .method public doDecSetOrReset(ZI)V
-    .registers 12
+    .locals 8
+
+    const/4 v1, 0x0
 
     .line 1010
     invoke-static {p2}, Lcom/termux/terminal/TerminalEmulator;->mapDecSetBitToInternalBit(I)I
 
     move-result v0
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    if-eq v0, v1, :cond_a
+    if-eq v0, v2, :cond_0
 
     .line 1012
     invoke-direct {p0, v0, p1}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
 
-    :cond_a
-    const/4 v0, 0x0
+    :cond_0
+    sparse-switch p2, :sswitch_data_0
 
-    sparse-switch p2, :sswitch_data_a0
+    packed-switch p2, :pswitch_data_0
 
-    packed-switch p2, :pswitch_data_ce
+    packed-switch p2, :pswitch_data_1
 
-    packed-switch p2, :pswitch_data_e0
-
-    packed-switch p2, :pswitch_data_f2
+    packed-switch p2, :pswitch_data_2
 
     .line 1101
     invoke-direct {p0, p2}, Lcom/termux/terminal/TerminalEmulator;->unknownParameter(I)V
 
-    goto/16 :goto_9e
+    .line 1093
+    :cond_1
+    :goto_0
+    :pswitch_0
+    :sswitch_0
+    return-void
 
     .line 1029
-    :sswitch_1c
-    if-nez p1, :cond_9e
+    :sswitch_1
+    if-nez p1, :cond_1
 
     .line 1049
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
     .line 1050
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    goto/16 :goto_9e
+    goto :goto_0
 
     .line 1067
-    :pswitch_26  #0x6
-    if-eqz p1, :cond_9e
+    :pswitch_1
+    if-eqz p1, :cond_1
 
     .line 1036
-    invoke-direct {p0, v0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
+    invoke-direct {p0, v1, v1}, Lcom/termux/terminal/TerminalEmulator;->setCursorPosition(II)V
 
-    goto/16 :goto_9e
+    goto :goto_0
 
     .line 1022
-    :pswitch_2d  #0x3
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+    :pswitch_2
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
 
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
     .line 1023
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
     .line 1024
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
     .line 1026
-    const/16 p1, 0x800
+    const/16 v0, 0x800
 
-    invoke-direct {p0, p1, v0}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
+    invoke-direct {p0, v0, v1}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
 
     .line 1028
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    iget p2, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    invoke-direct {p0, v0, v0, p1, p2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+    invoke-direct {p0, v1, v1, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
 
     .line 1029
-    invoke-direct {p0, v0, v0}, Lcom/termux/terminal/TerminalEmulator;->setCursorRowCol(II)V
+    invoke-direct {p0, v1, v1}, Lcom/termux/terminal/TerminalEmulator;->setCursorRowCol(II)V
 
-    goto :goto_9e
+    goto :goto_0
 
     .line 1101
-    :pswitch_49  #0x418
-    if-eqz p1, :cond_4f
+    :pswitch_3
+    if-eqz p1, :cond_2
 
     .line 1065
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->saveCursor()V
 
-    goto :goto_9e
+    goto :goto_0
 
     .line 1067
-    :cond_4f
+    :cond_2
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->restoreCursor()V
 
-    goto :goto_9e
+    goto :goto_0
 
     .line 1050
-    :pswitch_53  #0x417, 0x419
-    :sswitch_53
-    if-eqz p1, :cond_58
+    :pswitch_4
+    :sswitch_2
+    if-eqz p1, :cond_7
 
     .line 1074
-    iget-object p2, p0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
-
-    goto :goto_5a
-
-    :cond_58
-    iget-object p2, p0, Lcom/termux/terminal/TerminalEmulator;->mMainBuffer:Lcom/termux/terminal/TerminalBuffer;
-
-    :goto_5a
-    move-object v1, p2
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
 
     .line 1075
-    iget-object p2, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    :goto_1
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    if-eq v1, p2, :cond_9e
+    if-eq v0, v2, :cond_1
 
     .line 1076
-    iget p2, v1, Lcom/termux/terminal/TerminalBuffer;->mColumns:I
+    iget v2, v0, Lcom/termux/terminal/TerminalBuffer;->mColumns:I
 
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-ne p2, v2, :cond_6b
+    if-ne v2, v3, :cond_3
 
-    iget p2, v1, Lcom/termux/terminal/TerminalBuffer;->mScreenRows:I
+    iget v2, v0, Lcom/termux/terminal/TerminalBuffer;->mScreenRows:I
 
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    if-eq p2, v2, :cond_6c
+    if-eq v2, v3, :cond_8
 
-    :cond_6b
-    const/4 v0, 0x1
+    :cond_3
+    const/4 v2, 0x1
 
-    :cond_6c
-    if-eqz p1, :cond_71
+    :goto_2
+    if-eqz p1, :cond_4
 
     .line 1077
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->saveCursor()V
 
     .line 1078
-    :cond_71
-    iput-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    :cond_4
+    iput-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    if-nez p1, :cond_86
+    if-nez p1, :cond_5
 
     .line 1080
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v3, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    iget p1, p1, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorCol:I
+    iget v3, v3, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorCol:I
 
     .line 1081
-    iget-object p2, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v4, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    iget p2, p2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorRow:I
+    iget v4, v4, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorRow:I
 
     .line 1082
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->restoreCursor()V
 
-    if-eqz v0, :cond_86
+    if-eqz v2, :cond_5
 
     .line 1085
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
     .line 1086
-    iput p2, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    iput v4, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    :cond_86
-    if-eqz v0, :cond_8b
+    :cond_5
+    if-eqz v2, :cond_6
 
     .line 1090
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->resizeScreen()V
 
     .line 1092
-    :cond_8b
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
+    :cond_6
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
 
-    if-ne v1, p1, :cond_9e
+    if-ne v0, v2, :cond_1
 
     .line 1093
-    const/4 v2, 0x0
+    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    const/4 v3, 0x0
+    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    iget v4, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    iget v5, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    const/16 v6, 0x20
+    const/16 v5, 0x20
 
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
 
-    move-result-wide v7
+    move-result-wide v6
 
-    invoke-virtual/range {v1 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
+    move v2, v1
 
-    :cond_9e
-    :goto_9e
-    :pswitch_9e  #0x4, 0x5, 0x7, 0x8, 0x9, 0x3e8, 0x3e9, 0x3ea, 0x3eb, 0x3ec, 0x3ed, 0x3ee
-    :sswitch_9e
-    return-void
+    invoke-virtual/range {v0 .. v7}, Lcom/termux/terminal/TerminalBuffer;->blockSet(IIIIIJ)V
 
-    nop
+    goto :goto_0
 
-    :sswitch_data_a0
+    .line 1074
+    :cond_7
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mMainBuffer:Lcom/termux/terminal/TerminalBuffer;
+
+    goto :goto_1
+
+    :cond_8
+    move v2, v1
+
+    goto :goto_2
+
+    .line 1012
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_9e
-        0xc -> :sswitch_9e
-        0x19 -> :sswitch_9e
-        0x28 -> :sswitch_9e
-        0x2d -> :sswitch_9e
-        0x2f -> :sswitch_53
-        0x42 -> :sswitch_9e
-        0x45 -> :sswitch_1c
-        0x3f7 -> :sswitch_9e
-        0x40a -> :sswitch_9e
-        0x7d4 -> :sswitch_9e
+        0x1 -> :sswitch_0
+        0xc -> :sswitch_0
+        0x19 -> :sswitch_0
+        0x28 -> :sswitch_0
+        0x2d -> :sswitch_0
+        0x2f -> :sswitch_2
+        0x42 -> :sswitch_0
+        0x45 -> :sswitch_1
+        0x3f7 -> :sswitch_0
+        0x40a -> :sswitch_0
+        0x7d4 -> :sswitch_0
     .end sparse-switch
 
-    :pswitch_data_ce
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_2d  #00000003
-        :pswitch_9e  #00000004
-        :pswitch_9e  #00000005
-        :pswitch_26  #00000006
-        :pswitch_9e  #00000007
-        :pswitch_9e  #00000008
-        :pswitch_9e  #00000009
+        :pswitch_2
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 
-    :pswitch_data_e0
+    :pswitch_data_1
     .packed-switch 0x3e8
-        :pswitch_9e  #000003e8
-        :pswitch_9e  #000003e9
-        :pswitch_9e  #000003ea
-        :pswitch_9e  #000003eb
-        :pswitch_9e  #000003ec
-        :pswitch_9e  #000003ed
-        :pswitch_9e  #000003ee
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 
-    :pswitch_data_f2
+    :pswitch_data_2
     .packed-switch 0x417
-        :pswitch_53  #00000417
-        :pswitch_49  #00000418
-        :pswitch_53  #00000419
+        :pswitch_4
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method public getCursorCol()I
-    .registers 2
+    .locals 1
 
     .line 358
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
@@ -6760,7 +6757,7 @@
 .end method
 
 .method public getCursorRow()I
-    .registers 2
+    .locals 1
 
     .line 354
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
@@ -6769,7 +6766,7 @@
 .end method
 
 .method public getCursorStyle()I
-    .registers 2
+    .locals 1
 
     .line 363
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
@@ -6778,7 +6775,7 @@
 .end method
 
 .method public getScreen()Lcom/termux/terminal/TerminalBuffer;
-    .registers 2
+    .locals 1
 
     .line 292
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
@@ -6787,7 +6784,7 @@
 .end method
 
 .method public getScrollCounter()I
-    .registers 2
+    .locals 1
 
     .line 2257
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScrollCounter:I
@@ -6796,20 +6793,20 @@
 .end method
 
 .method public getSelectedText(IIII)Ljava/lang/String;
-    .registers 6
+    .locals 1
 
     .line 2298
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/termux/terminal/TerminalBuffer;->getSelectedText(IIII)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getTitle()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 2303
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTitle:Ljava/lang/String;
@@ -6818,28 +6815,28 @@
 .end method
 
 .method public isAlternateBufferActive()Z
-    .registers 3
+    .locals 2
 
     .line 296
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
     iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_9
+    :goto_0
+    return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_9
-    return v0
+    goto :goto_0
 .end method
 
 .method public isCursorKeysApplicationMode()Z
-    .registers 2
+    .locals 1
 
     .line 379
     const/4 v0, 0x1
@@ -6852,7 +6849,7 @@
 .end method
 
 .method public isKeypadApplicationMode()Z
-    .registers 2
+    .locals 1
 
     .line 375
     const/16 v0, 0x20
@@ -6865,7 +6862,7 @@
 .end method
 
 .method public isMouseTrackingActive()Z
-    .registers 2
+    .locals 1
 
     .line 384
     const/16 v0, 0x40
@@ -6874,7 +6871,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     const/16 v0, 0x80
 
@@ -6882,25 +6879,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_1
 
-    goto :goto_13
-
-    :cond_11
-    const/4 v0, 0x0
-
-    goto :goto_14
-
-    :cond_13
-    :goto_13
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_14
+    :goto_0
     return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public isReverseVideo()Z
-    .registers 2
+    .locals 1
 
     .line 367
     const/4 v0, 0x2
@@ -6913,7 +6907,7 @@
 .end method
 
 .method public isShowingCursor()Z
-    .registers 2
+    .locals 1
 
     .line 371
     const/16 v0, 0x10
@@ -6926,7 +6920,7 @@
 .end method
 
 .method public paste(Ljava/lang/String;)V
-    .registers 5
+    .locals 4
 
     .line 2318
     const-string v0, "(\u001b|[\u0080-\u009f])"
@@ -6935,492 +6929,718 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 2320
-    const/16 v0, 0x400
+    const/16 v1, 0x400
 
-    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_17
+    if-eqz v1, :cond_0
 
     .line 2321
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    const-string v2, "\u001b[200~"
+    const-string v3, "\u001b[200~"
 
-    invoke-virtual {v1, v2}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
     .line 2322
-    :cond_17
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    :cond_0
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    invoke-virtual {v1, p1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
-    if-eqz v0, :cond_25
+    if-eqz v1, :cond_1
 
     .line 2323
-    iget-object p1, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    const-string v0, "\u001b[201~"
+    const-string v1, "\u001b[201~"
 
-    invoke-virtual {p1, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
-    :cond_25
+    :cond_1
     return-void
 .end method
 
 .method public processCodePoint(I)V
-    .registers 32
+    .locals 19
 
-    move-object/from16 v0, p0
-
-    move/from16 v1, p1
-
-    if-eqz v1, :cond_3f4
+    if-eqz p1, :cond_1
 
     const/16 v2, 0x18
 
-    const/4 v3, 0x0
+    move/from16 v0, p1
 
-    if-eq v1, v2, :cond_3e9
+    if-eq v0, v2, :cond_35
 
-    const/16 v4, 0x1a
+    const/16 v2, 0x1a
 
-    if-eq v1, v4, :cond_3e9
+    move/from16 v0, p1
 
-    const/16 v4, 0xa
+    if-eq v0, v2, :cond_35
 
-    const/16 v5, 0x1b
+    const/16 v2, 0x1b
 
-    if-eq v1, v5, :cond_3d8
+    move/from16 v0, p1
 
-    const/4 v6, 0x1
+    if-eq v0, v2, :cond_33
 
-    packed-switch v1, :pswitch_data_3f6
+    const/4 v2, 0x1
+
+    packed-switch p1, :pswitch_data_0
 
     .line 533
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
     iput-boolean v3, v0, Lcom/termux/terminal/TerminalEmulator;->mContinueSequence:Z
 
     .line 534
-    iget v4, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+    move-object/from16 v0, p0
 
-    const/16 v7, 0x1000
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
 
-    const/4 v8, -0x1
-
-    const/16 v9, 0x7e
-
-    const/16 v10, 0x71
-
-    const/16 v11, 0x70
-
-    const/16 v13, 0x74
-
-    const/16 v14, 0x78
-
-    const/16 v15, 0x20
-
-    const/4 v12, 0x2
-
-    packed-switch v4, :pswitch_data_40c
+    packed-switch v3, :pswitch_data_1
 
     .line 794
-    :pswitch_30  #0x5
+    :pswitch_0
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    goto/16 :goto_3d1
+    .line 797
+    :cond_0
+    :goto_0
+    :pswitch_1
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mContinueSequence:Z
+
+    if-nez v2, :cond_1
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+
+    .line 523
+    :cond_1
+    :goto_1
+    return-void
 
     .line 511
-    :pswitch_35  #0xf
-    iput-boolean v6, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
+    :pswitch_2
+    const/4 v2, 0x1
 
-    goto/16 :goto_3f4
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
+
+    goto :goto_1
 
     .line 508
-    :pswitch_39  #0xe
-    iput-boolean v3, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
+    :pswitch_3
+    const/4 v2, 0x0
 
-    goto/16 :goto_3f4
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
+
+    goto :goto_1
 
     .line 505
-    :pswitch_3d  #0xd
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+    :pswitch_4
+    move-object/from16 v0, p0
 
-    invoke-direct {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
-    goto/16 :goto_3f4
-
-    .line 502
-    :pswitch_44  #0xa, 0xb, 0xc
-    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->doLinefeed()V
-
-    goto/16 :goto_3f4
-
-    .line 497
-    :pswitch_49  #0x9
-    invoke-direct {v0, v6}, Lcom/termux/terminal/TerminalEmulator;->nextTabStop(I)I
-
-    move-result v1
-
-    iput v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    goto/16 :goto_3f4
-
-    .line 478
-    :pswitch_51  #0x8
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
-
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    if-ne v1, v2, :cond_71
-
-    .line 480
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
-
-    sub-int/2addr v1, v6
-
-    if-ltz v1, :cond_3f4
-
-    .line 481
-    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    invoke-virtual {v2, v1}, Lcom/termux/terminal/TerminalBuffer;->getLineWrap(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3f4
-
-    .line 482
-    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    invoke-virtual {v2, v1}, Lcom/termux/terminal/TerminalBuffer;->clearLineWrap(I)V
-
-    .line 483
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
-
-    sub-int/2addr v2, v6
-
-    invoke-direct {v0, v1, v2}, Lcom/termux/terminal/TerminalEmulator;->setCursorRowCol(II)V
-
-    goto/16 :goto_3f4
-
-    .line 486
-    :cond_71
-    sub-int/2addr v2, v6
+    move-object/from16 v0, p0
 
     invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
 
-    goto/16 :goto_3f4
+    goto :goto_1
+
+    .line 502
+    :pswitch_5
+    invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->doLinefeed()V
+
+    goto :goto_1
+
+    .line 497
+    :pswitch_6
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->nextTabStop(I)I
+
+    move-result v2
+
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    goto :goto_1
+
+    .line 478
+    :pswitch_7
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    if-ne v2, v3, :cond_2
+
+    .line 480
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+
+    add-int/lit8 v2, v2, -0x1
+
+    if-ltz v2, :cond_1
+
+    .line 481
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    invoke-virtual {v3, v2}, Lcom/termux/terminal/TerminalBuffer;->getLineWrap(I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 482
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    invoke-virtual {v3, v2}, Lcom/termux/terminal/TerminalBuffer;->clearLineWrap(I)V
+
+    .line 483
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+
+    add-int/lit8 v3, v3, -0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v3}, Lcom/termux/terminal/TerminalEmulator;->setCursorRowCol(II)V
+
+    goto :goto_1
+
+    .line 486
+    :cond_2
+    add-int/lit8 v2, v3, -0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->setCursorCol(I)V
+
+    goto :goto_1
 
     .line 472
-    :pswitch_77  #0x7
+    :pswitch_8
+    move-object/from16 v0, p0
+
     iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
 
-    if-ne v2, v4, :cond_80
+    const/16 v3, 0xa
+
+    if-ne v2, v3, :cond_3
 
     .line 473
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doOsc(I)V
 
-    goto/16 :goto_3f4
+    goto :goto_1
 
     .line 475
-    :cond_80
-    iget-object v1, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    :cond_3
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1}, Lcom/termux/terminal/TerminalOutput;->onBell()V
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    goto/16 :goto_3f4
+    invoke-virtual {v2}, Lcom/termux/terminal/TerminalOutput;->onBell()V
+
+    goto :goto_1
 
     .line 794
-    :pswitch_87  #0x13
-    if-ne v1, v11, :cond_8e
+    :pswitch_9
+    const/16 v2, 0x70
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_4
 
     .line 555
     invoke-virtual/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->reset()V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
     .line 557
-    :cond_8e
+    :cond_4
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
-    :pswitch_93  #0x12
+    :pswitch_a
     const/16 v2, 0x7d
 
-    if-ne v1, v2, :cond_bc
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_5
 
     .line 708
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    sub-int v5, v2, v3
+
+    .line 709
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+
+    move-result v2
+
+    invoke-static {v2, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v9
+
+    .line 711
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    const/4 v4, 0x0
+
+    sub-int/2addr v5, v9
+
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    add-int v7, v3, v9
+
+    const/4 v8, 0x0
+
+    invoke-virtual/range {v2 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    .line 712
+    move-object/from16 v0, p0
 
     iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    sub-int/2addr v1, v2
+    const/4 v3, 0x0
 
-    .line 709
-    invoke-direct {v0, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
-
-    move-result v2
-
-    invoke-static {v2, v1}, Ljava/lang/Math;->min(II)I
-
-    move-result v2
-
-    .line 711
-    iget-object v4, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget v5, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
-
-    const/4 v6, 0x0
-
-    sub-int v7, v1, v2
-
-    iget v8, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    add-int v9, v5, v2
-
-    const/4 v10, 0x0
-
-    invoke-virtual/range {v4 .. v10}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    .line 712
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    move-object/from16 v0, p0
 
     iget v4, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    invoke-direct {v0, v1, v3, v2, v4}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+    move-object/from16 v0, p0
 
-    goto/16 :goto_3d1
+    invoke-direct {v0, v2, v3, v9, v4}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
 
-    :cond_bc
-    if-ne v1, v9, :cond_e4
+    goto/16 :goto_0
+
+    :cond_5
+    const/16 v2, 0x7e
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_6
 
     .line 714
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    move-object/from16 v0, p0
 
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    sub-int/2addr v1, v2
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+
+    sub-int/2addr v2, v3
 
     .line 715
-    invoke-direct {v0, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    const/4 v3, 0x1
 
-    move-result v2
+    move-object/from16 v0, p0
 
-    invoke-static {v2, v1}, Ljava/lang/Math;->min(II)I
+    invoke-direct {v0, v3}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result v2
+    move-result v3
 
-    sub-int/2addr v1, v2
+    invoke-static {v3, v2}, Ljava/lang/Math;->min(II)I
+
+    move-result v9
+
+    sub-int v5, v2, v9
 
     .line 717
-    iget-object v4, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    move-object/from16 v0, p0
 
-    iget v9, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    add-int v5, v9, v2
+    move-object/from16 v0, p0
 
-    const/4 v6, 0x0
+    iget v7, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorCol:I
 
-    iget v8, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    add-int v3, v7, v9
 
-    const/4 v10, 0x0
+    const/4 v4, 0x0
 
-    move v7, v1
+    move-object/from16 v0, p0
 
-    invoke-virtual/range {v4 .. v10}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+    iget v6, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    const/4 v8, 0x0
+
+    invoke-virtual/range {v2 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
 
     .line 718
-    iget v4, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
+    move-object/from16 v0, p0
 
-    add-int/2addr v4, v1
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorRow:I
 
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    add-int/2addr v2, v5
 
-    invoke-direct {v0, v4, v3, v2, v1}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+    const/4 v3, 0x0
 
-    goto/16 :goto_3d1
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v3, v9, v4}, Lcom/termux/terminal/TerminalEmulator;->blockClear(IIII)V
+
+    goto/16 :goto_0
 
     .line 720
-    :cond_e4
+    :cond_6
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
-    :pswitch_e9  #0x11
-    if-ne v1, v10, :cond_10b
+    :pswitch_b
+    const/16 v2, 0x71
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_a
 
     .line 692
-    invoke-direct {v0, v3}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
     move-result v2
 
-    if-eqz v2, :cond_103
+    if-eqz v2, :cond_7
 
-    if-ne v2, v12, :cond_f4
+    const/4 v3, 0x2
 
-    goto :goto_103
-
-    :cond_f4
-    if-ne v2, v6, :cond_fe
-
-    .line 698
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
-
-    or-int/lit16 v1, v1, 0x80
-
-    iput v1, v0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
-
-    goto/16 :goto_3d1
-
-    .line 700
-    :cond_fe
-    invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
-
-    goto/16 :goto_3d1
+    if-ne v2, v3, :cond_8
 
     .line 695
-    :cond_103
-    :goto_103
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    :cond_7
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, -0x81
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
 
-    iput v1, v0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+    and-int/lit16 v2, v2, -0x81
 
-    goto/16 :goto_3d1
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+
+    goto/16 :goto_0
+
+    .line 692
+    :cond_8
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_9
+
+    .line 698
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+
+    or-int/lit16 v2, v2, 0x80
+
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mEffect:I
+
+    goto/16 :goto_0
+
+    .line 700
+    :cond_9
+    invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
+
+    goto/16 :goto_0
 
     .line 703
-    :cond_10b
+    :cond_a
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
     .line 785
-    :pswitch_110  #0x10
+    :pswitch_c
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
     invoke-direct {v0, v3}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
-    move-result v2
+    move-result v3
 
-    if-ne v1, v14, :cond_123
+    const/16 v4, 0x78
 
-    if-ltz v2, :cond_123
+    move/from16 v0, p1
 
-    if-gt v2, v12, :cond_123
+    if-ne v0, v4, :cond_c
 
-    if-ne v2, v12, :cond_11d
+    if-ltz v3, :cond_c
 
-    goto :goto_11e
+    const/4 v4, 0x2
 
-    :cond_11d
-    const/4 v6, 0x0
+    if-gt v3, v4, :cond_c
+
+    const/4 v4, 0x2
+
+    if-ne v3, v4, :cond_b
 
     .line 788
-    :goto_11e
-    invoke-direct {v0, v7, v6}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
+    :goto_2
+    const/16 v3, 0x1000
 
-    goto/16 :goto_3d1
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3, v2}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
+
+    goto/16 :goto_0
+
+    .line 785
+    :cond_b
+    const/4 v2, 0x0
+
+    goto :goto_2
 
     .line 790
-    :cond_123
+    :cond_c
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
     .line 757
-    :pswitch_128  #0xf
-    invoke-direct {v0, v3}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    :pswitch_d
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
 
     move-result v2
 
-    if-eq v1, v10, :cond_139
+    const/16 v3, 0x71
 
-    if-eq v1, v13, :cond_3d1
+    move/from16 v0, p1
+
+    if-eq v0, v3, :cond_d
+
+    const/16 v2, 0x74
+
+    move/from16 v0, p1
+
+    if-eq v0, v2, :cond_0
 
     const/16 v2, 0x75
 
-    if-eq v1, v2, :cond_3d1
+    move/from16 v0, p1
+
+    if-eq v0, v2, :cond_0
 
     .line 781
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
-    :cond_139
-    packed-switch v2, :pswitch_data_438
+    :cond_d
+    packed-switch v2, :pswitch_data_2
 
-    goto/16 :goto_3d1
-
-    .line 772
-    :pswitch_13e  #0x5, 0x6
-    iput v12, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
-
-    goto/16 :goto_3d1
-
-    .line 768
-    :pswitch_142  #0x3, 0x4
-    iput v6, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
-
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
     .line 764
-    :pswitch_146  #0x0, 0x1, 0x2
-    iput v3, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
+    :pswitch_e
+    const/4 v2, 0x0
 
-    goto/16 :goto_3d1
+    move-object/from16 v0, p0
 
-    :pswitch_14a  #0xe
-    if-ne v1, v11, :cond_1a5
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
+
+    goto/16 :goto_0
+
+    .line 772
+    :pswitch_f
+    const/4 v2, 0x2
+
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
+
+    goto/16 :goto_0
+
+    .line 768
+    :pswitch_10
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
+
+    goto/16 :goto_0
+
+    .line 764
+    :pswitch_11
+    const/16 v2, 0x70
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_13
 
     .line 737
-    invoke-direct {v0, v3}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+    const/4 v2, 0x0
 
-    move-result v1
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->getArg0(I)I
+
+    move-result v3
 
     const/16 v2, 0x2f
 
-    if-eq v1, v2, :cond_17f
+    if-eq v3, v2, :cond_e
 
     const/16 v2, 0x417
 
-    if-eq v1, v2, :cond_17f
+    if-eq v3, v2, :cond_e
 
     const/16 v2, 0x419
 
-    if-ne v1, v2, :cond_15d
+    if-ne v3, v2, :cond_10
 
-    goto :goto_17f
+    .line 741
+    :cond_e
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
+
+    if-ne v2, v4, :cond_11
+
+    .line 745
+    :cond_f
+    const/4 v2, 0x1
+
+    .line 751
+    :goto_3
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+
+    sget-object v5, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    const-string v6, "\u001b[?%d;%d$y"
+
+    const/4 v7, 0x2
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    const/4 v8, 0x0
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v7, v8
+
+    const/4 v3, 0x1
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    aput-object v2, v7, v3
+
+    invoke-static {v5, v6, v7}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v4, v2}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+
+    goto/16 :goto_0
 
     .line 743
-    :cond_15d
-    invoke-static {v1}, Lcom/termux/terminal/TerminalEmulator;->mapDecSetBitToInternalBit(I)I
+    :cond_10
+    invoke-static {v3}, Lcom/termux/terminal/TerminalEmulator;->mapDecSetBitToInternalBit(I)I
 
     move-result v2
 
-    if-ne v2, v8, :cond_16a
+    const/4 v4, -0x1
+
+    if-ne v2, v4, :cond_12
 
     .line 745
+    move-object/from16 v0, p0
+
     invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_187
+    if-nez v2, :cond_f
 
-    goto :goto_185
+    :cond_11
+    const/4 v2, 0x2
+
+    goto :goto_3
 
     .line 747
-    :cond_16a
+    :cond_12
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string v4, "Got DECRQM for unrecognized private DEC mode="
 
     invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v4, "termux"
 
@@ -7432,1031 +7652,1187 @@
 
     const/4 v2, 0x0
 
-    goto :goto_188
-
-    .line 741
-    :cond_17f
-    :goto_17f
-    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    iget-object v4, v0, Lcom/termux/terminal/TerminalEmulator;->mAltBuffer:Lcom/termux/terminal/TerminalBuffer;
-
-    if-ne v2, v4, :cond_187
-
-    .line 745
-    :goto_185
-    const/4 v2, 0x1
-
-    goto :goto_188
-
-    :cond_187
-    const/4 v2, 0x2
-
-    .line 751
-    :goto_188
-    iget-object v4, v0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
-
-    sget-object v5, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    new-array v7, v12, [Ljava/lang/Object;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    aput-object v1, v7, v3
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    aput-object v1, v7, v6
-
-    const-string v1, "\u001b[?%d;%d$y"
-
-    invoke-static {v5, v1, v7}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v4, v1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
-
-    goto/16 :goto_3d1
+    goto :goto_3
 
     .line 753
-    :cond_1a5
+    :cond_13
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
     .line 732
-    :pswitch_1aa  #0xd
+    :pswitch_12
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doDeviceControl(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
     .line 564
-    :pswitch_1af  #0xc
+    :pswitch_13
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doCsiBiggerThan(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
     .line 729
-    :pswitch_1b4  #0xb
+    :pswitch_14
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doOscEsc(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
     .line 726
-    :pswitch_1b9  #0xa
+    :pswitch_15
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doOsc(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
     .line 567
-    :pswitch_1be  #0x8
-    const/4 v4, 0x4
+    :pswitch_16
+    const/4 v2, 0x4
 
-    invoke-direct {v0, v4}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
 
-    if-eqz v10, :cond_1c8
+    move-result v3
+
+    if-eqz v3, :cond_14
 
     .line 568
-    iget v11, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+    move-object/from16 v0, p0
 
-    goto :goto_1c9
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
 
-    :cond_1c8
-    const/4 v11, 0x0
+    move v14, v2
 
-    :goto_1c9
-    if-eqz v10, :cond_1ce
+    :goto_4
+    if-eqz v3, :cond_15
 
     .line 569
-    iget v7, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    move-object/from16 v0, p0
 
-    goto :goto_1d0
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
-    :cond_1ce
-    iget v7, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    move v4, v2
 
-    :goto_1d0
-    if-eqz v10, :cond_1d5
+    :goto_5
+    if-eqz v3, :cond_16
 
     .line 570
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+    move-object/from16 v0, p0
 
-    goto :goto_1d6
+    iget v7, v0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
-    :cond_1d5
-    const/4 v2, 0x0
-
-    :goto_1d6
-    if-eqz v10, :cond_1db
+    :goto_6
+    if-eqz v3, :cond_17
 
     .line 571
-    iget v10, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    move-object/from16 v0, p0
 
-    goto :goto_1dd
+    iget v8, v0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    :cond_1db
-    iget v10, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    :goto_7
+    const/16 v2, 0x72
 
-    :goto_1dd
-    const/16 v5, 0x72
+    move/from16 v0, p1
 
-    const/4 v4, 0x3
+    if-eq v0, v2, :cond_24
 
-    if-eq v1, v5, :cond_2f6
+    const/16 v2, 0x74
 
-    if-eq v1, v13, :cond_2f6
+    move/from16 v0, p1
 
-    const/16 v5, 0x76
+    if-eq v0, v2, :cond_24
 
-    if-eq v1, v5, :cond_289
+    const/16 v2, 0x76
 
-    const/16 v5, 0x7b
+    move/from16 v0, p1
 
-    if-eq v1, v14, :cond_1f7
+    if-eq v0, v2, :cond_23
 
-    const/16 v12, 0x7a
+    const/16 v2, 0x78
 
-    if-eq v1, v12, :cond_1f7
+    move/from16 v0, p1
 
-    if-eq v1, v5, :cond_1f7
+    if-eq v0, v2, :cond_18
+
+    const/16 v2, 0x7a
+
+    move/from16 v0, p1
+
+    if-eq v0, v2, :cond_18
+
+    const/16 v2, 0x7b
+
+    move/from16 v0, p1
+
+    if-eq v0, v2, :cond_18
 
     .line 686
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->unknownSequence(I)V
 
-    goto/16 :goto_3d1
+    goto/16 :goto_0
 
-    :cond_1f7
-    if-eq v1, v14, :cond_1fb
+    .line 568
+    :cond_14
+    const/4 v2, 0x0
 
-    const/4 v12, 0x1
+    move v14, v2
 
-    goto :goto_1fc
+    goto :goto_4
 
-    :cond_1fb
-    const/4 v12, 0x0
+    .line 569
+    :cond_15
+    move-object/from16 v0, p0
 
-    :goto_1fc
-    if-ne v1, v5, :cond_200
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    const/4 v1, 0x1
+    move v4, v2
 
-    goto :goto_201
+    goto :goto_5
 
-    :cond_200
-    const/4 v1, 0x0
+    .line 570
+    :cond_16
+    const/4 v7, 0x0
 
-    :goto_201
-    if-eqz v12, :cond_207
+    goto :goto_6
 
-    if-eqz v1, :cond_207
+    .line 571
+    :cond_17
+    move-object/from16 v0, p0
 
-    const/4 v5, 0x1
+    iget v8, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    goto :goto_208
+    goto :goto_7
 
-    :cond_207
-    const/4 v5, 0x0
+    .line 686
+    :cond_18
+    const/16 v2, 0x78
 
-    :goto_208
-    if-eqz v12, :cond_20e
+    move/from16 v0, p1
 
-    const/16 v8, 0x20
+    if-eq v0, v2, :cond_1d
 
-    const/4 v12, 0x0
+    const/4 v2, 0x1
 
-    goto :goto_213
+    move v3, v2
+
+    :goto_8
+    const/16 v2, 0x7b
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_1e
+
+    const/4 v2, 0x1
+
+    move v11, v2
+
+    :goto_9
+    if-eqz v3, :cond_1f
+
+    if-eqz v11, :cond_1f
+
+    const/4 v2, 0x1
+
+    move v10, v2
+
+    :goto_a
+    if-eqz v3, :cond_20
+
+    const/16 v5, 0x20
+
+    const/4 v2, 0x0
 
     .line 607
-    :cond_20e
-    invoke-direct {v0, v3, v8, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    :goto_b
+    const/16 v3, 0x20
 
-    move-result v8
+    if-lt v5, v3, :cond_19
+
+    const/16 v3, 0x7e
+
+    if-le v5, v3, :cond_1a
+
+    :cond_19
+    const/16 v3, 0xa0
+
+    if-lt v5, v3, :cond_0
+
+    const/16 v3, 0xff
+
+    if-gt v5, v3, :cond_0
+
+    .line 613
+    :cond_1a
+    const/4 v3, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v3, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+
+    move-result v3
+
+    add-int/2addr v3, v14
+
+    add-int/lit8 v6, v4, 0x1
+
+    invoke-static {v3, v6}, Ljava/lang/Math;->min(II)I
+
+    move-result v3
+
+    .line 614
+    add-int/lit8 v6, v2, 0x1
+
+    const/4 v9, 0x1
 
     const/4 v12, 0x1
 
-    :goto_213
-    if-lt v8, v15, :cond_217
+    move-object/from16 v0, p0
 
-    if-le v8, v9, :cond_21f
+    invoke-direct {v0, v6, v9, v12}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    :cond_217
-    const/16 v9, 0xa0
+    move-result v6
 
-    if-lt v8, v9, :cond_3d1
+    add-int/2addr v6, v7
 
-    const/16 v9, 0xff
+    add-int/lit8 v9, v8, 0x1
 
-    if-gt v8, v9, :cond_3d1
+    invoke-static {v6, v9}, Ljava/lang/Math;->min(II)I
 
-    .line 613
-    :cond_21f
-    invoke-direct {v0, v12, v6, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
-
-    move-result v9
-
-    add-int/2addr v9, v11
-
-    add-int/lit8 v13, v7, 0x1
-
-    invoke-static {v9, v13}, Ljava/lang/Math;->min(II)I
-
-    move-result v9
-
-    .line 614
-    add-int/lit8 v13, v12, 0x1
-
-    invoke-direct {v0, v13, v6, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
-
-    move-result v13
-
-    add-int/2addr v13, v2
-
-    add-int/lit8 v14, v10, 0x1
-
-    invoke-static {v13, v14}, Ljava/lang/Math;->min(II)I
-
-    move-result v13
+    move-result v12
 
     .line 615
-    add-int/lit8 v14, v12, 0x2
+    add-int/lit8 v6, v2, 0x2
 
-    iget v15, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    move-object/from16 v0, p0
 
-    invoke-direct {v0, v14, v15, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    iget v9, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    move-result v14
+    const/4 v13, 0x1
 
-    add-int/2addr v14, v11
+    move-object/from16 v0, p0
 
-    invoke-static {v14, v7}, Ljava/lang/Math;->min(II)I
+    invoke-direct {v0, v6, v9, v13}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    move-result v7
+    move-result v6
+
+    add-int/2addr v6, v14
+
+    invoke-static {v6, v4}, Ljava/lang/Math;->min(II)I
+
+    move-result v13
 
     .line 616
-    add-int/2addr v12, v4
+    add-int/lit8 v2, v2, 0x3
+
+    move-object/from16 v0, p0
 
     iget v4, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    invoke-direct {v0, v12, v4, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    const/4 v6, 0x1
 
-    move-result v4
+    move-object/from16 v0, p0
 
-    add-int/2addr v4, v2
-
-    invoke-static {v4, v10}, Ljava/lang/Math;->min(II)I
+    invoke-direct {v0, v2, v4, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
     move-result v2
+
+    add-int/2addr v2, v7
+
+    invoke-static {v2, v8}, Ljava/lang/Math;->min(II)I
+
+    move-result v14
 
     .line 617
     invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->getStyle()J
 
-    move-result-wide v10
+    move-result-wide v8
 
-    sub-int/2addr v9, v6
+    add-int/lit8 v4, v3, -0x1
 
-    :goto_255
-    if-ge v9, v7, :cond_3d1
+    :goto_c
+    if-ge v4, v13, :cond_0
 
-    add-int/lit8 v4, v13, -0x1
+    add-int/lit8 v3, v12, -0x1
 
-    :goto_259
-    if-ge v4, v2, :cond_286
+    :goto_d
+    if-ge v3, v14, :cond_22
 
-    if-eqz v1, :cond_26b
+    if-eqz v11, :cond_1b
 
     .line 620
-    iget-object v12, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v9, v4}, Lcom/termux/terminal/TerminalBuffer;->getStyleAt(II)J
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    move-result-wide v14
+    invoke-virtual {v2, v4, v3}, Lcom/termux/terminal/TerminalBuffer;->getStyleAt(II)J
 
-    invoke-static {v14, v15}, Lcom/termux/terminal/TextStyle;->decodeEffect(J)I
+    move-result-wide v6
 
-    move-result v12
+    invoke-static {v6, v7}, Lcom/termux/terminal/TextStyle;->decodeEffect(J)I
 
-    and-int/lit16 v12, v12, 0x80
+    move-result v2
 
-    if-nez v12, :cond_283
+    and-int/lit16 v2, v2, 0x80
+
+    if-nez v2, :cond_1c
 
     .line 621
-    :cond_26b
-    iget-object v12, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    :cond_1b
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_276
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
 
-    invoke-virtual {v12, v9, v4}, Lcom/termux/terminal/TerminalBuffer;->getStyleAt(II)J
+    if-eqz v10, :cond_21
 
-    move-result-wide v14
+    invoke-virtual {v2, v4, v3}, Lcom/termux/terminal/TerminalBuffer;->getStyleAt(II)J
 
-    move-wide/from16 v20, v14
+    move-result-wide v6
 
-    goto :goto_278
+    :goto_e
+    invoke-virtual/range {v2 .. v7}, Lcom/termux/terminal/TerminalBuffer;->setChar(IIIJ)V
 
-    :cond_276
-    move-wide/from16 v20, v10
+    :cond_1c
+    add-int/lit8 v3, v3, 0x1
 
-    :goto_278
-    move-object/from16 v16, v12
+    goto :goto_d
 
-    move/from16 v17, v4
+    .line 686
+    :cond_1d
+    const/4 v2, 0x0
 
-    move/from16 v18, v9
+    move v3, v2
 
-    move/from16 v19, v8
+    goto/16 :goto_8
 
-    invoke-virtual/range {v16 .. v21}, Lcom/termux/terminal/TerminalBuffer;->setChar(IIIJ)V
+    :cond_1e
+    const/4 v2, 0x0
 
-    :cond_283
+    move v11, v2
+
+    goto/16 :goto_9
+
+    :cond_1f
+    const/4 v2, 0x0
+
+    move v10, v2
+
+    goto/16 :goto_a
+
+    .line 607
+    :cond_20
+    const/4 v2, 0x0
+
+    const/4 v3, -0x1
+
+    const/4 v5, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v3, v5}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+
+    move-result v5
+
+    const/4 v2, 0x1
+
+    goto/16 :goto_b
+
+    :cond_21
+    move-wide v6, v8
+
+    .line 621
+    goto :goto_e
+
+    :cond_22
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_259
-
-    :cond_286
-    add-int/lit8 v9, v9, 0x1
-
-    goto :goto_255
+    goto :goto_c
 
     .line 583
-    :cond_289
-    invoke-direct {v0, v3, v6, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    :cond_23
+    const/4 v2, 0x0
 
-    move-result v1
+    const/4 v3, 0x1
 
-    sub-int/2addr v1, v6
+    const/4 v4, 0x1
 
-    add-int/2addr v1, v11
+    move-object/from16 v0, p0
 
-    iget v5, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    invoke-direct {v0, v2, v3, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    invoke-static {v1, v5}, Ljava/lang/Math;->min(II)I
+    move-result v2
 
-    move-result v15
+    add-int/lit8 v2, v2, -0x1
+
+    add-int/2addr v2, v14
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v4
 
     .line 584
-    invoke-direct {v0, v6, v6, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    const/4 v2, 0x1
 
-    move-result v1
+    const/4 v3, 0x1
 
-    sub-int/2addr v1, v6
+    const/4 v5, 0x1
 
-    add-int/2addr v1, v2
+    move-object/from16 v0, p0
 
-    iget v5, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    invoke-direct {v0, v2, v3, v5}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    invoke-static {v1, v5}, Ljava/lang/Math;->min(II)I
+    move-result v2
 
-    move-result v14
+    add-int/lit8 v2, v2, -0x1
+
+    add-int/2addr v2, v7
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v3
 
     .line 586
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    const/4 v2, 0x2
 
-    invoke-direct {v0, v12, v1, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
-
-    move-result v1
-
-    add-int/2addr v1, v11
-
-    invoke-static {v1, v15}, Ljava/lang/Math;->max(II)I
-
-    move-result v1
+    move-object/from16 v0, p0
 
     iget v5, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    invoke-static {v1, v5}, Ljava/lang/Math;->min(II)I
+    const/4 v6, 0x1
 
-    move-result v1
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v5, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+
+    move-result v2
+
+    add-int/2addr v2, v14
+
+    invoke-static {v2, v4}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    invoke-static {v2, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
 
     .line 587
-    iget v5, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    const/4 v5, 0x3
 
-    invoke-direct {v0, v4, v5, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    move-object/from16 v0, p0
 
-    move-result v4
+    iget v6, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    add-int/2addr v4, v2
+    const/4 v8, 0x1
 
-    invoke-static {v4, v14}, Ljava/lang/Math;->max(II)I
+    move-object/from16 v0, p0
 
-    move-result v4
+    invoke-direct {v0, v5, v6, v8}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    iget v5, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    move-result v5
 
-    invoke-static {v4, v5}, Ljava/lang/Math;->min(II)I
+    add-int/2addr v5, v7
 
-    move-result v4
+    invoke-static {v5, v3}, Ljava/lang/Math;->max(II)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    invoke-static {v5, v6}, Ljava/lang/Math;->min(II)I
+
+    move-result v5
 
     .line 589
-    const/4 v5, 0x5
+    const/4 v6, 0x5
 
-    invoke-direct {v0, v5, v6, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    const/4 v8, 0x1
 
-    move-result v5
+    const/4 v9, 0x1
 
-    sub-int/2addr v5, v6
+    move-object/from16 v0, p0
 
-    add-int/2addr v5, v11
+    invoke-direct {v0, v6, v8, v9}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    iget v7, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    move-result v6
 
-    invoke-static {v5, v7}, Ljava/lang/Math;->min(II)I
+    add-int/lit8 v6, v6, -0x1
 
-    move-result v19
+    add-int/2addr v6, v14
+
+    move-object/from16 v0, p0
+
+    iget v8, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    invoke-static {v6, v8}, Ljava/lang/Math;->min(II)I
+
+    move-result v8
 
     .line 590
-    const/4 v5, 0x6
+    const/4 v6, 0x6
 
-    invoke-direct {v0, v5, v6, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    const/4 v9, 0x1
 
-    move-result v5
+    const/4 v10, 0x1
 
-    sub-int/2addr v5, v6
+    move-object/from16 v0, p0
 
-    add-int/2addr v5, v2
+    invoke-direct {v0, v6, v9, v10}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    move-result v6
 
-    invoke-static {v5, v2}, Ljava/lang/Math;->min(II)I
+    add-int/lit8 v6, v6, -0x1
 
-    move-result v18
+    add-int/2addr v6, v7
 
-    .line 592
-    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    move-object/from16 v0, p0
 
-    sub-int v2, v2, v19
+    iget v7, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    sub-int/2addr v1, v15
-
-    invoke-static {v2, v1}, Ljava/lang/Math;->min(II)I
-
-    move-result v17
-
-    .line 593
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
-
-    sub-int v1, v1, v18
-
-    sub-int/2addr v4, v14
-
-    invoke-static {v1, v4}, Ljava/lang/Math;->min(II)I
-
-    move-result v16
-
-    .line 594
-    iget-object v13, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
-
-    invoke-virtual/range {v13 .. v19}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
-
-    goto/16 :goto_3d1
-
-    :cond_2f6
-    if-ne v1, v13, :cond_2fa
-
-    const/4 v1, 0x1
-
-    goto :goto_2fb
-
-    :cond_2fa
-    const/4 v1, 0x0
-
-    .line 630
-    :goto_2fb
-    invoke-direct {v0, v3, v6, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
-
-    move-result v5
-
-    sub-int/2addr v5, v6
-
-    invoke-static {v5, v7}, Ljava/lang/Math;->min(II)I
-
-    move-result v5
-
-    .line 631
-    invoke-direct {v0, v6, v6, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
-
-    move-result v8
-
-    sub-int/2addr v8, v6
-
-    invoke-static {v8, v10}, Ljava/lang/Math;->min(II)I
-
-    move-result v8
-
-    .line 632
-    iget v9, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
-
-    invoke-direct {v0, v12, v9, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
-
-    move-result v9
-
-    add-int/2addr v9, v6
-
-    sub-int/2addr v7, v6
-
-    invoke-static {v9, v7}, Ljava/lang/Math;->min(II)I
+    invoke-static {v6, v7}, Ljava/lang/Math;->min(II)I
 
     move-result v7
 
+    .line 592
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    sub-int/2addr v6, v8
+
+    sub-int/2addr v2, v4
+
+    invoke-static {v6, v2}, Ljava/lang/Math;->min(II)I
+
+    move-result v6
+
+    .line 593
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+
+    sub-int/2addr v2, v7
+
+    sub-int/2addr v5, v3
+
+    invoke-static {v2, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v5
+
+    .line 594
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    invoke-virtual/range {v2 .. v8}, Lcom/termux/terminal/TerminalBuffer;->blockCopy(IIIIII)V
+
+    goto/16 :goto_0
+
+    :cond_24
+    const/16 v2, 0x74
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_27
+
+    const/4 v5, 0x1
+
+    .line 630
+    :goto_f
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v3, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    invoke-static {v2, v4}, Ljava/lang/Math;->min(II)I
+
+    move-result v15
+
+    .line 631
+    const/4 v2, 0x1
+
+    const/4 v3, 0x1
+
+    const/4 v6, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v3, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    invoke-static {v2, v8}, Ljava/lang/Math;->min(II)I
+
+    move-result v16
+
+    .line 632
+    const/4 v2, 0x2
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+
+    const/4 v6, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v3, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    add-int/lit8 v3, v4, -0x1
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v17
+
     .line 633
-    iget v9, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    const/4 v2, 0x3
 
-    invoke-direct {v0, v4, v9, v6}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    move-object/from16 v0, p0
 
-    move-result v4
+    iget v3, v0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    add-int/2addr v4, v6
+    const/4 v4, 0x1
 
-    add-int/lit8 v9, v10, -0x1
+    move-object/from16 v0, p0
 
-    invoke-static {v4, v9}, Ljava/lang/Math;->min(II)I
+    invoke-direct {v0, v2, v3, v4}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    move-result v4
+    move-result v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    add-int/lit8 v3, v8, -0x1
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v18
 
     .line 634
-    iget v9, v0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+    move-object/from16 v0, p0
 
-    const/4 v12, 0x4
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
-    if-lt v9, v12, :cond_3d1
+    const/4 v3, 0x4
+
+    if-lt v2, v3, :cond_0
 
     .line 635
-    iget-object v12, v0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
+    move-object/from16 v0, p0
 
-    array-length v13, v12
+    iget-object v3, v0, Lcom/termux/terminal/TerminalEmulator;->mArgs:[I
 
-    if-lt v9, v13, :cond_334
+    array-length v4, v3
 
-    array-length v9, v12
+    if-lt v2, v4, :cond_25
 
-    sub-int/2addr v9, v6
+    array-length v2, v3
 
-    iput v9, v0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+    add-int/lit8 v2, v2, -0x1
 
-    :cond_334
-    const/4 v12, 0x4
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+
+    :cond_25
+    const/4 v2, 0x4
+
+    move v13, v2
 
     .line 636
-    :goto_335
-    iget v9, v0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+    :goto_10
+    move-object/from16 v0, p0
 
-    if-gt v12, v9, :cond_3d1
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+
+    if-gt v13, v2, :cond_0
 
     .line 639
-    invoke-direct {v0, v12, v3, v3}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
+    const/4 v2, 0x0
 
-    move-result v9
+    const/4 v3, 0x0
 
-    if-eqz v9, :cond_371
+    move-object/from16 v0, p0
 
-    if-eq v9, v6, :cond_36d
+    invoke-direct {v0, v13, v2, v3}, Lcom/termux/terminal/TerminalEmulator;->getArg(IIZ)I
 
-    const/4 v13, 0x4
+    move-result v3
 
-    if-eq v9, v13, :cond_36a
+    if-eqz v3, :cond_2f
 
-    const/16 v14, 0x8
+    const/4 v2, 0x1
 
-    const/4 v15, 0x5
+    if-eq v3, v2, :cond_2e
 
-    if-eq v9, v15, :cond_37e
+    const/4 v2, 0x4
 
-    const/4 v6, 0x7
+    if-eq v3, v2, :cond_2d
 
-    const/16 v16, 0x10
+    const/16 v2, 0x8
 
-    if-eq v9, v6, :cond_367
+    const/4 v4, 0x5
 
-    const/16 v6, 0x16
+    if-eq v3, v4, :cond_26
 
-    if-eq v9, v6, :cond_365
+    const/4 v4, 0x7
 
-    const/16 v6, 0x1b
+    if-eq v3, v4, :cond_2c
 
-    if-eq v9, v6, :cond_362
+    const/16 v4, 0x16
 
-    const/16 v6, 0x18
+    if-eq v3, v4, :cond_2b
 
-    if-eq v9, v6, :cond_360
+    const/16 v4, 0x1b
 
-    const/16 v6, 0x19
+    if-eq v3, v4, :cond_2a
 
-    if-eq v9, v6, :cond_379
+    const/16 v4, 0x18
 
-    const/4 v14, 0x0
+    if-eq v3, v4, :cond_28
 
-    goto :goto_37e
+    const/16 v4, 0x19
 
-    :cond_360
-    const/4 v14, 0x4
+    if-eq v3, v4, :cond_29
 
-    goto :goto_379
+    const/4 v2, 0x0
 
-    :cond_362
-    const/16 v14, 0x10
+    :cond_26
+    :goto_11
+    const/4 v4, 0x1
 
-    goto :goto_379
+    move v3, v2
 
-    :cond_365
-    const/4 v14, 0x1
+    :goto_12
+    if-eqz v5, :cond_30
 
-    goto :goto_379
-
-    :cond_367
-    const/16 v14, 0x10
-
-    goto :goto_37e
-
-    :cond_36a
-    const/4 v15, 0x5
-
-    const/4 v14, 0x4
-
-    goto :goto_37e
-
-    :cond_36d
-    const/4 v13, 0x4
-
-    const/4 v15, 0x5
-
-    const/4 v14, 0x1
-
-    goto :goto_37e
-
-    :cond_371
-    const/4 v13, 0x4
-
-    const/4 v15, 0x5
-
-    const/16 v6, 0x1d
-
-    const/16 v14, 0x1d
-
-    if-nez v1, :cond_37e
-
-    :cond_379
-    :goto_379
-    move/from16 v20, v14
-
-    const/16 v21, 0x0
-
-    goto :goto_382
-
-    :cond_37e
-    :goto_37e
-    move/from16 v20, v14
-
-    const/16 v21, 0x1
-
-    :goto_382
-    if-eqz v1, :cond_389
-
-    if-nez v21, :cond_389
-
-    const/16 v9, 0x1000
-
-    goto :goto_3a4
+    if-nez v4, :cond_30
 
     .line 677
-    :cond_389
-    iget-object v6, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+    :goto_13
+    add-int/lit8 v2, v13, 0x1
 
-    const/16 v9, 0x1000
+    move v13, v2
 
-    invoke-direct {v0, v9}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+    goto :goto_10
 
-    move-result v23
+    .line 594
+    :cond_27
+    const/4 v5, 0x0
 
-    add-int v26, v5, v11
+    goto/16 :goto_f
 
-    add-int v27, v8, v2
+    .line 639
+    :cond_28
+    const/4 v2, 0x4
 
-    add-int v28, v7, v11
+    :cond_29
+    :goto_14
+    const/4 v4, 0x0
 
-    add-int v29, v4, v2
+    move v3, v2
 
-    move-object/from16 v19, v6
+    goto :goto_12
 
-    move/from16 v22, v1
+    :cond_2a
+    const/16 v2, 0x10
 
-    move/from16 v24, v2
+    goto :goto_14
 
-    move/from16 v25, v10
+    :cond_2b
+    const/4 v2, 0x1
 
-    invoke-virtual/range {v19 .. v29}, Lcom/termux/terminal/TerminalBuffer;->setOrClearEffect(IZZZIIIIII)V
+    goto :goto_14
 
-    :goto_3a4
-    add-int/lit8 v12, v12, 0x1
+    :cond_2c
+    const/16 v2, 0x10
 
-    const/4 v6, 0x1
+    goto :goto_11
 
-    goto :goto_335
+    :cond_2d
+    const/4 v2, 0x4
+
+    goto :goto_11
+
+    :cond_2e
+    const/4 v2, 0x1
+
+    goto :goto_11
+
+    :cond_2f
+    const/16 v2, 0x1d
+
+    if-nez v5, :cond_26
+
+    goto :goto_14
+
+    .line 677
+    :cond_30
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/termux/terminal/TerminalEmulator;->mScreen:Lcom/termux/terminal/TerminalBuffer;
+
+    const/16 v6, 0x1000
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+
+    move-result v6
+
+    add-int v9, v15, v14
+
+    add-int v10, v16, v7
+
+    add-int v11, v17, v14
+
+    add-int v12, v18, v7
+
+    invoke-virtual/range {v2 .. v12}, Lcom/termux/terminal/TerminalBuffer;->setOrClearEffect(IZZZIIIIII)V
+
+    goto :goto_13
 
     .line 561
-    :pswitch_3a8  #0x7
+    :pswitch_17
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doCsiQuestionMark(I)V
 
-    goto :goto_3d1
+    goto/16 :goto_0
 
     .line 551
-    :pswitch_3ac  #0x6
+    :pswitch_18
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doCsi(I)V
 
-    goto :goto_3d1
+    goto/16 :goto_0
 
-    :pswitch_3b0  #0x4
+    :pswitch_19
     const/16 v2, 0x30
 
-    if-ne v1, v2, :cond_3b6
+    move/from16 v0, p1
 
-    const/4 v6, 0x1
+    if-ne v0, v2, :cond_31
 
-    goto :goto_3b7
-
-    :cond_3b6
-    const/4 v6, 0x0
+    const/4 v2, 0x1
 
     .line 548
-    :goto_3b7
-    iput-boolean v6, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG1:Z
+    :goto_15
+    move-object/from16 v0, p0
 
-    goto :goto_3d1
+    iput-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG1:Z
 
-    :pswitch_3ba  #0x3
+    goto/16 :goto_0
+
+    .line 551
+    :cond_31
+    const/4 v2, 0x0
+
+    goto :goto_15
+
+    .line 548
+    :pswitch_1a
     const/16 v2, 0x30
 
-    if-ne v1, v2, :cond_3c0
+    move/from16 v0, p1
 
-    const/4 v6, 0x1
+    if-ne v0, v2, :cond_32
 
-    goto :goto_3c1
-
-    :cond_3c0
-    const/4 v6, 0x0
+    const/4 v2, 0x1
 
     .line 545
-    :goto_3c1
-    iput-boolean v6, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG0:Z
+    :goto_16
+    move-object/from16 v0, p0
 
-    goto :goto_3d1
+    iput-boolean v2, v0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG0:Z
+
+    goto/16 :goto_0
+
+    .line 548
+    :cond_32
+    const/4 v2, 0x0
+
+    goto :goto_16
 
     .line 542
-    :pswitch_3c4  #0x2
+    :pswitch_1b
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doEscPound(I)V
 
-    goto :goto_3d1
+    goto/16 :goto_0
 
     .line 539
-    :pswitch_3c8  #0x1
+    :pswitch_1c
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doEsc(I)V
 
-    goto :goto_3d1
+    goto/16 :goto_0
 
-    :pswitch_3cc  #0x0
-    if-lt v1, v15, :cond_3d1
+    :pswitch_1d
+    const/16 v2, 0x20
+
+    move/from16 v0, p1
+
+    if-lt v0, v2, :cond_0
 
     .line 536
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->emitCodePoint(I)V
 
-    .line 797
-    :cond_3d1
-    :goto_3d1
-    :pswitch_3d1  #0x9
-    iget-boolean v1, v0, Lcom/termux/terminal/TerminalEmulator;->mContinueSequence:Z
-
-    if-nez v1, :cond_3f4
-
-    iput v3, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
-
-    goto :goto_3f4
+    goto/16 :goto_0
 
     .line 523
-    :cond_3d8
+    :cond_33
+    move-object/from16 v0, p0
+
     iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
 
     const/16 v3, 0xd
 
-    if-ne v2, v3, :cond_3df
+    if-eq v2, v3, :cond_1
 
-    return-void
+    const/16 v3, 0xa
 
-    :cond_3df
-    if-eq v2, v4, :cond_3e5
+    if-eq v2, v3, :cond_34
 
     .line 527
     invoke-direct/range {p0 .. p0}, Lcom/termux/terminal/TerminalEmulator;->startEscapeSequence()V
 
-    goto :goto_3f4
+    goto/16 :goto_1
 
     .line 529
-    :cond_3e5
+    :cond_34
     invoke-direct/range {p0 .. p1}, Lcom/termux/terminal/TerminalEmulator;->doOsc(I)V
 
-    goto :goto_3f4
+    goto/16 :goto_1
 
     .line 515
-    :cond_3e9
-    iget v1, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+    :cond_35
+    move-object/from16 v0, p0
 
-    if-eqz v1, :cond_3f4
+    iget v2, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+
+    if-eqz v2, :cond_1
 
     .line 517
-    iput v3, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
 
     .line 518
-    const/16 v1, 0x7f
+    const/16 v2, 0x7f
 
-    invoke-direct {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->emitCodePoint(I)V
+    move-object/from16 v0, p0
 
-    :cond_3f4
-    :goto_3f4
-    return-void
+    invoke-direct {v0, v2}, Lcom/termux/terminal/TerminalEmulator;->emitCodePoint(I)V
 
-    nop
+    goto/16 :goto_1
 
-    :pswitch_data_3f6
+    .line 4294967295
+    :pswitch_data_0
     .packed-switch 0x7
-        :pswitch_77  #00000007
-        :pswitch_51  #00000008
-        :pswitch_49  #00000009
-        :pswitch_44  #0000000a
-        :pswitch_44  #0000000b
-        :pswitch_44  #0000000c
-        :pswitch_3d  #0000000d
-        :pswitch_39  #0000000e
-        :pswitch_35  #0000000f
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_5
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
     .end packed-switch
 
-    :pswitch_data_40c
+    .line 534
+    :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_3cc  #00000000
-        :pswitch_3c8  #00000001
-        :pswitch_3c4  #00000002
-        :pswitch_3ba  #00000003
-        :pswitch_3b0  #00000004
-        :pswitch_30  #00000005
-        :pswitch_3ac  #00000006
-        :pswitch_3a8  #00000007
-        :pswitch_1be  #00000008
-        :pswitch_3d1  #00000009
-        :pswitch_1b9  #0000000a
-        :pswitch_1b4  #0000000b
-        :pswitch_1af  #0000000c
-        :pswitch_1aa  #0000000d
-        :pswitch_14a  #0000000e
-        :pswitch_128  #0000000f
-        :pswitch_110  #00000010
-        :pswitch_e9  #00000011
-        :pswitch_93  #00000012
-        :pswitch_87  #00000013
+        :pswitch_1d
+        :pswitch_1c
+        :pswitch_1b
+        :pswitch_1a
+        :pswitch_19
+        :pswitch_0
+        :pswitch_18
+        :pswitch_17
+        :pswitch_16
+        :pswitch_1
+        :pswitch_15
+        :pswitch_14
+        :pswitch_13
+        :pswitch_12
+        :pswitch_11
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_a
+        :pswitch_9
     .end packed-switch
 
-    :pswitch_data_438
+    .line 781
+    :pswitch_data_2
     .packed-switch 0x0
-        :pswitch_146  #00000000
-        :pswitch_146  #00000001
-        :pswitch_146  #00000002
-        :pswitch_142  #00000003
-        :pswitch_142  #00000004
-        :pswitch_13e  #00000005
-        :pswitch_13e  #00000006
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_10
+        :pswitch_10
+        :pswitch_f
+        :pswitch_f
     .end packed-switch
 .end method
 
 .method public reset()V
-    .registers 5
+    .locals 6
+
+    const/16 v5, 0x101
+
+    const/16 v4, 0x100
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
 
     .line 2266
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mCursorStyle:I
 
     .line 2267
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mArgIndex:I
 
     .line 2268
-    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mContinueSequence:Z
+    iput-boolean v3, p0, Lcom/termux/terminal/TerminalEmulator;->mContinueSequence:Z
 
     .line 2269
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mEscapeState:I
 
     .line 2270
-    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mInsertMode:Z
+    iput-boolean v3, p0, Lcom/termux/terminal/TerminalEmulator;->mInsertMode:Z
 
     .line 2271
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
 
     .line 2272
-    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
     .line 2273
-    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
     .line 2274
-    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
+    iput-boolean v3, p0, Lcom/termux/terminal/TerminalEmulator;->mAboutToAutoWrap:Z
 
     .line 2275
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    const/16 v3, 0x100
+    iput v4, v1, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedForeColor:I
 
-    iput v3, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedForeColor:I
+    iput v4, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedForeColor:I
 
-    iput v3, v1, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedForeColor:I
-
-    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
+    iput v4, p0, Lcom/termux/terminal/TerminalEmulator;->mForeColor:I
 
     .line 2276
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    const/16 v3, 0x101
+    iput v5, v1, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedBackColor:I
 
-    iput v3, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedBackColor:I
+    iput v5, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedBackColor:I
 
-    iput v3, v1, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedBackColor:I
-
-    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
+    iput v5, p0, Lcom/termux/terminal/TerminalEmulator;->mBackColor:I
 
     .line 2277
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->setDefaultTabStops()V
 
     .line 2279
-    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG1:Z
+    iput-boolean v3, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG1:Z
 
-    iput-boolean v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG0:Z
+    iput-boolean v3, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingG0:Z
 
     .line 2280
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
+    iput-boolean v2, p0, Lcom/termux/terminal/TerminalEmulator;->mUseLineDrawingUsesG0:Z
 
     .line 2282
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    iput v0, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedDecFlags:I
+    iput v3, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedDecFlags:I
 
-    iput v0, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedEffect:I
+    iput v3, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedEffect:I
 
-    iput v0, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorCol:I
+    iput v3, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorCol:I
 
-    iput v0, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorRow:I
+    iput v3, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorRow:I
 
     .line 2283
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    iput v0, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedDecFlags:I
+    iput v3, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedDecFlags:I
 
-    iput v0, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedEffect:I
+    iput v3, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedEffect:I
 
-    iput v0, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorCol:I
+    iput v3, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorCol:I
 
-    iput v0, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorRow:I
+    iput v3, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedCursorRow:I
 
     .line 2284
-    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
 
     .line 2286
-    const/16 v2, 0x8
+    const/16 v0, 0x8
 
-    invoke-direct {p0, v2, v1}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
+    invoke-direct {p0, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
 
     .line 2287
-    const/16 v2, 0x10
+    const/16 v0, 0x10
 
-    invoke-direct {p0, v2, v1}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
+    invoke-direct {p0, v0, v2}, Lcom/termux/terminal/TerminalEmulator;->setDecsetinternalBit(IZ)V
 
     .line 2288
-    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateMain:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
+    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedStateAlt:Lcom/termux/terminal/TerminalEmulator$SavedScreenState;
 
-    iget v3, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
+    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mCurrentDecSetFlags:I
 
-    iput v3, v2, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedDecFlags:I
+    iput v2, v1, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedDecFlags:I
 
-    iput v3, v1, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedDecFlags:I
+    iput v2, v0, Lcom/termux/terminal/TerminalEmulator$SavedScreenState;->mSavedDecFlags:I
 
-    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedDecSetFlags:I
+    iput v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSavedDecSetFlags:I
 
     .line 2291
-    iput-byte v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
+    iput-byte v3, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8ToFollow:B
 
-    iput-byte v0, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
+    iput-byte v3, p0, Lcom/termux/terminal/TerminalEmulator;->mUtf8Index:B
 
     .line 2293
     iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColors:Lcom/termux/terminal/TerminalColors;
@@ -8472,50 +8848,53 @@
 .end method
 
 .method public resize(II)V
-    .registers 6
+    .locals 4
+
+    const/4 v2, 0x2
+
+    const/4 v3, 0x0
 
     .line 319
     iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    if-ne v0, p2, :cond_9
+    if-ne v0, p2, :cond_0
 
     iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-ne v1, p1, :cond_9
+    if-ne v1, p1, :cond_0
 
+    .line 342
+    :goto_0
     return-void
 
-    :cond_9
-    const/4 v1, 0x2
+    .line 319
+    :cond_0
+    if-lt p1, v2, :cond_3
 
-    if-lt p1, v1, :cond_39
+    if-lt p2, v2, :cond_3
 
-    if-lt p2, v1, :cond_39
-
-    const/4 v1, 0x0
-
-    if-eq v0, p2, :cond_17
+    if-eq v0, p2, :cond_1
 
     .line 326
     iput p2, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
     .line 327
-    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mTopMargin:I
 
     .line 328
     iput p2, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
     .line 330
-    :cond_17
-    iget p2, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    :cond_1
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-eq p2, p1, :cond_35
+    if-eq v0, p1, :cond_2
 
     .line 332
     iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
     .line 333
-    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
+    iget-object v1, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
 
     .line 334
     new-array v2, p1, [Z
@@ -8526,31 +8905,31 @@
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->setDefaultTabStops()V
 
     .line 336
-    invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
 
-    move-result p1
+    move-result v0
 
     .line 337
-    iget-object p2, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mTabStop:[Z
 
-    invoke-static {v0, v1, p2, v1, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v1, v3, v2, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 338
-    iput v1, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
+    iput v3, p0, Lcom/termux/terminal/TerminalEmulator;->mLeftMargin:I
 
     .line 339
-    iget p1, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    iput p1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iput v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
     .line 342
-    :cond_35
+    :cond_2
     invoke-direct {p0}, Lcom/termux/terminal/TerminalEmulator;->resizeScreen()V
 
-    return-void
+    goto :goto_0
 
     .line 322
-    :cond_39
+    :cond_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "rows="
@@ -8559,194 +8938,194 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p2, ", columns="
+    const-string v1, ", columns="
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method public sendMouseEvent(IIIZ)V
-    .registers 13
+    .locals 11
+
+    const/4 v10, 0x6
+
+    const/4 v9, 0x2
+
+    const/4 v1, 0x3
+
+    const/4 v8, 0x0
+
+    const/4 v7, 0x1
 
     const/16 v0, 0x20
 
-    if-ne p1, v0, :cond_e
+    if-ne p1, v0, :cond_1
 
     .line 303
-    const/16 v1, 0x80
+    const/16 v0, 0x80
 
-    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_e
+    if-nez v0, :cond_1
 
-    goto/16 :goto_85
+    .line 312
+    :cond_0
+    :goto_0
+    return-void
 
     .line 305
-    :cond_e
-    const/16 v1, 0x200
+    :cond_1
+    const/16 v0, 0x200
 
-    invoke-direct {p0, v1}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
+    invoke-direct {p0, v0}, Lcom/termux/terminal/TerminalEmulator;->isDecsetInternalBitSet(I)Z
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x2
+    const/16 v0, 0x4d
 
-    const/16 v3, 0x4d
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x3
-
-    const/4 v6, 0x1
-
-    if-eqz v1, :cond_4d
+    if-eqz v2, :cond_3
 
     .line 306
-    iget-object v0, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    iget-object v2, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v7, "\u001b[<%d;%d;%d"
+    const-string v4, "\u001b[<%d;%d;%d"
 
-    invoke-direct {v1, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    if-eqz p4, :cond_28
+    if-eqz p4, :cond_2
 
-    goto :goto_2a
+    :goto_1
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_28
-    const/16 v3, 0x6d
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :goto_2a
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p4
-
-    new-array v1, v5, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v3
 
-    aput-object p1, v1, v4
+    aput-object v3, v1, v8
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v3
 
-    aput-object p1, v1, v6
+    aput-object v3, v1, v7
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v3
 
-    aput-object p1, v1, v2
+    aput-object v3, v1, v9
 
-    invoke-static {p4, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Lcom/termux/terminal/TerminalOutput;->write(Ljava/lang/String;)V
 
-    goto :goto_85
+    goto :goto_0
 
-    :cond_4d
-    if-eqz p4, :cond_50
+    :cond_2
+    const/16 v0, 0x6d
 
-    goto :goto_51
+    goto :goto_1
 
-    :cond_50
-    const/4 p1, 0x3
+    :cond_3
+    if-eqz p4, :cond_4
 
-    :goto_51
-    if-lt p2, v6, :cond_85
+    :goto_2
+    if-lt p2, v7, :cond_0
 
-    if-lt p3, v6, :cond_85
+    if-lt p3, v7, :cond_0
 
     .line 310
-    iget p4, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mColumns:I
 
-    if-gt p2, p4, :cond_85
+    if-gt p2, v0, :cond_0
 
-    iget p4, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
+    iget v0, p0, Lcom/termux/terminal/TerminalEmulator;->mRows:I
 
-    if-gt p3, p4, :cond_85
+    if-gt p3, v0, :cond_0
 
-    const/16 p4, 0xdf
+    const/16 v0, 0xdf
 
-    if-gt p2, p4, :cond_85
+    if-gt p2, v0, :cond_0
 
-    if-le p3, p4, :cond_64
+    const/16 v0, 0xdf
 
-    goto :goto_85
+    if-gt p3, v0, :cond_0
 
-    :cond_64
-    add-int/2addr p1, v0
+    add-int/lit8 v0, p1, 0x20
 
-    int-to-byte p1, p1
+    int-to-byte v0, v0
 
-    add-int/2addr p2, v0
+    add-int/lit8 v2, p2, 0x20
 
-    int-to-byte p2, p2
+    int-to-byte v2, v2
 
-    add-int/2addr p3, v0
+    add-int/lit8 v3, p3, 0x20
 
-    int-to-byte p3, p3
+    int-to-byte v3, v3
 
     .line 312
-    nop
+    iget-object v4, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
 
-    .line 313
-    iget-object p4, p0, Lcom/termux/terminal/TerminalEmulator;->mSession:Lcom/termux/terminal/TerminalOutput;
+    new-array v5, v10, [B
 
-    const/4 v0, 0x6
+    const/16 v6, 0x1b
 
-    new-array v1, v0, [B
+    aput-byte v6, v5, v8
 
-    const/16 v7, 0x1b
+    const/16 v6, 0x5b
 
-    aput-byte v7, v1, v4
+    aput-byte v6, v5, v7
 
-    const/16 v7, 0x5b
+    const/16 v6, 0x4d
 
-    aput-byte v7, v1, v6
+    aput-byte v6, v5, v9
 
-    aput-byte v3, v1, v2
+    aput-byte v0, v5, v1
 
-    aput-byte p1, v1, v5
+    const/4 v0, 0x4
 
-    const/4 p1, 0x4
+    aput-byte v2, v5, v0
 
-    aput-byte p2, v1, p1
+    const/4 v0, 0x5
 
-    const/4 p1, 0x5
+    aput-byte v3, v5, v0
 
-    aput-byte p3, v1, p1
+    invoke-virtual {v4, v5, v8, v10}, Lcom/termux/terminal/TerminalOutput;->write([BII)V
 
-    invoke-virtual {p4, v1, v4, v0}, Lcom/termux/terminal/TerminalOutput;->write([BII)V
+    goto :goto_0
 
-    :cond_85
-    :goto_85
-    return-void
+    :cond_4
+    move p1, v1
+
+    .line 306
+    goto :goto_2
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 2
 
     .line 2337
     new-instance v0, Ljava/lang/StringBuilder;
@@ -8783,15 +9162,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mRightMargin:I
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
+    iget v1, p0, Lcom/termux/terminal/TerminalEmulator;->mBottomMargin:I
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

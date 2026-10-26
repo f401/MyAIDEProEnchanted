@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString;
+    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentString;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString;Landroid/view/View;)V
-    .registers 5
+    .locals 3
 
     .line 156
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->this$1:Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString;
@@ -32,62 +32,62 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 157
-    const p1, 0x1020014
+    const v0, 0x1020014
 
-    invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/TextView;
-
-    iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->title:Landroid/widget/TextView;
-
-    .line 158
-    const p1, 0x1020015
-
-    invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/TextView;
-
-    iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->subtitle:Landroid/widget/TextView;
-
-    .line 159
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->title:Landroid/widget/TextView;
-
-    invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x1030042
+    check-cast v0, Landroid/widget/TextView;
 
-    invoke-virtual {p1, v0, v1}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    iput-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->title:Landroid/widget/TextView;
 
-    .line 160
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->subtitle:Landroid/widget/TextView;
+    .line 158
+    const v0, 0x1020015
+
+    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->subtitle:Landroid/widget/TextView;
+
+    .line 159
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->title:Landroid/widget/TextView;
 
     invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object p2
+    move-result-object v1
 
-    const v0, 0x1030046
+    const v2, 0x1030042
 
-    invoke-virtual {p1, p2, v0}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+
+    .line 160
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->subtitle:Landroid/widget/TextView;
+
+    invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const v2, 0x1030046
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     .line 161
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->title:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->title:Landroid/widget/TextView;
 
-    const/high16 p2, 0x41700000  # 15.0f
+    const/high16 v1, 0x41700000    # 15.0f
 
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextSize(F)V
 
     .line 162
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->subtitle:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString$ViewHolder;->subtitle:Landroid/widget/TextView;
 
-    const/high16 p2, 0x41600000  # 14.0f
+    const/high16 v1, 0x41600000    # 14.0f
 
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextSize(F)V
 
     return-void
 .end method

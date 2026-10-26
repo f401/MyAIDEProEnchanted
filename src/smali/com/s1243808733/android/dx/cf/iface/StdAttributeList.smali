@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 33
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/FixedSizeList;-><init>(I)V
@@ -19,22 +19,22 @@
 
 # virtual methods
 .method public byteLength()I
-    .registers 5
+    .locals 4
 
     .line 45
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->size()I
 
-    move-result v0
+    move-result v2
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    :goto_6
-    if-ge v2, v0, :cond_14
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 49
-    invoke-virtual {p0, v2}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->get(I)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->get(I)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
     move-result-object v3
 
@@ -42,36 +42,38 @@
 
     move-result v3
 
-    add-int/2addr v1, v3
+    add-int/2addr v0, v3
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_14
-    return v1
+    :cond_0
+    return v0
 .end method
 
 .method public findFirst(Ljava/lang/String;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
-    .registers 6
+    .locals 4
 
     .line 58
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->size()I
 
-    move-result v0
+    move-result v2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_5
-    if-ge v1, v0, :cond_19
+    move v1, v0
+
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     .line 61
     invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->get(I)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 62
-    invoke-interface {v2}, Lcom/s1243808733/android/dx/cf/iface/Attribute;->getName()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/cf/iface/Attribute;->getName()Ljava/lang/String;
 
     move-result-object v3
 
@@ -79,98 +81,111 @@
 
     move-result v3
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_0
 
-    return-object v2
+    :goto_1
+    return-object v0
 
-    :cond_16
-    add-int/lit8 v1, v1, 0x1
+    :cond_0
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_5
+    move v1, v0
 
-    :cond_19
-    const/4 p1, 0x0
+    goto :goto_0
 
-    return-object p1
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 .method public findNext(Lcom/s1243808733/android/dx/cf/iface/Attribute;)Lcom/s1243808733/android/dx/cf/iface/Attribute;
-    .registers 7
+    .locals 6
+
+    const/4 v1, 0x0
 
     .line 73
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->size()I
 
-    move-result v0
+    move-result v3
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_5
-    const/4 v2, 0x0
-
-    if-ge v1, v0, :cond_29
+    :goto_0
+    if-ge v0, v3, :cond_2
 
     .line 78
-    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->get(I)Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->get(I)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-ne v3, p1, :cond_26
+    if-ne v2, p1, :cond_1
 
     .line 87
     invoke-interface {p1}, Lcom/s1243808733/android/dx/cf/iface/Attribute;->getName()Ljava/lang/String;
 
-    move-result-object p1
-
-    :cond_12
-    add-int/lit8 v1, v1, 0x1
-
-    if-ge v1, v0, :cond_25
-
-    .line 90
-    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->get(I)Lcom/s1243808733/android/dx/cf/iface/Attribute;
-
-    move-result-object v3
-
-    .line 91
-    invoke-interface {v3}, Lcom/s1243808733/android/dx/cf/iface/Attribute;->getName()Ljava/lang/String;
-
     move-result-object v4
 
-    invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :goto_1
+    add-int/lit8 v2, v0, 0x1
 
-    move-result v4
+    if-ge v2, v3, :cond_0
 
-    if-eqz v4, :cond_12
+    .line 90
+    invoke-virtual {p0, v2}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->get(I)Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    return-object v3
+    move-result-object v0
 
-    :cond_25
-    return-object v2
+    .line 91
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/cf/iface/Attribute;->getName()Ljava/lang/String;
 
-    :cond_26
-    add-int/lit8 v1, v1, 0x1
+    move-result-object v5
 
-    goto :goto_5
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    :cond_29
-    return-object v2
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    :goto_2
+    return-object v0
+
+    :cond_0
+    move-object v0, v1
+
+    goto :goto_2
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    move-object v0, v1
+
+    goto :goto_2
+
+    :cond_3
+    move v0, v2
+
+    goto :goto_1
 .end method
 
 .method public get(I)Lcom/s1243808733/android/dx/cf/iface/Attribute;
-    .registers 2
+    .locals 1
 
     .line 39
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->get0(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/cf/iface/Attribute;
+    check-cast v0, Lcom/s1243808733/android/dx/cf/iface/Attribute;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public set(ILcom/s1243808733/android/dx/cf/iface/Attribute;)V
-    .registers 3
+    .locals 0
 
     .line 106
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/android/dx/cf/iface/StdAttributeList;->set0(ILjava/lang/Object;)V

@@ -11,14 +11,14 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
-    .registers 3
+    .locals 2
 
     .line 35
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/cst/TypedConstant;-><init>()V
 
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_1
 
-    if-eqz p2, :cond_c
+    if-eqz p2, :cond_0
 
     .line 44
     iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->definingClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -29,30 +29,30 @@
     return-void
 
     .line 41
-    :cond_c
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "nat == null"
+    const-string v1, "nat == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 37
-    :cond_14
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "definingClass == null"
+    const-string v1, "definingClass == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method protected compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
-    .registers 4
+    .locals 2
 
     .line 75
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;
@@ -66,12 +66,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
+    .line 85
+    :goto_0
     return v0
 
     .line 82
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstNat;->getName()Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -79,24 +81,24 @@
     move-result-object v0
 
     .line 83
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstNat;->getName()Lcom/s1243808733/android/dx/rop/cst/CstString;
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/CstNat;->getName()Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 85
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
 
-    if-eqz p1, :cond_25
+    if-eqz p1, :cond_0
 
     .line 51
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -107,12 +109,17 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_d
+    if-eq v0, v1, :cond_1
 
-    goto :goto_25
+    .line 57
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 
     .line 55
-    :cond_d
+    :cond_1
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;
 
     .line 56
@@ -124,33 +131,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
 
     .line 57
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstNat;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstNat;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_25
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_26
-
-    :cond_25
-    :goto_25
-    const/4 p1, 0x0
-
-    :goto_26
-    return p1
+    goto :goto_0
 .end method
 
 .method public final getDefiningClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 112
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->definingClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -159,7 +159,7 @@
 .end method
 
 .method public final getNat()Lcom/s1243808733/android/dx/rop/cst/CstNat;
-    .registers 2
+    .locals 1
 
     .line 121
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->nat:Lcom/s1243808733/android/dx/rop/cst/CstNat;
@@ -168,7 +168,7 @@
 .end method
 
 .method public final hashCode()I
-    .registers 3
+    .locals 2
 
     .line 63
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;->definingClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -191,7 +191,7 @@
 .end method
 
 .method public final isCategory2()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -199,7 +199,7 @@
 .end method
 
 .method public final toHuman()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 103
     new-instance v0, Ljava/lang/StringBuilder;
@@ -234,7 +234,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 91
     new-instance v0, Ljava/lang/StringBuilder;

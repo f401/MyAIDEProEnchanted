@@ -15,7 +15,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -27,37 +27,37 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;I)V
-    .registers 3
+    .locals 2
 
     invoke-direct {p0, p1, p2}, Lc/bs;-><init>(Ljava/io/InputStream;I)V
 
-    if-ltz p2, :cond_f
+    if-ltz p2, :cond_1
 
     iput p2, p0, Lc/bn;->b:I
 
     iput p2, p0, Lc/bn;->c:I
 
-    if-nez p2, :cond_e
+    if-nez p2, :cond_0
 
     invoke-virtual {p0}, Lc/bs;->i()V
 
-    :cond_e
+    :cond_0
     return-void
 
-    :cond_f
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "negative lengths not allowed"
+    const-string v1, "negative lengths not allowed"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public final d()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lc/bn;->c:I
 
@@ -65,37 +65,38 @@
 .end method
 
 .method public final e()[B
-    .registers 4
+    .locals 3
 
-    iget v0, p0, Lc/bn;->c:I
+    iget v1, p0, Lc/bn;->c:I
 
-    if-nez v0, :cond_7
+    if-nez v1, :cond_0
 
     sget-object v0, Lc/bn;->a:[B
 
+    :goto_0
     return-object v0
 
-    :cond_7
-    new-array v1, v0, [B
+    :cond_0
+    new-array v0, v1, [B
 
     iget-object v2, p0, Lc/bs;->g:Ljava/io/InputStream;
 
-    invoke-static {v2, v1}, Lb/b;->a(Ljava/io/InputStream;[B)I
+    invoke-static {v2, v0}, Lb/b;->a(Ljava/io/InputStream;[B)I
 
     move-result v2
 
-    sub-int/2addr v0, v2
+    sub-int/2addr v1, v2
 
-    iput v0, p0, Lc/bn;->c:I
+    iput v1, p0, Lc/bn;->c:I
 
-    if-nez v0, :cond_18
+    if-nez v1, :cond_1
 
     invoke-virtual {p0}, Lc/bs;->i()V
 
-    return-object v1
+    goto :goto_0
 
     .line 1
-    :cond_18
+    :cond_1
     const-string v0, "DEF length "
 
     invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -127,24 +128,26 @@
 .end method
 
 .method public final read()I
-    .registers 3
+    .locals 2
 
     iget v0, p0, Lc/bn;->c:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_1
 
     const/4 v0, -0x1
 
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_1
     iget-object v0, p0, Lc/bs;->g:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->read()I
 
     move-result v0
 
-    if-ltz v0, :cond_1a
+    if-ltz v0, :cond_2
 
     iget v1, p0, Lc/bn;->c:I
 
@@ -152,15 +155,14 @@
 
     iput v1, p0, Lc/bn;->c:I
 
-    if-nez v1, :cond_19
+    if-nez v1, :cond_0
 
     invoke-virtual {p0}, Lc/bs;->i()V
 
-    :cond_19
-    return v0
+    goto :goto_0
 
     .line 1
-    :cond_1a
+    :cond_2
     const-string v0, "DEF length "
 
     invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -192,70 +194,71 @@
 .end method
 
 .method public final read([BII)I
-    .registers 5
+    .locals 2
 
     iget v0, p0, Lc/bn;->c:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_1
 
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    return p1
+    :cond_0
+    :goto_0
+    return v0
 
-    :cond_6
+    :cond_1
     invoke-static {p3, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result p3
+    move-result v0
 
-    iget-object v0, p0, Lc/bs;->g:Ljava/io/InputStream;
+    iget-object v1, p0, Lc/bs;->g:Ljava/io/InputStream;
 
-    invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I
+    invoke-virtual {v1, p1, p2, v0}, Ljava/io/InputStream;->read([BII)I
 
-    move-result p1
+    move-result v0
 
-    if-ltz p1, :cond_1d
+    if-ltz v0, :cond_2
 
-    iget p2, p0, Lc/bn;->c:I
+    iget v1, p0, Lc/bn;->c:I
 
-    sub-int/2addr p2, p1
+    sub-int/2addr v1, v0
 
-    iput p2, p0, Lc/bn;->c:I
+    iput v1, p0, Lc/bn;->c:I
 
-    if-nez p2, :cond_1c
+    if-nez v1, :cond_0
 
     invoke-virtual {p0}, Lc/bs;->i()V
 
-    :cond_1c
-    return p1
+    goto :goto_0
 
     .line 6
-    :cond_1d
-    const-string p1, "DEF length "
+    :cond_2
+    const-string v0, "DEF length "
 
-    invoke-static {p1}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 7
-    iget p2, p0, Lc/bn;->b:I
+    iget v1, p0, Lc/bn;->b:I
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p2, " object truncated by "
+    const-string v1, " object truncated by "
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget p2, p0, Lc/bn;->c:I
+    iget v1, p0, Lc/bn;->c:I
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p2, Ljava/io/EOFException;
+    new-instance v1, Ljava/io/EOFException;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p2, p1}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v1
 .end method

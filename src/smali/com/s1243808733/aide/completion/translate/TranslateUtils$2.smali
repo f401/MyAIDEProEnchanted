@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public onDbOpened(Lorg/xutils/DbManager;)V
-    .registers 4
+    .locals 3
 
     .line 90
     invoke-interface {p1}, Lorg/xutils/DbManager;->getDatabase()Landroid/database/sqlite/SQLiteDatabase;
@@ -40,17 +40,17 @@
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->enableWriteAheadLogging()Z
 
     .line 91
-    const/4 v0, 0x1
+    const-string v0, "DbOpen"
 
-    new-array v0, v0, [Ljava/lang/Object;
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    aput-object p1, v0, v1
+    const/4 v2, 0x0
 
-    const-string p1, "DbOpen"
+    aput-object p1, v1, v2
 
-    invoke-static {p1, v0}, Lcom/blankj/utilcode/util/LogUtils;->iTag(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/blankj/utilcode/util/LogUtils;->iTag(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 .end method

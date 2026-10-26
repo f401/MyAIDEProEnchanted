@@ -20,7 +20,8 @@
 .field private mIMainActivity:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lcom/s1243808733/aide/api/MainActivityEvent;",
             ">;"
@@ -31,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 28
     invoke-direct {p0}, Lcom/s1243808733/aide/api/MainActivityEventWrapper;-><init>()V
@@ -50,112 +51,115 @@
 .end method
 
 .method private init()V
-    .registers 9
+    .locals 8
+
+    const/4 v2, 0x0
 
     .line 41
     const-string v0, "IMainActivity"
 
     invoke-static {v0}, Lcom/blankj/utilcode/util/MetaDataUtils;->getMetaDataInApp(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     .line 43
-    invoke-static {v0}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
+    invoke-static {v3}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_d
+    if-eqz v0, :cond_1
 
+    .line 56
+    :cond_0
+    :goto_0
     return-void
 
     .line 44
-    :cond_d
-    const-string v1, ","
+    :cond_1
+    const-string v0, ","
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v3, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    if-eqz v1, :cond_53
+    if-eqz v4, :cond_0
 
     .line 45
-    array-length v2, v1
+    array-length v0, v4
 
-    if-nez v2, :cond_19
-
-    goto :goto_53
+    if-eqz v0, :cond_0
 
     .line 46
-    :cond_19
-    array-length v2, v1
+    array-length v5, v4
 
-    const/4 v3, 0x0
+    move v1, v2
 
-    const/4 v4, 0x0
+    :goto_1
+    if-ge v1, v5, :cond_3
 
-    :goto_1c
-    if-ge v4, v2, :cond_43
-
-    aget-object v5, v1, v4
+    aget-object v6, v4, v1
 
     .line 47
-    invoke-static {v0}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
+    invoke-static {v3}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v0
 
-    if-eqz v6, :cond_27
+    if-eqz v0, :cond_2
 
-    goto :goto_40
+    .line 53
+    :goto_2
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    goto :goto_1
 
     .line 49
-    :cond_27
-    :try_start_27
-    invoke-static {v5}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :cond_2
+    :try_start_0
+    invoke-static {v6}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v6
+    move-result-object v0
 
     .line 50
-    invoke-virtual {v6}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v0
 
-    check-cast v6, Lcom/s1243808733/aide/api/MainActivityEvent;
+    check-cast v0, Lcom/s1243808733/aide/api/MainActivityEvent;
 
     .line 51
     iget-object v7, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mIMainActivity:Ljava/util/Map;
 
-    invoke-interface {v7, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_36
-    .catchall {:try_start_27 .. :try_end_36} :catchall_37
+    invoke-interface {v7, v6, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_40
+    goto :goto_2
 
-    :catchall_37
-    move-exception v5
+    :catchall_0
+    move-exception v0
 
     .line 53
     const/4 v6, 0x1
 
     new-array v6, v6, [Ljava/lang/Object;
 
-    aput-object v5, v6, v3
+    aput-object v0, v6, v2
 
     invoke-static {v6}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
 
-    :goto_40
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_1c
+    goto :goto_2
 
     .line 56
-    :cond_43
+    :cond_3
     iget-object v0, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mIMainActivity:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
     move-result-object v0
 
-    new-array v1, v3, [Lcom/s1243808733/aide/api/MainActivityEvent;
+    new-array v1, v2, [Lcom/s1243808733/aide/api/MainActivityEvent;
 
     invoke-interface {v0, v1}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
@@ -165,64 +169,62 @@
 
     iput-object v0, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mArray:[Lcom/s1243808733/aide/api/MainActivityEvent;
 
-    :cond_53
-    :goto_53
-    return-void
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public find(Ljava/lang/String;)Lcom/s1243808733/aide/api/MainActivityEvent;
-    .registers 3
+    .locals 1
 
     .line 37
     iget-object v0, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mIMainActivity:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/aide/api/MainActivityEvent;
+    check-cast v0, Lcom/s1243808733/aide/api/MainActivityEvent;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public find(Ljava/lang/Class;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Ljava/lang/Object;",
             ">(",
-            "Ljava/lang/Class<",
-            "TT;>;)TT;"
+            "Ljava/lang/Class",
+            "<TT;>;)TT;"
         }
     .end annotation
 
     .line 33
     invoke-virtual {p1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->find(Ljava/lang/String;)Lcom/s1243808733/aide/api/MainActivityEvent;
+    invoke-virtual {p0, v0}, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->find(Ljava/lang/String;)Lcom/s1243808733/aide/api/MainActivityEvent;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public onBeforeSigningAPK(Ljava/io/File;Ljava/lang/Object;)V
-    .registers 6
+    .locals 3
 
     const/4 v0, 0x0
 
     .line 101
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mArray:[Lcom/s1243808733/aide/api/MainActivityEvent;
 
     array-length v2, v1
 
-    if-ge v0, v2, :cond_e
+    if-ge v0, v2, :cond_0
 
     .line 102
     aget-object v1, v1, v0
@@ -231,24 +233,24 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public onCreate(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .registers 6
+    .locals 3
 
     const/4 v0, 0x0
 
     .line 62
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mArray:[Lcom/s1243808733/aide/api/MainActivityEvent;
 
     array-length v2, v1
 
-    if-ge v0, v2, :cond_e
+    if-ge v0, v2, :cond_0
 
     .line 63
     aget-object v1, v1, v0
@@ -257,24 +259,24 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)V
-    .registers 5
+    .locals 3
 
     const/4 v0, 0x0
 
     .line 69
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mArray:[Lcom/s1243808733/aide/api/MainActivityEvent;
 
     array-length v2, v1
 
-    if-ge v0, v2, :cond_e
+    if-ge v0, v2, :cond_0
 
     .line 70
     aget-object v1, v1, v0
@@ -283,24 +285,24 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public onMenuOpened(ILandroid/view/Menu;)V
-    .registers 6
+    .locals 3
 
     const/4 v0, 0x0
 
     .line 94
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mArray:[Lcom/s1243808733/aide/api/MainActivityEvent;
 
     array-length v2, v1
 
-    if-ge v0, v2, :cond_e
+    if-ge v0, v2, :cond_0
 
     .line 95
     aget-object v1, v1, v0
@@ -309,59 +311,63 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .registers 6
-
-    const/4 v0, 0x0
+    .locals 4
 
     const/4 v1, 0x0
 
+    move v0, v1
+
+    move v2, v1
+
     .line 77
-    :goto_2
-    iget-object v2, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mArray:[Lcom/s1243808733/aide/api/MainActivityEvent;
+    :goto_0
+    iget-object v1, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mArray:[Lcom/s1243808733/aide/api/MainActivityEvent;
 
-    array-length v3, v2
+    array-length v3, v1
 
-    if-ge v0, v3, :cond_13
+    if-ge v2, v3, :cond_1
 
     .line 78
-    aget-object v2, v2, v0
+    aget-object v1, v1, v2
 
-    invoke-interface {v2, p1}, Lcom/s1243808733/aide/api/MainActivityEvent;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-interface {v1, p1}, Lcom/s1243808733/aide/api/MainActivityEvent;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_10
+    if-eqz v1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_10
-    add-int/lit8 v0, v0, 0x1
+    :cond_0
+    add-int/lit8 v1, v2, 0x1
 
-    goto :goto_2
+    move v2, v1
 
-    :cond_13
-    return v1
+    goto :goto_0
+
+    :cond_1
+    return v0
 .end method
 
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)V
-    .registers 5
+    .locals 3
 
     const/4 v0, 0x0
 
     .line 87
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/s1243808733/aide/api/ApiManager$MainActivityEventManager;->mArray:[Lcom/s1243808733/aide/api/MainActivityEvent;
 
     array-length v2, v1
 
-    if-ge v0, v2, :cond_e
+    if-ge v0, v2, :cond_0
 
     .line 88
     aget-object v1, v1, v0
@@ -370,8 +376,8 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_e
+    :cond_0
     return-void
 .end method

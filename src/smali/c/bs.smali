@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;I)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public d()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lc/bs;->h:I
 
@@ -33,13 +33,13 @@
 .end method
 
 .method public final i()V
-    .registers 3
+    .locals 2
 
     iget-object v0, p0, Lc/bs;->g:Ljava/io/InputStream;
 
     instance-of v1, v0, Lc/bp;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     check-cast v0, Lc/bp;
 
@@ -49,6 +49,6 @@
 
     invoke-virtual {v0}, Lc/bp;->f()Z
 
-    :cond_e
+    :cond_0
     return-void
 .end method

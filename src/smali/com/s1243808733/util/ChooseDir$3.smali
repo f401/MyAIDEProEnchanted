@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/ChooseDir;Landroid/app/AlertDialog;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,39 +45,39 @@
 
 # virtual methods
 .method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
 
-    const/4 p1, 0x4
+    const/4 v0, 0x4
 
-    if-ne p2, p1, :cond_1a
+    if-ne p2, v0, :cond_0
 
     .line 109
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_1a
+    if-nez v0, :cond_0
 
     .line 110
-    iget-object p1, p0, Lcom/s1243808733/util/ChooseDir$3;->this$0:Lcom/s1243808733/util/ChooseDir;
+    iget-object v0, p0, Lcom/s1243808733/util/ChooseDir$3;->this$0:Lcom/s1243808733/util/ChooseDir;
 
-    invoke-static {p1}, Lcom/s1243808733/util/ChooseDir;->-$$Nest$fgetadapter(Lcom/s1243808733/util/ChooseDir;)Lcom/s1243808733/util/ChooseDir$FileAdapter;
+    invoke-static {v0}, Lcom/s1243808733/util/ChooseDir;->-$$Nest$fgetadapter(Lcom/s1243808733/util/ChooseDir;)Lcom/s1243808733/util/ChooseDir$FileAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->-$$Nest$mgoBack(Lcom/s1243808733/util/ChooseDir$FileAdapter;)Z
+    invoke-static {v0}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->-$$Nest$mgoBack(Lcom/s1243808733/util/ChooseDir$FileAdapter;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_1a
+    if-nez v0, :cond_0
 
     .line 111
-    iget-object p1, p0, Lcom/s1243808733/util/ChooseDir$3;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/util/ChooseDir$3;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    :cond_1a
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

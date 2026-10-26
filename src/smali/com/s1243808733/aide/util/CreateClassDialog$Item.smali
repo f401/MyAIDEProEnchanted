@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/util/CreateClassDialog;Ljava/lang/String;Lcom/s1243808733/aide/util/CreateClassDialog$CreateClass;)V
-    .registers 4
+    .locals 0
 
     .line 400
     iput-object p1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$Item;->this$0:Lcom/s1243808733/aide/util/CreateClassDialog;
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/aide/util/CreateClassDialog;Ljava/lang/String;Lcom/s1243808733/aide/util/CreateClassDialog$CreateClass;Z)V
-    .registers 5
+    .locals 0
 
     .line 394
     iput-object p1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$Item;->this$0:Lcom/s1243808733/aide/util/CreateClassDialog;
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/aide/util/CreateClassDialog;Ljava/lang/String;Lcom/s1243808733/aide/util/CreateClassDialog$CreateClass;ZZ)V
-    .registers 6
+    .locals 0
 
     .line 387
     iput-object p1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$Item;->this$0:Lcom/s1243808733/aide/util/CreateClassDialog;
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 407
     iget-object v0, p0, Lcom/s1243808733/aide/util/CreateClassDialog$Item;->title:Ljava/lang/String;

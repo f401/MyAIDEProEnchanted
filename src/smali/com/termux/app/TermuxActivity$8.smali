@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 507
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
@@ -34,7 +34,9 @@
 .end method
 
 .method private showInstallApkDialog(Lcom/termux/terminal/TerminalSession;)V
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 584
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
@@ -45,44 +47,44 @@
 
     move-result v0
 
-    if-nez v0, :cond_61
+    if-nez v0, :cond_0
 
     .line 586
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
     invoke-static {v0}, Lcom/termux/app/TermuxActivity;->-$$Nest$mtryGetApkFile(Lcom/termux/app/TermuxActivity;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_61
+    if-eqz v1, :cond_0
 
     .line 590
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_61
+    if-nez v0, :cond_0
 
     .line 591
-    iget-object v2, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {v2, p1, v1}, Lcom/termux/app/TermuxActivity;->setHandled(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
+    const-string v2, "showInstallApkDialog"
+
+    invoke-virtual {v0, p1, v2}, Lcom/termux/app/TermuxActivity;->setHandled(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
 
     .line 593
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result p1
+    move-result v0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
-
-    if-ne p1, v1, :cond_35
+    if-ne v0, v2, :cond_1
 
     .line 594
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v2, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -92,161 +94,163 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/s1243808733/aide/filebrowser/FileOptions;->showApkInfoDialog(Landroid/content/Context;Ljava/io/File;)Landroid/app/AlertDialog;
-
-    goto :goto_61
-
-    .line 597
-    :cond_35
-    new-instance p1, Ljava/util/ArrayList;
-
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
-
-    .line 598
-    new-array v1, v2, [Ljava/lang/CharSequence;
-
-    invoke-virtual {p1, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, [Ljava/lang/CharSequence;
-
-    .line 599
-    new-instance v1, Landroid/app/AlertDialog$Builder;
-
-    iget-object v2, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
-
-    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    new-instance v2, Lcom/termux/app/TermuxActivity$8$5;
-
-    invoke-direct {v2, p0, v0}, Lcom/termux/app/TermuxActivity$8$5;-><init>(Lcom/termux/app/TermuxActivity$8;Ljava/util/List;)V
-
-    .line 600
-    invoke-virtual {v1, p1, v2}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
-
-    .line 608
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object p1
-
-    .line 609
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-static {v2, v0}, Lcom/s1243808733/aide/filebrowser/FileOptions;->showApkInfoDialog(Landroid/content/Context;Ljava/io/File;)Landroid/app/AlertDialog;
 
     .line 611
-    new-instance v0, Lcom/termux/app/TermuxActivity$8$6;
-
-    invoke-direct {v0, p0}, Lcom/termux/app/TermuxActivity$8$6;-><init>(Lcom/termux/app/TermuxActivity$8;)V
-
-    invoke-virtual {p1, v0}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
-
-    :cond_61
-    :goto_61
+    :cond_0
+    :goto_0
     return-void
+
+    .line 597
+    :cond_1
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 598
+    new-array v2, v3, [Ljava/lang/CharSequence;
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Ljava/lang/CharSequence;
+
+    .line 599
+    new-instance v2, Landroid/app/AlertDialog$Builder;
+
+    iget-object v3, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+
+    invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    new-instance v3, Lcom/termux/app/TermuxActivity$8$5;
+
+    invoke-direct {v3, p0, v1}, Lcom/termux/app/TermuxActivity$8$5;-><init>(Lcom/termux/app/TermuxActivity$8;Ljava/util/List;)V
+
+    .line 600
+    invoke-virtual {v2, v0, v3}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    .line 608
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    .line 609
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+
+    .line 611
+    new-instance v1, Lcom/termux/app/TermuxActivity$8$6;
+
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$8$6;-><init>(Lcom/termux/app/TermuxActivity$8;)V
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onBell(Lcom/termux/terminal/TerminalSession;)V
-    .registers 4
+    .locals 4
 
     .line 662
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-boolean p1, p1, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
+    iget-boolean v0, v0, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
 
-    if-nez p1, :cond_7
+    if-nez v0, :cond_1
 
+    .line 669
+    :cond_0
+    :goto_0
     return-void
 
     .line 664
-    :cond_7
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    :cond_1
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
 
-    iget p1, p1, Lcom/termux/app/TermuxPreferences;->mBellBehaviour:I
-
-    const/4 v0, 0x1
-
-    if-eq p1, v0, :cond_11
-
-    goto :goto_20
-
-    .line 669
-    :cond_11
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
-
-    const-string v0, "vibrator"
-
-    invoke-virtual {p1, v0}, Lcom/termux/app/TermuxActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/os/Vibrator;
-
-    const-wide/16 v0, 0x32
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Vibrator;->vibrate(J)V
-
-    :goto_20
-    return-void
-.end method
-
-.method public onClipboardText(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
-    .registers 7
-
-    .line 655
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
-
-    iget-boolean p1, p1, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
-
-    if-nez p1, :cond_7
-
-    return-void
-
-    .line 656
-    :cond_7
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
-
-    const-string v0, "clipboard"
-
-    invoke-virtual {p1, v0}, Lcom/termux/app/TermuxActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/content/ClipboardManager;
-
-    .line 657
-    new-instance v0, Landroid/content/ClipData$Item;
-
-    invoke-direct {v0, p2}, Landroid/content/ClipData$Item;-><init>(Ljava/lang/CharSequence;)V
-
-    new-instance p2, Landroid/content/ClipData;
+    iget v0, v0, Lcom/termux/app/TermuxPreferences;->mBellBehaviour:I
 
     const/4 v1, 0x1
 
-    new-array v1, v1, [Ljava/lang/String;
+    if-ne v0, v1, :cond_0
 
-    const/4 v2, 0x0
+    .line 669
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    const-string v3, "text/plain"
+    const-string v1, "vibrator"
 
-    aput-object v3, v1, v2
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    move-result-object v0
 
-    invoke-direct {p2, v2, v1, v0}, Landroid/content/ClipData;-><init>(Ljava/lang/CharSequence;[Ljava/lang/String;Landroid/content/ClipData$Item;)V
+    check-cast v0, Landroid/os/Vibrator;
 
-    invoke-virtual {p1, p2}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
+    const-wide/16 v2, 0x32
 
+    invoke-virtual {v0, v2, v3}, Landroid/os/Vibrator;->vibrate(J)V
+
+    goto :goto_0
+.end method
+
+.method public onClipboardText(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
+    .locals 7
+
+    .line 655
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+
+    iget-boolean v0, v0, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
+
+    if-nez v0, :cond_0
+
+    .line 657
+    :goto_0
     return-void
+
+    .line 656
+    :cond_0
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+
+    const-string v1, "clipboard"
+
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/ClipboardManager;
+
+    .line 657
+    new-instance v1, Landroid/content/ClipData$Item;
+
+    invoke-direct {v1, p2}, Landroid/content/ClipData$Item;-><init>(Ljava/lang/CharSequence;)V
+
+    new-instance v2, Landroid/content/ClipData;
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    new-array v4, v4, [Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    const-string v6, "text/plain"
+
+    aput-object v6, v4, v5
+
+    invoke-direct {v2, v3, v4, v1}, Landroid/content/ClipData;-><init>(Ljava/lang/CharSequence;[Ljava/lang/String;Landroid/content/ClipData$Item;)V
+
+    invoke-virtual {v0, v2}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
+
+    goto :goto_0
 .end method
 
 .method public onColorsChanged(Lcom/termux/terminal/TerminalSession;)V
-    .registers 3
+    .locals 1
 
     .line 679
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
@@ -255,18 +259,18 @@
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_d
+    if-ne v0, p1, :cond_0
 
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->updateBackgroundColor()V
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->updateBackgroundColor()V
 
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public onSessionFinished(Lcom/termux/terminal/TerminalSession;)V
-    .registers 5
+    .locals 3
 
     .line 639
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
@@ -275,22 +279,24 @@
 
     iget-boolean v0, v0, Lcom/termux/app/TermuxService;->mWantsToStop:Z
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 641
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->finish()V
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->finish()V
 
+    .line 650
+    :goto_0
     return-void
 
     .line 644
-    :cond_e
+    :cond_0
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
     iget-boolean v0, v0, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
 
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
@@ -298,7 +304,7 @@
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_47
+    if-eq p1, v0, :cond_1
 
     .line 646
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
@@ -313,7 +319,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_47
+    if-ltz v0, :cond_1
 
     .line 648
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
@@ -326,35 +332,39 @@
 
     invoke-virtual {v2, p1}, Lcom/termux/app/TermuxActivity;->toToastTitle(Lcom/termux/terminal/TerminalSession;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " - exited"
+    const-string v2, " - exited"
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, p1, v1}, Lcom/termux/app/TermuxActivity;->showToast(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v2}, Lcom/termux/app/TermuxActivity;->showToast(Ljava/lang/String;Z)V
 
     .line 650
-    :cond_47
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    :cond_1
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
 
-    invoke-virtual {p1}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public onTextChanged(Lcom/termux/terminal/TerminalSession;)V
-    .registers 8
+    .locals 5
+
+    const/high16 v4, 0x1040000
+
+    const/4 v3, 0x0
 
     .line 511
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
@@ -386,11 +396,7 @@
 
     move-result v1
 
-    const/4 v2, 0x0
-
-    const/high16 v3, 0x1040000
-
-    if-eqz v1, :cond_74
+    if-eqz v1, :cond_2
 
     .line 514
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
@@ -401,58 +407,58 @@
 
     move-result v0
 
-    if-nez v0, :cond_ec
+    if-nez v0, :cond_0
 
     .line 515
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    iget-object v4, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-direct {v0, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 516
-    const-string v4, "没有安装Gradle"
+    const-string v0, "\u6ca1\u6709\u5b89\u88c5Gradle"
 
-    const-string v5, "Gradle is not installed"
+    const-string v2, "Gradle is not installed"
 
-    invoke-static {v4, v5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/CharSequence;
-
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Ljava/lang/CharSequence;
+
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
 
     .line 517
-    const-string v4, "你要在线安装吗？"
+    const-string v0, "\u4f60\u8981\u5728\u7ebf\u5b89\u88c5\u5417\uff1f"
 
-    const-string v5, "Do you want to install it online?"
+    const-string v2, "Do you want to install it online?"
 
-    invoke-static {v4, v5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/CharSequence;
-
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    new-instance v4, Lcom/termux/app/TermuxActivity$8$1;
+    check-cast v0, Ljava/lang/CharSequence;
 
-    invoke-direct {v4, p0}, Lcom/termux/app/TermuxActivity$8$1;-><init>(Lcom/termux/app/TermuxActivity$8;)V
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/termux/app/TermuxActivity$8$1;
+
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$8$1;-><init>(Lcom/termux/app/TermuxActivity$8;)V
 
     .line 518
-    const v5, 0x1040013
+    const v2, 0x1040013
 
-    invoke-virtual {v0, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
     .line 525
-    invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -465,9 +471,11 @@
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     .line 528
-    iget-object v2, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {v2, p1, v1}, Lcom/termux/app/TermuxActivity;->setHandled(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
+    const-string v2, "install_gradle"
+
+    invoke-virtual {v1, p1, v2}, Lcom/termux/app/TermuxActivity;->setHandled(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
 
     .line 530
     new-instance v1, Lcom/termux/app/TermuxActivity$8$2;
@@ -476,25 +484,37 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    goto/16 :goto_ec
+    .line 579
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+
+    iget-boolean v0, v0, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
+
+    if-nez v0, :cond_5
+
+    .line 580
+    :cond_1
+    :goto_1
+    return-void
 
     .line 538
-    :cond_74
+    :cond_2
     const-string v1, "BUILD SUCCESSFUL in"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_80
+    if-eqz v1, :cond_3
 
     .line 540
     invoke-direct {p0, p1}, Lcom/termux/app/TermuxActivity$8;->showInstallApkDialog(Lcom/termux/terminal/TerminalSession;)V
 
-    goto :goto_ec
+    goto :goto_0
 
     .line 542
-    :cond_80
+    :cond_3
     iget-object v1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
     invoke-virtual {v1, v0}, Lcom/termux/app/TermuxActivity;->aapt2error(Ljava/lang/String;)Ljava/lang/String;
@@ -505,7 +525,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_94
+    if-nez v1, :cond_4
 
     .line 543
     const-string v1, "Unable to make field private final java.lang.String java.io.File.path"
@@ -514,10 +534,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_ec
+    if-eqz v0, :cond_0
 
     .line 544
-    :cond_94
+    :cond_4
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
     const-string v1, "aapt"
@@ -526,67 +546,67 @@
 
     move-result v0
 
-    if-nez v0, :cond_ec
+    if-nez v0, :cond_0
 
     .line 546
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    iget-object v4, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-direct {v0, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 548
-    const-string v4, "构建项目失败"
+    const-string v0, "\u6784\u5efa\u9879\u76ee\u5931\u8d25"
 
-    const-string v5, "Failed to build the project"
+    const-string v2, "Failed to build the project"
 
-    invoke-static {v4, v5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/CharSequence;
-
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Ljava/lang/CharSequence;
+
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
 
     .line 549
-    const-string v4, "貌似是AAPT2版本过低导致的构建失败，请打开「 项目根目录/build.gradle 」后将「 4.1.2 」改成「 7.0.2 」或「 7.2.1 」重新编译。"
+    const-string v0, "\u8c8c\u4f3c\u662fAAPT2\u7248\u672c\u8fc7\u4f4e\u5bfc\u81f4\u7684\u6784\u5efa\u5931\u8d25\uff0c\u8bf7\u6253\u5f00\u300c \u9879\u76ee\u6839\u76ee\u5f55/build.gradle \u300d\u540e\u5c06\u300c 4.1.2 \u300d\u6539\u6210\u300c 7.0.2 \u300d\u6216\u300c 7.2.1 \u300d\u91cd\u65b0\u7f16\u8bd1\u3002"
 
-    const-string v5, "It seems that the construction failure caused by the low version of AAPT 2, please open the project root directory /build.gradle Change \"4.1.2\" to \"7.0.2\" or \"7.2.1\""
+    const-string v2, "It seems that the construction failure caused by the low version of AAPT 2, please open the project root directory /build.gradle Change \"4.1.2\" to \"7.0.2\" or \"7.2.1\""
 
-    invoke-static {v4, v5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/CharSequence;
-
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Ljava/lang/CharSequence;
+
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
     .line 551
-    const-string v4, "跳到目录"
+    const-string v0, "\u8df3\u5230\u76ee\u5f55"
 
-    const-string v5, "Go to the directory"
+    const-string v2, "Go to the directory"
 
-    invoke-static {v4, v5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, Ljava/lang/CharSequence;
+    check-cast v0, Ljava/lang/CharSequence;
 
-    new-instance v5, Lcom/termux/app/TermuxActivity$8$3;
+    new-instance v2, Lcom/termux/app/TermuxActivity$8$3;
 
-    invoke-direct {v5, p0}, Lcom/termux/app/TermuxActivity$8$3;-><init>(Lcom/termux/app/TermuxActivity$8;)V
+    invoke-direct {v2, p0}, Lcom/termux/app/TermuxActivity$8$3;-><init>(Lcom/termux/app/TermuxActivity$8;)V
 
     .line 550
-    invoke-virtual {v0, v4, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
     .line 565
-    invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -599,9 +619,11 @@
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     .line 568
-    iget-object v2, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {v2, p1, v1}, Lcom/termux/app/TermuxActivity;->setHandled(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
+    const-string v2, "aapt"
+
+    invoke-virtual {v1, p1, v2}, Lcom/termux/app/TermuxActivity;->setHandled(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
 
     .line 569
     new-instance v1, Lcom/termux/app/TermuxActivity$8$4;
@@ -610,77 +632,69 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 579
-    :cond_ec
-    :goto_ec
-    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
-
-    iget-boolean v0, v0, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
-
-    if-nez v0, :cond_f3
-
-    return-void
+    goto/16 :goto_0
 
     .line 580
-    :cond_f3
+    :cond_5
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
     invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_102
+    if-ne v0, p1, :cond_1
 
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
 
-    invoke-virtual {p1}, Lcom/termux/view/TerminalView;->onScreenUpdated()V
+    invoke-virtual {v0}, Lcom/termux/view/TerminalView;->onScreenUpdated()V
 
-    :cond_102
-    return-void
+    goto/16 :goto_1
 .end method
 
 .method public onTitleChanged(Lcom/termux/terminal/TerminalSession;)V
-    .registers 4
+    .locals 3
 
     .line 627
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
     iget-boolean v0, v0, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
+    .line 634
+    :goto_0
     return-void
 
     .line 628
-    :cond_7
+    :cond_0
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
     invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_19
+    if-eq p1, v0, :cond_1
 
     .line 632
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
     invoke-virtual {v0, p1}, Lcom/termux/app/TermuxActivity;->toToastTitle(Lcom/termux/terminal/TerminalSession;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, p1, v1}, Lcom/termux/app/TermuxActivity;->showToast(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v2}, Lcom/termux/app/TermuxActivity;->showToast(Ljava/lang/String;Z)V
 
     .line 634
-    :cond_19
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    :cond_1
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
 
-    invoke-virtual {p1}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
 
-    return-void
+    goto :goto_0
 .end method

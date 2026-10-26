@@ -16,7 +16,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/s1243808733/android/dx/util/FixedSizeList;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dx/dex/code/CatchTable;",
         ">;"
     }
@@ -29,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 29
     new-instance v0, Lcom/s1243808733/android/dx/dex/code/CatchTable;
@@ -44,7 +45,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 37
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/FixedSizeList;-><init>(I)V
@@ -55,105 +56,109 @@
 
 # virtual methods
 .method public compareTo(Lcom/s1243808733/android/dx/dex/code/CatchTable;)I
-    .registers 9
+    .locals 7
 
     const/4 v0, 0x0
 
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_1
 
+    .line 77
+    :cond_0
+    :goto_0
     return v0
 
     .line 70
-    :cond_4
+    :cond_1
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/CatchTable;->size()I
 
-    move-result v1
+    move-result v3
 
     .line 71
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/code/CatchTable;->size()I
 
-    move-result v2
+    move-result v4
 
     .line 72
-    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
+    invoke-static {v3, v4}, Ljava/lang/Math;->min(II)I
 
-    move-result v3
+    move-result v5
 
-    const/4 v4, 0x0
+    move v2, v0
 
-    :goto_11
-    if-ge v4, v3, :cond_25
+    :goto_1
+    if-ge v2, v5, :cond_3
 
     .line 75
-    invoke-virtual {p0, v4}, Lcom/s1243808733/android/dx/dex/code/CatchTable;->get(I)Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;
+    invoke-virtual {p0, v2}, Lcom/s1243808733/android/dx/dex/code/CatchTable;->get(I)Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;
 
-    move-result-object v5
+    move-result-object v1
 
     .line 76
-    invoke-virtual {p1, v4}, Lcom/s1243808733/android/dx/dex/code/CatchTable;->get(I)Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;
+    invoke-virtual {p1, v2}, Lcom/s1243808733/android/dx/dex/code/CatchTable;->get(I)Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;
 
     move-result-object v6
 
     .line 77
-    invoke-virtual {v5, v6}, Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;->compareTo(Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;)I
+    invoke-virtual {v1, v6}, Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;->compareTo(Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;)I
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_22
+    if-eqz v1, :cond_2
 
-    return v5
+    move v0, v1
 
-    :cond_22
-    add-int/lit8 v4, v4, 0x1
+    goto :goto_0
 
-    goto :goto_11
+    :cond_2
+    add-int/lit8 v1, v2, 0x1
 
-    :cond_25
-    if-ge v1, v2, :cond_29
+    move v2, v1
 
-    const/4 p1, -0x1
+    goto :goto_1
 
-    return p1
+    :cond_3
+    if-ge v3, v4, :cond_4
 
-    :cond_29
-    if-le v1, v2, :cond_2d
+    const/4 v0, -0x1
 
-    const/4 p1, 0x1
+    goto :goto_0
 
-    return p1
+    :cond_4
+    if-le v3, v4, :cond_0
 
-    :cond_2d
-    return v0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 26
     check-cast p1, Lcom/s1243808733/android/dx/dex/code/CatchTable;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/code/CatchTable;->compareTo(Lcom/s1243808733/android/dx/dex/code/CatchTable;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public get(I)Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;
-    .registers 2
+    .locals 1
 
     .line 49
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/code/CatchTable;->get0(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/CatchTable$Entry;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public set(ILcom/s1243808733/android/dx/dex/code/CatchTable$Entry;)V
-    .registers 3
+    .locals 0
 
     .line 59
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/android/dx/dex/code/CatchTable;->set0(ILjava/lang/Object;)V

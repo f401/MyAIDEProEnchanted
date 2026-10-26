@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 7
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .line 252
     iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$1;->val$j:Ljava/lang/Object;
@@ -77,7 +77,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 255
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getCurrentEditorFile()Ljava/io/File;
@@ -98,7 +98,7 @@
     invoke-virtual {v0, v1}, Lcom/s1243808733/aide/AideMainActivity;->setFileTabVisible(Z)V
 
     .line 259
-    :cond_23
+    :cond_0
     invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter;->notifyDataSetChanged()V
 
     return-void

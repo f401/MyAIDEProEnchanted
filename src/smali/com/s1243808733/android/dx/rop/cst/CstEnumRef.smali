@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
-    .registers 4
+    .locals 2
 
     .line 36
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -23,9 +23,9 @@
     invoke-direct {p0, v0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstMemberRef;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstNat;)V
 
     .line 38
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstEnumRef;->fieldRef:Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstEnumRef;->fieldRef:Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
     return-void
 .end method
@@ -33,12 +33,12 @@
 
 # virtual methods
 .method public getFieldRef()Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
-    .registers 4
+    .locals 3
 
     .line 63
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstEnumRef;->fieldRef:Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 64
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
@@ -56,14 +56,14 @@
     iput-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstEnumRef;->fieldRef:Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
     .line 67
-    :cond_13
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstEnumRef;->fieldRef:Lcom/s1243808733/android/dx/rop/cst/CstFieldRef;
 
     return-object v0
 .end method
 
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 54
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstEnumRef;->getDefiningClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -78,7 +78,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 44
     const-string v0, "enum"

@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 31
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -30,12 +30,12 @@
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/android/dx/util/ByteArray;)V
-    .registers 3
+    .locals 2
 
     .line 194
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/cst/TypedConstant;-><init>()V
 
-    if-eqz p1, :cond_12
+    if-eqz p1, :cond_0
 
     .line 199
     iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->bytes:Lcom/s1243808733/android/dx/util/ByteArray;
@@ -43,34 +43,34 @@
     .line 200
     invoke-static {p1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->utf8BytesToString(Lcom/s1243808733/android/dx/util/ByteArray;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/String;->intern()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/String;->intern()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
 
     return-void
 
     .line 196
-    :cond_12
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "bytes == null"
+    const-string v1, "bytes == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 2
 
     .line 180
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/cst/TypedConstant;-><init>()V
 
-    if-eqz p1, :cond_17
+    if-eqz p1, :cond_0
 
     .line 185
     invoke-virtual {p1}, Ljava/lang/String;->intern()Ljava/lang/String;
@@ -84,153 +84,155 @@
 
     invoke-static {p1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->stringToUtf8Bytes(Ljava/lang/String;)[B
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {v0, p1}, Lcom/s1243808733/android/dx/util/ByteArray;-><init>([B)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/util/ByteArray;-><init>([B)V
 
     iput-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->bytes:Lcom/s1243808733/android/dx/util/ByteArray;
 
     return-void
 
     .line 182
-    :cond_17
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "string == null"
+    const-string v1, "string == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public static stringToUtf8Bytes(Ljava/lang/String;)[B
-    .registers 10
+    .locals 8
+
+    const/4 v2, 0x0
 
     .line 47
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v3
 
     .line 48
-    mul-int/lit8 v1, v0, 0x3
+    mul-int/lit8 v0, v3, 0x3
 
-    new-array v1, v1, [B
+    new-array v4, v0, [B
 
-    const/4 v2, 0x0
+    move v1, v2
 
-    const/4 v3, 0x0
+    move v0, v2
 
-    const/4 v4, 0x0
-
-    :goto_b
-    if-ge v3, v0, :cond_55
+    :goto_0
+    if-ge v1, v3, :cond_2
 
     .line 52
-    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
 
+    if-eqz v5, :cond_0
+
     const/16 v6, 0x80
 
-    if-eqz v5, :cond_1d
-
-    if-ge v5, v6, :cond_1d
+    if-ge v5, v6, :cond_0
 
     int-to-byte v5, v5
 
     .line 54
-    aput-byte v5, v1, v4
+    aput-byte v5, v4, v0
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_52
+    .line 63
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
 
-    :cond_1d
-    const/16 v7, 0x800
+    goto :goto_0
 
-    if-ge v5, v7, :cond_35
+    .line 54
+    :cond_0
+    const/16 v6, 0x800
 
-    shr-int/lit8 v7, v5, 0x6
+    if-ge v5, v6, :cond_1
 
-    and-int/lit8 v7, v7, 0x1f
+    shr-int/lit8 v6, v5, 0x6
 
-    or-int/lit16 v7, v7, 0xc0
+    and-int/lit8 v6, v6, 0x1f
 
-    int-to-byte v7, v7
+    or-int/lit16 v6, v6, 0xc0
+
+    int-to-byte v6, v6
 
     .line 57
-    aput-byte v7, v1, v4
+    aput-byte v6, v4, v0
 
     and-int/lit8 v5, v5, 0x3f
 
-    or-int/2addr v5, v6
+    or-int/lit16 v5, v5, 0x80
 
     int-to-byte v5, v5
 
     .line 58
-    add-int/lit8 v6, v4, 0x1
+    add-int/lit8 v6, v0, 0x1
 
-    aput-byte v5, v1, v6
+    aput-byte v5, v4, v6
 
-    add-int/lit8 v4, v4, 0x2
+    add-int/lit8 v0, v0, 0x2
 
-    goto :goto_52
+    goto :goto_1
 
-    :cond_35
-    shr-int/lit8 v7, v5, 0xc
+    :cond_1
+    shr-int/lit8 v6, v5, 0xc
 
-    and-int/lit8 v7, v7, 0xf
+    and-int/lit8 v6, v6, 0xf
 
-    or-int/lit16 v7, v7, 0xe0
+    or-int/lit16 v6, v6, 0xe0
 
-    int-to-byte v7, v7
+    int-to-byte v6, v6
 
     .line 61
-    aput-byte v7, v1, v4
+    aput-byte v6, v4, v0
 
-    shr-int/lit8 v7, v5, 0x6
+    shr-int/lit8 v6, v5, 0x6
 
-    and-int/lit8 v7, v7, 0x3f
+    and-int/lit8 v6, v6, 0x3f
 
-    or-int/2addr v7, v6
+    or-int/lit16 v6, v6, 0x80
 
-    int-to-byte v7, v7
+    int-to-byte v6, v6
 
     .line 62
-    add-int/lit8 v8, v4, 0x1
+    add-int/lit8 v7, v0, 0x1
 
-    aput-byte v7, v1, v8
+    aput-byte v6, v4, v7
 
     and-int/lit8 v5, v5, 0x3f
 
-    or-int/2addr v5, v6
+    or-int/lit16 v5, v5, 0x80
 
     int-to-byte v5, v5
 
     .line 63
-    add-int/lit8 v6, v4, 0x2
+    add-int/lit8 v6, v0, 0x2
 
-    aput-byte v5, v1, v6
+    aput-byte v5, v4, v6
 
-    add-int/lit8 v4, v4, 0x3
+    add-int/lit8 v0, v0, 0x3
 
-    :goto_52
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_b
+    goto :goto_1
 
     .line 68
-    :cond_55
-    new-array p0, v4, [B
+    :cond_2
+    new-array v1, v0, [B
 
     .line 69
-    invoke-static {v1, v2, p0, v2, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v4, v2, v1, v2, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    return-object p0
+    return-object v1
 .end method
 
 .method private static throwBadUtf8(II)Ljava/lang/String;
-    .registers 4
+    .locals 2
 
     .line 171
     new-instance v0, Ljava/lang/StringBuilder;
@@ -241,313 +243,319 @@
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/util/Hex;->u1(I)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, " at offset "
+    const-string v1, " at offset "
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 172
     invoke-static {p1}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v1
 .end method
 
 .method public static utf8BytesToString(Lcom/s1243808733/android/dx/util/ByteArray;)Ljava/lang/String;
-    .registers 12
+    .locals 11
+
+    const/4 v4, 0x0
+
+    const/16 v10, 0x80
 
     .line 80
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/util/ByteArray;->size()I
 
-    move-result v0
+    move-result v1
 
     .line 81
-    new-array v1, v0, [C
+    new-array v5, v1, [C
 
-    const/4 v2, 0x0
+    move v3, v4
 
-    const/4 v3, 0x0
+    move v0, v4
 
-    const/4 v4, 0x0
-
-    :goto_9
-    if-lez v0, :cond_97
+    :goto_0
+    if-lez v1, :cond_8
 
     .line 85
-    invoke-virtual {p0, v4}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte(I)I
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte(I)I
 
-    move-result v5
+    move-result v2
 
-    shr-int/lit8 v6, v5, 0x4
+    shr-int/lit8 v6, v2, 0x4
 
-    const/16 v7, 0x80
-
-    packed-switch v6, :pswitch_data_9e
+    packed-switch v6, :pswitch_data_0
 
     .line 151
-    :pswitch_16  #0x8, 0x9, 0xa, 0xb
-    invoke-static {v5, v4}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
+    :pswitch_0
+    invoke-static {v2, v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    .line 158
+    :goto_1
+    return-object v0
 
-    :pswitch_1b  #0xe
-    add-int/lit8 v0, v0, -0x3
+    .line 151
+    :pswitch_1
+    add-int/lit8 v1, v1, -0x3
 
-    if-gez v0, :cond_24
+    if-gez v1, :cond_0
 
     .line 126
-    invoke-static {v5, v4}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
+    invoke-static {v2, v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_1
 
-    :cond_24
-    add-int/lit8 v6, v4, 0x1
+    :cond_0
+    add-int/lit8 v6, v0, 0x1
 
     .line 128
     invoke-virtual {p0, v6}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte(I)I
 
-    move-result v8
+    move-result v7
 
-    and-int/lit16 v9, v8, 0xc0
+    and-int/lit16 v8, v7, 0xc0
 
-    if-eq v9, v7, :cond_33
+    if-eq v8, v10, :cond_1
 
     .line 130
-    invoke-static {v8, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
+    invoke-static {v7, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_1
 
-    :cond_33
-    add-int/lit8 v6, v4, 0x2
+    :cond_1
+    add-int/lit8 v6, v0, 0x2
 
     .line 132
     invoke-virtual {p0, v6}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte(I)I
 
-    move-result v10
+    move-result v9
 
-    if-eq v9, v7, :cond_40
+    if-eq v8, v10, :cond_2
 
     .line 134
-    invoke-static {v10, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
+    invoke-static {v9, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_1
 
-    :cond_40
-    and-int/lit8 v5, v5, 0xf
+    :cond_2
+    and-int/lit8 v2, v2, 0xf
 
-    shl-int/lit8 v5, v5, 0xc
+    shl-int/lit8 v2, v2, 0xc
 
-    and-int/lit8 v7, v8, 0x3f
+    and-int/lit8 v7, v7, 0x3f
 
     shl-int/lit8 v7, v7, 0x6
 
-    or-int/2addr v5, v7
+    or-int/2addr v2, v7
 
-    and-int/lit8 v7, v10, 0x3f
+    and-int/lit8 v7, v9, 0x3f
 
-    or-int/2addr v5, v7
+    or-int/2addr v2, v7
 
     const/16 v7, 0x800
 
-    if-ge v5, v7, :cond_55
+    if-ge v2, v7, :cond_3
 
     .line 143
-    invoke-static {v10, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
+    invoke-static {v9, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_1
 
-    :cond_55
-    int-to-char v5, v5
+    :cond_3
+    int-to-char v2, v2
 
-    add-int/lit8 v4, v4, 0x3
+    add-int/lit8 v0, v0, 0x3
 
-    goto :goto_91
+    .line 154
+    :goto_2
+    aput-char v2, v5, v3
 
-    :pswitch_59  #0xc, 0xd
-    add-int/lit8 v0, v0, -0x2
+    add-int/lit8 v2, v3, 0x1
 
-    if-gez v0, :cond_62
+    move v3, v2
+
+    goto :goto_0
+
+    .line 143
+    :pswitch_2
+    add-int/lit8 v1, v1, -0x2
+
+    if-gez v1, :cond_4
 
     .line 104
-    invoke-static {v5, v4}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
+    invoke-static {v2, v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_1
 
-    :cond_62
-    add-int/lit8 v6, v4, 0x1
+    :cond_4
+    add-int/lit8 v6, v0, 0x1
 
     .line 106
     invoke-virtual {p0, v6}, Lcom/s1243808733/android/dx/util/ByteArray;->getUnsignedByte(I)I
 
-    move-result v8
+    move-result v7
 
-    and-int/lit16 v9, v8, 0xc0
+    and-int/lit16 v8, v7, 0xc0
 
-    if-eq v9, v7, :cond_71
+    if-eq v8, v10, :cond_5
 
     .line 108
-    invoke-static {v8, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
+    invoke-static {v7, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_1
 
-    :cond_71
-    and-int/lit8 v5, v5, 0x1f
+    :cond_5
+    and-int/lit8 v2, v2, 0x1f
 
-    shl-int/lit8 v5, v5, 0x6
+    shl-int/lit8 v2, v2, 0x6
 
-    and-int/lit8 v9, v8, 0x3f
+    and-int/lit8 v8, v7, 0x3f
 
-    or-int/2addr v5, v9
+    or-int/2addr v2, v8
 
-    if-eqz v5, :cond_81
+    if-eqz v2, :cond_6
 
-    if-ge v5, v7, :cond_81
+    if-ge v2, v10, :cond_6
 
     .line 116
-    invoke-static {v8, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
+    invoke-static {v7, v6}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_1
 
-    :cond_81
-    int-to-char v5, v5
+    :cond_6
+    int-to-char v2, v2
 
-    add-int/lit8 v4, v4, 0x2
+    add-int/lit8 v0, v0, 0x2
 
-    goto :goto_91
+    goto :goto_2
 
-    :pswitch_85  #0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7
-    add-int/lit8 v0, v0, -0x1
+    :pswitch_3
+    add-int/lit8 v1, v1, -0x1
 
-    if-nez v5, :cond_8e
+    if-nez v2, :cond_7
 
     .line 94
-    invoke-static {v5, v4}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
+    invoke-static {v2, v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->throwBadUtf8(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_1
 
-    :cond_8e
-    int-to-char v5, v5
+    :cond_7
+    int-to-char v2, v2
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    .line 154
-    :goto_91
-    aput-char v5, v1, v3
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto/16 :goto_9
+    goto :goto_2
 
     .line 158
-    :cond_97
-    new-instance p0, Ljava/lang/String;
+    :cond_8
+    new-instance v0, Ljava/lang/String;
 
-    invoke-direct {p0, v1, v2, v3}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v0, v5, v4, v3}, Ljava/lang/String;-><init>([CII)V
 
-    return-object p0
+    goto/16 :goto_1
 
-    nop
-
-    :pswitch_data_9e
+    .line 85
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_85  #00000000
-        :pswitch_85  #00000001
-        :pswitch_85  #00000002
-        :pswitch_85  #00000003
-        :pswitch_85  #00000004
-        :pswitch_85  #00000005
-        :pswitch_85  #00000006
-        :pswitch_85  #00000007
-        :pswitch_16  #00000008
-        :pswitch_16  #00000009
-        :pswitch_16  #0000000a
-        :pswitch_16  #0000000b
-        :pswitch_59  #0000000c
-        :pswitch_59  #0000000d
-        :pswitch_1b  #0000000e
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
+        :pswitch_2
+        :pswitch_1
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method protected compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
-    .registers 3
+    .locals 2
 
     .line 222
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
 
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 2
 
     .line 206
     instance-of v0, p1, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x0
-
-    return p1
+    const/4 v0, 0x0
 
     .line 210
-    :cond_6
+    :goto_0
+    return v0
+
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
 
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public getBytes()Lcom/s1243808733/android/dx/util/ByteArray;
-    .registers 2
+    .locals 1
 
     .line 348
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->bytes:Lcom/s1243808733/android/dx/util/ByteArray;
@@ -556,7 +564,7 @@
 .end method
 
 .method public getString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 339
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
@@ -565,7 +573,7 @@
 .end method
 
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 375
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->STRING:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -574,7 +582,7 @@
 .end method
 
 .method public getUtf16Size()I
-    .registers 2
+    .locals 1
 
     .line 370
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
@@ -587,7 +595,7 @@
 .end method
 
 .method public getUtf8Size()I
-    .registers 2
+    .locals 1
 
     .line 358
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->bytes:Lcom/s1243808733/android/dx/util/ByteArray;
@@ -600,7 +608,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .line 216
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
@@ -613,7 +621,7 @@
 .end method
 
 .method public isCategory2()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -621,240 +629,248 @@
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 11
+    .locals 12
+
+    const/4 v1, 0x1
+
+    const/16 v11, 0x5c
+
+    const/16 v10, 0x30
+
+    const/4 v2, 0x0
+
+    const/16 v9, 0x10
 
     .line 246
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v5
 
     .line 247
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    mul-int/lit8 v2, v0, 0x3
+    mul-int/lit8 v0, v5, 0x3
 
-    div-int/lit8 v2, v2, 0x2
+    div-int/lit8 v0, v0, 0x2
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(I)V
+    invoke-direct {v6, v0}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    const/4 v2, 0x0
+    move v4, v2
 
-    const/4 v3, 0x0
-
-    :goto_11
-    if-ge v3, v0, :cond_bf
+    :goto_0
+    if-ge v4, v5, :cond_d
 
     .line 250
-    iget-object v4, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
 
-    invoke-virtual {v4, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v0, v4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v4
+    move-result v7
 
-    const/16 v5, 0x20
+    const/16 v0, 0x20
 
-    const/16 v6, 0x7f
+    if-lt v7, v0, :cond_3
 
-    const/16 v7, 0x5c
+    const/16 v0, 0x7f
 
-    if-lt v4, v5, :cond_35
+    if-ge v7, v0, :cond_3
 
-    if-ge v4, v6, :cond_35
+    const/16 v0, 0x27
 
-    const/16 v5, 0x27
+    if-eq v7, v0, :cond_0
 
-    if-eq v4, v5, :cond_2d
+    const/16 v0, 0x22
 
-    const/16 v5, 0x22
+    if-eq v7, v0, :cond_0
 
-    if-eq v4, v5, :cond_2d
-
-    if-ne v4, v7, :cond_30
+    if-ne v7, v11, :cond_1
 
     .line 253
-    :cond_2d
-    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    :cond_0
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 255
-    :cond_30
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    goto/16 :goto_bb
-
-    :cond_35
-    if-gt v4, v6, :cond_8c
-
-    const/16 v5, 0x9
-
-    if-eq v4, v5, :cond_86
-
-    const/16 v5, 0xa
-
-    if-eq v4, v5, :cond_80
-
-    const/16 v5, 0xd
-
-    if-eq v4, v5, :cond_7a
-
-    add-int/lit8 v5, v0, -0x1
-
-    if-ge v3, v5, :cond_50
-
-    .line 269
-    iget-object v5, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
-
-    add-int/lit8 v6, v3, 0x1
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    goto :goto_51
-
-    :cond_50
-    const/4 v5, 0x0
-
-    :goto_51
-    const/16 v6, 0x30
-
-    const/4 v8, 0x1
-
-    if-lt v5, v6, :cond_5c
-
-    const/16 v9, 0x37
-
-    if-gt v5, v9, :cond_5c
-
-    const/4 v5, 0x1
-
-    goto :goto_5d
-
-    :cond_5c
-    const/4 v5, 0x0
-
-    .line 272
-    :goto_5d
-    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    const/4 v7, 0x6
-
-    :goto_61
-    if-ltz v7, :cond_74
-
-    shr-int v9, v4, v7
-
-    and-int/lit8 v9, v9, 0x7
-
-    add-int/2addr v9, v6
-
-    int-to-char v9, v9
-
-    if-ne v9, v6, :cond_6d
-
-    if-eqz v5, :cond_71
-
-    .line 276
-    :cond_6d
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    const/4 v5, 0x1
-
-    :cond_71
-    add-int/lit8 v7, v7, -0x3
-
-    goto :goto_61
-
-    :cond_74
-    if-nez v5, :cond_bb
-
-    .line 282
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    goto :goto_bb
-
-    .line 259
-    :cond_7a
-    const-string v4, "\\r"
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_bb
-
-    .line 258
-    :cond_80
-    const-string v4, "\\n"
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_bb
-
-    .line 260
-    :cond_86
-    const-string v4, "\\t"
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_bb
-
-    .line 288
-    :cond_8c
-    const-string v5, "\\u"
-
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 289
-    shr-int/lit8 v5, v4, 0xc
-
-    const/16 v6, 0x10
-
-    invoke-static {v5, v6}, Ljava/lang/Character;->forDigit(II)C
-
-    move-result v5
-
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 290
-    shr-int/lit8 v5, v4, 0x8
-
-    and-int/lit8 v5, v5, 0xf
-
-    invoke-static {v5, v6}, Ljava/lang/Character;->forDigit(II)C
-
-    move-result v5
-
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 291
-    shr-int/lit8 v5, v4, 0x4
-
-    and-int/lit8 v5, v5, 0xf
-
-    invoke-static {v5, v6}, Ljava/lang/Character;->forDigit(II)C
-
-    move-result v5
-
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    :cond_1
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 292
-    and-int/lit8 v4, v4, 0xf
+    :cond_2
+    :goto_1
+    add-int/lit8 v0, v4, 0x1
 
-    invoke-static {v4, v6}, Ljava/lang/Character;->forDigit(II)C
+    move v4, v0
 
-    move-result v4
+    goto :goto_0
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    .line 255
+    :cond_3
+    const/16 v0, 0x7f
 
-    :cond_bb
-    :goto_bb
-    add-int/lit8 v3, v3, 0x1
+    if-gt v7, v0, :cond_c
 
-    goto/16 :goto_11
+    const/16 v0, 0x9
+
+    if-eq v7, v0, :cond_b
+
+    const/16 v0, 0xa
+
+    if-eq v7, v0, :cond_a
+
+    const/16 v0, 0xd
+
+    if-eq v7, v0, :cond_9
+
+    add-int/lit8 v0, v5, -0x1
+
+    if-ge v4, v0, :cond_6
+
+    .line 269
+    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstString;->string:Ljava/lang/String;
+
+    add-int/lit8 v3, v4, 0x1
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    :goto_2
+    if-lt v0, v10, :cond_7
+
+    const/16 v3, 0x37
+
+    if-gt v0, v3, :cond_7
+
+    move v0, v1
+
+    .line 272
+    :goto_3
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const/4 v3, 0x6
+
+    :goto_4
+    if-ltz v3, :cond_8
+
+    shr-int v8, v7, v3
+
+    and-int/lit8 v8, v8, 0x7
+
+    add-int/lit8 v8, v8, 0x30
+
+    int-to-char v8, v8
+
+    if-ne v8, v10, :cond_4
+
+    if-eqz v0, :cond_5
+
+    .line 276
+    :cond_4
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move v0, v1
+
+    :cond_5
+    add-int/lit8 v3, v3, -0x3
+
+    goto :goto_4
+
+    :cond_6
+    move v0, v2
+
+    .line 269
+    goto :goto_2
+
+    :cond_7
+    move v0, v2
+
+    goto :goto_3
+
+    .line 276
+    :cond_8
+    if-nez v0, :cond_2
+
+    .line 282
+    invoke-virtual {v6, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    goto :goto_1
+
+    .line 259
+    :cond_9
+    const-string v0, "\\r"
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_1
+
+    .line 258
+    :cond_a
+    const-string v0, "\\n"
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_1
+
+    .line 260
+    :cond_b
+    const-string v0, "\\t"
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_1
+
+    .line 288
+    :cond_c
+    const-string v0, "\\u"
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 289
+    shr-int/lit8 v0, v7, 0xc
+
+    invoke-static {v0, v9}, Ljava/lang/Character;->forDigit(II)C
+
+    move-result v0
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 290
+    shr-int/lit8 v0, v7, 0x8
+
+    and-int/lit8 v0, v0, 0xf
+
+    invoke-static {v0, v9}, Ljava/lang/Character;->forDigit(II)C
+
+    move-result v0
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 291
+    shr-int/lit8 v0, v7, 0x4
+
+    and-int/lit8 v0, v0, 0xf
+
+    invoke-static {v0, v9}, Ljava/lang/Character;->forDigit(II)C
+
+    move-result v0
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 292
+    and-int/lit8 v0, v7, 0xf
+
+    invoke-static {v0, v9}, Ljava/lang/Character;->forDigit(II)C
+
+    move-result v0
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    goto/16 :goto_1
 
     .line 296
-    :cond_bf
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_d
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -862,7 +878,7 @@
 .end method
 
 .method public toQuoted()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 306
     new-instance v0, Ljava/lang/StringBuilder;
@@ -889,65 +905,65 @@
 .end method
 
 .method public toQuoted(I)Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .line 318
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toHuman()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 319
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
     add-int/lit8 v2, p1, -0x2
 
-    if-gt v1, v2, :cond_f
+    if-gt v0, v2, :cond_0
 
     .line 323
-    const-string p1, ""
+    const-string v0, ""
 
-    goto :goto_18
+    .line 329
+    :goto_0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    .line 325
-    :cond_f
-    add-int/lit8 p1, p1, -0x5
+    const-string v3, "\""
 
-    const/4 v1, 0x0
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1, p1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v0, 0x22
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
+    return-object v0
+
+    .line 325
+    :cond_0
+    const/4 v0, 0x0
+
+    add-int/lit8 v2, p1, -0x5
+
+    invoke-virtual {v1, v0, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v1
+
     .line 326
-    const-string p1, "..."
+    const-string v0, "..."
 
-    .line 329
-    :goto_18
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string v2, "\""
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/16 p1, 0x22
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 228
     new-instance v0, Ljava/lang/StringBuilder;
@@ -974,7 +990,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 234
     const-string v0, "utf8"

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/co;)V
-    .registers 2
+    .locals 0
 
     .line 435
     iput-object p1, p0, Lcom/baidu/mobstat/co$14;->a:Lcom/baidu/mobstat/co;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onScrollChanged()V
-    .registers 3
+    .locals 2
 
     .line 439
     iget-object v0, p0, Lcom/baidu/mobstat/co$14;->a:Lcom/baidu/mobstat/co;

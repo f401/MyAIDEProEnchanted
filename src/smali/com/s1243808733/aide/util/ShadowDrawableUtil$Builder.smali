@@ -30,87 +30,87 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$mbuilder(Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;)Lcom/s1243808733/aide/util/ShadowDrawableUtil;
-    .registers 1
+    .locals 1
 
     invoke-direct {p0}, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->builder()Lcom/s1243808733/aide/util/ShadowDrawableUtil;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$msetBgColor(Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;Ljava/lang/String;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->setBgColor(Ljava/lang/String;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$msetBgColor(Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;[Ljava/lang/String;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->setBgColor([Ljava/lang/String;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$msetShadowColor(Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;Ljava/lang/String;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->setShadowColor(Ljava/lang/String;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$msetShadowRadius(Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;I)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->setShadowRadius(I)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$msetShape(Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;I)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->setShape(I)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$msetShapeRadius(Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;I)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->setShapeRadius(I)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$msetType(Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;Lcom/s1243808733/aide/util/ShadowDrawableUtil$TypeEnum;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->setType(Lcom/s1243808733/aide/util/ShadowDrawableUtil$TypeEnum;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method private constructor <init>()V
-    .registers 4
+    .locals 3
 
     .line 311
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -164,7 +164,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder-IA;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;-><init>()V
 
@@ -172,10 +172,10 @@
 .end method
 
 .method private builder()Lcom/s1243808733/aide/util/ShadowDrawableUtil;
-    .registers 10
+    .locals 8
 
     .line 366
-    new-instance v8, Lcom/s1243808733/aide/util/ShadowDrawableUtil;
+    new-instance v0, Lcom/s1243808733/aide/util/ShadowDrawableUtil;
 
     iget v1, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShape:I
 
@@ -183,35 +183,33 @@
 
     iget-object v3, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mBgColor:[I
 
-    iget v0, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShapeRadius:I
+    iget v4, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShapeRadius:I
 
-    int-to-float v0, v0
+    int-to-float v4, v4
 
-    invoke-static {v0}, Lcom/s1243808733/aide/util/ShadowDrawableUtil;->-$$Nest$smdp2px(F)I
+    invoke-static {v4}, Lcom/s1243808733/aide/util/ShadowDrawableUtil;->-$$Nest$smdp2px(F)I
 
     move-result v4
 
     iget v5, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShadowColor:I
 
-    iget v0, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShadowRadius:I
+    iget v6, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShadowRadius:I
 
-    int-to-float v0, v0
+    int-to-float v6, v6
 
-    invoke-static {v0}, Lcom/s1243808733/aide/util/ShadowDrawableUtil;->-$$Nest$smdp2px(F)I
+    invoke-static {v6}, Lcom/s1243808733/aide/util/ShadowDrawableUtil;->-$$Nest$smdp2px(F)I
 
     move-result v6
 
     const/4 v7, 0x0
 
-    move-object v0, v8
-
     invoke-direct/range {v0 .. v7}, Lcom/s1243808733/aide/util/ShadowDrawableUtil;-><init>(ILcom/s1243808733/aide/util/ShadowDrawableUtil$TypeEnum;[IIIILcom/s1243808733/aide/util/ShadowDrawableUtil-IA;)V
 
-    return-object v8
+    return-object v0
 .end method
 
 .method private setBgColor(Ljava/lang/String;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 4
+    .locals 3
 
     .line 343
     iget-object v0, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mBgColor:[I
@@ -220,72 +218,72 @@
 
     invoke-static {p1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v2
 
-    aput p1, v0, v1
+    aput v2, v0, v1
 
     return-object p0
 .end method
 
 .method private setBgColor([Ljava/lang/String;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 5
+    .locals 3
 
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_1
 
     .line 354
     array-length v0, p1
 
-    if-lez v0, :cond_19
+    if-lez v0, :cond_1
 
     .line 355
     array-length v0, p1
 
-    new-array v0, v0, [I
+    new-array v1, v0, [I
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 356
-    :goto_9
+    :goto_0
     array-length v2, p1
 
-    if-ge v1, v2, :cond_17
+    if-ge v0, v2, :cond_0
 
     .line 357
-    aget-object v2, p1, v1
+    aget-object v2, p1, v0
 
     invoke-static {v2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result v2
 
-    aput v2, v0, v1
+    aput v2, v1, v0
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 359
-    :cond_17
-    iput-object v0, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mBgColor:[I
+    :cond_0
+    iput-object v1, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mBgColor:[I
 
-    :cond_19
+    :cond_1
     return-object p0
 .end method
 
 .method private setShadowColor(Ljava/lang/String;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 1
 
     .line 333
     invoke-static {p1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShadowColor:I
+    iput v0, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShadowColor:I
 
     return-object p0
 .end method
 
 .method private setShadowRadius(I)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 0
 
     .line 338
     iput p1, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShadowRadius:I
@@ -294,7 +292,7 @@
 .end method
 
 .method private setShape(I)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 0
 
     .line 322
     iput p1, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShape:I
@@ -303,7 +301,7 @@
 .end method
 
 .method private setShapeRadius(I)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 0
 
     .line 327
     iput p1, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->mShapeRadius:I
@@ -312,7 +310,7 @@
 .end method
 
 .method private setType(Lcom/s1243808733/aide/util/ShadowDrawableUtil$TypeEnum;)Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;
-    .registers 2
+    .locals 0
 
     .line 348
     iput-object p1, p0, Lcom/s1243808733/aide/util/ShadowDrawableUtil$Builder;->type:Lcom/s1243808733/aide/util/ShadowDrawableUtil$TypeEnum;

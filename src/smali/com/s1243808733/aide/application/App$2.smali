@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/App;)V
-    .registers 2
+    .locals 0
 
     .line 150
     iput-object p1, p0, Lcom/s1243808733/aide/application/App$2;->this$0:Lcom/s1243808733/aide/application/App;
@@ -36,33 +36,33 @@
 
 # virtual methods
 .method public onCrash(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .registers 5
+    .locals 3
 
     .line 154
-    new-instance p2, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
     invoke-static {}, Lcom/s1243808733/aide/application/App;->getApp()Lcom/s1243808733/aide/application/App;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-class v1, Lcom/s1243808733/util/CrashUtils$CrashActiviy;
+    const-class v2, Lcom/s1243808733/util/CrashUtils$CrashActiviy;
 
-    invoke-direct {p2, v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     .line 155
-    const/high16 v0, 0x10000000
+    const/high16 v1, 0x10000000
 
-    invoke-virtual {p2, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 156
-    const-string v0, "crashInfo"
+    const-string v1, "crashInfo"
 
-    invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 157
-    iget-object p1, p0, Lcom/s1243808733/aide/application/App$2;->this$0:Lcom/s1243808733/aide/application/App;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/App$2;->this$0:Lcom/s1243808733/aide/application/App;
 
-    invoke-virtual {p1, p2}, Lcom/s1243808733/aide/application/App;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Lcom/s1243808733/aide/application/App;->startActivity(Landroid/content/Intent;)V
 
     .line 158
     invoke-static {}, Lcom/blankj/utilcode/util/AppUtils;->exitApp()V

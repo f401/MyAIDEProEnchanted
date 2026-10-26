@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lio/github/zeroaicy/util/crash/CrashApphandler;)V
-    .registers 2
+    .locals 0
 
     .line 36
     iput-object p1, p0, Lio/github/zeroaicy/util/crash/CrashApphandler$1;->this$0:Lio/github/zeroaicy/util/crash/CrashApphandler;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onCrash(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
 
     .line 39
     iget-object v0, p0, Lio/github/zeroaicy/util/crash/CrashApphandler$1;->this$0:Lio/github/zeroaicy/util/crash/CrashApphandler;
@@ -46,13 +46,13 @@
     .line 40
     instance-of v1, v0, Landroid/app/Application;
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_0
 
     .line 41
     sget-object v0, Lio/github/zeroaicy/util/crash/CrashApplication;->mCrashApplication:Landroid/app/Application;
 
-    :cond_a
-    if-nez v0, :cond_10
+    :cond_0
+    if-nez v0, :cond_1
 
     .line 44
     invoke-static {}, Lio/github/zeroaicy/util/ContextUtil;->getContext()Landroid/content/Context;
@@ -60,7 +60,7 @@
     move-result-object v0
 
     .line 47
-    :cond_10
+    :cond_1
     new-instance v1, Landroid/content/Intent;
 
     const-class v2, Lio/github/zeroaicy/util/crash/CrashActivity;
@@ -81,9 +81,9 @@
     invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     .line 54
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    invoke-static {p1}, Ljava/lang/System;->exit(I)V
+    invoke-static {v0}, Ljava/lang/System;->exit(I)V
 
     return-void
 .end method

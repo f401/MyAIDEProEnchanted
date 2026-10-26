@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;[Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,16 +45,16 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 2
 
     .line 53
-    iget-object p1, p0, Lcom/s1243808733/aide/util/QuickKey$1;->val$activity:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/s1243808733/aide/util/QuickKey$1;->val$activity:Landroid/app/Activity;
 
-    iget-object v0, p0, Lcom/s1243808733/aide/util/QuickKey$1;->val$keys:[Ljava/lang/String;
+    iget-object v1, p0, Lcom/s1243808733/aide/util/QuickKey$1;->val$keys:[Ljava/lang/String;
 
-    aget-object p2, v0, p2
+    aget-object v1, v1, p2
 
-    invoke-static {p1, p2}, Lcom/s1243808733/aide/util/QuickKey;->showModifyKeyDialog(Landroid/app/Activity;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/util/QuickKey;->showModifyKeyDialog(Landroid/app/Activity;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/co;Ljava/lang/ref/WeakReference;J)V
-    .registers 5
+    .locals 1
 
     .line 202
     iput-object p1, p0, Lcom/baidu/mobstat/co$8;->c:Lcom/baidu/mobstat/co;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 205
     iget-object v0, p0, Lcom/baidu/mobstat/co$8;->c:Lcom/baidu/mobstat/co;
@@ -62,17 +62,18 @@
 
     check-cast v0, Landroid/app/Activity;
 
-    if-nez v0, :cond_11
-
-    return-void
+    if-nez v0, :cond_0
 
     .line 212
-    :cond_11
+    :goto_0
+    return-void
+
+    :cond_0
     iget-object v1, p0, Lcom/baidu/mobstat/co$8;->c:Lcom/baidu/mobstat/co;
 
     iget-wide v2, p0, Lcom/baidu/mobstat/co$8;->b:J
 
     invoke-static {v1, v0, v2, v3}, Lcom/baidu/mobstat/co;->b(Lcom/baidu/mobstat/co;Landroid/app/Activity;J)V
 
-    return-void
+    goto :goto_0
 .end method

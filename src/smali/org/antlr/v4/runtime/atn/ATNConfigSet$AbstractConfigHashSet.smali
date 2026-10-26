@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lorg/antlr/v4/runtime/misc/Array2DHashSet<",
+        "Lorg/antlr/v4/runtime/misc/Array2DHashSet",
+        "<",
         "Lorg/antlr/v4/runtime/atn/ATNConfig;",
         ">;"
     }
@@ -24,12 +25,12 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator<",
-            "-",
+            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator",
+            "<-",
             "Lorg/antlr/v4/runtime/atn/ATNConfig;",
             ">;)V"
         }
@@ -46,12 +47,12 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;II)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator<",
-            "-",
+            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator",
+            "<-",
             "Lorg/antlr/v4/runtime/atn/ATNConfig;",
             ">;II)V"
         }
@@ -66,71 +67,72 @@
 
 # virtual methods
 .method protected bridge synthetic asElementType(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 357
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/atn/ATNConfigSet$AbstractConfigHashSet;->asElementType(Ljava/lang/Object;)Lorg/antlr/v4/runtime/atn/ATNConfig;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method protected final asElementType(Ljava/lang/Object;)Lorg/antlr/v4/runtime/atn/ATNConfig;
-    .registers 3
+    .locals 1
 
     .line 369
     instance-of v0, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 p1, 0x0
 
+    .line 373
+    :goto_0
     return-object p1
 
-    .line 373
-    :cond_6
+    :cond_0
     check-cast p1, Lorg/antlr/v4/runtime/atn/ATNConfig;
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method protected bridge synthetic createBucket(I)[Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 357
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/atn/ATNConfigSet$AbstractConfigHashSet;->createBucket(I)[Lorg/antlr/v4/runtime/atn/ATNConfig;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method protected final createBucket(I)[Lorg/antlr/v4/runtime/atn/ATNConfig;
-    .registers 2
+    .locals 1
 
     .line 383
-    new-array p1, p1, [Lorg/antlr/v4/runtime/atn/ATNConfig;
+    new-array v0, p1, [Lorg/antlr/v4/runtime/atn/ATNConfig;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method protected bridge synthetic createBuckets(I)[[Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 357
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/atn/ATNConfigSet$AbstractConfigHashSet;->createBuckets(I)[[Lorg/antlr/v4/runtime/atn/ATNConfig;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method protected final createBuckets(I)[[Lorg/antlr/v4/runtime/atn/ATNConfig;
-    .registers 2
+    .locals 1
 
     .line 378
-    new-array p1, p1, [[Lorg/antlr/v4/runtime/atn/ATNConfig;
+    new-array v0, p1, [[Lorg/antlr/v4/runtime/atn/ATNConfig;
 
-    return-object p1
+    return-object v0
 .end method

@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,36 +30,36 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;IZ)V
-    .registers 6
+    .locals 4
 
     .line 42
     invoke-static {}, Lcom/s1243808733/util/View2Java;->-$$Nest$smgetSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    invoke-static {}, Lcom/s1243808733/util/View2Java;->-$$Nest$sfgetitems()[Ljava/lang/String;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    aget-object p2, v0, p2
+    invoke-static {}, Lcom/s1243808733/util/View2Java;->-$$Nest$sfgetitems()[Ljava/lang/String;
 
-    const-string v0, " "
+    move-result-object v1
 
-    const-string v1, "_"
+    aget-object v1, v1, p2
 
-    invoke-virtual {p2, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    const-string v2, " "
 
-    move-result-object p2
+    const-string v3, "_"
 
-    invoke-interface {p1, p2, p3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0, v1, p3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     return-void
 .end method

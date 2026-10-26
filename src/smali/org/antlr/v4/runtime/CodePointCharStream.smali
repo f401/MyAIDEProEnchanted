@@ -17,7 +17,7 @@
 
 
 # static fields
-.field static final $assertionsDisabled:Z = false
+.field static final $assertionsDisabled:Z
 
 
 # instance fields
@@ -30,13 +30,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method private constructor <init>(IILjava/lang/String;)V
-    .registers 4
+    .locals 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,15 +48,15 @@
     iput-object p3, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->name:Ljava/lang/String;
 
     .line 37
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->position:I
+    iput v0, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->position:I
 
     return-void
 .end method
 
 .method synthetic constructor <init>(IILjava/lang/String;Lorg/antlr/v4/runtime/CodePointCharStream$1;)V
-    .registers 5
+    .locals 0
 
     .line 21
     invoke-direct {p0, p1, p2, p3}, Lorg/antlr/v4/runtime/CodePointCharStream;-><init>(IILjava/lang/String;)V
@@ -65,25 +65,27 @@
 .end method
 
 .method public static fromBuffer(Lorg/antlr/v4/runtime/CodePointBuffer;)Lorg/antlr/v4/runtime/CodePointCharStream;
-    .registers 2
+    .locals 1
 
     .line 48
     const-string v0, "<unknown>"
 
     invoke-static {p0, v0}, Lorg/antlr/v4/runtime/CodePointCharStream;->fromBuffer(Lorg/antlr/v4/runtime/CodePointBuffer;Ljava/lang/String;)Lorg/antlr/v4/runtime/CodePointCharStream;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static fromBuffer(Lorg/antlr/v4/runtime/CodePointBuffer;Ljava/lang/String;)Lorg/antlr/v4/runtime/CodePointCharStream;
-    .registers 18
+    .locals 7
+
+    const/4 v6, 0x0
 
     .line 66
     sget-object v0, Lorg/antlr/v4/runtime/CodePointCharStream$1;->$SwitchMap$org$antlr$v4$runtime$CodePointBuffer$Type:[I
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->getType()Lorg/antlr/v4/runtime/CodePointBuffer$Type;
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->getType()Lorg/antlr/v4/runtime/CodePointBuffer$Type;
 
     move-result-object v1
 
@@ -95,47 +97,44 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_51
+    if-eq v0, v1, :cond_2
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_37
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_2f
+    if-ne v0, v1, :cond_0
 
     .line 82
     new-instance v0, Lorg/antlr/v4/runtime/CodePointCharStream$CodePoint32BitCharStream;
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->position()I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->position()I
 
-    move-result v3
+    move-result v1
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->remaining()I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->remaining()I
 
-    move-result v4
+    move-result v2
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->intArray()[I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->intArray()[I
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->arrayOffset()I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->arrayOffset()I
 
-    move-result v7
+    move-result v5
 
-    const/4 v8, 0x0
+    move-object v3, p1
 
-    move-object v2, v0
+    invoke-direct/range {v0 .. v6}, Lorg/antlr/v4/runtime/CodePointCharStream$CodePoint32BitCharStream;-><init>(IILjava/lang/String;[IILorg/antlr/v4/runtime/CodePointCharStream$1;)V
 
-    move-object/from16 v5, p1
-
-    invoke-direct/range {v2 .. v8}, Lorg/antlr/v4/runtime/CodePointCharStream$CodePoint32BitCharStream;-><init>(IILjava/lang/String;[IILorg/antlr/v4/runtime/CodePointCharStream$1;)V
-
+    :goto_0
     return-object v0
 
     .line 89
-    :cond_2f
+    :cond_0
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Not reached"
@@ -145,70 +144,62 @@
     throw v0
 
     .line 75
-    :cond_37
+    :cond_1
     new-instance v0, Lorg/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream;
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->position()I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->position()I
 
-    move-result v3
+    move-result v1
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->remaining()I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->remaining()I
 
-    move-result v4
+    move-result v2
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->charArray()[C
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->charArray()[C
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->arrayOffset()I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->arrayOffset()I
 
-    move-result v7
+    move-result v5
 
-    const/4 v8, 0x0
+    move-object v3, p1
 
-    move-object v2, v0
+    invoke-direct/range {v0 .. v6}, Lorg/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream;-><init>(IILjava/lang/String;[CILorg/antlr/v4/runtime/CodePointCharStream$1;)V
 
-    move-object/from16 v5, p1
-
-    invoke-direct/range {v2 .. v8}, Lorg/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream;-><init>(IILjava/lang/String;[CILorg/antlr/v4/runtime/CodePointCharStream$1;)V
-
-    return-object v0
+    goto :goto_0
 
     .line 68
-    :cond_51
+    :cond_2
     new-instance v0, Lorg/antlr/v4/runtime/CodePointCharStream$CodePoint8BitCharStream;
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->position()I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->position()I
 
-    move-result v10
+    move-result v1
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->remaining()I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->remaining()I
 
-    move-result v11
+    move-result v2
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->byteArray()[B
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->byteArray()[B
 
-    move-result-object v13
+    move-result-object v4
 
-    invoke-virtual/range {p0 .. p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->arrayOffset()I
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/CodePointBuffer;->arrayOffset()I
 
-    move-result v14
+    move-result v5
 
-    const/4 v15, 0x0
+    move-object v3, p1
 
-    move-object v9, v0
+    invoke-direct/range {v0 .. v6}, Lorg/antlr/v4/runtime/CodePointCharStream$CodePoint8BitCharStream;-><init>(IILjava/lang/String;[BILorg/antlr/v4/runtime/CodePointCharStream$1;)V
 
-    move-object/from16 v12, p1
-
-    invoke-direct/range {v9 .. v15}, Lorg/antlr/v4/runtime/CodePointCharStream$CodePoint8BitCharStream;-><init>(IILjava/lang/String;[BILorg/antlr/v4/runtime/CodePointCharStream$1;)V
-
-    return-object v0
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public final consume()V
-    .registers 3
+    .locals 2
 
     .line 94
     iget v0, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->size:I
@@ -217,17 +208,17 @@
 
     sub-int/2addr v0, v1
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 98
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    iput v1, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->position:I
+    iput v0, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->position:I
 
     return-void
 
     .line 96
-    :cond_c
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "cannot consume EOF"
@@ -241,37 +232,35 @@
 .end method
 
 .method public final getSourceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 128
     iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->name:Ljava/lang/String;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
-
-    goto :goto_e
-
-    .line 132
-    :cond_b
-    iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->name:Ljava/lang/String;
-
-    return-object v0
+    if-eqz v0, :cond_1
 
     .line 129
-    :cond_e
-    :goto_e
+    :cond_0
     const-string v0, "<unknown>"
 
+    .line 132
+    :goto_0
     return-object v0
+
+    :cond_1
+    iget-object v0, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->name:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 .method public final index()I
-    .registers 2
+    .locals 1
 
     .line 103
     iget v0, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->position:I
@@ -280,7 +269,7 @@
 .end method
 
 .method public final mark()I
-    .registers 2
+    .locals 1
 
     const/4 v0, -0x1
 
@@ -288,13 +277,13 @@
 .end method
 
 .method public final release(I)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public final seek(I)V
-    .registers 2
+    .locals 0
 
     .line 123
     iput p1, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->position:I
@@ -303,7 +292,7 @@
 .end method
 
 .method public final size()I
-    .registers 2
+    .locals 1
 
     .line 108
     iget v0, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->size:I
@@ -312,16 +301,16 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 137
-    iget v0, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->size:I
+    const/4 v0, 0x0
 
-    add-int/lit8 v0, v0, -0x1
+    iget v1, p0, Lorg/antlr/v4/runtime/CodePointCharStream;->size:I
 
-    const/4 v1, 0x0
+    add-int/lit8 v1, v1, -0x1
 
-    invoke-static {v1, v0}, Lorg/antlr/v4/runtime/misc/Interval;->of(II)Lorg/antlr/v4/runtime/misc/Interval;
+    invoke-static {v0, v1}, Lorg/antlr/v4/runtime/misc/Interval;->of(II)Lorg/antlr/v4/runtime/misc/Interval;
 
     move-result-object v0
 

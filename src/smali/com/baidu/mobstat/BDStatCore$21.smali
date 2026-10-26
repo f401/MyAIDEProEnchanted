@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
 
     .line 232
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$21;->b:Lcom/baidu/mobstat/BDStatCore;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 237
     :try_start_0
@@ -52,7 +52,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     .line 238
     invoke-static {}, Lcom/baidu/mobstat/ActivityLifeObserver;->instance()Lcom/baidu/mobstat/ActivityLifeObserver;
@@ -70,10 +70,12 @@
 
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/ActivityLifeObserver;->unRegister(Landroid/content/Context;)V
 
-    goto :goto_2f
+    .line 244
+    :goto_0
+    return-void
 
     .line 241
-    :cond_1b
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$21;->b:Lcom/baidu/mobstat/BDStatCore;
 
     invoke-static {v0}, Lcom/baidu/mobstat/BDStatCore;->b(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/SessionAnalysis;
@@ -87,17 +89,16 @@
     move-result-wide v2
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/baidu/mobstat/SessionAnalysis;->doSendLogCheck(Landroid/content/Context;J)V
-    :try_end_2a
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_2a} :catch_2b
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2f
+    goto :goto_0
 
-    :catch_2b
+    :catch_0
     move-exception v0
 
     .line 244
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    :goto_2f
-    return-void
+    goto :goto_0
 .end method

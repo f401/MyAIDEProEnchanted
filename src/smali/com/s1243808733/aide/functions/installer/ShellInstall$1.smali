@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/functions/installer/ShellInstall;)V
-    .registers 2
+    .locals 0
 
     .line 94
     iput-object p1, p0, Lcom/s1243808733/aide/functions/installer/ShellInstall$1;->this$0:Lcom/s1243808733/aide/functions/installer/ShellInstall;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 97
     invoke-static {}, Lcom/aide/ui/U;->lg()Lcom/aide/ui/MainActivity;
@@ -51,7 +51,7 @@
     monitor-enter v1
 
     .line 100
-    :try_start_9
+    :try_start_0
     invoke-static {v0}, Lcom/aide/ui/MainActivity;->FH(Landroid/content/Context;)Landroid/app/PendingIntent;
 
     move-result-object v0
@@ -59,31 +59,30 @@
     const-wide/16 v2, 0x1388
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/Object;->wait(J)V
-    :try_end_12
-    .catch Ljava/lang/InterruptedException; {:try_start_9 .. :try_end_12} :catch_15
-    .catchall {:try_start_9 .. :try_end_12} :catchall_13
-
-    goto :goto_16
-
-    :catchall_13
-    move-exception v0
-
-    goto :goto_18
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 102
-    :catch_15
-    move-exception v0
-
-    :goto_16
-    :try_start_16
+    :goto_0
+    :try_start_1
     monitor-exit v1
 
     return-void
 
-    :goto_18
+    .line 100
+    :catchall_0
+    move-exception v0
+
+    .line 102
     monitor-exit v1
-    :try_end_19
-    .catchall {:try_start_16 .. :try_end_19} :catchall_13
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/preference/PreferenceTheme;Landroid/widget/ListView;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -43,103 +43,105 @@
 .end method
 
 .method private show(Landroid/view/View;)V
-    .registers 10
+    .locals 9
+
+    const/4 v3, 0x0
+
+    const/4 v8, 0x1
 
     .line 68
-    new-instance v0, Landroid/widget/PopupMenu;
+    new-instance v4, Landroid/widget/PopupMenu;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->this$0:Lcom/s1243808733/aide/preference/PreferenceTheme;
+    iget-object v0, p0, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->this$0:Lcom/s1243808733/aide/preference/PreferenceTheme;
 
-    invoke-virtual {v1}, Lcom/s1243808733/aide/preference/PreferenceTheme;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/preference/PreferenceTheme;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
+    invoke-direct {v4, v0, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
 
     .line 69
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
+    invoke-virtual {v4}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
 
-    move-result-object p1
+    move-result-object v5
 
     .line 70
     invoke-static {}, Lcom/s1243808733/aide/application/AppTheme;->getThemeCode()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
     .line 72
-    sget-object v2, Lcom/s1243808733/aide/application/AppTheme;->THEME:Ljava/util/Map;
+    sget-object v0, Lcom/s1243808733/aide/application/AppTheme;->THEME:Ljava/util/Map;
 
-    invoke-interface {v2}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object v0
 
-    const/4 v3, 0x0
+    new-array v1, v3, [Ljava/lang/String;
 
-    new-array v4, v3, [Ljava/lang/String;
+    invoke-interface {v0, v1}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    invoke-interface {v2, v4}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
+    check-cast v0, [Ljava/lang/String;
 
-    check-cast v2, [Ljava/lang/String;
-
-    const/4 v4, 0x0
+    move v2, v3
 
     .line 73
-    :goto_23
-    array-length v5, v2
+    :goto_0
+    array-length v1, v0
 
-    const/4 v6, 0x1
-
-    if-ge v4, v5, :cond_4c
+    if-ge v2, v1, :cond_1
 
     .line 75
-    sget-object v5, Lcom/s1243808733/aide/application/AppTheme;->THEME:Ljava/util/Map;
+    sget-object v1, Lcom/s1243808733/aide/application/AppTheme;->THEME:Ljava/util/Map;
 
-    aget-object v7, v2, v4
+    aget-object v7, v0, v2
 
-    invoke-interface {v5, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v1
 
-    check-cast v5, Ljava/lang/CharSequence;
+    check-cast v1, Ljava/lang/CharSequence;
 
-    invoke-interface {p1, v6, v4, v3, v5}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {v5, v8, v2, v3, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    move-result-object v5
+    move-result-object v1
 
     new-instance v7, Lcom/s1243808733/aide/preference/PreferenceTheme$1$1;
 
-    invoke-direct {v7, p0, v2, v4}, Lcom/s1243808733/aide/preference/PreferenceTheme$1$1;-><init>(Lcom/s1243808733/aide/preference/PreferenceTheme$1;[Ljava/lang/String;I)V
+    invoke-direct {v7, p0, v0, v2}, Lcom/s1243808733/aide/preference/PreferenceTheme$1$1;-><init>(Lcom/s1243808733/aide/preference/PreferenceTheme$1;[Ljava/lang/String;I)V
 
     .line 76
-    invoke-interface {v5, v7}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v1, v7}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    move-result-object v5
+    move-result-object v1
 
     .line 120
-    aget-object v7, v2, v4
+    aget-object v7, v0, v2
 
-    invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_49
+    if-eqz v7, :cond_0
 
     .line 121
-    invoke-interface {v5, v6}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    invoke-interface {v1, v8}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    :cond_49
-    add-int/lit8 v4, v4, 0x1
+    :cond_0
+    add-int/lit8 v1, v2, 0x1
 
-    goto :goto_23
+    move v2, v1
+
+    goto :goto_0
 
     .line 125
-    :cond_4c
-    invoke-interface {p1, v6, v6, v6}, Landroid/view/Menu;->setGroupCheckable(IZZ)V
+    :cond_1
+    invoke-interface {v5, v8, v8, v8}, Landroid/view/Menu;->setGroupCheckable(IZZ)V
 
     .line 127
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->show()V
+    invoke-virtual {v4}, Landroid/widget/PopupMenu;->show()V
 
     return-void
 .end method
@@ -147,52 +149,44 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 6
+    .locals 5
 
-    const/4 p1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v0, 0x0
+    move v1, v2
 
     .line 55
-    :goto_2
-    iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->val$lv:Landroid/widget/ListView;
+    :goto_0
+    iget-object v0, p0, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->val$lv:Landroid/widget/ListView;
 
-    invoke-virtual {v1}, Landroid/widget/ListView;->getChildCount()I
+    invoke-virtual {v0}, Landroid/widget/ListView;->getChildCount()I
 
-    move-result v1
+    move-result v0
 
-    if-ge v0, v1, :cond_3b
+    if-ge v1, v0, :cond_0
 
     .line 56
-    iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->val$lv:Landroid/widget/ListView;
+    iget-object v0, p0, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->val$lv:Landroid/widget/ListView;
 
-    invoke-virtual {v1, v0}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 57
-    const v2, 0x1020016
+    const v3, 0x1020016
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    if-eqz v1, :cond_38
+    if-eqz v0, :cond_1
 
     .line 58
-    iget-object v2, p0, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->this$0:Lcom/s1243808733/aide/preference/PreferenceTheme;
+    iget-object v3, p0, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->this$0:Lcom/s1243808733/aide/preference/PreferenceTheme;
 
-    invoke-virtual {v2}, Lcom/s1243808733/aide/preference/PreferenceTheme;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v3}, Lcom/s1243808733/aide/preference/PreferenceTheme;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v3
 
@@ -200,24 +194,32 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result v2
+    move-result-object v4
 
-    if-eqz v2, :cond_38
+    invoke-interface {v4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
 
     .line 59
-    invoke-direct {p0, v1}, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->show(Landroid/view/View;)V
+    invoke-direct {p0, v0}, Lcom/s1243808733/aide/preference/PreferenceTheme$1;->show(Landroid/view/View;)V
 
-    const/4 p1, 0x1
+    const/4 v2, 0x1
 
-    return p1
+    :cond_0
+    return v2
 
-    :cond_38
-    add-int/lit8 v0, v0, 0x1
+    :cond_1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_2
+    move v1, v0
 
-    :cond_3b
-    return p1
+    goto :goto_0
 .end method

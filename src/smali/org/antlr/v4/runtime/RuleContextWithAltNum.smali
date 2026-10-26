@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 23
     invoke-direct {p0}, Lorg/antlr/v4/runtime/ParserRuleContext;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/ParserRuleContext;I)V
-    .registers 3
+    .locals 0
 
     .line 26
     invoke-direct {p0, p1, p2}, Lorg/antlr/v4/runtime/ParserRuleContext;-><init>(Lorg/antlr/v4/runtime/ParserRuleContext;I)V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getAltNumber()I
-    .registers 2
+    .locals 1
 
     .line 28
     iget v0, p0, Lorg/antlr/v4/runtime/RuleContextWithAltNum;->altNum:I
@@ -42,7 +42,7 @@
 .end method
 
 .method public setAltNumber(I)V
-    .registers 2
+    .locals 0
 
     .line 29
     iput p1, p0, Lorg/antlr/v4/runtime/RuleContextWithAltNum;->altNum:I

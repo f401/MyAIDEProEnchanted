@@ -125,7 +125,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 318
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -134,9 +134,9 @@
 .end method
 
 .method public static flippedIfOpcode(I)I
-    .registers 3
+    .locals 2
 
-    packed-switch p0, :pswitch_data_24
+    packed-switch p0, :pswitch_data_0
 
     .line 414
     new-instance v0, Ljava/lang/StringBuilder;
@@ -147,57 +147,58 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v1
 
-    :pswitch_17  #0xc
+    :pswitch_0
     const/16 p0, 0x9
 
+    :goto_0
+    :pswitch_1
     return p0
 
-    :pswitch_1a  #0xb
+    :pswitch_2
     const/16 p0, 0xa
 
-    return p0
+    goto :goto_0
 
-    :pswitch_1d  #0xa
+    :pswitch_3
     const/16 p0, 0xb
 
-    return p0
+    goto :goto_0
 
-    :pswitch_20  #0x9
+    :pswitch_4
     const/16 p0, 0xc
 
-    :pswitch_22  #0x7, 0x8
-    return p0
+    goto :goto_0
 
     nop
 
-    :pswitch_data_24
+    :pswitch_data_0
     .packed-switch 0x7
-        :pswitch_22  #00000007
-        :pswitch_22  #00000008
-        :pswitch_20  #00000009
-        :pswitch_1d  #0000000a
-        :pswitch_1a  #0000000b
-        :pswitch_17  #0000000c
+        :pswitch_1
+        :pswitch_1
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static opName(I)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
-    packed-switch p0, :pswitch_data_c4
+    packed-switch p0, :pswitch_data_0
 
     .line 390
-    :pswitch_3  #0x36
+    :pswitch_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "unknown-"
@@ -206,424 +207,426 @@
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/util/Hex;->u1(I)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    :goto_0
+    return-object v0
 
     .line 387
-    :pswitch_16  #0x3b
-    const-string p0, "invoke-custom"
+    :pswitch_1
+    const-string v0, "invoke-custom"
 
-    return-object p0
+    goto :goto_0
 
     .line 386
-    :pswitch_19  #0x3a
-    const-string p0, "invoke-polymorphic"
+    :pswitch_2
+    const-string v0, "invoke-polymorphic"
 
-    return-object p0
+    goto :goto_0
 
     .line 385
-    :pswitch_1c  #0x39
-    const-string p0, "fill-array-data"
+    :pswitch_3
+    const-string v0, "fill-array-data"
 
-    return-object p0
+    goto :goto_0
 
     .line 384
-    :pswitch_1f  #0x38
-    const-string p0, "move-result-pseudo"
+    :pswitch_4
+    const-string v0, "move-result-pseudo"
 
-    return-object p0
+    goto :goto_0
 
     .line 383
-    :pswitch_22  #0x37
-    const-string p0, "move-result"
+    :pswitch_5
+    const-string v0, "move-result"
 
-    return-object p0
+    goto :goto_0
 
     .line 382
-    :pswitch_25  #0x35
-    const-string p0, "invoke-interface"
+    :pswitch_6
+    const-string v0, "invoke-interface"
 
-    return-object p0
+    goto :goto_0
 
     .line 381
-    :pswitch_28  #0x34
-    const-string p0, "invoke-direct"
+    :pswitch_7
+    const-string v0, "invoke-direct"
 
-    return-object p0
+    goto :goto_0
 
     .line 380
-    :pswitch_2b  #0x33
-    const-string p0, "invoke-super"
+    :pswitch_8
+    const-string v0, "invoke-super"
 
-    return-object p0
+    goto :goto_0
 
     .line 379
-    :pswitch_2e  #0x32
-    const-string p0, "invoke-virtual"
+    :pswitch_9
+    const-string v0, "invoke-virtual"
 
-    return-object p0
+    goto :goto_0
 
     .line 378
-    :pswitch_31  #0x31
-    const-string p0, "invoke-static"
+    :pswitch_a
+    const-string v0, "invoke-static"
 
-    return-object p0
+    goto :goto_0
 
     .line 377
-    :pswitch_34  #0x30
-    const-string p0, "put-static"
+    :pswitch_b
+    const-string v0, "put-static"
 
-    return-object p0
+    goto :goto_0
 
     .line 376
-    :pswitch_37  #0x2f
-    const-string p0, "put-field"
+    :pswitch_c
+    const-string v0, "put-field"
 
-    return-object p0
+    goto :goto_0
 
     .line 375
-    :pswitch_3a  #0x2e
-    const-string p0, "get-static"
+    :pswitch_d
+    const-string v0, "get-static"
 
-    return-object p0
+    goto :goto_0
 
     .line 374
-    :pswitch_3d  #0x2d
-    const-string p0, "get-field"
+    :pswitch_e
+    const-string v0, "get-field"
 
-    return-object p0
+    goto :goto_0
 
     .line 373
-    :pswitch_40  #0x2c
-    const-string p0, "instance-of"
+    :pswitch_f
+    const-string v0, "instance-of"
 
-    return-object p0
+    goto :goto_0
 
     .line 372
-    :pswitch_43  #0x2b
-    const-string p0, "check-cast"
+    :pswitch_10
+    const-string v0, "check-cast"
 
-    return-object p0
+    goto :goto_0
 
     .line 371
-    :pswitch_46  #0x2a
-    const-string p0, "filled-new-array"
+    :pswitch_11
+    const-string v0, "filled-new-array"
 
-    return-object p0
+    goto :goto_0
 
     .line 370
-    :pswitch_49  #0x29
-    const-string p0, "new-array"
+    :pswitch_12
+    const-string v0, "new-array"
 
-    return-object p0
+    goto :goto_0
 
     .line 369
-    :pswitch_4c  #0x28
-    const-string p0, "new-instance"
+    :pswitch_13
+    const-string v0, "new-instance"
 
-    return-object p0
+    goto :goto_0
 
     .line 368
-    :pswitch_4f  #0x27
-    const-string p0, "aput"
+    :pswitch_14
+    const-string v0, "aput"
 
-    return-object p0
+    goto :goto_0
 
     .line 367
-    :pswitch_52  #0x26
-    const-string p0, "aget"
+    :pswitch_15
+    const-string v0, "aget"
 
-    return-object p0
+    goto :goto_0
 
     .line 366
-    :pswitch_55  #0x25
-    const-string p0, "monitor-exit"
+    :pswitch_16
+    const-string v0, "monitor-exit"
 
-    return-object p0
+    goto :goto_0
 
     .line 365
-    :pswitch_58  #0x24
-    const-string p0, "monitor-enter"
+    :pswitch_17
+    const-string v0, "monitor-enter"
 
-    return-object p0
+    goto :goto_0
 
     .line 364
-    :pswitch_5b  #0x23
-    const-string p0, "throw"
+    :pswitch_18
+    const-string v0, "throw"
 
-    return-object p0
+    goto :goto_0
 
     .line 363
-    :pswitch_5e  #0x22
-    const-string p0, "array-length"
+    :pswitch_19
+    const-string v0, "array-length"
 
-    return-object p0
+    goto :goto_0
 
     .line 362
-    :pswitch_61  #0x21
-    const-string p0, "return"
+    :pswitch_1a
+    const-string v0, "return"
 
-    return-object p0
+    goto :goto_0
 
     .line 361
-    :pswitch_64  #0x20
-    const-string p0, "to-short"
+    :pswitch_1b
+    const-string v0, "to-short"
 
-    return-object p0
+    goto :goto_0
 
     .line 360
-    :pswitch_67  #0x1f
-    const-string p0, "to-char"
+    :pswitch_1c
+    const-string v0, "to-char"
 
-    return-object p0
+    goto :goto_0
 
     .line 359
-    :pswitch_6a  #0x1e
-    const-string p0, "to-byte"
+    :pswitch_1d
+    const-string v0, "to-byte"
 
-    return-object p0
+    goto :goto_0
 
     .line 358
-    :pswitch_6d  #0x1d
-    const-string p0, "conv"
+    :pswitch_1e
+    const-string v0, "conv"
 
-    return-object p0
+    goto :goto_0
 
     .line 357
-    :pswitch_70  #0x1c
-    const-string p0, "cmpg"
+    :pswitch_1f
+    const-string v0, "cmpg"
 
-    return-object p0
+    goto :goto_0
 
     .line 356
-    :pswitch_73  #0x1b
-    const-string p0, "cmpl"
+    :pswitch_20
+    const-string v0, "cmpl"
 
-    return-object p0
+    goto :goto_0
 
     .line 355
-    :pswitch_76  #0x1a
-    const-string p0, "not"
+    :pswitch_21
+    const-string v0, "not"
 
-    return-object p0
+    goto :goto_0
 
     .line 354
-    :pswitch_79  #0x19
-    const-string p0, "ushr"
+    :pswitch_22
+    const-string v0, "ushr"
 
-    return-object p0
+    goto :goto_0
 
     .line 353
-    :pswitch_7c  #0x18
-    const-string p0, "shr"
+    :pswitch_23
+    const-string v0, "shr"
 
-    return-object p0
+    goto :goto_0
 
     .line 352
-    :pswitch_7f  #0x17
-    const-string p0, "shl"
+    :pswitch_24
+    const-string v0, "shl"
 
-    return-object p0
+    goto :goto_0
 
     .line 351
-    :pswitch_82  #0x16
-    const-string p0, "xor"
+    :pswitch_25
+    const-string v0, "xor"
 
-    return-object p0
+    goto :goto_0
 
     .line 350
-    :pswitch_85  #0x15
-    const-string p0, "or"
+    :pswitch_26
+    const-string v0, "or"
 
-    return-object p0
+    goto :goto_0
 
     .line 349
-    :pswitch_88  #0x14
-    const-string p0, "and"
+    :pswitch_27
+    const-string v0, "and"
 
-    return-object p0
+    goto :goto_0
 
     .line 348
-    :pswitch_8b  #0x13
-    const-string p0, "neg"
+    :pswitch_28
+    const-string v0, "neg"
 
-    return-object p0
+    goto :goto_0
 
     .line 347
-    :pswitch_8e  #0x12
-    const-string p0, "rem"
+    :pswitch_29
+    const-string v0, "rem"
 
-    return-object p0
+    goto :goto_0
 
     .line 346
-    :pswitch_91  #0x11
-    const-string p0, "div"
+    :pswitch_2a
+    const-string v0, "div"
 
-    return-object p0
+    goto :goto_0
 
     .line 345
-    :pswitch_94  #0x10
-    const-string p0, "mul"
+    :pswitch_2b
+    const-string v0, "mul"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 344
-    :pswitch_97  #0xf
-    const-string p0, "sub"
+    :pswitch_2c
+    const-string v0, "sub"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 343
-    :pswitch_9a  #0xe
-    const-string p0, "add"
+    :pswitch_2d
+    const-string v0, "add"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 342
-    :pswitch_9d  #0xd
-    const-string p0, "switch"
+    :pswitch_2e
+    const-string v0, "switch"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 341
-    :pswitch_a0  #0xc
-    const-string p0, "if-gt"
+    :pswitch_2f
+    const-string v0, "if-gt"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 340
-    :pswitch_a3  #0xb
-    const-string p0, "if-le"
+    :pswitch_30
+    const-string v0, "if-le"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 339
-    :pswitch_a6  #0xa
-    const-string p0, "if-ge"
+    :pswitch_31
+    const-string v0, "if-ge"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 338
-    :pswitch_a9  #0x9
-    const-string p0, "if-lt"
+    :pswitch_32
+    const-string v0, "if-lt"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 337
-    :pswitch_ac  #0x8
-    const-string p0, "if-ne"
+    :pswitch_33
+    const-string v0, "if-ne"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 336
-    :pswitch_af  #0x7
-    const-string p0, "if-eq"
+    :pswitch_34
+    const-string v0, "if-eq"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 335
-    :pswitch_b2  #0x6
-    const-string p0, "goto"
+    :pswitch_35
+    const-string v0, "goto"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 334
-    :pswitch_b5  #0x5
-    const-string p0, "const"
+    :pswitch_36
+    const-string v0, "const"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 333
-    :pswitch_b8  #0x4
-    const-string p0, "move-exception"
+    :pswitch_37
+    const-string v0, "move-exception"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 332
-    :pswitch_bb  #0x3
-    const-string p0, "move-param"
+    :pswitch_38
+    const-string v0, "move-param"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 331
-    :pswitch_be  #0x2
-    const-string p0, "move"
+    :pswitch_39
+    const-string v0, "move"
 
-    return-object p0
+    goto/16 :goto_0
 
     .line 330
-    :pswitch_c1  #0x1
-    const-string p0, "nop"
+    :pswitch_3a
+    const-string v0, "nop"
 
-    return-object p0
+    goto/16 :goto_0
 
-    :pswitch_data_c4
+    .line 4294967295
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_c1  #00000001
-        :pswitch_be  #00000002
-        :pswitch_bb  #00000003
-        :pswitch_b8  #00000004
-        :pswitch_b5  #00000005
-        :pswitch_b2  #00000006
-        :pswitch_af  #00000007
-        :pswitch_ac  #00000008
-        :pswitch_a9  #00000009
-        :pswitch_a6  #0000000a
-        :pswitch_a3  #0000000b
-        :pswitch_a0  #0000000c
-        :pswitch_9d  #0000000d
-        :pswitch_9a  #0000000e
-        :pswitch_97  #0000000f
-        :pswitch_94  #00000010
-        :pswitch_91  #00000011
-        :pswitch_8e  #00000012
-        :pswitch_8b  #00000013
-        :pswitch_88  #00000014
-        :pswitch_85  #00000015
-        :pswitch_82  #00000016
-        :pswitch_7f  #00000017
-        :pswitch_7c  #00000018
-        :pswitch_79  #00000019
-        :pswitch_76  #0000001a
-        :pswitch_73  #0000001b
-        :pswitch_70  #0000001c
-        :pswitch_6d  #0000001d
-        :pswitch_6a  #0000001e
-        :pswitch_67  #0000001f
-        :pswitch_64  #00000020
-        :pswitch_61  #00000021
-        :pswitch_5e  #00000022
-        :pswitch_5b  #00000023
-        :pswitch_58  #00000024
-        :pswitch_55  #00000025
-        :pswitch_52  #00000026
-        :pswitch_4f  #00000027
-        :pswitch_4c  #00000028
-        :pswitch_49  #00000029
-        :pswitch_46  #0000002a
-        :pswitch_43  #0000002b
-        :pswitch_40  #0000002c
-        :pswitch_3d  #0000002d
-        :pswitch_3a  #0000002e
-        :pswitch_37  #0000002f
-        :pswitch_34  #00000030
-        :pswitch_31  #00000031
-        :pswitch_2e  #00000032
-        :pswitch_2b  #00000033
-        :pswitch_28  #00000034
-        :pswitch_25  #00000035
-        :pswitch_3  #00000036
-        :pswitch_22  #00000037
-        :pswitch_1f  #00000038
-        :pswitch_1c  #00000039
-        :pswitch_19  #0000003a
-        :pswitch_16  #0000003b
+        :pswitch_3a
+        :pswitch_39
+        :pswitch_38
+        :pswitch_37
+        :pswitch_36
+        :pswitch_35
+        :pswitch_34
+        :pswitch_33
+        :pswitch_32
+        :pswitch_31
+        :pswitch_30
+        :pswitch_2f
+        :pswitch_2e
+        :pswitch_2d
+        :pswitch_2c
+        :pswitch_2b
+        :pswitch_2a
+        :pswitch_29
+        :pswitch_28
+        :pswitch_27
+        :pswitch_26
+        :pswitch_25
+        :pswitch_24
+        :pswitch_23
+        :pswitch_22
+        :pswitch_21
+        :pswitch_20
+        :pswitch_1f
+        :pswitch_1e
+        :pswitch_1d
+        :pswitch_1c
+        :pswitch_1b
+        :pswitch_1a
+        :pswitch_19
+        :pswitch_18
+        :pswitch_17
+        :pswitch_16
+        :pswitch_15
+        :pswitch_14
+        :pswitch_13
+        :pswitch_12
+        :pswitch_11
+        :pswitch_10
+        :pswitch_f
+        :pswitch_e
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_0
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
     .end packed-switch
 .end method

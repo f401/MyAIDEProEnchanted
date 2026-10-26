@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;",
         ">;"
     }
@@ -34,59 +35,59 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
+
+    const/4 v6, 0x2
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     .line 12
     new-instance v0, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
     const-string v1, "TRACK_ALL"
 
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v4}, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;->TRACK_ALL:Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
     .line 16
     new-instance v1, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
-    const-string v3, "TRACK_SINGLE"
+    const-string v2, "TRACK_SINGLE"
 
-    const/4 v4, 0x1
-
-    invoke-direct {v1, v3, v4}, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v5}, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;-><init>(Ljava/lang/String;I)V
 
     sput-object v1, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;->TRACK_SINGLE:Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
     .line 20
-    new-instance v3, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
+    new-instance v2, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
-    const-string v5, "TRACK_NONE"
+    const-string v3, "TRACK_NONE"
 
-    const/4 v6, 0x2
+    invoke-direct {v2, v3, v6}, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v3, v5, v6}, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;-><init>(Ljava/lang/String;I)V
-
-    sput-object v3, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;->TRACK_NONE:Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
+    sput-object v2, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;->TRACK_NONE:Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
     .line 8
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    new-array v5, v5, [Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
+    new-array v3, v3, [Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
-    aput-object v0, v5, v2
+    aput-object v0, v3, v4
 
-    aput-object v1, v5, v4
+    aput-object v1, v3, v5
 
-    aput-object v3, v5, v6
+    aput-object v2, v3, v6
 
-    sput-object v5, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;->a:[Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
+    sput-object v3, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;->a:[Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -100,22 +101,22 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
-    .registers 2
+    .locals 1
 
     .line 8
     const-class v0, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
+    check-cast v0, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;
-    .registers 1
+    .locals 1
 
     .line 8
     sget-object v0, Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;->a:[Lcom/baidu/mobstat/MtjConfig$FeedTrackStrategy;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;)V
-    .registers 2
+    .locals 0
 
     .line 135
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$3;->this$1:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;
@@ -36,20 +36,20 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 3
+    .locals 2
 
     .line 139
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$3;->this$1:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;
-
-    iget-object p1, p1, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
-
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$3;->this$1:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;
 
-    iget-object v0, v0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;->val$code_java:Ljava/lang/String;
+    iget-object v0, v0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
 
-    invoke-virtual {p1, v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->copyToClipboard(Ljava/lang/String;)V
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2$3;->this$1:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;
 
-    const/4 p1, 0x0
+    iget-object v1, v1, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$2;->val$code_java:Ljava/lang/String;
 
-    return p1
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->copyToClipboard(Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    return v0
 .end method

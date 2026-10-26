@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;ILorg/antlr/v4/runtime/atn/PredictionContext;)V
-    .registers 5
+    .locals 1
 
     .line 24
     sget-object v0, Lorg/antlr/v4/runtime/atn/SemanticContext;->NONE:Lorg/antlr/v4/runtime/atn/SemanticContext;
@@ -19,20 +19,20 @@
     invoke-direct {p0, p1, p2, p3, v0}, Lorg/antlr/v4/runtime/atn/ATNConfig;-><init>(Lorg/antlr/v4/runtime/atn/ATNState;ILorg/antlr/v4/runtime/atn/PredictionContext;Lorg/antlr/v4/runtime/atn/SemanticContext;)V
 
     .line 25
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-boolean p1, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
+    iput-boolean v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
 
     .line 26
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->lexerActionExecutor:Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->lexerActionExecutor:Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;ILorg/antlr/v4/runtime/atn/PredictionContext;Lorg/antlr/v4/runtime/atn/LexerActionExecutor;)V
-    .registers 6
+    .locals 1
 
     .line 34
     sget-object v0, Lorg/antlr/v4/runtime/atn/SemanticContext;->NONE:Lorg/antlr/v4/runtime/atn/SemanticContext;
@@ -43,15 +43,15 @@
     iput-object p4, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->lexerActionExecutor:Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
 
     .line 36
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-boolean p1, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
+    iput-boolean v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/LexerATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;)V
-    .registers 5
+    .locals 2
 
     .line 40
     iget-object v0, p1, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
@@ -68,15 +68,15 @@
     .line 42
     invoke-static {p1, p2}, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->checkNonGreedyDecision(Lorg/antlr/v4/runtime/atn/LexerATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;)Z
 
-    move-result p1
+    move-result v0
 
-    iput-boolean p1, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
+    iput-boolean v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/LexerATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;Lorg/antlr/v4/runtime/atn/LexerActionExecutor;)V
-    .registers 6
+    .locals 2
 
     .line 48
     iget-object v0, p1, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
@@ -91,15 +91,15 @@
     .line 50
     invoke-static {p1, p2}, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->checkNonGreedyDecision(Lorg/antlr/v4/runtime/atn/LexerATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;)Z
 
-    move-result p1
+    move-result v0
 
-    iput-boolean p1, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
+    iput-boolean v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/LexerATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;Lorg/antlr/v4/runtime/atn/PredictionContext;)V
-    .registers 5
+    .locals 1
 
     .line 55
     iget-object v0, p1, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
@@ -107,78 +107,79 @@
     invoke-direct {p0, p1, p2, p3, v0}, Lorg/antlr/v4/runtime/atn/ATNConfig;-><init>(Lorg/antlr/v4/runtime/atn/ATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;Lorg/antlr/v4/runtime/atn/PredictionContext;Lorg/antlr/v4/runtime/atn/SemanticContext;)V
 
     .line 56
-    iget-object p3, p1, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->lexerActionExecutor:Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
+    iget-object v0, p1, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->lexerActionExecutor:Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
 
-    iput-object p3, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->lexerActionExecutor:Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->lexerActionExecutor:Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
 
     .line 57
     invoke-static {p1, p2}, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->checkNonGreedyDecision(Lorg/antlr/v4/runtime/atn/LexerATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;)Z
 
-    move-result p1
+    move-result v0
 
-    iput-boolean p1, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
+    iput-boolean v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
 
     return-void
 .end method
 
 .method private static checkNonGreedyDecision(Lorg/antlr/v4/runtime/atn/LexerATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;)Z
-    .registers 2
+    .locals 1
 
     .line 107
-    iget-boolean p0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
+    iget-boolean v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
 
-    if-nez p0, :cond_11
+    if-nez v0, :cond_0
 
-    instance-of p0, p1, Lorg/antlr/v4/runtime/atn/DecisionState;
+    instance-of v0, p1, Lorg/antlr/v4/runtime/atn/DecisionState;
 
-    if-eqz p0, :cond_f
+    if-eqz v0, :cond_1
 
     check-cast p1, Lorg/antlr/v4/runtime/atn/DecisionState;
 
-    iget-boolean p0, p1, Lorg/antlr/v4/runtime/atn/DecisionState;->nonGreedy:Z
+    iget-boolean v0, p1, Lorg/antlr/v4/runtime/atn/DecisionState;->nonGreedy:Z
 
-    if-eqz p0, :cond_f
+    if-eqz v0, :cond_1
 
-    goto :goto_11
+    :cond_0
+    const/4 v0, 0x1
 
-    :cond_f
-    const/4 p0, 0x0
+    :goto_0
+    return v0
 
-    goto :goto_12
+    :cond_1
+    const/4 v0, 0x0
 
-    :cond_11
-    :goto_11
-    const/4 p0, 0x1
-
-    :goto_12
-    return p0
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public equals(Lorg/antlr/v4/runtime/atn/ATNConfig;)Z
-    .registers 6
-
-    if-ne p0, p1, :cond_4
-
-    const/4 p1, 0x1
-
-    return p1
-
-    .line 90
-    :cond_4
-    instance-of v0, p1, Lorg/antlr/v4/runtime/atn/LexerATNConfig;
+    .locals 4
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_a
+    if-ne p0, p1, :cond_0
 
-    return v1
+    const/4 v0, 0x1
 
-    .line 94
-    :cond_a
+    .line 103
+    :goto_0
+    return v0
+
+    .line 90
+    :cond_0
+    instance-of v0, p1, Lorg/antlr/v4/runtime/atn/LexerATNConfig;
+
+    if-nez v0, :cond_1
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
     move-object v0, p1
 
+    .line 94
     check-cast v0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;
 
     .line 95
@@ -186,12 +187,14 @@
 
     iget-boolean v3, v0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
 
-    if-eq v2, v3, :cond_14
+    if-eq v2, v3, :cond_2
 
-    return v1
+    move v0, v1
+
+    goto :goto_0
 
     .line 99
-    :cond_14
+    :cond_2
     sget-object v2, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;
 
     iget-object v3, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->lexerActionExecutor:Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
@@ -202,21 +205,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_3
 
-    return v1
+    move v0, v1
+
+    goto :goto_0
 
     .line 103
-    :cond_21
+    :cond_3
     invoke-super {p0, p1}, Lorg/antlr/v4/runtime/atn/ATNConfig;->equals(Lorg/antlr/v4/runtime/atn/ATNConfig;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public final getLexerActionExecutor()Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
-    .registers 2
+    .locals 1
 
     .line 65
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->lexerActionExecutor:Lorg/antlr/v4/runtime/atn/LexerActionExecutor;
@@ -225,7 +230,7 @@
 .end method
 
 .method public final hasPassedThroughNonGreedyDecision()Z
-    .registers 2
+    .locals 1
 
     .line 69
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/atn/LexerATNConfig;->passedThroughNonGreedyDecision:Z
@@ -234,7 +239,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .line 74
     const/4 v0, 0x7

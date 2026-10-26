@@ -9,194 +9,211 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 11
+    .locals 7
 
     invoke-static {}, Lcom/termux/yinli_a/i/b;->a()I
 
-    move-result v0
+    move-result v2
 
-    const v1, 0x10008
+    const v0, 0x10008
 
-    const-string v2, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)"
+    if-lt v2, v0, :cond_2
 
-    const-string v3, ", base type classloader: "
+    :try_start_0
+    const-string v0, "kotlin.internal.jdk8.JDK8PlatformImplementations"
 
-    const-string v4, "Instance classloader: "
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    const-string v5, "null cannot be cast to non-null type kotlin.internal.PlatformImplementations"
+    move-result-object v0
 
-    const-string v6, "Class.forName(\"kotlin.in…entations\").newInstance()"
+    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    if-lt v0, v1, :cond_a3
+    move-result-object v0
 
-    :try_start_13
-    const-string v1, "kotlin.internal.jdk8.JDK8PlatformImplementations"
+    const-string v1, "Class.forName(\"kotlin.in\u2026entations\").newInstance()"
 
-    invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
-    move-result-object v1
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    :try_start_1
+    check-cast v0, Lcom/termux/yinli_a/i/a;
+    :try_end_1
+    .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v1
+    :goto_0
+    sput-object v0, Lcom/termux/yinli_a/i/b;->a:Lcom/termux/yinli_a/i/a;
 
-    invoke-static {v1, v6}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_20
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_13 .. :try_end_20} :catch_5a
+    return-void
 
-    if-eqz v1, :cond_26
+    :cond_0
+    :try_start_2
+    new-instance v1, Lcom/termux/yinli_a/f;
 
-    :try_start_22
-    check-cast v1, Lcom/termux/yinli_a/i/a;
+    const-string v3, "null cannot be cast to non-null type kotlin.internal.PlatformImplementations"
 
-    goto/16 :goto_13e
-
-    :cond_26
-    new-instance v7, Lcom/termux/yinli_a/f;
-
-    invoke-direct {v7, v5}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
-
-    throw v7
-    :try_end_2c
-    .catch Ljava/lang/ClassCastException; {:try_start_22 .. :try_end_2c} :catch_2c
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_22 .. :try_end_2c} :catch_5a
-
-    :catch_2c
-    move-exception v7
-
-    :try_start_2d
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v1
-
-    const-class v8, Lcom/termux/yinli_a/i/a;
-
-    invoke-virtual {v8}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v8
-
-    new-instance v9, Ljava/lang/ClassCastException;
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v9, v1}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v9, v7}, Ljava/lang/ClassCastException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-
-    move-result-object v1
-
-    invoke-static {v1, v2}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-direct {v1, v3}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_5a
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_2d .. :try_end_5a} :catch_5a
+    :try_end_2
+    .catch Ljava/lang/ClassCastException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
 
-    :catch_5a
+    :catch_0
     move-exception v1
 
-    :try_start_5b
-    const-string v1, "kotlin.internal.JRE8PlatformImplementations"
+    :try_start_3
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    invoke-virtual {v1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v1
+    const-class v3, Lcom/termux/yinli_a/i/a;
 
-    invoke-static {v1, v6}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_68
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_5b .. :try_end_68} :catch_a2
+    invoke-virtual {v3}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    if-eqz v1, :cond_6e
+    move-result-object v3
 
-    :try_start_6a
-    check-cast v1, Lcom/termux/yinli_a/i/a;
+    new-instance v4, Ljava/lang/ClassCastException;
 
-    goto/16 :goto_13e
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    :cond_6e
-    new-instance v7, Lcom/termux/yinli_a/f;
+    const-string v6, "Instance classloader: "
 
-    invoke-direct {v7, v5}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    throw v7
-    :try_end_74
-    .catch Ljava/lang/ClassCastException; {:try_start_6a .. :try_end_74} :catch_74
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_6a .. :try_end_74} :catch_a2
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :catch_74
-    move-exception v7
+    const-string v0, ", base type classloader: "
 
-    :try_start_75
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-class v8, Lcom/termux/yinli_a/i/a;
+    invoke-direct {v4, v0}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v4, v1}, Ljava/lang/ClassCastException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v8
+    move-result-object v0
 
-    new-instance v9, Ljava/lang/ClassCastException;
+    const-string v1, "ClassCastException(\"Inst\u2026baseTypeCL\").initCause(e)"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-direct {v10, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    throw v0
+    :try_end_3
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_3 .. :try_end_3} :catch_1
 
-    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    :catch_1
+    move-exception v0
 
-    invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_start_4
+    const-string v0, "kotlin.internal.JRE8PlatformImplementations"
 
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    invoke-direct {v9, v1}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    invoke-virtual {v9, v7}, Ljava/lang/ClassCastException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    const-string v1, "Class.forName(\"kotlin.in\u2026entations\").newInstance()"
 
-    move-result-object v1
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    :try_end_4
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_4 .. :try_end_4} :catch_3
 
-    invoke-static {v1, v2}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    if-eqz v0, :cond_1
+
+    :try_start_5
+    check-cast v0, Lcom/termux/yinli_a/i/a;
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v1, Lcom/termux/yinli_a/f;
+
+    const-string v3, "null cannot be cast to non-null type kotlin.internal.PlatformImplementations"
+
+    invoke-direct {v1, v3}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_a2
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_75 .. :try_end_a2} :catch_a2
+    :try_end_5
+    .catch Ljava/lang/ClassCastException; {:try_start_5 .. :try_end_5} :catch_2
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_5 .. :try_end_5} :catch_3
 
-    :catch_a2
+    :catch_2
     move-exception v1
 
-    :cond_a3
-    const v1, 0x10007
+    :try_start_6
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-lt v0, v1, :cond_139
+    move-result-object v0
 
-    :try_start_a8
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    const-class v3, Lcom/termux/yinli_a/i/a;
+
+    invoke-virtual {v3}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/lang/ClassCastException;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    const-string v6, "Instance classloader: "
+
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v0, ", base type classloader: "
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v4, v0}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, v1}, Ljava/lang/ClassCastException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+
+    move-result-object v0
+
+    const-string v1, "ClassCastException(\"Inst\u2026baseTypeCL\").initCause(e)"
+
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    throw v0
+    :try_end_6
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_6 .. :try_end_6} :catch_3
+
+    :catch_3
+    move-exception v0
+
+    :cond_2
+    const v0, 0x10007
+
+    if-lt v2, v0, :cond_5
+
+    :try_start_7
     const-string v0, "com.termux.yinli_a.i.d.a"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -207,33 +224,35 @@
 
     move-result-object v0
 
-    invoke-static {v0, v6}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_b5
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_a8 .. :try_end_b5} :catch_f0
+    const-string v1, "Class.forName(\"kotlin.in\u2026entations\").newInstance()"
 
-    if-eqz v0, :cond_bc
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    :try_end_7
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_7 .. :try_end_7} :catch_5
 
-    :try_start_b7
-    move-object v1, v0
+    if-eqz v0, :cond_3
 
-    check-cast v1, Lcom/termux/yinli_a/i/a;
+    :try_start_8
+    check-cast v0, Lcom/termux/yinli_a/i/a;
 
-    goto/16 :goto_13e
+    goto/16 :goto_0
 
-    :cond_bc
+    :cond_3
     new-instance v1, Lcom/termux/yinli_a/f;
 
-    invoke-direct {v1, v5}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
+    const-string v2, "null cannot be cast to non-null type kotlin.internal.PlatformImplementations"
+
+    invoke-direct {v1, v2}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_c2
-    .catch Ljava/lang/ClassCastException; {:try_start_b7 .. :try_end_c2} :catch_c2
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_b7 .. :try_end_c2} :catch_f0
+    :try_end_8
+    .catch Ljava/lang/ClassCastException; {:try_start_8 .. :try_end_8} :catch_4
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_8 .. :try_end_8} :catch_5
 
-    :catch_c2
+    :catch_4
     move-exception v1
 
-    :try_start_c3
+    :try_start_9
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -242,44 +261,50 @@
 
     move-result-object v0
 
-    const-class v7, Lcom/termux/yinli_a/i/a;
+    const-class v2, Lcom/termux/yinli_a/i/a;
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v7
+    move-result-object v2
 
-    new-instance v8, Ljava/lang/ClassCastException;
+    new-instance v3, Ljava/lang/ClassCastException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v5, "Instance classloader: "
 
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v0, ", base type classloader: "
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v8, v0}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v8, v1}, Ljava/lang/ClassCastException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0, v2}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-direct {v3, v0}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v1}, Ljava/lang/ClassCastException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+
+    move-result-object v0
+
+    const-string v1, "ClassCastException(\"Inst\u2026baseTypeCL\").initCause(e)"
+
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
     throw v0
-    :try_end_f0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_c3 .. :try_end_f0} :catch_f0
+    :try_end_9
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_9 .. :try_end_9} :catch_5
 
-    :catch_f0
+    :catch_5
     move-exception v0
 
-    :try_start_f1
+    :try_start_a
     const-string v0, "kotlin.internal.JRE7PlatformImplementations"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -290,33 +315,35 @@
 
     move-result-object v0
 
-    invoke-static {v0, v6}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
-    :try_end_fe
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_f1 .. :try_end_fe} :catch_138
+    const-string v1, "Class.forName(\"kotlin.in\u2026entations\").newInstance()"
 
-    if-eqz v0, :cond_104
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    :try_end_a
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_a .. :try_end_a} :catch_7
 
-    :try_start_100
-    move-object v1, v0
+    if-eqz v0, :cond_4
 
-    check-cast v1, Lcom/termux/yinli_a/i/a;
+    :try_start_b
+    check-cast v0, Lcom/termux/yinli_a/i/a;
 
-    goto :goto_13e
+    goto/16 :goto_0
 
-    :cond_104
+    :cond_4
     new-instance v1, Lcom/termux/yinli_a/f;
 
-    invoke-direct {v1, v5}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
+    const-string v2, "null cannot be cast to non-null type kotlin.internal.PlatformImplementations"
+
+    invoke-direct {v1, v2}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_10a
-    .catch Ljava/lang/ClassCastException; {:try_start_100 .. :try_end_10a} :catch_10a
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_100 .. :try_end_10a} :catch_138
+    :try_end_b
+    .catch Ljava/lang/ClassCastException; {:try_start_b .. :try_end_b} :catch_6
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_b .. :try_end_b} :catch_7
 
-    :catch_10a
+    :catch_6
     move-exception v1
 
-    :try_start_10b
+    :try_start_c
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -325,56 +352,67 @@
 
     move-result-object v0
 
-    const-class v5, Lcom/termux/yinli_a/i/a;
+    const-class v2, Lcom/termux/yinli_a/i/a;
 
-    invoke-virtual {v5}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v5
+    move-result-object v2
 
-    new-instance v6, Ljava/lang/ClassCastException;
+    new-instance v3, Ljava/lang/ClassCastException;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v5, "Instance classloader: "
 
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v0, ", base type classloader: "
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v6, v0}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v6, v1}, Ljava/lang/ClassCastException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0, v2}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-direct {v3, v0}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v1}, Ljava/lang/ClassCastException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+
+    move-result-object v0
+
+    const-string v1, "ClassCastException(\"Inst\u2026baseTypeCL\").initCause(e)"
+
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
     throw v0
-    :try_end_138
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_10b .. :try_end_138} :catch_138
+    :try_end_c
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_c .. :try_end_c} :catch_7
 
-    :catch_138
+    :catch_7
     move-exception v0
 
-    :cond_139
-    new-instance v1, Lcom/termux/yinli_a/i/a;
+    :cond_5
+    new-instance v0, Lcom/termux/yinli_a/i/a;
 
-    invoke-direct {v1}, Lcom/termux/yinli_a/i/a;-><init>()V
+    invoke-direct {v0}, Lcom/termux/yinli_a/i/a;-><init>()V
 
-    :goto_13e
-    sput-object v1, Lcom/termux/yinli_a/i/b;->a:Lcom/termux/yinli_a/i/a;
-
-    return-void
+    goto/16 :goto_0
 .end method
 
 .method private static final a()I
-    .registers 10
+    .locals 13
+
+    const/high16 v12, 0x10000
+
+    const/16 v1, 0x2e
+
+    const/4 v5, 0x0
+
+    const/4 v2, 0x0
 
     const-string v0, "java.specification.version"
 
@@ -382,127 +420,114 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_62
+    if-eqz v0, :cond_4
 
-    const/16 v2, 0x2e
+    const/4 v4, 0x6
 
-    const/4 v3, 0x0
+    move v3, v2
 
-    const/4 v4, 0x0
+    invoke-static/range {v0 .. v5}, Lcom/termux/yinli_a/n/e;->a(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
 
-    const/4 v5, 0x6
+    move-result v3
 
-    const/4 v6, 0x0
+    if-gez v3, :cond_0
 
-    move-object v1, v0
-
-    invoke-static/range {v1 .. v6}, Lcom/termux/yinli_a/n/e;->a(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
-
-    move-result v7
-
-    const/high16 v8, 0x10000
-
-    if-gez v7, :cond_20
-
-    :try_start_17
+    :try_start_0
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
-    :try_end_1b
-    .catch Ljava/lang/NumberFormatException; {:try_start_17 .. :try_end_1b} :catch_1e
 
-    mul-int v0, v0, v8
+    mul-int/2addr v0, v12
 
-    goto :goto_65
+    :goto_0
+    return v0
 
-    :catch_1e
-    move-exception v0
+    :cond_0
+    add-int/lit8 v8, v3, 0x1
 
-    goto :goto_62
+    const/4 v10, 0x4
 
-    :cond_20
-    add-int/lit8 v9, v7, 0x1
+    move-object v6, v0
 
-    const/16 v2, 0x2e
+    move v7, v1
 
-    const/4 v4, 0x0
+    move v9, v2
 
-    const/4 v5, 0x4
+    move-object v11, v5
 
-    const/4 v6, 0x0
-
-    move-object v1, v0
-
-    move v3, v9
-
-    invoke-static/range {v1 .. v6}, Lcom/termux/yinli_a/n/e;->a(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
+    invoke-static/range {v6 .. v11}, Lcom/termux/yinli_a/n/e;->a(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
 
     move-result v1
 
-    if-gez v1, :cond_33
+    if-gez v1, :cond_1
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    :cond_33
-    const-string v2, "null cannot be cast to non-null type java.lang.String"
+    :cond_1
+    if-eqz v0, :cond_3
 
-    if-eqz v0, :cond_5c
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    const/4 v3, 0x0
+    move-result-object v2
 
-    invoke-virtual {v0, v3, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const-string v3, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
 
-    move-result-object v3
+    invoke-static {v2, v3}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v4, "(this as java.lang.Strin…ing(startIndex, endIndex)"
+    if-eqz v0, :cond_2
 
-    invoke-static {v3, v4}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
-
-    if-eqz v0, :cond_56
-
-    invoke-virtual {v0, v9, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v0, v8, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0, v4}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v1, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
 
-    :try_start_4a
-    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
+
+    :try_start_1
+    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v1
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result v0
-    :try_end_52
-    .catch Ljava/lang/NumberFormatException; {:try_start_4a .. :try_end_52} :catch_1e
 
-    mul-int v1, v1, v8
+    mul-int/2addr v1, v12
 
     add-int/2addr v0, v1
 
-    goto :goto_65
+    goto :goto_0
 
-    :cond_56
+    :cond_2
     new-instance v0, Lcom/termux/yinli_a/f;
 
-    invoke-direct {v0, v2}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
+    const-string v1, "null cannot be cast to non-null type java.lang.String"
+
+    invoke-direct {v0, v1}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    :cond_5c
+    :cond_3
     new-instance v0, Lcom/termux/yinli_a/f;
 
-    invoke-direct {v0, v2}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
+    const-string v1, "null cannot be cast to non-null type java.lang.String"
+
+    invoke-direct {v0, v1}, Lcom/termux/yinli_a/f;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    :cond_62
-    :goto_62
+    :catch_0
+    move-exception v0
+
+    :cond_4
     const v0, 0x10006
 
-    :goto_65
-    return v0
+    goto :goto_0
 .end method

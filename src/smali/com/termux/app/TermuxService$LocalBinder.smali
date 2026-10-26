@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxService;)V
-    .registers 2
+    .locals 0
 
     .line 67
     iput-object p1, p0, Lcom/termux/app/TermuxService$LocalBinder;->this$0:Lcom/termux/app/TermuxService;

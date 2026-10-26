@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)V
-    .registers 2
+    .locals 0
 
     .line 196
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
@@ -36,84 +36,84 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
     .line 200
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1, p3}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/permission/Permission;
+    invoke-virtual {v0, p3}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/permission/Permission;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 201
     check-cast p2, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ItemView;
 
     .line 202
-    iget-object p2, p2, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ItemView;->holder:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;
+    iget-object v1, p2, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ItemView;->holder:Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;
 
     .line 203
-    invoke-virtual {p2}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->invertSelection()Z
+    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->invertSelection()Z
 
-    move-result p2
+    move-result v1
 
     .line 204
-    iget-object p3, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
 
-    invoke-static {p3}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
+    invoke-static {v2}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p3, p1, p2}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->setSelected(Lcom/s1243808733/aide/application/activity/permission/Permission;Z)V
+    invoke-virtual {v2, v0, v1}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->setSelected(Lcom/s1243808733/aide/application/activity/permission/Permission;Z)V
 
-    if-eqz p2, :cond_27
+    if-eqz v1, :cond_0
 
     .line 207
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetselectedList(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Ljava/util/List;
+    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetselectedList(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Ljava/util/List;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_35
-
-    .line 209
-    :cond_27
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
-
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
-
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
-
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetselectedList(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Ljava/util/List;
-
-    move-result-object p2
-
-    invoke-static {p2, p1}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->remove(Ljava/util/List;Lcom/s1243808733/aide/application/activity/permission/Permission;)V
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 212
-    :goto_35
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+    :goto_0
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->notifyDataSetChanged()V
 
     return-void
+
+    .line 209
+    :cond_0
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+
+    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;
+
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$4;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+
+    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetselectedList(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-static {v1, v0}, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;->remove(Ljava/util/List;Lcom/s1243808733/aide/application/activity/permission/Permission;)V
+
+    goto :goto_0
 .end method

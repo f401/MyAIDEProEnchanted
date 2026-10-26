@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/function/Consumer<",
+        "Ljava/util/function/Consumer",
+        "<",
         "Ljava/nio/file/Path;",
         ">;"
     }
@@ -36,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Z)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -58,20 +59,20 @@
 
 # virtual methods
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .registers 2
+    .locals 1
 
     .line 26
     invoke-static {p1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/Object;)Ljava/nio/file/Path;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lio/github/zeroaicy/util/FileUtil$1;->accept(Ljava/nio/file/Path;)V
+    invoke-virtual {p0, v0}, Lio/github/zeroaicy/util/FileUtil$1;->accept(Ljava/nio/file/Path;)V
 
     return-void
 .end method
 
 .method public accept(Ljava/nio/file/Path;)V
-    .registers 6
+    .locals 4
 
     .line 31
     :try_start_0
@@ -89,105 +90,119 @@
 
     const/4 v1, 0x0
 
-    new-array v2, v1, [Ljava/lang/String;
+    new-array v1, v1, [Ljava/lang/String;
 
-    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
 
     move-result-object v0
 
     .line 32
-    new-array v2, v1, [Ljava/nio/file/LinkOption;
+    const/4 v1, 0x0
 
-    invoke-static {p1, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+    new-array v1, v1, [Ljava/nio/file/LinkOption;
 
-    move-result v2
+    invoke-static {p1, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
 
-    if-eqz v2, :cond_29
+    move-result v1
 
-    new-array v2, v1, [Ljava/nio/file/LinkOption;
+    if-eqz v1, :cond_1
 
-    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m$1(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+    const/4 v1, 0x0
 
-    move-result v2
+    new-array v1, v1, [Ljava/nio/file/LinkOption;
 
-    if-nez v2, :cond_29
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m$1(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
 
     .line 33
-    new-array p1, v1, [Ljava/nio/file/attribute/FileAttribute;
+    const/4 v1, 0x0
 
-    invoke-static {v0, p1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+    new-array v1, v1, [Ljava/nio/file/attribute/FileAttribute;
 
-    goto :goto_61
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+
+    .line 41
+    :cond_0
+    :goto_0
+    return-void
 
     .line 34
-    :cond_29
-    new-array v2, v1, [Ljava/nio/file/LinkOption;
+    :cond_1
+    const/4 v1, 0x0
 
-    invoke-static {p1, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m$2(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+    new-array v1, v1, [Ljava/nio/file/LinkOption;
 
-    move-result v2
+    invoke-static {p1, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m$2(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
 
-    if-eqz v2, :cond_61
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     .line 35
-    new-array v2, v1, [Ljava/nio/file/LinkOption;
+    const/4 v1, 0x0
 
-    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m$1(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+    new-array v1, v1, [Ljava/nio/file/LinkOption;
 
-    move-result v2
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m$1(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
 
-    if-eqz v2, :cond_50
+    move-result v1
 
-    iget-boolean v2, p0, Lio/github/zeroaicy/util/FileUtil$1;->val$isCover:Z
+    if-eqz v1, :cond_2
 
-    if-eqz v2, :cond_4f
+    iget-boolean v1, p0, Lio/github/zeroaicy/util/FileUtil$1;->val$isCover:Z
 
-    new-array v2, v1, [Ljava/nio/file/LinkOption;
+    if-eqz v1, :cond_0
 
-    invoke-static {p1, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileTime;
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/nio/file/LinkOption;
+
+    invoke-static {p1, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileTime;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    new-array v2, v2, [Ljava/nio/file/LinkOption;
+
+    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileTime;
 
     move-result-object v2
 
-    new-array v3, v1, [Ljava/nio/file/LinkOption;
+    invoke-static {v1, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)I
 
-    invoke-static {v0, v3}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileTime;
+    move-result v1
 
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)I
-
-    move-result v2
-
-    if-gez v2, :cond_50
-
-    :cond_4f
-    return-void
+    if-ltz v1, :cond_0
 
     .line 38
-    :cond_50
-    const/4 v2, 0x1
+    :cond_2
+    const/4 v1, 0x1
 
-    new-array v2, v2, [Ljava/nio/file/CopyOption;
+    new-array v1, v1, [Ljava/nio/file/CopyOption;
+
+    const/4 v2, 0x0
 
     invoke-static {}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m()Ljava/nio/file/StandardCopyOption;
 
     move-result-object v3
 
-    aput-object v3, v2, v1
+    aput-object v3, v1, v2
 
-    invoke-static {p1, v0, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
-    :try_end_5c
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5c} :catch_5d
+    invoke-static {p1, v0, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_61
+    goto :goto_0
 
-    :catch_5d
-    move-exception p1
+    :catch_0
+    move-exception v0
 
     .line 41
-    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    :cond_61
-    :goto_61
-    return-void
+    goto :goto_0
 .end method

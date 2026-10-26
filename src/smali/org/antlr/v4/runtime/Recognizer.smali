@@ -22,10 +22,11 @@
 .field private static final ruleIndexMapCache:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
-            "[",
+            "Ljava/util/Map",
+            "<[",
             "Ljava/lang/String;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/Integer;",
             ">;>;"
@@ -36,9 +37,11 @@
 .field private static final tokenTypeMapCache:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Lorg/antlr/v4/runtime/Vocabulary;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/Integer;",
             ">;>;"
@@ -59,7 +62,8 @@
 .field private _listeners:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/ANTLRErrorListener;",
             ">;"
         }
@@ -71,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 24
     new-instance v0, Ljava/util/WeakHashMap;
@@ -91,7 +95,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,15 +118,15 @@
 
 # virtual methods
 .method public action(Lorg/antlr/v4/runtime/RuleContext;II)V
-    .registers 4
+    .locals 0
 
     return-void
 .end method
 
 .method public addErrorListener(Lorg/antlr/v4/runtime/ANTLRErrorListener;)V
-    .registers 3
+    .locals 2
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     .line 218
     iget-object v0, p0, Lorg/antlr/v4/runtime/Recognizer;->_listeners:Ljava/util/List;
@@ -132,21 +136,21 @@
     return-void
 
     .line 215
-    :cond_8
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "listener cannot be null."
+    const-string v1, "listener cannot be null."
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public abstract getATN()Lorg/antlr/v4/runtime/atn/ATN;
 .end method
 
 .method public getErrorHeader(Lorg/antlr/v4/runtime/RecognitionException;)Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .line 174
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/RecognitionException;->getOffendingToken()Lorg/antlr/v4/runtime/Token;
@@ -160,36 +164,36 @@
     .line 175
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/RecognitionException;->getOffendingToken()Lorg/antlr/v4/runtime/Token;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getCharPositionInLine()I
+    invoke-interface {v1}, Lorg/antlr/v4/runtime/Token;->getCharPositionInLine()I
 
-    move-result p1
+    move-result v1
 
     .line 176
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v2, "line "
+    const-string v3, "line "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v0, ":"
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getErrorListenerDispatch()Lorg/antlr/v4/runtime/ANTLRErrorListener;
-    .registers 3
+    .locals 2
 
     .line 235
     new-instance v0, Lorg/antlr/v4/runtime/ProxyErrorListener;
@@ -204,12 +208,12 @@
 .end method
 
 .method public getErrorListeners()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<+",
             "Lorg/antlr/v4/runtime/ANTLRErrorListener;",
             ">;"
         }
@@ -228,7 +232,7 @@
 .end method
 
 .method public getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TATNInterpreter;"
@@ -242,7 +246,7 @@
 .end method
 
 .method public getParseInfo()Lorg/antlr/v4/runtime/atn/ParseInfo;
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -250,11 +254,12 @@
 .end method
 
 .method public getRuleIndexMap()Ljava/util/Map;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/Integer;",
             ">;"
@@ -264,55 +269,55 @@
     .line 99
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Recognizer;->getRuleNames()[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_21
+    if-eqz v1, :cond_1
 
     .line 104
-    sget-object v1, Lorg/antlr/v4/runtime/Recognizer;->ruleIndexMapCache:Ljava/util/Map;
+    sget-object v2, Lorg/antlr/v4/runtime/Recognizer;->ruleIndexMapCache:Ljava/util/Map;
 
-    monitor-enter v1
+    monitor-enter v2
 
     .line 105
-    :try_start_9
-    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_start_0
+    invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/util/Map;
+    check-cast v0, Ljava/util/Map;
 
-    if-nez v2, :cond_1c
+    if-nez v0, :cond_0
 
     .line 107
-    invoke-static {v0}, Lorg/antlr/v4/runtime/misc/Utils;->toMap([Ljava/lang/String;)Ljava/util/Map;
+    invoke-static {v1}, Lorg/antlr/v4/runtime/misc/Utils;->toMap([Ljava/lang/String;)Ljava/util/Map;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v2}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 108
-    invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 111
-    :cond_1c
-    monitor-exit v1
+    :cond_0
+    monitor-exit v2
 
-    return-object v2
+    return-object v0
 
-    :catchall_1e
+    :catchall_0
     move-exception v0
 
     .line 112
-    monitor-exit v1
-    :try_end_20
-    .catchall {:try_start_9 .. :try_end_20} :catchall_1e
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 101
-    :cond_21
+    :cond_1
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "The current recognizer does not provide a list of rule names."
@@ -326,7 +331,7 @@
 .end method
 
 .method public getSerializedATN()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 129
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -339,7 +344,7 @@
 .end method
 
 .method public final getState()I
-    .registers 2
+    .locals 1
 
     .line 252
     iget v0, p0, Lorg/antlr/v4/runtime/Recognizer;->_stateNumber:I
@@ -348,24 +353,26 @@
 .end method
 
 .method public getTokenErrorDisplay(Lorg/antlr/v4/runtime/Token;)Ljava/lang/String;
-    .registers 4
+    .locals 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_0
 
     .line 194
-    const-string p1, "<no token>"
+    const-string v0, "<no token>"
 
-    return-object p1
+    .line 207
+    :goto_0
+    return-object v0
 
     .line 195
-    :cond_5
+    :cond_0
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getText()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_1
 
     .line 197
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getType()I
@@ -374,15 +381,61 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_2
 
     .line 198
     const-string v0, "<EOF>"
 
-    goto :goto_2c
+    .line 204
+    :cond_1
+    :goto_1
+    const-string v1, "\n"
+
+    const-string v2, "\\n"
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 205
+    const-string v1, "\r"
+
+    const-string v2, "\\r"
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 206
+    const-string v1, "\t"
+
+    const-string v2, "\\t"
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 207
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "\'"
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "\'"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
 
     .line 201
-    :cond_15
+    :cond_2
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "<"
@@ -391,71 +444,27 @@
 
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getType()I
 
-    move-result p1
+    move-result v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, ">"
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 204
-    :cond_2c
-    :goto_2c
-    const-string p1, "\n"
-
-    const-string v1, "\\n"
-
-    invoke-virtual {v0, p1, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 205
-    const-string v0, "\r"
-
-    const-string v1, "\\r"
-
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 206
-    const-string v0, "\t"
-
-    const-string v1, "\\t"
-
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 207
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    const-string v1, "\'"
-
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ">"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_1
 .end method
 
 .method public abstract getTokenFactory()Lorg/antlr/v4/runtime/TokenFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;"
         }
     .end annotation
 .end method
@@ -466,7 +475,7 @@
 .end method
 
 .method public getTokenType(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
 
     .line 116
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Recognizer;->getTokenTypeMap()Ljava/util/Map;
@@ -475,31 +484,33 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    if-eqz p1, :cond_11
+    if-eqz v0, :cond_0
 
     .line 117
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_11
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public getTokenTypeMap()Ljava/util/Map;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/Integer;",
             ">;"
@@ -509,77 +520,77 @@
     .line 67
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Recognizer;->getVocabulary()Lorg/antlr/v4/runtime/Vocabulary;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 68
-    sget-object v1, Lorg/antlr/v4/runtime/Recognizer;->tokenTypeMapCache:Ljava/util/Map;
+    sget-object v2, Lorg/antlr/v4/runtime/Recognizer;->tokenTypeMapCache:Ljava/util/Map;
 
-    monitor-enter v1
+    monitor-enter v2
 
     .line 69
-    :try_start_7
-    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_start_0
+    invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/util/Map;
+    check-cast v0, Ljava/util/Map;
 
-    if-nez v2, :cond_4d
+    if-nez v0, :cond_3
 
     .line 71
-    new-instance v2, Ljava/util/HashMap;
+    new-instance v3, Ljava/util/HashMap;
 
-    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
     .line 72
-    :goto_15
+    :goto_0
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Recognizer;->getATN()Lorg/antlr/v4/runtime/atn/ATN;
 
     move-result-object v4
 
     iget v4, v4, Lorg/antlr/v4/runtime/atn/ATN;->maxTokenType:I
 
-    if-gt v3, v4, :cond_3a
+    if-gt v0, v4, :cond_2
 
     .line 73
-    invoke-interface {v0, v3}, Lorg/antlr/v4/runtime/Vocabulary;->getLiteralName(I)Ljava/lang/String;
+    invoke-interface {v1, v0}, Lorg/antlr/v4/runtime/Vocabulary;->getLiteralName(I)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2a
+    if-eqz v4, :cond_0
 
     .line 75
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
-    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 78
-    :cond_2a
-    invoke-interface {v0, v3}, Lorg/antlr/v4/runtime/Vocabulary;->getSymbolicName(I)Ljava/lang/String;
+    :cond_0
+    invoke-interface {v1, v0}, Lorg/antlr/v4/runtime/Vocabulary;->getSymbolicName(I)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_37
+    if-eqz v4, :cond_1
 
     .line 80
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
-    invoke-interface {v2, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_37
-    add-int/lit8 v3, v3, 0x1
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
     .line 84
-    :cond_3a
-    const-string v3, "EOF"
+    :cond_2
+    const-string v0, "EOF"
 
     const/4 v4, -0x1
 
@@ -587,43 +598,37 @@
 
     move-result-object v4
 
-    invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v0, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 85
-    invoke-static {v2}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+    invoke-static {v3}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 86
     sget-object v3, Lorg/antlr/v4/runtime/Recognizer;->tokenTypeMapCache:Ljava/util/Map;
 
-    invoke-interface {v3, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 89
-    :cond_4d
-    monitor-exit v1
+    :cond_3
+    monitor-exit v2
 
-    return-object v2
+    return-object v0
 
-    :catchall_4f
+    :catchall_0
     move-exception v0
 
     .line 90
-    monitor-exit v1
-    :try_end_51
-    .catchall {:try_start_7 .. :try_end_51} :catchall_4f
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_53
-
-    :goto_52
     throw v0
-
-    :goto_53
-    goto :goto_52
 .end method
 
 .method public getVocabulary()Lorg/antlr/v4/runtime/Vocabulary;
-    .registers 2
+    .locals 1
 
     .line 58
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Recognizer;->getTokenNames()[Ljava/lang/String;
@@ -638,15 +643,15 @@
 .end method
 
 .method public precpred(Lorg/antlr/v4/runtime/RuleContext;I)Z
-    .registers 3
+    .locals 1
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public removeErrorListener(Lorg/antlr/v4/runtime/ANTLRErrorListener;)V
-    .registers 3
+    .locals 1
 
     .line 222
     iget-object v0, p0, Lorg/antlr/v4/runtime/Recognizer;->_listeners:Ljava/util/List;
@@ -657,7 +662,7 @@
 .end method
 
 .method public removeErrorListeners()V
-    .registers 2
+    .locals 1
 
     .line 226
     iget-object v0, p0, Lorg/antlr/v4/runtime/Recognizer;->_listeners:Ljava/util/List;
@@ -668,18 +673,18 @@
 .end method
 
 .method public sempred(Lorg/antlr/v4/runtime/RuleContext;II)Z
-    .registers 4
+    .locals 1
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public abstract setInputStream(Lorg/antlr/v4/runtime/IntStream;)V
 .end method
 
 .method public setInterpreter(Lorg/antlr/v4/runtime/atn/ATNSimulator;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TATNInterpreter;)V"
@@ -693,7 +698,7 @@
 .end method
 
 .method public final setState(I)V
-    .registers 2
+    .locals 0
 
     .line 264
     iput p1, p0, Lorg/antlr/v4/runtime/Recognizer;->_stateNumber:I
@@ -705,8 +710,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;)V"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;)V"
         }
     .end annotation
 .end method

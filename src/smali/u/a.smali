@@ -7,7 +7,8 @@
 .field public static a:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Lc/n;",
             "Ljava/lang/String;",
             ">;"
@@ -18,7 +19,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 4
+    .locals 3
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -100,13 +101,15 @@
 
     sget-object v1, Lo/a;->a:Lc/n;
 
-    const-string v3, "RIPEMD-160"
+    const-string v2, "RIPEMD-160"
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lu/a;->a:Ljava/util/HashMap;
 
     sget-object v1, Lo/a;->c:Lc/n;
+
+    const-string v2, "RIPEMD-128"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -114,13 +117,17 @@
 
     sget-object v1, Li/a;->b:Lc/n;
 
+    const-string v2, "RIPEMD-128"
+
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lu/a;->a:Ljava/util/HashMap;
 
     sget-object v1, Li/a;->a:Lc/n;
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v2, "RIPEMD-160"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lu/a;->a:Ljava/util/HashMap;
 

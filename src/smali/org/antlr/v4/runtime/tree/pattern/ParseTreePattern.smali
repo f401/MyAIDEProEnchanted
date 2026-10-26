@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/tree/pattern/ParseTreePatternMatcher;Ljava/lang/String;ILorg/antlr/v4/runtime/tree/ParseTree;)V
-    .registers 5
+    .locals 0
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,14 +38,15 @@
 
 # virtual methods
 .method public findAll(Lorg/antlr/v4/runtime/tree/ParseTree;Ljava/lang/String;)Ljava/util/List;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;",
             ">;"
         }
@@ -60,27 +61,27 @@
 
     invoke-static {p1, p2, v0}, Lorg/antlr/v4/runtime/tree/xpath/XPath;->findAll(Lorg/antlr/v4/runtime/tree/ParseTree;Ljava/lang/String;Lorg/antlr/v4/runtime/Parser;)Ljava/util/Collection;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 101
-    new-instance p2, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 102
-    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v2
 
-    :cond_13
-    :goto_13
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_1
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -94,21 +95,21 @@
     .line 104
     invoke-virtual {v0}, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->succeeded()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_13
+    if-eqz v3, :cond_0
 
     .line 105
-    invoke-interface {p2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_13
+    goto :goto_0
 
-    :cond_2d
-    return-object p2
+    :cond_1
+    return-object v1
 .end method
 
 .method public getMatcher()Lorg/antlr/v4/runtime/tree/pattern/ParseTreePatternMatcher;
-    .registers 2
+    .locals 1
 
     .line 119
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;->matcher:Lorg/antlr/v4/runtime/tree/pattern/ParseTreePatternMatcher;
@@ -117,7 +118,7 @@
 .end method
 
 .method public getPattern()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 129
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;->pattern:Ljava/lang/String;
@@ -126,7 +127,7 @@
 .end method
 
 .method public getPatternRuleIndex()I
-    .registers 2
+    .locals 1
 
     .line 140
     iget v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;->patternRuleIndex:I
@@ -135,7 +136,7 @@
 .end method
 
 .method public getPatternTree()Lorg/antlr/v4/runtime/tree/ParseTree;
-    .registers 2
+    .locals 1
 
     .line 152
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;->patternTree:Lorg/antlr/v4/runtime/tree/ParseTree;
@@ -144,31 +145,31 @@
 .end method
 
 .method public match(Lorg/antlr/v4/runtime/tree/ParseTree;)Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;
-    .registers 3
+    .locals 1
 
     .line 73
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;->matcher:Lorg/antlr/v4/runtime/tree/pattern/ParseTreePatternMatcher;
 
     invoke-virtual {v0, p1, p0}, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePatternMatcher;->match(Lorg/antlr/v4/runtime/tree/ParseTree;Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;)Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public matches(Lorg/antlr/v4/runtime/tree/ParseTree;)Z
-    .registers 3
+    .locals 1
 
     .line 84
     iget-object v0, p0, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;->matcher:Lorg/antlr/v4/runtime/tree/pattern/ParseTreePatternMatcher;
 
     invoke-virtual {v0, p1, p0}, Lorg/antlr/v4/runtime/tree/pattern/ParseTreePatternMatcher;->match(Lorg/antlr/v4/runtime/tree/ParseTree;Lorg/antlr/v4/runtime/tree/pattern/ParseTreePattern;)Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->succeeded()Z
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/tree/pattern/ParseTreeMatch;->succeeded()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 579
     iput-object p1, p0, Lcom/s1243808733/aide/MainListener$7;->val$match:Ljava/lang/String;
@@ -33,39 +33,40 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 3
+    .locals 2
 
     .line 583
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$7;->val$match:Ljava/lang/String;
-
-    const-string v0, ".aar"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_19
-
-    .line 584
-    new-instance p1, Ljava/io/File;
-
     iget-object v0, p0, Lcom/s1243808733/aide/MainListener$7;->val$match:Ljava/lang/String;
 
-    invoke-direct {p1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    const-string v1, ".aar"
 
-    invoke-virtual {p1}, Ljava/io/File;->getParent()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result-object p1
+    move-result v0
 
-    invoke-static {p1}, Lcom/s1243808733/aide/util/AIDEUtils;->setFileBrowserCurrentDir(Ljava/lang/String;)V
+    if-eqz v0, :cond_0
 
-    return-void
+    .line 584
+    new-instance v0, Ljava/io/File;
+
+    iget-object v1, p0, Lcom/s1243808733/aide/MainListener$7;->val$match:Ljava/lang/String;
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/io/File;->getParent()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->setFileBrowserCurrentDir(Ljava/lang/String;)V
 
     .line 587
-    :cond_19
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$7;->val$match:Ljava/lang/String;
-
-    invoke-static {p1}, Lcom/s1243808733/aide/util/AIDEUtils;->setFileBrowserCurrentDir(Ljava/lang/String;)V
-
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$7;->val$match:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->setFileBrowserCurrentDir(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method

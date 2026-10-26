@@ -17,226 +17,222 @@
 
 # direct methods
 .method public constructor <init>(Lc/f;)V
-    .registers 6
+    .locals 4
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Lc/s;-><init>()V
 
-    const/4 v0, 0x0
+    invoke-virtual {p0, p1, v2}, Lc/aq;->o(Lc/f;I)Lc/s;
 
-    invoke-virtual {p0, p1, v0}, Lc/aq;->o(Lc/f;I)Lc/s;
+    move-result-object v0
 
-    move-result-object v1
+    instance-of v3, v0, Lc/n;
 
-    instance-of v2, v1, Lc/n;
+    if-eqz v3, :cond_5
 
-    const/4 v3, 0x1
+    check-cast v0, Lc/n;
 
-    if-eqz v2, :cond_16
+    iput-object v0, p0, Lc/aq;->a:Lc/n;
 
-    check-cast v1, Lc/n;
+    invoke-virtual {p0, p1, v1}, Lc/aq;->o(Lc/f;I)Lc/s;
 
-    iput-object v1, p0, Lc/aq;->a:Lc/n;
+    move-result-object v0
 
-    invoke-virtual {p0, p1, v3}, Lc/aq;->o(Lc/f;I)Lc/s;
+    :goto_0
+    instance-of v2, v0, Lc/k;
 
-    move-result-object v1
+    if-eqz v2, :cond_0
 
-    const/4 v0, 0x1
+    check-cast v0, Lc/k;
 
-    :cond_16
-    instance-of v2, v1, Lc/k;
+    iput-object v0, p0, Lc/aq;->b:Lc/k;
 
-    if-eqz v2, :cond_24
+    add-int/lit8 v1, v1, 0x1
 
-    check-cast v1, Lc/k;
+    invoke-virtual {p0, p1, v1}, Lc/aq;->o(Lc/f;I)Lc/s;
 
-    iput-object v1, p0, Lc/aq;->b:Lc/k;
+    move-result-object v0
 
-    add-int/lit8 v0, v0, 0x1
+    :cond_0
+    instance-of v2, v0, Lc/z;
 
-    invoke-virtual {p0, p1, v0}, Lc/aq;->o(Lc/f;I)Lc/s;
+    if-nez v2, :cond_1
 
-    move-result-object v1
+    iput-object v0, p0, Lc/aq;->c:Lc/s;
 
-    :cond_24
-    instance-of v2, v1, Lc/z;
+    add-int/lit8 v1, v1, 0x1
 
-    if-nez v2, :cond_30
+    invoke-virtual {p0, p1, v1}, Lc/aq;->o(Lc/f;I)Lc/s;
 
-    iput-object v1, p0, Lc/aq;->c:Lc/s;
+    move-result-object v0
 
-    add-int/lit8 v0, v0, 0x1
-
-    invoke-virtual {p0, p1, v0}, Lc/aq;->o(Lc/f;I)Lc/s;
-
-    move-result-object v1
-
-    :cond_30
+    :cond_1
     invoke-virtual {p1}, Lc/f;->d()I
 
-    move-result p1
+    move-result v2
 
-    add-int/2addr v0, v3
+    add-int/lit8 v1, v1, 0x1
 
-    if-ne p1, v0, :cond_69
+    if-ne v2, v1, :cond_4
 
-    instance-of p1, v1, Lc/z;
+    instance-of v1, v0, Lc/z;
 
-    if-eqz p1, :cond_61
+    if-eqz v1, :cond_3
 
-    check-cast v1, Lc/z;
+    check-cast v0, Lc/z;
 
     .line 1
-    iget p1, v1, Lc/z;->a:I
+    iget v1, v0, Lc/z;->a:I
 
-    if-ltz p1, :cond_4d
+    if-ltz v1, :cond_2
 
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
-    if-gt p1, v0, :cond_4d
+    if-gt v1, v2, :cond_2
 
     .line 2
-    iput p1, p0, Lc/aq;->h:I
+    iput v1, p0, Lc/aq;->h:I
 
     .line 3
-    invoke-virtual {v1}, Lc/z;->k()Lc/s;
+    invoke-virtual {v0}, Lc/z;->k()Lc/s;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lc/aq;->k:Lc/s;
+    iput-object v0, p0, Lc/aq;->k:Lc/s;
 
     return-void
 
     .line 4
-    :cond_4d
+    :cond_2
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v1, "invalid encoding value: "
+    const-string v2, "invalid encoding value: "
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 
     .line 5
-    :cond_61
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_3
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "No tagged object found in vector. Structure doesn\'t seem to be of type External"
+    const-string v1, "No tagged object found in vector. Structure doesn\'t seem to be of type External"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    :cond_69
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_4
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "input vector too large"
+    const-string v1, "input vector too large"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
+
+    :cond_5
+    move v1, v2
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public final d(Lc/s;)Z
-    .registers 5
+    .locals 3
 
-    instance-of v0, p1, Lc/aq;
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    instance-of v1, p1, Lc/aq;
 
-    if-nez v0, :cond_6
+    if-nez v1, :cond_1
 
-    return v1
+    :cond_0
+    :goto_0
+    return v0
 
-    :cond_6
-    if-ne p0, p1, :cond_a
+    :cond_1
+    if-ne p0, p1, :cond_2
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    goto :goto_0
 
-    :cond_a
+    :cond_2
     check-cast p1, Lc/aq;
 
-    iget-object v0, p0, Lc/aq;->a:Lc/n;
+    iget-object v1, p0, Lc/aq;->a:Lc/n;
 
-    if-eqz v0, :cond_1b
+    if-eqz v1, :cond_3
 
     iget-object v2, p1, Lc/aq;->a:Lc/n;
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v2, v0}, Lc/s;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Lc/s;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1b
+    if-eqz v1, :cond_0
 
-    :cond_1a
-    return v1
+    :cond_3
+    iget-object v1, p0, Lc/aq;->b:Lc/k;
 
-    :cond_1b
-    iget-object v0, p0, Lc/aq;->b:Lc/k;
-
-    if-eqz v0, :cond_2a
+    if-eqz v1, :cond_4
 
     iget-object v2, p1, Lc/aq;->b:Lc/k;
 
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v2, v0}, Lc/s;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Lc/s;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2a
+    if-eqz v1, :cond_0
 
-    :cond_29
-    return v1
+    :cond_4
+    iget-object v1, p0, Lc/aq;->c:Lc/s;
 
-    :cond_2a
-    iget-object v0, p0, Lc/aq;->c:Lc/s;
-
-    if-eqz v0, :cond_39
+    if-eqz v1, :cond_5
 
     iget-object v2, p1, Lc/aq;->c:Lc/s;
 
-    if-eqz v2, :cond_38
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v2, v0}, Lc/s;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Lc/s;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    :cond_5
+    iget-object v0, p0, Lc/aq;->k:Lc/s;
+
+    iget-object v1, p1, Lc/aq;->k:Lc/s;
+
+    invoke-virtual {v0, v1}, Lc/s;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_39
-
-    :cond_38
-    return v1
-
-    :cond_39
-    iget-object v0, p0, Lc/aq;->k:Lc/s;
-
-    iget-object p1, p1, Lc/aq;->k:Lc/s;
-
-    invoke-virtual {v0, p1}, Lc/s;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    return p1
+    goto :goto_0
 .end method
 
 .method public final e(Lc/q;)V
-    .registers 8
+    .locals 5
 
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
@@ -244,20 +240,22 @@
 
     iget-object v1, p0, Lc/aq;->a:Lc/n;
 
+    if-eqz v1, :cond_0
+
     const-string v2, "DER"
 
-    if-eqz v1, :cond_12
-
     invoke-virtual {v1, v2}, Lc/m;->n(Ljava/lang/String;)[B
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
 
-    :cond_12
+    :cond_0
     iget-object v1, p0, Lc/aq;->b:Lc/k;
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_1
+
+    const-string v2, "DER"
 
     invoke-virtual {v1, v2}, Lc/m;->n(Ljava/lang/String;)[B
 
@@ -265,10 +263,12 @@
 
     invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
 
-    :cond_1d
+    :cond_1
     iget-object v1, p0, Lc/aq;->c:Lc/s;
 
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_2
+
+    const-string v2, "DER"
 
     invoke-virtual {v1, v2}, Lc/m;->n(Ljava/lang/String;)[B
 
@@ -276,16 +276,18 @@
 
     invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
 
-    :cond_28
+    :cond_2
     new-instance v1, Lc/bf;
+
+    const/4 v2, 0x1
 
     iget v3, p0, Lc/aq;->h:I
 
     iget-object v4, p0, Lc/aq;->k:Lc/s;
 
-    const/4 v5, 0x1
+    invoke-direct {v1, v2, v3, v4}, Lc/bf;-><init>(ZILc/e;)V
 
-    invoke-direct {v1, v5, v3, v4}, Lc/bf;-><init>(ZILc/e;)V
+    const-string v2, "DER"
 
     invoke-virtual {v1, v2}, Lc/m;->n(Ljava/lang/String;)[B
 
@@ -293,21 +295,21 @@
 
     invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
 
-    const/16 v1, 0x8
+    const/16 v1, 0x20
+
+    const/16 v2, 0x8
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v0
 
-    const/16 v2, 0x20
-
-    invoke-virtual {p1, v2, v1, v0}, Lc/q;->f(II[B)V
+    invoke-virtual {p1, v1, v2, v0}, Lc/q;->f(II[B)V
 
     return-void
 .end method
 
 .method public final f()I
-    .registers 2
+    .locals 1
 
     invoke-virtual {p0}, Lc/m;->m()[B
 
@@ -319,7 +321,7 @@
 .end method
 
 .method public final g()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -327,25 +329,20 @@
 .end method
 
 .method public final hashCode()I
-    .registers 3
+    .locals 2
 
     iget-object v0, p0, Lc/aq;->a:Lc/n;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Lc/n;->hashCode()I
 
     move-result v0
 
-    goto :goto_a
-
-    :cond_9
-    const/4 v0, 0x0
-
-    :goto_a
+    :goto_0
     iget-object v1, p0, Lc/aq;->b:Lc/k;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Lc/k;->hashCode()I
 
@@ -353,10 +350,10 @@
 
     xor-int/2addr v0, v1
 
-    :cond_13
+    :cond_0
     iget-object v1, p0, Lc/aq;->c:Lc/s;
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_1
 
     invoke-virtual {v1}, Lc/s;->hashCode()I
 
@@ -364,7 +361,7 @@
 
     xor-int/2addr v0, v1
 
-    :cond_1c
+    :cond_1
     iget-object v1, p0, Lc/aq;->k:Lc/s;
 
     invoke-virtual {v1}, Lc/s;->hashCode()I
@@ -374,33 +371,38 @@
     xor-int/2addr v0, v1
 
     return v0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public final o(Lc/f;I)Lc/s;
-    .registers 4
+    .locals 2
 
     invoke-virtual {p1}, Lc/f;->d()I
 
     move-result v0
 
-    if-le v0, p2, :cond_f
+    if-le v0, p2, :cond_0
 
     invoke-virtual {p1, p2}, Lc/f;->c(I)Lc/e;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Lc/e;->l()Lc/s;
+    invoke-interface {v0}, Lc/e;->l()Lc/s;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
-    :cond_f
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "too few objects in input vector"
+    const-string v1, "too few objects in input vector"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method

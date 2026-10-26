@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;Landroid/app/Activity;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,22 +45,22 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 5
+    .locals 4
 
     .line 1199
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$20;->val$activity:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$20;->val$activity:Landroid/app/Activity;
 
-    new-instance v0, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/AideMainActivity$20;->val$activity:Landroid/app/Activity;
+    iget-object v2, p0, Lcom/s1243808733/aide/AideMainActivity$20;->val$activity:Landroid/app/Activity;
 
-    const-class v2, Lcom/s1243808733/aide/application/activity/androidr/AndroidRActivity;
+    const-class v3, Lcom/s1243808733/aide/application/activity/androidr/AndroidRActivity;
 
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v1, v2, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-static {p1, v0}, Lcom/s1243808733/util/Utils;->startActivityTransition(Landroid/app/Activity;Landroid/content/Intent;)V
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->startActivityTransition(Landroid/app/Activity;Landroid/content/Intent;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

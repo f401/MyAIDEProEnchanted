@@ -32,15 +32,15 @@
 
 # direct methods
 .method constructor <init>([CZ)V
-    .registers 3
+    .locals 1
 
     iput-object p1, p0, Lcom/termux/yinli_a/n/o$a;->a:[C
 
     iput-boolean p2, p0, Lcom/termux/yinli_a/n/o$a;->b:Z
 
-    const/4 p1, 0x2
+    const/4 v0, 0x2
 
-    invoke-direct {p0, p1}, Lcom/termux/yinli_a/k/b/d;-><init>(I)V
+    invoke-direct {p0, v0}, Lcom/termux/yinli_a/k/b/d;-><init>(I)V
 
     return-void
 .end method
@@ -48,13 +48,14 @@
 
 # virtual methods
 .method public final a(Ljava/lang/CharSequence;I)Lcom/termux/yinli_a/d;
-    .registers 5
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/CharSequence;",
             "I)",
-            "La/d<",
+            "La/d",
+            "<",
             "Ljava/lang/Integer;",
             "Ljava/lang/Integer;",
             ">;"
@@ -71,35 +72,35 @@
 
     invoke-static {p1, v0, p2, v1}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;[CIZ)I
 
-    move-result p1
+    move-result v0
 
-    if-gez p1, :cond_11
+    if-gez v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    goto :goto_1e
+    :goto_0
+    return-object v0
 
-    :cond_11
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    :cond_0
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 p2, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p1, p2}, Lcom/termux/yinli_a/e;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/termux/yinli_a/d;
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/e;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/termux/yinli_a/d;
 
-    move-result-object p1
+    move-result-object v0
 
-    :goto_1e
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic a(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     check-cast p1, Ljava/lang/CharSequence;
 
@@ -107,11 +108,11 @@
 
     invoke-virtual {p2}, Ljava/lang/Number;->intValue()I
 
-    move-result p2
+    move-result v0
 
-    invoke-virtual {p0, p1, p2}, Lcom/termux/yinli_a/n/o$a;->a(Ljava/lang/CharSequence;I)Lcom/termux/yinli_a/d;
+    invoke-virtual {p0, p1, v0}, Lcom/termux/yinli_a/n/o$a;->a(Ljava/lang/CharSequence;I)Lcom/termux/yinli_a/d;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

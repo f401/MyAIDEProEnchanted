@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Ljava/lang/String;",
         ">;"
     }
@@ -19,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -29,7 +30,7 @@
 
 # virtual methods
 .method public bridge compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     check-cast p1, Ljava/lang/String;
 
@@ -37,33 +38,31 @@
 
     invoke-virtual {p0, p1, p2}, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor$100000000;->compare(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public compare(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
-    if-nez p2, :cond_5
-
-    goto :goto_a
+    if-nez p2, :cond_1
 
     .line 580
-    :cond_5
+    :cond_0
+    const/4 v0, -0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
     invoke-virtual {p1, p2}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
-
-    :cond_a
-    :goto_a
-    const/4 p1, -0x1
-
-    return p1
+    goto :goto_0
 .end method

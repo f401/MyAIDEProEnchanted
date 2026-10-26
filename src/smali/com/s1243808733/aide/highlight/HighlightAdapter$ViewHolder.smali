@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/highlight/HighlightAdapter;Landroid/view/View;)V
-    .registers 3
+    .locals 1
 
     .line 75
     iput-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightAdapter$ViewHolder;->this$0:Lcom/s1243808733/aide/highlight/HighlightAdapter;
@@ -37,26 +37,26 @@
     iput-object p2, p0, Lcom/s1243808733/aide/highlight/HighlightAdapter$ViewHolder;->rootView:Landroid/view/View;
 
     .line 77
-    const p1, 0x1020014
+    const v0, 0x1020014
 
-    invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    iput-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightAdapter$ViewHolder;->title:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/s1243808733/aide/highlight/HighlightAdapter$ViewHolder;->title:Landroid/widget/TextView;
 
     .line 78
-    const p1, 0x1020015
+    const v0, 0x1020015
 
-    invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/view/ColorBackgroundTextView;
+    check-cast v0, Lcom/s1243808733/view/ColorBackgroundTextView;
 
-    iput-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightAdapter$ViewHolder;->subtitle:Lcom/s1243808733/view/ColorBackgroundTextView;
+    iput-object v0, p0, Lcom/s1243808733/aide/highlight/HighlightAdapter$ViewHolder;->subtitle:Lcom/s1243808733/view/ColorBackgroundTextView;
 
     return-void
 .end method

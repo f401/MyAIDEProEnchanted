@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$23;Landroid/app/AlertDialog;Landroid/widget/EditText;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,48 +49,48 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
 
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 2
 
     .line 972
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$23$2;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$23$2;->val$dialog:Landroid/app/AlertDialog;
 
     .line 973
-    const/4 p2, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 974
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$23$2;->val$input:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$23$2;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {p2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p2}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
+    invoke-static {v1}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
 
-    move-result p2
+    move-result v1
 
-    xor-int/lit8 p2, p2, 0x1
+    xor-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {p1, p2}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
     return-void
 .end method

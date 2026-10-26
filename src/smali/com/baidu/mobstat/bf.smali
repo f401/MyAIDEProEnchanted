@@ -8,7 +8,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -16,7 +16,7 @@
 .end method
 
 .method public static a()Lcom/baidu/mobstat/bf;
-    .registers 3
+    .locals 3
 
     new-instance v0, Lcom/baidu/mobstat/bf;
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public a(ILcom/baidu/mobstat/bi;)V
-    .registers 5
+    .locals 2
 
     iget-object v0, p0, Lcom/baidu/mobstat/bf;->a:Lcom/baidu/mobstat/bh;
 
@@ -50,9 +50,9 @@
 .end method
 
 .method public final a([B)[B
-    .registers 5
+    .locals 3
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/baidu/mobstat/bf;->a:Lcom/baidu/mobstat/bh;
 
@@ -62,16 +62,16 @@
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/baidu/mobstat/bh;->a([BII)[B
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
-    :cond_b
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "Null input buffer"
+    const-string v1, "Null input buffer"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method

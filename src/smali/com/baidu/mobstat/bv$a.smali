@@ -15,23 +15,24 @@
 
 # direct methods
 .method static a(Ljava/lang/String;I)Z
-    .registers 2
+    .locals 1
 
     :try_start_0
     invoke-static {p0, p1}, Landroid/system/Os;->chmod(Ljava/lang/String;I)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    return p0
+    :goto_0
+    return v0
 
-    :catch_5
-    move-exception p0
+    :catch_0
+    move-exception v0
 
-    invoke-static {p0}, Lcom/baidu/mobstat/bu;->a(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lcom/baidu/mobstat/bu;->a(Ljava/lang/Throwable;)V
 
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return p0
+    goto :goto_0
 .end method

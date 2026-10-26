@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>([Lcom/s1243808733/android/dex/ClassData$Field;[Lcom/s1243808733/android/dex/ClassData$Field;[Lcom/s1243808733/android/dex/ClassData$Method;[Lcom/s1243808733/android/dex/ClassData$Method;)V
-    .registers 5
+    .locals 0
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,9 @@
 
 # virtual methods
 .method public allFields()[Lcom/s1243808733/android/dex/ClassData$Field;
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x0
 
     .line 50
     iget-object v0, p0, Lcom/s1243808733/android/dex/ClassData;->staticFields:[Lcom/s1243808733/android/dex/ClassData$Field;
@@ -65,9 +67,7 @@
     .line 51
     array-length v2, v0
 
-    const/4 v3, 0x0
-
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v4, v1, v4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 52
     iget-object v0, p0, Lcom/s1243808733/android/dex/ClassData;->instanceFields:[Lcom/s1243808733/android/dex/ClassData$Field;
@@ -76,15 +76,17 @@
 
     array-length v2, v2
 
-    array-length v4, v0
+    array-length v3, v0
 
-    invoke-static {v0, v3, v1, v2, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v4, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return-object v1
 .end method
 
 .method public allMethods()[Lcom/s1243808733/android/dex/ClassData$Method;
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x0
 
     .line 57
     iget-object v0, p0, Lcom/s1243808733/android/dex/ClassData;->directMethods:[Lcom/s1243808733/android/dex/ClassData$Method;
@@ -102,9 +104,7 @@
     .line 58
     array-length v2, v0
 
-    const/4 v3, 0x0
-
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v4, v1, v4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 59
     iget-object v0, p0, Lcom/s1243808733/android/dex/ClassData;->virtualMethods:[Lcom/s1243808733/android/dex/ClassData$Method;
@@ -113,15 +113,15 @@
 
     array-length v2, v2
 
-    array-length v4, v0
+    array-length v3, v0
 
-    invoke-static {v0, v3, v1, v2, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v4, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return-object v1
 .end method
 
 .method public getDirectMethods()[Lcom/s1243808733/android/dex/ClassData$Method;
-    .registers 2
+    .locals 1
 
     .line 42
     iget-object v0, p0, Lcom/s1243808733/android/dex/ClassData;->directMethods:[Lcom/s1243808733/android/dex/ClassData$Method;
@@ -130,7 +130,7 @@
 .end method
 
 .method public getInstanceFields()[Lcom/s1243808733/android/dex/ClassData$Field;
-    .registers 2
+    .locals 1
 
     .line 38
     iget-object v0, p0, Lcom/s1243808733/android/dex/ClassData;->instanceFields:[Lcom/s1243808733/android/dex/ClassData$Field;
@@ -139,7 +139,7 @@
 .end method
 
 .method public getStaticFields()[Lcom/s1243808733/android/dex/ClassData$Field;
-    .registers 2
+    .locals 1
 
     .line 34
     iget-object v0, p0, Lcom/s1243808733/android/dex/ClassData;->staticFields:[Lcom/s1243808733/android/dex/ClassData$Field;
@@ -148,7 +148,7 @@
 .end method
 
 .method public getVirtualMethods()[Lcom/s1243808733/android/dex/ClassData$Method;
-    .registers 2
+    .locals 1
 
     .line 46
     iget-object v0, p0, Lcom/s1243808733/android/dex/ClassData;->virtualMethods:[Lcom/s1243808733/android/dex/ClassData$Method;

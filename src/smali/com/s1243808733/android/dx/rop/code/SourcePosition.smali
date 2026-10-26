@@ -17,14 +17,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
+
+    const/4 v2, -0x1
 
     .line 28
     new-instance v0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;
 
     const/4 v1, 0x0
-
-    const/4 v2, -0x1
 
     invoke-direct {v0, v1, v2, v2}, Lcom/s1243808733/android/dx/rop/code/SourcePosition;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstString;II)V
 
@@ -34,16 +34,16 @@
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstString;II)V
-    .registers 5
+    .locals 2
+
+    const/4 v0, -0x1
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, -0x1
+    if-lt p2, v0, :cond_1
 
-    if-lt p2, v0, :cond_17
-
-    if-lt p3, v0, :cond_f
+    if-lt p3, v0, :cond_0
 
     .line 65
     iput-object p1, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->sourceFile:Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -57,49 +57,52 @@
     return-void
 
     .line 62
-    :cond_f
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "line < -1"
+    const-string v1, "line < -1"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 58
-    :cond_17
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "address < -1"
+    const-string v1, "address < -1"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
 
-    .line 98
-    instance-of v0, p1, Lcom/s1243808733/android/dx/rop/code/SourcePosition;
+    const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_6
+    .line 98
+    instance-of v2, p1, Lcom/s1243808733/android/dx/rop/code/SourcePosition;
 
-    return v1
+    if-nez v2, :cond_1
 
-    :cond_6
-    const/4 v0, 0x1
+    move v0, v1
 
-    if-ne p0, p1, :cond_a
-
+    .line 108
+    :cond_0
+    :goto_0
     return v0
 
+    .line 98
+    :cond_1
+    if-eq p0, p1, :cond_0
+
     .line 106
-    :cond_a
     check-cast p1, Lcom/s1243808733/android/dx/rop/code/SourcePosition;
 
     .line 108
@@ -107,22 +110,22 @@
 
     iget v3, p1, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->address:I
 
-    if-ne v2, v3, :cond_19
+    if-ne v2, v3, :cond_2
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->sameLineAndFile(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)Z
 
-    move-result p1
+    move-result v2
 
-    if-eqz p1, :cond_19
+    if-nez v2, :cond_0
 
-    const/4 v1, 0x1
+    :cond_2
+    move v0, v1
 
-    :cond_19
-    return v1
+    goto :goto_0
 .end method
 
 .method public getAddress()I
-    .registers 2
+    .locals 1
 
     .line 156
     iget v0, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->address:I
@@ -131,7 +134,7 @@
 .end method
 
 .method public getLine()I
-    .registers 2
+    .locals 1
 
     .line 166
     iget v0, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->line:I
@@ -140,7 +143,7 @@
 .end method
 
 .method public getSourceFile()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 2
+    .locals 1
 
     .line 147
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->sourceFile:Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -149,7 +152,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .line 114
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->sourceFile:Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -170,65 +173,65 @@
 .end method
 
 .method public sameLine(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)Z
-    .registers 3
+    .locals 2
 
     .line 125
     iget v0, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->line:I
 
-    iget p1, p1, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->line:I
+    iget v1, p1, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->line:I
 
-    if-ne v0, p1, :cond_8
+    if-ne v0, v1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_9
+    :goto_0
+    return v0
 
-    :cond_8
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_9
-    return p1
+    goto :goto_0
 .end method
 
 .method public sameLineAndFile(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)Z
-    .registers 4
+    .locals 2
 
     .line 136
     iget v0, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->line:I
 
     iget v1, p1, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->line:I
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_1
 
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->sourceFile:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->sourceFile:Lcom/s1243808733/android/dx/rop/cst/CstString;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->sourceFile:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-eq v0, p1, :cond_14
+    if-eq v0, v1, :cond_0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
     .line 138
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_16
+    if-eqz v0, :cond_1
 
-    :cond_14
-    const/4 p1, 0x1
+    :cond_0
+    const/4 v0, 0x1
 
-    goto :goto_17
+    :goto_0
+    return v0
 
-    :cond_16
-    const/4 p1, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
-    :goto_17
-    return p1
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 73
     new-instance v0, Ljava/lang/StringBuilder;
@@ -240,7 +243,7 @@
     .line 75
     iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->sourceFile:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 76
     invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toHuman()Ljava/lang/String;
@@ -255,16 +258,16 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 80
-    :cond_17
+    :cond_0
     iget v1, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->line:I
 
-    if-ltz v1, :cond_1e
+    if-ltz v1, :cond_1
 
     .line 81
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 84
-    :cond_1e
+    :cond_1
     const/16 v1, 0x40
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -272,28 +275,28 @@
     .line 86
     iget v1, p0, Lcom/s1243808733/android/dx/rop/code/SourcePosition;->address:I
 
-    if-gez v1, :cond_2d
+    if-gez v1, :cond_2
 
     .line 87
     const-string v1, "????"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_34
+    .line 92
+    :goto_0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 
     .line 89
-    :cond_2d
+    :cond_2
     invoke-static {v1}, Lcom/s1243808733/android/dx/util/Hex;->u2(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 92
-    :goto_34
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    goto :goto_0
 .end method

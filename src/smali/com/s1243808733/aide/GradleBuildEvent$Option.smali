@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/GradleBuildEvent;Ljava/lang/String;Ljava/lang/CharSequence;)V
-    .registers 4
+    .locals 0
 
     .line 249
     iput-object p1, p0, Lcom/s1243808733/aide/GradleBuildEvent$Option;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;

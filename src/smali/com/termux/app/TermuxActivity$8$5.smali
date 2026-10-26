@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity$8;Ljava/util/List;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,26 +45,26 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 2
 
     .line 605
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8$5;->this$1:Lcom/termux/app/TermuxActivity$8;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8$5;->this$1:Lcom/termux/app/TermuxActivity$8;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v1, v0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8$5;->val$apkFiles:Ljava/util/List;
 
     invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Ljava/io/File;
+    check-cast v0, Ljava/io/File;
 
-    invoke-virtual {p2}, Ljava/io/File;->getAbsoluteFile()Ljava/io/File;
+    invoke-virtual {v0}, Ljava/io/File;->getAbsoluteFile()Ljava/io/File;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-static {p1, p2}, Lcom/s1243808733/aide/filebrowser/FileOptions;->showApkInfoDialog(Landroid/content/Context;Ljava/io/File;)Landroid/app/AlertDialog;
+    invoke-static {v1, v0}, Lcom/s1243808733/aide/filebrowser/FileOptions;->showApkInfoDialog(Landroid/content/Context;Ljava/io/File;)Landroid/app/AlertDialog;
 
     return-void
 .end method

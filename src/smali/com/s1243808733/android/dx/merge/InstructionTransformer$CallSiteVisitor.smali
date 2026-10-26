@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/merge/InstructionTransformer;)V
-    .registers 2
+    .locals 0
 
     .line 126
     iput-object p1, p0, Lcom/s1243808733/android/dx/merge/InstructionTransformer$CallSiteVisitor;->this$0:Lcom/s1243808733/android/dx/merge/InstructionTransformer;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dx/merge/InstructionTransformer;Lcom/s1243808733/android/dx/merge/InstructionTransformer$CallSiteVisitor-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/merge/InstructionTransformer$CallSiteVisitor;-><init>(Lcom/s1243808733/android/dx/merge/InstructionTransformer;)V
 
@@ -44,46 +44,46 @@
 
 # virtual methods
 .method public visit([Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;)V
-    .registers 7
+    .locals 5
 
     .line 129
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getIndex()I
 
-    move-result p1
+    move-result v0
 
     .line 130
-    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/InstructionTransformer$CallSiteVisitor;->this$0:Lcom/s1243808733/android/dx/merge/InstructionTransformer;
-
-    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/InstructionTransformer;->-$$Nest$fgetindexMap(Lcom/s1243808733/android/dx/merge/InstructionTransformer;)Lcom/s1243808733/android/dx/merge/IndexMap;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/merge/IndexMap;->adjustCallSite(I)I
-
-    move-result p1
-
-    .line 131
-    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/InstructionTransformer$CallSiteVisitor;->this$0:Lcom/s1243808733/android/dx/merge/InstructionTransformer;
-
-    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/InstructionTransformer;->-$$Nest$fgetmappedInstructions(Lcom/s1243808733/android/dx/merge/InstructionTransformer;)[Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-
-    move-result-object v0
-
     iget-object v1, p0, Lcom/s1243808733/android/dx/merge/InstructionTransformer$CallSiteVisitor;->this$0:Lcom/s1243808733/android/dx/merge/InstructionTransformer;
 
-    invoke-static {v1}, Lcom/s1243808733/android/dx/merge/InstructionTransformer;->-$$Nest$fgetmappedAt(Lcom/s1243808733/android/dx/merge/InstructionTransformer;)I
+    invoke-static {v1}, Lcom/s1243808733/android/dx/merge/InstructionTransformer;->-$$Nest$fgetindexMap(Lcom/s1243808733/android/dx/merge/InstructionTransformer;)Lcom/s1243808733/android/dx/merge/IndexMap;
 
-    move-result v2
+    move-result-object v1
 
-    add-int/lit8 v3, v2, 0x1
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/merge/IndexMap;->adjustCallSite(I)I
 
-    invoke-static {v1, v3}, Lcom/s1243808733/android/dx/merge/InstructionTransformer;->-$$Nest$fputmappedAt(Lcom/s1243808733/android/dx/merge/InstructionTransformer;I)V
+    move-result v0
 
-    invoke-virtual {p2, p1}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->withIndex(I)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
+    .line 131
+    iget-object v1, p0, Lcom/s1243808733/android/dx/merge/InstructionTransformer$CallSiteVisitor;->this$0:Lcom/s1243808733/android/dx/merge/InstructionTransformer;
 
-    move-result-object p1
+    invoke-static {v1}, Lcom/s1243808733/android/dx/merge/InstructionTransformer;->-$$Nest$fgetmappedInstructions(Lcom/s1243808733/android/dx/merge/InstructionTransformer;)[Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
 
-    aput-object p1, v0, v2
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/merge/InstructionTransformer$CallSiteVisitor;->this$0:Lcom/s1243808733/android/dx/merge/InstructionTransformer;
+
+    invoke-static {v2}, Lcom/s1243808733/android/dx/merge/InstructionTransformer;->-$$Nest$fgetmappedAt(Lcom/s1243808733/android/dx/merge/InstructionTransformer;)I
+
+    move-result v3
+
+    add-int/lit8 v4, v3, 0x1
+
+    invoke-static {v2, v4}, Lcom/s1243808733/android/dx/merge/InstructionTransformer;->-$$Nest$fputmappedAt(Lcom/s1243808733/android/dx/merge/InstructionTransformer;I)V
+
+    invoke-virtual {p2, v0}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->withIndex(I)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
+
+    move-result-object v0
+
+    aput-object v0, v1, v3
 
     return-void
 .end method

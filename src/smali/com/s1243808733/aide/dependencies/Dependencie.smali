@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Z)V
-    .registers 3
+    .locals 0
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getDependencies()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 40
     iget-object v0, p0, Lcom/s1243808733/aide/dependencies/Dependencie;->dependencies:Ljava/lang/String;
@@ -49,7 +49,7 @@
 .end method
 
 .method getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 32
     iget-object v0, p0, Lcom/s1243808733/aide/dependencies/Dependencie;->dependencies:Ljava/lang/String;
@@ -58,7 +58,7 @@
 .end method
 
 .method public isAndroidx()Z
-    .registers 2
+    .locals 1
 
     .line 22
     iget-boolean v0, p0, Lcom/s1243808733/aide/dependencies/Dependencie;->androidx:Z
@@ -67,7 +67,7 @@
 .end method
 
 .method public setAndroidx(Z)V
-    .registers 2
+    .locals 0
 
     .line 18
     iput-boolean p1, p0, Lcom/s1243808733/aide/dependencies/Dependencie;->androidx:Z
@@ -76,7 +76,7 @@
 .end method
 
 .method public setDependencies(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 36
     iput-object p1, p0, Lcom/s1243808733/aide/dependencies/Dependencie;->dependencies:Ljava/lang/String;
@@ -85,26 +85,26 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .line 45
-    new-instance v0, Ljava/lang/StringBuffer;
+    new-instance v2, Ljava/lang/StringBuffer;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/dependencies/Dependencie;->dependencies:Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/aide/dependencies/Dependencie;->dependencies:Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     .line 46
-    const-string v1, ":"
+    const-string v0, ":"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 47
     iget-boolean v1, p0, Lcom/s1243808733/aide/dependencies/Dependencie;->androidx:Z
 
-    const-string v2, "+"
+    const-string v0, "+"
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_1
 
     .line 48
     invoke-static {}, Lcom/s1243808733/aide/dependencies/Migration;->get()Lcom/s1243808733/aide/dependencies/Migration;
@@ -117,28 +117,31 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1f
-
-    goto :goto_20
-
-    :cond_1f
-    move-object v2, v1
+    if-nez v1, :cond_0
 
     .line 49
-    :goto_20
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto :goto_27
-
-    .line 51
-    :cond_24
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    :goto_0
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 53
-    :goto_27
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    :goto_1
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
+
+    :cond_0
+    move-object v0, v1
+
+    .line 48
+    goto :goto_0
+
+    .line 51
+    :cond_1
+    const-string v0, "+"
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_1
 .end method

@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lorg/antlr/v4/runtime/atn/LexerActionType;",
         ">;"
     }
@@ -35,126 +36,130 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 16
+    .locals 15
+
+    const/4 v14, 0x4
+
+    const/4 v13, 0x3
+
+    const/4 v12, 0x2
+
+    const/4 v11, 0x1
+
+    const/4 v10, 0x0
 
     .line 19
     new-instance v0, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     const-string v1, "CHANNEL"
 
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v10}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lorg/antlr/v4/runtime/atn/LexerActionType;->CHANNEL:Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     .line 23
     new-instance v1, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
-    const-string v3, "CUSTOM"
+    const-string v2, "CUSTOM"
 
-    const/4 v4, 0x1
-
-    invoke-direct {v1, v3, v4}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v11}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
 
     sput-object v1, Lorg/antlr/v4/runtime/atn/LexerActionType;->CUSTOM:Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     .line 27
-    new-instance v3, Lorg/antlr/v4/runtime/atn/LexerActionType;
+    new-instance v2, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
-    const-string v5, "MODE"
+    const-string v3, "MODE"
 
-    const/4 v6, 0x2
+    invoke-direct {v2, v3, v12}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v3, v5, v6}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
-
-    sput-object v3, Lorg/antlr/v4/runtime/atn/LexerActionType;->MODE:Lorg/antlr/v4/runtime/atn/LexerActionType;
+    sput-object v2, Lorg/antlr/v4/runtime/atn/LexerActionType;->MODE:Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     .line 31
-    new-instance v5, Lorg/antlr/v4/runtime/atn/LexerActionType;
+    new-instance v3, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
-    const-string v7, "MORE"
+    const-string v4, "MORE"
 
-    const/4 v8, 0x3
+    invoke-direct {v3, v4, v13}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v5, v7, v8}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
-
-    sput-object v5, Lorg/antlr/v4/runtime/atn/LexerActionType;->MORE:Lorg/antlr/v4/runtime/atn/LexerActionType;
+    sput-object v3, Lorg/antlr/v4/runtime/atn/LexerActionType;->MORE:Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     .line 35
-    new-instance v7, Lorg/antlr/v4/runtime/atn/LexerActionType;
+    new-instance v4, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
-    const-string v9, "POP_MODE"
+    const-string v5, "POP_MODE"
 
-    const/4 v10, 0x4
+    invoke-direct {v4, v5, v14}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v7, v9, v10}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
-
-    sput-object v7, Lorg/antlr/v4/runtime/atn/LexerActionType;->POP_MODE:Lorg/antlr/v4/runtime/atn/LexerActionType;
+    sput-object v4, Lorg/antlr/v4/runtime/atn/LexerActionType;->POP_MODE:Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     .line 39
-    new-instance v9, Lorg/antlr/v4/runtime/atn/LexerActionType;
+    new-instance v5, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
-    const-string v11, "PUSH_MODE"
+    const-string v6, "PUSH_MODE"
 
-    const/4 v12, 0x5
+    const/4 v7, 0x5
 
-    invoke-direct {v9, v11, v12}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v6, v7}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v9, Lorg/antlr/v4/runtime/atn/LexerActionType;->PUSH_MODE:Lorg/antlr/v4/runtime/atn/LexerActionType;
+    sput-object v5, Lorg/antlr/v4/runtime/atn/LexerActionType;->PUSH_MODE:Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     .line 43
-    new-instance v11, Lorg/antlr/v4/runtime/atn/LexerActionType;
+    new-instance v6, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
-    const-string v13, "SKIP"
+    const-string v7, "SKIP"
 
-    const/4 v14, 0x6
+    const/4 v8, 0x6
 
-    invoke-direct {v11, v13, v14}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v6, v7, v8}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v11, Lorg/antlr/v4/runtime/atn/LexerActionType;->SKIP:Lorg/antlr/v4/runtime/atn/LexerActionType;
+    sput-object v6, Lorg/antlr/v4/runtime/atn/LexerActionType;->SKIP:Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     .line 47
-    new-instance v13, Lorg/antlr/v4/runtime/atn/LexerActionType;
+    new-instance v7, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
-    const-string v15, "TYPE"
+    const-string v8, "TYPE"
 
-    const/4 v14, 0x7
+    const/4 v9, 0x7
 
-    invoke-direct {v13, v15, v14}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v8, v9}, Lorg/antlr/v4/runtime/atn/LexerActionType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v13, Lorg/antlr/v4/runtime/atn/LexerActionType;->TYPE:Lorg/antlr/v4/runtime/atn/LexerActionType;
+    sput-object v7, Lorg/antlr/v4/runtime/atn/LexerActionType;->TYPE:Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     .line 15
-    const/16 v15, 0x8
+    const/16 v8, 0x8
 
-    new-array v15, v15, [Lorg/antlr/v4/runtime/atn/LexerActionType;
+    new-array v8, v8, [Lorg/antlr/v4/runtime/atn/LexerActionType;
 
-    aput-object v0, v15, v2
+    aput-object v0, v8, v10
 
-    aput-object v1, v15, v4
+    aput-object v1, v8, v11
 
-    aput-object v3, v15, v6
+    aput-object v2, v8, v12
 
-    aput-object v5, v15, v8
+    aput-object v3, v8, v13
 
-    aput-object v7, v15, v10
+    aput-object v4, v8, v14
 
-    aput-object v9, v15, v12
+    const/4 v0, 0x5
+
+    aput-object v5, v8, v0
 
     const/4 v0, 0x6
 
-    aput-object v11, v15, v0
+    aput-object v6, v8, v0
 
-    aput-object v13, v15, v14
+    const/4 v0, 0x7
 
-    sput-object v15, Lorg/antlr/v4/runtime/atn/LexerActionType;->$VALUES:[Lorg/antlr/v4/runtime/atn/LexerActionType;
+    aput-object v7, v8, v0
+
+    sput-object v8, Lorg/antlr/v4/runtime/atn/LexerActionType;->$VALUES:[Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -168,22 +173,22 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/antlr/v4/runtime/atn/LexerActionType;
-    .registers 2
+    .locals 1
 
     .line 15
     const-class v0, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lorg/antlr/v4/runtime/atn/LexerActionType;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/LexerActionType;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lorg/antlr/v4/runtime/atn/LexerActionType;
-    .registers 1
+    .locals 1
 
     .line 15
     sget-object v0, Lorg/antlr/v4/runtime/atn/LexerActionType;->$VALUES:[Lorg/antlr/v4/runtime/atn/LexerActionType;

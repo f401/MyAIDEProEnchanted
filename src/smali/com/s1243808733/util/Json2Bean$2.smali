@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/Json2Bean$DialogView;Landroid/app/Activity;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 6
+    .locals 5
 
     .line 236
     iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$2;->val$dialogView:Lcom/s1243808733/util/Json2Bean$DialogView;
@@ -58,72 +58,74 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 237
-    new-instance v1, Landroid/widget/PopupMenu;
+    new-instance v2, Landroid/widget/PopupMenu;
 
-    iget-object v2, p0, Lcom/s1243808733/util/Json2Bean$2;->val$activity:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$2;->val$activity:Landroid/app/Activity;
 
-    invoke-direct {v1, v2, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
+    invoke-direct {v2, v0, p1}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
 
     .line 238
-    invoke-virtual {v1}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
+    invoke-virtual {v2}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
 
-    move-result-object p1
+    move-result-object v3
 
     .line 239
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_20
+    if-eqz v0, :cond_0
 
-    const-string v2, "压缩"
+    const-string v0, "\u538b\u7f29"
 
-    goto :goto_22
+    :goto_0
+    invoke-interface {v3, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    :cond_20
-    const-string v2, "compress"
+    move-result-object v0
 
-    :goto_22
-    invoke-interface {p1, v2}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    new-instance v4, Lcom/s1243808733/util/Json2Bean$2$1;
 
-    move-result-object v2
+    invoke-direct {v4, p0, v1}, Lcom/s1243808733/util/Json2Bean$2$1;-><init>(Lcom/s1243808733/util/Json2Bean$2;Ljava/lang/String;)V
 
-    new-instance v3, Lcom/s1243808733/util/Json2Bean$2$1;
-
-    invoke-direct {v3, p0, v0}, Lcom/s1243808733/util/Json2Bean$2$1;-><init>(Lcom/s1243808733/util/Json2Bean$2;Ljava/lang/String;)V
-
-    invoke-interface {v2, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v4}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 256
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_37
+    if-eqz v0, :cond_1
 
-    const-string v2, "格式化"
+    const-string v0, "\u683c\u5f0f\u5316"
 
-    goto :goto_39
+    :goto_1
+    invoke-interface {v3, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    :cond_37
-    const-string v2, "format"
+    move-result-object v0
 
-    :goto_39
-    invoke-interface {p1, v2}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    new-instance v3, Lcom/s1243808733/util/Json2Bean$2$2;
 
-    move-result-object p1
+    invoke-direct {v3, p0, v1}, Lcom/s1243808733/util/Json2Bean$2$2;-><init>(Lcom/s1243808733/util/Json2Bean$2;Ljava/lang/String;)V
 
-    new-instance v2, Lcom/s1243808733/util/Json2Bean$2$2;
-
-    invoke-direct {v2, p0, v0}, Lcom/s1243808733/util/Json2Bean$2$2;-><init>(Lcom/s1243808733/util/Json2Bean$2;Ljava/lang/String;)V
-
-    invoke-interface {p1, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 275
-    invoke-virtual {v1}, Landroid/widget/PopupMenu;->show()V
+    invoke-virtual {v2}, Landroid/widget/PopupMenu;->show()V
 
     return-void
+
+    .line 239
+    :cond_0
+    const-string v0, "compress"
+
+    goto :goto_0
+
+    .line 256
+    :cond_1
+    const-string v0, "format"
+
+    goto :goto_1
 .end method

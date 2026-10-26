@@ -25,7 +25,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 3
+    .locals 4
 
     new-instance v0, Lr/a;
 
@@ -47,17 +47,17 @@
 
     new-instance v0, Lc/k;
 
-    const-wide/16 v1, 0x14
+    const-wide/16 v2, 0x14
 
-    invoke-direct {v0, v1, v2}, Lc/k;-><init>(J)V
+    invoke-direct {v0, v2, v3}, Lc/k;-><init>(J)V
 
     sput-object v0, Ln/b;->c:Lc/k;
 
     new-instance v0, Lc/k;
 
-    const-wide/16 v1, 0x1
+    const-wide/16 v2, 0x1
 
-    invoke-direct {v0, v1, v2}, Lc/k;-><init>(J)V
+    invoke-direct {v0, v2, v3}, Lc/k;-><init>(J)V
 
     sput-object v0, Ln/b;->d:Lc/k;
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(Lc/t;)V
-    .registers 6
+    .locals 4
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -111,113 +111,119 @@
 
     const/4 v0, 0x0
 
-    :goto_14
+    move v1, v0
+
+    :goto_0
     invoke-virtual {p1}, Lc/t;->p()I
 
-    move-result v1
+    move-result v0
 
-    if-eq v0, v1, :cond_63
+    if-eq v1, v0, :cond_4
 
-    invoke-virtual {p1, v0}, Lc/t;->k(I)Lc/e;
+    invoke-virtual {p1, v1}, Lc/t;->k(I)Lc/e;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lc/z;
+    check-cast v0, Lc/z;
 
     .line 1
-    iget v2, v1, Lc/z;->a:I
+    iget v2, v0, Lc/z;->a:I
 
-    if-eqz v2, :cond_56
+    if-eqz v2, :cond_3
 
     const/4 v3, 0x1
 
-    if-eq v2, v3, :cond_4b
+    if-eq v2, v3, :cond_2
 
     const/4 v3, 0x2
 
-    if-eq v2, v3, :cond_40
+    if-eq v2, v3, :cond_1
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_38
+    if-ne v2, v3, :cond_0
 
     .line 2
-    invoke-virtual {v1}, Lc/z;->k()Lc/s;
+    invoke-virtual {v0}, Lc/z;->k()Lc/s;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Lc/k;->b(Ljava/lang/Object;)Lc/k;
+    invoke-static {v0}, Lc/k;->b(Ljava/lang/Object;)Lc/k;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 3
-    iput-object v1, p0, Ln/b;->h:Lc/k;
-
-    goto :goto_60
-
-    :cond_38
-    new-instance p1, Ljava/lang/IllegalArgumentException;
-
-    const-string v0, "unknown tag"
-
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    .line 4
-    :cond_40
-    invoke-virtual {v1}, Lc/z;->k()Lc/s;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lc/k;->b(Ljava/lang/Object;)Lc/k;
-
-    move-result-object v1
-
-    .line 5
-    iput-object v1, p0, Ln/b;->g:Lc/k;
-
-    goto :goto_60
-
-    .line 6
-    :cond_4b
-    invoke-static {v1}, Lc/t;->c(Lc/z;)Lc/t;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lr/a;->c(Ljava/lang/Object;)Lr/a;
-
-    move-result-object v1
-
-    .line 7
-    iput-object v1, p0, Ln/b;->f:Lr/a;
-
-    goto :goto_60
-
-    .line 8
-    :cond_56
-    invoke-static {v1}, Lc/t;->c(Lc/z;)Lc/t;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lr/a;->c(Ljava/lang/Object;)Lr/a;
-
-    move-result-object v1
+    iput-object v0, p0, Ln/b;->h:Lc/k;
 
     .line 9
-    iput-object v1, p0, Ln/b;->e:Lr/a;
+    :goto_1
+    add-int/lit8 v0, v1, 0x1
 
-    :goto_60
-    add-int/lit8 v0, v0, 0x1
+    move v1, v0
 
-    goto :goto_14
+    goto :goto_0
 
-    :cond_63
+    .line 3
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "unknown tag"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 4
+    :cond_1
+    invoke-virtual {v0}, Lc/z;->k()Lc/s;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lc/k;->b(Ljava/lang/Object;)Lc/k;
+
+    move-result-object v0
+
+    .line 5
+    iput-object v0, p0, Ln/b;->g:Lc/k;
+
+    goto :goto_1
+
+    .line 6
+    :cond_2
+    invoke-static {v0}, Lc/t;->c(Lc/z;)Lc/t;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lr/a;->c(Ljava/lang/Object;)Lr/a;
+
+    move-result-object v0
+
+    .line 7
+    iput-object v0, p0, Ln/b;->f:Lr/a;
+
+    goto :goto_1
+
+    .line 8
+    :cond_3
+    invoke-static {v0}, Lc/t;->c(Lc/z;)Lc/t;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lr/a;->c(Ljava/lang/Object;)Lr/a;
+
+    move-result-object v0
+
+    .line 9
+    iput-object v0, p0, Ln/b;->e:Lr/a;
+
+    goto :goto_1
+
+    :cond_4
     return-void
 .end method
 
 .method public constructor <init>(Lr/a;Lr/a;Lc/k;Lc/k;)V
-    .registers 5
+    .locals 0
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -235,7 +241,11 @@
 
 # virtual methods
 .method public final l()Lc/s;
-    .registers 7
+    .locals 6
+
+    const/4 v5, 0x0
+
+    const/4 v4, 0x1
 
     new-instance v0, Lc/f;
 
@@ -249,85 +259,81 @@
 
     move-result v1
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    if-nez v1, :cond_1b
+    if-nez v1, :cond_0
 
     new-instance v1, Lc/bf;
 
-    iget-object v4, p0, Ln/b;->e:Lr/a;
+    iget-object v2, p0, Ln/b;->e:Lr/a;
 
-    invoke-direct {v1, v3, v2, v4}, Lc/bf;-><init>(ZILc/e;)V
+    invoke-direct {v1, v4, v5, v2}, Lc/bf;-><init>(ZILc/e;)V
 
     invoke-virtual {v0, v1}, Lc/f;->b(Lc/e;)V
 
-    :cond_1b
+    :cond_0
     iget-object v1, p0, Ln/b;->f:Lr/a;
 
-    sget-object v4, Ln/b;->b:Lr/a;
+    sget-object v2, Ln/b;->b:Lr/a;
 
-    invoke-virtual {v1, v4}, Lc/m;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Lc/m;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2f
+    if-nez v1, :cond_1
 
     new-instance v1, Lc/bf;
 
-    iget-object v4, p0, Ln/b;->f:Lr/a;
+    iget-object v2, p0, Ln/b;->f:Lr/a;
 
-    invoke-direct {v1, v3, v3, v4}, Lc/bf;-><init>(ZILc/e;)V
+    invoke-direct {v1, v4, v4, v2}, Lc/bf;-><init>(ZILc/e;)V
 
     invoke-virtual {v0, v1}, Lc/f;->b(Lc/e;)V
 
-    :cond_2f
+    :cond_1
     iget-object v1, p0, Ln/b;->g:Lc/k;
 
-    sget-object v4, Ln/b;->c:Lc/k;
+    sget-object v2, Ln/b;->c:Lc/k;
 
-    invoke-virtual {v1, v4}, Lc/s;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Lc/s;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_44
+    if-nez v1, :cond_2
 
     new-instance v1, Lc/bf;
 
-    const/4 v4, 0x2
+    const/4 v2, 0x2
 
-    iget-object v5, p0, Ln/b;->g:Lc/k;
+    iget-object v3, p0, Ln/b;->g:Lc/k;
 
-    invoke-direct {v1, v3, v4, v5}, Lc/bf;-><init>(ZILc/e;)V
+    invoke-direct {v1, v4, v2, v3}, Lc/bf;-><init>(ZILc/e;)V
 
     invoke-virtual {v0, v1}, Lc/f;->b(Lc/e;)V
 
-    :cond_44
+    :cond_2
     iget-object v1, p0, Ln/b;->h:Lc/k;
 
-    sget-object v4, Ln/b;->d:Lc/k;
+    sget-object v2, Ln/b;->d:Lc/k;
 
-    invoke-virtual {v1, v4}, Lc/s;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Lc/s;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_59
+    if-nez v1, :cond_3
 
     new-instance v1, Lc/bf;
 
-    const/4 v4, 0x3
+    const/4 v2, 0x3
 
-    iget-object v5, p0, Ln/b;->h:Lc/k;
+    iget-object v3, p0, Ln/b;->h:Lc/k;
 
-    invoke-direct {v1, v3, v4, v5}, Lc/bf;-><init>(ZILc/e;)V
+    invoke-direct {v1, v4, v2, v3}, Lc/bf;-><init>(ZILc/e;)V
 
     invoke-virtual {v0, v1}, Lc/f;->b(Lc/e;)V
 
-    :cond_59
+    :cond_3
     new-instance v1, Lc/bc;
 
-    invoke-direct {v1, v0, v2}, Lc/bc;-><init>(Lc/f;I)V
+    invoke-direct {v1, v0, v5}, Lc/bc;-><init>(Lc/f;I)V
 
     return-object v1
 .end method

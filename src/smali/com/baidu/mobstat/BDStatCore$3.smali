@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/baidu/mobstat/BDStatCore;->onResume(Landroid/support/v4/app/Fragment;)V
+    value = Lcom/baidu/mobstat/BDStatCore;->onResume(Landroidx/fragment/app/Fragment;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Ljava/lang/ref/WeakReference;Landroid/content/Context;)V
-    .registers 4
+    .locals 0
 
     .line 403
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$3;->c:Lcom/baidu/mobstat/BDStatCore;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 8
+    .locals 7
 
     .line 407
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$3;->a:Ljava/lang/ref/WeakReference;
@@ -53,24 +53,24 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/support/v4/app/Fragment;
+    check-cast v0, Landroidx/fragment/app/Fragment;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_1
 
+    .line 421
+    :cond_0
+    :goto_0
     return-void
 
     .line 412
-    :cond_b
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    if-nez v1, :cond_12
-
-    return-void
+    if-eqz v1, :cond_0
 
     .line 417
-    :cond_12
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -118,5 +118,5 @@
 
     invoke-virtual {v1, v4, v0, v2, v3}, Lcom/baidu/mobstat/SessionAnalysis;->onPageStartFrag(Landroid/content/Context;Ljava/lang/String;J)V
 
-    return-void
+    goto :goto_0
 .end method

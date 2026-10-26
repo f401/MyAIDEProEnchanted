@@ -5,17 +5,17 @@
 
 # direct methods
 .method public static bridge synthetic a([C)C
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/termux/yinli_a/h/e;->a([C)C
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static bridge synthetic a([Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -26,7 +26,7 @@
 
     invoke-static {p0}, Lcom/termux/yinli_a/h/e;->a([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method

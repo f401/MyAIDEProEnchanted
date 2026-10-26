@@ -6,6 +6,14 @@
 .implements Lcom/s1243808733/android/dx/util/LabeledItem;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/s1243808733/android/dx/rop/code/BasicBlock$Visitor;
+    }
+.end annotation
+
+
 # instance fields
 .field private final insns:Lcom/s1243808733/android/dx/rop/code/InsnList;
 
@@ -18,80 +26,80 @@
 
 # direct methods
 .method public constructor <init>(ILcom/s1243808733/android/dx/rop/code/InsnList;Lcom/s1243808733/android/dx/util/IntList;I)V
-    .registers 9
+    .locals 4
+
+    const/4 v3, 0x1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-ltz p1, :cond_aa
+    if-ltz p1, :cond_7
 
     .line 66
-    :try_start_5
+    :try_start_0
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/code/InsnList;->throwIfMutable()V
-    :try_end_8
-    .catch Ljava/lang/NullPointerException; {:try_start_5 .. :try_end_8} :catch_a1
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 72
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/code/InsnList;->size()I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_99
+    if-eqz v1, :cond_6
 
-    add-int/lit8 v1, v0, -0x2
+    add-int/lit8 v0, v1, -0x2
 
-    :goto_10
-    const/4 v2, 0x1
-
-    if-ltz v1, :cond_3d
+    :goto_0
+    if-ltz v0, :cond_1
 
     .line 79
-    invoke-virtual {p2, v1}, Lcom/s1243808733/android/dx/rop/code/InsnList;->get(I)Lcom/s1243808733/android/dx/rop/code/Insn;
+    invoke-virtual {p2, v0}, Lcom/s1243808733/android/dx/rop/code/InsnList;->get(I)Lcom/s1243808733/android/dx/rop/code/Insn;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/Insn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/Insn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 80
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/Rop;->getBranchingness()I
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/Rop;->getBranchingness()I
 
-    move-result v3
+    move-result v2
 
-    if-ne v3, v2, :cond_24
+    if-ne v2, v3, :cond_0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 81
-    :cond_24
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string p2, "insns["
+    const-string v2, "insns["
 
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p2, "] is a branch or can throw"
+    const-string v0, "] is a branch or can throw"
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p2, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v0
 
     .line 86
-    :cond_3d
-    sub-int/2addr v0, v2
+    :cond_1
+    add-int/lit8 v0, v1, -0x1
 
     invoke-virtual {p2, v0}, Lcom/s1243808733/android/dx/rop/code/InsnList;->get(I)Lcom/s1243808733/android/dx/rop/code/Insn;
 
@@ -106,58 +114,29 @@
 
     move-result v0
 
-    if-eq v0, v2, :cond_91
+    if-eq v0, v3, :cond_5
 
     .line 94
-    :try_start_4c
+    :try_start_1
     invoke-virtual {p3}, Lcom/s1243808733/android/dx/util/IntList;->throwIfMutable()V
-    :try_end_4f
-    .catch Ljava/lang/NullPointerException; {:try_start_4c .. :try_end_4f} :catch_88
+    :try_end_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
 
     const/4 v0, -0x1
 
-    if-lt p4, v0, :cond_80
+    if-lt p4, v0, :cond_4
 
-    if-ltz p4, :cond_77
+    if-ltz p4, :cond_2
 
     .line 104
     invoke-virtual {p3, p4}, Lcom/s1243808733/android/dx/util/IntList;->contains(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5b
-
-    goto :goto_77
-
-    .line 105
-    :cond_5b
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    const-string p2, "primarySuccessor "
-
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {p1, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p2, " not in successors "
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    new-instance p2, Ljava/lang/IllegalArgumentException;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p2
+    if-eqz v0, :cond_3
 
     .line 109
-    :cond_77
-    :goto_77
+    :cond_2
     iput p1, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->label:I
 
     .line 110
@@ -171,81 +150,101 @@
 
     return-void
 
+    .line 105
+    :cond_3
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "primarySuccessor "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " not in successors "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
     .line 101
-    :cond_80
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_4
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "primarySuccessor < -1"
+    const-string v1, "primarySuccessor < -1"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 97
-    :catch_88
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "successors == null"
+    const-string v1, "successors == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 88
-    :cond_91
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_5
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "insns does not end with a branch or throwing instruction"
+    const-string v1, "insns does not end with a branch or throwing instruction"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 75
-    :cond_99
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_6
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "insns.size() == 0"
+    const-string v1, "insns.size() == 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 69
-    :catch_a1
-    move-exception p1
+    :catch_1
+    move-exception v0
 
-    new-instance p1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "insns == null"
+    const-string v1, "insns == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 62
-    :cond_aa
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_7
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "label < 0"
+    const-string v1, "label < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_b3
-
-    :goto_b2
-    throw p1
-
-    :goto_b3
-    goto :goto_b2
+    throw v0
 .end method
 
 
 # virtual methods
 .method public canThrow()Z
-    .registers 2
+    .locals 1
 
     .line 223
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->insns:Lcom/s1243808733/android/dx/rop/code/InsnList;
@@ -262,23 +261,23 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 2
+    .locals 1
 
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_5
+    :goto_0
+    return v0
 
-    :cond_4
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_5
-    return p1
+    goto :goto_0
 .end method
 
 .method public getExceptionHandlerTypes()Lcom/s1243808733/android/dx/rop/type/TypeList;
-    .registers 2
+    .locals 1
 
     .line 251
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->insns:Lcom/s1243808733/android/dx/rop/code/InsnList;
@@ -296,7 +295,7 @@
 .end method
 
 .method public getFirstInsn()Lcom/s1243808733/android/dx/rop/code/Insn;
-    .registers 3
+    .locals 2
 
     .line 202
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->insns:Lcom/s1243808733/android/dx/rop/code/InsnList;
@@ -311,7 +310,7 @@
 .end method
 
 .method public getInsns()Lcom/s1243808733/android/dx/rop/code/InsnList;
-    .registers 2
+    .locals 1
 
     .line 153
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->insns:Lcom/s1243808733/android/dx/rop/code/InsnList;
@@ -320,7 +319,7 @@
 .end method
 
 .method public getLabel()I
-    .registers 2
+    .locals 1
 
     .line 144
     iget v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->label:I
@@ -329,7 +328,7 @@
 .end method
 
 .method public getLastInsn()Lcom/s1243808733/android/dx/rop/code/Insn;
-    .registers 2
+    .locals 1
 
     .line 212
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->insns:Lcom/s1243808733/android/dx/rop/code/InsnList;
@@ -342,7 +341,7 @@
 .end method
 
 .method public getPrimarySuccessor()I
-    .registers 2
+    .locals 1
 
     .line 172
     iget v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->primarySuccessor:I
@@ -351,7 +350,7 @@
 .end method
 
 .method public getSecondarySuccessor()I
-    .registers 3
+    .locals 2
 
     .line 182
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->successors:Lcom/s1243808733/android/dx/util/IntList;
@@ -362,7 +361,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_1c
+    if-ne v0, v1, :cond_1
 
     .line 187
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->successors:Lcom/s1243808733/android/dx/util/IntList;
@@ -376,7 +375,7 @@
     .line 188
     iget v1, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->primarySuccessor:I
 
-    if-ne v0, v1, :cond_1b
+    if-ne v0, v1, :cond_0
 
     .line 189
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->successors:Lcom/s1243808733/android/dx/util/IntList;
@@ -387,11 +386,11 @@
 
     move-result v0
 
-    :cond_1b
+    :cond_0
     return v0
 
     .line 183
-    :cond_1c
+    :cond_1
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "block doesn\'t have exactly two successors"
@@ -402,7 +401,7 @@
 .end method
 
 .method public getSuccessors()Lcom/s1243808733/android/dx/util/IntList;
-    .registers 2
+    .locals 1
 
     .line 162
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->successors:Lcom/s1243808733/android/dx/util/IntList;
@@ -411,7 +410,7 @@
 .end method
 
 .method public hasExceptionHandlers()Z
-    .registers 2
+    .locals 1
 
     .line 236
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->insns:Lcom/s1243808733/android/dx/rop/code/InsnList;
@@ -429,21 +428,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_13
+    :goto_0
+    return v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_13
-    return v0
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .line 134
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
@@ -454,7 +453,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 270
     new-instance v0, Ljava/lang/StringBuilder;
@@ -483,7 +482,7 @@
 .end method
 
 .method public withRegisterOffset(I)Lcom/s1243808733/android/dx/rop/code/BasicBlock;
-    .registers 6
+    .locals 5
 
     .line 264
     new-instance v0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;
@@ -494,13 +493,13 @@
 
     invoke-virtual {v2, p1}, Lcom/s1243808733/android/dx/rop/code/InsnList;->withRegisterOffset(I)Lcom/s1243808733/android/dx/rop/code/InsnList;
 
-    move-result-object p1
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->successors:Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v3, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->successors:Lcom/s1243808733/android/dx/util/IntList;
 
-    iget v3, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->primarySuccessor:I
+    iget v4, p0, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->primarySuccessor:I
 
-    invoke-direct {v0, v1, p1, v2, v3}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;-><init>(ILcom/s1243808733/android/dx/rop/code/InsnList;Lcom/s1243808733/android/dx/util/IntList;I)V
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;-><init>(ILcom/s1243808733/android/dx/rop/code/InsnList;Lcom/s1243808733/android/dx/util/IntList;I)V
 
     return-object v0
 .end method

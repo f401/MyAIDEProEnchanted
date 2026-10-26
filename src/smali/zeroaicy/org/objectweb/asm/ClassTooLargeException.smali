@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
 
     .line 50
     new-instance v0, Ljava/lang/StringBuffer;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getClassName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 61
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/ClassTooLargeException;->className:Ljava/lang/String;
@@ -55,7 +55,7 @@
 .end method
 
 .method public getConstantPoolCount()I
-    .registers 2
+    .locals 1
 
     .line 70
     iget v0, p0, Lzeroaicy/org/objectweb/asm/ClassTooLargeException;->constantPoolCount:I

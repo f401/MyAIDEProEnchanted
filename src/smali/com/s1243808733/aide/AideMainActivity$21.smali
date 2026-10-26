@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;Landroid/app/Activity;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,11 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 7
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const/high16 v3, 0x41c00000    # 24.0f
 
     .line 1221
     new-instance v0, Landroid/widget/LinearLayout;
@@ -55,25 +59,21 @@
     invoke-direct {v0, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     .line 1222
-    const/high16 v1, 0x41c00000  # 24.0f
+    invoke-static {v3}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
-    invoke-static {v1}, Lcom/s1243808733/util/Utils;->dp2px(F)I
+    move-result v1
+
+    const/high16 v2, 0x41200000    # 10.0f
+
+    invoke-static {v2}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
     move-result v2
-
-    const/high16 v3, 0x41200000  # 10.0f
 
     invoke-static {v3}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
     move-result v3
 
-    invoke-static {v1}, Lcom/s1243808733/util/Utils;->dp2px(F)I
-
-    move-result v1
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v0, v2, v3, v1, v4}, Landroid/widget/LinearLayout;->setPadding(IIII)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
     .line 1223
     new-instance v1, Landroid/widget/EditText;
@@ -112,44 +112,44 @@
     .line 1228
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object v3
 
-    invoke-virtual {v2, p1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 1229
-    invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance v0, Lcom/s1243808733/aide/AideMainActivity$21$1;
+    new-instance v2, Lcom/s1243808733/aide/AideMainActivity$21$1;
 
-    invoke-direct {v0, p0, v1}, Lcom/s1243808733/aide/AideMainActivity$21$1;-><init>(Lcom/s1243808733/aide/AideMainActivity$21;Landroid/widget/EditText;)V
+    invoke-direct {v2, p0, v1}, Lcom/s1243808733/aide/AideMainActivity$21$1;-><init>(Lcom/s1243808733/aide/AideMainActivity$21;Landroid/widget/EditText;)V
 
     .line 1230
     const v1, 0x104000a
 
-    invoke-virtual {p1, v1, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1239
-    const/high16 v0, 0x1040000
+    const/high16 v1, 0x1040000
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1240
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1241
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     return v4
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 509
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,18 +25,18 @@
 .end method
 
 .method static getColor(I)I
-    .registers 1
+    .locals 1
 
     .line 531
     invoke-static {p0}, Lcom/s1243808733/util/Utils;->getColorFromResources(I)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static getDrawable(I)Landroid/graphics/drawable/Drawable;
-    .registers 2
+    .locals 1
 
     .line 527
     invoke-static {}, Lcom/s1243808733/util/Utils;->getApp()Landroid/app/Application;
@@ -49,13 +49,13 @@
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
-    .registers 2
+    .locals 0
 
     .line 523
     invoke-virtual {p0, p1}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -64,7 +64,7 @@
 .end method
 
 .method static tint9PatchDrawableFrame(I)Landroid/graphics/drawable/Drawable;
-    .registers 2
+    .locals 1
 
     .line 518
     const v0, 0x7f07013e
@@ -78,13 +78,13 @@
     .line 519
     invoke-static {v0, p0}, Lcom/s1243808733/util/Toasty$ToastyUtils;->tintIcon(Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static tintIcon(Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 1
 
     .line 513
     sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;

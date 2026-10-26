@@ -7,7 +7,8 @@
 .field private static files:Ljava/util/LinkedHashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/LinkedHashSet<",
+            "Ljava/util/LinkedHashSet",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -17,7 +18,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$smlog(Ljava/lang/String;)V
-    .registers 1
+    .locals 0
 
     invoke-static {p0}, Lio/github/zeroaicy/util/DeleteOnExitHook;->log(Ljava/lang/String;)V
 
@@ -25,7 +26,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smrunHooks()V
-    .registers 0
+    .locals 0
 
     invoke-static {}, Lio/github/zeroaicy/util/DeleteOnExitHook;->runHooks()V
 
@@ -33,7 +34,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 16
     new-instance v0, Ljava/util/LinkedHashSet;
@@ -57,7 +58,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,82 +67,82 @@
 .end method
 
 .method public static add(Ljava/lang/String;)V
-    .registers 2
+    .locals 2
 
     const-class v0, Lio/github/zeroaicy/util/DeleteOnExitHook;
 
     monitor-enter v0
 
     .line 49
-    :try_start_3
+    :try_start_0
     sget-object v0, Lio/github/zeroaicy/util/DeleteOnExitHook;->files:Ljava/util/LinkedHashSet;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 53
     invoke-virtual {v0, p0}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 55
-    const-class p0, Lio/github/zeroaicy/util/DeleteOnExitHook;
-
-    monitor-exit p0
-
-    return-void
-
-    .line 51
-    :cond_e
-    :try_start_e
-    new-instance p0, Ljava/lang/IllegalStateException;
-
-    const-string v0, "Shutdown in progress"
-
-    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-    :try_end_16
-    .catchall {:try_start_e .. :try_end_16} :catchall_16
-
-    :catchall_16
-    move-exception p0
-
     const-class v0, Lio/github/zeroaicy/util/DeleteOnExitHook;
 
     monitor-exit v0
 
-    throw p0
+    return-void
+
+    .line 51
+    :cond_0
+    :try_start_1
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "Shutdown in progress"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :catchall_0
+    move-exception v0
+
+    const-class v1, Lio/github/zeroaicy/util/DeleteOnExitHook;
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public static addAll([Ljava/io/File;)V
-    .registers 5
+    .locals 4
 
     const-class v0, Lio/github/zeroaicy/util/DeleteOnExitHook;
 
     monitor-enter v0
 
     .line 36
-    :try_start_3
+    :try_start_0
     sget-object v0, Lio/github/zeroaicy/util/DeleteOnExitHook;->files:Ljava/util/LinkedHashSet;
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_2
 
     .line 40
-    array-length v0, p0
-    :try_end_8
-    .catchall {:try_start_3 .. :try_end_8} :catchall_27
+    array-length v1, p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_9
-    if-ge v1, v0, :cond_1b
+    :goto_0
+    if-ge v0, v1, :cond_1
 
-    aget-object v2, p0, v1
+    aget-object v2, p0, v0
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_0
 
     .line 42
-    :try_start_f
+    :try_start_1
     sget-object v3, Lio/github/zeroaicy/util/DeleteOnExitHook;->files:Ljava/util/LinkedHashSet;
 
     invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -149,53 +150,47 @@
     move-result-object v2
 
     invoke-virtual {v3, v2}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
-    :try_end_18
-    .catchall {:try_start_f .. :try_end_18} :catchall_27
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_18
-    add-int/lit8 v1, v1, 0x1
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 46
-    :cond_1b
-    const-class p0, Lio/github/zeroaicy/util/DeleteOnExitHook;
-
-    monitor-exit p0
-
-    return-void
-
-    .line 38
-    :cond_1f
-    :try_start_1f
-    new-instance p0, Ljava/lang/IllegalStateException;
-
-    const-string v0, "Shutdown in progress"
-
-    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-    :try_end_27
-    .catchall {:try_start_1f .. :try_end_27} :catchall_27
-
-    :catchall_27
-    move-exception p0
-
+    :cond_1
     const-class v0, Lio/github/zeroaicy/util/DeleteOnExitHook;
 
     monitor-exit v0
 
-    goto :goto_2d
+    return-void
 
-    :goto_2c
-    throw p0
+    .line 38
+    :cond_2
+    :try_start_2
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    :goto_2d
-    goto :goto_2c
+    const-string v1, "Shutdown in progress"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :catchall_0
+    move-exception v0
+
+    const-class v1, Lio/github/zeroaicy/util/DeleteOnExitHook;
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method private static log(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
 
     .line 33
     const-string v0, "DeleteOnExitHook"
@@ -206,10 +201,10 @@
 .end method
 
 .method private static runHooks()V
-    .registers 3
+    .locals 3
 
     .line 57
-    const-string v0, "runHooks-开始"
+    const-string v0, "runHooks-\u5f00\u59cb"
 
     invoke-static {v0}, Lio/github/zeroaicy/util/DeleteOnExitHook;->log(Ljava/lang/String;)V
 
@@ -219,7 +214,7 @@
     monitor-enter v0
 
     .line 62
-    :try_start_8
+    :try_start_0
     sget-object v0, Lio/github/zeroaicy/util/DeleteOnExitHook;->files:Ljava/util/LinkedHashSet;
 
     .line 63
@@ -231,8 +226,8 @@
     const-class v1, Lio/github/zeroaicy/util/DeleteOnExitHook;
 
     monitor-exit v1
-    :try_end_10
-    .catchall {:try_start_8 .. :try_end_10} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 66
     new-instance v1, Ljava/util/ArrayList;
@@ -245,54 +240,48 @@
     .line 72
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :goto_1c
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_31
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Ljava/lang/String;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
 
     .line 73
     new-instance v2, Ljava/io/File;
 
-    invoke-direct {v2, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 75
-    :cond_31
+    :cond_0
     const-string v0, "runHooks-END"
 
     invoke-static {v0}, Lio/github/zeroaicy/util/DeleteOnExitHook;->log(Ljava/lang/String;)V
 
     return-void
 
-    :catchall_37
+    :catchall_0
     move-exception v0
 
     .line 64
-    :try_start_38
+    :try_start_1
     const-class v1, Lio/github/zeroaicy/util/DeleteOnExitHook;
 
     monitor-exit v1
-    :try_end_3b
-    .catchall {:try_start_38 .. :try_end_3b} :catchall_37
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_3d
-
-    :goto_3c
     throw v0
-
-    :goto_3d
-    goto :goto_3c
 .end method

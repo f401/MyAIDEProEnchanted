@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>([I[III)V
-    .registers 5
+    .locals 0
 
     .line 101
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getAddresses()[I
-    .registers 2
+    .locals 1
 
     .line 113
     iget-object v0, p0, Lcom/s1243808733/android/dex/Code$CatchHandler;->addresses:[I
@@ -58,7 +58,7 @@
 .end method
 
 .method public getCatchAllAddress()I
-    .registers 2
+    .locals 1
 
     .line 117
     iget v0, p0, Lcom/s1243808733/android/dex/Code$CatchHandler;->catchAllAddress:I
@@ -67,7 +67,7 @@
 .end method
 
 .method public getOffset()I
-    .registers 2
+    .locals 1
 
     .line 121
     iget v0, p0, Lcom/s1243808733/android/dex/Code$CatchHandler;->offset:I
@@ -76,7 +76,7 @@
 .end method
 
 .method public getTypeIndexes()[I
-    .registers 2
+    .locals 1
 
     .line 109
     iget-object v0, p0, Lcom/s1243808733/android/dex/Code$CatchHandler;->typeIndexes:[I

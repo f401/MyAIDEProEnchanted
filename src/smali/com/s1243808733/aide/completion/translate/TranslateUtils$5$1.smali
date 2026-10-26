@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Landroid/view/MenuItem;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,78 +49,79 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 3
 
-    if-eqz p2, :cond_2d
+    if-eqz p2, :cond_2
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    if-eq p2, p1, :cond_1b
+    if-eq p2, v0, :cond_1
 
-    const/4 p1, 0x2
+    const/4 v0, 0x2
 
-    if-eq p2, p1, :cond_9
-
-    goto :goto_3e
-
-    .line 302
-    :cond_9
-    iget-object p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;
-
-    iget-object p2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$p1:Landroid/view/MenuItem;
-
-    invoke-interface {p2}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object p2
-
-    invoke-interface {p2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$path:Ljava/lang/String;
-
-    invoke-static {p1, p2, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->-$$Nest$mviewChineseDoc3(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_3e
-
-    .line 299
-    :cond_1b
-    iget-object p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;
-
-    iget-object p2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$p1:Landroid/view/MenuItem;
-
-    invoke-interface {p2}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object p2
-
-    invoke-interface {p2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$path:Ljava/lang/String;
-
-    invoke-static {p1, p2, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->-$$Nest$mviewChineseDoc2(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_3e
+    if-eq p2, v0, :cond_0
 
     .line 296
-    :cond_2d
-    iget-object p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;
-
-    iget-object p2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$p1:Landroid/view/MenuItem;
-
-    invoke-interface {p2}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object p2
-
-    invoke-interface {p2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$path:Ljava/lang/String;
-
-    invoke-static {p1, p2, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->-$$Nest$mviewChineseDoc(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Ljava/lang/String;Ljava/lang/String;)V
-
-    :goto_3e
+    :goto_0
     return-void
+
+    .line 302
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;
+
+    iget-object v1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$p1:Landroid/view/MenuItem;
+
+    invoke-interface {v1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$path:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->-$$Nest$mviewChineseDoc3(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 299
+    :cond_1
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;
+
+    iget-object v1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$p1:Landroid/view/MenuItem;
+
+    invoke-interface {v1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$path:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->-$$Nest$mviewChineseDoc2(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 296
+    :cond_2
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;
+
+    iget-object v1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$p1:Landroid/view/MenuItem;
+
+    invoke-interface {v1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5$1;->val$path:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;->-$$Nest$mviewChineseDoc(Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method

@@ -31,13 +31,13 @@
 
 # direct methods
 .method public constructor <init>(Lcom/baidu/mobstat/ao;Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     iput-object p1, p0, Lcom/baidu/mobstat/ao$c;->a:Lcom/baidu/mobstat/ao;
 
-    iget-object p1, p1, Lcom/baidu/mobstat/ao;->d:Lcom/baidu/mobstat/bq$a;
+    iget-object v0, p1, Lcom/baidu/mobstat/ao;->d:Lcom/baidu/mobstat/bq$a;
 
-    invoke-direct {p0, p1, p2}, Lcom/baidu/mobstat/am$b;-><init>(Lcom/baidu/mobstat/bq$a;Ljava/lang/String;)V
+    invoke-direct {p0, v0, p2}, Lcom/baidu/mobstat/am$b;-><init>(Lcom/baidu/mobstat/bq$a;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public a(Lcom/baidu/mobstat/ao$b;)V
-    .registers 4
+    .locals 2
 
     invoke-virtual {p1}, Lcom/baidu/mobstat/ao$b;->b()Lcom/baidu/mobstat/bw$a;
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public a(Lorg/json/JSONObject;)V
-    .registers 4
+    .locals 2
 
     const-string v0, "pkg"
 
@@ -115,88 +115,91 @@
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/baidu/mobstat/ao$c;->b:I
+    iput v0, p0, Lcom/baidu/mobstat/ao$c;->b:I
 
     return-void
 .end method
 
 .method public a(J)Z
-    .registers 6
+    .locals 5
 
-    iget-wide v0, p0, Lcom/baidu/mobstat/ao$c;->d:J
+    const/4 v0, 0x1
 
-    cmp-long v2, v0, p1
+    iget-wide v2, p0, Lcom/baidu/mobstat/ao$c;->d:J
 
-    if-eqz v2, :cond_d
+    cmp-long v1, v2, p1
+
+    if-eqz v1, :cond_0
 
     iput-wide p1, p0, Lcom/baidu/mobstat/ao$c;->d:J
 
-    const/4 p1, 0x1
+    invoke-virtual {p0, v0}, Lcom/baidu/mobstat/ao$c;->a(Z)V
 
-    invoke-virtual {p0, p1}, Lcom/baidu/mobstat/ao$c;->a(Z)V
+    :goto_0
+    return v0
 
-    return p1
+    :cond_0
+    const/4 v0, 0x0
 
-    :cond_d
-    const/4 p1, 0x0
-
-    return p1
+    goto :goto_0
 .end method
 
 .method public a(Lcom/baidu/mobstat/bw$a;)Z
-    .registers 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/baidu/mobstat/ao$c;->g:Lcom/baidu/mobstat/bw$a;
+    const/4 v0, 0x1
 
-    invoke-virtual {p1, v0}, Lcom/baidu/mobstat/bw$a;->equals(Ljava/lang/Object;)Z
+    iget-object v1, p0, Lcom/baidu/mobstat/ao$c;->g:Lcom/baidu/mobstat/bw$a;
 
-    move-result v0
+    invoke-virtual {p1, v1}, Lcom/baidu/mobstat/bw$a;->equals(Ljava/lang/Object;)Z
 
-    if-nez v0, :cond_f
+    move-result v1
+
+    if-nez v1, :cond_0
 
     iput-object p1, p0, Lcom/baidu/mobstat/ao$c;->g:Lcom/baidu/mobstat/bw$a;
 
-    const/4 p1, 0x1
+    invoke-virtual {p0, v0}, Lcom/baidu/mobstat/ao$c;->a(Z)V
 
-    invoke-virtual {p0, p1}, Lcom/baidu/mobstat/ao$c;->a(Z)V
+    :goto_0
+    return v0
 
-    return p1
+    :cond_0
+    const/4 v0, 0x0
 
-    :cond_f
-    const/4 p1, 0x0
-
-    return p1
+    goto :goto_0
 .end method
 
 .method public a(Ljava/lang/String;)Z
-    .registers 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/baidu/mobstat/ao$c;->c:Ljava/lang/String;
+    const/4 v0, 0x1
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v1, p0, Lcom/baidu/mobstat/ao$c;->c:Ljava/lang/String;
 
-    move-result v0
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v0, :cond_f
+    move-result v1
+
+    if-nez v1, :cond_0
 
     iput-object p1, p0, Lcom/baidu/mobstat/ao$c;->c:Ljava/lang/String;
 
-    const/4 p1, 0x1
+    invoke-virtual {p0, v0}, Lcom/baidu/mobstat/ao$c;->a(Z)V
 
-    invoke-virtual {p0, p1}, Lcom/baidu/mobstat/ao$c;->a(Z)V
+    :goto_0
+    return v0
 
-    return p1
+    :cond_0
+    const/4 v0, 0x0
 
-    :cond_f
-    const/4 p1, 0x0
-
-    return p1
+    goto :goto_0
 .end method
 
 .method public b(Lorg/json/JSONObject;)V
-    .registers 5
+    .locals 4
 
     const-string v0, "pkg"
 
@@ -206,31 +209,31 @@
 
     const-string v0, "last_fe_ts"
 
-    iget-wide v1, p0, Lcom/baidu/mobstat/ao$c;->d:J
+    iget-wide v2, p0, Lcom/baidu/mobstat/ao$c;->d:J
 
-    invoke-virtual {p1, v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {p1, v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     const-string v0, "tar_pkg_lst_pub_ts"
 
-    iget-wide v1, p0, Lcom/baidu/mobstat/ao$c;->e:J
+    iget-wide v2, p0, Lcom/baidu/mobstat/ao$c;->e:J
 
-    invoke-virtual {p1, v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {p1, v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    iget-object v0, p0, Lcom/baidu/mobstat/ao$c;->g:Lcom/baidu/mobstat/bw$a;
+    const-string v0, "info"
 
-    invoke-virtual {v0}, Lcom/baidu/mobstat/bw$a;->j()Ljava/lang/String;
+    iget-object v1, p0, Lcom/baidu/mobstat/ao$c;->g:Lcom/baidu/mobstat/bw$a;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/baidu/mobstat/bw$a;->j()Ljava/lang/String;
 
-    const-string v1, "info"
+    move-result-object v1
 
-    invoke-virtual {p1, v1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {p1, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     const-string v0, "tar_pkg_lst_up_ts"
 
-    iget-wide v1, p0, Lcom/baidu/mobstat/ao$c;->f:J
+    iget-wide v2, p0, Lcom/baidu/mobstat/ao$c;->f:J
 
-    invoke-virtual {p1, v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {p1, v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     const-string v0, "d_form_ver"
 
@@ -242,30 +245,31 @@
 .end method
 
 .method public b(J)Z
-    .registers 6
+    .locals 5
 
-    iget-wide v0, p0, Lcom/baidu/mobstat/ao$c;->e:J
+    const/4 v0, 0x1
 
-    cmp-long v2, v0, p1
+    iget-wide v2, p0, Lcom/baidu/mobstat/ao$c;->e:J
 
-    if-eqz v2, :cond_d
+    cmp-long v1, v2, p1
+
+    if-eqz v1, :cond_0
 
     iput-wide p1, p0, Lcom/baidu/mobstat/ao$c;->e:J
 
-    const/4 p1, 0x1
+    invoke-virtual {p0, v0}, Lcom/baidu/mobstat/ao$c;->a(Z)V
 
-    invoke-virtual {p0, p1}, Lcom/baidu/mobstat/ao$c;->a(Z)V
+    :goto_0
+    return v0
 
-    return p1
+    :cond_0
+    const/4 v0, 0x0
 
-    :cond_d
-    const/4 p1, 0x0
-
-    return p1
+    goto :goto_0
 .end method
 
 .method public c()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/ao$c;->c:Ljava/lang/String;
 
@@ -273,30 +277,31 @@
 .end method
 
 .method public c(J)Z
-    .registers 6
+    .locals 5
 
-    iget-wide v0, p0, Lcom/baidu/mobstat/ao$c;->f:J
+    const/4 v0, 0x1
 
-    cmp-long v2, v0, p1
+    iget-wide v2, p0, Lcom/baidu/mobstat/ao$c;->f:J
 
-    if-eqz v2, :cond_d
+    cmp-long v1, v2, p1
+
+    if-eqz v1, :cond_0
 
     iput-wide p1, p0, Lcom/baidu/mobstat/ao$c;->f:J
 
-    const/4 p1, 0x1
+    invoke-virtual {p0, v0}, Lcom/baidu/mobstat/ao$c;->a(Z)V
 
-    invoke-virtual {p0, p1}, Lcom/baidu/mobstat/ao$c;->a(Z)V
+    :goto_0
+    return v0
 
-    return p1
+    :cond_0
+    const/4 v0, 0x0
 
-    :cond_d
-    const/4 p1, 0x0
-
-    return p1
+    goto :goto_0
 .end method
 
 .method public d()Lcom/baidu/mobstat/bw$a;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/ao$c;->g:Lcom/baidu/mobstat/bw$a;
 
@@ -304,7 +309,7 @@
 .end method
 
 .method public e()J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lcom/baidu/mobstat/ao$c;->f:J
 

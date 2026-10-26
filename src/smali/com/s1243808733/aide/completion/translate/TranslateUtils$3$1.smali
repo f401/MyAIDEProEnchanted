@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;Landroid/widget/EditText;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,98 +45,102 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 3
+
+    const/4 v2, 0x1
 
     .line 194
-    iget-object p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;->val$editor:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;->val$editor:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 195
-    iget-object p2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;
-
-    iget-object p2, p2, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$source:Ljava/lang/String;
-
-    invoke-static {p2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->query(Ljava/lang/String;)Lcom/s1243808733/aide/completion/translate/TranslateTable;
-
-    move-result-object p2
-
-    const/4 v0, 0x1
-
-    if-nez p2, :cond_3f
-
-    .line 198
-    :try_start_15
-    new-instance p2, Lcom/s1243808733/aide/completion/translate/TranslateTable;
-
-    invoke-direct {p2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;-><init>()V
-
-    .line 199
     iget-object v1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;
 
     iget-object v1, v1, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$source:Ljava/lang/String;
 
-    invoke-virtual {p2, v1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setSource(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->query(Ljava/lang/String;)Lcom/s1243808733/aide/completion/translate/TranslateTable;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    .line 198
+    :try_start_0
+    new-instance v1, Lcom/s1243808733/aide/completion/translate/TranslateTable;
+
+    invoke-direct {v1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;-><init>()V
+
+    .line 199
+    iget-object v2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;
+
+    iget-object v2, v2, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$source:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setSource(Ljava/lang/String;)V
 
     .line 200
-    invoke-virtual {p2, p1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setTranslation(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setTranslation(Ljava/lang/String;)V
 
     .line 201
-    invoke-virtual {p2, v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
+    const/4 v0, 0x1
+
+    invoke-virtual {v1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
 
     .line 202
     invoke-static {}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->getDb()Lorg/xutils/DbManager;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1, p2}, Lorg/xutils/DbManager;->saveBindingId(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lorg/xutils/DbManager;->saveBindingId(Ljava/lang/Object;)Z
 
     .line 203
-    iget-object p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$adapter:Landroid/widget/BaseAdapter;
+    iget-object v0, v0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$adapter:Landroid/widget/BaseAdapter;
 
-    invoke-virtual {p1}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
-    :try_end_35
-    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_35} :catch_36
-
-    goto :goto_4f
-
-    :catch_36
-    move-exception p1
-
-    .line 205
-    invoke-virtual {p1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
-
-    goto :goto_4f
-
-    .line 208
-    :cond_3f
-    invoke-virtual {p2, p1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setTranslation(Ljava/lang/String;)V
-
-    .line 209
-    invoke-virtual {p2, v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
-
-    .line 210
-    invoke-static {p2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->update(Lcom/s1243808733/aide/completion/translate/TranslateTable;)V
+    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 211
-    iget-object p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;
-
-    iget-object p1, p1, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$adapter:Landroid/widget/BaseAdapter;
-
-    invoke-virtual {p1}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
-
-    :goto_4f
+    :goto_0
     return-void
+
+    .line 203
+    :catch_0
+    move-exception v0
+
+    .line 205
+    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
+
+    goto :goto_0
+
+    .line 208
+    :cond_0
+    invoke-virtual {v1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setTranslation(Ljava/lang/String;)V
+
+    .line 209
+    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
+
+    .line 210
+    invoke-static {v1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->update(Lcom/s1243808733/aide/completion/translate/TranslateTable;)V
+
+    .line 211
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;->this$0:Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;
+
+    iget-object v0, v0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$adapter:Landroid/widget/BaseAdapter;
+
+    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+
+    goto :goto_0
 .end method

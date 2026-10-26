@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity$8;)V
-    .registers 2
+    .locals 0
 
     .line 518
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$8$1;->this$1:Lcom/termux/app/TermuxActivity$8;
@@ -36,48 +36,48 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 5
 
     .line 522
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8$1;->this$1:Lcom/termux/app/TermuxActivity$8;
-
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
-
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lcom/termux/terminal/TerminalSession;->getEmulator()Lcom/termux/terminal/TerminalEmulator;
-
-    move-result-object p1
-
-    const/4 p2, 0x1
-
-    new-array p2, p2, [Ljava/lang/Object;
-
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$8$1;->this$1:Lcom/termux/app/TermuxActivity$8;
 
     iget-object v0, v0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getFilesDir()Ljava/io/File;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/termux/terminal/TerminalSession;->getEmulator()Lcom/termux/terminal/TerminalEmulator;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    const-string v1, "cd %1$s/usr&&./install.sh %1$s\n"
 
-    aput-object v0, p2, v1
+    const/4 v2, 0x1
 
-    const-string v0, "cd %1$s/usr&&./install.sh %1$s\n"
+    new-array v2, v2, [Ljava/lang/Object;
 
-    invoke-static {v0, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v3, 0x0
 
-    move-result-object p2
+    iget-object v4, p0, Lcom/termux/app/TermuxActivity$8$1;->this$1:Lcom/termux/app/TermuxActivity$8;
 
-    invoke-virtual {p1, p2}, Lcom/termux/terminal/TerminalEmulator;->paste(Ljava/lang/String;)V
+    iget-object v4, v4, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+
+    invoke-virtual {v4}, Lcom/termux/app/TermuxActivity;->getFilesDir()Ljava/io/File;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v2, v3
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/termux/terminal/TerminalEmulator;->paste(Ljava/lang/String;)V
 
     return-void
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 166
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
@@ -33,62 +33,63 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 3
+    .locals 2
 
     .line 169
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-boolean p1, p1, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
+    iget-boolean v0, v0, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
 
-    if-eqz p1, :cond_30
+    if-eqz v0, :cond_0
 
     .line 170
-    const-string p1, "com.termux.app.reload_style"
+    const-string v0, "com.termux.app.reload_style"
 
-    invoke-virtual {p2, p1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 171
-    const-string p2, "storage"
+    const-string v1, "storage"
 
-    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_22
+    if-eqz v0, :cond_1
 
     .line 172
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->ensureStoragePermissionGranted()Z
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->ensureStoragePermissionGranted()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_21
+    if-eqz v0, :cond_0
 
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-static {p1}, Lcom/termux/app/TermuxInstaller;->setupStorageSymlinks(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/termux/app/TermuxInstaller;->setupStorageSymlinks(Landroid/content/Context;)V
 
-    :cond_21
+    .line 176
+    :cond_0
+    :goto_0
     return-void
 
     .line 175
-    :cond_22
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
+    :cond_1
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->checkForFontAndColors()V
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->checkForFontAndColors()V
 
     .line 176
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
 
-    iget-object p2, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity$1;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1, p2}, Lcom/termux/app/TermuxPreferences;->reloadFromProperties(Landroid/content/Context;)V
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxPreferences;->reloadFromProperties(Landroid/content/Context;)V
 
-    :cond_30
-    return-void
+    goto :goto_0
 .end method

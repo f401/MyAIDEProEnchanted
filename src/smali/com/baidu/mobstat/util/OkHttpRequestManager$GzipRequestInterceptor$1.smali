@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/util/OkHttpRequestManager$GzipRequestInterceptor;Lokhttp3/RequestBody;Lokio/Buffer;)V
-    .registers 4
+    .locals 0
 
     .line 182
     iput-object p1, p0, Lcom/baidu/mobstat/util/OkHttpRequestManager$GzipRequestInterceptor$1;->this$1:Lcom/baidu/mobstat/util/OkHttpRequestManager$GzipRequestInterceptor;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public contentLength()J
-    .registers 3
+    .locals 2
 
     .line 190
     iget-object v0, p0, Lcom/baidu/mobstat/util/OkHttpRequestManager$GzipRequestInterceptor$1;->val$buffer:Lokio/Buffer;
@@ -54,7 +54,7 @@
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
-    .registers 2
+    .locals 1
 
     .line 185
     iget-object v0, p0, Lcom/baidu/mobstat/util/OkHttpRequestManager$GzipRequestInterceptor$1;->val$requestBody:Lokhttp3/RequestBody;
@@ -67,7 +67,7 @@
 .end method
 
 .method public writeTo(Lokio/BufferedSink;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

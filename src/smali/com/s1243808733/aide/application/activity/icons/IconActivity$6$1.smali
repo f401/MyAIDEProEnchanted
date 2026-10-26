@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$6;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,12 +45,12 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 240
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$6$1;->val$result:Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$6$1;->val$result:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->copyToClipboard(Ljava/lang/CharSequence;)V
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->copyToClipboard(Ljava/lang/CharSequence;)V
 
     return-void
 .end method

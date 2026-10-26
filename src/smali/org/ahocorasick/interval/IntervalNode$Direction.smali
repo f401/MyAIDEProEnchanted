@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lorg/ahocorasick/interval/IntervalNode$Direction;",
         ">;"
     }
@@ -32,44 +33,44 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
 
     .line 9
     new-instance v0, Lorg/ahocorasick/interval/IntervalNode$Direction;
 
     const-string v1, "LEFT"
 
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Lorg/ahocorasick/interval/IntervalNode$Direction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v3}, Lorg/ahocorasick/interval/IntervalNode$Direction;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lorg/ahocorasick/interval/IntervalNode$Direction;->LEFT:Lorg/ahocorasick/interval/IntervalNode$Direction;
 
     new-instance v1, Lorg/ahocorasick/interval/IntervalNode$Direction;
 
-    const-string v3, "RIGHT"
+    const-string v2, "RIGHT"
 
-    const/4 v4, 0x1
-
-    invoke-direct {v1, v3, v4}, Lorg/ahocorasick/interval/IntervalNode$Direction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v4}, Lorg/ahocorasick/interval/IntervalNode$Direction;-><init>(Ljava/lang/String;I)V
 
     sput-object v1, Lorg/ahocorasick/interval/IntervalNode$Direction;->RIGHT:Lorg/ahocorasick/interval/IntervalNode$Direction;
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    new-array v3, v3, [Lorg/ahocorasick/interval/IntervalNode$Direction;
+    new-array v2, v2, [Lorg/ahocorasick/interval/IntervalNode$Direction;
 
-    aput-object v0, v3, v2
+    aput-object v0, v2, v3
 
-    aput-object v1, v3, v4
+    aput-object v1, v2, v4
 
-    sput-object v3, Lorg/ahocorasick/interval/IntervalNode$Direction;->$VALUES:[Lorg/ahocorasick/interval/IntervalNode$Direction;
+    sput-object v2, Lorg/ahocorasick/interval/IntervalNode$Direction;->$VALUES:[Lorg/ahocorasick/interval/IntervalNode$Direction;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -83,22 +84,22 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/ahocorasick/interval/IntervalNode$Direction;
-    .registers 2
+    .locals 1
 
     .line 9
     const-class v0, Lorg/ahocorasick/interval/IntervalNode$Direction;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lorg/ahocorasick/interval/IntervalNode$Direction;
+    check-cast v0, Lorg/ahocorasick/interval/IntervalNode$Direction;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lorg/ahocorasick/interval/IntervalNode$Direction;
-    .registers 1
+    .locals 1
 
     .line 9
     sget-object v0, Lorg/ahocorasick/interval/IntervalNode$Direction;->$VALUES:[Lorg/ahocorasick/interval/IntervalNode$Direction;

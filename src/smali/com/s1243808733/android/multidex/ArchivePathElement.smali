@@ -20,15 +20,15 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetarchive(Lcom/s1243808733/android/multidex/ArchivePathElement;)Ljava/util/zip/ZipFile;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement;->archive:Ljava/util/zip/ZipFile;
+    iget-object v0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement;->archive:Ljava/util/zip/ZipFile;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public constructor <init>(Ljava/util/zip/ZipFile;)V
-    .registers 2
+    .locals 0
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -58,11 +58,12 @@
 .end method
 
 .method public list()Ljava/lang/Iterable;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/lang/Iterable<",
+            "Ljava/lang/Iterable",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -77,7 +78,7 @@
 .end method
 
 .method public open(Ljava/lang/String;)Ljava/io/InputStream;
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -91,34 +92,34 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1
 
     .line 47
     invoke-virtual {v0}, Ljava/util/zip/ZipEntry;->isDirectory()Z
 
-    move-result p1
+    move-result v1
 
-    if-nez p1, :cond_15
+    if-nez v1, :cond_0
 
     .line 50
-    iget-object p1, p0, Lcom/s1243808733/android/multidex/ArchivePathElement;->archive:Ljava/util/zip/ZipFile;
+    iget-object v1, p0, Lcom/s1243808733/android/multidex/ArchivePathElement;->archive:Ljava/util/zip/ZipFile;
 
-    invoke-virtual {p1, v0}, Ljava/util/zip/ZipFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
+    invoke-virtual {v1, v0}, Ljava/util/zip/ZipFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
     .line 48
-    :cond_15
-    new-instance p1, Lcom/s1243808733/android/multidex/ArchivePathElement$DirectoryEntryException;
+    :cond_0
+    new-instance v0, Lcom/s1243808733/android/multidex/ArchivePathElement$DirectoryEntryException;
 
-    invoke-direct {p1}, Lcom/s1243808733/android/multidex/ArchivePathElement$DirectoryEntryException;-><init>()V
+    invoke-direct {v0}, Lcom/s1243808733/android/multidex/ArchivePathElement$DirectoryEntryException;-><init>()V
 
-    throw p1
+    throw v0
 
     .line 46
-    :cond_1b
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "File \""
@@ -127,17 +128,17 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "\" not found"
+    const-string v1, "\" not found"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/io/FileNotFoundException;
+    new-instance v1, Ljava/io/FileNotFoundException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/io/FileNotFoundException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/io/FileNotFoundException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method

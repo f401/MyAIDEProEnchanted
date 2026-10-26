@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$26;)V
-    .registers 2
+    .locals 0
 
     .line 1076
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$26$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$26;
@@ -36,55 +36,58 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 1081
     :try_start_0
     invoke-static {}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->getDb()Lorg/xutils/DbManager;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Lorg/xutils/DbManager;->dropDb()V
+    invoke-interface {v0}, Lorg/xutils/DbManager;->dropDb()V
 
     .line 1082
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result p1
-    :try_end_b
-    .catchall {:try_start_0 .. :try_end_b} :catchall_1a
+    move-result v0
 
-    if-eqz p1, :cond_10
+    if-eqz v0, :cond_0
 
-    const-string p1, "已清除翻译文件"
+    const-string v0, "\u5df2\u6e05\u9664\u7ffb\u8bd1\u6587\u4ef6"
 
-    goto :goto_12
+    :goto_0
+    :try_start_1
+    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
 
-    :cond_10
-    const-string p1, "Translation file cleared"
-
-    :goto_12
-    :try_start_12
-    invoke-static {p1}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
-
-    move-result-object p1
+    move-result-object v0
 
     .line 1083
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
-    :try_end_19
-    .catchall {:try_start_12 .. :try_end_19} :catchall_1a
-
-    goto :goto_22
-
-    :catchall_1a
-    move-exception p1
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1085
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
-
-    :goto_22
+    :goto_1
     return-void
+
+    .line 1082
+    :cond_0
+    const-string v0, "Translation file cleared"
+
+    goto :goto_0
+
+    .line 1083
+    :catchall_0
+    move-exception v0
+
+    .line 1085
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
+
+    goto :goto_1
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;Lcom/s1243808733/aide/completion/apiversion/ApiInfo;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 251
     iget-object v0, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask$1;->this$0:Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;
@@ -66,7 +66,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_0
 
     .line 252
     iget-object v0, p0, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask$1;->this$0:Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;
@@ -93,6 +93,6 @@
 
     invoke-static {v0, v1}, Lcom/s1243808733/aide/completion/CompletionAdapter$ApiVersionTask;->setTo(Landroid/widget/TextView;Lcom/s1243808733/aide/completion/apiversion/ApiInfo;)V
 
-    :cond_2d
+    :cond_0
     return-void
 .end method

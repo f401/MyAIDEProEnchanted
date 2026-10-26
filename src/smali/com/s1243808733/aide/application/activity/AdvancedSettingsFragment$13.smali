@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 554
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$13;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -36,22 +36,22 @@
 
 # virtual methods
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .registers 3
+    .locals 2
 
     .line 558
     invoke-static {}, Lcom/s1243808733/aide/AideMainActivity;->getActivity()Lcom/s1243808733/aide/AideMainActivity;
 
-    move-result-object p1
+    move-result-object v0
 
     check-cast p2, Ljava/lang/Boolean;
 
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result p2
+    move-result v1
 
-    invoke-virtual {p1, p2}, Lcom/s1243808733/aide/AideMainActivity;->setDrawerToggleVisible(Z)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/AideMainActivity;->setDrawerToggleVisible(Z)V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method

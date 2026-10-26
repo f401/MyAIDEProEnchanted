@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/widget/ShortcutSymbolBar;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,85 +45,85 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 7
+    .locals 6
+
+    const/4 v1, 0x0
 
     .line 113
-    const/4 p1, 0x0
-
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Lcom/s1243808733/aide/widget/ShortcutSymbolBar$1;->this$0:Lcom/s1243808733/aide/widget/ShortcutSymbolBar;
 
     iget-object v0, v0, Lcom/s1243808733/aide/widget/ShortcutSymbolBar;->mKeyCharacterMap:Landroid/view/KeyCharacterMap;
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 114
     iget-object v0, p0, Lcom/s1243808733/aide/widget/ShortcutSymbolBar$1;->this$0:Lcom/s1243808733/aide/widget/ShortcutSymbolBar;
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    invoke-static {v1}, Landroid/view/KeyCharacterMap;->load(I)Landroid/view/KeyCharacterMap;
+    invoke-static {v2}, Landroid/view/KeyCharacterMap;->load(I)Landroid/view/KeyCharacterMap;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, v0, Lcom/s1243808733/aide/widget/ShortcutSymbolBar;->mKeyCharacterMap:Landroid/view/KeyCharacterMap;
+    iput-object v2, v0, Lcom/s1243808733/aide/widget/ShortcutSymbolBar;->mKeyCharacterMap:Landroid/view/KeyCharacterMap;
 
     .line 116
-    :cond_10
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/aide/widget/ShortcutSymbolBar$1;->this$0:Lcom/s1243808733/aide/widget/ShortcutSymbolBar;
 
     iget-object v0, v0, Lcom/s1243808733/aide/widget/ShortcutSymbolBar;->mKeyCharacterMap:Landroid/view/KeyCharacterMap;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/widget/ShortcutSymbolBar$1;->val$symbol:Ljava/lang/String;
+    iget-object v2, p0, Lcom/s1243808733/aide/widget/ShortcutSymbolBar$1;->val$symbol:Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/String;->toCharArray()[C
+    invoke-virtual {v2}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/view/KeyCharacterMap;->getEvents([C)[Landroid/view/KeyEvent;
+    invoke-virtual {v0, v2}, Landroid/view/KeyCharacterMap;->getEvents([C)[Landroid/view/KeyEvent;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-eqz v0, :cond_39
+    if-eqz v2, :cond_1
 
     .line 118
-    array-length v1, v0
-    :try_end_21
-    .catchall {:try_start_1 .. :try_end_21} :catchall_30
+    array-length v3, v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x0
+    move v0, v1
 
-    :goto_22
-    if-ge v2, v1, :cond_39
+    :goto_0
+    if-ge v0, v3, :cond_1
 
-    aget-object v3, v0, v2
+    aget-object v4, v2, v0
 
     .line 119
-    :try_start_26
+    :try_start_1
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainActivity()Lcom/s1243808733/aide/AideMainActivity;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4, v3}, Lcom/s1243808733/aide/AideMainActivity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    :try_end_2d
-    .catchall {:try_start_26 .. :try_end_2d} :catchall_30
+    invoke-virtual {v5, v4}, Lcom/s1243808733/aide/AideMainActivity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_22
+    goto :goto_0
 
-    :catchall_30
+    :catchall_0
     move-exception v0
 
     .line 123
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    aput-object v0, v1, p1
+    aput-object v0, v2, v1
 
-    invoke-static {v1}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
+    invoke-static {v2}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
 
-    :cond_39
+    :cond_1
     return-void
 .end method

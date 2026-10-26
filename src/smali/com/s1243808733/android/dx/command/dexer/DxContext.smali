@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 32
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;Ljava/io/OutputStream;)V
-    .registers 5
+    .locals 2
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,11 +68,11 @@
     iput-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/DxContext;->out:Ljava/io/PrintStream;
 
     .line 28
-    new-instance p1, Ljava/io/PrintStream;
+    new-instance v0, Ljava/io/PrintStream;
 
-    invoke-direct {p1, p2}, Ljava/io/PrintStream;-><init>(Ljava/io/OutputStream;)V
+    invoke-direct {v0, p2}, Ljava/io/PrintStream;-><init>(Ljava/io/OutputStream;)V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/command/dexer/DxContext;->err:Ljava/io/PrintStream;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/DxContext;->err:Ljava/io/PrintStream;
 
     return-void
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
 
     .line 16
     invoke-direct {p0, p1}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
@@ -17,7 +17,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
 
     .line 27
     invoke-direct {p0, p1, p2}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -29,20 +29,20 @@
 .end method
 
 .method private init()V
-    .registers 3
+    .locals 2
 
     .line 21
     invoke-static {}, Lcom/s1243808733/widget/CustomWebView;->isSupportForceDark()Z
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->isLightTheme()Z
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 22
     invoke-virtual {p0}, Lcom/s1243808733/widget/CustomWebView;->getSettings()Landroid/webkit/WebSettings;
@@ -53,27 +53,27 @@
 
     invoke-static {v0, v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Landroid/webkit/WebSettings;I)V
 
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method public static isSupportForceDark()Z
-    .registers 2
+    .locals 2
 
     .line 32
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
-    if-lt v0, v1, :cond_8
+    if-lt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_9
+    :goto_0
+    return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_9
-    return v0
+    goto :goto_0
 .end method

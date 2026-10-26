@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/command/grep/Grep;)V
-    .registers 2
+    .locals 0
 
     .line 48
     iput-object p1, p0, Lcom/s1243808733/android/dx/command/grep/Grep$1;->this$0:Lcom/s1243808733/android/dx/command/grep/Grep;
@@ -36,16 +36,16 @@
 
 # virtual methods
 .method public visit([Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;)V
-    .registers 3
+    .locals 2
 
     .line 51
-    iget-object p1, p0, Lcom/s1243808733/android/dx/command/grep/Grep$1;->this$0:Lcom/s1243808733/android/dx/command/grep/Grep;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/grep/Grep$1;->this$0:Lcom/s1243808733/android/dx/command/grep/Grep;
 
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getIndex()I
 
-    move-result p2
+    move-result v1
 
-    invoke-static {p1, p2}, Lcom/s1243808733/android/dx/command/grep/Grep;->-$$Nest$mencounterString(Lcom/s1243808733/android/dx/command/grep/Grep;I)V
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/command/grep/Grep;->-$$Nest$mencounterString(Lcom/s1243808733/android/dx/command/grep/Grep;I)V
 
     return-void
 .end method

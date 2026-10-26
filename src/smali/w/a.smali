@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/security/Signature;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
 
@@ -21,129 +21,129 @@
 
 # virtual methods
 .method public final write(I)V
-    .registers 5
+    .locals 4
 
     :try_start_0
     iget-object v0, p0, Lw/a;->a:Ljava/security/Signature;
 
-    int-to-byte p1, p1
+    int-to-byte v1, p1
 
-    invoke-virtual {v0, p1}, Ljava/security/Signature;->update(B)V
-    :try_end_6
-    .catch Ljava/security/SignatureException; {:try_start_0 .. :try_end_6} :catch_7
+    invoke-virtual {v0, v1}, Ljava/security/Signature;->update(B)V
+    :try_end_0
+    .catch Ljava/security/SignatureException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_7
-    move-exception p1
+    :catch_0
+    move-exception v0
 
     .line 1
-    const-string v0, "exception in content signer: "
+    const-string v1, "exception in content signer: "
 
-    invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 2
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-static {v1}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 2
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    new-instance v1, Lc/h;
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    new-instance v2, Lc/h;
 
-    const/4 v2, 0x1
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0, p1, v2}, Lc/h;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+    move-result-object v1
 
-    throw v1
+    const/4 v3, 0x1
+
+    invoke-direct {v2, v1, v0, v3}, Lc/h;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+
+    throw v2
 .end method
 
 .method public final write([B)V
-    .registers 5
+    .locals 4
 
     :try_start_0
     iget-object v0, p0, Lw/a;->a:Ljava/security/Signature;
 
     invoke-virtual {v0, p1}, Ljava/security/Signature;->update([B)V
-    :try_end_5
-    .catch Ljava/security/SignatureException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Ljava/security/SignatureException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_6
-    move-exception p1
+    :catch_0
+    move-exception v0
 
     .line 6
-    const-string v0, "exception in content signer: "
+    const-string v1, "exception in content signer: "
 
-    invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 7
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-static {v1}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 7
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    new-instance v1, Lc/h;
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    new-instance v2, Lc/h;
 
-    const/4 v2, 0x1
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0, p1, v2}, Lc/h;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+    move-result-object v1
 
-    throw v1
+    const/4 v3, 0x1
+
+    invoke-direct {v2, v1, v0, v3}, Lc/h;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+
+    throw v2
 .end method
 
 .method public final write([BII)V
-    .registers 5
+    .locals 4
 
     :try_start_0
     iget-object v0, p0, Lw/a;->a:Ljava/security/Signature;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/security/Signature;->update([BII)V
-    :try_end_5
-    .catch Ljava/security/SignatureException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Ljava/security/SignatureException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_6
-    move-exception p1
+    :catch_0
+    move-exception v0
 
     .line 11
-    const-string p2, "exception in content signer: "
+    const-string v1, "exception in content signer: "
 
-    invoke-static {p2}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v1
 
     .line 12
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p3, Lc/h;
+    new-instance v2, Lc/h;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    invoke-direct {p3, p2, p1, v0}, Lc/h;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+    invoke-direct {v2, v1, v0, v3}, Lc/h;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
 
-    throw p3
+    throw v2
 .end method

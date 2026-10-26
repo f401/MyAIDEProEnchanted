@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/view/TerminalView$1;ZLandroid/view/MotionEvent;)V
-    .registers 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -46,9 +46,9 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 158
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lcom/termux/view/TerminalView$1$1;->mLastY:I
+    iput v0, p0, Lcom/termux/view/TerminalView$1$1;->mLastY:I
 
     return-void
 .end method
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .line 162
     iget-boolean v0, p0, Lcom/termux/view/TerminalView$1$1;->val$mouseTrackingAtStartOfFling:Z
@@ -71,7 +71,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_1
 
     .line 163
     iget-object v0, p0, Lcom/termux/view/TerminalView$1$1;->this$1:Lcom/termux/view/TerminalView$1;
@@ -82,10 +82,13 @@
 
     invoke-virtual {v0}, Landroid/widget/Scroller;->abortAnimation()V
 
+    .line 172
+    :cond_0
+    :goto_0
     return-void
 
     .line 166
-    :cond_18
+    :cond_1
     iget-object v0, p0, Lcom/termux/view/TerminalView$1$1;->this$1:Lcom/termux/view/TerminalView$1;
 
     iget-object v0, v0, Lcom/termux/view/TerminalView$1;->this$0:Lcom/termux/view/TerminalView;
@@ -96,12 +99,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_25
-
-    return-void
+    if-nez v0, :cond_0
 
     .line 167
-    :cond_25
     iget-object v0, p0, Lcom/termux/view/TerminalView$1$1;->this$1:Lcom/termux/view/TerminalView$1;
 
     iget-object v0, v0, Lcom/termux/view/TerminalView$1;->this$0:Lcom/termux/view/TerminalView;
@@ -110,51 +110,42 @@
 
     invoke-virtual {v0}, Landroid/widget/Scroller;->computeScrollOffset()Z
 
-    move-result v0
-
-    .line 168
-    iget-object v1, p0, Lcom/termux/view/TerminalView$1$1;->this$1:Lcom/termux/view/TerminalView$1;
-
-    iget-object v1, v1, Lcom/termux/view/TerminalView$1;->this$0:Lcom/termux/view/TerminalView;
-
-    iget-object v1, v1, Lcom/termux/view/TerminalView;->mScroller:Landroid/widget/Scroller;
-
-    invoke-virtual {v1}, Landroid/widget/Scroller;->getCurrY()I
-
     move-result v1
 
+    .line 168
+    iget-object v0, p0, Lcom/termux/view/TerminalView$1$1;->this$1:Lcom/termux/view/TerminalView$1;
+
+    iget-object v0, v0, Lcom/termux/view/TerminalView$1;->this$0:Lcom/termux/view/TerminalView;
+
+    iget-object v0, v0, Lcom/termux/view/TerminalView;->mScroller:Landroid/widget/Scroller;
+
+    invoke-virtual {v0}, Landroid/widget/Scroller;->getCurrY()I
+
+    move-result v2
+
     .line 169
-    iget-boolean v2, p0, Lcom/termux/view/TerminalView$1$1;->val$mouseTrackingAtStartOfFling:Z
+    iget-boolean v0, p0, Lcom/termux/view/TerminalView$1$1;->val$mouseTrackingAtStartOfFling:Z
 
-    if-eqz v2, :cond_40
+    if-eqz v0, :cond_2
 
-    iget v2, p0, Lcom/termux/view/TerminalView$1$1;->mLastY:I
-
-    goto :goto_46
-
-    :cond_40
-    iget-object v2, p0, Lcom/termux/view/TerminalView$1$1;->this$1:Lcom/termux/view/TerminalView$1;
-
-    iget-object v2, v2, Lcom/termux/view/TerminalView$1;->this$0:Lcom/termux/view/TerminalView;
-
-    iget v2, v2, Lcom/termux/view/TerminalView;->mTopRow:I
+    iget v0, p0, Lcom/termux/view/TerminalView$1$1;->mLastY:I
 
     .line 170
-    :goto_46
+    :goto_1
     iget-object v3, p0, Lcom/termux/view/TerminalView$1$1;->this$1:Lcom/termux/view/TerminalView$1;
 
     iget-object v3, v3, Lcom/termux/view/TerminalView$1;->this$0:Lcom/termux/view/TerminalView;
 
     iget-object v4, p0, Lcom/termux/view/TerminalView$1$1;->val$e2:Landroid/view/MotionEvent;
 
-    sub-int v2, v1, v2
+    sub-int v0, v2, v0
 
-    invoke-virtual {v3, v4, v2}, Lcom/termux/view/TerminalView;->doScroll(Landroid/view/MotionEvent;I)V
+    invoke-virtual {v3, v4, v0}, Lcom/termux/view/TerminalView;->doScroll(Landroid/view/MotionEvent;I)V
 
     .line 171
-    iput v1, p0, Lcom/termux/view/TerminalView$1$1;->mLastY:I
+    iput v2, p0, Lcom/termux/view/TerminalView$1$1;->mLastY:I
 
-    if-eqz v0, :cond_5c
+    if-eqz v1, :cond_0
 
     .line 172
     iget-object v0, p0, Lcom/termux/view/TerminalView$1$1;->this$1:Lcom/termux/view/TerminalView$1;
@@ -163,6 +154,15 @@
 
     invoke-virtual {v0, p0}, Lcom/termux/view/TerminalView;->post(Ljava/lang/Runnable;)Z
 
-    :cond_5c
-    return-void
+    goto :goto_0
+
+    .line 169
+    :cond_2
+    iget-object v0, p0, Lcom/termux/view/TerminalView$1$1;->this$1:Lcom/termux/view/TerminalView$1;
+
+    iget-object v0, v0, Lcom/termux/view/TerminalView$1;->this$0:Lcom/termux/view/TerminalView;
+
+    iget v0, v0, Lcom/termux/view/TerminalView;->mTopRow:I
+
+    goto :goto_1
 .end method

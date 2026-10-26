@@ -9,12 +9,12 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/dex/code/Dop;Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;Lcom/s1243808733/android/dx/dex/code/CodeAddress;)V
-    .registers 5
+    .locals 2
 
     .line 43
     invoke-direct {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/dex/code/FixedSizeInsn;-><init>(Lcom/s1243808733/android/dx/dex/code/Dop;Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)V
 
-    if-eqz p4, :cond_8
+    if-eqz p4, :cond_0
 
     .line 49
     iput-object p4, p0, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->target:Lcom/s1243808733/android/dx/dex/code/CodeAddress;
@@ -22,42 +22,43 @@
     return-void
 
     .line 46
-    :cond_8
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "target == null"
+    const-string v1, "target == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method protected argString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 126
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->target:Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 127
     const-string v0, "????"
 
+    .line 130
+    :goto_0
     return-object v0
 
-    .line 130
-    :cond_7
+    :cond_0
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/code/CodeAddress;->identifierString()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getTarget()Lcom/s1243808733/android/dx/dex/code/CodeAddress;
-    .registers 2
+    .locals 1
 
     .line 86
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->target:Lcom/s1243808733/android/dx/dex/code/CodeAddress;
@@ -66,7 +67,7 @@
 .end method
 
 .method public getTargetAddress()I
-    .registers 2
+    .locals 1
 
     .line 98
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->target:Lcom/s1243808733/android/dx/dex/code/CodeAddress;
@@ -79,7 +80,7 @@
 .end method
 
 .method public getTargetOffset()I
-    .registers 3
+    .locals 2
 
     .line 110
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->target:Lcom/s1243808733/android/dx/dex/code/CodeAddress;
@@ -98,14 +99,14 @@
 .end method
 
 .method public hasTargetOffset()Z
-    .registers 2
+    .locals 1
 
     .line 120
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->hasAddress()Z
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->target:Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
@@ -113,21 +114,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_11
+    :goto_0
+    return v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_11
-    return v0
+    goto :goto_0
 .end method
 
 .method public withNewTargetAndReversed(Lcom/s1243808733/android/dx/dex/code/CodeAddress;)Lcom/s1243808733/android/dx/dex/code/TargetInsn;
-    .registers 6
+    .locals 4
 
     .line 75
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->getOpcode()Lcom/s1243808733/android/dx/dex/code/Dop;
@@ -155,7 +156,7 @@
 .end method
 
 .method public withOpcode(Lcom/s1243808733/android/dx/dex/code/Dop;)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
-    .registers 6
+    .locals 4
 
     .line 55
     new-instance v0, Lcom/s1243808733/android/dx/dex/code/TargetInsn;
@@ -176,7 +177,7 @@
 .end method
 
 .method public withRegisters(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
-    .registers 6
+    .locals 4
 
     .line 61
     new-instance v0, Lcom/s1243808733/android/dx/dex/code/TargetInsn;

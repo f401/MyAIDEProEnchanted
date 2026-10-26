@@ -7,7 +7,8 @@
 .field public static activities:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Landroid/app/Activity;",
             ">;"
         }
@@ -17,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 13
     new-instance v0, Ljava/util/ArrayList;
@@ -30,7 +31,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +40,7 @@
 .end method
 
 .method public static addActivity(Landroid/app/Activity;)V
-    .registers 2
+    .locals 1
 
     .line 20
     sget-object v0, Lcom/termux/app/ActivityCollector;->activities:Ljava/util/List;
@@ -50,31 +51,31 @@
 .end method
 
 .method public static finishOneActivity(Ljava/lang/String;)V
-    .registers 4
+    .locals 3
 
     .line 36
     sget-object v0, Lcom/termux/app/ActivityCollector;->activities:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :cond_6
-    :goto_6
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_30
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Landroid/app/Activity;
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/Activity;
 
     .line 37
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
@@ -87,34 +88,34 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_0
 
     .line 39
-    invoke-virtual {v1}, Landroid/app/Activity;->isFinishing()Z
+    invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_1
 
     .line 41
     sget-object v2, Lcom/termux/app/ActivityCollector;->activities:Ljava/util/List;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+    invoke-interface {v2, v0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_6
+    goto :goto_0
 
     .line 44
-    :cond_2c
-    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
+    :cond_1
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_30
+    :cond_2
     return-void
 .end method
 
 .method public static removeActivity(Landroid/app/Activity;)V
-    .registers 2
+    .locals 1
 
     .line 28
     sget-object v0, Lcom/termux/app/ActivityCollector;->activities:Ljava/util/List;

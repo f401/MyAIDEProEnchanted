@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/functions/installer/ShellInstall;Ljava/lang/Exception;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,67 +45,69 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 130
     invoke-static {}, Lcom/aide/ui/U;->lg()Lcom/aide/ui/MainActivity;
 
-    move-result-object v0
+    move-result-object v2
 
     .line 131
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_d
+    if-eqz v0, :cond_0
 
-    const-string v1, "运行出现问题"
-
-    goto :goto_f
-
-    :cond_d
-    const-string v1, "Run Problem"
+    const-string v0, "\u8fd0\u884c\u51fa\u73b0\u95ee\u9898"
 
     .line 132
-    :goto_f
+    :goto_0
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_18
+    if-eqz v1, :cond_1
 
-    const-string v2, "静默安装失败："
-
-    goto :goto_1a
-
-    :cond_18
-    const-string v2, "Silent installation failed:"
+    const-string v1, "\u9759\u9ed8\u5b89\u88c5\u5931\u8d25\uff1a"
 
     .line 133
-    :goto_1a
+    :goto_1
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "\n\n"
+    const-string v1, "\n\n"
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/s1243808733/aide/functions/installer/ShellInstall$2;->val$e:Ljava/lang/Exception;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/installer/ShellInstall$2;->val$e:Ljava/lang/Exception;
 
-    invoke-static {v2}, Lcom/blankj/utilcode/util/ThrowableUtils;->getFullStackTrace(Ljava/lang/Throwable;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ThrowableUtils;->getFullStackTrace(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v0, v1, v2}, Lcom/aide/common/ma;->j6(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v0, v1}, Lcom/aide/common/ma;->j6(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
+
+    .line 131
+    :cond_0
+    const-string v0, "Run Problem"
+
+    goto :goto_0
+
+    .line 132
+    :cond_1
+    const-string v1, "Silent installation failed:"
+
+    goto :goto_1
 .end method

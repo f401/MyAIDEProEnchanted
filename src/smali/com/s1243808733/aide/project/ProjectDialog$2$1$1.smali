@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/project/ProjectDialog$2$1;Ljava/lang/String;Landroid/app/ProgressDialog;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .line 145
     :try_start_0
@@ -77,13 +77,14 @@
     invoke-direct {v1, p0}, Lcom/s1243808733/aide/project/ProjectDialog$2$1$1$1;-><init>(Lcom/s1243808733/aide/project/ProjectDialog$2$1$1;)V
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
-    :try_end_1b
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1b} :catch_1c
-
-    goto :goto_2b
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 156
-    :catch_1c
+    :goto_0
+    return-void
+
+    :catch_0
     move-exception v0
 
     iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$2$1$1;->this$1:Lcom/s1243808733/aide/project/ProjectDialog$2$1;
@@ -98,6 +99,5 @@
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    :goto_2b
-    return-void
+    goto :goto_0
 .end method

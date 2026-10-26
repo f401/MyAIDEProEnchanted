@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 27
     new-instance v0, Lcom/s1243808733/android/dx/cf/code/LineNumberList;
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 65
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/FixedSizeList;-><init>(I)V
@@ -41,144 +41,147 @@
 .end method
 
 .method public static concat(Lcom/s1243808733/android/dx/cf/code/LineNumberList;Lcom/s1243808733/android/dx/cf/code/LineNumberList;)Lcom/s1243808733/android/dx/cf/code/LineNumberList;
-    .registers 8
+    .locals 6
+
+    const/4 v1, 0x0
 
     .line 39
     sget-object v0, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->EMPTY:Lcom/s1243808733/android/dx/cf/code/LineNumberList;
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_0
 
+    .line 53
+    :goto_0
     return-object p1
 
     .line 44
-    :cond_5
+    :cond_0
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->size()I
 
-    move-result v0
+    move-result v3
 
     .line 45
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->size()I
 
-    move-result v1
+    move-result v4
 
     .line 46
-    new-instance v2, Lcom/s1243808733/android/dx/cf/code/LineNumberList;
+    new-instance v0, Lcom/s1243808733/android/dx/cf/code/LineNumberList;
 
-    add-int v3, v0, v1
+    add-int v2, v3, v4
 
-    invoke-direct {v2, v3}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;-><init>(I)V
+    invoke-direct {v0, v2}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;-><init>(I)V
 
-    const/4 v3, 0x0
+    move v2, v1
 
-    const/4 v4, 0x0
-
-    :goto_16
-    if-ge v4, v0, :cond_22
+    :goto_1
+    if-ge v2, v3, :cond_1
 
     .line 49
-    invoke-virtual {p0, v4}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->get(I)Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;
+    invoke-virtual {p0, v2}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->get(I)Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;
 
     move-result-object v5
 
-    invoke-virtual {v2, v4, v5}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->set(ILcom/s1243808733/android/dx/cf/code/LineNumberList$Item;)V
+    invoke-virtual {v0, v2, v5}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->set(ILcom/s1243808733/android/dx/cf/code/LineNumberList$Item;)V
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_16
+    goto :goto_1
 
-    :cond_22
-    :goto_22
-    if-ge v3, v1, :cond_30
+    :cond_1
+    :goto_2
+    if-ge v1, v4, :cond_2
 
     .line 53
-    add-int p0, v0, v3
+    add-int v2, v3, v1
 
-    invoke-virtual {p1, v3}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->get(I)Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;
+    invoke-virtual {p1, v1}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->get(I)Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v2, p0, v4}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->set(ILcom/s1243808733/android/dx/cf/code/LineNumberList$Item;)V
+    invoke-virtual {v0, v2, v5}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->set(ILcom/s1243808733/android/dx/cf/code/LineNumberList$Item;)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_22
+    goto :goto_2
 
-    :cond_30
-    return-object v2
+    :cond_2
+    move-object p1, v0
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public get(I)Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;
-    .registers 2
+    .locals 1
 
     .line 75
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->get0(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;
+    check-cast v0, Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public pcToLine(I)I
-    .registers 8
+    .locals 6
+
+    const/4 v1, -0x1
 
     .line 117
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->size()I
 
-    move-result v0
-
-    const/4 v1, -0x1
-
-    const/4 v2, 0x0
-
-    const/4 v2, -0x1
+    move-result v4
 
     const/4 v3, 0x0
 
-    :goto_8
-    if-ge v3, v0, :cond_21
+    move v2, v1
+
+    move v0, v1
+
+    :goto_0
+    if-ge v3, v4, :cond_0
 
     .line 122
     invoke-virtual {p0, v3}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->get(I)Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;
 
-    move-result-object v4
+    move-result-object v5
 
     .line 123
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;->getStartPc()I
-
-    move-result v5
-
-    if-gt v5, p1, :cond_1e
-
-    if-le v5, v2, :cond_1e
-
-    .line 126
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;->getLineNumber()I
+    invoke-virtual {v5}, Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;->getStartPc()I
 
     move-result v1
 
-    if-ne v5, p1, :cond_1d
+    if-gt v1, p1, :cond_1
 
-    goto :goto_21
+    if-le v1, v2, :cond_1
 
-    :cond_1d
-    move v2, v5
+    .line 126
+    invoke-virtual {v5}, Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;->getLineNumber()I
 
-    :cond_1e
+    move-result v0
+
+    if-ne v1, p1, :cond_2
+
+    :cond_0
+    return v0
+
+    :cond_1
+    move v1, v2
+
+    :cond_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_8
+    move v2, v1
 
-    :cond_21
-    :goto_21
-    return v1
+    goto :goto_0
 .end method
 
 .method public set(III)V
-    .registers 5
+    .locals 1
 
     .line 100
     new-instance v0, Lcom/s1243808733/android/dx/cf/code/LineNumberList$Item;
@@ -191,9 +194,9 @@
 .end method
 
 .method public set(ILcom/s1243808733/android/dx/cf/code/LineNumberList$Item;)V
-    .registers 3
+    .locals 2
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_0
 
     .line 89
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->set0(ILjava/lang/Object;)V
@@ -201,12 +204,12 @@
     return-void
 
     .line 86
-    :cond_6
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "item == null"
+    const-string v1, "item == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method

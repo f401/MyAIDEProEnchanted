@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/DialogUtils$TextSetListener;Landroid/widget/EditText;[Landroid/app/AlertDialog;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,33 +49,33 @@
 
 # virtual methods
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 2
 
     .line 37
-    iget-object p1, p0, Lcom/termux/app/DialogUtils$1;->val$onPositive:Lcom/termux/app/DialogUtils$TextSetListener;
+    iget-object v0, p0, Lcom/termux/app/DialogUtils$1;->val$onPositive:Lcom/termux/app/DialogUtils$TextSetListener;
 
-    iget-object p2, p0, Lcom/termux/app/DialogUtils$1;->val$input:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/termux/app/DialogUtils$1;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {p2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-interface {p1, p2}, Lcom/termux/app/DialogUtils$TextSetListener;->onTextSet(Ljava/lang/String;)V
+    invoke-interface {v0, v1}, Lcom/termux/app/DialogUtils$TextSetListener;->onTextSet(Ljava/lang/String;)V
 
     .line 38
-    iget-object p1, p0, Lcom/termux/app/DialogUtils$1;->val$dialogHolder:[Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/termux/app/DialogUtils$1;->val$dialogHolder:[Landroid/app/AlertDialog;
 
-    const/4 p2, 0x0
+    const/4 v1, 0x0
 
-    aget-object p1, p1, p2
+    aget-object v0, v0, v1
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method

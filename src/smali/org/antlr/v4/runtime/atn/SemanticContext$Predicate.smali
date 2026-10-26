@@ -24,14 +24,14 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 2
+    .locals 1
+
+    const/4 v0, -0x1
 
     .line 79
     invoke-direct {p0}, Lorg/antlr/v4/runtime/atn/SemanticContext;-><init>()V
 
     .line 80
-    const/4 v0, -0x1
-
     iput v0, p0, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->ruleIndex:I
 
     .line 81
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(IIZ)V
-    .registers 4
+    .locals 0
 
     .line 85
     invoke-direct {p0}, Lorg/antlr/v4/runtime/atn/SemanticContext;-><init>()V
@@ -66,26 +66,29 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
 
-    .line 109
-    instance-of v0, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;
+    const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_6
+    .line 109
+    instance-of v2, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;
 
-    return v1
+    if-nez v2, :cond_1
 
-    :cond_6
-    const/4 v0, 0x1
+    move v0, v1
 
-    if-ne p0, p1, :cond_a
-
+    .line 112
+    :cond_0
+    :goto_0
     return v0
 
+    .line 109
+    :cond_1
+    if-eq p0, p1, :cond_0
+
     .line 111
-    :cond_a
     check-cast p1, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;
 
     .line 112
@@ -93,33 +96,33 @@
 
     iget v3, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->ruleIndex:I
 
-    if-ne v2, v3, :cond_1f
+    if-ne v2, v3, :cond_2
 
     iget v2, p0, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->predIndex:I
 
     iget v3, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->predIndex:I
 
-    if-ne v2, v3, :cond_1f
+    if-ne v2, v3, :cond_2
 
     iget-boolean v2, p0, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->isCtxDependent:Z
 
-    iget-boolean p1, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->isCtxDependent:Z
+    iget-boolean v3, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->isCtxDependent:Z
 
-    if-ne v2, p1, :cond_1f
+    if-eq v2, v3, :cond_0
 
-    const/4 v1, 0x1
+    :cond_2
+    move v0, v1
 
-    :cond_1f
-    return v1
+    goto :goto_0
 .end method
 
 .method public eval(Lorg/antlr/v4/runtime/Recognizer;Lorg/antlr/v4/runtime/RuleContext;)Z
-    .registers 5
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;",
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;",
             "Lorg/antlr/v4/runtime/RuleContext;",
             ")Z"
         }
@@ -128,28 +131,29 @@
     .line 93
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->isCtxDependent:Z
 
-    if-eqz v0, :cond_5
-
-    goto :goto_6
-
-    :cond_5
-    const/4 p2, 0x0
+    if-eqz v0, :cond_0
 
     .line 94
-    :goto_6
+    :goto_0
     iget v0, p0, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->ruleIndex:I
 
     iget v1, p0, Lorg/antlr/v4/runtime/atn/SemanticContext$Predicate;->predIndex:I
 
     invoke-virtual {p1, p2, v0, v1}, Lorg/antlr/v4/runtime/Recognizer;->sempred(Lorg/antlr/v4/runtime/RuleContext;II)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
+
+    .line 93
+    :cond_0
+    const/4 p2, 0x0
+
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .line 99
     invoke-static {}, Lorg/antlr/v4/runtime/misc/MurmurHash;->initialize()I
@@ -188,7 +192,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 119
     new-instance v0, Ljava/lang/StringBuilder;

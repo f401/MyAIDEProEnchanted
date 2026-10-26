@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/util/ConverProject$ConverProjectTask;)V
-    .registers 2
+    .locals 0
 
     .line 120
     iput-object p1, p0, Lcom/s1243808733/aide/util/ConverProject$ConverProjectTask$1;->this$1:Lcom/s1243808733/aide/util/ConverProject$ConverProjectTask;
@@ -36,119 +36,125 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .registers 9
+    .locals 6
+
+    const/4 v5, 0x2
+
+    const/4 v1, 0x1
+
+    const/4 v0, 0x0
 
     .line 126
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
 
-    move-result v0
+    move-result v2
 
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_62
+    if-eqz v2, :cond_2
 
     .line 128
-    const-string v0, "build"
+    const-string v2, "build"
 
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    const-string v2, "continue"
-
-    const/4 v3, 0x2
-
-    const/4 v4, 0x0
-
-    if-eqz v0, :cond_36
+    if-eqz v2, :cond_0
 
     .line 129
-    new-instance v0, Ljava/io/File;
+    new-instance v2, Ljava/io/File;
 
     invoke-virtual {p1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object v5
+    move-result-object v3
 
-    const-string v6, "build.gradle"
+    const-string v4, "build.gradle"
 
-    invoke-direct {v0, v5, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v2, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_36
+    if-eqz v2, :cond_0
 
     .line 130
-    new-array v0, v3, [Ljava/lang/Object;
+    new-array v2, v5, [Ljava/lang/Object;
 
-    aput-object v2, v0, v4
+    const-string v3, "continue"
+
+    aput-object v3, v2, v0
 
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v3
 
-    aput-object p1, v0, v1
+    aput-object v3, v2, v1
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
+    invoke-static {v2}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
 
-    return v4
+    .line 158
+    :goto_0
+    return v0
 
     .line 132
-    :cond_36
-    const-string v0, "bin"
+    :cond_0
+    const-string v2, "bin"
 
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_61
+    if-eqz v2, :cond_1
 
     .line 133
-    new-instance v0, Ljava/io/File;
+    new-instance v2, Ljava/io/File;
 
     invoke-virtual {p1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object v5
+    move-result-object v3
 
-    const-string v6, "AndroidManifest.xml"
+    const-string v4, "AndroidManifest.xml"
 
-    invoke-direct {v0, v5, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v2, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_61
+    if-eqz v2, :cond_1
 
     .line 134
-    new-array v0, v3, [Ljava/lang/Object;
+    new-array v2, v5, [Ljava/lang/Object;
 
-    aput-object v2, v0, v4
+    const-string v3, "continue"
+
+    aput-object v3, v2, v0
 
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v3
 
-    aput-object p1, v0, v1
+    aput-object v3, v2, v1
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
+    invoke-static {v2}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
 
-    return v4
+    goto :goto_0
 
-    :cond_61
-    return v1
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
 
     .line 149
-    :cond_62
+    :cond_2
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v0
@@ -159,7 +165,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_a4
+    if-nez v0, :cond_3
 
     .line 150
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -172,7 +178,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_a4
+    if-nez v0, :cond_3
 
     .line 151
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -185,7 +191,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_a4
+    if-nez v0, :cond_3
 
     .line 152
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -198,7 +204,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_a4
+    if-nez v0, :cond_3
 
     .line 153
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -211,19 +217,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9f
+    if-eqz v0, :cond_4
 
-    goto :goto_a4
+    :cond_3
+    move v0, v1
 
     .line 158
-    :cond_9f
+    goto :goto_0
+
+    :cond_4
     invoke-static {p1}, Lcom/blankj/utilcode/util/FileUtils;->isUtf8(Ljava/io/File;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
-
-    :cond_a4
-    :goto_a4
-    return v1
+    goto :goto_0
 .end method

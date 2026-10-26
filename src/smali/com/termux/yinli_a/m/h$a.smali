@@ -19,8 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Iterator<",
-        "TR;>;"
+        "Ljava/util/Iterator",
+        "<TR;>;"
     }
 .end annotation
 
@@ -29,8 +29,8 @@
 .field private final a:Ljava/util/Iterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Iterator<",
-            "TT;>;"
+            "Ljava/util/Iterator",
+            "<TT;>;"
         }
     .end annotation
 .end field
@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/yinli_a/m/h;)V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -53,13 +53,13 @@
 
     invoke-static {p1}, Lcom/termux/yinli_a/m/h;->a(Lcom/termux/yinli_a/m/h;)Lcom/termux/yinli_a/m/a;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Lcom/termux/yinli_a/m/a;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Lcom/termux/yinli_a/m/a;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/termux/yinli_a/m/h$a;->a:Ljava/util/Iterator;
+    iput-object v0, p0, Lcom/termux/yinli_a/m/h$a;->a:Ljava/util/Iterator;
 
     return-void
 .end method
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lcom/termux/yinli_a/m/h$a;->a:Ljava/util/Iterator;
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -106,7 +106,7 @@
 .end method
 
 .method public remove()V
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 

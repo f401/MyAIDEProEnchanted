@@ -33,7 +33,8 @@
 .field public final ambiguities:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/atn/AmbiguityInfo;",
             ">;"
         }
@@ -43,7 +44,8 @@
 .field public final contextSensitivities:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/atn/ContextSensitivityInfo;",
             ">;"
         }
@@ -55,7 +57,8 @@
 .field public final errors:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/atn/ErrorInfo;",
             ">;"
         }
@@ -67,7 +70,8 @@
 .field public final predicateEvals:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/atn/PredicateEvalInfo;",
             ">;"
         }
@@ -79,7 +83,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
 
     .line 225
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -121,7 +125,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 4
 
     .line 231
     new-instance v0, Ljava/lang/StringBuilder;
@@ -174,49 +178,49 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v1, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->SLL_TotalLook:J
+    iget-wide v2, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->SLL_TotalLook:J
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const-string v1, ", SLL_ATNTransitions="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v1, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->SLL_ATNTransitions:J
+    iget-wide v2, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->SLL_ATNTransitions:J
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const-string v1, ", SLL_DFATransitions="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v1, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->SLL_DFATransitions:J
+    iget-wide v2, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->SLL_DFATransitions:J
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const-string v1, ", LL_Fallback="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v1, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->LL_Fallback:J
+    iget-wide v2, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->LL_Fallback:J
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const-string v1, ", LL_lookahead="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v1, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->LL_TotalLook:J
+    iget-wide v2, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->LL_TotalLook:J
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const-string v1, ", LL_ATNTransitions="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v1, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->LL_ATNTransitions:J
+    iget-wide v2, p0, Lorg/antlr/v4/runtime/atn/DecisionInfo;->LL_ATNTransitions:J
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const/16 v1, 0x7d
 

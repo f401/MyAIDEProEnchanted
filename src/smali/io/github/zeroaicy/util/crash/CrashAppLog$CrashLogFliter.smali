@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/github/zeroaicy/util/crash/CrashAppLog;)V
-    .registers 2
+    .locals 0
 
     .line 319
     iput-object p1, p0, Lio/github/zeroaicy/util/crash/CrashAppLog$CrashLogFliter;->this$0:Lio/github/zeroaicy/util/crash/CrashAppLog;
@@ -36,27 +36,28 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .registers 3
+    .locals 2
 
     .line 322
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, ".log"
+    const-string v1, ".log"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_e
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_e
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method

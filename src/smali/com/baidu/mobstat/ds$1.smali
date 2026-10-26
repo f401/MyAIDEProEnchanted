@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
 
     .line 171
     iput-object p1, p0, Lcom/baidu/mobstat/ds$1;->a:Landroid/content/Context;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public a(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
 
     .line 175
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 177
     invoke-static {}, Lcom/baidu/mobstat/dl;->a()Lcom/baidu/mobstat/dl;
@@ -54,6 +54,6 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/baidu/mobstat/dl;->o(Landroid/content/Context;Ljava/lang/String;)V
 
-    :cond_f
+    :cond_0
     return-void
 .end method

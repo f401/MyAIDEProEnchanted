@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,6 +26,8 @@
     iput-object v0, p0, Lcom/s1243808733/aide/util/FActivityInfo;->name:Ljava/lang/String;
 
     .line 7
+    const-string v0, ""
+
     iput-object v0, p0, Lcom/s1243808733/aide/util/FActivityInfo;->lable:Ljava/lang/String;
 
     const/4 v0, 0x0
@@ -41,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

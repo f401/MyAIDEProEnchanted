@@ -15,13 +15,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 26
     invoke-direct {p0}, Lio/github/zeroaicy/util/crash/CrashAppLog;-><init>()V
@@ -41,12 +41,12 @@
 .end method
 
 .method public static getInstance()Lio/github/zeroaicy/util/crash/CrashApphandler;
-    .registers 1
+    .locals 1
 
     .line 29
     sget-object v0, Lio/github/zeroaicy/util/crash/CrashApphandler;->mCrashApphandler:Lio/github/zeroaicy/util/crash/CrashApphandler;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 30
     new-instance v0, Lio/github/zeroaicy/util/crash/CrashApphandler;
@@ -56,7 +56,7 @@
     sput-object v0, Lio/github/zeroaicy/util/crash/CrashApphandler;->mCrashApphandler:Lio/github/zeroaicy/util/crash/CrashApphandler;
 
     .line 31
-    :cond_b
+    :cond_0
     sget-object v0, Lio/github/zeroaicy/util/crash/CrashApphandler;->mCrashApphandler:Lio/github/zeroaicy/util/crash/CrashApphandler;
 
     return-object v0
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public init(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
 
     .line 65
     invoke-super {p0, p1}, Lio/github/zeroaicy/util/crash/CrashAppLog;->init(Landroid/content/Context;)V
@@ -74,16 +74,16 @@
 .end method
 
 .method public onCreated()V
-    .registers 2
+    .locals 1
 
     .line 35
     iget-object v0, p0, Lio/github/zeroaicy/util/crash/CrashApphandler;->onCrashListener:Lio/github/zeroaicy/util/crash/CrashAppLog$OnCrashListener;
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lio/github/zeroaicy/util/crash/CrashApphandler;->mContext:Landroid/content/Context;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 36
     new-instance v0, Lio/github/zeroaicy/util/crash/CrashApphandler$1;
@@ -92,47 +92,47 @@
 
     invoke-virtual {p0, v0}, Lio/github/zeroaicy/util/crash/CrashApphandler;->setOnCrashListener(Lio/github/zeroaicy/util/crash/CrashAppLog$OnCrashListener;)V
 
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public sendCrashLogToServer(Ljava/io/File;Ljava/io/File;)V
-    .registers 5
+    .locals 2
 
     .line 61
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v1, "文件夹:"
+    const-string v1, "\u6587\u4ef6\u5939:"
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " - "
+    const-string v1, " - "
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, ""
+    const-string v1, ""
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "*********"
+    const-string v1, "*********"
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-static {p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

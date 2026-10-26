@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
 
     .line 21
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/tree/xpath/XPathElement;-><init>(Ljava/lang/String;)V
@@ -23,86 +23,87 @@
 
 # virtual methods
 .method public evaluate(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/util/Collection;
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ")",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
         }
     .end annotation
 
     .line 28
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 29
     invoke-static {p1}, Lorg/antlr/v4/runtime/tree/Trees;->getChildren(Lorg/antlr/v4/runtime/tree/Tree;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v2
 
-    :cond_d
-    :goto_d
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3b
+    if-eqz v0, :cond_3
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lorg/antlr/v4/runtime/tree/Tree;
+    check-cast v0, Lorg/antlr/v4/runtime/tree/Tree;
 
     .line 30
-    instance-of v2, v1, Lorg/antlr/v4/runtime/ParserRuleContext;
+    instance-of v3, v0, Lorg/antlr/v4/runtime/ParserRuleContext;
 
-    if-eqz v2, :cond_d
+    if-eqz v3, :cond_0
 
     .line 31
-    check-cast v1, Lorg/antlr/v4/runtime/ParserRuleContext;
+    check-cast v0, Lorg/antlr/v4/runtime/ParserRuleContext;
 
     .line 32
-    invoke-virtual {v1}, Lorg/antlr/v4/runtime/ParserRuleContext;->getRuleIndex()I
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/ParserRuleContext;->getRuleIndex()I
 
-    move-result v2
+    move-result v3
 
-    iget v3, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;->ruleIndex:I
+    iget v4, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;->ruleIndex:I
 
-    if-ne v2, v3, :cond_2b
+    if-ne v3, v4, :cond_1
 
-    iget-boolean v2, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;->invert:Z
+    iget-boolean v3, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;->invert:Z
 
-    if-eqz v2, :cond_37
+    if-eqz v3, :cond_2
 
-    :cond_2b
-    invoke-virtual {v1}, Lorg/antlr/v4/runtime/ParserRuleContext;->getRuleIndex()I
+    :cond_1
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/ParserRuleContext;->getRuleIndex()I
 
-    move-result v2
+    move-result v3
 
-    iget v3, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;->ruleIndex:I
+    iget v4, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;->ruleIndex:I
 
-    if-eq v2, v3, :cond_d
+    if-eq v3, v4, :cond_0
 
-    iget-boolean v2, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;->invert:Z
+    iget-boolean v3, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;->invert:Z
 
-    if-eqz v2, :cond_d
+    if-eqz v3, :cond_0
 
     .line 35
-    :cond_37
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :cond_2
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_d
+    goto :goto_0
 
-    :cond_3b
-    return-object v0
+    :cond_3
+    return-object v1
 .end method

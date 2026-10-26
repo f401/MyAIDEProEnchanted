@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/GradleBuildEvent;Ljava/util/Map;Ljava/lang/CharSequence;Landroid/view/MenuItem;)V
-    .registers 5
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -53,115 +53,113 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 3
+    .locals 2
 
     .line 120
-    iget-object p1, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->val$itemList:Ljava/util/Map;
+    iget-object v0, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->val$itemList:Ljava/util/Map;
 
-    iget-object v0, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->val$item:Ljava/lang/CharSequence;
+    iget-object v1, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->val$item:Ljava/lang/CharSequence;
 
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 121
-    instance-of v0, p1, Lcom/s1243808733/aide/util/Command;
+    instance-of v1, v0, Lcom/s1243808733/aide/util/Command;
 
-    if-eqz v0, :cond_1c
+    if-eqz v1, :cond_1
 
     .line 122
-    check-cast p1, Lcom/s1243808733/aide/util/Command;
+    check-cast v0, Lcom/s1243808733/aide/util/Command;
 
     .line 123
+    iget-object v1, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
+
+    invoke-static {v1}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/s1243808733/aide/util/Command;->getCmd()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Lcom/termux/app/TermuxActivity;->start(Landroid/app/Activity;Ljava/lang/String;)V
+
+    .line 129
+    :cond_0
+    :goto_0
+    const/4 v0, 0x0
+
+    return v0
+
+    .line 124
+    :cond_1
+    instance-of v1, v0, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    .line 125
+    check-cast v0, Ljava/lang/String;
+
+    .line 126
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    const-string v1, "build"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    const-string v1, "rebuild"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 132
     iget-object v0, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
 
     invoke-static {v0}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
 
     move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/util/Command;->getCmd()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/termux/app/TermuxActivity;->start(Landroid/app/Activity;Ljava/lang/String;)V
-
-    goto :goto_5d
-
-    .line 124
-    :cond_1c
-    instance-of v0, p1, Ljava/lang/String;
-
-    if-eqz v0, :cond_5d
-
-    .line 125
-    check-cast p1, Ljava/lang/String;
-
-    .line 126
-    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
-
-    const-string v0, "build"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_49
-
-    const-string v0, "rebuild"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_36
-
-    goto :goto_5d
-
-    .line 132
-    :cond_36
-    iget-object p1, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
-
-    invoke-static {p1}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/blankj/utilcode/util/KeyboardUtils;->hideSoftInput(Landroid/app/Activity;)V
+    invoke-static {v0}, Lcom/blankj/utilcode/util/KeyboardUtils;->hideSoftInput(Landroid/app/Activity;)V
 
     .line 133
-    iget-object p1, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
+    iget-object v0, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
+    invoke-static {v0}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/AideMainActivity;->superRebuildItemSelected()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/AideMainActivity;->superRebuildItemSelected()V
 
-    goto :goto_5d
+    goto :goto_0
 
     .line 128
-    :cond_49
-    iget-object p1, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
+    :cond_2
+    iget-object v0, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
+    invoke-static {v0}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/KeyboardUtils;->hideSoftInput(Landroid/app/Activity;)V
+    invoke-static {v0}, Lcom/blankj/utilcode/util/KeyboardUtils;->hideSoftInput(Landroid/app/Activity;)V
 
     .line 129
-    iget-object p1, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
+    iget-object v0, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->this$0:Lcom/s1243808733/aide/GradleBuildEvent;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
+    invoke-static {v0}, Lcom/s1243808733/aide/GradleBuildEvent;->-$$Nest$fgetmActivity(Lcom/s1243808733/aide/GradleBuildEvent;)Lcom/s1243808733/aide/AideMainActivity;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->val$runMenuItem:Landroid/view/MenuItem;
+    iget-object v1, p0, Lcom/s1243808733/aide/GradleBuildEvent$1;->val$runMenuItem:Landroid/view/MenuItem;
 
-    invoke-virtual {p1, v0}, Lcom/s1243808733/aide/AideMainActivity;->superOnOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/AideMainActivity;->superOnOptionsItemSelected(Landroid/view/MenuItem;)Z
 
-    :cond_5d
-    :goto_5d
-    const/4 p1, 0x0
-
-    return p1
+    goto :goto_0
 .end method

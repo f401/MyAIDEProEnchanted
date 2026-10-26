@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 525
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,28 +30,29 @@
 
 # virtual methods
 .method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
-    .registers 5
+    .locals 1
 
     const/4 v0, 0x4
 
-    if-ne p2, v0, :cond_e
+    if-ne p2, v0, :cond_0
 
     .line 531
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result p2
+    move-result v0
 
-    if-nez p2, :cond_e
+    if-nez v0, :cond_0
 
     .line 532
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_e
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method

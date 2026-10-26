@@ -23,7 +23,8 @@
 .field private a:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/baidu/mobstat/ap$d$a;",
             ">;"
         }
@@ -33,7 +34,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,11 +50,12 @@
 
 # virtual methods
 .method public a()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/baidu/mobstat/ap$d$a;",
             ">;"
         }
@@ -75,7 +77,7 @@
 .end method
 
 .method public a(Lcom/baidu/mobstat/ap$a;)V
-    .registers 4
+    .locals 2
 
     iget-object v0, p0, Lcom/baidu/mobstat/ap$d;->a:Ljava/util/List;
 

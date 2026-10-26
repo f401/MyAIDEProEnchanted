@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;
+    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,7 +22,15 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;Landroid/content/Context;)V
-    .registers 6
+    .locals 7
+
+    const/high16 v6, 0x42100000    # 36.0f
+
+    const/high16 v5, 0x41400000    # 12.0f
+
+    const/high16 v4, 0x41200000    # 10.0f
+
+    const/4 v3, 0x0
 
     .line 82
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->this$1:Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;
@@ -40,89 +48,81 @@
     iput-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;
 
     .line 84
-    new-instance p1, Landroid/widget/ImageView;
+    new-instance v0, Landroid/widget/ImageView;
 
-    invoke-direct {p1, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     .line 85
-    new-instance v0, Landroid/widget/TextView;
+    new-instance v1, Landroid/widget/TextView;
 
-    invoke-direct {v0, p2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     .line 86
-    const/high16 v1, 0x41800000  # 16.0f
+    const/high16 v2, 0x41800000    # 16.0f
 
-    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+    invoke-static {v2}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2, v2, v2}, Landroid/widget/TextView;->setPadding(IIII)V
+    invoke-virtual {v1, v2, v3, v3, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 87
-    const v1, 0x1030042
+    const v2, 0x1030042
 
-    invoke-virtual {v0, p2, v1}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    invoke-virtual {v1, p2, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     .line 88
-    const/high16 p2, 0x41700000  # 15.0f
+    const/high16 v2, 0x41700000    # 15.0f
 
-    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextSize(F)V
 
     .line 90
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;
 
-    iput-object p1, p2, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;->icon:Landroid/widget/ImageView;
+    iput-object v0, v2, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;->icon:Landroid/widget/ImageView;
 
     .line 91
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;
 
-    iput-object v0, p2, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;->title:Landroid/widget/TextView;
+    iput-object v1, v2, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;->title:Landroid/widget/TextView;
 
     .line 93
-    const/high16 p2, 0x42100000  # 36.0f
+    invoke-static {v6}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+    move-result v2
 
-    move-result v1
+    invoke-static {v6}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+    move-result v3
 
-    move-result p2
-
-    invoke-virtual {p0, p1, v1, p2}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->addView(Landroid/view/View;II)V
+    invoke-virtual {p0, v0, v2, v3}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->addView(Landroid/view/View;II)V
 
     .line 94
-    invoke-virtual {p0, v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->addView(Landroid/view/View;)V
 
     .line 96
-    const/16 p1, 0x10
+    const/16 v0, 0x10
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->setGravity(I)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->setGravity(I)V
 
     .line 97
-    const/high16 p1, 0x41400000  # 12.0f
-
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
-
-    move-result p2
-
-    const/high16 v0, 0x41200000  # 10.0f
-
-    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
-
-    move-result v1
-
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
-
-    move-result p1
-
-    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+    invoke-static {v5}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
 
     move-result v0
 
-    invoke-virtual {p0, p2, v1, p1, v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->setPadding(IIII)V
+    invoke-static {v4}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+
+    move-result v1
+
+    invoke-static {v5}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+
+    move-result v2
+
+    invoke-static {v4}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+
+    move-result v3
+
+    invoke-virtual {p0, v0, v1, v2, v3}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ItemView;->setPadding(IIII)V
 
     return-void
 .end method

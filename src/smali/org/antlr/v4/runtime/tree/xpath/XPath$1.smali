@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/antlr/v4/runtime/tree/xpath/XPath;Lorg/antlr/v4/runtime/CharStream;)V
-    .registers 3
+    .locals 0
 
     .line 93
     iput-object p1, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath$1;->this$0:Lorg/antlr/v4/runtime/tree/xpath/XPath;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public recover(Lorg/antlr/v4/runtime/LexerNoViableAltException;)V
-    .registers 2
+    .locals 0
 
     .line 95
     throw p1

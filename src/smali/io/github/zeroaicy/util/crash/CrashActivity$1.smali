@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lio/github/zeroaicy/util/crash/CrashActivity;)V
-    .registers 2
+    .locals 0
 
     .line 50
     iput-object p1, p0, Lio/github/zeroaicy/util/crash/CrashActivity$1;->this$0:Lio/github/zeroaicy/util/crash/CrashActivity;
@@ -36,18 +36,18 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 3
+    .locals 2
 
     .line 54
-    iget-object p1, p0, Lio/github/zeroaicy/util/crash/CrashActivity$1;->this$0:Lio/github/zeroaicy/util/crash/CrashActivity;
+    iget-object v0, p0, Lio/github/zeroaicy/util/crash/CrashActivity$1;->this$0:Lio/github/zeroaicy/util/crash/CrashActivity;
 
-    invoke-static {p1}, Lio/github/zeroaicy/util/crash/CrashActivity;->-$$Nest$fgetlog(Lio/github/zeroaicy/util/crash/CrashActivity;)Ljava/lang/String;
+    invoke-static {v0}, Lio/github/zeroaicy/util/crash/CrashActivity;->-$$Nest$fgetlog(Lio/github/zeroaicy/util/crash/CrashActivity;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {p1, v0}, Lio/github/zeroaicy/util/crash/CrashActivity;->-$$Nest$mcopyText(Lio/github/zeroaicy/util/crash/CrashActivity;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lio/github/zeroaicy/util/crash/CrashActivity;->-$$Nest$mcopyText(Lio/github/zeroaicy/util/crash/CrashActivity;Ljava/lang/String;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

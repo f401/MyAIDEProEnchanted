@@ -18,7 +18,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/util/AbstractList<",
+        "Ljava/util/AbstractList",
+        "<",
         "Lcom/s1243808733/android/dex/FieldId;",
         ">;",
         "Ljava/util/RandomAccess;"
@@ -32,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dex/Dex;)V
-    .registers 2
+    .locals 0
 
     .line 763
     iput-object p1, p0, Lcom/s1243808733/android/dex/Dex$FieldIdTable;->this$0:Lcom/s1243808733/android/dex/Dex;
@@ -43,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dex/Dex$FieldIdTable-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dex/Dex$FieldIdTable;-><init>(Lcom/s1243808733/android/dex/Dex;)V
 
@@ -53,7 +54,7 @@
 
 # virtual methods
 .method public get(I)Lcom/s1243808733/android/dex/FieldId;
-    .registers 4
+    .locals 3
 
     .line 766
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex$FieldIdTable;->this$0:Lcom/s1243808733/android/dex/Dex;
@@ -79,35 +80,35 @@
 
     iget v1, v1, Lcom/s1243808733/android/dex/TableOfContents$Section;->off:I
 
-    mul-int/lit8 p1, p1, 0x8
+    mul-int/lit8 v2, p1, 0x8
 
-    add-int/2addr v1, p1
+    add-int/2addr v1, v2
 
     invoke-virtual {v0, v1}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 768
-    invoke-virtual {p1}, Lcom/s1243808733/android/dex/Dex$Section;->readFieldId()Lcom/s1243808733/android/dex/FieldId;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex$Section;->readFieldId()Lcom/s1243808733/android/dex/FieldId;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 763
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/Dex$FieldIdTable;->get(I)Lcom/s1243808733/android/dex/FieldId;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .line 772
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex$FieldIdTable;->this$0:Lcom/s1243808733/android/dex/Dex;

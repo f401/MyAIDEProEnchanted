@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static init()V
-    .registers 3
+    .locals 3
 
     .line 18
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -53,7 +53,7 @@
 .end method
 
 .method private static initBase()V
-    .registers 4
+    .locals 3
 
     .line 27
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -61,17 +61,17 @@
     move-result-object v0
 
     .line 28
-    const/4 v1, -0x1
+    const-string v1, "app_configured_version"
 
-    const-string v2, "app_configured_version"
+    const/4 v2, -0x1
 
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
-    sget v3, Lcom/s1243808733/aide/application/AppConfigured$VERSION;->BASE:I
+    sget v2, Lcom/s1243808733/aide/application/AppConfigured$VERSION;->BASE:I
 
-    if-ge v1, v3, :cond_2f
+    if-ge v1, v2, :cond_0
 
     .line 29
     invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -87,31 +87,33 @@
     .line 32
     const-string v1, "editor_font_size"
 
-    const-string v3, "10"
+    const-string v2, "10"
 
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     .line 33
     const-string v1, "max_single_imports"
 
-    const-string v3, "100"
+    const-string v2, "100"
 
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     .line 34
-    sget v1, Lcom/s1243808733/aide/application/AppConfigured$VERSION;->BASE:I
+    const-string v1, "app_configured_version"
 
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+    sget v2, Lcom/s1243808733/aide/application/AppConfigured$VERSION;->BASE:I
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
     .line 36
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    :cond_2f
+    :cond_0
     return-void
 .end method
 
 .method private static initDefaultTheme(Landroid/content/SharedPreferences$Editor;)V
-    .registers 3
+    .locals 2
 
     .line 56
     const-string v0, "default"
@@ -129,96 +131,100 @@
 .end method
 
 .method private static initJavaNewLine(Landroid/content/SharedPreferences$Editor;)V
-    .registers 7
+    .locals 7
+
+    const/4 v6, 0x7
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     .line 61
-    const/4 v0, 0x0
+    move v3, v2
 
-    const/4 v1, 0x0
-
-    :goto_2
-    const/4 v2, 0x7
-
-    if-ge v1, v2, :cond_43
+    :goto_0
+    if-ge v3, v6, :cond_1
 
     .line 71
-    new-array v2, v2, [Ljava/lang/String;
+    new-array v0, v6, [Ljava/lang/String;
 
-    const-string v3, "ADJUST_NEWLINES"
+    const-string v4, "ADJUST_NEWLINES"
 
-    aput-object v3, v2, v0
+    aput-object v4, v0, v2
 
-    const-string v3, "TYPE_NEWLINE"
+    const-string v4, "TYPE_NEWLINE"
 
-    const/4 v4, 0x1
+    aput-object v4, v0, v1
 
-    aput-object v3, v2, v4
-
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
     const-string v5, "METHOD_NEWLINE"
 
-    aput-object v5, v2, v3
+    aput-object v5, v0, v4
 
-    const/4 v3, 0x3
+    const/4 v4, 0x3
 
     const-string v5, "BLOCK_NEWLINE"
 
-    aput-object v5, v2, v3
+    aput-object v5, v0, v4
 
-    const/4 v3, 0x4
+    const/4 v4, 0x4
 
     const-string v5, "ELSE_NEWLINE"
 
-    aput-object v5, v2, v3
+    aput-object v5, v0, v4
 
-    const/4 v3, 0x5
+    const/4 v4, 0x5
 
     const-string v5, "CATCH_NEWLINE"
 
-    aput-object v5, v2, v3
+    aput-object v5, v0, v4
 
-    const/4 v3, 0x6
+    const/4 v4, 0x6
 
     const-string v5, "FINALLY_NEWLINE"
 
-    aput-object v5, v2, v3
+    aput-object v5, v0, v4
 
-    aget-object v2, v2, v1
+    aget-object v0, v0, v3
 
     .line 72
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
     const-string v5, "java_"
 
-    invoke-direct {v3, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    if-nez v1, :cond_3c
+    if-nez v3, :cond_0
 
-    goto :goto_3d
+    move v0, v1
 
-    :cond_3c
-    const/4 v4, 0x0
+    :goto_1
+    invoke-interface {p0, v4, v0}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    :goto_3d
-    invoke-interface {p0, v2, v4}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    add-int/lit8 v0, v3, 0x1
 
-    add-int/lit8 v1, v1, 0x1
+    move v3, v0
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_43
+    :cond_0
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_1
     return-void
 .end method
 
 .method private static initWhatsNewDialog()V
-    .registers 4
+    .locals 4
 
     .line 44
     :try_start_0
@@ -238,13 +244,15 @@
     .line 46
     invoke-virtual {v0}, Landroid/app/Application;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-virtual {v0}, Landroid/app/Application;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v3, v0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v0, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object v0
 
@@ -262,14 +270,14 @@
 
     .line 50
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
-    :try_end_25
-    .catchall {:try_start_0 .. :try_end_25} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_27
+    :goto_0
+    return-void
 
-    :catchall_26
+    :catchall_0
     move-exception v0
 
-    :goto_27
-    return-void
+    goto :goto_0
 .end method

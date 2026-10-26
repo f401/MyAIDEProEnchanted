@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;II)V
-    .registers 5
+    .locals 1
 
     .line 19
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public a(Landroid/content/Context;)Lcom/baidu/mobstat/j;
-    .registers 3
+    .locals 1
 
     .line 22
     new-instance v0, Lcom/baidu/mobstat/m;

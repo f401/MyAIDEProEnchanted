@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/concurrent/Callable<",
+        "Ljava/util/concurrent/Callable",
+        "<",
         "Lcom/s1243808733/android/dx/dex/file/ClassDefItem;",
         ">;"
     }
@@ -38,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/command/dexer/Main;Ljava/lang/String;[BLcom/s1243808733/android/dx/cf/direct/DirectClassFile;)V
-    .registers 5
+    .locals 0
 
     .line 1893
     iput-object p1, p0, Lcom/s1243808733/android/dx/command/dexer/Main$ClassTranslatorTask;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -58,7 +59,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dx/command/dexer/Main;Ljava/lang/String;[BLcom/s1243808733/android/dx/cf/direct/DirectClassFile;Lcom/s1243808733/android/dx/command/dexer/Main$ClassTranslatorTask-IA;)V
-    .registers 6
+    .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/s1243808733/android/dx/command/dexer/Main$ClassTranslatorTask;-><init>(Lcom/s1243808733/android/dx/command/dexer/Main;Ljava/lang/String;[BLcom/s1243808733/android/dx/cf/direct/DirectClassFile;)V
 
@@ -68,7 +69,7 @@
 
 # virtual methods
 .method public call()Lcom/s1243808733/android/dx/dex/file/ClassDefItem;
-    .registers 4
+    .locals 3
 
     .line 1901
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$ClassTranslatorTask;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -85,7 +86,7 @@
 .end method
 
 .method public bridge synthetic call()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

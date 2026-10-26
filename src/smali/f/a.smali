@@ -17,7 +17,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 4
+    .locals 3
 
     new-instance v0, Lc/n;
 
@@ -192,17 +192,21 @@
 
     new-instance v1, Lc/n;
 
-    const-string v3, "36.1"
-
-    invoke-direct {v1, v0, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
-
-    new-instance v1, Lc/n;
+    const-string v2, "36.1"
 
     invoke-direct {v1, v0, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     new-instance v1, Lc/n;
 
-    invoke-direct {v1, v0, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v2, "36.0"
+
+    invoke-direct {v1, v0, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v1, Lc/n;
+
+    const-string v2, "36.1"
+
+    invoke-direct {v1, v0, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     return-void
 .end method

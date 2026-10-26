@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;)V
-    .registers 2
+    .locals 0
 
     .line 185
     iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$1;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -36,63 +36,63 @@
 
 # virtual methods
 .method public onDrawerClosed(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 190
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "split_view_open"
+    const-string v1, "split_view_open"
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-interface {p1, v0, v1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     return-void
 .end method
 
 .method public onDrawerOpened(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 196
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "split_view_open"
+    const-string v1, "split_view_open"
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-interface {p1, v0, v1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     return-void
 .end method
 
 .method public onDrawerSlide(Landroid/view/View;F)V
-    .registers 3
+    .locals 0
 
     return-void
 .end method
 
 .method public onDrawerStateChanged(I)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public canRun()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 

@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Ljava/lang/String;Landroid/content/Context;Ljava/lang/String;JLcom/baidu/mobstat/ExtraInfo;Z)V
-    .registers 9
+    .locals 1
 
     .line 325
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$23;->g:Lcom/baidu/mobstat/BDStatCore;
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 11
+    .locals 10
 
     .line 329
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
@@ -92,7 +92,7 @@
 
     iget-object v2, p0, Lcom/baidu/mobstat/BDStatCore$23;->b:Landroid/content/Context;
 
-    iget-object v4, p0, Lcom/baidu/mobstat/BDStatCore$23;->a:Ljava/lang/String;
+    iget-object v3, p0, Lcom/baidu/mobstat/BDStatCore$23;->a:Ljava/lang/String;
 
     iget-object v5, p0, Lcom/baidu/mobstat/BDStatCore$23;->c:Ljava/lang/String;
 
@@ -102,7 +102,7 @@
 
     iget-boolean v9, p0, Lcom/baidu/mobstat/BDStatCore$23;->f:Z
 
-    move-object v3, v4
+    move-object v4, v3
 
     invoke-virtual/range {v1 .. v9}, Lcom/baidu/mobstat/SessionAnalysis;->onPageEnd(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLcom/baidu/mobstat/ExtraInfo;Z)V
 

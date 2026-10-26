@@ -55,589 +55,561 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 20
+    .locals 16
 
-    const/16 v0, 0x100
+    const/4 v3, 0x1
 
-    new-array v1, v0, [I
+    const/4 v15, 0x4
 
-    sput-object v1, Lcom/baidu/mobstat/as;->g:[I
+    const/16 v14, 0x8
 
-    new-array v2, v0, [I
+    const/16 v13, 0x100
 
-    sput-object v2, Lcom/baidu/mobstat/as;->h:[I
+    const/4 v4, 0x0
 
-    new-array v2, v0, [B
+    new-array v0, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->i:[B
+    sput-object v0, Lcom/baidu/mobstat/as;->g:[I
 
-    new-array v2, v0, [B
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->j:[B
+    sput-object v1, Lcom/baidu/mobstat/as;->h:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [B
 
-    sput-object v2, Lcom/baidu/mobstat/as;->k:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->i:[B
 
-    new-array v2, v0, [I
+    new-array v1, v13, [B
 
-    sput-object v2, Lcom/baidu/mobstat/as;->l:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->j:[B
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->m:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->k:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->n:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->l:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->o:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->m:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->p:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->n:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->q:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->o:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->r:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->p:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->s:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->q:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->t:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->r:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->u:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->s:[I
 
-    new-array v2, v0, [I
+    new-array v1, v13, [I
 
-    sput-object v2, Lcom/baidu/mobstat/as;->v:[I
+    sput-object v1, Lcom/baidu/mobstat/as;->t:[I
 
-    const/16 v2, 0x1e
+    new-array v1, v13, [I
 
-    new-array v3, v2, [B
+    sput-object v1, Lcom/baidu/mobstat/as;->u:[I
 
-    sput-object v3, Lcom/baidu/mobstat/as;->w:[B
+    new-array v1, v13, [I
 
-    const/4 v3, 0x0
+    sput-object v1, Lcom/baidu/mobstat/as;->v:[I
 
-    const/4 v4, 0x1
+    const/16 v1, 0x1e
 
-    aput v4, v1, v3
+    new-array v1, v1, [B
 
-    const/4 v1, 0x1
+    sput-object v1, Lcom/baidu/mobstat/as;->w:[B
 
-    :goto_4d
-    if-ge v1, v0, :cond_63
+    aput v3, v0, v4
 
-    sget-object v5, Lcom/baidu/mobstat/as;->g:[I
+    move v1, v3
 
-    add-int/lit8 v6, v1, -0x1
+    :goto_0
+    if-ge v1, v13, :cond_1
 
-    aget v6, v5, v6
+    sget-object v2, Lcom/baidu/mobstat/as;->g:[I
 
-    shl-int/lit8 v7, v6, 0x1
+    add-int/lit8 v0, v1, -0x1
 
-    xor-int/2addr v6, v7
+    aget v0, v2, v0
 
-    and-int/lit16 v7, v6, 0x100
+    shl-int/lit8 v5, v0, 0x1
 
-    if-eqz v7, :cond_5e
+    xor-int/2addr v0, v5
 
-    xor-int/lit16 v6, v6, 0x11b
+    and-int/lit16 v5, v0, 0x100
 
-    :cond_5e
-    aput v6, v5, v1
+    if-eqz v5, :cond_0
 
-    add-int/lit8 v1, v1, 0x1
+    xor-int/lit16 v0, v0, 0x11b
 
-    goto :goto_4d
+    :cond_0
+    aput v0, v2, v1
 
-    :cond_63
-    const/4 v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    :goto_64
-    const/16 v5, 0xff
+    move v1, v0
 
-    if-ge v1, v5, :cond_73
+    goto :goto_0
+
+    :cond_1
+    move v0, v3
+
+    :goto_1
+    const/16 v1, 0xff
+
+    if-ge v0, v1, :cond_2
+
+    sget-object v1, Lcom/baidu/mobstat/as;->h:[I
+
+    sget-object v2, Lcom/baidu/mobstat/as;->g:[I
+
+    aget v2, v2, v0
+
+    aput v0, v1, v2
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    filled-new-array {v13, v14}, [I
+
+    move-result-object v0
+
+    sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+
+    invoke-static {v1, v0}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [[B
+
+    aget-object v1, v0, v3
+
+    const/4 v2, 0x7
+
+    aput-byte v3, v1, v2
+
+    const/4 v1, 0x2
+
+    move v2, v1
+
+    :goto_2
+    if-ge v2, v13, :cond_4
+
+    sget-object v1, Lcom/baidu/mobstat/as;->g:[I
 
     sget-object v5, Lcom/baidu/mobstat/as;->h:[I
 
-    sget-object v6, Lcom/baidu/mobstat/as;->g:[I
+    aget v5, v5, v2
 
-    aget v6, v6, v1
+    rsub-int v5, v5, 0xff
 
-    aput v1, v5, v6
+    aget v5, v1, v5
 
-    add-int/lit8 v1, v1, 0x1
+    move v1, v4
 
-    goto :goto_64
+    :goto_3
+    if-ge v1, v14, :cond_3
 
-    :cond_73
-    const/16 v1, 0x8
+    aget-object v6, v0, v2
 
-    new-array v6, v1, [B
+    rsub-int/lit8 v7, v1, 0x7
 
-    fill-array-data v6, :array_302
+    ushr-int v7, v5, v7
 
-    new-array v7, v1, [B
-
-    fill-array-data v7, :array_30a
-
-    new-array v8, v1, [B
-
-    fill-array-data v8, :array_312
-
-    new-array v9, v1, [B
-
-    fill-array-data v9, :array_31a
-
-    new-array v10, v1, [B
-
-    fill-array-data v10, :array_322
-
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v11
-
-    sget-object v12, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
-
-    invoke-static {v12, v11}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, [[B
-
-    aget-object v12, v11, v4
-
-    const/4 v13, 0x7
-
-    aput-byte v4, v12, v13
-
-    const/4 v12, 0x2
-
-    const/4 v14, 0x2
-
-    :goto_a1
-    if-ge v14, v0, :cond_c7
-
-    sget-object v15, Lcom/baidu/mobstat/as;->g:[I
-
-    sget-object v16, Lcom/baidu/mobstat/as;->h:[I
-
-    aget v2, v16, v14
-
-    rsub-int v2, v2, 0xff
-
-    aget v2, v15, v2
-
-    const/4 v15, 0x0
-
-    :goto_ae
-    if-ge v15, v1, :cond_c0
-
-    aget-object v16, v11, v14
-
-    rsub-int/lit8 v17, v15, 0x7
-
-    ushr-int v17, v2, v17
-
-    and-int/lit8 v5, v17, 0x1
-
-    int-to-byte v5, v5
-
-    aput-byte v5, v16, v15
-
-    add-int/lit8 v15, v15, 0x1
-
-    const/16 v5, 0xff
-
-    goto :goto_ae
-
-    :cond_c0
-    add-int/lit8 v14, v14, 0x1
-
-    const/16 v2, 0x1e
-
-    const/16 v5, 0xff
-
-    goto :goto_a1
-
-    :cond_c7
-    filled-new-array {v0, v1}, [I
-
-    move-result-object v2
-
-    sget-object v5, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
-
-    invoke-static {v5, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, [[B
-
-    const/4 v5, 0x0
-
-    :goto_d4
-    const/4 v14, 0x3
-
-    if-ge v5, v0, :cond_131
-
-    const/4 v0, 0x0
-
-    :goto_d8
-    if-ge v0, v1, :cond_12a
-
-    aget-object v17, v2, v5
-
-    new-array v13, v1, [B
-
-    fill-array-data v13, :array_32a
-
-    aget-byte v13, v13, v0
-
-    aput-byte v13, v17, v0
-
-    const/4 v13, 0x0
-
-    :goto_e6
-    if-ge v13, v1, :cond_125
-
-    aget-object v17, v2, v5
-
-    aget-byte v18, v17, v0
-
-    new-array v15, v1, [[B
-
-    aput-object v6, v15, v3
-
-    aput-object v7, v15, v4
-
-    new-array v4, v1, [B
-
-    fill-array-data v4, :array_332
-
-    aput-object v4, v15, v12
-
-    new-array v4, v1, [B
-
-    fill-array-data v4, :array_33a
-
-    aput-object v4, v15, v14
-
-    new-array v4, v1, [B
-
-    fill-array-data v4, :array_342
-
-    const/16 v19, 0x4
-
-    aput-object v4, v15, v19
-
-    const/4 v4, 0x5
-
-    aput-object v8, v15, v4
-
-    const/4 v4, 0x6
-
-    aput-object v9, v15, v4
-
-    const/4 v4, 0x7
-
-    aput-object v10, v15, v4
-
-    aget-object v4, v15, v0
-
-    aget-byte v4, v4, v13
-
-    aget-object v15, v11, v5
-
-    aget-byte v15, v15, v13
-
-    mul-int v4, v4, v15
-
-    xor-int v4, v18, v4
-
-    int-to-byte v4, v4
-
-    aput-byte v4, v17, v0
-
-    add-int/lit8 v13, v13, 0x1
-
-    const/4 v4, 0x1
-
-    goto :goto_e6
-
-    :cond_125
-    add-int/lit8 v0, v0, 0x1
-
-    const/4 v4, 0x1
-
-    const/4 v13, 0x7
-
-    goto :goto_d8
-
-    :cond_12a
-    add-int/lit8 v5, v5, 0x1
-
-    const/16 v0, 0x100
-
-    const/4 v4, 0x1
-
-    const/4 v13, 0x7
-
-    goto :goto_d4
-
-    :cond_131
-    const/4 v0, 0x0
-
-    :goto_132
-    const/16 v4, 0x100
-
-    if-ge v0, v4, :cond_165
-
-    sget-object v4, Lcom/baidu/mobstat/as;->i:[B
-
-    aget-object v5, v2, v0
-
-    aget-byte v5, v5, v3
-
-    const/4 v6, 0x7
-
-    shl-int/2addr v5, v6
-
-    int-to-byte v5, v5
-
-    aput-byte v5, v4, v0
-
-    const/4 v4, 0x1
-
-    :goto_142
-    if-ge v4, v1, :cond_156
-
-    sget-object v5, Lcom/baidu/mobstat/as;->i:[B
-
-    aget-byte v7, v5, v0
-
-    aget-object v8, v2, v0
-
-    aget-byte v8, v8, v4
-
-    rsub-int/lit8 v9, v4, 0x7
-
-    shl-int/2addr v8, v9
-
-    xor-int/2addr v7, v8
+    and-int/lit8 v7, v7, 0x1
 
     int-to-byte v7, v7
 
-    aput-byte v7, v5, v0
+    aput-byte v7, v6, v1
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_142
+    goto :goto_3
 
-    :cond_156
-    sget-object v4, Lcom/baidu/mobstat/as;->j:[B
+    :cond_3
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
+
+    goto :goto_2
+
+    :cond_4
+    filled-new-array {v13, v14}, [I
+
+    move-result-object v1
+
+    sget-object v2, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+
+    invoke-static {v2, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, [[B
+
+    move v6, v4
+
+    :goto_4
+    if-ge v6, v13, :cond_7
+
+    move v5, v4
+
+    :goto_5
+    if-ge v5, v14, :cond_6
+
+    aget-object v2, v1, v6
+
+    new-array v7, v14, [B
+
+    fill-array-data v7, :array_0
+
+    aget-byte v7, v7, v5
+
+    aput-byte v7, v2, v5
+
+    move v2, v4
+
+    :goto_6
+    if-ge v2, v14, :cond_5
+
+    aget-object v7, v1, v6
+
+    aget-byte v8, v7, v5
+
+    new-array v9, v14, [[B
+
+    new-array v10, v14, [B
+
+    fill-array-data v10, :array_1
+
+    aput-object v10, v9, v4
+
+    new-array v10, v14, [B
+
+    fill-array-data v10, :array_2
+
+    aput-object v10, v9, v3
+
+    const/4 v10, 0x2
+
+    new-array v11, v14, [B
+
+    fill-array-data v11, :array_3
+
+    aput-object v11, v9, v10
+
+    const/4 v10, 0x3
+
+    new-array v11, v14, [B
+
+    fill-array-data v11, :array_4
+
+    aput-object v11, v9, v10
+
+    new-array v10, v14, [B
+
+    fill-array-data v10, :array_5
+
+    aput-object v10, v9, v15
+
+    const/4 v10, 0x5
+
+    new-array v11, v14, [B
+
+    fill-array-data v11, :array_6
+
+    aput-object v11, v9, v10
+
+    const/4 v10, 0x6
+
+    new-array v11, v14, [B
+
+    fill-array-data v11, :array_7
+
+    aput-object v11, v9, v10
+
+    const/4 v10, 0x7
+
+    new-array v11, v14, [B
+
+    fill-array-data v11, :array_8
+
+    aput-object v11, v9, v10
+
+    aget-object v9, v9, v5
+
+    aget-byte v9, v9, v2
+
+    aget-object v10, v0, v6
+
+    aget-byte v10, v10, v2
+
+    mul-int/2addr v9, v10
+
+    xor-int/2addr v8, v9
+
+    int-to-byte v8, v8
+
+    aput-byte v8, v7, v5
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_6
+
+    :cond_5
+    add-int/lit8 v2, v5, 0x1
+
+    move v5, v2
+
+    goto :goto_5
+
+    :cond_6
+    add-int/lit8 v2, v6, 0x1
+
+    move v6, v2
+
+    goto :goto_4
+
+    :cond_7
+    move v2, v4
+
+    :goto_7
+    if-ge v2, v13, :cond_9
+
+    sget-object v0, Lcom/baidu/mobstat/as;->i:[B
+
+    aget-object v5, v1, v2
+
+    aget-byte v5, v5, v4
+
+    shl-int/lit8 v5, v5, 0x7
+
+    int-to-byte v5, v5
+
+    aput-byte v5, v0, v2
+
+    move v0, v3
+
+    :goto_8
+    if-ge v0, v14, :cond_8
 
     sget-object v5, Lcom/baidu/mobstat/as;->i:[B
 
-    aget-byte v5, v5, v0
+    aget-byte v6, v5, v2
 
-    const/16 v7, 0xff
+    aget-object v7, v1, v2
 
-    and-int/2addr v5, v7
+    aget-byte v7, v7, v0
 
-    int-to-byte v7, v0
+    rsub-int/lit8 v8, v0, 0x7
 
-    aput-byte v7, v4, v5
+    shl-int/2addr v7, v8
+
+    xor-int/2addr v6, v7
+
+    int-to-byte v6, v6
+
+    aput-byte v6, v5, v2
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_132
+    goto :goto_8
 
-    :cond_165
-    const/4 v0, 0x4
+    :cond_8
+    sget-object v0, Lcom/baidu/mobstat/as;->j:[B
 
-    new-array v2, v0, [[B
+    sget-object v5, Lcom/baidu/mobstat/as;->i:[B
 
-    new-array v4, v0, [B
+    aget-byte v5, v5, v2
 
-    fill-array-data v4, :array_34a
+    and-int/lit16 v5, v5, 0xff
 
-    aput-object v4, v2, v3
+    int-to-byte v6, v2
 
-    new-array v4, v0, [B
+    aput-byte v6, v0, v5
 
-    fill-array-data v4, :array_350
+    add-int/lit8 v0, v2, 0x1
 
-    const/4 v5, 0x1
+    move v2, v0
 
-    aput-object v4, v2, v5
+    goto :goto_7
 
-    new-array v4, v0, [B
+    :cond_9
+    new-array v7, v15, [[B
 
-    fill-array-data v4, :array_356
+    new-array v0, v15, [B
 
-    aput-object v4, v2, v12
+    fill-array-data v0, :array_9
 
-    new-array v4, v0, [B
+    aput-object v0, v7, v4
 
-    fill-array-data v4, :array_35c
+    new-array v0, v15, [B
 
-    aput-object v4, v2, v14
+    fill-array-data v0, :array_a
 
-    filled-new-array {v0, v1}, [I
+    aput-object v0, v7, v3
 
-    move-result-object v4
+    const/4 v0, 0x2
 
-    sget-object v5, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+    new-array v1, v15, [B
 
-    invoke-static {v5, v4}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    fill-array-data v1, :array_b
 
-    move-result-object v4
+    aput-object v1, v7, v0
 
-    check-cast v4, [[B
+    const/4 v0, 0x3
 
-    const/4 v5, 0x0
+    new-array v1, v15, [B
 
-    :goto_192
-    if-ge v5, v0, :cond_1ae
+    fill-array-data v1, :array_c
 
-    const/4 v6, 0x0
+    aput-object v1, v7, v0
 
-    :goto_195
-    if-ge v6, v0, :cond_1a3
+    filled-new-array {v15, v14}, [I
 
-    aget-object v0, v4, v5
+    move-result-object v0
 
-    aget-object v7, v2, v5
+    sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    aget-byte v7, v7, v6
+    invoke-static {v1, v0}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
-    aput-byte v7, v0, v6
+    move-result-object v0
 
-    add-int/lit8 v6, v6, 0x1
+    check-cast v0, [[B
 
-    const/4 v0, 0x4
+    move v2, v4
 
-    goto :goto_195
+    :goto_9
+    if-ge v2, v15, :cond_b
 
-    :cond_1a3
-    aget-object v0, v4, v5
+    move v1, v4
 
-    add-int/lit8 v6, v5, 0x4
+    :goto_a
+    if-ge v1, v15, :cond_a
 
-    const/4 v7, 0x1
+    aget-object v5, v0, v2
 
-    aput-byte v7, v0, v6
+    aget-object v6, v7, v2
+
+    aget-byte v6, v6, v1
+
+    aput-byte v6, v5, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_a
+
+    :cond_a
+    aget-object v1, v0, v2
+
+    add-int/lit8 v5, v2, 0x4
+
+    aput-byte v3, v1, v5
+
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
+
+    goto :goto_9
+
+    :cond_b
+    filled-new-array {v15, v15}, [I
+
+    move-result-object v1
+
+    sget-object v2, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+
+    invoke-static {v2, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, [[B
+
+    move v6, v4
+
+    :goto_b
+    if-ge v6, v15, :cond_15
+
+    aget-object v2, v0, v6
+
+    aget-byte v2, v2, v6
+
+    if-nez v2, :cond_e
+
+    add-int/lit8 v2, v6, 0x1
+
+    :goto_c
+    aget-object v5, v0, v2
+
+    aget-byte v5, v5, v6
+
+    if-nez v5, :cond_c
+
+    if-ge v2, v15, :cond_c
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_c
+
+    :cond_c
+    if-eq v2, v15, :cond_10
+
+    move v5, v4
+
+    :goto_d
+    if-ge v5, v14, :cond_d
+
+    aget-object v8, v0, v6
+
+    aget-byte v9, v8, v5
+
+    aget-object v10, v0, v2
+
+    aget-byte v11, v10, v5
+
+    aput-byte v11, v8, v5
+
+    aput-byte v9, v10, v5
 
     add-int/lit8 v5, v5, 0x1
 
-    const/4 v0, 0x4
+    goto :goto_d
 
-    goto :goto_192
+    :cond_d
+    aget-object v2, v0, v6
 
-    :cond_1ae
-    filled-new-array {v0, v0}, [I
+    aget-byte v2, v2, v6
 
-    move-result-object v5
+    :cond_e
+    move v5, v4
 
-    sget-object v6, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+    :goto_e
+    if-ge v5, v14, :cond_11
 
-    invoke-static {v6, v5}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    aget-object v8, v0, v6
 
-    move-result-object v5
+    aget-byte v9, v8, v5
 
-    check-cast v5, [[B
-
-    const/4 v6, 0x0
-
-    :goto_1bb
-    if-ge v6, v0, :cond_243
-
-    aget-object v7, v4, v6
-
-    aget-byte v7, v7, v6
-
-    if-nez v7, :cond_1f1
-
-    add-int/lit8 v7, v6, 0x1
-
-    :goto_1c5
-    aget-object v8, v4, v7
-
-    aget-byte v8, v8, v6
-
-    if-nez v8, :cond_1d0
-
-    if-ge v7, v0, :cond_1d0
-
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_1c5
-
-    :cond_1d0
-    if-eq v7, v0, :cond_1e9
-
-    const/4 v0, 0x0
-
-    :goto_1d3
-    if-ge v0, v1, :cond_1e4
-
-    aget-object v8, v4, v6
-
-    aget-byte v9, v8, v0
-
-    aget-object v10, v4, v7
-
-    aget-byte v11, v10, v0
-
-    aput-byte v11, v8, v0
-
-    aput-byte v9, v10, v0
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_1d3
-
-    :cond_1e4
-    aget-object v0, v4, v6
-
-    aget-byte v7, v0, v6
-
-    goto :goto_1f1
-
-    :cond_1e9
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string v1, "G matrix is not invertible"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1f1
-    :goto_1f1
-    const/4 v0, 0x0
-
-    :goto_1f2
-    if-ge v0, v1, :cond_216
-
-    aget-object v8, v4, v6
-
-    aget-byte v9, v8, v0
-
-    if-eqz v9, :cond_211
+    if-eqz v9, :cond_f
 
     sget-object v10, Lcom/baidu/mobstat/as;->g:[I
 
@@ -647,58 +619,56 @@
 
     aget v9, v11, v9
 
-    const/16 v13, 0xff
+    add-int/lit16 v9, v9, 0xff
 
-    add-int/2addr v9, v13
+    and-int/lit16 v12, v2, 0xff
 
-    and-int/lit16 v15, v7, 0xff
-
-    aget v11, v11, v15
+    aget v11, v11, v12
 
     sub-int/2addr v9, v11
 
-    rem-int/2addr v9, v13
+    rem-int/lit16 v9, v9, 0xff
 
     aget v9, v10, v9
 
     int-to-byte v9, v9
 
-    aput-byte v9, v8, v0
+    aput-byte v9, v8, v5
 
-    goto :goto_213
+    :cond_f
+    add-int/lit8 v5, v5, 0x1
 
-    :cond_211
-    const/16 v13, 0xff
+    goto :goto_e
 
-    :goto_213
-    add-int/lit8 v0, v0, 0x1
+    :cond_10
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    goto :goto_1f2
+    const-string v1, "G matrix is not invertible"
 
-    :cond_216
-    const/16 v13, 0xff
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    const/4 v0, 0x0
+    throw v0
 
-    :goto_219
-    const/4 v7, 0x4
+    :cond_11
+    move v5, v4
 
-    if-ge v0, v7, :cond_23e
+    :goto_f
+    if-ge v5, v15, :cond_14
 
-    if-eq v6, v0, :cond_23b
+    if-eq v6, v5, :cond_13
 
-    add-int/lit8 v7, v6, 0x1
+    add-int/lit8 v2, v6, 0x1
 
-    :goto_220
-    if-ge v7, v1, :cond_237
+    :goto_10
+    if-ge v2, v14, :cond_12
 
-    aget-object v8, v4, v0
+    aget-object v8, v0, v5
 
-    aget-byte v9, v8, v7
+    aget-byte v9, v8, v2
 
-    aget-object v10, v4, v6
+    aget-object v10, v0, v6
 
-    aget-byte v10, v10, v7
+    aget-byte v10, v10, v2
 
     aget-byte v11, v8, v6
 
@@ -710,305 +680,257 @@
 
     int-to-byte v9, v9
 
-    aput-byte v9, v8, v7
+    aput-byte v9, v8, v2
 
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_220
+    goto :goto_10
 
-    :cond_237
-    aget-object v7, v4, v0
+    :cond_12
+    aget-object v2, v0, v5
 
-    aput-byte v3, v7, v6
+    aput-byte v4, v2, v6
 
-    :cond_23b
-    add-int/lit8 v0, v0, 0x1
+    :cond_13
+    add-int/lit8 v2, v5, 0x1
 
-    goto :goto_219
+    move v5, v2
 
-    :cond_23e
-    add-int/lit8 v6, v6, 0x1
+    goto :goto_f
 
-    const/4 v0, 0x4
+    :cond_14
+    add-int/lit8 v2, v6, 0x1
 
-    goto/16 :goto_1bb
+    move v6, v2
 
-    :cond_243
-    const/4 v0, 0x0
+    goto :goto_b
 
-    const/4 v1, 0x4
+    :cond_15
+    move v5, v4
 
-    :goto_245
-    if-ge v0, v1, :cond_25a
+    :goto_11
+    if-ge v5, v15, :cond_17
 
-    const/4 v6, 0x0
+    move v2, v4
 
-    :goto_248
-    if-ge v6, v1, :cond_257
+    :goto_12
+    if-ge v2, v15, :cond_16
 
-    aget-object v7, v5, v0
+    aget-object v6, v1, v5
 
-    aget-object v8, v4, v0
+    aget-object v8, v0, v5
 
-    add-int/lit8 v9, v6, 0x4
+    add-int/lit8 v9, v2, 0x4
 
     aget-byte v8, v8, v9
 
-    aput-byte v8, v7, v6
+    aput-byte v8, v6, v2
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_248
+    goto :goto_12
 
-    :cond_257
+    :cond_16
+    add-int/lit8 v2, v5, 0x1
+
+    move v5, v2
+
+    goto :goto_11
+
+    :cond_17
+    move v0, v4
+
+    :goto_13
+    if-ge v0, v13, :cond_18
+
+    sget-object v2, Lcom/baidu/mobstat/as;->i:[B
+
+    aget-byte v2, v2, v0
+
+    sget-object v5, Lcom/baidu/mobstat/as;->k:[I
+
+    aget-object v6, v7, v4
+
+    invoke-static {v2, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v6
+
+    aput v6, v5, v0
+
+    sget-object v5, Lcom/baidu/mobstat/as;->l:[I
+
+    aget-object v6, v7, v3
+
+    invoke-static {v2, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v6
+
+    aput v6, v5, v0
+
+    sget-object v5, Lcom/baidu/mobstat/as;->m:[I
+
+    const/4 v6, 0x2
+
+    aget-object v6, v7, v6
+
+    invoke-static {v2, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v6
+
+    aput v6, v5, v0
+
+    sget-object v5, Lcom/baidu/mobstat/as;->n:[I
+
+    const/4 v6, 0x3
+
+    aget-object v6, v7, v6
+
+    invoke-static {v2, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v2
+
+    aput v2, v5, v0
+
+    sget-object v2, Lcom/baidu/mobstat/as;->j:[B
+
+    aget-byte v2, v2, v0
+
+    sget-object v5, Lcom/baidu/mobstat/as;->o:[I
+
+    aget-object v6, v1, v4
+
+    invoke-static {v2, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v6
+
+    aput v6, v5, v0
+
+    sget-object v5, Lcom/baidu/mobstat/as;->p:[I
+
+    aget-object v6, v1, v3
+
+    invoke-static {v2, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v6
+
+    aput v6, v5, v0
+
+    sget-object v5, Lcom/baidu/mobstat/as;->q:[I
+
+    const/4 v6, 0x2
+
+    aget-object v6, v1, v6
+
+    invoke-static {v2, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v6
+
+    aput v6, v5, v0
+
+    sget-object v5, Lcom/baidu/mobstat/as;->r:[I
+
+    const/4 v6, 0x3
+
+    aget-object v6, v1, v6
+
+    invoke-static {v2, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v2
+
+    aput v2, v5, v0
+
+    sget-object v2, Lcom/baidu/mobstat/as;->s:[I
+
+    aget-object v5, v1, v4
+
+    invoke-static {v0, v5}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v5
+
+    aput v5, v2, v0
+
+    sget-object v2, Lcom/baidu/mobstat/as;->t:[I
+
+    aget-object v5, v1, v3
+
+    invoke-static {v0, v5}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v5
+
+    aput v5, v2, v0
+
+    sget-object v2, Lcom/baidu/mobstat/as;->u:[I
+
+    const/4 v5, 0x2
+
+    aget-object v5, v1, v5
+
+    invoke-static {v0, v5}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v5
+
+    aput v5, v2, v0
+
+    sget-object v2, Lcom/baidu/mobstat/as;->v:[I
+
+    const/4 v5, 0x3
+
+    aget-object v5, v1, v5
+
+    invoke-static {v0, v5}, Lcom/baidu/mobstat/as;->a(I[B)I
+
+    move-result v5
+
+    aput v5, v2, v0
+
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_245
+    goto/16 :goto_13
 
-    :cond_25a
-    const/4 v0, 0x0
-
-    const/16 v1, 0x100
-
-    :goto_25d
-    if-ge v0, v1, :cond_2e6
-
-    sget-object v4, Lcom/baidu/mobstat/as;->i:[B
-
-    aget-byte v4, v4, v0
-
-    sget-object v6, Lcom/baidu/mobstat/as;->k:[I
-
-    aget-object v7, v2, v3
-
-    invoke-static {v4, v7}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v7
-
-    aput v7, v6, v0
-
-    sget-object v6, Lcom/baidu/mobstat/as;->l:[I
-
-    const/4 v7, 0x1
-
-    aget-object v8, v2, v7
-
-    invoke-static {v4, v8}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v7
-
-    aput v7, v6, v0
-
-    sget-object v6, Lcom/baidu/mobstat/as;->m:[I
-
-    aget-object v7, v2, v12
-
-    invoke-static {v4, v7}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v7
-
-    aput v7, v6, v0
-
-    sget-object v6, Lcom/baidu/mobstat/as;->n:[I
-
-    aget-object v7, v2, v14
-
-    invoke-static {v4, v7}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v4
-
-    aput v4, v6, v0
-
-    sget-object v4, Lcom/baidu/mobstat/as;->j:[B
-
-    aget-byte v4, v4, v0
-
-    sget-object v6, Lcom/baidu/mobstat/as;->o:[I
-
-    aget-object v7, v5, v3
-
-    invoke-static {v4, v7}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v7
-
-    aput v7, v6, v0
-
-    sget-object v6, Lcom/baidu/mobstat/as;->p:[I
-
-    const/4 v7, 0x1
-
-    aget-object v8, v5, v7
-
-    invoke-static {v4, v8}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v7
-
-    aput v7, v6, v0
-
-    sget-object v6, Lcom/baidu/mobstat/as;->q:[I
-
-    aget-object v7, v5, v12
-
-    invoke-static {v4, v7}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v7
-
-    aput v7, v6, v0
-
-    sget-object v6, Lcom/baidu/mobstat/as;->r:[I
-
-    aget-object v7, v5, v14
-
-    invoke-static {v4, v7}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v4
-
-    aput v4, v6, v0
-
-    sget-object v4, Lcom/baidu/mobstat/as;->s:[I
-
-    aget-object v6, v5, v3
-
-    invoke-static {v0, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v6
-
-    aput v6, v4, v0
-
-    sget-object v4, Lcom/baidu/mobstat/as;->t:[I
-
-    const/4 v6, 0x1
-
-    aget-object v7, v5, v6
-
-    invoke-static {v0, v7}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v6
-
-    aput v6, v4, v0
-
-    sget-object v4, Lcom/baidu/mobstat/as;->u:[I
-
-    aget-object v6, v5, v12
-
-    invoke-static {v0, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v6
-
-    aput v6, v4, v0
-
-    sget-object v4, Lcom/baidu/mobstat/as;->v:[I
-
-    aget-object v6, v5, v14
-
-    invoke-static {v0, v6}, Lcom/baidu/mobstat/as;->a(I[B)I
-
-    move-result v6
-
-    aput v6, v4, v0
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto/16 :goto_25d
-
-    :cond_2e6
+    :cond_18
     sget-object v0, Lcom/baidu/mobstat/as;->w:[B
 
-    const/4 v1, 0x1
+    aput-byte v3, v0, v4
 
-    aput-byte v1, v0, v3
+    move v0, v3
 
-    const/16 v0, 0x1e
+    move v1, v3
 
-    const/4 v4, 0x1
+    :goto_14
+    const/16 v2, 0x1e
 
-    :goto_2ee
-    if-ge v4, v0, :cond_2fc
+    if-ge v1, v2, :cond_19
 
-    invoke-static {v12, v1}, Lcom/baidu/mobstat/as;->a(II)I
+    const/4 v2, 0x2
 
-    move-result v1
+    invoke-static {v2, v0}, Lcom/baidu/mobstat/as;->a(II)I
+
+    move-result v0
 
     sget-object v2, Lcom/baidu/mobstat/as;->w:[B
 
-    int-to-byte v3, v1
+    int-to-byte v3, v0
 
-    aput-byte v3, v2, v4
+    aput-byte v3, v2, v1
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    goto :goto_2ee
+    move v1, v3
 
-    :cond_2fc
+    goto :goto_14
+
+    :cond_19
     const/4 v0, 0x0
 
     sput-object v0, Lcom/baidu/mobstat/as;->h:[I
+
+    const/4 v0, 0x0
 
     sput-object v0, Lcom/baidu/mobstat/as;->g:[I
 
     return-void
 
-    :array_302
-    .array-data 1
-        0x1t
-        0x1t
-        0x1t
-        0x1t
-        0x1t
-        0x0t
-        0x0t
-        0x0t
-    .end array-data
-
-    :array_30a
-    .array-data 1
-        0x0t
-        0x1t
-        0x1t
-        0x1t
-        0x1t
-        0x1t
-        0x0t
-        0x0t
-    .end array-data
-
-    :array_312
-    .array-data 1
-        0x1t
-        0x1t
-        0x0t
-        0x0t
-        0x0t
-        0x1t
-        0x1t
-        0x1t
-    .end array-data
-
-    :array_31a
-    .array-data 1
-        0x1t
-        0x1t
-        0x1t
-        0x0t
-        0x0t
-        0x0t
-        0x1t
-        0x1t
-    .end array-data
-
-    :array_322
-    .array-data 1
-        0x1t
-        0x1t
-        0x1t
-        0x1t
-        0x0t
-        0x0t
-        0x0t
-        0x1t
-    .end array-data
-
-    :array_32a
+    :array_0
     .array-data 1
         0x0t
         0x1t
@@ -1020,7 +942,31 @@
         0x1t
     .end array-data
 
-    :array_332
+    :array_1
+    .array-data 1
+        0x1t
+        0x1t
+        0x1t
+        0x1t
+        0x1t
+        0x0t
+        0x0t
+        0x0t
+    .end array-data
+
+    :array_2
+    .array-data 1
+        0x0t
+        0x1t
+        0x1t
+        0x1t
+        0x1t
+        0x1t
+        0x0t
+        0x0t
+    .end array-data
+
+    :array_3
     .array-data 1
         0x0t
         0x0t
@@ -1032,7 +978,7 @@
         0x0t
     .end array-data
 
-    :array_33a
+    :array_4
     .array-data 1
         0x0t
         0x0t
@@ -1044,7 +990,7 @@
         0x1t
     .end array-data
 
-    :array_342
+    :array_5
     .array-data 1
         0x1t
         0x0t
@@ -1056,7 +1002,43 @@
         0x1t
     .end array-data
 
-    :array_34a
+    :array_6
+    .array-data 1
+        0x1t
+        0x1t
+        0x0t
+        0x0t
+        0x0t
+        0x1t
+        0x1t
+        0x1t
+    .end array-data
+
+    :array_7
+    .array-data 1
+        0x1t
+        0x1t
+        0x1t
+        0x0t
+        0x0t
+        0x0t
+        0x1t
+        0x1t
+    .end array-data
+
+    :array_8
+    .array-data 1
+        0x1t
+        0x1t
+        0x1t
+        0x1t
+        0x0t
+        0x0t
+        0x0t
+        0x1t
+    .end array-data
+
+    :array_9
     .array-data 1
         0x2t
         0x1t
@@ -1064,7 +1046,7 @@
         0x3t
     .end array-data
 
-    :array_350
+    :array_a
     .array-data 1
         0x3t
         0x2t
@@ -1072,7 +1054,7 @@
         0x1t
     .end array-data
 
-    :array_356
+    :array_b
     .array-data 1
         0x1t
         0x3t
@@ -1080,7 +1062,7 @@
         0x1t
     .end array-data
 
-    :array_35c
+    :array_c
     .array-data 1
         0x1t
         0x1t
@@ -1090,17 +1072,17 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const/4 v1, 0x0
 
     const/4 v0, 0x0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-boolean v0, p0, Lcom/baidu/mobstat/as;->b:Z
 
     iput-boolean v0, p0, Lcom/baidu/mobstat/as;->c:Z
-
-    const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/baidu/mobstat/as;->d:[Ljava/lang/Object;
 
@@ -1112,66 +1094,88 @@
 .end method
 
 .method private static final a(II)I
-    .registers 4
+    .locals 4
 
-    if-eqz p0, :cond_16
+    if-eqz p0, :cond_0
 
-    if-eqz p1, :cond_16
+    if-eqz p1, :cond_0
 
     sget-object v0, Lcom/baidu/mobstat/as;->g:[I
 
     sget-object v1, Lcom/baidu/mobstat/as;->h:[I
 
-    and-int/lit16 p0, p0, 0xff
+    and-int/lit16 v2, p0, 0xff
 
-    aget p0, v1, p0
+    aget v2, v1, v2
 
-    and-int/lit16 p1, p1, 0xff
+    and-int/lit16 v3, p1, 0xff
 
-    aget p1, v1, p1
+    aget v1, v1, v3
 
-    add-int/2addr p0, p1
+    add-int/2addr v1, v2
 
-    rem-int/lit16 p0, p0, 0xff
+    rem-int/lit16 v1, v1, 0xff
 
-    aget p0, v0, p0
+    aget v0, v0, v1
 
-    goto :goto_17
+    :goto_0
+    return v0
 
-    :cond_16
-    const/4 p0, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_17
-    return p0
+    goto :goto_0
 .end method
 
 .method private static final a(I[B)I
-    .registers 8
+    .locals 7
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
-    return v0
+    :goto_0
+    return v1
 
-    :cond_4
-    sget-object v1, Lcom/baidu/mobstat/as;->h:[I
+    :cond_0
+    sget-object v4, Lcom/baidu/mobstat/as;->h:[I
 
-    and-int/lit16 p0, p0, 0xff
+    and-int/lit16 v0, p0, 0xff
 
-    aget p0, v1, p0
+    aget v5, v4, v0
 
-    aget-byte v2, p1, v0
+    aget-byte v0, p1, v1
 
-    if-eqz v2, :cond_1c
+    if-eqz v0, :cond_2
+
+    sget-object v2, Lcom/baidu/mobstat/as;->g:[I
+
+    and-int/lit16 v0, v0, 0xff
+
+    aget v0, v4, v0
+
+    add-int/2addr v0, v5
+
+    rem-int/lit16 v0, v0, 0xff
+
+    aget v0, v2, v0
+
+    and-int/lit16 v0, v0, 0xff
+
+    :goto_1
+    const/4 v2, 0x1
+
+    aget-byte v2, p1, v2
+
+    if-eqz v2, :cond_3
 
     sget-object v3, Lcom/baidu/mobstat/as;->g:[I
 
     and-int/lit16 v2, v2, 0xff
 
-    aget v2, v1, v2
+    aget v2, v4, v2
 
-    add-int/2addr v2, p0
+    add-int/2addr v2, v5
 
     rem-int/lit16 v2, v2, 0xff
 
@@ -1179,102 +1183,87 @@
 
     and-int/lit16 v2, v2, 0xff
 
-    goto :goto_1d
-
-    :cond_1c
-    const/4 v2, 0x0
-
-    :goto_1d
-    const/4 v3, 0x1
+    :goto_2
+    const/4 v3, 0x2
 
     aget-byte v3, p1, v3
 
-    if-eqz v3, :cond_30
+    if-eqz v3, :cond_4
 
-    sget-object v4, Lcom/baidu/mobstat/as;->g:[I
+    sget-object v6, Lcom/baidu/mobstat/as;->g:[I
 
     and-int/lit16 v3, v3, 0xff
-
-    aget v3, v1, v3
-
-    add-int/2addr v3, p0
-
-    rem-int/lit16 v3, v3, 0xff
 
     aget v3, v4, v3
 
+    add-int/2addr v3, v5
+
+    rem-int/lit16 v3, v3, 0xff
+
+    aget v3, v6, v3
+
     and-int/lit16 v3, v3, 0xff
 
-    goto :goto_31
+    :goto_3
+    const/4 v6, 0x3
 
-    :cond_30
-    const/4 v3, 0x0
+    aget-byte v6, p1, v6
 
-    :goto_31
-    const/4 v4, 0x2
+    if-eqz v6, :cond_1
 
-    aget-byte v4, p1, v4
+    sget-object v1, Lcom/baidu/mobstat/as;->g:[I
 
-    if-eqz v4, :cond_44
+    and-int/lit16 v6, v6, 0xff
 
-    sget-object v5, Lcom/baidu/mobstat/as;->g:[I
+    aget v4, v4, v6
 
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v1, v4
-
-    add-int/2addr v4, p0
+    add-int/2addr v4, v5
 
     rem-int/lit16 v4, v4, 0xff
 
-    aget v4, v5, v4
+    aget v1, v1, v4
 
-    and-int/lit16 v4, v4, 0xff
+    and-int/lit16 v1, v1, 0xff
 
-    goto :goto_45
+    :cond_1
+    shl-int/lit8 v0, v0, 0x18
 
-    :cond_44
-    const/4 v4, 0x0
+    shl-int/lit8 v2, v2, 0x10
 
-    :goto_45
-    const/4 v5, 0x3
+    or-int/2addr v0, v2
 
-    aget-byte p1, p1, v5
+    shl-int/lit8 v2, v3, 0x8
 
-    if-eqz p1, :cond_57
+    or-int/2addr v0, v2
 
-    sget-object v0, Lcom/baidu/mobstat/as;->g:[I
+    or-int/2addr v1, v0
 
-    and-int/lit16 p1, p1, 0xff
+    goto :goto_0
 
-    aget p1, v1, p1
+    :cond_2
+    move v0, v1
 
-    add-int/2addr p0, p1
+    goto :goto_1
 
-    rem-int/lit16 p0, p0, 0xff
+    :cond_3
+    move v2, v1
 
-    aget p0, v0, p0
+    goto :goto_2
 
-    and-int/lit16 v0, p0, 0xff
+    :cond_4
+    move v3, v1
 
-    :cond_57
-    shl-int/lit8 p0, v2, 0x18
-
-    shl-int/lit8 p1, v3, 0x10
-
-    or-int/2addr p0, p1
-
-    shl-int/lit8 p1, v4, 0x8
-
-    or-int/2addr p0, p1
-
-    or-int/2addr p0, v0
-
-    return p0
+    goto :goto_3
 .end method
 
 .method private a(Z)V
-    .registers 14
+    .locals 11
+
+    const/4 v10, 0x3
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/baidu/mobstat/as;->d:[Ljava/lang/Object;
 
@@ -1282,582 +1271,591 @@
 
     check-cast v0, [[I
 
-    array-length v1, v0
+    array-length v5, v0
 
-    mul-int/lit8 v2, v1, 0x4
+    mul-int/lit8 v3, v5, 0x4
 
-    new-array v2, v2, [I
+    new-array v3, v3, [I
 
-    iput-object v2, p0, Lcom/baidu/mobstat/as;->e:[I
+    iput-object v3, p0, Lcom/baidu/mobstat/as;->e:[I
+
+    move v4, v2
+
+    :goto_0
+    if-ge v4, v5, :cond_1
+
+    move v3, v2
+
+    :goto_1
+    const/4 v6, 0x4
+
+    if-ge v3, v6, :cond_0
+
+    iget-object v6, p0, Lcom/baidu/mobstat/as;->e:[I
+
+    mul-int/lit8 v7, v4, 0x4
+
+    add-int/2addr v7, v3
+
+    aget-object v8, v0, v4
+
+    aget v8, v8, v3
+
+    aput v8, v6, v7
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_1
+
+    :cond_0
+    add-int/lit8 v3, v4, 0x1
+
+    move v4, v3
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz p1, :cond_3
+
+    iget-object v0, p0, Lcom/baidu/mobstat/as;->e:[I
+
+    array-length v3, v0
+
+    add-int/lit8 v3, v3, -0x4
+
+    aget v3, v0, v3
+
+    array-length v4, v0
+
+    add-int/lit8 v4, v4, -0x3
+
+    aget v4, v0, v4
+
+    array-length v6, v0
+
+    add-int/lit8 v6, v6, -0x2
+
+    aget v6, v0, v6
+
+    array-length v7, v0
+
+    add-int/lit8 v7, v7, -0x1
+
+    aget v7, v0, v7
+
+    array-length v0, v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_2
+    if-le v0, v10, :cond_2
+
+    iget-object v8, p0, Lcom/baidu/mobstat/as;->e:[I
+
+    add-int/lit8 v9, v0, -0x4
+
+    aget v9, v8, v9
+
+    aput v9, v8, v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_2
+
+    :cond_2
+    iget-object v0, p0, Lcom/baidu/mobstat/as;->e:[I
+
+    aput v3, v0, v2
+
+    aput v4, v0, v1
+
+    const/4 v3, 0x2
+
+    aput v6, v0, v3
+
+    aput v7, v0, v10
+
+    :cond_3
+    const/16 v0, 0xd
+
+    if-lt v5, v0, :cond_4
+
+    move v0, v1
+
+    :goto_3
+    iput-boolean v0, p0, Lcom/baidu/mobstat/as;->b:Z
+
+    const/16 v0, 0xf
+
+    if-ne v5, v0, :cond_5
+
+    :goto_4
+    iput-boolean v1, p0, Lcom/baidu/mobstat/as;->c:Z
+
+    add-int/lit8 v0, v5, -0x1
+
+    mul-int/lit8 v0, v0, 0x4
+
+    iput v0, p0, Lcom/baidu/mobstat/as;->f:I
+
+    return-void
+
+    :cond_4
+    move v0, v2
+
+    goto :goto_3
+
+    :cond_5
+    move v1, v2
+
+    goto :goto_4
+.end method
+
+.method static final a(I)Z
+    .locals 3
+
+    const/4 v1, 0x0
+
+    move v0, v1
+
+    :goto_0
+    sget-object v2, Lcom/baidu/mobstat/as;->a:[I
+
+    array-length v2, v2
+
+    if-ge v0, v2, :cond_0
+
+    sget-object v2, Lcom/baidu/mobstat/as;->a:[I
+
+    aget v2, v2, v0
+
+    if-ne p0, v2, :cond_1
+
+    const/4 v1, 0x1
+
+    :cond_0
+    return v1
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method private static a([B)[Ljava/lang/Object;
+    .locals 15
+
+    if-eqz p0, :cond_a
+
+    array-length v0, p0
+
+    invoke-static {v0}, Lcom/baidu/mobstat/as;->a(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    array-length v0, p0
+
+    invoke-static {v0}, Lcom/baidu/mobstat/as;->b(I)I
+
+    move-result v8
+
+    add-int/lit8 v1, v8, 0x1
+
+    mul-int/lit8 v9, v1, 0x4
+
+    const/4 v0, 0x4
+
+    filled-new-array {v1, v0}, [I
+
+    move-result-object v0
+
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    invoke-static {v2, v0}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [[I
+
+    const/4 v2, 0x4
+
+    filled-new-array {v1, v2}, [I
+
+    move-result-object v1
+
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    invoke-static {v2, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, [[I
+
+    array-length v2, p0
+
+    div-int/lit8 v10, v2, 0x4
+
+    new-array v11, v10, [I
 
     const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    :goto_f
-    const/4 v4, 0x4
+    :goto_0
+    if-ge v2, v10, :cond_0
 
-    if-ge v3, v1, :cond_26
+    aget-byte v4, p0, v3
 
-    const/4 v5, 0x0
+    add-int/lit8 v5, v3, 0x1
 
-    :goto_13
-    if-ge v5, v4, :cond_23
+    aget-byte v5, p0, v5
 
-    iget-object v6, p0, Lcom/baidu/mobstat/as;->e:[I
+    add-int/lit8 v6, v3, 0x2
 
-    mul-int/lit8 v7, v3, 0x4
+    aget-byte v6, p0, v6
 
-    add-int/2addr v7, v5
+    and-int/lit16 v6, v6, 0xff
 
-    aget-object v8, v0, v3
+    shl-int/lit8 v6, v6, 0x8
 
-    aget v8, v8, v5
+    shl-int/lit8 v4, v4, 0x18
 
-    aput v8, v6, v7
+    and-int/lit16 v5, v5, 0xff
 
-    add-int/lit8 v5, v5, 0x1
+    shl-int/lit8 v5, v5, 0x10
 
-    goto :goto_13
+    or-int/2addr v4, v5
 
-    :cond_23
-    add-int/lit8 v3, v3, 0x1
+    or-int/2addr v4, v6
 
-    goto :goto_f
+    add-int/lit8 v5, v3, 0x3
 
-    :cond_26
-    const/4 v0, 0x1
+    aget-byte v5, p0, v5
 
-    if-eqz p1, :cond_56
+    and-int/lit16 v5, v5, 0xff
 
-    iget-object p1, p0, Lcom/baidu/mobstat/as;->e:[I
+    or-int/2addr v4, v5
 
-    array-length v3, p1
+    aput v4, v11, v2
 
-    sub-int/2addr v3, v4
+    add-int/lit8 v2, v2, 0x1
 
-    aget v3, p1, v3
+    add-int/lit8 v3, v3, 0x4
 
-    array-length v5, p1
+    goto :goto_0
 
-    const/4 v6, 0x3
+    :cond_0
+    const/4 v2, 0x0
 
-    sub-int/2addr v5, v6
+    const/4 v4, 0x0
 
-    aget v5, p1, v5
+    :goto_1
+    if-ge v2, v10, :cond_1
 
-    array-length v7, p1
+    if-ge v4, v9, :cond_1
 
-    const/4 v8, 0x2
+    div-int/lit8 v3, v4, 0x4
 
-    sub-int/2addr v7, v8
+    aget-object v5, v0, v3
 
-    aget v7, p1, v7
+    rem-int/lit8 v6, v4, 0x4
 
-    array-length v9, p1
+    aget v7, v11, v2
 
-    sub-int/2addr v9, v0
+    aput v7, v5, v6
 
-    aget v9, p1, v9
+    sub-int v3, v8, v3
 
-    array-length p1, p1
+    aget-object v3, v1, v3
 
-    sub-int/2addr p1, v0
+    aget v5, v11, v2
 
-    :goto_3f
-    if-le p1, v6, :cond_4c
+    aput v5, v3, v6
 
-    iget-object v10, p0, Lcom/baidu/mobstat/as;->e:[I
+    add-int/lit8 v2, v2, 0x1
 
-    add-int/lit8 v11, p1, -0x4
+    add-int/lit8 v4, v4, 0x1
 
-    aget v11, v10, v11
+    goto :goto_1
 
-    aput v11, v10, p1
+    :cond_1
+    const/4 v2, 0x0
 
-    add-int/lit8 p1, p1, -0x1
-
-    goto :goto_3f
-
-    :cond_4c
-    iget-object p1, p0, Lcom/baidu/mobstat/as;->e:[I
-
-    aput v3, p1, v2
-
-    aput v5, p1, v0
-
-    aput v7, p1, v8
-
-    aput v9, p1, v6
-
-    :cond_56
-    const/16 p1, 0xd
-
-    if-lt v1, p1, :cond_5c
-
-    const/4 p1, 0x1
-
-    goto :goto_5d
-
-    :cond_5c
-    const/4 p1, 0x0
-
-    :goto_5d
-    iput-boolean p1, p0, Lcom/baidu/mobstat/as;->b:Z
-
-    const/16 p1, 0xf
-
-    if-ne v1, p1, :cond_64
-
-    const/4 v2, 0x1
-
-    :cond_64
-    iput-boolean v2, p0, Lcom/baidu/mobstat/as;->c:Z
-
-    sub-int/2addr v1, v0
-
-    mul-int/lit8 v1, v1, 0x4
-
-    iput v1, p0, Lcom/baidu/mobstat/as;->f:I
-
-    return-void
-.end method
-
-.method static final a(I)Z
-    .registers 4
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
+    move v7, v2
 
     :goto_2
-    sget-object v2, Lcom/baidu/mobstat/as;->a:[I
+    if-ge v4, v9, :cond_6
 
-    array-length v2, v2
+    add-int/lit8 v2, v10, -0x1
 
-    if-ge v1, v2, :cond_12
+    aget v2, v11, v2
 
-    sget-object v2, Lcom/baidu/mobstat/as;->a:[I
+    const/4 v3, 0x0
 
-    aget v2, v2, v1
+    aget v3, v11, v3
 
-    if-ne p0, v2, :cond_f
+    sget-object v5, Lcom/baidu/mobstat/as;->i:[B
 
-    const/4 p0, 0x1
+    ushr-int/lit8 v6, v2, 0x10
 
-    return p0
+    and-int/lit16 v6, v6, 0xff
 
-    :cond_f
-    add-int/lit8 v1, v1, 0x1
+    aget-byte v6, v5, v6
 
-    goto :goto_2
+    const/4 v12, 0x0
 
-    :cond_12
-    return v0
-.end method
+    ushr-int/lit8 v13, v2, 0x8
 
-.method private static a([B)[Ljava/lang/Object;
-    .registers 17
+    and-int/lit16 v13, v13, 0xff
 
-    move-object/from16 v0, p0
-
-    if-eqz v0, :cond_188
-
-    array-length v1, v0
-
-    invoke-static {v1}, Lcom/baidu/mobstat/as;->a(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_16e
-
-    array-length v1, v0
-
-    invoke-static {v1}, Lcom/baidu/mobstat/as;->b(I)I
-
-    move-result v1
-
-    add-int/lit8 v2, v1, 0x1
-
-    mul-int/lit8 v3, v2, 0x4
-
-    const/4 v4, 0x4
-
-    filled-new-array {v2, v4}, [I
-
-    move-result-object v5
-
-    sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    invoke-static {v6, v5}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, [[I
-
-    filled-new-array {v2, v4}, [I
-
-    move-result-object v2
-
-    sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    invoke-static {v6, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, [[I
-
-    array-length v6, v0
-
-    div-int/2addr v6, v4
-
-    new-array v7, v6, [I
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    :goto_34
-    const/16 v11, 0x8
-
-    if-ge v9, v6, :cond_5b
-
-    aget-byte v12, v0, v10
-
-    add-int/lit8 v13, v10, 0x1
-
-    aget-byte v13, v0, v13
-
-    add-int/lit8 v14, v10, 0x2
-
-    aget-byte v14, v0, v14
-
-    and-int/lit16 v14, v14, 0xff
-
-    shl-int/lit8 v11, v14, 0x8
-
-    shl-int/lit8 v12, v12, 0x18
+    aget-byte v13, v5, v13
 
     and-int/lit16 v13, v13, 0xff
 
     shl-int/lit8 v13, v13, 0x10
 
-    or-int/2addr v12, v13
+    shl-int/lit8 v6, v6, 0x18
 
-    or-int/2addr v11, v12
+    xor-int/2addr v6, v13
 
-    add-int/lit8 v12, v10, 0x3
+    and-int/lit16 v13, v2, 0xff
 
-    aget-byte v12, v0, v12
+    aget-byte v13, v5, v13
 
-    and-int/lit16 v12, v12, 0xff
+    and-int/lit16 v13, v13, 0xff
 
-    or-int/2addr v11, v12
+    shl-int/lit8 v13, v13, 0x8
 
-    aput v11, v7, v9
+    xor-int/2addr v6, v13
 
-    add-int/lit8 v9, v9, 0x1
+    ushr-int/lit8 v2, v2, 0x18
 
-    add-int/2addr v10, v4
+    aget-byte v2, v5, v2
 
-    goto :goto_34
+    and-int/lit16 v2, v2, 0xff
 
-    :cond_5b
-    const/4 v0, 0x0
+    xor-int/2addr v2, v6
 
-    const/4 v9, 0x0
+    sget-object v5, Lcom/baidu/mobstat/as;->w:[B
 
-    :goto_5d
-    if-ge v0, v6, :cond_78
+    aget-byte v5, v5, v7
 
-    if-ge v9, v3, :cond_78
+    shl-int/lit8 v5, v5, 0x18
 
-    div-int/lit8 v10, v9, 0x4
+    xor-int/2addr v2, v5
 
-    aget-object v12, v5, v10
+    xor-int/2addr v2, v3
 
-    rem-int/lit8 v13, v9, 0x4
+    aput v2, v11, v12
 
-    aget v14, v7, v0
+    const/4 v3, 0x1
 
-    aput v14, v12, v13
+    const/4 v5, 0x1
 
-    sub-int v10, v1, v10
+    const/4 v2, 0x0
 
-    aget-object v10, v2, v10
+    const/4 v6, 0x0
 
-    aget v12, v7, v0
+    const/16 v12, 0x8
 
-    aput v12, v10, v13
+    if-eq v10, v12, :cond_2
 
-    add-int/lit8 v0, v0, 0x1
+    move v2, v5
 
-    add-int/lit8 v9, v9, 0x1
+    move v3, v6
 
-    goto :goto_5d
+    :goto_3
+    if-ge v2, v10, :cond_4
 
-    :cond_78
-    const/4 v0, 0x0
+    aget v5, v11, v2
 
-    :goto_79
-    if-ge v9, v3, :cond_130
+    aget v6, v11, v3
 
-    add-int/lit8 v12, v6, -0x1
+    xor-int/2addr v5, v6
 
-    aget v12, v7, v12
+    aput v5, v11, v2
 
-    aget v13, v7, v8
+    add-int/lit8 v2, v2, 0x1
 
-    sget-object v14, Lcom/baidu/mobstat/as;->i:[B
+    add-int/lit8 v3, v3, 0x1
 
-    ushr-int/lit8 v15, v12, 0x10
+    goto :goto_3
 
-    and-int/lit16 v15, v15, 0xff
+    :cond_2
+    :goto_4
+    div-int/lit8 v5, v10, 0x2
 
-    aget-byte v15, v14, v15
+    if-ge v3, v5, :cond_3
 
-    ushr-int/lit8 v4, v12, 0x8
+    aget v5, v11, v3
 
-    and-int/lit16 v4, v4, 0xff
+    aget v6, v11, v2
 
-    aget-byte v4, v14, v4
+    xor-int/2addr v5, v6
 
-    and-int/lit16 v10, v12, 0xff
+    aput v5, v11, v3
 
-    aget-byte v10, v14, v10
+    add-int/lit8 v3, v3, 0x1
 
-    ushr-int/lit8 v12, v12, 0x18
+    add-int/lit8 v2, v2, 0x1
 
-    aget-byte v12, v14, v12
+    goto :goto_4
 
-    sget-object v14, Lcom/baidu/mobstat/as;->w:[B
+    :cond_3
+    add-int/lit8 v2, v5, -0x1
 
-    aget-byte v14, v14, v0
+    aget v2, v11, v2
 
-    shl-int/lit8 v14, v14, 0x18
+    aget v3, v11, v5
 
-    shl-int/lit8 v15, v15, 0x18
+    sget-object v6, Lcom/baidu/mobstat/as;->i:[B
 
-    and-int/lit16 v4, v4, 0xff
+    and-int/lit16 v12, v2, 0xff
 
-    shl-int/lit8 v4, v4, 0x10
+    aget-byte v12, v6, v12
 
-    xor-int/2addr v4, v15
+    ushr-int/lit8 v13, v2, 0x8
 
-    and-int/lit16 v10, v10, 0xff
+    and-int/lit16 v13, v13, 0xff
 
-    shl-int/2addr v10, v11
+    aget-byte v13, v6, v13
 
-    xor-int/2addr v4, v10
-
-    and-int/lit16 v10, v12, 0xff
-
-    xor-int/2addr v4, v10
-
-    xor-int/2addr v4, v14
-
-    xor-int/2addr v4, v13
-
-    aput v4, v7, v8
-
-    const/4 v4, 0x1
-
-    const/4 v10, 0x0
-
-    if-eq v6, v11, :cond_c1
-
-    :goto_b3
-    if-ge v4, v6, :cond_10e
-
-    aget v12, v7, v4
-
-    aget v13, v7, v10
-
-    xor-int/2addr v12, v13
-
-    aput v12, v7, v4
-
-    add-int/lit8 v4, v4, 0x1
-
-    const/4 v12, 0x1
-
-    add-int/2addr v10, v12
-
-    goto :goto_b3
-
-    :cond_c1
-    :goto_c1
-    div-int/lit8 v12, v6, 0x2
-
-    if-ge v4, v12, :cond_d1
-
-    aget v12, v7, v4
-
-    aget v13, v7, v10
-
-    xor-int/2addr v12, v13
-
-    aput v12, v7, v4
-
-    add-int/lit8 v4, v4, 0x1
-
-    const/4 v12, 0x1
-
-    add-int/2addr v10, v12
-
-    goto :goto_c1
-
-    :cond_d1
-    add-int/lit8 v4, v12, -0x1
-
-    aget v4, v7, v4
-
-    aget v10, v7, v12
-
-    sget-object v13, Lcom/baidu/mobstat/as;->i:[B
-
-    and-int/lit16 v14, v4, 0xff
-
-    aget-byte v14, v13, v14
-
-    ushr-int/lit8 v15, v4, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget-byte v15, v13, v15
-
-    ushr-int/lit8 v8, v4, 0x10
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget-byte v8, v13, v8
-
-    ushr-int/lit8 v4, v4, 0x18
-
-    aget-byte v4, v13, v4
-
-    shl-int/lit8 v4, v4, 0x18
-
-    and-int/lit16 v13, v15, 0xff
-
-    shl-int/2addr v13, v11
+    ushr-int/lit8 v14, v2, 0x10
 
     and-int/lit16 v14, v14, 0xff
 
-    xor-int/2addr v13, v14
+    aget-byte v14, v6, v14
 
-    and-int/lit16 v8, v8, 0xff
+    ushr-int/lit8 v2, v2, 0x18
 
-    shl-int/lit8 v8, v8, 0x10
+    aget-byte v2, v6, v2
 
-    xor-int/2addr v8, v13
+    shl-int/lit8 v2, v2, 0x18
 
-    xor-int/2addr v4, v8
+    and-int/lit16 v6, v14, 0xff
 
-    xor-int/2addr v4, v10
+    shl-int/lit8 v6, v6, 0x10
 
-    aput v4, v7, v12
+    and-int/lit16 v13, v13, 0xff
 
-    add-int/lit8 v4, v12, 0x1
+    shl-int/lit8 v13, v13, 0x8
 
-    :goto_100
-    if-ge v4, v6, :cond_10e
+    and-int/lit16 v12, v12, 0xff
 
-    aget v8, v7, v4
+    xor-int/2addr v12, v13
 
-    aget v10, v7, v12
+    xor-int/2addr v6, v12
 
-    xor-int/2addr v8, v10
+    xor-int/2addr v2, v6
 
-    aput v8, v7, v4
+    xor-int/2addr v2, v3
 
-    add-int/lit8 v4, v4, 0x1
+    aput v2, v11, v5
 
-    const/4 v8, 0x1
+    add-int/lit8 v2, v5, 0x1
 
-    add-int/2addr v12, v8
+    move v3, v5
 
-    goto :goto_100
+    :goto_5
+    if-ge v2, v10, :cond_4
 
-    :cond_10e
-    const/4 v4, 0x0
+    aget v5, v11, v2
 
-    :goto_10f
-    if-ge v4, v6, :cond_12a
+    aget v6, v11, v3
 
-    if-ge v9, v3, :cond_12a
+    xor-int/2addr v5, v6
 
-    div-int/lit8 v8, v9, 0x4
+    aput v5, v11, v2
 
-    aget-object v10, v5, v8
+    add-int/lit8 v2, v2, 0x1
 
-    rem-int/lit8 v12, v9, 0x4
+    add-int/lit8 v3, v3, 0x1
 
-    aget v13, v7, v4
+    goto :goto_5
 
-    aput v13, v10, v12
+    :cond_4
+    const/4 v2, 0x0
 
-    sub-int v8, v1, v8
+    move v3, v4
 
-    aget-object v8, v2, v8
+    :goto_6
+    if-ge v2, v10, :cond_5
 
-    aget v10, v7, v4
+    if-ge v3, v9, :cond_5
 
-    aput v10, v8, v12
+    div-int/lit8 v4, v3, 0x4
 
-    add-int/lit8 v4, v4, 0x1
+    aget-object v5, v0, v4
 
-    add-int/lit8 v9, v9, 0x1
+    rem-int/lit8 v6, v3, 0x4
 
-    goto :goto_10f
+    aget v12, v11, v2
 
-    :cond_12a
-    add-int/lit8 v0, v0, 0x1
+    aput v12, v5, v6
 
+    sub-int v4, v8, v4
+
+    aget-object v4, v1, v4
+
+    aget v5, v11, v2
+
+    aput v5, v4, v6
+
+    add-int/lit8 v2, v2, 0x1
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_6
+
+    :cond_5
+    add-int/lit8 v2, v7, 0x1
+
+    move v4, v3
+
+    move v7, v2
+
+    goto/16 :goto_2
+
+    :cond_6
+    const/4 v2, 0x1
+
+    move v3, v2
+
+    :goto_7
+    if-ge v3, v8, :cond_8
+
+    const/4 v2, 0x0
+
+    :goto_8
     const/4 v4, 0x4
 
-    const/4 v8, 0x0
+    if-ge v2, v4, :cond_7
 
-    goto/16 :goto_79
+    aget-object v4, v1, v3
 
-    :cond_130
-    const/4 v12, 0x1
+    aget v5, v4, v2
 
-    :goto_131
-    if-ge v12, v1, :cond_164
+    sget-object v6, Lcom/baidu/mobstat/as;->s:[I
 
-    const/4 v0, 0x0
+    ushr-int/lit8 v7, v5, 0x18
 
-    const/4 v3, 0x4
+    and-int/lit16 v7, v7, 0xff
 
-    :goto_135
-    if-ge v0, v3, :cond_161
+    aget v6, v6, v7
 
-    aget-object v4, v2, v12
+    sget-object v7, Lcom/baidu/mobstat/as;->t:[I
 
-    aget v6, v4, v0
-
-    sget-object v7, Lcom/baidu/mobstat/as;->s:[I
-
-    ushr-int/lit8 v8, v6, 0x18
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v7, v7, v8
-
-    sget-object v8, Lcom/baidu/mobstat/as;->t:[I
-
-    ushr-int/lit8 v9, v6, 0x10
+    ushr-int/lit8 v9, v5, 0x10
 
     and-int/lit16 v9, v9, 0xff
 
-    aget v8, v8, v9
+    aget v7, v7, v9
 
     sget-object v9, Lcom/baidu/mobstat/as;->u:[I
 
-    ushr-int/lit8 v10, v6, 0x8
+    ushr-int/lit8 v10, v5, 0x8
 
     and-int/lit16 v10, v10, 0xff
 
@@ -1865,97 +1863,93 @@
 
     sget-object v10, Lcom/baidu/mobstat/as;->v:[I
 
-    and-int/lit16 v6, v6, 0xff
+    and-int/lit16 v5, v5, 0xff
 
-    aget v6, v10, v6
-
-    xor-int/2addr v7, v8
-
-    xor-int/2addr v7, v9
+    aget v5, v10, v5
 
     xor-int/2addr v6, v7
 
-    aput v6, v4, v0
+    xor-int/2addr v6, v9
 
-    add-int/lit8 v0, v0, 0x1
+    xor-int/2addr v5, v6
 
-    goto :goto_135
+    aput v5, v4, v2
 
-    :cond_161
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_131
+    goto :goto_8
 
-    :cond_164
-    const/4 v0, 0x2
+    :cond_7
+    add-int/lit8 v2, v3, 0x1
 
-    new-array v0, v0, [Ljava/lang/Object;
+    move v3, v2
 
-    const/4 v1, 0x0
+    goto :goto_7
 
-    aput-object v5, v0, v1
+    :cond_8
+    const/4 v2, 0x2
 
-    const/4 v1, 0x1
+    new-array v2, v2, [Ljava/lang/Object;
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x0
 
-    return-object v0
+    aput-object v0, v2, v3
 
-    :cond_16e
-    new-instance v1, Ljava/lang/StringBuilder;
+    const/4 v0, 0x1
 
-    const-string v2, "Invalid AES key length: "
+    aput-object v1, v2, v0
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    return-object v2
 
-    array-length v0, v0
+    :cond_9
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, "Invalid AES key length: "
 
-    const-string v0, " bytes"
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    array-length v1, p0
 
-    new-instance v0, Ljava/security/InvalidKeyException;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v1, " bytes"
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v1}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
+    new-instance v1, Ljava/security/InvalidKeyException;
 
-    throw v0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_188
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_a
     new-instance v0, Ljava/security/InvalidKeyException;
 
     const-string v1, "Empty key"
 
     invoke-direct {v0, v1}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_191
-
-    :goto_190
     throw v0
-
-    :goto_191
-    goto :goto_190
 .end method
 
 .method private static b(I)I
-    .registers 1
+    .locals 1
 
-    shr-int/lit8 p0, p0, 0x2
+    shr-int/lit8 v0, p0, 0x2
 
-    add-int/lit8 p0, p0, 0x6
+    add-int/lit8 v0, v0, 0x6
 
-    return p0
+    return v0
 .end method
 
 
 # virtual methods
 .method a()I
-    .registers 2
+    .locals 1
 
     const/16 v0, 0x10
 
@@ -1963,56 +1957,54 @@
 .end method
 
 .method a(ZLjava/lang/String;[B)V
-    .registers 4
+    .locals 2
 
-    array-length p2, p3
+    array-length v0, p3
 
-    invoke-static {p2}, Lcom/baidu/mobstat/as;->a(I)Z
+    invoke-static {v0}, Lcom/baidu/mobstat/as;->a(I)Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_11
+    if-eqz v0, :cond_0
 
     invoke-static {p3}, Lcom/baidu/mobstat/as;->a([B)[Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    iput-object p2, p0, Lcom/baidu/mobstat/as;->d:[Ljava/lang/Object;
+    iput-object v0, p0, Lcom/baidu/mobstat/as;->d:[Ljava/lang/Object;
 
     invoke-direct {p0, p1}, Lcom/baidu/mobstat/as;->a(Z)V
 
     return-void
 
-    :cond_11
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string p2, "Invalid AES key length: "
+    const-string v1, "Invalid AES key length: "
 
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    array-length p2, p3
+    array-length v1, p3
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p2, " bytes"
+    const-string v1, " bytes"
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p2, Ljava/security/InvalidKeyException;
+    new-instance v1, Ljava/security/InvalidKeyException;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p2, p1}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v1
 .end method
 
 .method a([BI[BI)V
-    .registers 29
-
-    move-object/from16 v0, p0
+    .locals 26
 
     aget-byte v1, p1, p2
 
@@ -2028,13 +2020,15 @@
 
     aget-byte v4, p1, v4
 
+    move-object/from16 v0, p0
+
     iget-object v5, v0, Lcom/baidu/mobstat/as;->e:[I
+
+    shl-int/lit8 v1, v1, 0x18
 
     and-int/lit16 v2, v2, 0xff
 
     shl-int/lit8 v2, v2, 0x10
-
-    shl-int/lit8 v1, v1, 0x18
 
     or-int/2addr v1, v2
 
@@ -2052,13 +2046,13 @@
 
     aget v2, v5, v2
 
-    xor-int/2addr v1, v2
+    xor-int/2addr v2, v1
 
-    add-int/lit8 v2, p2, 0x4
+    add-int/lit8 v1, p2, 0x4
 
-    aget-byte v2, p1, v2
+    aget-byte v1, p1, v1
 
-    shl-int/lit8 v2, v2, 0x18
+    shl-int/lit8 v1, v1, 0x18
 
     add-int/lit8 v3, p2, 0x5
 
@@ -2068,7 +2062,7 @@
 
     shl-int/lit8 v3, v3, 0x10
 
-    or-int/2addr v2, v3
+    or-int/2addr v1, v3
 
     add-int/lit8 v3, p2, 0x6
 
@@ -2078,7 +2072,7 @@
 
     shl-int/lit8 v3, v3, 0x8
 
-    or-int/2addr v2, v3
+    or-int/2addr v1, v3
 
     add-int/lit8 v3, p2, 0x7
 
@@ -2086,17 +2080,19 @@
 
     and-int/lit16 v3, v3, 0xff
 
-    or-int/2addr v2, v3
+    or-int/2addr v1, v3
 
     const/4 v3, 0x1
 
     aget v3, v5, v3
 
-    xor-int/2addr v2, v3
+    xor-int/2addr v3, v1
 
-    add-int/lit8 v3, p2, 0x8
+    add-int/lit8 v1, p2, 0x8
 
-    aget-byte v3, p1, v3
+    aget-byte v1, p1, v1
+
+    shl-int/lit8 v1, v1, 0x18
 
     add-int/lit8 v4, p2, 0x9
 
@@ -2106,9 +2102,7 @@
 
     shl-int/lit8 v4, v4, 0x10
 
-    shl-int/lit8 v3, v3, 0x18
-
-    or-int/2addr v3, v4
+    or-int/2addr v1, v4
 
     add-int/lit8 v4, p2, 0xa
 
@@ -2118,7 +2112,7 @@
 
     shl-int/lit8 v4, v4, 0x8
 
-    or-int/2addr v3, v4
+    or-int/2addr v1, v4
 
     add-int/lit8 v4, p2, 0xb
 
@@ -2126,96 +2120,70 @@
 
     and-int/lit16 v4, v4, 0xff
 
-    or-int/2addr v3, v4
+    or-int/2addr v1, v4
 
     const/4 v4, 0x2
 
     aget v4, v5, v4
 
-    xor-int/2addr v3, v4
+    xor-int/2addr v4, v1
 
-    add-int/lit8 v4, p2, 0xc
+    add-int/lit8 v1, p2, 0xc
 
-    aget-byte v4, p1, v4
+    aget-byte v1, p1, v1
+
+    shl-int/lit8 v1, v1, 0x18
 
     add-int/lit8 v6, p2, 0xd
 
     aget-byte v6, p1, v6
 
-    add-int/lit8 v7, p2, 0xe
-
-    aget-byte v7, p1, v7
-
-    add-int/lit8 v8, p2, 0xf
-
-    aget-byte v8, p1, v8
-
-    const/4 v9, 0x3
-
-    aget v5, v5, v9
-
     and-int/lit16 v6, v6, 0xff
 
     shl-int/lit8 v6, v6, 0x10
 
-    shl-int/lit8 v4, v4, 0x18
+    or-int/2addr v1, v6
 
-    or-int/2addr v4, v6
+    add-int/lit8 v6, p2, 0xe
 
-    and-int/lit16 v6, v7, 0xff
+    aget-byte v6, p1, v6
+
+    and-int/lit16 v6, v6, 0xff
 
     shl-int/lit8 v6, v6, 0x8
 
-    or-int/2addr v4, v6
+    or-int/2addr v1, v6
 
-    and-int/lit16 v6, v8, 0xff
+    add-int/lit8 v6, p2, 0xf
 
-    or-int/2addr v4, v6
+    aget-byte v6, p1, v6
 
-    xor-int/2addr v4, v5
+    and-int/lit16 v6, v6, 0xff
+
+    or-int/2addr v1, v6
+
+    const/4 v6, 0x3
+
+    aget v5, v5, v6
+
+    xor-int/2addr v1, v5
 
     const/4 v5, 0x4
 
-    :goto_8f
+    :goto_0
+    move-object/from16 v0, p0
+
     iget v6, v0, Lcom/baidu/mobstat/as;->f:I
 
-    if-ge v5, v6, :cond_125
+    if-ge v5, v6, :cond_0
 
     sget-object v6, Lcom/baidu/mobstat/as;->k:[I
 
-    ushr-int/lit8 v7, v1, 0x18
+    ushr-int/lit8 v7, v2, 0x18
 
     aget v7, v6, v7
 
     sget-object v8, Lcom/baidu/mobstat/as;->l:[I
-
-    ushr-int/lit8 v10, v2, 0x10
-
-    and-int/lit16 v10, v10, 0xff
-
-    aget v10, v8, v10
-
-    sget-object v11, Lcom/baidu/mobstat/as;->m:[I
-
-    ushr-int/lit8 v12, v3, 0x8
-
-    and-int/lit16 v12, v12, 0xff
-
-    aget v12, v11, v12
-
-    sget-object v13, Lcom/baidu/mobstat/as;->n:[I
-
-    and-int/lit16 v14, v4, 0xff
-
-    aget v14, v13, v14
-
-    iget-object v15, v0, Lcom/baidu/mobstat/as;->e:[I
-
-    aget v16, v15, v5
-
-    ushr-int/lit8 v17, v2, 0x18
-
-    aget v17, v6, v17
 
     ushr-int/lit8 v9, v3, 0x10
 
@@ -2223,126 +2191,164 @@
 
     aget v9, v8, v9
 
-    ushr-int/lit8 v0, v4, 0x8
+    sget-object v10, Lcom/baidu/mobstat/as;->m:[I
+
+    ushr-int/lit8 v11, v4, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    sget-object v12, Lcom/baidu/mobstat/as;->n:[I
+
+    and-int/lit16 v13, v1, 0xff
+
+    aget v13, v12, v13
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/baidu/mobstat/as;->e:[I
+
+    aget v15, v14, v5
+
+    ushr-int/lit8 v16, v3, 0x18
+
+    aget v16, v6, v16
+
+    ushr-int/lit8 v17, v4, 0x10
+
+    move/from16 v0, v17
 
     and-int/lit16 v0, v0, 0xff
 
-    aget v0, v11, v0
+    move/from16 v17, v0
 
-    move/from16 p2, v0
+    aget v17, v8, v17
 
-    and-int/lit16 v0, v1, 0xff
+    ushr-int/lit8 v18, v1, 0x8
 
-    aget v0, v13, v0
-
-    add-int/lit8 v18, v5, 0x1
-
-    aget v18, v15, v18
-
-    ushr-int/lit8 v19, v3, 0x18
-
-    aget v19, v6, v19
-
-    move/from16 v20, v0
-
-    ushr-int/lit8 v0, v4, 0x10
+    move/from16 v0, v18
 
     and-int/lit16 v0, v0, 0xff
 
-    aget v0, v8, v0
+    move/from16 v18, v0
 
-    move/from16 v21, v9
+    aget v18, v10, v18
 
-    ushr-int/lit8 v9, v1, 0x8
+    and-int/lit16 v0, v2, 0xff
 
-    and-int/lit16 v9, v9, 0xff
+    move/from16 v19, v0
 
-    aget v9, v11, v9
+    aget v19, v12, v19
 
-    move/from16 v22, v14
+    add-int/lit8 v20, v5, 0x1
 
-    and-int/lit16 v14, v2, 0xff
+    aget v20, v14, v20
 
-    aget v14, v13, v14
+    ushr-int/lit8 v21, v4, 0x18
 
-    add-int/lit8 v23, v5, 0x2
+    aget v21, v6, v21
 
-    aget v23, v15, v23
+    ushr-int/lit8 v22, v1, 0x10
 
-    ushr-int/lit8 v4, v4, 0x18
+    move/from16 v0, v22
 
-    aget v4, v6, v4
+    and-int/lit16 v0, v0, 0xff
 
-    ushr-int/lit8 v1, v1, 0x10
+    move/from16 v22, v0
 
-    and-int/lit16 v1, v1, 0xff
+    aget v22, v8, v22
 
-    aget v1, v8, v1
+    ushr-int/lit8 v23, v2, 0x8
 
-    ushr-int/lit8 v2, v2, 0x8
+    move/from16 v0, v23
+
+    and-int/lit16 v0, v0, 0xff
+
+    move/from16 v23, v0
+
+    aget v23, v10, v23
+
+    and-int/lit16 v0, v3, 0xff
+
+    move/from16 v24, v0
+
+    aget v24, v12, v24
+
+    add-int/lit8 v25, v5, 0x2
+
+    aget v25, v14, v25
+
+    ushr-int/lit8 v1, v1, 0x18
+
+    aget v1, v6, v1
+
+    ushr-int/lit8 v2, v2, 0x10
 
     and-int/lit16 v2, v2, 0xff
 
-    aget v2, v11, v2
+    aget v2, v8, v2
+
+    ushr-int/lit8 v3, v3, 0x8
 
     and-int/lit16 v3, v3, 0xff
 
-    aget v3, v13, v3
+    aget v3, v10, v3
 
-    add-int/lit8 v6, v5, 0x4
+    and-int/lit16 v4, v4, 0xff
 
-    add-int/lit8 v5, v5, 0x3
+    aget v4, v12, v4
 
-    aget v5, v15, v5
+    add-int/lit8 v6, v5, 0x3
 
-    xor-int/2addr v1, v4
+    aget v6, v14, v6
 
     xor-int/2addr v1, v2
 
     xor-int/2addr v1, v3
 
-    xor-int v4, v5, v1
+    xor-int/2addr v1, v4
 
-    xor-int v0, v0, v19
+    xor-int/2addr v1, v6
 
-    xor-int/2addr v0, v9
+    xor-int v2, v22, v21
 
-    xor-int/2addr v0, v14
+    xor-int v2, v2, v23
 
-    xor-int v3, v0, v23
+    xor-int v2, v2, v24
 
-    xor-int v0, v7, v10
+    xor-int v4, v2, v25
 
-    xor-int/2addr v0, v12
+    xor-int v2, v7, v9
 
-    xor-int v0, v0, v22
+    xor-int/2addr v2, v11
 
-    xor-int v1, v0, v16
+    xor-int/2addr v2, v13
 
-    xor-int v0, v17, v21
+    xor-int/2addr v2, v15
 
-    xor-int v0, v0, p2
+    xor-int v3, v16, v17
 
-    xor-int v0, v0, v20
+    xor-int v3, v3, v18
 
-    xor-int v2, v18, v0
+    xor-int v3, v3, v19
 
+    xor-int v3, v3, v20
+
+    add-int/lit8 v5, v5, 0x4
+
+    goto/16 :goto_0
+
+    :cond_0
     move-object/from16 v0, p0
 
-    move v5, v6
-
-    const/4 v9, 0x3
-
-    goto/16 :goto_8f
-
-    :cond_125
     iget-object v6, v0, Lcom/baidu/mobstat/as;->e:[I
 
     aget v7, v6, v5
 
     sget-object v8, Lcom/baidu/mobstat/as;->i:[B
 
-    ushr-int/lit8 v9, v1, 0x18
+    ushr-int/lit8 v9, v2, 0x18
 
     aget-byte v9, v8, v9
 
@@ -2355,68 +2361,6 @@
     aput-byte v9, p3, p4
 
     add-int/lit8 v9, p4, 0x1
-
-    ushr-int/lit8 v10, v2, 0x10
-
-    and-int/lit16 v10, v10, 0xff
-
-    aget-byte v10, v8, v10
-
-    ushr-int/lit8 v11, v7, 0x10
-
-    xor-int/2addr v10, v11
-
-    int-to-byte v10, v10
-
-    aput-byte v10, p3, v9
-
-    add-int/lit8 v9, p4, 0x2
-
-    ushr-int/lit8 v10, v3, 0x8
-
-    and-int/lit16 v10, v10, 0xff
-
-    aget-byte v10, v8, v10
-
-    ushr-int/lit8 v11, v7, 0x8
-
-    xor-int/2addr v10, v11
-
-    int-to-byte v10, v10
-
-    aput-byte v10, p3, v9
-
-    add-int/lit8 v9, p4, 0x3
-
-    and-int/lit16 v10, v4, 0xff
-
-    aget-byte v10, v8, v10
-
-    xor-int/2addr v7, v10
-
-    int-to-byte v7, v7
-
-    aput-byte v7, p3, v9
-
-    add-int/lit8 v7, v5, 0x1
-
-    aget v7, v6, v7
-
-    add-int/lit8 v9, p4, 0x4
-
-    ushr-int/lit8 v10, v2, 0x18
-
-    aget-byte v10, v8, v10
-
-    ushr-int/lit8 v11, v7, 0x18
-
-    xor-int/2addr v10, v11
-
-    int-to-byte v10, v10
-
-    aput-byte v10, p3, v9
-
-    add-int/lit8 v9, p4, 0x5
 
     ushr-int/lit8 v10, v3, 0x10
 
@@ -2432,7 +2376,7 @@
 
     aput-byte v10, p3, v9
 
-    add-int/lit8 v9, p4, 0x6
+    add-int/lit8 v9, p4, 0x2
 
     ushr-int/lit8 v10, v4, 0x8
 
@@ -2448,7 +2392,7 @@
 
     aput-byte v10, p3, v9
 
-    add-int/lit8 v9, p4, 0x7
+    add-int/lit8 v9, p4, 0x3
 
     and-int/lit16 v10, v1, 0xff
 
@@ -2460,11 +2404,11 @@
 
     aput-byte v7, p3, v9
 
-    add-int/lit8 v7, v5, 0x2
+    add-int/lit8 v7, v5, 0x1
 
     aget v7, v6, v7
 
-    add-int/lit8 v9, p4, 0x8
+    add-int/lit8 v9, p4, 0x4
 
     ushr-int/lit8 v10, v3, 0x18
 
@@ -2478,7 +2422,7 @@
 
     aput-byte v10, p3, v9
 
-    add-int/lit8 v9, p4, 0x9
+    add-int/lit8 v9, p4, 0x5
 
     ushr-int/lit8 v10, v4, 0x10
 
@@ -2494,7 +2438,7 @@
 
     aput-byte v10, p3, v9
 
-    add-int/lit8 v9, p4, 0xa
+    add-int/lit8 v9, p4, 0x6
 
     ushr-int/lit8 v10, v1, 0x8
 
@@ -2510,7 +2454,7 @@
 
     aput-byte v10, p3, v9
 
-    add-int/lit8 v9, p4, 0xb
+    add-int/lit8 v9, p4, 0x7
 
     and-int/lit16 v10, v2, 0xff
 
@@ -2522,53 +2466,113 @@
 
     aput-byte v7, p3, v9
 
-    const/4 v7, 0x3
+    add-int/lit8 v7, v5, 0x2
 
-    add-int/2addr v5, v7
+    aget v7, v6, v7
+
+    add-int/lit8 v9, p4, 0x8
+
+    ushr-int/lit8 v10, v4, 0x18
+
+    aget-byte v10, v8, v10
+
+    ushr-int/lit8 v11, v7, 0x18
+
+    xor-int/2addr v10, v11
+
+    int-to-byte v10, v10
+
+    aput-byte v10, p3, v9
+
+    add-int/lit8 v9, p4, 0x9
+
+    ushr-int/lit8 v10, v1, 0x10
+
+    and-int/lit16 v10, v10, 0xff
+
+    aget-byte v10, v8, v10
+
+    ushr-int/lit8 v11, v7, 0x10
+
+    xor-int/2addr v10, v11
+
+    int-to-byte v10, v10
+
+    aput-byte v10, p3, v9
+
+    add-int/lit8 v9, p4, 0xa
+
+    ushr-int/lit8 v10, v2, 0x8
+
+    and-int/lit16 v10, v10, 0xff
+
+    aget-byte v10, v8, v10
+
+    ushr-int/lit8 v11, v7, 0x8
+
+    xor-int/2addr v10, v11
+
+    int-to-byte v10, v10
+
+    aput-byte v10, p3, v9
+
+    add-int/lit8 v9, p4, 0xb
+
+    and-int/lit16 v10, v3, 0xff
+
+    aget-byte v10, v8, v10
+
+    xor-int/2addr v7, v10
+
+    int-to-byte v7, v7
+
+    aput-byte v7, p3, v9
+
+    add-int/lit8 v5, v5, 0x3
 
     aget v5, v6, v5
 
     add-int/lit8 v6, p4, 0xc
 
-    ushr-int/lit8 v4, v4, 0x18
-
-    aget-byte v4, v8, v4
-
-    ushr-int/lit8 v7, v5, 0x18
-
-    xor-int/2addr v4, v7
-
-    int-to-byte v4, v4
-
-    aput-byte v4, p3, v6
-
-    add-int/lit8 v4, p4, 0xd
-
-    ushr-int/lit8 v1, v1, 0x10
-
-    and-int/lit16 v1, v1, 0xff
+    ushr-int/lit8 v1, v1, 0x18
 
     aget-byte v1, v8, v1
 
-    ushr-int/lit8 v6, v5, 0x10
+    ushr-int/lit8 v7, v5, 0x18
 
-    xor-int/2addr v1, v6
+    xor-int/2addr v1, v7
 
     int-to-byte v1, v1
 
-    aput-byte v1, p3, v4
+    aput-byte v1, p3, v6
 
-    add-int/lit8 v1, p4, 0xe
+    add-int/lit8 v1, p4, 0xd
 
-    ushr-int/lit8 v2, v2, 0x8
+    ushr-int/lit8 v2, v2, 0x10
 
     and-int/lit16 v2, v2, 0xff
 
     aget-byte v2, v8, v2
 
-    ushr-int/lit8 v4, v5, 0x8
+    ushr-int/lit8 v6, v5, 0x10
 
-    xor-int/2addr v2, v4
+    xor-int/2addr v2, v6
+
+    int-to-byte v2, v2
+
+    aput-byte v2, p3, v1
+
+    add-int/lit8 v1, p4, 0xe
+
+    ushr-int/lit8 v2, v3, 0x8
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget-byte v2, v8, v2
+
+    ushr-int/lit8 v3, v5, 0x8
+
+    xor-int/2addr v2, v3
 
     int-to-byte v2, v2
 
@@ -2576,7 +2580,7 @@
 
     add-int/lit8 v1, p4, 0xf
 
-    and-int/lit16 v2, v3, 0xff
+    and-int/lit16 v2, v4, 0xff
 
     aget-byte v2, v8, v2
 
@@ -2590,2153 +2594,2114 @@
 .end method
 
 .method b([BI[BI)V
-    .registers 24
+    .locals 15
 
-    move-object/from16 v0, p0
+    aget-byte v0, p1, p2
 
-    aget-byte v1, p1, p2
+    add-int/lit8 v1, p2, 0x1
 
-    add-int/lit8 v2, p2, 0x1
+    aget-byte v1, p1, v1
+
+    add-int/lit8 v2, p2, 0x2
 
     aget-byte v2, p1, v2
 
-    add-int/lit8 v3, p2, 0x2
+    add-int/lit8 v3, p2, 0x3
 
     aget-byte v3, p1, v3
 
-    add-int/lit8 v4, p2, 0x3
+    iget-object v5, p0, Lcom/baidu/mobstat/as;->e:[I
 
-    aget-byte v4, p1, v4
+    shl-int/lit8 v0, v0, 0x18
 
-    iget-object v5, v0, Lcom/baidu/mobstat/as;->e:[I
+    and-int/lit16 v1, v1, 0xff
 
-    and-int/lit16 v2, v2, 0xff
+    shl-int/lit8 v1, v1, 0x10
 
-    const/16 v6, 0x10
+    or-int/2addr v0, v1
 
-    shl-int/2addr v2, v6
+    and-int/lit16 v1, v2, 0xff
 
-    const/16 v7, 0x18
+    shl-int/lit8 v1, v1, 0x8
 
-    shl-int/2addr v1, v7
+    or-int/2addr v0, v1
 
-    or-int/2addr v1, v2
+    and-int/lit16 v1, v3, 0xff
 
-    and-int/lit16 v2, v3, 0xff
+    or-int/2addr v0, v1
 
-    const/16 v3, 0x8
+    const/4 v1, 0x4
 
-    shl-int/2addr v2, v3
+    aget v1, v5, v1
 
-    or-int/2addr v1, v2
+    xor-int/2addr v1, v0
 
-    and-int/lit16 v2, v4, 0xff
+    add-int/lit8 v0, p2, 0x4
 
-    or-int/2addr v1, v2
+    aget-byte v0, p1, v0
 
-    const/4 v2, 0x4
+    shl-int/lit8 v0, v0, 0x18
 
-    aget v2, v5, v2
-
-    xor-int/2addr v1, v2
-
-    add-int/lit8 v2, p2, 0x4
+    add-int/lit8 v2, p2, 0x5
 
     aget-byte v2, p1, v2
 
-    shl-int/2addr v2, v7
+    and-int/lit16 v2, v2, 0xff
 
-    add-int/lit8 v4, p2, 0x5
+    shl-int/lit8 v2, v2, 0x10
+
+    or-int/2addr v0, v2
+
+    add-int/lit8 v2, p2, 0x6
+
+    aget-byte v2, p1, v2
+
+    and-int/lit16 v2, v2, 0xff
+
+    shl-int/lit8 v2, v2, 0x8
+
+    or-int/2addr v0, v2
+
+    add-int/lit8 v2, p2, 0x7
+
+    aget-byte v2, p1, v2
+
+    and-int/lit16 v2, v2, 0xff
+
+    or-int/2addr v0, v2
+
+    const/4 v2, 0x5
+
+    aget v2, v5, v2
+
+    xor-int/2addr v2, v0
+
+    add-int/lit8 v0, p2, 0x8
+
+    aget-byte v0, p1, v0
+
+    shl-int/lit8 v0, v0, 0x18
+
+    add-int/lit8 v3, p2, 0x9
+
+    aget-byte v3, p1, v3
+
+    and-int/lit16 v3, v3, 0xff
+
+    shl-int/lit8 v3, v3, 0x10
+
+    or-int/2addr v0, v3
+
+    add-int/lit8 v3, p2, 0xa
+
+    aget-byte v3, p1, v3
+
+    and-int/lit16 v3, v3, 0xff
+
+    shl-int/lit8 v3, v3, 0x8
+
+    or-int/2addr v0, v3
+
+    add-int/lit8 v3, p2, 0xb
+
+    aget-byte v3, p1, v3
+
+    and-int/lit16 v3, v3, 0xff
+
+    or-int/2addr v0, v3
+
+    const/4 v3, 0x6
+
+    aget v3, v5, v3
+
+    xor-int/2addr v3, v0
+
+    add-int/lit8 v0, p2, 0xc
+
+    aget-byte v0, p1, v0
+
+    shl-int/lit8 v0, v0, 0x18
+
+    add-int/lit8 v4, p2, 0xd
 
     aget-byte v4, p1, v4
 
     and-int/lit16 v4, v4, 0xff
 
-    shl-int/2addr v4, v6
+    shl-int/lit8 v4, v4, 0x10
 
-    or-int/2addr v2, v4
+    or-int/2addr v0, v4
 
-    add-int/lit8 v4, p2, 0x6
-
-    aget-byte v4, p1, v4
-
-    and-int/lit16 v4, v4, 0xff
-
-    shl-int/2addr v4, v3
-
-    or-int/2addr v2, v4
-
-    add-int/lit8 v4, p2, 0x7
+    add-int/lit8 v4, p2, 0xe
 
     aget-byte v4, p1, v4
 
     and-int/lit16 v4, v4, 0xff
 
-    or-int/2addr v2, v4
+    shl-int/lit8 v4, v4, 0x8
 
-    const/4 v4, 0x5
+    or-int/2addr v0, v4
+
+    add-int/lit8 v4, p2, 0xf
+
+    aget-byte v4, p1, v4
+
+    and-int/lit16 v4, v4, 0xff
+
+    or-int/2addr v0, v4
+
+    const/4 v4, 0x7
 
     aget v4, v5, v4
 
-    xor-int/2addr v2, v4
+    xor-int/2addr v0, v4
 
-    add-int/lit8 v4, p2, 0x8
+    iget-boolean v4, p0, Lcom/baidu/mobstat/as;->b:Z
 
-    aget-byte v4, p1, v4
+    if-eqz v4, :cond_1
 
-    add-int/lit8 v8, p2, 0x9
+    sget-object v4, Lcom/baidu/mobstat/as;->o:[I
 
-    aget-byte v8, p1, v8
+    ushr-int/lit8 v6, v1, 0x18
 
-    and-int/lit16 v8, v8, 0xff
+    aget v6, v4, v6
 
-    shl-int/2addr v8, v6
+    sget-object v7, Lcom/baidu/mobstat/as;->p:[I
 
-    shl-int/2addr v4, v7
-
-    or-int/2addr v4, v8
-
-    add-int/lit8 v8, p2, 0xa
-
-    aget-byte v8, p1, v8
+    ushr-int/lit8 v8, v0, 0x10
 
     and-int/lit16 v8, v8, 0xff
 
-    shl-int/2addr v8, v3
+    aget v8, v7, v8
 
-    or-int/2addr v4, v8
+    sget-object v9, Lcom/baidu/mobstat/as;->q:[I
 
-    add-int/lit8 v8, p2, 0xb
-
-    aget-byte v8, p1, v8
-
-    and-int/lit16 v8, v8, 0xff
-
-    or-int/2addr v4, v8
-
-    const/4 v8, 0x6
-
-    aget v8, v5, v8
-
-    xor-int/2addr v4, v8
-
-    add-int/lit8 v8, p2, 0xc
-
-    aget-byte v8, p1, v8
-
-    add-int/lit8 v9, p2, 0xd
-
-    aget-byte v9, p1, v9
-
-    and-int/lit16 v9, v9, 0xff
-
-    shl-int/2addr v9, v6
-
-    shl-int/2addr v8, v7
-
-    or-int/2addr v8, v9
-
-    add-int/lit8 v9, p2, 0xe
-
-    aget-byte v9, p1, v9
-
-    and-int/lit16 v9, v9, 0xff
-
-    shl-int/2addr v9, v3
-
-    or-int/2addr v8, v9
-
-    const/16 v9, 0xf
-
-    add-int/lit8 v10, p2, 0xf
-
-    aget-byte v10, p1, v10
+    ushr-int/lit8 v10, v3, 0x8
 
     and-int/lit16 v10, v10, 0xff
 
-    or-int/2addr v8, v10
+    aget v10, v9, v10
 
-    const/4 v10, 0x7
+    sget-object v11, Lcom/baidu/mobstat/as;->r:[I
+
+    xor-int/2addr v6, v8
+
+    xor-int/2addr v6, v10
+
+    and-int/lit16 v8, v2, 0xff
+
+    aget v8, v11, v8
+
+    xor-int/2addr v6, v8
+
+    const/16 v8, 0x8
+
+    aget v8, v5, v8
+
+    xor-int/2addr v6, v8
+
+    ushr-int/lit8 v8, v2, 0x18
+
+    aget v8, v4, v8
+
+    ushr-int/lit8 v10, v1, 0x10
+
+    and-int/lit16 v10, v10, 0xff
+
+    aget v10, v7, v10
+
+    xor-int/2addr v8, v10
+
+    ushr-int/lit8 v10, v0, 0x8
+
+    and-int/lit16 v10, v10, 0xff
+
+    aget v10, v9, v10
+
+    xor-int/2addr v8, v10
+
+    and-int/lit16 v10, v3, 0xff
+
+    aget v10, v11, v10
+
+    xor-int/2addr v8, v10
+
+    const/16 v10, 0x9
 
     aget v10, v5, v10
 
     xor-int/2addr v8, v10
 
-    iget-boolean v10, v0, Lcom/baidu/mobstat/as;->b:Z
+    ushr-int/lit8 v10, v3, 0x18
 
-    if-eqz v10, :cond_260
+    aget v10, v4, v10
 
-    sget-object v10, Lcom/baidu/mobstat/as;->o:[I
+    ushr-int/lit8 v12, v2, 0x10
 
-    ushr-int/lit8 v11, v1, 0x18
+    and-int/lit16 v12, v12, 0xff
 
-    aget v11, v10, v11
+    aget v12, v7, v12
 
-    sget-object v12, Lcom/baidu/mobstat/as;->p:[I
+    xor-int/2addr v10, v12
 
-    ushr-int/lit8 v13, v8, 0x10
+    ushr-int/lit8 v12, v1, 0x8
 
-    and-int/lit16 v13, v13, 0xff
+    and-int/lit16 v12, v12, 0xff
 
-    aget v13, v12, v13
+    aget v12, v9, v12
 
-    sget-object v14, Lcom/baidu/mobstat/as;->q:[I
+    xor-int/2addr v10, v12
 
-    ushr-int/lit8 v15, v4, 0x8
+    and-int/lit16 v12, v0, 0xff
 
-    and-int/lit16 v15, v15, 0xff
+    aget v12, v11, v12
 
-    aget v15, v14, v15
+    xor-int/2addr v10, v12
 
-    sget-object v16, Lcom/baidu/mobstat/as;->r:[I
+    const/16 v12, 0xa
 
-    xor-int/2addr v11, v13
+    aget v12, v5, v12
 
-    xor-int/2addr v11, v15
+    xor-int/2addr v10, v12
 
-    and-int/lit16 v13, v2, 0xff
+    ushr-int/lit8 v0, v0, 0x18
 
-    aget v13, v16, v13
+    aget v0, v4, v0
 
-    xor-int/2addr v11, v13
+    ushr-int/lit8 v3, v3, 0x10
 
-    aget v13, v5, v3
+    and-int/lit16 v3, v3, 0xff
 
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v2, 0x18
-
-    aget v13, v10, v13
-
-    ushr-int/lit8 v15, v1, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v15, v8, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v13, v15
-
-    and-int/lit16 v15, v4, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v13, v15
-
-    const/16 v15, 0x9
-
-    aget v15, v5, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v15, v4, 0x18
-
-    aget v15, v10, v15
-
-    ushr-int/lit8 v9, v2, 0x10
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget v9, v12, v9
-
-    xor-int/2addr v9, v15
-
-    ushr-int/lit8 v15, v1, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v9, v15
-
-    and-int/lit16 v15, v8, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v9, v15
-
-    const/16 v15, 0xa
-
-    aget v15, v5, v15
-
-    xor-int/2addr v9, v15
-
-    ushr-int/lit8 v8, v8, 0x18
-
-    aget v8, v10, v8
-
-    ushr-int/lit8 v4, v4, 0x10
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v12, v4
+    aget v3, v7, v3
 
     ushr-int/lit8 v2, v2, 0x8
 
     and-int/lit16 v2, v2, 0xff
 
-    aget v2, v14, v2
+    aget v2, v9, v2
 
     and-int/lit16 v1, v1, 0xff
 
-    aget v1, v16, v1
+    aget v1, v11, v1
 
-    xor-int/2addr v4, v8
+    xor-int/2addr v0, v3
 
-    xor-int/2addr v2, v4
+    xor-int/2addr v0, v2
 
-    xor-int/2addr v1, v2
+    xor-int/2addr v0, v1
 
-    const/16 v2, 0xb
+    const/16 v1, 0xb
 
-    aget v2, v5, v2
+    aget v1, v5, v1
 
-    xor-int/2addr v1, v2
+    xor-int/2addr v0, v1
 
-    ushr-int/lit8 v2, v11, 0x18
+    ushr-int/lit8 v1, v6, 0x18
 
-    aget v2, v10, v2
+    aget v1, v4, v1
 
-    ushr-int/lit8 v4, v1, 0x10
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v12, v4
-
-    xor-int/2addr v2, v4
-
-    ushr-int/lit8 v4, v9, 0x8
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v14, v4
-
-    xor-int/2addr v2, v4
-
-    and-int/lit16 v4, v13, 0xff
-
-    aget v4, v16, v4
-
-    xor-int/2addr v2, v4
-
-    const/16 v4, 0xc
-
-    aget v4, v5, v4
-
-    xor-int/2addr v2, v4
-
-    ushr-int/lit8 v4, v13, 0x18
-
-    aget v4, v10, v4
-
-    ushr-int/lit8 v8, v11, 0x10
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v1, 0x8
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v14, v8
-
-    xor-int/2addr v4, v8
-
-    and-int/lit16 v8, v9, 0xff
-
-    aget v8, v16, v8
-
-    xor-int/2addr v4, v8
-
-    const/16 v8, 0xd
-
-    aget v8, v5, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v9, 0x18
-
-    aget v8, v10, v8
-
-    ushr-int/lit8 v15, v13, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/lit8 v15, v11, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v8, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v8, v15
-
-    const/16 v15, 0xe
-
-    aget v15, v5, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/2addr v1, v7
-
-    aget v1, v10, v1
-
-    ushr-int/2addr v9, v6
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget v9, v12, v9
-
-    xor-int/2addr v1, v9
-
-    ushr-int/lit8 v9, v13, 0x8
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget v9, v14, v9
-
-    xor-int/2addr v1, v9
-
-    and-int/lit16 v9, v11, 0xff
-
-    aget v9, v16, v9
-
-    xor-int/2addr v1, v9
-
-    const/16 v9, 0xf
-
-    aget v11, v5, v9
-
-    xor-int/2addr v1, v11
-
-    iget-boolean v9, v0, Lcom/baidu/mobstat/as;->c:Z
-
-    if-eqz v9, :cond_256
-
-    ushr-int/lit8 v9, v2, 0x18
-
-    aget v9, v10, v9
-
-    ushr-int/lit8 v11, v1, 0x10
-
-    and-int/lit16 v11, v11, 0xff
-
-    aget v11, v12, v11
-
-    xor-int/2addr v9, v11
-
-    ushr-int/lit8 v11, v8, 0x8
-
-    and-int/lit16 v11, v11, 0xff
-
-    aget v11, v14, v11
-
-    xor-int/2addr v9, v11
-
-    and-int/lit16 v11, v4, 0xff
-
-    aget v11, v16, v11
-
-    xor-int/2addr v9, v11
-
-    aget v11, v5, v6
-
-    xor-int/2addr v9, v11
-
-    ushr-int/lit8 v11, v4, 0x18
-
-    aget v11, v10, v11
-
-    ushr-int/lit8 v13, v2, 0x10
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v12, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v1, 0x8
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v14, v13
-
-    xor-int/2addr v11, v13
-
-    and-int/lit16 v13, v8, 0xff
-
-    aget v13, v16, v13
-
-    xor-int/2addr v11, v13
-
-    const/16 v13, 0x11
-
-    aget v13, v5, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v8, 0x18
-
-    aget v13, v10, v13
-
-    ushr-int/lit8 v15, v4, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v15, v2, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v13, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v13, v15
-
-    const/16 v15, 0x12
-
-    aget v15, v5, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v1, v1, 0x18
-
-    aget v1, v10, v1
-
-    ushr-int/lit8 v8, v8, 0x10
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v1, v8
-
-    ushr-int/lit8 v4, v4, 0x8
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v14, v4
-
-    xor-int/2addr v1, v4
+    ushr-int/lit8 v2, v0, 0x10
 
     and-int/lit16 v2, v2, 0xff
 
-    aget v2, v16, v2
+    aget v2, v7, v2
 
     xor-int/2addr v1, v2
 
-    const/16 v2, 0x13
+    ushr-int/lit8 v2, v10, 0x8
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v9, v2
+
+    xor-int/2addr v1, v2
+
+    and-int/lit16 v2, v8, 0xff
+
+    aget v2, v11, v2
+
+    xor-int/2addr v1, v2
+
+    const/16 v2, 0xc
 
     aget v2, v5, v2
 
     xor-int/2addr v1, v2
 
-    ushr-int/lit8 v2, v9, 0x18
+    ushr-int/lit8 v2, v8, 0x18
 
-    aget v2, v10, v2
+    aget v2, v4, v2
 
-    ushr-int/lit8 v4, v1, 0x10
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v12, v4
-
-    xor-int/2addr v2, v4
-
-    ushr-int/lit8 v4, v13, 0x8
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v14, v4
-
-    xor-int/2addr v2, v4
-
-    and-int/lit16 v4, v11, 0xff
-
-    aget v4, v16, v4
-
-    xor-int/2addr v2, v4
-
-    const/16 v4, 0x14
-
-    aget v4, v5, v4
-
-    xor-int/2addr v2, v4
-
-    ushr-int/lit8 v4, v11, 0x18
-
-    aget v4, v10, v4
-
-    ushr-int/lit8 v8, v9, 0x10
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v1, 0x8
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v14, v8
-
-    xor-int/2addr v4, v8
-
-    and-int/lit16 v8, v13, 0xff
-
-    aget v8, v16, v8
-
-    xor-int/2addr v4, v8
-
-    const/16 v8, 0x15
-
-    aget v8, v5, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v13, 0x18
-
-    aget v8, v10, v8
-
-    ushr-int/lit8 v15, v11, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/lit8 v15, v9, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v8, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v8, v15
-
-    const/16 v15, 0x16
-
-    aget v15, v5, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/2addr v1, v7
-
-    aget v1, v10, v1
-
-    ushr-int/lit8 v10, v13, 0x10
-
-    and-int/lit16 v10, v10, 0xff
-
-    aget v10, v12, v10
-
-    xor-int/2addr v1, v10
-
-    ushr-int/lit8 v10, v11, 0x8
-
-    and-int/lit16 v10, v10, 0xff
-
-    aget v10, v14, v10
-
-    xor-int/2addr v1, v10
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget v9, v16, v9
-
-    xor-int/2addr v1, v9
-
-    const/16 v9, 0x17
-
-    aget v9, v5, v9
-
-    xor-int/2addr v1, v9
-
-    const/16 v9, 0x18
-
-    goto :goto_258
-
-    :cond_256
-    const/16 v9, 0x10
-
-    :goto_258
-    move/from16 v18, v8
-
-    move v8, v1
-
-    move v1, v2
-
-    move v2, v4
-
-    move/from16 v4, v18
-
-    goto :goto_262
-
-    :cond_260
-    const/16 v9, 0x8
-
-    :goto_262
-    sget-object v10, Lcom/baidu/mobstat/as;->o:[I
-
-    ushr-int/lit8 v11, v1, 0x18
-
-    aget v11, v10, v11
-
-    sget-object v12, Lcom/baidu/mobstat/as;->p:[I
-
-    ushr-int/lit8 v13, v8, 0x10
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v12, v13
-
-    sget-object v14, Lcom/baidu/mobstat/as;->q:[I
-
-    ushr-int/lit8 v15, v4, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    sget-object v16, Lcom/baidu/mobstat/as;->r:[I
-
-    xor-int/2addr v11, v13
-
-    xor-int/2addr v11, v15
-
-    and-int/lit16 v13, v2, 0xff
-
-    aget v13, v16, v13
-
-    xor-int/2addr v11, v13
-
-    aget v13, v5, v9
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v2, 0x18
-
-    aget v13, v10, v13
-
-    ushr-int/lit8 v15, v1, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v15, v8, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v13, v15
-
-    and-int/lit16 v15, v4, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v13, v15
-
-    add-int/lit8 v15, v9, 0x1
-
-    aget v15, v5, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v15, v4, 0x18
-
-    aget v15, v10, v15
-
-    ushr-int/lit8 v3, v2, 0x10
+    ushr-int/lit8 v3, v6, 0x10
 
     and-int/lit16 v3, v3, 0xff
 
-    aget v3, v12, v3
+    aget v3, v7, v3
 
-    xor-int/2addr v3, v15
+    xor-int/2addr v2, v3
 
-    ushr-int/lit8 v15, v1, 0x8
+    ushr-int/lit8 v3, v0, 0x8
 
-    and-int/lit16 v15, v15, 0xff
+    and-int/lit16 v3, v3, 0xff
 
-    aget v15, v14, v15
+    aget v3, v9, v3
 
-    xor-int/2addr v3, v15
+    xor-int/2addr v2, v3
 
-    and-int/lit16 v15, v8, 0xff
+    and-int/lit16 v3, v10, 0xff
 
-    aget v15, v16, v15
+    aget v3, v11, v3
 
-    xor-int/2addr v3, v15
+    xor-int/2addr v2, v3
 
-    add-int/lit8 v15, v9, 0x2
+    const/16 v3, 0xd
 
-    aget v15, v5, v15
+    aget v3, v5, v3
 
-    xor-int/2addr v3, v15
+    xor-int/2addr v2, v3
 
-    ushr-int/2addr v8, v7
+    ushr-int/lit8 v3, v10, 0x18
 
-    aget v8, v10, v8
+    aget v3, v4, v3
 
-    ushr-int/2addr v4, v6
+    ushr-int/lit8 v12, v8, 0x10
 
-    and-int/lit16 v4, v4, 0xff
+    and-int/lit16 v12, v12, 0xff
 
-    aget v4, v12, v4
+    aget v12, v7, v12
 
-    const/16 v15, 0x8
+    xor-int/2addr v3, v12
 
-    ushr-int/2addr v2, v15
+    ushr-int/lit8 v12, v6, 0x8
 
-    and-int/lit16 v2, v2, 0xff
+    and-int/lit16 v12, v12, 0xff
 
-    aget v2, v14, v2
+    aget v12, v9, v12
 
-    and-int/lit16 v1, v1, 0xff
+    xor-int/2addr v3, v12
 
-    aget v1, v16, v1
+    and-int/lit16 v12, v0, 0xff
 
-    xor-int/2addr v4, v8
+    aget v12, v11, v12
 
-    xor-int/2addr v2, v4
+    xor-int/2addr v3, v12
 
-    xor-int/2addr v1, v2
+    const/16 v12, 0xe
 
-    add-int/lit8 v2, v9, 0x3
+    aget v12, v5, v12
 
-    aget v2, v5, v2
+    xor-int/2addr v3, v12
 
-    xor-int/2addr v1, v2
+    ushr-int/lit8 v0, v0, 0x18
 
-    ushr-int/lit8 v2, v11, 0x18
+    aget v0, v4, v0
 
-    aget v2, v10, v2
+    ushr-int/lit8 v10, v10, 0x10
 
-    ushr-int/lit8 v4, v1, 0x10
+    and-int/lit16 v10, v10, 0xff
 
-    and-int/lit16 v4, v4, 0xff
+    aget v10, v7, v10
 
-    aget v4, v12, v4
+    xor-int/2addr v0, v10
+
+    ushr-int/lit8 v8, v8, 0x8
+
+    and-int/lit16 v8, v8, 0xff
+
+    aget v8, v9, v8
+
+    xor-int/2addr v0, v8
+
+    and-int/lit16 v6, v6, 0xff
+
+    aget v6, v11, v6
+
+    xor-int/2addr v0, v6
+
+    const/16 v6, 0xf
+
+    aget v6, v5, v6
+
+    xor-int/2addr v0, v6
+
+    iget-boolean v6, p0, Lcom/baidu/mobstat/as;->c:Z
+
+    if-eqz v6, :cond_0
+
+    ushr-int/lit8 v6, v1, 0x18
+
+    aget v6, v4, v6
+
+    ushr-int/lit8 v8, v0, 0x10
+
+    and-int/lit16 v8, v8, 0xff
+
+    aget v8, v7, v8
+
+    xor-int/2addr v6, v8
 
     ushr-int/lit8 v8, v3, 0x8
 
     and-int/lit16 v8, v8, 0xff
 
-    aget v8, v14, v8
+    aget v8, v9, v8
 
-    and-int/lit16 v15, v13, 0xff
+    xor-int/2addr v6, v8
 
-    aget v15, v16, v15
+    and-int/lit16 v8, v2, 0xff
 
-    add-int/lit8 v17, v9, 0x4
+    aget v8, v11, v8
 
-    aget v17, v5, v17
+    xor-int/2addr v6, v8
 
-    xor-int/2addr v2, v4
-
-    xor-int/2addr v2, v8
-
-    xor-int/2addr v2, v15
-
-    xor-int v2, v17, v2
-
-    ushr-int/lit8 v4, v13, 0x18
-
-    aget v4, v10, v4
-
-    ushr-int/lit8 v8, v11, 0x10
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v1, 0x8
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v14, v8
-
-    xor-int/2addr v4, v8
-
-    and-int/lit16 v8, v3, 0xff
-
-    aget v8, v16, v8
-
-    xor-int/2addr v4, v8
-
-    add-int/lit8 v8, v9, 0x5
+    const/16 v8, 0x10
 
     aget v8, v5, v8
 
-    xor-int/2addr v4, v8
+    xor-int/2addr v6, v8
 
-    ushr-int/lit8 v8, v3, 0x18
+    ushr-int/lit8 v8, v2, 0x18
 
-    aget v8, v10, v8
+    aget v8, v4, v8
 
-    ushr-int/lit8 v15, v13, 0x10
+    ushr-int/lit8 v10, v1, 0x10
 
-    and-int/lit16 v15, v15, 0xff
+    and-int/lit16 v10, v10, 0xff
 
-    aget v15, v12, v15
+    aget v10, v7, v10
 
-    xor-int/2addr v8, v15
+    xor-int/2addr v8, v10
 
-    ushr-int/lit8 v15, v11, 0x8
+    ushr-int/lit8 v10, v0, 0x8
 
-    and-int/lit16 v15, v15, 0xff
+    and-int/lit16 v10, v10, 0xff
 
-    aget v15, v14, v15
+    aget v10, v9, v10
 
-    xor-int/2addr v8, v15
+    xor-int/2addr v8, v10
 
-    and-int/lit16 v15, v1, 0xff
+    and-int/lit16 v10, v3, 0xff
 
-    aget v15, v16, v15
+    aget v10, v11, v10
 
-    xor-int/2addr v8, v15
+    xor-int/2addr v8, v10
 
-    add-int/lit8 v15, v9, 0x6
+    const/16 v10, 0x11
 
-    aget v15, v5, v15
+    aget v10, v5, v10
 
-    xor-int/2addr v8, v15
+    xor-int/2addr v8, v10
 
-    ushr-int/2addr v1, v7
+    ushr-int/lit8 v10, v3, 0x18
 
-    aget v1, v10, v1
+    aget v10, v4, v10
 
-    ushr-int/2addr v3, v6
+    ushr-int/lit8 v12, v2, 0x10
+
+    and-int/lit16 v12, v12, 0xff
+
+    aget v12, v7, v12
+
+    xor-int/2addr v10, v12
+
+    ushr-int/lit8 v12, v1, 0x8
+
+    and-int/lit16 v12, v12, 0xff
+
+    aget v12, v9, v12
+
+    xor-int/2addr v10, v12
+
+    and-int/lit16 v12, v0, 0xff
+
+    aget v12, v11, v12
+
+    xor-int/2addr v10, v12
+
+    const/16 v12, 0x12
+
+    aget v12, v5, v12
+
+    xor-int/2addr v10, v12
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v4, v0
+
+    ushr-int/lit8 v3, v3, 0x10
 
     and-int/lit16 v3, v3, 0xff
 
-    aget v3, v12, v3
+    aget v3, v7, v3
 
-    xor-int/2addr v1, v3
+    xor-int/2addr v0, v3
 
-    const/16 v3, 0x8
-
-    ushr-int/2addr v13, v3
-
-    and-int/lit16 v3, v13, 0xff
-
-    aget v3, v14, v3
-
-    xor-int/2addr v1, v3
-
-    and-int/lit16 v3, v11, 0xff
-
-    aget v3, v16, v3
-
-    xor-int/2addr v1, v3
-
-    add-int/lit8 v3, v9, 0x7
-
-    aget v3, v5, v3
-
-    xor-int/2addr v1, v3
-
-    ushr-int/lit8 v3, v2, 0x18
-
-    aget v3, v10, v3
-
-    ushr-int/lit8 v11, v1, 0x10
-
-    and-int/lit16 v11, v11, 0xff
-
-    aget v11, v12, v11
-
-    ushr-int/lit8 v13, v8, 0x8
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v14, v13
-
-    and-int/lit16 v15, v4, 0xff
-
-    aget v15, v16, v15
-
-    add-int/lit8 v17, v9, 0x8
-
-    aget v17, v5, v17
-
-    xor-int/2addr v3, v11
-
-    xor-int/2addr v3, v13
-
-    xor-int/2addr v3, v15
-
-    xor-int v3, v17, v3
-
-    ushr-int/lit8 v11, v4, 0x18
-
-    aget v11, v10, v11
-
-    ushr-int/lit8 v13, v2, 0x10
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v12, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v1, 0x8
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v14, v13
-
-    xor-int/2addr v11, v13
-
-    and-int/lit16 v13, v8, 0xff
-
-    aget v13, v16, v13
-
-    xor-int/2addr v11, v13
-
-    add-int/lit8 v13, v9, 0x9
-
-    aget v13, v5, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v8, 0x18
-
-    aget v13, v10, v13
-
-    ushr-int/lit8 v15, v4, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v15, v2, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v13, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v13, v15
-
-    add-int/lit8 v15, v9, 0xa
-
-    aget v15, v5, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/2addr v1, v7
-
-    aget v1, v10, v1
-
-    ushr-int/2addr v8, v6
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v1, v8
-
-    const/16 v8, 0x8
-
-    ushr-int/2addr v4, v8
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v14, v4
-
-    xor-int/2addr v1, v4
+    ushr-int/lit8 v2, v2, 0x8
 
     and-int/lit16 v2, v2, 0xff
 
-    aget v2, v16, v2
+    aget v2, v9, v2
 
-    xor-int/2addr v1, v2
+    xor-int/2addr v0, v2
 
-    add-int/lit8 v2, v9, 0xb
+    and-int/lit16 v1, v1, 0xff
 
-    aget v2, v5, v2
+    aget v1, v11, v1
 
-    xor-int/2addr v1, v2
+    xor-int/2addr v0, v1
 
-    ushr-int/lit8 v2, v3, 0x18
+    const/16 v1, 0x13
 
-    aget v2, v10, v2
+    aget v1, v5, v1
 
-    ushr-int/lit8 v4, v1, 0x10
+    xor-int/2addr v0, v1
 
-    and-int/lit16 v4, v4, 0xff
+    ushr-int/lit8 v1, v6, 0x18
 
-    aget v4, v12, v4
+    aget v1, v4, v1
 
-    ushr-int/lit8 v8, v13, 0x8
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v14, v8
-
-    and-int/lit16 v15, v11, 0xff
-
-    aget v15, v16, v15
-
-    add-int/lit8 v17, v9, 0xc
-
-    aget v17, v5, v17
-
-    xor-int/2addr v2, v4
-
-    xor-int/2addr v2, v8
-
-    xor-int/2addr v2, v15
-
-    xor-int v2, v17, v2
-
-    ushr-int/lit8 v4, v11, 0x18
-
-    aget v4, v10, v4
-
-    ushr-int/lit8 v8, v3, 0x10
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v1, 0x8
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v14, v8
-
-    xor-int/2addr v4, v8
-
-    and-int/lit16 v8, v13, 0xff
-
-    aget v8, v16, v8
-
-    xor-int/2addr v4, v8
-
-    add-int/lit8 v8, v9, 0xd
-
-    aget v8, v5, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v13, 0x18
-
-    aget v8, v10, v8
-
-    ushr-int/lit8 v15, v11, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/lit8 v15, v3, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v8, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v8, v15
-
-    add-int/lit8 v15, v9, 0xe
-
-    aget v15, v5, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/2addr v1, v7
-
-    aget v1, v10, v1
-
-    ushr-int/2addr v13, v6
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v12, v13
-
-    xor-int/2addr v1, v13
-
-    const/16 v13, 0x8
-
-    ushr-int/2addr v11, v13
-
-    and-int/lit16 v11, v11, 0xff
-
-    aget v11, v14, v11
-
-    xor-int/2addr v1, v11
-
-    and-int/lit16 v3, v3, 0xff
-
-    aget v3, v16, v3
-
-    xor-int/2addr v1, v3
-
-    add-int/lit8 v3, v9, 0xf
-
-    aget v3, v5, v3
-
-    xor-int/2addr v1, v3
-
-    ushr-int/lit8 v3, v2, 0x18
-
-    aget v3, v10, v3
-
-    ushr-int/lit8 v11, v1, 0x10
-
-    and-int/lit16 v11, v11, 0xff
-
-    aget v11, v12, v11
-
-    ushr-int/lit8 v13, v8, 0x8
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v14, v13
-
-    and-int/lit16 v15, v4, 0xff
-
-    aget v15, v16, v15
-
-    add-int/lit8 v17, v9, 0x10
-
-    aget v17, v5, v17
-
-    xor-int/2addr v3, v11
-
-    xor-int/2addr v3, v13
-
-    xor-int/2addr v3, v15
-
-    xor-int v3, v17, v3
-
-    ushr-int/lit8 v11, v4, 0x18
-
-    aget v11, v10, v11
-
-    ushr-int/lit8 v13, v2, 0x10
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v12, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v1, 0x8
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v14, v13
-
-    xor-int/2addr v11, v13
-
-    and-int/lit16 v13, v8, 0xff
-
-    aget v13, v16, v13
-
-    xor-int/2addr v11, v13
-
-    add-int/lit8 v13, v9, 0x11
-
-    aget v13, v5, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v8, 0x18
-
-    aget v13, v10, v13
-
-    ushr-int/lit8 v15, v4, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v15, v2, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v13, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v13, v15
-
-    add-int/lit8 v15, v9, 0x12
-
-    aget v15, v5, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/2addr v1, v7
-
-    aget v1, v10, v1
-
-    ushr-int/2addr v8, v6
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v1, v8
-
-    const/16 v8, 0x8
-
-    ushr-int/2addr v4, v8
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v14, v4
-
-    xor-int/2addr v1, v4
+    ushr-int/lit8 v2, v0, 0x10
 
     and-int/lit16 v2, v2, 0xff
 
-    aget v2, v16, v2
+    aget v2, v7, v2
 
     xor-int/2addr v1, v2
 
-    add-int/lit8 v2, v9, 0x13
-
-    aget v2, v5, v2
-
-    xor-int/2addr v1, v2
-
-    ushr-int/lit8 v2, v3, 0x18
-
-    aget v2, v10, v2
-
-    ushr-int/lit8 v4, v1, 0x10
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v12, v4
-
-    ushr-int/lit8 v8, v13, 0x8
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v14, v8
-
-    and-int/lit16 v15, v11, 0xff
-
-    aget v15, v16, v15
-
-    add-int/lit8 v17, v9, 0x14
-
-    aget v17, v5, v17
-
-    xor-int/2addr v2, v4
-
-    xor-int/2addr v2, v8
-
-    xor-int/2addr v2, v15
-
-    xor-int v2, v17, v2
-
-    ushr-int/lit8 v4, v11, 0x18
-
-    aget v4, v10, v4
-
-    ushr-int/lit8 v8, v3, 0x10
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v1, 0x8
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v14, v8
-
-    xor-int/2addr v4, v8
-
-    and-int/lit16 v8, v13, 0xff
-
-    aget v8, v16, v8
-
-    xor-int/2addr v4, v8
-
-    add-int/lit8 v8, v9, 0x15
-
-    aget v8, v5, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v13, 0x18
-
-    aget v8, v10, v8
-
-    ushr-int/lit8 v15, v11, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/lit8 v15, v3, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v8, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v8, v15
-
-    add-int/lit8 v15, v9, 0x16
-
-    aget v15, v5, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/2addr v1, v7
-
-    aget v1, v10, v1
-
-    ushr-int/2addr v13, v6
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v12, v13
-
-    xor-int/2addr v1, v13
-
-    const/16 v13, 0x8
-
-    ushr-int/2addr v11, v13
-
-    and-int/lit16 v11, v11, 0xff
-
-    aget v11, v14, v11
-
-    xor-int/2addr v1, v11
-
-    and-int/lit16 v3, v3, 0xff
-
-    aget v3, v16, v3
-
-    xor-int/2addr v1, v3
-
-    add-int/lit8 v3, v9, 0x17
-
-    aget v3, v5, v3
-
-    xor-int/2addr v1, v3
-
-    ushr-int/lit8 v3, v2, 0x18
-
-    aget v3, v10, v3
-
-    ushr-int/lit8 v11, v1, 0x10
-
-    and-int/lit16 v11, v11, 0xff
-
-    aget v11, v12, v11
-
-    ushr-int/lit8 v13, v8, 0x8
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v14, v13
-
-    and-int/lit16 v15, v4, 0xff
-
-    aget v15, v16, v15
-
-    add-int/lit8 v17, v9, 0x18
-
-    aget v17, v5, v17
-
-    xor-int/2addr v3, v11
-
-    xor-int/2addr v3, v13
-
-    xor-int/2addr v3, v15
-
-    xor-int v3, v17, v3
-
-    ushr-int/lit8 v11, v4, 0x18
-
-    aget v11, v10, v11
-
-    ushr-int/lit8 v13, v2, 0x10
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v12, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v1, 0x8
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v14, v13
-
-    xor-int/2addr v11, v13
-
-    and-int/lit16 v13, v8, 0xff
-
-    aget v13, v16, v13
-
-    xor-int/2addr v11, v13
-
-    add-int/lit8 v13, v9, 0x19
-
-    aget v13, v5, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v8, 0x18
-
-    aget v13, v10, v13
-
-    ushr-int/lit8 v15, v4, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v15, v2, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v13, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v13, v15
-
-    add-int/lit8 v15, v9, 0x1a
-
-    aget v15, v5, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/2addr v1, v7
-
-    aget v1, v10, v1
-
-    ushr-int/2addr v8, v6
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v1, v8
-
-    const/16 v8, 0x8
-
-    ushr-int/2addr v4, v8
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v14, v4
-
-    xor-int/2addr v1, v4
+    ushr-int/lit8 v2, v10, 0x8
 
     and-int/lit16 v2, v2, 0xff
 
-    aget v2, v16, v2
+    aget v2, v9, v2
 
     xor-int/2addr v1, v2
 
-    add-int/lit8 v2, v9, 0x1b
+    and-int/lit16 v2, v8, 0xff
+
+    aget v2, v11, v2
+
+    xor-int/2addr v1, v2
+
+    const/16 v2, 0x14
 
     aget v2, v5, v2
 
     xor-int/2addr v1, v2
 
-    ushr-int/lit8 v2, v3, 0x18
+    ushr-int/lit8 v2, v8, 0x18
 
-    aget v2, v10, v2
+    aget v2, v4, v2
 
-    ushr-int/lit8 v4, v1, 0x10
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v12, v4
-
-    ushr-int/lit8 v8, v13, 0x8
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v14, v8
-
-    and-int/lit16 v15, v11, 0xff
-
-    aget v15, v16, v15
-
-    add-int/lit8 v17, v9, 0x1c
-
-    aget v17, v5, v17
-
-    xor-int/2addr v2, v4
-
-    xor-int/2addr v2, v8
-
-    xor-int/2addr v2, v15
-
-    xor-int v2, v17, v2
-
-    ushr-int/lit8 v4, v11, 0x18
-
-    aget v4, v10, v4
-
-    ushr-int/lit8 v8, v3, 0x10
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v1, 0x8
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v14, v8
-
-    xor-int/2addr v4, v8
-
-    and-int/lit16 v8, v13, 0xff
-
-    aget v8, v16, v8
-
-    xor-int/2addr v4, v8
-
-    add-int/lit8 v8, v9, 0x1d
-
-    aget v8, v5, v8
-
-    xor-int/2addr v4, v8
-
-    ushr-int/lit8 v8, v13, 0x18
-
-    aget v8, v10, v8
-
-    ushr-int/lit8 v15, v11, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/lit8 v15, v3, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v8, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v8, v15
-
-    add-int/lit8 v15, v9, 0x1e
-
-    aget v15, v5, v15
-
-    xor-int/2addr v8, v15
-
-    ushr-int/2addr v1, v7
-
-    aget v1, v10, v1
-
-    ushr-int/2addr v13, v6
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v12, v13
-
-    xor-int/2addr v1, v13
-
-    const/16 v13, 0x8
-
-    ushr-int/2addr v11, v13
-
-    and-int/lit16 v11, v11, 0xff
-
-    aget v11, v14, v11
-
-    xor-int/2addr v1, v11
+    ushr-int/lit8 v3, v6, 0x10
 
     and-int/lit16 v3, v3, 0xff
 
-    aget v3, v16, v3
-
-    xor-int/2addr v1, v3
-
-    add-int/lit8 v3, v9, 0x1f
-
-    aget v3, v5, v3
-
-    xor-int/2addr v1, v3
-
-    ushr-int/lit8 v3, v2, 0x18
-
-    aget v3, v10, v3
-
-    ushr-int/lit8 v11, v1, 0x10
-
-    and-int/lit16 v11, v11, 0xff
-
-    aget v11, v12, v11
-
-    ushr-int/lit8 v13, v8, 0x8
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v14, v13
-
-    and-int/lit16 v15, v4, 0xff
-
-    aget v15, v16, v15
-
-    add-int/lit8 v17, v9, 0x20
-
-    aget v17, v5, v17
-
-    xor-int/2addr v3, v11
-
-    xor-int/2addr v3, v13
-
-    xor-int/2addr v3, v15
-
-    xor-int v3, v17, v3
-
-    ushr-int/lit8 v11, v4, 0x18
-
-    aget v11, v10, v11
-
-    ushr-int/lit8 v13, v2, 0x10
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v12, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v1, 0x8
-
-    and-int/lit16 v13, v13, 0xff
-
-    aget v13, v14, v13
-
-    xor-int/2addr v11, v13
-
-    and-int/lit16 v13, v8, 0xff
-
-    aget v13, v16, v13
-
-    xor-int/2addr v11, v13
-
-    add-int/lit8 v13, v9, 0x21
-
-    aget v13, v5, v13
-
-    xor-int/2addr v11, v13
-
-    ushr-int/lit8 v13, v8, 0x18
-
-    aget v13, v10, v13
-
-    ushr-int/lit8 v15, v4, 0x10
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v12, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/lit8 v15, v2, 0x8
-
-    and-int/lit16 v15, v15, 0xff
-
-    aget v15, v14, v15
-
-    xor-int/2addr v13, v15
-
-    and-int/lit16 v15, v1, 0xff
-
-    aget v15, v16, v15
-
-    xor-int/2addr v13, v15
-
-    add-int/lit8 v15, v9, 0x22
-
-    aget v15, v5, v15
-
-    xor-int/2addr v13, v15
-
-    ushr-int/2addr v1, v7
-
-    aget v1, v10, v1
-
-    ushr-int/2addr v8, v6
-
-    and-int/lit16 v8, v8, 0xff
-
-    aget v8, v12, v8
-
-    xor-int/2addr v1, v8
-
-    const/16 v8, 0x8
-
-    ushr-int/2addr v4, v8
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v4, v14, v4
-
-    xor-int/2addr v1, v4
-
-    and-int/lit16 v2, v2, 0xff
-
-    aget v2, v16, v2
-
-    xor-int/2addr v1, v2
-
-    add-int/lit8 v9, v9, 0x23
-
-    aget v2, v5, v9
-
-    xor-int/2addr v1, v2
-
-    const/4 v2, 0x0
-
-    aget v2, v5, v2
-
-    sget-object v4, Lcom/baidu/mobstat/as;->j:[B
-
-    ushr-int/lit8 v8, v3, 0x18
-
-    aget-byte v8, v4, v8
-
-    ushr-int/lit8 v9, v2, 0x18
-
-    xor-int/2addr v8, v9
-
-    int-to-byte v8, v8
-
-    aput-byte v8, p3, p4
-
-    add-int/lit8 v8, p4, 0x1
-
-    ushr-int/lit8 v9, v1, 0x10
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget-byte v9, v4, v9
-
-    ushr-int/lit8 v10, v2, 0x10
-
-    xor-int/2addr v9, v10
-
-    int-to-byte v9, v9
-
-    aput-byte v9, p3, v8
-
-    add-int/lit8 v8, p4, 0x2
-
-    ushr-int/lit8 v9, v13, 0x8
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget-byte v9, v4, v9
-
-    ushr-int/lit8 v10, v2, 0x8
-
-    xor-int/2addr v9, v10
-
-    int-to-byte v9, v9
-
-    aput-byte v9, p3, v8
-
-    add-int/lit8 v8, p4, 0x3
-
-    and-int/lit16 v9, v11, 0xff
-
-    aget-byte v9, v4, v9
-
-    xor-int/2addr v2, v9
-
-    int-to-byte v2, v2
-
-    aput-byte v2, p3, v8
-
-    const/4 v2, 0x1
-
-    aget v2, v5, v2
-
-    add-int/lit8 v8, p4, 0x4
-
-    ushr-int/lit8 v9, v11, 0x18
-
-    aget-byte v9, v4, v9
-
-    ushr-int/lit8 v10, v2, 0x18
-
-    xor-int/2addr v9, v10
-
-    int-to-byte v9, v9
-
-    aput-byte v9, p3, v8
-
-    add-int/lit8 v8, p4, 0x5
-
-    ushr-int/lit8 v9, v3, 0x10
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget-byte v9, v4, v9
-
-    ushr-int/lit8 v10, v2, 0x10
-
-    xor-int/2addr v9, v10
-
-    int-to-byte v9, v9
-
-    aput-byte v9, p3, v8
-
-    add-int/lit8 v8, p4, 0x6
-
-    ushr-int/lit8 v9, v1, 0x8
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget-byte v9, v4, v9
-
-    ushr-int/lit8 v10, v2, 0x8
-
-    xor-int/2addr v9, v10
-
-    int-to-byte v9, v9
-
-    aput-byte v9, p3, v8
-
-    add-int/lit8 v8, p4, 0x7
-
-    and-int/lit16 v9, v13, 0xff
-
-    aget-byte v9, v4, v9
-
-    xor-int/2addr v2, v9
-
-    int-to-byte v2, v2
-
-    aput-byte v2, p3, v8
-
-    const/4 v2, 0x2
-
-    aget v2, v5, v2
-
-    add-int/lit8 v8, p4, 0x8
-
-    ushr-int/lit8 v9, v13, 0x18
-
-    aget-byte v9, v4, v9
-
-    ushr-int/lit8 v10, v2, 0x18
-
-    xor-int/2addr v9, v10
-
-    int-to-byte v9, v9
-
-    aput-byte v9, p3, v8
-
-    add-int/lit8 v8, p4, 0x9
-
-    ushr-int/lit8 v9, v11, 0x10
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget-byte v9, v4, v9
-
-    ushr-int/lit8 v10, v2, 0x10
-
-    xor-int/2addr v9, v10
-
-    int-to-byte v9, v9
-
-    aput-byte v9, p3, v8
-
-    add-int/lit8 v8, p4, 0xa
-
-    ushr-int/lit8 v9, v3, 0x8
-
-    and-int/lit16 v9, v9, 0xff
-
-    aget-byte v9, v4, v9
-
-    ushr-int/lit8 v10, v2, 0x8
-
-    xor-int/2addr v9, v10
-
-    int-to-byte v9, v9
-
-    aput-byte v9, p3, v8
-
-    add-int/lit8 v8, p4, 0xb
-
-    and-int/lit16 v9, v1, 0xff
-
-    aget-byte v9, v4, v9
-
-    xor-int/2addr v2, v9
-
-    int-to-byte v2, v2
-
-    aput-byte v2, p3, v8
-
-    const/4 v2, 0x3
-
-    aget v2, v5, v2
-
-    add-int/lit8 v5, p4, 0xc
-
-    ushr-int/2addr v1, v7
-
-    aget-byte v1, v4, v1
-
-    ushr-int/lit8 v7, v2, 0x18
-
-    xor-int/2addr v1, v7
-
-    int-to-byte v1, v1
-
-    aput-byte v1, p3, v5
-
-    add-int/lit8 v1, p4, 0xd
-
-    ushr-int/lit8 v5, v13, 0x10
-
-    and-int/lit16 v5, v5, 0xff
-
-    aget-byte v5, v4, v5
-
-    ushr-int/lit8 v6, v2, 0x10
-
-    xor-int/2addr v5, v6
-
-    int-to-byte v5, v5
-
-    aput-byte v5, p3, v1
-
-    add-int/lit8 v1, p4, 0xe
-
-    const/16 v5, 0x8
-
-    ushr-int/lit8 v5, v11, 0x8
-
-    and-int/lit16 v5, v5, 0xff
-
-    aget-byte v5, v4, v5
-
-    ushr-int/lit8 v6, v2, 0x8
-
-    xor-int/2addr v5, v6
-
-    int-to-byte v5, v5
-
-    aput-byte v5, p3, v1
-
-    const/16 v1, 0xf
-
-    add-int/lit8 v1, p4, 0xf
-
-    and-int/lit16 v3, v3, 0xff
-
-    aget-byte v3, v4, v3
+    aget v3, v7, v3
 
     xor-int/2addr v2, v3
 
-    int-to-byte v2, v2
+    ushr-int/lit8 v3, v0, 0x8
 
-    aput-byte v2, p3, v1
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v9, v3
+
+    xor-int/2addr v2, v3
+
+    and-int/lit16 v3, v10, 0xff
+
+    aget v3, v11, v3
+
+    xor-int/2addr v2, v3
+
+    const/16 v3, 0x15
+
+    aget v3, v5, v3
+
+    xor-int/2addr v2, v3
+
+    ushr-int/lit8 v3, v10, 0x18
+
+    aget v3, v4, v3
+
+    ushr-int/lit8 v12, v8, 0x10
+
+    and-int/lit16 v12, v12, 0xff
+
+    aget v12, v7, v12
+
+    xor-int/2addr v3, v12
+
+    ushr-int/lit8 v12, v6, 0x8
+
+    and-int/lit16 v12, v12, 0xff
+
+    aget v12, v9, v12
+
+    xor-int/2addr v3, v12
+
+    and-int/lit16 v12, v0, 0xff
+
+    aget v12, v11, v12
+
+    xor-int/2addr v3, v12
+
+    const/16 v12, 0x16
+
+    aget v12, v5, v12
+
+    xor-int/2addr v3, v12
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v4, v0
+
+    ushr-int/lit8 v4, v10, 0x10
+
+    and-int/lit16 v4, v4, 0xff
+
+    aget v4, v7, v4
+
+    xor-int/2addr v0, v4
+
+    ushr-int/lit8 v4, v8, 0x8
+
+    and-int/lit16 v4, v4, 0xff
+
+    aget v4, v9, v4
+
+    xor-int/2addr v0, v4
+
+    and-int/lit16 v4, v6, 0xff
+
+    aget v4, v11, v4
+
+    xor-int/2addr v0, v4
+
+    const/16 v4, 0x17
+
+    aget v4, v5, v4
+
+    xor-int/2addr v0, v4
+
+    const/16 v4, 0x18
+
+    :goto_0
+    sget-object v6, Lcom/baidu/mobstat/as;->o:[I
+
+    ushr-int/lit8 v7, v1, 0x18
+
+    aget v7, v6, v7
+
+    sget-object v8, Lcom/baidu/mobstat/as;->p:[I
+
+    ushr-int/lit8 v9, v0, 0x10
+
+    and-int/lit16 v9, v9, 0xff
+
+    aget v9, v8, v9
+
+    sget-object v10, Lcom/baidu/mobstat/as;->q:[I
+
+    ushr-int/lit8 v11, v3, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    sget-object v12, Lcom/baidu/mobstat/as;->r:[I
+
+    xor-int/2addr v7, v9
+
+    xor-int/2addr v7, v11
+
+    and-int/lit16 v9, v2, 0xff
+
+    aget v9, v12, v9
+
+    xor-int/2addr v7, v9
+
+    aget v9, v5, v4
+
+    xor-int/2addr v7, v9
+
+    ushr-int/lit8 v9, v2, 0x18
+
+    aget v9, v6, v9
+
+    ushr-int/lit8 v11, v1, 0x10
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v8, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v0, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    xor-int/2addr v9, v11
+
+    and-int/lit16 v11, v3, 0xff
+
+    aget v11, v12, v11
+
+    xor-int/2addr v9, v11
+
+    add-int/lit8 v11, v4, 0x1
+
+    aget v11, v5, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v3, 0x18
+
+    aget v11, v6, v11
+
+    ushr-int/lit8 v13, v2, 0x10
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v8, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v13, v1, 0x8
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v10, v13
+
+    xor-int/2addr v11, v13
+
+    and-int/lit16 v13, v0, 0xff
+
+    aget v13, v12, v13
+
+    xor-int/2addr v11, v13
+
+    add-int/lit8 v13, v4, 0x2
+
+    aget v13, v5, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v6, v0
+
+    ushr-int/lit8 v3, v3, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v8, v3
+
+    ushr-int/lit8 v2, v2, 0x8
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v10, v2
+
+    and-int/lit16 v1, v1, 0xff
+
+    aget v1, v12, v1
+
+    xor-int/2addr v0, v3
+
+    xor-int/2addr v0, v2
+
+    xor-int/2addr v0, v1
+
+    add-int/lit8 v1, v4, 0x3
+
+    aget v1, v5, v1
+
+    xor-int/2addr v0, v1
+
+    ushr-int/lit8 v1, v7, 0x18
+
+    aget v1, v6, v1
+
+    ushr-int/lit8 v2, v0, 0x10
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v8, v2
+
+    ushr-int/lit8 v3, v11, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v10, v3
+
+    and-int/lit16 v13, v9, 0xff
+
+    aget v13, v12, v13
+
+    add-int/lit8 v14, v4, 0x4
+
+    aget v14, v5, v14
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    xor-int/2addr v1, v13
+
+    xor-int/2addr v1, v14
+
+    ushr-int/lit8 v2, v9, 0x18
+
+    aget v2, v6, v2
+
+    ushr-int/lit8 v3, v7, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v8, v3
+
+    xor-int/2addr v2, v3
+
+    ushr-int/lit8 v3, v0, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v10, v3
+
+    xor-int/2addr v2, v3
+
+    and-int/lit16 v3, v11, 0xff
+
+    aget v3, v12, v3
+
+    xor-int/2addr v2, v3
+
+    add-int/lit8 v3, v4, 0x5
+
+    aget v3, v5, v3
+
+    xor-int/2addr v2, v3
+
+    ushr-int/lit8 v3, v11, 0x18
+
+    aget v3, v6, v3
+
+    ushr-int/lit8 v13, v9, 0x10
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v8, v13
+
+    xor-int/2addr v3, v13
+
+    ushr-int/lit8 v13, v7, 0x8
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v10, v13
+
+    xor-int/2addr v3, v13
+
+    and-int/lit16 v13, v0, 0xff
+
+    aget v13, v12, v13
+
+    xor-int/2addr v3, v13
+
+    add-int/lit8 v13, v4, 0x6
+
+    aget v13, v5, v13
+
+    xor-int/2addr v3, v13
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v6, v0
+
+    ushr-int/lit8 v11, v11, 0x10
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v8, v11
+
+    xor-int/2addr v0, v11
+
+    ushr-int/lit8 v9, v9, 0x8
+
+    and-int/lit16 v9, v9, 0xff
+
+    aget v9, v10, v9
+
+    xor-int/2addr v0, v9
+
+    and-int/lit16 v7, v7, 0xff
+
+    aget v7, v12, v7
+
+    xor-int/2addr v0, v7
+
+    add-int/lit8 v7, v4, 0x7
+
+    aget v7, v5, v7
+
+    xor-int/2addr v0, v7
+
+    ushr-int/lit8 v7, v1, 0x18
+
+    aget v7, v6, v7
+
+    ushr-int/lit8 v9, v0, 0x10
+
+    and-int/lit16 v9, v9, 0xff
+
+    aget v9, v8, v9
+
+    ushr-int/lit8 v11, v3, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    and-int/lit16 v13, v2, 0xff
+
+    aget v13, v12, v13
+
+    add-int/lit8 v14, v4, 0x8
+
+    aget v14, v5, v14
+
+    xor-int/2addr v7, v9
+
+    xor-int/2addr v7, v11
+
+    xor-int/2addr v7, v13
+
+    xor-int/2addr v7, v14
+
+    ushr-int/lit8 v9, v2, 0x18
+
+    aget v9, v6, v9
+
+    ushr-int/lit8 v11, v1, 0x10
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v8, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v0, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    xor-int/2addr v9, v11
+
+    and-int/lit16 v11, v3, 0xff
+
+    aget v11, v12, v11
+
+    xor-int/2addr v9, v11
+
+    add-int/lit8 v11, v4, 0x9
+
+    aget v11, v5, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v3, 0x18
+
+    aget v11, v6, v11
+
+    ushr-int/lit8 v13, v2, 0x10
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v8, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v13, v1, 0x8
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v10, v13
+
+    xor-int/2addr v11, v13
+
+    and-int/lit16 v13, v0, 0xff
+
+    aget v13, v12, v13
+
+    xor-int/2addr v11, v13
+
+    add-int/lit8 v13, v4, 0xa
+
+    aget v13, v5, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v6, v0
+
+    ushr-int/lit8 v3, v3, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v8, v3
+
+    xor-int/2addr v0, v3
+
+    ushr-int/lit8 v2, v2, 0x8
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v10, v2
+
+    xor-int/2addr v0, v2
+
+    and-int/lit16 v1, v1, 0xff
+
+    aget v1, v12, v1
+
+    xor-int/2addr v0, v1
+
+    add-int/lit8 v1, v4, 0xb
+
+    aget v1, v5, v1
+
+    xor-int/2addr v0, v1
+
+    ushr-int/lit8 v1, v7, 0x18
+
+    aget v1, v6, v1
+
+    ushr-int/lit8 v2, v0, 0x10
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v8, v2
+
+    ushr-int/lit8 v3, v11, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v10, v3
+
+    and-int/lit16 v13, v9, 0xff
+
+    aget v13, v12, v13
+
+    add-int/lit8 v14, v4, 0xc
+
+    aget v14, v5, v14
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    xor-int/2addr v1, v13
+
+    xor-int/2addr v1, v14
+
+    ushr-int/lit8 v2, v9, 0x18
+
+    aget v2, v6, v2
+
+    ushr-int/lit8 v3, v7, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v8, v3
+
+    xor-int/2addr v2, v3
+
+    ushr-int/lit8 v3, v0, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v10, v3
+
+    xor-int/2addr v2, v3
+
+    and-int/lit16 v3, v11, 0xff
+
+    aget v3, v12, v3
+
+    xor-int/2addr v2, v3
+
+    add-int/lit8 v3, v4, 0xd
+
+    aget v3, v5, v3
+
+    xor-int/2addr v2, v3
+
+    ushr-int/lit8 v3, v11, 0x18
+
+    aget v3, v6, v3
+
+    ushr-int/lit8 v13, v9, 0x10
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v8, v13
+
+    xor-int/2addr v3, v13
+
+    ushr-int/lit8 v13, v7, 0x8
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v10, v13
+
+    xor-int/2addr v3, v13
+
+    and-int/lit16 v13, v0, 0xff
+
+    aget v13, v12, v13
+
+    xor-int/2addr v3, v13
+
+    add-int/lit8 v13, v4, 0xe
+
+    aget v13, v5, v13
+
+    xor-int/2addr v3, v13
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v6, v0
+
+    ushr-int/lit8 v11, v11, 0x10
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v8, v11
+
+    xor-int/2addr v0, v11
+
+    ushr-int/lit8 v9, v9, 0x8
+
+    and-int/lit16 v9, v9, 0xff
+
+    aget v9, v10, v9
+
+    xor-int/2addr v0, v9
+
+    and-int/lit16 v7, v7, 0xff
+
+    aget v7, v12, v7
+
+    xor-int/2addr v0, v7
+
+    add-int/lit8 v7, v4, 0xf
+
+    aget v7, v5, v7
+
+    xor-int/2addr v0, v7
+
+    ushr-int/lit8 v7, v1, 0x18
+
+    aget v7, v6, v7
+
+    ushr-int/lit8 v9, v0, 0x10
+
+    and-int/lit16 v9, v9, 0xff
+
+    aget v9, v8, v9
+
+    ushr-int/lit8 v11, v3, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    and-int/lit16 v13, v2, 0xff
+
+    aget v13, v12, v13
+
+    add-int/lit8 v14, v4, 0x10
+
+    aget v14, v5, v14
+
+    xor-int/2addr v7, v9
+
+    xor-int/2addr v7, v11
+
+    xor-int/2addr v7, v13
+
+    xor-int/2addr v7, v14
+
+    ushr-int/lit8 v9, v2, 0x18
+
+    aget v9, v6, v9
+
+    ushr-int/lit8 v11, v1, 0x10
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v8, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v0, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    xor-int/2addr v9, v11
+
+    and-int/lit16 v11, v3, 0xff
+
+    aget v11, v12, v11
+
+    xor-int/2addr v9, v11
+
+    add-int/lit8 v11, v4, 0x11
+
+    aget v11, v5, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v3, 0x18
+
+    aget v11, v6, v11
+
+    ushr-int/lit8 v13, v2, 0x10
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v8, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v13, v1, 0x8
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v10, v13
+
+    xor-int/2addr v11, v13
+
+    and-int/lit16 v13, v0, 0xff
+
+    aget v13, v12, v13
+
+    xor-int/2addr v11, v13
+
+    add-int/lit8 v13, v4, 0x12
+
+    aget v13, v5, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v6, v0
+
+    ushr-int/lit8 v3, v3, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v8, v3
+
+    xor-int/2addr v0, v3
+
+    ushr-int/lit8 v2, v2, 0x8
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v10, v2
+
+    xor-int/2addr v0, v2
+
+    and-int/lit16 v1, v1, 0xff
+
+    aget v1, v12, v1
+
+    xor-int/2addr v0, v1
+
+    add-int/lit8 v1, v4, 0x13
+
+    aget v1, v5, v1
+
+    xor-int/2addr v0, v1
+
+    ushr-int/lit8 v1, v7, 0x18
+
+    aget v1, v6, v1
+
+    ushr-int/lit8 v2, v0, 0x10
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v8, v2
+
+    ushr-int/lit8 v3, v11, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v10, v3
+
+    and-int/lit16 v13, v9, 0xff
+
+    aget v13, v12, v13
+
+    add-int/lit8 v14, v4, 0x14
+
+    aget v14, v5, v14
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    xor-int/2addr v1, v13
+
+    xor-int/2addr v1, v14
+
+    ushr-int/lit8 v2, v9, 0x18
+
+    aget v2, v6, v2
+
+    ushr-int/lit8 v3, v7, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v8, v3
+
+    xor-int/2addr v2, v3
+
+    ushr-int/lit8 v3, v0, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v10, v3
+
+    xor-int/2addr v2, v3
+
+    and-int/lit16 v3, v11, 0xff
+
+    aget v3, v12, v3
+
+    xor-int/2addr v2, v3
+
+    add-int/lit8 v3, v4, 0x15
+
+    aget v3, v5, v3
+
+    xor-int/2addr v2, v3
+
+    ushr-int/lit8 v3, v11, 0x18
+
+    aget v3, v6, v3
+
+    ushr-int/lit8 v13, v9, 0x10
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v8, v13
+
+    xor-int/2addr v3, v13
+
+    ushr-int/lit8 v13, v7, 0x8
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v10, v13
+
+    xor-int/2addr v3, v13
+
+    and-int/lit16 v13, v0, 0xff
+
+    aget v13, v12, v13
+
+    xor-int/2addr v3, v13
+
+    add-int/lit8 v13, v4, 0x16
+
+    aget v13, v5, v13
+
+    xor-int/2addr v3, v13
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v6, v0
+
+    ushr-int/lit8 v11, v11, 0x10
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v8, v11
+
+    xor-int/2addr v0, v11
+
+    ushr-int/lit8 v9, v9, 0x8
+
+    and-int/lit16 v9, v9, 0xff
+
+    aget v9, v10, v9
+
+    xor-int/2addr v0, v9
+
+    and-int/lit16 v7, v7, 0xff
+
+    aget v7, v12, v7
+
+    xor-int/2addr v0, v7
+
+    add-int/lit8 v7, v4, 0x17
+
+    aget v7, v5, v7
+
+    xor-int/2addr v0, v7
+
+    ushr-int/lit8 v7, v1, 0x18
+
+    aget v7, v6, v7
+
+    ushr-int/lit8 v9, v0, 0x10
+
+    and-int/lit16 v9, v9, 0xff
+
+    aget v9, v8, v9
+
+    ushr-int/lit8 v11, v3, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    and-int/lit16 v13, v2, 0xff
+
+    aget v13, v12, v13
+
+    add-int/lit8 v14, v4, 0x18
+
+    aget v14, v5, v14
+
+    xor-int/2addr v7, v9
+
+    xor-int/2addr v7, v11
+
+    xor-int/2addr v7, v13
+
+    xor-int/2addr v7, v14
+
+    ushr-int/lit8 v9, v2, 0x18
+
+    aget v9, v6, v9
+
+    ushr-int/lit8 v11, v1, 0x10
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v8, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v0, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    xor-int/2addr v9, v11
+
+    and-int/lit16 v11, v3, 0xff
+
+    aget v11, v12, v11
+
+    xor-int/2addr v9, v11
+
+    add-int/lit8 v11, v4, 0x19
+
+    aget v11, v5, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v3, 0x18
+
+    aget v11, v6, v11
+
+    ushr-int/lit8 v13, v2, 0x10
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v8, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v13, v1, 0x8
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v10, v13
+
+    xor-int/2addr v11, v13
+
+    and-int/lit16 v13, v0, 0xff
+
+    aget v13, v12, v13
+
+    xor-int/2addr v11, v13
+
+    add-int/lit8 v13, v4, 0x1a
+
+    aget v13, v5, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v6, v0
+
+    ushr-int/lit8 v3, v3, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v8, v3
+
+    xor-int/2addr v0, v3
+
+    ushr-int/lit8 v2, v2, 0x8
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v10, v2
+
+    xor-int/2addr v0, v2
+
+    and-int/lit16 v1, v1, 0xff
+
+    aget v1, v12, v1
+
+    xor-int/2addr v0, v1
+
+    add-int/lit8 v1, v4, 0x1b
+
+    aget v1, v5, v1
+
+    xor-int/2addr v0, v1
+
+    ushr-int/lit8 v1, v7, 0x18
+
+    aget v1, v6, v1
+
+    ushr-int/lit8 v2, v0, 0x10
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v8, v2
+
+    ushr-int/lit8 v3, v11, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v10, v3
+
+    and-int/lit16 v13, v9, 0xff
+
+    aget v13, v12, v13
+
+    add-int/lit8 v14, v4, 0x1c
+
+    aget v14, v5, v14
+
+    xor-int/2addr v1, v2
+
+    xor-int/2addr v1, v3
+
+    xor-int/2addr v1, v13
+
+    xor-int/2addr v1, v14
+
+    ushr-int/lit8 v2, v9, 0x18
+
+    aget v2, v6, v2
+
+    ushr-int/lit8 v3, v7, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v8, v3
+
+    xor-int/2addr v2, v3
+
+    ushr-int/lit8 v3, v0, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v10, v3
+
+    xor-int/2addr v2, v3
+
+    and-int/lit16 v3, v11, 0xff
+
+    aget v3, v12, v3
+
+    xor-int/2addr v2, v3
+
+    add-int/lit8 v3, v4, 0x1d
+
+    aget v3, v5, v3
+
+    xor-int/2addr v2, v3
+
+    ushr-int/lit8 v3, v11, 0x18
+
+    aget v3, v6, v3
+
+    ushr-int/lit8 v13, v9, 0x10
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v8, v13
+
+    xor-int/2addr v3, v13
+
+    ushr-int/lit8 v13, v7, 0x8
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v10, v13
+
+    xor-int/2addr v3, v13
+
+    and-int/lit16 v13, v0, 0xff
+
+    aget v13, v12, v13
+
+    xor-int/2addr v3, v13
+
+    add-int/lit8 v13, v4, 0x1e
+
+    aget v13, v5, v13
+
+    xor-int/2addr v3, v13
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v6, v0
+
+    ushr-int/lit8 v11, v11, 0x10
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v8, v11
+
+    xor-int/2addr v0, v11
+
+    ushr-int/lit8 v9, v9, 0x8
+
+    and-int/lit16 v9, v9, 0xff
+
+    aget v9, v10, v9
+
+    xor-int/2addr v0, v9
+
+    and-int/lit16 v7, v7, 0xff
+
+    aget v7, v12, v7
+
+    xor-int/2addr v0, v7
+
+    add-int/lit8 v7, v4, 0x1f
+
+    aget v7, v5, v7
+
+    xor-int/2addr v0, v7
+
+    ushr-int/lit8 v7, v1, 0x18
+
+    aget v7, v6, v7
+
+    ushr-int/lit8 v9, v0, 0x10
+
+    and-int/lit16 v9, v9, 0xff
+
+    aget v9, v8, v9
+
+    ushr-int/lit8 v11, v3, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    and-int/lit16 v13, v2, 0xff
+
+    aget v13, v12, v13
+
+    add-int/lit8 v14, v4, 0x20
+
+    aget v14, v5, v14
+
+    xor-int/2addr v7, v9
+
+    xor-int/2addr v7, v11
+
+    xor-int/2addr v7, v13
+
+    xor-int/2addr v7, v14
+
+    ushr-int/lit8 v9, v2, 0x18
+
+    aget v9, v6, v9
+
+    ushr-int/lit8 v11, v1, 0x10
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v8, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v0, 0x8
+
+    and-int/lit16 v11, v11, 0xff
+
+    aget v11, v10, v11
+
+    xor-int/2addr v9, v11
+
+    and-int/lit16 v11, v3, 0xff
+
+    aget v11, v12, v11
+
+    xor-int/2addr v9, v11
+
+    add-int/lit8 v11, v4, 0x21
+
+    aget v11, v5, v11
+
+    xor-int/2addr v9, v11
+
+    ushr-int/lit8 v11, v3, 0x18
+
+    aget v11, v6, v11
+
+    ushr-int/lit8 v13, v2, 0x10
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v8, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v13, v1, 0x8
+
+    and-int/lit16 v13, v13, 0xff
+
+    aget v13, v10, v13
+
+    xor-int/2addr v11, v13
+
+    and-int/lit16 v13, v0, 0xff
+
+    aget v13, v12, v13
+
+    xor-int/2addr v11, v13
+
+    add-int/lit8 v13, v4, 0x22
+
+    aget v13, v5, v13
+
+    xor-int/2addr v11, v13
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget v0, v6, v0
+
+    ushr-int/lit8 v3, v3, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v3, v8, v3
+
+    xor-int/2addr v0, v3
+
+    ushr-int/lit8 v2, v2, 0x8
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v2, v10, v2
+
+    xor-int/2addr v0, v2
+
+    and-int/lit16 v1, v1, 0xff
+
+    aget v1, v12, v1
+
+    xor-int/2addr v0, v1
+
+    add-int/lit8 v1, v4, 0x23
+
+    aget v1, v5, v1
+
+    xor-int/2addr v0, v1
+
+    const/4 v1, 0x0
+
+    aget v1, v5, v1
+
+    sget-object v2, Lcom/baidu/mobstat/as;->j:[B
+
+    ushr-int/lit8 v3, v7, 0x18
+
+    aget-byte v3, v2, v3
+
+    ushr-int/lit8 v4, v1, 0x18
+
+    xor-int/2addr v3, v4
+
+    int-to-byte v3, v3
+
+    aput-byte v3, p3, p4
+
+    add-int/lit8 v3, p4, 0x1
+
+    ushr-int/lit8 v4, v0, 0x10
+
+    and-int/lit16 v4, v4, 0xff
+
+    aget-byte v4, v2, v4
+
+    ushr-int/lit8 v6, v1, 0x10
+
+    xor-int/2addr v4, v6
+
+    int-to-byte v4, v4
+
+    aput-byte v4, p3, v3
+
+    add-int/lit8 v3, p4, 0x2
+
+    ushr-int/lit8 v4, v11, 0x8
+
+    and-int/lit16 v4, v4, 0xff
+
+    aget-byte v4, v2, v4
+
+    ushr-int/lit8 v6, v1, 0x8
+
+    xor-int/2addr v4, v6
+
+    int-to-byte v4, v4
+
+    aput-byte v4, p3, v3
+
+    add-int/lit8 v3, p4, 0x3
+
+    and-int/lit16 v4, v9, 0xff
+
+    aget-byte v4, v2, v4
+
+    xor-int/2addr v1, v4
+
+    int-to-byte v1, v1
+
+    aput-byte v1, p3, v3
+
+    const/4 v1, 0x1
+
+    aget v1, v5, v1
+
+    add-int/lit8 v3, p4, 0x4
+
+    ushr-int/lit8 v4, v9, 0x18
+
+    aget-byte v4, v2, v4
+
+    ushr-int/lit8 v6, v1, 0x18
+
+    xor-int/2addr v4, v6
+
+    int-to-byte v4, v4
+
+    aput-byte v4, p3, v3
+
+    add-int/lit8 v3, p4, 0x5
+
+    ushr-int/lit8 v4, v7, 0x10
+
+    and-int/lit16 v4, v4, 0xff
+
+    aget-byte v4, v2, v4
+
+    ushr-int/lit8 v6, v1, 0x10
+
+    xor-int/2addr v4, v6
+
+    int-to-byte v4, v4
+
+    aput-byte v4, p3, v3
+
+    add-int/lit8 v3, p4, 0x6
+
+    ushr-int/lit8 v4, v0, 0x8
+
+    and-int/lit16 v4, v4, 0xff
+
+    aget-byte v4, v2, v4
+
+    ushr-int/lit8 v6, v1, 0x8
+
+    xor-int/2addr v4, v6
+
+    int-to-byte v4, v4
+
+    aput-byte v4, p3, v3
+
+    add-int/lit8 v3, p4, 0x7
+
+    and-int/lit16 v4, v11, 0xff
+
+    aget-byte v4, v2, v4
+
+    xor-int/2addr v1, v4
+
+    int-to-byte v1, v1
+
+    aput-byte v1, p3, v3
+
+    const/4 v1, 0x2
+
+    aget v1, v5, v1
+
+    add-int/lit8 v3, p4, 0x8
+
+    ushr-int/lit8 v4, v11, 0x18
+
+    aget-byte v4, v2, v4
+
+    ushr-int/lit8 v6, v1, 0x18
+
+    xor-int/2addr v4, v6
+
+    int-to-byte v4, v4
+
+    aput-byte v4, p3, v3
+
+    add-int/lit8 v3, p4, 0x9
+
+    ushr-int/lit8 v4, v9, 0x10
+
+    and-int/lit16 v4, v4, 0xff
+
+    aget-byte v4, v2, v4
+
+    ushr-int/lit8 v6, v1, 0x10
+
+    xor-int/2addr v4, v6
+
+    int-to-byte v4, v4
+
+    aput-byte v4, p3, v3
+
+    add-int/lit8 v3, p4, 0xa
+
+    ushr-int/lit8 v4, v7, 0x8
+
+    and-int/lit16 v4, v4, 0xff
+
+    aget-byte v4, v2, v4
+
+    ushr-int/lit8 v6, v1, 0x8
+
+    xor-int/2addr v4, v6
+
+    int-to-byte v4, v4
+
+    aput-byte v4, p3, v3
+
+    add-int/lit8 v3, p4, 0xb
+
+    and-int/lit16 v4, v0, 0xff
+
+    aget-byte v4, v2, v4
+
+    xor-int/2addr v1, v4
+
+    int-to-byte v1, v1
+
+    aput-byte v1, p3, v3
+
+    const/4 v1, 0x3
+
+    aget v1, v5, v1
+
+    add-int/lit8 v3, p4, 0xc
+
+    ushr-int/lit8 v0, v0, 0x18
+
+    aget-byte v0, v2, v0
+
+    ushr-int/lit8 v4, v1, 0x18
+
+    xor-int/2addr v0, v4
+
+    int-to-byte v0, v0
+
+    aput-byte v0, p3, v3
+
+    add-int/lit8 v0, p4, 0xd
+
+    ushr-int/lit8 v3, v11, 0x10
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget-byte v3, v2, v3
+
+    ushr-int/lit8 v4, v1, 0x10
+
+    xor-int/2addr v3, v4
+
+    int-to-byte v3, v3
+
+    aput-byte v3, p3, v0
+
+    add-int/lit8 v0, p4, 0xe
+
+    ushr-int/lit8 v3, v9, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget-byte v3, v2, v3
+
+    ushr-int/lit8 v4, v1, 0x8
+
+    xor-int/2addr v3, v4
+
+    int-to-byte v3, v3
+
+    aput-byte v3, p3, v0
+
+    add-int/lit8 v0, p4, 0xf
+
+    and-int/lit16 v3, v7, 0xff
+
+    aget-byte v2, v2, v3
+
+    xor-int/2addr v1, v2
+
+    int-to-byte v1, v1
+
+    aput-byte v1, p3, v0
 
     return-void
+
+    :cond_0
+    const/16 v4, 0x10
+
+    goto/16 :goto_0
+
+    :cond_1
+    const/16 v4, 0x8
+
+    goto/16 :goto_0
 .end method

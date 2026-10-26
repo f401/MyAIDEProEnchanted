@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Ljava/lang/ref/WeakReference;Landroid/app/Fragment;Landroid/app/Activity;Landroid/content/Context;)V
-    .registers 6
+    .locals 0
 
     .line 583
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$7;->e:Lcom/baidu/mobstat/BDStatCore;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 9
+    .locals 8
 
     .line 587
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$7;->a:Ljava/lang/ref/WeakReference;
@@ -63,22 +63,22 @@
 
     check-cast v0, Landroid/app/Fragment;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_1
 
+    .line 605
+    :cond_0
+    :goto_0
     return-void
 
     .line 592
-    :cond_b
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    if-nez v0, :cond_12
-
-    return-void
+    if-eqz v0, :cond_0
 
     .line 597
-    :cond_12
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$7;->b:Landroid/app/Fragment;
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -107,22 +107,13 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_31
+    if-nez v0, :cond_2
 
     .line 601
-    const-string v0, ""
-
-    goto :goto_35
-
-    :cond_31
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_35
-    move-object v5, v0
+    const-string v5, ""
 
     .line 603
+    :goto_1
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
     move-result-object v0
@@ -157,5 +148,13 @@
 
     invoke-virtual/range {v1 .. v7}, Lcom/baidu/mobstat/SessionAnalysis;->onPageEndFrag(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
 
-    return-void
+    goto :goto_0
+
+    .line 601
+    :cond_2
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    goto :goto_1
 .end method

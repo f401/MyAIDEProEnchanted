@@ -7,7 +7,8 @@
 .field private static keySet:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -17,7 +18,8 @@
 .field private static sClassApis:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lcom/s1243808733/aide/completion/apiversion/ClassApi;",
             ">;"
@@ -28,7 +30,8 @@
 .field private static sClassApisCache:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lcom/s1243808733/aide/completion/apiversion/ClassApi;",
             ">;"
@@ -39,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 28
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
@@ -52,7 +55,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,353 +64,337 @@
 .end method
 
 .method private static createApiInfo(Lorg/w3c/dom/Node;Lcom/s1243808733/aide/completion/apiversion/ApiInfo;)Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
-    .registers 10
+    .locals 9
+
+    const/4 v2, 0x2
+
+    const/4 v3, 0x1
+
+    const/4 v1, -0x1
+
+    const/4 v0, 0x0
+
+    const/4 v4, 0x0
 
     .line 126
-    instance-of v0, p0, Lorg/w3c/dom/Element;
+    instance-of v5, p0, Lorg/w3c/dom/Element;
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_bc
+    if-eqz v5, :cond_3
 
     .line 127
     invoke-interface {p0}, Lorg/w3c/dom/Node;->getAttributes()Lorg/w3c/dom/NamedNodeMap;
 
-    move-result-object v0
+    move-result-object v6
 
     .line 128
     invoke-interface {p0}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v5
 
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v5}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    move-result v2
-
-    const/4 v3, 0x2
-
-    const/4 v4, -0x1
-
-    const/4 v5, 0x1
-
-    const/4 v6, 0x0
-
-    sparse-switch v2, :sswitch_data_be
-
-    :goto_1b
-    goto :goto_3d
-
-    :sswitch_1c
-    const-string v2, "field"
-
-    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_25
-
-    goto :goto_1b
-
-    :cond_25
-    const/4 p0, 0x2
-
-    goto :goto_3e
-
-    :sswitch_27
-    const-string v2, "class"
-
-    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_30
-
-    goto :goto_1b
-
-    :cond_30
-    const/4 p0, 0x1
-
-    goto :goto_3e
-
-    :sswitch_32
-    const-string v2, "method"
-
-    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_3b
-
-    goto :goto_1b
-
-    :cond_3b
-    const/4 p0, 0x0
-
-    goto :goto_3e
-
-    :goto_3d
-    const/4 p0, -0x1
-
-    :goto_3e
-    packed-switch p0, :pswitch_data_cc
-
-    return-object v1
-
-    .line 136
-    :pswitch_42  #0x2
-    sget-object p0, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->FIELD:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
-
-    iput-object p0, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->type:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
-
-    goto :goto_50
-
-    .line 130
-    :pswitch_47  #0x1
-    sget-object p0, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->CLASS:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
-
-    iput-object p0, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->type:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
-
-    goto :goto_50
-
-    .line 133
-    :pswitch_4c  #0x0
-    sget-object p0, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->METHOD:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
-
-    iput-object p0, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->type:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
-
-    :goto_50
-    const/4 p0, 0x0
-
-    :goto_51
-    if-eqz v0, :cond_bb
-
-    .line 142
-    invoke-interface {v0}, Lorg/w3c/dom/NamedNodeMap;->getLength()I
-
-    move-result v1
-
-    if-ge p0, v1, :cond_bb
-
-    .line 143
-    invoke-interface {v0, p0}, Lorg/w3c/dom/NamedNodeMap;->item(I)Lorg/w3c/dom/Node;
-
-    move-result-object v1
-
-    .line 144
-    invoke-interface {v1}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 145
-    invoke-interface {v1}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 146
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
-
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v5}, Ljava/lang/String;->hashCode()I
 
     move-result v7
 
-    sparse-switch v7, :sswitch_data_d6
+    sparse-switch v7, :sswitch_data_0
 
-    :goto_6f
-    goto :goto_9c
+    :cond_0
+    move v5, v1
 
-    :sswitch_70
-    const-string v7, "removed"
+    :goto_0
+    packed-switch v5, :pswitch_data_0
 
-    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_79
-
-    goto :goto_6f
-
-    :cond_79
-    const/4 v2, 0x3
-
-    goto :goto_9d
-
-    :sswitch_7b
-    const-string v7, "since"
-
-    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_84
-
-    goto :goto_6f
-
-    :cond_84
-    const/4 v2, 0x2
-
-    goto :goto_9d
-
-    :sswitch_86
-    const-string v7, "name"
-
-    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_8f
-
-    goto :goto_6f
-
-    :cond_8f
-    const/4 v2, 0x1
-
-    goto :goto_9d
-
-    :sswitch_91
-    const-string v7, "deprecated"
-
-    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_9a
-
-    goto :goto_6f
-
-    :cond_9a
-    const/4 v2, 0x0
-
-    goto :goto_9d
-
-    :goto_9c
-    const/4 v2, -0x1
-
-    :goto_9d
-    packed-switch v2, :pswitch_data_e8
-
-    goto :goto_b8
-
-    .line 157
-    :pswitch_a1  #0x3
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v1
-
-    iput v1, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->removed:I
-
-    goto :goto_b8
-
-    .line 151
-    :pswitch_a8  #0x2
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v1
-
-    iput v1, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->since:I
-
-    goto :goto_b8
-
-    .line 148
-    :pswitch_af  #0x1
-    iput-object v1, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->name:Ljava/lang/String;
-
-    goto :goto_b8
+    move-object p1, v0
 
     .line 154
-    :pswitch_b2  #0x0
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v1
-
-    iput v1, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->deprecated:I
-
-    :goto_b8
-    add-int/lit8 p0, p0, 0x1
-
-    goto :goto_51
-
-    :cond_bb
+    :cond_1
+    :goto_1
     return-object p1
 
-    :cond_bc
-    return-object v1
+    .line 128
+    :sswitch_0
+    const-string v7, "field"
+
+    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    move v5, v2
+
+    goto :goto_0
+
+    :sswitch_1
+    const-string v7, "class"
+
+    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    move v5, v3
+
+    goto :goto_0
+
+    :sswitch_2
+    const-string v7, "method"
+
+    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    move v5, v4
+
+    goto :goto_0
+
+    .line 136
+    :pswitch_0
+    sget-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->FIELD:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
+
+    iput-object v0, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->type:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
+
+    :goto_2
+    move v5, v4
+
+    .line 133
+    :goto_3
+    if-eqz v6, :cond_1
+
+    .line 142
+    invoke-interface {v6}, Lorg/w3c/dom/NamedNodeMap;->getLength()I
+
+    move-result v0
+
+    if-ge v5, v0, :cond_1
+
+    .line 143
+    invoke-interface {v6, v5}, Lorg/w3c/dom/NamedNodeMap;->item(I)Lorg/w3c/dom/Node;
+
+    move-result-object v0
+
+    .line 144
+    invoke-interface {v0}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 145
+    invoke-interface {v0}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
+
+    move-result-object v8
+
+    .line 146
+    invoke-virtual {v7}, Ljava/lang/String;->hashCode()I
+
+    invoke-virtual {v7}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    sparse-switch v0, :sswitch_data_1
+
+    :cond_2
+    move v0, v1
+
+    :goto_4
+    packed-switch v0, :pswitch_data_1
+
+    .line 154
+    :goto_5
+    add-int/lit8 v0, v5, 0x1
+
+    move v5, v0
+
+    goto :goto_3
+
+    .line 130
+    :pswitch_1
+    sget-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->CLASS:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
+
+    iput-object v0, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->type:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
+
+    goto :goto_2
+
+    .line 133
+    :pswitch_2
+    sget-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->METHOD:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
+
+    iput-object v0, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->type:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
+
+    goto :goto_2
+
+    .line 146
+    :sswitch_3
+    const-string v0, "removed"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/4 v0, 0x3
+
+    goto :goto_4
+
+    :sswitch_4
+    const-string v0, "since"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move v0, v2
+
+    goto :goto_4
+
+    :sswitch_5
+    const-string v0, "name"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move v0, v3
+
+    goto :goto_4
+
+    :sswitch_6
+    const-string v0, "deprecated"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move v0, v4
+
+    goto :goto_4
+
+    .line 157
+    :pswitch_3
+    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->removed:I
+
+    goto :goto_5
+
+    .line 151
+    :pswitch_4
+    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->since:I
+
+    goto :goto_5
+
+    .line 148
+    :pswitch_5
+    iput-object v8, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->name:Ljava/lang/String;
+
+    goto :goto_5
+
+    .line 154
+    :pswitch_6
+    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p1, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->deprecated:I
+
+    goto :goto_5
+
+    :cond_3
+    move-object p1, v0
+
+    goto/16 :goto_1
 
     nop
 
-    :sswitch_data_be
+    :sswitch_data_0
     .sparse-switch
-        -0x403a2f1f -> :sswitch_32
-        0x5a5a978 -> :sswitch_27
-        0x5cea0fa -> :sswitch_1c
+        -0x403a2f1f -> :sswitch_2
+        0x5a5a978 -> :sswitch_1
+        0x5cea0fa -> :sswitch_0
     .end sparse-switch
 
-    :pswitch_data_cc
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_4c  #00000000
-        :pswitch_47  #00000001
-        :pswitch_42  #00000002
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 
-    :sswitch_data_d6
+    .line 146
+    :sswitch_data_1
     .sparse-switch
-        -0x614b9a4d -> :sswitch_91
-        0x337a8b -> :sswitch_86
-        0x685f33a -> :sswitch_7b
-        0x41141860 -> :sswitch_70
+        -0x614b9a4d -> :sswitch_6
+        0x337a8b -> :sswitch_5
+        0x685f33a -> :sswitch_4
+        0x41141860 -> :sswitch_3
     .end sparse-switch
 
-    :pswitch_data_e8
+    :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_b2  #00000000
-        :pswitch_af  #00000001
-        :pswitch_a8  #00000002
-        :pswitch_a1  #00000003
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public static findApi(Ljava/lang/String;Ljava/lang/String;)Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
-    .registers 2
+    .locals 1
 
     .line 73
     invoke-static {p0}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->findClass(Ljava/lang/String;)Lcom/s1243808733/aide/completion/apiversion/ClassApi;
 
-    move-result-object p0
+    move-result-object v0
 
-    if-nez p0, :cond_8
+    if-nez v0, :cond_0
 
-    const/4 p0, 0x0
-
-    goto :goto_c
+    const/4 v0, 0x0
 
     .line 74
-    :cond_8
-    invoke-virtual {p0, p1}, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->findApi(Ljava/lang/String;)Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
+    :goto_0
+    return-object v0
 
-    move-result-object p0
+    :cond_0
+    invoke-virtual {v0, p1}, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->findApi(Ljava/lang/String;)Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
 
-    :goto_c
-    return-object p0
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method public static findClass(Ljava/lang/Class;)Lcom/s1243808733/aide/completion/apiversion/ClassApi;
-    .registers 1
+    .locals 1
 
     .line 53
     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->findClass(Ljava/lang/String;)Lcom/s1243808733/aide/completion/apiversion/ClassApi;
+    invoke-static {v0}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->findClass(Ljava/lang/String;)Lcom/s1243808733/aide/completion/apiversion/ClassApi;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static findClass(Ljava/lang/String;)Lcom/s1243808733/aide/completion/apiversion/ClassApi;
-    .registers 3
+    .locals 2
 
     .line 60
     sget-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->sClassApisCache:Ljava/util/Map;
@@ -418,12 +405,15 @@
 
     check-cast v0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_1
 
+    .line 66
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 64
-    :cond_b
+    :cond_1
     invoke-static {}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->getClassApis()Ljava/util/Map;
 
     move-result-object v0
@@ -434,23 +424,23 @@
 
     check-cast v0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 66
     sget-object v1, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->sClassApisCache:Ljava/util/Map;
 
     invoke-interface {v1, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1c
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static getClassApis()Ljava/util/Map;
-    .registers 3
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lcom/s1243808733/aide/completion/apiversion/ClassApi;",
             ">;"
@@ -460,21 +450,27 @@
     .line 42
     sget-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->sClassApis:Ljava/util/Map;
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 44
-    :try_start_4
+    :try_start_0
     invoke-static {}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->parseClassApi()Ljava/util/Map;
 
     move-result-object v0
 
     sput-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->sClassApis:Ljava/util/Map;
-    :try_end_a
-    .catchall {:try_start_4 .. :try_end_a} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_15
+    .line 49
+    :cond_0
+    :goto_0
+    sget-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->sClassApis:Ljava/util/Map;
 
-    :catchall_b
+    return-object v0
+
+    .line 44
+    :catchall_0
     move-exception v0
 
     .line 46
@@ -488,20 +484,16 @@
 
     invoke-static {v1}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
 
-    .line 49
-    :cond_15
-    :goto_15
-    sget-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->sClassApis:Ljava/util/Map;
-
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static getKeySet()Ljava/util/Set;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -510,7 +502,7 @@
     .line 31
     sget-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->keySet:Ljava/util/Set;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 32
     invoke-static {}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->getClassApis()Ljava/util/Map;
@@ -524,18 +516,19 @@
     sput-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->keySet:Ljava/util/Set;
 
     .line 34
-    :cond_e
+    :cond_0
     sget-object v0, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->keySet:Ljava/util/Set;
 
     return-object v0
 .end method
 
 .method private static parseClassApi()Ljava/util/Map;
-    .registers 12
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Lcom/s1243808733/aide/completion/apiversion/ClassApi;",
             ">;"
@@ -550,29 +543,31 @@
         }
     .end annotation
 
-    .line 79
-    new-instance v0, Ljava/util/HashMap;
+    const/4 v2, 0x0
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    .line 79
+    new-instance v4, Ljava/util/HashMap;
+
+    invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
 
     .line 81
     invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 82
-    invoke-virtual {v1}, Ljavax/xml/parsers/DocumentBuilderFactory;->newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;
+    invoke-virtual {v0}, Ljavax/xml/parsers/DocumentBuilderFactory;->newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 85
     invoke-static {}, Lcom/s1243808733/aide/application/App;->getApp()Lcom/s1243808733/aide/application/App;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/s1243808733/aide/application/App;->getAssets()Landroid/content/res/AssetManager;
+    invoke-virtual {v1}, Lcom/s1243808733/aide/application/App;->getAssets()Landroid/content/res/AssetManager;
 
-    move-result-object v2
+    move-result-object v1
 
     const-string v3, "api-versions.xml"
 
@@ -580,199 +575,201 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;
+    invoke-virtual {v1, v3}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
 
     move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;
+
+    move-result-object v0
 
     .line 86
-    const-string v2, "api"
+    const-string v1, "api"
 
-    invoke-interface {v1, v2}, Lorg/w3c/dom/Document;->getElementsByTagName(Ljava/lang/String;)Lorg/w3c/dom/NodeList;
+    invoke-interface {v0, v1}, Lorg/w3c/dom/Document;->getElementsByTagName(Ljava/lang/String;)Lorg/w3c/dom/NodeList;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    invoke-interface {v0, v2}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
-    invoke-interface {v1, v2}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
-
-    move-result-object v1
+    move-result-object v0
 
     .line 87
-    invoke-interface {v1}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
-
-    move-result-object v1
-
-    const/4 v3, 0x0
-
-    .line 88
-    :goto_33
-    invoke-interface {v1}, Lorg/w3c/dom/NodeList;->getLength()I
-
-    move-result v4
-
-    if-ge v3, v4, :cond_aa
-
-    .line 90
-    const/4 v4, 0x1
-
-    :try_start_3a
-    invoke-interface {v1, v3}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
+    invoke-interface {v0}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
 
     move-result-object v5
 
+    move v1, v2
+
+    .line 88
+    :goto_0
+    invoke-interface {v5}, Lorg/w3c/dom/NodeList;->getLength()I
+
+    move-result v0
+
+    if-ge v1, v0, :cond_3
+
+    .line 90
+    :try_start_0
+    invoke-interface {v5, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
+
+    move-result-object v3
+
     .line 91
-    new-instance v6, Lcom/s1243808733/aide/completion/apiversion/ClassApi;
+    new-instance v0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;
 
-    invoke-direct {v6}, Lcom/s1243808733/aide/completion/apiversion/ClassApi;-><init>()V
+    invoke-direct {v0}, Lcom/s1243808733/aide/completion/apiversion/ClassApi;-><init>()V
 
-    invoke-static {v5, v6}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->createApiInfo(Lorg/w3c/dom/Node;Lcom/s1243808733/aide/completion/apiversion/ApiInfo;)Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
+    invoke-static {v3, v0}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->createApiInfo(Lorg/w3c/dom/Node;Lcom/s1243808733/aide/completion/apiversion/ApiInfo;)Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;
+
+    if-nez v0, :cond_0
+
+    .line 119
+    :goto_1
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    goto :goto_0
+
+    .line 95
+    :cond_0
+    iget-object v6, v0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->name:Ljava/lang/String;
+
+    const-string v7, "$"
+
+    const-string v8, "."
+
+    invoke-virtual {v6, v7, v8}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
     move-result-object v6
 
-    check-cast v6, Lcom/s1243808733/aide/completion/apiversion/ClassApi;
+    iput-object v6, v0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->name:Ljava/lang/String;
 
-    if-nez v6, :cond_4c
+    .line 98
+    invoke-interface {v3}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
 
-    goto :goto_a7
+    move-result-object v6
 
-    .line 95
-    :cond_4c
-    iget-object v7, v6, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->name:Ljava/lang/String;
+    move v3, v2
 
-    const-string v8, "$"
+    .line 99
+    :goto_2
+    invoke-interface {v6}, Lorg/w3c/dom/NodeList;->getLength()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    const-string v9, "."
+    move-result v7
 
-    invoke-virtual {v7, v8, v9}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    if-ge v3, v7, :cond_2
+
+    .line 101
+    :try_start_1
+    invoke-interface {v6, v3}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v7
 
-    iput-object v7, v6, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->name:Ljava/lang/String;
-
-    .line 98
-    invoke-interface {v5}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
-
-    move-result-object v5
-
-    const/4 v7, 0x0
-
-    .line 99
-    :goto_5d
-    invoke-interface {v5}, Lorg/w3c/dom/NodeList;->getLength()I
-
-    move-result v8
-    :try_end_61
-    .catchall {:try_start_3a .. :try_end_61} :catchall_9f
-
-    if-ge v7, v8, :cond_99
-
-    .line 101
-    :try_start_63
-    invoke-interface {v5, v7}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
-
-    move-result-object v8
-
     .line 102
-    new-instance v9, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
+    new-instance v8, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
 
-    invoke-direct {v9}, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;-><init>()V
+    invoke-direct {v8}, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;-><init>()V
 
-    invoke-static {v8, v9}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->createApiInfo(Lorg/w3c/dom/Node;Lcom/s1243808733/aide/completion/apiversion/ApiInfo;)Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
+    invoke-static {v7, v8}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->createApiInfo(Lorg/w3c/dom/Node;Lcom/s1243808733/aide/completion/apiversion/ApiInfo;)Lcom/s1243808733/aide/completion/apiversion/ApiInfo;
 
-    move-result-object v8
+    move-result-object v7
 
     .line 104
-    iput-object v6, v8, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->parent:Lcom/s1243808733/aide/completion/apiversion/ClassApi;
+    iput-object v0, v7, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->parent:Lcom/s1243808733/aide/completion/apiversion/ClassApi;
 
     .line 106
-    iget-object v9, v8, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->name:Ljava/lang/String;
+    iget-object v8, v7, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->name:Ljava/lang/String;
 
     .line 107
-    sget-object v10, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->METHOD:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
+    sget-object v9, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->METHOD:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
 
-    iget-object v11, v8, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->type:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
+    iget-object v10, v7, Lcom/s1243808733/aide/completion/apiversion/ApiInfo;->type:Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;
 
-    invoke-virtual {v10, v11}, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Lcom/s1243808733/aide/completion/apiversion/ApiInfo$Type;->equals(Ljava/lang/Object;)Z
 
-    move-result v10
+    move-result v9
 
-    if-eqz v10, :cond_8f
+    if-eqz v9, :cond_1
 
     .line 108
-    iget-object v10, v6, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->apiInfos:Ljava/util/Map;
+    iget-object v9, v0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->apiInfos:Ljava/util/Map;
+
+    const/4 v10, 0x0
 
     const-string v11, ")"
 
-    invoke-virtual {v9, v11}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+    invoke-virtual {v8, v11}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
     move-result v11
 
-    add-int/2addr v11, v4
+    add-int/lit8 v11, v11, 0x1
 
-    invoke-virtual {v9, v2, v11}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v8, v10, v11}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-interface {v10, v9, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_96
+    invoke-interface {v9, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 110
-    :cond_8f
-    iget-object v10, v6, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->apiInfos:Ljava/util/Map;
-
-    invoke-interface {v10, v9, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_94
-    .catchall {:try_start_63 .. :try_end_94} :catchall_95
-
-    goto :goto_96
-
-    .line 119
-    :catchall_95
-    move-exception v8
-
-    .line 110
-    :goto_96
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_5d
-
-    .line 116
-    :cond_99
-    :try_start_99
-    iget-object v5, v6, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->name:Ljava/lang/String;
-
-    invoke-interface {v0, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_9e
-    .catchall {:try_start_99 .. :try_end_9e} :catchall_9f
-
-    goto :goto_a7
-
-    :catchall_9f
-    move-exception v5
-
-    .line 119
-    new-array v4, v4, [Ljava/lang/Object;
-
-    aput-object v5, v4, v2
-
-    invoke-static {v4}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
-
-    :goto_a7
+    :goto_3
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_33
+    goto :goto_2
 
-    :cond_aa
-    return-object v0
+    :cond_1
+    iget-object v9, v0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->apiInfos:Ljava/util/Map;
+
+    invoke-interface {v9, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_3
+
+    .line 119
+    :catchall_0
+    move-exception v7
+
+    goto :goto_3
+
+    .line 116
+    :cond_2
+    :try_start_2
+    iget-object v3, v0, Lcom/s1243808733/aide/completion/apiversion/ClassApi;->name:Ljava/lang/String;
+
+    invoke-interface {v4, v3, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    goto :goto_1
+
+    :catchall_1
+    move-exception v0
+
+    .line 119
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    aput-object v0, v3, v2
+
+    invoke-static {v3}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
+
+    goto :goto_1
+
+    :cond_3
+    return-object v4
 .end method
 
 .method public static preload()V
-    .registers 0
+    .locals 0
 
     .line 38
     invoke-static {}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->getClassApis()Ljava/util/Map;

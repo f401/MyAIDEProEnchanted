@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/ChooseDir$FileAdapter;)V
-    .registers 2
+    .locals 0
 
     .line 138
     iput-object p1, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$1;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;
@@ -36,44 +36,44 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 6
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
     .line 142
-    iget-object p1, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$1;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;
+    iget-object v0, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$1;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;
 
-    invoke-virtual {p1, p3}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->getItem(I)Lcom/s1243808733/util/ChooseDir$FileAdapter$Item;
+    invoke-virtual {v0, p3}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->getItem(I)Lcom/s1243808733/util/ChooseDir$FileAdapter$Item;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 143
-    iget-boolean p2, p1, Lcom/s1243808733/util/ChooseDir$FileAdapter$Item;->isBack:Z
+    iget-boolean v1, v0, Lcom/s1243808733/util/ChooseDir$FileAdapter$Item;->isBack:Z
 
-    if-eqz p2, :cond_10
+    if-eqz v1, :cond_0
 
     .line 144
-    iget-object p1, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$1;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;
+    iget-object v0, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$1;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;
 
-    invoke-static {p1}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->-$$Nest$mgoBack(Lcom/s1243808733/util/ChooseDir$FileAdapter;)Z
-
-    goto :goto_17
+    invoke-static {v0}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->-$$Nest$mgoBack(Lcom/s1243808733/util/ChooseDir$FileAdapter;)Z
 
     .line 146
-    :cond_10
-    iget-object p2, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$1;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;
-
-    iget-object p1, p1, Lcom/s1243808733/util/ChooseDir$FileAdapter$Item;->file:Ljava/io/File;
-
-    invoke-virtual {p2, p1}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->loadDir(Ljava/io/File;)V
-
-    :goto_17
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$1;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;
+
+    iget-object v0, v0, Lcom/s1243808733/util/ChooseDir$FileAdapter$Item;->file:Ljava/io/File;
+
+    invoke-virtual {v1, v0}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->loadDir(Ljava/io/File;)V
+
+    goto :goto_0
 .end method

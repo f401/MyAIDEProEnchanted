@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/co;Ljava/util/ArrayList;JLjava/util/ArrayList;Landroid/app/Activity;)V
-    .registers 7
+    .locals 1
 
     .line 678
     iput-object p1, p0, Lcom/baidu/mobstat/co$2;->e:Lcom/baidu/mobstat/co;
@@ -52,27 +52,27 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .line 681
     iget-object v0, p0, Lcom/baidu/mobstat/co$2;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :goto_6
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_22
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Landroid/view/View;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/View;
 
     .line 682
     iget-object v2, p0, Lcom/baidu/mobstat/co$2;->e:Lcom/baidu/mobstat/co;
@@ -87,12 +87,12 @@
 
     move-result-object v4
 
-    invoke-static {v2, v1, v3, v4}, Lcom/baidu/mobstat/co;->a(Lcom/baidu/mobstat/co;Landroid/view/View;Landroid/view/ViewTreeObserver$OnScrollChangedListener;Ljava/util/List;)V
+    invoke-static {v2, v0, v3, v4}, Lcom/baidu/mobstat/co;->a(Lcom/baidu/mobstat/co;Landroid/view/View;Landroid/view/ViewTreeObserver$OnScrollChangedListener;Ljava/util/List;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 685
-    :cond_22
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/co$2;->e:Lcom/baidu/mobstat/co;
 
     invoke-static {v0}, Lcom/baidu/mobstat/co;->h(Lcom/baidu/mobstat/co;)Landroid/os/Handler;

@@ -14,7 +14,7 @@
 
 # direct methods
 .method public varargs constructor <init>([B)V
-    .registers 2
+    .locals 0
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public readByte()B
-    .registers 4
+    .locals 3
 
     .line 30
     iget-object v0, p0, Lcom/s1243808733/android/dex/util/ByteArrayByteInput;->bytes:[B

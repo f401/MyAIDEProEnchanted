@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/co;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     .line 422
     iput-object p1, p0, Lcom/baidu/mobstat/co$13;->b:Lcom/baidu/mobstat/co;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .line 426
     invoke-static {}, Lcom/baidu/mobstat/cn;->a()Lcom/baidu/mobstat/cn;

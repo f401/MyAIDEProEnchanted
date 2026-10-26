@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static get(Ljava/lang/String;)Lcom/yt/plugin/translate/HttpUtils$Request;
-    .registers 4
+    .locals 3
 
     .line 26
     new-instance v0, Lcom/yt/plugin/translate/HttpUtils$Request;
@@ -37,7 +37,7 @@
 .end method
 
 .method public static post(Ljava/lang/String;)Lcom/yt/plugin/translate/HttpUtils$Request;
-    .registers 4
+    .locals 3
 
     .line 22
     new-instance v0, Lcom/yt/plugin/translate/HttpUtils$Request;

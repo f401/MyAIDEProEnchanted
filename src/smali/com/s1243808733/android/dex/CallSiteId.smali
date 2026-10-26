@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dex/CallSiteId;",
         ">;"
     }
@@ -25,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dex/Dex;I)V
-    .registers 3
+    .locals 0
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,35 +43,35 @@
 
 # virtual methods
 .method public compareTo(Lcom/s1243808733/android/dex/CallSiteId;)I
-    .registers 3
+    .locals 2
 
     .line 37
     iget v0, p0, Lcom/s1243808733/android/dex/CallSiteId;->offset:I
 
-    iget p1, p1, Lcom/s1243808733/android/dex/CallSiteId;->offset:I
+    iget v1, p1, Lcom/s1243808733/android/dex/CallSiteId;->offset:I
 
-    invoke-static {v0, p1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 25
     check-cast p1, Lcom/s1243808733/android/dex/CallSiteId;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/CallSiteId;->compareTo(Lcom/s1243808733/android/dex/CallSiteId;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getCallSiteOffset()I
-    .registers 2
+    .locals 1
 
     .line 41
     iget v0, p0, Lcom/s1243808733/android/dex/CallSiteId;->offset:I
@@ -79,12 +80,12 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 50
     iget-object v0, p0, Lcom/s1243808733/android/dex/CallSiteId;->dex:Lcom/s1243808733/android/dex/Dex;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 51
     iget v0, p0, Lcom/s1243808733/android/dex/CallSiteId;->offset:I
@@ -93,10 +94,11 @@
 
     move-result-object v0
 
+    .line 53
+    :goto_0
     return-object v0
 
-    .line 53
-    :cond_b
+    :cond_0
     invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->protoIds()Ljava/util/List;
 
     move-result-object v0
@@ -113,11 +115,11 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public writeTo(Lcom/s1243808733/android/dex/Dex$Section;)V
-    .registers 3
+    .locals 1
 
     .line 45
     iget v0, p0, Lcom/s1243808733/android/dex/CallSiteId;->offset:I

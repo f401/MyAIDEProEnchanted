@@ -24,8 +24,8 @@
 .field private final a:Lcom/termux/yinli_a/m/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "La/m/a<",
-            "TT;>;"
+            "La/m/a",
+            "<TT;>;"
         }
     .end annotation
 .end field
@@ -33,8 +33,8 @@
 .field private final b:Lcom/termux/yinli_a/k/a/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "La/k/a/a<",
-            "TT;TR;>;"
+            "La/k/a/a",
+            "<TT;TR;>;"
         }
     .end annotation
 .end field
@@ -42,14 +42,14 @@
 
 # direct methods
 .method public constructor <init>(Lcom/termux/yinli_a/m/a;Lcom/termux/yinli_a/k/a/a;)V
-    .registers 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "La/m/a<",
-            "+TT;>;",
-            "La/k/a/a<",
-            "-TT;+TR;>;)V"
+            "La/m/a",
+            "<+TT;>;",
+            "La/k/a/a",
+            "<-TT;+TR;>;)V"
         }
     .end annotation
 
@@ -71,30 +71,30 @@
 .end method
 
 .method public static final synthetic a(Lcom/termux/yinli_a/m/h;)Lcom/termux/yinli_a/m/a;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/termux/yinli_a/m/h;->a:Lcom/termux/yinli_a/m/a;
+    iget-object v0, p0, Lcom/termux/yinli_a/m/h;->a:Lcom/termux/yinli_a/m/a;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static final synthetic b(Lcom/termux/yinli_a/m/h;)Lcom/termux/yinli_a/k/a/a;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/termux/yinli_a/m/h;->b:Lcom/termux/yinli_a/k/a/a;
+    iget-object v0, p0, Lcom/termux/yinli_a/m/h;->b:Lcom/termux/yinli_a/k/a/a;
 
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Iterator<",
-            "TR;>;"
+            "Ljava/util/Iterator",
+            "<TR;>;"
         }
     .end annotation
 

@@ -11,189 +11,169 @@
 
 # direct methods
 .method private static $d2j$hex$3988eb2a$decode_B(Ljava/lang/String;)[B
-    .registers 13
-    .param p0, "src"  # Ljava/lang/String;
+    .locals 11
+
+    const/16 v10, 0x61
+
+    const/16 v9, 0x46
+
+    const/16 v8, 0x41
+
+    const/16 v7, 0x39
+
+    const/16 v6, 0x30
 
     .line 42
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v0
+    move-result-object v3
 
     .line 43
-    .local v0, "d":[C
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    div-int/lit8 v1, v1, 0x2
+    div-int/lit8 v0, v0, 0x2
 
-    new-array v1, v1, [B
+    new-array v4, v0, [B
 
     .line 44
-    .local v1, "ret":[B
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    .local v2, "i":I
-    :goto_d
-    array-length v3, v1
+    :goto_0
+    array-length v1, v4
 
-    if-ge v2, v3, :cond_6b
+    if-ge v0, v1, :cond_6
 
     .line 45
-    mul-int/lit8 v3, v2, 0x2
+    mul-int/lit8 v1, v0, 0x2
 
-    aget-char v3, v0, v3
+    aget-char v1, v3, v1
 
     .line 46
-    .local v3, "h":C
-    mul-int/lit8 v4, v2, 0x2
+    mul-int/lit8 v2, v0, 0x2
 
-    add-int/lit8 v4, v4, 0x1
-
-    aget-char v4, v0, v4
-
-    .line 48
-    .local v4, "l":C
-    const/16 v5, 0x46
-
-    const/16 v6, 0x66
-
-    const/16 v7, 0x39
-
-    const/16 v8, 0x41
-
-    const/16 v9, 0x61
-
-    const/16 v10, 0x30
-
-    if-lt v3, v10, :cond_2d
-
-    if-gt v3, v7, :cond_2d
-
-    .line 49
-    add-int/lit8 v11, v3, -0x30
-
-    .local v11, "hh":I
-    goto :goto_3e
-
-    .line 50
-    .end local v11  # "hh":I
-    :cond_2d
-    if-lt v3, v9, :cond_36
-
-    if-gt v3, v6, :cond_36
-
-    .line 51
-    add-int/lit8 v11, v3, -0x61
-
-    add-int/lit8 v11, v11, 0xa
-
-    .restart local v11  # "hh":I
-    goto :goto_3e
-
-    .line 52
-    .end local v11  # "hh":I
-    :cond_36
-    if-lt v3, v8, :cond_65
-
-    if-gt v3, v5, :cond_65
-
-    .line 53
-    add-int/lit8 v11, v3, -0x41
-
-    add-int/lit8 v11, v11, 0xa
-
-    .line 58
-    .restart local v11  # "hh":I
-    :goto_3e
-    if-lt v4, v10, :cond_45
-
-    if-gt v4, v7, :cond_45
-
-    .line 59
-    add-int/lit8 v5, v4, -0x30
-
-    .local v5, "ll":I
-    goto :goto_56
-
-    .line 60
-    .end local v5  # "ll":I
-    :cond_45
-    if-lt v4, v9, :cond_4e
-
-    if-gt v4, v6, :cond_4e
-
-    .line 61
-    add-int/lit8 v5, v4, -0x61
-
-    add-int/lit8 v5, v5, 0xa
-
-    .restart local v5  # "ll":I
-    goto :goto_56
-
-    .line 62
-    .end local v5  # "ll":I
-    :cond_4e
-    if-lt v4, v8, :cond_5f
-
-    if-gt v4, v5, :cond_5f
-
-    .line 63
-    add-int/lit8 v5, v4, -0x41
-
-    add-int/lit8 v5, v5, 0xa
-
-    .line 67
-    .restart local v5  # "ll":I
-    :goto_56
-    shl-int/lit8 v6, v11, 0x4
-
-    or-int/2addr v6, v5
-
-    int-to-byte v6, v6
-
-    aput-byte v6, v1, v2
-
-    .line 44
-    .end local v3  # "h":C
-    .end local v4  # "l":C
-    .end local v5  # "ll":I
-    .end local v11  # "hh":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_d
+    aget-char v5, v3, v2
+
+    .line 48
+    if-lt v1, v6, :cond_0
+
+    if-gt v1, v7, :cond_0
+
+    .line 49
+    add-int/lit8 v1, v1, -0x30
+
+    move v2, v1
+
+    .line 58
+    :goto_1
+    if-lt v5, v6, :cond_2
+
+    if-gt v5, v7, :cond_2
+
+    .line 59
+    add-int/lit8 v1, v5, -0x30
+
+    .line 67
+    :goto_2
+    shl-int/lit8 v2, v2, 0x4
+
+    or-int/2addr v1, v2
+
+    int-to-byte v1, v1
+
+    aput-byte v1, v4, v0
+
+    .line 44
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 50
+    :cond_0
+    if-lt v1, v10, :cond_1
+
+    const/16 v2, 0x66
+
+    if-gt v1, v2, :cond_1
+
+    .line 51
+    add-int/lit8 v1, v1, -0x61
+
+    add-int/lit8 v1, v1, 0xa
+
+    move v2, v1
+
+    goto :goto_1
+
+    .line 52
+    :cond_1
+    if-lt v1, v8, :cond_5
+
+    if-gt v1, v9, :cond_5
+
+    .line 53
+    add-int/lit8 v1, v1, -0x41
+
+    add-int/lit8 v1, v1, 0xa
+
+    move v2, v1
+
+    goto :goto_1
+
+    .line 60
+    :cond_2
+    if-lt v5, v10, :cond_3
+
+    const/16 v1, 0x66
+
+    if-gt v5, v1, :cond_3
+
+    .line 61
+    add-int/lit8 v1, v5, -0x61
+
+    add-int/lit8 v1, v1, 0xa
+
+    goto :goto_2
+
+    .line 62
+    :cond_3
+    if-lt v5, v8, :cond_4
+
+    if-gt v5, v9, :cond_4
+
+    .line 63
+    add-int/lit8 v1, v5, -0x41
+
+    add-int/lit8 v1, v1, 0xa
+
+    goto :goto_2
 
     .line 65
-    .restart local v3  # "h":C
-    .restart local v4  # "l":C
-    .restart local v11  # "hh":I
-    :cond_5f
-    new-instance v5, Ljava/lang/RuntimeException;
+    :cond_4
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v5}, Ljava/lang/RuntimeException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V
 
-    throw v5
+    throw v0
 
     .line 55
-    .end local v11  # "hh":I
-    :cond_65
-    new-instance v5, Ljava/lang/RuntimeException;
+    :cond_5
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v5}, Ljava/lang/RuntimeException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V
 
-    throw v5
+    throw v0
 
     .line 69
-    .end local v2  # "i":I
-    .end local v3  # "h":C
-    .end local v4  # "l":C
-    :cond_6b
-    return-object v1
+    :cond_6
+    return-object v4
 .end method
 
 .method private static $d2j$hex$3988eb2a$decode_I(Ljava/lang/String;)[I
-    .registers 5
-    .param p0, "src"  # Ljava/lang/String;
+    .locals 3
 
     .line 22
     invoke-static {p0}, Lcom/baidu/mobstat/fe;->$d2j$hex$3988eb2a$decode_B(Ljava/lang/String;)[B
@@ -201,13 +181,11 @@
     move-result-object v0
 
     .line 23
-    .local v0, "d":[B
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
     .line 24
-    .local v1, "b":Ljava/nio/ByteBuffer;
     sget-object v2, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -215,27 +193,24 @@
     .line 25
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 26
-    .local v2, "s":Ljava/nio/IntBuffer;
-    array-length v3, v0
+    array-length v0, v0
 
-    div-int/lit8 v3, v3, 0x4
+    div-int/lit8 v0, v0, 0x4
 
-    new-array v3, v3, [I
+    new-array v0, v0, [I
 
     .line 27
-    .local v3, "data":[I
-    invoke-virtual {v2, v3}, Ljava/nio/IntBuffer;->get([I)Ljava/nio/IntBuffer;
+    invoke-virtual {v1, v0}, Ljava/nio/IntBuffer;->get([I)Ljava/nio/IntBuffer;
 
     .line 28
-    return-object v3
+    return-object v0
 .end method
 
 .method private static $d2j$hex$3988eb2a$decode_J(Ljava/lang/String;)[J
-    .registers 5
-    .param p0, "src"  # Ljava/lang/String;
+    .locals 3
 
     .line 12
     invoke-static {p0}, Lcom/baidu/mobstat/fe;->$d2j$hex$3988eb2a$decode_B(Ljava/lang/String;)[B
@@ -243,13 +218,11 @@
     move-result-object v0
 
     .line 13
-    .local v0, "d":[B
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
     .line 14
-    .local v1, "b":Ljava/nio/ByteBuffer;
     sget-object v2, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -257,27 +230,24 @@
     .line 15
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asLongBuffer()Ljava/nio/LongBuffer;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 16
-    .local v2, "s":Ljava/nio/LongBuffer;
-    array-length v3, v0
+    array-length v0, v0
 
-    div-int/lit8 v3, v3, 0x8
+    div-int/lit8 v0, v0, 0x8
 
-    new-array v3, v3, [J
+    new-array v0, v0, [J
 
     .line 17
-    .local v3, "data":[J
-    invoke-virtual {v2, v3}, Ljava/nio/LongBuffer;->get([J)Ljava/nio/LongBuffer;
+    invoke-virtual {v1, v0}, Ljava/nio/LongBuffer;->get([J)Ljava/nio/LongBuffer;
 
     .line 18
-    return-object v3
+    return-object v0
 .end method
 
 .method private static $d2j$hex$3988eb2a$decode_S(Ljava/lang/String;)[S
-    .registers 5
-    .param p0, "src"  # Ljava/lang/String;
+    .locals 3
 
     .line 32
     invoke-static {p0}, Lcom/baidu/mobstat/fe;->$d2j$hex$3988eb2a$decode_B(Ljava/lang/String;)[B
@@ -285,13 +255,11 @@
     move-result-object v0
 
     .line 33
-    .local v0, "d":[B
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
     .line 34
-    .local v1, "b":Ljava/nio/ByteBuffer;
     sget-object v2, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -299,26 +267,24 @@
     .line 35
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 36
-    .local v2, "s":Ljava/nio/ShortBuffer;
-    array-length v3, v0
+    array-length v0, v0
 
-    div-int/lit8 v3, v3, 0x2
+    div-int/lit8 v0, v0, 0x2
 
-    new-array v3, v3, [S
+    new-array v0, v0, [S
 
     .line 37
-    .local v3, "data":[S
-    invoke-virtual {v2, v3}, Ljava/nio/ShortBuffer;->get([S)Ljava/nio/ShortBuffer;
+    invoke-virtual {v1, v0}, Ljava/nio/ShortBuffer;->get([S)Ljava/nio/ShortBuffer;
 
     .line 38
-    return-object v3
+    return-object v0
 .end method
 
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 15
     sget-object v0, Ljava/nio/charset/CodingErrorAction;->REPORT:Ljava/nio/charset/CodingErrorAction;
@@ -338,7 +304,7 @@
 .end method
 
 .method public static a(Ljava/nio/ByteBuffer;)Ljava/lang/String;
-    .registers 3
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/baidu/mobstat/ej;
@@ -367,7 +333,7 @@
     invoke-virtual {v0, v1}, Ljava/nio/charset/CharsetDecoder;->onUnmappableCharacter(Ljava/nio/charset/CodingErrorAction;)Ljava/nio/charset/CharsetDecoder;
 
     .line 76
-    :try_start_14
+    :try_start_0
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->mark()Ljava/nio/Buffer;
 
     .line 77
@@ -381,26 +347,26 @@
 
     .line 78
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->reset()Ljava/nio/Buffer;
-    :try_end_22
-    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_14 .. :try_end_22} :catch_23
+    :try_end_0
+    .catch Ljava/nio/charset/CharacterCodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v0
 
-    :catch_23
-    move-exception p0
+    :catch_0
+    move-exception v0
 
     .line 80
-    new-instance v0, Lcom/baidu/mobstat/ej;
+    new-instance v1, Lcom/baidu/mobstat/ej;
 
-    const/16 v1, 0x3ef
+    const/16 v2, 0x3ef
 
-    invoke-direct {v0, v1, p0}, Lcom/baidu/mobstat/ej;-><init>(ILjava/lang/Throwable;)V
+    invoke-direct {v1, v2, v0}, Lcom/baidu/mobstat/ej;-><init>(ILjava/lang/Throwable;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public static a([BII)Ljava/lang/String;
-    .registers 5
+    .locals 2
 
     .line 45
     :try_start_0
@@ -409,43 +375,47 @@
     const-string v1, "ASCII"
 
     invoke-direct {v0, p0, p1, p2, v1}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
-    :try_end_7
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v0
 
-    :catch_8
-    move-exception p0
+    :catch_0
+    move-exception v0
 
     .line 47
-    new-instance p1, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method public static a(Ljava/nio/ByteBuffer;I)Z
-    .registers 8
+    .locals 6
+
+    const/4 v1, 0x1
+
+    const/4 v0, 0x0
 
     .line 121
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v0
+    move-result v3
 
-    const/4 v1, 0x0
+    if-ge v3, p1, :cond_1
 
-    if-ge v0, p1, :cond_8
+    .line 127
+    :cond_0
+    :goto_0
+    return v0
 
-    return v1
+    :cond_1
+    move v2, v0
 
-    :cond_8
-    const/4 v2, 0x0
-
-    :goto_9
-    const/4 v3, 0x1
-
-    if-ge p1, v0, :cond_23
+    .line 121
+    :goto_1
+    if-ge p1, v3, :cond_2
 
     .line 127
     sget-object v4, Lcom/baidu/mobstat/fe;->b:[I
@@ -466,80 +436,79 @@
 
     aget v2, v4, v2
 
-    if-ne v2, v3, :cond_20
+    if-eq v2, v1, :cond_0
 
-    return v1
-
-    :cond_20
     add-int/lit8 p1, p1, 0x1
 
-    goto :goto_9
+    goto :goto_1
 
-    :cond_23
-    return v3
+    :cond_2
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public static a(Ljava/lang/String;)[B
-    .registers 2
+    .locals 2
 
     .line 22
     :try_start_0
     const-string v0, "UTF8"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object p0
-    :try_end_6
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_6} :catch_7
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
-    :catch_7
-    move-exception p0
+    :catch_0
+    move-exception v0
 
     .line 24
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public static b(Ljava/nio/ByteBuffer;)Z
-    .registers 2
+    .locals 1
 
     .line 142
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lcom/baidu/mobstat/fe;->a(Ljava/nio/ByteBuffer;I)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static b(Ljava/lang/String;)[B
-    .registers 2
+    .locals 2
 
     .line 33
     :try_start_0
     const-string v0, "ASCII"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object p0
-    :try_end_6
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_6} :catch_7
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
-    :catch_7
-    move-exception p0
+    :catch_0
+    move-exception v0
 
     .line 35
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v0
+    throw v1
 .end method

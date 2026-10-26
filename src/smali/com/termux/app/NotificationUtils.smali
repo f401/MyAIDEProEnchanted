@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,16 +34,18 @@
 .end method
 
 .method public static geNotificationBuilder(Landroid/content/Context;Ljava/lang/String;ILjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/app/PendingIntent;I)Landroid/app/Notification$Builder;
-    .registers 10
+    .locals 3
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    .line 78
+    :goto_0
+    return-object v0
 
     .line 66
-    :cond_4
+    :cond_0
     new-instance v0, Landroid/app/Notification$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
@@ -55,15 +57,15 @@
     invoke-virtual {v0, p4}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     .line 69
-    new-instance p0, Landroid/app/Notification$BigTextStyle;
+    new-instance v1, Landroid/app/Notification$BigTextStyle;
 
-    invoke-direct {p0}, Landroid/app/Notification$BigTextStyle;-><init>()V
+    invoke-direct {v1}, Landroid/app/Notification$BigTextStyle;-><init>()V
 
-    invoke-virtual {p0, p5}, Landroid/app/Notification$BigTextStyle;->bigText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigTextStyle;
+    invoke-virtual {v1, p5}, Landroid/app/Notification$BigTextStyle;->bigText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigTextStyle;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Landroid/app/Notification$Builder;->setStyle(Landroid/app/Notification$Style;)Landroid/app/Notification$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setStyle(Landroid/app/Notification$Style;)Landroid/app/Notification$Builder;
 
     .line 70
     invoke-virtual {v0, p6}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
@@ -75,159 +77,163 @@
     invoke-virtual {v0, p2}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
 
     .line 75
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 p2, 0x1a
+    const/16 v2, 0x1a
 
-    if-lt p0, p2, :cond_2d
+    if-lt v1, v2, :cond_1
 
     .line 76
     invoke-static {v0, p1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/Notification$Builder;Ljava/lang/String;)Landroid/app/Notification$Builder;
 
     .line 78
-    :cond_2d
+    :cond_1
     invoke-static {v0, p8}, Lcom/termux/app/NotificationUtils;->setNotificationDefaults(Landroid/app/Notification$Builder;I)Landroid/app/Notification$Builder;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static getNotificationManager(Landroid/content/Context;)Landroid/app/NotificationManager;
-    .registers 2
+    .locals 1
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
-    const/4 p0, 0x0
-
-    return-object p0
+    const/4 v0, 0x0
 
     .line 41
-    :cond_4
+    :goto_0
+    return-object v0
+
+    :cond_0
     const-string v0, "notification"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/app/NotificationManager;
+    check-cast v0, Landroid/app/NotificationManager;
 
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static setNotificationDefaults(Landroid/app/Notification$Builder;I)Landroid/app/Notification$Builder;
-    .registers 2
+    .locals 1
 
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
-    packed-switch p1, :pswitch_data_2c
-
-    goto :goto_28
-
-    .line 130
-    :pswitch_6  #0x8
-    const/4 p1, -0x1
-
-    invoke-virtual {p0, p1}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
-
-    goto :goto_28
-
-    .line 127
-    :pswitch_b  #0x7
-    const/4 p1, 0x6
-
-    invoke-virtual {p0, p1}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
-
-    goto :goto_28
-
-    .line 124
-    :pswitch_10  #0x6
-    const/4 p1, 0x5
-
-    invoke-virtual {p0, p1}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
-
-    goto :goto_28
-
-    .line 121
-    :pswitch_15  #0x5
-    const/4 p1, 0x3
-
-    invoke-virtual {p0, p1}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
-
-    goto :goto_28
-
-    .line 118
-    :pswitch_1a  #0x4
-    const/4 p1, 0x4
-
-    invoke-virtual {p0, p1}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
-
-    goto :goto_28
-
-    .line 115
-    :pswitch_1f  #0x3
-    const/4 p1, 0x2
-
-    invoke-virtual {p0, p1}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
-
-    goto :goto_28
+    packed-switch p1, :pswitch_data_0
 
     .line 112
-    :pswitch_24  #0x2
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
-
-    :goto_28
+    :goto_0
     return-object p0
 
-    :cond_29
+    .line 130
+    :pswitch_0
+    const/4 v0, -0x1
+
+    invoke-virtual {p0, v0}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
+
+    goto :goto_0
+
+    .line 127
+    :pswitch_1
+    const/4 v0, 0x6
+
+    invoke-virtual {p0, v0}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
+
+    goto :goto_0
+
+    .line 124
+    :pswitch_2
+    const/4 v0, 0x5
+
+    invoke-virtual {p0, v0}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
+
+    goto :goto_0
+
+    .line 121
+    :pswitch_3
+    const/4 v0, 0x3
+
+    invoke-virtual {p0, v0}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
+
+    goto :goto_0
+
+    .line 118
+    :pswitch_4
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
+
+    goto :goto_0
+
+    .line 115
+    :pswitch_5
+    const/4 v0, 0x2
+
+    invoke-virtual {p0, v0}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
+
+    goto :goto_0
+
+    .line 112
+    :pswitch_6
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
+
+    goto :goto_0
+
+    :cond_0
     const/4 p0, 0x0
 
-    return-object p0
+    goto :goto_0
 
     nop
 
-    :pswitch_data_2c
+    :pswitch_data_0
     .packed-switch 0x2
-        :pswitch_24  #00000002
-        :pswitch_1f  #00000003
-        :pswitch_1a  #00000004
-        :pswitch_15  #00000005
-        :pswitch_10  #00000006
-        :pswitch_b  #00000007
-        :pswitch_6  #00000008
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static setupNotificationChannel(Landroid/content/Context;Ljava/lang/String;Ljava/lang/CharSequence;I)V
-    .registers 6
+    .locals 2
 
     .line 94
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
 
-    if-ge v0, v1, :cond_7
+    if-ge v0, v1, :cond_1
 
+    .line 100
+    :cond_0
+    :goto_0
     return-void
 
     .line 96
-    :cond_7
+    :cond_1
     invoke-static {p1, p2, p3}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/lang/String;Ljava/lang/CharSequence;I)Landroid/app/NotificationChannel;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 98
     invoke-static {p0}, Lcom/termux/app/NotificationUtils;->getNotificationManager(Landroid/content/Context;)Landroid/app/NotificationManager;
 
-    move-result-object p0
+    move-result-object v1
 
-    if-eqz p0, :cond_14
+    if-eqz v1, :cond_0
 
     .line 100
-    invoke-static {p0, p1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/NotificationManager;Landroid/app/NotificationChannel;)V
+    invoke-static {v1, v0}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Landroid/app/NotificationManager;Landroid/app/NotificationChannel;)V
 
-    :cond_14
-    return-void
+    goto :goto_0
 .end method

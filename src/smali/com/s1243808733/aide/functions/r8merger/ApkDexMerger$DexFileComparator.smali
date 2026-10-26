@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Ljava/io/File;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;)V
-    .registers 2
+    .locals 0
 
     .line 269
     iput-object p1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->this$0:Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;
@@ -43,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;-><init>(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;)V
 
@@ -51,7 +52,7 @@
 .end method
 
 .method private getDexFilePosByName(Ljava/io/File;I)I
-    .registers 5
+    .locals 3
 
     .line 282
     iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->this$0:Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;
@@ -60,74 +61,78 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_1
 
+    .line 290
+    :cond_0
+    :goto_0
     return p2
 
     .line 283
-    :cond_9
+    :cond_1
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 285
-    :try_start_d
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x4
-
     const/4 v1, 0x7
 
-    invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 286
-    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v0
-
+    :try_start_0
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_35
+    add-int/lit8 v2, v2, -0x4
 
-    .line 287
-    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result p1
-    :try_end_26
-    .catchall {:try_start_d .. :try_end_26} :catchall_27
-
-    return p1
-
-    :catchall_27
-    move-exception p1
-
-    .line 290
-    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->this$0:Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;
-
-    invoke-static {v0}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->-$$Nest$fgetmContext(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;)Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    .line 286
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    :cond_35
-    return p2
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 287
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result p2
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    .line 290
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->this$0:Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;
+
+    invoke-static {v1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->-$$Nest$fgetmContext(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;)Lcom/s1243808733/aide/functions/r8merger/R8Log;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .registers 4
+    .locals 2
+
+    const/4 v1, 0x1
 
     .line 273
     iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->this$0:Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;
@@ -136,7 +141,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->this$0:Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;
 
@@ -144,35 +149,34 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     .line 274
-    const/4 v0, 0x1
+    invoke-direct {p0, p1, v1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->getDexFilePosByName(Ljava/io/File;I)I
 
-    invoke-direct {p0, p1, v0}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->getDexFilePosByName(Ljava/io/File;I)I
-
-    move-result p1
+    move-result v0
 
     .line 275
-    invoke-direct {p0, p2, v0}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->getDexFilePosByName(Ljava/io/File;I)I
+    invoke-direct {p0, p2, v1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->getDexFilePosByName(Ljava/io/File;I)I
 
-    move-result p2
+    move-result v1
 
-    sub-int/2addr p1, p2
-
-    return p1
+    sub-int/2addr v0, v1
 
     .line 278
-    :cond_1b
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-virtual {p1, p2}, Ljava/io/File;->compareTo(Ljava/io/File;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 269
     check-cast p1, Ljava/io/File;
@@ -181,7 +185,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;->compare(Ljava/io/File;Ljava/io/File;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

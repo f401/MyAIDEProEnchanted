@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName;)V
-    .registers 2
+    .locals 0
 
     .line 18
     iput-object p1, p0, Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName$1;->this$0:Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName;
@@ -36,18 +36,18 @@
 
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
-    .registers 2
+    .locals 1
 
     .line 23
-    iget-object p1, p0, Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName$1;->this$0:Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName;
+    iget-object v0, p0, Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName$1;->this$0:Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName;->getText()Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->copyToClipboard(Ljava/lang/CharSequence;)V
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->copyToClipboard(Ljava/lang/CharSequence;)V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method

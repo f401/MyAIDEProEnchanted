@@ -50,7 +50,8 @@
 .field mListViewAdapter:Landroid/widget/ArrayAdapter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/widget/ArrayAdapter<",
+            "Landroid/widget/ArrayAdapter",
+            "<",
             "Lcom/termux/terminal/TerminalSession;",
             ">;"
         }
@@ -62,7 +63,8 @@
 .field mStatus:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -78,17 +80,17 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$mtryGetApkFile(Lcom/termux/app/TermuxActivity;)Ljava/util/List;
-    .registers 1
+    .locals 1
 
     invoke-direct {p0}, Lcom/termux/app/TermuxActivity;->tryGetApkFile()Ljava/util/List;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .line 115
     invoke-direct {p0}, Lcom/s1243808733/app/base/BaseActivity;-><init>()V
@@ -159,13 +161,14 @@
 .end method
 
 .method static extractUrls(Ljava/lang/String;)Ljava/util/LinkedHashSet;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/LinkedHashSet<",
+            "Ljava/util/LinkedHashSet",
+            "<",
             "Ljava/lang/CharSequence;",
             ">;"
         }
@@ -191,12 +194,12 @@
     move-result-object v0
 
     .line 1032
-    :goto_11
+    :goto_0
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v2
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_0
 
     .line 1033
     const/4 v2, 0x1
@@ -218,14 +221,20 @@
     .line 1036
     invoke-virtual {v1, v2}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_11
+    goto :goto_0
 
-    :cond_28
+    :cond_0
     return-object v1
 .end method
 
 .method private initDrawerToggle()V
-    .registers 10
+    .locals 8
+
+    const v4, 0x104000a
+
+    const/4 v7, 0x0
+
+    const/4 v6, 0x1
 
     .line 444
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getActionBar()Landroid/app/ActionBar;
@@ -238,46 +247,40 @@
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 446
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
+    invoke-virtual {v0, v6}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     .line 447
-    new-instance v2, Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
+    new-instance v1, Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
 
-    invoke-direct {v2, p0}, Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;-><init>(Landroid/content/Context;)V
 
-    iput-object v2, p0, Lcom/termux/app/TermuxActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
+    iput-object v1, p0, Lcom/termux/app/TermuxActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
 
     .line 449
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
 
     move-result-object v2
 
-    if-nez v2, :cond_1b
+    if-nez v2, :cond_0
 
+    .line 475
+    :goto_0
     return-void
 
     .line 452
-    :cond_1b
-    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
+    :cond_0
+    invoke-virtual {v0, v6}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     .line 453
     new-instance v0, Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;
 
-    iget-object v6, p0, Lcom/termux/app/TermuxActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
+    iget-object v3, p0, Lcom/termux/app/TermuxActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
 
-    const v7, 0x104000a
+    move-object v1, p0
 
-    const v8, 0x104000a
+    move v5, v4
 
-    move-object v3, v0
-
-    move-object v4, p0
-
-    move-object v5, v2
-
-    invoke-direct/range {v3 .. v8}, Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;-><init>(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;II)V
+    invoke-direct/range {v0 .. v5}, Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;-><init>(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;II)V
 
     iput-object v0, p0, Lcom/termux/app/TermuxActivity;->sDrawerToggle:Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;
 
@@ -292,83 +295,87 @@
     .line 457
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v2}, Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;->setProgress(F)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;->setProgress(F)V
 
     .line 460
-    const/4 v0, 0x0
+    :try_start_0
+    new-instance v0, Landroid/util/TypedValue;
 
-    :try_start_3f
-    new-instance v2, Landroid/util/TypedValue;
-
-    invoke-direct {v2}, Landroid/util/TypedValue;-><init>()V
+    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
     .line 461
     invoke-virtual {p0}, Landroid/app/Activity;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v3
+    move-result-object v1
 
-    const v4, 0x1010431
+    const v2, 0x1010431
 
-    invoke-virtual {v3, v4, v2, v1}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
     .line 463
-    nop
-
-    .line 467
     invoke-virtual {p0}, Landroid/app/Activity;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v3
+    move-result-object v1
 
-    iget v2, v2, Landroid/util/TypedValue;->resourceId:I
+    iget v0, v0, Landroid/util/TypedValue;->resourceId:I
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [I
+
+    const/4 v3, 0x0
 
     const v4, 0x1010429
 
-    filled-new-array {v4}, [I
+    aput v4, v2, v3
 
-    move-result-object v4
+    invoke-virtual {v1, v0, v2}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
 
-    invoke-virtual {v3, v2, v4}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
-
-    move-result-object v2
+    move-result-object v0
 
     .line 468
-    invoke-virtual {v2, v0, v0}, Landroid/content/res/TypedArray;->getColor(II)I
+    const/4 v1, 0x0
 
-    move-result v3
+    const/4 v2, 0x0
 
-    if-eqz v3, :cond_6b
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     .line 470
-    iget-object v4, p0, Lcom/termux/app/TermuxActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
+    iget-object v2, p0, Lcom/termux/app/TermuxActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
 
-    invoke-virtual {v4, v3}, Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;->setColor(I)V
+    invoke-virtual {v2, v1}, Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;->setColor(I)V
 
     .line 472
-    :cond_6b
-    invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
-    :try_end_6e
-    .catchall {:try_start_3f .. :try_end_6e} :catchall_6f
+    :cond_1
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_77
+    goto :goto_0
 
-    :catchall_6f
-    move-exception v2
+    :catchall_0
+    move-exception v0
 
     .line 475
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v1, v6, [Ljava/lang/Object;
 
-    aput-object v2, v1, v0
+    aput-object v0, v1, v7
 
     invoke-static {v1}, Lcom/blankj/utilcode/util/LogUtils;->i([Ljava/lang/Object;)V
 
-    :goto_77
-    return-void
+    goto :goto_0
 .end method
 
 .method public static start(Landroid/app/Activity;Ljava/lang/String;)V
-    .registers 4
+    .locals 2
 
     .line 208
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->saveFiles()V
@@ -378,37 +385,40 @@
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Lcom/termux/app/ActivityCollector;->finishOneActivity(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/termux/app/ActivityCollector;->finishOneActivity(Ljava/lang/String;)V
 
     .line 210
-    new-instance v1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-direct {v1, p0, v0}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    const-class v1, Lcom/termux/app/TermuxActivity;
+
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     .line 211
-    const-string v0, "gradle"
+    const-string v1, "gradle"
 
-    invoke-virtual {v1, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 212
-    const/high16 p1, 0x10000000
+    const/high16 v1, 0x10000000
 
-    invoke-virtual {v1, p1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 213
-    invoke-virtual {p0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method
 
 .method private tryGetApkFile()Ljava/util/List;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/io/File;",
             ">;"
         }
@@ -417,7 +427,7 @@
     .line 841
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->GradleBuildShell:Ljava/lang/String;
 
-    if-eqz v0, :cond_56
+    if-eqz v0, :cond_1
 
     .line 842
     new-instance v0, Lcom/termux/app/TermuxActivity$14;
@@ -464,7 +474,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_41
+    if-eqz v1, :cond_0
 
     .line 851
     iget-object v1, v2, Lcom/s1243808733/aide/GradleProject;->outputsApkDebugDir:Ljava/io/File;
@@ -477,10 +487,12 @@
 
     move-result-object v0
 
+    .line 854
+    :goto_0
     return-object v0
 
     .line 853
-    :cond_41
+    :cond_0
     iget-object v1, p0, Lcom/termux/app/TermuxActivity;->GradleBuildShell:Ljava/lang/String;
 
     const-string v3, "assembleRelease"
@@ -489,7 +501,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_56
+    if-eqz v1, :cond_1
 
     .line 854
     iget-object v1, v2, Lcom/s1243808733/aide/GradleProject;->outputsApkReleaseDir:Ljava/io/File;
@@ -502,23 +514,20 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
-    :cond_56
+    :cond_1
     const/4 v0, 0x0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method aapt2error(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 481
-    nop
-
-    .line 482
     const-string v0, "AAPT2 \\w+.*-linux Daemon #0: Daemon startup failed"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -528,31 +537,34 @@
     .line 483
     invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 484
-    invoke-virtual {p1}, Ljava/util/regex/Matcher;->find()Z
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_16
+    if-eqz v1, :cond_0
 
     .line 485
-    invoke-virtual {p1}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
 
-    move-result-object p1
-
-    return-object p1
+    move-result-object v0
 
     .line 488
-    :cond_16
-    const-string p1, "[aapt2_available]"
+    :goto_0
+    return-object v0
 
-    return-object p1
+    :cond_0
+    const-string v0, "[aapt2_available]"
+
+    goto :goto_0
 .end method
 
 .method addNewSession(ZLjava/lang/String;)V
-    .registers 6
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 954
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
@@ -567,82 +579,78 @@
 
     const/16 v1, 0x8
 
-    const/4 v2, 0x0
-
-    if-lt v0, v1, :cond_33
+    if-lt v0, v1, :cond_0
 
     .line 955
-    new-instance p1, Landroid/app/AlertDialog$Builder;
+    new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {p1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const-string p2, "max_terminals_reached_title"
+    const-string v1, "max_terminals_reached_title"
 
-    invoke-static {p2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result p2
+    move-result v1
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 956
-    const-string p2, "max_terminals_reached_message"
+    const-string v1, "max_terminals_reached_message"
 
-    invoke-static {p2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result p2
+    move-result v1
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 957
-    const p2, 0x104000a
+    const v1, 0x104000a
 
-    invoke-virtual {p1, p2, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    goto :goto_4a
+    .line 966
+    :goto_0
+    return-void
 
     .line 959
-    :cond_33
-    nop
-
-    .line 960
+    :cond_0
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
     const-string v1, "/system/bin/sh"
 
     invoke-virtual {v0, v1, v2, v2, p1}, Lcom/termux/app/TermuxService;->createTermSession(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Z)Lcom/termux/terminal/TerminalSession;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p2, :cond_40
+    if-eqz p2, :cond_1
 
     .line 963
-    iput-object p2, p1, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
+    iput-object p2, v0, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
 
     .line 965
-    :cond_40
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
+    :cond_1
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
 
     .line 966
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
+    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
 
-    :goto_4a
-    return-void
+    goto :goto_0
 .end method
 
 .method changeFontSize(Z)V
-    .registers 3
+    .locals 2
 
     .line 1191
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
@@ -650,21 +658,21 @@
     invoke-virtual {v0, p0, p1}, Lcom/termux/app/TermuxPreferences;->changeFontSize(Landroid/content/Context;Z)V
 
     .line 1192
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
 
-    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
 
-    invoke-virtual {v0}, Lcom/termux/app/TermuxPreferences;->getFontSize()I
+    invoke-virtual {v1}, Lcom/termux/app/TermuxPreferences;->getFontSize()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p1, v0}, Lcom/termux/view/TerminalView;->setTextSize(I)V
+    invoke-virtual {v0, v1}, Lcom/termux/view/TerminalView;->setTextSize(I)V
 
     return-void
 .end method
 
 .method checkForFontAndColors()V
-    .registers 7
+    .locals 6
 
     .line 232
     :try_start_0
@@ -695,52 +703,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_33
+    if-eqz v3, :cond_0
 
     .line 238
     new-instance v3, Ljava/io/FileInputStream;
 
     invoke-direct {v3, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_22
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_22} :catch_6d
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 239
-    :try_start_22
+    :try_start_1
     invoke-virtual {v2, v3}, Ljava/util/Properties;->load(Ljava/io/InputStream;)V
-    :try_end_25
-    .catchall {:try_start_22 .. :try_end_25} :catchall_29
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 240
-    :try_start_25
+    :try_start_2
     invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_28
-    .catch Ljava/lang/Exception; {:try_start_25 .. :try_end_28} :catch_6d
-
-    goto :goto_33
-
-    :catchall_29
-    move-exception v0
-
-    .line 238
-    :try_start_2a
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
-
-    goto :goto_32
-
-    :catchall_2e
-    move-exception v1
-
-    :try_start_2f
-    invoke-static {v0, v1}, Lcom/s1243808733/aide/builder/D8Dex$$ExternalSyntheticBackport0;->m(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-
-    :goto_32
-    throw v0
 
     .line 243
-    :cond_33
-    :goto_33
+    :cond_0
     sget-object v1, Lcom/termux/terminal/TerminalColors;->COLOR_SCHEME:Lcom/termux/terminal/TerminalColorScheme;
 
     invoke-virtual {v1, v2}, Lcom/termux/terminal/TerminalColorScheme;->updateWith(Ljava/util/Properties;)V
@@ -750,14 +733,14 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_4d
+    if-eqz v1, :cond_1
 
     .line 245
     invoke-virtual {v1}, Lcom/termux/terminal/TerminalSession;->getEmulator()Lcom/termux/terminal/TerminalEmulator;
 
     move-result-object v2
 
-    if-eqz v2, :cond_4d
+    if-eqz v2, :cond_1
 
     .line 246
     invoke-virtual {v1}, Lcom/termux/terminal/TerminalSession;->getEmulator()Lcom/termux/terminal/TerminalEmulator;
@@ -769,7 +752,7 @@
     invoke-virtual {v1}, Lcom/termux/terminal/TerminalColors;->reset()V
 
     .line 248
-    :cond_4d
+    :cond_1
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->updateBackgroundColor()V
 
     .line 250
@@ -777,38 +760,52 @@
 
     move-result v1
 
-    if-eqz v1, :cond_65
+    if-eqz v1, :cond_2
 
     invoke-virtual {v0}, Ljava/io/File;->length()J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    const-wide/16 v3, 0x0
+    const-wide/16 v4, 0x0
 
-    cmp-long v5, v1, v3
+    cmp-long v1, v2, v4
 
-    if-lez v5, :cond_65
+    if-lez v1, :cond_2
 
     invoke-static {v0}, Landroid/graphics/Typeface;->createFromFile(Ljava/io/File;)Landroid/graphics/Typeface;
 
     move-result-object v0
 
-    goto :goto_67
-
-    :cond_65
-    sget-object v0, Landroid/graphics/Typeface;->MONOSPACE:Landroid/graphics/Typeface;
-
     .line 251
-    :goto_67
+    :goto_0
     iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
 
     invoke-virtual {v1, v0}, Lcom/termux/view/TerminalView;->setTypeface(Landroid/graphics/Typeface;)V
-    :try_end_6c
-    .catch Ljava/lang/Exception; {:try_start_2f .. :try_end_6c} :catch_6d
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_75
+    .line 253
+    :goto_1
+    return-void
 
-    :catch_6d
+    .line 240
+    :catchall_0
+    move-exception v0
+
+    .line 238
+    :try_start_3
+    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    :goto_2
+    :try_start_4
+    throw v0
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+
+    .line 251
+    :catch_0
     move-exception v0
 
     .line 253
@@ -818,12 +815,28 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_75
-    return-void
+    goto :goto_1
+
+    .line 238
+    :catchall_1
+    move-exception v1
+
+    :try_start_5
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/builder/D8Dex$$ExternalSyntheticBackport0;->m(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+
+    goto :goto_2
+
+    .line 250
+    :cond_2
+    sget-object v0, Landroid/graphics/Typeface;->MONOSPACE:Landroid/graphics/Typeface;
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+
+    goto :goto_0
 .end method
 
 .method doPaste()V
-    .registers 3
+    .locals 2
 
     .line 1196
     const-string v0, "clipboard"
@@ -839,12 +852,15 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_1
 
+    .line 1200
+    :cond_0
+    :goto_0
     return-void
 
     .line 1199
-    :cond_f
+    :cond_1
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/content/ClipData;->getItemAt(I)Landroid/content/ClipData$Item;
@@ -860,7 +876,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2d
+    if-nez v1, :cond_0
 
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
@@ -876,68 +892,77 @@
 
     invoke-virtual {v1, v0}, Lcom/termux/terminal/TerminalEmulator;->paste(Ljava/lang/String;)V
 
-    :cond_2d
-    return-void
+    goto :goto_0
 .end method
 
 .method public ensureStoragePermissionGranted()Z
-    .registers 4
+    .locals 4
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
 
     .line 267
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v1, 0x17
+    const/16 v3, 0x17
 
-    const/4 v2, 0x1
-
-    if-lt v0, v1, :cond_1a
+    if-lt v2, v3, :cond_1
 
     .line 268
-    const-string v0, "android.permission.WRITE_EXTERNAL_STORAGE"
+    const-string v2, "android.permission.WRITE_EXTERNAL_STORAGE"
 
-    invoke-static {p0, v0}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Lcom/termux/app/TermuxActivity;Ljava/lang/String;)I
+    invoke-static {p0, v2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Lcom/termux/app/TermuxActivity;Ljava/lang/String;)I
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_10
-
-    return v2
+    if-nez v2, :cond_0
 
     .line 271
-    :cond_10
-    new-array v1, v2, [Ljava/lang/String;
+    :goto_0
+    return v1
 
-    const/4 v2, 0x0
+    :cond_0
+    new-array v1, v1, [Ljava/lang/String;
 
-    aput-object v0, v1, v2
+    const-string v2, "android.permission.WRITE_EXTERNAL_STORAGE"
 
-    const/16 v0, 0x4d2
+    aput-object v2, v1, v0
 
-    invoke-virtual {p0, v1, v0}, Lcom/termux/app/TermuxActivity;->requestPermissions([Ljava/lang/String;I)V
+    const/16 v2, 0x4d2
 
-    :cond_1a
-    return v2
+    invoke-virtual {p0, v1, v2}, Lcom/termux/app/TermuxActivity;->requestPermissions([Ljava/lang/String;I)V
+
+    :goto_1
+    move v1, v0
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_1
 .end method
 
 .method public finish()V
-    .registers 2
+    .locals 1
 
     .line 189
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->isFinishing()Z
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 190
     invoke-super {p0}, Lcom/s1243808733/app/base/BaseActivity;->finish()V
 
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
-    .registers 2
+    .locals 1
 
     .line 837
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
@@ -950,7 +975,7 @@
 .end method
 
 .method getDrawer()Landroidj/support/v4/widget/DrawerLayout;
-    .registers 2
+    .locals 1
 
     .line 950
     const-string v0, "drawer_layout"
@@ -969,19 +994,21 @@
 .end method
 
 .method public getStoredCurrentSessionOrLast()Lcom/termux/terminal/TerminalSession;
-    .registers 3
+    .locals 2
 
     .line 1205
     invoke-static {p0}, Lcom/termux/app/TermuxPreferences;->getCurrentSession(Lcom/termux/app/TermuxActivity;)Lcom/termux/terminal/TerminalSession;
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
+    .line 1209
+    :goto_0
     return-object v0
 
     .line 1207
-    :cond_7
+    :cond_0
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
     invoke-virtual {v0}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
@@ -992,14 +1019,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_1
 
     const/4 v0, 0x0
 
-    return-object v0
+    goto :goto_0
 
     .line 1209
-    :cond_15
+    :cond_1
     iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
     invoke-virtual {v1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
@@ -1014,11 +1041,11 @@
 
     check-cast v0, Lcom/termux/terminal/TerminalSession;
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method protected isDisableDrag()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -1026,7 +1053,7 @@
 .end method
 
 .method isHandled(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)Z
-    .registers 5
+    .locals 3
 
     .line 200
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mStatus:Ljava/util/Set;
@@ -1035,39 +1062,41 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object p1, p1, Lcom/termux/terminal/TerminalSession;->mHandle:Ljava/lang/String;
+    iget-object v2, p1, Lcom/termux/terminal/TerminalSession;->mHandle:Ljava/lang/String;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "_"
+    const-string v2, "_"
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method noteSessionInfo()V
-    .registers 4
+    .locals 3
 
     .line 994
     iget-boolean v0, p0, Lcom/termux/app/TermuxActivity;->mIsVisible:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
+    .line 1001
+    :goto_0
     return-void
 
     .line 995
-    :cond_5
+    :cond_0
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
     move-result-object v0
@@ -1118,438 +1147,324 @@
     .line 1001
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->smoothScrollToPosition(I)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public onContextItemSelected(Landroid/view/MenuItem;)Z
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const/4 v0, 0x1
 
     .line 1100
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 1102
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    packed-switch v1, :pswitch_data_ea
+    packed-switch v2, :pswitch_data_0
 
     .line 1173
-    :pswitch_d  #0x2
+    :pswitch_0
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/BaseActivity;->onContextItemSelected(Landroid/view/MenuItem;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    :cond_0
+    :goto_0
+    return v0
 
     .line 1170
-    :pswitch_12  #0x8
-    new-instance p1, Landroid/content/Intent;
+    :pswitch_1
+    new-instance v1, Landroid/content/Intent;
 
-    const-class v0, Lcom/termux/app/TermuxHelpActivity;
+    const-class v2, Lcom/termux/app/TermuxHelpActivity;
 
-    invoke-direct {p1, p0, v0}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v1, p0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;)V
 
-    return v3
+    goto :goto_0
 
     .line 1167
-    :pswitch_1d  #0x7
+    :pswitch_2
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->toggleImmersive()V
 
-    return v3
+    goto :goto_0
 
     .line 1144
-    :pswitch_21  #0x6
-    new-instance p1, Landroid/content/Intent;
+    :pswitch_3
+    new-instance v1, Landroid/content/Intent;
 
-    invoke-direct {p1}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
     .line 1145
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getPackageName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string v1, "com.termux.styling.TermuxStyleActivity"
+    const-string v3, "com.termux.styling.TermuxStyleActivity"
 
-    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 1147
-    :try_start_2f
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;)V
-    :try_end_32
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_2f .. :try_end_32} :catch_35
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_2f .. :try_end_32} :catch_33
+    :try_start_0
+    invoke-virtual {p0, v1}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_5d
+    goto :goto_0
 
     .line 1151
-    :catch_33
-    move-exception p1
+    :catch_0
+    move-exception v1
 
-    goto :goto_36
+    :goto_1
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    :catch_35
-    move-exception p1
-
-    :goto_36
-    new-instance p1, Landroid/app/AlertDialog$Builder;
-
-    invoke-direct {p1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 1152
-    const-string v0, "styling_not_installed"
+    const-string v2, "styling_not_installed"
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v2
 
-    invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 1154
-    const-string v0, "styling_install"
+    const-string v2, "styling_install"
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v2
 
-    new-instance v1, Lcom/termux/app/TermuxActivity$18;
+    new-instance v3, Lcom/termux/app/TermuxActivity$18;
 
-    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$18;-><init>(Lcom/termux/app/TermuxActivity;)V
+    invoke-direct {v3, p0}, Lcom/termux/app/TermuxActivity$18;-><init>(Lcom/termux/app/TermuxActivity;)V
 
     .line 1153
-    invoke-virtual {p1, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 1161
-    const/high16 v0, 0x1040000
+    const/high16 v2, 0x1040000
 
-    invoke-virtual {p1, v0, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 1162
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    :goto_5d
-    return v3
+    goto :goto_0
 
-    :pswitch_5e  #0x5
-    if-eqz v0, :cond_74
+    :pswitch_4
+    if-eqz v1, :cond_0
 
     .line 1137
-    invoke-virtual {v0}, Lcom/termux/terminal/TerminalSession;->reset()V
+    invoke-virtual {v1}, Lcom/termux/terminal/TerminalSession;->reset()V
 
     .line 1138
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object v1
 
-    const-string v0, "reset_toast_notification"
+    const-string v2, "reset_toast_notification"
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v2
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p0, p1, v3}, Lcom/termux/app/TermuxActivity;->showToast(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v1, v0}, Lcom/termux/app/TermuxActivity;->showToast(Ljava/lang/String;Z)V
 
-    :cond_74
-    return v3
+    goto :goto_0
 
     .line 1119
-    :pswitch_75  #0x4
-    new-instance p1, Landroid/app/AlertDialog$Builder;
+    :pswitch_5
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {p1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 1120
-    const v0, 0x1080027
+    const v2, 0x1080027
 
-    invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
 
     .line 1121
-    const-string v0, "confirm_kill_process"
+    const-string v2, "confirm_kill_process"
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v2
 
-    invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     .line 1122
-    new-instance v0, Lcom/termux/app/TermuxActivity$17;
+    const v2, 0x1040013
 
-    invoke-direct {v0, p0}, Lcom/termux/app/TermuxActivity$17;-><init>(Lcom/termux/app/TermuxActivity;)V
+    new-instance v3, Lcom/termux/app/TermuxActivity$17;
 
-    const v1, 0x1040013
+    invoke-direct {v3, p0}, Lcom/termux/app/TermuxActivity$17;-><init>(Lcom/termux/app/TermuxActivity;)V
 
-    invoke-virtual {p1, v1, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 1131
-    const v0, 0x1040009
+    const v2, 0x1040009
 
-    invoke-virtual {p1, v0, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 1132
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    return v3
+    goto/16 :goto_0
 
     .line 1116
-    :pswitch_9e  #0x3
+    :pswitch_6
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->doPaste()V
 
-    return v3
+    goto/16 :goto_0
 
-    :pswitch_a2  #0x1
-    if-eqz v0, :cond_e5
+    :pswitch_7
+    if-eqz v1, :cond_0
 
     .line 1108
-    new-instance p1, Landroid/content/Intent;
+    new-instance v2, Landroid/content/Intent;
 
-    const-string v1, "android.intent.action.SEND"
+    const-string v3, "android.intent.action.SEND"
 
-    invoke-direct {p1, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 1109
-    const-string v1, "text/plain"
+    const-string v3, "text/plain"
 
-    invoke-virtual {p1, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v3}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 1110
-    invoke-virtual {v0}, Lcom/termux/terminal/TerminalSession;->getEmulator()Lcom/termux/terminal/TerminalEmulator;
+    const-string v3, "android.intent.extra.TEXT"
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/termux/terminal/TerminalSession;->getEmulator()Lcom/termux/terminal/TerminalEmulator;
 
-    invoke-virtual {v0}, Lcom/termux/terminal/TerminalEmulator;->getScreen()Lcom/termux/terminal/TerminalBuffer;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/termux/terminal/TerminalEmulator;->getScreen()Lcom/termux/terminal/TerminalBuffer;
 
-    invoke-virtual {v0}, Lcom/termux/terminal/TerminalBuffer;->getTranscriptText()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/termux/terminal/TerminalBuffer;->getTranscriptText()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    const-string v1, "android.intent.extra.TEXT"
+    move-result-object v1
 
-    invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v3, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 1111
-    const-string v0, "share_transcript_title"
-
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
     const-string v1, "android.intent.extra.SUBJECT"
 
-    invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const-string v3, "share_transcript_title"
+
+    invoke-static {v3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {p0, v3}, Lcom/termux/app/TermuxActivity;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 1112
-    const-string v0, "share_transcript_chooser_title"
+    const-string v1, "share_transcript_chooser_title"
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lcom/termux/app/TermuxActivity;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {p1, v0}, Landroid/content/Intent;->createChooser(Landroid/content/Intent;Ljava/lang/CharSequence;)Landroid/content/Intent;
+    invoke-static {v2, v1}, Landroid/content/Intent;->createChooser(Landroid/content/Intent;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Lcom/termux/app/TermuxActivity;->startActivity(Landroid/content/Intent;)V
 
-    :cond_e5
-    return v3
+    goto/16 :goto_0
 
     .line 1104
-    :pswitch_e6  #0x0
+    :pswitch_8
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->showUrlSelection()V
 
-    return v3
+    goto/16 :goto_0
 
-    :pswitch_data_ea
+    .line 1151
+    :catch_1
+    move-exception v1
+
+    goto/16 :goto_1
+
+    nop
+
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_e6  #00000000
-        :pswitch_a2  #00000001
-        :pswitch_d  #00000002
-        :pswitch_9e  #00000003
-        :pswitch_75  #00000004
-        :pswitch_5e  #00000005
-        :pswitch_21  #00000006
-        :pswitch_1d  #00000007
-        :pswitch_12  #00000008
+        :pswitch_8
+        :pswitch_7
+        :pswitch_0
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .registers 6
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 282
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 284
-    new-instance p1, Lcom/termux/app/TermuxPreferences;
+    new-instance v0, Lcom/termux/app/TermuxPreferences;
 
-    invoke-direct {p1, p0}, Lcom/termux/app/TermuxPreferences;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/termux/app/TermuxPreferences;-><init>(Landroid/content/Context;)V
 
-    iput-object p1, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
+    iput-object v0, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
 
     .line 286
-    const-string p1, "drawer_layout"
+    const-string v0, "drawer_layout"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getLayoutIdByName(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getLayoutIdByName(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->setContentView(I)V
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->setContentView(I)V
 
     .line 287
-    const-string p1, "terminal_view"
+    const-string v0, "terminal_view"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/termux/view/TerminalView;
-
-    iput-object p1, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
-
-    .line 288
-    new-instance v0, Lcom/termux/app/TermuxViewClient;
-
-    invoke-direct {v0, p0}, Lcom/termux/app/TermuxViewClient;-><init>(Lcom/termux/app/TermuxActivity;)V
-
-    invoke-virtual {p1, v0}, Lcom/termux/view/TerminalView;->setOnKeyListener(Lcom/termux/view/TerminalViewClient;)V
-
-    .line 290
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
-
-    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
-
-    invoke-virtual {v0}, Lcom/termux/app/TermuxPreferences;->getFontSize()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Lcom/termux/view/TerminalView;->setTextSize(I)V
-
-    .line 291
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mFullScreenHelper:Lcom/termux/app/FullScreenHelper;
-
-    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
-
-    invoke-virtual {v0}, Lcom/termux/app/TermuxPreferences;->isFullScreen()Z
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Lcom/termux/app/FullScreenHelper;->setImmersive(Z)V
-
-    .line 292
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
-
-    invoke-virtual {p1}, Lcom/termux/view/TerminalView;->requestFocus()Z
-
-    .line 294
-    invoke-direct {p0}, Lcom/termux/app/TermuxActivity;->initDrawerToggle()V
-
-    .line 296
-    const-string p1, "viewpager"
-
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroidj/support/v4/view/ViewPager;
-
-    .line 297
-    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
-
-    invoke-virtual {v0}, Lcom/termux/app/TermuxPreferences;->isShowExtraKeys()Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_5f
-
-    invoke-virtual {p1, v1}, Landroidj/support/v4/view/ViewPager;->setVisibility(I)V
-
-    .line 299
-    :cond_5f
-    new-instance v0, Lcom/termux/app/TermuxActivity$2;
-
-    invoke-direct {v0, p0}, Lcom/termux/app/TermuxActivity$2;-><init>(Lcom/termux/app/TermuxActivity;)V
-
-    invoke-virtual {p1, v0}, Landroidj/support/v4/view/ViewPager;->setAdapter(Landroidj/support/v4/view/PagerAdapter;)V
-
-    .line 349
-    new-instance v0, Lcom/termux/app/TermuxActivity$3;
-
-    invoke-direct {v0, p0, p1}, Lcom/termux/app/TermuxActivity$3;-><init>(Lcom/termux/app/TermuxActivity;Landroidj/support/v4/view/ViewPager;)V
-
-    invoke-virtual {p1, v0}, Landroidj/support/v4/view/ViewPager;->addOnPageChangeListener(Landroidj/support/v4/view/ViewPager$OnPageChangeListener;)V
-
-    .line 362
-    const-string p1, "new_session_button"
-
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    .line 363
-    new-instance v0, Lcom/termux/app/TermuxActivity$4;
-
-    invoke-direct {v0, p0}, Lcom/termux/app/TermuxActivity$4;-><init>(Lcom/termux/app/TermuxActivity;)V
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 370
-    new-instance v0, Lcom/termux/app/TermuxActivity$5;
-
-    invoke-direct {v0, p0}, Lcom/termux/app/TermuxActivity$5;-><init>(Lcom/termux/app/TermuxActivity;)V
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
-
-    .line 399
-    const-string p1, "toggle_keyboard_button"
-
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
 
@@ -1557,244 +1472,365 @@
 
     move-result-object v0
 
-    new-instance v2, Lcom/termux/app/TermuxActivity$6;
+    check-cast v0, Lcom/termux/view/TerminalView;
 
-    invoke-direct {v2, p0}, Lcom/termux/app/TermuxActivity$6;-><init>(Lcom/termux/app/TermuxActivity;)V
+    iput-object v0, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
+
+    .line 288
+    new-instance v1, Lcom/termux/app/TermuxViewClient;
+
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxViewClient;-><init>(Lcom/termux/app/TermuxActivity;)V
+
+    invoke-virtual {v0, v1}, Lcom/termux/view/TerminalView;->setOnKeyListener(Lcom/termux/view/TerminalViewClient;)V
+
+    .line 290
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
+
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
+
+    invoke-virtual {v1}, Lcom/termux/app/TermuxPreferences;->getFontSize()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/termux/view/TerminalView;->setTextSize(I)V
+
+    .line 291
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mFullScreenHelper:Lcom/termux/app/FullScreenHelper;
+
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
+
+    invoke-virtual {v1}, Lcom/termux/app/TermuxPreferences;->isFullScreen()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/termux/app/FullScreenHelper;->setImmersive(Z)V
+
+    .line 292
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
+
+    invoke-virtual {v0}, Lcom/termux/view/TerminalView;->requestFocus()Z
+
+    .line 294
+    invoke-direct {p0}, Lcom/termux/app/TermuxActivity;->initDrawerToggle()V
+
+    .line 296
+    const-string v0, "viewpager"
+
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroidj/support/v4/view/ViewPager;
+
+    .line 297
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
+
+    invoke-virtual {v1}, Lcom/termux/app/TermuxPreferences;->isShowExtraKeys()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0, v3}, Landroidj/support/v4/view/ViewPager;->setVisibility(I)V
+
+    .line 299
+    :cond_0
+    new-instance v1, Lcom/termux/app/TermuxActivity$2;
+
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$2;-><init>(Lcom/termux/app/TermuxActivity;)V
+
+    invoke-virtual {v0, v1}, Landroidj/support/v4/view/ViewPager;->setAdapter(Landroidj/support/v4/view/PagerAdapter;)V
+
+    .line 349
+    new-instance v1, Lcom/termux/app/TermuxActivity$3;
+
+    invoke-direct {v1, p0, v0}, Lcom/termux/app/TermuxActivity$3;-><init>(Lcom/termux/app/TermuxActivity;Landroidj/support/v4/view/ViewPager;)V
+
+    invoke-virtual {v0, v1}, Landroidj/support/v4/view/ViewPager;->addOnPageChangeListener(Landroidj/support/v4/view/ViewPager$OnPageChangeListener;)V
+
+    .line 362
+    const-string v0, "new_session_button"
+
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 363
+    new-instance v1, Lcom/termux/app/TermuxActivity$4;
+
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$4;-><init>(Lcom/termux/app/TermuxActivity;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 370
+    new-instance v1, Lcom/termux/app/TermuxActivity$5;
+
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$5;-><init>(Lcom/termux/app/TermuxActivity;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+
+    .line 399
+    const-string v0, "toggle_keyboard_button"
+
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/termux/app/TermuxActivity$6;
+
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$6;-><init>(Lcom/termux/app/TermuxActivity;)V
 
     .line 400
-    invoke-virtual {v0, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 410
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+    const-string v0, "toggle_keyboard_button"
 
-    move-result p1
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
 
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
+    move-result v0
 
-    move-result-object p1
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
 
-    new-instance v0, Lcom/termux/app/TermuxActivity$7;
+    move-result-object v0
 
-    invoke-direct {v0, p0}, Lcom/termux/app/TermuxActivity$7;-><init>(Lcom/termux/app/TermuxActivity;)V
+    new-instance v1, Lcom/termux/app/TermuxActivity$7;
+
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$7;-><init>(Lcom/termux/app/TermuxActivity;)V
 
     .line 411
-    invoke-virtual {p1, v0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     .line 420
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
 
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->registerForContextMenu(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->registerForContextMenu(Landroid/view/View;)V
 
     .line 422
-    new-instance p1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const-class v0, Lcom/termux/app/TermuxService;
+    const-class v1, Lcom/termux/app/TermuxService;
 
-    invoke-direct {p1, p0, v0}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     .line 425
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x1a
 
-    const-string v3, "bindService() failed"
-
-    if-lt v0, v2, :cond_cf
+    if-lt v1, v2, :cond_3
 
     .line 426
-    invoke-static {p0, p1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Lcom/termux/app/TermuxActivity;Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-static {p0, v0}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Lcom/termux/app/TermuxActivity;Landroid/content/Intent;)Landroid/content/ComponentName;
 
     .line 427
-    invoke-virtual {p0, p1, p0, v1}, Lcom/termux/app/TermuxActivity;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+    invoke-virtual {p0, v0, p0, v3}, Lcom/termux/app/TermuxActivity;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_c9
-
-    goto :goto_d8
-
-    :cond_c9
-    new-instance p1, Ljava/lang/RuntimeException;
-
-    invoke-direct {p1, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    .line 430
-    :cond_cf
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-
-    .line 431
-    invoke-virtual {p0, p1, p0, v1}, Lcom/termux/app/TermuxActivity;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_dc
+    if-eqz v0, :cond_2
 
     .line 435
-    :goto_d8
+    :cond_1
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->checkForFontAndColors()V
 
     return-void
 
+    .line 427
+    :cond_2
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string v1, "bindService() failed"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 430
+    :cond_3
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
     .line 431
-    :cond_dc
-    new-instance p1, Ljava/lang/RuntimeException;
+    invoke-virtual {p0, v0, p0, v3}, Lcom/termux/app/TermuxActivity;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
-    invoke-direct {p1, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result v0
 
-    throw p1
+    if-nez v0, :cond_1
+
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string v1, "bindService() failed"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public onCreateContextMenu(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V
-    .registers 9
+    .locals 8
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     .line 1007
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
-    move-result-object p2
+    move-result-object v0
 
-    if-nez p2, :cond_7
+    if-nez v0, :cond_0
 
+    .line 1016
+    :goto_0
     return-void
 
     .line 1010
-    :cond_7
-    const-string p3, "select_url"
+    :cond_0
+    const-string v1, "select_url"
 
-    invoke-static {p3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result p3
+    move-result v1
 
-    const/4 v0, 0x0
-
-    invoke-interface {p1, v0, v0, v0, p3}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+    invoke-interface {p1, v6, v6, v6, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
     .line 1011
-    const-string p3, "select_all_and_share"
+    const-string v1, "select_all_and_share"
 
-    invoke-static {p3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result p3
+    move-result v1
 
-    const/4 v1, 0x1
-
-    invoke-interface {p1, v0, v1, v0, p3}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+    invoke-interface {p1, v6, v7, v6, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
     .line 1012
-    const-string p3, "reset_terminal"
+    const/4 v1, 0x5
 
-    invoke-static {p3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
-
-    move-result p3
-
-    const/4 v2, 0x5
-
-    invoke-interface {p1, v0, v2, v0, p3}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
-
-    .line 1013
-    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p3
-
-    const-string v2, "kill_process"
+    const-string v2, "reset_terminal"
 
     invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
     move-result v2
 
-    new-array v3, v1, [Ljava/lang/Object;
+    invoke-interface {p1, v6, v1, v6, v2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+
+    .line 1013
+    const/4 v1, 0x4
+
+    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const-string v3, "kill_process"
+
+    invoke-static {v3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+
+    move-result v3
+
+    new-array v4, v7, [Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Lcom/termux/terminal/TerminalSession;->getPid()I
+    invoke-virtual {v5}, Lcom/termux/terminal/TerminalSession;->getPid()I
 
-    move-result v4
+    move-result v5
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v5
 
-    aput-object v4, v3, v0
+    aput-object v5, v4, v6
 
-    invoke-virtual {p3, v2, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    const/4 v2, 0x4
+    invoke-interface {p1, v6, v1, v6, v2}, Landroid/view/ContextMenu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    invoke-interface {p1, v0, v2, v0, p3}, Landroid/view/ContextMenu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    move-result-object v1
 
-    move-result-object p3
+    invoke-virtual {v0}, Lcom/termux/terminal/TerminalSession;->isRunning()Z
 
-    invoke-virtual {p2}, Lcom/termux/terminal/TerminalSession;->isRunning()Z
+    move-result v0
 
-    move-result p2
-
-    invoke-interface {p3, p2}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+    invoke-interface {v1, v0}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     .line 1014
-    const-string p2, "toggle_fullscreen"
+    const/4 v0, 0x7
 
-    invoke-static {p2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    const-string v1, "toggle_fullscreen"
 
-    move-result p2
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    const/4 p3, 0x7
+    move-result v1
 
-    invoke-interface {p1, v0, p3, v0, p2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+    invoke-interface {p1, v6, v0, v6, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-interface {p2, v1}, Landroid/view/MenuItem;->setCheckable(Z)Landroid/view/MenuItem;
+    invoke-interface {v0, v7}, Landroid/view/MenuItem;->setCheckable(Z)Landroid/view/MenuItem;
 
-    move-result-object p2
+    move-result-object v0
 
-    iget-object p3, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
 
-    invoke-virtual {p3}, Lcom/termux/app/TermuxPreferences;->isFullScreen()Z
+    invoke-virtual {v1}, Lcom/termux/app/TermuxPreferences;->isFullScreen()Z
 
-    move-result p3
+    move-result v1
 
-    invoke-interface {p2, p3}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
     .line 1015
-    const-string p2, "style_terminal"
+    const/4 v0, 0x6
 
-    invoke-static {p2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    const-string v1, "style_terminal"
 
-    move-result p2
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    const/4 p3, 0x6
+    move-result v1
 
-    invoke-interface {p1, v0, p3, v0, p2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+    invoke-interface {p1, v6, v0, v6, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
     .line 1016
-    const-string p2, "help"
+    const/16 v0, 0x8
 
-    invoke-static {p2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    const-string v1, "help"
 
-    move-result p2
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    const/16 p3, 0x8
+    move-result v1
 
-    invoke-interface {p1, v0, p3, v0, p2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+    invoke-interface {p1, v6, v0, v6, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .registers 2
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public onDestroy()V
-    .registers 3
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 939
     invoke-super {p0}, Lcom/s1243808733/app/base/BaseActivity;->onDestroy()V
@@ -1802,93 +1838,94 @@
     .line 941
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 943
-    const/4 v1, 0x0
-
     iput-object v1, v0, Lcom/termux/app/TermuxService;->mSessionChangeCallback:Lcom/termux/terminal/TerminalSession$SessionChangedCallback;
 
     .line 944
     iput-object v1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
     .line 946
-    :cond_c
+    :cond_0
     invoke-virtual {p0, p0}, Lcom/termux/app/TermuxActivity;->unbindService(Landroid/content/ServiceConnection;)V
 
     return-void
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 2
 
     const/4 v0, 0x4
 
-    if-ne p1, v0, :cond_2c
+    if-ne p1, v0, :cond_2
 
     .line 892
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_2
 
     .line 894
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 p2, 0x3
+    const/4 v1, 0x3
 
-    invoke-virtual {p1, p2}, Landroidj/support/v4/widget/DrawerLayout;->isDrawerOpen(I)Z
+    invoke-virtual {v0, v1}, Landroidj/support/v4/widget/DrawerLayout;->isDrawerOpen(I)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 895
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
+    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
 
-    goto :goto_2a
+    .line 901
+    :goto_0
+    const/4 v0, 0x1
+
+    .line 934
+    :goto_1
+    return v0
 
     .line 898
-    :cond_1c
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+    :cond_0
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
-    if-eqz p1, :cond_27
+    if-eqz v0, :cond_1
 
     .line 899
-    invoke-virtual {p1}, Lcom/termux/app/TermuxService;->stop()V
+    invoke-virtual {v0}, Lcom/termux/app/TermuxService;->stop()V
 
     .line 900
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->finish()V
 
-    goto :goto_2a
+    goto :goto_0
 
     .line 901
-    :cond_27
+    :cond_1
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->finish()V
 
-    :goto_2a
-    const/4 p1, 0x1
-
-    return p1
+    goto :goto_0
 
     .line 934
-    :cond_2c
+    :cond_2
     invoke-super {p0, p1, p2}, Lcom/s1243808733/app/base/BaseActivity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_1
 .end method
 
 .method protected onNewIntent(Landroid/content/Intent;)V
-    .registers 2
+    .locals 0
 
     .line 790
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/BaseActivity;->onNewIntent(Landroid/content/Intent;)V
@@ -1897,7 +1934,7 @@
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 2
 
     .line 218
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
@@ -1906,198 +1943,196 @@
 
     const v1, 0x102002c
 
-    if-ne v0, v1, :cond_12
+    if-ne v0, v1, :cond_0
 
     .line 220
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->sDrawerToggle:Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 221
     invoke-virtual {v0, p1}, Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
-    const/4 p1, 0x1
-
-    return p1
+    const/4 v0, 0x1
 
     .line 225
-    :cond_12
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/BaseActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
-    .registers 4
+    .locals 1
 
-    const/16 p2, 0x4d2
+    const/16 v0, 0x4d2
 
-    if-ne p1, p2, :cond_f
+    if-ne p1, v0, :cond_0
 
     .line 1179
-    array-length p1, p3
+    array-length v0, p3
 
-    if-lez p1, :cond_f
+    if-lez v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    aget p1, p3, p1
+    aget v0, p3, v0
 
-    if-nez p1, :cond_f
+    if-nez v0, :cond_0
 
     .line 1180
     invoke-static {p0}, Lcom/termux/app/TermuxInstaller;->setupStorageSymlinks(Landroid/content/Context;)V
 
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 5
+    .locals 4
 
     .line 504
     check-cast p2, Lcom/termux/app/TermuxService$LocalBinder;
 
-    iget-object p1, p2, Lcom/termux/app/TermuxService$LocalBinder;->service:Lcom/termux/app/TermuxService;
+    iget-object v0, p2, Lcom/termux/app/TermuxService$LocalBinder;->service:Lcom/termux/app/TermuxService;
 
-    iput-object p1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+    iput-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
     .line 506
-    new-instance p2, Lcom/termux/app/TermuxActivity$8;
+    new-instance v1, Lcom/termux/app/TermuxActivity$8;
 
-    invoke-direct {p2, p0}, Lcom/termux/app/TermuxActivity$8;-><init>(Lcom/termux/app/TermuxActivity;)V
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$8;-><init>(Lcom/termux/app/TermuxActivity;)V
 
-    iput-object p2, p1, Lcom/termux/app/TermuxService;->mSessionChangeCallback:Lcom/termux/terminal/TerminalSession$SessionChangedCallback;
+    iput-object v1, v0, Lcom/termux/app/TermuxService;->mSessionChangeCallback:Lcom/termux/terminal/TerminalSession$SessionChangedCallback;
 
     .line 683
-    const-string p1, "left_drawer_list"
+    const-string v0, "left_drawer_list"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/ListView;
-
-    .line 684
-    invoke-static {p1}, Lcom/s1243808733/aide/application/AppTheme;->customList(Landroid/widget/ListView;)V
-
-    .line 685
-    nop
-
-    .line 686
-    new-instance p2, Lcom/termux/app/TermuxActivity$9;
-
-    const-string v0, "line_in_drawer"
-
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getLayoutIdByName(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+    move-result-object v0
 
-    move-result-object v1
+    check-cast v0, Landroid/widget/ListView;
 
-    invoke-direct {p2, p0, p0, v0, v1}, Lcom/termux/app/TermuxActivity$9;-><init>(Lcom/termux/app/TermuxActivity;Landroid/content/Context;ILjava/util/List;)V
+    .line 684
+    invoke-static {v0}, Lcom/s1243808733/aide/application/AppTheme;->customList(Landroid/widget/ListView;)V
 
-    iput-object p2, p0, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
+    .line 685
+    new-instance v1, Lcom/termux/app/TermuxActivity$9;
+
+    const-string v2, "line_in_drawer"
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getLayoutIdByName(Ljava/lang/String;)I
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+
+    invoke-virtual {v3}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-direct {v1, p0, p0, v2, v3}, Lcom/termux/app/TermuxActivity$9;-><init>(Lcom/termux/app/TermuxActivity;Landroid/content/Context;ILjava/util/List;)V
+
+    iput-object v1, p0, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
 
     .line 727
-    invoke-virtual {p1, p2}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 728
-    new-instance p2, Lcom/termux/app/TermuxActivity$10;
+    new-instance v1, Lcom/termux/app/TermuxActivity$10;
 
-    invoke-direct {p2, p0}, Lcom/termux/app/TermuxActivity$10;-><init>(Lcom/termux/app/TermuxActivity;)V
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$10;-><init>(Lcom/termux/app/TermuxActivity;)V
 
-    invoke-virtual {p1, p2}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 737
-    new-instance p2, Lcom/termux/app/TermuxActivity$11;
+    new-instance v1, Lcom/termux/app/TermuxActivity$11;
 
-    invoke-direct {p2, p0}, Lcom/termux/app/TermuxActivity$11;-><init>(Lcom/termux/app/TermuxActivity;)V
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$11;-><init>(Lcom/termux/app/TermuxActivity;)V
 
-    invoke-virtual {p1, p2}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
 
     .line 747
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
-    if-eqz p1, :cond_62
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result p1
+    move-result v0
 
-    if-lez p1, :cond_62
+    if-lez v0, :cond_0
 
     .line 748
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 p2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {p1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/termux/terminal/TerminalSession;
+    check-cast v0, Lcom/termux/terminal/TerminalSession;
 
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
-
-    goto :goto_67
-
-    .line 750
-    :cond_62
-    const/4 p1, 0x1
-
-    const/4 p2, 0x0
-
-    invoke-virtual {p0, p1, p2}, Lcom/termux/app/TermuxActivity;->addNewSession(ZLjava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
 
     .line 763
-    :goto_67
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
+    :goto_0
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
 
-    new-instance p2, Lcom/termux/app/TermuxActivity$12;
+    new-instance v1, Lcom/termux/app/TermuxActivity$12;
 
-    invoke-direct {p2, p0}, Lcom/termux/app/TermuxActivity$12;-><init>(Lcom/termux/app/TermuxActivity;)V
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$12;-><init>(Lcom/termux/app/TermuxActivity;)V
 
-    invoke-virtual {p1, p2}, Lcom/termux/view/TerminalView;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Lcom/termux/view/TerminalView;->post(Ljava/lang/Runnable;)Z
 
     return-void
+
+    .line 750
+    :cond_0
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/termux/app/TermuxActivity;->addNewSession(ZLjava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 2
+    .locals 1
 
     .line 829
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
-    if-eqz p1, :cond_7
+    if-eqz v0, :cond_0
 
     .line 831
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->finish()V
 
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method public onStart()V
-    .registers 4
+    .locals 3
 
     .line 862
     invoke-super {p0}, Lcom/s1243808733/app/base/BaseActivity;->onStart()V
@@ -2110,7 +2145,7 @@
     .line 865
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 867
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getStoredCurrentSessionOrLast()Lcom/termux/terminal/TerminalSession;
@@ -2125,7 +2160,7 @@
     invoke-virtual {v0}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
 
     .line 871
-    :cond_16
+    :cond_0
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mBroadcastReceiever:Landroid/content/BroadcastReceiver;
 
     new-instance v1, Landroid/content/IntentFilter;
@@ -2145,7 +2180,7 @@
 .end method
 
 .method protected onStop()V
-    .registers 2
+    .locals 1
 
     .line 880
     invoke-super {p0}, Lcom/s1243808733/app/base/BaseActivity;->onStop()V
@@ -2160,13 +2195,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 883
     invoke-static {p0, v0}, Lcom/termux/app/TermuxPreferences;->storeCurrentSession(Landroid/content/Context;Lcom/termux/terminal/TerminalSession;)V
 
     .line 884
-    :cond_f
+    :cond_0
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mBroadcastReceiever:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
@@ -2182,126 +2217,124 @@
 .end method
 
 .method public removeFinishedSession(Lcom/termux/terminal/TerminalSession;)V
-    .registers 4
+    .locals 3
 
     .line 1231
-    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
-
-    .line 1233
-    invoke-virtual {v0, p1}, Lcom/termux/app/TermuxService;->removeTermSession(Lcom/termux/terminal/TerminalSession;)I
-
-    move-result p1
-
-    .line 1234
-    iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
-
-    invoke-virtual {v1}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
-
-    .line 1235
     iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
-    invoke-virtual {v1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+    .line 1233
+    invoke-virtual {v1, p1}, Lcom/termux/app/TermuxService;->removeTermSession(Lcom/termux/terminal/TerminalSession;)I
 
-    move-result-object v1
+    move-result v0
 
-    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+    .line 1234
+    iget-object v2, p0, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
 
-    move-result v1
+    invoke-virtual {v2}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
 
-    if-eqz v1, :cond_1b
+    .line 1235
+    iget-object v2, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+
+    invoke-virtual {v2}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     .line 1237
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->finish()V
 
-    goto :goto_3c
+    .line 1242
+    :goto_0
+    return-void
 
     .line 1239
-    :cond_1b
-    invoke-virtual {v0}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+    :cond_0
+    invoke-virtual {v1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v2
 
-    if-lt p1, v1, :cond_2f
+    if-lt v0, v2, :cond_1
 
     .line 1240
-    invoke-virtual {v0}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result p1
-
-    add-int/lit8 p1, p1, -0x1
-
-    .line 1242
-    :cond_2f
-    invoke-virtual {v0}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+    invoke-virtual {v1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
 
     move-result-object v0
 
-    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result-object p1
+    move-result v0
 
-    check-cast p1, Lcom/termux/terminal/TerminalSession;
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
+    .line 1242
+    :cond_1
+    invoke-virtual {v1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
 
-    :goto_3c
-    return-void
+    move-result-object v1
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/termux/terminal/TerminalSession;
+
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
+
+    goto :goto_0
 .end method
 
 .method renameSession(Lcom/termux/terminal/TerminalSession;)V
-    .registers 13
+    .locals 10
+
+    const/4 v5, -0x1
+
+    const/4 v6, 0x0
 
     .line 808
-    nop
-
-    .line 810
     const-string v0, "session_rename_title"
 
     invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result v2
+    move-result v1
 
-    iget-object v3, p1, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
+    iget-object v2, p1, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
 
     .line 812
     const-string v0, "session_rename_positive_button"
 
     invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result v4
+    move-result v3
 
-    new-instance v5, Lcom/termux/app/TermuxActivity$13;
+    new-instance v4, Lcom/termux/app/TermuxActivity$13;
 
-    invoke-direct {v5, p0, p1}, Lcom/termux/app/TermuxActivity$13;-><init>(Lcom/termux/app/TermuxActivity;Lcom/termux/terminal/TerminalSession;)V
+    invoke-direct {v4, p0, p1}, Lcom/termux/app/TermuxActivity$13;-><init>(Lcom/termux/app/TermuxActivity;Lcom/termux/terminal/TerminalSession;)V
+
+    move-object v0, p0
+
+    move v7, v5
+
+    move-object v8, v6
+
+    move-object v9, v6
 
     .line 808
-    const/4 v6, -0x1
-
-    const/4 v7, 0x0
-
-    const/4 v8, -0x1
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    move-object v1, p0
-
-    invoke-static/range {v1 .. v10}, Lcom/termux/app/DialogUtils;->textInput(Landroid/app/Activity;ILjava/lang/String;ILcom/termux/app/DialogUtils$TextSetListener;ILcom/termux/app/DialogUtils$TextSetListener;ILcom/termux/app/DialogUtils$TextSetListener;Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-static/range {v0 .. v9}, Lcom/termux/app/DialogUtils;->textInput(Landroid/app/Activity;ILjava/lang/String;ILcom/termux/app/DialogUtils$TextSetListener;ILcom/termux/app/DialogUtils$TextSetListener;ILcom/termux/app/DialogUtils$TextSetListener;Landroid/content/DialogInterface$OnDismissListener;)V
 
     return-void
 .end method
 
 .method setHandled(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
-    .registers 5
+    .locals 3
 
     .line 204
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mStatus:Ljava/util/Set;
@@ -2310,51 +2343,51 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object p1, p1, Lcom/termux/terminal/TerminalSession;->mHandle:Ljava/lang/String;
+    iget-object v2, p1, Lcom/termux/terminal/TerminalSession;->mHandle:Ljava/lang/String;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "_"
+    const-string v2, "_"
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
 .method showToast(Ljava/lang/String;Z)V
-    .registers 3
+    .locals 1
 
     .line 1220
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->isDestroyed()Z
 
-    move-result p2
+    move-result v0
 
-    if-nez p2, :cond_f
+    if-nez v0, :cond_0
 
     .line 1221
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getActionBar()Landroid/app/ActionBar;
 
-    move-result-object p2
+    move-result-object v0
 
-    if-eqz p2, :cond_f
+    if-eqz v0, :cond_0
 
     .line 1223
-    invoke-virtual {p2, p1}, Landroid/app/ActionBar;->setSubtitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroid/app/ActionBar;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method showUrlSelection()V
-    .registers 4
+    .locals 3
 
     .line 1042
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
@@ -2383,7 +2416,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_0
 
     .line 1045
     new-instance v0, Landroid/app/AlertDialog$Builder;
@@ -2402,10 +2435,12 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
+    .line 1095
+    :goto_0
     return-void
 
     .line 1049
-    :cond_2d
+    :cond_0
     invoke-virtual {v0}, Ljava/util/LinkedHashSet;->size()I
 
     move-result v1
@@ -2465,20 +2500,20 @@
     .line 1095
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method switchToSession(Lcom/termux/terminal/TerminalSession;)V
-    .registers 3
+    .locals 1
 
     .line 972
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
 
     invoke-virtual {v0, p1}, Lcom/termux/view/TerminalView;->attachSession(Lcom/termux/terminal/TerminalSession;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_e
+    if-eqz v0, :cond_0
 
     .line 973
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->noteSessionInfo()V
@@ -2486,12 +2521,12 @@
     .line 974
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->updateBackgroundColor()V
 
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public switchToSession(Z)V
-    .registers 4
+    .locals 2
 
     .line 796
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
@@ -2509,67 +2544,68 @@
 
     move-result v0
 
-    if-eqz p1, :cond_20
+    if-eqz p1, :cond_1
 
     add-int/lit8 v0, v0, 0x1
 
     .line 799
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+    invoke-virtual {v1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result p1
+    move-result v1
 
-    if-lt v0, p1, :cond_30
+    if-lt v0, v1, :cond_0
 
     const/4 v0, 0x0
 
-    goto :goto_30
-
-    :cond_20
-    add-int/lit8 v0, v0, -0x1
-
-    if-gez v0, :cond_30
-
-    .line 801
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
-
-    invoke-virtual {p1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result p1
-
-    add-int/lit8 v0, p1, -0x1
-
     .line 803
-    :cond_30
-    :goto_30
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+    :cond_0
+    :goto_0
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+    invoke-virtual {v1}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/termux/terminal/TerminalSession;
+    check-cast v0, Lcom/termux/terminal/TerminalSession;
 
-    invoke-virtual {p0, p1}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
+    invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
 
     return-void
+
+    .line 799
+    :cond_1
+    add-int/lit8 v0, v0, -0x1
+
+    if-gez v0, :cond_0
+
+    .line 801
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
+
+    invoke-virtual {v0}, Lcom/termux/app/TermuxService;->getSessions()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
 .end method
 
 .method toToastTitle(Lcom/termux/terminal/TerminalSession;)Ljava/lang/String;
-    .registers 6
+    .locals 4
 
     .line 979
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mTermService:Lcom/termux/app/TermuxService;
@@ -2597,34 +2633,36 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 981
-    iget-object v1, p1, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
+    iget-object v0, p1, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
 
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    const-string v2, " "
+    const-string v0, " "
 
-    if-nez v1, :cond_36
+    if-nez v1, :cond_0
 
     .line 982
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " "
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v1, p1, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 984
-    :cond_36
+    :cond_0
     invoke-virtual {p1}, Lcom/termux/terminal/TerminalSession;->getTitle()Ljava/lang/String;
 
     move-result-object v1
@@ -2634,35 +2672,36 @@
 
     move-result v3
 
-    if-nez v3, :cond_4d
+    if-nez v3, :cond_1
 
     .line 987
-    iget-object p1, p1, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
+    iget-object v3, p1, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
 
-    if-nez p1, :cond_45
+    if-nez v3, :cond_2
 
-    goto :goto_47
-
-    :cond_45
-    const-string v2, "\n"
-
-    :goto_47
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_0
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 988
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 990
-    :cond_4d
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_1
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
+
+    .line 987
+    :cond_2
+    const-string v0, "\n"
+
+    goto :goto_0
 .end method
 
 .method toggleImmersive()V
-    .registers 3
+    .locals 2
 
     .line 1185
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
@@ -2687,7 +2726,7 @@
 .end method
 
 .method toggleShowExtraKeys()V
-    .registers 4
+    .locals 3
 
     .line 492
     const-string v0, "viewpager"
@@ -2707,22 +2746,17 @@
 
     invoke-virtual {v1, p0}, Lcom/termux/app/TermuxPreferences;->toggleShowExtraKeys(Landroid/content/Context;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_16
+    if-eqz v2, :cond_1
 
-    const/4 v2, 0x0
-
-    goto :goto_18
-
-    :cond_16
-    const/16 v2, 0x8
+    const/4 v1, 0x0
 
     .line 494
-    :goto_18
-    invoke-virtual {v0, v2}, Landroidj/support/v4/view/ViewPager;->setVisibility(I)V
+    :goto_0
+    invoke-virtual {v0, v1}, Landroidj/support/v4/view/ViewPager;->setVisibility(I)V
 
-    if-eqz v1, :cond_31
+    if-eqz v2, :cond_0
 
     .line 495
     invoke-virtual {v0}, Landroidj/support/v4/view/ViewPager;->getCurrentItem()I
@@ -2731,7 +2765,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_31
+    if-ne v0, v1, :cond_0
 
     .line 497
     const-string v0, "text_input"
@@ -2746,26 +2780,32 @@
 
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
-    :cond_31
+    :cond_0
     return-void
+
+    .line 493
+    :cond_1
+    const/16 v1, 0x8
+
+    goto :goto_0
 .end method
 
 .method updateBackgroundColor()V
-    .registers 4
+    .locals 3
 
     .line 258
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
     move-result-object v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 259
     invoke-virtual {v0}, Lcom/termux/terminal/TerminalSession;->getEmulator()Lcom/termux/terminal/TerminalEmulator;
 
     move-result-object v1
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_0
 
     .line 260
     invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getWindow()Landroid/view/Window;
@@ -2790,6 +2830,6 @@
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setBackgroundColor(I)V
 
-    :cond_23
+    :cond_0
     return-void
 .end method

@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dx/rop/code/LocalItem;",
         ">;"
     }
@@ -25,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstString;Lcom/s1243808733/android/dx/rop/cst/CstString;)V
-    .registers 3
+    .locals 0
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,61 +41,65 @@
 .end method
 
 .method private static compareHandlesNulls(Lcom/s1243808733/android/dx/rop/cst/CstString;Lcom/s1243808733/android/dx/rop/cst/CstString;)I
-    .registers 2
+    .locals 1
 
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_4
-    if-nez p0, :cond_8
-
-    const/4 p0, -0x1
-
-    return p0
-
-    :cond_8
-    if-nez p1, :cond_c
-
-    const/4 p0, 0x1
-
-    return p0
+    const/4 v0, 0x0
 
     .line 86
-    :cond_c
+    :goto_0
+    return v0
+
+    .line 4294967295
+    :cond_0
+    if-nez p0, :cond_1
+
+    const/4 v0, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    if-nez p1, :cond_2
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 86
+    :cond_2
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstString;->compareTo(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    goto :goto_0
 .end method
 
 .method public static make(Lcom/s1243808733/android/dx/rop/cst/CstString;Lcom/s1243808733/android/dx/rop/cst/CstString;)Lcom/s1243808733/android/dx/rop/code/LocalItem;
-    .registers 3
+    .locals 1
 
-    if-nez p0, :cond_6
+    if-nez p0, :cond_0
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
-    const/4 p0, 0x0
-
-    return-object p0
+    const/4 v0, 0x0
 
     .line 45
-    :cond_6
+    :goto_0
+    return-object v0
+
+    :cond_0
     new-instance v0, Lcom/s1243808733/android/dx/rop/code/LocalItem;
 
     invoke-direct {v0, p0, p1}, Lcom/s1243808733/android/dx/rop/code/LocalItem;-><init>(Lcom/s1243808733/android/dx/rop/cst/CstString;Lcom/s1243808733/android/dx/rop/cst/CstString;)V
 
-    return-object v0
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/s1243808733/android/dx/rop/code/LocalItem;)I
-    .registers 4
+    .locals 2
 
     .line 95
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->name:Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -105,67 +110,70 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
-
-    return v0
+    if-eqz v0, :cond_0
 
     .line 101
-    :cond_b
+    :goto_0
+    return v0
+
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->signature:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/code/LocalItem;->signature:Lcom/s1243808733/android/dx/rop/cst/CstString;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/rop/code/LocalItem;->signature:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    invoke-static {v0, p1}, Lcom/s1243808733/android/dx/rop/code/LocalItem;->compareHandlesNulls(Lcom/s1243808733/android/dx/rop/cst/CstString;Lcom/s1243808733/android/dx/rop/cst/CstString;)I
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/rop/code/LocalItem;->compareHandlesNulls(Lcom/s1243808733/android/dx/rop/cst/CstString;Lcom/s1243808733/android/dx/rop/cst/CstString;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 24
     check-cast p1, Lcom/s1243808733/android/dx/rop/code/LocalItem;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/rop/code/LocalItem;->compareTo(Lcom/s1243808733/android/dx/rop/code/LocalItem;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
+
+    const/4 v0, 0x0
 
     .line 62
-    instance-of v0, p1, Lcom/s1243808733/android/dx/rop/code/LocalItem;
+    instance-of v1, p1, Lcom/s1243808733/android/dx/rop/code/LocalItem;
 
-    const/4 v1, 0x0
+    if-nez v1, :cond_1
 
-    if-nez v0, :cond_6
-
-    return v1
+    .line 68
+    :cond_0
+    :goto_0
+    return v0
 
     .line 66
-    :cond_6
+    :cond_1
     check-cast p1, Lcom/s1243808733/android/dx/rop/code/LocalItem;
 
     .line 68
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/rop/code/LocalItem;->compareTo(Lcom/s1243808733/android/dx/rop/code/LocalItem;)I
 
-    move-result p1
+    move-result v1
 
-    if-nez p1, :cond_f
+    if-nez v1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_f
-    return v1
+    goto :goto_0
 .end method
 
 .method public getName()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 2
+    .locals 1
 
     .line 133
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->name:Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -174,7 +182,7 @@
 .end method
 
 .method public getSignature()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 2
+    .locals 1
 
     .line 142
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->signature:Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -183,122 +191,132 @@
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
+
+    const/4 v1, 0x0
 
     .line 110
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->name:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    const/4 v1, 0x0
+    if-nez v0, :cond_0
 
-    if-nez v0, :cond_7
-
-    const/4 v0, 0x0
-
-    goto :goto_b
-
-    :cond_7
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->hashCode()I
-
-    move-result v0
+    move v0, v1
 
     .line 111
-    :goto_b
+    :goto_0
     iget-object v2, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->signature:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_1
 
-    goto :goto_14
-
-    :cond_10
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/cst/CstString;->hashCode()I
-
-    move-result v1
-
-    :goto_14
+    :goto_1
     mul-int/lit8 v0, v0, 0x1f
 
     add-int/2addr v0, v1
 
     return v0
+
+    .line 110
+    :cond_0
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->hashCode()I
+
+    move-result v0
+
+    goto :goto_0
+
+    .line 111
+    :cond_1
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/cst/CstString;->hashCode()I
+
+    move-result v1
+
+    goto :goto_1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 117
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->name:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->signature:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_0
 
     .line 118
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 124
+    :goto_0
     return-object v0
 
     .line 119
-    :cond_d
+    :cond_0
     const-string v1, ""
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->signature:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_1
 
-    return-object v1
+    const-string v0, ""
+
+    goto :goto_0
 
     .line 123
-    :cond_16
-    new-instance v0, Ljava/lang/StringBuilder;
+    :cond_1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v2, "["
+    const-string v0, "["
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->name:Lcom/s1243808733/android/dx/rop/cst/CstString;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->name:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-nez v2, :cond_23
+    if-nez v0, :cond_2
 
-    move-object v2, v1
+    const-string v0, ""
 
-    goto :goto_27
+    :goto_1
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_23
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
+    const-string v0, "|"
 
-    move-result-object v2
-
-    :goto_27
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, "|"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 124
-    iget-object v2, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->signature:Lcom/s1243808733/android/dx/rop/cst/CstString;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/LocalItem;->signature:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-nez v2, :cond_34
+    if-nez v0, :cond_3
 
-    goto :goto_38
+    move-object v0, v1
 
-    :cond_34
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
+    :goto_2
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-
-    :goto_38
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
+
+    .line 123
+    :cond_2
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_1
+
+    .line 124
+    :cond_3
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_2
 .end method

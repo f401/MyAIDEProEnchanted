@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 314
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -36,60 +36,60 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 4
+    .locals 3
 
     .line 319
     :try_start_0
-    new-instance p1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v1, "package:"
+    const-string v2, "package:"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
 
     .line 321
-    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "android.settings.action.MANAGE_OVERLAY_PERMISSION"
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, "android.settings.action.MANAGE_OVERLAY_PERMISSION"
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    invoke-direct {p1, v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v0, v2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     .line 322
-    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->startActivity(Landroid/content/Intent;)V
-    :try_end_28
-    .catchall {:try_start_0 .. :try_end_28} :catchall_29
-
-    goto :goto_2d
+    invoke-virtual {v1, v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->startActivity(Landroid/content/Intent;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 324
-    :catchall_29
-    move-exception p1
+    :goto_0
+    const/4 v0, 0x0
+
+    return v0
+
+    :catchall_0
+    move-exception v0
 
     invoke-static {}, Lcom/blankj/utilcode/util/AppUtils;->launchAppDetailsSettings()V
 
-    :goto_2d
-    const/4 p1, 0x0
-
-    return p1
+    goto :goto_0
 .end method

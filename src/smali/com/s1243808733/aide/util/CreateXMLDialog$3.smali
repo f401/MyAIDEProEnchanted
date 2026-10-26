@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/AlertDialog;Landroid/widget/EditText;Ljava/io/File;Lcom/aide/common/ab;)V
-    .registers 5
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -53,58 +53,55 @@
 
 # virtual methods
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .registers 5
+    .locals 4
 
-    const/4 p1, 0x6
+    const/4 v0, 0x6
 
-    if-ne p2, p1, :cond_e
+    if-ne p2, v0, :cond_0
 
     .line 93
-    iget-object p1, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$dialog:Landroid/app/AlertDialog;
 
-    iget-object p2, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$input:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$input:Landroid/widget/EditText;
 
-    iget-object p3, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$createInDirFile:Ljava/io/File;
+    iget-object v2, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$createInDirFile:Ljava/io/File;
 
-    iget-object v0, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$abVar:Lcom/aide/common/ab;
+    iget-object v3, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$abVar:Lcom/aide/common/ab;
 
-    invoke-static {p1, p2, p3, v0}, Lcom/s1243808733/aide/util/CreateXMLDialog;->-$$Nest$smcreateXml(Landroid/app/AlertDialog;Landroid/widget/EditText;Ljava/io/File;Lcom/aide/common/ab;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/s1243808733/aide/util/CreateXMLDialog;->-$$Nest$smcreateXml(Landroid/app/AlertDialog;Landroid/widget/EditText;Ljava/io/File;Lcom/aide/common/ab;)V
 
     .line 95
-    :cond_e
-    iget-object p1, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$input:Landroid/widget/EditText;
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getError()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getError()Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_26
+    if-eqz v0, :cond_1
 
-    iget-object p1, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$3;->val$dialog:Landroid/app/AlertDialog;
 
-    const/4 p2, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/widget/Button;->isEnabled()Z
+    invoke-virtual {v0}, Landroid/widget/Button;->isEnabled()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_24
+    if-eqz v0, :cond_2
 
-    goto :goto_26
+    :cond_1
+    const/4 v0, 0x0
 
-    :cond_24
-    const/4 p1, 0x1
+    :goto_0
+    return v0
 
-    goto :goto_27
+    :cond_2
+    const/4 v0, 0x1
 
-    :cond_26
-    :goto_26
-    const/4 p1, 0x0
-
-    :goto_27
-    return p1
+    goto :goto_0
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(ILorg/antlr/v4/runtime/atn/ATNConfigSet;Ljava/util/BitSet;Lorg/antlr/v4/runtime/TokenStream;IIZ)V
-    .registers 15
+    .locals 7
 
     .line 70
     move-object v0, p0

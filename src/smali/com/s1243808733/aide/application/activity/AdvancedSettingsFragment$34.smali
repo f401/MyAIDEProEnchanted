@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;Landroid/preference/Preference;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 1542
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$34;->val$preference:Landroid/preference/Preference;
@@ -54,10 +54,10 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_0
 
     .line 1545
-    :try_start_8
+    :try_start_0
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -82,7 +82,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_0
 
     .line 1546
     const-string v0, "niubi"
@@ -92,15 +92,15 @@
     move-result-object v1
 
     invoke-static {v0, v1}, Lcom/blankj/utilcode/util/CacheMemoryStaticUtils;->put(Ljava/lang/String;Ljava/lang/Object;)V
-    :try_end_2c
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_2c} :catch_2d
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2e
+    :cond_0
+    :goto_0
+    return-void
 
-    :catch_2d
+    :catch_0
     move-exception v0
 
-    :cond_2e
-    :goto_2e
-    return-void
+    goto :goto_0
 .end method

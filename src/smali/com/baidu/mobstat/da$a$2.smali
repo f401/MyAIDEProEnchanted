@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/da$a;Lcom/baidu/mobstat/df;)V
-    .registers 3
+    .locals 0
 
     .line 326
     iput-object p1, p0, Lcom/baidu/mobstat/da$a$2;->b:Lcom/baidu/mobstat/da$a;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .line 330
     iget-object v0, p0, Lcom/baidu/mobstat/da$a$2;->a:Lcom/baidu/mobstat/df;

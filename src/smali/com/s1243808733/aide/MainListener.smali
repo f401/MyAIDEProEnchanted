@@ -5,7 +5,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$smgetSelectionContent()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     invoke-static {}, Lcom/s1243808733/aide/MainListener;->getSelectionContent()Ljava/lang/String;
 
@@ -15,7 +15,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,9 +24,9 @@
 .end method
 
 .method public static addProjectInfoDialogMoreButton(Landroid/app/AlertDialog$Builder;Landroid/app/Activity;)V
-    .registers 9
+    .locals 8
 
-    if-eqz p0, :cond_84
+    if-eqz p0, :cond_3
 
     .line 554
     const/4 v0, 0x0
@@ -34,161 +34,162 @@
     invoke-virtual {p0, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     .line 556
-    new-instance v0, Landroid/text/SpannableString;
+    new-instance v2, Landroid/text/SpannableString;
 
     invoke-static {}, Lcom/aide/ui/U;->vy()Labcd/Zk;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Labcd/Zk;->QX()Ljava/lang/String;
+    invoke-virtual {v0}, Labcd/Zk;->QX()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
+    invoke-static {v0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
+    invoke-direct {v2, v0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
     .line 557
-    invoke-virtual {v0}, Landroid/text/SpannableString;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/text/SpannableString;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
     .line 559
-    const-string v2, "(?:^|\\s)(/\\S+(?:\\s\\S+)*)(?=\\s|$)"
+    const-string v0, "(?:^|\\s)(/\\S+(?:\\s\\S+)*)(?=\\s|$)"
 
-    invoke-static {v2}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 561
-    invoke-virtual {v2, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    invoke-virtual {v0, v3}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v2
+    move-result-object v4
 
     .line 563
-    const v3, 0x1010212
+    const v0, 0x1010212
 
-    invoke-static {p1, v3}, Lcom/s1243808733/util/Utils;->getThemeAttrColor(Landroid/content/Context;I)I
+    invoke-static {p1, v0}, Lcom/s1243808733/util/Utils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     .line 564
-    :cond_2b
-    :goto_2b
-    invoke-virtual {v2}, Ljava/util/regex/Matcher;->find()Z
+    :cond_0
+    :goto_0
+    invoke-virtual {v4}, Ljava/util/regex/Matcher;->find()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_6e
+    if-eqz v0, :cond_2
 
     .line 565
-    invoke-virtual {v2}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v5
 
     .line 566
-    invoke-static {p1}, Lcom/blankj/utilcode/util/FileUtils;->isFileExists(Ljava/lang/String;)Z
+    invoke-static {v5}, Lcom/blankj/utilcode/util/FileUtils;->isFileExists(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 567
-    invoke-virtual {v2}, Ljava/util/regex/Matcher;->start()I
+    invoke-virtual {v4}, Ljava/util/regex/Matcher;->start()I
 
-    move-result v3
+    move-result v1
 
-    move v4, v3
+    move v0, v1
 
     .line 569
-    :goto_44
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    :goto_1
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    move-result v5
+    move-result v6
 
-    if-ge v4, v5, :cond_5f
+    if-ge v0, v6, :cond_5
 
     .line 570
-    invoke-virtual {v1, v4}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v3, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result v5
+    move-result v6
 
-    const/16 v6, 0x20
+    const/16 v7, 0x20
 
-    if-eq v5, v6, :cond_5c
+    if-eq v6, v7, :cond_1
 
     .line 571
-    invoke-virtual {v1, v4}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v3, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v6
+
+    const/16 v7, 0xa
+
+    if-eq v6, v7, :cond_1
+
+    .line 579
+    :goto_2
+    new-instance v1, Lcom/s1243808733/aide/MainListener$7;
+
+    invoke-direct {v1, v5}, Lcom/s1243808733/aide/MainListener$7;-><init>(Ljava/lang/String;)V
+
+    .line 589
+    invoke-virtual {v4}, Ljava/util/regex/Matcher;->end()I
 
     move-result v5
 
-    const/16 v6, 0xa
-
-    if-eq v5, v6, :cond_5c
-
-    move v3, v4
-
-    goto :goto_5f
-
-    :cond_5c
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_44
-
     .line 579
-    :cond_5f
-    :goto_5f
-    new-instance v4, Lcom/s1243808733/aide/MainListener$7;
+    const/16 v6, 0x21
 
-    invoke-direct {v4, p1}, Lcom/s1243808733/aide/MainListener$7;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2, v1, v0, v5, v6}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    .line 589
-    invoke-virtual {v2}, Ljava/util/regex/Matcher;->end()I
+    goto :goto_0
 
-    move-result p1
+    .line 571
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
 
-    .line 579
-    const/16 v5, 0x21
-
-    invoke-virtual {v0, v4, v3, p1, v5}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
-
-    goto :goto_2b
+    goto :goto_1
 
     .line 597
-    :cond_6e
-    invoke-virtual {p0, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    :cond_2
+    invoke-virtual {p0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 599
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_7a
+    if-eqz v0, :cond_4
 
-    const-string p1, "备份项目"
+    const-string v0, "\u5907\u4efd\u9879\u76ee"
 
-    goto :goto_7c
+    :goto_3
+    new-instance v1, Lcom/s1243808733/aide/MainListener$8;
 
-    :cond_7a
-    const-string p1, "Backup"
+    invoke-direct {v1}, Lcom/s1243808733/aide/MainListener$8;-><init>()V
 
-    :goto_7c
-    new-instance v0, Lcom/s1243808733/aide/MainListener$8;
+    invoke-virtual {p0, v0, v1}, Landroid/app/AlertDialog$Builder;->setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {v0}, Lcom/s1243808733/aide/MainListener$8;-><init>()V
-
-    invoke-virtual {p0, p1, v0}, Landroid/app/AlertDialog$Builder;->setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    :cond_84
+    :cond_3
     return-void
+
+    :cond_4
+    const-string v0, "Backup"
+
+    goto :goto_3
+
+    :cond_5
+    move v0, v1
+
+    goto :goto_2
 .end method
 
 .method private static getSelectionContent()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .line 522
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getAIDEEditorPager()Lcom/aide/ui/AIDEEditorPager;
@@ -203,7 +204,7 @@
 .end method
 
 .method public static onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)V
-    .registers 2
+    .locals 0
 
     .line 515
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainActivity()Lcom/s1243808733/aide/AideMainActivity;
@@ -215,7 +216,7 @@
 .end method
 
 .method public static onAddToProject()V
-    .registers 7
+    .locals 7
 
     .line 341
     invoke-static {}, Lcom/s1243808733/util/Utils;->getMainActivity()Lcom/aide/ui/MainActivity;
@@ -252,23 +253,18 @@
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
     .line 347
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_2d
+    if-eqz v0, :cond_0
 
-    const-string v4, "添加依赖"
+    const-string v0, "\u6dfb\u52a0\u4f9d\u8d56"
 
-    goto :goto_2f
-
-    :cond_2d
-    const-string v4, "Add Dependency"
-
-    :goto_2f
+    :goto_0
     const/4 v5, 0x5
 
     new-array v5, v5, [Ljava/lang/String;
@@ -287,11 +283,11 @@
 
     const/4 v1, 0x3
 
+    aput-object v4, v5, v1
+
+    const/4 v1, 0x4
+
     aput-object v0, v5, v1
-
-    const/4 v0, 0x4
-
-    aput-object v4, v5, v0
 
     .line 349
     new-instance v0, Landroid/app/AlertDialog$Builder;
@@ -327,192 +323,54 @@
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     return-void
+
+    .line 347
+    :cond_0
+    const-string v0, "Add Dependency"
+
+    goto :goto_0
 .end method
 
 .method public static onCnommonEditTextDialogShow(Ljava/lang/Object;Landroid/app/Activity;)Landroid/app/Dialog;
-    .registers 14
+    .locals 13
+
+    const/4 v12, 0x3
+
+    const/4 v11, 0x2
+
+    const/high16 v7, 0x41c00000    # 24.0f
+
+    const/4 v10, 0x0
+
+    const/4 v9, 0x1
 
     .line 70
     invoke-static {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 74
-    const-string v1, "u7"
+    const-string v0, "u7"
 
-    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v1, v0}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v3
 
-    move-object v5, v1
-
-    check-cast v5, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
     .line 82
-    new-instance v6, Landroid/widget/EditText;
+    new-instance v4, Landroid/widget/EditText;
 
-    invoke-direct {v6, p1}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
+    invoke-direct {v4, p1}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
     .line 83
-    const-string v1, "J8"
+    const-string v0, "J8"
 
-    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {v6, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 84
-    const/4 v1, 0x1
-
-    invoke-virtual {v6, v1}, Landroid/widget/EditText;->setSingleLine(Z)V
-
-    .line 86
-    invoke-virtual {v6}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 88
-    new-instance v2, Landroid/widget/LinearLayout;
-
-    invoke-direct {v2, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    .line 89
-    const/high16 v3, 0x41c00000  # 24.0f
-
-    invoke-static {v3}, Lcom/s1243808733/util/Utils;->dp2px(F)I
-
-    move-result v4
-
-    const/high16 v7, 0x41200000  # 10.0f
-
-    invoke-static {v7}, Lcom/s1243808733/util/Utils;->dp2px(F)I
-
-    move-result v7
-
-    invoke-static {v3}, Lcom/s1243808733/util/Utils;->dp2px(F)I
-
-    move-result v3
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v2, v4, v7, v3, v9}, Landroid/widget/LinearLayout;->setPadding(IIII)V
-
-    .line 90
-    invoke-virtual {v2, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
-
-    .line 92
-    const/4 v3, -0x1
-
-    const/4 v4, -0x2
-
-    invoke-virtual {v2, v6, v3, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
-
-    .line 94
-    new-instance v3, Landroid/app/AlertDialog$Builder;
-
-    invoke-direct {v3, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    .line 96
-    const-string v4, "we"
-
-    invoke-virtual {v0, v4}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/String;
-
-    .line 97
-    invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    .line 98
-    invoke-static {v5}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_7d
-
-    .line 99
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    const-string v10, "\n"
-
-    invoke-direct {v7, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v7}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    .line 103
-    :cond_7d
-    invoke-virtual {v3, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
-
-    .line 104
-    const-string v2, "com.aide.common.C"
-
-    invoke-static {v2}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object v2
-
-    const/4 v7, 0x3
-
-    new-array v10, v7, [Ljava/lang/Object;
-
-    aput-object p0, v10, v9
-
-    aput-object p1, v10, v1
-
-    const/4 v11, 0x2
-
-    aput-object v6, v10, v11
-
-    invoke-virtual {v2, v10}, Lcom/blankj/utilcode/util/ReflectUtils;->newInstance([Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/content/DialogInterface$OnClickListener;
-
-    const v10, 0x104000a
-
-    invoke-virtual {v3, v10, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    .line 106
-    const/high16 v2, 0x1040000
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v3, v2, v10}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    .line 108
-    const-string v2, "tp"
-
-    invoke-virtual {v0, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v1, v0}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v0
 
@@ -522,51 +380,61 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-eqz v0, :cond_e8
+    invoke-virtual {v4, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 110
-    sget-object v2, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    .line 84
+    invoke-virtual {v4, v9}, Landroid/widget/EditText;->setSingleLine(Z)V
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    .line 86
+    invoke-virtual {v4}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v10, "none"
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    invoke-virtual {v10, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v6
+
+    .line 88
+    new-instance v0, Landroid/widget/LinearLayout;
+
+    invoke-direct {v0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    .line 89
+    invoke-static {v7}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
     move-result v2
 
-    if-eqz v2, :cond_cd
+    const/high16 v5, 0x41200000    # 10.0f
 
-    .line 111
-    invoke-virtual {p1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-static {v5}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
-    move-result-object v0
+    move-result v5
 
-    const v2, 0x7f0d06a4
+    invoke-static {v7}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result v7
 
-    move-result-object v0
+    invoke-virtual {v0, v2, v5, v7, v10}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 113
-    :cond_cd
-    const-string v2, "com.aide.common.D"
+    .line 90
+    invoke-virtual {v0, v9}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    invoke-static {v2}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+    .line 92
+    const/4 v2, -0x1
 
-    move-result-object v2
+    const/4 v5, -0x2
 
-    new-array v7, v7, [Ljava/lang/Object;
+    invoke-virtual {v0, v4, v2, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
 
-    aput-object p0, v7, v9
+    .line 94
+    new-instance v5, Landroid/app/AlertDialog$Builder;
 
-    aput-object p1, v7, v1
+    invoke-direct {v5, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    aput-object v6, v7, v11
+    .line 96
+    const-string v2, "we"
 
-    invoke-virtual {v2, v7}, Lcom/blankj/utilcode/util/ReflectUtils;->newInstance([Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v2
 
@@ -574,334 +442,473 @@
 
     move-result-object v2
 
-    check-cast v2, Landroid/content/DialogInterface$OnClickListener;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v3, v0, v2}, Landroid/app/AlertDialog$Builder;->setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    .line 97
+    invoke-virtual {v5, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    .line 98
+    invoke-static {v3}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    .line 99
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    const-string v8, "\n"
+
+    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v5, v7}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    .line 103
+    :cond_0
+    invoke-virtual {v5, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+
+    .line 104
+    const v7, 0x104000a
+
+    const-string v0, "com.aide.common.C"
+
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    new-array v8, v12, [Ljava/lang/Object;
+
+    aput-object p0, v8, v10
+
+    aput-object p1, v8, v9
+
+    aput-object v4, v8, v11
+
+    invoke-virtual {v0, v8}, Lcom/blankj/utilcode/util/ReflectUtils;->newInstance([Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/DialogInterface$OnClickListener;
+
+    invoke-virtual {v5, v7, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 106
+    const/high16 v0, 0x1040000
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v5, v0, v7}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 108
+    const-string v0, "tp"
+
+    invoke-virtual {v1, v0}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-eqz v0, :cond_1
+
+    .line 110
+    const-string v1, "none"
+
+    sget-object v7, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {v0, v7}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 111
+    invoke-virtual {p1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0d06a4
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    move-object v1, v0
+
+    .line 113
+    :goto_0
+    const-string v0, "com.aide.common.D"
+
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    new-array v7, v12, [Ljava/lang/Object;
+
+    aput-object p0, v7, v10
+
+    aput-object p1, v7, v9
+
+    aput-object v4, v7, v11
+
+    invoke-virtual {v0, v7}, Lcom/blankj/utilcode/util/ReflectUtils;->newInstance([Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/DialogInterface$OnClickListener;
+
+    invoke-virtual {v5, v1, v0}, Landroid/app/AlertDialog$Builder;->setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 116
-    :cond_e8
+    :cond_1
     const-string v0, "com.aide.common.E"
 
     invoke-static {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v0
 
-    new-array v2, v1, [Ljava/lang/Object;
+    new-array v1, v9, [Ljava/lang/Object;
 
-    aput-object p0, v2, v9
+    aput-object p0, v1, v10
 
-    invoke-virtual {v0, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->newInstance([Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/content/DialogInterface$OnCancelListener;
-
-    invoke-virtual {v3, p0}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
-
-    .line 121
-    invoke-virtual {v3}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object p0
-
-    .line 122
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->newInstance([Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v0
 
-    const/4 v2, 0x4
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
 
-    invoke-virtual {v0, v2}, Landroid/view/Window;->setSoftInputMode(I)V
+    move-result-object v0
+
+    check-cast v0, Landroid/content/DialogInterface$OnCancelListener;
+
+    invoke-virtual {v5, v0}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 121
+    invoke-virtual {v5}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v5
+
+    .line 122
+    invoke-virtual {v5}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
 
     .line 124
     new-instance v0, Lcom/s1243808733/aide/MainListener$1;
 
-    move-object v2, v0
+    move-object v1, p1
 
-    move-object v3, p1
+    invoke-direct/range {v0 .. v6}, Lcom/s1243808733/aide/MainListener$1;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Landroid/widget/EditText;Landroid/app/AlertDialog;Ljava/lang/String;)V
 
-    move-object v7, p0
-
-    invoke-direct/range {v2 .. v8}, Lcom/s1243808733/aide/MainListener$1;-><init>(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Landroid/widget/EditText;Landroid/app/AlertDialog;Ljava/lang/String;)V
-
-    invoke-virtual {p0, v0}, Landroid/app/AlertDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+    invoke-virtual {v5, v0}, Landroid/app/AlertDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
     .line 336
-    invoke-virtual {p0, v1}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
+    invoke-virtual {v5, v9}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
 
-    return-object p0
+    return-object v5
+
+    :cond_2
+    move-object v1, v0
+
+    goto :goto_0
 .end method
 
 .method public static onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)V
-    .registers 11
+    .locals 9
+
+    const/4 v8, 0x0
+
+    const/4 v7, 0x2
 
     .line 430
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainActivity()Lcom/s1243808733/aide/AideMainActivity;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 432
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_d
+    if-eqz v0, :cond_1
 
-    const-string v1, "选择操作"
+    const-string v0, "\u9009\u62e9\u64cd\u4f5c"
 
-    goto :goto_f
-
-    :cond_d
-    const-string v1, "Select actions"
-
-    :goto_f
-    invoke-virtual {p0, v1}, Landroid/view/ActionMode;->setTitle(Ljava/lang/CharSequence;)V
+    :goto_0
+    invoke-virtual {p0, v0}, Landroid/view/ActionMode;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 435
     invoke-interface {p1}, Landroid/view/Menu;->size()I
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_e2
+    if-eqz v0, :cond_0
 
     .line 436
-    const/4 v1, 0x0
+    invoke-interface {p1, v8}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
 
-    invoke-interface {p1, v1}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-interface {v0}, Landroid/view/MenuItem;->getItemId()I
 
-    invoke-interface {v2}, Landroid/view/MenuItem;->getItemId()I
+    move-result v0
 
-    move-result v2
+    const v2, 0x7f0800e4
 
-    const v3, 0x7f0800e4
+    if-ne v0, v2, :cond_2
 
-    if-ne v2, v3, :cond_28
+    .line 506
+    :cond_0
+    :goto_1
+    return-void
 
-    goto/16 :goto_e2
+    .line 432
+    :cond_1
+    const-string v0, "Select actions"
+
+    goto :goto_0
 
     .line 440
-    :cond_28
-    const v2, 0x7f08007e
+    :cond_2
+    const v0, 0x7f08007e
+
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    .line 442
+    const v2, 0x7f080078
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    .line 442
-    const v3, 0x7f080078
+    .line 443
+    const v3, 0x7f080077
 
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v3
 
-    .line 443
-    const v4, 0x7f080077
+    .line 444
+    const v4, 0x7f080074
 
     invoke-interface {p1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v4
 
-    .line 444
-    const v5, 0x7f080074
+    .line 445
+    const v5, 0x7f08008f
 
     invoke-interface {p1, v5}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v5
 
-    .line 445
-    const v6, 0x7f08008f
-
-    invoke-interface {p1, v6}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
-
-    move-result-object v6
-
     .line 447
-    invoke-interface {v2}, Landroid/view/MenuItem;->isVisible()Z
+    invoke-interface {v0}, Landroid/view/MenuItem;->isVisible()Z
 
-    move-result v7
+    move-result v6
 
-    const/4 v8, 0x2
-
-    if-eqz v7, :cond_56
+    if-eqz v6, :cond_5
 
     .line 448
-    invoke-interface {v2, v8}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    goto :goto_79
-
-    .line 450
-    :cond_56
-    invoke-static {}, Lcom/s1243808733/aide/MainListener;->getSelectionContent()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6d
-
-    .line 451
-    invoke-interface {v3, v8}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    .line 452
-    invoke-interface {v4, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    .line 453
-    invoke-interface {v5, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    .line 454
-    invoke-interface {v6, v8}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    goto :goto_79
-
-    .line 456
-    :cond_6d
-    invoke-interface {v3, v8}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    .line 457
-    invoke-interface {v4, v8}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    .line 458
-    invoke-interface {v5, v8}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    .line 459
-    invoke-interface {v6, v8}, Landroid/view/MenuItem;->setShowAsAction(I)V
+    invoke-interface {v0, v7}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 463
-    :goto_79
-    const v2, 0x7f0801b6
+    :goto_2
+    const v0, 0x7f0801b6
 
-    invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_e2
+    if-eqz v0, :cond_0
 
     .line 465
-    invoke-interface {p1}, Landroid/view/MenuItem;->getSubMenu()Landroid/view/SubMenu;
+    invoke-interface {v0}, Landroid/view/MenuItem;->getSubMenu()Landroid/view/SubMenu;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 467
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_9a
+    if-eqz v0, :cond_3
 
     .line 468
-    const-string v2, "翻译内容"
+    const-string v0, "\u7ffb\u8bd1\u5185\u5bb9"
 
-    invoke-interface {p1, v2}, Landroid/view/SubMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {v2, v0}, Landroid/view/SubMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 469
     new-instance v3, Lcom/s1243808733/aide/MainListener$3;
 
-    invoke-direct {v3, v0, p0}, Lcom/s1243808733/aide/MainListener$3;-><init>(Lcom/aide/ui/MainActivity;Landroid/view/ActionMode;)V
+    invoke-direct {v3, v1, p0}, Lcom/s1243808733/aide/MainListener$3;-><init>(Lcom/aide/ui/MainActivity;Landroid/view/ActionMode;)V
 
-    invoke-interface {v2, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 480
-    :cond_9a
-    const-string v2, "layout"
+    :cond_3
+    const-string v0, "layout"
 
-    invoke-static {v2}, Lcom/s1243808733/aide/util/AIDEUtils;->checkEditorFileParentName(Ljava/lang/String;)Z
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->checkEditorFileParentName(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_d5
+    if-eqz v0, :cond_4
 
     .line 481
-    const-string v2, ".xml"
+    const-string v0, ".xml"
 
-    invoke-static {v2}, Lcom/s1243808733/aide/util/AIDEUtils;->checkEditorFileNameSuffix(Ljava/lang/String;)Z
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->checkEditorFileNameSuffix(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_d5
+    if-eqz v0, :cond_4
 
     .line 482
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_b3
+    if-eqz v0, :cond_7
 
-    const-string v2, "视图工具"
+    const-string v0, "\u89c6\u56fe\u5de5\u5177"
 
-    goto :goto_b5
+    :goto_3
+    invoke-interface {v2, v0}, Landroid/view/SubMenu;->addSubMenu(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
 
-    :cond_b3
-    const-string v2, "View tools"
-
-    :goto_b5
-    invoke-interface {p1, v2}, Landroid/view/SubMenu;->addSubMenu(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
-
-    move-result-object v2
+    move-result-object v0
 
     .line 483
     const-string v3, "View2Java"
 
-    invoke-interface {v2, v3}, Landroid/view/SubMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {v0, v3}, Landroid/view/SubMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v3
 
     .line 484
     const-string v4, "View2Style"
 
-    invoke-interface {v2, v4}, Landroid/view/SubMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    invoke-interface {v0, v4}, Landroid/view/SubMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 485
     new-instance v4, Lcom/s1243808733/aide/MainListener$4;
 
-    invoke-direct {v4, v0, p0}, Lcom/s1243808733/aide/MainListener$4;-><init>(Lcom/aide/ui/MainActivity;Landroid/view/ActionMode;)V
+    invoke-direct {v4, v1, p0}, Lcom/s1243808733/aide/MainListener$4;-><init>(Lcom/aide/ui/MainActivity;Landroid/view/ActionMode;)V
 
     invoke-interface {v3, v4}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 494
     new-instance v3, Lcom/s1243808733/aide/MainListener$5;
 
-    invoke-direct {v3, v0, p0}, Lcom/s1243808733/aide/MainListener$5;-><init>(Lcom/aide/ui/MainActivity;Landroid/view/ActionMode;)V
+    invoke-direct {v3, v1, p0}, Lcom/s1243808733/aide/MainListener$5;-><init>(Lcom/aide/ui/MainActivity;Landroid/view/ActionMode;)V
 
-    invoke-interface {v2, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 505
-    :cond_d5
-    invoke-interface {p1}, Landroid/view/SubMenu;->size()I
+    :cond_4
+    invoke-interface {v2}, Landroid/view/SubMenu;->size()I
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_e2
+    if-nez v0, :cond_0
 
     .line 506
-    invoke-interface {p1}, Landroid/view/SubMenu;->getItem()Landroid/view/MenuItem;
+    invoke-interface {v2}, Landroid/view/SubMenu;->getItem()Landroid/view/MenuItem;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-interface {p0, v1}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+    invoke-interface {v0, v8}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    :cond_e2
-    :goto_e2
-    return-void
+    goto/16 :goto_1
+
+    .line 450
+    :cond_5
+    invoke-static {}, Lcom/s1243808733/aide/MainListener;->getSelectionContent()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    .line 451
+    invoke-interface {v2, v7}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    .line 452
+    invoke-interface {v3, v8}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    .line 453
+    invoke-interface {v4, v8}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    .line 454
+    invoke-interface {v5, v7}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    goto :goto_2
+
+    .line 456
+    :cond_6
+    invoke-interface {v2, v7}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    .line 457
+    invoke-interface {v3, v7}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    .line 458
+    invoke-interface {v4, v7}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    .line 459
+    invoke-interface {v5, v7}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    goto/16 :goto_2
+
+    .line 482
+    :cond_7
+    const-string v0, "View tools"
+
+    goto :goto_3
 .end method
 
 .method public static onCreateClass(Ljava/lang/String;Lcom/aide/common/ab;)V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
-            "Lcom/aide/common/ab<",
+            "Lcom/aide/common/ab",
+            "<",
             "Ljava/lang/String;",
             ">;)V"
         }
@@ -915,17 +922,17 @@
     move-result-object v0
 
     .line 374
-    const/4 v1, 0x1
+    const-string v1, "Hw"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
 
-    aput-object p0, v1, v2
+    const/4 v3, 0x0
 
-    const-string v2, "Hw"
+    aput-object p0, v2, v3
 
-    invoke-virtual {v0, v2, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v0
 
@@ -939,7 +946,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_0
 
     .line 375
     invoke-static {}, Lcom/s1243808733/util/Utils;->getMainActivity()Lcom/aide/ui/MainActivity;
@@ -948,35 +955,35 @@
 
     invoke-static {v0, p0, p1}, Lcom/s1243808733/aide/util/CreateXMLDialog;->showDialog(Landroid/app/Activity;Ljava/lang/String;Lcom/aide/common/ab;)V
 
-    goto :goto_2d
-
     .line 378
-    :cond_26
+    :goto_0
+    return-void
+
+    :cond_0
     invoke-static {}, Lcom/s1243808733/util/Utils;->getMainActivity()Lcom/aide/ui/MainActivity;
 
     move-result-object v0
 
     invoke-static {v0, p0, p1}, Lcom/s1243808733/aide/util/CreateClassDialog;->showDialog(Landroid/app/Activity;Ljava/lang/String;Lcom/aide/common/ab;)V
 
-    :goto_2d
-    return-void
+    goto :goto_0
 .end method
 
 .method public static onShowCreateDialog(Labcd/nf;)V
-    .registers 1
+    .locals 1
 
     .line 368
     invoke-static {}, Lcom/s1243808733/util/Utils;->getMainActivity()Lcom/aide/ui/MainActivity;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/s1243808733/aide/project/ProjectDialog;->showCreateDialog(Landroid/app/Activity;)V
+    invoke-static {v0}, Lcom/s1243808733/aide/project/ProjectDialog;->showCreateDialog(Landroid/app/Activity;)V
 
     return-void
 .end method
 
 .method public static onShowCreateProjectDialog(Landroid/app/Activity;)V
-    .registers 1
+    .locals 0
 
     .line 383
     invoke-static {p0}, Lcom/s1243808733/aide/project/ProjectDialog;->showCreateDialog(Landroid/app/Activity;)V
@@ -985,13 +992,17 @@
 .end method
 
 .method public static onShowSelectModeDialog(Landroid/app/Activity;)V
-    .registers 1
+    .locals 0
 
     return-void
 .end method
 
 .method public static onSplitViewCloseSplit(Lcom/aide/ui/views/SplitView;ZLjava/lang/Runnable;)V
-    .registers 8
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     .line 393
     invoke-virtual {p0}, Lcom/aide/ui/views/SplitView;->getResources()Landroid/content/res/Resources;
@@ -1006,51 +1017,71 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->isEnableDrawer()Z
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
+    .line 402
+    :goto_0
     return-void
 
     .line 396
-    :cond_15
+    :cond_0
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
 
     move-result-object v0
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_1
 
     .line 398
     invoke-static {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v0
 
-    new-array v3, v1, [Ljava/lang/Object;
+    const-string v1, "closeDrawer"
 
-    const/4 v4, 0x3
+    new-array v2, v5, [Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v3, 0x3
 
-    move-result-object v4
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v4, v3, v2
+    move-result-object v3
 
-    const-string v4, "closeDrawer"
+    aput-object v3, v2, v4
 
-    invoke-virtual {v0, v4, v3}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    goto :goto_41
+    .line 402
+    :goto_1
+    invoke-static {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    const-string v1, "closeSplit_SOURCE"
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    aput-object v3, v2, v4
+
+    aput-object p2, v2, v5
+
+    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    goto :goto_0
 
     .line 400
-    :cond_30
+    :cond_1
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
     move-result-object v0
@@ -1059,41 +1090,23 @@
 
     move-result-object v0
 
-    const-string v3, "split_view_open"
+    const-string v1, "split_view_open"
 
-    invoke-interface {v0, v3, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v4}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 402
-    :goto_41
-    invoke-static {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object p0
-
-    const/4 v0, 0x2
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p1
-
-    aput-object p1, v0, v2
-
-    aput-object p2, v0, v1
-
-    const-string p1, "closeSplit_SOURCE"
-
-    invoke-virtual {p0, p1, v0}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    return-void
+    goto :goto_1
 .end method
 
 .method public static onSplitViewOpenSplit(Lcom/aide/ui/views/SplitView;ZZ)V
-    .registers 6
+    .locals 6
+
+    const/4 v5, 0x0
+
+    const/4 v4, 0x1
 
     .line 406
     invoke-virtual {p0}, Lcom/aide/ui/views/SplitView;->getResources()Landroid/content/res/Resources;
@@ -1108,98 +1121,95 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->isEnableDrawer()Z
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
+    .line 414
+    :goto_0
     return-void
 
     .line 409
-    :cond_15
+    :cond_0
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_1
 
     .line 411
     invoke-static {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p0
+    move-result-object v0
 
-    new-array p1, v2, [Ljava/lang/Object;
+    const-string v1, "openDrawer"
 
-    const/4 p2, 0x3
+    new-array v2, v4, [Ljava/lang/Object;
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v3, 0x3
 
-    move-result-object p2
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object p2, p1, v1
+    move-result-object v3
 
-    const-string p2, "openDrawer"
+    aput-object v3, v2, v5
 
-    invoke-virtual {p0, p2, p1}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    goto :goto_59
+    goto :goto_0
 
     .line 413
-    :cond_30
+    :cond_1
     invoke-static {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p0
+    move-result-object v0
 
-    const/4 v0, 0x2
+    const-string v1, "openSplit_SOURCE"
 
-    new-array v0, v0, [Ljava/lang/Object;
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object p1
+    move-result-object v3
 
-    aput-object p1, v0, v1
+    aput-object v3, v2, v5
 
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object p1
+    move-result-object v3
 
-    aput-object p1, v0, v2
+    aput-object v3, v2, v4
 
-    const-string p1, "openSplit_SOURCE"
-
-    invoke-virtual {p0, p1, v0}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     .line 414
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-string p1, "split_view_open"
+    const-string v1, "split_view_open"
 
-    invoke-interface {p0, p1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v4}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    :goto_59
-    return-void
+    goto :goto_0
 .end method
 
 .method public static setContentView(I)V
-    .registers 3
+    .locals 2
 
     .line 419
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainActivity()Lcom/s1243808733/aide/AideMainActivity;
@@ -1211,35 +1221,35 @@
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 421
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->isTrainerMode()Z
 
     move-result v1
 
-    if-nez v1, :cond_17
+    if-nez v1, :cond_0
 
     .line 422
-    const p0, 0x7f0a0052
+    const v1, 0x7f0a0052
 
-    invoke-virtual {v0, p0}, Lcom/s1243808733/aide/AideMainActivity;->setContentView(I)V
-
-    goto :goto_1a
-
-    .line 424
-    :cond_17
-    invoke-virtual {v0, p0}, Lcom/s1243808733/aide/AideMainActivity;->setContentView(I)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/AideMainActivity;->setContentView(I)V
 
     .line 426
-    :goto_1a
+    :goto_0
     invoke-virtual {v0}, Lcom/s1243808733/aide/AideMainActivity;->setEditorBackground()V
 
     return-void
+
+    .line 424
+    :cond_0
+    invoke-virtual {v0, p0}, Lcom/s1243808733/aide/AideMainActivity;->setContentView(I)V
+
+    goto :goto_0
 .end method
 
 .method public static setProjectInfoDialog(Landroid/app/AlertDialog;)V
-    .registers 3
+    .locals 2
 
     .line 529
     invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
@@ -1266,7 +1276,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
     .line 533
-    const/high16 v1, 0x41600000  # 14.0f
+    const/high16 v1, 0x41600000    # 14.0f
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextSize(F)V
 

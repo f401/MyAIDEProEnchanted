@@ -7,7 +7,8 @@
 .field private static final LAUNCHER:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;"
@@ -22,15 +23,15 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetmSwitch(Lcom/s1243808733/aide/preference/PreferenceTheme;)Landroid/widget/Switch;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$msetIndigoIcon(Lcom/s1243808733/aide/preference/PreferenceTheme;)V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Lcom/s1243808733/aide/preference/PreferenceTheme;->setIndigoIcon()V
 
@@ -38,7 +39,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$msetRedIcon(Lcom/s1243808733/aide/preference/PreferenceTheme;)V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Lcom/s1243808733/aide/preference/PreferenceTheme;->setRedIcon()V
 
@@ -46,7 +47,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$msetTealIcon(Lcom/s1243808733/aide/preference/PreferenceTheme;)V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Lcom/s1243808733/aide/preference/PreferenceTheme;->setTealIcon()V
 
@@ -54,7 +55,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 32
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -102,7 +103,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
 
     .line 45
     invoke-direct {p0, p1, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -117,7 +118,7 @@
 .end method
 
 .method private init()V
-    .registers 3
+    .locals 2
 
     .line 135
     const-string v0, "apptheme"
@@ -129,16 +130,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_1
 
-    const-string v0, "软件主题"
+    const-string v0, "\u8f6f\u4ef6\u4e3b\u9898"
 
-    goto :goto_10
-
-    :cond_e
-    const-string v0, "App Theme"
-
-    :goto_10
+    :goto_0
     invoke-virtual {p0, v0}, Lcom/s1243808733/aide/preference/PreferenceTheme;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 138
@@ -150,7 +146,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_0
 
     .line 139
     invoke-static {}, Lcom/s1243808733/aide/application/AppTheme;->getThemeCode()Ljava/lang/String;
@@ -162,7 +158,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_32
+    if-nez v1, :cond_0
 
     sget-object v1, Lcom/s1243808733/aide/application/AppTheme;->THEME:Ljava/util/Map;
 
@@ -174,18 +170,24 @@
 
     invoke-virtual {p0, v0}, Lcom/s1243808733/aide/preference/PreferenceTheme;->setSummary(Ljava/lang/CharSequence;)V
 
-    :cond_32
+    :cond_0
     return-void
+
+    .line 136
+    :cond_1
+    const-string v0, "App Theme"
+
+    goto :goto_0
 .end method
 
 .method static restart()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method public static setDarkSplash()V
-    .registers 1
+    .locals 1
 
     .line 229
     const-string v0, "Dark"
@@ -196,7 +198,7 @@
 .end method
 
 .method private setIndigoIcon()V
-    .registers 2
+    .locals 1
 
     .line 241
     const-string v0, "Indigo"
@@ -207,7 +209,7 @@
 .end method
 
 .method public static setLightIcon()V
-    .registers 1
+    .locals 1
 
     .line 225
     const-string v0, "Light"
@@ -218,7 +220,7 @@
 .end method
 
 .method private setRedIcon()V
-    .registers 2
+    .locals 1
 
     .line 233
     const-string v0, "Red"
@@ -229,7 +231,7 @@
 .end method
 
 .method private setTealIcon()V
-    .registers 2
+    .locals 1
 
     .line 237
     const-string v0, "Teal"
@@ -240,7 +242,9 @@
 .end method
 
 .method public static switchTo(Ljava/lang/String;)V
-    .registers 7
+    .locals 6
+
+    const/4 v5, 0x1
 
     .line 191
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->saveFiles()V
@@ -252,68 +256,66 @@
 
     invoke-virtual {v0}, Lcom/s1243808733/aide/application/App;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 194
-    sget-object v1, Lcom/s1243808733/aide/preference/PreferenceTheme;->LAUNCHER:Ljava/util/Map;
+    sget-object v0, Lcom/s1243808733/aide/preference/PreferenceTheme;->LAUNCHER:Ljava/util/Map;
 
-    invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
+    invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_15
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    const/4 v3, 0x1
-
-    if-eqz v2, :cond_30
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Ljava/lang/String;
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
 
     .line 196
-    new-instance v4, Landroid/content/ComponentName;
+    new-instance v3, Landroid/content/ComponentName;
 
     invoke-static {}, Lcom/s1243808733/aide/application/App;->getApp()Lcom/s1243808733/aide/application/App;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-direct {v4, v5, v2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-direct {v3, v4, v0}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    invoke-virtual {v0, v4, v2, v3}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
+    invoke-virtual {v1, v3, v0, v5}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 201
-    :cond_30
-    new-instance v1, Landroid/content/ComponentName;
+    :cond_0
+    new-instance v2, Landroid/content/ComponentName;
 
     invoke-static {}, Lcom/s1243808733/aide/application/App;->getApp()Lcom/s1243808733/aide/application/App;
 
-    move-result-object v2
+    move-result-object v3
 
-    sget-object v4, Lcom/s1243808733/aide/preference/PreferenceTheme;->LAUNCHER:Ljava/util/Map;
+    sget-object v0, Lcom/s1243808733/aide/preference/PreferenceTheme;->LAUNCHER:Ljava/util/Map;
 
-    invoke-interface {v4, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    invoke-direct {v1, v2, p0}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-direct {v2, v3, v0}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1, v3, v3}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
+    invoke-virtual {v1, v2, v5, v5}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
 
     .line 205
     invoke-static {}, Lcom/s1243808733/aide/preference/PreferenceTheme;->restart()V
@@ -324,7 +326,7 @@
 
 # virtual methods
 .method public bind(Landroid/widget/ListView;)V
-    .registers 3
+    .locals 1
 
     .line 51
     new-instance v0, Lcom/s1243808733/aide/preference/PreferenceTheme$1;
@@ -337,7 +339,9 @@
 .end method
 
 .method protected onBindView(Landroid/view/View;)V
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x0
 
     .line 147
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
@@ -347,58 +351,53 @@
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/widget/LinearLayout;
+    check-cast v0, Landroid/widget/LinearLayout;
 
-    if-nez p1, :cond_f
+    if-nez v0, :cond_0
 
+    .line 186
+    :goto_0
     return-void
 
     .line 152
-    :cond_f
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    :cond_0
+    invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     .line 153
-    invoke-virtual {p1}, Landroid/widget/LinearLayout;->getChildCount()I
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getChildCount()I
 
     move-result v1
 
-    if-lez v1, :cond_1c
+    if-lez v1, :cond_1
 
     .line 155
-    invoke-virtual {p1, v0, v1}, Landroid/widget/LinearLayout;->removeViews(II)V
+    invoke-virtual {v0, v4, v1}, Landroid/widget/LinearLayout;->removeViews(II)V
 
     .line 158
-    :cond_1c
-    new-instance v1, Landroid/widget/Switch;
+    :cond_1
+    new-instance v2, Landroid/widget/Switch;
 
     invoke-virtual {p0}, Lcom/s1243808733/aide/preference/PreferenceTheme;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, v1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
+    iput-object v2, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
 
     .line 159
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_30
+    if-eqz v1, :cond_4
 
-    const-string v2, "深色主题"
+    const-string v1, "\u6df1\u8272\u4e3b\u9898"
 
-    goto :goto_32
-
-    :cond_30
-    const-string v2, "Dark mode"
-
-    :goto_32
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setText(Ljava/lang/CharSequence;)V
+    :goto_1
+    invoke-virtual {v2, v1}, Landroid/widget/Switch;->setText(Ljava/lang/CharSequence;)V
 
     .line 160
     iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
@@ -414,7 +413,7 @@
     .line 161
     iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v0}, Landroid/widget/Switch;->setFocusable(Z)V
+    invoke-virtual {v1, v4}, Landroid/widget/Switch;->setFocusable(Z)V
 
     .line 162
     iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
@@ -428,7 +427,7 @@
     .line 178
     iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
 
-    if-eqz v1, :cond_74
+    if-eqz v1, :cond_3
 
     .line 179
     const-string v2, "default"
@@ -450,26 +449,32 @@
 
     move-result v1
 
-    if-nez v1, :cond_6d
+    if-nez v1, :cond_2
 
     .line 181
     iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v0}, Landroid/widget/Switch;->setClickable(Z)V
+    invoke-virtual {v1, v4}, Landroid/widget/Switch;->setClickable(Z)V
 
     .line 184
-    :cond_6d
-    iget-object v0, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
+    :cond_2
+    iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
 
-    const/16 v1, 0x8
+    const/16 v2, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setVisibility(I)V
 
     .line 186
-    :cond_74
-    iget-object v0, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
+    :cond_3
+    iget-object v1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    return-void
+    goto :goto_0
+
+    .line 159
+    :cond_4
+    const-string v1, "Dark mode"
+
+    goto :goto_1
 .end method

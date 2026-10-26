@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
 
     .line 507
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/io/instructions/InstructionCodec$23-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec$23;-><init>(Ljava/lang/String;I)V
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public decode(ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 13
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -54,55 +54,53 @@
     .line 512
     invoke-static {p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smbyte0(I)I
 
-    move-result v3
+    move-result v2
 
     .line 513
     invoke-static {p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smbyte1(I)I
 
-    move-result v9
+    move-result v8
 
     .line 514
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->readInt()I
 
-    move-result p1
+    move-result v1
 
-    add-int v6, v0, p1
+    add-int v5, v0, v1
 
-    const/16 p1, 0x2b
+    const/16 v1, 0x2b
 
-    if-eq v3, p1, :cond_1d
+    if-eq v2, v1, :cond_0
 
-    const/16 p1, 0x2c
+    const/16 v1, 0x2c
 
-    if-eq v3, p1, :cond_1d
-
-    goto :goto_20
-
-    .line 523
-    :cond_1d
-    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->setBaseAddress(II)V
+    if-eq v2, v1, :cond_0
 
     .line 529
-    :goto_20
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
+    :goto_0
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
+
+    const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    const-wide/16 v6, 0x0
 
-    const-wide/16 v7, 0x0
+    move-object v1, p0
 
-    move-object v1, p1
+    invoke-direct/range {v0 .. v8}, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJI)V
 
-    move-object v2, p0
+    return-object v0
 
-    invoke-direct/range {v1 .. v9}, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJI)V
+    .line 523
+    :cond_0
+    invoke-interface {p2, v5, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->setBaseAddress(II)V
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public encode(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 5
+    .locals 3
 
     .line 537
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->cursor()I
@@ -120,23 +118,23 @@
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getA()I
 
-    move-result p1
+    move-result v2
 
-    invoke-static {v1, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smcodeUnit(II)S
+    invoke-static {v1, v2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smcodeUnit(II)S
 
-    move-result p1
+    move-result v1
 
     .line 540
     invoke-static {v0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smunit0(I)S
 
-    move-result v1
+    move-result v2
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smunit1(I)S
 
     move-result v0
 
     .line 538
-    invoke-interface {p2, p1, v1, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSS)V
+    invoke-interface {p2, v1, v2, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSS)V
 
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/EscapeAnalysis;)V
-    .registers 2
+    .locals 0
 
     .line 691
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2;->this$0:Lcom/s1243808733/android/dx/ssa/EscapeAnalysis;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public visitBlock(Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;)V
-    .registers 3
+    .locals 1
 
     .line 695
-    new-instance p2, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2$1;
+    new-instance v0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2$1;
 
-    invoke-direct {p2, p0}, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2$1;-><init>(Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2;)V
+    invoke-direct {v0, p0}, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2$1;-><init>(Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2;)V
 
-    invoke-virtual {p1, p2}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->forEachInsn(Lcom/s1243808733/android/dx/ssa/SsaInsn$Visitor;)V
+    invoke-virtual {p1, v0}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->forEachInsn(Lcom/s1243808733/android/dx/ssa/SsaInsn$Visitor;)V
 
     return-void
 .end method

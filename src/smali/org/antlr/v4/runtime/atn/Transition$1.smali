@@ -15,9 +15,10 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/util/HashMap<",
-        "Ljava/lang/Class<",
-        "+",
+        "Ljava/util/HashMap",
+        "<",
+        "Ljava/lang/Class",
+        "<+",
         "Lorg/antlr/v4/runtime/atn/Transition;",
         ">;",
         "Ljava/lang/Integer;",
@@ -28,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 59
     invoke-direct {p0}, Ljava/util/HashMap;-><init>()V

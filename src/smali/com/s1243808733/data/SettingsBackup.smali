@@ -7,7 +7,8 @@
 .field private codeHighlight:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/data/CodeHighlight;",
             ">;"
         }
@@ -21,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +40,12 @@
 
 # virtual methods
 .method public getCodeHighlight()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/data/CodeHighlight;",
             ">;"
         }
@@ -56,7 +58,7 @@
 .end method
 
 .method public getCustomCommand()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 18
     iget-object v0, p0, Lcom/s1243808733/data/SettingsBackup;->customCommand:Ljava/lang/String;
@@ -65,7 +67,7 @@
 .end method
 
 .method public getPreference()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 26
     iget-object v0, p0, Lcom/s1243808733/data/SettingsBackup;->preference:Ljava/lang/String;
@@ -74,11 +76,12 @@
 .end method
 
 .method public setCodeHighlight(Ljava/util/List;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/data/CodeHighlight;",
             ">;)V"
         }
@@ -91,7 +94,7 @@
 .end method
 
 .method public setCustomCommand(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 14
     iput-object p1, p0, Lcom/s1243808733/data/SettingsBackup;->customCommand:Ljava/lang/String;
@@ -100,7 +103,7 @@
 .end method
 
 .method public setPreference(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 22
     iput-object p1, p0, Lcom/s1243808733/data/SettingsBackup;->preference:Ljava/lang/String;

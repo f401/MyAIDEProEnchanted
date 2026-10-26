@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(IZIIII)V
-    .registers 7
+    .locals 0
 
     .line 176
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,24 +59,19 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 9
+    .locals 9
 
     .line 187
-    iget v0, p0, Lcom/s1243808733/android/dx/dex/file/DebugInfoDecoder$LocalEntry;->address:I
+    iget v1, p0, Lcom/s1243808733/android/dx/dex/file/DebugInfoDecoder$LocalEntry;->address:I
 
     .line 188
-    iget-boolean v1, p0, Lcom/s1243808733/android/dx/dex/file/DebugInfoDecoder$LocalEntry;->isStart:Z
+    iget-boolean v0, p0, Lcom/s1243808733/android/dx/dex/file/DebugInfoDecoder$LocalEntry;->isStart:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v0, :cond_0
 
-    const-string v1, "start"
+    const-string v0, "start"
 
-    goto :goto_b
-
-    :cond_9
-    const-string v1, "end"
-
-    :goto_b
+    :goto_0
     iget v2, p0, Lcom/s1243808733/android/dx/dex/file/DebugInfoDecoder$LocalEntry;->reg:I
 
     iget v3, p0, Lcom/s1243808733/android/dx/dex/file/DebugInfoDecoder$LocalEntry;->nameIndex:I
@@ -87,21 +82,23 @@
     iget v5, p0, Lcom/s1243808733/android/dx/dex/file/DebugInfoDecoder$LocalEntry;->signatureIndex:I
 
     .line 187
-    const/4 v6, 0x6
+    const-string v6, "[%x %s v%d %04x %04x %04x]"
 
-    new-array v6, v6, [Ljava/lang/Object;
+    const/4 v7, 0x6
 
-    const/4 v7, 0x0
+    new-array v7, v7, [Ljava/lang/Object;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v8, 0x0
 
-    move-result-object v0
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v0, v6, v7
+    move-result-object v1
 
-    const/4 v0, 0x1
+    aput-object v1, v7, v8
 
-    aput-object v1, v6, v0
+    const/4 v1, 0x1
+
+    aput-object v0, v7, v1
 
     const/4 v0, 0x2
 
@@ -109,7 +106,7 @@
 
     move-result-object v1
 
-    aput-object v1, v6, v0
+    aput-object v1, v7, v0
 
     const/4 v0, 0x3
 
@@ -117,7 +114,7 @@
 
     move-result-object v1
 
-    aput-object v1, v6, v0
+    aput-object v1, v7, v0
 
     const/4 v0, 0x4
 
@@ -125,7 +122,7 @@
 
     move-result-object v1
 
-    aput-object v1, v6, v0
+    aput-object v1, v7, v0
 
     const/4 v0, 0x5
 
@@ -133,13 +130,17 @@
 
     move-result-object v1
 
-    aput-object v1, v6, v0
+    aput-object v1, v7, v0
 
-    const-string v0, "[%x %s v%d %04x %04x %04x]"
-
-    invoke-static {v0, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
+
+    .line 188
+    :cond_0
+    const-string v0, "end"
+
+    goto :goto_0
 .end method

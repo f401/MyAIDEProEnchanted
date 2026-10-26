@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/LaunchActivity$2;)V
-    .registers 2
+    .locals 0
 
     .line 141
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/LaunchActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/LaunchActivity$2;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .line 145
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/LaunchActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/LaunchActivity$2;

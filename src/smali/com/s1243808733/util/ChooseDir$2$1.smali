@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/ChooseDir$2;Landroid/widget/EditText;Landroid/app/AlertDialog;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,12 +49,44 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 82
     :try_start_0
-    new-instance p1, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
+    iget-object v1, p0, Lcom/s1243808733/util/ChooseDir$2$1;->this$1:Lcom/s1243808733/util/ChooseDir$2;
+
+    iget-object v1, v1, Lcom/s1243808733/util/ChooseDir$2;->this$0:Lcom/s1243808733/util/ChooseDir;
+
+    invoke-static {v1}, Lcom/s1243808733/util/ChooseDir;->-$$Nest$fgetadapter(Lcom/s1243808733/util/ChooseDir;)Lcom/s1243808733/util/ChooseDir$FileAdapter;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->-$$Nest$fgetcurrentDir(Lcom/s1243808733/util/ChooseDir$FileAdapter;)Ljava/io/File;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/s1243808733/util/ChooseDir$2$1;->val$input:Landroid/widget/EditText;
+
+    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 83
+    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 86
     iget-object v0, p0, Lcom/s1243808733/util/ChooseDir$2$1;->this$1:Lcom/s1243808733/util/ChooseDir$2;
 
     iget-object v0, v0, Lcom/s1243808733/util/ChooseDir$2;->this$0:Lcom/s1243808733/util/ChooseDir;
@@ -63,65 +95,34 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->-$$Nest$fgetcurrentDir(Lcom/s1243808733/util/ChooseDir$FileAdapter;)Ljava/io/File;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/s1243808733/util/ChooseDir$2$1;->val$input:Landroid/widget/EditText;
-
-    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p1, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    .line 83
-    invoke-virtual {p1}, Ljava/io/File;->mkdirs()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_32
-
-    .line 86
-    iget-object p1, p0, Lcom/s1243808733/util/ChooseDir$2$1;->this$1:Lcom/s1243808733/util/ChooseDir$2;
-
-    iget-object p1, p1, Lcom/s1243808733/util/ChooseDir$2;->this$0:Lcom/s1243808733/util/ChooseDir;
-
-    invoke-static {p1}, Lcom/s1243808733/util/ChooseDir;->-$$Nest$fgetadapter(Lcom/s1243808733/util/ChooseDir;)Lcom/s1243808733/util/ChooseDir$FileAdapter;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->reload()V
+    invoke-virtual {v0}, Lcom/s1243808733/util/ChooseDir$FileAdapter;->reload()V
 
     .line 87
-    iget-object p1, p0, Lcom/s1243808733/util/ChooseDir$2$1;->val$dialog2:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/util/ChooseDir$2$1;->val$dialog2:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
-
-    goto :goto_3e
-
-    .line 84
-    :cond_32
-    new-instance p1, Ljava/lang/Exception;
-
-    const-string v0, "!f.mkdirs()"
-
-    invoke-direct {p1, v0}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
-
-    throw p1
-    :try_end_3a
-    .catchall {:try_start_0 .. :try_end_3a} :catchall_3a
-
-    :catchall_3a
-    move-exception p1
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
     .line 89
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/Throwable;)Landroid/widget/Toast;
-
-    :goto_3e
+    :goto_0
     return-void
+
+    .line 84
+    :cond_0
+    new-instance v0, Ljava/lang/Exception;
+
+    const-string v1, "!f.mkdirs()"
+
+    invoke-direct {v0, v1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    throw v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v0
+
+    .line 89
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/Throwable;)Landroid/widget/Toast;
+
+    goto :goto_0
 .end method

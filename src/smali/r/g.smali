@@ -12,76 +12,75 @@
 
 # direct methods
 .method public constructor <init>(Lc/s;)V
-    .registers 3
+    .locals 2
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
     instance-of v0, p1, Lc/aa;
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     instance-of v0, p1, Lc/i;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
-    goto :goto_14
-
-    :cond_c
-    new-instance p1, Ljava/lang/IllegalArgumentException;
-
-    const-string v0, "unknown object passed to Time"
-
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :cond_14
-    :goto_14
+    :cond_0
     iput-object p1, p0, Lr/g;->a:Lc/s;
 
     return-void
+
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "unknown object passed to Time"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public constructor <init>(Ljava/util/Date;)V
-    .registers 7
+    .locals 4
+
+    const/4 v3, 0x0
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
     new-instance v0, Ljava/util/SimpleTimeZone;
 
-    const/4 v1, 0x0
+    const-string v1, "Z"
 
-    const-string v2, "Z"
+    invoke-direct {v0, v3, v1}, Ljava/util/SimpleTimeZone;-><init>(ILjava/lang/String;)V
 
-    invoke-direct {v0, v1, v2}, Ljava/util/SimpleTimeZone;-><init>(ILjava/lang/String;)V
+    new-instance v1, Ljava/text/SimpleDateFormat;
 
-    new-instance v3, Ljava/text/SimpleDateFormat;
+    const-string v2, "yyyyMMddHHmmss"
 
-    const-string v4, "yyyyMMddHHmmss"
+    invoke-direct {v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v3, v4}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3, v0}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
+    invoke-virtual {v1, v0}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, p1}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {v1, p1}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "Z"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
     const/4 v0, 0x4
 
-    invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v1, v3, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
@@ -89,56 +88,59 @@
 
     move-result v0
 
-    const/16 v1, 0x79e
+    const/16 v2, 0x79e
 
-    if-lt v0, v1, :cond_45
+    if-lt v0, v2, :cond_0
 
-    const/16 v1, 0x801
+    const/16 v2, 0x801
 
-    if-le v0, v1, :cond_3a
+    if-le v0, v2, :cond_1
 
-    goto :goto_45
-
-    :cond_3a
-    new-instance v0, Lc/bg;
-
-    const/4 v1, 0x2
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {v0, p1}, Lc/bg;-><init>(Ljava/lang/String;)V
-
-    goto :goto_4a
-
-    :cond_45
-    :goto_45
+    :cond_0
     new-instance v0, Lc/au;
 
-    invoke-direct {v0, p1}, Lc/au;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lc/au;-><init>(Ljava/lang/String;)V
 
-    :goto_4a
+    :goto_0
     iput-object v0, p0, Lr/g;->a:Lc/s;
 
     return-void
+
+    :cond_1
+    new-instance v0, Lc/bg;
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lc/bg;-><init>(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method public static b(Ljava/lang/Object;)Lr/g;
-    .registers 2
+    .locals 2
 
-    if-eqz p0, :cond_3a
+    if-eqz p0, :cond_0
 
     instance-of v0, p0, Lr/g;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_1
 
-    goto :goto_3a
+    .line 2
+    :cond_0
+    check-cast p0, Lr/g;
 
-    :cond_7
+    :goto_0
+    return-object p0
+
+    .line 4294967295
+    :cond_1
     instance-of v0, p0, Lc/aa;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_2
 
     new-instance v0, Lr/g;
 
@@ -146,12 +148,14 @@
 
     invoke-direct {v0, p0}, Lr/g;-><init>(Lc/s;)V
 
-    return-object v0
+    move-object p0, v0
 
-    :cond_13
+    goto :goto_0
+
+    :cond_2
     instance-of v0, p0, Lc/i;
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_3
 
     new-instance v0, Lr/g;
 
@@ -159,10 +163,12 @@
 
     invoke-direct {v0, p0}, Lr/g;-><init>(Lc/s;)V
 
-    return-object v0
+    move-object p0, v0
+
+    goto :goto_0
 
     .line 1
-    :cond_1f
+    :cond_3
     const-string v0, "unknown object in factory: "
 
     invoke-static {v0}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -172,35 +178,29 @@
     .line 2
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
-
-    :cond_3a
-    :goto_3a
-    check-cast p0, Lr/g;
-
-    return-object p0
+    throw v1
 .end method
 
 
 # virtual methods
 .method public final l()Lc/s;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lr/g;->a:Lc/s;
 
@@ -208,66 +208,68 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 1
     iget-object v0, p0, Lr/g;->a:Lc/s;
 
     instance-of v1, v0, Lc/aa;
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_1
 
     check-cast v0, Lc/aa;
 
     .line 2
     invoke-virtual {v0}, Lc/aa;->b()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v2, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v0
 
-    const/16 v2, 0x35
+    const/16 v1, 0x35
 
-    if-ge v1, v2, :cond_1d
+    if-ge v0, v1, :cond_0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "20"
+    const-string v1, "20"
 
-    goto :goto_24
+    :goto_0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1d
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "19"
-
-    :goto_24
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-
-    goto :goto_35
 
     .line 3
-    :cond_2f
+    :goto_1
+    return-object v0
+
+    .line 2
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "19"
+
+    goto :goto_0
+
+    .line 3
+    :cond_1
     check-cast v0, Lc/i;
 
     invoke-virtual {v0}, Lc/i;->h()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_35
-    return-object v0
+    goto :goto_1
 .end method

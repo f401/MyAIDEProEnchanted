@@ -11,7 +11,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }

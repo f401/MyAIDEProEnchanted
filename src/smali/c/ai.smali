@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lc/x;I)V
-    .registers 3
+    .locals 0
 
     iput p2, p0, Lc/ai;->a:I
 
@@ -28,11 +28,11 @@
 
 # virtual methods
 .method public final c()Lc/s;
-    .registers 4
+    .locals 3
 
     iget v0, p0, Lc/ai;->a:I
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 2
     new-instance v0, Lc/bc;
@@ -47,10 +47,11 @@
 
     invoke-direct {v0, v1, v2}, Lc/bc;-><init>(Lc/f;I)V
 
+    :goto_0
     return-object v0
 
     .line 1
-    :cond_11
+    :cond_0
     new-instance v0, Lc/ah;
 
     iget-object v1, p0, Lc/ai;->b:Lc/x;
@@ -61,27 +62,28 @@
 
     invoke-direct {v0, v1}, Lc/ah;-><init>(Lc/f;)V
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public final l()Lc/s;
-    .registers 3
+    .locals 2
 
     iget v0, p0, Lc/ai;->a:I
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 2
-    :try_start_4
+    :try_start_0
     invoke-virtual {p0}, Lc/ai;->c()Lc/s;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_8} :catch_9
 
+    :goto_0
     return-object v0
 
-    :catch_9
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -95,17 +97,17 @@
     throw v1
 
     .line 1
-    :cond_14
-    :try_start_14
+    :cond_0
+    :try_start_1
     invoke-virtual {p0}, Lc/ai;->c()Lc/s;
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v0
-    :try_end_18
-    .catch Ljava/io/IOException; {:try_start_14 .. :try_end_18} :catch_19
 
-    return-object v0
+    goto :goto_0
 
-    :catch_19
+    :catch_1
     move-exception v0
 
     new-instance v1, Ljava/lang/IllegalStateException;

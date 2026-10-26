@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 12
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method protected isDisableDrag()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -28,7 +28,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 0
 
     .line 18
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -37,7 +37,7 @@
 .end method
 
 .method protected onDestroy()V
-    .registers 2
+    .locals 1
 
     .line 46
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
@@ -51,7 +51,7 @@
 .end method
 
 .method protected onPause()V
-    .registers 1
+    .locals 0
 
     .line 41
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
@@ -60,40 +60,35 @@
 .end method
 
 .method protected onPostCreate(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
 
     .line 24
     invoke-super {p0, p1}, Landroid/app/Activity;->onPostCreate(Landroid/os/Bundle;)V
 
     .line 25
-    new-instance v0, Lorg/voiddog/dragbackactivity/DragBackDelegate;
+    new-instance v1, Lorg/voiddog/dragbackactivity/DragBackDelegate;
 
-    invoke-direct {v0, p0}, Lorg/voiddog/dragbackactivity/DragBackDelegate;-><init>(Landroid/app/Activity;)V
+    invoke-direct {v1, p0}, Lorg/voiddog/dragbackactivity/DragBackDelegate;-><init>(Landroid/app/Activity;)V
 
-    iput-object v0, p0, Lorg/voiddog/dragbackactivity/DragBackActivity;->mDragBackDelegate:Lorg/voiddog/dragbackactivity/DragBackDelegate;
+    iput-object v1, p0, Lorg/voiddog/dragbackactivity/DragBackActivity;->mDragBackDelegate:Lorg/voiddog/dragbackactivity/DragBackDelegate;
 
     .line 26
     invoke-virtual {p0}, Lorg/voiddog/dragbackactivity/DragBackActivity;->isDisableDrag()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_18
+    if-nez v0, :cond_0
 
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->isEnableDragBack()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_18
+    if-eqz v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_19
-
-    :cond_18
-    const/4 v1, 0x0
-
-    :goto_19
-    invoke-virtual {v0, v1}, Lorg/voiddog/dragbackactivity/DragBackDelegate;->setEnableDragBack(Z)V
+    :goto_0
+    invoke-virtual {v1, v0}, Lorg/voiddog/dragbackactivity/DragBackDelegate;->setEnableDragBack(Z)V
 
     .line 28
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/DragBackActivity;->mDragBackDelegate:Lorg/voiddog/dragbackactivity/DragBackDelegate;
@@ -101,10 +96,16 @@
     invoke-virtual {v0, p1}, Lorg/voiddog/dragbackactivity/DragBackDelegate;->onPostCreate(Landroid/os/Bundle;)V
 
     return-void
+
+    .line 26
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public startActivity(Landroid/content/Intent;)V
-    .registers 3
+    .locals 1
 
     .line 35
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/DragBackActivity;->mDragBackDelegate:Lorg/voiddog/dragbackactivity/DragBackDelegate;

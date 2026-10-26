@@ -10,8 +10,8 @@
 .field private _factory:Lorg/antlr/v4/runtime/TokenFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;"
         }
     .end annotation
 .end field
@@ -25,8 +25,8 @@
 .field protected final tokens:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<+",
             "Lorg/antlr/v4/runtime/Token;",
             ">;"
         }
@@ -36,12 +36,12 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<+",
             "Lorg/antlr/v4/runtime/Token;",
             ">;)V"
         }
@@ -56,12 +56,12 @@
 .end method
 
 .method public constructor <init>(Ljava/util/List;Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<+",
             "Lorg/antlr/v4/runtime/Token;",
             ">;",
             "Ljava/lang/String;",
@@ -77,7 +77,7 @@
 
     iput-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->_factory:Lorg/antlr/v4/runtime/TokenFactory;
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     .line 83
     iput-object p1, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
@@ -88,20 +88,20 @@
     return-void
 
     .line 80
-    :cond_e
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "tokens cannot be null"
+    const-string v1, "tokens cannot be null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public getCharPositionInLine()I
-    .registers 4
+    .locals 3
 
     .line 92
     iget v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->i:I
@@ -112,7 +112,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_19
+    if-ge v0, v1, :cond_0
 
     .line 93
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
@@ -129,30 +129,32 @@
 
     move-result v0
 
+    .line 110
+    :goto_0
     return v0
 
     .line 95
-    :cond_19
+    :cond_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->eofToken:Lorg/antlr/v4/runtime/Token;
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_1
 
     .line 96
     invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getCharPositionInLine()I
 
     move-result v0
 
-    return v0
+    goto :goto_0
 
     .line 98
-    :cond_22
+    :cond_1
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_5f
+    if-lez v0, :cond_3
 
     .line 101
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
@@ -174,7 +176,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_4e
+    if-eqz v1, :cond_2
 
     .line 104
     const/16 v2, 0xa
@@ -183,7 +185,7 @@
 
     move-result v2
 
-    if-ltz v2, :cond_4e
+    if-ltz v2, :cond_2
 
     .line 106
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -194,10 +196,10 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    return v0
+    goto :goto_0
 
     .line 110
-    :cond_4e
+    :cond_2
     invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getCharPositionInLine()I
 
     move-result v1
@@ -212,20 +214,20 @@
 
     move-result v0
 
-    sub-int/2addr v1, v0
+    sub-int v0, v1, v0
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    return v1
+    goto :goto_0
 
-    :cond_5f
+    :cond_3
     const/4 v0, 0x0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public getInputStream()Lorg/antlr/v4/runtime/CharStream;
-    .registers 3
+    .locals 2
 
     .line 189
     iget v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->i:I
@@ -236,7 +238,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_19
+    if-ge v0, v1, :cond_0
 
     .line 190
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
@@ -253,30 +255,32 @@
 
     move-result-object v0
 
+    .line 196
+    :goto_0
     return-object v0
 
     .line 192
-    :cond_19
+    :cond_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->eofToken:Lorg/antlr/v4/runtime/Token;
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_1
 
     .line 193
     invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getInputStream()Lorg/antlr/v4/runtime/CharStream;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 195
-    :cond_22
+    :cond_1
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_3d
+    if-lez v0, :cond_2
 
     .line 196
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
@@ -297,16 +301,16 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
-    :cond_3d
+    :cond_2
     const/4 v0, 0x0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getLine()I
-    .registers 6
+    .locals 5
 
     .line 154
     iget v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->i:I
@@ -317,7 +321,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_19
+    if-ge v0, v1, :cond_1
 
     .line 155
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
@@ -332,25 +336,28 @@
 
     invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getLine()I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    .line 169
+    :cond_0
+    :goto_0
+    return v1
 
     .line 157
-    :cond_19
+    :cond_1
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->eofToken:Lorg/antlr/v4/runtime/Token;
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_2
 
     .line 158
     invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getLine()I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    goto :goto_0
 
     .line 160
-    :cond_22
+    :cond_2
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -359,18 +366,18 @@
 
     const/4 v1, 0x1
 
-    if-lez v0, :cond_56
+    if-lez v0, :cond_0
 
     .line 163
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v1
 
-    sub-int/2addr v2, v1
+    add-int/lit8 v1, v1, -0x1
 
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -384,79 +391,78 @@
     .line 166
     invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getText()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-eqz v0, :cond_56
+    if-eqz v2, :cond_0
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     .line 168
-    :goto_43
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    :goto_1
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_56
+    if-ge v0, v3, :cond_0
 
     .line 169
-    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v2, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
 
     const/16 v4, 0xa
 
-    if-ne v3, v4, :cond_53
+    if-ne v3, v4, :cond_3
 
     add-int/lit8 v1, v1, 0x1
 
-    :cond_53
-    add-int/lit8 v2, v2, 0x1
+    :cond_3
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_43
-
-    :cond_56
-    return v1
+    goto :goto_1
 .end method
 
 .method public getSourceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 208
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->sourceName:Ljava/lang/String;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
+    .line 217
+    :goto_0
     return-object v0
 
     .line 212
-    :cond_5
+    :cond_0
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/ListTokenSource;->getInputStream()Lorg/antlr/v4/runtime/CharStream;
 
     move-result-object v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     .line 214
     invoke-interface {v0}, Lorg/antlr/v4/runtime/CharStream;->getSourceName()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 217
-    :cond_10
+    :cond_1
     const-string v0, "List"
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getTokenFactory()Lorg/antlr/v4/runtime/TokenFactory;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;"
         }
     .end annotation
 
@@ -467,7 +473,9 @@
 .end method
 
 .method public nextToken()Lorg/antlr/v4/runtime/Token;
-    .registers 13
+    .locals 9
+
+    const/4 v2, -0x1
 
     .line 123
     iget v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->i:I
@@ -478,14 +486,12 @@
 
     move-result v1
 
-    const/4 v2, -0x1
-
-    if-lt v0, v1, :cond_56
+    if-lt v0, v1, :cond_2
 
     .line 124
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->eofToken:Lorg/antlr/v4/runtime/Token;
 
-    if-nez v0, :cond_53
+    if-nez v0, :cond_0
 
     .line 126
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
@@ -494,7 +500,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_2f
+    if-lez v0, :cond_1
 
     .line 127
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
@@ -515,64 +521,63 @@
 
     move-result v0
 
-    if-eq v0, v2, :cond_2f
+    if-eq v0, v2, :cond_1
 
-    add-int/lit8 v0, v0, 0x1
-
-    move v8, v0
-
-    goto :goto_30
-
-    :cond_2f
-    const/4 v8, -0x1
+    add-int/lit8 v5, v0, 0x1
 
     .line 133
-    :goto_30
-    add-int/lit8 v0, v8, -0x1
+    :goto_0
+    add-int/lit8 v0, v5, -0x1
 
     invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result v9
+    move-result v6
 
     .line 134
-    iget-object v3, p0, Lorg/antlr/v4/runtime/ListTokenSource;->_factory:Lorg/antlr/v4/runtime/TokenFactory;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->_factory:Lorg/antlr/v4/runtime/TokenFactory;
 
-    new-instance v4, Lorg/antlr/v4/runtime/misc/Pair;
+    new-instance v1, Lorg/antlr/v4/runtime/misc/Pair;
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/ListTokenSource;->getInputStream()Lorg/antlr/v4/runtime/CharStream;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v4, p0, v0}, Lorg/antlr/v4/runtime/misc/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, p0, v3}, Lorg/antlr/v4/runtime/misc/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v5, -0x1
+    const-string v3, "EOF"
 
-    const-string v6, "EOF"
-
-    const/4 v7, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/ListTokenSource;->getLine()I
 
-    move-result v10
+    move-result v7
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/ListTokenSource;->getCharPositionInLine()I
 
-    move-result v11
+    move-result v8
 
-    invoke-interface/range {v3 .. v11}, Lorg/antlr/v4/runtime/TokenFactory;->create(Lorg/antlr/v4/runtime/misc/Pair;ILjava/lang/String;IIIII)Lorg/antlr/v4/runtime/Token;
+    invoke-interface/range {v0 .. v8}, Lorg/antlr/v4/runtime/TokenFactory;->create(Lorg/antlr/v4/runtime/misc/Pair;ILjava/lang/String;IIIII)Lorg/antlr/v4/runtime/Token;
 
     move-result-object v0
 
     iput-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->eofToken:Lorg/antlr/v4/runtime/Token;
 
     .line 137
-    :cond_53
+    :cond_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->eofToken:Lorg/antlr/v4/runtime/Token;
 
+    .line 145
+    :goto_1
     return-object v0
 
+    :cond_1
+    move v5, v2
+
+    .line 127
+    goto :goto_0
+
     .line 140
-    :cond_56
+    :cond_2
     iget-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->tokens:Ljava/util/List;
 
     iget v1, p0, Lorg/antlr/v4/runtime/ListTokenSource;->i:I
@@ -594,35 +599,35 @@
 
     add-int/lit8 v3, v3, -0x1
 
-    if-ne v1, v3, :cond_74
+    if-ne v1, v3, :cond_3
 
     invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getType()I
 
     move-result v1
 
-    if-ne v1, v2, :cond_74
+    if-ne v1, v2, :cond_3
 
     .line 142
     iput-object v0, p0, Lorg/antlr/v4/runtime/ListTokenSource;->eofToken:Lorg/antlr/v4/runtime/Token;
 
     .line 145
-    :cond_74
+    :cond_3
     iget v1, p0, Lorg/antlr/v4/runtime/ListTokenSource;->i:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lorg/antlr/v4/runtime/ListTokenSource;->i:I
 
-    return-object v0
+    goto :goto_1
 .end method
 
 .method public setTokenFactory(Lorg/antlr/v4/runtime/TokenFactory;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;)V"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;)V"
         }
     .end annotation
 

@@ -21,38 +21,38 @@
 
 # direct methods
 .method public constructor <init>(IILcom/s1243808733/android/dx/cf/code/BytecodeArray;Lcom/s1243808733/android/dx/cf/code/ByteCatchList;Lcom/s1243808733/android/dx/cf/iface/AttributeList;)V
-    .registers 7
+    .locals 2
 
     .line 57
     const-string v0, "Code"
 
     invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/cf/attrib/BaseAttribute;-><init>(Ljava/lang/String;)V
 
-    if-ltz p1, :cond_54
+    if-ltz p1, :cond_4
 
-    if-ltz p2, :cond_4c
+    if-ltz p2, :cond_3
 
-    if-eqz p3, :cond_44
+    if-eqz p3, :cond_2
 
     .line 72
-    :try_start_b
+    :try_start_0
     invoke-virtual {p4}, Lcom/s1243808733/android/dx/cf/code/ByteCatchList;->isMutable()Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v0
-    :try_end_f
-    .catch Ljava/lang/NullPointerException; {:try_start_b .. :try_end_f} :catch_3b
 
-    if-nez v0, :cond_33
+    if-nez v0, :cond_1
 
     .line 81
-    :try_start_11
+    :try_start_1
     invoke-interface {p5}, Lcom/s1243808733/android/dx/cf/iface/AttributeList;->isMutable()Z
+    :try_end_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result v0
-    :try_end_15
-    .catch Ljava/lang/NullPointerException; {:try_start_11 .. :try_end_15} :catch_2a
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     .line 89
     iput p1, p0, Lcom/s1243808733/android/dx/cf/attrib/AttCode;->maxStack:I
@@ -72,90 +72,90 @@
     return-void
 
     .line 82
-    :cond_22
-    :try_start_22
-    new-instance p1, Lcom/s1243808733/android/dx/util/MutabilityException;
+    :cond_0
+    :try_start_2
+    new-instance v0, Lcom/s1243808733/android/dx/util/MutabilityException;
 
-    const-string p2, "attributes.isMutable()"
+    const-string v1, "attributes.isMutable()"
 
-    invoke-direct {p1, p2}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
 
-    throw p1
-    :try_end_2a
-    .catch Ljava/lang/NullPointerException; {:try_start_22 .. :try_end_2a} :catch_2a
+    throw v0
+    :try_end_2
+    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 86
-    :catch_2a
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "attributes == null"
+    const-string v1, "attributes == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 73
-    :cond_33
-    :try_start_33
-    new-instance p1, Lcom/s1243808733/android/dx/util/MutabilityException;
+    :cond_1
+    :try_start_3
+    new-instance v0, Lcom/s1243808733/android/dx/util/MutabilityException;
 
-    const-string p2, "catches.isMutable()"
+    const-string v1, "catches.isMutable()"
 
-    invoke-direct {p1, p2}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
 
-    throw p1
-    :try_end_3b
-    .catch Ljava/lang/NullPointerException; {:try_start_33 .. :try_end_3b} :catch_3b
+    throw v0
+    :try_end_3
+    .catch Ljava/lang/NullPointerException; {:try_start_3 .. :try_end_3} :catch_1
 
     .line 77
-    :catch_3b
-    move-exception p1
+    :catch_1
+    move-exception v0
 
-    new-instance p1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "catches == null"
+    const-string v1, "catches == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 68
-    :cond_44
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_2
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "code == null"
+    const-string v1, "code == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 64
-    :cond_4c
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_3
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "maxLocals < 0"
+    const-string v1, "maxLocals < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 60
-    :cond_54
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_4
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "maxStack < 0"
+    const-string v1, "maxStack < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public byteLength()I
-    .registers 4
+    .locals 3
 
     .line 98
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttCode;->code:Lcom/s1243808733/android/dx/cf/code/BytecodeArray;
@@ -187,7 +187,7 @@
 .end method
 
 .method public getAttributes()Lcom/s1243808733/android/dx/cf/iface/AttributeList;
-    .registers 2
+    .locals 1
 
     .line 144
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttCode;->attributes:Lcom/s1243808733/android/dx/cf/iface/AttributeList;
@@ -196,7 +196,7 @@
 .end method
 
 .method public getCatches()Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
-    .registers 2
+    .locals 1
 
     .line 135
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttCode;->catches:Lcom/s1243808733/android/dx/cf/code/ByteCatchList;
@@ -205,7 +205,7 @@
 .end method
 
 .method public getCode()Lcom/s1243808733/android/dx/cf/code/BytecodeArray;
-    .registers 2
+    .locals 1
 
     .line 126
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttCode;->code:Lcom/s1243808733/android/dx/cf/code/BytecodeArray;
@@ -214,7 +214,7 @@
 .end method
 
 .method public getMaxLocals()I
-    .registers 2
+    .locals 1
 
     .line 117
     iget v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttCode;->maxLocals:I
@@ -223,7 +223,7 @@
 .end method
 
 .method public getMaxStack()I
-    .registers 2
+    .locals 1
 
     .line 108
     iget v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttCode;->maxStack:I

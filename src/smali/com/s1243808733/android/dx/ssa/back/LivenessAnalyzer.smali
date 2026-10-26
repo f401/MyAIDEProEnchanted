@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/ssa/SsaMethod;ILcom/s1243808733/android/dx/ssa/back/InterferenceGraph;)V
-    .registers 5
+    .locals 2
 
     .line 112
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,18 +52,18 @@
     iput p2, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->regV:I
 
     .line 117
-    new-instance p1, Ljava/util/BitSet;
+    new-instance v1, Ljava/util/BitSet;
 
-    invoke-direct {p1, v0}, Ljava/util/BitSet;-><init>(I)V
+    invoke-direct {v1, v0}, Ljava/util/BitSet;-><init>(I)V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->visitedBlocks:Ljava/util/BitSet;
+    iput-object v1, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->visitedBlocks:Ljava/util/BitSet;
 
     .line 118
-    new-instance p1, Ljava/util/BitSet;
+    new-instance v1, Ljava/util/BitSet;
 
-    invoke-direct {p1, v0}, Ljava/util/BitSet;-><init>(I)V
+    invoke-direct {v1, v0}, Ljava/util/BitSet;-><init>(I)V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->liveOutBlocks:Ljava/util/BitSet;
+    iput-object v1, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->liveOutBlocks:Ljava/util/BitSet;
 
     .line 119
     iput-object p3, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->interference:Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;
@@ -72,62 +72,64 @@
 .end method
 
 .method private static coInterferePhiRegisters(Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)V
-    .registers 5
+    .locals 3
 
     .line 284
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
 
-    move-result p1
+    move-result v1
 
     const/4 v0, 0x0
 
     .line 285
-    :goto_5
+    :goto_0
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
-    move-result v1
+    move-result v2
 
-    if-ge v0, v1, :cond_19
+    if-ge v0, v2, :cond_0
 
     .line 286
     invoke-virtual {p2, v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {p0, p1, v1}, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;->add(II)V
+    invoke-virtual {p0, v1, v2}, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;->add(II)V
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
-    :cond_19
+    :cond_0
     return-void
 .end method
 
 .method private static coInterferePhis(Lcom/s1243808733/android/dx/ssa/SsaMethod;Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;)V
-    .registers 11
+    .locals 10
+
+    const/4 v3, 0x0
 
     .line 261
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getBlocks()Ljava/util/ArrayList;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object p0
+    move-result-object v5
 
-    :cond_8
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+    :cond_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_61
+    if-eqz v0, :cond_3
 
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -136,147 +138,149 @@
     .line 262
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;->getPhiInsns()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object v6
 
     .line 264
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v6}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    move v4, v3
+
+    :goto_0
+    if-ge v4, v7, :cond_0
+
+    move v2, v3
+
+    :goto_1
+    if-ge v2, v7, :cond_2
+
+    if-ne v4, v2, :cond_1
+
+    .line 276
+    :goto_2
+    add-int/lit8 v0, v2, 0x1
+
+    move v2, v0
+
+    goto :goto_1
+
+    .line 272
+    :cond_1
+    invoke-interface {v6, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/ssa/SsaInsn;
+
+    .line 273
+    invoke-interface {v6, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/s1243808733/android/dx/ssa/SsaInsn;
+
+    .line 274
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+
+    move-result-object v8
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getSources()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
+
+    move-result-object v9
+
+    invoke-static {p1, v8, v9}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->coInterferePhiRegisters(Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)V
+
+    .line 275
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+
+    move-result-object v8
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getSources()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
+
+    move-result-object v9
+
+    invoke-static {p1, v8, v9}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->coInterferePhiRegisters(Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)V
+
+    .line 276
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
+
+    move-result v0
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
 
     move-result v1
 
-    const/4 v2, 0x0
+    invoke-virtual {p1, v0, v1}, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;->add(II)V
 
-    const/4 v3, 0x0
+    goto :goto_2
 
-    :goto_1e
-    if-ge v3, v1, :cond_8
+    :cond_2
+    add-int/lit8 v0, v4, 0x1
 
-    const/4 v4, 0x0
+    move v4, v0
 
-    :goto_21
-    if-ge v4, v1, :cond_5e
+    goto :goto_0
 
-    if-ne v3, v4, :cond_26
-
-    goto :goto_5b
-
-    .line 272
-    :cond_26
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/s1243808733/android/dx/ssa/SsaInsn;
-
-    .line 273
-    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Lcom/s1243808733/android/dx/ssa/SsaInsn;
-
-    .line 274
-    invoke-virtual {v5}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-
-    move-result-object v7
-
-    invoke-virtual {v6}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getSources()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
-
-    move-result-object v8
-
-    invoke-static {p1, v7, v8}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->coInterferePhiRegisters(Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)V
-
-    .line 275
-    invoke-virtual {v6}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-
-    move-result-object v7
-
-    invoke-virtual {v5}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getSources()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
-
-    move-result-object v8
-
-    invoke-static {p1, v7, v8}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->coInterferePhiRegisters(Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)V
-
-    .line 276
-    invoke-virtual {v5}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
-
-    move-result v5
-
-    invoke-virtual {v6}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
-
-    move-result v6
-
-    invoke-virtual {p1, v5, v6}, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;->add(II)V
-
-    :goto_5b
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_21
-
-    :cond_5e
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1e
-
-    :cond_61
+    :cond_3
     return-void
 .end method
 
 .method public static constructInterferenceGraph(Lcom/s1243808733/android/dx/ssa/SsaMethod;)Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;
-    .registers 5
+    .locals 4
 
     .line 90
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getRegCount()I
 
-    move-result v0
+    move-result v1
 
     .line 91
-    new-instance v1, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;
+    new-instance v2, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;
 
-    invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;-><init>(I)V
+    invoke-direct {v2, v1}, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;-><init>(I)V
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    :goto_a
-    if-ge v2, v0, :cond_17
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 94
     new-instance v3, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;
 
-    invoke-direct {v3, p0, v2, v1}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;-><init>(Lcom/s1243808733/android/dx/ssa/SsaMethod;ILcom/s1243808733/android/dx/ssa/back/InterferenceGraph;)V
+    invoke-direct {v3, p0, v0, v2}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;-><init>(Lcom/s1243808733/android/dx/ssa/SsaMethod;ILcom/s1243808733/android/dx/ssa/back/InterferenceGraph;)V
 
     invoke-virtual {v3}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->run()V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 97
-    :cond_17
-    invoke-static {p0, v1}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->coInterferePhis(Lcom/s1243808733/android/dx/ssa/SsaMethod;Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;)V
+    :cond_0
+    invoke-static {p0, v2}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->coInterferePhis(Lcom/s1243808733/android/dx/ssa/SsaMethod;Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;)V
 
-    return-object v1
+    return-object v2
 .end method
 
 .method private handleTailRecursion()V
-    .registers 3
+    .locals 2
 
     .line 128
-    nop
-
-    :goto_1
+    :cond_0
+    :goto_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
     sget-object v1, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->DONE:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
-    if-eq v0, v1, :cond_2e
+    if-eq v0, v1, :cond_3
 
     .line 129
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
@@ -285,20 +289,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_2
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1e
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_16
-
-    goto :goto_1
+    if-ne v0, v1, :cond_0
 
     .line 141
-    :cond_16
     sget-object v0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->DONE:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
     iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
@@ -306,10 +307,10 @@
     .line 142
     invoke-direct {p0}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->liveOutAtBlock()V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 136
-    :cond_1e
+    :cond_1
     sget-object v0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->DONE:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
     iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
@@ -317,10 +318,10 @@
     .line 137
     invoke-direct {p0}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->liveOutAtStatement()V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 131
-    :cond_26
+    :cond_2
     sget-object v0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->DONE:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
     iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
@@ -328,19 +329,19 @@
     .line 132
     invoke-direct {p0}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->liveInAtStatement()V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_2e
+    :cond_3
     return-void
 .end method
 
 .method private liveInAtStatement()V
-    .registers 3
+    .locals 2
 
     .line 217
     iget v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->statementIndex:I
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 219
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->blockN:Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
@@ -361,10 +362,12 @@
 
     invoke-virtual {v1, v0}, Ljava/util/BitSet;->or(Ljava/util/BitSet;)V
 
-    goto :goto_1f
+    .line 227
+    :goto_0
+    return-void
 
     .line 226
-    :cond_17
+    :cond_0
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->statementIndex:I
@@ -374,12 +377,11 @@
 
     iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
-    :goto_1f
-    return-void
+    goto :goto_0
 .end method
 
 .method private liveOutAtBlock()V
-    .registers 3
+    .locals 2
 
     .line 197
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->visitedBlocks:Ljava/util/BitSet;
@@ -394,7 +396,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_32
+    if-nez v0, :cond_0
 
     .line 198
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->visitedBlocks:Ljava/util/BitSet;
@@ -435,12 +437,12 @@
 
     iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
-    :cond_32
+    :cond_0
     return-void
 .end method
 
 .method private liveOutAtStatement()V
-    .registers 4
+    .locals 3
 
     .line 235
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->blockN:Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
@@ -469,9 +471,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_1
 
-    if-eqz v1, :cond_27
+    if-eqz v1, :cond_0
 
     .line 240
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->interference:Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;
@@ -485,19 +487,19 @@
     invoke-virtual {v0, v2, v1}, Lcom/s1243808733/android/dx/ssa/back/InterferenceGraph;->add(II)V
 
     .line 242
-    :cond_27
+    :cond_0
     sget-object v0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->LIVE_IN_AT_STATEMENT:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
     iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
-    :cond_2b
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 154
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->ssaMeth:Lcom/s1243808733/android/dx/ssa/SsaMethod;
@@ -511,21 +513,21 @@
     .line 156
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :cond_c
-    :goto_c
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_66
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lcom/s1243808733/android/dx/ssa/SsaInsn;
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/ssa/SsaInsn;
 
     .line 157
     sget-object v2, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->DONE:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
@@ -533,55 +535,55 @@
     iput-object v2, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
     .line 159
-    instance-of v2, v1, Lcom/s1243808733/android/dx/ssa/PhiInsn;
+    instance-of v2, v0, Lcom/s1243808733/android/dx/ssa/PhiInsn;
 
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_1
 
     .line 161
-    check-cast v1, Lcom/s1243808733/android/dx/ssa/PhiInsn;
+    check-cast v0, Lcom/s1243808733/android/dx/ssa/PhiInsn;
 
     .line 164
     iget v2, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->regV:I
 
     iget-object v3, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->ssaMeth:Lcom/s1243808733/android/dx/ssa/SsaMethod;
 
-    invoke-virtual {v1, v2, v3}, Lcom/s1243808733/android/dx/ssa/PhiInsn;->predBlocksForReg(ILcom/s1243808733/android/dx/ssa/SsaMethod;)Ljava/util/List;
+    invoke-virtual {v0, v2, v3}, Lcom/s1243808733/android/dx/ssa/PhiInsn;->predBlocksForReg(ILcom/s1243808733/android/dx/ssa/SsaMethod;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_2e
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_c
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
 
     .line 165
-    iput-object v2, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->blockN:Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->blockN:Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
 
     .line 167
-    sget-object v2, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->LIVE_OUT_AT_BLOCK:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
+    sget-object v0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->LIVE_OUT_AT_BLOCK:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
-    iput-object v2, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
     .line 168
     invoke-direct {p0}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->handleTailRecursion()V
 
-    goto :goto_2e
+    goto :goto_1
 
     .line 171
-    :cond_44
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getBlock()Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
+    :cond_1
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/ssa/SsaInsn;->getBlock()Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
 
     move-result-object v2
 
@@ -592,26 +594,26 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->statementIndex:I
+    iput v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->statementIndex:I
 
-    if-ltz v1, :cond_5e
+    if-ltz v0, :cond_2
 
     .line 179
-    sget-object v1, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->LIVE_IN_AT_STATEMENT:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
+    sget-object v0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->LIVE_IN_AT_STATEMENT:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
-    iput-object v1, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->nextFunction:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
 
     .line 180
     invoke-direct {p0}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->handleTailRecursion()V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 175
-    :cond_5e
+    :cond_2
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "insn not found in it\'s own block"
@@ -621,37 +623,37 @@
     throw v0
 
     .line 185
-    :cond_66
-    :goto_66
+    :cond_3
+    :goto_2
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->liveOutBlocks:Ljava/util/BitSet;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/util/BitSet;->nextSetBit(I)I
 
-    move-result v0
+    move-result v1
 
-    if-ltz v0, :cond_8a
+    if-ltz v1, :cond_4
 
     .line 186
-    iget-object v1, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->ssaMeth:Lcom/s1243808733/android/dx/ssa/SsaMethod;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->ssaMeth:Lcom/s1243808733/android/dx/ssa/SsaMethod;
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getBlocks()Ljava/util/ArrayList;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/ssa/SsaMethod;->getBlocks()Ljava/util/ArrayList;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
+    check-cast v0, Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
 
-    iput-object v1, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->blockN:Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->blockN:Lcom/s1243808733/android/dx/ssa/SsaBasicBlock;
 
     .line 187
-    iget-object v1, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->liveOutBlocks:Ljava/util/BitSet;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->liveOutBlocks:Ljava/util/BitSet;
 
-    invoke-virtual {v1, v0}, Ljava/util/BitSet;->clear(I)V
+    invoke-virtual {v0, v1}, Ljava/util/BitSet;->clear(I)V
 
     .line 188
     sget-object v0, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;->LIVE_OUT_AT_BLOCK:Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer$NextFunction;
@@ -661,8 +663,8 @@
     .line 189
     invoke-direct {p0}, Lcom/s1243808733/android/dx/ssa/back/LivenessAnalyzer;->handleTailRecursion()V
 
-    goto :goto_66
+    goto :goto_2
 
-    :cond_8a
+    :cond_4
     return-void
 .end method

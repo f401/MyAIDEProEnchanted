@@ -13,15 +13,15 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lorg/antlr/v4/runtime/tree/ParseTreeVisitor<",
-        "TT;>;"
+        "Lorg/antlr/v4/runtime/tree/ParseTreeVisitor",
+        "<TT;>;"
     }
 .end annotation
 
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method protected aggregateResult(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)TT;"
@@ -43,7 +43,7 @@
 .end method
 
 .method protected defaultResult()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -56,7 +56,7 @@
 .end method
 
 .method protected shouldVisitNextChild(Lorg/antlr/v4/runtime/tree/RuleNode;Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,13 +65,13 @@
         }
     .end annotation
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public visit(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,13 +83,13 @@
     .line 18
     invoke-interface {p1, p0}, Lorg/antlr/v4/runtime/tree/ParseTree;->accept(Lorg/antlr/v4/runtime/tree/ParseTreeVisitor;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public visitChildren(Lorg/antlr/v4/runtime/tree/RuleNode;)Ljava/lang/Object;
-    .registers 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,25 +106,27 @@
     .line 39
     invoke-interface {p1}, Lorg/antlr/v4/runtime/tree/RuleNode;->getChildCount()I
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    :goto_9
-    if-ge v2, v1, :cond_21
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 41
     invoke-virtual {p0, p1, v0}, Lorg/antlr/v4/runtime/tree/AbstractParseTreeVisitor;->shouldVisitNextChild(Lorg/antlr/v4/runtime/tree/RuleNode;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_12
+    if-nez v3, :cond_1
 
-    goto :goto_21
+    .line 47
+    :cond_0
+    return-object v0
 
     .line 45
-    :cond_12
-    invoke-interface {p1, v2}, Lorg/antlr/v4/runtime/tree/RuleNode;->getChild(I)Lorg/antlr/v4/runtime/tree/ParseTree;
+    :cond_1
+    invoke-interface {p1, v1}, Lorg/antlr/v4/runtime/tree/RuleNode;->getChild(I)Lorg/antlr/v4/runtime/tree/ParseTree;
 
     move-result-object v3
 
@@ -138,17 +140,13 @@
 
     move-result-object v0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9
-
-    :cond_21
-    :goto_21
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public visitErrorNode(Lorg/antlr/v4/runtime/tree/ErrorNode;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,13 +158,13 @@
     .line 72
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/tree/AbstractParseTreeVisitor;->defaultResult()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public visitTerminal(Lorg/antlr/v4/runtime/tree/TerminalNode;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -178,7 +176,7 @@
     .line 61
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/tree/AbstractParseTreeVisitor;->defaultResult()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

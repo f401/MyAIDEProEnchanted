@@ -16,7 +16,7 @@
 
 # direct methods
 .method public static a([B)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 178
     :try_start_0
@@ -31,24 +31,25 @@
 
     .line 181
     invoke-static {v0, v1, p0}, Lcom/baidu/mobstat/dh$a;->b([B[B[B)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object p0
-    :try_end_c
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_c} :catch_d
-
-    return-object p0
+    move-result-object v0
 
     .line 186
-    :catch_d
-    move-exception p0
+    :goto_0
+    return-object v0
 
-    const-string p0, ""
+    :catch_0
+    move-exception v0
 
-    return-object p0
+    const-string v0, ""
+
+    goto :goto_0
 .end method
 
 .method public static a()[B
-    .registers 3
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -63,13 +64,13 @@
     move-result-object v0
 
     .line 126
-    new-instance v1, Ljava/security/SecureRandom;
+    const/16 v1, 0x80
 
-    invoke-direct {v1}, Ljava/security/SecureRandom;-><init>()V
+    new-instance v2, Ljava/security/SecureRandom;
 
-    const/16 v2, 0x80
+    invoke-direct {v2}, Ljava/security/SecureRandom;-><init>()V
 
-    invoke-virtual {v0, v2, v1}, Ljavax/crypto/KeyGenerator;->init(ILjava/security/SecureRandom;)V
+    invoke-virtual {v0, v1, v2}, Ljavax/crypto/KeyGenerator;->init(ILjava/security/SecureRandom;)V
 
     .line 128
     invoke-virtual {v0}, Ljavax/crypto/KeyGenerator;->generateKey()Ljavax/crypto/SecretKey;
@@ -84,7 +85,7 @@
 .end method
 
 .method public static a([B[B[B)[B
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -99,92 +100,95 @@
     invoke-direct {v0, p0, v1}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
 
     .line 104
-    new-instance p0, Ljavax/crypto/spec/IvParameterSpec;
+    new-instance v1, Ljavax/crypto/spec/IvParameterSpec;
 
-    invoke-direct {p0, p1}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
+    invoke-direct {v1, p1}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
 
     .line 106
-    const-string p1, "AES/CBC/PKCS5Padding"
+    const-string v2, "AES/CBC/PKCS5Padding"
 
-    invoke-static {p1}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
+    invoke-static {v2}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 107
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {p1, v1, v0, p0}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+    invoke-virtual {v2, v3, v0, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
     .line 109
-    invoke-virtual {p1, p2}, Ljavax/crypto/Cipher;->doFinal([B)[B
+    invoke-virtual {v2, p2}, Ljavax/crypto/Cipher;->doFinal([B)[B
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static b([B[B[B)Ljava/lang/String;
-    .registers 5
+    .locals 2
 
     .line 191
-    const-string v0, "|"
-
-    :try_start_2
+    :try_start_0
     invoke-static {p2}, Lcom/baidu/mobstat/dn;->a([B)[B
 
-    move-result-object p2
+    move-result-object v0
 
     .line 192
-    invoke-static {p0, p1, p2}, Lcom/baidu/mobstat/dh$a;->a([B[B[B)[B
+    invoke-static {p0, p1, v0}, Lcom/baidu/mobstat/dh$a;->a([B[B[B)[B
 
-    move-result-object p2
+    move-result-object v0
 
     .line 194
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {p2}, Lcom/baidu/mobstat/dk;->b([B)Ljava/lang/String;
+    invoke-static {v0}, Lcom/baidu/mobstat/dk;->b([B)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "|"
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p0}, Lcom/baidu/mobstat/dr;->a([B)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "|"
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p1}, Lcom/baidu/mobstat/dr;->a([B)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object p0
-    :try_end_2e
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2e} :catch_2f
-
-    return-object p0
+    move-result-object v0
 
     .line 199
-    :catch_2f
-    move-exception p0
+    :goto_0
+    return-object v0
 
-    const-string p0, ""
+    :catch_0
+    move-exception v0
 
-    return-object p0
+    const-string v0, ""
+
+    goto :goto_0
 .end method
 
 .method public static b()[B
-    .registers 2
+    .locals 2
 
     .line 132
     new-instance v0, Ljava/security/SecureRandom;

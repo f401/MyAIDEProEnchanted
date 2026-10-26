@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>(Lorg/ahocorasick/trie/TrieConfig;)V
-    .registers 2
+    .locals 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,17 +28,17 @@
     iput-object p1, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
 
     .line 27
-    new-instance p1, Lorg/ahocorasick/trie/State;
+    new-instance v0, Lorg/ahocorasick/trie/State;
 
-    invoke-direct {p1}, Lorg/ahocorasick/trie/State;-><init>()V
+    invoke-direct {v0}, Lorg/ahocorasick/trie/State;-><init>()V
 
-    iput-object p1, p0, Lorg/ahocorasick/trie/Trie;->rootState:Lorg/ahocorasick/trie/State;
+    iput-object v0, p0, Lorg/ahocorasick/trie/Trie;->rootState:Lorg/ahocorasick/trie/State;
 
     return-void
 .end method
 
 .method synthetic constructor <init>(Lorg/ahocorasick/trie/TrieConfig;Lorg/ahocorasick/trie/Trie$1;)V
-    .registers 3
+    .locals 0
 
     .line 19
     invoke-direct {p0, p1}, Lorg/ahocorasick/trie/Trie;-><init>(Lorg/ahocorasick/trie/TrieConfig;)V
@@ -47,7 +47,7 @@
 .end method
 
 .method static synthetic access$200(Lorg/ahocorasick/trie/Trie;Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 19
     invoke-direct {p0, p1}, Lorg/ahocorasick/trie/Trie;->addKeyword(Ljava/lang/String;)V
@@ -56,16 +56,16 @@
 .end method
 
 .method static synthetic access$300(Lorg/ahocorasick/trie/Trie;)Lorg/ahocorasick/trie/TrieConfig;
-    .registers 1
+    .locals 1
 
     .line 19
-    iget-object p0, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
+    iget-object v0, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static synthetic access$400(Lorg/ahocorasick/trie/Trie;)V
-    .registers 1
+    .locals 0
 
     .line 19
     invoke-direct {p0}, Lorg/ahocorasick/trie/Trie;->constructFailureStates()V
@@ -74,40 +74,45 @@
 .end method
 
 .method private addKeyword(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
 
-    if-eqz p1, :cond_42
+    if-eqz p1, :cond_0
 
     .line 31
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_1
 
-    goto :goto_42
+    .line 41
+    :cond_0
+    :goto_0
+    return-void
 
     .line 34
-    :cond_9
+    :cond_1
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie;->rootState:Lorg/ahocorasick/trie/State;
 
     .line 35
     invoke-virtual {p1}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v1
+    move-result-object v3
 
-    array-length v2, v1
+    array-length v4, v3
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    :goto_11
-    if-ge v3, v2, :cond_33
+    move-object v1, v0
 
-    aget-char v4, v1, v3
+    :goto_1
+    if-ge v2, v4, :cond_3
 
-    invoke-static {v4}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
+    aget-char v5, v3, v2
 
-    move-result-object v5
+    invoke-static {v5}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
+
+    move-result-object v0
 
     .line 36
     iget-object v6, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
@@ -116,53 +121,53 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2c
+    if-eqz v6, :cond_2
 
     .line 37
-    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {v4}, Ljava/lang/Character;->toLowerCase(C)C
+    invoke-static {v5}, Ljava/lang/Character;->toLowerCase(C)C
 
-    move-result v4
+    move-result v0
 
-    invoke-static {v4}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
-
-    move-result-object v5
-
-    .line 39
-    :cond_2c
-    invoke-virtual {v0, v5}, Lorg/ahocorasick/trie/State;->addState(Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
+    invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v0
 
-    add-int/lit8 v3, v3, 0x1
+    .line 39
+    :cond_2
+    invoke-virtual {v1, v0}, Lorg/ahocorasick/trie/State;->addState(Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
 
-    goto :goto_11
+    move-result-object v0
+
+    add-int/lit8 v2, v2, 0x1
+
+    move-object v1, v0
+
+    goto :goto_1
 
     .line 41
-    :cond_33
-    iget-object v1, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
+    :cond_3
+    iget-object v0, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
 
-    invoke-virtual {v1}, Lorg/ahocorasick/trie/TrieConfig;->isCaseInsensitive()Z
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/TrieConfig;->isCaseInsensitive()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3f
+    if-eqz v0, :cond_4
 
     invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object p1
 
-    :cond_3f
-    invoke-virtual {v0, p1}, Lorg/ahocorasick/trie/State;->addEmit(Ljava/lang/String;)V
+    :cond_4
+    invoke-virtual {v1, p1}, Lorg/ahocorasick/trie/State;->addEmit(Ljava/lang/String;)V
 
-    :cond_42
-    :goto_42
-    return-void
+    goto :goto_0
 .end method
 
 .method public static builder()Lorg/ahocorasick/trie/Trie$TrieBuilder;
-    .registers 2
+    .locals 2
 
     .line 233
     new-instance v0, Lorg/ahocorasick/trie/Trie$TrieBuilder;
@@ -175,167 +180,167 @@
 .end method
 
 .method private constructFailureStates()V
-    .registers 8
+    .locals 7
 
     .line 193
-    new-instance v0, Ljava/util/concurrent/LinkedBlockingDeque;
+    new-instance v3, Ljava/util/concurrent/LinkedBlockingDeque;
 
-    invoke-direct {v0}, Ljava/util/concurrent/LinkedBlockingDeque;-><init>()V
+    invoke-direct {v3}, Ljava/util/concurrent/LinkedBlockingDeque;-><init>()V
 
     .line 196
-    iget-object v1, p0, Lorg/ahocorasick/trie/Trie;->rootState:Lorg/ahocorasick/trie/State;
+    iget-object v0, p0, Lorg/ahocorasick/trie/Trie;->rootState:Lorg/ahocorasick/trie/State;
 
-    invoke-virtual {v1}, Lorg/ahocorasick/trie/State;->getStates()Ljava/util/Collection;
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/State;->getStates()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/ahocorasick/trie/State;
+
+    .line 197
+    iget-object v2, p0, Lorg/ahocorasick/trie/Trie;->rootState:Lorg/ahocorasick/trie/State;
+
+    invoke-virtual {v0, v2}, Lorg/ahocorasick/trie/State;->setFailure(Lorg/ahocorasick/trie/State;)V
+
+    .line 198
+    invoke-interface {v3, v0}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    .line 202
+    :cond_0
+    invoke-interface {v3}, Ljava/util/Queue;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 203
+    invoke-interface {v3}, Ljava/util/Queue;->remove()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/ahocorasick/trie/State;
+
+    .line 205
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/State;->getTransitions()Ljava/util/Collection;
 
     move-result-object v1
 
     invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v4
 
-    :goto_f
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_24
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lorg/ahocorasick/trie/State;
-
-    .line 197
-    iget-object v3, p0, Lorg/ahocorasick/trie/Trie;->rootState:Lorg/ahocorasick/trie/State;
-
-    invoke-virtual {v2, v3}, Lorg/ahocorasick/trie/State;->setFailure(Lorg/ahocorasick/trie/State;)V
-
-    .line 198
-    invoke-interface {v0, v2}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
-
-    goto :goto_f
-
-    .line 202
-    :cond_24
-    invoke-interface {v0}, Ljava/util/Queue;->isEmpty()Z
+    :goto_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-nez v1, :cond_69
+    if-eqz v1, :cond_0
 
-    .line 203
-    invoke-interface {v0}, Ljava/util/Queue;->remove()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lorg/ahocorasick/trie/State;
-
-    .line 205
-    invoke-virtual {v1}, Lorg/ahocorasick/trie/State;->getTransitions()Ljava/util/Collection;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_38
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_24
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/Character;
+    check-cast v1, Ljava/lang/Character;
 
     .line 206
-    invoke-virtual {v1, v3}, Lorg/ahocorasick/trie/State;->nextState(Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
-
-    move-result-object v4
-
-    .line 207
-    invoke-interface {v0, v4}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
-
-    .line 209
-    invoke-virtual {v1}, Lorg/ahocorasick/trie/State;->failure()Lorg/ahocorasick/trie/State;
+    invoke-virtual {v0, v1}, Lorg/ahocorasick/trie/State;->nextState(Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
 
     move-result-object v5
 
+    .line 207
+    invoke-interface {v3, v5}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
+
+    .line 209
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/State;->failure()Lorg/ahocorasick/trie/State;
+
+    move-result-object v2
+
     .line 210
-    :goto_4f
-    invoke-virtual {v5, v3}, Lorg/ahocorasick/trie/State;->nextState(Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
+    :goto_2
+    invoke-virtual {v2, v1}, Lorg/ahocorasick/trie/State;->nextState(Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
 
     move-result-object v6
 
-    if-nez v6, :cond_5a
+    if-nez v6, :cond_1
 
     .line 211
-    invoke-virtual {v5}, Lorg/ahocorasick/trie/State;->failure()Lorg/ahocorasick/trie/State;
+    invoke-virtual {v2}, Lorg/ahocorasick/trie/State;->failure()Lorg/ahocorasick/trie/State;
 
-    move-result-object v5
+    move-result-object v2
 
-    goto :goto_4f
+    goto :goto_2
 
     .line 213
-    :cond_5a
-    invoke-virtual {v5, v3}, Lorg/ahocorasick/trie/State;->nextState(Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
+    :cond_1
+    invoke-virtual {v2, v1}, Lorg/ahocorasick/trie/State;->nextState(Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 214
-    invoke-virtual {v4, v3}, Lorg/ahocorasick/trie/State;->setFailure(Lorg/ahocorasick/trie/State;)V
+    invoke-virtual {v5, v1}, Lorg/ahocorasick/trie/State;->setFailure(Lorg/ahocorasick/trie/State;)V
 
     .line 215
-    invoke-virtual {v3}, Lorg/ahocorasick/trie/State;->emit()Ljava/util/Collection;
+    invoke-virtual {v1}, Lorg/ahocorasick/trie/State;->emit()Ljava/util/Collection;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v4, v3}, Lorg/ahocorasick/trie/State;->addEmit(Ljava/util/Collection;)V
+    invoke-virtual {v5, v1}, Lorg/ahocorasick/trie/State;->addEmit(Ljava/util/Collection;)V
 
-    goto :goto_38
+    goto :goto_1
 
-    :cond_69
+    :cond_2
     return-void
 .end method
 
 .method private createFragment(Lorg/ahocorasick/trie/Emit;Ljava/lang/String;I)Lorg/ahocorasick/trie/Token;
-    .registers 5
+    .locals 3
 
     .line 65
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result p1
+    move-result v0
 
-    goto :goto_b
+    :goto_0
+    new-instance v1, Lorg/ahocorasick/trie/FragmentToken;
 
-    :cond_7
+    add-int/lit8 v2, p3, 0x1
+
+    invoke-virtual {p2, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Lorg/ahocorasick/trie/FragmentToken;-><init>(Ljava/lang/String;)V
+
+    return-object v1
+
+    :cond_0
     invoke-virtual {p1}, Lorg/ahocorasick/trie/Emit;->getStart()I
 
-    move-result p1
+    move-result v0
 
-    :goto_b
-    new-instance v0, Lorg/ahocorasick/trie/FragmentToken;
-
-    add-int/lit8 p3, p3, 0x1
-
-    invoke-virtual {p2, p3, p1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {v0, p1}, Lorg/ahocorasick/trie/FragmentToken;-><init>(Ljava/lang/String;)V
-
-    return-object v0
+    goto :goto_0
 .end method
 
 .method private createMatch(Lorg/ahocorasick/trie/Emit;Ljava/lang/String;)Lorg/ahocorasick/trie/Token;
-    .registers 6
+    .locals 3
 
     .line 69
     new-instance v0, Lorg/ahocorasick/trie/MatchToken;
@@ -352,23 +357,23 @@
 
     invoke-virtual {p2, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {v0, p2, p1}, Lorg/ahocorasick/trie/MatchToken;-><init>(Ljava/lang/String;Lorg/ahocorasick/trie/Emit;)V
+    invoke-direct {v0, v1, p1}, Lorg/ahocorasick/trie/MatchToken;-><init>(Ljava/lang/String;Lorg/ahocorasick/trie/Emit;)V
 
     return-object v0
 .end method
 
 .method private getState(Lorg/ahocorasick/trie/State;Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
-    .registers 4
+    .locals 1
 
     .line 184
     invoke-virtual {p1, p2}, Lorg/ahocorasick/trie/State;->nextState(Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
 
     move-result-object v0
 
-    :goto_4
-    if-nez v0, :cond_f
+    :goto_0
+    if-nez v0, :cond_0
 
     .line 186
     invoke-virtual {p1}, Lorg/ahocorasick/trie/State;->failure()Lorg/ahocorasick/trie/State;
@@ -380,144 +385,145 @@
 
     move-result-object v0
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_f
+    :cond_0
     return-object v0
 .end method
 
 .method private isPartialMatch(Ljava/lang/CharSequence;Lorg/ahocorasick/trie/Emit;)Z
-    .registers 6
+    .locals 3
 
     .line 150
     invoke-virtual {p2}, Lorg/ahocorasick/trie/Emit;->getStart()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_16
+    if-eqz v1, :cond_0
 
     .line 151
     invoke-virtual {p2}, Lorg/ahocorasick/trie/Emit;->getStart()I
 
-    move-result v0
+    move-result v1
 
-    sub-int/2addr v0, v1
+    add-int/lit8 v1, v1, -0x1
 
-    invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
+    invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v0
+    move-result v1
 
-    invoke-static {v0}, Ljava/lang/Character;->isAlphabetic(I)Z
+    invoke-static {v1}, Ljava/lang/Character;->isAlphabetic(I)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_32
+    if-nez v1, :cond_1
 
     .line 152
-    :cond_16
+    :cond_0
     invoke-virtual {p2}, Lorg/ahocorasick/trie/Emit;->getEnd()I
 
-    move-result v0
+    move-result v1
 
-    add-int/2addr v0, v1
+    add-int/lit8 v1, v1, 0x1
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-eq v0, v2, :cond_31
+    if-eq v1, v2, :cond_2
 
     .line 153
     invoke-virtual {p2}, Lorg/ahocorasick/trie/Emit;->getEnd()I
 
-    move-result p2
+    move-result v1
 
-    add-int/2addr p2, v1
+    add-int/lit8 v1, v1, 0x1
 
-    invoke-interface {p1, p2}, Ljava/lang/CharSequence;->charAt(I)C
+    invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result p1
+    move-result v1
 
-    invoke-static {p1}, Ljava/lang/Character;->isAlphabetic(I)Z
+    invoke-static {v1}, Ljava/lang/Character;->isAlphabetic(I)Z
 
-    move-result p1
+    move-result v1
 
-    if-eqz p1, :cond_31
+    if-eqz v1, :cond_2
 
-    goto :goto_32
+    :cond_1
+    :goto_0
+    return v0
 
-    :cond_31
-    const/4 v1, 0x0
+    :cond_2
+    const/4 v0, 0x0
 
-    :cond_32
-    :goto_32
-    return v1
+    goto :goto_0
 .end method
 
 .method private removePartialMatches(Ljava/lang/CharSequence;Ljava/util/List;)V
-    .registers 7
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/CharSequence;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/ahocorasick/trie/Emit;",
             ">;)V"
         }
     .end annotation
 
     .line 157
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 158
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
-
-    :cond_9
-    :goto_9
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1f
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Lorg/ahocorasick/trie/Emit;
-
-    .line 159
-    invoke-direct {p0, p1, v2}, Lorg/ahocorasick/trie/Trie;->isPartialMatch(Ljava/lang/CharSequence;Lorg/ahocorasick/trie/Emit;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_9
-
-    .line 160
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_9
-
-    .line 163
-    :cond_1f
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :goto_23
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_1
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/ahocorasick/trie/Emit;
+
+    .line 159
+    invoke-direct {p0, p1, v0}, Lorg/ahocorasick/trie/Trie;->isPartialMatch(Ljava/lang/CharSequence;Lorg/ahocorasick/trie/Emit;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 160
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    .line 163
+    :cond_1
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -526,19 +532,20 @@
     .line 164
     invoke-interface {p2, v0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_23
+    goto :goto_1
 
-    :cond_33
+    :cond_2
     return-void
 .end method
 
 .method private removePartialMatchesWhiteSpaceSeparated(Ljava/lang/CharSequence;Ljava/util/List;)V
-    .registers 11
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/CharSequence;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/ahocorasick/trie/Emit;",
             ">;)V"
         }
@@ -549,40 +556,40 @@
 
     move-result v0
 
-    int-to-long v0, v0
+    int-to-long v2, v0
 
     .line 170
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 171
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
-
-    :cond_e
-    :goto_e
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_50
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v4
 
-    check-cast v4, Lorg/ahocorasick/trie/Emit;
+    :cond_0
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/ahocorasick/trie/Emit;
 
     .line 172
-    invoke-virtual {v4}, Lorg/ahocorasick/trie/Emit;->getStart()I
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/Emit;->getStart()I
 
     move-result v5
 
-    if-eqz v5, :cond_30
+    if-eqz v5, :cond_1
 
-    invoke-virtual {v4}, Lorg/ahocorasick/trie/Emit;->getStart()I
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/Emit;->getStart()I
 
     move-result v5
 
@@ -596,23 +603,23 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4c
+    if-eqz v5, :cond_2
 
     .line 173
-    :cond_30
-    invoke-virtual {v4}, Lorg/ahocorasick/trie/Emit;->getEnd()I
+    :cond_1
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/Emit;->getEnd()I
 
     move-result v5
 
     add-int/lit8 v5, v5, 0x1
 
-    int-to-long v5, v5
+    int-to-long v6, v5
 
-    cmp-long v7, v5, v0
+    cmp-long v5, v6, v2
 
-    if-eqz v7, :cond_e
+    if-eqz v5, :cond_0
 
-    invoke-virtual {v4}, Lorg/ahocorasick/trie/Emit;->getEnd()I
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/Emit;->getEnd()I
 
     move-result v5
 
@@ -626,30 +633,28 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4c
-
-    goto :goto_e
+    if-nez v5, :cond_0
 
     .line 176
-    :cond_4c
-    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :cond_2
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_e
+    goto :goto_0
 
     .line 178
-    :cond_50
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    :cond_3
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v1
 
-    :goto_54
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_64
+    if-eqz v0, :cond_4
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -658,99 +663,97 @@
     .line 179
     invoke-interface {p2, v0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_54
+    goto :goto_1
 
-    :cond_64
+    :cond_4
     return-void
 .end method
 
 .method private storeEmits(ILorg/ahocorasick/trie/State;Lorg/ahocorasick/trie/handler/EmitHandler;)Z
-    .registers 8
+    .locals 4
+
+    const/4 v0, 0x0
 
     .line 222
     invoke-virtual {p2}, Lorg/ahocorasick/trie/State;->emit()Ljava/util/Collection;
 
-    move-result-object p2
+    move-result-object v1
 
-    const/4 v0, 0x0
-
-    if-eqz p2, :cond_2f
+    if-eqz v1, :cond_0
 
     .line 223
-    invoke-interface {p2}, Ljava/util/Collection;->isEmpty()Z
+    invoke-interface {v1}, Ljava/util/Collection;->isEmpty()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_2f
+    if-nez v2, :cond_0
 
     .line 224
-    invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object p2
+    move-result-object v1
 
-    :goto_11
-    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_2f
+    if-eqz v2, :cond_0
 
-    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
     .line 225
-    new-instance v1, Lorg/ahocorasick/trie/Emit;
+    new-instance v2, Lorg/ahocorasick/trie/Emit;
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    sub-int v2, p1, v2
+    sub-int v3, p1, v3
 
-    const/4 v3, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    add-int/2addr v2, v3
+    invoke-direct {v2, v3, p1, v0}, Lorg/ahocorasick/trie/Emit;-><init>(IILjava/lang/String;)V
 
-    invoke-direct {v1, v2, p1, v0}, Lorg/ahocorasick/trie/Emit;-><init>(IILjava/lang/String;)V
-
-    invoke-interface {p3, v1}, Lorg/ahocorasick/trie/handler/EmitHandler;->emit(Lorg/ahocorasick/trie/Emit;)V
+    invoke-interface {p3, v2}, Lorg/ahocorasick/trie/handler/EmitHandler;->emit(Lorg/ahocorasick/trie/Emit;)V
 
     const/4 v0, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
-    :cond_2f
+    :cond_0
     return v0
 .end method
 
 
 # virtual methods
 .method public containsMatch(Ljava/lang/CharSequence;)Z
-    .registers 2
+    .locals 1
 
     .line 96
     invoke-virtual {p0, p1}, Lorg/ahocorasick/trie/Trie;->firstMatch(Ljava/lang/CharSequence;)Lorg/ahocorasick/trie/Emit;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_8
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_9
+    :goto_0
+    return v0
 
-    :cond_8
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_9
-    return p1
+    goto :goto_0
 .end method
 
 .method public firstMatch(Ljava/lang/CharSequence;)Lorg/ahocorasick/trie/Emit;
-    .registers 8
+    .locals 6
 
     .line 116
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
@@ -759,57 +762,61 @@
 
     move-result v0
 
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_0
 
     .line 118
     invoke-virtual {p0, p1}, Lorg/ahocorasick/trie/Trie;->parseText(Ljava/lang/CharSequence;)Ljava/util/Collection;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_82
+    if-eqz v0, :cond_5
 
     .line 119
-    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_82
+    if-nez v1, :cond_5
 
     .line 120
-    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lorg/ahocorasick/trie/Emit;
+    check-cast v0, Lorg/ahocorasick/trie/Emit;
 
-    return-object p1
+    .line 136
+    :goto_0
+    return-object v0
 
     .line 124
-    :cond_1f
+    :cond_0
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie;->rootState:Lorg/ahocorasick/trie/State;
 
     const/4 v1, 0x0
 
+    move v2, v1
+
     .line 125
-    :goto_22
+    :goto_1
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    move-result v2
+    move-result v1
 
-    if-ge v1, v2, :cond_82
+    if-ge v2, v1, :cond_5
 
     .line 126
-    invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
+    invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
+    invoke-static {v3}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 127
     iget-object v4, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
@@ -818,108 +825,113 @@
 
     move-result v4
 
-    if-eqz v4, :cond_43
+    if-eqz v4, :cond_1
 
     .line 128
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {v2}, Ljava/lang/Character;->toLowerCase(C)C
+    invoke-static {v3}, Ljava/lang/Character;->toLowerCase(C)C
 
-    move-result v2
+    move-result v1
 
-    invoke-static {v2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
+    invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 130
-    :cond_43
-    invoke-direct {p0, v0, v3}, Lorg/ahocorasick/trie/Trie;->getState(Lorg/ahocorasick/trie/State;Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
+    :cond_1
+    invoke-direct {p0, v0, v1}, Lorg/ahocorasick/trie/Trie;->getState(Lorg/ahocorasick/trie/State;Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
+
+    move-result-object v1
+
+    .line 131
+    invoke-virtual {v1}, Lorg/ahocorasick/trie/State;->emit()Ljava/util/Collection;
 
     move-result-object v0
 
-    .line 131
-    invoke-virtual {v0}, Lorg/ahocorasick/trie/State;->emit()Ljava/util/Collection;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_7f
+    if-eqz v0, :cond_4
 
     .line 132
-    invoke-interface {v2}, Ljava/util/Collection;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_7f
+    if-nez v3, :cond_4
 
     .line 133
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v4
 
-    :cond_57
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    :cond_2
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_7f
+    if-eqz v0, :cond_4
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 134
-    new-instance v4, Lorg/ahocorasick/trie/Emit;
+    new-instance v3, Lorg/ahocorasick/trie/Emit;
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    sub-int v5, v1, v5
+    sub-int v5, v2, v5
 
     add-int/lit8 v5, v5, 0x1
 
-    invoke-direct {v4, v5, v1, v3}, Lorg/ahocorasick/trie/Emit;-><init>(IILjava/lang/String;)V
+    invoke-direct {v3, v5, v2, v0}, Lorg/ahocorasick/trie/Emit;-><init>(IILjava/lang/String;)V
 
     .line 135
-    iget-object v3, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
+    iget-object v0, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
 
-    invoke-virtual {v3}, Lorg/ahocorasick/trie/TrieConfig;->isOnlyWholeWords()Z
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/TrieConfig;->isOnlyWholeWords()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_7e
+    if-eqz v0, :cond_3
 
     .line 136
-    invoke-direct {p0, p1, v4}, Lorg/ahocorasick/trie/Trie;->isPartialMatch(Ljava/lang/CharSequence;Lorg/ahocorasick/trie/Emit;)Z
+    invoke-direct {p0, p1, v3}, Lorg/ahocorasick/trie/Trie;->isPartialMatch(Ljava/lang/CharSequence;Lorg/ahocorasick/trie/Emit;)Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_57
+    if-nez v0, :cond_2
 
-    :cond_7e
-    return-object v4
+    :cond_3
+    move-object v0, v3
 
-    :cond_7f
-    add-int/lit8 v1, v1, 0x1
+    goto :goto_0
 
-    goto :goto_22
+    :cond_4
+    add-int/lit8 v2, v2, 0x1
 
-    :cond_82
-    const/4 p1, 0x0
+    move-object v0, v1
 
-    return-object p1
+    goto :goto_1
+
+    :cond_5
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public parseText(Ljava/lang/CharSequence;)Ljava/util/Collection;
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/CharSequence;",
             ")",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/ahocorasick/trie/Emit;",
             ">;"
         }
@@ -945,48 +957,48 @@
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 80
     invoke-direct {p0, p1, v0}, Lorg/ahocorasick/trie/Trie;->removePartialMatches(Ljava/lang/CharSequence;Ljava/util/List;)V
 
     .line 83
-    :cond_17
+    :cond_0
     iget-object v1, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
 
     invoke-virtual {v1}, Lorg/ahocorasick/trie/TrieConfig;->isOnlyWholeWordsWhiteSpaceSeparated()Z
 
     move-result v1
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_1
 
     .line 84
     invoke-direct {p0, p1, v0}, Lorg/ahocorasick/trie/Trie;->removePartialMatchesWhiteSpaceSeparated(Ljava/lang/CharSequence;Ljava/util/List;)V
 
     .line 87
-    :cond_22
-    iget-object p1, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
+    :cond_1
+    iget-object v1, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
 
-    invoke-virtual {p1}, Lorg/ahocorasick/trie/TrieConfig;->isAllowOverlaps()Z
+    invoke-virtual {v1}, Lorg/ahocorasick/trie/TrieConfig;->isAllowOverlaps()Z
 
-    move-result p1
+    move-result v1
 
-    if-nez p1, :cond_32
+    if-nez v1, :cond_2
 
     .line 88
-    new-instance p1, Lorg/ahocorasick/interval/IntervalTree;
+    new-instance v1, Lorg/ahocorasick/interval/IntervalTree;
 
-    invoke-direct {p1, v0}, Lorg/ahocorasick/interval/IntervalTree;-><init>(Ljava/util/List;)V
+    invoke-direct {v1, v0}, Lorg/ahocorasick/interval/IntervalTree;-><init>(Ljava/util/List;)V
 
     .line 89
-    invoke-virtual {p1, v0}, Lorg/ahocorasick/interval/IntervalTree;->removeOverlaps(Ljava/util/List;)Ljava/util/List;
+    invoke-virtual {v1, v0}, Lorg/ahocorasick/interval/IntervalTree;->removeOverlaps(Ljava/util/List;)Ljava/util/List;
 
-    :cond_32
+    :cond_2
     return-object v0
 .end method
 
 .method public parseText(Ljava/lang/CharSequence;Lorg/ahocorasick/trie/handler/EmitHandler;)V
-    .registers 8
+    .locals 5
 
     .line 101
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie;->rootState:Lorg/ahocorasick/trie/State;
@@ -994,21 +1006,21 @@
     const/4 v1, 0x0
 
     .line 102
-    :goto_3
+    :goto_0
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_3a
+    if-ge v1, v2, :cond_1
 
     .line 103
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
+    invoke-static {v3}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 104
     iget-object v4, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
@@ -1017,22 +1029,22 @@
 
     move-result v4
 
-    if-eqz v4, :cond_24
+    if-eqz v4, :cond_0
 
     .line 105
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {v2}, Ljava/lang/Character;->toLowerCase(C)C
+    invoke-static {v3}, Ljava/lang/Character;->toLowerCase(C)C
 
     move-result v2
 
     invoke-static {v2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 107
-    :cond_24
-    invoke-direct {p0, v0, v3}, Lorg/ahocorasick/trie/Trie;->getState(Lorg/ahocorasick/trie/State;Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
+    :cond_0
+    invoke-direct {p0, v0, v2}, Lorg/ahocorasick/trie/Trie;->getState(Lorg/ahocorasick/trie/State;Ljava/lang/Character;)Lorg/ahocorasick/trie/State;
 
     move-result-object v0
 
@@ -1041,7 +1053,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_37
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lorg/ahocorasick/trie/Trie;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
 
@@ -1049,114 +1061,117 @@
 
     move-result v2
 
-    if-eqz v2, :cond_37
+    if-eqz v2, :cond_2
 
+    :cond_1
     return-void
 
-    :cond_37
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
-
-    :cond_3a
-    return-void
+    goto :goto_0
 .end method
 
 .method public tokenize(Ljava/lang/String;)Ljava/util/Collection;
-    .registers 8
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             ")",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/ahocorasick/trie/Token;",
             ">;"
         }
     .end annotation
 
-    .line 46
-    new-instance v0, Ljava/util/ArrayList;
+    const/4 v5, 0x1
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    .line 46
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 48
     invoke-virtual {p0, p1}, Lorg/ahocorasick/trie/Trie;->parseText(Ljava/lang/CharSequence;)Ljava/util/Collection;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 50
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    const/4 v2, -0x1
-
-    :goto_e
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    if-eqz v3, :cond_35
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    check-cast v3, Lorg/ahocorasick/trie/Emit;
+    const/4 v0, -0x1
+
+    move v1, v0
+
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/ahocorasick/trie/Emit;
 
     .line 51
-    invoke-virtual {v3}, Lorg/ahocorasick/trie/Emit;->getStart()I
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/Emit;->getStart()I
 
-    move-result v5
+    move-result v4
 
-    sub-int/2addr v5, v2
+    sub-int/2addr v4, v1
 
-    if-le v5, v4, :cond_29
+    if-le v4, v5, :cond_0
 
     .line 52
-    invoke-direct {p0, v3, p1, v2}, Lorg/ahocorasick/trie/Trie;->createFragment(Lorg/ahocorasick/trie/Emit;Ljava/lang/String;I)Lorg/ahocorasick/trie/Token;
+    invoke-direct {p0, v0, p1, v1}, Lorg/ahocorasick/trie/Trie;->createFragment(Lorg/ahocorasick/trie/Emit;Ljava/lang/String;I)Lorg/ahocorasick/trie/Token;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 54
-    :cond_29
-    invoke-direct {p0, v3, p1}, Lorg/ahocorasick/trie/Trie;->createMatch(Lorg/ahocorasick/trie/Emit;Ljava/lang/String;)Lorg/ahocorasick/trie/Token;
+    :cond_0
+    invoke-direct {p0, v0, p1}, Lorg/ahocorasick/trie/Trie;->createMatch(Lorg/ahocorasick/trie/Emit;Ljava/lang/String;)Lorg/ahocorasick/trie/Token;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 55
-    invoke-virtual {v3}, Lorg/ahocorasick/trie/Emit;->getEnd()I
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/Emit;->getEnd()I
 
-    move-result v2
+    move-result v0
 
-    goto :goto_e
+    move v1, v0
+
+    goto :goto_0
 
     .line 57
-    :cond_35
+    :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v0, v1
 
-    if-le v1, v4, :cond_44
+    if-le v0, v5, :cond_2
 
     .line 58
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {p0, v1, p1, v2}, Lorg/ahocorasick/trie/Trie;->createFragment(Lorg/ahocorasick/trie/Emit;Ljava/lang/String;I)Lorg/ahocorasick/trie/Token;
+    invoke-direct {p0, v0, p1, v1}, Lorg/ahocorasick/trie/Trie;->createFragment(Lorg/ahocorasick/trie/Emit;Ljava/lang/String;I)Lorg/ahocorasick/trie/Token;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {v0, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    :cond_44
-    return-object v0
+    :cond_2
+    return-object v2
 .end method

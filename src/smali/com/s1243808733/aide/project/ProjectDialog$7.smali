@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/Button;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,31 +41,31 @@
 
 # virtual methods
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
 
     .line 317
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$7;->val$button1:Landroid/widget/Button;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$7;->val$button1:Landroid/widget/Button;
 
-    invoke-virtual {p1}, Landroid/widget/Button;->isEnabled()Z
+    invoke-virtual {v0}, Landroid/widget/Button;->isEnabled()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_d
+    if-eqz v0, :cond_0
 
     .line 318
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$7;->val$button1:Landroid/widget/Button;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$7;->val$button1:Landroid/widget/Button;
 
-    invoke-virtual {p1}, Landroid/widget/Button;->performClick()Z
+    invoke-virtual {v0}, Landroid/widget/Button;->performClick()Z
 
     .line 320
-    :cond_d
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$7;->val$button1:Landroid/widget/Button;
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$7;->val$button1:Landroid/widget/Button;
 
-    invoke-virtual {p1}, Landroid/widget/Button;->isEnabled()Z
+    invoke-virtual {v0}, Landroid/widget/Button;->isEnabled()Z
 
-    move-result p1
+    move-result v0
 
-    xor-int/lit8 p1, p1, 0x1
+    xor-int/lit8 v0, v0, 0x1
 
-    return p1
+    return v0
 .end method

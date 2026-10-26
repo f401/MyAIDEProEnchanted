@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 28
     const/16 v0, 0x1ff
@@ -99,7 +99,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 82
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstLiteral32;-><init>(I)V
@@ -108,49 +108,51 @@
 .end method
 
 .method public static make(I)Lcom/s1243808733/android/dx/rop/cst/CstInteger;
-    .registers 5
+    .locals 4
 
     .line 64
-    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->cache:[Lcom/s1243808733/android/dx/rop/cst/CstInteger;
+    sget-object v1, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->cache:[Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
-    const v1, 0x7fffffff
+    const v0, 0x7fffffff
 
-    and-int/2addr v1, p0
+    and-int/2addr v0, p0
 
-    array-length v2, v0
+    array-length v2, v1
 
-    rem-int/2addr v1, v2
+    rem-int v2, v0, v2
 
     .line 65
-    aget-object v2, v0, v1
+    aget-object v0, v1, v2
 
-    if-eqz v2, :cond_13
+    if-eqz v0, :cond_0
 
     .line 67
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->getValue()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->getValue()I
 
     move-result v3
 
-    if-ne v3, p0, :cond_13
-
-    return-object v2
-
-    .line 71
-    :cond_13
-    new-instance v2, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
-
-    invoke-direct {v2, p0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;-><init>(I)V
+    if-ne v3, p0, :cond_0
 
     .line 72
-    aput-object v2, v0, v1
+    :goto_0
+    return-object v0
 
-    return-object v2
+    .line 71
+    :cond_0
+    new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
+
+    invoke-direct {v0, p0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;-><init>(I)V
+
+    .line 72
+    aput-object v0, v1, v2
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 95
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->INT:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -159,7 +161,7 @@
 .end method
 
 .method public getValue()I
-    .registers 2
+    .locals 1
 
     .line 116
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->getIntBits()I
@@ -170,7 +172,7 @@
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 107
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->getIntBits()I
@@ -185,7 +187,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 88
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->getIntBits()I
@@ -223,7 +225,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 101
     const-string v0, "int"

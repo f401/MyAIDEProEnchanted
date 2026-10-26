@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 1294
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public getPreviousOffset()I
-    .registers 2
+    .locals 1
 
     .line 1355
     iget v0, p0, Lcom/s1243808733/android/dx/cf/code/BytecodeArray$BaseVisitor;->previousOffset:I
@@ -48,7 +48,7 @@
 .end method
 
 .method public setPreviousOffset(I)V
-    .registers 2
+    .locals 0
 
     .line 1349
     iput p1, p0, Lcom/s1243808733/android/dx/cf/code/BytecodeArray$BaseVisitor;->previousOffset:I
@@ -57,36 +57,37 @@
 .end method
 
 .method public visitBranch(IIII)V
-    .registers 5
+    .locals 0
 
     return-void
 .end method
 
 .method public visitConstant(IIILcom/s1243808733/android/dx/rop/cst/Constant;I)V
-    .registers 6
+    .locals 0
 
     return-void
 .end method
 
 .method public visitInvalid(III)V
-    .registers 4
+    .locals 0
 
     return-void
 .end method
 
 .method public visitLocal(IIIILcom/s1243808733/android/dx/rop/type/Type;I)V
-    .registers 7
+    .locals 0
 
     return-void
 .end method
 
 .method public visitNewarray(IILcom/s1243808733/android/dx/rop/cst/CstType;Ljava/util/ArrayList;)V
-    .registers 5
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
             "Lcom/s1243808733/android/dx/rop/cst/CstType;",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/Constant;",
             ">;)V"
         }
@@ -96,13 +97,13 @@
 .end method
 
 .method public visitNoArgs(IIILcom/s1243808733/android/dx/rop/type/Type;)V
-    .registers 5
+    .locals 0
 
     return-void
 .end method
 
 .method public visitSwitch(IIILcom/s1243808733/android/dx/cf/code/SwitchList;I)V
-    .registers 6
+    .locals 0
 
     return-void
 .end method

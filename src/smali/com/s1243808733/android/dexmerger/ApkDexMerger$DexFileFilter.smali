@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dexmerger/ApkDexMerger;)V
-    .registers 2
+    .locals 0
 
     .line 166
     iput-object p1, p0, Lcom/s1243808733/android/dexmerger/ApkDexMerger$DexFileFilter;->this$0:Lcom/s1243808733/android/dexmerger/ApkDexMerger;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dexmerger/ApkDexMerger;Lcom/s1243808733/android/dexmerger/ApkDexMerger$DexFileFilter-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dexmerger/ApkDexMerger$DexFileFilter;-><init>(Lcom/s1243808733/android/dexmerger/ApkDexMerger;)V
 
@@ -44,14 +44,14 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .registers 3
+    .locals 1
 
     .line 170
     iget-object v0, p0, Lcom/s1243808733/android/dexmerger/ApkDexMerger$DexFileFilter;->this$0:Lcom/s1243808733/android/dexmerger/ApkDexMerger;
 
     invoke-static {v0, p1}, Lcom/s1243808733/android/dexmerger/ApkDexMerger;->-$$Nest$misDexFileByName(Lcom/s1243808733/android/dexmerger/ApkDexMerger;Ljava/io/File;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

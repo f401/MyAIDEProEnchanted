@@ -19,7 +19,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/aide/application/activity/permission/Permission;",
             ">;)V"
         }

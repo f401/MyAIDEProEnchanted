@@ -9,22 +9,22 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;Lorg/antlr/v4/runtime/misc/IntervalSet;)V
-    .registers 3
+    .locals 1
 
     .line 18
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/atn/Transition;-><init>(Lorg/antlr/v4/runtime/atn/ATNState;)V
 
-    if-nez p2, :cond_a
+    if-nez p2, :cond_0
 
     .line 19
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {p1}, Lorg/antlr/v4/runtime/misc/IntervalSet;->of(I)Lorg/antlr/v4/runtime/misc/IntervalSet;
+    invoke-static {v0}, Lorg/antlr/v4/runtime/misc/IntervalSet;->of(I)Lorg/antlr/v4/runtime/misc/IntervalSet;
 
     move-result-object p2
 
     .line 20
-    :cond_a
+    :cond_0
     iput-object p2, p0, Lorg/antlr/v4/runtime/atn/SetTransition;->set:Lorg/antlr/v4/runtime/misc/IntervalSet;
 
     return-void
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getSerializationType()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x7
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public label()Lorg/antlr/v4/runtime/misc/IntervalSet;
-    .registers 2
+    .locals 1
 
     .line 30
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/SetTransition;->set:Lorg/antlr/v4/runtime/misc/IntervalSet;
@@ -50,20 +50,20 @@
 .end method
 
 .method public matches(III)Z
-    .registers 4
+    .locals 1
 
     .line 34
-    iget-object p2, p0, Lorg/antlr/v4/runtime/atn/SetTransition;->set:Lorg/antlr/v4/runtime/misc/IntervalSet;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/atn/SetTransition;->set:Lorg/antlr/v4/runtime/misc/IntervalSet;
 
-    invoke-virtual {p2, p1}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
+    invoke-virtual {v0, p1}, Lorg/antlr/v4/runtime/misc/IntervalSet;->contains(I)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 40
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/SetTransition;->set:Lorg/antlr/v4/runtime/misc/IntervalSet;

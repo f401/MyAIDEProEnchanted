@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
 
     .line 10
     invoke-direct {p0, p1, p2}, Lcom/aide/ui/AIDEEditor;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V

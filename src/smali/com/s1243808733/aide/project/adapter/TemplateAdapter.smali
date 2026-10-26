@@ -9,7 +9,8 @@
 .field private iconMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/Object;",
             "Landroid/graphics/Bitmap;",
             ">;"
@@ -20,7 +21,8 @@
 .field private list:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/aide/project/jsonbean/Category;",
             ">;"
         }
@@ -30,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
 
     .line 21
     invoke-direct {p0}, Landroid/widget/BaseExpandableListAdapter;-><init>()V
@@ -56,12 +58,13 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/List;)V
-    .registers 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/aide/project/jsonbean/Category;",
             ">;)V"
         }
@@ -94,7 +97,7 @@
 .end method
 
 .method private getIcon(Ljava/lang/String;)Landroid/graphics/Bitmap;
-    .registers 4
+    .locals 2
 
     .line 67
     iget-object v0, p0, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->iconMap:Ljava/util/Map;
@@ -105,7 +108,7 @@
 
     check-cast v0, Landroid/graphics/Bitmap;
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 69
     iget-object v0, p0, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->context:Landroid/content/Context;
@@ -119,14 +122,14 @@
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_15
+    :cond_0
     return-object v0
 .end method
 
 
 # virtual methods
 .method public add(Lcom/s1243808733/aide/project/jsonbean/Category;)Lcom/s1243808733/aide/project/adapter/TemplateAdapter;
-    .registers 3
+    .locals 1
 
     .line 31
     invoke-virtual {p0}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getList()Ljava/util/List;
@@ -139,121 +142,126 @@
 .end method
 
 .method public getChild(II)Lcom/s1243808733/aide/project/jsonbean/Category$Templates;
-    .registers 3
+    .locals 1
 
     .line 100
     invoke-virtual {p0, p1}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getGroup(I)Lcom/s1243808733/aide/project/jsonbean/Category;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/project/jsonbean/Category;->getTemplates()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/project/jsonbean/Category;->getTemplates()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;
+    check-cast v0, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public bridge synthetic getChild(II)Ljava/lang/Object;
-    .registers 3
+    .locals 1
 
     .line 15
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getChild(II)Lcom/s1243808733/aide/project/jsonbean/Category$Templates;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getChildId(II)J
-    .registers 3
+    .locals 2
 
-    int-to-long p1, p2
+    int-to-long v0, p2
 
-    return-wide p1
+    return-wide v0
 .end method
 
 .method public getChildView(IIZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 6
+    .locals 5
 
-    if-nez p4, :cond_9
+    if-nez p4, :cond_0
 
     .line 53
-    new-instance p4, Lcom/s1243808733/aide/project/adapter/TemplateView;
+    new-instance v1, Lcom/s1243808733/aide/project/adapter/TemplateView;
 
-    iget-object p3, p0, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->context:Landroid/content/Context;
 
-    invoke-direct {p4, p3}, Lcom/s1243808733/aide/project/adapter/TemplateView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v0}, Lcom/s1243808733/aide/project/adapter/TemplateView;-><init>(Landroid/content/Context;)V
+
+    :goto_0
+    move-object v0, v1
 
     .line 55
-    :cond_9
-    move-object p3, p4
+    check-cast v0, Lcom/s1243808733/aide/project/adapter/TemplateView;
 
-    check-cast p3, Lcom/s1243808733/aide/project/adapter/TemplateView;
-
-    iget-object p3, p3, Lcom/s1243808733/aide/project/adapter/TemplateView;->holder:Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;
+    iget-object v0, v0, Lcom/s1243808733/aide/project/adapter/TemplateView;->holder:Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;
 
     .line 56
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getChild(II)Lcom/s1243808733/aide/project/jsonbean/Category$Templates;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 58
-    invoke-virtual {p1}, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;->getIcon()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;->getIcon()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v3
 
-    invoke-direct {p0, p2}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getIcon(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-direct {p0, v3}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getIcon(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    move-result-object p2
+    move-result-object v3
 
-    const/4 p5, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p3, p2, p5}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setIcon(Landroid/graphics/Bitmap;Z)V
+    invoke-virtual {v0, v3, v4}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setIcon(Landroid/graphics/Bitmap;Z)V
 
     .line 60
-    invoke-virtual {p1}, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;->getTitle()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;->getTitle()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v3
 
-    invoke-virtual {p3, p2}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v3}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 61
-    invoke-virtual {p1}, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;->getDescribes()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/project/jsonbean/Category$Templates;->getDescribes()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {p3, p1}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setSubtitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v2}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    return-object p4
+    return-object v1
+
+    :cond_0
+    move-object v1, p4
+
+    goto :goto_0
 .end method
 
 .method public getChildrenCount(I)I
-    .registers 2
+    .locals 1
 
     .line 90
     invoke-virtual {p0, p1}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getGroup(I)Lcom/s1243808733/aide/project/jsonbean/Category;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/project/jsonbean/Category;->getTemplates()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/project/jsonbean/Category;->getTemplates()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getGroup(I)Lcom/s1243808733/aide/project/jsonbean/Category;
-    .registers 3
+    .locals 1
 
     .line 95
     invoke-virtual {p0}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getList()Ljava/util/List;
@@ -262,26 +270,26 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/aide/project/jsonbean/Category;
+    check-cast v0, Lcom/s1243808733/aide/project/jsonbean/Category;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public bridge synthetic getGroup(I)Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 15
     invoke-virtual {p0, p1}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getGroup(I)Lcom/s1243808733/aide/project/jsonbean/Category;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getGroupCount()I
-    .registers 2
+    .locals 1
 
     .line 85
     invoke-virtual {p0}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getList()Ljava/util/List;
@@ -296,7 +304,7 @@
 .end method
 
 .method public getGroupId(I)J
-    .registers 4
+    .locals 2
 
     int-to-long v0, p1
 
@@ -304,66 +312,72 @@
 .end method
 
 .method public getGroupView(IZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 6
+    .locals 5
 
-    if-nez p3, :cond_9
+    if-nez p3, :cond_0
 
     .line 38
-    new-instance p3, Lcom/s1243808733/aide/project/adapter/TemplateView;
+    new-instance v1, Lcom/s1243808733/aide/project/adapter/TemplateView;
 
-    iget-object p2, p0, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->context:Landroid/content/Context;
 
-    invoke-direct {p3, p2}, Lcom/s1243808733/aide/project/adapter/TemplateView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v0}, Lcom/s1243808733/aide/project/adapter/TemplateView;-><init>(Landroid/content/Context;)V
+
+    :goto_0
+    move-object v0, v1
 
     .line 40
-    :cond_9
-    move-object p2, p3
+    check-cast v0, Lcom/s1243808733/aide/project/adapter/TemplateView;
 
-    check-cast p2, Lcom/s1243808733/aide/project/adapter/TemplateView;
-
-    iget-object p2, p2, Lcom/s1243808733/aide/project/adapter/TemplateView;->holder:Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;
+    iget-object v0, v0, Lcom/s1243808733/aide/project/adapter/TemplateView;->holder:Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getGroup(I)Lcom/s1243808733/aide/project/jsonbean/Category;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 43
-    invoke-virtual {p1}, Lcom/s1243808733/aide/project/jsonbean/Category;->getIcon()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/project/jsonbean/Category;->getIcon()Ljava/lang/String;
 
-    move-result-object p4
+    move-result-object v3
 
-    invoke-direct {p0, p4}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getIcon(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-direct {p0, v3}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getIcon(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    move-result-object p4
+    move-result-object v3
 
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {p2, p4, v0}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setIcon(Landroid/graphics/Bitmap;Z)V
+    invoke-virtual {v0, v3, v4}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setIcon(Landroid/graphics/Bitmap;Z)V
 
     .line 45
-    invoke-virtual {p1}, Lcom/s1243808733/aide/project/jsonbean/Category;->getTitle()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/project/jsonbean/Category;->getTitle()Ljava/lang/String;
 
-    move-result-object p4
+    move-result-object v3
 
-    invoke-virtual {p2, p4}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v3}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 46
-    invoke-virtual {p1}, Lcom/s1243808733/aide/project/jsonbean/Category;->getDescribes()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/project/jsonbean/Category;->getDescribes()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {p2, p1}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setSubtitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v2}, Lcom/s1243808733/aide/project/adapter/TemplateView$ViewHolder;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    return-object p3
+    return-object v1
+
+    :cond_0
+    move-object v1, p3
+
+    goto :goto_0
 .end method
 
 .method public getList()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/aide/project/jsonbean/Category;",
             ">;"
         }
@@ -376,7 +390,7 @@
 .end method
 
 .method public hasStableIds()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -384,19 +398,20 @@
 .end method
 
 .method public isChildSelectable(II)Z
-    .registers 3
+    .locals 1
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public setList(Ljava/util/List;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/aide/project/jsonbean/Category;",
             ">;)V"
         }

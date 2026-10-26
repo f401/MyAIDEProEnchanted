@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;)V
-    .registers 2
+    .locals 0
 
     .line 42
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;
@@ -36,72 +36,72 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
     .line 46
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;->getActivity()Landroid/app/Activity;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance p2, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
-    iget-object p4, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;
 
-    invoke-virtual {p4}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;->getActivity()Landroid/app/Activity;
 
-    move-result-object p4
+    move-result-object v2
 
-    const-class p5, Lcom/s1243808733/aide/application/activity/androidr/AndroidRActivity;
+    const-class v3, Lcom/s1243808733/aide/application/activity/androidr/AndroidRActivity;
 
-    invoke-direct {p2, p4, p5}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v1, v2, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    iget-object p4, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;
 
-    invoke-static {p4}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;->-$$Nest$fgetfragmentAdapter(Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;)Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$FragmentAdapter;
+    invoke-static {v2}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;->-$$Nest$fgetfragmentAdapter(Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;)Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$FragmentAdapter;
 
-    move-result-object p4
+    move-result-object v2
 
     .line 47
-    const-string p5, "tag"
+    const-string v3, "tag"
 
-    invoke-virtual {p4, p3}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$FragmentAdapter;->getTag(I)Ljava/lang/String;
+    invoke-virtual {v2, p3}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$FragmentAdapter;->getTag(I)Ljava/lang/String;
 
-    move-result-object p4
+    move-result-object v2
 
-    invoke-virtual {p2, p5, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object p2
+    move-result-object v1
 
-    iget-object p4, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$1;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;
 
-    invoke-static {p4}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;->-$$Nest$fgetfragmentAdapter(Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;)Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$FragmentAdapter;
+    invoke-static {v2}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;->-$$Nest$fgetfragmentAdapter(Lcom/s1243808733/aide/application/activity/androidr/FragmentMain;)Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$FragmentAdapter;
 
-    move-result-object p4
+    move-result-object v2
 
     .line 48
-    const-string p5, "title"
+    const-string v3, "title"
 
-    invoke-virtual {p4, p3}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$FragmentAdapter;->getTitle(I)Ljava/lang/String;
+    invoke-virtual {v2, p3}, Lcom/s1243808733/aide/application/activity/androidr/FragmentMain$FragmentAdapter;->getTitle(I)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p5, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object p2
+    move-result-object v1
 
     .line 46
-    invoke-virtual {p1, p2}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method

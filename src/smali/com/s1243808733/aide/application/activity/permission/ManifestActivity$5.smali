@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
-    .registers 2
+    .locals 0
 
     .line 207
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$5;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 2
+    .locals 1
 
     .line 211
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$5;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$5;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$mmultipleMode(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$mmultipleMode(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

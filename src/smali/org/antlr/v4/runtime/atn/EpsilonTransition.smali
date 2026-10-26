@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;)V
-    .registers 3
+    .locals 1
 
     .line 14
     const/4 v0, -0x1
@@ -20,7 +20,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;I)V
-    .registers 3
+    .locals 0
 
     .line 18
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/atn/Transition;-><init>(Lorg/antlr/v4/runtime/atn/ATNState;)V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public getSerializationType()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public isEpsilon()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -50,15 +50,15 @@
 .end method
 
 .method public matches(III)Z
-    .registers 4
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public outermostPrecedenceReturn()I
-    .registers 2
+    .locals 1
 
     .line 31
     iget v0, p0, Lorg/antlr/v4/runtime/atn/EpsilonTransition;->outermostPrecedenceReturn:I
@@ -67,7 +67,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 50
     const-string v0, "epsilon"

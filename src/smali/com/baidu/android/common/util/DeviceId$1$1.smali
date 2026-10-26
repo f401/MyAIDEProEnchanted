@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/android/common/util/DeviceId$1;)V
-    .registers 2
+    .locals 0
 
     iput-object p1, p0, Lcom/baidu/android/common/util/DeviceId$1$1;->a:Lcom/baidu/android/common/util/DeviceId$1;
 
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onCuidChangeReceived()V
-    .registers 3
+    .locals 2
 
     iget-object v0, p0, Lcom/baidu/android/common/util/DeviceId$1$1;->a:Lcom/baidu/android/common/util/DeviceId$1;
 

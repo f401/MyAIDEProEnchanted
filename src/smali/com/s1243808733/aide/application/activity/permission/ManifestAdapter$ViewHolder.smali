@@ -24,7 +24,7 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fputcb(Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;Landroid/widget/CheckBox;)V
-    .registers 2
+    .locals 0
 
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->cb:Landroid/widget/CheckBox;
 
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 166
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public invertSelection()Z
-    .registers 2
+    .locals 1
 
     .line 176
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->cb:Landroid/widget/CheckBox;
@@ -67,7 +67,7 @@
 .end method
 
 .method public setSelection(Z)V
-    .registers 3
+    .locals 1
 
     .line 172
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->cb:Landroid/widget/CheckBox;
@@ -78,7 +78,7 @@
 .end method
 
 .method public setSelectionMode(Z)V
-    .registers 3
+    .locals 2
 
     .line 181
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter$ViewHolder;->cb:Landroid/widget/CheckBox;
@@ -89,18 +89,19 @@
 
     check-cast v0, Landroid/view/View;
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
-    const/4 p1, 0x0
-
-    goto :goto_e
-
-    :cond_c
-    const/16 p1, 0x8
+    const/4 v1, 0x0
 
     .line 182
-    :goto_e
-    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     return-void
+
+    .line 181
+    :cond_0
+    const/16 v1, 0x8
+
+    goto :goto_0
 .end method

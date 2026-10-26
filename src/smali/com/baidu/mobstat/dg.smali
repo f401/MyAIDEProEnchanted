@@ -11,7 +11,8 @@
 .field private b:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Landroid/webkit/WebView;",
             ">;"
         }
@@ -21,7 +22,8 @@
 .field private c:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Landroid/app/Activity;",
             ">;"
         }
@@ -37,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +48,7 @@
 .end method
 
 .method private a()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 206
     :try_start_0
@@ -73,15 +75,16 @@
 
     .line 212
     invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_19
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_19} :catch_1a
-
-    return-object v0
 
     .line 217
-    :catch_1a
+    :goto_0
+    return-object v0
+
+    :catch_0
     move-exception v0
 
     new-instance v0, Lorg/json/JSONObject;
@@ -92,358 +95,345 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static a(Landroid/app/Activity;Landroid/webkit/WebView;Landroid/graphics/Rect;)Ljava/lang/String;
-    .registers 4
+    .locals 4
 
     .line 65
     const-string v0, ""
 
-    sput-object v0, Lcom/baidu/mobstat/dg;->a:Ljava/lang/String;
+    const-string v1, ""
+
+    sput-object v1, Lcom/baidu/mobstat/dg;->a:Ljava/lang/String;
 
     .line 68
     invoke-static {p0, p1, p2}, Lcom/baidu/mobstat/dg;->b(Landroid/app/Activity;Landroid/webkit/WebView;Landroid/graphics/Rect;)V
 
-    const/4 p0, 0x0
+    const/4 v1, 0x0
 
-    :goto_8
-    const/16 p1, 0xf
+    :goto_0
+    const/16 v2, 0xf
 
-    if-ge p0, p1, :cond_21
+    if-ge v1, v2, :cond_0
 
     .line 74
-    const-wide/16 p1, 0x14
+    const-wide/16 v2, 0x14
 
-    :try_start_e
-    invoke-static {p1, p2}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_11
-    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_11} :catch_12
-
-    goto :goto_13
-
-    :catch_12
-    move-exception p1
+    :try_start_0
+    invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 79
-    :goto_13
-    sget-object p1, Lcom/baidu/mobstat/dg;->a:Ljava/lang/String;
+    :goto_1
+    sget-object v2, Lcom/baidu/mobstat/dg;->a:Ljava/lang/String;
 
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p1
+    move-result v2
 
-    if-nez p1, :cond_1e
+    if-nez v2, :cond_1
 
     .line 80
     sget-object v0, Lcom/baidu/mobstat/dg;->a:Ljava/lang/String;
 
-    goto :goto_21
-
-    :cond_1e
-    add-int/lit8 p0, p0, 0x1
-
-    goto :goto_8
-
-    :cond_21
-    :goto_21
+    :cond_0
     return-object v0
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    .line 74
+    :catch_0
+    move-exception v2
+
+    goto :goto_1
 .end method
 
 .method private a(Ljava/lang/String;Landroid/app/Activity;Landroid/webkit/WebView;)V
-    .registers 39
-
-    move-object/from16 v7, p0
+    .locals 38
 
     .line 257
-    const/4 v1, 0x0
+    const/16 v35, 0x0
 
-    :try_start_3
-    new-instance v0, Lorg/json/JSONObject;
+    :try_start_0
+    new-instance v5, Lorg/json/JSONObject;
 
-    move-object/from16 v2, p1
+    move-object/from16 v0, p1
 
-    invoke-direct {v0, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
     .line 259
     const-string v2, "h3"
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {v5, v2}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v2
-    :try_end_10
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_10} :catch_2b
 
     .line 260
-    :try_start_10
+    :try_start_1
     const-string v3, "p2"
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v5, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
 
     move-result-object v3
-    :try_end_16
-    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_16} :catch_29
 
     .line 261
-    :try_start_16
+    :try_start_2
     const-string v4, "l"
 
-    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v5, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     move-result-object v4
-    :try_end_1c
-    .catch Ljava/lang/Exception; {:try_start_16 .. :try_end_1c} :catch_26
 
     .line 263
-    :try_start_1c
-    const-string v5, "point"
+    :try_start_3
+    const-string v6, "point"
 
-    invoke-virtual {v0, v5}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-virtual {v5, v6}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
 
-    move-result-object v1
-    :try_end_22
-    .catch Ljava/lang/Exception; {:try_start_1c .. :try_end_22} :catch_24
+    move-result-object v35
 
-    const/4 v0, 0x1
+    const/4 v6, 0x1
 
-    goto :goto_30
+    move-object v10, v4
+
+    move-object v5, v3
+
+    move-object v15, v2
+
+    :goto_0
+    if-nez v6, :cond_0
 
     .line 304
-    :catch_24
-    move-exception v0
-
-    goto :goto_2f
-
-    .line 263
-    :catch_26
-    move-exception v0
-
-    move-object v4, v1
-
-    goto :goto_2f
-
-    :catch_29
-    move-exception v0
-
-    goto :goto_2d
-
-    :catch_2b
-    move-exception v0
-
-    move-object v2, v1
-
-    :goto_2d
-    move-object v3, v1
-
-    move-object v4, v3
-
-    :goto_2f
-    const/4 v0, 0x0
-
-    :goto_30
-    move-object/from16 v23, v1
-
-    move-object/from16 v27, v2
-
-    move-object/from16 v26, v4
-
-    if-nez v0, :cond_39
-
+    :goto_1
     return-void
 
+    .line 263
+    :catch_0
+    move-exception v4
+
+    const/4 v4, 0x0
+
+    :goto_2
+    const/4 v6, 0x0
+
+    move-object v10, v4
+
+    move-object v5, v3
+
+    move-object v15, v2
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v2
+
+    const/4 v2, 0x0
+
+    :goto_3
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    goto :goto_2
+
     .line 273
-    :cond_39
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :cond_0
+    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_42
+    if-eqz v2, :cond_1
 
     .line 274
-    const-string v0, "/"
-
-    goto :goto_43
+    const-string v5, "/"
 
     .line 273
-    :cond_42
-    move-object v0, v3
-
-    .line 277
-    :goto_43
+    :cond_1
     invoke-static/range {p2 .. p3}, Lcom/baidu/mobstat/de;->a(Landroid/app/Activity;Landroid/view/View;)Lorg/json/JSONArray;
 
-    move-result-object v28
+    move-result-object v14
 
     .line 279
     invoke-virtual/range {p2 .. p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v16
 
     .line 281
-    invoke-static/range {v28 .. v28}, Lcom/baidu/mobstat/de;->a(Lorg/json/JSONArray;)Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 282
-    invoke-static/range {v27 .. v27}, Lcom/baidu/mobstat/de;->b(Lorg/json/JSONArray;)Ljava/lang/String;
+    invoke-static {v14}, Lcom/baidu/mobstat/de;->a(Lorg/json/JSONArray;)Ljava/lang/String;
 
     move-result-object v6
+
+    .line 282
+    invoke-static {v15}, Lcom/baidu/mobstat/de;->b(Lorg/json/JSONArray;)Ljava/lang/String;
+
+    move-result-object v7
 
     .line 283
     invoke-static/range {p3 .. p3}, Lcom/baidu/mobstat/de;->f(Landroid/view/View;)Ljava/lang/String;
 
-    move-result-object v30
+    move-result-object v18
 
     .line 284
     invoke-static/range {p3 .. p3}, Lcom/baidu/mobstat/de;->g(Landroid/view/View;)Ljava/util/Map;
 
-    move-result-object v31
+    move-result-object v19
 
     .line 286
     invoke-virtual/range {p2 .. p2}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v32
+    move-result-object v8
 
     .line 291
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v33
+    move-result-wide v26
 
     .line 293
-    iget-object v2, v7, Lcom/baidu/mobstat/dg;->d:Lorg/json/JSONObject;
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/baidu/mobstat/dg;->d:Lorg/json/JSONObject;
 
     invoke-virtual/range {p2 .. p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    move-object/from16 v1, p0
+    move-object/from16 v2, p0
 
-    move-object v4, v0
+    invoke-direct/range {v2 .. v7}, Lcom/baidu/mobstat/dg;->a(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
-    invoke-direct/range {v1 .. v6}, Lcom/baidu/mobstat/dg;->a(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    move-result v2
 
-    move-result v1
-
-    if-eqz v1, :cond_9b
+    if-eqz v2, :cond_3
 
     .line 294
     invoke-static {}, Lcom/baidu/mobstat/BDStatCore;->instance()Lcom/baidu/mobstat/BDStatCore;
 
-    move-result-object v8
+    move-result-object v7
 
-    const-string v10, ""
+    const-string v9, ""
 
-    const/4 v12, 0x1
+    const/4 v11, 0x1
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v13
+    move-result-wide v12
 
-    const/16 v21, 0x1
+    const/16 v20, 0x1
 
-    move-object/from16 v9, v32
+    move-object/from16 v17, v5
 
-    move-object/from16 v11, v26
+    invoke-virtual/range {v7 .. v20}, Lcom/baidu/mobstat/BDStatCore;->onEvent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;IJLorg/json/JSONArray;Lorg/json/JSONArray;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Z)V
 
-    move-object/from16 v15, v28
+    .line 304
+    :cond_2
+    :goto_4
+    invoke-static {}, Lcom/baidu/mobstat/cr;->a()Lcom/baidu/mobstat/cr;
 
-    move-object/from16 v16, v27
+    move-result-object v20
 
-    move-object/from16 v17, v29
+    const-string v22, ""
 
-    move-object/from16 v18, v0
+    const-string v24, ""
 
-    move-object/from16 v19, v30
+    const/16 v25, 0x1
 
-    move-object/from16 v20, v31
+    const/16 v34, 0x1
 
-    invoke-virtual/range {v8 .. v21}, Lcom/baidu/mobstat/BDStatCore;->onEvent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;IJLorg/json/JSONArray;Lorg/json/JSONArray;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Z)V
+    const-string v36, ""
 
-    goto :goto_b2
+    const/16 v37, 0x0
+
+    move-object/from16 v21, v8
+
+    move-object/from16 v23, v10
+
+    move-object/from16 v28, v16
+
+    move-object/from16 v29, v14
+
+    move-object/from16 v30, v5
+
+    move-object/from16 v31, v15
+
+    move-object/from16 v32, v18
+
+    move-object/from16 v33, v19
+
+    invoke-virtual/range {v20 .. v37}, Lcom/baidu/mobstat/cr;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJLjava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Ljava/util/Map;ZLorg/json/JSONObject;Ljava/lang/String;Lorg/json/JSONArray;)V
+
+    goto/16 :goto_1
 
     .line 297
-    :cond_9b
+    :cond_3
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lcom/baidu/mobstat/cy;->b()Z
+    invoke-virtual {v2}, Lcom/baidu/mobstat/cy;->b()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_b2
+    if-eqz v2, :cond_2
 
-    iget-boolean v1, v7, Lcom/baidu/mobstat/dg;->f:Z
+    move-object/from16 v0, p0
 
-    if-eqz v1, :cond_b2
+    iget-boolean v2, v0, Lcom/baidu/mobstat/dg;->f:Z
+
+    if-eqz v2, :cond_2
 
     .line 298
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "setEventToNative: not circle event, will not take effect"
+    const-string v3, "setEventToNative: not circle event, will not take effect"
 
-    invoke-virtual {v1, v2}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
+
+    goto :goto_4
+
+    .line 263
+    :catch_2
+    move-exception v3
+
+    goto/16 :goto_3
 
     .line 304
-    :cond_b2
-    :goto_b2
-    invoke-static {}, Lcom/baidu/mobstat/cr;->a()Lcom/baidu/mobstat/cr;
+    :catch_3
+    move-exception v5
 
-    move-result-object v8
-
-    const-string v10, ""
-
-    const-string v12, ""
-
-    const/4 v13, 0x1
-
-    const/16 v22, 0x1
-
-    const-string v24, ""
-
-    const/16 v25, 0x0
-
-    move-object/from16 v9, v32
-
-    move-object/from16 v11, v26
-
-    move-wide/from16 v14, v33
-
-    move-object/from16 v16, v29
-
-    move-object/from16 v17, v28
-
-    move-object/from16 v18, v0
-
-    move-object/from16 v19, v27
-
-    move-object/from16 v20, v30
-
-    move-object/from16 v21, v31
-
-    invoke-virtual/range {v8 .. v25}, Lcom/baidu/mobstat/cr;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJLjava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Ljava/util/Map;ZLorg/json/JSONObject;Ljava/lang/String;Lorg/json/JSONArray;)V
-
-    return-void
+    goto/16 :goto_2
 .end method
 
 .method private a(Landroid/webkit/WebView;Z)Z
-    .registers 4
+    .locals 1
 
     .line 194
     iget-object v0, p0, Lcom/baidu/mobstat/dg;->b:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 195
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -452,217 +442,250 @@
 
     check-cast v0, Landroid/webkit/WebView;
 
-    if-ne v0, p1, :cond_12
+    if-ne v0, p1, :cond_0
 
     .line 196
-    iget-boolean p1, p0, Lcom/baidu/mobstat/dg;->e:Z
+    iget-boolean v0, p0, Lcom/baidu/mobstat/dg;->e:Z
 
-    if-eq p1, p2, :cond_12
+    if-eq v0, p2, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_12
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method private a(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 14
+    .locals 10
 
-    const/4 v0, 0x0
+    const/4 v4, 0x1
 
-    if-eqz p1, :cond_92
+    const/4 v2, 0x0
+
+    if-eqz p1, :cond_0
 
     .line 311
     invoke-virtual {p1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v2, Lorg/json/JSONObject;
+    new-instance v3, Lorg/json/JSONObject;
 
-    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v3}, Lorg/json/JSONObject;-><init>()V
 
-    invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_2
 
-    goto/16 :goto_92
+    :cond_0
+    :goto_0
+    move v4, v2
+
+    .line 344
+    :cond_1
+    return v4
 
     .line 315
-    :cond_18
+    :cond_2
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_92
+    if-nez v1, :cond_0
 
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_92
+    if-nez v1, :cond_0
 
     invoke-static {p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_92
+    if-nez v1, :cond_0
 
     .line 316
     invoke-static {p5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_31
-
-    goto :goto_92
+    if-nez v1, :cond_0
 
     .line 321
-    :cond_31
-    const/4 v1, 0x1
+    :try_start_0
+    const-string v1, "meta"
 
-    :try_start_32
-    const-string v2, "meta"
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v2}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
-
-    check-cast v2, Lorg/json/JSONObject;
+    check-cast v1, Lorg/json/JSONObject;
 
     .line 322
     const-string v3, "matchAll"
 
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v3}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
 
-    move-result v2
-    :try_end_40
-    .catch Ljava/lang/Exception; {:try_start_32 .. :try_end_40} :catch_43
+    move-result v1
 
-    if-eqz v2, :cond_44
-
-    return v1
-
-    .line 344
-    :catch_43
-    move-exception v2
+    if-nez v1, :cond_1
 
     .line 332
-    :cond_44
-    :try_start_44
-    const-string v2, "data"
+    :goto_1
+    :try_start_1
+    const-string v1, "data"
 
-    invoke-virtual {p1, v2}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v1
 
-    check-cast p1, Lorg/json/JSONArray;
+    check-cast v1, Lorg/json/JSONArray;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    const/4 v2, 0x0
+    move v5, v2
+
+    move v6, v2
 
     .line 333
-    :goto_4d
-    invoke-virtual {p1}, Lorg/json/JSONArray;->length()I
+    :goto_2
+    :try_start_2
+    invoke-virtual {v1}, Lorg/json/JSONArray;->length()I
 
-    move-result v3
+    move-result v2
 
-    if-ge v2, v3, :cond_92
+    if-ge v6, v2, :cond_3
 
     .line 334
-    invoke-virtual {p1, v2}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v6}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lorg/json/JSONObject;
+    move-object v0, v2
+
+    check-cast v0, Lorg/json/JSONObject;
+
+    move-object v3, v0
 
     .line 336
-    const-string v4, "page"
+    const-string v2, "page"
 
-    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v7
 
     .line 337
-    const-string v5, "layout"
+    const-string v2, "layout"
 
-    invoke-virtual {v3, v5}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v8
 
     .line 338
-    const-string v6, "url"
+    const-string v2, "url"
 
-    invoke-virtual {v3, v6}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v2
 
-    check-cast v6, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
     .line 339
-    const-string v7, "webLayout"
+    const-string v9, "webLayout"
 
-    invoke-virtual {v3, v7}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v3, v9}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/String;
 
     .line 343
-    invoke-virtual {p2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v7
 
-    if-eqz v4, :cond_8e
+    if-eqz v7, :cond_4
 
-    invoke-virtual {p3, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_8e
+    if-eqz v2, :cond_4
 
-    invoke-virtual {p4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p4, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_8e
+    if-eqz v2, :cond_4
 
     .line 344
     invoke-virtual {p5, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    move-result v3
-    :try_end_8b
-    .catch Ljava/lang/Exception; {:try_start_44 .. :try_end_8b} :catch_91
+    move-result v2
 
-    if-eqz v3, :cond_8e
+    if-eqz v2, :cond_4
 
-    const/4 v0, 0x1
+    move v2, v4
 
-    :cond_8e
-    add-int/lit8 v2, v2, 0x1
+    :goto_3
+    add-int/lit8 v3, v6, 0x1
 
-    goto :goto_4d
+    move v5, v2
 
-    :catch_91
-    move-exception p1
+    move v6, v3
 
-    :cond_92
-    :goto_92
-    return v0
+    goto :goto_2
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    move v2, v5
+
+    goto :goto_0
+
+    :catch_2
+    move-exception v1
+
+    goto :goto_1
+
+    :cond_3
+    move v2, v5
+
+    goto/16 :goto_0
+
+    :cond_4
+    move v2, v5
+
+    goto :goto_3
 .end method
 
 .method private static b(Landroid/app/Activity;Landroid/webkit/WebView;Landroid/graphics/Rect;)V
-    .registers 10
+    .locals 8
 
-    if-eqz p2, :cond_23
+    const/4 v1, 0x0
+
+    if-eqz p2, :cond_0
 
     .line 95
     iget v0, p2, Landroid/graphics/Rect;->left:I
@@ -671,19 +694,30 @@
 
     invoke-static {p0, v0}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
 
-    move-result v0
+    move-result v1
 
     .line 96
-    iget v1, p2, Landroid/graphics/Rect;->top:I
+    iget v0, p2, Landroid/graphics/Rect;->top:I
 
-    int-to-float v1, v1
+    int-to-float v0, v0
 
-    invoke-static {p0, v1}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v0}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
 
-    move-result v1
+    move-result v3
 
     .line 97
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    invoke-static {p0, v0}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
+
+    move-result v0
+
+    .line 98
+    invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
 
     move-result v2
 
@@ -691,143 +725,139 @@
 
     invoke-static {p0, v2}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
 
-    move-result v2
+    move-result v4
 
-    .line 98
-    invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
-
-    move-result p2
-
-    int-to-float p2, p2
-
-    invoke-static {p0, p2}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
-
-    move-result p2
-
-    goto :goto_27
-
-    :cond_23
-    const/4 v0, 0x0
-
-    const/4 p2, 0x0
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
+    move v2, v1
 
     .line 101
-    :goto_27
+    :goto_0
     invoke-static {p0}, Lcom/baidu/mobstat/de;->c(Landroid/app/Activity;)I
 
-    move-result v3
+    move-result v1
 
-    int-to-float v3, v3
+    int-to-float v1, v1
 
-    invoke-static {p0, v3}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v1}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
 
-    move-result v3
+    move-result v1
 
     .line 102
     invoke-static {p0}, Lcom/baidu/mobstat/de;->d(Landroid/app/Activity;)I
 
-    move-result v4
+    move-result v5
 
-    int-to-float v4, v4
+    int-to-float v5, v5
 
-    invoke-static {p0, v4}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
+    invoke-static {p0, v5}, Lcom/baidu/mobstat/cc;->a(Landroid/content/Context;F)I
 
-    move-result v4
+    move-result v5
 
     .line 104
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string v6, "{\"x\": "
+    const-string v7, "{\"x\": "
 
-    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v0, ", \"y\": "
+    const-string v2, ", \"y\": "
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v0, ", \"w\": "
+    const-string v2, ", \"w\": "
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v0, ", \"h\": "
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p2, ", \"sw\": "
+    const-string v0, ", \"sw\": "
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p2, ", \"sh\": "
+    const-string v0, ", \"sh\": "
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p2, "}"
+    const-string v0, "}"
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 108
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v1, "javascript:window._automtj.getViewportTree(\'android\', \'"
+    const-string v2, "javascript:window._automtj.getViewportTree(\'android\', \'"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "\', \'window.WebViewInterface.setViewportTreeToNative\')"
+    const-string v0, "\', \'window.WebViewInterface.setViewportTreeToNative\')"
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 112
-    new-instance v0, Lcom/baidu/mobstat/dg$1;
+    new-instance v1, Lcom/baidu/mobstat/dg$1;
 
-    invoke-direct {v0, p1, p2}, Lcom/baidu/mobstat/dg$1;-><init>(Landroid/webkit/WebView;Ljava/lang/String;)V
+    invoke-direct {v1, p1, v0}, Lcom/baidu/mobstat/dg$1;-><init>(Landroid/webkit/WebView;Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
     return-void
+
+    :cond_0
+    move v0, v1
+
+    move v2, v1
+
+    move v3, v1
+
+    move v4, v1
+
+    .line 98
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public a(Landroid/app/Activity;Landroid/webkit/WebView;Ljava/lang/String;Lorg/json/JSONObject;Z)V
-    .registers 9
+    .locals 4
 
     .line 132
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_1
 
+    .line 189
+    :cond_0
+    :goto_0
     return-void
 
-    :cond_7
-    if-eqz p5, :cond_d
+    .line 132
+    :cond_1
+    if-eqz p5, :cond_2
 
     .line 138
     iput-boolean p5, p0, Lcom/baidu/mobstat/dg;->f:Z
@@ -835,8 +865,8 @@
     .line 139
     iput-object p4, p0, Lcom/baidu/mobstat/dg;->d:Lorg/json/JSONObject;
 
-    :cond_d
-    if-eqz p5, :cond_24
+    :cond_2
+    if-eqz p5, :cond_3
 
     .line 143
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
@@ -853,211 +883,214 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p4
+    move-result-object v1
 
-    invoke-virtual {v0, p4}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
 
     .line 147
-    :cond_24
+    :cond_3
     invoke-direct {p0, p2, p5}, Lcom/baidu/mobstat/dg;->a(Landroid/webkit/WebView;Z)Z
 
-    move-result p4
+    move-result v0
 
-    if-eqz p4, :cond_3e
+    if-eqz v0, :cond_5
 
     .line 148
-    const-string p1, "injectTrackJs, no need to entry"
-
-    if-eqz p5, :cond_36
+    if-eqz p5, :cond_4
 
     .line 149
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p2, p1}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
+    const-string v1, "injectTrackJs, no need to entry"
 
-    goto :goto_3d
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
+
+    goto :goto_0
 
     .line 151
-    :cond_36
+    :cond_4
     invoke-static {}, Lcom/baidu/mobstat/dc;->c()Lcom/baidu/mobstat/dc;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p2, p1}, Lcom/baidu/mobstat/dc;->a(Ljava/lang/String;)V
+    const-string v1, "injectTrackJs, no need to entry"
 
-    :goto_3d
-    return-void
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/dc;->a(Ljava/lang/String;)V
 
-    :cond_3e
-    if-eqz p1, :cond_47
+    goto :goto_0
+
+    :cond_5
+    if-eqz p1, :cond_6
 
     .line 159
-    new-instance p4, Ljava/lang/ref/WeakReference;
+    new-instance v0, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {p4, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object p4, p0, Lcom/baidu/mobstat/dg;->c:Ljava/lang/ref/WeakReference;
+    iput-object v0, p0, Lcom/baidu/mobstat/dg;->c:Ljava/lang/ref/WeakReference;
 
-    :cond_47
-    if-eqz p2, :cond_50
+    :cond_6
+    if-eqz p2, :cond_7
 
     .line 163
-    new-instance p1, Ljava/lang/ref/WeakReference;
+    new-instance v0, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/baidu/mobstat/dg;->b:Ljava/lang/ref/WeakReference;
+    iput-object v0, p0, Lcom/baidu/mobstat/dg;->b:Ljava/lang/ref/WeakReference;
 
     .line 166
-    :cond_50
+    :cond_7
     iput-boolean p5, p0, Lcom/baidu/mobstat/dg;->e:Z
 
     .line 170
     invoke-direct {p0}, Lcom/baidu/mobstat/dg;->a()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 174
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p4
+    move-result v1
 
-    if-eqz p4, :cond_65
+    if-eqz v1, :cond_8
 
     .line 175
-    new-instance p1, Lorg/json/JSONObject;
+    new-instance v0, Lorg/json/JSONObject;
 
-    invoke-direct {p1}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    invoke-virtual {p1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 178
-    :cond_65
+    :cond_8
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
 
-    move-result-object p4
+    move-result-object v1
 
-    invoke-virtual {p4}, Lcom/baidu/mobstat/cy;->b()Z
+    invoke-virtual {v1}, Lcom/baidu/mobstat/cy;->b()Z
 
-    move-result p4
+    move-result v1
 
-    const-string p5, "injectTrackJs h5Config: "
+    if-eqz v1, :cond_9
 
-    if-eqz p4, :cond_88
+    iget-boolean v1, p0, Lcom/baidu/mobstat/dg;->f:Z
 
-    iget-boolean p4, p0, Lcom/baidu/mobstat/dg;->f:Z
-
-    if-eqz p4, :cond_88
+    if-eqz v1, :cond_9
 
     .line 179
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
 
-    move-result-object p4
+    move-result-object v1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, p5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v3, "injectTrackJs h5Config: "
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {p4, v0}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
 
     .line 181
-    :cond_88
+    :cond_9
     invoke-static {}, Lcom/baidu/mobstat/dc;->c()Lcom/baidu/mobstat/dc;
 
-    move-result-object p4
+    move-result-object v1
 
-    invoke-virtual {p4}, Lcom/baidu/mobstat/dc;->b()Z
+    invoke-virtual {v1}, Lcom/baidu/mobstat/dc;->b()Z
 
-    move-result p4
+    move-result v1
 
-    if-eqz p4, :cond_a5
+    if-eqz v1, :cond_a
 
     .line 182
     invoke-static {}, Lcom/baidu/mobstat/dc;->c()Lcom/baidu/mobstat/dc;
 
-    move-result-object p4
+    move-result-object v1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, p5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v3, "injectTrackJs h5Config: "
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p5
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {p4, p5}, Lcom/baidu/mobstat/dc;->a(Ljava/lang/String;)V
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/baidu/mobstat/dc;->a(Ljava/lang/String;)V
 
     .line 185
-    :cond_a5
-    new-instance p4, Ljava/lang/StringBuilder;
+    :cond_a
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string p5, "(function(){var h5conf = {\"sdkAPI\": \"window.WebViewInterface.setEventToNative\", \"sdkType\": \"android\", \"events\": "
+    const-string v2, "(function(){var h5conf = {\"sdkAPI\": \"window.WebViewInterface.setEventToNative\", \"sdkType\": \"android\", \"events\": "
 
-    invoke-direct {p4, p5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "};"
+    const-string v0, "};"
 
-    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p4, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "})()"
+    const-string v0, "})()"
 
-    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p2, :cond_d3
+    if-eqz p2, :cond_0
 
     .line 189
-    new-instance p3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string p4, "javascript:"
+    const-string v2, "javascript:"
 
-    invoke-direct {p3, p4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p2, p1}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    :cond_d3
-    return-void
+    goto/16 :goto_0
 .end method
 
 .method public a(Landroid/webkit/WebView;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
 
     .line 45
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
-
-    return-void
+    if-eqz v0, :cond_0
 
     .line 49
-    :cond_7
+    :goto_0
+    return-void
+
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "javascript:"
@@ -1068,15 +1101,15 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p1, p2}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public setEventToNative(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -1089,33 +1122,33 @@
 
     move-result v0
 
-    const-string v1, "setEventToNative: "
-
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Lcom/baidu/mobstat/dg;->f:Z
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 224
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
 
     move-result-object v0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v2, "setEventToNative: "
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
 
     .line 226
-    :cond_23
+    :cond_0
     invoke-static {}, Lcom/baidu/mobstat/dc;->c()Lcom/baidu/mobstat/dc;
 
     move-result-object v0
@@ -1124,74 +1157,70 @@
 
     move-result v0
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_1
 
     .line 227
     invoke-static {}, Lcom/baidu/mobstat/dc;->c()Lcom/baidu/mobstat/dc;
 
     move-result-object v0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v2, "setEventToNative: "
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/dc;->a(Ljava/lang/String;)V
 
     .line 230
-    :cond_40
+    :cond_1
     iget-object v0, p0, Lcom/baidu/mobstat/dg;->c:Ljava/lang/ref/WeakReference;
 
-    if-nez v0, :cond_45
+    if-nez v0, :cond_3
 
+    .line 246
+    :cond_2
+    :goto_0
     return-void
 
     .line 233
-    :cond_45
+    :cond_3
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/Activity;
 
-    if-nez v0, :cond_4e
-
-    return-void
+    if-eqz v0, :cond_2
 
     .line 238
-    :cond_4e
     iget-object v1, p0, Lcom/baidu/mobstat/dg;->b:Ljava/lang/ref/WeakReference;
 
-    if-nez v1, :cond_53
-
-    return-void
+    if-eqz v1, :cond_2
 
     .line 241
-    :cond_53
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/webkit/WebView;
 
-    if-nez v1, :cond_5c
-
-    return-void
+    if-eqz v1, :cond_2
 
     .line 246
-    :cond_5c
     invoke-direct {p0, p1, v0, v1}, Lcom/baidu/mobstat/dg;->a(Ljava/lang/String;Landroid/app/Activity;Landroid/webkit/WebView;)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public setViewportTreeToNative(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -1204,7 +1233,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_0
 
     .line 57
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
@@ -1226,7 +1255,7 @@
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
 
     .line 60
-    :cond_1f
+    :cond_0
     sput-object p1, Lcom/baidu/mobstat/dg;->a:Ljava/lang/String;
 
     return-void

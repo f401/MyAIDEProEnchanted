@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;
+    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;)V
-    .registers 2
+    .locals 0
 
     .line 103
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;->this$1:Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;
@@ -35,7 +35,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable$ViewHolder;-><init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentDrawable$AdapterDrawable;)V
 

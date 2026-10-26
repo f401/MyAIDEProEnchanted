@@ -20,7 +20,8 @@
 .field public static c:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Comparator<",
+            "Ljava/util/Comparator",
+            "<",
             "Lcom/baidu/mobstat/am;",
             ">;"
         }
@@ -40,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     new-instance v0, Lcom/baidu/mobstat/am$1;
 
@@ -52,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;J)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -72,7 +73,7 @@
 .end method
 
 .method public a()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/am;->d:Ljava/lang/String;
 
@@ -80,23 +81,23 @@
 .end method
 
 .method public final a(Lcom/baidu/mobstat/am$a;)V
-    .registers 3
+    .locals 2
 
     iput-object p1, p0, Lcom/baidu/mobstat/am;->a:Lcom/baidu/mobstat/am$a;
 
-    iget-object p1, p1, Lcom/baidu/mobstat/am$a;->b:Lcom/baidu/mobstat/bq;
+    iget-object v0, p1, Lcom/baidu/mobstat/am$a;->b:Lcom/baidu/mobstat/bq;
 
-    invoke-virtual {p1}, Lcom/baidu/mobstat/bq;->b()Lcom/baidu/mobstat/bq$a;
+    invoke-virtual {v0}, Lcom/baidu/mobstat/bq;->b()Lcom/baidu/mobstat/bq$a;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "cs"
+    const-string v1, "cs"
 
-    invoke-virtual {p1, v0}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;)Lcom/baidu/mobstat/bq$a;
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;)Lcom/baidu/mobstat/bq$a;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/baidu/mobstat/am;->b:Lcom/baidu/mobstat/bq$a;
+    iput-object v0, p0, Lcom/baidu/mobstat/am;->b:Lcom/baidu/mobstat/bq$a;
 
     return-void
 .end method
@@ -105,7 +106,7 @@
 .end method
 
 .method public b()J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lcom/baidu/mobstat/am;->e:J
 

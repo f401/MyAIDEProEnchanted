@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 32
     new-instance v0, Lcom/s1243808733/android/dx/dex/code/form/Form31t;
@@ -22,7 +22,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 38
     invoke-direct {p0}, Lcom/s1243808733/android/dx/dex/code/InsnFormat;-><init>()V
@@ -33,15 +33,15 @@
 
 # virtual methods
 .method public branchFits(Lcom/s1243808733/android/dx/dex/code/TargetInsn;)Z
-    .registers 2
+    .locals 1
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public codeSize()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x3
 
@@ -49,42 +49,42 @@
 .end method
 
 .method public compatibleRegs(Lcom/s1243808733/android/dx/dex/code/DalvInsn;)Ljava/util/BitSet;
-    .registers 4
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 78
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->getRegisters()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 79
-    new-instance v0, Ljava/util/BitSet;
+    new-instance v1, Ljava/util/BitSet;
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-direct {v0, v1}, Ljava/util/BitSet;-><init>(I)V
+    invoke-direct {v1, v2}, Ljava/util/BitSet;-><init>(I)V
 
     .line 81
-    const/4 v1, 0x0
+    invoke-virtual {v0, v3}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    invoke-virtual {p1, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    move-result-object v0
 
-    move-result-object p1
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
+    move-result v0
 
-    move-result p1
+    invoke-static {v0}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->unsignedFitsInByte(I)Z
 
-    invoke-static {p1}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->unsignedFitsInByte(I)Z
+    move-result v0
 
-    move-result p1
+    invoke-virtual {v1, v3, v0}, Ljava/util/BitSet;->set(IZ)V
 
-    invoke-virtual {v0, v1, p1}, Ljava/util/BitSet;->set(IZ)V
-
-    return-object v0
+    return-object v1
 .end method
 
 .method public insnArgString(Lcom/s1243808733/android/dx/dex/code/DalvInsn;)Ljava/lang/String;
-    .registers 5
+    .locals 3
 
     .line 45
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->getRegisters()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
@@ -114,110 +114,107 @@
 
     invoke-static {p1}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->branchString(Lcom/s1243808733/android/dx/dex/code/DalvInsn;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public insnCommentString(Lcom/s1243808733/android/dx/dex/code/DalvInsn;Z)Ljava/lang/String;
-    .registers 3
+    .locals 1
 
     .line 52
     invoke-static {p1}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->branchComment(Lcom/s1243808733/android/dx/dex/code/DalvInsn;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public isCompatible(Lcom/s1243808733/android/dx/dex/code/DalvInsn;)Z
-    .registers 5
+    .locals 4
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
 
     .line 64
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->getRegisters()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    move-result-object v0
+    move-result-object v2
 
     .line 66
-    instance-of p1, p1, Lcom/s1243808733/android/dx/dex/code/TargetInsn;
+    instance-of v3, p1, Lcom/s1243808733/android/dx/dex/code/TargetInsn;
 
-    const/4 v1, 0x0
-
-    if-eqz p1, :cond_20
+    if-eqz v3, :cond_0
 
     .line 67
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
-    move-result p1
+    move-result v3
 
-    const/4 v2, 0x1
-
-    if-ne p1, v2, :cond_20
+    if-ne v3, v0, :cond_0
 
     .line 68
-    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v2, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
 
-    move-result p1
+    move-result v2
 
-    invoke-static {p1}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->unsignedFitsInByte(I)Z
+    invoke-static {v2}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->unsignedFitsInByte(I)Z
 
-    move-result p1
+    move-result v2
 
-    if-nez p1, :cond_1f
+    if-nez v2, :cond_1
 
-    goto :goto_20
+    :cond_0
+    move v0, v1
 
-    :cond_1f
-    return v2
-
-    :cond_20
-    :goto_20
-    return v1
+    :cond_1
+    return v0
 .end method
 
 .method public writeTo(Lcom/s1243808733/android/dx/util/AnnotatedOutput;Lcom/s1243808733/android/dx/dex/code/DalvInsn;)V
-    .registers 6
+    .locals 3
 
     .line 94
     invoke-virtual {p2}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->getRegisters()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    move-result-object v0
+    move-result-object v1
+
+    move-object v0, p2
 
     .line 95
-    move-object v1, p2
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/TargetInsn;
 
-    check-cast v1, Lcom/s1243808733/android/dx/dex/code/TargetInsn;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->getTargetOffset()I
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/dex/code/TargetInsn;->getTargetOffset()I
-
-    move-result v1
+    move-result v0
 
     .line 97
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v1, v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
 
-    move-result v0
+    move-result v1
 
-    invoke-static {p2, v0}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->opcodeUnit(Lcom/s1243808733/android/dx/dex/code/DalvInsn;I)S
+    invoke-static {p2, v1}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->opcodeUnit(Lcom/s1243808733/android/dx/dex/code/DalvInsn;I)S
 
-    move-result p2
+    move-result v1
 
-    invoke-static {p1, p2, v1}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->write(Lcom/s1243808733/android/dx/util/AnnotatedOutput;SI)V
+    invoke-static {p1, v1, v0}, Lcom/s1243808733/android/dx/dex/code/form/Form31t;->write(Lcom/s1243808733/android/dx/util/AnnotatedOutput;SI)V
 
     return-void
 .end method

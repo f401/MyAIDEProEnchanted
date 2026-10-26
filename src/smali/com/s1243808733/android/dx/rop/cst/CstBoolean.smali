@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 27
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
@@ -35,7 +35,7 @@
 .end method
 
 .method private constructor <init>(Z)V
-    .registers 2
+    .locals 0
 
     .line 66
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstLiteral32;-><init>(I)V
@@ -44,27 +44,30 @@
 .end method
 
 .method public static make(I)Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
-    .registers 3
+    .locals 2
 
-    if-nez p0, :cond_5
+    if-nez p0, :cond_0
 
     .line 52
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->VALUE_FALSE:Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
-
-    return-object p0
-
-    :cond_5
-    const/4 v0, 0x1
-
-    if-ne p0, v0, :cond_b
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->VALUE_FALSE:Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
 
     .line 54
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->VALUE_TRUE:Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
+    :goto_0
+    return-object v0
 
-    return-object p0
+    .line 52
+    :cond_0
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_1
+
+    .line 54
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->VALUE_TRUE:Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
+
+    goto :goto_0
 
     .line 56
-    :cond_b
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "bogus value: "
@@ -73,38 +76,38 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v1
 .end method
 
 .method public static make(Z)Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
-    .registers 1
+    .locals 1
 
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_0
 
     .line 40
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->VALUE_TRUE:Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->VALUE_TRUE:Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
 
-    goto :goto_7
+    :goto_0
+    return-object v0
 
-    :cond_5
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->VALUE_FALSE:Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
+    :cond_0
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->VALUE_FALSE:Lcom/s1243808733/android/dx/rop/cst/CstBoolean;
 
-    :goto_7
-    return-object p0
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 78
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->BOOLEAN:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -113,70 +116,70 @@
 .end method
 
 .method public getValue()Z
-    .registers 2
+    .locals 1
 
     .line 99
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->getIntBits()I
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    goto :goto_9
+    :goto_0
+    return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_9
-    return v0
+    goto :goto_0
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 90
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->getValue()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     const-string v0, "true"
 
-    goto :goto_b
+    :goto_0
+    return-object v0
 
-    :cond_9
+    :cond_0
     const-string v0, "false"
 
-    :goto_b
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 72
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstBoolean;->getValue()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     const-string v0, "boolean{true}"
 
-    goto :goto_b
+    :goto_0
+    return-object v0
 
-    :cond_9
+    :cond_0
     const-string v0, "boolean{false}"
 
-    :goto_b
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 84
     const-string v0, "boolean"

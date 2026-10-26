@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -27,10 +27,10 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .line 21
-    const-string v0, "run-运行"
+    const-string v0, "run-\u8fd0\u884c"
 
     invoke-static {v0}, Lio/github/zeroaicy/util/DeleteOnExitHook;->-$$Nest$smlog(Ljava/lang/String;)V
 

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/cu;)V
-    .registers 2
+    .locals 0
 
     .line 292
     iput-object p1, p0, Lcom/baidu/mobstat/cu$2;->a:Lcom/baidu/mobstat/cu;
@@ -36,7 +36,9 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x1
 
     .line 297
     iget-object v0, p0, Lcom/baidu/mobstat/cu$2;->a:Lcom/baidu/mobstat/cu;
@@ -45,12 +47,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_1
 
+    .line 306
+    :cond_0
+    :goto_0
     return-void
 
     .line 301
-    :cond_9
+    :cond_1
     iget-object v0, p0, Lcom/baidu/mobstat/cu$2;->a:Lcom/baidu/mobstat/cu;
 
     .line 302
@@ -66,8 +71,6 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x1
-
     invoke-static {v0, v1, v3, v2}, Lcom/baidu/mobstat/db;->a(Landroid/content/Context;Ljava/lang/String;IZ)Z
 
     move-result v0
@@ -77,7 +80,7 @@
 
     invoke-static {v1, v3}, Lcom/baidu/mobstat/cu;->a(Lcom/baidu/mobstat/cu;Z)Z
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_0
 
     .line 306
     iget-object v0, p0, Lcom/baidu/mobstat/cu$2;->a:Lcom/baidu/mobstat/cu;
@@ -94,6 +97,5 @@
 
     invoke-static {v0, v1}, Lcom/baidu/mobstat/cu;->a(Lcom/baidu/mobstat/cu;Ljava/lang/String;)Ljava/lang/String;
 
-    :cond_31
-    return-void
+    goto :goto_0
 .end method

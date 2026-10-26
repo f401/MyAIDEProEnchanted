@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
-    .registers 4
+    .locals 0
 
     .line 109
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1$1;->this$1:Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public getNewRegisterCount()I
-    .registers 2
+    .locals 1
 
     .line 113
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1$1;->this$1:Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1;
@@ -60,7 +60,7 @@
 .end method
 
 .method public map(Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-    .registers 4
+    .locals 2
 
     .line 119
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
@@ -73,11 +73,11 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_0
 
     .line 120
     iget-object p1, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner$1$1;->val$specA:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    :cond_e
+    :cond_0
     return-object p1
 .end method

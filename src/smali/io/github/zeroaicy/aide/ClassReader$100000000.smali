@@ -8,7 +8,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public onSharedPreferenceChanged(Landroid/content/SharedPreferences;Ljava/lang/String;)V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -34,72 +34,74 @@
     .line 110
     invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->access$L1000010()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-interface {p1, p2, v0}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {p1, v0, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result p2
+    move-result v0
 
-    invoke-static {p2}, Lio/github/zeroaicy/aide/ClassReader;->access$S1000008(Z)V
+    invoke-static {v0}, Lio/github/zeroaicy/aide/ClassReader;->access$S1000008(Z)V
 
     .line 112
     invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->access$L1000011()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {p1, p2, v0}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result p1
-
-    invoke-static {p1}, Lio/github/zeroaicy/aide/ClassReader;->access$S1000009(Z)V
-
-    .line 114
-    new-instance p1, Ljava/lang/StringBuffer;
-
-    const-string p2, "useReaderClassFromZeroAicy改变为: "
-
-    invoke-direct {p1, p2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
-
-    invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->access$L1000008()Z
-
-    move-result p2
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string p2, "ZeroAicyClassReader"
-
-    invoke-static {p2, p1}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 115
-    new-instance p1, Ljava/lang/StringBuffer;
-
-    const-string v0, "disableDefaultMethod改变为: "
-
-    invoke-direct {p1, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
-
-    invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->access$L1000009()Z
+    invoke-interface {p1, v0, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
+    invoke-static {v0}, Lio/github/zeroaicy/aide/ClassReader;->access$S1000009(Z)V
 
-    move-result-object p1
+    .line 114
+    const-string v0, "ZeroAicyClassReader"
 
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    move-result-object p1
+    const-string v2, "useReaderClassFromZeroAicy\u6539\u53d8\u4e3a: "
 
-    invoke-static {p2, p1}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+
+    invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->access$L1000008()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 115
+    const-string v0, "ZeroAicyClassReader"
+
+    new-instance v1, Ljava/lang/StringBuffer;
+
+    const-string v2, "disableDefaultMethod\u6539\u53d8\u4e3a: "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+
+    invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->access$L1000009()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

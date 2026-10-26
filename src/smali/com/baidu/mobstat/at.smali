@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     new-instance v0, Ljava/security/SecureRandom;
 
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public static a([B[B[B)[B
-    .registers 5
+    .locals 2
 
     new-instance v0, Lcom/baidu/mobstat/at;
 
@@ -60,13 +60,13 @@
 
     invoke-virtual {v0, p2}, Lcom/baidu/mobstat/at;->a([B)[B
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static b([B[B[B)[B
-    .registers 5
+    .locals 2
 
     new-instance v0, Lcom/baidu/mobstat/at;
 
@@ -78,15 +78,15 @@
 
     invoke-virtual {v0, p2}, Lcom/baidu/mobstat/at;->a([B)[B
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public a(I[B[B)V
-    .registers 6
+    .locals 2
 
     iget-object v0, p0, Lcom/baidu/mobstat/at;->b:Lcom/baidu/mobstat/av;
 
@@ -98,9 +98,9 @@
 .end method
 
 .method public final a([B)[B
-    .registers 5
+    .locals 3
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/baidu/mobstat/at;->b:Lcom/baidu/mobstat/av;
 
@@ -110,16 +110,16 @@
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/baidu/mobstat/av;->a([BII)[B
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
-    :cond_b
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "Null input buffer"
+    const-string v1, "Null input buffer"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method

@@ -12,7 +12,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/as;)V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -20,9 +20,9 @@
 
     invoke-virtual {p1}, Lcom/baidu/mobstat/as;->a()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/baidu/mobstat/aw;->c:I
+    iput v0, p0, Lcom/baidu/mobstat/aw;->c:I
 
     return-void
 .end method
@@ -48,7 +48,7 @@
 .end method
 
 .method c([BII[BI)V
-    .registers 6
+    .locals 0
 
     invoke-virtual/range {p0 .. p5}, Lcom/baidu/mobstat/aw;->a([BII[BI)V
 
@@ -56,7 +56,7 @@
 .end method
 
 .method d([BII[BI)V
-    .registers 6
+    .locals 0
 
     invoke-virtual/range {p0 .. p5}, Lcom/baidu/mobstat/aw;->b([BII[BI)V
 

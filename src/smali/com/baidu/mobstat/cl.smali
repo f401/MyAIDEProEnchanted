@@ -37,177 +37,161 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZIJJJLjava/lang/String;Ljava/lang/String;Lorg/json/JSONArray;)V
-    .registers 22
+    .locals 4
 
     .line 34
-    move-object v0, p0
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
-    move-object v1, p1
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->a:Ljava/lang/String;
+    iput-object p1, p0, Lcom/baidu/mobstat/cl;->a:Ljava/lang/String;
 
     .line 36
-    move-object v1, p2
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->b:Ljava/lang/String;
+    iput-object p2, p0, Lcom/baidu/mobstat/cl;->b:Ljava/lang/String;
 
     .line 37
-    move-object v1, p3
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->c:Lorg/json/JSONArray;
+    iput-object p3, p0, Lcom/baidu/mobstat/cl;->c:Lorg/json/JSONArray;
 
     .line 38
-    move-object v1, p4
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->d:Ljava/lang/String;
+    iput-object p4, p0, Lcom/baidu/mobstat/cl;->d:Ljava/lang/String;
 
     .line 39
-    move-object v1, p6
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->e:Ljava/lang/String;
+    iput-object p6, p0, Lcom/baidu/mobstat/cl;->e:Ljava/lang/String;
 
     .line 40
-    move-object v1, p7
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->f:Ljava/lang/String;
+    iput-object p7, p0, Lcom/baidu/mobstat/cl;->f:Ljava/lang/String;
 
     .line 41
-    move v1, p8
-
-    iput-boolean v1, v0, Lcom/baidu/mobstat/cl;->g:Z
+    iput-boolean p8, p0, Lcom/baidu/mobstat/cl;->g:Z
 
     .line 42
-    move v1, p9
-
-    iput v1, v0, Lcom/baidu/mobstat/cl;->k:I
+    iput p9, p0, Lcom/baidu/mobstat/cl;->k:I
 
     .line 43
-    move-wide v1, p10
-
-    iput-wide v1, v0, Lcom/baidu/mobstat/cl;->h:J
+    iput-wide p10, p0, Lcom/baidu/mobstat/cl;->h:J
 
     .line 44
-    move-wide v1, p12
+    move-wide/from16 v0, p12
 
-    iput-wide v1, v0, Lcom/baidu/mobstat/cl;->i:J
+    iput-wide v0, p0, Lcom/baidu/mobstat/cl;->i:J
 
     .line 45
-    move-wide/from16 v1, p14
+    move-wide/from16 v0, p14
 
-    iput-wide v1, v0, Lcom/baidu/mobstat/cl;->j:J
+    iput-wide v0, p0, Lcom/baidu/mobstat/cl;->j:J
 
     .line 46
-    move-object/from16 v1, p16
+    move-object/from16 v0, p16
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->l:Ljava/lang/String;
+    iput-object v0, p0, Lcom/baidu/mobstat/cl;->l:Ljava/lang/String;
 
     .line 47
-    move-object/from16 v1, p17
+    move-object/from16 v0, p17
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->m:Ljava/lang/String;
+    iput-object v0, p0, Lcom/baidu/mobstat/cl;->m:Ljava/lang/String;
 
     .line 48
-    move-object v1, p5
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->n:Ljava/lang/String;
+    iput-object p5, p0, Lcom/baidu/mobstat/cl;->n:Ljava/lang/String;
 
     .line 49
-    move-object/from16 v1, p18
+    move-object/from16 v0, p18
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cl;->o:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/baidu/mobstat/cl;->o:Lorg/json/JSONArray;
 
     return-void
 .end method
 
 .method public static a(Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
-    .registers 10
+    .locals 3
 
     .line 197
-    const-string v0, ""
+    const-string v1, ""
 
     .line 199
-    :try_start_2
-    new-instance v1, Lorg/json/JSONObject;
+    :try_start_0
+    new-instance v0, Lorg/json/JSONObject;
 
-    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
     .line 200
     const-string v2, "id"
 
-    invoke-virtual {v1, v2, p0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v2, p0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 201
-    const-string p0, "p"
+    const-string v2, "p"
 
-    invoke-virtual {v1, p0, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v2, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 202
-    const-string p0, "path"
+    const-string v2, "path"
 
-    invoke-virtual {v1, p0, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v2, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 204
-    const-string p0, "title"
+    const-string v2, "title"
 
-    invoke-virtual {v1, p0, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v2, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 205
-    const-string p0, "index"
+    const-string v2, "index"
 
-    invoke-virtual {v1, p0, p4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v2, p4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 206
-    const-string p0, "n"
+    const-string v2, "n"
 
-    invoke-virtual {v1, p0, p5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v2, p5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 207
-    const-string p0, "user"
+    const-string v2, "user"
 
-    invoke-virtual {v1, p0, p6}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v2, p6}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 209
-    invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object p0
-    :try_end_2e
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2e} :catch_2f
-
-    goto :goto_31
-
-    :catch_2f
-    move-exception p0
-
-    move-object p0, v0
-
-    .line 215
-    :goto_31
-    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_3f
-
-    .line 216
-    invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
-
-    move-result-object p0
-
-    invoke-static {p0}, Lcom/baidu/mobstat/do$a;->a([B)Ljava/lang/String;
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
-    :cond_3f
+    .line 215
+    :goto_0
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 216
+    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/baidu/mobstat/do$a;->a([B)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_1
     return-object v0
+
+    .line 209
+    :catch_0
+    move-exception v0
+
+    const-string v0, ""
+
+    goto :goto_0
+
+    :cond_0
+    move-object v0, v1
+
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public a()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 53
     iget-object v0, p0, Lcom/baidu/mobstat/cl;->a:Ljava/lang/String;
@@ -216,7 +200,9 @@
 .end method
 
 .method public a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/json/JSONObject;
-    .registers 11
+    .locals 8
+
+    const/4 v7, 0x0
 
     .line 161
     iget-object v0, p0, Lcom/baidu/mobstat/cl;->a:Ljava/lang/String;
@@ -235,156 +221,157 @@
 
     invoke-static/range {v0 .. v6}, Lcom/baidu/mobstat/cl;->a(Ljava/lang/String;Ljava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     .line 163
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 186
+    :goto_0
+    return-object v7
+
+    .line 167
+    :cond_0
+    new-instance v0, Lorg/json/JSONObject;
+
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+
+    .line 170
+    :try_start_0
+    const-string v1, "id"
+
+    iget-object v3, p0, Lcom/baidu/mobstat/cl;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 171
+    const-string v1, "d"
+
+    iget-object v3, p0, Lcom/baidu/mobstat/cl;->l:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 172
+    const-string v1, "p"
+
+    invoke-virtual {v0, v1, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 173
+    const-string v1, "path"
+
+    invoke-virtual {v0, v1, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 174
+    iget-object v1, p0, Lcom/baidu/mobstat/cl;->o:Lorg/json/JSONArray;
+
+    if-eqz v1, :cond_1
+
+    .line 175
+    invoke-virtual {v1}, Lorg/json/JSONArray;->length()I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    const/4 v2, 0x0
+    if-nez v1, :cond_2
 
-    if-eqz v1, :cond_1a
-
-    return-object v2
-
-    .line 167
-    :cond_1a
-    new-instance v1, Lorg/json/JSONObject;
-
-    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
-
-    .line 170
-    :try_start_1f
-    const-string v3, "id"
-
-    iget-object v4, p0, Lcom/baidu/mobstat/cl;->a:Ljava/lang/String;
-
-    invoke-virtual {v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 171
-    const-string v3, "d"
-
-    iget-object v4, p0, Lcom/baidu/mobstat/cl;->l:Ljava/lang/String;
-
-    invoke-virtual {v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 172
-    const-string v3, "p"
-
-    invoke-virtual {v1, v3, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 173
-    const-string p1, "path"
-
-    invoke-virtual {v1, p1, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :cond_1
+    const-string v1, ""
 
     .line 174
-    iget-object p1, p0, Lcom/baidu/mobstat/cl;->o:Lorg/json/JSONArray;
+    :goto_1
+    :try_start_1
+    const-string v3, "v5"
 
-    if-eqz p1, :cond_45
-
-    .line 175
-    invoke-virtual {p1}, Lorg/json/JSONArray;->length()I
-
-    move-result p1
-
-    if-nez p1, :cond_42
-
-    goto :goto_45
-
-    :cond_42
-    iget-object p1, p0, Lcom/baidu/mobstat/cl;->o:Lorg/json/JSONArray;
-    :try_end_44
-    .catch Ljava/lang/Exception; {:try_start_1f .. :try_end_44} :catch_89
-
-    goto :goto_47
-
-    :cond_45
-    :goto_45
-    const-string p1, ""
-
-    .line 174
-    :goto_47
-    :try_start_47
-    const-string p3, "v5"
-
-    invoke-virtual {v1, p3, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v3, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 177
-    const-string p1, "title"
+    const-string v1, "title"
 
-    iget-object p3, p0, Lcom/baidu/mobstat/cl;->d:Ljava/lang/String;
+    iget-object v3, p0, Lcom/baidu/mobstat/cl;->d:Ljava/lang/String;
 
-    invoke-virtual {v1, p1, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 178
-    const-string p1, "content"
+    const-string v1, "content"
 
-    iget-object p3, p0, Lcom/baidu/mobstat/cl;->n:Ljava/lang/String;
+    iget-object v3, p0, Lcom/baidu/mobstat/cl;->n:Ljava/lang/String;
 
-    invoke-virtual {v1, p1, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 179
-    const-string p1, "index"
+    const-string v1, "index"
 
-    iget-object p3, p0, Lcom/baidu/mobstat/cl;->e:Ljava/lang/String;
+    iget-object v3, p0, Lcom/baidu/mobstat/cl;->e:Ljava/lang/String;
 
-    invoke-virtual {v1, p1, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 180
-    const-string p1, "n"
+    const-string v1, "n"
 
-    invoke-virtual {v1, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 181
-    const-string p1, "user"
+    const-string v1, "user"
 
-    iget-boolean p2, p0, Lcom/baidu/mobstat/cl;->g:Z
+    iget-boolean v3, p0, Lcom/baidu/mobstat/cl;->g:Z
 
-    invoke-virtual {v1, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 182
-    const-string p1, "c"
+    const-string v1, "c"
 
-    iget p2, p0, Lcom/baidu/mobstat/cl;->k:I
+    iget v3, p0, Lcom/baidu/mobstat/cl;->k:I
 
-    invoke-virtual {v1, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     .line 183
-    const-string p1, "t"
+    const-string v1, "t"
 
-    iget-wide p2, p0, Lcom/baidu/mobstat/cl;->h:J
+    iget-wide v4, p0, Lcom/baidu/mobstat/cl;->h:J
 
-    invoke-virtual {v1, p1, p2, p3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
     .line 184
-    const-string p1, "ps"
+    const-string v1, "ps"
 
-    iget-object p2, p0, Lcom/baidu/mobstat/cl;->m:Ljava/lang/String;
+    iget-object v3, p0, Lcom/baidu/mobstat/cl;->m:Ljava/lang/String;
 
-    invoke-virtual {v1, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 186
-    const-string p1, "sign"
+    const-string v1, "sign"
 
-    invoke-virtual {v1, p1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_87
-    .catch Ljava/lang/Exception; {:try_start_47 .. :try_end_87} :catch_89
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    move-object v2, v1
+    :goto_2
+    move-object v7, v0
 
-    goto :goto_8a
+    goto :goto_0
 
-    :catch_89
-    move-exception p1
+    .line 175
+    :cond_2
+    iget-object v1, p0, Lcom/baidu/mobstat/cl;->o:Lorg/json/JSONArray;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    :goto_8a
-    return-object v2
+    goto :goto_1
+
+    .line 186
+    :catch_0
+    move-exception v0
+
+    move-object v0, v7
+
+    goto :goto_2
 .end method
 
 .method public a(I)V
-    .registers 2
+    .locals 0
 
     .line 117
     iput p1, p0, Lcom/baidu/mobstat/cl;->k:I
@@ -393,7 +380,7 @@
 .end method
 
 .method public a(J)V
-    .registers 3
+    .locals 1
 
     .line 133
     iput-wide p1, p0, Lcom/baidu/mobstat/cl;->i:J
@@ -402,7 +389,7 @@
 .end method
 
 .method public a(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 153
     iput-object p1, p0, Lcom/baidu/mobstat/cl;->l:Ljava/lang/String;
@@ -411,7 +398,7 @@
 .end method
 
 .method public b()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 57
     iget-object v0, p0, Lcom/baidu/mobstat/cl;->b:Ljava/lang/String;
@@ -420,7 +407,7 @@
 .end method
 
 .method public b(J)V
-    .registers 3
+    .locals 1
 
     .line 137
     iput-wide p1, p0, Lcom/baidu/mobstat/cl;->j:J
@@ -429,7 +416,7 @@
 .end method
 
 .method public b(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 157
     iput-object p1, p0, Lcom/baidu/mobstat/cl;->m:Ljava/lang/String;
@@ -438,7 +425,7 @@
 .end method
 
 .method public c()Lorg/json/JSONArray;
-    .registers 2
+    .locals 1
 
     .line 61
     iget-object v0, p0, Lcom/baidu/mobstat/cl;->c:Lorg/json/JSONArray;
@@ -447,7 +434,7 @@
 .end method
 
 .method public d()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 65
     iget-object v0, p0, Lcom/baidu/mobstat/cl;->d:Ljava/lang/String;
@@ -456,7 +443,7 @@
 .end method
 
 .method public e()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 69
     iget-object v0, p0, Lcom/baidu/mobstat/cl;->e:Ljava/lang/String;
@@ -465,7 +452,7 @@
 .end method
 
 .method public f()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 73
     iget-object v0, p0, Lcom/baidu/mobstat/cl;->f:Ljava/lang/String;
@@ -474,7 +461,7 @@
 .end method
 
 .method public g()Z
-    .registers 2
+    .locals 1
 
     .line 77
     iget-boolean v0, p0, Lcom/baidu/mobstat/cl;->g:Z
@@ -483,7 +470,7 @@
 .end method
 
 .method public h()I
-    .registers 2
+    .locals 1
 
     .line 81
     iget v0, p0, Lcom/baidu/mobstat/cl;->k:I
@@ -492,7 +479,7 @@
 .end method
 
 .method public i()J
-    .registers 3
+    .locals 2
 
     .line 85
     iget-wide v0, p0, Lcom/baidu/mobstat/cl;->h:J
@@ -501,7 +488,7 @@
 .end method
 
 .method public j()J
-    .registers 3
+    .locals 2
 
     .line 125
     iget-wide v0, p0, Lcom/baidu/mobstat/cl;->i:J
@@ -510,7 +497,7 @@
 .end method
 
 .method public k()J
-    .registers 3
+    .locals 2
 
     .line 129
     iget-wide v0, p0, Lcom/baidu/mobstat/cl;->j:J
@@ -519,7 +506,7 @@
 .end method
 
 .method public l()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 141
     iget-object v0, p0, Lcom/baidu/mobstat/cl;->l:Ljava/lang/String;

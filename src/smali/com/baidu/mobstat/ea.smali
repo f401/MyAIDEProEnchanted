@@ -3,6 +3,15 @@
 .source "SourceFile"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/baidu/mobstat/ea$a;,
+        Lcom/baidu/mobstat/ea$b;
+    }
+.end annotation
+
+
 # virtual methods
 .method public abstract a()Ljava/net/InetSocketAddress;
 .end method

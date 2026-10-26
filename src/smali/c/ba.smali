@@ -9,7 +9,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/io/OutputStream;I)V
-    .registers 3
+    .locals 0
 
     iput p2, p0, Lc/ba;->l:I
 
@@ -21,90 +21,89 @@
 
 # virtual methods
 .method public final b()Lc/q;
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lc/ba;->l:I
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     invoke-super {p0}, Lc/q;->b()Lc/q;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-
-    :cond_9
+    :cond_0
     return-object p0
 .end method
 
 .method public final c()Lc/q;
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lc/ba;->l:I
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     invoke-super {p0}, Lc/q;->c()Lc/q;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-
-    :cond_9
+    :cond_0
     return-object p0
 .end method
 
 .method public final j(Lc/e;)V
-    .registers 4
+    .locals 2
 
     iget v0, p0, Lc/ba;->l:I
 
-    const-string v1, "null object detected"
+    if-eqz v0, :cond_1
 
-    if-eqz v0, :cond_1a
-
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_0
 
     .line 2
     invoke-interface {p1}, Lc/e;->l()Lc/s;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lc/s;->j()Lc/s;
+    invoke-virtual {v0}, Lc/s;->j()Lc/s;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1, p0}, Lc/s;->e(Lc/q;)V
+    invoke-virtual {v0, p0}, Lc/s;->e(Lc/q;)V
 
+    :goto_0
     return-void
 
-    :cond_14
-    new-instance p1, Ljava/io/IOException;
+    :cond_0
+    new-instance v0, Ljava/io/IOException;
 
-    invoke-direct {p1, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    const-string v1, "null object detected"
 
-    throw p1
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    :cond_1a
-    if-eqz p1, :cond_28
+    throw v0
+
+    :cond_1
+    if-eqz p1, :cond_2
 
     .line 1
     invoke-interface {p1}, Lc/e;->l()Lc/s;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lc/s;->i()Lc/s;
+    invoke-virtual {v0}, Lc/s;->i()Lc/s;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1, p0}, Lc/s;->e(Lc/q;)V
+    invoke-virtual {v0, p0}, Lc/s;->e(Lc/q;)V
 
-    return-void
+    goto :goto_0
 
-    :cond_28
-    new-instance p1, Ljava/io/IOException;
+    :cond_2
+    new-instance v0, Ljava/io/IOException;
 
-    invoke-direct {p1, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    const-string v1, "null object detected"
 
-    throw p1
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method

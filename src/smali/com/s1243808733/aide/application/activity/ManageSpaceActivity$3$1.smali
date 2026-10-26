@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,11 @@
 
 # virtual methods
 .method public run()V
-    .registers 8
+    .locals 7
+
+    const/4 v6, 0x0
+
+    const/4 v5, 0x1
 
     .line 163
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
@@ -57,113 +61,111 @@
     move-result-object v0
 
     .line 164
-    const/4 v1, 0x0
-
-    const-string v2, "（%s）"
-
-    const/4 v3, 0x1
-
-    if-nez v0, :cond_4a
+    if-nez v0, :cond_0
 
     .line 165
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
 
     iget-object v0, v0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;->val$btn:Landroid/widget/Button;
 
-    iget-object v4, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
 
-    iget-object v4, v4, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;->val$btn:Landroid/widget/Button;
+    iget-object v1, v1, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;->val$btn:Landroid/widget/Button;
 
-    invoke-virtual {v4}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-interface {v4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v0, v4}, Landroid/widget/Button;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setTag(Ljava/lang/Object;)V
 
     .line 166
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
 
     iget-object v0, v0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;->val$btn:Landroid/widget/Button;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v5, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
 
-    iget-object v5, v5, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;->val$btn:Landroid/widget/Button;
+    iget-object v2, v2, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;->val$btn:Landroid/widget/Button;
 
-    invoke-virtual {v5}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    new-array v5, v3, [Ljava/lang/Object;
+    const-string v2, "\uff08%s\uff09"
 
-    iget-object v6, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->val$size:Ljava/lang/String;
+    new-array v3, v5, [Ljava/lang/Object;
 
-    aput-object v6, v5, v1
+    iget-object v4, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->val$size:Ljava/lang/String;
 
-    invoke-static {v2, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v4, v3, v6
 
-    move-result-object v1
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_6f
-
-    .line 169
-    :cond_4a
-    iget-object v4, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
-
-    iget-object v4, v4, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;->val$btn:Landroid/widget/Button;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v0, ""
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    new-array v0, v3, [Ljava/lang/Object;
-
-    iget-object v6, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->val$size:Ljava/lang/String;
-
-    aput-object v6, v0, v1
-
-    invoke-static {v2, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v4, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
-
     .line 174
-    :goto_6f
+    :goto_0
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
 
     iget-object v0, v0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;->val$btn:Landroid/widget/Button;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v5}, Landroid/widget/Button;->setEnabled(Z)V
 
     return-void
+
+    .line 169
+    :cond_0
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;
+
+    iget-object v1, v1, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3;->val$btn:Landroid/widget/Button;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v0, ""
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "\uff08%s\uff09"
+
+    new-array v3, v5, [Ljava/lang/Object;
+
+    iget-object v4, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$3$1;->val$size:Ljava/lang/String;
+
+    aput-object v4, v3, v6
+
+    invoke-static {v0, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
 .end method

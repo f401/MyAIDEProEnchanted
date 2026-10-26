@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;Lcom/s1243808733/aide/widget/CustomSwipeRefreshLayout;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,9 @@
 
 # virtual methods
 .method public onRefresh()V
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 228
     const/4 v0, 0x1
@@ -54,32 +56,30 @@
 
     const-string v1, "android.permission.WRITE_EXTERNAL_STORAGE"
 
-    const/4 v2, 0x0
-
     aput-object v1, v0, v2
 
     invoke-static {v0}, Lcom/blankj/utilcode/util/PermissionUtils;->isGranted([Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 229
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$2;->this$0:Lcom/s1243808733/aide/AideMainActivity;
 
     invoke-static {v0}, Lcom/s1243808733/aide/AideMainActivity;->-$$Nest$mrequestPermission(Lcom/s1243808733/aide/AideMainActivity;)V
 
-    goto :goto_17
-
-    .line 231
-    :cond_14
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->reLoadFileBrowser()V
-
     .line 233
-    :goto_17
+    :goto_0
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$2;->val$mSwipeRefreshLayout:Lcom/s1243808733/aide/widget/CustomSwipeRefreshLayout;
 
     invoke-virtual {v0, v2}, Lcom/s1243808733/aide/widget/CustomSwipeRefreshLayout;->setRefreshing(Z)V
 
     return-void
+
+    .line 231
+    :cond_0
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->reLoadFileBrowser()V
+
+    goto :goto_0
 .end method

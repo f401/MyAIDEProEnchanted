@@ -18,8 +18,10 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
-        "Ljava/util/Map$Entry<",
+        "Ljava/util/Comparator",
+        "<",
+        "Ljava/util/Map$Entry",
+        "<",
         "Lcom/baidu/mobstat/ap$a;",
         "Ljava/lang/Integer;",
         ">;>;"
@@ -33,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/ap$b;)V
-    .registers 2
+    .locals 0
 
     iput-object p1, p0, Lcom/baidu/mobstat/ap$b$1;->a:Lcom/baidu/mobstat/ap$b;
 
@@ -45,15 +47,17 @@
 
 # virtual methods
 .method public a(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
-    .registers 5
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Map$Entry<",
+            "Ljava/util/Map$Entry",
+            "<",
             "Lcom/baidu/mobstat/ap$a;",
             "Ljava/lang/Integer;",
             ">;",
-            "Ljava/util/Map$Entry<",
+            "Ljava/util/Map$Entry",
+            "<",
             "Lcom/baidu/mobstat/ap$a;",
             "Ljava/lang/Integer;",
             ">;)I"
@@ -68,46 +72,47 @@
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result v1
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result v0
 
-    sub-int/2addr v0, v1
+    sub-int v0, v1, v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
+    :goto_0
     return v0
 
-    :cond_18
+    :cond_0
     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/baidu/mobstat/ap$a;
+    check-cast v0, Lcom/baidu/mobstat/ap$a;
 
     invoke-interface {p2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v1
 
-    check-cast p2, Lcom/baidu/mobstat/ap$a;
+    check-cast v1, Lcom/baidu/mobstat/ap$a;
 
-    invoke-virtual {p1, p2}, Lcom/baidu/mobstat/ap$a;->a(Lcom/baidu/mobstat/ap$a;)I
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/ap$a;->a(Lcom/baidu/mobstat/ap$a;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     check-cast p1, Ljava/util/Map$Entry;
 
@@ -115,7 +120,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/baidu/mobstat/ap$b$1;->a(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

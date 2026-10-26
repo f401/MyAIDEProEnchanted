@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/util/concurrent/CopyOnWriteArrayList<",
+        "Ljava/util/concurrent/CopyOnWriteArrayList",
+        "<",
         "Lorg/antlr/v4/runtime/ANTLRErrorListener;",
         ">;"
     }
@@ -28,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/antlr/v4/runtime/Recognizer;)V
-    .registers 2
+    .locals 1
 
     .line 31
     iput-object p1, p0, Lorg/antlr/v4/runtime/Recognizer$1;->this$0:Lorg/antlr/v4/runtime/Recognizer;
@@ -36,9 +37,9 @@
     invoke-direct {p0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
     .line 32
-    sget-object p1, Lorg/antlr/v4/runtime/ConsoleErrorListener;->INSTANCE:Lorg/antlr/v4/runtime/ConsoleErrorListener;
+    sget-object v0, Lorg/antlr/v4/runtime/ConsoleErrorListener;->INSTANCE:Lorg/antlr/v4/runtime/ConsoleErrorListener;
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/Recognizer$1;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/Recognizer$1;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

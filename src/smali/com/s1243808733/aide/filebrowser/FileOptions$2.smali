@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(ZLandroid/content/pm/PackageInfo;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,20 +45,20 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 134
-    iget-boolean p1, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$2;->val$finalInstalled:Z
+    iget-boolean v0, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$2;->val$finalInstalled:Z
 
-    if-eqz p1, :cond_b
+    if-eqz v0, :cond_0
 
     .line 135
-    iget-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$2;->val$_pkgInfo:Landroid/content/pm/PackageInfo;
+    iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$2;->val$_pkgInfo:Landroid/content/pm/PackageInfo;
 
-    iget-object p1, p1, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/AppUtils;->launchApp(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/blankj/utilcode/util/AppUtils;->launchApp(Ljava/lang/String;)V
 
-    :cond_b
+    :cond_0
     return-void
 .end method

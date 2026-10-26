@@ -4,17 +4,17 @@
 
 # direct methods
 .method public static a()[B
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x20
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         -0x8t
         0x37t
@@ -52,17 +52,17 @@
 .end method
 
 .method public static b()[B
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x10
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         -0x66t
         0x41t
@@ -84,17 +84,17 @@
 .end method
 
 .method public static c()[B
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x10
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         -0x28t
         -0x3bt
@@ -116,17 +116,17 @@
 .end method
 
 .method public static d()[B
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x20
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         0x79t
         -0x4bt
@@ -164,17 +164,17 @@
 .end method
 
 .method public static e()[B
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x20
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         0xat
         0x1ct
@@ -212,17 +212,17 @@
 .end method
 
 .method public static f()[B
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x20
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         -0xet
         -0x15t
@@ -260,17 +260,17 @@
 .end method
 
 .method public static g()[B
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x20
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         -0x47t
         0x5ct
@@ -308,17 +308,17 @@
 .end method
 
 .method public static h()[B
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x20
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         -0x65t
         -0x5t

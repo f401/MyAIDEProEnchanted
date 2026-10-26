@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity$8;)V
-    .registers 2
+    .locals 0
 
     .line 552
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$8$3;->this$1:Lcom/termux/app/TermuxActivity$8;
@@ -36,59 +36,59 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 3
 
     .line 556
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8$3;->this$1:Lcom/termux/app/TermuxActivity$8;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8$3;->this$1:Lcom/termux/app/TermuxActivity$8;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p2, p0, Lcom/termux/app/TermuxActivity$8$3;->this$1:Lcom/termux/app/TermuxActivity$8;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity$8$3;->this$1:Lcom/termux/app/TermuxActivity$8;
 
-    iget-object p2, p2, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v1, v1, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p2}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
+    invoke-virtual {v1}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p1, p2}, Lcom/termux/app/TermuxActivity;->removeFinishedSession(Lcom/termux/terminal/TerminalSession;)V
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxActivity;->removeFinishedSession(Lcom/termux/terminal/TerminalSession;)V
 
     .line 558
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {p1}, Lcom/s1243808733/aide/util/AIDEUtils;->closeSplit(Z)V
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->closeSplit(Z)V
 
     .line 559
-    new-instance p1, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
     invoke-static {}, Lcom/s1243808733/aide/util/ProjectUtils;->getCurrentProject()Ljava/io/File;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/io/File;->getParentFile()Ljava/io/File;
+    invoke-virtual {v1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object p2
+    move-result-object v1
 
-    const-string v0, "/build.gradle"
+    const-string v2, "/build.gradle"
 
-    invoke-direct {p1, p2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 560
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p2}, Lcom/s1243808733/aide/util/AIDEUtils;->setFileBrowserCurrentDir(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/s1243808733/aide/util/AIDEUtils;->setFileBrowserCurrentDir(Ljava/lang/String;)V
 
     .line 561
-    invoke-static {p1}, Lcom/s1243808733/aide/util/AIDEUtils;->openFile(Ljava/io/File;)V
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->openFile(Ljava/io/File;)V
 
     .line 562
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$8$3;->this$1:Lcom/termux/app/TermuxActivity$8;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$8$3;->this$1:Lcom/termux/app/TermuxActivity$8;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity$8;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->finish()V
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->finish()V
 
     return-void
 .end method

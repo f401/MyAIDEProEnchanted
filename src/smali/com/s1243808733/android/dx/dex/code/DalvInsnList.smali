@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
 
     .line 78
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/FixedSizeList;-><init>(I)V
@@ -21,11 +21,12 @@
 .end method
 
 .method public static makeImmutable(Ljava/util/ArrayList;I)Lcom/s1243808733/android/dx/dex/code/DalvInsnList;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/dex/code/DalvInsn;",
             ">;I)",
             "Lcom/s1243808733/android/dx/dex/code/DalvInsnList;"
@@ -35,56 +36,62 @@
     .line 59
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result v2
 
     .line 60
-    new-instance v1, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;
+    new-instance v3, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;
 
-    invoke-direct {v1, v0, p1}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;-><init>(II)V
+    invoke-direct {v3, v2, p1}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;-><init>(II)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    :goto_a
-    if-ge p1, v0, :cond_18
+    move v1, v0
+
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 63
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
 
-    invoke-virtual {v1, p1, v2}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->set(ILcom/s1243808733/android/dx/dex/code/DalvInsn;)V
+    invoke-virtual {v3, v1, v0}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->set(ILcom/s1243808733/android/dx/dex/code/DalvInsn;)V
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_a
+    move v1, v0
+
+    goto :goto_0
 
     .line 66
-    :cond_18
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->setImmutable()V
+    :cond_0
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->setImmutable()V
 
-    return-object v1
+    return-object v3
 .end method
 
 
 # virtual methods
 .method public codeSize()I
-    .registers 2
+    .locals 1
 
     .line 112
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
+    .line 119
+    :goto_0
     return v0
 
     .line 118
-    :cond_8
+    :cond_0
     add-int/lit8 v0, v0, -0x1
 
     invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get(I)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
@@ -96,11 +103,11 @@
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public debugPrint(Ljava/io/OutputStream;Ljava/lang/String;Z)V
-    .registers 5
+    .locals 2
 
     .line 277
     new-instance v0, Ljava/io/OutputStreamWriter;
@@ -111,282 +118,288 @@
     invoke-virtual {p0, v0, p2, p3}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->debugPrint(Ljava/io/Writer;Ljava/lang/String;Z)V
 
     .line 281
-    :try_start_8
+    :try_start_0
     invoke-virtual {v0}, Ljava/io/Writer;->flush()V
-    :try_end_b
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_c
-    move-exception p1
+    :catch_0
+    move-exception v0
 
     .line 283
-    new-instance p2, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    invoke-direct {p2, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw p2
+    throw v1
 .end method
 
 .method public debugPrint(Ljava/io/Writer;Ljava/lang/String;Z)V
-    .registers 8
+    .locals 6
+
+    const/4 v0, 0x0
 
     .line 243
-    new-instance v0, Lcom/s1243808733/android/dx/util/IndentingWriter;
+    new-instance v2, Lcom/s1243808733/android/dx/util/IndentingWriter;
 
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p1, v1, p2}, Lcom/s1243808733/android/dx/util/IndentingWriter;-><init>(Ljava/io/Writer;ILjava/lang/String;)V
+    invoke-direct {v2, p1, v0, p2}, Lcom/s1243808733/android/dx/util/IndentingWriter;-><init>(Ljava/io/Writer;ILjava/lang/String;)V
 
     .line 244
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->size()I
 
-    move-result p1
-
-    const/4 p2, 0x0
-
-    :goto_b
-    if-ge p2, p1, :cond_2c
-
-    .line 248
-    :try_start_d
-    invoke-virtual {p0, p2}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get0(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
-
-    .line 251
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->codeSize()I
-
     move-result v3
 
-    if-nez v3, :cond_1e
+    move v1, v0
 
-    if-eqz p3, :cond_1c
+    :goto_0
+    if-ge v1, v3, :cond_3
 
-    goto :goto_1e
+    .line 248
+    :try_start_0
+    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get0(I)Ljava/lang/Object;
 
-    :cond_1c
-    const/4 v2, 0x0
+    move-result-object v0
 
-    goto :goto_24
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
+
+    .line 251
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->codeSize()I
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    if-eqz p3, :cond_2
 
     .line 252
-    :cond_1e
-    :goto_1e
-    const-string v3, ""
+    :cond_0
+    const-string v4, ""
 
-    invoke-virtual {v2, v3, v1, p3}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->listingString(Ljava/lang/String;IZ)Ljava/lang/String;
+    const/4 v5, 0x0
 
-    move-result-object v2
+    invoke-virtual {v0, v4, v5, p3}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->listingString(Ljava/lang/String;IZ)Ljava/lang/String;
 
-    :goto_24
-    if-eqz v2, :cond_29
+    move-result-object v0
+
+    :goto_1
+    if-eqz v0, :cond_1
 
     .line 258
-    invoke-virtual {v0, v2}, Lcom/s1243808733/android/dx/util/IndentingWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/util/IndentingWriter;->write(Ljava/lang/String;)V
 
-    :cond_29
-    add-int/lit8 p2, p2, 0x1
+    :cond_1
+    add-int/lit8 v0, v1, 0x1
 
-    goto :goto_b
+    move v1, v0
+
+    goto :goto_0
+
+    .line 251
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_1
 
     .line 262
-    :cond_2c
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/IndentingWriter;->flush()V
-    :try_end_2f
-    .catch Ljava/io/IOException; {:try_start_d .. :try_end_2f} :catch_30
+    :cond_3
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/util/IndentingWriter;->flush()V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_30
-    move-exception p1
+    :catch_0
+    move-exception v0
 
     .line 264
-    new-instance p2, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    invoke-direct {p2, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    goto :goto_38
-
-    :goto_37
-    throw p2
-
-    :goto_38
-    goto :goto_37
+    throw v1
 .end method
 
 .method public get(I)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
-    .registers 2
+    .locals 1
 
     .line 91
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get0(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getOutsSize()I
-    .registers 9
+    .locals 8
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
 
     .line 191
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->size()I
 
-    move-result v0
+    move-result v6
 
-    const/4 v1, 0x0
+    move v4, v3
 
-    const/4 v2, 0x0
+    move v5, v3
 
-    const/4 v3, 0x0
-
-    :goto_7
-    if-ge v2, v0, :cond_7d
+    :goto_0
+    if-ge v5, v6, :cond_5
 
     .line 195
-    invoke-virtual {p0, v2}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get0(I)Ljava/lang/Object;
+    invoke-virtual {p0, v5}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get0(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
 
     .line 198
-    instance-of v5, v4, Lcom/s1243808733/android/dx/dex/code/CstInsn;
+    instance-of v1, v0, Lcom/s1243808733/android/dx/dex/code/CstInsn;
 
-    const/4 v6, 0x1
+    if-eqz v1, :cond_3
 
-    if-eqz v5, :cond_49
+    move-object v1, v0
 
     .line 199
-    move-object v5, v4
+    check-cast v1, Lcom/s1243808733/android/dx/dex/code/CstInsn;
 
-    check-cast v5, Lcom/s1243808733/android/dx/dex/code/CstInsn;
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/dex/code/CstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    invoke-virtual {v5}, Lcom/s1243808733/android/dx/dex/code/CstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
-
-    move-result-object v5
+    move-result-object v1
 
     .line 200
-    instance-of v7, v5, Lcom/s1243808733/android/dx/rop/cst/CstBaseMethodRef;
+    instance-of v7, v1, Lcom/s1243808733/android/dx/rop/cst/CstBaseMethodRef;
 
-    if-eqz v7, :cond_34
+    if-eqz v7, :cond_1
 
     .line 201
-    check-cast v5, Lcom/s1243808733/android/dx/rop/cst/CstBaseMethodRef;
+    check-cast v1, Lcom/s1243808733/android/dx/rop/cst/CstBaseMethodRef;
 
     .line 203
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->getOpcode()Lcom/s1243808733/android/dx/dex/code/Dop;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->getOpcode()Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/dex/code/Dop;->getFamily()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/code/Dop;->getFamily()I
 
-    move-result v4
+    move-result v0
 
     const/16 v7, 0x71
 
-    if-ne v4, v7, :cond_2e
+    if-ne v0, v7, :cond_0
 
-    goto :goto_2f
-
-    :cond_2e
-    const/4 v6, 0x0
+    move v0, v2
 
     .line 204
-    :goto_2f
-    invoke-virtual {v5, v6}, Lcom/s1243808733/android/dx/rop/cst/CstBaseMethodRef;->getParameterWordCount(Z)I
+    :goto_1
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/rop/cst/CstBaseMethodRef;->getParameterWordCount(Z)I
 
-    move-result v4
+    move-result v0
 
-    goto :goto_6e
+    .line 220
+    :goto_2
+    if-le v0, v4, :cond_6
+
+    .line 211
+    :goto_3
+    add-int/lit8 v1, v5, 0x1
+
+    move v4, v0
+
+    move v5, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v3
+
+    .line 203
+    goto :goto_1
 
     .line 205
-    :cond_34
-    instance-of v4, v5, Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;
+    :cond_1
+    instance-of v0, v1, Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;
 
-    if-eqz v4, :cond_47
+    if-eqz v0, :cond_2
 
     .line 206
-    check-cast v5, Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;
+    check-cast v1, Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;
 
     .line 207
-    invoke-virtual {v5}, Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;->getPrototype()Lcom/s1243808733/android/dx/rop/type/Prototype;
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/cst/CstCallSiteRef;->getPrototype()Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/type/Prototype;->getParameterTypes()Lcom/s1243808733/android/dx/rop/type/StdTypeList;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Prototype;->getParameterTypes()Lcom/s1243808733/android/dx/rop/type/StdTypeList;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/type/StdTypeList;->getWordCount()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/StdTypeList;->getWordCount()I
 
-    move-result v4
+    move-result v0
 
-    goto :goto_6e
+    goto :goto_2
 
-    :cond_47
-    const/4 v4, 0x0
+    :cond_2
+    move v0, v3
 
-    goto :goto_6e
+    goto :goto_2
 
     .line 209
-    :cond_49
-    instance-of v5, v4, Lcom/s1243808733/android/dx/dex/code/MultiCstInsn;
+    :cond_3
+    instance-of v1, v0, Lcom/s1243808733/android/dx/dex/code/MultiCstInsn;
 
-    if-eqz v5, :cond_7a
+    if-eqz v1, :cond_6
 
     .line 210
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->getOpcode()Lcom/s1243808733/android/dx/dex/code/Dop;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->getOpcode()Lcom/s1243808733/android/dx/dex/code/Dop;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Lcom/s1243808733/android/dx/dex/code/Dop;->getFamily()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/dex/code/Dop;->getFamily()I
 
-    move-result v5
+    move-result v1
 
     const/16 v7, 0xfa
 
-    if-ne v5, v7, :cond_72
+    if-ne v1, v7, :cond_4
 
     .line 213
-    check-cast v4, Lcom/s1243808733/android/dx/dex/code/MultiCstInsn;
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/MultiCstInsn;
 
     .line 219
-    invoke-virtual {v4, v6}, Lcom/s1243808733/android/dx/dex/code/MultiCstInsn;->getConstant(I)Lcom/s1243808733/android/dx/rop/cst/Constant;
+    invoke-virtual {v0, v2}, Lcom/s1243808733/android/dx/dex/code/MultiCstInsn;->getConstant(I)Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;
 
     .line 220
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;->getPrototype()Lcom/s1243808733/android/dx/rop/type/Prototype;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstProtoRef;->getPrototype()Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/type/Prototype;->getParameterTypes()Lcom/s1243808733/android/dx/rop/type/StdTypeList;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Prototype;->getParameterTypes()Lcom/s1243808733/android/dx/rop/type/StdTypeList;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/type/StdTypeList;->getWordCount()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/StdTypeList;->getWordCount()I
 
-    move-result v4
+    move-result v0
 
-    add-int/2addr v4, v6
+    add-int/lit8 v0, v0, 0x1
 
-    :goto_6e
-    if-le v4, v3, :cond_7a
-
-    move v3, v4
-
-    goto :goto_7a
+    goto :goto_2
 
     .line 211
-    :cond_72
+    :cond_4
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Expecting invoke-polymorphic"
@@ -395,18 +408,17 @@
 
     throw v0
 
-    :cond_7a
-    :goto_7a
-    add-int/lit8 v2, v2, 0x1
+    :cond_5
+    return v4
 
-    goto :goto_7
+    :cond_6
+    move v0, v4
 
-    :cond_7d
-    return v3
+    goto :goto_3
 .end method
 
 .method public getRegistersSize()I
-    .registers 2
+    .locals 1
 
     .line 180
     iget v0, p0, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->regCount:I
@@ -415,7 +427,7 @@
 .end method
 
 .method public set(ILcom/s1243808733/android/dx/dex/code/DalvInsn;)V
-    .registers 3
+    .locals 0
 
     .line 101
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->set0(ILjava/lang/Object;)V
@@ -424,65 +436,57 @@
 .end method
 
 .method public writeTo(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
-    .registers 12
+    .locals 10
+
+    const/4 v1, 0x0
 
     .line 129
     invoke-interface {p1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->getCursor()I
 
-    move-result v0
+    move-result v3
 
     .line 130
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->size()I
 
-    move-result v1
+    move-result v4
 
     .line 132
     invoke-interface {p1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotates()Z
 
-    move-result v2
+    move-result v0
 
-    const/4 v3, 0x0
-
-    if-eqz v2, :cond_44
+    if-eqz v0, :cond_4
 
     .line 133
     invoke-interface {p1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->isVerbose()Z
 
-    move-result v2
+    move-result v5
 
-    const/4 v4, 0x0
+    move v2, v1
 
-    :goto_14
-    if-ge v4, v1, :cond_44
+    :goto_0
+    if-ge v2, v4, :cond_4
 
     .line 136
-    invoke-virtual {p0, v4}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get0(I)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get0(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v0
 
-    check-cast v5, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
 
     .line 137
-    invoke-virtual {v5}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->codeSize()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->codeSize()I
 
     move-result v6
 
     mul-int/lit8 v6, v6, 0x2
 
-    if-nez v6, :cond_29
+    if-nez v6, :cond_0
 
-    if-eqz v2, :cond_27
-
-    goto :goto_29
-
-    :cond_27
-    const/4 v5, 0x0
-
-    goto :goto_34
+    if-eqz v5, :cond_2
 
     .line 141
-    :cond_29
-    :goto_29
+    :cond_0
     const-string v7, "  "
 
     invoke-interface {p1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->getAnnotationWidth()I
@@ -491,128 +495,134 @@
 
     const/4 v9, 0x1
 
-    invoke-virtual {v5, v7, v8, v9}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->listingString(Ljava/lang/String;IZ)Ljava/lang/String;
-
-    move-result-object v5
-
-    :goto_34
-    if-eqz v5, :cond_3a
-
-    .line 148
-    invoke-interface {p1, v6, v5}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
-
-    goto :goto_41
-
-    :cond_3a
-    if-eqz v6, :cond_41
-
-    .line 150
-    const-string v5, ""
-
-    invoke-interface {p1, v6, v5}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
-
-    :cond_41
-    :goto_41
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_14
-
-    :cond_44
-    :goto_44
-    if-ge v3, v1, :cond_66
-
-    .line 156
-    invoke-virtual {p0, v3}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get0(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
-
-    .line 158
-    :try_start_4c
-    invoke-virtual {v2, p1}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->writeTo(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
-    :try_end_4f
-    .catch Ljava/lang/RuntimeException; {:try_start_4c .. :try_end_4f} :catch_52
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_44
-
-    :catch_52
-    move-exception p1
-
-    .line 160
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    const-string v1, "...while writing "
-
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v7, v8, v9}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->listingString(Ljava/lang/String;IZ)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/s1243808733/android/dex/util/ExceptionWithContext;->withContext(Ljava/lang/Throwable;Ljava/lang/String;)Lcom/s1243808733/android/dex/util/ExceptionWithContext;
+    :goto_1
+    if-eqz v0, :cond_3
 
-    move-result-object p1
+    .line 148
+    invoke-interface {p1, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
-    throw p1
+    .line 150
+    :cond_1
+    :goto_2
+    add-int/lit8 v0, v2, 0x1
+
+    move v2, v0
+
+    goto :goto_0
+
+    .line 137
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    .line 148
+    :cond_3
+    if-eqz v6, :cond_1
+
+    .line 150
+    const-string v0, ""
+
+    invoke-interface {p1, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_4
+    :goto_3
+    if-ge v1, v4, :cond_5
+
+    .line 156
+    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->get0(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/dex/code/DalvInsn;
+
+    .line 158
+    :try_start_0
+    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->writeTo(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    goto :goto_3
+
+    :catch_0
+    move-exception v1
+
+    .line 160
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "...while writing "
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Lcom/s1243808733/android/dex/util/ExceptionWithContext;->withContext(Ljava/lang/Throwable;Ljava/lang/String;)Lcom/s1243808733/android/dex/util/ExceptionWithContext;
+
+    move-result-object v0
+
+    throw v0
 
     .line 166
-    :cond_66
+    :cond_5
     invoke-interface {p1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->getCursor()I
 
-    move-result p1
+    move-result v0
 
-    sub-int/2addr p1, v0
+    sub-int/2addr v0, v3
 
-    div-int/lit8 p1, p1, 0x2
+    div-int/lit8 v0, v0, 0x2
 
     .line 167
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->codeSize()I
 
-    move-result v0
+    move-result v1
 
-    if-ne p1, v0, :cond_74
+    if-ne v0, v1, :cond_6
 
     return-void
 
     .line 168
-    :cond_74
-    new-instance v0, Ljava/lang/StringBuilder;
+    :cond_6
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v1, "write length mismatch; expected "
+    const-string v2, "write length mismatch; expected "
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 169
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/code/DalvInsnList;->codeSize()I
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, " but actually wrote "
+    const-string v2, " but actually wrote "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_95
-
-    :goto_94
-    throw p1
-
-    :goto_95
-    goto :goto_94
+    throw v0
 .end method

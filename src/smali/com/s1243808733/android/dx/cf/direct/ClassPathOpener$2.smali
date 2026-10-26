@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Ljava/io/File;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener;)V
-    .registers 2
+    .locals 0
 
     .line 220
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener$2;->this$0:Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener;
@@ -45,26 +46,26 @@
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .registers 3
+    .locals 2
 
     .line 223
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     invoke-virtual {p2}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p1, p2}, Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener;->-$$Nest$smcompareClassNames(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener;->-$$Nest$smcompareClassNames(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 220
     check-cast p1, Ljava/io/File;
@@ -73,7 +74,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener$2;->compare(Ljava/io/File;Ljava/io/File;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

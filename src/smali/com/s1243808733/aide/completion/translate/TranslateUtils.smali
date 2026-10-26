@@ -19,13 +19,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,162 +34,167 @@
 .end method
 
 .method private static appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
-    .registers 7
+    .locals 6
+
+    const/4 v5, 0x0
 
     .line 396
     invoke-static {p1}, Lcom/blankj/utilcode/util/StringUtils;->isTrimEmpty(Ljava/lang/String;)Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_7
+    if-eqz v0, :cond_1
 
+    .line 420
+    :cond_0
+    :goto_0
     return-void
 
     .line 408
-    :cond_7
-    new-instance p2, Landroid/text/SpannableStringBuilder;
+    :cond_1
+    new-instance v0, Landroid/text/SpannableStringBuilder;
 
-    invoke-direct {p2}, Landroid/text/SpannableStringBuilder;-><init>()V
+    invoke-direct {v0}, Landroid/text/SpannableStringBuilder;-><init>()V
 
     .line 410
-    new-instance p3, Landroid/text/SpannableString;
+    new-instance v1, Landroid/text/SpannableString;
 
-    invoke-direct {p3, p1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
+    invoke-direct {v1, p1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
     .line 417
-    new-instance p1, Landroid/text/style/ForegroundColorSpan;
+    new-instance v2, Landroid/text/style/ForegroundColorSpan;
 
-    const v0, -0x555556
+    const v3, -0x555556
 
-    invoke-direct {p1, v0}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
+    invoke-direct {v2, v3}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
 
-    invoke-virtual {p3}, Landroid/text/SpannableString;->length()I
+    invoke-virtual {v1}, Landroid/text/SpannableString;->length()I
 
-    move-result v0
+    move-result v3
 
-    const/16 v1, 0x21
+    const/16 v4, 0x21
 
-    const/4 v2, 0x0
-
-    invoke-virtual {p3, p1, v2, v0, v1}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
+    invoke-virtual {v1, v2, v5, v3, v4}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
     .line 418
-    invoke-virtual {p2, p3}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+    invoke-virtual {v0, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
 
     .line 419
-    invoke-virtual {p0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 420
     invoke-virtual {p0}, Landroid/widget/TextView;->getVisibility()I
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_32
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {p0, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_32
-    return-void
+    goto :goto_0
 .end method
 
 .method public static getDb()Lorg/xutils/DbManager;
-    .registers 3
+    .locals 3
+
+    const/4 v2, 0x1
 
     .line 79
     sget-object v0, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->db:Lorg/xutils/DbManager;
 
-    if-nez v0, :cond_48
+    if-nez v0, :cond_0
 
     .line 81
-    const/4 v0, 0x1
+    :try_start_0
+    new-instance v0, Lorg/xutils/DbManager$DaoConfig;
 
-    :try_start_5
-    new-instance v1, Lorg/xutils/DbManager$DaoConfig;
-
-    invoke-direct {v1}, Lorg/xutils/DbManager$DaoConfig;-><init>()V
+    invoke-direct {v0}, Lorg/xutils/DbManager$DaoConfig;-><init>()V
 
     .line 83
     invoke-static {}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->getDbFile()Ljava/io/File;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lorg/xutils/DbManager$DaoConfig;->setDbName(Ljava/lang/String;)Lorg/xutils/DbManager$DaoConfig;
+    invoke-virtual {v1}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v1
+
+    invoke-virtual {v0, v1}, Lorg/xutils/DbManager$DaoConfig;->setDbName(Ljava/lang/String;)Lorg/xutils/DbManager$DaoConfig;
+
+    move-result-object v0
 
     .line 84
     invoke-static {}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->getDbFile()Ljava/io/File;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/io/File;->getParentFile()Ljava/io/File;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lorg/xutils/DbManager$DaoConfig;->setDbDir(Ljava/io/File;)Lorg/xutils/DbManager$DaoConfig;
+    invoke-virtual {v1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v1
+
+    invoke-virtual {v0, v1}, Lorg/xutils/DbManager$DaoConfig;->setDbDir(Ljava/io/File;)Lorg/xutils/DbManager$DaoConfig;
+
+    move-result-object v0
 
     .line 85
-    invoke-virtual {v1, v0}, Lorg/xutils/DbManager$DaoConfig;->setDbVersion(I)Lorg/xutils/DbManager$DaoConfig;
+    const/4 v1, 0x1
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Lorg/xutils/DbManager$DaoConfig;->setDbVersion(I)Lorg/xutils/DbManager$DaoConfig;
 
-    new-instance v2, Lcom/s1243808733/aide/completion/translate/TranslateUtils$2;
+    move-result-object v0
 
-    invoke-direct {v2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$2;-><init>()V
+    new-instance v1, Lcom/s1243808733/aide/completion/translate/TranslateUtils$2;
+
+    invoke-direct {v1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$2;-><init>()V
 
     .line 86
-    invoke-virtual {v1, v2}, Lorg/xutils/DbManager$DaoConfig;->setDbOpenListener(Lorg/xutils/DbManager$DbOpenListener;)Lorg/xutils/DbManager$DaoConfig;
+    invoke-virtual {v0, v1}, Lorg/xutils/DbManager$DaoConfig;->setDbOpenListener(Lorg/xutils/DbManager$DbOpenListener;)Lorg/xutils/DbManager$DaoConfig;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-instance v2, Lcom/s1243808733/aide/completion/translate/TranslateUtils$1;
+    new-instance v1, Lcom/s1243808733/aide/completion/translate/TranslateUtils$1;
 
-    invoke-direct {v2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$1;-><init>()V
+    invoke-direct {v1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$1;-><init>()V
 
     .line 94
-    invoke-virtual {v1, v2}, Lorg/xutils/DbManager$DaoConfig;->setDbUpgradeListener(Lorg/xutils/DbManager$DbUpgradeListener;)Lorg/xutils/DbManager$DaoConfig;
+    invoke-virtual {v0, v1}, Lorg/xutils/DbManager$DaoConfig;->setDbUpgradeListener(Lorg/xutils/DbManager$DbUpgradeListener;)Lorg/xutils/DbManager$DaoConfig;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 99
-    invoke-static {v1}, Lorg/xutils/x;->getDb(Lorg/xutils/DbManager$DaoConfig;)Lorg/xutils/DbManager;
+    invoke-static {v0}, Lorg/xutils/x;->getDb(Lorg/xutils/DbManager$DaoConfig;)Lorg/xutils/DbManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    sput-object v1, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->db:Lorg/xutils/DbManager;
-    :try_end_3e
-    .catchall {:try_start_5 .. :try_end_3e} :catchall_3f
-
-    goto :goto_48
-
-    :catchall_3f
-    move-exception v1
-
-    .line 101
-    new-array v0, v0, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
+    sput-object v0, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->db:Lorg/xutils/DbManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 104
-    :cond_48
-    :goto_48
+    :cond_0
+    :goto_0
     sget-object v0, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->db:Lorg/xutils/DbManager;
 
     return-object v0
+
+    .line 99
+    :catchall_0
+    move-exception v0
+
+    .line 101
+    new-array v1, v2, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object v0, v1, v2
+
+    invoke-static {v1}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
+
+    goto :goto_0
 .end method
 
 .method public static getDbFile()Ljava/io/File;
-    .registers 3
+    .locals 4
 
     .line 108
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -202,54 +207,57 @@
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 109
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_23
+    if-nez v0, :cond_0
 
     .line 111
-    :try_start_11
-    new-instance v1, Ljava/io/File;
+    :try_start_0
+    new-instance v0, Ljava/io/File;
 
-    invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-    :try_end_16
-    .catchall {:try_start_11 .. :try_end_16} :catchall_17
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return-object v1
+    .line 116
+    :goto_0
+    return-object v0
 
-    :catchall_17
+    .line 111
+    :catchall_0
     move-exception v0
 
     .line 113
-    const/4 v1, 0x1
+    const-string v1, "GetDbFile Exception"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
 
-    aput-object v0, v1, v2
+    const/4 v3, 0x0
 
-    const-string v0, "GetDbFile Exception"
+    aput-object v0, v2, v3
 
-    invoke-static {v0, v1}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v2}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 116
-    :cond_23
+    :cond_0
     const-string v0, "translate/translate.db"
 
     invoke-static {v0}, Lcom/s1243808733/util/Utils;->getSdDataFile(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public static getLang()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .line 65
     sget-object v0, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->lang:Ljava/lang/String;
@@ -258,7 +266,7 @@
 .end method
 
 .method public static getTargetLang()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .line 57
     sget-object v0, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->targetLang:Ljava/lang/String;
@@ -267,48 +275,48 @@
 .end method
 
 .method public static onItemLongClick(Lcom/aide/ui/views/CompletionListView;Lcom/aide/engine/SourceEntity;Landroid/view/View;I)V
-    .registers 9
+    .locals 8
 
     .line 124
     invoke-virtual {p0}, Lcom/aide/ui/views/CompletionListView;->getAdapter()Landroid/widget/ListAdapter;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/widget/BaseAdapter;
+    check-cast v0, Landroid/widget/BaseAdapter;
 
     .line 130
     invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object p3
+    move-result-object v3
 
     .line 132
-    new-instance v0, Landroid/widget/PopupMenu;
+    new-instance v4, Landroid/widget/PopupMenu;
 
-    invoke-direct {v0, p3, p2}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
+    invoke-direct {v4, v3, p2}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
 
     .line 133
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
+    invoke-virtual {v4}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
 
-    move-result-object v1
+    move-result-object v5
 
     .line 135
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->isEnableTranslate()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_6a
+    if-eqz v1, :cond_1
 
     .line 137
-    const v2, 0x7f080025
+    const v1, 0x7f080025
 
-    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p2
+    move-result-object v1
 
-    check-cast p2, Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
     .line 138
-    invoke-virtual {p2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -316,136 +324,140 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    const-string v4, "\n"
+    const-string v7, "\n"
 
-    invoke-static {v2, v3, v4}, Lcom/s1243808733/util/Utils;->subString(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v6, v7}, Lcom/s1243808733/util/Utils;->subString(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    if-nez v2, :cond_3b
+    if-nez v2, :cond_5
 
     .line 140
-    invoke-virtual {p2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-interface {p2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 145
-    :cond_3b
-    invoke-static {v2}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->query(Ljava/lang/String;)Lcom/s1243808733/aide/completion/translate/TranslateTable;
+    :goto_0
+    invoke-static {v1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->query(Ljava/lang/String;)Lcom/s1243808733/aide/completion/translate/TranslateTable;
 
-    move-result-object p2
+    move-result-object v6
 
-    if-eqz p2, :cond_4c
+    if-eqz v6, :cond_0
 
     .line 147
-    invoke-virtual {p2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
+    invoke-virtual {v6}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
 
-    move-result v3
+    move-result v2
 
-    const/4 v4, 0x1
+    const/4 v7, 0x1
 
-    if-eq v3, v4, :cond_49
+    if-eq v2, v7, :cond_3
 
-    goto :goto_4c
+    :cond_0
+    const-string v2, "\u7ffb\u8bd1\u5185\u5bb9"
 
-    :cond_49
-    const-string v3, "修正翻译"
-
-    goto :goto_4e
-
-    :cond_4c
-    :goto_4c
-    const-string v3, "翻译内容"
-
-    :goto_4e
-    invoke-interface {v1, v3}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-
-    move-result-object v3
-
-    new-instance v4, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;
-
-    invoke-direct {v4, p3, p2, v2, p0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;-><init>(Landroid/content/Context;Lcom/s1243808733/aide/completion/translate/TranslateTable;Ljava/lang/String;Landroid/widget/BaseAdapter;)V
-
-    .line 148
-    invoke-interface {v3, v4}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
-
-    if-eqz p2, :cond_6a
-
-    .line 229
-    const-string v2, "删除翻译"
-
-    invoke-interface {v1, v2}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    :goto_1
+    invoke-interface {v5, v2}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    new-instance v3, Lcom/s1243808733/aide/completion/translate/TranslateUtils$4;
+    new-instance v7, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;
 
-    invoke-direct {v3, p2, p0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$4;-><init>(Lcom/s1243808733/aide/completion/translate/TranslateTable;Landroid/widget/BaseAdapter;)V
+    invoke-direct {v7, v3, v6, v1, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;-><init>(Landroid/content/Context;Lcom/s1243808733/aide/completion/translate/TranslateTable;Ljava/lang/String;Landroid/widget/BaseAdapter;)V
+
+    .line 148
+    invoke-interface {v2, v7}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+
+    if-eqz v6, :cond_1
+
+    .line 229
+    const-string v1, "\u5220\u9664\u7ffb\u8bd1"
+
+    invoke-interface {v5, v1}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/s1243808733/aide/completion/translate/TranslateUtils$4;
+
+    invoke-direct {v2, v6, v0}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$4;-><init>(Lcom/s1243808733/aide/completion/translate/TranslateTable;Landroid/widget/BaseAdapter;)V
 
     .line 230
-    invoke-interface {v2, v3}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    :cond_6a
-    if-eqz p1, :cond_93
+    :cond_1
+    if-eqz p1, :cond_2
 
     .line 247
     invoke-static {p1}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-string p2, "BT"
+    const-string v1, "BT"
 
-    invoke-virtual {p0, p2}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    if-eqz p0, :cond_93
+    if-eqz v0, :cond_2
 
     .line 249
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_85
+    if-eqz v0, :cond_4
 
-    const-string p0, "查看文档"
+    const-string v0, "\u67e5\u770b\u6587\u6863"
 
-    goto :goto_87
+    :goto_2
+    invoke-interface {v5, v0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    :cond_85
-    const-string p0, "View Document"
+    move-result-object v0
 
-    :goto_87
-    invoke-interface {v1, p0}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    new-instance v1, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;
 
-    move-result-object p0
-
-    new-instance p2, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;
-
-    invoke-direct {p2, p3, p1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;-><init>(Landroid/content/Context;Lcom/aide/engine/SourceEntity;)V
+    invoke-direct {v1, v3, p1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$5;-><init>(Landroid/content/Context;Lcom/aide/engine/SourceEntity;)V
 
     .line 250
-    invoke-interface {p0, p2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     .line 328
-    :cond_93
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->show()V
+    :cond_2
+    invoke-virtual {v4}, Landroid/widget/PopupMenu;->show()V
 
     return-void
+
+    .line 147
+    :cond_3
+    const-string v2, "\u4fee\u6b63\u7ffb\u8bd1"
+
+    goto :goto_1
+
+    .line 249
+    :cond_4
+    const-string v0, "View Document"
+
+    goto :goto_2
+
+    :cond_5
+    move-object v1, v2
+
+    goto :goto_0
 .end method
 
 .method public static query(Ljava/lang/String;)Lcom/s1243808733/aide/completion/translate/TranslateTable;
-    .registers 4
+    .locals 4
 
     .line 387
     :try_start_0
@@ -465,41 +477,44 @@
 
     invoke-virtual {v0, v1, v2, p0}, Lorg/xutils/db/Selector;->where(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Lorg/xutils/db/Selector;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Lorg/xutils/db/Selector;->findFirst()Ljava/lang/Object;
+    invoke-virtual {v0}, Lorg/xutils/db/Selector;->findFirst()Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/s1243808733/aide/completion/translate/TranslateTable;
-    :try_end_18
-    .catchall {:try_start_0 .. :try_end_18} :catchall_19
-
-    return-object p0
-
-    :catchall_19
-    move-exception p0
+    check-cast v0, Lcom/s1243808733/aide/completion/translate/TranslateTable;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 390
-    const/4 v0, 0x1
+    :goto_0
+    return-object v0
 
-    new-array v0, v0, [Ljava/lang/Object;
+    .line 387
+    :catchall_0
+    move-exception v0
 
-    const/4 v1, 0x0
+    .line 390
+    const-string v1, "Query DbException"
 
-    aput-object p0, v0, v1
+    const/4 v2, 0x1
 
-    const-string p0, "Query DbException"
+    new-array v2, v2, [Ljava/lang/Object;
 
-    invoke-static {p0, v0}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v3, 0x0
 
-    const/4 p0, 0x0
+    aput-object v0, v2, v3
 
-    return-object p0
+    invoke-static {v1, v2}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private static requestTranslate(Landroid/widget/TextView;Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 69
     invoke-static {p1}, Lcom/s1243808733/aide/completion/translate/Translate;->youdaoTranslate(Ljava/lang/String;)V
@@ -508,7 +523,7 @@
 .end method
 
 .method public static setLang(Ljava/lang/String;)V
-    .registers 1
+    .locals 0
 
     .line 61
     sput-object p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->lang:Ljava/lang/String;
@@ -517,7 +532,7 @@
 .end method
 
 .method public static setTargetLang(Ljava/lang/String;)V
-    .registers 1
+    .locals 0
 
     .line 53
     sput-object p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->targetLang:Ljava/lang/String;
@@ -526,221 +541,234 @@
 .end method
 
 .method public static translate(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
-    .registers 9
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     .line 333
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
-    :try_start_2
+    :try_start_0
     invoke-static {p1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->query(Ljava/lang/String;)Lcom/s1243808733/aide/completion/translate/TranslateTable;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 335
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object v3
+    move-result-object v1
 
-    const-string v4, "not_translate"
+    const-string v2, "not_translate"
 
-    invoke-interface {v3, v4, v0}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    const/4 v3, 0x0
 
-    move-result v3
+    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    if-eqz v3, :cond_23
+    move-result v1
 
-    if-nez v2, :cond_15
+    if-eqz v1, :cond_2
 
+    if-nez v0, :cond_1
+
+    .line 372
+    :cond_0
+    :goto_0
     return-void
 
     .line 337
-    :cond_15
-    invoke-virtual {v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
+    :cond_1
+    invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
 
-    move-result p1
+    move-result v1
 
-    if-ne p1, v1, :cond_22
+    if-ne v1, v5, :cond_0
 
     .line 338
-    invoke-virtual {v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getTranslation()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getTranslation()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p0, p1, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
+    invoke-static {p0, v0, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_22
-    return-void
+    goto :goto_0
 
-    :cond_23
-    if-nez v2, :cond_45
+    .line 367
+    :catchall_0
+    move-exception v0
+
+    .line 372
+    const-string v1, "Translate DbException"
+
+    new-array v2, v5, [Ljava/lang/Object;
+
+    aput-object v0, v2, v4
+
+    invoke-static {v1, v2}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+
+    .line 338
+    :cond_2
+    if-nez v0, :cond_3
 
     .line 344
-    new-instance v2, Lcom/s1243808733/aide/completion/translate/TranslateTable;
+    :try_start_1
+    new-instance v0, Lcom/s1243808733/aide/completion/translate/TranslateTable;
 
-    invoke-direct {v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;-><init>()V
+    invoke-direct {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;-><init>()V
 
     .line 345
-    invoke-virtual {v2, p1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setSource(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setSource(Ljava/lang/String;)V
 
     .line 346
-    const-string v3, ""
+    const-string v1, ""
 
-    invoke-virtual {v2, v3}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setTranslation(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setTranslation(Ljava/lang/String;)V
 
     .line 347
-    invoke-virtual {v2, v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->setState(I)V
 
     .line 348
     invoke-static {}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->getDb()Lorg/xutils/DbManager;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v3, v2}, Lorg/xutils/DbManager;->saveBindingId(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Lorg/xutils/DbManager;->saveBindingId(Ljava/lang/Object;)Z
 
     .line 349
-    const-string v2, "已写入数据，请滑动列表进行翻译。"
+    const-string v0, "\u5df2\u5199\u5165\u6570\u636e\uff0c\u8bf7\u6ed1\u52a8\u5217\u8868\u8fdb\u884c\u7ffb\u8bd1\u3002"
 
-    invoke-static {p0, v2, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
+    invoke-static {p0, v0, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
 
     .line 350
     invoke-static {p0, p1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->requestTranslate(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    return-void
+    goto :goto_0
 
     .line 354
-    :cond_45
-    invoke-virtual {v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
+    :cond_3
+    invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
 
-    move-result v3
+    move-result v1
 
-    if-ne v3, v1, :cond_53
+    if-ne v1, v5, :cond_4
 
     .line 355
-    invoke-virtual {v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getTranslation()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getTranslation()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p0, p1, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
+    invoke-static {p0, v0, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
 
-    goto :goto_8a
+    goto :goto_0
 
     .line 357
-    :cond_53
-    invoke-virtual {v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
+    :cond_4
+    invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_62
+    if-nez v1, :cond_5
 
     .line 358
-    const-string v2, "正在翻译中..."
+    const-string v0, "\u6b63\u5728\u7ffb\u8bd1\u4e2d..."
 
-    invoke-static {p0, v2, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
+    invoke-static {p0, v0, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
 
     .line 359
     invoke-static {p0, p1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->requestTranslate(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    goto :goto_8a
+    goto :goto_0
 
     .line 360
-    :cond_62
-    invoke-virtual {v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
+    :cond_5
+    invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
 
-    move-result v3
+    move-result v1
 
-    const/4 v4, -0x1
+    const/4 v2, -0x1
 
-    if-ne v3, v4, :cond_8a
+    if-ne v1, v2, :cond_0
 
     .line 361
-    invoke-virtual {v2}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getTranslation()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getTranslation()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 362
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_79
+    if-eqz v1, :cond_6
 
     .line 363
-    const-string v2, "翻译失败"
+    const-string v0, "\u7ffb\u8bd1\u5931\u8d25"
 
-    invoke-static {p0, v2, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
-
-    goto :goto_7c
-
-    .line 365
-    :cond_79
-    invoke-static {p0, v2, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
+    invoke-static {p0, v0, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
 
     .line 367
-    :goto_7c
+    :goto_1
     invoke-static {p0, p1}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->requestTranslate(Landroid/widget/TextView;Ljava/lang/String;)V
-    :try_end_7f
-    .catchall {:try_start_2 .. :try_end_7f} :catchall_80
 
-    goto :goto_8a
+    goto :goto_0
 
-    :catchall_80
-    move-exception p0
+    .line 365
+    :cond_6
+    invoke-static {p0, v0, p2, p3}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->appendText(Landroid/widget/TextView;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/Object;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 372
-    new-array p1, v1, [Ljava/lang/Object;
-
-    aput-object p0, p1, v0
-
-    const-string p0, "Translate DbException"
-
-    invoke-static {p0, p1}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_8a
-    :goto_8a
-    return-void
+    goto :goto_1
 .end method
 
 .method public static update(Lcom/s1243808733/aide/completion/translate/TranslateTable;)V
-    .registers 4
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 378
-    const/4 v0, 0x0
-
-    :try_start_1
+    :try_start_0
     invoke-static {}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->getDb()Lorg/xutils/DbManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-array v2, v0, [Ljava/lang/String;
+    const/4 v1, 0x0
 
-    invoke-interface {v1, p0, v2}, Lorg/xutils/DbManager;->update(Ljava/lang/Object;[Ljava/lang/String;)V
-    :try_end_a
-    .catch Lorg/xutils/ex/DbException; {:try_start_1 .. :try_end_a} :catch_b
+    new-array v1, v1, [Ljava/lang/String;
 
-    goto :goto_16
-
-    :catch_b
-    move-exception p0
+    invoke-interface {v0, p0, v1}, Lorg/xutils/DbManager;->update(Ljava/lang/Object;[Ljava/lang/String;)V
+    :try_end_0
+    .catch Lorg/xutils/ex/DbException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 380
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    aput-object p0, v1, v0
-
-    const-string p0, "Update DbException"
-
-    invoke-static {p0, v1}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    :goto_16
+    :goto_0
     return-void
+
+    .line 378
+    :catch_0
+    move-exception v0
+
+    .line 380
+    const-string v1, "Update DbException"
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object v0, v2, v3
+
+    invoke-static {v1, v2}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
 .end method
 
 .method public static wordSegmentation(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 73
     const-string v0, " - "
@@ -749,7 +777,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_d
+    if-ltz v0, :cond_0
 
     .line 74
     const/4 v1, 0x0
@@ -759,10 +787,10 @@
     move-result-object p0
 
     .line 75
-    :cond_d
+    :cond_0
     invoke-static {p0}, Lcom/s1243808733/translate/TUtil;->wordSegmentation(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/functions/installer/ShellInstall;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
 
     .line 213
     iput-object p1, p0, Lcom/s1243808733/aide/functions/installer/ShellInstall$Error;->this$0:Lcom/s1243808733/aide/functions/installer/ShellInstall;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 220
     invoke-static {}, Lcom/aide/ui/U;->lg()Lcom/aide/ui/MainActivity;

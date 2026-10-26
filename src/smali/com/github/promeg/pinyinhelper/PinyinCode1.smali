@@ -11,189 +11,169 @@
 
 # direct methods
 .method private static $d2j$hex$b9b7365a$decode_B(Ljava/lang/String;)[B
-    .registers 13
-    .param p0, "src"  # Ljava/lang/String;
+    .locals 11
+
+    const/16 v10, 0x61
+
+    const/16 v9, 0x46
+
+    const/16 v8, 0x41
+
+    const/16 v7, 0x39
+
+    const/16 v6, 0x30
 
     .line 42
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v0
+    move-result-object v3
 
     .line 43
-    .local v0, "d":[C
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    div-int/lit8 v1, v1, 0x2
+    div-int/lit8 v0, v0, 0x2
 
-    new-array v1, v1, [B
+    new-array v4, v0, [B
 
     .line 44
-    .local v1, "ret":[B
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    .local v2, "i":I
-    :goto_d
-    array-length v3, v1
+    :goto_0
+    array-length v1, v4
 
-    if-ge v2, v3, :cond_6b
+    if-ge v0, v1, :cond_6
 
     .line 45
-    mul-int/lit8 v3, v2, 0x2
+    mul-int/lit8 v1, v0, 0x2
 
-    aget-char v3, v0, v3
+    aget-char v1, v3, v1
 
     .line 46
-    .local v3, "h":C
-    mul-int/lit8 v4, v2, 0x2
+    mul-int/lit8 v2, v0, 0x2
 
-    add-int/lit8 v4, v4, 0x1
-
-    aget-char v4, v0, v4
-
-    .line 48
-    .local v4, "l":C
-    const/16 v5, 0x46
-
-    const/16 v6, 0x66
-
-    const/16 v7, 0x39
-
-    const/16 v8, 0x41
-
-    const/16 v9, 0x61
-
-    const/16 v10, 0x30
-
-    if-lt v3, v10, :cond_2d
-
-    if-gt v3, v7, :cond_2d
-
-    .line 49
-    add-int/lit8 v11, v3, -0x30
-
-    .local v11, "hh":I
-    goto :goto_3e
-
-    .line 50
-    .end local v11  # "hh":I
-    :cond_2d
-    if-lt v3, v9, :cond_36
-
-    if-gt v3, v6, :cond_36
-
-    .line 51
-    add-int/lit8 v11, v3, -0x61
-
-    add-int/lit8 v11, v11, 0xa
-
-    .restart local v11  # "hh":I
-    goto :goto_3e
-
-    .line 52
-    .end local v11  # "hh":I
-    :cond_36
-    if-lt v3, v8, :cond_65
-
-    if-gt v3, v5, :cond_65
-
-    .line 53
-    add-int/lit8 v11, v3, -0x41
-
-    add-int/lit8 v11, v11, 0xa
-
-    .line 58
-    .restart local v11  # "hh":I
-    :goto_3e
-    if-lt v4, v10, :cond_45
-
-    if-gt v4, v7, :cond_45
-
-    .line 59
-    add-int/lit8 v5, v4, -0x30
-
-    .local v5, "ll":I
-    goto :goto_56
-
-    .line 60
-    .end local v5  # "ll":I
-    :cond_45
-    if-lt v4, v9, :cond_4e
-
-    if-gt v4, v6, :cond_4e
-
-    .line 61
-    add-int/lit8 v5, v4, -0x61
-
-    add-int/lit8 v5, v5, 0xa
-
-    .restart local v5  # "ll":I
-    goto :goto_56
-
-    .line 62
-    .end local v5  # "ll":I
-    :cond_4e
-    if-lt v4, v8, :cond_5f
-
-    if-gt v4, v5, :cond_5f
-
-    .line 63
-    add-int/lit8 v5, v4, -0x41
-
-    add-int/lit8 v5, v5, 0xa
-
-    .line 67
-    .restart local v5  # "ll":I
-    :goto_56
-    shl-int/lit8 v6, v11, 0x4
-
-    or-int/2addr v6, v5
-
-    int-to-byte v6, v6
-
-    aput-byte v6, v1, v2
-
-    .line 44
-    .end local v3  # "h":C
-    .end local v4  # "l":C
-    .end local v5  # "ll":I
-    .end local v11  # "hh":I
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_d
+    aget-char v5, v3, v2
+
+    .line 48
+    if-lt v1, v6, :cond_0
+
+    if-gt v1, v7, :cond_0
+
+    .line 49
+    add-int/lit8 v1, v1, -0x30
+
+    move v2, v1
+
+    .line 58
+    :goto_1
+    if-lt v5, v6, :cond_2
+
+    if-gt v5, v7, :cond_2
+
+    .line 59
+    add-int/lit8 v1, v5, -0x30
+
+    .line 67
+    :goto_2
+    shl-int/lit8 v2, v2, 0x4
+
+    or-int/2addr v1, v2
+
+    int-to-byte v1, v1
+
+    aput-byte v1, v4, v0
+
+    .line 44
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 50
+    :cond_0
+    if-lt v1, v10, :cond_1
+
+    const/16 v2, 0x66
+
+    if-gt v1, v2, :cond_1
+
+    .line 51
+    add-int/lit8 v1, v1, -0x61
+
+    add-int/lit8 v1, v1, 0xa
+
+    move v2, v1
+
+    goto :goto_1
+
+    .line 52
+    :cond_1
+    if-lt v1, v8, :cond_5
+
+    if-gt v1, v9, :cond_5
+
+    .line 53
+    add-int/lit8 v1, v1, -0x41
+
+    add-int/lit8 v1, v1, 0xa
+
+    move v2, v1
+
+    goto :goto_1
+
+    .line 60
+    :cond_2
+    if-lt v5, v10, :cond_3
+
+    const/16 v1, 0x66
+
+    if-gt v5, v1, :cond_3
+
+    .line 61
+    add-int/lit8 v1, v5, -0x61
+
+    add-int/lit8 v1, v1, 0xa
+
+    goto :goto_2
+
+    .line 62
+    :cond_3
+    if-lt v5, v8, :cond_4
+
+    if-gt v5, v9, :cond_4
+
+    .line 63
+    add-int/lit8 v1, v5, -0x41
+
+    add-int/lit8 v1, v1, 0xa
+
+    goto :goto_2
 
     .line 65
-    .restart local v3  # "h":C
-    .restart local v4  # "l":C
-    .restart local v11  # "hh":I
-    :cond_5f
-    new-instance v5, Ljava/lang/RuntimeException;
+    :cond_4
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v5}, Ljava/lang/RuntimeException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V
 
-    throw v5
+    throw v0
 
     .line 55
-    .end local v11  # "hh":I
-    :cond_65
-    new-instance v5, Ljava/lang/RuntimeException;
+    :cond_5
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v5}, Ljava/lang/RuntimeException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V
 
-    throw v5
+    throw v0
 
     .line 69
-    .end local v2  # "i":I
-    .end local v3  # "h":C
-    .end local v4  # "l":C
-    :cond_6b
-    return-object v1
+    :cond_6
+    return-object v4
 .end method
 
 .method private static $d2j$hex$b9b7365a$decode_I(Ljava/lang/String;)[I
-    .registers 5
-    .param p0, "src"  # Ljava/lang/String;
+    .locals 3
 
     .line 22
     invoke-static {p0}, Lcom/github/promeg/pinyinhelper/PinyinCode1;->$d2j$hex$b9b7365a$decode_B(Ljava/lang/String;)[B
@@ -201,13 +181,11 @@
     move-result-object v0
 
     .line 23
-    .local v0, "d":[B
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
     .line 24
-    .local v1, "b":Ljava/nio/ByteBuffer;
     sget-object v2, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -215,27 +193,24 @@
     .line 25
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 26
-    .local v2, "s":Ljava/nio/IntBuffer;
-    array-length v3, v0
+    array-length v0, v0
 
-    div-int/lit8 v3, v3, 0x4
+    div-int/lit8 v0, v0, 0x4
 
-    new-array v3, v3, [I
+    new-array v0, v0, [I
 
     .line 27
-    .local v3, "data":[I
-    invoke-virtual {v2, v3}, Ljava/nio/IntBuffer;->get([I)Ljava/nio/IntBuffer;
+    invoke-virtual {v1, v0}, Ljava/nio/IntBuffer;->get([I)Ljava/nio/IntBuffer;
 
     .line 28
-    return-object v3
+    return-object v0
 .end method
 
 .method private static $d2j$hex$b9b7365a$decode_J(Ljava/lang/String;)[J
-    .registers 5
-    .param p0, "src"  # Ljava/lang/String;
+    .locals 3
 
     .line 12
     invoke-static {p0}, Lcom/github/promeg/pinyinhelper/PinyinCode1;->$d2j$hex$b9b7365a$decode_B(Ljava/lang/String;)[B
@@ -243,13 +218,11 @@
     move-result-object v0
 
     .line 13
-    .local v0, "d":[B
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
     .line 14
-    .local v1, "b":Ljava/nio/ByteBuffer;
     sget-object v2, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -257,27 +230,24 @@
     .line 15
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asLongBuffer()Ljava/nio/LongBuffer;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 16
-    .local v2, "s":Ljava/nio/LongBuffer;
-    array-length v3, v0
+    array-length v0, v0
 
-    div-int/lit8 v3, v3, 0x8
+    div-int/lit8 v0, v0, 0x8
 
-    new-array v3, v3, [J
+    new-array v0, v0, [J
 
     .line 17
-    .local v3, "data":[J
-    invoke-virtual {v2, v3}, Ljava/nio/LongBuffer;->get([J)Ljava/nio/LongBuffer;
+    invoke-virtual {v1, v0}, Ljava/nio/LongBuffer;->get([J)Ljava/nio/LongBuffer;
 
     .line 18
-    return-object v3
+    return-object v0
 .end method
 
 .method private static $d2j$hex$b9b7365a$decode_S(Ljava/lang/String;)[S
-    .registers 5
-    .param p0, "src"  # Ljava/lang/String;
+    .locals 3
 
     .line 32
     invoke-static {p0}, Lcom/github/promeg/pinyinhelper/PinyinCode1;->$d2j$hex$b9b7365a$decode_B(Ljava/lang/String;)[B
@@ -285,13 +255,11 @@
     move-result-object v0
 
     .line 33
-    .local v0, "d":[B
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
     .line 34
-    .local v1, "b":Ljava/nio/ByteBuffer;
     sget-object v2, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -299,26 +267,24 @@
     .line 35
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 36
-    .local v2, "s":Ljava/nio/ShortBuffer;
-    array-length v3, v0
+    array-length v0, v0
 
-    div-int/lit8 v3, v3, 0x2
+    div-int/lit8 v0, v0, 0x2
 
-    new-array v3, v3, [S
+    new-array v0, v0, [S
 
     .line 37
-    .local v3, "data":[S
-    invoke-virtual {v2, v3}, Ljava/nio/ShortBuffer;->get([S)Ljava/nio/ShortBuffer;
+    invoke-virtual {v1, v0}, Ljava/nio/ShortBuffer;->get([S)Ljava/nio/ShortBuffer;
 
     .line 38
-    return-object v3
+    return-object v0
 .end method
 
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 13
     const-string v0, "b14fc825a929600d863a02864321b880104fd35c4b2836ce1322f16620273519c925c2e91c2fa89785aa9f971aa000cc97b003744540240f674ab2c21f5144329ac4491591b0287c2976ad54df98a725da860cfd30e4f2e802dc59c088429ca099600c288097311adf41f083604514aa502292a31c224050ca0441410000608118414a420904c001880510144722091130802834c2f280838029c03e94238d8d010910301810902de7b91d08a969579ba1fc989a4e64f88e1359fcd202155d03e21017c60c501e4901820ad1622f998e0c888c70705987adac260a8002c90c41439973040ccb817672f82043a9391a1576909f108f265d0ca62b68544e4620e8c00861011699721887cc48e60a5c8bc8a88110452840d20c0539838e4d221cd152e7ec999f9b18003b200948e951224202189084a921c0b0c0a002934a4ad229042281828898410ac058b7c5567a0070a012e4d08338a180f0504838d2d833aa27cce9321067ba201084a8454c28004256e461b1b286f3200a7ebc2e0125c4cd6b4c0a4893fd5706001a47410932d2c7cf02c3fad960fb005d35a05a2810a00d4c07a78120d211a3e163e17243084d45ec7d85dabaa7b3822a051a23540f168c149f828e9d2e0143886b6ad089b00eda528340e1904b19021d08aea22a4c98e230026480dca4bb7e09e6bc4d131b82019d665281d45da579c4b4c0454288ed2525994396b13db80a5b000d890000013556911221bf63407f0549227202c1fb0084db264645d8272080404079fe403307cba205a206ec31085d618735f5578c0e0ee190608e51938b1c1678c358d002a3e11625cd61580088221879d12c001cc7988b122407dd609bed6a02c032a873423641c08b04445c293953a006205b00c388f6020141a82704f1dc9093b018234d42f92ec180f211511800680a20a2786288084bf448c2066e24430eb6600119e12991c852442b8248327af9b423105ec5887352b583852e55b52e100129b0f48410ec245200818b48e2502448160f84caba20643134814881102114012a62511de34950d146de2fb508884bd1213f54a78920fab60be98350a5b43eec1d3e1f17d741070d221844c2b1db831bc8702f89150739180fe40662adb65ca2421918550d2275e90c622e780624d86f1a00e29231032f16ab969024a8d8479707be60211c3a38a4a4b04d300200a01895fe884321e4184220684d5f4d1734"
@@ -342,7 +308,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

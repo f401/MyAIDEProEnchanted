@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;)V
-    .registers 2
+    .locals 0
 
     .line 588
     iput-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask$1;->this$0:Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$LoadIconTask;
@@ -36,12 +36,12 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
 
     .line 592
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

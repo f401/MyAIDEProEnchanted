@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/ConstCollector;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)V
-    .registers 4
+    .locals 0
 
     .line 374
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/ConstCollector$2;->this$0:Lcom/s1243808733/android/dx/ssa/ConstCollector;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public getNewRegisterCount()I
-    .registers 2
+    .locals 1
 
     .line 377
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/ConstCollector$2;->this$0:Lcom/s1243808733/android/dx/ssa/ConstCollector;
@@ -58,7 +58,7 @@
 .end method
 
 .method public map(Lcom/s1243808733/android/dx/rop/code/RegisterSpec;)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-    .registers 4
+    .locals 2
 
     .line 382
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
@@ -71,7 +71,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_0
 
     .line 383
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/ConstCollector$2;->val$newReg:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
@@ -79,13 +79,13 @@
     .line 384
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 383
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->withLocalItem(Lcom/s1243808733/android/dx/rop/code/LocalItem;)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->withLocalItem(Lcom/s1243808733/android/dx/rop/code/LocalItem;)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
     move-result-object p1
 
-    :cond_16
+    :cond_0
     return-object p1
 .end method

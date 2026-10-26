@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;Ljava/io/File;Landroid/app/Activity;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,33 +49,33 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 3
+    .locals 2
 
     .line 1163
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$17;->val$currentProject:Ljava/io/File;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$17;->val$currentProject:Ljava/io/File;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/util/ProjectUtils;->getMain(Ljava/io/File;)Ljava/io/File;
+    invoke-static {v0}, Lcom/s1243808733/aide/util/ProjectUtils;->getMain(Ljava/io/File;)Ljava/io/File;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1164
-    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$17;->val$activity:Landroid/app/Activity;
+    iget-object v1, p0, Lcom/s1243808733/aide/AideMainActivity$17;->val$activity:Landroid/app/Activity;
 
-    if-nez p1, :cond_c
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    goto :goto_10
+    :goto_0
+    invoke-static {v1, v0}, Lcom/s1243808733/util/BatchReplace;->showDialog(Landroid/app/Activity;Ljava/lang/String;)V
 
-    :cond_c
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    const/4 v0, 0x0
 
-    move-result-object p1
+    return v0
 
-    :goto_10
-    invoke-static {v0, p1}, Lcom/s1243808733/util/BatchReplace;->showDialog(Landroid/app/Activity;Ljava/lang/String;)V
+    :cond_0
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    const/4 p1, 0x0
+    move-result-object v0
 
-    return p1
+    goto :goto_0
 .end method

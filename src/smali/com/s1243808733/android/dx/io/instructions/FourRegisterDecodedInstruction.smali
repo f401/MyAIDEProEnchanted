@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJIIII)V
-    .registers 12
+    .locals 0
 
     .line 43
     invoke-direct/range {p0 .. p7}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJ)V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getA()I
-    .registers 2
+    .locals 1
 
     .line 60
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;->a:I
@@ -47,7 +47,7 @@
 .end method
 
 .method public getB()I
-    .registers 2
+    .locals 1
 
     .line 66
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;->b:I
@@ -56,7 +56,7 @@
 .end method
 
 .method public getC()I
-    .registers 2
+    .locals 1
 
     .line 72
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;->c:I
@@ -65,7 +65,7 @@
 .end method
 
 .method public getD()I
-    .registers 2
+    .locals 1
 
     .line 78
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;->d:I
@@ -74,7 +74,7 @@
 .end method
 
 .method public getRegisterCount()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x4
 
@@ -82,12 +82,9 @@
 .end method
 
 .method public withIndex(I)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 15
+    .locals 12
 
     .line 84
-    nop
-
-    .line 85
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;->getFormat()Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
 
     move-result-object v1
@@ -101,7 +98,7 @@
     move-result-object v4
 
     .line 86
-    new-instance v12, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;->getTarget()I
 
@@ -119,11 +116,9 @@
 
     iget v11, p0, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;->d:I
 
-    move-object v0, v12
-
     move v3, p1
 
     invoke-direct/range {v0 .. v11}, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJIIII)V
 
-    return-object v12
+    return-object v0
 .end method

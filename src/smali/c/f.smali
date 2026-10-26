@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public final b(Lc/e;)V
-    .registers 3
+    .locals 1
 
     iget-object v0, p0, Lc/f;->a:Ljava/util/Vector;
 
@@ -35,21 +35,21 @@
 .end method
 
 .method public final c(I)Lc/e;
-    .registers 3
+    .locals 1
 
     iget-object v0, p0, Lc/f;->a:Ljava/util/Vector;
 
     invoke-virtual {v0, p1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lc/e;
+    check-cast v0, Lc/e;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public final d()I
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lc/f;->a:Ljava/util/Vector;
 

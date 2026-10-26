@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lc/x;)V
-    .registers 3
+    .locals 1
 
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
@@ -29,21 +29,25 @@
 
 # virtual methods
 .method public final read()I
-    .registers 4
-
-    iget-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
+    .locals 3
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_1b
+    iget-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
+
+    if-nez v0, :cond_4
 
     iget-boolean v0, p0, Lc/an;->b:Z
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_1
 
-    return v1
+    move v0, v1
 
-    :cond_a
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
     iget-object v0, p0, Lc/an;->a:Lc/x;
 
     invoke-virtual {v0}, Lc/x;->d()Lc/e;
@@ -52,81 +56,72 @@
 
     check-cast v0, Lc/p;
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_2
 
-    return v1
+    move v0, v1
 
-    :cond_15
+    goto :goto_0
+
+    :cond_2
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lc/an;->b:Z
 
-    move-object v2, v0
+    :cond_3
+    invoke-interface {v0}, Lc/p;->h()Ljava/io/InputStream;
 
-    move-object v0, p0
+    move-result-object v0
 
-    goto :goto_33
+    iput-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
 
-    :cond_1b
-    move-object v0, p0
+    :cond_4
+    iget-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
 
-    :goto_1c
-    iget-object v2, v0, Lc/an;->c:Ljava/io/InputStream;
+    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
 
-    invoke-virtual {v2}, Ljava/io/InputStream;->read()I
+    move-result v0
 
-    move-result v2
+    if-gez v0, :cond_0
 
-    if-ltz v2, :cond_25
+    iget-object v0, p0, Lc/an;->a:Lc/x;
 
-    return v2
+    invoke-virtual {v0}, Lc/x;->d()Lc/e;
 
-    :cond_25
-    iget-object v2, v0, Lc/an;->a:Lc/x;
+    move-result-object v0
 
-    invoke-virtual {v2}, Lc/x;->d()Lc/e;
+    check-cast v0, Lc/p;
 
-    move-result-object v2
+    if-nez v0, :cond_3
 
-    check-cast v2, Lc/p;
+    const/4 v0, 0x0
 
-    if-nez v2, :cond_33
+    iput-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
 
-    const/4 v2, 0x0
+    move v0, v1
 
-    iput-object v2, v0, Lc/an;->c:Ljava/io/InputStream;
-
-    return v1
-
-    :cond_33
-    :goto_33
-    invoke-interface {v2}, Lc/p;->h()Ljava/io/InputStream;
-
-    move-result-object v2
-
-    iput-object v2, v0, Lc/an;->c:Ljava/io/InputStream;
-
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public final read([BII)I
-    .registers 10
-
-    iget-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
-
-    const/4 v1, -0x1
+    .locals 5
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_1b
+    const/4 v1, -0x1
+
+    iget-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
+
+    if-nez v0, :cond_3
 
     iget-boolean v0, p0, Lc/an;->b:Z
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_1
 
+    :cond_0
+    :goto_0
     return v1
 
-    :cond_b
+    :cond_1
     iget-object v0, p0, Lc/an;->a:Lc/x;
 
     invoke-virtual {v0}, Lc/x;->d()Lc/e;
@@ -135,76 +130,66 @@
 
     check-cast v0, Lc/p;
 
-    if-nez v0, :cond_16
+    if-eqz v0, :cond_0
 
-    return v1
-
-    :cond_16
     iput-boolean v2, p0, Lc/an;->b:Z
 
-    move-object v3, v0
+    :cond_2
+    invoke-interface {v0}, Lc/p;->h()Ljava/io/InputStream;
 
-    move-object v0, p0
+    move-result-object v0
 
-    goto :goto_3f
+    iput-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
 
-    :cond_1b
-    move-object v0, p0
+    :cond_3
+    iget-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
 
-    :cond_1c
-    :goto_1c
-    iget-object v3, v0, Lc/an;->c:Ljava/io/InputStream;
+    add-int v3, p2, v2
 
-    add-int v4, p2, v2
+    sub-int v4, p3, v2
 
-    sub-int v5, p3, v2
+    invoke-virtual {v0, p1, v3, v4}, Ljava/io/InputStream;->read([BII)I
 
-    invoke-virtual {v3, p1, v4, v5}, Ljava/io/InputStream;->read([BII)I
+    move-result v0
 
-    move-result v3
+    if-ltz v0, :cond_4
 
-    if-ltz v3, :cond_2c
+    add-int/2addr v2, v0
 
-    add-int/2addr v2, v3
+    if-ne v2, p3, :cond_3
 
-    if-ne v2, p3, :cond_1c
-
-    return v2
-
-    :cond_2c
-    iget-object v3, v0, Lc/an;->a:Lc/x;
-
-    invoke-virtual {v3}, Lc/x;->d()Lc/e;
-
-    move-result-object v3
-
-    check-cast v3, Lc/p;
-
-    if-nez v3, :cond_3f
-
-    const/4 p1, 0x0
-
-    iput-object p1, v0, Lc/an;->c:Ljava/io/InputStream;
-
-    const/4 p1, 0x1
-
-    if-ge v2, p1, :cond_3d
-
-    goto :goto_3e
-
-    :cond_3d
     move v1, v2
 
-    :goto_3e
-    return v1
+    goto :goto_0
 
-    :cond_3f
-    :goto_3f
-    invoke-interface {v3}, Lc/p;->h()Ljava/io/InputStream;
+    :cond_4
+    iget-object v0, p0, Lc/an;->a:Lc/x;
 
-    move-result-object v3
+    invoke-virtual {v0}, Lc/x;->d()Lc/e;
 
-    iput-object v3, v0, Lc/an;->c:Ljava/io/InputStream;
+    move-result-object v0
 
-    goto :goto_1c
+    check-cast v0, Lc/p;
+
+    if-nez v0, :cond_2
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lc/an;->c:Ljava/io/InputStream;
+
+    const/4 v0, 0x1
+
+    if-ge v2, v0, :cond_5
+
+    move v0, v1
+
+    :goto_1
+    move v1, v0
+
+    goto :goto_0
+
+    :cond_5
+    move v0, v2
+
+    goto :goto_1
 .end method

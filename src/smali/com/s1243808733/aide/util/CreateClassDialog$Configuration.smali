@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/util/CreateClassDialog;)V
-    .registers 2
+    .locals 1
 
     .line 612
     iput-object p1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->this$0:Lcom/s1243808733/aide/util/CreateClassDialog;
@@ -44,14 +44,14 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 615
-    const-string p1, "pkg"
+    const-string v0, "pkg"
 
-    iput-object p1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->packageName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->packageName:Ljava/lang/String;
 
     .line 617
-    const-string p1, "clazz"
+    const-string v0, "clazz"
 
-    iput-object p1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->className:Ljava/lang/String;
+    iput-object v0, p0, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->className:Ljava/lang/String;
 
     return-void
 .end method

@@ -7,14 +7,20 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lorg/antlr/v4/runtime/misc/Array2DHashSet$SetIterator;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T:",
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Ljava/util/Set<",
-        "TT;>;"
+        "Ljava/util/Set",
+        "<TT;>;"
     }
 .end annotation
 
@@ -41,8 +47,8 @@
 .field protected final comparator:Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator<",
-            "-TT;>;"
+            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator",
+            "<-TT;>;"
         }
     .end annotation
 .end field
@@ -58,33 +64,33 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .line 35
-    const/16 v0, 0x10
+    const/4 v0, 0x0
 
-    const/16 v1, 0x8
+    const/16 v1, 0x10
 
-    const/4 v2, 0x0
+    const/16 v2, 0x8
 
-    invoke-direct {p0, v2, v0, v1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;-><init>(Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;II)V
+    invoke-direct {p0, v0, v1, v2}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;-><init>(Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;II)V
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator<",
-            "-TT;>;)V"
+            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator",
+            "<-TT;>;)V"
         }
     .end annotation
 
@@ -99,12 +105,12 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;II)V
-    .registers 6
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator<",
-            "-TT;>;II)V"
+            "Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator",
+            "<-TT;>;II)V"
         }
     .end annotation
 
@@ -117,7 +123,7 @@
     iput v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
     .line 29
-    const-wide/high16 v0, 0x4028000000000000L  # 12.0
+    const-wide/high16 v0, 0x4028000000000000L    # 12.0
 
     invoke-static {v0, v1}, Ljava/lang/Math;->floor(D)D
 
@@ -137,21 +143,21 @@
 
     iput v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->initialBucketCapacity:I
 
-    if-nez p1, :cond_1a
+    if-nez p1, :cond_0
 
     .line 44
     sget-object p1, Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/misc/ObjectEqualityComparator;
 
     .line 47
-    :cond_1a
+    :cond_0
     iput-object p1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->comparator:Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;
 
     .line 48
     invoke-virtual {p0, p2}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->createBuckets(I)[[Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
     .line 49
     iput p3, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->initialBucketCapacity:I
@@ -162,7 +168,7 @@
 
 # virtual methods
 .method public final add(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -174,65 +180,65 @@
 
     move-result-object v0
 
-    if-ne v0, p1, :cond_8
+    if-ne v0, p1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_9
+    :goto_0
+    return v0
 
-    :cond_8
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_9
-    return p1
+    goto :goto_0
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Collection<",
-            "+TT;>;)Z"
+            "Ljava/util/Collection",
+            "<+TT;>;)Z"
         }
     .end annotation
 
     .line 323
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v1
 
     const/4 v0, 0x0
 
-    :cond_5
-    :goto_5
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_17
+    if-eqz v2, :cond_1
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 324
-    invoke-virtual {p0, v1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->getOrAdd(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eq v2, v1, :cond_5
+    .line 324
+    invoke-virtual {p0, v2}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->getOrAdd(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    if-eq v3, v2, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
-    :cond_17
+    :cond_1
     return v0
 .end method
 
 .method protected asElementType(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -245,7 +251,7 @@
 .end method
 
 .method public clear()V
-    .registers 3
+    .locals 2
 
     .line 384
     const/16 v0, 0x10
@@ -262,7 +268,7 @@
     iput v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
     .line 386
-    const-wide/high16 v0, 0x4028000000000000L  # 12.0
+    const-wide/high16 v0, 0x4028000000000000L    # 12.0
 
     invoke-static {v0, v1}, Ljava/lang/Math;->floor(D)D
 
@@ -276,115 +282,10 @@
 .end method
 
 .method public final contains(Ljava/lang/Object;)Z
-    .registers 2
+    .locals 1
 
     .line 202
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->asElementType(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->containsFast(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    return p1
-.end method
-
-.method public containsAll(Ljava/util/Collection;)Z
-    .registers 9
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection<",
-            "*>;)Z"
-        }
-    .end annotation
-
-    .line 302
-    instance-of v0, p1, Lorg/antlr/v4/runtime/misc/Array2DHashSet;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_2c
-
-    .line 303
-    check-cast p1, Lorg/antlr/v4/runtime/misc/Array2DHashSet;
-
-    .line 304
-    iget-object p1, p1, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
-
-    array-length v0, p1
-
-    const/4 v2, 0x0
-
-    :goto_b
-    if-ge v2, v0, :cond_45
-
-    aget-object v3, p1, v2
-
-    if-nez v3, :cond_12
-
-    goto :goto_29
-
-    .line 306
-    :cond_12
-    array-length v4, v3
-
-    const/4 v5, 0x0
-
-    :goto_14
-    if-ge v5, v4, :cond_29
-
-    aget-object v6, v3, v5
-
-    if-nez v6, :cond_1b
-
-    goto :goto_29
-
-    .line 308
-    :cond_1b
-    invoke-virtual {p0, v6}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->asElementType(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    invoke-virtual {p0, v6}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->containsFast(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_26
-
-    return v1
-
-    :cond_26
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_14
-
-    :cond_29
-    :goto_29
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_b
-
-    .line 313
-    :cond_2c
-    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :cond_30
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_45
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    .line 314
-    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->asElementType(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -392,18 +293,123 @@
 
     move-result v0
 
-    if-nez v0, :cond_30
+    return v0
+.end method
 
-    return v1
+.method public containsAll(Ljava/util/Collection;)Z
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Collection",
+            "<*>;)Z"
+        }
+    .end annotation
 
-    :cond_45
-    const/4 p1, 0x1
+    const/4 v0, 0x0
 
-    return p1
+    .line 302
+    instance-of v1, p1, Lorg/antlr/v4/runtime/misc/Array2DHashSet;
+
+    if-eqz v1, :cond_3
+
+    .line 303
+    check-cast p1, Lorg/antlr/v4/runtime/misc/Array2DHashSet;
+
+    .line 304
+    iget-object v3, p1, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+
+    array-length v4, v3
+
+    move v2, v0
+
+    :goto_0
+    if-ge v2, v4, :cond_5
+
+    aget-object v5, v3, v2
+
+    if-nez v5, :cond_1
+
+    .line 308
+    :cond_0
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
+
+    goto :goto_0
+
+    .line 306
+    :cond_1
+    array-length v6, v5
+
+    move v1, v0
+
+    :goto_1
+    if-ge v1, v6, :cond_0
+
+    aget-object v7, v5, v1
+
+    if-eqz v7, :cond_0
+
+    .line 308
+    invoke-virtual {p0, v7}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->asElementType(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v7
+
+    invoke-virtual {p0, v7}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->containsFast(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_2
+
+    .line 314
+    :goto_2
+    return v0
+
+    .line 308
+    :cond_2
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
+
+    .line 313
+    :cond_3
+    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_4
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    .line 314
+    invoke-virtual {p0, v2}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->asElementType(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->containsFast(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    goto :goto_2
+
+    :cond_5
+    const/4 v0, 0x1
+
+    goto :goto_2
 .end method
 
 .method public containsFast(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -412,26 +418,27 @@
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_4
-
-    return v0
+    if-nez p1, :cond_1
 
     .line 210
-    :cond_4
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v1
 
-    if-eqz p1, :cond_b
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_b
-    return v0
+    goto :goto_0
 .end method
 
 .method protected createBucket(I)[Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)[TT;"
@@ -439,15 +446,15 @@
     .end annotation
 
     .line 466
-    new-array p1, p1, [Ljava/lang/Object;
+    new-array v0, p1, [Ljava/lang/Object;
 
-    check-cast p1, [Ljava/lang/Object;
+    check-cast v0, [Ljava/lang/Object;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method protected createBuckets(I)[[Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)[[TT;"
@@ -455,273 +462,284 @@
     .end annotation
 
     .line 455
-    new-array p1, p1, [[Ljava/lang/Object;
+    new-array v0, p1, [[Ljava/lang/Object;
 
-    check-cast p1, [[Ljava/lang/Object;
+    check-cast v0, [[Ljava/lang/Object;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
 
-    if-ne p1, p0, :cond_4
+    const/4 v0, 0x0
 
-    const/4 p1, 0x1
+    if-ne p1, p0, :cond_1
 
-    return p1
+    const/4 v0, 0x1
+
+    .line 134
+    :cond_0
+    :goto_0
+    return v0
 
     .line 131
-    :cond_4
-    instance-of v0, p1, Lorg/antlr/v4/runtime/misc/Array2DHashSet;
+    :cond_1
+    instance-of v1, p1, Lorg/antlr/v4/runtime/misc/Array2DHashSet;
 
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_a
-
-    return v1
+    if-eqz v1, :cond_0
 
     .line 132
-    :cond_a
     check-cast p1, Lorg/antlr/v4/runtime/misc/Array2DHashSet;
 
     .line 133
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->size()I
 
-    move-result v0
+    move-result v1
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->size()I
 
     move-result v2
 
-    if-eq v0, v2, :cond_17
-
-    return v1
+    if-ne v1, v2, :cond_0
 
     .line 134
-    :cond_17
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->containsAll(Ljava/util/Collection;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method protected expand()V
-    .registers 15
+    .locals 14
+
+    const/4 v2, 0x0
 
     .line 139
-    iget-object v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iget-object v4, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
     .line 140
-    iget v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->currentPrime:I
+    iget v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->currentPrime:I
 
-    add-int/lit8 v1, v1, 0x4
+    add-int/lit8 v0, v0, 0x4
 
-    iput v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->currentPrime:I
+    iput v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->currentPrime:I
 
     .line 141
-    array-length v1, v0
+    array-length v0, v4
 
-    mul-int/lit8 v1, v1, 0x2
+    mul-int/lit8 v0, v0, 0x2
 
     .line 142
-    invoke-virtual {p0, v1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->createBuckets(I)[[Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->createBuckets(I)[[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v5
 
     .line 143
-    array-length v3, v2
+    array-length v1, v5
 
-    new-array v3, v3, [I
+    new-array v6, v1, [I
 
     .line 144
-    iput-object v2, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iput-object v5, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    int-to-double v4, v1
+    int-to-double v0, v0
 
-    const-wide/high16 v6, 0x3fe8000000000000L  # 0.75
+    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
 
-    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
+    const-wide/high16 v8, 0x3fe8000000000000L    # 0.75
 
-    mul-double v4, v4, v6
+    mul-double/2addr v0, v8
 
-    double-to-int v1, v4
+    double-to-int v0, v0
 
     .line 145
-    iput v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->threshold:I
+    iput v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->threshold:I
 
     .line 148
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->size()I
 
     .line 149
-    array-length v1, v0
+    array-length v7, v4
 
-    const/4 v4, 0x0
+    move v3, v2
 
-    const/4 v5, 0x0
+    :goto_0
+    if-ge v3, v7, :cond_4
 
-    :goto_25
-    if-ge v5, v1, :cond_62
+    aget-object v8, v4, v3
 
-    aget-object v6, v0, v5
+    if-nez v8, :cond_1
 
-    if-nez v6, :cond_2c
+    .line 177
+    :cond_0
+    add-int/lit8 v0, v3, 0x1
 
-    goto :goto_5f
+    move v3, v0
+
+    goto :goto_0
 
     .line 154
-    :cond_2c
-    array-length v7, v6
+    :cond_1
+    array-length v9, v8
 
-    const/4 v8, 0x0
+    move v1, v2
 
-    :goto_2e
-    if-ge v8, v7, :cond_5f
+    :goto_1
+    if-ge v1, v9, :cond_0
 
-    aget-object v9, v6, v8
+    aget-object v10, v8, v1
 
-    if-nez v9, :cond_35
-
-    goto :goto_5f
+    if-eqz v10, :cond_0
 
     .line 159
-    :cond_35
-    invoke-virtual {p0, v9}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->getBucket(Ljava/lang/Object;)I
+    invoke-virtual {p0, v10}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->getBucket(Ljava/lang/Object;)I
 
-    move-result v10
+    move-result v11
 
     .line 160
-    aget v11, v3, v10
+    aget v12, v6, v11
 
-    if-nez v11, :cond_46
+    if-nez v12, :cond_3
 
     .line 164
-    iget v12, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->initialBucketCapacity:I
+    iget v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->initialBucketCapacity:I
 
-    invoke-virtual {p0, v12}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->createBucket(I)[Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->createBucket(I)[Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v0
 
     .line 165
-    aput-object v12, v2, v10
+    aput-object v0, v5, v11
 
-    goto :goto_54
+    .line 176
+    :cond_2
+    :goto_2
+    aput-object v10, v0, v12
+
+    .line 177
+    aget v0, v6, v11
+
+    add-int/lit8 v0, v0, 0x1
+
+    aput v0, v6, v11
+
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    goto :goto_1
 
     .line 168
-    :cond_46
-    aget-object v12, v2, v10
+    :cond_3
+    aget-object v0, v5, v11
 
     .line 169
-    array-length v13, v12
+    array-length v13, v0
 
-    if-ne v11, v13, :cond_54
+    if-ne v12, v13, :cond_2
 
     .line 171
-    array-length v13, v12
+    array-length v13, v0
 
     mul-int/lit8 v13, v13, 0x2
 
-    invoke-static {v12, v13}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+    invoke-static {v0, v13}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v0
 
     .line 172
-    aput-object v12, v2, v10
+    aput-object v0, v5, v11
 
-    .line 176
-    :cond_54
-    :goto_54
-    aput-object v9, v12, v11
+    goto :goto_2
 
     .line 177
-    aget v9, v3, v10
-
-    add-int/lit8 v9, v9, 0x1
-
-    aput v9, v3, v10
-
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_2e
-
-    :cond_5f
-    :goto_5f
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_25
-
-    :cond_62
+    :cond_4
     return-void
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 8
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
         }
     .end annotation
 
-    if-nez p1, :cond_3
+    const/4 v0, 0x0
 
+    if-nez p1, :cond_0
+
+    .line 102
+    :goto_0
     return-object p1
 
     .line 97
-    :cond_3
+    :cond_0
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->getBucket(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result v1
 
     .line 98
-    iget-object v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iget-object v2, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    aget-object v0, v1, v0
+    aget-object v3, v2, v1
+
+    if-nez v3, :cond_1
+
+    move-object p1, v0
+
+    goto :goto_0
+
+    .line 100
+    :cond_1
+    array-length v4, v3
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_f
+    move v2, v1
 
-    return-object v1
+    :goto_1
+    if-ge v2, v4, :cond_4
 
-    .line 100
-    :cond_f
-    array-length v2, v0
+    aget-object v1, v3, v2
 
-    const/4 v3, 0x0
+    if-nez v1, :cond_2
 
-    :goto_11
-    if-ge v3, v2, :cond_24
+    move-object p1, v0
 
-    aget-object v4, v0, v3
-
-    if-nez v4, :cond_18
-
-    return-object v1
+    goto :goto_0
 
     .line 102
-    :cond_18
+    :cond_2
     iget-object v5, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->comparator:Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;
 
-    invoke-virtual {v5, v4, p1}, Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v5, v1, p1}, Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_21
+    if-eqz v5, :cond_3
 
-    return-object v4
+    move-object p1, v1
 
-    :cond_21
-    add-int/lit8 v3, v3, 0x1
+    goto :goto_0
 
-    goto :goto_11
+    :cond_3
+    add-int/lit8 v1, v2, 0x1
 
-    :cond_24
-    return-object v1
+    move v2, v1
+
+    goto :goto_1
+
+    :cond_4
+    move-object p1, v0
+
+    goto :goto_0
 .end method
 
 .method protected final getBucket(Ljava/lang/Object;)I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)I"
@@ -733,22 +751,22 @@
 
     invoke-virtual {v0, p1}, Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;->hashCode(Ljava/lang/Object;)I
 
-    move-result p1
+    move-result v0
 
     .line 109
-    iget-object v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v1, v1, -0x1
 
-    and-int/2addr p1, v0
+    and-int/2addr v0, v1
 
-    return p1
+    return v0
 .end method
 
 .method public final getOrAdd(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
@@ -760,40 +778,40 @@
 
     iget v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->threshold:I
 
-    if-le v0, v1, :cond_9
+    if-le v0, v1, :cond_0
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->expand()V
 
     .line 59
-    :cond_9
+    :cond_0
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->getOrAddImpl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method protected getOrAddImpl(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 7
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 63
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->getBucket(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result v2
 
     .line 64
     iget-object v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    aget-object v1, v1, v0
+    aget-object v3, v1, v2
 
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_1e
+    if-nez v3, :cond_1
 
     .line 68
     iget v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->initialBucketCapacity:I
@@ -803,12 +821,12 @@
     move-result-object v1
 
     .line 69
-    aput-object p1, v1, v2
+    aput-object p1, v1, v0
 
     .line 70
-    iget-object v2, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    aput-object v1, v2, v0
+    aput-object v1, v0, v2
 
     .line 71
     iget v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
@@ -817,22 +835,27 @@
 
     iput v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
+    .line 91
+    :goto_0
     return-object p1
 
-    .line 76
-    :cond_1e
-    :goto_1e
-    array-length v3, v1
+    .line 83
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
-    if-ge v2, v3, :cond_3a
+    .line 76
+    :cond_1
+    array-length v1, v3
+
+    if-ge v0, v1, :cond_3
 
     .line 77
-    aget-object v3, v1, v2
+    aget-object v1, v3, v0
 
-    if-nez v3, :cond_2e
+    if-nez v1, :cond_2
 
     .line 79
-    aput-object p1, v1, v2
+    aput-object p1, v3, v0
 
     .line 80
     iget v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
@@ -841,45 +864,42 @@
 
     iput v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
-    return-object p1
+    goto :goto_0
 
     .line 83
-    :cond_2e
+    :cond_2
     iget-object v4, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->comparator:Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;
 
-    invoke-virtual {v4, v3, p1}, Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1, p1}, Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_37
+    if-eqz v4, :cond_0
 
-    return-object v3
+    move-object p1, v1
 
-    :cond_37
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1e
+    goto :goto_0
 
     .line 87
-    :cond_3a
-    array-length v2, v1
+    :cond_3
+    array-length v0, v3
 
     .line 88
-    array-length v3, v1
+    array-length v1, v3
 
-    mul-int/lit8 v3, v3, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    invoke-static {v1, v3}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+    invoke-static {v3, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object v1
 
     .line 89
     iget-object v3, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    aput-object v1, v3, v0
+    aput-object v1, v3, v2
 
     .line 90
-    aput-object p1, v1, v2
+    aput-object p1, v1, v0
 
     .line 91
     iget v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
@@ -888,11 +908,13 @@
 
     iput v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 11
+    .locals 10
+
+    const/4 v2, 0x0
 
     .line 115
     invoke-static {}, Lorg/antlr/v4/runtime/misc/MurmurHash;->initialize()I
@@ -900,40 +922,41 @@
     move-result v0
 
     .line 116
-    iget-object v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iget-object v4, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    array-length v2, v1
+    array-length v5, v4
 
-    const/4 v3, 0x0
+    move v3, v2
 
-    const/4 v4, 0x0
+    :goto_0
+    if-ge v3, v5, :cond_2
 
-    :goto_9
-    if-ge v4, v2, :cond_29
+    aget-object v6, v4, v3
 
-    aget-object v5, v1, v4
-
-    if-nez v5, :cond_10
-
-    goto :goto_26
-
-    .line 118
-    :cond_10
-    array-length v6, v5
-
-    const/4 v7, 0x0
-
-    :goto_12
-    if-ge v7, v6, :cond_26
-
-    aget-object v8, v5, v7
-
-    if-nez v8, :cond_19
-
-    goto :goto_26
+    if-nez v6, :cond_1
 
     .line 120
-    :cond_19
+    :cond_0
+    add-int/lit8 v1, v3, 0x1
+
+    move v3, v1
+
+    goto :goto_0
+
+    .line 118
+    :cond_1
+    array-length v7, v6
+
+    move v1, v2
+
+    :goto_1
+    if-ge v1, v7, :cond_0
+
+    aget-object v8, v6, v1
+
+    if-eqz v8, :cond_0
+
+    .line 120
     iget-object v9, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->comparator:Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;
 
     invoke-virtual {v9, v8}, Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;->hashCode(Ljava/lang/Object;)I
@@ -944,18 +967,12 @@
 
     move-result v0
 
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_12
-
-    :cond_26
-    :goto_26
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_9
+    goto :goto_1
 
     .line 124
-    :cond_29
+    :cond_2
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->size()I
 
     move-result v1
@@ -968,31 +985,31 @@
 .end method
 
 .method public final isEmpty()Z
-    .registers 2
+    .locals 1
 
     .line 197
     iget v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_7
+    :goto_0
+    return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_7
-    return v0
+    goto :goto_0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Iterator<",
-            "TT;>;"
+            "Ljava/util/Iterator",
+            "<TT;>;"
         }
     .end annotation
 
@@ -1009,275 +1026,269 @@
 .end method
 
 .method public final remove(Ljava/lang/Object;)Z
-    .registers 2
+    .locals 1
 
     .line 266
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->asElementType(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->removeFast(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->removeFast(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Collection<",
-            "*>;)Z"
+            "Ljava/util/Collection",
+            "<*>;)Z"
         }
     .end annotation
 
     .line 375
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v1
 
     const/4 v0, 0x0
 
-    :goto_5
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_19
+    if-eqz v2, :cond_0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 376
-    invoke-virtual {p0, v1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->asElementType(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->asElementType(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {p0, v1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->removeFast(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v2}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->removeFast(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    or-int/2addr v0, v1
+    or-int/2addr v0, v2
 
-    goto :goto_5
+    goto :goto_0
 
-    :cond_19
+    :cond_0
     return v0
 .end method
 
 .method public removeFast(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_1
 
-    return v0
+    .line 292
+    :cond_0
+    :goto_0
+    return v1
 
     .line 274
-    :cond_4
+    :cond_1
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->getBucket(Ljava/lang/Object;)I
 
-    move-result v1
+    move-result v0
 
     .line 275
     iget-object v2, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    aget-object v1, v2, v1
+    aget-object v2, v2, v0
 
-    if-nez v1, :cond_f
+    if-eqz v2, :cond_0
 
-    return v0
-
-    :cond_f
-    const/4 v2, 0x0
+    move v0, v1
 
     .line 281
-    :goto_10
-    array-length v3, v1
+    :goto_1
+    array-length v3, v2
 
-    if-ge v2, v3, :cond_37
+    if-ge v0, v3, :cond_0
 
     .line 282
-    aget-object v3, v1, v2
+    aget-object v3, v2, v0
 
-    if-nez v3, :cond_18
-
-    return v0
+    if-eqz v3, :cond_0
 
     .line 288
-    :cond_18
     iget-object v4, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->comparator:Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;
 
     invoke-virtual {v4, v3, p1}, Lorg/antlr/v4/runtime/misc/AbstractEqualityComparator;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_2
 
     .line 290
-    add-int/lit8 p1, v2, 0x1
+    add-int/lit8 v1, v0, 0x1
 
-    array-length v0, v1
+    array-length v3, v2
 
-    sub-int/2addr v0, v2
+    sub-int/2addr v3, v0
 
-    const/4 v3, 0x1
+    add-int/lit8 v3, v3, -0x1
 
-    sub-int/2addr v0, v3
-
-    invoke-static {v1, p1, v1, v2, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v1, v2, v0, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 291
-    array-length p1, v1
+    array-length v0, v2
 
-    sub-int/2addr p1, v3
+    add-int/lit8 v0, v0, -0x1
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    aput-object v0, v1, p1
+    aput-object v1, v2, v0
 
     .line 292
-    iget p1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
+    iget v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
-    sub-int/2addr p1, v3
+    add-int/lit8 v0, v0, -0x1
 
-    iput p1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
+    iput v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
-    return v3
+    const/4 v1, 0x1
 
-    :cond_34
-    add-int/lit8 v2, v2, 0x1
+    goto :goto_0
 
-    goto :goto_10
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
 
-    :cond_37
-    return v0
+    goto :goto_1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .registers 11
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Collection<",
-            "*>;)Z"
+            "Ljava/util/Collection",
+            "<*>;)Z"
         }
     .end annotation
 
+    const/4 v1, 0x0
+
     .line 333
-    iget-object v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iget-object v5, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    array-length v1, v0
+    array-length v6, v5
 
-    const/4 v2, 0x0
+    move v4, v1
 
-    const/4 v3, 0x0
+    move v2, v1
 
-    const/4 v4, 0x0
+    :goto_0
+    if-ge v4, v6, :cond_6
 
-    :goto_6
-    if-ge v3, v1, :cond_37
+    aget-object v7, v5, v4
 
-    aget-object v5, v0, v3
+    if-nez v7, :cond_1
 
-    if-nez v5, :cond_d
+    .line 362
+    :cond_0
+    add-int/lit8 v0, v4, 0x1
 
-    goto :goto_34
+    move v4, v0
 
-    :cond_d
-    const/4 v6, 0x0
+    goto :goto_0
 
-    const/4 v7, 0x0
+    :cond_1
+    move v0, v1
+
+    move v3, v1
 
     .line 340
-    :goto_f
-    array-length v8, v5
+    :goto_1
+    array-length v8, v7
 
-    if-ge v6, v8, :cond_2b
+    if-ge v0, v8, :cond_2
 
     .line 341
-    aget-object v8, v5, v6
+    aget-object v8, v7, v0
 
-    if-nez v8, :cond_17
-
-    goto :goto_2b
-
-    .line 345
-    :cond_17
-    invoke-interface {p1, v8}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_1e
-
-    goto :goto_28
-
-    :cond_1e
-    if-eq v6, v7, :cond_24
+    if-nez v8, :cond_3
 
     .line 352
-    aget-object v8, v5, v6
+    :cond_2
+    add-int/2addr v2, v3
 
-    aput-object v8, v5, v7
-
-    :cond_24
-    add-int/lit8 v7, v7, 0x1
-
-    add-int/lit8 v4, v4, 0x1
-
-    :goto_28
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_f
-
-    :cond_2b
-    :goto_2b
-    add-int/2addr v4, v7
-
-    :goto_2c
-    if-ge v7, v6, :cond_34
+    :goto_2
+    if-ge v3, v0, :cond_0
 
     .line 362
     const/4 v8, 0x0
 
-    aput-object v8, v5, v7
+    aput-object v8, v7, v3
 
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_2c
-
-    :cond_34
-    :goto_34
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_6
+    goto :goto_2
+
+    .line 345
+    :cond_3
+    invoke-interface {p1, v8}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_4
+
+    .line 352
+    :goto_3
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    .line 345
+    :cond_4
+    if-eq v0, v3, :cond_5
+
+    .line 352
+    aget-object v8, v7, v0
+
+    aput-object v8, v7, v3
+
+    :cond_5
+    add-int/lit8 v3, v3, 0x1
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_3
 
     .line 367
-    :cond_37
-    iget p1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
+    :cond_6
+    iget v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
-    if-eq v4, p1, :cond_3c
+    if-eq v2, v0, :cond_7
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     .line 368
-    :cond_3c
-    iput v4, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
+    :cond_7
+    iput v2, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
 
-    return v2
+    return v1
 .end method
 
 .method public final size()I
-    .registers 2
+    .locals 1
 
     .line 192
     iget v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->n:I
@@ -1286,12 +1297,14 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .registers 11
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()[TT;"
         }
     .end annotation
+
+    const/4 v2, 0x0
 
     .line 220
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->size()I
@@ -1300,65 +1313,60 @@
 
     invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->createBucket(I)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
     .line 222
-    iget-object v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iget-object v5, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    array-length v2, v1
+    array-length v6, v5
 
-    const/4 v3, 0x0
+    move v3, v2
 
-    const/4 v4, 0x0
+    move v0, v2
 
-    const/4 v5, 0x0
+    :goto_0
+    if-ge v3, v6, :cond_2
 
-    :goto_e
-    if-ge v4, v2, :cond_28
+    aget-object v7, v5, v3
 
-    aget-object v6, v1, v4
-
-    if-nez v6, :cond_15
-
-    goto :goto_25
-
-    .line 227
-    :cond_15
-    array-length v7, v6
-
-    const/4 v8, 0x0
-
-    :goto_17
-    if-ge v8, v7, :cond_25
-
-    aget-object v9, v6, v8
-
-    if-nez v9, :cond_1e
-
-    goto :goto_25
+    if-nez v7, :cond_1
 
     .line 232
-    :cond_1e
-    aput-object v9, v0, v5
+    :cond_0
+    add-int/lit8 v1, v3, 0x1
 
-    add-int/lit8 v8, v8, 0x1
+    move v3, v1
 
-    add-int/lit8 v5, v5, 0x1
+    goto :goto_0
 
-    goto :goto_17
+    .line 227
+    :cond_1
+    array-length v8, v7
 
-    :cond_25
-    :goto_25
-    add-int/lit8 v4, v4, 0x1
+    move v1, v2
 
-    goto :goto_e
+    :goto_1
+    if-ge v1, v8, :cond_0
 
-    :cond_28
-    return-object v0
+    aget-object v9, v7, v1
+
+    if-eqz v9, :cond_0
+
+    .line 232
+    aput-object v9, v4, v0
+
+    add-int/lit8 v1, v1, 0x1
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    return-object v4
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .registers 11
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -1367,6 +1375,8 @@
         }
     .end annotation
 
+    const/4 v2, 0x0
+
     .line 241
     array-length v0, p1
 
@@ -1374,7 +1384,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_f
+    if-ge v0, v1, :cond_0
 
     .line 242
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->size()I
@@ -1386,261 +1396,260 @@
     move-result-object p1
 
     .line 246
-    :cond_f
-    iget-object v0, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    :cond_0
+    iget-object v4, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    array-length v1, v0
+    array-length v5, v4
 
-    const/4 v2, 0x0
+    move v3, v2
 
-    const/4 v3, 0x0
+    move v0, v2
 
-    const/4 v4, 0x0
+    :goto_0
+    if-ge v3, v5, :cond_3
 
-    :goto_15
-    if-ge v3, v1, :cond_2f
+    aget-object v6, v4, v3
 
-    aget-object v5, v0, v3
-
-    if-nez v5, :cond_1c
-
-    goto :goto_2c
-
-    .line 251
-    :cond_1c
-    array-length v6, v5
-
-    const/4 v7, 0x0
-
-    :goto_1e
-    if-ge v7, v6, :cond_2c
-
-    aget-object v8, v5, v7
-
-    if-nez v8, :cond_25
-
-    goto :goto_2c
+    if-nez v6, :cond_2
 
     .line 258
-    :cond_25
-    aput-object v8, p1, v4
+    :cond_1
+    add-int/lit8 v1, v3, 0x1
 
-    add-int/lit8 v7, v7, 0x1
+    move v3, v1
 
-    add-int/lit8 v4, v4, 0x1
+    goto :goto_0
 
-    goto :goto_1e
+    .line 251
+    :cond_2
+    array-length v7, v6
 
-    :cond_2c
-    :goto_2c
-    add-int/lit8 v3, v3, 0x1
+    move v1, v2
 
-    goto :goto_15
+    :goto_1
+    if-ge v1, v7, :cond_1
 
-    :cond_2f
+    aget-object v8, v6, v1
+
+    if-eqz v8, :cond_1
+
+    .line 258
+    aput-object v8, p1, v0
+
+    add-int/lit8 v1, v1, 0x1
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_3
     return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 12
+    .locals 11
+
+    const/4 v1, 0x0
 
     .line 391
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     const-string v0, "{}"
 
+    .line 406
+    :goto_0
     return-object v0
 
     .line 393
-    :cond_9
-    new-instance v0, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string v1, "{"
+    const-string v0, "{"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 396
-    iget-object v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iget-object v5, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    array-length v2, v1
+    array-length v6, v5
 
-    const/4 v3, 0x0
+    const/4 v0, 0x1
 
-    const/4 v4, 0x1
+    move v3, v1
 
-    const/4 v5, 0x0
+    :goto_1
+    if-ge v3, v6, :cond_4
 
-    :goto_16
-    if-ge v5, v2, :cond_3c
+    aget-object v7, v5, v3
 
-    aget-object v6, v1, v5
-
-    if-nez v6, :cond_1d
-
-    goto :goto_39
-
-    .line 398
-    :cond_1d
-    array-length v7, v6
-
-    const/4 v8, 0x0
-
-    :goto_1f
-    if-ge v8, v7, :cond_39
-
-    aget-object v9, v6, v8
-
-    if-nez v9, :cond_26
-
-    goto :goto_39
-
-    :cond_26
-    if-eqz v4, :cond_2a
-
-    const/4 v4, 0x0
-
-    goto :goto_2f
-
-    .line 401
-    :cond_2a
-    const-string v10, ", "
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v7, :cond_2
 
     .line 402
-    :goto_2f
+    :cond_1
+    add-int/lit8 v2, v3, 0x1
+
+    move v3, v2
+
+    goto :goto_1
+
+    .line 398
+    :cond_2
+    array-length v8, v7
+
+    move v2, v1
+
+    :goto_2
+    if-ge v2, v8, :cond_1
+
+    aget-object v9, v7, v2
+
+    if-eqz v9, :cond_1
+
+    if-eqz v0, :cond_3
+
+    move v0, v1
+
+    .line 402
+    :goto_3
     invoke-virtual {v9}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v8, v8, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1f
+    goto :goto_2
 
-    :cond_39
-    :goto_39
-    add-int/lit8 v5, v5, 0x1
+    .line 401
+    :cond_3
+    const-string v10, ", "
 
-    goto :goto_16
+    invoke-virtual {v4, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_3
 
     .line 405
-    :cond_3c
-    const/16 v1, 0x7d
+    :cond_4
+    const/16 v0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 406
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public toTableString()Ljava/lang/String;
-    .registers 12
+    .locals 11
+
+    const/4 v1, 0x0
 
     .line 410
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 411
-    iget-object v1, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
+    iget-object v5, p0, Lorg/antlr/v4/runtime/misc/Array2DHashSet;->buckets:[[Ljava/lang/Object;
 
-    array-length v2, v1
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    :goto_a
-    if-ge v4, v2, :cond_45
-
-    aget-object v5, v1, v4
-
-    if-nez v5, :cond_16
-
-    .line 413
-    const-string v5, "null\n"
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_42
-
-    .line 416
-    :cond_16
-    const/16 v6, 0x5b
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 418
     array-length v6, v5
 
-    const/4 v7, 0x1
+    move v3, v1
 
-    const/4 v8, 0x0
+    :goto_0
+    if-ge v3, v6, :cond_4
 
-    :goto_1e
-    if-ge v8, v6, :cond_3d
+    aget-object v7, v5, v3
 
-    aget-object v9, v5, v8
+    if-nez v7, :cond_0
 
-    if-eqz v7, :cond_26
+    .line 413
+    const-string v0, "null\n"
 
-    const/4 v7, 0x0
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2b
+    .line 424
+    :goto_1
+    add-int/lit8 v0, v3, 0x1
+
+    move v3, v0
+
+    goto :goto_0
+
+    .line 416
+    :cond_0
+    const/16 v0, 0x5b
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 418
+    array-length v8, v7
+
+    const/4 v0, 0x1
+
+    move v2, v1
+
+    :goto_2
+    if-ge v2, v8, :cond_3
+
+    aget-object v9, v7, v2
+
+    if-eqz v0, :cond_1
+
+    move v0, v1
 
     .line 420
-    :cond_26
-    const-string v10, " "
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :goto_2b
-    if-nez v9, :cond_33
+    :goto_3
+    if-nez v9, :cond_2
 
     .line 421
     const-string v9, "_"
 
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_3a
+    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 422
-    :cond_33
+    :goto_4
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_2
+
+    .line 420
+    :cond_1
+    const-string v10, " "
+
+    invoke-virtual {v4, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_3
+
+    .line 422
+    :cond_2
     invoke-virtual {v9}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_3a
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_1e
+    goto :goto_4
 
     .line 424
-    :cond_3d
-    const-string v5, "]\n"
+    :cond_3
+    const-string v0, "]\n"
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_42
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_a
+    goto :goto_1
 
     .line 426
-    :cond_45
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_4
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

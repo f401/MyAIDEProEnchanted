@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,21 +45,23 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 784
     invoke-interface {p1}, Landroid/view/MenuItem;->isChecked()Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_0
 
-    if-eqz v0, :cond_8
-
-    return v1
+    .line 787
+    :goto_0
+    return v3
 
     .line 785
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
     invoke-interface {p1, v0}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
@@ -67,21 +69,21 @@
     .line 787
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "ytfyssx"
+    const-string v1, "ytfyssx"
 
     iget v2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$21$1;->val$finali:I
 
-    invoke-interface {p1, v0, v2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    return v1
+    goto :goto_0
 .end method

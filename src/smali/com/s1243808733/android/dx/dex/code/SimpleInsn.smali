@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/dex/code/Dop;Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)V
-    .registers 4
+    .locals 0
 
     .line 39
     invoke-direct {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/dex/code/FixedSizeInsn;-><init>(Lcom/s1243808733/android/dx/dex/code/Dop;Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method protected argString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -24,7 +24,7 @@
 .end method
 
 .method public withOpcode(Lcom/s1243808733/android/dx/dex/code/Dop;)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
-    .registers 5
+    .locals 3
 
     .line 45
     new-instance v0, Lcom/s1243808733/android/dx/dex/code/SimpleInsn;
@@ -43,7 +43,7 @@
 .end method
 
 .method public withRegisters(Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)Lcom/s1243808733/android/dx/dex/code/DalvInsn;
-    .registers 5
+    .locals 3
 
     .line 51
     new-instance v0, Lcom/s1243808733/android/dx/dex/code/SimpleInsn;

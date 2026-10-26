@@ -17,90 +17,92 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method public static a(Landroid/content/Context;Lcom/baidu/mobstat/a;)V
-    .registers 4
+    .locals 2
 
     const-class v0, Lcom/baidu/mobstat/v;
 
     monitor-enter v0
 
     .line 46
-    :try_start_3
+    :try_start_0
     sget-boolean v0, Lcom/baidu/mobstat/v;->a:Z
-    :try_end_5
-    .catchall {:try_start_3 .. :try_end_5} :catchall_49
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 47
-    const-class p0, Lcom/baidu/mobstat/v;
+    const-class v0, Lcom/baidu/mobstat/v;
 
-    monitor-exit p0
+    monitor-exit v0
 
+    .line 66
+    :goto_0
     return-void
 
     .line 50
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_1
     invoke-static {p0}, Lcom/baidu/mobstat/ds;->o(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_1
 
     .line 51
     invoke-static {}, Lcom/baidu/mobstat/cw;->c()Lcom/baidu/mobstat/cw;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-string p1, "isWifiAvailable = false, will not to update"
+    const-string v1, "isWifiAvailable = false, will not to update"
 
-    invoke-virtual {p0, p1}, Lcom/baidu/mobstat/cw;->a(Ljava/lang/String;)V
-    :try_end_1a
-    .catchall {:try_start_b .. :try_end_1a} :catchall_49
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cw;->a(Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 52
-    const-class p0, Lcom/baidu/mobstat/v;
+    const-class v0, Lcom/baidu/mobstat/v;
 
-    monitor-exit p0
+    monitor-exit v0
 
-    return-void
+    goto :goto_0
 
     .line 55
-    :cond_1e
-    :try_start_1e
+    :cond_1
+    :try_start_2
     invoke-interface {p1, p0}, Lcom/baidu/mobstat/a;->a(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-nez v0, :cond_31
+    if-nez v0, :cond_2
 
     .line 56
     invoke-static {}, Lcom/baidu/mobstat/cw;->c()Lcom/baidu/mobstat/cw;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-string p1, "check time, will not to update"
+    const-string v1, "check time, will not to update"
 
-    invoke-virtual {p0, p1}, Lcom/baidu/mobstat/cw;->a(Ljava/lang/String;)V
-    :try_end_2d
-    .catchall {:try_start_1e .. :try_end_2d} :catchall_49
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cw;->a(Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 57
-    const-class p0, Lcom/baidu/mobstat/v;
+    const-class v0, Lcom/baidu/mobstat/v;
 
-    monitor-exit p0
+    monitor-exit v0
 
-    return-void
+    goto :goto_0
 
     .line 60
-    :cond_31
-    :try_start_31
+    :cond_2
+    :try_start_3
     invoke-static {}, Lcom/baidu/mobstat/cw;->c()Lcom/baidu/mobstat/cw;
 
     move-result-object v0
@@ -118,31 +120,31 @@
     invoke-virtual {v0}, Lcom/baidu/mobstat/v$a;->start()V
 
     .line 65
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    sput-boolean p0, Lcom/baidu/mobstat/v;->a:Z
-    :try_end_45
-    .catchall {:try_start_31 .. :try_end_45} :catchall_49
+    sput-boolean v0, Lcom/baidu/mobstat/v;->a:Z
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 66
-    const-class p0, Lcom/baidu/mobstat/v;
+    const-class v0, Lcom/baidu/mobstat/v;
 
-    monitor-exit p0
+    monitor-exit v0
 
-    return-void
+    goto :goto_0
 
-    :catchall_49
-    move-exception p0
+    :catchall_0
+    move-exception v0
 
-    const-class p1, Lcom/baidu/mobstat/v;
+    const-class v1, Lcom/baidu/mobstat/v;
 
-    monitor-exit p1
+    monitor-exit v1
 
-    throw p0
+    throw v0
 .end method
 
 .method static synthetic a(Z)Z
-    .registers 1
+    .locals 0
 
     .line 29
     sput-boolean p0, Lcom/baidu/mobstat/v;->a:Z

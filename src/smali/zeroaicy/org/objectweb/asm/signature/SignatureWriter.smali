@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 74
     new-instance v0, Ljava/lang/StringBuilder;
@@ -28,7 +28,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/StringBuilder;)V
-    .registers 3
+    .locals 1
 
     .line 78
     const/high16 v0, 0x90000
@@ -46,7 +46,7 @@
 .end method
 
 .method private endArguments()V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -56,24 +56,24 @@
     .line 242
     iget v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
 
+    and-int/lit8 v0, v0, 0x1
+
     const/4 v1, 0x1
 
-    and-int/2addr v0, v1
-
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_0
 
     .line 243
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
 
-    const/16 v2, 0x3e
+    const/16 v1, 0x3e
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 245
-    :cond_d
+    :cond_0
     iget v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
 
-    ushr-int/2addr v0, v1
+    ushr-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
 
@@ -81,7 +81,7 @@
 .end method
 
 .method private endFormals()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -91,7 +91,7 @@
     .line 231
     iget-boolean v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->hasFormals:Z
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 232
     const/4 v0, 0x0
@@ -105,14 +105,14 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public visitArrayType()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public visitBaseType(C)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C)V"
@@ -161,7 +161,7 @@
 .end method
 
 .method public visitClassBound()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 1
+    .locals 0
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -169,7 +169,7 @@
 .end method
 
 .method public visitClassType(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -194,17 +194,17 @@
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 168
-    iget p1, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
+    iget v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
 
-    shl-int/lit8 p1, p1, 0x1
+    shl-int/lit8 v0, v0, 0x1
 
-    iput p1, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
+    iput v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
 
     return-void
 .end method
 
 .method public visitEnd()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -228,7 +228,7 @@
 .end method
 
 .method public visitExceptionType()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -243,7 +243,7 @@
 .end method
 
 .method public visitFormalTypeParameter(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -258,7 +258,7 @@
     .line 88
     iget-boolean v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->hasFormals:Z
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 89
     const/4 v0, 0x1
@@ -273,23 +273,23 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 92
-    :cond_e
+    :cond_0
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 93
-    iget-object p1, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
 
-    const/16 v0, 0x3a
+    const/16 v1, 0x3a
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     return-void
 .end method
 
 .method public visitInnerClassType(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -317,17 +317,17 @@
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 178
-    iget p1, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
+    iget v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
 
-    shl-int/lit8 p1, p1, 0x1
+    shl-int/lit8 v0, v0, 0x1
 
-    iput p1, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
+    iput v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
 
     return-void
 .end method
 
 .method public visitInterface()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 1
+    .locals 0
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -335,7 +335,7 @@
 .end method
 
 .method public visitInterfaceBound()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -350,7 +350,7 @@
 .end method
 
 .method public visitParameterType()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -360,7 +360,7 @@
     .line 121
     iget-boolean v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->hasParameters:Z
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 122
     const/4 v0, 0x1
@@ -374,12 +374,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_11
+    :cond_0
     return-object p0
 .end method
 
 .method public visitReturnType()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -389,7 +389,7 @@
     .line 131
     iget-boolean v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->hasParameters:Z
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 132
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
@@ -399,7 +399,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 134
-    :cond_e
+    :cond_0
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
 
     const/16 v1, 0x29
@@ -410,7 +410,7 @@
 .end method
 
 .method public visitSuperclass()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 1
+    .locals 0
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -421,7 +421,7 @@
 .end method
 
 .method public visitTypeArgument(C)Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 4
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -430,7 +430,7 @@
 
     and-int/lit8 v1, v0, 0x1
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_0
 
     .line 199
     or-int/lit8 v0, v0, 0x1
@@ -444,10 +444,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_11
+    :cond_0
     const/16 v0, 0x3d
 
-    if-eq p1, v0, :cond_1a
+    if-eq p1, v0, :cond_1
 
     .line 203
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
@@ -455,32 +455,32 @@
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 206
-    :cond_1a
-    iget p1, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
+    :cond_1
+    iget v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->argumentStack:I
 
-    const/high16 v0, -0x80000000
+    const/high16 v1, -0x80000000
 
-    and-int/2addr p1, v0
+    and-int/2addr v0, v1
 
-    if-nez p1, :cond_23
+    if-nez v0, :cond_2
 
-    move-object p1, p0
+    :goto_0
+    return-object p0
 
-    goto :goto_2a
+    :cond_2
+    new-instance v0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;
 
-    :cond_23
-    new-instance p1, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;-><init>(Ljava/lang/StringBuilder;)V
 
-    invoke-direct {p1, v0}, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;-><init>(Ljava/lang/StringBuilder;)V
+    move-object p0, v0
 
-    :goto_2a
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public visitTypeArgument()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -495,7 +495,7 @@
 
     and-int/lit8 v1, v0, 0x1
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_0
 
     .line 187
     or-int/lit8 v0, v0, 0x1
@@ -510,7 +510,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 190
-    :cond_11
+    :cond_0
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
 
     const/16 v1, 0x2a
@@ -521,7 +521,7 @@
 .end method
 
 .method public visitTypeVariable(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -546,11 +546,11 @@
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 153
-    iget-object p1, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/signature/SignatureWriter;->stringBuilder:Ljava/lang/StringBuilder;
 
-    const/16 v0, 0x3b
+    const/16 v1, 0x3b
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     return-void
 .end method

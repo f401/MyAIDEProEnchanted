@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 95
     invoke-static {}, Lorg/ahocorasick/interval/IntervalNode$Direction;->values()[Lorg/ahocorasick/interval/IntervalNode$Direction;
@@ -33,7 +33,7 @@
 
     sput-object v0, Lorg/ahocorasick/interval/IntervalNode$1;->$SwitchMap$org$ahocorasick$interval$IntervalNode$Direction:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v1, Lorg/ahocorasick/interval/IntervalNode$Direction;->LEFT:Lorg/ahocorasick/interval/IntervalNode$Direction;
 
     invoke-virtual {v1}, Lorg/ahocorasick/interval/IntervalNode$Direction;->ordinal()I
@@ -43,16 +43,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_12
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_12} :catch_13
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_14
-
-    :catch_13
-    move-exception v0
-
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Lorg/ahocorasick/interval/IntervalNode$1;->$SwitchMap$org$ahocorasick$interval$IntervalNode$Direction:[I
 
     sget-object v1, Lorg/ahocorasick/interval/IntervalNode$Direction;->RIGHT:Lorg/ahocorasick/interval/IntervalNode$Direction;
@@ -64,14 +59,19 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_20
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_21
+    :goto_1
+    return-void
 
-    :catch_20
+    :catch_0
     move-exception v0
 
-    :goto_21
-    return-void
+    goto :goto_1
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_0
 .end method

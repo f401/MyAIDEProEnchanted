@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/Json2Java$Configurd;Landroid/app/Activity;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -43,223 +43,239 @@
 .end method
 
 .method private getItem()[Ljava/lang/String;
-    .registers 14
+    .locals 7
+
+    const/4 v6, 0x4
+
+    const/4 v5, 0x3
+
+    const/4 v4, 0x2
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
 
     .line 281
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    const-string v1, "toString"
-
-    const/4 v2, 0x6
-
-    const-string v3, "int -> Integer"
-
-    const/4 v4, 0x5
-
-    const-string v5, "List<?> -> ?[]"
-
-    const/4 v6, 0x4
-
-    const-string v7, "public field"
-
-    const/4 v8, 0x3
-
-    const/4 v9, 0x2
-
-    const/4 v10, 0x1
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x7
-
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_0
 
     .line 282
-    new-array v0, v12, [Ljava/lang/String;
+    const/4 v0, 0x7
 
-    const-string v12, "Add set method"
+    new-array v0, v0, [Ljava/lang/String;
 
-    aput-object v12, v0, v11
-
-    const-string v11, "Add get method"
-
-    aput-object v11, v0, v10
-
-    const-string v10, "Sorting set and get methods"
-
-    aput-object v10, v0, v9
-
-    aput-object v7, v0, v8
-
-    aput-object v5, v0, v6
-
-    aput-object v3, v0, v4
+    const-string v1, "Add set method"
 
     aput-object v1, v0, v2
 
-    return-object v0
+    const-string v1, "Add get method"
+
+    aput-object v1, v0, v3
+
+    const-string v1, "Sorting set and get methods"
+
+    aput-object v1, v0, v4
+
+    const-string v1, "public field"
+
+    aput-object v1, v0, v5
+
+    const-string v1, "List<?> -> ?[]"
+
+    aput-object v1, v0, v6
+
+    const/4 v1, 0x5
+
+    const-string v2, "int -> Integer"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x6
+
+    const-string v2, "toString"
+
+    aput-object v2, v0, v1
 
     .line 284
-    :cond_2d
-    new-array v0, v12, [Ljava/lang/String;
+    :goto_0
+    return-object v0
 
-    const-string v12, "添加set方法"
+    :cond_0
+    const/4 v0, 0x7
 
-    aput-object v12, v0, v11
+    new-array v0, v0, [Ljava/lang/String;
 
-    const-string v11, "添加get方法"
-
-    aput-object v11, v0, v10
-
-    const-string v10, "排序 set、get方法"
-
-    aput-object v10, v0, v9
-
-    aput-object v7, v0, v8
-
-    aput-object v5, v0, v6
-
-    aput-object v3, v0, v4
+    const-string v1, "\u6dfb\u52a0set\u65b9\u6cd5"
 
     aput-object v1, v0, v2
 
-    return-object v0
+    const-string v1, "\u6dfb\u52a0get\u65b9\u6cd5"
+
+    aput-object v1, v0, v3
+
+    const-string v1, "\u6392\u5e8f set\u3001get\u65b9\u6cd5"
+
+    aput-object v1, v0, v4
+
+    const-string v1, "public field"
+
+    aput-object v1, v0, v5
+
+    const-string v1, "List<?> -> ?[]"
+
+    aput-object v1, v0, v6
+
+    const/4 v1, 0x5
+
+    const-string v2, "int -> Integer"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x6
+
+    const-string v2, "toString"
+
+    aput-object v2, v0, v1
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 13
+    .locals 12
 
     .line 290
-    iget-object p1, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
 
     .line 291
-    invoke-virtual {p1}, Lcom/s1243808733/util/Json2Java$Configurd;->isSetters()Z
+    invoke-virtual {v0}, Lcom/s1243808733/util/Json2Java$Configurd;->isSetters()Z
 
-    move-result p1
+    move-result v1
 
     iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
 
     .line 292
     invoke-virtual {v0}, Lcom/s1243808733/util/Json2Java$Configurd;->isGetters()Z
 
-    move-result v0
-
-    iget-object v1, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
-
-    .line 293
-    invoke-virtual {v1}, Lcom/s1243808733/util/Json2Java$Configurd;->isSortMethod()Z
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
-
-    .line 294
-    invoke-virtual {v2}, Lcom/s1243808733/util/Json2Java$Configurd;->isPublicField()Z
-
     move-result v2
 
-    iget-object v3, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
 
-    .line 295
-    invoke-virtual {v3}, Lcom/s1243808733/util/Json2Java$Configurd;->isUseArray()Z
+    .line 293
+    invoke-virtual {v0}, Lcom/s1243808733/util/Json2Java$Configurd;->isSortMethod()Z
 
     move-result v3
 
-    iget-object v4, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
 
-    .line 296
-    invoke-virtual {v4}, Lcom/s1243808733/util/Json2Java$Configurd;->isUseInteger()Z
+    .line 294
+    invoke-virtual {v0}, Lcom/s1243808733/util/Json2Java$Configurd;->isPublicField()Z
 
     move-result v4
 
-    iget-object v5, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
 
-    .line 297
-    invoke-virtual {v5}, Lcom/s1243808733/util/Json2Java$Configurd;->isToString()Z
+    .line 295
+    invoke-virtual {v0}, Lcom/s1243808733/util/Json2Java$Configurd;->isUseArray()Z
 
     move-result v5
 
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
+
+    .line 296
+    invoke-virtual {v0}, Lcom/s1243808733/util/Json2Java$Configurd;->isUseInteger()Z
+
+    move-result v6
+
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$3;->val$configurd:Lcom/s1243808733/util/Json2Java$Configurd;
+
+    .line 297
+    invoke-virtual {v0}, Lcom/s1243808733/util/Json2Java$Configurd;->isToString()Z
+
+    move-result v7
+
     .line 299
-    new-instance v6, Landroid/app/AlertDialog$Builder;
+    new-instance v8, Landroid/app/AlertDialog$Builder;
 
-    iget-object v7, p0, Lcom/s1243808733/util/Json2Bean$3;->val$activity:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$3;->val$activity:Landroid/app/Activity;
 
-    invoke-direct {v6, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 300
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v7
+    move-result v0
 
-    if-eqz v7, :cond_3a
+    if-eqz v0, :cond_0
 
-    const-string v7, "配置"
+    const-string v0, "\u914d\u7f6e"
 
-    goto :goto_3c
+    :goto_0
+    invoke-virtual {v8, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    :cond_3a
-    const-string v7, "Configure"
-
-    :goto_3c
-    invoke-virtual {v6, v7}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v6
+    move-result-object v0
 
     .line 301
     invoke-direct {p0}, Lcom/s1243808733/util/Json2Bean$3;->getItem()[Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    new-instance v8, Lcom/s1243808733/util/Json2Bean$3$1;
+    new-instance v9, Lcom/s1243808733/util/Json2Bean$3$1;
 
-    invoke-direct {v8, p0}, Lcom/s1243808733/util/Json2Bean$3$1;-><init>(Lcom/s1243808733/util/Json2Bean$3;)V
+    invoke-direct {v9, p0}, Lcom/s1243808733/util/Json2Bean$3$1;-><init>(Lcom/s1243808733/util/Json2Bean$3;)V
 
-    const/4 v9, 0x7
+    const/4 v10, 0x7
 
-    new-array v9, v9, [Z
+    new-array v10, v10, [Z
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    aput-boolean p1, v9, v10
+    aput-boolean v1, v10, v11
 
-    const/4 p1, 0x1
+    const/4 v1, 0x1
 
-    aput-boolean v0, v9, p1
+    aput-boolean v2, v10, v1
 
-    const/4 p1, 0x2
+    const/4 v1, 0x2
 
-    aput-boolean v1, v9, p1
+    aput-boolean v3, v10, v1
 
-    const/4 p1, 0x3
+    const/4 v1, 0x3
 
-    aput-boolean v2, v9, p1
+    aput-boolean v4, v10, v1
 
-    const/4 p1, 0x4
+    const/4 v1, 0x4
 
-    aput-boolean v3, v9, p1
+    aput-boolean v5, v10, v1
 
-    const/4 p1, 0x5
+    const/4 v1, 0x5
 
-    aput-boolean v4, v9, p1
+    aput-boolean v6, v10, v1
 
-    const/4 p1, 0x6
+    const/4 v1, 0x6
 
-    aput-boolean v5, v9, p1
+    aput-boolean v7, v10, v1
 
-    invoke-virtual {v6, v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v8, v10, v9}, Landroid/app/AlertDialog$Builder;->setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 332
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     return-void
+
+    .line 300
+    :cond_0
+    const-string v0, "Configure"
+
+    goto :goto_0
 .end method

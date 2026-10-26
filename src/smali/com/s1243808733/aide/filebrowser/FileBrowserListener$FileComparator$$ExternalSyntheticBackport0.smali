@@ -5,24 +5,24 @@
 
 # direct methods
 .method public static synthetic m(II)I
-    .registers 2
+    .locals 1
 
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    goto :goto_9
+    :goto_0
+    return v0
 
-    :cond_4
-    if-ge p0, p1, :cond_8
+    :cond_0
+    if-ge p0, p1, :cond_1
 
-    const/4 p0, -0x1
+    const/4 v0, -0x1
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_8
-    const/4 p0, 0x1
+    :cond_1
+    const/4 v0, 0x1
 
-    :goto_9
-    return p0
+    goto :goto_0
 .end method

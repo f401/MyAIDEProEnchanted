@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/LogSender;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
 
     .line 105
     iput-object p1, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 108
     iget-object v0, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
@@ -49,7 +49,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 109
     iget-object v0, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
@@ -68,7 +68,7 @@
     invoke-static {v0, v1}, Lcom/baidu/mobstat/LogSender;->a(Lcom/baidu/mobstat/LogSender;Ljava/util/Timer;)Ljava/util/Timer;
 
     .line 113
-    :cond_17
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
 
     invoke-static {}, Lcom/baidu/mobstat/SendStrategyEnum;->values()[Lcom/baidu/mobstat/SendStrategyEnum;
@@ -132,7 +132,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_60
+    if-eqz v0, :cond_2
 
     .line 118
     iget-object v0, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
@@ -141,34 +141,9 @@
 
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/LogSender;->setSendingLogTimer(Landroid/content/Context;)V
 
-    goto :goto_75
-
-    .line 119
-    :cond_60
-    iget-object v0, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
-
-    invoke-static {v0}, Lcom/baidu/mobstat/LogSender;->b(Lcom/baidu/mobstat/LogSender;)Lcom/baidu/mobstat/SendStrategyEnum;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/baidu/mobstat/SendStrategyEnum;->ONCE_A_DAY:Lcom/baidu/mobstat/SendStrategyEnum;
-
-    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/SendStrategyEnum;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_75
-
-    .line 120
-    iget-object v0, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
-
-    iget-object v1, p0, Lcom/baidu/mobstat/LogSender$1;->a:Landroid/content/Context;
-
-    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/LogSender;->setSendingLogTimer(Landroid/content/Context;)V
-
     .line 123
-    :cond_75
-    :goto_75
+    :cond_1
+    :goto_0
     iget-object v0, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
 
     invoke-static {v0}, Lcom/baidu/mobstat/LogSender;->d(Lcom/baidu/mobstat/LogSender;)Landroid/os/Handler;
@@ -194,4 +169,29 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
+
+    .line 119
+    :cond_2
+    iget-object v0, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
+
+    invoke-static {v0}, Lcom/baidu/mobstat/LogSender;->b(Lcom/baidu/mobstat/LogSender;)Lcom/baidu/mobstat/SendStrategyEnum;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/baidu/mobstat/SendStrategyEnum;->ONCE_A_DAY:Lcom/baidu/mobstat/SendStrategyEnum;
+
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/SendStrategyEnum;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 120
+    iget-object v0, p0, Lcom/baidu/mobstat/LogSender$1;->b:Lcom/baidu/mobstat/LogSender;
+
+    iget-object v1, p0, Lcom/baidu/mobstat/LogSender$1;->a:Landroid/content/Context;
+
+    invoke-virtual {v0, v1}, Lcom/baidu/mobstat/LogSender;->setSendingLogTimer(Landroid/content/Context;)V
+
+    goto :goto_0
 .end method

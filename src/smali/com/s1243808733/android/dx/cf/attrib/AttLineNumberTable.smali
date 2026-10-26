@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/cf/code/LineNumberList;)V
-    .registers 3
+    .locals 2
 
     .line 38
     const-string v0, "LineNumberTable"
@@ -21,14 +21,14 @@
     invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/cf/attrib/BaseAttribute;-><init>(Ljava/lang/String;)V
 
     .line 41
-    :try_start_5
+    :try_start_0
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/code/LineNumberList;->isMutable()Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
-    :try_end_9
-    .catch Ljava/lang/NullPointerException; {:try_start_5 .. :try_end_9} :catch_16
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 49
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/attrib/AttLineNumberTable;->lineNumbers:Lcom/s1243808733/android/dx/cf/code/LineNumberList;
@@ -36,35 +36,35 @@
     return-void
 
     .line 42
-    :cond_e
-    :try_start_e
-    new-instance p1, Lcom/s1243808733/android/dx/util/MutabilityException;
+    :cond_0
+    :try_start_1
+    new-instance v0, Lcom/s1243808733/android/dx/util/MutabilityException;
 
-    const-string v0, "lineNumbers.isMutable()"
+    const-string v1, "lineNumbers.isMutable()"
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
 
-    throw p1
-    :try_end_16
-    .catch Ljava/lang/NullPointerException; {:try_start_e .. :try_end_16} :catch_16
+    throw v0
+    :try_end_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 46
-    :catch_16
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "lineNumbers == null"
+    const-string v1, "lineNumbers == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public byteLength()I
-    .registers 2
+    .locals 1
 
     .line 55
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttLineNumberTable;->lineNumbers:Lcom/s1243808733/android/dx/cf/code/LineNumberList;
@@ -81,7 +81,7 @@
 .end method
 
 .method public getLineNumbers()Lcom/s1243808733/android/dx/cf/code/LineNumberList;
-    .registers 2
+    .locals 1
 
     .line 64
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttLineNumberTable;->lineNumbers:Lcom/s1243808733/android/dx/cf/code/LineNumberList;

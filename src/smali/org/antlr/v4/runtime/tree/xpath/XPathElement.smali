@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,8 @@
             "(",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ")",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
         }
@@ -38,22 +39,17 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 32
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathElement;->invert:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     const-string v0, "!"
 
-    goto :goto_9
-
-    :cond_7
-    const-string v0, ""
-
     .line 33
-    :goto_9
+    :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -87,4 +83,10 @@
     move-result-object v0
 
     return-object v0
+
+    .line 32
+    :cond_0
+    const-string v0, ""
+
+    goto :goto_0
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 845
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 852
     new-instance v0, Ljava/lang/StringBuilder;
@@ -45,7 +45,7 @@
     .line 853
     iget-object v1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$HeadeInfo;->author:Ljava/lang/String;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 854
     const-string v1, "\n * @Author "
@@ -57,10 +57,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 856
-    :cond_13
+    :cond_0
     iget-object v1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$HeadeInfo;->date:Ljava/lang/String;
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_1
 
     .line 857
     const-string v1, "\n * @Date "
@@ -72,14 +72,14 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 859
-    :cond_21
+    :cond_1
     iget-object v1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$HeadeInfo;->describe:Ljava/lang/String;
 
     invoke-static {v1}, Lcom/blankj/utilcode/util/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_33
+    if-nez v1, :cond_2
 
     .line 860
     const-string v1, "\n * @Describe "
@@ -91,7 +91,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 863
-    :cond_33
+    :cond_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -100,7 +100,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_48
+    if-nez v1, :cond_3
 
     .line 864
     const/4 v1, 0x0
@@ -115,7 +115,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 868
-    :cond_48
+    :cond_3
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0

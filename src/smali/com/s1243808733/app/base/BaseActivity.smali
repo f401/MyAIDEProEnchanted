@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 18
     invoke-direct {p0}, Lcom/s1243808733/app/base/AbsActivity;-><init>()V
@@ -14,20 +14,20 @@
 .end method
 
 .method private static setNavBar(Landroid/view/Window;)V
-    .registers 3
+    .locals 2
 
     .line 67
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1b
 
-    if-lt v0, v1, :cond_1f
+    if-lt v0, v1, :cond_1
 
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->isLightTheme()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1
 
     .line 68
     invoke-virtual {p0}, Landroid/view/Window;->getContext()Landroid/content/Context;
@@ -47,15 +47,18 @@
 
     invoke-static {p0, v0}, Lcom/blankj/utilcode/util/BarUtils;->setNavBarLightMode(Landroid/view/Window;Z)V
 
+    .line 80
+    :cond_0
+    :goto_0
     return-void
 
     .line 73
-    :cond_1f
+    :cond_1
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->isLightTheme()Z
 
     move-result v0
 
-    if-nez v0, :cond_6a
+    if-nez v0, :cond_0
 
     invoke-static {}, Lcom/blankj/utilcode/util/BarUtils;->getNavBarHeight()I
 
@@ -67,13 +70,13 @@
 
     move-result v0
 
-    const/high16 v1, 0x42480000  # 50.0f
+    const/high16 v1, 0x42480000    # 50.0f
 
     invoke-static {v1}, Lcom/blankj/utilcode/util/SizeUtils;->dp2px(F)I
 
     move-result v1
 
-    if-ge v0, v1, :cond_6a
+    if-ge v0, v1, :cond_0
 
     .line 75
     const-string v0, "default"
@@ -86,7 +89,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_55
+    if-eqz v0, :cond_2
 
     .line 76
     invoke-virtual {p0}, Landroid/view/Window;->getContext()Landroid/content/Context;
@@ -107,10 +110,14 @@
 
     move-result v0
 
-    goto :goto_67
+    .line 80
+    :goto_1
+    invoke-static {p0, v0}, Lcom/blankj/utilcode/util/BarUtils;->setNavBarColor(Landroid/view/Window;I)V
+
+    goto :goto_0
 
     .line 78
-    :cond_55
+    :cond_2
     invoke-virtual {p0}, Landroid/view/Window;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -129,29 +136,26 @@
 
     move-result v0
 
-    .line 80
-    :goto_67
-    invoke-static {p0, v0}, Lcom/blankj/utilcode/util/BarUtils;->setNavBarColor(Landroid/view/Window;I)V
-
-    :cond_6a
-    return-void
+    goto :goto_1
 .end method
 
 .method public static setStatusBar(Landroid/app/Activity;)V
-    .registers 1
+    .locals 1
 
     .line 86
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/s1243808733/app/base/BaseActivity;->setStatusBar(Landroid/view/Window;)V
+    invoke-static {v0}, Lcom/s1243808733/app/base/BaseActivity;->setStatusBar(Landroid/view/Window;)V
 
     return-void
 .end method
 
 .method public static setStatusBar(Landroid/view/Window;)V
-    .registers 4
+    .locals 4
+
+    const v3, 0x1010434
 
     .line 90
     invoke-static {p0}, Lcom/s1243808733/app/base/BaseActivity;->setNavBar(Landroid/view/Window;)V
@@ -169,38 +173,38 @@
 
     move-result v0
 
-    const v1, 0x1010434
-
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_1
 
     .line 94
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v2, 0x17
+    const/16 v1, 0x17
 
-    if-ge v0, v2, :cond_2b
+    if-ge v0, v1, :cond_0
 
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->isLightTheme()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 95
     invoke-virtual {p0}, Landroid/view/Window;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->getThemeAttrColor(Landroid/content/Context;I)I
+    invoke-static {v0, v3}, Lcom/s1243808733/util/Utils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    goto :goto_45
+    .line 104
+    :goto_0
+    return-void
 
     .line 98
-    :cond_2b
+    :cond_0
     invoke-virtual {p0}, Landroid/view/Window;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -213,28 +217,27 @@
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    goto :goto_45
+    goto :goto_0
 
     .line 104
-    :cond_3a
+    :cond_1
     invoke-virtual {p0}, Landroid/view/Window;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->getThemeAttrColor(Landroid/content/Context;I)I
+    invoke-static {v0, v3}, Lcom/s1243808733/util/Utils;->getThemeAttrColor(Landroid/content/Context;I)I
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    :goto_45
-    return-void
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public isApplyTheme()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -242,7 +245,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 0
 
     .line 39
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/AbsActivity;->onCreate(Landroid/os/Bundle;)V
@@ -251,7 +254,7 @@
 .end method
 
 .method protected onDestroy()V
-    .registers 1
+    .locals 0
 
     .line 57
     invoke-super {p0}, Lcom/s1243808733/app/base/AbsActivity;->onDestroy()V
@@ -260,7 +263,7 @@
 .end method
 
 .method protected onPostCreate(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 0
 
     .line 45
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/AbsActivity;->onPostCreate(Landroid/os/Bundle;)V
@@ -269,7 +272,7 @@
 .end method
 
 .method public onPostCreate(Landroid/os/Bundle;Landroid/os/PersistableBundle;)V
-    .registers 3
+    .locals 0
 
     .line 51
     invoke-super {p0, p1, p2}, Lcom/s1243808733/app/base/AbsActivity;->onPostCreate(Landroid/os/Bundle;Landroid/os/PersistableBundle;)V
@@ -278,7 +281,7 @@
 .end method
 
 .method protected onStart()V
-    .registers 1
+    .locals 0
 
     .line 27
     invoke-super {p0}, Lcom/s1243808733/app/base/AbsActivity;->onStart()V
@@ -290,7 +293,7 @@
 .end method
 
 .method protected onStop()V
-    .registers 1
+    .locals 0
 
     .line 33
     invoke-super {p0}, Lcom/s1243808733/app/base/AbsActivity;->onStop()V
@@ -299,7 +302,7 @@
 .end method
 
 .method public setContentView(I)V
-    .registers 2
+    .locals 0
 
     .line 63
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/AbsActivity;->setContentView(I)V

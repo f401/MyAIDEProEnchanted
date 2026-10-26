@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/Parser;Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,15 +33,15 @@
     .line 79
     invoke-virtual {p0, p2}, Lorg/antlr/v4/runtime/tree/xpath/XPath;->split(Ljava/lang/String;)[Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->elements:[Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->elements:[Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
 
     return-void
 .end method
 
 .method public static findAll(Lorg/antlr/v4/runtime/tree/ParseTree;Ljava/lang/String;Lorg/antlr/v4/runtime/Parser;)Ljava/util/Collection;
-    .registers 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,7 +49,8 @@
             "Ljava/lang/String;",
             "Lorg/antlr/v4/runtime/Parser;",
             ")",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
         }
@@ -63,21 +64,22 @@
     .line 196
     invoke-virtual {v0, p0}, Lorg/antlr/v4/runtime/tree/xpath/XPath;->evaluate(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/util/Collection;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public evaluate(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/util/Collection;
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ")",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
         }
@@ -91,261 +93,271 @@
     .line 206
     invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v1
 
-    iput-object p1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->children:Ljava/util/List;
+    iput-object v1, v0, Lorg/antlr/v4/runtime/ParserRuleContext;->children:Ljava/util/List;
 
     .line 208
     invoke-static {v0}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
 
-    move-result-object p1
+    move-result-object v2
 
     const/4 v0, 0x0
 
+    move v1, v0
+
     .line 211
-    :goto_10
-    iget-object v1, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->elements:[Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
+    :goto_0
+    iget-object v0, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->elements:[Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
 
-    array-length v1, v1
+    array-length v0, v0
 
-    if-ge v0, v1, :cond_40
+    if-ge v1, v0, :cond_2
 
     .line 212
-    new-instance v1, Ljava/util/LinkedHashSet;
+    new-instance v3, Ljava/util/LinkedHashSet;
 
-    invoke-direct {v1}, Ljava/util/LinkedHashSet;-><init>()V
+    invoke-direct {v3}, Ljava/util/LinkedHashSet;-><init>()V
 
     .line 213
-    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :cond_1e
-    :goto_1e
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3c
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Lorg/antlr/v4/runtime/tree/ParseTree;
+    :cond_0
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/tree/ParseTree;
 
     .line 214
-    invoke-interface {v2}, Lorg/antlr/v4/runtime/tree/ParseTree;->getChildCount()I
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/tree/ParseTree;->getChildCount()I
 
-    move-result v3
+    move-result v4
 
-    if-lez v3, :cond_1e
+    if-lez v4, :cond_0
 
     .line 218
-    iget-object v3, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->elements:[Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
+    iget-object v4, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->elements:[Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
 
-    aget-object v3, v3, v0
+    aget-object v4, v4, v1
 
-    invoke-virtual {v3, v2}, Lorg/antlr/v4/runtime/tree/xpath/XPathElement;->evaluate(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/util/Collection;
+    invoke-virtual {v4, v0}, Lorg/antlr/v4/runtime/tree/xpath/XPathElement;->evaluate(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/util/Collection;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 219
-    invoke-interface {v1, v2}, Ljava/util/Collection;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v3, v0}, Ljava/util/Collection;->addAll(Ljava/util/Collection;)Z
 
-    goto :goto_1e
+    goto :goto_1
 
-    :cond_3c
-    add-int/lit8 v0, v0, 0x1
+    :cond_1
+    add-int/lit8 v0, v1, 0x1
 
-    move-object p1, v1
+    move v1, v0
 
-    goto :goto_10
+    move-object v2, v3
 
-    :cond_40
-    return-object p1
+    goto :goto_0
+
+    :cond_2
+    return-object v2
 .end method
 
 .method protected getXPathElement(Lorg/antlr/v4/runtime/Token;Z)Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
-    .registers 10
+    .locals 6
+
+    const/4 v5, -0x1
 
     .line 158
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getType()I
 
     move-result v0
 
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_97
+    if-eq v0, v5, :cond_7
 
     .line 161
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getText()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 162
-    iget-object v2, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->parser:Lorg/antlr/v4/runtime/Parser;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->parser:Lorg/antlr/v4/runtime/Parser;
 
-    invoke-virtual {v2, v0}, Lorg/antlr/v4/runtime/Parser;->getTokenType(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Lorg/antlr/v4/runtime/Parser;->getTokenType(Ljava/lang/String;)I
 
     move-result v2
 
     .line 163
-    iget-object v3, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->parser:Lorg/antlr/v4/runtime/Parser;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/tree/xpath/XPath;->parser:Lorg/antlr/v4/runtime/Parser;
 
-    invoke-virtual {v3, v0}, Lorg/antlr/v4/runtime/Parser;->getRuleIndex(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Lorg/antlr/v4/runtime/Parser;->getRuleIndex(Ljava/lang/String;)I
 
     move-result v3
 
     .line 164
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getType()I
 
-    move-result v4
+    move-result v0
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const-string v6, " at index "
+    if-eq v0, v4, :cond_4
 
-    if-eq v4, v5, :cond_66
+    const/4 v4, 0x5
 
-    const/4 v5, 0x5
+    if-eq v0, v4, :cond_2
 
-    if-eq v4, v5, :cond_58
+    const/16 v4, 0x8
 
-    const/16 v5, 0x8
+    if-eq v0, v4, :cond_4
 
-    if-eq v4, v5, :cond_66
+    if-eq v3, v5, :cond_1
 
-    if-eq v3, v1, :cond_37
-
-    if-eqz p2, :cond_31
+    if-eqz p2, :cond_0
 
     .line 187
-    new-instance p1, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleAnywhereElement;
+    new-instance v0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleAnywhereElement;
 
-    invoke-direct {p1, v0, v3}, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleAnywhereElement;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v3}, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleAnywhereElement;-><init>(Ljava/lang/String;I)V
 
-    goto :goto_36
+    :goto_0
+    return-object v0
 
-    :cond_31
-    new-instance p1, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;
+    :cond_0
+    new-instance v0, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;
 
-    invoke-direct {p1, v0, v3}, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v3}, Lorg/antlr/v4/runtime/tree/xpath/XPathRuleElement;-><init>(Ljava/lang/String;I)V
 
-    :goto_36
-    return-object p1
+    goto :goto_0
 
     .line 182
-    :cond_37
-    new-instance p2, Ljava/lang/StringBuilder;
+    :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " at index "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getStartIndex()I
 
-    move-result p1
+    move-result v1
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, " isn\'t a valid rule name"
+    const-string v1, " isn\'t a valid rule name"
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 
-    :cond_58
-    if-eqz p2, :cond_60
+    :cond_2
+    if-eqz p2, :cond_3
 
     .line 166
-    new-instance p1, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardAnywhereElement;
+    new-instance v0, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardAnywhereElement;
 
-    invoke-direct {p1}, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardAnywhereElement;-><init>()V
+    invoke-direct {v0}, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardAnywhereElement;-><init>()V
 
-    goto :goto_65
+    goto :goto_0
 
-    :cond_60
-    new-instance p1, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardElement;
+    :cond_3
+    new-instance v0, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardElement;
 
-    invoke-direct {p1}, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardElement;-><init>()V
+    invoke-direct {v0}, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardElement;-><init>()V
 
-    :goto_65
-    return-object p1
+    goto :goto_0
 
-    :cond_66
-    if-eqz v2, :cond_76
+    :cond_4
+    if-eqz v2, :cond_6
 
-    if-eqz p2, :cond_70
+    if-eqz p2, :cond_5
 
     .line 177
-    new-instance p1, Lorg/antlr/v4/runtime/tree/xpath/XPathTokenAnywhereElement;
+    new-instance v0, Lorg/antlr/v4/runtime/tree/xpath/XPathTokenAnywhereElement;
 
-    invoke-direct {p1, v0, v2}, Lorg/antlr/v4/runtime/tree/xpath/XPathTokenAnywhereElement;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Lorg/antlr/v4/runtime/tree/xpath/XPathTokenAnywhereElement;-><init>(Ljava/lang/String;I)V
 
-    goto :goto_75
+    goto :goto_0
 
-    :cond_70
-    new-instance p1, Lorg/antlr/v4/runtime/tree/xpath/XPathTokenElement;
+    :cond_5
+    new-instance v0, Lorg/antlr/v4/runtime/tree/xpath/XPathTokenElement;
 
-    invoke-direct {p1, v0, v2}, Lorg/antlr/v4/runtime/tree/xpath/XPathTokenElement;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Lorg/antlr/v4/runtime/tree/xpath/XPathTokenElement;-><init>(Ljava/lang/String;I)V
 
-    :goto_75
-    return-object p1
+    goto :goto_0
 
     .line 172
-    :cond_76
-    new-instance p2, Ljava/lang/StringBuilder;
+    :cond_6
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " at index "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p1}, Lorg/antlr/v4/runtime/Token;->getStartIndex()I
 
-    move-result p1
+    move-result v1
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, " isn\'t a valid token name"
+    const-string v1, " isn\'t a valid token name"
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 
     .line 159
-    :cond_97
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_7
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "Missing path element at end of path"
+    const-string v1, "Missing path element at end of path"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public split(Ljava/lang/String;)[Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
-    .registers 12
+    .locals 12
+
+    const/4 v11, 0x3
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
 
     .line 88
     :try_start_0
@@ -356,8 +368,8 @@
     new-instance v1, Lorg/antlr/v4/runtime/ANTLRInputStream;
 
     invoke-direct {v1, v0}, Lorg/antlr/v4/runtime/ANTLRInputStream;-><init>(Ljava/io/Reader;)V
-    :try_end_a
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_a} :catch_cf
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 93
     new-instance v0, Lorg/antlr/v4/runtime/tree/xpath/XPath$1;
@@ -380,188 +392,183 @@
     invoke-direct {v1, v0}, Lorg/antlr/v4/runtime/CommonTokenStream;-><init>(Lorg/antlr/v4/runtime/TokenSource;)V
 
     .line 101
-    :try_start_1f
+    :try_start_1
     invoke-virtual {v1}, Lorg/antlr/v4/runtime/CommonTokenStream;->fill()V
-    :try_end_22
-    .catch Lorg/antlr/v4/runtime/LexerNoViableAltException; {:try_start_1f .. :try_end_22} :catch_a9
+    :try_end_1
+    .catch Lorg/antlr/v4/runtime/LexerNoViableAltException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 109
     invoke-virtual {v1}, Lorg/antlr/v4/runtime/CommonTokenStream;->getTokens()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v7
 
     .line 111
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v8, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
     .line 112
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v9
+
+    move v5, v3
+
+    :goto_0
+    if-ge v5, v9, :cond_6
+
+    .line 116
+    invoke-interface {v7, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/Token;
+
+    .line 118
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getType()I
 
     move-result v1
 
-    const/4 v2, 0x0
+    const/4 v4, -0x1
 
-    const/4 v3, 0x0
+    if-eq v1, v4, :cond_6
 
-    :goto_31
-    if-ge v3, v1, :cond_a0
+    if-eq v1, v2, :cond_0
 
-    .line 116
-    invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    const/4 v4, 0x2
 
-    move-result-object v4
+    if-eq v1, v4, :cond_0
 
-    check-cast v4, Lorg/antlr/v4/runtime/Token;
+    if-eq v1, v11, :cond_2
 
-    .line 118
-    invoke-interface {v4}, Lorg/antlr/v4/runtime/Token;->getType()I
+    const/4 v4, 0x4
 
-    move-result v5
+    if-eq v1, v4, :cond_2
 
-    const/4 v6, -0x1
+    const/4 v4, 0x5
 
-    if-eq v5, v6, :cond_a0
+    if-ne v1, v4, :cond_1
 
-    const/4 v6, 0x1
+    .line 138
+    :cond_0
+    invoke-virtual {p0, v0, v3}, Lorg/antlr/v4/runtime/tree/xpath/XPath;->getXPathElement(Lorg/antlr/v4/runtime/Token;Z)Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
 
-    if-eq v5, v6, :cond_96
+    move-result-object v0
 
-    const/4 v7, 0x2
+    invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    if-eq v5, v7, :cond_96
+    add-int/lit8 v0, v5, 0x1
 
-    const/4 v7, 0x3
+    move v5, v0
 
-    if-eq v5, v7, :cond_64
-
-    const/4 v8, 0x4
-
-    if-eq v5, v8, :cond_64
-
-    const/4 v6, 0x5
-
-    if-ne v5, v6, :cond_50
-
-    goto :goto_96
+    goto :goto_0
 
     .line 146
-    :cond_50
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v0, "Unknowth path element "
+    const-string v2, "Unknowth path element "
 
-    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 121
-    :cond_64
-    invoke-interface {v4}, Lorg/antlr/v4/runtime/Token;->getType()I
+    :cond_2
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getType()I
 
-    move-result v4
+    move-result v0
 
-    if-ne v4, v7, :cond_6c
+    if-ne v0, v11, :cond_4
 
-    const/4 v4, 0x1
+    move v1, v2
 
-    goto :goto_6d
-
-    :cond_6c
-    const/4 v4, 0x0
-
-    :goto_6d
-    add-int/lit8 v5, v3, 0x1
+    :goto_1
+    add-int/lit8 v4, v5, 0x1
 
     .line 123
-    invoke-interface {p1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v7, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v0
 
-    check-cast v7, Lorg/antlr/v4/runtime/Token;
+    check-cast v0, Lorg/antlr/v4/runtime/Token;
 
     .line 124
-    invoke-interface {v7}, Lorg/antlr/v4/runtime/Token;->getType()I
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getType()I
 
-    move-result v8
+    move-result v6
 
-    const/4 v9, 0x6
+    const/4 v10, 0x6
 
-    if-ne v8, v9, :cond_7e
+    if-ne v6, v10, :cond_5
 
-    const/4 v8, 0x1
+    move v6, v2
 
-    goto :goto_7f
+    :goto_2
+    if-eqz v6, :cond_3
 
-    :cond_7e
-    const/4 v8, 0x0
-
-    :goto_7f
-    if-eqz v8, :cond_8a
-
-    add-int/lit8 v5, v3, 0x2
+    add-int/lit8 v4, v5, 0x2
 
     .line 127
-    invoke-interface {p1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v7, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    move-object v7, v3
-
-    check-cast v7, Lorg/antlr/v4/runtime/Token;
+    check-cast v0, Lorg/antlr/v4/runtime/Token;
 
     .line 129
-    :cond_8a
-    invoke-virtual {p0, v7, v4}, Lorg/antlr/v4/runtime/tree/xpath/XPath;->getXPathElement(Lorg/antlr/v4/runtime/Token;Z)Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
+    :cond_3
+    invoke-virtual {p0, v0, v1}, Lorg/antlr/v4/runtime/tree/xpath/XPath;->getXPathElement(Lorg/antlr/v4/runtime/Token;Z)Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 130
-    iput-boolean v8, v3, Lorg/antlr/v4/runtime/tree/xpath/XPathElement;->invert:Z
+    iput-boolean v6, v0, Lorg/antlr/v4/runtime/tree/xpath/XPathElement;->invert:Z
 
     .line 131
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v3, v5, 0x1
+    add-int/lit8 v0, v4, 0x1
 
-    goto :goto_31
+    move v5, v0
 
-    .line 138
-    :cond_96
-    :goto_96
-    invoke-virtual {p0, v4, v2}, Lorg/antlr/v4/runtime/tree/xpath/XPath;->getXPathElement(Lorg/antlr/v4/runtime/Token;Z)Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
+    goto :goto_0
 
-    move-result-object v4
+    :cond_4
+    move v1, v3
 
-    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    .line 121
+    goto :goto_1
 
-    add-int/lit8 v3, v3, 0x1
+    :cond_5
+    move v6, v3
 
-    goto :goto_31
+    .line 124
+    goto :goto_2
 
     .line 149
-    :cond_a0
-    new-array p1, v2, [Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
+    :cond_6
+    new-array v0, v3, [Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v8, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, [Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
+    check-cast v0, [Lorg/antlr/v4/runtime/tree/xpath/XPathElement;
 
-    return-object p1
+    return-object v0
 
-    :catch_a9
+    :catch_0
     move-exception v1
 
     .line 104
@@ -584,22 +591,22 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "\'"
+    const-string v0, "\'"
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 106
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p1, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v2, v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v0
+    throw v2
 
-    :catch_cf
+    :catch_1
     move-exception v0
 
     .line 91
@@ -611,19 +618,13 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {p1, v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v2, v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_e5
-
-    :goto_e4
-    throw p1
-
-    :goto_e5
-    goto :goto_e4
+    throw v2
 .end method

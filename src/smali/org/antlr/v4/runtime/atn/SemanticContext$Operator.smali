@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 188
     invoke-direct {p0}, Lorg/antlr/v4/runtime/atn/SemanticContext;-><init>()V
@@ -30,7 +30,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/antlr/v4/runtime/atn/SemanticContext;",
             ">;"
         }

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public final typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 47
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/Item;->itemType()Lcom/s1243808733/android/dx/dex/file/ItemType;

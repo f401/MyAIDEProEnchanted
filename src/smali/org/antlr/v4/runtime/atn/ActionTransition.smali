@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;I)V
-    .registers 5
+    .locals 2
 
     .line 15
     const/4 v0, -0x1
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;IIZ)V
-    .registers 5
+    .locals 0
 
     .line 19
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/atn/Transition;-><init>(Lorg/antlr/v4/runtime/atn/ATNState;)V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getSerializationType()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x6
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public isEpsilon()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -62,15 +62,15 @@
 .end method
 
 .method public matches(III)Z
-    .registers 4
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 42
     new-instance v0, Ljava/lang/StringBuilder;

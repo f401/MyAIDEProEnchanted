@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$1;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 404
     iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$1$1;->this$0:Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$1;

@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 28
     const/4 v0, 0x0
@@ -29,7 +29,7 @@
     sput-object v0, Lcom/s1243808733/android/dx/rop/cst/CstFloat;->VALUE_0:Lcom/s1243808733/android/dx/rop/cst/CstFloat;
 
     .line 31
-    const/high16 v0, 0x3f800000  # 1.0f
+    const/high16 v0, 0x3f800000    # 1.0f
 
     invoke-static {v0}, Ljava/lang/Float;->floatToIntBits(F)I
 
@@ -42,7 +42,7 @@
     sput-object v0, Lcom/s1243808733/android/dx/rop/cst/CstFloat;->VALUE_1:Lcom/s1243808733/android/dx/rop/cst/CstFloat;
 
     .line 34
-    const/high16 v0, 0x40000000  # 2.0f
+    const/high16 v0, 0x40000000    # 2.0f
 
     invoke-static {v0}, Ljava/lang/Float;->floatToIntBits(F)I
 
@@ -58,7 +58,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 56
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/rop/cst/CstLiteral32;-><init>(I)V
@@ -67,7 +67,7 @@
 .end method
 
 .method public static make(I)Lcom/s1243808733/android/dx/rop/cst/CstFloat;
-    .registers 2
+    .locals 1
 
     .line 47
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstFloat;
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 70
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->FLOAT:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -89,7 +89,7 @@
 .end method
 
 .method public getValue()F
-    .registers 2
+    .locals 1
 
     .line 91
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstFloat;->getIntBits()I
@@ -104,7 +104,7 @@
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 82
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstFloat;->getIntBits()I
@@ -123,7 +123,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 62
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstFloat;->getIntBits()I
@@ -166,7 +166,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 76
     const-string v0, "float"

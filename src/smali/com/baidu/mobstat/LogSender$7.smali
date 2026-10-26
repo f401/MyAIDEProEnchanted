@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/LogSender;Landroid/content/Context;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
 
     .line 475
     iput-object p1, p0, Lcom/baidu/mobstat/LogSender$7;->c:Lcom/baidu/mobstat/LogSender;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 478
     invoke-static {}, Lcom/baidu/mobstat/DataCore;->instance()Lcom/baidu/mobstat/DataCore;
@@ -64,7 +64,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_19
+    if-nez v1, :cond_0
 
     .line 481
     iget-object v1, p0, Lcom/baidu/mobstat/LogSender$7;->c:Lcom/baidu/mobstat/LogSender;
@@ -73,6 +73,6 @@
 
     invoke-static {v1, v2, v0}, Lcom/baidu/mobstat/LogSender;->c(Lcom/baidu/mobstat/LogSender;Landroid/content/Context;Ljava/lang/String;)Z
 
-    :cond_19
+    :cond_0
     return-void
 .end method

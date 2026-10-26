@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,15 +20,17 @@
     .line 35
     invoke-static {p1}, Lcom/s1243808733/android/dx/util/Bits;->makeBitSet(I)[I
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
+    iput-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
     return-void
 .end method
 
 .method private ensureCapacity(I)V
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 51
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
@@ -37,13 +39,13 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_23
+    if-lt p1, v0, :cond_0
 
     .line 52
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
     .line 53
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v1, p1, 0x1
 
     invoke-static {v0}, Lcom/s1243808733/android/dx/util/Bits;->getMax([I)I
 
@@ -51,35 +53,33 @@
 
     mul-int/lit8 v0, v0, 0x2
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result p1
+    move-result v0
 
     .line 52
-    invoke-static {p1}, Lcom/s1243808733/android/dx/util/Bits;->makeBitSet(I)[I
+    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Bits;->makeBitSet(I)[I
 
-    move-result-object p1
+    move-result-object v0
 
     .line 54
-    iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
+    iget-object v1, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
-    array-length v1, v0
+    array-length v2, v1
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, v2, p1, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 55
-    iput-object p1, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
+    iput-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
-    :cond_23
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public add(I)V
-    .registers 4
+    .locals 2
 
     .line 41
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/BitIntSet;->ensureCapacity(I)V
@@ -95,7 +95,7 @@
 .end method
 
 .method public elements()I
-    .registers 2
+    .locals 1
 
     .line 101
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
@@ -108,7 +108,7 @@
 .end method
 
 .method public has(I)Z
-    .registers 3
+    .locals 1
 
     .line 70
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
@@ -117,29 +117,29 @@
 
     move-result v0
 
-    if-ge p1, v0, :cond_12
+    if-ge p1, v0, :cond_0
 
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
     invoke-static {v0, p1}, Lcom/s1243808733/android/dx/util/Bits;->get([II)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_12
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_13
+    :goto_0
+    return v0
 
-    :cond_12
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_13
-    return p1
+    goto :goto_0
 .end method
 
 .method public iterator()Lcom/s1243808733/android/dx/util/IntIterator;
-    .registers 2
+    .locals 1
 
     .line 107
     new-instance v0, Lcom/s1243808733/android/dx/util/BitIntSet$1;
@@ -150,14 +150,12 @@
 .end method
 
 .method public merge(Lcom/s1243808733/android/dx/util/IntSet;)V
-    .registers 6
+    .locals 4
 
     .line 76
     instance-of v0, p1, Lcom/s1243808733/android/dx/util/BitIntSet;
 
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
     .line 77
     check-cast p1, Lcom/s1243808733/android/dx/util/BitIntSet;
@@ -169,24 +167,26 @@
 
     move-result v0
 
-    add-int/2addr v0, v1
+    add-int/lit8 v0, v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/util/BitIntSet;->ensureCapacity(I)V
 
     .line 79
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
+    iget-object v1, p1, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
-    invoke-static {v0, p1}, Lcom/s1243808733/android/dx/util/Bits;->or([I[I)V
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/util/Bits;->or([I[I)V
 
-    goto :goto_5a
+    .line 93
+    :cond_0
+    return-void
 
     .line 80
-    :cond_19
+    :cond_1
     instance-of v0, p1, Lcom/s1243808733/android/dx/util/ListIntSet;
 
-    if-eqz v0, :cond_48
+    if-eqz v0, :cond_3
 
     .line 81
     check-cast p1, Lcom/s1243808733/android/dx/util/ListIntSet;
@@ -198,77 +198,75 @@
 
     move-result v0
 
-    if-lez v0, :cond_31
+    if-lez v0, :cond_2
 
     .line 85
-    iget-object v2, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    sub-int/2addr v0, v1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
 
     move-result v0
 
     invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/util/BitIntSet;->ensureCapacity(I)V
 
-    :cond_31
+    :cond_2
     const/4 v0, 0x0
 
     .line 87
-    :goto_32
+    :goto_0
+    iget-object v1, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/util/IntList;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_0
+
+    .line 88
+    iget-object v1, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
+
     iget-object v2, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/util/IntList;->size()I
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
 
     move-result v2
 
-    if-ge v0, v2, :cond_5a
+    const/4 v3, 0x1
 
-    .line 88
-    iget-object v2, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
-
-    iget-object v3, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
-
-    invoke-virtual {v3, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
-
-    move-result v3
-
-    invoke-static {v2, v3, v1}, Lcom/s1243808733/android/dx/util/Bits;->set([IIZ)V
+    invoke-static {v1, v2, v3}, Lcom/s1243808733/android/dx/util/Bits;->set([IIZ)V
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_32
+    goto :goto_0
 
     .line 91
-    :cond_48
+    :cond_3
     invoke-interface {p1}, Lcom/s1243808733/android/dx/util/IntSet;->iterator()Lcom/s1243808733/android/dx/util/IntIterator;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 92
-    :goto_4c
-    invoke-interface {p1}, Lcom/s1243808733/android/dx/util/IntIterator;->hasNext()Z
+    :goto_1
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/util/IntIterator;->hasNext()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_5a
+    if-eqz v1, :cond_0
 
     .line 93
-    invoke-interface {p1}, Lcom/s1243808733/android/dx/util/IntIterator;->next()I
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/util/IntIterator;->next()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/util/BitIntSet;->add(I)V
+    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/util/BitIntSet;->add(I)V
 
-    goto :goto_4c
-
-    :cond_5a
-    :goto_5a
-    return-void
+    goto :goto_1
 .end method
 
 .method public remove(I)V
-    .registers 4
+    .locals 2
 
     .line 62
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
@@ -277,7 +275,7 @@
 
     move-result v0
 
-    if-ge p1, v0, :cond_e
+    if-ge p1, v0, :cond_0
 
     .line 63
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
@@ -286,66 +284,66 @@
 
     invoke-static {v0, p1, v1}, Lcom/s1243808733/android/dx/util/Bits;->set([IIZ)V
 
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
+
+    const/4 v1, 0x0
 
     .line 135
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v1, "{"
+    const-string v0, "{"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 140
-    iget-object v1, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
+    iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
-    const/4 v2, 0x0
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/util/Bits;->findFirst([II)I
 
-    invoke-static {v1, v2}, Lcom/s1243808733/android/dx/util/Bits;->findFirst([II)I
+    move-result v2
 
-    move-result v1
+    const/4 v0, 0x1
 
-    const/4 v3, 0x1
+    :goto_0
+    if-ltz v2, :cond_1
 
-    :goto_f
-    if-ltz v1, :cond_25
-
-    if-nez v3, :cond_18
+    if-nez v0, :cond_0
 
     .line 144
-    const-string v3, ", "
+    const-string v0, ", "
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 147
-    :cond_18
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    :cond_0
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 142
-    iget-object v3, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
+    iget-object v0, p0, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    invoke-static {v3, v1}, Lcom/s1243808733/android/dx/util/Bits;->findFirst([II)I
+    invoke-static {v0, v2}, Lcom/s1243808733/android/dx/util/Bits;->findFirst([II)I
 
-    move-result v1
+    move-result v2
 
-    const/4 v3, 0x0
+    move v0, v1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 150
-    :cond_25
-    const/16 v1, 0x7d
+    :cond_1
+    const/16 v0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 152
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lorg/antlr/v4/runtime/atn/SemanticContext;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 126
     invoke-direct {p0}, Lorg/antlr/v4/runtime/atn/SemanticContext;-><init>()V
@@ -46,7 +47,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 130
     invoke-direct {p0}, Lorg/antlr/v4/runtime/atn/SemanticContext;-><init>()V
@@ -60,74 +61,76 @@
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 123
     check-cast p1, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;
 
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;->compareTo(Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public compareTo(Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;)I
-    .registers 3
+    .locals 2
 
     .line 151
     iget v0, p0, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;->precedence:I
 
-    iget p1, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;->precedence:I
+    iget v1, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;->precedence:I
 
-    sub-int/2addr v0, p1
+    sub-int/2addr v0, v1
 
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 4
 
-    .line 163
-    instance-of v0, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;
+    const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_6
+    .line 163
+    instance-of v2, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;
 
-    return v1
+    if-nez v2, :cond_1
 
-    :cond_6
-    const/4 v0, 0x1
+    move v0, v1
 
-    if-ne p0, p1, :cond_a
-
+    .line 172
+    :cond_0
+    :goto_0
     return v0
 
+    .line 163
+    :cond_1
+    if-eq p0, p1, :cond_0
+
     .line 171
-    :cond_a
     check-cast p1, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;
 
     .line 172
     iget v2, p0, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;->precedence:I
 
-    iget p1, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;->precedence:I
+    iget v3, p1, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;->precedence:I
 
-    if-ne v2, p1, :cond_13
+    if-eq v2, v3, :cond_0
 
-    const/4 v1, 0x1
+    move v0, v1
 
-    :cond_13
-    return v1
+    goto :goto_0
 .end method
 
 .method public eval(Lorg/antlr/v4/runtime/Recognizer;Lorg/antlr/v4/runtime/RuleContext;)Z
-    .registers 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;",
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;",
             "Lorg/antlr/v4/runtime/RuleContext;",
             ")Z"
         }
@@ -138,18 +141,18 @@
 
     invoke-virtual {p1, p2, v0}, Lorg/antlr/v4/runtime/Recognizer;->precpred(Lorg/antlr/v4/runtime/RuleContext;I)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public evalPrecedence(Lorg/antlr/v4/runtime/Recognizer;Lorg/antlr/v4/runtime/RuleContext;)Lorg/antlr/v4/runtime/atn/SemanticContext;
-    .registers 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;",
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;",
             "Lorg/antlr/v4/runtime/RuleContext;",
             ")",
             "Lorg/antlr/v4/runtime/atn/SemanticContext;"
@@ -161,23 +164,24 @@
 
     invoke-virtual {p1, p2, v0}, Lorg/antlr/v4/runtime/Recognizer;->precpred(Lorg/antlr/v4/runtime/RuleContext;I)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_b
+    if-eqz v0, :cond_0
 
     .line 142
-    sget-object p1, Lorg/antlr/v4/runtime/atn/SemanticContext;->NONE:Lorg/antlr/v4/runtime/atn/SemanticContext;
+    sget-object v0, Lorg/antlr/v4/runtime/atn/SemanticContext;->NONE:Lorg/antlr/v4/runtime/atn/SemanticContext;
 
-    return-object p1
+    :goto_0
+    return-object v0
 
-    :cond_b
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .line 157
     iget v0, p0, Lorg/antlr/v4/runtime/atn/SemanticContext$PrecedencePredicate;->precedence:I
@@ -188,7 +192,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 178
     new-instance v0, Ljava/lang/StringBuilder;

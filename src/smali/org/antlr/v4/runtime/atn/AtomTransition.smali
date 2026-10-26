@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;I)V
-    .registers 3
+    .locals 0
 
     .line 17
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/atn/Transition;-><init>(Lorg/antlr/v4/runtime/atn/ATNState;)V
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method public getSerializationType()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x5
 
@@ -31,7 +31,7 @@
 .end method
 
 .method public label()Lorg/antlr/v4/runtime/misc/IntervalSet;
-    .registers 2
+    .locals 1
 
     .line 28
     iget v0, p0, Lorg/antlr/v4/runtime/atn/AtomTransition;->label:I
@@ -44,26 +44,26 @@
 .end method
 
 .method public matches(III)Z
-    .registers 4
+    .locals 1
 
     .line 32
-    iget p2, p0, Lorg/antlr/v4/runtime/atn/AtomTransition;->label:I
+    iget v0, p0, Lorg/antlr/v4/runtime/atn/AtomTransition;->label:I
 
-    if-ne p2, p1, :cond_6
+    if-ne v0, p1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_7
+    :goto_0
+    return v0
 
-    :cond_6
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_7
-    return p1
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 37
     iget v0, p0, Lorg/antlr/v4/runtime/atn/AtomTransition;->label:I

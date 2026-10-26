@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 116
     invoke-static {}, Lcom/s1243808733/android/dx/io/IndexType;->values()[Lcom/s1243808733/android/dx/io/IndexType;
@@ -33,7 +33,7 @@
 
     sput-object v0, Lcom/s1243808733/android/dx/io/CodeReader$1;->$SwitchMap$com$s1243808733$android$dx$io$IndexType:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v1, Lcom/s1243808733/android/dx/io/IndexType;->STRING_REF:Lcom/s1243808733/android/dx/io/IndexType;
 
     invoke-virtual {v1}, Lcom/s1243808733/android/dx/io/IndexType;->ordinal()I
@@ -43,16 +43,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_12
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_12} :catch_13
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_5
 
-    goto :goto_14
-
-    :catch_13
-    move-exception v0
-
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Lcom/s1243808733/android/dx/io/CodeReader$1;->$SwitchMap$com$s1243808733$android$dx$io$IndexType:[I
 
     sget-object v1, Lcom/s1243808733/android/dx/io/IndexType;->TYPE_REF:Lcom/s1243808733/android/dx/io/IndexType;
@@ -64,16 +59,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_20
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_4
 
-    goto :goto_21
-
-    :catch_20
-    move-exception v0
-
-    :goto_21
-    :try_start_21
+    :goto_1
+    :try_start_2
     sget-object v0, Lcom/s1243808733/android/dx/io/CodeReader$1;->$SwitchMap$com$s1243808733$android$dx$io$IndexType:[I
 
     sget-object v1, Lcom/s1243808733/android/dx/io/IndexType;->FIELD_REF:Lcom/s1243808733/android/dx/io/IndexType;
@@ -85,16 +75,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_21 .. :try_end_2c} :catch_2d
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_3
 
-    goto :goto_2e
-
-    :catch_2d
-    move-exception v0
-
-    :goto_2e
-    :try_start_2e
+    :goto_2
+    :try_start_3
     sget-object v0, Lcom/s1243808733/android/dx/io/CodeReader$1;->$SwitchMap$com$s1243808733$android$dx$io$IndexType:[I
 
     sget-object v1, Lcom/s1243808733/android/dx/io/IndexType;->METHOD_REF:Lcom/s1243808733/android/dx/io/IndexType;
@@ -106,16 +91,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_39
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2e .. :try_end_39} :catch_3a
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_2
 
-    goto :goto_3b
-
-    :catch_3a
-    move-exception v0
-
-    :goto_3b
-    :try_start_3b
+    :goto_3
+    :try_start_4
     sget-object v0, Lcom/s1243808733/android/dx/io/CodeReader$1;->$SwitchMap$com$s1243808733$android$dx$io$IndexType:[I
 
     sget-object v1, Lcom/s1243808733/android/dx/io/IndexType;->METHOD_AND_PROTO_REF:Lcom/s1243808733/android/dx/io/IndexType;
@@ -127,16 +107,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_46
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3b .. :try_end_46} :catch_47
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_1
 
-    goto :goto_48
-
-    :catch_47
-    move-exception v0
-
-    :goto_48
-    :try_start_48
+    :goto_4
+    :try_start_5
     sget-object v0, Lcom/s1243808733/android/dx/io/CodeReader$1;->$SwitchMap$com$s1243808733$android$dx$io$IndexType:[I
 
     sget-object v1, Lcom/s1243808733/android/dx/io/IndexType;->CALL_SITE_REF:Lcom/s1243808733/android/dx/io/IndexType;
@@ -148,14 +123,39 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_53
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_48 .. :try_end_53} :catch_54
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_0
 
-    goto :goto_55
+    :goto_5
+    return-void
 
-    :catch_54
+    :catch_0
     move-exception v0
 
-    :goto_55
-    return-void
+    goto :goto_5
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_4
+
+    :catch_2
+    move-exception v0
+
+    goto :goto_3
+
+    :catch_3
+    move-exception v0
+
+    goto :goto_2
+
+    :catch_4
+    move-exception v0
+
+    goto :goto_1
+
+    :catch_5
+    move-exception v0
+
+    goto :goto_0
 .end method

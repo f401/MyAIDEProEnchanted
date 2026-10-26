@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;Landroid/view/ActionMode;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,34 +45,34 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 3
 
     .line 235
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getSelected()Ljava/util/Map;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getSelected()Ljava/util/Map;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 236
-    :goto_12
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_0
 
     .line 237
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
@@ -87,41 +87,41 @@
 
     invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->getCurrentList()Ljava/util/List;
 
+    move-result-object v2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    check-cast v0, Ljava/lang/String;
 
-    move-result-object v1
+    invoke-static {v2, v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->remove(Ljava/util/List;Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/String;
-
-    invoke-static {v0, v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->remove(Ljava/util/List;Ljava/lang/String;)V
-
-    goto :goto_12
+    goto :goto_0
 
     .line 239
-    :cond_31
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->setDataChange(Z)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->setDataChange(Z)V
 
     .line 240
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$fgetmainAdapter(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/permission/ManifestAdapter;->notifyDataSetChanged()V
 
     .line 241
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;->val$p1:Landroid/view/ActionMode;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$6;->val$p1:Landroid/view/ActionMode;
 
-    invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
+    invoke-virtual {v0}, Landroid/view/ActionMode;->finish()V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

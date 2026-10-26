@@ -1,5 +1,5 @@
 {
-  "apkFileName": "AIDE Pro_2.8.7-freely_ac_src.apk",
+  "apkFileName": "AIDE Pro_2.8.7-freely_ac_src_src.apk",
   "PackageInfo": {
     "forcedPackageId": "127",
     "renameManifestPackage": null
@@ -8,13 +8,13 @@
     "resources.arsc",
     "jet",
     "png",
-    "wav",
     "ogg",
+    "wav",
     "res/raw/ouya_key.der"
   ],
   "compressionType": false,
   "sparseResources": false,
-  "version": "2.4.0-241231",
+  "version": "2.4.0-261014",
   "sharedLibrary": false,
   "VersionInfo": {
     "versionName": "2.8.7-freely",
@@ -59,7 +59,7 @@
     "com/sun/org/apache/xerces/internal/impl/msg/DOMMessages.properties": "8",
     "META-INF/com/android/build/gradle/app-metadata.properties": "8"
   },
-  "apkFilePath": "/storage/emulated/0/MT2/apks/AIDE Pro_2.8.7-freely_ac.apk",
+  "apkFilePath": "/storage/emulated/0/MyAIDEProEnchanted/AIDE Pro_2.8.7-freely_ac_src.apk",
   "compactEntries": false,
   "isFrameworkApk": false,
   "sdkInfo": {

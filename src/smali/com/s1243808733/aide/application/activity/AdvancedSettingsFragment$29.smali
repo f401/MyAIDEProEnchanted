@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 1122
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -36,7 +36,9 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 7
+    .locals 7
+
+    const/4 v6, 0x0
 
     .line 1126
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->getAutoCustomTemplateDir()Ljava/io/File;
@@ -57,74 +59,72 @@
     .line 1128
     invoke-virtual {p1}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
-    move-result-object p1
-
-    invoke-virtual {v1, p1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
-
-    .line 1129
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const-string v2, "将要解压到："
-
-    const-string v3, "Will be unzipped to: "
-
-    invoke-static {v2, v3}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
     move-result-object v2
 
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v1, v2
-
-    const-string v2, "%s%s"
-
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    invoke-virtual {p1, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    .line 1129
+    const-string v2, "%s%s"
 
-    move-result-object p1
+    const/4 v3, 0x2
 
-    new-instance v1, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29$1;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    invoke-direct {v1, p0, v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29$1;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29;Ljava/io/File;)V
+    const-string v4, "\u5c06\u8981\u89e3\u538b\u5230\uff1a"
+
+    const-string v5, "Will be unzipped to: "
+
+    invoke-static {v4, v5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    aput-object v4, v3, v6
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29$1;
+
+    invoke-direct {v2, p0, v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29$1;-><init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$29;Ljava/io/File;)V
 
     .line 1130
     const v0, 0x104000a
 
-    invoke-virtual {p1, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1138
-    const/high16 v0, 0x1040000
+    const/high16 v1, 0x1040000
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1139
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1140
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    return v3
+    return v6
 .end method

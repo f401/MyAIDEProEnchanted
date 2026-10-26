@@ -12,13 +12,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const/16 v0, 0x10
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_e
+    fill-array-data v0, :array_0
 
     invoke-static {v0}, Lcom/baidu/mobstat/bb;->c([B)[I
 
@@ -28,7 +28,7 @@
 
     return-void
 
-    :array_e
+    :array_0
     .array-data 1
         0x65t
         0x78t
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -60,132 +60,152 @@
 .end method
 
 .method private static a(II)I
-    .registers 3
+    .locals 2
 
-    neg-int v0, p1
+    shl-int v0, p0, p1
 
-    ushr-int v0, p0, v0
+    neg-int v1, p1
 
-    shl-int/2addr p0, p1
+    ushr-int v1, p0, v1
 
-    or-int/2addr p0, v0
+    or-int/2addr v0, v1
 
-    return p0
+    return v0
 .end method
 
 .method private a([B[BLjava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V
-    .registers 10
+    .locals 5
 
     invoke-virtual {p4}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v0
+    move-result v2
 
-    div-int/lit8 v1, v0, 0x40
+    div-int/lit8 v3, v2, 0x40
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    :goto_7
-    add-int/lit8 v3, v1, 0x1
+    move v1, v0
 
-    if-ge v2, v3, :cond_1e
+    :goto_0
+    add-int/lit8 v0, v3, 0x1
 
-    iget v3, p0, Lcom/baidu/mobstat/bb;->b:I
+    if-ge v1, v0, :cond_1
 
-    add-int/2addr v3, v2
+    iget v0, p0, Lcom/baidu/mobstat/bb;->b:I
 
-    invoke-virtual {p0, p1, p2, v3}, Lcom/baidu/mobstat/bb;->a([B[BI)Ljava/nio/ByteBuffer;
+    add-int/2addr v0, v1
 
-    move-result-object v3
+    invoke-virtual {p0, p1, p2, v0}, Lcom/baidu/mobstat/bb;->a([B[BI)Ljava/nio/ByteBuffer;
 
-    const/16 v4, 0x40
+    move-result-object v4
 
-    if-ne v2, v1, :cond_18
+    const/16 v0, 0x40
 
-    rem-int/lit8 v4, v0, 0x40
+    if-ne v1, v3, :cond_0
 
-    :cond_18
-    invoke-static {p3, p4, v3, v4}, Lcom/baidu/mobstat/ba;->a(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;I)V
+    rem-int/lit8 v0, v2, 0x40
 
-    add-int/lit8 v2, v2, 0x1
+    :cond_0
+    invoke-static {p3, p4, v4, v0}, Lcom/baidu/mobstat/ba;->a(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;I)V
 
-    goto :goto_7
+    add-int/lit8 v0, v1, 0x1
 
-    :cond_1e
+    move v1, v0
+
+    goto :goto_0
+
+    :cond_1
     return-void
 .end method
 
 .method static a([I)V
-    .registers 17
+    .locals 9
 
-    move-object/from16 v0, p0
+    const/4 v8, 0x3
+
+    const/4 v7, 0x2
+
+    const/4 v6, 0x1
+
+    const/16 v5, 0xa
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v0, v1
 
-    :goto_4
-    const/16 v3, 0xa
+    :goto_0
+    if-ge v0, v5, :cond_0
 
-    if-ge v2, v3, :cond_3b
+    const/4 v2, 0x4
 
-    const/4 v4, 0x4
+    const/16 v3, 0x8
 
-    const/16 v5, 0x8
+    const/16 v4, 0xc
 
-    const/16 v6, 0xc
+    invoke-static {p0, v1, v2, v3, v4}, Lcom/baidu/mobstat/bb;->a([IIIII)V
 
-    invoke-static {v0, v1, v4, v5, v6}, Lcom/baidu/mobstat/bb;->a([IIIII)V
-
-    const/4 v7, 0x1
-
-    const/4 v8, 0x5
-
-    const/16 v9, 0x9
-
-    const/16 v10, 0xd
-
-    invoke-static {v0, v7, v8, v9, v10}, Lcom/baidu/mobstat/bb;->a([IIIII)V
-
-    const/4 v11, 0x2
-
-    const/4 v12, 0x6
-
-    const/16 v13, 0xe
-
-    invoke-static {v0, v11, v12, v3, v13}, Lcom/baidu/mobstat/bb;->a([IIIII)V
-
-    const/4 v14, 0x3
-
-    const/4 v15, 0x7
-
-    const/16 v4, 0xb
-
-    const/16 v9, 0xf
-
-    invoke-static {v0, v14, v15, v4, v9}, Lcom/baidu/mobstat/bb;->a([IIIII)V
-
-    invoke-static {v0, v1, v8, v3, v9}, Lcom/baidu/mobstat/bb;->a([IIIII)V
-
-    invoke-static {v0, v7, v12, v4, v6}, Lcom/baidu/mobstat/bb;->a([IIIII)V
-
-    invoke-static {v0, v11, v15, v5, v10}, Lcom/baidu/mobstat/bb;->a([IIIII)V
+    const/4 v2, 0x5
 
     const/16 v3, 0x9
 
-    const/4 v4, 0x4
+    const/16 v4, 0xd
 
-    invoke-static {v0, v14, v4, v3, v13}, Lcom/baidu/mobstat/bb;->a([IIIII)V
+    invoke-static {p0, v6, v2, v3, v4}, Lcom/baidu/mobstat/bb;->a([IIIII)V
 
-    add-int/lit8 v2, v2, 0x1
+    const/4 v2, 0x6
 
-    goto :goto_4
+    const/16 v3, 0xe
 
-    :cond_3b
+    invoke-static {p0, v7, v2, v5, v3}, Lcom/baidu/mobstat/bb;->a([IIIII)V
+
+    const/4 v2, 0x7
+
+    const/16 v3, 0xb
+
+    const/16 v4, 0xf
+
+    invoke-static {p0, v8, v2, v3, v4}, Lcom/baidu/mobstat/bb;->a([IIIII)V
+
+    const/4 v2, 0x5
+
+    const/16 v3, 0xf
+
+    invoke-static {p0, v1, v2, v5, v3}, Lcom/baidu/mobstat/bb;->a([IIIII)V
+
+    const/4 v2, 0x6
+
+    const/16 v3, 0xb
+
+    const/16 v4, 0xc
+
+    invoke-static {p0, v6, v2, v3, v4}, Lcom/baidu/mobstat/bb;->a([IIIII)V
+
+    const/4 v2, 0x7
+
+    const/16 v3, 0x8
+
+    const/16 v4, 0xd
+
+    invoke-static {p0, v7, v2, v3, v4}, Lcom/baidu/mobstat/bb;->a([IIIII)V
+
+    const/4 v2, 0x4
+
+    const/16 v3, 0x9
+
+    const/16 v4, 0xe
+
+    invoke-static {p0, v8, v2, v3, v4}, Lcom/baidu/mobstat/bb;->a([IIIII)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
 .method static a([IIIII)V
-    .registers 7
+    .locals 2
 
     aget v0, p0, p1
 
@@ -209,11 +229,11 @@
 
     aget v1, p0, p3
 
-    add-int/2addr v1, v0
+    add-int/2addr v0, v1
 
-    aput v1, p0, p3
+    aput v0, p0, p3
 
-    aget v0, p0, p2
+    aget v1, p0, p2
 
     xor-int/2addr v0, v1
 
@@ -227,51 +247,51 @@
 
     aget v1, p0, p1
 
-    add-int/2addr v1, v0
+    add-int/2addr v0, v1
 
-    aput v1, p0, p1
+    aput v0, p0, p1
 
-    aget p1, p0, p4
+    aget v1, p0, p4
 
-    xor-int/2addr p1, v1
+    xor-int/2addr v0, v1
 
-    const/16 v0, 0x8
+    const/16 v1, 0x8
 
-    invoke-static {p1, v0}, Lcom/baidu/mobstat/bb;->a(II)I
+    invoke-static {v0, v1}, Lcom/baidu/mobstat/bb;->a(II)I
 
-    move-result p1
+    move-result v0
 
-    aput p1, p0, p4
+    aput v0, p0, p4
 
-    aget p4, p0, p3
+    aget v1, p0, p3
 
-    add-int/2addr p4, p1
+    add-int/2addr v0, v1
 
-    aput p4, p0, p3
+    aput v0, p0, p3
 
-    aget p1, p0, p2
+    aget v1, p0, p2
 
-    xor-int/2addr p1, p4
+    xor-int/2addr v0, v1
 
-    const/4 p3, 0x7
+    const/4 v1, 0x7
 
-    invoke-static {p1, p3}, Lcom/baidu/mobstat/bb;->a(II)I
+    invoke-static {v0, v1}, Lcom/baidu/mobstat/bb;->a(II)I
 
-    move-result p1
+    move-result v0
 
-    aput p1, p0, p2
+    aput v0, p0, p2
 
     return-void
 .end method
 
 .method static a([I[I)V
-    .registers 5
+    .locals 3
+
+    const/4 v2, 0x0
 
     sget-object v0, Lcom/baidu/mobstat/bb;->a:[I
 
     array-length v1, v0
-
-    const/4 v2, 0x0
 
     invoke-static {v0, v2, p0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
@@ -285,37 +305,37 @@
 .end method
 
 .method static c([B)[I
-    .registers 2
+    .locals 2
 
     invoke-static {p0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object p0
+    move-result-object v0
 
-    sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Ljava/nio/IntBuffer;->remaining()I
+    invoke-virtual {v0}, Ljava/nio/IntBuffer;->remaining()I
 
-    move-result v0
+    move-result v1
 
-    new-array v0, v0, [I
+    new-array v1, v1, [I
 
-    invoke-virtual {p0, v0}, Ljava/nio/IntBuffer;->get([I)Ljava/nio/IntBuffer;
+    invoke-virtual {v0, v1}, Ljava/nio/IntBuffer;->get([I)Ljava/nio/IntBuffer;
 
-    return-object v0
+    return-object v1
 .end method
 
 
 # virtual methods
 .method a()I
-    .registers 2
+    .locals 1
 
     const/16 v0, 0xc
 
@@ -323,75 +343,75 @@
 .end method
 
 .method a([B[BI)Ljava/nio/ByteBuffer;
-    .registers 7
+    .locals 6
+
+    const/4 v2, 0x0
 
     invoke-static {p1}, Lcom/baidu/mobstat/bb;->c([B)[I
 
-    move-result-object p1
+    move-result-object v0
 
     invoke-static {p2}, Lcom/baidu/mobstat/bb;->c([B)[I
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/baidu/mobstat/bb;->a([I[II)[I
+    invoke-virtual {p0, v0, v1, p3}, Lcom/baidu/mobstat/bb;->a([I[II)[I
 
-    move-result-object p1
+    move-result-object v3
 
-    invoke-virtual {p1}, [I->clone()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, [I
-
-    invoke-static {p2}, Lcom/baidu/mobstat/bb;->a([I)V
-
-    const/4 p3, 0x0
-
-    const/4 v0, 0x0
-
-    :goto_17
-    array-length v1, p1
-
-    if-ge v0, v1, :cond_24
-
-    aget v1, p1, v0
-
-    aget v2, p2, v0
-
-    add-int/2addr v1, v2
-
-    aput v1, p1, v0
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_17
-
-    :cond_24
-    const/16 p2, 0x40
-
-    invoke-static {p2}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
-
-    move-result-object p2
-
-    sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
-
-    invoke-virtual {p2, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
+    invoke-virtual {v3}, [I->clone()Ljava/lang/Object;
 
     move-result-object v0
 
-    const/16 v1, 0x10
+    check-cast v0, [I
 
-    invoke-virtual {v0, p1, p3, v1}, Ljava/nio/IntBuffer;->put([III)Ljava/nio/IntBuffer;
+    invoke-static {v0}, Lcom/baidu/mobstat/bb;->a([I)V
 
-    return-object p2
+    move v1, v2
+
+    :goto_0
+    array-length v4, v3
+
+    if-ge v1, v4, :cond_0
+
+    aget v4, v3, v1
+
+    aget v5, v0, v1
+
+    add-int/2addr v4, v5
+
+    aput v4, v3, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/16 v0, 0x40
+
+    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
+
+    move-result-object v1
+
+    const/16 v4, 0x10
+
+    invoke-virtual {v1, v3, v2, v4}, Ljava/nio/IntBuffer;->put([III)Ljava/nio/IntBuffer;
+
+    return-object v0
 .end method
 
 .method a(Ljava/nio/ByteBuffer;[B[B)V
-    .registers 6
+    .locals 2
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
@@ -405,15 +425,15 @@
 
     array-length v1, p2
 
-    if-lt v0, v1, :cond_2b
+    if-lt v0, v1, :cond_1
 
-    if-nez p3, :cond_1c
+    if-nez p3, :cond_0
 
     invoke-virtual {p0}, Lcom/baidu/mobstat/bb;->a()I
 
-    move-result p3
+    move-result v0
 
-    new-array p3, p3, [B
+    new-array p3, v0, [B
 
     new-instance v0, Ljava/util/Random;
 
@@ -421,7 +441,7 @@
 
     invoke-virtual {v0, p3}, Ljava/util/Random;->nextBytes([B)V
 
-    :cond_1c
+    :cond_0
     invoke-virtual {p1, p3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
     invoke-static {}, Lcom/baidu/mobstat/be;->a()[B
@@ -430,24 +450,24 @@
 
     invoke-static {p2}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p0, p3, v0, p1, p2}, Lcom/baidu/mobstat/bb;->a([B[BLjava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V
+    invoke-direct {p0, p3, v0, p1, v1}, Lcom/baidu/mobstat/bb;->a([B[BLjava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V
 
     return-void
 
-    :cond_2b
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "data output is too small"
+    const-string v1, "data output is too small"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method a(Ljava/nio/ByteBuffer;)[B
-    .registers 5
+    .locals 3
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
@@ -457,7 +477,7 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_27
+    if-lt v0, v1, :cond_0
 
     invoke-virtual {p0}, Lcom/baidu/mobstat/bb;->a()I
 
@@ -483,34 +503,34 @@
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
-    :cond_27
-    new-instance p1, Ljava/security/GeneralSecurityException;
+    :cond_0
+    new-instance v0, Ljava/security/GeneralSecurityException;
 
-    const-string v0, "data too short"
+    const-string v1, "data too short"
 
-    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public a([B)[B
-    .registers 3
+    .locals 1
 
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/baidu/mobstat/bb;->a([B[B)[B
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public a([B[B)[B
-    .registers 6
+    .locals 3
 
     array-length v0, p1
 
@@ -522,7 +542,7 @@
 
     sub-int/2addr v1, v2
 
-    if-gt v0, v1, :cond_1d
+    if-gt v0, v1, :cond_0
 
     invoke-virtual {p0}, Lcom/baidu/mobstat/bb;->a()I
 
@@ -540,22 +560,24 @@
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
-    :cond_1d
-    new-instance p1, Ljava/security/GeneralSecurityException;
+    :cond_0
+    new-instance v0, Ljava/security/GeneralSecurityException;
 
-    const-string p2, "data too long"
+    const-string v1, "data too long"
 
-    invoke-direct {p1, p2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method a([I[II)[I
-    .registers 7
+    .locals 5
+
+    const/4 v4, 0x0
 
     array-length v0, p1
 
@@ -565,9 +587,7 @@
 
     div-int/lit8 v1, v1, 0x4
 
-    const/4 v2, 0x0
-
-    if-ne v0, v1, :cond_1c
+    if-ne v0, v1, :cond_0
 
     const/16 v0, 0x10
 
@@ -575,56 +595,56 @@
 
     invoke-static {v0, p2}, Lcom/baidu/mobstat/bb;->a([I[I)V
 
-    const/16 p2, 0xc
+    const/16 v1, 0xc
 
-    aput p3, v0, p2
+    aput p3, v0, v1
 
-    const/16 p2, 0xd
+    const/16 v1, 0xd
 
-    array-length p3, p1
+    array-length v2, p1
 
-    invoke-static {p1, v2, v0, p2, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, v4, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return-object v0
 
-    :cond_1c
-    new-instance p2, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const/4 p3, 0x1
+    const-string v1, "need 96-bit param, but got a %d-bit param"
 
-    new-array p3, p3, [Ljava/lang/Object;
+    const/4 v2, 0x1
 
-    array-length p1, p1
+    new-array v2, v2, [Ljava/lang/Object;
 
-    mul-int/lit8 p1, p1, 0x20
+    array-length v3, p1
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    mul-int/lit8 v3, v3, 0x20
 
-    move-result-object p1
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object p1, p3, v2
+    move-result-object v3
 
-    const-string p1, "need 96-bit param, but got a %d-bit param"
+    aput-object v3, v2, v4
 
-    invoke-static {p1, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v0
 .end method
 
 .method public b([B)[B
-    .registers 2
+    .locals 1
 
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lcom/baidu/mobstat/bb;->a(Ljava/nio/ByteBuffer;)[B
+    invoke-virtual {p0, v0}, Lcom/baidu/mobstat/bb;->a(Ljava/nio/ByteBuffer;)[B
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

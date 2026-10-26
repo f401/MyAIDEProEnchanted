@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)V
-    .registers 2
+    .locals 0
 
     .line 707
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
@@ -36,193 +36,197 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 3
 
     .line 711
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv1(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv1(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_2b
+    if-nez v0, :cond_1
 
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv2(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv2(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_2b
+    if-nez v0, :cond_1
 
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv3(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv3(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_2b
+    if-nez v0, :cond_1
 
     .line 712
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_21
+    if-eqz v0, :cond_0
 
-    const-string p1, "至少设置一个"
+    const-string v0, "\u81f3\u5c11\u8bbe\u7f6e\u4e00\u4e2a"
 
-    goto :goto_23
+    :goto_0
+    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->warning(Ljava/lang/CharSequence;)Landroid/widget/Toast;
 
-    :cond_21
-    const-string p1, "Set at least one"
+    move-result-object v0
 
-    :goto_23
-    invoke-static {p1}, Lcom/s1243808733/util/Toasty;->warning(Ljava/lang/CharSequence;)Landroid/widget/Toast;
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
-
+    .line 719
+    :goto_1
     return-void
 
+    .line 712
+    :cond_0
+    const-string v0, "Set at least one"
+
+    goto :goto_0
+
     .line 715
-    :cond_2b
+    :cond_1
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    const-string v1, "apksignv1"
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv1(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    move-result p2
+    invoke-static {v2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv1(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
 
-    const-string v0, "apksignv1"
+    move-result v2
 
-    invoke-interface {p1, v0, p2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 716
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    const-string v1, "apksignv2"
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv2(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    move-result p2
+    invoke-static {v2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv2(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
 
-    const-string v0, "apksignv2"
+    move-result v2
 
-    invoke-interface {p1, v0, p2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 717
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    const-string v1, "apksignv3"
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv3(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    move-result p2
+    invoke-static {v2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv3(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
 
-    const-string v0, "apksignv3"
+    move-result v2
 
-    invoke-interface {p1, v0, p2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     .line 718
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_7e
+    if-eqz v0, :cond_2
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string p2, "设置成功， v1:"
+    const-string v1, "\u8bbe\u7f6e\u6210\u529f\uff0c v1:"
 
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    goto :goto_85
+    :goto_2
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    :cond_7e
-    new-instance p1, Ljava/lang/StringBuilder;
+    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv1(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
 
-    const-string p2, "Setup succeeded.  v1:"
+    move-result v1
 
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    :goto_85
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    const-string v1, "  v2:"
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv1(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result p2
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv2(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
 
-    const-string p2, "  v2:"
+    move-result v1
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    const-string v1, "  v3:"
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv2(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result p2
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv3(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
 
-    const-string p2, "  v3:"
+    move-result v1
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;->-$$Nest$fgetisapksignv3(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$19;)Z
+    move-result-object v0
 
-    move-result p2
+    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 719
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->killPackagingServiceProcess()V
 
-    return-void
+    goto/16 :goto_1
+
+    .line 718
+    :cond_2
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "Setup succeeded.  v1:"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    goto :goto_2
 .end method

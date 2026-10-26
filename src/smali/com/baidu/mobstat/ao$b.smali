@@ -31,88 +31,91 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/ao;)V
-    .registers 2
+    .locals 1
 
     iput-object p1, p0, Lcom/baidu/mobstat/ao$b;->a:Lcom/baidu/mobstat/ao;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance p1, Lcom/baidu/mobstat/bt;
+    new-instance v0, Lcom/baidu/mobstat/bt;
 
-    invoke-direct {p1}, Lcom/baidu/mobstat/bt;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/bt;-><init>()V
 
-    iput-object p1, p0, Lcom/baidu/mobstat/ao$b;->b:Lcom/baidu/mobstat/bt;
+    iput-object v0, p0, Lcom/baidu/mobstat/ao$b;->b:Lcom/baidu/mobstat/bt;
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lcom/baidu/mobstat/ao$b;->f:Z
+    iput-boolean v0, p0, Lcom/baidu/mobstat/ao$b;->f:Z
 
     return-void
 .end method
 
 .method private a(Ljava/lang/String;)Z
-    .registers 6
+    .locals 4
+
+    const/4 v0, 0x0
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    if-nez v1, :cond_0
 
-    if-nez v0, :cond_2d
+    :try_start_0
+    new-instance v1, Lorg/json/JSONObject;
 
-    :try_start_7
-    new-instance v0, Lorg/json/JSONObject;
+    invoke-direct {v1, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    const-string v2, "pub_lst_ts"
 
-    const-string p1, "pub_lst_ts"
-
-    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
 
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/baidu/mobstat/ao$b;->c:J
 
-    const-string p1, "pub_info"
+    const-string v2, "pub_info"
 
-    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-static {p1}, Lcom/baidu/mobstat/bw;->a(Ljava/lang/String;)Lcom/baidu/mobstat/bw$a;
+    invoke-static {v2}, Lcom/baidu/mobstat/bw;->a(Ljava/lang/String;)Lcom/baidu/mobstat/bw$a;
 
-    move-result-object p1
+    move-result-object v2
 
-    iput-object p1, p0, Lcom/baidu/mobstat/ao$b;->d:Lcom/baidu/mobstat/bw$a;
+    iput-object v2, p0, Lcom/baidu/mobstat/ao$b;->d:Lcom/baidu/mobstat/bw$a;
 
-    const-string p1, "d_form_ver"
+    const-string v2, "d_form_ver"
 
-    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v1
 
-    iput p1, p0, Lcom/baidu/mobstat/ao$b;->g:I
+    iput v1, p0, Lcom/baidu/mobstat/ao$b;->g:I
+
+    const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/baidu/mobstat/ao$b;->e:Z
-    :try_end_2a
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_2a} :catch_2c
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    :cond_0
+    :goto_0
+    return v0
 
-    :catch_2c
-    move-exception p1
+    :catch_0
+    move-exception v1
 
-    :cond_2d
-    return v1
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public a()J
-    .registers 3
+    .locals 2
 
     iget-wide v0, p0, Lcom/baidu/mobstat/ao$b;->c:J
 
@@ -120,45 +123,45 @@
 .end method
 
 .method public a(J)V
-    .registers 6
+    .locals 3
 
     iget-wide v0, p0, Lcom/baidu/mobstat/ao$b;->c:J
 
-    cmp-long v2, v0, p1
+    cmp-long v0, v0, p1
 
-    if-eqz v2, :cond_b
+    if-eqz v0, :cond_0
 
     iput-wide p1, p0, Lcom/baidu/mobstat/ao$b;->c:J
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lcom/baidu/mobstat/ao$b;->e:Z
+    iput-boolean v0, p0, Lcom/baidu/mobstat/ao$b;->e:Z
 
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public a(JJ)V
-    .registers 6
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/ao$b;->b:Lcom/baidu/mobstat/bt;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/baidu/mobstat/bt;->a(JJ)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_b
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lcom/baidu/mobstat/ao$b;->e:Z
+    iput-boolean v0, p0, Lcom/baidu/mobstat/ao$b;->e:Z
 
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public a(Lcom/baidu/mobstat/bw$a;)V
-    .registers 3
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/ao$b;->d:Lcom/baidu/mobstat/bw$a;
 
@@ -166,20 +169,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     iput-object p1, p0, Lcom/baidu/mobstat/ao$b;->d:Lcom/baidu/mobstat/bw$a;
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lcom/baidu/mobstat/ao$b;->e:Z
+    iput-boolean v0, p0, Lcom/baidu/mobstat/ao$b;->e:Z
 
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public a(Landroid/content/pm/PackageInfo;)Z
-    .registers 4
+    .locals 3
 
     iget-object v0, p0, Lcom/baidu/mobstat/ao$b;->a:Lcom/baidu/mobstat/ao;
 
@@ -187,37 +190,37 @@
 
     new-instance v1, Ljava/io/File;
 
-    iget-object p1, p1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v2, p1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object p1, p1, Landroid/content/pm/ApplicationInfo;->dataDir:Ljava/lang/String;
+    iget-object v2, v2, Landroid/content/pm/ApplicationInfo;->dataDir:Ljava/lang/String;
 
-    invoke-direct {v1, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/bq$a;->a(Ljava/io/File;)Lcom/baidu/mobstat/bq$a;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "pub.dat"
+    const-string v1, "pub.dat"
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {p1, v0, v1}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;Z)Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput-boolean v0, p0, Lcom/baidu/mobstat/ao$b;->f:Z
+    iput-boolean v1, p0, Lcom/baidu/mobstat/ao$b;->f:Z
 
-    invoke-direct {p0, p1}, Lcom/baidu/mobstat/ao$b;->a(Ljava/lang/String;)Z
+    invoke-direct {p0, v0}, Lcom/baidu/mobstat/ao$b;->a(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public b()Lcom/baidu/mobstat/bw$a;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/ao$b;->d:Lcom/baidu/mobstat/bw$a;
 
@@ -225,7 +228,7 @@
 .end method
 
 .method public c()Z
-    .registers 4
+    .locals 3
 
     iget-object v0, p0, Lcom/baidu/mobstat/ao$b;->a:Lcom/baidu/mobstat/ao;
 
@@ -247,70 +250,79 @@
 .end method
 
 .method public d()Z
-    .registers 6
-
-    iget-boolean v0, p0, Lcom/baidu/mobstat/ao$b;->f:Z
-
-    if-eqz v0, :cond_38
-
-    iget-boolean v0, p0, Lcom/baidu/mobstat/ao$b;->e:Z
+    .locals 6
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_37
+    const/4 v0, 0x1
 
-    :try_start_9
-    new-instance v0, Lorg/json/JSONObject;
+    iget-boolean v2, p0, Lcom/baidu/mobstat/ao$b;->f:Z
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    if-eqz v2, :cond_1
 
-    const-string v2, "pub_info"
+    iget-boolean v2, p0, Lcom/baidu/mobstat/ao$b;->e:Z
 
-    iget-object v3, p0, Lcom/baidu/mobstat/ao$b;->d:Lcom/baidu/mobstat/bw$a;
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v3}, Lcom/baidu/mobstat/bw$a;->j()Ljava/lang/String;
+    :try_start_0
+    new-instance v2, Lorg/json/JSONObject;
 
-    move-result-object v3
+    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
 
-    invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    const-string v3, "pub_info"
 
-    const-string v2, "pub_lst_ts"
+    iget-object v4, p0, Lcom/baidu/mobstat/ao$b;->d:Lcom/baidu/mobstat/bw$a;
 
-    iget-wide v3, p0, Lcom/baidu/mobstat/ao$b;->c:J
+    invoke-virtual {v4}, Lcom/baidu/mobstat/bw$a;->j()Ljava/lang/String;
 
-    invoke-virtual {v0, v2, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    move-result-object v4
 
-    const-string v2, "d_form_ver"
+    invoke-virtual {v2, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    const/4 v3, 0x1
+    const-string v3, "pub_lst_ts"
 
-    invoke-virtual {v0, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    iget-wide v4, p0, Lcom/baidu/mobstat/ao$b;->c:J
 
-    iget-object v2, p0, Lcom/baidu/mobstat/ao$b;->a:Lcom/baidu/mobstat/ao;
+    invoke-virtual {v2, v3, v4, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    iget-object v2, v2, Lcom/baidu/mobstat/ao;->d:Lcom/baidu/mobstat/bq$a;
+    const-string v3, "d_form_ver"
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v2, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    iget-object v3, p0, Lcom/baidu/mobstat/ao$b;->a:Lcom/baidu/mobstat/ao;
+
+    iget-object v3, v3, Lcom/baidu/mobstat/ao;->d:Lcom/baidu/mobstat/bq$a;
 
     const-string v4, "pub.dat"
 
-    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v2, v4, v0, v3}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;Ljava/lang/String;Z)Z
+    const/4 v5, 0x1
 
-    iput-boolean v1, p0, Lcom/baidu/mobstat/ao$b;->e:Z
-    :try_end_35
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_35} :catch_36
+    invoke-virtual {v3, v4, v2, v5}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;Ljava/lang/String;Z)Z
 
-    return v3
+    const/4 v2, 0x0
 
-    :catch_36
+    iput-boolean v2, p0, Lcom/baidu/mobstat/ao$b;->e:Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return v0
+
+    :catch_0
     move-exception v0
 
-    :cond_37
-    return v1
+    :cond_0
+    move v0, v1
 
-    :cond_38
+    goto :goto_0
+
+    :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -319,7 +331,7 @@
 .end method
 
 .method public e()Z
-    .registers 3
+    .locals 2
 
     iget-object v0, p0, Lcom/baidu/mobstat/ao$b;->a:Lcom/baidu/mobstat/ao;
 

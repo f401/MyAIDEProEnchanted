@@ -9,25 +9,25 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetssaMeth(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;)Lcom/s1243808733/android/dx/ssa/SsaMethod;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;->ssaMeth:Lcom/s1243808733/android/dx/ssa/SsaMethod;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;->ssaMeth:Lcom/s1243808733/android/dx/ssa/SsaMethod;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$mgetParamIndex(Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)I
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;->getParamIndex(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method private constructor <init>(Lcom/s1243808733/android/dx/ssa/SsaMethod;)V
-    .registers 2
+    .locals 0
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,31 +39,31 @@
 .end method
 
 .method private getParamIndex(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)I
-    .registers 2
+    .locals 1
 
     .line 153
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;->getOriginalRopInsn()Lcom/s1243808733/android/dx/rop/code/Insn;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/rop/code/CstInsn;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/code/CstInsn;
 
     .line 155
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/CstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/CstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->getValue()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/cst/CstInteger;->getValue()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public static process(Lcom/s1243808733/android/dx/ssa/SsaMethod;)V
-    .registers 2
+    .locals 1
 
     .line 42
     new-instance v0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;
@@ -76,7 +76,7 @@
 .end method
 
 .method private run()V
-    .registers 5
+    .locals 4
 
     .line 54
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/MoveParamCombiner;->ssaMeth:Lcom/s1243808733/android/dx/ssa/SsaMethod;

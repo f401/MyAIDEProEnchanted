@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNConfig;)V
-    .registers 3
+    .locals 1
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,15 +47,15 @@
     iput-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
 
     .line 72
-    iget p1, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
+    iget v0, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
 
-    iput p1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
+    iput v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;)V
-    .registers 5
+    .locals 2
 
     .line 94
     iget-object v0, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;Lorg/antlr/v4/runtime/atn/PredictionContext;)V
-    .registers 5
+    .locals 1
 
     .line 112
     iget-object v0, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;Lorg/antlr/v4/runtime/atn/PredictionContext;Lorg/antlr/v4/runtime/atn/SemanticContext;)V
-    .registers 5
+    .locals 1
 
     .line 118
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,9 +88,9 @@
     iput-object p2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->state:Lorg/antlr/v4/runtime/atn/ATNState;
 
     .line 120
-    iget p2, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
+    iget v0, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
 
-    iput p2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
+    iput v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
 
     .line 121
     iput-object p3, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
@@ -99,15 +99,15 @@
     iput-object p4, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
 
     .line 123
-    iget p1, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
+    iget v0, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
 
-    iput p1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
+    iput v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNConfig;Lorg/antlr/v4/runtime/atn/ATNState;Lorg/antlr/v4/runtime/atn/SemanticContext;)V
-    .registers 5
+    .locals 1
 
     .line 100
     iget-object v0, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNConfig;Lorg/antlr/v4/runtime/atn/SemanticContext;)V
-    .registers 5
+    .locals 2
 
     .line 106
     iget-object v0, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->state:Lorg/antlr/v4/runtime/atn/ATNState;
@@ -131,7 +131,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;ILorg/antlr/v4/runtime/atn/PredictionContext;)V
-    .registers 5
+    .locals 1
 
     .line 79
     sget-object v0, Lorg/antlr/v4/runtime/atn/SemanticContext;->NONE:Lorg/antlr/v4/runtime/atn/SemanticContext;
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;ILorg/antlr/v4/runtime/atn/PredictionContext;Lorg/antlr/v4/runtime/atn/SemanticContext;)V
-    .registers 5
+    .locals 0
 
     .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -165,46 +165,53 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
 
     .line 154
     instance-of v0, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x0
-
-    return p1
+    const/4 v0, 0x0
 
     .line 158
-    :cond_6
+    :goto_0
+    return v0
+
+    :cond_0
     check-cast p1, Lorg/antlr/v4/runtime/atn/ATNConfig;
 
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/atn/ATNConfig;->equals(Lorg/antlr/v4/runtime/atn/ATNConfig;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public equals(Lorg/antlr/v4/runtime/atn/ATNConfig;)Z
-    .registers 6
+    .locals 4
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_4
-
-    return v0
-
-    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_8
-
-    return v1
+    if-ne p0, p1, :cond_1
 
     .line 169
-    :cond_8
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 4294967295
+    :cond_1
+    if-nez p1, :cond_2
+
+    move v0, v1
+
+    goto :goto_0
+
+    .line 169
+    :cond_2
     iget-object v2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->state:Lorg/antlr/v4/runtime/atn/ATNState;
 
     iget v2, v2, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
@@ -213,29 +220,29 @@
 
     iget v3, v3, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
 
-    if-ne v2, v3, :cond_3b
+    if-ne v2, v3, :cond_4
 
     iget v2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
 
     iget v3, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
 
-    if-ne v2, v3, :cond_3b
+    if-ne v2, v3, :cond_4
 
     iget-object v2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
 
     iget-object v3, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
 
-    if-eq v2, v3, :cond_26
+    if-eq v2, v3, :cond_3
 
-    if-eqz v2, :cond_3b
+    if-eqz v2, :cond_4
 
     invoke-virtual {v2, v3}, Lorg/antlr/v4/runtime/atn/PredictionContext;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3b
+    if-eqz v2, :cond_4
 
-    :cond_26
+    :cond_3
     iget-object v2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
 
     iget-object v3, p1, Lorg/antlr/v4/runtime/atn/ATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
@@ -244,7 +251,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3b
+    if-eqz v2, :cond_4
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/atn/ATNConfig;->isPrecedenceFilterSuppressed()Z
 
@@ -252,26 +259,23 @@
 
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/atn/ATNConfig;->isPrecedenceFilterSuppressed()Z
 
-    move-result p1
+    move-result v3
 
-    if-ne v2, p1, :cond_3b
+    if-eq v2, v3, :cond_0
 
-    goto :goto_3c
+    :cond_4
+    move v0, v1
 
-    :cond_3b
-    const/4 v0, 0x0
-
-    :goto_3c
-    return v0
+    goto :goto_0
 .end method
 
 .method public final getOuterContextDepth()I
-    .registers 3
+    .locals 2
 
     .line 132
     iget v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
 
-    const v1, -0x40000001  # -1.9999999f
+    const v1, -0x40000001    # -1.9999999f
 
     and-int/2addr v0, v1
 
@@ -279,7 +283,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .line 178
     const/4 v0, 0x7
@@ -329,60 +333,60 @@
 .end method
 
 .method public final isPrecedenceFilterSuppressed()Z
-    .registers 3
+    .locals 2
 
     .line 136
     iget v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
 
-    const/high16 v1, 0x40000000  # 2.0f
+    const/high16 v1, 0x40000000    # 2.0f
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_a
+    :goto_0
+    return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_a
-    return v0
+    goto :goto_0
 .end method
 
 .method public final setPrecedenceFilterSuppressed(Z)V
-    .registers 3
+    .locals 2
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     .line 141
-    iget p1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
+    iget v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
 
-    const/high16 v0, 0x40000000  # 2.0f
+    const/high16 v1, 0x40000000    # 2.0f
 
-    or-int/2addr p1, v0
+    or-int/2addr v0, v1
 
-    iput p1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
-
-    goto :goto_12
+    iput v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
 
     .line 144
-    :cond_a
-    iget p1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
-
-    const v0, -0x40000001  # -1.9999999f
-
-    and-int/2addr p1, v0
-
-    iput p1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
-
-    :goto_12
+    :goto_0
     return-void
+
+    :cond_0
+    iget v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
+
+    const v1, -0x40000001    # -1.9999999f
+
+    and-int/2addr v0, v1
+
+    iput v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->reachesIntoOuterContext:I
+
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 189
     const/4 v0, 0x0
@@ -397,113 +401,115 @@
 .end method
 
 .method public toString(Lorg/antlr/v4/runtime/Recognizer;Z)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;Z)",
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;Z)",
             "Ljava/lang/String;"
         }
     .end annotation
 
     .line 193
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v0, "("
+    const-string v1, "("
 
-    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 199
-    iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->state:Lorg/antlr/v4/runtime/atn/ATNState;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->state:Lorg/antlr/v4/runtime/atn/ATNState;
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 200
-    const-string v0, ","
-
-    if-eqz p2, :cond_18
+    if-eqz p2, :cond_0
 
     .line 201
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ","
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 202
-    iget p2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
+    iget v1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 204
-    :cond_18
-    iget-object p2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
+    :cond_0
+    iget-object v1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
 
-    if-eqz p2, :cond_2f
+    if-eqz v1, :cond_1
 
     .line 205
-    const-string p2, ",["
+    const-string v1, ",["
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 206
-    iget-object p2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->context:Lorg/antlr/v4/runtime/atn/PredictionContext;
 
-    invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 207
-    const-string p2, "]"
+    const-string v1, "]"
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 209
-    :cond_2f
-    iget-object p2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
+    :cond_1
+    iget-object v1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
 
-    if-eqz p2, :cond_3f
+    if-eqz v1, :cond_2
 
-    sget-object v1, Lorg/antlr/v4/runtime/atn/SemanticContext;->NONE:Lorg/antlr/v4/runtime/atn/SemanticContext;
+    sget-object v2, Lorg/antlr/v4/runtime/atn/SemanticContext;->NONE:Lorg/antlr/v4/runtime/atn/SemanticContext;
 
-    if-eq p2, v1, :cond_3f
+    if-eq v1, v2, :cond_2
 
     .line 210
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ","
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 211
-    iget-object p2, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/atn/ATNConfig;->semanticContext:Lorg/antlr/v4/runtime/atn/SemanticContext;
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 213
-    :cond_3f
+    :cond_2
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/atn/ATNConfig;->getOuterContextDepth()I
 
-    move-result p2
+    move-result v1
 
-    if-lez p2, :cond_51
+    if-lez v1, :cond_3
 
     .line 214
-    const-string p2, ",up="
+    const-string v1, ",up="
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/atn/ATNConfig;->getOuterContextDepth()I
 
-    move-result p2
+    move-result v1
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 216
-    :cond_51
-    const/16 p2, 0x29
+    :cond_3
+    const/16 v1, 0x29
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 217
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 599
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,122 +30,127 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 8
+    .locals 7
+
+    const/4 v6, 0x0
 
     .line 603
     invoke-static {}, Lcom/s1243808733/aide/util/ProjectUtils;->getCurrentProject()Ljava/io/File;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_11
+    if-eqz v0, :cond_0
 
     .line 604
-    invoke-static {p1}, Lcom/s1243808733/aide/util/ProjectUtils;->isGradleProject(Ljava/io/File;)Z
+    invoke-static {v0}, Lcom/s1243808733/aide/util/ProjectUtils;->isGradleProject(Ljava/io/File;)Z
 
-    move-result p2
+    move-result v1
 
-    if-eqz p2, :cond_11
+    if-eqz v1, :cond_0
 
     .line 605
-    invoke-virtual {p1}, Ljava/io/File;->getParent()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getParent()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    goto :goto_15
-
-    .line 608
-    :cond_11
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object p1
+    move-object v2, v0
 
     .line 610
-    :goto_15
-    const-string p2, ""
+    :goto_0
+    const-string v0, ""
 
-    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p2
+    move-result v0
 
-    const/4 v0, 0x0
-
-    if-eqz p2, :cond_30
+    if-eqz v0, :cond_1
 
     .line 611
-    const-string p1, "目录异常"
+    const-string v0, "\u76ee\u5f55\u5f02\u5e38"
 
-    const-string p2, "Directory Exception"
+    const-string v1, "Directory Exception"
 
-    invoke-static {p1, p2}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/CharSequence;
+    check-cast v0, Ljava/lang/CharSequence;
 
-    invoke-static {p1, v0}, Lcom/s1243808733/util/Toasty;->error(Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v0, v6}, Lcom/s1243808733/util/Toasty;->error(Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    goto :goto_69
+    .line 643
+    :goto_1
+    return-void
+
+    .line 608
+    :cond_0
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    goto :goto_0
 
     .line 614
-    :cond_30
+    :cond_1
     invoke-static {}, Lcom/s1243808733/util/Utils;->getMainActivity()Lcom/aide/ui/MainActivity;
-
-    move-result-object p2
-
-    const-string v1, "正在备份项目"
-
-    const-string v2, "Backing up project"
-
-    invoke-static {v1, v2}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/CharSequence;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "当前备份的项目:"
-
-    const-string v4, "Items currently backed up: "
-
-    invoke-static {v3, v4}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Ljava/lang/String;
+    const-string v0, "\u6b63\u5728\u5907\u4efd\u9879\u76ee"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "Backing up project"
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    check-cast v0, Ljava/lang/CharSequence;
 
-    const/4 v3, 0x1
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-static {p2, v1, v2, v3, v0}, Landroid/app/ProgressDialog;->show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZZ)Landroid/app/ProgressDialog;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object p2
+    const-string v1, "\u5f53\u524d\u5907\u4efd\u7684\u9879\u76ee:"
+
+    const-string v5, "Items currently backed up: "
+
+    invoke-static {v1, v5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v4, 0x1
+
+    invoke-static {v3, v0, v1, v4, v6}, Landroid/app/ProgressDialog;->show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZZ)Landroid/app/ProgressDialog;
+
+    move-result-object v0
 
     .line 615
-    new-instance v0, Ljava/lang/Thread;
+    new-instance v1, Ljava/lang/Thread;
 
-    new-instance v1, Lcom/s1243808733/aide/MainListener$8$1;
+    new-instance v3, Lcom/s1243808733/aide/MainListener$8$1;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/s1243808733/aide/MainListener$8$1;-><init>(Lcom/s1243808733/aide/MainListener$8;Ljava/lang/String;Landroid/app/ProgressDialog;)V
+    invoke-direct {v3, p0, v2, v0}, Lcom/s1243808733/aide/MainListener$8$1;-><init>(Lcom/s1243808733/aide/MainListener$8;Ljava/lang/String;Landroid/app/ProgressDialog;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v1, v3}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
     .line 643
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
-    :goto_69
-    return-void
+    goto :goto_1
 .end method

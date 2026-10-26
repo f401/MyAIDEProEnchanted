@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 6
 
     .line 30
     new-instance v0, Ljava/lang/StringBuilder;
@@ -75,9 +75,9 @@
 
     new-instance v2, Ljava/util/Date;
 
-    iget-wide v3, p0, Lorg/antlr/v4/runtime/misc/LogManager$Record;->timestamp:J
+    iget-wide v4, p0, Lorg/antlr/v4/runtime/misc/LogManager$Record;->timestamp:J
 
-    invoke-direct {v2, v3, v4}, Ljava/util/Date;-><init>(J)V
+    invoke-direct {v2, v4, v5}, Ljava/util/Date;-><init>(J)V
 
     invoke-virtual {v1, v2}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
@@ -91,37 +91,41 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 33
-    iget-object v2, p0, Lorg/antlr/v4/runtime/misc/LogManager$Record;->component:Ljava/lang/String;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/misc/LogManager$Record;->component:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 34
+    const-string v1, " "
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 35
-    iget-object v2, p0, Lorg/antlr/v4/runtime/misc/LogManager$Record;->location:Ljava/lang/StackTraceElement;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/misc/LogManager$Record;->location:Ljava/lang/StackTraceElement;
 
-    invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getFileName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StackTraceElement;->getFileName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 36
-    const-string v2, ":"
+    const-string v1, ":"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 37
-    iget-object v2, p0, Lorg/antlr/v4/runtime/misc/LogManager$Record;->location:Ljava/lang/StackTraceElement;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/misc/LogManager$Record;->location:Ljava/lang/StackTraceElement;
 
-    invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getLineNumber()I
+    invoke-virtual {v1}, Ljava/lang/StackTraceElement;->getLineNumber()I
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 38
+    const-string v1, " "
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 39

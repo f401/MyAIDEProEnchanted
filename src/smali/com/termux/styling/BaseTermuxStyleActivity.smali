@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 8
     invoke-direct {p0}, Lcom/s1243808733/app/base/BaseActivity;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public findViewById(I)Landroid/view/View;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -27,52 +27,57 @@
 
     const/high16 v0, -0x64fe0000
 
-    if-ne v0, p1, :cond_a
+    if-ne v0, p1, :cond_1
 
     .line 21
-    const-string p1, "color_spinner"
+    const-string v0, "color_spinner"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    :cond_a
-    const v0, -0x64fdffff
+    :goto_0
+    const v1, -0x64fdffff
 
-    if-ne v0, p1, :cond_15
+    if-ne v1, v0, :cond_0
 
     .line 24
-    const-string p1, "font_spinner"
+    const-string v0, "font_spinner"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
     .line 26
-    :cond_15
-    invoke-super {p0, p1}, Lcom/s1243808733/app/base/BaseActivity;->findViewById(I)Landroid/view/View;
+    :cond_0
+    invoke-super {p0, v0}, Lcom/s1243808733/app/base/BaseActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
+
+    :cond_1
+    move v0, p1
+
+    goto :goto_0
 .end method
 
 .method public setContentView(I)V
-    .registers 3
+    .locals 1
 
     const/high16 v0, -0x64fd0000
 
-    if-ne v0, p1, :cond_a
+    if-ne v0, p1, :cond_0
 
     .line 13
-    const-string p1, "layout"
+    const-string v0, "layout"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ResourceUtils;->getLayoutIdByName(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getLayoutIdByName(Ljava/lang/String;)I
 
     move-result p1
 
     .line 15
-    :cond_a
+    :cond_0
     invoke-super {p0, p1}, Lcom/s1243808733/app/base/BaseActivity;->setContentView(I)V
 
     return-void

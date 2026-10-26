@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 32
     invoke-direct {p0}, Lcom/s1243808733/android/dx/dex/file/IndexedItem;-><init>()V
@@ -16,13 +16,13 @@
 
 # virtual methods
 .method public addContents(Lcom/s1243808733/android/dx/dex/file/DexFile;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public itemType()Lcom/s1243808733/android/dx/dex/file/ItemType;
-    .registers 2
+    .locals 1
 
     .line 39
     sget-object v0, Lcom/s1243808733/android/dx/dex/file/ItemType;->TYPE_HEADER_ITEM:Lcom/s1243808733/android/dx/dex/file/ItemType;
@@ -31,7 +31,7 @@
 .end method
 
 .method public writeSize()I
-    .registers 2
+    .locals 1
 
     const/16 v0, 0x70
 
@@ -39,7 +39,15 @@
 .end method
 
 .method public writeTo(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
-    .registers 13
+    .locals 10
+
+    const v9, 0x12345678
+
+    const/16 v8, 0x70
+
+    const/16 v7, 0x8
+
+    const/4 v6, 0x4
 
     .line 57
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/DexFile;->getMap()Lcom/s1243808733/android/dx/dex/file/MixedItemSection;
@@ -48,12 +56,12 @@
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->getFileOffset()I
 
-    move-result v0
+    move-result v1
 
     .line 58
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/DexFile;->getFirstDataSection()Lcom/s1243808733/android/dx/dex/file/Section;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 59
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/DexFile;->getLastDataSection()Lcom/s1243808733/android/dx/dex/file/Section;
@@ -61,216 +69,208 @@
     move-result-object v2
 
     .line 60
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/dex/file/Section;->getFileOffset()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/Section;->getFileOffset()I
 
-    move-result v1
+    move-result v3
 
     .line 61
     invoke-virtual {v2}, Lcom/s1243808733/android/dx/dex/file/Section;->getFileOffset()I
 
-    move-result v3
+    move-result v0
 
     .line 62
     invoke-virtual {v2}, Lcom/s1243808733/android/dx/dex/file/Section;->writeSize()I
 
     move-result v2
 
-    add-int/2addr v3, v2
+    add-int/2addr v0, v2
 
-    sub-int/2addr v3, v1
+    sub-int v2, v0, v3
 
     .line 64
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/DexFile;->getDexOptions()Lcom/s1243808733/android/dx/dex/DexOptions;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/dex/DexOptions;->getMagic()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/DexOptions;->getMagic()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
     .line 66
     invoke-interface {p2}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotates()Z
 
-    move-result v4
+    move-result v0
 
-    const v5, 0x12345678
-
-    const/16 v6, 0x70
-
-    const/16 v7, 0x8
-
-    const/4 v8, 0x4
-
-    if-eqz v4, :cond_bc
+    if-eqz v0, :cond_0
 
     .line 67
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v9, "magic: "
+    const-string v5, "magic: "
 
-    invoke-direct {v4, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    new-instance v9, Lcom/s1243808733/android/dx/rop/cst/CstString;
+    new-instance v5, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    invoke-direct {v9, v2}, Lcom/s1243808733/android/dx/rop/cst/CstString;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v4}, Lcom/s1243808733/android/dx/rop/cst/CstString;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v9}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/s1243808733/android/dx/rop/cst/CstString;->toQuoted()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v5
 
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-interface {p2, v7, v4}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p2, v7, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 68
-    const-string v4, "checksum"
+    const-string v0, "checksum"
 
-    invoke-interface {p2, v8, v4}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 69
-    const/16 v4, 0x14
+    const/16 v0, 0x14
 
-    const-string v9, "signature"
+    const-string v5, "signature"
 
-    invoke-interface {p2, v4, v9}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p2, v0, v5}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 70
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v9, "file_size:       "
+    const-string v5, "file_size:       "
 
-    invoke-direct {v4, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 71
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/DexFile;->getFileSize()I
 
-    move-result v9
-
-    invoke-static {v9}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 70
-    invoke-interface {p2, v8, v4}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
-
-    .line 72
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    const-string v9, "header_size:     "
-
-    invoke-direct {v4, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v6}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {p2, v8, v4}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
-
-    .line 73
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    const-string v9, "endian_tag:      "
-
-    invoke-direct {v4, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result v5
 
     invoke-static {v5}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v5
 
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-interface {p2, v8, v4}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    .line 70
+    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+
+    .line 72
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v5, "header_size:     "
+
+    invoke-direct {v0, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v8}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+
+    .line 73
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v5, "endian_tag:      "
+
+    invoke-direct {v0, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v9}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 74
-    const-string v4, "link_size:       0"
+    const-string v0, "link_size:       0"
 
-    invoke-interface {p2, v8, v4}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 75
-    const-string v4, "link_off:        0"
+    const-string v0, "link_off:        0"
 
-    invoke-interface {p2, v8, v4}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 76
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v9, "map_off:         "
+    const-string v5, "map_off:         "
 
-    invoke-direct {v4, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
+    invoke-static {v1}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v5
 
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-interface {p2, v8, v4}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
-    :cond_bc
-    const/4 v4, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_bd
-    if-ge v4, v7, :cond_c9
+    :goto_0
+    if-ge v0, v7, :cond_1
 
     .line 81
-    invoke-virtual {v2, v4}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v4, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result v9
+    move-result v5
 
-    invoke-interface {p2, v9}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeByte(I)V
+    invoke-interface {p2, v5}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeByte(I)V
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_bd
+    goto :goto_0
 
     .line 85
-    :cond_c9
-    const/16 v2, 0x18
+    :cond_1
+    const/16 v0, 0x18
 
-    invoke-interface {p2, v2}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeZeroes(I)V
+    invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeZeroes(I)V
 
     .line 87
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/DexFile;->getFileSize()I
 
-    move-result v2
+    move-result v0
 
-    invoke-interface {p2, v2}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
+    invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
 
     .line 88
-    invoke-interface {p2, v6}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
+    invoke-interface {p2, v8}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
 
     .line 89
-    invoke-interface {p2, v5}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
+    invoke-interface {p2, v9}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
 
     .line 95
     invoke-interface {p2, v7}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeZeroes(I)V
 
     .line 97
-    invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
+    invoke-interface {p2, v1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
 
     .line 100
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/DexFile;->getStringIds()Lcom/s1243808733/android/dx/dex/file/StringIdsSection;
@@ -310,61 +310,61 @@
     .line 105
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/DexFile;->getClassDefs()Lcom/s1243808733/android/dx/dex/file/ClassDefsSection;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1, p2}, Lcom/s1243808733/android/dx/dex/file/ClassDefsSection;->writeHeaderPart(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
+    invoke-virtual {v0, p2}, Lcom/s1243808733/android/dx/dex/file/ClassDefsSection;->writeHeaderPart(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
 
     .line 107
     invoke-interface {p2}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotates()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_13b
+    if-eqz v0, :cond_2
 
     .line 108
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v0, "data_size:       "
+    const-string v1, "data_size:       "
 
-    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v2}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+
+    .line 109
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "data_off:        "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-static {v3}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-interface {p2, v8, p1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
-
-    .line 109
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    const-string v0, "data_off:        "
-
-    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v1}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-interface {p2, v8, p1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p2, v6, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 112
-    :cond_13b
-    invoke-interface {p2, v3}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
+    :cond_2
+    invoke-interface {p2, v2}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
 
     .line 113
-    invoke-interface {p2, v1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
+    invoke-interface {p2, v3}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
 
     return-void
 .end method

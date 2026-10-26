@@ -61,7 +61,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 141
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method public static classString(I)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 153
     const/16 v0, 0x7631
@@ -79,13 +79,13 @@
 
     invoke-static {p0, v0, v1}, Lcom/s1243808733/android/dx/rop/code/AccessFlags;->humanHelper(III)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static fieldString(I)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 175
     const/16 v0, 0x50df
@@ -94,13 +94,17 @@
 
     invoke-static {p0, v0, v1}, Lcom/s1243808733/android/dx/rop/code/AccessFlags;->humanHelper(III)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method private static humanHelper(III)Ljava/lang/String;
-    .registers 7
+    .locals 6
+
+    const/4 v5, 0x3
+
+    const/4 v4, 0x1
 
     .line 330
     new-instance v0, Ljava/lang/StringBuilder;
@@ -113,252 +117,251 @@
 
     and-int/2addr v1, p0
 
-    and-int/2addr p0, p1
+    and-int v2, p0, p1
 
-    and-int/lit8 p1, p0, 0x1
+    and-int/lit8 v3, v2, 0x1
 
-    if-eqz p1, :cond_14
+    if-eqz v3, :cond_0
 
     .line 336
-    const-string p1, "|public"
+    const-string v3, "|public"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_14
-    and-int/lit8 p1, p0, 0x2
+    :cond_0
+    and-int/lit8 v3, v2, 0x2
 
-    if-eqz p1, :cond_1d
+    if-eqz v3, :cond_1
 
     .line 339
-    const-string p1, "|private"
+    const-string v3, "|private"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1d
-    and-int/lit8 p1, p0, 0x4
+    :cond_1
+    and-int/lit8 v3, v2, 0x4
 
-    if-eqz p1, :cond_26
+    if-eqz v3, :cond_2
 
     .line 342
-    const-string p1, "|protected"
+    const-string v3, "|protected"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_26
-    and-int/lit8 p1, p0, 0x8
+    :cond_2
+    and-int/lit8 v3, v2, 0x8
 
-    if-eqz p1, :cond_2f
+    if-eqz v3, :cond_3
 
     .line 345
-    const-string p1, "|static"
+    const-string v3, "|static"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_2f
-    and-int/lit8 p1, p0, 0x10
+    :cond_3
+    and-int/lit8 v3, v2, 0x10
 
-    if-eqz p1, :cond_38
+    if-eqz v3, :cond_4
 
     .line 348
-    const-string p1, "|final"
+    const-string v3, "|final"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_38
-    and-int/lit8 p1, p0, 0x20
+    :cond_4
+    and-int/lit8 v3, v2, 0x20
 
-    const/4 v2, 0x1
+    if-eqz v3, :cond_5
 
-    if-eqz p1, :cond_4a
-
-    if-ne p2, v2, :cond_45
+    if-ne p2, v4, :cond_13
 
     .line 352
-    const-string p1, "|super"
+    const-string v3, "|super"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_4a
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 354
-    :cond_45
-    const-string p1, "|synchronized"
+    :cond_5
+    :goto_0
+    and-int/lit8 v3, v2, 0x40
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v3, :cond_6
 
-    :cond_4a
-    :goto_4a
-    and-int/lit8 p1, p0, 0x40
-
-    const/4 v3, 0x3
-
-    if-eqz p1, :cond_5c
-
-    if-ne p2, v3, :cond_57
+    if-ne p2, v5, :cond_14
 
     .line 359
-    const-string p1, "|bridge"
+    const-string v3, "|bridge"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_5c
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 361
-    :cond_57
-    const-string p1, "|volatile"
+    :cond_6
+    :goto_1
+    and-int/lit16 v3, v2, 0x80
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v3, :cond_7
 
-    :cond_5c
-    :goto_5c
-    and-int/lit16 p1, p0, 0x80
-
-    if-eqz p1, :cond_6d
-
-    if-ne p2, v3, :cond_68
+    if-ne p2, v5, :cond_15
 
     .line 366
-    const-string p1, "|varargs"
+    const-string v3, "|varargs"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_6d
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 368
-    :cond_68
-    const-string p1, "|transient"
+    :cond_7
+    :goto_2
+    and-int/lit16 v3, v2, 0x100
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_6d
-    :goto_6d
-    and-int/lit16 p1, p0, 0x100
-
-    if-eqz p1, :cond_76
+    if-eqz v3, :cond_8
 
     .line 372
-    const-string p1, "|native"
+    const-string v3, "|native"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_76
-    and-int/lit16 p1, p0, 0x200
+    :cond_8
+    and-int/lit16 v3, v2, 0x200
 
-    if-eqz p1, :cond_7f
+    if-eqz v3, :cond_9
 
     .line 375
-    const-string p1, "|interface"
+    const-string v3, "|interface"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_7f
-    and-int/lit16 p1, p0, 0x400
+    :cond_9
+    and-int/lit16 v3, v2, 0x400
 
-    if-eqz p1, :cond_88
+    if-eqz v3, :cond_a
 
     .line 378
-    const-string p1, "|abstract"
+    const-string v3, "|abstract"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_88
-    and-int/lit16 p1, p0, 0x800
+    :cond_a
+    and-int/lit16 v3, v2, 0x800
 
-    if-eqz p1, :cond_91
+    if-eqz v3, :cond_b
 
     .line 381
-    const-string p1, "|strictfp"
+    const-string v3, "|strictfp"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_91
-    and-int/lit16 p1, p0, 0x1000
+    :cond_b
+    and-int/lit16 v3, v2, 0x1000
 
-    if-eqz p1, :cond_9a
+    if-eqz v3, :cond_c
 
     .line 384
-    const-string p1, "|synthetic"
+    const-string v3, "|synthetic"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_9a
-    and-int/lit16 p1, p0, 0x2000
+    :cond_c
+    and-int/lit16 v3, v2, 0x2000
 
-    if-eqz p1, :cond_a3
+    if-eqz v3, :cond_d
 
     .line 387
-    const-string p1, "|annotation"
+    const-string v3, "|annotation"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_a3
-    and-int/lit16 p1, p0, 0x4000
+    :cond_d
+    and-int/lit16 v3, v2, 0x4000
 
-    if-eqz p1, :cond_ac
+    if-eqz v3, :cond_e
 
     .line 390
-    const-string p1, "|enum"
+    const-string v3, "|enum"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_ac
-    const/high16 p1, 0x10000
+    :cond_e
+    const/high16 v3, 0x10000
 
-    and-int/2addr p1, p0
+    and-int/2addr v3, v2
 
-    if-eqz p1, :cond_b6
+    if-eqz v3, :cond_f
 
     .line 393
-    const-string p1, "|constructor"
+    const-string v3, "|constructor"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_b6
-    const/high16 p1, 0x20000
+    :cond_f
+    const/high16 v3, 0x20000
 
-    and-int/2addr p0, p1
+    and-int/2addr v2, v3
 
-    if-eqz p0, :cond_c0
+    if-eqz v2, :cond_10
 
     .line 396
-    const-string p0, "|declared_synchronized"
+    const-string v2, "|declared_synchronized"
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_c0
-    if-nez v1, :cond_c8
+    :cond_10
+    if-nez v1, :cond_11
 
     .line 399
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
-    move-result p0
+    move-result v2
 
-    if-nez p0, :cond_d4
+    if-nez v2, :cond_12
 
     .line 400
-    :cond_c8
-    const/16 p0, 0x7c
+    :cond_11
+    const/16 v2, 0x7c
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 401
     invoke-static {v1}, Lcom/s1243808733/android/dx/util/Hex;->u2(I)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 404
-    :cond_d4
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->substring(I)Ljava/lang/String;
+    :cond_12
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->substring(I)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
+
+    .line 354
+    :cond_13
+    const-string v3, "|synchronized"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto/16 :goto_0
+
+    .line 361
+    :cond_14
+    const-string v3, "|volatile"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto/16 :goto_1
+
+    .line 368
+    :cond_15
+    const-string v3, "|transient"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_2
 .end method
 
 .method public static innerClassString(I)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 164
     const/16 v0, 0x761f
@@ -367,233 +370,233 @@
 
     invoke-static {p0, v0, v1}, Lcom/s1243808733/android/dx/rop/code/AccessFlags;->humanHelper(III)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static isAbstract(I)Z
-    .registers 1
+    .locals 1
 
-    and-int/lit16 p0, p0, 0x400
+    and-int/lit16 v0, p0, 0x400
 
-    if-eqz p0, :cond_6
-
-    const/4 p0, 0x1
-
-    goto :goto_7
-
-    :cond_6
-    const/4 p0, 0x0
-
-    :goto_7
-    return p0
-.end method
-
-.method public static isAnnotation(I)Z
-    .registers 1
-
-    and-int/lit16 p0, p0, 0x2000
-
-    if-eqz p0, :cond_6
-
-    const/4 p0, 0x1
-
-    goto :goto_7
-
-    :cond_6
-    const/4 p0, 0x0
-
-    :goto_7
-    return p0
-.end method
-
-.method public static isConstructor(I)Z
-    .registers 2
-
-    const/high16 v0, 0x10000
-
-    and-int/2addr p0, v0
-
-    if-eqz p0, :cond_7
-
-    const/4 p0, 0x1
-
-    goto :goto_8
-
-    :cond_7
-    const/4 p0, 0x0
-
-    :goto_8
-    return p0
-.end method
-
-.method public static isDeclaredSynchronized(I)Z
-    .registers 2
-
-    const/high16 v0, 0x20000
-
-    and-int/2addr p0, v0
-
-    if-eqz p0, :cond_7
-
-    const/4 p0, 0x1
-
-    goto :goto_8
-
-    :cond_7
-    const/4 p0, 0x0
-
-    :goto_8
-    return p0
-.end method
-
-.method public static isEnum(I)Z
-    .registers 1
-
-    and-int/lit16 p0, p0, 0x4000
-
-    if-eqz p0, :cond_6
-
-    const/4 p0, 0x1
-
-    goto :goto_7
-
-    :cond_6
-    const/4 p0, 0x0
-
-    :goto_7
-    return p0
-.end method
-
-.method public static isInterface(I)Z
-    .registers 1
-
-    and-int/lit16 p0, p0, 0x200
-
-    if-eqz p0, :cond_6
-
-    const/4 p0, 0x1
-
-    goto :goto_7
-
-    :cond_6
-    const/4 p0, 0x0
-
-    :goto_7
-    return p0
-.end method
-
-.method public static isNative(I)Z
-    .registers 1
-
-    and-int/lit16 p0, p0, 0x100
-
-    if-eqz p0, :cond_6
-
-    const/4 p0, 0x1
-
-    goto :goto_7
-
-    :cond_6
-    const/4 p0, 0x0
-
-    :goto_7
-    return p0
-.end method
-
-.method public static isPrivate(I)Z
-    .registers 1
-
-    and-int/lit8 p0, p0, 0x2
-
-    if-eqz p0, :cond_6
-
-    const/4 p0, 0x1
-
-    goto :goto_7
-
-    :cond_6
-    const/4 p0, 0x0
-
-    :goto_7
-    return p0
-.end method
-
-.method public static isProtected(I)Z
-    .registers 1
-
-    and-int/lit8 p0, p0, 0x4
-
-    if-eqz p0, :cond_6
-
-    const/4 p0, 0x1
-
-    goto :goto_7
-
-    :cond_6
-    const/4 p0, 0x0
-
-    :goto_7
-    return p0
-.end method
-
-.method public static isPublic(I)Z
-    .registers 2
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    and-int/2addr p0, v0
+    :goto_0
+    return v0
 
-    if-eqz p0, :cond_5
-
-    goto :goto_6
-
-    :cond_5
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_6
+    goto :goto_0
+.end method
+
+.method public static isAnnotation(I)Z
+    .locals 1
+
+    and-int/lit16 v0, p0, 0x2000
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isConstructor(I)Z
+    .locals 1
+
+    const/high16 v0, 0x10000
+
+    and-int/2addr v0, p0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isDeclaredSynchronized(I)Z
+    .locals 1
+
+    const/high16 v0, 0x20000
+
+    and-int/2addr v0, p0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isEnum(I)Z
+    .locals 1
+
+    and-int/lit16 v0, p0, 0x4000
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isInterface(I)Z
+    .locals 1
+
+    and-int/lit16 v0, p0, 0x200
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isNative(I)Z
+    .locals 1
+
+    and-int/lit16 v0, p0, 0x100
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isPrivate(I)Z
+    .locals 1
+
+    and-int/lit8 v0, p0, 0x2
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isProtected(I)Z
+    .locals 1
+
+    and-int/lit8 v0, p0, 0x4
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isPublic(I)Z
+    .locals 2
+
+    const/4 v0, 0x1
+
+    and-int/lit8 v1, p0, 0x1
+
+    if-eqz v1, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static isStatic(I)Z
-    .registers 1
+    .locals 1
 
-    and-int/lit8 p0, p0, 0x8
+    and-int/lit8 v0, p0, 0x8
 
-    if-eqz p0, :cond_6
+    if-eqz v0, :cond_0
 
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_7
+    :goto_0
+    return v0
 
-    :cond_6
-    const/4 p0, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_7
-    return p0
+    goto :goto_0
 .end method
 
 .method public static isSynchronized(I)Z
-    .registers 1
+    .locals 1
 
-    and-int/lit8 p0, p0, 0x20
+    and-int/lit8 v0, p0, 0x20
 
-    if-eqz p0, :cond_6
+    if-eqz v0, :cond_0
 
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_7
+    :goto_0
+    return v0
 
-    :cond_6
-    const/4 p0, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_7
-    return p0
+    goto :goto_0
 .end method
 
 .method public static methodString(I)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 186
     const v0, 0x31dff
@@ -602,7 +605,7 @@
 
     invoke-static {p0, v0, v1}, Lcom/s1243808733/android/dx/rop/code/AccessFlags;->humanHelper(III)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(ILorg/antlr/v4/runtime/atn/ATNConfigSet;Lorg/antlr/v4/runtime/TokenStream;II)V
-    .registers 13
+    .locals 7
 
     .line 47
     const/4 v6, 0x1

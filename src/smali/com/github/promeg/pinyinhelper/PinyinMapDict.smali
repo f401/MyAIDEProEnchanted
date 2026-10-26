@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "[",
             "Ljava/lang/String;",
@@ -32,14 +33,14 @@
 .end method
 
 .method public toPinyin(Ljava/lang/String;)[Ljava/lang/String;
-    .registers 3
+    .locals 1
 
     .line 29
     invoke-virtual {p0}, Lcom/github/promeg/pinyinhelper/PinyinMapDict;->mapping()Ljava/util/Map;
 
     move-result-object v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/github/promeg/pinyinhelper/PinyinMapDict;->mapping()Ljava/util/Map;
 
@@ -47,25 +48,26 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, [Ljava/lang/String;
+    check-cast v0, [Ljava/lang/String;
 
-    goto :goto_12
+    :goto_0
+    return-object v0
 
-    :cond_11
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_12
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public words()Ljava/util/Set;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -76,7 +78,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/github/promeg/pinyinhelper/PinyinMapDict;->mapping()Ljava/util/Map;
 
@@ -86,11 +88,11 @@
 
     move-result-object v0
 
-    goto :goto_10
+    :goto_0
+    return-object v0
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_10
-    return-object v0
+    goto :goto_0
 .end method

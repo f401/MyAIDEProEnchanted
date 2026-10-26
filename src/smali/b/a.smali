@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static a(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    .registers 2
+    .locals 1
 
     .line 2
     new-instance v0, Ljava/lang/StringBuilder;
@@ -19,7 +19,7 @@
 .end method
 
 .method public static b(Ljava/lang/String;)Lc/n;
-    .registers 2
+    .locals 1
 
     .line 2
     new-instance v0, Lc/n;
@@ -29,7 +29,7 @@
     .line 3
     invoke-virtual {v0}, Lc/n;->q()Lc/n;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method

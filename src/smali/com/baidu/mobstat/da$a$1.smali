@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/da$a;Ljava/lang/ref/WeakReference;ZLcom/baidu/mobstat/df;Lorg/json/JSONObject;)V
-    .registers 6
+    .locals 0
 
     .line 279
     iput-object p1, p0, Lcom/baidu/mobstat/da$a$1;->e:Lcom/baidu/mobstat/da$a;
@@ -52,14 +52,14 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 285
     invoke-static {}, Lcom/baidu/mobstat/cu;->c()Z
 
     move-result v0
 
-    if-nez v0, :cond_33
+    if-nez v0, :cond_2
 
     .line 286
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
@@ -70,9 +70,7 @@
 
     move-result v0
 
-    const-string v1, "no touch, skip doViewVisit"
-
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/baidu/mobstat/da$a$1;->e:Lcom/baidu/mobstat/da$a;
 
@@ -80,17 +78,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     .line 287
     invoke-static {}, Lcom/baidu/mobstat/cy;->c()Lcom/baidu/mobstat/cy;
 
     move-result-object v0
 
+    const-string v1, "no touch, skip doViewVisit"
+
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cy;->a(Ljava/lang/String;)V
 
     .line 289
-    :cond_21
+    :cond_0
     invoke-static {}, Lcom/baidu/mobstat/dc;->c()Lcom/baidu/mobstat/dc;
 
     move-result-object v0
@@ -99,27 +99,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_1
 
     .line 290
     invoke-static {}, Lcom/baidu/mobstat/dc;->c()Lcom/baidu/mobstat/dc;
 
     move-result-object v0
 
+    const-string v1, "no touch, skip doViewVisit"
+
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/dc;->a(Ljava/lang/String;)V
 
-    :cond_32
+    .line 303
+    :cond_1
+    :goto_0
     return-void
 
     .line 296
-    :cond_33
+    :cond_2
     invoke-static {}, Lcom/baidu/mobstat/da;->c()I
 
     move-result v0
 
     const/4 v1, 0x3
 
-    if-lt v0, v1, :cond_3e
+    if-lt v0, v1, :cond_3
 
     .line 297
     const/4 v0, 0x0
@@ -127,7 +131,7 @@
     invoke-static {v0}, Lcom/baidu/mobstat/cu;->a(Z)V
 
     .line 300
-    :cond_3e
+    :cond_3
     iget-object v0, p0, Lcom/baidu/mobstat/da$a$1;->a:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -136,7 +140,7 @@
 
     check-cast v0, Landroid/app/Activity;
 
-    if-eqz v0, :cond_56
+    if-eqz v0, :cond_1
 
     .line 302
     iget-boolean v1, p0, Lcom/baidu/mobstat/da$a$1;->b:Z
@@ -152,6 +156,5 @@
 
     invoke-virtual {v1, v0, v2, v3}, Lcom/baidu/mobstat/df;->a(Landroid/app/Activity;Lorg/json/JSONObject;Z)V
 
-    :cond_56
-    return-void
+    goto :goto_0
 .end method

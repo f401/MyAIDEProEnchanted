@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,34 +30,34 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .registers 3
+    .locals 2
 
     .line 130
     invoke-virtual {p1}, Ljava/io/File;->isFile()Z
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, ".zip"
+    const-string v1, ".zip"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_14
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_15
+    :goto_0
+    return v0
 
-    :cond_14
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_15
-    return p1
+    goto :goto_0
 .end method

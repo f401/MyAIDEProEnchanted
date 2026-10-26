@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$ItemView;)V
-    .registers 2
+    .locals 0
 
     .line 670
     iput-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$ItemView$1;->this$0:Lcom/s1243808733/aide/filebrowser/FileBrowserAdapter$ItemView;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 1
+    .locals 0
 
     return-void
 .end method

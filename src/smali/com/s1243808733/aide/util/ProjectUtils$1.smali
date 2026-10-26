@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 423
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,14 +30,14 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .registers 4
+    .locals 2
 
     .line 427
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -49,29 +49,29 @@
 
     move-result v0
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_0
 
     .line 428
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "values-"
+    const-string v1, "values-"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_20
+    if-eqz v0, :cond_1
 
-    :cond_1e
-    const/4 p1, 0x1
+    :cond_0
+    const/4 v0, 0x1
 
-    goto :goto_21
+    :goto_0
+    return v0
 
-    :cond_20
-    const/4 p1, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
-    :goto_21
-    return p1
+    goto :goto_0
 .end method

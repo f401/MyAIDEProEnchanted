@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 87
     const/16 v0, 0x100
@@ -39,40 +39,40 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 4
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 51
-    const/4 v0, 0x0
-
-    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
+    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
 
     .line 59
-    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->numMarkers:I
+    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->numMarkers:I
 
     .line 64
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
+    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
 
     .line 78
-    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
+    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
 
     .line 92
-    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
 
     .line 93
-    new-array p1, p1, [I
+    new-array v0, p1, [I
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
+    iput-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .registers 3
+    .locals 1
 
     .line 97
     const/16 v0, 0x100
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;I)V
-    .registers 4
+    .locals 1
 
     .line 105
     sget-object v0, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
@@ -94,28 +94,28 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;ILjava/nio/charset/Charset;)V
-    .registers 4
+    .locals 1
 
     .line 109
     invoke-direct {p0, p2}, Lorg/antlr/v4/runtime/UnbufferedCharStream;-><init>(I)V
 
     .line 110
-    new-instance p2, Ljava/io/InputStreamReader;
+    new-instance v0, Ljava/io/InputStreamReader;
 
-    invoke-direct {p2, p1, p3}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
+    invoke-direct {v0, p1, p3}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
 
-    iput-object p2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->input:Ljava/io/Reader;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->input:Ljava/io/Reader;
 
     .line 111
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->fill(I)I
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->fill(I)I
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;)V
-    .registers 3
+    .locals 1
 
     .line 101
     const/16 v0, 0x100
@@ -126,7 +126,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;I)V
-    .registers 3
+    .locals 1
 
     .line 115
     invoke-direct {p0, p2}, Lorg/antlr/v4/runtime/UnbufferedCharStream;-><init>(I)V
@@ -135,9 +135,9 @@
     iput-object p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->input:Ljava/io/Reader;
 
     .line 117
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->fill(I)I
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->fill(I)I
 
     return-void
 .end method
@@ -145,19 +145,22 @@
 
 # virtual methods
 .method public LA(I)I
-    .registers 4
+    .locals 3
 
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_6
+    if-ne p1, v0, :cond_1
 
     .line 222
-    iget p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
+    iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
 
-    return p1
+    .line 227
+    :cond_0
+    :goto_0
+    return v0
 
     .line 223
-    :cond_6
+    :cond_1
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->sync(I)V
 
     .line 224
@@ -167,34 +170,31 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ltz v1, :cond_1a
+    if-ltz v1, :cond_2
 
     .line 226
-    iget p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+    iget v2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
 
-    if-lt v1, p1, :cond_15
-
-    return v0
+    if-ge v1, v2, :cond_0
 
     .line 227
-    :cond_15
-    iget-object p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
+    iget-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
 
-    aget p1, p1, v1
+    aget v0, v0, v1
 
-    return p1
+    goto :goto_0
 
     .line 225
-    :cond_1a
-    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
+    :cond_2
+    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    invoke-direct {p1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
 
-    throw p1
+    throw v0
 .end method
 
 .method protected add(I)V
-    .registers 5
+    .locals 3
 
     .line 214
     iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
@@ -203,7 +203,7 @@
 
     array-length v2, v1
 
-    if-lt v0, v2, :cond_10
+    if-lt v0, v2, :cond_0
 
     .line 215
     array-length v0, v1
@@ -217,7 +217,7 @@
     iput-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
 
     .line 217
-    :cond_10
+    :cond_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
 
     iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
@@ -232,72 +232,72 @@
 .end method
 
 .method public consume()V
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, -0x1
 
     .line 122
-    const/4 v0, 0x1
+    invoke-virtual {p0, v4}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->LA(I)I
 
-    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->LA(I)I
+    move-result v0
 
-    move-result v1
-
-    const/4 v2, -0x1
-
-    if-eq v1, v2, :cond_2e
+    if-eq v0, v3, :cond_1
 
     .line 127
-    iget-object v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
+    iget-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
 
-    iget v3, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
-
-    aget v1, v1, v3
-
-    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
-
-    .line 129
-    iget v4, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
-
-    sub-int/2addr v4, v0
-
-    if-ne v3, v4, :cond_20
-
-    iget v3, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->numMarkers:I
-
-    if-nez v3, :cond_20
-
-    .line 130
-    const/4 v3, 0x0
-
-    iput v3, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
-
-    .line 131
-    iput v2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
-
-    .line 132
-    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastCharBufferStart:I
-
-    .line 135
-    :cond_20
     iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
 
-    add-int/2addr v1, v0
+    aget v0, v0, v1
 
-    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
+    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
+
+    .line 129
+    iget v2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+
+    add-int/lit8 v2, v2, -0x1
+
+    if-ne v1, v2, :cond_0
+
+    iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->numMarkers:I
+
+    if-nez v1, :cond_0
+
+    .line 130
+    const/4 v1, 0x0
+
+    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+
+    .line 131
+    iput v3, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
+
+    .line 132
+    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastCharBufferStart:I
+
+    .line 135
+    :cond_0
+    iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
 
     .line 136
-    iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
+    iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
 
-    add-int/2addr v1, v0
+    add-int/lit8 v0, v0, 0x1
 
-    iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
+    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
 
     .line 137
-    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->sync(I)V
+    invoke-virtual {p0, v4}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->sync(I)V
 
     return-void
 
     .line 123
-    :cond_2e
+    :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "cannot consume EOF"
@@ -308,163 +308,166 @@
 .end method
 
 .method protected fill(I)I
-    .registers 8
+    .locals 6
+
+    const v5, 0xffff
+
+    const/4 v4, -0x1
 
     const/4 v0, 0x0
 
-    :goto_1
-    if-ge v0, p1, :cond_72
+    :goto_0
+    if-ge v0, p1, :cond_0
 
     .line 160
     iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
 
-    const/4 v2, -0x1
+    if-lez v1, :cond_1
 
-    if-lez v1, :cond_11
-
-    iget-object v3, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
+    iget-object v2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
 
     add-int/lit8 v1, v1, -0x1
 
-    aget v1, v3, v1
+    aget v1, v2, v1
 
-    if-ne v1, v2, :cond_11
+    if-ne v1, v4, :cond_1
 
-    return v0
+    move p1, v0
+
+    .line 198
+    :cond_0
+    return p1
 
     .line 165
-    :cond_11
-    :try_start_11
+    :cond_1
+    :try_start_0
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->nextChar()I
 
     move-result v1
 
-    const v3, 0xffff
+    if-gt v1, v5, :cond_2
 
-    if-gt v1, v3, :cond_65
+    if-ne v1, v4, :cond_3
 
-    if-ne v1, v2, :cond_1d
+    .line 167
+    :cond_2
+    invoke-virtual {p0, v1}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->add(I)V
 
-    goto :goto_65
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
 
-    :cond_1d
-    int-to-char v4, v1
+    goto :goto_0
+
+    .line 165
+    :cond_3
+    int-to-char v2, v1
 
     .line 171
-    invoke-static {v4}, Ljava/lang/Character;->isLowSurrogate(C)Z
+    invoke-static {v2}, Ljava/lang/Character;->isLowSurrogate(C)Z
 
-    move-result v5
+    move-result v3
 
-    if-nez v5, :cond_5d
+    if-nez v3, :cond_8
 
     .line 174
-    invoke-static {v4}, Ljava/lang/Character;->isHighSurrogate(C)Z
+    invoke-static {v2}, Ljava/lang/Character;->isHighSurrogate(C)Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_59
+    if-eqz v3, :cond_7
 
     .line 175
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->nextChar()I
 
     move-result v1
 
-    if-gt v1, v3, :cond_51
+    if-gt v1, v5, :cond_6
 
-    if-eq v1, v2, :cond_49
+    if-eq v1, v4, :cond_5
 
     int-to-char v1, v1
 
     .line 184
     invoke-static {v1}, Ljava/lang/Character;->isLowSurrogate(C)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_41
+    if-eqz v3, :cond_4
 
     .line 185
-    invoke-static {v4, v1}, Ljava/lang/Character;->toCodePoint(CC)I
+    invoke-static {v2, v1}, Ljava/lang/Character;->toCodePoint(CC)I
 
     move-result v1
 
     invoke-virtual {p0, v1}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->add(I)V
-
-    goto :goto_68
-
-    .line 188
-    :cond_41
-    new-instance p1, Ljava/lang/RuntimeException;
-
-    const-string v0, "Invalid UTF-16 (dangling high surrogate"
-
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    .line 180
-    :cond_49
-    new-instance p1, Ljava/lang/RuntimeException;
-
-    const-string v0, "Invalid UTF-16 (dangling high surrogate at end of file)"
-
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    .line 177
-    :cond_51
-    new-instance p1, Ljava/lang/RuntimeException;
-
-    const-string v0, "Invalid UTF-16 (high surrogate followed by code point > U+FFFF"
-
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    .line 193
-    :cond_59
-    invoke-virtual {p0, v1}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->add(I)V
-
-    goto :goto_68
-
-    .line 172
-    :cond_5d
-    new-instance p1, Ljava/lang/RuntimeException;
-
-    const-string v0, "Invalid UTF-16 (low surrogate with no preceding high surrogate)"
-
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    .line 167
-    :cond_65
-    :goto_65
-    invoke-virtual {p0, v1}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->add(I)V
-    :try_end_68
-    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_68} :catch_6b
-
-    :goto_68
-    add-int/lit8 v0, v0, 0x1
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
-    :catch_6b
-    move-exception p1
+    .line 167
+    :catch_0
+    move-exception v0
 
     .line 198
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v1
+
+    .line 188
+    :cond_4
+    :try_start_1
     new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    const-string v1, "Invalid UTF-16 (dangling high surrogate"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    :cond_72
-    return p1
+    .line 180
+    :cond_5
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string v1, "Invalid UTF-16 (dangling high surrogate at end of file)"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 177
+    :cond_6
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string v1, "Invalid UTF-16 (high surrogate followed by code point > U+FFFF"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 193
+    :cond_7
+    invoke-virtual {p0, v1}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->add(I)V
+
+    goto :goto_1
+
+    .line 172
+    :cond_8
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string v1, "Invalid UTF-16 (low surrogate with no preceding high surrogate)"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 .end method
 
 .method protected final getBufferStartIndex()I
-    .registers 3
+    .locals 2
 
     .line 345
     iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
@@ -477,42 +480,40 @@
 .end method
 
 .method public getSourceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 315
     iget-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->name:Ljava/lang/String;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
-
-    goto :goto_e
-
-    .line 319
-    :cond_b
-    iget-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->name:Ljava/lang/String;
-
-    return-object v0
+    if-eqz v0, :cond_1
 
     .line 316
-    :cond_e
-    :goto_e
+    :cond_0
     const-string v0, "<unknown>"
 
+    .line 319
+    :goto_0
     return-object v0
+
+    :cond_1
+    iget-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->name:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 .method public getText(Lorg/antlr/v4/runtime/misc/Interval;)Ljava/lang/String;
-    .registers 6
+    .locals 4
 
     .line 324
     iget v0, p1, Lorg/antlr/v4/runtime/misc/Interval;->a:I
 
-    if-ltz v0, :cond_77
+    if-ltz v0, :cond_3
 
     iget v0, p1, Lorg/antlr/v4/runtime/misc/Interval;->b:I
 
@@ -520,7 +521,7 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-lt v0, v1, :cond_77
+    if-lt v0, v1, :cond_3
 
     .line 328
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->getBufferStartIndex()I
@@ -530,7 +531,7 @@
     .line 329
     iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
 
-    if-lez v1, :cond_34
+    if-lez v1, :cond_0
 
     iget-object v2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
 
@@ -540,7 +541,7 @@
 
     const v2, 0xffff
 
-    if-ne v1, v2, :cond_34
+    if-ne v1, v2, :cond_0
 
     .line 330
     iget v1, p1, Lorg/antlr/v4/runtime/misc/Interval;->a:I
@@ -555,26 +556,13 @@
 
     add-int/2addr v2, v0
 
-    if-gt v1, v2, :cond_2c
-
-    goto :goto_34
-
-    .line 331
-    :cond_2c
-    new-instance p1, Ljava/lang/IllegalArgumentException;
-
-    const-string v0, "the interval extends past the end of the stream"
-
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p1
+    if-gt v1, v2, :cond_1
 
     .line 335
-    :cond_34
-    :goto_34
+    :cond_0
     iget v1, p1, Lorg/antlr/v4/runtime/misc/Interval;->a:I
 
-    if-lt v1, v0, :cond_4e
+    if-lt v1, v0, :cond_2
 
     iget v1, p1, Lorg/antlr/v4/runtime/misc/Interval;->b:I
 
@@ -582,7 +570,7 @@
 
     add-int/2addr v2, v0
 
-    if-ge v1, v2, :cond_4e
+    if-ge v1, v2, :cond_2
 
     .line 340
     iget v1, p1, Lorg/antlr/v4/runtime/misc/Interval;->a:I
@@ -592,18 +580,28 @@
 
     iget-object v3, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
 
-    sub-int/2addr v1, v0
+    sub-int v0, v1, v0
 
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/misc/Interval;->length()I
 
-    move-result p1
+    move-result v1
 
-    invoke-direct {v2, v3, v1, p1}, Ljava/lang/String;-><init>([III)V
+    invoke-direct {v2, v3, v0, v1}, Ljava/lang/String;-><init>([III)V
 
     return-object v2
 
+    .line 331
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "the interval extends past the end of the stream"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
     .line 336
-    :cond_4e
+    :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string v2, "interval "
@@ -612,47 +610,47 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, " outside buffer: "
+    const-string v2, " outside buffer: "
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, ".."
+    const-string v2, ".."
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+    iget v2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
 
-    add-int/2addr v0, p1
+    add-int/2addr v0, v2
 
     add-int/lit8 v0, v0, -0x1
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 325
-    :cond_77
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_3
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "invalid interval"
+    const-string v1, "invalid interval"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public index()I
-    .registers 2
+    .locals 1
 
     .line 271
     iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
@@ -661,19 +659,19 @@
 .end method
 
 .method public mark()I
-    .registers 3
+    .locals 2
 
     .line 239
     iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->numMarkers:I
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 240
     iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
 
     iput v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastCharBufferStart:I
 
-    :cond_8
+    :cond_0
     neg-int v1, v0
 
     .line 244
@@ -681,13 +679,13 @@
 
     iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->numMarkers:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v1, -0x1
 
-    return v1
+    return v0
 .end method
 
 .method protected nextChar()I
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -705,81 +703,84 @@
 .end method
 
 .method public release(I)V
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 253
     iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->numMarkers:I
 
     neg-int v1, v0
 
-    if-ne p1, v1, :cond_26
+    if-ne p1, v1, :cond_1
 
     add-int/lit8 v0, v0, -0x1
 
     .line 258
     iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->numMarkers:I
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 259
-    iget p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
-
-    if-lez p1, :cond_25
-
-    .line 262
-    iget-object v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
-
-    iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
-
-    sub-int/2addr v1, p1
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, p1, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 263
-    iget p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
-
     iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
 
-    sub-int/2addr p1, v0
+    if-lez v0, :cond_0
 
-    iput p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+    .line 262
+    iget-object v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
+
+    iget v2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+
+    sub-int/2addr v2, v0
+
+    invoke-static {v1, v0, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    .line 263
+    iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+
+    iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
+
+    sub-int/2addr v0, v1
+
+    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
 
     .line 264
-    iput v2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
+    iput v3, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
 
     .line 265
-    iget p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
+    iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
 
-    iput p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastCharBufferStart:I
+    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastCharBufferStart:I
 
-    :cond_25
+    :cond_0
     return-void
 
     .line 255
-    :cond_26
-    new-instance p1, Ljava/lang/IllegalStateException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v0, "release() called with an invalid marker."
+    const-string v1, "release() called with an invalid marker."
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public seek(I)V
-    .registers 4
+    .locals 3
 
     .line 279
     iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
 
-    if-ne p1, v0, :cond_5
+    if-ne p1, v0, :cond_0
 
+    .line 304
+    :goto_0
     return-void
 
-    :cond_5
-    if-le p1, v0, :cond_19
+    .line 279
+    :cond_0
+    if-le p1, v0, :cond_1
 
     .line 284
     sub-int v0, p1, v0
@@ -802,19 +803,19 @@
     move-result p1
 
     .line 289
-    :cond_19
+    :cond_1
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->getBufferStartIndex()I
 
     move-result v0
 
     sub-int v0, p1, v0
 
-    if-ltz v0, :cond_68
+    if-ltz v0, :cond_4
 
     .line 293
     iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
 
-    if-ge v0, v1, :cond_39
+    if-ge v0, v1, :cond_3
 
     .line 298
     iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
@@ -822,30 +823,29 @@
     .line 299
     iput p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->currentCharIndex:I
 
-    if-nez v0, :cond_30
+    if-nez v0, :cond_2
 
     .line 301
-    iget p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastCharBufferStart:I
+    iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastCharBufferStart:I
 
-    iput p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
+    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
 
-    goto :goto_38
+    goto :goto_0
 
     .line 304
-    :cond_30
-    iget-object p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
+    :cond_2
+    iget-object v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->data:[I
 
     add-int/lit8 v0, v0, -0x1
 
-    aget p1, p1, v0
+    aget v0, v1, v0
 
-    iput p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
+    iput v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->lastChar:I
 
-    :goto_38
-    return-void
+    goto :goto_0
 
     .line 294
-    :cond_39
+    :cond_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "seek to index outside buffer: "
@@ -854,42 +854,42 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, " not in "
+    const-string v1, " not in "
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->getBufferStartIndex()I
-
-    move-result p1
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, ".."
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->getBufferStartIndex()I
 
-    move-result p1
+    move-result v1
 
-    iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    add-int/2addr p1, v1
+    const-string v1, ".."
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    invoke-virtual {p0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->getBufferStartIndex()I
+
+    move-result v1
+
+    iget v2, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+
+    add-int/2addr v1, v2
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    new-instance v1, Ljava/lang/UnsupportedOperationException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 
     .line 291
-    :cond_68
+    :cond_4
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "cannot seek to negative index "
@@ -898,19 +898,19 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method public size()I
-    .registers 3
+    .locals 2
 
     .line 310
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -923,7 +923,7 @@
 .end method
 
 .method protected sync(I)V
-    .registers 3
+    .locals 2
 
     .line 147
     iget v0, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->p:I
@@ -932,17 +932,17 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    iget p1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
+    iget v1, p0, Lorg/antlr/v4/runtime/UnbufferedCharStream;->n:I
 
-    sub-int/2addr v0, p1
+    sub-int/2addr v0, v1
 
     add-int/lit8 v0, v0, 0x1
 
-    if-lez v0, :cond_f
+    if-lez v0, :cond_0
 
     .line 149
     invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/UnbufferedCharStream;->fill(I)I
 
-    :cond_f
+    :cond_0
     return-void
 .end method

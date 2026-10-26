@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public add(I)V
-    .registers 4
+    .locals 2
 
     .line 40
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
@@ -42,7 +42,7 @@
 
     move-result v0
 
-    if-gez v0, :cond_10
+    if-gez v0, :cond_0
 
     .line 43
     iget-object v1, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
@@ -53,12 +53,12 @@
 
     invoke-virtual {v1, v0, p1}, Lcom/s1243808733/android/dx/util/IntList;->insert(II)V
 
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public elements()I
-    .registers 2
+    .locals 1
 
     .line 109
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
@@ -71,30 +71,30 @@
 .end method
 
 .method public has(I)Z
-    .registers 3
+    .locals 1
 
     .line 60
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
     invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/util/IntList;->indexOf(I)I
 
-    move-result p1
+    move-result v0
 
-    if-ltz p1, :cond_a
+    if-ltz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_b
+    :goto_0
+    return v0
 
-    :cond_a
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_b
-    return p1
+    goto :goto_0
 .end method
 
 .method public iterator()Lcom/s1243808733/android/dx/util/IntIterator;
-    .registers 2
+    .locals 1
 
     .line 115
     new-instance v0, Lcom/s1243808733/android/dx/util/ListIntSet$1;
@@ -105,210 +105,224 @@
 .end method
 
 .method public merge(Lcom/s1243808733/android/dx/util/IntSet;)V
-    .registers 8
+    .locals 6
+
+    const/4 v0, 0x0
 
     .line 66
-    instance-of v0, p1, Lcom/s1243808733/android/dx/util/ListIntSet;
+    instance-of v1, p1, Lcom/s1243808733/android/dx/util/ListIntSet;
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_5e
+    if-eqz v1, :cond_4
 
     .line 67
     check-cast p1, Lcom/s1243808733/android/dx/util/ListIntSet;
 
     .line 68
-    iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/IntList;->size()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/util/IntList;->size()I
 
-    move-result v0
+    move-result v3
 
     .line 69
-    iget-object v2, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/util/IntList;->size()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/util/IntList;->size()I
 
-    move-result v2
+    move-result v4
 
-    const/4 v3, 0x0
+    move v2, v0
 
-    :cond_14
-    if-ge v1, v2, :cond_4a
+    move v1, v0
 
-    if-ge v3, v0, :cond_4a
+    :goto_0
+    if-ge v1, v4, :cond_8
 
-    :goto_18
-    if-ge v1, v2, :cond_34
+    if-ge v2, v3, :cond_8
+
+    move v0, v1
+
+    :goto_1
+    if-ge v0, v4, :cond_0
 
     .line 75
-    iget-object v4, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {v4, v1}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
 
-    move-result v4
+    move-result v1
 
     iget-object v5, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {v5, v3}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+    invoke-virtual {v5, v2}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
 
     move-result v5
 
-    if-ge v4, v5, :cond_34
+    if-ge v1, v5, :cond_0
 
     .line 76
-    iget-object v4, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {v4, v1}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
 
-    move-result v4
+    move-result v1
 
-    invoke-virtual {p0, v4}, Lcom/s1243808733/android/dx/util/ListIntSet;->add(I)V
+    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/util/ListIntSet;->add(I)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_18
+    goto :goto_1
 
-    :cond_34
-    if-ne v1, v2, :cond_37
-
-    goto :goto_4a
-
-    :cond_37
-    :goto_37
-    if-ge v3, v0, :cond_14
+    :cond_0
+    if-ne v0, v4, :cond_1
 
     .line 81
-    iget-object v4, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+    :goto_2
+    if-ge v0, v4, :cond_2
 
-    invoke-virtual {v4, v1}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+    .line 87
+    iget-object v1, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    move-result v4
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/util/ListIntSet;->add(I)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
+
+    .line 76
+    :cond_1
+    :goto_3
+    if-ge v2, v3, :cond_7
+
+    .line 81
+    iget-object v1, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+
+    move-result v1
 
     iget-object v5, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {v5, v3}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
+    invoke-virtual {v5, v2}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
 
     move-result v5
 
-    if-lt v4, v5, :cond_14
+    if-lt v1, v5, :cond_7
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v2, 0x1
 
-    goto :goto_37
+    move v2, v1
 
-    :cond_4a
-    :goto_4a
-    if-ge v1, v2, :cond_58
-
-    .line 87
-    iget-object v0, p1, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
-
-    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/util/IntList;->get(I)I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/util/ListIntSet;->add(I)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_4a
+    goto :goto_3
 
     .line 90
-    :cond_58
-    iget-object p1, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+    :cond_2
+    iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/util/IntList;->sort()V
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/IntList;->sort()V
 
-    goto :goto_8c
+    .line 101
+    :cond_3
+    :goto_4
+    return-void
 
     .line 91
-    :cond_5e
-    instance-of v0, p1, Lcom/s1243808733/android/dx/util/BitIntSet;
+    :cond_4
+    instance-of v1, p1, Lcom/s1243808733/android/dx/util/BitIntSet;
 
-    if-eqz v0, :cond_7a
+    if-eqz v1, :cond_6
 
     .line 92
     check-cast p1, Lcom/s1243808733/android/dx/util/BitIntSet;
 
-    :goto_64
-    if-ltz v1, :cond_74
+    :goto_5
+    if-ltz v0, :cond_5
 
     .line 95
-    iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/util/IntList;->add(I)V
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/util/IntList;->add(I)V
 
     .line 94
-    iget-object v0, p1, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
+    iget-object v1, p1, Lcom/s1243808733/android/dx/util/BitIntSet;->bits:[I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/util/Bits;->findFirst([II)I
+    invoke-static {v1, v0}, Lcom/s1243808733/android/dx/util/Bits;->findFirst([II)I
+
+    move-result v0
+
+    goto :goto_5
+
+    .line 97
+    :cond_5
+    iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/IntList;->sort()V
+
+    goto :goto_4
+
+    .line 99
+    :cond_6
+    invoke-interface {p1}, Lcom/s1243808733/android/dx/util/IntSet;->iterator()Lcom/s1243808733/android/dx/util/IntIterator;
+
+    move-result-object v0
+
+    .line 100
+    :goto_6
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/util/IntIterator;->hasNext()Z
 
     move-result v1
 
-    goto :goto_64
-
-    .line 97
-    :cond_74
-    iget-object p1, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
-
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/util/IntList;->sort()V
-
-    goto :goto_8c
-
-    .line 99
-    :cond_7a
-    invoke-interface {p1}, Lcom/s1243808733/android/dx/util/IntSet;->iterator()Lcom/s1243808733/android/dx/util/IntIterator;
-
-    move-result-object p1
-
-    .line 100
-    :goto_7e
-    invoke-interface {p1}, Lcom/s1243808733/android/dx/util/IntIterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_8c
+    if-eqz v1, :cond_3
 
     .line 101
-    invoke-interface {p1}, Lcom/s1243808733/android/dx/util/IntIterator;->next()I
+    invoke-interface {v0}, Lcom/s1243808733/android/dx/util/IntIterator;->next()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/util/ListIntSet;->add(I)V
+    invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/util/ListIntSet;->add(I)V
 
-    goto :goto_7e
+    goto :goto_6
 
-    :cond_8c
-    :goto_8c
-    return-void
+    :cond_7
+    move v1, v0
+
+    goto :goto_0
+
+    :cond_8
+    move v0, v1
+
+    goto :goto_2
 .end method
 
 .method public remove(I)V
-    .registers 3
+    .locals 2
 
     .line 50
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
     invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/util/IntList;->indexOf(I)I
 
-    move-result p1
+    move-result v0
 
-    if-ltz p1, :cond_d
+    if-ltz v0, :cond_0
 
     .line 53
-    iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/util/IntList;->removeIndex(I)V
+    invoke-virtual {v1, v0}, Lcom/s1243808733/android/dx/util/IntList;->removeIndex(I)V
 
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 139
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/ListIntSet;->ints:Lcom/s1243808733/android/dx/util/IntList;

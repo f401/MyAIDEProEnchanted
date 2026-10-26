@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 16
     new-instance v0, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;)V
-    .registers 3
+    .locals 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,15 +63,15 @@
     iput-boolean v0, p0, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->verifyATN:Z
 
     .line 31
-    iget-boolean p1, p1, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->generateRuleBypassTransitions:Z
+    iget-boolean v0, p1, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->generateRuleBypassTransitions:Z
 
-    iput-boolean p1, p0, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->generateRuleBypassTransitions:Z
+    iput-boolean v0, p0, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->generateRuleBypassTransitions:Z
 
     return-void
 .end method
 
 .method public static getDefaultOptions()Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;
-    .registers 1
+    .locals 1
 
     .line 36
     sget-object v0, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->defaultOptions:Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public final isGenerateRuleBypassTransitions()Z
-    .registers 2
+    .locals 1
 
     .line 57
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->generateRuleBypassTransitions:Z
@@ -91,7 +91,7 @@
 .end method
 
 .method public final isReadOnly()Z
-    .registers 2
+    .locals 1
 
     .line 40
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->readOnly:Z
@@ -100,7 +100,7 @@
 .end method
 
 .method public final isVerifyATN()Z
-    .registers 2
+    .locals 1
 
     .line 48
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->verifyATN:Z
@@ -109,7 +109,7 @@
 .end method
 
 .method public final makeReadOnly()V
-    .registers 2
+    .locals 1
 
     .line 44
     const/4 v0, 0x1
@@ -120,7 +120,7 @@
 .end method
 
 .method public final setGenerateRuleBypassTransitions(Z)V
-    .registers 2
+    .locals 0
 
     .line 61
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->throwIfReadOnly()V
@@ -132,7 +132,7 @@
 .end method
 
 .method public final setVerifyATN(Z)V
-    .registers 2
+    .locals 0
 
     .line 52
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->throwIfReadOnly()V
@@ -144,19 +144,19 @@
 .end method
 
 .method protected throwIfReadOnly()V
-    .registers 3
+    .locals 2
 
     .line 66
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/atn/ATNDeserializationOptions;->isReadOnly()Z
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     return-void
 
     .line 67
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "The object is read only."

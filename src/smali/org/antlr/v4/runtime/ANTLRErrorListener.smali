@@ -17,8 +17,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/Recognizer<",
-            "**>;",
+            "Lorg/antlr/v4/runtime/Recognizer",
+            "<**>;",
             "Ljava/lang/Object;",
             "II",
             "Ljava/lang/String;",

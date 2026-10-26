@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;Landroidj/support/v4/view/ViewPager;)V
-    .registers 3
+    .locals 0
 
     .line 350
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$3;->this$0:Lcom/termux/app/TermuxActivity;
@@ -37,41 +37,42 @@
 
 # virtual methods
 .method public onPageSelected(I)V
-    .registers 3
+    .locals 2
 
-    if-nez p1, :cond_a
+    if-nez p1, :cond_1
 
     .line 354
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$3;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$3;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity;->mTerminalView:Lcom/termux/view/TerminalView;
 
-    invoke-virtual {p1}, Lcom/termux/view/TerminalView;->requestFocus()Z
-
-    goto :goto_1d
-
-    .line 356
-    :cond_a
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$3;->val$viewPager:Landroidj/support/v4/view/ViewPager;
-
-    const-string v0, "text_input"
-
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Landroidj/support/v4/view/ViewPager;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/EditText;
-
-    if-eqz p1, :cond_1d
+    invoke-virtual {v0}, Lcom/termux/view/TerminalView;->requestFocus()Z
 
     .line 357
-    invoke-virtual {p1}, Landroid/widget/EditText;->requestFocus()Z
-
-    :cond_1d
-    :goto_1d
+    :cond_0
+    :goto_0
     return-void
+
+    .line 356
+    :cond_1
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$3;->val$viewPager:Landroidj/support/v4/view/ViewPager;
+
+    const-string v1, "text_input"
+
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroidj/support/v4/view/ViewPager;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    if-eqz v0, :cond_0
+
+    .line 357
+    invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
+
+    goto :goto_0
 .end method

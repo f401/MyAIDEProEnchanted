@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -26,144 +26,160 @@
 
     invoke-direct {p0}, Lcom/baidu/mobstat/bq;->c()Ljava/io/File;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/io/File;->mkdirs()Z
+    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     return-void
 .end method
 
 .method public static a(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
-    .registers 7
+    .locals 5
+
+    const/4 v1, 0x0
 
     invoke-static {p0}, Lcom/baidu/mobstat/bq;->a(Ljava/io/File;)V
 
-    new-instance v0, Ljava/io/File;
+    new-instance v3, Ljava/io/File;
 
-    invoke-direct {v0, p0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v3, p0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    const/4 p0, 0x0
+    :try_start_0
+    new-instance v2, Ljava/io/ByteArrayOutputStream;
 
-    :try_start_9
-    new-instance p1, Ljava/io/ByteArrayOutputStream;
+    invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
-    invoke-direct {p1}, Ljava/io/ByteArrayOutputStream;-><init>()V
-    :try_end_e
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_e} :catch_52
-    .catchall {:try_start_9 .. :try_end_e} :catchall_48
+    :try_start_1
+    new-instance v0, Ljava/io/FileInputStream;
 
-    :try_start_e
-    new-instance v1, Ljava/io/FileInputStream;
+    invoke-direct {v0, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    invoke-direct {v1, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_13
-    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_13} :catch_46
-    .catchall {:try_start_e .. :try_end_13} :catchall_44
+    const/16 v1, 0x2000
 
-    const/16 p0, 0x2000
+    :try_start_2
+    new-array v1, v1, [B
 
-    :try_start_15
-    new-array p0, p0, [B
+    :goto_0
+    invoke-virtual {v0, v1}, Ljava/io/FileInputStream;->read([B)I
 
-    :goto_17
-    invoke-virtual {v1, p0}, Ljava/io/FileInputStream;->read([B)I
+    move-result v3
 
-    move-result v0
+    if-lez v3, :cond_0
 
-    if-lez v0, :cond_22
+    const/4 v4, 0x0
 
-    const/4 v2, 0x0
+    invoke-virtual {v2, v1, v4, v3}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    invoke-virtual {p1, p0, v2, v0}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    goto :goto_0
 
-    goto :goto_17
+    :catch_0
+    move-exception v1
 
-    :cond_22
-    invoke-virtual {p1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+    :goto_1
+    invoke-static {v0}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
 
-    move-result-object p0
+    invoke-static {v2}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
 
-    if-eqz p3, :cond_31
+    const-string v0, ""
 
-    new-instance p3, Lcom/baidu/mobstat/bc;
+    :goto_2
+    return-object v0
 
-    invoke-direct {p3}, Lcom/baidu/mobstat/bc;-><init>()V
+    :cond_0
+    :try_start_3
+    invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    invoke-virtual {p3, p0}, Lcom/baidu/mobstat/bc;->b([B)[B
+    move-result-object v1
 
-    move-result-object p0
+    if-eqz p3, :cond_1
 
-    :cond_31
-    new-instance p3, Ljava/lang/String;
+    new-instance v3, Lcom/baidu/mobstat/bc;
 
-    invoke-direct {p3, p0, p2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-    :try_end_36
-    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_36} :catch_41
-    .catchall {:try_start_15 .. :try_end_36} :catchall_3d
+    invoke-direct {v3}, Lcom/baidu/mobstat/bc;-><init>()V
 
-    invoke-static {v1}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
+    invoke-virtual {v3, v1}, Lcom/baidu/mobstat/bc;->b([B)[B
 
-    invoke-static {p1}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
+    move-result-object v1
 
-    return-object p3
+    move-object v3, v1
 
-    :catchall_3d
-    move-exception p0
+    :goto_3
+    new-instance v1, Ljava/lang/String;
 
-    move-object p2, p0
+    invoke-direct {v1, v3, p2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    move-object p0, v1
+    invoke-static {v0}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
 
-    goto :goto_4b
+    invoke-static {v2}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
 
-    :catch_41
-    move-exception p0
+    move-object v0, v1
 
-    move-object p0, v1
+    goto :goto_2
 
-    goto :goto_54
+    :catchall_0
+    move-exception v1
 
-    :catchall_44
-    move-exception p2
+    move-object v3, v1
 
-    goto :goto_4b
+    :goto_4
+    invoke-static {v0}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
 
-    :catch_46
-    move-exception p2
+    invoke-static {v2}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
 
-    goto :goto_54
+    throw v3
 
-    :catchall_48
-    move-exception p1
+    :catchall_1
+    move-exception v3
 
-    move-object p2, p1
+    move-object v0, v1
 
-    move-object p1, p0
+    goto :goto_4
 
-    :goto_4b
-    invoke-static {p0}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
+    :catch_1
+    move-exception v0
 
-    invoke-static {p1}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
+    move-object v0, v1
 
-    throw p2
+    goto :goto_1
 
-    :catch_52
-    move-exception p1
+    :catchall_2
+    move-exception v3
 
-    move-object p1, p0
+    move-object v0, v1
 
-    :goto_54
-    invoke-static {p0}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
+    move-object v2, v1
 
-    invoke-static {p1}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
+    goto :goto_4
 
-    const-string p0, ""
+    :catch_2
+    move-exception v0
 
-    return-object p0
+    move-object v0, v1
+
+    move-object v2, v1
+
+    goto :goto_1
+
+    :cond_1
+    move-object v3, v1
+
+    goto :goto_3
 .end method
 
 .method public static a(Ljava/io/File;)V
-    .registers 1
+    .locals 0
 
     invoke-virtual {p0}, Ljava/io/File;->mkdirs()Z
 
@@ -171,7 +187,9 @@
 .end method
 
 .method public static a(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
-    .registers 7
+    .locals 3
+
+    const/4 v2, 0x0
 
     invoke-static {p0}, Lcom/baidu/mobstat/bq;->a(Ljava/io/File;)V
 
@@ -179,91 +197,90 @@
 
     invoke-direct {v0, p0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    const/4 p0, 0x0
+    :try_start_0
+    new-instance v1, Ljava/io/FileOutputStream;
 
-    :try_start_9
-    new-instance p1, Ljava/io/FileOutputStream;
+    invoke-direct {v1, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-direct {p1, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-    :try_end_e
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_e} :catch_3a
-    .catchall {:try_start_9 .. :try_end_e} :catchall_35
+    if-eqz p4, :cond_0
 
-    if-eqz p4, :cond_21
+    :try_start_1
+    new-instance v0, Lcom/baidu/mobstat/bc;
 
-    :try_start_10
-    new-instance p0, Lcom/baidu/mobstat/bc;
-
-    invoke-direct {p0}, Lcom/baidu/mobstat/bc;-><init>()V
+    invoke-direct {v0}, Lcom/baidu/mobstat/bc;-><init>()V
 
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object p2
+    move-result-object v2
 
-    invoke-virtual {p0, p2}, Lcom/baidu/mobstat/bc;->a([B)[B
+    invoke-virtual {v0, v2}, Lcom/baidu/mobstat/bc;->a([B)[B
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p1, p0}, Ljava/io/FileOutputStream;->write([B)V
+    invoke-virtual {v1, v0}, Ljava/io/FileOutputStream;->write([B)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    goto :goto_28
+    :goto_0
+    invoke-static {v1}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
 
-    :cond_21
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
+
+    :cond_0
+    :try_start_2
     invoke-virtual {p2, p3}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p1, p0}, Ljava/io/FileOutputStream;->write([B)V
-    :try_end_28
-    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_28} :catch_32
-    .catchall {:try_start_10 .. :try_end_28} :catchall_2d
+    invoke-virtual {v1, v0}, Ljava/io/FileOutputStream;->write([B)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    :goto_28
-    invoke-static {p1}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
+    goto :goto_0
 
-    const/4 p0, 0x1
+    :catch_0
+    move-exception v0
 
-    return p0
+    :goto_2
+    invoke-static {v1}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
 
-    :catchall_2d
-    move-exception p0
+    const/4 v0, 0x0
 
-    move-object v1, p1
+    goto :goto_1
 
-    move-object p1, p0
+    :catchall_0
+    move-exception v0
 
-    move-object p0, v1
+    move-object v1, v2
 
-    goto :goto_36
+    :goto_3
+    invoke-static {v1}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
 
-    :catch_32
-    move-exception p0
+    throw v0
 
-    move-object p0, p1
+    :catch_1
+    move-exception v0
 
-    goto :goto_3b
+    move-object v1, v2
 
-    :catchall_35
-    move-exception p1
+    goto :goto_2
 
-    :goto_36
-    invoke-static {p0}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
+    :catchall_1
+    move-exception v0
 
-    throw p1
-
-    :catch_3a
-    move-exception p1
-
-    :goto_3b
-    invoke-static {p0}, Lcom/baidu/mobstat/bu;->a(Ljava/io/Closeable;)V
-
-    const/4 p0, 0x0
-
-    return p0
+    goto :goto_3
 .end method
 
 .method private c()Ljava/io/File;
-    .registers 4
+    .locals 3
 
     new-instance v0, Ljava/io/File;
 
@@ -281,7 +298,7 @@
 
 # virtual methods
 .method public a()Ljava/io/File;
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/io/File;
 
@@ -299,14 +316,14 @@
 .end method
 
 .method public b()Lcom/baidu/mobstat/bq$a;
-    .registers 4
+    .locals 3
 
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Lcom/baidu/mobstat/bq;->b:Lcom/baidu/mobstat/bq$a;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     new-instance v0, Lcom/baidu/mobstat/bq$a;
 
@@ -318,16 +335,16 @@
 
     iput-object v0, p0, Lcom/baidu/mobstat/bq;->b:Lcom/baidu/mobstat/bq$a;
 
-    :cond_f
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/bq;->b:Lcom/baidu/mobstat/bq$a;
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_13
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

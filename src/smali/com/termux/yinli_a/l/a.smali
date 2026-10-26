@@ -16,7 +16,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Iterable<",
+        "Ljava/lang/Iterable",
+        "<",
         "Ljava/lang/Integer;",
         ">;"
     }
@@ -33,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     new-instance v0, Lcom/termux/yinli_a/l/a$a;
 
@@ -45,51 +46,51 @@
 .end method
 
 .method public constructor <init>(III)V
-    .registers 5
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p3, :cond_1c
+    if-eqz p3, :cond_1
 
     const/high16 v0, -0x80000000
 
-    if-eq p3, v0, :cond_14
+    if-eq p3, v0, :cond_0
 
     iput p1, p0, Lcom/termux/yinli_a/l/a;->a:I
 
     invoke-static {p1, p2, p3}, Lcom/termux/yinli_a/i/c;->b(III)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/termux/yinli_a/l/a;->b:I
+    iput v0, p0, Lcom/termux/yinli_a/l/a;->b:I
 
     iput p3, p0, Lcom/termux/yinli_a/l/a;->c:I
 
     return-void
 
-    :cond_14
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "Step must be greater than Int.MIN_VALUE to avoid overflow on negation."
+    const-string v1, "Step must be greater than Int.MIN_VALUE to avoid overflow on negation."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    :cond_1c
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "Step must be non-zero."
+    const-string v1, "Step must be non-zero."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public final a()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lcom/termux/yinli_a/l/a;->a:I
 
@@ -97,7 +98,7 @@
 .end method
 
 .method public final b()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lcom/termux/yinli_a/l/a;->b:I
 
@@ -105,7 +106,7 @@
 .end method
 
 .method public iterator()Lcom/termux/yinli_a/h/f;
-    .registers 5
+    .locals 4
 
     new-instance v0, Lcom/termux/yinli_a/l/b;
 
@@ -121,7 +122,7 @@
 .end method
 
 .method public bridge synthetic iterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
 
     invoke-virtual {p0}, Lcom/termux/yinli_a/l/a;->iterator()Lcom/termux/yinli_a/h/f;
 

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -16,20 +16,20 @@
 .end method
 
 .method public static a()[B
-    .registers 4
+    .locals 5
 
     sget-object v0, Lcom/baidu/mobstat/ax;->a:[B
 
-    if-nez v0, :cond_38
+    if-nez v0, :cond_1
 
     const-class v0, Lcom/baidu/mobstat/ax;
 
     monitor-enter v0
 
-    :try_start_7
+    :try_start_0
     sget-object v0, Lcom/baidu/mobstat/ax;->a:[B
 
-    if-nez v0, :cond_30
+    if-nez v0, :cond_0
 
     invoke-static {}, Lcom/baidu/mobstat/be;->b()[B
 
@@ -37,25 +37,29 @@
 
     const/16 v1, 0x10
 
-    new-array v2, v1, [B
+    new-array v1, v1, [B
+
+    const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    invoke-static {v0, v3, v2, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    const/16 v4, 0x10
+
+    invoke-static {v0, v2, v1, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     new-instance v0, Lcom/baidu/mobstat/at;
 
     invoke-direct {v0}, Lcom/baidu/mobstat/at;-><init>()V
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    invoke-virtual {v0, v1, v2, v2}, Lcom/baidu/mobstat/at;->a(I[B[B)V
+    invoke-virtual {v0, v2, v1, v1}, Lcom/baidu/mobstat/at;->a(I[B[B)V
 
     const/16 v1, 0x20
 
     new-array v1, v1, [B
 
-    fill-array-data v1, :array_3c
+    fill-array-data v1, :array_0
 
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/at;->a([B)[B
 
@@ -63,39 +67,33 @@
 
     sput-object v0, Lcom/baidu/mobstat/ax;->a:[B
 
-    goto :goto_30
-
-    :catchall_2e
-    move-exception v0
-
-    goto :goto_34
-
-    :cond_30
-    :goto_30
+    :cond_0
     const-class v0, Lcom/baidu/mobstat/ax;
 
     monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_38
-
-    :goto_34
-    const-class v1, Lcom/baidu/mobstat/ax;
-
-    monitor-exit v1
-    :try_end_37
-    .catchall {:try_start_7 .. :try_end_37} :catchall_2e
-
-    throw v0
-
-    :cond_38
-    :goto_38
+    :cond_1
     sget-object v0, Lcom/baidu/mobstat/ax;->a:[B
 
     return-object v0
 
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    const-class v1, Lcom/baidu/mobstat/ax;
+
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+
     nop
 
-    :array_3c
+    :array_0
     .array-data 1
         -0x47t
         -0x64t

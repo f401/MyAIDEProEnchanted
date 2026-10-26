@@ -14,14 +14,6 @@
 
 
 # static fields
-.field public static APKTOOL_DUMMY_165:I = 0x7f0d0165
-
-.field public static APKTOOL_DUMMY_18f:I = 0x7f0d018f
-
-.field public static APKTOOL_DUMMY_1a6:I = 0x7f0d01a6
-
-.field public static APKTOOL_DUMMY_e4:I = 0x7f0d00e4
-
 .field public static activity_about:I = 0x7f0d0815
 
 .field public static activity_design:I = 0x7f0d0817
@@ -4116,9 +4108,17 @@
 
 .field public static status_bar_notification_info_overflow:I = 0x7f0d0621
 
+.field public static string_165:I = 0x7f0d0165
+
+.field public static string_18f:I = 0x7f0d018f
+
+.field public static string_1a6:I = 0x7f0d01a6
+
 .field public static string_7f0d0839:I = 0x7f0d0839
 
 .field public static string_7f0d083a:I = 0x7f0d083a
+
+.field public static string_e4:I = 0x7f0d00e4
 
 .field public static style_terminal:I = 0x7f0d0847
 
@@ -4311,7 +4311,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
 
     .line 9
     invoke-direct {p0, p1, p2}, Lcom/aide/ui/views/CodeEditTextScrollView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -16,9 +16,9 @@
 
 # virtual methods
 .method protected computeScrollDeltaToGetChildRectOnScreen(Landroid/graphics/Rect;)I
-    .registers 2
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

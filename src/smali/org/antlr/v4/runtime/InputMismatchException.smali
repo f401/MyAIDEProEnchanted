@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/Parser;)V
-    .registers 4
+    .locals 2
 
     .line 13
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/Parser;->getInputStream()Lorg/antlr/v4/runtime/TokenStream;
@@ -19,15 +19,15 @@
     .line 14
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/Parser;->getCurrentToken()Lorg/antlr/v4/runtime/Token;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/InputMismatchException;->setOffendingToken(Lorg/antlr/v4/runtime/Token;)V
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/InputMismatchException;->setOffendingToken(Lorg/antlr/v4/runtime/Token;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/Parser;ILorg/antlr/v4/runtime/ParserRuleContext;)V
-    .registers 5
+    .locals 1
 
     .line 18
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/Parser;->getInputStream()Lorg/antlr/v4/runtime/TokenStream;
@@ -42,9 +42,9 @@
     .line 20
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/Parser;->getCurrentToken()Lorg/antlr/v4/runtime/Token;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/InputMismatchException;->setOffendingToken(Lorg/antlr/v4/runtime/Token;)V
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/InputMismatchException;->setOffendingToken(Lorg/antlr/v4/runtime/Token;)V
 
     return-void
 .end method

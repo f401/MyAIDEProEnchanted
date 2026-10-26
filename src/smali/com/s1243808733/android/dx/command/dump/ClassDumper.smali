@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>([BLjava/io/PrintStream;Ljava/lang/String;Lcom/s1243808733/android/dx/command/dump/Args;)V
-    .registers 5
+    .locals 0
 
     .line 52
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;-><init>([BLjava/io/PrintStream;Ljava/lang/String;Lcom/s1243808733/android/dx/command/dump/Args;)V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static dump([BLjava/io/PrintStream;Ljava/lang/String;Lcom/s1243808733/android/dx/command/dump/Args;)V
-    .registers 5
+    .locals 1
 
     .line 41
     new-instance v0, Lcom/s1243808733/android/dx/command/dump/ClassDumper;
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public dump()V
-    .registers 6
+    .locals 5
 
     .line 59
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/command/dump/ClassDumper;->getBytes()[B
@@ -43,9 +43,6 @@
     invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/util/ByteArray;-><init>([B)V
 
     .line 61
-    nop
-
-    .line 62
     new-instance v2, Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/command/dump/ClassDumper;->getFilePath()Ljava/lang/String;
@@ -77,7 +74,7 @@
     .line 69
     array-length v3, v0
 
-    if-eq v2, v3, :cond_30
+    if-eq v2, v3, :cond_0
 
     .line 70
     array-length v0, v0
@@ -88,6 +85,6 @@
 
     invoke-virtual {p0, v1, v2, v0, v3}, Lcom/s1243808733/android/dx/command/dump/ClassDumper;->parsed(Lcom/s1243808733/android/dx/util/ByteArray;IILjava/lang/String;)V
 
-    :cond_30
+    :cond_0
     return-void
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebView;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     .line 112
     iput-object p1, p0, Lcom/baidu/mobstat/dg$1;->a:Landroid/webkit/WebView;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .line 116
     iget-object v0, p0, Lcom/baidu/mobstat/dg$1;->a:Landroid/webkit/WebView;

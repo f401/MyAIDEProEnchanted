@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(ZILc/x;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public final c()Lc/s;
-    .registers 4
+    .locals 3
 
     iget-object v0, p0, Lc/am;->d:Lc/x;
 
@@ -49,18 +49,18 @@
 .end method
 
 .method public final l()Lc/s;
-    .registers 3
+    .locals 2
 
     :try_start_0
     invoke-virtual {p0}, Lc/am;->c()Lc/s;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
-    :catch_5
+    :catch_0
     move-exception v0
 
     new-instance v1, Lc/r;

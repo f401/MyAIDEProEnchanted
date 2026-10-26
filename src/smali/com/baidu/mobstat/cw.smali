@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 11
     new-instance v0, Lcom/baidu/mobstat/cw;
@@ -26,7 +26,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 13
     invoke-direct {p0}, Lcom/baidu/mobstat/cv;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method public static c()Lcom/baidu/mobstat/cw;
-    .registers 1
+    .locals 1
 
     .line 17
     sget-object v0, Lcom/baidu/mobstat/cw;->c:Lcom/baidu/mobstat/cw;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public a()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 26
     const-string v0, "Bottom"
@@ -55,7 +55,7 @@
 .end method
 
 .method public b()Z
-    .registers 2
+    .locals 1
 
     .line 31
     iget-boolean v0, p0, Lcom/baidu/mobstat/cw;->b:Z

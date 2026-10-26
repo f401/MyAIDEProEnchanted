@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,28 +41,28 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 5
 
     .line 95
-    const-string p1, "com.aide.ui.ib"
+    const-string v0, "com.aide.ui.ib"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 p2, 0x1
+    const-string v1, "EQ_SOURCE"
 
-    new-array p2, p2, [Ljava/lang/Object;
+    const/4 v2, 0x1
 
-    const/4 v0, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/project/ProjectDialog$3;->val$activity:Landroid/app/Activity;
+    const/4 v3, 0x0
 
-    aput-object v1, p2, v0
+    iget-object v4, p0, Lcom/s1243808733/aide/project/ProjectDialog$3;->val$activity:Landroid/app/Activity;
 
-    const-string v0, "EQ_SOURCE"
+    aput-object v4, v2, v3
 
-    invoke-virtual {p1, v0, p2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     return-void
 .end method

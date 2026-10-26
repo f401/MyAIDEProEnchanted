@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
 
     .line 822
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/io/instructions/InstructionCodec$36-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec$36;-><init>(Ljava/lang/String;I)V
 
@@ -37,12 +37,16 @@
 
 # virtual methods
 .method public decode(ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 10
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
         }
     .end annotation
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
 
     .line 826
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->read()I
@@ -52,175 +56,174 @@
     .line 827
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->readInt()I
 
-    move-result v1
+    move-result v4
 
-    const/16 v2, 0x8
+    if-eq v0, v3, :cond_6
 
-    const/4 v3, 0x0
+    const/4 v1, 0x2
 
-    const/4 v4, 0x1
+    if-eq v0, v1, :cond_4
 
-    if-eq v0, v4, :cond_68
+    const/4 v1, 0x4
 
-    const/4 v4, 0x2
+    if-eq v0, v1, :cond_2
 
-    if-eq v0, v4, :cond_54
+    const/16 v1, 0x8
 
-    const/4 v4, 0x4
-
-    if-eq v0, v4, :cond_41
-
-    if-ne v0, v2, :cond_29
+    if-ne v0, v1, :cond_1
 
     .line 860
-    new-array v0, v1, [J
+    new-array v1, v4, [J
 
-    :goto_18
-    if-ge v3, v1, :cond_23
+    :goto_0
+    if-ge v2, v4, :cond_0
 
     .line 862
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->readLong()J
 
-    move-result-wide v4
+    move-result-wide v6
 
-    aput-wide v4, v0, v3
+    aput-wide v6, v1, v2
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_18
+    goto :goto_0
 
     .line 864
-    :cond_23
-    new-instance p2, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;
+    :cond_0
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;
 
-    invoke-direct {p2, p0, p1, v0}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;I[J)V
+    invoke-direct {v0, p0, p1, v1}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;I[J)V
 
-    return-object p2
+    :goto_1
+    return-object v0
 
     .line 870
-    :cond_29
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string p2, "bogus element_width: "
+    const-string v2, "bogus element_width: "
 
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 871
     invoke-static {v0}, Lcom/s1243808733/android/dx/util/Hex;->u2(I)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p2, Lcom/s1243808733/android/dex/DexException;
+    new-instance v0, Lcom/s1243808733/android/dex/DexException;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {p2, p1}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v0
 
     .line 852
-    :cond_41
-    new-array v0, v1, [I
+    :cond_2
+    new-array v1, v4, [I
 
-    :goto_43
-    if-ge v3, v1, :cond_4e
+    :goto_2
+    if-ge v2, v4, :cond_3
 
     .line 854
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    aput v2, v0, v3
+    aput v0, v1, v2
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_43
+    goto :goto_2
 
     .line 856
-    :cond_4e
-    new-instance p2, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;
+    :cond_3
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;
 
-    invoke-direct {p2, p0, p1, v0}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;I[I)V
+    invoke-direct {v0, p0, p1, v1}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;I[I)V
 
-    return-object p2
+    goto :goto_1
 
     .line 844
-    :cond_54
-    new-array v0, v1, [S
+    :cond_4
+    new-array v1, v4, [S
 
-    :goto_56
-    if-ge v3, v1, :cond_62
+    :goto_3
+    if-ge v2, v4, :cond_5
 
     .line 846
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->read()I
 
-    move-result v2
+    move-result v0
 
-    int-to-short v2, v2
+    int-to-short v0, v0
 
-    aput-short v2, v0, v3
+    aput-short v0, v1, v2
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_56
+    goto :goto_3
 
     .line 848
-    :cond_62
-    new-instance p2, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;
+    :cond_5
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;
 
-    invoke-direct {p2, p0, p1, v0}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;I[S)V
+    invoke-direct {v0, p0, p1, v1}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;I[S)V
 
-    return-object p2
+    goto :goto_1
 
     .line 831
-    :cond_68
-    new-array v0, v1, [B
+    :cond_6
+    new-array v5, v4, [B
 
-    const/4 v4, 0x0
+    move v1, v2
 
-    const/4 v5, 0x1
+    move v0, v2
 
-    :goto_6c
-    if-ge v3, v1, :cond_7f
+    :goto_4
+    if-ge v1, v4, :cond_8
 
-    if-eqz v5, :cond_74
+    if-eqz v3, :cond_7
 
     .line 835
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->read()I
 
-    move-result v4
+    move-result v0
 
-    :cond_74
-    and-int/lit16 v6, v4, 0xff
+    :cond_7
+    and-int/lit16 v2, v0, 0xff
 
-    int-to-byte v6, v6
+    int-to-byte v2, v2
 
     .line 837
-    aput-byte v6, v0, v3
+    aput-byte v2, v5, v1
 
-    shr-int/2addr v4, v2
+    shr-int/lit8 v0, v0, 0x8
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    xor-int/lit8 v5, v5, 0x1
+    xor-int/lit8 v2, v3, 0x1
 
-    goto :goto_6c
+    move v3, v2
+
+    goto :goto_4
 
     .line 840
-    :cond_7f
-    new-instance p2, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;
+    :cond_8
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;
 
-    invoke-direct {p2, p0, p1, v0}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;I[B)V
+    invoke-direct {v0, p0, p1, v5}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;I[B)V
 
-    return-object p2
+    goto :goto_1
 .end method
 
 .method public encode(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 6
+    .locals 3
 
     .line 876
     check-cast p1, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;
@@ -228,12 +231,12 @@
     .line 878
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;->getElementWidthUnit()S
 
-    move-result v0
+    move-result v1
 
     .line 879
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;->getData()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 881
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;->getOpcodeUnit()S
@@ -243,85 +246,86 @@
     invoke-interface {p2, v2}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(S)V
 
     .line 882
-    invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(S)V
+    invoke-interface {p2, v1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(S)V
 
     .line 883
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/FillArrayDataPayloadDecodedInstruction;->getSize()I
 
-    move-result p1
+    move-result v2
 
-    invoke-interface {p2, p1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->writeInt(I)V
+    invoke-interface {p2, v2}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->writeInt(I)V
 
-    const/4 p1, 0x1
+    const/4 v2, 0x1
 
-    if-eq v0, p1, :cond_52
+    if-eq v1, v2, :cond_3
 
-    const/4 p1, 0x2
+    const/4 v2, 0x2
 
-    if-eq v0, p1, :cond_4c
+    if-eq v1, v2, :cond_2
 
-    const/4 p1, 0x4
+    const/4 v2, 0x4
 
-    if-eq v0, p1, :cond_46
+    if-eq v1, v2, :cond_1
 
-    const/16 p1, 0x8
+    const/16 v2, 0x8
 
-    if-ne v0, p1, :cond_2e
+    if-ne v1, v2, :cond_0
 
     .line 889
-    check-cast v1, [J
+    check-cast v0, [J
 
-    invoke-interface {p2, v1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write([J)V
-
-    goto :goto_57
-
-    .line 891
-    :cond_2e
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    const-string p2, "bogus element_width: "
-
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    .line 892
-    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Hex;->u2(I)Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    new-instance p2, Lcom/s1243808733/android/dex/DexException;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {p2, p1}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
-
-    throw p2
-
-    .line 888
-    :cond_46
-    check-cast v1, [I
-
-    invoke-interface {p2, v1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write([I)V
-
-    goto :goto_57
-
-    .line 887
-    :cond_4c
-    check-cast v1, [S
-
-    invoke-interface {p2, v1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write([S)V
-
-    goto :goto_57
+    invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write([J)V
 
     .line 886
-    :cond_52
-    check-cast v1, [B
-
-    invoke-interface {p2, v1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write([B)V
-
-    :goto_57
+    :goto_0
     return-void
+
+    .line 891
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v2, "bogus element_width: "
+
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    .line 892
+    invoke-static {v1}, Lcom/s1243808733/android/dx/util/Hex;->u2(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v1, Lcom/s1243808733/android/dex/DexException;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 888
+    :cond_1
+    check-cast v0, [I
+
+    invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write([I)V
+
+    goto :goto_0
+
+    .line 887
+    :cond_2
+    check-cast v0, [S
+
+    invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write([S)V
+
+    goto :goto_0
+
+    .line 886
+    :cond_3
+    check-cast v0, [B
+
+    invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write([B)V
+
+    goto :goto_0
 .end method

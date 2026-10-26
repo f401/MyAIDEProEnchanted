@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;)V
-    .registers 2
+    .locals 0
 
     .line 257
     iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$3;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .line 261
     invoke-static {}, Lcom/s1243808733/aide/completion/apiversion/ApiVersion;->preload()V

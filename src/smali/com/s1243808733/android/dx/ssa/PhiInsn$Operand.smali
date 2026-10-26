@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/code/RegisterSpec;II)V
-    .registers 4
+    .locals 0
 
     .line 390
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

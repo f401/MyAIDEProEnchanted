@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxHelpActivity;)V
-    .registers 2
+    .locals 0
 
     .line 44
     iput-object p1, p0, Lcom/termux/app/TermuxHelpActivity$1;->this$0:Lcom/termux/app/TermuxHelpActivity;
@@ -33,91 +33,93 @@
 
 # virtual methods
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
-    .registers 3
+    .locals 2
 
     .line 69
-    iget-object p1, p0, Lcom/termux/app/TermuxHelpActivity$1;->this$0:Lcom/termux/app/TermuxHelpActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxHelpActivity$1;->this$0:Lcom/termux/app/TermuxHelpActivity;
 
-    iget-object p2, p1, Lcom/termux/app/TermuxHelpActivity;->mWebView:Landroid/webkit/WebView;
+    iget-object v1, v0, Lcom/termux/app/TermuxHelpActivity;->mWebView:Landroid/webkit/WebView;
 
-    invoke-virtual {p1, p2}, Lcom/termux/app/TermuxHelpActivity;->setContentView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxHelpActivity;->setContentView(Landroid/view/View;)V
 
     return-void
 .end method
 
 .method public shouldOverrideUrlLoading(Landroid/webkit/WebView;Ljava/lang/String;)Z
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x1
 
     .line 48
-    const/4 v0, 0x1
+    :try_start_0
+    const-string v0, "http"
 
-    :try_start_1
-    const-string v1, "http"
+    invoke-virtual {p2, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-result v0
 
-    move-result v1
+    if-nez v0, :cond_0
 
-    if-nez v1, :cond_28
+    const-string v0, "https"
 
-    const-string v1, "https"
+    invoke-virtual {p2, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-result v0
 
-    move-result v1
-
-    if-nez v1, :cond_28
+    if-nez v0, :cond_0
 
     .line 49
-    new-instance p1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-direct {p1}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
     .line 50
     const-string v1, "android.intent.action.VIEW"
 
-    invoke-virtual {p1, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 51
     invoke-static {p2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p1, p2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 52
-    iget-object p2, p0, Lcom/termux/app/TermuxHelpActivity$1;->this$0:Lcom/termux/app/TermuxHelpActivity;
+    iget-object v1, p0, Lcom/termux/app/TermuxHelpActivity$1;->this$0:Lcom/termux/app/TermuxHelpActivity;
 
-    invoke-virtual {p2, p1}, Lcom/termux/app/TermuxHelpActivity;->startActivity(Landroid/content/Intent;)V
-
-    return v0
-
-    .line 55
-    :cond_28
-    invoke-virtual {p1, p2}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
-    :try_end_2b
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_2b} :catch_2c
-
-    return v0
-
-    :catch_2c
-    move-exception p1
-
-    .line 59
-    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v1, v0}, Lcom/termux/app/TermuxHelpActivity;->startActivity(Landroid/content/Intent;)V
 
     .line 60
-    iget-object p1, p0, Lcom/termux/app/TermuxHelpActivity$1;->this$0:Lcom/termux/app/TermuxHelpActivity;
+    :goto_0
+    return v3
 
-    const-string p2, "您所打开的第三方App未安装！"
+    .line 55
+    :cond_0
+    invoke-virtual {p1, p2}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v1, 0x0
+    goto :goto_0
 
-    invoke-static {p1, p2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    :catch_0
+    move-exception v0
 
-    move-result-object p1
+    .line 59
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+    .line 60
+    iget-object v0, p0, Lcom/termux/app/TermuxHelpActivity$1;->this$0:Lcom/termux/app/TermuxHelpActivity;
 
-    return v0
+    const-string v1, "\u60a8\u6240\u6253\u5f00\u7684\u7b2c\u4e09\u65b9App\u672a\u5b89\u88c5\uff01"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
 .end method

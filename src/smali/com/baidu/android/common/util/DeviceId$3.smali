@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/android/common/util/DeviceId;Lcom/baidu/mobstat/bw$a;)V
-    .registers 3
+    .locals 0
 
     iput-object p1, p0, Lcom/baidu/android/common/util/DeviceId$3;->b:Lcom/baidu/android/common/util/DeviceId;
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/baidu/android/common/util/DeviceId$3;->b:Lcom/baidu/android/common/util/DeviceId;
@@ -46,8 +46,8 @@
     iget-object v1, p0, Lcom/baidu/android/common/util/DeviceId$3;->a:Lcom/baidu/mobstat/bw$a;
 
     invoke-static {v0, v1}, Lcom/baidu/android/common/util/DeviceId;->b(Lcom/baidu/android/common/util/DeviceId;Lcom/baidu/mobstat/bw$a;)V
-    :try_end_7
-    .catchall {:try_start_0 .. :try_end_7} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     iget-object v0, p0, Lcom/baidu/android/common/util/DeviceId$3;->b:Lcom/baidu/android/common/util/DeviceId;
 
@@ -59,7 +59,7 @@
 
     return-void
 
-    :catchall_11
+    :catchall_0
     move-exception v0
 
     iget-object v1, p0, Lcom/baidu/android/common/util/DeviceId$3;->b:Lcom/baidu/android/common/util/DeviceId;

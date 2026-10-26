@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/voiddog/dragbackactivity/DragBackDelegate$2;Landroid/graphics/Bitmap;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,33 +45,33 @@
 
 # virtual methods
 .method public onPixelCopyFinished(I)V
-    .registers 3
+    .locals 2
 
-    if-nez p1, :cond_10
+    if-nez p1, :cond_0
 
     .line 134
-    iget-object p1, p0, Lorg/voiddog/dragbackactivity/DragBackDelegate$2$1;->this$1:Lorg/voiddog/dragbackactivity/DragBackDelegate$2;
+    iget-object v0, p0, Lorg/voiddog/dragbackactivity/DragBackDelegate$2$1;->this$1:Lorg/voiddog/dragbackactivity/DragBackDelegate$2;
 
-    iget-object p1, p1, Lorg/voiddog/dragbackactivity/DragBackDelegate$2;->this$0:Lorg/voiddog/dragbackactivity/DragBackDelegate;
+    iget-object v0, v0, Lorg/voiddog/dragbackactivity/DragBackDelegate$2;->this$0:Lorg/voiddog/dragbackactivity/DragBackDelegate;
 
-    invoke-static {p1}, Lorg/voiddog/dragbackactivity/DragBackDelegate;->-$$Nest$fgetcode(Lorg/voiddog/dragbackactivity/DragBackDelegate;)Ljava/lang/String;
+    invoke-static {v0}, Lorg/voiddog/dragbackactivity/DragBackDelegate;->-$$Nest$fgetcode(Lorg/voiddog/dragbackactivity/DragBackDelegate;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget-object v0, p0, Lorg/voiddog/dragbackactivity/DragBackDelegate$2$1;->val$bitmap:Landroid/graphics/Bitmap;
+    iget-object v1, p0, Lorg/voiddog/dragbackactivity/DragBackDelegate$2$1;->val$bitmap:Landroid/graphics/Bitmap;
 
-    invoke-static {p1, v0}, Lcom/blankj/utilcode/util/CacheDiskStaticUtils;->put(Ljava/lang/String;Landroid/graphics/Bitmap;)V
-
-    goto :goto_17
+    invoke-static {v0, v1}, Lcom/blankj/utilcode/util/CacheDiskStaticUtils;->put(Ljava/lang/String;Landroid/graphics/Bitmap;)V
 
     .line 138
-    :cond_10
-    iget-object p1, p0, Lorg/voiddog/dragbackactivity/DragBackDelegate$2$1;->this$1:Lorg/voiddog/dragbackactivity/DragBackDelegate$2;
-
-    iget-object v0, p1, Lorg/voiddog/dragbackactivity/DragBackDelegate$2;->val$view:Landroid/view/View;
-
-    invoke-static {p1, v0}, Lorg/voiddog/dragbackactivity/DragBackDelegate$2;->-$$Nest$mdef(Lorg/voiddog/dragbackactivity/DragBackDelegate$2;Landroid/view/View;)V
-
-    :goto_17
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v0, p0, Lorg/voiddog/dragbackactivity/DragBackDelegate$2$1;->this$1:Lorg/voiddog/dragbackactivity/DragBackDelegate$2;
+
+    iget-object v1, v0, Lorg/voiddog/dragbackactivity/DragBackDelegate$2;->val$view:Landroid/view/View;
+
+    invoke-static {v0, v1}, Lorg/voiddog/dragbackactivity/DragBackDelegate$2;->-$$Nest$mdef(Lorg/voiddog/dragbackactivity/DragBackDelegate$2;Landroid/view/View;)V
+
+    goto :goto_0
 .end method

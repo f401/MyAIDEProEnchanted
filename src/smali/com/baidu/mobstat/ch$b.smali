@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/baidu/mobstat/ch;)V
-    .registers 2
+    .locals 0
 
     .line 196
     iput-object p1, p0, Lcom/baidu/mobstat/ch$b;->a:Lcom/baidu/mobstat/ch;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/baidu/mobstat/ch;Lcom/baidu/mobstat/ch$1;)V
-    .registers 3
+    .locals 0
 
     .line 196
     invoke-direct {p0, p1}, Lcom/baidu/mobstat/ch$b;-><init>(Lcom/baidu/mobstat/ch;)V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public a()V
-    .registers 2
+    .locals 1
 
     .line 200
     iget-object v0, p0, Lcom/baidu/mobstat/ch$b;->a:Lcom/baidu/mobstat/ch;
@@ -56,7 +56,7 @@
 .end method
 
 .method public a(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
 
     .line 215
     iget-object v0, p0, Lcom/baidu/mobstat/ch$b;->a:Lcom/baidu/mobstat/ch;
@@ -85,19 +85,19 @@
     invoke-virtual {v0, v1}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
     .line 219
-    iget-object p1, p0, Lcom/baidu/mobstat/ch$b;->a:Lcom/baidu/mobstat/ch;
+    iget-object v1, p0, Lcom/baidu/mobstat/ch$b;->a:Lcom/baidu/mobstat/ch;
 
-    invoke-static {p1}, Lcom/baidu/mobstat/ch;->g(Lcom/baidu/mobstat/ch;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/baidu/mobstat/ch;->g(Lcom/baidu/mobstat/ch;)Landroid/os/Handler;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method
 
 .method public a(Z)V
-    .registers 3
+    .locals 1
 
     .line 210
     iget-object v0, p0, Lcom/baidu/mobstat/ch$b;->a:Lcom/baidu/mobstat/ch;
@@ -108,7 +108,7 @@
 .end method
 
 .method public b()V
-    .registers 2
+    .locals 1
 
     .line 205
     iget-object v0, p0, Lcom/baidu/mobstat/ch$b;->a:Lcom/baidu/mobstat/ch;

@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 26
     new-instance v0, Lcom/s1243808733/android/dx/util/IntList;
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 75
     const/4 v0, 0x4
@@ -46,46 +46,48 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 2
+
+    const/4 v1, 0x1
 
     .line 84
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/util/MutabilityControl;-><init>(Z)V
+    invoke-direct {p0, v1}, Lcom/s1243808733/android/dx/util/MutabilityControl;-><init>(Z)V
 
     .line 87
-    :try_start_4
-    new-array p1, p1, [I
+    :try_start_0
+    new-array v0, p1, [I
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
-    :try_end_8
-    .catch Ljava/lang/NegativeArraySizeException; {:try_start_4 .. :try_end_8} :catch_e
+    iput-object v0, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
+    :try_end_0
+    .catch Ljava/lang/NegativeArraySizeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 93
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    iput v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
     .line 94
-    iput-boolean v0, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
     return-void
 
     .line 90
-    :catch_e
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "size < 0"
+    const-string v1, "size < 0"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method private growIfNeeded()V
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 272
     iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
@@ -94,7 +96,7 @@
 
     array-length v2, v1
 
-    if-ne v0, v2, :cond_15
+    if-ne v0, v2, :cond_0
 
     .line 274
     mul-int/lit8 v2, v0, 0x3
@@ -106,19 +108,17 @@
     new-array v2, v2, [I
 
     .line 275
-    const/4 v3, 0x0
-
     invoke-static {v1, v3, v2, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 276
     iput-object v2, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public static makeImmutable(I)Lcom/s1243808733/android/dx/util/IntList;
-    .registers 3
+    .locals 2
 
     .line 47
     new-instance v0, Lcom/s1243808733/android/dx/util/IntList;
@@ -137,7 +137,7 @@
 .end method
 
 .method public static makeImmutable(II)Lcom/s1243808733/android/dx/util/IntList;
-    .registers 4
+    .locals 2
 
     .line 62
     new-instance v0, Lcom/s1243808733/android/dx/util/IntList;
@@ -161,7 +161,9 @@
 
 # virtual methods
 .method public add(I)V
-    .registers 6
+    .locals 5
+
+    const/4 v0, 0x1
 
     .line 215
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/util/IntList;->throwIfImmutable()V
@@ -170,330 +172,327 @@
     invoke-direct {p0}, Lcom/s1243808733/android/dx/util/IntList;->growIfNeeded()V
 
     .line 219
-    iget-object v0, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
+    iget-object v1, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    iget v1, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    iget v2, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v3, v2, 0x1
 
-    iput v2, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    iput v3, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    aput p1, v0, v1
+    aput p1, v1, v2
 
     .line 221
-    iget-boolean v3, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
+    iget-boolean v4, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
-    if-eqz v3, :cond_20
+    if-eqz v4, :cond_0
 
-    const/4 v3, 0x1
-
-    if-le v2, v3, :cond_20
+    if-le v3, v0, :cond_0
 
     .line 222
-    sub-int/2addr v1, v3
+    add-int/lit8 v2, v2, -0x1
 
-    aget v0, v0, v1
+    aget v1, v1, v2
 
-    if-lt p1, v0, :cond_1d
+    if-lt p1, v1, :cond_1
 
-    goto :goto_1e
+    :goto_0
+    iput-boolean v0, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
-    :cond_1d
-    const/4 v3, 0x0
-
-    :goto_1e
-    iput-boolean v3, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
-
-    :cond_20
+    :cond_0
     return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public binarysearch(I)I
-    .registers 7
+    .locals 5
 
     .line 393
-    iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    iget v3, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
     .line 395
-    iget-boolean v1, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
+    iget-boolean v0, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
-    if-nez v1, :cond_15
+    if-nez v0, :cond_3
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_7
-    if-ge v1, v0, :cond_13
+    :goto_0
+    if-ge v0, v3, :cond_2
 
     .line 398
-    iget-object v2, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
+    iget-object v1, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    aget v2, v2, v1
+    aget v1, v1, v0
 
-    if-ne v2, p1, :cond_10
+    if-ne v1, p1, :cond_1
 
-    return v1
+    .line 433
+    :cond_0
+    :goto_1
+    return v0
 
-    :cond_10
-    add-int/lit8 v1, v1, 0x1
+    .line 398
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
-    :cond_13
-    neg-int p1, v0
+    :cond_2
+    neg-int v0, v3
 
-    return p1
+    goto :goto_1
 
-    :cond_15
+    :cond_3
     const/4 v1, -0x1
 
-    move v2, v0
+    move v0, v3
 
-    :goto_17
-    add-int/lit8 v3, v1, 0x1
+    :goto_2
+    add-int/lit8 v2, v1, 0x1
 
-    if-le v2, v3, :cond_2a
+    if-le v0, v2, :cond_5
 
-    sub-int v3, v2, v1
+    sub-int v2, v0, v1
 
-    shr-int/lit8 v3, v3, 0x1
+    shr-int/lit8 v2, v2, 0x1
 
-    add-int/2addr v3, v1
+    add-int/2addr v2, v1
 
     .line 423
     iget-object v4, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    aget v4, v4, v3
+    aget v4, v4, v2
 
-    if-gt p1, v4, :cond_28
+    if-gt p1, v4, :cond_4
 
-    move v2, v3
+    move v0, v2
 
-    goto :goto_17
+    goto :goto_2
 
-    :cond_28
-    move v1, v3
+    :cond_4
+    move v1, v2
 
-    goto :goto_17
+    goto :goto_2
 
-    :cond_2a
-    if-eq v2, v0, :cond_37
+    :cond_5
+    if-eq v0, v3, :cond_6
 
     .line 433
-    iget-object v0, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
+    iget-object v1, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    aget v0, v0, v2
+    aget v1, v1, v0
 
-    if-ne p1, v0, :cond_33
+    if-eq p1, v1, :cond_0
 
-    goto :goto_36
+    neg-int v0, v0
 
-    :cond_33
-    neg-int p1, v2
+    add-int/lit8 v0, v0, -0x1
 
-    add-int/lit8 v2, p1, -0x1
+    goto :goto_1
 
-    :goto_36
-    return v2
+    :cond_6
+    neg-int v0, v3
 
-    :cond_37
-    neg-int p1, v0
+    add-int/lit8 v0, v0, -0x1
 
-    add-int/lit8 p1, p1, -0x1
-
-    return p1
+    goto :goto_1
 .end method
 
 .method public contains(I)Z
-    .registers 2
+    .locals 1
 
     .line 451
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/util/IntList;->indexOf(I)I
 
-    move-result p1
+    move-result v0
 
-    if-ltz p1, :cond_8
-
-    const/4 p1, 0x1
-
-    goto :goto_9
-
-    :cond_8
-    const/4 p1, 0x0
-
-    :goto_9
-    return p1
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    if-ltz v0, :cond_0
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_4
-
+    :goto_0
     return v0
 
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 5
+
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    if-ne p1, p0, :cond_1
+
+    move v1, v2
+
+    .line 131
+    :cond_0
+    :goto_0
+    return v1
+
     .line 116
-    :cond_4
-    instance-of v1, p1, Lcom/s1243808733/android/dx/util/IntList;
+    :cond_1
+    instance-of v0, p1, Lcom/s1243808733/android/dx/util/IntList;
 
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_a
-
-    return v2
+    if-eqz v0, :cond_0
 
     .line 120
-    :cond_a
     check-cast p1, Lcom/s1243808733/android/dx/util/IntList;
 
     .line 122
-    iget-boolean v1, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
+    iget-boolean v0, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
     iget-boolean v3, p1, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
-    if-eq v1, v3, :cond_13
-
-    return v2
+    if-ne v0, v3, :cond_0
 
     .line 126
-    :cond_13
-    iget v1, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
     iget v3, p1, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    if-eq v1, v3, :cond_1a
+    if-ne v0, v3, :cond_0
 
-    return v2
-
-    :cond_1a
-    const/4 v1, 0x0
+    move v0, v1
 
     .line 130
-    :goto_1b
+    :goto_1
     iget v3, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    if-ge v1, v3, :cond_2d
+    if-ge v0, v3, :cond_2
 
     .line 131
     iget-object v3, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    aget v3, v3, v1
+    aget v3, v3, v0
 
     iget-object v4, p1, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    aget v4, v4, v1
+    aget v4, v4, v0
 
-    if-eq v3, v4, :cond_2a
+    if-ne v3, v4, :cond_0
 
-    return v2
+    add-int/lit8 v0, v0, 0x1
 
-    :cond_2a
-    add-int/lit8 v1, v1, 0x1
+    goto :goto_1
 
-    goto :goto_1b
+    :cond_2
+    move v1, v2
 
-    :cond_2d
-    return v0
+    goto :goto_0
 .end method
 
 .method public get(I)I
-    .registers 3
+    .locals 2
 
     .line 172
     iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    if-ge p1, v0, :cond_12
+    if-ge p1, v0, :cond_0
 
     .line 177
-    :try_start_4
+    :try_start_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    aget p1, v0, p1
-    :try_end_8
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_4 .. :try_end_8} :catch_9
+    aget v0, v0, p1
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return p1
+    return v0
 
     .line 180
-    :catch_9
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
+    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    const-string v0, "n < 0"
+    const-string v1, "n < 0"
 
-    invoke-direct {p1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 173
-    :cond_12
-    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
+    :cond_0
+    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    const-string v0, "n >= size()"
+    const-string v1, "n >= size()"
 
-    invoke-direct {p1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public hashCode()I
-    .registers 4
-
-    const/4 v0, 0x0
+    .locals 3
 
     const/4 v1, 0x0
 
-    .line 102
-    :goto_2
-    iget v2, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    move v0, v1
 
-    if-ge v0, v2, :cond_10
+    move v2, v1
+
+    .line 102
+    :goto_0
+    iget v1, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+
+    if-ge v2, v1, :cond_0
 
     .line 103
-    mul-int/lit8 v1, v1, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v2, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
+    iget-object v1, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    aget v2, v2, v0
+    aget v1, v1, v2
 
-    add-int/2addr v1, v2
+    add-int/2addr v0, v1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v2, 0x1
 
-    goto :goto_2
+    move v2, v1
 
-    :cond_10
-    return v1
+    goto :goto_0
+
+    :cond_0
+    return v0
 .end method
 
 .method public indexOf(I)I
-    .registers 2
+    .locals 1
 
     .line 375
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/util/IntList;->binarysearch(I)I
 
-    move-result p1
+    move-result v0
 
-    if-ltz p1, :cond_7
+    if-ltz v0, :cond_0
 
-    goto :goto_8
+    :goto_0
+    return v0
 
-    :cond_7
-    const/4 p1, -0x1
+    :cond_0
+    const/4 v0, -0x1
 
-    :goto_8
-    return p1
+    goto :goto_0
 .end method
 
 .method public insert(II)V
-    .registers 7
+    .locals 4
 
     .line 236
     iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    if-gt p1, v0, :cond_33
+    if-gt p1, v0, :cond_3
 
     .line 240
     invoke-direct {p0}, Lcom/s1243808733/android/dx/util/IntList;->growIfNeeded()V
@@ -524,80 +523,80 @@
     .line 246
     iget-boolean v3, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_2
 
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     add-int/lit8 v3, p1, -0x1
 
     aget v3, v0, v3
 
-    if-le p2, v3, :cond_2f
+    if-le p2, v3, :cond_2
 
-    :cond_27
-    if-eq p1, v2, :cond_2d
+    :cond_0
+    if-eq p1, v2, :cond_1
 
-    aget p1, v0, v1
+    aget v0, v0, v1
 
-    if-ge p2, p1, :cond_2f
+    if-ge p2, v0, :cond_2
 
-    :cond_2d
-    const/4 p1, 0x1
+    :cond_1
+    const/4 v0, 0x1
 
-    goto :goto_30
-
-    :cond_2f
-    const/4 p1, 0x0
-
-    :goto_30
-    iput-boolean p1, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
+    :goto_0
+    iput-boolean v0, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
     return-void
 
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+
     .line 237
-    :cond_33
-    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
+    :cond_3
+    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    const-string p2, "n > size()"
+    const-string v1, "n > size()"
 
-    invoke-direct {p1, p2}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public mutableCopy()Lcom/s1243808733/android/dx/util/IntList;
-    .registers 5
+    .locals 4
 
     .line 344
-    iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    iget v1, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
     .line 345
-    new-instance v1, Lcom/s1243808733/android/dx/util/IntList;
+    new-instance v2, Lcom/s1243808733/android/dx/util/IntList;
 
-    invoke-direct {v1, v0}, Lcom/s1243808733/android/dx/util/IntList;-><init>(I)V
+    invoke-direct {v2, v1}, Lcom/s1243808733/android/dx/util/IntList;-><init>(I)V
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    :goto_8
-    if-ge v2, v0, :cond_14
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 348
     iget-object v3, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    aget v3, v3, v2
+    aget v3, v3, v0
 
-    invoke-virtual {v1, v3}, Lcom/s1243808733/android/dx/util/IntList;->add(I)V
+    invoke-virtual {v2, v3}, Lcom/s1243808733/android/dx/util/IntList;->add(I)V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_14
-    return-object v1
+    :cond_0
+    return-object v2
 .end method
 
 .method public pop()I
-    .registers 3
+    .locals 2
 
     .line 297
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/util/IntList;->throwIfImmutable()V
@@ -622,7 +621,7 @@
 .end method
 
 .method public pop(I)V
-    .registers 3
+    .locals 1
 
     .line 314
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/util/IntList;->throwIfImmutable()V
@@ -638,12 +637,12 @@
 .end method
 
 .method public removeIndex(I)V
-    .registers 5
+    .locals 3
 
     .line 258
     iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    if-ge p1, v0, :cond_15
+    if-ge p1, v0, :cond_0
 
     .line 262
     iget-object v1, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
@@ -657,27 +656,27 @@
     invoke-static {v1, v2, v1, p1, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 263
-    iget p1, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    add-int/lit8 p1, p1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    iput p1, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    iput v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
     return-void
 
     .line 259
-    :cond_15
-    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
+    :cond_0
+    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    const-string v0, "n >= size()"
+    const-string v1, "n >= size()"
 
-    invoke-direct {p1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public set(II)V
-    .registers 4
+    .locals 2
 
     .line 191
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/util/IntList;->throwIfImmutable()V
@@ -685,61 +684,58 @@
     .line 193
     iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    if-ge p1, v0, :cond_1b
+    if-ge p1, v0, :cond_1
 
     .line 198
-    :try_start_7
+    :try_start_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
     aput p2, v0, p1
 
     .line 199
-    const/4 p2, 0x0
+    const/4 v0, 0x0
 
-    iput-boolean p2, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
-    :try_end_e
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_7 .. :try_end_e} :catch_f
+    iput-boolean v0, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_12
-
-    :catch_f
-    move-exception p2
-
-    if-ltz p1, :cond_13
-
-    :goto_12
+    :cond_0
     return-void
 
+    :catch_0
+    move-exception v0
+
+    if-gez p1, :cond_0
+
     .line 203
-    :cond_13
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "n < 0"
+    const-string v1, "n < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 194
-    :cond_1b
-    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
+    :cond_1
+    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    const-string p2, "n >= size()"
+    const-string v1, "n >= size()"
 
-    invoke-direct {p1, p2}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public shrink(I)V
-    .registers 3
+    .locals 2
 
-    if-ltz p1, :cond_14
+    if-ltz p1, :cond_1
 
     .line 329
     iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    if-gt p1, v0, :cond_c
+    if-gt p1, v0, :cond_0
 
     .line 333
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/util/IntList;->throwIfImmutable()V
@@ -750,28 +746,28 @@
     return-void
 
     .line 330
-    :cond_c
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "newSize > size"
+    const-string v1, "newSize > size"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 326
-    :cond_14
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "newSize < 0"
+    const-string v1, "newSize < 0"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .line 162
     iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
@@ -780,7 +776,7 @@
 .end method
 
 .method public sort()V
-    .registers 4
+    .locals 3
 
     .line 358
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/util/IntList;->throwIfImmutable()V
@@ -788,7 +784,7 @@
     .line 360
     iget-boolean v0, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 361
     iget-object v0, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
@@ -804,64 +800,64 @@
 
     iput-boolean v0, p0, Lcom/s1243808733/android/dx/util/IntList;->sorted:Z
 
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 142
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
+    iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    mul-int/lit8 v1, v1, 0x5
+    mul-int/lit8 v0, v0, 0x5
 
-    add-int/lit8 v1, v1, 0xa
+    add-int/lit8 v0, v0, 0xa
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 144
-    const/16 v1, 0x7b
+    const/16 v0, 0x7b
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 146
-    :goto_11
+    :goto_0
     iget v2, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I
 
-    if-ge v1, v2, :cond_26
+    if-ge v0, v2, :cond_1
 
-    if-eqz v1, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 148
     const-string v2, ", "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 150
-    :cond_1c
+    :cond_0
     iget-object v2, p0, Lcom/s1243808733/android/dx/util/IntList;->values:[I
 
-    aget v2, v2, v1
+    aget v2, v2, v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 153
-    :cond_26
-    const/16 v1, 0x7d
+    :cond_1
+    const/16 v0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 155
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -869,7 +865,7 @@
 .end method
 
 .method public top()I
-    .registers 2
+    .locals 1
 
     .line 287
     iget v0, p0, Lcom/s1243808733/android/dx/util/IntList;->size:I

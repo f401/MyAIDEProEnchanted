@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 19
     const-string v0, "*"
@@ -18,13 +18,14 @@
 
 # virtual methods
 .method public evaluate(Lorg/antlr/v4/runtime/tree/ParseTree;)Ljava/util/Collection;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ")",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/antlr/v4/runtime/tree/ParseTree;",
             ">;"
         }
@@ -33,49 +34,53 @@
     .line 24
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/tree/xpath/XPathWildcardElement;->invert:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
-    new-instance p1, Ljava/util/ArrayList;
-
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
-
-    return-object p1
-
-    .line 25
-    :cond_a
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
+    .line 27
+    :goto_0
+    return-object v0
+
+    .line 25
+    :cond_0
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
     .line 26
     invoke-static {p1}, Lorg/antlr/v4/runtime/tree/Trees;->getChildren(Lorg/antlr/v4/runtime/tree/Tree;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v2
 
-    :goto_17
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_29
+    if-eqz v0, :cond_1
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lorg/antlr/v4/runtime/tree/Tree;
+    check-cast v0, Lorg/antlr/v4/runtime/tree/Tree;
 
     .line 27
-    check-cast v1, Lorg/antlr/v4/runtime/tree/ParseTree;
+    check-cast v0, Lorg/antlr/v4/runtime/tree/ParseTree;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_17
+    goto :goto_1
 
-    :cond_29
-    return-object v0
+    :cond_1
+    move-object v0, v1
+
+    goto :goto_0
 .end method

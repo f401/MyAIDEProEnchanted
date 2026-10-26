@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
 
     .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNConfigSet;)V
-    .registers 3
+    .locals 1
 
     .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -115,106 +115,114 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 2
 
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    .line 158
+    :goto_0
+    return v0
 
     .line 152
-    :cond_4
+    :cond_0
     instance-of v0, p1, Lorg/antlr/v4/runtime/dfa/DFAState;
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 
     .line 156
-    :cond_a
+    :cond_1
     check-cast p1, Lorg/antlr/v4/runtime/dfa/DFAState;
 
     .line 158
     iget-object v0, p0, Lorg/antlr/v4/runtime/dfa/DFAState;->configs:Lorg/antlr/v4/runtime/atn/ATNConfigSet;
 
-    iget-object p1, p1, Lorg/antlr/v4/runtime/dfa/DFAState;->configs:Lorg/antlr/v4/runtime/atn/ATNConfigSet;
+    iget-object v1, p1, Lorg/antlr/v4/runtime/dfa/DFAState;->configs:Lorg/antlr/v4/runtime/atn/ATNConfigSet;
 
-    invoke-virtual {v0, p1}, Lorg/antlr/v4/runtime/atn/ATNConfigSet;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Lorg/antlr/v4/runtime/atn/ATNConfigSet;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public getAltSet()Ljava/util/Set;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Set<",
+            "Ljava/util/Set",
+            "<",
             "Ljava/lang/Integer;",
             ">;"
         }
     .end annotation
 
     .line 116
-    new-instance v0, Ljava/util/HashSet;
+    new-instance v1, Ljava/util/HashSet;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
     .line 117
-    iget-object v1, p0, Lorg/antlr/v4/runtime/dfa/DFAState;->configs:Lorg/antlr/v4/runtime/atn/ATNConfigSet;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/dfa/DFAState;->configs:Lorg/antlr/v4/runtime/atn/ATNConfigSet;
 
-    if-eqz v1, :cond_23
+    if-eqz v0, :cond_0
 
     .line 118
-    invoke-virtual {v1}, Lorg/antlr/v4/runtime/atn/ATNConfigSet;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_d
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_23
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/atn/ATNConfigSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Lorg/antlr/v4/runtime/atn/ATNConfig;
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/atn/ATNConfig;
 
     .line 119
-    iget v2, v2, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
+    iget v0, v0, Lorg/antlr/v4/runtime/atn/ATNConfig;->alt:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_d
+    goto :goto_0
 
     .line 122
-    :cond_23
-    invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2a
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x0
 
-    :cond_2a
+    :goto_1
     return-object v0
+
+    :cond_1
+    move-object v0, v1
+
+    goto :goto_1
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .line 128
     const/4 v0, 0x7
@@ -245,7 +253,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 165
     new-instance v0, Ljava/lang/StringBuilder;
@@ -268,7 +276,7 @@
     .line 167
     iget-boolean v1, p0, Lorg/antlr/v4/runtime/dfa/DFAState;->isAcceptState:Z
 
-    if-eqz v1, :cond_2e
+    if-eqz v1, :cond_0
 
     .line 168
     const-string v1, "=>"
@@ -278,7 +286,7 @@
     .line 169
     iget-object v1, p0, Lorg/antlr/v4/runtime/dfa/DFAState;->predicates:[Lorg/antlr/v4/runtime/dfa/DFAState$PredPrediction;
 
-    if-eqz v1, :cond_29
+    if-eqz v1, :cond_1
 
     .line 170
     invoke-static {v1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
@@ -287,20 +295,20 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2e
-
-    .line 173
-    :cond_29
-    iget v1, p0, Lorg/antlr/v4/runtime/dfa/DFAState;->prediction:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
     .line 176
-    :cond_2e
-    :goto_2e
+    :cond_0
+    :goto_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
+
+    .line 173
+    :cond_1
+    iget v1, p0, Lorg/antlr/v4/runtime/dfa/DFAState;->prediction:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    goto :goto_0
 .end method

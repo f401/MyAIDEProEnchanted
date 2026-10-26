@@ -9,7 +9,7 @@
 
 # direct methods
 .method static final constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     invoke-static {}, Lio/github/zeroaicy/readclass/classInfo/Version;->getVersion()Ljava/lang/String;
 
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,104 +35,116 @@
 .end method
 
 .method public static TestReadClass(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
-    .registers 5
+    .locals 3
+
+    const/4 v1, 0x0
 
     .line 28
-    const/4 v0, 0x0
-
-    :try_start_1
+    :try_start_0
     invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     const-string v2, ".class"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_11
+    if-nez v0, :cond_0
 
     .line 29
-    move-object p0, v0
+    const/4 v0, 0x0
 
-    check-cast p0, Ljava/io/Reader;
-
-    return-object v0
-
-    .line 31
-    :cond_11
-    invoke-static {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->ReaderClassZeroAicy(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
-
-    move-result-object p0
-    :try_end_15
-    .catchall {:try_start_1 .. :try_end_15} :catchall_16
-
-    return-object p0
-
-    :catchall_16
-    move-exception p0
-
-    .line 34
-    sget-object p1, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    invoke-virtual {p0, p1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintStream;)V
+    check-cast v0, Ljava/io/Reader;
 
     .line 36
-    move-object p0, v0
+    :goto_0
+    return-object v1
 
-    check-cast p0, Ljava/io/Reader;
+    .line 31
+    :cond_0
+    invoke-static {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->ReaderClassZeroAicy(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return-object v0
+    move-result-object v1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    .line 34
+    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    invoke-virtual {v0, v2}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintStream;)V
+
+    move-object v0, v1
+
+    .line 36
+    check-cast v0, Ljava/io/Reader;
+
+    goto :goto_0
 .end method
 
 .method public static modifyADRT(Ljava/io/InputStream;)Ljava/io/InputStream;
-    .registers 3
+    .locals 2
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_1
 
+    .line 56
+    :cond_0
+    :goto_0
     return-object p0
 
     .line 44
-    :cond_3
+    :cond_1
     const/4 v0, 0x0
 
-    :try_start_4
+    :try_start_0
     invoke-static {p0, v0}, Lio/github/zeroaicy/readclass/classInfo/util/Util;->readStream(Ljava/io/InputStream;Z)[B
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     move-result-object v0
-    :try_end_8
-    .catchall {:try_start_4 .. :try_end_8} :catchall_17
 
     .line 46
-    :try_start_8
+    :try_start_1
     invoke-static {v0}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3;->modifyADRT([B)[B
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v0
-    :try_end_c
-    .catchall {:try_start_8 .. :try_end_c} :catchall_d
 
-    goto :goto_e
-
-    .line 56
-    :catchall_d
-    move-exception v1
+    move-object v1, v0
 
     .line 49
-    :goto_e
-    :try_start_e
+    :goto_1
+    :try_start_2
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
 
     .line 50
-    new-instance v1, Ljava/io/ByteArrayInputStream;
+    new-instance v0, Ljava/io/ByteArrayInputStream;
 
-    invoke-direct {v1, v0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-    :try_end_16
-    .catchall {:try_start_e .. :try_end_16} :catchall_17
+    invoke-direct {v0, v1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    return-object v1
+    move-object p0, v0
 
-    :catchall_17
+    goto :goto_0
+
+    .line 56
+    :catchall_0
+    move-exception v1
+
+    move-object v1, v0
+
+    goto :goto_1
+
+    .line 50
+    :catchall_1
     move-exception v0
 
     .line 54
@@ -140,26 +152,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 56
-    :try_start_1e
+    :try_start_3
     invoke-virtual {p0}, Ljava/io/InputStream;->reset()V
-    :try_end_21
-    .catchall {:try_start_1e .. :try_end_21} :catchall_22
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    goto :goto_23
+    goto :goto_0
 
-    :catchall_22
+    :catchall_2
     move-exception v0
 
-    :cond_23
-    :goto_23
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static modifyADRT([B)[B
-    .registers 4
+    .locals 4
 
     .line 64
     new-instance v0, Lzeroaicy/org/objectweb/asm/ClassReader;
@@ -167,28 +177,28 @@
     invoke-direct {v0, p0}, Lzeroaicy/org/objectweb/asm/ClassReader;-><init>([B)V
 
     .line 65
-    new-instance p0, Lzeroaicy/org/objectweb/asm/ClassWriter;
+    new-instance v1, Lzeroaicy/org/objectweb/asm/ClassWriter;
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    invoke-direct {p0, v1}, Lzeroaicy/org/objectweb/asm/ClassWriter;-><init>(I)V
+    invoke-direct {v1, v2}, Lzeroaicy/org/objectweb/asm/ClassWriter;-><init>(I)V
 
     .line 66
-    new-instance v1, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001;
+    new-instance v2, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001;
 
-    const/high16 v2, 0x80000
+    const/high16 v3, 0x80000
 
-    invoke-direct {v1, v2, p0}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001;-><init>(ILzeroaicy/org/objectweb/asm/ClassVisitor;)V
+    invoke-direct {v2, v3, v1}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3$100000001;-><init>(ILzeroaicy/org/objectweb/asm/ClassVisitor;)V
 
     .line 82
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lzeroaicy/org/objectweb/asm/ClassReader;->accept(Lzeroaicy/org/objectweb/asm/ClassVisitor;I)V
+    invoke-virtual {v0, v2, v3}, Lzeroaicy/org/objectweb/asm/ClassReader;->accept(Lzeroaicy/org/objectweb/asm/ClassVisitor;I)V
 
     .line 83
-    invoke-virtual {p0}, Lzeroaicy/org/objectweb/asm/ClassWriter;->toByteArray()[B
+    invoke-virtual {v1}, Lzeroaicy/org/objectweb/asm/ClassWriter;->toByteArray()[B
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/LaunchActivity;)V
-    .registers 2
+    .locals 0
 
     .line 137
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/LaunchActivity$2;->this$0:Lcom/s1243808733/aide/application/activity/LaunchActivity;
@@ -33,16 +33,16 @@
 
 # virtual methods
 .method public run(Lcom/s1243808733/aide/application/activity/Process$Bridge;)V
-    .registers 4
+    .locals 4
 
     .line 141
-    new-instance p1, Lcom/s1243808733/aide/application/activity/LaunchActivity$2$1;
+    new-instance v0, Lcom/s1243808733/aide/application/activity/LaunchActivity$2$1;
 
-    invoke-direct {p1, p0}, Lcom/s1243808733/aide/application/activity/LaunchActivity$2$1;-><init>(Lcom/s1243808733/aide/application/activity/LaunchActivity$2;)V
+    invoke-direct {v0, p0}, Lcom/s1243808733/aide/application/activity/LaunchActivity$2$1;-><init>(Lcom/s1243808733/aide/application/activity/LaunchActivity$2;)V
 
-    const-wide/16 v0, 0x0
+    const-wide/16 v2, 0x0
 
-    invoke-static {p1, v0, v1}, Lcom/blankj/utilcode/util/ThreadUtils;->runOnUiThreadDelayed(Ljava/lang/Runnable;J)V
+    invoke-static {v0, v2, v3}, Lcom/blankj/utilcode/util/ThreadUtils;->runOnUiThreadDelayed(Ljava/lang/Runnable;J)V
 
     return-void
 .end method

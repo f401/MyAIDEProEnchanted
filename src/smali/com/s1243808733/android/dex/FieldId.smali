@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dex/FieldId;",
         ">;"
     }
@@ -29,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dex/Dex;III)V
-    .registers 5
+    .locals 0
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,65 +53,67 @@
 
 # virtual methods
 .method public compareTo(Lcom/s1243808733/android/dex/FieldId;)I
-    .registers 4
+    .locals 2
 
     .line 48
     iget v0, p0, Lcom/s1243808733/android/dex/FieldId;->declaringClassIndex:I
 
     iget v1, p1, Lcom/s1243808733/android/dex/FieldId;->declaringClassIndex:I
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v1, :cond_0
 
     .line 49
     invoke-static {v0, v1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    .line 54
+    :goto_0
+    return v0
 
     .line 51
-    :cond_b
+    :cond_0
     iget v0, p0, Lcom/s1243808733/android/dex/FieldId;->nameIndex:I
 
     iget v1, p1, Lcom/s1243808733/android/dex/FieldId;->nameIndex:I
 
-    if-eq v0, v1, :cond_16
+    if-eq v0, v1, :cond_1
 
     .line 52
     invoke-static {v0, v1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 
     .line 54
-    :cond_16
+    :cond_1
     iget v0, p0, Lcom/s1243808733/android/dex/FieldId;->typeIndex:I
 
-    iget p1, p1, Lcom/s1243808733/android/dex/FieldId;->typeIndex:I
+    iget v1, p1, Lcom/s1243808733/android/dex/FieldId;->typeIndex:I
 
-    invoke-static {v0, p1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 21
     check-cast p1, Lcom/s1243808733/android/dex/FieldId;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/FieldId;->compareTo(Lcom/s1243808733/android/dex/FieldId;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getDeclaringClassIndex()I
-    .registers 2
+    .locals 1
 
     .line 35
     iget v0, p0, Lcom/s1243808733/android/dex/FieldId;->declaringClassIndex:I
@@ -119,7 +122,7 @@
 .end method
 
 .method public getNameIndex()I
-    .registers 2
+    .locals 1
 
     .line 43
     iget v0, p0, Lcom/s1243808733/android/dex/FieldId;->nameIndex:I
@@ -128,7 +131,7 @@
 .end method
 
 .method public getTypeIndex()I
-    .registers 2
+    .locals 1
 
     .line 39
     iget v0, p0, Lcom/s1243808733/android/dex/FieldId;->typeIndex:I
@@ -137,12 +140,12 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 65
     iget-object v0, p0, Lcom/s1243808733/android/dex/FieldId;->dex:Lcom/s1243808733/android/dex/Dex;
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 66
     new-instance v0, Ljava/lang/StringBuilder;
@@ -157,9 +160,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/s1243808733/android/dex/FieldId;->typeIndex:I
+    iget v1, p0, Lcom/s1243808733/android/dex/FieldId;->typeIndex:I
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -171,59 +176,60 @@
 
     move-result-object v0
 
+    .line 68
+    :goto_0
     return-object v0
 
-    .line 68
-    :cond_25
-    new-instance v0, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Lcom/s1243808733/android/dex/FieldId;->dex:Lcom/s1243808733/android/dex/Dex;
+    iget-object v0, p0, Lcom/s1243808733/android/dex/FieldId;->dex:Lcom/s1243808733/android/dex/Dex;
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dex/Dex;->typeNames()Ljava/util/List;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/s1243808733/android/dex/FieldId;->typeIndex:I
-
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, "."
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v1, p0, Lcom/s1243808733/android/dex/FieldId;->dex:Lcom/s1243808733/android/dex/Dex;
-
-    invoke-virtual {v1}, Lcom/s1243808733/android/dex/Dex;->strings()Ljava/util/List;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/s1243808733/android/dex/FieldId;->nameIndex:I
-
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->typeNames()Ljava/util/List;
 
     move-result-object v0
 
-    return-object v0
+    iget v2, p0, Lcom/s1243808733/android/dex/FieldId;->typeIndex:I
+
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "."
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v0, p0, Lcom/s1243808733/android/dex/FieldId;->dex:Lcom/s1243808733/android/dex/Dex;
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->strings()Ljava/util/List;
+
+    move-result-object v0
+
+    iget v2, p0, Lcom/s1243808733/android/dex/FieldId;->nameIndex:I
+
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method public writeTo(Lcom/s1243808733/android/dex/Dex$Section;)V
-    .registers 3
+    .locals 1
 
     .line 58
     iget v0, p0, Lcom/s1243808733/android/dex/FieldId;->declaringClassIndex:I

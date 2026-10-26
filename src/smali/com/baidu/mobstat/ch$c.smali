@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/baidu/mobstat/ch;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
 
     .line 158
     iput-object p1, p0, Lcom/baidu/mobstat/ch$c;->a:Lcom/baidu/mobstat/ch;
@@ -34,35 +34,36 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 3
+    .locals 2
 
     .line 168
-    iget p1, p1, Landroid/os/Message;->what:I
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    if-eq p1, v0, :cond_f
+    if-eq v0, v1, :cond_1
 
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    if-eq p1, v0, :cond_9
-
-    goto :goto_14
-
-    .line 175
-    :cond_9
-    iget-object p1, p0, Lcom/baidu/mobstat/ch$c;->a:Lcom/baidu/mobstat/ch;
-
-    invoke-static {p1}, Lcom/baidu/mobstat/ch;->c(Lcom/baidu/mobstat/ch;)V
-
-    goto :goto_14
+    if-eq v0, v1, :cond_0
 
     .line 171
-    :cond_f
-    iget-object p1, p0, Lcom/baidu/mobstat/ch$c;->a:Lcom/baidu/mobstat/ch;
-
-    invoke-static {p1}, Lcom/baidu/mobstat/ch;->b(Lcom/baidu/mobstat/ch;)V
-
-    :goto_14
+    :goto_0
     return-void
+
+    .line 175
+    :cond_0
+    iget-object v0, p0, Lcom/baidu/mobstat/ch$c;->a:Lcom/baidu/mobstat/ch;
+
+    invoke-static {v0}, Lcom/baidu/mobstat/ch;->c(Lcom/baidu/mobstat/ch;)V
+
+    goto :goto_0
+
+    .line 171
+    :cond_1
+    iget-object v0, p0, Lcom/baidu/mobstat/ch$c;->a:Lcom/baidu/mobstat/ch;
+
+    invoke-static {v0}, Lcom/baidu/mobstat/ch;->b(Lcom/baidu/mobstat/ch;)V
+
+    goto :goto_0
 .end method

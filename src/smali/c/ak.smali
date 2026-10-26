@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lc/x;I)V
-    .registers 3
+    .locals 0
 
     iput p2, p0, Lc/ak;->a:I
 
@@ -28,11 +28,11 @@
 
 # virtual methods
 .method public final c()Lc/s;
-    .registers 4
+    .locals 3
 
     iget v0, p0, Lc/ak;->a:I
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 2
     new-instance v0, Lc/bd;
@@ -47,10 +47,11 @@
 
     invoke-direct {v0, v1, v2}, Lc/bd;-><init>(Lc/f;Z)V
 
+    :goto_0
     return-object v0
 
     .line 1
-    :cond_11
+    :cond_0
     new-instance v0, Lc/aj;
 
     iget-object v1, p0, Lc/ak;->b:Lc/x;
@@ -61,62 +62,63 @@
 
     invoke-direct {v0, v1}, Lc/aj;-><init>(Lc/f;)V
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public final l()Lc/s;
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     iget v0, p0, Lc/ak;->a:I
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 2
-    :try_start_5
+    :try_start_0
     invoke-virtual {p0}, Lc/ak;->c()Lc/s;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_9} :catch_a
 
+    :goto_0
     return-object v0
 
-    :catch_a
+    :catch_0
     move-exception v0
 
-    new-instance v2, Lc/r;
+    new-instance v1, Lc/r;
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v2, v3, v0, v1}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+    invoke-direct {v1, v2, v0, v3}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
 
-    throw v2
+    throw v1
 
     .line 1
-    :cond_15
-    :try_start_15
+    :cond_0
+    :try_start_1
     invoke-virtual {p0}, Lc/ak;->c()Lc/s;
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v0
-    :try_end_19
-    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_19} :catch_1a
 
-    return-object v0
+    goto :goto_0
 
-    :catch_1a
+    :catch_1
     move-exception v0
 
-    new-instance v2, Lc/r;
+    new-instance v1, Lc/r;
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v2, v3, v0, v1}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+    invoke-direct {v1, v2, v0, v3}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
 
-    throw v2
+    throw v1
 .end method

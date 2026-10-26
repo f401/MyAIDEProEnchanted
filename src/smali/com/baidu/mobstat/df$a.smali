@@ -24,7 +24,8 @@
 .field private a:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Landroid/app/Activity;",
             ">;"
         }
@@ -36,7 +37,8 @@
 .field private final c:Ljava/util/WeakHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/WeakHashMap<",
+            "Ljava/util/WeakHashMap",
+            "<",
             "Landroid/view/View;",
             "Lcom/baidu/mobstat/df$a$a;",
             ">;"
@@ -47,11 +49,12 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/ref/WeakReference;Lcom/baidu/mobstat/df$b;)V
-    .registers 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Landroid/app/Activity;",
             ">;",
             "Lcom/baidu/mobstat/df$b;",
@@ -69,64 +72,68 @@
     iput-object p3, p0, Lcom/baidu/mobstat/df$a;->b:Lcom/baidu/mobstat/df$b;
 
     .line 39
-    new-instance p1, Ljava/util/WeakHashMap;
+    new-instance v0, Ljava/util/WeakHashMap;
 
-    invoke-direct {p1}, Ljava/util/WeakHashMap;-><init>()V
+    invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
 
-    iput-object p1, p0, Lcom/baidu/mobstat/df$a;->c:Ljava/util/WeakHashMap;
+    iput-object v0, p0, Lcom/baidu/mobstat/df$a;->c:Ljava/util/WeakHashMap;
 
     return-void
 .end method
 
 .method private a(Landroid/view/View;)Landroid/view/View$AccessibilityDelegate;
-    .registers 5
+    .locals 4
+
+    const/4 v1, 0x0
 
     .line 159
-    const/4 v0, 0x0
-
-    :try_start_1
+    :try_start_0
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 160
     const-string v2, "getAccessibilityDelegate"
 
-    invoke-virtual {v1, v2, v0}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v3, 0x0
 
-    move-result-object v1
+    invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
 
     .line 161
-    invoke-virtual {v1, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v2, 0x0
 
-    move-result-object p1
+    invoke-virtual {v0, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast p1, Landroid/view/View$AccessibilityDelegate;
-    :try_end_11
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_11} :catch_13
+    move-result-object v0
 
-    move-object v0, p1
+    check-cast v0, Landroid/view/View$AccessibilityDelegate;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_14
-
-    :catch_13
-    move-exception p1
-
-    :goto_14
+    :goto_0
     return-object v0
+
+    :catch_0
+    move-exception v0
+
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 .method static synthetic a(Lcom/baidu/mobstat/df$a;)Ljava/lang/ref/WeakReference;
-    .registers 1
+    .locals 1
 
     .line 30
-    iget-object p0, p0, Lcom/baidu/mobstat/df$a;->a:Ljava/lang/ref/WeakReference;
+    iget-object v0, p0, Lcom/baidu/mobstat/df$a;->a:Ljava/lang/ref/WeakReference;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static synthetic a(Lcom/baidu/mobstat/df$a;Ljava/lang/ref/WeakReference;)Ljava/lang/ref/WeakReference;
-    .registers 2
+    .locals 0
 
     .line 30
     iput-object p1, p0, Lcom/baidu/mobstat/df$a;->a:Ljava/lang/ref/WeakReference;
@@ -135,84 +142,86 @@
 .end method
 
 .method static synthetic b(Lcom/baidu/mobstat/df$a;)Lcom/baidu/mobstat/df$b;
-    .registers 1
+    .locals 1
 
     .line 30
-    iget-object p0, p0, Lcom/baidu/mobstat/df$a;->b:Lcom/baidu/mobstat/df$b;
+    iget-object v0, p0, Lcom/baidu/mobstat/df$a;->b:Lcom/baidu/mobstat/df$b;
 
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public a()V
-    .registers 4
+    .locals 3
 
     .line 177
     iget-object v0, p0, Lcom/baidu/mobstat/df$a;->c:Ljava/util/WeakHashMap;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
+    .line 189
+    :goto_0
     return-void
 
     .line 181
-    :cond_5
+    :cond_0
     invoke-virtual {v0}, Ljava/util/WeakHashMap;->entrySet()Ljava/util/Set;
 
     move-result-object v0
 
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :goto_d
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2d
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Map$Entry;
-
-    .line 182
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Landroid/view/View;
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 182
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/View;
 
     .line 183
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/baidu/mobstat/df$a$a;
+    check-cast v0, Lcom/baidu/mobstat/df$a$a;
 
     .line 185
-    invoke-virtual {v1}, Lcom/baidu/mobstat/df$a$a;->a()Landroid/view/View$AccessibilityDelegate;
+    invoke-virtual {v0}, Lcom/baidu/mobstat/df$a$a;->a()Landroid/view/View$AccessibilityDelegate;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 186
-    invoke-virtual {v2, v1}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+    invoke-virtual {v1, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    goto :goto_d
+    goto :goto_1
 
     .line 189
-    :cond_2d
+    :cond_1
     iget-object v0, p0, Lcom/baidu/mobstat/df$a;->c:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0}, Ljava/util/WeakHashMap;->clear()V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public a(Landroid/view/View;Z)V
-    .registers 5
+    .locals 2
 
     .line 171
     invoke-static {p1}, Lcom/baidu/mobstat/de;->a(Landroid/view/View;)Ljava/lang/String;
@@ -228,11 +237,12 @@
 .end method
 
 .method public a(Ljava/lang/ref/WeakReference;Landroid/view/View;Ljava/lang/String;Z)V
-    .registers 13
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/ref/WeakReference<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
             "Landroid/app/Activity;",
             ">;",
             "Landroid/view/View;",
@@ -249,12 +259,10 @@
     .line 143
     instance-of v0, v5, Lcom/baidu/mobstat/df$a$a;
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_0
 
     .line 144
-    new-instance v7, Lcom/baidu/mobstat/df$a$a;
-
-    move-object v0, v7
+    new-instance v0, Lcom/baidu/mobstat/df$a$a;
 
     move-object v1, p0
 
@@ -269,22 +277,23 @@
     invoke-direct/range {v0 .. v6}, Lcom/baidu/mobstat/df$a$a;-><init>(Lcom/baidu/mobstat/df$a;Ljava/lang/ref/WeakReference;Landroid/view/View;Ljava/lang/String;Landroid/view/View$AccessibilityDelegate;Z)V
 
     .line 146
-    invoke-virtual {p2, v7}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+    invoke-virtual {p2, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
     .line 147
-    iget-object p1, p0, Lcom/baidu/mobstat/df$a;->c:Ljava/util/WeakHashMap;
+    iget-object v1, p0, Lcom/baidu/mobstat/df$a;->c:Ljava/util/WeakHashMap;
 
-    invoke-virtual {p1, p2, v7}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p2, v0}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_21
+    .line 152
+    :goto_0
+    return-void
 
     .line 150
-    :cond_1c
+    :cond_0
     check-cast v5, Lcom/baidu/mobstat/df$a$a;
 
     .line 152
     invoke-virtual {v5, p4}, Lcom/baidu/mobstat/df$a$a;->a(Z)V
 
-    :goto_21
-    return-void
+    goto :goto_0
 .end method

@@ -18,7 +18,8 @@
 .field private final setups:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Lcom/s1243808733/android/dx/rop/type/Type;",
             "Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionHandlerSetup;",
             ">;"
@@ -31,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/cf/code/Ropper;)V
-    .registers 2
+    .locals 1
 
     .line 148
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$CatchInfo;->this$0:Lcom/s1243808733/android/dx/cf/code/Ropper;
@@ -39,17 +40,17 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 151
-    new-instance p1, Ljava/util/HashMap;
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$CatchInfo;->setups:Ljava/util/Map;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$CatchInfo;->setups:Ljava/util/Map;
 
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dx/cf/code/Ropper;Lcom/s1243808733/android/dx/cf/code/Ropper$CatchInfo-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/cf/code/Ropper$CatchInfo;-><init>(Lcom/s1243808733/android/dx/cf/code/Ropper;)V
 
@@ -59,7 +60,7 @@
 
 # virtual methods
 .method getSetup(Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionHandlerSetup;
-    .registers 4
+    .locals 2
 
     .line 162
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$CatchInfo;->setups:Ljava/util/Map;
@@ -70,7 +71,7 @@
 
     check-cast v0, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionHandlerSetup;
 
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_0
 
     .line 164
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$CatchInfo;->this$0:Lcom/s1243808733/android/dx/cf/code/Ropper;
@@ -81,30 +82,29 @@
 
     invoke-virtual {v0}, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionSetupLabelAllocator;->getNextLabel()I
 
-    move-result v0
+    move-result v1
 
     .line 165
-    new-instance v1, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionHandlerSetup;
+    new-instance v0, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionHandlerSetup;
 
-    invoke-direct {v1, p1, v0}, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionHandlerSetup;-><init>(Lcom/s1243808733/android/dx/rop/type/Type;I)V
+    invoke-direct {v0, p1, v1}, Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionHandlerSetup;-><init>(Lcom/s1243808733/android/dx/rop/type/Type;I)V
 
     .line 166
-    iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$CatchInfo;->setups:Ljava/util/Map;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$CatchInfo;->setups:Ljava/util/Map;
 
-    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v0, v1
-
-    :cond_1f
+    :cond_0
     return-object v0
 .end method
 
 .method getSetups()Ljava/util/Collection;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lcom/s1243808733/android/dx/cf/code/Ropper$ExceptionHandlerSetup;",
             ">;"
         }

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;Landroid/app/Activity;Ljava/io/File;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,20 +49,20 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 3
 
     .line 1187
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$19;->val$activity:Landroid/app/Activity;
 
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/s1243808733/aide/AideMainActivity$19;->val$currentProject:Ljava/io/File;
+    iget-object v2, p0, Lcom/s1243808733/aide/AideMainActivity$19;->val$currentProject:Ljava/io/File;
 
-    invoke-static {v0, p1, v1}, Lcom/s1243808733/aide/util/ConverProject;->showDialog(Landroid/app/Activity;Ljava/lang/CharSequence;Ljava/io/File;)V
+    invoke-static {v0, v1, v2}, Lcom/s1243808733/aide/util/ConverProject;->showDialog(Landroid/app/Activity;Ljava/lang/CharSequence;Ljava/io/File;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

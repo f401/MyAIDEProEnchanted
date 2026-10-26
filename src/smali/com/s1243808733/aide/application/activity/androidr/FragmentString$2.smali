@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentString;)V
-    .registers 2
+    .locals 0
 
     .line 53
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$2;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentString;
@@ -36,32 +36,32 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
 
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 2
 
     .line 61
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$2;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentString;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$2;->this$0:Lcom/s1243808733/aide/application/activity/androidr/FragmentString;
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/androidr/FragmentString;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/androidr/FragmentString;)Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentString;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/androidr/FragmentString;)Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString;
 
-    move-result-object p2
+    move-result-object v0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p2, p1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString;->search(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentString$AdapterString;->search(Ljava/lang/String;)V
 
     return-void
 .end method

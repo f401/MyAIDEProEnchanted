@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 764
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$12;->this$0:Lcom/termux/app/TermuxActivity;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 769
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$12;->this$0:Lcom/termux/app/TermuxActivity;
@@ -62,7 +62,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4b
+    if-eqz v0, :cond_0
 
     .line 774
     const-string v1, "gradle"
@@ -71,14 +71,14 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4b
+    if-eqz v0, :cond_0
 
     .line 775
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_4b
+    if-nez v1, :cond_0
 
     .line 776
     iget-object v1, p0, Lcom/termux/app/TermuxActivity$12;->this$0:Lcom/termux/app/TermuxActivity;
@@ -114,6 +114,6 @@
 
     invoke-virtual {v1, v0}, Lcom/termux/terminal/TerminalEmulator;->paste(Ljava/lang/String;)V
 
-    :cond_4b
+    :cond_0
     return-void
 .end method

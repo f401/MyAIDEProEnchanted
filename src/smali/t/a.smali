@@ -9,7 +9,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     new-instance v0, Ljava/util/HashSet;
 

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,41 +45,42 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 3
+    .locals 2
 
     .line 439
-    iget p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9$1;->val$finali:I
+    iget v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9$1;->val$finali:I
 
-    if-eqz p1, :cond_e
+    if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    if-eq p1, v0, :cond_8
-
-    goto :goto_19
-
-    .line 445
-    :cond_8
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;
-
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->-$$Nest$mshowUnInstallDialog(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;)V
-
-    goto :goto_19
+    if-eq v0, v1, :cond_0
 
     .line 442
-    :cond_e
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;
+    :goto_0
+    const/4 v0, 0x0
 
-    iget-object p1, p1, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
+    return v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
+    .line 445
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;
 
-    move-result-object p1
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->-$$Nest$mshowUnInstallDialog(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;)V
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->showInstallDialog(Landroid/app/Activity;)V
+    goto :goto_0
 
-    :goto_19
-    const/4 p1, 0x0
+    .line 442
+    :cond_1
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9$1;->this$1:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;
 
-    return p1
+    iget-object v0, v0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$9;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
+
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->showInstallDialog(Landroid/app/Activity;)V
+
+    goto :goto_0
 .end method

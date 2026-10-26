@@ -6,6 +6,15 @@
 .implements Lcom/s1243808733/android/dx/util/ToHuman;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/s1243808733/android/dx/rop/code/Insn$BaseVisitor;,
+        Lcom/s1243808733/android/dx/rop/code/Insn$Visitor;
+    }
+.end annotation
+
+
 # instance fields
 .field private final opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
 
@@ -18,16 +27,16 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/code/Rop;Lcom/s1243808733/android/dx/rop/code/SourcePosition;Lcom/s1243808733/android/dx/rop/code/RegisterSpec;Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;)V
-    .registers 5
+    .locals 2
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_22
+    if-eqz p1, :cond_2
 
-    if-eqz p2, :cond_1a
+    if-eqz p2, :cond_1
 
-    if-eqz p4, :cond_12
+    if-eqz p4, :cond_0
 
     .line 65
     iput-object p1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
@@ -44,63 +53,60 @@
     return-void
 
     .line 62
-    :cond_12
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "sources == null"
+    const-string v1, "sources == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 58
-    :cond_1a
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "position == null"
+    const-string v1, "position == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 54
-    :cond_22
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_2
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "opcode == null"
+    const-string v1, "opcode == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method private static equalsHandleNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .registers 2
+    .locals 1
 
-    if-eq p0, p1, :cond_d
+    if-eq p0, p1, :cond_0
 
-    if-eqz p0, :cond_b
+    if-eqz p0, :cond_1
 
     .line 268
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_b
+    if-eqz v0, :cond_1
 
-    goto :goto_d
+    :cond_0
+    const/4 v0, 0x1
 
-    :cond_b
-    const/4 p0, 0x0
+    :goto_0
+    return v0
 
-    goto :goto_e
+    :cond_1
+    const/4 v0, 0x0
 
-    :cond_d
-    :goto_d
-    const/4 p0, 0x1
-
-    :goto_e
-    return p0
+    goto :goto_0
 .end method
 
 
@@ -109,7 +115,7 @@
 .end method
 
 .method public final canThrow()Z
-    .registers 2
+    .locals 1
 
     .line 193
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
@@ -122,7 +128,7 @@
 .end method
 
 .method public contentEquals(Lcom/s1243808733/android/dx/rop/code/Insn;)Z
-    .registers 4
+    .locals 2
 
     .line 280
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
@@ -131,7 +137,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_46
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->position:Lcom/s1243808733/android/dx/rop/code/SourcePosition;
 
@@ -144,7 +150,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_46
+    if-eqz v0, :cond_0
 
     .line 282
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -155,7 +161,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_46
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
@@ -168,7 +174,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_46
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->sources:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
@@ -181,7 +187,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_46
+    if-eqz v0, :cond_0
 
     .line 285
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/Insn;->getCatches()Lcom/s1243808733/android/dx/rop/type/TypeList;
@@ -190,27 +196,27 @@
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/Insn;->getCatches()Lcom/s1243808733/android/dx/rop/type/TypeList;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {v0, p1}, Lcom/s1243808733/android/dx/rop/type/StdTypeList;->equalContents(Lcom/s1243808733/android/dx/rop/type/TypeList;Lcom/s1243808733/android/dx/rop/type/TypeList;)Z
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dx/rop/type/StdTypeList;->equalContents(Lcom/s1243808733/android/dx/rop/type/TypeList;Lcom/s1243808733/android/dx/rop/type/TypeList;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_46
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_47
+    :goto_0
+    return v0
 
-    :cond_46
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_47
-    return p1
+    goto :goto_0
 .end method
 
 .method public copy()Lcom/s1243808733/android/dx/rop/code/Insn;
-    .registers 2
+    .locals 1
 
     .line 256
     const/4 v0, 0x0
@@ -223,26 +229,26 @@
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .registers 2
+    .locals 1
 
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_5
+    :goto_0
+    return v0
 
-    :cond_4
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_5
-    return p1
+    goto :goto_0
 .end method
 
 .method public abstract getCatches()Lcom/s1243808733/android/dx/rop/type/TypeList;
 .end method
 
 .method public getInlineString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -250,57 +256,60 @@
 .end method
 
 .method public final getLocalAssignment()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-    .registers 4
+    .locals 3
+
+    const/4 v0, 0x0
 
     .line 158
-    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/Rop;->getOpcode()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/Rop;->getOpcode()I
 
-    move-result v0
+    move-result v1
 
-    const/16 v1, 0x36
+    const/16 v2, 0x36
 
-    if-ne v0, v1, :cond_12
+    if-ne v1, v2, :cond_1
 
     .line 159
-    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->sources:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->sources:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v1, v2}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object v0
-
-    goto :goto_14
+    move-result-object v1
 
     .line 161
-    :cond_12
-    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-
-    :goto_14
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_18
-
-    return-object v1
+    :goto_0
+    if-nez v1, :cond_2
 
     .line 168
-    :cond_18
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
+    :cond_0
+    :goto_1
+    return-object v0
+
+    .line 161
+    :cond_1
+    iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+
+    goto :goto_0
+
+    .line 168
+    :cond_2
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getLocalItem()Lcom/s1243808733/android/dx/rop/code/LocalItem;
 
     move-result-object v2
 
-    if-nez v2, :cond_1f
+    if-eqz v2, :cond_0
 
-    return-object v1
+    move-object v0, v1
 
-    :cond_1f
-    return-object v0
+    goto :goto_1
 .end method
 
 .method public final getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
-    .registers 2
+    .locals 1
 
     .line 126
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
@@ -309,7 +318,7 @@
 .end method
 
 .method public final getPosition()Lcom/s1243808733/android/dx/rop/code/SourcePosition;
-    .registers 2
+    .locals 1
 
     .line 135
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->position:Lcom/s1243808733/android/dx/rop/code/SourcePosition;
@@ -318,7 +327,7 @@
 .end method
 
 .method public final getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-    .registers 2
+    .locals 1
 
     .line 145
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
@@ -327,7 +336,7 @@
 .end method
 
 .method public final getSources()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
-    .registers 2
+    .locals 1
 
     .line 183
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->sources:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
@@ -336,7 +345,7 @@
 .end method
 
 .method public final hashCode()I
-    .registers 2
+    .locals 1
 
     .line 91
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
@@ -347,7 +356,7 @@
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 107
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/Insn;->getInlineString()Ljava/lang/String;
@@ -362,110 +371,121 @@
 .end method
 
 .method protected final toHumanWithInline(Ljava/lang/String;)Ljava/lang/String;
-    .registers 6
+    .locals 4
 
     .line 340
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x50
+    const/16 v0, 0x50
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 342
-    iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->position:Lcom/s1243808733/android/dx/rop/code/SourcePosition;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->position:Lcom/s1243808733/android/dx/rop/code/SourcePosition;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 343
-    const-string v1, ": "
+    const-string v0, ": "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 344
-    iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/code/Rop;->getNickname()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/Rop;->getNickname()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 347
-    const-string v1, "("
+    const-string v0, "("
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 348
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 349
-    const-string p1, ")"
+    const-string v0, ")"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 352
-    :cond_29
-    iget-object p1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    const-string v1, " ."
-
-    const-string v2, " "
-
-    if-nez p1, :cond_35
+    if-nez v0, :cond_2
 
     .line 353
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " ."
 
-    goto :goto_41
-
-    .line 355
-    :cond_35
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 356
-    iget-object p1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
-
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->toHuman()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 359
-    :goto_41
-    const-string p1, " <-"
+    :goto_0
+    const-string v0, " <-"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 361
-    iget-object p1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->sources:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->sources:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
-    move-result p1
+    move-result v2
 
-    if-nez p1, :cond_52
+    if-nez v2, :cond_3
 
     .line 363
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " ."
 
-    goto :goto_68
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_52
-    const/4 v1, 0x0
+    .line 371
+    :cond_1
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :goto_53
-    if-ge v1, p1, :cond_68
+    move-result-object v0
+
+    return-object v0
+
+    .line 355
+    :cond_2
+    const-string v0, " "
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 356
+    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->toHuman()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    .line 363
+    :cond_3
+    const/4 v0, 0x0
+
+    :goto_1
+    if-ge v0, v2, :cond_1
 
     .line 366
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, " "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 367
     iget-object v3, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->sources:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    invoke-virtual {v3, v1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    invoke-virtual {v3, v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->get(I)Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
     move-result-object v3
 
@@ -473,24 +493,15 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_53
-
-    .line 371
-    :cond_68
-    :goto_68
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
+    goto :goto_1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 97
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/code/Insn;->getInlineString()Ljava/lang/String;
@@ -505,7 +516,9 @@
 .end method
 
 .method protected final toStringWithInline(Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 3
+
+    const/16 v2, 0x20
 
     .line 307
     new-instance v0, Ljava/lang/StringBuilder;
@@ -525,59 +538,57 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 311
-    const/16 v1, 0x20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 312
-    iget-object v2, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->opcode:Lcom/s1243808733/android/dx/rop/code/Rop;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    if-eqz p1, :cond_23
+    if-eqz p1, :cond_0
 
     .line 315
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 316
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 319
-    :cond_23
-    const-string p1, " :: "
+    :cond_0
+    const-string v1, " :: "
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 321
-    iget-object p1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->result:Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    if-eqz p1, :cond_34
+    if-eqz v1, :cond_1
 
     .line 322
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 323
-    const-string p1, " <- "
+    const-string v1, " <- "
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 326
-    :cond_34
-    iget-object p1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->sources:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
+    :cond_1
+    iget-object v1, p0, Lcom/s1243808733/android/dx/rop/code/Insn;->sources:Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 327
-    const/16 p1, 0x7d
+    const/16 v1, 0x7d
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 329
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public abstract withAddedCatch(Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/rop/code/Insn;
@@ -590,7 +601,7 @@
 .end method
 
 .method public withSourceLiteral()Lcom/s1243808733/android/dx/rop/code/Insn;
-    .registers 1
+    .locals 0
 
     return-object p0
 .end method

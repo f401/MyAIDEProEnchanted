@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/BackgroundJob;ILjava/lang/String;Lcom/termux/app/TermuxService;)V
-    .registers 5
+    .locals 0
 
     .line 54
     iput-object p1, p0, Lcom/termux/app/BackgroundJob$1;->this$0:Lcom/termux/app/BackgroundJob;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 4
 
     .line 57
     new-instance v0, Ljava/lang/StringBuilder;
@@ -54,25 +54,25 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p0, Lcom/termux/app/BackgroundJob$1;->val$pid:I
+    iget v1, p0, Lcom/termux/app/BackgroundJob$1;->val$pid:I
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, "] starting: "
+    const-string v1, "] starting: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/termux/app/BackgroundJob$1;->val$processDescription:Ljava/lang/String;
+    iget-object v1, p0, Lcom/termux/app/BackgroundJob$1;->val$processDescription:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "termux-task"
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v2, "termux-task"
-
-    invoke-static {v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 58
     iget-object v0, p0, Lcom/termux/app/BackgroundJob$1;->this$0:Lcom/termux/app/BackgroundJob;
@@ -84,63 +84,69 @@
     move-result-object v0
 
     .line 59
-    new-instance v3, Ljava/io/BufferedReader;
+    new-instance v1, Ljava/io/BufferedReader;
 
-    new-instance v4, Ljava/io/InputStreamReader;
+    new-instance v2, Ljava/io/InputStreamReader;
 
-    sget-object v5, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    sget-object v3, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-direct {v4, v0, v5}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
+    invoke-direct {v2, v0, v3}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
 
-    invoke-direct {v3, v4}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+    invoke-direct {v1, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
     .line 63
-    :goto_33
-    :try_start_33
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    :goto_0
+    :try_start_0
+    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_5c
+    if-eqz v0, :cond_0
 
     .line 64
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "["
 
-    iget v5, p0, Lcom/termux/app/BackgroundJob$1;->val$pid:I
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v3, p0, Lcom/termux/app/BackgroundJob$1;->val$pid:I
 
-    const-string v5, "] stdout: "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "] stdout: "
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    const-string v0, "termux-task"
 
-    invoke-static {v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_55
-    .catch Ljava/io/IOException; {:try_start_33 .. :try_end_55} :catch_56
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    goto :goto_33
+    move-result-object v2
 
-    :catch_56
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
     move-exception v0
 
     .line 67
-    const-string v3, "Error reading output"
+    const-string v1, "termux-task"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    const-string v2, "Error reading output"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 71
-    :cond_5c
-    :try_start_5c
+    :cond_0
+    :try_start_1
     iget-object v0, p0, Lcom/termux/app/BackgroundJob$1;->this$0:Lcom/termux/app/BackgroundJob;
 
     iget-object v0, v0, Lcom/termux/app/BackgroundJob;->mProcess:Ljava/lang/Process;
@@ -150,18 +156,20 @@
     move-result v0
 
     .line 72
-    iget-object v3, p0, Lcom/termux/app/BackgroundJob$1;->val$service:Lcom/termux/app/TermuxService;
+    iget-object v1, p0, Lcom/termux/app/BackgroundJob$1;->val$service:Lcom/termux/app/TermuxService;
 
-    iget-object v4, p0, Lcom/termux/app/BackgroundJob$1;->this$0:Lcom/termux/app/BackgroundJob;
+    iget-object v2, p0, Lcom/termux/app/BackgroundJob$1;->this$0:Lcom/termux/app/BackgroundJob;
 
-    invoke-virtual {v3, v4}, Lcom/termux/app/TermuxService;->onBackgroundJobExited(Lcom/termux/app/BackgroundJob;)V
+    invoke-virtual {v1, v2}, Lcom/termux/app/TermuxService;->onBackgroundJobExited(Lcom/termux/app/BackgroundJob;)V
 
-    if-nez v0, :cond_87
+    if-nez v0, :cond_1
 
     .line 74
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -173,45 +181,51 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    const-string v1, "termux-task"
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_a5
+    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 76
-    :cond_87
-    new-instance v3, Ljava/lang/StringBuilder;
+    :goto_1
+    return-void
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget v1, p0, Lcom/termux/app/BackgroundJob$1;->val$pid:I
+    const-string v2, "["
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "] exited with code: "
+    iget v2, p0, Lcom/termux/app/BackgroundJob$1;->val$pid:I
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v2, "] exited with code: "
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_a3
-    .catch Ljava/lang/InterruptedException; {:try_start_5c .. :try_end_a3} :catch_a4
+    const-string v0, "termux-task"
 
-    goto :goto_a5
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :catch_a4
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto :goto_1
+
+    :catch_1
     move-exception v0
 
-    :goto_a5
-    return-void
+    goto :goto_1
 .end method

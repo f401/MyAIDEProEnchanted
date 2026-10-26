@@ -9,7 +9,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>(ZILc/e;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lc/z;-><init>(ZILc/e;)V
 
@@ -31,63 +31,63 @@
 
 # virtual methods
 .method public final e(Lc/q;)V
-    .registers 5
+    .locals 3
 
-    iget-object v0, p0, Lc/z;->h:Lc/e;
+    const/16 v0, 0xa0
 
-    invoke-interface {v0}, Lc/e;->l()Lc/s;
+    iget-object v1, p0, Lc/z;->h:Lc/e;
 
-    move-result-object v0
+    invoke-interface {v1}, Lc/e;->l()Lc/s;
 
-    invoke-virtual {v0}, Lc/s;->j()Lc/s;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v1}, Lc/s;->j()Lc/s;
 
-    iget-boolean v1, p0, Lc/z;->b:Z
+    move-result-object v1
 
-    const/16 v2, 0xa0
+    iget-boolean v2, p0, Lc/z;->b:Z
 
-    if-eqz v1, :cond_20
+    if-eqz v2, :cond_0
 
-    iget v1, p0, Lc/z;->a:I
+    iget v2, p0, Lc/z;->a:I
 
-    invoke-virtual {p1, v2, v1}, Lc/q;->k(II)V
+    invoke-virtual {p1, v0, v2}, Lc/q;->k(II)V
 
-    invoke-virtual {v0}, Lc/s;->f()I
+    invoke-virtual {v1}, Lc/s;->f()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p1, v1}, Lc/q;->i(I)V
+    invoke-virtual {p1, v0}, Lc/q;->i(I)V
 
-    invoke-virtual {p1, v0}, Lc/q;->j(Lc/e;)V
+    invoke-virtual {p1, v1}, Lc/q;->j(Lc/e;)V
 
-    goto :goto_31
-
-    :cond_20
-    invoke-virtual {v0}, Lc/s;->g()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_27
-
-    goto :goto_29
-
-    :cond_27
-    const/16 v2, 0x80
-
-    :goto_29
-    iget v1, p0, Lc/z;->a:I
-
-    invoke-virtual {p1, v2, v1}, Lc/q;->k(II)V
-
-    invoke-virtual {p1, v0}, Lc/q;->h(Lc/s;)V
-
-    :goto_31
+    :goto_0
     return-void
+
+    :cond_0
+    invoke-virtual {v1}, Lc/s;->g()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :goto_1
+    iget v2, p0, Lc/z;->a:I
+
+    invoke-virtual {p1, v0, v2}, Lc/q;->k(II)V
+
+    invoke-virtual {p1, v1}, Lc/q;->h(Lc/s;)V
+
+    goto :goto_0
+
+    :cond_1
+    const/16 v0, 0x80
+
+    goto :goto_1
 .end method
 
 .method public final f()I
-    .registers 4
+    .locals 3
 
     iget-object v0, p0, Lc/z;->h:Lc/e;
 
@@ -105,7 +105,7 @@
 
     iget-boolean v1, p0, Lc/z;->b:Z
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_0
 
     iget v1, p0, Lc/z;->a:I
 
@@ -117,13 +117,14 @@
 
     move-result v2
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, v2
 
-    add-int/2addr v2, v0
+    add-int/2addr v0, v1
 
-    return v2
+    :goto_0
+    return v0
 
-    :cond_1f
+    :cond_0
     iget v1, p0, Lc/z;->a:I
 
     invoke-static {v1}, Lc/bu;->c(I)I
@@ -132,23 +133,24 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    add-int/2addr v1, v0
+    add-int/2addr v0, v1
 
-    return v1
+    goto :goto_0
 .end method
 
 .method public final g()Z
-    .registers 2
+    .locals 1
 
     iget-boolean v0, p0, Lc/z;->b:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Lc/z;->h:Lc/e;
 
     invoke-interface {v0}, Lc/e;->l()Lc/s;
@@ -163,5 +165,5 @@
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method

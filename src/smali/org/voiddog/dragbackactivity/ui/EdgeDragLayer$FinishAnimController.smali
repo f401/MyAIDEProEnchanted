@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;)V
-    .registers 2
+    .locals 0
 
     .line 288
     iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$FinishAnimController;->this$0:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;
@@ -36,61 +36,61 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .registers 4
+    .locals 3
 
     .line 292
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Float;
+    check-cast v0, Ljava/lang/Float;
 
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
-    move-result p1
+    move-result v0
 
     .line 293
-    iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$FinishAnimController;->this$0:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;
+    iget-object v1, p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$FinishAnimController;->this$0:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;
 
-    iget-object v1, v0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->mDisplayMetrics:Landroid/util/DisplayMetrics;
+    iget-object v2, v1, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-    iget v1, v1, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v2, v2, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
-    mul-float v1, v1, p1
+    mul-float/2addr v2, v0
 
-    float-to-int v1, v1
+    float-to-int v2, v2
 
-    invoke-virtual {v0, v1}, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->dispatchDragEvent(I)V
+    invoke-virtual {v1, v2}, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->dispatchDragEvent(I)V
 
-    const/high16 v0, 0x3f800000  # 1.0f
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    cmpl-float p1, p1, v0
+    cmpl-float v0, v0, v1
 
-    if-nez p1, :cond_30
+    if-nez v0, :cond_0
 
     .line 295
-    iget-object p1, p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$FinishAnimController;->this$0:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;
+    iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$FinishAnimController;->this$0:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;
 
-    sget-object v0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;->DragBackEnd:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
+    sget-object v1, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;->DragBackEnd:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
 
-    iput-object v0, p1, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->mDragState:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
+    iput-object v1, v0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->mDragState:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragState;
 
     .line 296
-    iget-object p1, p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$FinishAnimController;->this$0:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;
+    iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$FinishAnimController;->this$0:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;
 
-    iget-object p1, p1, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->mDragListener:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragListener;
+    iget-object v0, v0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->mDragListener:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragListener;
 
-    if-eqz p1, :cond_30
+    if-eqz v0, :cond_0
 
     .line 297
-    iget-object p1, p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$FinishAnimController;->this$0:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;
+    iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$FinishAnimController;->this$0:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;
 
-    iget-object p1, p1, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->mDragListener:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragListener;
+    iget-object v0, v0, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer;->mDragListener:Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragListener;
 
-    invoke-interface {p1}, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragListener;->onDragBackEnd()V
+    invoke-interface {v0}, Lorg/voiddog/dragbackactivity/ui/EdgeDragLayer$DragListener;->onDragBackEnd()V
 
-    :cond_30
+    :cond_0
     return-void
 .end method

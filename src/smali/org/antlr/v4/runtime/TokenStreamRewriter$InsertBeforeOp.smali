@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/TokenStreamRewriter;ILjava/lang/Object;)V
-    .registers 4
+    .locals 0
 
     .line 131
     iput-object p1, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$InsertBeforeOp;->this$0:Lorg/antlr/v4/runtime/TokenStreamRewriter;
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/StringBuilder;)I
-    .registers 4
+    .locals 2
 
     .line 137
     iget-object v0, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$InsertBeforeOp;->text:Ljava/lang/Object;
@@ -58,7 +58,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_27
+    if-eq v0, v1, :cond_0
 
     .line 139
     iget-object v0, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$InsertBeforeOp;->this$0:Lorg/antlr/v4/runtime/TokenStreamRewriter;
@@ -78,10 +78,10 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 141
-    :cond_27
-    iget p1, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$InsertBeforeOp;->index:I
+    :cond_0
+    iget v0, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$InsertBeforeOp;->index:I
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    return p1
+    return v0
 .end method

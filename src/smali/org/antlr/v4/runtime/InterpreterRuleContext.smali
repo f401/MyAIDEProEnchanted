@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 24
     invoke-direct {p0}, Lorg/antlr/v4/runtime/ParserRuleContext;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/ParserRuleContext;II)V
-    .registers 4
+    .locals 0
 
     .line 38
     invoke-direct {p0, p1, p2}, Lorg/antlr/v4/runtime/ParserRuleContext;-><init>(Lorg/antlr/v4/runtime/ParserRuleContext;I)V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getRuleIndex()I
-    .registers 2
+    .locals 1
 
     .line 44
     iget v0, p0, Lorg/antlr/v4/runtime/InterpreterRuleContext;->ruleIndex:I

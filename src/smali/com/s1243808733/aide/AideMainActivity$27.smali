@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;)V
-    .registers 2
+    .locals 0
 
     .line 1382
     iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -36,110 +36,115 @@
 
 # virtual methods
 .method public onDenied(Ljava/util/List;Ljava/util/List;)V
-    .registers 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)V"
         }
     .end annotation
 
     .line 1422
-    new-instance p2, Landroid/app/AlertDialog$Builder;
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
 
-    invoke-direct {p2, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 1424
-    const-string v0, "请求权限"
+    const-string v0, "\u8bf7\u6c42\u6743\u9650"
 
-    const-string v1, "Request permission"
+    const-string v2, "Request permission"
 
-    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    invoke-virtual {p2, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p2
+    move-result-object v1
 
     .line 1425
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
-    const-string v0, "由于没有读写权限，软件无法正常使用。"
+    const-string v0, "\u7531\u4e8e\u6ca1\u6709\u8bfb\u5199\u6743\u9650\uff0c\u8f6f\u4ef6\u65e0\u6cd5\u6b63\u5e38\u4f7f\u7528\u3002"
 
-    goto :goto_20
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    :cond_1e
-    const-string v0, "Without storage permissions, the application cannot be used properly"
-
-    :goto_20
-    invoke-virtual {p2, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p2
+    move-result-object v1
 
     .line 1427
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_1
 
-    const-string v0, "授权"
+    const-string v0, "\u6388\u6743"
 
-    goto :goto_2f
+    :goto_1
+    new-instance v2, Lcom/s1243808733/aide/AideMainActivity$27$1;
 
-    :cond_2d
-    const-string v0, "Authorize"
-
-    :goto_2f
-    new-instance v1, Lcom/s1243808733/aide/AideMainActivity$27$1;
-
-    invoke-direct {v1, p0, p1}, Lcom/s1243808733/aide/AideMainActivity$27$1;-><init>(Lcom/s1243808733/aide/AideMainActivity$27;Ljava/util/List;)V
+    invoke-direct {v2, p0, p1}, Lcom/s1243808733/aide/AideMainActivity$27$1;-><init>(Lcom/s1243808733/aide/AideMainActivity$27;Ljava/util/List;)V
 
     .line 1426
-    invoke-virtual {p2, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1439
-    const/high16 p2, 0x1040000
+    const/high16 v1, 0x1040000
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, p2, v0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1440
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1441
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     return-void
+
+    .line 1425
+    :cond_0
+    const-string v0, "Without storage permissions, the application cannot be used properly"
+
+    goto :goto_0
+
+    .line 1427
+    :cond_1
+    const-string v0, "Authorize"
+
+    goto :goto_1
 .end method
 
 .method public onGranted(Ljava/util/List;)V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)V"
         }
@@ -148,144 +153,150 @@
     .line 1387
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getOpenFileService()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1388
-    const-string v0, "CurrentFiles_"
+    const-string v1, "CurrentFiles_"
 
-    invoke-interface {p1, v0}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
+    invoke-interface {v0, v1}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_0
 
     .line 1389
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    const-string v2, ""
+    const-string v2, "CurrentFiles"
 
-    invoke-interface {p1, v0, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string v3, "CurrentFiles_"
 
-    move-result-object v2
+    const-string v4, ""
 
-    const-string v3, "CurrentFiles"
+    invoke-interface {v0, v3, v4}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-interface {v1, v3, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    move-result-object v3
+
+    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     .line 1390
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    const-string v1, "CurrentFiles_"
 
-    move-result-object p1
+    invoke-interface {v0, v1}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     .line 1393
-    :cond_2a
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/AideMainActivity;->checkOpenFile()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/AideMainActivity;->checkOpenFile()V
 
     .line 1394
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getCurrentFiles()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1395
     invoke-static {}, Lcom/s1243808733/aide/util/ProjectUtils;->getCurrentProject()Ljava/io/File;
 
-    move-result-object v0
-
-    if-eqz v0, :cond_66
-
-    .line 1398
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-static {v1, p1}, Lcom/s1243808733/aide/util/AIDEUtils;->openProject(Ljava/lang/String;Ljava/util/List;)V
+    if-eqz v1, :cond_3
+
+    .line 1398
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, v0}, Lcom/s1243808733/aide/util/AIDEUtils;->openProject(Ljava/lang/String;Ljava/util/List;)V
 
     .line 1399
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_4e
+    if-eqz v0, :cond_2
 
-    const-string v1, "打开工程："
+    const-string v0, "\u6253\u5f00\u5de5\u7a0b\uff1a"
 
-    goto :goto_50
+    :goto_0
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_4e
-    const-string v1, "Open project: "
-
-    :goto_50
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/util/Toasty;->info(Ljava/lang/CharSequence;)Landroid/widget/Toast;
+    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->info(Ljava/lang/CharSequence;)Landroid/widget/Toast;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
-
-    goto :goto_6b
-
-    :cond_66
-    if-eqz p1, :cond_6b
-
-    .line 1401
-    invoke-static {p1}, Lcom/s1243808733/aide/util/AIDEUtils;->openFile(Ljava/util/List;)V
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 1404
-    :cond_6b
-    :goto_6b
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
+    :cond_1
+    :goto_1
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/AideMainActivity;->setFileTabVisible()V
+    invoke-virtual {v0}, Lcom/s1243808733/aide/AideMainActivity;->setFileTabVisible()V
 
     .line 1405
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->reLoadFileBrowser()V
 
     .line 1407
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/AideMainActivity;->-$$Nest$fgetmDrawer(Lcom/s1243808733/aide/AideMainActivity;)Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {v0}, Lcom/s1243808733/aide/AideMainActivity;->-$$Nest$fgetmDrawer(Lcom/s1243808733/aide/AideMainActivity;)Landroidj/support/v4/widget/DrawerLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_7c
-
-    goto :goto_80
+    if-eqz v0, :cond_4
 
     .line 1410
-    :cond_7c
-    const/4 p1, 0x0
-
-    invoke-static {p1}, Lcom/s1243808733/aide/util/AIDEUtils;->closeSplit(Z)V
-
-    :goto_80
+    :goto_2
     return-void
+
+    .line 1399
+    :cond_2
+    const-string v0, "Open project: "
+
+    goto :goto_0
+
+    :cond_3
+    if-eqz v0, :cond_1
+
+    .line 1401
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->openFile(Ljava/util/List;)V
+
+    goto :goto_1
+
+    .line 1410
+    :cond_4
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->closeSplit(Z)V
+
+    goto :goto_2
 .end method

@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
-    .registers 11
+    .locals 6
 
     .line 57
     new-instance v0, Ljava/lang/StringBuffer;
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public getClassName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 70
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/MethodTooLargeException;->className:Ljava/lang/String;
@@ -133,7 +133,7 @@
 .end method
 
 .method public getCodeSize()I
-    .registers 2
+    .locals 1
 
     .line 97
     iget v0, p0, Lzeroaicy/org/objectweb/asm/MethodTooLargeException;->codeSize:I
@@ -142,7 +142,7 @@
 .end method
 
 .method public getDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 88
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/MethodTooLargeException;->descriptor:Ljava/lang/String;
@@ -151,7 +151,7 @@
 .end method
 
 .method public getMethodName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 79
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/MethodTooLargeException;->methodName:Ljava/lang/String;

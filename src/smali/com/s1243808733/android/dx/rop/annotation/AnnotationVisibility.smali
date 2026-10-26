@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;",
         ">;",
         "Lcom/s1243808733/android/dx/util/ToHuman;"
@@ -35,7 +36,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
-    .registers 3
+    .locals 3
 
     .line 24
     const/4 v0, 0x4
@@ -70,57 +71,57 @@
 .end method
 
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     .line 25
     new-instance v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
-    const/4 v1, 0x0
+    const-string v1, "RUNTIME"
 
-    const-string v2, "runtime"
+    const/4 v2, 0x0
 
-    const-string v3, "RUNTIME"
+    const-string v3, "runtime"
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;->RUNTIME:Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
     .line 26
     new-instance v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
-    const/4 v1, 0x1
+    const-string v1, "BUILD"
 
-    const-string v2, "build"
+    const/4 v2, 0x1
 
-    const-string v3, "BUILD"
+    const-string v3, "build"
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;->BUILD:Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
     .line 27
     new-instance v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
-    const/4 v1, 0x2
+    const-string v1, "SYSTEM"
 
-    const-string v2, "system"
+    const/4 v2, 0x2
 
-    const-string v3, "SYSTEM"
+    const-string v3, "system"
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;->SYSTEM:Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
     .line 28
     new-instance v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
-    const/4 v1, 0x3
+    const-string v1, "EMBEDDED"
 
-    const-string v2, "embedded"
+    const/4 v2, 0x3
 
-    const-string v3, "EMBEDDED"
+    const-string v3, "embedded"
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;->EMBEDDED:Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
@@ -135,7 +136,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -154,22 +155,22 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
-    .registers 2
+    .locals 1
 
     .line 24
     const-class v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
-    .registers 1
+    .locals 1
 
     .line 24
     sget-object v0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;->$VALUES:[Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;
@@ -186,7 +187,7 @@
 
 # virtual methods
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 45
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/annotation/AnnotationVisibility;->human:Ljava/lang/String;

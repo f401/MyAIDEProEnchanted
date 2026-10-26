@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;)V
-    .registers 2
+    .locals 0
 
     .line 332
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$11;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 2
 
     .line 336
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$11;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity$11;->this$0:Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;
 
-    const/4 p2, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {p1, p2}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$msave(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;Z)V
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;->-$$Nest$msave(Lcom/s1243808733/aide/application/activity/permission/ManifestActivity;Z)V
 
     return-void
 .end method

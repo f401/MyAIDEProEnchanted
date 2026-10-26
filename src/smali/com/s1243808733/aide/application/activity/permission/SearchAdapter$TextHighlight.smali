@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;)V
-    .registers 3
+    .locals 1
 
     .line 168
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/SearchAdapter$TextHighlight;->this$0:Lcom/s1243808733/aide/application/activity/permission/SearchAdapter;

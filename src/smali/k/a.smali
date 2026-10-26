@@ -45,7 +45,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 20
+    .locals 4
 
     new-instance v0, Lc/n;
 
@@ -60,313 +60,331 @@
 
     invoke-direct {v1, v0, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v4, "1"
+    const-string v3, "1"
 
-    invoke-direct {v3, v1, v4}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 2
-    sput-object v3, Lk/a;->a:Lc/n;
+    sput-object v2, Lk/a;->a:Lc/n;
 
     .line 3
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    invoke-direct {v3, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v3, "2"
+
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 4
-    sput-object v3, Lk/a;->b:Lc/n;
+    sput-object v2, Lk/a;->b:Lc/n;
 
     .line 5
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v5, "3"
+    const-string v3, "3"
 
-    invoke-direct {v3, v1, v5}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 6
-    sput-object v3, Lk/a;->c:Lc/n;
+    sput-object v2, Lk/a;->c:Lc/n;
 
     .line 7
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v6, "4"
+    const-string v3, "4"
 
-    invoke-direct {v3, v1, v6}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 8
-    sput-object v3, Lk/a;->d:Lc/n;
+    sput-object v2, Lk/a;->d:Lc/n;
 
     .line 9
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v7, "5"
+    const-string v3, "5"
 
-    invoke-direct {v3, v1, v7}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v8, "6"
+    const-string v3, "6"
 
-    invoke-direct {v3, v1, v8}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v9, "7"
+    const-string v3, "7"
 
-    invoke-direct {v3, v1, v9}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 10
-    sput-object v3, Lk/a;->e:Lc/n;
+    sput-object v2, Lk/a;->e:Lc/n;
 
     .line 11
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v10, "8"
+    const-string v3, "8"
 
-    invoke-direct {v3, v1, v10}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 12
-    sput-object v3, Lk/a;->f:Lc/n;
+    sput-object v2, Lk/a;->f:Lc/n;
 
     .line 13
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v11, "9"
+    const-string v3, "9"
 
-    invoke-direct {v3, v1, v11}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 14
-    sput-object v3, Lk/a;->g:Lc/n;
+    sput-object v2, Lk/a;->g:Lc/n;
 
     .line 15
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v12, "10"
+    const-string v3, "10"
 
-    invoke-direct {v3, v1, v12}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 16
-    sput-object v3, Lk/a;->h:Lc/n;
+    sput-object v2, Lk/a;->h:Lc/n;
 
     .line 17
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v13, "11"
+    const-string v3, "11"
 
-    invoke-direct {v3, v1, v13}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v14, "12"
+    const-string v3, "12"
 
-    invoke-direct {v3, v1, v14}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "13"
+    const-string v3, "13"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    move-object/from16 v16, v15
+    const-string v3, "14"
 
-    const-string v15, "14"
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    new-instance v2, Lc/n;
 
-    new-instance v3, Lc/n;
+    const-string v3, "15"
 
-    move-object/from16 v17, v15
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    const-string v15, "15"
+    new-instance v2, Lc/n;
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v3, "16"
 
-    new-instance v3, Lc/n;
-
-    move-object/from16 v18, v15
-
-    const-string v15, "16"
-
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     new-instance v1, Lc/n;
 
-    invoke-direct {v1, v0, v4}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v2, "1"
+
+    invoke-direct {v1, v0, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 18
     sput-object v1, Lk/a;->i:Lc/n;
 
     .line 19
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    invoke-direct {v3, v1, v4}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v3, "1"
 
-    new-instance v3, Lc/n;
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    invoke-direct {v3, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    new-instance v2, Lc/n;
+
+    const-string v3, "2"
+
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 20
-    sput-object v3, Lk/a;->j:Lc/n;
+    sput-object v2, Lk/a;->j:Lc/n;
 
     .line 21
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    invoke-direct {v3, v1, v5}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v3, "3"
 
-    new-instance v3, Lc/n;
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    invoke-direct {v3, v1, v6}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    new-instance v2, Lc/n;
 
-    new-instance v3, Lc/n;
+    const-string v3, "4"
 
-    invoke-direct {v3, v1, v7}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v2, Lc/n;
+
+    const-string v3, "5"
+
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 22
-    sput-object v3, Lk/a;->k:Lc/n;
+    sput-object v2, Lk/a;->k:Lc/n;
 
     .line 23
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    invoke-direct {v3, v1, v8}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v3, "6"
 
-    new-instance v3, Lc/n;
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    invoke-direct {v3, v1, v9}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    new-instance v2, Lc/n;
 
-    new-instance v3, Lc/n;
+    const-string v3, "7"
 
-    invoke-direct {v3, v1, v10}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    move-object/from16 v19, v15
+    const-string v3, "8"
 
-    const-string v15, "21"
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    new-instance v2, Lc/n;
 
-    new-instance v3, Lc/n;
+    const-string v3, "21"
 
-    const-string v15, "22"
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    new-instance v2, Lc/n;
+
+    const-string v3, "22"
+
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 24
-    sput-object v3, Lk/a;->l:Lc/n;
+    sput-object v2, Lk/a;->l:Lc/n;
 
     .line 25
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "23"
+    const-string v3, "23"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "24"
+    const-string v3, "24"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "25"
+    const-string v3, "25"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 26
-    sput-object v3, Lk/a;->m:Lc/n;
+    sput-object v2, Lk/a;->m:Lc/n;
 
     .line 27
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "26"
+    const-string v3, "26"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "27"
+    const-string v3, "27"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "28"
+    const-string v3, "28"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "41"
+    const-string v3, "41"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "42"
+    const-string v3, "42"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 28
-    sput-object v3, Lk/a;->n:Lc/n;
+    sput-object v2, Lk/a;->n:Lc/n;
 
     .line 29
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "43"
+    const-string v3, "43"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "44"
+    const-string v3, "44"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "45"
+    const-string v3, "45"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 30
-    sput-object v3, Lk/a;->o:Lc/n;
+    sput-object v2, Lk/a;->o:Lc/n;
 
     .line 31
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "46"
+    const-string v3, "46"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "47"
+    const-string v3, "47"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
-    new-instance v3, Lc/n;
+    new-instance v2, Lc/n;
 
-    const-string v15, "48"
+    const-string v3, "48"
 
-    invoke-direct {v3, v1, v15}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v3}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     new-instance v1, Lc/n;
 
-    invoke-direct {v1, v0, v5}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v2, "3"
+
+    invoke-direct {v1, v0, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     new-instance v0, Lc/n;
 
-    invoke-direct {v0, v1, v4}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v2, "1"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 32
     sput-object v0, Lk/a;->p:Lc/n;
 
     .line 33
     new-instance v0, Lc/n;
+
+    const-string v2, "2"
 
     invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
@@ -376,7 +394,9 @@
     .line 35
     new-instance v0, Lc/n;
 
-    invoke-direct {v0, v1, v5}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v2, "3"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 36
     sput-object v0, Lk/a;->r:Lc/n;
@@ -384,7 +404,9 @@
     .line 37
     new-instance v0, Lc/n;
 
-    invoke-direct {v0, v1, v6}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+    const-string v2, "4"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     .line 38
     sput-object v0, Lk/a;->s:Lc/n;
@@ -392,57 +414,73 @@
     .line 39
     new-instance v0, Lc/n;
 
-    invoke-direct {v0, v1, v7}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
-
-    new-instance v0, Lc/n;
-
-    invoke-direct {v0, v1, v8}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
-
-    new-instance v0, Lc/n;
-
-    invoke-direct {v0, v1, v9}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
-
-    new-instance v0, Lc/n;
-
-    invoke-direct {v0, v1, v10}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
-
-    new-instance v0, Lc/n;
-
-    invoke-direct {v0, v1, v11}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
-
-    new-instance v0, Lc/n;
-
-    invoke-direct {v0, v1, v12}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
-
-    new-instance v0, Lc/n;
-
-    invoke-direct {v0, v1, v13}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
-
-    new-instance v0, Lc/n;
-
-    invoke-direct {v0, v1, v14}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
-
-    new-instance v0, Lc/n;
-
-    move-object/from16 v2, v16
+    const-string v2, "5"
 
     invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     new-instance v0, Lc/n;
 
-    move-object/from16 v2, v17
+    const-string v2, "6"
 
     invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     new-instance v0, Lc/n;
 
-    move-object/from16 v2, v18
+    const-string v2, "7"
 
     invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 
     new-instance v0, Lc/n;
 
-    move-object/from16 v2, v19
+    const-string v2, "8"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v0, Lc/n;
+
+    const-string v2, "9"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v0, Lc/n;
+
+    const-string v2, "10"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v0, Lc/n;
+
+    const-string v2, "11"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v0, Lc/n;
+
+    const-string v2, "12"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v0, Lc/n;
+
+    const-string v2, "13"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v0, Lc/n;
+
+    const-string v2, "14"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v0, Lc/n;
+
+    const-string v2, "15"
+
+    invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
+
+    new-instance v0, Lc/n;
+
+    const-string v2, "16"
 
     invoke-direct {v0, v1, v2}, Lc/n;-><init>(Lc/n;Ljava/lang/String;)V
 

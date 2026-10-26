@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/code/RopMethod;)V
-    .registers 4
+    .locals 2
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,168 +50,168 @@
 .end method
 
 .method private setupArrays(Lcom/s1243808733/android/dx/rop/code/RopMethod;)V
-    .registers 10
+    .locals 9
+
+    const/4 v1, 0x0
 
     .line 127
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RopMethod;->getBlocks()Lcom/s1243808733/android/dx/rop/code/BasicBlockList;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 128
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->size()I
+    invoke-virtual {v2}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->size()I
 
-    move-result v0
+    move-result v3
 
-    const/4 v1, 0x0
+    move v0, v1
 
-    const/4 v2, 0x0
-
-    :goto_a
-    if-ge v2, v0, :cond_46
+    :goto_0
+    if-ge v0, v3, :cond_0
 
     .line 131
-    invoke-virtual {p1, v2}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->get(I)Lcom/s1243808733/android/dx/rop/code/BasicBlock;
+    invoke-virtual {v2, v0}, Lcom/s1243808733/android/dx/rop/code/BasicBlockList;->get(I)Lcom/s1243808733/android/dx/rop/code/BasicBlock;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 132
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getLabel()I
+    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getLabel()I
 
-    move-result v4
+    move-result v5
 
     .line 133
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getInsns()Lcom/s1243808733/android/dx/rop/code/InsnList;
+    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getInsns()Lcom/s1243808733/android/dx/rop/code/InsnList;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5, v1}, Lcom/s1243808733/android/dx/rop/code/InsnList;->get(I)Lcom/s1243808733/android/dx/rop/code/Insn;
+    invoke-virtual {v6, v1}, Lcom/s1243808733/android/dx/rop/code/InsnList;->get(I)Lcom/s1243808733/android/dx/rop/code/Insn;
 
-    move-result-object v5
+    move-result-object v6
 
     .line 135
-    iget-object v6, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->starts:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
+    iget-object v7, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->starts:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
+
+    new-instance v8, Lcom/s1243808733/android/dx/dex/code/CodeAddress;
+
+    invoke-virtual {v6}, Lcom/s1243808733/android/dx/rop/code/Insn;->getPosition()Lcom/s1243808733/android/dx/rop/code/SourcePosition;
+
+    move-result-object v6
+
+    invoke-direct {v8, v6}, Lcom/s1243808733/android/dx/dex/code/CodeAddress;-><init>(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)V
+
+    aput-object v8, v7, v5
+
+    .line 137
+    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getLastInsn()Lcom/s1243808733/android/dx/rop/code/Insn;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/s1243808733/android/dx/rop/code/Insn;->getPosition()Lcom/s1243808733/android/dx/rop/code/SourcePosition;
+
+    move-result-object v4
+
+    .line 139
+    iget-object v6, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->lasts:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
     new-instance v7, Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
-    invoke-virtual {v5}, Lcom/s1243808733/android/dx/rop/code/Insn;->getPosition()Lcom/s1243808733/android/dx/rop/code/SourcePosition;
+    invoke-direct {v7, v4}, Lcom/s1243808733/android/dx/dex/code/CodeAddress;-><init>(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)V
 
-    move-result-object v5
-
-    invoke-direct {v7, v5}, Lcom/s1243808733/android/dx/dex/code/CodeAddress;-><init>(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)V
-
-    aput-object v7, v6, v4
-
-    .line 137
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getLastInsn()Lcom/s1243808733/android/dx/rop/code/Insn;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/Insn;->getPosition()Lcom/s1243808733/android/dx/rop/code/SourcePosition;
-
-    move-result-object v3
-
-    .line 139
-    iget-object v5, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->lasts:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
-
-    new-instance v6, Lcom/s1243808733/android/dx/dex/code/CodeAddress;
-
-    invoke-direct {v6, v3}, Lcom/s1243808733/android/dx/dex/code/CodeAddress;-><init>(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)V
-
-    aput-object v6, v5, v4
+    aput-object v7, v6, v5
 
     .line 140
-    iget-object v5, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->ends:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
+    iget-object v6, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->ends:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
-    new-instance v6, Lcom/s1243808733/android/dx/dex/code/CodeAddress;
+    new-instance v7, Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
-    invoke-direct {v6, v3}, Lcom/s1243808733/android/dx/dex/code/CodeAddress;-><init>(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)V
+    invoke-direct {v7, v4}, Lcom/s1243808733/android/dx/dex/code/CodeAddress;-><init>(Lcom/s1243808733/android/dx/rop/code/SourcePosition;)V
 
-    aput-object v6, v5, v4
+    aput-object v7, v6, v5
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
-    :cond_46
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getEnd(I)Lcom/s1243808733/android/dx/dex/code/CodeAddress;
-    .registers 3
+    .locals 1
 
     .line 120
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->ends:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
-    aget-object p1, v0, p1
+    aget-object v0, v0, p1
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getEnd(Lcom/s1243808733/android/dx/rop/code/BasicBlock;)Lcom/s1243808733/android/dx/dex/code/CodeAddress;
-    .registers 3
+    .locals 2
 
     .line 109
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->ends:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getLabel()I
 
-    move-result p1
+    move-result v1
 
-    aget-object p1, v0, p1
+    aget-object v0, v0, v1
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getLast(I)Lcom/s1243808733/android/dx/dex/code/CodeAddress;
-    .registers 3
+    .locals 1
 
     .line 98
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->lasts:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
-    aget-object p1, v0, p1
+    aget-object v0, v0, p1
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getLast(Lcom/s1243808733/android/dx/rop/code/BasicBlock;)Lcom/s1243808733/android/dx/dex/code/CodeAddress;
-    .registers 3
+    .locals 2
 
     .line 87
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->lasts:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getLabel()I
 
-    move-result p1
+    move-result v1
 
-    aget-object p1, v0, p1
+    aget-object v0, v0, v1
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getStart(I)Lcom/s1243808733/android/dx/dex/code/CodeAddress;
-    .registers 3
+    .locals 1
 
     .line 77
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->starts:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
-    aget-object p1, v0, p1
+    aget-object v0, v0, p1
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getStart(Lcom/s1243808733/android/dx/rop/code/BasicBlock;)Lcom/s1243808733/android/dx/dex/code/CodeAddress;
-    .registers 3
+    .locals 2
 
     .line 67
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/code/BlockAddresses;->starts:[Lcom/s1243808733/android/dx/dex/code/CodeAddress;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getLabel()I
 
-    move-result p1
+    move-result v1
 
-    aget-object p1, v0, p1
+    aget-object v0, v0, v1
 
-    return-object p1
+    return-object v0
 .end method

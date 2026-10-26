@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .registers 3
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -40,32 +40,33 @@
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 2
 
     instance-of v0, p1, Lc/n$a;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lc/n$a;->b:[B
 
     check-cast p1, Lc/n$a;
 
-    iget-object p1, p1, Lc/n$a;->b:[B
+    iget-object v1, p1, Lc/n$a;->b:[B
 
-    invoke-static {v0, p1}, Lx/a;->a([B[B)Z
+    invoke-static {v0, v1}, Lx/a;->a([B[B)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    :goto_0
+    return v0
 
-    :cond_f
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public final hashCode()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lc/n$a;->a:I
 

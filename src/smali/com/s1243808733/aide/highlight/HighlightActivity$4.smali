@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/highlight/HighlightActivity;)V
-    .registers 2
+    .locals 0
 
     .line 201
     iput-object p1, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$4;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
@@ -34,7 +34,7 @@
 .end method
 
 .method private compresscolor(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
 
     .line 218
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -43,7 +43,7 @@
 
     const/16 v1, 0x9
 
-    if-ne v0, v1, :cond_19
+    if-ne v0, v1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
@@ -55,7 +55,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 219
     const/4 v0, 0x3
@@ -64,26 +64,28 @@
 
     move-result-object p1
 
-    :cond_19
+    :cond_0
     return-object p1
 .end method
 
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x0
 
     .line 205
-    new-instance p1, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {p1}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 206
     invoke-static {}, Lcom/s1243808733/aide/application/AppTheme;->getThemeCode()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 207
     iget-object v0, p0, Lcom/s1243808733/aide/highlight/HighlightActivity$4;->this$0:Lcom/s1243808733/aide/highlight/HighlightActivity;
@@ -94,32 +96,30 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v0
 
-    :goto_16
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    if-eqz v1, :cond_45
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/s1243808733/aide/highlight/Item;
+    check-cast v0, Lcom/s1243808733/aide/highlight/Item;
 
     .line 208
     const-string v3, ";"
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 209
     const/4 v3, 0x1
 
-    invoke-virtual {v1, v3}, Lcom/s1243808733/aide/highlight/Item;->getColor(Z)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Lcom/s1243808733/aide/highlight/Item;->getColor(Z)Ljava/lang/String;
 
     move-result-object v3
 
@@ -127,45 +127,45 @@
 
     move-result-object v3
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 210
     const-string v3, ","
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 211
-    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/highlight/Item;->getColor(Z)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Lcom/s1243808733/aide/highlight/Item;->getColor(Z)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {p0, v1}, Lcom/s1243808733/aide/highlight/HighlightActivity$4;->compresscolor(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v0}, Lcom/s1243808733/aide/highlight/HighlightActivity$4;->compresscolor(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_16
+    goto :goto_0
 
     .line 213
-    :cond_45
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    :cond_0
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->gzip([B)[B
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->gzip([B)[B
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/EncodeUtils;->base64Encode2String([B)Ljava/lang/String;
+    invoke-static {v0}, Lcom/blankj/utilcode/util/EncodeUtils;->base64Encode2String([B)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->copyToClipboard(Ljava/lang/CharSequence;)V
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->copyToClipboard(Ljava/lang/CharSequence;)V
 
-    return v2
+    return v4
 .end method

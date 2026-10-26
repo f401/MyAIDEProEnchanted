@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(JLjava/lang/String;Ljava/lang/String;)V
-    .registers 7
+    .locals 3
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,13 +23,13 @@
 
     iput-wide v0, p0, Lcom/baidu/mobstat/i;->a:J
 
-    if-nez p4, :cond_b
+    if-nez p4, :cond_0
 
     .line 13
     const-string p4, ""
 
     .line 16
-    :cond_b
+    :cond_0
     iput-wide p1, p0, Lcom/baidu/mobstat/i;->a:J
 
     .line 17
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public a()J
-    .registers 3
+    .locals 2
 
     .line 22
     iget-wide v0, p0, Lcom/baidu/mobstat/i;->a:J
@@ -53,7 +53,7 @@
 .end method
 
 .method public b()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 38
     iget-object v0, p0, Lcom/baidu/mobstat/i;->c:Ljava/lang/String;

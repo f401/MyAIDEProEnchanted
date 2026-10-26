@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/MainListener$1;)V
-    .registers 2
+    .locals 0
 
     .line 148
     iput-object p1, p0, Lcom/s1243808733/aide/MainListener$1$1;->this$0:Lcom/s1243808733/aide/MainListener$1;
@@ -36,102 +36,104 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 152
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$1$1;->this$0:Lcom/s1243808733/aide/MainListener$1;
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$1$1;->this$0:Lcom/s1243808733/aide/MainListener$1;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/MainListener$1;->val$input:Landroid/widget/EditText;
+    iget-object v0, v0, Lcom/s1243808733/aide/MainListener$1;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 153
-    new-instance v0, Ljava/io/File;
+    new-instance v1, Ljava/io/File;
 
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getFileBrowserCurrentDir()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1, p1}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 154
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_2e
+    if-eqz v0, :cond_1
 
     .line 155
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$1$1;->this$0:Lcom/s1243808733/aide/MainListener$1;
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$1$1;->this$0:Lcom/s1243808733/aide/MainListener$1;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/MainListener$1;->val$input:Landroid/widget/EditText;
+    iget-object v1, v0, Lcom/s1243808733/aide/MainListener$1;->val$input:Landroid/widget/EditText;
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
-    const-string v0, "文件夹已存在"
+    const-string v0, "\u6587\u4ef6\u5939\u5df2\u5b58\u5728"
 
-    goto :goto_2a
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setError(Ljava/lang/CharSequence;)V
 
-    :cond_28
-    const-string v0, "folder already exist"
-
-    :goto_2a
-    invoke-virtual {p1, v0}, Landroid/widget/EditText;->setError(Ljava/lang/CharSequence;)V
-
+    .line 163
+    :goto_1
     return-void
 
+    .line 155
+    :cond_0
+    const-string v0, "folder already exist"
+
+    goto :goto_0
+
     .line 159
-    :cond_2e
-    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+    :cond_1
+    invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_47
+    if-nez v0, :cond_3
 
     .line 160
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$1$1;->this$0:Lcom/s1243808733/aide/MainListener$1;
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$1$1;->this$0:Lcom/s1243808733/aide/MainListener$1;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/MainListener$1;->val$input:Landroid/widget/EditText;
+    iget-object v1, v0, Lcom/s1243808733/aide/MainListener$1;->val$input:Landroid/widget/EditText;
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_2
 
-    const-string v0, "无法写入"
+    const-string v0, "\u65e0\u6cd5\u5199\u5165"
 
-    goto :goto_43
+    :goto_2
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setError(Ljava/lang/CharSequence;)V
 
-    :cond_41
+    goto :goto_1
+
+    :cond_2
     const-string v0, "Unable to write"
 
-    :goto_43
-    invoke-virtual {p1, v0}, Landroid/widget/EditText;->setError(Ljava/lang/CharSequence;)V
-
-    goto :goto_51
+    goto :goto_2
 
     .line 162
-    :cond_47
+    :cond_3
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->reLoadFileBrowser()V
 
     .line 163
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$1$1;->this$0:Lcom/s1243808733/aide/MainListener$1;
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$1$1;->this$0:Lcom/s1243808733/aide/MainListener$1;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/MainListener$1;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, v0, Lcom/s1243808733/aide/MainListener$1;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    :goto_51
-    return-void
+    goto :goto_1
 .end method

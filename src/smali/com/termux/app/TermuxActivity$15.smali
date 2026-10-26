@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;[Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,63 +45,63 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 8
+    .locals 8
+
+    const/4 v7, 0x1
 
     .line 1060
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$15;->val$urls:[Ljava/lang/CharSequence;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$15;->val$urls:[Ljava/lang/CharSequence;
 
-    aget-object p1, p1, p2
+    aget-object v0, v0, p2
 
-    check-cast p1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 1061
-    iget-object p2, p0, Lcom/termux/app/TermuxActivity$15;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v1, p0, Lcom/termux/app/TermuxActivity$15;->this$0:Lcom/termux/app/TermuxActivity;
 
-    const-string v0, "clipboard"
+    const-string v2, "clipboard"
 
-    invoke-virtual {p2, v0}, Lcom/termux/app/TermuxActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Lcom/termux/app/TermuxActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v1
 
-    check-cast p2, Landroid/content/ClipboardManager;
+    check-cast v1, Landroid/content/ClipboardManager;
 
     .line 1062
-    new-instance v0, Landroid/content/ClipData$Item;
+    new-instance v2, Landroid/content/ClipData$Item;
 
-    invoke-direct {v0, p1}, Landroid/content/ClipData$Item;-><init>(Ljava/lang/CharSequence;)V
+    invoke-direct {v2, v0}, Landroid/content/ClipData$Item;-><init>(Ljava/lang/CharSequence;)V
 
-    new-instance p1, Landroid/content/ClipData;
-
-    const/4 v1, 0x1
-
-    new-array v2, v1, [Ljava/lang/String;
+    new-instance v0, Landroid/content/ClipData;
 
     const/4 v3, 0x0
 
-    const-string v4, "text/plain"
+    new-array v4, v7, [Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    const/4 v5, 0x0
 
-    const/4 v3, 0x0
+    const-string v6, "text/plain"
 
-    invoke-direct {p1, v3, v2, v0}, Landroid/content/ClipData;-><init>(Ljava/lang/CharSequence;[Ljava/lang/String;Landroid/content/ClipData$Item;)V
+    aput-object v6, v4, v5
 
-    invoke-virtual {p2, p1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
+    invoke-direct {v0, v3, v4, v2}, Landroid/content/ClipData;-><init>(Ljava/lang/CharSequence;[Ljava/lang/String;Landroid/content/ClipData$Item;)V
+
+    invoke-virtual {v1, v0}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
 
     .line 1063
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$15;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$15;->this$0:Lcom/termux/app/TermuxActivity;
 
-    const-string p2, "select_url_copied_to_clipboard"
+    const-string v1, "select_url_copied_to_clipboard"
 
-    invoke-static {p2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getStringIdByName(Ljava/lang/String;)I
 
-    move-result p2
+    move-result v1
 
-    invoke-static {p1, p2, v1}, Lcom/s1243808733/util/Toasty;->success(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v0, v1, v7}, Lcom/s1243808733/util/Toasty;->success(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     return-void
 .end method

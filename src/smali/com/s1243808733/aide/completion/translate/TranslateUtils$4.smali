@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/completion/translate/TranslateTable;Landroid/widget/BaseAdapter;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,12 +45,12 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 236
-    const/4 p1, 0x0
-
-    :try_start_1
+    :try_start_0
     invoke-static {}, Lcom/s1243808733/aide/completion/translate/TranslateUtils;->getDb()Lorg/xutils/DbManager;
 
     move-result-object v0
@@ -63,25 +63,27 @@
     iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$4;->val$adapter:Landroid/widget/BaseAdapter;
 
     invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
-    :try_end_f
-    .catch Lorg/xutils/ex/DbException; {:try_start_1 .. :try_end_f} :catch_10
+    :try_end_0
+    .catch Lorg/xutils/ex/DbException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1b
+    .line 239
+    :goto_0
+    return v3
 
-    :catch_10
+    .line 237
+    :catch_0
     move-exception v0
 
     .line 239
-    const/4 v1, 0x1
+    const-string v1, "Delete DbException"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x1
 
-    aput-object v0, v1, p1
+    new-array v2, v2, [Ljava/lang/Object;
 
-    const-string v0, "Delete DbException"
+    aput-object v0, v2, v3
 
-    invoke-static {v0, v1}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v2}, Lcom/blankj/utilcode/util/LogUtils;->eTag(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    :goto_1b
-    return p1
+    goto :goto_0
 .end method

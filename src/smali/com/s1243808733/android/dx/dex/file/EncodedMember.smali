@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method public final getAccessFlags()I
-    .registers 2
+    .locals 1
 
     .line 47
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/EncodedMember;->accessFlags:I

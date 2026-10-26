@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/filebrowser/FileOptions$1;)V
-    .registers 2
+    .locals 0
 
     .line 147
     iput-object p1, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;->this$0:Lcom/s1243808733/aide/filebrowser/FileOptions$1;
@@ -33,23 +33,18 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .line 152
     const-wide/16 v0, 0x32
 
-    :try_start_2
+    :try_start_0
     invoke-static {v0, v1}, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;->sleep(J)V
-    :try_end_5
-    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_5} :catch_6
-
-    goto :goto_7
-
-    :catch_6
-    move-exception v0
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 158
-    :goto_7
+    :goto_0
     iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;->this$0:Lcom/s1243808733/aide/filebrowser/FileOptions$1;
 
     iget-object v0, v0, Lcom/s1243808733/aide/filebrowser/FileOptions$1;->val$file:Ljava/io/File;
@@ -62,7 +57,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_1
 
     .line 162
     iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;->this$0:Lcom/s1243808733/aide/filebrowser/FileOptions$1;
@@ -77,10 +72,36 @@
 
     invoke-static {v0, v1}, Lcom/s1243808733/aide/filebrowser/FileOptions;->startAc(Landroid/content/Context;Ljava/lang/String;)V
 
-    goto :goto_2e
+    .line 171
+    :goto_1
+    invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileOptions;->-$$Nest$sfgetpd()Landroid/app/ProgressDialog;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileOptions;->-$$Nest$sfgetpd()Landroid/app/ProgressDialog;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/ProgressDialog;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 173
+    invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileOptions;->-$$Nest$sfgetpd()Landroid/app/ProgressDialog;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
+
+    :cond_0
+    return-void
 
     .line 167
-    :cond_23
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/aide/filebrowser/FileOptions$1$1;->this$0:Lcom/s1243808733/aide/filebrowser/FileOptions$1;
 
     iget-object v0, v0, Lcom/s1243808733/aide/filebrowser/FileOptions$1;->val$context:Landroid/content/Context;
@@ -91,31 +112,11 @@
 
     invoke-static {v0, v1}, Lcom/s1243808733/aide/filebrowser/FileOptions;->installApk(Landroid/content/Context;Ljava/io/File;)V
 
-    .line 171
-    :goto_2e
-    invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileOptions;->-$$Nest$sfgetpd()Landroid/app/ProgressDialog;
+    goto :goto_1
 
-    move-result-object v0
+    .line 152
+    :catch_0
+    move-exception v0
 
-    if-eqz v0, :cond_45
-
-    invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileOptions;->-$$Nest$sfgetpd()Landroid/app/ProgressDialog;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->isShowing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_45
-
-    .line 173
-    invoke-static {}, Lcom/s1243808733/aide/filebrowser/FileOptions;->-$$Nest$sfgetpd()Landroid/app/ProgressDialog;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
-
-    :cond_45
-    return-void
+    goto :goto_0
 .end method

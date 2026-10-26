@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;Landroid/widget/EditText;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,101 +45,101 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 6
+    .locals 6
 
     .line 158
-    new-instance p1, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
-    new-instance p2, Ljava/io/File;
+    new-instance v1, Ljava/io/File;
 
-    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;
 
-    iget-object v0, v0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;->val$projectResPath:Ljava/io/File;
+    iget-object v2, v2, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;->val$projectResPath:Ljava/io/File;
 
-    const-string v1, "drawable"
+    const-string v3, "drawable"
 
-    invoke-direct {p2, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2$1;->val$view_editor:Landroid/widget/EditText;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2$1;->val$view_editor:Landroid/widget/EditText;
 
-    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {p1, p2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 159
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;
 
-    iget-object p2, p2, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
+    iget-object v0, v0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->parseSvgToXml(Lcom/s1243808733/aide/application/activity/icons/Icon;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->parseSvgToXml(Lcom/s1243808733/aide/application/activity/icons/Icon;)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 160
-    invoke-static {p1, p2}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v1, v0}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 161
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_32
+    if-eqz v0, :cond_0
 
-    const-string p2, "已添加至：%s"
+    const-string v0, "\u5df2\u6dfb\u52a0\u81f3\uff1a%s"
 
-    goto :goto_34
+    :goto_0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    :cond_32
-    const-string p2, "Added to: %s"
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    :goto_34
-    new-instance v0, Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v3, v3, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;->val$projectResPath:Ljava/io/File;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    iget-object v1, v1, Lcom/s1243808733/aide/application/activity/icons/IconActivity$2;->val$projectResPath:Ljava/io/File;
+    const-string v3, "/"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "/"
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    const/4 v1, 0x1
+    const/4 v4, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
+
+    const/4 v5, 0x0
+
+    invoke-static {v1, v2, v5}, Lcom/s1243808733/util/Utils;->subString(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    aput-object v1, v3, v4
+
+    invoke-static {v0, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    const/4 v2, 0x0
-
-    invoke-static {p1, v0, v2}, Lcom/s1243808733/util/Utils;->subString(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    const/4 v0, 0x0
-
-    aput-object p1, v1, v0
-
-    invoke-static {p2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
 
     return-void
+
+    :cond_0
+    const-string v0, "Added to: %s"
+
+    goto :goto_0
 .end method

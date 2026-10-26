@@ -5,12 +5,12 @@
 
 # direct methods
 .method public static ma_class()Ljava/lang/Class;
-    .registers 2
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/lang/Class<",
-            "*>;"
+            "Ljava/lang/Class",
+            "<*>;"
         }
     .end annotation
 
@@ -19,14 +19,14 @@
     const-string v0, "com.aide.ui.ma"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_6
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object v0
 
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 8

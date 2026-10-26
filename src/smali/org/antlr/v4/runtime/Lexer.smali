@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lorg/antlr/v4/runtime/Recognizer<",
+        "Lorg/antlr/v4/runtime/Recognizer",
+        "<",
         "Ljava/lang/Integer;",
         "Lorg/antlr/v4/runtime/atn/LexerATNSimulator;",
         ">;",
@@ -40,8 +41,8 @@
 .field protected _factory:Lorg/antlr/v4/runtime/TokenFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;"
         }
     .end annotation
 .end field
@@ -61,7 +62,8 @@
 .field protected _tokenFactorySourcePair:Lorg/antlr/v4/runtime/misc/Pair;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lorg/antlr/v4/runtime/misc/Pair<",
+            "Lorg/antlr/v4/runtime/misc/Pair",
+            "<",
             "Lorg/antlr/v4/runtime/TokenSource;",
             "Lorg/antlr/v4/runtime/CharStream;",
             ">;"
@@ -80,7 +82,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 81
     invoke-direct {p0}, Lorg/antlr/v4/runtime/Recognizer;-><init>()V
@@ -111,7 +113,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/CharStream;)V
-    .registers 3
+    .locals 1
 
     .line 83
     invoke-direct {p0}, Lorg/antlr/v4/runtime/Recognizer;-><init>()V
@@ -154,7 +156,7 @@
 
 # virtual methods
 .method public emit()Lorg/antlr/v4/runtime/Token;
-    .registers 10
+    .locals 9
 
     .line 245
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_factory:Lorg/antlr/v4/runtime/TokenFactory;
@@ -190,7 +192,7 @@
 .end method
 
 .method public emit(Lorg/antlr/v4/runtime/Token;)V
-    .registers 2
+    .locals 0
 
     .line 235
     iput-object p1, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
@@ -199,7 +201,7 @@
 .end method
 
 .method public emitEOF()Lorg/antlr/v4/runtime/Token;
-    .registers 10
+    .locals 9
 
     .line 252
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getCharPositionInLine()I
@@ -247,53 +249,53 @@
 .end method
 
 .method public getAllTokens()Ljava/util/List;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
-            "+",
+            "Ljava/util/List",
+            "<+",
             "Lorg/antlr/v4/runtime/Token;",
             ">;"
         }
     .end annotation
 
     .line 343
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 344
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->nextToken()Lorg/antlr/v4/runtime/Token;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 345
-    :goto_9
-    invoke-interface {v1}, Lorg/antlr/v4/runtime/Token;->getType()I
+    :goto_0
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/Token;->getType()I
 
     move-result v2
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_18
+    if-eq v2, v3, :cond_0
 
     .line 346
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 347
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->nextToken()Lorg/antlr/v4/runtime/Token;
 
-    move-result-object v1
+    move-result-object v0
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_18
-    return-object v0
+    :cond_0
+    return-object v1
 .end method
 
 .method public getChannel()I
-    .registers 2
+    .locals 1
 
     .line 320
     iget v0, p0, Lorg/antlr/v4/runtime/Lexer;->_channel:I
@@ -302,7 +304,7 @@
 .end method
 
 .method public getChannelNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -310,33 +312,35 @@
 .end method
 
 .method public getCharErrorDisplay(I)Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 395
     invoke-virtual {p0, p1}, Lorg/antlr/v4/runtime/Lexer;->getErrorDisplay(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 396
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v1, "\'"
+    const-string v2, "\'"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "\'"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object p1
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getCharIndex()I
-    .registers 2
+    .locals 1
 
     .line 280
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
@@ -349,7 +353,7 @@
 .end method
 
 .method public getCharPositionInLine()I
-    .registers 2
+    .locals 1
 
     .line 267
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
@@ -366,7 +370,7 @@
 .end method
 
 .method public getErrorDisplay(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
 
     int-to-char v0, p1
 
@@ -377,92 +381,93 @@
 
     const/4 v1, -0x1
 
-    if-eq p1, v1, :cond_1e
+    if-eq p1, v1, :cond_3
 
     const/16 v1, 0xd
 
-    if-eq p1, v1, :cond_1b
+    if-eq p1, v1, :cond_2
 
     const/16 v1, 0x9
 
-    if-eq p1, v1, :cond_18
+    if-eq p1, v1, :cond_1
 
     const/16 v1, 0xa
 
-    if-eq p1, v1, :cond_15
-
-    goto :goto_20
-
-    .line 383
-    :cond_15
-    const-string v0, "\\n"
-
-    goto :goto_20
-
-    .line 386
-    :cond_18
-    const-string v0, "\\t"
-
-    goto :goto_20
-
-    .line 388
-    :cond_1b
-    const-string v0, "\\r"
-
-    goto :goto_20
+    if-eq p1, v1, :cond_0
 
     .line 380
-    :cond_1e
+    :goto_0
+    return-object v0
+
+    .line 383
+    :cond_0
+    const-string v0, "\\n"
+
+    goto :goto_0
+
+    .line 386
+    :cond_1
+    const-string v0, "\\t"
+
+    goto :goto_0
+
+    .line 388
+    :cond_2
+    const-string v0, "\\r"
+
+    goto :goto_0
+
+    .line 380
+    :cond_3
     const-string v0, "<EOF>"
 
-    :goto_20
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getErrorDisplay(Ljava/lang/String;)Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .line 368
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 369
     invoke-virtual {p1}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object p1
+    move-result-object v2
 
-    array-length v1, p1
+    array-length v3, v2
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    :goto_b
-    if-ge v2, v1, :cond_19
+    :goto_0
+    if-ge v0, v3, :cond_0
 
-    aget-char v3, p1, v2
+    aget-char v4, v2, v0
 
     .line 370
-    invoke-virtual {p0, v3}, Lorg/antlr/v4/runtime/Lexer;->getErrorDisplay(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Lorg/antlr/v4/runtime/Lexer;->getErrorDisplay(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 372
-    :cond_19
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_0
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getInputStream()Lorg/antlr/v4/runtime/CharStream;
-    .registers 2
+    .locals 1
 
     .line 225
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
@@ -471,7 +476,7 @@
 .end method
 
 .method public bridge synthetic getInputStream()Lorg/antlr/v4/runtime/IntStream;
-    .registers 2
+    .locals 1
 
     .line 22
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInputStream()Lorg/antlr/v4/runtime/CharStream;
@@ -482,7 +487,7 @@
 .end method
 
 .method public getLine()I
-    .registers 2
+    .locals 1
 
     .line 262
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
@@ -499,7 +504,7 @@
 .end method
 
 .method public getModeNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -507,7 +512,7 @@
 .end method
 
 .method public getSourceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 220
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
@@ -520,17 +525,18 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 287
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_text:Ljava/lang/String;
 
-    if-eqz v0, :cond_5
-
-    return-object v0
+    if-eqz v0, :cond_0
 
     .line 290
-    :cond_5
+    :goto_0
+    return-object v0
+
+    :cond_0
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
     move-result-object v0
@@ -543,11 +549,11 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getToken()Lorg/antlr/v4/runtime/Token;
-    .registers 2
+    .locals 1
 
     .line 301
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
@@ -556,12 +562,12 @@
 .end method
 
 .method public getTokenFactory()Lorg/antlr/v4/runtime/TokenFactory;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "+",
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<+",
             "Lorg/antlr/v4/runtime/Token;",
             ">;"
         }
@@ -574,7 +580,7 @@
 .end method
 
 .method public getTokenNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -584,7 +590,7 @@
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .line 312
     iget v0, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
@@ -593,7 +599,7 @@
 .end method
 
 .method public mode(I)V
-    .registers 2
+    .locals 0
 
     .line 182
     iput p1, p0, Lorg/antlr/v4/runtime/Lexer;->_mode:I
@@ -602,7 +608,7 @@
 .end method
 
 .method public more()V
-    .registers 2
+    .locals 1
 
     .line 178
     const/4 v0, -0x2
@@ -613,212 +619,213 @@
 .end method
 
 .method public nextToken()Lorg/antlr/v4/runtime/Token;
-    .registers 8
+    .locals 5
+
+    const/4 v1, -0x3
 
     .line 113
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
-    if-eqz v0, :cond_84
+    if-eqz v0, :cond_6
 
     .line 119
     invoke-interface {v0}, Lorg/antlr/v4/runtime/CharStream;->mark()I
 
-    move-result v0
+    move-result v2
 
     .line 123
-    :goto_8
-    :try_start_8
-    iget-boolean v1, p0, Lorg/antlr/v4/runtime/Lexer;->_hitEOF:Z
+    :cond_0
+    :try_start_0
+    iget-boolean v0, p0, Lorg/antlr/v4/runtime/Lexer;->_hitEOF:Z
 
-    if-eqz v1, :cond_12
+    if-eqz v0, :cond_1
 
     .line 124
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->emitEOF()Lorg/antlr/v4/runtime/Token;
 
     .line 125
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_77
+    .line 163
+    :goto_0
+    iget-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+
+    invoke-interface {v1, v2}, Lorg/antlr/v4/runtime/CharStream;->release(I)V
+
+    return-object v0
 
     .line 128
-    :cond_12
-    const/4 v1, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
-    iput-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
+    :try_start_1
+    iput-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
 
     .line 129
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    iput v2, p0, Lorg/antlr/v4/runtime/Lexer;->_channel:I
+    iput v0, p0, Lorg/antlr/v4/runtime/Lexer;->_channel:I
 
     .line 130
-    iget-object v3, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
-    invoke-interface {v3}, Lorg/antlr/v4/runtime/CharStream;->index()I
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/CharStream;->index()I
 
-    move-result v3
+    move-result v0
 
-    iput v3, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartCharIndex:I
+    iput v0, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartCharIndex:I
 
     .line 131
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
 
-    invoke-virtual {v3}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;->getCharPositionInLine()I
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;->getCharPositionInLine()I
 
-    move-result v3
+    move-result v0
 
-    iput v3, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartCharPositionInLine:I
+    iput v0, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartCharPositionInLine:I
 
     .line 132
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
 
-    invoke-virtual {v3}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;->getLine()I
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;->getLine()I
 
-    move-result v3
+    move-result v0
 
-    iput v3, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartLine:I
+    iput v0, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartLine:I
 
     .line 133
-    iput-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_text:Ljava/lang/String;
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_text:Ljava/lang/String;
 
     .line 135
-    :cond_3a
-    iput v2, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
-    :try_end_3c
-    .catchall {:try_start_8 .. :try_end_3c} :catchall_7d
+    :cond_2
+    const/4 v0, 0x0
+
+    iput v0, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 141
-    const/4 v1, -0x3
-
-    :try_start_3d
+    :try_start_2
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
 
-    iget-object v4, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+    iget-object v3, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
-    iget v5, p0, Lorg/antlr/v4/runtime/Lexer;->_mode:I
+    iget v4, p0, Lorg/antlr/v4/runtime/Lexer;->_mode:I
 
-    invoke-virtual {v3, v4, v5}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;->match(Lorg/antlr/v4/runtime/CharStream;I)I
+    invoke-virtual {v0, v3, v4}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;->match(Lorg/antlr/v4/runtime/CharStream;I)I
+    :try_end_2
+    .catch Lorg/antlr/v4/runtime/LexerNoViableAltException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    move-result v3
-    :try_end_4b
-    .catch Lorg/antlr/v4/runtime/LexerNoViableAltException; {:try_start_3d .. :try_end_4b} :catch_4c
-    .catchall {:try_start_3d .. :try_end_4b} :catchall_7d
-
-    goto :goto_54
-
-    :catch_4c
-    move-exception v3
-
-    .line 144
-    :try_start_4d
-    invoke-virtual {p0, v3}, Lorg/antlr/v4/runtime/Lexer;->notifyListeners(Lorg/antlr/v4/runtime/LexerNoViableAltException;)V
-
-    .line 145
-    invoke-virtual {p0, v3}, Lorg/antlr/v4/runtime/Lexer;->recover(Lorg/antlr/v4/runtime/LexerNoViableAltException;)V
-
-    const/4 v3, -0x3
+    move-result v0
 
     .line 148
-    :goto_54
-    iget-object v4, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+    :goto_1
+    :try_start_3
+    iget-object v3, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    invoke-interface {v4, v5}, Lorg/antlr/v4/runtime/CharStream;->LA(I)I
+    invoke-interface {v3, v4}, Lorg/antlr/v4/runtime/CharStream;->LA(I)I
 
-    move-result v4
+    move-result v3
 
-    const/4 v6, -0x1
+    const/4 v4, -0x1
 
-    if-ne v4, v6, :cond_60
+    if-ne v3, v4, :cond_3
 
     .line 149
-    iput-boolean v5, p0, Lorg/antlr/v4/runtime/Lexer;->_hitEOF:Z
+    const/4 v3, 0x1
+
+    iput-boolean v3, p0, Lorg/antlr/v4/runtime/Lexer;->_hitEOF:Z
 
     .line 151
-    :cond_60
-    iget v4, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
-
-    if-nez v4, :cond_66
-
-    iput v3, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
-
-    .line 152
-    :cond_66
+    :cond_3
     iget v3, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
 
-    if-ne v3, v1, :cond_6b
+    if-nez v3, :cond_4
 
-    goto :goto_8
+    iput v0, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
 
-    :cond_6b
-    const/4 v1, -0x2
+    .line 152
+    :cond_4
+    iget v0, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
 
-    if-eq v3, v1, :cond_3a
+    if-eq v0, v1, :cond_0
+
+    const/4 v3, -0x2
+
+    if-eq v0, v3, :cond_2
 
     .line 156
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
 
-    if-nez v1, :cond_75
+    if-nez v0, :cond_5
 
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->emit()Lorg/antlr/v4/runtime/Token;
 
     .line 157
-    :cond_75
-    iget-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
-    :try_end_77
-    .catchall {:try_start_4d .. :try_end_77} :catchall_7d
+    :cond_5
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
 
-    .line 163
-    :goto_77
-    iget-object v2, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+    goto :goto_0
 
-    invoke-interface {v2, v0}, Lorg/antlr/v4/runtime/CharStream;->release(I)V
+    .line 141
+    :catch_0
+    move-exception v0
 
-    return-object v1
+    .line 144
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/Lexer;->notifyListeners(Lorg/antlr/v4/runtime/LexerNoViableAltException;)V
+
+    .line 145
+    invoke-virtual {p0, v0}, Lorg/antlr/v4/runtime/Lexer;->recover(Lorg/antlr/v4/runtime/LexerNoViableAltException;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    move v0, v1
+
+    goto :goto_1
 
     .line 157
-    :catchall_7d
-    move-exception v1
+    :catchall_0
+    move-exception v0
 
     .line 163
-    iget-object v2, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
-    invoke-interface {v2, v0}, Lorg/antlr/v4/runtime/CharStream;->release(I)V
+    invoke-interface {v1, v2}, Lorg/antlr/v4/runtime/CharStream;->release(I)V
 
-    throw v1
+    throw v0
 
     .line 114
-    :cond_84
+    :cond_6
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "nextToken requires a non-null input stream."
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_8d
-
-    :goto_8c
     throw v0
-
-    :goto_8d
-    goto :goto_8c
 .end method
 
 .method public notifyListeners(Lorg/antlr/v4/runtime/LexerNoViableAltException;)V
-    .registers 11
+    .locals 7
 
     .line 360
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
@@ -856,31 +863,31 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v5
 
     .line 363
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getErrorListenerDispatch()Lorg/antlr/v4/runtime/ANTLRErrorListener;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 364
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    iget v5, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartLine:I
+    iget v3, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartLine:I
 
-    iget v6, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartCharPositionInLine:I
+    iget v4, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartCharPositionInLine:I
 
-    move-object v3, p0
+    move-object v1, p0
 
-    move-object v8, p1
+    move-object v6, p1
 
-    invoke-interface/range {v2 .. v8}, Lorg/antlr/v4/runtime/ANTLRErrorListener;->syntaxError(Lorg/antlr/v4/runtime/Recognizer;Ljava/lang/Object;IILjava/lang/String;Lorg/antlr/v4/runtime/RecognitionException;)V
+    invoke-interface/range {v0 .. v6}, Lorg/antlr/v4/runtime/ANTLRErrorListener;->syntaxError(Lorg/antlr/v4/runtime/Recognizer;Ljava/lang/Object;IILjava/lang/String;Lorg/antlr/v4/runtime/RecognitionException;)V
 
     return-void
 .end method
 
 .method public popMode()I
-    .registers 2
+    .locals 1
 
     .line 192
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_modeStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
@@ -889,7 +896,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 194
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_modeStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
@@ -906,7 +913,7 @@
     return v0
 
     .line 192
-    :cond_14
+    :cond_0
     new-instance v0, Ljava/util/EmptyStackException;
 
     invoke-direct {v0}, Ljava/util/EmptyStackException;-><init>()V
@@ -915,7 +922,7 @@
 .end method
 
 .method public pushMode(I)V
-    .registers 4
+    .locals 2
 
     .line 187
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_modeStack:Lorg/antlr/v4/runtime/misc/IntegerStack;
@@ -931,65 +938,67 @@
 .end method
 
 .method public recover(Lorg/antlr/v4/runtime/LexerNoViableAltException;)V
-    .registers 3
+    .locals 2
 
     .line 353
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-interface {p1, v0}, Lorg/antlr/v4/runtime/CharStream;->LA(I)I
+    invoke-interface {v0, v1}, Lorg/antlr/v4/runtime/CharStream;->LA(I)I
 
-    move-result p1
+    move-result v0
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    if-eq p1, v0, :cond_15
+    if-eq v0, v1, :cond_0
 
     .line 355
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
 
-    iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
-    invoke-virtual {p1, v0}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;->consume(Lorg/antlr/v4/runtime/CharStream;)V
+    invoke-virtual {v0, v1}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;->consume(Lorg/antlr/v4/runtime/CharStream;)V
 
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public recover(Lorg/antlr/v4/runtime/RecognitionException;)V
-    .registers 2
+    .locals 1
 
     .line 408
-    iget-object p1, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+    iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
-    invoke-interface {p1}, Lorg/antlr/v4/runtime/CharStream;->consume()V
+    invoke-interface {v0}, Lorg/antlr/v4/runtime/CharStream;->consume()V
 
     return-void
 .end method
 
 .method public reset()V
-    .registers 4
+    .locals 4
+
+    const/4 v3, 0x0
+
+    const/4 v2, -0x1
+
+    const/4 v1, 0x0
 
     .line 90
     iget-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 91
     invoke-interface {v0, v1}, Lorg/antlr/v4/runtime/CharStream;->seek(I)V
 
     .line 93
-    :cond_8
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
+    :cond_0
+    iput-object v3, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
 
     .line 94
     iput v1, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
@@ -998,8 +1007,6 @@
     iput v1, p0, Lorg/antlr/v4/runtime/Lexer;->_channel:I
 
     .line 96
-    const/4 v2, -0x1
-
     iput v2, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartCharIndex:I
 
     .line 97
@@ -1009,7 +1016,7 @@
     iput v2, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenStartLine:I
 
     .line 99
-    iput-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_text:Ljava/lang/String;
+    iput-object v3, p0, Lorg/antlr/v4/runtime/Lexer;->_text:Ljava/lang/String;
 
     .line 101
     iput-boolean v1, p0, Lorg/antlr/v4/runtime/Lexer;->_hitEOF:Z
@@ -1035,7 +1042,7 @@
 .end method
 
 .method public setChannel(I)V
-    .registers 2
+    .locals 0
 
     .line 316
     iput p1, p0, Lorg/antlr/v4/runtime/Lexer;->_channel:I
@@ -1044,7 +1051,7 @@
 .end method
 
 .method public setCharPositionInLine(I)V
-    .registers 3
+    .locals 1
 
     .line 275
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
@@ -1059,19 +1066,19 @@
 .end method
 
 .method public setInputStream(Lorg/antlr/v4/runtime/IntStream;)V
-    .registers 4
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 211
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
+    iput-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_input:Lorg/antlr/v4/runtime/CharStream;
 
     .line 212
-    new-instance v1, Lorg/antlr/v4/runtime/misc/Pair;
+    new-instance v0, Lorg/antlr/v4/runtime/misc/Pair;
 
-    invoke-direct {v1, p0, v0}, Lorg/antlr/v4/runtime/misc/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v0, p0, v1}, Lorg/antlr/v4/runtime/misc/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    iput-object v1, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenFactorySourcePair:Lorg/antlr/v4/runtime/misc/Pair;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/Lexer;->_tokenFactorySourcePair:Lorg/antlr/v4/runtime/misc/Pair;
 
     .line 213
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->reset()V
@@ -1092,7 +1099,7 @@
 .end method
 
 .method public setLine(I)V
-    .registers 3
+    .locals 1
 
     .line 271
     invoke-virtual {p0}, Lorg/antlr/v4/runtime/Lexer;->getInterpreter()Lorg/antlr/v4/runtime/atn/ATNSimulator;
@@ -1107,7 +1114,7 @@
 .end method
 
 .method public setText(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 297
     iput-object p1, p0, Lorg/antlr/v4/runtime/Lexer;->_text:Ljava/lang/String;
@@ -1116,7 +1123,7 @@
 .end method
 
 .method public setToken(Lorg/antlr/v4/runtime/Token;)V
-    .registers 2
+    .locals 0
 
     .line 304
     iput-object p1, p0, Lorg/antlr/v4/runtime/Lexer;->_token:Lorg/antlr/v4/runtime/Token;
@@ -1125,12 +1132,12 @@
 .end method
 
 .method public setTokenFactory(Lorg/antlr/v4/runtime/TokenFactory;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;)V"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;)V"
         }
     .end annotation
 
@@ -1141,7 +1148,7 @@
 .end method
 
 .method public setType(I)V
-    .registers 2
+    .locals 0
 
     .line 308
     iput p1, p0, Lorg/antlr/v4/runtime/Lexer;->_type:I
@@ -1150,7 +1157,7 @@
 .end method
 
 .method public skip()V
-    .registers 2
+    .locals 1
 
     .line 174
     const/4 v0, -0x3

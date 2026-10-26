@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/FileOutputStream;)V
-    .registers 2
+    .locals 0
 
     .line 11
     invoke-direct {p0, p1}, Ljava/io/PrintStream;-><init>(Ljava/io/OutputStream;)V

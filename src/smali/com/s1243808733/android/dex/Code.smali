@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(IIII[S[Lcom/s1243808733/android/dex/Code$Try;[Lcom/s1243808733/android/dex/Code$CatchHandler;)V
-    .registers 8
+    .locals 0
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public getCatchHandlers()[Lcom/s1243808733/android/dex/Code$CatchHandler;
-    .registers 2
+    .locals 1
 
     .line 64
     iget-object v0, p0, Lcom/s1243808733/android/dex/Code;->catchHandlers:[Lcom/s1243808733/android/dex/Code$CatchHandler;
@@ -71,7 +71,7 @@
 .end method
 
 .method public getDebugInfoOffset()I
-    .registers 2
+    .locals 1
 
     .line 52
     iget v0, p0, Lcom/s1243808733/android/dex/Code;->debugInfoOffset:I
@@ -80,7 +80,7 @@
 .end method
 
 .method public getInsSize()I
-    .registers 2
+    .locals 1
 
     .line 44
     iget v0, p0, Lcom/s1243808733/android/dex/Code;->insSize:I
@@ -89,7 +89,7 @@
 .end method
 
 .method public getInstructions()[S
-    .registers 2
+    .locals 1
 
     .line 56
     iget-object v0, p0, Lcom/s1243808733/android/dex/Code;->instructions:[S
@@ -98,7 +98,7 @@
 .end method
 
 .method public getOutsSize()I
-    .registers 2
+    .locals 1
 
     .line 48
     iget v0, p0, Lcom/s1243808733/android/dex/Code;->outsSize:I
@@ -107,7 +107,7 @@
 .end method
 
 .method public getRegistersSize()I
-    .registers 2
+    .locals 1
 
     .line 40
     iget v0, p0, Lcom/s1243808733/android/dex/Code;->registersSize:I
@@ -116,7 +116,7 @@
 .end method
 
 .method public getTries()[Lcom/s1243808733/android/dex/Code$Try;
-    .registers 2
+    .locals 1
 
     .line 60
     iget-object v0, p0, Lcom/s1243808733/android/dex/Code;->tries:[Lcom/s1243808733/android/dex/Code$Try;

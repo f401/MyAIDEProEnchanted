@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lorg/antlr/v4/runtime/misc/FlexibleHashMap<",
+        "Lorg/antlr/v4/runtime/misc/FlexibleHashMap",
+        "<",
         "Lorg/antlr/v4/runtime/atn/ATNConfig;",
         "Ljava/util/BitSet;",
         ">;"
@@ -25,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 88
     sget-object v0, Lorg/antlr/v4/runtime/atn/PredictionMode$AltAndContextConfigEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/atn/PredictionMode$AltAndContextConfigEqualityComparator;

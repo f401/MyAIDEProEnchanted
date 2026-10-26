@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 36
     sget-object v0, Lorg/antlr/v4/runtime/atn/ATNConfigSet$ConfigEqualityComparator;->INSTANCE:Lorg/antlr/v4/runtime/atn/ATNConfigSet$ConfigEqualityComparator;

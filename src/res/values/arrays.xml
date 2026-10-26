@@ -36,8 +36,9 @@
         <item>4</item>
         <item>8</item>
     </string-array>
-    <array name="APKTOOL_DUMMY_6" />
-    <array name="APKTOOL_DUMMY_7" />
+    <array name="array_6" />
+    <array name="array_7" />
+    <array name="array_7f020008" />
     <string-array name="pref_update_channel_entries">
         <item>release</item>
         <item>beta</item>
@@ -46,5 +47,4 @@
         <item>release</item>
         <item>beta</item>
     </string-array>
-    <array name="APKTOOL_DUMMY_7f020008" />
 </resources>

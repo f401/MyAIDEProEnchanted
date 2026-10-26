@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/cf/attrib/InnerClassList;)V
-    .registers 3
+    .locals 2
 
     .line 37
     const-string v0, "InnerClasses"
@@ -21,14 +21,14 @@
     invoke-direct {p0, v0}, Lcom/s1243808733/android/dx/cf/attrib/BaseAttribute;-><init>(Ljava/lang/String;)V
 
     .line 40
-    :try_start_5
+    :try_start_0
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList;->isMutable()Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
-    :try_end_9
-    .catch Ljava/lang/NullPointerException; {:try_start_5 .. :try_end_9} :catch_16
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 48
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/attrib/AttInnerClasses;->innerClasses:Lcom/s1243808733/android/dx/cf/attrib/InnerClassList;
@@ -36,35 +36,35 @@
     return-void
 
     .line 41
-    :cond_e
-    :try_start_e
-    new-instance p1, Lcom/s1243808733/android/dx/util/MutabilityException;
+    :cond_0
+    :try_start_1
+    new-instance v0, Lcom/s1243808733/android/dx/util/MutabilityException;
 
-    const-string v0, "innerClasses.isMutable()"
+    const-string v1, "innerClasses.isMutable()"
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/util/MutabilityException;-><init>(Ljava/lang/String;)V
 
-    throw p1
-    :try_end_16
-    .catch Ljava/lang/NullPointerException; {:try_start_e .. :try_end_16} :catch_16
+    throw v0
+    :try_end_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 45
-    :catch_16
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "innerClasses == null"
+    const-string v1, "innerClasses == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public byteLength()I
-    .registers 2
+    .locals 1
 
     .line 54
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttInnerClasses;->innerClasses:Lcom/s1243808733/android/dx/cf/attrib/InnerClassList;
@@ -81,7 +81,7 @@
 .end method
 
 .method public getInnerClasses()Lcom/s1243808733/android/dx/cf/attrib/InnerClassList;
-    .registers 2
+    .locals 1
 
     .line 63
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttInnerClasses;->innerClasses:Lcom/s1243808733/android/dx/cf/attrib/InnerClassList;

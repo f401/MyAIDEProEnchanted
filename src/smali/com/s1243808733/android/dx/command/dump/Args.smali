@@ -29,44 +29,44 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 3
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 24
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->debug:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->debug:Z
 
     .line 27
-    iput-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->rawBytes:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->rawBytes:Z
 
     .line 30
-    iput-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->basicBlocks:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->basicBlocks:Z
 
     .line 33
-    iput-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->ropBlocks:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->ropBlocks:Z
 
     .line 36
-    iput-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->ssaBlocks:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->ssaBlocks:Z
 
     .line 39
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput-object v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->ssaStep:Ljava/lang/String;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->ssaStep:Ljava/lang/String;
 
     .line 42
-    iput-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->optimize:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->optimize:Z
 
     .line 45
-    iput-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->strictParse:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->strictParse:Z
 
     .line 48
-    iput v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->width:I
+    iput v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->width:I
 
     .line 51
-    iput-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/Args;->dotDump:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/command/dump/Args;->dotDump:Z
 
     return-void
 .end method

@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/concurrent/Callable<",
+        "Ljava/util/concurrent/Callable",
+        "<",
         "Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;",
         ">;"
     }
@@ -36,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/command/dexer/Main;Ljava/lang/String;[B)V
-    .registers 4
+    .locals 0
 
     .line 1759
     iput-object p1, p0, Lcom/s1243808733/android/dx/command/dexer/Main$ClassParserTask;->this$0:Lcom/s1243808733/android/dx/command/dexer/Main;
@@ -53,7 +54,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dx/command/dexer/Main;Ljava/lang/String;[BLcom/s1243808733/android/dx/command/dexer/Main$ClassParserTask-IA;)V
-    .registers 5
+    .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/command/dexer/Main$ClassParserTask;-><init>(Lcom/s1243808733/android/dx/command/dexer/Main;Ljava/lang/String;[B)V
 
@@ -63,7 +64,7 @@
 
 # virtual methods
 .method public call()Lcom/s1243808733/android/dx/cf/direct/DirectClassFile;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -85,7 +86,7 @@
 .end method
 
 .method public bridge synthetic call()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

@@ -13,15 +13,15 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lorg/antlr/v4/runtime/misc/EqualityComparator<",
-        "TT;>;"
+        "Lorg/antlr/v4/runtime/misc/EqualityComparator",
+        "<TT;>;"
     }
 .end annotation
 
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

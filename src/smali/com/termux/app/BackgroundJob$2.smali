@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/BackgroundJob;I)V
-    .registers 3
+    .locals 0
 
     .line 85
     iput-object p1, p0, Lcom/termux/app/BackgroundJob$2;->this$0:Lcom/termux/app/BackgroundJob;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 88
     iget-object v0, p0, Lcom/termux/app/BackgroundJob$2;->this$0:Lcom/termux/app/BackgroundJob;
@@ -60,13 +60,13 @@
     invoke-direct {v1, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
     .line 93
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_0
     invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3c
+    if-eqz v0, :cond_0
 
     .line 94
     new-instance v2, Ljava/lang/StringBuilder;
@@ -94,14 +94,14 @@
     move-result-object v2
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3a
-    .catch Ljava/io/IOException; {:try_start_14 .. :try_end_3a} :catch_3b
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_14
+    goto :goto_0
 
-    :catch_3b
+    :catch_0
     move-exception v0
 
-    :cond_3c
+    :cond_0
     return-void
 .end method

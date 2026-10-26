@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/s1243808733/util/ChooseDir$FileAdapter;
+    value = Lcom/s1243808733/util/ChooseDir;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/util/ChooseDir$FileAdapter;Ljava/io/File;)V
-    .registers 3
+    .locals 0
 
     .line 252
     iput-object p1, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$Item;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/util/ChooseDir$FileAdapter;Z)V
-    .registers 3
+    .locals 0
 
     .line 256
     iput-object p1, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$Item;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;

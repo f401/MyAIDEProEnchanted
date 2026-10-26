@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/dependencies/DependencieAdapter;II)V
-    .registers 4
+    .locals 0
 
     .line 48
     iput-object p1, p0, Lcom/s1243808733/aide/dependencies/DependencieAdapter$Highlight;->this$0:Lcom/s1243808733/aide/dependencies/DependencieAdapter;

@@ -6,6 +6,14 @@
 .implements Landroid/view/MenuItem$OnMenuItemClickListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;
+    }
+.end annotation
+
+
 # instance fields
 .field private OnMenuItemClickListener:Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;
 
@@ -16,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/MenuItem;Lorg/w3c/dom/Node;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)V
-    .registers 4
+    .locals 0
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/SubMenu;Lorg/w3c/dom/Node;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)V
-    .registers 4
+    .locals 1
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,15 +62,15 @@
     .line 63
     invoke-interface {p1}, Landroid/view/SubMenu;->getItem()Landroid/view/MenuItem;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1, p0}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+    invoke-interface {v0, p0}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
     return-void
 .end method
 
 .method public static add(Landroid/view/Menu;Lorg/w3c/dom/Node;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)Lcom/s1243808733/aide/util/MenuCode;
-    .registers 6
+    .locals 3
 
     .line 87
     invoke-interface {p1}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
@@ -88,22 +96,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     .line 91
     invoke-interface {p0, v1}, Landroid/view/Menu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    move-result-object p0
+    move-result-object v1
 
     .line 92
     new-instance v0, Lcom/s1243808733/aide/util/MenuCode;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/s1243808733/aide/util/MenuCode;-><init>(Landroid/view/MenuItem;Lorg/w3c/dom/Node;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)V
+    invoke-direct {v0, v1, p1, p2}, Lcom/s1243808733/aide/util/MenuCode;-><init>(Landroid/view/MenuItem;Lorg/w3c/dom/Node;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)V
 
+    .line 95
+    :goto_0
     return-object v0
 
     .line 93
-    :cond_20
+    :cond_0
     const-string v0, "menu"
 
     invoke-interface {p1}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
@@ -114,28 +124,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_36
+    if-eqz v0, :cond_1
 
     .line 94
     invoke-interface {p0, v1}, Landroid/view/Menu;->addSubMenu(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
 
-    move-result-object p0
+    move-result-object v1
 
     .line 95
     new-instance v0, Lcom/s1243808733/aide/util/MenuCode;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/s1243808733/aide/util/MenuCode;-><init>(Landroid/view/SubMenu;Lorg/w3c/dom/Node;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)V
+    invoke-direct {v0, v1, p1, p2}, Lcom/s1243808733/aide/util/MenuCode;-><init>(Landroid/view/SubMenu;Lorg/w3c/dom/Node;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)V
 
-    return-object v0
+    goto :goto_0
 
-    :cond_36
-    const/4 p0, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static add(Landroid/view/Menu;Lorg/w3c/dom/NodeList;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)Ljava/util/List;
-    .registers 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,29 +153,30 @@
             "Lorg/w3c/dom/NodeList;",
             "Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;",
             ")",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/aide/util/MenuCode;",
             ">;"
         }
     .end annotation
 
     .line 101
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 102
-    :goto_6
+    :goto_0
     invoke-interface {p1}, Lorg/w3c/dom/NodeList;->getLength()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1c
+    if-ge v0, v2, :cond_1
 
     .line 103
-    invoke-interface {p1, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
+    invoke-interface {p1, v0}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v2
 
@@ -174,22 +185,22 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_0
 
     .line 106
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_19
-    add-int/lit8 v1, v1, 0x1
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_1c
-    return-object v0
+    :cond_1
+    return-object v1
 .end method
 
 .method public static add(Landroid/view/Menu;Ljava/io/InputStream;Ljava/lang/String;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)[Lcom/s1243808733/aide/util/MenuCode;
-    .registers 9
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;,
@@ -197,6 +208,8 @@
             Ljava/io/IOException;
         }
     .end annotation
+
+    const/4 v1, 0x0
 
     .line 71
     invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
@@ -210,100 +223,99 @@
     .line 72
     invoke-virtual {v0, p1}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 73
-    invoke-interface {p1}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
+    invoke-interface {v0}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 74
-    invoke-interface {p1}, Lorg/w3c/dom/Element;->getChildNodes()Lorg/w3c/dom/NodeList;
-
-    move-result-object p1
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    .line 75
-    :goto_16
-    invoke-interface {p1}, Lorg/w3c/dom/NodeList;->getLength()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_46
-
-    .line 76
-    invoke-interface {p1, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
+    invoke-interface {v0}, Lorg/w3c/dom/Element;->getChildNodes()Lorg/w3c/dom/NodeList;
 
     move-result-object v2
 
-    .line 77
-    invoke-interface {v2}, Lorg/w3c/dom/Node;->getAttributes()Lorg/w3c/dom/NamedNodeMap;
+    move v0, v1
 
-    move-result-object v3
-
-    .line 78
-    const-string v4, "format"
-
-    invoke-static {v3, v4}, Lcom/s1243808733/aide/util/MenuCode;->getValueByName(Lorg/w3c/dom/NamedNodeMap;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_43
-
-    .line 79
-    invoke-static {v3, p2}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
+    .line 75
+    :goto_0
+    invoke-interface {v2}, Lorg/w3c/dom/NodeList;->getLength()I
 
     move-result v3
 
-    if-eqz v3, :cond_43
+    if-ge v0, v3, :cond_1
+
+    .line 76
+    invoke-interface {v2, v0}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
+
+    move-result-object v3
+
+    .line 77
+    invoke-interface {v3}, Lorg/w3c/dom/Node;->getAttributes()Lorg/w3c/dom/NamedNodeMap;
+
+    move-result-object v4
+
+    .line 78
+    const-string v5, "format"
+
+    invoke-static {v4, v5}, Lcom/s1243808733/aide/util/MenuCode;->getValueByName(Lorg/w3c/dom/NamedNodeMap;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    .line 79
+    invoke-static {v4, p2}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
 
     .line 80
-    invoke-interface {v2}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
+    invoke-interface {v3}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p0, p1, p3}, Lcom/s1243808733/aide/util/MenuCode;->add(Landroid/view/Menu;Lorg/w3c/dom/NodeList;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)Ljava/util/List;
+    invoke-static {p0, v0, p3}, Lcom/s1243808733/aide/util/MenuCode;->add(Landroid/view/Menu;Lorg/w3c/dom/NodeList;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)Ljava/util/List;
 
-    move-result-object p0
+    move-result-object v0
 
-    new-array p1, v0, [Lcom/s1243808733/aide/util/MenuCode;
+    new-array v1, v1, [Lcom/s1243808733/aide/util/MenuCode;
 
-    invoke-interface {p0, p1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, [Lcom/s1243808733/aide/util/MenuCode;
+    check-cast v0, [Lcom/s1243808733/aide/util/MenuCode;
 
-    return-object p0
+    :goto_1
+    return-object v0
 
-    :cond_43
-    add-int/lit8 v1, v1, 0x1
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_16
+    goto :goto_0
 
-    :cond_46
-    const/4 p0, 0x0
+    :cond_1
+    const/4 v0, 0x0
 
-    return-object p0
+    goto :goto_1
 .end method
 
 .method private static getValueByName(Lorg/w3c/dom/NamedNodeMap;Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 3
 
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz p0, :cond_1f
+    :goto_0
+    if-eqz p0, :cond_1
 
     .line 113
     invoke-interface {p0}, Lorg/w3c/dom/NamedNodeMap;->getLength()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1f
+    if-ge v0, v1, :cond_1
 
     .line 114
     invoke-interface {p0, v0}, Lorg/w3c/dom/NamedNodeMap;->item(I)Lorg/w3c/dom/Node;
@@ -319,38 +331,41 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_0
 
     .line 116
     invoke-interface {v1}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
 
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1c
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_1
+    move-result-object v0
 
     .line 119
-    :cond_1f
-    const-string p0, "unknown"
+    :goto_1
+    return-object v0
 
-    return-object p0
+    .line 116
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 119
+    :cond_1
+    const-string v0, "unknown"
+
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public getMenuItem()Landroid/view/MenuItem;
-    .registers 2
+    .locals 1
 
     .line 35
     invoke-virtual {p0}, Lcom/s1243808733/aide/util/MenuCode;->isSubMenu()Z
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 36
     invoke-virtual {p0}, Lcom/s1243808733/aide/util/MenuCode;->getSubMenu()Landroid/view/SubMenu;
@@ -361,26 +376,27 @@
 
     move-result-object v0
 
+    .line 38
+    :goto_0
     return-object v0
 
-    .line 38
-    :cond_f
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/aide/util/MenuCode;->object:Ljava/lang/Object;
 
     check-cast v0, Landroid/view/MenuItem;
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getSubMenu()Landroid/view/SubMenu;
-    .registers 2
+    .locals 1
 
     .line 46
     invoke-virtual {p0}, Lcom/s1243808733/aide/util/MenuCode;->isMenuItem()Z
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 47
     invoke-virtual {p0}, Lcom/s1243808733/aide/util/MenuCode;->getMenuItem()Landroid/view/MenuItem;
@@ -391,19 +407,20 @@
 
     move-result-object v0
 
+    .line 49
+    :goto_0
     return-object v0
 
-    .line 49
-    :cond_f
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/aide/util/MenuCode;->object:Ljava/lang/Object;
 
     check-cast v0, Landroid/view/SubMenu;
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public isMenuItem()Z
-    .registers 2
+    .locals 1
 
     .line 31
     iget-object v0, p0, Lcom/s1243808733/aide/util/MenuCode;->object:Ljava/lang/Object;
@@ -414,7 +431,7 @@
 .end method
 
 .method public isSubMenu()Z
-    .registers 2
+    .locals 1
 
     .line 42
     iget-object v0, p0, Lcom/s1243808733/aide/util/MenuCode;->object:Ljava/lang/Object;
@@ -425,43 +442,48 @@
 .end method
 
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 3
 
     .line 124
     invoke-virtual {p0}, Lcom/s1243808733/aide/util/MenuCode;->isSubMenu()Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 125
     invoke-virtual {p0}, Lcom/s1243808733/aide/util/MenuCode;->getSubMenu()Landroid/view/SubMenu;
 
-    move-result-object p1
-
-    .line 126
-    invoke-interface {p1}, Landroid/view/SubMenu;->clear()V
-
-    .line 127
-    iget-object v0, p0, Lcom/s1243808733/aide/util/MenuCode;->node:Lorg/w3c/dom/Node;
-
-    invoke-interface {v0}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
-
     move-result-object v0
 
-    iget-object v1, p0, Lcom/s1243808733/aide/util/MenuCode;->OnMenuItemClickListener:Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;
+    .line 126
+    invoke-interface {v0}, Landroid/view/SubMenu;->clear()V
 
-    invoke-static {p1, v0, v1}, Lcom/s1243808733/aide/util/MenuCode;->add(Landroid/view/Menu;Lorg/w3c/dom/NodeList;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)Ljava/util/List;
+    .line 127
+    iget-object v1, p0, Lcom/s1243808733/aide/util/MenuCode;->node:Lorg/w3c/dom/Node;
 
-    goto :goto_2a
+    invoke-interface {v1}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/s1243808733/aide/util/MenuCode;->OnMenuItemClickListener:Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;
+
+    invoke-static {v0, v1, v2}, Lcom/s1243808733/aide/util/MenuCode;->add(Landroid/view/Menu;Lorg/w3c/dom/NodeList;Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;)Ljava/util/List;
+
+    .line 130
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
 
     .line 128
-    :cond_19
+    :cond_0
     invoke-virtual {p0}, Lcom/s1243808733/aide/util/MenuCode;->isMenuItem()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_1
 
     .line 129
     iget-object v0, p0, Lcom/s1243808733/aide/util/MenuCode;->node:Lorg/w3c/dom/Node;
@@ -475,13 +497,10 @@
 
     invoke-interface {v1, p1, v0}, Lcom/s1243808733/aide/util/MenuCode$OnMenuItemClickListener;->onMenuItemClick(Landroid/view/MenuItem;Ljava/lang/String;)V
 
-    :goto_2a
-    const/4 p1, 0x1
+    goto :goto_0
 
-    return p1
+    :cond_1
+    const/4 v0, 0x0
 
-    :cond_2c
-    const/4 p1, 0x0
-
-    return p1
+    goto :goto_1
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 18
     const/4 v0, 0x3
@@ -40,18 +40,18 @@
 .end method
 
 .method public static a()[B
-    .registers 1
+    .locals 1
 
     .line 21
     const/16 v0, 0xa2
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_0
 
     return-object v0
 
-    :array_8
+    :array_0
     .array-data 1
         0x30t
         -0x7ft

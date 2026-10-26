@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/LaunchActivity;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public finish()V
-    .registers 3
+    .locals 2
 
     .line 164
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/LaunchActivity$3;->this$0:Lcom/s1243808733/aide/application/activity/LaunchActivity;

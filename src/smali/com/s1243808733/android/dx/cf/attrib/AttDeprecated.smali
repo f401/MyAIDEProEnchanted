@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 30
     const-string v0, "Deprecated"
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method public byteLength()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x6
 

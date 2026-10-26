@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/TokenStreamRewriter;IILjava/lang/Object;)V
-    .registers 5
+    .locals 0
 
     .line 160
     iput-object p1, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->this$0:Lorg/antlr/v4/runtime/TokenStreamRewriter;
@@ -39,12 +39,12 @@
 
 # virtual methods
 .method public execute(Ljava/lang/StringBuilder;)I
-    .registers 3
+    .locals 1
 
     .line 166
     iget-object v0, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->text:Ljava/lang/Object;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 167
     iget-object v0, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->text:Ljava/lang/Object;
@@ -52,42 +52,42 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 169
-    :cond_9
-    iget p1, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->lastIndex:I
+    :cond_0
+    iget v0, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->lastIndex:I
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    return p1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 3
 
     .line 173
     iget-object v0, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->text:Ljava/lang/Object;
 
-    const-string v1, ".."
-
-    if-nez v0, :cond_34
+    if-nez v0, :cond_0
 
     .line 174
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v2, "<DeleteOp@"
+    const-string v1, "<DeleteOp@"
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->this$0:Lorg/antlr/v4/runtime/TokenStreamRewriter;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->this$0:Lorg/antlr/v4/runtime/TokenStreamRewriter;
 
-    iget-object v2, v2, Lorg/antlr/v4/runtime/TokenStreamRewriter;->tokens:Lorg/antlr/v4/runtime/TokenStream;
+    iget-object v1, v1, Lorg/antlr/v4/runtime/TokenStreamRewriter;->tokens:Lorg/antlr/v4/runtime/TokenStream;
 
-    iget v3, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->index:I
+    iget v2, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->index:I
 
-    invoke-interface {v2, v3}, Lorg/antlr/v4/runtime/TokenStream;->get(I)Lorg/antlr/v4/runtime/Token;
+    invoke-interface {v1, v2}, Lorg/antlr/v4/runtime/TokenStream;->get(I)Lorg/antlr/v4/runtime/Token;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, ".."
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -111,27 +111,30 @@
 
     move-result-object v0
 
+    .line 177
+    :goto_0
     return-object v0
 
-    .line 177
-    :cond_34
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v2, "<ReplaceOp@"
+    const-string v1, "<ReplaceOp@"
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->this$0:Lorg/antlr/v4/runtime/TokenStreamRewriter;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->this$0:Lorg/antlr/v4/runtime/TokenStreamRewriter;
 
-    iget-object v2, v2, Lorg/antlr/v4/runtime/TokenStreamRewriter;->tokens:Lorg/antlr/v4/runtime/TokenStream;
+    iget-object v1, v1, Lorg/antlr/v4/runtime/TokenStreamRewriter;->tokens:Lorg/antlr/v4/runtime/TokenStream;
 
-    iget v3, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->index:I
+    iget v2, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$ReplaceOp;->index:I
 
-    invoke-interface {v2, v3}, Lorg/antlr/v4/runtime/TokenStream;->get(I)Lorg/antlr/v4/runtime/Token;
+    invoke-interface {v1, v2}, Lorg/antlr/v4/runtime/TokenStream;->get(I)Lorg/antlr/v4/runtime/Token;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, ".."
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -163,5 +166,5 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method

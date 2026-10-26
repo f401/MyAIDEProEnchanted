@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/util/CreateClassDialog;)V
-    .registers 2
+    .locals 0
 
     .line 418
     iput-object p1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$CreateBasicClass;->this$0:Lcom/s1243808733/aide/util/CreateClassDialog;
@@ -33,7 +33,11 @@
 
 # virtual methods
 .method public makeCode(Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;)Ljava/lang/String;
-    .registers 7
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     .line 422
     new-instance v0, Ljava/lang/StringBuffer;
@@ -47,22 +51,18 @@
 
     move-result v1
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 424
-    new-array v1, v3, [Ljava/lang/Object;
+    const-string v1, "package %s;"
 
-    iget-object v4, p1, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->packageName:Ljava/lang/String;
+    new-array v2, v5, [Ljava/lang/Object;
 
-    aput-object v4, v1, v2
+    iget-object v3, p1, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->packageName:Ljava/lang/String;
 
-    const-string v4, "package %s;"
+    aput-object v3, v2, v4
 
-    invoke-static {v4, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -74,7 +74,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 427
-    :cond_23
+    :cond_0
     const-string v1, "public "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -82,7 +82,7 @@
     .line 428
     iget-boolean v1, p1, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->abstractModifier:Z
 
-    if-eqz v1, :cond_31
+    if-eqz v1, :cond_1
 
     .line 429
     const-string v1, "abstract "
@@ -90,7 +90,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 431
-    :cond_31
+    :cond_1
     const-string v1, "class "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -108,33 +108,33 @@
     .line 435
     iget-boolean v1, p1, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->isAddTag:Z
 
-    if-eqz v1, :cond_53
+    if-eqz v1, :cond_2
 
     .line 436
-    new-array v1, v3, [Ljava/lang/Object;
+    const-string v1, "public static final String TAG = \"%s\";\n    \n    "
 
-    iget-object p1, p1, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->className:Ljava/lang/String;
+    new-array v2, v5, [Ljava/lang/Object;
 
-    aput-object p1, v1, v2
+    iget-object v3, p1, Lcom/s1243808733/aide/util/CreateClassDialog$Configuration;->className:Ljava/lang/String;
 
-    const-string p1, "public static final String TAG = \"%s\";\n    \n    "
+    aput-object v3, v2, v4
 
-    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 438
-    :cond_53
-    const-string p1, "\n    \n}"
+    :cond_2
+    const-string v1, "\n    \n}"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 439
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,302 +18,327 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .registers 7
+    .locals 6
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
 
     .line 81
-    const-string v0, "--"
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
+    move v2, v0
 
     .line 85
-    :goto_4
-    const/4 v3, 0x1
+    :goto_0
+    :try_start_0
+    array-length v3, p0
+    :try_end_0
+    .catch Lcom/s1243808733/android/dx/command/UsageException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    :try_start_5
-    array-length v4, p0
-    :try_end_6
-    .catch Lcom/s1243808733/android/dx/command/UsageException; {:try_start_5 .. :try_end_6} :catch_ae
-    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_6} :catch_9d
-    .catchall {:try_start_5 .. :try_end_6} :catchall_7d
-
-    if-ge v2, v4, :cond_7b
+    if-ge v2, v3, :cond_b
 
     .line 86
-    aget-object v4, p0, v2
+    aget-object v3, p0, v2
 
     .line 87
-    :try_start_a
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_start_1
+    const-string v4, "--"
 
-    move-result v5
-
-    if-nez v5, :cond_af
-
-    invoke-virtual {v4, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v5
-    :try_end_14
-    .catch Lcom/s1243808733/android/dx/command/UsageException; {:try_start_a .. :try_end_14} :catch_ae
-    .catch Ljava/lang/RuntimeException; {:try_start_a .. :try_end_14} :catch_9d
-    .catchall {:try_start_a .. :try_end_14} :catchall_7d
-
-    if-nez v5, :cond_18
-
-    goto/16 :goto_af
-
-    .line 94
-    :cond_18
-    :try_start_18
-    const-string v5, "--dex"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_28
-
-    .line 95
-    invoke-static {p0, v2}, Lcom/s1243808733/android/dx/command/Main;->without([Ljava/lang/String;I)[Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p0}, Lcom/s1243808733/android/dx/command/dexer/Main;->main([Ljava/lang/String;)V
-
-    goto :goto_63
-
-    .line 97
-    :cond_28
-    const-string v5, "--dump"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_38
-
-    .line 98
-    invoke-static {p0, v2}, Lcom/s1243808733/android/dx/command/Main;->without([Ljava/lang/String;I)[Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p0}, Lcom/s1243808733/android/dx/command/dump/Main;->main([Ljava/lang/String;)V
-
-    goto :goto_63
-
-    .line 100
-    :cond_38
-    const-string v5, "--annotool"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_48
-
-    .line 102
-    invoke-static {p0, v2}, Lcom/s1243808733/android/dx/command/Main;->without([Ljava/lang/String;I)[Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 101
-    invoke-static {p0}, Lcom/s1243808733/android/dx/command/annotool/Main;->main([Ljava/lang/String;)V
-
-    goto :goto_63
-
-    .line 104
-    :cond_48
-    const-string v5, "--find-usages"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_58
-
-    .line 105
-    invoke-static {p0, v2}, Lcom/s1243808733/android/dx/command/Main;->without([Ljava/lang/String;I)[Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p0}, Lcom/s1243808733/android/dx/command/findusages/Main;->main([Ljava/lang/String;)V
-
-    goto :goto_63
-
-    .line 107
-    :cond_58
-    const-string v5, "--version"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_64
-
-    .line 108
-    invoke-static {}, Lcom/s1243808733/android/dx/command/Main;->version()V
-
-    :goto_63
-    goto :goto_6d
-
-    .line 110
-    :cond_64
-    const-string v5, "--help"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
-    :try_end_6a
-    .catch Lcom/s1243808733/android/dx/command/UsageException; {:try_start_18 .. :try_end_6a} :catch_78
-    .catch Ljava/lang/RuntimeException; {:try_start_18 .. :try_end_6a} :catch_75
-    .catchall {:try_start_18 .. :try_end_6a} :catchall_72
 
-    if-eqz v4, :cond_6f
+    if-nez v4, :cond_0
 
-    const/4 v1, 0x1
+    const-string v4, "--"
 
-    .line 108
-    :goto_6d
-    const/4 v0, 0x1
+    invoke-virtual {v3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    :try_end_1
+    .catch Lcom/s1243808733/android/dx/command/UsageException; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    goto :goto_b1
+    move-result v4
 
-    .line 110
-    :cond_6f
-    add-int/lit8 v2, v2, 0x1
+    if-nez v4, :cond_2
 
-    goto :goto_4
+    :cond_0
+    :goto_1
+    move v2, v0
 
-    :catchall_72
-    move-exception p0
-
-    const/4 v0, 0x1
-
-    goto :goto_7f
-
-    :catch_75
-    move-exception p0
-
-    const/4 v0, 0x1
-
-    goto :goto_9f
-
-    :catch_78
-    move-exception p0
-
-    const/4 v1, 0x1
-
-    goto :goto_af
-
-    .line 85
-    :cond_7b
-    const/4 v0, 0x0
-
-    goto :goto_ad
-
-    .line 110
-    :catchall_7d
-    move-exception p0
-
-    const/4 v0, 0x0
-
-    .line 124
-    :goto_7f
-    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    const-string v4, "\nUNEXPECTED TOP-LEVEL ERROR:"
-
-    invoke-virtual {v2, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    .line 125
-    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
-
-    .line 126
-    instance-of v2, p0, Ljava/lang/NoClassDefFoundError;
-
-    if-nez v2, :cond_91
-
-    instance-of p0, p0, Ljava/lang/NoSuchMethodError;
-
-    if-eqz p0, :cond_98
-
-    .line 128
-    :cond_91
-    sget-object p0, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    const-string v2, "Note: You may be using an incompatible virtual machine or class library.\n(This program is known to be incompatible with recent releases of GCJ.)"
-
-    invoke-virtual {p0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    .line 134
-    :cond_98
-    const/4 p0, 0x3
-
-    invoke-static {p0}, Ljava/lang/System;->exit(I)V
-
-    goto :goto_ad
-
-    :catch_9d
-    move-exception p0
-
-    const/4 v0, 0x0
-
-    .line 120
-    :goto_9f
-    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    const-string v4, "\nUNEXPECTED TOP-LEVEL EXCEPTION:"
-
-    invoke-virtual {v2, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    .line 121
-    invoke-virtual {p0}, Ljava/lang/RuntimeException;->printStackTrace()V
+    move v3, v1
 
     .line 122
-    const/4 p0, 0x2
-
-    invoke-static {p0}, Ljava/lang/System;->exit(I)V
-
-    :goto_ad
-    goto :goto_b1
-
-    :catch_ae
-    move-exception p0
-
-    :cond_af
-    :goto_af
-    move v0, v1
-
-    const/4 v1, 0x1
-
-    :goto_b1
-    if-nez v0, :cond_bb
+    :goto_2
+    if-nez v2, :cond_c
 
     .line 138
-    sget-object p0, Ljava/lang/System;->err:Ljava/io/PrintStream;
+    sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    const-string v0, "error: no command specified"
+    const-string v2, "error: no command specified"
 
-    invoke-virtual {p0, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    const/4 v1, 0x1
+    move v0, v1
 
-    :cond_bb
-    if-eqz v1, :cond_c3
+    :goto_3
+    if-eqz v0, :cond_1
 
     .line 143
     invoke-static {}, Lcom/s1243808733/android/dx/command/Main;->usage()V
 
     .line 144
+    invoke-static {v1}, Ljava/lang/System;->exit(I)V
+
+    :cond_1
+    return-void
+
+    .line 94
+    :cond_2
+    :try_start_2
+    const-string v4, "--dex"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    .line 95
+    invoke-static {p0, v2}, Lcom/s1243808733/android/dx/command/Main;->without([Ljava/lang/String;I)[Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/s1243808733/android/dx/command/dexer/Main;->main([Ljava/lang/String;)V
+
+    :goto_4
+    move v2, v1
+
+    move v3, v0
+
+    .line 108
+    goto :goto_2
+
+    .line 97
+    :cond_3
+    const-string v4, "--dump"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    .line 98
+    invoke-static {p0, v2}, Lcom/s1243808733/android/dx/command/Main;->without([Ljava/lang/String;I)[Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/s1243808733/android/dx/command/dump/Main;->main([Ljava/lang/String;)V
+
+    goto :goto_4
+
+    .line 110
+    :catch_0
+    move-exception v0
+
+    move v0, v1
+
+    goto :goto_1
+
+    .line 100
+    :cond_4
+    const-string v4, "--annotool"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    .line 102
+    invoke-static {p0, v2}, Lcom/s1243808733/android/dx/command/Main;->without([Ljava/lang/String;I)[Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 101
+    invoke-static {v2}, Lcom/s1243808733/android/dx/command/annotool/Main;->main([Ljava/lang/String;)V
+    :try_end_2
+    .catch Lcom/s1243808733/android/dx/command/UsageException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_4
+
+    .line 110
+    :catch_1
+    move-exception v3
+
+    move v2, v1
+
+    .line 120
+    :goto_5
+    sget-object v4, Ljava/lang/System;->err:Ljava/io/PrintStream;
+
+    const-string v5, "\nUNEXPECTED TOP-LEVEL EXCEPTION:"
+
+    invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 121
+    invoke-virtual {v3}, Ljava/lang/RuntimeException;->printStackTrace()V
+
+    .line 122
+    const/4 v3, 0x2
+
     invoke-static {v3}, Ljava/lang/System;->exit(I)V
 
-    :cond_c3
-    return-void
+    :goto_6
+    move v3, v0
+
+    goto :goto_2
+
+    .line 104
+    :cond_5
+    :try_start_3
+    const-string v4, "--find-usages"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    .line 105
+    invoke-static {p0, v2}, Lcom/s1243808733/android/dx/command/Main;->without([Ljava/lang/String;I)[Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/s1243808733/android/dx/command/findusages/Main;->main([Ljava/lang/String;)V
+    :try_end_3
+    .catch Lcom/s1243808733/android/dx/command/UsageException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto :goto_4
+
+    .line 110
+    :catchall_0
+    move-exception v3
+
+    move v2, v1
+
+    .line 124
+    :goto_7
+    sget-object v4, Ljava/lang/System;->err:Ljava/io/PrintStream;
+
+    const-string v5, "\nUNEXPECTED TOP-LEVEL ERROR:"
+
+    invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 125
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+
+    .line 126
+    instance-of v4, v3, Ljava/lang/NoClassDefFoundError;
+
+    if-nez v4, :cond_6
+
+    instance-of v3, v3, Ljava/lang/NoSuchMethodError;
+
+    if-eqz v3, :cond_7
+
+    .line 128
+    :cond_6
+    sget-object v3, Ljava/lang/System;->err:Ljava/io/PrintStream;
+
+    const-string v4, "Note: You may be using an incompatible virtual machine or class library.\n(This program is known to be incompatible with recent releases of GCJ.)"
+
+    invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 134
+    :cond_7
+    const/4 v3, 0x3
+
+    invoke-static {v3}, Ljava/lang/System;->exit(I)V
+
+    goto :goto_6
+
+    .line 107
+    :cond_8
+    :try_start_4
+    const-string v4, "--version"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_9
+
+    .line 108
+    invoke-static {}, Lcom/s1243808733/android/dx/command/Main;->version()V
+
+    goto :goto_4
+
+    .line 110
+    :cond_9
+    const-string v4, "--help"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_end_4
+    .catch Lcom/s1243808733/android/dx/command/UsageException; {:try_start_4 .. :try_end_4} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_a
+
+    move v0, v1
+
+    goto :goto_4
+
+    :cond_a
+    add-int/lit8 v2, v2, 0x1
+
+    goto/16 :goto_0
+
+    :cond_b
+    move v2, v0
+
+    .line 85
+    goto :goto_6
+
+    .line 110
+    :catchall_1
+    move-exception v3
+
+    move v2, v0
+
+    goto :goto_7
+
+    .line 134
+    :catch_2
+    move-exception v3
+
+    move v2, v0
+
+    goto :goto_5
+
+    .line 122
+    :catch_3
+    move-exception v2
+
+    goto/16 :goto_1
+
+    :cond_c
+    move v0, v3
+
+    goto/16 :goto_3
 .end method
 
 .method private static usage()V
-    .registers 2
+    .locals 2
 
     .line 160
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
@@ -326,7 +351,7 @@
 .end method
 
 .method private static version()V
-    .registers 2
+    .locals 2
 
     .line 152
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
@@ -344,7 +369,9 @@
 .end method
 
 .method private static without([Ljava/lang/String;I)[Ljava/lang/String;
-    .registers 5
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 172
     array-length v0, p0
@@ -355,8 +382,6 @@
     new-array v1, v0, [Ljava/lang/String;
 
     .line 174
-    const/4 v2, 0x0
-
     invoke-static {p0, v2, v1, v2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 175

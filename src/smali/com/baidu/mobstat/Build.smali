@@ -58,12 +58,12 @@
 
 .field public static final SDK_WITH_BPLUS:I = 0x2
 
-.field public static final SDK_WITH_EXT:Z = false
+.field public static final SDK_WITH_EXT:Z
 
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

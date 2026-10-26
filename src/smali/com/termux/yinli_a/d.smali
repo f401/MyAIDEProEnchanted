@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;TB;)V"
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public final a()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TA;"
@@ -72,7 +72,7 @@
 .end method
 
 .method public final b()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TB;"
@@ -85,13 +85,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
 
-    if-eq p0, p1, :cond_1f
+    if-eq p0, p1, :cond_0
 
     instance-of v0, p1, Lcom/termux/yinli_a/d;
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1
 
     check-cast p1, Lcom/termux/yinli_a/d;
 
@@ -103,70 +103,67 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/termux/yinli_a/d;->b:Ljava/lang/Object;
 
-    iget-object p1, p1, Lcom/termux/yinli_a/d;->b:Ljava/lang/Object;
+    iget-object v1, p1, Lcom/termux/yinli_a/d;->b:Ljava/lang/Object;
 
-    invoke-static {v0, p1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/k/b/c;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_1d
+    if-eqz v0, :cond_1
 
-    goto :goto_1f
+    :cond_0
+    const/4 v0, 0x1
 
-    :cond_1d
-    const/4 p1, 0x0
+    :goto_0
+    return v0
 
-    goto :goto_20
+    :cond_1
+    const/4 v0, 0x0
 
-    :cond_1f
-    :goto_1f
-    const/4 p1, 0x1
-
-    :goto_20
-    return p1
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 4
-
-    iget-object v0, p0, Lcom/termux/yinli_a/d;->a:Ljava/lang/Object;
+    .locals 3
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_a
+    iget-object v0, p0, Lcom/termux/yinli_a/d;->a:Ljava/lang/Object;
+
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    goto :goto_b
-
-    :cond_a
-    const/4 v0, 0x0
-
-    :goto_b
+    :goto_0
     iget-object v2, p0, Lcom/termux/yinli_a/d;->b:Ljava/lang/Object;
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_0
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    :cond_13
+    :cond_0
     mul-int/lit8 v0, v0, 0x1f
 
     add-int/2addr v0, v1
 
     return v0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 

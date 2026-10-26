@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lio/github/zeroaicy/util/Log$AsyncOutputStreamHold$AsyncOutStream;)V
-    .registers 2
+    .locals 0
 
     .line 594
     iput-object p1, p0, Lio/github/zeroaicy/util/Log$AsyncOutputStreamHold$AsyncOutStream$1;->this$0:Lio/github/zeroaicy/util/Log$AsyncOutputStreamHold$AsyncOutStream;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .line 598
     :try_start_0
@@ -45,17 +45,19 @@
     iget-object v0, v0, Lio/github/zeroaicy/util/Log$AsyncOutputStreamHold$AsyncOutStream;->out:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->flush()V
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_c
+    .line 600
+    :goto_0
+    return-void
 
-    :catch_8
+    .line 598
+    :catch_0
     move-exception v0
 
     .line 600
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    :goto_c
-    return-void
+    goto :goto_0
 .end method

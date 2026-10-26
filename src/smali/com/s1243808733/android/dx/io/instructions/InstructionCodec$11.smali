@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
 
     .line 226
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/io/instructions/InstructionCodec$11-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec$11;-><init>(Ljava/lang/String;I)V
 
@@ -37,12 +37,14 @@
 
 # virtual methods
 .method public decode(ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 12
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
         }
     .end annotation
+
+    const/4 v3, 0x0
 
     .line 230
     invoke-static {p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smbyte0(I)I
@@ -57,32 +59,28 @@
     .line 232
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->read()I
 
-    move-result p1
+    move-result v0
 
-    int-to-short p1, p1
+    int-to-short v1, v0
 
     .line 233
-    new-instance p2, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
-
-    const/4 v3, 0x0
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
-
-    int-to-long v6, p1
-
-    move-object v0, p2
+    int-to-long v6, v1
 
     move-object v1, p0
 
+    move v5, v3
+
     invoke-direct/range {v0 .. v8}, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJI)V
 
-    return-object p2
+    return-object v0
 .end method
 
 .method public encode(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 5
+    .locals 2
 
     .line 242
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getOpcode()I
@@ -100,10 +98,10 @@
     .line 243
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getLiteralUnit()S
 
-    move-result p1
+    move-result v1
 
     .line 241
-    invoke-interface {p2, v0, p1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SS)V
+    invoke-interface {p2, v0, v1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SS)V
 
     return-void
 .end method

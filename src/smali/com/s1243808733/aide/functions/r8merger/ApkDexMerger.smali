@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;,
         Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileFilter;
     }
 .end annotation
@@ -25,25 +26,25 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetmContext(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;)Lcom/s1243808733/aide/functions/r8merger/R8Log;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$misDexFileByName(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;Ljava/io/File;)Z
-    .registers 2
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->isDexFileByName(Ljava/io/File;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/aide/functions/r8merger/R8Log;Ljava/io/File;)V
-    .registers 4
+    .locals 3
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,45 +56,46 @@
     iput-object p2, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mApkFile:Ljava/io/File;
 
     .line 38
-    new-instance p1, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
     invoke-virtual {p2}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object p2
+    move-result-object v1
 
-    const-string v0, "dexmerger"
+    const-string v2, "dexmerger"
 
-    invoke-direct {p1, p2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iput-object p1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mWorkDir:Ljava/io/File;
+    iput-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mWorkDir:Ljava/io/File;
 
     .line 39
-    new-instance p2, Ljava/io/File;
+    new-instance v1, Ljava/io/File;
 
-    const-string v0, "decompress"
+    const-string v2, "decompress"
 
-    invoke-direct {p2, p1, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iput-object p2, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
+    iput-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
 
     .line 40
-    new-instance p2, Ljava/io/File;
+    new-instance v1, Ljava/io/File;
 
-    const-string v0, "output.zip"
+    const-string v2, "output.zip"
 
-    invoke-direct {p2, p1, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iput-object p2, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
+    iput-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
 
     return-void
 .end method
 
 .method private MergeDexs(Ljava/util/List;Ljava/io/File;)V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/io/File;",
             ">;",
             "Ljava/io/File;",
@@ -110,200 +112,206 @@
     .line 194
     invoke-static {}, Lcom/android/tools/r8/D8Command;->builder()Lcom/android/tools/r8/D8Command$Builder;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 195
     invoke-virtual {p0, p1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->FiletoPath(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p2, p1}, Lcom/android/tools/r8/D8Command$Builder;->addProgramFiles(Ljava/util/Collection;)Lcom/android/tools/r8/BaseCommand$Builder;
+    invoke-virtual {v0, v1}, Lcom/android/tools/r8/D8Command$Builder;->addProgramFiles(Ljava/util/Collection;)Lcom/android/tools/r8/BaseCommand$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/android/tools/r8/D8Command$Builder;
+    check-cast v0, Lcom/android/tools/r8/D8Command$Builder;
 
     .line 197
     invoke-static {}, Lcom/s1243808733/aide/builder/D8Dex;->getMinVersion()I
 
-    move-result p2
+    move-result v1
 
-    invoke-virtual {p1, p2}, Lcom/android/tools/r8/D8Command$Builder;->setMinApiLevel(I)Lcom/android/tools/r8/BaseCompilerCommand$Builder;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/tools/r8/D8Command$Builder;
-
-    iget-object p2, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
-
-    .line 199
-    invoke-static {p2}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/io/File;)Ljava/nio/file/Path;
-
-    move-result-object p2
-
-    sget-object v0, Lcom/android/tools/r8/OutputMode;->DexIndexed:Lcom/android/tools/r8/OutputMode;
-
-    invoke-virtual {p1, p2, v0}, Lcom/android/tools/r8/D8Command$Builder;->setOutput(Ljava/nio/file/Path;Lcom/android/tools/r8/OutputMode;)Lcom/android/tools/r8/BaseCompilerCommand$Builder;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/tools/r8/D8Command$Builder;
-
-    .line 201
-    sget p2, Lcom/s1243808733/aide/BuildVariant;->RELEASE:I
-
-    invoke-static {}, Lcom/s1243808733/aide/util/ProjectUtils;->currentProject()Ljava/io/File;
+    invoke-virtual {v0, v1}, Lcom/android/tools/r8/D8Command$Builder;->setMinApiLevel(I)Lcom/android/tools/r8/BaseCompilerCommand$Builder;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/s1243808733/aide/BuildVariant;->getBuildVariant(Ljava/io/File;)I
+    check-cast v0, Lcom/android/tools/r8/D8Command$Builder;
 
-    move-result v0
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
 
-    if-ne p2, v0, :cond_38
+    .line 199
+    invoke-static {v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/io/File;)Ljava/nio/file/Path;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/tools/r8/OutputMode;->DexIndexed:Lcom/android/tools/r8/OutputMode;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/tools/r8/D8Command$Builder;->setOutput(Ljava/nio/file/Path;Lcom/android/tools/r8/OutputMode;)Lcom/android/tools/r8/BaseCompilerCommand$Builder;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/tools/r8/D8Command$Builder;
+
+    .line 201
+    sget v1, Lcom/s1243808733/aide/BuildVariant;->RELEASE:I
+
+    invoke-static {}, Lcom/s1243808733/aide/util/ProjectUtils;->currentProject()Ljava/io/File;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/s1243808733/aide/BuildVariant;->getBuildVariant(Ljava/io/File;)I
+
+    move-result v2
+
+    if-ne v1, v2, :cond_0
 
     .line 202
-    sget-object p2, Lcom/android/tools/r8/CompilationMode;->RELEASE:Lcom/android/tools/r8/CompilationMode;
+    sget-object v1, Lcom/android/tools/r8/CompilationMode;->RELEASE:Lcom/android/tools/r8/CompilationMode;
 
-    invoke-virtual {p1, p2}, Lcom/android/tools/r8/D8Command$Builder;->setMode(Lcom/android/tools/r8/CompilationMode;)Lcom/android/tools/r8/BaseCompilerCommand$Builder;
-
-    goto :goto_3d
-
-    .line 204
-    :cond_38
-    sget-object p2, Lcom/android/tools/r8/CompilationMode;->DEBUG:Lcom/android/tools/r8/CompilationMode;
-
-    invoke-virtual {p1, p2}, Lcom/android/tools/r8/D8Command$Builder;->setMode(Lcom/android/tools/r8/CompilationMode;)Lcom/android/tools/r8/BaseCompilerCommand$Builder;
+    invoke-virtual {v0, v1}, Lcom/android/tools/r8/D8Command$Builder;->setMode(Lcom/android/tools/r8/CompilationMode;)Lcom/android/tools/r8/BaseCompilerCommand$Builder;
 
     .line 207
-    :goto_3d
-    invoke-virtual {p1}, Lcom/android/tools/r8/D8Command$Builder;->build()Lcom/android/tools/r8/BaseCommand;
+    :goto_0
+    invoke-virtual {v0}, Lcom/android/tools/r8/D8Command$Builder;->build()Lcom/android/tools/r8/BaseCommand;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/android/tools/r8/D8Command;
+    check-cast v0, Lcom/android/tools/r8/D8Command;
 
-    invoke-static {p1}, Lcom/android/tools/r8/D8;->run(Lcom/android/tools/r8/D8Command;)V
+    invoke-static {v0}, Lcom/android/tools/r8/D8;->run(Lcom/android/tools/r8/D8Command;)V
 
     return-void
+
+    .line 204
+    :cond_0
+    sget-object v1, Lcom/android/tools/r8/CompilationMode;->DEBUG:Lcom/android/tools/r8/CompilationMode;
+
+    invoke-virtual {v0, v1}, Lcom/android/tools/r8/D8Command$Builder;->setMode(Lcom/android/tools/r8/CompilationMode;)Lcom/android/tools/r8/BaseCompilerCommand$Builder;
+
+    goto :goto_0
 .end method
 
 .method private static array2List([Ljava/lang/Object;)Ljava/util/List;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Ljava/lang/Object;",
             ">([TT;)",
-            "Ljava/util/List<",
-            "TT;>;"
+            "Ljava/util/List",
+            "<TT;>;"
         }
     .end annotation
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
-    const/4 p0, 0x0
-
-    return-object p0
-
-    .line 236
-    :cond_4
-    new-instance v0, Ljava/util/ArrayList;
-
-    array-length v1, p0
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
-
-    const/4 v1, 0x0
-
-    .line 237
-    :goto_b
-    array-length v2, p0
-
-    if-ge v1, v2, :cond_16
+    const/4 v0, 0x0
 
     .line 238
-    aget-object v2, p0, v1
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_b
-
-    :cond_16
+    :goto_0
     return-object v0
+
+    .line 236
+    :cond_0
+    new-instance v1, Ljava/util/ArrayList;
+
+    array-length v0, p0
+
+    invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
+
+    const/4 v0, 0x0
+
+    .line 237
+    :goto_1
+    array-length v2, p0
+
+    if-ge v0, v2, :cond_1
+
+    .line 238
+    aget-object v2, p0, v0
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 .method private static delectAllFileInDir(Ljava/io/File;)V
-    .registers 4
+    .locals 3
 
-    if-eqz p0, :cond_28
+    if-eqz p0, :cond_0
 
     .line 244
     invoke-virtual {p0}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_1
 
-    goto :goto_28
+    .line 252
+    :cond_0
+    :goto_0
+    return-void
 
     .line 245
-    :cond_9
+    :cond_1
     invoke-virtual {p0}, Ljava/io/File;->isDirectory()Z
 
     move-result v0
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_3
 
     .line 246
     invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_14
-    if-eqz v0, :cond_21
+    :goto_1
+    if-eqz v1, :cond_2
 
     .line 247
-    array-length v2, v0
+    array-length v2, v1
 
-    if-ge v1, v2, :cond_21
+    if-ge v0, v2, :cond_2
 
     .line 248
-    aget-object v2, v0, v1
+    aget-object v2, v1, v0
 
     invoke-static {v2}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->delectAllFileInDir(Ljava/io/File;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_14
+    goto :goto_1
 
     .line 250
-    :cond_21
+    :cond_2
     invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
-    goto :goto_28
+    goto :goto_0
 
     .line 252
-    :cond_25
+    :cond_3
     invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
-    :cond_28
-    :goto_28
-    return-void
+    goto :goto_0
 .end method
 
 .method public static getClassesDexPathsFormApk(Ljava/io/File;)Ljava/util/List;
-    .registers 4
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/io/File;",
             ")",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -316,74 +324,71 @@
     .end annotation
 
     .line 223
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 224
     invoke-static {p0}, Lcom/s1243808733/android/dexmerger/ZipUtils;->getFilesPath(Ljava/io/File;)Ljava/util/List;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 225
-    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object p0
+    move-result-object v2
 
-    :cond_d
-    :goto_d
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_36
+    if-eqz v0, :cond_1
 
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 226
-    const-string v2, "/"
+    const-string v3, "/"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_22
-
-    goto :goto_d
+    if-nez v3, :cond_0
 
     .line 227
-    :cond_22
-    const-string v2, "classes"
+    const-string v3, "classes"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_d
+    if-eqz v3, :cond_0
 
-    const-string v2, ".dex"
+    const-string v3, ".dex"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_d
+    if-eqz v3, :cond_0
 
     .line 228
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_d
+    goto :goto_0
 
-    :cond_36
-    return-object v0
+    :cond_1
+    return-object v1
 .end method
 
 .method private isDexFileByName(Ljava/io/File;)Z
-    .registers 3
+    .locals 2
 
     .line 257
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -393,91 +398,93 @@
     .line 258
     invoke-virtual {p1}, Ljava/io/File;->isFile()Z
 
-    move-result p1
+    move-result v1
 
-    if-eqz p1, :cond_1c
+    if-eqz v1, :cond_0
 
-    const-string p1, "classes"
+    const-string v1, "classes"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v1
 
-    if-eqz p1, :cond_1c
+    if-eqz v1, :cond_0
 
-    const-string p1, ".dex"
+    const-string v1, ".dex"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_1c
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_1d
+    :goto_0
+    return v0
 
-    :cond_1c
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_1d
-    return p1
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public FiletoPath(Ljava/util/List;)Ljava/util/List;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/io/File;",
             ">;)",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/nio/file/Path;",
             ">;"
         }
     .end annotation
 
     .line 211
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 212
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v2
 
-    :goto_9
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1d
+    if-eqz v0, :cond_0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/io/File;
+    check-cast v0, Ljava/io/File;
 
     .line 213
-    invoke-static {v1}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/io/File;)Ljava/nio/file/Path;
+    invoke-static {v0}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Ljava/io/File;)Ljava/nio/file/Path;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_1d
-    return-object v0
+    :cond_0
+    return-object v1
 .end method
 
 .method public clearWorkDir()V
-    .registers 2
+    .locals 1
 
     .line 219
     iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mWorkDir:Ljava/io/File;
@@ -488,99 +495,99 @@
 .end method
 
 .method public merger(Ljava/io/File;)V
-    .registers 12
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
         }
     .end annotation
 
+    const/4 v2, 0x0
+
+    const/4 v6, 0x0
+
     .line 44
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
-    move-result-wide v0
+    move-result-wide v4
 
     .line 45
     invoke-virtual {p0}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->clearWorkDir()V
 
     .line 46
-    iget-object v2, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v3, "正在解压..."
+    const-string v1, "\u6b63\u5728\u89e3\u538b..."
 
-    invoke-virtual {v2, v3}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 48
-    :try_start_e
-    iget-object v2, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mApkFile:Ljava/io/File;
+    :try_start_0
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mApkFile:Ljava/io/File;
 
-    iget-object v3, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
 
-    invoke-static {v2, v3}, Lcom/s1243808733/android/dexmerger/ZipUtils;->unzipFile(Ljava/io/File;Ljava/io/File;)Ljava/util/List;
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_15} :catch_232
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dexmerger/ZipUtils;->unzipFile(Ljava/io/File;Ljava/io/File;)Ljava/util/List;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 55
-    iget-object v2, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v3, "获取Dex..."
+    const-string v1, "\u83b7\u53d6Dex..."
 
-    invoke-virtual {v2, v3}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 56
-    iget-object v2, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
 
-    new-instance v3, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileFilter;
+    new-instance v1, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileFilter;
 
-    const/4 v4, 0x0
+    invoke-direct {v1, p0, v6}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileFilter;-><init>(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileFilter-IA;)V
 
-    invoke-direct {v3, p0, v4}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileFilter;-><init>(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileFilter-IA;)V
+    invoke-virtual {v0, v1}, Ljava/io/File;->listFiles(Ljava/io/FileFilter;)[Ljava/io/File;
 
-    invoke-virtual {v2, v3}, Ljava/io/File;->listFiles(Ljava/io/FileFilter;)[Ljava/io/File;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-static {v0}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->array2List([Ljava/lang/Object;)Ljava/util/List;
 
-    invoke-static {v2}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->array2List([Ljava/lang/Object;)Ljava/util/List;
+    move-result-object v3
 
-    move-result-object v2
-
-    if-eqz v2, :cond_22a
+    if-eqz v3, :cond_5
 
     .line 59
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_222
+    if-nez v0, :cond_4
 
     .line 62
-    new-instance v3, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;
+    new-instance v0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;
 
-    invoke-direct {v3, p0, v4}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;-><init>(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator-IA;)V
+    invoke-direct {v0, p0, v6}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator;-><init>(Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger$DexFileComparator-IA;)V
 
-    invoke-static {v2, v3}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+    invoke-static {v3, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
+    move v1, v2
 
     .line 65
-    :goto_3e
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    :goto_0
+    invoke-interface {v3}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v0
 
-    if-ge v4, v5, :cond_163
+    if-ge v1, v0, :cond_0
 
     .line 66
-    invoke-interface {v2, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v0
 
-    check-cast v5, Ljava/io/File;
+    check-cast v0, Ljava/io/File;
 
     .line 67
-    invoke-virtual {v5}, Ljava/io/File;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -593,7 +600,7 @@
 
     invoke-direct {v8, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v9, "] "
 
@@ -610,471 +617,467 @@
     .line 69
     new-instance v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;
 
-    invoke-direct {v6, v5}, Lcom/s1243808733/aide/functions/r8merger/DexHeader;-><init>(Ljava/io/File;)V
+    invoke-direct {v6, v0}, Lcom/s1243808733/aide/functions/r8merger/DexHeader;-><init>(Ljava/io/File;)V
 
     .line 70
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v7, "magic = "
 
-    invoke-direct {v5, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->magic:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  校验码 = "
+    const-string v7, "  \u6821\u9a8c\u7801 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->checksum:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  sha-1签名 = "
+    const-string v7, "  sha-1\u7b7e\u540d = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->signature:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  dex文件总长度 = "
+    const-string v7, "  dex\u6587\u4ef6\u603b\u957f\u5ea6 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->fileSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  文件头长度 = "
+    const-string v7, "  \u6587\u4ef6\u5934\u957f\u5ea6 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->headerSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  字节顺序常量 = "
+    const-string v7, "  \u5b57\u8282\u987a\u5e8f\u5e38\u91cf = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->endianTag:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  连接段大小 = "
+    const-string v7, "  \u8fde\u63a5\u6bb5\u5927\u5c0f = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->linkSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  连接段起始位置 = "
+    const-string v7, "  \u8fde\u63a5\u6bb5\u8d77\u59cb\u4f4d\u7f6e = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->linkOff:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  map数据基址 = "
+    const-string v7, "  map\u6570\u636e\u57fa\u5740 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->mapOff:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  字符串个数 = "
+    const-string v7, "  \u5b57\u7b26\u4e32\u4e2a\u6570 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->stringIdsSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  字符串基址 = "
+    const-string v7, "  \u5b57\u7b26\u4e32\u57fa\u5740 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->stringIdsOff:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  类型个数 = "
+    const-string v7, "  \u7c7b\u578b\u4e2a\u6570 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->typeIdsSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  类型基址 = "
+    const-string v7, "  \u7c7b\u578b\u57fa\u5740 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->typeIdsOff:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  原型个数 = "
+    const-string v7, "  \u539f\u578b\u4e2a\u6570 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->protoIdsSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  原型基址 = "
+    const-string v7, "  \u539f\u578b\u57fa\u5740 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->protoIdsOff:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  字段个数 = "
+    const-string v7, "  \u5b57\u6bb5\u4e2a\u6570 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->fieldIdsSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  字段基址 = "
+    const-string v7, "  \u5b57\u6bb5\u57fa\u5740 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->fieldIdsOff:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  方法个数 = "
+    const-string v7, "  \u65b9\u6cd5\u4e2a\u6570 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->methodIdsSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  方法基址 = "
+    const-string v7, "  \u65b9\u6cd5\u57fa\u5740 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->methodIdsOff:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  类个数 = "
+    const-string v7, "  \u7c7b\u4e2a\u6570 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->classDefsSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  类基址 = "
+    const-string v7, "  \u7c7b\u57fa\u5740 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->classDefsOff:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  数据大小 = "
+    const-string v7, "  \u6570\u636e\u5927\u5c0f = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v7, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->dataSize:Ljava/lang/String;
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "  数据段基址 = "
+    const-string v7, "  \u6570\u636e\u6bb5\u57fa\u5740 = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v6, v6, Lcom/s1243808733/aide/functions/r8merger/DexHeader;->dataOff:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v0
 
     .line 139
     iget-object v6, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    invoke-virtual {v6, v5}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v6, v0}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    goto/16 :goto_3e
+    move v1, v0
+
+    goto/16 :goto_0
 
     .line 143
-    :cond_163
-    iget-object v4, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v5, "开始合并Dex..."
+    const-string v1, "\u5f00\u59cb\u5408\u5e76Dex..."
 
-    invoke-virtual {v4, v5}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 145
-    :try_start_16a
-    iget-object v4, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
+    :try_start_1
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
 
-    invoke-virtual {v4}, Ljava/io/File;->delete()Z
+    invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
     .line 146
-    iget-object v4, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
 
-    invoke-direct {p0, v2, v4}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->MergeDexs(Ljava/util/List;Ljava/io/File;)V
-    :try_end_174
-    .catchall {:try_start_16a .. :try_end_174} :catchall_210
+    invoke-direct {p0, v3, v0}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->MergeDexs(Ljava/util/List;Ljava/io/File;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 154
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
-    :goto_178
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_188
+    if-eqz v0, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, Ljava/io/File;
+    check-cast v0, Ljava/io/File;
 
     .line 155
-    invoke-virtual {v4}, Ljava/io/File;->delete()Z
+    invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    goto :goto_178
+    goto :goto_1
 
     .line 160
-    :cond_188
-    :try_start_188
-    iget-object v2, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
+    :cond_1
+    :try_start_2
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mOutDexFile:Ljava/io/File;
 
-    iget-object v4, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
 
-    invoke-static {v2, v4}, Lcom/s1243808733/android/dexmerger/ZipUtils;->unzipFile(Ljava/io/File;Ljava/io/File;)Ljava/util/List;
-    :try_end_18f
-    .catch Ljava/io/IOException; {:try_start_188 .. :try_end_18f} :catch_1fe
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dexmerger/ZipUtils;->unzipFile(Ljava/io/File;Ljava/io/File;)Ljava/util/List;
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 168
-    new-instance v2, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
-    iget-object v4, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mWorkDir:Ljava/io/File;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mWorkDir:Ljava/io/File;
 
-    const-string v5, "build/apk"
+    const-string v3, "build/apk"
 
-    invoke-direct {v2, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 169
-    invoke-virtual {v2}, Ljava/io/File;->getParentFile()Ljava/io/File;
+    invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/io/File;->mkdirs()Z
+    invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
     .line 171
-    iget-object v4, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v5, "重新构建APK..."
+    const-string v3, "\u91cd\u65b0\u6784\u5efaAPK..."
 
-    invoke-virtual {v4, v5}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v3}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 172
-    iget-object v4, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mDecompressDir:Ljava/io/File;
 
-    invoke-virtual {v4}, Ljava/io/File;->listFiles()[Ljava/io/File;
+    invoke-virtual {v1}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-static {v4}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->array2List([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v1}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->array2List([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v1
 
-    if-eqz v4, :cond_1f6
+    if-eqz v1, :cond_3
 
     .line 173
-    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v5
+    move-result v3
 
-    if-nez v5, :cond_1f6
+    if-nez v3, :cond_3
 
     .line 177
-    :try_start_1b8
-    invoke-static {v4, v2}, Lcom/s1243808733/android/dexmerger/ZipUtils;->zipFiles(Ljava/util/Collection;Ljava/io/File;)Z
-    :try_end_1bb
-    .catch Ljava/io/IOException; {:try_start_1b8 .. :try_end_1bb} :catch_1ed
+    :try_start_3
+    invoke-static {v1, v0}, Lcom/s1243808733/android/dexmerger/ZipUtils;->zipFiles(Ljava/util/Collection;Ljava/io/File;)Z
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
     .line 182
-    invoke-virtual {v2, p1}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+    invoke-virtual {v0, p1}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_1c8
+    if-nez v0, :cond_2
 
     .line 183
-    iget-object p1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v2, "APK导出失败"
+    const-string v1, "APK\u5bfc\u51fa\u5931\u8d25"
 
-    invoke-virtual {p1, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 187
-    :cond_1c8
-    iget-object p1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    :cond_2
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v2, "清除缓存..."
+    const-string v1, "\u6e05\u9664\u7f13\u5b58..."
 
-    invoke-virtual {p1, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 188
     invoke-virtual {p0}, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->clearWorkDir()V
 
     .line 189
-    iget-object p1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const/4 v2, 0x1
+    const-string v1, "\u5b8c\u6210/%.1fs"
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
 
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
-    move-result-wide v4
+    move-result-wide v6
 
-    sub-long/2addr v4, v0
+    sub-long v4, v6, v4
 
-    long-to-float v0, v4
+    long-to-float v4, v4
 
-    const v1, 0x4e6e6b28  # 1.0E9f
+    const v5, 0x4e6e6b28    # 1.0E9f
 
-    div-float/2addr v0, v1
+    div-float/2addr v4, v5
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v0
+    move-result-object v4
 
-    aput-object v0, v2, v3
+    aput-object v4, v3, v2
 
-    const-string v0, "完成/%.1fs"
-
-    invoke-virtual {p1, v0, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+    invoke-virtual {v0, v1, v3}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
 
     return-void
 
-    :catch_1ed
-    move-exception p1
+    :catch_0
+    move-exception v0
 
     .line 179
-    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v1, "APK构建失败"
+    const-string v2, "APK\u6784\u5efa\u5931\u8d25"
 
-    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 180
-    throw p1
+    throw v0
 
     .line 174
-    :cond_1f6
-    new-instance p1, Ljava/io/IOException;
+    :cond_3
+    new-instance v0, Ljava/io/IOException;
 
-    const-string v0, "获取文件列表失败"
+    const-string v1, "\u83b7\u53d6\u6587\u4ef6\u5217\u8868\u5931\u8d25"
 
-    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    :catch_1fe
-    move-exception p1
+    :catch_1
+    move-exception v0
 
     .line 162
-    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v1, "合并Dex解压失败"
+    const-string v2, "\u5408\u5e76Dex\u89e3\u538b\u5931\u8d25"
 
-    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 163
-    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ThrowableUtils;->getFullStackTrace(Ljava/lang/Throwable;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ThrowableUtils;->getFullStackTrace(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 165
-    throw p1
+    throw v0
 
-    :catchall_210
-    move-exception p1
+    :catchall_0
+    move-exception v0
 
     .line 148
-    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v1, "合并失败"
+    const-string v2, "\u5408\u5e76\u5931\u8d25"
 
-    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 149
-    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ThrowableUtils;->getFullStackTrace(Ljava/lang/Throwable;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ThrowableUtils;->getFullStackTrace(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 150
-    throw p1
+    throw v0
 
     .line 60
-    :cond_222
-    new-instance p1, Ljava/io/IOException;
+    :cond_4
+    new-instance v0, Ljava/io/IOException;
 
-    const-string v0, "无dex文件"
+    const-string v1, "\u65e0dex\u6587\u4ef6"
 
-    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 58
-    :cond_22a
-    new-instance p1, Ljava/io/IOException;
+    :cond_5
+    new-instance v0, Ljava/io/IOException;
 
-    const-string v0, "获取dex列表失败"
+    const-string v1, "\u83b7\u53d6dex\u5217\u8868\u5931\u8d25"
 
-    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
-    :catch_232
-    move-exception p1
+    :catch_2
+    move-exception v0
 
     .line 50
-    iget-object v0, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
+    iget-object v1, p0, Lcom/s1243808733/aide/functions/r8merger/ApkDexMerger;->mContext:Lcom/s1243808733/aide/functions/r8merger/R8Log;
 
-    const-string v1, "解压失败"
+    const-string v2, "\u89e3\u538b\u5931\u8d25"
 
-    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/functions/r8merger/R8Log;->println(Ljava/lang/String;)V
 
     .line 51
-    goto :goto_23c
-
-    :goto_23b
-    throw p1
-
-    :goto_23c
-    goto :goto_23b
+    throw v0
 .end method

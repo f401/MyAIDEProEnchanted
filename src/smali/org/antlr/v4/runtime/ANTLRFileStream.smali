@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public getSourceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 39
     iget-object v0, p0, Lorg/antlr/v4/runtime/ANTLRFileStream;->fileName:Ljava/lang/String;
@@ -56,7 +56,7 @@
 .end method
 
 .method public load(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -66,16 +66,16 @@
     .line 33
     invoke-static {p1, p2}, Lorg/antlr/v4/runtime/misc/Utils;->readFile(Ljava/lang/String;Ljava/lang/String;)[C
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/ANTLRFileStream;->data:[C
+    iput-object v0, p0, Lorg/antlr/v4/runtime/ANTLRFileStream;->data:[C
 
     .line 34
-    iget-object p1, p0, Lorg/antlr/v4/runtime/ANTLRFileStream;->data:[C
+    iget-object v0, p0, Lorg/antlr/v4/runtime/ANTLRFileStream;->data:[C
 
-    array-length p1, p1
+    array-length v0, v0
 
-    iput p1, p0, Lorg/antlr/v4/runtime/ANTLRFileStream;->n:I
+    iput v0, p0, Lorg/antlr/v4/runtime/ANTLRFileStream;->n:I
 
     return-void
 .end method

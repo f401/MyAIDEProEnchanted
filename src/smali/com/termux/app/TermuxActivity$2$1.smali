@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity$2;Landroid/widget/EditText;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,70 +45,70 @@
 
 # virtual methods
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 3
 
     .line 324
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$2$1;->this$1:Lcom/termux/app/TermuxActivity$2;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$2$1;->this$1:Lcom/termux/app/TermuxActivity$2;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity$2;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity$2;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getCurrentTermSession()Lcom/termux/terminal/TerminalSession;
 
-    move-result-object p1
+    move-result-object v1
 
-    if-eqz p1, :cond_34
+    if-eqz v1, :cond_1
 
     .line 326
-    invoke-virtual {p1}, Lcom/termux/terminal/TerminalSession;->isRunning()Z
+    invoke-virtual {v1}, Lcom/termux/terminal/TerminalSession;->isRunning()Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_26
+    if-eqz v0, :cond_2
 
     .line 327
-    iget-object p2, p0, Lcom/termux/app/TermuxActivity$2$1;->val$editText:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$2$1;->val$editText:Landroid/widget/EditText;
 
-    invoke-virtual {p2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 328
-    invoke-virtual {p2}, Ljava/lang/String;->length()I
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result p3
+    move-result v2
 
-    if-nez p3, :cond_22
+    if-nez v2, :cond_0
 
-    const-string p2, "\n"
+    const-string v0, "\n"
 
     .line 329
-    :cond_22
-    invoke-virtual {p1, p2}, Lcom/termux/terminal/TerminalSession;->write(Ljava/lang/String;)V
-
-    goto :goto_2d
-
-    .line 331
-    :cond_26
-    iget-object p2, p0, Lcom/termux/app/TermuxActivity$2$1;->this$1:Lcom/termux/app/TermuxActivity$2;
-
-    iget-object p2, p2, Lcom/termux/app/TermuxActivity$2;->this$0:Lcom/termux/app/TermuxActivity;
-
-    invoke-virtual {p2, p1}, Lcom/termux/app/TermuxActivity;->removeFinishedSession(Lcom/termux/terminal/TerminalSession;)V
+    :cond_0
+    invoke-virtual {v1, v0}, Lcom/termux/terminal/TerminalSession;->write(Ljava/lang/String;)V
 
     .line 333
-    :goto_2d
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$2$1;->val$editText:Landroid/widget/EditText;
+    :goto_0
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$2$1;->val$editText:Landroid/widget/EditText;
 
-    const-string p2, ""
+    const-string v1, ""
 
-    invoke-virtual {p1, p2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_34
-    const/4 p1, 0x1
+    :cond_1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
+
+    .line 331
+    :cond_2
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$2$1;->this$1:Lcom/termux/app/TermuxActivity$2;
+
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity$2;->this$0:Lcom/termux/app/TermuxActivity;
+
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxActivity;->removeFinishedSession(Lcom/termux/terminal/TerminalSession;)V
+
+    goto :goto_0
 .end method

@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dex/Annotation;",
         ">;"
     }
@@ -27,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dex/Dex;BLcom/s1243808733/android/dex/EncodedValue;)V
-    .registers 4
+    .locals 0
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,35 +48,35 @@
 
 # virtual methods
 .method public compareTo(Lcom/s1243808733/android/dex/Annotation;)I
-    .registers 3
+    .locals 2
 
     .line 56
     iget-object v0, p0, Lcom/s1243808733/android/dex/Annotation;->encodedAnnotation:Lcom/s1243808733/android/dex/EncodedValue;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dex/Annotation;->encodedAnnotation:Lcom/s1243808733/android/dex/EncodedValue;
+    iget-object v1, p1, Lcom/s1243808733/android/dex/Annotation;->encodedAnnotation:Lcom/s1243808733/android/dex/EncodedValue;
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dex/EncodedValue;->compareTo(Lcom/s1243808733/android/dex/EncodedValue;)I
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dex/EncodedValue;->compareTo(Lcom/s1243808733/android/dex/EncodedValue;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 24
     check-cast p1, Lcom/s1243808733/android/dex/Annotation;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/Annotation;->compareTo(Lcom/s1243808733/android/dex/Annotation;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getReader()Lcom/s1243808733/android/dex/EncodedValueReader;
-    .registers 4
+    .locals 3
 
     .line 40
     new-instance v0, Lcom/s1243808733/android/dex/EncodedValueReader;
@@ -90,7 +91,7 @@
 .end method
 
 .method public getTypeIndex()I
-    .registers 2
+    .locals 1
 
     .line 44
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/Annotation;->getReader()Lcom/s1243808733/android/dex/EncodedValueReader;
@@ -109,7 +110,7 @@
 .end method
 
 .method public getVisibility()B
-    .registers 2
+    .locals 1
 
     .line 36
     iget-byte v0, p0, Lcom/s1243808733/android/dex/Annotation;->visibility:B
@@ -118,23 +119,23 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 61
     iget-object v0, p0, Lcom/s1243808733/android/dex/Annotation;->dex:Lcom/s1243808733/android/dex/Dex;
 
-    const-string v1, " "
-
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_0
 
     .line 62
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-byte v2, p0, Lcom/s1243808733/android/dex/Annotation;->visibility:B
+    iget-byte v1, p0, Lcom/s1243808733/android/dex/Annotation;->visibility:B
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -148,48 +149,50 @@
 
     move-result-object v0
 
-    goto :goto_43
-
     .line 63
-    :cond_1f
-    new-instance v0, Ljava/lang/StringBuilder;
+    :goto_0
+    return-object v0
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iget-byte v2, p0, Lcom/s1243808733/android/dex/Annotation;->visibility:B
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget-byte v0, p0, Lcom/s1243808733/android/dex/Annotation;->visibility:B
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/s1243808733/android/dex/Annotation;->dex:Lcom/s1243808733/android/dex/Dex;
+    const-string v0, " "
 
-    invoke-virtual {v1}, Lcom/s1243808733/android/dex/Dex;->typeNames()Ljava/util/List;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    iget-object v0, p0, Lcom/s1243808733/android/dex/Annotation;->dex:Lcom/s1243808733/android/dex/Dex;
+
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->typeNames()Ljava/util/List;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dex/Annotation;->getTypeIndex()I
 
     move-result v2
 
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_43
-    return-object v0
+    check-cast v0, Ljava/lang/String;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method public writeTo(Lcom/s1243808733/android/dex/Dex$Section;)V
-    .registers 3
+    .locals 1
 
     .line 50
     iget-byte v0, p0, Lcom/s1243808733/android/dex/Annotation;->visibility:B

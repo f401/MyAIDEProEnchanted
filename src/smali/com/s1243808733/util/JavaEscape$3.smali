@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/EditText;Landroid/widget/CheckBox;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,30 +45,30 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 66
-    iget-object p1, p0, Lcom/s1243808733/util/JavaEscape$3;->val$input:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/util/JavaEscape$3;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/s1243808733/util/JavaEscape$3;->val$cb:Landroid/widget/CheckBox;
+    iget-object v2, p0, Lcom/s1243808733/util/JavaEscape$3;->val$cb:Landroid/widget/CheckBox;
 
-    invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lcom/s1243808733/util/JavaEscape;->invertEscapeText(Ljava/lang/String;Z)Ljava/lang/String;
+    invoke-static {v1, v2}, Lcom/s1243808733/util/JavaEscape;->invertEscapeText(Ljava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     return-void
 .end method

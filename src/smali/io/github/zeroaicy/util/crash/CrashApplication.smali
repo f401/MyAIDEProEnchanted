@@ -11,13 +11,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 10
     invoke-direct {p0}, Landroid/app/Application;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static CrashInit()V
-    .registers 2
+    .locals 2
 
     .line 36
     invoke-static {}, Lio/github/zeroaicy/util/crash/CrashApphandler;->getInstance()Lio/github/zeroaicy/util/crash/CrashApphandler;
@@ -50,7 +50,7 @@
 .end method
 
 .method public static CrashInit(Landroid/content/Context;)V
-    .registers 3
+    .locals 2
 
     .line 42
     invoke-static {}, Lio/github/zeroaicy/util/crash/CrashApphandler;->getInstance()Lio/github/zeroaicy/util/crash/CrashApphandler;
@@ -76,18 +76,18 @@
 
 # virtual methods
 .method protected attachBaseContext(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
 
     .line 27
     sget-boolean v0, Lio/github/zeroaicy/util/crash/CrashApplication;->isDebug:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 28
     invoke-static {p1}, Lio/github/zeroaicy/util/DebugUtil;->debug(Landroid/content/Context;)V
 
     .line 30
-    :cond_7
+    :cond_0
     invoke-static {}, Lio/github/zeroaicy/util/crash/CrashApphandler;->getInstance()Lio/github/zeroaicy/util/crash/CrashApphandler;
 
     move-result-object v0
@@ -101,7 +101,7 @@
 .end method
 
 .method public onCreate()V
-    .registers 2
+    .locals 1
 
     .line 18
     invoke-super {p0}, Landroid/app/Application;->onCreate()V

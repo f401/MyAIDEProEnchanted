@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 324
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
 
     .line 326
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public getModifier()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 338
     iget-object v0, p0, Lcom/s1243808733/util/Json2Java$Field;->modifier:Ljava/lang/String;
@@ -64,7 +64,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 356
     iget-object v0, p0, Lcom/s1243808733/util/Json2Java$Field;->name:Ljava/lang/String;
@@ -73,7 +73,7 @@
 .end method
 
 .method public getType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 347
     iget-object v0, p0, Lcom/s1243808733/util/Json2Java$Field;->type:Ljava/lang/String;
@@ -82,7 +82,7 @@
 .end method
 
 .method public isArray()Z
-    .registers 2
+    .locals 1
 
     .line 365
     iget-boolean v0, p0, Lcom/s1243808733/util/Json2Java$Field;->array:Z
@@ -91,7 +91,7 @@
 .end method
 
 .method public setArray(Z)Lcom/s1243808733/util/Json2Java$Field;
-    .registers 2
+    .locals 0
 
     .line 360
     iput-boolean p1, p0, Lcom/s1243808733/util/Json2Java$Field;->array:Z
@@ -100,7 +100,7 @@
 .end method
 
 .method public setModifier(Ljava/lang/String;)Lcom/s1243808733/util/Json2Java$Field;
-    .registers 2
+    .locals 0
 
     .line 333
     iput-object p1, p0, Lcom/s1243808733/util/Json2Java$Field;->modifier:Ljava/lang/String;
@@ -109,7 +109,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)Lcom/s1243808733/util/Json2Java$Field;
-    .registers 2
+    .locals 0
 
     .line 351
     iput-object p1, p0, Lcom/s1243808733/util/Json2Java$Field;->name:Ljava/lang/String;
@@ -118,7 +118,7 @@
 .end method
 
 .method public setType(Ljava/lang/String;)Lcom/s1243808733/util/Json2Java$Field;
-    .registers 2
+    .locals 0
 
     .line 342
     iput-object p1, p0, Lcom/s1243808733/util/Json2Java$Field;->type:Ljava/lang/String;
@@ -127,7 +127,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 2
 
     .line 370
     new-instance v0, Ljava/lang/StringBuilder;
@@ -142,9 +142,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/s1243808733/util/Json2Java$Field;->type:Ljava/lang/String;
+    iget-object v1, p0, Lcom/s1243808733/util/Json2Java$Field;->type:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, " "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

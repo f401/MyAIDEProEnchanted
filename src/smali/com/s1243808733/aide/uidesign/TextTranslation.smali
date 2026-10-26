@@ -11,1081 +11,997 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 65
+    .locals 16
+
+    const/4 v15, 0x4
+
+    const/4 v14, 0x3
+
+    const/4 v13, 0x2
+
+    const/4 v12, 0x1
+
+    const/4 v11, 0x0
 
     .line 14
-    const/16 v0, 0xa
+    new-array v0, v13, [Ljava/lang/String;
 
-    new-array v1, v0, [[Ljava/lang/String;
+    const-string v1, "Source code..."
 
-    const/4 v2, 0x2
+    aput-object v1, v0, v11
 
-    new-array v3, v2, [Ljava/lang/String;
+    const-string v1, "\u6e90\u4ee3\u7801..."
 
-    const-string v4, "Parent View..."
+    aput-object v1, v0, v12
 
-    const/4 v5, 0x0
+    new-array v1, v13, [Ljava/lang/String;
 
-    aput-object v4, v3, v5
+    const-string v2, "Add inside..."
 
-    const-string v4, "父视图..."
+    aput-object v2, v1, v11
 
-    const/4 v6, 0x1
+    const-string v2, "\u5728\u91cc\u9762\u6dfb\u52a0..."
 
-    aput-object v4, v3, v6
+    aput-object v2, v1, v12
 
-    aput-object v3, v1, v5
+    new-array v2, v13, [Ljava/lang/String;
 
-    new-array v3, v2, [Ljava/lang/String;
+    const-string v3, "Add above..."
 
-    const-string v4, "Source code..."
+    aput-object v3, v2, v11
 
-    aput-object v4, v3, v5
+    const-string v3, "\u5728\u4e0a\u9762\u6dfb\u52a0..."
 
-    const-string v4, "源代码..."
+    aput-object v3, v2, v12
 
-    aput-object v4, v3, v6
-
-    aput-object v3, v1, v6
-
-    new-array v3, v2, [Ljava/lang/String;
+    new-array v3, v13, [Ljava/lang/String;
 
     const-string v4, "Add inside..."
 
-    aput-object v4, v3, v5
+    aput-object v4, v3, v11
 
-    const-string v7, "在里面添加..."
+    const-string v4, "\u5728\u91cc\u9762\u6dfb\u52a0..."
 
-    aput-object v7, v3, v6
+    aput-object v4, v3, v12
 
-    aput-object v3, v1, v2
+    new-array v4, v13, [Ljava/lang/String;
 
-    new-array v3, v2, [Ljava/lang/String;
+    const-string v5, "Add below..."
 
-    const-string v8, "Add above..."
+    aput-object v5, v4, v11
 
-    aput-object v8, v3, v5
+    const-string v5, "\u5728\u4e0b\u9762\u6dfb\u52a0..."
 
-    const-string v8, "在上面添加..."
+    aput-object v5, v4, v12
 
-    aput-object v8, v3, v6
+    new-array v5, v13, [Ljava/lang/String;
 
-    const/4 v8, 0x3
+    const-string v6, "Add before..."
 
-    aput-object v3, v1, v8
+    aput-object v6, v5, v11
 
-    new-array v3, v2, [Ljava/lang/String;
+    const-string v6, "\u5728\u524d\u9762\u6dfb\u52a0..."
 
-    aput-object v4, v3, v5
+    aput-object v6, v5, v12
 
-    aput-object v7, v3, v6
+    new-array v6, v13, [Ljava/lang/String;
 
-    const/4 v4, 0x4
+    const-string v7, "Surround with..."
 
-    aput-object v3, v1, v4
+    aput-object v7, v6, v11
 
-    new-array v3, v2, [Ljava/lang/String;
+    const-string v7, "\u8bbe\u7f6e\u7236\u5e03\u5c40..."
 
-    const-string v7, "Add below..."
+    aput-object v7, v6, v12
 
-    aput-object v7, v3, v5
+    new-array v7, v13, [Ljava/lang/String;
 
-    const-string v7, "在下面添加..."
+    const-string v8, "Delete"
 
-    aput-object v7, v3, v6
+    aput-object v8, v7, v11
 
-    const/4 v7, 0x5
+    const-string v8, "\u5220\u9664"
 
-    aput-object v3, v1, v7
+    aput-object v8, v7, v12
 
-    new-array v3, v2, [Ljava/lang/String;
+    const/16 v8, 0xa
 
-    const-string v9, "Add before..."
+    new-array v8, v8, [[Ljava/lang/String;
 
-    aput-object v9, v3, v5
+    new-array v9, v13, [Ljava/lang/String;
 
-    const-string v9, "在前面添加..."
+    const-string v10, "Parent View..."
 
-    aput-object v9, v3, v6
+    aput-object v10, v9, v11
 
-    const/4 v9, 0x6
+    const-string v10, "\u7236\u89c6\u56fe..."
 
-    aput-object v3, v1, v9
+    aput-object v10, v9, v12
 
-    new-array v3, v2, [Ljava/lang/String;
+    aput-object v9, v8, v11
 
-    const-string v10, "Add behind..."
+    aput-object v0, v8, v12
 
-    aput-object v10, v3, v5
+    aput-object v1, v8, v13
 
-    const-string v10, "在后面添加..."
+    aput-object v2, v8, v14
 
-    aput-object v10, v3, v6
+    aput-object v3, v8, v15
 
-    const/4 v10, 0x7
+    const/4 v0, 0x5
 
-    aput-object v3, v1, v10
+    aput-object v4, v8, v0
 
-    new-array v3, v2, [Ljava/lang/String;
+    const/4 v0, 0x6
 
-    const-string v11, "Surround with..."
+    aput-object v5, v8, v0
 
-    aput-object v11, v3, v5
+    const/4 v0, 0x7
 
-    const-string v11, "设置父布局..."
+    new-array v1, v13, [Ljava/lang/String;
 
-    aput-object v11, v3, v6
+    const-string v2, "Add behind..."
 
-    const/16 v11, 0x8
+    aput-object v2, v1, v11
 
-    aput-object v3, v1, v11
+    const-string v2, "\u5728\u540e\u9762\u6dfb\u52a0..."
 
-    new-array v3, v2, [Ljava/lang/String;
+    aput-object v2, v1, v12
 
-    const-string v12, "Delete"
-
-    aput-object v12, v3, v5
-
-    const-string v12, "删除"
-
-    aput-object v12, v3, v6
-
-    const/16 v12, 0x9
-
-    aput-object v3, v1, v12
-
-    sput-object v1, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET_MENU:[[Ljava/lang/String;
-
-    .line 29
-    new-array v1, v2, [Ljava/lang/String;
-
-    const-string v3, "ImageView"
-
-    aput-object v3, v1, v5
-
-    const-string v3, "图片视图"
-
-    aput-object v3, v1, v6
-
-    new-array v3, v2, [Ljava/lang/String;
-
-    const-string v13, "Switch"
-
-    aput-object v13, v3, v5
-
-    const-string v13, "开关"
-
-    aput-object v13, v3, v6
-
-    new-array v13, v2, [Ljava/lang/String;
-
-    const-string v14, "ToggleButton"
-
-    aput-object v14, v13, v5
-
-    const-string v14, "切换按钮"
-
-    aput-object v14, v13, v6
-
-    new-array v14, v2, [Ljava/lang/String;
-
-    const-string v15, "ProgressBar"
-
-    aput-object v15, v14, v5
-
-    const-string v15, "进度条"
-
-    aput-object v15, v14, v6
-
-    new-array v15, v2, [Ljava/lang/String;
-
-    const-string v16, "TextView"
-
-    aput-object v16, v15, v5
-
-    const-string v16, "文本视图"
-
-    aput-object v16, v15, v6
-
-    new-array v0, v2, [Ljava/lang/String;
-
-    const-string v17, "Widget"
-
-    aput-object v17, v0, v5
-
-    const-string v17, "控件"
-
-    aput-object v17, v0, v6
-
-    new-array v12, v2, [Ljava/lang/String;
-
-    const-string v18, "Button"
-
-    aput-object v18, v12, v5
-
-    const-string v18, "按钮"
-
-    aput-object v18, v12, v6
-
-    new-array v11, v2, [Ljava/lang/String;
-
-    const-string v19, "Small Button"
-
-    aput-object v19, v11, v5
-
-    const-string v19, "小按钮"
-
-    aput-object v19, v11, v6
-
-    new-array v10, v2, [Ljava/lang/String;
-
-    const-string v20, "Bar Button"
-
-    aput-object v20, v10, v5
-
-    const-string v20, "条形按钮"
-
-    aput-object v20, v10, v6
-
-    new-array v9, v2, [Ljava/lang/String;
-
-    const-string v21, "CheckBox"
-
-    aput-object v21, v9, v5
-
-    const-string v21, "多选按钮"
-
-    aput-object v21, v9, v6
-
-    new-array v7, v2, [Ljava/lang/String;
-
-    const-string v22, "RadioButton"
-
-    aput-object v22, v7, v5
-
-    const-string v22, "单选按钮"
-
-    aput-object v22, v7, v6
-
-    new-array v4, v2, [Ljava/lang/String;
-
-    const-string v23, "View"
-
-    aput-object v23, v4, v5
-
-    const-string v23, "视图"
-
-    aput-object v23, v4, v6
-
-    new-array v8, v2, [Ljava/lang/String;
-
-    const-string v24, "Text"
-
-    aput-object v24, v8, v5
-
-    const-string v24, "文本"
-
-    aput-object v24, v8, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v25, "Small Text"
-
-    aput-object v25, v6, v5
-
-    const-string v25, "小文本"
-
-    const/16 v24, 0x1
-
-    aput-object v25, v6, v24
-
-    move-object/from16 v25, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v26, "Large Text"
-
-    aput-object v26, v6, v5
-
-    const-string v26, "大文本"
-
-    aput-object v26, v6, v24
-
-    move-object/from16 v26, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v27, "Text Field"
-
-    aput-object v27, v6, v5
-
-    const-string v27, "编辑框"
-
-    aput-object v27, v6, v24
-
-    move-object/from16 v28, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v29, "EditText (multiline)"
-
-    aput-object v29, v6, v5
-
-    const-string v29, "编辑框（多行）"
-
-    aput-object v29, v6, v24
-
-    move-object/from16 v29, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v30, "EditText (password)"
-
-    aput-object v30, v6, v5
-
-    const-string v30, "编辑框（密码）"
-
-    aput-object v30, v6, v24
-
-    move-object/from16 v30, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v31, "EditText (number password)"
-
-    aput-object v31, v6, v5
-
-    const-string v31, "编辑框（数字密码）"
-
-    aput-object v31, v6, v24
-
-    move-object/from16 v31, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v32, "EditText (email)"
-
-    aput-object v32, v6, v5
-
-    const-string v32, "编辑框（邮箱）"
-
-    aput-object v32, v6, v24
-
-    move-object/from16 v32, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v33, "EditText (name)"
-
-    aput-object v33, v6, v5
-
-    const-string v33, "编辑框（名字）"
-
-    aput-object v33, v6, v24
-
-    move-object/from16 v33, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v34, "EditText (phone)"
-
-    aput-object v34, v6, v5
-
-    const-string v34, "编辑框（电话号码）"
-
-    aput-object v34, v6, v24
-
-    move-object/from16 v34, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v35, "EditText (address)"
-
-    aput-object v35, v6, v5
-
-    const-string v35, "编辑框（地址）"
-
-    aput-object v35, v6, v24
-
-    move-object/from16 v35, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v36, "EditText (date)"
-
-    aput-object v36, v6, v5
-
-    const-string v36, "编辑框（日期）"
-
-    aput-object v36, v6, v24
-
-    move-object/from16 v36, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v37, "EditText (signed number)"
-
-    aput-object v37, v6, v5
-
-    const-string v37, "编辑框（正负数）"
-
-    aput-object v37, v6, v24
-
-    move-object/from16 v37, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v38, "EditText (decimal)"
-
-    aput-object v38, v6, v5
-
-    const-string v38, "编辑框（小数）"
-
-    aput-object v38, v6, v24
-
-    move-object/from16 v38, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v39, "Advanced Widget"
-
-    aput-object v39, v6, v5
-
-    const-string v39, "高级控件"
-
-    aput-object v39, v6, v24
-
-    move-object/from16 v39, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v40, "DatePicker"
-
-    aput-object v40, v6, v5
-
-    const-string v40, "日期选择"
-
-    aput-object v40, v6, v24
-
-    move-object/from16 v40, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v41, "TimePicker"
-
-    aput-object v41, v6, v5
-
-    const-string v41, "时间选择"
-
-    aput-object v41, v6, v24
-
-    move-object/from16 v41, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v42, "NumberPicker"
-
-    aput-object v42, v6, v5
-
-    const-string v42, "数字选择"
-
-    aput-object v42, v6, v24
-
-    move-object/from16 v42, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v43, "RatingBar"
-
-    aput-object v43, v6, v5
-
-    const-string v43, "评分控件"
-
-    aput-object v43, v6, v24
-
-    move-object/from16 v43, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v44, "Adapter View"
-
-    aput-object v44, v6, v5
-
-    const-string v44, "适配器视图"
-
-    aput-object v44, v6, v24
-
-    move-object/from16 v44, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v45, "List View"
-
-    aput-object v45, v6, v5
-
-    const-string v45, "列表视图"
-
-    aput-object v45, v6, v24
-
-    move-object/from16 v45, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v46, "ExpandableListView"
-
-    aput-object v46, v6, v5
-
-    const-string v46, "可展开列表视图"
-
-    aput-object v46, v6, v24
-
-    move-object/from16 v47, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v48, "Expandable List View"
-
-    aput-object v48, v6, v5
-
-    aput-object v46, v6, v24
-
-    move-object/from16 v46, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v48, "Layout"
-
-    aput-object v48, v6, v5
-
-    const-string v48, "布局"
-
-    aput-object v48, v6, v24
-
-    move-object/from16 v48, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v49, "RelativeLayout"
-
-    aput-object v49, v6, v5
-
-    const-string v49, "相对布局"
-
-    aput-object v49, v6, v24
-
-    move-object/from16 v49, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v50, "ScrollView"
-
-    aput-object v50, v6, v5
-
-    const-string v50, "滑动视图"
-
-    aput-object v50, v6, v24
-
-    move-object/from16 v51, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v52, "HorizontalScrollView"
-
-    aput-object v52, v6, v5
-
-    const-string v52, "横滑动视图"
-
-    aput-object v52, v6, v24
-
-    move-object/from16 v52, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v53, "Advanced Layout"
-
-    aput-object v53, v6, v5
-
-    const-string v53, "高级布局"
-
-    aput-object v53, v6, v24
-
-    move-object/from16 v53, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v54, "Button Bar"
-
-    aput-object v54, v6, v5
-
-    const-string v54, "按钮条"
-
-    aput-object v54, v6, v24
-
-    move-object/from16 v54, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v55, "GridLayout"
-
-    aput-object v55, v6, v5
-
-    const-string v55, "网格布局"
-
-    aput-object v55, v6, v24
-
-    move-object/from16 v55, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v56, "RadioGroup"
-
-    aput-object v56, v6, v5
-
-    const-string v56, "单选布局"
-
-    aput-object v56, v6, v24
-
-    move-object/from16 v56, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v57, "TableLayout"
-
-    aput-object v57, v6, v5
-
-    const-string v57, "表格布局"
-
-    aput-object v57, v6, v24
-
-    move-object/from16 v57, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v58, "TableRow"
-
-    aput-object v58, v6, v5
-
-    const-string v58, "表格行"
-
-    aput-object v58, v6, v24
-
-    move-object/from16 v58, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v59, "AbsoluteLayout"
-
-    aput-object v59, v6, v5
-
-    const-string v59, "绝对布局"
-
-    aput-object v59, v6, v24
-
-    move-object/from16 v59, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v60, "App Layout"
-
-    aput-object v60, v6, v5
-
-    const-string v60, "v4包控件"
-
-    aput-object v60, v6, v24
-
-    move-object/from16 v60, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v61, "Drawer Layout"
-
-    aput-object v61, v6, v5
-
-    const-string v61, "侧滑栏布局"
-
-    aput-object v61, v6, v24
-
-    move-object/from16 v61, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v62, "View Pager"
-
-    aput-object v62, v6, v5
-
-    aput-object v62, v6, v24
-
-    const/16 v5, 0x3c
-
-    new-array v5, v5, [[Ljava/lang/String;
-
-    move-object/from16 v63, v6
-
-    new-array v6, v2, [Ljava/lang/String;
-
-    const-string v64, "LinearLayout"
-
-    const/16 v62, 0x0
-
-    aput-object v64, v6, v62
-
-    const-string v64, "线性布局"
-
-    aput-object v64, v6, v24
-
-    aput-object v6, v5, v62
-
-    aput-object v1, v5, v24
-
-    new-array v1, v2, [Ljava/lang/String;
-
-    const-string v6, "ImageButton"
-
-    aput-object v6, v1, v62
-
-    const-string v6, "图片按钮"
-
-    aput-object v6, v1, v24
-
-    aput-object v1, v5, v2
-
-    const/4 v1, 0x3
-
-    aput-object v3, v5, v1
-
-    const/4 v1, 0x4
-
-    aput-object v13, v5, v1
-
-    const/4 v1, 0x5
-
-    aput-object v14, v5, v1
-
-    const/4 v1, 0x6
-
-    aput-object v15, v5, v1
-
-    const/4 v1, 0x7
-
-    aput-object v0, v5, v1
+    aput-object v1, v8, v0
 
     const/16 v0, 0x8
 
-    aput-object v12, v5, v0
+    aput-object v6, v8, v0
 
     const/16 v0, 0x9
 
-    aput-object v11, v5, v0
+    aput-object v7, v8, v0
 
-    const/16 v0, 0xa
+    sput-object v8, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET_MENU:[[Ljava/lang/String;
 
-    aput-object v10, v5, v0
+    .line 29
+    const/16 v0, 0x3c
 
-    const/16 v0, 0xb
+    new-array v0, v0, [[Ljava/lang/String;
 
-    aput-object v9, v5, v0
+    new-array v1, v13, [Ljava/lang/String;
 
-    const/16 v0, 0xc
+    const-string v2, "LinearLayout"
 
-    aput-object v7, v5, v0
+    aput-object v2, v1, v11
 
-    const/16 v0, 0xd
+    const-string v2, "\u7ebf\u6027\u5e03\u5c40"
 
-    aput-object v4, v5, v0
+    aput-object v2, v1, v12
 
-    const/16 v0, 0xe
+    aput-object v1, v0, v11
 
-    aput-object v8, v5, v0
+    new-array v1, v13, [Ljava/lang/String;
 
-    const/16 v0, 0xf
+    const-string v2, "ImageView"
 
-    aput-object v25, v5, v0
+    aput-object v2, v1, v11
 
-    new-array v0, v2, [Ljava/lang/String;
+    const-string v2, "\u56fe\u7247\u89c6\u56fe"
 
-    const-string v1, "Medium Text"
+    aput-object v2, v1, v12
 
-    const/4 v3, 0x0
+    aput-object v1, v0, v12
 
-    aput-object v1, v0, v3
+    new-array v1, v13, [Ljava/lang/String;
 
-    const-string v1, "中文本"
+    const-string v2, "ImageButton"
 
-    const/4 v4, 0x1
+    aput-object v2, v1, v11
 
-    aput-object v1, v0, v4
+    const-string v2, "\u56fe\u7247\u6309\u94ae"
+
+    aput-object v2, v1, v12
+
+    aput-object v1, v0, v13
+
+    new-array v1, v13, [Ljava/lang/String;
+
+    const-string v2, "Switch"
+
+    aput-object v2, v1, v11
+
+    const-string v2, "\u5f00\u5173"
+
+    aput-object v2, v1, v12
+
+    aput-object v1, v0, v14
+
+    new-array v1, v13, [Ljava/lang/String;
+
+    const-string v2, "ToggleButton"
+
+    aput-object v2, v1, v11
+
+    const-string v2, "\u5207\u6362\u6309\u94ae"
+
+    aput-object v2, v1, v12
+
+    aput-object v1, v0, v15
+
+    const/4 v1, 0x5
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "ProgressBar"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u8fdb\u5ea6\u6761"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x6
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "TextView"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u6587\u672c\u89c6\u56fe"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Widget"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u63a7\u4ef6"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x8
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Button"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u6309\u94ae"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x9
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Small Button"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u5c0f\u6309\u94ae"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xa
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Bar Button"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u6761\u5f62\u6309\u94ae"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "CheckBox"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u591a\u9009\u6309\u94ae"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "RadioButton"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u5355\u9009\u6309\u94ae"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xd
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "View"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u89c6\u56fe"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xe
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Text"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u6587\u672c"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xf
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Small Text"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u5c0f\u6587\u672c"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
 
     const/16 v1, 0x10
 
-    aput-object v0, v5, v1
+    new-array v2, v13, [Ljava/lang/String;
 
-    const/16 v0, 0x11
+    const-string v3, "Medium Text"
 
-    aput-object v26, v5, v0
+    aput-object v3, v2, v11
 
-    const/16 v0, 0x12
+    const-string v3, "\u4e2d\u6587\u672c"
 
-    aput-object v28, v5, v0
+    aput-object v3, v2, v12
 
-    new-array v0, v2, [Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    const-string v1, "EditText"
+    const/16 v1, 0x11
 
-    aput-object v1, v0, v3
+    new-array v2, v13, [Ljava/lang/String;
 
-    aput-object v27, v0, v4
+    const-string v3, "Large Text"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u5927\u6587\u672c"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x12
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Text Field"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u7f16\u8f91\u6846"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
 
     const/16 v1, 0x13
 
-    aput-object v0, v5, v1
+    new-array v2, v13, [Ljava/lang/String;
 
-    const/16 v0, 0x14
+    const-string v3, "EditText"
 
-    aput-object v29, v5, v0
+    aput-object v3, v2, v11
 
-    const/16 v0, 0x15
+    const-string v3, "\u7f16\u8f91\u6846"
 
-    aput-object v30, v5, v0
+    aput-object v3, v2, v12
 
-    const/16 v0, 0x16
+    aput-object v2, v0, v1
 
-    aput-object v31, v5, v0
+    const/16 v1, 0x14
 
-    const/16 v0, 0x17
+    new-array v2, v13, [Ljava/lang/String;
 
-    aput-object v32, v5, v0
+    const-string v3, "EditText (multiline)"
 
-    const/16 v0, 0x18
+    aput-object v3, v2, v11
 
-    aput-object v33, v5, v0
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u591a\u884c\uff09"
 
-    const/16 v0, 0x19
+    aput-object v3, v2, v12
 
-    aput-object v34, v5, v0
+    aput-object v2, v0, v1
 
-    const/16 v0, 0x1a
+    const/16 v1, 0x15
 
-    aput-object v35, v5, v0
+    new-array v2, v13, [Ljava/lang/String;
 
-    new-array v0, v2, [Ljava/lang/String;
+    const-string v3, "EditText (password)"
 
-    const-string v1, "EditText (time)"
+    aput-object v3, v2, v11
 
-    const/4 v3, 0x0
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u5bc6\u7801\uff09"
 
-    aput-object v1, v0, v3
+    aput-object v3, v2, v12
 
-    const-string v1, "编辑框（时间）"
+    aput-object v2, v0, v1
 
-    const/4 v4, 0x1
+    const/16 v1, 0x16
 
-    aput-object v1, v0, v4
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "EditText (number password)"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u6570\u5b57\u5bc6\u7801\uff09"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x17
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "EditText (email)"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u90ae\u7bb1\uff09"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x18
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "EditText (name)"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u540d\u5b57\uff09"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x19
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "EditText (phone)"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u7535\u8bdd\u53f7\u7801\uff09"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x1a
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "EditText (address)"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u5730\u5740\uff09"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
 
     const/16 v1, 0x1b
 
-    aput-object v0, v5, v1
+    new-array v2, v13, [Ljava/lang/String;
 
-    const/16 v0, 0x1c
+    const-string v3, "EditText (time)"
 
-    aput-object v36, v5, v0
+    aput-object v3, v2, v11
 
-    new-array v0, v2, [Ljava/lang/String;
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u65f6\u95f4\uff09"
 
-    const-string v1, "EditText (number)"
+    aput-object v3, v2, v12
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v1
 
-    const-string v1, "编辑框（数字）"
+    const/16 v1, 0x1c
 
-    aput-object v1, v0, v4
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "EditText (date)"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u65e5\u671f\uff09"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
 
     const/16 v1, 0x1d
 
-    aput-object v0, v5, v1
+    new-array v2, v13, [Ljava/lang/String;
 
-    const/16 v0, 0x1e
+    const-string v3, "EditText (number)"
 
-    aput-object v37, v5, v0
+    aput-object v3, v2, v11
 
-    const/16 v0, 0x1f
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u6570\u5b57\uff09"
 
-    aput-object v38, v5, v0
+    aput-object v3, v2, v12
 
-    const/16 v0, 0x20
+    aput-object v2, v0, v1
 
-    aput-object v39, v5, v0
+    const/16 v1, 0x1e
 
-    const/16 v0, 0x21
+    new-array v2, v13, [Ljava/lang/String;
 
-    aput-object v40, v5, v0
+    const-string v3, "EditText (signed number)"
 
-    const/16 v0, 0x22
+    aput-object v3, v2, v11
 
-    aput-object v41, v5, v0
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u6b63\u8d1f\u6570\uff09"
 
-    const/16 v0, 0x23
+    aput-object v3, v2, v12
 
-    aput-object v42, v5, v0
+    aput-object v2, v0, v1
 
-    const/16 v0, 0x24
+    const/16 v1, 0x1f
 
-    aput-object v43, v5, v0
+    new-array v2, v13, [Ljava/lang/String;
 
-    const/16 v0, 0x25
+    const-string v3, "EditText (decimal)"
 
-    aput-object v44, v5, v0
+    aput-object v3, v2, v11
 
-    const/16 v0, 0x26
+    const-string v3, "\u7f16\u8f91\u6846\uff08\u5c0f\u6570\uff09"
 
-    aput-object v45, v5, v0
+    aput-object v3, v2, v12
 
-    const/16 v0, 0x27
+    aput-object v2, v0, v1
 
-    aput-object v47, v5, v0
+    const/16 v1, 0x20
 
-    const/16 v0, 0x28
+    new-array v2, v13, [Ljava/lang/String;
 
-    aput-object v46, v5, v0
+    const-string v3, "Advanced Widget"
 
-    new-array v0, v2, [Ljava/lang/String;
+    aput-object v3, v2, v11
 
-    const-string v1, "Spinner"
+    const-string v3, "\u9ad8\u7ea7\u63a7\u4ef6"
 
-    const/4 v3, 0x0
+    aput-object v3, v2, v12
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v1
 
-    const-string v1, "下拉菜单"
+    const/16 v1, 0x21
 
-    const/4 v4, 0x1
+    new-array v2, v13, [Ljava/lang/String;
 
-    aput-object v1, v0, v4
+    const-string v3, "DatePicker"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u65e5\u671f\u9009\u62e9"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x22
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "TimePicker"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u65f6\u95f4\u9009\u62e9"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x23
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "NumberPicker"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u6570\u5b57\u9009\u62e9"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x24
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "RatingBar"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u8bc4\u5206\u63a7\u4ef6"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x25
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Adapter View"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u9002\u914d\u5668\u89c6\u56fe"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x26
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "List View"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u5217\u8868\u89c6\u56fe"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x27
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "ExpandableListView"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u53ef\u5c55\u5f00\u5217\u8868\u89c6\u56fe"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x28
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Expandable List View"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u53ef\u5c55\u5f00\u5217\u8868\u89c6\u56fe"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
 
     const/16 v1, 0x29
 
-    aput-object v0, v5, v1
+    new-array v2, v13, [Ljava/lang/String;
 
-    const/16 v0, 0x2a
+    const-string v3, "Spinner"
 
-    aput-object v48, v5, v0
+    aput-object v3, v2, v11
 
-    const/16 v0, 0x2b
+    const-string v3, "\u4e0b\u62c9\u83dc\u5355"
 
-    aput-object v49, v5, v0
+    aput-object v3, v2, v12
 
-    new-array v0, v2, [Ljava/lang/String;
+    aput-object v2, v0, v1
 
-    const-string v1, "LinearLayout (horizontal)"
+    const/16 v1, 0x2a
 
-    aput-object v1, v0, v3
+    new-array v2, v13, [Ljava/lang/String;
 
-    const-string v1, "线性布局 (横)"
+    const-string v3, "Layout"
 
-    aput-object v1, v0, v4
+    aput-object v3, v2, v11
+
+    const-string v3, "\u5e03\u5c40"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x2b
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "RelativeLayout"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u76f8\u5bf9\u5e03\u5c40"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
 
     const/16 v1, 0x2c
 
-    aput-object v0, v5, v1
+    new-array v2, v13, [Ljava/lang/String;
 
-    new-array v0, v2, [Ljava/lang/String;
+    const-string v3, "LinearLayout (horizontal)"
 
-    const-string v1, "LinearLayout (vertical)"
+    aput-object v3, v2, v11
 
-    aput-object v1, v0, v3
+    const-string v3, "\u7ebf\u6027\u5e03\u5c40 (\u6a2a)"
 
-    const-string v1, "线性布局 (竖)"
+    aput-object v3, v2, v12
 
-    aput-object v1, v0, v4
+    aput-object v2, v0, v1
 
     const/16 v1, 0x2d
 
-    aput-object v0, v5, v1
+    new-array v2, v13, [Ljava/lang/String;
 
-    new-array v0, v2, [Ljava/lang/String;
+    const-string v3, "LinearLayout (vertical)"
 
-    const-string v1, "Scroll View"
+    aput-object v3, v2, v11
 
-    aput-object v1, v0, v3
+    const-string v3, "\u7ebf\u6027\u5e03\u5c40 (\u7ad6)"
 
-    aput-object v50, v0, v4
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
 
     const/16 v1, 0x2e
 
-    aput-object v0, v5, v1
+    new-array v2, v13, [Ljava/lang/String;
 
-    const/16 v0, 0x2f
+    const-string v3, "Scroll View"
 
-    aput-object v51, v5, v0
+    aput-object v3, v2, v11
 
-    const/16 v0, 0x30
+    const-string v3, "\u6ed1\u52a8\u89c6\u56fe"
 
-    aput-object v52, v5, v0
+    aput-object v3, v2, v12
 
-    const/16 v0, 0x31
+    aput-object v2, v0, v1
 
-    aput-object v53, v5, v0
+    const/16 v1, 0x2f
 
-    const/16 v0, 0x32
+    new-array v2, v13, [Ljava/lang/String;
 
-    aput-object v54, v5, v0
+    const-string v3, "ScrollView"
 
-    const/16 v0, 0x33
+    aput-object v3, v2, v11
 
-    aput-object v55, v5, v0
+    const-string v3, "\u6ed1\u52a8\u89c6\u56fe"
 
-    new-array v0, v2, [Ljava/lang/String;
+    aput-object v3, v2, v12
 
-    const-string v1, "FrameLayout"
+    aput-object v2, v0, v1
 
-    const/4 v2, 0x0
+    const/16 v1, 0x30
 
-    aput-object v1, v0, v2
+    new-array v2, v13, [Ljava/lang/String;
 
-    const-string v1, "帧布局"
+    const-string v3, "HorizontalScrollView"
 
-    const/4 v2, 0x1
+    aput-object v3, v2, v11
 
-    aput-object v1, v0, v2
+    const-string v3, "\u6a2a\u6ed1\u52a8\u89c6\u56fe"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x31
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Advanced Layout"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u9ad8\u7ea7\u5e03\u5c40"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x32
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Button Bar"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u6309\u94ae\u6761"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x33
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "GridLayout"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u7f51\u683c\u5e03\u5c40"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
 
     const/16 v1, 0x34
 
-    aput-object v0, v5, v1
+    new-array v2, v13, [Ljava/lang/String;
 
-    const/16 v0, 0x35
+    const-string v3, "FrameLayout"
 
-    aput-object v56, v5, v0
+    aput-object v3, v2, v11
 
-    const/16 v0, 0x36
+    const-string v3, "\u5e27\u5e03\u5c40"
 
-    aput-object v57, v5, v0
+    aput-object v3, v2, v12
 
-    const/16 v0, 0x37
+    aput-object v2, v0, v1
 
-    aput-object v58, v5, v0
+    const/16 v1, 0x35
 
-    const/16 v0, 0x38
+    new-array v2, v13, [Ljava/lang/String;
 
-    aput-object v59, v5, v0
+    const-string v3, "RadioGroup"
 
-    const/16 v0, 0x39
+    aput-object v3, v2, v11
 
-    aput-object v60, v5, v0
+    const-string v3, "\u5355\u9009\u5e03\u5c40"
 
-    const/16 v0, 0x3a
+    aput-object v3, v2, v12
 
-    aput-object v61, v5, v0
+    aput-object v2, v0, v1
 
-    const/16 v0, 0x3b
+    const/16 v1, 0x36
 
-    aput-object v63, v5, v0
+    new-array v2, v13, [Ljava/lang/String;
 
-    sput-object v5, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET:[[Ljava/lang/String;
+    const-string v3, "TableLayout"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u8868\u683c\u5e03\u5c40"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x37
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "TableRow"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u8868\u683c\u884c"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x38
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "AbsoluteLayout"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u7edd\u5bf9\u5e03\u5c40"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x39
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "App Layout"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "v4\u5305\u63a7\u4ef6"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x3a
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "Drawer Layout"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "\u4fa7\u6ed1\u680f\u5e03\u5c40"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x3b
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string v3, "View Pager"
+
+    aput-object v3, v2, v11
+
+    const-string v3, "View Pager"
+
+    aput-object v3, v2, v12
+
+    aput-object v2, v0, v1
+
+    sput-object v0, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET:[[Ljava/lang/String;
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -1094,247 +1010,253 @@
 .end method
 
 .method private static getWidgetTranslationText(Ljava/lang/String;)Ljava/lang/CharSequence;
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v1, 0x0
 
     .line 190
     invoke-static {}, Lcom/s1243808733/aide/uidesign/TextTranslation;->isEnable()Z
 
     move-result v0
 
-    const/4 v1, 0x1
+    if-eqz v0, :cond_1
 
-    const/4 v2, 0x0
-
-    if-eqz v0, :cond_20
-
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 191
-    :goto_9
-    sget-object v3, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET:[[Ljava/lang/String;
+    :goto_0
+    sget-object v2, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET:[[Ljava/lang/String;
 
-    array-length v4, v3
+    array-length v3, v2
 
-    if-ge v0, v4, :cond_38
+    if-ge v0, v3, :cond_3
 
     .line 192
-    aget-object v4, v3, v0
+    aget-object v3, v2, v0
 
-    aget-object v4, v4, v2
+    aget-object v3, v3, v1
 
-    invoke-virtual {v4, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1d
+    if-eqz v3, :cond_0
 
     .line 193
-    aget-object p0, v3, v0
+    aget-object v0, v2, v0
 
-    aget-object p0, p0, v1
-
-    return-object p0
-
-    :cond_1d
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_9
-
-    :cond_20
-    const/4 v0, 0x0
-
-    .line 197
-    :goto_21
-    sget-object v3, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET:[[Ljava/lang/String;
-
-    array-length v4, v3
-
-    if-ge v0, v4, :cond_38
-
-    .line 198
-    aget-object v4, v3, v0
-
-    aget-object v4, v4, v1
-
-    invoke-virtual {v4, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_35
+    aget-object v0, v0, v4
 
     .line 199
-    aget-object p0, v3, v0
+    :goto_1
+    return-object v0
 
-    aget-object p0, p0, v2
-
-    return-object p0
-
-    :cond_35
+    .line 193
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_21
+    goto :goto_0
 
-    :cond_38
-    const/4 p0, 0x0
+    :cond_1
+    move v0, v1
 
-    return-object p0
+    .line 197
+    :goto_2
+    sget-object v2, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET:[[Ljava/lang/String;
+
+    array-length v3, v2
+
+    if-ge v0, v3, :cond_3
+
+    .line 198
+    aget-object v3, v2, v0
+
+    aget-object v3, v3, v4
+
+    invoke-virtual {v3, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 199
+    aget-object v0, v2, v0
+
+    aget-object v0, v0, v1
+
+    goto :goto_1
+
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 .method private static getWidgetmenuTranslationText(Ljava/lang/String;)Ljava/lang/CharSequence;
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v1, 0x0
 
     .line 126
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
     move-result v0
 
-    const/4 v1, 0x1
+    if-eqz v0, :cond_1
 
-    const/4 v2, 0x0
-
-    if-eqz v0, :cond_20
-
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 127
-    :goto_9
-    sget-object v3, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET_MENU:[[Ljava/lang/String;
+    :goto_0
+    sget-object v2, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET_MENU:[[Ljava/lang/String;
 
-    array-length v4, v3
+    array-length v3, v2
 
-    if-ge v0, v4, :cond_38
+    if-ge v0, v3, :cond_3
 
     .line 128
-    aget-object v4, v3, v0
+    aget-object v3, v2, v0
 
-    aget-object v4, v4, v2
+    aget-object v3, v3, v1
 
-    invoke-virtual {v4, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1d
+    if-eqz v3, :cond_0
 
     .line 129
-    aget-object p0, v3, v0
+    aget-object v0, v2, v0
 
-    aget-object p0, p0, v1
-
-    return-object p0
-
-    :cond_1d
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_9
-
-    :cond_20
-    const/4 v0, 0x0
-
-    .line 133
-    :goto_21
-    sget-object v3, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET_MENU:[[Ljava/lang/String;
-
-    array-length v4, v3
-
-    if-ge v0, v4, :cond_38
-
-    .line 134
-    aget-object v4, v3, v0
-
-    aget-object v4, v4, v1
-
-    invoke-virtual {v4, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_35
+    aget-object v0, v0, v4
 
     .line 135
-    aget-object p0, v3, v0
+    :goto_1
+    return-object v0
 
-    aget-object p0, p0, v2
-
-    return-object p0
-
-    :cond_35
+    .line 129
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_21
+    goto :goto_0
 
-    :cond_38
-    const/4 p0, 0x0
+    :cond_1
+    move v0, v1
 
-    return-object p0
+    .line 133
+    :goto_2
+    sget-object v2, Lcom/s1243808733/aide/uidesign/TextTranslation;->TRANSLATIONS_WIDGET_MENU:[[Ljava/lang/String;
+
+    array-length v3, v2
+
+    if-ge v0, v3, :cond_3
+
+    .line 134
+    aget-object v3, v2, v0
+
+    aget-object v3, v3, v4
+
+    invoke-virtual {v3, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 135
+    aget-object v0, v2, v0
+
+    aget-object v0, v0, v1
+
+    goto :goto_1
+
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 .method private static isEnable()Z
-    .registers 3
+    .locals 3
+
+    const/4 v0, 0x0
 
     .line 154
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_14
+    if-eqz v1, :cond_0
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object v1
 
     const-string v2, "uidesign_language_chinese"
 
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_14
+    if-eqz v1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_14
-    return v1
+    :cond_0
+    return v0
 .end method
 
 .method public static translationDesignerViewlistEntryName(Landroid/view/View;)V
-    .registers 2
+    .locals 2
 
     .line 143
     const v0, 0x7f08004e
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    if-eqz p0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 145
-    invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/s1243808733/aide/uidesign/TextTranslation;->getWidgetTranslationText(Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-static {v1}, Lcom/s1243808733/aide/uidesign/TextTranslation;->getWidgetTranslationText(Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_1c
+    if-eqz v1, :cond_0
 
     .line 147
-    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
 .method public static translationWidget(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 160
     const v0, 0x7f0801aa
@@ -1345,7 +1267,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    if-nez v0, :cond_39
+    if-nez v0, :cond_0
 
     .line 162
     const v0, 0x7f0801ac
@@ -1363,118 +1285,119 @@
 
     const/16 v2, 0x8
 
-    if-ne v1, v2, :cond_39
+    if-ne v1, v2, :cond_0
 
     .line 165
     const v0, 0x7f0801ad
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/view/ViewGroup;
+    check-cast v0, Landroid/view/ViewGroup;
 
     .line 166
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getVisibility()I
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getVisibility()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_38
+    if-nez v1, :cond_2
 
     .line 167
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 168
-    instance-of v0, p0, Landroid/widget/TextView;
+    instance-of v1, v0, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_38
+    if-eqz v1, :cond_2
 
     .line 169
-    move-object v0, p0
-
     check-cast v0, Landroid/widget/TextView;
 
-    goto :goto_39
+    :cond_0
+    :goto_0
+    if-nez v0, :cond_3
 
-    :cond_38
+    .line 180
+    :cond_1
+    :goto_1
+    return-void
+
+    .line 169
+    :cond_2
     const/4 v0, 0x0
 
-    :cond_39
-    :goto_39
-    if-nez v0, :cond_3c
-
-    return-void
+    goto :goto_0
 
     .line 176
-    :cond_3c
+    :cond_3
     invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object p0
+    move-result-object v1
 
     .line 178
-    invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-static {p0}, Lcom/s1243808733/aide/uidesign/TextTranslation;->getWidgetTranslationText(Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-static {v1}, Lcom/s1243808733/aide/uidesign/TextTranslation;->getWidgetTranslationText(Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    move-result-object p0
+    move-result-object v1
 
-    if-eqz p0, :cond_56
+    if-eqz v1, :cond_1
 
     .line 180
-    new-instance v1, Landroid/text/SpannableStringBuilder;
+    new-instance v2, Landroid/text/SpannableStringBuilder;
 
-    invoke-direct {v1}, Landroid/text/SpannableStringBuilder;-><init>()V
+    invoke-direct {v2}, Landroid/text/SpannableStringBuilder;-><init>()V
 
     .line 183
-    invoke-virtual {v1, p0}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+    invoke-virtual {v2, v1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
 
-    move-result-object p0
+    move-result-object v1
 
     .line 180
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_56
-    return-void
+    goto :goto_1
 .end method
 
 .method public static translationWidgetmenuEntryName(Landroid/view/View;)V
-    .registers 2
+    .locals 2
 
     .line 116
     const v0, 0x7f0801af
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    if-eqz p0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 118
-    invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lcom/s1243808733/aide/uidesign/TextTranslation;->getWidgetmenuTranslationText(Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-static {v1}, Lcom/s1243808733/aide/uidesign/TextTranslation;->getWidgetmenuTranslationText(Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_1c
+    if-eqz v1, :cond_0
 
     .line 120
-    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_1c
+    :cond_0
     return-void
 .end method

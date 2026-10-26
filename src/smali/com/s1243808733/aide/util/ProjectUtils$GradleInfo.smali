@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .registers 3
+    .locals 2
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,13 +32,13 @@
 
     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {v0, p1}, Labcd/AbcdAccess$_CC;->Be_j6(Labcd/Be;Ljava/lang/String;)Labcd/Be;
+    invoke-static {v0, v1}, Labcd/AbcdAccess$_CC;->Be_j6(Labcd/Be;Ljava/lang/String;)Labcd/Be;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/aide/util/ProjectUtils$GradleInfo;->be:Labcd/Be;
+    iput-object v0, p0, Lcom/s1243808733/aide/util/ProjectUtils$GradleInfo;->be:Labcd/Be;
 
     return-void
 .end method
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getMinSdkVersion(I)I
-    .registers 4
+    .locals 2
 
     .line 56
     :try_start_0
@@ -59,22 +59,22 @@
     move-result-object v0
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result p1
-    :try_end_b
-    .catchall {:try_start_0 .. :try_end_b} :catchall_c
 
-    goto :goto_d
+    :goto_0
+    return p1
 
-    :catchall_c
+    :catchall_0
     move-exception v0
 
-    :goto_d
-    return p1
+    goto :goto_0
 .end method
 
 .method public getTargetSdkVersion(I)I
-    .registers 4
+    .locals 2
 
     .line 64
     :try_start_0
@@ -87,16 +87,16 @@
     move-result-object v0
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result p1
-    :try_end_b
-    .catchall {:try_start_0 .. :try_end_b} :catchall_c
 
-    goto :goto_d
+    :goto_0
+    return p1
 
-    :catchall_c
+    :catchall_0
     move-exception v0
 
-    :goto_d
-    return p1
+    goto :goto_0
 .end method

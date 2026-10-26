@@ -11,7 +11,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/HashSet<",
+            "Ljava/util/HashSet",
+            "<",
             "Lcom/s1243808733/android/dx/rop/type/Type;",
             ">;"
         }

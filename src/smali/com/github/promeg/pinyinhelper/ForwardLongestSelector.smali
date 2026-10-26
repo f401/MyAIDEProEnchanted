@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 20
     new-instance v0, Lcom/github/promeg/pinyinhelper/Engine$EmitComparator;
@@ -25,7 +25,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,90 +36,100 @@
 
 # virtual methods
 .method public select(Ljava/util/Collection;)Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/ahocorasick/trie/Emit;",
             ">;)",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/ahocorasick/trie/Emit;",
             ">;"
         }
     .end annotation
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
-    const/4 p1, 0x0
-
-    return-object p1
-
-    .line 28
-    :cond_4
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    .line 30
-    sget-object p1, Lcom/github/promeg/pinyinhelper/ForwardLongestSelector;->HIT_COMPARATOR:Lcom/github/promeg/pinyinhelper/Engine$EmitComparator;
-
-    invoke-static {v0, p1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    .line 34
-    new-instance p1, Ljava/util/TreeSet;
-
-    invoke-direct {p1}, Ljava/util/TreeSet;-><init>()V
-
-    .line 36
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    const/4 v2, -0x1
-
-    :goto_18
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_39
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lorg/ahocorasick/trie/Emit;
-
-    .line 37
-    invoke-virtual {v3}, Lorg/ahocorasick/trie/Emit;->getStart()I
-
-    move-result v4
-
-    if-le v4, v2, :cond_35
-
-    invoke-virtual {v3}, Lorg/ahocorasick/trie/Emit;->getEnd()I
-
-    move-result v4
-
-    if-le v4, v2, :cond_35
-
-    .line 38
-    invoke-virtual {v3}, Lorg/ahocorasick/trie/Emit;->getEnd()I
-
-    move-result v2
-
-    goto :goto_18
-
-    .line 40
-    :cond_35
-    invoke-interface {p1, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    goto :goto_18
+    const/4 v0, 0x0
 
     .line 44
-    :cond_39
-    invoke-interface {v0, p1}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
-
+    :goto_0
     return-object v0
+
+    .line 28
+    :cond_0
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    .line 30
+    sget-object v0, Lcom/github/promeg/pinyinhelper/ForwardLongestSelector;->HIT_COMPARATOR:Lcom/github/promeg/pinyinhelper/Engine$EmitComparator;
+
+    invoke-static {v2, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    .line 34
+    new-instance v3, Ljava/util/TreeSet;
+
+    invoke-direct {v3}, Ljava/util/TreeSet;-><init>()V
+
+    .line 36
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    const/4 v0, -0x1
+
+    move v1, v0
+
+    :goto_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/ahocorasick/trie/Emit;
+
+    .line 37
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/Emit;->getStart()I
+
+    move-result v5
+
+    if-le v5, v1, :cond_1
+
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/Emit;->getEnd()I
+
+    move-result v5
+
+    if-le v5, v1, :cond_1
+
+    .line 38
+    invoke-virtual {v0}, Lorg/ahocorasick/trie/Emit;->getEnd()I
+
+    move-result v0
+
+    move v1, v0
+
+    goto :goto_1
+
+    .line 40
+    :cond_1
+    invoke-interface {v3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    .line 44
+    :cond_2
+    invoke-interface {v2, v3}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
+
+    move-object v0, v2
+
+    goto :goto_0
 .end method

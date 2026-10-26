@@ -26,15 +26,15 @@
 
 # direct methods
 .method public constructor <init>(Lcom/baidu/mobstat/as;I)V
-    .registers 5
+    .locals 2
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const/4 v1, 0x0
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/baidu/mobstat/av;->a:[B
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v1, 0x0
+    iput-object v0, p0, Lcom/baidu/mobstat/av;->a:[B
 
     iput v1, p0, Lcom/baidu/mobstat/av;->d:I
 
@@ -56,289 +56,426 @@
 
     iput p2, p0, Lcom/baidu/mobstat/av;->f:I
 
-    mul-int/lit8 p2, p2, 0x2
+    mul-int/lit8 v0, p2, 0x2
 
-    new-array p2, p2, [B
+    new-array v0, v0, [B
 
-    iput-object p2, p0, Lcom/baidu/mobstat/av;->a:[B
+    iput-object v0, p0, Lcom/baidu/mobstat/av;->a:[B
 
-    new-instance p2, Lcom/baidu/mobstat/au;
+    new-instance v0, Lcom/baidu/mobstat/au;
 
-    invoke-direct {p2, p1}, Lcom/baidu/mobstat/au;-><init>(Lcom/baidu/mobstat/as;)V
+    invoke-direct {v0, p1}, Lcom/baidu/mobstat/au;-><init>(Lcom/baidu/mobstat/as;)V
 
-    iput-object p2, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
+    iput-object v0, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
 
-    new-instance p1, Lcom/baidu/mobstat/ay;
+    new-instance v0, Lcom/baidu/mobstat/ay;
 
-    iget p2, p0, Lcom/baidu/mobstat/av;->b:I
+    iget v1, p0, Lcom/baidu/mobstat/av;->b:I
 
-    invoke-direct {p1, p2}, Lcom/baidu/mobstat/ay;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/baidu/mobstat/ay;-><init>(I)V
 
-    iput-object p1, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+    iput-object v0, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
 
     return-void
 .end method
 
 .method private a([BI[BII)I
-    .registers 14
+    .locals 6
 
-    if-eqz p1, :cond_69
+    if-eqz p1, :cond_0
 
-    if-nez p5, :cond_6
+    if-nez p5, :cond_1
 
-    goto/16 :goto_69
+    :cond_0
+    const/4 p5, 0x0
 
-    :cond_6
+    :goto_0
+    return p5
+
+    :cond_1
     iget v0, p0, Lcom/baidu/mobstat/av;->i:I
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_4f
+    if-eq v0, v1, :cond_3
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_4f
+    if-eq v0, v1, :cond_3
 
     iget v1, p0, Lcom/baidu/mobstat/av;->c:I
 
     rem-int v1, p5, v1
 
-    if-eqz v1, :cond_4f
+    if-eqz v1, :cond_3
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_4f
+    if-eq v0, v1, :cond_3
 
-    iget-object p1, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+    iget-object v0, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
 
-    const-string p2, " bytes"
+    if-eqz v0, :cond_2
 
-    if-eqz p1, :cond_36
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string v1, "Input length (with padding) not multiple of "
 
-    const-string p3, "Input length (with padding) not multiple of "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {p1, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    iget v1, p0, Lcom/baidu/mobstat/av;->c:I
 
-    iget p3, p0, Lcom/baidu/mobstat/av;->c:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, " bytes"
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p2, Ljavax/crypto/IllegalBlockSizeException;
+    new-instance v1, Ljavax/crypto/IllegalBlockSizeException;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p2, p1}, Ljavax/crypto/IllegalBlockSizeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljavax/crypto/IllegalBlockSizeException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v1
 
-    :cond_36
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_2
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string p3, "Input length not multiple of "
+    const-string v1, "Input length not multiple of "
 
-    invoke-direct {p1, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget p3, p0, Lcom/baidu/mobstat/av;->c:I
+    iget v1, p0, Lcom/baidu/mobstat/av;->c:I
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " bytes"
 
-    new-instance p2, Ljavax/crypto/IllegalBlockSizeException;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v1, Ljavax/crypto/IllegalBlockSizeException;
 
-    move-result-object p1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {p2, p1}, Ljavax/crypto/IllegalBlockSizeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw p2
+    invoke-direct {v1, v0}, Ljavax/crypto/IllegalBlockSizeException;-><init>(Ljava/lang/String;)V
 
-    :cond_4f
+    throw v1
+
+    :cond_3
     iget-boolean v0, p0, Lcom/baidu/mobstat/av;->j:Z
 
-    if-eqz v0, :cond_5e
+    if-eqz v0, :cond_4
 
-    iget-object v1, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
+    iget-object v0, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
 
-    move-object v2, p1
+    move-object v1, p1
 
-    move v3, p2
+    move v2, p2
 
-    move v4, p5
+    move v3, p5
 
-    move-object v5, p3
+    move-object v4, p3
 
-    move v6, p4
+    move v5, p4
 
-    invoke-virtual/range {v1 .. v6}, Lcom/baidu/mobstat/aw;->d([BII[BI)V
+    invoke-virtual/range {v0 .. v5}, Lcom/baidu/mobstat/aw;->d([BII[BI)V
 
-    goto :goto_68
+    goto :goto_0
 
-    :cond_5e
-    iget-object v2, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
+    :cond_4
+    iget-object v0, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
 
-    move-object v3, p1
+    move-object v1, p1
 
-    move v4, p2
+    move v2, p2
 
-    move v5, p5
+    move v3, p5
 
-    move-object v6, p3
+    move-object v4, p3
 
-    move v7, p4
+    move v5, p4
 
-    invoke-virtual/range {v2 .. v7}, Lcom/baidu/mobstat/aw;->c([BII[BI)V
+    invoke-virtual/range {v0 .. v5}, Lcom/baidu/mobstat/aw;->c([BII[BI)V
 
-    :goto_68
-    return p5
-
-    :cond_69
-    :goto_69
-    const/4 p1, 0x0
-
-    return p1
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method a(I)I
-    .registers 5
+    .locals 4
 
     iget v0, p0, Lcom/baidu/mobstat/av;->d:I
 
     add-int/2addr v0, p1
 
-    iget-object p1, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+    iget-object v1, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
 
-    if-nez p1, :cond_8
+    if-nez v1, :cond_1
 
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_8
-    iget-boolean v1, p0, Lcom/baidu/mobstat/av;->j:Z
+    :cond_1
+    iget-boolean v2, p0, Lcom/baidu/mobstat/av;->j:Z
 
-    if-eqz v1, :cond_d
+    if-nez v2, :cond_0
 
-    return v0
+    iget v2, p0, Lcom/baidu/mobstat/av;->c:I
 
-    :cond_d
-    iget v1, p0, Lcom/baidu/mobstat/av;->c:I
+    iget v3, p0, Lcom/baidu/mobstat/av;->b:I
 
-    iget v2, p0, Lcom/baidu/mobstat/av;->b:I
+    if-eq v2, v3, :cond_3
 
-    if-eq v1, v2, :cond_1e
+    iget v1, p0, Lcom/baidu/mobstat/av;->f:I
 
-    iget p1, p0, Lcom/baidu/mobstat/av;->f:I
+    if-ge v0, v1, :cond_2
 
-    if-ge v0, p1, :cond_18
+    move v0, v1
 
-    return p1
+    goto :goto_0
 
-    :cond_18
-    add-int v1, v0, v2
+    :cond_2
+    add-int v2, v0, v3
 
-    sub-int/2addr v0, p1
+    sub-int/2addr v0, v1
 
-    rem-int/2addr v0, v2
+    rem-int/2addr v0, v3
 
-    sub-int/2addr v1, v0
+    sub-int v0, v2, v0
 
-    return v1
+    goto :goto_0
 
-    :cond_1e
-    invoke-interface {p1, v0}, Lcom/baidu/mobstat/az;->a(I)I
-
-    move-result p1
-
-    add-int/2addr v0, p1
-
-    return v0
-.end method
-
-.method a([BII[BI)I
-    .registers 21
-
-    move-object v6, p0
-
-    move/from16 v0, p3
-
-    move-object/from16 v7, p4
-
-    iget v1, v6, Lcom/baidu/mobstat/av;->d:I
-
-    add-int v5, v1, v0
-
-    iget v1, v6, Lcom/baidu/mobstat/av;->c:I
-
-    iget v2, v6, Lcom/baidu/mobstat/av;->b:I
-
-    const/4 v8, 0x0
-
-    if-eq v1, v2, :cond_1c
-
-    iget v1, v6, Lcom/baidu/mobstat/av;->f:I
-
-    if-ge v5, v1, :cond_16
-
-    sub-int/2addr v1, v5
-
-    goto :goto_26
-
-    :cond_16
-    sub-int v1, v5, v1
-
-    rem-int/2addr v1, v2
-
-    sub-int v1, v2, v1
-
-    goto :goto_26
-
-    :cond_1c
-    iget-object v1, v6, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
-
-    if-eqz v1, :cond_25
-
-    invoke-interface {v1, v5}, Lcom/baidu/mobstat/az;->a(I)I
+    :cond_3
+    invoke-interface {v1, v0}, Lcom/baidu/mobstat/az;->a(I)I
 
     move-result v1
 
-    goto :goto_26
+    add-int/2addr v0, v1
 
-    :cond_25
+    goto :goto_0
+.end method
+
+.method a([BII[BI)I
+    .locals 9
+
+    iget v0, p0, Lcom/baidu/mobstat/av;->d:I
+
+    add-int v5, v0, p3
+
+    iget v0, p0, Lcom/baidu/mobstat/av;->c:I
+
+    iget v1, p0, Lcom/baidu/mobstat/av;->b:I
+
+    if-eq v0, v1, :cond_b
+
+    iget v0, p0, Lcom/baidu/mobstat/av;->f:I
+
+    if-ge v5, v0, :cond_a
+
+    sub-int/2addr v0, v5
+
+    move v2, v0
+
+    :goto_0
+    if-lez v2, :cond_0
+
+    iget v0, p0, Lcom/baidu/mobstat/av;->b:I
+
+    if-eq v2, v0, :cond_0
+
+    iget-object v0, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/baidu/mobstat/av;->j:Z
+
+    if-nez v0, :cond_d
+
+    :cond_0
+    iget-boolean v1, p0, Lcom/baidu/mobstat/av;->j:Z
+
+    if-nez v1, :cond_e
+
+    iget-object v0, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+
+    if-eqz v0, :cond_e
+
+    add-int v0, v5, v2
+
+    move v6, v0
+
+    :goto_1
+    if-eqz p4, :cond_16
+
+    array-length v0, p4
+
+    sub-int/2addr v0, p5
+
+    if-eqz v1, :cond_1
+
+    iget-object v3, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+
+    if-nez v3, :cond_2
+
+    :cond_1
+    if-lt v0, v6, :cond_15
+
+    :cond_2
+    if-eqz v1, :cond_3
+
+    iget v3, p0, Lcom/baidu/mobstat/av;->b:I
+
+    sub-int v3, v6, v3
+
+    if-lt v0, v3, :cond_15
+
+    :cond_3
+    iget v3, p0, Lcom/baidu/mobstat/av;->d:I
+
+    if-nez v3, :cond_4
+
+    if-nez v1, :cond_f
+
+    iget-object v1, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+
+    if-eqz v1, :cond_f
+
+    :cond_4
+    new-array v1, v6, [B
+
+    if-eqz v3, :cond_5
+
+    iget-object v4, p0, Lcom/baidu/mobstat/av;->a:[B
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-static {v4, v7, v1, v8, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    :cond_5
+    if-eqz p3, :cond_6
+
+    iget v3, p0, Lcom/baidu/mobstat/av;->d:I
+
+    invoke-static {p1, p2, v1, v3, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    :cond_6
+    iget-boolean v3, p0, Lcom/baidu/mobstat/av;->j:Z
+
+    if-nez v3, :cond_7
+
+    iget-object v3, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+
+    if-eqz v3, :cond_7
+
+    invoke-interface {v3, v1, v5, v2}, Lcom/baidu/mobstat/az;->a([BII)V
+
+    :cond_7
+    const/4 v2, 0x0
+
+    :goto_2
+    iget-boolean v3, p0, Lcom/baidu/mobstat/av;->j:Z
+
+    if-eqz v3, :cond_12
+
+    if-ge v0, v6, :cond_8
+
+    iget-object v0, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
+
+    invoke-virtual {v0}, Lcom/baidu/mobstat/aw;->b()V
+
+    :cond_8
+    new-array v3, v5, [B
+
+    const/4 v4, 0x0
+
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v5}, Lcom/baidu/mobstat/av;->a([BI[BII)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+
+    if-eqz v1, :cond_9
+
+    const/4 v2, 0x0
+
+    invoke-interface {v1, v3, v2, v0}, Lcom/baidu/mobstat/az;->b([BII)I
+
+    move-result v0
+
+    if-ltz v0, :cond_10
+
+    :cond_9
+    array-length v1, p4
+
+    sub-int/2addr v1, p5
+
+    if-lt v1, v0, :cond_11
+
     const/4 v1, 0x0
 
-    :goto_26
-    if-lez v1, :cond_50
+    :goto_3
+    if-ge v1, v0, :cond_13
 
-    iget v2, v6, Lcom/baidu/mobstat/av;->b:I
+    add-int v2, p5, v1
 
-    if-eq v1, v2, :cond_50
+    aget-byte v4, v3, v1
 
-    iget-object v2, v6, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+    aput-byte v4, p4, v2
 
-    if-eqz v2, :cond_50
+    add-int/lit8 v1, v1, 0x1
 
-    iget-boolean v2, v6, Lcom/baidu/mobstat/av;->j:Z
+    goto :goto_3
 
-    if-nez v2, :cond_35
+    :cond_a
+    sub-int v0, v5, v0
 
-    goto :goto_50
+    rem-int/2addr v0, v1
 
-    :cond_35
+    sub-int v0, v1, v0
+
+    move v2, v0
+
+    goto/16 :goto_0
+
+    :cond_b
+    iget-object v0, p0, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+
+    if-eqz v0, :cond_c
+
+    invoke-interface {v0, v5}, Lcom/baidu/mobstat/az;->a(I)I
+
+    move-result v0
+
+    move v2, v0
+
+    goto/16 :goto_0
+
+    :cond_c
+    const/4 v0, 0x0
+
+    move v2, v0
+
+    goto/16 :goto_0
+
+    :cond_d
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "Input length must be multiple of "
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v1, v6, Lcom/baidu/mobstat/av;->b:I
+    iget v1, p0, Lcom/baidu/mobstat/av;->b:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -356,150 +493,19 @@
 
     throw v1
 
-    :cond_50
-    :goto_50
-    iget-boolean v2, v6, Lcom/baidu/mobstat/av;->j:Z
+    :cond_e
+    move v6, v5
 
-    if-nez v2, :cond_5c
+    goto/16 :goto_1
 
-    iget-object v3, v6, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
+    :cond_f
+    move v2, p2
 
-    if-eqz v3, :cond_5c
+    move-object v1, p1
 
-    add-int v3, v5, v1
+    goto :goto_2
 
-    move v9, v3
-
-    goto :goto_5d
-
-    :cond_5c
-    move v9, v5
-
-    :goto_5d
-    if-eqz v7, :cond_139
-
-    array-length v3, v7
-
-    sub-int v3, v3, p5
-
-    const-string v10, " bytes needed"
-
-    const-string v11, " bytes given, "
-
-    const-string v12, "Output buffer too short: "
-
-    if-eqz v2, :cond_6e
-
-    iget-object v4, v6, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
-
-    if-nez v4, :cond_70
-
-    :cond_6e
-    if-lt v3, v9, :cond_11e
-
-    :cond_70
-    if-eqz v2, :cond_78
-
-    iget v4, v6, Lcom/baidu/mobstat/av;->b:I
-
-    sub-int v4, v9, v4
-
-    if-lt v3, v4, :cond_11e
-
-    :cond_78
-    iget v4, v6, Lcom/baidu/mobstat/av;->d:I
-
-    if-nez v4, :cond_88
-
-    if-nez v2, :cond_83
-
-    iget-object v2, v6, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
-
-    if-eqz v2, :cond_83
-
-    goto :goto_88
-
-    :cond_83
-    move-object/from16 v1, p1
-
-    move/from16 v2, p2
-
-    goto :goto_a9
-
-    :cond_88
-    :goto_88
-    new-array v2, v9, [B
-
-    if-eqz v4, :cond_91
-
-    iget-object v13, v6, Lcom/baidu/mobstat/av;->a:[B
-
-    invoke-static {v13, v8, v2, v8, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    :cond_91
-    if-eqz v0, :cond_9c
-
-    iget v4, v6, Lcom/baidu/mobstat/av;->d:I
-
-    move-object/from16 v13, p1
-
-    move/from16 v14, p2
-
-    invoke-static {v13, v14, v2, v4, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    :cond_9c
-    iget-boolean v0, v6, Lcom/baidu/mobstat/av;->j:Z
-
-    if-nez v0, :cond_a7
-
-    iget-object v0, v6, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
-
-    if-eqz v0, :cond_a7
-
-    invoke-interface {v0, v2, v5, v1}, Lcom/baidu/mobstat/az;->a([BII)V
-
-    :cond_a7
-    move-object v1, v2
-
-    const/4 v2, 0x0
-
-    :goto_a9
-    iget-boolean v0, v6, Lcom/baidu/mobstat/av;->j:Z
-
-    if-eqz v0, :cond_104
-
-    if-ge v3, v9, :cond_b4
-
-    iget-object v0, v6, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
-
-    invoke-virtual {v0}, Lcom/baidu/mobstat/aw;->b()V
-
-    :cond_b4
-    new-array v9, v5, [B
-
-    const/4 v4, 0x0
-
-    move-object v0, p0
-
-    move-object v3, v9
-
-    invoke-direct/range {v0 .. v5}, Lcom/baidu/mobstat/av;->a([BI[BII)I
-
-    move-result v0
-
-    iget-object v1, v6, Lcom/baidu/mobstat/av;->g:Lcom/baidu/mobstat/az;
-
-    if-eqz v1, :cond_d0
-
-    invoke-interface {v1, v9, v8, v0}, Lcom/baidu/mobstat/az;->b([BII)I
-
-    move-result v0
-
-    if-ltz v0, :cond_c8
-
-    goto :goto_d0
-
-    :cond_c8
+    :cond_10
     new-instance v0, Ljavax/crypto/BadPaddingException;
 
     const-string v1, "Given final block not properly padded"
@@ -508,49 +514,32 @@
 
     throw v0
 
-    :cond_d0
-    :goto_d0
-    array-length v1, v7
-
-    sub-int v1, v1, p5
-
-    if-lt v1, v0, :cond_e1
-
-    const/4 v1, 0x0
-
-    :goto_d6
-    if-ge v1, v0, :cond_10e
-
-    add-int v2, p5, v1
-
-    aget-byte v3, v9, v1
-
-    aput-byte v3, v7, v2
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_d6
-
-    :cond_e1
-    iget-object v1, v6, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
+    :cond_11
+    iget-object v1, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
 
     invoke-virtual {v1}, Lcom/baidu/mobstat/aw;->c()V
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v12}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v2, "Output buffer too short: "
 
-    array-length v2, v7
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    sub-int v2, v2, p5
+    array-length v2, p4
+
+    sub-int/2addr v2, p5
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " bytes given, "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " bytes needed"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     new-instance v0, Ljavax/crypto/ShortBufferException;
 
@@ -562,215 +551,222 @@
 
     throw v0
 
-    :cond_104
+    :cond_12
     move-object v0, p0
 
-    move-object/from16 v3, p4
+    move-object v3, p4
 
-    move/from16 v4, p5
+    move v4, p5
 
-    move v5, v9
+    move v5, v6
 
     invoke-direct/range {v0 .. v5}, Lcom/baidu/mobstat/av;->a([BI[BII)I
 
     move-result v0
 
-    :cond_10e
-    iput v8, v6, Lcom/baidu/mobstat/av;->d:I
+    :cond_13
+    const/4 v1, 0x0
 
-    iget v1, v6, Lcom/baidu/mobstat/av;->b:I
+    iput v1, p0, Lcom/baidu/mobstat/av;->d:I
 
-    iput v1, v6, Lcom/baidu/mobstat/av;->f:I
+    iget v1, p0, Lcom/baidu/mobstat/av;->b:I
 
-    iget v1, v6, Lcom/baidu/mobstat/av;->i:I
+    iput v1, p0, Lcom/baidu/mobstat/av;->f:I
 
-    if-eqz v1, :cond_11d
+    iget v1, p0, Lcom/baidu/mobstat/av;->i:I
 
-    iget-object v1, v6, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
+    if-eqz v1, :cond_14
+
+    iget-object v1, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
 
     invoke-virtual {v1}, Lcom/baidu/mobstat/aw;->a()V
 
-    :cond_11d
+    :cond_14
     return v0
 
-    :cond_11e
-    new-instance v0, Ljava/lang/StringBuilder;
+    :cond_15
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v12}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v2, "Output buffer too short: "
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v0, " bytes given, "
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljavax/crypto/ShortBufferException;
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v0, " bytes needed"
 
-    move-result-object v0
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v0}, Ljavax/crypto/ShortBufferException;-><init>(Ljava/lang/String;)V
+    new-instance v0, Ljavax/crypto/ShortBufferException;
 
-    throw v1
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_139
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljavax/crypto/ShortBufferException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_16
     new-instance v0, Ljavax/crypto/ShortBufferException;
 
     const-string v1, "Output buffer is null"
 
     invoke-direct {v0, v1}, Ljavax/crypto/ShortBufferException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_142
-
-    :goto_141
     throw v0
-
-    :goto_142
-    goto :goto_141
 .end method
 
 .method public a(I[B[BLjava/security/SecureRandom;)V
-    .registers 7
-
-    const/4 v0, 0x2
+    .locals 3
 
     const/4 v1, 0x0
 
-    if-eq p1, v0, :cond_a
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_0
 
     const/4 v0, 0x4
 
-    if-ne p1, v0, :cond_8
+    if-ne p1, v0, :cond_2
 
-    goto :goto_a
+    :cond_0
+    const/4 v0, 0x1
 
-    :cond_8
-    const/4 p1, 0x0
+    :goto_0
+    iput-boolean v0, p0, Lcom/baidu/mobstat/av;->j:Z
 
-    goto :goto_b
+    iget v2, p0, Lcom/baidu/mobstat/av;->i:I
 
-    :cond_a
-    :goto_a
-    const/4 p1, 0x1
+    if-nez v2, :cond_4
 
-    :goto_b
-    iput-boolean p1, p0, Lcom/baidu/mobstat/av;->j:Z
+    if-nez p3, :cond_3
 
-    iget v0, p0, Lcom/baidu/mobstat/av;->i:I
+    :cond_1
+    :goto_1
+    iput v1, p0, Lcom/baidu/mobstat/av;->d:I
 
-    if-nez v0, :cond_1c
+    iget v0, p0, Lcom/baidu/mobstat/av;->b:I
 
-    if-nez p3, :cond_14
+    iput v0, p0, Lcom/baidu/mobstat/av;->f:I
 
-    goto :goto_34
+    iget-object v0, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
 
-    :cond_14
-    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
+    iget-boolean v1, p0, Lcom/baidu/mobstat/av;->j:Z
 
-    const-string p2, "ECB mode cannot use IV"
+    const-string v2, ""
 
-    invoke-direct {p1, p2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2, p2, p3}, Lcom/baidu/mobstat/aw;->a(ZLjava/lang/String;[B[B)V
 
-    throw p1
+    return-void
 
-    :cond_1c
-    if-nez p3, :cond_34
+    :cond_2
+    move v0, v1
 
-    if-nez p1, :cond_2c
+    goto :goto_0
 
-    if-nez p4, :cond_24
+    :cond_3
+    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
+
+    const-string v1, "ECB mode cannot use IV"
+
+    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_4
+    if-nez p3, :cond_1
+
+    if-nez v0, :cond_6
+
+    if-nez p4, :cond_5
 
     sget-object p4, Lcom/baidu/mobstat/at;->a:Ljava/security/SecureRandom;
 
-    :cond_24
-    iget p1, p0, Lcom/baidu/mobstat/av;->b:I
+    :cond_5
+    iget v0, p0, Lcom/baidu/mobstat/av;->b:I
 
-    new-array p3, p1, [B
+    new-array p3, v0, [B
 
     invoke-virtual {p4, p3}, Ljava/security/SecureRandom;->nextBytes([B)V
 
-    goto :goto_34
+    goto :goto_1
 
-    :cond_2c
-    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
+    :cond_6
+    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
 
-    const-string p2, "Parameters missing"
+    const-string v1, "Parameters missing"
 
-    invoke-direct {p1, p2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
 
-    throw p1
-
-    :cond_34
-    :goto_34
-    iput v1, p0, Lcom/baidu/mobstat/av;->d:I
-
-    iget p1, p0, Lcom/baidu/mobstat/av;->b:I
-
-    iput p1, p0, Lcom/baidu/mobstat/av;->f:I
-
-    iget-object p1, p0, Lcom/baidu/mobstat/av;->h:Lcom/baidu/mobstat/aw;
-
-    iget-boolean p4, p0, Lcom/baidu/mobstat/av;->j:Z
-
-    const-string v0, ""
-
-    invoke-virtual {p1, p4, v0, p2, p3}, Lcom/baidu/mobstat/aw;->a(ZLjava/lang/String;[B[B)V
-
-    return-void
+    throw v0
 .end method
 
 .method public a([BII)[B
-    .registers 13
+    .locals 8
 
-    const/4 v0, 0x0
+    const/4 v6, 0x0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0, p3}, Lcom/baidu/mobstat/av;->a(I)I
+
+    move-result v7
+
+    new-array v4, v7, [B
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    invoke-virtual/range {v0 .. v5}, Lcom/baidu/mobstat/av;->a([BII[BI)I
 
     move-result v1
 
-    new-array v8, v1, [B
+    if-ge v1, v7, :cond_1
 
-    const/4 v7, 0x0
+    new-array v0, v1, [B
+    :try_end_0
+    .catch Ljavax/crypto/ShortBufferException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v2, p0
+    if-eqz v1, :cond_0
 
-    move-object v3, p1
+    const/4 v2, 0x0
 
-    move v4, p2
+    const/4 v3, 0x0
 
-    move v5, p3
+    :try_start_1
+    invoke-static {v4, v2, v0, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    :try_end_1
+    .catch Ljavax/crypto/ShortBufferException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-object v6, v8
+    :cond_0
+    :goto_0
+    move-object v4, v0
 
-    invoke-virtual/range {v2 .. v7}, Lcom/baidu/mobstat/av;->a([BII[BI)I
+    :cond_1
+    return-object v4
 
-    move-result p1
+    :catch_0
+    move-exception v0
 
-    if-ge p1, v1, :cond_1e
+    move-object v0, v6
 
-    new-array v0, p1, [B
+    goto :goto_0
 
-    if-eqz p1, :cond_1d
+    :catch_1
+    move-exception v1
 
-    const/4 p2, 0x0
-
-    invoke-static {v8, p2, v0, p2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-    :try_end_1b
-    .catch Ljavax/crypto/ShortBufferException; {:try_start_1 .. :try_end_1b} :catch_1c
-
-    goto :goto_1d
-
-    :catch_1c
-    move-exception p1
-
-    :cond_1d
-    :goto_1d
-    move-object v8, v0
-
-    :cond_1e
-    return-object v8
+    goto :goto_0
 .end method

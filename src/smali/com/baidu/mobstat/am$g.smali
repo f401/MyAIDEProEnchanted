@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(ILcom/baidu/mobstat/bw$a;Ljava/lang/Exception;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,11 +37,11 @@
 .end method
 
 .method public static a(I)Lcom/baidu/mobstat/am$g;
-    .registers 3
-
-    new-instance v0, Lcom/baidu/mobstat/am$g;
+    .locals 2
 
     const/4 v1, 0x0
+
+    new-instance v0, Lcom/baidu/mobstat/am$g;
 
     invoke-direct {v0, p0, v1, v1}, Lcom/baidu/mobstat/am$g;-><init>(ILcom/baidu/mobstat/bw$a;Ljava/lang/Exception;)V
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public static a(Lcom/baidu/mobstat/bw$a;)Lcom/baidu/mobstat/am$g;
-    .registers 4
+    .locals 3
 
     new-instance v0, Lcom/baidu/mobstat/am$g;
 
@@ -63,13 +63,13 @@
 .end method
 
 .method public static b()Lcom/baidu/mobstat/am$g;
-    .registers 3
+    .locals 3
+
+    const/4 v2, 0x0
 
     new-instance v0, Lcom/baidu/mobstat/am$g;
 
     const/4 v1, -0x1
-
-    const/4 v2, 0x0
 
     invoke-direct {v0, v1, v2, v2}, Lcom/baidu/mobstat/am$g;-><init>(ILcom/baidu/mobstat/bw$a;Ljava/lang/Exception;)V
 
@@ -79,19 +79,19 @@
 
 # virtual methods
 .method public a()Z
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lcom/baidu/mobstat/am$g;->b:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_7
+    :goto_0
+    return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_7
-    return v0
+    goto :goto_0
 .end method

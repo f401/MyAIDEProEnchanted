@@ -17,8 +17,8 @@
 .field private a:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/Class<",
-            "*>;"
+            "Ljava/lang/Class",
+            "<*>;"
         }
     .end annotation
 .end field
@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/baidu/mobstat/ai$1;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Lcom/baidu/mobstat/ai$a;-><init>()V
 
@@ -48,17 +48,17 @@
 .end method
 
 .method static synthetic a(Lcom/baidu/mobstat/ai$a;Ljava/lang/Object;)J
-    .registers 2
+    .locals 2
 
     invoke-direct {p0, p1}, Lcom/baidu/mobstat/ai$a;->a(Ljava/lang/Object;)J
 
-    move-result-wide p0
+    move-result-wide v0
 
-    return-wide p0
+    return-wide v0
 .end method
 
 .method private a(Ljava/lang/Object;)J
-    .registers 4
+    .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/baidu/mobstat/ai$a;->c:Ljava/lang/reflect/Method;
@@ -67,42 +67,42 @@
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Long;
+    check-cast v0, Ljava/lang/Long;
 
-    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v0
-    :try_end_d
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_d} :catch_e
 
     return-wide v0
 
-    :catch_e
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Lcom/baidu/mobstat/af$a;
+    new-instance v0, Lcom/baidu/mobstat/af$a;
 
-    const-string v0, ""
+    const-string v1, ""
 
-    invoke-direct {p1, v0}, Lcom/baidu/mobstat/af$a;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/baidu/mobstat/af$a;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method static synthetic a(Lcom/baidu/mobstat/ai$a;)Ljava/lang/Object;
-    .registers 1
+    .locals 1
 
     invoke-direct {p0}, Lcom/baidu/mobstat/ai$a;->b()Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method private a()V
-    .registers 8
+    .locals 6
 
     :try_start_0
     invoke-static {}, Lcom/baidu/mobstat/ae;->a()[B
@@ -113,15 +113,15 @@
 
     move-result-object v0
 
-    const-class v1, Ljava/lang/Object;
+    const/4 v1, 0x1
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    const-class v2, Ljava/lang/Object;
 
-    move-result-object v1
+    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    const/4 v2, 0x1
+    move-result-object v2
 
-    invoke-static {v0, v2, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-static {v0, v1, v2}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v0
 
@@ -137,25 +137,27 @@
 
     iget-object v1, p0, Lcom/baidu/mobstat/ai$a;->a:Ljava/lang/Class;
 
-    sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v4, 0x3
+    const/4 v3, 0x3
 
-    new-array v4, v4, [Ljava/lang/Class;
+    new-array v3, v3, [Ljava/lang/Class;
+
+    const/4 v4, 0x0
 
     const-class v5, [B
 
-    const/4 v6, 0x0
+    aput-object v5, v3, v4
 
-    aput-object v5, v4, v6
+    const/4 v4, 0x1
 
-    aput-object v3, v4, v2
+    aput-object v2, v3, v4
 
-    const/4 v2, 0x2
+    const/4 v4, 0x2
 
-    aput-object v3, v4, v2
+    aput-object v2, v3, v4
 
-    invoke-static {v1, v0, v4}, Lcom/baidu/mobstat/af;->a(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-static {v1, v0, v3}, Lcom/baidu/mobstat/af;->a(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
@@ -178,22 +180,22 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/baidu/mobstat/ai$a;->c:Ljava/lang/reflect/Method;
-    :try_end_45
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_45} :catch_46
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_4a
+    :goto_0
+    return-void
 
-    :catch_46
+    :catch_0
     move-exception v0
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    :goto_4a
-    return-void
+    goto :goto_0
 .end method
 
 .method static synthetic a(Lcom/baidu/mobstat/ai$a;Ljava/lang/Object;[BII)V
-    .registers 5
+    .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/baidu/mobstat/ai$a;->a(Ljava/lang/Object;[BII)V
 
@@ -201,7 +203,7 @@
 .end method
 
 .method private a(Ljava/lang/Object;[BII)V
-    .registers 8
+    .locals 4
 
     :try_start_0
     iget-object v0, p0, Lcom/baidu/mobstat/ai$a;->b:Ljava/lang/reflect/Method;
@@ -214,42 +216,42 @@
 
     aput-object p2, v1, v2
 
+    const/4 v2, 0x1
+
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object v3
 
-    const/4 p3, 0x1
+    aput-object v3, v1, v2
 
-    aput-object p2, v1, p3
+    const/4 v2, 0x2
 
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object v3
 
-    const/4 p3, 0x2
-
-    aput-object p2, v1, p3
+    aput-object v3, v1, v2
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_19
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_19} :catch_1a
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :catch_1a
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Lcom/baidu/mobstat/af$a;
+    new-instance v0, Lcom/baidu/mobstat/af$a;
 
-    const-string p2, ""
+    const-string v1, ""
 
-    invoke-direct {p1, p2}, Lcom/baidu/mobstat/af$a;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/baidu/mobstat/af$a;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method private b()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/ai$a;->a:Ljava/lang/Class;
 

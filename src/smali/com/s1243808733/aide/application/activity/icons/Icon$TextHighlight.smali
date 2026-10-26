@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/application/activity/icons/Icon;)V
-    .registers 3
+    .locals 1
 
     .line 71
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/Icon$TextHighlight;->this$0:Lcom/s1243808733/aide/application/activity/icons/Icon;

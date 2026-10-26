@@ -12,12 +12,12 @@
 
 # direct methods
 .method public constructor <init>([S)V
-    .registers 3
+    .locals 2
 
     .line 32
     invoke-direct {p0}, Lcom/s1243808733/android/dx/io/instructions/BaseCodeCursor;-><init>()V
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     .line 37
     iput-object p1, p0, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeInput;->array:[S
@@ -25,20 +25,20 @@
     return-void
 
     .line 34
-    :cond_8
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "array == null"
+    const-string v1, "array == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public hasMore()Z
-    .registers 3
+    .locals 2
 
     .line 43
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeInput;->cursor()I
@@ -49,21 +49,21 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_b
+    if-ge v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_c
+    :goto_0
+    return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_c
-    return v0
+    goto :goto_0
 .end method
 
 .method public read()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -84,8 +84,8 @@
     const/4 v1, 0x1
 
     invoke-virtual {p0, v1}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeInput;->advance(I)V
-    :try_end_c
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_c} :catch_11
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     const v1, 0xffff
 
@@ -94,7 +94,7 @@
     return v0
 
     .line 54
-    :catch_11
+    :catch_0
     move-exception v0
 
     new-instance v0, Ljava/io/EOFException;
@@ -105,7 +105,7 @@
 .end method
 
 .method public readInt()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -130,7 +130,7 @@
 .end method
 
 .method public readLong()J
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;

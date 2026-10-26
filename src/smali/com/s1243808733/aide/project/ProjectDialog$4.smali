@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/project/adapter/TemplateAdapter;Landroid/app/Activity;Landroid/app/AlertDialog;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,26 +49,26 @@
 
 # virtual methods
 .method public onChildClick(Landroid/widget/ExpandableListView;Landroid/view/View;IIJ)Z
-    .registers 7
+    .locals 2
 
     .line 213
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$4;->val$adapter:Lcom/s1243808733/aide/project/adapter/TemplateAdapter;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$4;->val$adapter:Lcom/s1243808733/aide/project/adapter/TemplateAdapter;
 
-    invoke-virtual {p1, p3, p4}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getChild(II)Lcom/s1243808733/aide/project/jsonbean/Category$Templates;
+    invoke-virtual {v0, p3, p4}, Lcom/s1243808733/aide/project/adapter/TemplateAdapter;->getChild(II)Lcom/s1243808733/aide/project/jsonbean/Category$Templates;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 214
-    iget-object p2, p0, Lcom/s1243808733/aide/project/ProjectDialog$4;->val$activity:Landroid/app/Activity;
+    iget-object v1, p0, Lcom/s1243808733/aide/project/ProjectDialog$4;->val$activity:Landroid/app/Activity;
 
-    invoke-static {p2, p1}, Lcom/s1243808733/aide/project/ProjectDialog;->-$$Nest$smcreateProject(Landroid/app/Activity;Lcom/s1243808733/aide/project/jsonbean/Category$Templates;)V
+    invoke-static {v1, v0}, Lcom/s1243808733/aide/project/ProjectDialog;->-$$Nest$smcreateProject(Landroid/app/Activity;Lcom/s1243808733/aide/project/jsonbean/Category$Templates;)V
 
     .line 215
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$4;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$4;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

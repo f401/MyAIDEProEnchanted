@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/dependencies/DependencieDialog$1;Landroid/widget/EditText;Landroid/app/AlertDialog;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,93 +49,93 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 10
+    .locals 9
+
+    const/4 v8, 0x1
+
+    const/4 v2, 0x0
 
     .line 170
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getFileBrowserCurrentDir()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 172
     const-string v0, "abcd.Vi"
 
     invoke-static {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object v0
+    move-result-object v3
 
     .line 173
-    const/4 v1, 0x1
+    const-string v0, "BT"
 
-    new-array v2, v1, [Ljava/lang/Object;
+    new-array v4, v8, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    aput-object v1, v4, v2
 
-    aput-object p1, v2, v3
+    invoke-virtual {v3, v0, v4}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    const-string v4, "BT"
+    move-result-object v0
 
-    invoke-virtual {v0, v4, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+    check-cast v0, Ljava/lang/Boolean;
 
-    move-result-object v2
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    check-cast v2, Ljava/lang/Boolean;
+    move-result v0
 
-    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_a5
+    if-eqz v0, :cond_3
 
     .line 174
-    new-array v2, v1, [Ljava/lang/Object;
+    const-string v0, "v5"
 
-    aput-object p1, v2, v3
+    new-array v4, v8, [Ljava/lang/Object;
 
-    const-string p1, "v5"
+    aput-object v1, v4, v2
 
-    invoke-virtual {v0, p1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v3, v0, v4}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 176
-    iget-object v0, p0, Lcom/s1243808733/aide/dependencies/DependencieDialog$1$1;->val$input:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/s1243808733/aide/dependencies/DependencieDialog$1$1;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v2, "\n"
+    const-string v3, "\n"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v1, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/4 v2, 0x0
+    move v1, v2
 
-    :goto_43
-    if-eqz v0, :cond_7d
+    :goto_0
+    if-eqz v3, :cond_2
 
     .line 178
-    array-length v4, v0
+    array-length v4, v3
 
-    if-ge v2, v4, :cond_7d
+    if-ge v1, v4, :cond_2
 
     .line 179
-    aget-object v4, v0, v2
+    aget-object v4, v3, v1
 
     .line 180
     const-string v5, ":"
@@ -144,7 +144,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7a
+    if-eqz v5, :cond_0
 
     .line 181
     invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -155,12 +155,17 @@
 
     move-result v5
 
-    if-nez v5, :cond_5d
+    if-nez v5, :cond_1
 
-    goto :goto_7a
+    .line 188
+    :cond_0
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
 
     .line 185
-    :cond_5d
+    :cond_1
     const-string v5, "abcd.Be"
 
     invoke-static {v5}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
@@ -173,77 +178,74 @@
     move-result-object v5
 
     .line 187
-    new-array v6, v1, [Ljava/lang/Object;
+    const-string v6, "j6"
 
-    aput-object p1, v6, v3
+    new-array v7, v8, [Ljava/lang/Object;
 
-    const-string v7, "j6"
+    aput-object v0, v7, v2
 
-    invoke-virtual {v5, v7, v6}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v5, v6, v7}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     move-result-object v5
 
     .line 188
-    new-array v6, v1, [Ljava/lang/Object;
+    const-string v6, "Hw"
 
-    aput-object v4, v6, v3
+    new-array v7, v8, [Ljava/lang/Object;
 
-    const-string v4, "Hw"
+    aput-object v4, v7, v2
 
-    invoke-virtual {v5, v4, v6}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v5, v6, v7}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    :cond_7a
-    :goto_7a
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_43
+    goto :goto_1
 
     .line 192
-    :cond_7d
-    const-string p1, "com.aide.ui.U"
+    :cond_2
+    const-string v0, "com.aide.ui.U"
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 193
-    const-string v0, "vy"
+    const-string v1, "vy"
 
-    invoke-virtual {p1, v0}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 194
-    const-string v0, "yS"
+    const-string v1, "yS"
 
-    invoke-virtual {p1, v0}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     .line 196
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_97
+    if-eqz v0, :cond_4
 
-    const-string p1, "已添加到项目"
+    const-string v0, "\u5df2\u6dfb\u52a0\u5230\u9879\u76ee"
 
-    goto :goto_99
+    :goto_2
+    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
 
-    :cond_97
-    const-string p1, "Added to project"
+    move-result-object v0
 
-    :goto_99
-    invoke-static {p1}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 199
-    iget-object p1, p0, Lcom/s1243808733/aide/dependencies/DependencieDialog$1$1;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/dependencies/DependencieDialog$1$1;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    :cond_a5
+    :cond_3
     return-void
+
+    .line 196
+    :cond_4
+    const-string v0, "Added to project"
+
+    goto :goto_2
 .end method

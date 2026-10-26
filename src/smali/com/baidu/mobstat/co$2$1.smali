@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/co$2;)V
-    .registers 2
+    .locals 0
 
     .line 685
     iput-object p1, p0, Lcom/baidu/mobstat/co$2$1;->a:Lcom/baidu/mobstat/co$2;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .line 688
     iget-object v0, p0, Lcom/baidu/mobstat/co$2$1;->a:Lcom/baidu/mobstat/co$2;
@@ -62,7 +62,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_0
 
     .line 691
     iget-object v0, p0, Lcom/baidu/mobstat/co$2$1;->a:Lcom/baidu/mobstat/co$2;
@@ -93,7 +93,7 @@
     invoke-static {v0, v1}, Lcom/baidu/mobstat/co;->a(Lcom/baidu/mobstat/co;Z)Z
 
     .line 695
-    :cond_34
+    :cond_0
     iget-object v0, p0, Lcom/baidu/mobstat/co$2$1;->a:Lcom/baidu/mobstat/co$2;
 
     iget-object v0, v0, Lcom/baidu/mobstat/co$2;->e:Lcom/baidu/mobstat/co;
@@ -119,20 +119,20 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :goto_4f
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6b
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Landroid/view/View;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/View;
 
     .line 699
     iget-object v2, p0, Lcom/baidu/mobstat/co$2$1;->a:Lcom/baidu/mobstat/co$2;
@@ -147,10 +147,10 @@
 
     iget-wide v4, v4, Lcom/baidu/mobstat/co$2;->b:J
 
-    invoke-static {v2, v1, v3, v4, v5}, Lcom/baidu/mobstat/co;->b(Lcom/baidu/mobstat/co;Landroid/view/View;Landroid/app/Activity;J)V
+    invoke-static {v2, v0, v3, v4, v5}, Lcom/baidu/mobstat/co;->b(Lcom/baidu/mobstat/co;Landroid/view/View;Landroid/app/Activity;J)V
 
-    goto :goto_4f
+    goto :goto_0
 
-    :cond_6b
+    :cond_1
     return-void
 .end method

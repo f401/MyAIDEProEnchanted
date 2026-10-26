@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -24,7 +24,7 @@
 .end method
 
 .method public synthetic constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
-    .registers 4
+    .locals 0
 
     .line 2
     iput p3, p0, Lc/h;->a:I
@@ -39,20 +39,21 @@
 
 # virtual methods
 .method public final getCause()Ljava/lang/Throwable;
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lc/h;->a:I
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 2
     iget-object v0, p0, Lc/h;->b:Ljava/lang/Throwable;
 
+    :goto_0
     return-object v0
 
     .line 1
-    :cond_7
+    :cond_0
     iget-object v0, p0, Lc/h;->b:Ljava/lang/Throwable;
 
-    return-object v0
+    goto :goto_0
 .end method

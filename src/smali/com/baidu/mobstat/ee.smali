@@ -7,6 +7,14 @@
 .implements Ljava/lang/Runnable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/baidu/mobstat/ee$a;
+    }
+.end annotation
+
+
 # static fields
 .field static final c:Z = true
 
@@ -31,7 +39,8 @@
 .field private j:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;"
@@ -48,31 +57,34 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/net/URI;Lcom/baidu/mobstat/ef;Ljava/util/Map;I)V
-    .registers 7
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/net/URI;",
             "Lcom/baidu/mobstat/ef;",
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;I)V"
         }
     .end annotation
 
+    const/4 v1, 0x1
+
+    const/4 v0, 0x0
+
     .line 92
     invoke-direct {p0}, Lcom/baidu/mobstat/eb;-><init>()V
 
     .line 37
-    const/4 v0, 0x0
-
     iput-object v0, p0, Lcom/baidu/mobstat/ee;->b:Ljava/net/URI;
 
     .line 39
@@ -88,8 +100,6 @@
 
     .line 55
     new-instance v0, Ljava/util/concurrent/CountDownLatch;
-
-    const/4 v1, 0x1
 
     invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
 
@@ -107,9 +117,9 @@
 
     iput v0, p0, Lcom/baidu/mobstat/ee;->m:I
 
-    if-eqz p1, :cond_3c
+    if-eqz p1, :cond_1
 
-    if-eqz p2, :cond_34
+    if-eqz p2, :cond_0
 
     .line 98
     iput-object p1, p0, Lcom/baidu/mobstat/ee;->b:Ljava/net/URI;
@@ -124,53 +134,53 @@
     iput p4, p0, Lcom/baidu/mobstat/ee;->m:I
 
     .line 102
-    new-instance p1, Lcom/baidu/mobstat/ec;
+    new-instance v0, Lcom/baidu/mobstat/ec;
 
-    invoke-direct {p1, p0, p2}, Lcom/baidu/mobstat/ec;-><init>(Lcom/baidu/mobstat/ed;Lcom/baidu/mobstat/ef;)V
+    invoke-direct {v0, p0, p2}, Lcom/baidu/mobstat/ec;-><init>(Lcom/baidu/mobstat/ed;Lcom/baidu/mobstat/ef;)V
 
-    iput-object p1, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
+    iput-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
 
     return-void
 
     .line 96
-    :cond_34
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "null as draft is permitted for `WebSocketServer` only!"
+    const-string v1, "null as draft is permitted for `WebSocketServer` only!"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 94
-    :cond_3c
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw p1
+    throw v0
 .end method
 
 .method static synthetic a(Lcom/baidu/mobstat/ee;)Lcom/baidu/mobstat/ec;
-    .registers 1
+    .locals 1
 
     .line 32
-    iget-object p0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static synthetic b(Lcom/baidu/mobstat/ee;)Ljava/io/OutputStream;
-    .registers 1
+    .locals 1
 
     .line 32
-    iget-object p0, p0, Lcom/baidu/mobstat/ee;->f:Ljava/io/OutputStream;
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->f:Ljava/io/OutputStream;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method private h()I
-    .registers 4
+    .locals 3
 
     .line 229
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->b:Ljava/net/URI;
@@ -181,7 +191,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_39
+    if-ne v0, v1, :cond_0
 
     .line 231
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->b:Ljava/net/URI;
@@ -197,28 +207,31 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_1
 
     const/16 v0, 0x1bb
 
+    .line 237
+    :cond_0
+    :goto_0
     return v0
 
     .line 234
-    :cond_1a
+    :cond_1
     const-string v1, "ws"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_2
 
     const/16 v0, 0x50
 
-    return v0
+    goto :goto_0
 
     .line 237
-    :cond_25
+    :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string v2, "unknown scheme: "
@@ -236,13 +249,10 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
-
-    :cond_39
-    return v0
 .end method
 
 .method private i()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/baidu/mobstat/el;
@@ -263,21 +273,21 @@
 
     move-result-object v1
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 247
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_1
 
     .line 248
-    :cond_14
+    :cond_0
     const-string v0, "/"
 
-    :cond_16
-    if-eqz v1, :cond_2c
+    :cond_1
+    if-eqz v1, :cond_2
 
     .line 252
     new-instance v2, Ljava/lang/StringBuilder;
@@ -297,7 +307,7 @@
     move-result-object v0
 
     .line 253
-    :cond_2c
+    :cond_2
     invoke-direct {p0}, Lcom/baidu/mobstat/ee;->h()I
 
     move-result v1
@@ -317,7 +327,7 @@
 
     const/16 v3, 0x50
 
-    if-eq v1, v3, :cond_51
+    if-eq v1, v3, :cond_3
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -331,12 +341,7 @@
 
     move-result-object v1
 
-    goto :goto_53
-
-    :cond_51
-    const-string v1, ""
-
-    :goto_53
+    :goto_0
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -359,7 +364,7 @@
     .line 259
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->j:Ljava/util/Map;
 
-    if-eqz v0, :cond_8f
+    if-eqz v0, :cond_4
 
     .line 260
     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -368,27 +373,29 @@
 
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
+    move-result-object v3
+
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v0
 
-    :goto_73
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_8f
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
+    move-object v1, v0
 
     check-cast v1, Ljava/util/Map$Entry;
 
     .line 261
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -396,12 +403,18 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {v2, v3, v1}, Lcom/baidu/mobstat/ex;->a(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2, v0, v1}, Lcom/baidu/mobstat/ex;->a(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_73
+    goto :goto_1
+
+    .line 254
+    :cond_3
+    const-string v1, ""
+
+    goto :goto_0
 
     .line 264
-    :cond_8f
+    :cond_4
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
 
     invoke-virtual {v0, v2}, Lcom/baidu/mobstat/ec;->a(Lcom/baidu/mobstat/ev;)V
@@ -412,7 +425,7 @@
 
 # virtual methods
 .method public a()Ljava/net/InetSocketAddress;
-    .registers 2
+    .locals 1
 
     .line 491
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
@@ -425,7 +438,7 @@
 .end method
 
 .method public a(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
 
     return-void
 .end method
@@ -434,7 +447,7 @@
 .end method
 
 .method public a(Lcom/baidu/mobstat/ea;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
 
     .line 334
     invoke-virtual {p0, p2, p3}, Lcom/baidu/mobstat/ee;->a(ILjava/lang/String;)V
@@ -443,56 +456,57 @@
 .end method
 
 .method public final a(Lcom/baidu/mobstat/ea;ILjava/lang/String;Z)V
-    .registers 5
+    .locals 1
 
     .line 306
-    iget-object p1, p0, Lcom/baidu/mobstat/ee;->h:Ljava/lang/Thread;
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->h:Ljava/lang/Thread;
 
-    if-eqz p1, :cond_7
+    if-eqz v0, :cond_0
 
     .line 307
-    invoke-virtual {p1}, Ljava/lang/Thread;->interrupt()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->interrupt()V
 
     .line 309
-    :cond_7
-    :try_start_7
-    iget-object p1, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
+    :cond_0
+    :try_start_0
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
 
-    if-eqz p1, :cond_13
+    if-eqz v0, :cond_1
 
     .line 310
-    invoke-virtual {p1}, Ljava/net/Socket;->close()V
-    :try_end_e
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_e} :catch_f
-
-    goto :goto_13
-
-    :catch_f
-    move-exception p1
-
-    .line 312
-    invoke-virtual {p0, p0, p1}, Lcom/baidu/mobstat/ee;->a(Lcom/baidu/mobstat/ea;Ljava/lang/Exception;)V
+    invoke-virtual {v0}, Ljava/net/Socket;->close()V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 314
-    :cond_13
-    :goto_13
+    :cond_1
+    :goto_0
     invoke-virtual {p0, p2, p3, p4}, Lcom/baidu/mobstat/ee;->a(ILjava/lang/String;Z)V
 
     .line 315
-    iget-object p1, p0, Lcom/baidu/mobstat/ee;->k:Ljava/util/concurrent/CountDownLatch;
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->k:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     .line 316
-    iget-object p1, p0, Lcom/baidu/mobstat/ee;->l:Ljava/util/concurrent/CountDownLatch;
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->l:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     return-void
+
+    .line 310
+    :catch_0
+    move-exception v0
+
+    .line 312
+    invoke-virtual {p0, p0, v0}, Lcom/baidu/mobstat/ee;->a(Lcom/baidu/mobstat/ea;Ljava/lang/Exception;)V
+
+    goto :goto_0
 .end method
 
 .method public a(Lcom/baidu/mobstat/ea;Lcom/baidu/mobstat/es;)V
-    .registers 3
+    .locals 0
 
     .line 289
     invoke-virtual {p0, p2}, Lcom/baidu/mobstat/ee;->b(Lcom/baidu/mobstat/es;)V
@@ -501,7 +515,7 @@
 .end method
 
 .method public final a(Lcom/baidu/mobstat/ea;Lcom/baidu/mobstat/ez;)V
-    .registers 3
+    .locals 1
 
     .line 297
     check-cast p2, Lcom/baidu/mobstat/fb;
@@ -509,15 +523,15 @@
     invoke-virtual {p0, p2}, Lcom/baidu/mobstat/ee;->a(Lcom/baidu/mobstat/fb;)V
 
     .line 298
-    iget-object p1, p0, Lcom/baidu/mobstat/ee;->k:Ljava/util/concurrent/CountDownLatch;
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->k:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     return-void
 .end method
 
 .method public final a(Lcom/baidu/mobstat/ea;Ljava/lang/Exception;)V
-    .registers 3
+    .locals 0
 
     .line 324
     invoke-virtual {p0, p2}, Lcom/baidu/mobstat/ee;->a(Ljava/lang/Exception;)V
@@ -526,7 +540,7 @@
 .end method
 
 .method public final a(Lcom/baidu/mobstat/ea;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     .line 279
     invoke-virtual {p0, p2}, Lcom/baidu/mobstat/ee;->a(Ljava/lang/String;)V
@@ -535,7 +549,7 @@
 .end method
 
 .method public final a(Lcom/baidu/mobstat/ea;Ljava/nio/ByteBuffer;)V
-    .registers 3
+    .locals 0
 
     .line 284
     invoke-virtual {p0, p2}, Lcom/baidu/mobstat/ee;->a(Ljava/nio/ByteBuffer;)V
@@ -544,7 +558,7 @@
 .end method
 
 .method public a(Lcom/baidu/mobstat/es;)V
-    .registers 3
+    .locals 1
 
     .line 486
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
@@ -564,12 +578,12 @@
 .end method
 
 .method public a(Ljava/net/Socket;)V
-    .registers 3
+    .locals 2
 
     .line 423
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 426
     iput-object p1, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
@@ -577,24 +591,24 @@
     return-void
 
     .line 424
-    :cond_7
-    new-instance p1, Ljava/lang/IllegalStateException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v0, "socket has already been set"
+    const-string v1, "socket has already been set"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public a(Ljava/nio/ByteBuffer;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public a([B)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/nio/channels/NotYetConnectedException;
@@ -610,12 +624,12 @@
 .end method
 
 .method public b()V
-    .registers 3
+    .locals 2
 
     .line 134
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->h:Ljava/lang/Thread;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 136
     new-instance v0, Ljava/lang/Thread;
@@ -630,7 +644,7 @@
     return-void
 
     .line 135
-    :cond_f
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "WebSocketClient objects are not reuseable"
@@ -641,19 +655,19 @@
 .end method
 
 .method public b(ILjava/lang/String;Z)V
-    .registers 4
+    .locals 0
 
     return-void
 .end method
 
 .method public final b(Lcom/baidu/mobstat/ea;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public b(Lcom/baidu/mobstat/ea;ILjava/lang/String;Z)V
-    .registers 5
+    .locals 0
 
     .line 339
     invoke-virtual {p0, p2, p3, p4}, Lcom/baidu/mobstat/ee;->b(ILjava/lang/String;Z)V
@@ -662,36 +676,37 @@
 .end method
 
 .method public b(Lcom/baidu/mobstat/es;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public c(Lcom/baidu/mobstat/ea;)Ljava/net/InetSocketAddress;
-    .registers 2
+    .locals 1
 
     .line 370
-    iget-object p1, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
 
-    if-eqz p1, :cond_b
+    if-eqz v0, :cond_0
 
     .line 371
-    invoke-virtual {p1}, Ljava/net/Socket;->getLocalSocketAddress()Ljava/net/SocketAddress;
+    invoke-virtual {v0}, Ljava/net/Socket;->getLocalSocketAddress()Ljava/net/SocketAddress;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/net/InetSocketAddress;
+    check-cast v0, Ljava/net/InetSocketAddress;
 
-    return-object p1
+    :goto_0
+    return-object v0
 
-    :cond_b
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public c()Z
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -717,12 +732,12 @@
 .end method
 
 .method public d()V
-    .registers 3
+    .locals 2
 
     .line 156
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->h:Ljava/lang/Thread;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 157
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
@@ -731,12 +746,12 @@
 
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/ec;->a(I)V
 
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public e()Z
-    .registers 2
+    .locals 1
 
     .line 441
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
@@ -749,7 +764,7 @@
 .end method
 
 .method public f()Z
-    .registers 2
+    .locals 1
 
     .line 446
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
@@ -762,7 +777,7 @@
 .end method
 
 .method public g()Z
-    .registers 2
+    .locals 1
 
     .line 451
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
@@ -775,159 +790,216 @@
 .end method
 
 .method public run()V
-    .registers 6
+    .locals 5
+
+    const/4 v4, -0x1
 
     .line 191
-    const/4 v0, -0x1
+    :try_start_0
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
 
-    :try_start_1
-    iget-object v1, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
-
-    if-nez v1, :cond_f
+    if-nez v0, :cond_3
 
     .line 192
-    new-instance v1, Ljava/net/Socket;
+    new-instance v0, Ljava/net/Socket;
 
-    iget-object v2, p0, Lcom/baidu/mobstat/ee;->g:Ljava/net/Proxy;
+    iget-object v1, p0, Lcom/baidu/mobstat/ee;->g:Ljava/net/Proxy;
 
-    invoke-direct {v1, v2}, Ljava/net/Socket;-><init>(Ljava/net/Proxy;)V
+    invoke-direct {v0, v1}, Ljava/net/Socket;-><init>(Ljava/net/Proxy;)V
 
-    iput-object v1, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
-
-    goto :goto_15
-
-    .line 193
-    :cond_f
-    invoke-virtual {v1}, Ljava/net/Socket;->isClosed()Z
-
-    move-result v1
-
-    if-nez v1, :cond_a9
+    iput-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
 
     .line 196
-    :goto_15
-    iget-object v1, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
+    :cond_0
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
 
-    invoke-virtual {v1}, Ljava/net/Socket;->isBound()Z
+    invoke-virtual {v0}, Ljava/net/Socket;->isBound()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_33
+    if-nez v0, :cond_1
 
     .line 197
-    iget-object v1, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
 
-    new-instance v2, Ljava/net/InetSocketAddress;
+    new-instance v1, Ljava/net/InetSocketAddress;
 
-    iget-object v3, p0, Lcom/baidu/mobstat/ee;->b:Ljava/net/URI;
+    iget-object v2, p0, Lcom/baidu/mobstat/ee;->b:Ljava/net/URI;
 
-    invoke-virtual {v3}, Ljava/net/URI;->getHost()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {p0}, Lcom/baidu/mobstat/ee;->h()I
-
-    move-result v4
-
-    invoke-direct {v2, v3, v4}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
-
-    iget v3, p0, Lcom/baidu/mobstat/ee;->m:I
-
-    invoke-virtual {v1, v2, v3}, Ljava/net/Socket;->connect(Ljava/net/SocketAddress;I)V
-
-    .line 198
-    :cond_33
-    iget-object v1, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
-
-    invoke-virtual {v1}, Ljava/net/Socket;->getInputStream()Ljava/io/InputStream;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/baidu/mobstat/ee;->e:Ljava/io/InputStream;
-
-    .line 199
-    iget-object v1, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
-
-    invoke-virtual {v1}, Ljava/net/Socket;->getOutputStream()Ljava/io/OutputStream;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/baidu/mobstat/ee;->f:Ljava/io/OutputStream;
-
-    .line 201
-    invoke-direct {p0}, Lcom/baidu/mobstat/ee;->i()V
-    :try_end_46
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_46} :catch_af
-
-    .line 208
-    new-instance v1, Ljava/lang/Thread;
-
-    new-instance v2, Lcom/baidu/mobstat/ee$a;
-
-    const/4 v3, 0x0
-
-    invoke-direct {v2, p0, v3}, Lcom/baidu/mobstat/ee$a;-><init>(Lcom/baidu/mobstat/ee;Lcom/baidu/mobstat/ee$1;)V
-
-    invoke-direct {v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
-
-    iput-object v1, p0, Lcom/baidu/mobstat/ee;->h:Ljava/lang/Thread;
-
-    .line 209
-    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
-
-    .line 211
-    sget v1, Lcom/baidu/mobstat/ec;->b:I
-
-    new-array v1, v1, [B
-
-    .line 215
-    :goto_5a
-    :try_start_5a
-    invoke-virtual {p0}, Lcom/baidu/mobstat/ee;->g()Z
-
-    move-result v2
-
-    if-nez v2, :cond_79
-
-    invoke-virtual {p0}, Lcom/baidu/mobstat/ee;->f()Z
-
-    move-result v2
-
-    if-nez v2, :cond_79
-
-    iget-object v2, p0, Lcom/baidu/mobstat/ee;->e:Ljava/io/InputStream;
-
-    invoke-virtual {v2, v1}, Ljava/io/InputStream;->read([B)I
-
-    move-result v2
-
-    if-eq v2, v0, :cond_79
-
-    .line 216
-    iget-object v3, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
-
-    const/4 v4, 0x0
-
-    invoke-static {v1, v4, v2}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {v2}, Ljava/net/URI;->getHost()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v3, v2}, Lcom/baidu/mobstat/ec;->a(Ljava/nio/ByteBuffer;)V
+    invoke-direct {p0}, Lcom/baidu/mobstat/ee;->h()I
 
-    goto :goto_5a
+    move-result v3
 
-    .line 218
-    :cond_79
+    invoke-direct {v1, v2, v3}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
+
+    iget v2, p0, Lcom/baidu/mobstat/ee;->m:I
+
+    invoke-virtual {v0, v1, v2}, Ljava/net/Socket;->connect(Ljava/net/SocketAddress;I)V
+
+    .line 198
+    :cond_1
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
+
+    invoke-virtual {v0}, Ljava/net/Socket;->getInputStream()Ljava/io/InputStream;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/baidu/mobstat/ee;->e:Ljava/io/InputStream;
+
+    .line 199
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
+
+    invoke-virtual {v0}, Ljava/net/Socket;->getOutputStream()Ljava/io/OutputStream;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/baidu/mobstat/ee;->f:Ljava/io/OutputStream;
+
+    .line 201
+    invoke-direct {p0}, Lcom/baidu/mobstat/ee;->i()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    .line 208
+    new-instance v0, Ljava/lang/Thread;
+
+    new-instance v1, Lcom/baidu/mobstat/ee$a;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, p0, v2}, Lcom/baidu/mobstat/ee$a;-><init>(Lcom/baidu/mobstat/ee;Lcom/baidu/mobstat/ee$1;)V
+
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    iput-object v0, p0, Lcom/baidu/mobstat/ee;->h:Ljava/lang/Thread;
+
+    .line 209
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    .line 211
+    sget v0, Lcom/baidu/mobstat/ec;->b:I
+
+    new-array v0, v0, [B
+
+    .line 215
+    :goto_0
+    :try_start_1
+    invoke-virtual {p0}, Lcom/baidu/mobstat/ee;->g()Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    invoke-virtual {p0}, Lcom/baidu/mobstat/ee;->f()Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    iget-object v1, p0, Lcom/baidu/mobstat/ee;->e:Ljava/io/InputStream;
+
+    invoke-virtual {v1, v0}, Ljava/io/InputStream;->read([B)I
+
+    move-result v1
+
+    if-eq v1, v4, :cond_4
+
+    .line 216
+    iget-object v2, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
+
+    const/4 v3, 0x0
+
+    invoke-static {v0, v3, v1}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Lcom/baidu/mobstat/ec;->a(Ljava/nio/ByteBuffer;)V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_2
+
+    goto :goto_0
+
+    .line 220
+    :catch_0
+    move-exception v0
+
     iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
 
     invoke-virtual {v0}, Lcom/baidu/mobstat/ec;->b()V
-    :try_end_7e
-    .catch Ljava/io/IOException; {:try_start_5a .. :try_end_7e} :catch_8f
-    .catch Ljava/lang/RuntimeException; {:try_start_5a .. :try_end_7e} :catch_7f
 
-    goto :goto_95
+    .line 226
+    :goto_1
+    sget-boolean v0, Lcom/baidu/mobstat/ee;->c:Z
 
-    :catch_7f
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
+
+    invoke-virtual {v0}, Ljava/net/Socket;->isClosed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    :cond_2
+    :goto_2
+    return-void
+
+    .line 193
+    :cond_3
+    :try_start_2
+    invoke-virtual {v0}, Ljava/net/Socket;->isClosed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 194
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0}, Ljava/io/IOException;-><init>()V
+
+    throw v0
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    :catch_1
+    move-exception v0
+
+    .line 203
+    iget-object v1, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
+
+    invoke-virtual {p0, v1, v0}, Lcom/baidu/mobstat/ee;->a(Lcom/baidu/mobstat/ea;Ljava/lang/Exception;)V
+
+    .line 204
+    iget-object v1, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v4, v0}, Lcom/baidu/mobstat/ec;->b(ILjava/lang/String;)V
+
+    goto :goto_2
+
+    .line 218
+    :cond_4
+    :try_start_3
+    iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
+
+    invoke-virtual {v0}, Lcom/baidu/mobstat/ec;->b()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_2
+
+    goto :goto_1
+
+    :catch_2
     move-exception v0
 
     .line 223
@@ -944,70 +1016,13 @@
 
     invoke-virtual {v1, v2, v0}, Lcom/baidu/mobstat/ec;->b(ILjava/lang/String;)V
 
-    goto :goto_95
-
-    .line 220
-    :catch_8f
-    move-exception v0
-
-    iget-object v0, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
-
-    invoke-virtual {v0}, Lcom/baidu/mobstat/ec;->b()V
+    goto :goto_1
 
     .line 226
-    :goto_95
-    sget-boolean v0, Lcom/baidu/mobstat/ee;->c:Z
-
-    if-nez v0, :cond_a8
-
-    iget-object v0, p0, Lcom/baidu/mobstat/ee;->d:Ljava/net/Socket;
-
-    invoke-virtual {v0}, Ljava/net/Socket;->isClosed()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_a2
-
-    goto :goto_a8
-
-    :cond_a2
+    :cond_5
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
     throw v0
-
-    :cond_a8
-    :goto_a8
-    return-void
-
-    .line 194
-    :cond_a9
-    :try_start_a9
-    new-instance v1, Ljava/io/IOException;
-
-    invoke-direct {v1}, Ljava/io/IOException;-><init>()V
-
-    throw v1
-    :try_end_af
-    .catch Ljava/lang/Exception; {:try_start_a9 .. :try_end_af} :catch_af
-
-    :catch_af
-    move-exception v1
-
-    .line 203
-    iget-object v2, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
-
-    invoke-virtual {p0, v2, v1}, Lcom/baidu/mobstat/ee;->a(Lcom/baidu/mobstat/ea;Ljava/lang/Exception;)V
-
-    .line 204
-    iget-object v2, p0, Lcom/baidu/mobstat/ee;->a:Lcom/baidu/mobstat/ec;
-
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v0, v1}, Lcom/baidu/mobstat/ec;->b(ILjava/lang/String;)V
-
-    return-void
 .end method

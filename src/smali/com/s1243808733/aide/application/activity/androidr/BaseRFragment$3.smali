@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;)V
-    .registers 2
+    .locals 0
 
     .line 170
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
@@ -36,32 +36,32 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 6
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
+            "Landroid/widget/AdapterView",
+            "<*>;",
             "Landroid/view/View;",
             "IJ)V"
         }
     .end annotation
 
     .line 173
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;)Lcom/s1243808733/aide/application/activity/androidr/BaseRBaseAdapter;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->-$$Nest$fgetadapter(Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;)Lcom/s1243808733/aide/application/activity/androidr/BaseRBaseAdapter;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1, p3}, Lcom/s1243808733/aide/application/activity/androidr/BaseRBaseAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;
+    invoke-virtual {v0, p3}, Lcom/s1243808733/aide/application/activity/androidr/BaseRBaseAdapter;->getItem(I)Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 174
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment$3;->this$0:Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;
 
-    invoke-virtual {p2, p1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->showDialog(Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;)V
+    invoke-virtual {v1, v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->showDialog(Lcom/s1243808733/aide/application/activity/androidr/BaseRItem;)V
 
     return-void
 .end method

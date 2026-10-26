@@ -34,7 +34,13 @@
 
 # direct methods
 .method public constructor <init>([BLjava/io/PrintStream;Ljava/lang/String;Lcom/s1243808733/android/dx/command/dump/Args;)V
-    .registers 5
+    .locals 6
+
+    const/16 v3, 0xa
+
+    const/4 v2, 0x6
+
+    const/4 v5, 0x0
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,123 +49,120 @@
     iput-object p1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->bytes:[B
 
     .line 87
-    iget-boolean p1, p4, Lcom/s1243808733/android/dx/command/dump/Args;->rawBytes:Z
+    iget-boolean v1, p4, Lcom/s1243808733/android/dx/command/dump/Args;->rawBytes:Z
 
-    iput-boolean p1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->rawBytes:Z
+    iput-boolean v1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->rawBytes:Z
 
     .line 88
     iput-object p2, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->out:Ljava/io/PrintStream;
 
     .line 89
-    iget p2, p4, Lcom/s1243808733/android/dx/command/dump/Args;->width:I
+    iget v0, p4, Lcom/s1243808733/android/dx/command/dump/Args;->width:I
 
-    if-gtz p2, :cond_12
+    if-gtz v0, :cond_1
 
-    const/16 p2, 0x4f
+    const/16 v0, 0x4f
 
-    goto :goto_14
-
-    :cond_12
-    iget p2, p4, Lcom/s1243808733/android/dx/command/dump/Args;->width:I
-
-    :goto_14
-    iput p2, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->width:I
+    :goto_0
+    iput v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->width:I
 
     .line 90
     iput-object p3, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->filePath:Ljava/lang/String;
 
     .line 91
-    iget-boolean p3, p4, Lcom/s1243808733/android/dx/command/dump/Args;->strictParse:Z
+    iget-boolean v4, p4, Lcom/s1243808733/android/dx/command/dump/Args;->strictParse:Z
 
-    iput-boolean p3, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->strictParse:Z
+    iput-boolean v4, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->strictParse:Z
 
     .line 92
-    const/4 p3, 0x0
+    iput v5, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->indent:I
 
-    iput p3, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->indent:I
-
-    if-eqz p1, :cond_24
+    if-eqz v1, :cond_2
 
     .line 93
-    const-string p1, "|"
+    const-string v1, "|"
 
-    goto :goto_26
-
-    :cond_24
-    const-string p1, ""
-
-    :goto_26
-    iput-object p1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
+    :goto_1
+    iput-object v1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
 
     .line 94
-    iput p3, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->readBytes:I
+    iput v5, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->readBytes:I
 
     .line 95
     iput-object p4, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->args:Lcom/s1243808733/android/dx/command/dump/Args;
 
     .line 97
-    new-instance p1, Lcom/s1243808733/android/dx/dex/DexOptions;
+    new-instance v1, Lcom/s1243808733/android/dx/dex/DexOptions;
 
-    invoke-direct {p1}, Lcom/s1243808733/android/dx/dex/DexOptions;-><init>()V
+    invoke-direct {v1}, Lcom/s1243808733/android/dx/dex/DexOptions;-><init>()V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->dexOptions:Lcom/s1243808733/android/dx/dex/DexOptions;
+    iput-object v1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->dexOptions:Lcom/s1243808733/android/dx/dex/DexOptions;
 
     .line 99
-    add-int/lit8 p2, p2, -0x5
+    add-int/lit8 v0, v0, -0x5
 
-    div-int/lit8 p2, p2, 0xf
+    div-int/lit8 v0, v0, 0xf
 
-    add-int/lit8 p2, p2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    and-int/lit8 p1, p2, -0x2
+    and-int/lit8 v0, v0, -0x2
 
-    const/4 p2, 0x6
+    if-ge v0, v2, :cond_3
 
-    if-ge p1, p2, :cond_40
-
-    const/4 p1, 0x6
-
-    goto :goto_46
-
-    :cond_40
-    const/16 p2, 0xa
-
-    if-le p1, p2, :cond_46
-
-    const/16 p1, 0xa
+    move v0, v2
 
     .line 105
-    :cond_46
-    :goto_46
-    iput p1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->hexCols:I
+    :cond_0
+    :goto_2
+    iput v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->hexCols:I
 
     return-void
+
+    .line 89
+    :cond_1
+    iget v0, p4, Lcom/s1243808733/android/dx/command/dump/Args;->width:I
+
+    goto :goto_0
+
+    .line 93
+    :cond_2
+    const-string v1, ""
+
+    goto :goto_1
+
+    .line 99
+    :cond_3
+    if-le v0, v3, :cond_0
+
+    move v0, v3
+
+    goto :goto_2
 .end method
 
 .method static computeParamWidth(Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;Z)I
-    .registers 2
+    .locals 1
 
     .line 115
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/cf/code/ConcreteMethod;->getEffectiveDescriptor()Lcom/s1243808733/android/dx/rop/type/Prototype;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/type/Prototype;->getParameterTypes()Lcom/s1243808733/android/dx/rop/type/StdTypeList;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/Prototype;->getParameterTypes()Lcom/s1243808733/android/dx/rop/type/StdTypeList;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 116
-    invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/type/StdTypeList;->getWordCount()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/type/StdTypeList;->getWordCount()I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 
 # virtual methods
 .method public changeIndent(I)V
-    .registers 4
+    .locals 3
 
     .line 122
     iget v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->indent:I
@@ -169,63 +172,65 @@
     iput v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->indent:I
 
     .line 124
-    iget-boolean p1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->rawBytes:Z
+    iget-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->rawBytes:Z
 
-    if-eqz p1, :cond_c
+    if-eqz v0, :cond_0
 
-    const-string p1, "|"
+    const-string v0, "|"
 
-    goto :goto_e
-
-    :cond_c
-    const-string p1, ""
-
-    :goto_e
-    iput-object p1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
-
-    const/4 p1, 0x0
-
-    .line 125
-    :goto_11
-    iget v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->indent:I
-
-    if-ge p1, v0, :cond_2d
-
-    .line 126
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, "  "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
+    :goto_0
     iput-object v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
 
-    add-int/lit8 p1, p1, 0x1
+    const/4 v0, 0x0
 
-    goto :goto_11
+    .line 125
+    :goto_1
+    iget v1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->indent:I
 
-    :cond_2d
+    if-ge v0, v1, :cond_1
+
+    .line 126
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "  "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    .line 124
+    :cond_0
+    const-string v0, ""
+
+    goto :goto_0
+
+    .line 126
+    :cond_1
     return-void
 .end method
 
 .method public endParsingMember(Lcom/s1243808733/android/dx/util/ByteArray;ILjava/lang/String;Ljava/lang/String;Lcom/s1243808733/android/dx/cf/iface/Member;)V
-    .registers 6
+    .locals 0
 
     return-void
 .end method
 
 .method protected final getBytes()[B
-    .registers 2
+    .locals 1
 
     .line 171
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->bytes:[B
@@ -234,7 +239,7 @@
 .end method
 
 .method protected final getFilePath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 180
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->filePath:Ljava/lang/String;
@@ -243,7 +248,7 @@
 .end method
 
 .method protected final getRawBytes()Z
-    .registers 2
+    .locals 1
 
     .line 217
     iget-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->rawBytes:Z
@@ -252,7 +257,7 @@
 .end method
 
 .method protected final getReadBytes()I
-    .registers 2
+    .locals 1
 
     .line 162
     iget v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->readBytes:I
@@ -261,7 +266,7 @@
 .end method
 
 .method protected final getStrictParse()Z
-    .registers 2
+    .locals 1
 
     .line 189
     iget-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->strictParse:Z
@@ -270,12 +275,12 @@
 .end method
 
 .method protected final getWidth1()I
-    .registers 3
+    .locals 2
 
     .line 227
     iget-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->rawBytes:Z
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 228
     iget v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->hexCols:I
@@ -286,23 +291,24 @@
 
     div-int/lit8 v0, v0, 0x2
 
-    add-int/2addr v1, v0
+    add-int/2addr v0, v1
 
-    return v1
+    :goto_0
+    return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method protected final getWidth2()I
-    .registers 3
+    .locals 2
 
     .line 240
     iget-boolean v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->rawBytes:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->getWidth1()I
 
@@ -310,28 +316,29 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_c
-
-    :cond_b
-    const/4 v0, 0x0
-
     .line 241
-    :goto_c
+    :goto_0
     iget v1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->width:I
 
-    sub-int/2addr v1, v0
+    sub-int v0, v1, v0
 
-    iget v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->indent:I
+    iget v1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->indent:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr v0, v1
 
-    return v1
+    return v0
+
+    .line 240
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method protected final hexDump(II)Ljava/lang/String;
-    .registers 9
+    .locals 6
 
     .line 252
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->bytes:[B
@@ -348,56 +355,57 @@
 
     invoke-static/range {v0 .. v5}, Lcom/s1243808733/android/dx/util/Hex;->dump([BIIIII)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public parsed(Lcom/s1243808733/android/dx/util/ByteArray;IILjava/lang/String;)V
-    .registers 5
+    .locals 2
 
     .line 133
     invoke-virtual {p1, p2}, Lcom/s1243808733/android/dx/util/ByteArray;->underlyingOffset(I)I
 
-    move-result p1
+    move-result v0
 
     .line 135
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->getRawBytes()Z
 
-    move-result p2
+    move-result v1
 
-    if-eqz p2, :cond_f
+    if-eqz v1, :cond_0
 
     .line 137
-    invoke-virtual {p0, p1, p3}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->hexDump(II)Ljava/lang/String;
+    invoke-virtual {p0, v0, p3}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->hexDump(II)Ljava/lang/String;
 
-    move-result-object p1
-
-    goto :goto_11
-
-    :cond_f
-    const-string p1, ""
+    move-result-object v0
 
     .line 138
-    :goto_11
-    invoke-virtual {p0, p1, p4}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->twoColumns(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    :goto_0
+    invoke-virtual {p0, v0, p4}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->twoColumns(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->print(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->print(Ljava/lang/String;)V
 
     .line 139
-    iget p1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->readBytes:I
+    iget v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->readBytes:I
 
-    add-int/2addr p1, p3
+    add-int/2addr v0, p3
 
-    iput p1, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->readBytes:I
+    iput v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->readBytes:I
 
     return-void
+
+    .line 137
+    :cond_0
+    const-string v0, ""
+
+    goto :goto_0
 .end method
 
 .method protected final print(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     .line 198
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->out:Ljava/io/PrintStream;
@@ -408,7 +416,7 @@
 .end method
 
 .method protected final println(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     .line 208
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->out:Ljava/io/PrintStream;
@@ -419,13 +427,15 @@
 .end method
 
 .method public startParsingMember(Lcom/s1243808733/android/dx/util/ByteArray;ILjava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
 
     return-void
 .end method
 
 .method protected final twoColumns(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 7
+    .locals 6
+
+    const/16 v5, 0xa
 
     .line 264
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->getWidth1()I
@@ -437,78 +447,79 @@
 
     move-result v1
 
-    if-nez v0, :cond_36
+    if-nez v0, :cond_2
 
     .line 269
-    :try_start_a
+    :try_start_0
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result p1
+    move-result v0
 
     .line 270
-    new-instance v0, Ljava/io/StringWriter;
+    new-instance v2, Ljava/io/StringWriter;
 
-    mul-int/lit8 v2, p1, 0x2
+    mul-int/lit8 v3, v0, 0x2
 
-    invoke-direct {v0, v2}, Ljava/io/StringWriter;-><init>(I)V
+    invoke-direct {v2, v3}, Ljava/io/StringWriter;-><init>(I)V
 
     .line 271
-    new-instance v2, Lcom/s1243808733/android/dx/util/IndentingWriter;
+    new-instance v3, Lcom/s1243808733/android/dx/util/IndentingWriter;
 
-    iget-object v3, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
+    iget-object v4, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
 
-    invoke-direct {v2, v0, v1, v3}, Lcom/s1243808733/android/dx/util/IndentingWriter;-><init>(Ljava/io/Writer;ILjava/lang/String;)V
+    invoke-direct {v3, v2, v1, v4}, Lcom/s1243808733/android/dx/util/IndentingWriter;-><init>(Ljava/io/Writer;ILjava/lang/String;)V
 
     .line 273
-    invoke-virtual {v2, p2}, Lcom/s1243808733/android/dx/util/IndentingWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v3, p2}, Lcom/s1243808733/android/dx/util/IndentingWriter;->write(Ljava/lang/String;)V
 
-    const/16 v1, 0xa
-
-    if-eqz p1, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 274
-    add-int/lit8 p1, p1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-virtual {p2, p1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p2, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result p1
+    move-result v0
 
-    if-eq p1, v1, :cond_2e
+    if-eq v0, v5, :cond_1
 
     .line 275
-    :cond_2b
-    invoke-virtual {v2, v1}, Lcom/s1243808733/android/dx/util/IndentingWriter;->write(I)V
+    :cond_0
+    const/16 v0, 0xa
+
+    invoke-virtual {v3, v0}, Lcom/s1243808733/android/dx/util/IndentingWriter;->write(I)V
 
     .line 277
-    :cond_2e
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/util/IndentingWriter;->flush()V
+    :cond_1
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/util/IndentingWriter;->flush()V
 
     .line 279
-    invoke-virtual {v0}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
-    move-result-object p1
-
-    return-object p1
+    move-result-object v0
 
     .line 281
-    :cond_36
+    :goto_0
+    return-object v0
+
+    :cond_2
     iget-object v2, p0, Lcom/s1243808733/android/dx/command/dump/BaseDumper;->separator:Ljava/lang/String;
 
     invoke-static {p1, v0, v2, p2, v1}, Lcom/s1243808733/android/dx/util/TwoColumnOutput;->toString(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object p1
-    :try_end_3c
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_3c} :catch_3d
+    move-result-object v0
 
-    return-object p1
+    goto :goto_0
 
-    :catch_3d
-    move-exception p1
+    :catch_0
+    move-exception v0
 
     .line 284
-    new-instance p2, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    invoke-direct {p2, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw p2
+    throw v1
 .end method

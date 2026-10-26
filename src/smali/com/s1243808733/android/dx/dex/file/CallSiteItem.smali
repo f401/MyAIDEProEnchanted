@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstCallSite;)V
-    .registers 4
+    .locals 2
 
     .line 39
     const/4 v0, 0x1
@@ -29,17 +29,17 @@
 .end method
 
 .method private static writeSize(Lcom/s1243808733/android/dx/rop/cst/CstCallSite;)I
-    .registers 1
+    .locals 1
 
-    const/4 p0, -0x1
+    const/4 v0, -0x1
 
-    return p0
+    return v0
 .end method
 
 
 # virtual methods
 .method public addContents(Lcom/s1243808733/android/dx/dex/file/DexFile;)V
-    .registers 3
+    .locals 1
 
     .line 103
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->value:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
@@ -50,7 +50,7 @@
 .end method
 
 .method public itemType()Lcom/s1243808733/android/dx/dex/file/ItemType;
-    .registers 2
+    .locals 1
 
     .line 97
     sget-object v0, Lcom/s1243808733/android/dx/dex/file/ItemType;->TYPE_ENCODED_ARRAY_ITEM:Lcom/s1243808733/android/dx/dex/file/ItemType;
@@ -59,46 +59,46 @@
 .end method
 
 .method protected place0(Lcom/s1243808733/android/dx/dex/file/Section;I)V
-    .registers 5
+    .locals 4
 
     .line 59
-    new-instance p2, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput;
+    new-instance v0, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput;
 
-    invoke-direct {p2}, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput;-><init>()V
+    invoke-direct {v0}, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput;-><init>()V
 
     .line 60
-    new-instance v0, Lcom/s1243808733/android/dx/dex/file/ValueEncoder;
+    new-instance v1, Lcom/s1243808733/android/dx/dex/file/ValueEncoder;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/Section;->getFile()Lcom/s1243808733/android/dx/dex/file/DexFile;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-direct {v0, p1, p2}, Lcom/s1243808733/android/dx/dex/file/ValueEncoder;-><init>(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
+    invoke-direct {v1, v2, v0}, Lcom/s1243808733/android/dx/dex/file/ValueEncoder;-><init>(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
 
     .line 62
-    iget-object p1, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->value:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
+    iget-object v2, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->value:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, p1, v1}, Lcom/s1243808733/android/dx/dex/file/ValueEncoder;->writeArray(Lcom/s1243808733/android/dx/rop/cst/CstArray;Z)V
+    invoke-virtual {v1, v2, v3}, Lcom/s1243808733/android/dx/dex/file/ValueEncoder;->writeArray(Lcom/s1243808733/android/dx/rop/cst/CstArray;Z)V
 
     .line 63
-    invoke-virtual {p2}, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput;->toByteArray()[B
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/util/ByteArrayAnnotatedOutput;->toByteArray()[B
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->encodedForm:[B
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->encodedForm:[B
 
     .line 64
-    array-length p1, p1
+    array-length v0, v0
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->setWriteSize(I)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->setWriteSize(I)V
 
     return-void
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 70
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->value:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
@@ -111,7 +111,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 76
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->value:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
@@ -124,14 +124,14 @@
 .end method
 
 .method protected writeTo0(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
-    .registers 5
+    .locals 3
 
     .line 82
     invoke-interface {p2}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotates()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 83
     new-instance v0, Ljava/lang/StringBuilder;
@@ -162,20 +162,20 @@
     invoke-direct {v0, p1, p2}, Lcom/s1243808733/android/dx/dex/file/ValueEncoder;-><init>(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
 
     .line 85
-    iget-object p1, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->value:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->value:Lcom/s1243808733/android/dx/rop/cst/CstCallSite;
 
-    const/4 p2, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, p1, p2}, Lcom/s1243808733/android/dx/dex/file/ValueEncoder;->writeArray(Lcom/s1243808733/android/dx/rop/cst/CstArray;Z)V
-
-    goto :goto_30
+    invoke-virtual {v0, v1, v2}, Lcom/s1243808733/android/dx/dex/file/ValueEncoder;->writeArray(Lcom/s1243808733/android/dx/rop/cst/CstArray;Z)V
 
     .line 87
-    :cond_2b
-    iget-object p1, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->encodedForm:[B
-
-    invoke-interface {p2, p1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->write([B)V
-
-    :goto_30
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/CallSiteItem;->encodedForm:[B
+
+    invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->write([B)V
+
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/filepicker/TermuxFileReceiverActivity;)V
-    .registers 2
+    .locals 0
 
     .line 92
     iput-object p1, p0, Lcom/termux/filepicker/TermuxFileReceiverActivity$1;->this$0:Lcom/termux/filepicker/TermuxFileReceiverActivity;
@@ -36,12 +36,12 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 95
-    iget-object p1, p0, Lcom/termux/filepicker/TermuxFileReceiverActivity$1;->this$0:Lcom/termux/filepicker/TermuxFileReceiverActivity;
+    iget-object v0, p0, Lcom/termux/filepicker/TermuxFileReceiverActivity$1;->this$0:Lcom/termux/filepicker/TermuxFileReceiverActivity;
 
-    invoke-virtual {p1}, Lcom/termux/filepicker/TermuxFileReceiverActivity;->finish()V
+    invoke-virtual {v0}, Lcom/termux/filepicker/TermuxFileReceiverActivity;->finish()V
 
     return-void
 .end method

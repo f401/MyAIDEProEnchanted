@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/security/PrivilegedAction<",
+        "Ljava/security/PrivilegedAction",
+        "<",
         "Ljava/lang/String;",
         ">;"
     }
@@ -28,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,7 +39,7 @@
 
 # virtual methods
 .method public final run()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     const-string v0, "line.separator"
 

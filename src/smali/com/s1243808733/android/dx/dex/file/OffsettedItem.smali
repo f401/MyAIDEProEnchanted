@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/s1243808733/android/dx/dex/file/Item;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dx/dex/file/OffsettedItem;",
         ">;"
     }
@@ -29,7 +30,9 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 2
+
+    const/4 v1, -0x1
 
     .line 70
     invoke-direct {p0}, Lcom/s1243808733/android/dx/dex/file/Item;-><init>()V
@@ -37,9 +40,7 @@
     .line 71
     invoke-static {p1}, Lcom/s1243808733/android/dx/dex/file/Section;->validateAlignment(I)V
 
-    const/4 v0, -0x1
-
-    if-lt p2, v0, :cond_13
+    if-lt p2, v1, :cond_0
 
     .line 77
     iput p1, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->alignment:I
@@ -48,57 +49,60 @@
     iput p2, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeSize:I
 
     .line 79
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->addedTo:Lcom/s1243808733/android/dx/dex/file/Section;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->addedTo:Lcom/s1243808733/android/dx/dex/file/Section;
 
     .line 80
-    iput v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->offset:I
+    iput v1, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->offset:I
 
     return-void
 
     .line 74
-    :cond_13
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "writeSize < -1"
+    const-string v1, "writeSize < -1"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public static getAbsoluteOffsetOr0(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)I
-    .registers 1
+    .locals 1
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
-    const/4 p0, 0x0
-
-    return p0
+    const/4 v0, 0x0
 
     .line 59
-    :cond_4
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->getAbsoluteOffset()I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public final compareTo(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)I
-    .registers 4
+    .locals 2
 
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    .line 127
+    :goto_0
+    return v0
 
     .line 120
-    :cond_4
+    :cond_0
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->itemType()Lcom/s1243808733/android/dx/dex/file/ItemType;
 
     move-result-object v0
@@ -108,103 +112,104 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_13
+    if-eq v0, v1, :cond_1
 
     .line 124
     invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/dex/file/ItemType;->compareTo(Ljava/lang/Enum;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 
     .line 127
-    :cond_13
+    :cond_1
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->compareTo0(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 25
     check-cast p1, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->compareTo(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method protected compareTo0(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)I
-    .registers 3
+    .locals 2
 
     .line 287
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v0, "unsupported"
+    const-string v1, "unsupported"
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_4
+    const/4 v1, 0x0
 
+    if-ne p0, p1, :cond_1
+
+    .line 104
+    :cond_0
+    :goto_0
     return v0
 
     .line 96
-    :cond_4
+    :cond_1
     check-cast p1, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
 
     .line 97
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->itemType()Lcom/s1243808733/android/dx/dex/file/ItemType;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 98
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->itemType()Lcom/s1243808733/android/dx/dex/file/ItemType;
 
-    move-result-object v2
+    move-result-object v3
 
-    const/4 v3, 0x0
+    if-eq v2, v3, :cond_2
 
-    if-eq v1, v2, :cond_12
+    move v0, v1
 
-    return v3
+    goto :goto_0
 
     .line 104
-    :cond_12
+    :cond_2
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->compareTo0(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)I
 
-    move-result p1
+    move-result v2
 
-    if-nez p1, :cond_19
+    if-eqz v2, :cond_0
 
-    goto :goto_1a
+    move v0, v1
 
-    :cond_19
-    const/4 v0, 0x0
-
-    :goto_1a
-    return v0
+    goto :goto_0
 .end method
 
 .method public final getAbsoluteOffset()I
-    .registers 3
+    .locals 2
 
     .line 205
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->offset:I
 
-    if-ltz v0, :cond_b
+    if-ltz v0, :cond_0
 
     .line 209
     iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->addedTo:Lcom/s1243808733/android/dx/dex/file/Section;
@@ -216,7 +221,7 @@
     return v0
 
     .line 206
-    :cond_b
+    :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "offset not yet known"
@@ -227,7 +232,7 @@
 .end method
 
 .method public final getAlignment()I
-    .registers 2
+    .locals 1
 
     .line 255
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->alignment:I
@@ -236,17 +241,17 @@
 .end method
 
 .method public final getRelativeOffset()I
-    .registers 3
+    .locals 2
 
     .line 190
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->offset:I
 
-    if-ltz v0, :cond_5
+    if-ltz v0, :cond_0
 
     return v0
 
     .line 191
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "offset not yet known"
@@ -257,7 +262,7 @@
 .end method
 
 .method public final offsetString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 265
     new-instance v0, Ljava/lang/StringBuilder;
@@ -288,85 +293,85 @@
 .end method
 
 .method public final place(Lcom/s1243808733/android/dx/dex/file/Section;I)I
-    .registers 4
+    .locals 2
 
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_2
 
-    if-ltz p2, :cond_20
+    if-ltz p2, :cond_1
 
     .line 233
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->addedTo:Lcom/s1243808733/android/dx/dex/file/Section;
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_0
 
     .line 237
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->alignment:I
 
     add-int/lit8 v0, v0, -0x1
 
-    add-int/2addr p2, v0
+    add-int v1, p2, v0
 
     xor-int/lit8 v0, v0, -0x1
 
-    and-int/2addr p2, v0
+    and-int/2addr v0, v1
 
     .line 240
     iput-object p1, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->addedTo:Lcom/s1243808733/android/dx/dex/file/Section;
 
     .line 241
-    iput p2, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->offset:I
+    iput v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->offset:I
 
     .line 243
-    invoke-virtual {p0, p1, p2}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->place0(Lcom/s1243808733/android/dx/dex/file/Section;I)V
+    invoke-virtual {p0, p1, v0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->place0(Lcom/s1243808733/android/dx/dex/file/Section;I)V
 
-    return p2
+    return v0
 
     .line 234
-    :cond_18
-    new-instance p1, Ljava/lang/RuntimeException;
+    :cond_0
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string p2, "already written"
+    const-string v1, "already written"
 
-    invoke-direct {p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 230
-    :cond_20
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "offset < 0"
+    const-string v1, "offset < 0"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 226
-    :cond_28
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_2
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "addedTo == null"
+    const-string v1, "addedTo == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method protected place0(Lcom/s1243808733/android/dx/dex/file/Section;I)V
-    .registers 3
+    .locals 0
 
     return-void
 .end method
 
 .method public final setWriteSize(I)V
-    .registers 3
+    .locals 2
 
-    if-ltz p1, :cond_11
+    if-ltz p1, :cond_1
 
     .line 142
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeSize:I
 
-    if-gez v0, :cond_9
+    if-gez v0, :cond_0
 
     .line 146
     iput p1, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeSize:I
@@ -374,41 +379,41 @@
     return-void
 
     .line 143
-    :cond_9
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :cond_0
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v0, "writeSize already set"
+    const-string v1, "writeSize already set"
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 139
-    :cond_11
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "writeSize < 0"
+    const-string v1, "writeSize < 0"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public abstract toHuman()Ljava/lang/String;
 .end method
 
 .method public final writeSize()I
-    .registers 3
+    .locals 2
 
     .line 156
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeSize:I
 
-    if-ltz v0, :cond_5
+    if-ltz v0, :cond_0
 
     return v0
 
     .line 157
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "writeSize is unknown"
@@ -419,7 +424,7 @@
 .end method
 
 .method public final writeTo(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
-    .registers 4
+    .locals 3
 
     .line 166
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->alignment:I
@@ -427,10 +432,10 @@
     invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->alignTo(I)V
 
     .line 169
-    :try_start_5
+    :try_start_0
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeSize:I
 
-    if-ltz v0, :cond_14
+    if-ltz v0, :cond_0
 
     .line 173
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->getAbsoluteOffset()I
@@ -438,8 +443,8 @@
     move-result v0
 
     invoke-interface {p2, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->assertCursor(I)V
-    :try_end_10
-    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_10} :catch_1c
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 179
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeTo0(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
@@ -447,39 +452,39 @@
     return-void
 
     .line 170
-    :cond_14
-    :try_start_14
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :cond_0
+    :try_start_1
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string p2, "writeSize is unknown"
+    const-string v1, "writeSize is unknown"
 
-    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
-    :try_end_1c
-    .catch Ljava/lang/RuntimeException; {:try_start_14 .. :try_end_1c} :catch_1c
+    throw v0
+    :try_end_1
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
 
-    :catch_1c
-    move-exception p1
+    :catch_0
+    move-exception v0
 
     .line 175
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v0, "...while writing "
+    const-string v2, "...while writing "
 
-    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-static {p1, p2}, Lcom/s1243808733/android/dex/util/ExceptionWithContext;->withContext(Ljava/lang/Throwable;Ljava/lang/String;)Lcom/s1243808733/android/dex/util/ExceptionWithContext;
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dex/util/ExceptionWithContext;->withContext(Ljava/lang/Throwable;Ljava/lang/String;)Lcom/s1243808733/android/dex/util/ExceptionWithContext;
 
-    move-result-object p1
+    move-result-object v0
 
-    throw p1
+    throw v0
 .end method
 
 .method protected abstract writeTo0(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V

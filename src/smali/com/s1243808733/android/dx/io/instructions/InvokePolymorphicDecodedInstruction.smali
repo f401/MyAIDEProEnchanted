@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;I[I)V
-    .registers 15
+    .locals 8
 
     .line 34
     const/4 v5, 0x0
@@ -30,9 +30,9 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJ)V
 
-    int-to-short p1, p5
+    int-to-short v0, p5
 
-    if-ne p5, p1, :cond_13
+    if-ne p5, v0, :cond_0
 
     .line 38
     iput p5, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->protoIndex:I
@@ -43,140 +43,140 @@
     return-void
 
     .line 36
-    :cond_13
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string p2, "protoIndex doesn\'t fit in a short: "
+    const-string v1, "protoIndex doesn\'t fit in a short: "
 
-    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1, p5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p2, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p2
+    throw v1
 .end method
 
 
 # virtual methods
 .method public getC()I
-    .registers 4
+    .locals 3
+
+    const/4 v0, 0x0
 
     .line 62
-    iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->registers:[I
+    iget-object v1, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->registers:[I
 
-    array-length v1, v0
+    array-length v2, v1
 
-    const/4 v2, 0x0
+    if-lez v2, :cond_0
 
-    if-lez v1, :cond_8
+    aget v0, v1, v0
 
-    aget v2, v0, v2
-
-    :cond_8
-    return v2
+    :cond_0
+    return v0
 .end method
 
 .method public getD()I
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x1
 
     .line 67
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->registers:[I
 
     array-length v1, v0
 
-    const/4 v2, 0x1
-
-    if-le v1, v2, :cond_9
+    if-le v1, v2, :cond_0
 
     aget v0, v0, v2
 
-    goto :goto_a
+    :goto_0
+    return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_a
-    return v0
+    goto :goto_0
 .end method
 
 .method public getE()I
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x2
 
     .line 72
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->registers:[I
 
     array-length v1, v0
 
-    const/4 v2, 0x2
-
-    if-le v1, v2, :cond_9
+    if-le v1, v2, :cond_0
 
     aget v0, v0, v2
 
-    goto :goto_a
+    :goto_0
+    return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_a
-    return v0
+    goto :goto_0
 .end method
 
 .method public getF()I
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x3
 
     .line 76
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->registers:[I
 
     array-length v1, v0
 
-    const/4 v2, 0x3
-
-    if-le v1, v2, :cond_9
+    if-le v1, v2, :cond_0
 
     aget v0, v0, v2
 
-    goto :goto_a
+    :goto_0
+    return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_a
-    return v0
+    goto :goto_0
 .end method
 
 .method public getG()I
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x4
 
     .line 80
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->registers:[I
 
     array-length v1, v0
 
-    const/4 v2, 0x4
-
-    if-le v1, v2, :cond_9
+    if-le v1, v2, :cond_0
 
     aget v0, v0, v2
 
-    goto :goto_a
+    :goto_0
+    return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_a
-    return v0
+    goto :goto_0
 .end method
 
 .method public getProtoIndex()S
-    .registers 2
+    .locals 1
 
     .line 85
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->protoIndex:I
@@ -187,7 +187,7 @@
 .end method
 
 .method public getRegisterCount()I
-    .registers 2
+    .locals 1
 
     .line 44
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->registers:[I
@@ -198,26 +198,23 @@
 .end method
 
 .method public withIndex(I)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 3
+    .locals 2
 
     .line 49
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v0, "use withProtoIndex to update both the method and proto indices for invoke-polymorphic"
+    const-string v1, "use withProtoIndex to update both the method and proto indices for invoke-polymorphic"
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public withProtoIndex(II)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 11
+    .locals 7
 
     .line 56
-    nop
-
-    .line 57
-    new-instance v7, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->getFormat()Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
 
@@ -233,13 +230,11 @@
 
     iget-object v6, p0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->registers:[I
 
-    move-object v0, v7
-
     move v3, p1
 
     move v5, p2
 
     invoke-direct/range {v0 .. v6}, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;I[I)V
 
-    return-object v7
+    return-object v0
 .end method

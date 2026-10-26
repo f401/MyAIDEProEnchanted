@@ -13,7 +13,8 @@
 .field protected formalTypeParameterList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -25,46 +26,47 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 2
+
+    const/4 v0, 0x0
 
     .line 56
     invoke-direct {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;-><init>(I)V
+
+    iput-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->extendedObject:Z
+
+    and-int/lit16 v1, p1, 0x80
+
+    if-nez v1, :cond_0
+
+    .line 57
+    :goto_0
+    iput-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->isVarargs:Z
+
+    return-void
+
+    .line 56
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method public constructor <init>(Ljava/lang/StringBuilder;)V
+    .locals 1
+
+    .line 61
+    invoke-direct {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;-><init>(Ljava/lang/StringBuilder;)V
 
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->extendedObject:Z
 
-    and-int/lit16 p1, p1, 0x80
-
-    if-nez p1, :cond_b
-
-    goto :goto_c
-
-    :cond_b
-    const/4 v0, 0x1
-
-    .line 57
-    :goto_c
-    iput-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->isVarargs:Z
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/StringBuilder;)V
-    .registers 2
-
-    .line 61
-    invoke-direct {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;-><init>(Ljava/lang/StringBuilder;)V
-
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->extendedObject:Z
-
     return-void
 .end method
 
 .method private addClassType(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +84,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 127
     const/4 v0, 0x1
@@ -90,7 +92,7 @@
     iput-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->extendedObject:Z
 
     .line 130
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->declaration:Ljava/lang/StringBuilder;
 
     iget-object v1, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->separator:Ljava/lang/String;
@@ -102,49 +104,50 @@
 
     invoke-direct {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->convertClassName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     return-void
 .end method
 
 .method private convertClassName(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 3
+
+    const/16 v2, 0x2e
 
     .line 135
     iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->convert:Lio/github/zeroaicy/readclass/classInfo/signature/ClassNameConvert;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 136
     invoke-interface {v0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/ClassNameConvert;->convert(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
-
-    return-object p1
+    move-result-object v0
 
     .line 138
-    :cond_9
+    :goto_0
+    return-object v0
+
+    :cond_0
     const/16 v0, 0x2f
 
-    const/16 v1, 0x2e
+    invoke-virtual {p1, v0, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object p1
+    const/16 v1, 0x24
 
-    const/16 v0, 0x24
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object p1
-
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .registers 3
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -154,38 +157,38 @@
     .end annotation
 
     .line 40
-    new-instance p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;
+    new-instance v0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-direct {p0, v0}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;-><init>(I)V
+    invoke-direct {v0, v1}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;-><init>(I)V
 
     .line 41
-    new-instance v0, Lzeroaicy/org/objectweb/asm/signature/SignatureReader;
+    new-instance v1, Lzeroaicy/org/objectweb/asm/signature/SignatureReader;
 
-    const-string v1, "Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/lang/String;>;Ljava/lang/CharSequence;"
+    const-string v2, "Ljava/lang/Object;Ljava/io/Serializable;Ljava/lang/Comparable<Ljava/lang/String;>;Ljava/lang/CharSequence;"
 
-    invoke-direct {v0, v1}, Lzeroaicy/org/objectweb/asm/signature/SignatureReader;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Lzeroaicy/org/objectweb/asm/signature/SignatureReader;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p0}, Lzeroaicy/org/objectweb/asm/signature/SignatureReader;->accept(Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;)V
+    invoke-virtual {v1, v0}, Lzeroaicy/org/objectweb/asm/signature/SignatureReader;->accept(Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;)V
 
     .line 43
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {p0}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->getReturnType()Ljava/lang/String;
+    invoke-virtual {v0}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->getReturnType()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 44
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {p0}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->getDeclaration()Ljava/lang/String;
+    invoke-virtual {v0}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->getDeclaration()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {v0, p0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -193,7 +196,7 @@
 
 # virtual methods
 .method protected endFormals()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -215,7 +218,7 @@
 .end method
 
 .method protected endType()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -230,7 +233,7 @@
 
     rem-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_1
 
     .line 168
     iget v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->arrayStack:I
@@ -239,22 +242,12 @@
 
     iput v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->arrayStack:I
 
-    goto :goto_13
-
     .line 170
-    :cond_d
-    :goto_d
-    iget v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->arrayStack:I
-
-    rem-int/lit8 v0, v0, 0x2
-
-    if-nez v0, :cond_14
-
-    :goto_13
+    :goto_0
     return-void
 
     .line 171
-    :cond_14
+    :cond_0
     iget v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->arrayStack:I
 
     div-int/lit8 v0, v0, 0x2
@@ -264,13 +257,13 @@
     .line 172
     iget-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->isVarargs:Z
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_2
 
     iget v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->arrayStack:I
 
     rem-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_2
 
     .line 174
     iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->declaration:Ljava/lang/StringBuilder;
@@ -279,47 +272,58 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_d
+    .line 170
+    :cond_1
+    :goto_1
+    iget v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->arrayStack:I
+
+    rem-int/lit8 v0, v0, 0x2
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
 
     .line 176
-    :cond_2c
+    :cond_2
     iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->declaration:Ljava/lang/StringBuilder;
 
     const-string v1, "[]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_d
+    goto :goto_1
 .end method
 
 .method public getFormalTypeParameterString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 195
     iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->formalTypeParameterList:Ljava/util/List;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 196
     const-string v0, ""
 
+    .line 210
+    :goto_0
     return-object v0
 
     .line 198
-    :cond_7
+    :cond_0
     iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->formalTypeParameter:Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     .line 199
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 202
-    :cond_10
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "<"
@@ -335,15 +339,15 @@
 
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 205
-    :goto_21
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_40
+    if-nez v0, :cond_2
 
     .line 208
     iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->formalTypeParameter:Ljava/lang/StringBuilder;
@@ -370,33 +374,33 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 203
-    :cond_40
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_2
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 204
     iget-object v2, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->formalTypeParameter:Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 205
-    iget-object v1, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->formalTypeParameter:Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->formalTypeParameter:Ljava/lang/StringBuilder;
 
     const-string v2, ", "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_21
+    goto :goto_1
 .end method
 
 .method public setConvert(Lio/github/zeroaicy/readclass/classInfo/signature/ClassNameConvert;)Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;
-    .registers 2
+    .locals 0
 
     .line 65
     iput-object p1, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->convert:Lio/github/zeroaicy/readclass/classInfo/signature/ClassNameConvert;
@@ -405,7 +409,7 @@
 .end method
 
 .method public visitClassType(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -417,129 +421,131 @@
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
     .line 93
     iget-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->extendedObject:Z
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_1
 
     iget-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->interfaceVisited:Z
 
-    if-nez v0, :cond_24
+    if-nez v0, :cond_1
 
     iget-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->interfaceBoundVisited:Z
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_0
 
     sget-object v0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->COMMA_SEPARATOR:Ljava/lang/String;
 
-    iget-object v1, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->separator:Ljava/lang/String;
+    iget-object v3, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->separator:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_0
 
     sget-object v0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->EXTENDS_SEPARATOR:Ljava/lang/String;
 
-    iget-object v1, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->separator:Ljava/lang/String;
+    iget-object v3, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->separator:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_1
 
     .line 98
-    :cond_20
+    :cond_0
     const-string v0, " & "
 
     iput-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->separator:Ljava/lang/String;
 
     .line 101
-    :cond_24
+    :cond_1
     const-string v0, "java/lang/Object"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_50
+    if-eqz v0, :cond_5
 
     iget-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->isInterface:Z
 
-    if-eqz v0, :cond_50
+    if-eqz v0, :cond_5
 
     .line 105
     iget v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->argumentStack:I
 
     rem-int/lit8 v0, v0, 0x2
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-nez v0, :cond_3e
+    if-nez v0, :cond_3
 
     iget-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->parameterTypeVisited:Z
 
-    if-nez v0, :cond_3e
+    if-nez v0, :cond_3
 
-    const/4 v0, 0x0
-
-    goto :goto_3f
-
-    :cond_3e
-    const/4 v0, 0x1
+    move v0, v1
 
     .line 113
-    :goto_3f
+    :goto_0
     iget-object v3, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->separator:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-eqz v3, :cond_48
+    if-eqz v3, :cond_4
 
-    goto :goto_49
-
-    :cond_48
-    const/4 v1, 0x1
-
-    :goto_49
+    :goto_1
     or-int/2addr v0, v1
 
-    if-eqz v0, :cond_53
+    if-eqz v0, :cond_2
 
     .line 115
     invoke-direct {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->addClassType(Ljava/lang/String;)V
 
-    goto :goto_53
-
-    .line 119
-    :cond_50
-    invoke-direct {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->addClassType(Ljava/lang/String;)V
-
     .line 121
-    :cond_53
-    :goto_53
-    const-string p1, ""
+    :cond_2
+    :goto_2
+    const-string v0, ""
 
-    iput-object p1, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->separator:Ljava/lang/String;
+    iput-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->separator:Ljava/lang/String;
 
     .line 122
-    iget p1, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->argumentStack:I
+    iget v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->argumentStack:I
 
-    mul-int/lit8 p1, p1, 0x2
+    mul-int/lit8 v0, v0, 0x2
 
-    iput p1, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->argumentStack:I
+    iput v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->argumentStack:I
 
     return-void
+
+    :cond_3
+    move v0, v2
+
+    .line 105
+    goto :goto_0
+
+    :cond_4
+    move v1, v2
+
+    .line 113
+    goto :goto_1
+
+    .line 119
+    :cond_5
+    invoke-direct {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->addClassType(Ljava/lang/String;)V
+
+    goto :goto_2
 .end method
 
 .method public visitClassType2(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -555,7 +561,7 @@
 .end method
 
 .method public visitEnd()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -567,7 +573,7 @@
 
     rem-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 146
     const/4 v0, 0x0
@@ -575,14 +581,14 @@
     iput-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->extendedObject:Z
 
     .line 148
-    :cond_9
+    :cond_0
     invoke-super {p0}, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->visitEnd()V
 
     return-void
 .end method
 
 .method public visitExceptionType()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
@@ -606,7 +612,7 @@
 .end method
 
 .method public visitFormalTypeParameter(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -626,7 +632,7 @@
     .line 74
     iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->formalTypeParameterList:Ljava/util/List;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 75
     new-instance v0, Ljava/util/ArrayList;
@@ -636,7 +642,7 @@
     iput-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->formalTypeParameterList:Ljava/util/List;
 
     .line 77
-    :cond_e
+    :cond_0
     iget-object v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->formalTypeParameterList:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -648,7 +654,7 @@
 .end method
 
 .method public visitInnerClassType(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -665,7 +671,7 @@
 
     rem-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 156
     const/4 v0, 0x0
@@ -673,28 +679,28 @@
     iput-boolean v0, p0, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->extendedObject:Z
 
     .line 159
-    :cond_9
+    :cond_0
     const/16 v0, 0x24
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v0
 
-    if-lez v0, :cond_15
+    if-lez v0, :cond_1
 
     invoke-direct {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/SignatureResolve;->convertClassName(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
     .line 161
-    :cond_15
+    :cond_1
     invoke-super {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/signature/TraceSignatureVisitor;->visitInnerClassType(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public visitReturnType()Lzeroaicy/org/objectweb/asm/signature/SignatureVisitor;
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/File;Landroid/app/Activity;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,38 +45,39 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 3
 
     .line 40
-    new-instance p1, Lcom/s1243808733/aide/util/ConverProject;
+    new-instance v0, Lcom/s1243808733/aide/util/ConverProject;
 
-    iget-object v0, p0, Lcom/s1243808733/aide/util/ConverProject$1;->val$project:Ljava/io/File;
+    iget-object v1, p0, Lcom/s1243808733/aide/util/ConverProject$1;->val$project:Ljava/io/File;
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/aide/util/ConverProject;-><init>(Ljava/io/File;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/aide/util/ConverProject;-><init>(Ljava/io/File;)V
 
     .line 41
-    new-instance v0, Lcom/s1243808733/aide/util/ConverProject$1$1;
+    new-instance v1, Lcom/s1243808733/aide/util/ConverProject$1$1;
 
-    invoke-direct {v0, p0}, Lcom/s1243808733/aide/util/ConverProject$1$1;-><init>(Lcom/s1243808733/aide/util/ConverProject$1;)V
+    invoke-direct {v1, p0}, Lcom/s1243808733/aide/util/ConverProject$1$1;-><init>(Lcom/s1243808733/aide/util/ConverProject$1;)V
 
-    if-eqz p2, :cond_16
+    if-eqz p2, :cond_1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-eq p2, v1, :cond_12
-
-    goto :goto_19
-
-    .line 66
-    :cond_12
-    invoke-virtual {p1, v0}, Lcom/s1243808733/aide/util/ConverProject;->converToAndroidX(Lcom/s1243808733/aide/util/ConverProject$Listener;)V
-
-    goto :goto_19
+    if-eq p2, v2, :cond_0
 
     .line 63
-    :cond_16
-    invoke-virtual {p1, v0}, Lcom/s1243808733/aide/util/ConverProject;->converToAppCompat(Lcom/s1243808733/aide/util/ConverProject$Listener;)V
-
-    :goto_19
+    :goto_0
     return-void
+
+    .line 66
+    :cond_0
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/util/ConverProject;->converToAndroidX(Lcom/s1243808733/aide/util/ConverProject$Listener;)V
+
+    goto :goto_0
+
+    .line 63
+    :cond_1
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/util/ConverProject;->converToAppCompat(Lcom/s1243808733/aide/util/ConverProject$Listener;)V
+
+    goto :goto_0
 .end method

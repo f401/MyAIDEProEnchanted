@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/annotation/AnnotationsList;I)V
-    .registers 4
+    .locals 1
 
     .line 40
     const-string v0, "RuntimeInvisibleParameterAnnotations"

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
 
     .line 715
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/io/instructions/InstructionCodec$33-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec$33;-><init>(Ljava/lang/String;I)V
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public decode(ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 11
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -51,7 +51,7 @@
 
     const/16 v0, 0xfb
 
-    if-ne v2, v0, :cond_24
+    if-ne v2, v0, :cond_0
 
     .line 725
     invoke-static {p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smbyte1(I)I
@@ -79,31 +79,29 @@
     move-result-object v4
 
     .line 730
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicRangeDecodedInstruction;
-
-    move-object v0, p1
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicRangeDecodedInstruction;
 
     move-object v1, p0
 
     invoke-direct/range {v0 .. v7}, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicRangeDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;III)V
 
-    return-object p1
+    return-object v0
 
     .line 723
-    :cond_24
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :cond_0
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public encode(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 6
+    .locals 4
 
     .line 738
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getOpcode()I
@@ -131,10 +129,10 @@
     .line 741
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getProtoIndex()S
 
-    move-result p1
+    move-result v3
 
     .line 737
-    invoke-interface {p2, v0, v1, v2, p1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSSS)V
+    invoke-interface {p2, v0, v1, v2, v3}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSSS)V
 
     return-void
 .end method

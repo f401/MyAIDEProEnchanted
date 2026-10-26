@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 7
     invoke-direct {p0}, Lcom/baidu/mobstat/eg;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public a(Lcom/baidu/mobstat/ev;)Lcom/baidu/mobstat/ev;
-    .registers 4
+    .locals 2
 
     .line 18
     invoke-super {p0, p1}, Lcom/baidu/mobstat/eg;->a(Lcom/baidu/mobstat/ev;)Lcom/baidu/mobstat/ev;
@@ -32,7 +32,7 @@
 .end method
 
 .method public c()Lcom/baidu/mobstat/ef;
-    .registers 2
+    .locals 1
 
     .line 25
     new-instance v0, Lcom/baidu/mobstat/eh;

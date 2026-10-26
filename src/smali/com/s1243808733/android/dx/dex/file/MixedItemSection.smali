@@ -15,7 +15,8 @@
 .field private static final TYPE_SORTER:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Comparator<",
+            "Ljava/util/Comparator",
+            "<",
             "Lcom/s1243808733/android/dx/dex/file/OffsettedItem;",
             ">;"
         }
@@ -27,7 +28,8 @@
 .field private final interns:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashMap<",
+            "Ljava/util/HashMap",
+            "<",
             "Lcom/s1243808733/android/dx/dex/file/OffsettedItem;",
             "Lcom/s1243808733/android/dx/dex/file/OffsettedItem;",
             ">;"
@@ -38,7 +40,8 @@
 .field private final items:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/dex/file/OffsettedItem;",
             ">;"
         }
@@ -52,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 53
     new-instance v0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection$1;
@@ -65,34 +68,34 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lcom/s1243808733/android/dx/dex/file/DexFile;ILcom/s1243808733/android/dx/dex/file/MixedItemSection$SortType;)V
-    .registers 5
+    .locals 2
+
+    const/16 v1, 0x64
 
     .line 90
     invoke-direct {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/dex/file/Section;-><init>(Ljava/lang/String;Lcom/s1243808733/android/dx/dex/file/DexFile;I)V
 
     .line 92
-    new-instance p1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    const/16 p2, 0x64
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-direct {p1, p2}, Ljava/util/ArrayList;-><init>(I)V
-
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
 
     .line 93
-    new-instance p1, Ljava/util/HashMap;
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {p1, p2}, Ljava/util/HashMap;-><init>(I)V
+    invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->interns:Ljava/util/HashMap;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->interns:Ljava/util/HashMap;
 
     .line 94
     iput-object p4, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->sort:Lcom/s1243808733/android/dx/dex/file/MixedItemSection$SortType;
 
     .line 95
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    iput p1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->writeSize:I
+    iput v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->writeSize:I
 
     return-void
 .end method
@@ -100,24 +103,24 @@
 
 # virtual methods
 .method public add(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)V
-    .registers 4
+    .locals 2
 
     .line 170
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->throwIfPrepared()V
 
     .line 173
-    :try_start_3
+    :try_start_0
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->getAlignment()I
 
     move-result v0
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->getAlignment()I
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
-    :try_end_b
-    .catch Ljava/lang/NullPointerException; {:try_start_3 .. :try_end_b} :catch_1b
 
-    if-gt v0, v1, :cond_13
+    if-gt v0, v1, :cond_0
 
     .line 182
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
@@ -127,33 +130,33 @@
     return-void
 
     .line 174
-    :cond_13
-    :try_start_13
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    :try_start_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "incompatible item alignment"
+    const-string v1, "incompatible item alignment"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
-    :try_end_1b
-    .catch Ljava/lang/NullPointerException; {:try_start_13 .. :try_end_1b} :catch_1b
+    throw v0
+    :try_end_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 179
-    :catch_1b
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "item == null"
+    const-string v1, "item == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public get(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -174,25 +177,25 @@
 
     check-cast v0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     return-object v0
 
     .line 222
-    :cond_e
+    :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {v0, p1}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public getAbsoluteItemOffset(Lcom/s1243808733/android/dx/dex/file/Item;)I
-    .registers 2
+    .locals 1
 
     .line 114
     check-cast p1, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
@@ -200,13 +203,13 @@
     .line 115
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->getAbsoluteOffset()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public intern(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -218,7 +221,7 @@
     monitor-enter p0
 
     .line 194
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->throwIfPrepared()V
 
     .line 196
@@ -229,48 +232,52 @@
     move-result-object v0
 
     check-cast v0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
-    :try_end_c
-    .catchall {:try_start_1 .. :try_end_c} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 199
     monitor-exit p0
 
+    .line 204
+    :goto_0
     return-object v0
 
     .line 202
-    :cond_10
-    :try_start_10
+    :cond_0
+    :try_start_1
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->add(Lcom/s1243808733/android/dx/dex/file/OffsettedItem;)V
 
     .line 203
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->interns:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_18
-    .catchall {:try_start_10 .. :try_end_18} :catchall_1a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 204
     monitor-exit p0
 
-    return-object p1
+    move-object v0, p1
 
-    :catchall_1a
-    move-exception p1
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
 
     monitor-exit p0
 
-    throw p1
+    throw v0
 .end method
 
 .method public items()Ljava/util/Collection;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Collection<",
-            "+",
+            "Ljava/util/Collection",
+            "<+",
             "Lcom/s1243808733/android/dx/dex/file/Item;",
             ">;"
         }
@@ -283,185 +290,201 @@
 .end method
 
 .method public placeItems()V
-    .registers 6
+    .locals 5
+
+    const/4 v0, 0x0
 
     .line 294
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->throwIfNotPrepared()V
 
     .line 296
-    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->sort:Lcom/s1243808733/android/dx/dex/file/MixedItemSection$SortType;
+    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->sort:Lcom/s1243808733/android/dx/dex/file/MixedItemSection$SortType;
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection$SortType;->ordinal()I
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection$SortType;->ordinal()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-eq v0, v1, :cond_16
+    if-eq v1, v2, :cond_1
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    if-eq v0, v1, :cond_10
-
-    goto :goto_1d
-
-    .line 298
-    :cond_10
-    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
-
-    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
-
-    goto :goto_1d
-
-    .line 302
-    :cond_16
-    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
-
-    sget-object v1, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->TYPE_SORTER:Ljava/util/Comparator;
-
-    invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+    if-eq v1, v2, :cond_0
 
     .line 307
-    :goto_1d
-    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
+    :goto_0
+    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result v3
 
-    const/4 v1, 0x0
+    move v1, v0
 
-    const/4 v2, 0x0
+    move v2, v0
 
-    :goto_25
-    if-ge v1, v0, :cond_68
+    :goto_1
+    if-ge v2, v3, :cond_3
 
     .line 310
-    iget-object v3, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
+    check-cast v0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
 
     .line 312
-    :try_start_2f
-    invoke-virtual {v3, p0, v2}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->place(Lcom/s1243808733/android/dx/dex/file/Section;I)I
+    :try_start_0
+    invoke-virtual {v0, p0, v1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->place(Lcom/s1243808733/android/dx/dex/file/Section;I)I
 
     move-result v4
 
-    if-lt v4, v2, :cond_3d
+    if-lt v4, v1, :cond_2
 
     .line 319
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeSize()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeSize()I
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v2
+    move-result v0
 
-    add-int/2addr v2, v4
+    add-int/2addr v0, v4
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_25
+    move v1, v0
+
+    goto :goto_1
+
+    .line 298
+    :cond_0
+    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
+
+    invoke-static {v1}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    goto :goto_0
+
+    .line 302
+    :cond_1
+    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
+
+    sget-object v2, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->TYPE_SORTER:Ljava/util/Comparator;
+
+    invoke-static {v1, v2}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    goto :goto_0
 
     .line 315
-    :cond_3d
-    new-instance v0, Ljava/lang/RuntimeException;
+    :cond_2
+    :try_start_1
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "bogus place() result for "
+    const-string v3, "bogus place() result for "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
-    :try_end_54
-    .catch Ljava/lang/RuntimeException; {:try_start_2f .. :try_end_54} :catch_54
+    throw v1
+    :try_end_1
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
 
-    :catch_54
-    move-exception v0
+    :catch_0
+    move-exception v1
 
     .line 321
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v2, "...while placing "
+    const-string v3, "...while placing "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/s1243808733/android/dex/util/ExceptionWithContext;->withContext(Ljava/lang/Throwable;Ljava/lang/String;)Lcom/s1243808733/android/dex/util/ExceptionWithContext;
+    invoke-static {v1, v0}, Lcom/s1243808733/android/dex/util/ExceptionWithContext;->withContext(Ljava/lang/Throwable;Ljava/lang/String;)Lcom/s1243808733/android/dex/util/ExceptionWithContext;
 
     move-result-object v0
 
     throw v0
 
     .line 326
-    :cond_68
-    iput v2, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->writeSize:I
+    :cond_3
+    iput v1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->writeSize:I
 
     return-void
 .end method
 
 .method protected prepare0()V
-    .registers 5
+    .locals 4
 
     .line 264
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->getFile()Lcom/s1243808733/android/dx/dex/file/DexFile;
 
-    move-result-object v0
+    move-result-object v2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 273
-    :cond_5
-    iget-object v2, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
+    :goto_0
+    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v3
 
-    if-lt v1, v2, :cond_e
+    if-lt v0, v3, :cond_1
 
     return-void
 
-    :cond_e
-    :goto_e
-    if-ge v1, v2, :cond_5
+    :goto_1
+    if-ge v1, v3, :cond_0
 
     .line 279
-    iget-object v3, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
+    check-cast v0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
 
     .line 280
-    invoke-virtual {v3, v0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->addContents(Lcom/s1243808733/android/dx/dex/file/DexFile;)V
+    invoke-virtual {v0, v2}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->addContents(Lcom/s1243808733/android/dx/dex/file/DexFile;)V
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_1
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    move v1, v0
+
+    goto :goto_1
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .line 124
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
@@ -474,44 +497,38 @@
 .end method
 
 .method public writeHeaderPart(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
-    .registers 8
+    .locals 7
+
+    const/4 v6, 0x4
 
     .line 133
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->throwIfNotPrepared()V
 
     .line 135
-    iget v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->writeSize:I
+    iget v2, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->writeSize:I
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    if-eq v0, v1, :cond_74
+    if-eq v2, v0, :cond_3
 
-    if-nez v0, :cond_c
+    if-nez v2, :cond_2
 
-    const/4 v1, 0x0
-
-    goto :goto_10
-
-    .line 140
-    :cond_c
-    invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->getFileOffset()I
-
-    move-result v1
+    const/4 v0, 0x0
 
     .line 141
-    :goto_10
+    :goto_0
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_18
+    if-nez v1, :cond_0
 
     .line 144
-    const-string v2, "<unnamed>"
+    const-string v1, "<unnamed>"
 
     .line 147
-    :cond_18
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    :cond_0
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v3
 
@@ -535,14 +552,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6d
+    if-eqz v3, :cond_1
 
     .line 153
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v5, "_size:"
 
@@ -550,7 +567,7 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
+    invoke-static {v2}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -560,191 +577,198 @@
 
     move-result-object v3
 
-    const/4 v5, 0x4
-
-    invoke-interface {p1, v5, v3}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p1, v6, v3}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 154
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "_off: "
+    const-string v1, "_off: "
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
+    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Hex;->u4(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {p1, v5, v2}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p1, v6, v1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 157
-    :cond_6d
-    invoke-interface {p1, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
+    :cond_1
+    invoke-interface {p1, v2}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
 
     .line 158
-    invoke-interface {p1, v1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
+    invoke-interface {p1, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeInt(I)V
 
     return-void
 
+    .line 140
+    :cond_2
+    invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->getFileOffset()I
+
+    move-result v0
+
+    goto :goto_0
+
     .line 136
-    :cond_74
-    new-instance p1, Ljava/lang/RuntimeException;
+    :cond_3
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string v0, "write size not yet set"
+    const-string v1, "write size not yet set"
 
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public writeIndexAnnotation(Lcom/s1243808733/android/dx/util/AnnotatedOutput;Lcom/s1243808733/android/dx/dex/file/ItemType;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
+
+    const/4 v4, 0x0
 
     .line 236
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->throwIfNotPrepared()V
 
     .line 238
-    new-instance v0, Ljava/util/TreeMap;
+    new-instance v1, Ljava/util/TreeMap;
 
-    invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
+    invoke-direct {v1}, Ljava/util/TreeMap;-><init>()V
 
     .line 241
-    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :cond_e
-    :goto_e
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_28
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
-
-    .line 242
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->itemType()Lcom/s1243808733/android/dx/dex/file/ItemType;
-
-    move-result-object v3
-
-    if-ne v3, p2, :cond_e
-
-    .line 243
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->toHuman()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 244
-    invoke-virtual {v0, v3, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_e
-
-    .line 248
-    :cond_28
-    invoke-virtual {v0}, Ljava/util/TreeMap;->size()I
-
-    move-result p2
-
-    if-nez p2, :cond_2f
-
-    return-void
-
-    .line 252
-    :cond_2f
-    const/4 p2, 0x0
-
-    invoke-interface {p1, p2, p3}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
-
-    .line 254
-    invoke-virtual {v0}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
-
-    move-result-object p3
-
-    invoke-interface {p3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object p3
-
-    :goto_3b
-    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_74
+    if-eqz v0, :cond_1
 
-    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map$Entry;
-
-    .line 255
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    .line 256
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
 
+    .line 242
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->itemType()Lcom/s1243808733/android/dx/dex/file/ItemType;
+
+    move-result-object v3
+
+    if-ne v3, p2, :cond_0
+
+    .line 243
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->toHuman()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 244
+    invoke-virtual {v1, v3, v0}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    .line 248
+    :cond_1
+    invoke-virtual {v1}, Ljava/util/TreeMap;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
     .line 257
-    new-instance v2, Ljava/lang/StringBuilder;
+    :cond_2
+    return-void
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    .line 252
+    :cond_3
+    invoke-interface {p1, v4, p3}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
-    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->offsetString()Ljava/lang/String;
+    .line 254
+    invoke-virtual {v1}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    const/16 v0, 0x20
+    move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v1, v0
+
+    check-cast v1, Ljava/util/Map$Entry;
+
+    .line 255
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    .line 256
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
+
+    .line 257
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->offsetString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v1, 0x20
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/16 v0, 0xa
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-interface {p1, p2, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {p1, v4, v0}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
-    goto :goto_3b
-
-    :cond_74
-    return-void
+    goto :goto_1
 .end method
 
 .method public writeSize()I
-    .registers 2
+    .locals 1
 
     .line 107
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->throwIfNotPrepared()V
@@ -756,118 +780,114 @@
 .end method
 
 .method protected writeTo0(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
-    .registers 12
+    .locals 9
+
+    const/4 v3, 0x0
 
     .line 332
     invoke-interface {p1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotates()Z
 
-    move-result v0
+    move-result v5
 
     .line 334
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->getFile()Lcom/s1243808733/android/dx/dex/file/DexFile;
 
-    move-result-object v1
+    move-result-object v6
 
     .line 337
-    iget-object v2, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->items:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x1
-
-    :goto_12
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_43
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
-    check-cast v7, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_29
+    move v1, v0
 
-    if-eqz v6, :cond_24
+    move v2, v3
 
-    const/4 v6, 0x0
+    :goto_0
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
-    goto :goto_29
+    move-result v0
 
-    .line 342
-    :cond_24
-    const-string v8, "\n"
+    if-eqz v0, :cond_3
 
-    invoke-interface {p1, v3, v8}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;
+
+    if-eqz v5, :cond_0
+
+    if-eqz v1, :cond_2
+
+    move v1, v3
 
     .line 346
-    :cond_29
-    :goto_29
-    invoke-virtual {v7}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->getAlignment()I
+    :cond_0
+    :goto_1
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->getAlignment()I
 
-    move-result v8
+    move-result v4
 
-    sub-int/2addr v8, v4
+    add-int/lit8 v4, v4, -0x1
 
-    xor-int/lit8 v9, v8, -0x1
+    add-int v8, v4, v2
 
-    add-int/2addr v8, v5
+    xor-int/lit8 v4, v4, -0x1
 
-    and-int/2addr v8, v9
+    and-int/2addr v4, v8
 
-    if-eq v5, v8, :cond_3a
+    if-eq v2, v4, :cond_1
 
     .line 350
-    sub-int v5, v8, v5
+    sub-int v2, v4, v2
 
-    invoke-interface {p1, v5}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeZeroes(I)V
+    invoke-interface {p1, v2}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->writeZeroes(I)V
 
-    move v5, v8
+    move v2, v4
 
     .line 354
-    :cond_3a
-    invoke-virtual {v7, v1, p1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeTo(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
+    :cond_1
+    invoke-virtual {v0, v6, p1}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeTo(Lcom/s1243808733/android/dx/dex/file/DexFile;Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
 
     .line 355
-    invoke-virtual {v7}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeSize()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/OffsettedItem;->writeSize()I
 
-    move-result v7
+    move-result v0
 
-    add-int/2addr v5, v7
+    add-int/2addr v0, v2
 
-    goto :goto_12
+    move v2, v0
+
+    goto :goto_0
+
+    .line 342
+    :cond_2
+    const-string v4, "\n"
+
+    invoke-interface {p1, v3, v4}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
+
+    goto :goto_1
 
     .line 358
-    :cond_43
-    iget p1, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->writeSize:I
+    :cond_3
+    iget v0, p0, Lcom/s1243808733/android/dx/dex/file/MixedItemSection;->writeSize:I
 
-    if-ne v5, p1, :cond_48
+    if-ne v2, v0, :cond_4
 
     return-void
 
     .line 359
-    :cond_48
-    new-instance p1, Ljava/lang/RuntimeException;
+    :cond_4
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string v0, "output size mismatch"
+    const-string v1, "output size mismatch"
 
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_51
-
-    :goto_50
-    throw p1
-
-    :goto_51
-    goto :goto_50
+    throw v0
 .end method

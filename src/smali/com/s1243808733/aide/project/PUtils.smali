@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static dp2px(F)I
-    .registers 2
+    .locals 2
 
     .line 16
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
@@ -27,19 +27,19 @@
 
     iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float p0, p0, v0
+    mul-float/2addr v0, p0
 
-    const/high16 v0, 0x3f000000  # 0.5f
+    const/high16 v1, 0x3f000000    # 0.5f
 
-    add-float/2addr p0, v0
+    add-float/2addr v0, v1
 
-    float-to-int p0, p0
+    float-to-int v0, v0
 
-    return p0
+    return v0
 .end method
 
 .method public static getAssetsFile(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 21
     new-instance v0, Ljava/lang/StringBuilder;
@@ -52,148 +52,150 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/s1243808733/util/Utils;->getAssetsDataFile(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->getAssetsDataFile(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getIcon(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/Bitmap;
-    .registers 9
+    .locals 8
 
-    .line 28
-    const/4 v0, 0x0
+    const/4 v7, 0x1
 
-    const/4 v1, 0x1
+    const/4 v6, 0x0
 
     const/4 v2, 0x0
 
-    :try_start_3
+    .line 28
+    :try_start_0
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->isEnableCustomTemplate()Z
 
-    move-result v3
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_7} :catch_59
-    .catchall {:try_start_3 .. :try_end_7} :catchall_4f
+    move-result v0
 
-    const-string v4, "icons/"
-
-    if-eqz v3, :cond_26
+    if-eqz v0, :cond_0
 
     .line 29
-    :try_start_b
-    new-instance p0, Ljava/io/FileInputStream;
+    new-instance v1, Ljava/io/FileInputStream;
 
-    new-instance v3, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->getAutoCustomTemplateDir()Ljava/io/File;
 
-    move-result-object v5
+    move-result-object v3
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v5, "icons/"
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v3, v5, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    move-result-object v4
 
-    invoke-direct {p0, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v0, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    goto :goto_3e
-
-    .line 31
-    :cond_26
-    invoke-virtual {p0}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object p0
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/s1243808733/aide/project/PUtils;->getAssetsFile(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
-
-    move-result-object p0
-    :try_end_3e
-    .catch Ljava/io/IOException; {:try_start_b .. :try_end_3e} :catch_59
-    .catchall {:try_start_b .. :try_end_3e} :catchall_4f
+    invoke-direct {v1, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 33
-    :goto_3e
-    :try_start_3e
-    invoke-static {p0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    :goto_0
+    :try_start_1
+    invoke-static {v1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-result-object p1
-    :try_end_42
-    .catch Ljava/io/IOException; {:try_start_3e .. :try_end_42} :catch_4d
-    .catchall {:try_start_3e .. :try_end_42} :catchall_4a
+    move-result-object v2
 
     .line 37
-    new-array v1, v1, [Ljava/io/Closeable;
+    new-array v0, v7, [Ljava/io/Closeable;
 
-    aput-object p0, v1, v0
+    aput-object v1, v0, v6
 
-    invoke-static {v1}, Lcom/blankj/utilcode/util/CloseUtils;->closeIOQuietly([Ljava/io/Closeable;)V
+    invoke-static {v0}, Lcom/blankj/utilcode/util/CloseUtils;->closeIOQuietly([Ljava/io/Closeable;)V
 
-    return-object p1
+    :goto_1
+    return-object v2
 
-    :catchall_4a
-    move-exception p1
+    .line 31
+    :cond_0
+    :try_start_2
+    invoke-virtual {p0}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
-    move-object v2, p0
+    move-result-object v0
 
-    goto :goto_51
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    :catch_4d
-    move-exception p1
+    const-string v3, "icons/"
 
-    goto :goto_5b
+    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    :catchall_4f
-    move-exception p0
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object p1, p0
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :goto_51
-    new-array p0, v1, [Ljava/io/Closeable;
+    move-result-object v1
 
-    aput-object v2, p0, v0
+    invoke-static {v1}, Lcom/s1243808733/aide/project/PUtils;->getAssetsFile(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {p0}, Lcom/blankj/utilcode/util/CloseUtils;->closeIOQuietly([Ljava/io/Closeable;)V
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result-object v1
+
+    goto :goto_0
+
+    .line 37
+    :catchall_0
+    move-exception v0
+
+    move-object v1, v2
+
+    :goto_2
+    new-array v2, v7, [Ljava/io/Closeable;
+
+    aput-object v1, v2, v6
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/CloseUtils;->closeIOQuietly([Ljava/io/Closeable;)V
 
     .line 38
-    throw p1
+    throw v0
 
-    :catch_59
-    move-exception p0
+    :catch_0
+    move-exception v0
 
-    move-object p0, v2
+    move-object v1, v2
 
     .line 37
-    :goto_5b
-    new-array p1, v1, [Ljava/io/Closeable;
+    :goto_3
+    new-array v0, v7, [Ljava/io/Closeable;
 
-    aput-object p0, p1, v0
+    aput-object v1, v0, v6
 
-    invoke-static {p1}, Lcom/blankj/utilcode/util/CloseUtils;->closeIOQuietly([Ljava/io/Closeable;)V
+    invoke-static {v0}, Lcom/blankj/utilcode/util/CloseUtils;->closeIOQuietly([Ljava/io/Closeable;)V
 
-    return-object v2
+    goto :goto_1
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_3
+
+    :catchall_1
+    move-exception v0
+
+    goto :goto_2
 .end method

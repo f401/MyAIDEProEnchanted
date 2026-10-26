@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Ljava/io/File;Lcom/s1243808733/aide/application/activity/icons/Icon;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,32 +49,32 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 5
+    .locals 4
 
     .line 218
-    new-instance p1, Ljava/io/File;
-
     new-instance v0, Ljava/io/File;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$5;->val$pictures:Ljava/io/File;
+    new-instance v1, Ljava/io/File;
 
-    const-string v2, "svg"
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$5;->val$pictures:Ljava/io/File;
+
+    const-string v3, "svg"
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$5;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
+
+    const-string v3, ".svg"
+
+    invoke-virtual {v2, v3}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getFileName(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$5;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
-
-    const-string v2, ".svg"
-
-    invoke-virtual {v1, v2}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getFileName(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v1
-
-    invoke-direct {p1, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object p1
 
     .line 219
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$5;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
@@ -83,41 +83,43 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromIS(Ljava/lang/String;Ljava/io/InputStream;)Z
+    invoke-static {v1, v0}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromIS(Ljava/lang/String;Ljava/io/InputStream;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_1
 
     .line 220
-    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$5;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$5;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_31
+    if-eqz v0, :cond_0
 
-    const-string v1, "已导出至"
+    const-string v0, "\u5df2\u5bfc\u51fa\u81f3"
 
-    goto :goto_33
-
-    :cond_31
-    const-string v1, "Exported to"
-
-    :goto_33
-    invoke-static {v0, v1, p1}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->-$$Nest$mshowMsgDialog(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_3c
+    :goto_0
+    invoke-static {v2, v0, v1}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->-$$Nest$mshowMsgDialog(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 222
-    :cond_37
-    const-string p1, "fail"
+    :goto_1
+    const/4 v0, 0x0
 
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->toastError(Ljava/lang/String;)Landroid/widget/Toast;
+    return v0
 
-    :goto_3c
-    const/4 p1, 0x0
+    .line 220
+    :cond_0
+    const-string v0, "Exported to"
 
-    return p1
+    goto :goto_0
+
+    .line 222
+    :cond_1
+    const-string v0, "fail"
+
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->toastError(Ljava/lang/String;)Landroid/widget/Toast;
+
+    goto :goto_1
 .end method

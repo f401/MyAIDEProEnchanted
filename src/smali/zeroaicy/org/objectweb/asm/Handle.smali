@@ -17,42 +17,39 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 12
+    .locals 6
 
     const/16 v0, 0x9
 
-    if-eq p1, v0, :cond_7
+    if-eq p1, v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    :goto_0
+    move-object v0, p0
 
-    goto :goto_9
+    move v1, p1
 
-    :cond_7
-    const/4 v0, 0x1
+    move-object v2, p2
 
-    const/4 v6, 0x1
+    move-object v3, p3
+
+    move-object v4, p4
 
     .line 76
-    :goto_9
-    move-object v1, p0
-
-    move v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    invoke-direct/range {v1 .. v6}, Lzeroaicy/org/objectweb/asm/Handle;-><init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-direct/range {v0 .. v5}, Lzeroaicy/org/objectweb/asm/Handle;-><init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
 
     return-void
+
+    .line 4294967295
+    :cond_0
+    const/4 v5, 0x1
+
+    goto :goto_0
 .end method
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-    .registers 6
+    .locals 0
 
     .line 98
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -78,92 +75,96 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_4
+    const/4 v1, 0x0
 
+    if-ne p1, p0, :cond_1
+
+    .line 164
+    :cond_0
+    :goto_0
     return v0
 
     .line 160
-    :cond_4
-    instance-of v1, p1, Lzeroaicy/org/objectweb/asm/Handle;
+    :cond_1
+    instance-of v2, p1, Lzeroaicy/org/objectweb/asm/Handle;
 
-    const/4 v2, 0x0
+    if-nez v2, :cond_2
 
-    if-nez v1, :cond_a
+    move v0, v1
 
-    return v2
+    goto :goto_0
 
     .line 163
-    :cond_a
+    :cond_2
     check-cast p1, Lzeroaicy/org/objectweb/asm/Handle;
 
     .line 164
-    iget v1, p0, Lzeroaicy/org/objectweb/asm/Handle;->tag:I
+    iget v2, p0, Lzeroaicy/org/objectweb/asm/Handle;->tag:I
 
     iget v3, p1, Lzeroaicy/org/objectweb/asm/Handle;->tag:I
 
-    if-ne v1, v3, :cond_3d
+    if-ne v2, v3, :cond_3
 
-    iget-boolean v1, p0, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
+    iget-boolean v2, p0, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
 
-    if-nez v1, :cond_1b
+    if-nez v2, :cond_4
 
-    iget-boolean v1, p1, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
+    iget-boolean v2, p1, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
 
-    if-nez v1, :cond_3d
+    if-nez v2, :cond_3
 
-    goto :goto_1f
-
-    :cond_1b
-    iget-boolean v1, p1, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
-
-    if-eqz v1, :cond_3d
-
-    :goto_1f
-    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/Handle;->owner:Ljava/lang/String;
+    :goto_1
+    iget-object v2, p0, Lzeroaicy/org/objectweb/asm/Handle;->owner:Ljava/lang/String;
 
     iget-object v3, p1, Lzeroaicy/org/objectweb/asm/Handle;->owner:Ljava/lang/String;
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_3d
+    if-eqz v2, :cond_3
 
-    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/Handle;->name:Ljava/lang/String;
+    iget-object v2, p0, Lzeroaicy/org/objectweb/asm/Handle;->name:Ljava/lang/String;
 
     iget-object v3, p1, Lzeroaicy/org/objectweb/asm/Handle;->name:Ljava/lang/String;
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_3d
+    if-eqz v2, :cond_3
 
-    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/Handle;->descriptor:Ljava/lang/String;
+    iget-object v2, p0, Lzeroaicy/org/objectweb/asm/Handle;->descriptor:Ljava/lang/String;
 
-    iget-object p1, p1, Lzeroaicy/org/objectweb/asm/Handle;->descriptor:Ljava/lang/String;
+    iget-object v3, p1, Lzeroaicy/org/objectweb/asm/Handle;->descriptor:Ljava/lang/String;
 
-    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v2
 
-    if-nez p1, :cond_3e
+    if-nez v2, :cond_0
 
-    :cond_3d
-    const/4 v0, 0x0
+    :cond_3
+    move v0, v1
 
-    :cond_3e
-    return v0
+    goto :goto_0
+
+    :cond_4
+    iget-boolean v2, p1, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
+
+    if-eqz v2, :cond_3
+
+    goto :goto_1
 .end method
 
 .method public getDesc()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 143
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Handle;->descriptor:Ljava/lang/String;
@@ -172,7 +173,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 134
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Handle;->name:Ljava/lang/String;
@@ -181,7 +182,7 @@
 .end method
 
 .method public getOwner()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 125
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Handle;->owner:Ljava/lang/String;
@@ -190,7 +191,7 @@
 .end method
 
 .method public getTag()I
-    .registers 2
+    .locals 1
 
     .line 115
     iget v0, p0, Lzeroaicy/org/objectweb/asm/Handle;->tag:I
@@ -199,25 +200,20 @@
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
     .line 173
-    iget v0, p0, Lzeroaicy/org/objectweb/asm/Handle;->tag:I
+    iget v1, p0, Lzeroaicy/org/objectweb/asm/Handle;->tag:I
 
-    iget-boolean v1, p0, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
+    iget-boolean v0, p0, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v0, :cond_0
 
-    const/16 v1, 0x40
+    const/16 v0, 0x40
 
-    goto :goto_a
-
-    :cond_9
-    const/4 v1, 0x0
-
-    :goto_a
+    :goto_0
     add-int/2addr v0, v1
 
     iget-object v1, p0, Lzeroaicy/org/objectweb/asm/Handle;->owner:Ljava/lang/String;
@@ -232,7 +228,7 @@
 
     move-result v2
 
-    mul-int v1, v1, v2
+    mul-int/2addr v1, v2
 
     iget-object v2, p0, Lzeroaicy/org/objectweb/asm/Handle;->descriptor:Ljava/lang/String;
 
@@ -240,15 +236,20 @@
 
     move-result v2
 
-    mul-int v1, v1, v2
+    mul-int/2addr v1, v2
 
     add-int/2addr v0, v1
 
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public isInterface()Z
-    .registers 2
+    .locals 1
 
     .line 152
     iget-boolean v0, p0, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
@@ -257,18 +258,18 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 9
+    .locals 8
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
     .line 188
-    new-instance v0, Ljava/lang/StringBuffer;
-
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
     new-instance v1, Ljava/lang/StringBuffer;
 
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     new-instance v2, Ljava/lang/StringBuffer;
 
@@ -362,31 +363,26 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-boolean v2, p0, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
+    iget-boolean v0, p0, Lzeroaicy/org/objectweb/asm/Handle;->isInterface:Z
 
-    if-eqz v2, :cond_76
+    if-eqz v0, :cond_0
 
-    const-string v2, " itf"
+    const-string v0, " itf"
 
-    goto :goto_78
+    :goto_0
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    :cond_76
-    const-string v2, ""
+    move-result-object v0
 
-    :goto_78
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v0
 
@@ -401,4 +397,9 @@
     move-result-object v0
 
     return-object v0
+
+    :cond_0
+    const-string v0, ""
+
+    goto :goto_0
 .end method

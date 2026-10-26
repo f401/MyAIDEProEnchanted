@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/cf/code/BytecodeArray;)V
-    .registers 2
+    .locals 0
 
     .line 1369
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/code/BytecodeArray$ConstantParserVisitor;->this$0:Lcom/s1243808733/android/dx/cf/code/BytecodeArray;
@@ -37,7 +37,7 @@
 .end method
 
 .method private clear()V
-    .registers 2
+    .locals 1
 
     .line 1373
     const/4 v0, 0x0
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getPreviousOffset()I
-    .registers 2
+    .locals 1
 
     const/4 v0, -0x1
 
@@ -58,13 +58,13 @@
 .end method
 
 .method public setPreviousOffset(I)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitBranch(IIII)V
-    .registers 5
+    .locals 0
 
     .line 1409
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/code/BytecodeArray$ConstantParserVisitor;->clear()V
@@ -73,7 +73,7 @@
 .end method
 
 .method public visitConstant(IIILcom/s1243808733/android/dx/rop/cst/Constant;I)V
-    .registers 6
+    .locals 0
 
     .line 1400
     iput-object p4, p0, Lcom/s1243808733/android/dx/cf/code/BytecodeArray$ConstantParserVisitor;->cst:Lcom/s1243808733/android/dx/rop/cst/Constant;
@@ -88,7 +88,7 @@
 .end method
 
 .method public visitInvalid(III)V
-    .registers 4
+    .locals 0
 
     .line 1379
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/code/BytecodeArray$ConstantParserVisitor;->clear()V
@@ -97,7 +97,7 @@
 .end method
 
 .method public visitLocal(IIIILcom/s1243808733/android/dx/rop/type/Type;I)V
-    .registers 7
+    .locals 0
 
     .line 1393
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/code/BytecodeArray$ConstantParserVisitor;->clear()V
@@ -106,12 +106,13 @@
 .end method
 
 .method public visitNewarray(IILcom/s1243808733/android/dx/rop/cst/CstType;Ljava/util/ArrayList;)V
-    .registers 5
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
             "Lcom/s1243808733/android/dx/rop/cst/CstType;",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/s1243808733/android/dx/rop/cst/Constant;",
             ">;)V"
         }
@@ -124,7 +125,7 @@
 .end method
 
 .method public visitNoArgs(IIILcom/s1243808733/android/dx/rop/type/Type;)V
-    .registers 5
+    .locals 0
 
     .line 1386
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/code/BytecodeArray$ConstantParserVisitor;->clear()V
@@ -133,7 +134,7 @@
 .end method
 
 .method public visitSwitch(IIILcom/s1243808733/android/dx/cf/code/SwitchList;I)V
-    .registers 6
+    .locals 0
 
     .line 1416
     invoke-direct {p0}, Lcom/s1243808733/android/dx/cf/code/BytecodeArray$ConstantParserVisitor;->clear()V

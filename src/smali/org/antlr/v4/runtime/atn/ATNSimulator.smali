@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .line 23
     sget v0, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->SERIALIZED_VERSION:I
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATN;Lorg/antlr/v4/runtime/atn/PredictionContextCache;)V
-    .registers 3
+    .locals 0
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,7 +72,7 @@
 .end method
 
 .method public static checkCondition(Z)V
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public static checkCondition(ZLjava/lang/String;)V
-    .registers 3
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public static deserialize([C)Lorg/antlr/v4/runtime/atn/ATN;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -113,19 +113,20 @@
 
     invoke-virtual {v0, p0}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->deserialize([C)Lorg/antlr/v4/runtime/atn/ATN;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static edgeFactory(Lorg/antlr/v4/runtime/atn/ATN;IIIIIILjava/util/List;)Lorg/antlr/v4/runtime/atn/Transition;
-    .registers 17
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lorg/antlr/v4/runtime/atn/ATN;",
             "IIIIII",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/misc/IntervalSet;",
             ">;)",
             "Lorg/antlr/v4/runtime/atn/Transition;"
@@ -164,7 +165,7 @@
 .end method
 
 .method public static stateFactory(II)Lorg/antlr/v4/runtime/atn/ATNState;
-    .registers 3
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -175,67 +176,67 @@
 
     invoke-virtual {v0, p0, p1}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->stateFactory(II)Lorg/antlr/v4/runtime/atn/ATNState;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static toInt(C)I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 138
     invoke-static {p0}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->toInt(C)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static toInt32([CI)I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 146
     invoke-static {p0, p1}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->toInt32([CI)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static toLong([CI)J
-    .registers 2
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 154
     invoke-static {p0, p1}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->toLong([CI)J
 
-    move-result-wide p0
+    move-result-wide v0
 
-    return-wide p0
+    return-wide v0
 .end method
 
 .method public static toUUID([CI)Ljava/util/UUID;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 162
     invoke-static {p0, p1}, Lorg/antlr/v4/runtime/atn/ATNDeserializer;->toUUID([CI)Ljava/util/UUID;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public clearDFA()V
-    .registers 3
+    .locals 2
 
     .line 90
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -248,49 +249,51 @@
 .end method
 
 .method public getCachedContext(Lorg/antlr/v4/runtime/atn/PredictionContext;)Lorg/antlr/v4/runtime/atn/PredictionContext;
-    .registers 5
+    .locals 3
 
     .line 98
-    iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNSimulator;->sharedContextCache:Lorg/antlr/v4/runtime/atn/PredictionContextCache;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/atn/ATNSimulator;->sharedContextCache:Lorg/antlr/v4/runtime/atn/PredictionContextCache;
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_0
 
+    .line 103
+    :goto_0
     return-object p1
 
     .line 100
-    :cond_5
-    monitor-enter v0
+    :cond_0
+    monitor-enter v1
 
     .line 101
-    :try_start_6
-    new-instance v1, Ljava/util/IdentityHashMap;
+    :try_start_0
+    new-instance v0, Ljava/util/IdentityHashMap;
 
-    invoke-direct {v1}, Ljava/util/IdentityHashMap;-><init>()V
+    invoke-direct {v0}, Ljava/util/IdentityHashMap;-><init>()V
 
     .line 103
     iget-object v2, p0, Lorg/antlr/v4/runtime/atn/ATNSimulator;->sharedContextCache:Lorg/antlr/v4/runtime/atn/PredictionContextCache;
 
-    invoke-static {p1, v2, v1}, Lorg/antlr/v4/runtime/atn/PredictionContext;->getCachedContext(Lorg/antlr/v4/runtime/atn/PredictionContext;Lorg/antlr/v4/runtime/atn/PredictionContextCache;Ljava/util/IdentityHashMap;)Lorg/antlr/v4/runtime/atn/PredictionContext;
+    invoke-static {p1, v2, v0}, Lorg/antlr/v4/runtime/atn/PredictionContext;->getCachedContext(Lorg/antlr/v4/runtime/atn/PredictionContext;Lorg/antlr/v4/runtime/atn/PredictionContextCache;Ljava/util/IdentityHashMap;)Lorg/antlr/v4/runtime/atn/PredictionContext;
 
     move-result-object p1
 
-    monitor-exit v0
+    monitor-exit v1
 
-    return-object p1
+    goto :goto_0
 
-    :catchall_13
-    move-exception p1
+    :catchall_0
+    move-exception v0
 
     .line 106
-    monitor-exit v0
-    :try_end_15
-    .catchall {:try_start_6 .. :try_end_15} :catchall_13
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw p1
+    throw v0
 .end method
 
 .method public getSharedContextCache()Lorg/antlr/v4/runtime/atn/PredictionContextCache;
-    .registers 2
+    .locals 1
 
     .line 94
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNSimulator;->sharedContextCache:Lorg/antlr/v4/runtime/atn/PredictionContextCache;

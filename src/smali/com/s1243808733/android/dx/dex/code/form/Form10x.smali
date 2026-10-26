@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 30
     new-instance v0, Lcom/s1243808733/android/dx/dex/code/form/Form10x;
@@ -22,7 +22,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 36
     invoke-direct {p0}, Lcom/s1243808733/android/dx/dex/code/InsnFormat;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public codeSize()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -41,64 +41,64 @@
 .end method
 
 .method public insnArgString(Lcom/s1243808733/android/dx/dex/code/DalvInsn;)Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 44
-    const-string p1, ""
+    const-string v0, ""
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public insnCommentString(Lcom/s1243808733/android/dx/dex/code/DalvInsn;Z)Ljava/lang/String;
-    .registers 3
+    .locals 1
 
     .line 51
-    const-string p1, ""
+    const-string v0, ""
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public isCompatible(Lcom/s1243808733/android/dx/dex/code/DalvInsn;)Z
-    .registers 3
+    .locals 1
 
     .line 63
     instance-of v0, p1, Lcom/s1243808733/android/dx/dex/code/SimpleInsn;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 64
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/code/DalvInsn;->getRegisters()Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/rop/code/RegisterSpecList;->size()I
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_10
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_11
+    :goto_0
+    return v0
 
-    :cond_10
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_11
-    return p1
+    goto :goto_0
 .end method
 
 .method public writeTo(Lcom/s1243808733/android/dx/util/AnnotatedOutput;Lcom/s1243808733/android/dx/dex/code/DalvInsn;)V
-    .registers 4
+    .locals 1
 
     .line 70
     const/4 v0, 0x0
 
     invoke-static {p2, v0}, Lcom/s1243808733/android/dx/dex/code/form/Form10x;->opcodeUnit(Lcom/s1243808733/android/dx/dex/code/DalvInsn;I)S
 
-    move-result p2
+    move-result v0
 
-    invoke-static {p1, p2}, Lcom/s1243808733/android/dx/dex/code/form/Form10x;->write(Lcom/s1243808733/android/dx/util/AnnotatedOutput;S)V
+    invoke-static {p1, v0}, Lcom/s1243808733/android/dx/dex/code/form/Form10x;->write(Lcom/s1243808733/android/dx/util/AnnotatedOutput;S)V
 
     return-void
 .end method

@@ -63,7 +63,17 @@
 
 # direct methods
 .method static final constructor <clinit>()V
-    .registers 4
+    .locals 9
+
+    const/4 v8, 0x5
+
+    const/4 v7, 0x4
+
+    const/4 v6, 0x3
+
+    const/4 v5, 0x2
+
+    const/4 v4, 0x1
 
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
@@ -71,73 +81,93 @@
 
     const-string v2, "VZCBSIFJD"
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v1, v2, v1, v3}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    invoke-direct {v0, v1, v2, v3, v4}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
     sput-object v0, Lzeroaicy/org/objectweb/asm/Type;->VOID_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
-    const/4 v1, 0x2
+    const-string v1, "VZCBSIFJD"
 
-    invoke-direct {v0, v3, v2, v3, v1}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    invoke-direct {v0, v4, v1, v4, v5}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
     sput-object v0, Lzeroaicy/org/objectweb/asm/Type;->BOOLEAN_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
-    const/4 v3, 0x3
+    const-string v1, "VZCBSIFJD"
 
-    invoke-direct {v0, v1, v2, v1, v3}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    invoke-direct {v0, v5, v1, v5, v6}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
     sput-object v0, Lzeroaicy/org/objectweb/asm/Type;->CHAR_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
-    const/4 v1, 0x4
+    const-string v1, "VZCBSIFJD"
 
-    invoke-direct {v0, v3, v2, v3, v1}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    invoke-direct {v0, v6, v1, v6, v7}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
     sput-object v0, Lzeroaicy/org/objectweb/asm/Type;->BYTE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
-    const/4 v3, 0x5
+    const-string v1, "VZCBSIFJD"
 
-    invoke-direct {v0, v1, v2, v1, v3}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    invoke-direct {v0, v7, v1, v7, v8}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
     sput-object v0, Lzeroaicy/org/objectweb/asm/Type;->SHORT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
-    const/4 v1, 0x6
+    const-string v1, "VZCBSIFJD"
 
-    invoke-direct {v0, v3, v2, v3, v1}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    const/4 v2, 0x6
+
+    invoke-direct {v0, v8, v1, v8, v2}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
     sput-object v0, Lzeroaicy/org/objectweb/asm/Type;->INT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
-    const/4 v3, 0x7
+    const/4 v1, 0x6
 
-    invoke-direct {v0, v1, v2, v1, v3}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    const-string v2, "VZCBSIFJD"
+
+    const/4 v3, 0x6
+
+    const/4 v4, 0x7
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
     sput-object v0, Lzeroaicy/org/objectweb/asm/Type;->FLOAT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
-    const/16 v1, 0x8
+    const/4 v1, 0x7
 
-    invoke-direct {v0, v3, v2, v3, v1}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    const-string v2, "VZCBSIFJD"
+
+    const/4 v3, 0x7
+
+    const/16 v4, 0x8
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
     sput-object v0, Lzeroaicy/org/objectweb/asm/Type;->LONG_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
-    const/16 v3, 0x9
+    const/16 v1, 0x8
 
-    invoke-direct {v0, v1, v2, v1, v3}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    const-string v2, "VZCBSIFJD"
+
+    const/16 v3, 0x8
+
+    const/16 v4, 0x9
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
     sput-object v0, Lzeroaicy/org/objectweb/asm/Type;->DOUBLE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
@@ -145,7 +175,7 @@
 .end method
 
 .method constructor <init>(ILjava/lang/String;II)V
-    .registers 5
+    .locals 0
 
     .line 159
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -166,156 +196,155 @@
 .end method
 
 .method private static appendDescriptor(Ljava/lang/Class;Ljava/lang/StringBuilder;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/Class<",
-            "*>;",
+            "Ljava/lang/Class",
+            "<*>;",
             "Ljava/lang/StringBuilder;",
             ")V"
         }
     .end annotation
 
     .line 615
-    nop
-
-    :goto_1
+    :goto_0
     invoke-virtual {p0}, Ljava/lang/Class;->isArray()Z
 
     move-result v0
 
-    if-nez v0, :cond_67
+    if-nez v0, :cond_a
 
     .line 619
     invoke-virtual {p0}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v0
 
-    if-eqz v0, :cond_55
+    if-eqz v0, :cond_9
 
     .line 621
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_14
+    if-ne p0, v0, :cond_0
 
-    const/16 p0, 0x49
-
-    goto :goto_4b
-
-    .line 623
-    :cond_14
-    sget-object v0, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_1b
-
-    const/16 p0, 0x56
-
-    goto :goto_4b
-
-    .line 625
-    :cond_1b
-    sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_22
-
-    const/16 p0, 0x5a
-
-    goto :goto_4b
-
-    .line 627
-    :cond_22
-    sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_29
-
-    const/16 p0, 0x42
-
-    goto :goto_4b
-
-    .line 629
-    :cond_29
-    sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_30
-
-    const/16 p0, 0x43
-
-    goto :goto_4b
-
-    .line 631
-    :cond_30
-    sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_37
-
-    const/16 p0, 0x53
-
-    goto :goto_4b
-
-    .line 633
-    :cond_37
-    sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_3e
-
-    const/16 p0, 0x44
-
-    goto :goto_4b
-
-    .line 635
-    :cond_3e
-    sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_45
-
-    const/16 p0, 0x46
-
-    goto :goto_4b
-
-    .line 637
-    :cond_45
-    sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_4f
-
-    const/16 p0, 0x4a
+    const/16 v0, 0x49
 
     .line 642
-    :goto_4b
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    goto :goto_66
-
-    .line 640
-    :cond_4f
-    new-instance p0, Ljava/lang/AssertionError;
-
-    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
-
-    throw p0
+    :goto_1
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 644
-    :cond_55
+    :goto_2
+    return-void
+
+    .line 623
+    :cond_0
+    sget-object v0, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_1
+
+    const/16 v0, 0x56
+
+    goto :goto_1
+
+    .line 625
+    :cond_1
+    sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_2
+
+    const/16 v0, 0x5a
+
+    goto :goto_1
+
+    .line 627
+    :cond_2
+    sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_3
+
+    const/16 v0, 0x42
+
+    goto :goto_1
+
+    .line 629
+    :cond_3
+    sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_4
+
+    const/16 v0, 0x43
+
+    goto :goto_1
+
+    .line 631
+    :cond_4
+    sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_5
+
+    const/16 v0, 0x53
+
+    goto :goto_1
+
+    .line 633
+    :cond_5
+    sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_6
+
+    const/16 v0, 0x44
+
+    goto :goto_1
+
+    .line 635
+    :cond_6
+    sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_7
+
+    const/16 v0, 0x46
+
+    goto :goto_1
+
+    .line 637
+    :cond_7
+    sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_8
+
+    const/16 v0, 0x4a
+
+    goto :goto_1
+
+    .line 640
+    :cond_8
+    new-instance v0, Ljava/lang/AssertionError;
+
+    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+
+    throw v0
+
+    .line 644
+    :cond_9
     const/16 v0, 0x4c
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getInternalName(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 p0, 0x3b
+    const/16 v0, 0x3b
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :goto_66
-    return-void
+    goto :goto_2
 
     .line 616
-    :cond_67
+    :cond_a
     const/16 v0, 0x5b
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -325,11 +354,11 @@
 
     move-result-object p0
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method private appendDescriptor(Ljava/lang/StringBuilder;)V
-    .registers 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -343,7 +372,7 @@
 
     const/16 v1, 0xa
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_0
 
     .line 599
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
@@ -358,12 +387,15 @@
 
     invoke-virtual {p1, v0, v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
 
-    goto :goto_35
+    .line 603
+    :goto_0
+    return-void
 
-    :cond_14
+    .line 599
+    :cond_0
     const/16 v1, 0xc
 
-    if-ne v0, v1, :cond_2c
+    if-ne v0, v1, :cond_1
 
     .line 601
     const/16 v0, 0x4c
@@ -382,10 +414,10 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_35
+    goto :goto_0
 
     .line 603
-    :cond_2c
+    :cond_1
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
 
     iget v1, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
@@ -394,113 +426,113 @@
 
     invoke-virtual {p1, v0, v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;II)Ljava/lang/StringBuilder;
 
-    :goto_35
-    return-void
+    goto :goto_0
 .end method
 
 .method public static getArgumentTypes(Ljava/lang/String;)[Lzeroaicy/org/objectweb/asm/Type;
-    .registers 12
+    .locals 9
 
-    const/4 v0, 0x1
+    const/16 v8, 0x4c
+
+    const/16 v7, 0x3b
+
+    const/16 v6, 0x29
+
+    const/4 v3, 0x1
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x1
+    move v0, v1
 
-    const/4 v3, 0x0
+    move v2, v3
 
     .line 302
-    :goto_4
+    :goto_0
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
 
-    const/16 v5, 0x3b
-
-    const/16 v6, 0x4c
-
-    const/16 v7, 0x5b
-
-    const/16 v8, 0x29
-
-    if-ne v4, v8, :cond_41
+    if-ne v4, v6, :cond_3
 
     .line 315
-    new-array v4, v3, [Lzeroaicy/org/objectweb/asm/Type;
-
-    const/4 v9, 0x1
-
-    const/4 v10, 0x0
+    new-array v4, v0, [Lzeroaicy/org/objectweb/asm/Type;
 
     .line 320
-    :goto_16
-    invoke-virtual {p0, v9}, Ljava/lang/String;->charAt(I)C
+    :goto_1
+    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v0
 
-    if-ne v1, v8, :cond_1d
+    if-ne v0, v6, :cond_0
 
     return-object v4
 
-    :cond_1d
-    move v1, v9
+    :cond_0
+    move v0, v3
 
     .line 322
-    :goto_1e
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+    :goto_2
+    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    if-eq v2, v7, :cond_3e
+    const/16 v5, 0x5b
 
-    add-int/lit8 v2, v1, 0x1
+    if-eq v2, v5, :cond_1
+
+    add-int/lit8 v2, v0, 0x1
 
     .line 325
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v0
 
-    if-ne v1, v6, :cond_35
+    if-ne v0, v8, :cond_5
 
     .line 327
-    invoke-virtual {p0, v5, v2}, Ljava/lang/String;->indexOf(II)I
+    invoke-virtual {p0, v7, v2}, Ljava/lang/String;->indexOf(II)I
 
-    move-result v1
+    move-result v0
 
     .line 328
-    add-int/2addr v1, v0
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result v2
+    move-result v0
 
     .line 330
-    :cond_35
-    invoke-static {p0, v9, v2}, Lzeroaicy/org/objectweb/asm/Type;->getTypeInternal(Ljava/lang/String;II)Lzeroaicy/org/objectweb/asm/Type;
+    :goto_3
+    invoke-static {p0, v3, v0}, Lzeroaicy/org/objectweb/asm/Type;->getTypeInternal(Ljava/lang/String;II)Lzeroaicy/org/objectweb/asm/Type;
 
-    move-result-object v1
+    move-result-object v2
 
-    aput-object v1, v4, v10
+    aput-object v2, v4, v1
 
-    add-int/2addr v10, v0
-
-    move v9, v2
-
-    goto :goto_16
-
-    :cond_3e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1e
+    move v3, v0
+
+    goto :goto_1
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
+
+    .line 306
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
 
     .line 303
-    :cond_41
-    :goto_41
+    :cond_3
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
 
-    if-eq v4, v7, :cond_5d
+    const/16 v5, 0x5b
+
+    if-eq v4, v5, :cond_2
 
     add-int/lit8 v4, v2, 0x1
 
@@ -509,265 +541,272 @@
 
     move-result v2
 
-    if-ne v2, v6, :cond_59
+    if-ne v2, v8, :cond_4
 
     .line 308
-    invoke-virtual {p0, v5, v4}, Ljava/lang/String;->indexOf(II)I
+    invoke-virtual {p0, v7, v4}, Ljava/lang/String;->indexOf(II)I
 
     move-result v2
 
     .line 309
-    add-int/2addr v2, v0
+    add-int/lit8 v2, v2, 0x1
 
     invoke-static {v4, v2}, Ljava/lang/Math;->max(II)I
 
     move-result v2
 
-    goto :goto_5a
-
     .line 306
-    :cond_59
-    move v2, v4
+    :goto_4
+    add-int/lit8 v0, v0, 0x1
 
-    .line 309
-    :goto_5a
-    add-int/lit8 v3, v3, 0x1
+    goto :goto_0
+
+    :cond_4
+    move v2, v4
 
     goto :goto_4
 
-    :cond_5d
-    add-int/lit8 v2, v2, 0x1
+    :cond_5
+    move v0, v2
 
-    goto :goto_41
+    goto :goto_3
 .end method
 
 .method public static getArgumentTypes(Ljava/lang/reflect/Method;)[Lzeroaicy/org/objectweb/asm/Type;
-    .registers 4
+    .locals 4
 
     .line 343
     invoke-virtual {p0}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
-    move-result-object p0
+    move-result-object v1
 
     .line 344
-    array-length v0, p0
+    array-length v0, v1
 
-    new-array v0, v0, [Lzeroaicy/org/objectweb/asm/Type;
+    new-array v2, v0, [Lzeroaicy/org/objectweb/asm/Type;
 
     .line 345
-    array-length v1, p0
+    array-length v0, v1
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    :goto_a
-    if-gez v1, :cond_d
+    :goto_0
+    if-gez v0, :cond_0
 
-    return-object v0
+    return-object v2
 
     .line 346
-    :cond_d
-    aget-object v2, p0, v1
+    :cond_0
+    aget-object v3, v1, v0
 
-    invoke-static {v2}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/Class;)Lzeroaicy/org/objectweb/asm/Type;
+    invoke-static {v3}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/Class;)Lzeroaicy/org/objectweb/asm/Type;
 
-    move-result-object v2
+    move-result-object v3
 
-    aput-object v2, v0, v1
+    aput-object v3, v2, v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static getArgumentsAndReturnSizes(Ljava/lang/String;)I
-    .registers 8
+    .locals 8
 
-    .line 731
+    const/16 v7, 0x4a
+
+    const/16 v6, 0x44
+
     const/4 v0, 0x1
 
+    .line 731
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x1
+    move v4, v2
 
-    const/4 v3, 0x1
+    move v5, v0
 
-    :goto_7
-    const/16 v4, 0x29
+    move v1, v0
 
-    const/16 v5, 0x44
+    :goto_0
+    const/16 v2, 0x29
 
-    const/16 v6, 0x4a
-
-    if-ne v1, v4, :cond_25
+    if-ne v4, v2, :cond_3
 
     .line 750
-    add-int/2addr v2, v0
+    add-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result p0
+    move-result v1
 
-    const/16 v1, 0x56
+    const/16 v2, 0x56
 
-    const/4 v2, 0x2
+    if-ne v1, v2, :cond_0
 
-    if-ne p0, v1, :cond_1c
+    shl-int/lit8 v0, v5, 0x2
 
-    shl-int/lit8 p0, v3, 0x2
+    :goto_1
+    return v0
 
-    return p0
+    :cond_0
+    if-eq v1, v7, :cond_1
 
-    :cond_1c
-    if-eq p0, v6, :cond_20
+    if-ne v1, v6, :cond_2
 
-    if-ne p0, v5, :cond_21
-
-    :cond_20
+    :cond_1
     const/4 v0, 0x2
 
-    :cond_21
-    shl-int/lit8 p0, v3, 0x2
+    :cond_2
+    shl-int/lit8 v1, v5, 0x2
 
-    or-int/2addr p0, v0
+    or-int/2addr v0, v1
 
-    return p0
+    goto :goto_1
 
-    :cond_25
-    if-eq v1, v6, :cond_4e
+    :cond_3
+    if-eq v4, v7, :cond_4
 
-    if-ne v1, v5, :cond_2a
-
-    goto :goto_4e
-
-    .line 738
-    :cond_2a
-    :goto_2a
-    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    const/16 v4, 0x5b
-
-    if-eq v1, v4, :cond_4b
-
-    add-int/lit8 v1, v2, 0x1
-
-    .line 741
-    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v2
-
-    const/16 v4, 0x4c
-
-    if-ne v2, v4, :cond_47
-
-    .line 743
-    const/16 v2, 0x3b
-
-    invoke-virtual {p0, v2, v1}, Ljava/lang/String;->indexOf(II)I
-
-    move-result v2
+    if-ne v4, v6, :cond_6
 
     .line 744
-    add-int/2addr v2, v0
+    :cond_4
+    add-int/lit8 v3, v1, 0x1
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
-
-    move-result v1
-
-    :cond_47
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v5, 0x2
 
     move v2, v1
 
-    goto :goto_52
-
-    :cond_4b
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_2a
-
-    :cond_4e
-    :goto_4e
-    add-int/lit8 v2, v2, 0x1
-
-    add-int/lit8 v3, v3, 0x2
-
     .line 748
-    :goto_52
-    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
+    :goto_2
+    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    move v5, v2
+
+    move v1, v3
+
+    goto :goto_0
+
+    .line 744
+    :cond_5
+    add-int/lit8 v1, v1, 0x1
+
+    .line 738
+    :cond_6
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    const/16 v3, 0x5b
+
+    if-eq v2, v3, :cond_5
+
+    add-int/lit8 v2, v1, 0x1
+
+    .line 741
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    goto :goto_7
+    const/16 v3, 0x4c
+
+    if-ne v1, v3, :cond_7
+
+    .line 743
+    const/16 v1, 0x3b
+
+    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->indexOf(II)I
+
+    move-result v1
+
+    .line 744
+    add-int/lit8 v1, v1, 0x1
+
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    :goto_3
+    add-int/lit8 v2, v5, 0x1
+
+    move v3, v1
+
+    goto :goto_2
+
+    :cond_7
+    move v1, v2
+
+    goto :goto_3
 .end method
 
 .method public static getConstructorDescriptor(Ljava/lang/reflect/Constructor;)Ljava/lang/String;
-    .registers 4
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/reflect/Constructor<",
-            "*>;)",
+            "Ljava/lang/reflect/Constructor",
+            "<*>;)",
             "Ljava/lang/String;"
         }
     .end annotation
 
     .line 547
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 548
-    const/16 v1, 0x28
+    const/16 v0, 0x28
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 549
     invoke-virtual {p0}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
 
-    move-result-object p0
+    move-result-object v2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 551
-    :goto_f
-    array-length v2, p0
+    :goto_0
+    array-length v3, v2
 
-    if-lt v1, v2, :cond_1c
+    if-lt v0, v3, :cond_0
 
     .line 553
-    const-string p0, ")V"
+    const-string v0, ")V"
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 550
-    :cond_1c
-    aget-object v2, p0, v1
+    :cond_0
+    aget-object v3, v2, v0
 
     .line 551
-    invoke-static {v2, v0}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/Class;Ljava/lang/StringBuilder;)V
+    invoke-static {v3, v1}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/Class;Ljava/lang/StringBuilder;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public static getDescriptor(Ljava/lang/Class;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/Class<",
-            "*>;)",
+            "Ljava/lang/Class",
+            "<*>;)",
             "Ljava/lang/String;"
         }
     .end annotation
@@ -783,18 +822,18 @@
     .line 537
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getInternalName(Ljava/lang/Class;)Ljava/lang/String;
-    .registers 3
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/Class<",
-            "*>;)",
+            "Ljava/lang/Class",
+            "<*>;)",
             "Ljava/lang/String;"
         }
     .end annotation
@@ -802,193 +841,193 @@
     .line 510
     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    const/16 v0, 0x2e
+    const/16 v1, 0x2e
 
-    const/16 v1, 0x2f
+    const/16 v2, 0x2f
 
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static getMethodDescriptor(Ljava/lang/reflect/Method;)Ljava/lang/String;
-    .registers 5
-
-    .line 581
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 582
-    const/16 v1, 0x28
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 583
-    invoke-virtual {p0}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    .line 585
-    :goto_f
-    array-length v3, v1
-
-    if-lt v2, v3, :cond_23
-
-    .line 587
-    const/16 v1, 0x29
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 588
-    invoke-virtual {p0}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
-
-    move-result-object p0
-
-    invoke-static {p0, v0}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/Class;Ljava/lang/StringBuilder;)V
-
-    .line 589
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    .line 584
-    :cond_23
-    aget-object v3, v1, v2
-
-    .line 585
-    invoke-static {v3, v0}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/Class;Ljava/lang/StringBuilder;)V
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_f
-.end method
-
-.method public static varargs getMethodDescriptor(Lzeroaicy/org/objectweb/asm/Type;[Lzeroaicy/org/objectweb/asm/Type;)Ljava/lang/String;
-    .registers 5
-
-    .line 564
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 565
-    const/16 v1, 0x28
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    const/4 v1, 0x0
-
-    .line 567
-    :goto_b
-    array-length v2, p1
-
-    if-lt v1, v2, :cond_1b
-
-    .line 569
-    const/16 p1, 0x29
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 570
-    invoke-direct {p0, v0}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/StringBuilder;)V
-
-    .line 571
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    .line 566
-    :cond_1b
-    aget-object v2, p1, v1
-
-    .line 567
-    invoke-direct {v2, v0}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/StringBuilder;)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_b
-.end method
-
-.method public static getMethodType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 5
-
-    .line 264
-    new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    const/16 v3, 0xb
-
-    invoke-direct {v0, v3, p0, v1, v2}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public static varargs getMethodType(Lzeroaicy/org/objectweb/asm/Type;[Lzeroaicy/org/objectweb/asm/Type;)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 2
+.method public static getMethodDescriptor(Ljava/lang/reflect/Method;)Ljava/lang/String;
+    .locals 4
 
-    .line 275
-    invoke-static {p0, p1}, Lzeroaicy/org/objectweb/asm/Type;->getMethodDescriptor(Lzeroaicy/org/objectweb/asm/Type;[Lzeroaicy/org/objectweb/asm/Type;)Ljava/lang/String;
+    .line 581
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    move-result-object p0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
+    .line 582
+    const/16 v0, 0x28
 
-    move-result-object p0
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    return-object p0
-.end method
+    .line 583
+    invoke-virtual {p0}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
-.method public static getObjectType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 5
+    move-result-object v2
 
-    .line 252
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    .line 585
+    :goto_0
+    array-length v3, v2
 
-    move-result v1
+    if-lt v0, v3, :cond_0
 
-    const/16 v2, 0x5b
+    .line 587
+    const/16 v0, 0x29
 
-    if-ne v1, v2, :cond_c
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x9
+    .line 588
+    invoke-virtual {p0}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
-    goto :goto_e
+    move-result-object v0
 
-    :cond_c
-    const/16 v1, 0xc
+    invoke-static {v0, v1}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/Class;Ljava/lang/StringBuilder;)V
 
-    :goto_e
-    new-instance v2, Lzeroaicy/org/objectweb/asm/Type;
+    .line 589
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    .line 584
+    :cond_0
+    aget-object v3, v2, v0
+
+    .line 585
+    invoke-static {v3, v1}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/Class;Ljava/lang/StringBuilder;)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method public static varargs getMethodDescriptor(Lzeroaicy/org/objectweb/asm/Type;[Lzeroaicy/org/objectweb/asm/Type;)Ljava/lang/String;
+    .locals 3
+
+    .line 564
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 565
+    const/16 v0, 0x28
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const/4 v0, 0x0
+
+    .line 567
+    :goto_0
+    array-length v2, p1
+
+    if-lt v0, v2, :cond_0
+
+    .line 569
+    const/16 v0, 0x29
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 570
+    invoke-direct {p0, v1}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/StringBuilder;)V
+
+    .line 571
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    .line 566
+    :cond_0
+    aget-object v2, p1, v0
+
+    .line 567
+    invoke-direct {v2, v1}, Lzeroaicy/org/objectweb/asm/Type;->appendDescriptor(Ljava/lang/StringBuilder;)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method public static getMethodType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
+    .locals 4
+
+    .line 264
+    new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
+
+    const/16 v1, 0xb
+
+    const/4 v2, 0x0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    invoke-direct {v2, v1, p0, v0, v3}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    invoke-direct {v0, v1, p0, v2, v3}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
-    return-object v2
+    return-object v0
+.end method
+
+.method public static varargs getMethodType(Lzeroaicy/org/objectweb/asm/Type;[Lzeroaicy/org/objectweb/asm/Type;)Lzeroaicy/org/objectweb/asm/Type;
+    .locals 1
+
+    .line 275
+    invoke-static {p0, p1}, Lzeroaicy/org/objectweb/asm/Type;->getMethodDescriptor(Lzeroaicy/org/objectweb/asm/Type;[Lzeroaicy/org/objectweb/asm/Type;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static getObjectType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
+    .locals 4
+
+    const/4 v3, 0x0
+
+    .line 252
+    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    const/16 v1, 0x5b
+
+    if-ne v0, v1, :cond_0
+
+    const/16 v0, 0x9
+
+    :goto_0
+    new-instance v1, Lzeroaicy/org/objectweb/asm/Type;
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    invoke-direct {v1, v0, p0, v3, v2}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+
+    return-object v1
+
+    :cond_0
+    const/16 v0, 0xc
+
+    goto :goto_0
 .end method
 
 .method public static getReturnType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 3
+    .locals 2
 
     .line 368
     invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getReturnTypeOffset(Ljava/lang/String;)I
@@ -1001,103 +1040,102 @@
 
     invoke-static {p0, v0, v1}, Lzeroaicy/org/objectweb/asm/Type;->getTypeInternal(Ljava/lang/String;II)Lzeroaicy/org/objectweb/asm/Type;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getReturnType(Ljava/lang/reflect/Method;)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 1
+    .locals 1
 
     .line 379
     invoke-virtual {p0}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/Class;)Lzeroaicy/org/objectweb/asm/Type;
+    invoke-static {v0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/Class;)Lzeroaicy/org/objectweb/asm/Type;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static getReturnTypeOffset(Ljava/lang/String;)I
-    .registers 5
+    .locals 3
 
     const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
     .line 392
-    :goto_2
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+    :cond_0
+    :goto_0
+    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
+    move-result v1
 
-    const/16 v3, 0x29
+    const/16 v2, 0x29
 
-    if-ne v2, v3, :cond_c
+    if-ne v1, v2, :cond_2
 
-    add-int/2addr v1, v0
+    add-int/lit8 v0, v0, 0x1
 
-    return v1
+    return v0
+
+    .line 399
+    :cond_1
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
 
     .line 393
-    :cond_c
-    :goto_c
+    :goto_1
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
+    move-result v0
 
-    const/16 v3, 0x5b
+    const/16 v2, 0x5b
 
-    if-eq v2, v3, :cond_2c
+    if-eq v0, v2, :cond_1
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v0, v1, 0x1
 
     .line 396
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    const/16 v3, 0x4c
+    const/16 v2, 0x4c
 
-    if-ne v1, v3, :cond_2a
+    if-ne v1, v2, :cond_0
 
     .line 398
     const/16 v1, 0x3b
 
-    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->indexOf(II)I
+    invoke-virtual {p0, v1, v0}, Ljava/lang/String;->indexOf(II)I
 
     move-result v1
 
     .line 399
-    add-int/2addr v1, v0
-
-    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v1
-
-    goto :goto_2
-
-    :cond_2a
-    move v1, v2
-
-    goto :goto_2
-
-    :cond_2c
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_c
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_2
+    move v1, v0
+
+    goto :goto_1
 .end method
 
 .method public static getType(Ljava/lang/Class;)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/Class<",
-            "*>;)",
+            "Ljava/lang/Class",
+            "<*>;)",
             "Lzeroaicy/org/objectweb/asm/Type;"
         }
     .end annotation
@@ -1107,129 +1145,131 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4b
+    if-eqz v0, :cond_9
 
     .line 188
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_d
+    if-ne p0, v0, :cond_0
 
     .line 189
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->INT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
-
-    return-object p0
-
-    .line 190
-    :cond_d
-    sget-object v0, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_14
-
-    .line 191
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->VOID_TYPE:Lzeroaicy/org/objectweb/asm/Type;
-
-    return-object p0
-
-    .line 192
-    :cond_14
-    sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_1b
-
-    .line 193
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->BOOLEAN_TYPE:Lzeroaicy/org/objectweb/asm/Type;
-
-    return-object p0
-
-    .line 194
-    :cond_1b
-    sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_22
-
-    .line 195
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->BYTE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
-
-    return-object p0
-
-    .line 196
-    :cond_22
-    sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_29
-
-    .line 197
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->CHAR_TYPE:Lzeroaicy/org/objectweb/asm/Type;
-
-    return-object p0
-
-    .line 198
-    :cond_29
-    sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_30
-
-    .line 199
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->SHORT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
-
-    return-object p0
-
-    .line 200
-    :cond_30
-    sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_37
-
-    .line 201
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->DOUBLE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
-
-    return-object p0
-
-    .line 202
-    :cond_37
-    sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_3e
-
-    .line 203
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->FLOAT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
-
-    return-object p0
-
-    .line 204
-    :cond_3e
-    sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
-
-    if-ne p0, v0, :cond_45
-
-    .line 205
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->LONG_TYPE:Lzeroaicy/org/objectweb/asm/Type;
-
-    return-object p0
-
-    .line 207
-    :cond_45
-    new-instance p0, Ljava/lang/AssertionError;
-
-    invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
-
-    throw p0
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->INT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
     .line 210
-    :cond_4b
+    :goto_0
+    return-object v0
+
+    .line 190
+    :cond_0
+    sget-object v0, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_1
+
+    .line 191
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->VOID_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+
+    goto :goto_0
+
+    .line 192
+    :cond_1
+    sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_2
+
+    .line 193
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->BOOLEAN_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+
+    goto :goto_0
+
+    .line 194
+    :cond_2
+    sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_3
+
+    .line 195
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->BYTE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+
+    goto :goto_0
+
+    .line 196
+    :cond_3
+    sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_4
+
+    .line 197
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->CHAR_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+
+    goto :goto_0
+
+    .line 198
+    :cond_4
+    sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_5
+
+    .line 199
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->SHORT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+
+    goto :goto_0
+
+    .line 200
+    :cond_5
+    sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_6
+
+    .line 201
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->DOUBLE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+
+    goto :goto_0
+
+    .line 202
+    :cond_6
+    sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_7
+
+    .line 203
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->FLOAT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+
+    goto :goto_0
+
+    .line 204
+    :cond_7
+    sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+
+    if-ne p0, v0, :cond_8
+
+    .line 205
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->LONG_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+
+    goto :goto_0
+
+    .line 207
+    :cond_8
+    new-instance v0, Ljava/lang/AssertionError;
+
+    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+
+    throw v0
+
+    .line 210
+    :cond_9
     invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getDescriptor(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
+    invoke-static {v0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static getType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 3
+    .locals 2
 
     .line 177
     const/4 v0, 0x0
@@ -1240,18 +1280,18 @@
 
     invoke-static {p0, v0, v1}, Lzeroaicy/org/objectweb/asm/Type;->getTypeInternal(Ljava/lang/String;II)Lzeroaicy/org/objectweb/asm/Type;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getType(Ljava/lang/reflect/Constructor;)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/reflect/Constructor<",
-            "*>;)",
+            "Ljava/lang/reflect/Constructor",
+            "<*>;)",
             "Lzeroaicy/org/objectweb/asm/Type;"
         }
     .end annotation
@@ -1259,32 +1299,32 @@
     .line 221
     invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getConstructorDescriptor(Ljava/lang/reflect/Constructor;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
+    invoke-static {v0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getType(Ljava/lang/reflect/Method;)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 1
+    .locals 1
 
     .line 231
     invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getMethodDescriptor(Ljava/lang/reflect/Method;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
+    invoke-static {v0}, Lzeroaicy/org/objectweb/asm/Type;->getType(Ljava/lang/String;)Lzeroaicy/org/objectweb/asm/Type;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method private static getTypeInternal(Ljava/lang/String;II)Lzeroaicy/org/objectweb/asm/Type;
-    .registers 5
+    .locals 4
 
     .line 417
     invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
@@ -1293,269 +1333,284 @@
 
     const/16 v1, 0x28
 
-    if-eq v0, v1, :cond_6f
+    if-eq v0, v1, :cond_8
 
     const/16 v1, 0x46
 
-    if-eq v0, v1, :cond_6c
+    if-eq v0, v1, :cond_7
 
     const/16 v1, 0x4c
 
-    if-eq v0, v1, :cond_60
+    if-eq v0, v1, :cond_6
 
     const/16 v1, 0x53
 
-    if-eq v0, v1, :cond_5d
+    if-eq v0, v1, :cond_5
 
     const/16 v1, 0x56
 
-    if-eq v0, v1, :cond_5a
+    if-eq v0, v1, :cond_4
 
     const/16 v1, 0x49
 
-    if-eq v0, v1, :cond_57
+    if-eq v0, v1, :cond_3
 
     const/16 v1, 0x4a
 
-    if-eq v0, v1, :cond_54
+    if-eq v0, v1, :cond_2
 
     const/16 v1, 0x5a
 
-    if-eq v0, v1, :cond_51
+    if-eq v0, v1, :cond_1
 
     const/16 v1, 0x5b
 
-    if-eq v0, v1, :cond_49
+    if-eq v0, v1, :cond_0
 
-    packed-switch v0, :pswitch_data_78
+    packed-switch v0, :pswitch_data_0
 
     .line 443
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    const-string v0, "Invalid descriptor: "
+    const-string v2, "Invalid descriptor: "
 
-    invoke-direct {p2, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 435
-    :pswitch_40  #0x44
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->DOUBLE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+    :pswitch_0
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->DOUBLE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
-    return-object p0
+    .line 441
+    :goto_0
+    return-object v0
 
     .line 423
-    :pswitch_43  #0x43
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->CHAR_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+    :pswitch_1
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->CHAR_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
-    return-object p0
+    goto :goto_0
 
     .line 425
-    :pswitch_46  #0x42
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->BYTE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+    :pswitch_2
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->BYTE_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
-    return-object p0
+    goto :goto_0
 
     .line 437
-    :cond_49
+    :cond_0
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
     const/16 v1, 0x9
 
     invoke-direct {v0, v1, p0, p1, p2}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
-    return-object v0
+    goto :goto_0
 
     .line 421
-    :cond_51
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->BOOLEAN_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+    :cond_1
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->BOOLEAN_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
-    return-object p0
+    goto :goto_0
 
     .line 433
-    :cond_54
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->LONG_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+    :cond_2
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->LONG_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
-    return-object p0
+    goto :goto_0
 
     .line 429
-    :cond_57
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->INT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+    :cond_3
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->INT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
-    return-object p0
+    goto :goto_0
 
     .line 419
-    :cond_5a
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->VOID_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+    :cond_4
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->VOID_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
-    return-object p0
+    goto :goto_0
 
     .line 427
-    :cond_5d
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->SHORT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+    :cond_5
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->SHORT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
-    return-object p0
+    goto :goto_0
 
     .line 439
-    :cond_60
+    :cond_6
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
-
-    add-int/lit8 p1, p1, 0x1
-
-    add-int/lit8 p2, p2, -0x1
 
     const/16 v1, 0xa
 
-    invoke-direct {v0, v1, p0, p1, p2}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+    add-int/lit8 v2, p1, 0x1
 
-    return-object v0
+    add-int/lit8 v3, p2, -0x1
+
+    invoke-direct {v0, v1, p0, v2, v3}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
+
+    goto :goto_0
 
     .line 431
-    :cond_6c
-    sget-object p0, Lzeroaicy/org/objectweb/asm/Type;->FLOAT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
+    :cond_7
+    sget-object v0, Lzeroaicy/org/objectweb/asm/Type;->FLOAT_TYPE:Lzeroaicy/org/objectweb/asm/Type;
 
-    return-object p0
+    goto :goto_0
 
     .line 441
-    :cond_6f
+    :cond_8
     new-instance v0, Lzeroaicy/org/objectweb/asm/Type;
 
     const/16 v1, 0xb
 
     invoke-direct {v0, v1, p0, p1, p2}, Lzeroaicy/org/objectweb/asm/Type;-><init>(ILjava/lang/String;II)V
 
-    return-object v0
+    goto :goto_0
 
     nop
 
-    :pswitch_data_78
+    :pswitch_data_0
     .packed-switch 0x42
-        :pswitch_46  #00000042
-        :pswitch_43  #00000043
-        :pswitch_40  #00000044
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 9
+    .locals 7
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
-    const/4 v0, 0x1
-
-    if-ne p0, p1, :cond_4
-
-    return v0
-
-    .line 847
-    :cond_4
-    instance-of v1, p1, Lzeroaicy/org/objectweb/asm/Type;
-
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_a
-
-    return v2
-
-    .line 850
-    :cond_a
-    check-cast p1, Lzeroaicy/org/objectweb/asm/Type;
-
-    .line 851
-    iget v1, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
-
-    const/16 v3, 0xc
-
-    const/16 v4, 0xa
-
-    if-ne v1, v3, :cond_16
+    const/16 v5, 0xc
 
     const/16 v1, 0xa
 
-    :cond_16
-    iget v5, p1, Lzeroaicy/org/objectweb/asm/Type;->sort:I
+    const/4 v2, 0x1
 
-    if-ne v5, v3, :cond_1b
+    const/4 v3, 0x0
 
-    goto :goto_1c
+    if-ne p0, p1, :cond_0
 
-    :cond_1b
-    move v4, v5
+    move v0, v2
 
-    :goto_1c
-    if-eq v1, v4, :cond_1f
+    .line 863
+    :goto_0
+    return v0
 
-    return v2
+    .line 847
+    :cond_0
+    instance-of v0, p1, Lzeroaicy/org/objectweb/asm/Type;
+
+    if-nez v0, :cond_1
+
+    move v0, v3
+
+    goto :goto_0
+
+    .line 850
+    :cond_1
+    check-cast p1, Lzeroaicy/org/objectweb/asm/Type;
+
+    .line 851
+    iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
+
+    if-ne v0, v5, :cond_2
+
+    move v0, v1
+
+    :cond_2
+    iget v4, p1, Lzeroaicy/org/objectweb/asm/Type;->sort:I
+
+    if-ne v4, v5, :cond_3
+
+    :goto_1
+    if-eq v0, v1, :cond_4
+
+    move v0, v3
+
+    goto :goto_0
+
+    :cond_3
+    move v1, v4
+
+    goto :goto_1
 
     .line 854
-    :cond_1f
-    iget v1, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
+    :cond_4
+    iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
 
     .line 855
-    iget v3, p0, Lzeroaicy/org/objectweb/asm/Type;->valueEnd:I
+    iget v4, p0, Lzeroaicy/org/objectweb/asm/Type;->valueEnd:I
 
     .line 856
-    iget v4, p1, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
+    iget v1, p1, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
 
     .line 857
-    sub-int v5, v3, v1
+    sub-int v5, v4, v0
 
     iget v6, p1, Lzeroaicy/org/objectweb/asm/Type;->valueEnd:I
 
-    sub-int/2addr v6, v4
+    sub-int/2addr v6, v1
 
-    if-eq v5, v6, :cond_2d
+    if-eq v5, v6, :cond_6
 
-    return v2
+    move v0, v3
 
-    :cond_2d
-    :goto_2d
-    if-lt v1, v3, :cond_30
-
-    return v0
+    goto :goto_0
 
     .line 863
-    :cond_30
+    :cond_5
+    add-int/lit8 v0, v0, 0x1
+
+    add-int/lit8 v1, v1, 0x1
+
+    .line 857
+    :cond_6
+    if-lt v0, v4, :cond_7
+
+    move v0, v2
+
+    goto :goto_0
+
+    .line 863
+    :cond_7
     iget-object v5, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
 
-    invoke-virtual {v5, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v5, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
 
     iget-object v6, p1, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
 
-    invoke-virtual {v6, v4}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v6, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
 
-    if-eq v5, v6, :cond_3f
+    if-eq v5, v6, :cond_5
 
-    return v2
+    move v0, v3
 
-    :cond_3f
-    add-int/lit8 v1, v1, 0x1
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_2d
+    goto :goto_0
 .end method
 
 .method public getArgumentTypes()[Lzeroaicy/org/objectweb/asm/Type;
-    .registers 2
+    .locals 1
 
     .line 285
     invoke-virtual {p0}, Lzeroaicy/org/objectweb/asm/Type;->getDescriptor()Ljava/lang/String;
@@ -1570,7 +1625,7 @@
 .end method
 
 .method public getArgumentsAndReturnSizes()I
-    .registers 2
+    .locals 1
 
     .line 715
     invoke-virtual {p0}, Lzeroaicy/org/objectweb/asm/Type;->getDescriptor()Ljava/lang/String;
@@ -1585,15 +1640,15 @@
 .end method
 
 .method public getClassName()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 458
     iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
 
-    packed-switch v0, :pswitch_data_5a
+    packed-switch v0, :pswitch_data_0
 
     .line 487
-    :pswitch_5  #0xb
+    :pswitch_0
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -1601,7 +1656,7 @@
     throw v0
 
     .line 485
-    :pswitch_b  #0xa, 0xc
+    :pswitch_1
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
 
     iget v1, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
@@ -1620,130 +1675,131 @@
 
     move-result-object v0
 
+    :goto_0
     return-object v0
 
     .line 478
-    :pswitch_1e  #0x9
-    new-instance v0, Ljava/lang/StringBuilder;
+    :pswitch_2
+    new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Lzeroaicy/org/objectweb/asm/Type;->getElementType()Lzeroaicy/org/objectweb/asm/Type;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lzeroaicy/org/objectweb/asm/Type;->getClassName()Ljava/lang/String;
+    invoke-virtual {v0}, Lzeroaicy/org/objectweb/asm/Type;->getClassName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 479
     invoke-virtual {p0}, Lzeroaicy/org/objectweb/asm/Type;->getDimensions()I
 
-    move-result v1
+    move-result v0
 
-    :goto_2f
-    if-gtz v1, :cond_36
+    :goto_1
+    if-gtz v0, :cond_0
 
     .line 482
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 480
-    :cond_36
+    :cond_0
     const-string v2, "[]"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    goto :goto_2f
+    goto :goto_1
 
     .line 476
-    :pswitch_3e  #0x8
+    :pswitch_3
     const-string v0, "double"
 
-    return-object v0
+    goto :goto_0
 
     .line 474
-    :pswitch_41  #0x7
+    :pswitch_4
     const-string v0, "long"
 
-    return-object v0
+    goto :goto_0
 
     .line 472
-    :pswitch_44  #0x6
+    :pswitch_5
     const-string v0, "float"
 
-    return-object v0
+    goto :goto_0
 
     .line 470
-    :pswitch_47  #0x5
+    :pswitch_6
     const-string v0, "int"
 
-    return-object v0
+    goto :goto_0
 
     .line 468
-    :pswitch_4a  #0x4
+    :pswitch_7
     const-string v0, "short"
 
-    return-object v0
+    goto :goto_0
 
     .line 466
-    :pswitch_4d  #0x3
+    :pswitch_8
     const-string v0, "byte"
 
-    return-object v0
+    goto :goto_0
 
     .line 464
-    :pswitch_50  #0x2
+    :pswitch_9
     const-string v0, "char"
 
-    return-object v0
+    goto :goto_0
 
     .line 462
-    :pswitch_53  #0x1
+    :pswitch_a
     const-string v0, "boolean"
 
-    return-object v0
+    goto :goto_0
 
     .line 460
-    :pswitch_56  #0x0
+    :pswitch_b
     const-string v0, "void"
 
-    return-object v0
+    goto :goto_0
 
     nop
 
-    :pswitch_data_5a
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_56  #00000000
-        :pswitch_53  #00000001
-        :pswitch_50  #00000002
-        :pswitch_4d  #00000003
-        :pswitch_4a  #00000004
-        :pswitch_47  #00000005
-        :pswitch_44  #00000006
-        :pswitch_41  #00000007
-        :pswitch_3e  #00000008
-        :pswitch_1e  #00000009
-        :pswitch_b  #0000000a
-        :pswitch_5  #0000000b
-        :pswitch_b  #0000000c
+        :pswitch_b
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public getDescriptor()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .line 519
     iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
 
     const/16 v1, 0xa
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_0
 
     .line 520
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
@@ -1760,12 +1816,15 @@
 
     move-result-object v0
 
+    .line 524
+    :goto_0
     return-object v0
 
-    :cond_15
+    .line 520
+    :cond_0
     const/16 v1, 0xc
 
-    if-ne v0, v1, :cond_46
+    if-ne v0, v1, :cond_1
 
     .line 522
     new-instance v0, Ljava/lang/StringBuffer;
@@ -1810,10 +1869,10 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 
     .line 524
-    :cond_46
+    :cond_1
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
 
     iget v1, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
@@ -1824,16 +1883,16 @@
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method
 
 .method public getDimensions()I
-    .registers 4
+    .locals 3
 
     const/4 v0, 0x1
 
     .line 671
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
 
     iget v2, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
@@ -1846,18 +1905,18 @@
 
     const/16 v2, 0x5b
 
-    if-eq v1, v2, :cond_f
+    if-eq v1, v2, :cond_0
 
     return v0
 
-    :cond_f
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public getElementType()Lzeroaicy/org/objectweb/asm/Type;
-    .registers 4
+    .locals 3
 
     .line 241
     invoke-virtual {p0}, Lzeroaicy/org/objectweb/asm/Type;->getDimensions()I
@@ -1869,11 +1928,11 @@
 
     iget v2, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
 
-    add-int/2addr v2, v0
+    add-int/2addr v0, v2
 
-    iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->valueEnd:I
+    iget v2, p0, Lzeroaicy/org/objectweb/asm/Type;->valueEnd:I
 
-    invoke-static {v1, v2, v0}, Lzeroaicy/org/objectweb/asm/Type;->getTypeInternal(Ljava/lang/String;II)Lzeroaicy/org/objectweb/asm/Type;
+    invoke-static {v1, v0, v2}, Lzeroaicy/org/objectweb/asm/Type;->getTypeInternal(Ljava/lang/String;II)Lzeroaicy/org/objectweb/asm/Type;
 
     move-result-object v0
 
@@ -1881,7 +1940,7 @@
 .end method
 
 .method public getInternalName()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 499
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
@@ -1898,194 +1957,191 @@
 .end method
 
 .method public getOpcode(I)I
-    .registers 4
-
-    const/16 v0, 0x2e
-
-    if-eq p1, v0, :cond_44
-
-    const/16 v0, 0x4f
-
-    if-ne p1, v0, :cond_9
-
-    goto :goto_44
-
-    .line 799
-    :cond_9
-    iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
+    .locals 2
 
     const/16 v1, 0xac
 
-    packed-switch v0, :pswitch_data_6a
+    const/16 v0, 0x2e
+
+    if-eq p1, v0, :cond_0
+
+    const/16 v0, 0x4f
+
+    if-ne p1, v0, :cond_1
+
+    .line 772
+    :cond_0
+    iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
+
+    packed-switch v0, :pswitch_data_0
+
+    .line 796
+    new-instance v0, Ljava/lang/AssertionError;
+
+    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+
+    throw v0
+
+    .line 799
+    :cond_1
+    iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
+
+    packed-switch v0, :pswitch_data_1
 
     .line 827
-    new-instance p1, Ljava/lang/AssertionError;
+    new-instance v0, Ljava/lang/AssertionError;
 
-    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw p1
+    throw v0
 
     .line 825
-    :pswitch_16  #0xb
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :pswitch_0
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw p1
+    throw v0
 
-    :pswitch_1c  #0x9, 0xa, 0xc
+    :pswitch_1
     const/16 v0, 0x15
 
-    if-eq p1, v0, :cond_2d
+    if-eq p1, v0, :cond_2
 
     const/16 v0, 0x36
 
-    if-eq p1, v0, :cond_2d
+    if-eq p1, v0, :cond_2
 
-    if-ne p1, v1, :cond_27
-
-    goto :goto_2d
+    if-ne p1, v1, :cond_3
 
     .line 821
-    :cond_27
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
-
-    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
-
-    throw p1
-
-    :cond_2d
-    :goto_2d
+    :cond_2
     add-int/lit8 p1, p1, 0x4
 
+    :goto_0
+    :pswitch_2
     return p1
 
-    :pswitch_30  #0x8
+    :cond_3
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    throw v0
+
+    :pswitch_3
     add-int/lit8 p1, p1, 0x3
 
-    return p1
+    goto :goto_0
 
-    :pswitch_33  #0x7
+    :pswitch_4
     add-int/lit8 p1, p1, 0x1
 
-    return p1
+    goto :goto_0
 
-    :pswitch_36  #0x6
+    :pswitch_5
     add-int/lit8 p1, p1, 0x2
 
-    :pswitch_38  #0x1, 0x2, 0x3, 0x4, 0x5
-    return p1
+    goto :goto_0
 
-    :pswitch_39  #0x0
-    if-ne p1, v1, :cond_3e
+    :pswitch_6
+    if-ne p1, v1, :cond_4
 
     const/16 p1, 0xb1
 
-    return p1
+    goto :goto_0
 
     .line 802
-    :cond_3e
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :cond_4
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw p1
-
-    .line 772
-    :cond_44
-    :goto_44
-    iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
-
-    packed-switch v0, :pswitch_data_88
+    throw v0
 
     .line 796
-    new-instance p1, Ljava/lang/AssertionError;
-
-    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
-
-    throw p1
-
-    :pswitch_4f  #0x9, 0xa, 0xc
+    :pswitch_7
     add-int/lit8 p1, p1, 0x4
 
-    return p1
+    goto :goto_0
 
-    :pswitch_52  #0x8
+    :pswitch_8
     add-int/lit8 p1, p1, 0x3
 
-    return p1
+    goto :goto_0
 
-    :pswitch_55  #0x7
+    :pswitch_9
     add-int/lit8 p1, p1, 0x1
 
-    return p1
+    goto :goto_0
 
-    :pswitch_58  #0x6
+    :pswitch_a
     add-int/lit8 p1, p1, 0x2
 
-    :pswitch_5a  #0x5
-    return p1
+    goto :goto_0
 
-    :pswitch_5b  #0x4
+    :pswitch_b
     add-int/lit8 p1, p1, 0x7
 
-    return p1
+    goto :goto_0
 
-    :pswitch_5e  #0x2
+    :pswitch_c
     add-int/lit8 p1, p1, 0x6
 
-    return p1
+    goto :goto_0
 
-    :pswitch_61  #0x1, 0x3
+    :pswitch_d
     add-int/lit8 p1, p1, 0x5
 
-    return p1
+    goto :goto_0
 
     .line 794
-    :pswitch_64  #0x0, 0xb
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :pswitch_e
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw p1
+    throw v0
 
-    :pswitch_data_6a
+    .line 772
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_39  #00000000
-        :pswitch_38  #00000001
-        :pswitch_38  #00000002
-        :pswitch_38  #00000003
-        :pswitch_38  #00000004
-        :pswitch_38  #00000005
-        :pswitch_36  #00000006
-        :pswitch_33  #00000007
-        :pswitch_30  #00000008
-        :pswitch_1c  #00000009
-        :pswitch_1c  #0000000a
-        :pswitch_16  #0000000b
-        :pswitch_1c  #0000000c
+        :pswitch_e
+        :pswitch_d
+        :pswitch_c
+        :pswitch_d
+        :pswitch_b
+        :pswitch_2
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_7
+        :pswitch_e
+        :pswitch_7
     .end packed-switch
 
-    :pswitch_data_88
+    .line 799
+    :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_64  #00000000
-        :pswitch_61  #00000001
-        :pswitch_5e  #00000002
-        :pswitch_61  #00000003
-        :pswitch_5b  #00000004
-        :pswitch_5a  #00000005
-        :pswitch_58  #00000006
-        :pswitch_55  #00000007
-        :pswitch_52  #00000008
-        :pswitch_4f  #00000009
-        :pswitch_4f  #0000000a
-        :pswitch_64  #0000000b
-        :pswitch_4f  #0000000c
+        :pswitch_6
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public getReturnType()Lzeroaicy/org/objectweb/asm/Type;
-    .registers 2
+    .locals 1
 
     .line 358
     invoke-virtual {p0}, Lzeroaicy/org/objectweb/asm/Type;->getDescriptor()Ljava/lang/String;
@@ -2100,131 +2156,131 @@
 .end method
 
 .method public getSize()I
-    .registers 2
+    .locals 1
 
     .line 684
     iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
 
-    packed-switch v0, :pswitch_data_12
+    packed-switch v0, :pswitch_data_0
 
     .line 701
-    :pswitch_5  #0xb
+    :pswitch_0
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
     throw v0
 
-    :pswitch_b  #0x7, 0x8
+    :pswitch_1
     const/4 v0, 0x2
 
+    :goto_0
     return v0
 
-    :pswitch_d  #0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x9, 0xa, 0xc
+    :pswitch_2
     const/4 v0, 0x1
 
-    return v0
+    goto :goto_0
 
-    :pswitch_f  #0x0
+    :pswitch_3
     const/4 v0, 0x0
 
-    return v0
+    goto :goto_0
 
     nop
 
-    :pswitch_data_12
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_f  #00000000
-        :pswitch_d  #00000001
-        :pswitch_d  #00000002
-        :pswitch_d  #00000003
-        :pswitch_d  #00000004
-        :pswitch_d  #00000005
-        :pswitch_d  #00000006
-        :pswitch_b  #00000007
-        :pswitch_b  #00000008
-        :pswitch_d  #00000009
-        :pswitch_d  #0000000a
-        :pswitch_5  #0000000b
-        :pswitch_d  #0000000c
+        :pswitch_3
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_2
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public getSort()I
-    .registers 3
+    .locals 2
 
     .line 660
     iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
 
     const/16 v1, 0xc
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_0
 
     const/16 v0, 0xa
 
-    :cond_8
+    :cond_0
     return v0
 .end method
 
 .method public hashCode()I
-    .registers 5
+    .locals 4
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
     .line 877
-    iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
+    iget v1, p0, Lzeroaicy/org/objectweb/asm/Type;->sort:I
 
-    const/16 v1, 0xc
+    const/16 v0, 0xc
 
-    if-ne v0, v1, :cond_9
+    if-ne v1, v0, :cond_1
 
-    const/16 v1, 0xa
+    const/16 v0, 0xa
 
-    goto :goto_a
-
-    :cond_9
-    move v1, v0
-
-    :goto_a
-    mul-int/lit8 v1, v1, 0xd
+    :goto_0
+    mul-int/lit8 v0, v0, 0xd
 
     const/16 v2, 0x9
 
-    if-lt v0, v2, :cond_23
+    if-lt v1, v2, :cond_0
 
     .line 879
-    iget v0, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
+    iget v1, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBegin:I
 
     iget v2, p0, Lzeroaicy/org/objectweb/asm/Type;->valueEnd:I
 
-    :goto_14
-    if-lt v0, v2, :cond_17
-
-    goto :goto_23
+    :goto_1
+    if-lt v1, v2, :cond_2
 
     .line 880
-    :cond_17
+    :cond_0
+    return v0
+
+    :cond_1
+    move v0, v1
+
+    .line 877
+    goto :goto_0
+
+    .line 880
+    :cond_2
     iget-object v3, p0, Lzeroaicy/org/objectweb/asm/Type;->valueBuffer:Ljava/lang/String;
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v3, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
 
-    add-int/2addr v1, v3
+    add-int/2addr v0, v3
 
-    mul-int/lit8 v1, v1, 0x11
+    mul-int/lit8 v0, v0, 0x11
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_14
-
-    :cond_23
-    :goto_23
-    return v1
+    goto :goto_1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Override;
     .end annotation
 

@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dex/TypeList;",
         ">;"
     }
@@ -29,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 23
     new-instance v0, Lcom/s1243808733/android/dex/TypeList;
@@ -46,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/android/dex/Dex;[S)V
-    .registers 3
+    .locals 0
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,73 +64,76 @@
 
 # virtual methods
 .method public compareTo(Lcom/s1243808733/android/dex/TypeList;)I
-    .registers 6
+    .locals 4
 
     const/4 v0, 0x0
 
     .line 39
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/s1243808733/android/dex/TypeList;->types:[S
 
     array-length v2, v1
 
-    if-ge v0, v2, :cond_19
+    if-ge v0, v2, :cond_1
 
     iget-object v2, p1, Lcom/s1243808733/android/dex/TypeList;->types:[S
 
     array-length v3, v2
 
-    if-ge v0, v3, :cond_19
+    if-ge v0, v3, :cond_1
 
     .line 40
     aget-short v1, v1, v0
 
     aget-short v2, v2, v0
 
-    if-eq v1, v2, :cond_16
+    if-eq v1, v2, :cond_0
 
     .line 41
     invoke-static {v1, v2}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(SS)I
 
-    move-result p1
-
-    return p1
-
-    :cond_16
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_1
+    move-result v0
 
     .line 44
-    :cond_19
+    :goto_1
+    return v0
+
+    .line 41
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 44
+    :cond_1
     array-length v0, v1
 
-    iget-object p1, p1, Lcom/s1243808733/android/dex/TypeList;->types:[S
+    iget-object v1, p1, Lcom/s1243808733/android/dex/TypeList;->types:[S
 
-    array-length p1, p1
+    array-length v1, v1
 
-    invoke-static {v0, p1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
+    invoke-static {v0, v1}, Lcom/s1243808733/android/dex/util/Unsigned;->compare(II)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    goto :goto_1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 21
     check-cast p1, Lcom/s1243808733/android/dex/TypeList;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/TypeList;->compareTo(Lcom/s1243808733/android/dex/TypeList;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getTypes()[S
-    .registers 2
+    .locals 1
 
     .line 34
     iget-object v0, p0, Lcom/s1243808733/android/dex/TypeList;->types:[S
@@ -138,68 +142,72 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .line 49
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v1, "("
+    const-string v0, "("
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 51
-    iget-object v1, p0, Lcom/s1243808733/android/dex/TypeList;->types:[S
+    iget-object v0, p0, Lcom/s1243808733/android/dex/TypeList;->types:[S
 
-    array-length v1, v1
+    array-length v3, v0
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    :goto_b
-    if-ge v2, v1, :cond_2c
+    move v1, v0
+
+    :goto_0
+    if-ge v1, v3, :cond_1
 
     .line 52
-    iget-object v3, p0, Lcom/s1243808733/android/dex/TypeList;->dex:Lcom/s1243808733/android/dex/Dex;
+    iget-object v0, p0, Lcom/s1243808733/android/dex/TypeList;->dex:Lcom/s1243808733/android/dex/Dex;
 
-    if-eqz v3, :cond_1e
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v3}, Lcom/s1243808733/android/dex/Dex;->typeNames()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex;->typeNames()Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v0
 
     iget-object v4, p0, Lcom/s1243808733/android/dex/TypeList;->types:[S
 
-    aget-short v4, v4, v2
+    aget-short v4, v4, v1
 
-    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    goto :goto_26
+    :goto_1
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :cond_1e
-    iget-object v3, p0, Lcom/s1243808733/android/dex/TypeList;->types:[S
+    add-int/lit8 v0, v1, 0x1
 
-    aget-short v3, v3, v2
+    move v1, v0
 
-    invoke-static {v3}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
+    goto :goto_0
 
-    move-result-object v3
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/android/dex/TypeList;->types:[S
 
-    :goto_26
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    aget-short v0, v0, v1
 
-    add-int/lit8 v2, v2, 0x1
+    invoke-static {v0}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
 
-    goto :goto_b
+    move-result-object v0
+
+    goto :goto_1
 
     .line 54
-    :cond_2c
-    const-string v1, ")"
+    :cond_1
+    const-string v0, ")"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 55
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

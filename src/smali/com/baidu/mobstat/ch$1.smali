@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/ch;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
 
     .line 129
     iput-object p1, p0, Lcom/baidu/mobstat/ch$1;->a:Lcom/baidu/mobstat/ch;
@@ -33,44 +33,46 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 2
+    .locals 1
 
     .line 136
-    iget p1, p1, Landroid/os/Message;->what:I
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch p1, :pswitch_data_18
-
-    goto :goto_17
-
-    .line 147
-    :pswitch_6  #0x22
-    iget-object p1, p0, Lcom/baidu/mobstat/ch$1;->a:Lcom/baidu/mobstat/ch;
-
-    invoke-static {p1}, Lcom/baidu/mobstat/ch;->a(Lcom/baidu/mobstat/ch;)V
-
-    goto :goto_17
-
-    .line 143
-    :pswitch_c  #0x21
-    iget-object p1, p0, Lcom/baidu/mobstat/ch$1;->a:Lcom/baidu/mobstat/ch;
-
-    invoke-virtual {p1}, Lcom/baidu/mobstat/ch;->c()V
-
-    goto :goto_17
+    packed-switch v0, :pswitch_data_0
 
     .line 139
-    :pswitch_12  #0x20
-    iget-object p1, p0, Lcom/baidu/mobstat/ch$1;->a:Lcom/baidu/mobstat/ch;
-
-    invoke-virtual {p1}, Lcom/baidu/mobstat/ch;->b()V
-
-    :goto_17
+    :goto_0
     return-void
 
-    :pswitch_data_18
+    .line 147
+    :pswitch_0
+    iget-object v0, p0, Lcom/baidu/mobstat/ch$1;->a:Lcom/baidu/mobstat/ch;
+
+    invoke-static {v0}, Lcom/baidu/mobstat/ch;->a(Lcom/baidu/mobstat/ch;)V
+
+    goto :goto_0
+
+    .line 143
+    :pswitch_1
+    iget-object v0, p0, Lcom/baidu/mobstat/ch$1;->a:Lcom/baidu/mobstat/ch;
+
+    invoke-virtual {v0}, Lcom/baidu/mobstat/ch;->c()V
+
+    goto :goto_0
+
+    .line 139
+    :pswitch_2
+    iget-object v0, p0, Lcom/baidu/mobstat/ch$1;->a:Lcom/baidu/mobstat/ch;
+
+    invoke-virtual {v0}, Lcom/baidu/mobstat/ch;->b()V
+
+    goto :goto_0
+
+    .line 136
+    :pswitch_data_0
     .packed-switch 0x20
-        :pswitch_12  #00000020
-        :pswitch_c  #00000021
-        :pswitch_6  #00000022
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

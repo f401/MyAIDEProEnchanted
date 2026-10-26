@@ -7,8 +7,8 @@
 .field private static UnsafeClass:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/lang/Class<",
-            "*>;"
+            "Ljava/lang/Class",
+            "<*>;"
         }
     .end annotation
 .end field
@@ -40,159 +40,193 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 9
+    .locals 6
 
     .line 30
-    const-string v0, "putInt"
+    :try_start_0
+    const-string v0, "sun.misc.Unsafe"
+
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object v0
+
+    sput-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
+
+    .line 31
+    const-string v1, "getUnsafe"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
+
+    sput-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->getUnsafe:Ljava/lang/reflect/Method;
+
+    .line 33
+    sget-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
+
+    const-string v1, "addressSize"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
+
+    sput-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->addressSize:Ljava/lang/reflect/Method;
+
+    .line 35
+    sget-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
+
+    const-string v1, "getInt"
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Class;
+
+    const/4 v3, 0x0
+
+    sget-object v4, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+
+    aput-object v4, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
+
+    sput-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->getInt:Ljava/lang/reflect/Method;
+
+    .line 36
+    sget-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
+
+    const-string v1, "getInt"
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Class;
+
+    const/4 v3, 0x0
+
+    const-class v4, Ljava/lang/Object;
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
+
+    sget-object v4, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+
+    aput-object v4, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
+
+    sput-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->getInt1:Ljava/lang/reflect/Method;
+
+    .line 38
+    sget-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
 
     const-string v1, "getLong"
 
-    const-string v2, "getInt"
+    const/4 v2, 0x1
 
-    :try_start_6
-    const-string v3, "sun.misc.Unsafe"
+    new-array v2, v2, [Ljava/lang/Class;
 
-    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    const/4 v3, 0x0
 
-    move-result-object v3
+    sget-object v4, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    sput-object v3, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
+    aput-object v4, v2, v3
 
-    .line 31
-    const-string v4, "getUnsafe"
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    const/4 v5, 0x0
+    move-result-object v0
 
-    invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v3
-
-    sput-object v3, Lio/github/zeroaicy/util/reflect/UnsafeX;->getUnsafe:Ljava/lang/reflect/Method;
-
-    .line 33
-    sget-object v3, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
-
-    const-string v4, "addressSize"
-
-    invoke-virtual {v3, v4, v5}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v3
-
-    sput-object v3, Lio/github/zeroaicy/util/reflect/UnsafeX;->addressSize:Ljava/lang/reflect/Method;
-
-    .line 35
-    sget-object v3, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
-
-    const/4 v4, 0x1
-
-    new-array v5, v4, [Ljava/lang/Class;
-
-    sget-object v6, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
-
-    const/4 v7, 0x0
-
-    aput-object v6, v5, v7
-
-    invoke-virtual {v3, v2, v5}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v3
-
-    sput-object v3, Lio/github/zeroaicy/util/reflect/UnsafeX;->getInt:Ljava/lang/reflect/Method;
-
-    .line 36
-    sget-object v3, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
-
-    const/4 v5, 0x2
-
-    new-array v6, v5, [Ljava/lang/Class;
-
-    const-class v8, Ljava/lang/Object;
-
-    aput-object v8, v6, v7
-
-    sget-object v8, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
-
-    aput-object v8, v6, v4
-
-    invoke-virtual {v3, v2, v6}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v2
-
-    sput-object v2, Lio/github/zeroaicy/util/reflect/UnsafeX;->getInt1:Ljava/lang/reflect/Method;
-
-    .line 38
-    sget-object v2, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
-
-    new-array v3, v4, [Ljava/lang/Class;
-
-    sget-object v6, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
-
-    aput-object v6, v3, v7
-
-    invoke-virtual {v2, v1, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v2
-
-    sput-object v2, Lio/github/zeroaicy/util/reflect/UnsafeX;->getLong:Ljava/lang/reflect/Method;
+    sput-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->getLong:Ljava/lang/reflect/Method;
 
     .line 39
-    sget-object v2, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
+    sget-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
 
-    new-array v3, v5, [Ljava/lang/Class;
+    const-string v1, "getLong"
 
-    const-class v6, Ljava/lang/Object;
+    const/4 v2, 0x2
 
-    aput-object v6, v3, v7
+    new-array v2, v2, [Ljava/lang/Class;
 
-    sget-object v6, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+    const/4 v3, 0x0
 
-    aput-object v6, v3, v4
+    const-class v4, Ljava/lang/Object;
 
-    invoke-virtual {v2, v1, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    aput-object v4, v2, v3
 
-    move-result-object v1
+    const/4 v3, 0x1
 
-    sput-object v1, Lio/github/zeroaicy/util/reflect/UnsafeX;->getLong1:Ljava/lang/reflect/Method;
+    sget-object v4, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+
+    aput-object v4, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
+
+    sput-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->getLong1:Ljava/lang/reflect/Method;
 
     .line 41
-    sget-object v1, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
+    sget-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
 
-    new-array v2, v5, [Ljava/lang/Class;
+    const-string v1, "putInt"
 
-    sget-object v3, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+    const/4 v2, 0x2
 
-    aput-object v3, v2, v7
+    new-array v2, v2, [Ljava/lang/Class;
 
-    sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    const/4 v3, 0x0
 
-    aput-object v3, v2, v4
+    sget-object v4, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    invoke-virtual {v1, v0, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    aput-object v4, v2, v3
 
-    move-result-object v1
+    const/4 v3, 0x1
 
-    sput-object v1, Lio/github/zeroaicy/util/reflect/UnsafeX;->putInt:Ljava/lang/reflect/Method;
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    aput-object v4, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v0
+
+    sput-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->putInt:Ljava/lang/reflect/Method;
 
     .line 42
-    sget-object v1, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
+    sget-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->UnsafeClass:Ljava/lang/Class;
+
+    const-string v1, "putInt"
 
     const/4 v2, 0x3
 
-    new-array v3, v2, [Ljava/lang/Class;
+    new-array v2, v2, [Ljava/lang/Class;
 
-    const-class v6, Ljava/lang/Object;
+    const/4 v3, 0x0
 
-    aput-object v6, v3, v7
+    const-class v4, Ljava/lang/Object;
 
-    sget-object v6, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+    aput-object v4, v2, v3
 
-    aput-object v6, v3, v4
+    const/4 v3, 0x1
 
-    sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v4, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    aput-object v6, v3, v5
+    aput-object v4, v2, v3
 
-    invoke-virtual {v1, v0, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v3, 0x2
+
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    aput-object v4, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
@@ -203,19 +237,27 @@
 
     sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    const-string v3, "putLong"
+    const-string v2, "putLong"
 
-    new-array v6, v2, [Ljava/lang/Class;
+    const/4 v3, 0x3
 
-    const-class v8, Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Class;
 
-    aput-object v8, v6, v7
+    const/4 v4, 0x0
 
-    aput-object v1, v6, v4
+    const-class v5, Ljava/lang/Object;
 
-    aput-object v1, v6, v5
+    aput-object v5, v3, v4
 
-    invoke-virtual {v0, v3, v6}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v4, 0x1
+
+    aput-object v1, v3, v4
+
+    const/4 v4, 0x2
+
+    aput-object v1, v3, v4
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
@@ -226,39 +268,47 @@
 
     const-string v1, "putObject"
 
+    const/4 v2, 0x3
+
     new-array v2, v2, [Ljava/lang/Class;
 
-    const-class v3, Ljava/lang/Object;
+    const/4 v3, 0x0
 
-    aput-object v3, v2, v7
+    const-class v4, Ljava/lang/Object;
 
-    sget-object v3, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+    aput-object v4, v2, v3
 
-    aput-object v3, v2, v4
+    const/4 v3, 0x1
 
-    const-class v3, Ljava/lang/Object;
+    sget-object v4, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    aput-object v3, v2, v5
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x2
+
+    const-class v4, Ljava/lang/Object;
+
+    aput-object v4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
     sput-object v0, Lio/github/zeroaicy/util/reflect/UnsafeX;->putObject:Ljava/lang/reflect/Method;
-    :try_end_bb
-    .catchall {:try_start_6 .. :try_end_bb} :catchall_bc
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_bd
+    :goto_0
+    return-void
 
-    :catchall_bc
+    :catchall_0
     move-exception v0
 
-    :goto_bd
-    return-void
+    goto :goto_0
 .end method
 
 .method private constructor <init>(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -270,7 +320,7 @@
 .end method
 
 .method public static getUnsafe()Lio/github/zeroaicy/util/reflect/UnsafeX;
-    .registers 3
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -279,12 +329,12 @@
         }
     .end annotation
 
+    const/4 v2, 0x0
+
     .line 80
     new-instance v0, Lio/github/zeroaicy/util/reflect/UnsafeX;
 
     sget-object v1, Lio/github/zeroaicy/util/reflect/UnsafeX;->getUnsafe:Ljava/lang/reflect/Method;
-
-    const/4 v2, 0x0
 
     invoke-virtual {v1, v2, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -298,7 +348,7 @@
 
 # virtual methods
 .method public addressSize()I
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -328,7 +378,7 @@
 .end method
 
 .method public getInt(J)I
-    .registers 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -350,25 +400,25 @@
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p1
+    move-result-object v4
 
-    aput-object p1, v2, v3
+    aput-object v4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getInt(Ljava/lang/Object;J)I
-    .registers 8
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -390,29 +440,29 @@
 
     aput-object p1, v2, v3
 
-    const/4 p1, 0x1
+    const/4 v3, 0x1
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p2
+    move-result-object v4
 
-    aput-object p2, v2, p1
+    aput-object v4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getLong(J)J
-    .registers 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -434,25 +484,25 @@
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p1
+    move-result-object v4
 
-    aput-object p1, v2, v3
+    aput-object v4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Long;
+    check-cast v0, Ljava/lang/Long;
 
-    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide p1
+    move-result-wide v0
 
-    return-wide p1
+    return-wide v0
 .end method
 
 .method public getLong(Ljava/lang/Object;J)J
-    .registers 8
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -474,29 +524,29 @@
 
     aput-object p1, v2, v3
 
-    const/4 p1, 0x1
+    const/4 v3, 0x1
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p2
+    move-result-object v4
 
-    aput-object p2, v2, p1
+    aput-object v4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Long;
+    check-cast v0, Ljava/lang/Long;
 
-    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide p1
+    move-result-wide v0
 
-    return-wide p1
+    return-wide v0
 .end method
 
 .method public putInt(JI)V
-    .registers 8
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -518,17 +568,17 @@
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p1
+    move-result-object v4
 
-    aput-object p1, v2, v3
+    aput-object v4, v2, v3
 
-    const/4 p1, 0x1
+    const/4 v3, 0x1
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object v4
 
-    aput-object p2, v2, p1
+    aput-object v4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -536,7 +586,7 @@
 .end method
 
 .method public putInt(Ljava/lang/Object;JI)V
-    .registers 9
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -558,21 +608,21 @@
 
     aput-object p1, v2, v3
 
-    const/4 p1, 0x1
+    const/4 v3, 0x1
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p2
+    move-result-object v4
 
-    aput-object p2, v2, p1
+    aput-object v4, v2, v3
 
-    const/4 p1, 0x2
+    const/4 v3, 0x2
 
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object v4
 
-    aput-object p2, v2, p1
+    aput-object v4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -580,7 +630,7 @@
 .end method
 
 .method public putLong(Ljava/lang/Object;JJ)V
-    .registers 10
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -602,21 +652,21 @@
 
     aput-object p1, v2, v3
 
-    const/4 p1, 0x1
+    const/4 v3, 0x1
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p2
+    move-result-object v4
 
-    aput-object p2, v2, p1
+    aput-object v4, v2, v3
 
-    const/4 p1, 0x2
+    const/4 v3, 0x2
 
     invoke-static {p4, p5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p2
+    move-result-object v4
 
-    aput-object p2, v2, p1
+    aput-object v4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -624,7 +674,7 @@
 .end method
 
 .method public putObject(Ljava/lang/Object;JLjava/lang/Object;)V
-    .registers 9
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -646,17 +696,17 @@
 
     aput-object p1, v2, v3
 
-    const/4 p1, 0x1
+    const/4 v3, 0x1
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p2
+    move-result-object v4
 
-    aput-object p2, v2, p1
+    aput-object v4, v2, v3
 
-    const/4 p1, 0x2
+    const/4 v3, 0x2
 
-    aput-object p4, v2, p1
+    aput-object p4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 

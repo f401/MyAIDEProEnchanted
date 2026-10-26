@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,13 +23,13 @@
 
 # virtual methods
 .method public onBeforeSigningAPK(Ljava/io/File;Ljava/lang/Object;)V
-    .registers 3
+    .locals 0
 
     return-void
 .end method
 
 .method public onCreate(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .registers 3
+    .locals 0
 
     .line 13
     iput-object p1, p0, Lcom/s1243808733/aide/api/MainActivityEventWrapper;->convert:Landroid/app/Activity;
@@ -38,70 +38,70 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public onMenuOpened(ILandroid/view/Menu;)V
-    .registers 3
+    .locals 0
 
     return-void
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .registers 2
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method protected final updateBuildDialog(Ljava/lang/Object;Ljava/lang/String;)V
-    .registers 6
+    .locals 5
 
     .line 40
     :try_start_0
     invoke-static {p1}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 41
-    const-string v0, "j6"
+    const-string v1, "j6"
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    aput-object p2, v1, v2
+    aput-object p2, v2, v3
 
-    const/16 p2, 0x3c
+    const/4 v3, 0x1
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v4, 0x3c
 
-    move-result-object p2
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const/4 v2, 0x1
+    move-result-object v4
 
-    aput-object p2, v1, v2
+    aput-object v4, v2, v3
 
-    invoke-virtual {p1, v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
-    :try_end_18
-    .catchall {:try_start_0 .. :try_end_18} :catchall_19
+    invoke-virtual {v0, v1, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_1a
-
-    :catchall_19
-    move-exception p1
-
-    :goto_1a
+    :goto_0
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    goto :goto_0
 .end method

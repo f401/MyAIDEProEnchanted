@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/cf/code/LocalVariableList;)V
-    .registers 3
+    .locals 1
 
     .line 34
     const-string v0, "LocalVariableTable"

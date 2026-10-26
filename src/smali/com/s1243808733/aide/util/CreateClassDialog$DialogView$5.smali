@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/util/CreateClassDialog$DialogView;Landroid/widget/LinearLayout;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,39 +45,40 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .registers 4
+    .locals 2
 
     .line 811
-    iget-object p1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$DialogView$5;->val$ll_more:Landroid/widget/LinearLayout;
+    iget-object v1, p0, Lcom/s1243808733/aide/util/CreateClassDialog$DialogView$5;->val$ll_more:Landroid/widget/LinearLayout;
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_0
 
     const/4 v0, 0x0
 
-    goto :goto_8
-
-    :cond_6
-    const/16 v0, 0x8
-
-    :goto_8
-    invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     .line 812
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "create_new_class_cb_more"
+    const-string v1, "create_new_class_cb_more"
 
-    invoke-interface {p1, v0, p2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, p2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     return-void
+
+    .line 811
+    :cond_0
+    const/16 v0, 0x8
+
+    goto :goto_0
 .end method

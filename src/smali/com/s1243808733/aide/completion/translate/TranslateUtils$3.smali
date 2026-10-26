@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lcom/s1243808733/aide/completion/translate/TranslateTable;Ljava/lang/String;Landroid/widget/BaseAdapter;)V
-    .registers 5
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -53,222 +53,220 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 10
+    .locals 9
+
+    const/4 v8, -0x1
+
+    const/high16 v4, 0x41c00000    # 24.0f
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     .line 154
-    new-instance v0, Landroid/widget/ScrollView;
+    new-instance v1, Landroid/widget/ScrollView;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
 
-    invoke-direct {v0, v1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v0}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
     .line 156
-    new-instance v1, Landroid/widget/LinearLayout;
+    new-instance v2, Landroid/widget/LinearLayout;
 
-    iget-object v2, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
 
-    invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, v0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     .line 157
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    invoke-virtual {v2, v7}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     .line 158
-    const/high16 v3, 0x41c00000  # 24.0f
+    invoke-static {v4}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
-    invoke-static {v3}, Lcom/s1243808733/util/Utils;->dp2px(F)I
+    move-result v0
 
-    move-result v4
-
-    const/high16 v5, 0x41200000  # 10.0f
-
-    invoke-static {v5}, Lcom/s1243808733/util/Utils;->dp2px(F)I
-
-    move-result v5
+    const/high16 v3, 0x41200000    # 10.0f
 
     invoke-static {v3}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
     move-result v3
 
-    const/4 v6, 0x0
+    invoke-static {v4}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
-    invoke-virtual {v1, v4, v5, v3, v6}, Landroid/widget/LinearLayout;->setPadding(IIII)V
+    move-result v4
+
+    invoke-virtual {v2, v0, v3, v4, v6}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
     .line 160
     new-instance v3, Landroid/widget/EditText;
 
-    iget-object v4, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
 
-    invoke-direct {v3, v4}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, v0}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
     .line 161
-    iget-object v4, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$items:Lcom/s1243808733/aide/completion/translate/TranslateTable;
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$items:Lcom/s1243808733/aide/completion/translate/TranslateTable;
 
-    if-nez v4, :cond_34
+    if-nez v0, :cond_1
 
-    iget-object v4, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$source:Ljava/lang/String;
+    iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$source:Ljava/lang/String;
 
-    goto :goto_38
-
-    :cond_34
-    invoke-virtual {v4}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getSource()Ljava/lang/String;
-
-    move-result-object v4
-
-    :goto_38
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    :goto_0
+    invoke-virtual {v3, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 162
-    const/4 v4, 0x2
+    const/4 v0, 0x2
 
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setMaxLines(I)V
+    invoke-virtual {v3, v0}, Landroid/widget/EditText;->setMaxLines(I)V
 
     .line 163
-    sget-object v4, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
+    sget-object v0, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
+    invoke-virtual {v3, v0}, Landroid/widget/EditText;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
     .line 166
-    new-instance v4, Landroid/widget/TextView;
+    new-instance v0, Landroid/widget/TextView;
 
-    iget-object v5, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
+    iget-object v4, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
 
-    invoke-direct {v4, v5}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     .line 167
-    const-string v5, "翻译后："
+    const-string v4, "\u7ffb\u8bd1\u540e\uff1a"
 
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 168
-    const/high16 v5, 0x41800000  # 16.0f
+    const/high16 v4, 0x41800000    # 16.0f
+
+    invoke-static {v4}, Lcom/s1243808733/util/Utils;->dp2px(F)I
+
+    move-result v4
+
+    const/high16 v5, 0x40a00000    # 5.0f
 
     invoke-static {v5}, Lcom/s1243808733/util/Utils;->dp2px(F)I
 
     move-result v5
 
-    const/high16 v7, 0x40a00000  # 5.0f
-
-    invoke-static {v7}, Lcom/s1243808733/util/Utils;->dp2px(F)I
-
-    move-result v7
-
-    invoke-virtual {v4, v6, v5, v6, v7}, Landroid/widget/TextView;->setPadding(IIII)V
+    invoke-virtual {v0, v6, v4, v6, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 169
-    new-instance v5, Landroid/widget/EditText;
+    new-instance v4, Landroid/widget/EditText;
 
-    iget-object v7, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
+    iget-object v5, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$context:Landroid/content/Context;
 
-    invoke-direct {v5, v7}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
+    invoke-direct {v4, v5}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
     .line 170
-    iget-object v7, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$items:Lcom/s1243808733/aide/completion/translate/TranslateTable;
+    iget-object v5, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$items:Lcom/s1243808733/aide/completion/translate/TranslateTable;
 
-    if-eqz v7, :cond_79
+    if-eqz v5, :cond_0
 
-    invoke-virtual {v7}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
+    invoke-virtual {v5}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getState()I
 
-    move-result v7
+    move-result v5
 
-    if-ne v7, v2, :cond_79
+    if-ne v5, v7, :cond_0
 
     .line 171
-    iget-object v7, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$items:Lcom/s1243808733/aide/completion/translate/TranslateTable;
+    iget-object v5, p0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;->val$items:Lcom/s1243808733/aide/completion/translate/TranslateTable;
 
-    invoke-virtual {v7}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getTranslation()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getTranslation()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v5, v7}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v4, v5}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 174
-    :cond_79
-    invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    :cond_0
+    invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     .line 176
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     .line 177
-    invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v2, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     .line 181
-    const/4 v3, -0x1
-
-    invoke-virtual {v0, v1, v3, v3}, Landroid/widget/ScrollView;->addView(Landroid/view/View;II)V
+    invoke-virtual {v1, v2, v8, v8}, Landroid/widget/ScrollView;->addView(Landroid/view/View;II)V
 
     .line 182
-    invoke-virtual {v0, v2}, Landroid/widget/ScrollView;->setFillViewport(Z)V
+    invoke-virtual {v1, v7}, Landroid/widget/ScrollView;->setFillViewport(Z)V
 
     .line 184
-    nop
-
-    .line 185
-    new-instance v1, Landroid/app/AlertDialog$Builder;
+    new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainActivity()Lcom/s1243808733/aide/AideMainActivity;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 186
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
-
-    .line 187
-    invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
-
-    new-instance v0, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;
-
-    invoke-direct {v0, p0, v5}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;-><init>(Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;Landroid/widget/EditText;)V
-
-    .line 188
-    const-string v1, "保存"
-
-    invoke-virtual {p1, v1, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
-
-    .line 215
-    const/high16 v0, 0x1040000
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object p1
-
-    .line 216
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object p1
-
-    .line 217
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const/4 v1, 0x4
+    .line 187
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
+    move-result-object v0
+
+    new-instance v1, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;
+
+    invoke-direct {v1, p0, v4}, Lcom/s1243808733/aide/completion/translate/TranslateUtils$3$1;-><init>(Lcom/s1243808733/aide/completion/translate/TranslateUtils$3;Landroid/widget/EditText;)V
+
+    .line 188
+    const-string v2, "\u4fdd\u5b58"
+
+    invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    .line 215
+    const/high16 v1, 0x1040000
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    .line 216
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    .line 217
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v2}, Landroid/view/Window;->setSoftInputMode(I)V
 
     .line 218
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     .line 220
-    invoke-virtual {v5}, Landroid/widget/EditText;->selectAll()V
+    invoke-virtual {v4}, Landroid/widget/EditText;->selectAll()V
 
     .line 221
-    invoke-virtual {v5}, Landroid/widget/EditText;->requestFocus()Z
+    invoke-virtual {v4}, Landroid/widget/EditText;->requestFocus()Z
 
     return v6
+
+    .line 161
+    :cond_1
+    invoke-virtual {v0}, Lcom/s1243808733/aide/completion/translate/TranslateTable;->getSource()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
 .end method

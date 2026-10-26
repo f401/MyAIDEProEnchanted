@@ -8,7 +8,7 @@
 
 # direct methods
 .method protected constructor <init>(Z)V
-    .registers 2
+    .locals 0
 
     .line 41
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/MutabilityControl;-><init>(Z)V

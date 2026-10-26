@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .registers 5
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -34,30 +34,30 @@
     .line 28
     const/4 v2, 0x2
 
-    aget-object p0, p0, v2
+    aget-object v2, p0, v2
 
     .line 30
-    new-instance v2, Lcom/s1243808733/android/dex/Dex;
+    new-instance v3, Lcom/s1243808733/android/dex/Dex;
 
-    new-instance v3, Ljava/io/File;
+    new-instance v4, Ljava/io/File;
 
-    invoke-direct {v3, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v2, v3}, Lcom/s1243808733/android/dex/Dex;-><init>(Ljava/io/File;)V
+    invoke-direct {v3, v4}, Lcom/s1243808733/android/dex/Dex;-><init>(Ljava/io/File;)V
 
     .line 31
     new-instance v0, Ljava/io/PrintWriter;
 
-    sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-direct {v0, v3}, Ljava/io/PrintWriter;-><init>(Ljava/io/OutputStream;)V
+    invoke-direct {v0, v4}, Ljava/io/PrintWriter;-><init>(Ljava/io/OutputStream;)V
 
     .line 32
-    new-instance v3, Lcom/s1243808733/android/dx/command/findusages/FindUsages;
+    new-instance v4, Lcom/s1243808733/android/dx/command/findusages/FindUsages;
 
-    invoke-direct {v3, v2, v1, p0, v0}, Lcom/s1243808733/android/dx/command/findusages/FindUsages;-><init>(Lcom/s1243808733/android/dex/Dex;Ljava/lang/String;Ljava/lang/String;Ljava/io/PrintWriter;)V
+    invoke-direct {v4, v3, v1, v2, v0}, Lcom/s1243808733/android/dx/command/findusages/FindUsages;-><init>(Lcom/s1243808733/android/dex/Dex;Ljava/lang/String;Ljava/lang/String;Ljava/io/PrintWriter;)V
 
-    invoke-virtual {v3}, Lcom/s1243808733/android/dx/command/findusages/FindUsages;->findUsages()V
+    invoke-virtual {v4}, Lcom/s1243808733/android/dx/command/findusages/FindUsages;->findUsages()V
 
     .line 33
     invoke-virtual {v0}, Ljava/io/PrintWriter;->flush()V

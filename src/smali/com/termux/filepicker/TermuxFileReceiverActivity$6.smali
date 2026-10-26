@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/filepicker/TermuxFileReceiverActivity;)V
-    .registers 2
+    .locals 0
 
     .line 166
     iput-object p1, p0, Lcom/termux/filepicker/TermuxFileReceiverActivity$6;->this$0:Lcom/termux/filepicker/TermuxFileReceiverActivity;
@@ -36,19 +36,19 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .registers 2
+    .locals 1
 
     .line 169
-    iget-object p1, p0, Lcom/termux/filepicker/TermuxFileReceiverActivity$6;->this$0:Lcom/termux/filepicker/TermuxFileReceiverActivity;
+    iget-object v0, p0, Lcom/termux/filepicker/TermuxFileReceiverActivity$6;->this$0:Lcom/termux/filepicker/TermuxFileReceiverActivity;
 
-    iget-boolean p1, p1, Lcom/termux/filepicker/TermuxFileReceiverActivity;->mFinishOnDismissNameDialog:Z
+    iget-boolean v0, v0, Lcom/termux/filepicker/TermuxFileReceiverActivity;->mFinishOnDismissNameDialog:Z
 
-    if-eqz p1, :cond_b
+    if-eqz v0, :cond_0
 
-    iget-object p1, p0, Lcom/termux/filepicker/TermuxFileReceiverActivity$6;->this$0:Lcom/termux/filepicker/TermuxFileReceiverActivity;
+    iget-object v0, p0, Lcom/termux/filepicker/TermuxFileReceiverActivity$6;->this$0:Lcom/termux/filepicker/TermuxFileReceiverActivity;
 
-    invoke-virtual {p1}, Lcom/termux/filepicker/TermuxFileReceiverActivity;->finish()V
+    invoke-virtual {v0}, Lcom/termux/filepicker/TermuxFileReceiverActivity;->finish()V
 
-    :cond_b
+    :cond_0
     return-void
 .end method

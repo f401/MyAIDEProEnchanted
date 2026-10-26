@@ -29,7 +29,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/misc/Pair<",
+            "Lorg/antlr/v4/runtime/misc/Pair",
+            "<",
             "Lorg/antlr/v4/runtime/TokenSource;",
             "Lorg/antlr/v4/runtime/CharStream;",
             ">;I",

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/FullScreenHelper;)V
-    .registers 2
+    .locals 0
 
     .line 33
     iput-object p1, p0, Lcom/termux/app/FullScreenHelper$1;->this$0:Lcom/termux/app/FullScreenHelper;
@@ -36,71 +36,73 @@
 
 # virtual methods
 .method public onSystemUiVisibilityChange(I)V
-    .registers 3
+    .locals 2
 
     .line 36
-    and-int/lit8 p1, p1, 0x4
+    and-int/lit8 v0, p1, 0x4
 
-    const-string v0, "viewpager"
-
-    if-nez p1, :cond_28
+    if-nez v0, :cond_1
 
     .line 37
-    iget-object p1, p0, Lcom/termux/app/FullScreenHelper$1;->this$0:Lcom/termux/app/FullScreenHelper;
+    iget-object v0, p0, Lcom/termux/app/FullScreenHelper$1;->this$0:Lcom/termux/app/FullScreenHelper;
 
-    iget-object p1, p1, Lcom/termux/app/FullScreenHelper;->mActivity:Lcom/termux/app/TermuxActivity;
+    iget-object v0, v0, Lcom/termux/app/FullScreenHelper;->mActivity:Lcom/termux/app/TermuxActivity;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxPreferences;->isShowExtraKeys()Z
+    invoke-virtual {v0}, Lcom/termux/app/TermuxPreferences;->isShowExtraKeys()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_22
+    if-eqz v0, :cond_0
 
     .line 38
-    iget-object p1, p0, Lcom/termux/app/FullScreenHelper$1;->this$0:Lcom/termux/app/FullScreenHelper;
+    iget-object v0, p0, Lcom/termux/app/FullScreenHelper$1;->this$0:Lcom/termux/app/FullScreenHelper;
 
-    iget-object p1, p1, Lcom/termux/app/FullScreenHelper;->mActivity:Lcom/termux/app/TermuxActivity;
+    iget-object v0, v0, Lcom/termux/app/FullScreenHelper;->mActivity:Lcom/termux/app/TermuxActivity;
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+    const-string v1, "viewpager"
 
-    move-result v0
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
 
-    invoke-virtual {p1, v0}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
+    move-result v1
 
-    move-result-object p1
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
 
-    const/4 v0, 0x0
+    move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 40
-    :cond_22
-    iget-object p1, p0, Lcom/termux/app/FullScreenHelper$1;->this$0:Lcom/termux/app/FullScreenHelper;
+    :cond_0
+    iget-object v0, p0, Lcom/termux/app/FullScreenHelper$1;->this$0:Lcom/termux/app/FullScreenHelper;
 
-    invoke-virtual {p1}, Lcom/termux/app/FullScreenHelper;->setImmersiveMode()V
-
-    goto :goto_39
+    invoke-virtual {v0}, Lcom/termux/app/FullScreenHelper;->setImmersiveMode()V
 
     .line 42
-    :cond_28
-    iget-object p1, p0, Lcom/termux/app/FullScreenHelper$1;->this$0:Lcom/termux/app/FullScreenHelper;
-
-    iget-object p1, p1, Lcom/termux/app/FullScreenHelper;->mActivity:Lcom/termux/app/TermuxActivity;
-
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
-
-    :goto_39
+    :goto_0
     return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/termux/app/FullScreenHelper$1;->this$0:Lcom/termux/app/FullScreenHelper;
+
+    iget-object v0, v0, Lcom/termux/app/FullScreenHelper;->mActivity:Lcom/termux/app/TermuxActivity;
+
+    const-string v1, "viewpager"
+
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ResourceUtils;->getIdByName(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/EditText;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,24 +41,24 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 54
-    iget-object p1, p0, Lcom/s1243808733/aide/util/CustomCommand$1;->val$input:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/aide/util/CustomCommand$1;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/aide/util/CustomCommand;->convert(Ljava/lang/String;)[Lcom/s1243808733/aide/util/Command;
+    invoke-static {v0}, Lcom/s1243808733/aide/util/CustomCommand;->convert(Ljava/lang/String;)[Lcom/s1243808733/aide/util/Command;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/aide/util/CustomCommand;->setCommands([Lcom/s1243808733/aide/util/Command;)V
+    invoke-static {v0}, Lcom/s1243808733/aide/util/CustomCommand;->setCommands([Lcom/s1243808733/aide/util/Command;)V
 
     return-void
 .end method

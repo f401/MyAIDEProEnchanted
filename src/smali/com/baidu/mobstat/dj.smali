@@ -11,7 +11,9 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
+
+    const/16 v4, 0x50
 
     .line 27
     new-instance v0, Ljava/net/Proxy;
@@ -21,8 +23,6 @@
     new-instance v2, Ljava/net/InetSocketAddress;
 
     const-string v3, "10.0.0.172"
-
-    const/16 v4, 0x50
 
     invoke-direct {v2, v3, v4}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
 
@@ -49,61 +49,89 @@
 .end method
 
 .method public static a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 4
+
+    const/4 v2, 0x0
 
     .line 55
-    const/4 v0, 0x0
-
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0, p1}, Landroid/content/Context;->openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
     .line 56
+    :try_start_1
     invoke-static {v0}, Lcom/baidu/mobstat/dj;->a(Ljava/io/InputStream;)[B
 
-    move-result-object p0
+    move-result-object v2
 
-    if-eqz p0, :cond_1c
+    if-eqz v2, :cond_0
 
     .line 58
-    new-instance p1, Ljava/lang/String;
+    new-instance v1, Ljava/lang/String;
 
-    const-string v1, "utf-8"
+    const-string v3, "utf-8"
 
-    invoke-direct {p1, p0, v1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-    :try_end_12
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_12} :catch_1b
-    .catchall {:try_start_1 .. :try_end_12} :catchall_16
-
-    .line 63
-    invoke-static {v0}, Lcom/baidu/mobstat/dp;->a(Ljava/io/Closeable;)V
-
-    return-object p1
-
-    :catchall_16
-    move-exception p0
-
-    invoke-static {v0}, Lcom/baidu/mobstat/dp;->a(Ljava/io/Closeable;)V
-
-    throw p0
-
-    .line 66
-    :catch_1b
-    move-exception p0
+    invoke-direct {v1, v2, v3}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 63
-    :cond_1c
+    invoke-static {v0}, Lcom/baidu/mobstat/dp;->a(Ljava/io/Closeable;)V
+
+    move-object v0, v1
+
+    .line 66
+    :goto_0
+    return-object v0
+
+    .line 63
+    :catchall_0
+    move-exception v0
+
+    move-object v1, v0
+
+    :goto_1
+    invoke-static {v2}, Lcom/baidu/mobstat/dp;->a(Ljava/io/Closeable;)V
+
+    throw v1
+
+    .line 66
+    :catch_0
+    move-exception v0
+
+    move-object v0, v2
+
+    .line 63
+    :cond_0
+    :goto_2
     invoke-static {v0}, Lcom/baidu/mobstat/dp;->a(Ljava/io/Closeable;)V
 
     .line 66
-    const-string p0, ""
+    const-string v0, ""
 
-    return-object p0
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_2
+
+    .line 63
+    :catchall_1
+    move-exception v1
+
+    move-object v2, v0
+
+    goto :goto_1
 .end method
 
 .method public static a(Landroid/content/Context;Ljava/lang/String;II)Ljava/net/HttpURLConnection;
-    .registers 6
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -111,226 +139,255 @@
     .end annotation
 
     .line 91
-    new-instance v0, Ljava/net/URL;
+    new-instance v1, Ljava/net/URL;
 
-    invoke-direct {v0, p1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
     .line 93
-    const-string p1, "connectivity"
+    const-string v0, "connectivity"
 
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/net/ConnectivityManager;
+    check-cast v0, Landroid/net/ConnectivityManager;
 
     .line 94
-    const/4 p1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p0, p1}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+    invoke-virtual {v0, v2}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 95
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {p0, v1}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+    invoke-virtual {v0, v3}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
 
-    move-result-object p0
+    move-result-object v0
 
-    if-eqz p0, :cond_26
+    if-eqz v0, :cond_1
 
     .line 98
-    invoke-virtual {p0}, Landroid/net/NetworkInfo;->isAvailable()Z
+    invoke-virtual {v0}, Landroid/net/NetworkInfo;->isAvailable()Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_26
+    if-eqz v0, :cond_1
 
     .line 99
-    invoke-virtual {v0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+    invoke-virtual {v1}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Ljava/net/HttpURLConnection;
-
-    goto :goto_6f
-
-    :cond_26
-    if-eqz p1, :cond_6e
-
-    .line 100
-    invoke-virtual {p1}, Landroid/net/NetworkInfo;->isAvailable()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_6e
-
-    .line 101
-    invoke-virtual {p1}, Landroid/net/NetworkInfo;->getExtraInfo()Ljava/lang/String;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_39
-
-    .line 102
-    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_3b
-
-    :cond_39
-    const-string p0, ""
-
-    .line 104
-    :goto_3b
-    const-string p1, "cmwap"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_65
-
-    const-string p1, "uniwap"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_65
-
-    const-string p1, "3gwap"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_54
-
-    goto :goto_65
-
-    .line 106
-    :cond_54
-    const-string p1, "ctwap"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_6e
-
-    .line 107
-    sget-object p0, Lcom/baidu/mobstat/dj;->b:Ljava/net/Proxy;
-
-    invoke-virtual {v0, p0}, Ljava/net/URL;->openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/net/HttpURLConnection;
-
-    goto :goto_6f
+    check-cast v0, Ljava/net/HttpURLConnection;
 
     .line 105
-    :cond_65
-    :goto_65
-    sget-object p0, Lcom/baidu/mobstat/dj;->a:Ljava/net/Proxy;
-
-    invoke-virtual {v0, p0}, Ljava/net/URL;->openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/net/HttpURLConnection;
-
-    goto :goto_6f
-
-    :cond_6e
-    const/4 p0, 0x0
-
-    :goto_6f
-    if-nez p0, :cond_77
+    :goto_0
+    if-nez v0, :cond_0
 
     .line 112
-    invoke-virtual {v0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+    invoke-virtual {v1}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Ljava/net/HttpURLConnection;
+    check-cast v0, Ljava/net/HttpURLConnection;
 
     .line 115
-    :cond_77
-    invoke-virtual {p0, p2}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
+    :cond_0
+    invoke-virtual {v0, p2}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
 
     .line 116
-    invoke-virtual {p0, p3}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
+    invoke-virtual {v0, p3}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
 
-    return-object p0
+    return-object v0
+
+    .line 99
+    :cond_1
+    if-eqz v2, :cond_5
+
+    .line 100
+    invoke-virtual {v2}, Landroid/net/NetworkInfo;->isAvailable()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    .line 101
+    invoke-virtual {v2}, Landroid/net/NetworkInfo;->getExtraInfo()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    .line 102
+    invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 104
+    :goto_1
+    const-string v2, "cmwap"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string v2, "uniwap"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string v2, "3gwap"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    .line 105
+    :cond_2
+    sget-object v0, Lcom/baidu/mobstat/dj;->a:Ljava/net/Proxy;
+
+    invoke-virtual {v1, v0}, Ljava/net/URL;->openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/net/HttpURLConnection;
+
+    goto :goto_0
+
+    .line 102
+    :cond_3
+    const-string v0, ""
+
+    goto :goto_1
+
+    .line 106
+    :cond_4
+    const-string v2, "ctwap"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    .line 107
+    sget-object v0, Lcom/baidu/mobstat/dj;->b:Ljava/net/Proxy;
+
+    invoke-virtual {v1, v0}, Ljava/net/URL;->openConnection(Ljava/net/Proxy;)Ljava/net/URLConnection;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/net/HttpURLConnection;
+
+    goto :goto_0
+
+    .line 105
+    :cond_5
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)V
-    .registers 5
+    .locals 3
 
-    if-nez p0, :cond_3
+    const/4 v2, 0x0
 
+    if-nez p0, :cond_0
+
+    .line 48
+    :goto_0
     return-void
 
-    :cond_3
-    if-eqz p3, :cond_9
+    .line 4294967295
+    :cond_0
+    if-eqz p3, :cond_1
 
-    const p3, 0x8000
-
-    goto :goto_a
-
-    :cond_9
-    const/4 p3, 0x0
+    const v0, 0x8000
 
     .line 43
-    :goto_a
-    const/4 v0, 0x0
-
-    :try_start_b
-    invoke-virtual {p0, p1, p3}, Landroid/content/Context;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
+    :goto_1
+    :try_start_0
+    invoke-virtual {p0, p1, v0}, Landroid/content/Context;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
     .line 44
-    new-instance p0, Ljava/io/ByteArrayInputStream;
+    :try_start_1
+    new-instance v1, Ljava/io/ByteArrayInputStream;
 
-    const-string p1, "utf-8"
+    const-string v2, "utf-8"
 
-    invoke-virtual {p2, p1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    invoke-virtual {p2, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-direct {p0, p1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    invoke-direct {v1, v2}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    invoke-static {p0, v0}, Lcom/baidu/mobstat/dp;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Z
-    :try_end_1d
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_1d} :catch_23
-    .catchall {:try_start_b .. :try_end_1d} :catchall_1e
-
-    goto :goto_24
-
-    :catchall_1e
-    move-exception p0
+    invoke-static {v1, v0}, Lcom/baidu/mobstat/dp;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 48
+    :goto_2
     invoke-static {v0}, Lcom/baidu/mobstat/dp;->a(Ljava/io/Closeable;)V
 
-    throw p0
+    goto :goto_0
 
-    :catch_23
-    move-exception p0
+    .line 4294967295
+    :cond_1
+    const/4 v0, 0x0
 
-    :goto_24
-    invoke-static {v0}, Lcom/baidu/mobstat/dp;->a(Ljava/io/Closeable;)V
+    goto :goto_1
 
-    return-void
+    .line 44
+    :catchall_0
+    move-exception v0
+
+    move-object v1, v0
+
+    .line 48
+    :goto_3
+    invoke-static {v2}, Lcom/baidu/mobstat/dp;->a(Ljava/io/Closeable;)V
+
+    throw v1
+
+    :catch_0
+    move-exception v0
+
+    move-object v0, v2
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_2
+
+    .line 44
+    :catchall_1
+    move-exception v1
+
+    move-object v2, v0
+
+    goto :goto_3
 .end method
 
 .method private static a(Ljava/io/InputStream;)[B
-    .registers 2
+    .locals 2
 
     .line 70
     new-instance v0, Ljava/io/ByteArrayOutputStream;
@@ -340,116 +397,117 @@
     .line 72
     invoke-static {p0, v0}, Lcom/baidu/mobstat/dp;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Z
 
-    move-result p0
+    move-result v1
 
-    if-eqz p0, :cond_10
+    if-eqz v1, :cond_0
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object p0
+    move-result-object v0
 
-    goto :goto_11
+    :goto_0
+    return-object v0
 
-    :cond_10
-    const/4 p0, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_11
-    return-object p0
+    goto :goto_0
 .end method
 
 .method public static b(Landroid/content/Context;Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
 
     .line 76
     invoke-virtual {p0, p1}, Landroid/content/Context;->deleteFile(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static c(Landroid/content/Context;Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
 
     .line 80
     invoke-virtual {p0, p1}, Landroid/content/Context;->getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Ljava/io/File;->exists()Z
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static d(Landroid/content/Context;Ljava/lang/String;)Ljava/net/HttpURLConnection;
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 84
     const v0, 0xc350
 
+    .line 84
     invoke-static {p0, p1, v0, v0}, Lcom/baidu/mobstat/dj;->a(Landroid/content/Context;Ljava/lang/String;II)Ljava/net/HttpURLConnection;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static e(Landroid/content/Context;Ljava/lang/String;)Z
-    .registers 5
+    .locals 4
 
     .line 126
     :try_start_0
     invoke-virtual {p0, p1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result p0
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_4} :catch_8
+    move-result v0
 
-    if-nez p0, :cond_9
+    if-nez v0, :cond_1
 
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_a
-
-    :catch_8
-    move-exception p0
-
-    :cond_9
-    const/4 p0, 0x0
-
-    :goto_a
-    if-nez p0, :cond_26
+    :goto_0
+    if-nez v0, :cond_0
 
     .line 132
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
 
-    move-result-object v0
+    move-result-object v1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v2, "[WARNING] not have permission "
+    const-string v3, "[WARNING] not have permission "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, ", please add it in AndroidManifest.xml according our developer doc"
+    const-string v3, ", please add it in AndroidManifest.xml according our developer doc"
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {v0, p1}, Lcom/baidu/mobstat/cx;->b(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/baidu/mobstat/cx;->b(Ljava/lang/String;)V
 
-    :cond_26
-    return p0
+    :cond_0
+    return v0
+
+    .line 126
+    :catch_0
+    move-exception v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/baidu/mobstat/bq$a;Ljava/lang/String;)V
-    .registers 4
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,29 +37,29 @@
 
     iput-object p2, p0, Lcom/baidu/mobstat/am$b;->b:Ljava/lang/String;
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v0, "target-pkg-"
+    const-string v1, "target-pkg-"
 
-    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object p2
+    move-result-object v1
 
-    const/4 v0, 0x3
+    const/4 v2, 0x3
 
-    invoke-static {p2, v0}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+    invoke-static {v1, v2}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/baidu/mobstat/am$b;->c:Ljava/lang/String;
+    iput-object v0, p0, Lcom/baidu/mobstat/am$b;->c:Ljava/lang/String;
 
     return-void
 .end method
@@ -70,7 +70,7 @@
 .end method
 
 .method public a(Z)V
-    .registers 2
+    .locals 0
 
     iput-boolean p1, p0, Lcom/baidu/mobstat/am$b;->d:Z
 
@@ -78,86 +78,98 @@
 .end method
 
 .method public a()Z
-    .registers 5
+    .locals 4
 
-    iget-object v0, p0, Lcom/baidu/mobstat/am$b;->a:Lcom/baidu/mobstat/bq$a;
+    const/4 v0, 0x1
 
-    iget-object v1, p0, Lcom/baidu/mobstat/am$b;->c:Ljava/lang/String;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Lcom/baidu/mobstat/am$b;->a:Lcom/baidu/mobstat/bq$a;
 
-    invoke-virtual {v0, v1, v2}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;Z)Ljava/lang/String;
+    iget-object v3, p0, Lcom/baidu/mobstat/am$b;->c:Ljava/lang/String;
 
-    move-result-object v0
+    invoke-virtual {v2, v3, v0}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;Z)Ljava/lang/String;
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result-object v2
 
-    move-result v1
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    const/4 v3, 0x0
+    move-result v3
 
-    if-nez v1, :cond_1d
+    if-nez v3, :cond_0
 
-    :try_start_10
-    new-instance v1, Lorg/json/JSONObject;
+    :try_start_0
+    new-instance v3, Lorg/json/JSONObject;
 
-    invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1}, Lcom/baidu/mobstat/am$b;->a(Lorg/json/JSONObject;)V
+    invoke-virtual {p0, v3}, Lcom/baidu/mobstat/am$b;->a(Lorg/json/JSONObject;)V
 
-    invoke-virtual {p0, v3}, Lcom/baidu/mobstat/am$b;->a(Z)V
-    :try_end_1b
-    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_1b} :catch_1c
+    const/4 v2, 0x0
 
-    return v2
+    invoke-virtual {p0, v2}, Lcom/baidu/mobstat/am$b;->a(Z)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :catch_1c
+    :goto_0
+    return v0
+
+    :catch_0
     move-exception v0
 
-    :cond_1d
-    return v3
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public abstract b(Lorg/json/JSONObject;)V
 .end method
 
 .method public b()Z
-    .registers 6
+    .locals 6
 
-    iget-boolean v0, p0, Lcom/baidu/mobstat/am$b;->d:Z
+    const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1e
+    iget-boolean v2, p0, Lcom/baidu/mobstat/am$b;->d:Z
 
-    :try_start_5
-    new-instance v0, Lorg/json/JSONObject;
+    if-eqz v2, :cond_0
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    :try_start_0
+    new-instance v2, Lorg/json/JSONObject;
 
-    invoke-virtual {p0, v0}, Lcom/baidu/mobstat/am$b;->b(Lorg/json/JSONObject;)V
+    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
 
-    iget-object v2, p0, Lcom/baidu/mobstat/am$b;->a:Lcom/baidu/mobstat/bq$a;
+    invoke-virtual {p0, v2}, Lcom/baidu/mobstat/am$b;->b(Lorg/json/JSONObject;)V
 
-    iget-object v3, p0, Lcom/baidu/mobstat/am$b;->c:Ljava/lang/String;
+    iget-object v3, p0, Lcom/baidu/mobstat/am$b;->a:Lcom/baidu/mobstat/bq$a;
 
-    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    iget-object v4, p0, Lcom/baidu/mobstat/am$b;->c:Ljava/lang/String;
 
-    move-result-object v0
+    invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    const/4 v4, 0x1
+    move-result-object v2
 
-    invoke-virtual {v2, v3, v0, v4}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;Ljava/lang/String;Z)Z
+    const/4 v5, 0x1
 
-    invoke-virtual {p0, v1}, Lcom/baidu/mobstat/am$b;->a(Z)V
-    :try_end_1c
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_1c} :catch_1d
+    invoke-virtual {v3, v4, v2, v5}, Lcom/baidu/mobstat/bq$a;->a(Ljava/lang/String;Ljava/lang/String;Z)Z
 
-    return v4
+    const/4 v2, 0x0
 
-    :catch_1d
+    invoke-virtual {p0, v2}, Lcom/baidu/mobstat/am$b;->a(Z)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return v0
+
+    :catch_0
     move-exception v0
 
-    :cond_1e
-    return v1
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;)V
-    .registers 2
+    .locals 0
 
     .line 1284
     iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$22;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     .line 1288
     invoke-virtual {p2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/aide/util/AIDEUtils;->addToEditor(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->addToEditor(Ljava/lang/String;)V
 
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;)V
-    .registers 2
+    .locals 0
 
     .line 252
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$1;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
@@ -34,14 +34,14 @@
 .end method
 
 .method private goManagerFileAccess(Landroid/app/Activity;)V
-    .registers 5
+    .locals 3
 
     .line 261
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_38
+    if-lt v0, v1, :cond_0
 
     .line 262
     new-instance v0, Landroid/content/Intent;
@@ -74,14 +74,18 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 265
-    :try_start_26
+    :try_start_0
     invoke-static {p1, v0}, Lcom/s1243808733/util/Utils;->startActivity(Landroid/content/Context;Landroid/content/Intent;)V
-    :try_end_29
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_26 .. :try_end_29} :catch_2a
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_38
+    .line 269
+    :cond_0
+    :goto_0
+    return-void
 
-    :catch_2a
+    .line 265
+    :catch_0
     move-exception v0
 
     .line 267
@@ -97,26 +101,24 @@
     .line 269
     invoke-static {p1, v0}, Lcom/s1243808733/util/Utils;->startActivity(Landroid/content/Context;Landroid/content/Intent;)V
 
-    :cond_38
-    :goto_38
-    return-void
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .registers 2
+    .locals 1
 
     .line 256
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$1;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$1;->this$0:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;
 
-    invoke-virtual {p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$1;->goManagerFileAccess(Landroid/app/Activity;)V
+    invoke-direct {p0, v0}, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$1;->goManagerFileAccess(Landroid/app/Activity;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/ChooseDir$2;)V
-    .registers 2
+    .locals 0
 
     .line 93
     iput-object p1, p0, Lcom/s1243808733/util/ChooseDir$2$2;->this$1:Lcom/s1243808733/util/ChooseDir$2;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

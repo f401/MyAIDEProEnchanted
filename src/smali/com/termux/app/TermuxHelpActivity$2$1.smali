@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxHelpActivity$2;)V
-    .registers 2
+    .locals 0
 
     .line 92
     iput-object p1, p0, Lcom/termux/app/TermuxHelpActivity$2$1;->this$1:Lcom/termux/app/TermuxHelpActivity$2;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 0
 
     return-void
 .end method

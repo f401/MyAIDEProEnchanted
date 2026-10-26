@@ -28,18 +28,21 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Collection;Ljava/util/Collection;Ljava/util/Collection;Lorg/antlr/v4/runtime/atn/ATN;Lorg/antlr/v4/runtime/CharStream;)V
-    .registers 15
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ljava/lang/String;",
             ">;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ljava/lang/String;",
             ">;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ljava/lang/String;",
             ">;",
             "Lorg/antlr/v4/runtime/atn/ATN;",
@@ -60,11 +63,11 @@
 
     invoke-interface {p2, v0}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, [Ljava/lang/String;
+    check-cast v0, [Ljava/lang/String;
 
-    invoke-static {p2}, Lorg/antlr/v4/runtime/VocabularyImpl;->fromTokenNames([Ljava/lang/String;)Lorg/antlr/v4/runtime/Vocabulary;
+    invoke-static {v0}, Lorg/antlr/v4/runtime/VocabularyImpl;->fromTokenNames([Ljava/lang/String;)Lorg/antlr/v4/runtime/Vocabulary;
 
     move-result-object v2
 
@@ -90,19 +93,22 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lorg/antlr/v4/runtime/Vocabulary;Ljava/util/Collection;Ljava/util/Collection;Ljava/util/Collection;Lorg/antlr/v4/runtime/atn/ATN;Lorg/antlr/v4/runtime/CharStream;)V
-    .registers 10
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             "Lorg/antlr/v4/runtime/Vocabulary;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ljava/lang/String;",
             ">;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ljava/lang/String;",
             ">;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ljava/lang/String;",
             ">;",
             "Lorg/antlr/v4/runtime/atn/ATN;",
@@ -111,22 +117,24 @@
         }
     .end annotation
 
+    const/4 v1, 0x0
+
     .line 46
     invoke-direct {p0, p7}, Lorg/antlr/v4/runtime/Lexer;-><init>(Lorg/antlr/v4/runtime/CharStream;)V
 
     .line 32
-    new-instance p7, Lorg/antlr/v4/runtime/atn/PredictionContextCache;
+    new-instance v0, Lorg/antlr/v4/runtime/atn/PredictionContextCache;
 
-    invoke-direct {p7}, Lorg/antlr/v4/runtime/atn/PredictionContextCache;-><init>()V
+    invoke-direct {v0}, Lorg/antlr/v4/runtime/atn/PredictionContextCache;-><init>()V
 
-    iput-object p7, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_sharedContextCache:Lorg/antlr/v4/runtime/atn/PredictionContextCache;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_sharedContextCache:Lorg/antlr/v4/runtime/atn/PredictionContextCache;
 
     .line 48
-    iget-object p7, p6, Lorg/antlr/v4/runtime/atn/ATN;->grammarType:Lorg/antlr/v4/runtime/atn/ATNType;
+    iget-object v0, p6, Lorg/antlr/v4/runtime/atn/ATN;->grammarType:Lorg/antlr/v4/runtime/atn/ATNType;
 
-    sget-object v0, Lorg/antlr/v4/runtime/atn/ATNType;->LEXER:Lorg/antlr/v4/runtime/atn/ATNType;
+    sget-object v2, Lorg/antlr/v4/runtime/atn/ATNType;->LEXER:Lorg/antlr/v4/runtime/atn/ATNType;
 
-    if-ne p7, v0, :cond_7d
+    if-ne v0, v2, :cond_2
 
     .line 52
     iput-object p1, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->grammarFileName:Ljava/lang/String;
@@ -135,80 +143,78 @@
     iput-object p6, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->atn:Lorg/antlr/v4/runtime/atn/ATN;
 
     .line 54
-    iget p1, p6, Lorg/antlr/v4/runtime/atn/ATN;->maxTokenType:I
+    iget v0, p6, Lorg/antlr/v4/runtime/atn/ATN;->maxTokenType:I
 
-    new-array p1, p1, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->tokenNames:[Ljava/lang/String;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->tokenNames:[Ljava/lang/String;
 
-    const/4 p1, 0x0
-
-    const/4 p7, 0x0
+    move v0, v1
 
     .line 55
-    :goto_1c
-    iget-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->tokenNames:[Ljava/lang/String;
+    :goto_0
+    iget-object v2, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->tokenNames:[Ljava/lang/String;
 
-    array-length v1, v0
+    array-length v3, v2
 
-    if-ge p7, v1, :cond_2a
+    if-ge v0, v3, :cond_0
 
     .line 56
-    invoke-interface {p2, p7}, Lorg/antlr/v4/runtime/Vocabulary;->getDisplayName(I)Ljava/lang/String;
+    invoke-interface {p2, v0}, Lorg/antlr/v4/runtime/Vocabulary;->getDisplayName(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    aput-object v1, v0, p7
+    aput-object v3, v2, v0
 
-    add-int/lit8 p7, p7, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 59
-    :cond_2a
+    :cond_0
     invoke-interface {p3}, Ljava/util/Collection;->size()I
 
-    move-result p7
+    move-result v0
 
-    new-array p7, p7, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-interface {p3, p7}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {p3, v0}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object p3
+    move-result-object v0
 
-    check-cast p3, [Ljava/lang/String;
+    check-cast v0, [Ljava/lang/String;
 
-    iput-object p3, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->ruleNames:[Ljava/lang/String;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->ruleNames:[Ljava/lang/String;
 
     .line 60
     invoke-interface {p4}, Ljava/util/Collection;->size()I
 
-    move-result p3
+    move-result v0
 
-    new-array p3, p3, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-interface {p4, p3}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {p4, v0}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object p3
+    move-result-object v0
 
-    check-cast p3, [Ljava/lang/String;
+    check-cast v0, [Ljava/lang/String;
 
-    iput-object p3, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->channelNames:[Ljava/lang/String;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->channelNames:[Ljava/lang/String;
 
     .line 61
     invoke-interface {p5}, Ljava/util/Collection;->size()I
 
-    move-result p3
+    move-result v0
 
-    new-array p3, p3, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-interface {p5, p3}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {p5, v0}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object p3
+    move-result-object v0
 
-    check-cast p3, [Ljava/lang/String;
+    check-cast v0, [Ljava/lang/String;
 
-    iput-object p3, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->modeNames:[Ljava/lang/String;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->modeNames:[Ljava/lang/String;
 
     .line 62
     iput-object p2, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->vocabulary:Lorg/antlr/v4/runtime/Vocabulary;
@@ -216,77 +222,73 @@
     .line 64
     invoke-virtual {p6}, Lorg/antlr/v4/runtime/atn/ATN;->getNumberOfDecisions()I
 
-    move-result p2
+    move-result v0
 
-    new-array p2, p2, [Lorg/antlr/v4/runtime/dfa/DFA;
+    new-array v0, v0, [Lorg/antlr/v4/runtime/dfa/DFA;
 
-    iput-object p2, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
     .line 65
-    :goto_5e
-    iget-object p2, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    :goto_1
+    iget-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
-    array-length p3, p2
+    array-length v2, v0
 
-    if-ge p1, p3, :cond_71
+    if-ge v1, v2, :cond_1
 
     .line 66
-    new-instance p3, Lorg/antlr/v4/runtime/dfa/DFA;
+    new-instance v2, Lorg/antlr/v4/runtime/dfa/DFA;
 
-    invoke-virtual {p6, p1}, Lorg/antlr/v4/runtime/atn/ATN;->getDecisionState(I)Lorg/antlr/v4/runtime/atn/DecisionState;
+    invoke-virtual {p6, v1}, Lorg/antlr/v4/runtime/atn/ATN;->getDecisionState(I)Lorg/antlr/v4/runtime/atn/DecisionState;
 
-    move-result-object p4
+    move-result-object v3
 
-    invoke-direct {p3, p4, p1}, Lorg/antlr/v4/runtime/dfa/DFA;-><init>(Lorg/antlr/v4/runtime/atn/DecisionState;I)V
+    invoke-direct {v2, v3, v1}, Lorg/antlr/v4/runtime/dfa/DFA;-><init>(Lorg/antlr/v4/runtime/atn/DecisionState;I)V
 
-    aput-object p3, p2, p1
+    aput-object v2, v0, v1
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_5e
+    goto :goto_1
 
     .line 68
-    :cond_71
-    new-instance p1, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
+    :cond_1
+    new-instance v0, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;
 
-    iget-object p2, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
+    iget-object v1, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_decisionToDFA:[Lorg/antlr/v4/runtime/dfa/DFA;
 
-    iget-object p3, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_sharedContextCache:Lorg/antlr/v4/runtime/atn/PredictionContextCache;
+    iget-object v2, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_sharedContextCache:Lorg/antlr/v4/runtime/atn/PredictionContextCache;
 
-    invoke-direct {p1, p0, p6, p2, p3}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;-><init>(Lorg/antlr/v4/runtime/Lexer;Lorg/antlr/v4/runtime/atn/ATN;[Lorg/antlr/v4/runtime/dfa/DFA;Lorg/antlr/v4/runtime/atn/PredictionContextCache;)V
+    invoke-direct {v0, p0, p6, v1, v2}, Lorg/antlr/v4/runtime/atn/LexerATNSimulator;-><init>(Lorg/antlr/v4/runtime/Lexer;Lorg/antlr/v4/runtime/atn/ATN;[Lorg/antlr/v4/runtime/dfa/DFA;Lorg/antlr/v4/runtime/atn/PredictionContextCache;)V
 
-    iput-object p1, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
+    iput-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->_interp:Lorg/antlr/v4/runtime/atn/ATNSimulator;
 
     return-void
 
     .line 49
-    :cond_7d
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "The ATN must be a lexer ATN."
+    const-string v1, "The ATN must be a lexer ATN."
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_86
-
-    :goto_85
-    throw p1
-
-    :goto_86
-    goto :goto_85
+    throw v0
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lorg/antlr/v4/runtime/Vocabulary;Ljava/util/Collection;Ljava/util/Collection;Lorg/antlr/v4/runtime/atn/ATN;Lorg/antlr/v4/runtime/CharStream;)V
-    .registers 15
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             "Lorg/antlr/v4/runtime/Vocabulary;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ljava/lang/String;",
             ">;",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Ljava/lang/String;",
             ">;",
             "Lorg/antlr/v4/runtime/atn/ATN;",
@@ -325,7 +327,7 @@
 
 # virtual methods
 .method public getATN()Lorg/antlr/v4/runtime/atn/ATN;
-    .registers 2
+    .locals 1
 
     .line 73
     iget-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->atn:Lorg/antlr/v4/runtime/atn/ATN;
@@ -334,7 +336,7 @@
 .end method
 
 .method public getChannelNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 94
     iget-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->channelNames:[Ljava/lang/String;
@@ -343,7 +345,7 @@
 .end method
 
 .method public getGrammarFileName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 78
     iget-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->grammarFileName:Ljava/lang/String;
@@ -352,7 +354,7 @@
 .end method
 
 .method public getModeNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 99
     iget-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->modeNames:[Ljava/lang/String;
@@ -361,7 +363,7 @@
 .end method
 
 .method public getRuleNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 89
     iget-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->ruleNames:[Ljava/lang/String;
@@ -370,7 +372,7 @@
 .end method
 
 .method public getTokenNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -381,20 +383,21 @@
 .end method
 
 .method public getVocabulary()Lorg/antlr/v4/runtime/Vocabulary;
-    .registers 2
+    .locals 1
 
     .line 104
     iget-object v0, p0, Lorg/antlr/v4/runtime/LexerInterpreter;->vocabulary:Lorg/antlr/v4/runtime/Vocabulary;
 
-    if-eqz v0, :cond_5
-
-    return-object v0
+    if-eqz v0, :cond_0
 
     .line 108
-    :cond_5
+    :goto_0
+    return-object v0
+
+    :cond_0
     invoke-super {p0}, Lorg/antlr/v4/runtime/Lexer;->getVocabulary()Lorg/antlr/v4/runtime/Vocabulary;
 
     move-result-object v0
 
-    return-object v0
+    goto :goto_0
 .end method

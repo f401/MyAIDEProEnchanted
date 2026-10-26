@@ -37,7 +37,8 @@
 .field public static final serializationNames:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -59,7 +60,8 @@
 .field protected final transitions:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/antlr/v4/runtime/atn/Transition;",
             ">;"
         }
@@ -69,7 +71,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 95
     const/16 v0, 0xd
@@ -168,7 +170,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -203,7 +205,9 @@
 
 # virtual methods
 .method public addTransition(ILorg/antlr/v4/runtime/atn/Transition;)V
-    .registers 8
+    .locals 6
+
+    const/4 v5, 0x0
 
     .line 162
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->transitions:Ljava/util/List;
@@ -212,7 +216,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_2
 
     .line 163
     invoke-virtual {p2}, Lorg/antlr/v4/runtime/atn/Transition;->isEpsilon()Z
@@ -221,70 +225,30 @@
 
     iput-boolean v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->epsilonOnlyTransitions:Z
 
-    goto :goto_30
-
-    .line 165
-    :cond_f
-    iget-boolean v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->epsilonOnlyTransitions:Z
-
-    invoke-virtual {p2}, Lorg/antlr/v4/runtime/atn/Transition;->isEpsilon()Z
-
-    move-result v1
-
-    if-eq v0, v1, :cond_30
-
-    .line 166
-    sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
-
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    iget v3, p0, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aput-object v3, v2, v4
-
-    const-string v3, "ATN state %d has both epsilon and non-epsilon transitions.\n"
-
-    invoke-virtual {v0, v1, v3, v2}, Ljava/io/PrintStream;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
-
-    .line 167
-    iput-boolean v4, p0, Lorg/antlr/v4/runtime/atn/ATNState;->epsilonOnlyTransitions:Z
-
     .line 171
-    :cond_30
-    :goto_30
+    :cond_0
+    :goto_0
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->transitions:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :cond_36
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_74
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lorg/antlr/v4/runtime/atn/Transition;
+    :cond_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/antlr/v4/runtime/atn/Transition;
 
     .line 172
-    iget-object v2, v1, Lorg/antlr/v4/runtime/atn/Transition;->target:Lorg/antlr/v4/runtime/atn/ATNState;
+    iget-object v2, v0, Lorg/antlr/v4/runtime/atn/Transition;->target:Lorg/antlr/v4/runtime/atn/ATNState;
 
     iget v2, v2, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
 
@@ -292,22 +256,22 @@
 
     iget v3, v3, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
 
-    if-ne v2, v3, :cond_36
+    if-ne v2, v3, :cond_1
 
     .line 173
-    invoke-virtual {v1}, Lorg/antlr/v4/runtime/atn/Transition;->label()Lorg/antlr/v4/runtime/misc/IntervalSet;
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/atn/Transition;->label()Lorg/antlr/v4/runtime/misc/IntervalSet;
 
     move-result-object v2
 
-    if-eqz v2, :cond_67
+    if-eqz v2, :cond_3
 
     invoke-virtual {p2}, Lorg/antlr/v4/runtime/atn/Transition;->label()Lorg/antlr/v4/runtime/misc/IntervalSet;
 
     move-result-object v2
 
-    if-eqz v2, :cond_67
+    if-eqz v2, :cond_3
 
-    invoke-virtual {v1}, Lorg/antlr/v4/runtime/atn/Transition;->label()Lorg/antlr/v4/runtime/misc/IntervalSet;
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/atn/Transition;->label()Lorg/antlr/v4/runtime/misc/IntervalSet;
 
     move-result-object v2
 
@@ -319,38 +283,77 @@
 
     move-result v2
 
-    if-eqz v2, :cond_67
+    if-eqz v2, :cond_3
 
-    goto :goto_79
+    .line 186
+    :goto_1
+    return-void
 
-    .line 178
-    :cond_67
-    invoke-virtual {v1}, Lorg/antlr/v4/runtime/atn/Transition;->isEpsilon()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_36
+    .line 165
+    :cond_2
+    iget-boolean v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->epsilonOnlyTransitions:Z
 
     invoke-virtual {p2}, Lorg/antlr/v4/runtime/atn/Transition;->isEpsilon()Z
 
     move-result v1
 
-    if-eqz v1, :cond_36
+    if-eq v0, v1, :cond_0
 
-    goto :goto_79
+    .line 166
+    sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v1
+
+    const-string v2, "ATN state %d has both epsilon and non-epsilon transitions.\n"
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    iget v4, p0, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v5
+
+    invoke-virtual {v0, v1, v2, v3}, Ljava/io/PrintStream;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+
+    .line 167
+    iput-boolean v5, p0, Lorg/antlr/v4/runtime/atn/ATNState;->epsilonOnlyTransitions:Z
+
+    goto :goto_0
+
+    .line 178
+    :cond_3
+    invoke-virtual {v0}, Lorg/antlr/v4/runtime/atn/Transition;->isEpsilon()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p2}, Lorg/antlr/v4/runtime/atn/Transition;->isEpsilon()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    goto :goto_1
 
     .line 186
-    :cond_74
+    :cond_4
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->transitions:Ljava/util/List;
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    :goto_79
-    return-void
+    goto :goto_1
 .end method
 
 .method public addTransition(Lorg/antlr/v4/runtime/atn/Transition;)V
-    .registers 3
+    .locals 1
 
     .line 158
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->transitions:Ljava/util/List;
@@ -365,34 +368,34 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 2
 
     .line 136
     instance-of v0, p1, Lorg/antlr/v4/runtime/atn/ATNState;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     iget v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
 
     check-cast p1, Lorg/antlr/v4/runtime/atn/ATNState;
 
-    iget p1, p1, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
+    iget v1, p1, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
 
-    if-ne v0, p1, :cond_e
+    if-ne v0, v1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_f
+    :goto_0
+    return v0
 
-    :cond_e
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_f
-    return p1
+    goto :goto_0
 .end method
 
 .method public getNumberOfTransitions()I
-    .registers 2
+    .locals 1
 
     .line 154
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->transitions:Ljava/util/List;
@@ -408,7 +411,7 @@
 .end method
 
 .method public getTransitions()[Lorg/antlr/v4/runtime/atn/Transition;
-    .registers 3
+    .locals 2
 
     .line 150
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->transitions:Ljava/util/List;
@@ -429,7 +432,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .line 131
     iget v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
@@ -438,7 +441,7 @@
 .end method
 
 .method public isNonGreedyExitState()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -446,7 +449,7 @@
 .end method
 
 .method public final onlyHasEpsilonTransitions()Z
-    .registers 2
+    .locals 1
 
     .line 203
     iget-boolean v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->epsilonOnlyTransitions:Z
@@ -455,22 +458,22 @@
 .end method
 
 .method public removeTransition(I)Lorg/antlr/v4/runtime/atn/Transition;
-    .registers 3
+    .locals 1
 
     .line 197
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->transitions:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lorg/antlr/v4/runtime/atn/Transition;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/Transition;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public setRuleIndex(I)V
-    .registers 2
+    .locals 0
 
     .line 206
     iput p1, p0, Lorg/antlr/v4/runtime/atn/ATNState;->ruleIndex:I
@@ -479,7 +482,7 @@
 .end method
 
 .method public setTransition(ILorg/antlr/v4/runtime/atn/Transition;)V
-    .registers 4
+    .locals 1
 
     .line 193
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->transitions:Ljava/util/List;
@@ -490,7 +493,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 146
     iget v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->stateNumber:I
@@ -503,16 +506,16 @@
 .end method
 
 .method public transition(I)Lorg/antlr/v4/runtime/atn/Transition;
-    .registers 3
+    .locals 1
 
     .line 190
     iget-object v0, p0, Lorg/antlr/v4/runtime/atn/ATNState;->transitions:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lorg/antlr/v4/runtime/atn/Transition;
+    check-cast v0, Lorg/antlr/v4/runtime/atn/Transition;
 
-    return-object p1
+    return-object v0
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 30
     invoke-direct {p0}, Lcom/s1243808733/android/dx/dex/file/Item;-><init>()V
@@ -25,17 +25,17 @@
 
 # virtual methods
 .method public final getIndex()I
-    .registers 3
+    .locals 2
 
     .line 50
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/IndexedItem;->index:I
 
-    if-ltz v0, :cond_5
+    if-ltz v0, :cond_0
 
     return v0
 
     .line 51
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "index not yet set"
@@ -46,26 +46,26 @@
 .end method
 
 .method public final hasIndex()Z
-    .registers 2
+    .locals 1
 
     .line 40
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/IndexedItem;->index:I
 
-    if-ltz v0, :cond_6
+    if-ltz v0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_7
+    :goto_0
+    return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_7
-    return v0
+    goto :goto_0
 .end method
 
 .method public final indexString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 79
     new-instance v0, Ljava/lang/StringBuilder;
@@ -94,14 +94,14 @@
 .end method
 
 .method public final setIndex(I)V
-    .registers 4
+    .locals 2
 
     .line 65
     iget v0, p0, Lcom/s1243808733/android/dx/dex/file/IndexedItem;->index:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_0
 
     .line 69
     iput p1, p0, Lcom/s1243808733/android/dx/dex/file/IndexedItem;->index:I
@@ -109,12 +109,12 @@
     return-void
 
     .line 66
-    :cond_8
-    new-instance p1, Ljava/lang/RuntimeException;
+    :cond_0
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string v0, "index already set"
+    const-string v1, "index already set"
 
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method

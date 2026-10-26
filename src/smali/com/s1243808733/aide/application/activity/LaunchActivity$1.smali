@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/LaunchActivity;)V
-    .registers 2
+    .locals 0
 
     .line 104
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/LaunchActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/LaunchActivity;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public canRun()Z
-    .registers 4
+    .locals 3
 
     .line 133
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -52,7 +52,9 @@
 .end method
 
 .method public run(Lcom/s1243808733/aide/application/activity/Process$Bridge;)V
-    .registers 6
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 110
     const/4 v0, 0x1
@@ -65,64 +67,30 @@
     invoke-static {v0}, Lcom/s1243808733/aide/application/AppTheme;->setThemeCode(Ljava/lang/String;)V
 
     .line 114
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/LaunchActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/LaunchActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/LaunchActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/LaunchActivity;
 
-    instance-of v1, v1, Lcom/s1243808733/aide/application/activity/DarkLaunchActivity;
+    instance-of v0, v0, Lcom/s1243808733/aide/application/activity/DarkLaunchActivity;
 
-    const/4 v2, 0x0
-
-    if-eqz v1, :cond_36
+    if-eqz v0, :cond_0
 
     .line 115
     invoke-static {v2}, Lcom/s1243808733/aide/util/AIDEUtils;->setIsLightTheme(Z)V
 
     .line 116
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/LaunchActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/LaunchActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/LaunchActivity$1;->this$0:Lcom/s1243808733/aide/application/activity/LaunchActivity;
 
-    instance-of v3, v1, Lcom/s1243808733/aide/application/activity/IndigoLaunchActivity;
+    instance-of v1, v0, Lcom/s1243808733/aide/application/activity/IndigoLaunchActivity;
 
-    if-eqz v3, :cond_1f
+    if-eqz v1, :cond_1
 
     .line 117
     const-string v0, "indigo"
 
     invoke-static {v0}, Lcom/s1243808733/aide/application/AppTheme;->setThemeCode(Ljava/lang/String;)V
 
-    goto :goto_36
-
-    .line 118
-    :cond_1f
-    instance-of v3, v1, Lcom/s1243808733/aide/application/activity/TealLaunchActivity;
-
-    if-eqz v3, :cond_29
-
-    .line 119
-    const-string v0, "teal"
-
-    invoke-static {v0}, Lcom/s1243808733/aide/application/AppTheme;->setThemeCode(Ljava/lang/String;)V
-
-    goto :goto_36
-
-    .line 120
-    :cond_29
-    instance-of v1, v1, Lcom/s1243808733/aide/application/activity/RedLaunchActivity;
-
-    if-eqz v1, :cond_33
-
-    .line 121
-    const-string v0, "red"
-
-    invoke-static {v0}, Lcom/s1243808733/aide/application/AppTheme;->setThemeCode(Ljava/lang/String;)V
-
-    goto :goto_36
-
-    .line 123
-    :cond_33
-    invoke-static {v0}, Lcom/s1243808733/aide/application/AppTheme;->setThemeCode(Ljava/lang/String;)V
-
     .line 127
-    :cond_36
-    :goto_36
+    :cond_0
+    :goto_0
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
 
     move-result-object v0
@@ -143,4 +111,38 @@
     invoke-interface {p1}, Lcom/s1243808733/aide/application/activity/Process$Bridge;->finish()V
 
     return-void
+
+    .line 118
+    :cond_1
+    instance-of v1, v0, Lcom/s1243808733/aide/application/activity/TealLaunchActivity;
+
+    if-eqz v1, :cond_2
+
+    .line 119
+    const-string v0, "teal"
+
+    invoke-static {v0}, Lcom/s1243808733/aide/application/AppTheme;->setThemeCode(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 120
+    :cond_2
+    instance-of v0, v0, Lcom/s1243808733/aide/application/activity/RedLaunchActivity;
+
+    if-eqz v0, :cond_3
+
+    .line 121
+    const-string v0, "red"
+
+    invoke-static {v0}, Lcom/s1243808733/aide/application/AppTheme;->setThemeCode(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 123
+    :cond_3
+    const-string v0, "default"
+
+    invoke-static {v0}, Lcom/s1243808733/aide/application/AppTheme;->setThemeCode(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method

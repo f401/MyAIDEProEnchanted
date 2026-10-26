@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lc/n;Lc/e;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Lc/t;)V
-    .registers 3
+    .locals 1
 
     invoke-direct {p0}, Lc/m;-><init>()V
 
@@ -41,51 +41,54 @@
 
     invoke-virtual {p1, v0}, Lc/t;->k(I)Lc/e;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lp/a;->b:Lc/e;
+    iput-object v0, p0, Lp/a;->b:Lc/e;
 
     return-void
 .end method
 
 .method public static c(Ljava/lang/Object;)Lp/a;
-    .registers 2
+    .locals 2
 
     instance-of v0, p0, Lp/a;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     check-cast p0, Lp/a;
 
+    :goto_0
     return-object p0
 
-    :cond_7
-    if-eqz p0, :cond_13
+    :cond_0
+    if-eqz p0, :cond_1
 
     new-instance v0, Lp/a;
 
     invoke-static {p0}, Lc/t;->b(Ljava/lang/Object;)Lc/t;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {v0, p0}, Lp/a;-><init>(Lc/t;)V
+    invoke-direct {v0, v1}, Lp/a;-><init>(Lc/t;)V
 
-    return-object v0
+    move-object p0, v0
 
-    :cond_13
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    goto :goto_0
 
-    const-string v0, "null value in getInstance()"
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    const-string v1, "null value in getInstance()"
 
-    throw p0
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 
 # virtual methods
 .method public final l()Lc/s;
-    .registers 4
+    .locals 3
 
     new-instance v0, Lc/f;
 

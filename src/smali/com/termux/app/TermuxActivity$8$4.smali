@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity$8;)V
-    .registers 2
+    .locals 0
 
     .line 569
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$8$4;->this$1:Lcom/termux/app/TermuxActivity$8;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

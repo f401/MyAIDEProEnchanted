@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
 
     .line 34
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/util/FixedSizeList;-><init>(I)V
@@ -24,20 +24,20 @@
 
 # virtual methods
 .method public get(I)Lcom/s1243808733/android/dx/cf/attrib/InnerClassList$Item;
-    .registers 2
+    .locals 1
 
     .line 44
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList;->get0(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList$Item;
+    check-cast v0, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList$Item;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public set(ILcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstString;I)V
-    .registers 7
+    .locals 1
 
     .line 60
     new-instance v0, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList$Item;

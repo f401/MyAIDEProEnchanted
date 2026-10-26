@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lzeroaicy/org/objectweb/asm/SymbolTable;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 8
+    .locals 1
 
     .line 127
     const/high16 v0, 0x90000
@@ -45,46 +45,46 @@
     .line 130
     invoke-virtual {p1, p3}, Lzeroaicy/org/objectweb/asm/SymbolTable;->addConstantUtf8(Ljava/lang/String;)I
 
-    move-result p2
+    move-result v0
 
-    iput p2, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->nameIndex:I
+    iput v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->nameIndex:I
 
     .line 131
     invoke-virtual {p1, p4}, Lzeroaicy/org/objectweb/asm/SymbolTable;->addConstantUtf8(Ljava/lang/String;)I
 
-    move-result p2
+    move-result v0
 
-    iput p2, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->descriptorIndex:I
+    iput v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->descriptorIndex:I
 
-    if-eqz p5, :cond_1d
+    if-eqz p5, :cond_0
 
     .line 133
     invoke-virtual {p1, p5}, Lzeroaicy/org/objectweb/asm/SymbolTable;->addConstantUtf8(Ljava/lang/String;)I
 
-    move-result p2
+    move-result v0
 
-    iput p2, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->signatureIndex:I
+    iput v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->signatureIndex:I
 
-    :cond_1d
-    if-eqz p6, :cond_27
+    :cond_0
+    if-eqz p6, :cond_1
 
     .line 136
     invoke-virtual {p1, p6}, Lzeroaicy/org/objectweb/asm/SymbolTable;->addConstant(Ljava/lang/Object;)Lzeroaicy/org/objectweb/asm/Symbol;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget p1, p1, Lzeroaicy/org/objectweb/asm/Symbol;->index:I
+    iget v0, v0, Lzeroaicy/org/objectweb/asm/Symbol;->index:I
 
-    iput p1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->constantValueIndex:I
+    iput v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->constantValueIndex:I
 
-    :cond_27
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method final collectAttributePrototypes(Lzeroaicy/org/objectweb/asm/Attribute$Set;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,12 +102,12 @@
 .end method
 
 .method computeFieldInfoSize()I
-    .registers 6
+    .locals 5
 
     .line 195
     iget v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->constantValueIndex:I
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_1
 
     .line 197
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
@@ -118,13 +118,8 @@
 
     const/16 v0, 0x10
 
-    goto :goto_10
-
-    :cond_e
-    const/16 v0, 0x8
-
     .line 200
-    :goto_10
+    :goto_0
     iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
 
     iget v2, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->accessFlags:I
@@ -155,7 +150,7 @@
     .line 207
     iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->firstAttribute:Lzeroaicy/org/objectweb/asm/Attribute;
 
-    if-eqz v1, :cond_33
+    if-eqz v1, :cond_0
 
     .line 208
     iget-object v2, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
@@ -166,12 +161,18 @@
 
     add-int/2addr v0, v1
 
-    :cond_33
+    :cond_0
     return v0
+
+    .line 197
+    :cond_1
+    const/16 v0, 0x8
+
+    goto :goto_0
 .end method
 
 .method putFieldInfo(Lzeroaicy/org/objectweb/asm/ByteVector;)V
-    .registers 11
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -180,6 +181,10 @@
         }
     .end annotation
 
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
     .line 220
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
 
@@ -187,142 +192,128 @@
 
     move-result v0
 
-    const/16 v1, 0x31
+    const/16 v3, 0x31
 
-    const/4 v2, 0x0
+    if-lt v0, v3, :cond_a
 
-    const/4 v3, 0x1
+    move v3, v1
 
-    if-lt v0, v1, :cond_e
+    :goto_0
+    if-eqz v3, :cond_b
 
-    const/4 v0, 0x0
-
-    goto :goto_f
-
-    :cond_e
-    const/4 v0, 0x1
-
-    :goto_f
-    if-eqz v0, :cond_14
-
-    const/16 v1, 0x1000
-
-    goto :goto_15
-
-    :cond_14
-    const/4 v1, 0x0
+    const/16 v0, 0x1000
 
     .line 223
-    :goto_15
-    xor-int/lit8 v1, v1, -0x1
+    :goto_1
+    xor-int/lit8 v0, v0, -0x1
 
     iget v4, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->accessFlags:I
 
-    and-int/2addr v1, v4
+    and-int/2addr v0, v4
 
-    invoke-virtual {p1, v1}, Lzeroaicy/org/objectweb/asm/ByteVector;->putShort(I)Lzeroaicy/org/objectweb/asm/ByteVector;
+    invoke-virtual {p1, v0}, Lzeroaicy/org/objectweb/asm/ByteVector;->putShort(I)Lzeroaicy/org/objectweb/asm/ByteVector;
 
-    move-result-object v1
+    move-result-object v0
 
     iget v4, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->nameIndex:I
 
-    invoke-virtual {v1, v4}, Lzeroaicy/org/objectweb/asm/ByteVector;->putShort(I)Lzeroaicy/org/objectweb/asm/ByteVector;
+    invoke-virtual {v0, v4}, Lzeroaicy/org/objectweb/asm/ByteVector;->putShort(I)Lzeroaicy/org/objectweb/asm/ByteVector;
 
-    move-result-object v1
+    move-result-object v0
 
     iget v4, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->descriptorIndex:I
 
-    invoke-virtual {v1, v4}, Lzeroaicy/org/objectweb/asm/ByteVector;->putShort(I)Lzeroaicy/org/objectweb/asm/ByteVector;
+    invoke-virtual {v0, v4}, Lzeroaicy/org/objectweb/asm/ByteVector;->putShort(I)Lzeroaicy/org/objectweb/asm/ByteVector;
 
     .line 227
-    iget v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->constantValueIndex:I
+    iget v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->constantValueIndex:I
 
-    if-eqz v1, :cond_2e
+    if-eqz v0, :cond_0
 
-    const/4 v2, 0x1
+    move v1, v2
 
     .line 230
-    :cond_2e
-    iget v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->accessFlags:I
+    :cond_0
+    iget v2, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->accessFlags:I
 
-    and-int/lit16 v3, v1, 0x1000
+    and-int/lit16 v0, v2, 0x1000
 
-    if-eqz v3, :cond_38
+    if-eqz v0, :cond_1
 
-    if-eqz v0, :cond_38
+    if-eqz v3, :cond_1
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     .line 233
-    :cond_38
+    :cond_1
     iget v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->signatureIndex:I
 
-    if-eqz v0, :cond_3e
+    if-eqz v0, :cond_c
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v1, 0x1
 
-    :cond_3e
-    const/high16 v0, 0x20000
+    :goto_2
+    const/high16 v1, 0x20000
 
-    and-int/2addr v0, v1
+    and-int/2addr v1, v2
 
-    if-eqz v0, :cond_45
+    if-eqz v1, :cond_2
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 239
-    :cond_45
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    :cond_2
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_4b
+    if-eqz v1, :cond_3
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 242
-    :cond_4b
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    :cond_3
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_51
+    if-eqz v1, :cond_4
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 245
-    :cond_51
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    :cond_4
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_57
+    if-eqz v1, :cond_5
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 248
-    :cond_57
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    :cond_5
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    if-eqz v0, :cond_5d
+    if-eqz v1, :cond_6
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 251
-    :cond_5d
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->firstAttribute:Lzeroaicy/org/objectweb/asm/Attribute;
+    :cond_6
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->firstAttribute:Lzeroaicy/org/objectweb/asm/Attribute;
 
-    if-eqz v0, :cond_66
+    if-eqz v1, :cond_7
 
     .line 252
-    invoke-virtual {v0}, Lzeroaicy/org/objectweb/asm/Attribute;->getAttributeCount()I
+    invoke-virtual {v1}, Lzeroaicy/org/objectweb/asm/Attribute;->getAttributeCount()I
 
-    move-result v0
+    move-result v1
 
-    add-int/2addr v2, v0
+    add-int/2addr v0, v1
 
     .line 254
-    :cond_66
-    invoke-virtual {p1, v2}, Lzeroaicy/org/objectweb/asm/ByteVector;->putShort(I)Lzeroaicy/org/objectweb/asm/ByteVector;
+    :cond_7
+    invoke-virtual {p1, v0}, Lzeroaicy/org/objectweb/asm/ByteVector;->putShort(I)Lzeroaicy/org/objectweb/asm/ByteVector;
 
     .line 257
     iget v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->constantValueIndex:I
 
-    if-eqz v0, :cond_83
+    if-eqz v0, :cond_8
 
     .line 258
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
@@ -348,7 +339,7 @@
     invoke-virtual {v0, v1}, Lzeroaicy/org/objectweb/asm/ByteVector;->putShort(I)Lzeroaicy/org/objectweb/asm/ByteVector;
 
     .line 263
-    :cond_83
+    :cond_8
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
 
     iget v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->accessFlags:I
@@ -358,71 +349,88 @@
     invoke-static {v0, v1, v2, p1}, Lzeroaicy/org/objectweb/asm/Attribute;->putAttributes(Lzeroaicy/org/objectweb/asm/SymbolTable;IILzeroaicy/org/objectweb/asm/ByteVector;)V
 
     .line 264
-    iget-object v3, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
+    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
 
-    iget-object v4, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    iget-object v5, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    iget-object v2, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    iget-object v6, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    iget-object v3, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    iget-object v7, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    iget-object v4, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    move-object v8, p1
+    move-object v5, p1
 
-    invoke-static/range {v3 .. v8}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->putAnnotations(Lzeroaicy/org/objectweb/asm/SymbolTable;Lzeroaicy/org/objectweb/asm/AnnotationWriter;Lzeroaicy/org/objectweb/asm/AnnotationWriter;Lzeroaicy/org/objectweb/asm/AnnotationWriter;Lzeroaicy/org/objectweb/asm/AnnotationWriter;Lzeroaicy/org/objectweb/asm/ByteVector;)V
+    invoke-static/range {v0 .. v5}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->putAnnotations(Lzeroaicy/org/objectweb/asm/SymbolTable;Lzeroaicy/org/objectweb/asm/AnnotationWriter;Lzeroaicy/org/objectweb/asm/AnnotationWriter;Lzeroaicy/org/objectweb/asm/AnnotationWriter;Lzeroaicy/org/objectweb/asm/AnnotationWriter;Lzeroaicy/org/objectweb/asm/ByteVector;)V
 
     .line 271
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->firstAttribute:Lzeroaicy/org/objectweb/asm/Attribute;
 
-    if-eqz v0, :cond_a3
+    if-eqz v0, :cond_9
 
     .line 272
     iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
 
     invoke-virtual {v0, v1, p1}, Lzeroaicy/org/objectweb/asm/Attribute;->putAttributes(Lzeroaicy/org/objectweb/asm/SymbolTable;Lzeroaicy/org/objectweb/asm/ByteVector;)V
 
-    :cond_a3
+    :cond_9
     return-void
+
+    :cond_a
+    move v3, v2
+
+    .line 220
+    goto/16 :goto_0
+
+    :cond_b
+    move v0, v1
+
+    goto/16 :goto_1
+
+    :cond_c
+    move v0, v1
+
+    goto :goto_2
 .end method
 
 .method public visitAnnotation(Ljava/lang/String;Z)Lzeroaicy/org/objectweb/asm/AnnotationVisitor;
-    .registers 4
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_0
 
     .line 147
-    iget-object p2, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
+    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
 
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    invoke-static {p2, p1, v0}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->create(Lzeroaicy/org/objectweb/asm/SymbolTable;Ljava/lang/String;Lzeroaicy/org/objectweb/asm/AnnotationWriter;)Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    invoke-static {v0, p1, v1}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->create(Lzeroaicy/org/objectweb/asm/SymbolTable;Ljava/lang/String;Lzeroaicy/org/objectweb/asm/AnnotationWriter;)Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
-
-    return-object p1
+    iput-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
     .line 150
-    :cond_d
-    iget-object p2, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
+    :goto_0
+    return-object v0
 
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    :cond_0
+    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
 
-    invoke-static {p2, p1, v0}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->create(Lzeroaicy/org/objectweb/asm/SymbolTable;Ljava/lang/String;Lzeroaicy/org/objectweb/asm/AnnotationWriter;)Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    move-result-object p1
+    invoke-static {v0, p1, v1}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->create(Lzeroaicy/org/objectweb/asm/SymbolTable;Ljava/lang/String;Lzeroaicy/org/objectweb/asm/AnnotationWriter;)Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    iput-object p1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    move-result-object v0
 
-    return-object p1
+    iput-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+
+    goto :goto_0
 .end method
 
 .method public visitAttribute(Lzeroaicy/org/objectweb/asm/Attribute;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -446,7 +454,7 @@
 .end method
 
 .method public visitEnd()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -460,36 +468,37 @@
 .end method
 
 .method public visitTypeAnnotation(ILzeroaicy/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Lzeroaicy/org/objectweb/asm/AnnotationVisitor;
-    .registers 6
+    .locals 2
     .annotation runtime Ljava/lang/Override;
     .end annotation
 
-    if-eqz p4, :cond_d
+    if-eqz p4, :cond_0
 
     .line 159
-    iget-object p4, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
+    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
 
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    invoke-static {p4, p1, p2, p3, v0}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->create(Lzeroaicy/org/objectweb/asm/SymbolTable;ILzeroaicy/org/objectweb/asm/TypePath;Ljava/lang/String;Lzeroaicy/org/objectweb/asm/AnnotationWriter;)Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    invoke-static {v0, p1, p2, p3, v1}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->create(Lzeroaicy/org/objectweb/asm/SymbolTable;ILzeroaicy/org/objectweb/asm/TypePath;Ljava/lang/String;Lzeroaicy/org/objectweb/asm/AnnotationWriter;)Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
-
-    return-object p1
+    iput-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeVisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
     .line 163
-    :cond_d
-    iget-object p4, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
+    :goto_0
+    return-object v0
 
-    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    :cond_0
+    iget-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->symbolTable:Lzeroaicy/org/objectweb/asm/SymbolTable;
 
-    invoke-static {p4, p1, p2, p3, v0}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->create(Lzeroaicy/org/objectweb/asm/SymbolTable;ILzeroaicy/org/objectweb/asm/TypePath;Ljava/lang/String;Lzeroaicy/org/objectweb/asm/AnnotationWriter;)Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    iget-object v1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    move-result-object p1
+    invoke-static {v0, p1, p2, p3, v1}, Lzeroaicy/org/objectweb/asm/AnnotationWriter;->create(Lzeroaicy/org/objectweb/asm/SymbolTable;ILzeroaicy/org/objectweb/asm/TypePath;Ljava/lang/String;Lzeroaicy/org/objectweb/asm/AnnotationWriter;)Lzeroaicy/org/objectweb/asm/AnnotationWriter;
 
-    iput-object p1, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+    move-result-object v0
 
-    return-object p1
+    iput-object v0, p0, Lzeroaicy/org/objectweb/asm/FieldWriter;->lastRuntimeInvisibleTypeAnnotation:Lzeroaicy/org/objectweb/asm/AnnotationWriter;
+
+    goto :goto_0
 .end method

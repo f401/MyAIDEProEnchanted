@@ -46,57 +46,57 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 1
 
     .line 49
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
     .line 26
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentAnimValue:F
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentAnimValue:F
 
     .line 28
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentX:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentX:I
 
     .line 31
-    const p1, -0x666667
+    const v0, -0x666667
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconPositiveColor:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconPositiveColor:I
 
     .line 33
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconNegativeColor:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconNegativeColor:I
 
     .line 35
-    sget-object p1, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->NotShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
+    sget-object v0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->NotShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
-    iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
+    iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
     .line 39
-    new-instance p1, Landroid/graphics/Paint;
+    new-instance v0, Landroid/graphics/Paint;
 
-    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
+    iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
 
     .line 41
-    const-string p1, "\uf2ea"
+    const-string v0, "\uf2ea"
 
-    iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconId:Ljava/lang/String;
+    iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconId:Ljava/lang/String;
 
     .line 45
-    const/16 p1, 0x19
+    const/16 v0, 0x19
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->ICON_SIZE:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->ICON_SIZE:I
 
     .line 46
-    const/16 p1, 0x4b
+    const/16 v0, 0x4b
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->CIRCLE_SIZE:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->CIRCLE_SIZE:I
 
     .line 50
     invoke-virtual {p0}, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->init()V
@@ -105,57 +105,57 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 1
 
     .line 54
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 26
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentAnimValue:F
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentAnimValue:F
 
     .line 28
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentX:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentX:I
 
     .line 31
-    const p1, -0x666667
+    const v0, -0x666667
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconPositiveColor:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconPositiveColor:I
 
     .line 33
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconNegativeColor:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconNegativeColor:I
 
     .line 35
-    sget-object p1, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->NotShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
+    sget-object v0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->NotShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
-    iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
+    iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
     .line 39
-    new-instance p1, Landroid/graphics/Paint;
+    new-instance v0, Landroid/graphics/Paint;
 
-    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
+    iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
 
     .line 41
-    const-string p1, "\uf2ea"
+    const-string v0, "\uf2ea"
 
-    iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconId:Ljava/lang/String;
+    iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconId:Ljava/lang/String;
 
     .line 45
-    const/16 p1, 0x19
+    const/16 v0, 0x19
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->ICON_SIZE:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->ICON_SIZE:I
 
     .line 46
-    const/16 p1, 0x4b
+    const/16 v0, 0x4b
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->CIRCLE_SIZE:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->CIRCLE_SIZE:I
 
     .line 55
     invoke-virtual {p0}, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->init()V
@@ -164,57 +164,57 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 1
 
     .line 59
     invoke-direct {p0, p1, p2, p3}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 26
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentAnimValue:F
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentAnimValue:F
 
     .line 28
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentX:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentX:I
 
     .line 31
-    const p1, -0x666667
+    const v0, -0x666667
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconPositiveColor:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconPositiveColor:I
 
     .line 33
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconNegativeColor:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconNegativeColor:I
 
     .line 35
-    sget-object p1, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->NotShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
+    sget-object v0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->NotShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
-    iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
+    iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
     .line 39
-    new-instance p1, Landroid/graphics/Paint;
+    new-instance v0, Landroid/graphics/Paint;
 
-    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
+    iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
 
     .line 41
-    const-string p1, "\uf2ea"
+    const-string v0, "\uf2ea"
 
-    iput-object p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconId:Ljava/lang/String;
+    iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconId:Ljava/lang/String;
 
     .line 45
-    const/16 p1, 0x19
+    const/16 v0, 0x19
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->ICON_SIZE:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->ICON_SIZE:I
 
     .line 46
-    const/16 p1, 0x4b
+    const/16 v0, 0x4b
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->CIRCLE_SIZE:I
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->CIRCLE_SIZE:I
 
     .line 60
     invoke-virtual {p0}, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->init()V
@@ -225,44 +225,46 @@
 
 # virtual methods
 .method dp2px(Landroid/content/Context;F)I
-    .registers 3
+    .locals 2
 
     .line 210
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget p1, p1, Landroid/util/DisplayMetrics;->density:F
+    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float p2, p2, p1
+    mul-float/2addr v0, p2
 
-    const/high16 p1, 0x3f000000  # 0.5f
+    const/high16 v1, 0x3f000000    # 0.5f
 
-    add-float/2addr p2, p1
+    add-float/2addr v0, v1
 
-    float-to-int p1, p2
+    float-to-int v0, v0
 
-    return p1
+    return v0
 .end method
 
 .method public hideCircle()V
-    .registers 5
+    .locals 4
 
     .line 180
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
     sget-object v1, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->ShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v1, :cond_0
 
+    .line 186
+    :goto_0
     return-void
 
     .line 183
-    :cond_7
+    :cond_0
     sget-object v0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->NotShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
     iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
@@ -298,11 +300,13 @@
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method init()V
-    .registers 4
+    .locals 4
+
+    const/4 v2, 0x1
 
     .line 64
     invoke-virtual {p0}, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->getContext()Landroid/content/Context;
@@ -342,30 +346,28 @@
     iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCircleDrawable:Landroid/graphics/drawable/GradientDrawable;
 
     .line 68
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setShape(I)V
+    invoke-virtual {v0, v2}, Landroid/graphics/drawable/GradientDrawable;->setShape(I)V
 
     .line 69
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCircleDrawable:Landroid/graphics/drawable/GradientDrawable;
 
-    const v2, -0x555556
+    const v1, -0x555556
 
-    invoke-virtual {v0, v2}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
     .line 70
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCircleDrawable:Landroid/graphics/drawable/GradientDrawable;
 
-    const/16 v2, 0x7d
+    const/16 v1, 0x7d
 
-    invoke-virtual {v0, v2}, Landroid/graphics/drawable/GradientDrawable;->setAlpha(I)V
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setAlpha(I)V
 
     .line 72
     invoke-static {}, Lorg/voiddog/dragbackactivity/util/FontLoaderUtil;->getInstance()Lorg/voiddog/dragbackactivity/util/FontLoaderUtil;
 
     move-result-object v0
 
-    if-nez v0, :cond_41
+    if-nez v0, :cond_0
 
     .line 73
     invoke-virtual {p0}, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->getContext()Landroid/content/Context;
@@ -375,45 +377,45 @@
     invoke-static {v0}, Lorg/voiddog/dragbackactivity/util/FontLoaderUtil;->init(Landroid/content/Context;)V
 
     .line 75
-    :cond_41
+    :cond_0
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
 
-    iget v2, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconPositiveColor:I
+    iget v1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconPositiveColor:I
 
-    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 76
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
 
-    iget v2, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->ICON_SIZE:I
+    iget v1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->ICON_SIZE:I
 
-    int-to-float v2, v2
+    int-to-float v1, v1
 
-    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setTextSize(F)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 77
     invoke-static {}, Lorg/voiddog/dragbackactivity/util/FontLoaderUtil;->getInstance()Lorg/voiddog/dragbackactivity/util/FontLoaderUtil;
 
     move-result-object v0
 
-    const-string v2, "Material-Design-Iconic-Font.ttf"
+    const-string v1, "Material-Design-Iconic-Font.ttf"
 
-    invoke-virtual {v0, v2}, Lorg/voiddog/dragbackactivity/util/FontLoaderUtil;->loadTextTure(Ljava/lang/String;)Landroid/graphics/Typeface;
+    invoke-virtual {v0, v1}, Lorg/voiddog/dragbackactivity/util/FontLoaderUtil;->loadTextTure(Ljava/lang/String;)Landroid/graphics/Typeface;
 
     move-result-object v0
 
-    if-eqz v0, :cond_61
+    if-eqz v0, :cond_1
 
     .line 79
-    iget-object v2, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
+    iget-object v1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v2, v0}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+    invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     .line 81
-    :cond_61
+    :cond_1
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mTextPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 83
     new-instance v0, Landroid/animation/ValueAnimator;
@@ -423,9 +425,9 @@
     iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCircleAnimator:Landroid/animation/ValueAnimator;
 
     .line 84
-    const-wide/16 v1, 0xc8
+    const-wide/16 v2, 0xc8
 
-    invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     .line 85
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCircleAnimator:Landroid/animation/ValueAnimator;
@@ -454,20 +456,20 @@
 .end method
 
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .registers 2
+    .locals 1
 
     .line 205
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/Float;
+    check-cast v0, Ljava/lang/Float;
 
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentAnimValue:F
+    iput v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentAnimValue:F
 
     .line 206
     invoke-virtual {p0}, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->invalidate()V
@@ -476,7 +478,7 @@
 .end method
 
 .method public onDrag(I)V
-    .registers 2
+    .locals 0
 
     .line 190
     iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentX:I
@@ -488,7 +490,7 @@
 .end method
 
 .method public onDragFinished()V
-    .registers 6
+    .locals 5
 
     .line 195
     sget-object v0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->ExpandCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
@@ -509,7 +511,7 @@
 
     move-result v1
 
-    mul-int v0, v0, v1
+    mul-int/2addr v0, v1
 
     invoke-virtual {p0}, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->getHeight()I
 
@@ -519,7 +521,7 @@
 
     move-result v2
 
-    mul-int v1, v1, v2
+    mul-int/2addr v1, v2
 
     add-int/2addr v0, v1
 
@@ -544,13 +546,13 @@
 
     aput v4, v2, v3
 
-    iget v3, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->CIRCLE_SIZE:I
-
-    int-to-float v3, v3
-
-    div-float/2addr v0, v3
-
     const/4 v3, 0x1
+
+    iget v4, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->CIRCLE_SIZE:I
+
+    int-to-float v4, v4
+
+    div-float/2addr v0, v4
 
     aput v0, v2, v3
 
@@ -565,7 +567,9 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .registers 8
+    .locals 6
+
+    const/4 v2, 0x0
 
     .line 99
     iget v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCurrentX:I
@@ -573,8 +577,6 @@
     invoke-virtual {p0}, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->getHeight()I
 
     move-result v1
-
-    const/4 v2, 0x0
 
     invoke-virtual {p1, v2, v2, v0, v1}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
@@ -646,7 +648,7 @@
 .end method
 
 .method public setCircleColor(I)V
-    .registers 3
+    .locals 1
 
     .line 166
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mCircleDrawable:Landroid/graphics/drawable/GradientDrawable;
@@ -657,7 +659,7 @@
 .end method
 
 .method public setNegativeColor(I)V
-    .registers 2
+    .locals 0
 
     .line 162
     iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconNegativeColor:I
@@ -666,7 +668,7 @@
 .end method
 
 .method public setPositiveColor(I)V
-    .registers 2
+    .locals 0
 
     .line 158
     iput p1, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mIconPositiveColor:I
@@ -675,19 +677,21 @@
 .end method
 
 .method public showCircle()V
-    .registers 5
+    .locals 4
 
     .line 170
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
     sget-object v1, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->NotShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v1, :cond_0
 
+    .line 176
+    :goto_0
     return-void
 
     .line 173
-    :cond_7
+    :cond_0
     sget-object v0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;->ShowCircle:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
 
     iput-object v0, p0, Lorg/voiddog/dragbackactivity/ui/DragBackHintView;->mState:Lorg/voiddog/dragbackactivity/ui/DragBackHintView$State;
@@ -712,7 +716,7 @@
 
     const/4 v2, 0x1
 
-    const/high16 v3, 0x3f800000  # 1.0f
+    const/high16 v3, 0x3f800000    # 1.0f
 
     aput v3, v1, v2
 
@@ -723,5 +727,5 @@
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    return-void
+    goto :goto_0
 .end method

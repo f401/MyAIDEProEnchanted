@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
+        "Ljava/lang/Comparable",
+        "<",
         "Lcom/s1243808733/android/dex/EncodedValue;",
         ">;"
     }
@@ -23,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .registers 2
+    .locals 0
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +38,7 @@
 
 # virtual methods
 .method public asByteInput()Lcom/s1243808733/android/dex/util/ByteInput;
-    .registers 3
+    .locals 2
 
     .line 33
     new-instance v0, Lcom/s1243808733/android/dex/util/ByteArrayByteInput;
@@ -50,7 +51,7 @@
 .end method
 
 .method public compareTo(Lcom/s1243808733/android/dex/EncodedValue;)I
-    .registers 6
+    .locals 4
 
     .line 46
     iget-object v0, p0, Lcom/s1243808733/android/dex/EncodedValue;->data:[B
@@ -63,67 +64,70 @@
 
     invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_b
-    if-ge v1, v0, :cond_20
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 48
     iget-object v2, p0, Lcom/s1243808733/android/dex/EncodedValue;->data:[B
 
-    aget-byte v2, v2, v1
+    aget-byte v2, v2, v0
 
     iget-object v3, p1, Lcom/s1243808733/android/dex/EncodedValue;->data:[B
 
-    aget-byte v3, v3, v1
+    aget-byte v3, v3, v0
 
-    if-eq v2, v3, :cond_1d
+    if-eq v2, v3, :cond_0
 
-    and-int/lit16 p1, v2, 0xff
+    and-int/lit16 v0, v2, 0xff
 
-    and-int/lit16 v0, v3, 0xff
+    and-int/lit16 v1, v3, 0xff
 
-    sub-int/2addr p1, v0
-
-    return p1
-
-    :cond_1d
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_b
+    sub-int/2addr v0, v1
 
     .line 52
-    :cond_20
+    :goto_1
+    return v0
+
+    .line 48
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 52
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/android/dex/EncodedValue;->data:[B
 
     array-length v0, v0
 
-    iget-object p1, p1, Lcom/s1243808733/android/dex/EncodedValue;->data:[B
+    iget-object v1, p1, Lcom/s1243808733/android/dex/EncodedValue;->data:[B
 
-    array-length p1, p1
+    array-length v1, v1
 
-    sub-int/2addr v0, p1
+    sub-int/2addr v0, v1
 
-    return v0
+    goto :goto_1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
 
     .line 25
     check-cast p1, Lcom/s1243808733/android/dex/EncodedValue;
 
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/EncodedValue;->compareTo(Lcom/s1243808733/android/dex/EncodedValue;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getBytes()[B
-    .registers 2
+    .locals 1
 
     .line 37
     iget-object v0, p0, Lcom/s1243808733/android/dex/EncodedValue;->data:[B
@@ -132,7 +136,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 57
     new-instance v0, Ljava/lang/StringBuilder;
@@ -175,7 +179,7 @@
 .end method
 
 .method public writeTo(Lcom/s1243808733/android/dex/Dex$Section;)V
-    .registers 3
+    .locals 1
 
     .line 41
     iget-object v0, p0, Lcom/s1243808733/android/dex/EncodedValue;->data:[B

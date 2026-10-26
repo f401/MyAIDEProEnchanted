@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/yt/plugin/WebActivity;)V
-    .registers 2
+    .locals 0
 
     .line 235
     iput-object p1, p0, Lcom/yt/plugin/WebActivity$1;->this$0:Lcom/yt/plugin/WebActivity;
@@ -36,129 +36,130 @@
 
 # virtual methods
 .method public onDownloadStart(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
-    .registers 9
-
-    .line 241
-    const/4 p2, 0x0
-
-    :try_start_1
-    const-string p3, "网页%s请求下载"
-
-    const-string p4, "Website %s requests download"
-
-    invoke-static {p3, p4}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p3
-
-    check-cast p3, Ljava/lang/String;
-
-    new-instance p4, Ljava/net/URL;
-
-    invoke-direct {p4, p1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
-
-    const/4 v0, 0x1
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    invoke-virtual {p4}, Ljava/net/URL;->getHost()Ljava/lang/String;
-
-    move-result-object p4
+    .locals 5
 
     const/4 v1, 0x0
 
-    aput-object p4, v0, v1
+    .line 241
+    :try_start_0
+    const-string v0, "\u7f51\u9875%s\u8bf7\u6c42\u4e0b\u8f7d"
 
-    invoke-static {p3, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const-string v2, "Website %s requests download"
 
-    move-result-object p3
-    :try_end_1e
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1e} :catch_1f
+    invoke-static {v0, v2}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_21
+    move-result-object v0
 
-    :catch_1f
-    move-exception p3
+    check-cast v0, Ljava/lang/String;
 
-    move-object p3, p2
+    new-instance v2, Ljava/net/URL;
+
+    invoke-direct {v2, p1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2}, Ljava/net/URL;->getHost()Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v3, v4
+
+    invoke-static {v0, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
 
     .line 244
-    :goto_21
-    new-instance p4, Landroid/app/AlertDialog$Builder;
+    :goto_0
+    new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    iget-object v0, p0, Lcom/yt/plugin/WebActivity$1;->this$0:Lcom/yt/plugin/WebActivity;
+    iget-object v3, p0, Lcom/yt/plugin/WebActivity$1;->this$0:Lcom/yt/plugin/WebActivity;
 
-    invoke-direct {p4, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 245
-    invoke-virtual {p4, p3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p3
+    move-result-object v0
 
-    new-instance p4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v0, "size："
+    const-string v3, "size\uff1a"
 
-    invoke-direct {p4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/yt/plugin/WebActivity$1;->this$0:Lcom/yt/plugin/WebActivity;
+    iget-object v3, p0, Lcom/yt/plugin/WebActivity$1;->this$0:Lcom/yt/plugin/WebActivity;
 
     .line 246
-    invoke-static {v0, p5, p6}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
+    invoke-static {v3, p5, p6}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
 
-    move-result-object p5
+    move-result-object v3
 
-    invoke-virtual {p4, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p5, "\nurl="
+    const-string v3, "\nurl="
 
-    invoke-virtual {p4, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p4
+    move-result-object v2
 
-    invoke-virtual {p3, p4}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p3
+    move-result-object v2
 
     .line 251
-    const-string p4, "浏览器下载"
+    const-string v0, "\u6d4f\u89c8\u5668\u4e0b\u8f7d"
 
-    const-string p5, "Download"
+    const-string v3, "Download"
 
-    invoke-static {p4, p5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v3}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p4
+    move-result-object v0
 
-    check-cast p4, Ljava/lang/CharSequence;
+    check-cast v0, Ljava/lang/CharSequence;
 
-    new-instance p5, Lcom/yt/plugin/WebActivity$1$1;
+    new-instance v3, Lcom/yt/plugin/WebActivity$1$1;
 
-    invoke-direct {p5, p0, p1}, Lcom/yt/plugin/WebActivity$1$1;-><init>(Lcom/yt/plugin/WebActivity$1;Ljava/lang/String;)V
+    invoke-direct {v3, p0, p1}, Lcom/yt/plugin/WebActivity$1$1;-><init>(Lcom/yt/plugin/WebActivity$1;Ljava/lang/String;)V
 
-    invoke-virtual {p3, p4, p5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v2, v0, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 259
-    const/high16 p3, 0x1040000
+    const/high16 v2, 0x1040000
 
-    invoke-virtual {p1, p3, p2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 260
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 261
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     .line 262
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->setMessageIsSelectable(Landroid/app/AlertDialog;)V
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->setMessageIsSelectable(Landroid/app/AlertDialog;)V
 
     return-void
+
+    .line 241
+    :catch_0
+    move-exception v0
+
+    move-object v0, v1
+
+    goto :goto_0
 .end method

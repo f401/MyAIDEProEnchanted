@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/MainListener$1;Landroid/widget/Button;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,67 +45,68 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
 
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 276
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    move-result p2
+    move-result v0
 
-    const/4 p3, 0x0
-
-    if-nez p2, :cond_d
+    if-nez v0, :cond_0
 
     .line 277
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$1$5;->val$BUTTON_POSITIVE:Landroid/widget/Button;
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$1$5;->val$BUTTON_POSITIVE:Landroid/widget/Button;
 
-    invoke-virtual {p1, p3}, Landroid/widget/Button;->setEnabled(Z)V
-
-    goto :goto_27
-
-    .line 279
-    :cond_d
-    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    iget-object p2, p0, Lcom/s1243808733/aide/MainListener$1$5;->this$0:Lcom/s1243808733/aide/MainListener$1;
-
-    iget-object p2, p2, Lcom/s1243808733/aide/MainListener$1;->val$input_text:Ljava/lang/String;
-
-    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_21
-
-    .line 280
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$1$5;->val$BUTTON_POSITIVE:Landroid/widget/Button;
-
-    invoke-virtual {p1, p3}, Landroid/widget/Button;->setEnabled(Z)V
-
-    goto :goto_27
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
     .line 282
-    :cond_21
-    iget-object p1, p0, Lcom/s1243808733/aide/MainListener$1$5;->val$BUTTON_POSITIVE:Landroid/widget/Button;
-
-    const/4 p2, 0x1
-
-    invoke-virtual {p1, p2}, Landroid/widget/Button;->setEnabled(Z)V
-
-    :goto_27
+    :goto_0
     return-void
+
+    .line 279
+    :cond_0
+    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/s1243808733/aide/MainListener$1$5;->this$0:Lcom/s1243808733/aide/MainListener$1;
+
+    iget-object v1, v1, Lcom/s1243808733/aide/MainListener$1;->val$input_text:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 280
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$1$5;->val$BUTTON_POSITIVE:Landroid/widget/Button;
+
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V
+
+    goto :goto_0
+
+    .line 282
+    :cond_1
+    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$1$5;->val$BUTTON_POSITIVE:Landroid/widget/Button;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+
+    goto :goto_0
 .end method

@@ -15,7 +15,8 @@
 .field private final dataMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashMap<",
+            "Ljava/util/HashMap",
+            "<",
             "Ljava/lang/String;",
             "Lcom/s1243808733/android/dx/dex/file/Statistics$Data;",
             ">;"
@@ -26,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,64 +47,64 @@
 
 # virtual methods
 .method public add(Lcom/s1243808733/android/dx/dex/file/Item;)V
-    .registers 5
+    .locals 3
 
     .line 44
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/Item;->typeName()Ljava/lang/String;
 
-    move-result-object v0
-
-    .line 45
-    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/Statistics;->dataMap:Ljava/util/HashMap;
-
-    invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
+    .line 45
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/Statistics;->dataMap:Ljava/util/HashMap;
 
-    if-nez v1, :cond_19
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
+
+    if-nez v0, :cond_0
 
     .line 48
-    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/Statistics;->dataMap:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/Statistics;->dataMap:Ljava/util/HashMap;
 
     new-instance v2, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
 
-    invoke-direct {v2, p1, v0}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;-><init>(Lcom/s1243808733/android/dx/dex/file/Item;Ljava/lang/String;)V
+    invoke-direct {v2, p1, v1}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;-><init>(Lcom/s1243808733/android/dx/dex/file/Item;Ljava/lang/String;)V
 
-    invoke-virtual {v1, v0, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_1c
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 50
-    :cond_19
-    invoke-virtual {v1, p1}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->add(Lcom/s1243808733/android/dx/dex/file/Item;)V
-
-    :goto_1c
+    :goto_0
     return-void
+
+    :cond_0
+    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->add(Lcom/s1243808733/android/dx/dex/file/Item;)V
+
+    goto :goto_0
 .end method
 
 .method public addAll(Lcom/s1243808733/android/dx/dex/file/Section;)V
-    .registers 3
+    .locals 2
 
     .line 60
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/dex/file/Section;->items()Ljava/util/Collection;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 61
-    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object p1
+    move-result-object v1
 
-    :goto_8
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -112,95 +113,95 @@
     .line 62
     invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/dex/file/Statistics;->add(Lcom/s1243808733/android/dx/dex/file/Item;)V
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_18
+    :cond_0
     return-void
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .line 90
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v1, "Statistics:\n"
+    const-string v0, "Statistics:\n"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 94
-    new-instance v1, Ljava/util/TreeMap;
+    new-instance v2, Ljava/util/TreeMap;
 
-    invoke-direct {v1}, Ljava/util/TreeMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/TreeMap;-><init>()V
 
     .line 96
-    iget-object v2, p0, Lcom/s1243808733/android/dx/dex/file/Statistics;->dataMap:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/Statistics;->dataMap:Ljava/util/HashMap;
 
-    invoke-virtual {v2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+    invoke-virtual {v0}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_16
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2a
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    check-cast v3, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
 
     .line 97
-    invoke-static {v3}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->-$$Nest$fgetname(Lcom/s1243808733/android/dx/dex/file/Statistics$Data;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->-$$Nest$fgetname(Lcom/s1243808733/android/dx/dex/file/Statistics$Data;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v1, v4, v3}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v0}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_16
+    goto :goto_0
 
     .line 100
-    :cond_2a
-    invoke-virtual {v1}, Ljava/util/TreeMap;->values()Ljava/util/Collection;
+    :cond_0
+    invoke-virtual {v2}, Ljava/util/TreeMap;->values()Ljava/util/Collection;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_32
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_46
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
 
     .line 101
-    invoke-virtual {v2}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->toHuman()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->toHuman()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_32
+    goto :goto_1
 
     .line 104
-    :cond_46
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_1
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -208,7 +209,7 @@
 .end method
 
 .method public final writeAnnotation(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
-    .registers 6
+    .locals 4
 
     .line 72
     iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/Statistics;->dataMap:Ljava/util/HashMap;
@@ -217,12 +218,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_1
 
+    .line 85
+    :cond_0
     return-void
 
     .line 76
-    :cond_9
+    :cond_1
     const/4 v0, 0x0
 
     const-string v1, "\nstatistics:\n"
@@ -230,71 +233,68 @@
     invoke-interface {p1, v0, v1}, Lcom/s1243808733/android/dx/util/AnnotatedOutput;->annotate(ILjava/lang/String;)V
 
     .line 78
-    new-instance v0, Ljava/util/TreeMap;
+    new-instance v1, Ljava/util/TreeMap;
 
-    invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
+    invoke-direct {v1}, Ljava/util/TreeMap;-><init>()V
 
     .line 80
-    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/file/Statistics;->dataMap:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/dex/file/Statistics;->dataMap:Ljava/util/HashMap;
 
-    invoke-virtual {v1}, Ljava/util/HashMap;->values()Ljava/util/Collection;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_1e
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_32
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
-
-    .line 81
-    invoke-static {v2}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->-$$Nest$fgetname(Lcom/s1243808733/android/dx/dex/file/Statistics$Data;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_1e
-
-    .line 84
-    :cond_32
-    invoke-virtual {v0}, Ljava/util/TreeMap;->values()Ljava/util/Collection;
+    invoke-virtual {v0}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v0
 
-    :goto_3a
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v0, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
 
-    move-result v1
+    .line 81
+    invoke-static {v0}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->-$$Nest$fgetname(Lcom/s1243808733/android/dx/dex/file/Statistics$Data;)Ljava/lang/String;
 
-    if-eqz v1, :cond_4a
+    move-result-object v3
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v1, v3, v0}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    .line 84
+    :cond_2
+    invoke-virtual {v1}, Ljava/util/TreeMap;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    check-cast v1, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;
 
     .line 85
-    invoke-virtual {v1, p1}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->writeAnnotation(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
+    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/dex/file/Statistics$Data;->writeAnnotation(Lcom/s1243808733/android/dx/util/AnnotatedOutput;)V
 
-    goto :goto_3a
-
-    :cond_4a
-    return-void
+    goto :goto_1
 .end method

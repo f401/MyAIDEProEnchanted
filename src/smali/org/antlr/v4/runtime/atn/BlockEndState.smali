@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 10
     invoke-direct {p0}, Lorg/antlr/v4/runtime/atn/ATNState;-><init>()V
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public getStateType()I
-    .registers 2
+    .locals 1
 
     const/16 v0, 0x8
 

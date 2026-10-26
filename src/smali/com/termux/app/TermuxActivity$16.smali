@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;Landroid/app/AlertDialog;[Ljava/lang/CharSequence;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,21 +49,21 @@
 
 # virtual methods
 .method public onShow(Landroid/content/DialogInterface;)V
-    .registers 3
+    .locals 2
 
     .line 1075
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$16;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$16;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 1076
-    new-instance v0, Lcom/termux/app/TermuxActivity$16$1;
+    new-instance v1, Lcom/termux/app/TermuxActivity$16$1;
 
-    invoke-direct {v0, p0}, Lcom/termux/app/TermuxActivity$16$1;-><init>(Lcom/termux/app/TermuxActivity$16;)V
+    invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$16$1;-><init>(Lcom/termux/app/TermuxActivity$16;)V
 
-    invoke-virtual {p1, v0}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
 
     return-void
 .end method

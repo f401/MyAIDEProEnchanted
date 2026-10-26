@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
-    .registers 8
+    .locals 0
 
     .line 220
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -94,12 +94,12 @@
 
 # virtual methods
 .method getArgumentsAndReturnSizes()I
-    .registers 2
+    .locals 1
 
     .line 238
     iget v0, p0, Lzeroaicy/org/objectweb/asm/Symbol;->info:I
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 239
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Symbol;->value:Ljava/lang/String;
@@ -111,7 +111,7 @@
     iput v0, p0, Lzeroaicy/org/objectweb/asm/Symbol;->info:I
 
     .line 241
-    :cond_c
+    :cond_0
     iget v0, p0, Lzeroaicy/org/objectweb/asm/Symbol;->info:I
 
     return v0

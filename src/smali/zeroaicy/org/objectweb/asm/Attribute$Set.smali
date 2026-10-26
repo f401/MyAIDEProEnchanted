@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 390
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 .end method
 
 .method private add(Lzeroaicy/org/objectweb/asm/Attribute;)V
-    .registers 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,6 +50,8 @@
         }
     .end annotation
 
+    const/4 v3, 0x0
+
     .line 384
     iget v0, p0, Lzeroaicy/org/objectweb/asm/Attribute$Set;->size:I
 
@@ -57,7 +59,7 @@
 
     array-length v2, v1
 
-    if-lt v0, v2, :cond_12
+    if-lt v0, v2, :cond_0
 
     .line 385
     array-length v2, v1
@@ -67,15 +69,13 @@
     new-array v2, v2, [Lzeroaicy/org/objectweb/asm/Attribute;
 
     .line 386
-    const/4 v3, 0x0
-
     invoke-static {v1, v3, v2, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 387
     iput-object v2, p0, Lzeroaicy/org/objectweb/asm/Attribute$Set;->data:[Lzeroaicy/org/objectweb/asm/Attribute;
 
     .line 389
-    :cond_12
+    :cond_0
     iget-object v0, p0, Lzeroaicy/org/objectweb/asm/Attribute$Set;->data:[Lzeroaicy/org/objectweb/asm/Attribute;
 
     iget v1, p0, Lzeroaicy/org/objectweb/asm/Attribute$Set;->size:I
@@ -90,25 +90,26 @@
 .end method
 
 .method private contains(Lzeroaicy/org/objectweb/asm/Attribute;)Z
-    .registers 6
-
-    const/4 v0, 0x0
+    .locals 4
 
     const/4 v1, 0x0
 
+    move v0, v1
+
     .line 375
-    :goto_2
+    :goto_0
     iget v2, p0, Lzeroaicy/org/objectweb/asm/Attribute$Set;->size:I
 
-    if-lt v1, v2, :cond_7
-
-    return v0
+    if-lt v0, v2, :cond_0
 
     .line 376
-    :cond_7
+    :goto_1
+    return v1
+
+    :cond_0
     iget-object v2, p0, Lzeroaicy/org/objectweb/asm/Attribute$Set;->data:[Lzeroaicy/org/objectweb/asm/Attribute;
 
-    aget-object v2, v2, v1
+    aget-object v2, v2, v0
 
     iget-object v2, v2, Lzeroaicy/org/objectweb/asm/Attribute;->type:Ljava/lang/String;
 
@@ -118,22 +119,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_1
 
-    const/4 p1, 0x1
+    const/4 v1, 0x1
 
-    return p1
+    goto :goto_1
 
-    :cond_17
-    add-int/lit8 v1, v1, 0x1
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method addAttributes(Lzeroaicy/org/objectweb/asm/Attribute;)V
-    .registers 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,30 +144,32 @@
     .end annotation
 
     :goto_0
-    if-nez p1, :cond_3
+    if-nez p1, :cond_0
 
     return-void
 
     .line 361
-    :cond_3
+    :cond_0
     invoke-direct {p0, p1}, Lzeroaicy/org/objectweb/asm/Attribute$Set;->contains(Lzeroaicy/org/objectweb/asm/Attribute;)Z
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_1
 
     .line 362
     invoke-direct {p0, p1}, Lzeroaicy/org/objectweb/asm/Attribute$Set;->add(Lzeroaicy/org/objectweb/asm/Attribute;)V
 
     .line 364
-    :cond_c
+    :cond_1
     iget-object p1, p1, Lzeroaicy/org/objectweb/asm/Attribute;->nextAttribute:Lzeroaicy/org/objectweb/asm/Attribute;
 
     goto :goto_0
 .end method
 
 .method toArray()[Lzeroaicy/org/objectweb/asm/Attribute;
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 369
     iget v0, p0, Lzeroaicy/org/objectweb/asm/Attribute$Set;->size:I
@@ -175,8 +178,6 @@
 
     .line 370
     iget-object v2, p0, Lzeroaicy/org/objectweb/asm/Attribute$Set;->data:[Lzeroaicy/org/objectweb/asm/Attribute;
-
-    const/4 v3, 0x0
 
     invoke-static {v2, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 

@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Iterator<",
+        "Ljava/util/Iterator",
+        "<",
         "Ljava/lang/String;",
         ">;"
     }
@@ -30,8 +31,8 @@
 .field delegate:Ljava/util/Enumeration;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Enumeration<",
-            "+",
+            "Ljava/util/Enumeration",
+            "<+",
             "Ljava/util/zip/ZipEntry;",
             ">;"
         }
@@ -45,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/multidex/ArchivePathElement$1;)V
-    .registers 2
+    .locals 1
 
     .line 65
     iput-object p1, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->this$1:Lcom/s1243808733/android/multidex/ArchivePathElement$1;
@@ -53,22 +54,22 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
-    iget-object p1, p1, Lcom/s1243808733/android/multidex/ArchivePathElement$1;->this$0:Lcom/s1243808733/android/multidex/ArchivePathElement;
+    iget-object v0, p1, Lcom/s1243808733/android/multidex/ArchivePathElement$1;->this$0:Lcom/s1243808733/android/multidex/ArchivePathElement;
 
-    invoke-static {p1}, Lcom/s1243808733/android/multidex/ArchivePathElement;->-$$Nest$fgetarchive(Lcom/s1243808733/android/multidex/ArchivePathElement;)Ljava/util/zip/ZipFile;
+    invoke-static {v0}, Lcom/s1243808733/android/multidex/ArchivePathElement;->-$$Nest$fgetarchive(Lcom/s1243808733/android/multidex/ArchivePathElement;)Ljava/util/zip/ZipFile;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/util/zip/ZipFile;->entries()Ljava/util/Enumeration;
+    invoke-virtual {v0}, Ljava/util/zip/ZipFile;->entries()Ljava/util/Enumeration;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->delegate:Ljava/util/Enumeration;
+    iput-object v0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->delegate:Ljava/util/Enumeration;
 
     .line 67
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->next:Ljava/util/zip/ZipEntry;
+    iput-object v0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->next:Ljava/util/zip/ZipEntry;
 
     return-void
 .end method
@@ -76,16 +77,14 @@
 
 # virtual methods
 .method public hasNext()Z
-    .registers 2
+    .locals 1
 
     .line 71
-    nop
-
-    :cond_1
-    :goto_1
+    :cond_0
+    :goto_0
     iget-object v0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->next:Ljava/util/zip/ZipEntry;
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->delegate:Ljava/util/Enumeration;
 
@@ -93,7 +92,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_1
 
     .line 72
     iget-object v0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->delegate:Ljava/util/Enumeration;
@@ -111,34 +110,34 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 74
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->next:Ljava/util/zip/ZipEntry;
 
-    goto :goto_1
+    goto :goto_0
 
     .line 77
-    :cond_21
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->next:Ljava/util/zip/ZipEntry;
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x1
 
-    goto :goto_28
+    :goto_1
+    return v0
 
-    :cond_27
+    :cond_2
     const/4 v0, 0x0
 
-    :goto_28
-    return v0
+    goto :goto_1
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .line 65
     invoke-virtual {p0}, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->next()Ljava/lang/String;
@@ -149,14 +148,14 @@
 .end method
 
 .method public next()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 82
     invoke-virtual {p0}, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 83
     iget-object v0, p0, Lcom/s1243808733/android/multidex/ArchivePathElement$1$1;->next:Ljava/util/zip/ZipEntry;
@@ -173,7 +172,7 @@
     return-object v0
 
     .line 87
-    :cond_10
+    :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -182,7 +181,7 @@
 .end method
 
 .method public remove()V
-    .registers 2
+    .locals 1
 
     .line 93
     new-instance v0, Ljava/lang/UnsupportedOperationException;

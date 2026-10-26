@@ -11,14 +11,12 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;II[I)V
-    .registers 13
+    .locals 8
 
-    .line 39
     const/4 v3, 0x0
 
+    .line 39
     const/4 v4, 0x0
-
-    const/4 v5, 0x0
 
     const-wide/16 v6, 0x0
 
@@ -27,6 +25,8 @@
     move-object v1, p1
 
     move v2, p2
+
+    move v5, v3
 
     invoke-direct/range {v0 .. v7}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJ)V
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getFirstKey()I
-    .registers 2
+    .locals 1
 
     .line 52
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/PackedSwitchPayloadDecodedInstruction;->firstKey:I
@@ -51,7 +51,7 @@
 .end method
 
 .method public getRegisterCount()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -59,7 +59,7 @@
 .end method
 
 .method public getTargets()[I
-    .registers 2
+    .locals 1
 
     .line 56
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/PackedSwitchPayloadDecodedInstruction;->targets:[I
@@ -68,14 +68,14 @@
 .end method
 
 .method public withIndex(I)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 3
+    .locals 2
 
     .line 62
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v0, "no index in instruction"
+    const-string v1, "no index in instruction"
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method

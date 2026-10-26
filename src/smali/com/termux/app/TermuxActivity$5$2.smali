@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity$5;)V
-    .registers 2
+    .locals 0
 
     .line 386
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$5$2;->this$1:Lcom/termux/app/TermuxActivity$5;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onTextSet(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
 
     .line 389
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$5$2;->this$1:Lcom/termux/app/TermuxActivity$5;

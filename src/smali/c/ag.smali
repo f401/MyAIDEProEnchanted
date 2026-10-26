@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Ljava/lang/Object;I)V
-    .registers 3
+    .locals 0
 
     iput p2, p0, Lc/ag;->a:I
 
@@ -28,29 +28,36 @@
 
 # virtual methods
 .method public final c()Lc/s;
-    .registers 7
+    .locals 6
+
+    const/16 v5, 0x1000
+
+    const/4 v4, 0x0
 
     iget v0, p0, Lc/ag;->a:I
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 6
-    new-instance v0, Lc/az;
+    new-instance v1, Lc/az;
 
-    iget-object v1, p0, Lc/ag;->b:Ljava/lang/Object;
+    iget-object v0, p0, Lc/ag;->b:Ljava/lang/Object;
 
-    check-cast v1, Lc/bn;
+    check-cast v0, Lc/bn;
 
-    invoke-virtual {v1}, Lc/bn;->e()[B
+    invoke-virtual {v0}, Lc/bn;->e()[B
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Lc/az;-><init>([B)V
+    invoke-direct {v1, v0}, Lc/az;-><init>([B)V
 
+    move-object v0, v1
+
+    :goto_0
     return-object v0
 
     .line 1
-    :cond_12
+    :cond_0
     invoke-virtual {p0}, Lc/ag;->h()Ljava/io/InputStream;
 
     move-result-object v0
@@ -60,144 +67,146 @@
 
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    const/16 v2, 0x1000
-
-    new-array v3, v2, [B
+    new-array v2, v5, [B
 
     .line 3
-    :goto_1f
-    const/4 v4, 0x0
+    :goto_1
+    invoke-virtual {v0, v2, v4, v5}, Ljava/io/InputStream;->read([BII)I
 
-    invoke-virtual {v0, v3, v4, v2}, Ljava/io/InputStream;->read([BII)I
+    move-result v3
 
-    move-result v5
+    if-ltz v3, :cond_1
 
-    if-ltz v5, :cond_2a
+    invoke-virtual {v1, v2, v4, v3}, Ljava/io/OutputStream;->write([BII)V
 
-    invoke-virtual {v1, v3, v4, v5}, Ljava/io/OutputStream;->write([BII)V
-
-    goto :goto_1f
+    goto :goto_1
 
     .line 4
-    :cond_2a
+    :cond_1
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v0
+    move-result-object v1
 
     .line 5
-    new-instance v1, Lc/ae;
+    new-instance v0, Lc/ae;
 
-    invoke-direct {v1, v0}, Lc/ae;-><init>([B)V
+    invoke-direct {v0, v1}, Lc/ae;-><init>([B)V
 
-    return-object v1
+    goto :goto_0
 .end method
 
 .method public final h()Ljava/io/InputStream;
-    .registers 3
+    .locals 2
 
     iget v0, p0, Lc/ag;->a:I
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 2
     iget-object v0, p0, Lc/ag;->b:Ljava/lang/Object;
 
     check-cast v0, Lc/bn;
 
+    :goto_0
     return-object v0
 
     .line 1
-    :cond_9
-    new-instance v0, Lc/an;
+    :cond_0
+    new-instance v1, Lc/an;
 
-    iget-object v1, p0, Lc/ag;->b:Ljava/lang/Object;
+    iget-object v0, p0, Lc/ag;->b:Ljava/lang/Object;
 
-    check-cast v1, Lc/x;
+    check-cast v0, Lc/x;
 
-    invoke-direct {v0, v1}, Lc/an;-><init>(Lc/x;)V
+    invoke-direct {v1, v0}, Lc/an;-><init>(Lc/x;)V
 
-    return-object v0
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 .method public final l()Lc/s;
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     iget v0, p0, Lc/ag;->a:I
 
-    const/4 v1, 0x0
-
-    const-string v2, "IOException converting stream to byte array: "
-
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     .line 4
-    :try_start_7
+    :try_start_0
     invoke-virtual {p0}, Lc/ag;->c()Lc/s;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_b
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_b} :catch_c
 
+    :goto_0
     return-object v0
 
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 5
-    invoke-static {v2}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "IOException converting stream to byte array: "
 
-    move-result-object v2
+    invoke-static {v1}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 6
     invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    new-instance v3, Lc/r;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v2
 
-    invoke-direct {v3, v2, v0, v1}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v3
+    new-instance v2, Lc/r;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v2, v1, v0, v3}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+
+    throw v2
 
     .line 1
-    :cond_22
-    :try_start_22
+    :cond_0
+    :try_start_1
     invoke-virtual {p0}, Lc/ag;->c()Lc/s;
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v0
-    :try_end_26
-    .catch Ljava/io/IOException; {:try_start_22 .. :try_end_26} :catch_27
 
-    return-object v0
+    goto :goto_0
 
-    :catch_27
+    :catch_1
     move-exception v0
 
     .line 2
-    invoke-static {v2}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "IOException converting stream to byte array: "
 
-    move-result-object v2
+    invoke-static {v1}, Lb/a;->a(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 3
     invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    new-instance v3, Lc/r;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v2
 
-    invoke-direct {v3, v2, v0, v1}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v3
+    new-instance v2, Lc/r;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v2, v1, v0, v3}, Lc/r;-><init>(Ljava/lang/String;Ljava/lang/Throwable;I)V
+
+    throw v2
 .end method

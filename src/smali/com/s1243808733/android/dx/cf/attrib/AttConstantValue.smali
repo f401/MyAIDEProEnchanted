@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/TypedConstant;)V
-    .registers 3
+    .locals 2
 
     .line 45
     const-string v0, "ConstantValue"
@@ -23,47 +23,47 @@
     .line 47
     instance-of v0, p1, Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_1
 
     instance-of v0, p1, Lcom/s1243808733/android/dx/rop/cst/CstInteger;
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_1
 
     instance-of v0, p1, Lcom/s1243808733/android/dx/rop/cst/CstLong;
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_1
 
     instance-of v0, p1, Lcom/s1243808733/android/dx/rop/cst/CstFloat;
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_1
 
     instance-of v0, p1, Lcom/s1243808733/android/dx/rop/cst/CstDouble;
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_1
 
-    if-nez p1, :cond_23
+    if-nez p1, :cond_0
 
     .line 53
-    new-instance p1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "constantValue == null"
+    const-string v1, "constantValue == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 55
-    :cond_23
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "bad type for constantValue"
+    const-string v1, "bad type for constantValue"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 58
-    :cond_2b
+    :cond_1
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/attrib/AttConstantValue;->constantValue:Lcom/s1243808733/android/dx/rop/cst/TypedConstant;
 
     return-void
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public byteLength()I
-    .registers 2
+    .locals 1
 
     const/16 v0, 0x8
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public getConstantValue()Lcom/s1243808733/android/dx/rop/cst/TypedConstant;
-    .registers 2
+    .locals 1
 
     .line 76
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/AttConstantValue;->constantValue:Lcom/s1243808733/android/dx/rop/cst/TypedConstant;

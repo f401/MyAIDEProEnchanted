@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected final advance(I)V
-    .registers 3
+    .locals 1
 
     .line 60
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/BaseCodeCursor;->cursor:I
@@ -50,7 +50,7 @@
 .end method
 
 .method public final baseAddressForCursor()I
-    .registers 3
+    .locals 2
 
     .line 46
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/BaseCodeCursor;->baseAddressMap:Lcom/s1243808733/android/dx/io/instructions/AddressMap;
@@ -61,20 +61,20 @@
 
     move-result v0
 
-    if-ltz v0, :cond_b
-
-    goto :goto_d
+    if-ltz v0, :cond_0
 
     .line 47
-    :cond_b
+    :goto_0
+    return v0
+
+    :cond_0
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/BaseCodeCursor;->cursor:I
 
-    :goto_d
-    return v0
+    goto :goto_0
 .end method
 
 .method public final cursor()I
-    .registers 2
+    .locals 1
 
     .line 40
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/BaseCodeCursor;->cursor:I
@@ -83,7 +83,7 @@
 .end method
 
 .method public final setBaseAddress(II)V
-    .registers 4
+    .locals 1
 
     .line 53
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/BaseCodeCursor;->baseAddressMap:Lcom/s1243808733/android/dx/io/instructions/AddressMap;

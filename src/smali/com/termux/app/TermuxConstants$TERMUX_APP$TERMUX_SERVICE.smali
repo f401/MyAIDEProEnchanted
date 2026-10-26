@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/termux/app/TermuxConstants$TERMUX_APP;
+    value = Lcom/termux/app/TermuxConstants;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -99,7 +99,11 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 4
+
+    const/4 v3, 0x3
+
+    const/4 v2, 0x0
 
     .line 991
     new-instance v0, Ljava/lang/StringBuilder;
@@ -563,30 +567,26 @@
     sput-object v0, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->EXTRA_RESULT_FILES_SUFFIX:Ljava/lang/String;
 
     .line 1066
-    const/4 v0, 0x0
-
-    sput v0, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->VALUE_EXTRA_SESSION_ACTION_SWITCH_TO_NEW_SESSION_AND_OPEN_ACTIVITY:I
+    sput v2, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->VALUE_EXTRA_SESSION_ACTION_SWITCH_TO_NEW_SESSION_AND_OPEN_ACTIVITY:I
 
     .line 1074
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    sput v1, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->VALUE_EXTRA_SESSION_ACTION_KEEP_CURRENT_SESSION_AND_OPEN_ACTIVITY:I
+    sput v0, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->VALUE_EXTRA_SESSION_ACTION_KEEP_CURRENT_SESSION_AND_OPEN_ACTIVITY:I
 
     .line 1083
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    sput v1, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->VALUE_EXTRA_SESSION_ACTION_SWITCH_TO_NEW_SESSION_AND_DONT_OPEN_ACTIVITY:I
+    sput v0, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->VALUE_EXTRA_SESSION_ACTION_SWITCH_TO_NEW_SESSION_AND_DONT_OPEN_ACTIVITY:I
 
     .line 1092
-    const/4 v1, 0x3
-
-    sput v1, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->VALUE_EXTRA_SESSION_ACTION_KEEP_CURRENT_SESSION_AND_DONT_OPEN_ACTIVITY:I
+    sput v3, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->VALUE_EXTRA_SESSION_ACTION_KEEP_CURRENT_SESSION_AND_DONT_OPEN_ACTIVITY:I
 
     .line 1095
-    sput v0, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->MIN_VALUE_EXTRA_SESSION_ACTION:I
+    sput v2, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->MIN_VALUE_EXTRA_SESSION_ACTION:I
 
     .line 1098
-    sput v1, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->MAX_VALUE_EXTRA_SESSION_ACTION:I
+    sput v3, Lcom/termux/app/TermuxConstants$TERMUX_APP$TERMUX_SERVICE;->MAX_VALUE_EXTRA_SESSION_ACTION:I
 
     .line 1104
     const-string v0, "result"
@@ -632,7 +632,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 988
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

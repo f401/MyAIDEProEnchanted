@@ -20,7 +20,8 @@
 .field eTypes:Ljava/util/EnumSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/EnumSet<",
+            "Ljava/util/EnumSet",
+            "<",
             "Ljava/lang/annotation/ElementType;",
             ">;"
         }
@@ -32,7 +33,8 @@
 .field printTypes:Ljava/util/EnumSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/EnumSet<",
+            "Ljava/util/EnumSet",
+            "<",
             "Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;",
             ">;"
         }
@@ -42,7 +44,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,25 +73,27 @@
 
 # virtual methods
 .method parse([Ljava/lang/String;)V
-    .registers 10
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/16 v8, 0x3d
 
     const/4 v1, 0x0
 
+    move v0, v1
+
     .line 63
-    :goto_2
+    :goto_0
     array-length v2, p1
 
-    if-ge v1, v2, :cond_af
+    if-ge v0, v2, :cond_5
 
     .line 64
-    aget-object v2, p1, v1
+    aget-object v2, p1, v0
 
     .line 66
     const-string v3, "--annotation="
@@ -98,12 +102,10 @@
 
     move-result v3
 
-    const/16 v4, 0x3d
-
-    if-eqz v3, :cond_32
+    if-eqz v3, :cond_2
 
     .line 67
-    invoke-virtual {v2, v4}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v2, v8}, Ljava/lang/String;->indexOf(I)I
 
     move-result v3
 
@@ -116,7 +118,7 @@
     .line 68
     iget-object v3, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->aclass:Ljava/lang/String;
 
-    if-nez v3, :cond_2a
+    if-nez v3, :cond_1
 
     .line 72
     const/16 v3, 0x2e
@@ -129,32 +131,34 @@
 
     iput-object v2, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->aclass:Ljava/lang/String;
 
-    goto :goto_99
+    .line 89
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
 
     .line 69
-    :cond_2a
-    new-instance p1, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
+    :cond_1
+    new-instance v0, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
 
-    const-string v0, "--annotation can only be specified once."
+    const-string v1, "--annotation can only be specified once."
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 73
-    :cond_32
+    :cond_2
     const-string v3, "--element="
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 
-    const-string v5, ","
-
-    if-eqz v3, :cond_6b
+    if-eqz v3, :cond_3
 
     .line 74
-    invoke-virtual {v2, v4}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v2, v8}, Ljava/lang/String;->indexOf(I)I
 
     move-result v3
 
@@ -165,24 +169,26 @@
     move-result-object v2
 
     .line 77
-    :try_start_46
-    invoke-virtual {v2, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    :try_start_0
+    const-string v3, ","
 
-    move-result-object v2
+    invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    array-length v3, v2
-    :try_end_4b
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_46 .. :try_end_4b} :catch_62
+    move-result-object v3
 
-    const/4 v4, 0x0
+    array-length v4, v3
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_4c
-    if-ge v4, v3, :cond_99
+    move v2, v1
 
-    aget-object v5, v2, v4
+    :goto_1
+    if-ge v2, v4, :cond_0
+
+    aget-object v5, v3, v2
 
     .line 78
-    :try_start_50
+    :try_start_1
     iget-object v6, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->eTypes:Ljava/util/EnumSet;
 
     sget-object v7, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
@@ -196,37 +202,37 @@
     move-result-object v5
 
     invoke-virtual {v6, v5}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
-    :try_end_5f
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_50 .. :try_end_5f} :catch_62
+    :try_end_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4c
+    goto :goto_1
 
     .line 81
-    :catch_62
-    move-exception p1
+    :catch_0
+    move-exception v0
 
-    new-instance p1, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
+    new-instance v0, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
 
-    const-string v0, "invalid --element"
+    const-string v1, "invalid --element"
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 84
-    :cond_6b
+    :cond_3
     const-string v3, "--print="
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_a6
+    if-eqz v3, :cond_4
 
     .line 85
-    invoke-virtual {v2, v4}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v2, v8}, Ljava/lang/String;->indexOf(I)I
 
     move-result v3
 
@@ -237,24 +243,26 @@
     move-result-object v2
 
     .line 88
-    :try_start_7d
-    invoke-virtual {v2, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    :try_start_2
+    const-string v3, ","
 
-    move-result-object v2
+    invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    array-length v3, v2
-    :try_end_82
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_7d .. :try_end_82} :catch_9d
+    move-result-object v3
 
-    const/4 v4, 0x0
+    array-length v4, v3
+    :try_end_2
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_1
 
-    :goto_83
-    if-ge v4, v3, :cond_99
+    move v2, v1
 
-    aget-object v5, v2, v4
+    :goto_2
+    if-ge v2, v4, :cond_0
+
+    aget-object v5, v3, v2
 
     .line 89
-    :try_start_87
+    :try_start_3
     iget-object v6, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->printTypes:Ljava/util/EnumSet;
 
     sget-object v7, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
@@ -268,133 +276,121 @@
     move-result-object v5
 
     invoke-virtual {v6, v5}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
-    :try_end_96
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_87 .. :try_end_96} :catch_9d
+    :try_end_3
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_3 .. :try_end_3} :catch_1
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_83
-
-    :cond_99
-    :goto_99
-    add-int/lit8 v1, v1, 0x1
-
-    goto/16 :goto_2
+    goto :goto_2
 
     .line 92
-    :catch_9d
-    move-exception p1
+    :catch_1
+    move-exception v0
 
-    new-instance p1, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
+    new-instance v0, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
 
-    const-string v0, "invalid --print"
+    const-string v1, "invalid --print"
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 95
-    :cond_a6
+    :cond_4
     array-length v2, p1
 
-    sub-int/2addr v2, v1
+    sub-int/2addr v2, v0
 
     new-array v3, v2, [Ljava/lang/String;
 
     iput-object v3, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->files:[Ljava/lang/String;
 
     .line 96
-    invoke-static {p1, v1, v3, v0, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, v0, v3, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 101
-    :cond_af
-    iget-object p1, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->aclass:Ljava/lang/String;
+    :cond_5
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->aclass:Ljava/lang/String;
 
-    if-eqz p1, :cond_f0
+    if-eqz v0, :cond_9
 
     .line 106
-    iget-object p1, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->printTypes:Ljava/util/EnumSet;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->printTypes:Ljava/util/EnumSet;
 
-    invoke-virtual {p1}, Ljava/util/EnumSet;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/EnumSet;->isEmpty()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_c2
+    if-eqz v0, :cond_6
 
     .line 107
-    iget-object p1, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->printTypes:Ljava/util/EnumSet;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->printTypes:Ljava/util/EnumSet;
 
-    sget-object v0, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;->CLASS:Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;
+    sget-object v1, Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;->CLASS:Lcom/s1243808733/android/dx/command/annotool/Main$PrintType;
 
-    invoke-virtual {p1, v0}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
 
     .line 110
-    :cond_c2
-    iget-object p1, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->eTypes:Ljava/util/EnumSet;
+    :cond_6
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->eTypes:Ljava/util/EnumSet;
 
-    invoke-virtual {p1}, Ljava/util/EnumSet;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/EnumSet;->isEmpty()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_d1
+    if-eqz v0, :cond_7
 
     .line 111
-    iget-object p1, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->eTypes:Ljava/util/EnumSet;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->eTypes:Ljava/util/EnumSet;
 
-    sget-object v0, Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
+    sget-object v1, Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
 
-    invoke-virtual {p1, v0}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
 
     .line 114
-    :cond_d1
-    iget-object p1, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->eTypes:Ljava/util/EnumSet;
+    :cond_7
+    iget-object v0, p0, Lcom/s1243808733/android/dx/command/annotool/Main$Arguments;->eTypes:Ljava/util/EnumSet;
 
-    invoke-virtual {p1}, Ljava/util/EnumSet;->clone()Ljava/util/EnumSet;
+    invoke-virtual {v0}, Ljava/util/EnumSet;->clone()Ljava/util/EnumSet;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 116
-    sget-object v0, Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
+    sget-object v1, Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;
 
-    invoke-virtual {p1, v0}, Ljava/util/EnumSet;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->remove(Ljava/lang/Object;)Z
 
     .line 117
-    sget-object v0, Ljava/lang/annotation/ElementType;->PACKAGE:Ljava/lang/annotation/ElementType;
+    sget-object v1, Ljava/lang/annotation/ElementType;->PACKAGE:Ljava/lang/annotation/ElementType;
 
-    invoke-virtual {p1, v0}, Ljava/util/EnumSet;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->remove(Ljava/lang/Object;)Z
 
     .line 118
-    invoke-virtual {p1}, Ljava/util/EnumSet;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/EnumSet;->isEmpty()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_e8
+    if-eqz v0, :cond_8
 
     return-void
 
     .line 119
-    :cond_e8
-    new-instance p1, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
+    :cond_8
+    new-instance v0, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
 
-    const-string v0, "only --element parameters \'type\' and \'package\' supported"
+    const-string v1, "only --element parameters \'type\' and \'package\' supported"
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 102
-    :cond_f0
-    new-instance p1, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
+    :cond_9
+    new-instance v0, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;
 
-    const-string v0, "--annotation must be specified"
+    const-string v1, "--annotation must be specified"
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dx/command/annotool/Main$InvalidArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_f9
-
-    :goto_f8
-    throw p1
-
-    :goto_f9
-    goto :goto_f8
+    throw v0
 .end method

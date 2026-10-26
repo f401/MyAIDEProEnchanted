@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,18 +41,18 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 3
 
     .line 1147
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$16;->val$activity:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$16;->val$activity:Landroid/app/Activity;
+
+    const/4 v1, 0x0
+
+    sget-object v2, Lcom/s1243808733/util/EscapeUtils;->XML:Lcom/s1243808733/util/EscapeUtils;
+
+    invoke-static {v0, v1, v2}, Lcom/s1243808733/util/EscapeUtils;->showDialog(Landroid/app/Activity;Ljava/lang/String;Lcom/s1243808733/util/EscapeUtils;)V
 
     const/4 v0, 0x0
 
-    sget-object v1, Lcom/s1243808733/util/EscapeUtils;->XML:Lcom/s1243808733/util/EscapeUtils;
-
-    invoke-static {p1, v0, v1}, Lcom/s1243808733/util/EscapeUtils;->showDialog(Landroid/app/Activity;Ljava/lang/String;Lcom/s1243808733/util/EscapeUtils;)V
-
-    const/4 p1, 0x0
-
-    return p1
+    return v0
 .end method

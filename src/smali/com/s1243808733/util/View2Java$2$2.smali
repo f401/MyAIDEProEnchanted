@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/View2Java$2;)V
-    .registers 2
+    .locals 0
 
     .line 77
     iput-object p1, p0, Lcom/s1243808733/util/View2Java$2$2;->this$0:Lcom/s1243808733/util/View2Java$2;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .registers 2
+    .locals 1
 
     .line 81
-    iget-object p1, p0, Lcom/s1243808733/util/View2Java$2$2;->this$0:Lcom/s1243808733/util/View2Java$2;
+    iget-object v0, p0, Lcom/s1243808733/util/View2Java$2$2;->this$0:Lcom/s1243808733/util/View2Java$2;
 
-    iget-object p1, p1, Lcom/s1243808733/util/View2Java$2;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, v0, Lcom/s1243808733/util/View2Java$2;->val$dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     return-void
 .end method

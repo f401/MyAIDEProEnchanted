@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;)V
-    .registers 2
+    .locals 0
 
     .line 401
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$6;->this$0:Lcom/termux/app/TermuxActivity;
@@ -36,34 +36,34 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 404
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$6;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$6;->this$0:Lcom/termux/app/TermuxActivity;
 
-    const-string v0, "input_method"
+    const-string v1, "input_method"
 
-    invoke-virtual {p1, v0}, Lcom/termux/app/TermuxActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/termux/app/TermuxActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/view/inputmethod/InputMethodManager;
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
     .line 405
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, v0, v1}, Landroid/view/inputmethod/InputMethodManager;->toggleSoftInput(II)V
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->toggleSoftInput(II)V
 
     .line 406
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$6;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$6;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {p1}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
+    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
 
     return-void
 .end method

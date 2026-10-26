@@ -12,7 +12,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -39,7 +39,7 @@
     int-to-long v0, v0
 
     .line 37
-    :try_start_3
+    :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
 
     .line 39
@@ -121,13 +121,14 @@
     iget-object v1, p0, Lcom/ndk/GradleNdk$100000000;->val$ac:Landroid/app/Activity;
 
     invoke-static {v1, v0}, Lcom/ndk/GradleNdk;->access$1000005(Landroid/app/Activity;Ljava/lang/String;)V
-    :try_end_53
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_53} :catch_54
-
-    goto :goto_5c
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 57
-    :catch_54
+    :goto_0
+    return-void
+
+    :catch_0
     move-exception v0
 
     invoke-static {}, Lcom/ndk/GradleNdk;->access$L1000000()Landroid/app/ProgressDialog;
@@ -136,6 +137,5 @@
 
     invoke-static {v0}, Lcom/ndk/GradleNdk;->access$1000015(Landroid/app/Dialog;)V
 
-    :goto_5c
-    return-void
+    goto :goto_0
 .end method

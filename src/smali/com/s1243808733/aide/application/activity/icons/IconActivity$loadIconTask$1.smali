@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$loadIconTask;)V
-    .registers 2
+    .locals 0
 
     .line 708
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$loadIconTask$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$loadIconTask;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 3
+    .locals 2
 
     .line 710
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$loadIconTask$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$loadIconTask;
@@ -52,7 +52,7 @@
 .end method
 
 .method public onInvalidated()V
-    .registers 3
+    .locals 2
 
     .line 714
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$loadIconTask$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$loadIconTask;

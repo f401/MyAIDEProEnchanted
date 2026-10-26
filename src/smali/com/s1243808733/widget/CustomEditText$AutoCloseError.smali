@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/widget/CustomEditText;)V
-    .registers 2
+    .locals 0
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .line 51
     iget-object v0, p0, Lcom/s1243808733/widget/CustomEditText$AutoCloseError;->et:Lcom/s1243808733/widget/CustomEditText;

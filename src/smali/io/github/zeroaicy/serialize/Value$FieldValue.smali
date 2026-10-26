@@ -18,8 +18,8 @@
         "<T:",
         "Lio/github/zeroaicy/serialize/Value;",
         ">",
-        "Lio/github/zeroaicy/serialize/Value<",
-        "TT;>;"
+        "Lio/github/zeroaicy/serialize/Value",
+        "<TT;>;"
     }
 .end annotation
 
@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 40
     invoke-direct {p0}, Lio/github/zeroaicy/serialize/Value;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 46
     iget-object v0, p0, Lio/github/zeroaicy/serialize/Value$FieldValue;->name:Ljava/lang/String;
@@ -50,7 +50,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 43
     iput-object p1, p0, Lio/github/zeroaicy/serialize/Value$FieldValue;->name:Ljava/lang/String;
@@ -59,7 +59,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 50
     new-instance v0, Ljava/lang/StringBuilder;

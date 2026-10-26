@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/cf/code/Ropper;Lcom/s1243808733/android/dx/util/IntList;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,16 +45,16 @@
 
 # virtual methods
 .method public visitBlock(Lcom/s1243808733/android/dx/rop/code/BasicBlock;)V
-    .registers 3
+    .locals 2
 
     .line 1416
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/Ropper$2;->val$reachableLabels:Lcom/s1243808733/android/dx/util/IntList;
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/BasicBlock;->getLabel()I
 
-    move-result p1
+    move-result v1
 
-    invoke-virtual {v0, p1}, Lcom/s1243808733/android/dx/util/IntList;->add(I)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/android/dx/util/IntList;->add(I)V
 
     return-void
 .end method

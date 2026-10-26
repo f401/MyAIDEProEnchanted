@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/EscapeUtils;Landroid/widget/EditText;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,26 +45,26 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 70
-    iget-object p1, p0, Lcom/s1243808733/util/EscapeUtils$3;->val$input:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/util/EscapeUtils$3;->val$input:Landroid/widget/EditText;
 
-    iget-object v0, p0, Lcom/s1243808733/util/EscapeUtils$3;->this$0:Lcom/s1243808733/util/EscapeUtils;
+    iget-object v1, p0, Lcom/s1243808733/util/EscapeUtils$3;->this$0:Lcom/s1243808733/util/EscapeUtils;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/s1243808733/util/EscapeUtils;->unEscapeText(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/s1243808733/util/EscapeUtils;->unEscapeText(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     return-void
 .end method

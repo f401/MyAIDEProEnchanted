@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener$FileNameFilter;)V
-    .registers 2
+    .locals 0
 
     .line 1151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener$FileNameFilter;Lcom/s1243808733/android/dx/command/dexer/Main$NotFilter-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dx/command/dexer/Main$NotFilter;-><init>(Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener$FileNameFilter;)V
 
@@ -45,16 +45,16 @@
 
 # virtual methods
 .method public accept(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
 
     .line 1157
     iget-object v0, p0, Lcom/s1243808733/android/dx/command/dexer/Main$NotFilter;->filter:Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener$FileNameFilter;
 
     invoke-interface {v0, p1}, Lcom/s1243808733/android/dx/cf/direct/ClassPathOpener$FileNameFilter;->accept(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    xor-int/lit8 p1, p1, 0x1
+    xor-int/lit8 v0, v0, 0x1
 
-    return p1
+    return v0
 .end method

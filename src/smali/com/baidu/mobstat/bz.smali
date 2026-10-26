@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/baidu/mobstat/bz$a;,
         Lcom/baidu/mobstat/bz$b;
     }
 .end annotation
@@ -19,13 +20,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     return-void
 .end method
 
 .method public static a(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
 
     .line 29
     const/4 v0, 0x1
@@ -43,7 +44,7 @@
 .end method
 
 .method public static a(Z)V
-    .registers 2
+    .locals 1
 
     .line 38
     invoke-static {}, Lcom/baidu/mobstat/ch;->a()Lcom/baidu/mobstat/ch;
@@ -56,7 +57,7 @@
 .end method
 
 .method public static a()Z
-    .registers 1
+    .locals 1
 
     .line 21
     sget-boolean v0, Lcom/baidu/mobstat/bz;->b:Z
@@ -65,7 +66,7 @@
 .end method
 
 .method public static b()Z
-    .registers 1
+    .locals 1
 
     .line 50
     sget-boolean v0, Lcom/baidu/mobstat/bz;->a:Z
@@ -74,7 +75,7 @@
 .end method
 
 .method public static c()Lorg/json/JSONArray;
-    .registers 1
+    .locals 1
 
     .line 61
     invoke-static {}, Lcom/baidu/mobstat/ch;->a()Lcom/baidu/mobstat/ch;

@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 23
     :try_start_0
@@ -23,20 +23,20 @@
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/baidu/mobstat/NativeCrashHandler;->a:Z
-    :try_end_8
-    .catchall {:try_start_0 .. :try_end_8} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_a
+    :goto_0
+    return-void
 
-    :catchall_9
+    :catchall_0
     move-exception v0
 
-    :goto_a
-    return-void
+    goto :goto_0
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,81 +45,82 @@
 .end method
 
 .method public static doNativeCrash()V
-    .registers 1
+    .locals 1
 
     .line 34
     sget-boolean v0, Lcom/baidu/mobstat/NativeCrashHandler;->a:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 36
-    :try_start_4
+    :try_start_0
     invoke-static {}, Lcom/baidu/mobstat/NativeCrashHandler;->nativeException()V
-    :try_end_7
-    .catchall {:try_start_4 .. :try_end_7} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_9
+    :cond_0
+    :goto_0
+    return-void
 
-    :catchall_8
+    :catchall_0
     move-exception v0
 
-    :cond_9
-    :goto_9
-    return-void
+    goto :goto_0
 .end method
 
 .method public static init(Landroid/content/Context;)V
-    .registers 2
+    .locals 2
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_1
 
+    .line 55
+    :cond_0
+    :goto_0
     return-void
 
     .line 48
-    :cond_3
+    :cond_1
     sput-object p0, Lcom/baidu/mobstat/NativeCrashHandler;->b:Landroid/content/Context;
 
     .line 50
     sget-boolean v0, Lcom/baidu/mobstat/NativeCrashHandler;->a:Z
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     .line 51
     invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 53
-    invoke-virtual {p0}, Ljava/io/File;->exists()Z
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_22
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p0}, Ljava/io/File;->isDirectory()Z
+    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_22
+    if-eqz v1, :cond_0
 
     .line 55
-    :try_start_19
-    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    :try_start_0
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/baidu/mobstat/NativeCrashHandler;->nativeInit(Ljava/lang/String;)V
-    :try_end_20
-    .catchall {:try_start_19 .. :try_end_20} :catchall_21
+    invoke-static {v0}, Lcom/baidu/mobstat/NativeCrashHandler;->nativeInit(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_22
+    goto :goto_0
 
-    :catchall_21
-    move-exception p0
+    :catchall_0
+    move-exception v0
 
-    :cond_22
-    :goto_22
-    return-void
+    goto :goto_0
 .end method
 
 .method private static native nativeException()V
@@ -135,7 +136,7 @@
 .end method
 
 .method public static onCrashCallbackFromNative(Ljava/lang/String;)V
-    .registers 9
+    .locals 8
 
     .line 95
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -163,24 +164,27 @@
 .end method
 
 .method public static process(Ljava/lang/String;)V
-    .registers 3
+    .locals 2
 
-    if-eqz p0, :cond_23
+    if-eqz p0, :cond_0
 
     .line 74
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_1
 
-    goto :goto_23
+    .line 83
+    :cond_0
+    :goto_0
+    return-void
 
     .line 78
-    :cond_9
+    :cond_1
     sget-boolean v0, Lcom/baidu/mobstat/NativeCrashHandler;->a:Z
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 79
     new-instance v0, Ljava/io/File;
@@ -192,50 +196,48 @@
 
     move-result v1
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_0
 
     invoke-virtual {v0}, Ljava/io/File;->isFile()Z
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 83
-    :try_start_1e
+    :try_start_0
     invoke-static {p0}, Lcom/baidu/mobstat/NativeCrashHandler;->nativeProcess(Ljava/lang/String;)V
-    :try_end_21
-    .catchall {:try_start_1e .. :try_end_21} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_23
+    goto :goto_0
 
-    :catchall_22
-    move-exception p0
+    :catchall_0
+    move-exception v0
 
-    :cond_23
-    :goto_23
-    return-void
+    goto :goto_0
 .end method
 
 .method public static uninit()V
-    .registers 1
+    .locals 1
 
     .line 64
     sget-boolean v0, Lcom/baidu/mobstat/NativeCrashHandler;->a:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 66
-    :try_start_4
+    :try_start_0
     invoke-static {}, Lcom/baidu/mobstat/NativeCrashHandler;->nativeUnint()V
-    :try_end_7
-    .catchall {:try_start_4 .. :try_end_7} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_9
+    :cond_0
+    :goto_0
+    return-void
 
-    :catchall_8
+    :catchall_0
     move-exception v0
 
-    :cond_9
-    :goto_9
-    return-void
+    goto :goto_0
 .end method

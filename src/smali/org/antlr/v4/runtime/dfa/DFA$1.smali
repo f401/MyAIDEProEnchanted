@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Lorg/antlr/v4/runtime/dfa/DFAState;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/antlr/v4/runtime/dfa/DFA;)V
-    .registers 2
+    .locals 0
 
     .line 163
     iput-object p1, p0, Lorg/antlr/v4/runtime/dfa/DFA$1;->this$0:Lorg/antlr/v4/runtime/dfa/DFA;
@@ -45,7 +46,7 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 163
     check-cast p1, Lorg/antlr/v4/runtime/dfa/DFAState;
@@ -54,20 +55,20 @@
 
     invoke-virtual {p0, p1, p2}, Lorg/antlr/v4/runtime/dfa/DFA$1;->compare(Lorg/antlr/v4/runtime/dfa/DFAState;Lorg/antlr/v4/runtime/dfa/DFAState;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public compare(Lorg/antlr/v4/runtime/dfa/DFAState;Lorg/antlr/v4/runtime/dfa/DFAState;)I
-    .registers 3
+    .locals 2
 
     .line 166
-    iget p1, p1, Lorg/antlr/v4/runtime/dfa/DFAState;->stateNumber:I
+    iget v0, p1, Lorg/antlr/v4/runtime/dfa/DFAState;->stateNumber:I
 
-    iget p2, p2, Lorg/antlr/v4/runtime/dfa/DFAState;->stateNumber:I
+    iget v1, p2, Lorg/antlr/v4/runtime/dfa/DFAState;->stateNumber:I
 
-    sub-int/2addr p1, p2
+    sub-int/2addr v0, v1
 
-    return p1
+    return v0
 .end method

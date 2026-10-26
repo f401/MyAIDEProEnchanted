@@ -11,42 +11,42 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 3
 
     .line 28
     invoke-direct {p0, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     .line 13
-    new-instance p1, Landroid/graphics/Paint;
+    new-instance v0, Landroid/graphics/Paint;
 
-    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object p1, p0, Lcom/baidu/mobstat/ca;->a:Landroid/graphics/Paint;
+    iput-object v0, p0, Lcom/baidu/mobstat/ca;->a:Landroid/graphics/Paint;
 
     .line 15
-    new-instance p1, Landroid/graphics/PaintFlagsDrawFilter;
+    new-instance v0, Landroid/graphics/PaintFlagsDrawFilter;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    invoke-direct {p1, v0, v1}, Landroid/graphics/PaintFlagsDrawFilter;-><init>(II)V
+    invoke-direct {v0, v1, v2}, Landroid/graphics/PaintFlagsDrawFilter;-><init>(II)V
 
-    iput-object p1, p0, Lcom/baidu/mobstat/ca;->b:Landroid/graphics/PaintFlagsDrawFilter;
+    iput-object v0, p0, Lcom/baidu/mobstat/ca;->b:Landroid/graphics/PaintFlagsDrawFilter;
 
     .line 29
-    iget-object p1, p0, Lcom/baidu/mobstat/ca;->a:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/baidu/mobstat/ca;->a:Landroid/graphics/Paint;
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 30
-    iget-object p1, p0, Lcom/baidu/mobstat/ca;->a:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/baidu/mobstat/ca;->a:Landroid/graphics/Paint;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     return-void
 .end method
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 6
+    .locals 4
 
     .line 59
     iget-object v0, p0, Lcom/baidu/mobstat/ca;->b:Landroid/graphics/PaintFlagsDrawFilter;
@@ -105,7 +105,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .registers 3
+    .locals 2
 
     .line 36
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->onMeasure(II)V
@@ -113,26 +113,26 @@
     .line 37
     invoke-virtual {p0}, Lcom/baidu/mobstat/ca;->getMeasuredWidth()I
 
-    move-result p1
+    move-result v0
 
     .line 38
     invoke-virtual {p0}, Lcom/baidu/mobstat/ca;->getMeasuredHeight()I
 
-    move-result p2
+    move-result v1
 
     .line 39
-    invoke-static {p1, p2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result p1
+    move-result v0
 
     .line 40
-    invoke-virtual {p0, p1, p1}, Lcom/baidu/mobstat/ca;->setMeasuredDimension(II)V
+    invoke-virtual {p0, v0, v0}, Lcom/baidu/mobstat/ca;->setMeasuredDimension(II)V
 
     return-void
 .end method
 
 .method public setBackgroundColor(I)V
-    .registers 3
+    .locals 1
 
     .line 45
     iget-object v0, p0, Lcom/baidu/mobstat/ca;->a:Landroid/graphics/Paint;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
 
     .line 671
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/io/instructions/InstructionCodec$32-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec$32;-><init>(Ljava/lang/String;I)V
 
@@ -37,12 +37,18 @@
 
 # virtual methods
 .method public decode(ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 12
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
         }
     .end annotation
+
+    const/4 v10, 0x5
+
+    const/4 v12, 0x1
+
+    const/4 v11, 0x0
 
     .line 675
     invoke-static {p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smbyte0(I)I
@@ -51,7 +57,7 @@
 
     const/16 v0, 0xfa
 
-    if-ne v2, v0, :cond_62
+    if-ne v2, v0, :cond_1
 
     .line 681
     invoke-static {p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble2(I)I
@@ -61,7 +67,7 @@
     .line 682
     invoke-static {p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble3(I)I
 
-    move-result p1
+    move-result v1
 
     .line 683
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->read()I
@@ -71,114 +77,113 @@
     .line 684
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->read()I
 
-    move-result v1
-
-    .line 685
-    invoke-static {v1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble0(I)I
-
     move-result v4
 
-    .line 686
-    invoke-static {v1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble1(I)I
-
-    move-result v5
-
-    .line 687
-    invoke-static {v1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble2(I)I
+    .line 685
+    invoke-static {v4}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble0(I)I
 
     move-result v6
 
-    .line 688
-    invoke-static {v1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble3(I)I
+    .line 686
+    invoke-static {v4}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble1(I)I
 
-    move-result v1
+    move-result v7
+
+    .line 687
+    invoke-static {v4}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble2(I)I
+
+    move-result v8
+
+    .line 688
+    invoke-static {v4}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->-$$Nest$smnibble3(I)I
+
+    move-result v9
 
     .line 689
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->read()I
 
-    move-result p2
+    move-result v5
 
     .line 690
     invoke-static {v2}, Lcom/s1243808733/android/dx/io/OpcodeInfo;->getIndexType(I)Lcom/s1243808733/android/dx/io/IndexType;
 
-    move-result-object v7
+    move-result-object v4
 
-    const/4 v8, 0x1
+    if-lt v1, v12, :cond_0
 
-    if-lt p1, v8, :cond_4a
-
-    const/4 v8, 0x5
-
-    if-gt p1, v8, :cond_4a
+    if-gt v1, v10, :cond_0
 
     .line 695
-    nop
+    new-array v10, v10, [I
 
-    .line 696
-    filled-new-array {v4, v5, v6, v1, v0}, [I
+    aput v6, v10, v11
 
-    move-result-object v0
+    aput v7, v10, v12
 
-    const/4 v1, 0x0
+    const/4 v6, 0x2
 
-    invoke-static {v0, v1, p1}, Ljava/util/Arrays;->copyOfRange([III)[I
+    aput v8, v10, v6
+
+    const/4 v6, 0x3
+
+    aput v9, v10, v6
+
+    const/4 v6, 0x4
+
+    aput v0, v10, v6
+
+    invoke-static {v10, v11, v1}, Ljava/util/Arrays;->copyOfRange([III)[I
 
     move-result-object v6
 
     .line 698
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;
-
-    move-object v0, p1
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;
 
     move-object v1, p0
 
-    move-object v4, v7
-
-    move v5, p2
-
     invoke-direct/range {v0 .. v6}, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;I[I)V
 
-    return-object p1
+    return-object v0
 
     .line 693
-    :cond_4a
-    new-instance p2, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v0, "bogus registerCount: "
+    const-string v2, "bogus registerCount: "
 
-    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-static {p1}, Lcom/s1243808733/android/dx/util/Hex;->uNibble(I)Ljava/lang/String;
+    invoke-static {v1}, Lcom/s1243808733/android/dx/util/Hex;->uNibble(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Lcom/s1243808733/android/dex/DexException;
+    new-instance v1, Lcom/s1243808733/android/dex/DexException;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v0
 
-    invoke-direct {p1, p2}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 
     .line 679
-    :cond_62
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :cond_1
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public encode(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 9
+    .locals 6
 
     .line 704
     check-cast p1, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;
@@ -235,10 +240,10 @@
     .line 710
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/io/instructions/InvokePolymorphicDecodedInstruction;->getProtoIndex()S
 
-    move-result p1
+    move-result v3
 
     .line 706
-    invoke-interface {p2, v0, v1, v2, p1}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSSS)V
+    invoke-interface {p2, v0, v1, v2, v3}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSSS)V
 
     return-void
 .end method

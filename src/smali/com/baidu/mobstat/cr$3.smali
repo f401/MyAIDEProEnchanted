@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/cr;Lorg/json/JSONObject;)V
-    .registers 3
+    .locals 0
 
     .line 376
     iput-object p1, p0, Lcom/baidu/mobstat/cr$3;->b:Lcom/baidu/mobstat/cr;
@@ -40,23 +40,25 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 380
     iget-object v0, p0, Lcom/baidu/mobstat/cr$3;->a:Lorg/json/JSONObject;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Lorg/json/JSONObject;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_b
-
-    goto :goto_1a
+    if-nez v0, :cond_1
 
     .line 386
-    :cond_b
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/baidu/mobstat/cr$3;->b:Lcom/baidu/mobstat/cr;
 
     invoke-static {v0}, Lcom/baidu/mobstat/cr;->a(Lcom/baidu/mobstat/cr;)Lorg/json/JSONArray;
@@ -71,7 +73,5 @@
 
     invoke-static {v0, v1}, Lcom/baidu/mobstat/cr;->a(Lcom/baidu/mobstat/cr;Lorg/json/JSONArray;)Lorg/json/JSONArray;
 
-    :cond_1a
-    :goto_1a
-    return-void
+    goto :goto_0
 .end method

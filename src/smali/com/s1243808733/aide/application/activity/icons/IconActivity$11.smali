@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Landroid/app/AlertDialog;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,36 +45,36 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
 
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 2
 
     .line 500
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$11;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$11;->val$dialog:Landroid/app/AlertDialog;
 
-    const/4 p3, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {p2, p3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
-    move-result-object p2
+    move-result-object v0
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p1
+    move-result v1
 
-    xor-int/lit8 p1, p1, 0x1
+    xor-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {p2, p1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
     return-void
 .end method

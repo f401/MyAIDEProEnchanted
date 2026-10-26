@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lc/f;)V
-    .registers 2
+    .locals 0
 
     invoke-direct {p0, p1}, Lc/v;-><init>(Lc/f;)V
 
@@ -15,7 +15,9 @@
 
 # virtual methods
 .method public final e(Lc/q;)V
-    .registers 4
+    .locals 3
+
+    const/4 v2, 0x0
 
     const/16 v0, 0x31
 
@@ -27,71 +29,73 @@
 
     invoke-virtual {p0}, Lc/v;->o()Ljava/util/Enumeration;
 
-    move-result-object v0
-
-    :goto_e
-    invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1e
-
-    invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lc/e;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    invoke-virtual {p1, v1}, Lc/q;->j(Lc/e;)V
+    move-result v0
 
-    goto :goto_e
+    if-eqz v0, :cond_0
 
-    :cond_1e
-    const/4 v0, 0x0
+    invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
-    invoke-virtual {p1, v0}, Lc/q;->d(I)V
+    move-result-object v0
 
-    invoke-virtual {p1, v0}, Lc/q;->d(I)V
+    check-cast v0, Lc/e;
+
+    invoke-virtual {p1, v0}, Lc/q;->j(Lc/e;)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1, v2}, Lc/q;->d(I)V
+
+    invoke-virtual {p1, v2}, Lc/q;->d(I)V
 
     return-void
 .end method
 
 .method public final f()I
-    .registers 4
+    .locals 3
 
     invoke-virtual {p0}, Lc/v;->o()Ljava/util/Enumeration;
 
+    move-result-object v2
+
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Enumeration;->hasMoreElements()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+
     move-result-object v0
 
-    const/4 v1, 0x0
+    check-cast v0, Lc/e;
 
-    :goto_5
-    invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
+    invoke-interface {v0}, Lc/e;->l()Lc/s;
 
-    move-result v2
+    move-result-object v0
 
-    if-eqz v2, :cond_1b
+    invoke-virtual {v0}, Lc/s;->f()I
 
-    invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+    move-result v0
 
-    move-result-object v2
+    add-int/2addr v0, v1
 
-    check-cast v2, Lc/e;
+    move v1, v0
 
-    invoke-interface {v2}, Lc/e;->l()Lc/s;
+    goto :goto_0
 
-    move-result-object v2
+    :cond_0
+    add-int/lit8 v0, v1, 0x4
 
-    invoke-virtual {v2}, Lc/s;->f()I
-
-    move-result v2
-
-    add-int/2addr v1, v2
-
-    goto :goto_5
-
-    :cond_1b
-    add-int/lit8 v1, v1, 0x4
-
-    return v1
+    return v0
 .end method

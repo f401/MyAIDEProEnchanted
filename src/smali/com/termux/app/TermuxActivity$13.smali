@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/app/TermuxActivity;Lcom/termux/terminal/TerminalSession;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onTextSet(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
 
     .line 816
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$13;->val$sessionToRename:Lcom/termux/terminal/TerminalSession;
@@ -53,11 +53,11 @@
     iput-object p1, v0, Lcom/termux/terminal/TerminalSession;->mSessionName:Ljava/lang/String;
 
     .line 817
-    iget-object p1, p0, Lcom/termux/app/TermuxActivity$13;->this$0:Lcom/termux/app/TermuxActivity;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$13;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iget-object p1, p1, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
+    iget-object v0, v0, Lcom/termux/app/TermuxActivity;->mListViewAdapter:Landroid/widget/ArrayAdapter;
 
-    invoke-virtual {p1}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method

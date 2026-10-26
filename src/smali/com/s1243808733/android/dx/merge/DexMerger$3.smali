@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger<",
+        "Lcom/s1243808733/android/dx/merge/DexMerger$IdMerger",
+        "<",
         "Lcom/s1243808733/android/dex/TypeList;",
         ">;"
     }
@@ -28,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/merge/DexMerger;Lcom/s1243808733/android/dex/Dex$Section;)V
-    .registers 3
+    .locals 0
 
     .line 438
     iput-object p1, p0, Lcom/s1243808733/android/dx/merge/DexMerger$3;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
@@ -41,61 +42,61 @@
 
 # virtual methods
 .method getSection(Lcom/s1243808733/android/dex/TableOfContents;)Lcom/s1243808733/android/dex/TableOfContents$Section;
-    .registers 2
+    .locals 1
 
     .line 440
-    iget-object p1, p1, Lcom/s1243808733/android/dex/TableOfContents;->typeLists:Lcom/s1243808733/android/dex/TableOfContents$Section;
+    iget-object v0, p1, Lcom/s1243808733/android/dex/TableOfContents;->typeLists:Lcom/s1243808733/android/dex/TableOfContents$Section;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Lcom/s1243808733/android/dex/TypeList;
-    .registers 4
+    .locals 1
 
     .line 444
     invoke-virtual {p1}, Lcom/s1243808733/android/dex/Dex$Section;->readTypeList()Lcom/s1243808733/android/dex/TypeList;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p2, p1}, Lcom/s1243808733/android/dx/merge/IndexMap;->adjustTypeList(Lcom/s1243808733/android/dex/TypeList;)Lcom/s1243808733/android/dex/TypeList;
+    invoke-virtual {p2, v0}, Lcom/s1243808733/android/dx/merge/IndexMap;->adjustTypeList(Lcom/s1243808733/android/dex/TypeList;)Lcom/s1243808733/android/dex/TypeList;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method bridge synthetic read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Ljava/lang/Comparable;
-    .registers 4
+    .locals 1
 
     .line 438
     invoke-virtual {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/merge/DexMerger$3;->read(Lcom/s1243808733/android/dex/Dex$Section;Lcom/s1243808733/android/dx/merge/IndexMap;I)Lcom/s1243808733/android/dex/TypeList;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method updateIndex(ILcom/s1243808733/android/dx/merge/IndexMap;II)V
-    .registers 5
+    .locals 1
 
     .line 448
-    iget-object p3, p0, Lcom/s1243808733/android/dx/merge/DexMerger$3;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
+    iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$3;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
 
-    invoke-static {p3}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgettypeListOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/Dex$Section;
+    invoke-static {v0}, Lcom/s1243808733/android/dx/merge/DexMerger;->-$$Nest$fgettypeListOut(Lcom/s1243808733/android/dx/merge/DexMerger;)Lcom/s1243808733/android/dex/Dex$Section;
 
-    move-result-object p3
+    move-result-object v0
 
-    invoke-virtual {p3}, Lcom/s1243808733/android/dex/Dex$Section;->getPosition()I
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex$Section;->getPosition()I
 
-    move-result p3
+    move-result v0
 
-    invoke-virtual {p2, p1, p3}, Lcom/s1243808733/android/dx/merge/IndexMap;->putTypeListOffset(II)V
+    invoke-virtual {p2, p1, v0}, Lcom/s1243808733/android/dx/merge/IndexMap;->putTypeListOffset(II)V
 
     return-void
 .end method
 
 .method write(Lcom/s1243808733/android/dex/TypeList;)V
-    .registers 3
+    .locals 1
 
     .line 452
     iget-object v0, p0, Lcom/s1243808733/android/dx/merge/DexMerger$3;->this$0:Lcom/s1243808733/android/dx/merge/DexMerger;
@@ -110,7 +111,7 @@
 .end method
 
 .method bridge synthetic write(Ljava/lang/Comparable;)V
-    .registers 2
+    .locals 0
 
     .line 438
     check-cast p1, Lcom/s1243808733/android/dex/TypeList;

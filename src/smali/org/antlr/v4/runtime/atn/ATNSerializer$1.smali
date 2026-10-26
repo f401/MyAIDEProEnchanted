@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/antlr/v4/runtime/atn/ATNSerializer;)V
-    .registers 2
+    .locals 0
 
     .line 179
     iput-object p1, p0, Lorg/antlr/v4/runtime/atn/ATNSerializer$1;->this$0:Lorg/antlr/v4/runtime/atn/ATNSerializer;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public serializeCodePoint(Lorg/antlr/v4/runtime/misc/IntegerList;I)V
-    .registers 3
+    .locals 0
 
     .line 182
     invoke-virtual {p1, p2}, Lorg/antlr/v4/runtime/misc/IntegerList;->add(I)V

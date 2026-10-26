@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/project/ProjectDialog$2;Landroid/widget/EditText;Landroid/app/AlertDialog;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,39 +49,59 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 8
+    .locals 7
+
+    const/4 v6, 0x0
 
     .line 131
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$2$1;->val$input:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$2$1;->val$input:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 132
-    invoke-static {p1}, Lcom/blankj/utilcode/util/FileUtils;->getFileByPath(Ljava/lang/String;)Ljava/io/File;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    if-eqz v0, :cond_57
+    move-result-object v2
+
+    .line 132
+    invoke-static {v2}, Lcom/blankj/utilcode/util/FileUtils;->getFileByPath(Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
 
     .line 133
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_1
 
-    goto :goto_57
+    .line 134
+    :cond_0
+    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "\u65e0\u6548\u8def\u5f84"
+
+    :goto_0
+    invoke-static {v0, v6}, Lcom/s1243808733/util/Toasty;->warning(Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    .line 135
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    .line 168
+    :goto_1
+    return-void
 
     .line 138
-    :cond_18
+    :cond_1
     iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$2$1;->val$dialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->cancel()V
@@ -89,83 +109,63 @@
     .line 139
     iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$2$1;->this$0:Lcom/s1243808733/aide/project/ProjectDialog$2;
 
-    iget-object v0, v0, Lcom/s1243808733/aide/project/ProjectDialog$2;->val$activity:Landroid/app/Activity;
+    iget-object v3, v0, Lcom/s1243808733/aide/project/ProjectDialog$2;->val$activity:Landroid/app/Activity;
 
-    const-string v2, "正在导入项目"
+    const-string v0, "\u6b63\u5728\u5bfc\u5165\u9879\u76ee"
 
-    const-string v3, "Importing project"
+    const-string v1, "Importing project"
 
-    invoke-static {v2, v3}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/CharSequence;
+    check-cast v0, Ljava/lang/CharSequence;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "当前导入的项目: "
+    const-string v1, "\u5f53\u524d\u5bfc\u5165\u7684\u9879\u76ee: "
 
     const-string v5, "Currently Imported Project: "
 
-    invoke-static {v4, v5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1, v5}, Lcom/s1243808733/util/Utils;->zhOrEn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
     const/4 v4, 0x1
 
-    invoke-static {v0, v2, v3, v4, v1}, Landroid/app/ProgressDialog;->show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZZ)Landroid/app/ProgressDialog;
+    invoke-static {v3, v0, v1, v4, v6}, Landroid/app/ProgressDialog;->show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZZ)Landroid/app/ProgressDialog;
 
     move-result-object v0
 
     .line 140
     new-instance v1, Ljava/lang/Thread;
 
-    new-instance v2, Lcom/s1243808733/aide/project/ProjectDialog$2$1$1;
+    new-instance v3, Lcom/s1243808733/aide/project/ProjectDialog$2$1$1;
 
-    invoke-direct {v2, p0, p1, v0}, Lcom/s1243808733/aide/project/ProjectDialog$2$1$1;-><init>(Lcom/s1243808733/aide/project/ProjectDialog$2$1;Ljava/lang/String;Landroid/app/ProgressDialog;)V
+    invoke-direct {v3, p0, v2, v0}, Lcom/s1243808733/aide/project/ProjectDialog$2$1$1;-><init>(Lcom/s1243808733/aide/project/ProjectDialog$2$1;Ljava/lang/String;Landroid/app/ProgressDialog;)V
 
-    invoke-direct {v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v1, v3}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
     .line 168
     invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
-    return-void
+    goto :goto_1
 
     .line 134
-    :cond_57
-    :goto_57
-    invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+    :cond_2
+    const-string v0, "Invalid path"
 
-    move-result p1
-
-    if-eqz p1, :cond_60
-
-    const-string p1, "无效路径"
-
-    goto :goto_62
-
-    :cond_60
-    const-string p1, "Invalid path"
-
-    :goto_62
-    invoke-static {p1, v1}, Lcom/s1243808733/util/Toasty;->warning(Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object p1
-
-    .line 135
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
-
-    return-void
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,12 +41,12 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 6
+    .locals 5
+
+    const/4 v4, 0x0
 
     .line 1100
-    const/4 p1, 0x0
-
-    :try_start_1
+    :try_start_0
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->saveFiles()V
 
     .line 1101
@@ -67,7 +67,9 @@
 
     sget-object v2, Lcom/google/common/base/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    new-array v3, p1, [Lcom/google/common/io/FileWriteMode;
+    const/4 v3, 0x0
+
+    new-array v3, v3, [Lcom/google/common/io/FileWriteMode;
 
     invoke-static {v1, v2, v3}, Lcom/google/common/io/Files;->asCharSink(Ljava/io/File;Ljava/nio/charset/Charset;[Lcom/google/common/io/FileWriteMode;)Lcom/google/common/io/CharSink;
 
@@ -106,12 +108,15 @@
     move-result-object v1
 
     invoke-virtual {v1, v0}, Lcom/aide/ui/MainActivity;->j6(Labcd/Tl;)V
-    :try_end_3d
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_3d} :catch_3e
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_44
+    .line 1110
+    :goto_0
+    return v4
 
-    :catch_3e
+    .line 1107
+    :catch_0
     move-exception v0
 
     .line 1110
@@ -119,6 +124,5 @@
 
     invoke-static {v1, v0}, Lcom/s1243808733/util/Utils;->showExDialog(Landroid/content/Context;Ljava/lang/Throwable;)V
 
-    :goto_44
-    return p1
+    goto :goto_0
 .end method

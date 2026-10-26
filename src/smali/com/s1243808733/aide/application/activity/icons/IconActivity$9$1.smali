@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;)V
-    .registers 2
+    .locals 0
 
     .line 427
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onColorChanged(I)V
-    .registers 3
+    .locals 1
 
     .line 431
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$9$1;->this$1:Lcom/s1243808733/aide/application/activity/icons/IconActivity$9;

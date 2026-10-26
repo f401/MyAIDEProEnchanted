@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Ljava/lang/ref/WeakReference;ZLandroid/content/Context;)V
-    .registers 5
+    .locals 0
 
     .line 351
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$2;->d:Lcom/baidu/mobstat/BDStatCore;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 9
+    .locals 7
 
     .line 355
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$2;->a:Ljava/lang/ref/WeakReference;
@@ -59,39 +59,39 @@
 
     check-cast v0, Landroid/app/Activity;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_1
 
+    .line 376
+    :cond_0
+    :goto_0
     return-void
 
     .line 360
-    :cond_b
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    if-nez v1, :cond_12
-
-    return-void
+    if-eqz v1, :cond_0
 
     .line 365
-    :cond_12
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
     .line 366
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v5
+    move-result-wide v4
 
     .line 369
     iget-boolean v0, p0, Lcom/baidu/mobstat/BDStatCore$2;->b:Z
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2
 
     .line 370
     invoke-static {}, Lcom/baidu/mobstat/cr;->a()Lcom/baidu/mobstat/cr;
@@ -100,13 +100,13 @@
 
     iget-object v2, p0, Lcom/baidu/mobstat/BDStatCore$2;->c:Landroid/content/Context;
 
-    invoke-virtual {v0, v2, v4}, Lcom/baidu/mobstat/cr;->a(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, v3}, Lcom/baidu/mobstat/cr;->a(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 373
-    :cond_2b
+    :cond_2
     iget-boolean v0, p0, Lcom/baidu/mobstat/BDStatCore$2;->b:Z
 
-    if-nez v0, :cond_48
+    if-nez v0, :cond_3
 
     .line 374
     invoke-static {}, Lcom/baidu/mobstat/cx;->c()Lcom/baidu/mobstat/cx;
@@ -115,9 +115,9 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v3, "Start page view "
+    const-string v6, "Start page view "
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
@@ -132,18 +132,18 @@
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/cx;->a(Ljava/lang/String;)V
 
     .line 376
-    :cond_48
+    :cond_3
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$2;->d:Lcom/baidu/mobstat/BDStatCore;
 
     invoke-static {v0}, Lcom/baidu/mobstat/BDStatCore;->b(Lcom/baidu/mobstat/BDStatCore;)Lcom/baidu/mobstat/SessionAnalysis;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-object v3, p0, Lcom/baidu/mobstat/BDStatCore$2;->c:Landroid/content/Context;
+    iget-object v2, p0, Lcom/baidu/mobstat/BDStatCore$2;->c:Landroid/content/Context;
 
-    iget-boolean v7, p0, Lcom/baidu/mobstat/BDStatCore$2;->b:Z
+    iget-boolean v6, p0, Lcom/baidu/mobstat/BDStatCore$2;->b:Z
 
-    invoke-virtual/range {v2 .. v7}, Lcom/baidu/mobstat/SessionAnalysis;->onPageStartAct(Landroid/content/Context;Ljava/lang/String;JZ)V
+    invoke-virtual/range {v1 .. v6}, Lcom/baidu/mobstat/SessionAnalysis;->onPageStartAct(Landroid/content/Context;Ljava/lang/String;JZ)V
 
-    return-void
+    goto :goto_0
 .end method

@@ -12,7 +12,8 @@
 .field private b:Ljava/util/TreeMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/TreeMap<",
+            "Ljava/util/TreeMap",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;"
@@ -23,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +44,7 @@
 
 # virtual methods
 .method public a(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
 
     .line 53
     iget-object v0, p0, Lcom/baidu/mobstat/fa;->b:Ljava/util/TreeMap;
@@ -54,32 +55,33 @@
 .end method
 
 .method public b(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
 
     .line 34
     iget-object v0, p0, Lcom/baidu/mobstat/fa;->b:Ljava/util/TreeMap;
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    if-nez p1, :cond_c
+    if-nez v0, :cond_0
 
     .line 36
-    const-string p1, ""
+    const-string v0, ""
 
-    :cond_c
-    return-object p1
+    :cond_0
+    return-object v0
 .end method
 
 .method public b()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Iterator<",
+            "Ljava/util/Iterator",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -104,20 +106,20 @@
 .end method
 
 .method public c(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
 
     .line 58
     iget-object v0, p0, Lcom/baidu/mobstat/fa;->b:Ljava/util/TreeMap;
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public c()[B
-    .registers 2
+    .locals 1
 
     .line 43
     iget-object v0, p0, Lcom/baidu/mobstat/fa;->a:[B

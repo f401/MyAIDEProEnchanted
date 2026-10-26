@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor;
+    value = Lcom/s1243808733/aide/application/activity/androidr/FragmentColor;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,7 +22,15 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor;Landroid/content/Context;)V
-    .registers 5
+    .locals 6
+
+    const/high16 v5, 0x41800000    # 16.0f
+
+    const/high16 v4, 0x41700000    # 15.0f
+
+    const/high16 v3, 0x41200000    # 10.0f
+
+    const/4 v2, 0x0
 
     .line 87
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->this$1:Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor;
@@ -40,87 +48,79 @@
     iput-object v0, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;
 
     .line 89
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->setOrientation(I)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->setOrientation(I)V
 
     .line 91
-    new-instance p1, Landroid/widget/TextView;
+    new-instance v0, Landroid/widget/TextView;
 
-    invoke-direct {p1, p2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     .line 92
-    const v0, 0x1030042
+    const v1, 0x1030042
 
-    invoke-virtual {p1, p2, v0}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    invoke-virtual {v0, p2, v1}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     .line 93
-    const/high16 v0, 0x41700000  # 15.0f
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextSize(F)V
 
     .line 94
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setTextSize(F)V
 
     .line 95
-    const/high16 v0, 0x40a00000  # 5.0f
+    const/high16 v1, 0x40a00000    # 5.0f
 
-    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v1, v1, v1, v0}, Landroid/widget/TextView;->setPadding(IIII)V
-
-    .line 97
-    new-instance v0, Lcom/s1243808733/view/ColorBackgroundTextView;
-
-    invoke-direct {v0, p2}, Lcom/s1243808733/view/ColorBackgroundTextView;-><init>(Landroid/content/Context;)V
-
-    .line 99
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;
-
-    iput-object p1, p2, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;->title:Landroid/widget/TextView;
-
-    .line 100
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;
-
-    iput-object v0, p2, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;->subtitle:Lcom/s1243808733/view/ColorBackgroundTextView;
-
-    .line 102
-    invoke-virtual {p0, p1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->addView(Landroid/view/View;)V
-
-    .line 103
-    invoke-virtual {p0, v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->addView(Landroid/view/View;)V
-
-    .line 105
-    const/16 p1, 0x10
-
-    invoke-virtual {p0, p1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->setGravity(I)V
-
-    .line 106
-    const/high16 p1, 0x41800000  # 16.0f
-
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
-
-    move-result p2
-
-    const/high16 v0, 0x41200000  # 10.0f
-
-    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
 
     move-result v1
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+    invoke-virtual {v0, v2, v2, v2, v1}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    move-result p1
+    .line 97
+    new-instance v1, Lcom/s1243808733/view/ColorBackgroundTextView;
 
-    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+    invoke-direct {v1, p2}, Lcom/s1243808733/view/ColorBackgroundTextView;-><init>(Landroid/content/Context;)V
+
+    .line 99
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;
+
+    iput-object v0, v2, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;->title:Landroid/widget/TextView;
+
+    .line 100
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->holder:Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;
+
+    iput-object v1, v2, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ViewHolder;->subtitle:Lcom/s1243808733/view/ColorBackgroundTextView;
+
+    .line 102
+    invoke-virtual {p0, v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->addView(Landroid/view/View;)V
+
+    .line 103
+    invoke-virtual {p0, v1}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->addView(Landroid/view/View;)V
+
+    .line 105
+    const/16 v0, 0x10
+
+    invoke-virtual {p0, v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->setGravity(I)V
+
+    .line 106
+    invoke-static {v5}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
 
     move-result v0
 
-    invoke-virtual {p0, p2, v1, p1, v0}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->setPadding(IIII)V
+    invoke-static {v3}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+
+    move-result v1
+
+    invoke-static {v5}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+
+    move-result v2
+
+    invoke-static {v3}, Lcom/s1243808733/aide/application/activity/androidr/BaseRFragment;->dp2px(F)I
+
+    move-result v3
+
+    invoke-virtual {p0, v0, v1, v2, v3}, Lcom/s1243808733/aide/application/activity/androidr/FragmentColor$AdapterColor$ItemView;->setPadding(IIII)V
 
     return-void
 .end method

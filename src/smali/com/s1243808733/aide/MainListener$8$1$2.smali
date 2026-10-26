@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/MainListener$8$1;)V
-    .registers 2
+    .locals 0
 
     .line 632
     iput-object p1, p0, Lcom/s1243808733/aide/MainListener$8$1$2;->this$1:Lcom/s1243808733/aide/MainListener$8$1;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .line 636
     iget-object v0, p0, Lcom/s1243808733/aide/MainListener$8$1$2;->this$1:Lcom/s1243808733/aide/MainListener$8$1;
@@ -46,7 +46,7 @@
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->cancel()V
 
     .line 637
-    const-string v0, "备份失败"
+    const-string v0, "\u5907\u4efd\u5931\u8d25"
 
     const-string v1, "Backup failed"
 

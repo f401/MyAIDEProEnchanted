@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/Parser;)V
-    .registers 9
+    .locals 7
 
     .line 29
     invoke-virtual {p1}, Lorg/antlr/v4/runtime/Parser;->getInputStream()Lorg/antlr/v4/runtime/TokenStream;
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Lorg/antlr/v4/runtime/Parser;Lorg/antlr/v4/runtime/TokenStream;Lorg/antlr/v4/runtime/Token;Lorg/antlr/v4/runtime/Token;Lorg/antlr/v4/runtime/atn/ATNConfigSet;Lorg/antlr/v4/runtime/ParserRuleContext;)V
-    .registers 7
+    .locals 0
 
     .line 44
     invoke-direct {p0, p1, p2, p6}, Lorg/antlr/v4/runtime/RecognitionException;-><init>(Lorg/antlr/v4/runtime/Recognizer;Lorg/antlr/v4/runtime/IntStream;Lorg/antlr/v4/runtime/ParserRuleContext;)V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public getDeadEndConfigs()Lorg/antlr/v4/runtime/atn/ATNConfigSet;
-    .registers 2
+    .locals 1
 
     .line 57
     iget-object v0, p0, Lorg/antlr/v4/runtime/NoViableAltException;->deadEndConfigs:Lorg/antlr/v4/runtime/atn/ATNConfigSet;
@@ -69,7 +69,7 @@
 .end method
 
 .method public getStartToken()Lorg/antlr/v4/runtime/Token;
-    .registers 2
+    .locals 1
 
     .line 52
     iget-object v0, p0, Lorg/antlr/v4/runtime/NoViableAltException;->startToken:Lorg/antlr/v4/runtime/Token;

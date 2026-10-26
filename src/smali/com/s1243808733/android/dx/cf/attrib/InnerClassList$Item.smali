@@ -26,12 +26,12 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstString;I)V
-    .registers 5
+    .locals 2
 
     .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     .line 95
     iput-object p1, p0, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList$Item;->innerClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -48,20 +48,20 @@
     return-void
 
     .line 92
-    :cond_e
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "innerClass == null"
+    const-string v1, "innerClass == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public getAccessFlags()I
-    .registers 2
+    .locals 1
 
     .line 134
     iget v0, p0, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList$Item;->accessFlags:I
@@ -70,7 +70,7 @@
 .end method
 
 .method public getInnerClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 107
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList$Item;->innerClass:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -79,7 +79,7 @@
 .end method
 
 .method public getInnerName()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 2
+    .locals 1
 
     .line 125
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList$Item;->innerName:Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -88,7 +88,7 @@
 .end method
 
 .method public getOuterClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 116
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/attrib/InnerClassList$Item;->outerClass:Lcom/s1243808733/android/dx/rop/cst/CstType;

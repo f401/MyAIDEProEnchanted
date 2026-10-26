@@ -16,7 +16,7 @@
 
 # direct methods
 .method public static a(Ljava/io/File;)Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 53
     :try_start_0
@@ -27,24 +27,25 @@
     move-result-object v0
 
     invoke-static {v0, p0}, Lcom/baidu/mobstat/do;->a(Ljava/security/MessageDigest;Ljava/io/File;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object p0
-    :try_end_a
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_a} :catch_b
-
-    return-object p0
+    move-result-object v0
 
     .line 58
-    :catch_b
-    move-exception p0
+    :goto_0
+    return-object v0
 
-    const-string p0, ""
+    :catch_0
+    move-exception v0
 
-    return-object p0
+    const-string v0, ""
+
+    goto :goto_0
 .end method
 
 .method public static a([B)Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 43
     :try_start_0
@@ -55,18 +56,19 @@
     move-result-object v0
 
     invoke-static {v0, p0}, Lcom/baidu/mobstat/do;->a(Ljava/security/MessageDigest;[B)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object p0
-    :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_a} :catch_b
-
-    return-object p0
+    move-result-object v0
 
     .line 48
-    :catch_b
-    move-exception p0
+    :goto_0
+    return-object v0
 
-    const-string p0, ""
+    :catch_0
+    move-exception v0
 
-    return-object p0
+    const-string v0, ""
+
+    goto :goto_0
 .end method

@@ -26,7 +26,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/antlr/v4/runtime/TokenStreamRewriter;I)V
-    .registers 3
+    .locals 0
 
     .line 105
     iput-object p1, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$RewriteOperation;->this$0:Lorg/antlr/v4/runtime/TokenStreamRewriter;
@@ -40,7 +40,7 @@
 .end method
 
 .method protected constructor <init>(Lorg/antlr/v4/runtime/TokenStreamRewriter;ILjava/lang/Object;)V
-    .registers 4
+    .locals 0
 
     .line 109
     iput-object p1, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$RewriteOperation;->this$0:Lorg/antlr/v4/runtime/TokenStreamRewriter;
@@ -59,16 +59,16 @@
 
 # virtual methods
 .method public execute(Ljava/lang/StringBuilder;)I
-    .registers 2
+    .locals 1
 
     .line 117
-    iget p1, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$RewriteOperation;->index:I
+    iget v0, p0, Lorg/antlr/v4/runtime/TokenStreamRewriter$RewriteOperation;->index:I
 
-    return p1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .line 122
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;

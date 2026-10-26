@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$Listener;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,18 +45,18 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 2
 
     .line 146
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$1;->val$listener:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$Listener;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$1;->val$listener:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$Listener;
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$1;->this$0:Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;
 
-    invoke-static {p2}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetselectedList(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Ljava/util/List;
+    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;->-$$Nest$fgetselectedList(Lcom/s1243808733/aide/application/activity/permission/PermissionDialog;)Ljava/util/List;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-interface {p1, p2}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$Listener;->onAdd(Ljava/util/List;)V
+    invoke-interface {v0, v1}, Lcom/s1243808733/aide/application/activity/permission/PermissionDialog$Listener;->onAdd(Ljava/util/List;)V
 
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/voiddog/dragbackactivity/DragBackDelegate;)V
-    .registers 2
+    .locals 0
 
     .line 231
     iput-object p1, p0, Lorg/voiddog/dragbackactivity/DragBackDelegate$3;->this$0:Lorg/voiddog/dragbackactivity/DragBackDelegate;
@@ -36,13 +36,13 @@
 
 # virtual methods
 .method public onCancelDrag()V
-    .registers 1
+    .locals 0
 
     return-void
 .end method
 
 .method public onDragBackEnd()V
-    .registers 2
+    .locals 1
 
     .line 243
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/DragBackDelegate$3;->this$0:Lorg/voiddog/dragbackactivity/DragBackDelegate;
@@ -53,7 +53,7 @@
 .end method
 
 .method public onDragEvent(I)V
-    .registers 3
+    .locals 1
 
     .line 234
     iget-object v0, p0, Lorg/voiddog/dragbackactivity/DragBackDelegate$3;->this$0:Lorg/voiddog/dragbackactivity/DragBackDelegate;

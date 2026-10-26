@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/view/GestureAndScaleRecognizer;)V
-    .registers 2
+    .locals 0
 
     .line 37
     iput-object p1, p0, Lcom/termux/view/GestureAndScaleRecognizer$1;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onDown(Landroid/view/MotionEvent;)Z
-    .registers 4
+    .locals 3
 
     .line 50
     iget-object v0, p0, Lcom/termux/view/GestureAndScaleRecognizer$1;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
@@ -46,32 +46,32 @@
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-result p1
+    move-result v2
 
-    invoke-interface {v0, v1, p1}, Lcom/termux/view/GestureAndScaleRecognizer$Listener;->onDown(FF)Z
+    invoke-interface {v0, v1, v2}, Lcom/termux/view/GestureAndScaleRecognizer$Listener;->onDown(FF)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .registers 5
+    .locals 1
 
     .line 45
-    iget-object p1, p0, Lcom/termux/view/GestureAndScaleRecognizer$1;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
+    iget-object v0, p0, Lcom/termux/view/GestureAndScaleRecognizer$1;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
 
-    iget-object p1, p1, Lcom/termux/view/GestureAndScaleRecognizer;->mListener:Lcom/termux/view/GestureAndScaleRecognizer$Listener;
+    iget-object v0, v0, Lcom/termux/view/GestureAndScaleRecognizer;->mListener:Lcom/termux/view/GestureAndScaleRecognizer$Listener;
 
-    invoke-interface {p1, p2, p3, p4}, Lcom/termux/view/GestureAndScaleRecognizer$Listener;->onFling(Landroid/view/MotionEvent;FF)Z
+    invoke-interface {v0, p2, p3, p4}, Lcom/termux/view/GestureAndScaleRecognizer$Listener;->onFling(Landroid/view/MotionEvent;FF)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
-    .registers 3
+    .locals 2
 
     .line 55
     iget-object v0, p0, Lcom/termux/view/GestureAndScaleRecognizer$1;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
@@ -81,26 +81,26 @@
     invoke-interface {v0, p1}, Lcom/termux/view/GestureAndScaleRecognizer$Listener;->onLongPress(Landroid/view/MotionEvent;)V
 
     .line 56
-    iget-object p1, p0, Lcom/termux/view/GestureAndScaleRecognizer$1;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
+    iget-object v0, p0, Lcom/termux/view/GestureAndScaleRecognizer$1;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p1, Lcom/termux/view/GestureAndScaleRecognizer;->isAfterLongPress:Z
+    iput-boolean v1, v0, Lcom/termux/view/GestureAndScaleRecognizer;->isAfterLongPress:Z
 
     return-void
 .end method
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .registers 5
+    .locals 1
 
     .line 40
-    iget-object p1, p0, Lcom/termux/view/GestureAndScaleRecognizer$1;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
+    iget-object v0, p0, Lcom/termux/view/GestureAndScaleRecognizer$1;->this$0:Lcom/termux/view/GestureAndScaleRecognizer;
 
-    iget-object p1, p1, Lcom/termux/view/GestureAndScaleRecognizer;->mListener:Lcom/termux/view/GestureAndScaleRecognizer$Listener;
+    iget-object v0, v0, Lcom/termux/view/GestureAndScaleRecognizer;->mListener:Lcom/termux/view/GestureAndScaleRecognizer$Listener;
 
-    invoke-interface {p1, p2, p3, p4}, Lcom/termux/view/GestureAndScaleRecognizer$Listener;->onScroll(Landroid/view/MotionEvent;FF)Z
+    invoke-interface {v0, p2, p3, p4}, Lcom/termux/view/GestureAndScaleRecognizer$Listener;->onScroll(Landroid/view/MotionEvent;FF)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

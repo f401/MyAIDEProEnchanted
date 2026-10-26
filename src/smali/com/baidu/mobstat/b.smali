@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 20
     new-instance v0, Lcom/baidu/mobstat/b;
@@ -22,7 +22,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,12 +33,12 @@
 
 # virtual methods
 .method public a(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
 
     monitor-enter p0
 
     .line 28
-    :try_start_1
+    :try_start_0
     invoke-static {p1}, Lcom/baidu/mobstat/ds;->m(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
@@ -48,7 +48,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     .line 30
     sget-object v1, Lcom/baidu/mobstat/k;->a:Lcom/baidu/mobstat/k;
@@ -58,19 +58,19 @@
     move-result-wide v2
 
     invoke-virtual {v1, p1, v2, v3, v0}, Lcom/baidu/mobstat/k;->a(Landroid/content/Context;JLjava/lang/String;)J
-    :try_end_14
-    .catchall {:try_start_1 .. :try_end_14} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 32
-    :cond_14
+    :cond_0
     monitor-exit p0
 
     return-void
 
-    :catchall_16
-    move-exception p1
+    :catchall_0
+    move-exception v0
 
     monitor-exit p0
 
-    throw p1
+    throw v0
 .end method

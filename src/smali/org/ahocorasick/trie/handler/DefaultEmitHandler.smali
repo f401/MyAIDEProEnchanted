@@ -10,7 +10,8 @@
 .field private emits:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/ahocorasick/trie/Emit;",
             ">;"
         }
@@ -20,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +39,7 @@
 
 # virtual methods
 .method public emit(Lorg/ahocorasick/trie/Emit;)V
-    .registers 3
+    .locals 1
 
     .line 14
     iget-object v0, p0, Lorg/ahocorasick/trie/handler/DefaultEmitHandler;->emits:Ljava/util/List;
@@ -49,11 +50,12 @@
 .end method
 
 .method public getEmits()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/ahocorasick/trie/Emit;",
             ">;"
         }

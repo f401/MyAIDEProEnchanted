@@ -1,0 +1,91 @@
+.class Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;
+.super Ljava/lang/Object;
+.source "EnvironmentPreference.java"
+
+# interfaces
+.implements Landroid/view/MenuItem$OnMenuItemClickListener;
+
+
+# instance fields
+.field private final this$0:Lnet/f401/aide/preference/EnvironmentPreference$100000002;
+
+.field private final val$name:Ljava/lang/String;
+
+.field private final val$position:I
+
+
+# direct methods
+.method constructor <init>(Lnet/f401/aide/preference/EnvironmentPreference$100000002;ILjava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;->this$0:Lnet/f401/aide/preference/EnvironmentPreference$100000002;
+
+    iput p2, p0, Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;->val$position:I
+
+    iput-object p3, p0, Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;->val$name:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method static access$0(Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;)Lnet/f401/aide/preference/EnvironmentPreference$100000002;
+    .locals 1
+
+    iget-object v0, p0, Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;->this$0:Lnet/f401/aide/preference/EnvironmentPreference$100000002;
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method public onMenuItemClick(Landroid/view/MenuItem;)Z
+    .locals 4
+    .annotation runtime Ljava/lang/Override;
+    .end annotation
+
+    .line 96
+    iget-object v0, p0, Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;->this$0:Lnet/f401/aide/preference/EnvironmentPreference$100000002;
+
+    invoke-static {v0}, Lnet/f401/aide/preference/EnvironmentPreference$100000002;->access$0(Lnet/f401/aide/preference/EnvironmentPreference$100000002;)Lnet/f401/aide/preference/EnvironmentPreference;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lnet/f401/aide/preference/EnvironmentPreference;->access$L1000000(Lnet/f401/aide/preference/EnvironmentPreference;)Lnet/f401/aide/EnvPreferenceAdapter;
+
+    move-result-object v1
+
+    iget v2, p0, Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;->val$position:I
+
+    sget-object v0, Lnet/f401/aide/FUtils;->DEFAULT_MAP:Landroid/util/ArrayMap;
+
+    iget-object v3, p0, Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;->val$name:Ljava/lang/String;
+
+    invoke-virtual {v0, v3}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-virtual {v1, v2, v0}, Lnet/f401/aide/EnvPreferenceAdapter;->set(ILjava/lang/String;)V
+
+    .line 97
+    iget-object v1, p0, Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;->val$name:Ljava/lang/String;
+
+    sget-object v0, Lnet/f401/aide/FUtils;->DEFAULT_MAP:Landroid/util/ArrayMap;
+
+    iget-object v2, p0, Lnet/f401/aide/preference/EnvironmentPreference$100000002$100000001;->val$name:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {v1, v0}, Lnet/f401/aide/FUtils;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 98
+    const/4 v0, 0x1
+
+    return v0
+.end method

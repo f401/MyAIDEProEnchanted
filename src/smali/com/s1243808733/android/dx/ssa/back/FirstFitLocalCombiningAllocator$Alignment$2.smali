@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
 
     .line 63
     const/4 v0, 0x0
@@ -27,7 +27,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment$2-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment$2;-><init>(Ljava/lang/String;I)V
 
@@ -37,30 +37,30 @@
 
 # virtual methods
 .method nextClearBit(Ljava/util/BitSet;I)I
-    .registers 4
+    .locals 2
 
     .line 66
     invoke-virtual {p1, p2}, Ljava/util/BitSet;->nextClearBit(I)I
 
-    move-result p2
+    move-result v0
 
     .line 67
-    :goto_4
-    invoke-static {p2}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;->-$$Nest$smisEven(I)Z
+    :goto_0
+    invoke-static {v0}, Lcom/s1243808733/android/dx/ssa/back/FirstFitLocalCombiningAllocator;->-$$Nest$smisEven(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 68
+    add-int/lit8 v0, v0, 0x1
+
+    invoke-virtual {p1, v0}, Ljava/util/BitSet;->nextClearBit(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    goto :goto_0
 
-    .line 68
-    add-int/lit8 p2, p2, 0x1
-
-    invoke-virtual {p1, p2}, Ljava/util/BitSet;->nextClearBit(I)I
-
-    move-result p2
-
-    goto :goto_4
-
-    :cond_11
-    return p2
+    :cond_0
+    return v0
 .end method

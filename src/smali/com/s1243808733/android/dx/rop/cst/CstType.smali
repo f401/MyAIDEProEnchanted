@@ -47,7 +47,8 @@
 .field private static final interns:Ljava/util/concurrent/ConcurrentMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/concurrent/ConcurrentMap<",
+            "Ljava/util/concurrent/ConcurrentMap",
+            "<",
             "Lcom/s1243808733/android/dx/rop/type/Type;",
             "Lcom/s1243808733/android/dx/rop/cst/CstType;",
             ">;"
@@ -64,14 +65,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .line 33
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
     const/16 v1, 0x3e8
 
-    const/high16 v2, 0x3f400000  # 0.75f
+    const/high16 v2, 0x3f400000    # 0.75f
 
     invoke-direct {v0, v1, v2}, Ljava/util/concurrent/ConcurrentHashMap;-><init>(IF)V
 
@@ -264,51 +265,51 @@
 .end method
 
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/type/Type;)V
-    .registers 3
+    .locals 2
 
     .line 184
     invoke-direct {p0}, Lcom/s1243808733/android/dx/rop/cst/TypedConstant;-><init>()V
 
-    if-eqz p1, :cond_17
+    if-eqz p1, :cond_1
 
     .line 189
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->KNOWN_NULL:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    if-eq p1, v0, :cond_f
+    if-eq p1, v0, :cond_0
 
     .line 194
     iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
 
     .line 195
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->descriptor:Lcom/s1243808733/android/dx/rop/cst/CstString;
+    iput-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->descriptor:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
     return-void
 
     .line 190
-    :cond_f
-    new-instance p1, Ljava/lang/UnsupportedOperationException;
+    :cond_0
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v0, "KNOWN_NULL is not representable"
+    const-string v1, "KNOWN_NULL is not representable"
 
-    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 186
-    :cond_17
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v0, "type == null"
+    const-string v1, "type == null"
 
-    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public static clearInternTable()V
-    .registers 1
+    .locals 1
 
     .line 295
     sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->interns:Ljava/util/concurrent/ConcurrentMap;
@@ -322,14 +323,14 @@
 .end method
 
 .method public static forBoxedPrimitiveType(Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 3
+    .locals 2
 
     .line 152
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/type/Type;->getBasicType()I
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_36
+    packed-switch v0, :pswitch_data_0
 
     .line 164
     new-instance v0, Ljava/lang/StringBuilder;
@@ -340,86 +341,89 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v1
 
     .line 160
-    :pswitch_1b  #0x8
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->SHORT:Lcom/s1243808733/android/dx/rop/cst/CstType;
-
-    return-object p0
-
-    .line 159
-    :pswitch_1e  #0x7
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->LONG:Lcom/s1243808733/android/dx/rop/cst/CstType;
-
-    return-object p0
-
-    .line 158
-    :pswitch_21  #0x6
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->INTEGER:Lcom/s1243808733/android/dx/rop/cst/CstType;
-
-    return-object p0
-
-    .line 157
-    :pswitch_24  #0x5
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->FLOAT:Lcom/s1243808733/android/dx/rop/cst/CstType;
-
-    return-object p0
-
-    .line 156
-    :pswitch_27  #0x4
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->DOUBLE:Lcom/s1243808733/android/dx/rop/cst/CstType;
-
-    return-object p0
-
-    .line 155
-    :pswitch_2a  #0x3
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->CHARACTER:Lcom/s1243808733/android/dx/rop/cst/CstType;
-
-    return-object p0
-
-    .line 154
-    :pswitch_2d  #0x2
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->BYTE:Lcom/s1243808733/android/dx/rop/cst/CstType;
-
-    return-object p0
-
-    .line 153
-    :pswitch_30  #0x1
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->BOOLEAN:Lcom/s1243808733/android/dx/rop/cst/CstType;
-
-    return-object p0
+    :pswitch_0
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->SHORT:Lcom/s1243808733/android/dx/rop/cst/CstType;
 
     .line 161
-    :pswitch_33  #0x0
-    sget-object p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->VOID:Lcom/s1243808733/android/dx/rop/cst/CstType;
+    :goto_0
+    return-object v0
 
-    return-object p0
+    .line 159
+    :pswitch_1
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->LONG:Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    :pswitch_data_36
+    goto :goto_0
+
+    .line 158
+    :pswitch_2
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->INTEGER:Lcom/s1243808733/android/dx/rop/cst/CstType;
+
+    goto :goto_0
+
+    .line 157
+    :pswitch_3
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->FLOAT:Lcom/s1243808733/android/dx/rop/cst/CstType;
+
+    goto :goto_0
+
+    .line 156
+    :pswitch_4
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->DOUBLE:Lcom/s1243808733/android/dx/rop/cst/CstType;
+
+    goto :goto_0
+
+    .line 155
+    :pswitch_5
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->CHARACTER:Lcom/s1243808733/android/dx/rop/cst/CstType;
+
+    goto :goto_0
+
+    .line 154
+    :pswitch_6
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->BYTE:Lcom/s1243808733/android/dx/rop/cst/CstType;
+
+    goto :goto_0
+
+    .line 153
+    :pswitch_7
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->BOOLEAN:Lcom/s1243808733/android/dx/rop/cst/CstType;
+
+    goto :goto_0
+
+    .line 161
+    :pswitch_8
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->VOID:Lcom/s1243808733/android/dx/rop/cst/CstType;
+
+    goto :goto_0
+
+    .line 152
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_33  #00000000
-        :pswitch_30  #00000001
-        :pswitch_2d  #00000002
-        :pswitch_2a  #00000003
-        :pswitch_27  #00000004
-        :pswitch_24  #00000005
-        :pswitch_21  #00000006
-        :pswitch_1e  #00000007
-        :pswitch_1b  #00000008
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private static initInterns()V
-    .registers 1
+    .locals 1
 
     .line 105
     sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->OBJECT:Lcom/s1243808733/android/dx/rop/cst/CstType;
@@ -520,32 +524,35 @@
 .end method
 
 .method public static intern(Lcom/s1243808733/android/dx/rop/type/Type;)Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 3
+    .locals 2
 
     .line 174
-    new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstType;
+    new-instance v1, Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    invoke-direct {v0, p0}, Lcom/s1243808733/android/dx/rop/cst/CstType;-><init>(Lcom/s1243808733/android/dx/rop/type/Type;)V
+    invoke-direct {v1, p0}, Lcom/s1243808733/android/dx/rop/cst/CstType;-><init>(Lcom/s1243808733/android/dx/rop/type/Type;)V
 
     .line 175
-    sget-object v1, Lcom/s1243808733/android/dx/rop/cst/CstType;->interns:Ljava/util/concurrent/ConcurrentMap;
+    sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->interns:Ljava/util/concurrent/ConcurrentMap;
 
-    invoke-interface {v1, p0, v0}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p0, v1}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/s1243808733/android/dx/rop/cst/CstType;
+    check-cast v0, Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    if-eqz p0, :cond_10
+    if-eqz v0, :cond_0
 
-    move-object v0, p0
-
-    :cond_10
+    :goto_0
     return-object v0
+
+    :cond_0
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 .method private static internInitial(Lcom/s1243808733/android/dx/rop/cst/CstType;)V
-    .registers 3
+    .locals 2
 
     .line 127
     sget-object v0, Lcom/s1243808733/android/dx/rop/cst/CstType;->interns:Ljava/util/concurrent/ConcurrentMap;
@@ -558,12 +565,12 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     return-void
 
     .line 128
-    :cond_d
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "Attempted re-init of "
@@ -572,21 +579,21 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v1
 .end method
 
 
 # virtual methods
 .method protected compareTo0(Lcom/s1243808733/android/dx/rop/cst/Constant;)I
-    .registers 3
+    .locals 2
 
     .line 217
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -598,50 +605,51 @@
     .line 218
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
+    iget-object v1, p1, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/type/Type;->getDescriptor()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/s1243808733/android/dx/rop/type/Type;->getDescriptor()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 219
-    invoke-virtual {v0, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 3
+
+    const/4 v0, 0x0
 
     .line 201
-    instance-of v0, p1, Lcom/s1243808733/android/dx/rop/cst/CstType;
+    instance-of v1, p1, Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_6
-
-    return v1
+    if-nez v1, :cond_1
 
     .line 205
-    :cond_6
-    iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    iget-object v1, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
 
     check-cast p1, Lcom/s1243808733/android/dx/rop/cst/CstType;
 
-    iget-object p1, p1, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
+    iget-object v2, p1, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
 
-    if-ne v0, p1, :cond_f
+    if-ne v1, v2, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_f
-    return v1
+    goto :goto_0
 .end method
 
 .method public getClassType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 260
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -650,12 +658,12 @@
 .end method
 
 .method public getDescriptor()Lcom/s1243808733/android/dx/rop/cst/CstString;
-    .registers 3
+    .locals 2
 
     .line 269
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->descriptor:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 270
     new-instance v0, Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -671,14 +679,16 @@
     iput-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->descriptor:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
     .line 273
-    :cond_11
+    :cond_0
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->descriptor:Lcom/s1243808733/android/dx/rop/cst/CstString;
 
     return-object v0
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .registers 6
+    .locals 5
+
+    const/16 v4, 0x2f
 
     .line 283
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/rop/cst/CstType;->getDescriptor()Lcom/s1243808733/android/dx/rop/cst/CstString;
@@ -690,47 +700,46 @@
     move-result-object v0
 
     .line 284
-    const/16 v1, 0x2f
+    invoke-virtual {v0, v4}, Ljava/lang/String;->lastIndexOf(I)I
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
+    move-result v1
+
+    .line 285
+    const/16 v2, 0x5b
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v2
 
-    .line 285
-    const/16 v3, 0x5b
+    const/4 v3, -0x1
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->lastIndexOf(I)I
-
-    move-result v3
-
-    const/4 v4, -0x1
-
-    if-ne v2, v4, :cond_1a
+    if-ne v1, v3, :cond_0
 
     .line 287
     const-string v0, "default"
 
-    return-object v0
-
     .line 290
-    :cond_1a
-    add-int/lit8 v3, v3, 0x2
-
-    invoke-virtual {v0, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    const/16 v2, 0x2e
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
-
-    move-result-object v0
-
+    :goto_0
     return-object v0
+
+    :cond_0
+    add-int/lit8 v2, v2, 0x2
+
+    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    const/16 v1, 0x2e
+
+    invoke-virtual {v0, v4, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method public getType()Lcom/s1243808733/android/dx/rop/type/Type;
-    .registers 2
+    .locals 1
 
     .line 231
     sget-object v0, Lcom/s1243808733/android/dx/rop/type/Type;->CLASS:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -739,7 +748,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .line 211
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -752,7 +761,7 @@
 .end method
 
 .method public isCategory2()Z
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -760,7 +769,7 @@
 .end method
 
 .method public toHuman()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 249
     iget-object v0, p0, Lcom/s1243808733/android/dx/rop/cst/CstType;->type:Lcom/s1243808733/android/dx/rop/type/Type;
@@ -773,7 +782,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 225
     new-instance v0, Ljava/lang/StringBuilder;
@@ -800,7 +809,7 @@
 .end method
 
 .method public typeName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 237
     const-string v0, "type"

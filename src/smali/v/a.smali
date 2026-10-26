@@ -17,757 +17,907 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 31
+    .locals 29
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v3, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    sput-object v0, Lv/a;->a:Ljava/util/HashMap;
+    sput-object v3, Lv/a;->a:Ljava/util/HashMap;
 
-    new-instance v0, Ljava/util/HashSet;
+    new-instance v3, Ljava/util/HashSet;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v3}, Ljava/util/HashSet;-><init>()V
 
-    sput-object v0, Lv/a;->b:Ljava/util/HashSet;
+    sput-object v3, Lv/a;->b:Ljava/util/HashSet;
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v3, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    sput-object v0, Lv/a;->c:Ljava/util/HashMap;
+    sput-object v3, Lv/a;->c:Ljava/util/HashMap;
 
-    new-instance v0, Ljava/util/HashSet;
+    new-instance v3, Ljava/util/HashSet;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v3}, Ljava/util/HashSet;-><init>()V
 
-    sput-object v0, Lv/a;->d:Ljava/util/HashSet;
+    sput-object v3, Lv/a;->d:Ljava/util/HashSet;
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v3, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    sput-object v0, Lv/a;->e:Ljava/util/HashMap;
+    sput-object v3, Lv/a;->e:Ljava/util/HashMap;
 
-    sget-object v0, Ln/a;->a:Lc/n;
+    sget-object v3, Ln/a;->a:Lc/n;
 
-    sget-object v0, Ls/a;->f:Lc/n;
+    sget-object v3, Ls/a;->f:Lc/n;
 
-    sget-object v1, Ls/a;->a:Lc/n;
+    sget-object v4, Ls/a;->a:Lc/n;
 
-    sget-object v2, Ln/a;->g:Lc/n;
+    sget-object v5, Ln/a;->g:Lc/n;
 
-    sget-object v3, Lf/a;->b:Lc/n;
+    sget-object v6, Lf/a;->b:Lc/n;
 
-    sget-object v3, Lf/a;->c:Lc/n;
+    sget-object v6, Lf/a;->c:Lc/n;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v4, Ln/a;->b:Lc/n;
+    sget-object v7, Ln/a;->b:Lc/n;
 
-    const-string v5, "MD2WITHRSAENCRYPTION"
+    const-string v8, "MD2WITHRSAENCRYPTION"
 
-    invoke-virtual {v3, v5, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v8, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v5, "MD2WITHRSA"
+    const-string v8, "MD2WITHRSA"
 
-    invoke-virtual {v3, v5, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v8, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v5, Ln/a;->d:Lc/n;
+    sget-object v8, Ln/a;->d:Lc/n;
 
-    const-string v6, "MD5WITHRSAENCRYPTION"
+    const-string v9, "MD5WITHRSAENCRYPTION"
 
-    invoke-virtual {v3, v6, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v9, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v6, "MD5WITHRSA"
+    const-string v9, "MD5WITHRSA"
 
-    invoke-virtual {v3, v6, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v9, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v6, Ln/a;->e:Lc/n;
+    sget-object v9, Ln/a;->e:Lc/n;
 
-    const-string v7, "SHA1WITHRSAENCRYPTION"
+    const-string v10, "SHA1WITHRSAENCRYPTION"
 
-    invoke-virtual {v3, v7, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v10, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v7, "SHA1WITHRSA"
+    const-string v10, "SHA1WITHRSA"
 
-    invoke-virtual {v3, v7, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v10, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v7, Ln/a;->k:Lc/n;
+    sget-object v10, Ln/a;->k:Lc/n;
 
-    const-string v8, "SHA224WITHRSAENCRYPTION"
+    const-string v11, "SHA224WITHRSAENCRYPTION"
 
-    invoke-virtual {v3, v8, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v11, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v8, "SHA224WITHRSA"
+    const-string v11, "SHA224WITHRSA"
 
-    invoke-virtual {v3, v8, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v11, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v8, Ln/a;->h:Lc/n;
+    sget-object v11, Ln/a;->h:Lc/n;
 
-    const-string v9, "SHA256WITHRSAENCRYPTION"
+    const-string v12, "SHA256WITHRSAENCRYPTION"
 
-    invoke-virtual {v3, v9, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v12, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v9, "SHA256WITHRSA"
+    const-string v12, "SHA256WITHRSA"
 
-    invoke-virtual {v3, v9, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v12, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v9, Ln/a;->i:Lc/n;
+    sget-object v12, Ln/a;->i:Lc/n;
 
-    const-string v10, "SHA384WITHRSAENCRYPTION"
+    const-string v13, "SHA384WITHRSAENCRYPTION"
 
-    invoke-virtual {v3, v10, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v13, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v10, "SHA384WITHRSA"
+    const-string v13, "SHA384WITHRSA"
 
-    invoke-virtual {v3, v10, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v13, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v10, Ln/a;->j:Lc/n;
+    sget-object v13, Ln/a;->j:Lc/n;
 
-    const-string v11, "SHA512WITHRSAENCRYPTION"
+    const-string v14, "SHA512WITHRSAENCRYPTION"
 
-    invoke-virtual {v3, v11, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v14, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v11, "SHA512WITHRSA"
+    const-string v14, "SHA512WITHRSA"
 
-    invoke-virtual {v3, v11, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v14, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v11, "SHA1WITHRSAANDMGF1"
+    const-string v14, "SHA1WITHRSAANDMGF1"
 
-    invoke-virtual {v3, v11, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v14, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v12, "SHA224WITHRSAANDMGF1"
+    const-string v14, "SHA224WITHRSAANDMGF1"
 
-    invoke-virtual {v3, v12, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v14, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v13, "SHA256WITHRSAANDMGF1"
+    const-string v14, "SHA256WITHRSAANDMGF1"
 
-    invoke-virtual {v3, v13, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v14, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
     const-string v14, "SHA384WITHRSAANDMGF1"
 
-    invoke-virtual {v3, v14, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v14, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v3, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v6, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v15, "SHA512WITHRSAANDMGF1"
+    const-string v14, "SHA512WITHRSAANDMGF1"
 
-    invoke-virtual {v3, v15, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v14, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v3, Lo/a;->d:Lc/n;
+    sget-object v6, Lo/a;->d:Lc/n;
 
-    move-object/from16 v16, v5
+    const-string v14, "RIPEMD160WITHRSAENCRYPTION"
 
-    const-string v5, "RIPEMD160WITHRSAENCRYPTION"
+    invoke-virtual {v5, v14, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2, v5, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    const-string v14, "RIPEMD160WITHRSA"
 
-    const-string v5, "RIPEMD160WITHRSA"
+    invoke-virtual {v5, v14, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2, v5, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v14, Lo/a;->e:Lc/n;
 
-    sget-object v5, Lo/a;->e:Lc/n;
+    const-string v15, "RIPEMD128WITHRSAENCRYPTION"
 
-    move-object/from16 v17, v4
+    invoke-virtual {v5, v15, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v4, "RIPEMD128WITHRSAENCRYPTION"
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v15, "RIPEMD128WITHRSA"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    invoke-virtual {v5, v15, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v4, "RIPEMD128WITHRSA"
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v15, Lo/a;->f:Lc/n;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    const-string v16, "RIPEMD256WITHRSAENCRYPTION"
 
-    sget-object v4, Lo/a;->f:Lc/n;
+    move-object/from16 v0, v16
 
-    move-object/from16 v18, v15
+    invoke-virtual {v5, v0, v15}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v15, "RIPEMD256WITHRSAENCRYPTION"
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v15, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v16, "RIPEMD256WITHRSA"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v0, v16
 
-    const-string v15, "RIPEMD256WITHRSA"
+    invoke-virtual {v5, v0, v15}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2, v15, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    const-string v16, "SHA1WITHDSA"
 
-    const-string v15, "SHA1WITHDSA"
+    move-object/from16 v0, v16
 
-    invoke-virtual {v2, v15, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v0, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v15, "DSAWITHSHA1"
+    const-string v16, "DSAWITHSHA1"
 
-    invoke-virtual {v2, v15, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v16
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    invoke-virtual {v5, v0, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v15, Lk/a;->p:Lc/n;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    move-object/from16 v19, v14
+    sget-object v16, Lk/a;->p:Lc/n;
 
-    const-string v14, "SHA224WITHDSA"
+    const-string v17, "SHA224WITHDSA"
 
-    invoke-virtual {v2, v14, v15}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v17
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v1, v16
 
-    sget-object v14, Lk/a;->q:Lc/n;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v20, v13
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v13, "SHA256WITHDSA"
+    sget-object v17, Lk/a;->q:Lc/n;
 
-    invoke-virtual {v2, v13, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v18, "SHA256WITHDSA"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v0, v18
 
-    sget-object v13, Lk/a;->r:Lc/n;
+    move-object/from16 v1, v17
 
-    move-object/from16 v21, v12
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v12, "SHA384WITHDSA"
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v12, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v18, Lk/a;->r:Lc/n;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    const-string v19, "SHA384WITHDSA"
 
-    sget-object v12, Lk/a;->s:Lc/n;
+    move-object/from16 v0, v19
 
-    move-object/from16 v22, v11
+    move-object/from16 v1, v18
 
-    const-string v11, "SHA512WITHDSA"
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2, v11, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v19, Lk/a;->s:Lc/n;
 
-    const-string v11, "SHA1WITHECDSA"
+    const-string v20, "SHA512WITHDSA"
 
-    invoke-virtual {v2, v11, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v1, v19
 
-    const-string v11, "ECDSAWITHSHA1"
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2, v11, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    const-string v20, "SHA1WITHECDSA"
 
-    sget-object v11, Ls/a;->b:Lc/n;
+    move-object/from16 v0, v20
 
-    move-object/from16 v23, v4
+    invoke-virtual {v5, v0, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v4, "SHA224WITHECDSA"
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v4, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v20, "ECDSAWITHSHA1"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v0, v20
 
-    sget-object v4, Ls/a;->c:Lc/n;
+    invoke-virtual {v5, v0, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v24, v3
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v3, "SHA256WITHECDSA"
+    sget-object v20, Ls/a;->b:Lc/n;
 
-    invoke-virtual {v2, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v21, "SHA224WITHECDSA"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v0, v21
 
-    sget-object v3, Ls/a;->d:Lc/n;
+    move-object/from16 v1, v20
 
-    move-object/from16 v25, v5
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v5, "SHA384WITHECDSA"
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v5, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v21, Ls/a;->c:Lc/n;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    const-string v22, "SHA256WITHECDSA"
 
-    sget-object v5, Ls/a;->e:Lc/n;
+    move-object/from16 v0, v22
 
-    move-object/from16 v26, v10
+    move-object/from16 v1, v21
 
-    const-string v10, "SHA512WITHECDSA"
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2, v10, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v22, Ls/a;->d:Lc/n;
 
-    sget-object v10, Lf/a;->d:Lc/n;
+    const-string v23, "SHA384WITHECDSA"
 
-    move-object/from16 v27, v9
+    move-object/from16 v0, v23
 
-    const-string v9, "GOST3411WITHGOST3410"
+    move-object/from16 v1, v22
 
-    invoke-virtual {v2, v9, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v9, "GOST3411WITHGOST3410-94"
+    sget-object v23, Ls/a;->e:Lc/n;
 
-    invoke-virtual {v2, v9, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v24, "SHA512WITHECDSA"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v0, v24
 
-    sget-object v9, Lf/a;->e:Lc/n;
+    move-object/from16 v1, v23
 
-    move-object/from16 v28, v8
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v8, "GOST3411WITHECGOST3410"
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v24, Lf/a;->d:Lc/n;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    const-string v25, "GOST3411WITHGOST3410"
 
-    const-string v8, "GOST3411WITHECGOST3410-2001"
+    move-object/from16 v0, v25
 
-    invoke-virtual {v2, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v1, v24
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v8, "GOST3411WITHGOST3410-2001"
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v25, "GOST3411WITHGOST3410-94"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v0, v25
 
-    const-string v8, "SHA1WITHPLAIN-ECDSA"
+    move-object/from16 v1, v24
 
-    move-object/from16 v29, v7
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v7, Le/a;->a:Lc/n;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v8, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v25, Lf/a;->e:Lc/n;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    const-string v26, "GOST3411WITHECGOST3410"
 
-    const-string v7, "SHA224WITHPLAIN-ECDSA"
+    move-object/from16 v0, v26
 
-    sget-object v8, Le/a;->b:Lc/n;
+    move-object/from16 v1, v25
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v7, "SHA256WITHPLAIN-ECDSA"
+    const-string v26, "GOST3411WITHECGOST3410-2001"
 
-    sget-object v8, Le/a;->c:Lc/n;
+    move-object/from16 v0, v26
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v1, v25
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v7, "SHA384WITHPLAIN-ECDSA"
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v8, Le/a;->d:Lc/n;
+    const-string v26, "GOST3411WITHGOST3410-2001"
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v26
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v1, v25
 
-    const-string v7, "SHA512WITHPLAIN-ECDSA"
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v8, Le/a;->e:Lc/n;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v26, "SHA1WITHPLAIN-ECDSA"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v27, Le/a;->a:Lc/n;
 
-    const-string v7, "RIPEMD160WITHPLAIN-ECDSA"
+    move-object/from16 v0, v26
 
-    sget-object v8, Le/a;->f:Lc/n;
+    move-object/from16 v1, v27
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v7, "SHA1WITHCVC-ECDSA"
+    const-string v26, "SHA224WITHPLAIN-ECDSA"
 
-    sget-object v8, Lg/a;->a:Lc/n;
+    sget-object v27, Le/a;->b:Lc/n;
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v26
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v1, v27
 
-    const-string v7, "SHA224WITHCVC-ECDSA"
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v8, Lg/a;->b:Lc/n;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v26, "SHA256WITHPLAIN-ECDSA"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v27, Le/a;->c:Lc/n;
 
-    const-string v7, "SHA256WITHCVC-ECDSA"
+    move-object/from16 v0, v26
 
-    sget-object v8, Lg/a;->c:Lc/n;
+    move-object/from16 v1, v27
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    const-string v7, "SHA384WITHCVC-ECDSA"
+    const-string v26, "SHA384WITHPLAIN-ECDSA"
 
-    sget-object v8, Lg/a;->d:Lc/n;
+    sget-object v27, Le/a;->d:Lc/n;
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v26
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    move-object/from16 v1, v27
 
-    const-string v7, "SHA512WITHCVC-ECDSA"
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v8, Lg/a;->e:Lc/n;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v26, "SHA512WITHPLAIN-ECDSA"
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v27, Le/a;->e:Lc/n;
 
-    sget-object v7, Ld/a;->b:Lc/n;
+    move-object/from16 v0, v26
 
-    const-string v8, "SHA3-512WITHSPHINCS256"
+    move-object/from16 v1, v27
 
-    invoke-virtual {v2, v8, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lv/a;->a:Ljava/util/HashMap;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v8, Ld/a;->a:Lc/n;
+    const-string v26, "RIPEMD160WITHPLAIN-ECDSA"
 
-    move-object/from16 v30, v6
+    sget-object v27, Le/a;->f:Lc/n;
 
-    const-string v6, "SHA512WITHSPHINCS256"
+    move-object/from16 v0, v26
 
-    invoke-virtual {v2, v6, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v1, v27
 
-    sget-object v2, Lv/a;->b:Ljava/util/HashSet;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v1, Lv/a;->b:Ljava/util/HashSet;
+    const-string v26, "SHA1WITHCVC-ECDSA"
 
-    invoke-virtual {v1, v11}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v27, Lg/a;->a:Lc/n;
 
-    sget-object v1, Lv/a;->b:Ljava/util/HashSet;
+    move-object/from16 v0, v26
 
-    invoke-virtual {v1, v4}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    move-object/from16 v1, v27
 
-    sget-object v1, Lv/a;->b:Ljava/util/HashSet;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v1, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v1, Lv/a;->b:Ljava/util/HashSet;
+    const-string v26, "SHA224WITHCVC-ECDSA"
 
-    invoke-virtual {v1, v5}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v27, Lg/a;->b:Lc/n;
 
-    sget-object v1, Lv/a;->b:Ljava/util/HashSet;
+    move-object/from16 v0, v26
 
-    invoke-virtual {v1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    move-object/from16 v1, v27
 
-    sget-object v0, Lv/a;->b:Ljava/util/HashSet;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v15}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v0, Lv/a;->b:Ljava/util/HashSet;
+    const-string v26, "SHA256WITHCVC-ECDSA"
 
-    invoke-virtual {v0, v14}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v27, Lg/a;->c:Lc/n;
 
-    sget-object v0, Lv/a;->b:Ljava/util/HashSet;
+    move-object/from16 v0, v26
 
-    invoke-virtual {v0, v13}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    move-object/from16 v1, v27
 
-    sget-object v0, Lv/a;->b:Ljava/util/HashSet;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v12}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v0, Lv/a;->b:Ljava/util/HashSet;
+    const-string v26, "SHA384WITHCVC-ECDSA"
 
-    invoke-virtual {v0, v10}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v27, Lg/a;->d:Lc/n;
 
-    sget-object v0, Lv/a;->b:Ljava/util/HashSet;
+    move-object/from16 v0, v26
 
-    invoke-virtual {v0, v9}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    move-object/from16 v1, v27
 
-    sget-object v0, Lv/a;->b:Ljava/util/HashSet;
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v8}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    sget-object v0, Lv/a;->b:Ljava/util/HashSet;
+    const-string v26, "SHA512WITHCVC-ECDSA"
 
-    invoke-virtual {v0, v7}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v27, Lg/a;->e:Lc/n;
 
-    sget-object v0, Lv/a;->d:Ljava/util/HashSet;
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v27
 
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v0, Lv/a;->d:Ljava/util/HashSet;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    move-object/from16 v2, v29
+    sget-object v26, Ld/a;->b:Lc/n;
 
-    invoke-virtual {v0, v2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    const-string v27, "SHA3-512WITHSPHINCS256"
 
-    sget-object v0, Lv/a;->d:Ljava/util/HashSet;
+    move-object/from16 v0, v27
 
-    move-object/from16 v3, v28
+    move-object/from16 v1, v26
 
-    invoke-virtual {v0, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v0, Lv/a;->d:Ljava/util/HashSet;
+    sget-object v5, Lv/a;->a:Ljava/util/HashMap;
 
-    move-object/from16 v4, v27
+    sget-object v27, Ld/a;->a:Lc/n;
 
-    invoke-virtual {v0, v4}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    const-string v28, "SHA512WITHSPHINCS256"
 
-    sget-object v0, Lv/a;->d:Ljava/util/HashSet;
+    move-object/from16 v0, v28
 
-    move-object/from16 v5, v26
+    move-object/from16 v1, v27
 
-    invoke-virtual {v0, v5}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v0, Lv/a;->d:Ljava/util/HashSet;
+    sget-object v5, Lv/a;->b:Ljava/util/HashSet;
 
-    move-object/from16 v6, v25
+    invoke-virtual {v5, v4}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v6}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v4, Lv/a;->b:Ljava/util/HashSet;
 
-    sget-object v0, Lv/a;->d:Ljava/util/HashSet;
+    move-object/from16 v0, v20
 
-    move-object/from16 v7, v24
+    invoke-virtual {v4, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v7}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v4, Lv/a;->b:Ljava/util/HashSet;
 
-    sget-object v0, Lv/a;->d:Ljava/util/HashSet;
+    move-object/from16 v0, v21
 
-    move-object/from16 v8, v23
+    invoke-virtual {v4, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v8}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    sget-object v4, Lv/a;->b:Ljava/util/HashSet;
 
-    sget-object v0, Lm/a;->a:Lc/n;
+    move-object/from16 v0, v22
 
-    sget-object v11, Lc/ax;->a:Lc/ax;
+    invoke-virtual {v4, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    new-instance v12, Lr/a;
+    sget-object v4, Lv/a;->b:Ljava/util/HashSet;
 
-    invoke-direct {v12, v0, v11}, Lr/a;-><init>(Lc/n;Lc/e;)V
+    move-object/from16 v0, v23
 
-    sget-object v13, Lv/a;->c:Ljava/util/HashMap;
+    invoke-virtual {v4, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    const/16 v14, 0x14
+    sget-object v4, Lv/a;->b:Ljava/util/HashSet;
 
-    invoke-static {v12, v14}, Lv/a;->f(Lr/a;I)Ln/b;
+    invoke-virtual {v4, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    move-result-object v12
+    sget-object v3, Lv/a;->b:Ljava/util/HashSet;
 
-    move-object/from16 v14, v22
+    move-object/from16 v0, v16
 
-    invoke-virtual {v13, v14, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    sget-object v12, Lk/a;->d:Lc/n;
+    sget-object v3, Lv/a;->b:Ljava/util/HashSet;
 
-    new-instance v13, Lr/a;
+    move-object/from16 v0, v17
 
-    invoke-direct {v13, v12, v11}, Lr/a;-><init>(Lc/n;Lc/e;)V
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    sget-object v14, Lv/a;->c:Ljava/util/HashMap;
+    sget-object v3, Lv/a;->b:Ljava/util/HashSet;
 
-    const/16 v15, 0x1c
+    move-object/from16 v0, v18
 
-    invoke-static {v13, v15}, Lv/a;->f(Lr/a;I)Ln/b;
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    move-result-object v13
+    sget-object v3, Lv/a;->b:Ljava/util/HashSet;
 
-    move-object/from16 v15, v21
+    move-object/from16 v0, v19
 
-    invoke-virtual {v14, v15, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    sget-object v13, Lk/a;->a:Lc/n;
+    sget-object v3, Lv/a;->b:Ljava/util/HashSet;
 
-    new-instance v14, Lr/a;
+    move-object/from16 v0, v24
 
-    invoke-direct {v14, v13, v11}, Lr/a;-><init>(Lc/n;Lc/e;)V
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    sget-object v15, Lv/a;->c:Ljava/util/HashMap;
+    sget-object v3, Lv/a;->b:Ljava/util/HashSet;
 
-    move-object/from16 v21, v9
+    move-object/from16 v0, v25
 
-    const/16 v9, 0x20
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v14, v9}, Lv/a;->f(Lr/a;I)Ln/b;
+    sget-object v3, Lv/a;->b:Ljava/util/HashSet;
 
-    move-result-object v9
+    move-object/from16 v0, v27
 
-    move-object/from16 v14, v20
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v15, v14, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v3, Lv/a;->b:Ljava/util/HashSet;
 
-    sget-object v9, Lk/a;->b:Lc/n;
+    move-object/from16 v0, v26
 
-    new-instance v14, Lr/a;
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-direct {v14, v9, v11}, Lr/a;-><init>(Lc/n;Lc/e;)V
+    sget-object v3, Lv/a;->d:Ljava/util/HashSet;
 
-    sget-object v15, Lv/a;->c:Ljava/util/HashMap;
+    invoke-virtual {v3, v9}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v20, v10
+    sget-object v3, Lv/a;->d:Ljava/util/HashSet;
 
-    const/16 v10, 0x30
+    invoke-virtual {v3, v10}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v14, v10}, Lv/a;->f(Lr/a;I)Ln/b;
+    sget-object v3, Lv/a;->d:Ljava/util/HashSet;
 
-    move-result-object v10
+    invoke-virtual {v3, v11}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v14, v19
+    sget-object v3, Lv/a;->d:Ljava/util/HashSet;
 
-    invoke-virtual {v15, v14, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v12}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    sget-object v10, Lk/a;->c:Lc/n;
+    sget-object v3, Lv/a;->d:Ljava/util/HashSet;
 
-    new-instance v14, Lr/a;
+    invoke-virtual {v3, v13}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-direct {v14, v10, v11}, Lr/a;-><init>(Lc/n;Lc/e;)V
+    sget-object v3, Lv/a;->d:Ljava/util/HashSet;
 
-    sget-object v11, Lv/a;->c:Ljava/util/HashMap;
+    invoke-virtual {v3, v14}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    const/16 v15, 0x40
+    sget-object v3, Lv/a;->d:Ljava/util/HashSet;
 
-    invoke-static {v14, v15}, Lv/a;->f(Lr/a;I)Ln/b;
+    invoke-virtual {v3, v6}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    move-result-object v14
+    sget-object v3, Lv/a;->d:Ljava/util/HashSet;
 
-    move-object/from16 v15, v18
+    invoke-virtual {v3, v15}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v11, v15, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v3, Lm/a;->a:Lc/n;
 
-    sget-object v11, Lv/a;->e:Ljava/util/HashMap;
+    sget-object v4, Lc/ax;->a:Lc/ax;
 
-    invoke-virtual {v11, v2, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance v5, Lr/a;
 
-    sget-object v2, Lv/a;->e:Ljava/util/HashMap;
+    invoke-direct {v5, v3, v4}, Lr/a;-><init>(Lc/n;Lc/e;)V
 
-    invoke-virtual {v2, v3, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v16, Lv/a;->c:Ljava/util/HashMap;
 
-    sget-object v2, Lv/a;->e:Ljava/util/HashMap;
+    const-string v17, "SHA1WITHRSAANDMGF1"
 
-    invoke-virtual {v2, v4, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/16 v18, 0x14
 
-    sget-object v2, Lv/a;->e:Ljava/util/HashMap;
+    move/from16 v0, v18
 
-    invoke-virtual {v2, v5, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v5, v0}, Lv/a;->f(Lr/a;I)Ln/b;
 
-    sget-object v2, Lv/a;->e:Ljava/util/HashMap;
+    move-result-object v5
 
-    sget-object v3, Ln/a;->n:Lc/n;
+    move-object/from16 v0, v16
 
-    move-object/from16 v4, v17
+    move-object/from16 v1, v17
 
-    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lv/a;->e:Ljava/util/HashMap;
+    sget-object v5, Lk/a;->d:Lc/n;
 
-    sget-object v3, Ln/a;->c:Lc/n;
+    new-instance v16, Lr/a;
 
-    sget-object v4, Ln/a;->o:Lc/n;
+    move-object/from16 v0, v16
 
-    invoke-virtual {v2, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {v0, v5, v4}, Lr/a;-><init>(Lc/n;Lc/e;)V
 
-    sget-object v2, Lv/a;->e:Ljava/util/HashMap;
+    sget-object v17, Lv/a;->c:Ljava/util/HashMap;
 
-    sget-object v3, Ln/a;->p:Lc/n;
+    const-string v18, "SHA224WITHRSAANDMGF1"
 
-    move-object/from16 v4, v16
+    const/16 v19, 0x1c
 
-    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v16
 
-    sget-object v2, Lv/a;->e:Ljava/util/HashMap;
+    move/from16 v1, v19
 
-    invoke-virtual {v2, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lv/a;->f(Lr/a;I)Ln/b;
 
-    sget-object v0, Lv/a;->e:Ljava/util/HashMap;
+    move-result-object v16
 
-    sget-object v1, Lo/a;->b:Lc/n;
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v6, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v1, v18
 
-    sget-object v0, Lv/a;->e:Ljava/util/HashMap;
+    move-object/from16 v2, v16
 
-    sget-object v1, Lo/a;->a:Lc/n;
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v7, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v16, Lk/a;->a:Lc/n;
 
-    sget-object v0, Lv/a;->e:Ljava/util/HashMap;
+    new-instance v17, Lr/a;
 
-    sget-object v1, Lo/a;->c:Lc/n;
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v8, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v1, v16
 
-    sget-object v0, Lv/a;->e:Ljava/util/HashMap;
+    invoke-direct {v0, v1, v4}, Lr/a;-><init>(Lc/n;Lc/e;)V
 
-    sget-object v1, Lf/a;->a:Lc/n;
+    sget-object v18, Lv/a;->c:Ljava/util/HashMap;
 
-    move-object/from16 v2, v20
+    const-string v19, "SHA256WITHRSAANDMGF1"
 
-    invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/16 v20, 0x20
 
-    sget-object v0, Lv/a;->e:Ljava/util/HashMap;
+    move-object/from16 v0, v17
 
-    move-object/from16 v2, v21
+    move/from16 v1, v20
 
-    invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lv/a;->f(Lr/a;I)Ln/b;
+
+    move-result-object v17
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v17
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v17, Lk/a;->b:Lc/n;
+
+    new-instance v18, Lr/a;
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v17
+
+    invoke-direct {v0, v1, v4}, Lr/a;-><init>(Lc/n;Lc/e;)V
+
+    sget-object v19, Lv/a;->c:Ljava/util/HashMap;
+
+    const-string v20, "SHA384WITHRSAANDMGF1"
+
+    const/16 v21, 0x30
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v21
+
+    invoke-static {v0, v1}, Lv/a;->f(Lr/a;I)Ln/b;
+
+    move-result-object v18
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v18, Lk/a;->c:Lc/n;
+
+    new-instance v19, Lr/a;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v18
+
+    invoke-direct {v0, v1, v4}, Lr/a;-><init>(Lc/n;Lc/e;)V
+
+    sget-object v4, Lv/a;->c:Ljava/util/HashMap;
+
+    const-string v20, "SHA512WITHRSAANDMGF1"
+
+    const/16 v21, 0x40
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v21
+
+    invoke-static {v0, v1}, Lv/a;->f(Lr/a;I)Ln/b;
+
+    move-result-object v19
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v4, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v4, Lv/a;->e:Ljava/util/HashMap;
+
+    invoke-virtual {v4, v10, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v4, Lv/a;->e:Ljava/util/HashMap;
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v4, v11, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v4, Lv/a;->e:Ljava/util/HashMap;
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v4, v12, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v4, Lv/a;->e:Ljava/util/HashMap;
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v4, v13, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v4, Lv/a;->e:Ljava/util/HashMap;
+
+    sget-object v5, Ln/a;->n:Lc/n;
+
+    invoke-virtual {v4, v7, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v4, Lv/a;->e:Ljava/util/HashMap;
+
+    sget-object v5, Ln/a;->c:Lc/n;
+
+    sget-object v7, Ln/a;->o:Lc/n;
+
+    invoke-virtual {v4, v5, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v4, Lv/a;->e:Ljava/util/HashMap;
+
+    sget-object v5, Ln/a;->p:Lc/n;
+
+    invoke-virtual {v4, v8, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v4, Lv/a;->e:Ljava/util/HashMap;
+
+    invoke-virtual {v4, v9, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v3, Lv/a;->e:Ljava/util/HashMap;
+
+    sget-object v4, Lo/a;->b:Lc/n;
+
+    invoke-virtual {v3, v14, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v3, Lv/a;->e:Ljava/util/HashMap;
+
+    sget-object v4, Lo/a;->a:Lc/n;
+
+    invoke-virtual {v3, v6, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v3, Lv/a;->e:Ljava/util/HashMap;
+
+    sget-object v4, Lo/a;->c:Lc/n;
+
+    invoke-virtual {v3, v15, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v3, Lv/a;->e:Ljava/util/HashMap;
+
+    sget-object v4, Lf/a;->a:Lc/n;
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v3, v0, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v3, Lv/a;->e:Ljava/util/HashMap;
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v3, v0, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
 
 .method public static f(Lr/a;I)Ln/b;
-    .registers 7
+    .locals 6
 
     new-instance v0, Ln/b;
 
@@ -779,17 +929,17 @@
 
     new-instance v2, Lc/k;
 
-    int-to-long v3, p1
+    int-to-long v4, p1
 
-    invoke-direct {v2, v3, v4}, Lc/k;-><init>(J)V
+    invoke-direct {v2, v4, v5}, Lc/k;-><init>(J)V
 
-    new-instance p1, Lc/k;
+    new-instance v3, Lc/k;
 
-    const-wide/16 v3, 0x1
+    const-wide/16 v4, 0x1
 
-    invoke-direct {p1, v3, v4}, Lc/k;-><init>(J)V
+    invoke-direct {v3, v4, v5}, Lc/k;-><init>(J)V
 
-    invoke-direct {v0, p0, v1, v2, p1}, Ln/b;-><init>(Lr/a;Lr/a;Lc/k;Lc/k;)V
+    invoke-direct {v0, p0, v1, v2, v3}, Ln/b;-><init>(Lr/a;Lr/a;Lc/k;Lc/k;)V
 
     return-object v0
 .end method

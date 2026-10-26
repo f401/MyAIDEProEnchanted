@@ -39,7 +39,11 @@
 
 # direct methods
 .method static final constructor <clinit>()V
-    .registers 8
+    .locals 7
+
+    const/4 v6, 0x1
+
+    const/4 v3, 0x0
 
     invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->isDirect()Z
 
@@ -53,192 +57,215 @@
 
     sput-boolean v1, Lio/github/zeroaicy/aide/ClassReader;->isDynamic:Z
 
-    const/4 v2, 0x0
+    sput-boolean v3, Lio/github/zeroaicy/aide/ClassReader;->isLoadDexError:Z
 
-    sput-boolean v2, Lio/github/zeroaicy/aide/ClassReader;->isLoadDexError:Z
+    sput-boolean v6, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassFromZeroAicy:Z
 
-    const/4 v3, 0x1
+    sput-boolean v3, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethod:Z
 
-    sput-boolean v3, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassFromZeroAicy:Z
+    const-string v2, "useReaderClass"
 
-    sput-boolean v2, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethod:Z
+    sput-object v2, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassKey:Ljava/lang/String;
 
-    const-string v4, "useReaderClass"
+    const-string v2, "disableDefaultMethod"
 
-    sput-object v4, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassKey:Ljava/lang/String;
-
-    const-string v4, "disableDefaultMethod"
-
-    sput-object v4, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethodKey:Ljava/lang/String;
+    sput-object v2, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethodKey:Ljava/lang/String;
 
     .line 87
-    const-string v4, "ZeroAicyClassReader"
-
-    if-eqz v1, :cond_29
+    if-eqz v1, :cond_1
 
     .line 88
-    const-string v5, "动态调用"
+    const-string v2, "ZeroAicyClassReader"
 
-    invoke-static {v4, v5}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v3, "\u52a8\u6001\u8c03\u7528"
+
+    invoke-static {v2, v3}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 89
     invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->loadDynamicDex()V
 
-    goto :goto_38
-
-    :cond_29
-    if-eqz v0, :cond_31
-
-    .line 92
-    const-string v5, "合并模式, Direct调用"
-
-    invoke-static {v4, v5}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_38
-
-    .line 95
-    :cond_31
-    sput-boolean v2, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassFromZeroAicy:Z
-
-    .line 96
-    const-string v5, "错误模式，解析库禁用"
-
-    invoke-static {v4, v5}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 102
-    :goto_38
-    :try_start_38
+    :goto_0
+    :try_start_0
     invoke-static {}, Lio/github/zeroaicy/util/ContextUtil;->getContext()Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v2
 
     .line 103
-    new-instance v6, Ljava/lang/StringBuffer;
+    new-instance v3, Ljava/lang/StringBuffer;
 
-    const-string v7, "context is "
+    const-string v4, "context is "
 
-    invoke-direct {v6, v7}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    const-string v4, "ZeroAicyClassReader"
 
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v4, v6}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 104
-    invoke-static {v5}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v5
 
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v4, v3}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 104
+    invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+
+    move-result-object v2
+
     .line 105
-    new-instance v6, Lio/github/zeroaicy/aide/ClassReader$100000000;
+    new-instance v3, Lio/github/zeroaicy/aide/ClassReader$100000000;
 
-    invoke-direct {v6}, Lio/github/zeroaicy/aide/ClassReader$100000000;-><init>()V
+    invoke-direct {v3}, Lio/github/zeroaicy/aide/ClassReader$100000000;-><init>()V
 
-    sput-object v6, Lio/github/zeroaicy/aide/ClassReader;->onSharedPreferenceChanged:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
+    sput-object v3, Lio/github/zeroaicy/aide/ClassReader;->onSharedPreferenceChanged:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
 
-    invoke-interface {v5, v6}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
+    invoke-interface {v2, v3}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
     .line 120
-    sget-object v6, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassKey:Ljava/lang/String;
+    sget-object v3, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassKey:Ljava/lang/String;
 
-    invoke-interface {v5, v6, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    const/4 v4, 0x1
 
-    move-result v6
+    invoke-interface {v2, v3, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    sput-boolean v6, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassFromZeroAicy:Z
+    move-result v3
+
+    sput-boolean v3, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassFromZeroAicy:Z
 
     .line 122
-    sget-object v6, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethodKey:Ljava/lang/String;
+    sget-object v3, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethodKey:Ljava/lang/String;
 
-    invoke-interface {v5, v6, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    const/4 v4, 0x0
 
-    move-result v5
+    invoke-interface {v2, v3, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    sput-boolean v5, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethod:Z
-    :try_end_70
-    .catchall {:try_start_38 .. :try_end_70} :catchall_a2
+    move-result v2
+
+    sput-boolean v2, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethod:Z
 
     .line 124
-    const-string v5, "setDisableDefaultMethod"
+    if-eqz v1, :cond_3
 
-    const-string v6, "io.github.zeroaicy.readclass.classInfo.DefaultMethodAllowedList"
-
-    if-eqz v1, :cond_8d
-
-    :try_start_76
     sget-object v1, Lio/github/zeroaicy/aide/ClassReader;->dynamicDexClassLoader:Ljava/lang/ClassLoader;
 
-    if-eqz v1, :cond_8d
+    if-eqz v1, :cond_3
 
     .line 125
-    invoke-static {v6, v1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->onClass(Ljava/lang/String;Ljava/lang/ClassLoader;)Lio/github/zeroaicy/util/reflect/ReflectPie;
+    const-string v0, "io.github.zeroaicy.readclass.classInfo.DefaultMethodAllowedList"
+
+    invoke-static {v0, v1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->onClass(Ljava/lang/String;Ljava/lang/ClassLoader;)Lio/github/zeroaicy/util/reflect/ReflectPie;
 
     move-result-object v0
 
     sget-boolean v1, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethod:Z
 
-    new-instance v6, Ljava/lang/Boolean;
+    new-instance v2, Ljava/lang/Boolean;
 
-    invoke-direct {v6, v1}, Ljava/lang/Boolean;-><init>(Z)V
+    invoke-direct {v2, v1}, Ljava/lang/Boolean;-><init>(Z)V
 
-    new-array v1, v3, [Ljava/lang/Object;
+    const-string v1, "setDisableDefaultMethod"
 
-    aput-object v6, v1, v2
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, v5, v1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->call(Ljava/lang/String;[Ljava/lang/Object;)Lio/github/zeroaicy/util/reflect/ReflectPie;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    goto :goto_a8
+    const/4 v4, 0x0
 
-    :cond_8d
-    if-eqz v0, :cond_a8
+    aput-object v2, v3, v4
+
+    invoke-virtual {v0, v1, v3}, Lio/github/zeroaicy/util/reflect/ReflectPie;->call(Ljava/lang/String;[Ljava/lang/Object;)Lio/github/zeroaicy/util/reflect/ReflectPie;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 132
+    :cond_0
+    :goto_1
+    sput-boolean v6, Lio/github/zeroaicy/aide/ClassReader;->isPrintlned:Z
+
+    return-void
+
+    .line 89
+    :cond_1
+    if-eqz v0, :cond_2
+
+    .line 92
+    const-string v2, "ZeroAicyClassReader"
+
+    const-string v3, "\u5408\u5e76\u6a21\u5f0f, Direct\u8c03\u7528"
+
+    invoke-static {v2, v3}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 95
+    :cond_2
+    sput-boolean v3, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassFromZeroAicy:Z
+
+    .line 96
+    const-string v2, "ZeroAicyClassReader"
+
+    const-string v3, "\u9519\u8bef\u6a21\u5f0f\uff0c\u89e3\u6790\u5e93\u7981\u7528"
+
+    invoke-static {v2, v3}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 125
+    :cond_3
+    if-eqz v0, :cond_0
 
     .line 128
-    invoke-static {v6}, Lio/github/zeroaicy/util/reflect/ReflectPie;->onClass(Ljava/lang/String;)Lio/github/zeroaicy/util/reflect/ReflectPie;
+    :try_start_1
+    const-string v0, "io.github.zeroaicy.readclass.classInfo.DefaultMethodAllowedList"
+
+    invoke-static {v0}, Lio/github/zeroaicy/util/reflect/ReflectPie;->onClass(Ljava/lang/String;)Lio/github/zeroaicy/util/reflect/ReflectPie;
 
     move-result-object v0
 
     sget-boolean v1, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethod:Z
 
-    new-instance v6, Ljava/lang/Boolean;
+    new-instance v2, Ljava/lang/Boolean;
 
-    invoke-direct {v6, v1}, Ljava/lang/Boolean;-><init>(Z)V
+    invoke-direct {v2, v1}, Ljava/lang/Boolean;-><init>(Z)V
 
-    new-array v1, v3, [Ljava/lang/Object;
+    const-string v1, "setDisableDefaultMethod"
 
-    aput-object v6, v1, v2
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, v5, v1}, Lio/github/zeroaicy/util/reflect/ReflectPie;->call(Ljava/lang/String;[Ljava/lang/Object;)Lio/github/zeroaicy/util/reflect/ReflectPie;
-    :try_end_a1
-    .catchall {:try_start_76 .. :try_end_a1} :catchall_a2
+    new-array v3, v3, [Ljava/lang/Object;
 
-    goto :goto_a8
+    const/4 v4, 0x0
 
-    :catchall_a2
+    aput-object v2, v3, v4
+
+    invoke-virtual {v0, v1, v3}, Lio/github/zeroaicy/util/reflect/ReflectPie;->call(Ljava/lang/String;[Ljava/lang/Object;)Lio/github/zeroaicy/util/reflect/ReflectPie;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_1
+
+    :catchall_0
     move-exception v0
 
     .line 132
-    const-string v1, "开关错误"
+    const-string v1, "ZeroAicyClassReader"
 
-    invoke-static {v4, v1, v0}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    const-string v2, "\u5f00\u5173\u9519\u8bef"
 
-    :cond_a8
-    :goto_a8
-    sput-boolean v3, Lio/github/zeroaicy/aide/ClassReader;->isPrintlned:Z
+    invoke-static {v1, v2, v0}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return-void
+    goto :goto_1
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 281
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -247,68 +274,70 @@
 .end method
 
 .method public static Dc_ReadClassFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
-    .registers 4
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 164
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassFromZeroAicy:Z
 
-    const/4 v1, 0x0
+    if-nez v0, :cond_0
 
-    if-nez v0, :cond_9
+    move-object v0, v1
 
     .line 166
-    move-object p0, v1
+    check-cast v0, Ljava/io/Reader;
 
-    check-cast p0, Ljava/io/Reader;
-
+    .line 178
+    :goto_0
     return-object v1
 
     .line 169
-    :cond_9
-    :try_start_9
+    :cond_0
+    :try_start_0
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isDynamic:Z
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     .line 170
     invoke-static {p0, p1}, Lio/github/zeroaicy/aide/ClassReader;->dynamic_ReadClassFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
 
-    move-result-object p0
+    move-result-object v1
 
-    return-object p0
+    goto :goto_0
 
     .line 172
-    :cond_12
+    :cond_1
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isDirect:Z
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_2
 
     .line 173
     invoke-static {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3;->TestReadClass(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object p0
-    :try_end_1a
-    .catchall {:try_start_9 .. :try_end_1a} :catchall_1b
+    move-result-object v1
 
-    return-object p0
+    goto :goto_0
 
     .line 176
-    :catchall_1b
-    move-exception p0
+    :catchall_0
+    move-exception v0
 
     invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->notReadClassFileLib()V
 
+    :cond_2
+    move-object v0, v1
+
     .line 178
-    :cond_1f
-    move-object p0, v1
+    check-cast v0, Ljava/io/Reader;
 
-    check-cast p0, Ljava/io/Reader;
-
-    return-object v1
+    goto :goto_0
 .end method
 
 .method static synthetic access$L1000000()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lio/github/zeroaicy/aide/ClassReader;->TAG:Ljava/lang/String;
 
@@ -316,7 +345,7 @@
 .end method
 
 .method static synthetic access$L1000008()Z
-    .registers 1
+    .locals 1
 
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassFromZeroAicy:Z
 
@@ -324,7 +353,7 @@
 .end method
 
 .method static synthetic access$L1000009()Z
-    .registers 1
+    .locals 1
 
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethod:Z
 
@@ -332,7 +361,7 @@
 .end method
 
 .method static synthetic access$L1000010()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassKey:Ljava/lang/String;
 
@@ -340,7 +369,7 @@
 .end method
 
 .method static synthetic access$L1000011()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     sget-object v0, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethodKey:Ljava/lang/String;
 
@@ -348,7 +377,7 @@
 .end method
 
 .method static synthetic access$S1000000(Ljava/lang/String;)V
-    .registers 1
+    .locals 0
 
     sput-object p0, Lio/github/zeroaicy/aide/ClassReader;->TAG:Ljava/lang/String;
 
@@ -356,7 +385,7 @@
 .end method
 
 .method static synthetic access$S1000008(Z)V
-    .registers 1
+    .locals 0
 
     sput-boolean p0, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassFromZeroAicy:Z
 
@@ -364,7 +393,7 @@
 .end method
 
 .method static synthetic access$S1000009(Z)V
-    .registers 1
+    .locals 0
 
     sput-boolean p0, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethod:Z
 
@@ -372,7 +401,7 @@
 .end method
 
 .method static synthetic access$S1000010(Ljava/lang/String;)V
-    .registers 1
+    .locals 0
 
     sput-object p0, Lio/github/zeroaicy/aide/ClassReader;->useReaderClassKey:Ljava/lang/String;
 
@@ -380,7 +409,7 @@
 .end method
 
 .method static synthetic access$S1000011(Ljava/lang/String;)V
-    .registers 1
+    .locals 0
 
     sput-object p0, Lio/github/zeroaicy/aide/ClassReader;->disableDefaultMethodKey:Ljava/lang/String;
 
@@ -388,173 +417,191 @@
 .end method
 
 .method private static dynamic_ReadClassFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
-    .registers 6
+    .locals 5
+
+    const/4 v1, 0x0
 
     .line 192
+    :try_start_0
+    sget-object v2, Lio/github/zeroaicy/aide/ClassReader;->TestReadClassMethod:Ljava/lang/reflect/Method;
+
     const/4 v0, 0x0
 
-    :try_start_1
-    sget-object v1, Lio/github/zeroaicy/aide/ClassReader;->TestReadClassMethod:Ljava/lang/reflect/Method;
+    check-cast v0, Ljava/lang/Object;
 
-    move-object v2, v0
+    const/4 v0, 0x0
 
-    check-cast v2, Ljava/lang/Object;
+    const/4 v3, 0x2
 
-    const/4 v2, 0x2
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    aput-object p0, v2, v3
-
-    const/4 p0, 0x1
-
-    aput-object p1, v2, p0
-
-    invoke-virtual {v1, v0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/io/Reader;
-    :try_end_15
-    .catchall {:try_start_1 .. :try_end_15} :catchall_16
-
-    return-object p0
-
-    .line 196
-    :catchall_16
-    move-exception p0
-
-    invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->notReadClassFileLib()V
-
-    .line 197
-    move-object p0, v0
-
-    check-cast p0, Ljava/io/Reader;
-
-    return-object v0
-.end method
-
-.method public static hasDefaultMethod(Ljava/lang/String;)Z
-    .registers 1
-
-    .line 216
-    invoke-static {p0}, Lio/github/zeroaicy/aide/ClassReader;->hasDefaultMethod2(Ljava/lang/String;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private static hasDefaultMethod2(Ljava/lang/String;)Z
-    .registers 6
-
-    .line 226
-    const/4 v0, 0x1
-
-    :try_start_1
-    sget-boolean v1, Lio/github/zeroaicy/aide/ClassReader;->isDynamic:Z
-
-    if-eqz v1, :cond_1b
-
-    .line 227
-    sget-object v1, Lio/github/zeroaicy/aide/ClassReader;->hasDefaultMethod:Ljava/lang/reflect/Method;
-
-    const/4 v2, 0x0
-
-    move-object v3, v2
-
-    check-cast v3, Ljava/lang/Object;
-
-    new-array v3, v0, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
     const/4 v4, 0x0
 
     aput-object p0, v3, v4
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v4, 0x1
 
-    move-result-object p0
+    aput-object p1, v3, v4
 
-    check-cast p0, Ljava/lang/Boolean;
+    invoke-virtual {v2, v0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result-object v0
 
-    move-result p0
+    check-cast v0, Ljava/io/Reader;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return p0
+    .line 197
+    :goto_0
+    return-object v0
 
-    .line 229
-    :cond_1b
-    sget-boolean v1, Lio/github/zeroaicy/aide/ClassReader;->isDirect:Z
+    .line 196
+    :catchall_0
+    move-exception v0
 
-    if-eqz v1, :cond_2c
+    invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->notReadClassFileLib()V
 
-    .line 230
-    invoke-static {p0}, Lio/github/zeroaicy/readclass/classInfo/DefaultMethodAllowedList;->hasDefaultMethod(Ljava/lang/String;)Z
+    move-object v0, v1
 
-    move-result p0
-    :try_end_23
-    .catchall {:try_start_1 .. :try_end_23} :catchall_24
+    .line 197
+    check-cast v0, Ljava/io/Reader;
 
-    return p0
+    move-object v0, v1
 
-    :catchall_24
-    move-exception p0
+    goto :goto_0
+.end method
 
-    .line 233
-    const-string v1, "ZeroAicyClassReader"
+.method public static hasDefaultMethod(Ljava/lang/String;)Z
+    .locals 1
 
-    const-string v2, "hasDefaultMethod2"
+    .line 216
+    invoke-static {p0}, Lio/github/zeroaicy/aide/ClassReader;->hasDefaultMethod2(Ljava/lang/String;)Z
 
-    invoke-static {v1, v2, p0}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    move-result v0
 
-    :cond_2c
     return v0
 .end method
 
-.method private static isDirect()Z
-    .registers 7
+.method private static hasDefaultMethod2(Ljava/lang/String;)Z
+    .locals 5
 
-    .line 138
-    const-string v0, "java.lang.String"
+    const/4 v1, 0x1
+
+    .line 226
+    :try_start_0
+    sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isDynamic:Z
+
+    if-eqz v0, :cond_0
+
+    .line 227
+    sget-object v2, Lio/github/zeroaicy/aide/ClassReader;->hasDefaultMethod:Ljava/lang/reflect/Method;
+
+    const/4 v0, 0x0
+
+    check-cast v0, Ljava/lang/Object;
+
+    const/4 v0, 0x0
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object p0, v3, v4
+
+    invoke-virtual {v2, v0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    .line 233
+    :goto_0
+    return v0
+
+    .line 229
+    :cond_0
+    sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isDirect:Z
+
+    if-eqz v0, :cond_1
+
+    .line 230
+    invoke-static {p0}, Lio/github/zeroaicy/readclass/classInfo/DefaultMethodAllowedList;->hasDefaultMethod(Ljava/lang/String;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    .line 233
+    const-string v2, "ZeroAicyClassReader"
+
+    const-string v3, "hasDefaultMethod2"
+
+    invoke-static {v2, v3, v0}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+.method private static isDirect()Z
+    .locals 8
+
+    const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    :try_start_3
+    .line 138
+    :try_start_0
     const-string v2, "io.github.zeroaicy.readclass.classInfo.ClassInfoTest3"
 
     invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
-    :try_end_9
-    .catchall {:try_start_3 .. :try_end_9} :catchall_53
 
-    :try_start_9
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_start_1
+    const-string v3, "java.lang.String"
+
+    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_1
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v3
-    :try_end_d
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_9 .. :try_end_d} :catch_48
-    .catchall {:try_start_9 .. :try_end_d} :catchall_53
 
-    :try_start_d
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_start_2
+    const-string v4, "java.lang.String"
+
+    invoke-static {v4}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_2
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v4
-    :try_end_11
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_d .. :try_end_11} :catch_3d
-    .catchall {:try_start_d .. :try_end_11} :catchall_53
 
-    :try_start_11
+    :try_start_3
     const-string v5, "TestReadClass"
 
     const/4 v6, 0x2
 
     new-array v6, v6, [Ljava/lang/Class;
 
-    aput-object v3, v6, v1
+    const/4 v7, 0x0
+
+    aput-object v3, v6, v7
 
     const/4 v3, 0x1
 
@@ -566,31 +613,40 @@
     const-string v2, "io.github.zeroaicy.readclass.classInfo.DefaultMethodAllowedList"
 
     invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     move-result-object v2
-    :try_end_24
-    .catchall {:try_start_11 .. :try_end_24} :catchall_53
 
-    :try_start_24
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_start_4
+    const-string v3, "java.lang.String"
 
-    move-result-object v0
-    :try_end_28
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_24 .. :try_end_28} :catch_32
-    .catchall {:try_start_24 .. :try_end_28} :catchall_53
+    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_4
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    :try_start_28
+    move-result-object v3
+
+    :try_start_5
     const-string v4, "hasDefaultMethod"
 
-    new-array v5, v3, [Ljava/lang/Class;
+    const/4 v5, 0x1
 
-    aput-object v0, v5, v1
+    new-array v5, v5, [Ljava/lang/Class;
+
+    const/4 v6, 0x0
+
+    aput-object v3, v5, v6
 
     invoke-virtual {v2, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    return v3
+    .line 141
+    :goto_0
+    return v0
 
-    :catch_32
+    .line 139
+    :catch_0
     move-exception v0
 
     new-instance v2, Ljava/lang/NoClassDefFoundError;
@@ -602,39 +658,11 @@
     invoke-direct {v2, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
     throw v2
-
-    :catch_3d
-    move-exception v0
-
-    .line 138
-    new-instance v2, Ljava/lang/NoClassDefFoundError;
-
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v2, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
-
-    goto :goto_52
-
-    :catch_48
-    move-exception v0
-
-    new-instance v2, Ljava/lang/NoClassDefFoundError;
-
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v2, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
-
-    :goto_52
-    throw v2
-    :try_end_53
-    .catchall {:try_start_28 .. :try_end_53} :catchall_53
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 141
-    :catchall_53
+    :catchall_0
     move-exception v0
 
     const-string v0, "ZeroAicyClassReader"
@@ -643,142 +671,202 @@
 
     invoke-static {v0, v2}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v1
+    move v0, v1
+
+    goto :goto_0
+
+    .line 139
+    :catch_1
+    move-exception v0
+
+    move-object v2, v0
+
+    .line 138
+    :try_start_6
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
+
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+
+    :goto_1
+    throw v0
+
+    :catch_2
+    move-exception v0
+
+    move-object v2, v0
+
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
+
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    goto :goto_1
 .end method
 
 .method private static isDynamic()Z
-    .registers 1
+    .locals 1
 
     .line 147
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isDirect:Z
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isLoadDexError:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_1
 
-    goto :goto_b
-
-    :cond_9
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_b
-    :goto_b
+    :cond_0
     const/4 v0, 0x0
 
+    :goto_0
     return v0
+
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method private static loadDynamicDex()V
-    .registers 7
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
         }
     .end annotation
 
+    const/4 v6, 0x1
+
     .line 256
-    const-string v0, "/storage/emulated/0/AppProjects1/.project/ZeroAicy-WearOs/ReaderClassFile/bin/release/dex/classes.dex.zip"
+    sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isDynamic:Z
 
-    const-string v1, "java.lang.String"
+    if-nez v0, :cond_0
 
-    sget-boolean v2, Lio/github/zeroaicy/aide/ClassReader;->isDynamic:Z
+    sget-object v0, Lio/github/zeroaicy/aide/ClassReader;->dynamicDexClassLoader:Ljava/lang/ClassLoader;
 
-    if-nez v2, :cond_d
+    if-eqz v0, :cond_0
 
-    sget-object v2, Lio/github/zeroaicy/aide/ClassReader;->dynamicDexClassLoader:Ljava/lang/ClassLoader;
-
-    if-eqz v2, :cond_d
-
+    .line 279
+    :goto_0
     return-void
 
     .line 260
-    :cond_d
-    const/4 v2, 0x1
+    :cond_0
+    :try_start_0
+    new-instance v0, Ljava/io/File;
 
-    :try_start_e
-    new-instance v3, Ljava/io/File;
+    const-string v1, "/storage/emulated/0/AppProjects1/.project/ZeroAicy-WearOs/ReaderClassFile/bin/release/dex/classes.dex.zip"
 
-    invoke-direct {v3, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 261
-    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_1c
+    if-nez v0, :cond_1
 
     .line 262
-    sput-boolean v2, Lio/github/zeroaicy/aide/ClassReader;->isLoadDexError:Z
+    const/4 v0, 0x1
 
-    return-void
+    sput-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isLoadDexError:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    .line 278
+    :catchall_0
+    move-exception v0
+
+    invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->notReadClassFileLib()V
+
+    .line 279
+    sput-boolean v6, Lio/github/zeroaicy/aide/ClassReader;->isLoadDexError:Z
+
+    goto :goto_0
 
     .line 265
-    :cond_1c
-    new-instance v3, Ldalvik/system/DexClassLoader;
+    :cond_1
+    :try_start_1
+    new-instance v1, Ldalvik/system/DexClassLoader;
+
+    const/4 v0, 0x0
+
+    check-cast v0, Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    check-cast v0, Ljava/lang/String;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    const-string v0, "io.github.zeroaicy.aide.ClassReader"
+
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_2
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_2} :catch_4
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result-object v0
+
+    :try_start_3
+    const-string v2, "/storage/emulated/0/AppProjects1/.project/ZeroAicy-WearOs/ReaderClassFile/bin/release/dex/classes.dex.zip"
+
+    const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    move-object v5, v4
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    check-cast v5, Ljava/lang/String;
+    move-result-object v0
 
-    move-object v5, v4
+    invoke-direct {v1, v2, v3, v4, v0}, Ldalvik/system/DexClassLoader;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V
 
-    check-cast v5, Ljava/lang/String;
-    :try_end_25
-    .catchall {:try_start_e .. :try_end_25} :catchall_b4
-
-    :try_start_25
-    const-string v5, "io.github.zeroaicy.aide.ClassReader"
-
-    invoke-static {v5}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v5
-    :try_end_2b
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_25 .. :try_end_2b} :catch_a9
-    .catchall {:try_start_25 .. :try_end_2b} :catchall_b4
-
-    :try_start_2b
-    invoke-virtual {v5}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v5
-
-    invoke-direct {v3, v0, v4, v4, v5}, Ldalvik/system/DexClassLoader;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V
-
-    sput-object v3, Lio/github/zeroaicy/aide/ClassReader;->dynamicDexClassLoader:Ljava/lang/ClassLoader;
+    sput-object v1, Lio/github/zeroaicy/aide/ClassReader;->dynamicDexClassLoader:Ljava/lang/ClassLoader;
 
     .line 266
     const-string v0, "io.github.zeroaicy.readclass.classInfo.DefaultMethodAllowedList"
 
-    invoke-virtual {v3, v0}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-virtual {v1, v0}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     move-result-object v0
-    :try_end_3a
-    .catchall {:try_start_2b .. :try_end_3a} :catchall_b4
 
     .line 268
-    :try_start_3a
+    :try_start_4
+    const-string v1, "java.lang.String"
+
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_4
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_4 .. :try_end_4} :catch_3
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    move-result-object v3
-    :try_end_3e
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_3a .. :try_end_3e} :catch_9e
-    .catchall {:try_start_3a .. :try_end_3e} :catchall_b4
+    move-result-object v1
 
-    :try_start_3e
-    const-string v4, "hasDefaultMethod"
+    :try_start_5
+    const-string v2, "hasDefaultMethod"
 
-    new-array v5, v2, [Ljava/lang/Class;
+    const/4 v3, 0x1
 
-    const/4 v6, 0x0
+    new-array v3, v3, [Ljava/lang/Class;
 
-    aput-object v3, v5, v6
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    aput-object v1, v3, v4
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
@@ -787,77 +875,89 @@
     .line 271
     sget-object v0, Lio/github/zeroaicy/aide/ClassReader;->dynamicDexClassLoader:Ljava/lang/ClassLoader;
 
-    const-string v3, "io.github.zeroaicy.readclass.classInfo.ClassInfoTest3"
+    const-string v1, "io.github.zeroaicy.readclass.classInfo.ClassInfoTest3"
 
-    invoke-virtual {v0, v3}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-virtual {v0, v1}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     move-result-object v0
-    :try_end_53
-    .catchall {:try_start_3e .. :try_end_53} :catchall_b4
 
     .line 272
-    :try_start_53
-    invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_start_6
+    const-string v1, "java.lang.String"
 
-    move-result-object v3
-    :try_end_57
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_53 .. :try_end_57} :catch_93
-    .catchall {:try_start_53 .. :try_end_57} :catchall_b4
-
-    :try_start_57
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_6
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_6 .. :try_end_6} :catch_2
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     move-result-object v1
-    :try_end_5b
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_57 .. :try_end_5b} :catch_88
-    .catchall {:try_start_57 .. :try_end_5b} :catchall_b4
 
-    :try_start_5b
-    const-string v4, "TestReadClass"
+    :try_start_7
+    const-string v2, "java.lang.String"
 
-    const/4 v5, 0x2
+    invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_7
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_7 .. :try_end_7} :catch_1
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    new-array v5, v5, [Ljava/lang/Class;
+    move-result-object v2
 
-    aput-object v3, v5, v6
+    :try_start_8
+    const-string v3, "TestReadClass"
 
-    aput-object v1, v5, v2
+    const/4 v4, 0x2
 
-    invoke-virtual {v0, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    new-array v4, v4, [Ljava/lang/Class;
+
+    const/4 v5, 0x0
+
+    aput-object v1, v4, v5
+
+    const/4 v1, 0x1
+
+    aput-object v2, v4, v1
+
+    invoke-virtual {v0, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     sput-object v1, Lio/github/zeroaicy/aide/ClassReader;->TestReadClassMethod:Ljava/lang/reflect/Method;
-    :try_end_6a
-    .catchall {:try_start_5b .. :try_end_6a} :catchall_b4
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     .line 273
-    :try_start_6a
+    :try_start_9
     const-string v1, "java.io.InputStream"
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_9
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_9 .. :try_end_9} :catch_0
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
     move-result-object v1
-    :try_end_70
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_6a .. :try_end_70} :catch_7d
-    .catchall {:try_start_6a .. :try_end_70} :catchall_b4
 
-    :try_start_70
-    const-string v3, "modifyADRT"
+    :try_start_a
+    const-string v2, "modifyADRT"
 
-    new-array v4, v2, [Ljava/lang/Class;
+    const/4 v3, 0x1
 
-    aput-object v1, v4, v6
+    new-array v3, v3, [Ljava/lang/Class;
 
-    invoke-virtual {v0, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v4, 0x0
+
+    aput-object v1, v3, v4
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
     sput-object v0, Lio/github/zeroaicy/aide/ClassReader;->ModifyADRTMethod:Ljava/lang/reflect/Method;
 
-    goto :goto_ba
+    goto/16 :goto_0
 
-    :catch_7d
+    :catch_0
     move-exception v0
 
     new-instance v1, Ljava/lang/NoClassDefFoundError;
@@ -870,35 +970,39 @@
 
     throw v1
 
-    :catch_88
+    :catch_1
     move-exception v0
+
+    move-object v1, v0
 
     .line 272
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {v1, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
-    goto :goto_9d
+    :goto_1
+    throw v0
 
-    :catch_93
+    :catch_2
     move-exception v0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    move-object v1, v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    move-result-object v0
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    move-result-object v1
 
-    :goto_9d
-    throw v1
+    invoke-direct {v0, v1}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
-    :catch_9e
+    goto :goto_1
+
+    :catch_3
     move-exception v0
 
     .line 268
@@ -912,7 +1016,7 @@
 
     throw v1
 
-    :catch_a9
+    :catch_4
     move-exception v0
 
     .line 265
@@ -925,24 +1029,12 @@
     invoke-direct {v1, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_b4
-    .catchall {:try_start_70 .. :try_end_b4} :catchall_b4
-
-    .line 278
-    :catchall_b4
-    move-exception v0
-
-    invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->notReadClassFileLib()V
-
-    .line 279
-    sput-boolean v2, Lio/github/zeroaicy/aide/ClassReader;->isLoadDexError:Z
-
-    :goto_ba
-    return-void
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .registers 5
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -959,70 +1051,70 @@
     .end annotation
 
     .line 30
-    sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string v0, "/storage/emulated/0/AppProjects1/.project/fat-aar-android-master/GroovyToJava/libs/gradle-api-8.0-milestone-3.jar"
+    const-string v1, "/storage/emulated/0/AppProjects1/.project/fat-aar-android-master/GroovyToJava/libs/gradle-api-8.0-milestone-3.jar"
 
-    const-string v1, "org/gradle/api/Task.class"
+    const-string v2, "org/gradle/api/Task.class"
 
-    invoke-static {v0, v1}, Lio/github/zeroaicy/aide/ClassReader;->Dc_ReadClassFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
+    invoke-static {v1, v2}, Lio/github/zeroaicy/aide/ClassReader;->Dc_ReadClassFile(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Lio/github/zeroaicy/aide/ClassReader;->readerToString(Ljava/io/Reader;)Ljava/lang/String;
+    invoke-static {v1}, Lio/github/zeroaicy/aide/ClassReader;->readerToString(Ljava/io/Reader;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 33
-    sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string v0, "Hello World!"
+    const-string v1, "Hello World!"
 
-    invoke-virtual {p0, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 34
-    sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const/4 v0, 0x1
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    new-instance v1, Ljava/lang/Double;
-
-    const-wide/16 v2, 0x0
-
-    invoke-direct {v1, v2, v3}, Ljava/lang/Double;-><init>(D)V
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "The product of both numbers is: %f"
 
-    invoke-virtual {p0, v1, v0}, Ljava/io/PrintStream;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    new-instance v4, Ljava/lang/Double;
+
+    const-wide/16 v6, 0x0
+
+    invoke-direct {v4, v6, v7}, Ljava/lang/Double;-><init>(D)V
+
+    aput-object v4, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Ljava/io/PrintStream;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
 
     return-void
 .end method
 
 .method public static modifyADRT(Ljava/io/InputStream;)Ljava/io/InputStream;
-    .registers 5
+    .locals 4
 
     .line 243
     :try_start_0
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isDynamic:Z
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 244
-    sget-object v0, Lio/github/zeroaicy/aide/ClassReader;->ModifyADRTMethod:Ljava/lang/reflect/Method;
+    sget-object v1, Lio/github/zeroaicy/aide/ClassReader;->ModifyADRTMethod:Ljava/lang/reflect/Method;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    move-object v2, v1
+    check-cast v0, Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/Object;
+    const/4 v0, 0x0
 
     const/4 v2, 0x1
 
@@ -1032,41 +1124,45 @@
 
     aput-object p0, v2, v3
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/io/InputStream;
 
+    .line 252
+    :goto_0
     return-object v0
 
     .line 246
-    :cond_17
+    :cond_0
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isDirect:Z
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_1
 
     .line 247
     invoke-static {p0}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest3;->modifyADRT(Ljava/io/InputStream;)Ljava/io/InputStream;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object p0
-    :try_end_1f
-    .catchall {:try_start_0 .. :try_end_1f} :catchall_20
+    move-result-object v0
 
-    return-object p0
+    goto :goto_0
 
     .line 252
-    :catchall_20
+    :catchall_0
     move-exception v0
 
-    :cond_21
+    :cond_1
     invoke-static {}, Lio/github/zeroaicy/aide/ClassReader;->notReadClassFileLib()V
 
-    return-object p0
+    move-object v0, p0
+
+    goto :goto_0
 .end method
 
 .method private static notReadClassFileLib()V
-    .registers 2
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -1076,12 +1172,14 @@
     .line 183
     sget-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isPrintlned:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
+    .line 187
+    :goto_0
     return-void
 
     .line 186
-    :cond_5
+    :cond_0
     const/4 v0, 0x1
 
     sput-boolean v0, Lio/github/zeroaicy/aide/ClassReader;->isPrintlned:Z
@@ -1089,74 +1187,86 @@
     .line 187
     const-string v0, "ZeroAicyClassReader"
 
-    const-string v1, "没有发现ReadClassFile库，请向AIDE+中添加class解析库"
+    const-string v1, "\u6ca1\u6709\u53d1\u73b0ReadClassFile\u5e93\uff0c\u8bf7\u5411AIDE+\u4e2d\u6dfb\u52a0class\u89e3\u6790\u5e93"
 
     invoke-static {v0, v1}, Lio/github/zeroaicy/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public static readerToString(Ljava/io/Reader;)Ljava/lang/String;
-    .registers 4
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    if-nez p0, :cond_7
+    if-nez p0, :cond_0
+
+    move-object v0, v1
 
     .line 38
-    move-object p0, v0
-
-    check-cast p0, Ljava/lang/String;
-
-    return-object v0
-
-    .line 39
-    :cond_7
-    new-instance v1, Ljava/io/BufferedReader;
-
-    invoke-direct {v1, p0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-
-    .line 42
     check-cast v0, Ljava/lang/String;
 
-    const-string p0, ""
+    .line 43
+    :goto_0
+    return-object v1
+
+    .line 39
+    :cond_0
+    new-instance v2, Ljava/io/BufferedReader;
+
+    invoke-direct {v2, p0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+
+    .line 42
+    check-cast v1, Ljava/lang/String;
+
+    const-string v0, ""
 
     .line 43
-    :goto_10
-    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    :goto_1
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_17
+    if-nez v1, :cond_1
 
-    return-object p0
+    move-object v1, v0
+
+    goto :goto_0
 
     .line 44
-    :cond_17
-    new-instance v2, Ljava/lang/StringBuffer;
+    :cond_1
+    new-instance v3, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object p0
-
-    new-instance v2, Ljava/lang/StringBuffer;
-
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v0
 
-    const-string v2, "\n"
+    new-instance v3, Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    const-string v3, "\n"
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v0
 
@@ -1164,13 +1274,5 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_10
+    goto :goto_1
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/MainListener$8;Ljava/lang/String;Landroid/app/ProgressDialog;)V
-    .registers 4
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -49,98 +49,103 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .line 620
-    const-string v0, ""
+    :try_start_0
+    new-instance v0, Ljava/io/File;
 
-    :try_start_2
-    new-instance v1, Ljava/io/File;
+    sget-object v1, Landroid/os/Environment;->DIRECTORY_DOWNLOADS:Ljava/lang/String;
 
-    sget-object v2, Landroid/os/Environment;->DIRECTORY_DOWNLOADS:Ljava/lang/String;
+    invoke-static {v1}, Landroid/os/Environment;->getExternalStoragePublicDirectory(Ljava/lang/String;)Ljava/io/File;
 
-    invoke-static {v2}, Landroid/os/Environment;->getExternalStoragePublicDirectory(Ljava/lang/String;)Ljava/io/File;
+    move-result-object v1
 
-    move-result-object v2
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v3, Ljava/io/File;
 
-    new-instance v4, Ljava/io/File;
+    iget-object v4, p0, Lcom/s1243808733/aide/MainListener$8$1;->val$finalml:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/s1243808733/aide/MainListener$8$1;->val$finalml:Ljava/lang/String;
+    invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "_"
 
-    const-string v4, "_"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {}, Lcom/blankj/utilcode/util/TimeUtils;->getNowString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string v5, " "
+    const-string v4, " "
 
-    invoke-virtual {v4, v5, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    const-string v5, ""
 
-    move-result-object v4
+    invoke-virtual {v3, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    const-string v5, ":"
+    move-result-object v3
 
-    invoke-virtual {v4, v5, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    const-string v4, ":"
 
-    move-result-object v4
+    const-string v5, ""
 
-    const-string v5, "-"
+    invoke-virtual {v3, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    invoke-virtual {v4, v5, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v0
+    const-string v4, "-"
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v5, ""
 
-    const-string v0, ".zip"
+    invoke-virtual {v3, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    const-string v3, ".zip"
 
-    invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 621
-    iget-object v0, p0, Lcom/s1243808733/aide/MainListener$8$1;->val$finalml:Ljava/lang/String;
+    iget-object v1, p0, Lcom/s1243808733/aide/MainListener$8$1;->val$finalml:Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v2
 
     const/4 v3, 0x1
 
-    invoke-static {v0, v2, v3}, Lcom/yt/plugin/translate/ZipUtilApache;->doZip(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v1, v2, v3}, Lcom/yt/plugin/translate/ZipUtilApache;->doZip(Ljava/lang/String;Ljava/lang/String;Z)V
 
     .line 622
-    new-instance v0, Lcom/s1243808733/aide/MainListener$8$1$1;
+    new-instance v1, Lcom/s1243808733/aide/MainListener$8$1$1;
 
-    invoke-direct {v0, p0, v1}, Lcom/s1243808733/aide/MainListener$8$1$1;-><init>(Lcom/s1243808733/aide/MainListener$8$1;Ljava/io/File;)V
+    invoke-direct {v1, p0, v0}, Lcom/s1243808733/aide/MainListener$8$1$1;-><init>(Lcom/s1243808733/aide/MainListener$8$1;Ljava/io/File;)V
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/ThreadUtils;->runOnUiThread(Ljava/lang/Runnable;)V
-    :try_end_59
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_59} :catch_5a
-
-    goto :goto_63
+    invoke-static {v1}, Lcom/blankj/utilcode/util/ThreadUtils;->runOnUiThread(Ljava/lang/Runnable;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 632
-    :catch_5a
+    :goto_0
+    return-void
+
+    :catch_0
     move-exception v0
 
     new-instance v0, Lcom/s1243808733/aide/MainListener$8$1$2;
@@ -149,6 +154,5 @@
 
     invoke-static {v0}, Lcom/blankj/utilcode/util/ThreadUtils;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    :goto_63
-    return-void
+    goto :goto_0
 .end method

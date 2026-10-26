@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/co;Landroid/webkit/WebView;)V
-    .registers 3
+    .locals 0
 
     .line 1680
     iput-object p1, p0, Lcom/baidu/mobstat/co$7;->b:Lcom/baidu/mobstat/co;
@@ -40,20 +40,20 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 1683
     iget-object v0, p0, Lcom/baidu/mobstat/co$7;->b:Lcom/baidu/mobstat/co;
 
     invoke-static {v0}, Lcom/baidu/mobstat/co;->i(Lcom/baidu/mobstat/co;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    monitor-enter v0
+    monitor-enter v1
 
     .line 1686
-    :try_start_7
-    iget-object v1, p0, Lcom/baidu/mobstat/co$7;->b:Lcom/baidu/mobstat/co;
+    :try_start_0
+    iget-object v0, p0, Lcom/baidu/mobstat/co$7;->b:Lcom/baidu/mobstat/co;
 
     iget-object v2, p0, Lcom/baidu/mobstat/co$7;->a:Landroid/webkit/WebView;
 
@@ -63,10 +63,10 @@
 
     int-to-float v2, v2
 
-    invoke-static {v1, v2}, Lcom/baidu/mobstat/co;->a(Lcom/baidu/mobstat/co;F)F
+    invoke-static {v0, v2}, Lcom/baidu/mobstat/co;->a(Lcom/baidu/mobstat/co;F)F
 
     .line 1687
-    iget-object v1, p0, Lcom/baidu/mobstat/co$7;->b:Lcom/baidu/mobstat/co;
+    iget-object v0, p0, Lcom/baidu/mobstat/co$7;->b:Lcom/baidu/mobstat/co;
 
     iget-object v2, p0, Lcom/baidu/mobstat/co$7;->a:Landroid/webkit/WebView;
 
@@ -74,28 +74,28 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/baidu/mobstat/co;->b(Lcom/baidu/mobstat/co;F)F
+    invoke-static {v0, v2}, Lcom/baidu/mobstat/co;->b(Lcom/baidu/mobstat/co;F)F
 
     .line 1689
-    iget-object v1, p0, Lcom/baidu/mobstat/co$7;->b:Lcom/baidu/mobstat/co;
+    iget-object v0, p0, Lcom/baidu/mobstat/co$7;->b:Lcom/baidu/mobstat/co;
 
-    invoke-static {v1}, Lcom/baidu/mobstat/co;->i(Lcom/baidu/mobstat/co;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/baidu/mobstat/co;->i(Lcom/baidu/mobstat/co;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
     .line 1690
-    monitor-exit v0
+    monitor-exit v1
 
     return-void
 
-    :catchall_29
-    move-exception v1
+    :catchall_0
+    move-exception v0
 
-    monitor-exit v0
-    :try_end_2b
-    .catchall {:try_start_7 .. :try_end_2b} :catchall_29
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw v0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/dfa/DFA;)V
-    .registers 3
+    .locals 1
 
     .line 13
     sget-object v0, Lorg/antlr/v4/runtime/VocabularyImpl;->EMPTY_VOCABULARY:Lorg/antlr/v4/runtime/VocabularyImpl;
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method protected getEdgeLabel(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
 
     .line 19
     new-instance v0, Ljava/lang/StringBuilder;
@@ -29,13 +29,15 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->appendCodePoint(I)Ljava/lang/StringBuilder;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "\'"
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object p1
+    move-result-object v0
+
+    return-object v0
 .end method

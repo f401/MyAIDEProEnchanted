@@ -53,23 +53,23 @@
 
 # direct methods
 .method static bridge synthetic -$$Nest$fgetstrings(Lcom/s1243808733/android/dex/Dex;)Lcom/s1243808733/android/dex/Dex$StringTable;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/android/dex/Dex;->strings:Lcom/s1243808733/android/dex/Dex$StringTable;
+    iget-object v0, p0, Lcom/s1243808733/android/dex/Dex;->strings:Lcom/s1243808733/android/dex/Dex$StringTable;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$fgettableOfContents(Lcom/s1243808733/android/dex/Dex;)Lcom/s1243808733/android/dex/TableOfContents;
-    .registers 1
+    .locals 1
 
-    iget-object p0, p0, Lcom/s1243808733/android/dex/Dex;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
+    iget-object v0, p0, Lcom/s1243808733/android/dex/Dex;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$smcheckBounds(II)V
-    .registers 2
+    .locals 0
 
     invoke-static {p0, p1}, Lcom/s1243808733/android/dex/Dex;->checkBounds(II)V
 
@@ -77,7 +77,7 @@
 .end method
 
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 58
     const/4 v0, 0x0
@@ -90,12 +90,14 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
+
+    const/4 v1, 0x0
 
     .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,8 +116,6 @@
 
     .line 63
     new-instance v0, Lcom/s1243808733/android/dex/Dex$StringTable;
-
-    const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/s1243808733/android/dex/Dex$StringTable;-><init>(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dex/Dex$StringTable-IA;)V
 
@@ -157,29 +157,31 @@
     iput-object v0, p0, Lcom/s1243808733/android/dex/Dex;->methodIds:Lcom/s1243808733/android/dex/Dex$MethodIdTable;
 
     .line 88
-    new-array p1, p1, [B
+    new-array v0, p1, [B
 
-    invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
+    invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
+    iput-object v0, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
 
     .line 89
-    sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
+
+    const/4 v1, 0x0
 
     .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -198,8 +200,6 @@
 
     .line 63
     new-instance v0, Lcom/s1243808733/android/dex/Dex$StringTable;
-
-    const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/s1243808733/android/dex/Dex$StringTable;-><init>(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dex/Dex$StringTable-IA;)V
 
@@ -249,7 +249,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7f
+    if-eqz v0, :cond_3
 
     .line 108
     new-instance v0, Ljava/util/zip/ZipFile;
@@ -263,54 +263,57 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_6b
+    if-eqz v1, :cond_2
 
     .line 111
     invoke-virtual {v0, v1}, Ljava/util/zip/ZipFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 112
-    :try_start_53
-    invoke-direct {p0, p1}, Lcom/s1243808733/android/dex/Dex;->loadFrom(Ljava/io/InputStream;)V
-    :try_end_56
-    .catchall {:try_start_53 .. :try_end_56} :catchall_5f
+    :try_start_0
+    invoke-direct {p0, v1}, Lcom/s1243808733/android/dex/Dex;->loadFrom(Ljava/io/InputStream;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz p1, :cond_5b
+    if-eqz v1, :cond_0
 
     .line 113
-    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
 
     .line 114
-    :cond_5b
+    :cond_0
     invoke-virtual {v0}, Ljava/util/zip/ZipFile;->close()V
 
-    goto :goto_96
+    .line 121
+    :goto_0
+    return-void
 
-    :catchall_5f
+    .line 114
+    :catchall_0
     move-exception v0
 
-    if-eqz p1, :cond_6a
+    if-eqz v1, :cond_1
 
     .line 111
-    :try_start_62
-    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
-    :try_end_65
-    .catchall {:try_start_62 .. :try_end_65} :catchall_66
+    :try_start_1
+    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    goto :goto_6a
-
-    :catchall_66
-    move-exception p1
-
-    invoke-static {v0, p1}, Lcom/s1243808733/aide/builder/D8Dex$$ExternalSyntheticBackport0;->m(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-
-    :cond_6a
-    :goto_6a
+    :cond_1
+    :goto_1
     throw v0
 
+    :catchall_1
+    move-exception v1
+
+    invoke-static {v0, v1}, Lcom/s1243808733/aide/builder/D8Dex$$ExternalSyntheticBackport0;->m(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+
+    goto :goto_1
+
     .line 116
-    :cond_6b
+    :cond_2
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "Expected classes.dex in "
@@ -319,18 +322,18 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Lcom/s1243808733/android/dex/DexException;
+    new-instance v1, Lcom/s1243808733/android/dex/DexException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 
     .line 118
-    :cond_7f
+    :cond_3
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v0
@@ -341,7 +344,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a1
+    if-eqz v0, :cond_4
 
     .line 119
     new-instance v0, Ljava/io/FileInputStream;
@@ -349,38 +352,37 @@
     invoke-direct {v0, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     .line 120
-    :try_start_90
+    :try_start_2
     invoke-direct {p0, v0}, Lcom/s1243808733/android/dex/Dex;->loadFrom(Ljava/io/InputStream;)V
-    :try_end_93
-    .catchall {:try_start_90 .. :try_end_93} :catchall_97
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     .line 121
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
-    :goto_96
-    return-void
+    goto :goto_0
 
-    :catchall_97
-    move-exception p1
+    :catchall_2
+    move-exception v1
 
     .line 119
-    :try_start_98
+    :try_start_3
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_9b
-    .catchall {:try_start_98 .. :try_end_9b} :catchall_9c
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_3
 
-    goto :goto_a0
+    :goto_2
+    throw v1
 
-    :catchall_9c
+    :catchall_3
     move-exception v0
 
-    invoke-static {p1, v0}, Lcom/s1243808733/aide/builder/D8Dex$$ExternalSyntheticBackport0;->m(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/s1243808733/aide/builder/D8Dex$$ExternalSyntheticBackport0;->m(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
-    :goto_a0
-    throw p1
+    goto :goto_2
 
     .line 123
-    :cond_a1
+    :cond_4
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "unknown output extension: "
@@ -389,24 +391,26 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Lcom/s1243808733/android/dex/DexException;
+    new-instance v1, Lcom/s1243808733/android/dex/DexException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
+
+    const/4 v1, 0x0
 
     .line 95
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -425,8 +429,6 @@
 
     .line 63
     new-instance v0, Lcom/s1243808733/android/dex/Dex$StringTable;
-
-    const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/s1243808733/android/dex/Dex$StringTable;-><init>(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dex/Dex$StringTable-IA;)V
 
@@ -468,17 +470,17 @@
     iput-object v0, p0, Lcom/s1243808733/android/dex/Dex;->methodIds:Lcom/s1243808733/android/dex/Dex$MethodIdTable;
 
     .line 97
-    :try_start_38
+    :try_start_0
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dex/Dex;->loadFrom(Ljava/io/InputStream;)V
-    :try_end_3b
-    .catchall {:try_start_38 .. :try_end_3b} :catchall_3f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 99
     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
 
     return-void
 
-    :catchall_3f
+    :catchall_0
     move-exception v0
 
     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
@@ -488,12 +490,14 @@
 .end method
 
 .method private constructor <init>(Ljava/nio/ByteBuffer;)V
-    .registers 5
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
+
+    const/4 v2, 0x0
 
     .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -512,8 +516,6 @@
 
     .line 63
     new-instance v1, Lcom/s1243808733/android/dex/Dex$StringTable;
-
-    const/4 v2, 0x0
 
     invoke-direct {v1, p0, v2}, Lcom/s1243808733/android/dex/Dex$StringTable;-><init>(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dex/Dex$StringTable-IA;)V
 
@@ -569,7 +571,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -579,24 +581,24 @@
     .line 75
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Lcom/s1243808733/android/dex/Dex;-><init>(Ljava/nio/ByteBuffer;)V
+    invoke-direct {p0, v0}, Lcom/s1243808733/android/dex/Dex;-><init>(Ljava/nio/ByteBuffer;)V
 
     return-void
 .end method
 
 .method private static checkBounds(II)V
-    .registers 4
+    .locals 2
 
-    if-ltz p0, :cond_5
+    if-ltz p0, :cond_0
 
-    if-ge p0, p1, :cond_5
+    if-ge p0, p1, :cond_0
 
     return-void
 
     .line 146
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "index:"
@@ -605,25 +607,25 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p0, ", length="
+    const-string v1, ", length="
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v1
 .end method
 
 .method private loadFrom(Ljava/io/InputStream;)V
-    .registers 6
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -641,43 +643,43 @@
     new-array v1, v1, [B
 
     .line 135
-    :goto_9
+    :goto_0
     invoke-virtual {p1, v1}, Ljava/io/InputStream;->read([B)I
 
     move-result v2
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_15
+    if-eq v2, v3, :cond_0
 
     .line 136
     const/4 v3, 0x0
 
     invoke-virtual {v0, v1, v3, v2}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 139
-    :cond_15
+    :cond_0
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
+    invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
+    iput-object v0, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
 
     .line 140
-    sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 141
-    iget-object p1, p0, Lcom/s1243808733/android/dex/Dex;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
+    iget-object v0, p0, Lcom/s1243808733/android/dex/Dex;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
 
-    invoke-virtual {p1, p0}, Lcom/s1243808733/android/dex/TableOfContents;->readFrom(Lcom/s1243808733/android/dex/Dex;)V
+    invoke-virtual {v0, p0}, Lcom/s1243808733/android/dex/TableOfContents;->readFrom(Lcom/s1243808733/android/dex/Dex;)V
 
     return-void
 .end method
@@ -685,11 +687,11 @@
 
 # virtual methods
 .method public appendSection(ILjava/lang/String;)Lcom/s1243808733/android/dex/Dex$Section;
-    .registers 6
+    .locals 4
 
     and-int/lit8 v0, p1, 0x3
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_0
 
     .line 187
     iget v0, p0, Lcom/s1243808733/android/dex/Dex;->nextSectionStart:I
@@ -697,54 +699,55 @@
     add-int/2addr v0, p1
 
     .line 188
-    iget-object p1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
 
-    move-result-object p1
+    move-result-object v1
 
     .line 189
-    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    sget-object v2, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 190
-    iget v1, p0, Lcom/s1243808733/android/dex/Dex;->nextSectionStart:I
+    iget v2, p0, Lcom/s1243808733/android/dex/Dex;->nextSectionStart:I
 
-    invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 191
-    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 192
-    new-instance v1, Lcom/s1243808733/android/dex/Dex$Section;
+    new-instance v2, Lcom/s1243808733/android/dex/Dex$Section;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v1, p0, p2, p1, v2}, Lcom/s1243808733/android/dex/Dex$Section;-><init>(Lcom/s1243808733/android/dex/Dex;Ljava/lang/String;Ljava/nio/ByteBuffer;Lcom/s1243808733/android/dex/Dex$Section-IA;)V
+    invoke-direct {v2, p0, p2, v1, v3}, Lcom/s1243808733/android/dex/Dex$Section;-><init>(Lcom/s1243808733/android/dex/Dex;Ljava/lang/String;Ljava/nio/ByteBuffer;Lcom/s1243808733/android/dex/Dex$Section-IA;)V
 
     .line 193
     iput v0, p0, Lcom/s1243808733/android/dex/Dex;->nextSectionStart:I
 
-    return-object v1
+    return-object v2
 
     .line 185
-    :cond_23
-    new-instance p1, Ljava/lang/IllegalStateException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string p2, "Not four byte aligned!"
+    const-string v1, "Not four byte aligned!"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public classDefs()Ljava/lang/Iterable;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/lang/Iterable<",
+            "Ljava/lang/Iterable",
+            "<",
             "Lcom/s1243808733/android/dex/ClassDef;",
             ">;"
         }
@@ -761,12 +764,16 @@
 .end method
 
 .method public computeChecksum()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
+
+    const/16 v5, 0x2000
+
+    const/4 v4, 0x0
 
     .line 295
     new-instance v0, Ljava/util/zip/Adler32;
@@ -774,138 +781,134 @@
     invoke-direct {v0}, Ljava/util/zip/Adler32;-><init>()V
 
     .line 296
-    const/16 v1, 0x2000
-
-    new-array v2, v1, [B
+    new-array v1, v5, [B
 
     .line 297
-    iget-object v3, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
+    iget-object v2, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 298
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v4
+    move-result v3
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 299
-    const/16 v4, 0xc
+    const/16 v3, 0xc
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 300
-    :goto_1b
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->hasRemaining()Z
+    :goto_0
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_31
+    if-eqz v3, :cond_0
 
     .line 301
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->remaining()I
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v4
+    move-result v3
 
-    invoke-static {v1, v4}, Ljava/lang/Math;->min(II)I
+    invoke-static {v5, v3}, Ljava/lang/Math;->min(II)I
 
-    move-result v4
+    move-result v3
 
     .line 302
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v2, v5, v4}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {v2, v1, v4, v3}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
     .line 303
-    invoke-virtual {v0, v2, v5, v4}, Ljava/util/zip/Adler32;->update([BII)V
+    invoke-virtual {v0, v1, v4, v3}, Ljava/util/zip/Adler32;->update([BII)V
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 305
-    :cond_31
+    :cond_0
     invoke-virtual {v0}, Ljava/util/zip/Adler32;->getValue()J
 
     move-result-wide v0
 
-    long-to-int v1, v0
+    long-to-int v0, v0
 
-    return v1
+    return v0
 .end method
 
 .method public computeSignature()[B
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    const/16 v5, 0x2000
+
+    const/4 v4, 0x0
+
     .line 275
     :try_start_0
     const-string v0, "SHA-1"
 
     invoke-static {v0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+    :try_end_0
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
-    :try_end_6
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_6} :catch_37
 
     .line 279
-    const/16 v1, 0x2000
-
-    new-array v2, v1, [B
+    new-array v1, v5, [B
 
     .line 280
-    iget-object v3, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
+    iget-object v2, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 281
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v4
+    move-result v3
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 282
-    const/16 v4, 0x20
+    const/16 v3, 0x20
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 283
-    :goto_1c
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->hasRemaining()Z
+    :goto_0
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_32
+    if-eqz v3, :cond_0
 
     .line 284
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->remaining()I
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v4
+    move-result v3
 
-    invoke-static {v1, v4}, Ljava/lang/Math;->min(II)I
+    invoke-static {v5, v3}, Ljava/lang/Math;->min(II)I
 
-    move-result v4
+    move-result v3
 
     .line 285
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v2, v5, v4}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {v2, v1, v4, v3}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
     .line 286
-    invoke-virtual {v0, v2, v5, v4}, Ljava/security/MessageDigest;->update([BII)V
+    invoke-virtual {v0, v1, v4, v3}, Ljava/security/MessageDigest;->update([BII)V
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 288
-    :cond_32
+    :cond_0
     invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
 
     move-result-object v0
@@ -913,24 +916,18 @@
     return-object v0
 
     .line 277
-    :catch_37
+    :catch_0
     move-exception v0
 
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
-    goto :goto_3f
-
-    :goto_3e
     throw v0
-
-    :goto_3f
-    goto :goto_3e
 .end method
 
 .method public descriptorIndexFromTypeIndex(I)I
-    .registers 4
+    .locals 3
 
     .line 322
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
@@ -951,23 +948,24 @@
     .line 324
     iget-object v1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
 
-    mul-int/lit8 p1, p1, 0x4
+    mul-int/lit8 v2, p1, 0x4
 
-    add-int/2addr v0, p1
+    add-int/2addr v0, v2
 
     invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->getInt(I)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public fieldIds()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/android/dex/FieldId;",
             ">;"
         }
@@ -980,7 +978,7 @@
 .end method
 
 .method public getBytes()[B
-    .registers 4
+    .locals 3
 
     .line 209
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
@@ -1008,7 +1006,7 @@
 .end method
 
 .method public getLength()I
-    .registers 2
+    .locals 1
 
     .line 198
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
@@ -1021,7 +1019,7 @@
 .end method
 
 .method public getNextSectionStart()I
-    .registers 2
+    .locals 1
 
     .line 202
     iget v0, p0, Lcom/s1243808733/android/dex/Dex;->nextSectionStart:I
@@ -1030,7 +1028,7 @@
 .end method
 
 .method public getTableOfContents()Lcom/s1243808733/android/dex/TableOfContents;
-    .registers 2
+    .locals 1
 
     .line 168
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex;->tableOfContents:Lcom/s1243808733/android/dex/TableOfContents;
@@ -1039,11 +1037,12 @@
 .end method
 
 .method public methodIds()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/android/dex/MethodId;",
             ">;"
         }
@@ -1056,9 +1055,9 @@
 .end method
 
 .method public open(I)Lcom/s1243808733/android/dex/Dex$Section;
-    .registers 5
+    .locals 4
 
-    if-ltz p1, :cond_2a
+    if-ltz p1, :cond_0
 
     .line 172
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
@@ -1067,7 +1066,7 @@
 
     move-result v0
 
-    if-ge p1, v0, :cond_2a
+    if-ge p1, v0, :cond_0
 
     .line 176
     iget-object v0, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
@@ -1085,27 +1084,27 @@
     invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 179
-    iget-object p1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result p1
+    move-result v1
 
-    invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 180
-    new-instance p1, Lcom/s1243808733/android/dex/Dex$Section;
+    new-instance v1, Lcom/s1243808733/android/dex/Dex$Section;
 
-    const-string v1, "section"
+    const-string v2, "section"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {p1, p0, v1, v0, v2}, Lcom/s1243808733/android/dex/Dex$Section;-><init>(Lcom/s1243808733/android/dex/Dex;Ljava/lang/String;Ljava/nio/ByteBuffer;Lcom/s1243808733/android/dex/Dex$Section-IA;)V
+    invoke-direct {v1, p0, v2, v0, v3}, Lcom/s1243808733/android/dex/Dex$Section;-><init>(Lcom/s1243808733/android/dex/Dex;Ljava/lang/String;Ljava/nio/ByteBuffer;Lcom/s1243808733/android/dex/Dex$Section-IA;)V
 
-    return-object p1
+    return-object v1
 
     .line 173
-    :cond_2a
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "position="
@@ -1114,36 +1113,37 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, " length="
+    const-string v1, " length="
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
 
     .line 174
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result p1
+    move-result v1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method public protoIds()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lcom/s1243808733/android/dex/ProtoId;",
             ">;"
         }
@@ -1156,98 +1156,100 @@
 .end method
 
 .method public readClassData(Lcom/s1243808733/android/dex/ClassDef;)Lcom/s1243808733/android/dex/ClassData;
-    .registers 3
+    .locals 2
 
     .line 252
     invoke-virtual {p1}, Lcom/s1243808733/android/dex/ClassDef;->getClassDataOffset()I
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_f
+    if-eqz v0, :cond_0
 
     .line 256
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/android/dex/Dex$Section;->-$$Nest$mreadClassData(Lcom/s1243808733/android/dex/Dex$Section;)Lcom/s1243808733/android/dex/ClassData;
+    invoke-static {v0}, Lcom/s1243808733/android/dex/Dex$Section;->-$$Nest$mreadClassData(Lcom/s1243808733/android/dex/Dex$Section;)Lcom/s1243808733/android/dex/ClassData;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
     .line 254
-    :cond_f
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "offset == 0"
+    const-string v1, "offset == 0"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public readCode(Lcom/s1243808733/android/dex/ClassData$Method;)Lcom/s1243808733/android/dex/Code;
-    .registers 3
+    .locals 2
 
     .line 260
     invoke-virtual {p1}, Lcom/s1243808733/android/dex/ClassData$Method;->getCodeOffset()I
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_f
+    if-eqz v0, :cond_0
 
     .line 264
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/android/dex/Dex$Section;->-$$Nest$mreadCode(Lcom/s1243808733/android/dex/Dex$Section;)Lcom/s1243808733/android/dex/Code;
+    invoke-static {v0}, Lcom/s1243808733/android/dex/Dex$Section;->-$$Nest$mreadCode(Lcom/s1243808733/android/dex/Dex$Section;)Lcom/s1243808733/android/dex/Code;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
     .line 262
-    :cond_f
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "offset == 0"
+    const-string v1, "offset == 0"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 .method public readTypeList(I)Lcom/s1243808733/android/dex/TypeList;
-    .registers 2
+    .locals 1
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_0
 
     .line 246
-    sget-object p1, Lcom/s1243808733/android/dex/TypeList;->EMPTY:Lcom/s1243808733/android/dex/TypeList;
-
-    return-object p1
+    sget-object v0, Lcom/s1243808733/android/dex/TypeList;->EMPTY:Lcom/s1243808733/android/dex/TypeList;
 
     .line 248
-    :cond_5
+    :goto_0
+    return-object v0
+
+    :cond_0
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dex/Dex;->open(I)Lcom/s1243808733/android/dex/Dex$Section;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dex/Dex$Section;->readTypeList()Lcom/s1243808733/android/dex/TypeList;
+    invoke-virtual {v0}, Lcom/s1243808733/android/dex/Dex$Section;->readTypeList()Lcom/s1243808733/android/dex/TypeList;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method public strings()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -1260,11 +1262,12 @@
 .end method
 
 .method public typeIds()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/Integer;",
             ">;"
         }
@@ -1277,11 +1280,12 @@
 .end method
 
 .method public typeNames()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -1294,7 +1298,7 @@
 .end method
 
 .method public writeHashes()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1331,7 +1335,7 @@
 .end method
 
 .method public writeTo(Ljava/io/File;)V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1344,86 +1348,86 @@
     invoke-direct {v0, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     .line 163
-    :try_start_5
+    :try_start_0
     invoke-virtual {p0, v0}, Lcom/s1243808733/android/dex/Dex;->writeTo(Ljava/io/OutputStream;)V
-    :try_end_8
-    .catchall {:try_start_5 .. :try_end_8} :catchall_c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 164
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
     return-void
 
-    :catchall_c
-    move-exception p1
+    :catchall_0
+    move-exception v1
 
     .line 162
-    :try_start_d
+    :try_start_1
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
-    :try_end_10
-    .catchall {:try_start_d .. :try_end_10} :catchall_11
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    goto :goto_15
+    :goto_0
+    throw v1
 
-    :catchall_11
+    :catchall_1
     move-exception v0
 
-    invoke-static {p1, v0}, Lcom/s1243808733/aide/builder/D8Dex$$ExternalSyntheticBackport0;->m(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/s1243808733/aide/builder/D8Dex$$ExternalSyntheticBackport0;->m(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
 
-    :goto_15
-    throw p1
+    goto :goto_0
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
-    .registers 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 151
-    const/16 v0, 0x2000
+    const/16 v4, 0x2000
 
-    new-array v1, v0, [B
+    const/4 v3, 0x0
+
+    .line 151
+    new-array v0, v4, [B
 
     .line 152
-    iget-object v2, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/s1243808733/android/dex/Dex;->data:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 153
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
     .line 154
-    :goto_d
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->hasRemaining()Z
+    :goto_0
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_23
+    if-eqz v2, :cond_0
 
     .line 155
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->remaining()I
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v0, v3}, Ljava/lang/Math;->min(II)I
+    invoke-static {v4, v2}, Ljava/lang/Math;->min(II)I
 
-    move-result v3
+    move-result v2
 
     .line 156
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v1, v4, v3}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {v1, v0, v3, v2}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
     .line 157
-    invoke-virtual {p1, v1, v4, v3}, Ljava/io/OutputStream;->write([BII)V
+    invoke-virtual {p1, v0, v3, v2}, Ljava/io/OutputStream;->write([BII)V
 
-    goto :goto_d
+    goto :goto_0
 
-    :cond_23
+    :cond_0
     return-void
 .end method

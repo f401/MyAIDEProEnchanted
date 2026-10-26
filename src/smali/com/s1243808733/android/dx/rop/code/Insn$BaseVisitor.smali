@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 433
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,43 +30,43 @@
 
 # virtual methods
 .method public visitFillArrayDataInsn(Lcom/s1243808733/android/dx/rop/code/FillArrayDataInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitInvokePolymorphicInsn(Lcom/s1243808733/android/dx/rop/code/InvokePolymorphicInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitPlainCstInsn(Lcom/s1243808733/android/dx/rop/code/PlainCstInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitPlainInsn(Lcom/s1243808733/android/dx/rop/code/PlainInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitSwitchInsn(Lcom/s1243808733/android/dx/rop/code/SwitchInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitThrowingCstInsn(Lcom/s1243808733/android/dx/rop/code/ThrowingCstInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitThrowingInsn(Lcom/s1243808733/android/dx/rop/code/ThrowingInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

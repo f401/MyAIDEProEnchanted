@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 4
+    .locals 3
 
     .line 242
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 .end method
 
 .method synthetic constructor <init>(Lorg/ahocorasick/trie/Trie$1;)V
-    .registers 2
+    .locals 0
 
     .line 236
     invoke-direct {p0}, Lorg/ahocorasick/trie/Trie$TrieBuilder;-><init>()V
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public addKeyword(Ljava/lang/String;)Lorg/ahocorasick/trie/Trie$TrieBuilder;
-    .registers 3
+    .locals 1
 
     .line 265
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie$TrieBuilder;->trie:Lorg/ahocorasick/trie/Trie;
@@ -69,7 +69,7 @@
 .end method
 
 .method public build()Lorg/ahocorasick/trie/Trie;
-    .registers 2
+    .locals 1
 
     .line 275
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie$TrieBuilder;->trie:Lorg/ahocorasick/trie/Trie;
@@ -83,7 +83,7 @@
 .end method
 
 .method public caseInsensitive()Lorg/ahocorasick/trie/Trie$TrieBuilder;
-    .registers 3
+    .locals 2
 
     .line 245
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie$TrieBuilder;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
@@ -96,7 +96,7 @@
 .end method
 
 .method public onlyWholeWords()Lorg/ahocorasick/trie/Trie$TrieBuilder;
-    .registers 3
+    .locals 2
 
     .line 255
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie$TrieBuilder;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
@@ -109,7 +109,7 @@
 .end method
 
 .method public onlyWholeWordsWhiteSpaceSeparated()Lorg/ahocorasick/trie/Trie$TrieBuilder;
-    .registers 3
+    .locals 2
 
     .line 260
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie$TrieBuilder;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
@@ -122,7 +122,7 @@
 .end method
 
 .method public removeOverlaps()Lorg/ahocorasick/trie/Trie$TrieBuilder;
-    .registers 3
+    .locals 2
 
     .line 250
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie$TrieBuilder;->trieConfig:Lorg/ahocorasick/trie/TrieConfig;
@@ -135,7 +135,7 @@
 .end method
 
 .method public stopOnHit()Lorg/ahocorasick/trie/Trie$TrieBuilder;
-    .registers 3
+    .locals 2
 
     .line 270
     iget-object v0, p0, Lorg/ahocorasick/trie/Trie$TrieBuilder;->trie:Lorg/ahocorasick/trie/Trie;

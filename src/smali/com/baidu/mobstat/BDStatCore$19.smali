@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Landroid/content/Context;J)V
-    .registers 5
+    .locals 1
 
     .line 200
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$19;->c:Lcom/baidu/mobstat/BDStatCore;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 204
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$19;->c:Lcom/baidu/mobstat/BDStatCore;

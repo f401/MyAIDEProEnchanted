@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;Landroid/view/View;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,47 +45,49 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 2
 
     .line 107
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;->val$l:Landroid/view/View$OnClickListener;
+    iget-object v0, v0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;->val$l:Landroid/view/View$OnClickListener;
 
-    if-eqz p1, :cond_10
+    if-eqz v0, :cond_0
 
     .line 108
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;->val$l:Landroid/view/View$OnClickListener;
+    iget-object v0, v0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;->val$l:Landroid/view/View$OnClickListener;
 
-    iget-object p2, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;->val$view:Landroid/view/View;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;->val$view:Landroid/view/View;
 
-    invoke-interface {p1, p2}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
+    invoke-interface {v0, v1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
+    .line 127
+    :goto_0
     return-void
 
     .line 111
-    :cond_10
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;
+    :cond_0
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;->this$1:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;
 
-    iget-object p1, p1, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;->val$btn:Landroid/widget/Button;
+    iget-object v0, v0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2;->val$btn:Landroid/widget/Button;
 
-    const/4 p2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, p2}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
     .line 112
-    new-instance p1, Ljava/lang/Thread;
+    new-instance v0, Ljava/lang/Thread;
 
-    new-instance p2, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1$1;
+    new-instance v1, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1$1;
 
-    invoke-direct {p2, p0}, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1$1;-><init>(Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;)V
+    invoke-direct {v1, p0}, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1$1;-><init>(Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1;)V
 
-    invoke-direct {p1, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
     .line 127
-    invoke-virtual {p1}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    return-void
+    goto :goto_0
 .end method

@@ -55,78 +55,50 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/cr;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IJLjava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Ljava/util/Map;ZLorg/json/JSONObject;Ljava/lang/String;Lorg/json/JSONArray;)V
-    .registers 22
+    .locals 1
 
     .line 218
-    move-object v0, p0
+    iput-object p1, p0, Lcom/baidu/mobstat/cr$1;->q:Lcom/baidu/mobstat/cr;
 
-    move-object v1, p1
+    iput-object p2, p0, Lcom/baidu/mobstat/cr$1;->a:Landroid/content/Context;
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->q:Lcom/baidu/mobstat/cr;
+    iput-object p3, p0, Lcom/baidu/mobstat/cr$1;->b:Ljava/lang/String;
 
-    move-object v1, p2
+    iput-object p4, p0, Lcom/baidu/mobstat/cr$1;->c:Ljava/lang/String;
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->a:Landroid/content/Context;
+    iput-object p5, p0, Lcom/baidu/mobstat/cr$1;->d:Ljava/lang/String;
 
-    move-object v1, p3
+    iput p6, p0, Lcom/baidu/mobstat/cr$1;->e:I
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->b:Ljava/lang/String;
+    iput-wide p7, p0, Lcom/baidu/mobstat/cr$1;->f:J
 
-    move-object v1, p4
+    iput-object p9, p0, Lcom/baidu/mobstat/cr$1;->g:Ljava/lang/String;
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->c:Ljava/lang/String;
+    iput-object p10, p0, Lcom/baidu/mobstat/cr$1;->h:Lorg/json/JSONArray;
 
-    move-object v1, p5
+    iput-object p11, p0, Lcom/baidu/mobstat/cr$1;->i:Ljava/lang/String;
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->d:Ljava/lang/String;
+    iput-object p12, p0, Lcom/baidu/mobstat/cr$1;->j:Lorg/json/JSONArray;
 
-    move v1, p6
+    iput-object p13, p0, Lcom/baidu/mobstat/cr$1;->k:Ljava/lang/String;
 
-    iput v1, v0, Lcom/baidu/mobstat/cr$1;->e:I
+    iput-object p14, p0, Lcom/baidu/mobstat/cr$1;->l:Ljava/util/Map;
 
-    move-wide v1, p7
+    move/from16 v0, p15
 
-    iput-wide v1, v0, Lcom/baidu/mobstat/cr$1;->f:J
+    iput-boolean v0, p0, Lcom/baidu/mobstat/cr$1;->m:Z
 
-    move-object v1, p9
+    move-object/from16 v0, p16
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->g:Ljava/lang/String;
+    iput-object v0, p0, Lcom/baidu/mobstat/cr$1;->n:Lorg/json/JSONObject;
 
-    move-object v1, p10
+    move-object/from16 v0, p17
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->h:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/baidu/mobstat/cr$1;->o:Ljava/lang/String;
 
-    move-object v1, p11
+    move-object/from16 v0, p18
 
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->i:Ljava/lang/String;
-
-    move-object v1, p12
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->j:Lorg/json/JSONArray;
-
-    move-object/from16 v1, p13
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->k:Ljava/lang/String;
-
-    move-object/from16 v1, p14
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->l:Ljava/util/Map;
-
-    move/from16 v1, p15
-
-    iput-boolean v1, v0, Lcom/baidu/mobstat/cr$1;->m:Z
-
-    move-object/from16 v1, p16
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->n:Lorg/json/JSONObject;
-
-    move-object/from16 v1, p17
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->o:Ljava/lang/String;
-
-    move-object/from16 v1, p18
-
-    iput-object v1, v0, Lcom/baidu/mobstat/cr$1;->p:Lorg/json/JSONArray;
+    iput-object v0, p0, Lcom/baidu/mobstat/cr$1;->p:Lorg/json/JSONArray;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -136,76 +108,109 @@
 
 # virtual methods
 .method public run()V
-    .registers 23
+    .locals 22
 
     .line 220
-    move-object/from16 v0, p0
-
     invoke-static {}, Lcom/baidu/mobstat/BDStatCore;->instance()Lcom/baidu/mobstat/BDStatCore;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lcom/baidu/mobstat/BDStatCore;->getSessionStartTime()J
+    invoke-virtual {v2}, Lcom/baidu/mobstat/BDStatCore;->getSessionStartTime()J
 
     move-result-wide v4
 
-    const-wide/16 v1, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v3, v4, v1
+    cmp-long v2, v4, v2
 
-    if-gtz v3, :cond_11
-
-    return-void
+    if-gtz v2, :cond_0
 
     .line 225
-    :cond_11
+    :goto_0
+    return-void
+
+    :cond_0
+    move-object/from16 v0, p0
+
     iget-object v2, v0, Lcom/baidu/mobstat/cr$1;->q:Lcom/baidu/mobstat/cr;
+
+    move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/baidu/mobstat/cr$1;->a:Landroid/content/Context;
 
+    move-object/from16 v0, p0
+
     iget-object v6, v0, Lcom/baidu/mobstat/cr$1;->b:Ljava/lang/String;
+
+    move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/baidu/mobstat/cr$1;->c:Ljava/lang/String;
 
+    move-object/from16 v0, p0
+
     iget-object v8, v0, Lcom/baidu/mobstat/cr$1;->d:Ljava/lang/String;
+
+    move-object/from16 v0, p0
 
     iget v9, v0, Lcom/baidu/mobstat/cr$1;->e:I
 
+    move-object/from16 v0, p0
+
     iget-wide v10, v0, Lcom/baidu/mobstat/cr$1;->f:J
+
+    move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/baidu/mobstat/cr$1;->g:Ljava/lang/String;
 
+    move-object/from16 v0, p0
+
     iget-object v13, v0, Lcom/baidu/mobstat/cr$1;->h:Lorg/json/JSONArray;
+
+    move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/baidu/mobstat/cr$1;->i:Ljava/lang/String;
 
+    move-object/from16 v0, p0
+
     iget-object v15, v0, Lcom/baidu/mobstat/cr$1;->j:Lorg/json/JSONArray;
 
-    iget-object v1, v0, Lcom/baidu/mobstat/cr$1;->k:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-object/from16 v16, v1
+    iget-object v0, v0, Lcom/baidu/mobstat/cr$1;->k:Ljava/lang/String;
 
-    iget-object v1, v0, Lcom/baidu/mobstat/cr$1;->l:Ljava/util/Map;
+    move-object/from16 v16, v0
 
-    move-object/from16 v17, v1
+    move-object/from16 v0, p0
 
-    iget-boolean v1, v0, Lcom/baidu/mobstat/cr$1;->m:Z
+    iget-object v0, v0, Lcom/baidu/mobstat/cr$1;->l:Ljava/util/Map;
 
-    move/from16 v18, v1
+    move-object/from16 v17, v0
 
-    iget-object v1, v0, Lcom/baidu/mobstat/cr$1;->n:Lorg/json/JSONObject;
+    move-object/from16 v0, p0
 
-    move-object/from16 v19, v1
+    iget-boolean v0, v0, Lcom/baidu/mobstat/cr$1;->m:Z
 
-    iget-object v1, v0, Lcom/baidu/mobstat/cr$1;->o:Ljava/lang/String;
+    move/from16 v18, v0
 
-    move-object/from16 v20, v1
+    move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/baidu/mobstat/cr$1;->p:Lorg/json/JSONArray;
+    iget-object v0, v0, Lcom/baidu/mobstat/cr$1;->n:Lorg/json/JSONObject;
 
-    move-object/from16 v21, v1
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/baidu/mobstat/cr$1;->o:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/baidu/mobstat/cr$1;->p:Lorg/json/JSONArray;
+
+    move-object/from16 v21, v0
 
     invoke-static/range {v2 .. v21}, Lcom/baidu/mobstat/cr;->a(Lcom/baidu/mobstat/cr;Landroid/content/Context;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;IJLjava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Lorg/json/JSONArray;Ljava/lang/String;Ljava/util/Map;ZLorg/json/JSONObject;Ljava/lang/String;Lorg/json/JSONArray;)V
 
-    return-void
+    goto :goto_0
 .end method

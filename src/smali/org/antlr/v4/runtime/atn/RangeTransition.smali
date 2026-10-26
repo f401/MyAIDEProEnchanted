@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;II)V
-    .registers 4
+    .locals 0
 
     .line 16
     invoke-direct {p0, p1}, Lorg/antlr/v4/runtime/atn/Transition;-><init>(Lorg/antlr/v4/runtime/atn/ATNState;)V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getSerializationType()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x2
 
@@ -36,7 +36,7 @@
 .end method
 
 .method public label()Lorg/antlr/v4/runtime/misc/IntervalSet;
-    .registers 3
+    .locals 2
 
     .line 28
     iget v0, p0, Lorg/antlr/v4/runtime/atn/RangeTransition;->from:I
@@ -51,30 +51,30 @@
 .end method
 
 .method public matches(III)Z
-    .registers 4
+    .locals 1
 
     .line 32
-    iget p2, p0, Lorg/antlr/v4/runtime/atn/RangeTransition;->from:I
+    iget v0, p0, Lorg/antlr/v4/runtime/atn/RangeTransition;->from:I
 
-    if-lt p1, p2, :cond_a
+    if-lt p1, v0, :cond_0
 
-    iget p2, p0, Lorg/antlr/v4/runtime/atn/RangeTransition;->to:I
+    iget v0, p0, Lorg/antlr/v4/runtime/atn/RangeTransition;->to:I
 
-    if-gt p1, p2, :cond_a
+    if-gt p1, v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_b
+    :goto_0
+    return v0
 
-    :cond_a
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_b
-    return p1
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 2
 
     .line 37
     new-instance v0, Ljava/lang/StringBuilder;
@@ -83,21 +83,23 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p0, Lorg/antlr/v4/runtime/atn/RangeTransition;->from:I
+    iget v1, p0, Lorg/antlr/v4/runtime/atn/RangeTransition;->from:I
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->appendCodePoint(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->appendCodePoint(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "\'..\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lorg/antlr/v4/runtime/atn/RangeTransition;->to:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->appendCodePoint(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    const-string v2, "\'..\'"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v2, p0, Lorg/antlr/v4/runtime/atn/RangeTransition;->to:I
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->appendCodePoint(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
+    const-string v1, "\'"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

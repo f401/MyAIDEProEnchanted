@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/AideMainActivity;)V
-    .registers 2
+    .locals 0
 
     .line 1334
     iput-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$24;->this$0:Lcom/s1243808733/aide/AideMainActivity;
@@ -36,12 +36,12 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 1338
-    iget-object p1, p0, Lcom/s1243808733/aide/AideMainActivity$24;->this$0:Lcom/s1243808733/aide/AideMainActivity;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$24;->this$0:Lcom/s1243808733/aide/AideMainActivity;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/AideMainActivity;->-$$Nest$mrequestPermission(Lcom/s1243808733/aide/AideMainActivity;)V
+    invoke-static {v0}, Lcom/s1243808733/aide/AideMainActivity;->-$$Nest$mrequestPermission(Lcom/s1243808733/aide/AideMainActivity;)V
 
     return-void
 .end method

@@ -20,8 +20,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;"
         }
     .end annotation
 .end method
@@ -33,8 +33,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/antlr/v4/runtime/TokenFactory<",
-            "*>;)V"
+            "Lorg/antlr/v4/runtime/TokenFactory",
+            "<*>;)V"
         }
     .end annotation
 .end method

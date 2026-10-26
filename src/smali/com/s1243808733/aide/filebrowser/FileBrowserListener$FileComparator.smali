@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Ljava/lang/String;",
         ">;"
     }
@@ -30,7 +31,8 @@
 .field final list:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -42,11 +44,12 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;I)V"
         }
@@ -65,7 +68,7 @@
 .end method
 
 .method private getFileName(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
 
     .line 193
     const-string v0, "/"
@@ -76,23 +79,24 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_a
-
-    return-object p1
+    if-ne v0, v1, :cond_0
 
     .line 195
-    :cond_a
+    :goto_0
+    return-object p1
+
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object p1
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method private getIntFromString(Ljava/lang/String;)I
-    .registers 4
+    .locals 2
 
     .line 184
     const-string v0, "[^\\d]"
@@ -101,30 +105,31 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 185
-    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, -0x1
+
+    .line 188
+    :goto_0
+    return v0
+
+    :cond_0
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
 
-    if-eqz v0, :cond_10
-
-    const/4 p1, -0x1
-
-    return p1
-
-    .line 188
-    :cond_10
-    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result p1
-
-    return p1
+    goto :goto_0
 .end method
 
 .method private getNameFromString(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
 
     .line 175
     const-string v0, "\\d+"
@@ -140,25 +145,26 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f
-
-    return-object p1
+    if-eqz v1, :cond_0
 
     .line 178
-    :cond_f
-    const-string p1, " "
+    :goto_0
+    return-object p1
 
-    invoke-static {v0, p1}, Lcom/github/promeg/pinyinhelper/Pinyin;->toPinyin(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    :cond_0
+    const-string v1, " "
+
+    invoke-static {v0, v1}, Lcom/github/promeg/pinyinhelper/Pinyin;->toPinyin(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    return-object p1
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 138
     check-cast p1, Ljava/lang/String;
@@ -167,75 +173,80 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->compare(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public compare(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 5
+    .locals 5
+
+    const/4 v1, 0x0
 
     .line 150
     :try_start_0
     invoke-direct {p0, p1}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getFileName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 151
     invoke-direct {p0, p2}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getFileName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object v3
 
     .line 154
-    invoke-direct {p0, p1}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getNameFromString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v2}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getNameFromString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 155
-    invoke-direct {p0, p2}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getNameFromString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v3}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getNameFromString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
     .line 157
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
+    invoke-virtual {v0, v4}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
 
     move-result v0
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     .line 161
-    invoke-direct {p0, p1}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getIntFromString(Ljava/lang/String;)I
-
-    move-result p1
-
-    .line 162
-    invoke-direct {p0, p2}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getIntFromString(Ljava/lang/String;)I
-
-    move-result p2
-
-    .line 163
-    invoke-static {p1, p2}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator$$ExternalSyntheticBackport0;->m(II)I
+    invoke-direct {p0, v2}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getIntFromString(Ljava/lang/String;)I
 
     move-result v0
-    :try_end_22
-    .catchall {:try_start_0 .. :try_end_22} :catchall_23
 
-    :cond_22
-    return v0
+    .line 162
+    invoke-direct {p0, v3}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator;->getIntFromString(Ljava/lang/String;)I
 
-    :catchall_23
-    move-exception p1
+    move-result v2
+
+    .line 163
+    invoke-static {v0, v2}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$FileComparator$$ExternalSyntheticBackport0;->m(II)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
 
     .line 168
-    const/4 p2, 0x1
-
-    new-array p2, p2, [Ljava/lang/Object;
-
-    const/4 v0, 0x0
-
-    aput-object p1, p2, v0
-
-    invoke-static {p2}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
-
+    :cond_0
+    :goto_0
     return v0
+
+    .line 163
+    :catchall_0
+    move-exception v0
+
+    .line 168
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object v0, v2, v1
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
+
+    move v0, v1
+
+    goto :goto_0
 .end method

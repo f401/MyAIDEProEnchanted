@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
 
     .line 18
     const-string v0, "ap_list3"
@@ -18,13 +18,14 @@
 .end method
 
 .method private a(Landroid/database/Cursor;)Ljava/util/ArrayList;
-    .registers 11
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/database/Cursor;",
             ")",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/baidu/mobstat/i;",
             ">;"
         }
@@ -35,22 +36,21 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    if-nez p1, :cond_8
+    if-nez p1, :cond_1
 
+    .line 105
+    :cond_0
     return-object v0
 
     .line 91
-    :cond_8
+    :cond_1
     invoke-interface {p1}, Landroid/database/Cursor;->getCount()I
 
     move-result v1
 
-    if-nez v1, :cond_f
-
-    return-object v0
+    if-eqz v1, :cond_0
 
     .line 95
-    :cond_f
     const-string v1, "_id"
 
     invoke-interface {p1, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -72,12 +72,12 @@
     move-result v3
 
     .line 99
-    :goto_21
+    :goto_0
     invoke-interface {p1}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3c
+    if-eqz v4, :cond_0
 
     .line 100
     invoke-interface {p1, v1}, Landroid/database/Cursor;->getLong(I)J
@@ -102,16 +102,13 @@
     .line 105
     invoke-virtual {v0, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_21
-
-    :cond_3c
-    return-object v0
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public a(Ljava/lang/String;Ljava/lang/String;)J
-    .registers 5
+    .locals 2
 
     .line 62
     new-instance v0, Landroid/content/ContentValues;
@@ -124,24 +121,25 @@
     invoke-virtual {v0, v1, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 64
-    const-string p1, "content"
+    const-string v1, "content"
 
-    invoke-virtual {v0, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 66
     invoke-virtual {p0, v0}, Lcom/baidu/mobstat/m;->a(Landroid/content/ContentValues;)J
 
-    move-result-wide p1
+    move-result-wide v0
 
-    return-wide p1
+    return-wide v0
 .end method
 
 .method public a(II)Ljava/util/ArrayList;
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
-            "Ljava/util/ArrayList<",
+            "Ljava/util/ArrayList",
+            "<",
             "Lcom/baidu/mobstat/i;",
             ">;"
         }
@@ -152,29 +150,29 @@
 
     invoke-virtual {p0, v0, p1, p2}, Lcom/baidu/mobstat/m;->a(Ljava/lang/String;II)Landroid/database/Cursor;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 35
-    invoke-direct {p0, p1}, Lcom/baidu/mobstat/m;->a(Landroid/database/Cursor;)Ljava/util/ArrayList;
+    invoke-direct {p0, v0}, Lcom/baidu/mobstat/m;->a(Landroid/database/Cursor;)Ljava/util/ArrayList;
 
-    move-result-object p2
+    move-result-object v1
 
-    if-eqz p1, :cond_f
+    if-eqz v0, :cond_0
 
     .line 37
-    invoke-interface {p1}, Landroid/database/Cursor;->close()V
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    :cond_f
-    return-object p2
+    :cond_0
+    return-object v1
 .end method
 
 .method public b(J)Z
-    .registers 3
+    .locals 1
 
     .line 81
     invoke-virtual {p0, p1, p2}, Lcom/baidu/mobstat/m;->a(J)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

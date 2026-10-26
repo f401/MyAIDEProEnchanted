@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public getBaseName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 159
     iget-object v0, p0, Lcom/s1243808733/data/OutputApk$ApkData;->baseName:Ljava/lang/String;
@@ -86,7 +86,7 @@
 .end method
 
 .method public getDirName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 168
     iget-object v0, p0, Lcom/s1243808733/data/OutputApk$ApkData;->dirName:Ljava/lang/String;
@@ -95,7 +95,7 @@
 .end method
 
 .method public getFullName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 150
     iget-object v0, p0, Lcom/s1243808733/data/OutputApk$ApkData;->fullName:Ljava/lang/String;
@@ -104,7 +104,7 @@
 .end method
 
 .method public getOutputFile()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 141
     iget-object v0, p0, Lcom/s1243808733/data/OutputApk$ApkData;->outputFile:Ljava/lang/String;
@@ -113,7 +113,7 @@
 .end method
 
 .method public getType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 105
     iget-object v0, p0, Lcom/s1243808733/data/OutputApk$ApkData;->type:Ljava/lang/String;
@@ -122,7 +122,7 @@
 .end method
 
 .method public getVersionCode()I
-    .registers 2
+    .locals 1
 
     .line 114
     iget v0, p0, Lcom/s1243808733/data/OutputApk$ApkData;->versionCode:I
@@ -131,7 +131,7 @@
 .end method
 
 .method public getVersionName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 123
     iget-object v0, p0, Lcom/s1243808733/data/OutputApk$ApkData;->versionName:Ljava/lang/String;
@@ -140,7 +140,7 @@
 .end method
 
 .method public isEnabled()Z
-    .registers 2
+    .locals 1
 
     .line 132
     iget-boolean v0, p0, Lcom/s1243808733/data/OutputApk$ApkData;->enabled:Z
@@ -149,7 +149,7 @@
 .end method
 
 .method public setBaseName(Ljava/lang/String;)Lcom/s1243808733/data/OutputApk$ApkData;
-    .registers 2
+    .locals 0
 
     .line 154
     iput-object p1, p0, Lcom/s1243808733/data/OutputApk$ApkData;->baseName:Ljava/lang/String;
@@ -158,7 +158,7 @@
 .end method
 
 .method public setDirName(Ljava/lang/String;)Lcom/s1243808733/data/OutputApk$ApkData;
-    .registers 2
+    .locals 0
 
     .line 163
     iput-object p1, p0, Lcom/s1243808733/data/OutputApk$ApkData;->dirName:Ljava/lang/String;
@@ -167,7 +167,7 @@
 .end method
 
 .method public setEnabled(Z)Lcom/s1243808733/data/OutputApk$ApkData;
-    .registers 2
+    .locals 0
 
     .line 127
     iput-boolean p1, p0, Lcom/s1243808733/data/OutputApk$ApkData;->enabled:Z
@@ -176,7 +176,7 @@
 .end method
 
 .method public setFullName(Ljava/lang/String;)Lcom/s1243808733/data/OutputApk$ApkData;
-    .registers 2
+    .locals 0
 
     .line 145
     iput-object p1, p0, Lcom/s1243808733/data/OutputApk$ApkData;->fullName:Ljava/lang/String;
@@ -185,7 +185,7 @@
 .end method
 
 .method public setOutputFile(Ljava/lang/String;)Lcom/s1243808733/data/OutputApk$ApkData;
-    .registers 2
+    .locals 0
 
     .line 136
     iput-object p1, p0, Lcom/s1243808733/data/OutputApk$ApkData;->outputFile:Ljava/lang/String;
@@ -194,7 +194,7 @@
 .end method
 
 .method public setType(Ljava/lang/String;)Lcom/s1243808733/data/OutputApk$ApkData;
-    .registers 2
+    .locals 0
 
     .line 100
     iput-object p1, p0, Lcom/s1243808733/data/OutputApk$ApkData;->type:Ljava/lang/String;
@@ -203,7 +203,7 @@
 .end method
 
 .method public setVersionCode(I)Lcom/s1243808733/data/OutputApk$ApkData;
-    .registers 2
+    .locals 0
 
     .line 109
     iput p1, p0, Lcom/s1243808733/data/OutputApk$ApkData;->versionCode:I
@@ -212,7 +212,7 @@
 .end method
 
 .method public setVersionName(Ljava/lang/String;)Lcom/s1243808733/data/OutputApk$ApkData;
-    .registers 2
+    .locals 0
 
     .line 118
     iput-object p1, p0, Lcom/s1243808733/data/OutputApk$ApkData;->versionName:Ljava/lang/String;

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/AlertDialog;Landroid/widget/EditText;Ljava/io/File;Lcom/aide/common/ab;)V
-    .registers 5
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -53,18 +53,18 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 5
+    .locals 4
 
     .line 62
-    iget-object p1, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$1;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$1;->val$dialog:Landroid/app/AlertDialog;
 
-    iget-object v0, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$1;->val$input:Landroid/widget/EditText;
+    iget-object v1, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$1;->val$input:Landroid/widget/EditText;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$1;->val$createInDirFile:Ljava/io/File;
+    iget-object v2, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$1;->val$createInDirFile:Ljava/io/File;
 
-    iget-object v2, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$1;->val$abVar:Lcom/aide/common/ab;
+    iget-object v3, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$1;->val$abVar:Lcom/aide/common/ab;
 
-    invoke-static {p1, v0, v1, v2}, Lcom/s1243808733/aide/util/CreateXMLDialog;->-$$Nest$smcreateXml(Landroid/app/AlertDialog;Landroid/widget/EditText;Ljava/io/File;Lcom/aide/common/ab;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/s1243808733/aide/util/CreateXMLDialog;->-$$Nest$smcreateXml(Landroid/app/AlertDialog;Landroid/widget/EditText;Ljava/io/File;Lcom/aide/common/ab;)V
 
     return-void
 .end method

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/util/Json2Bean$1$1;Landroid/widget/EditText;Landroid/widget/EditText;Landroid/app/AlertDialog;)V
-    .registers 5
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -53,12 +53,10 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 3
 
     .line 137
-    const-string p1, ".java"
-
-    :try_start_2
+    :try_start_0
     iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$1$1$1;->val$input_fileName:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -70,11 +68,13 @@
     move-result-object v0
 
     .line 138
-    invoke-virtual {v0, p1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    const-string v1, ".java"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_21
+    if-nez v1, :cond_0
 
     .line 139
     new-instance v1, Ljava/lang/StringBuilder;
@@ -83,101 +83,109 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ".java"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 142
-    :cond_21
-    new-instance p1, Ljava/io/File;
+    :cond_0
+    new-instance v1, Ljava/io/File;
 
-    iget-object v1, p0, Lcom/s1243808733/util/Json2Bean$1$1$1;->val$input_outpath:Landroid/widget/EditText;
+    iget-object v2, p0, Lcom/s1243808733/util/Json2Bean$1$1$1;->val$input_outpath:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {p1, v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 144
     iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$1$1$1;->this$1:Lcom/s1243808733/util/Json2Bean$1$1;
 
     iget-object v0, v0, Lcom/s1243808733/util/Json2Bean$1$1;->val$result:Ljava/lang/String;
 
-    invoke-static {p1, v0}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/io/File;Ljava/lang/String;)Z
+    invoke-static {v1, v0}, Lcom/blankj/utilcode/util/FileIOUtils;->writeFileFromString(Ljava/io/File;Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5c
+    if-eqz v0, :cond_2
 
     .line 145
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v1
-    :try_end_43
-    .catchall {:try_start_2 .. :try_end_43} :catchall_67
+    move-result v0
 
-    if-eqz v1, :cond_48
+    if-eqz v0, :cond_1
 
-    const-string v1, "已导出到:"
+    const-string v0, "\u5df2\u5bfc\u51fa\u5230:"
 
-    goto :goto_4a
+    :goto_0
+    :try_start_1
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_48
-    const-string v1, "Exported to:"
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    :goto_4a
-    :try_start_4a
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
-
-    goto :goto_61
-
-    .line 147
-    :cond_5c
-    const-string p1, "output failed!"
-
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
 
     .line 149
-    :goto_61
-    iget-object p1, p0, Lcom/s1243808733/util/Json2Bean$1$1$1;->val$dialog2:Landroid/app/AlertDialog;
+    :goto_1
+    iget-object v0, p0, Lcom/s1243808733/util/Json2Bean$1$1$1;->val$dialog2:Landroid/app/AlertDialog;
 
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
-    :try_end_66
-    .catchall {:try_start_4a .. :try_end_66} :catchall_67
-
-    goto :goto_6c
-
-    :catchall_67
-    move-exception p1
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 151
-    const/4 v0, 0x1
-
-    invoke-static {p1, v0}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/Throwable;Z)Landroid/widget/Toast;
-
-    :goto_6c
+    :goto_2
     return-void
+
+    .line 145
+    :cond_1
+    const-string v0, "Exported to:"
+
+    goto :goto_0
+
+    .line 147
+    :cond_2
+    :try_start_2
+    const-string v0, "output failed!"
+
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/String;)Landroid/widget/Toast;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_1
+
+    .line 149
+    :catchall_0
+    move-exception v0
+
+    .line 151
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/s1243808733/util/Utils;->toast(Ljava/lang/Throwable;Z)Landroid/widget/Toast;
+
+    goto :goto_2
 .end method

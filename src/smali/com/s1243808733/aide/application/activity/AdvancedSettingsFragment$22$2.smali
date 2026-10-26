@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22;Ljava/util/HashMap;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,32 +45,32 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;IZ)V
-    .registers 6
+    .locals 3
 
     .line 822
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$2;->val$states:Ljava/util/HashMap;
+    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$2;->val$states:Ljava/util/HashMap;
 
-    invoke-virtual {p1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    new-array v1, v1, [Ljava/lang/String;
+    new-array v2, v2, [Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v0, v2}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, [Ljava/lang/String;
 
-    aget-object p2, v0, p2
+    aget-object v0, v0, p2
 
     invoke-static {p3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p1, p2, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method

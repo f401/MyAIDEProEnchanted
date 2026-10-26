@@ -12,64 +12,68 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 2
 
     .line 32
     invoke-direct {p0}, Lcom/s1243808733/android/dx/io/instructions/BaseCodeCursor;-><init>()V
 
-    if-ltz p1, :cond_a
+    if-ltz p1, :cond_0
 
     .line 37
-    new-array p1, p1, [S
+    new-array v0, p1, [S
 
-    iput-object p1, p0, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->array:[S
+    iput-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->array:[S
 
     return-void
 
     .line 34
-    :cond_a
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "maxSize < 0"
+    const-string v1, "maxSize < 0"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public getArray()[S
-    .registers 5
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 45
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->cursor()I
 
-    move-result v0
+    move-result v2
 
     .line 47
-    iget-object v1, p0, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->array:[S
+    iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->array:[S
 
-    array-length v2, v1
+    array-length v1, v0
 
-    if-ne v0, v2, :cond_a
-
-    return-object v1
-
-    .line 51
-    :cond_a
-    new-array v2, v0, [S
+    if-ne v2, v1, :cond_0
 
     .line 52
-    const/4 v3, 0x0
+    :goto_0
+    return-object v0
 
-    invoke-static {v1, v3, v2, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    .line 51
+    :cond_0
+    new-array v1, v2, [S
 
-    return-object v2
+    .line 52
+    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 .method public write(S)V
-    .registers 4
+    .locals 2
 
     .line 59
     iget-object v0, p0, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->array:[S
@@ -81,15 +85,15 @@
     aput-short p1, v0, v1
 
     .line 60
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->advance(I)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->advance(I)V
 
     return-void
 .end method
 
 .method public write(SS)V
-    .registers 3
+    .locals 0
 
     .line 66
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
@@ -101,7 +105,7 @@
 .end method
 
 .method public write(SSS)V
-    .registers 4
+    .locals 0
 
     .line 73
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
@@ -116,7 +120,7 @@
 .end method
 
 .method public write(SSSS)V
-    .registers 5
+    .locals 0
 
     .line 81
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
@@ -134,7 +138,7 @@
 .end method
 
 .method public write(SSSSS)V
-    .registers 6
+    .locals 0
 
     .line 90
     invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
@@ -155,159 +159,157 @@
 .end method
 
 .method public write([B)V
-    .registers 9
-
-    .line 118
-    array-length v0, p1
-
-    const/4 v1, 0x0
+    .locals 7
 
     const/4 v2, 0x1
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    const/4 v4, 0x1
+    .line 118
+    array-length v5, p1
 
-    const/4 v5, 0x0
+    move v4, v1
 
-    :goto_6
-    if-ge v3, v0, :cond_1d
+    move v0, v2
 
-    aget-byte v6, p1, v3
+    move v3, v1
 
-    if-eqz v4, :cond_11
+    :goto_0
+    if-ge v4, v5, :cond_1
 
-    and-int/lit16 v4, v6, 0xff
+    aget-byte v6, p1, v4
 
-    move v5, v4
+    if-eqz v0, :cond_0
 
-    const/4 v4, 0x0
+    and-int/lit16 v3, v6, 0xff
 
-    goto :goto_1a
-
-    :cond_11
-    shl-int/lit8 v4, v6, 0x8
-
-    or-int/2addr v4, v5
-
-    int-to-short v5, v4
+    move v0, v1
 
     .line 124
-    invoke-virtual {p0, v5}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
+    :goto_1
+    add-int/lit8 v4, v4, 0x1
 
-    move v5, v4
+    goto :goto_0
 
-    const/4 v4, 0x1
+    .line 118
+    :cond_0
+    shl-int/lit8 v0, v6, 0x8
 
-    :goto_1a
-    add-int/lit8 v3, v3, 0x1
+    or-int/2addr v3, v0
 
-    goto :goto_6
+    int-to-short v0, v3
 
-    :cond_1d
-    if-nez v4, :cond_23
+    .line 124
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
 
-    int-to-short p1, v5
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_1
+    if-nez v0, :cond_2
+
+    int-to-short v0, v3
 
     .line 130
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
 
-    :cond_23
+    :cond_2
     return-void
 .end method
 
 .method public write([I)V
-    .registers 5
+    .locals 3
 
     .line 145
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_2
-    if-ge v1, v0, :cond_c
+    :goto_0
+    if-ge v0, v1, :cond_0
 
-    aget v2, p1, v1
+    aget v2, p1, v0
 
     .line 146
     invoke-virtual {p0, v2}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->writeInt(I)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public write([J)V
-    .registers 6
+    .locals 4
 
     .line 153
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_2
-    if-ge v1, v0, :cond_c
+    :goto_0
+    if-ge v0, v1, :cond_0
 
-    aget-wide v2, p1, v1
+    aget-wide v2, p1, v0
 
     .line 154
     invoke-virtual {p0, v2, v3}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->writeLong(J)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public write([S)V
-    .registers 5
+    .locals 3
 
     .line 137
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_2
-    if-ge v1, v0, :cond_c
+    :goto_0
+    if-ge v0, v1, :cond_0
 
-    aget-short v2, p1, v1
+    aget-short v2, p1, v0
 
     .line 138
     invoke-virtual {p0, v2}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public writeInt(I)V
-    .registers 3
+    .locals 1
 
     int-to-short v0, p1
 
     .line 100
     invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
 
-    shr-int/lit8 p1, p1, 0x10
+    shr-int/lit8 v0, p1, 0x10
 
-    int-to-short p1, p1
+    int-to-short v0, v0
 
     .line 101
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
 
     return-void
 .end method
 
 .method public writeLong(J)V
-    .registers 5
+    .locals 3
 
     long-to-int v0, p1
 
@@ -320,9 +322,9 @@
 
     shr-long v0, p1, v0
 
-    long-to-int v1, v0
+    long-to-int v0, v0
 
-    int-to-short v0, v1
+    int-to-short v0, v0
 
     .line 108
     invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
@@ -331,23 +333,23 @@
 
     shr-long v0, p1, v0
 
-    long-to-int v1, v0
+    long-to-int v0, v0
 
-    int-to-short v0, v1
+    int-to-short v0, v0
 
     .line 109
     invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
 
     const/16 v0, 0x30
 
-    shr-long/2addr p1, v0
+    shr-long v0, p1, v0
 
-    long-to-int p2, p1
+    long-to-int v0, v0
 
-    int-to-short p1, p2
+    int-to-short v0, v0
 
     .line 110
-    invoke-virtual {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
+    invoke-virtual {p0, v0}, Lcom/s1243808733/android/dx/io/instructions/ShortArrayCodeOutput;->write(S)V
 
     return-void
 .end method

@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 232
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static ReaderClassZeroAicy(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -34,7 +34,7 @@
     .line 184
     sget-object v0, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->mClassFileByZipFileCache:Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFileCache;
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 185
     new-instance v0, Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFileCache;
@@ -46,186 +46,194 @@
     sput-object v0, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->mClassFileByZipFileCache:Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFileCache;
 
     .line 188
-    :cond_d
+    :cond_0
     sget-object v0, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->mClassFileByZipFileCache:Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFileCache;
 
     invoke-virtual {v0, p0}, Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFileCache;->getClassFileByZipFile(Ljava/lang/String;)Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 189
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p0, p1, v0}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->ReaderClassZeroAicy(Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;Ljava/lang/String;Z)Ljava/io/StringReader;
+    invoke-static {v0, p1, v1}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->ReaderClassZeroAicy(Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;Ljava/lang/String;Z)Ljava/io/StringReader;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static ReaderClassZeroAicy(Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;Ljava/lang/String;)Ljava/io/StringReader;
-    .registers 3
+    .locals 1
 
     .line 198
     const/4 v0, 0x1
 
     invoke-static {p0, p1, v0}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->ReaderClassZeroAicy(Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;Ljava/lang/String;Z)Ljava/io/StringReader;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static ReaderClassZeroAicy(Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;Ljava/lang/String;Z)Ljava/io/StringReader;
-    .registers 7
+    .locals 4
 
-    .line 204
-    const-string v0, ".class"
-
-    .line 0
-    nop
-
-    .line 204
     const/4 v1, 0x0
 
-    :try_start_4
+    .line 204
+    :try_start_0
+    const-string v0, ".class"
+
     invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_15
+    if-eqz v0, :cond_0
 
     .line 205
+    const/4 v0, 0x0
+
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
     add-int/lit8 v2, v2, -0x6
 
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v0, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object p1
 
     .line 208
-    :cond_15
+    :cond_0
     invoke-virtual {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;->hasClassFile(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_41
+    if-nez v0, :cond_1
 
     .line 210
-    new-instance p1, Ljava/lang/StringBuffer;
+    new-instance v2, Ljava/lang/StringBuffer;
 
-    invoke-direct {p1}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
 
-    new-instance p2, Ljava/lang/StringBuffer;
+    new-instance v3, Ljava/lang/StringBuffer;
 
-    const-string v2, "Not found ClassFile "
+    const-string v0, "Not found ClassFile "
 
-    invoke-direct {p2, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    new-instance v2, Ljava/io/StringReader;
+    new-instance v0, Ljava/io/StringReader;
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
-    move-result-object p0
+    move-result-object v3
 
-    invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v3
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object p0
+    move-result-object v2
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string v3, ".class"
 
-    move-result-object p0
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object p0
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, p0}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    return-object v2
+    invoke-direct {v0, v2}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+
+    move-object v1, v0
+
+    .line 231
+    :goto_0
+    return-object v1
 
     .line 213
-    :cond_41
+    :cond_1
     invoke-virtual {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;->loadClassFileData(Ljava/lang/String;)[B
 
-    move-result-object p1
+    move-result-object v2
 
     .line 214
-    move-object v0, v1
+    const/4 v0, 0x0
 
     check-cast v0, Ljava/lang/String;
 
-    if-eqz p1, :cond_5d
+    if-eqz v2, :cond_3
 
     .line 216
     new-instance v0, Lzeroaicy/org/objectweb/asm/ClassReader;
 
-    invoke-direct {v0, p1}, Lzeroaicy/org/objectweb/asm/ClassReader;-><init>([B)V
+    invoke-direct {v0, v2}, Lzeroaicy/org/objectweb/asm/ClassReader;-><init>([B)V
 
     .line 217
-    new-instance p1, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;
+    new-instance v2, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;
 
-    invoke-direct {p1, p0}, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;-><init>(Lio/github/zeroaicy/readclass/classInfo/ClassFile;)V
+    invoke-direct {v2, p0}, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;-><init>(Lio/github/zeroaicy/readclass/classInfo/ClassFile;)V
 
     .line 218
-    const/4 v2, 0x4
+    const/4 v3, 0x4
 
-    invoke-virtual {v0, p1, v2}, Lzeroaicy/org/objectweb/asm/ClassReader;->accept(Lzeroaicy/org/objectweb/asm/ClassVisitor;I)V
+    invoke-virtual {v0, v2, v3}, Lzeroaicy/org/objectweb/asm/ClassReader;->accept(Lzeroaicy/org/objectweb/asm/ClassVisitor;I)V
 
     .line 219
-    invoke-virtual {p1}, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;->getInfoValue()Ljava/lang/String;
+    invoke-virtual {v2}, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;->getInfoValue()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    goto :goto_5e
+    move-object v2, v0
 
-    :cond_5d
-    move-object p1, v1
-
-    :goto_5e
-    if-eqz p2, :cond_63
+    :goto_1
+    if-eqz p2, :cond_2
 
     .line 222
     invoke-virtual {p0}, Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;->close()V
 
-    :cond_63
-    if-eqz p1, :cond_6f
+    :cond_2
+    if-eqz v2, :cond_4
 
     .line 226
-    new-instance p0, Ljava/io/StringReader;
+    new-instance v0, Ljava/io/StringReader;
 
-    invoke-direct {p0, p1}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
-    :try_end_6a
-    .catchall {:try_start_4 .. :try_end_6a} :catchall_6b
+    invoke-direct {v0, v2}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return-object p0
+    move-object v1, v0
 
-    :catchall_6b
-    move-exception p0
+    goto :goto_0
+
+    :cond_3
+    move-object v2, v1
+
+    .line 219
+    goto :goto_1
+
+    .line 226
+    :catchall_0
+    move-exception v0
 
     .line 229
-    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    :cond_4
+    move-object v0, v1
 
     .line 231
-    :cond_6f
-    move-object p0, v1
+    check-cast v0, Ljava/io/StringReader;
 
-    check-cast p0, Ljava/io/StringReader;
-
-    return-object v1
+    goto :goto_0
 .end method
 
 .method public static Test2()V
-    .registers 3
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V^",
@@ -246,22 +254,22 @@
 
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 131
-    :goto_8
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_4a
+    if-nez v0, :cond_0
 
     .line 133
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuffer;
 
-    const-string v2, "有无: "
+    const-string v2, "\u6709\u65e0: "
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
@@ -286,7 +294,7 @@
 
     new-instance v1, Ljava/lang/StringBuffer;
 
-    const-string v2, "有无2: "
+    const-string v2, "\u6709\u65e02: "
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
@@ -316,52 +324,57 @@
     return-void
 
     .line 130
-    :cond_4a
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 131
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {v2, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static TestReadClass(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
-    .registers 2
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 157
     :try_start_0
     invoke-static {p0, p1}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->ReaderClassZeroAicy(Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object p0
-    :try_end_4
-    .catchall {:try_start_0 .. :try_end_4} :catchall_5
-
-    return-object p0
-
-    :catchall_5
-    move-exception p0
-
-    .line 161
-    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+    move-result-object v1
 
     .line 163
-    const/4 p0, 0x0
+    :goto_0
+    return-object v1
 
-    move-object p1, p0
+    .line 157
+    :catchall_0
+    move-exception v0
 
-    check-cast p1, Ljava/io/Reader;
+    .line 161
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    return-object p0
+    move-object v0, v1
+
+    .line 163
+    check-cast v0, Ljava/io/Reader;
+
+    goto :goto_0
 .end method
 
 .method public static TestReadClass(Ljava/util/zip/ZipFile;Ljava/lang/String;)Ljava/io/Reader;
-    .registers 3
+    .locals 2
+
+    const/4 v1, 0x0
 
     .line 148
     :try_start_0
@@ -370,31 +383,32 @@
     invoke-direct {v0, p0}, Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;-><init>(Ljava/util/zip/ZipFile;)V
 
     invoke-static {v0, p1}, Lio/github/zeroaicy/readclass/classInfo/ClassInfoTest;->ReaderClassZeroAicy(Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;Ljava/lang/String;)Ljava/io/StringReader;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object p0
-    :try_end_9
-    .catchall {:try_start_0 .. :try_end_9} :catchall_a
-
-    return-object p0
-
-    :catchall_a
-    move-exception p0
-
-    .line 150
-    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+    move-result-object v1
 
     .line 152
-    const/4 p0, 0x0
+    :goto_0
+    return-object v1
 
-    move-object p1, p0
+    .line 148
+    :catchall_0
+    move-exception v0
 
-    check-cast p1, Ljava/io/Reader;
+    .line 150
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    return-object p0
+    move-object v0, v1
+
+    .line 152
+    check-cast v0, Ljava/io/Reader;
+
+    goto :goto_0
 .end method
 
 .method public static getUserAndroidJar()Ljava/lang/String;
-    .registers 3
+    .locals 4
 
     .line 168
     invoke-static {}, Lio/github/zeroaicy/util/ContextUtil;->getContext()Landroid/content/Context;
@@ -407,9 +421,11 @@
     move-result-object v1
 
     .line 170
-    new-instance v2, Ljava/lang/StringBuffer;
+    const-string v2, "user_androidjar"
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    new-instance v3, Ljava/lang/StringBuffer;
+
+    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
 
     invoke-virtual {v0}, Landroid/content/Context;->getNoBackupFilesDir()Ljava/io/File;
 
@@ -419,21 +435,19 @@
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v0
 
-    const-string v2, "/.aide/android.jar"
+    const-string v3, "/.aide/android.jar"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
-
-    const-string v2, "user_androidjar"
 
     invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -443,7 +457,7 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -466,7 +480,7 @@
 .end method
 
 .method private static method(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -476,40 +490,44 @@
         }
     .end annotation
 
+    const/4 v1, 0x0
+
     .line 52
     const/16 v0, 0x2e
 
-    const/16 v1, 0x2f
+    const/16 v2, 0x2f
 
-    :try_start_4
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    :try_start_0
+    invoke-virtual {p0, v0, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 53
-    const-string v0, ".class"
+    const-string v2, ".class"
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1b
+    if-eqz v2, :cond_2
 
     .line 54
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
+    const/4 v2, 0x0
 
-    move-result v0
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    add-int/lit8 v0, v0, -0x6
+    move-result v3
 
-    const/4 v1, 0x0
+    add-int/lit8 v3, v3, -0x6
 
-    invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
+
+    move-object v3, v0
 
     .line 57
-    :cond_1b
+    :goto_0
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -518,95 +536,109 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_0
 
     .line 58
     new-instance v0, Lio/github/zeroaicy/readclass/classInfo/ClassFileByFileSystem;
 
     invoke-direct {v0, p1}, Lio/github/zeroaicy/readclass/classInfo/ClassFileByFileSystem;-><init>(Ljava/lang/String;)V
 
-    goto :goto_31
+    move-object v2, v0
+
+    .line 64
+    :goto_1
+    invoke-interface {v2, v3}, Lio/github/zeroaicy/readclass/classInfo/ClassFile;->loadClassFileData(Ljava/lang/String;)[B
+
+    move-result-object v3
+
+    .line 66
+    const/4 v0, 0x0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-eqz v3, :cond_1
+
+    .line 69
+    new-instance v0, Lzeroaicy/org/objectweb/asm/ClassReader;
+
+    invoke-direct {v0, v3}, Lzeroaicy/org/objectweb/asm/ClassReader;-><init>([B)V
+
+    .line 70
+    new-instance v1, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;
+
+    invoke-direct {v1, v2}, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;-><init>(Lio/github/zeroaicy/readclass/classInfo/ClassFile;)V
+
+    .line 71
+    const/4 v3, 0x4
+
+    invoke-virtual {v0, v1, v3}, Lzeroaicy/org/objectweb/asm/ClassReader;->accept(Lzeroaicy/org/objectweb/asm/ClassVisitor;I)V
+
+    .line 72
+    invoke-virtual {v1}, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;->getInfoValue()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 74
+    :goto_2
+    invoke-interface {v2}, Lio/github/zeroaicy/readclass/classInfo/ClassFile;->close()V
+
+    .line 76
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v2, Ljava/lang/StringBuffer;
+
+    const-string v3, "\n\n\u6e90\u7801\u4e3a:\n"
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 78
+    :goto_3
+    return-void
 
     .line 61
-    :cond_2c
+    :cond_0
     new-instance v0, Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;
 
     invoke-direct {v0, p1}, Lio/github/zeroaicy/readclass/classInfo/ClassFileByZipFile;-><init>(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 64
-    :goto_31
-    invoke-interface {v0, p0}, Lio/github/zeroaicy/readclass/classInfo/ClassFile;->loadClassFileData(Ljava/lang/String;)[B
+    move-object v2, v0
 
-    move-result-object p0
-
-    .line 66
-    const/4 p1, 0x0
-
-    move-object v1, p1
-
-    check-cast v1, Ljava/lang/String;
-
-    if-eqz p0, :cond_4d
-
-    .line 69
-    new-instance p1, Lzeroaicy/org/objectweb/asm/ClassReader;
-
-    invoke-direct {p1, p0}, Lzeroaicy/org/objectweb/asm/ClassReader;-><init>([B)V
-
-    .line 70
-    new-instance p0, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;
-
-    invoke-direct {p0, v0}, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;-><init>(Lio/github/zeroaicy/readclass/classInfo/ClassFile;)V
-
-    .line 71
-    const/4 v1, 0x4
-
-    invoke-virtual {p1, p0, v1}, Lzeroaicy/org/objectweb/asm/ClassReader;->accept(Lzeroaicy/org/objectweb/asm/ClassVisitor;I)V
-
-    .line 72
-    invoke-virtual {p0}, Lio/github/zeroaicy/readclass/classInfo/ClassAttributeVisitor;->getInfoValue()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 74
-    :cond_4d
-    invoke-interface {v0}, Lio/github/zeroaicy/readclass/classInfo/ClassFile;->close()V
+    goto :goto_1
 
     .line 76
-    sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    new-instance v0, Ljava/lang/StringBuffer;
-
-    const-string v1, "\n\n源码为:\n"
-
-    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-    :try_end_64
-    .catchall {:try_start_4 .. :try_end_64} :catchall_65
-
-    goto :goto_69
-
-    :catchall_65
-    move-exception p0
+    :catchall_0
+    move-exception v0
 
     .line 78
-    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    :goto_69
-    return-void
+    goto :goto_3
+
+    :cond_1
+    move-object v0, v1
+
+    goto :goto_2
+
+    :cond_2
+    move-object v3, v0
+
+    goto :goto_0
 .end method
 
 .method private static method2(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -624,70 +656,72 @@
     .end annotation
 
     .line 36
-    const/16 p1, 0x2e
+    const/16 v0, 0x2e
 
-    const/16 v0, 0x2f
+    const/16 v1, 0x2f
 
-    invoke-virtual {p0, p1, v0}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
     .line 37
-    const-string p1, ".class"
+    const-string v1, ".class"
 
-    invoke-virtual {p0, p1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_20
+    if-nez v1, :cond_0
 
     .line 38
-    new-instance v0, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string v1, ".class"
 
-    move-result-object p0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     .line 43
-    :cond_20
-    sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_0
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string p1, "输出结果"
+    const-string v1, "\u8f93\u51fa\u7ed3\u679c"
 
-    invoke-virtual {p0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 44
-    sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string p1, ""
+    const-string v1, ""
 
-    invoke-virtual {p0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 45
-    sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string p1, "输出结束"
+    const-string v1, "\u8f93\u51fa\u7ed3\u675f"
 
-    invoke-virtual {p0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 46
-    sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {p0}, Ljava/io/PrintStream;->println()V
+    invoke-virtual {v0}, Ljava/io/PrintStream;->println()V
 
     return-void
 .end method
 
 .method static out()V
-    .registers 0
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"

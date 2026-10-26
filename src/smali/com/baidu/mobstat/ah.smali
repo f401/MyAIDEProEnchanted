@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public a()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lcom/baidu/mobstat/ah;->d:I
 
@@ -37,7 +37,7 @@
 .end method
 
 .method public b()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lcom/baidu/mobstat/ah;->c:I
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public c()I
-    .registers 2
+    .locals 1
 
     iget v0, p0, Lcom/baidu/mobstat/ah;->e:I
 

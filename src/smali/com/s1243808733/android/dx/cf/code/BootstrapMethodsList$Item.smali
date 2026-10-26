@@ -24,16 +24,16 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/rop/cst/CstType;Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;Lcom/s1243808733/android/dx/cf/code/BootstrapMethodArgumentsList;)V
-    .registers 4
+    .locals 2
 
     .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_20
+    if-eqz p1, :cond_2
 
-    if-eqz p2, :cond_18
+    if-eqz p2, :cond_1
 
-    if-eqz p3, :cond_10
+    if-eqz p3, :cond_0
 
     .line 123
     iput-object p2, p0, Lcom/s1243808733/android/dx/cf/code/BootstrapMethodsList$Item;->bootstrapMethodHandle:Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;
@@ -47,40 +47,40 @@
     return-void
 
     .line 121
-    :cond_10
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "bootstrapMethodArguments == null"
+    const-string v1, "bootstrapMethodArguments == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 118
-    :cond_18
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "bootstrapMethodHandle == null"
+    const-string v1, "bootstrapMethodHandle == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 115
-    :cond_20
-    new-instance p1, Ljava/lang/NullPointerException;
+    :cond_2
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string p2, "declaringClass == null"
+    const-string v1, "declaringClass == null"
 
-    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public getBootstrapMethodArguments()Lcom/s1243808733/android/dx/cf/code/BootstrapMethodArgumentsList;
-    .registers 2
+    .locals 1
 
     .line 133
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BootstrapMethodsList$Item;->bootstrapMethodArgumentsList:Lcom/s1243808733/android/dx/cf/code/BootstrapMethodArgumentsList;
@@ -89,7 +89,7 @@
 .end method
 
 .method public getBootstrapMethodHandle()Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;
-    .registers 2
+    .locals 1
 
     .line 129
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BootstrapMethodsList$Item;->bootstrapMethodHandle:Lcom/s1243808733/android/dx/rop/cst/CstMethodHandle;
@@ -98,7 +98,7 @@
 .end method
 
 .method public getDeclaringClass()Lcom/s1243808733/android/dx/rop/cst/CstType;
-    .registers 2
+    .locals 1
 
     .line 137
     iget-object v0, p0, Lcom/s1243808733/android/dx/cf/code/BootstrapMethodsList$Item;->declaringClass:Lcom/s1243808733/android/dx/rop/cst/CstType;

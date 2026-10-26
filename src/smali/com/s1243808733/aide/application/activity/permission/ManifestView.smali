@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
 
     .line 9
     invoke-direct {p0, p1}, Lcom/s1243808733/widget/CustomListView;-><init>(Landroid/content/Context;)V
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method protected onScrollChanged(IIII)V
-    .registers 5
+    .locals 0
 
     .line 17
     invoke-super {p0, p1, p2, p3, p4}, Lcom/s1243808733/widget/CustomListView;->onScrollChanged(IIII)V

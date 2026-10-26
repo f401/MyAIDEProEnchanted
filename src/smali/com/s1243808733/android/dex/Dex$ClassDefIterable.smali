@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/lang/Iterable<",
+        "Ljava/lang/Iterable",
+        "<",
         "Lcom/s1243808733/android/dex/ClassDef;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/s1243808733/android/dex/Dex;)V
-    .registers 2
+    .locals 0
 
     .line 811
     iput-object p1, p0, Lcom/s1243808733/android/dex/Dex$ClassDefIterable;->this$0:Lcom/s1243808733/android/dex/Dex;
@@ -43,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dex/Dex$ClassDefIterable-IA;)V
-    .registers 3
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/s1243808733/android/dex/Dex$ClassDefIterable;-><init>(Lcom/s1243808733/android/dex/Dex;)V
 
@@ -53,11 +54,12 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/Iterator<",
+            "Ljava/util/Iterator",
+            "<",
             "Lcom/s1243808733/android/dex/ClassDef;",
             ">;"
         }
@@ -76,7 +78,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 815
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
@@ -87,10 +89,11 @@
 
     move-result-object v0
 
-    goto :goto_1f
-
     .line 816
-    :cond_17
+    :goto_0
+    return-object v0
+
+    :cond_0
     new-instance v0, Lcom/s1243808733/android/dex/Dex$ClassDefIterator;
 
     iget-object v1, p0, Lcom/s1243808733/android/dex/Dex$ClassDefIterable;->this$0:Lcom/s1243808733/android/dex/Dex;
@@ -99,6 +102,5 @@
 
     invoke-direct {v0, v1, v2}, Lcom/s1243808733/android/dex/Dex$ClassDefIterator;-><init>(Lcom/s1243808733/android/dex/Dex;Lcom/s1243808733/android/dex/Dex$ClassDefIterator-IA;)V
 
-    :goto_1f
-    return-object v0
+    goto :goto_0
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static final a(Ljava/lang/CharSequence;)I
-    .registers 2
+    .locals 1
 
     const-string v0, "$this$lastIndex"
 
@@ -13,39 +13,27 @@
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
-    move-result p0
+    move-result v0
 
-    add-int/lit8 p0, p0, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    return p0
+    return v0
 .end method
 
 .method public static final a(Ljava/lang/CharSequence;CIZ)I
-    .registers 6
+    .locals 2
 
     const-string v0, "$this$indexOf"
 
     invoke-static {p0, v0}, Lcom/termux/yinli_a/k/b/c;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-nez p3, :cond_13
+    if-nez p3, :cond_0
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_1
 
-    goto :goto_13
-
-    :cond_c
-    check-cast p0, Ljava/lang/String;
-
-    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->indexOf(II)I
-
-    move-result p0
-
-    goto :goto_1d
-
-    :cond_13
-    :goto_13
+    :cond_0
     const/4 v0, 0x1
 
     new-array v0, v0, [C
@@ -56,40 +44,51 @@
 
     invoke-static {p0, v0, p2, p3}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;[CIZ)I
 
-    move-result p0
+    move-result v0
 
-    :goto_1d
-    return p0
+    :goto_0
+    return v0
+
+    :cond_1
+    check-cast p0, Ljava/lang/String;
+
+    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->indexOf(II)I
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
 .method public static synthetic a(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
-    .registers 7
-
-    and-int/lit8 p5, p4, 0x2
+    .locals 2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_6
+    and-int/lit8 v1, p4, 0x2
 
-    const/4 p2, 0x0
+    if-eqz v1, :cond_0
 
-    :cond_6
-    and-int/lit8 p4, p4, 0x4
+    move p2, v0
 
-    if-eqz p4, :cond_b
+    :cond_0
+    and-int/lit8 v1, p4, 0x4
 
-    const/4 p3, 0x0
+    if-eqz v1, :cond_1
 
-    :cond_b
+    move p3, v0
+
+    :cond_1
     invoke-static {p0, p1, p2, p3}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;CIZ)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static final a(Ljava/lang/CharSequence;[CIZ)I
-    .registers 10
+    .locals 7
+
+    const/4 v2, 0x0
 
     const-string v0, "$this$indexOfAny"
 
@@ -99,100 +98,95 @@
 
     invoke-static {p1, v0}, Lcom/termux/yinli_a/k/b/c;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-nez p3, :cond_1f
+    if-nez p3, :cond_1
 
     array-length v0, p1
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1f
+    if-ne v0, v1, :cond_1
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1
 
     invoke-static {p1}, Lcom/termux/yinli_a/h/a;->a([C)C
 
-    move-result p1
+    move-result v0
 
     check-cast p0, Ljava/lang/String;
 
-    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->indexOf(II)I
+    invoke-virtual {p0, v0, p2}, Ljava/lang/String;->indexOf(II)I
 
-    move-result p0
+    move-result v0
 
-    goto :goto_45
+    :cond_0
+    :goto_0
+    return v0
 
-    :cond_1f
-    const/4 v0, 0x0
+    :cond_1
+    invoke-static {p2, v2}, Lcom/termux/yinli_a/l/d;->a(II)I
 
-    invoke-static {p2, v0}, Lcom/termux/yinli_a/l/d;->a(II)I
-
-    move-result p2
+    move-result v0
 
     invoke-static {p0}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;)I
 
-    move-result v1
+    move-result v3
 
-    if-gt p2, v1, :cond_44
+    if-gt v0, v3, :cond_3
 
-    :goto_2a
-    invoke-interface {p0, p2}, Ljava/lang/CharSequence;->charAt(I)C
+    :goto_1
+    invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v2
+    move-result v4
 
-    array-length v3, p1
+    array-length v5, p1
 
-    const/4 v4, 0x0
+    move v1, v2
 
-    :goto_30
-    if-ge v4, v3, :cond_3f
+    :goto_2
+    if-ge v1, v5, :cond_2
 
-    aget-char v5, p1, v4
+    aget-char v6, p1, v1
 
-    invoke-static {v5, v2, p3}, Lcom/termux/yinli_a/n/b;->a(CCZ)Z
+    invoke-static {v6, v4, p3}, Lcom/termux/yinli_a/n/b;->a(CCZ)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_3c
+    if-nez v6, :cond_0
 
-    move p0, p2
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_45
+    goto :goto_2
 
-    :cond_3c
-    add-int/lit8 v4, v4, 0x1
+    :cond_2
+    if-eq v0, v3, :cond_3
 
-    goto :goto_30
+    add-int/lit8 v0, v0, 0x1
 
-    :cond_3f
-    if-eq p2, v1, :cond_44
+    goto :goto_1
 
-    add-int/lit8 p2, p2, 0x1
+    :cond_3
+    const/4 v0, -0x1
 
-    goto :goto_2a
-
-    :cond_44
-    const/4 p0, -0x1
-
-    :goto_45
-    return p0
+    goto :goto_0
 .end method
 
 .method private static final a(Ljava/lang/CharSequence;[CIZI)Lcom/termux/yinli_a/m/a;
-    .registers 7
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/CharSequence;",
             "[CIZI)",
-            "La/m/a<",
+            "La/m/a",
+            "<",
             "Lcom/termux/yinli_a/l/c;",
             ">;"
         }
     .end annotation
 
-    if-ltz p4, :cond_d
+    if-ltz p4, :cond_0
 
     new-instance v0, Lcom/termux/yinli_a/n/d;
 
@@ -204,75 +198,76 @@
 
     return-object v0
 
-    :cond_d
-    new-instance p0, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string p1, "Limit must be non-negative, but was "
+    const-string v1, "Limit must be non-negative, but was "
 
-    invoke-direct {p0, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/16 p1, 0x2e
+    const/16 v1, 0x2e
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method static synthetic a(Ljava/lang/CharSequence;[CIZIILjava/lang/Object;)Lcom/termux/yinli_a/m/a;
-    .registers 8
-
-    and-int/lit8 p6, p5, 0x2
+    .locals 2
 
     const/4 v0, 0x0
 
-    if-eqz p6, :cond_6
+    and-int/lit8 v1, p5, 0x2
 
-    const/4 p2, 0x0
+    if-eqz v1, :cond_0
 
-    :cond_6
-    and-int/lit8 p6, p5, 0x4
+    move p2, v0
 
-    if-eqz p6, :cond_b
+    :cond_0
+    and-int/lit8 v1, p5, 0x4
 
-    const/4 p3, 0x0
+    if-eqz v1, :cond_1
 
-    :cond_b
-    and-int/lit8 p5, p5, 0x8
+    move p3, v0
 
-    if-eqz p5, :cond_10
+    :cond_1
+    and-int/lit8 v1, p5, 0x8
 
-    const/4 p4, 0x0
+    if-eqz v1, :cond_2
 
-    :cond_10
+    move p4, v0
+
+    :cond_2
     invoke-static {p0, p1, p2, p3, p4}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;[CIZI)Lcom/termux/yinli_a/m/a;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static final a(Ljava/lang/CharSequence;[CZI)Lcom/termux/yinli_a/m/a;
-    .registers 12
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/CharSequence;",
             "[CZI)",
-            "La/m/a<",
+            "La/m/a",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -286,63 +281,63 @@
 
     invoke-static {p1, v0}, Lcom/termux/yinli_a/k/b/c;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const/4 v6, 0x2
+    const/4 v5, 0x2
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    move-object v1, p0
+    move-object v0, p0
 
-    move-object v2, p1
+    move-object v1, p1
 
-    move v4, p2
+    move v3, p2
 
-    move v5, p3
+    move v4, p3
 
-    invoke-static/range {v1 .. v7}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;[CIZIILjava/lang/Object;)Lcom/termux/yinli_a/m/a;
+    invoke-static/range {v0 .. v6}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;[CIZIILjava/lang/Object;)Lcom/termux/yinli_a/m/a;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance p2, Lcom/termux/yinli_a/n/o$b;
+    new-instance v1, Lcom/termux/yinli_a/n/o$b;
 
-    invoke-direct {p2, p0}, Lcom/termux/yinli_a/n/o$b;-><init>(Ljava/lang/CharSequence;)V
+    invoke-direct {v1, p0}, Lcom/termux/yinli_a/n/o$b;-><init>(Ljava/lang/CharSequence;)V
 
-    invoke-static {p1, p2}, Lcom/termux/yinli_a/m/b;->a(Lcom/termux/yinli_a/m/a;Lcom/termux/yinli_a/k/a/a;)Lcom/termux/yinli_a/m/a;
+    invoke-static {v0, v1}, Lcom/termux/yinli_a/m/b;->a(Lcom/termux/yinli_a/m/a;Lcom/termux/yinli_a/k/a/a;)Lcom/termux/yinli_a/m/a;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static synthetic a(Ljava/lang/CharSequence;[CZIILjava/lang/Object;)Lcom/termux/yinli_a/m/a;
-    .registers 7
-
-    and-int/lit8 p5, p4, 0x2
+    .locals 2
 
     const/4 v0, 0x0
 
-    if-eqz p5, :cond_6
+    and-int/lit8 v1, p4, 0x2
 
-    const/4 p2, 0x0
+    if-eqz v1, :cond_0
 
-    :cond_6
-    and-int/lit8 p4, p4, 0x4
+    move p2, v0
 
-    if-eqz p4, :cond_b
+    :cond_0
+    and-int/lit8 v1, p4, 0x4
 
-    const/4 p3, 0x0
+    if-eqz v1, :cond_1
 
-    :cond_b
+    move p3, v0
+
+    :cond_1
     invoke-static {p0, p1, p2, p3}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;[CZI)Lcom/termux/yinli_a/m/a;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static final a(Ljava/lang/CharSequence;Lcom/termux/yinli_a/l/c;)Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     const-string v0, "$this$substring"
 
@@ -362,51 +357,39 @@
 
     invoke-virtual {p1}, Lcom/termux/yinli_a/l/c;->c()Ljava/lang/Integer;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    move-result p1
+    move-result v1
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    invoke-interface {p0, v0, p1}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
+    invoke-interface {p0, v0, v1}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static final b(Ljava/lang/CharSequence;CIZ)I
-    .registers 6
+    .locals 2
 
     const-string v0, "$this$lastIndexOf"
 
     invoke-static {p0, v0}, Lcom/termux/yinli_a/k/b/c;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-nez p3, :cond_13
+    if-nez p3, :cond_0
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_1
 
-    goto :goto_13
-
-    :cond_c
-    check-cast p0, Ljava/lang/String;
-
-    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->lastIndexOf(II)I
-
-    move-result p0
-
-    goto :goto_1d
-
-    :cond_13
-    :goto_13
+    :cond_0
     const/4 v0, 0x1
 
     new-array v0, v0, [C
@@ -417,40 +400,49 @@
 
     invoke-static {p0, v0, p2, p3}, Lcom/termux/yinli_a/n/o;->b(Ljava/lang/CharSequence;[CIZ)I
 
-    move-result p0
+    move-result v0
 
-    :goto_1d
-    return p0
+    :goto_0
+    return v0
+
+    :cond_1
+    check-cast p0, Ljava/lang/String;
+
+    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->lastIndexOf(II)I
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
 .method public static synthetic b(Ljava/lang/CharSequence;CIZILjava/lang/Object;)I
-    .registers 6
+    .locals 1
 
-    and-int/lit8 p5, p4, 0x2
+    and-int/lit8 v0, p4, 0x2
 
-    if-eqz p5, :cond_8
+    if-eqz v0, :cond_0
 
     invoke-static {p0}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;)I
 
     move-result p2
 
-    :cond_8
-    and-int/lit8 p4, p4, 0x4
+    :cond_0
+    and-int/lit8 v0, p4, 0x4
 
-    if-eqz p4, :cond_d
+    if-eqz v0, :cond_1
 
     const/4 p3, 0x0
 
-    :cond_d
+    :cond_1
     invoke-static {p0, p1, p2, p3}, Lcom/termux/yinli_a/n/o;->b(Ljava/lang/CharSequence;CIZ)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static final b(Ljava/lang/CharSequence;[CIZ)I
-    .registers 8
+    .locals 5
 
     const-string v0, "$this$lastIndexOfAny"
 
@@ -460,78 +452,74 @@
 
     invoke-static {p1, v0}, Lcom/termux/yinli_a/k/b/c;->b(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-nez p3, :cond_1f
+    if-nez p3, :cond_1
 
     array-length v0, p1
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1f
+    if-ne v0, v1, :cond_1
 
     instance-of v0, p0, Ljava/lang/String;
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1
 
     invoke-static {p1}, Lcom/termux/yinli_a/h/a;->a([C)C
 
-    move-result p1
+    move-result v0
 
     check-cast p0, Ljava/lang/String;
 
-    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->lastIndexOf(II)I
+    invoke-virtual {p0, v0, p2}, Ljava/lang/String;->lastIndexOf(II)I
 
-    move-result p0
+    move-result v0
 
-    goto :goto_42
+    :cond_0
+    :goto_0
+    return v0
 
-    :cond_1f
+    :cond_1
     invoke-static {p0}, Lcom/termux/yinli_a/n/o;->a(Ljava/lang/CharSequence;)I
 
     move-result v0
 
     invoke-static {p2, v0}, Lcom/termux/yinli_a/l/d;->b(II)I
 
-    move-result p2
-
-    :goto_27
-    if-ltz p2, :cond_41
-
-    invoke-interface {p0, p2}, Ljava/lang/CharSequence;->charAt(I)C
-
     move-result v0
 
-    array-length v1, p1
+    :goto_1
+    if-ltz v0, :cond_3
 
-    const/4 v2, 0x0
+    invoke-interface {p0, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
-    :goto_2f
-    if-ge v2, v1, :cond_3e
+    move-result v2
 
-    aget-char v3, p1, v2
+    array-length v3, p1
 
-    invoke-static {v3, v0, p3}, Lcom/termux/yinli_a/n/b;->a(CCZ)Z
+    const/4 v1, 0x0
 
-    move-result v3
+    :goto_2
+    if-ge v1, v3, :cond_2
 
-    if-eqz v3, :cond_3b
+    aget-char v4, p1, v1
 
-    move p0, p2
+    invoke-static {v4, v2, p3}, Lcom/termux/yinli_a/n/b;->a(CCZ)Z
 
-    goto :goto_42
+    move-result v4
 
-    :cond_3b
-    add-int/lit8 v2, v2, 0x1
+    if-nez v4, :cond_0
 
-    goto :goto_2f
+    add-int/lit8 v1, v1, 0x1
 
-    :cond_3e
-    add-int/lit8 p2, p2, -0x1
+    goto :goto_2
 
-    goto :goto_27
+    :cond_2
+    add-int/lit8 v0, v0, -0x1
 
-    :cond_41
-    const/4 p0, -0x1
+    goto :goto_1
 
-    :goto_42
-    return p0
+    :cond_3
+    const/4 v0, -0x1
+
+    goto :goto_0
 .end method

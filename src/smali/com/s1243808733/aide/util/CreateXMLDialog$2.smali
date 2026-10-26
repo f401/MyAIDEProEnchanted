@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/AlertDialog;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,44 +41,44 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
 
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 2
 
     .line 80
-    iget-object p2, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$2;->val$dialog:Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/s1243808733/aide/util/CreateXMLDialog$2;->val$dialog:Landroid/app/AlertDialog;
 
-    const/4 p3, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {p2, p3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
-    move-result-object p2
+    move-result-object v1
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_f
+    if-eqz v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_10
-
-    :cond_f
-    const/4 p1, 0x0
-
-    :goto_10
-    invoke-virtual {p2, p1}, Landroid/widget/Button;->setEnabled(Z)V
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/widget/Button;->setEnabled(Z)V
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

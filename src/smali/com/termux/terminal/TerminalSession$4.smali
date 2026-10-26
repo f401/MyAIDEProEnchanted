@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/termux/terminal/TerminalSession;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
 
     .line 233
     iput-object p1, p0, Lcom/termux/terminal/TerminalSession$4;->this$0:Lcom/termux/terminal/TerminalSession;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 236
     iget-object v0, p0, Lcom/termux/terminal/TerminalSession$4;->this$0:Lcom/termux/terminal/TerminalSession;

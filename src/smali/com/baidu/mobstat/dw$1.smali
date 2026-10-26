@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/dw;Lcom/baidu/mobstat/dv;)V
-    .registers 3
+    .locals 0
 
     .line 26
     iput-object p1, p0, Lcom/baidu/mobstat/dw$1;->b:Lcom/baidu/mobstat/dw;
@@ -40,30 +40,30 @@
 
 # virtual methods
 .method public a(Ljava/lang/String;)V
-    .registers 3
+    .locals 2
 
     .line 29
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 30
     invoke-static {p1}, Lcom/baidu/mobstat/dw;->a(Ljava/lang/String;)Ljava/lang/String;
 
     .line 32
-    iget-object p1, p0, Lcom/baidu/mobstat/dw$1;->a:Lcom/baidu/mobstat/dv;
+    iget-object v0, p0, Lcom/baidu/mobstat/dw$1;->a:Lcom/baidu/mobstat/dv;
 
-    if-eqz p1, :cond_14
+    if-eqz v0, :cond_0
 
     .line 33
     invoke-static {}, Lcom/baidu/mobstat/dw;->b()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {p1, v0}, Lcom/baidu/mobstat/dv;->a(Ljava/lang/String;)V
+    invoke-interface {v0, v1}, Lcom/baidu/mobstat/dv;->a(Ljava/lang/String;)V
 
-    :cond_14
+    :cond_0
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/preference/PreferenceTheme;)V
-    .registers 2
+    .locals 0
 
     .line 162
     iput-object p1, p0, Lcom/s1243808733/aide/preference/PreferenceTheme$2;->this$0:Lcom/s1243808733/aide/preference/PreferenceTheme;
@@ -36,12 +36,12 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .registers 3
+    .locals 1
 
     .line 166
-    xor-int/lit8 p1, p2, 0x1
+    xor-int/lit8 v0, p2, 0x1
 
-    invoke-static {p1}, Lcom/s1243808733/aide/util/AIDEUtils;->setIsLightTheme(Z)V
+    invoke-static {v0}, Lcom/s1243808733/aide/util/AIDEUtils;->setIsLightTheme(Z)V
 
     .line 167
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->notifyThemeChanged()V
@@ -49,40 +49,42 @@
     .line 168
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_11
+    if-eqz v0, :cond_0
 
-    const-string p1, "设置成功，即将重启"
+    const-string v0, "\u8bbe\u7f6e\u6210\u529f\uff0c\u5373\u5c06\u91cd\u542f"
 
-    goto :goto_13
+    :goto_0
+    invoke-static {v0}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
 
-    :cond_11
-    const-string p1, "The settingis successful and is about to restart"
+    move-result-object v0
 
-    :goto_13
-    invoke-static {p1}, Lcom/s1243808733/util/Toasty;->success(Ljava/lang/CharSequence;)Landroid/widget/Toast;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 170
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->isLightTheme()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_24
+    if-eqz v0, :cond_1
 
     .line 171
     invoke-static {}, Lcom/s1243808733/aide/preference/PreferenceTheme;->setLightIcon()V
 
-    goto :goto_27
+    .line 173
+    :goto_1
+    return-void
+
+    .line 168
+    :cond_0
+    const-string v0, "The settingis successful and is about to restart"
+
+    goto :goto_0
 
     .line 173
-    :cond_24
+    :cond_1
     invoke-static {}, Lcom/s1243808733/aide/preference/PreferenceTheme;->setDarkSplash()V
 
-    :goto_27
-    return-void
+    goto :goto_1
 .end method

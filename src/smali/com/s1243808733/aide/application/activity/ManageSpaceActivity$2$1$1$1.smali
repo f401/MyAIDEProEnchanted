@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1$1;)V
-    .registers 2
+    .locals 0
 
     .line 119
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1$1$1;->this$3:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1$1;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .line 123
     iget-object v0, p0, Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1$1$1;->this$3:Lcom/s1243808733/aide/application/activity/ManageSpaceActivity$2$1$1;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/CharSequence;)V
-    .registers 4
+    .locals 3
 
     .line 583
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -49,21 +49,21 @@
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 589
-    const/high16 p1, 0x41800000  # 16.0f
+    const/high16 v1, 0x41800000    # 16.0f
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextSize(F)V
 
     .line 591
     invoke-virtual {p0, v0}, Lcom/s1243808733/aide/project/ProjectDialog$TitleEditText;->addView(Landroid/view/View;)V
 
     .line 592
-    iget-object p1, p0, Lcom/s1243808733/aide/project/ProjectDialog$TitleEditText;->editText:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$TitleEditText;->editText:Landroid/widget/EditText;
 
-    const/4 p2, -0x1
+    const/4 v1, -0x1
 
-    const/4 v0, -0x2
+    const/4 v2, -0x2
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/s1243808733/aide/project/ProjectDialog$TitleEditText;->addView(Landroid/view/View;II)V
+    invoke-virtual {p0, v0, v1, v2}, Lcom/s1243808733/aide/project/ProjectDialog$TitleEditText;->addView(Landroid/view/View;II)V
 
     return-void
 .end method
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public getEditText()Landroid/widget/EditText;
-    .registers 2
+    .locals 1
 
     .line 595
     iget-object v0, p0, Lcom/s1243808733/aide/project/ProjectDialog$TitleEditText;->editText:Landroid/widget/EditText;

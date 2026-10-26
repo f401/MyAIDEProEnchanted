@@ -15,7 +15,8 @@
 .field private openFile:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -25,7 +26,8 @@
 .field private replaces:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -39,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +52,7 @@
 
 # virtual methods
 .method public getMain()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 50
     iget-object v0, p0, Lcom/s1243808733/aide/project/jsonbean/Project;->main:Ljava/lang/String;
@@ -59,11 +61,12 @@
 .end method
 
 .method public getOpenFile()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -76,11 +79,12 @@
 .end method
 
 .method public getReplaces()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;"
         }
@@ -93,7 +97,7 @@
 .end method
 
 .method public getTemplate()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 58
     iget-object v0, p0, Lcom/s1243808733/aide/project/jsonbean/Project;->template:Ljava/lang/String;
@@ -102,7 +106,7 @@
 .end method
 
 .method public getType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 42
     iget-object v0, p0, Lcom/s1243808733/aide/project/jsonbean/Project;->type:Ljava/lang/String;
@@ -111,7 +115,7 @@
 .end method
 
 .method public isNoPkg()Z
-    .registers 2
+    .locals 1
 
     .line 34
     iget-boolean v0, p0, Lcom/s1243808733/aide/project/jsonbean/Project;->noPkg:Z
@@ -120,7 +124,7 @@
 .end method
 
 .method public setMain(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 46
     iput-object p1, p0, Lcom/s1243808733/aide/project/jsonbean/Project;->main:Ljava/lang/String;
@@ -129,7 +133,7 @@
 .end method
 
 .method public setNoPkg(Z)V
-    .registers 2
+    .locals 0
 
     .line 30
     iput-boolean p1, p0, Lcom/s1243808733/aide/project/jsonbean/Project;->noPkg:Z
@@ -138,11 +142,12 @@
 .end method
 
 .method public setOpenFile(Ljava/util/List;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)V"
         }
@@ -155,11 +160,12 @@
 .end method
 
 .method public setReplaces(Ljava/util/List;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Ljava/lang/String;",
             ">;)V"
         }
@@ -172,7 +178,7 @@
 .end method
 
 .method public setTemplate(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 54
     iput-object p1, p0, Lcom/s1243808733/aide/project/jsonbean/Project;->template:Ljava/lang/String;
@@ -181,7 +187,7 @@
 .end method
 
 .method public setType(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 38
     iput-object p1, p0, Lcom/s1243808733/aide/project/jsonbean/Project;->type:Ljava/lang/String;

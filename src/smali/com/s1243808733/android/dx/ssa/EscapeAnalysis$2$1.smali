@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2;)V
-    .registers 2
+    .locals 0
 
     .line 695
     iput-object p1, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2$1;->this$1:Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2;
@@ -36,13 +36,13 @@
 
 # virtual methods
 .method public visitMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method
 
 .method public visitNonMoveInsn(Lcom/s1243808733/android/dx/ssa/NormalSsaInsn;)V
-    .registers 3
+    .locals 1
 
     .line 708
     iget-object v0, p0, Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2$1;->this$1:Lcom/s1243808733/android/dx/ssa/EscapeAnalysis$2;
@@ -55,7 +55,7 @@
 .end method
 
 .method public visitPhiInsn(Lcom/s1243808733/android/dx/ssa/PhiInsn;)V
-    .registers 2
+    .locals 0
 
     return-void
 .end method

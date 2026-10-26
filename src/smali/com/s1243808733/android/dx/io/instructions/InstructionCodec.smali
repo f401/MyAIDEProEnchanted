@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;",
         ">;"
     }
@@ -91,7 +92,7 @@
 
 # direct methods
 .method private static synthetic $values()[Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
-    .registers 3
+    .locals 3
 
     .line 31
     const/16 v0, 0x24
@@ -318,77 +319,77 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smasUnsignedUnit(I)S
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->asUnsignedUnit(I)S
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smbyte0(I)I
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->byte0(I)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smbyte1(I)I
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->byte1(I)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smcodeUnit(II)S
-    .registers 2
+    .locals 1
 
     invoke-static {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->codeUnit(II)S
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smcodeUnit(IIII)S
-    .registers 4
+    .locals 1
 
     invoke-static {p0, p1, p2, p3}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->codeUnit(IIII)S
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smdecodeRegisterList(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 3
+    .locals 1
 
     invoke-static {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->decodeRegisterList(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$smdecodeRegisterRange(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 3
+    .locals 1
 
     invoke-static {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->decodeRegisterRange(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method static bridge synthetic -$$Nest$smencodeRegisterList(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 2
+    .locals 0
 
     invoke-static {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->encodeRegisterList(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
 
@@ -396,7 +397,7 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smencodeRegisterRange(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 2
+    .locals 0
 
     invoke-static {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->encodeRegisterRange(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
 
@@ -404,117 +405,119 @@
 .end method
 
 .method static bridge synthetic -$$Nest$smmakeByte(II)I
-    .registers 2
+    .locals 1
 
     invoke-static {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->makeByte(II)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smnibble0(I)I
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble0(I)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smnibble1(I)I
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble1(I)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smnibble2(I)I
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble2(I)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smnibble3(I)I
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble3(I)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smunit0(I)S
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->unit0(I)S
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smunit0(J)S
-    .registers 2
+    .locals 2
 
     invoke-static {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->unit0(J)S
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smunit1(I)S
-    .registers 1
+    .locals 1
 
     invoke-static {p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->unit1(I)S
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smunit1(J)S
-    .registers 2
+    .locals 2
 
     invoke-static {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->unit1(J)S
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smunit2(J)S
-    .registers 2
+    .locals 2
 
     invoke-static {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->unit2(J)S
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static bridge synthetic -$$Nest$smunit3(J)S
-    .registers 2
+    .locals 2
 
     invoke-static {p0, p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->unit3(J)S
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
+
+    const/4 v3, 0x0
 
     .line 32
     new-instance v0, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec$1;
@@ -522,8 +525,6 @@
     const-string v1, "FORMAT_00X"
 
     const/4 v2, 0x0
-
-    const/4 v3, 0x0
 
     invoke-direct {v0, v1, v2, v3}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec$1;-><init>(Ljava/lang/String;ILcom/s1243808733/android/dx/io/instructions/InstructionCodec$1-IA;)V
 
@@ -925,7 +926,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -939,7 +940,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/s1243808733/android/dx/io/instructions/InstructionCodec-IA;)V
-    .registers 4
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;-><init>(Ljava/lang/String;I)V
 
@@ -947,188 +948,192 @@
 .end method
 
 .method private static asUnsignedUnit(I)S
-    .registers 2
+    .locals 2
 
     const/high16 v0, -0x10000
 
     and-int/2addr v0, p0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
-    int-to-short p0, p0
+    int-to-short v0, p0
 
-    return p0
+    return v0
 
     .line 1051
-    :cond_7
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "bogus unsigned code unit"
+    const-string v1, "bogus unsigned code unit"
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 .end method
 
 .method private static byte0(I)I
-    .registers 1
+    .locals 1
 
-    and-int/lit16 p0, p0, 0xff
+    and-int/lit16 v0, p0, 0xff
 
-    return p0
+    return v0
 .end method
 
 .method private static byte1(I)I
-    .registers 1
+    .locals 1
 
-    shr-int/lit8 p0, p0, 0x8
+    shr-int/lit8 v0, p0, 0x8
 
-    and-int/lit16 p0, p0, 0xff
+    and-int/lit16 v0, v0, 0xff
 
-    return p0
+    return v0
 .end method
 
 .method private static byte2(I)I
-    .registers 1
+    .locals 1
 
-    shr-int/lit8 p0, p0, 0x10
+    shr-int/lit8 v0, p0, 0x10
 
-    and-int/lit16 p0, p0, 0xff
+    and-int/lit16 v0, v0, 0xff
 
-    return p0
+    return v0
 .end method
 
 .method private static byte3(I)I
-    .registers 1
+    .locals 1
 
-    ushr-int/lit8 p0, p0, 0x18
+    ushr-int/lit8 v0, p0, 0x18
 
-    return p0
+    return v0
 .end method
 
 .method private static codeUnit(II)S
-    .registers 3
+    .locals 2
 
     and-int/lit16 v0, p0, -0x100
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_1
 
     and-int/lit16 v0, p1, -0x100
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
-    shl-int/lit8 p1, p1, 0x8
+    shl-int/lit8 v0, p1, 0x8
 
-    or-int/2addr p0, p1
+    or-int/2addr v0, p0
 
-    int-to-short p0, p0
+    int-to-short v0, v0
 
-    return p0
+    return v0
 
     .line 1009
-    :cond_d
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "bogus highByte"
+    const-string v1, "bogus highByte"
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
     .line 1005
-    :cond_15
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "bogus lowByte"
+    const-string v1, "bogus lowByte"
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 .end method
 
 .method private static codeUnit(IIII)S
-    .registers 5
+    .locals 2
 
     and-int/lit8 v0, p0, -0x10
 
-    if-nez v0, :cond_33
+    if-nez v0, :cond_3
 
     and-int/lit8 v0, p1, -0x10
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_2
 
     and-int/lit8 v0, p2, -0x10
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_1
 
     and-int/lit8 v0, p3, -0x10
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_0
 
-    shl-int/lit8 p1, p1, 0x4
+    shl-int/lit8 v0, p1, 0x4
 
-    or-int/2addr p0, p1
+    or-int/2addr v0, p0
 
-    shl-int/lit8 p1, p2, 0x8
+    shl-int/lit8 v1, p2, 0x8
 
-    or-int/2addr p0, p1
+    or-int/2addr v0, v1
 
-    shl-int/lit8 p1, p3, 0xc
+    shl-int/lit8 v1, p3, 0xc
 
-    or-int/2addr p0, p1
+    or-int/2addr v0, v1
 
-    int-to-short p0, p0
+    int-to-short v0, v0
 
-    return p0
+    return v0
 
     .line 1030
-    :cond_1b
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "bogus nibble3"
+    const-string v1, "bogus nibble3"
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
     .line 1026
-    :cond_23
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "bogus nibble2"
+    const-string v1, "bogus nibble2"
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
     .line 1022
-    :cond_2b
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "bogus nibble1"
+    const-string v1, "bogus nibble1"
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
     .line 1018
-    :cond_33
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_3
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "bogus nibble0"
+    const-string v1, "bogus nibble0"
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 .end method
 
 .method private static decodeRegisterList(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 16
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
         }
     .end annotation
+
+    const-wide/16 v6, 0x0
+
+    const/4 v5, 0x0
 
     .line 916
     invoke-static {p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->byte0(I)I
@@ -1143,7 +1148,7 @@
     .line 918
     invoke-static {p1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble3(I)I
 
-    move-result p1
+    move-result v0
 
     .line 919
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->read()I
@@ -1153,25 +1158,25 @@
     .line 920
     invoke-interface {p2}, Lcom/s1243808733/android/dx/io/instructions/CodeInput;->read()I
 
-    move-result p2
+    move-result v1
 
     .line 921
-    invoke-static {p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble0(I)I
+    invoke-static {v1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble0(I)I
 
     move-result v8
 
     .line 922
-    invoke-static {p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble1(I)I
+    invoke-static {v1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble1(I)I
 
     move-result v9
 
     .line 923
-    invoke-static {p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble2(I)I
+    invoke-static {v1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble2(I)I
 
     move-result v10
 
     .line 924
-    invoke-static {p2}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble3(I)I
+    invoke-static {v1}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->nibble3(I)I
 
     move-result v11
 
@@ -1180,151 +1185,116 @@
 
     move-result-object v4
 
-    if-eqz p1, :cond_88
+    if-eqz v0, :cond_5
 
-    const/4 p2, 0x1
+    const/4 v1, 0x1
 
-    if-eq p1, p2, :cond_7d
+    if-eq v0, v1, :cond_4
 
-    const/4 p2, 0x2
+    const/4 v1, 0x2
 
-    if-eq p1, p2, :cond_72
+    if-eq v0, v1, :cond_3
 
-    const/4 p2, 0x3
+    const/4 v1, 0x3
 
-    if-eq p1, p2, :cond_67
+    if-eq v0, v1, :cond_2
 
-    const/4 p2, 0x4
+    const/4 v1, 0x4
 
-    if-eq p1, p2, :cond_5c
+    if-eq v0, v1, :cond_1
 
-    const/4 p2, 0x5
+    const/4 v1, 0x5
 
-    if-ne p1, p2, :cond_44
+    if-ne v0, v1, :cond_0
 
     .line 954
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;
-
-    const/4 v5, 0x0
-
-    const-wide/16 v6, 0x0
-
-    move-object v0, p1
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;
 
     move-object v1, p0
 
     invoke-direct/range {v0 .. v12}, Lcom/s1243808733/android/dx/io/instructions/FiveRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJIIIII)V
 
-    return-object p1
+    :goto_0
+    return-object v0
 
     .line 961
-    :cond_44
-    new-instance p0, Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string p2, "bogus registerCount: "
+    const-string v2, "bogus registerCount: "
 
-    invoke-direct {p0, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 962
-    invoke-static {p1}, Lcom/s1243808733/android/dx/util/Hex;->uNibble(I)Ljava/lang/String;
+    invoke-static {v0}, Lcom/s1243808733/android/dx/util/Hex;->uNibble(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Lcom/s1243808733/android/dex/DexException;
+    new-instance v0, Lcom/s1243808733/android/dex/DexException;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {p1, p0}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/s1243808733/android/dex/DexException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 949
-    :cond_5c
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;
-
-    const/4 v5, 0x0
-
-    const-wide/16 v6, 0x0
-
-    move-object v0, p1
+    :cond_1
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;
 
     move-object v1, p0
 
     invoke-direct/range {v0 .. v11}, Lcom/s1243808733/android/dx/io/instructions/FourRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJIIII)V
 
-    return-object p1
+    goto :goto_0
 
     .line 944
-    :cond_67
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;
-
-    const/4 v5, 0x0
-
-    const-wide/16 v6, 0x0
-
-    move-object v0, p1
+    :cond_2
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;
 
     move-object v1, p0
 
     invoke-direct/range {v0 .. v10}, Lcom/s1243808733/android/dx/io/instructions/ThreeRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJIII)V
 
-    return-object p1
+    goto :goto_0
 
     .line 939
-    :cond_72
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/TwoRegisterDecodedInstruction;
-
-    const/4 v5, 0x0
-
-    const-wide/16 v6, 0x0
-
-    move-object v0, p1
+    :cond_3
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/TwoRegisterDecodedInstruction;
 
     move-object v1, p0
 
     invoke-direct/range {v0 .. v9}, Lcom/s1243808733/android/dx/io/instructions/TwoRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJII)V
 
-    return-object p1
+    goto :goto_0
 
     .line 934
-    :cond_7d
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
-
-    const/4 v5, 0x0
-
-    const-wide/16 v6, 0x0
-
-    move-object v0, p1
+    :cond_4
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
 
     move-object v1, p0
 
     invoke-direct/range {v0 .. v8}, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJI)V
 
-    return-object p1
+    goto :goto_0
 
     .line 930
-    :cond_88
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/ZeroRegisterDecodedInstruction;
-
-    const/4 v5, 0x0
-
-    const-wide/16 v6, 0x0
-
-    move-object v0, p1
+    :cond_5
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/ZeroRegisterDecodedInstruction;
 
     move-object v1, p0
 
     invoke-direct/range {v0 .. v7}, Lcom/s1243808733/android/dx/io/instructions/ZeroRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJ)V
 
-    return-object p1
+    goto :goto_0
 .end method
 
 .method private static decodeRegisterRange(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;ILcom/s1243808733/android/dx/io/instructions/CodeInput;)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 13
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -1357,23 +1327,21 @@
     move-result-object v4
 
     .line 987
-    new-instance p1, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;
 
     const/4 v5, 0x0
 
     const-wide/16 v6, 0x0
 
-    move-object v0, p1
-
     move-object v1, p0
 
     invoke-direct/range {v0 .. v9}, Lcom/s1243808733/android/dx/io/instructions/RegisterRangeDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJII)V
 
-    return-object p1
+    return-object v0
 .end method
 
 .method private static encodeRegisterList(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 7
+    .locals 6
 
     .line 970
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getOpcode()I
@@ -1418,20 +1386,20 @@
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getD()I
 
-    move-result p0
+    move-result v5
 
-    invoke-static {v2, v3, v4, p0}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->codeUnit(IIII)S
+    invoke-static {v2, v3, v4, v5}, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->codeUnit(IIII)S
 
-    move-result p0
+    move-result v2
 
     .line 970
-    invoke-interface {p1, v0, v1, p0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSS)V
+    invoke-interface {p1, v0, v1, v2}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSS)V
 
     return-void
 .end method
 
 .method private static encodeRegisterRange(Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;Lcom/s1243808733/android/dx/io/instructions/CodeOutput;)V
-    .registers 4
+    .locals 3
 
     .line 998
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getOpcode()I
@@ -1454,177 +1422,177 @@
     .line 1000
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;->getAUnit()S
 
-    move-result p0
+    move-result v2
 
     .line 998
-    invoke-interface {p1, v0, v1, p0}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSS)V
+    invoke-interface {p1, v0, v1, v2}, Lcom/s1243808733/android/dx/io/instructions/CodeOutput;->write(SSS)V
 
     return-void
 .end method
 
 .method private static makeByte(II)I
-    .registers 3
+    .locals 2
 
     and-int/lit8 v0, p0, -0x10
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_1
 
     and-int/lit8 v0, p1, -0x10
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
-    shl-int/lit8 p1, p1, 0x4
+    shl-int/lit8 v0, p1, 0x4
 
-    or-int/2addr p0, p1
+    or-int/2addr v0, p0
 
-    return p0
+    return v0
 
     .line 1043
-    :cond_c
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "bogus highNibble"
+    const-string v1, "bogus highNibble"
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
     .line 1039
-    :cond_14
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "bogus lowNibble"
+    const-string v1, "bogus lowNibble"
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 .end method
 
 .method private static nibble0(I)I
-    .registers 1
+    .locals 1
 
-    and-int/lit8 p0, p0, 0xf
+    and-int/lit8 v0, p0, 0xf
 
-    return p0
+    return v0
 .end method
 
 .method private static nibble1(I)I
-    .registers 1
+    .locals 1
 
-    shr-int/lit8 p0, p0, 0x4
+    shr-int/lit8 v0, p0, 0x4
 
-    and-int/lit8 p0, p0, 0xf
+    and-int/lit8 v0, v0, 0xf
 
-    return p0
+    return v0
 .end method
 
 .method private static nibble2(I)I
-    .registers 1
+    .locals 1
 
-    shr-int/lit8 p0, p0, 0x8
+    shr-int/lit8 v0, p0, 0x8
 
-    and-int/lit8 p0, p0, 0xf
+    and-int/lit8 v0, v0, 0xf
 
-    return p0
+    return v0
 .end method
 
 .method private static nibble3(I)I
-    .registers 1
+    .locals 1
 
-    shr-int/lit8 p0, p0, 0xc
+    shr-int/lit8 v0, p0, 0xc
 
-    and-int/lit8 p0, p0, 0xf
+    and-int/lit8 v0, v0, 0xf
 
-    return p0
+    return v0
 .end method
 
 .method private static unit0(I)S
-    .registers 1
+    .locals 1
 
-    int-to-short p0, p0
+    int-to-short v0, p0
 
-    return p0
+    return v0
 .end method
 
 .method private static unit0(J)S
-    .registers 2
+    .locals 2
 
-    long-to-int p1, p0
+    long-to-int v0, p0
 
-    int-to-short p0, p1
+    int-to-short v0, v0
 
-    return p0
+    return v0
 .end method
 
 .method private static unit1(I)S
-    .registers 1
+    .locals 1
 
-    shr-int/lit8 p0, p0, 0x10
+    shr-int/lit8 v0, p0, 0x10
 
-    int-to-short p0, p0
+    int-to-short v0, v0
 
-    return p0
+    return v0
 .end method
 
 .method private static unit1(J)S
-    .registers 3
+    .locals 2
 
     const/16 v0, 0x10
 
-    shr-long/2addr p0, v0
+    shr-long v0, p0, v0
 
-    long-to-int p1, p0
+    long-to-int v0, v0
 
-    int-to-short p0, p1
+    int-to-short v0, v0
 
-    return p0
+    return v0
 .end method
 
 .method private static unit2(J)S
-    .registers 3
+    .locals 2
 
     const/16 v0, 0x20
 
-    shr-long/2addr p0, v0
+    shr-long v0, p0, v0
 
-    long-to-int p1, p0
+    long-to-int v0, v0
 
-    int-to-short p0, p1
+    int-to-short v0, v0
 
-    return p0
+    return v0
 .end method
 
 .method private static unit3(J)S
-    .registers 3
+    .locals 2
 
     const/16 v0, 0x30
 
-    shr-long/2addr p0, v0
+    shr-long v0, p0, v0
 
-    long-to-int p1, p0
+    long-to-int v0, v0
 
-    int-to-short p0, p1
+    int-to-short v0, v0
 
-    return p0
+    return v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
-    .registers 2
+    .locals 1
 
     .line 31
     const-class v0, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
+    check-cast v0, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
-    .registers 1
+    .locals 1
 
     .line 31
     sget-object v0, Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;->$VALUES:[Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;

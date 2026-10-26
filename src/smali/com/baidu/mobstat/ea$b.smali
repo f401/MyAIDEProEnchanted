@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lcom/baidu/mobstat/ea$b;",
         ">;"
     }
@@ -30,14 +31,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
+
+    const/4 v2, 0x0
 
     .line 16
     new-instance v0, Lcom/baidu/mobstat/ea$b;
 
     const-string v1, "CLIENT"
-
-    const/4 v2, 0x0
 
     invoke-direct {v0, v1, v2}, Lcom/baidu/mobstat/ea$b;-><init>(Ljava/lang/String;I)V
 
@@ -56,7 +57,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -70,22 +71,22 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/baidu/mobstat/ea$b;
-    .registers 2
+    .locals 1
 
     .line 15
     const-class v0, Lcom/baidu/mobstat/ea$b;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/baidu/mobstat/ea$b;
+    check-cast v0, Lcom/baidu/mobstat/ea$b;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lcom/baidu/mobstat/ea$b;
-    .registers 1
+    .locals 1
 
     .line 15
     sget-object v0, Lcom/baidu/mobstat/ea$b;->b:[Lcom/baidu/mobstat/ea$b;

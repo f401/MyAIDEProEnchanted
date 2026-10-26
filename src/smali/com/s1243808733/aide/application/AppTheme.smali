@@ -7,7 +7,8 @@
 .field public static final THEME:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map<",
+            "Ljava/util/Map",
+            "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;"
@@ -18,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .line 28
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -34,7 +35,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,249 +44,272 @@
 .end method
 
 .method private static applyBlurStyle(Landroid/app/Activity;I)V
-    .registers 4
+    .locals 2
 
     .line 172
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1f
 
-    if-lt v0, v1, :cond_14
+    if-lt v0, v1, :cond_0
 
     .line 173
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->isEnableBlurDialog()Z
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 174
     invoke-virtual {p0}, Landroid/app/Activity;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object p0
+    move-result-object v0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p0, p1, v0}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
+    invoke-virtual {v0, p1, v1}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method public static customList(Landroid/widget/ListView;)V
-    .registers 2
+    .locals 1
 
-    if-nez p0, :cond_3
-
-    return-void
+    if-nez p0, :cond_0
 
     .line 46
-    :cond_3
+    :goto_0
+    return-void
+
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public static customTabView(Landroid/app/ActionBar;)V
-    .registers 9
+    .locals 11
 
-    .line 56
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    :try_start_2
-    invoke-static {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object p0
-
-    const-string v2, "mTabScrollView"
-
-    invoke-virtual {p0, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_94
-
-    .line 58
-    invoke-static {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object p0
-
-    const-string v2, "mTabLayout"
-
-    invoke-virtual {p0, v2}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/widget/LinearLayout;
-
-    .line 61
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
-
-    move-result v2
-
-    const/4 v3, 0x0
+    const/4 v10, 0x1
 
     const/4 v4, 0x0
 
-    :goto_28
-    if-le v2, v4, :cond_9d
+    .line 56
+    :try_start_0
+    invoke-static {p0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    const-string v1, "mTabScrollView"
+
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    .line 58
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->reflect(Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    const-string v1, "mTabLayout"
+
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ReflectUtils;->field(Ljava/lang/String;)Lcom/blankj/utilcode/util/ReflectUtils;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/blankj/utilcode/util/ReflectUtils;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/LinearLayout;
+
+    .line 61
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getChildCount()I
+
+    move-result v5
+
+    const/4 v1, 0x0
+
+    move v3, v4
+
+    :goto_0
+    if-le v5, v3, :cond_2
 
     .line 63
-    invoke-virtual {p0, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v6
 
     .line 64
-    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v6}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-virtual {v6}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v2
 
     const-string v7, "TabView"
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v2, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v6
+    move-result v2
 
-    if-nez v6, :cond_3f
+    if-nez v2, :cond_0
 
-    goto :goto_91
+    .line 86
+    :goto_1
+    add-int/lit8 v2, v3, 0x1
 
-    :cond_3f
-    if-nez v3, :cond_4e
+    move v3, v2
+
+    goto :goto_0
+
+    .line 64
+    :cond_0
+    if-nez v1, :cond_3
 
     .line 66
-    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v6}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v1
 
-    const-string v6, "mTextView"
+    const-string v2, "mTextView"
 
-    invoke-virtual {v3, v6}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+    invoke-virtual {v1, v2}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 67
-    invoke-virtual {v3, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+    const/4 v1, 0x1
+
+    invoke-virtual {v2, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
     .line 69
-    :cond_4e
-    invoke-virtual {v3, v5}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :goto_2
+    invoke-virtual {v2, v6}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v1
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
     .line 70
     invoke-static {}, Lcom/s1243808733/aide/AdvancedSetting;->isTabTextLowercase()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5d
+    if-eqz v6, :cond_1
 
     .line 71
-    invoke-virtual {v5, v1}, Landroid/widget/TextView;->setAllCaps(Z)V
+    const/4 v6, 0x0
+
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setAllCaps(Z)V
 
     .line 73
-    :cond_5d
+    :cond_1
     const/4 v6, 0x2
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setMaxLines(I)V
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setMaxLines(I)V
 
     .line 74
     sget-object v6, Landroid/text/TextUtils$TruncateAt;->MIDDLE:Landroid/text/TextUtils$TruncateAt;
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
     .line 76
     sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v7, 0x17
 
-    if-lt v6, v7, :cond_91
+    if-lt v6, v7, :cond_4
 
     .line 77
-    invoke-virtual {v5}, Landroid/widget/TextView;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v5
+    move-result-object v1
 
-    check-cast v5, Landroid/view/View;
+    check-cast v1, Landroid/view/View;
 
     .line 78
-    invoke-virtual {v5}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {v1}, Landroid/view/View;->isClickable()Z
 
     move-result v6
 
-    if-eqz v6, :cond_91
+    if-eqz v6, :cond_4
 
     .line 79
-    invoke-virtual {v5}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v6
 
-    const v7, 0x101030e
+    const/4 v7, 0x1
 
-    filled-new-array {v7}, [I
+    new-array v7, v7, [I
 
-    move-result-object v7
+    const/4 v8, 0x0
+
+    const v9, 0x101030e
+
+    aput v9, v7, v8
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object v6
 
     .line 82
-    invoke-virtual {v6, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v7
 
     .line 85
-    invoke-static {v5, v7}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
+    invoke-static {v1, v7}, Lcom/s1243808733/util/Utils$$ExternalSyntheticApiModelOutline0;->m(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
     .line 86
     invoke-virtual {v6}, Landroid/content/res/TypedArray;->recycle()V
-    :try_end_91
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_91} :catch_95
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_91
-    :goto_91
-    add-int/lit8 v4, v4, 0x1
+    move-object v1, v2
 
-    goto :goto_28
+    goto :goto_1
 
-    :cond_94
-    return-void
-
-    :catch_95
-    move-exception p0
+    :catch_0
+    move-exception v0
 
     .line 95
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array v1, v10, [Ljava/lang/Object;
 
-    aput-object p0, v0, v1
+    aput-object v0, v1, v4
 
-    invoke-static {v0}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
+    invoke-static {v1}, Lcom/blankj/utilcode/util/LogUtils;->e([Ljava/lang/Object;)V
 
-    :cond_9d
+    :cond_2
     return-void
+
+    :cond_3
+    move-object v2, v1
+
+    goto :goto_2
+
+    :cond_4
+    move-object v1, v2
+
+    goto :goto_1
 .end method
 
 .method public static getThemeCode()Ljava/lang/String;
-    .registers 3
+    .locals 3
 
     .line 100
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -304,110 +328,121 @@
 .end method
 
 .method public static init()V
-    .registers 3
+    .locals 3
 
     .line 36
-    sget-object v0, Lcom/s1243808733/aide/application/AppTheme;->THEME:Ljava/util/Map;
+    sget-object v1, Lcom/s1243808733/aide/application/AppTheme;->THEME:Ljava/util/Map;
 
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_b
+    if-eqz v0, :cond_0
 
-    const-string v1, "素衣"
+    const-string v0, "\u7d20\u8863"
 
-    goto :goto_d
-
-    :cond_b
-    const-string v1, "Light"
-
-    :goto_d
+    :goto_0
     const-string v2, "default"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 37
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1b
+    if-eqz v0, :cond_1
 
-    const-string v1, "暗绸"
+    const-string v0, "\u6697\u7ef8"
 
-    goto :goto_1d
-
-    :cond_1b
-    const-string v1, "Dark"
-
-    :goto_1d
+    :goto_1
     const-string v2, "default_dark"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 39
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2b
+    if-eqz v0, :cond_2
 
-    const-string v1, "墨靛粉"
+    const-string v0, "\u58a8\u975b\u7c89"
 
-    goto :goto_2d
-
-    :cond_2b
-    const-string v1, "Indigo"
-
-    :goto_2d
+    :goto_2
     const-string v2, "indigo"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 40
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3b
+    if-eqz v0, :cond_3
 
-    const-string v1, "鸭绿"
+    const-string v0, "\u9e2d\u7eff"
 
-    goto :goto_3d
-
-    :cond_3b
-    const-string v1, "Teal"
-
-    :goto_3d
+    :goto_3
     const-string v2, "teal"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 41
     invoke-static {}, Lcom/s1243808733/util/Utils;->isCN()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_4b
+    if-eqz v0, :cond_4
 
-    const-string v1, "新年红"
+    const-string v0, "\u65b0\u5e74\u7ea2"
 
-    goto :goto_4d
-
-    :cond_4b
-    const-string v1, "Red"
-
-    :goto_4d
+    :goto_4
     const-string v2, "red"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
+
+    .line 36
+    :cond_0
+    const-string v0, "Light"
+
+    goto :goto_0
+
+    .line 37
+    :cond_1
+    const-string v0, "Dark"
+
+    goto :goto_1
+
+    .line 39
+    :cond_2
+    const-string v0, "Indigo"
+
+    goto :goto_2
+
+    .line 40
+    :cond_3
+    const-string v0, "Teal"
+
+    goto :goto_3
+
+    .line 41
+    :cond_4
+    const-string v0, "Red"
+
+    goto :goto_4
 .end method
 
 .method public static initTheme(Landroid/app/Activity;)V
-    .registers 9
+    .locals 6
+
+    const v5, 0x7f0e004f
+
+    const/4 v4, 0x0
+
+    const/4 v3, 0x1
 
     .line 108
     invoke-static {}, Lcom/s1243808733/aide/application/AppTheme;->getThemeCode()Ljava/lang/String;
@@ -421,14 +456,12 @@
 
     move-result v1
 
-    const-string v2, "default"
+    if-eqz v1, :cond_0
 
-    if-eqz v1, :cond_f
-
-    move-object v0, v2
+    const-string v0, "default"
 
     .line 114
-    :cond_f
+    :cond_0
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->isLightTheme()Z
 
     move-result v1
@@ -436,23 +469,17 @@
     .line 116
     invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->isTrainerMode()Z
 
-    move-result v3
+    move-result v2
 
-    const/4 v4, 0x0
-
-    const-string v5, "Style.Dialog.Blur.Light"
-
-    const v6, 0x7f0e004f
-
-    const/4 v7, 0x1
-
-    if-eqz v3, :cond_37
+    if-eqz v2, :cond_2
 
     .line 117
-    invoke-virtual {p0, v6}, Landroid/app/Activity;->setTheme(I)V
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->setTheme(I)V
 
     .line 118
-    invoke-static {v5}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
+    const-string v0, "Style.Dialog.Blur.Light"
+
+    invoke-static {v0}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
 
     move-result v0
 
@@ -463,189 +490,194 @@
 
     const/16 v2, 0x17
 
-    if-lt v0, v2, :cond_33
+    if-lt v0, v2, :cond_1
 
     .line 120
-    invoke-static {p0, v7}, Lcom/s1243808733/util/Utils;->setSystemStatusBarLight(Landroid/app/Activity;Z)V
+    invoke-static {p0, v3}, Lcom/s1243808733/util/Utils;->setSystemStatusBarLight(Landroid/app/Activity;Z)V
 
     .line 122
-    :cond_33
+    :cond_1
     sput-boolean v4, Lcom/s1243808733/util/Toasty;->enable:Z
-
-    goto/16 :goto_b2
-
-    :cond_37
-    if-eqz v1, :cond_47
-
-    .line 127
-    invoke-virtual {p0, v6}, Landroid/app/Activity;->setTheme(I)V
-
-    .line 128
-    invoke-static {v5}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-static {p0, v3}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
-
-    .line 130
-    invoke-static {p0, v7}, Lcom/s1243808733/util/Utils;->setSystemStatusBarLight(Landroid/app/Activity;Z)V
-
-    goto :goto_a4
-
-    .line 133
-    :cond_47
-    const-string v3, "indigo"
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5f
-
-    .line 134
-    const v3, 0x7f0e0051
-
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->setTheme(I)V
-
-    .line 135
-    const-string v3, "Style.Dialog.Blur.Indigo"
-
-    invoke-static {v3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-static {p0, v3}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
-
-    goto :goto_a4
-
-    .line 137
-    :cond_5f
-    const-string v3, "teal"
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_7a
-
-    .line 138
-    const-string v3, "MyAppThemeDark_Teal"
-
-    invoke-static {v3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->setTheme(I)V
-
-    .line 139
-    const-string v3, "Style.Dialog.Blur.Teal"
-
-    invoke-static {v3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-static {p0, v3}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
-
-    goto :goto_a4
-
-    .line 141
-    :cond_7a
-    const-string v3, "red"
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_95
-
-    .line 142
-    const-string v3, "MyAppThemeDark_Red"
-
-    invoke-static {v3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->setTheme(I)V
-
-    .line 143
-    const-string v3, "Style.Dialog.Blur.Red"
-
-    invoke-static {v3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-static {p0, v3}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
-
-    goto :goto_a4
-
-    .line 146
-    :cond_95
-    const v3, 0x7f0e0050
-
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->setTheme(I)V
-
-    .line 147
-    const-string v3, "Style.Dialog.Blur.Dark"
-
-    invoke-static {v3}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-static {p0, v3}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
-
-    :goto_a4
-    if-eqz v1, :cond_b0
-
-    .line 153
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_ad
-
-    goto :goto_b0
-
-    .line 156
-    :cond_ad
-    sput-boolean v4, Lcom/s1243808733/util/Toasty;->enable:Z
-
-    goto :goto_b2
 
     .line 154
-    :cond_b0
-    :goto_b0
-    sput-boolean v7, Lcom/s1243808733/util/Toasty;->enable:Z
-
-    :goto_b2
-    if-eqz v1, :cond_be
+    :goto_0
+    if-eqz v1, :cond_9
 
     .line 163
     invoke-static {}, Lcom/blankj/utilcode/util/ToastUtils;->getDefaultMaker()Lcom/blankj/utilcode/util/ToastUtils;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-string v0, "light"
+    const-string v1, "light"
 
-    invoke-virtual {p0, v0}, Lcom/blankj/utilcode/util/ToastUtils;->setMode(Ljava/lang/String;)Lcom/blankj/utilcode/util/ToastUtils;
-
-    goto :goto_c7
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ToastUtils;->setMode(Ljava/lang/String;)Lcom/blankj/utilcode/util/ToastUtils;
 
     .line 165
-    :cond_be
+    :goto_1
+    return-void
+
+    .line 122
+    :cond_2
+    if-eqz v1, :cond_4
+
+    .line 127
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->setTheme(I)V
+
+    .line 128
+    const-string v2, "Style.Dialog.Blur.Light"
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-static {p0, v2}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
+
+    .line 130
+    invoke-static {p0, v3}, Lcom/s1243808733/util/Utils;->setSystemStatusBarLight(Landroid/app/Activity;Z)V
+
+    .line 147
+    :goto_2
+    if-eqz v1, :cond_3
+
+    .line 153
+    const-string v2, "default"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    .line 154
+    :cond_3
+    sput-boolean v3, Lcom/s1243808733/util/Toasty;->enable:Z
+
+    goto :goto_0
+
+    .line 133
+    :cond_4
+    const-string v2, "indigo"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    .line 134
+    const v2, 0x7f0e0051
+
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setTheme(I)V
+
+    .line 135
+    const-string v2, "Style.Dialog.Blur.Indigo"
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-static {p0, v2}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
+
+    goto :goto_2
+
+    .line 137
+    :cond_5
+    const-string v2, "teal"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    .line 138
+    const-string v2, "MyAppThemeDark_Teal"
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setTheme(I)V
+
+    .line 139
+    const-string v2, "Style.Dialog.Blur.Teal"
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-static {p0, v2}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
+
+    goto :goto_2
+
+    .line 141
+    :cond_6
+    const-string v2, "red"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    .line 142
+    const-string v2, "MyAppThemeDark_Red"
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setTheme(I)V
+
+    .line 143
+    const-string v2, "Style.Dialog.Blur.Red"
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-static {p0, v2}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
+
+    goto :goto_2
+
+    .line 146
+    :cond_7
+    const v2, 0x7f0e0050
+
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setTheme(I)V
+
+    .line 147
+    const-string v2, "Style.Dialog.Blur.Dark"
+
+    invoke-static {v2}, Lcom/blankj/utilcode/util/ResourceUtils;->getStyleIdByName(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-static {p0, v2}, Lcom/s1243808733/aide/application/AppTheme;->applyBlurStyle(Landroid/app/Activity;I)V
+
+    goto :goto_2
+
+    .line 156
+    :cond_8
+    sput-boolean v4, Lcom/s1243808733/util/Toasty;->enable:Z
+
+    goto/16 :goto_0
+
+    .line 165
+    :cond_9
     invoke-static {}, Lcom/blankj/utilcode/util/ToastUtils;->getDefaultMaker()Lcom/blankj/utilcode/util/ToastUtils;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-string v0, "dark"
+    const-string v1, "dark"
 
-    invoke-virtual {p0, v0}, Lcom/blankj/utilcode/util/ToastUtils;->setMode(Ljava/lang/String;)Lcom/blankj/utilcode/util/ToastUtils;
+    invoke-virtual {v0, v1}, Lcom/blankj/utilcode/util/ToastUtils;->setMode(Ljava/lang/String;)Lcom/blankj/utilcode/util/ToastUtils;
 
-    :goto_c7
-    return-void
+    goto/16 :goto_1
 .end method
 
 .method public static setThemeCode(Ljava/lang/String;)V
-    .registers 3
+    .locals 2
 
     .line 104
     invoke-static {}, Lcom/s1243808733/util/Utils;->getSp()Landroid/content/SharedPreferences;
@@ -660,9 +692,9 @@
 
     invoke-interface {v0, v1, p0}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     return-void
 .end method

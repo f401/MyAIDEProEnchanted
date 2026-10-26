@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getId()I
-    .registers 2
+    .locals 1
 
     .line 26
     iget v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateTable;->id:I
@@ -58,7 +58,7 @@
 .end method
 
 .method public getSource()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 34
     iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateTable;->source:Ljava/lang/String;
@@ -67,7 +67,7 @@
 .end method
 
 .method public getState()I
-    .registers 2
+    .locals 1
 
     .line 50
     iget v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateTable;->state:I
@@ -76,7 +76,7 @@
 .end method
 
 .method public getTranslation()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 42
     iget-object v0, p0, Lcom/s1243808733/aide/completion/translate/TranslateTable;->translation:Ljava/lang/String;
@@ -85,7 +85,7 @@
 .end method
 
 .method public setId(I)V
-    .registers 2
+    .locals 0
 
     .line 22
     iput p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateTable;->id:I
@@ -94,7 +94,7 @@
 .end method
 
 .method public setSource(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 30
     iput-object p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateTable;->source:Ljava/lang/String;
@@ -103,7 +103,7 @@
 .end method
 
 .method public setState(I)V
-    .registers 2
+    .locals 0
 
     .line 46
     iput p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateTable;->state:I
@@ -112,7 +112,7 @@
 .end method
 
 .method public setTranslation(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
 
     .line 38
     iput-object p1, p0, Lcom/s1243808733/aide/completion/translate/TranslateTable;->translation:Ljava/lang/String;

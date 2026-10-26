@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$1;)V
-    .registers 2
+    .locals 0
 
     .line 844
     iput-object p1, p0, Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$1$1;->this$2:Lcom/s1243808733/aide/application/activity/AdvancedSettingsFragment$22$1;
@@ -36,18 +36,18 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .registers 3
+    .locals 2
 
     .line 848
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v0, "CodeHighlight_"
+    const-string v1, "CodeHighlight_"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

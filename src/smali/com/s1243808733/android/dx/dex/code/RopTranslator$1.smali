@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>([ZII)V
-    .registers 4
+    .locals 0
 
     .line 189
     iput-object p1, p0, Lcom/s1243808733/android/dx/dex/code/RopTranslator$1;->val$paramsAreInOrder:[Z
@@ -41,7 +41,9 @@
 
 # virtual methods
 .method public visitPlainCstInsn(Lcom/s1243808733/android/dx/rop/code/PlainCstInsn;)V
-    .registers 7
+    .locals 5
+
+    const/4 v1, 0x0
 
     .line 192
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/PlainCstInsn;->getOpcode()Lcom/s1243808733/android/dx/rop/code/Rop;
@@ -52,9 +54,9 @@
 
     move-result v0
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    if-ne v0, v1, :cond_31
+    if-ne v0, v2, :cond_0
 
     .line 194
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/PlainCstInsn;->getConstant()Lcom/s1243808733/android/dx/rop/cst/Constant;
@@ -68,13 +70,11 @@
     move-result v0
 
     .line 196
-    iget-object v1, p0, Lcom/s1243808733/android/dx/dex/code/RopTranslator$1;->val$paramsAreInOrder:[Z
+    iget-object v2, p0, Lcom/s1243808733/android/dx/dex/code/RopTranslator$1;->val$paramsAreInOrder:[Z
 
-    const/4 v2, 0x0
+    aget-boolean v3, v2, v1
 
-    aget-boolean v3, v1, v2
-
-    if-eqz v3, :cond_2e
+    if-eqz v3, :cond_1
 
     iget v3, p0, Lcom/s1243808733/android/dx/dex/code/RopTranslator$1;->val$initialRegCount:I
 
@@ -83,28 +83,28 @@
     .line 198
     sub-int/2addr v3, v4
 
-    add-int/2addr v3, v0
+    add-int/2addr v0, v3
 
     invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/PlainCstInsn;->getResult()Lcom/s1243808733/android/dx/rop/code/RegisterSpec;
 
-    move-result-object p1
+    move-result-object v3
 
-    invoke-virtual {p1}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
+    invoke-virtual {v3}, Lcom/s1243808733/android/dx/rop/code/RegisterSpec;->getReg()I
 
-    move-result p1
+    move-result v3
 
-    if-ne v3, p1, :cond_2e
+    if-ne v0, v3, :cond_1
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_2f
+    :goto_0
+    aput-boolean v0, v2, v1
 
-    :cond_2e
-    const/4 p1, 0x0
-
-    :goto_2f
-    aput-boolean p1, v1, v2
-
-    :cond_31
+    :cond_0
     return-void
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
 .end method

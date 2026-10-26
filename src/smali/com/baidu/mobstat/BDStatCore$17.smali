@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/BDStatCore;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
 
     .line 1040
     iput-object p1, p0, Lcom/baidu/mobstat/BDStatCore$17;->b:Lcom/baidu/mobstat/BDStatCore;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .line 1044
     :try_start_0
@@ -50,7 +50,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 1045
     const/4 v0, 0x2
@@ -62,17 +62,12 @@
     iget-object v1, p0, Lcom/baidu/mobstat/BDStatCore$17;->a:Landroid/content/Context;
 
     invoke-virtual {v0, v1}, Lcom/baidu/mobstat/s;->a(Landroid/content/Context;)V
-    :try_end_12
-    .catchall {:try_start_0 .. :try_end_12} :catchall_13
-
-    goto :goto_14
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1051
-    :catchall_13
-    move-exception v0
-
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_0
     iget-object v0, p0, Lcom/baidu/mobstat/BDStatCore$17;->b:Lcom/baidu/mobstat/BDStatCore;
 
     const/4 v1, 0x0
@@ -80,4 +75,9 @@
     invoke-static {v0, v1}, Lcom/baidu/mobstat/BDStatCore;->b(Lcom/baidu/mobstat/BDStatCore;Z)Z
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    goto :goto_0
 .end method

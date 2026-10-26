@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/antlr/v4/runtime/atn/ATNState;Lorg/antlr/v4/runtime/misc/IntervalSet;)V
-    .registers 3
+    .locals 0
 
     .line 13
     invoke-direct {p0, p1, p2}, Lorg/antlr/v4/runtime/atn/SetTransition;-><init>(Lorg/antlr/v4/runtime/atn/ATNState;Lorg/antlr/v4/runtime/misc/IntervalSet;)V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public getSerializationType()I
-    .registers 2
+    .locals 1
 
     const/16 v0, 0x8
 
@@ -24,32 +24,32 @@
 .end method
 
 .method public matches(III)Z
-    .registers 4
+    .locals 1
 
-    if-lt p1, p2, :cond_c
+    if-lt p1, p2, :cond_0
 
-    if-gt p1, p3, :cond_c
+    if-gt p1, p3, :cond_0
 
     .line 23
     invoke-super {p0, p1, p2, p3}, Lorg/antlr/v4/runtime/atn/SetTransition;->matches(III)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_c
+    if-nez v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    goto :goto_d
+    :goto_0
+    return v0
 
-    :cond_c
-    const/4 p1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
-    :goto_d
-    return p1
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .line 30
     new-instance v0, Ljava/lang/StringBuilder;

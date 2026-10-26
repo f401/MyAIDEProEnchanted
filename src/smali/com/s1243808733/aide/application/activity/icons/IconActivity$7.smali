@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity;Lcom/s1243808733/aide/application/activity/icons/Icon;)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -45,71 +45,71 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 3
 
     .line 257
-    iget-object p1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
+    iget-object v0, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
 
-    invoke-static {p1}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->parseSvgToXml(Lcom/s1243808733/aide/application/activity/icons/Icon;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->parseSvgToXml(Lcom/s1243808733/aide/application/activity/icons/Icon;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 258
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7;->this$0:Lcom/s1243808733/aide/application/activity/icons/IconActivity;
 
-    invoke-static {v1}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->-$$Nest$mgetActivity(Lcom/s1243808733/aide/application/activity/icons/IconActivity;)Lcom/s1243808733/aide/application/activity/icons/IconActivity;
+    invoke-static {v2}, Lcom/s1243808733/aide/application/activity/icons/IconActivity;->-$$Nest$mgetActivity(Lcom/s1243808733/aide/application/activity/icons/IconActivity;)Lcom/s1243808733/aide/application/activity/icons/IconActivity;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    iget-object v1, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
+    iget-object v2, p0, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7;->val$item:Lcom/s1243808733/aide/application/activity/icons/Icon;
 
     .line 259
-    invoke-virtual {v1}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/s1243808733/aide/application/activity/icons/Icon;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
     .line 260
-    invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    new-instance v1, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7$1;
+    new-instance v2, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7$1;
 
-    invoke-direct {v1, p0, p1}, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7$1;-><init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$7;Ljava/lang/String;)V
+    invoke-direct {v2, p0, v0}, Lcom/s1243808733/aide/application/activity/icons/IconActivity$7$1;-><init>(Lcom/s1243808733/aide/application/activity/icons/IconActivity$7;Ljava/lang/String;)V
 
     .line 261
-    const p1, 0x1040001
+    const v0, 0x1040001
 
-    invoke-virtual {v0, p1, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 268
-    const/high16 v0, 0x1040000
+    const/high16 v1, 0x1040000
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 269
-    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 270
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

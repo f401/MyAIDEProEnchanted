@@ -6,7 +6,12 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lio/github/zeroaicy/serialize/Value$ArrayTypeValue;
+        Lio/github/zeroaicy/serialize/Value$ArrayTypeValue;,
+        Lio/github/zeroaicy/serialize/Value$CollectionTypeValue;,
+        Lio/github/zeroaicy/serialize/Value$FieldValue;,
+        Lio/github/zeroaicy/serialize/Value$MapTypeValue;,
+        Lio/github/zeroaicy/serialize/Value$ObjectTypoValue;,
+        Lio/github/zeroaicy/serialize/Value$PrimitiveTypeValue;
     }
 .end annotation
 
@@ -32,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +48,7 @@
 
 # virtual methods
 .method public getValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -57,7 +62,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -71,7 +76,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .line 24
     iget-object v0, p0, Lio/github/zeroaicy/serialize/Value;->value:Ljava/lang/Object;

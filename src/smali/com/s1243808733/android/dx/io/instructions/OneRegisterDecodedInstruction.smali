@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJI)V
-    .registers 9
+    .locals 0
 
     .line 34
     invoke-direct/range {p0 .. p7}, Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJ)V
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method public getA()I
-    .registers 2
+    .locals 1
 
     .line 48
     iget v0, p0, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;->a:I
@@ -32,7 +32,7 @@
 .end method
 
 .method public getRegisterCount()I
-    .registers 2
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -40,12 +40,9 @@
 .end method
 
 .method public withIndex(I)Lcom/s1243808733/android/dx/io/instructions/DecodedInstruction;
-    .registers 12
+    .locals 9
 
     .line 54
-    nop
-
-    .line 55
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;->getFormat()Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;
 
     move-result-object v1
@@ -59,7 +56,7 @@
     move-result-object v4
 
     .line 56
-    new-instance v9, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
+    new-instance v0, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;
 
     invoke-virtual {p0}, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;->getTarget()I
 
@@ -71,11 +68,9 @@
 
     iget v8, p0, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;->a:I
 
-    move-object v0, v9
-
     move v3, p1
 
     invoke-direct/range {v0 .. v8}, Lcom/s1243808733/android/dx/io/instructions/OneRegisterDecodedInstruction;-><init>(Lcom/s1243808733/android/dx/io/instructions/InstructionCodec;IILcom/s1243808733/android/dx/io/IndexType;IJI)V
 
-    return-object v9
+    return-object v0
 .end method

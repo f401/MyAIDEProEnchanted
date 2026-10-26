@@ -529,8 +529,7 @@
     </PreferenceScreen>
     <Preference
         android:layout="@layout/preference_header_item"
-        android:key="edit_env_var"
         android:title="环境变量"
-        android:summary="修改环境变量">
-    </Preference>
+        android:key="edit_env_var"
+        android:summary="修改环境变量" />
 </PreferenceScreen>

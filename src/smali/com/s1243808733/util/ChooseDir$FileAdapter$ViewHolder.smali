@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/s1243808733/util/ChooseDir$FileAdapter;
+    value = Lcom/s1243808733/util/ChooseDir;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/s1243808733/util/ChooseDir$FileAdapter;Landroid/view/View;)V
-    .registers 3
+    .locals 1
 
     .line 266
     iput-object p1, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$ViewHolder;->this$0:Lcom/s1243808733/util/ChooseDir$FileAdapter;
@@ -30,15 +30,15 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 267
-    const p1, 0x1020014
+    const v0, 0x1020014
 
-    invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    iput-object p1, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$ViewHolder;->text1:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/s1243808733/util/ChooseDir$FileAdapter$ViewHolder;->text1:Landroid/widget/TextView;
 
     return-void
 .end method

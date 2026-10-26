@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/dependencies/DependencieDialog$2;)V
-    .registers 2
+    .locals 0
 
     .line 254
     iput-object p1, p0, Lcom/s1243808733/aide/dependencies/DependencieDialog$2$1;->this$1:Lcom/s1243808733/aide/dependencies/DependencieDialog$2;
@@ -36,22 +36,22 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 3
 
     .line 258
-    iget-object p1, p0, Lcom/s1243808733/aide/dependencies/DependencieDialog$2$1;->this$1:Lcom/s1243808733/aide/dependencies/DependencieDialog$2;
-
-    iget-object v0, p1, Lcom/s1243808733/aide/dependencies/DependencieDialog$2;->this$0:Lcom/s1243808733/aide/dependencies/DependencieDialog;
-
-    invoke-virtual {v0}, Lcom/s1243808733/aide/dependencies/DependencieDialog;->getAppCompatList()Ljava/util/List;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/s1243808733/aide/dependencies/DependencieDialog$2$1;->this$1:Lcom/s1243808733/aide/dependencies/DependencieDialog$2;
 
     const/4 v1, 0x1
 
-    invoke-static {p1, v1, v0}, Lcom/s1243808733/aide/dependencies/DependencieDialog$2;->-$$Nest$mtoggleList(Lcom/s1243808733/aide/dependencies/DependencieDialog$2;ILjava/util/List;)V
+    iget-object v2, v0, Lcom/s1243808733/aide/dependencies/DependencieDialog$2;->this$0:Lcom/s1243808733/aide/dependencies/DependencieDialog;
 
-    const/4 p1, 0x0
+    invoke-virtual {v2}, Lcom/s1243808733/aide/dependencies/DependencieDialog;->getAppCompatList()Ljava/util/List;
 
-    return p1
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/s1243808733/aide/dependencies/DependencieDialog$2;->-$$Nest$mtoggleList(Lcom/s1243808733/aide/dependencies/DependencieDialog$2;ILjava/util/List;)V
+
+    const/4 v0, 0x0
+
+    return v0
 .end method

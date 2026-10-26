@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method private static countBytes(Ljava/lang/String;Z)J
-    .registers 9
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UTFDataFormatException;
@@ -24,89 +24,94 @@
     .line 68
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v5
 
-    const-wide/16 v1, 0x0
+    const-wide/16 v0, 0x0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    :goto_7
-    if-ge v3, v0, :cond_35
+    move-wide v2, v0
+
+    :goto_0
+    if-ge v4, v5, :cond_4
 
     .line 70
-    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_16
+    if-eqz v0, :cond_1
 
-    const/16 v5, 0x7f
+    const/16 v1, 0x7f
 
-    if-gt v4, v5, :cond_16
+    if-gt v0, v1, :cond_1
 
-    const-wide/16 v4, 0x1
+    const-wide/16 v0, 0x1
 
-    goto :goto_1f
+    :goto_1
+    add-long/2addr v0, v2
 
-    :cond_16
-    const/16 v5, 0x7ff
+    if-eqz p1, :cond_0
 
-    if-gt v4, v5, :cond_1d
+    const-wide/32 v2, 0xffff
 
-    const-wide/16 v4, 0x2
+    cmp-long v2, v0, v2
 
-    goto :goto_1f
-
-    :cond_1d
-    const-wide/16 v4, 0x3
-
-    :goto_1f
-    add-long/2addr v1, v4
-
-    if-eqz p1, :cond_32
-
-    const-wide/32 v4, 0xffff
-
-    cmp-long v6, v1, v4
-
-    if-gtz v6, :cond_2a
-
-    goto :goto_32
+    if-gtz v2, :cond_3
 
     .line 79
-    :cond_2a
-    new-instance p0, Ljava/io/UTFDataFormatException;
+    :cond_0
+    add-int/lit8 v4, v4, 0x1
 
-    const-string p1, "String more than 65535 UTF bytes long"
+    move-wide v2, v0
 
-    invoke-direct {p0, p1}, Ljava/io/UTFDataFormatException;-><init>(Ljava/lang/String;)V
+    goto :goto_0
 
-    throw p0
+    .line 70
+    :cond_1
+    const/16 v1, 0x7ff
 
-    :cond_32
-    :goto_32
-    add-int/lit8 v3, v3, 0x1
+    if-gt v0, v1, :cond_2
 
-    goto :goto_7
+    const-wide/16 v0, 0x2
 
-    :cond_35
-    return-wide v1
+    goto :goto_1
+
+    :cond_2
+    const-wide/16 v0, 0x3
+
+    goto :goto_1
+
+    .line 79
+    :cond_3
+    new-instance v0, Ljava/io/UTFDataFormatException;
+
+    const-string v1, "String more than 65535 UTF bytes long"
+
+    invoke-direct {v0, v1}, Ljava/io/UTFDataFormatException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_4
+    return-wide v2
 .end method
 
 .method public static decode(Lcom/s1243808733/android/dex/util/ByteInput;[C)Ljava/lang/String;
-    .registers 9
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UTFDataFormatException;
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     const/4 v1, 0x0
 
+    const/16 v6, 0x80
+
+    move v0, v1
+
     .line 37
-    :goto_2
+    :goto_0
     invoke-interface {p0}, Lcom/s1243808733/android/dex/util/ByteInput;->readByte()B
 
     move-result v2
@@ -115,190 +120,185 @@
 
     int-to-char v2, v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_0
 
     .line 39
-    new-instance p0, Ljava/lang/String;
+    new-instance v2, Ljava/lang/String;
 
-    invoke-direct {p0, p1, v0, v1}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v2, p1, v1, v0}, Ljava/lang/String;-><init>([CII)V
 
-    return-object p0
+    return-object v2
 
     .line 41
-    :cond_11
-    aput-char v2, p1, v1
+    :cond_0
+    aput-char v2, p1, v0
 
-    const/16 v3, 0x80
+    if-ge v2, v6, :cond_1
 
-    if-ge v2, v3, :cond_1a
+    add-int/lit8 v0, v0, 0x1
 
-    add-int/lit8 v1, v1, 0x1
+    goto :goto_0
 
-    goto :goto_2
+    :cond_1
+    and-int/lit16 v3, v2, 0xe0
 
-    :cond_1a
-    and-int/lit16 v4, v2, 0xe0
+    const/16 v4, 0xc0
 
-    const/16 v5, 0xc0
-
-    if-ne v4, v5, :cond_3e
+    if-ne v3, v4, :cond_3
 
     .line 45
     invoke-interface {p0}, Lcom/s1243808733/android/dex/util/ByteInput;->readByte()B
 
-    move-result v4
+    move-result v3
 
-    and-int/lit16 v5, v4, 0xc0
+    and-int/lit16 v4, v3, 0xc0
 
-    if-ne v5, v3, :cond_36
-
-    add-int/lit8 v3, v1, 0x1
+    if-ne v4, v6, :cond_2
 
     and-int/lit8 v2, v2, 0x1f
 
     shl-int/lit8 v2, v2, 0x6
 
-    and-int/lit8 v4, v4, 0x3f
+    and-int/lit8 v3, v3, 0x3f
 
-    or-int/2addr v2, v4
+    or-int/2addr v2, v3
 
     int-to-char v2, v2
 
     .line 49
-    aput-char v2, p1, v1
+    aput-char v2, p1, v0
 
-    move v1, v3
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_66
+    goto :goto_0
 
     .line 47
-    :cond_36
-    new-instance p0, Ljava/io/UTFDataFormatException;
+    :cond_2
+    new-instance v0, Ljava/io/UTFDataFormatException;
 
-    const-string p1, "bad second byte"
+    const-string v1, "bad second byte"
 
-    invoke-direct {p0, p1}, Ljava/io/UTFDataFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/UTFDataFormatException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
-    :cond_3e
-    and-int/lit16 v4, v2, 0xf0
+    :cond_3
+    and-int/lit16 v3, v2, 0xf0
 
-    const/16 v5, 0xe0
+    const/16 v4, 0xe0
 
-    if-ne v4, v5, :cond_6f
+    if-ne v3, v4, :cond_5
 
     .line 51
     invoke-interface {p0}, Lcom/s1243808733/android/dex/util/ByteInput;->readByte()B
 
-    move-result v4
+    move-result v3
 
     .line 52
     invoke-interface {p0}, Lcom/s1243808733/android/dex/util/ByteInput;->readByte()B
 
-    move-result v5
+    move-result v4
 
-    and-int/lit16 v6, v4, 0xc0
+    and-int/lit16 v5, v3, 0xc0
 
-    if-ne v6, v3, :cond_67
+    if-ne v5, v6, :cond_4
 
-    and-int/lit16 v6, v5, 0xc0
+    and-int/lit16 v5, v4, 0xc0
 
-    if-ne v6, v3, :cond_67
-
-    add-int/lit8 v3, v1, 0x1
+    if-ne v5, v6, :cond_4
 
     and-int/lit8 v2, v2, 0xf
 
     shl-int/lit8 v2, v2, 0xc
 
-    and-int/lit8 v4, v4, 0x3f
+    and-int/lit8 v3, v3, 0x3f
 
-    shl-int/lit8 v4, v4, 0x6
+    shl-int/lit8 v3, v3, 0x6
 
-    or-int/2addr v2, v4
+    or-int/2addr v2, v3
 
-    and-int/lit8 v4, v5, 0x3f
+    and-int/lit8 v3, v4, 0x3f
 
-    or-int/2addr v2, v4
+    or-int/2addr v2, v3
 
     int-to-char v2, v2
 
     .line 56
-    aput-char v2, p1, v1
+    aput-char v2, p1, v0
 
-    move v1, v3
+    add-int/lit8 v0, v0, 0x1
 
-    .line 49
-    :goto_66
-    goto :goto_2
+    goto :goto_0
 
     .line 54
-    :cond_67
-    new-instance p0, Ljava/io/UTFDataFormatException;
+    :cond_4
+    new-instance v0, Ljava/io/UTFDataFormatException;
 
-    const-string p1, "bad second or third byte"
+    const-string v1, "bad second or third byte"
 
-    invoke-direct {p0, p1}, Ljava/io/UTFDataFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/UTFDataFormatException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v0
 
     .line 58
-    :cond_6f
-    new-instance p0, Ljava/io/UTFDataFormatException;
+    :cond_5
+    new-instance v0, Ljava/io/UTFDataFormatException;
 
-    const-string p1, "bad byte"
+    const-string v1, "bad byte"
 
-    invoke-direct {p0, p1}, Ljava/io/UTFDataFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/UTFDataFormatException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_78
-
-    :goto_77
-    throw p0
-
-    :goto_78
-    goto :goto_77
+    throw v0
 .end method
 
 .method public static encode([BILjava/lang/String;)V
-    .registers 8
+    .locals 5
 
     .line 90
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_5
-    if-ge v1, v0, :cond_54
+    move v1, v0
+
+    :goto_0
+    if-ge v1, v2, :cond_2
 
     .line 92
     invoke-virtual {p2, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_17
+    if-eqz v0, :cond_0
 
     const/16 v3, 0x7f
 
-    if-gt v2, v3, :cond_17
+    if-gt v0, v3, :cond_0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v0
 
     .line 94
-    aput-byte v2, p0, p1
+    aput-byte v0, p0, p1
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v0, p1, 0x1
 
-    goto :goto_51
+    .line 101
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
 
-    :cond_17
+    move p1, v0
+
+    goto :goto_0
+
+    .line 94
+    :cond_0
     const/16 v3, 0x7ff
 
-    if-gt v2, v3, :cond_31
+    if-gt v0, v3, :cond_1
 
-    shr-int/lit8 v3, v2, 0x6
+    shr-int/lit8 v3, v0, 0x6
 
     and-int/lit8 v3, v3, 0x1f
 
@@ -309,25 +309,23 @@
     .line 96
     aput-byte v3, p0, p1
 
-    add-int/lit8 v3, p1, 0x2
+    and-int/lit8 v0, v0, 0x3f
 
-    and-int/lit8 v2, v2, 0x3f
+    or-int/lit16 v0, v0, 0x80
 
-    or-int/lit16 v2, v2, 0x80
-
-    int-to-byte v2, v2
+    int-to-byte v0, v0
 
     .line 97
-    add-int/lit8 p1, p1, 0x1
+    add-int/lit8 v3, p1, 0x1
 
-    aput-byte v2, p0, p1
+    aput-byte v0, p0, v3
 
-    move p1, v3
+    add-int/lit8 v0, p1, 0x2
 
-    goto :goto_51
+    goto :goto_1
 
-    :cond_31
-    shr-int/lit8 v3, v2, 0xc
+    :cond_1
+    shr-int/lit8 v3, v0, 0xc
 
     and-int/lit8 v3, v3, 0xf
 
@@ -338,7 +336,7 @@
     .line 99
     aput-byte v3, p0, p1
 
-    shr-int/lit8 v3, v2, 0x6
+    shr-int/lit8 v3, v0, 0x6
 
     and-int/lit8 v3, v3, 0x3f
 
@@ -351,32 +349,27 @@
 
     aput-byte v3, p0, v4
 
-    add-int/lit8 v3, p1, 0x3
+    and-int/lit8 v0, v0, 0x3f
 
-    and-int/lit8 v2, v2, 0x3f
+    or-int/lit16 v0, v0, 0x80
 
-    or-int/lit16 v2, v2, 0x80
-
-    int-to-byte v2, v2
+    int-to-byte v0, v0
 
     .line 101
-    add-int/lit8 p1, p1, 0x2
+    add-int/lit8 v3, p1, 0x2
 
-    aput-byte v2, p0, p1
+    aput-byte v0, p0, v3
 
-    move p1, v3
+    add-int/lit8 v0, p1, 0x3
 
-    :goto_51
-    add-int/lit8 v1, v1, 0x1
+    goto :goto_1
 
-    goto :goto_5
-
-    :cond_54
+    :cond_2
     return-void
 .end method
 
 .method public static encode(Ljava/lang/String;)[B
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UTFDataFormatException;
@@ -390,10 +383,10 @@
 
     move-result-wide v0
 
-    long-to-int v1, v0
+    long-to-int v0, v0
 
     .line 111
-    new-array v0, v1, [B
+    new-array v0, v0, [B
 
     .line 112
     const/4 v1, 0x0

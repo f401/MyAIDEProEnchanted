@@ -19,7 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
+        "Ljava/util/Comparator",
+        "<",
         "Ljava/lang/String;",
         ">;"
     }
@@ -32,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/baidu/mobstat/LogSender;)V
-    .registers 2
+    .locals 0
 
     .line 242
     iput-object p1, p0, Lcom/baidu/mobstat/LogSender$4;->a:Lcom/baidu/mobstat/LogSender;
@@ -45,18 +46,18 @@
 
 # virtual methods
 .method public a(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 3
+    .locals 1
 
     .line 245
     invoke-virtual {p1, p2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
 
     .line 242
     check-cast p1, Ljava/lang/String;
@@ -65,7 +66,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/baidu/mobstat/LogSender$4;->a(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/baidu/mobstat/util/OkHttpRequestManager;)V
-    .registers 2
+    .locals 0
 
     .line 153
     iput-object p1, p0, Lcom/baidu/mobstat/util/OkHttpRequestManager$GzipRequestInterceptor;->this$0:Lcom/baidu/mobstat/util/OkHttpRequestManager;
@@ -34,7 +34,7 @@
 .end method
 
 .method private forceContentLength(Lokhttp3/RequestBody;)Lokhttp3/RequestBody;
-    .registers 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -58,7 +58,7 @@
 .end method
 
 .method private gzip(Lokhttp3/RequestBody;Ljava/lang/String;)Lokhttp3/RequestBody;
-    .registers 4
+    .locals 1
 
     .line 201
     new-instance v0, Lcom/baidu/mobstat/util/OkHttpRequestManager$GzipRequestInterceptor$2;
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-    .registers 6
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -88,11 +88,7 @@
 
     move-result-object v1
 
-    const-string v2, "gzip"
-
-    const-string v3, "Content-Encoding"
-
-    if-nez v1, :cond_1f
+    if-nez v1, :cond_0
 
     .line 158
     invoke-virtual {v0}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
@@ -100,7 +96,11 @@
     move-result-object v0
 
     .line 159
-    invoke-virtual {v0, v3, v2}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+    const-string v1, "Content-Encoding"
+
+    const-string v2, "gzip"
+
+    invoke-virtual {v0, v1, v2}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
 
@@ -112,33 +112,41 @@
     .line 161
     invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    .line 175
+    :goto_0
+    return-object v0
 
     .line 164
-    :cond_1f
-    invoke-virtual {v0, v3}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
+    :cond_0
+    const-string v1, "Content-Encoding"
+
+    invoke-virtual {v0, v1}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_1
 
     .line 165
     invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_0
 
     .line 169
-    :cond_2a
+    :cond_1
     invoke-virtual {v0}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
 
     move-result-object v1
 
     .line 170
-    invoke-virtual {v1, v3, v2}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+    const-string v2, "Content-Encoding"
+
+    const-string v3, "gzip"
+
+    invoke-virtual {v1, v2, v3}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v1
 
@@ -183,7 +191,7 @@
     .line 175
     invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    goto :goto_0
 .end method

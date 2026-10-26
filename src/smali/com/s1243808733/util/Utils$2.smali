@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .registers 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -41,16 +41,16 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 1
 
     .line 801
-    iget-object p1, p0, Lcom/s1243808733/util/Utils$2;->val$e:Ljava/lang/Throwable;
+    iget-object v0, p0, Lcom/s1243808733/util/Utils$2;->val$e:Ljava/lang/Throwable;
 
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/s1243808733/util/Utils;->copyToClipboard(Ljava/lang/CharSequence;)V
+    invoke-static {v0}, Lcom/s1243808733/util/Utils;->copyToClipboard(Ljava/lang/CharSequence;)V
 
     return-void
 .end method

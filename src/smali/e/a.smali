@@ -19,7 +19,7 @@
 
 # direct methods
 .method public static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     new-instance v0, Lc/n;
 

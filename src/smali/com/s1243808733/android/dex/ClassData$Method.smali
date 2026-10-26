@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(III)V
-    .registers 4
+    .locals 0
 
     .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getAccessFlags()I
-    .registers 2
+    .locals 1
 
     .line 97
     iget v0, p0, Lcom/s1243808733/android/dex/ClassData$Method;->accessFlags:I
@@ -53,7 +53,7 @@
 .end method
 
 .method public getCodeOffset()I
-    .registers 2
+    .locals 1
 
     .line 101
     iget v0, p0, Lcom/s1243808733/android/dex/ClassData$Method;->codeOffset:I
@@ -62,7 +62,7 @@
 .end method
 
 .method public getMethodIndex()I
-    .registers 2
+    .locals 1
 
     .line 93
     iget v0, p0, Lcom/s1243808733/android/dex/ClassData$Method;->methodIndex:I

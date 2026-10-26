@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -26,25 +26,25 @@
 
 # virtual methods
 .method public a([B)[B
-    .registers 3
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/bc;->a:Lcom/baidu/mobstat/bb;
 
     invoke-virtual {v0, p1}, Lcom/baidu/mobstat/bb;->a([B)[B
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public b([B)[B
-    .registers 3
+    .locals 1
 
     iget-object v0, p0, Lcom/baidu/mobstat/bc;->a:Lcom/baidu/mobstat/bb;
 
     invoke-virtual {v0, p1}, Lcom/baidu/mobstat/bb;->b([B)[B
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

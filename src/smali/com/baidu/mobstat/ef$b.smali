@@ -15,7 +15,8 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Enum<",
+        "Ljava/lang/Enum",
+        "<",
         "Lcom/baidu/mobstat/ef$b;",
         ">;"
     }
@@ -32,46 +33,46 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
 
     .line 39
     new-instance v0, Lcom/baidu/mobstat/ef$b;
 
     const-string v1, "MATCHED"
 
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Lcom/baidu/mobstat/ef$b;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v3}, Lcom/baidu/mobstat/ef$b;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/baidu/mobstat/ef$b;->a:Lcom/baidu/mobstat/ef$b;
 
     .line 41
     new-instance v1, Lcom/baidu/mobstat/ef$b;
 
-    const-string v3, "NOT_MATCHED"
+    const-string v2, "NOT_MATCHED"
 
-    const/4 v4, 0x1
-
-    invoke-direct {v1, v3, v4}, Lcom/baidu/mobstat/ef$b;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v4}, Lcom/baidu/mobstat/ef$b;-><init>(Ljava/lang/String;I)V
 
     sput-object v1, Lcom/baidu/mobstat/ef$b;->b:Lcom/baidu/mobstat/ef$b;
 
     .line 37
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    new-array v3, v3, [Lcom/baidu/mobstat/ef$b;
+    new-array v2, v2, [Lcom/baidu/mobstat/ef$b;
 
-    aput-object v0, v3, v2
+    aput-object v0, v2, v3
 
-    aput-object v1, v3, v4
+    aput-object v1, v2, v4
 
-    sput-object v3, Lcom/baidu/mobstat/ef$b;->c:[Lcom/baidu/mobstat/ef$b;
+    sput-object v2, Lcom/baidu/mobstat/ef$b;->c:[Lcom/baidu/mobstat/ef$b;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -85,22 +86,22 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/baidu/mobstat/ef$b;
-    .registers 2
+    .locals 1
 
     .line 37
     const-class v0, Lcom/baidu/mobstat/ef$b;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Lcom/baidu/mobstat/ef$b;
+    check-cast v0, Lcom/baidu/mobstat/ef$b;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Lcom/baidu/mobstat/ef$b;
-    .registers 1
+    .locals 1
 
     .line 37
     sget-object v0, Lcom/baidu/mobstat/ef$b;->c:[Lcom/baidu/mobstat/ef$b;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/s1243808733/aide/application/App;)V
-    .registers 2
+    .locals 0
 
     .line 166
     iput-object p1, p0, Lcom/s1243808733/aide/application/App$3;->this$0:Lcom/s1243808733/aide/application/App;
@@ -36,9 +36,9 @@
 
 # virtual methods
 .method public verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
-    .registers 3
+    .locals 1
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 .end method

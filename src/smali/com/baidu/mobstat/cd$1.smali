@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/app/Activity;Landroid/widget/TextView;)V
-    .registers 4
+    .locals 0
 
     .line 125
     iput-object p1, p0, Lcom/baidu/mobstat/cd$1;->a:Landroid/view/View;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .line 129
     iget-object v0, p0, Lcom/baidu/mobstat/cd$1;->a:Landroid/view/View;
@@ -63,7 +63,7 @@
     .line 132
     iget-object v2, p0, Lcom/baidu/mobstat/cd$1;->b:Landroid/app/Activity;
 
-    const/high16 v3, 0x425c0000  # 55.0f
+    const/high16 v3, 0x425c0000    # 55.0f
 
     invoke-static {v2, v3}, Lcom/baidu/mobstat/cc;->c(Landroid/content/Context;F)I
 
@@ -82,13 +82,13 @@
     iput v0, v3, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
 
     .line 139
-    sub-int/2addr v1, v2
+    sub-int v0, v1, v2
 
-    mul-int/lit8 v1, v1, 0x5
+    mul-int/lit8 v0, v0, 0x5
 
-    div-int/lit8 v1, v1, 0x6
+    div-int/lit8 v0, v0, 0x6
 
-    iput v1, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
+    iput v0, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     .line 141
     iget-object v0, p0, Lcom/baidu/mobstat/cd$1;->c:Landroid/widget/TextView;

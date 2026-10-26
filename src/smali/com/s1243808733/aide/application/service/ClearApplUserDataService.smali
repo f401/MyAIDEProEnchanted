@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .line 9
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
@@ -16,15 +16,15 @@
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public onCreate()V
-    .registers 2
+    .locals 1
 
     .line 18
     invoke-super {p0}, Landroid/app/Service;->onCreate()V

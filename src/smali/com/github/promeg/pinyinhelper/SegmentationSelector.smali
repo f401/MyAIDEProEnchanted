@@ -8,10 +8,12 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Collection<",
+            "Ljava/util/Collection",
+            "<",
             "Lorg/ahocorasick/trie/Emit;",
             ">;)",
-            "Ljava/util/List<",
+            "Ljava/util/List",
+            "<",
             "Lorg/ahocorasick/trie/Emit;",
             ">;"
         }

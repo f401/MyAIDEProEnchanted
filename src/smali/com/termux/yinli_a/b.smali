@@ -5,7 +5,7 @@
 
 # direct methods
 .method public static a(Ljava/lang/Throwable;Ljava/lang/Throwable;)V
-    .registers 3
+    .locals 1
 
     const-string v0, "$this$addSuppressed"
 
