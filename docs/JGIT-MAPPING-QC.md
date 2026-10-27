@@ -136,3 +136,19 @@
 `PK -> SystemReader$Default` 属于 R8 合并/命名顺序造成的例外。
 
 `abcd/IF` 原先的 `api/ApplyCommand` 作废（构造器 `(Repository)V` vs `(FileHeader)V`，且字段是 `InputStream`）。
+
+## 5. 第三轮进度（本次会话末）
+
+- 类映射 **317** 条；成员映射 **2705** 条。
+- 覆盖率：方法 **1468/1652 = 88.9%**，字段 **638/878 = 72.7%**，完全覆盖类 225。
+- 新增类：`FE=lib/ObjectLoader`、`JE=lib/ObjectStream`、`JE$a=lib/ObjectStream$Filter`、
+  `GG=file/FileObjectDatabase`、`IF=patch/HunkHeader$1`、`JF$a=patch/HunkHeader$OldImage`、
+  `sJ=transport/TransportGitSsh$2`，以及 nls 三件套；修正 `PG=file/LargePackedWholeObject`（字段名由
+  getter 方法体 `iget` 反推）。
+- 丢弃：`OG`（3.7.1 无 `openStream(WindowCursor)` 的类，形似 jgit 2.x 的 `PackedObjectLoader`）、
+  `MG`（父类 `ObjectStream$Filter` 在各版本 file 包无对应子类）。两条都记在
+  `~/out/work/jgit_unverified.tsv`。
+- 批量补名用 `tools/gapfill.py`：类别质量闸（≥0.6 配对率、排除 7 个待定类）+ 唯一签名，一次补 1139 条，
+  `tools/verify_members.py` 的不合格数没有变化（11 条）。
+- 剩余 11 条不合格成员名（BC.findRenames、KC.newInCore/writeTo、UE.renameRef、jJ.register/scan、
+  qG.lookupAny、uH.getOpenBytes、wH.inflate/newObjectToPack、HI.advertiseHaves）需要方法体判据或先定类。
