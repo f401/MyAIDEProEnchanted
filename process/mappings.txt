@@ -3095,7 +3095,7 @@ abcd/OI org/eclipse/jgit/lib/RefUpdate
 	FH name
 	VH refLogMessage
 abcd/IF org/eclipse/jgit/api/ApplyCommand
-abcd/_J$a org/eclipse/jgit/dircache/DirCacheCheckout
+abcd/_J$a org/eclipse/jgit/treewalk/WorkingTreeIterator$Entry
 abcd/lH org/eclipse/jgit/internal/storage/dfs/DfsPackFile
 abcd/cC$a org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
 abcd/XG$b org/eclipse/jgit/internal/storage/file/GC
