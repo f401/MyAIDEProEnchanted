@@ -739,6 +739,7 @@ abcd/IK org/eclipse/jgit/util/RawParseUtils
 	DW digits16
 	DW ([BI)I author
 	v5 ([BI)I prevLF
+	FH ([BI)I committer
 abcd/JF org/eclipse/jgit/patch/HunkHeader
 	DW ()I getStartOffset
 	FH ()I getEndOffset
