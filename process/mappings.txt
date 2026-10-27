@@ -1480,6 +1480,9 @@ abcd/YJ org/eclipse/jgit/treewalk/TreeWalk
 	u7 trees
 	j6 reader
 	Zo recursive
+	DW (Labcd/TJ;)Ljava/lang/String; pathOf
+	j6 (Labcd/IE;Ljava/lang/String;[Labcd/YD;)Labcd/YJ; forPath
+	j6 (I)Labcd/rE; getFileMode
 abcd/YK org/eclipse/jgit/util/io/StreamCopyThread
 	DW ()V flush
 	j6 ()V halt
@@ -1555,6 +1558,12 @@ abcd/_H org/eclipse/jgit/transport/AmazonS3
 	<init> (Ljava/util/Properties;)V <init>
 	DW publicKey
 	v5 acl
+	DW ()Ljava/security/MessageDigest; newMD5
+	j6 ()Ljava/lang/String; httpNow
+	j6 (Ljava/util/List;)Ljava/lang/String; toCleanString
+	j6 (Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String; remove
+	j6 (Ljava/io/File;)Ljava/util/Properties; properties
+	j6 (Ljava/lang/String;)Z isSignedHeader
 abcd/_H$a org/eclipse/jgit/transport/AmazonS3$ListParser
 	j6 ()V list
 	Hw truncated
@@ -2732,6 +2741,10 @@ abcd/wH org/eclipse/jgit/internal/storage/file/WindowCursor
 	v5 db
 	j6 (Labcd/aH;J[BI)I inflate
 	DW ()Labcd/IE; getShallowCommits
+	j6 (Labcd/iG;)Labcd/TG; newObjectToPack
+	j6 (Labcd/OH;Ljava/util/List;)V writeObjects
+	j6 (Labcd/TH;Labcd/LE;Ljava/lang/Iterable;)V selectObjectRepresentation
+	j6 (Labcd/aH;JZLabcd/OH;)V copyObjectAsIs
 abcd/wK org/eclipse/jgit/util/FS_Win32_Cygwin$1
 	run ()Ljava/lang/String; run
 	<init> ()V <init>
@@ -2864,6 +2877,11 @@ abcd/yI org/eclipse/jgit/transport/OpenSshConfig
 	DW (Ljava/lang/String;)Ljava/lang/String; dequote
 	j6 home
 	<init> (Ljava/io/File;Ljava/io/File;)V <init>
+	FH (Ljava/lang/String;)Z isHostPattern
+	Hw (Ljava/lang/String;)Ljava/lang/String; nows
+	j6 (Labcd/pK;)Labcd/yI; get
+	j6 (Ljava/lang/String;Ljava/lang/String;)Z isHostMatch
+	j6 (Ljava/lang/String;)Labcd/yI$a; lookup
 abcd/yJ org/eclipse/jgit/transport/TransportLocal$1
 	v5 ()Ljava/util/Set; getSchemes
 	DW ()Ljava/lang/String; getName
