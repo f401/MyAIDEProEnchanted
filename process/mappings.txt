@@ -637,6 +637,16 @@ abcd/FB org/eclipse/jgit/api/SubmoduleUpdateCommand
 	VH paths
 	call ()Ljava/util/Collection; call
 	<init> (Labcd/UE;)V <init>
+abcd/FE org/eclipse/jgit/lib/ObjectLoader
+	FH ()I getType
+	DW ()J getSize
+	Hw ()Z isLarge
+	j6 ()[B getCachedBytes
+	DW (I)[B getCachedBytes
+	j6 (I)[B getBytes
+	j6 (Ljava/io/OutputStream;)V copyTo
+	j6 ([B)[B cloneArray
+	v5 ()Labcd/JE; openStream
 abcd/FF org/eclipse/jgit/nls/NLS
 	j6 ROOT_LOCALE
 	DW local
@@ -670,6 +680,7 @@ abcd/GB org/eclipse/jgit/api/TransportCommand
 	<init> (Labcd/UE;)V <init>
 abcd/GF org/eclipse/jgit/nls/TranslationBundle
 	j6 (Ljava/util/Locale;)V load
+abcd/GG org/eclipse/jgit/internal/storage/file/FileObjectDatabase
 abcd/GG$c org/eclipse/jgit/internal/storage/file/FileObjectDatabase$InsertLooseObjectResult
 	<init> (Ljava/lang/String;I)V <init>
 abcd/GJ$a org/eclipse/jgit/transport/TransportSftp$SftpObjectDB
@@ -778,6 +789,13 @@ abcd/IK org/eclipse/jgit/util/RawParseUtils
 	v5 ([BI)I prevLF
 	j6 digits10
 	FH footerLineKeyChars
+abcd/JE org/eclipse/jgit/lib/ObjectStream
+	j6 ()J getSize
+abcd/JE$a org/eclipse/jgit/lib/ObjectStream$Filter
+	j6 type
+	DW size
+	FH in
+	j6 ()J getSize
 abcd/JF org/eclipse/jgit/patch/HunkHeader
 	DW ()I getStartOffset
 	FH ()I getEndOffset
@@ -863,8 +881,6 @@ abcd/ME$a org/eclipse/jgit/lib/Ref$Storage
 	v5 NETWORK
 	FH PACKED
 	j6 NEW
-abcd/MG org/eclipse/jgit/internal/storage/file/FileObjectDatabase
-	close ()V <init>
 abcd/MH org/eclipse/jgit/internal/storage/pack/ObjectToPack
 	j6 (Z)V setDeltaAttempted
 	BT ()Z isDeltaRepresentation
@@ -994,8 +1010,6 @@ abcd/OE org/eclipse/jgit/lib/RefDatabase
 	j6 (Ljava/lang/String;)Labcd/ME; getRef
 	<init> ()V <init>
 	j6 SEARCH_PATH
-abcd/OG org/eclipse/jgit/lib/ObjectReader
-	j6 OBJ_ANY
 abcd/OI org/eclipse/jgit/transport/ReceiveCommand
 	DW ()Labcd/yE; getOldId
 	FH ()Labcd/yE; getNewId
@@ -1083,6 +1097,12 @@ abcd/PG org/eclipse/jgit/internal/storage/file/LargePackedWholeObject
 	j6 ()[B getCachedBytes
 	Zo ()Labcd/yE; getObjectId
 	v5 pack
+	j6 type
+	DW size
+	FH objectOffset
+	Hw headerLength
+	Zo db
+	v5 ()Labcd/JE; openStream
 abcd/PH org/eclipse/jgit/internal/storage/pack/PackWriter$1$1
 	j6 it
 	remove ()V remove
@@ -2843,7 +2863,9 @@ abcd/sH$a org/eclipse/jgit/internal/storage/file/UnpackedObject$LargeObject
 	FH path
 	Hw id
 	j6 type
-abcd/sJ org/eclipse/jgit/transport/SshSessionFactory
+abcd/sJ org/eclipse/jgit/transport/TransportGitSsh$2
+	DW this$0
+	j6 (Labcd/HJ;Labcd/kI;Labcd/pK;I)Labcd/ZI; getSession
 abcd/tB$b org/eclipse/jgit/api/RebaseCommand$Operation
 	<init> (Ljava/lang/String;I)V <init>
 abcd/tD org/eclipse/jgit/errors/StoredObjectRepresentationNotAvailableException
