@@ -3085,6 +3085,15 @@ abcd/zJ$d org/eclipse/jgit/transport/TransportLocal$InternalLocalPushConnection
 	gW this$0
 	yS worker
 	<init> (Labcd/zJ;)V <init>
+abcd/OI org/eclipse/jgit/lib/RefUpdate
+	v5 ()Labcd/ME; getRef
+	Hw ()Labcd/OI$b; getResult
+	v5 ()Ljava/lang/String; getName
+	j6 ()Ljava/lang/String; getRefLogMessage
+	v5 ref
+	Hw result
+	FH name
+	VH refLogMessage
 abcd/IF org/eclipse/jgit/api/ApplyCommand
 abcd/_J$a org/eclipse/jgit/dircache/DirCacheCheckout
 abcd/lH org/eclipse/jgit/internal/storage/dfs/DfsPackFile
@@ -3092,7 +3101,6 @@ abcd/cC$a org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
 abcd/XG$b org/eclipse/jgit/internal/storage/file/GC
 abcd/nH$c org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner
 abcd/nH$e org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
-abcd/OI org/eclipse/jgit/lib/RefUpdate
 abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
 abcd/GF org/eclipse/jgit/nls/TextBundle
 abcd/AE$a org/eclipse/jgit/notes/Note
