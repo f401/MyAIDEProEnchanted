@@ -2636,6 +2636,7 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	FH (Labcd/iG;)Labcd/iG; peel
 	Hw objects
 	DW reader
+	Hw (Labcd/YD;)Labcd/iG; lookupAny
 abcd/qH org/eclipse/jgit/internal/storage/file/ReflogReaderImpl
 	j6 logName
 	<init> (Labcd/UE;Ljava/lang/String;)V <init>
