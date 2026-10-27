@@ -365,9 +365,6 @@ abcd/AC org/eclipse/jgit/diff/RenameDetector$1
 	j6 (Labcd/hC;)Ljava/lang/String; nameOf
 	j6 (Labcd/hC;Labcd/hC;)I compare
 	<init> ()V <init>
-abcd/AE org/eclipse/jgit/notes/NoteMap
-	j6 (Labcd/YD;)Z contains
-	DW (Labcd/YD;)Labcd/AE$a; getNote
 abcd/AF org/eclipse/jgit/merge/StrategySimpleTwoWayInCore
 	j6 ()Ljava/lang/String; getName
 	j6 (Labcd/UE;)Labcd/CF; newMerger
@@ -2185,11 +2182,6 @@ abcd/gI org/eclipse/jgit/transport/BasePackPushConnection
 	tp ()Labcd/yD; noRepository
 	er packTransferTime
 	<init> (Labcd/BI;)V <init>
-abcd/gJ org/eclipse/jgit/transport/ReceiveCommand
-	DW ()Labcd/yE; getOldId
-	DW (Labcd/qG;)V updateType
-	FH ()Labcd/yE; getNewId
-	j6 ()Ljava/lang/String; getRefName
 abcd/hB org/eclipse/jgit/api/LogCommand
 	j6 (ZLabcd/YD;)Labcd/hB; add
 	j6 (Labcd/YD;Labcd/YD;)Labcd/hB; addRange
@@ -3085,15 +3077,21 @@ abcd/zJ$d org/eclipse/jgit/transport/TransportLocal$InternalLocalPushConnection
 	gW this$0
 	yS worker
 	<init> (Labcd/zJ;)V <init>
-abcd/OI org/eclipse/jgit/lib/RefUpdate
-	v5 ()Labcd/ME; getRef
-	Hw ()Labcd/OI$b; getResult
-	v5 ()Ljava/lang/String; getName
-	j6 ()Ljava/lang/String; getRefLogMessage
-	v5 ref
-	Hw result
+abcd/OI org/eclipse/jgit/transport/ReceiveCommand
+	DW ()Labcd/yE; getOldId
+	FH ()Labcd/yE; getNewId
+	Hw ()Labcd/ME; getRef
+	VH ()Labcd/OI$b; getResult
+	Zo ()Labcd/OI$a; getType
+	j6 ()Ljava/lang/String; getMessage
+	v5 ()Ljava/lang/String; getRefName
+	DW oldId
+	j6 newId
 	FH name
-	VH refLogMessage
+	VH message
+	v5 ref
+	Hw status
+	Zo type
 abcd/IF org/eclipse/jgit/api/ApplyCommand
 abcd/_J$a org/eclipse/jgit/treewalk/WorkingTreeIterator$Entry
 abcd/lH org/eclipse/jgit/internal/storage/dfs/DfsPackFile
@@ -3103,7 +3101,8 @@ abcd/nH$c org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner
 abcd/nH$e org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
 abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
 abcd/GF org/eclipse/jgit/nls/TextBundle
-abcd/AE$a org/eclipse/jgit/notes/Note
+abcd/AE$a org/eclipse/jgit/lib/ObjectIdOwnerMap$Entry
+abcd/AE org/eclipse/jgit/lib/ObjectIdOwnerMap
 abcd/KF org/eclipse/jgit/patch/Patch
 abcd/sJ org/eclipse/jgit/transport/SshSessionFactory
 abcd/OA org/eclipse/jgit/transport/UploadPack
