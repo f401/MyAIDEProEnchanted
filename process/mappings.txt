@@ -339,6 +339,16 @@ abcd/BC org/eclipse/jgit/diff/RenameDetector
 	j6 (Ljava/util/Collection;)V addAll
 	Zo done
 	<init> (Labcd/UE;)V <init>
+	FH (Labcd/hC;)Ljava/lang/String; path
+	j6 (Labcd/hC;)Labcd/WD; id
+	DW (Labcd/hC;)Labcd/rE; mode
+	j6 (Labcd/hC;Ljava/util/List;)Labcd/hC; bestPathMatch
+	j6 (Ljava/util/List;Labcd/LE;)Ljava/util/HashMap; populateMap
+	j6 (Labcd/cC$c;Labcd/hC;)I calculateModifyScore
+	j6 (Labcd/hC;Labcd/hC;)Labcd/hC; exactRename
+	DW (Labcd/hC;Labcd/hC;)Labcd/hC; exactCopy
+	FH (Labcd/LE;)V findRenames
+	j6 (Labcd/LE;)Ljava/util/List; compute
 abcd/BD org/eclipse/jgit/errors/UnsupportedCredentialItem
 	<init> (Labcd/HJ;Ljava/lang/String;)V <init>
 abcd/BE org/eclipse/jgit/lib/ObjectIdRef
@@ -2084,6 +2094,20 @@ abcd/jJ org/eclipse/jgit/transport/Transport
 	gn fetch
 	<init> (Labcd/UE;Labcd/HJ;)V <init>
 	Zo uri
+	j6 (Ljava/lang/ClassLoader;)Ljava/util/Enumeration; catalogs
+	j6 (Ljava/lang/ClassLoader;Ljava/net/URL;)V load
+	j6 (Ljava/lang/ClassLoader;Ljava/lang/String;)V register
+	aM ()V scan
+	u7 ()Ljava/util/List; getTransportProtocols
+	DW (Labcd/UE;Labcd/XI;Labcd/jJ$a;)Ljava/util/List; openAll
+	DW (Labcd/UE;Ljava/lang/String;Labcd/jJ$a;)Ljava/util/List; openAll
+	j6 (Labcd/UE;Labcd/HJ;Ljava/lang/String;)Labcd/jJ; open
+	j6 (Labcd/UE;Labcd/XI;Labcd/jJ$a;)Labcd/jJ; open
+	j6 (Labcd/UE;Ljava/lang/String;)Labcd/jJ; open
+	j6 (Labcd/UE;Ljava/lang/String;Labcd/jJ$a;)Labcd/jJ; open
+	DW (Labcd/LE;Ljava/util/Collection;)Labcd/NI; push
+	j6 (Ljava/lang/String;Ljava/util/Collection;)Ljava/lang/String; findTrackingRefName
+	j6 (Labcd/UE;Ljava/util/Collection;Ljava/util/Collection;)Ljava/util/Collection; expandPushWildcardsFor
 abcd/jJ$a org/eclipse/jgit/transport/Transport$Operation
 	<init> (Ljava/lang/String;I)V <init>
 abcd/jK org/eclipse/jgit/treewalk/filter/TreeFilter
