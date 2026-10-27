@@ -240,6 +240,7 @@ abcd/AG org/eclipse/jgit/internal/storage/file/ByteArrayWindow
 	j6 (Ljava/util/zip/Inflater;[BJI)V check
 	Hw array
 	<init> (Labcd/aH;J[B)V <init>
+	j6 (Labcd/OH;JILjava/security/MessageDigest;)V write
 abcd/AI org/eclipse/jgit/transport/PackParser
 	DW (Labcd/AI$e;J)[B inflateAndReturn
 	FH (Labcd/AI$e;J)V inflateAndSkip
@@ -302,6 +303,11 @@ abcd/AI org/eclipse/jgit/transport/PackParser
 	P8 maxObjectSizeLimit
 	DW (Labcd/AI;)I access$200
 	j6 (Labcd/AI;)[B access$100
+	DW (Labcd/CI;)V addObjectAndTrack
+	DW (I)Labcd/CI; getObject
+	DW (Labcd/LE;)V resolveDeltas
+	j6 (Labcd/AI$f;)Labcd/AI$f; reverse
+	FH (Labcd/CI;)Labcd/AI$f; firstChildOf
 abcd/AI$b org/eclipse/jgit/lib/ObjectInserter
 	FH tempBuffer
 	<init> ()V <init>
@@ -373,6 +379,7 @@ abcd/CG org/eclipse/jgit/internal/storage/file/ByteWindow
 	FH end
 	DW start
 	<init> (Labcd/aH;JI)V <init>
+	j6 (Labcd/OH;JILjava/security/MessageDigest;)V write
 abcd/CH org/eclipse/jgit/internal/storage/pack/DeltaCache
 	j6 ()V checkForGarbageCollectedObjects
 	j6 (I)V credit
@@ -454,6 +461,7 @@ abcd/EJ org/eclipse/jgit/transport/TransportSftp$1
 	FH ()Ljava/util/Set; getRequiredFields
 	Hw ()Ljava/util/Set; getOptionalFields
 	<init> ()V <init>
+	DW (Labcd/HJ;Labcd/UE;Ljava/lang/String;)Labcd/jJ; open
 abcd/FB org/eclipse/jgit/api/SubmoduleUpdateCommand
 	VH paths
 	call ()Ljava/util/Collection; call
@@ -532,6 +540,7 @@ abcd/HH org/eclipse/jgit/internal/storage/pack/DeltaTask
 	call ()Ljava/lang/Object; call
 abcd/HI org/eclipse/jgit/transport/AbstractAdvertiseRefsHook
 	<init> ()V <init>
+	j6 (Labcd/SI;Ljava/util/Collection;)V advertiseHaves
 abcd/IC org/eclipse/jgit/dircache/BaseDirCacheEditor
 	FH ()Labcd/KC; getDirCache
 	j6 (II)V fastKeep
@@ -542,6 +551,7 @@ abcd/IC org/eclipse/jgit/dircache/BaseDirCacheEditor
 	j6 cache
 	DW entries
 	<init> (Labcd/KC;I)V <init>
+	j6 (Labcd/QC;)V fastAdd
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 abcd/IK org/eclipse/jgit/util/RawParseUtils
@@ -558,6 +568,9 @@ abcd/IK org/eclipse/jgit/util/RawParseUtils
 	DW ([BII)Ljava/lang/String; extractBinaryString
 	DW (Ljava/nio/charset/Charset;[BII)Ljava/lang/String; decodeNoFallback
 	DW ([BILabcd/EK;)J parseLongBase10
+	FH ([BI)I prevLF
+	FH ([BIC)I prevLF
+	Hw ([BII)Labcd/CK; lineMap
 abcd/JF org/eclipse/jgit/patch/HunkHeader
 	DW ()I getStartOffset
 	FH ()I getEndOffset
@@ -782,6 +795,9 @@ abcd/OJ org/eclipse/jgit/transport/WalkFetchConnection
 	close ()V close
 	rN reader
 	j6 (Labcd/OJ;)Labcd/UE; access$000
+	DW (Labcd/LE;Ljava/util/Collection;Ljava/util/Set;)V doFetch
+	Zo (Labcd/iG;)V processTree
+	Hw (Labcd/iG;)V processCommit
 abcd/OJ$a org/eclipse/jgit/transport/WalkFetchConnection$RemotePack
 	DW (Labcd/LE;)V openIndex
 	j6 (Labcd/LE;)V downloadPack
@@ -1493,6 +1509,7 @@ abcd/_J org/eclipse/jgit/treewalk/WorkingTreeIterator
 	a8 ignoreNode
 	XL contentId
 	<init> (Labcd/bK;)V <init>
+	FH (Ljava/io/InputStream;)V safeClose
 abcd/_J$b org/eclipse/jgit/treewalk/WorkingTreeIterator$IteratorState
 	j6 ()V initializeDigestAndReadBuffer
 	DW nameEncoder
@@ -2441,6 +2458,14 @@ abcd/uH org/eclipse/jgit/internal/storage/file/WindowCache
 	Ws windowSize
 	XL openBytes
 	J8 windowSizeShift
+	DW (Labcd/vH;)I lockCount
+	FH (Labcd/vH;)I getOpenBytes
+	j6 ()I getStreamFileThreshold
+	j6 (I)I bits
+	j6 (Labcd/aH;J)Labcd/CG; getOrLoad
+	j6 (Labcd/uH$a;Labcd/aH;J)Labcd/CG; scan
+	j6 (Labcd/uH$a;)Labcd/uH$a; clean
+	j6 (Labcd/vH;)V reconfigure
 abcd/uH$c org/eclipse/jgit/internal/storage/file/WindowCache$Ref
 	j6 ()Z canClear
 	FH size
