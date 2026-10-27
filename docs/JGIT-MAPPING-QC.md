@@ -48,3 +48,78 @@
 - `EH` DeltaIndex 的 3 行数学/哈希工具函数；
 - `_J` 的 4 个 `getXxxAttributesNode`（方法体完全相同）；
 - `iC` 已用「立即数常量」判据解决（`0x20/0x2b/0x2d` → `writeContextLine/writeAddedLine/writeRemovedLine`）。
+
+---
+
+# 第二轮复核（2025，R8 全量类映射审计）
+
+## 0. 先把工具修对：access_flags 被当成 attributes_count
+
+`tools/jvmbody.py` 里解析 class 成员时把 `(access_flags, name, desc, attrs_count)`
+的**第 4 个** u2 当成了访问标志，于是：
+
+- 所有「static / synthetic / bridge」判定恒为假 → 早期自动匹配实际上没用到这些判据；
+- 覆盖率分母把「探针没有的方法」也算进去了 → 分母虚高。
+
+修正后 **口径写死在 `tools/coverage.py`**：
+
+- 方法分母：oracle 方法去掉 `<init>`/`<clinit>`/`ACC_SYNTHETIC`（含 `access$NNN`）/bridge/`values`/`valueOf`，
+  **且**该成员在 abcd 类里存在「描述符(经类映射归一)+static 一致」的对应者（R8 删掉的不入分母）；
+- 字段分母：oracle 字段去掉 `this$0`/`$assertionsDisabled`/`serialVersionUID`/`ACC_SYNTHETIC`，同样要求在 abcd 侧存在对应者。
+
+**修正后基线（314 类）**：方法 **1366/1609 = 84.9%**，字段 **589/865 = 68.1%**。
+（旧值 1536/1908=80.5%、661/1266=52.2% 分母口径不同，不可直接比较。）
+
+## 1. 本轮修正（commit d4356a72）
+
+| 探针 | 旧 | 新 | 判据 |
+|---|---|---|---|
+| `abcd/GF` | `nls/TextBundle`（不存在于任何 jgit 版本） | `nls/TranslationBundle` | 字段原名 `effectiveLocale`/`resourceBundle` + `j6(Locale)V` = `load()`（`getClass().getName()` + `ResourceBundle.getBundle`） |
+| `abcd/DF` | — | `nls/GlobalBundleCache` | `static Map<Locale,Map<Class,TranslationBundle>>` + `synchronized lookupBundle`（`newInstance` + `load`） |
+| `abcd/FF` | — | `nls/NLS` | `ROOT_LOCALE=Locale("","","")`、`InheritableThreadLocal<NLS>`、`ConcurrentHashMap<Class,TranslationBundle>`、`get`/`getBundleFor` |
+| `abcd/EF` | — | `nls/NLS$1` | `EnclosingClass=FF`，`initialValue()->new NLS(Locale.getDefault())` |
+| `abcd/zK` | `util/FS` | `util/FileUtils` | 6 个 static File 方法按委托链+`File.mkdirs/mkdir/delete` 定名；FS 是抽象实例方法类 |
+| `abcd/lH` | `dfs/DfsPackFile` | `file/PackReverseIndex` | `ctor(PackIndex)` + `findObject(J)ObjectId` + `findNextOffset(JJ)J` + 桶数组 |
+| `abcd/OA` | `transport/UploadPack` | `api/AddCommand` | `extends GitCommand`、`call()->DirCache`、`filepatterns`/`workingTreeIterator`/`update` |
+
+> `TextBundle` 这条 `seed:9.9` 是**伪造 seed**：jgit 3.7.1/4.x 都不存在该类，同目录的
+> `TranslationBundle` 才是它。凡 `seed:9.9` 的 43 条都值得逐条重验（本轮已扫，其余 42 条结构自洽）。
+
+## 2. 新发现的硬约束
+
+`abcd/X$y` 的 abcd 探针**绝大多数**对应 oracle 的「命名内部类」，且父前缀一致
+（现有 79 条命名内部类映射 100% 满足，`xJ$d$b -> TransportHttp$Service$HttpOutputStream` 这种二级嵌套也对）。
+**例外**：`abcd/PK -> util/SystemReader$Default`（扁平探针指向命名内部类）内容铁证如山
+（`openUserConfig`/`openSystemConfig`/`getHostname`/`getenv`/`getProperty`/`getCurrentTime`/`getTimezone`
++ 字符串 `localhost`/`.gitconfig`/`etc`,`gitconfig`），说明 R8 的命名**不严格保持**父子关系。
+所以嵌套规则只能当「强提示」，不能当证明。
+
+## 3. 仍需复核的类（本轮审计找出的 10 条，未改映射）
+
+每条都给了**决定性矛盾**（构造器描述符或字段构成），但 R8 full-mode 的类合并
+（水平合并同形状类）与 AIDE 对 jgit 的私有补丁都可能造成假矛盾，故本轮只记录不改。
+
+| 探针 | 现映射 | 矛盾点 | 下一轮优先做法 |
+|---|---|---|---|
+| `abcd/OG` | `lib/ObjectReader` | 探针 `ctor(JJILPackFile;GG;)V` + 7 字段（`J,J,J,PackFile,GG,I,I`）+ `open(WindowCursor)InputStream`；`ObjectReader` 是抽象类、无此构造器 | 在 `PackedObjectLoader`/`LargePackedWholeObject`/`DeltaObjectLoader` 里定；父类 `abcd/FE`（与 `PG` 同父）须先定 |
+| `abcd/MG` | `internal/storage/file/FileObjectDatabase` | 探针 `ctor(ObjectReader,I,J,InputStream,ObjectDirectoryInserter,WindowCursor,File,ObjectId)` + 只有 `close()`；目标字段是 `File directory/objects/infoDirectory…` | 与 `OG` 一起处理（同一「对象加载/解包」族） |
+| `abcd/IF` | `api/ApplyCommand` | 探针 `ctor(FileHeader)V`、只有 1 个字段 `FileHeader`；`ApplyCommand` 的构造器是 `(Repository)V`，字段是 `InputStream` | 探针 `super=abcd/JF$a`，先定 `JF`/`JF$a`（`patch/FileHeader` 族） |
+| `abcd/sJ` | `transport/SshSessionFactory` | 探针 `ctor(TransportGitSsh)V`、字段 `TransportGitSsh`、`getSession(URIish,CredentialsProvider,FS,I)->RemoteSession`；目标是抽象无参构造、无字段 | 探针 `super=abcd/cJ`；`tI=JschConfigSessionFactory` 反推 `cJ=SshSessionFactory`，则 `sJ` 应是其**内部类** |
+| `abcd/cC$a` | `internal/storage/file/CachedObjectDirectory` | 探针 `super=abcd/cC`，且 `abcd/cC$d` 已定为 `diff/ContentSource$WorkingTreeSource` ⇒ `cC` 应是 `ContentSource`；`CachedObjectDirectory` 的父类是 `FileObjectDatabase` | 在 `ContentSource` 的命名内部类里选（`ObjectReaderSource` 方法全对，但字段是 `File` 而非 `ObjectReader`） |
+| `abcd/XG$b` | `internal/storage/file/GC` | 探针 `final`，2 字段 `[PackFile` + `LG`，`ctor(LG,[PackFile)`；`GC` 是巨型类 | 先定 `XG`；`rescore` 最像 `ObjectDirectory$PackList` |
+| `abcd/nH$d` | `internal/storage/file/ReflogWriter` | 探针 `ctor(abcd/nH, KK)`、字段 `int`+`KK$a`×2+`KK`+`nH`，字符串 `refs/`/`HEAD`/`/`；`nH$c`/`nH$e` 指向 `RefDirectory$LooseScanner`/`$LooseSymbolicRef` ⇒ `nH=RefDirectory` | 在 `RefDirectory` 的内部类里选（3.7.1 无 `ReflogWriter` 内部类，可能是版本差异） |
+| `abcd/gE$a` | `lib/ConfigLine` | 探针 `ctor(ConfigLine)V`（synthetic）+ 6 个 `String` 字段 + `static (String,String)Z`×2 | `abcd/gE$b` 已定 `Config$SectionParser` ⇒ `gE=Config`，在 `Config$ConfigEnum`/`Config$StringReader` 里选 |
+| `abcd/AI$b` | `lib/ObjectInserter` | 探针 `ctor()V`/`ctor(ObjectInserter)V`、字段 `ObjectId/byte[]/ObjectInserter/AI$f×2`；`ObjectInserter` 是抽象类 | `AI=PackParser`，在 `PackParser$ObjectTypeAndSize`/`$DeltaChain`/`$UnresolvedDelta` 里选 |
+| `abcd/pF` | `merge/MergeAlgorithm` | 字段/方法配对 0/2；目标是抽象算法类 | 与 `sC/oC/qC`（`MyersDiff`/`HistogramDiff`/`LowLevelDiffAlgorithm`）一起按父类链复核 |
+
+> `abcd/PK -> util/SystemReader$Default` **保留**：内容与目标 1:1（见 §2）。
+
+## 4. 下一轮工具
+
+- `tools/coverage.py`：精确覆盖率（口径见 §0）
+- `tools/rescore.py`：TF-IDF 类级重打分（输出 `~/out/work/rescore.tsv`，含每类 top-3 候选）
+- `tools/hier_audit.py`：层级一致性（探针 `super`/`implements` 的映射目标必须等于 oracle 的）
+- `tools/cls2txt.py`：探针/oracle 成员对照（`python3 tools/cls2txt.py OA org/eclipse/jgit/api/AddCommand`）
+- `tools/inner_cmp.py`：父类全部命名内部类的指纹 vs 探针指纹
+- 注意：`hier_audit.py` 的 71 条冲突里，绝大多数是因为**父类探针本身还没映射**，
+  只有「父类已映射」的那几条才是真冲突。
