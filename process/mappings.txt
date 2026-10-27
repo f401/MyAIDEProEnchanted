@@ -751,7 +751,7 @@ abcd/IC org/eclipse/jgit/dircache/BaseDirCacheEditor
 	DW entries
 	<init> (Labcd/KC;I)V <init>
 	j6 (Labcd/QC;)V fastAdd
-abcd/IF org/eclipse/jgit/api/ApplyCommand
+abcd/IF org/eclipse/jgit/patch/HunkHeader$1
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 	Hw REACHABLE_COMMIT_TIP
@@ -793,6 +793,7 @@ abcd/JF org/eclipse/jgit/patch/HunkHeader
 	v5 newStartLine
 	Hw ()Labcd/JF$a; getOldImage
 	Hw old
+abcd/JF$a org/eclipse/jgit/patch/HunkHeader$OldImage
 abcd/JG org/eclipse/jgit/storage/file/FileRepositoryBuilder
 	<init> ()V <init>
 abcd/KC org/eclipse/jgit/dircache/DirCache

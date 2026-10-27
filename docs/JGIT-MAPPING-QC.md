@@ -123,3 +123,16 @@
 - `tools/inner_cmp.py`：父类全部命名内部类的指纹 vs 探针指纹
 - 注意：`hier_audit.py` 的 71 条冲突里，绝大多数是因为**父类探针本身还没映射**，
   只有「父类已映射」的那几条才是真冲突。
+
+### §3.1 上表里已定的一条：`abcd/IF` → `patch/HunkHeader$1`
+
+`javap` 给出 `HunkHeader$1 extends HunkHeader$OldImage`，字段 `final FileHeader val$fh`，
+构造器 `(FileHeader)` —— 与探针（`super=abcd/JF$a`、字段 `FileHeader`、`ctor(FileHeader)`、无其他字段）
+逐项吻合。同时确认 `abcd/JF$a` = **`HunkHeader$OldImage`**（抽象、4 个 int、`getStartLine`/`getLineCount`/
+`getLinesDeleted`/`getLinesAdded`、抽象 `getId()`），补进映射表（类级，无成员映射）。
+
+注意这条**符合**「扁平探针 ↔ 匿名类」的规则（`IF` 无 `$`，目标是 `$1`），
+说明 `$` 命名规则是：**命名内部类 ↔ 带 `$` 的探针；匿名类 ↔ 扁平探针**，
+`PK -> SystemReader$Default` 属于 R8 合并/命名顺序造成的例外。
+
+`abcd/IF` 原先的 `api/ApplyCommand` 作废（构造器 `(Repository)V` vs `(FileHeader)V`，且字段是 `InputStream`）。
