@@ -4,7 +4,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Labcd/Xy;
+    value = Landroidx/loader/content/ModernAsyncTask;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,7 +21,7 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    invoke-static {}, Labcd/Xy$d;->values()[Labcd/Xy$d;
+    invoke-static {}, Landroidx/loader/content/ModernAsyncTask$Status;->values()[Landroidx/loader/content/ModernAsyncTask$Status;
 
     move-result-object v0
 
@@ -32,7 +32,7 @@
     sput-object v0, Labcd/Wy;->j6:[I
 
     :try_start_0
-    sget-object v1, Labcd/Xy$d;->DW:Labcd/Xy$d;
+    sget-object v1, Landroidx/loader/content/ModernAsyncTask$Status;->RUNNING:Landroidx/loader/content/ModernAsyncTask$Status;
 
     invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
@@ -48,7 +48,7 @@
     :try_start_1
     sget-object v0, Labcd/Wy;->j6:[I
 
-    sget-object v1, Labcd/Xy$d;->FH:Labcd/Xy$d;
+    sget-object v1, Landroidx/loader/content/ModernAsyncTask$Status;->FINISHED:Landroidx/loader/content/ModernAsyncTask$Status;
 
     invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 

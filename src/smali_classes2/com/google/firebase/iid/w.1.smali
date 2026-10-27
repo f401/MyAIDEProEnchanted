@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private final DW:Labcd/x;
+.field private final DW:Landroidx/collection/SimpleArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lx",
@@ -50,11 +50,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Labcd/x;
+    new-instance v0, Landroidx/collection/SimpleArrayMap;
 
-    invoke-direct {v0}, Labcd/x;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/SimpleArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/google/firebase/iid/w;->DW:Labcd/x;
+    iput-object v0, p0, Lcom/google/firebase/iid/w;->DW:Landroidx/collection/SimpleArrayMap;
 
     const/4 v0, 0x0
 
@@ -112,18 +112,18 @@
 
     const/4 v2, 0x0
 
-    iget-object v1, p0, Lcom/google/firebase/iid/w;->DW:Labcd/x;
+    iget-object v1, p0, Lcom/google/firebase/iid/w;->DW:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v1
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/firebase/iid/w;->DW:Labcd/x;
+    iget-object v0, p0, Lcom/google/firebase/iid/w;->DW:Landroidx/collection/SimpleArrayMap;
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Labcd/x;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v3}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -309,18 +309,18 @@
 
     :cond_5
     :goto_5
-    iget-object v1, p0, Lcom/google/firebase/iid/w;->DW:Labcd/x;
+    iget-object v1, p0, Lcom/google/firebase/iid/w;->DW:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v1
 
     :try_start_2
-    iget-object v3, p0, Lcom/google/firebase/iid/w;->DW:Labcd/x;
+    iget-object v3, p0, Lcom/google/firebase/iid/w;->DW:Landroidx/collection/SimpleArrayMap;
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4, v0}, Labcd/x;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v4, v0}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     monitor-exit v1
     :try_end_2

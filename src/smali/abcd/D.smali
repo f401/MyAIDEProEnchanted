@@ -1,5 +1,5 @@
 .class public Labcd/D;
-.super Labcd/E;
+.super Landroidx/core/view/animation/LookupTableInterpolator;
 
 
 # static fields
@@ -231,7 +231,7 @@
 
     sget-object v0, Labcd/D;->FH:[F
 
-    invoke-direct {p0, v0}, Labcd/E;-><init>([F)V
+    invoke-direct {p0, v0}, Landroidx/core/view/animation/LookupTableInterpolator;-><init>([F)V
 
     return-void
 .end method
@@ -241,7 +241,7 @@
 .method public bridge synthetic getInterpolation(F)F
     .locals 1
 
-    invoke-super {p0, p1}, Labcd/E;->getInterpolation(F)F
+    invoke-super {p0, p1}, Landroidx/core/view/animation/LookupTableInterpolator;->getInterpolation(F)F
 
     move-result v0
 

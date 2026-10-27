@@ -22,7 +22,7 @@
 | # | 约束 | 原因 / 证据 |
 |---|---|---|
 | 1 | **不得删除或重排 `src/res/values/public.xml`、`ids.xml`** | AIDE 字节码里烧死了 `R` 常量；ID 一偏移就大面积 `ResourcesNotFound`/`NoSuchField` |
-| 2 | **不得改 `src/AndroidManifest.xml` 的 `package="aidepro.top"`，不得删 `android:sharedUserId="com.termux"`** | sharedUserId 是 Termux 数据可读的前提；改包名会让 `TermuxConstants` 的 prefix 推导、清单 authority、以及 `com/ndk/GradleNdk*` 里的硬编码路径同时失效 |
+| 2 | **不得改 `src/AndroidManifest.xml` 的 `package="aidepro.top"`**；`sharedUserId` 已是 **`com.termux2`**（2026-10-27 owner 确认：**故意与真 Termux 脱钩**），不要再改回 `com.termux`，也不要假设能读 `/data/data/com.termux/**` | 改包名会让 `TermuxConstants` 的 prefix 推导、清单 authority、以及 `com/ndk/GradleNdk*` 里的硬编码路径同时失效；`com.termux2` 下内置 Termux 的 prefix 为 `/data/data/aidepro.top/files/usr`，要复用真 Termux 的 bootstrap 必须自己拷数据 |
 | 3 | **不要尝试用新密钥签名"可安装"产物** | 仓库只有公钥证书 `src/original/META-INF/TERMUX.RSA`，私钥（`f401` / "Termux Shared Key"）不在仓库；换签名会导致与已装 Termux 的 sharedUserId 冲突而装不上 |
 | 4 | **不要整体替换 `src/smali*`** | git 历史已证明这样做（2.8.4 → 2.8.7）产生 1w+ 文件的不可审阅 diff；请新增/最小化修改文件 |
 | 5 | **不要提交 ≥5 MB 的二进制**（APK/jar/so/tar） | `.git` 已 173 MB；新增大文件请走 release 附件 |

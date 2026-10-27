@@ -44,13 +44,13 @@
 
     const/4 v6, 0x0
 
-    new-instance v5, Labcd/x;
+    new-instance v5, Landroidx/collection/SimpleArrayMap;
 
-    invoke-direct {v5}, Labcd/x;-><init>()V
+    invoke-direct {v5}, Landroidx/collection/SimpleArrayMap;-><init>()V
 
-    new-instance v3, Labcd/x;
+    new-instance v3, Landroidx/collection/SimpleArrayMap;
 
-    invoke-direct {v3}, Labcd/x;-><init>()V
+    invoke-direct {v3}, Landroidx/collection/SimpleArrayMap;-><init>()V
 
     invoke-virtual {p1, p2}, Lcom/google/android/gms/internal/ads/Kg;->j6(Lorg/json/JSONObject;)Lcom/google/android/gms/internal/ads/Hm;
 
@@ -107,7 +107,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v3, v9, v1}, Labcd/x;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v9, v1}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :goto_1
     add-int/lit8 v0, v0, 0x1
@@ -137,7 +137,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v5, v9, v1}, Labcd/x;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v9, v1}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
@@ -183,22 +183,22 @@
 
     move-result-object v1
 
-    new-instance v2, Labcd/x;
+    new-instance v2, Landroidx/collection/SimpleArrayMap;
 
-    invoke-direct {v2}, Labcd/x;-><init>()V
+    invoke-direct {v2}, Landroidx/collection/SimpleArrayMap;-><init>()V
 
     :goto_3
-    invoke-virtual {v5}, Labcd/x;->size()I
+    invoke-virtual {v5}, Landroidx/collection/SimpleArrayMap;->size()I
 
     move-result v0
 
     if-ge v4, v0, :cond_4
 
-    invoke-virtual {v5, v4}, Labcd/x;->DW(I)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Landroidx/collection/SimpleArrayMap;->keyAt(I)Ljava/lang/Object;
 
     move-result-object v9
 
-    invoke-virtual {v5, v4}, Labcd/x;->Hw(I)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Landroidx/collection/SimpleArrayMap;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -208,7 +208,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v2, v9, v0}, Labcd/x;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v9, v0}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v4, v4, 0x1
 
@@ -237,7 +237,7 @@
     :cond_5
     new-instance v0, Lcom/google/android/gms/internal/ads/aa;
 
-    invoke-direct/range {v0 .. v6}, Lcom/google/android/gms/internal/ads/aa;-><init>(Ljava/lang/String;Labcd/x;Labcd/x;Lcom/google/android/gms/internal/ads/P;Lcom/google/android/gms/internal/ads/kI;Landroid/view/View;)V
+    invoke-direct/range {v0 .. v6}, Lcom/google/android/gms/internal/ads/aa;-><init>(Ljava/lang/String;Landroidx/collection/SimpleArrayMap;Landroidx/collection/SimpleArrayMap;Lcom/google/android/gms/internal/ads/P;Lcom/google/android/gms/internal/ads/kI;Landroid/view/View;)V
 
     return-object v0
 

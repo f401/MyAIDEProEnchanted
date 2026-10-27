@@ -56,9 +56,9 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     sput-object v0, Lcom/google/android/gms/internal/measurement/ta;->j6:Ljava/util/Map;
 
@@ -361,9 +361,9 @@
     if-gt v2, v0, :cond_2
 
     :try_start_1
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0, v2}, Labcd/k;-><init>(I)V
+    invoke-direct {v0, v2}, Landroidx/collection/ArrayMap;-><init>(I)V
 
     :goto_1
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z

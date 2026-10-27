@@ -52,7 +52,7 @@
 
 .field Zo:Lcom/google/android/gms/ads/internal/Z;
 
-.field a8:Labcd/x;
+.field a8:Landroidx/collection/SimpleArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lx",
@@ -88,7 +88,7 @@
 
 .field final j6:Ljava/lang/String;
 
-.field lg:Labcd/x;
+.field lg:Landroidx/collection/SimpleArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lx",
@@ -292,11 +292,11 @@
 
     iput-object v0, p0, Lcom/google/android/gms/ads/internal/Y;->vJ:Lcom/google/android/gms/internal/ads/Ol;
 
-    new-instance v0, Labcd/x;
+    new-instance v0, Landroidx/collection/SimpleArrayMap;
 
-    invoke-direct {v0}, Labcd/x;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/SimpleArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/ads/internal/Y;->lg:Labcd/x;
+    iput-object v0, p0, Lcom/google/android/gms/ads/internal/Y;->lg:Landroidx/collection/SimpleArrayMap;
 
     return-void
 

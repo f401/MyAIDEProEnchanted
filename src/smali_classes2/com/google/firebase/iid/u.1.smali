@@ -9,7 +9,7 @@
 
 
 # instance fields
-.field private final FH:Labcd/x;
+.field private final FH:Landroidx/collection/SimpleArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lx",
@@ -40,11 +40,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Labcd/x;
+    new-instance v0, Landroidx/collection/SimpleArrayMap;
 
-    invoke-direct {v0}, Labcd/x;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/SimpleArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iput-object v0, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
     iput-object p1, p0, Lcom/google/firebase/iid/u;->Hw:Landroid/content/Context;
 
@@ -119,14 +119,14 @@
 
     invoke-direct {v2}, Labcd/Zx;-><init>()V
 
-    iget-object v3, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v3, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v3
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v0, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v0, v1, v2}, Labcd/x;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     monitor-exit v3
     :try_end_0
@@ -295,14 +295,14 @@
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    iget-object v2, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v2, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v2
 
     :try_start_3
-    iget-object v3, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v3, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v3, v1}, Labcd/x;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Landroidx/collection/SimpleArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     monitor-exit v2
     :try_end_3
@@ -389,14 +389,14 @@
     :catchall_1
     move-exception v0
 
-    iget-object v2, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v2, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v2
 
     :try_start_7
-    iget-object v3, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v3, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v3, v1}, Labcd/x;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Landroidx/collection/SimpleArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     monitor-exit v2
     :try_end_7
@@ -867,7 +867,7 @@
     goto :goto_4
 
     :cond_d
-    iget-object v3, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v3, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v3
 
@@ -877,17 +877,17 @@
 
     :goto_5
     :try_start_0
-    iget-object v1, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v1, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v1}, Labcd/x;->size()I
+    invoke-virtual {v1}, Landroidx/collection/SimpleArrayMap;->size()I
 
     move-result v1
 
     if-ge v2, v1, :cond_e
 
-    iget-object v1, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v1, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v1, v2}, Labcd/x;->DW(I)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Landroidx/collection/SimpleArrayMap;->keyAt(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1014,14 +1014,14 @@
 .method private final j6(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 3
 
-    iget-object v1, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v1, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v1
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/firebase/iid/u;->FH:Labcd/x;
+    iget-object v0, p0, Lcom/google/firebase/iid/u;->FH:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v0, p1}, Labcd/x;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroidx/collection/SimpleArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

@@ -3,7 +3,7 @@
 
 
 # instance fields
-.field private final j6:Labcd/k;
+.field private final j6:Landroidx/collection/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lk",
@@ -18,7 +18,7 @@
 
 
 # direct methods
-.method public constructor <init>(Labcd/k;)V
+.method public constructor <init>(Landroidx/collection/ArrayMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -34,7 +34,7 @@
 
     invoke-direct {p0}, Ljava/lang/Exception;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/gms/common/api/c;->j6:Labcd/k;
+    iput-object p1, p0, Lcom/google/android/gms/common/api/c;->j6:Landroidx/collection/ArrayMap;
 
     return-void
 .end method
@@ -48,9 +48,9 @@
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v0, p0, Lcom/google/android/gms/common/api/c;->j6:Labcd/k;
+    iget-object v0, p0, Lcom/google/android/gms/common/api/c;->j6:Landroidx/collection/ArrayMap;
 
-    invoke-virtual {v0}, Labcd/k;->keySet()Ljava/util/Set;
+    invoke-virtual {v0}, Landroidx/collection/ArrayMap;->entrySet()Ljava/util/Set;
 
     move-result-object v0
 
@@ -75,9 +75,9 @@
 
     check-cast v0, Lcom/google/android/gms/common/api/internal/E;
 
-    iget-object v1, p0, Lcom/google/android/gms/common/api/c;->j6:Labcd/k;
+    iget-object v1, p0, Lcom/google/android/gms/common/api/c;->j6:Landroidx/collection/ArrayMap;
 
-    invoke-virtual {v1, v0}, Labcd/x;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 

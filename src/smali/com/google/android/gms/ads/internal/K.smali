@@ -38,11 +38,11 @@
 
     iget-object v0, v0, Lcom/google/android/gms/ads/internal/a;->Zo:Lcom/google/android/gms/ads/internal/Y;
 
-    iget-object v0, v0, Lcom/google/android/gms/ads/internal/Y;->lg:Labcd/x;
+    iget-object v0, v0, Lcom/google/android/gms/ads/internal/Y;->lg:Landroidx/collection/SimpleArrayMap;
 
     iget-object v1, p0, Lcom/google/android/gms/ads/internal/K;->j6:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Labcd/x;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

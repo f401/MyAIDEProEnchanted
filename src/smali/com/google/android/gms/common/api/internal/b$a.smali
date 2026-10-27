@@ -1062,11 +1062,11 @@
     new-array v0, v1, [Lcom/google/android/gms/common/Feature;
 
     :cond_2
-    new-instance v3, Labcd/k;
+    new-instance v3, Landroidx/collection/ArrayMap;
 
     array-length v2, v0
 
-    invoke-direct {v3, v2}, Labcd/k;-><init>(I)V
+    invoke-direct {v3, v2}, Landroidx/collection/ArrayMap;-><init>(I)V
 
     array-length v4, v0
 

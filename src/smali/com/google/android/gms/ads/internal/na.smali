@@ -826,7 +826,7 @@
 
     iget-object v2, v0, Lcom/google/android/gms/ads/internal/a;->Zo:Lcom/google/android/gms/ads/internal/Y;
 
-    iget-object v2, v2, Lcom/google/android/gms/ads/internal/Y;->lg:Labcd/x;
+    iget-object v2, v2, Lcom/google/android/gms/ads/internal/Y;->lg:Landroidx/collection/SimpleArrayMap;
 
     if-eqz v2, :cond_10
 
@@ -834,13 +834,13 @@
 
     iget-object v2, v0, Lcom/google/android/gms/ads/internal/a;->Zo:Lcom/google/android/gms/ads/internal/Y;
 
-    iget-object v2, v2, Lcom/google/android/gms/ads/internal/Y;->lg:Labcd/x;
+    iget-object v2, v2, Lcom/google/android/gms/ads/internal/Y;->lg:Landroidx/collection/SimpleArrayMap;
 
     invoke-interface {v3}, Lcom/google/android/gms/internal/ads/ab;->vJ()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v2, v4}, Labcd/x;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1468,9 +1468,9 @@
 
     iget-object v0, p0, Lcom/google/android/gms/ads/internal/a;->Zo:Lcom/google/android/gms/ads/internal/Y;
 
-    iget-object v0, v0, Lcom/google/android/gms/ads/internal/Y;->a8:Labcd/x;
+    iget-object v0, v0, Lcom/google/android/gms/ads/internal/Y;->a8:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v0, p1}, Labcd/x;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

@@ -1,4 +1,4 @@
-.class final Landroidx/collection/MapCollections$KeySet;
+.class public final Landroidx/collection/MapCollections$KeySet;
 .super Ljava/lang/Object;
 
 # interfaces

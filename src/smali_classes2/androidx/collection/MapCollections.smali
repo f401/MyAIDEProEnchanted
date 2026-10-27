@@ -1,4 +1,4 @@
-.class abstract Landroidx/collection/MapCollections;
+.class public abstract Landroidx/collection/MapCollections;
 .super Ljava/lang/Object;
 
 

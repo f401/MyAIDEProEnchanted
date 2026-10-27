@@ -36,15 +36,15 @@
 
     invoke-direct {p0, p1}, Lcom/google/android/gms/measurement/internal/zze;-><init>(Lcom/google/android/gms/measurement/internal/zzbw;)V
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/measurement/internal/zza;->zzafc:Ljava/util/Map;
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/measurement/internal/zza;->zzafb:Ljava/util/Map;
 

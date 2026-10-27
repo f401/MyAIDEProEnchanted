@@ -40,9 +40,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/firebase/iid/zzaw;->Hw:Ljava/util/Map;
 

@@ -41,13 +41,13 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/internal/C;->jg()Labcd/x;
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/internal/C;->jg()Landroidx/collection/SimpleArrayMap;
 
     move-result-object v0
 
     iget-object v2, p0, Lcom/google/android/gms/internal/ads/Ng;->DW:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Labcd/x;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

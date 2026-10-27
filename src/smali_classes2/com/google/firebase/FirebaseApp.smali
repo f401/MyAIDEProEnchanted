@@ -214,9 +214,9 @@
 
     sput-object v0, Lcom/google/firebase/FirebaseApp;->VH:Ljava/util/concurrent/Executor;
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     sput-object v0, Lcom/google/firebase/FirebaseApp;->gn:Ljava/util/Map;
 

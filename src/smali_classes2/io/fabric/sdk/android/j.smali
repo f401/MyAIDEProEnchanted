@@ -84,7 +84,7 @@
 
 
 # virtual methods
-.method protected DW(Ljava/lang/Object;)V
+.method protected onCancelled(Ljava/lang/Object;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -129,7 +129,7 @@
     return-void
 .end method
 
-.method protected FH(Ljava/lang/Object;)V
+.method protected onPostExecute(Ljava/lang/Object;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -150,12 +150,12 @@
     return-void
 .end method
 
-.method protected VH()V
+.method protected onPreExecute()V
     .locals 6
 
     const/4 v5, 0x1
 
-    invoke-super {p0}, Labcd/Xy;->VH()V
+    invoke-super {p0}, Landroidx/loader/content/ModernAsyncTask;->onPreExecute()V
 
     const-string v0, "onPreExecute"
 
@@ -179,7 +179,7 @@
     if-nez v0, :cond_0
 
     :goto_0
-    invoke-virtual {p0, v5}, Labcd/Xy;->DW(Z)Z
+    invoke-virtual {p0, v5}, Landroidx/loader/content/ModernAsyncTask;->cancel(Z)Z
 
     :cond_0
     return-void
@@ -217,24 +217,24 @@
 
     invoke-virtual {v1}, Lio/fabric/sdk/android/services/common/D;->DW()V
 
-    invoke-virtual {p0, v5}, Labcd/Xy;->DW(Z)Z
+    invoke-virtual {p0, v5}, Landroidx/loader/content/ModernAsyncTask;->cancel(Z)Z
 
     throw v0
 .end method
 
-.method protected bridge synthetic j6([Ljava/lang/Object;)Ljava/lang/Object;
+.method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
     check-cast p1, [Ljava/lang/Void;
 
-    invoke-virtual {p0, p1}, Lio/fabric/sdk/android/j;->j6([Ljava/lang/Void;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lio/fabric/sdk/android/j;->doInBackground([Ljava/lang/Void;)Ljava/lang/Object;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method protected varargs j6([Ljava/lang/Void;)Ljava/lang/Object;
+.method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Object;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -250,7 +250,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Labcd/Xy;->Zo()Z
+    invoke-virtual {p0}, Landroidx/loader/content/ModernAsyncTask;->isCancelled()Z
 
     move-result v0
 

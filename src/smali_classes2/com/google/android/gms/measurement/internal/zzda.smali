@@ -1772,13 +1772,13 @@
     throw v0
 
     :cond_2
-    new-instance v1, Labcd/k;
+    new-instance v1, Landroidx/collection/ArrayMap;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
 
-    invoke-direct {v1, v2}, Labcd/k;-><init>(I)V
+    invoke-direct {v1, v2}, Landroidx/collection/ArrayMap;-><init>(I)V
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 

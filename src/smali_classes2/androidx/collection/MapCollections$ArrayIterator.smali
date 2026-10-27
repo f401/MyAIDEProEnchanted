@@ -1,4 +1,4 @@
-.class final Landroidx/collection/MapCollections$ArrayIterator;
+.class public final Landroidx/collection/MapCollections$ArrayIterator;
 .super Ljava/lang/Object;
 
 # interfaces

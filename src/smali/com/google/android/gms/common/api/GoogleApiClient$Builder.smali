@@ -118,15 +118,15 @@
 
     iput-object v0, p0, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;->DW:Ljava/util/Set;
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;->v5:Ljava/util/Map;
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;->VH:Ljava/util/Map;
 

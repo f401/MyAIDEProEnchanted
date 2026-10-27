@@ -3,7 +3,7 @@
 
 
 # static fields
-.field private static final j6:Labcd/x;
+.field private static final j6:Landroidx/collection/SimpleArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lx",
@@ -20,11 +20,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Labcd/x;
+    new-instance v0, Landroidx/collection/SimpleArrayMap;
 
-    invoke-direct {v0}, Labcd/x;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/SimpleArrayMap;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/common/internal/e;->j6:Labcd/x;
+    sput-object v0, Lcom/google/android/gms/common/internal/e;->j6:Landroidx/collection/SimpleArrayMap;
 
     return-void
 .end method
@@ -403,12 +403,12 @@
 
     const/4 v1, 0x0
 
-    sget-object v2, Lcom/google/android/gms/common/internal/e;->j6:Labcd/x;
+    sget-object v2, Lcom/google/android/gms/common/internal/e;->j6:Landroidx/collection/SimpleArrayMap;
 
     monitor-enter v2
 
     :try_start_0
-    invoke-virtual {v2, p1}, Labcd/x;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -539,7 +539,7 @@
     goto :goto_2
 
     :cond_5
-    invoke-virtual {v2, p1, v0}, Labcd/x;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1, v0}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     monitor-exit v2
     :try_end_1

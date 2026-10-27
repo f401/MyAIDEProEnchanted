@@ -1,4 +1,4 @@
-.class final Landroidx/collection/MapCollections$ValuesCollection;
+.class public final Landroidx/collection/MapCollections$ValuesCollection;
 .super Ljava/lang/Object;
 
 # interfaces

@@ -1,4 +1,4 @@
-.class abstract Landroidx/loader/content/ModernAsyncTask;
+.class public abstract Landroidx/loader/content/ModernAsyncTask;
 .super Ljava/lang/Object;
 
 
@@ -126,7 +126,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

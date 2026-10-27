@@ -6993,9 +6993,9 @@
 
     :cond_1
     :try_start_2
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     :cond_2
     const/4 v2, 0x0
@@ -9194,9 +9194,9 @@
 
     invoke-static {p2}, Lcom/google/android/gms/common/internal/r;->DW(Ljava/lang/String;)Ljava/lang/String;
 
-    new-instance v9, Labcd/k;
+    new-instance v9, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v9}, Labcd/k;-><init>()V
+    invoke-direct {v9}, Landroidx/collection/ArrayMap;-><init>()V
 
     invoke-virtual {p0}, Lcom/google/android/gms/measurement/internal/zzt;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
@@ -9459,9 +9459,9 @@
 
     invoke-static {p2}, Lcom/google/android/gms/common/internal/r;->DW(Ljava/lang/String;)Ljava/lang/String;
 
-    new-instance v9, Labcd/k;
+    new-instance v9, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v9}, Labcd/k;-><init>()V
+    invoke-direct {v9}, Landroidx/collection/ArrayMap;-><init>()V
 
     invoke-virtual {p0}, Lcom/google/android/gms/measurement/internal/zzt;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 

@@ -1,5 +1,5 @@
 .class public abstract Labcd/ez;
-.super Labcd/Xy;
+.super Landroidx/loader/content/ModernAsyncTask;
 
 # interfaces
 .implements Labcd/_y;
@@ -45,7 +45,7 @@
 .method public constructor <init>()V
     .locals 1
 
-    invoke-direct {p0}, Labcd/Xy;-><init>()V
+    invoke-direct {p0}, Landroidx/loader/content/ModernAsyncTask;-><init>()V
 
     new-instance v0, Labcd/jz;
 
@@ -137,11 +137,11 @@
 .method public j6(Labcd/lz;)V
     .locals 2
 
-    invoke-virtual {p0}, Labcd/Xy;->Hw()Labcd/Xy$d;
+    invoke-virtual {p0}, Landroidx/loader/content/ModernAsyncTask;->getStatus()Landroidx/loader/content/ModernAsyncTask$Status;
 
     move-result-object v0
 
-    sget-object v1, Labcd/Xy$d;->j6:Labcd/Xy$d;
+    sget-object v1, Landroidx/loader/content/ModernAsyncTask$Status;->PENDING:Landroidx/loader/content/ModernAsyncTask$Status;
 
     if-ne v0, v1, :cond_0
 
@@ -207,7 +207,7 @@
 
     invoke-direct {v0, p1, p0}, Labcd/ez$a;-><init>(Ljava/util/concurrent/Executor;Labcd/ez;)V
 
-    invoke-super {p0, v0, p2}, Labcd/Xy;->j6(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Labcd/Xy;
+    invoke-super {p0, v0, p2}, Landroidx/loader/content/ModernAsyncTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroidx/loader/content/ModernAsyncTask;
 
     return-void
 .end method

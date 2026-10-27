@@ -1,4 +1,4 @@
-.class Landroidx/collection/ContainerHelpers;
+.class public Landroidx/collection/ContainerHelpers;
 .super Ljava/lang/Object;
 
 

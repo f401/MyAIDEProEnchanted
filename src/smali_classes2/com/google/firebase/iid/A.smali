@@ -32,9 +32,9 @@
 
     iput v0, p0, Lcom/google/firebase/iid/A;->j6:I
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/firebase/iid/A;->DW:Ljava/util/Map;
 

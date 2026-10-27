@@ -1388,9 +1388,9 @@
 
     if-nez v0, :cond_3
 
-    new-instance v5, Labcd/k;
+    new-instance v5, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v5}, Labcd/k;-><init>()V
+    invoke-direct {v5}, Landroidx/collection/ArrayMap;-><init>()V
 
     const-string v0, "If-Modified-Since"
 

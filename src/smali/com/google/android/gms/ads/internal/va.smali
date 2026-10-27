@@ -801,9 +801,9 @@
 
     const-string v2, "onSdkImpression"
 
-    new-instance v3, Labcd/k;
+    new-instance v3, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v3}, Labcd/k;-><init>()V
+    invoke-direct {v3}, Landroidx/collection/ArrayMap;-><init>()V
 
     invoke-interface {v1, v2, v3}, Lcom/google/android/gms/internal/ads/Sc;->j6(Ljava/lang/String;Ljava/util/Map;)V
 

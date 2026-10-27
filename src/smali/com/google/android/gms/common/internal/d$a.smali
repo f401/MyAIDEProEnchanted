@@ -14,7 +14,7 @@
 
 
 # instance fields
-.field private DW:Labcd/m;
+.field private DW:Landroidx/collection/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lm",
@@ -107,20 +107,20 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/d$a;->DW:Labcd/m;
+    iget-object v0, p0, Lcom/google/android/gms/common/internal/d$a;->DW:Landroidx/collection/ArraySet;
 
     if-nez v0, :cond_0
 
-    new-instance v0, Labcd/m;
+    new-instance v0, Landroidx/collection/ArraySet;
 
-    invoke-direct {v0}, Labcd/m;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/common/internal/d$a;->DW:Labcd/m;
+    iput-object v0, p0, Lcom/google/android/gms/common/internal/d$a;->DW:Landroidx/collection/ArraySet;
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/common/internal/d$a;->DW:Labcd/m;
+    iget-object v0, p0, Lcom/google/android/gms/common/internal/d$a;->DW:Landroidx/collection/ArraySet;
 
-    invoke-virtual {v0, p1}, Labcd/m;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v0, p1}, Landroidx/collection/ArraySet;->addAll(Ljava/util/Collection;)Z
 
     return-object p0
 .end method
@@ -132,7 +132,7 @@
 
     iget-object v1, p0, Lcom/google/android/gms/common/internal/d$a;->j6:Landroid/accounts/Account;
 
-    iget-object v2, p0, Lcom/google/android/gms/common/internal/d$a;->DW:Labcd/m;
+    iget-object v2, p0, Lcom/google/android/gms/common/internal/d$a;->DW:Landroidx/collection/ArraySet;
 
     iget-object v3, p0, Lcom/google/android/gms/common/internal/d$a;->FH:Ljava/util/Map;
 

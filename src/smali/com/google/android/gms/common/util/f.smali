@@ -21,9 +21,9 @@
 
     if-gt p0, v0, :cond_0
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0, p0}, Labcd/k;-><init>(I)V
+    invoke-direct {v0, p0}, Landroidx/collection/ArrayMap;-><init>(I)V
 
     :goto_0
     return-object v0
@@ -435,9 +435,9 @@
     :goto_1
     if-gt p0, v0, :cond_2
 
-    new-instance v0, Labcd/m;
+    new-instance v0, Landroidx/collection/ArraySet;
 
-    invoke-direct {v0, p0}, Labcd/m;-><init>(I)V
+    invoke-direct {v0, p0}, Landroidx/collection/ArraySet;-><init>(I)V
 
     :goto_2
     return-object v0

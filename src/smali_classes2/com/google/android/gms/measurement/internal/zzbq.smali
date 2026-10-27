@@ -109,39 +109,39 @@
 
     invoke-direct {p0, p1}, Lcom/google/android/gms/measurement/internal/zzfn;-><init>(Lcom/google/android/gms/measurement/internal/zzfo;)V
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/measurement/internal/zzbq;->zzaok:Ljava/util/Map;
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/measurement/internal/zzbq;->zzaol:Ljava/util/Map;
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/measurement/internal/zzbq;->zzaom:Ljava/util/Map;
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/measurement/internal/zzbq;->zzaon:Ljava/util/Map;
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/measurement/internal/zzbq;->zzaop:Ljava/util/Map;
 
-    new-instance v0, Labcd/k;
+    new-instance v0, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v0}, Labcd/k;-><init>()V
+    invoke-direct {v0}, Landroidx/collection/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/gms/measurement/internal/zzbq;->zzaoo:Ljava/util/Map;
 
@@ -237,9 +237,9 @@
         }
     .end annotation
 
-    new-instance v1, Labcd/k;
+    new-instance v1, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v1}, Labcd/k;-><init>()V
+    invoke-direct {v1}, Landroidx/collection/ArrayMap;-><init>()V
 
     if-eqz p0, :cond_1
 
@@ -276,17 +276,17 @@
 .method private final zza(Ljava/lang/String;Lcom/google/android/gms/internal/measurement/da;)V
     .locals 10
 
-    new-instance v1, Labcd/k;
+    new-instance v1, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v1}, Labcd/k;-><init>()V
+    invoke-direct {v1}, Landroidx/collection/ArrayMap;-><init>()V
 
-    new-instance v2, Labcd/k;
+    new-instance v2, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v2}, Labcd/k;-><init>()V
+    invoke-direct {v2}, Landroidx/collection/ArrayMap;-><init>()V
 
-    new-instance v3, Labcd/k;
+    new-instance v3, Landroidx/collection/ArrayMap;
 
-    invoke-direct {v3}, Labcd/k;-><init>()V
+    invoke-direct {v3}, Landroidx/collection/ArrayMap;-><init>()V
 
     if-eqz p2, :cond_5
 

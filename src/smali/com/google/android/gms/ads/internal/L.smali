@@ -40,9 +40,9 @@
 
     iget-object v1, v1, Lcom/google/android/gms/ads/internal/a;->Zo:Lcom/google/android/gms/ads/internal/Y;
 
-    iget-object v1, v1, Lcom/google/android/gms/ads/internal/Y;->lg:Labcd/x;
+    iget-object v1, v1, Lcom/google/android/gms/ads/internal/Y;->lg:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v1, v0}, Labcd/x;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
