@@ -1171,6 +1171,15 @@ abcd/UE org/eclipse/jgit/lib/Repository
 	FH gitDir
 	Zo workTree
 	EQ ()Labcd/xE; getObjectDatabase
+	Hw (Ljava/lang/String;)Ljava/lang/String; shortenRefName
+	j6 (Labcd/qG;Labcd/ME;Ljava/lang/String;)Labcd/dG; resolveReflog
+	j6 (Labcd/qG;Ljava/lang/String;)Labcd/iG; parseSimple
+	j6 (Ljava/lang/String;I)Z isAllHex
+	aM ()Labcd/EE; getObjectDatabase
+	j6 (Labcd/YD;I)Labcd/FE; newObjectInserter
+	j6 (Labcd/ME;)Labcd/ME; renameRef
+	j6 (Ljava/lang/String;)Labcd/ME; getRef
+	j6 (Labcd/KD;)V fireEvent
 abcd/UG org/eclipse/jgit/internal/storage/file/LockFile$1
 	accept (Ljava/io/File;Ljava/lang/String;)Z accept
 	<init> ()V <init>
@@ -1774,6 +1783,13 @@ abcd/cB org/eclipse/jgit/api/Git
 	we ()Labcd/iB; merge
 	j6 repo
 	<init> (Labcd/UE;)V <init>
+	VH ()Labcd/XA; cloneRepository
+	j6 (Labcd/UE;)Labcd/cB; wrap
+	j6 (Ljava/io/File;)Labcd/cB; open
+	j6 (Ljava/io/File;Labcd/pK;)Labcd/cB; open
+	tp ()Labcd/eB; init
+	DW ()Labcd/_A; branchCreate
+	J0 ()Labcd/qB; pull
 abcd/cC$d org/eclipse/jgit/diff/ContentSource$WorkingTreeSource
 	j6 (Ljava/lang/String;)V seek
 	DW (Ljava/lang/String;Labcd/yE;)J size
@@ -2562,6 +2578,8 @@ abcd/tI org/eclipse/jgit/transport/JschConfigSessionFactory
 	FH defaultJSch
 	Hw config
 	<init> ()V <init>
+	j6 (Labcd/HJ;Labcd/kI;Labcd/pK;I)Labcd/ZI; getSession
+	j6 (Labcd/yI$a;Lcom/jcraft/jsch/Session;)V configure
 abcd/tJ org/eclipse/jgit/transport/TransportGitSsh
 	FH (Ljava/lang/String;)Ljava/lang/String; commandFor
 	j6 (ILjava/lang/String;Ljava/lang/String;)V checkExecFailure
