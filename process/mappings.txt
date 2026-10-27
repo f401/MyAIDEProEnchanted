@@ -1175,6 +1175,7 @@ abcd/VH org/eclipse/jgit/internal/storage/pack/ThreadSafeDeltaCache
 	j6 (ILabcd/MH;Labcd/MH;)Z canCache
 	v5 lock
 	<init> (Labcd/NH;)V <init>
+	j6 ([BII)Labcd/CH$a; cache
 abcd/WA org/eclipse/jgit/api/CherryPickResult
 	FH ()Labcd/WA$a; getStatus
 	j6 ()Ljava/util/Map; getFailingPaths
@@ -1557,6 +1558,7 @@ abcd/aB org/eclipse/jgit/api/DeleteBranchCommand
 	<init> (Labcd/UE;)V <init>
 abcd/aD org/eclipse/jgit/errors/InvalidObjectIdException
 	<init> ([BII)V <init>
+	j6 ([BII)Ljava/lang/String; asAscii
 abcd/aH org/eclipse/jgit/internal/storage/file/PackFile
 	DW (J)J findEndOffset
 	FH (J)Z isCorrupt
@@ -1745,6 +1747,7 @@ abcd/dC org/eclipse/jgit/diff/ContentSource$WorkingTreeSource$1
 	j6 ()[B getCachedBytes
 	j6 this$0
 	<init> (Labcd/cC$d;)V <init>
+	v5 ()Labcd/JE; openStream
 abcd/dH org/eclipse/jgit/internal/storage/file/PackIndexV1
 	FH ()Z hasCRC32Support
 	j6 (J)Labcd/yE; getObjectId
@@ -1866,6 +1869,7 @@ abcd/fH$a org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2
 	v5 levelTwo
 abcd/fI org/eclipse/jgit/transport/BasePackFetchConnection$FetchConfig$1
 	<init> ()V <init>
+	j6 (Labcd/gE;)Labcd/eI$b; parse
 abcd/fK org/eclipse/jgit/treewalk/filter/PathFilter
 	j6 ()Z shouldBeRecursive
 	DW ()Ljava/lang/String; getPath
@@ -1877,6 +1881,7 @@ abcd/fK org/eclipse/jgit/treewalk/filter/PathFilter
 	<init> (Ljava/lang/String;)V <init>
 	toString ()Ljava/lang/String; toString
 	clone ()Labcd/fK; clone
+	j6 (Ljava/lang/String;)Labcd/fK; create
 abcd/gB org/eclipse/jgit/api/ListBranchCommand
 	j6 (Labcd/gB$a;)Labcd/gB; setListMode
 	FH listMode
@@ -2169,6 +2174,7 @@ abcd/kJ org/eclipse/jgit/transport/TransportAmazonS3$1
 	FH ()Ljava/util/Set; getRequiredFields
 	Hw ()Ljava/util/Set; getOptionalFields
 	<init> ()V <init>
+	DW (Labcd/HJ;Labcd/UE;Ljava/lang/String;)Labcd/jJ; open
 abcd/kK org/eclipse/jgit/util/Base64
 	j6 ([B)Ljava/lang/String; encodeBytes
 abcd/lB org/eclipse/jgit/api/MergeResult$MergeStatus$4
