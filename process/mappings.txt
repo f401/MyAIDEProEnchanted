@@ -3092,8 +3092,19 @@ abcd/OI org/eclipse/jgit/transport/ReceiveCommand
 	v5 ref
 	Hw status
 	Zo type
-abcd/IF org/eclipse/jgit/api/ApplyCommand
+abcd/AE org/eclipse/jgit/lib/ObjectIdOwnerMap
+	DW ()[Labcd/AE$a; newSegment
+	j6 (Labcd/YD;Labcd/YD;)Z equals
+	v5 (I)I computeGrowAt
+	DW (Labcd/AE$a;)Labcd/AE$a; get
+	DW (Labcd/YD;)Labcd/AE$a; get
+	j6 (Labcd/YD;)Z contains
 abcd/_J$a org/eclipse/jgit/treewalk/WorkingTreeIterator$Entry
+	j6 (Ljava/nio/charset/CharsetEncoder;)V encodeName
+	FH ()Labcd/rE; getMode
+	Hw ()Ljava/lang/String; getName
+	v5 ()Ljava/io/InputStream; openInputStream
+abcd/IF org/eclipse/jgit/api/ApplyCommand
 abcd/lH org/eclipse/jgit/internal/storage/dfs/DfsPackFile
 abcd/cC$a org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
 abcd/XG$b org/eclipse/jgit/internal/storage/file/GC
@@ -3102,7 +3113,6 @@ abcd/nH$e org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
 abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
 abcd/GF org/eclipse/jgit/nls/TextBundle
 abcd/AE$a org/eclipse/jgit/lib/ObjectIdOwnerMap$Entry
-abcd/AE org/eclipse/jgit/lib/ObjectIdOwnerMap
 abcd/KF org/eclipse/jgit/patch/Patch
 abcd/sJ org/eclipse/jgit/transport/SshSessionFactory
 abcd/OA org/eclipse/jgit/transport/UploadPack
