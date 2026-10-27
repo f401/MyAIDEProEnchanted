@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <android.support.v4.widget.DrawerLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:id="@id/designerDrawer"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -68,5 +68,5 @@
             android:layout_height="fill_parent"
             android:divider="@android:color/transparent"
             android:dividerHeight="0.0dip" />
-    </android.support.v4.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </FrameLayout>

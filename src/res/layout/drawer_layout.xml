@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidj.support.v4.widget.DrawerLayout
+    <androidx.drawerlayout.widget.DrawerLayout
         android:id="@id/drawer_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -21,7 +21,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1.0" />
-            <androidj.support.v4.view.ViewPager
+            <androidx.viewpager.widget.ViewPager
                 android:id="@id/viewpager"
                 android:background="@android:drawable/screen_background_dark_transparent"
                 android:layout_width="fill_parent"
@@ -69,5 +69,5 @@
                     style="?android:buttonBarButtonStyle" />
             </LinearLayout>
         </LinearLayout>
-    </androidj.support.v4.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </RelativeLayout>
