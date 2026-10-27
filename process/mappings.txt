@@ -373,6 +373,7 @@ abcd/AE org/eclipse/jgit/lib/ObjectIdOwnerMap
 	DW (Labcd/AE$a;)Labcd/AE$a; get
 	DW (Labcd/YD;)Labcd/AE$a; get
 	j6 (Labcd/YD;)Z contains
+abcd/AE$a org/eclipse/jgit/lib/ObjectIdOwnerMap$Entry
 abcd/AF org/eclipse/jgit/merge/StrategySimpleTwoWayInCore
 	j6 ()Ljava/lang/String; getName
 	j6 (Labcd/UE;)Labcd/CF; newMerger
@@ -568,6 +569,9 @@ abcd/DE org/eclipse/jgit/lib/ObjectIdSubclassMap
 	<init> ()V <init>
 	isEmpty ()Z isEmpty
 	DW (Labcd/DE;)[Labcd/yE; access$100
+abcd/DF org/eclipse/jgit/nls/GlobalBundleCache
+	j6 cachedBundles
+	j6 (Ljava/util/Locale;Ljava/lang/Class;)Labcd/GF; lookupBundle
 abcd/DI org/eclipse/jgit/transport/PacketLineIn
 	j6 ()I readLength
 	j6 (Labcd/uE;)Labcd/DI$a; readACK
@@ -594,6 +598,7 @@ abcd/EB org/eclipse/jgit/api/SubmoduleStatusCommand
 	FH paths
 	call ()Ljava/util/Map; call
 	<init> (Labcd/UE;)V <init>
+abcd/EF org/eclipse/jgit/nls/NLS$1
 abcd/EG org/eclipse/jgit/internal/storage/file/DeltaBaseCache
 	DW ()V releaseMemory
 	j6 (Labcd/aH;J[BI)V store
@@ -632,6 +637,13 @@ abcd/FB org/eclipse/jgit/api/SubmoduleUpdateCommand
 	VH paths
 	call ()Ljava/util/Collection; call
 	<init> (Labcd/UE;)V <init>
+abcd/FF org/eclipse/jgit/nls/NLS
+	j6 ROOT_LOCALE
+	DW local
+	FH locale
+	Hw map
+	DW (Ljava/lang/Class;)Labcd/GF; get
+	j6 (Ljava/lang/Class;)Labcd/GF; getBundleFor
 abcd/FG org/eclipse/jgit/storage/file/FileBasedConfig
 	Zo ()Ljava/io/File; getFile
 	FH ()Z notifyUponTransientChanges
@@ -656,6 +668,8 @@ abcd/GB org/eclipse/jgit/api/TransportCommand
 	FH credentialsProvider
 	v5 transportConfigCallback
 	<init> (Labcd/UE;)V <init>
+abcd/GF org/eclipse/jgit/nls/TranslationBundle
+	j6 (Ljava/util/Locale;)V load
 abcd/GG$c org/eclipse/jgit/internal/storage/file/FileObjectDatabase$InsertLooseObjectResult
 	<init> (Ljava/lang/String;I)V <init>
 abcd/GJ$a org/eclipse/jgit/transport/TransportSftp$SftpObjectDB
@@ -737,6 +751,7 @@ abcd/IC org/eclipse/jgit/dircache/BaseDirCacheEditor
 	DW entries
 	<init> (Labcd/KC;I)V <init>
 	j6 (Labcd/QC;)V fastAdd
+abcd/IF org/eclipse/jgit/api/ApplyCommand
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 	Hw REACHABLE_COMMIT_TIP
@@ -957,6 +972,12 @@ abcd/NK org/eclipse/jgit/util/StringUtils
 	j6 (Ljava/lang/String;Ljava/lang/String;)Z equalsIgnoreCase
 	j6 (C)C toLowerCase
 	j6 LC
+abcd/OA org/eclipse/jgit/api/AddCommand
+	FH filepatterns
+	Hw workingTreeIterator
+	v5 update
+	j6 (Ljava/lang/String;)Labcd/OA; addFilepattern
+	DW (Z)Labcd/OA; setUpdate
 abcd/OD org/eclipse/jgit/fnmatch/FileNameMatcher
 	DW ()V reset
 	j6 (Ljava/lang/String;)V append
@@ -1521,6 +1542,7 @@ abcd/XA org/eclipse/jgit/api/CloneCommand
 	EQ monitor
 	u7 remote
 	gn bare
+abcd/XG$b org/eclipse/jgit/internal/storage/file/GC
 abcd/XH org/eclipse/jgit/submodule/SubmoduleStatusType
 	DW UNINITIALIZED
 	<init> (Ljava/lang/String;I)V <init>
@@ -2009,6 +2031,7 @@ abcd/cB org/eclipse/jgit/api/Git
 	tp ()Labcd/eB; init
 	DW ()Labcd/_A; branchCreate
 	J0 ()Labcd/qB; pull
+abcd/cC$a org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
 abcd/cC$d org/eclipse/jgit/diff/ContentSource$WorkingTreeSource
 	j6 (Ljava/lang/String;)V seek
 	DW (Ljava/lang/String;Labcd/yE;)J size
@@ -2541,6 +2564,7 @@ abcd/lB org/eclipse/jgit/api/MergeResult$MergeStatus$4
 	Hw ()Z isSuccessful
 	toString ()Ljava/lang/String; toString
 	<init> (Ljava/lang/String;I)V <init>
+abcd/lH org/eclipse/jgit/internal/storage/file/PackReverseIndex
 abcd/lI org/eclipse/jgit/transport/CredentialsProviderUserInfo
 	DW (Ljava/lang/String;)V showMessage
 	j6 ()Ljava/lang/String; getPassphrase
@@ -2599,8 +2623,10 @@ abcd/nB org/eclipse/jgit/api/MergeResult$MergeStatus$8
 abcd/nF org/eclipse/jgit/lib/UserConfig$1
 	<init> ()V <init>
 	j6 (Labcd/gE;)Labcd/oF; parse
+abcd/nH$c org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner
 abcd/nH$d org/eclipse/jgit/internal/storage/file/ReflogWriter
 	DW (Ljava/lang/String;)V <init>
+abcd/nH$e org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
 abcd/nI org/eclipse/jgit/transport/FetchConnection
 	Hw ()Ljava/util/Collection; getPackLocks
 	j6 (Ljava/lang/String;)V setPackLockMessage
@@ -2652,6 +2678,7 @@ abcd/pB$a org/eclipse/jgit/api/MergeResult$MergeStatus
 	<init> (Ljava/lang/String;I)V <init>
 	<init> (Ljava/lang/String;ILabcd/pB$a;)V <init>
 	Zo MERGED_SQUASHED
+abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
 abcd/pG org/eclipse/jgit/revwalk/RevWalk$3
 	DW this$0
 	remove ()V remove
@@ -2815,6 +2842,7 @@ abcd/sH$a org/eclipse/jgit/internal/storage/file/UnpackedObject$LargeObject
 	FH path
 	Hw id
 	j6 type
+abcd/sJ org/eclipse/jgit/transport/SshSessionFactory
 abcd/tB$b org/eclipse/jgit/api/RebaseCommand$Operation
 	<init> (Ljava/lang/String;I)V <init>
 abcd/tD org/eclipse/jgit/errors/StoredObjectRepresentationNotAvailableException
@@ -3172,15 +3200,10 @@ abcd/zJ$d org/eclipse/jgit/transport/TransportLocal$InternalLocalPushConnection
 	gW this$0
 	yS worker
 	<init> (Labcd/zJ;)V <init>
-abcd/IF org/eclipse/jgit/api/ApplyCommand
-abcd/lH org/eclipse/jgit/internal/storage/dfs/DfsPackFile
-abcd/cC$a org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
-abcd/XG$b org/eclipse/jgit/internal/storage/file/GC
-abcd/nH$c org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner
-abcd/nH$e org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
-abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
-abcd/GF org/eclipse/jgit/nls/TextBundle
-abcd/AE$a org/eclipse/jgit/lib/ObjectIdOwnerMap$Entry
-abcd/sJ org/eclipse/jgit/transport/SshSessionFactory
-abcd/OA org/eclipse/jgit/transport/UploadPack
-abcd/zK org/eclipse/jgit/util/FS
+abcd/zK org/eclipse/jgit/util/FileUtils
+	j6 (Ljava/io/File;Z)V mkdir
+	DW (Ljava/io/File;Z)V mkdirs
+	DW (Ljava/io/File;)V mkdir
+	FH (Ljava/io/File;)V mkdirs
+	j6 (Ljava/io/File;I)V delete
+	j6 (Ljava/io/File;)V delete
