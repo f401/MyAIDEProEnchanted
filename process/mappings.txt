@@ -2067,6 +2067,12 @@ abcd/hC org/eclipse/jgit/diff/DiffEntry
 	toString ()Ljava/lang/String; toString
 	tp newId
 	u7 oldId
+	j6 (Labcd/hC$a;Labcd/hC;Labcd/hC;I)Labcd/hC; pair
+	j6 (Labcd/YJ;)Ljava/util/List; scan
+	j6 (Labcd/YJ;Z)Ljava/util/List; scan
+	DW (Labcd/hC$b;)Labcd/rE; getMode
+	FH (Labcd/hC$b;)Ljava/lang/String; getPath
+	j6 (Labcd/hC$b;)Labcd/WD; getId
 abcd/hC$a org/eclipse/jgit/diff/DiffEntry$ChangeType
 	<init> (Ljava/lang/String;I)V <init>
 	FH DELETE
