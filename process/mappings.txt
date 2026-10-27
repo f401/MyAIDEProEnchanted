@@ -1807,7 +1807,6 @@ abcd/_J org/eclipse/jgit/treewalk/WorkingTreeIterator
 	er ()V reset
 	rN ()Z hasId
 	DW ()Z mightNeedCleaning
-	EQ ()V parseEntry
 	FH (I)V next
 	FH ()Z first
 	Hw (I)Z isEntryIgnored
@@ -2168,12 +2167,9 @@ abcd/fG org/eclipse/jgit/revwalk/RevFlag
 	j6 UNINTERESTING
 abcd/fH org/eclipse/jgit/internal/storage/file/PackIndexV2
 	j6 (Labcd/YD;I)I binarySearchLevelTwo
-	FH ()Z hasCRC32Support
 	j6 (J)Labcd/yE; getObjectId
 	j6 (Ljava/util/Set;Labcd/WD;I)V resolve
 	j6 (Labcd/YD;)J findCRC32
-	DW ()J getObjectCount
-	DW (Labcd/YD;)J findOffset
 	j6 ()J getOffset64Count
 	Zo names
 	v5 fanoutTable
