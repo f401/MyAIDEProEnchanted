@@ -177,3 +177,33 @@ java.lang.IllegalAccessError: Class androidx.loader.content.ModernAsyncTask
 
 放宽可见性是二进制兼容改动，没有副作用；收紧才有风险。校验脚本：
 按「引用者包名 ≠ owner 包名」筛出跨包引用，逐个核对 `.class` / `.method` / `.field` 行是否带 `public`/`protected`。
+
+
+---
+
+# 踩坑二：类名不只是写在 smali 里
+
+`b2dfd791` 迁完 `androidj/support/**` 后，真机启动仍崩：
+
+```
+InflateException: Binary XML file line #7 in aidepro.top:layout/drawer_layout:
+  Error inflating class androidj.support.v4.widget.DrawerLayout
+```
+
+`LayoutInflater` 是**按名字反射**建 View 的，而 `res/layout/*.xml` 里写的是全限定类名：
+
+```xml
+<androidj.support.v4.widget.DrawerLayout ...>
+<androidj.support.v4.view.ViewPager ...>
+```
+
+共 4 个 layout、13 处（`drawer_layout`、`trainer`、`trainer_tv`、`designer`，后三个原本就指向
+不存在的 `android.support.v4.*`，属既有缺陷）。修法见 `23eb104f`。
+
+**规则**：迁移任何类名后，必须同时扫
+* `res/**/*.xml`（layout 的自定义 View 标签、`<fragment android:name>`）
+* `assets/**`（本项目的 `assets/data/migration.xml` 是**数据**，描述用户项目里的旧类名，不要改）
+* `AndroidManifest.xml`（`android.support.FILE_PROVIDER_PATHS` / `android.support.VERSION` 是**键名**，必须保留）
+
+**不要改的字符串**（改了就坏协议）：`android.support.customtabs.action.CustomTabsService`（Intent action）、
+`android.support.customtabs.extra.SESSION`（Bundle key）、GMS/mobstat 里用于识别**他人应用**的类名字符串。

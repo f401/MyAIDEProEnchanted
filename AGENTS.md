@@ -158,7 +158,10 @@ cd /storage/emulated/0/MyAIDEProEnchanted/Dex
 | 坑 | 位置 | 处理建议 |
 |---|---|---|
 | 陈旧硬编码包名 `/data/data/cn.aide.pro/files/usr/bin/busybox`（解压 NDK 用） | `src/smali/com/ndk/GradleNdk.smali`、`GradleNdk$100000004.smali:82,100,119`、`GradleNdk$100000004$100000003.smali`（共 3 个文件，静态自检可复现） | 改成 `getFilesDir()`/`PREFIX` 拼接 |
-| 3 368 条 `APKTOOL_DUMMY`（资源缺失） | `res/values/public.xml`(1694)、`ids.xml`(1674) | 补资源或确认对应 ID 未被引用 |
+| ~~3 368 条 `APKTOOL_DUMMY`~~ → **已清零**（761c6760 起） | `res/values/public.xml` | 改名而非删除，ID 一位未动；改动后跑 `tools/res_id_guard.py` |
+| **`androidj/support/**` 里藏着 support-v4 完整副本（1267 类、类名可读）** | 全仓库最大的 support 残留，AGENTS/分析文档都没提过 | 已于 `b2dfd791` 迁到 androidx 并删除；再查 support 残留先看这个命名空间 |
+| 资源 XML 里写死的全限定类名（`<androidj.support.v4.widget.DrawerLayout>`） | 只改 smali → inflate 时 `ClassNotFoundException`（`23eb104f` 就是补这个） | 迁移类名后必须同时 grep `res/**`、`assets/**`：`grep -rn 'androidj\.support\|android\.support\.v[47]' src/res src/assets` |
+| androidx 里大量类是**包私有**（`ModernAsyncTask`、`MapCollections`、`ContainerHelpers`…） | 跨包继承/访问 ⇒ `IllegalAccessError: ... is inaccessible` | 迁移时把目标类**和构造器**改 `public`（放宽可见性是二进制兼容的） |
 | authority 被改坏：`.crashlyticsinitprovider`、`_com.termuxs.documents`、`_com.termuxs.files` | `src/AndroidManifest.xml` | 写回完整包名前缀，并与 `TermuxConstants.TERMUX_FILE_SHARE_URI_AUTHORITY` 对齐 |
 | MT 管理器残留 `MTDataFilesProvider` / `MTDataFilesWakeUpActivity`（exported） | Manifest + `smali_classes2/bin/mt/...` | 明确不需要时删除 |
 | `MANAGE_EXTERNAL_STORAGE` 重复声明 | Manifest | 去重 |
@@ -181,7 +184,7 @@ cd /storage/emulated/0/MyAIDEProEnchanted/Dex
 ## 8. 待办（接手优先项）
 
 1. 把魔改层（`net/f401`、`io/github/zeroaicy`、`com/termux`、Manifest 增量）抽成 patch + 应用脚本，实现"跟版本可 diff"
-2. 固定资源 ID（`aapt2 link --stable-ids`）并清理 3 368 条 DUMMY
+2. ~~固定资源 ID 并清理 3 368 条 DUMMY~~ → DUMMY 已清零；剩下把 ID 钉死（`aapt2 link --stable-ids`）
 3. 修 `cn.aide.pro` 硬编码、清 MT 组件、合并重复权限、修 authority
 4. README 补：需配套同签名 Termux + 公钥 SHA-256 指纹
 5. 打通 `process/run.sh`：重命名 → 补行号 → 修 R → d8 → zipalign → 签名，产出可复现脚本
@@ -199,6 +202,7 @@ cd /storage/emulated/0/MyAIDEProEnchanted/Dex
 
 动手前请先读：
 
+- `docs/TEST-PLAN.md` — 迁移后的回归测试清单（P0/P1/P2 + 静态自检 + 定位捷径）
 - `docs/PITFALLS.md` — **真实踩过的坑**：内存/LMK、`pkill` 自伤、FUSE 大小写不敏感、`public.xml` 钉 ID、APKTOOL_DUMMY 成因、FART 继承传播把框架覆写改没、TSRG2 格式细节、只改引用会导致 `AbstractMethodError`、dex2jar 有损、指纹匹配的歧义塌陷、support→androidx 迁移的资源结论。
 - `docs/MIGRATION-NOTES.md` — support→androidx 迁移的映射表、产物路径、清单改动（`FileProvider`）与未验证项。
 
