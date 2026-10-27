@@ -581,9 +581,10 @@ abcd/IK org/eclipse/jgit/util/RawParseUtils
 	DW ([BII)Ljava/lang/String; extractBinaryString
 	DW (Ljava/nio/charset/Charset;[BII)Ljava/lang/String; decodeNoFallback
 	DW ([BILabcd/EK;)J parseLongBase10
-	FH ([BI)I prevLF
-	FH ([BIC)I prevLF
 	Hw ([BII)Labcd/CK; lineMap
+	FH ([BI)I tagMessage
+	we ([BI)I commitMessage
+	FH ([BIC)I prev
 abcd/JF org/eclipse/jgit/patch/HunkHeader
 	DW ()I getStartOffset
 	FH ()I getEndOffset
