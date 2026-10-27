@@ -544,6 +544,9 @@ abcd/HF org/eclipse/jgit/patch/FileHeader
 	vy patchType
 	yS buf
 	<init> ([BLabcd/kC;Labcd/HF$a;)V <init>
+	j6 ([BII)I isHunkHdr
+	j6 (Ljava/lang/String;)Ljava/lang/String; p1
+	j6 (II)Labcd/rE; parseFileMode
 abcd/HF$a org/eclipse/jgit/patch/FileHeader$PatchType
 	<init> (Ljava/lang/String;I)V <init>
 abcd/HH org/eclipse/jgit/internal/storage/pack/DeltaTask
@@ -619,6 +622,16 @@ abcd/KC org/eclipse/jgit/dircache/DirCache
 	Zo sortedEntries
 	j6 ([B)Ljava/lang/String; formatExtensionName
 	j6 ([BILabcd/QC;)I cmp
+	DW (Ljava/io/File;Labcd/pK;)Labcd/KC; newInCore
+	DW ([B)Z is_DIRC
+	j6 (Labcd/FD;)V registerIndexChangedListener
+	DW (Ljava/lang/String;)Labcd/QC; getEntry
+	Hw ()Labcd/PC; editor
+	j6 (I)Labcd/QC; getEntry
+	j6 (Z)Labcd/TC; getCacheTree
+	j6 (I[Labcd/QC;II)V toArray
+	j6 (Ljava/io/OutputStream;)V writeTo
+	j6 ([Labcd/QC;I)V replace
 abcd/KE org/eclipse/jgit/lib/PersonIdent
 	j6 (Ljava/lang/StringBuilder;)V appendTimezone
 	FH ()Ljava/util/TimeZone; getTimeZone
@@ -1520,6 +1533,7 @@ abcd/_J org/eclipse/jgit/treewalk/WorkingTreeIterator
 	XL contentId
 	<init> (Labcd/bK;)V <init>
 	FH (Ljava/io/InputStream;)V safeClose
+	j6 (Labcd/QC;Z)Z isModified
 abcd/_J$b org/eclipse/jgit/treewalk/WorkingTreeIterator$IteratorState
 	j6 ()V initializeDigestAndReadBuffer
 	DW nameEncoder
@@ -2027,6 +2041,9 @@ abcd/iC org/eclipse/jgit/diff/DiffFormatter
 	u7 context
 	<init> (Ljava/io/OutputStream;)V <init>
 	tp abbreviationLength
+	FH (Labcd/hC;)Z isRename
+	j6 (CLabcd/tC;I)V writeLine
+	j6 (Labcd/HF;Labcd/tC;Labcd/tC;)V format
 abcd/iE org/eclipse/jgit/lib/CoreConfig$1
 	<init> ()V <init>
 	j6 (Labcd/gE;)Labcd/jE; parse
@@ -2315,6 +2332,16 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	Zo (Labcd/YD;)Labcd/iG; parseAny
 	iterator ()Ljava/util/Iterator; iterator
 	<init> (Labcd/IE;)V parseBody
+	DW (Labcd/YD;)Labcd/cG; lookupCommit
+	v5 (Labcd/YD;)Labcd/mG; lookupTree
+	j6 (Labcd/YD;)Labcd/dG; createCommit
+	tp ()Labcd/dG; next
+	Zo ()Labcd/IE; getObjectReader
+	J0 ()Labcd/_F; toObjectWalkWithSameObjects
+	j6 (Labcd/dG;Labcd/dG;)Z isMergedInto
+	j6 (Labcd/dG;)V markUninteresting
+	j6 (Labcd/iG;)[B getCachedBytes
+	FH (Labcd/iG;)Labcd/iG; peel
 abcd/qH org/eclipse/jgit/internal/storage/file/ReflogReaderImpl
 	j6 logName
 	<init> (Labcd/UE;Ljava/lang/String;)V <init>
