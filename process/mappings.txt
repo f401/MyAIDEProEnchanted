@@ -596,6 +596,8 @@ abcd/IK org/eclipse/jgit/util/RawParseUtils
 	we ([BI)I commitMessage
 	FH ([BIC)I prev
 	DW digits16
+	tp ([BI)Labcd/KE; parsePersonIdent
+	u7 ([BI)Labcd/KE; parsePersonIdentOnly
 abcd/JF org/eclipse/jgit/patch/HunkHeader
 	DW ()I getStartOffset
 	FH ()I getEndOffset
