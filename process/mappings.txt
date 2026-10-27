@@ -946,9 +946,6 @@ abcd/OE org/eclipse/jgit/lib/RefDatabase
 	<init> ()V <init>
 abcd/OG org/eclipse/jgit/lib/ObjectReader
 	j6 OBJ_ANY
-abcd/OI org/eclipse/jgit/lib/BatchRefUpdate
-	j6 ()Ljava/lang/String; getRefLogMessage
-	FH refLogMessage
 abcd/OI$a org/eclipse/jgit/transport/ReceiveCommand$Result
 	<init> (Ljava/lang/String;I)V <init>
 	VH REJECTED_OTHER_REASON
@@ -3095,6 +3092,7 @@ abcd/cC$a org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
 abcd/XG$b org/eclipse/jgit/internal/storage/file/GC
 abcd/nH$c org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner
 abcd/nH$e org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
+abcd/OI org/eclipse/jgit/lib/RefUpdate
 abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
 abcd/GF org/eclipse/jgit/nls/TextBundle
 abcd/AE$a org/eclipse/jgit/notes/Note
