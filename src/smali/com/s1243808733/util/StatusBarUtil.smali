@@ -483,18 +483,18 @@
     goto :goto_0
 .end method
 
-.method public static setColorForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;I)V
+.method public static setColorForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;I)V
     .locals 1
 
     .line 258
     const/16 v0, 0x70
 
-    invoke-static {p0, p1, p2, v0}, Lcom/s1243808733/util/StatusBarUtil;->setColorForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;II)V
+    invoke-static {p0, p1, p2, v0}, Lcom/s1243808733/util/StatusBarUtil;->setColorForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;II)V
 
     return-void
 .end method
 
-.method public static setColorForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;II)V
+.method public static setColorForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;II)V
     .locals 7
 
     const/4 v5, 0x1
@@ -527,7 +527,7 @@
     invoke-virtual {v0, v4}, Landroid/view/Window;->setStatusBarColor(I)V
 
     .line 294
-    invoke-virtual {p1, v4}, Landroidj/support/v4/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p1, v4}, Landroidx/drawerlayout/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -604,7 +604,7 @@
 
     .line 311
     :cond_1
-    invoke-static {p1, v0}, Lcom/s1243808733/util/StatusBarUtil;->setDrawerLayoutProperty(Landroidj/support/v4/widget/DrawerLayout;Landroid/view/ViewGroup;)V
+    invoke-static {p1, v0}, Lcom/s1243808733/util/StatusBarUtil;->setDrawerLayoutProperty(Landroidx/drawerlayout/widget/DrawerLayout;Landroid/view/ViewGroup;)V
 
     .line 312
     invoke-static {p0, p3}, Lcom/s1243808733/util/StatusBarUtil;->addTranslucentView(Landroid/app/Activity;I)V
@@ -622,7 +622,7 @@
     goto :goto_0
 .end method
 
-.method public static setColorForDrawerLayoutDiff(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;I)V
+.method public static setColorForDrawerLayoutDiff(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;I)V
     .locals 6
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -641,7 +641,7 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
     .line 341
-    invoke-virtual {p1, v4}, Landroidj/support/v4/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p1, v4}, Landroidx/drawerlayout/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -703,7 +703,7 @@
 
     .line 357
     :cond_1
-    invoke-static {p1, v0}, Lcom/s1243808733/util/StatusBarUtil;->setDrawerLayoutProperty(Landroidj/support/v4/widget/DrawerLayout;Landroid/view/ViewGroup;)V
+    invoke-static {p1, v0}, Lcom/s1243808733/util/StatusBarUtil;->setDrawerLayoutProperty(Landroidx/drawerlayout/widget/DrawerLayout;Landroid/view/ViewGroup;)V
 
     return-void
 
@@ -775,13 +775,13 @@
     return-void
 .end method
 
-.method public static setColorNoTranslucentForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;I)V
+.method public static setColorNoTranslucentForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;I)V
     .locals 1
 
     .line 269
     const/4 v0, 0x0
 
-    invoke-static {p0, p1, p2, v0}, Lcom/s1243808733/util/StatusBarUtil;->setColorForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;II)V
+    invoke-static {p0, p1, p2, v0}, Lcom/s1243808733/util/StatusBarUtil;->setColorForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;II)V
 
     return-void
 .end method
@@ -821,7 +821,7 @@
     return-void
 .end method
 
-.method private static setDrawerLayoutProperty(Landroidj/support/v4/widget/DrawerLayout;Landroid/view/ViewGroup;)V
+.method private static setDrawerLayoutProperty(Landroidx/drawerlayout/widget/DrawerLayout;Landroid/view/ViewGroup;)V
     .locals 3
 
     const/4 v2, 0x1
@@ -829,14 +829,14 @@
     const/4 v1, 0x0
 
     .line 322
-    invoke-virtual {p0, v2}, Landroidj/support/v4/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroidx/drawerlayout/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/ViewGroup;
 
     .line 323
-    invoke-virtual {p0, v1}, Landroidj/support/v4/widget/DrawerLayout;->setFitsSystemWindows(Z)V
+    invoke-virtual {p0, v1}, Landroidx/drawerlayout/widget/DrawerLayout;->setFitsSystemWindows(Z)V
 
     .line 324
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->setFitsSystemWindows(Z)V
@@ -1181,22 +1181,22 @@
     return-void
 .end method
 
-.method public static setTranslucentForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;)V
+.method public static setTranslucentForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;)V
     .locals 1
 
     .line 368
     const/16 v0, 0x70
 
-    invoke-static {p0, p1, v0}, Lcom/s1243808733/util/StatusBarUtil;->setTranslucentForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;I)V
+    invoke-static {p0, p1, v0}, Lcom/s1243808733/util/StatusBarUtil;->setTranslucentForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;I)V
 
     return-void
 .end method
 
-.method public static setTranslucentForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;I)V
+.method public static setTranslucentForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;I)V
     .locals 0
 
     .line 382
-    invoke-static {p0, p1}, Lcom/s1243808733/util/StatusBarUtil;->setTransparentForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;)V
+    invoke-static {p0, p1}, Lcom/s1243808733/util/StatusBarUtil;->setTransparentForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;)V
 
     .line 383
     invoke-static {p0, p2}, Lcom/s1243808733/util/StatusBarUtil;->addTranslucentView(Landroid/app/Activity;I)V
@@ -1204,7 +1204,7 @@
     return-void
 .end method
 
-.method public static setTranslucentForDrawerLayoutDiff(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;)V
+.method public static setTranslucentForDrawerLayoutDiff(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;)V
     .locals 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1223,7 +1223,7 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
     .line 426
-    invoke-virtual {p1, v2}, Landroidj/support/v4/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p1, v2}, Landroidx/drawerlayout/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1236,7 +1236,7 @@
     invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->setClipToPadding(Z)V
 
     .line 430
-    invoke-virtual {p1, v3}, Landroidj/support/v4/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p1, v3}, Landroidx/drawerlayout/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1246,7 +1246,7 @@
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->setFitsSystemWindows(Z)V
 
     .line 433
-    invoke-virtual {p1, v2}, Landroidj/support/v4/widget/DrawerLayout;->setFitsSystemWindows(Z)V
+    invoke-virtual {p1, v2}, Landroidx/drawerlayout/widget/DrawerLayout;->setFitsSystemWindows(Z)V
 
     return-void
 .end method
@@ -1365,7 +1365,7 @@
     return-void
 .end method
 
-.method public static setTransparentForDrawerLayout(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;)V
+.method public static setTransparentForDrawerLayout(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;)V
     .locals 4
 
     const/4 v2, 0x1
@@ -1398,7 +1398,7 @@
     invoke-virtual {v0, v3}, Landroid/view/Window;->setStatusBarColor(I)V
 
     .line 404
-    invoke-virtual {p1, v3}, Landroidj/support/v4/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p1, v3}, Landroidx/drawerlayout/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1428,7 +1428,7 @@
 
     .line 411
     :cond_0
-    invoke-static {p1, v0}, Lcom/s1243808733/util/StatusBarUtil;->setDrawerLayoutProperty(Landroidj/support/v4/widget/DrawerLayout;Landroid/view/ViewGroup;)V
+    invoke-static {p1, v0}, Lcom/s1243808733/util/StatusBarUtil;->setDrawerLayoutProperty(Landroidx/drawerlayout/widget/DrawerLayout;Landroid/view/ViewGroup;)V
 
     return-void
 .end method

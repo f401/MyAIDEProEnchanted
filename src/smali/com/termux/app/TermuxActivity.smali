@@ -257,7 +257,7 @@
     iput-object v1, p0, Lcom/termux/app/TermuxActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
 
     .line 449
-    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v2
 
@@ -280,7 +280,7 @@
 
     move v5, v4
 
-    invoke-direct/range {v0 .. v5}, Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;-><init>(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;II)V
+    invoke-direct/range {v0 .. v5}, Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;-><init>(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;II)V
 
     iput-object v0, p0, Lcom/termux/app/TermuxActivity;->sDrawerToggle:Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;
 
@@ -290,7 +290,7 @@
     .line 455
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->sDrawerToggle:Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;
 
-    invoke-virtual {v2, v0}, Landroidj/support/v4/widget/DrawerLayout;->addDrawerListener(Landroidj/support/v4/widget/DrawerLayout$DrawerListener;)V
+    invoke-virtual {v2, v0}, Landroidx/drawerlayout/widget/DrawerLayout;->addDrawerListener(Landroidx/drawerlayout/widget/DrawerLayout$DrawerListener;)V
 
     .line 457
     iget-object v0, p0, Lcom/termux/app/TermuxActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
@@ -640,11 +640,11 @@
     invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->switchToSession(Lcom/termux/terminal/TerminalSession;)V
 
     .line 966
-    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
+    invoke-virtual {v0}, Landroidx/drawerlayout/widget/DrawerLayout;->closeDrawers()V
 
     goto :goto_0
 .end method
@@ -974,7 +974,7 @@
     return-object v0
 .end method
 
-.method getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+.method getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
     .locals 1
 
     .line 950
@@ -988,7 +988,7 @@
 
     move-result-object v0
 
-    check-cast v0, Landroidj/support/v4/widget/DrawerLayout;
+    check-cast v0, Landroidx/drawerlayout/widget/DrawerLayout;
 
     return-object v0
 .end method
@@ -1524,7 +1524,7 @@
 
     move-result-object v0
 
-    check-cast v0, Landroidj/support/v4/view/ViewPager;
+    check-cast v0, Landroidx/viewpager/widget/ViewPager;
 
     .line 297
     iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
@@ -1535,7 +1535,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {v0, v3}, Landroidj/support/v4/view/ViewPager;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroidx/viewpager/widget/ViewPager;->setVisibility(I)V
 
     .line 299
     :cond_0
@@ -1543,14 +1543,14 @@
 
     invoke-direct {v1, p0}, Lcom/termux/app/TermuxActivity$2;-><init>(Lcom/termux/app/TermuxActivity;)V
 
-    invoke-virtual {v0, v1}, Landroidj/support/v4/view/ViewPager;->setAdapter(Landroidj/support/v4/view/PagerAdapter;)V
+    invoke-virtual {v0, v1}, Landroidx/viewpager/widget/ViewPager;->setAdapter(Landroidx/viewpager/widget/PagerAdapter;)V
 
     .line 349
     new-instance v1, Lcom/termux/app/TermuxActivity$3;
 
-    invoke-direct {v1, p0, v0}, Lcom/termux/app/TermuxActivity$3;-><init>(Lcom/termux/app/TermuxActivity;Landroidj/support/v4/view/ViewPager;)V
+    invoke-direct {v1, p0, v0}, Lcom/termux/app/TermuxActivity$3;-><init>(Lcom/termux/app/TermuxActivity;Landroidx/viewpager/widget/ViewPager;)V
 
-    invoke-virtual {v0, v1}, Landroidj/support/v4/view/ViewPager;->addOnPageChangeListener(Landroidj/support/v4/view/ViewPager$OnPageChangeListener;)V
+    invoke-virtual {v0, v1}, Landroidx/viewpager/widget/ViewPager;->addOnPageChangeListener(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V
 
     .line 362
     const-string v0, "new_session_button"
@@ -1868,24 +1868,24 @@
     if-nez v0, :cond_2
 
     .line 894
-    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
     const/4 v1, 0x3
 
-    invoke-virtual {v0, v1}, Landroidj/support/v4/widget/DrawerLayout;->isDrawerOpen(I)Z
+    invoke-virtual {v0, v1}, Landroidx/drawerlayout/widget/DrawerLayout;->isDrawerOpen(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 895
-    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
+    invoke-virtual {v0}, Landroidx/drawerlayout/widget/DrawerLayout;->closeDrawers()V
 
     .line 901
     :goto_0
@@ -2207,11 +2207,11 @@
     invoke-virtual {p0, v0}, Lcom/termux/app/TermuxActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 885
-    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {p0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
+    invoke-virtual {v0}, Landroidx/drawerlayout/widget/DrawerLayout;->closeDrawers()V
 
     return-void
 .end method
@@ -2739,7 +2739,7 @@
 
     move-result-object v0
 
-    check-cast v0, Landroidj/support/v4/view/ViewPager;
+    check-cast v0, Landroidx/viewpager/widget/ViewPager;
 
     .line 493
     iget-object v1, p0, Lcom/termux/app/TermuxActivity;->mSettings:Lcom/termux/app/TermuxPreferences;
@@ -2754,12 +2754,12 @@
 
     .line 494
     :goto_0
-    invoke-virtual {v0, v1}, Landroidj/support/v4/view/ViewPager;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroidx/viewpager/widget/ViewPager;->setVisibility(I)V
 
     if-eqz v2, :cond_0
 
     .line 495
-    invoke-virtual {v0}, Landroidj/support/v4/view/ViewPager;->getCurrentItem()I
+    invoke-virtual {v0}, Landroidx/viewpager/widget/ViewPager;->getCurrentItem()I
 
     move-result v0
 

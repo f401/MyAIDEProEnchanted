@@ -268,7 +268,7 @@
     .line 1407
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity$27;->this$0:Lcom/s1243808733/aide/AideMainActivity;
 
-    invoke-static {v0}, Lcom/s1243808733/aide/AideMainActivity;->-$$Nest$fgetmDrawer(Lcom/s1243808733/aide/AideMainActivity;)Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {v0}, Lcom/s1243808733/aide/AideMainActivity;->-$$Nest$fgetmDrawer(Lcom/s1243808733/aide/AideMainActivity;)Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 

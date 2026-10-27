@@ -89,7 +89,7 @@
     const/4 v0, 0x0
 
     .line 46
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v1
 

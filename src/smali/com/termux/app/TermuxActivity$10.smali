@@ -66,11 +66,11 @@
     .line 734
     iget-object v0, p0, Lcom/termux/app/TermuxActivity$10;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
+    invoke-virtual {v0}, Landroidx/drawerlayout/widget/DrawerLayout;->closeDrawers()V
 
     return-void
 .end method

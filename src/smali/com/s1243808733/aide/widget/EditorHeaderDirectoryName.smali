@@ -28,7 +28,7 @@
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Landroidj/support/v4/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
+    invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
     .line 17
     new-instance v0, Lcom/s1243808733/aide/widget/EditorHeaderDirectoryName$1;

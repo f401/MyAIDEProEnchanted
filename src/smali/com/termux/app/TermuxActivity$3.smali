@@ -1,5 +1,5 @@
 .class Lcom/termux/app/TermuxActivity$3;
-.super Landroidj/support/v4/view/ViewPager$SimpleOnPageChangeListener;
+.super Landroidx/viewpager/widget/ViewPager$SimpleOnPageChangeListener;
 .source "TermuxActivity.java"
 
 
@@ -17,19 +17,19 @@
 # instance fields
 .field final this$0:Lcom/termux/app/TermuxActivity;
 
-.field final val$viewPager:Landroidj/support/v4/view/ViewPager;
+.field final val$viewPager:Landroidx/viewpager/widget/ViewPager;
 
 
 # direct methods
-.method constructor <init>(Lcom/termux/app/TermuxActivity;Landroidj/support/v4/view/ViewPager;)V
+.method constructor <init>(Lcom/termux/app/TermuxActivity;Landroidx/viewpager/widget/ViewPager;)V
     .locals 0
 
     .line 350
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$3;->this$0:Lcom/termux/app/TermuxActivity;
 
-    iput-object p2, p0, Lcom/termux/app/TermuxActivity$3;->val$viewPager:Landroidj/support/v4/view/ViewPager;
+    iput-object p2, p0, Lcom/termux/app/TermuxActivity$3;->val$viewPager:Landroidx/viewpager/widget/ViewPager;
 
-    invoke-direct {p0}, Landroidj/support/v4/view/ViewPager$SimpleOnPageChangeListener;-><init>()V
+    invoke-direct {p0}, Landroidx/viewpager/widget/ViewPager$SimpleOnPageChangeListener;-><init>()V
 
     return-void
 .end method
@@ -55,7 +55,7 @@
 
     .line 356
     :cond_1
-    iget-object v0, p0, Lcom/termux/app/TermuxActivity$3;->val$viewPager:Landroidj/support/v4/view/ViewPager;
+    iget-object v0, p0, Lcom/termux/app/TermuxActivity$3;->val$viewPager:Landroidx/viewpager/widget/ViewPager;
 
     const-string v1, "text_input"
 
@@ -63,7 +63,7 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroidj/support/v4/view/ViewPager;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroidx/viewpager/widget/ViewPager;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

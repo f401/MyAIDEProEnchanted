@@ -1,5 +1,5 @@
 .class public Lcom/s1243808733/aide/widget/CustomSwipeRefreshLayout;
-.super Landroidj/support/v4/widget/SwipeRefreshLayout;
+.super Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 .source "CustomSwipeRefreshLayout.java"
 
 
@@ -8,7 +8,7 @@
     .locals 0
 
     .line 11
-    invoke-direct {p0, p1}, Landroidj/support/v4/widget/SwipeRefreshLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;-><init>(Landroid/content/Context;)V
 
     .line 12
     invoke-direct {p0}, Lcom/s1243808733/aide/widget/CustomSwipeRefreshLayout;->init()V
@@ -20,7 +20,7 @@
     .locals 0
 
     .line 16
-    invoke-direct {p0, p1, p2}, Landroidj/support/v4/widget/SwipeRefreshLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-direct {p0, p1, p2}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 17
     invoke-direct {p0}, Lcom/s1243808733/aide/widget/CustomSwipeRefreshLayout;->init()V
@@ -40,7 +40,7 @@
     .locals 0
 
     .line 32
-    invoke-super {p0, p1}, Landroidj/support/v4/widget/SwipeRefreshLayout;->onDraw(Landroid/graphics/Canvas;)V
+    invoke-super {p0, p1}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->onDraw(Landroid/graphics/Canvas;)V
 
     return-void
 .end method
@@ -49,7 +49,7 @@
     .locals 3
 
     .line 26
-    invoke-super {p0}, Landroidj/support/v4/widget/SwipeRefreshLayout;->onFinishInflate()V
+    invoke-super {p0}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->onFinishInflate()V
 
     .line 27
     const/4 v0, 0x1

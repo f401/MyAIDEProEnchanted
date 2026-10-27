@@ -1031,7 +1031,7 @@
 
     .line 396
     :cond_0
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
@@ -1135,7 +1135,7 @@
 
     .line 409
     :cond_0
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 

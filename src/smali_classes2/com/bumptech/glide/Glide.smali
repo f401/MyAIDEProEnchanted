@@ -1012,28 +1012,28 @@
     return-object v0
 .end method
 
-.method public static with(Landroidj/support/v4/app/Fragment;)Lcom/bumptech/glide/RequestManager;
+.method public static with(Landroidx/fragment/app/Fragment;)Lcom/bumptech/glide/RequestManager;
     .locals 1
 
     invoke-static {}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get()Lcom/bumptech/glide/manager/RequestManagerRetriever;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get(Landroidj/support/v4/app/Fragment;)Lcom/bumptech/glide/RequestManager;
+    invoke-virtual {v0, p0}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get(Landroidx/fragment/app/Fragment;)Lcom/bumptech/glide/RequestManager;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public static with(Landroidj/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
+.method public static with(Landroidx/fragment/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
     .locals 1
 
     invoke-static {}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get()Lcom/bumptech/glide/manager/RequestManagerRetriever;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get(Landroidj/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
+    invoke-virtual {v0, p0}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get(Landroidx/fragment/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
 
     move-result-object v0
 

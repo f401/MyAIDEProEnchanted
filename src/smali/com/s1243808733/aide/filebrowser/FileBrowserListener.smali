@@ -298,7 +298,7 @@
 
     .line 242
     :cond_1
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
@@ -326,7 +326,7 @@
     invoke-direct/range {v1 .. v7}, Lcom/s1243808733/aide/filebrowser/FileBrowserListener$1;-><init>(Ljava/lang/Object;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
     .line 262
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 

@@ -10,7 +10,7 @@
 # instance fields
 .field private mDrawOverlaysView:Landroid/view/View;
 
-.field private mDrawer:Landroidj/support/v4/widget/DrawerLayout;
+.field private mDrawer:Landroidx/drawerlayout/widget/DrawerLayout;
 
 .field private mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
 
@@ -28,10 +28,10 @@
 
 
 # direct methods
-.method static bridge synthetic -$$Nest$fgetmDrawer(Lcom/s1243808733/aide/AideMainActivity;)Landroidj/support/v4/widget/DrawerLayout;
+.method static bridge synthetic -$$Nest$fgetmDrawer(Lcom/s1243808733/aide/AideMainActivity;)Landroidx/drawerlayout/widget/DrawerLayout;
     .locals 1
 
-    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidj/support/v4/widget/DrawerLayout;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidx/drawerlayout/widget/DrawerLayout;
 
     return-object v0
 .end method
@@ -804,7 +804,7 @@
     iput-object v1, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
 
     .line 624
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v2
 
@@ -827,7 +827,7 @@
 
     move v5, v4
 
-    invoke-direct/range {v0 .. v5}, Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;-><init>(Landroid/app/Activity;Landroidj/support/v4/widget/DrawerLayout;Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;II)V
+    invoke-direct/range {v0 .. v5}, Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;-><init>(Landroid/app/Activity;Landroidx/drawerlayout/widget/DrawerLayout;Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;II)V
 
     iput-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawerToggle:Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;
 
@@ -837,7 +837,7 @@
     .line 629
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawerToggle:Lcom/s1243808733/graphics/drawable/ActionBarDrawerToggle;
 
-    invoke-virtual {v2, v0}, Landroidj/support/v4/widget/DrawerLayout;->addDrawerListener(Landroidj/support/v4/widget/DrawerLayout$DrawerListener;)V
+    invoke-virtual {v2, v0}, Landroidx/drawerlayout/widget/DrawerLayout;->addDrawerListener(Landroidx/drawerlayout/widget/DrawerLayout$DrawerListener;)V
 
     .line 631
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
@@ -1076,7 +1076,7 @@
     const/4 v0, 0x0
 
     .line 425
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v1
 
@@ -2469,18 +2469,18 @@
 
     .line 821
     :try_start_0
-    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidj/support/v4/widget/DrawerLayout;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidx/drawerlayout/widget/DrawerLayout;
 
     if-eqz v0, :cond_0
 
     .line 822
-    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->getChildCount()I
+    invoke-virtual {v0}, Landroidx/drawerlayout/widget/DrawerLayout;->getChildCount()I
 
     move-result v1
 
     add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {v0, v1}, Landroidj/support/v4/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroidx/drawerlayout/widget/DrawerLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -2794,27 +2794,27 @@
     invoke-virtual {v0, v3, v4}, Lcom/blankj/utilcode/util/ReflectUtils;->method(Ljava/lang/String;[Ljava/lang/Object;)Lcom/blankj/utilcode/util/ReflectUtils;
 
     .line 180
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidj/support/v4/widget/DrawerLayout;
+    iput-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidx/drawerlayout/widget/DrawerLayout;
 
     if-eqz v0, :cond_4
 
     .line 183
     const/high16 v3, 0x40000000    # 2.0f
 
-    invoke-virtual {v0, v3}, Landroidj/support/v4/widget/DrawerLayout;->setScrimColor(I)V
+    invoke-virtual {v0, v3}, Landroidx/drawerlayout/widget/DrawerLayout;->setScrimColor(I)V
 
     .line 184
-    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidj/support/v4/widget/DrawerLayout;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidx/drawerlayout/widget/DrawerLayout;
 
     new-instance v3, Lcom/s1243808733/aide/AideMainActivity$1;
 
     invoke-direct {v3, p0}, Lcom/s1243808733/aide/AideMainActivity$1;-><init>(Lcom/s1243808733/aide/AideMainActivity;)V
 
-    invoke-virtual {v0, v3}, Landroidj/support/v4/widget/DrawerLayout;->addDrawerListener(Landroidj/support/v4/widget/DrawerLayout$DrawerListener;)V
+    invoke-virtual {v0, v3}, Landroidx/drawerlayout/widget/DrawerLayout;->addDrawerListener(Landroidx/drawerlayout/widget/DrawerLayout$DrawerListener;)V
 
     .line 206
     invoke-direct {p0}, Lcom/s1243808733/aide/AideMainActivity;->setNoOpenFileView()V
@@ -2862,9 +2862,9 @@
     if-eqz v0, :cond_a
 
     .line 213
-    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidj/support/v4/widget/DrawerLayout;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidx/drawerlayout/widget/DrawerLayout;
 
-    invoke-virtual {v0, v8, v2}, Landroidj/support/v4/widget/DrawerLayout;->openDrawer(IZ)V
+    invoke-virtual {v0, v8, v2}, Landroidx/drawerlayout/widget/DrawerLayout;->openDrawer(IZ)V
 
     .line 214
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
@@ -2895,7 +2895,7 @@
 
     invoke-direct {v1, p0, v0}, Lcom/s1243808733/aide/AideMainActivity$2;-><init>(Lcom/s1243808733/aide/AideMainActivity;Lcom/s1243808733/aide/widget/CustomSwipeRefreshLayout;)V
 
-    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/widget/CustomSwipeRefreshLayout;->setOnRefreshListener(Landroidj/support/v4/widget/SwipeRefreshLayout$OnRefreshListener;)V
+    invoke-virtual {v0, v1}, Lcom/s1243808733/aide/widget/CustomSwipeRefreshLayout;->setOnRefreshListener(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$OnRefreshListener;)V
 
     .line 239
     :cond_5
@@ -3008,9 +3008,9 @@
 
     .line 216
     :cond_a
-    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidj/support/v4/widget/DrawerLayout;
+    iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidx/drawerlayout/widget/DrawerLayout;
 
-    invoke-virtual {v0, v8, v2}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawer(IZ)V
+    invoke-virtual {v0, v8, v2}, Landroidx/drawerlayout/widget/DrawerLayout;->closeDrawer(IZ)V
 
     .line 217
     iget-object v0, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawerArrow:Lcom/s1243808733/graphics/drawable/DrawerArrowDrawable;
@@ -3101,7 +3101,7 @@
     if-nez v1, :cond_2
 
     .line 784
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v1
 
@@ -3183,7 +3183,7 @@
 
     if-nez v1, :cond_3
 
-    iget-object v1, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidj/support/v4/widget/DrawerLayout;
+    iget-object v1, p0, Lcom/s1243808733/aide/AideMainActivity;->mDrawer:Landroidx/drawerlayout/widget/DrawerLayout;
 
     if-eqz v1, :cond_3
 

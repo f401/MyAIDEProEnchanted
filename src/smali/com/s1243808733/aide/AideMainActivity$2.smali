@@ -3,7 +3,7 @@
 .source "AideMainActivity.java"
 
 # interfaces
-.implements Landroidj/support/v4/widget/SwipeRefreshLayout$OnRefreshListener;
+.implements Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$OnRefreshListener;
 
 
 # annotations

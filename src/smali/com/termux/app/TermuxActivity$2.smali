@@ -1,5 +1,5 @@
 .class Lcom/termux/app/TermuxActivity$2;
-.super Landroidj/support/v4/view/PagerAdapter;
+.super Landroidx/viewpager/widget/PagerAdapter;
 .source "TermuxActivity.java"
 
 
@@ -25,7 +25,7 @@
     .line 300
     iput-object p1, p0, Lcom/termux/app/TermuxActivity$2;->this$0:Lcom/termux/app/TermuxActivity;
 
-    invoke-direct {p0}, Landroidj/support/v4/view/PagerAdapter;-><init>()V
+    invoke-direct {p0}, Landroidx/viewpager/widget/PagerAdapter;-><init>()V
 
     return-void
 .end method

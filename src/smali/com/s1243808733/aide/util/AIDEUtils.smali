@@ -713,7 +713,7 @@
     return-object v0
 .end method
 
-.method public static getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+.method public static getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
     .locals 2
 
     .line 135
@@ -727,7 +727,7 @@
 
     move-result-object v0
 
-    check-cast v0, Landroidj/support/v4/widget/DrawerLayout;
+    check-cast v0, Landroidx/drawerlayout/widget/DrawerLayout;
 
     return-object v0
 .end method
@@ -931,7 +931,7 @@
     const/4 v0, 0x0
 
     .line 143
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v1
 
@@ -1622,7 +1622,7 @@
     const/4 v3, 0x1
 
     .line 149
-    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-static {}, Lcom/s1243808733/aide/util/AIDEUtils;->getMainDrawerLayout()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 

@@ -3,7 +3,7 @@
 .source "AideMainActivity.java"
 
 # interfaces
-.implements Landroidj/support/v4/widget/DrawerLayout$DrawerListener;
+.implements Landroidx/drawerlayout/widget/DrawerLayout$DrawerListener;
 
 
 # annotations

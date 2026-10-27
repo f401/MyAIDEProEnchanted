@@ -89,11 +89,11 @@
     .line 54
     iget-object v0, p0, Lcom/termux/app/TermuxViewClient;->mActivity:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroidj/support/v4/widget/DrawerLayout;->setDrawerLockMode(I)V
+    invoke-virtual {v0, p1}, Landroidx/drawerlayout/widget/DrawerLayout;->setDrawerLockMode(I)V
 
     return-void
 .end method
@@ -605,13 +605,13 @@
     .line 73
     iget-object v0, p0, Lcom/termux/app/TermuxViewClient;->mActivity:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
     const/4 v2, 0x3
 
-    invoke-virtual {v0, v2}, Landroidj/support/v4/widget/DrawerLayout;->openDrawer(I)V
+    invoke-virtual {v0, v2}, Landroidx/drawerlayout/widget/DrawerLayout;->openDrawer(I)V
 
     goto :goto_1
 
@@ -623,11 +623,11 @@
     .line 75
     iget-object v0, p0, Lcom/termux/app/TermuxViewClient;->mActivity:Lcom/termux/app/TermuxActivity;
 
-    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidj/support/v4/widget/DrawerLayout;
+    invoke-virtual {v0}, Lcom/termux/app/TermuxActivity;->getDrawer()Landroidx/drawerlayout/widget/DrawerLayout;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroidj/support/v4/widget/DrawerLayout;->closeDrawers()V
+    invoke-virtual {v0}, Landroidx/drawerlayout/widget/DrawerLayout;->closeDrawers()V
 
     goto :goto_1
 

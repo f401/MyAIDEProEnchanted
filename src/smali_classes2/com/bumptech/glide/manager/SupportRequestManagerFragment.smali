@@ -1,5 +1,5 @@
 .class public Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
-.super Landroidj/support/v4/app/Fragment;
+.super Landroidx/fragment/app/Fragment;
 
 
 # annotations
@@ -56,7 +56,7 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Landroidj/support/v4/app/Fragment;-><init>()V
+    invoke-direct {p0}, Landroidx/fragment/app/Fragment;-><init>()V
 
     new-instance v0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment$SupportFragmentRequestManagerTreeNode;
 
@@ -87,21 +87,21 @@
     return-void
 .end method
 
-.method private isDescendant(Landroidj/support/v4/app/Fragment;)Z
+.method private isDescendant(Landroidx/fragment/app/Fragment;)Z
     .locals 2
 
-    invoke-virtual {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getParentFragment()Landroidj/support/v4/app/Fragment;
+    invoke-virtual {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
 
     :goto_0
-    invoke-virtual {p1}, Landroidj/support/v4/app/Fragment;->getParentFragment()Landroidj/support/v4/app/Fragment;
+    invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v1
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {p1}, Landroidj/support/v4/app/Fragment;->getParentFragment()Landroidj/support/v4/app/Fragment;
+    invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v1
 
@@ -113,7 +113,7 @@
     return v0
 
     :cond_0
-    invoke-virtual {p1}, Landroidj/support/v4/app/Fragment;->getParentFragment()Landroidj/support/v4/app/Fragment;
+    invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object p1
 
@@ -202,11 +202,11 @@
 
     check-cast v0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getParentFragment()Landroidj/support/v4/app/Fragment;
+    invoke-virtual {v0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v3
 
-    invoke-direct {p0, v3}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->isDescendant(Landroidj/support/v4/app/Fragment;)Z
+    invoke-direct {p0, v3}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->isDescendant(Landroidx/fragment/app/Fragment;)Z
 
     move-result v3
 
@@ -251,22 +251,22 @@
 .method public onAttach(Landroid/app/Activity;)V
     .locals 3
 
-    invoke-super {p0, p1}, Landroidj/support/v4/app/Fragment;->onAttach(Landroid/app/Activity;)V
+    invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onAttach(Landroid/app/Activity;)V
 
     :try_start_0
     invoke-static {}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get()Lcom/bumptech/glide/manager/RequestManagerRetriever;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getActivity()Landroidj/support/v4/app/FragmentActivity;
+    invoke-virtual {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroidj/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroidj/support/v4/app/FragmentManager;
+    invoke-virtual {v1}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->getSupportRequestManagerFragment(Landroidj/support/v4/app/FragmentManager;)Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
+    invoke-virtual {v0, v1}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->getSupportRequestManagerFragment(Landroidx/fragment/app/FragmentManager;)Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
     move-result-object v0
 
@@ -311,7 +311,7 @@
 .method public onDestroy()V
     .locals 1
 
-    invoke-super {p0}, Landroidj/support/v4/app/Fragment;->onDestroy()V
+    invoke-super {p0}, Landroidx/fragment/app/Fragment;->onDestroy()V
 
     iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->lifecycle:Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;
 
@@ -323,7 +323,7 @@
 .method public onDetach()V
     .locals 1
 
-    invoke-super {p0}, Landroidj/support/v4/app/Fragment;->onDetach()V
+    invoke-super {p0}, Landroidx/fragment/app/Fragment;->onDetach()V
 
     iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->rootRequestManagerFragment:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
@@ -344,7 +344,7 @@
 .method public onLowMemory()V
     .locals 1
 
-    invoke-super {p0}, Landroidj/support/v4/app/Fragment;->onLowMemory()V
+    invoke-super {p0}, Landroidx/fragment/app/Fragment;->onLowMemory()V
 
     iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->requestManager:Lcom/bumptech/glide/RequestManager;
 
@@ -361,7 +361,7 @@
 .method public onStart()V
     .locals 1
 
-    invoke-super {p0}, Landroidj/support/v4/app/Fragment;->onStart()V
+    invoke-super {p0}, Landroidx/fragment/app/Fragment;->onStart()V
 
     iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->lifecycle:Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;
 
@@ -373,7 +373,7 @@
 .method public onStop()V
     .locals 1
 
-    invoke-super {p0}, Landroidj/support/v4/app/Fragment;->onStop()V
+    invoke-super {p0}, Landroidx/fragment/app/Fragment;->onStop()V
 
     iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->lifecycle:Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;
 
