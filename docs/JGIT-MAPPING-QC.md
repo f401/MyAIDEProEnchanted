@@ -934,3 +934,89 @@ awk -F' ' '/^\t/ && ($1=="toString"||$1=="equals"||$1=="hashCode"||$1=="clone") 
 | FART | 一致 | **一致**（`r_v20.jar`，manifest `64b8ac86…`） |
 
 > 百分比微降是分母随 +26 个类涨了 50，绝对命中 +37 / +21。
+
+---
+
+## 21. 第十六轮：清理 `$N` 占位名（16 个换成真名）
+
+成员级判据见底后，这轮做两件事：**已知父类的内部类配对** + **把 `$数字` 占位名换成真名**。
+
+### 21.1 `nestmatch.py`：已知父 → 小集合配对 + 排除法
+
+探针 `X` 已映射到 `T`，则 `abcd/X$y` 只可能是 `T$z`。在 2~10 个候选里做形状配对，
+再用排除法补刀。结果只有 **2 个**：`SI$b→BaseReceivePack$Reporter`、
+`NF$b→BlockObjQueue$BlockFreeList`。
+
+原因很实在：**大部分内部类早就映射过了**，而剩下的多数对不上数
+（R8 删了兄弟类或父类未映射）——这条路的天花板很低。
+
+### 21.2 主戏：195 个 `$N` 占位名逐个重比
+
+对 tsv 里所有 `目标以 $数字 结尾` 的类（211 个）重新做形状匹配（strict → loose），
+**19 个能换成真名**，其中 **16 个落库**：
+
+| 探针 | 旧（占位） | 新（真名） | 模式 |
+|---|---|---|---|
+| `AI$b` | `PackParser$2` | **`PackParser$DeltaVisit`** | loose |
+| `FH` | `DeltaIndex$2` | **`DeltaIndexScanner`** | strict |
+| `KH` | `BaseSearch$1` | **`IntSet`** | strict |
+| `PD$b/$f/$g` | `GroupHead$1/$5/$6` | **`$CharacterRange/$OneCharacterPattern/$PunctPattern`** | strict/loose |
+| `RD` | `FileNameMatcher$2` | **`LastHead`** | loose |
+| `RK$b` | `TemporaryBuffer$1` | **`TemporaryBuffer$BlockInputStream`** | loose |
+| `eE$a` | `BatchingProgressMonitor$2` | **`BatchingProgressMonitor$Task`** | loose |
+| `gE$d` | `Config$1` | **`Config$StringReader`** | strict |
+| `iC$a` | `DiffFormatter$1` | **`DiffFormatter$FormatResult`** | loose |
+| `lK$a` | `BlockList$1` | **`BlockList$MyIterator`** | loose |
+| `pK$a` | `FS$2` | **`FS$Holder`** | strict |
+| `uH$a` | `WindowCache$1` | **`WindowCache$Entry`** | loose |
+| `wI$a` | `LongMap$1` | **`LongMap$Node`** | loose |
+| `xJ$a` | `TransportHttp$2` | **`TransportHttp$DummyX509TrustManager`** | loose |
+
+`gE$d → Config$StringReader` 让 `Config` 的四个内部类全部定名
+（`gE$a`=顶层 `ConfigLine`、`gE$c`=顶层 `ConfigSnapshot`、`gE$b`=`SectionParser`、`gE$d`=`StringReader`）。
+
+### 21.3 否掉的 3 个（方法论上的坑）
+
+| 候选 | 为什么否 |
+|---|---|
+| `MF → revwalk/AsyncRevObjectQueue` | **接口的形状 == 匿名实现类的形状**（方法集相同）→ 必然误判 |
+| `oG → events/ListenerHandle` | 同上（`RevWalk$2` 很可能就是它的匿名实现） |
+| `UI → FS$FSFactory` | 扫描器的 `taken` 集合里包含**它自己当前的** `RefFilter$1`，于是去找了别的 → 自匹配漏洞 |
+
+由此得到两条固定规则：
+
+1. **目标若为 `interface`，不接受"形状匹配"结论**（匿名实现类与接口同形）；
+2. 重比前必须把**该探针自己的当前目标**从 `taken` 里排除。
+
+### 21.4 一条命名规律
+
+混淆器给**命名内部类**用 `<outer>$<字母>`，给**匿名类**用**扁平名**（如 `uJ`/`vJ`）。
+所以：
+
+- 探针名形如 `X$字母` ⇒ 优先当**命名内部类**（`xJ$a` 因此改成 `DummyX509TrustManager`，而不是 `$2`）；
+- 探针名是扁平 `abcd/xx` 且带 `EnclosingClass` ⇒ 匿名类，只能叫 `<外层目标>$N`。
+
+### 21.5 `rescore` 的 12 条"cur 0.00 / best 1.00"逐条复核
+
+`rescore.py` 会列出"当前映射得分 0、但有高分候选"的类。这 12 条里：
+
+- **4 条确实是占位名写错了** → 已按上面的表改掉（`DG$a`/`AI$b`/`pK$a`/`uH$a`）；
+- **1 条是 rescore 错**：`vJ`（它给出的 `TransportSftp$1` 形状相同，但 `EnclosingClass` 分组
+  明确显示 `vJ` 与 `xJ$a..$e` 同父 ⇒ 仍是 `TransportHttp$4`）；
+- 其余 7 条形状无唯一解（`✗` 或 2 候选），保持不动。
+
+> 结论：`rescore` 是"可疑清单"，不是"改名清单"——每条都要形状复核。
+
+### 21.6 基线
+
+| 指标 | §20 | 本轮 |
+|---|---|---|
+| 类映射 | 645 | **647** |
+| 成员映射 | 4001 | **4049**（方法 2753 + 字段 1296） |
+| 方法覆盖 | 2586/3235 = 79.9% | **2620/3272 = 80.1%** |
+| 字段覆盖 | 1088/1498 = 72.6% | **1115/1548 = 72.0%** |
+| 完全覆盖类 | 369 | **375** |
+| 仍用 `$N` 占位 | 211 | **195** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v21.jar`，manifest `133dd74f…`） |
