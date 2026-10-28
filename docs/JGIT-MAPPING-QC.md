@@ -796,3 +796,65 @@ for a in anc:
 
 > 百分比下降**不是退步**：分母随新增 5 个类从 3146 涨到 3185，绝对命中数是 2465 → 2467。
 > 口径见 `docs/BUILD-PITFALLS.md` §7。
+
+---
+
+## 19. 第十四轮：批量补名 458 条（+ gapfill 两个 bug、`Object` 家族铁律）
+
+### 19.1 `gapfill.py` 的 bug：提案里混进了大量"已映射"成员
+
+`used` 字典的键是**裸名**（`xF`），但筛选时用了 `used[cn]`（`abcd/xF`）——
+defaultdict 于是返回空集，`taken` 永远为空 → 已经映射过的成员又被当成候选提出来，
+`--apply` 时因为行已存在被跳过，所以**看起来"写了 2024 条"实际只落 94 条**。
+
+修法：`taken={(x[0],x[1]) for x in used[cn.replace('abcd/','')]}`。
+修好后真提案 **293** 条（原来报的 2024 里九成是重复）。
+
+### 19.2 `rebuild_tsrg.py` 的 bug：无脑给探针加 `abcd/` 前缀
+
+要给 `com/jcraft/jsch/UserInfo` 落成员映射时，重建脚本把它写成
+`abcd/com/jcraft/jsch/UserInfo com/...` —— 一个**不存在的幽灵类**，
+真正的块反而被当成陈旧块丢掉。修法：
+
+```python
+key = probe if '/' in probe else 'abcd/' + probe     # 探针名可能已带包
+```
+
+### 19.3 批量补名的两个副作用（都已处理）
+
+| 现象 | 处理 |
+|---|---|
+| `CONFLICT` 从 0 冒出 2 条（`MC.resort` vs `IC.finish`、`_F.reset` vs `qG.freeFlag`） | 删掉**子类侧**那两条（父类映射是早先定过的），回到 0 |
+| `MISSING` 从 7 涨到 14 | 给 12 个祖先成员补上映射（含 jsch 两个接口的 **identity 类行**——它们的成员在 dex 里也被改名了，必须建块才能落成员） |
+
+### 19.4 新铁律：`java.lang.Object` 的成员**绝不允许改名**
+
+`toString/equals/hashCode/clone/finalize` 一旦被映射成别的名字，
+FART 会把这个改名**沿继承链传播给所有子类**（包括未映射的类），后果有两层：
+
+1. **结果不确定**：`QC.toString → getPathString` 让未映射的 `AL/AM` 两次产出不同；
+2. **语义破坏**：`toString` 改名后 `String.valueOf`/日志/调试器全部失效。
+
+清扫后 `abcd/QC` 只保留 `v5 → getPathString`（真·`getPathString`）。
+出包前的固定检查：
+
+```bash
+awk -F' ' '/^\t/ && ($1=="toString"||$1=="equals"||$1=="hashCode"||$1=="clone") && $NF!=$1' \
+    ~/out/work/jgit_members_clean.tsrg     # 必须为空
+```
+
+### 19.5 基线
+
+| 指标 | §18 | 本轮 |
+|---|---|---|
+| 类映射 | 617 | **619**（+2 是 jsch 的 identity 类行） |
+| 成员映射 | 3792 | **3964**（方法 2719 + 字段 1245） |
+| 方法覆盖 | 2467/3185 = 77.5% | **2549/3185 = 80.0%** |
+| 字段覆盖 | 1010/1468 = 68.8% | **1067/1468 = 72.7%** |
+| 完全覆盖类 | 310 | **350** |
+| `inherit_check` | 0 / 7 | **0 / 7** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v19.jar`，manifest `e87267b8…`） |
+
+净增 **+172 成员 / +40 完全覆盖类**；剩下 `MISSING 7` 里 2 条是 `FileObjectDatabase`
+在 3.7.1 里没有 `newCachedFileObjectDatabase`/`myAlternates`（版本差异），另 5 条待查。
