@@ -2168,6 +2168,10 @@ abcd/WJ org/eclipse/jgit/treewalk/FileTreeIterator
 	rN ()[Labcd/_J$a; entries
 	j6 (Labcd/IE;)Labcd/TJ; createSubtreeIterator
 	j6 (Labcd/_J$a;)[B idSubmodule
+abcd/WJ$a org/eclipse/jgit/treewalk/FileTreeIterator$FileEntry
+	Hw mode
+	FH ()Labcd/rE; getMode
+	v5 ()Ljava/io/InputStream; openInputStream
 abcd/XA org/eclipse/jgit/api/CloneCommand
 	j6 (Labcd/UE;)V cloneSubmodules
 	j6 (Labcd/UE;Labcd/qI;)V checkout
@@ -3765,6 +3769,16 @@ abcd/pB$a org/eclipse/jgit/api/MergeResult$MergeStatus
 	<init> (Ljava/lang/String;ILabcd/pB$a;)V <init>
 	Zo MERGED_SQUASHED
 	VH $VALUES
+abcd/pC org/eclipse/jgit/diff/HistogramDiffIndex
+	DW cmp
+	Ws hasCommon
+	gn recs
+	DW (I)I tryLongestCommonSequence
+	DW ()Z scanA
+	j6 (I)I tableBits
+	j6 (Labcd/lC;I)I hash
+	j6 (III)J recCreate
+	j6 ()Labcd/jC; findLongestCommonSequence
 abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
 	j6 END_EDIT
 	DW diffAlg
