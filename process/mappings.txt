@@ -392,6 +392,7 @@ abcd/AF$a org/eclipse/jgit/merge/StrategySimpleTwoWayInCore$InCoreMerger
 	j6 (I)Labcd/TJ; getTree
 	FH ()Labcd/yE; getResultTreeId
 	Hw ()Z mergeImpl
+	u7 tw
 abcd/AG org/eclipse/jgit/internal/storage/file/ByteArrayWindow
 	j6 (ILjava/util/zip/Inflater;)I setInput
 	j6 (I[BII)I copy
@@ -843,6 +844,7 @@ abcd/FG org/eclipse/jgit/storage/file/FileBasedConfig
 	j6 ([B)Labcd/yE; hash
 	VH fs
 	v5 ()V save
+	gn utf8Bom
 abcd/FJ org/eclipse/jgit/transport/TransportSftp$SftpObjectDB$1
 	j6 (Ljava/lang/String;Ljava/lang/String;)I compare
 	DW val$mtimes
@@ -1029,6 +1031,7 @@ abcd/IJ org/eclipse/jgit/transport/UploadPack
 	KD noDone
 	a8 depth
 	XL clientShallowCommits
+	QX options
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 	Hw REACHABLE_COMMIT_TIP
@@ -1578,6 +1581,7 @@ abcd/QC org/eclipse/jgit/dircache/DirCacheEntry
 	j6 (II)Z mightBeRacilyClean
 	j6 ([BI)V setObjectIdFromRaw
 	VH ()I getStage
+	J8 ()Z isUpdateNeeded
 abcd/QD org/eclipse/jgit/fnmatch/Head
 	j6 (C)Ljava/util/List; getNextHeads
 abcd/QG org/eclipse/jgit/internal/storage/file/LocalCachedPack
@@ -1732,6 +1736,7 @@ abcd/RK org/eclipse/jgit/util/TemporaryBuffer
 	j6 (Ljava/io/InputStream;)V copy
 	j6 (Ljava/io/OutputStream;Labcd/LE;)V writeTo
 	tp ()V switchToOverflow
+	gn ()Labcd/RK$a; last
 abcd/RK$d org/eclipse/jgit/util/TemporaryBuffer$LocalFile
 	DW ()J length
 	j6 ()V destroy
@@ -1756,6 +1761,7 @@ abcd/SF org/eclipse/jgit/revwalk/DepthGenerator
 	FH walk
 	DW ()I outputType
 	j6 ()Labcd/dG; next
+	j6 pending
 abcd/SG org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation
 	FH ()I getWeight
 	j6 ()Labcd/yE; getDeltaBase
@@ -1944,6 +1950,7 @@ abcd/TJ org/eclipse/jgit/treewalk/AbstractTreeIterator
 	DW (II)V setPathCapacity
 	j6 (Labcd/IE;)Labcd/TJ; createSubtreeIterator
 	j6 (Labcd/IE;Labcd/uE;)Labcd/TJ; createSubtreeIterator
+	Zo ()Ljava/lang/String; getEntryPathString
 abcd/UA org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$2
 	toString ()Ljava/lang/String; toString
 	<init> (Ljava/lang/String;I)V <init>
@@ -2518,6 +2525,7 @@ abcd/_F org/eclipse/jgit/revwalk/ObjectWalk
 	j6 ([BIILabcd/_F$a;)I parseMode
 	j6 (Labcd/_F$a;)V releaseTreeVisit
 	VH (I)V growPathBuf
+	XL ()I getPathLength
 abcd/_F$a org/eclipse/jgit/revwalk/ObjectWalk$TreeVisit
 	DW obj
 	FH buf
@@ -2925,6 +2933,7 @@ abcd/dG org/eclipse/jgit/revwalk/RevCommit
 	rN ()[Labcd/dG; getParents
 	yS ()Labcd/mG; getTree
 	aM ()I getType
+	er ()Ljava/lang/String; getShortMessage
 abcd/dH org/eclipse/jgit/internal/storage/file/PackIndexV1
 	FH ()Z hasCRC32Support
 	j6 (J)Labcd/yE; getObjectId
@@ -3159,6 +3168,7 @@ abcd/gE org/eclipse/jgit/lib/Config
 	j6 (Labcd/gE$c;Ljava/util/List;)Ljava/util/List; copy
 	FH listeners
 	v5 ()Labcd/gE$c; getBaseState
+	Zo ()Labcd/gE$c; getState
 abcd/gE$a org/eclipse/jgit/lib/ConfigLine
 	j6 (Ljava/lang/String;)Labcd/gE$a; forValue
 	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z match
@@ -3796,6 +3806,7 @@ abcd/pC org/eclipse/jgit/diff/HistogramDiffIndex
 	j6 (III)J recCreate
 	j6 ()Labcd/jC; findLongestCommonSequence
 	DW maxChainLength
+	DW region
 abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
 	j6 END_EDIT
 	DW diffAlg
