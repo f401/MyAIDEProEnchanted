@@ -39,7 +39,7 @@ def pm(t):
     return out
 rows=[]
 for cn,tgt in mp.items():
-    t=IDX.get('abcd/'+cn); oc=orc(tgt)
+    t=IDX.get(cn if cn.startswith('abcd/') else 'abcd/'+cn); oc=orc(tgt)
     if not t or not oc: continue
     L=pm(t); bad=[]
     for e in L:

@@ -11,7 +11,7 @@ LEN.update({0x13:3,0x14:3,0xc5:4,0xba:5,0xc8:5,0xc9:5})
 
 def parse(b):
     n=struct.unpack_from('>H',b,8)[0]; o=10; i=1
-    utf={};cls={};nat={};refs=[];strs={}
+    utf={};cls={};nat={};refs=[];strs={};ints={}
     while i<n:
         tag=b[o]; o+=1
         if tag==1:
@@ -22,7 +22,8 @@ def parse(b):
         elif tag in (9,10,11): refs.append((tag,i)+struct.unpack_from('>HH',b,o)); o+=4
         elif tag==15: o+=3
         elif tag==16: o+=2
-        elif tag in (3,4,17,18): o+=4
+        elif tag==3: ints[i]=struct.unpack_from('>i',b,o)[0]; o+=4
+        elif tag in (4,17,18): o+=4
         elif tag in (5,6): o+=8; i+=1
         elif tag in (19,20): o+=2
         else: raise ValueError(tag)
@@ -36,14 +37,18 @@ def parse(b):
         cnt=struct.unpack_from('>H',b,p)[0]; p+=2
         for _ in range(cnt):
             a,nm,ds,ac=struct.unpack_from('>HHHH',b,p); p+=8
-            code=None
+            code=None;cval=None
             for _ in range(ac):
                 an=struct.unpack_from('>H',b,p)[0]; ln=struct.unpack_from('>I',b,p+2)[0]
                 if kind=='m' and utf.get(an)=='Code':
                     cl=struct.unpack_from('>I',b,p+10)[0]
                     code=b[p+14:p+14+cl]
+                if kind=='f' and utf.get(an)=='ConstantValue':
+                    ci=struct.unpack_from('>H',b,p+6)[0]
+                    if ci in ints: cval=('I',ints[ci])
+                    elif ci in strs: cval=('S',utf.get(strs[ci]))
                 p+=6+ln
-            members.append(dict(kind=kind,acc=a,name=utf.get(nm),desc=utf.get(ds),code=code,attrs=ac))
+            members.append(dict(kind=kind,acc=a,name=utf.get(nm),desc=utf.get(ds),code=code,attrs=ac,cval=cval))
     refmap={}
     for tag,idx,ci,ni in refs:
         ow=utf.get(cls.get(ci)); nn=nat.get(ni)

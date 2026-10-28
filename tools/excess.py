@@ -27,7 +27,7 @@ for f in os.listdir(SRC):
     if m: IDX.setdefault(m.group(1).split()[-1].rstrip(';').lstrip('L'),t)
 rows=[]
 for cn,tgt in mp.items():
-    t=IDX.get('abcd/'+cn); o=orc(tgt)
+    t=IDX.get(cn if cn.startswith('abcd/') else 'abcd/'+cn); o=orc(tgt)
     if not t or not o: continue
     pc=collections.Counter(); oc2=collections.Counter()
     for mm in re.finditer(r'^\.field\s+([^\n]+)$',t,re.M):
