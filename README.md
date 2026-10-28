@@ -27,7 +27,7 @@ java -jar ForgeAutoRenamingTool-1.0.8-all.jar \
   --map    mappings.txt
 ```
 
-当前规模：**619 个类 / 3964 个成员**（方法 2549/3185 = 80.0%，字段 1067/1468 = 72.7%）。
+当前规模：**645 个类 / 4001 个成员**（方法 2586/3235 = 79.9%，字段 1088/1498 = 72.6%）。
 
 改名的输入基线 `process/base/merged_ok.jar` 已入库，指纹见 `process/SHA256SUMS`；
 复现与判等命令见 `process/README.md`（判等用**内容指纹**，不用整包 sha256）。

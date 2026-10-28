@@ -35,6 +35,8 @@ def normcls(c):
 
 def collapse(d):
     """把描述符里的对象类型全部折成 O（--loose 用，容忍未映射类型）"""
+    if '(' not in d:                       # 字段描述符（如 I、[Ljava/lang/String;）
+        return 'O' if d.lstrip('[').startswith('L') else d.lstrip('[')
     b = d[1:d.index(')')]
     r = d[d.index(')')+1:]
     one = lambda x: 'O' if x.lstrip('[').startswith('L') else x.lstrip('[')

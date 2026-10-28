@@ -1068,11 +1068,9 @@ abcd/LK org/eclipse/jgit/util/RefMap$1
 	j6 this$0
 abcd/MB org/eclipse/jgit/api/PullCommand$2
 abcd/MC org/eclipse/jgit/dircache/DirCacheBuilder
-	DW (II)V keep
 	v5 ()V finish
 	Hw sorted
 	<init> (Labcd/KC;I)V <init>
-	DW (Labcd/QC;)V add
 	j6 ([BILabcd/IE;Labcd/YD;)V addTree
 	j6 (ILabcd/YJ;)Labcd/QC; toEntry
 	j6 (Labcd/QC;Ljava/lang/String;)Ljava/lang/IllegalStateException; bad
@@ -2471,6 +2469,7 @@ abcd/_F org/eclipse/jgit/revwalk/ObjectWalk
 	Mr currVisit
 	j3 freeVisit
 	QX ()I getPathHashCode
+	QX pendingObjects
 abcd/_F$a org/eclipse/jgit/revwalk/ObjectWalk$TreeVisit
 	DW obj
 	FH buf
@@ -4743,3 +4742,67 @@ com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
 	j6 (Ljava/lang/String;)Z promptYesNo
 com/jcraft/jsch/UIKeyboardInteractive com/jcraft/jsch/UIKeyboardInteractive
 	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String; promptKeyboardInteractive
+abcd/IH$a org/eclipse/jgit/internal/storage/pack/DeltaWindow$ZipStream
+	DW zbuf
+	FH outPtr
+	j6 deflater
+	j6 ()I finish
+abcd/PD$a org/eclipse/jgit/fnmatch/GroupHead$CharacterPattern
+	j6 (C)Z matches
+abcd/UI org/eclipse/jgit/transport/RefFilter$1
+	j6 (Ljava/util/Map;)Ljava/util/Map; filter
+abcd/VK$a org/eclipse/jgit/util/io/InterruptTimer$AlarmState
+	DW deadline
+	FH terminated
+	j6 callingThread
+	FH ()J now
+	j6 (I)V begin
+abcd/WK org/eclipse/jgit/util/io/MessageWriter
+	DW enc
+	j6 buf
+	j6 ()Ljava/io/OutputStream; getRawStream
+abcd/XK org/eclipse/jgit/util/io/SafeBufferedOutputStream
+abcd/ZK org/eclipse/jgit/util/io/TeeInputStream
+	DW src
+	FH dst
+	j6 skipBuffer
+	j6 ()[B skipBuffer
+abcd/bL org/eclipse/jgit/util/io/UnionInputStream$1
+abcd/jG$a org/eclipse/jgit/revwalk/RevObjectList$Block
+	DW shift
+	j6 contents
+abcd/Iz org/eclipse/jgit/transport/http/JDKHttpConnectionFactory
+abcd/LJ org/eclipse/jgit/transport/UploadPackLogger
+abcd/LP org/eclipse/jgit/lib/IndexDiff$1
+abcd/NE org/eclipse/jgit/lib/RefComparator
+	j6 INSTANCE
+	DW (Labcd/ME;Labcd/ME;)I compareTo
+	j6 (Labcd/ME;Ljava/lang/String;)I compareTo
+	j6 (Ljava/util/Collection;)Ljava/util/Collection; sort
+	j6 (Labcd/ME;Labcd/ME;)I compare
+abcd/NF org/eclipse/jgit/revwalk/BlockObjQueue
+abcd/QF$a org/eclipse/jgit/revwalk/DateRevQueue$Entry
+	DW commit
+	j6 next
+abcd/RE$b org/eclipse/jgit/lib/RefUpdate$Store
+	j6 this$0
+	j6 (Labcd/RE$a;)Labcd/RE$a; execute
+abcd/Sw org/eclipse/jgit/treewalk/filter/TreeFilterMarker
+abcd/TK org/eclipse/jgit/util/io/DisabledOutputStream
+	j6 INSTANCE
+abcd/VI org/eclipse/jgit/transport/RefFilter
+	j6 DEFAULT
+	j6 (Ljava/util/Map;)Ljava/util/Map; filter
+abcd/VK$b org/eclipse/jgit/util/io/InterruptTimer$AlarmThread
+abcd/Yz org/eclipse/jgit/api/ArchiveCommand$FormatEntry
+abcd/_D org/eclipse/jgit/lib/AsyncObjectSizeQueue
+	v5 ()J getSize
+abcd/iL org/eclipse/jgit/lib/CheckoutEntry
+abcd/qF org/eclipse/jgit/merge/MergeChunk
+	Hw conflictState
+	DW ()Labcd/qF$a; getConflictState
+abcd/vE org/eclipse/jgit/lib/NullProgressMonitor
+	j6 INSTANCE
+	j6 (Ljava/lang/String;I)V beginTask
+abcd/xJ$d$a org/eclipse/jgit/transport/TransportHttp$Service$HttpExecuteStream
+	j6 this$1

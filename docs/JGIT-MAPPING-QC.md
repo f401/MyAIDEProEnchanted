@@ -858,3 +858,79 @@ awk -F' ' '/^\t/ && ($1=="toString"||$1=="equals"||$1=="hashCode"||$1=="clone") 
 
 净增 **+172 成员 / +40 完全覆盖类**；剩下 `MISSING 7` 里 2 条是 `FileObjectDatabase`
 在 3.7.1 里没有 `newCachedFileObjectDatabase`/`myAlternates`（版本差异），另 5 条待查。
+
+---
+
+## 20. 第十五轮：成员级判据见底 → 转攻类级（+26 类）
+
+### 20.1 先确认成员级工具已经挖不动
+
+| 工具 | 判据 | 本轮新增 |
+|---|---|---|
+| `javadiff.py`（jadx vs 源码结构对齐） | **0**（`noinner 57 / noapp 164 / ambig 112 / tiny 56`） | 0 |
+| `lcs.py`（指令级相似度破重载） | `ambig 267 / nosig 172 / nocand 7` | 3（其中 `qG.retainOnReset` 在 3.7.1 不存在，实际 2） |
+| `gapfill.py`（唯一签名） | 已榨到 167（多数是新增类带出来的） | 167 |
+
+结论：**成员级的三条主判据已经到边际**，剩下的 669 条"多候选"要靠人工读码。
+
+### 20.2 新工具 `shapescan.py`：O(n) 全库形状扫描
+
+和 `shapefind.py` 同一判据（字段/方法多重集 + super），但用**哈希桶**建索引，
+一次扫完 2745 个未映射类（`shapefind` 是两两比较，只能小批量用）。
+
+两条安全规则：
+
+1. **同一目标被多个探针命中 → 整组丢弃**（本轮 `BaseReceivePack$Reporter` 被 `SI$b` 和 `ck$a` 同时命中）；
+2. 目标名不能已被占用、探针不能已在 tsv 里。
+
+结果：`strict 唯一 15 / 多候选 50`，`--loose 唯一 35 / 多候选 144`，共落 **26 个类**。
+
+### 20.3 命中的一致性（这是最让人放心的部分）
+
+同一父类下的兄弟被**一起**命中，互相印证：
+
+| 探针 | 目标 | 交叉印证 |
+|---|---|---|
+| `VI` | `transport/RefFilter` | `UI → RefFilter$1`（`$1` 必须嵌在 `RefFilter` 里）✓ |
+| `VK$a` / `VK$b` | `InterruptTimer$AlarmState` / `$AlarmThread` | 两个内部类同父 ⇒ **`VK` = `util/io/InterruptTimer`** |
+| `RK$c` / `RK$b` | `TemporaryBuffer$Heap` / `$BlockInputStream` | 同父 ✓（`RK` = TemporaryBuffer） |
+| `PD$a/$b/$f/$g` | `GroupHead$CharacterPattern/$CharacterRange/$OneCharacterPattern/$PunctPattern` | 同一 `PD` 下四个都命中 ✓ |
+| `xJ$d$a` | `TransportHttp$Service$HttpExecuteStream` | 上一轮被当成"陈旧块"丢掉的类，现在定名了 |
+
+其他：`FH→DeltaIndexScanner`、`KH→IntSet`、`TK→DisabledOutputStream`、`zC→RawTextComparator`、
+`NE→RefComparator`、`RD→fnmatch/LastHead`、`Sw→TreeFilterMarker`、`NF→BlockObjQueue`、
+`iL→CheckoutEntry`、`qF→MergeChunk`、`vE→NullProgressMonitor`、`_D→AsyncObjectSizeQueue`、
+`RE$b→RefUpdate$Store`、`eE$a→BatchingProgressMonitor$Task`、`jG$a→RevObjectList$Block`、
+`pK$a→FS$Holder`、`IH$a→DeltaWindow$ZipStream`、`Yz→ArchiveCommand$FormatEntry`、
+`LP→IndexDiff$1`、`Iz→JDKHttpConnectionFactory`、`LJ→UploadPackLogger`、
+`bL→UnionInputStream$1`、`WK→MessageWriter`、`XK→SafeBufferedOutputStream`、`ZK→TeeInputStream`、
+`AI$b→PackParser$DeltaVisit`、`QF$a→DateRevQueue$Entry`、`gE$d→Config$StringReader`。
+
+> `gE$d → Config$StringReader` 顺便印证了 §4 的结论：`Config` 的四个内部类里，
+> `gE$a`=顶层 `ConfigLine`、`gE$c`=顶层 `ConfigSnapshot`、`gE$b`=`Config$SectionParser`、
+> `gE$d`=`Config$StringReader` —— 混淆名带 `$` 与真嵌套**没有必然关系**。
+
+### 20.4 剔除一条：`Vo$a → ConfigSnapshot$LineComparator`
+
+`ConfigSnapshot` 已经由 `gE$c` 占用，而 `Vo` 本身未映射、父关系无从确认 → 不采用（记进 `jgit_unverified.tsv`）。
+
+### 20.5 新机制：DENY 表（防止 gapfill 反复重提错判）
+
+`MC.DW ()V → resort`（祖先 `IC.DW ()V → finish`）和 `_F.Zo (I)V → reset`（祖先 `qG → freeFlag`）
+每次批量补名都会被 `gapfill` 重新提出，删了下轮又回来。现在落到
+`~/out/work/jgit_deny.tsv`（每行 `abcd/类<TAB>成员名`），**`gapfill.py` 与 `rebuild_tsrg.py` 都会按它过滤**。
+
+### 20.6 基线
+
+| 指标 | §19 | 本轮 |
+|---|---|---|
+| 类映射 | 619 | **645** |
+| 成员映射 | 3964 | **4001**（方法 2733 + 字段 1268） |
+| 方法覆盖 | 2549/3185 = 80.0% | **2586/3235 = 79.9%** |
+| 字段覆盖 | 1067/1468 = 72.7% | **1088/1498 = 72.6%** |
+| 完全覆盖类 | 350 | **369** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v20.jar`，manifest `64b8ac86…`） |
+
+> 百分比微降是分母随 +26 个类涨了 50，绝对命中 +37 / +21。
