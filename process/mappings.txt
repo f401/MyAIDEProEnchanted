@@ -522,7 +522,7 @@ abcd/BC org/eclipse/jgit/diff/RenameDetector
 	j6 (Labcd/cC$c;Labcd/hC;)I calculateModifyScore
 	j6 (Labcd/hC;Labcd/hC;)Labcd/hC; exactRename
 	DW (Labcd/hC;Labcd/hC;)Labcd/hC; exactCopy
-	FH (Labcd/LE;)V findRenames
+	FH (Labcd/LE;)V rejoinModifies
 	j6 (Labcd/LE;)Ljava/util/List; compute
 	Hw deleted
 	v5 added
@@ -996,7 +996,8 @@ abcd/KC org/eclipse/jgit/dircache/DirCache
 	Zo sortedEntries
 	j6 ([B)Ljava/lang/String; formatExtensionName
 	j6 ([BILabcd/QC;)I cmp
-	DW (Ljava/io/File;Labcd/pK;)Labcd/KC; newInCore
+	DW (Ljava/io/File;Labcd/pK;)Labcd/KC; read
+	j6 (Ljava/io/File;Labcd/pK;)Labcd/KC; lock
 	DW ([B)Z is_DIRC
 	j6 (Labcd/FD;)V registerIndexChangedListener
 	DW (Ljava/lang/String;)Labcd/QC; getEntry
@@ -1827,7 +1828,7 @@ abcd/UE org/eclipse/jgit/lib/Repository
 	j6 (Ljava/lang/String;I)Z isAllHex
 	aM ()Labcd/EE; getObjectDatabase
 	j6 (Labcd/YD;I)Labcd/FE; open
-	j6 (Labcd/ME;)Labcd/ME; renameRef
+	j6 (Labcd/ME;)Labcd/ME; peel
 	j6 (Ljava/lang/String;)Labcd/ME; getRef
 	j6 (Labcd/KD;)V fireEvent
 	DW (Ljava/lang/String;)Z isValidRefName
@@ -2633,6 +2634,9 @@ abcd/cC org/eclipse/jgit/diff/ContentSource
 	DW (Ljava/lang/String;Labcd/yE;)J size
 	j6 (Ljava/lang/String;Labcd/yE;)Labcd/FE; open
 	j6 (Labcd/IE;)Labcd/cC; create
+abcd/cC$c org/eclipse/jgit/diff/ContentSource$Pair
+	DW (Labcd/hC$b;Labcd/hC;)J size
+	j6 (Labcd/hC$b;Labcd/hC;)Labcd/FE; open
 abcd/cC$d org/eclipse/jgit/diff/ContentSource$WorkingTreeSource
 	j6 (Ljava/lang/String;)V seek
 	DW (Ljava/lang/String;Labcd/yE;)J size
@@ -3231,8 +3235,8 @@ abcd/jJ org/eclipse/jgit/transport/Transport
 	Zo uri
 	j6 (Ljava/lang/ClassLoader;)Ljava/util/Enumeration; catalogs
 	j6 (Ljava/lang/ClassLoader;Ljava/net/URL;)V load
-	j6 (Ljava/lang/ClassLoader;Ljava/lang/String;)V register
-	aM ()V scan
+	j6 (Ljava/lang/ClassLoader;Ljava/lang/String;)V load
+	aM ()V registerByService
 	u7 ()Ljava/util/List; getTransportProtocols
 	DW (Labcd/UE;Labcd/XI;Labcd/jJ$a;)Ljava/util/List; openAll
 	DW (Labcd/UE;Ljava/lang/String;Labcd/jJ$a;)Ljava/util/List; openAll
@@ -3617,7 +3621,7 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	FH (Labcd/iG;)Labcd/iG; peel
 	Hw objects
 	DW reader
-	Hw (Labcd/YD;)Labcd/iG; lookupAny
+	Hw (Labcd/YD;)Labcd/iG; lookupOrNull
 	tp pending
 	Zo (I)V reset
 	j6 (Labcd/YD;Labcd/FE;)Labcd/iG; parseNew
@@ -3858,7 +3862,7 @@ abcd/uH org/eclipse/jgit/internal/storage/file/WindowCache
 	XL openBytes
 	J8 windowSizeShift
 	DW (Labcd/vH;)I lockCount
-	FH (Labcd/vH;)I getOpenBytes
+	FH (Labcd/vH;)I tableSize
 	j6 ()I getStreamFileThreshold
 	j6 (I)I bits
 	j6 (Labcd/aH;J)Labcd/CG; getOrLoad

@@ -181,3 +181,32 @@
 
 **最终状态**：类 **410**、成员映射 **3450**、方法 **2205/2729 = 80.8%**、字段 **890/1253 = 71.0%**、
 完全覆盖类 **257**、`verify_members` 不合格 **10 条**。
+
+## 7. 第五轮：对着 jgit 源码逐条裁决（成员名不合格项 10 → 3）
+
+从 `~/out/oracle/jgit/jgit-src.jar` 解出 669 个 .java（`~/src/jgit`），按源码逻辑核对：
+
+| 探针成员 | 旧名 | 源码裁决 | 依据 |
+|---|---|---|---|
+| `BC.FH(ProgressMonitor)V` | findRenames | **rejoinModifies** | 方法体引用 `JGitText.renamesRejoiningModifies` + `pm.update()`；RenameDetector.java:429 的 `rejoinModifies` 正是这一句（`findRenames` 在 3.7.1 根本不存在） |
+| `UE.j6(Ref)Ref` | renameRef | **peel** | 方法体只调 `getRefDatabase()`+`peel()`；源码 `Repository.renameRef(String,String)` 是两参数返回 `RefRename`，而 `peel(Ref)` 才是 (Ref)->Ref |
+| `uH.FH(WindowCacheConfig)I` | getOpenBytes | **tableSize** | 方法体用 `invalidWindowSize` + `windowSizeMustBeLesserThanLimit` + `Math.min`；源码 `tableSize` 逐字对应（`lockCount` 只有一行 `Math.max`） |
+| `KC.DW(File,FS)DirCache` | newInCore | **read** | 体只有 `<init>` + 读方法；源码 `read(File,FS)` = `new DirCache(...)` + `c.read()` |
+| `KC.j6(File,FS)DirCache` | （无） | **lock** | 体里 `new LockFailedException`（abcd/dD）+ `c.lock()`；源码 `lock(File,FS)` 逐字对应 |
+| `jJ.j6(ClassLoader,String)V` | register | **load** | 体里 `Class.forName` + `getDeclaredFields` + `isAssignableFrom`；源码 `load(ClassLoader,String)`（Transport.java:178） |
+| `jJ.aM()V` | scan | **registerByService** | 体里 `Thread.currentThread().getContextClassLoader()` + `Enumeration.hasMoreElements/nextElement` + 调 `load`；源码 `registerByService()`：123 |
+| `qG.Hw(AnyObjectId)RevObject` | lookupAny | **lookupOrNull** | 3.7.1 的 `lookupAny(AnyObjectId,int)` 是两参数（已由 `j6(AnyObjectId,I)` 的 `invalidGitType` 分支占用）；一参数两个候选里 `parseAny` 已是 `Zo`，故为 `lookupOrNull` |
+
+**剩 3 条属于「版本差异」而非错名**（3.7.1 的签名与探针不同，名字本身对）：
+`KC.writeTo(OutputStream)V`（3.7.1 是 `writeTo(File,OutputStream)`，方法体写 `TREE` 扩展标记）,
+`wH.inflate(PackFile,long,byte[],int)`（3.7.1 第 4 参是 `boolean headerOnly`）,
+`wH.newObjectToPack(RevObject)LocalObjectToPack`（3.7.1 是 `newObjectToPack(AnyObjectId,int)`）。
+
+另外用源码定了 `cC$c = diff/ContentSource$Pair`：`BC.calculateModifyScore` 的第一参数就是它，
+源码签名 `calculateModifyScore(ContentSource.Pair, DiffEntry)`（配对 4/5）。
+
+### 新一轮发现（待下轮处理）
+
+`BH` 的阻塞点都在 `copyObjectAsIs(PackOutputStream, BH, boolean)` / `PackWriter(BH, RevFlag, ObjectWalk)`，
+按源码这两处声明的类型是 `ObjectToPack`；但 `ObjectToPack` 已分配给 `abcd/MH` —— **`MH` 很可能是误判**，
+需要以 `BH` 为准重新核对这一对。
