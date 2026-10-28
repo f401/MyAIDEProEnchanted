@@ -128,15 +128,34 @@ PY
 
 ### 5.5 扩充反混淆映射
 
+jgit 的反混淆已经工程化，**唯一真相是 tsv，不要手改 tsrg 或 mappings.txt**。
+完整步骤见 `docs/JGIT-PIPELINE.md`，脚本清单见 `tools/jgit/README.md`。
+
 ```bash
-cd /storage/emulated/0/MyAIDEProEnchanted/process
-# mappings.txt 是 TSRG2： 混淆名 真名 / <tab>成员 真名
-# 覆盖率现状：36 条类映射（abcd/ 占 22 条）+ 66 条字段 + 116 条方法
-# 精确计数（别用 grep '^[^\t]'，BRE 里 \t 不是 TAB）：
-awk 'NF && $0 !~ /^\t/ {c++} END{print c}' mappings.txt   # 类映射行（含表头）
-# 候选来自 src/classes*.jar 与 smali 包结构；补齐后：
-# java -jar ForgeAutoRenamingTool-1.0.8-all.jar --input src/classes.jar \
-#   --output output/classes_out.jar --map mappings.txt --lib src/classes2.jar --lib src/classes3.jar --lib android.jar
+cd /storage/emulated/0/MyAIDEProEnchanted
+# 改完 ~/out/work/jgit_map_clean.tsv 后一步到位：
+python3 tools/jgit/rebuild_tsrg.py       # tsv → jgit_members_clean.tsrg → process/mappings.txt
+python3 tools/jgit/verify_members.py     # 期望：不一致 0
+awk '!/^\t/ && NF>=2 {print $2}' process/mappings.txt | sort | uniq -d   # 期望：空（FART 遇重复目标会整体中止）
+```
+
+| 文件 | 内容 |
+|---|---|
+| `~/out/work/jgit_map_clean.tsv` | 类映射 **589** 条（`探针<TAB>目标<TAB>证据`） |
+| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **3713** 条（方法 2544 + 字段 1169，派生文件） |
+| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4302** 行 |
+
+现状：方法 2406/3132 = **76.8%**、字段 1008/1440 = **70.0%**、完全覆盖类 303。
+计数别用 `grep '^[^\t]'`（BRE 里 `\t` 不是 TAB），用 `awk '!/^\t/'`。
+
+改名与出 dex：
+
+```bash
+cd process
+java -Xmx900m -jar ForgeAutoRenamingTool-1.0.8-all.jar \
+  --input ~/out/fart/merged_ok.jar --output ~/out/fart/r_vN.jar --map mappings.txt
+java -Xmx900m -cp d8.jar com.android.tools.r8.D8 --release --min-api 26 --thread-count 2 \
+  --lib android.jar --output ~/out/dexN ~/out/fart/r_vN.jar
 ```
 
 ### 5.6 用 `Dex/` 做字节码级修正
@@ -169,6 +188,9 @@ cd /storage/emulated/0/MyAIDEProEnchanted/Dex
 | `process/run.sh` 的 d8 步骤被注释、`--input src/classes.jar` 路径需先在 `process/` 下执行 | `process/run.sh` | 修脚本前不要声称流水线可用 |
 | 46 MB `src/AIDE Pro_2.8.7-freely_ac_src.apk` 未跟踪 | `git status` | 需要归档就放 release，不要 `git add` |
 | 设备时间比真实时间快约 1 年（2026-10） | — | 不要据此判断文件新旧 |
+| **`process/mappings.txt` 头部自身是双份的**（`mappings_head.txt` 61 块里 23 块重复）⇒ FART `Duplicate entries detected` 整体中止，输出 jar 是半成品 | `~/out/work/mappings_head.txt` | 合并去重（并集，不能 keep-first）；已固化 162 行版本，见 `docs/BUILD-PITFALLS.md` §2.3 |
+| **dex 的 `Ldalvik/annotation/InnerClass` 注解被投毒**：`name` 只有 12 种取值且与后缀字母一一对应（4 个诱饵复用在 306 个类上），`EnclosingClass` 指向诱饵包 `a/b/a/d/*` | `~/icd/orig/classes*.dex` | **不要用 dex 注解做命名依据**；用成员形状 1:1 + 源码 + 调用点，见 `docs/JGIT-METADATA.md` §4 |
+| 取证误用重打包后的 APK（`*_ac_src.apk`，4 dex）而非原始（`*_orig_src.apk.orig`，5 dex） | 仓库根两个 APK | 一切 dex 取证用 **`.orig`** 那一份 |
 
 ---
 
@@ -188,7 +210,7 @@ cd /storage/emulated/0/MyAIDEProEnchanted/Dex
 3. 修 `cn.aide.pro` 硬编码、清 MT 组件、合并重复权限、修 authority
 4. README 补：需配套同签名 Termux + 公钥 SHA-256 指纹
 5. 打通 `process/run.sh`：重命名 → 补行号 → 修 R → d8 → zipalign → 签名，产出可复现脚本
-6. 扩充 `process/mappings.txt` 覆盖率（当前 36 个混淆类 / 3 830）
+6. 扩充 `process/mappings.txt` 覆盖率（当前 **589 个类 / 3713 成员**，方法 76.8%、字段 70.0%；剩余大盘是 R8 内联合并等结构性不可判项，见 `docs/JGIT-MAPPING-QC.md` §12–§13）
 
 ---
 
@@ -202,6 +224,10 @@ cd /storage/emulated/0/MyAIDEProEnchanted/Dex
 
 动手前请先读：
 
+- `docs/JGIT-PIPELINE.md` — **jgit 改名出包手册**：三处同步、两道闸、FART、D8、回填与验收清单
+- `docs/JGIT-METADATA.md` — dex/class 元数据读取（偏移速查 + 三级跳坑），以及「本 APK 的嵌套注解被投毒」的完整证据
+- `docs/JGIT-MAPPING-QC.md` — jgit 命名映射逐轮复核记录与判据（§13 = 最近一轮）
+- `docs/BUILD-PITFALLS.md` — 构建/改名/出 dex/回填全过程的踩坑清单（症状→根因→做法）
 - `docs/TEST-PLAN.md` — 迁移后的回归测试清单（P0/P1/P2 + 静态自检 + 定位捷径）
 - `docs/PITFALLS.md` — **真实踩过的坑**：内存/LMK、`pkill` 自伤、FUSE 大小写不敏感、`public.xml` 钉 ID、APKTOOL_DUMMY 成因、FART 继承传播把框架覆写改没、TSRG2 格式细节、只改引用会导致 `AbstractMethodError`、dex2jar 有损、指纹匹配的歧义塌陷、support→androidx 迁移的资源结论。
 - `docs/MIGRATION-NOTES.md` — support→androidx 迁移的映射表、产物路径、清单改动（`FileProvider`）与未验证项。

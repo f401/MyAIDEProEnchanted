@@ -3,6 +3,9 @@
 本目录是 `MyAIDEProEnchanted` 做 **资源改名** 与 **support→androidx 迁移** 时实际用到的脚本。
 全部是"单文件、无第三方依赖（除 JDK）"的 python3 / Java 程序，可直接复用。
 
+> 📁 **jgit 反混淆的脚本不在这里**：全部在 **`tools/jgit/`**（49 个），
+> 索引与用法见 `tools/jgit/README.md`；本目录只放 AIDE 侧（资源 ID、support→androidx 迁移）的工具。
+
 > ⚠️ 脚本里存在**硬编码路径**（`/storage/emulated/0/MyAIDEProEnchanted`、`$HOME/tools`、`$HOME/out/work`）。
 > 换机器/换目录前先 `grep -n "home/out\|MyAIDEProEnchanted" tools/*.py` 改掉。
 

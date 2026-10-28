@@ -1,5 +1,12 @@
 # jgit 命名映射 · 待复核清单
 
+> 📁 **路径说明（2025 整理）**：本文是逐轮记录，正文里的 `tools/xxx.py` 现已全部移入
+> **`tools/jgit/xxx.py`**（顶层 `tools/` 只留 AIDE 侧的资源/迁移工具）。
+> 另有两处结论已被后续轮次推翻，正文保留原样以便追溯：
+> - §5/§6 关于「dex 嵌套注解优先」的表述 → 见 §13.2（注解脱敏/投毒，已撤销）；
+> - `gE$a`/`gE$c` 的内部类命名 → 见 §13.3（保持顶层 `ConfigLine`/`ConfigSnapshot`）。
+
+
 类级映射来自「稀有字符串 → 引用邻居传播 → 交叉复核」三阶段，
 成员级来自「签名 / 方法体 / 调用点 / 立即数常量」四类判据。
 下列类在**字段类型构成**复核中与其 oracle 目标不符，需要按顺序复核。
@@ -356,3 +363,83 @@
 `XG(ObjectDirectory).EQ=alternates`、`_F(ObjectWalk).Mr=currVisit`、`mF(TreeFormatter).FH=overflowBuffer`。
 
 字段 992→996（69.6%），`verify` 不一致仍 0。
+
+---
+
+## 13. 第八轮：tsrg 重建出包 + 推翻「dex 嵌套注解优先」
+
+本轮做三件事：**把 mappings.txt 修到能被 FART 吃下**、**查清 dex 注解到底可不可信**、**修正被注解带偏的类名**。
+
+### 13.1 FART "Duplicate entries detected" 的真凶是「头部自身重复」
+
+上一轮以为是 tsrg 陈旧块。本轮分层排查：
+
+| 层 | 检查 | 结果 |
+|---|---|---|
+| tsv | `awk -F'\t' '{print $2}' jgit_map_clean.tsv \| sort \| uniq -d` | 空 ✅ |
+| tsrg 类块 | 611 块 / 589 tsv 类 → 22 个陈旧块 | 已丢弃 ✅ |
+| **head** | `mappings_head.txt` 61 块里 **23 个重复块** | **真凶** ❌ |
+
+`mappings_head.txt` 是**两份同样的 AIDE 侧块被拼接**（`abcd/wu → abcd/ApplicationUtils` 出现两次），
+且两份成员条数不同（`abcd/Vi` 23 vs 46），所以不能简单 keep-first——
+要**按类名分组合并 + 成员行去重取并集**：359 行 → **162 行 / 38 块**。
+
+重建后 `mappings.txt` = 162 + 4302 = 4464 行，两条查重全空，FART 一次通过 →
+`~/out/fart/r_v12.jar`（22761 条目 / 659 个 `org/eclipse/jgit/*`）。
+
+### 13.2 dex 的 `InnerClass` 注解是**投毒**的
+
+从 `*_orig_src.apk.orig` 的 5 个原始 dex 里解出全部嵌套注解（`tools/jgit/dex_inner_all.py`）：
+
+- `InnerClass.name` 在 324 个类里只有 **12 种取值**，且**只与后缀字母有关**：
+  `$a`→`Landroid/support/v4/media/a;`（201 次）、`$b`→`Lcom/aide/appwizard/runtime/h;`（62 次）、
+  `$c`→`Lcom/aide/engine/c$b$i;`（39 次）。`name` 本应是简单标识符，这里是完整描述符。
+- `EnclosingClass` 指向诱饵包 `a/b/a/d/*`（"abcd" 逐字符插 `/`）、`a/b/c/*`、`La/ag;`；
+  `uJ`/`vJ`/`wJ` 三个不同的匿名类被写成同一个 `Labcd/UM;`（class 文件侧是 `abcd/xJ`）。
+- `accessFlags` 可信；`name == null` 只能当弱信号（与 `anonmap` 判定 107 一致 / 37 不一致）。
+
+**结论：`$` 只反映混淆器命名分组，不是"真嵌套"的证据；dex 注解的 name/EnclosingClass 一律不采信。**
+取证细节与偏移坑见 `docs/JGIT-METADATA.md`。
+
+### 13.3 由此修正 / 撤销的三条
+
+| 探针 | 旧 | 新 | 依据 |
+|---|---|---|---|
+| `abcd/gE$a` | `Config$ConfigLine`（上一轮按注解改，尚未落地） | **`ConfigLine`（顶层，保持原样）** | 6 个 String 字段 + `forValue`/`match`×2/`eq*`×2/`toString`，与 3.7.1 `ConfigLine` **1:1** |
+| `abcd/gE$c` | `Config$ConfigSnapshot`（同上） | **`ConfigSnapshot`（顶层，保持原样）** | `List<ConfigLine>` + `Map` + `ConfigSnapshot baseState` + `(List, ConfigSnapshot)` 构造器 **1:1** |
+| `abcd/eI$a` | `BasePackFetchConnection$2` | **`BasePackFetchConnection$CancelledException`** | 探针 `extends Exception` + 私有无参构造；jgit 的 `$2` 是 `$SwitchMap` 合成类（只有一个 `static final int[]`） |
+
+`eI$c → GitProtocolConstants$MultiAck` 保持不动：3 常量枚举 + `BasePackFetchConnection` 有 `private MultiAck` 字段，
+且 `MultiAck` 在 3.7.1 里确实是 `GitProtocolConstants` 的 `static enum`（源码第 175 行）。
+
+### 13.4 回退为"未映射"的 22 个类
+
+`conflict_fix.py` 那轮"判不了就整组丢弃"留下 22 个**只有 tsrg 块、没有 tsv 行**的幽灵类。
+它们的目标名都被别的探针占了，本轮**整体退出映射**（保留混淆名，功能不受影响）：
+
+```
+FE$a GD IH LB PC$a PF QH SG$a UC VB VK dE fE nH$a nH$d oK qD rI
+tH$a$$ExternalSyntheticBackportWithForwarding0 xJ$d$a zD zJ$a
+```
+
+其中 `nH$d`（曾判 `ReflogWriter`）、`rI`（曾判 `HttpAuthMethod`）此前已进 `jgit_unverified.tsv`。
+
+下一步若要补回来，正确姿势是**成对判定**：同一外层下的匿名类必须整体编号
+（例如 `xJ$d$a → TransportHttp$Service$1`、`wJ → TransportHttp$3` 不能都叫 `$3`），
+用 `tools/jgit/inner_cmp.py` 打印该外层所有内部类的指纹后统一排序。
+
+### 13.5 本轮后的基线
+
+| 指标 | 值 |
+|---|---|
+| 类映射 | 589 |
+| 成员映射 | 3713（方法 2544 + 字段 1169） |
+| 方法覆盖 | 2406/3132 = **76.8%** |
+| 字段覆盖 | 1008/1440 = **70.0%** |
+| 完全覆盖类 | 303 |
+| `verify_members` | 无法校验 0 / 不一致 0 / R8 白名单 3 |
+| `mappings.txt` | 4464 行，重复目标 0、重复左值 0 |
+| FART 产物 | `r_v12.jar` 22761 条目 |
+
+> 与上一轮"方法 79.4%"的差异**不是退步**：分母因新增类从 3019 涨到 3132，
+> 绝对命中数 2396 → 2406（+10）。口径说明见 `docs/BUILD-PITFALLS.md` §7。

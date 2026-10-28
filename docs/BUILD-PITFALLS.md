@@ -1,26 +1,28 @@
 # 构建与还原踩坑清单（jgit 改名 / 重打包）
 
-> 本文记录从「APK 反编译 → 类名还原 → FART 改名 → D8 出 dex → 重打包」全过程中
-> 实际踩过并已定位的坑。每条都给出**症状 → 根因 → 正确做法**，避免重复排查。
+> 本文记录从「APK 反编译 → 类名还原 → FART 改名 → D8 出 dex → 回填」全过程中
+> 实际踩过并已定位的坑。每条给出**症状 → 根因 → 正确做法**，避免重复排查。
+> 出包步骤见 `docs/JGIT-PIPELINE.md`；dex 元数据见 `docs/JGIT-METADATA.md`。
 
 ---
 
 ## 0. 正确流水线（按此顺序）
 
 ```
-原始 APK 的 classes*.dex
-  → dex2jar（process/src/old/classes*.jar）        # 产物有缺陷，见 §3
-  → 修 <clinit> 误引用（tools/nop_clinit.py 思路）  # §3.1
-  → 修接口字段标志（public static final）           # §3.2
-= merged_ok.jar
-  → FART（mappings.txt，589 类 / 3740+ 成员）       # §2
-= r_vN.jar
-  → D8（--min-api 26 --lib android.jar）            # §5
-  → 替换 dex / zipalign / 签名
+原始 APK 的 classes*.dex（orig 那 5 个）
+  → dex2jar（= process/src/classes*.jar，合并成 ~/out/fart/merged.jar）   # 有缺陷，见 §3
+  → 修 <clinit> 误引用（tools/jgit/nop_clinit.py 思路）                     # §3.1
+  → 修接口字段标志（public static final）                                   # §3.2
+= ~/out/fart/merged_ok.jar
+  → tsv → rebuild_tsrg.py → mappings.txt（589 类 / 3713 成员）              # §2
+  → FART                                                                  # §2、§4
+= ~/out/fart/r_vN.jar
+  → D8（--release --min-api 26 --lib android.jar）                         # §3、JGIT-PIPELINE §4
+  → 换 dex / zipalign / 签名
 ```
 
 **禁止**：
-- 不要用 `src/smali` 树重打包（§1）；
+- 不要用 `src/smali` 树重新生成 dex 来"顺带"改名（两条路线不要混用）；
 - 不要在 jar 上做"全局 public 放宽"（§4）。
 
 ---
@@ -30,18 +32,18 @@
 **症状**：按文件名找 smali（`os.path.join(SM, cn + '.smali')`）时，随机拿到**别的类**的内容，
 统计结果荒谬（例如 `DC=SequenceComparator` 明明 3/3 全中却被判 0/3）。
 
-**根因**：`/sdcard` 是大小写不敏感（FUSE）。APK 里存在大量**仅大小写不同**的类名对
+**根因**：`/sdcard` 是 FUSE 且大小写不敏感。APK 里存在大量**仅大小写不同**的类名对
 （`abcd/ji` 与 `abcd/JI`、`abcd/Eh` 与 `abcd/EH`），文件互相覆盖/被 apktool 加 `.1`、`.2` 后缀转义。
 实测：2745 个 smali 文件里 **1559 个文件名与内部 `.class` 声明不一致**。
 
 **正确做法**：
 - 遍历目录里**所有** `.smali`，读第一行的 `.class Lxxx;` 得到真实类名做索引；
 - 任何工具都不要用"类名拼文件名"的方式定位；
-- 类是否存在要查 **`merged.jar`**（dex2jar 产物，不受文件名影响），不要查 smali 树。
+- 类是否存在要查 **`merged.jar`**（dex2jar 产物）或 **`~/icd/orig/classes*.dex`**，不要查 smali 树。
 
 ---
 
-## 2. FART 的三个坑
+## 2. FART 的坑
 
 ### 2.1 重复目标 → 整体中止
 **症状**：`IllegalStateException: Duplicate entries detected: a/B.class, ...`，输出 jar 是半成品
@@ -49,21 +51,32 @@
 
 **根因**：`mappings.txt` 里两个不同探针映射到**同一个目标类名**。
 
-**正确做法**：生成 mappings 后必须查重：
+**正确做法**：生成 mappings 后必须查重（两条都要空）：
 ```bash
-awk '!/^\t/ && NF>=2 {print $2}' mappings.txt | sort | uniq -d    # 必须为空
+awk '!/^\t/ && NF>=2 {print $2}' mappings.txt | sort | uniq -d    # 目标重复
+awk '!/^\t/ && NF>=2 {print $1}' mappings.txt | sort | uniq -d    # 左值重复
 ```
 
 ### 2.2 tsrg 里的"陈旧块"会制造重复
 **症状**：tsv（类映射表）已经去重，FART 仍报重复。
 
 **根因**：`mappings.txt` 由 `jgit_members_clean.tsrg` 生成，而 tsrg 里残留了**旧类块**
-（类行仍指向某个已被别类占用的目标）。
+（类行仍指向某个已被别类占用的目标）。上一轮实测：tsrg 611 块 vs tsv 589 类 → **22 个陈旧块**。
 
-**正确做法**：以 tsv 为准**重建 tsrg**——只保留 tsv 里存在的类，成员行从旧 tsrg 按旧类名取；
-其它块全部丢弃。
+**正确做法**：以 tsv 为准**重建 tsrg**（`tools/jgit/rebuild_tsrg.py`）——只保留 tsv 里存在的类，
+成员行从旧 tsrg 按旧类名取，其它块整块丢弃。
 
-### 2.3 输入 jar 必须是"已修好的"那个
+### 2.3 `mappings_head.txt` 自己就是双份的（本轮新发现）
+**症状**：tsrg 已重建、jgit 块 0 重复，FART 仍报 19 组重复；`uniq -d` 查出来的重复目标全在**头部**。
+
+**根因**：`mappings_head.txt`（AIDE 侧改名块）是**两份同样的块被拼接**在一起：
+`abcd/wu → abcd/ApplicationUtils` 同时出现在第 2 行和第 221 行；61 个块里有 **23 个重复**，
+且两份的成员条数还不一样（`abcd/Vi` 23 条 vs 46 条）。
+
+**正确做法**：对 head 也做"按类名分组合并 + 成员行去重"（保留并集，不是简单 keep-first——
+简单去重会把 `abcd/common/h` 的 16 条砍成 8 条）。合并后：**359 行 → 162 行 / 38 个块**。合并脚本思路见 `tools/jgit/rebuild_tsrg.py` 头部注释。
+
+### 2.4 输入 jar 必须是"已修好的"那个
 `merged_pubcls.jar`（做过类级 public 化的）会让 FART 在 `a/a/i` 上崩：
 `RuntimeException: Failed to execute task a/a/i` → `IllegalArgumentException`。
 **用 `merged_ok.jar`**（只修 §3 的两处，不动访问标志）。
@@ -73,16 +86,16 @@ awk '!/^\t/ && NF>=2 {print $2}' mappings.txt | sort | uniq -d    # 必须为空
 ## 3. dex2jar 产物缺陷（会让 D8 直接失败）
 
 ### 3.1 显式调用 `<clinit>`（JVM 非法）
-**症状**：`D8: Invalid input code with a call to <clinit>`（编译中止，整包 deck 不出）。
+**症状**：`D8: Invalid input code with a call to <clinit>`（编译中止，整包 dex 不出）。
 **实例**：`com/aide/appwizard/runtime/e`（全库仅 1 个类）。
 
 **根因**：dex 允许 `invoke-static {} LSome;-><clinit>()V`，dex2jar 逐条直译成 JVM 的
 `invokestatic <clinit>`，JVM 规范不允许。
 
 **修法**：该 Methodref 的 `NameAndType` 里 `name_index` 被指到了 `<clinit>`，
-而正常应是 `<init>`（构造器/super 调用）。若该 NameAndType **只被一个引用使用**，
-直接把 `name_index` 改回 `<init>` 的 UTF8 索引即可（已验证 D8 通过）。
-连带症状：该类的构造器"没有 invokespecial <init>"（super 调用丢了）。
+正常应是 `<init>`。若该 NameAndType **只被一个引用使用**，直接改回 `<init>` 的 UTF8 索引即可。
+连带症状：该类构造器"没有 invokespecial <init>"（super 调用丢了）。
+已确认**不是 FART 造成**（FART 前后单类 D8 测试都失败）。
 
 ### 3.2 接口字段不是 public static final
 **症状**：
@@ -96,7 +109,7 @@ Failure to verify dex file '...base.apk':
 **根因**：dex2jar 丢了 `public` 位。dex 规范硬性要求接口字段为 `public static final`，
 校验器对**整个 dex 文件**一次性拒绝。
 
-**修法**：对所有 `ACC_INTERFACE` 的类，把其字段标志改为 `(acc|0x19) & ~0x2 & ~0x4`。
+**修法**：对所有 `ACC_INTERFACE` 的类，字段标志改为 `(acc|0x19) & ~0x2 & ~0x4`。
 实测全库只有 1 个类踩到（`AsmAbstract.a`：0x18 → 0x19）。
 
 ### 3.3 结构坏掉的类
@@ -117,33 +130,48 @@ Field may have only one of public/protected/private, La/ah;.a: 13(public private
 **根因**：`acc | 1` 只加 public，没有清 private/protected，产出 `0x13`(public+private) 这种非法组合。
 
 **正确做法**：**跨包访问问题用"命名"解决，不用"放宽"解决**：
-R8 把内部类命名成 `Outer$a`；只要我们把内层类映射到**与外层类同包**的名字
-（`<外层目标名>$N`），package-private 访问自然合法。
+只要把内层类映射到**与外层/引用者同包**的名字（`<引用者目标名>$N`），package-private 访问自然合法。
 
-实例：`abcd/vJ`（`EnclosingClass=abcd/xJ`、`name=null` 的匿名类）没被映射，留在 `abcd` 包，
-而 `TransportHttp` 已改名到 `org.eclipse.jgit.transport` →
+实例：`abcd/vJ` 没被映射，留在 `abcd` 包，而 `TransportHttp` 已改名到 `org.eclipse.jgit.transport` →
 `IllegalAccessError: TransportHttp attempting to access abcd.vJ`（发生在 `<clinit>`）。
 修法：`abcd/vJ → org/eclipse/jgit/transport/TransportHttp$4`。
 
-**处理模板**：崩溃栈里出现 `Illegal class access: X attempting to access abcd.Y` 时：
-1. 查 `Y` 的 `Ldalvik/annotation/EnclosingClass;` 注解 → 得到外层探针；
-2. 目标名 = `<外层目标名>$N`（N 取该外层下未占用的序号）；
-3. 补进映射 → 重跑 FART。
+**处理模板**（崩溃栈出现 `Illegal class access: X attempting to access abcd.Y`）：
+1. **不要**去查 `Y` 的 `EnclosingClass` 注解——本 APK 里那是投毒值（§5）；
+2. 查 `Y` 的**调用点**：谁 `new` 它 / 谁把它当返回值或参数（`tools/jgit/anonmap.py` 的"唯一引用者"）；
+3. 目标名 = `<引用者目标名>$N`（N 取该外层下未占用的序号）；
+4. 补进 tsv → `rebuild_tsrg.py` → 重跑 FART。
 
 ---
 
-## 5. 命名判定：dex 的嵌套注解优先于源码
+## 5. 命名判定：**dex 的嵌套注解不能用**（本轮推翻上一轮结论）
 
-- `.annotation system Ldalvik/annotation/InnerClass;` 里 **`name = "x"`** → 命名内部类；
-  **`name = null`** → 匿名类；
-- **以 dex 为准，源码为辅**：混淆器保留了嵌套关系，而源码版本可能不一致。
-  实例：`gE$a`（6 个 String 字段 + forValue/match，语义上是 `ConfigLine`）在 dex 里是
-  `Config` 的私有静态内部类；而 jgit 3.7.1/4.x/5.x 的 `ConfigLine` 都是**顶层类**。
-  → 说明 AIDE 的混淆器（FR1ENDS tools）把顶层类**搬进了外层类**。
-  正确命名：`org/eclipse/jgit/lib/Config$ConfigLine`、`Config$ConfigSnapshot`。
-- 反例（规则例外）：`abcd/PK → SystemReader$Default`（扁平探针指向命名内部类），
-  `eI$c`（`GitProtocolConstants$MultiAck` 却嵌在 `BasePackFetchConnection` 下）。
-  这类以**内容（字段/方法/常量）**判定，注释只作参考。
+上一轮本文写过"以 dex 的 `InnerClass` 注解为准、源码为辅"。**这条是错的**，已撤销。
+
+**证据（详见 `docs/JGIT-METADATA.md` §4）**：
+- `InnerClass.name` 在 324 个类里只有 **12 种取值**，其中 `Landroid/support/v4/media/a;` 复用了 **201 次**、
+  `Lcom/aide/appwizard/runtime/h;` **62 次**、`Lcom/aide/engine/c$b$i;` **39 次**——且与**后缀字母**一一对应
+  （`$a`→诱饵1、`$b`→诱饵2、`$c`→诱饵3）。`name` 本应是简单标识符，这里全是完整类型描述符。
+- `EnclosingClass` 指向诱饵命名空间 `a/b/a/d/*`（= "abcd" 逐字符插 `/`）、`a/b/c/*`、`La/ag;`；
+  `uJ`/`vJ`/`wJ` 三个**不同**的匿名类被写成同一个 `Labcd/UM;`（而 class 文件侧是 `abcd/xJ`）。
+- 只有 `accessFlags` 看起来是真的。
+
+**因此类级判定的顺序是**：
+
+1. **字段构成**（字段数量 + 类型多重集）——必过关卡，成员名对得上**不算证据**（`AE→NoteMap` 假证据教训）；
+2. **jgit 官方 jar 的成员形状 1:1 对照**（`javap -p`）+ 3.7.1 源码确认嵌套关系；
+3. **调用点**（匿名类归属只认这个）；
+4. `$` 只当**混淆器命名分组**的提示，不当"真嵌套"的证据。
+
+**实例（为什么 `$` 不能当嵌套证据）**：
+
+| 探针 | 混淆名暗示 | 实际（1:1 成员配对） | 正确目标 |
+|---|---|---|---|
+| `abcd/gE$a` | `Config` 的内部类 | 6 个 String 字段 + `forValue` + 2×`match` + 2×`eq*` + `toString` | **`org.eclipse.jgit.lib.ConfigLine`（顶层）** |
+| `abcd/gE$c` | 同上 | `List<ConfigLine>` + `Map` + `ConfigSnapshot baseState` + `(List, ConfigSnapshot)` 构造器 | **`ConfigSnapshot`（顶层）** |
+| `abcd/gE$b` | 同上 | `interface { T get(Config) }` | `Config$SectionParser` |
+| `abcd/eI$c` | `BasePackFetchConnection` 的内部类 | 3 个常量的枚举；BPFC 里有 `private MultiAck` 字段 | `GitProtocolConstants$MultiAck` |
+| `abcd/eI$a` | 同上 | `extends Exception` + 私有无参构造 | `BasePackFetchConnection$CancelledException`（本轮修正，原记 `$2`——那是 jgit 的 `$SwitchMap` 合成类） |
 
 ---
 
@@ -151,17 +179,11 @@ R8 把内部类命名成 `Outer$a`；只要我们把内层类映射到**与外�
 
 `verify_members.py` 只验证"改后的名字在目标类里存在且描述符形状一致"，**查不出**：
 
-1. **两个不同探针映射到同一个 名字+描述符**（自相矛盾）——需单独的"同名冲突"检查；
+1. **两个不同探针映射到同一个 名字+描述符**（自相矛盾）——需单独的"同名冲突"检查（`conflict_fix.py`）；
 2. **两个不同探针映射到同一个目标类名**——FART 会报重复（§2.1）；
-3. **成员被 R8 内联/合并后无对应**——这类只能靠"探针成员形状 ⊆ oracle 形状"的统计（`nopair`/`excess`）。
+3. **成员被 R8 内联/合并后无对应**——只能靠"探针成员形状 ⊆ oracle 形状"的统计（`nopair.py`/`excess.py`）。
 
-补充检查（每次出包前跑）：
-```bash
-# a) 同名同描述符冲突
-# b) 类目标重复
-# c) 接口字段 public static final
-# d) 是否存在 Methodref -> <clinit>
-```
+每次出包前跑的四项检查见 `docs/JGIT-PIPELINE.md` §2。
 
 ---
 
@@ -172,7 +194,8 @@ R8 把内部类命名成 `Outer$a`；只要我们把内层类映射到**与外�
   编译器生成的 `$SwitchMap` 数组（**dex 里没有 synthetic 标记**，容易被误算成"未还原"）；
 - 因此"新增一个类"会让分母变大、百分比**下降**，只有**绝对命中数**可比。
 
-当前基线（589 类）：方法 ~79%、字段 ~70%，成员映射 3740+ 条，`verify_members` 不一致 0。
+当前基线（589 类 / 3713 成员）：方法 **76.8%**（2406/3132）、字段 **70.0%**（1008/1440）、
+完全覆盖类 303、`verify_members` 不一致 0。
 
 ---
 
@@ -190,16 +213,15 @@ R8 把内部类命名成 `Outer$a`；只要我们把内层类映射到**与外�
 
 ## 9. 工具清单
 
+全部在 **`tools/jgit/`**，逐脚本说明见 `tools/jgit/README.md`。最常用的六个：
+
 | 工具 | 作用 |
 |---|---|
-| `tools/coverage.py` | 精确覆盖率（口径见 §7） |
-| `tools/verify_members.py` | 成员映射一致性（含 R8 白名单） |
-| `tools/rescore.py` / `typeprop.py` | 类级重打分 / 描述符+super 投票 |
-| `tools/keyclass.py` / `findclasses.py` | 用 JGitText 键 / 类型邻域找未映射的 jgit 类 |
-| `tools/jgittext.py` | 用 JGitText 消息键给成员定名 |
-| `tools/javadiff.py` / `fieldctx.py` / `fielddiff.py` | jadx 反编译产物 vs 源码的结构对齐 |
-| `tools/anonmap.py` | 单引用者类 → `<外层>$N`（同时解决跨包访问） |
-| `tools/nop_clinit.py` / 接口字段修复脚本 | 修 dex2jar 产物缺陷（§3） |
-| `tools/sync_maps.py` | 从 tsrg 重建 mappings.txt（头部固化在 `mappings_head.txt`） |
+| `rebuild_tsrg.py` | **tsv → tsrg → mappings.txt**（丢陈旧块、成员去重、查重复目标） |
+| `verify_members.py` | 成员映射一致性（含 R8 白名单） |
+| `coverage.py` | 精确覆盖率（口径见 §7） |
+| `conflict_fix.py` | 同名同描述符冲突裁决 |
+| `anonmap.py` | 单引用者类 → `<外层>$N`（同时解决跨包访问，§4） |
+| `dexlib.py` / `dexinner.py` / `dex_inner_all.py` | dex 元数据（注解）读取，见 `docs/JGIT-METADATA.md` |
 
-> 所有脚本的共同纪律：**按 `.class` 描述符定位类，不按文件名**（§1）。
+> 所有脚本的共同纪律：**按 `.class` 描述符 / dex 类定义定位类，不按文件名**（§1）。
