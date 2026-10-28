@@ -567,6 +567,11 @@ abcd/BH org/eclipse/jgit/internal/storage/pack/CachedPack
 	j6 ()J getDeltaCount
 	j6 (Labcd/MH;Labcd/UH;)Z hasObject
 abcd/BI org/eclipse/jgit/transport/PackTransport
+abcd/BJ org/eclipse/jgit/transport/TransportLocal$InternalLocalFetchConnection$2
+	DW val$out_r
+	FH val$in_w
+	Hw val$dst
+	j6 this$1
 abcd/BK org/eclipse/jgit/util/IO
 	j6 (Ljava/io/InputStream;[BI)I readFully
 	j6 (Ljava/io/InputStream;I)Ljava/nio/ByteBuffer; readWholeStream
@@ -624,6 +629,11 @@ abcd/CI org/eclipse/jgit/transport/PackedObjectInfo
 	DW (I)V setCRC
 	aM ()I getCRC
 	j6 (J)V setOffset
+abcd/CJ org/eclipse/jgit/transport/TransportLocal$InternalLocalPushConnection$1
+	DW val$out_r
+	FH val$in_w
+	Hw val$dst
+	j6 this$1
 abcd/CK org/eclipse/jgit/util/IntList
 	DW count
 	j6 entries
@@ -784,6 +794,22 @@ abcd/FB org/eclipse/jgit/api/SubmoduleUpdateCommand
 	<init> (Labcd/UE;)V <init>
 	Zo monitor
 	j6 (Labcd/LE;)Labcd/FB; setProgressMonitor
+abcd/FC org/eclipse/jgit/diff/SimilarityRenameDetector
+	Hw matrix
+	Zo tableOverflow
+	j6 reader
+	v5 renameScore
+	DW (I)I decodeFile
+	DW (Labcd/LE;)I buildMatrix
+	DW (Labcd/hC$b;Labcd/hC;)J size
+	FH (I)J encodeFile
+	j6 (Ljava/lang/String;Ljava/lang/String;)I nameScore
+	j6 (III)J encode
+	j6 (Labcd/rE;)Z isFile
+	Hw ()Z isTableOverflow
+	j6 (I)V setRenameScore
+	j6 (Labcd/LE;)V compute
+	FH (J)I score
 abcd/FD org/eclipse/jgit/events/IndexChangedListener
 	j6 (Labcd/ED;)V onIndexChanged
 abcd/FE org/eclipse/jgit/lib/ObjectLoader
@@ -1495,6 +1521,9 @@ abcd/PH org/eclipse/jgit/internal/storage/pack/PackWriter$1$1
 	remove ()V remove
 	hasNext ()Z hasNext
 	DW next
+abcd/PJ org/eclipse/jgit/transport/WalkPushConnection$1
+	DW this$0
+	j6 (Ljava/lang/String;[B)V writeFile
 abcd/PK org/eclipse/jgit/util/SystemReader$Default
 	DW ()Ljava/lang/String; getHostname
 	j6 (J)I getTimezone
@@ -1585,6 +1614,14 @@ abcd/RA org/eclipse/jgit/api/CheckoutResult
 abcd/RA$a org/eclipse/jgit/api/CheckoutResult$Status
 	<init> (Ljava/lang/String;I)V <init>
 	Zo $VALUES
+abcd/RC org/eclipse/jgit/dircache/DirCacheIterator
+	J0 subtreeId
+	QX currentEntry
+	u7 cache
+	J8 ()Labcd/QC; getDirCacheEntry
+	j6 (Labcd/IE;)Labcd/TJ; createSubtreeIterator
+	tp ()I idOffset
+	u7 ()[B idBuffer
 abcd/RE org/eclipse/jgit/lib/RefUpdate
 	DW (Z)Z tryLock
 	j6 (Ljava/lang/String;Z)V setRefLogMessage
@@ -1703,6 +1740,11 @@ abcd/SE org/eclipse/jgit/lib/RefWriter
 	j6 ()V writeInfoRefs
 	j6 refs
 	<init> (Ljava/util/Collection;)V <init>
+abcd/SF org/eclipse/jgit/revwalk/DepthGenerator
+	DW depth
+	FH walk
+	DW ()I outputType
+	j6 ()Labcd/dG; next
 abcd/SG org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation
 	FH ()I getWeight
 	j6 ()Labcd/yE; getDeltaBase
@@ -2120,6 +2162,12 @@ abcd/WI org/eclipse/jgit/transport/RefSpec
 	j6 (Z)Labcd/WI; setForceUpdate
 	VH (Ljava/lang/String;)Labcd/WI; setSource
 	Zo (Ljava/lang/String;)Labcd/WI; setDestination
+abcd/WJ org/eclipse/jgit/treewalk/FileTreeIterator
+	er fs
+	rN directory
+	rN ()[Labcd/_J$a; entries
+	j6 (Labcd/IE;)Labcd/TJ; createSubtreeIterator
+	j6 (Labcd/_J$a;)[B idSubmodule
 abcd/XA org/eclipse/jgit/api/CloneCommand
 	j6 (Labcd/UE;)V cloneSubmodules
 	j6 (Labcd/UE;Labcd/qI;)V checkout
@@ -2419,6 +2467,10 @@ abcd/ZG org/eclipse/jgit/internal/storage/file/ObjectDirectoryPackParser
 	j6 (Labcd/AI$f;Labcd/AI$d;)Labcd/AI$d; seekDatabase
 	j6 (Labcd/CI;Labcd/AI$d;)Labcd/AI$d; seekDatabase
 	tp ()Labcd/AI$f; onEndDelta
+abcd/ZH org/eclipse/jgit/transport/AmazonS3$1
+	Zo this$0
+	tp val$monitor
+	u7 val$md5
 abcd/ZI org/eclipse/jgit/transport/RemoteSession
 	j6 (Ljava/lang/String;I)Ljava/lang/Process; exec
 abcd/_A org/eclipse/jgit/api/CreateBranchCommand
@@ -2546,6 +2598,7 @@ abcd/_J org/eclipse/jgit/treewalk/WorkingTreeIterator
 	j3 entries
 	lg ()Labcd/UD; getIgnoreNode
 	j6 (Labcd/QC;)Labcd/_J$c; compareMetadata
+	j6 (Labcd/RC;)Labcd/rE; getIndexFileMode
 abcd/_J$a org/eclipse/jgit/treewalk/WorkingTreeIterator$Entry
 	j6 (Ljava/nio/charset/CharsetEncoder;)V encodeName
 	FH ()Labcd/rE; getMode
@@ -2914,6 +2967,8 @@ abcd/eC org/eclipse/jgit/diff/DiffAlgorithm
 abcd/eC$a org/eclipse/jgit/diff/DiffAlgorithm$SupportedAlgorithm
 	<init> (Ljava/lang/String;I)V <init>
 	FH $VALUES
+abcd/eD org/eclipse/jgit/errors/MissingBundlePrerequisiteException
+	j6 (Ljava/util/Map;)Ljava/lang/String; format
 abcd/eE org/eclipse/jgit/lib/BatchingProgressMonitor
 	DW alarmQueueKiller
 	j6 alarmQueue
@@ -3500,6 +3555,13 @@ abcd/lF org/eclipse/jgit/lib/ThreadSafeProgressMonitor
 	j6 (Ljava/lang/String;I)V beginTask
 	Hw ()V doUpdates
 	v5 ()Z isMainThread
+abcd/lG org/eclipse/jgit/revwalk/RevTag
+	J0 buffer
+	J8 tagName
+	we object
+	aM ()I getType
+	j3 ()Labcd/iG; getObject
+	j6 (Labcd/qG;[B)V parseCanonical
 abcd/lH org/eclipse/jgit/internal/storage/file/PackReverseIndex
 	j6 index
 	j6 (JJ)J findNextOffset
@@ -3588,6 +3650,10 @@ abcd/nB org/eclipse/jgit/api/MergeResult$MergeStatus$8
 	Hw ()Z isSuccessful
 	toString ()Ljava/lang/String; toString
 	<init> (Ljava/lang/String;I)V <init>
+abcd/nC org/eclipse/jgit/diff/HashedSequencePair
+	j6 cmp
+	j6 (Labcd/CC;)Labcd/lC; wrap
+	FH ()Labcd/mC; getComparator
 abcd/nD org/eclipse/jgit/errors/PackProtocolException
 abcd/nF org/eclipse/jgit/lib/UserConfig$1
 	<init> ()V <init>
@@ -4232,6 +4298,8 @@ abcd/wH org/eclipse/jgit/internal/storage/file/WindowCursor
 abcd/wI org/eclipse/jgit/transport/LongMap
 	DW (J)I index
 	j6 (JLjava/lang/Object;)Ljava/lang/Object; put
+abcd/wJ org/eclipse/jgit/transport/TransportHttp$3
+	j6 (Labcd/gE;)Labcd/xJ$b; parse
 abcd/wK org/eclipse/jgit/util/FS_Win32_Cygwin$1
 	run ()Ljava/lang/String; run
 	<init> ()V <init>
@@ -4427,6 +4495,18 @@ abcd/zF org/eclipse/jgit/merge/StrategyResolve
 	j6 ()Ljava/lang/String; getName
 	j6 (Labcd/UE;)Labcd/CF; newMerger
 	<init> ()V <init>
+abcd/zH org/eclipse/jgit/internal/storage/pack/BaseSearch
+	EQ idBuf
+	FH progress
+	Hw reader
+	VH edgeObjects
+	tp parser
+	v5 baseTrees
+	j6 (I)I modeForType
+	j6 ([BII)I nextSlash
+	j6 (Labcd/YD;II)V add
+	j6 (Labcd/YD;)[B readTree
+	j6 (I[BII)V addBase
 abcd/zI org/eclipse/jgit/transport/OperationResult
 	DW uri
 	FH updates
