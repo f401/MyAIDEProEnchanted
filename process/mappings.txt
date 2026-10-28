@@ -467,6 +467,8 @@ abcd/AI org/eclipse/jgit/transport/PackParser
 	j6 (Labcd/CI;Labcd/LE;)V resolveDeltas
 	j6 (Labcd/CI;I[B)V onInflatedObjectData
 	j6 (I[BLabcd/CI;)Z onAppendBase
+	er baseByPos
+	yS deferredCheckBlobs
 abcd/AI$c org/eclipse/jgit/transport/PackParser$InflaterStream
 	j6 ()V release
 	j6 (Labcd/AI$e;J)V open
@@ -1677,6 +1679,7 @@ abcd/TH org/eclipse/jgit/internal/storage/pack/PackWriter
 	j6 (Labcd/iG;I)V addObject
 	j6 (Labcd/NH;Labcd/IE;Labcd/YD;)[B buffer
 	j6 (Labcd/iG;)V addObject
+	Hw objectsLists
 abcd/TH$b org/eclipse/jgit/internal/storage/pack/PackWriter$PackingPhase
 	<init> (Ljava/lang/String;I)V <init>
 	Zo $VALUES
@@ -3272,6 +3275,13 @@ abcd/lJ$a org/eclipse/jgit/transport/TransportAmazonS3$DatabaseS3
 	j6 (Labcd/ME;)Labcd/ME$a; loose
 	Hw (Ljava/lang/String;)Labcd/RJ$a; open
 	j6 (Ljava/lang/String;Labcd/LE;Ljava/lang/String;)Ljava/io/OutputStream; writeFile
+abcd/lK org/eclipse/jgit/util/BlockList
+	j6 directory
+	v5 tailBlock
+	VH (I)[[Ljava/lang/Object; newDirectory
+	j6 ()[Ljava/lang/Object; newBlock
+	FH (Labcd/lK;)V addAll
+	j6 ([Ljava/lang/Object;II)V addAll
 abcd/mB org/eclipse/jgit/api/MergeResult$MergeStatus$5
 	Hw ()Z isSuccessful
 	toString ()Ljava/lang/String; toString
@@ -3842,6 +3852,9 @@ abcd/wH org/eclipse/jgit/internal/storage/file/WindowCursor
 	j6 (Labcd/aH;JZLabcd/OH;)V copyPackAsIs
 	DW ()Labcd/IE; newReader
 	j6 (Labcd/OH;Labcd/MH;Z)V copyObjectAsIs
+abcd/wI org/eclipse/jgit/transport/LongMap
+	DW (J)I index
+	j6 (JLjava/lang/Object;)Ljava/lang/Object; put
 abcd/wK org/eclipse/jgit/util/FS_Win32_Cygwin$1
 	run ()Ljava/lang/String; run
 	<init> ()V <init>
