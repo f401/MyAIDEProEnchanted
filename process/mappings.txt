@@ -996,6 +996,7 @@ abcd/IG org/eclipse/jgit/internal/storage/file/FileRepository
 	rN ()V loadRepoConfig
 	yS ()V loadUserConfig
 	u7 userConfig
+	tp repoConfig
 abcd/IJ org/eclipse/jgit/transport/UploadPack
 	EQ pckIn
 	FH db
@@ -1626,6 +1627,7 @@ abcd/RC org/eclipse/jgit/dircache/DirCacheIterator
 	j6 (Labcd/IE;)Labcd/TJ; createSubtreeIterator
 	tp ()I idOffset
 	u7 ()[B idBuffer
+	XL currentSubtree
 abcd/RE org/eclipse/jgit/lib/RefUpdate
 	DW (Z)Z tryLock
 	j6 (Ljava/lang/String;Z)V setRefLogMessage
@@ -2218,6 +2220,7 @@ abcd/XG org/eclipse/jgit/internal/storage/file/ObjectDirectory
 	EQ ()Labcd/GG; newCachedFileObjectDatabase
 	tp ()[Labcd/GG$a; myAlternates
 	J8 ()Ljava/util/Collection; getPacks
+	EQ alternates
 abcd/XG$b org/eclipse/jgit/internal/storage/file/ObjectDirectory$PackList
 	DW packs
 	j6 snapshot
@@ -2502,6 +2505,7 @@ abcd/_F org/eclipse/jgit/revwalk/ObjectWalk
 	j6 (Labcd/_F$a;)V releaseTreeVisit
 	VH (I)V growPathBuf
 	XL ()I getPathLength
+	Mr currVisit
 abcd/_F$a org/eclipse/jgit/revwalk/ObjectWalk$TreeVisit
 	DW obj
 	FH buf
@@ -3625,6 +3629,7 @@ abcd/mF org/eclipse/jgit/lib/TreeFormatter
 	j6 ([BIILabcd/rE;)Z fmtBuf
 	j6 ([BIILabcd/rE;Labcd/YD;)V append
 	j6 ([BIILabcd/rE;[BI)V append
+	FH overflowBuffer
 abcd/mG org/eclipse/jgit/revwalk/RevTree
 	aM ()I getType
 abcd/mH org/eclipse/jgit/internal/storage/file/RefDirectory$1

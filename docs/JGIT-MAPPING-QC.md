@@ -342,3 +342,17 @@
 换来的是“不再有任何自相矛盾”。
 
 **当前**：类 455、成员 3720、方法 2396/3019 = 79.4%、字段 992/1432 = 69.3%、完全覆盖类 274。
+
+## 12. 字段「上下文推断」（`tools/fieldctx.py`）
+
+思路（针对“字段有引用但访问者集合分不开”的那批）：同一方法内的**字段访问序列**对齐，
+用已映射字段当锚点。
+
+- 探针侧：jadx 反编译的 Java 里，把每个方法体中出现过的本类字段按出现顺序列出，已映射的翻译成 jgit 名，未映射的记 `?`；
+- 源码侧：同一个方法（探针方法名经 tsrg 翻成源码方法名）里的字段序列；
+- 若两边序列等长 → 逐位对齐，`?` 位置的源码字段即为答案；同一字段在多个方法里投票，要求 ≥2 票、占比 ≥60%、且无并列。
+
+采纳 5 条（全部一致票）：`IG(FileRepository).tp=repoConfig`、`RC(DirCacheIterator).XL=currentSubtree`、
+`XG(ObjectDirectory).EQ=alternates`、`_F(ObjectWalk).Mr=currVisit`、`mF(TreeFormatter).FH=overflowBuffer`。
+
+字段 992→996（69.6%），`verify` 不一致仍 0。
