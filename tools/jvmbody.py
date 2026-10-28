@@ -37,18 +37,20 @@ def parse(b):
         cnt=struct.unpack_from('>H',b,p)[0]; p+=2
         for _ in range(cnt):
             a,nm,ds,ac=struct.unpack_from('>HHHH',b,p); p+=8
-            code=None;cval=None
+            code=None;cval=None;sg=None
             for _ in range(ac):
                 an=struct.unpack_from('>H',b,p)[0]; ln=struct.unpack_from('>I',b,p+2)[0]
                 if kind=='m' and utf.get(an)=='Code':
                     cl=struct.unpack_from('>I',b,p+10)[0]
                     code=b[p+14:p+14+cl]
+                if utf.get(an)=='Signature':
+                    sg=utf.get(struct.unpack_from('>H',b,p+6)[0])
                 if kind=='f' and utf.get(an)=='ConstantValue':
                     ci=struct.unpack_from('>H',b,p+6)[0]
                     if ci in ints: cval=('I',ints[ci])
                     elif ci in strs: cval=('S',utf.get(strs[ci]))
                 p+=6+ln
-            members.append(dict(kind=kind,acc=a,name=utf.get(nm),desc=utf.get(ds),code=code,attrs=ac,cval=cval))
+            members.append(dict(kind=kind,acc=a,name=utf.get(nm),desc=utf.get(ds),code=code,attrs=ac,cval=cval,sig=sg))
     refmap={}
     for tag,idx,ci,ni in refs:
         ow=utf.get(cls.get(ci)); nn=nat.get(ni)
