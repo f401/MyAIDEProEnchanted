@@ -23,7 +23,7 @@ for n in z.namelist():
     if c and c['this']: ORC[c['this']]=c
 
 def ofeat(cl, code):
-    S=set(); R=set(); i=0; n=len(code or b'')
+    S=set(); R=set(); I=set(); i=0; n=len(code or b'')
     while i<n:
         op=code[i]
         if op==0x12 and i+1<n:
@@ -34,6 +34,9 @@ def ofeat(cl, code):
             k=int.from_bytes(code[i+1:i+3],'big'); s=cl['strs'].get(k)
             if s is not None and s in cl['utf']: S.add(cl['utf'][s])
             i+=3; continue
+        if op==0x10 and i+1<n: I.add(code[i+1] if code[i+1]<128 else code[i+1]-256); i+=2; continue
+        if op==0x11 and i+2<n: I.add(int.from_bytes(code[i+1:i+3],'big',signed=True)); i+=3; continue
+        if 0x02<=op<=0x08: I.add(op-3); i+=1; continue
         if 0xb2<=op<=0xb9 and i+2<n:
             idx=int.from_bytes(code[i+1:i+3],'big'); rm=cl['refmap'].get(idx)
             if rm: R.add(rm[0]+'->'+rm[1])
@@ -49,9 +52,10 @@ def ofeat(cl, code):
             np_=int.from_bytes(code[base+4:base+8],'big',signed=True); i=base+8+8*np_; continue
         if op==0xc4 and i+1<n: i+= 6 if code[i+1]==0x84 else 4; continue
         i+=JB.LEN.get(op,1)
-    return S,R
+    return S,R,I
 
 SRE=re.compile(r'const-string(?:/jumbo)?\s+v\d+,\s*"((?:[^"\\]|\\.)*)"')
+IRE=re.compile(r'const(?:/4|/16)?\s+v\d+,\s*(-?0x[0-9a-fA-F]+|-?\d+)')
 RRE=re.compile(r'L([A-Za-z0-9_$/$.]+);->([A-Za-z0-9_$<>]+)')
 def probe_members():
     out={}
@@ -74,7 +78,8 @@ def probe_members():
             body=mm.group(2)
             S={x.replace('\\"','"') for x in SRE.findall(body)}
             R={a+'->'+c for a,c in RRE.findall(body)}
-            L.append(('m',n_,d_,norm(d_),'static' in tl,'synthetic' in tl or 'bridge' in tl,(S,R)))
+            I={int(x,16) if x.lower().startswith(('0x','-0x')) else int(x) for x in IRE.findall(body)}
+            L.append(('m',n_,d_,norm(d_),'static' in tl,'synthetic' in tl or 'bridge' in tl,(S,R,I)))
         out[cn]=L
     return out
 
@@ -116,17 +121,18 @@ def main(apply=False):
             cand=[m for m in oc['members'] if m['kind']==kind and m['desc']==d and bool(m['acc']&0x8)==fst and (kind,m['name']) not in taken]
             if len(cand)<2: continue
             if kind!='m' or not feat: stat['no_evidence']+=1; continue
-            S,R=feat
-            if not S and not R: stat['no_evidence']+=1; continue
+            S,R,I=feat
+            if not S and not R and not I: stat['no_evidence']+=1; continue
             scored=[]
             Rn={x.split('->')[1] for x in R}
             for m in cand:
-                So,Ro=ofeat(oc,m['code'])
+                So,Ro,Io=ofeat(oc,m['code'])
                 Ron={x.split('->')[1] for x in Ro}
                 ss=len(S&So)/max(1,len(S)) if S else None
                 rr=len(R&Ro)/max(1,len(R)) if R else None
                 rn=len(Rn&Ron)/max(1,len(Rn)) if Rn else None
-                parts=[(x,w) for x,w in ((ss,2),(rr,1),(rn,1)) if x is not None]
+                iv=len(I&Io)/max(1,len(I)) if I else None
+                parts=[(x,w) for x,w in ((ss,2),(rr,1),(rn,1),(iv,1)) if x is not None]
                 sc=sum(x*w for x,w in parts)/sum(w for _,w in parts)
                 scored.append((sc,m['name'],len(S&So),len(Rn&Ron)))
             scored.sort(reverse=True)
