@@ -1230,6 +1230,24 @@ abcd/MK$b org/eclipse/jgit/util/RefMap$SetIterator
 	remove ()V remove
 	hasNext ()Z hasNext
 	DW (Labcd/ME;)Labcd/MK$a; toEntry
+abcd/NC org/eclipse/jgit/dircache/DirCacheCheckout
+	DW updated
+	VH builder
+	Zo dc
+	j6 repo
+	tp workingTree
+	DW (Ljava/lang/String;)V remove
+	j6 (Labcd/QC;)V keep
+	j6 (Labcd/UE;Ljava/io/File;Labcd/QC;Labcd/IE;)V checkoutEntry
+	j6 (Labcd/YJ;Labcd/yE;)V addTree
+	j6 (Ljava/io/File;)V removeEmptyParents
+	j6 (Ljava/lang/String;Labcd/QC;Labcd/TJ;Labcd/TJ;)V conflict
+	j6 (Ljava/lang/String;Labcd/yE;Labcd/rE;)V update
+	j6 (Labcd/yE;Labcd/rE;Labcd/yE;Labcd/rE;)Z equalIdAndMode
+	j6 (Ljava/lang/String;)Z isModifiedSubtree_IndexWorkingtree
+	j6 (Ljava/lang/String;Ljava/lang/String;)Z isSamePrefix
+	j6 (Z)V setFailOnConflict
+	Zo ()V cleanUpConflicts
 abcd/NH org/eclipse/jgit/storage/pack/PackConfig
 	j6 (Labcd/gE;)V fromConfig
 	DW ()I getMaxDeltaDepth
@@ -2932,6 +2950,9 @@ abcd/fB org/eclipse/jgit/api/ListBranchCommand$1
 abcd/fC org/eclipse/jgit/diff/DiffConfig$1
 	<init> ()V <init>
 	j6 (Labcd/gE;)Labcd/gC; parse
+abcd/fD org/eclipse/jgit/errors/MissingObjectException
+	j6 missing
+	j6 ()Labcd/yE; getObjectId
 abcd/fG org/eclipse/jgit/revwalk/RevFlag
 	DW walker
 	FH name
@@ -3154,6 +3175,9 @@ abcd/hI org/eclipse/jgit/transport/BundleFetchConnection
 abcd/hJ org/eclipse/jgit/transport/TransferConfig$1
 	<init> ()V <init>
 	j6 (Labcd/gE;)Labcd/iJ; parse
+abcd/hK org/eclipse/jgit/treewalk/filter/PathFilterGroup
+	j6 ([Labcd/fK;)Labcd/jK; create
+	DW (Ljava/util/Collection;)Labcd/jK; createFromStrings
 abcd/hK$a org/eclipse/jgit/treewalk/filter/PathFilterGroup$Group
 	j6 ()Z shouldBeRecursive
 	j6 (Labcd/YJ;)Z include
