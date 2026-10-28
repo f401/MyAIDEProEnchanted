@@ -250,3 +250,39 @@
 
 **当前**：类 **412**、成员 **3464**、方法 **2227/2745 = 81.1%**、字段 **891/1256 = 70.9%**、
 完全覆盖类 **258**、`verify_members` 不合格 **3 条**（全部是 R8 签名重写造成，名字本身正确）。
+
+## 9. 第七轮：JGitText 键做类级识别 + 校验白名单（类 440）
+
+`tools/keyclass.py`：用**类级** JGitText 键集合识别未映射的 jgit 类（键名未被混淆，完全不依赖描述符翻译）。
+扫 108 个「引用 JGitText / 引用已映射 jgit 类型」的未映射类，逐个用 `validate_cls` 复核：
+
+| 探针 | 判定 | 配对 |
+|---|---|---|
+| `sC$a$b` | `MyersDiff$MiddleEdit$EditPaths` | 26/26 |
+| `IG` | `file/FileRepository` | 15/15 |
+| `IJ` | `transport/UploadPack` | 45/54 |
+| `NC` | `dircache/DirCacheCheckout` | 29/32（先与 ApplyCommand 并列 0.50，用配对率裁决：ApplyCommand 0/32 且 super 不符） |
+| `pI` | `transport/FetchProcess` | 25/29 |
+| `xF` | `merge/ResolveMerger` | 29/37 |
+| `DG` | `file/CachedObjectDirectory` | 16/25 |
+| `sH`/`AF$a`/`ZF`/`BK`/`_K`/`aJ`/`AH`/`SA`/`MI`/`mH`/`cD`/`oJ`/`tB`/`uD`/`VC`/`fD`/`hK`/`mJ`/`tJ$b`/`tJ$c`/`HD` | 见 commit | 均 ≥0.8 或 super 前缀直接对上 |
+
+几个值得记的裁决：
+- `HD=ListenerList`：之前因配对 2/5 被否，`Config.java:80` 有 `private final ListenerList listeners`，
+  探针 `Config.FH` 的类型正是 HD → 源码直证，恢复。
+- `tJ$b/tJ$c`：与 `TransportGitSsh$SshFetchConnection/$SshPushConnection` 指纹打平，
+  用 `super` 区分：`tJ$b.super=abcd/eI(BasePackFetchConnection)`、`tJ$c.super=abcd/gI(BasePackPushConnection)`。
+- `AH` vs `GH`：两者都引用了 BinaryDelta 的键；`AH` 的 3 个方法描述符全部命中 BinaryDelta，
+  `GH` 11 个方法只命中 2 个 → `AH=BinaryDelta`，`GH` 另寻（它 `extends InputStream` 且有 11 个字段，
+  形似 PackFile/PackParser 的流式读取器，暂未定）。
+
+### 校验脚本加 R8 白名单
+
+`verify_members.py` 内置 `R8={(KC,writeTo),(wH,inflate),(wH,newObjectToPack)}`，
+这三条是 R8 的参数消除/类型改宽造成的签名差异，不计为错误。现在输出：
+**成员映射 3664 条，不一致 0 条，已知 R8 签名重写 3 条**。
+
+### 最终状态
+
+类 **440**、成员映射 **3664**、方法 **2358/2948 = 80.0%**、字段 **953/1376 = 69.3%**、完全覆盖类 **268**。
+（R8 删除/无同形对应：方法 856、字段 645，不入分母）

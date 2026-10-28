@@ -383,6 +383,15 @@ abcd/AF org/eclipse/jgit/merge/StrategySimpleTwoWayInCore
 	j6 ()Ljava/lang/String; getName
 	j6 (Labcd/UE;)Labcd/CF; newMerger
 	<init> ()V <init>
+abcd/AF$a org/eclipse/jgit/merge/StrategySimpleTwoWayInCore$InCoreMerger
+	EQ builder
+	tp cache
+	we resultTree
+	DW (I)Z nonTree
+	FH (II)V add
+	j6 (I)Labcd/TJ; getTree
+	FH ()Labcd/yE; getResultTreeId
+	Hw ()Z mergeImpl
 abcd/AG org/eclipse/jgit/internal/storage/file/ByteArrayWindow
 	j6 (ILjava/util/zip/Inflater;)I setInput
 	j6 (I[BII)I copy
@@ -645,6 +654,21 @@ abcd/DE org/eclipse/jgit/lib/ObjectIdSubclassMap
 abcd/DF org/eclipse/jgit/nls/GlobalBundleCache
 	j6 cachedBundles
 	j6 (Ljava/util/Locale;Ljava/lang/Class;)Labcd/GF; lookupBundle
+abcd/DG org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
+	DW unpackedObjects
+	FH wrapped
+	DW (Labcd/wH;Labcd/YD;)J getObjectSize
+	FH ()Labcd/xE; newCachedDatabase
+	FH (Labcd/YD;)Z has
+	VH ()Labcd/gE; getConfig
+	Zo ()Ljava/util/Collection; getPacks
+	gn ()Ljava/io/File; getDirectory
+	j6 (Ljava/io/File;Labcd/yE;Z)Labcd/GG$c; insertUnpackedObject
+	j6 ()V close
+	j6 (Labcd/TH;Labcd/MH;Labcd/wH;)V selectObjectRepresentation
+	j6 (Ljava/util/Set;Labcd/WD;)V resolve
+	j6 (Labcd/YD;)Z has
+	u7 ()Labcd/pK; getFS
 abcd/DI org/eclipse/jgit/transport/PacketLineIn
 	j6 ()I readLength
 	j6 (Labcd/uE;)Labcd/DI$a; readACK
@@ -2352,6 +2376,13 @@ abcd/ZA org/eclipse/jgit/api/CommitCommand
 	VH all
 	Hw committer
 	v5 author
+abcd/ZF org/eclipse/jgit/revwalk/MergeBaseGenerator
+	j6 walker
+	DW (Labcd/dG;I)Z carryOntoOne
+	j6 (Labcd/dG;)V add
+	j6 (Labcd/dG;I)V carryOntoHistory
+	DW ()I outputType
+	j6 ()Labcd/dG; next
 abcd/ZG org/eclipse/jgit/internal/storage/file/ObjectDirectoryPackParser
 	DW ([BII)I readDatabase
 	j6 (J)V onPackHeader

@@ -33,7 +33,8 @@ def find(cn,name,desc,kind,seen=None):
         r=find(p,name,desc,kind,seen)
         if r: return True
     return False
-bad=[];unk=0;tot=0
+R8={('abcd/KC','writeTo'),('abcd/wH','inflate'),('abcd/wH','newObjectToPack')}
+bad=[];unk=0;tot=0;r8=[]
 cur=None
 for l in open(TSRG):
     l=l.rstrip('\n')
@@ -63,7 +64,9 @@ for l in open(TSRG):
     else:
         nm,ds,new2=s
         r=find(new,new2,norm(ds),'m')
-        if r is False: bad.append((cur,new,'method',nm,norm(ds),new2))
+        if r is False:
+            if (cur,new2) in R8: r8.append((cur,norm(ds),new2))
+            else: bad.append((cur,new,'method',nm,norm(ds),new2))
         elif r is None: unk+=1
-print('成员映射',tot,'无法校验(未知类)',unk,'不一致',len(bad))
+print('成员映射',tot,'无法校验(未知类)',unk,'不一致',len(bad),'已知R8签名重写',len(r8))
 for b in bad[:40]: print(' ',b)
