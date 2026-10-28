@@ -27,7 +27,10 @@ java -jar ForgeAutoRenamingTool-1.0.8-all.jar \
   --map    mappings.txt
 ```
 
-当前规模：**589 个类 / 3713 个成员**（方法 2406/3132 = 76.8%，字段 1008/1440 = 70.0%）。
+当前规模：**589 个类 / 3780 个成员**（方法 2456/3132 = 78.4%，字段 1008/1440 = 70.0%）。
+
+改名的输入基线 `process/base/merged_ok.jar` 已入库，指纹见 `process/SHA256SUMS`；
+复现与判等命令见 `process/README.md`（判等用**内容指纹**，不用整包 sha256）。
 
 > ⚠️ 不要直接编辑 `mappings.txt`：唯一真相是 `~/out/work/jgit_map_clean.tsv`，
 > 改完跑 `python3 tools/jgit/rebuild_tsrg.py` 重新生成。

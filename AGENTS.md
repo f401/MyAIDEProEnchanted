@@ -142,18 +142,21 @@ awk '!/^\t/ && NF>=2 {print $2}' process/mappings.txt | sort | uniq -d   # 期�
 | 文件 | 内容 |
 |---|---|
 | `~/out/work/jgit_map_clean.tsv` | 类映射 **589** 条（`探针<TAB>目标<TAB>证据`） |
-| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **3713** 条（方法 2544 + 字段 1169，派生文件） |
-| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4302** 行 |
+| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **3780** 条（方法 2611 + 字段 1169，派生文件） |
+| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4369** 行 |
+| `process/base/merged_ok.jar` | **改名输入基线（已入库）** + `process/SHA256SUMS` 指纹 |
 
-现状：方法 2406/3132 = **76.8%**、字段 1008/1440 = **70.0%**、完全覆盖类 303。
+现状：方法 2456/3132 = **78.4%**、字段 1008/1440 = **70.0%**、完全覆盖类 307。
 计数别用 `grep '^[^\t]'`（BRE 里 `\t` 不是 TAB），用 `awk '!/^\t/'`。
 
 改名与出 dex：
 
 ```bash
 cd process
+sha256sum -c SHA256SUMS                      # 输入基线校验
 java -Xmx900m -jar ForgeAutoRenamingTool-1.0.8-all.jar \
-  --input ~/out/fart/merged_ok.jar --output ~/out/fart/r_vN.jar --map mappings.txt
+  --input base/merged_ok.jar --output ~/out/fart/r_vN.jar --map mappings.txt
+python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_vN.jar --check <期望 manifest>   # 内容判等
 java -Xmx900m -cp d8.jar com.android.tools.r8.D8 --release --min-api 26 --thread-count 2 \
   --lib android.jar --output ~/out/dexN ~/out/fart/r_vN.jar
 ```

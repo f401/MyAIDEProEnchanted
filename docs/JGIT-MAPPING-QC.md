@@ -443,3 +443,95 @@ tH$a$$ExternalSyntheticBackportWithForwarding0 xJ$d$a zD zJ$a
 
 > 与上一轮"方法 79.4%"的差异**不是退步**：分母因新增类从 3019 涨到 3132，
 > 绝对命中数 2396 → 2406（+10）。口径说明见 `docs/BUILD-PITFALLS.md` §7。
+
+---
+
+## 14. 第九轮：把「改名」变成可复现（以及 FART 输出不确定的根因）
+
+本轮的目标不是提覆盖率，而是让**仓库自己能产出和别人一样的 jar**。
+
+### 14.1 基线 jar 入库
+
+`process/base/merged_ok.jar`（25.5 MB）入仓 = FART 的 `--input`。
+再加上已有的 `process/src/classes{,2,3,4,5}.jar`（本轮补齐 4/5）和 `mappings.txt`，
+**改名这一步不再依赖 `$HOME` 里的任何中间产物**：
+
+```bash
+cd process
+sha256sum -c SHA256SUMS          # 10 个输入/工具，全 OK
+java -Xmx900m -jar ForgeAutoRenamingTool-1.0.8-all.jar \
+  --input base/merged_ok.jar --output ~/out/fart/r_v13.jar --map mappings.txt
+```
+
+指纹表在 `process/SHA256SUMS`；`r_v13.jar` 的期望内容指纹
+`6e440b94…bf6c4b`（`tools/jgit/jar_manifest.py --check` 可校验）。
+
+> 判等**必须用内容指纹**：FART 写 zip 的元数据不稳定，同一输入两次产出差几个字节，
+> 但逐类内容相同。
+
+### 14.2 FART 输出**不确定**：真因是「映射没沿继承链闭合」
+
+比对两次独立运行（同输入、同 mapping、同 JDK）→ **3 个类内容不同**，差别在成员名：
+`org.eclipse.jgit.lib.Ref.isPeeled` vs `isSymbolic`。
+
+根因链：
+1. R8/ProGuard 为保住虚分派，**同一个 override 家族用同一个混淆名**；
+2. `abcd/ME`（`Ref` 接口）的两个 `()Z` 方法**完全没映射**；
+3. `abcd/BE`（`ObjectIdRef`）把 `Zo ()Z` 判成 `isSymbolic`，`abcd/kF`（`SymbolicRef`）判成 `isPeeled`
+   —— 同一家族两个名字；
+4. FART 重写 `invokeinterface` 时找不到精确 key，**沿继承链兜底查找**，
+   兜底结果取决于 HashMap 顺序 → 每次不同；错的那一半运行时 `AbstractMethodError`/调错方法。
+
+方法体一眼定案（javap -c）：
+
+| 探针 | 方法 | 字节码 | 结论 |
+|---|---|---|---|
+| `kF`(SymbolicRef) | `Zo ()Z` | `iconst_1; ireturn` | `isSymbolic`（返回 true） |
+| `kF`(SymbolicRef) | `Hw ()Z` | `getLeaf().Hw()` | `isPeeled`（委托） |
+| `BE`(ObjectIdRef) | `Zo ()Z` | `iconst_0; ireturn` | `isSymbolic`（返回 false） |
+
+修法：给 `abcd/ME` 补 `Zo→isSymbolic`、`Hw→isPeeled`；把 `abcd/kF` 的 `Zo` 从 `isPeeled`
+改成 `isSymbolic` 并补 `Hw→isPeeled`（共 3 条净增）。**改完两次运行内容完全一致。**
+
+### 14.3 新工具：`inherit_check.py`
+
+规则：若探针 P 把 `(旧名,描述符)` 映射成 n，而 P 在**混淆侧**的某个祖先也声明了同一个
+`(旧名,描述符)`，则祖先必须映射成同一个 n。
+
+```
+CONFLICT  祖先映射成别的名字 → 运行时分派错（必须逐条裁决）
+MISSING   祖先还没映射 → 调用点靠兜底，结果不确定（可自动继承）
+```
+
+首次运行：**CONFLICT 26 / MISSING 78**（去重后 78 个祖先成员）。按规则自动补了 69 条，
+再跑 `verify_members.py` 发现 **5 条名字在 oracle 里根本不存在**（自动补的"一致"≠"正确"），
+删掉后：`verify_members` 不一致 0、MISSING 降到 **16（去重 14）**、成员 3713 → **3780**。
+
+> 教训：`--apply` 只是省手工，**必须**用 `verify_members` 复核；`CONFLICT` 不能自动改。
+
+### 14.4 剩余待裁决（下一轮的入口）
+
+`CONFLICT 26` 全部是"同一组名字在父子类里被**轮换**配错"，典型三条：
+
+| 子类 | 祖先 | 键 | 子类判 | 祖先判 |
+|---|---|---|---|---|
+| `abcd/EJ` | `abcd/DJ` | `FH ()Ljava/util/Set;` | getRequiredFields | getSchemes |
+| `abcd/EJ` | `abcd/DJ` | `Hw ()Ljava/util/Set;` | getOptionalFields | getRequiredFields |
+| `abcd/EJ` | `abcd/DJ` | `v5 ()Ljava/util/Set;` | getSchemes | getOptionalFields |
+
+`abcd/kJ`、`abcd/nJ` 同样继承 `DJ`，说明**要么 `DJ` 三个名字整体轮换错了，要么三个子类错了**。
+这类必须拿方法体（谁会调用、返回什么）逐个定，不能靠模式。
+
+另外 `abcd/GJ$a`/`abcd/lJ$a` 继承 `abcd/RJ` 的 `getAlternates`/`getPackNames` 也是成对轮换。
+
+### 14.5 本轮后的基线
+
+| 指标 | 上一轮 | 本轮 |
+|---|---|---|
+| 类映射 | 589 | 589 |
+| 成员映射 | 3713 | **3780**（方法 2611 + 字段 1169） |
+| 方法覆盖 | 2406/3132 = 76.8% | **2456/3132 = 78.4%** |
+| 字段覆盖 | 1008/1440 = 70.0% | 1008/1440 = 70.0% |
+| 完全覆盖类 | 303 | **307** |
+| `verify_members` | 不一致 0 | 不一致 0 |
+| FART 确定性 | 不确定（3 类漂移） | **两次运行内容一致** |

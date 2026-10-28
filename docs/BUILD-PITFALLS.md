@@ -13,9 +13,9 @@
   → dex2jar（= process/src/classes*.jar，合并成 ~/out/fart/merged.jar）   # 有缺陷，见 §3
   → 修 <clinit> 误引用（tools/jgit/nop_clinit.py 思路）                     # §3.1
   → 修接口字段标志（public static final）                                   # §3.2
-= ~/out/fart/merged_ok.jar
-  → tsv → rebuild_tsrg.py → mappings.txt（589 类 / 3713 成员）              # §2
-  → FART                                                                  # §2、§4
+= process/base/merged_ok.jar（已入库，sha256 见 process/SHA256SUMS）
+  → tsv → rebuild_tsrg.py → mappings.txt（589 类 / 3780 成员）              # §2
+  → FART（+ jar_manifest.py 校验内容指纹）                                # §2、§4、§2.5
 = ~/out/fart/r_vN.jar
   → D8（--release --min-api 26 --lib android.jar）                         # §3、JGIT-PIPELINE §4
   → 换 dex / zipalign / 签名
@@ -80,6 +80,31 @@ awk '!/^\t/ && NF>=2 {print $1}' mappings.txt | sort | uniq -d    # 左值重复
 `merged_pubcls.jar`（做过类级 public 化的）会让 FART 在 `a/a/i` 上崩：
 `RuntimeException: Failed to execute task a/a/i` → `IllegalArgumentException`。
 **用 `merged_ok.jar`**（只修 §3 的两处，不动访问标志）。
+
+### 2.5 FART 输出**不确定**：同一输入两次产出内容不同（本轮新发现）
+**症状**：输入 jar 和 mappings.txt 都没动，跑两次 FART，`jar_manifest.py` 报
+「3 个类内容不同」；差别落在**成员名**上（`Ref.isPeeled` vs `Ref.isSymbolic`）。
+
+**根因**：**映射没沿继承链闭合**。R8/ProGuard 为保住虚分派，同一个 override 家族用同一个混淆名。
+如果子类把 `Zo ()Z` 判成 A、父接口把 `Zo ()Z` 判成 B（或父接口**根本没判**），
+FART 重写 `invokeinterface` 时找不到精确的 `(owner,name,desc)`，就**沿继承链兜底查找**，
+兜底结果取决于 HashMap 遍历顺序 → 每次结果不同。更糟的是错的那一半在运行时会
+`AbstractMethodError` 或调错方法。
+
+**实例**：`abcd/ME`（`Ref` 接口）的两个 `()Z` 方法**完全没映射**，而
+`abcd/BE`（`ObjectIdRef`）把 `Zo ()Z` 判成 `isSymbolic`、`abcd/kF`（`SymbolicRef`）判成 `isPeeled`
+——同一个 R8 家族被判成两个名字。用方法体一眼定案：
+`kF.Zo()` 是 `iconst_1;ireturn`（`isSymbolic` 返回 true）、`kF.Hw()` 是 `getLeaf().Hw()`（即 `isPeeled`）；
+`BE.Zo()` 是 `iconst_0`（`ObjectIdRef.isSymbolic` 返回 false）。补上 3 条映射后**两次运行完全一致**。
+
+**正确做法**：
+```bash
+python3 tools/jgit/inherit_check.py        # CONFLICT=0 且 MISSING 尽量小
+```
+- `CONFLICT`（祖先判成别的名字）必须**逐条裁决**，不能自动改；
+- `MISSING`（祖先还没命名）可自动继承子类的名字（`--apply`），但**必须**随后跑
+  `verify_members.py` 兜底——实测自动补 69 条里有 5 条名字在 oracle 里不存在，要删掉。
+- 出包前用 `jar_manifest.py` 跑两次 FART，**内容指纹必须相同**。
 
 ---
 
@@ -194,8 +219,8 @@ Field may have only one of public/protected/private, La/ah;.a: 13(public private
   编译器生成的 `$SwitchMap` 数组（**dex 里没有 synthetic 标记**，容易被误算成"未还原"）；
 - 因此"新增一个类"会让分母变大、百分比**下降**，只有**绝对命中数**可比。
 
-当前基线（589 类 / 3713 成员）：方法 **76.8%**（2406/3132）、字段 **70.0%**（1008/1440）、
-完全覆盖类 303、`verify_members` 不一致 0。
+当前基线（589 类 / 3780 成员）：方法 **78.4%**（2456/3132）、字段 **70.0%**（1008/1440）、
+完全覆盖类 307、`verify_members` 不一致 0、FART 两次运行内容一致。
 
 ---
 
@@ -218,6 +243,8 @@ Field may have only one of public/protected/private, La/ah;.a: 13(public private
 | 工具 | 作用 |
 |---|---|
 | `rebuild_tsrg.py` | **tsv → tsrg → mappings.txt**（丢陈旧块、成员去重、查重复目标） |
+| `inherit_check.py` | 映射是否沿继承链闭合（不闭合 = FART 输出不确定，§2.5） |
+| `jar_manifest.py` | jar 的**内容指纹**（与 zip 布局无关），用来判"两次产物是否一样" |
 | `verify_members.py` | 成员映射一致性（含 R8 白名单） |
 | `coverage.py` | 精确覆盖率（口径见 §7） |
 | `conflict_fix.py` | 同名同描述符冲突裁决 |

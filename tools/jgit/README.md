@@ -17,7 +17,8 @@
 | `~/out/oracle/jgit/j-3.7.1.201504261725-r.jar` | 官方 jgit 3.7.1（**判据来源**） | 版本指纹定位（`vprobe.py`） |
 | `~/src/jgit/` | jgit 3.7.1 源码 669 个 `.java` | 解压 `jgit-src.jar` |
 | `~/src/app_decomp/sources/abcd/*.java` | jadx 1.5.6 反编译的 353 个探针类 | `jadx` |
-| `~/out/fart/merged.jar` / `merged_ok.jar` | dex2jar 合并产物 / 修好缺陷的可改名输入 | `process/src/classes*.jar` |
+| `process/base/merged_ok.jar` | **改名输入基线（已入库）**，sha256 见 `process/SHA256SUMS` | dex2jar 合并 + 修 2 处缺陷 |
+| `process/src/classes{,2,3,4,5}.jar` | 原始 5 个 dex 的 dex2jar 产物（已入库） | dex2jar |
 | `~/icd/orig/classes*.dex` | **原始 5 个 dex**（dex 元数据来源） | 从 `AIDE Pro_2.8.7-freely_orig_src.apk.orig` 解出 |
 | `/storage/emulated/0/MyAIDEProEnchanted/src/smali/abcd/` | 探针 smali（2745 个文件，文件名不可信） | apktool |
 
@@ -31,19 +32,22 @@
 # ① 改 tsv（人工/脚本），然后一步重建 tsrg + mappings.txt
 python3 tools/jgit/rebuild_tsrg.py
 
-# ② 两道闸（必须过）
+# ② 三道闸（必须过）
 python3 tools/jgit/verify_members.py      # 期望：不一致 0
 awk '!/^\t/ && NF>=2 {print $2}' process/mappings.txt | sort | uniq -d   # 期望：空
+python3 tools/jgit/inherit_check.py       # CONFLICT 逐条裁决；MISSING 尽量小
 
-# ③ 改名（FART，单 jar 输入）
-java -Xmx900m -jar process/ForgeAutoRenamingTool-1.0.8-all.jar \
-  --input  ~/out/fart/merged_ok.jar \
-  --output ~/out/fart/r_vN.jar \
-  --map    process/mappings.txt
+# ③ 改名（FART，单 jar 输入；输入基线已入库）
+cd process && sha256sum -c SHA256SUMS
+java -Xmx900m -jar ForgeAutoRenamingTool-1.0.8-all.jar \
+  --input base/merged_ok.jar --output ~/out/fart/r_vN.jar --map mappings.txt
+
+# ③' 判等/确定性：内容指纹（跑两次，两次必须相同）
+python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_vN.jar --check <期望的 manifest>
 
 # ④ 出 dex（D8；jar → dex，注意 min-api≥21 时禁用 --main-dex-list）
-java -Xmx900m -cp process/d8.jar com.android.tools.r8.D8 \
-  --release --min-api 26 --thread-count 2 --lib process/android.jar \
+java -Xmx900m -cp d8.jar com.android.tools.r8.D8 \
+  --release --min-api 26 --thread-count 2 --lib android.jar \
   --output ~/out/dexN ~/out/fart/r_vN.jar
 ```
 
@@ -115,6 +119,8 @@ java -Xmx900m -cp process/d8.jar com.android.tools.r8.D8 \
 | 脚本 | 作用 |
 |---|---|
 | `rebuild_tsrg.py` | **tsv → tsrg → mappings.txt**，丢弃陈旧类块、成员去重、查目标重复 |
+| `inherit_check.py` | 映射是否沿继承链闭合（不闭合 ⇒ FART 结果不确定 + 分派错） |
+| `jar_manifest.py` | jar 的**内容指纹**（与 zip 布局/时间戳无关），判"两次产物是否一样" |
 | `sync_maps.py` | 旧版（只拼 mappings.txt，不做去重）→ 已被 `rebuild_tsrg.py` 取代 |
 | `nop_clinit.py` | 修 dex2jar 产物：方法体里对 `<clinit>` 的 `invokestatic` 改 NOP（D8 不接受） |
 | `vprobe.py` | 用探针观察到的签名当指纹，定位 AIDE 内置 jgit 的真实版本 |
@@ -129,6 +135,9 @@ java -Xmx900m -cp process/d8.jar com.android.tools.r8.D8 \
 4. **不要全局放宽访问标志**（`acc|1` 会造出 `0x13` public+private → dex 校验失败）；跨包访问用"嵌套命名"解决。
 5. 混淆名里的 `$` **只说明混淆器的命名分组**，不等于真嵌套（`gE$a` 是顶层 `ConfigLine`）。
 6. 覆盖率分母随类数变化，**只比绝对命中数**。
+7. **映射必须沿继承链闭合**：同一 R8 override 家族只能有一个新名（`inherit_check.py`）。
+   不闭合时 FART 靠兜底解析 → 同一输入两次产出不同，且运行时分派错。
+8. **判"产物一样"用内容指纹**（`jar_manifest.py`），不要用整包 sha256（zip 元数据不稳定）。
 
 ---
 
