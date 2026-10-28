@@ -998,6 +998,7 @@ abcd/IG org/eclipse/jgit/internal/storage/file/FileRepository
 	er ()V loadSystemConfig
 	rN ()V loadRepoConfig
 	yS ()V loadUserConfig
+	u7 userConfig
 abcd/IJ org/eclipse/jgit/transport/UploadPack
 	EQ pckIn
 	FH db
@@ -1025,6 +1026,9 @@ abcd/IJ org/eclipse/jgit/transport/UploadPack
 	j6 (Ljava/lang/String;)V reportErrorDuringNegotiate
 	j6 (Z)V sendPack
 	v5 ()Z okToGiveUp
+	KD noDone
+	a8 depth
+	XL clientShallowCommits
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 	Hw REACHABLE_COMMIT_TIP
@@ -1283,6 +1287,7 @@ abcd/MK$b org/eclipse/jgit/util/RefMap$SetIterator
 	remove ()V remove
 	hasNext ()Z hasNext
 	DW (Labcd/ME;)Labcd/MK$a; toEntry
+	DW resolvedIdx
 abcd/NC org/eclipse/jgit/dircache/DirCacheCheckout
 	DW updated
 	VH builder
@@ -1407,6 +1412,7 @@ abcd/OH org/eclipse/jgit/internal/storage/pack/PackOutputStream
 	j6 (Labcd/MH;)V writeObject
 	j6 (Labcd/MH;J)V writeHeader
 	v5 ()J length
+	Zo count
 abcd/OI org/eclipse/jgit/transport/ReceiveCommand
 	DW ()Labcd/yE; getOldId
 	FH ()Labcd/yE; getNewId
@@ -1611,6 +1617,7 @@ abcd/QK org/eclipse/jgit/util/SystemReader
 	<init> ()V <init>
 	FH ()Labcd/QK; getInstance
 	j6 (Labcd/QK;)V setInstance
+	j6 INSTANCE
 abcd/RA org/eclipse/jgit/api/CheckoutResult
 	j6 ()Labcd/RA$a; getStatus
 	Hw myStatus
@@ -3280,6 +3287,7 @@ abcd/hK$a org/eclipse/jgit/treewalk/filter/PathFilterGroup$Group
 	j6 (Labcd/YJ;)Z include
 	Hw prefixes
 	toString ()Ljava/lang/String; toString
+	Hw fullpaths
 abcd/hK$b org/eclipse/jgit/treewalk/filter/PathFilterGroup$Single
 	j6 ()Z shouldBeRecursive
 	j6 (Labcd/YJ;)Z include
@@ -3629,6 +3637,7 @@ abcd/lK org/eclipse/jgit/util/BlockList
 	j6 ()[Ljava/lang/Object; newBlock
 	FH (Labcd/lK;)V addAll
 	j6 ([Ljava/lang/Object;II)V addAll
+	DW size
 abcd/mB org/eclipse/jgit/api/MergeResult$MergeStatus$5
 	Hw ()Z isSuccessful
 	toString ()Ljava/lang/String; toString
@@ -3786,6 +3795,7 @@ abcd/pC org/eclipse/jgit/diff/HistogramDiffIndex
 	j6 (Labcd/lC;I)I hash
 	j6 (III)J recCreate
 	j6 ()Labcd/jC; findLongestCommonSequence
+	DW maxChainLength
 abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
 	j6 END_EDIT
 	DW diffAlg
@@ -4012,6 +4022,12 @@ abcd/sE org/eclipse/jgit/lib/IndexDiff
 	j6 repository
 	j6 (Labcd/LE;IILjava/lang/String;)Z diff
 	DW tree
+	v5 added
+	Zo changed
+	VH missing
+	u7 modified
+	tp untracked
+	EQ removed
 abcd/sE$a org/eclipse/jgit/lib/IndexDiff$ProgressReportingFilter
 	j6 ()Z shouldBeRecursive
 	j6 (Labcd/YJ;)Z include
@@ -4243,6 +4259,8 @@ abcd/vI$a org/eclipse/jgit/transport/JschSession$JschProcess
 	destroy ()V destroy
 	exitValue ()I exitValue
 	waitFor ()I waitFor
+	FH inputStream
+	v5 errStream
 abcd/vK org/eclipse/jgit/util/FS_Win32
 	j6 (Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/ProcessBuilder; runInShell
 	j6 (Ljava/io/File;)Z canExecute
