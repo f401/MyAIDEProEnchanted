@@ -152,3 +152,32 @@
   `tools/verify_members.py` 的不合格数没有变化（11 条）。
 - 剩余 11 条不合格成员名（BC.findRenames、KC.newInCore/writeTo、UE.renameRef、jJ.register/scan、
   qG.lookupAny、uH.getOpenBytes、wH.inflate/newObjectToPack、HI.advertiseHaves）需要方法体判据或先定类。
+
+## 6. 第四轮：按「被调用描述符 + 自身形状」批量解阻塞类型（类 410）
+
+新工具 `tools/typesolve.py`：对每个**阻塞类型**（出现在已映射类成员描述里的未映射 abcd 类型）
+打分 = 0.45×(该类型上被调用的方法描述符覆盖率) + 0.25×(自身成员形状 Jaccard) + 0.20×(shape 覆盖)
++ 0.10×(super 对齐)；要求领先次佳明显才采纳，采纳后用 `validate_cls` 复核（配对率/super/iface）。
+
+本轮定案（全部 validate 1.00 配对，除注明）：
+| 探针 | 判定 | 分项 |
+|---|---|---|
+| `kI` | `transport/CredentialsProvider` | desc 1.00 |
+| `mC` | `diff/HashedSequenceComparator` | 0.84（own 0.75） |
+| `XG$b` | `file/ObjectDirectory$PackList` | 0.82（与 `XG=ObjectDirectory` 自洽） |
+| `yI$a` | `transport/OpenSshConfig$Host` | 16/16 |
+| `CH$a` | `pack/DeltaCache$Ref` | 1/1（super=SoftReference 对上） |
+| `UH` | `lib/BitmapObject` | 3/3 |
+| `pB` | `api/MergeResult` | 11/11（与 `pB$a=MergeResult$MergeStatus` 自洽） |
+| `lF` | `lib/ThreadSafeProgressMonitor` | 16/16 |
+| `hC$b` | `diff/DiffEntry$Side` | 枚举消解（DiffEntry 只有 2 个枚举，ChangeType 已被 `hC$a` 占用） |
+| `gE$c` | `lib/ConfigSnapshot` | ctor(List,ConfigSnapshot) + 自引用字段 |
+| `WI` | `transport/RefSpec` | 26/26 |
+暂缓：`HD=ListenerList`(2/5)、`cC$c=ContentSource$Pair`(own 0.60 但多出 `[I`/`()[I`，疑 R8 合并)、
+  `GG$a`(匿名,super=Object)、`BH`(0.52 与次佳仅差 0.02)、`VK`(0.71/0.68 分差 0.03)。
+
+调用点对齐（`tools/callsite.py`）本轮仍无产出：剩余未映射成员的**候选数为 0**（不是多候选），
+因为描述符里还有未映射类型；调用点证据只对「同 desc 重载」有效，需等类型全部定完。
+
+**最终状态**：类 **410**、成员映射 **3450**、方法 **2205/2729 = 80.8%**、字段 **890/1253 = 71.0%**、
+完全覆盖类 **257**、`verify_members` 不合格 **10 条**。
