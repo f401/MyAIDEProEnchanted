@@ -64,6 +64,36 @@ def methods_of(block,clsname):
                 dd-=1
                 if dd==0: out[name]=block[st+1:j]; break
     return out
+import ast
+def fold(expr, table, depth=0, seen=None):
+    if depth>8: return None
+    seen=seen or set()
+    e=expr.strip().rstrip(';').strip()
+    if not e: return None
+    if e[0]=='"': return ('S',e.strip('"'))
+    # char literal
+    if re.fullmatch(r"'(\\.|[^'])'",e):
+        c=e[1:-1]
+        m={'\\n':10,'\\t':9,"\\'":39,'\\\\':92,'\\0':0,'\\r':13}
+        return ('I',m.get(c,ord(c)))
+    # 去掉强制类型转换
+    e=re.sub(r'\((?:byte|short|int|long|char|float|double)\)','',e)
+    e=e.replace('L','').replace('l','')
+    # 把已知常量名替换成分值
+    def rep(m):
+        n=m.group(0)
+        if n in seen: return '0'
+        v=table.get(n)
+        if v is None: return n
+        f=fold(v,table,depth+1,seen|{n})
+        return str(f[1]) if f and f[0]=='I' else n
+    e2=re.sub(r'[A-Za-z_$][A-Za-z0-9_$]*',rep,e)
+    if not re.fullmatch(r'[0-9a-fA-FxX+\-*/%()<>|&^~\s]+',e2): return None
+    try:
+        v=eval(e2,{'__builtins__':{}},{})
+        return ('I',int(v))
+    except Exception:
+        return None
 props=[];stat=collections.Counter()
 for cn,tgt in mp.items():
     name=cn.replace('abcd/','')
@@ -106,11 +136,9 @@ for cn,tgt in mp.items():
         for mn,body in pm.items():
             if re.search(r'\b'+re.escape(pf)+r'\b',body): pacc.add(m2o[name].get(mn,mn))
         if not pacc: stat['noacc']+=1; continue
-        def val(x):
-            x=x.strip().rstrip('Ll')
-            try: return ('I',int(x,0))
-            except Exception: return ('S',x)
-        cand=[sf for sf,sv in sconst.items() if val(sv)==val(pv) and ('f',sf) not in used[name]]
+        pval=fold(pv,sconst)
+        cand=[sf for sf,sv in sconst.items()
+              if fold(sv,sconst)==pval and pval is not None and ('f',sf) not in used[name]]
         if not cand: stat['noval']+=1; continue
         scored=[]
         for sf in cand:
