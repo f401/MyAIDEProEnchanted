@@ -120,6 +120,8 @@ java -Xmx900m -cp d8.jar com.android.tools.r8.D8 \
 |---|---|
 | `rebuild_tsrg.py` | **tsv → tsrg → mappings.txt**，丢弃陈旧类块、成员去重、查目标重复 |
 | `inherit_check.py` | 映射是否沿继承链闭合（不闭合 ⇒ FART 结果不确定 + 分派错） |
+| `dex_meta_inventory.py` | 盘点 dex 里还剩哪些可用元数据（source_file / debug / sync / 注解 / MemberClasses） |
+| `enclosing_groups.py` | 用 `EnclosingClass`（值被投毒但**等价关系**可信）做兄弟聚类；`--check` 交叉验证、`--apply` 补匿名类父名 |
 | `jar_manifest.py` | jar 的**内容指纹**（与 zip 布局/时间戳无关），判"两次产物是否一样" |
 | `sync_maps.py` | 旧版（只拼 mappings.txt，不做去重）→ 已被 `rebuild_tsrg.py` 取代 |
 | `nop_clinit.py` | 修 dex2jar 产物：方法体里对 `<clinit>` 的 `invokestatic` 改 NOP（D8 不接受） |

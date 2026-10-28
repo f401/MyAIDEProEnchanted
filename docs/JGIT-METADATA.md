@@ -200,3 +200,72 @@ Labcd/xJ$d$b; outer=Labcd/UJ;       Labcd/uJ;    outer=Labcd/UM;
 > 依 §4 已**判定为错**，保持顶层 `ConfigLine`/`ConfigSnapshot`。
 > 同时把 `abcd/eI$a` 从 `BasePackFetchConnection$2`（jgit 里那是 `$SwitchMap` 合成类）
 > 改为 `BasePackFetchConnection$CancelledException`（`extends Exception` + 私有构造，形状 1:1）。
+
+---
+
+## 6. 元数据可用性清单（本轮实测，abcd 2788 类 / 20638 方法）
+
+用 `tools/jgit/dex_meta_inventory.py ~/icd/orig/classes*.dex` 得到：
+
+| 信号 | 规模 | 可用性 | 说明 |
+|---|---|---|---|
+| `SourceFile` | **7 / 2788** | ❌ | 只有 `AbcdAccess.java`、`AccessProxy.java`、`D8$$SyntheticClass`——混淆类的 SourceFile 被整体剥掉 |
+| `debug_info_item` | **94 / 20638** | ❌ | 仅剩 `$d2j$hex$…$decode_*` 这类字符串解密方法的调试信息 |
+| 参数名（debug/`MethodParameters`） | **0** | ❌ | 参数注解 0 条，`MethodParameters` 不存在 |
+| `ACC_DECLARED_SYNCHRONIZED` | **0** | ❌ | dex 独有标志，一个都没有（源码里 synchronized 已被 R8 清掉） |
+| `ACC_VARARGS` | 34 | ⚠️ | 太少，dex2jar 也保留了，无增量 |
+| `static_values` | **11** | ❌ | 常量基本都被内联 |
+| 方法注解 | 2066 `Labcd/su;` / 390 `Signature` / 954 解码失败 | ⚠️ | 自定义运行时注解（`su/ru/tu/uu/vu`）量很大，但**值是混淆后的类型/整数**，不含真名 |
+| 字段注解 | 1840 `ru` / 690 `tu` / 684 `uu` / 187 `vu` / 205 `Signature` | ⚠️ | 同上 |
+| `MemberClasses` | 196 | ⚠️ | 值也指向诱饵命名空间（`La/b/a/t;`…），但**列表长度（成员数）是真的** |
+| `EnclosingClass` | 203 组 | ✅（有损） | **等价关系可信、名字不可信**，见 §7 |
+
+> 结论：dex 里**能给出"真名"的元数据已经被清干净了**。剩下能用的只有
+> **结构关系**（谁是谁的成员、谁和谁同组）与**形状**（字段/方法多重集）。
+> 这也解释了为什么前面几轮最后都回到"成员形状 1:1 对比 oracle"。
+
+> 附：`Signature` 注解有 954 条解不出来（`valuetype 0x7` 之类）。dex2jar 已经把可用的
+> `Signature` 搬进 class 文件了（`tools/jgit/sigmatch.py` 用的就是那一份），
+> 所以这条**不必再修**；只是别把"解析失败"误当成"数据被破坏"。
+
+---
+
+## 7. `EnclosingClass`：等价关系可信，但不是单射
+
+这是本轮唯一**新挖到的可用信号**。做法：
+
+```bash
+python3 tools/jgit/enclosing_groups.py            # 分组概览
+python3 tools/jgit/enclosing_groups.py --check    # 与 tsv 交叉验证
+```
+
+### 7.1 为什么等价关系可信
+
+- 同一外层的所有成员 → **同一个**诱饵值：
+  `abcd/gE$a/b/c/d` 全为 `La/b/a/d/m;`；`abcd/uJ/vJ/wJ` 与 `abcd/xJ$a..$e` 全为 `Labcd/UM;`。
+- 不同外层 → 不同诱饵值。
+
+所以它给出的划分（partition）是对的，只是"外层的名字"被替换成了诱饵。
+
+**直接收获**：`uJ`/`vJ`/`wJ` 与 `xJ$a..$e` 同组 ⇒ 它们的父类确实是 `xJ`（`TransportHttp`），
+和 dex2jar 的 `EnclosingMethod`、以及"谁 new 它"的结论三方一致。
+这也第一次给出了**匿名类归属**的机械判据。
+
+### 7.2 但它**不是单射**（有碰撞），所以不能盲用
+
+203 个组里：152 组能唯一确定父探针，24 组出现**父探针冲突**（组内 `$` 名字来自 2 个以上外层），
+27 组没有任何 `$` 成员可用于定父。冲突组就是诱饵复用：
+`La/a/e;` 里同时装着 `abcd/Gn$a`、`abcd/iE`、`abcd/nJ`、`abcd/rJ`、`abcd/tJ$a..$c`。
+
+**反例（差点写错）**：`abcd/RI` 与 `abcd/bH$b` 同组（`La/b/a/c/q;`），按分组应叫 `PackIndex$…`；
+但 `RI` 的成员 `parse(Labcd/gE;)Labcd/SI$a;` 明确是"Config → ReceiveConfig"的解析器，
+所以它其实是 `BaseReceivePack$ReceiveConfig$1`。**分组错、成员对。**
+
+### 7.3 使用规则
+
+1. 组内 `$` 名字必须**只有一个外层**（否则整组丢弃）；
+2. 目标类不能已经是 `X$数字`（说明它自己是匿名类，不可能再当别人的外层）；
+3. 被命名的类**不能有任何成员级证据**与之矛盾——有成员就先用成员判，
+   例如 `nH$c` 有 `FileSnapshot VH()` + `LooseRef j6(ObjectIdRef)`，据此判成 `RefDirectory$LooseRef`，
+   而不是分组给的 `LooseScanner`；
+4. 落库前跑 `verify_members.py` + **两次 FART 比对内容指纹**（新加的类可能引入新的家族歧义）。

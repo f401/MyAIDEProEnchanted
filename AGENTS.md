@@ -141,12 +141,12 @@ awk '!/^\t/ && NF>=2 {print $2}' process/mappings.txt | sort | uniq -d   # 期�
 
 | 文件 | 内容 |
 |---|---|
-| `~/out/work/jgit_map_clean.tsv` | 类映射 **589** 条（`探针<TAB>目标<TAB>证据`） |
-| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **3780** 条（方法 2611 + 字段 1169，派生文件） |
-| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4369** 行 |
+| `~/out/work/jgit_map_clean.tsv` | 类映射 **612** 条（`探针<TAB>目标<TAB>证据`） |
+| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **3790** 条（方法 2621 + 字段 1169，派生文件） |
+| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4402** 行 |
 | `process/base/merged_ok.jar` | **改名输入基线（已入库）** + `process/SHA256SUMS` 指纹 |
 
-现状：方法 2456/3132 = **78.4%**、字段 1008/1440 = **70.0%**、完全覆盖类 307。
+现状：方法 2466/3146 = **78.4%**、字段 1008/1447 = **69.7%**、完全覆盖类 309。
 计数别用 `grep '^[^\t]'`（BRE 里 `\t` 不是 TAB），用 `awk '!/^\t/'`。
 
 改名与出 dex：
@@ -213,7 +213,7 @@ cd /storage/emulated/0/MyAIDEProEnchanted/Dex
 3. 修 `cn.aide.pro` 硬编码、清 MT 组件、合并重复权限、修 authority
 4. README 补：需配套同签名 Termux + 公钥 SHA-256 指纹
 5. 打通 `process/run.sh`：重命名 → 补行号 → 修 R → d8 → zipalign → 签名，产出可复现脚本
-6. 扩充 `process/mappings.txt` 覆盖率（当前 **589 个类 / 3713 成员**，方法 76.8%、字段 70.0%；剩余大盘是 R8 内联合并等结构性不可判项，见 `docs/JGIT-MAPPING-QC.md` §12–§13）
+6. 扩充 `process/mappings.txt` 覆盖率（当前 **612 个类 / 3790 成员**，方法 78.4%、字段 69.7%；剩余大盘是 R8 内联合并等结构性不可判项，见 `docs/JGIT-MAPPING-QC.md` §12–§15）
 
 ---
 

@@ -535,3 +535,78 @@ MISSING   祖先还没映射 → 调用点靠兜底，结果不确定（可自�
 | 完全覆盖类 | 303 | **307** |
 | `verify_members` | 不一致 0 | 不一致 0 |
 | FART 确定性 | 不确定（3 类漂移） | **两次运行内容一致** |
+
+---
+
+## 15. 第十轮：从 dex 挖剩下的结构关系（+25 类，修 5 类）
+
+### 15.1 先把"还剩什么"清点清楚
+
+`tools/jgit/dex_meta_inventory.py` 的结论（详见 `docs/JGIT-METADATA.md` §6）：
+`SourceFile` 7/2788、调试信息 94/20638、参数名 0、`ACC_DECLARED_SYNCHRONIZED` 0、`static_values` 11。
+**能给"真名"的元数据已经被清空**，剩下的只有结构关系与形状。
+
+### 15.2 新信号：`EnclosingClass` 的等价关系
+
+值被投毒成诱饵，但**同外层→同诱饵**，因此划分可信（§7）。
+`tools/jgit/enclosing_groups.py` 把它变成两类产出：
+
+| 用途 | 结果 |
+|---|---|
+| 交叉验证 | 已映射成员里只有 2 处与分组矛盾（且这 2 处是分组碰撞的假警报，见 §15.3） |
+| 补未映射匿名类 | 一次补 **25 类** |
+
+补的 25 类（`<父目标>$N`，N 取该父下最小空闲号）：
+`zJ$a→TransportLocal$3`、`nH$a/$b/$d`、`BE$a/$b/$c→ObjectIdRef$1..3`、`TF$a/$b/$c→DepthWalk$*`、
+`TH$c/QH→PackWriter$5/$6`、`cD$a/$c→LargeObjectException$*`、`EG$a/$b→DeltaBaseCache$*`、
+`GG$a/$b→FileObjectDatabase$1/2`、`JE$b→ObjectStream$1`、`EE$a→ObjectInserter$1`、
+`FE$a→ObjectLoader$1`、`PC$a→DirCacheEditor$2`、`TI$a→RefAdvertiser$1`、`cC$a→ContentSource$2`、
+`dE/xc→BatchingProgressMonitor$3/4`、`RI→PackIndex$1`、`cD$b→LargeObjectException$2`。
+
+### 15.3 立刻踩到的坑：分组会碰撞，成员不会
+
+加上去之后 `verify_members` 仍 0 不一致，但 **FART 又变成不确定**（`RefDirectory$LooseScanner` 漂移）。
+顺着查下去发现两件事：
+
+1. `RI`：分组说属于 `bH`(PackIndex)，但它的成员 `parse(Labcd/gE;)Labcd/SI$a;` 明确是
+   `ReceiveConfig` 的 `SectionParser`。**分组错、成员对** → 回滚成 `BaseReceivePack$ReceiveConfig$1`。
+2. `cD$b`：分组说属于 `cD`(LargeObjectException)，但该类没有任何成员证据，
+   与 `anonmap` 的"唯一引用者"结论冲突 → 保守回滚成 `DiffFormatter$2`。
+
+> 规则沉淀进 `docs/JGIT-METADATA.md` §7.3：**有成员证据时以成员为准，分组只当交叉验证**。
+
+### 15.4 真正的收获：整个 `RefDirectory` 家族定名
+
+`nH$c` 之前被判成 `RefDirectory$LooseScanner`，但它的形状是：
+
+```
+interface abcd.nH$c extends abcd.ME {          //  extends Ref
+  public abstract abcd.LG VH();                 //  FileSnapshot getSnapShot()
+  public abstract abcd.nH$c j6(abcd.BE);        //  LooseRef peel(ObjectIdRef)
+}
+```
+
+⇒ 它是 **`RefDirectory$LooseRef`**（接口），不是 `LooseScanner`。顺着把整族摆平：
+
+| 探针 | 形状 | 目标 |
+|---|---|---|
+| `nH$c` | interface extends Ref，`getSnapShot`+`peel` | **`RefDirectory$LooseRef`** |
+| `nH$a` | `extends BE$a` + ctor(FileSnapshot,String,ObjectId) | **`LooseUnpeeled`** |
+| `nH$b` | `extends BE$b` + ctor(…,ObjectId,**ObjectId**) 4 参 | **`LoosePeeledTag`** |
+| `nH$f` | `extends BE$c` + ctor(FileSnapshot,String,ObjectId) | **`LooseNonTag`**（原记 `RefDirectory$2`） |
+| `nH$d` | `RefList<LooseRef>`+`int curIdx`+`Builder` 字段，ctor(RefList) | **`RefDirectory$LooseScanner`** |
+| `nH$e` | `extends kF(SymbolicRef)` | `LooseSymbolicRef`（原就正确） |
+
+顺带给 `nH$a/b/c/e/f` 补齐 `getSnapShot`/`peel`（家族闭合），`nH$d` 补 `scan(String)`。
+**修完 FART 两次运行内容一致**——和 §14 一样，家族不闭合就是不确定性的源头。
+
+### 15.5 基线
+
+| 指标 | §14 | 本轮 |
+|---|---|---|
+| 类映射 | 589 | **612** |
+| 成员映射 | 3780 | **3790**（方法 2621 + 字段 1169） |
+| 方法覆盖 | 2466/3146 = 78.4% | 2466/3146 = **78.4%** |
+| 字段覆盖 | 1008/1447 = 69.7% | 1008/1447 = **69.7%** |
+| 完全覆盖类 | 307 | **309** |
+| FART 确定性 | 一致 | **一致**（`r_v14.jar` 内容指纹 `94be2280…`） |

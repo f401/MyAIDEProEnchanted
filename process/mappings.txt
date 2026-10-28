@@ -1558,9 +1558,6 @@ abcd/RG org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation$1
 abcd/RH org/eclipse/jgit/internal/storage/pack/PackWriter$3
 	j6 (Labcd/MH;Labcd/MH;)I compare
 	j6 this$0
-abcd/RI org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig$1
-	<init> ()V <init>
-	j6 (Labcd/gE;)Labcd/SI$a; parse
 abcd/RJ org/eclipse/jgit/transport/WalkRemoteObjectDatabase
 	j6 ()V close
 	j6 (Ljava/lang/String;[B)V writeFile
@@ -2762,7 +2759,6 @@ abcd/cD org/eclipse/jgit/errors/LargeObjectException
 	j6 objectId
 	j6 ()Labcd/yE; getObjectId
 	DW ()Ljava/lang/String; getObjectName
-abcd/cD$b org/eclipse/jgit/diff/DiffFormatter$2
 abcd/cE org/eclipse/jgit/lib/BatchingProgressMonitor$1
 	j6 baseFactory
 	newThread (Ljava/lang/Runnable;)Ljava/lang/Thread; newThread
@@ -3619,11 +3615,16 @@ abcd/nH org/eclipse/jgit/internal/storage/file/RefDirectory
 	j6 (Ljava/lang/String;Labcd/KK;)Labcd/ME; readRef
 	v5 ()Labcd/KK; getLooseRefs
 	FH parent
-abcd/nH$c org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner
-abcd/nH$e org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
-	FH snapShot
+abcd/nH$c org/eclipse/jgit/internal/storage/file/RefDirectory$LooseRef
 	VH ()Labcd/LG; getSnapShot
-abcd/nH$f org/eclipse/jgit/internal/storage/file/RefDirectory$2
+	j6 (Labcd/BE;)Labcd/nH$c; peel
+abcd/nH$e org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
+	VH ()Labcd/LG; getSnapShot
+	j6 (Labcd/BE;)Labcd/nH$c; peel
+	FH snapShot
+abcd/nH$f org/eclipse/jgit/internal/storage/file/RefDirectory$LooseNonTag
+	VH ()Labcd/LG; getSnapShot
+	j6 (Labcd/BE;)Labcd/nH$c; peel
 abcd/nI org/eclipse/jgit/transport/FetchConnection
 	Hw ()Ljava/util/Collection; getPackLocks
 	j6 (Ljava/lang/String;)V setPackLockMessage
@@ -4529,3 +4530,35 @@ abcd/zK org/eclipse/jgit/util/FileUtils
 	FH (Ljava/io/File;)V mkdirs
 	j6 (Ljava/io/File;I)V delete
 	j6 (Ljava/io/File;)V delete
+abcd/cC$a org/eclipse/jgit/diff/ContentSource$2
+abcd/PC$a org/eclipse/jgit/dircache/DirCacheEditor$2
+abcd/cD$a org/eclipse/jgit/errors/LargeObjectException$1
+abcd/cD$b org/eclipse/jgit/diff/DiffFormatter$2
+abcd/cD$c org/eclipse/jgit/errors/LargeObjectException$3
+abcd/EG$a org/eclipse/jgit/internal/storage/file/DeltaBaseCache$1
+abcd/GG$a org/eclipse/jgit/internal/storage/file/FileObjectDatabase$1
+abcd/GG$b org/eclipse/jgit/internal/storage/file/FileObjectDatabase$2
+abcd/RI org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig$1
+	<init> ()V <init>
+	j6 (Labcd/gE;)Labcd/SI$a; parse
+abcd/nH$a org/eclipse/jgit/internal/storage/file/RefDirectory$LooseUnpeeled
+	VH ()Labcd/LG; getSnapShot
+	j6 (Labcd/BE;)Labcd/nH$c; peel
+abcd/nH$b org/eclipse/jgit/internal/storage/file/RefDirectory$LoosePeeledTag
+	VH ()Labcd/LG; getSnapShot
+	j6 (Labcd/BE;)Labcd/nH$c; peel
+abcd/nH$d org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner
+	DW (Ljava/lang/String;)V scan
+abcd/QH org/eclipse/jgit/internal/storage/pack/PackWriter$5
+abcd/TH$c org/eclipse/jgit/internal/storage/pack/PackWriter$6
+abcd/dE org/eclipse/jgit/lib/BatchingProgressMonitor$3
+abcd/xc org/eclipse/jgit/lib/BatchingProgressMonitor$4
+abcd/BE$a org/eclipse/jgit/lib/ObjectIdRef$1
+abcd/BE$b org/eclipse/jgit/lib/ObjectIdRef$2
+abcd/BE$c org/eclipse/jgit/lib/ObjectIdRef$3
+abcd/EE$a org/eclipse/jgit/lib/ObjectInserter$1
+abcd/FE$a org/eclipse/jgit/lib/ObjectLoader$1
+abcd/JE$b org/eclipse/jgit/lib/ObjectStream$1
+abcd/TF$a org/eclipse/jgit/revwalk/DepthWalk$1
+abcd/TI$a org/eclipse/jgit/transport/RefAdvertiser$1
+abcd/zJ$a org/eclipse/jgit/transport/TransportLocal$3

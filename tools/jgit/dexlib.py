@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """dexlib.py —— 最小可用 DEX 解析器（无第三方依赖，只在需要元数据时用）
 
-能力：string / type / method 解析，class_defs 遍历，注解（含嵌套/数组/枚举）解码。
-刻意不实现：代码项、调试信息、资源表。
+能力：string / type / method 解析，class_defs 遍历，注解（含嵌套/数组/枚举）解码，
+      class_data / code_item / debug_info（参数名+局部变量）、annotations_directory（含字段/方法/参数注解）。
+刻意不实现：指令流解码、资源表。
 
 用法：
     from dexlib import Dex
@@ -78,6 +79,117 @@ class Dex:
                 interfaces_off=self.u4(o+12), source_file_idx=self.u4(o+16),
                 annotations_off=self.u4(o+20), class_data_off=self.u4(o+24),
                 static_values_off=self.u4(o+28))
+    def annotations_directory(self, off):
+        """返回 (class_set, field_anns{field_idx:set}, method_anns{method_idx:set}, param_anns{method_idx:set})"""
+        if not off:
+            return 0, {}, {}, {}
+        cls, nf, nm, np = struct.unpack_from('<4I', self.b, off)
+        o = off + 16
+        fa = {}
+        for _ in range(nf):
+            idx = self.u4(o); ao = self.u4(o + 4); o += 8
+            fa[idx] = ao
+        ma = {}
+        for _ in range(nm):
+            idx = self.u4(o); ao = self.u4(o + 4); o += 8
+            ma[idx] = ao
+        pa = {}
+        for _ in range(np):
+            idx = self.u4(o); ao = self.u4(o + 4); o += 8
+            pa[idx] = ao
+        return cls, fa, ma, pa
+
+    # ---------- class_data / code / debug_info ----------
+    def class_data(self, off):
+        """返回 dict(sfields=[(fidx,acc)], ifields=[...], dmethods=[(midx,acc,code_off)], vmethods=[...])"""
+        if not off:
+            return None
+        o = off
+        sf, o = self.uleb(o)
+        inf, o = self.uleb(o)
+        dm, o = self.uleb(o)
+        vm, o = self.uleb(o)
+
+        def read_fields(n, o):
+            out, idx = [], 0
+            for _ in range(n):
+                d, o = self.uleb(o)
+                acc, o = self.uleb(o)
+                idx += d
+                out.append((idx, acc))
+            return out, o
+
+        def read_methods(n, o):
+            out, idx = [], 0
+            for _ in range(n):
+                d, o = self.uleb(o)
+                acc, o = self.uleb(o)
+                code, o = self.uleb(o)
+                idx += d
+                out.append((idx, acc, code))
+            return out, o
+
+        sfields, o = read_fields(sf, o)
+        ifields, o = read_fields(inf, o)
+        dmethods, o = read_methods(dm, o)
+        vmethods, o = read_methods(vm, o)
+        return dict(sfields=sfields, ifields=ifields, dmethods=dmethods, vmethods=vmethods)
+
+    def code_item(self, off):
+        """返回 dict(registers, ins, outs, tries, debug_off, insns_size)"""
+        if not off:
+            return None
+        reg, ins, outs, tries = struct.unpack_from('<4H', self.b, off)
+        dbg, insn = struct.unpack_from('<2I', self.b, off + 8)
+        return dict(registers=reg, ins=ins, outs=outs, tries=tries,
+                    debug_off=dbg, insns_size=insn)
+
+    def debug_info(self, off):
+        """返回 (line_start, [参数名或 None], [局部变量名])。只解码到需要的信息。"""
+        if not off:
+            return None, [], []
+        o = off
+        line, o = self.uleb(o)
+        nparams, o = self.uleb(o)
+        params = []
+        for _ in range(nparams):
+            v, o = self.uleb(o)
+            params.append(None if v == 0 else self.string(v - 1))
+        locals_ = []
+        # 状态机：只关心 DBG_START_LOCAL(3)/DBG_START_LOCAL_EXTENDED(4)
+        while o < len(self.b):
+            op = self.b[o]; o += 1
+            if op == 0x00:      # DBG_END_SEQUENCE
+                break
+            elif op == 0x01:    # ADVANCE_PC
+                _, o = self.uleb(o)
+            elif op == 0x02:    # ADVANCE_LINE
+                _, o = self.sleb(o)
+            elif op == 0x03 or op == 0x04:
+                _, o = self.uleb(o)      # register
+                v, o = self.uleb(o)
+                nm = None if v == 0 else self.string(v - 1)
+                _, o = self.uleb(o)      # type
+                if op == 0x04:
+                    _, o = self.uleb(o)  # sig
+                locals_.append(nm)
+            elif op == 0x05:    # END_LOCAL
+                _, o = self.uleb(o)
+            elif op == 0x06:    # RESTART_LOCAL
+                _, o = self.uleb(o)
+            elif op == 0x07 or op == 0x08:   # SET_PROLOGUE_END / EPILOGUE_BEGIN
+                pass
+            elif op == 0x09:    # SET_FILE
+                _, o = self.uleb(o)
+            else:               # 0x0a..0xff = special opcode
+                delta = op - 0x0a
+                _, o = self.uleb(o)
+        return line, params, locals_
+
+    def method_ref(self, idx):
+        o = self.method_ids_off + idx * 8
+        return self.type(self.u2(o)), self.string(self.u4(o + 4))
+
     def method(self, idx):
         o = self.method_ids_off + idx*8
         cls = self.u2(o); proto = self.u2(o+2); nm = self.u4(o+4)
