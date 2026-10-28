@@ -41,6 +41,17 @@ for cn,ms in blocks:
         oms.setdefault(key,[]).append(m)
     t=IDX.get('abcd/'+cn)
     if not t: continue
+    # super / implements 对齐投票
+    msup=re.search(r'^\.super\s+(\S+?);',t,re.M)
+    if msup:
+        xs=msup.group(1)[1:]
+        if xs.startswith('abcd/') and xs not in mp and oc['sup']:
+            votes[xs][oc['sup']]+=1; detail[xs].append((cn,'<super>',tgt,oc['sup']))
+    for x in re.findall(r'^\.implements\s+(\S+?);',t,re.M):
+        xs=x[1:]
+        if xs.startswith('abcd/') and xs not in mp:
+            for y in oc['ifaces']:
+                votes[xs][y]+=1; detail[xs].append((cn,'<iface>',tgt,y))
     pdesc={}
     for mm in re.finditer(r'^\.field\s+([^\n]+)$',t,re.M):
         tl=mm.group(1).split(); b=[x for x in tl if x not in MODS]
@@ -68,9 +79,14 @@ for cn,ms in blocks:
                     yn=y[1:-1]
                     votes[xn][yn]+=1
                     detail[xn].append((cn,pn,new,yn))
+import os as _os
+REJ=set()
+_r=_os.path.expanduser('~/out/work/jgit_rejected_types.txt')
+if _os.path.exists(_r): REJ={x.strip() for x in open(_r) if x.strip()}
 tot=0
 best=[]
 for xn,c in votes.items():
+    if xn.replace('abcd/','') in REJ: continue
     yn,n=c.most_common(1)[0]
     s=sum(c.values())
     if (n>=2 and n/s>=0.9) or (n>=1 and s==1):
