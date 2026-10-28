@@ -485,6 +485,7 @@ abcd/AI org/eclipse/jgit/transport/PackParser
 	j6 (Labcd/YD;Labcd/AI$f;Labcd/yE;)Labcd/CI; newInfo
 	tp ()Labcd/AI$f; onEndDelta
 	XL ()V readPackHeader
+	j6 expectDataAfterPackFooter
 abcd/AI$c org/eclipse/jgit/transport/PackParser$InflaterStream
 	j6 ()V release
 	j6 (Labcd/AI$e;J)V open
@@ -1408,6 +1409,7 @@ abcd/OH org/eclipse/jgit/internal/storage/pack/PackOutputStream
 	j6 (Labcd/MH;J)V writeHeader
 	v5 ()J length
 	Zo count
+	VH headerBuffer
 abcd/OI org/eclipse/jgit/transport/ReceiveCommand
 	DW ()Labcd/yE; getOldId
 	FH ()Labcd/yE; getNewId
@@ -4474,6 +4476,10 @@ abcd/yI$a org/eclipse/jgit/transport/OpenSshConfig$Host
 	DW ()Ljava/io/File; getIdentityFile
 	VH ()Z isBatchMode
 	j6 (Labcd/yI$a;)V copyFrom
+	DW hostName
+	FH port
+	v5 user
+	Zo preferredAuthentications
 abcd/yJ org/eclipse/jgit/transport/TransportLocal$1
 	v5 ()Ljava/util/Set; getSchemes
 	DW ()Ljava/lang/String; getName
