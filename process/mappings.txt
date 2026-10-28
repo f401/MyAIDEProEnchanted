@@ -855,6 +855,7 @@ abcd/GK$c org/eclipse/jgit/util/QuotedString$GitPathStyle
 	j6 ([BII)Ljava/lang/String; dequote
 abcd/HB org/eclipse/jgit/api/TransportConfigCallback
 	j6 (Labcd/jJ;)V configure
+abcd/HD org/eclipse/jgit/events/ListenerList
 abcd/HF org/eclipse/jgit/patch/FileHeader
 	j6 (Ljava/lang/String;II)Ljava/lang/String; parseName
 	j6 (IIII)Z eq
@@ -3527,6 +3528,7 @@ abcd/mH org/eclipse/jgit/internal/storage/file/RefDirectory$1
 	FH val$lck
 	v5 val$refs
 	j6 (Ljava/lang/String;[B)V writeFile
+abcd/mJ org/eclipse/jgit/transport/TransportBundle
 abcd/nB org/eclipse/jgit/api/MergeResult$MergeStatus$8
 	Hw ()Z isSuccessful
 	toString ()Ljava/lang/String; toString
@@ -3965,6 +3967,14 @@ abcd/tJ$a org/eclipse/jgit/transport/TransportGitSsh$ExtSession
 	j6 this$0
 	disconnect ()V disconnect
 	<init> (Labcd/tJ;)V <init>
+abcd/tJ$b org/eclipse/jgit/transport/TransportGitSsh$SshFetchConnection
+	cn errorThread
+	ro process
+	sh this$0
+abcd/tJ$c org/eclipse/jgit/transport/TransportGitSsh$SshPushConnection
+	BT this$0
+	gW errorThread
+	yS process
 abcd/tK org/eclipse/jgit/util/FS_POSIX_Java6
 	j6 (Ljava/io/File;)Z canExecute
 	j6 (Ljava/io/File;Z)Z setExecute
