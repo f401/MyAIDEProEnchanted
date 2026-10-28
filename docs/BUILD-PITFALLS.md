@@ -101,6 +101,10 @@ FART 重写 `invokeinterface` 时找不到精确的 `(owner,name,desc)`，就**�
 ```bash
 python3 tools/jgit/inherit_check.py        # CONFLICT=0 且 MISSING 尽量小
 ```
+判定顺序（详见 `docs/JGIT-MAPPING-QC.md` §16.1）：**数同描述符方法个数 → 看访问标志
+（final 不可覆盖 / private 不进虚分派 / protected abstract 必被覆盖）→ 看方法体
+（`ldc "sftp"`、`getfield schemeSet` 这类）→ 看 oracle 声明**。
+只凭"多数子类这么判"会错——本轮 10 处里有一半是父类与子类**互相轮换**，谁多谁少都不作数。
 - `CONFLICT`（祖先判成别的名字）必须**逐条裁决**，不能自动改；
 - `MISSING`（祖先还没命名）可自动继承子类的名字（`--apply`），但**必须**随后跑
   `verify_members.py` 兜底——实测自动补 69 条里有 5 条名字在 oracle 里不存在，要删掉。

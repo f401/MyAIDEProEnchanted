@@ -610,3 +610,65 @@ interface abcd.nH$c extends abcd.ME {          //  extends Ref
 | 字段覆盖 | 1008/1447 = 69.7% | 1008/1447 = **69.7%** |
 | 完全覆盖类 | 307 | **309** |
 | FART 确定性 | 一致 | **一致**（`r_v14.jar` 内容指纹 `94be2280…`） |
+
+---
+
+## 16. 第十一轮：把 26 组"家族冲突"清零
+
+上一轮留下 `CONFLICT 26`。本轮全部裁决完，**CONFLICT 0**。
+
+### 16.1 判定四步法（顺序不能反）
+
+对每一组"父子同名同描述符、判成不同新名"：
+
+1. **数个数**：父类/子类各自声明了几个同描述符方法？只有一个的那个必然是同一方法；
+2. **看访问标志**：`final` 不能被覆盖、`private` 不进虚分派、`protected abstract` 必然是被覆盖的那个；
+3. **看方法体**：字符串常量（`ldc "sftp"` / `"info/packs"`）、字段读（`getfield schemeSet`）、返回值形状；
+4. **看 oracle 的声明**：两个候选方法是不是都真的存在。
+
+> 三条都指向同一答案时才落库；只凭"多数子类这么判"是不够的。
+
+### 16.2 本轮裁决的 10 处
+
+| 族 | 结论 | 关键证据 |
+|---|---|---|
+| `DJ` = `TransportProtocol` | `v5=getSchemes`，`FH=getRequiredFields`，`Hw=getOptionalFields` | `EJ.v5()` = `ldc "sftp"; Collections.singleton`；`kJ.v5()` = `ldc "amazon-s3"`；`uJ` 的字段就叫 `schemeNames`/`schemeSet`，`v5()` 返回 `schemeSet` |
+| `jK` = `TreeFilter`、`yG` = `RevFilter` | `clone ()L自身;` 就是 **`clone`**，不是 `negate` | 两者都只在类里声明**一个** `()L自身;` 方法且名字未被改（`clone` 是 `Object.clone` 家族，R8 保留） |
+| `WF` = `FollowFilter` | 删掉幽灵映射 `clone ()LjK;` | `javap abcd.WF` 里**根本没有**这个方法 |
+| `RJ` = `WalkRemoteObjectDatabase` | `DW=getAlternates`、`FH=getPackNames` | `xJ$c.DW()` 里 `ldc "info/http-alternates"`/`"info/alternates"`；`xJ$c.FH()` 里 `ldc "info/packs"` |
+| `wF` = `Merger` | `FH=getResultTreeId` | 两个子类 `AF$a`/`xF` 都这么判，且 `Merger` 没有第二个 `()LyE;` |
+| `wH` = `WindowCursor` | `DW=newReader` | `getShallowCommits()` 返回 `Set<ObjectId>`，与 `()Labcd/IE;`（ObjectReader）不符 |
+| `fK` = `PathFilter` | `DW`↔`j6` 互换（`j6=include`、`DW=isDone`） | oracle `PathFilter` 同时有 `include(TreeWalk)` 与 `isDone(TreeWalk)`，而父类 `jK` 只有一个 → 覆盖父类的那个是 `include` |
+| `MH` = `ObjectToPack` | `Mr=clearReuseAsIs` | oracle `clearDeltaBase()` 是 **final**，不可能被 `TG` 覆盖 |
+| `ZG` = `ObjectDirectoryPackParser` | `EQ=onEndThinPack` | oracle `writeIdx()` 是 **private**；`onEndThinPack()` 是 `protected`（覆盖父类抽象方法） |
+| `RE` = `RefUpdate` | `QX=unlock` | oracle `unlock()` 是 `protected abstract`、`disableRefLog()` 是 `public`（非 abstract）；`oH.QX()` 体是"取 lockFile→unlock()→置 null" |
+
+### 16.3 工具同步改进
+
+`inherit_check.py` 现在**只比较虚方法**（排除 `static`/`private`）——非虚方法同名同描述符只是巧合。
+
+### 16.4 剩 13 条 MISSING，且不能自动补
+
+对 `abcd/TJ`(3)、`abcd/GG`(2)、`abcd/_F`(1) 试过"子类名字继承给祖先"，`verify_members` 立刻报 4 条不一致：
+
+```
+abcd/GG  FileObjectDatabase.EQ ()LFileObjectDatabase;  → newCachedFileObjectDatabase  ✗ 不存在
+abcd/GG  FileObjectDatabase.tp ()[LFileObjectDatabase$1; → myAlternates                ✗ 不存在
+abcd/TJ  AbstractTreeIterator.EQ ()V → parseEntry                                     ✗ 不存在
+abcd/_F  ObjectWalk.Zo (LRevObject;)V → markRoot                                      ✗ 不存在
+```
+
+⇒ 这几条**是子类的名字判错了**（不是祖先缺映射）。自动补只会把错误扩散，已回滚。
+下一轮入口：这 4 个成员单独查（谁调用它、方法体做什么）。
+
+### 16.5 基线
+
+| 指标 | §15 | 本轮 |
+|---|---|---|
+| 类映射 | 612 | 612 |
+| 成员映射 | 3790 | **3789**（删掉 1 条幽灵映射） |
+| 方法覆盖 | 2466/3146 = 78.4% | 2466/3146 = **78.4%** |
+| 字段覆盖 | 1008/1447 = 69.7% | 1008/1447 = **69.7%** |
+| `inherit_check` | CONFLICT 26 / MISSING 15 | **CONFLICT 0 / MISSING 13** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v16.jar`，manifest `a3ccbd07…`） |

@@ -501,9 +501,9 @@ abcd/DI$a org/eclipse/jgit/transport/PacketLineIn$AckNackResult
 	Zo $VALUES
 abcd/DJ org/eclipse/jgit/transport/TransportProtocol
 	DW ()Ljava/lang/String; getName
-	FH ()Ljava/util/Set; getSchemes
-	Hw ()Ljava/util/Set; getRequiredFields
-	v5 ()Ljava/util/Set; getOptionalFields
+	FH ()Ljava/util/Set; getRequiredFields
+	Hw ()Ljava/util/Set; getOptionalFields
+	v5 ()Ljava/util/Set; getSchemes
 	<init> ()V <init>
 	DW (Labcd/HJ;Labcd/UE;Ljava/lang/String;)Labcd/jJ; open
 	j6 (Labcd/HJ;)Z canHandle
@@ -1073,7 +1073,7 @@ abcd/MH org/eclipse/jgit/internal/storage/pack/ObjectToPack
 	DW (Labcd/yE;)V setDeltaBase
 	FH (I)V setDeltaDepth
 	Hw (I)V setChainLength
-	Mr ()V clearDeltaBase
+	Mr ()V clearReuseAsIs
 	P8 ()Z isWritten
 	SI ()V clearChainLength
 	U2 ()I getType
@@ -1512,7 +1512,7 @@ abcd/RE org/eclipse/jgit/lib/RefUpdate
 	Hw ()Ljava/lang/String; getName
 	J0 ()Z isForceUpdate
 	J8 ()Z isRefLogIncludingResult
-	QX ()V disableRefLog
+	QX ()V unlock
 	XL ()Labcd/RE$a; forceUpdate
 	Zo ()Labcd/yE; getNewObjectId
 	gn ()Labcd/OE; getRefDatabase
@@ -1568,8 +1568,8 @@ abcd/RJ org/eclipse/jgit/transport/WalkRemoteObjectDatabase
 	j6 (Ljava/lang/String;Labcd/yE;)V writeRef
 	j6 (Ljava/util/Collection;)V writeInfoPacks
 	j6 (Ljava/util/Map;)V readPackedRefs
-	DW ()Ljava/util/Collection; getPackNames
-	FH ()Ljava/util/Collection; getAlternates
+	DW ()Ljava/util/Collection; getAlternates
+	FH ()Ljava/util/Collection; getPackNames
 	Zo (Ljava/lang/String;)Ljava/io/BufferedReader; openReader
 	j6 (Ljava/lang/String;)V deleteFile
 	v5 (Ljava/lang/String;)Labcd/RJ; openAlternate
@@ -2011,7 +2011,6 @@ abcd/WF org/eclipse/jgit/revwalk/FollowFilter
 	DW ()Ljava/lang/String; getPath
 	FH path
 	toString ()Ljava/lang/String; toString
-	clone ()Labcd/jK; clone
 abcd/WG org/eclipse/jgit/internal/storage/file/LockFile
 	j6 (Labcd/yE;)V write
 	j6 ([B)V write
@@ -2343,7 +2342,7 @@ abcd/ZG org/eclipse/jgit/internal/storage/file/ObjectDirectoryPackParser
 	DW (Ljava/lang/String;)Labcd/kH; renameAndOpenPack
 	j6 (Labcd/LE;Labcd/LE;)Labcd/kH; parse
 	DW (Labcd/AI$e;[BII)V onObjectHeader
-	EQ ()V writeIdx
+	EQ ()V onEndThinPack
 	j6 (Labcd/AI$e;[BII)V onObjectData
 	KD indexVersion
 	SI tailDigest
@@ -3001,8 +3000,8 @@ abcd/fJ org/eclipse/jgit/transport/TcpTransport
 abcd/fK org/eclipse/jgit/treewalk/filter/PathFilter
 	j6 ()Z shouldBeRecursive
 	DW ()Ljava/lang/String; getPath
-	DW (Labcd/YJ;)Z include
-	j6 (Labcd/YJ;)Z isDone
+	DW (Labcd/YJ;)Z isDone
+	j6 (Labcd/YJ;)Z include
 	FH pathStr
 	Hw pathRaw
 	clone ()Labcd/jK; clone
@@ -3403,7 +3402,7 @@ abcd/jJ$a org/eclipse/jgit/transport/Transport$Operation
 abcd/jK org/eclipse/jgit/treewalk/filter/TreeFilter
 	j6 ()Z shouldBeRecursive
 	j6 (Labcd/YJ;)Z include
-	clone ()Labcd/jK; negate
+	clone ()Labcd/jK; clone
 	<init> ()V <init>
 	toString ()Ljava/lang/String; toString
 abcd/jK$a org/eclipse/jgit/treewalk/filter/TreeFilter$1
@@ -3883,9 +3882,9 @@ abcd/rH org/eclipse/jgit/internal/storage/file/UnpackedObject$1
 	j6 remaining
 abcd/rJ org/eclipse/jgit/transport/TransportGitSsh$1
 	DW ()Ljava/lang/String; getName
-	FH ()Ljava/util/Set; getSchemes
-	Hw ()Ljava/util/Set; getRequiredFields
-	v5 ()Ljava/util/Set; getOptionalFields
+	FH ()Ljava/util/Set; getRequiredFields
+	Hw ()Ljava/util/Set; getOptionalFields
+	v5 ()Ljava/util/Set; getSchemes
 	DW schemeNames
 	FH schemeSet
 	<init> ()V <init>
@@ -4135,9 +4134,9 @@ abcd/uH$c org/eclipse/jgit/internal/storage/file/WindowCache$Ref
 abcd/uI org/eclipse/jgit/transport/JschSession$JschProcess$1
 abcd/uJ org/eclipse/jgit/transport/TransportHttp$1
 	DW ()Ljava/lang/String; getName
-	FH ()Ljava/util/Set; getSchemes
-	Hw ()Ljava/util/Set; getRequiredFields
-	v5 ()Ljava/util/Set; getOptionalFields
+	FH ()Ljava/util/Set; getRequiredFields
+	Hw ()Ljava/util/Set; getOptionalFields
+	v5 ()Ljava/util/Set; getSchemes
 	DW schemeNames
 	FH schemeSet
 	<init> ()V <init>
@@ -4231,7 +4230,7 @@ abcd/wF org/eclipse/jgit/merge/Merger
 	j6 ([Labcd/YD;)Z merge
 	j6 (II)Labcd/dG; getBaseCommit
 	DW ()Labcd/UE; getRepository
-	FH ()Labcd/yE; getBaseCommitId
+	FH ()Labcd/yE; getResultTreeId
 	FH walk
 	j6 db
 	<init> (Labcd/UE;)V <init>
@@ -4261,7 +4260,7 @@ abcd/wH org/eclipse/jgit/internal/storage/file/WindowCursor
 	j6 tempId
 	v5 db
 	j6 (Labcd/aH;J[BI)I inflate
-	DW ()Labcd/IE; getShallowCommits
+	DW ()Labcd/IE; newReader
 	j6 (Labcd/iG;)Labcd/TG; newObjectToPack
 	j6 (Labcd/OH;Ljava/util/List;)V writeObjects
 	j6 (Labcd/TH;Labcd/LE;Ljava/lang/Iterable;)V selectObjectRepresentation
@@ -4404,7 +4403,7 @@ abcd/yF org/eclipse/jgit/merge/StrategyOneSided
 abcd/yF$a org/eclipse/jgit/merge/StrategyOneSided$1
 abcd/yG org/eclipse/jgit/revwalk/filter/RevFilter
 	j6 ()Z requiresCommitBody
-	clone ()Labcd/yG; negate
+	clone ()Labcd/yG; clone
 	<init> ()V <init>
 	toString ()Ljava/lang/String; toString
 	j6 (Labcd/qG;Labcd/dG;)Z include

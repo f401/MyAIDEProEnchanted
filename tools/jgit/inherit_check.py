@@ -35,6 +35,7 @@ if not os.path.exists(BASE):
 # 1. 混淆侧结构
 z = zipfile.ZipFile(BASE)
 decl = {}       # class -> set((name,desc))
+virt = {}       # class -> 非 static/private 的 (name,desc)
 sup = {}
 ifs = {}
 for n in z.namelist():
@@ -48,6 +49,10 @@ for n in z.namelist():
     ifs[cn] = list(c['ifaces'])
     decl[cn] = set((m['name'], m['desc'])
                    for m in c['members'] if m['kind'] == 'm')
+    # 只有**虚方法**（非 static、非 private）才受"家族同名"约束；
+    # static/private 同名同描述符只是巧合，会造成假 CONFLICT。
+    virt[cn] = set((m['name'], m['desc']) for m in c['members']
+                   if m['kind'] == 'm' and not (m['acc'] & 0x0a))
 
 # 2. 映射
 maps = collections.defaultdict(dict)   # probe -> {(name,desc): new}
@@ -85,6 +90,8 @@ conflict = []
 for p, km in list(maps.items()):
     anc = ancestors(p)
     for (nm, desc), new in km.items():
+        if (nm, desc) not in virt.get(p, set()):
+            continue                        # 子类这边是 static/private，不参与虚分派
         for a in anc:
             if a not in decl or (nm, desc) not in decl[a]:
                 continue

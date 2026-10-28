@@ -142,8 +142,8 @@ awk '!/^\t/ && NF>=2 {print $2}' process/mappings.txt | sort | uniq -d   # 期�
 | 文件 | 内容 |
 |---|---|
 | `~/out/work/jgit_map_clean.tsv` | 类映射 **612** 条（`探针<TAB>目标<TAB>证据`） |
-| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **3790** 条（方法 2621 + 字段 1169，派生文件） |
-| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4402** 行 |
+| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **3789** 条（方法 2620 + 字段 1169，派生文件） |
+| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4401** 行 |
 | `process/base/merged_ok.jar` | **改名输入基线（已入库）** + `process/SHA256SUMS` 指纹 |
 
 现状：方法 2466/3146 = **78.4%**、字段 1008/1447 = **69.7%**、完全覆盖类 309。
