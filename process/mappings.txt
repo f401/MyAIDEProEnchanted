@@ -2089,6 +2089,8 @@ abcd/XF org/eclipse/jgit/revwalk/Generator
 	DW ()I outputType
 	j6 ()Labcd/dG; next
 abcd/XG org/eclipse/jgit/internal/storage/file/ObjectDirectory
+	EQ ()Labcd/GG; newCachedFileObjectDatabase
+	tp ()[Labcd/GG$a; myAlternates
 	DW config
 	tp fs
 	j6 ([Labcd/aH;Labcd/aH;)I indexOf
@@ -4536,7 +4538,7 @@ abcd/cD$a org/eclipse/jgit/errors/LargeObjectException$1
 abcd/cD$b org/eclipse/jgit/diff/DiffFormatter$2
 abcd/cD$c org/eclipse/jgit/errors/LargeObjectException$3
 abcd/EG$a org/eclipse/jgit/internal/storage/file/DeltaBaseCache$1
-abcd/GG$a org/eclipse/jgit/internal/storage/file/FileObjectDatabase$1
+abcd/GG$a org/eclipse/jgit/internal/storage/file/ObjectDirectory$AlternateHandle
 abcd/GG$b org/eclipse/jgit/internal/storage/file/FileObjectDatabase$2
 abcd/RI org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig$1
 	<init> ()V <init>
@@ -4562,3 +4564,8 @@ abcd/JE$b org/eclipse/jgit/lib/ObjectStream$1
 abcd/TF$a org/eclipse/jgit/revwalk/DepthWalk$1
 abcd/TI$a org/eclipse/jgit/transport/RefAdvertiser$1
 abcd/zJ$a org/eclipse/jgit/transport/TransportLocal$3
+abcd/XJ org/eclipse/jgit/treewalk/NameConflictTreeWalk
+abcd/RK$c org/eclipse/jgit/util/TemporaryBuffer$Heap
+abcd/VJ org/eclipse/jgit/treewalk/EmptyTreeIterator
+abcd/nH$g org/eclipse/jgit/internal/storage/file/RefDirectory$PackedRefList
+abcd/AB org/eclipse/jgit/api/RebaseResult

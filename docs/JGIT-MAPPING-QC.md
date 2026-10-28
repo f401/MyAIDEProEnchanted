@@ -731,3 +731,68 @@ for a in anc:
 
 剩下的 `MISSING 7` 里 6 条是 `com/jcraft/jsch/UserInfo`/`UIKeyboardInteractive`
 （本身就是真名，不需要映射），实际只剩 `abcd/GG` 1 条。
+
+---
+
+## 18. 第十三轮：四件事依次做完
+
+### 18.1 `ObjectDirectory`（`XG`）整块对完 —— 上一轮撤销的两条**回填**了
+
+关键发现：oracle 里 **`ObjectDirectory.myAlternates()` 返回 `ObjectDirectory$AlternateHandle[]`**。
+
+| 项 | 结论 |
+|---|---|
+| `abcd/GG$a` | → **`ObjectDirectory$AlternateHandle`**（`this$0 = ObjectDirectory`、`close()`；`XG.tp()` 返回它的数组） |
+| `XG.tp ()[Labcd/GG$a;` | → **`myAlternates`**（上一轮以"描述符归不了"为由撤销，属误撤） |
+| `XG.EQ ()Labcd/GG;` | → **`newCachedFileObjectDatabase`**（oracle 声明返回 `CachedObjectDirectory`，比探针的 `FileObjectDatabase` 窄——形状校验通过） |
+
+### 18.2 「描述符归一化」那条判断错了 —— `verify_members` 本来就是形状比较
+
+上一轮我写"分组推出来的 `$N` 会污染描述符归一化，`verify_members` 会假阴性"。**这是错的**：
+`verify_members.py` 的 `shape()` 把描述符里所有对象类型都折成 `O`，本来就**不比对具体类型**，
+只比参数个数/基本类型/返回值是否为对象。所以：
+
+- 分组命名**不会**造成假阴性；
+- 上一轮那两条失败的真实原因很简单：我把名字改成了 `newCachedFileObject`——
+  **这个方法名在 oracle 里根本不存在**（存在的是 `newCachedFileObjectDatabase`）。
+
+结论：**工具不需要改**，需要改的是"不要凭描述符宽度去改名字"。
+
+### 18.3 新工具 `shapefind.py`：用「成员形状多重集 + super」找唯一匹配
+
+给"只出现在别人描述符里、自己没有成员映射"的类型定名：
+
+```
+字段多重集（类型 + static/final）与方法多重集（描述符 + static/可见性）双向相等，
+且 super 归一化后相同（或两边都是 Object），且全 oracle **唯一**命中 ⇒ 才输出 ★
+--loose 模式把描述符里的对象类型折成 O（容忍未映射类型）
+```
+
+本轮命中 4 个唯一 + 1 个推断：
+
+| 探针 | 目标 | 依据 |
+|---|---|---|
+| `XJ` | **`treewalk/NameConflictTreeWalk`** | super=TreeWalk，3 字段 12 方法，全库唯一 |
+| `RK$c` | **`util/TemporaryBuffer$Heap`** | super=TemporaryBuffer，0 字段 2 方法，全库唯一 |
+| `VJ` | **`treewalk/EmptyTreeIterator`** | super=AbstractTreeIterator，0 字段 14 方法，全库唯一 |
+| `nH$g` | **`RefDirectory$PackedRefList`** | super=RefList；RefDirectory 的 Loose* 六个已定名，只剩它 |
+| `AB` | **`api/RebaseResult`** | `AB$a` 已是 `RebaseResult$Status` ⇒ 父探针只能是 `RebaseResult` |
+
+`--loose` 对剩下 22 个候选**没有**唯一命中（形状撞车或缺成员），说明这批必须人工看代码，
+不能靠形状。
+
+### 18.4 基线
+
+| 指标 | §17 | 本轮 |
+|---|---|---|
+| 类映射 | 612 | **617** |
+| 成员映射 | 3790 | **3792**（方法 2623 + 字段 1169） |
+| 方法覆盖 | 2465/3146 | **2467/3185 = 77.5%** |
+| 字段覆盖 | 1008/1447 | **1010/1468 = 68.8%** |
+| 完全覆盖类 | 310 | 310 |
+| `inherit_check` | 0 / 7 | **0 / 7** |
+| `verify_members` | 不一致 0 | **不一致 0** |
+| FART | 一致 | **一致**（`r_v18.jar`，manifest `6fe2c3ea…`） |
+
+> 百分比下降**不是退步**：分母随新增 5 个类从 3146 涨到 3185，绝对命中数是 2465 → 2467。
+> 口径见 `docs/BUILD-PITFALLS.md` §7。
