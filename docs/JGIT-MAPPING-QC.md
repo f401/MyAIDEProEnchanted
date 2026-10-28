@@ -210,3 +210,12 @@
 `BH` 的阻塞点都在 `copyObjectAsIs(PackOutputStream, BH, boolean)` / `PackWriter(BH, RevFlag, ObjectWalk)`，
 按源码这两处声明的类型是 `ObjectToPack`；但 `ObjectToPack` 已分配给 `abcd/MH` —— **`MH` 很可能是误判**，
 需要以 `BH` 为准重新核对这一对。
+
+#### 补充（同轮已核对，撤销上一段的怀疑）
+
+`MH` **确认无误**：`super=PackedObjectInfo`、字段 `(ObjectId deltaBase, int flags, DeltaCache$Ref, int)`、
+构造器 `(AnyObjectId,int)` 与 `(RevObject)` —— 与 `ObjectToPack` 的 javap 结果逐项吻合。
+所以 `BH` 是**另一个抽象类型**：`BH` 是 `abstract`，方法为 `DW()J`、`FH()Set`、
+`j6(ObjectToPack,BitmapObject)Z`、`j6()J`。它在 3.7.1 里对应不上任何抽象类（
+`ObjectReuseAsIs.copyObjectAsIs` 在该版本声明的是具体类 `ObjectToPack`），
+说明这处是**版本差异**：探针版本把该参数放宽成了抽象基类。`BH` 暂不映射。
