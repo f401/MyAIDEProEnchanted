@@ -469,6 +469,10 @@ abcd/AI org/eclipse/jgit/transport/PackParser
 	j6 (I[BLabcd/CI;)Z onAppendBase
 	er baseByPos
 	yS deferredCheckBlobs
+	j6 (Labcd/YD;)Labcd/AI$f; removeBaseById
+	j6 (Labcd/AI$d;)Labcd/AI$d; readObjectHeader
+	j6 (Labcd/YD;Labcd/AI$f;Labcd/yE;)Labcd/CI; newInfo
+	tp ()Labcd/AI$f; onEndDelta
 abcd/AI$c org/eclipse/jgit/transport/PackParser$InflaterStream
 	j6 ()V release
 	j6 (Labcd/AI$e;J)V open
@@ -483,10 +487,19 @@ abcd/AI$c org/eclipse/jgit/transport/PackParser$InflaterStream
 	skip (J)J skip
 	Hw expectedSize
 	v5 actualSize
+abcd/AI$d org/eclipse/jgit/transport/PackParser$ObjectTypeAndSize
+	DW size
+	j6 type
 abcd/AI$e org/eclipse/jgit/transport/PackParser$Source
 	j6 INPUT
 	<init> (Ljava/lang/String;I)V <init>
 	FH $VALUES
+abcd/AI$f org/eclipse/jgit/transport/PackParser$UnresolvedDelta
+	DW crc
+	FH next
+	j6 position
+	j6 ()J getOffset
+	j6 (I)V setCRC
 abcd/AJ org/eclipse/jgit/transport/TransportLocal$InternalLocalFetchConnection$1
 	j6 this$1
 abcd/AK org/eclipse/jgit/util/HttpSupport
@@ -520,6 +533,7 @@ abcd/BC org/eclipse/jgit/diff/RenameDetector
 	j6 (Labcd/rE;Labcd/rE;)Z sameType
 	DW (Labcd/LE;)V findExactRenames
 	j6 (Labcd/IE;Labcd/LE;)Ljava/util/List; compute
+	j6 (Labcd/cC$c;Labcd/LE;)Ljava/util/List; compute
 abcd/BD org/eclipse/jgit/errors/UnsupportedCredentialItem
 	<init> (Labcd/HJ;Ljava/lang/String;)V <init>
 abcd/BE org/eclipse/jgit/lib/ObjectIdRef
@@ -2216,6 +2230,9 @@ abcd/ZG org/eclipse/jgit/internal/storage/file/ObjectDirectoryPackParser
 	EQ ()V onEndThinPack
 	j6 (Labcd/CI;)V onEndWholeObject
 	j6 (I[BLabcd/CI;)Z onAppendBase
+	j6 (Labcd/AI$f;Labcd/AI$d;)Labcd/AI$d; seekDatabase
+	j6 (Labcd/CI;Labcd/AI$d;)Labcd/AI$d; seekDatabase
+	tp ()Labcd/AI$f; onEndDelta
 abcd/ZI org/eclipse/jgit/transport/RemoteSession
 	j6 (Ljava/lang/String;I)Ljava/lang/Process; exec
 abcd/_A org/eclipse/jgit/api/CreateBranchCommand
@@ -2241,6 +2258,14 @@ abcd/_F org/eclipse/jgit/revwalk/ObjectWalk
 	j6 (Labcd/kG;Z)V sort
 	tp ()Labcd/dG; next
 	yS ()Labcd/iG; nextObject
+	DW (Labcd/_F$a;)I updatePathBuf
+	gn (Labcd/iG;)Labcd/_F$a; newTreeVisit
+	j6 ([BIILabcd/_F$a;)I parseMode
+	j6 (Labcd/_F$a;)V releaseTreeVisit
+abcd/_F$a org/eclipse/jgit/revwalk/ObjectWalk$TreeVisit
+	DW obj
+	FH buf
+	j6 parent
 abcd/_H org/eclipse/jgit/transport/AmazonS3
 	j6 (Ljava/net/HttpURLConnection;)V authorize
 	j6 (Ljava/lang/String;Ljava/lang/String;[B)V put
@@ -3033,6 +3058,7 @@ abcd/iC org/eclipse/jgit/diff/DiffFormatter
 	j6 (Labcd/TJ;)Labcd/cC; source
 	j6 (Labcd/tC;Labcd/tC;)Labcd/kC; diff
 	j6 (Labcd/kC;Labcd/tC;Labcd/tC;)V format
+	j3 source
 abcd/iE org/eclipse/jgit/lib/CoreConfig$1
 	<init> ()V <init>
 	j6 (Labcd/gE;)Labcd/jE; parse
