@@ -1088,3 +1088,67 @@ tH 2  rI 2  cG 2  bC 2  VK$c 2  VK 2  OF$a 2  OF 2  NP 2  LD 2  LC 2  KP 2  EC 2
 | `inherit_check` | 0 / 5 | **0 / 5** |
 | `verify_members` | 不一致 0 | 不一致 **0** |
 | FART | 一致 | **一致**（`r_v22.jar`，manifest `0260bf0e…`） |
+
+---
+
+## 23. 第十八轮：按 access_audit 队列作业，违规 187 → 158
+
+### 23.1 用"同父兄弟"把候选缩到 1~3 个
+
+上一轮的 multi-candidate 全库扫描太宽。这轮改成：**先取探针的 super 目标，只在"同父"的
+oracle 类里找**（jgit 的类层级很密，同父通常只剩 1~3 个候选）。立竿见影：
+
+| 探针 | 同父候选 | 结论 | 依据 |
+|---|---|---|---|
+| `GC` | **1 个** | `diff/Subsequence` | super=`diff/Sequence`，且 3 字段 6 方法**完全一致** |
+| `LF` | 9 个 | `revwalk/AbstractRevQueue` | `static EMPTY_QUEUE` + `int outputType` + `abstract add(RevCommit)` + `abstract next()` + `abstract everbodyHasFlag(int)` + `protected static describe(StringBuilder,RevCommit)` —— **1:1** |
+| `QF` | — | `revwalk/FIFORevQueue` | 两个 Block 字段（head/tail）+ `clear/unpop/everbodyHasFlag/anybodyHasFlag/removeFlag/toString` |
+| `OF` | — | `revwalk/LIFORevQueue` | 单个 Block 字段 head + 方法集更少 |
+| `QF$a` | — | `revwalk/BlockRevQueue$Block` | `RevCommit[] commits` + `int headIndex/tailIndex` + `next` |
+
+`LF` 的判定特别干净——7 个成员里有 5 个和 `AbstractRevQueue` 一一对应，
+其中 `static final EMPTY_QUEUE`（自类型静态单例）几乎是签名级的证据。
+
+### 23.2 新发现：FART 会把**未映射的内部类**跟着外层一起改名
+
+映射 `OF → LIFORevQueue` 之后，审计里出现了 `org/eclipse/jgit/revwalk/LIFORevQueue$a`——
+但 oracle 里根本没有这个类。原因是 **FART 按外层前缀传播**：
+`abcd/OF$a` 没映射，但它在外层 `OF` 改名后会变成 `LIFORevQueue$a`。
+
+后果有两面：
+
+- **好的一面**：内部类至少跟着外层走了，包内关系不乱；
+- **坏的一面**：它会和新包里的其他类发生**跨包访问**（本轮 `LIFORevQueue$a` 因此新增 12 处违规）。
+  而且名字在 oracle 里不存在，等于给读者一个假名。
+
+⇒ **推论**：一旦决定映射某个外层类，就必须**把它的内部类一起处理**（映射或确认它们是匿名类）。
+这条已写进 `BUILD-PITFALLS.md` §4 的处理模板。
+
+### 23.3 违规数变化
+
+| 版本 | 跨包不可达 |
+|---|---|
+| `r_v21` | 196 |
+| `r_v22`（+InterruptTimer 全家） | 187 |
+| **`r_v23`**（+GC/LF/QF/OF/QF$a） | **158**（85 个目标） |
+
+剩下的头号条目：`LIFORevQueue$a` 12、`Generator` 8、`abcd/EC` 8、`abcd/NB.<init>` 7、`abcd/tH` 5、
+`ObjectDirectoryInserter` 4、`LIFORevQueue` 4 —— 其中 `LIFORevQueue$a`/`LIFORevQueue` 那 16 条
+正是 §23.2 的副作用，下一轮把 `OF$a`/`OF$b` 定名即可消掉。
+
+### 23.4 基线
+
+| 指标 | §22 | 本轮 |
+|---|---|---|
+| 类映射 | 649 | **654** |
+| 成员映射 | 4042 | 4042 |
+| 方法覆盖 | 2621/3276 = 80.0% | **2622/3300 = 79.5%** |
+| 字段覆盖 | 1116/1557 = 71.7% | **1115/1564 = 71.3%** |
+| 完全覆盖类 | 375 | 374 |
+| **跨包不可达** | 187 | **158** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v23.jar`，manifest `f1b81ffc…`） |
+
+> 覆盖率微降仍是分母变大（+24 方法 / +7 字段的分母，绝对命中 +1 / -1）。
+> 本轮的收益主要体现在**运行期可访问性**（违规 -29），不是覆盖率。

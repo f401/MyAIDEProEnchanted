@@ -141,12 +141,12 @@ awk '!/^\t/ && NF>=2 {print $2}' process/mappings.txt | sort | uniq -d   # 期�
 
 | 文件 | 内容 |
 |---|---|
-| `~/out/work/jgit_map_clean.tsv` | 类映射 **649** 条（`探针<TAB>目标<TAB>证据`） |
+| `~/out/work/jgit_map_clean.tsv` | 类映射 **654** 条（`探针<TAB>目标<TAB>证据`） |
 | `~/out/work/jgit_members_clean.tsrg` | 成员映射 **4042** 条（方法 2753 + 字段 1289，派生文件） |
-| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4698** 行 |
+| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4702** 行 |
 | `process/base/merged_ok.jar` | **改名输入基线（已入库）** + `process/SHA256SUMS` 指纹 |
 
-现状：方法 2621/3276 = **80.0%**、字段 1116/1557 = **71.7%**、完全覆盖类 375。
+现状：方法 2622/3300 = **79.5%**、字段 1115/1564 = **71.3%**、完全覆盖类 374。
 计数别用 `grep '^[^\t]'`（BRE 里 `\t` 不是 TAB），用 `awk '!/^\t/'`。
 
 改名与出 dex：
