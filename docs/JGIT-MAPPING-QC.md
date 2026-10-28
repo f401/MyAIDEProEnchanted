@@ -311,3 +311,34 @@
 原理：若子类方法与已映射的父类/接口方法同名同描述符，则直接继承其名字。
 实测 3025 个未映射方法里命中 **0** —— 因为覆写者若父类型已映射，早被"唯一签名"那一步补掉了；
 剩下 62 个 override 的父类型本身还未映射（属于结构性不可判）。
+
+## 11. 人工抽查 + 同名冲突裁决
+
+### 抽查（`tools/review.py`）四个高价值类，语义全部吻合
+
+- **UploadPack**：`upload(InputStream,OutputStream,OutputStream)`、`sendAdvertisedRefs(RefAdvertiser)`、
+  `negotiate()Z`、`okToGiveUp()Z`/`okToGiveUpImp()Z`、`recvWants()`、`processHaveLines(List,ObjectId)`、
+  `reportInternalServerErrorOverSideband()Z`；字段 `pckIn/pckOut/rawIn/walk/db/refs/multiAck/unshallowCommits/packConfig`
+- **PackWriter**：`searchForReuse`、`findObjectsNeedingDelta`、`beginPhase`、`pruneEdgesFromObjectList`、
+  `sortByName`、`computeName`、`writePack`、`setShallowPack`、`reuseDeltaFor`；字段 `instances/objectsMap/tagTargets/...`
+- **DirCache**：`skipOptionalExtension/nextEntry/findEntry/getEntryCount/requireLocked/readFrom/commit/builder/
+  write/unlock/writeTree/replace/toArray`；字段 `myLock/liveFile/entryCnt/sortedEntries/SIG_DIRC/ENT_CMP/NO_ENTRIES`
+- **RevWalk**：`allocFlag/sort/hasRevSort/parseCommit/parseTree/release/getRewriteParents/
+  finishDelayedFreeFlags/reset/getRevFilter`
+
+### 抽查暴露的问题：同名同描述符自相矛盾（36 组）
+
+`verify_members` 只检查“名字存在且形状一致”，查不出“两个探针成员映射到同一个 名字+描述符”。
+`tools/conflict_fix.py` 按三级规则裁决：
+
+| 规则 | 结果 |
+|---|---|
+| 字段：按探针字段类型 == oracle 字段类型 分配 | **6 组**判定（如 `OI.status/type` 的对调被纠正） |
+| 方法：JGitText 键集合必须被 oracle 方法覆盖 | **10 组**判定 |
+| 方法：两边键集合都为空/都覆盖（无法区分） | 13 组整组丢弃 |
+| 其余（无键且判不了） | 9 组整组丢弃 |
+
+裁决后 **同名冲突 0 组**、`verify_members` 不一致 0。代价：成员 3779→3720（净 -59），
+换来的是“不再有任何自相矛盾”。
+
+**当前**：类 455、成员 3720、方法 2396/3019 = 79.4%、字段 992/1432 = 69.3%、完全覆盖类 274。
