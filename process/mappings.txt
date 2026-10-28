@@ -1031,6 +1031,11 @@ abcd/IJ org/eclipse/jgit/transport/UploadPack
 	QX options
 	BT PEER_HAS
 	P8 SATISFIED
+	VH biDirectionalPipe
+	Zo oldestTime
+	Mr advertised
+	Ws transferConfig
+	J8 logger
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 	Hw REACHABLE_COMMIT_TIP
