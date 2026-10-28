@@ -673,6 +673,7 @@ abcd/EE org/eclipse/jgit/lib/ObjectInserter
 	DW ()Ljava/security/MessageDigest; digest
 	j6 (Ljava/io/InputStream;)Labcd/AI; newPackParser
 	j6 ()[B buffer
+	j6 (I[BII)Labcd/yE; idFor
 abcd/EF org/eclipse/jgit/nls/NLS$1
 abcd/EG org/eclipse/jgit/internal/storage/file/DeltaBaseCache
 	DW ()V releaseMemory
@@ -685,6 +686,7 @@ abcd/EG org/eclipse/jgit/internal/storage/file/DeltaBaseCache
 	<init> ()V <init>
 	DW (Labcd/EG$b;)V clearEntry
 	j6 DEAD
+	j6 (Labcd/vH;)V reconfigure
 abcd/EG$b org/eclipse/jgit/internal/storage/file/DeltaBaseCache$Slot
 	FH provider
 	Hw position
@@ -731,6 +733,8 @@ abcd/EJ org/eclipse/jgit/transport/TransportSftp$1
 	Hw ()Ljava/util/Set; getOptionalFields
 	<init> ()V <init>
 	DW (Labcd/HJ;Labcd/UE;Ljava/lang/String;)Labcd/jJ; open
+abcd/EK org/eclipse/jgit/util/MutableInteger
+	j6 value
 abcd/FB org/eclipse/jgit/api/SubmoduleUpdateCommand
 	VH paths
 	call ()Ljava/util/Collection; call
@@ -940,6 +944,7 @@ abcd/IK org/eclipse/jgit/util/RawParseUtils
 	j6 (Ljava/nio/ByteBuffer;Ljava/nio/charset/Charset;)Ljava/lang/String; decode
 	j6 ([B)Ljava/lang/String; decode
 	tp ([BI)Labcd/KE; parsePersonIdentOnly
+	j6 ([BILabcd/EK;)I parseBase10
 abcd/JE org/eclipse/jgit/lib/ObjectStream
 	j6 ()J getSize
 abcd/JE$a org/eclipse/jgit/lib/ObjectStream$Filter
@@ -1030,6 +1035,26 @@ abcd/KF org/eclipse/jgit/patch/Patch
 	DW DIFF_CC
 	FH DIFF_COMBINED
 	Hw BIN_HEADERS
+abcd/KK org/eclipse/jgit/util/RefList
+	j6 EMPTY
+	DW list
+	FH cnt
+	DW ()Labcd/KK; emptyList
+	DW (Ljava/lang/String;)I find
+	FH (Ljava/lang/String;)Labcd/ME; get
+	j6 (Labcd/ME;)Labcd/KK; put
+	j6 ()Ljava/util/List; asList
+	j6 (Ljava/lang/String;)Z contains
+	v5 (I)Labcd/KK$a; copy
+abcd/KK$a org/eclipse/jgit/util/RefList$Builder
+	DW size
+	j6 list
+	FH ()Labcd/KK; toRefList
+	j6 ()I size
+	j6 (I)Labcd/ME; get
+	j6 (ILabcd/ME;)V set
+	j6 (Labcd/ME;)V add
+	j6 ([Labcd/ME;II)V addAll
 abcd/LE org/eclipse/jgit/lib/ProgressMonitor
 	j6 ()V endTask
 	j6 (Ljava/lang/String;I)V beginTask
@@ -1393,6 +1418,7 @@ abcd/QC org/eclipse/jgit/dircache/DirCacheEntry
 	j6 (Labcd/rE;)V setFileMode
 	j6 (Ljava/io/OutputStream;)V write
 	j6 (II)Z mightBeRacilyClean
+	j6 ([BI)V setObjectIdFromRaw
 abcd/QD org/eclipse/jgit/fnmatch/Head
 	j6 (C)Ljava/util/List; getNextHeads
 abcd/QG org/eclipse/jgit/internal/storage/file/LocalCachedPack
@@ -2262,6 +2288,7 @@ abcd/_F org/eclipse/jgit/revwalk/ObjectWalk
 	gn (Labcd/iG;)Labcd/_F$a; newTreeVisit
 	j6 ([BIILabcd/_F$a;)I parseMode
 	j6 (Labcd/_F$a;)V releaseTreeVisit
+	VH (I)V growPathBuf
 abcd/_F$a org/eclipse/jgit/revwalk/ObjectWalk$TreeVisit
 	DW obj
 	FH buf
@@ -2444,6 +2471,7 @@ abcd/aH org/eclipse/jgit/internal/storage/file/PackFile
 	j6 (Labcd/wH;Labcd/YD;)Labcd/FE; get
 	J8 ()V onOpenPack
 	j6 (Labcd/OH;ZLabcd/wH;)V copyPackAsIs
+	DW (Labcd/OH;Labcd/TG;ZLabcd/wH;)V copyAsIs2
 abcd/aI org/eclipse/jgit/transport/BaseConnection
 	DW startedOperation
 	FH messageWriter
@@ -2649,6 +2677,7 @@ abcd/dG org/eclipse/jgit/revwalk/RevCommit
 	j6 (Labcd/qG;[B)V parseCanonical
 	rN ()[Labcd/dG; getParents
 	yS ()Labcd/mG; getTree
+	aM ()I getType
 abcd/dH org/eclipse/jgit/internal/storage/file/PackIndexV1
 	FH ()Z hasCRC32Support
 	j6 (J)Labcd/yE; getObjectId
@@ -2956,6 +2985,7 @@ abcd/hE org/eclipse/jgit/lib/Constants
 	FH ENCODED_TYPE_TREE
 	Hw ENCODED_TYPE_TAG
 	VH EMPTY_BLOB_ID
+	j6 (Labcd/YD;[BBLabcd/EK;)I decodeTypeString
 abcd/hG org/eclipse/jgit/revwalk/RevFlagSet
 	j6 (Labcd/fG;)Z add
 	DW active
@@ -3252,6 +3282,10 @@ abcd/lB org/eclipse/jgit/api/MergeResult$MergeStatus$4
 	Hw ()Z isSuccessful
 	toString ()Ljava/lang/String; toString
 	<init> (Ljava/lang/String;I)V <init>
+abcd/lC org/eclipse/jgit/diff/HashedSequence
+	DW hashes
+	j6 base
+	j6 ()I size
 abcd/lH org/eclipse/jgit/internal/storage/file/PackReverseIndex
 	j6 index
 	j6 (JJ)J findNextOffset
@@ -3355,6 +3389,11 @@ abcd/nH org/eclipse/jgit/internal/storage/file/RefDirectory
 	j6 (Labcd/oH;)V delete
 	j6 (Labcd/oH;Labcd/LG;)V stored
 	j6 (Labcd/oH;Labcd/LG;Ljava/lang/String;)V storedSymbolicRef
+	j6 (Labcd/KK;)Labcd/KK; upcast
+	j6 (Ljava/io/BufferedReader;)Labcd/KK; parsePackedRefs
+	j6 (Labcd/ME;ILjava/lang/String;Labcd/KK;Labcd/KK;)Labcd/ME; resolve
+	j6 (Ljava/lang/String;Labcd/KK;)Labcd/ME; readRef
+	v5 ()Labcd/KK; getLooseRefs
 abcd/nH$c org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner
 abcd/nH$e org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef
 	FH snapShot
@@ -3788,6 +3827,11 @@ abcd/vG$a org/eclipse/jgit/revwalk/filter/AndRevFilter$Binary
 	v5 a
 	Zo b
 	j6 (Labcd/qG;Labcd/dG;)Z include
+abcd/vH org/eclipse/jgit/storage/file/WindowCacheConfig
+	DW packedGitLimit
+	Hw packedGitMMAP
+	DW ()J getPackedGitLimit
+	Zo ()Z isPackedGitMMAP
 abcd/vI org/eclipse/jgit/transport/JschSession
 	j6 ()Lcom/jcraft/jsch/Channel; getSftpChannel
 	j6 (Ljava/lang/String;I)Ljava/lang/Process; exec
@@ -3836,6 +3880,7 @@ abcd/wE org/eclipse/jgit/lib/ObjectChecker
 	gn tag
 	u7 tagger
 	j6 ([BIIIIII)I pathCompare
+	EQ ptrout
 abcd/wF org/eclipse/jgit/merge/Merger
 	Hw ()Z mergeImpl
 	j6 ([Labcd/YD;)Z merge
