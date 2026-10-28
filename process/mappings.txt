@@ -4856,3 +4856,5 @@ abcd/xJ$d$a org/eclipse/jgit/transport/TransportHttp$Service$HttpExecuteStream
 abcd/SI$b org/eclipse/jgit/transport/BaseReceivePack$Reporter
 	j6 (Ljava/lang/String;)V sendString
 abcd/NF$b org/eclipse/jgit/revwalk/BlockObjQueue$BlockFreeList
+abcd/VK org/eclipse/jgit/util/io/InterruptTimer
+abcd/VK$c org/eclipse/jgit/util/io/InterruptTimer$AutoKiller

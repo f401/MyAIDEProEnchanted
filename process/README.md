@@ -22,11 +22,11 @@ sha256sum -c SHA256SUMS                 # ① 输入完整性（10/10 OK）
 
 java -Xmx900m -jar ForgeAutoRenamingTool-1.0.8-all.jar \
   --input  base/merged_ok.jar \
-  --output ~/out/fart/r_v21.jar \
+  --output ~/out/fart/r_v22.jar \
   --map    mappings.txt                 # ② 改名
 
-python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_v21.jar \
-  --check 133dd74fdf50ab6710bafa22bd0b755ceeb2822717c08e93acfb3a13430d4c7c
+python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_v22.jar \
+  --check 0260bf0eee81b00914744a71affda09110b31ae9a44304771f22df2e051b0378
 # ③ 内容判等：PASS 表示与作者产出**逐类内容一致**
 ```
 
@@ -72,10 +72,10 @@ bash run.sh    # 每个 classes.jar 单独改名，其它 jar 走 --lib
 
 | 指标 | 值 |
 |---|---|
-| 类映射 | 647 |
-| 成员映射 | 4049（方法 2753 + 字段 1296） |
-| 方法覆盖 | 2620/3272 = 80.1% |
-| 字段覆盖 | 1115/1548 = 72.0% |
+| 类映射 | 649 |
+| 成员映射 | 4042（方法 2753 + 字段 1289） |
+| 方法覆盖 | 2621/3276 = 80.0% |
+| 字段覆盖 | 1116/1557 = 71.7% |
 | 完全覆盖类 | 375 |
 
 数据源与重建方法见 `../docs/JGIT-PIPELINE.md`；脚本见 `../tools/jgit/README.md`。

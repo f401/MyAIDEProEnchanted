@@ -1020,3 +1020,71 @@ awk -F' ' '/^\t/ && ($1=="toString"||$1=="equals"||$1=="hashCode"||$1=="clone") 
 | `inherit_check` | 0 / 5 | **0 / 5** |
 | `verify_members` | 不一致 0 | 不一致 **0** |
 | FART | 一致 | **一致**（`r_v21.jar`，manifest `133dd74f…`） |
+
+---
+
+## 22. 第十七轮：一条负结果 + 一个能预演运行时崩溃的新工具
+
+### 22.1 `refpick.py`（用"引用的类型集合"破形状撞车）——负结果
+
+思路：形状相同的两个候选，引用的类型往往不同（`ForwardEditPaths` 引 `Forward` 那套、
+`BackwardEditPaths` 引 `Backward` 那套），于是用
+`重叠率 = |探针引用类型 ∩ 候选引用类型| / |探针引用类型|` 打分，要求 ≥0.6 且领先第二名 ≥0.2。
+
+**实测：95 个形状多候选，0 个可判定。**
+
+原因很实在：能撞车的本来就是**同形兄弟**（`MyersDiff$MiddleEdit$ForwardEditPaths` vs
+`BackwardEditPaths`、`GroupHead` 的几种 Pattern），它们引用的类型集合几乎相同，
+分数差值 < 0.05。这条路对"兄弟撞车"无效，仅对"远亲撞车"有效，而远亲撞车在
+`shapescan` 阶段就已经被唯一性筛掉了。
+
+> 记录在这里是为了**避免以后再试一遍**。
+
+### 22.2 `access_audit.py`：预演 `IllegalAccessError`（本轮最大产出）
+
+改名的真正风险不是"名字不好看"，而是**跨包访问 package-private**：
+原来同在 `abcd` 包里的两个类互相访问合法，一旦其中一个改名到 `org.eclipse.jgit.x`，
+链接期就会 `IllegalAccessError`（我们踩过 `TransportHttp accessing abcd.vJ`）。
+
+工具做三类检查：
+
+1. **类型可达**：super/接口/字段与方法描述符里出现的类型 T，跨包则 T 必须 public；
+2. **成员可达**：常量池引用的 owner+name+desc，跨包则 owner 必须 public 且成员 public/protected；
+3. （由 1 覆盖）被跨包引用的类自身必须 public。
+
+对 `r_v21.jar` 扫出 **196 处跨包不可达（97 个不同目标）**，这就是**装到设备上会崩的清单**。
+按 owner 汇总直接变成"下一批该映射的类"：
+
+```
+IH 12  OG 7  GC 6  QF 5  MG 5  gJ 4  LF 4  yc 3  jG 3  PF$a 3  MP 3  GD 3
+tH 2  rI 2  cG 2  bC 2  VK$c 2  VK 2  OF$a 2  OF 2  NP 2  LD 2  LC 2  KP 2  EC 2
+```
+
+典型条目：
+- `owner-not-public org/eclipse/jgit/revwalk/Generator` 13 处（`Generator` 在 jgit 里是包私有，
+  却被还留在 `abcd` 的 `LF`/`QF`/`OF` 访问）；
+- `member-not-visible abcd/NB.<init>(Ljava/lang/String;)V` 7 处（`NB` 未映射 ⇒ 构造器仍是包私有，
+  却被改名到 `org.eclipse.jgit.api` 的 `CherryPickCommand$1` 调用）。
+
+**修法就是"把相关类一起映射"**，让它们回到同一个包——这也给了类映射一个**优先级排序**。
+
+### 22.3 顺带补上 `InterruptTimer` 全家
+
+`VK$c` 形状唯一命中 `InterruptTimer$AutoKiller`；加上此前的 `VK$a=AlarmState`、`VK$b=AlarmThread`，
+三个内部类全中 ⇒ **`VK` = `util/io/InterruptTimer`** 坐实。
+
+违规数：**196 → 187**。
+
+### 22.4 基线
+
+| 指标 | §21 | 本轮 |
+|---|---|---|
+| 类映射 | 647 | **649** |
+| 成员映射 | 4049 | **4042**（方法 2753 + 字段 1289；`VK`/`VK$c` 的成员随类块重建） |
+| 方法覆盖 | 2620/3272 = 80.1% | **2621/3276 = 80.0%** |
+| 字段覆盖 | 1115/1548 = 72.0% | **1116/1557 = 71.7%** |
+| 完全覆盖类 | 375 | 375 |
+| **跨包不可达** | 未测（196） | **187** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v22.jar`，manifest `0260bf0e…`） |
