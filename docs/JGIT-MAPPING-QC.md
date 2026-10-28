@@ -672,3 +672,62 @@ abcd/_F  ObjectWalk.Zo (LRevObject;)V → markRoot                              
 | `inherit_check` | CONFLICT 26 / MISSING 15 | **CONFLICT 0 / MISSING 13** |
 | `verify_members` | 不一致 0 | 不一致 **0** |
 | FART | 一致 | **一致**（`r_v16.jar`，manifest `a3ccbd07…`） |
+
+---
+
+## 17. 第十二轮：把 MISSING 从 13 压到 7，并揪出「工具假阳性」
+
+### 17.1 先修工具：祖先侧是 `private`/`static` 时不构成覆盖
+
+`_F`(ObjectWalk) 报 `TF$b.Zo (LRevObject;)V → markRoot` 缺映射，但 oracle 里 `ObjectWalk`
+该描述符的方法只有 `private void addObject(RevObject)` —— **private 不参与虚分派**，
+两者根本不是同一家族。上一轮只过滤了"子类侧是否虚方法"，这轮补上"祖先侧也必须是虚方法"：
+
+```python
+for a in anc:
+    if (nm, desc) not in virt.get(a, set()):
+        continue        # 祖先那边是 static/private ⇒ 不构成覆盖关系
+```
+
+### 17.2 `AbstractTreeIterator` 那两条：名字判错了
+
+| 探针 | 旧 | 新 | 依据 |
+|---|---|---|---|
+| `UJ`(CanonicalTreeParser) `EQ ()V` | `parseEntry` | **`reset`** | oracle `AbstractTreeIterator` 只有 3 个 `()V`：`reset/skip/stopWalk`；`CanonicalTreeParser` 只覆盖 `reset`（`parseEntry` 是 `(byte[],int,int)`，描述符都不对） |
+| `_J`(WorkingTreeIterator) `DW ()Z` | `mightNeedCleaning` | **`hasId`** | `TJ.DW ()Z` 是 `abstract boolean hasId()`，子类同名同描述符必然覆盖它 |
+| `_J`(WorkingTreeIterator) `gn ()Z` | `isEntryIgnored` | **`eof`** | 同上，`TJ.gn ()Z` 是 `abstract boolean eof()` |
+
+同时给 `TJ` 补上 `hasId`/`eof`/`reset` 三条，家族闭合。
+`mightNeedCleaning`/`isEntryIgnored` 是 `WorkingTreeIterator` 自己的方法，被 R8 起了别的名字，
+不能占用 `hasId`/`eof` 的槽位 → 这两条映射**撤销**（记进 `jgit_unverified.tsv` 的等价位置）。
+
+### 17.3 `ObjectDirectory` 那条：描述符宽度不符，先撤销
+
+`XG.EQ ()Labcd/GG;` 曾判 `newCachedFileObjectDatabase`。oracle 里这个方法确实叫
+`ObjectDirectory.newCachedFileObjectDatabase()`，但**返回类型是 `CachedObjectDirectory`**，
+而探针返回的是 `FileObjectDatabase`（`abcd/GG`）。两者宽度不同 ⇒ 不是同一个方法。
+`CachedObjectDirectory` 本身已映射（`DG`），所以问题在探针侧：
+`XG` 可能还有一个返回 `DG` 的包装方法被 R8 合并了。
+
+处理：**撤销该条映射**（宁缺勿错），记进 `jgit_unverified.tsv`，等把 `ObjectDirectory`
+的方法表整块对完再回填。同理 `XG.tp ()[Labcd/GG$a;` 也撤销——`GG$a` 目前的
+`FileObjectDatabase$1` 是分组推出来的临时名，描述符无法归一。
+
+> 这也暴露一个方法论问题：**分组推出来的 `$N` 名字会污染描述符归一化**。
+> 凡是"返回/参数类型是分组命名类"的成员，`verify_members` 都会报不一致，属于
+> 假阴性，不能直接当成"名字错"。
+
+### 17.4 基线
+
+| 指标 | §16 | 本轮 |
+|---|---|---|
+| 类 / 成员 | 612 / 3789 | 612 / **3790**（+3 TJ、+1 UJ、+2 _J、−2 XG） |
+| 方法覆盖 | 2466/3146 | 2465/3146 = **78.4%** |
+| 字段覆盖 | 1008/1447 = 69.7% | 1008/1447 = **69.7%** |
+| 完全覆盖类 | 309 | **310** |
+| `inherit_check` | CONFLICT 0 / MISSING 13 | **CONFLICT 0 / MISSING 7**（6 条是 jsch 真名接口） |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v17.jar`，manifest `13a521ca…`） |
+
+剩下的 `MISSING 7` 里 6 条是 `com/jcraft/jsch/UserInfo`/`UIKeyboardInteractive`
+（本身就是真名，不需要映射），实际只剩 `abcd/GG` 1 条。

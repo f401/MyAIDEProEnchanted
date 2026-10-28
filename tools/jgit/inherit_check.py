@@ -95,6 +95,8 @@ for p, km in list(maps.items()):
         for a in anc:
             if a not in decl or (nm, desc) not in decl[a]:
                 continue
+            if (nm, desc) not in virt.get(a, set()):
+                continue        # 祖先那边是 static/private ⇒ 不构成覆盖关系
             have = maps.get(a, {}).get((nm, desc))
             if have is None:
                 missing.append((p, a, nm, desc, new))

@@ -1802,6 +1802,9 @@ abcd/TI org/eclipse/jgit/transport/RefAdvertiser
 	<init> ()V <init>
 	Zo derefTags
 abcd/TJ org/eclipse/jgit/treewalk/AbstractTreeIterator
+	DW ()Z hasId
+	gn ()Z eof
+	EQ ()V reset
 	tp ()I idOffset
 	u7 ()[B idBuffer
 	FH (I)V next
@@ -1905,7 +1908,7 @@ abcd/UJ org/eclipse/jgit/treewalk/CanonicalTreeParser
 	j6 (Labcd/IE;Labcd/uE;)Labcd/UJ; createSubtreeIterator
 	Ws ()V reset
 	DW ()Z hasId
-	EQ ()V parseEntry
+	EQ ()V reset
 	FH (I)V next
 	FH ()Z first
 	J8 ()Labcd/UJ; getParent
@@ -2103,8 +2106,6 @@ abcd/XG org/eclipse/jgit/internal/storage/file/ObjectDirectory
 	j6 NO_PACKS
 	j6 (Labcd/XG$b;)Ljava/util/Map; reuseMap
 	FH (Labcd/XG$b;)Labcd/XG$b; scanPacksImpl
-	EQ ()Labcd/GG; newCachedFileObjectDatabase
-	tp ()[Labcd/GG$a; myAlternates
 	J8 ()Ljava/util/Collection; getPacks
 	EQ alternates
 	FH objects
@@ -2473,7 +2474,7 @@ abcd/_J org/eclipse/jgit/treewalk/WorkingTreeIterator
 	DW (Ljava/io/InputStream;)Ljava/io/InputStream; filterClean
 	er ()V reset
 	rN ()Z hasId
-	DW ()Z mightNeedCleaning
+	DW ()Z hasId
 	FH (I)V next
 	FH ()Z first
 	Hw (I)Z isEntryIgnored
@@ -2481,7 +2482,7 @@ abcd/_J org/eclipse/jgit/treewalk/WorkingTreeIterator
 	U2 ()Z eof
 	a8 ()Ljava/io/InputStream; openEntryStream
 	aM ()J getEntryLength
-	gn ()Z isEntryIgnored
+	gn ()Z eof
 	j3 ()J getEntryContentLength
 	j6 (I)V back
 	j6 (Labcd/UE;)V initRootIterator
