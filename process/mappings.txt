@@ -861,6 +861,7 @@ abcd/GB org/eclipse/jgit/api/TransportCommand
 abcd/GF org/eclipse/jgit/nls/TranslationBundle
 	j6 (Ljava/util/Locale;)V load
 abcd/GG org/eclipse/jgit/internal/storage/file/FileObjectDatabase
+	v5 ()Labcd/IE; newReader
 abcd/GG$c org/eclipse/jgit/internal/storage/file/FileObjectDatabase$InsertLooseObjectResult
 	<init> (Ljava/lang/String;I)V <init>
 	v5 $VALUES
@@ -906,6 +907,7 @@ abcd/GK$c org/eclipse/jgit/util/QuotedString$GitPathStyle
 abcd/HB org/eclipse/jgit/api/TransportConfigCallback
 	j6 (Labcd/jJ;)V configure
 abcd/HD org/eclipse/jgit/events/ListenerList
+	j6 (Ljava/lang/Class;Labcd/LD;)Labcd/GD; addListener
 abcd/HF org/eclipse/jgit/patch/FileHeader
 	j6 (Ljava/lang/String;II)Ljava/lang/String; parseName
 	j6 (IIII)Z eq
@@ -1022,6 +1024,7 @@ abcd/IJ org/eclipse/jgit/transport/UploadPack
 	gn ()V recvWants
 	j6 (Ljava/lang/String;)V reportErrorDuringNegotiate
 	j6 (Z)V sendPack
+	v5 ()Z okToGiveUp
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 	Hw REACHABLE_COMMIT_TIP
@@ -1568,6 +1571,7 @@ abcd/QC org/eclipse/jgit/dircache/DirCacheEntry
 	j6 (Ljava/io/OutputStream;)V write
 	j6 (II)Z mightBeRacilyClean
 	j6 ([BI)V setObjectIdFromRaw
+	VH ()I getStage
 abcd/QD org/eclipse/jgit/fnmatch/Head
 	j6 (C)Ljava/util/List; getNextHeads
 abcd/QG org/eclipse/jgit/internal/storage/file/LocalCachedPack
@@ -2218,6 +2222,8 @@ abcd/XG org/eclipse/jgit/internal/storage/file/ObjectDirectory
 	j6 NO_PACKS
 	j6 (Labcd/XG$b;)Ljava/util/Map; reuseMap
 	FH (Labcd/XG$b;)Labcd/XG$b; scanPacksImpl
+	EQ ()Labcd/GG; newCachedFileObjectDatabase
+	tp ()[Labcd/GG$a; myAlternates
 abcd/XG$b org/eclipse/jgit/internal/storage/file/ObjectDirectory$PackList
 	DW packs
 	j6 snapshot
@@ -3145,6 +3151,7 @@ abcd/gE org/eclipse/jgit/lib/Config
 	j6 (Ljava/util/List;)Labcd/gE$c; newState
 	j6 (Labcd/gE$c;Ljava/util/List;)Ljava/util/List; copy
 	FH listeners
+	v5 ()Labcd/gE$c; getBaseState
 abcd/gE$a org/eclipse/jgit/lib/ConfigLine
 	j6 (Ljava/lang/String;)Labcd/gE$a; forValue
 	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z match
