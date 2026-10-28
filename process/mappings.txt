@@ -534,6 +534,7 @@ abcd/BC org/eclipse/jgit/diff/RenameDetector
 	DW (Labcd/LE;)V findExactRenames
 	j6 (Labcd/IE;Labcd/LE;)Ljava/util/List; compute
 	j6 (Labcd/cC$c;Labcd/LE;)Ljava/util/List; compute
+	DW (Labcd/cC$c;Labcd/LE;)V breakModifies
 abcd/BD org/eclipse/jgit/errors/UnsupportedCredentialItem
 	<init> (Labcd/HJ;Ljava/lang/String;)V <init>
 abcd/BE org/eclipse/jgit/lib/ObjectIdRef
@@ -548,6 +549,10 @@ abcd/BE org/eclipse/jgit/lib/ObjectIdRef
 abcd/BF org/eclipse/jgit/merge/ThreeWayMergeStrategy
 	j6 (Labcd/UE;)Labcd/CF; newMerger
 	<init> ()V <init>
+abcd/BH org/eclipse/jgit/internal/storage/pack/CachedPack
+	DW ()J getObjectCount
+	j6 ()J getDeltaCount
+	j6 (Labcd/MH;Labcd/UH;)Z hasObject
 abcd/BI org/eclipse/jgit/transport/PackTransport
 abcd/CB org/eclipse/jgit/api/StatusCommand
 	FH workingTreeIt
@@ -1071,6 +1076,10 @@ abcd/LG org/eclipse/jgit/internal/storage/file/FileSnapshot
 	j6 (Labcd/LG;)Z equals
 	j6 (Ljava/io/File;)Z isModified
 abcd/LH org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs
+	j6 (Labcd/OH;Labcd/BH;Z)V copyPackAsIs
+	j6 (Labcd/OH;Labcd/MH;Z)V copyObjectAsIs
+	j6 (Labcd/OH;Ljava/util/List;)V writeObjects
+	j6 (Labcd/TH;Labcd/LE;Ljava/lang/Iterable;)V selectObjectRepresentation
 abcd/LI org/eclipse/jgit/transport/PushConnection
 	j6 (Labcd/LE;Ljava/util/Map;)V push
 abcd/MC org/eclipse/jgit/dircache/DirCacheBuilder
@@ -1438,6 +1447,7 @@ abcd/QG org/eclipse/jgit/internal/storage/file/LocalCachedPack
 	Hw packs
 	j6 odb
 	j6 (Labcd/OH;ZLabcd/wH;)V copyAsIs
+	j6 (Labcd/MH;Labcd/UH;)Z hasObject
 abcd/QJ org/eclipse/jgit/transport/WalkPushConnection
 	u7 ()Z isNewRepository
 	j6 (Ljava/util/List;)V createNewRepository
@@ -1694,6 +1704,7 @@ abcd/TF$c org/eclipse/jgit/revwalk/DepthWalk$ObjectWalk
 abcd/TG org/eclipse/jgit/internal/storage/file/LocalObjectToPack
 	Mr ()V clearReuseAsIs
 	XL pack
+	j6 (Labcd/UH;)V select
 abcd/TH org/eclipse/jgit/internal/storage/pack/PackWriter
 	DW instancesIterable
 	j6 instances
@@ -1728,6 +1739,7 @@ abcd/TH org/eclipse/jgit/internal/storage/pack/PackWriter
 	j6 (Labcd/NH;Labcd/IE;Labcd/YD;)[B buffer
 	j6 (Labcd/iG;)V addObject
 	Hw objectsLists
+	j6 (Labcd/MH;Labcd/UH;)V select
 abcd/TH$b org/eclipse/jgit/internal/storage/pack/PackWriter$PackingPhase
 	<init> (Ljava/lang/String;I)V <init>
 	Zo $VALUES
@@ -1841,10 +1853,9 @@ abcd/UE org/eclipse/jgit/lib/Repository
 abcd/UG org/eclipse/jgit/internal/storage/file/LockFile$1
 	accept (Ljava/io/File;Ljava/lang/String;)Z accept
 	<init> ()V <init>
-abcd/UH org/eclipse/jgit/lib/BitmapObject
-	DW ()I getType
-	FH ()I getType
-	j6 ()Labcd/yE; getObjectId
+abcd/UH org/eclipse/jgit/internal/storage/pack/StoredObjectRepresentation
+	j6 ()Labcd/yE; getDeltaBase
+	DW ()I getFormat
 abcd/UJ org/eclipse/jgit/treewalk/CanonicalTreeParser
 	j6 ([B)V reset
 	tp ()I idOffset
@@ -4007,6 +4018,7 @@ abcd/wH org/eclipse/jgit/internal/storage/file/WindowCursor
 	j6 (Labcd/aH;JZLabcd/OH;)V copyPackAsIs
 	DW ()Labcd/IE; newReader
 	j6 (Labcd/OH;Labcd/MH;Z)V copyObjectAsIs
+	j6 (Labcd/OH;Labcd/BH;Z)V copyPackAsIs
 abcd/wI org/eclipse/jgit/transport/LongMap
 	DW (J)I index
 	j6 (JLjava/lang/Object;)Ljava/lang/Object; put

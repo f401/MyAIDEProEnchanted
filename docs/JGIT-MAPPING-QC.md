@@ -219,3 +219,34 @@
 `j6(ObjectToPack,BitmapObject)Z`、`j6()J`。它在 3.7.1 里对应不上任何抽象类（
 `ObjectReuseAsIs.copyObjectAsIs` 在该版本声明的是具体类 `ObjectToPack`），
 说明这处是**版本差异**：探针版本把该参数放宽成了抽象基类。`BH` 暂不映射。
+
+## 8. 第六轮：用 11 个 jgit 历史版本做指纹定位（版本假设成立，且推翻 3 条"版本差异"）
+
+`tools/vprobe.py` 把探针上实际观察到的签名当指纹，在 11 个 jar（3.7.1 / 4.0 / 4.2 / 4.4.1 / 4.5.0 /
+4.5.7 / 4.9.10 / 4.10 / 4.11.9 / 5.6.1 / 5.13.3）里比对：
+
+**决定性指纹**：`WindowCursor.copyPackAsIs(PackOutputStream, CachedPack, boolean)`
+- **只有 3.7.1 有**；4.0 起全部改成 2 参 `copyPackAsIs(PackOutputStream, CachedPack)`。
+- 探针里正好存在 `j6(PackOutputStream, BH, Z)V`（3 参带 boolean）→ **AIDE 内置的是 3.7.1 系列**，
+  “以 3.7.1 为 oracle” 这个前提成立。
+
+**但上一轮记为“版本差异”的 3 条，实测所有版本签名都一致**（`DirCache.writeTo(File,OutputStream)`、
+`WindowCursor.inflate(...,boolean)`、`WindowCursor.newObjectToPack(AnyObjectId,int)`、
+`ObjectStream.getType()`），因此它们是 **R8 的签名重写**（参数消除 / 成员删除），不是版本差异：
+- `KC.writeTo(OutputStream)`：R8 删掉了未使用的 `File dir` 参数
+- `wH.inflate(...,int)`：参数被 R8 改宽
+- `wH.newObjectToPack(RevObject)`：签名被 R8 特化
+- `ObjectStream`/`ObjectStream$Filter` 缺 `getType()`：无调用者的抽象方法被删
+
+### 由此修掉 2 个类
+
+| 探针 | 旧判 | 新判 | 判据 |
+|---|---|---|---|
+| `BH` | （未映射） | **`internal/storage/pack/CachedPack`** | 3.7.1 独有签名 `copyPackAsIs(PackOutputStream, CachedPack, boolean)` 的第 2 参数；javap 对得上 `getObjectCount()J`/`getDeltaCount()J`/`hasObject(ObjectToPack, StoredObjectRepresentation)Z`（第 4 个 `FH()Set` 是 R8 合并进来的，配对 3/4） |
+| `UH` | `lib/BitmapObject`（**错**） | **`internal/storage/pack/StoredObjectRepresentation`** | `SG=LocalObjectRepresentation` 的父类就是它；`BH.hasObject(ObjectToPack,UH)Z` 再证。成员重定：`DW()I= getFormat`（返回 2 = `FORMAT_OTHER`）、`j6()ObjectId = getDeltaBase` |
+
+`UH` 这次纠错说明：typesolve 的 0.82 分靠的是形状相似（`BitmapObject` 也是 3 方法），
+必须用**父类/被调用签名**这类结构性证据复核——`SG` 的父类指向它是决定性的。
+
+**当前**：类 **412**、成员 **3464**、方法 **2227/2745 = 81.1%**、字段 **891/1256 = 70.9%**、
+完全覆盖类 **258**、`verify_members` 不合格 **3 条**（全部是 R8 签名重写造成，名字本身正确）。
