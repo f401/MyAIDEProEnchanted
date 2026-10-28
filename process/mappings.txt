@@ -2230,6 +2230,8 @@ abcd/XG org/eclipse/jgit/internal/storage/file/ObjectDirectory
 	tp ()[Labcd/GG$a; myAlternates
 	J8 ()Ljava/util/Collection; getPacks
 	EQ alternates
+	FH objects
+	v5 packDirectory
 abcd/XG$b org/eclipse/jgit/internal/storage/file/ObjectDirectory$PackList
 	DW packs
 	j6 snapshot
