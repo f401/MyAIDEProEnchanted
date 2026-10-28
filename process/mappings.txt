@@ -1029,6 +1029,8 @@ abcd/IJ org/eclipse/jgit/transport/UploadPack
 	a8 depth
 	XL clientShallowCommits
 	QX options
+	BT PEER_HAS
+	P8 SATISFIED
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 	Hw REACHABLE_COMMIT_TIP
