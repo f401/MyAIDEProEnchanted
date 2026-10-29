@@ -1573,3 +1573,75 @@ public class ObjectStream$Filter extends ObjectStream {
 
 剩余头号：`abcd/MG` 一个类独占 **13 处**（`ObjectDirectoryInserter` 4 + `WindowCursor` 3+3 +
 `FileObjectDatabase` 3），其余零散（`DirCacheBuilder.finish()` 3 等）。
+
+---
+
+## 30. 第二十五轮：「只挪包」批量作业 —— 违规 71 → 36
+
+### 30.1 新工具模式：`access_audit.py --suggest`
+
+思路很直接：**身份不知道，但"它必须和谁同包"是知道的**。
+
+```
+对一个仍在 abcd/ 里的访问者 A，收集它踩到的所有 owner 所在包；
+若这些包**只有一个**，就把 A 原样（保留混淆名）挪进那个包。
+```
+
+这样既不冒充 jgit 类名，又能一次性消掉它的所有跨包访问。工具输出形如：
+
+```
+建议只挪包（访问者仍在 abcd，且所有被踩 owner 同属一个包）15 个：
+   abcd/OG   → org/eclipse/jgit/internal/storage/file/OG
+   abcd/Ww   → org/eclipse/jgit/treewalk/filter/Ww
+   abcd/zC   → org/eclipse/jgit/diff/zC
+   ...
+```
+
+### 30.2 本轮落库 16 条 `place:` 映射
+
+| 类 | 挪到 | 起因 |
+|---|---|---|
+| `MG` | `internal/storage/file/MG` | `extends ObjectStream$Filter` + 8 参构造器，访问 `ObjectDirectoryInserter`/`WindowCursor`/`FileObjectDatabase`（13 处） |
+| `OG` `NG` | `internal/storage/file/*` | 同一簇（`OG` 唯一创建 `MG`） |
+| `KP` `MP` `yc` | `lib/*` | 访问 `lib` 的包私有成员 |
+| `LC` | `dircache/LC` | 同上 |
+| `bC` `zC` | `diff/*` | 同上 |
+| `cG` `jG` | `revwalk/*` | 同上 |
+| `cL` | `util/io/cL` | 同上 |
+| `Ww` `Ww$b` `Ww$c` | `treewalk/filter/*` | 三者互为父子，一起挪 |
+| `Hz$b` | `transport/http/Hz$b` | 访问 `JDKHttpConnectionFactory` |
+
+**违规 71 → 36**（28 个目标）。
+
+### 30.3 又一次"贪心失败"（记录）
+
+第二轮 `--suggest` 又给出 `Tw`/`Vw` 两个（可再消 5 处，到 31），但**FART 立刻变不确定**（1 个类漂移）。
+按"确定性 > 覆盖率"的原则**回退**，两条记进 `jgit_unverified.tsv`。
+
+> 结论：`place:` 批量挪包会改变大量描述符的包名，**每批之后都必须跑两次 FART 验确定性**，
+> 不稳定就整批回退——不能贪那几个点。
+
+### 30.4 违规数与基线
+
+| 版本 | 跨包不可达 |
+|---|---|
+| `r_v29` | 103 |
+| `r_v32` | 91 |
+| `r_v34` | 71 |
+| **`r_v36`** | **36**（28 个目标） |
+
+| 指标 | §29 | 本轮 |
+|---|---|---|
+| 类映射 | 657 | **673**（+16 place） |
+| 成员映射 | 4047 | 4047 |
+| 方法覆盖 | 2623/3368 = 77.9% | **2623/3368 = 77.9%** |
+| 字段覆盖 | 1116/1603 = 69.6% | **1116/1603 = 69.6%** |
+| 完全覆盖类 | 372 | 372 |
+| **跨包不可达** | 71 | **36** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v36.jar`，manifest `e9e46cf9…`） |
+
+剩余 36 处已很零散：`DirCacheBuilder.finish()` 3（`CommitCommand` 跨包调包私有方法）、
+`com/termux/yinli_a/*` 2（非 jgit，Kotlin 运行库）、`androidx/fragment` 1、
+`abcd/XD` 2、`abcd/NP` 2、`abcd/gJ` 6。

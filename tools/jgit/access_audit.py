@@ -156,5 +156,24 @@ for cn, c in cls.items():
             detail[('member-not-visible', '%s.%s%s' % (ow, nm, ds))].append(cn)
 
 print('类 %d 个；跨包不可达：%d 处（%d 个不同目标）' % (len(cls), sum(viol.values()), len(viol)))
+
+if '--suggest' in sys.argv:
+    # 对每个"仍在 abcd/ 里的访问者"，收集它踩到的 owner 所在包；
+    # 若只有一个包，说明它本该躺在那个包里 → 建议只挪包、保留混淆名
+    acc = collections.defaultdict(set)
+    for (kind, tgt), n in viol.items():
+        owner = tgt if kind != 'member-not-visible' else tgt.rsplit('.', 1)[0]
+        for a in detail[(kind, tgt)]:
+            if a.startswith('abcd/'):
+                acc[a].add(pkg(owner))
+    auto = {a: next(iter(ps)) for a, ps in acc.items() if len(ps) == 1}
+    mixed = {a: sorted(ps) for a, ps in acc.items() if len(ps) > 1}
+    print('\n建议只挪包（访问者仍在 abcd，且所有被踩 owner 同属一个包）%d 个：' % len(auto))
+    for a, pk in sorted(auto.items()):
+        print('   %-12s → %s/%s' % (a, pk, a.rsplit('/', 1)[-1]))
+    if mixed:
+        print('\n跨多个包，需人工判 %d 个：' % len(mixed))
+        for a, ps in sorted(mixed.items()):
+            print('   %-12s %s' % (a, ps))
 for (kind, tgt), n in viol.most_common(TOP):
     print('  %-18s %-70s %d 处  例: %s' % (kind, tgt, n, detail[(kind, tgt)][0]))
