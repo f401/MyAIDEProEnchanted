@@ -24,7 +24,7 @@ OVERS = [  # (标签, jar路径)
 ]
 MODS = {'public', 'private', 'protected', 'static', 'final', 'abstract', 'synthetic',
         'constructor', 'declared-synchronized', 'varargs', 'bridge', 'native',
-        'transient', 'volatile', 'strictfp'}
+        'transient', 'volatile', 'strictfp', 'enum', 'mandatory', 'empty'}
 
 
 def load_map():

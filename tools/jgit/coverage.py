@@ -11,7 +11,7 @@ ORACLE=HOME+'/out/oracle/jgit/j-3.7.1.201504261725-r.jar'
 MAP=HOME+'/out/work/jgit_map_clean.tsv'
 TSRG=HOME+'/out/work/jgit_members_clean.tsrg'
 MODS={'public','private','protected','static','final','abstract','synthetic','constructor',
-      'declared-synchronized','varargs','bridge','native','transient','volatile','strictfp'}
+      'declared-synchronized','varargs','bridge','native','transient','volatile','strictfp','enum','mandatory','empty'}
 TYPEREF=re.compile(r'L([A-Za-z0-9_$/$.]+);')
 CLS=re.compile(r'^\.class[^\n]*?L([^;]+);',re.M)
 

@@ -584,6 +584,11 @@ abcd/DI$a org/eclipse/jgit/transport/PacketLineIn$AckNackResult
 		static
 	values ()[Labcd/DI$a; values
 		static
+	DW ACK
+	FH ACK_CONTINUE
+	Hw ACK_COMMON
+	j6 NAK
+	v5 ACK_READY
 abcd/DJ org/eclipse/jgit/transport/TransportProtocol
 	DW ()Ljava/lang/String; getName
 	FH ()Ljava/util/Set; getRequiredFields
@@ -602,6 +607,9 @@ abcd/DJ$a org/eclipse/jgit/transport/TransportProtocol$URIishField
 		static
 	values ()[Labcd/DJ$a; values
 		static
+	DW PASS
+	Hw PORT
+	j6 USER
 abcd/DK org/eclipse/jgit/util/LongList
 	DW count
 	j6 entries
@@ -825,6 +833,10 @@ abcd/GG$c org/eclipse/jgit/internal/storage/file/FileObjectDatabase$InsertLooseO
 		static
 	values ()[Labcd/GG$c; values
 		static
+	DW EXISTS_PACKED
+	FH EXISTS_LOOSE
+	Hw FAILURE
+	j6 INSERTED
 abcd/GJ org/eclipse/jgit/transport/TransportSftp
 	a8 PROTO_SFTP
 	QX ()Labcd/nI; openFetch
@@ -930,6 +942,9 @@ abcd/HF$a org/eclipse/jgit/patch/FileHeader$PatchType
 		static
 	values ()[Labcd/HF$a; values
 		static
+	DW BINARY
+	FH GIT_BINARY
+	j6 UNIFIED
 abcd/HG org/eclipse/jgit/internal/storage/file/FileRepository$1
 	j6 this$0
 abcd/HH org/eclipse/jgit/internal/storage/pack/DeltaTask
@@ -1071,6 +1086,9 @@ abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 		static
 	values ()[Labcd/IJ$a; values
 		static
+	DW REACHABLE_COMMIT
+	FH ANY
+	j6 ADVERTISED
 abcd/IK org/eclipse/jgit/util/RawParseUtils
 	j6 ([BI[B)I match
 		static
@@ -1160,6 +1178,10 @@ abcd/JF org/eclipse/jgit/patch/HunkHeader
 	Hw ()Labcd/JF$a; getOldImage
 	Hw old
 abcd/JF$a org/eclipse/jgit/patch/HunkHeader$OldImage
+	DW ()I getStartLine
+	j6 ()I getLineCount
+	j6 startLine
+	DW lineCount
 abcd/JG org/eclipse/jgit/storage/file/FileRepositoryBuilder
 	<init> ()V <init>
 abcd/JJ org/eclipse/jgit/transport/UploadPack$1
@@ -1635,6 +1657,12 @@ abcd/OI$a org/eclipse/jgit/transport/ReceiveCommand$Result
 		static
 	values ()[Labcd/OI$a; values
 		static
+	DW REJECTED_NOCREATE
+	FH REJECTED_NODELETE
+	Hw REJECTED_NONFASTFORWARD
+	j6 NOT_ATTEMPTED
+	u7 OK
+	v5 REJECTED_CURRENT_BRANCH
 abcd/OI$b org/eclipse/jgit/transport/ReceiveCommand$Type
 	<init> (Ljava/lang/String;I)V <init>
 	Hw DELETE
@@ -1643,6 +1671,9 @@ abcd/OI$b org/eclipse/jgit/transport/ReceiveCommand$Type
 		static
 	values ()[Labcd/OI$b; values
 		static
+	DW UPDATE
+	FH UPDATE_NONFASTFORWARD
+	j6 CREATE
 abcd/OJ org/eclipse/jgit/transport/WalkFetchConnection
 	j6 (I)V markLocalCommitsComplete
 	j6 (Labcd/YD;[B)V verifyAndInsertLooseObject
@@ -1895,6 +1926,11 @@ abcd/RA$a org/eclipse/jgit/api/CheckoutResult$Status
 		static
 	values ()[Labcd/RA$a; values
 		static
+	DW OK
+	FH CONFLICTS
+	Hw NONDELETED
+	j6 NOT_TRIED
+	v5 ERROR
 abcd/RC org/eclipse/jgit/dircache/DirCacheIterator
 	J0 subtreeId
 	QX currentEntry
@@ -2301,6 +2337,11 @@ abcd/TH$b org/eclipse/jgit/internal/storage/pack/PackWriter$PackingPhase
 		static
 	values ()[Labcd/TH$b; values
 		static
+	DW GETTING_SIZES
+	FH FINDING_SOURCES
+	Hw COMPRESSING
+	j6 COUNTING
+	v5 WRITING
 abcd/TI org/eclipse/jgit/transport/RefAdvertiser
 	DW ()Z isEmpty
 	j6 ()V end
@@ -2378,6 +2419,9 @@ abcd/UD$a org/eclipse/jgit/ignore/IgnoreNode$MatchResult
 		static
 	values ()[Labcd/UD$a; values
 		static
+	DW IGNORED
+	FH CHECK_PARENT
+	j6 NOT_IGNORED
 abcd/UE org/eclipse/jgit/lib/Repository
 	VH (Ljava/lang/String;)[B readGitDirectoryFile
 	QX ()Z isBare
@@ -2530,6 +2574,9 @@ abcd/WA$a org/eclipse/jgit/api/CherryPickResult$CherryPickStatus
 		static
 	values ()[Labcd/WA$a; values
 		static
+	DW FAILED
+	FH CONFLICTING
+	j6 OK
 abcd/WC org/eclipse/jgit/transport/WalkFetchConnection$1
 abcd/WD org/eclipse/jgit/lib/AbbreviatedObjectId
 	DW (Labcd/YD;)I prefixCompare
@@ -2689,6 +2736,7 @@ abcd/XA org/eclipse/jgit/api/CloneCommand
 	DW (Labcd/UE;Labcd/ME;)Labcd/dG; parseCommit
 	J8 noCheckout
 abcd/XE org/eclipse/jgit/lib/RepositoryState$1
+	Hw ()Z canCheckout
 abcd/XF org/eclipse/jgit/revwalk/Generator
 	DW ()I outputType
 	j6 ()Labcd/dG; next
@@ -2746,6 +2794,9 @@ abcd/XH org/eclipse/jgit/submodule/SubmoduleStatusType
 		static
 	values ()[Labcd/XH; values
 		static
+	FH INITIALIZED
+	Hw REV_CHECKED_OUT
+	j6 MISSING
 abcd/XI org/eclipse/jgit/transport/RemoteConfig
 	VH ()I getTimeout
 	j6 (Labcd/gE;Ljava/lang/String;)V unset
@@ -2814,6 +2865,7 @@ abcd/YD org/eclipse/jgit/lib/AnyObjectId
 	j6 (Ljava/io/OutputStream;I)V writeRawInt
 		static
 abcd/YE org/eclipse/jgit/lib/RepositoryState$2
+	Hw ()Z canCheckout
 abcd/YF org/eclipse/jgit/revwalk/StartGenerator$3
 abcd/YG org/eclipse/jgit/internal/storage/file/ObjectDirectoryInserter
 	j6 (Ljava/io/File;Labcd/yE;)Labcd/yE; insertOneObject
@@ -2896,6 +2948,12 @@ abcd/YI$a org/eclipse/jgit/transport/RemoteRefUpdate$Status
 		static
 	values ()[Labcd/YI$a; values
 		static
+	DW UP_TO_DATE
+	FH REJECTED_NONFASTFORWARD
+	Hw REJECTED_NODELETE
+	j6 NOT_ATTEMPTED
+	u7 OK
+	v5 REJECTED_REMOTE_CHANGED
 abcd/YJ org/eclipse/jgit/treewalk/TreeWalk
 	FH (I)I getRawMode
 	j6 ([BI)I isPathPrefix
@@ -2974,6 +3032,7 @@ abcd/ZA org/eclipse/jgit/api/CommitCommand
 	v5 author
 	J0 reflogComment
 abcd/ZE org/eclipse/jgit/lib/RepositoryState$3
+	Hw ()Z canCheckout
 abcd/ZF org/eclipse/jgit/revwalk/MergeBaseGenerator
 	j6 walker
 	DW (Labcd/dG;I)Z carryOntoOne
@@ -3043,7 +3102,11 @@ abcd/_A$a org/eclipse/jgit/api/CreateBranchCommand$SetupUpstreamMode
 		static
 	values ()[Labcd/_A$a; values
 		static
+	DW NOTRACK
+	FH SET_UPSTREAM
+	j6 TRACK
 abcd/_E org/eclipse/jgit/lib/RepositoryState$4
+	Hw ()Z canCheckout
 abcd/_F org/eclipse/jgit/revwalk/ObjectWalk
 	U2 pathBuf
 	Ws rootObjects
@@ -3215,6 +3278,10 @@ abcd/_J$c org/eclipse/jgit/treewalk/WorkingTreeIterator$MetadataDiff
 		static
 	values ()[Labcd/_J$c; values
 		static
+	DW DIFFER_BY_METADATA
+	FH SMUDGED
+	Hw DIFFER_BY_TIMESTAMP
+	j6 EQUAL
 abcd/_J$d org/eclipse/jgit/treewalk/WorkingTreeIterator$PerDirectoryIgnoreNode
 	DW entry
 	DW ()Labcd/UD; load
@@ -3239,6 +3306,7 @@ abcd/aD org/eclipse/jgit/errors/InvalidObjectIdException
 	j6 ([BII)Ljava/lang/String; asAscii
 		static
 abcd/aF org/eclipse/jgit/lib/RepositoryState$5
+	Hw ()Z canCheckout
 abcd/aG org/eclipse/jgit/revwalk/StartGenerator$4
 abcd/aH org/eclipse/jgit/internal/storage/file/PackFile
 	DW (J)J findEndOffset
@@ -3377,6 +3445,7 @@ abcd/bE org/eclipse/jgit/lib/BaseRepositoryBuilder
 	j6 (Labcd/pK;)Labcd/bE; setFS
 	FH ()Labcd/gE; getConfig
 abcd/bF org/eclipse/jgit/lib/RepositoryState$6
+	Hw ()Z canCheckout
 abcd/bG org/eclipse/jgit/revwalk/FollowFilter$1
 abcd/bH org/eclipse/jgit/internal/storage/file/PackIndex
 	iterator ()Ljava/util/Iterator; iterator
@@ -3817,6 +3886,8 @@ abcd/gB$a org/eclipse/jgit/api/ListBranchCommand$ListMode
 		static
 	values ()[Labcd/gB$a; values
 		static
+	DW REMOTE
+	j6 ALL
 abcd/gC org/eclipse/jgit/diff/DiffConfig
 	j6 ()I getRenameLimit
 	DW ()Z isNoPrefix
@@ -3835,6 +3906,9 @@ abcd/gC$a org/eclipse/jgit/diff/DiffConfig$RenameDetectionType
 		static
 	values ()[Labcd/gC$a; values
 		static
+	DW TRUE
+	FH COPY
+	j6 FALSE
 abcd/gD org/eclipse/jgit/fnmatch/FileNameMatcher$5
 abcd/gE org/eclipse/jgit/lib/Config
 	j6 ()V save
@@ -3967,12 +4041,18 @@ abcd/hC$a org/eclipse/jgit/diff/DiffEntry$ChangeType
 		static
 	values ()[Labcd/hC$a; values
 		static
+	DW MODIFY
+	Hw RENAME
+	j6 ADD
+	v5 COPY
 abcd/hC$b org/eclipse/jgit/diff/DiffEntry$Side
 	FH $VALUES
 	valueOf (Ljava/lang/String;)Labcd/hC$b; valueOf
 		static
 	values ()[Labcd/hC$b; values
 		static
+	DW NEW
+	j6 OLD
 abcd/hE org/eclipse/jgit/lib/Constants
 	j6 (Ljava/lang/String;)[B encode
 		static
@@ -4173,6 +4253,10 @@ abcd/jC$a org/eclipse/jgit/diff/Edit$Type
 		static
 	values ()[Labcd/jC$a; values
 		static
+	DW DELETE
+	FH REPLACE
+	Hw EMPTY
+	j6 INSERT
 abcd/jE org/eclipse/jgit/lib/CoreConfig
 	Hw ()Z isLogAllRefUpdates
 	DW ()Ljava/lang/String; getExcludesFile
@@ -4289,6 +4373,8 @@ abcd/jJ$a org/eclipse/jgit/transport/Transport$Operation
 		static
 	values ()[Labcd/jJ$a; values
 		static
+	DW PUSH
+	j6 FETCH
 abcd/jK org/eclipse/jgit/treewalk/filter/TreeFilter
 	j6 ()Z shouldBeRecursive
 	j6 (Labcd/YJ;)Z include
@@ -4685,6 +4771,11 @@ abcd/pB$a org/eclipse/jgit/api/MergeResult$MergeStatus
 		static
 	values ()[Labcd/pB$a; values
 		static
+	DW ALREADY_UP_TO_DATE
+	FH FAILED
+	Hw MERGED
+	j6 FAST_FORWARD
+	v5 CONFLICTING
 abcd/pC org/eclipse/jgit/diff/HistogramDiffIndex
 	DW cmp
 	Ws hasCommon
@@ -5086,6 +5177,10 @@ abcd/tB$b org/eclipse/jgit/api/RebaseCommand$Operation
 		static
 	values ()[Labcd/tB$b; values
 		static
+	DW CONTINUE
+	FH SKIP
+	Hw ABORT
+	j6 BEGIN
 abcd/tB$c org/eclipse/jgit/api/RebaseCommand$2
 abcd/tC org/eclipse/jgit/diff/RawText
 	j6 EMPTY_TEXT
@@ -5455,6 +5550,9 @@ abcd/xF$a org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason
 		static
 	values ()[Labcd/xF$a; values
 		static
+	DW DIRTY_WORKTREE
+	FH COULD_NOT_DELETE
+	j6 DIRTY_INDEX
 abcd/xG org/eclipse/jgit/api/LogCommand$1
 abcd/xH org/eclipse/jgit/internal/storage/file/WriteConfig$1
 	<init> ()V <init>
