@@ -6,7 +6,12 @@
     唯一候选才算证成。再叠加一条弱证据：构造器内 putfield 的先后次序。
 落库后仍要走 verify_members → closefam → FART 两遍逐字节。
 
-用法: python3 tools/jgit/fieldprint.py [--apply] [--top N]
+用法: python3 tools/jgit/fieldprint.py [--apply] [--top N] [--ext]
+
+--ext（实验性，当前**不可用**）：本想用「跨类读写者 + 关联常量」加强证据，但跨类索引只覆盖
+被 javap 取样的那批类（两侧不对称），子集检验必然失败 → 证成 0。正确做法是**扫常量池的
+Fieldref 项**（一次遍历 2 万类，无需 javap）建全量「谁引用了某个 (owner,name)」索引。
+在换实现之前不要用 --ext。
 """
 import collections, os, re, subprocess, sys, zipfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -39,6 +44,28 @@ def javap(jar, classes, chunk=40):
         if cur:
             out[cur] = '\n'.join(buf)
     return out
+
+
+CONST = re.compile(r'(?:ldc\S*|bipush|sipush|iconst_\S+|lconst_\S+)\s*(?://\s*(?:int|long|String|float|double)\s+(.-?\S*))?$')
+
+
+def inline_consts(block):
+    """字段名 -> 同方法内紧邻的字面量（帮助区分同类同型字段）"""
+    res = collections.defaultdict(set)
+    cur = None
+    lines = block.split('\n')
+    for i, ln in enumerate(lines):
+        if ln.startswith('  ') and not ln.startswith('   ') and '(' in ln and ln.rstrip().endswith(';'):
+            m = re.search(r'([\w$<>]+)\s*\(', ln)
+            if m:
+                cur = m.group(1)
+        mm = re.search(r'//\s+Field\s+([\w$]+):', ln)
+        if mm and cur:
+            for j in range(max(0, i - 2), min(len(lines), i + 3)):
+                cm = CONST.search(lines[j].strip())
+                if cm and cm.group(1):
+                    res[mm.group(1)].add(cm.group(1).strip())
+    return res
 
 
 def accesses(block, simple):
@@ -135,6 +162,18 @@ def main():
             if len(p) == 3:
                 mmap[cur][p[0]] = p[2]
 
+    # 跨类访问索引：字段名 -> 外部类的目标名集合
+    # 跨类访问索引：复用已取到的块（避免逐类调 javap）
+    ext = collections.defaultdict(set)
+    if '--ext' in sys.argv:
+        for src, txt in P.items():
+            who = p2t.get(src, src)
+            for m in re.finditer(r'//\s+Field\s+([\w$]+):', txt):
+                ext[m.group(1)].add(who)
+        for src, txt in O.items():
+            for m in re.finditer(r'//\s+Field\s+([\w$]+):', txt):
+                ext[m.group(1)].add(src)
+
     plan = []
     stat = collections.Counter()
     for p, t, c, unm, free in work:
@@ -151,11 +190,18 @@ def main():
             r, w, wo = pa.get(nm, [set(), set(), None])
             kr = set(mtr.get(x, x) for x in r if x in mtr or x == '<init>')
             kw = set(mtr.get(x, x) for x in w if x in mtr or x == '<init>')
+            ok_ = inline_consts(P.get(p, '')).get(nm, set()) if '--ext' in sys.argv else set()
             keep = []
             for onm, od, oacc in cands:
                 orr, ow, owo = oa.get(onm, [set(), set(), None])
-                if kr <= orr and kw <= ow:
-                    keep.append((onm, wo is not None and wo == owo, len(kr) + len(kw)))
+                if not (kr <= orr and kw <= ow):
+                    continue
+                # 跨类：读写过该字段的外部类（已映射的）必须也读写过候选字段
+                if '--ext' in sys.argv:
+                    pk = set(ext.get(nm, ()))
+                    if pk and not pk <= ext.get(onm, set()):
+                        continue
+                keep.append((onm, wo is not None and wo == owo, len(kr) + len(kw) + len(ok_)))
             if len(keep) == 1 and keep[0][0] not in used_now:
                 used_now.add(keep[0][0])
                 plan.append((p, nm, d, keep[0][0], keep[0][1], keep[0][2]))
