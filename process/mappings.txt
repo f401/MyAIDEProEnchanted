@@ -4711,6 +4711,11 @@ abcd/kG org/eclipse/jgit/revwalk/RevSort
 		static
 	values ()[Labcd/kG; values
 		static
+	j6 NONE
+	DW COMMIT_TIME_DESC
+	FH TOPO
+	Hw REVERSE
+	v5 BOUNDARY
 abcd/kH org/eclipse/jgit/internal/storage/file/PackLock
 	j6 ()V unlock
 	j6 (Ljava/lang/String;)Z lock
