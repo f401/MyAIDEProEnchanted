@@ -198,6 +198,7 @@ abcd/AE org/eclipse/jgit/lib/ObjectIdOwnerMap
 	FH grow
 	Hw bits
 	v5 mask
+	clear ()V clear
 abcd/AE$a org/eclipse/jgit/lib/ObjectIdOwnerMap$Entry
 	tp next
 abcd/AF org/eclipse/jgit/merge/StrategySimpleTwoWayInCore
@@ -558,6 +559,8 @@ abcd/DE org/eclipse/jgit/lib/ObjectIdSubclassMap
 	j6 (Labcd/DE;)I access$000
 		static
 	iterator ()Ljava/util/Iterator; iterator
+	DW size
+	j6 grow
 abcd/DF org/eclipse/jgit/nls/GlobalBundleCache
 	j6 cachedBundles
 	j6 (Ljava/util/Locale;Ljava/lang/Class;)Labcd/GF; lookupBundle
@@ -626,6 +629,7 @@ abcd/DK org/eclipse/jgit/util/LongList
 	j6 (I)J get
 	j6 (J)V add
 	DW ()V grow
+	toString ()Ljava/lang/String; toString
 abcd/EB org/eclipse/jgit/api/SubmoduleStatusCommand
 	j6 (Labcd/YH;)Labcd/WH; getStatus
 	FH paths
@@ -796,6 +800,10 @@ abcd/FH org/eclipse/jgit/internal/storage/pack/DeltaIndexScanner
 	DW entries
 	j6 (I)I tableSize
 		static
+	j6 table
+	FH next
+	Hw tableMask
+	j6 ([BI)V scan
 abcd/FJ org/eclipse/jgit/transport/TransportSftp$SftpObjectDB$1
 	j6 (Ljava/lang/String;Ljava/lang/String;)I compare
 	DW val$mtimes
@@ -1161,6 +1169,8 @@ abcd/IK org/eclipse/jgit/util/RawParseUtils
 		static
 	VH ([BI)I parseHexInt16
 		static
+	Hw ([BI)I encoding
+		static
 abcd/JC org/eclipse/jgit/dircache/DirCache$1
 	j6 (Labcd/QC;Labcd/QC;)I compare
 abcd/JE org/eclipse/jgit/lib/ObjectStream
@@ -1312,6 +1322,8 @@ abcd/KK org/eclipse/jgit/util/RefList
 	iterator ()Ljava/util/Iterator; iterator
 	remove (I)Labcd/KK; remove
 	size ()I size
+	get (I)Labcd/ME; get
+	toString ()Ljava/lang/String; toString
 abcd/KK$a org/eclipse/jgit/util/RefList$Builder
 	DW size
 	j6 list
@@ -1325,6 +1337,8 @@ abcd/LE org/eclipse/jgit/lib/ProgressMonitor
 	j6 ()V endTask
 	j6 (Ljava/lang/String;I)V beginTask
 	isCancelled ()Z isCancelled
+	start (I)V start
+	update (I)V update
 abcd/LG org/eclipse/jgit/internal/storage/file/FileSnapshot
 	v5 cannotBeRacilyClean
 	DW (Ljava/io/File;)Labcd/LG; save
@@ -1339,6 +1353,8 @@ abcd/LG org/eclipse/jgit/internal/storage/file/FileSnapshot
 	Hw lastRead
 	j6 DIRTY
 	DW MISSING_FILE
+	equals (Ljava/lang/Object;)Z equals
+	hashCode ()I hashCode
 abcd/LH org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs
 	j6 (Labcd/OH;Labcd/BH;Z)V copyPackAsIs
 	j6 (Labcd/OH;Labcd/MH;Z)V copyObjectAsIs
@@ -1479,6 +1495,7 @@ abcd/MK$b org/eclipse/jgit/util/RefMap$SetIterator
 	hasNext ()Z hasNext
 	DW (Labcd/ME;)Labcd/MK$a; toEntry
 	FH resolvedIdx
+	next ()Ljava/util/Map$Entry; next
 abcd/NC org/eclipse/jgit/dircache/DirCacheCheckout
 	DW updated
 	VH builder
@@ -1607,6 +1624,7 @@ abcd/OA org/eclipse/jgit/api/AddCommand
 	call ()Ljava/lang/Object; call
 abcd/OC org/eclipse/jgit/dircache/DirCacheEditor$1
 	compare (Ljava/lang/Object;Ljava/lang/Object;)I compare
+	j6 (Labcd/PC$b;Labcd/PC$b;)I compare
 abcd/OD org/eclipse/jgit/fnmatch/FileNameMatcher
 	DW ()V reset
 	j6 (Ljava/lang/String;)V append
@@ -1669,6 +1687,7 @@ abcd/OI org/eclipse/jgit/transport/ReceiveCommand
 	j6 (Labcd/OI$a;Ljava/lang/String;)V setResult
 	j6 (Labcd/OI$b;)V setType
 	j6 (Labcd/ME;)V setRef
+	toString ()Ljava/lang/String; toString
 abcd/OI$a org/eclipse/jgit/transport/ReceiveCommand$Result
 	<init> (Ljava/lang/String;I)V <init>
 	VH REJECTED_OTHER_REASON
@@ -1772,6 +1791,7 @@ abcd/PC org/eclipse/jgit/dircache/DirCacheEditor
 	j6 ()Z commit
 	v5 ()V applyEdits
 	j6 (Labcd/PC$b;)V add
+	DW ()V finish
 abcd/PD org/eclipse/jgit/fnmatch/GroupHead
 	DW (C)Z matches
 	Hw characterClasses
@@ -1813,6 +1833,7 @@ abcd/PH org/eclipse/jgit/internal/storage/pack/PackWriter$1$1
 	remove ()V remove
 	hasNext ()Z hasNext
 	DW next
+	next ()Labcd/TH; next
 abcd/PI org/eclipse/jgit/transport/BaseReceivePack$2
 abcd/PJ org/eclipse/jgit/transport/WalkPushConnection$1
 	DW this$0
@@ -2093,6 +2114,7 @@ abcd/RK org/eclipse/jgit/util/TemporaryBuffer
 	j6 (Labcd/RK;)Ljava/util/ArrayList; access$000
 		static
 	write ([BII)V write
+	write (I)V write
 abcd/RK$b org/eclipse/jgit/util/TemporaryBuffer$BlockInputStream
 	j6 ()Z nextBlock
 	read ()I read
@@ -2213,6 +2235,7 @@ abcd/SI$a org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig
 abcd/SJ org/eclipse/jgit/transport/WalkTransport
 abcd/SK org/eclipse/jgit/dircache/DirCacheCheckout$1
 abcd/TA org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$1
+	toString ()Ljava/lang/String; toString
 abcd/TC org/eclipse/jgit/dircache/DirCacheTree
 	DW NO_CHILDREN
 	FH TREE_CMP
@@ -2432,6 +2455,7 @@ abcd/TJ org/eclipse/jgit/treewalk/AbstractTreeIterator
 	Hw matchShift
 	gn pathLen
 	v5 mode
+	VH pathOffset
 abcd/UA org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$2
 	toString ()Ljava/lang/String; toString
 	<init> (Ljava/lang/String;I)V <init>
