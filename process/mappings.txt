@@ -5993,6 +5993,10 @@ abcd/IH org/eclipse/jgit/internal/storage/pack/DeltaWindow
 	j6 config
 	VH loaded
 	v5 maxMemory
+	tp res
+	Hw toSearch
+	J0 deflater
+	EQ deltaBuf
 abcd/JH org/eclipse/jgit/internal/storage/pack/DeltaWindowEntry
 	DW ()Z empty
 	j6 (Labcd/MH;)V set
