@@ -4701,6 +4701,14 @@ abcd/rE org/eclipse/jgit/lib/FileMode
 	j6 (Ljava/io/OutputStream;)V copyTo
 	j6 ([BI)V copyTo
 	j6 (I)Z equals
+	gn modeBits
+	u7 objectType
+	j6 TREE
+	DW GITLINK
+	FH REGULAR_FILE
+	Hw EXECUTABLE_FILE
+	v5 SYMLINK
+	Zo MISSING
 abcd/rF org/eclipse/jgit/merge/MergeFormatter
 	j6 (Ljava/io/OutputStream;Labcd/uF;Ljava/util/List;Ljava/lang/String;)V formatMerge
 	<init> ()V <init>
