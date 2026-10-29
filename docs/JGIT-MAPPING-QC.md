@@ -2106,3 +2106,55 @@ FART 给成员改名按 `(owner, name, desc)` 沿继承链查；**只要家族�
 2. **重载集**（同描述符 >1）：机械规则故意不猜，只能读实现体（`jadx` 单类）；
 3. **同类型多字段**（如一个类里 3 个 `String`）：同上；
 4. **目标类判错导致的连带错名**（如 `BG → PackFile$1` 一族）：先把类判对，成员才有意义 —— 这也是 §34 那条判据的延伸。
+
+---
+
+## 36. 第三十一轮：字段「读写点指纹」+ TSRG2 static 标记
+
+### 36.1 TSRG2 的 static 写法（此前一直写错）
+
+正确写法（`mappings_head.txt` 里原本就有）：**跟在方法行后面、单独一行、两个 tab**：
+
+```
+	()Landroid/app/Application; getApplication
+		static
+```
+
+依据两条：① 头部既有用法；② `javap` 反查 srgutils → `if (parts.length==1 && parts[0].equals("static")) method.meta("is_static","true")`。
+**只对方法有效**；跟在字段行后会报 `Invalid TSRG v2 line, to many parts`（字段不存在 virtual/static 重名问题，也不需要标记）。
+现 `process/mappings.txt` 已是 TSRG2，475 个静态方法带标记，产物与加标记前**逐字节相同**（标记只消歧、不改名）。
+另有 `staticclash.py` 专门扫「static 与虚方法同名同描述符且继承相关」的家族 —— 当前 **0**。
+
+### 36.2 `fieldprint.py`：字段名靠读写点指纹定
+
+`autofill` 卡在"一个类里 3 个 `String` 字段"这类；只看类型无法定。改用字节码指纹：
+
+- **猜**：描述符（翻译后）相等 + `static` 一致 → 候选集；
+- **证**：把探针字段的读写点方法名翻到 oracle 空间，必须是候选字段读写点的**子集**；唯一候选才算证成；
+- **加分**：构造器内 `putfield` 的先后次序（javac 保序，R8 也基本保序）。
+
+取字节码用批量 `javap -c -p`。**坑**：探针 jar 的 `SourceFile` 基本被剥离 → 没有 `Compiled from` 行，
+不能按它切块，必须按**类声明行**切（否则探针侧一个类都取不到，且会让"子集"检验退化成空证据）。
+
+命中：**证成 53 / 歧义 453 / 无候选 80**（165 个类）。样例全部人工对得上：
+
+| 探针字段 | 目标 | 判定 |
+|---|---|---|
+| `KE.DW` / `KE.j6` | `PersonIdent.emailAddress` / `.name` | 典型"多 String"场景 |
+| `LG.FH` | `FileSnapshot.lastModified` |  |
+| `NC.EQ` / `NC.Hw` | `ResolveMerger.failOnConflict` / `.removed` |  |
+| `RK$b.DW` / `.Hw` | `TemporaryBuffer$Block.blockIndex` / `.blockPos` |  |
+| `ME$a.VH` / `.gn` | `loose` / `packed` |  |
+
+落库后照旧：`verify_members` 不一致 **0** → `closefam` 补 6 → **FART 两遍逐字节相同**。
+
+### 36.3 基线
+
+| 指标 | r_v56 | **r_v61** |
+|---|---|---|
+| 方法覆盖 | 2721/3394 = 80.2% | 2723/3394 = **80.2%** |
+| 字段覆盖 | 1168/1618 = 72.2% | **1221/1618 = 75.5%** |
+| 成员映射条目 | 4448 | **4507** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| 跨包不可达 | 3 | 3（jgit 侧 0） |
+| FART | 一致 | 一致（r_v61 两遍逐字节相同） |

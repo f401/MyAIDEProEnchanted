@@ -26,15 +26,18 @@ def javap(jar, classes, chunk=40):
     for i in range(0, len(cls), chunk):
         p = subprocess.run(['javap', '-c', '-p', '-classpath', jar] + cls[i:i + chunk],
                            capture_output=True, text=True)
-        for b in p.stdout.split('Compiled from "')[1:]:
-            cn = None
-            for ln in b.split('\n')[1:6]:
-                m = re.match(r'^(?:public |final |abstract |static )*(?:class|interface|enum) ([\w.$]+)', ln)
-                if m:
-                    cn = m.group(1).replace('.', '/')
-                    break
-            if cn:
-                out[cn] = b
+        # 不能靠 `Compiled from`（探针 jar 的 SourceFile 基本被剥离）——直接按类声明行切块
+        cur, buf = None, []
+        for ln in p.stdout.split('\n'):
+            m = re.match(r'^(?:public |final |abstract |static )*(?:class|interface|enum) ([\w.$]+)', ln)
+            if m:
+                if cur:
+                    out[cur] = '\n'.join(buf)
+                cur = m.group(1).replace('.', '/'); buf = []
+            else:
+                buf.append(ln)
+        if cur:
+            out[cur] = '\n'.join(buf)
     return out
 
 
@@ -138,6 +141,7 @@ def main():
         pa = accesses(P.get(p, ''), p.rsplit('/', 1)[-1])
         oa = accesses(O.get(t, ''), t.rsplit('/', 1)[-1])
         mtr = mmap.get(p, {})
+        used_now = set()
         for nm, ds, acc in unm:
             d = tr(ds)
             cands = [f for f in free if f[1] == d and bool(f[2] & 8) == bool(acc & 8)]
@@ -152,7 +156,8 @@ def main():
                 orr, ow, owo = oa.get(onm, [set(), set(), None])
                 if kr <= orr and kw <= ow:
                     keep.append((onm, wo is not None and wo == owo, len(kr) + len(kw)))
-            if len(keep) == 1:
+            if len(keep) == 1 and keep[0][0] not in used_now:
+                used_now.add(keep[0][0])
                 plan.append((p, nm, d, keep[0][0], keep[0][1], keep[0][2]))
                 stat['证成'] += 1
             else:
