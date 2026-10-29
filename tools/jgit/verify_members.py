@@ -16,8 +16,23 @@ for n in z.namelist():
     if not n.endswith('.class'): continue
     c=JB.parse(z.read(n))
     if c and c['this']: cls[c['this']]=c
+PJ=zipfile.ZipFile(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','process','base','merged_ok.jar'))
+_pc={}
+def probe_field(cn,pname):
+    if cn not in _pc:
+        try:
+            c=JB.parse(PJ.read(cn+'.class')); _pc[cn]=c
+        except KeyError:
+            _pc[cn]=None
+    c=_pc[cn]
+    if not c: return None
+    for m in c['members']:
+        if m['kind']=='f' and m['name']==pname: return m['desc']
+    return None
+
 def norm(d): return re.sub(r'L([A-Za-z0-9_$/$.]+);',lambda m:'L'+mp.get(m.group(1),m.group(1))+';',d)
 def shape(d):
+    if '(' not in d: return d
     b=d[1:d.index(')')];r=d[d.index(')')+1:]
     one=lambda x:'O' if x.lstrip('[').startswith('L') else x.lstrip('[')
     return '('+''.join(one(p) for p in re.findall(r'\[*(?:L[^;]+;|[ZBCSIJFD])',b))+')'+one(r)
@@ -44,7 +59,7 @@ try:
         _f=_l.rstrip('\n').split('\t')
         if len(_f)>=2 and not _l.startswith('#'): ALLOW[(_f[0],_f[1])]=_f[2] if len(_f)>2 else ''
 except IOError: pass
-bad=[];unk=0;tot=0;r8=[];allow=[]
+bad=[];typemiss=[];unk=0;tot=0;r8=[];allow=[]
 NOT_IN_ORACLE=[]   # 目标类不在 oracle 里：多为匿名类占位名（$1/$2…），非 $数字 结尾的才是真可疑
 cur=None
 for l in open(TSRG):
@@ -70,7 +85,13 @@ for l in open(TSRG):
             cc=cls.get(cn)
             if not cc: continue
             for m in cc['members']:
-                if m['kind']=='f' and m['name']==new2: ok=True;break
+                if m['kind']=='f' and m['name']==new2:
+                    ok=True
+                    pd=probe_field(cur,s[0])
+                    if pd and m['desc']:
+                        fp=lambda d: 'O' if d.lstrip('[').startswith('L') else d.lstrip('[')
+                        if fp(pd)!=fp(m['desc']) and (cur,new2) not in ALLOW: typemiss.append((cur,s[0],new2,pd,m['desc']))
+                    break
             if ok: break
             for p in ([cc['sup']] if cc['sup'] else [])+list(cc['ifaces']): stack.append(p)
         if not ok:
@@ -94,6 +115,7 @@ try:
                 _fh.write('%s\t%s\t%s\t%s\t%s\n' % (b[0], 'm' if b[2]=='method' else 'f', b[3], b[4], b[5]))
 except Exception as _e:
     print('dump-bad 失败', _e)
-print('成员映射',tot,'无法校验(未知类)',unk,'不一致',len(bad),'已知R8签名重写',len(r8),'已知oracle版本差异',len(allow))
+print('成员映射',tot,'无法校验(未知类)',unk,'不一致',len(bad),'字段类型不符',len(typemiss),'已知R8签名重写',len(r8),'已知oracle版本差异',len(allow))
+for t in typemiss[:60]: print('   F',t)
 for a in allow[:20]: print('   ~',a)
 for b in bad[:40]: print(' ',b)

@@ -18,3 +18,49 @@ abcd/RA	OK_RESULT	4.x 才有 OK_RESULT（3.7.1 只有 ERROR_RESULT/NOT_TRIED_RES
 abcd/AI	needNewObjectIds	AIDE 的 jgit 把它做成字段（3.7.1 只有 needBaseObjectIds 字段，needNewObjectIds 是方法）
 abcd/XG	getCachedPacks	AIDE 的 jgit 把 cached-packs 读进 ObjectDirectory（3.7.1 无该成员）
 abcd/XG	searchPacksAgain	AIDE 版是无参版本，3.7.1 是 searchPacksAgain(PackList)
+abcd/oC$a	$SWITCH_TABLE$org$eclipse$jgit$diff$Edit$Type	ECJ 风格 switch 表（字段+静态方法同名）；javac 版在 HistogramDiff$1，3.7.1 的 State 里没有
+abcd/AC	$SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$ChangeType	ECJ 风格 switch 表（字段 j6 + 静态方法 j6 同名）
+abcd/AI	$SWITCH_TABLE$org$eclipse$jgit$transport$PackParser$Source	ECJ 风格 switch 表（字段 j6 + 静态方法 j6 同名）
+abcd/BC	$SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$ChangeType	ECJ 风格 switch 表（字段 DW + 静态方法 j6 同名）
+abcd/DG	$SWITCH_TABLE$org$eclipse$jgit$internal$storage$file$FileObjectDatabase$InsertLooseObjectResult	ECJ 风格 switch 表（字段 j6 + 静态方法 J0 同名）
+abcd/DJ	$SWITCH_TABLE$org$eclipse$jgit$transport$TransportProtocol$URIishField	ECJ 风格 switch 表（字段 j6 + 静态方法 j6 同名）
+abcd/IJ	$SWITCH_TABLE$org$eclipse$jgit$transport$UploadPack$RequestPolicy	ECJ 风格 switch 表（字段 DW + 静态方法 DW 同名）
+abcd/IJ	$SWITCH_TABLE$org$eclipse$jgit$transport$BasePackFetchConnection$MultiAck	ECJ 风格 switch 表（字段 j6 + 静态方法 j6 同名）
+abcd/QA	$SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result	ECJ 风格 switch 表（字段 FH + 静态方法 FH 同名）
+abcd/SI	$SWITCH_TABLE$org$eclipse$jgit$transport$ReceiveCommand$Result	ECJ 风格 switch 表（字段 FH + 静态方法 DW 同名）
+abcd/SI	$SWITCH_TABLE$org$eclipse$jgit$transport$ReceiveCommand$Type	ECJ 风格 switch 表（字段 j6 + 静态方法 FH 同名）
+abcd/SI	$SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result	ECJ 风格 switch 表（字段 DW + 静态方法 j6 同名）
+abcd/TH	$SWITCH_TABLE$org$eclipse$jgit$internal$storage$pack$PackWriter$PackingPhase	ECJ 风格 switch 表（字段 FH + 静态方法 j6 同名）
+abcd/YG	$SWITCH_TABLE$org$eclipse$jgit$internal$storage$file$FileObjectDatabase$InsertLooseObjectResult	ECJ 风格 switch 表（字段 FH + 静态方法 v5 同名）
+abcd/ZA	$SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result	ECJ 风格 switch 表（字段 FH + 静态方法 FH 同名）
+abcd/_A	$SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result	ECJ 风格 switch 表（字段 FH + 静态方法 FH 同名）
+abcd/_J	$SWITCH_TABLE$org$eclipse$jgit$ignore$IgnoreNode$MatchResult	ECJ 风格 switch 表（字段 J8 + 静态方法 J8 同名）
+abcd/_J	$SWITCH_TABLE$org$eclipse$jgit$treewalk$WorkingTreeIterator$MetadataDiff	ECJ 风格 switch 表（字段 Ws + 静态方法 QX 同名）
+abcd/_J	$SWITCH_TABLE$org$eclipse$jgit$lib$CoreConfig$AutoCRLF	ECJ 风格 switch 表（字段 J0 + 静态方法 Ws 同名）
+abcd/aB	$SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result	ECJ 风格 switch 表（字段 FH + 静态方法 FH 同名）
+abcd/cC$c	$SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$Side	ECJ 风格 switch 表（字段 j6 + 静态方法 j6 同名）
+abcd/eC	$SWITCH_TABLE$org$eclipse$jgit$diff$Edit$Type	ECJ 风格 switch 表（字段 DW + 静态方法 DW 同名）
+abcd/eC	$SWITCH_TABLE$org$eclipse$jgit$diff$DiffAlgorithm$SupportedAlgorithm	ECJ 风格 switch 表（字段 j6 + 静态方法 j6 同名）
+abcd/eI	$SWITCH_TABLE$org$eclipse$jgit$transport$PacketLineIn$AckNackResult	ECJ 风格 switch 表（字段 aM + 静态方法 we 同名）
+abcd/hC	$SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$ChangeType	ECJ 风格 switch 表（字段 DW + 静态方法 j6 同名）
+abcd/iB	$SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result	ECJ 风格 switch 表（字段 FH + 静态方法 FH 同名）
+abcd/iC	$SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$Side	ECJ 风格 switch 表（字段 v5 + 静态方法 DW 同名）
+abcd/iC	$SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$ChangeType	ECJ 风格 switch 表（字段 Hw + 静态方法 j6 同名）
+abcd/jJ	$SWITCH_TABLE$org$eclipse$jgit$transport$Transport$Operation	ECJ 风格 switch 表（字段 Hw + 静态方法 j6 同名）
+abcd/oH	$SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result	ECJ 风格 switch 表（字段 EQ + 静态方法 aM 同名）
+abcd/pI	$SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result	ECJ 风格 switch 表（字段 j6 + 静态方法 j6 同名）
+abcd/tB	$SWITCH_TABLE$org$eclipse$jgit$api$CherryPickResult$CherryPickStatus	ECJ 风格 switch 表（字段 Hw + 静态方法 FH 同名）
+abcd/tB	$SWITCH_TABLE$org$eclipse$jgit$api$RebaseCommand$Operation	ECJ 风格 switch 表（字段 FH + 静态方法 Hw 同名）
+abcd/tB	$SWITCH_TABLE$org$eclipse$jgit$lib$RepositoryState	ECJ 风格 switch 表（字段 Zo + 静态方法 Zo 同名）
+abcd/tB	$SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result	ECJ 风格 switch 表（字段 v5 + 静态方法 v5 同名）
+abcd/MH	getCachedSize	4.11 起 ObjectToPack 用 pathHash 同时缓存 size（3.7.1 无 getCachedSize）；调用者只有 PackWriter
+abcd/MH	setCachedSize	同上；唯一调用者 DeltaWindow（缓存 delta 时同时存 size）
+abcd/MH	isDeltaAttempted	位域布局较 3.7.1 不同（EDGE=1,REUSE=2,DELTA_ATTEMPTED=4,DO_NOT_DELTA=8），3.7.1 只有 setDeltaAttempted(boolean)
+abcd/WJ$a	f	AIDE 的 FileEntry 直接持有 File f + 两个缓存 long（3.7.1/5.x 都是 FS$Attributes+FS 三字段，无 File 字段）
+abcd/WJ$a	length	同上：AIDE 版把 length 缓存在字段里（getLength 里 f.length() 懒加载）
+abcd/WJ$a	lastModified	同上：getLastModified 里 f.lastModified() 懒加载
+abcd/EC	hash	AIDE 的 hash(InputStream,long) 没有 3.7.1/4.11 的 text 布尔参数（二进制/文本判定在调用方）
+abcd/dB	callable	AIDE 的 GitCommand.callable 是普通 boolean（oracle 3.7.1/4.11 是 AtomicBoolean）
+abcd/OH	objectHeader	AIDE 版 objectHeader(int type,long len) 用字段 headerBuffer，3.7.1 是 static objectHeader(long,int,byte[])
+abcd/OH	getCRC	3.7.1 无该方法（CRC 只写不读），AIDE 版把 crc32.getValue() 暴露为 getCRC
+abcd/OH	resetCRC	3.7.1 在 writeHeader 里内联 crc32.reset()，AIDE 版抽成 resetCRC()
