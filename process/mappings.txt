@@ -816,7 +816,6 @@ abcd/HJ org/eclipse/jgit/transport/URIish
 	j6 (Ljava/lang/String;ZZ)Ljava/lang/String; escape
 	j6 (I)Labcd/HJ; setPort
 	DW ()Ljava/lang/String; getHumanishName
-abcd/IB org/eclipse/jgit/api/PullCommand$1
 abcd/IC org/eclipse/jgit/dircache/BaseDirCacheEditor
 	FH ()Labcd/KC; getDirCache
 	j6 (II)V fastKeep
@@ -930,7 +929,6 @@ abcd/IK org/eclipse/jgit/util/RawParseUtils
 	j6 ([BILabcd/EK;)I parseBase10
 	v5 base10byte
 	u7 ([BI)Labcd/KE; parsePersonIdent
-abcd/JB org/eclipse/jgit/api/DeleteBranchCommand$1
 abcd/JC org/eclipse/jgit/dircache/DirCache$1
 	j6 (Labcd/QC;Labcd/QC;)I compare
 abcd/JE org/eclipse/jgit/lib/ObjectStream
@@ -1076,7 +1074,6 @@ abcd/LI org/eclipse/jgit/transport/PushConnection
 	j6 (Labcd/LE;Ljava/util/Map;)V push
 abcd/LK org/eclipse/jgit/util/RefMap$1
 	j6 this$0
-abcd/MB org/eclipse/jgit/api/PullCommand$2
 abcd/MC org/eclipse/jgit/dircache/DirCacheBuilder
 	v5 ()V finish
 	Hw sorted
@@ -1275,7 +1272,6 @@ abcd/OA org/eclipse/jgit/api/AddCommand
 	v5 update
 	j6 (Ljava/lang/String;)Labcd/OA; addFilepattern
 	DW (Z)Labcd/OA; setUpdate
-abcd/OB org/eclipse/jgit/api/PullCommand$3
 abcd/OC org/eclipse/jgit/dircache/DirCacheEditor$1
 abcd/OD org/eclipse/jgit/fnmatch/FileNameMatcher
 	DW ()V reset
@@ -1754,7 +1750,6 @@ abcd/SI$a org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig
 abcd/SJ org/eclipse/jgit/transport/WalkTransport
 abcd/SK org/eclipse/jgit/dircache/DirCacheCheckout$1
 abcd/TA org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$1
-abcd/TB org/eclipse/jgit/api/CherryPickCommand$1
 abcd/TC org/eclipse/jgit/dircache/DirCacheTree
 	DW NO_CHILDREN
 	FH TREE_CMP
@@ -2158,7 +2153,6 @@ abcd/XA org/eclipse/jgit/api/CloneCommand
 	gn bare
 	j6 (Labcd/LE;)Labcd/XA; setProgressMonitor
 	DW (Labcd/UE;Labcd/ME;)Labcd/dG; parseCommit
-abcd/XB org/eclipse/jgit/api/DeleteBranchCommand$2
 abcd/XE org/eclipse/jgit/lib/RepositoryState$1
 abcd/XF org/eclipse/jgit/revwalk/Generator
 	DW ()I outputType
@@ -2463,7 +2457,6 @@ abcd/_A org/eclipse/jgit/api/CreateBranchCommand
 abcd/_A$a org/eclipse/jgit/api/CreateBranchCommand$SetupUpstreamMode
 	<init> (Ljava/lang/String;I)V <init>
 	Hw $VALUES
-abcd/_B org/eclipse/jgit/api/RebaseCommand$1
 abcd/_E org/eclipse/jgit/lib/RepositoryState$4
 abcd/_F org/eclipse/jgit/revwalk/ObjectWalk
 	U2 pathBuf

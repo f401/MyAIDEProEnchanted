@@ -1364,3 +1364,77 @@ jgit 的这些 Command 类**没有那么多匿名类**；它们更可能是**该
 | `inherit_check` | 0 / 5 | **0 / 5** |
 | `verify_members` | 不一致 0 | 不一致 **0** |
 | FART | 一致 | **一致**（`r_v29.jar`，manifest `b034d82a…`） |
+
+---
+
+## 27. 第二十二轮：`NB` 的 19 个匿名异常子类 —— 撤销 7 条会崩的映射（违规 103 → 96）
+
+### 27.1 先搞清楚它们是"谁"
+
+把 `merged_ok.jar` 里所有 `extends abcd/NB` 的类都找出来，共 **19 个**，形状几乎一模一样：
+`(String)` 构造器 + 0 字段。拿这个签名去对 `api/errors/*` 的 27 个类，每个都命中 **8 个候选**
+—— 说明它们**不是** `api/errors` 里那些具名异常。
+
+真实身份：`abcd/NB` = `GitAPIException`，**它的构造器是包私有**；这 19 个是
+`PullCommand` / `DeleteBranchCommand` / `RebaseCommand` / `CherryPickCommand` 等**现场 new 出来的
+匿名异常子类**。`anonmap` 当初把它们命名成 `api/*Command$N` —— 方向是对的。
+
+### 27.2 但这会**必崩**
+
+```
+abcd/NB.<init>(String)V   是包私有
+却把 abcd/IB 改名到 org.eclipse.jgit.api.PullCommand$1
+→ 跨包调用包私有构造器 → 链接期 IllegalAccessError
+```
+
+`access_audit` 按调用点数只报了 6~10 处，但踩坑的**类**有 6 个：
+
+| 探针 | 原目标 | 处置 |
+|---|---|---|
+| `IB` | `api/PullCommand$1` | ❌ 撤销 |
+| `JB` | `api/DeleteBranchCommand$1` | ❌ 撤销 |
+| `MB` | `api/PullCommand$2` | ❌ 撤销 |
+| `OB` | `api/PullCommand$3` | ❌ 撤销 |
+| `XB` | `api/DeleteBranchCommand$2` | ❌ 撤销 |
+| `_B` | `api/RebaseCommand$1` | ❌ 撤销 |
+| `TB` | `api/CherryPickCommand$1` | ❌ 撤销（上一轮先撤的） |
+
+全部记进 `jgit_unverified.tsv`，理由统一写成"NB 构造器包私有 → 改名到别的包必然 IllegalAccessError"。
+
+### 27.3 由此修正上一轮（§26）的结论
+
+上一轮写"`api/errors` 必须整批映射"。**修正**：那 19 个不该往 `api/errors` 里塞（它们不是那些具名异常），
+正确做法只有两条：
+
+1. **全部留在 `abcd`**（即现在的做法，牺牲可读性但运行期安全）；
+2. 或者把 `NB` 的构造器**放宽成 public**——但那是改字节码，超出"改名流水线"的能力范围。
+
+### 27.4 通用规则（新增）
+
+> **改名不能只看"这个类自己"，还要看它和谁共享包私有成员。**
+> 本轮的形态是"匿名子类 + 包私有 super 构造器"；同类风险还有"包私有字段/方法被外部子类访问"。
+> `access_audit` 能在出包前抓到，但**必须每次改名后立刻跑**，否则只会在设备上以
+> `IllegalAccessError` 的形式暴露。
+
+### 27.5 违规数与基线
+
+| 版本 | 跨包不可达 |
+|---|---|
+| `r_v26` | 108 |
+| `r_v29` | 103 |
+| **`r_v31`** | **96**（68 个目标） |
+
+| 指标 | §26 | 本轮 |
+|---|---|---|
+| 类映射 | 661 | **654**（撤销 7 个匿名异常类） |
+| 成员映射 | 4047 | 4047 |
+| 方法覆盖 | 2623/3351 = 78.3% | **2623/3351 = 78.3%** |
+| 字段覆盖 | 1115/1585 = 70.3% | **1115/1585 = 70.3%** |
+| 完全覆盖类 | 374 | 372 |
+| **跨包不可达** | 103 | **96** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v31.jar`，manifest `db7d10b2…`） |
+
+剩余头号：`ObjectDirectoryInserter` 4、`abcd/IH` 4、`abcd/rI` 4、`DeltaCache` 3、
+`WindowCursor` 3+3、`FileObjectDatabase` 3 —— 都集中在 `internal/storage/file|pack` 两簇。
