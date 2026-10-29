@@ -180,6 +180,19 @@ def shape(d):
 
 
 def iter_smali():
+    # 大小写不敏感文件系统会把 oC/OC 之类的类改名成 oC.2.smali，
+    # 所以类名必须以 smali_index.tsv（类描述符 -> 文件名）为准。
+    idx = os.path.expanduser('~/out/work/smali_index.tsv')
+    if os.path.exists(idx):
+        seen = set()
+        for l in open(idx):
+            cn, f = l.rstrip('\n').split('\t')
+            short = cn[5:] if cn.startswith('abcd/') else cn
+            if short in seen:
+                continue
+            seen.add(short)
+            yield short, os.path.join(SMALI, f)
+        return
     for f in sorted(os.listdir(SMALI)):
         if f.endswith('.smali'):
             yield f[:-6], os.path.join(SMALI, f)
