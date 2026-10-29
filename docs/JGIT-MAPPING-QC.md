@@ -1505,3 +1505,71 @@ abstract class HttpAuthMethod {
 
 剩余头号：`ObjectDirectoryInserter` 4、`abcd/IH` 4、`DeltaCache` 3、`WindowCursor` 3+3 ——
 全部挂在 `abcd/MG` 与 `abcd/IH` 两个未映射类上。
+
+---
+
+## 29. 第二十四轮：`DeltaWindow` 一族（违规 91 → 71）
+
+### 29.1 `IH` → `DeltaWindow`
+
+`IH` 有 13 个字段，其中四个是**签名级**的：
+
+```
+private java.util.zip.Deflater J0;        //  Deflater
+private abcd.RK$c EQ;                     //  TemporaryBuffer$Heap
+private final abcd.IE FH;                 //  ObjectReader
+private final abcd.NH j6;                 //  PackConfig
+private final abcd.JH[] Hw;               //  窗口数组
+```
+
+`Deflater` + `TemporaryBuffer$Heap` + `ObjectReader` + `PackConfig` + 窗口数组 —— 这个组合
+在 jgit 里只有 **`internal/storage/pack/DeltaWindow`**（19 字段 18 方法，`IH` 也是 18 方法）。
+落库后 `DeltaCache` 那 3 处违规自动消失（同包）。
+
+### 29.2 `JH` → `DeltaWindowEntry`
+
+映射 `IH` 之后，`access_audit` 立刻冒出 `owner-not-public abcd/JH` 9 处（`DeltaWindow` 访问它）。
+`JH` 正是 `IH` 的字段类型 `JH[]` / `JH`，即 **`DeltaWindowEntry`**（同包内部类型）。
+落库后这 9 处消失，同时连带清掉另外 3 处。
+
+> 这条很典型：**映射一个外层类会把它的"配套类型"暴露出来**（和 §23.2 的"内部类跟着外层走"是同一件事），
+> 所以要顺着字段类型把整簇一起定。
+
+### 29.3 `JE$a` 的真实身份终于确认：`ObjectStream$Filter`
+
+上一轮我否掉 `SmallStream` 是对的，但把 `Filter` 也一起怀疑错了。oracle 的 `Filter` 是：
+
+```
+public class ObjectStream$Filter extends ObjectStream {
+  private final int type;
+  private final long size;
+  private final java.io.InputStream in;
+  public ObjectStream$Filter(int, long, java.io.InputStream);
+```
+
+**构造器 `(int, long, InputStream)` 与字段 `type/size/in` 跟探针逐项一致** —— `JE$a` 就是 `Filter`。
+上一轮删掉的两条字段映射已按正确名字恢复为 `DW→size`、`FH→in`、`j6→type`。
+
+### 29.4 违规数与基线
+
+| 版本 | 跨包不可达 |
+|---|---|
+| `r_v29` | 103 |
+| `r_v31` | 96 |
+| `r_v32` | 91 |
+| **`r_v34`** | **71**（54 个目标） |
+
+| 指标 | §28 | 本轮 |
+|---|---|---|
+| 类映射 | 655 | **657** |
+| 成员映射 | 4045 | **4047** |
+| 方法覆盖 | 2623/3353 = 78.2% | 2623/3368 = **77.9%** |
+| 字段覆盖 | 1114/1586 = 70.2% | 1116/1603 = **69.6%** |
+| 完全覆盖类 | 372 | 372 |
+| **跨包不可达** | 91 | **71** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v34.jar`，manifest `5e5ae41e…`） |
+
+剩余头号：`abcd/MG` 一个类独占 **13 处**（`ObjectDirectoryInserter` 4 + `WindowCursor` 3+3 +
+`FileObjectDatabase` 3），其余零散（`DirCacheBuilder.finish()` 3 等）。

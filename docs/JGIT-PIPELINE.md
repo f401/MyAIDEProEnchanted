@@ -9,15 +9,15 @@
 
 | 指标 | 数值 |
 |---|---|
-| 类映射 | **655** 个（`~/out/work/jgit_map_clean.tsv`） |
-| 成员映射 | **4045** 条（方法 2753 + 字段 1289） |
-| 方法覆盖率 | **78.2%**（2623/3353，分母已剔除 R8 删掉的） |
-| 字段覆盖率 | **70.2%**（1114/1586） |
+| 类映射 | **657** 个（`~/out/work/jgit_map_clean.tsv`） |
+| 成员映射 | **4047** 条（方法 2753 + 字段 1289） |
+| 方法覆盖率 | **77.9%**（2623/3368，分母已剔除 R8 删掉的） |
+| 字段覆盖率 | **69.6%**（1116/1603） |
 | 完全覆盖类 | **372** |
 | `verify_members.py` | 不一致 **0**，无法校验 0，已知 R8 重写白名单 3 |
 | `inherit_check.py` | CONFLICT **0** / MISSING **7**（其中 6 条是非混淆的 jsch 接口，可忽略） |
 | `mappings.txt` | 头 **162** 行 + jgit **4702** 行 = 4864 行，**无重复目标、无重复左值** |
-| FART 产物 | `~/out/fart/r_v32.jar`（21773 类 / 659 个 `org/eclipse/jgit/*`），**两次独立运行内容一致** |
+| FART 产物 | `~/out/fart/r_v34.jar`（21773 类 / 659 个 `org/eclipse/jgit/*`），**两次独立运行内容一致** |
 
 ---
 
@@ -73,15 +73,15 @@ cd /storage/emulated/0/MyAIDEProEnchanted/process
 sha256sum -c SHA256SUMS          # 输入/工具指纹（base/merged_ok.jar 必须 OK）
 time java -Xmx900m -jar ForgeAutoRenamingTool-1.0.8-all.jar \
   --input  base/merged_ok.jar \
-  --output ~/out/fart/r_v32.jar \
+  --output ~/out/fart/r_v34.jar \
   --map    mappings.txt
 ```
 
 **判等用内容指纹，不要用整包 sha256**（FART 的 zip 元数据不稳定，差几个字节但内容相同）：
 
 ```bash
-python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_v32.jar \
-  --check d22c98e550dd2786a95be05d455db119c37b5774c6182304af051e0f26ef8220
+python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_v34.jar \
+  --check 5e5ae41eda5a60b7ec65020e12386fb97be6415942ba0217c2d05fa28dfbdf07
 # PASS = 与作者产出逐类内容一致
 # 想确认"确定性"就跑两次，两次 manifest 必须相同（这是发现 mapping 家族冲突的最快手段）
 ```
@@ -93,14 +93,14 @@ python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_v32.jar \
 - 单 jar 输入即可（已有 `--lib` 分 jar 的老流程见 `process/run.sh`，产物等价）。
 - 验收：
   ```bash
-  unzip -l ~/out/fart/r_v32.jar | tail -2      # ≈21774 条目
-  unzip -l ~/out/fart/r_v32.jar | grep -c 'org/eclipse/jgit/'   # ≈659
+  unzip -l ~/out/fart/r_v34.jar | tail -2      # ≈21774 条目
+  unzip -l ~/out/fart/r_v34.jar | grep -c 'org/eclipse/jgit/'   # ≈659
   for c in 'org/eclipse/jgit/lib/ConfigLine.class' \
            'org/eclipse/jgit/lib/ConfigSnapshot.class' \
            'org/eclipse/jgit/transport/TransportHttp$4.class' \
            'org/eclipse/jgit/transport/GitProtocolConstants$MultiAck.class' \
            'abcd/vJ.class'; do
-    printf '%-70s %s\n' "$c" "$(unzip -l ~/out/fart/r_v32.jar | grep -c "$c")"
+    printf '%-70s %s\n' "$c" "$(unzip -l ~/out/fart/r_v34.jar | grep -c "$c")"
   done   # 前 4 个 =1，最后 1 个 =0（旧名已消失）
   ```
 
@@ -115,7 +115,7 @@ time java -Xmx900m -cp d8.jar com.android.tools.r8.D8 \
   --release --min-api 26 --thread-count 2 \
   --lib android.jar \
   --output ~/out/dex13 \
-  ~/out/fart/r_v32.jar
+  ~/out/fart/r_v34.jar
 ```
 
 要点（每条都踩过）：
@@ -135,15 +135,15 @@ time java -Xmx900m -cp d8.jar com.android.tools.r8.D8 \
 
 ```bash
 # jar 的类集 vs dex 的类集，差集必须为 0
-python3 tools/jgit/apk_class_diff.py ~/out/fart/r_v32.jar ~/out/dex13
+python3 tools/jgit/apk_class_diff.py ~/out/fart/r_v34.jar ~/out/dex13
 # 回填后对着新 APK 再来一次（这才是"装上去会不会缺类"的最终答案）
-python3 tools/jgit/apk_class_diff.py ~/out/fart/r_v32.jar ~/out/repack/new.apk
+python3 tools/jgit/apk_class_diff.py ~/out/fart/r_v34.jar ~/out/repack/new.apk
 ```
 
 脚本第二个参数支持 **APK/ZIP 或 D8 输出目录**，内部解析 dex 的 type 表（不要用子串搜索——
 早期实现是 `b'Lxxx;' in 45MB字节`，21773 个类要跑几分钟，现在是秒级）。
 
-> 拿 `r_v32.jar` 和**原始** APK 比会出现 **1822** 条"缺失"，这是**正常的**：
+> 拿 `r_v34.jar` 和**原始** APK 比会出现 **1822** 条"缺失"，这是**正常的**：
 > `androidj/**` 1267 + `android/**` 512 + `abcd/as/**` 43 是 support→androidx 迁移时**主动删掉**的类
 > （见 `AGENTS.md` §6），`merged_ok.jar` 里本来就没有。**只和新包比。**
 
