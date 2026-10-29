@@ -331,6 +331,7 @@ abcd/AI org/eclipse/jgit/transport/PackParser
 	Hw tempBuffer
 	v5 hdrBuf
 	tp bBase
+	aM objectCount
 abcd/AI$a org/eclipse/jgit/transport/PackParser$1
 abcd/AI$b org/eclipse/jgit/transport/PackParser$DeltaVisit
 	DW id
@@ -664,6 +665,8 @@ abcd/EG org/eclipse/jgit/internal/storage/file/DeltaBaseCache
 	v5 lruHead
 	j6 ()Ljava/lang/ref/SoftReference; access$100
 		static
+	DW defaultMaxByteCount
+	j6 (Labcd/aH;J)Labcd/EG$a; get
 abcd/EG$b org/eclipse/jgit/internal/storage/file/DeltaBaseCache$Slot
 	FH provider
 	Hw position
@@ -1087,6 +1090,7 @@ abcd/IJ org/eclipse/jgit/transport/UploadPack
 	j3 commonBase
 	vy COMMON
 	aM wantAll
+	yS wantIds
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 	Hw REACHABLE_COMMIT_TIP
@@ -1173,6 +1177,7 @@ abcd/JE$a org/eclipse/jgit/lib/ObjectStream$Filter
 	available ()I available
 	close ()V close
 	read ()I read
+	reset ()V reset
 abcd/JF org/eclipse/jgit/patch/HunkHeader
 	DW ()I getStartOffset
 	FH ()I getEndOffset
@@ -1332,6 +1337,8 @@ abcd/LG org/eclipse/jgit/internal/storage/file/FileSnapshot
 	j6 (J)Z isModified
 	FH lastModified
 	Hw lastRead
+	j6 DIRTY
+	DW MISSING_FILE
 abcd/LH org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs
 	j6 (Labcd/OH;Labcd/BH;Z)V copyPackAsIs
 	j6 (Labcd/OH;Labcd/MH;Z)V copyObjectAsIs
@@ -1836,6 +1843,9 @@ abcd/QA org/eclipse/jgit/api/CheckoutCommand
 	<init> (Labcd/UE;)V <init>
 	j6 (Labcd/ME;)Ljava/lang/String; getShortBranchName
 	u7 startCommit
+	Hw name
+	gn startPoint
+	v5 checkoutAllPaths
 abcd/QC org/eclipse/jgit/dircache/DirCacheEntry
 	j6 nullpad
 	FH infoOffset
@@ -2233,6 +2243,7 @@ abcd/TC org/eclipse/jgit/dircache/DirCacheTree
 	DW ()I getEntrySpan
 	Zo entrySpan
 	u7 childCnt
+	v5 ()I nameLength
 abcd/TD org/eclipse/jgit/fnmatch/FileNameMatcher$4
 abcd/TE org/eclipse/jgit/lib/Repository$1
 	j6 this$0
@@ -2687,6 +2698,7 @@ abcd/WG org/eclipse/jgit/internal/storage/file/LockFile
 		static
 	j6 (Labcd/WG;)Z access$000
 		static
+	Hw haveLck
 abcd/WH org/eclipse/jgit/submodule/SubmoduleStatus
 	j6 ()Ljava/lang/String; getPath
 	DW path
@@ -2754,6 +2766,7 @@ abcd/XA org/eclipse/jgit/api/CloneCommand
 	j6 (Labcd/LE;)Labcd/XA; setProgressMonitor
 	DW (Labcd/UE;Labcd/ME;)Labcd/dG; parseCommit
 	J8 noCheckout
+	VH directory
 abcd/XE org/eclipse/jgit/lib/RepositoryState$1
 	Hw ()Z canCheckout
 abcd/XF org/eclipse/jgit/revwalk/Generator
@@ -3116,6 +3129,10 @@ abcd/_A org/eclipse/jgit/api/CreateBranchCommand
 	gn startCommit
 	call ()Labcd/ME; call
 	call ()Ljava/lang/Object; call
+	DW (Ljava/lang/String;)Labcd/_A; setStartPoint
+	j6 (Ljava/lang/String;)Labcd/_A; setName
+	VH startPoint
+	Hw name
 abcd/_A$a org/eclipse/jgit/api/CreateBranchCommand$SetupUpstreamMode
 	<init> (Ljava/lang/String;I)V <init>
 	Hw $VALUES
@@ -4594,6 +4611,7 @@ abcd/lK$a org/eclipse/jgit/util/BlockList$MyIterator
 	remove ()V remove
 	j6 index
 	DW dirIdx
+	FH blkIdx
 abcd/mB org/eclipse/jgit/api/MergeResult$MergeStatus$5
 	Hw ()Z isSuccessful
 	toString ()Ljava/lang/String; toString
@@ -4934,7 +4952,7 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	EQ ()V finishDelayedFreeFlags
 	Hw ()V assertNotStarted
 	VH ()Labcd/yG; getRevFilter
-	Zo (I)V freeFlag
+	Zo (I)V reset
 	gn ()Labcd/jK; getTreeFilter
 	j6 (Ljava/lang/String;)Labcd/fG; newFlag
 	j6 (Labcd/fG;)V carry
@@ -4981,6 +4999,7 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	j6 (Labcd/qG;Labcd/YD;Labcd/FE;)Labcd/iG; access$000
 		static
 	u7 queue
+	v5 (I)V freeFlag
 abcd/qH org/eclipse/jgit/internal/storage/file/ReflogReaderImpl
 	j6 logName
 	<init> (Labcd/UE;Ljava/lang/String;)V <init>
@@ -5978,11 +5997,15 @@ abcd/VK$a org/eclipse/jgit/util/io/InterruptTimer$AlarmState
 	FH ()J now
 		static
 	j6 (I)V begin
+	run ()V run
 abcd/WK org/eclipse/jgit/util/io/MessageWriter
 	DW enc
 	j6 buf
 	j6 ()Ljava/io/OutputStream; getRawStream
 	write ([CII)V write
+	close ()V close
+	flush ()V flush
+	toString ()Ljava/lang/String; toString
 abcd/XK org/eclipse/jgit/util/io/SafeBufferedOutputStream
 	close ()V close
 abcd/ZK org/eclipse/jgit/util/io/TeeInputStream
