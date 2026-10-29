@@ -3182,6 +3182,10 @@ abcd/_F$a org/eclipse/jgit/revwalk/ObjectWalk$TreeVisit
 	DW obj
 	FH buf
 	j6 parent
+	Hw ptr
+	VH pathLen
+	Zo nameEnd
+	v5 namePtr
 abcd/_G org/eclipse/jgit/internal/storage/file/PackFile$2
 abcd/_H org/eclipse/jgit/transport/AmazonS3
 	j6 (Ljava/net/HttpURLConnection;)V authorize
@@ -6182,6 +6186,9 @@ abcd/IH org/eclipse/jgit/internal/storage/pack/DeltaWindow
 	EQ deltaBuf
 	j6 (I)I deflateBound
 		static
+	Zo maxDepth
+	gn cur
+	we end
 abcd/JH org/eclipse/jgit/internal/storage/pack/DeltaWindowEntry
 	DW ()Z empty
 	j6 (Labcd/MH;)V set
