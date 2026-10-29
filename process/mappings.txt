@@ -491,7 +491,7 @@ abcd/DG org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
 	DW (Labcd/wH;Labcd/YD;)J getObjectSize
 	FH ()Labcd/xE; newCachedDatabase
 	VH ()Labcd/gE; getConfig
-	Zo ()Ljava/util/Collection; getPacks
+	Zo ()Ljava/util/Collection; getCachedPacks
 	gn ()Ljava/io/File; getDirectory
 	j6 (Ljava/io/File;Labcd/yE;Z)Labcd/GG$c; insertUnpackedObject
 	j6 ()V close
@@ -696,9 +696,11 @@ abcd/GE org/eclipse/jgit/lib/ObjectReader$1
 abcd/GF org/eclipse/jgit/nls/TranslationBundle
 	j6 (Ljava/util/Locale;)V load
 abcd/GG org/eclipse/jgit/internal/storage/file/FileObjectDatabase
+	EQ ()Labcd/GG; newCachedFileObjectDatabase
+	tp ()[Labcd/GG$a; myAlternates
 	DW (Labcd/wH;Labcd/YD;)J getObjectSize
 	VH ()Labcd/gE; getConfig
-	Zo ()Ljava/util/Collection; getPacks
+	Zo ()Ljava/util/Collection; getCachedPacks
 	gn ()Ljava/io/File; getDirectory
 	j6 (Ljava/io/File;Labcd/yE;Z)Labcd/GG$c; insertUnpackedObject
 	j6 (Labcd/TH;Labcd/MH;Labcd/wH;)V selectObjectRepresentation
@@ -1064,7 +1066,7 @@ abcd/LG org/eclipse/jgit/internal/storage/file/FileSnapshot
 	j6 (Labcd/LG;)Z equals
 	j6 (Ljava/io/File;)Z isModified
 	DW (J)Z notRacyClean
-	j6 (J)Z notRacyClean
+	j6 (J)Z isModified
 abcd/LH org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs
 	j6 (Labcd/OH;Labcd/BH;Z)V copyPackAsIs
 	j6 (Labcd/OH;Labcd/MH;Z)V copyObjectAsIs
@@ -1075,7 +1077,7 @@ abcd/LI org/eclipse/jgit/transport/PushConnection
 abcd/LK org/eclipse/jgit/util/RefMap$1
 	j6 this$0
 abcd/MC org/eclipse/jgit/dircache/DirCacheBuilder
-	v5 ()V finish
+	v5 ()V resort
 	Hw sorted
 	<init> (Labcd/KC;I)V <init>
 	j6 ([BILabcd/IE;Labcd/YD;)V addTree
@@ -1126,7 +1128,7 @@ abcd/MH org/eclipse/jgit/internal/storage/pack/ObjectToPack
 	lg ()Labcd/yE; getDeltaBaseId
 	nw ()Z isReuseAsIs
 	rN ()I getExtendedFlags
-	ro ()V clearReuseAsIs
+	ro ()V setEdge
 	sh ()Z isDoNotDelta
 	v5 (I)V clearExtendedFlag
 	vy ()Z isEdge
@@ -1563,10 +1565,10 @@ abcd/RE org/eclipse/jgit/lib/RefUpdate
 	j6 (Ljava/lang/String;Z)V setRefLogMessage
 	DW (Ljava/lang/String;)Labcd/RE$a; link
 	j6 (Labcd/qG;)Labcd/RE$a; delete
-	aM ()V unlock
+	aM ()V requireCanDoUpdate
 	DW (Labcd/RE$a;)Labcd/RE$a; doUpdate
 	DW (Labcd/qG;)Labcd/RE$a; update
-	DW ()V setDetachingSymbolicRef
+	DW ()V disableRefLog
 	DW (Labcd/YD;)V setNewObjectId
 	EQ ()Labcd/UE; getRepository
 	FH ()Labcd/RE$a; getResult
@@ -1575,7 +1577,7 @@ abcd/RE org/eclipse/jgit/lib/RefUpdate
 	J8 ()Z isRefLogIncludingResult
 	QX ()V unlock
 	XL ()Labcd/RE$a; forceUpdate
-	Zo ()Labcd/yE; getNewObjectId
+	Zo ()Labcd/yE; getOldObjectId
 	gn ()Labcd/OE; getRefDatabase
 	j6 ()Labcd/RE$a; update
 	j6 (Labcd/RE$a;)Labcd/RE$a; doDelete
@@ -1586,7 +1588,7 @@ abcd/RE org/eclipse/jgit/lib/RefUpdate
 	j6 (Z)V setForceUpdate
 	tp ()Ljava/lang/String; getRefLogMessage
 	u7 ()Labcd/KE; getRefLogIdent
-	v5 ()Labcd/yE; getExpectedOldObjectId
+	v5 ()Labcd/yE; getNewObjectId
 	we ()Labcd/RE$a; delete
 	FH refLogIdent
 	Hw refLogMessage
@@ -1598,10 +1600,11 @@ abcd/RE org/eclipse/jgit/lib/RefUpdate
 	<init> (Labcd/ME;)V <init>
 	u7 ref
 	VH expValue
-	tp newValue
+	tp detachingSymbolicRef
 	j6 (Labcd/qG;Labcd/YD;)Labcd/iG; safeParse
 	Zo oldValue
-	j6 oldValue
+	j6 newValue
+	Ws ()V setDetachingSymbolicRef
 abcd/RE$a org/eclipse/jgit/lib/RefUpdate$Result
 	DW LOCK_FAILURE
 	<init> (Ljava/lang/String;I)V <init>
@@ -1866,8 +1869,8 @@ abcd/TI org/eclipse/jgit/transport/RefAdvertiser
 	<init> ()V <init>
 	Zo derefTags
 abcd/TJ org/eclipse/jgit/treewalk/AbstractTreeIterator
-	DW ()Z hasId
-	gn ()Z eof
+	DW ()Z eof
+	gn ()Z hasId
 	EQ ()V reset
 	tp ()I idOffset
 	u7 ()[B idBuffer
@@ -1975,13 +1978,13 @@ abcd/UJ org/eclipse/jgit/treewalk/CanonicalTreeParser
 	tp ()I idOffset
 	u7 ()[B idBuffer
 	j6 (Labcd/IE;Labcd/uE;)Labcd/UJ; createSubtreeIterator
-	Ws ()V reset
-	DW ()Z hasId
+	Ws ()V parseEntry
+	DW ()Z eof
 	EQ ()V reset
 	FH (I)V next
 	FH ()Z first
 	J8 ()Labcd/UJ; getParent
-	gn ()Z eof
+	gn ()Z hasId
 	j6 (I)V back
 	tp raw
 	EQ prevPtr
@@ -2428,7 +2431,7 @@ abcd/ZG org/eclipse/jgit/internal/storage/file/ObjectDirectoryPackParser
 	j6 (Labcd/CI;I[B)V onInflatedObjectData
 	ei db
 	sh tmpIdx
-	dx packHash
+	dx origEnd
 	ef packEnd
 	j6 (Ljava/io/File;)Ljava/lang/String; baseName
 	j6 (Labcd/CI;)V onEndWholeObject
@@ -2436,7 +2439,7 @@ abcd/ZG org/eclipse/jgit/internal/storage/file/ObjectDirectoryPackParser
 	j6 (Labcd/AI$f;Labcd/AI$d;)Labcd/AI$d; seekDatabase
 	j6 (Labcd/CI;Labcd/AI$d;)Labcd/AI$d; seekDatabase
 	tp ()Labcd/AI$f; onEndDelta
-	Sf origHash
+	Sf packHash
 	cn tmpPack
 	sG origHash
 abcd/ZH org/eclipse/jgit/transport/AmazonS3$1
@@ -2552,17 +2555,17 @@ abcd/_J org/eclipse/jgit/treewalk/WorkingTreeIterator
 	j6 ([Labcd/_J$a;)V init
 	j6 (Ljava/io/File;Labcd/_J$a;)[B idSubmodule
 	DW (Ljava/io/InputStream;)Ljava/io/InputStream; filterClean
-	er ()V reset
-	rN ()Z hasId
-	DW ()Z hasId
+	er ()V parseEntry
+	rN ()Z mightNeedCleaning
+	DW ()Z eof
 	FH (I)V next
 	FH ()Z first
 	Hw (I)Z isEntryIgnored
 	Mr ()Labcd/bK; getOptions
-	U2 ()Z eof
+	U2 ()Z isEntryIgnored
 	a8 ()Ljava/io/InputStream; openEntryStream
 	aM ()J getEntryLength
-	gn ()Z eof
+	gn ()Z hasId
 	j3 ()J getEntryContentLength
 	j6 (I)V back
 	j6 (Labcd/UE;)V initRootIterator
@@ -3026,9 +3029,9 @@ abcd/eI org/eclipse/jgit/transport/BasePackFetchConnection
 	P8 noDone
 	ei lockMessage
 	SI state
-	DW (Labcd/LE;)V negotiate
+	DW (Labcd/LE;)V receivePack
 	j6 (Labcd/LE;)V negotiate
-	DW (Labcd/LE;Ljava/util/Collection;Ljava/util/Set;)V fetch
+	DW (Labcd/LE;Ljava/util/Collection;Ljava/util/Set;)V doFetch
 	j6 (Labcd/LE;Ljava/util/Collection;Ljava/util/Set;)V fetch
 	rN ADVERTISED
 abcd/eI$a org/eclipse/jgit/transport/BasePackFetchConnection$CancelledException
@@ -3139,6 +3142,7 @@ abcd/gC$a org/eclipse/jgit/diff/DiffConfig$RenameDetectionType
 	Hw $VALUES
 abcd/gD org/eclipse/jgit/fnmatch/FileNameMatcher$5
 abcd/gE org/eclipse/jgit/lib/Config
+	j6 ()V save
 	DW MAGIC_EMPTY_VALUE
 	j6 EMPTY_STRING_ARRAY
 	Hw state
@@ -3742,13 +3746,12 @@ abcd/nH org/eclipse/jgit/internal/storage/file/RefDirectory
 	j6 (Ljava/lang/String;Labcd/KK;)Labcd/ME; readRef
 	v5 ()Labcd/KK; getLooseRefs
 	FH parent
-	VH (Ljava/lang/String;)Z isNameConflicting
 	j6 (Labcd/nH$c;Ljava/lang/String;)Labcd/nH$c; scanRef
 	j6 (Labcd/WG;Labcd/KK;Labcd/nH$g;)V commitPackedRefs
 	j6 (Labcd/nH$c;)V putLooseRef
 	FH (Ljava/lang/String;)Z isNameConflicting
 	Hw (Ljava/lang/String;)Ljava/io/File; fileFor
-	Zo (Ljava/lang/String;)Ljava/io/File; fileFor
+	Zo (Ljava/lang/String;)Ljava/io/File; logFor
 abcd/nH$c org/eclipse/jgit/internal/storage/file/RefDirectory$LooseRef
 	VH ()Labcd/LG; getSnapShot
 	j6 (Labcd/BE;)Labcd/nH$c; peel
@@ -3935,7 +3938,7 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	Ws ()Z getRewriteParents
 	DW (Labcd/kG;)V sort
 	EQ ()V finishDelayedFreeFlags
-	Hw ()V reset
+	Hw ()V assertNotStarted
 	VH ()Labcd/yG; getRevFilter
 	Zo (I)V freeFlag
 	gn ()Labcd/jK; getTreeFilter
@@ -3967,7 +3970,7 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	Zo ()Labcd/IE; getObjectReader
 	J0 ()Labcd/_F; toObjectWalkWithSameObjects
 	j6 (Labcd/dG;Labcd/dG;)Z isMergedInto
-	j6 (Labcd/dG;)V markUninteresting
+	j6 (Labcd/dG;)V carryFlagsImpl
 	j6 (Labcd/iG;)[B getCachedBytes
 	FH (Labcd/iG;)Labcd/iG; peel
 	Hw objects
@@ -3977,9 +3980,10 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	j6 (Labcd/YD;Labcd/FE;)Labcd/iG; parseNew
 	j6 (Labcd/YD;I)Labcd/iG; lookupAny
 	j6 (Labcd/iG;Labcd/FE;)[B getCachedBytes
-	DW (Labcd/dG;)V carryFlagsImpl
+	DW (Labcd/dG;)V markStart
 	DW (Labcd/iG;)V parseHeaders
-	FH (Labcd/dG;)V carryFlagsImpl
+	FH (Labcd/dG;)V markUninteresting
+	we ()V reset
 abcd/qH org/eclipse/jgit/internal/storage/file/ReflogReaderImpl
 	j6 logName
 	<init> (Labcd/UE;Ljava/lang/String;)V <init>
@@ -4773,15 +4777,8 @@ abcd/AB org/eclipse/jgit/api/RebaseResult
 	Zo currentCommit
 	v5 status
 	j6 ()Labcd/AB$a; getStatus
-com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
-	DW (Ljava/lang/String;)V showMessage
-	FH (Ljava/lang/String;)Z promptPassphrase
-	Hw (Ljava/lang/String;)Z promptPassword
-	getPassword ()Ljava/lang/String; getPassword
-	j6 ()Ljava/lang/String; getPassphrase
-	j6 (Ljava/lang/String;)Z promptYesNo
-com/jcraft/jsch/UIKeyboardInteractive com/jcraft/jsch/UIKeyboardInteractive
-	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String; promptKeyboardInteractive
+abcd/com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
+abcd/com/jcraft/jsch/UIKeyboardInteractive com/jcraft/jsch/UIKeyboardInteractive
 abcd/IH$a org/eclipse/jgit/internal/storage/pack/DeltaWindow$ZipStream
 	DW zbuf
 	FH outPtr
