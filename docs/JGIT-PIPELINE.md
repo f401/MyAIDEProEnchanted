@@ -229,3 +229,16 @@ python3 tools/jgit/nestcheck.py ~/out/fart/r_vN.jar --self   # 产物侧自洽�
 但它精确地报告了「内层类名暗示的外层 ≠ dex 记录的外层」。r_v38 有 19 条 jgit 违规，
 逐条查下来全是**真的映射错误**（见 `JGIT-MAPPING-QC.md` §34）。同理还有一条粗判据：
 **任何目标名 `A$B` 都必须存在 `A` 这个类**（孤儿外层）。
+
+## 6.7 第三个闸门：成员家族闭合 `closefam`
+
+```bash
+python3 tools/jgit/closefam.py            # 只报告
+python3 tools/jgit/closefam.py --apply    # 写 tools/jgit/fixes/closefam.tsv
+python3 tools/jgit/mapfix.py ~/out/work/jgit_members_clean.tsrg tools/jgit/fixes/closefam.tsv --apply
+```
+
+FART 给成员改名按 `(owner,name,desc)` 沿继承链查；**家族里只要有一个声明者没映射**，
+它就兜底 → 同输入两次产出不同。所以任何批量补名之后都要：`closefam` → 归零 → **FART 跑两遍**、
+逐条目 sha256 对比（`cmp` 整个 jar 最快）。注意 `closefam` 必须有 oracle 守卫，
+否则会把名字拷到目标类根本没有的成员上（实测一次冒出 24 条 `verify_members` 不一致）。

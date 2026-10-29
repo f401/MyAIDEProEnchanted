@@ -2012,3 +2012,97 @@ TransferConfig(1)   UnionInputStream(1)  ArchiveCommand(1→假阳性删除)  tr
 | 方法 / 字段覆盖 | 77.9% / 69.6% | 77.9% / 69.2%（**分母变大**：新入了 RepositoryCache/TransferConfig/UnionInputStream/RevObjectList/Hz 族） |
 | `verify_members` | 不一致 0 | 不一致 0 / R8 3 / 版本差异 8 / 需人工确认 **0** |
 | FART 确定性 | 一致 | 一致（`r_v45.jar` manifest `517cf056…`） |
+
+---
+
+## 35. 第三十轮：剩下的不可达是什么 + 还原率 77.9%→80.2% / 69.2%→72.5%
+
+### 35.1 那 6 处不可达的成因，分两类
+
+| 处 | 目标 | 性质 |
+|---|---|---|
+| 3 | `org/eclipse/jgit/lib/NP`（`abcd/JP` 访问） | **误判**：`place2` 把 `NP` 单独挪进 `lib`，但它的访问者全在 `abcd` |
+| 2 | `com/termux/yinli_a/k/b/a` | **与本任务无关**，AIDE 自己的 termux 组件 |
+| 1 | `androidx/fragment/FragmentManager.getActiveFragments()` | **与本任务无关**，AIDE 反射调 androidx 隐藏 API |
+
+前 3 处是本轮重点。查证过程（用户提示"挖出一个族就该对照源码关系"）：
+
+1. `JP`/`NP` 的形状是**密码学**的（`SecureRandom`/`PrivateKey`/`Signature`/`MessageDigest` + 4 个静态 `Map`）；
+2. 顺着引用做**连通分量**：得到 **186 个类**的一族（`*L/*M/*N/*P` 命名族）；
+3. 这 186 个类**只引用 `java/*`/`javax/*` + 自己**，零 jgit 引用、零外部依赖、零 SSH 特征串；
+4. 族内特征串：`NP` 含 `SHA1WITHRSA`/`SHA256WITHRSA`/OID `1.2.840.113549.1.1.5`，
+   `LP`/`IP` 含 `exception on setup:` / `exception obtaining signature:` ——
+   这两句话在整个 APK 里**只出现在这一族**（jsch 是真类名且在其自己的包里）。
+
+⇒ 结论：这是**一个自包含的混淆加密库，与 jgit 无关**。族必须整族待在同一个包。
+
+族里被误映射进 jgit 的 5 条，全部撤销：
+
+| 探针 | 旧目标 | 判定 |
+|---|---|---|
+| `JP` | `lib/JP`(place) | 撤销 |
+| `NP` | `lib/NP`(place2) | 撤销（`place2` 判错：访问者 LP/JP/MP 全在 abcd） |
+| `KP` | `lib/KP`(place) | 撤销（形状：`wN`+`MP$a`+`LP` 字段） |
+| `MP` | `lib/MP`(place) | 撤销（族内算法注册表工厂） |
+| `LP` | `lib/IndexDiff$1` | 撤销（`shape--loose` 假阳性；真实是族内 JCE 适配层） |
+
+结果：**跨包不可达 6 → 3，jgit 侧 0**（剩 3 处全是 AIDE 自己的）。
+
+### 35.2 还原率提升：两个新工具
+
+**(a) `autofill.py` —— 描述符唯一的机械补名**
+
+规则（全部满足才补）：目标类在 oracle 里、只匹配该类**自己声明**的成员、探针侧未映射、
+oracle 侧该名字未被本类占用、**同一描述符两侧各只有 1 个候选**、static 标志一致、
+不碰 `<init>/<clinit>` 与 Object 家族、不碰祖先已映射的同名同描述符（那是 override）。
+
+产出 **289 方法 + 66 字段**（355 条），例如 `AE.iterator/size`、枚举的 `values/valueOf`、
+合成的 `access$NNN` 一并归位。
+
+**(b) `closefam.py` —— 成员家族闭合**
+
+FART 给成员改名按 `(owner, name, desc)` 沿继承链查；**只要家族里有声明者没映射**，
+它就兜底（HashMap 顺序）→ 同输入两次产出可以不同。`closefam` 把每个
+`(name, desc)` 的所有声明者按继承关系聚组：组内名字一致→补到还没映射的声明者。
+
+没有守卫时它补了 169 条，`verify_members` 立刻报 **24 条不一致** ——
+因为它会把名字拷到"目标类根本没有这个成员"的类上（典型：匿名类目标判错）。
+加两道守卫后剩 **47 条**：
+
+1. `closefam` 内：oracle 侧（目标类或其 oracle 祖先）必须真有该 `name+desc`；
+2. 通用兜底 `prune`：凡 `verify_members` 证伪的自动补名一律删除（白名单除外）。
+
+### 35.3 确定性这场仗（重要教训）
+
+`autofill` 一落库，**FART 两遍产物就不再逐字节相同**。定位方法：对两遍 jar 做
+**逐条目 sha256 对比**（不是只看 manifest 头部），差异精确到 2 个条目：
+
+| 轮次 | 差异条目 | 根因 |
+|---|---|---|
+| 1 | `DirCacheEditor$b`（=`$PathEdit`） | 父类 `PC$b` 未在映射里（靠前缀传播得名），它自己的 `j6(QC)V` 无法命名 |
+| 2 | `DirCacheEditor$PathEdit`、`$2` | 同上，补了类映射但**成员**映射因 `mapfix` 时块还不存在而静默跳过 |
+| 3 | `FS_POSIX$1` | `tK`(FS_POSIX_Java6) 映射了 `hasExecute`，但**声明它的父类 `pK`(FS) 没映射** |
+
+三次修完，`closefam` 归零，两遍 FART **逐字节相同**。
+`mapfix.py` 也补了"块缺失时按 tsv 建块"，不再静默跳过。
+
+### 35.4 基线
+
+| 指标 | r_v45 | **r_v52** |
+|---|---|---|
+| **方法覆盖** | 2627/3372 = 77.9% | **2706/3375 = 80.2%** |
+| **字段覆盖** | 1110/1603 = 69.2% | **1163/1604 = 72.5%** |
+| 完全覆盖类 | 370 | **380** |
+| 成员映射条目 | 4027 | **4431** |
+| 跨包不可达 | 6 | **3（jgit 侧 0）** |
+| `dupcheck` | 0 | 0 |
+| `nestcheck --self` | 2 | 2（全是 AIDE 自有） |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | 一致（`r_v52.jar` 两遍逐字节相同） |
+
+### 35.5 下一步还能怎么提
+
+1. **仍未映射的类**：每个类收进来就能带出它的成员（形状唯一匹配 + 读代码）；
+2. **重载集**（同描述符 >1）：机械规则故意不猜，只能读实现体（`jadx` 单类）；
+3. **同类型多字段**（如一个类里 3 个 `String`）：同上；
+4. **目标类判错导致的连带错名**（如 `BG → PackFile$1` 一族）：先把类判对，成员才有意义 —— 这也是 §34 那条判据的延伸。

@@ -85,6 +85,13 @@ for l in open(TSRG):
 susp=[x for x in NOT_IN_ORACLE if not re.search(r'\$\d+$',x[1]) and not x[1].startswith('com/jcraft') and (x[0],x[1]) not in ALLOW]
 print('目标类不在 oracle（多为匿名类占位名，正常）%d 条；其中非 $数字 结尾、需人工确认 %d 条' % (len(NOT_IN_ORACLE), len(susp)))
 for x in susp[:10]: print('   ', x)
+try:
+    if '--dump-bad' in sys.argv:
+        with open(HOME+'/out/work/verify_bad.tsv','w') as _fh:
+            for b in bad:
+                _fh.write('%s\t%s\t%s\t%s\t%s\n' % (b[0], 'm' if b[2]=='method' else 'f', b[3], b[4], b[5]))
+except Exception as _e:
+    print('dump-bad 失败', _e)
 print('成员映射',tot,'无法校验(未知类)',unk,'不一致',len(bad),'已知R8签名重写',len(r8),'已知oracle版本差异',len(allow))
 for a in allow[:20]: print('   ~',a)
 for b in bad[:40]: print(' ',b)

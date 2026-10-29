@@ -9,7 +9,7 @@
 用法: python3 tools/jgit/mapfix.py <tsrg> <fix.txt> [--apply]
 不加 --apply 只 dry-run。
 """
-import sys
+import os, sys
 
 
 def main():
@@ -29,6 +29,7 @@ def main():
                       None if old == '-' else old,
                       None if new == '-' else new))
 
+    TSV_PATH = os.path.expanduser('~') + '/out/work/jgit_map_clean.tsv'
     heads, blocks, cur = [], {}, None      # heads: [(probe, header_line)]
     for ln in open(tsrg):
         ln = ln.rstrip('\n')
@@ -45,7 +46,20 @@ def main():
     for probe, kind, name, desc, old, new in edits:
         blk = blocks.get(probe)
         if blk is None:
-            print('SKIP  %-10s 无此类块' % probe); skip += 1; continue
+            # 类刚在 tsv 里新增、还没 rebuild 过 —— 按 tsv 的目标名建块
+            tgt = None
+            try:
+                for _l in open(TSV_PATH):
+                    _f = _l.rstrip('\n').split('\t')
+                    if _f[0] == probe[5:] if probe.startswith('abcd/') else False:
+                        tgt = _f[1]; break
+            except (IOError, NameError):
+                pass
+            if tgt is None:
+                print('SKIP  %-10s 无此类块（tsv 里也没有）' % probe); skip += 1; continue
+            blocks[probe] = []; heads.append((probe, '%s %s' % (probe, tgt)))
+            blk = blocks[probe]
+            print('NEW   %-10s 建块 %s' % (probe, tgt))
         is_method = (kind == 'm')
         idx = None
         for i, ln in enumerate(blk):
