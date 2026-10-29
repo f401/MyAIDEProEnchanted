@@ -4862,3 +4862,10 @@ abcd/GC org/eclipse/jgit/diff/Subsequence
 abcd/OF$a org/eclipse/jgit/revwalk/BlockRevQueue$Block
 abcd/OF$b org/eclipse/jgit/revwalk/BlockRevQueue$BlockFreeList
 abcd/UF org/eclipse/jgit/revwalk/FIFORevQueue
+abcd/PF org/eclipse/jgit/revwalk/BoundaryGenerator
+abcd/PF$a org/eclipse/jgit/revwalk/BoundaryGenerator$InitialGenerator
+abcd/NB org/eclipse/jgit/api/GitAPIException
+abcd/tH org/eclipse/jgit/internal/storage/file/UnpackedObjectCache
+abcd/tH$a org/eclipse/jgit/internal/storage/file/UnpackedObjectCache$Table
+abcd/EC org/eclipse/jgit/diff/SimilarityIndex
+abcd/EC$a org/eclipse/jgit/diff/SimilarityIndex$TableFullException

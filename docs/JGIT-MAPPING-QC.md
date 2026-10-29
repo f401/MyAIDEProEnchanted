@@ -1229,3 +1229,80 @@ abstract class BlockRevQueue extends AbstractRevQueue {
 | `inherit_check` | 0 / 5 | **0 / 5** |
 | `verify_members` | 不一致 0 | 不一致 **0** |
 | FART | 一致 | **一致**（`r_v25.jar`，manifest `06e5c46d…`） |
+
+---
+
+## 25. 第二十轮：清掉四个"大块头"，违规 136 → 108
+
+这轮挑 `access_audit` 排行榜上的四个，全部靠**字段类型逐个对**定案。
+
+### 25.1 `PF`/`PF$a` → `BoundaryGenerator` 一族
+
+`PF$a` 的四个字段直接指认：
+
+```
+class abcd.PF$a extends abcd.XF(Generator) {
+  private final abcd.UF  DW;     // FIFORevQueue
+  private final abcd.XF  FH;     // Generator
+  final         abcd.PF  Hw;     // 外层自己
+  private final abcd.qG  j6;     // RevWalk
+  abcd.PF$a(abcd.PF, abcd.qG, abcd.XF);   // (BoundaryGenerator, RevWalk, Generator)
+}
+```
+
+oracle `BoundaryGenerator$InitialGenerator` 的字段/构造器**逐项一致**（`walk`/`held`/`source`/`this$0`）。
+再回头核 `PF`：`Generator g` 字段 + `(RevWalk,Generator)` 构造器 + `shareFreeList(BlockRevQueue)` ⇒ **`BoundaryGenerator`**。
+
+> `PF` 正是 §13.4 里"22 个被回退的幽灵类"之一，现在补回来了。
+
+### 25.2 `NB` → `api/GitAPIException`
+
+`public abstract class NB extends Exception` + 两个构造器 `(String)` / `(String,Throwable)`
+⇒ `GitAPIException` 1:1。更巧的是**它的引用者已经被改名到 `org.eclipse.jgit.api`**，
+映射之后同包，7 处违规直接消失。
+
+### 25.3 `tH`/`tH$a` → `UnpackedObjectCache` 一族
+
+| 探针 | 字段 | 方法 |
+|---|---|---|
+| `tH` | `private volatile tH$a` | `isUnpacked/add/remove/clear` 四个 |
+| `tH$a` | `AtomicReferenceArray<ObjectId>` + `int shift` + `int bits` | `ctor(int)`/`contains`/`add`/`index` |
+
+与 `UnpackedObjectCache` / `$Table` **逐项一致**；两者同在 `internal/storage/file`，与 `ObjectDirectory` 同包。
+
+### 25.4 `EC`/`EC$a` → `SimilarityIndex` 一族
+
+`EC` 的 6 个字段 `hashedCnt / idSize / idGrowAt / idHashBits / idHash / 静态 TableFullException`
+与 `SimilarityIndex` 完全对应，方法 `hash(ObjectLoader)` / `hash(byte[],int,int)` / `score(SimilarityIndex,int)` 也对得上。
+
+### 25.5 工具改进：protected 成员对子类合法
+
+`access_audit` 原来把所有非 public 成员都算违规，但 **protected 成员对子类（哪怕跨包）是合法的**。
+已加"子类关系"判定。仍剩 10 条 `GitAPIException.<init>(String)` 是**假阳性**：
+`abcd/LB` 还没映射，工具推不出它是子类——等 `LB` 定名后自动消失。
+
+### 25.6 违规数
+
+| 版本 | 跨包不可达 |
+|---|---|
+| `r_v21` | 196 |
+| `r_v23` | 158 |
+| `r_v25` | 136 |
+| **`r_v26`** | **108**（70 个目标） |
+
+剩余头号：`GitAPIException.<init>` 10（假阳性，等 `LB`）、`ObjectDirectoryInserter` 4、`abcd/IH` 4、
+`abcd/rI` 4、`DeltaCache` 3、`WindowCursor` 3+3、`abcd/MG`。
+
+### 25.7 基线
+
+| 指标 | §24 | 本轮 |
+|---|---|---|
+| 类映射 | 658 | **662** |
+| 成员映射 | 4040 | 4047 |
+| 方法覆盖 | 2623/3319 = 79.0% | **2623/3351 = 78.3%** |
+| 字段覆盖 | 1115/1570 = 71.0% | **1115/1585 = 70.3%** |
+| 完全覆盖类 | 373 | 374 |
+| **跨包不可达** | 136 | **108** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v26.jar`，manifest `bf4a66ff…`） |

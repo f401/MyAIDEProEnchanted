@@ -94,6 +94,28 @@ for n in z.namelist():
         except Exception:
             pass
 
+# 子类关系（用于判定 protected 成员的跨包访问是否合法）
+_sub = {}
+
+
+def is_sub(c, o, seen=None):
+    if c == o:
+        return True
+    if c in _sub:
+        return o in _sub[c]
+    out, st = set(), [c]
+    while st:
+        x = st.pop()
+        cc = cls.get(x)
+        if not cc:
+            continue
+        for p2 in ([cc['sup']] if cc['sup'] else []) + list(cc['ifaces']):
+            if p2 and p2 not in out:
+                out.add(p2); st.append(p2)
+    _sub[c] = out
+    return o in out
+
+
 viol = collections.Counter()
 detail = collections.defaultdict(list)
 
@@ -126,6 +148,9 @@ for cn, c in cls.items():
             if mm['name'] == nm and mm['desc'] == ds:
                 member = mm
                 break
+        if member is not None and (member['acc'] & ACC_PROT) and not (member['acc'] & ACC_PUB):
+            if is_sub(cn, ow):          # protected 成员对子类合法（即使跨包）
+                continue
         if member is not None and not (member['acc'] & (ACC_PUB | ACC_PROT)):
             viol[('member-not-visible', '%s.%s%s' % (ow, nm, ds))] += 1
             detail[('member-not-visible', '%s.%s%s' % (ow, nm, ds))].append(cn)
