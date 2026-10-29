@@ -14,15 +14,15 @@ b10100ab9918523fe216bcdbfd4791b32e2f15a8cf28f33dbe4c96f908061fc1  src/classes.ja
 40a525874479b05a4f2aa5803bfc13d94f6aa9379aed766bb059459f3d23fa3d  src/classes4.jar
 55e77c99af1935795c7924337d238382c65afa0c98a10b6f826614b371f859c5  src/classes5.jar
 4bf6bfbe4fbd71dc65ee839bb81ac011ff4887ba0d69ea53aa0113709b23594c  base/merged_ok.jar
-768399201bfb7ae12e1e36c4c260d12661184b2cff2d768c25d3c05098252162  mappings.txt
+f014484780de3917002de48f075cae8388d356ac91604b7e67a93e553175aa86  mappings.txt
 ffe441c5a1f77baa04fcd5c40fe477a66b2512f6b7ccff75365e8e2d28032430  ForgeAutoRenamingTool-1.0.8-all.jar
 d43c8a94c9b1f1da1a7cc49c32b81e8cee1708b37ee8b530a81a0688222b42c0  d8.jar
 78215bd779f84b51d52a30adbaf72d190499fc141842fc7e1619892b806a700e  android.jar
 
 # ───────────────────────── 期望产物（不入库，自己生成后核对） ─────────────────────────
-# ~/out/fart/r_v31.jar
-#   文件 sha256        22e15713ea767be179acde75124b8dc2df88f8a5b4ebbbc36a5e1685b6fe8be0
-#   内容 manifest      db7d10b28c2d9da4d7ccffa09ab23c402acfdfa4a8e3a9584bcd96f02b5b9050
-#   核对：python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_v31.jar --check db7d10b2...
+# ~/out/fart/r_v32.jar
+#   文件 sha256        a1021677e72eacd506bfbec9b2709a58f312385743afe69350e2a093b7363df5
+#   内容 manifest      d22c98e550dd2786a95be05d455db119c37b5774c6182304af051e0f26ef8220
+#   核对：python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_v32.jar --check d22c98e5...
 #   注意：整包 sha256 只在同一台机器/同一 JDK 下稳定；**内容 manifest 才是判等依据**
 #   （FART 写 zip 的元数据不稳定，实测同一输入两次产出差几个字节）。

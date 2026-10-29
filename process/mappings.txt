@@ -935,8 +935,6 @@ abcd/JE org/eclipse/jgit/lib/ObjectStream
 	j6 ()J getSize
 abcd/JE$a org/eclipse/jgit/lib/ObjectStream$Filter
 	j6 type
-	DW size
-	FH in
 	j6 ()J getSize
 abcd/JF org/eclipse/jgit/patch/HunkHeader
 	DW ()I getStartOffset
@@ -4861,3 +4859,4 @@ abcd/tH org/eclipse/jgit/internal/storage/file/UnpackedObjectCache
 abcd/tH$a org/eclipse/jgit/internal/storage/file/UnpackedObjectCache$Table
 abcd/EC org/eclipse/jgit/diff/SimilarityIndex
 abcd/EC$a org/eclipse/jgit/diff/SimilarityIndex$TableFullException
+abcd/rI org/eclipse/jgit/transport/HttpAuthMethod

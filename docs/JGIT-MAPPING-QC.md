@@ -1438,3 +1438,70 @@ abcd/NB.<init>(String)V   是包私有
 
 剩余头号：`ObjectDirectoryInserter` 4、`abcd/IH` 4、`abcd/rI` 4、`DeltaCache` 3、
 `WindowCursor` 3+3、`FileObjectDatabase` 3 —— 都集中在 `internal/storage/file|pack` 两簇。
+
+---
+
+## 28. 第二十三轮：`rI` → `HttpAuthMethod`（违规 96 → 91）
+
+### 28.1 `rI` 定案：`org.eclipse.jgit.transport.HttpAuthMethod`
+
+```
+abstract class abcd.rI {
+  static final abcd.rI j6;                              //  静态单例
+  static abcd.rI DW(java.net.HttpURLConnection);        //  static 工厂
+  abstract void j6(java.lang.String, java.lang.String); //  authorize(String,String)
+  abstract void j6(java.net.HttpURLConnection);         //  configureRequest(HttpConnection)
+  boolean j6(abcd.HJ, abcd.kI);                         //  authorize(URIish,CredentialsProvider)
+}
+```
+
+oracle `org.eclipse.jgit.transport.HttpAuthMethod`：
+
+```
+abstract class HttpAuthMethod {
+  protected final Type type;
+  static HttpAuthMethod scanResponse(HttpConnection);
+  boolean authorize(URIish, CredentialsProvider);
+  abstract void authorize(String, String);
+  abstract void configureRequest(HttpConnection);
+}
+```
+
+**三条方法签名逐一对上**。更关键的是：之前两次把它判成 `transport.http.HttpAuthMethod` 失败，
+是因为**包名猜错了** —— jgit 3.7.1 里 `HttpAuthMethod` 就在 `org.eclipse.jgit.transport`（没有 `.http` 子包）。
+落库后它与 `TransportHttp` 同包，4 处违规消失。
+
+> 教训：**"包名靠印象"是最容易错的一步**；先把包列出来（`unzip -l | grep 类名`）再判。
+
+### 28.2 `JE$a` 的尝试失败，已回退（记录以免重试）
+
+设想 `abcd/JE$a`（`extends ObjectStream`，`ctor(int, long, InputStream)` + `read/mark/available/close`）
+是 `ObjectStream$SmallStream`。**不成立**：oracle 的 `SmallStream` 是
+`ctor(ObjectLoader)` 与 `ctor(int, byte[])`，字段 `type / data / ptr / mark`，没有 `long size` 也没有 `InputStream`。
+
+`JE$a` 的形态更像 `WindowCursor.open(...)` 返回的那个**匿名 ObjectStream 实现**
+（`type` + `size` + `in` 三件套）—— 但它是具名类，所以真实身份仍待查。
+已回退到旧的 `ObjectStream$Filter`，并删掉两条描述符对不上的字段映射。
+
+### 28.3 违规数与基线
+
+| 版本 | 跨包不可达 |
+|---|---|
+| `r_v29` | 103 |
+| `r_v31` | 96 |
+| **`r_v32`** | **91**（66 个目标） |
+
+| 指标 | §27 | 本轮 |
+|---|---|---|
+| 类映射 | 654 | **655** |
+| 成员映射 | 4047 | 4045 |
+| 方法覆盖 | 2623/3351 = 78.3% | **2623/3353 = 78.2%** |
+| 字段覆盖 | 1115/1585 = 70.3% | **1114/1586 = 70.2%** |
+| 完全覆盖类 | 372 | 372 |
+| **跨包不可达** | 96 | **91** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v32.jar`，manifest `d22c98e5…`） |
+
+剩余头号：`ObjectDirectoryInserter` 4、`abcd/IH` 4、`DeltaCache` 3、`WindowCursor` 3+3 ——
+全部挂在 `abcd/MG` 与 `abcd/IH` 两个未映射类上。
