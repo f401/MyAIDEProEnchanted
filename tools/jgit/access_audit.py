@@ -175,5 +175,25 @@ if '--suggest' in sys.argv:
         print('\n跨多个包，需人工判 %d 个：' % len(mixed))
         for a, ps in sorted(mixed.items()):
             print('   %-12s %s' % (a, ps))
+
+if '--suggest2' in sys.argv:
+    # 反向：被访问的 owner 自己还叫 abcd/*（未映射），而访问者已改名到某包
+    # ⇒ 把 owner 挪进"访问者所在的包"（若所有访问者同包）
+    own = collections.defaultdict(set)
+    for (kind, tgt), n in viol.items():
+        owner = tgt if kind != 'member-not-visible' else tgt.rsplit('.', 1)[0]
+        if not owner.startswith('abcd/'):
+            continue
+        for a in detail[(kind, tgt)]:
+            own[owner].add(pkg(a))
+    auto = {o: next(iter(ps)) for o, ps in own.items() if len(ps) == 1}
+    mixed = {o: sorted(ps) for o, ps in own.items() if len(ps) > 1}
+    print('\n【反向】owner 仍在 abcd、访问者同包 %d 个：' % len(auto))
+    for o, pk in sorted(auto.items()):
+        print('   %-12s → %s/%s' % (o, pk, o.rsplit('/', 1)[-1]))
+    if mixed:
+        print('【反向】访问者跨多包 %d 个：' % len(mixed))
+        for o, ps in sorted(mixed.items()):
+            print('   %-12s %s' % (o, ps))
 for (kind, tgt), n in viol.most_common(TOP):
     print('  %-18s %-70s %d 处  例: %s' % (kind, tgt, n, detail[(kind, tgt)][0]))

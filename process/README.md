@@ -22,11 +22,11 @@ sha256sum -c SHA256SUMS                 # ① 输入完整性（10/10 OK）
 
 java -Xmx900m -jar ForgeAutoRenamingTool-1.0.8-all.jar \
   --input  base/merged_ok.jar \
-  --output ~/out/fart/r_v36.jar \
+  --output ~/out/fart/r_v38.jar \
   --map    mappings.txt                 # ② 改名
 
-python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_v36.jar \
-  --check e9e46cf9179503654b231cf8df33590751e5afc07aa1b1de229f26bd8bc70b1a
+python3 ../tools/jgit/jar_manifest.py ~/out/fart/r_v38.jar \
+  --check 5ce045218e699c5d1af87c7fc00d5099cd276f2eb7c9984b65e0e4714c424625
 # ③ 内容判等：PASS 表示与作者产出**逐类内容一致**
 ```
 
@@ -72,7 +72,7 @@ bash run.sh    # 每个 classes.jar 单独改名，其它 jar 走 --lib
 
 | 指标 | 值 |
 |---|---|
-| 类映射 | 673 |
+| 类映射 | 688 |
 | 成员映射 | 4047（方法 2758 + 字段 1289） |
 | 方法覆盖 | 2623/3368 = 77.9% |
 | 字段覆盖 | 1116/1603 = 69.6% |

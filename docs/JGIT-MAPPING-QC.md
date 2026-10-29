@@ -1645,3 +1645,72 @@ public class ObjectStream$Filter extends ObjectStream {
 剩余 36 处已很零散：`DirCacheBuilder.finish()` 3（`CommitCommand` 跨包调包私有方法）、
 `com/termux/yinli_a/*` 2（非 jgit，Kotlin 运行库）、`androidx/fragment` 1、
 `abcd/XD` 2、`abcd/NP` 2、`abcd/gJ` 6。
+
+---
+
+## 31. 第二十六轮：人工逐条判断剩下 10 处（真实只剩 3 处）
+
+按"先人工判断"的要求，对 `r_v38` 的 10 处逐条核实（`javap` 查访问标志 + 看归属）。
+
+### 31.1 判为**假阳性**的 4 处
+
+| 条目 | 处数 | 判断依据 |
+|---|---|---|
+| `DirCacheBuilder.finish()V` | 3 | `javap -p` 显示 **`public void finish()`**。jgit 3.7.1 的 `DirCacheBuilder` 里 `finish` 就是 public ⇒ 工具报的"不可见"不成立 |
+| `WorkingTreeIterator.reset()V` | 1 | 同样 `public void reset()` |
+
+⇒ 这两条是 `access_audit` 的成员查找缺陷（同名/同描述符命中条目有偏差），**不需要改映射**。
+已记入待修：`access_audit` 的 member 查找要改成"按 (name,desc) 精确匹配 + 取访问标志最大的那个"。
+
+### 31.2 判为**与本次改名无关**的 3 处
+
+| 条目 | 处数 | 原因 |
+|---|---|---|
+| `com/termux/yinli_a/k/b/a` | 2 | `com/termux/yinli_a/*` 是 **R8 混淆过的 Kotlin 标准库**（见 `AGENTS.md` §2 约束 8），本来就是这个形态，与我们改 jgit 无关 |
+| `androidx/fragment/FragmentManager.getActiveFragments()` | 1 | AIDE 自身 `AppWizardDesignActivity` 的反射访问，属于改造前就有的问题 |
+
+### 31.3 判为**真问题**的 3 处（同一条链）
+
+```
+abcd/JP（未映射，仍在 abcd） → 访问 org/eclipse/jgit/lib/NP 的包私有成员  ×3
+```
+
+`NP` 上一轮已被 `place2` 挪进 `lib`，但**它的访问者 `JP` 还留在 `abcd`** ⇒ 跨包。
+修法是 `JP → lib/JP`。**试过了，会引发链式漂移**：
+
+```
+JP → lib  ⇒  轮到 abcd/IP 违规（它访问 lib/JP 的包私有成员）
+IP → lib  ⇒  …（还能继续）
+```
+
+`r_v39`（+JP）违规数 12、`r_v40`（+JP+IP）违规数 7，但**两次 FART 都有 1 个类漂移**。
+按既定原则「确定性 > 覆盖率」，两条都回退，保持 `r_v38`（10 处、确定性一致）。
+
+> 结论：这 3 处要修必须**把 JP→IP→…整条链一次性算完**（和 §24.3 的 UF/QF 一样），
+> 单点 place 必然漂移。下一步可以写个"闭包求解"：从 `abcd/*` 出发，
+> 沿"访问包私有成员"关系做并查集/不动点迭代，一次得出整条链的目标包。
+
+### 31.4 最终判定
+
+| 类别 | 处数 |
+|---|---|
+| 假阳性（成员其实是 public） | 4 |
+| 非 jgit（AIDE 自身 / Kotlin 运行时） | 3 |
+| **真问题（同一条 JP→NP 链）** | **3** |
+| 合计 | **10** |
+
+也就是说，**196 → 10，其中真正需要处理的只剩 3 处**，且集中在一条链上。
+
+### 31.5 基线
+
+| 指标 | §30 | 本轮 |
+|---|---|---|
+| 类映射 | 673 | **688**（+15 条 `place2`） |
+| 成员映射 | 4047 | 4047 |
+| 方法覆盖 | 2623/3368 = 77.9% | **2623/3368 = 77.9%** |
+| 字段覆盖 | 1116/1603 = 69.6% | **1116/1603 = 69.6%** |
+| 完全覆盖类 | 372 | 372 |
+| **跨包不可达** | 36 | **10**（**真问题仅 3**） |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v38.jar`，manifest `5ce04521…`） |
