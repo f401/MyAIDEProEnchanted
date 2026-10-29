@@ -3706,6 +3706,13 @@ abcd/eI$b org/eclipse/jgit/transport/BasePackFetchConnection$FetchConfig
 abcd/eI$c org/eclipse/jgit/transport/BasePackFetchConnection$MultiAck
 	<init> (Ljava/lang/String;I)V <init>
 	Hw $VALUES
+	j6 OFF
+	DW CONTINUE
+	FH DETAILED
+	values ()[Labcd/eI$c; values
+		static
+	valueOf (Ljava/lang/String;)Labcd/eI$c; valueOf
+		static
 abcd/eJ org/eclipse/jgit/transport/TagOpt
 	Hw ()Ljava/lang/String; option
 	v5 option
