@@ -1152,3 +1152,80 @@ oracle 类里找**（jgit 的类层级很密，同父通常只剩 1~3 个候选�
 
 > 覆盖率微降仍是分母变大（+24 方法 / +7 字段的分母，绝对命中 +1 / -1）。
 > 本轮的收益主要体现在**运行期可访问性**（违规 -29），不是覆盖率。
+
+---
+
+## 24. 第十九轮：`BlockRevQueue` 一族（违规 158 → 136）
+
+### 24.1 上一轮把 `OF` 判错了，这轮用"字段类型"纠正
+
+上一轮按"字段少、方法少"把 `OF` 判成 `LIFORevQueue`。这轮看 `OF` 的两个成员才发现更硬的证据：
+
+```
+abstract class abcd.OF extends abcd.LF {          // LF = AbstractRevQueue
+  protected abcd.OF$b FH;                          // ← 唯一字段，类型是 OF$b
+  public void j6(abcd.OF);                         // ← 参数是自己的类型
+}
+```
+
+而 oracle 里：
+
+```
+abstract class BlockRevQueue extends AbstractRevQueue {
+  protected BlockRevQueue$BlockFreeList free;       // ← 字段类型是 BlockFreeList
+  public void shareFreeList(BlockRevQueue);         // ← 参数是自己的类型
+}
+```
+
+**字段类型 + 自类型参数**两条同时命中 ⇒ `OF` = **`BlockRevQueue`**。于是：
+
+| 探针 | 旧判 | 新判 | 硬证据 |
+|---|---|---|---|
+| `OF` | ~~LIFORevQueue~~ | **`BlockRevQueue`** | 字段 `free: OF$b` + `shareFreeList(BlockRevQueue)` |
+| `OF$b` | — | **`BlockRevQueue$BlockFreeList`** | `next: Block` + `newBlock()`/`freeBlock(Block)` |
+| `OF$a` | — | **`BlockRevQueue$Block`** | `RevCommit[]` + `headIndex/tailIndex` + **自类型** `next`；且 `OF$b.newBlock()` 返回它 |
+| `UF` | — | **`FIFORevQueue`** | `extends OF` + **两个** Block 字段（head/tail）+ `unpop`/`toString` |
+| `QF` | FIFORevQueue | **`LIFORevQueue`** | `extends LF` + 两个 Block 字段 + 方法集更少 |
+
+### 24.2 一个形状出现两份：`QF$a` 让位
+
+`QF$a` 和 `OF$a` 的形状**完全一样**（`RevCommit[]` + 两个 int + next），但 `Block` 只能有一个。
+判据是**谁被 `newBlock()` 返回**：`OF$b.newBlock()` 返回 `OF$a` ⇒ `Block` 归 `OF$a`。
+
+`QF$a` 因此**撤销映射**，交回 FART 的前缀传播（变成 `FIFORevQueue`/`LIFORevQueue$a` 之类的名字）。
+这也再次印证 §23.2：外层改名会把内部类一起带走，所以"少一个映射"并不会让它留在 `abcd`。
+
+### 24.3 一次翻车与回滚
+
+按 `OF=BlockRevQueue` 改完后第一次跑 **FART 又变成不确定**（`FS_POSIX$1` 漂移）。
+原因是当时 `QF` 还指着 `FIFORevQueue`、同时 `UF` 没有映射，`FIFO`/`LIFO` 的 Block 指代不一致。
+把 `UF→FIFORevQueue`、`QF→LIFORevQueue` 一起定下来之后，两次运行**内容完全一致**。
+
+> 教训：**这一族必须整组一起定**（父 + 两个子 + 两个内部类），只改一半必然漂移。
+
+### 24.4 违规数
+
+| 版本 | 跨包不可达 |
+|---|---|
+| `r_v21` | 196 |
+| `r_v22` | 187 |
+| `r_v23` | 158 |
+| **`r_v25`** | **136**（81 个目标） |
+
+新的头号条目：`Generator` 8（`abcd/PF$a` 未映射却继承 Generator）、`abcd/EC` 8、
+`abcd/NB.<init>` 7、`abcd/tH` 5、`ObjectDirectoryInserter` 4、`abcd/IH` 4、`abcd/rI` 4。
+其中 `PF$a` 就是 §23 里"22 个被回退的幽灵类"之一，下一轮连同 `PF` 一起定。
+
+### 24.5 基线
+
+| 指标 | §23 | 本轮 |
+|---|---|---|
+| 类映射 | 654 | **658** |
+| 成员映射 | 4042 | 4040 |
+| 方法覆盖 | 2622/3300 = 79.5% | **2623/3319 = 79.0%** |
+| 字段覆盖 | 1115/1564 = 71.3% | **1115/1570 = 71.0%** |
+| 完全覆盖类 | 374 | 373 |
+| **跨包不可达** | 158 | **136** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v25.jar`，manifest `06e5c46d…`） |

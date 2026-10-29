@@ -4828,9 +4828,6 @@ abcd/NE org/eclipse/jgit/lib/RefComparator
 	j6 (Ljava/util/Collection;)Ljava/util/Collection; sort
 	j6 (Labcd/ME;Labcd/ME;)I compare
 abcd/NF org/eclipse/jgit/revwalk/BlockObjQueue
-abcd/QF$a org/eclipse/jgit/revwalk/BlockRevQueue$Block
-	DW commits
-	j6 next
 abcd/RE$b org/eclipse/jgit/lib/RefUpdate$Store
 	j6 this$0
 	j6 (Labcd/RE$a;)Labcd/RE$a; execute
@@ -4859,6 +4856,9 @@ abcd/NF$b org/eclipse/jgit/revwalk/BlockObjQueue$BlockFreeList
 abcd/VK org/eclipse/jgit/util/io/InterruptTimer
 abcd/VK$c org/eclipse/jgit/util/io/InterruptTimer$AutoKiller
 abcd/LF org/eclipse/jgit/revwalk/AbstractRevQueue
-abcd/QF org/eclipse/jgit/revwalk/FIFORevQueue
-abcd/OF org/eclipse/jgit/revwalk/LIFORevQueue
+abcd/QF org/eclipse/jgit/revwalk/LIFORevQueue
+abcd/OF org/eclipse/jgit/revwalk/BlockRevQueue
 abcd/GC org/eclipse/jgit/diff/Subsequence
+abcd/OF$a org/eclipse/jgit/revwalk/BlockRevQueue$Block
+abcd/OF$b org/eclipse/jgit/revwalk/BlockRevQueue$BlockFreeList
+abcd/UF org/eclipse/jgit/revwalk/FIFORevQueue
