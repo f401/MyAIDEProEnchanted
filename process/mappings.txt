@@ -1808,11 +1808,11 @@ abcd/PK org/eclipse/jgit/util/SystemReader$Default
 abcd/QA org/eclipse/jgit/api/CheckoutCommand
 	VH ()V processOptions
 	Zo ()Labcd/yE; getStartPointObjectId
-	DW (Ljava/lang/String;)Labcd/QA; addPath
+	DW (Ljava/lang/String;)Labcd/QA; setName
 	DW (Z)Labcd/QA; setAllPaths
-	FH (Ljava/lang/String;)Labcd/QA; setName
+	FH (Ljava/lang/String;)Labcd/QA; setStartPoint
 	Hw ()Labcd/QA; checkoutPaths
-	j6 (Ljava/lang/String;)Labcd/QA; setStartPoint
+	j6 (Ljava/lang/String;)Labcd/QA; addPath
 	v5 ()Labcd/RA; getResult
 	EQ paths
 	VH upstreamMode
@@ -6115,6 +6115,8 @@ abcd/IH org/eclipse/jgit/internal/storage/pack/DeltaWindow
 	Hw toSearch
 	J0 deflater
 	EQ deltaBuf
+	j6 (I)I deflateBound
+		static
 abcd/JH org/eclipse/jgit/internal/storage/pack/DeltaWindowEntry
 	DW ()Z empty
 	j6 (Labcd/MH;)V set
