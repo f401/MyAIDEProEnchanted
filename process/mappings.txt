@@ -1444,6 +1444,18 @@ abcd/NC org/eclipse/jgit/dircache/DirCacheCheckout
 	gn walk
 	EQ failOnConflict
 	Hw removed
+	VH ()Z doCheckout
+	DW ()Ljava/util/List; getConflicts
+	FH ()Ljava/util/List; getToBeDeleted
+	Hw ()V preScanTwoTrees
+	v5 ()V prescanOneTree
+	j6 ()Z checkout
+	j6 (Labcd/TJ;Labcd/TJ;Labcd/LC;Labcd/_J;)V processEntry
+	j6 (Labcd/UJ;Labcd/LC;Labcd/_J;)V processEntry
+	FH conflicts
+	we toBeDeleted
+	u7 headCommitTree
+	v5 mergeCommitTree
 abcd/ND org/eclipse/jgit/fnmatch/FileNameMatcher$1
 abcd/NH org/eclipse/jgit/storage/pack/PackConfig
 	j6 (Labcd/gE;)V fromConfig
