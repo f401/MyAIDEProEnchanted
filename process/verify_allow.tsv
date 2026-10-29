@@ -16,3 +16,5 @@ abcd/eI$c	org/eclipse/jgit/transport/BasePackFetchConnection$MultiAck	3 常量�
 abcd/HJ	format	AIDE 的 jgit 版本 format 带 3 个 boolean（4.x），3.7.1 是 format(boolean,boolean)
 abcd/RA	OK_RESULT	4.x 才有 OK_RESULT（3.7.1 只有 ERROR_RESULT/NOT_TRIED_RESULT）
 abcd/AI	needNewObjectIds	AIDE 的 jgit 把它做成字段（3.7.1 只有 needBaseObjectIds 字段，needNewObjectIds 是方法）
+abcd/XG	getCachedPacks	AIDE 的 jgit 把 cached-packs 读进 ObjectDirectory（3.7.1 无该成员）
+abcd/XG	searchPacksAgain	AIDE 版是无参版本，3.7.1 是 searchPacksAgain(PackList)

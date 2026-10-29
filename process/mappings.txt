@@ -194,6 +194,10 @@ abcd/AE org/eclipse/jgit/lib/ObjectIdOwnerMap
 		static
 	iterator ()Ljava/util/Iterator; iterator
 	size ()I size
+	DW size
+	FH grow
+	Hw bits
+	v5 mask
 abcd/AE$a org/eclipse/jgit/lib/ObjectIdOwnerMap$Entry
 	tp next
 abcd/AF org/eclipse/jgit/merge/StrategySimpleTwoWayInCore
@@ -524,6 +528,10 @@ abcd/CK org/eclipse/jgit/util/IntList
 	DW ()I size
 	DW (I)I get
 	FH ()V grow
+	j6 (I)V add
+	j6 (II)V set
+	DW (II)V fillTo
+	toString ()Ljava/lang/String; toString
 abcd/DB org/eclipse/jgit/api/SubmoduleInitCommand
 	FH paths
 	call ()Ljava/util/Collection; call
@@ -1162,6 +1170,9 @@ abcd/JE$a org/eclipse/jgit/lib/ObjectStream$Filter
 	markSupported ()Z markSupported
 	read ([BII)I read
 	skip (J)J skip
+	available ()I available
+	close ()V close
+	read ()I read
 abcd/JF org/eclipse/jgit/patch/HunkHeader
 	DW ()I getStartOffset
 	FH ()I getEndOffset
@@ -1499,30 +1510,30 @@ abcd/NC org/eclipse/jgit/dircache/DirCacheCheckout
 abcd/ND org/eclipse/jgit/fnmatch/FileNameMatcher$1
 abcd/NH org/eclipse/jgit/storage/pack/PackConfig
 	j6 (Labcd/gE;)V fromConfig
-	DW ()I getMaxDeltaDepth
-	DW (I)V setMaxDeltaDepth
+	DW ()I getCompressionLevel
+	DW (I)V setCompressionLevel
 	DW (J)V setDeltaSearchMemoryLimit
 	DW (Z)V setReuseDeltas
-	EQ ()Z isReuseDeltas
+	EQ ()Z isDeltaBaseAsOffset
 	FH ()I getDeltaSearchWindowSize
 	FH (I)V setDeltaSearchWindowSize
 	FH (Z)V setReuseObjects
 	Hw ()J getDeltaSearchMemoryLimit
-	Hw (I)V setDeltaCacheLimit
-	J0 ()Z isReuseObjects
-	J8 ()Z isDeltaBaseAsOffset
+	Hw (I)V setDeltaSearchWindowSize
+	J0 ()Z isReuseDeltas
+	J8 ()Z isReuseObjects
 	VH ()Ljava/util/concurrent/Executor; getExecutor
 	VH (I)V setBigFileThreshold
-	Zo ()I getDeltaCacheLimit
-	Zo (I)V setCompressionLevel
-	gn ()I getBigFileThreshold
-	j6 ()I getCompressionLevel
-	j6 (I)V setThreads
+	Zo ()I getDeltaSearchWindowSize
+	Zo (I)V setMaxDeltaDepth
+	gn ()I getIndexVersion
+	j6 ()I getBigFileThreshold
+	j6 (I)V setBigFileThreshold
 	j6 (J)V setDeltaCacheSize
-	j6 (Z)V setDeltaBaseAsOffset
+	j6 (Z)V setDeltaCompress
 	tp ()I getThreads
-	u7 ()I getIndexVersion
-	v5 ()J getDeltaCacheSize
+	u7 ()I getMaxDeltaDepth
+	v5 ()J getDeltaSearchMemoryLimit
 	v5 (I)V setIndexVersion
 	we ()Z isDeltaCompress
 	J0 executor
@@ -1536,6 +1547,10 @@ abcd/NH org/eclipse/jgit/storage/pack/PackConfig
 	J8 indexVersion
 	VH deltaCacheLimit
 	gn deltaSearchMemoryLimit
+	EQ bigFileThreshold
+	Zo maxDeltaDepth
+	we threads
+	Hw deltaBaseAsOffset
 abcd/NJ org/eclipse/jgit/transport/WalkEncryption
 	j6 (Ljava/net/HttpURLConnection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V validateImpl
 	DW (Ljava/net/HttpURLConnection;Ljava/lang/String;)V request
@@ -2214,6 +2229,10 @@ abcd/TC org/eclipse/jgit/dircache/DirCacheTree
 	j6 ([Labcd/QC;III)V validate
 	j6 (Labcd/TC;)[B access$000
 		static
+	j6 ()I getChildCount
+	DW ()I getEntrySpan
+	Zo entrySpan
+	u7 childCnt
 abcd/TD org/eclipse/jgit/fnmatch/FileNameMatcher$4
 abcd/TE org/eclipse/jgit/lib/Repository$1
 	j6 this$0
@@ -2782,6 +2801,8 @@ abcd/XG org/eclipse/jgit/internal/storage/file/ObjectDirectory
 	j6 ()V close
 	toString ()Ljava/lang/String; toString
 	Hw infoDirectory
+	Zo ()Ljava/util/Collection; getCachedPacks
+	we ()Z searchPacksAgain
 abcd/XG$a org/eclipse/jgit/internal/storage/file/ObjectDirectory$1
 abcd/XG$b org/eclipse/jgit/internal/storage/file/ObjectDirectory$PackList
 	DW packs
@@ -3132,6 +3153,14 @@ abcd/_F org/eclipse/jgit/revwalk/ObjectWalk
 	j3 freeVisit
 	QX ()I getPathHashCode
 	QX pendingObjects
+	Zo (Labcd/iG;)V addObject
+	Hw (Labcd/iG;)V markStart
+	v5 (Labcd/iG;)V markUninteresting
+	J8 ()V checkConnectivity
+	Zo (I)V reset
+	v5 ()V dispose
+	XL firstCommit
+	aM lastCommit
 abcd/_F$a org/eclipse/jgit/revwalk/ObjectWalk$TreeVisit
 	DW obj
 	FH buf
@@ -3255,6 +3284,8 @@ abcd/_J org/eclipse/jgit/treewalk/WorkingTreeIterator
 	j6 (Labcd/QC;)Labcd/_J$c; compareMetadata
 	j6 (Labcd/RC;)Labcd/rE; getIndexFileMode
 	FH (Labcd/_J$a;)[B idBufferBlob
+	EQ ()V reset
+	Mr BUFFER_SIZE
 abcd/_J$a org/eclipse/jgit/treewalk/WorkingTreeIterator$Entry
 	j6 (Ljava/nio/charset/CharsetEncoder;)V encodeName
 	FH ()Labcd/rE; getMode
@@ -5046,6 +5077,12 @@ abcd/sC$a org/eclipse/jgit/diff/MyersDiff$MiddleEdit
 	gn this$0
 	DW (IIII)V initialize
 	j6 (IIII)Labcd/jC; calculate
+	j6 forward
+	DW backward
+	FH beginA
+	Hw endA
+	v5 beginB
+	Zo endB
 abcd/sC$a$a org/eclipse/jgit/diff/MyersDiff$MiddleEdit$1
 abcd/sC$a$b org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths
 	DW snake
@@ -5170,6 +5207,11 @@ abcd/tB org/eclipse/jgit/api/RebaseCommand
 	tp walk
 	u7 monitor
 abcd/tB$a org/eclipse/jgit/api/RebaseCommand$2$1
+	valueOf (Ljava/lang/String;)Labcd/tB$a; valueOf
+		static
+	values ()[Labcd/tB$a; values
+		static
+	j6 pick
 abcd/tB$b org/eclipse/jgit/api/RebaseCommand$Operation
 	<init> (Ljava/lang/String;I)V <init>
 	v5 $VALUES
