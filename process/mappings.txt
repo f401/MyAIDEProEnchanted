@@ -2119,15 +2119,27 @@ abcd/SI org/eclipse/jgit/transport/BaseReceivePack
 	<init> (Labcd/UE;)V <init>
 	Zo biDirectionalPipe
 	nw rawOut
-	VH allowBranchDeletes
-	gn objectChecker
-	tp allowCreates
+	gn allowCreates
+	tp allowNonFastForwards
 	lg pckOut
 	J0 refFilter
 	ro maxObjectSizeLimit
+	u7 allowAnyDeletes
+	EQ allowOfsDelta
+	J8 objectChecker
+	Ws advertiseRefsHook
+	XL timer
+	ei sideBand
+	gW enabledCapabilities
+	yS advertisedHaves
 abcd/SI$a org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig
 	<init> (Labcd/gE;)V <init>
 	j6 KEY
+	DW checkReceivedObjects
+	FH allowCreates
+	Hw allowDeletes
+	v5 allowNonFastForwards
+	Zo allowOfsDelta
 abcd/SJ org/eclipse/jgit/transport/WalkTransport
 abcd/SK org/eclipse/jgit/dircache/DirCacheCheckout$1
 abcd/TA org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$1
