@@ -1496,6 +1496,7 @@ abcd/PC org/eclipse/jgit/dircache/DirCacheEditor
 	v5 edits
 	j6 ()Z commit
 	v5 ()V applyEdits
+	j6 (Labcd/PC$b;)V add
 abcd/PD org/eclipse/jgit/fnmatch/GroupHead
 	DW (C)Z matches
 	Hw characterClasses
@@ -2118,7 +2119,12 @@ abcd/UJ org/eclipse/jgit/treewalk/CanonicalTreeParser
 	j6 (Labcd/IE;)Labcd/UJ; createSubtreeIterator
 	j6 (Labcd/IE;)Labcd/TJ; createSubtreeIterator
 	j6 (Labcd/IE;Labcd/uE;)Labcd/TJ; createSubtreeIterator
-abcd/UK org/eclipse/jgit/treewalk/WorkingTreeIterator$1
+abcd/UK org/eclipse/jgit/util/io/AutoCRLFInputStream
+	j6 ()Z fillBuffer
+	close ()V close
+	read ()I read
+	read ([BII)I read
+	FH in
 abcd/VA org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$3
 	toString ()Ljava/lang/String; toString
 	<init> (Ljava/lang/String;I)V <init>
@@ -3085,6 +3091,7 @@ abcd/dG org/eclipse/jgit/revwalk/RevCommit
 	aM ()I getType
 	er ()Ljava/lang/String; getShortMessage
 	toString ()Ljava/lang/String; toString
+	a8 ()Ljava/lang/String; getFullMessage
 abcd/dH org/eclipse/jgit/internal/storage/file/PackIndexV1
 	FH ()Z hasCRC32Support
 	j6 (J)Labcd/yE; getObjectId
@@ -3734,7 +3741,7 @@ abcd/jK org/eclipse/jgit/treewalk/filter/TreeFilter
 	clone ()Labcd/jK; clone
 	<init> ()V <init>
 	toString ()Ljava/lang/String; toString
-abcd/jK$a org/eclipse/jgit/treewalk/filter/TreeFilter$1
+abcd/jK$a org/eclipse/jgit/treewalk/filter/TreeFilter$AllFilter
 abcd/jK$b org/eclipse/jgit/treewalk/filter/TreeFilter$AnyDiffFilter
 	j6 ()Z shouldBeRecursive
 	j6 (Labcd/YJ;)Z include
@@ -4157,6 +4164,7 @@ abcd/pK org/eclipse/jgit/util/FS
 	FH ()Ljava/io/File; gitPrefix
 	VH ()Ljava/io/File; userHomeImpl
 	Zo ()Ljava/io/File; userHome
+	gn ()Z supportsSymlinks
 abcd/pK$a org/eclipse/jgit/util/FS$Holder
 	j6 value
 abcd/qB org/eclipse/jgit/api/PullCommand
@@ -4504,7 +4512,6 @@ abcd/tK org/eclipse/jgit/util/FS_POSIX_Java6
 	<init> ()V <init>
 	j6 (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method; needMethod
 	Hw ()Z retryFailedLockFileCommit
-	gn ()Z hasExecute
 abcd/uB org/eclipse/jgit/api/RebaseResult$Status$1
 	Hw ()Z isSuccessful
 abcd/uD org/eclipse/jgit/errors/TooLargeObjectInPackException
@@ -4879,7 +4886,7 @@ abcd/yG org/eclipse/jgit/revwalk/filter/RevFilter
 	<init> ()V <init>
 	toString ()Ljava/lang/String; toString
 	j6 (Labcd/qG;Labcd/dG;)Z include
-abcd/yG$a org/eclipse/jgit/revwalk/filter/RevFilter$1
+abcd/yG$a org/eclipse/jgit/revwalk/filter/RevFilter$AllFilter
 abcd/yG$b org/eclipse/jgit/revwalk/filter/RevFilter$MergeBaseFilter
 	j6 ()Z requiresCommitBody
 	toString ()Ljava/lang/String; toString
@@ -5065,6 +5072,7 @@ abcd/XJ org/eclipse/jgit/treewalk/NameConflictTreeWalk
 	v5 (Labcd/TJ;)Z skipEntry
 	QX ()Z isDirectoryFileConflict
 	tp ()Labcd/TJ; min
+	XL ()Labcd/TJ; fastMin
 abcd/RK$c org/eclipse/jgit/util/TemporaryBuffer$Heap
 	Hw ()Ljava/io/OutputStream; overflow
 abcd/VJ org/eclipse/jgit/treewalk/EmptyTreeIterator
@@ -5163,6 +5171,9 @@ abcd/xJ$d$a org/eclipse/jgit/transport/TransportHttp$Service$HttpExecuteStream
 abcd/SI$b org/eclipse/jgit/transport/BaseReceivePack$Reporter
 	j6 (Ljava/lang/String;)V sendString
 abcd/NF$b org/eclipse/jgit/revwalk/BlockObjQueue$BlockFreeList
+	j6 ()Labcd/NF$a; newBlock
+	j6 (Labcd/NF$a;)V freeBlock
+	j6 next
 abcd/VK org/eclipse/jgit/util/io/InterruptTimer
 	j6 (I)V begin
 	DW thread
@@ -5225,6 +5236,7 @@ abcd/EC org/eclipse/jgit/diff/SimilarityIndex
 	j6 ([BII)V hash
 	j6 TABLE_FULL_OUT_OF_MEMORY
 	v5 idHash
+	j6 (Labcd/FE;)V hashLargeObject
 abcd/EC$a org/eclipse/jgit/diff/SimilarityIndex$TableFullException
 abcd/rI org/eclipse/jgit/transport/HttpAuthMethod
 	j6 (Ljava/lang/String;Ljava/lang/String;)V authorize
@@ -5298,3 +5310,10 @@ abcd/Hz$e org/eclipse/jgit/transport/http/Hz$e
 abcd/Gz org/eclipse/jgit/transport/http/Gz
 abcd/PC$b org/eclipse/jgit/dircache/DirCacheEditor$PathEdit
 	j6 (Labcd/QC;)V apply
+	j6 path
+abcd/NF$a org/eclipse/jgit/revwalk/BlockObjQueue$Block
+	Hw ()Labcd/iG; pop
+	j6 (Labcd/iG;)V add
+	DW objects
+	j6 next
+abcd/LF$a org/eclipse/jgit/revwalk/AbstractRevQueue$1
