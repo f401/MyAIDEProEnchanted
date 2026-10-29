@@ -204,3 +204,18 @@ cp ~/out/dex13/classes*.dex unpack/
 | 单个类映射判错 | 从 `jgit_map_clean.tsv` 删行，把结论记进 `jgit_unverified.tsv`，重跑 `rebuild_tsrg.py` |
 | 整套映射 | `git -C /storage/emulated/0/MyAIDEProEnchanted checkout process/mappings.txt`（tsv 在 `$HOME`，需自己备份） |
 | 产物 | `r_v11.jar` / `merged_ok.jar` 都还在 `~/out/fart/`，可直接回到上一版 |
+
+## 6.5 每次 FART 之后必须跑的闸门：`dupcheck`
+
+```bash
+python3 tools/jgit/dupcheck.py ~/out/fart/r_vN.jar --verbose
+# 必须输出 conflicts=0；非 0 就去 D8 之前先修
+```
+
+D8 对同一个类里重复的 `(name, desc)` 只会打
+`Warning: Ignoring an implementation of the method … because it has multiple definitions`
+然后**任选一份丢一份** —— 等于把确定性丢掉。成因只有一个：
+**FART 会把祖先的成员映射沿继承链传播给子类**，而我们在子类里又把另一个成员显式映射成了同名。
+修法：把误判的那条挪到真名，或删掉映射回落到混淆名（见 `docs/JGIT-MAPPING-QC.md` §33）。
+
+顺带：`Info: Malformed inner-class attribute` 是投毒元数据残留，D8 会丢弃该属性，不影响产物。

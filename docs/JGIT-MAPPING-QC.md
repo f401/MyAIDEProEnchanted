@@ -1784,3 +1784,140 @@ IP → lib  ⇒  …（还能继续）
 | `inherit_check` | 0 / 5 |
 | `verify_members` | 不一致 0 |
 | FART | **一致**（`r_v38.jar`，manifest `5ce04521…`） |
+
+---
+
+## 33. 第二十八轮：D8 的 `multiple definitions` —— 16 处重复成员，一次清零
+
+### 33.1 现象
+
+用户用 D8 8.2.2 处理 `r_v38.jar`，输出两类消息：
+
+| 级别 | 消息 | 数量 | 性质 |
+|---|---|---|---|
+| `Info` | `Malformed inner-class attribute` | 约 40 条 | **无害**，投毒残留（见 33.2） |
+| `Warning` | `Ignoring an implementation of the method … because it has multiple definitions` | 16 条 | **真问题**，D8 任选一份丢弃 |
+
+字段也有同类告警（`Field … has multiple definitions`）。D8 “任选一份”= 把确定性交给运气：
+选中 package-private 的那份就会重演跨包 `IllegalAccessError`。**必须清零。**
+
+### 33.2 `Malformed inner-class attribute` 是投毒残留，不是新 bug
+
+| 类文件 | 属性声称 | 真实 |
+|---|---|---|
+| `DiffFormatter$2` | outer = `LargeObjectException` | `DiffFormatter` |
+| `RepositoryCache$FileKey` | outer = `abcd/WE` | `RepositoryCache`（外层没改名） |
+| `ConfigLine` / `ConfigSnapshot` | `Config` 的内部类，innerName `a`/`c` | 都是**顶层类** |
+| `Hz$b` | outer = `abcd/Hz` | 外层未改名 |
+
+与 §「dex 元数据投毒」完全一致：`InnerClass.name` 只有 12 种取值、`EnclosingClass` 指向诱饵包
+`a/b/a/d/*`。FART 把垃圾里的 `abcd/X` 当类型引用一起改名，于是垃圾变成「半中半英」的垃圾。
+D8 对这类只打 `Info` 并**丢弃该属性**，不影响 dex 正确性。
+（可选收尾：出包前用一个只删属性、不动字节码的 stripper 把 `InnerClasses`/`EnclosingMethod` 全剥掉。）
+
+### 33.3 新工具 `dupcheck.py`
+
+扫描 jar 内每个 class 的 `(name, desc)` 重复成员。两个 parser 坑（都踩了）：
+
+1. 常量池 `Long/Double`（tag 5/6）占 **两个槽位**，必须 append 一个占位，否则后面所有索引错位
+   （表现为随机 `KeyError(254)`、描述符变成 `b'\x00"\x00#'`）；
+2. `CONSTANT_Class`（tag 7）要解引用一次才是类名，否则 `this`/`super` 打出来是 `(1,)`。
+
+```
+python3 tools/jgit/dupcheck.py <jar> [--verbose] [--dump <cls> ...]
+```
+基线校验：`process/base/merged_ok.jar` → **0 冲突**（证明重复是改名造出来的，不是原始 APK 就有）。
+
+### 33.4 根因：FART 沿继承链传播成员映射
+
+`DirCacheBuilder` 是最小复现：
+
+| 探针 | 访问 | 我们写的映射 | 结果 |
+|---|---|---|---|
+| `abcd/IC.DW ()V` | public | `finish` | 父类（`BaseDirCacheEditor`）正解 |
+| `abcd/MC.v5 ()V` | **private** | `finish` ← 判错 | 私有 `resort()` 被叫成 finish |
+| `abcd/MC.DW ()V` | public | （没写） | **被父类映射传播成 `finish`** ← 真正的 override |
+
+两条撞在一起 → `DirCacheBuilder` 有两个 `finish()V`。
+**规律：FART 的传播是"子类没写映射才用祖先的"，写了就用自己的**——所以修法是：
+把判错的那条挪到它真名，或直接删掉映射（回落到混淆名，永不撞车）。
+
+### 33.5 归因工具
+
+- `dupfix.py`：在**探针空间**反查"谁被映射成了这个名字"，并按描述符列出 oracle 里尚未被占用的候选；
+- `classcmp.py`：单类三方对照（oracle 真名 / 探针混淆名+已分配名 / 改后 jar 残留），
+  是这轮真正用来逐条判读的界面（配合 `jadx` 单类反编译读实现体）。
+
+### 33.6 逐类判读（16 条冲突 + 连带错位）
+
+| 类 | 冲突 | 证据（读代码） | 判定 |
+|---|---|---|---|
+| `DirCacheBuilder` | `finish ()V`×2 | 私有 `v5()` 做 `Arrays.sort` + 查重 + 置 `sorted=true` | `v5`=`resort` |
+| `FileSnapshot` | `notRacyClean (J)Z`×2 | `DW(J)`: `j - lastModified > 2500` → notRacyClean；`j6(J)`: 比较 + 改 `lastRead` + 置 `cannotBeRacilyClean` | `j6`=`isModified` |
+| `ObjectDirectory` | `getPacks ()Coll`×2 | `J8()` = `unmodifiableCollection(asList(packList.packs))` = oracle **public** `getPacks`；`Zo()` 返回 `Collection<? extends CachedPack>` 且合并 alternates | `Zo` 家族=`getCachedPacks` |
+| `ObjectDirectoryPackParser` | `origHash [B`×2 | `Sf` 写进 idx（`writer.write(list, packHash)`）且 `onEndThinPack` 重算 → `packHash`；`sG` 是收到的 footer → `origHash`；`dx` 只被 `j-12` 用于算原包尾 → `origEnd` | `Sf`=packHash `sG`=origHash `dx`=origEnd |
+| `RefDirectory` | `isNameConflicting`×2 / `fileFor`×2 | `FH(String)Z` public 做前缀冲突判定（= oracle public `isNameConflicting`）；`VH(String)Z` **private** 只判 `HEAD`/`refs/heads/`… 是另一函数；`Hw()` 用 `gitDir`、`Zo()` 用 `logsDir` | `VH` 撤销映射；`Zo`=`logFor` |
+| `ObjectToPack` | `clearReuseAsIs ()V`×2 | `Mr()`(`&=-3`) 清 reuseAsIs 位；`ro()`(`|=8`) 置位而 `P8()`(`&8`) 读、`toString` 打印 `" edge"` | `ro`=`setEdge` |
+| `RefUpdate` | `unlock ()V`×2 / `oldValue`×2 | `QX()` 是 `0x0404=protected abstract` = oracle `protected abstract unlock()`；`aM()` private 只检查 `newValue==null` 抛 `aNewObjectIdIsRequired`；`j6` 字段被 `setNewObjectId(AnyObjectId)` 写、被 `aM()` 检查；`Zo` 被 `setOldObjectId(ObjectId)` 写；`Ws()` 只置 `tp=true` | 见 33.7 表 |
+| `RevWalk` | `carryFlagsImpl (RevCommit)V`×2 | `DW(c)`: 置 SEEN、加入 roots = `markStart`；`FH(c)`: `flags|=4` 再转调 = `markUninteresting`；`j6(c)` package-private = `carryFlagsImpl` | 三条整体位移一格 |
+| `BasePackFetchConnection` | `negotiate (pm)V`×2 / `fetch (pm,want,have)V`×2 | `DW(pm)` 建 PackParser 并 `parse(pm)` = `receivePack`；`j6(pm)` 是 have/ACK/NAK 协商循环 = `negotiate`；3 参 `DW` 是实现体（调 negotiate→receivePack）= `doFetch`；3 参 `j6` 是 `gn(); DW(...)` 的包装 = `fetch` | 见上 |
+| `CanonicalTreeParser` | `reset ()V`×2 | 私有 `Ws()` 逐字节解析 entry（mode/path/nextPtr）= oracle `private parseEntry()` | `Ws`=`parseEntry` |
+| `WorkingTreeIterator` | `reset`/`hasId`/`eof` | 见 33.7 | 见 33.7 |
+
+### 33.7 顺带挖出的两颗大地雷
+
+**(a) `hasId`/`eof` 在整个 `AbstractTreeIterator` 家族里反了**
+
+`_J.DW(){ return ptr == entryCnt; }` = **`eof()`**；
+`_J.gn(){ return contentIdFromPtr != ptr && (mode & 0xF000) != 0xA000; }` = **`hasId()`**。
+`UJ.DW(){ return ptr == raw.length; }`、`UJ.gn(){ return true; }` 同样证明。
+但映射把 `DW ()Z→hasId`、`gn ()Z→eof` 写反了 —— 三处（`TJ` 抽象声明 + `UJ` + `_J`）必须**同时**翻，
+否则子类方法不再覆写父类（`AbstractMethodError`）。这类"家族名字"错误不改 = 程序照跑（改名一致），
+但读代码的人会被彻底误导，属于必须修的**语义标注错误**。
+
+**(b) `RefUpdate` 7 条串位**
+
+| 探针 | 旧 | 新 | 证据 |
+|---|---|---|---|
+| 字段 `j6` | oldValue | **newValue** | `setNewObjectId` 写它；`requireCanDoUpdate` 检查它 |
+| 字段 `tp` | newValue | **detachingSymbolicRef** | `Ws()` 只置它 |
+| `aM ()V` | unlock | **requireCanDoUpdate** | 抛 `aNewObjectIdIsRequired` |
+| `DW ()V` | setDetachingSymbolicRef | **disableRefLog** | `refLogMessage=null; refLogIncludeResult=false` |
+| `Ws ()V` | — | **setDetachingSymbolicRef** | `tp=true` |
+| `Zo ()yE` | getNewObjectId | **getOldObjectId** | `return this.Zo`，而 `Zo` 被 `setOldObjectId` 写 |
+| `v5 ()yE` | getExpectedOldObjectId | **getNewObjectId** | `return this.j6` |
+
+### 33.8 结论：**AIDE 的 jgit 比 3.7.1 新**
+
+修完剩 8 条"oracle 里查不到"，全部指向同一件事（不是我们判错）：
+
+| 探针 | 名字 | 3.7.1 里的位置 |
+|---|---|---|
+| `DG` / `GG` | `getCachedPacks` | 只有 `ObjectReader`/`WindowCursor` 有；`ObjectDirectory` 没有 |
+| `GG` | `newCachedFileObjectDatabase`、`myAlternates` | 声明在 `ObjectDirectory`，不在 `FileObjectDatabase` |
+| `gE`(Config) | `save` | 声明在 `StoredConfig` |
+| `eI` | `receivePack(pm)`、`doFetch(pm,want,have)` | 3.7.1 是 2 参 / 4 参 |
+| `nH` | `logFor` | `RefDirectory` 完全没有 |
+
+⇒ 3.7.1 只能当"形状参考"，不能当唯一真理；这类条目进白名单
+`process/verify_allow.tsv`（`probe→新名→理由`），`verify_members` 单列计数，
+**不允许**用白名单掩盖真正的"名字不存在"。
+
+### 33.9 副产品：`access_audit` 的"假阳性"其实是真重复
+
+§31 里判为"工具误报"的 4 处（`DirCacheBuilder.finish()`×3、`WorkingTreeIterator.reset()`×1），
+这轮证明**jar 里真的有两份**：工具没错，是重复成员让它在两条同名成员里挑了错的那条。
+16 处清零后，跨包不可达 **10 → 6**，正好少掉那 4 处。
+
+### 33.10 基线
+
+| 指标 | 值 |
+|---|---|
+| 类映射 / 成员映射 | 688 / 4044 |
+| 方法 / 字段覆盖 | **2630/3368 = 78.1%** / **1120/1603 = 69.9%** |
+| 完全覆盖类 | 372 |
+| `dupcheck`（r_v43） | **0 冲突**（r_v38 是 16） |
+| `verify_members` | 不一致 **0** / R8 3 / oracle 版本差异 8 |
+| `inherit_check` | CONFLICT **0** / MISSING 11（去重 9，其中 6 条属 jsch 真名类） |
+| **跨包不可达** | **6**（真问题仍是 `JP→NP` 链 3 处；其余 3 处非 jgit） |
+| FART | **一致**（`r_v43.jar`，manifest `39e75ac8…`，两遍逐字节同 manifest） |

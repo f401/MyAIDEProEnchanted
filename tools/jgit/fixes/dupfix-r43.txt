@@ -1,0 +1,37 @@
+# —— 16 处重复成员：把误映射的那一条挪到它真正的名字 ——
+abcd/MC	m	v5	()V	finish	resort
+abcd/LG	m	j6	(J)Z	notRacyClean	isModified
+abcd/GG	m	Zo	()Ljava/util/Collection;	getPacks	getCachedPacks
+abcd/ZG	f	dx	-	packHash	origEnd
+abcd/ZG	f	Sf	-	origHash	packHash
+abcd/nH	m	VH	(Ljava/lang/String;)Z	isNameConflicting	-
+abcd/nH	m	Zo	(Ljava/lang/String;)Ljava/io/File;	fileFor	logFor
+abcd/MH	m	ro	()V	clearReuseAsIs	setEdge
+# RefUpdate：字段/方法串位（requireCanDoUpdate 检查 newValue、Ws() 只置 tp=true）
+abcd/RE	f	j6	-	oldValue	newValue
+abcd/RE	f	tp	-	newValue	detachingSymbolicRef
+abcd/RE	m	aM	()V	unlock	requireCanDoUpdate
+abcd/RE	m	DW	()V	setDetachingSymbolicRef	disableRefLog
+abcd/RE	m	Ws	()V	-	setDetachingSymbolicRef
+abcd/RE	m	Zo	()Labcd/yE;	getNewObjectId	getOldObjectId
+abcd/RE	m	v5	()Labcd/yE;	getExpectedOldObjectId	getNewObjectId
+# RevWalk：markStart / markUninteresting / carryFlagsImpl 三连错位
+abcd/qG	m	DW	(Labcd/dG;)V	carryFlagsImpl	markStart
+abcd/qG	m	FH	(Labcd/dG;)V	carryFlagsImpl	markUninteresting
+abcd/qG	m	j6	(Labcd/dG;)V	markUninteresting	carryFlagsImpl
+abcd/qG	m	Hw	()V	reset	assertNotStarted
+abcd/qG	m	we	()V	-	reset
+# BasePackFetchConnection：实现体是 doFetch/receivePack，包装才是 fetch/negotiate
+abcd/eI	m	DW	(Labcd/LE;)V	negotiate	receivePack
+abcd/eI	m	DW	(Labcd/LE;Ljava/util/Collection;Ljava/util/Set;)V	fetch	doFetch
+abcd/UJ	m	Ws	()V	reset	parseEntry
+# —— AbstractTreeIterator 家族 hasId/eof 反了（DW()=ptr==entryCnt=eof，gn()=contentIdFromPtr!=ptr&&mode!=GITLINK=hasId）——
+abcd/TJ	m	DW	()Z	hasId	eof
+abcd/TJ	m	gn	()Z	eof	hasId
+abcd/UJ	m	DW	()Z	hasId	eof
+abcd/UJ	m	gn	()Z	eof	hasId
+abcd/_J	m	DW	()Z	hasId	eof
+abcd/_J	m	gn	()Z	eof	hasId
+abcd/_J	m	U2	()Z	eof	isEntryIgnored
+abcd/_J	m	rN	()Z	hasId	mightNeedCleaning
+abcd/_J	m	er	()V	reset	parseEntry

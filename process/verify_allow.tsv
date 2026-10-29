@@ -1,0 +1,10 @@
+# probe	新名	理由
+# AIDE 的 jgit 比 3.7.1 新：下列成员在 3.7.1 里不存在或签名不同，但代码语义与新版一致
+abcd/DG	getCachedPacks	DG.Zo()=return FH.Zo()；返回 Collection<? extends CachedPack>
+abcd/GG	getCachedPacks	FileObjectDatabase 的抽象声明（XG/DG 共同实现）
+abcd/GG	newCachedFileObjectDatabase	3.7.1 声明在 ObjectDirectory
+abcd/GG	myAlternates	3.7.1 声明在 ObjectDirectory
+abcd/gE	save	3.7.1 声明在 StoredConfig
+abcd/eI	receivePack	3.7.1 是 receivePack(pm,OutputStream)，此处只有 (pm)
+abcd/eI	doFetch	3.7.1 是 doFetch(pm,want,have,OutputStream)，此处是 3 参
+abcd/nH	logFor	3.7.1 的 RefDirectory 无 logFor

@@ -34,7 +34,17 @@ def find(cn,name,desc,kind,seen=None):
         if r: return True
     return False
 R8={('abcd/KC','writeTo'),('abcd/wH','inflate'),('abcd/wH','newObjectToPack')}
-bad=[];unk=0;tot=0;r8=[]
+# 已知「oracle 版本偏旧」白名单：条目来自 out/work/verify_allow.tsv（probe<TAB>新名<TAB>理由）
+ALLOW={}
+try:
+    _ap=HOME+'/out/work/verify_allow.tsv'
+    if not os.path.exists(_ap):
+        _ap='/storage/emulated/0/MyAIDEProEnchanted/process/verify_allow.tsv'
+    for _l in open(_ap):
+        _f=_l.rstrip('\n').split('\t')
+        if len(_f)>=2 and not _l.startswith('#'): ALLOW[(_f[0],_f[1])]=_f[2] if len(_f)>2 else ''
+except IOError: pass
+bad=[];unk=0;tot=0;r8=[];allow=[]
 NOT_IN_ORACLE=[]   # 目标类不在 oracle 里：多为匿名类占位名（$1/$2…），非 $数字 结尾的才是真可疑
 cur=None
 for l in open(TSRG):
@@ -69,10 +79,12 @@ for l in open(TSRG):
         r=find(new,new2,norm(ds),'m')
         if r is False:
             if (cur,new2) in R8: r8.append((cur,norm(ds),new2))
+            elif (cur,new2) in ALLOW: allow.append((cur,norm(ds),new2,ALLOW[(cur,new2)]))
             else: bad.append((cur,new,'method',nm,norm(ds),new2))
         elif r is None: unk+=1
 susp=[x for x in NOT_IN_ORACLE if not re.search(r'\$\d+$',x[1]) and not x[1].startswith('com/jcraft')]
 print('目标类不在 oracle（多为匿名类占位名，正常）%d 条；其中非 $数字 结尾、需人工确认 %d 条' % (len(NOT_IN_ORACLE), len(susp)))
 for x in susp[:10]: print('   ', x)
-print('成员映射',tot,'无法校验(未知类)',unk,'不一致',len(bad),'已知R8签名重写',len(r8))
+print('成员映射',tot,'无法校验(未知类)',unk,'不一致',len(bad),'已知R8签名重写',len(r8),'已知oracle版本差异',len(allow))
+for a in allow[:20]: print('   ~',a)
 for b in bad[:40]: print(' ',b)
