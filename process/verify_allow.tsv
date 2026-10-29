@@ -1,6 +1,6 @@
-# probe	新名	理由
-# AIDE 的 jgit 比 3.7.1 新：下列成员在 3.7.1 里不存在或签名不同，但代码语义与新版一致
-abcd/DG	getCachedPacks	DG.Zo()=return FH.Zo()；返回 Collection<? extends CachedPack>
+# probe	新名(成员名或全限定类名)	理由
+# —— AIDE 的 jgit 比 3.7.1 新：成员在 3.7.1 里不存在/签名不同 ——
+abcd/DG	getCachedPacks	DG.Zo()=return FH.Zo()，返回 Collection<? extends CachedPack>
 abcd/GG	getCachedPacks	FileObjectDatabase 的抽象声明（XG/DG 共同实现）
 abcd/GG	newCachedFileObjectDatabase	3.7.1 声明在 ObjectDirectory
 abcd/GG	myAlternates	3.7.1 声明在 ObjectDirectory
@@ -8,3 +8,8 @@ abcd/gE	save	3.7.1 声明在 StoredConfig
 abcd/eI	receivePack	3.7.1 是 receivePack(pm,OutputStream)，此处只有 (pm)
 abcd/eI	doFetch	3.7.1 是 doFetch(pm,want,have,OutputStream)，此处是 3 参
 abcd/nH	logFor	3.7.1 的 RefDirectory 无 logFor
+# —— 类名：dex 判为 Config 的内部类（3.7.1 里是顶层） ——
+abcd/gE$a	org/eclipse/jgit/lib/Config$ConfigLine	dex 说 gE$a 嵌套于 gE；同族 gE$b=Config$SectionParser、gE$d=Config$StringReader 均为嵌套
+abcd/gE$c	org/eclipse/jgit/lib/Config$ConfigSnapshot	dex 说 gE$c 嵌套于 gE
+# —— 类名：dex 判为 BasePackFetchConnection 的内部枚举 ——
+abcd/eI$c	org/eclipse/jgit/transport/BasePackFetchConnection$MultiAck	3 常量枚举；eI 代码里直接 abcd.eI.c.j6

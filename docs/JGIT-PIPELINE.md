@@ -218,4 +218,14 @@ D8 对同一个类里重复的 `(name, desc)` 只会打
 **FART 会把祖先的成员映射沿继承链传播给子类**，而我们在子类里又把另一个成员显式映射成了同名。
 修法：把误判的那条挪到真名，或删掉映射回落到混淆名（见 `docs/JGIT-MAPPING-QC.md` §33）。
 
-顺带：`Info: Malformed inner-class attribute` 是投毒元数据残留，D8 会丢弃该属性，不影响产物。
+## 6.6 第二个闸门：`nestcheck`
+
+```bash
+python3 tools/jgit/nestcheck.py <probe.jar> <map.tsv>   # 映射侧：dex 的 inner→outer 边 vs 目标名，必须 0 违规
+python3 tools/jgit/nestcheck.py ~/out/fart/r_vN.jar --self   # 产物侧自洽，等价于 D8 的 Malformed 判据
+```
+
+`Info: Malformed inner-class attribute` **不是噪声**：它对 D8 的产物无害（属性会被丢弃），
+但它精确地报告了「内层类名暗示的外层 ≠ dex 记录的外层」。r_v38 有 19 条 jgit 违规，
+逐条查下来全是**真的映射错误**（见 `JGIT-MAPPING-QC.md` §34）。同理还有一条粗判据：
+**任何目标名 `A$B` 都必须存在 `A` 这个类**（孤儿外层）。

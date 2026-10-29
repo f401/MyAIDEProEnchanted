@@ -1921,3 +1921,94 @@ python3 tools/jgit/dupcheck.py <jar> [--verbose] [--dump <cls> ...]
 | `inherit_check` | CONFLICT **0** / MISSING 11（去重 9，其中 6 条属 jsch 真名类） |
 | **跨包不可达** | **6**（真问题仍是 `JP→NP` 链 3 处；其余 3 处非 jgit） |
 | FART | **一致**（`r_v43.jar`，manifest `39e75ac8…`，两遍逐字节同 manifest） |
+
+---
+
+## 34. 第二十九轮：用 dex 的 `InnerClasses` 关系做硬校验 —— 10 条映射被判错
+
+### 34.1 判据与工具
+
+用户指出：**dex 里的内部类关系是硬判据**，映射必须与之一致。落地成 `tools/jgit/nestcheck.py`，两种模式：
+
+```
+python3 tools/jgit/nestcheck.py <probe.jar> <map.tsv>   # 映射模式：dex 的每条 (inner→outer) 边 vs 目标名
+python3 tools/jgit/nestcheck.py <jar> --self            # 产物模式：等价于 D8 的 Malformed inner-class 判据
+```
+
+**规则**：dex 声明 `inner` 是 `outer` 的成员类 ⇒ `target(inner)` 必须形如 `target(outer) + "$…"`。
+两类违规：
+
+| 违规 | 含义 |
+|---|---|
+| `FLAT` | dex 说是内部类，映射却给了顶层名 |
+| `PREFIX` | 内层名暗示的外层，和 dex 给的外层不是同一个类 |
+| `OUTER-UNMAPPED` | 内层改成了 `A$b`，但外层还是混淆名（产物里 `outer` 仍写着 `abcd/xx`） |
+
+**关键实现细节**：dex 的 `outer` 字段只记到**最外层被命名的类**（三层嵌套会被压成首段，
+如 `sC$a$a` 的 outer 是 `sC` 而不是 `sC$a`），所以判据必须是 `startswith(outer + '$')`，
+**不能**要求紧邻前缀 —— 否则会误报 5 条（`MyersDiff$MiddleEdit$1` 等）。
+
+基线测量：`r_v38.jar --self` → **21 条违规**（其中 jgit 19 条，正好等于 D8 那批 `Malformed` 消息）。
+
+### 34.2 第一类：dex 对、我们错（7 条，靠形状证据定案）
+
+| # | 探针 | 旧目标 | 新目标 | 硬证据 |
+|---|---|---|---|---|
+| 1 | `WE` | （未映射） | `lib/RepositoryCache` | 字段 `ConcurrentHashMap` + `WE$c[]`；`WE$b`=Key 被 `WE$a`=FileKey **实现**；方法 `(WE$b)UE(ObjectReader)` |
+| 2 | `jG` | `revwalk/jG`(占位) | `revwalk/RevObjectList` | `extends AbstractList` + 桥方法 `(I)Labcd/iG;`；内层 `jG$a` 已是 `RevObjectList$Block` |
+| 3 | `GG$a` | `ObjectDirectory$AlternateHandle` | `FileObjectDatabase$AlternateHandle` | 该类有 `final GG this$0`（字段名被混淆）；`XG.tp()`=myAlternates() 返回 `GG$a[]`，而 myAlternates 已判定在 GG |
+| 4 | `cD$b` | `diff/DiffFormatter$2` | `errors/LargeObjectException$OutOfMemory` | `extends cD`(LargeObjectException) + `long,long` + `ctor(JJ)` + `getMessage()` |
+| 5 | `eI$c` | `GitProtocolConstants$MultiAck` | **`BasePackFetchConnection$MultiAck`** | `extends Enum`，**3 个常量 + $VALUES**；且 `eI` 的代码里直接写 `abcd.eI.c.j6` / `eI.c.DW`；`GitProtocolConstants` 根本不在 jar 里 |
+| 6 | `iJ` | `transport/Transport$1` | `transport/TransferConfig` | `static final KEY : Config$SectionParser` + `boolean` + `ctor(Config)` + `isFsckObjects()`；其 inner `hJ`=TransferConfig$1 |
+| 7 | `cL` | `util/io/cL`(占位) | `util/io/UnionInputStream` | `extends InputStream` + `LinkedList` + `add/isEmpty/read/skip`，与 oracle 逐成员对应 |
+
+### 34.3 第二类：判据之外还多抓了一个假阳性（1 条）
+
+`Yz → api/ArchiveCommand$FormatEntry`：形状只有 `int` + `String`（oracle 的 FormatEntry 是 `String,String,Format`），
+且被 AIDE 自己的 JSON 代码 `cA`/`mA` 引用 ⇒ **删除该映射**，回落到 `Yz`。
+
+### 34.4 第三类：`Config` 的两个内部类（2 条，和 oracle 顶层名冲突）
+
+`gE$a` / `gE$c` 被命名为顶层 `ConfigLine` / `ConfigSnapshot`，但 dex 说它们嵌在 `gE`(=Config) 里。判据：
+
+| 证据 | 结论 |
+|---|---|
+| 形状：`gE$a` = **6 个 String** + `forValue(String)` + `2~3 个 match` 重载 | 身份 = `ConfigLine` ✓ |
+| 形状：`gE$c` = `(List, ConfigSnapshot)` 构造 + `Map/List/baseState` | 身份 = `ConfigSnapshot` ✓ |
+| 同一个 `Config` 的另外两个内部类 `gE$b`=`Config$SectionParser`、`gE$d`=`Config$StringReader` **本来就是嵌套名** | 家族一致性 |
+| 全库统计：`$` 探针 → 非嵌套目标的只有这 2 个（其余 186 个都是真嵌套） | 统计上是异常点 |
+
+⇒ 按判据改成 `Config$ConfigLine` / `Config$ConfigSnapshot`（3.7.1 里它们还是顶层，属版本差异，白名单记录）。
+
+### 34.5 判据的"可执行版本"：孤儿外层检查
+
+`nestcheck` 之外还有一条更粗但更硬的检查：**任何目标名 `A$B` 都必须有 `A` 这个类存在**。
+一轮扫出 **7 个孤儿外层** → 修完 = **0**：
+
+```
+RepositoryCache(2)  RevObjectList(1)  GitProtocolConstants(1→改判 BasePackFetchConnection)
+TransferConfig(1)   UnionInputStream(1)  ArchiveCommand(1→假阳性删除)  transport/http/Hz(1)
+```
+
+### 34.6 一处并非 jgit 的收尾：`Hz` 族
+
+`Hz`/`Hz$a`/`Hz$b`/`Hz$d`/`Hz$e`/`Gz` 这一族真实身份未定（`Hz` 有 `HttpURLConnection/URL/Proxy` 字段但不是
+`JDKHttpConnection`——它不实现 `HttpConnection`）。试过两种摆法：
+
+- 只把 `Hz`/`Hz$b` 挪到 `transport/http` → `abcd/Gz` 立刻跨包不可达（`Gz extends Hz$a`，而 `Hz$a` 还在 `abcd`）→ 7 条；
+- **整族一起挪到 `transport/http`**（含 `Gz`、`Hz$a/$b/$d/$e`）→ 回到 6 条，且 InnerClasses 自洽。
+
+这个案子暴露一条通用规则：**"只挪包"必须整族一起挪**（继承关系 + 包私有访问 + InnerClasses 三者同时约束）。
+
+### 34.7 基线
+
+| 指标 | r_v38 | **r_v45** |
+|---|---|---|
+| `nestcheck --self`（=D8 Malformed） | 21（jgit 19） | **2（全是 AIDE 自己的 `com/aide/ui/views/editor/P`）** |
+| `nestcheck`（映射 vs dex） | 14 | **0**（191 条边全一致） |
+| 孤儿外层 | 7 | **0** |
+| `dupcheck` | 16 | **0** |
+| 跨包不可达 | 10 | **6**（真问题仍是 JP→NP 链 3 处） |
+| 方法 / 字段覆盖 | 77.9% / 69.6% | 77.9% / 69.2%（**分母变大**：新入了 RepositoryCache/TransferConfig/UnionInputStream/RevObjectList/Hz 族） |
+| `verify_members` | 不一致 0 | 不一致 0 / R8 3 / 版本差异 8 / 需人工确认 **0** |
+| FART 确定性 | 一致 | 一致（`r_v45.jar` manifest `517cf056…`） |

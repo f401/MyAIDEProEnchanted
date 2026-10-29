@@ -82,7 +82,7 @@ for l in open(TSRG):
             elif (cur,new2) in ALLOW: allow.append((cur,norm(ds),new2,ALLOW[(cur,new2)]))
             else: bad.append((cur,new,'method',nm,norm(ds),new2))
         elif r is None: unk+=1
-susp=[x for x in NOT_IN_ORACLE if not re.search(r'\$\d+$',x[1]) and not x[1].startswith('com/jcraft')]
+susp=[x for x in NOT_IN_ORACLE if not re.search(r'\$\d+$',x[1]) and not x[1].startswith('com/jcraft') and (x[0],x[1]) not in ALLOW]
 print('目标类不在 oracle（多为匿名类占位名，正常）%d 条；其中非 $数字 结尾、需人工确认 %d 条' % (len(NOT_IN_ORACLE), len(susp)))
 for x in susp[:10]: print('   ', x)
 print('成员映射',tot,'无法校验(未知类)',unk,'不一致',len(bad),'已知R8签名重写',len(r8),'已知oracle版本差异',len(allow))

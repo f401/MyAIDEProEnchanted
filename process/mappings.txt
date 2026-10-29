@@ -3039,7 +3039,7 @@ abcd/eI$b org/eclipse/jgit/transport/BasePackFetchConnection$FetchConfig
 	DW allowOfsDelta
 	<init> (Labcd/gE;)V <init>
 	j6 KEY
-abcd/eI$c org/eclipse/jgit/transport/GitProtocolConstants$MultiAck
+abcd/eI$c org/eclipse/jgit/transport/BasePackFetchConnection$MultiAck
 	<init> (Ljava/lang/String;I)V <init>
 	Hw $VALUES
 abcd/eJ org/eclipse/jgit/transport/TagOpt
@@ -3177,7 +3177,7 @@ abcd/gE org/eclipse/jgit/lib/Config
 	v5 ()Labcd/gE$c; getBaseState
 	Zo ()Labcd/gE$c; getState
 	j6 (Labcd/gE$d;ZI)Ljava/lang/String; readValue
-abcd/gE$a org/eclipse/jgit/lib/ConfigLine
+abcd/gE$a org/eclipse/jgit/lib/Config$ConfigLine
 	j6 (Ljava/lang/String;)Labcd/gE$a; forValue
 	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z match
 	j6 (Ljava/lang/String;Ljava/lang/String;)Z match
@@ -3193,7 +3193,7 @@ abcd/gE$a org/eclipse/jgit/lib/ConfigLine
 	v5 value
 abcd/gE$b org/eclipse/jgit/lib/Config$SectionParser
 	j6 (Labcd/gE;)Ljava/lang/Object; parse
-abcd/gE$c org/eclipse/jgit/lib/ConfigSnapshot
+abcd/gE$c org/eclipse/jgit/lib/Config$ConfigSnapshot
 	DW cache
 	FH baseState
 abcd/gE$d org/eclipse/jgit/lib/Config$StringReader
@@ -3411,7 +3411,7 @@ abcd/iI org/eclipse/jgit/transport/Connection
 	DW ()Ljava/util/Collection; getRefs
 	FH ()Ljava/util/Map; getRefsMap
 	j6 ()Ljava/lang/String; getMessages
-abcd/iJ org/eclipse/jgit/transport/Transport$1
+abcd/iJ org/eclipse/jgit/transport/TransferConfig
 abcd/iK org/eclipse/jgit/treewalk/filter/SkipWorkTreeFilter
 	j6 ()Z shouldBeRecursive
 	j6 (Labcd/YJ;)Z include
@@ -4717,10 +4717,10 @@ abcd/zK org/eclipse/jgit/util/FileUtils
 abcd/cC$a org/eclipse/jgit/diff/ContentSource$2
 abcd/PC$a org/eclipse/jgit/dircache/DirCacheEditor$2
 abcd/cD$a org/eclipse/jgit/errors/LargeObjectException$1
-abcd/cD$b org/eclipse/jgit/diff/DiffFormatter$2
+abcd/cD$b org/eclipse/jgit/errors/LargeObjectException$OutOfMemory
 abcd/cD$c org/eclipse/jgit/errors/LargeObjectException$3
 abcd/EG$a org/eclipse/jgit/internal/storage/file/DeltaBaseCache$1
-abcd/GG$a org/eclipse/jgit/internal/storage/file/ObjectDirectory$AlternateHandle
+abcd/GG$a org/eclipse/jgit/internal/storage/file/FileObjectDatabase$AlternateHandle
 abcd/GG$b org/eclipse/jgit/internal/storage/file/FileObjectDatabase$2
 abcd/RI org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig$1
 	<init> ()V <init>
@@ -4828,7 +4828,6 @@ abcd/VI org/eclipse/jgit/transport/RefFilter
 	j6 DEFAULT
 	j6 (Ljava/util/Map;)Ljava/util/Map; filter
 abcd/VK$b org/eclipse/jgit/util/io/InterruptTimer$AlarmThread
-abcd/Yz org/eclipse/jgit/api/ArchiveCommand$FormatEntry
 abcd/_D org/eclipse/jgit/lib/AsyncObjectSizeQueue
 	v5 ()J getSize
 abcd/iL org/eclipse/jgit/lib/CheckoutEntry
@@ -4862,7 +4861,6 @@ abcd/rI org/eclipse/jgit/transport/HttpAuthMethod
 abcd/IH org/eclipse/jgit/internal/storage/pack/DeltaWindow
 abcd/JH org/eclipse/jgit/internal/storage/pack/DeltaWindowEntry
 abcd/MG org/eclipse/jgit/internal/storage/file/MG
-abcd/Hz$b org/eclipse/jgit/transport/http/Hz$b
 abcd/KP org/eclipse/jgit/lib/KP
 abcd/LC org/eclipse/jgit/dircache/LC
 abcd/MP org/eclipse/jgit/lib/MP
@@ -4873,8 +4871,8 @@ abcd/Ww$b org/eclipse/jgit/treewalk/filter/Ww$b
 abcd/Ww$c org/eclipse/jgit/treewalk/filter/Ww$c
 abcd/bC org/eclipse/jgit/diff/bC
 abcd/cG org/eclipse/jgit/revwalk/cG
-abcd/cL org/eclipse/jgit/util/io/cL
-abcd/jG org/eclipse/jgit/revwalk/jG
+abcd/cL org/eclipse/jgit/util/io/UnionInputStream
+abcd/jG org/eclipse/jgit/revwalk/RevObjectList
 abcd/yc org/eclipse/jgit/lib/yc
 abcd/zC org/eclipse/jgit/diff/zC
 abcd/GD org/eclipse/jgit/events/GD
@@ -4892,3 +4890,10 @@ abcd/vC org/eclipse/jgit/diff/vC
 abcd/wC org/eclipse/jgit/diff/wC
 abcd/xC org/eclipse/jgit/diff/xC
 abcd/yC org/eclipse/jgit/diff/yC
+abcd/WE org/eclipse/jgit/lib/RepositoryCache
+abcd/Hz org/eclipse/jgit/transport/http/Hz
+abcd/Hz$a org/eclipse/jgit/transport/http/Hz$a
+abcd/Hz$b org/eclipse/jgit/transport/http/Hz$b
+abcd/Hz$d org/eclipse/jgit/transport/http/Hz$d
+abcd/Hz$e org/eclipse/jgit/transport/http/Hz$e
+abcd/Gz org/eclipse/jgit/transport/http/Gz

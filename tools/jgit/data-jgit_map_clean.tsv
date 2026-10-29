@@ -1,0 +1,693 @@
+AB$a	org/eclipse/jgit/api/RebaseResult$Status	prop:5.5
+AC	org/eclipse/jgit/diff/RenameDetector$1	prop:4.67
+AD	org/eclipse/jgit/transport/BaseReceivePack$1	anonmap:AD 的唯一引用者
+AE	org/eclipse/jgit/lib/ObjectIdOwnerMap
+AE$a	org/eclipse/jgit/lib/ObjectIdOwnerMap$Entry
+AF	org/eclipse/jgit/merge/StrategySimpleTwoWayInCore	prop:7.5
+AF$a	org/eclipse/jgit/merge/StrategySimpleTwoWayInCore$InCoreMerger	typeprop:描述符逐位对齐投票 0.89
+AG	org/eclipse/jgit/internal/storage/file/ByteArrayWindow	nbr:1.3
+AH	org/eclipse/jgit/internal/storage/pack/BinaryDelta	keyclass:类级 JGitText 键覆盖 1.00 (3/3)
+AI	org/eclipse/jgit/transport/PackParser	seed:9.9
+AI$a	org/eclipse/jgit/transport/PackParser$1	anonmap:AI$a 的唯一引用者
+AI$b	org/eclipse/jgit/transport/PackParser$DeltaVisit	shape:先占位 $2；loose 形状唯一 → 命名内部类（原 org/eclipse/jgit/transport/PackParser$2）
+AI$c	org/eclipse/jgit/transport/PackParser$InflaterStream	prop:4.71
+AI$d	org/eclipse/jgit/transport/PackParser$ObjectTypeAndSize	typeprop:描述符逐位对齐投票 inner_cmp
+AI$e	org/eclipse/jgit/transport/PackParser$Source	prop:5.0
+AI$f	org/eclipse/jgit/transport/PackParser$UnresolvedDelta	typeprop:描述符逐位对齐投票 inner_cmp
+AJ	org/eclipse/jgit/transport/TransportLocal$InternalLocalFetchConnection$1	prop:4.5
+AK	org/eclipse/jgit/util/HttpSupport	seed:9.9
+BB	org/eclipse/jgit/api/StatusCommand$1	anonmap:BB 的唯一引用者
+BC	org/eclipse/jgit/diff/RenameDetector	prop:4.42
+BD	org/eclipse/jgit/errors/UnsupportedCredentialItem	prop:4.5
+BE	org/eclipse/jgit/lib/ObjectIdRef	prop:7.33
+BF	org/eclipse/jgit/merge/ThreeWayMergeStrategy	nbr:1.35
+BG	org/eclipse/jgit/internal/storage/file/PackFile$1	anonmap:BG 的唯一引用者
+BH	org/eclipse/jgit/internal/storage/pack/CachedPack	src:3.7.1 独有签名 copyPackAsIs(PackOutputStream,CachedPack,boolean) + getObjectCount(J)/getDeltaCount(J)/hasObject(ObjectToPack,StoredObjectRepresentation)Z
+BI	org/eclipse/jgit/transport/PackTransport	typeprop:描述符逐位对齐投票 2/2
+BJ	org/eclipse/jgit/transport/TransportLocal$InternalLocalFetchConnection$2	typeprop:描述符逐位对齐投票 1.00
+BK	org/eclipse/jgit/util/IO	keyclass:类级 JGitText 键覆盖 1.00 (3/3)
+CB	org/eclipse/jgit/api/StatusCommand	prop:7.5
+CC	org/eclipse/jgit/diff/Sequence	typeprop:描述符逐位对齐投票 3/3
+CE	org/eclipse/jgit/lib/ObjectIdSubclassMap$1	prop:6.0
+CF	org/eclipse/jgit/merge/ThreeWayMerger	nbr:1.35
+CG	org/eclipse/jgit/internal/storage/file/ByteWindow	prop:4.5
+CH	org/eclipse/jgit/internal/storage/pack/DeltaCache	prop:5.5
+CH$a	org/eclipse/jgit/internal/storage/pack/DeltaCache$Ref	typeprop:描述符逐位对齐投票 0.77
+CI	org/eclipse/jgit/transport/PackedObjectInfo	typeprop:描述符逐位对齐投票 1.00
+CJ	org/eclipse/jgit/transport/TransportLocal$InternalLocalPushConnection$1	typeprop:描述符逐位对齐投票 0.75
+CK	org/eclipse/jgit/util/IntList	typeprop:描述符逐位对齐投票 2/2
+DB	org/eclipse/jgit/api/SubmoduleInitCommand	prop:7.67
+DC	org/eclipse/jgit/diff/SequenceComparator	typeprop:描述符逐位对齐投票 1/1
+DE	org/eclipse/jgit/lib/ObjectIdSubclassMap	prop:5.83
+DF	org/eclipse/jgit/nls/GlobalBundleCache	body:static Map<Locale,Map<Class,TranslationBundle>>+synchronized lookupBundle(newInstance+load)
+DG	org/eclipse/jgit/internal/storage/file/CachedObjectDirectory	typeprop:描述符逐位对齐投票 0.61
+DG$a	org/eclipse/jgit/internal/storage/file/CachedObjectDirectory$1	anonmap:DG$a 的唯一引用者
+DH	org/eclipse/jgit/internal/storage/pack/DeltaIndex$1	anonmap:DH 的唯一引用者
+DI	org/eclipse/jgit/transport/PacketLineIn	seed:9.9
+DI$a	org/eclipse/jgit/transport/PacketLineIn$AckNackResult	prop:5.0
+DJ	org/eclipse/jgit/transport/TransportProtocol	prop:4.5
+DJ$a	org/eclipse/jgit/transport/TransportProtocol$URIishField	prop:5.5
+DK	org/eclipse/jgit/util/LongList	typeprop:描述符逐位对齐投票 1/1
+EB	org/eclipse/jgit/api/SubmoduleStatusCommand	prop:8.14
+ED	org/eclipse/jgit/events/IndexChangedEvent	typeprop:描述符逐位对齐投票 1/1
+EE	org/eclipse/jgit/lib/ObjectInserter	typeprop:描述符逐位对齐投票 0.98
+EF	org/eclipse/jgit/nls/NLS$1	nest:EnclosingClass=FF(NLS),InheritableThreadLocal.initialValue->new NLS(Locale.getDefault())
+EG	org/eclipse/jgit/internal/storage/file/DeltaBaseCache	prop:4.45
+EG$b	org/eclipse/jgit/internal/storage/file/DeltaBaseCache$Slot	typeprop:描述符逐位对齐投票 3/3
+EH	org/eclipse/jgit/internal/storage/pack/DeltaIndex	prop:5.18
+EI	org/eclipse/jgit/transport/PacketLineOut	typeprop:描述符逐位对齐投票 3/3
+EJ	org/eclipse/jgit/transport/TransportSftp$1	prop:6.67
+EK	org/eclipse/jgit/util/MutableInteger	typeprop:描述符逐位对齐投票 body
+FB	org/eclipse/jgit/api/SubmoduleUpdateCommand	prop:8.0
+FC	org/eclipse/jgit/diff/SimilarityRenameDetector	typeprop:描述符逐位对齐投票 0.88
+FD	org/eclipse/jgit/events/IndexChangedListener	typeprop:描述符逐位对齐投票 1/1
+FE	org/eclipse/jgit/lib/ObjectLoader	body:抽象 getType/getSize/isLarge/getCachedBytes/openStream(ObjectStream)+final getBytes(int)+copyTo(OutputStream)+cloneArray
+FF	org/eclipse/jgit/nls/NLS	body:ROOT_LOCALE=Locale("","",""),InheritableThreadLocal<NLS> local,ConcurrentHashMap<Class,TranslationBundle> map,get/getBundleFor
+FG	org/eclipse/jgit/storage/file/FileBasedConfig	nbr:1.25
+FH	org/eclipse/jgit/internal/storage/pack/DeltaIndexScanner	shape:先占位 DeltaIndex$2；strict 形状唯一（原 org/eclipse/jgit/internal/storage/pack/DeltaIndex$2）
+FJ	org/eclipse/jgit/transport/TransportSftp$SftpObjectDB$1	prop:6.0
+GB	org/eclipse/jgit/api/TransportCommand	prop:4.83
+GE	org/eclipse/jgit/lib/ObjectReader$1	anonmap:GE 的唯一引用者
+GF	org/eclipse/jgit/nls/TranslationBundle	body:nls/TranslationBundle 1:1(字段原名 effectiveLocale/resourceBundle,load(Locale) 用 getBundle)
+GG	org/eclipse/jgit/internal/storage/file/FileObjectDatabase	body:abstract 继承 ObjectDatabase；newInserter()->ObjectDirectoryInserter、open(WindowCursor,AnyObjectId)、insertUnpackedObject(File,ObjectId,boolean)->FileObjectDatabase$InsertLooseObjectResult、内嵌 GG$c=InsertLooseObjectResult
+GG$c	org/eclipse/jgit/internal/storage/file/FileObjectDatabase$InsertLooseObjectResult	prop:5.5
+GJ	org/eclipse/jgit/transport/TransportSftp	typeprop:描述符逐位对齐投票 2/2
+GJ$a	org/eclipse/jgit/transport/TransportSftp$SftpObjectDB	prop:6.46
+GK	org/eclipse/jgit/util/QuotedString	nbr:1.3
+GK$a	org/eclipse/jgit/util/QuotedString$BourneStyle	typeprop:描述符逐位对齐投票 1/1
+GK$b	org/eclipse/jgit/util/QuotedString$BourneUserPathStyle	prop:5.5
+GK$c	org/eclipse/jgit/util/QuotedString$GitPathStyle	typeprop:描述符逐位对齐投票 1/1
+HB	org/eclipse/jgit/api/TransportConfigCallback	typeprop:描述符逐位对齐投票 1/1
+HC	org/eclipse/jgit/diff/HistogramDiff$State$1	anonmap:HC 的唯一引用者
+HD	org/eclipse/jgit/events/ListenerList	typeprop:描述符逐位对齐投票 3/3
+HE	org/eclipse/jgit/lib/ObjectReader$2	anonmap:HE 的唯一引用者
+HF	org/eclipse/jgit/patch/FileHeader	prop:6.02
+HF$a	org/eclipse/jgit/patch/FileHeader$PatchType	prop:5.0
+HG	org/eclipse/jgit/internal/storage/file/FileRepository$1	anonmap:HG 的唯一引用者
+HH	org/eclipse/jgit/internal/storage/pack/DeltaTask	prop:4.67
+HJ	org/eclipse/jgit/transport/URIish	typeprop:描述符逐位对齐投票 11/11
+IC	org/eclipse/jgit/dircache/BaseDirCacheEditor	prop:4.55
+IE	org/eclipse/jgit/lib/ObjectReader	typeprop:描述符逐位对齐投票 0.88
+IF	org/eclipse/jgit/patch/HunkHeader$1	body:final FileHeader val$fh + ctor(FileHeader) + extends HunkHeader$OldImage = javap HunkHeader$1
+IG	org/eclipse/jgit/internal/storage/file/FileRepository	typeprop:描述符逐位对齐投票 1.00
+IJ	org/eclipse/jgit/transport/UploadPack	keyclass:类级 JGitText 键覆盖 0.80 (4/5)
+IJ$a	org/eclipse/jgit/transport/UploadPack$RequestPolicy	prop:5.5
+IK	org/eclipse/jgit/util/RawParseUtils	prop:4.5
+JC	org/eclipse/jgit/dircache/DirCache$1	anonmap:JC 的唯一引用者
+JE	org/eclipse/jgit/lib/ObjectStream	body:抽象 extends InputStream,唯一抽象方法 getSize()J（本版无 getType）
+JE$a	org/eclipse/jgit/lib/ObjectStream$Filter	body:extends ObjectStream 具名内部类；真实身份未定（(int,long,InputStream) 构造器与 SmallStream 不符）→ 沿用旧判，待查
+JF	org/eclipse/jgit/patch/HunkHeader	prop:5.35
+JF$a	org/eclipse/jgit/patch/HunkHeader$OldImage	body:abstract 双 int + 双 int getter,被 JF(HunkHeader) 作为 getOldImage 返回类型
+JG	org/eclipse/jgit/storage/file/FileRepositoryBuilder	prop:4.5
+JJ	org/eclipse/jgit/transport/UploadPack$1	anonmap:JJ 的唯一引用者
+JK	org/eclipse/jgit/util/RefList$1	anonmap:JK 的唯一引用者
+KC	org/eclipse/jgit/dircache/DirCache	prop:6.04
+KD	org/eclipse/jgit/events/RepositoryEvent	typeprop:描述符逐位对齐投票 1/1
+KE	org/eclipse/jgit/lib/PersonIdent	prop:8.67
+KF	org/eclipse/jgit/patch/Patch	prop:5.0
+KG	org/eclipse/jgit/internal/storage/file/FileSnapshot$1	anonmap:KG 的唯一引用者
+KH	org/eclipse/jgit/internal/storage/pack/IntSet	shape:先占位 BaseSearch$1；strict 形状唯一（原 org/eclipse/jgit/internal/storage/pack/BaseSearch$1）
+KK	org/eclipse/jgit/util/RefList	typeprop:描述符逐位对齐投票 0.65+inner
+KK$a	org/eclipse/jgit/util/RefList$Builder	typeprop:描述符逐位对齐投票 inner_cmp
+LE	org/eclipse/jgit/lib/ProgressMonitor	typeprop:描述符逐位对齐投票 7/8
+LG	org/eclipse/jgit/internal/storage/file/FileSnapshot	typeprop:描述符逐位对齐投票 2/2
+LH	org/eclipse/jgit/internal/storage/pack/ObjectReuseAsIs	typeprop:描述符逐位对齐投票 1/1
+LI	org/eclipse/jgit/transport/PushConnection	typeprop:描述符逐位对齐投票 3/3
+LK	org/eclipse/jgit/util/RefMap$1	anonmap:LK 的唯一引用者
+MC	org/eclipse/jgit/dircache/DirCacheBuilder	nbr:1.29
+MD	org/eclipse/jgit/fnmatch/AbstractHead	typeprop:描述符逐位对齐投票 1/1
+ME	org/eclipse/jgit/lib/Ref	typeprop:描述符逐位对齐投票 8/9
+ME$a	org/eclipse/jgit/lib/Ref$Storage	prop:5.5
+MF	org/eclipse/jgit/internal/storage/pack/PackWriter$2	anonmap:MF 的唯一引用者
+MH	org/eclipse/jgit/internal/storage/pack/ObjectToPack	prop:5.93
+MI	org/eclipse/jgit/transport/PushProcess	keyclass:类级 JGitText 键覆盖 1.00 (3/3)
+MJ	org/eclipse/jgit/transport/UploadPack$2	anonmap:MJ 的唯一引用者
+MK	org/eclipse/jgit/util/RefMap	typeprop:描述符逐位对齐投票 1/1
+MK$a	org/eclipse/jgit/util/RefMap$Ent	prop:5.3
+MK$b	org/eclipse/jgit/util/RefMap$SetIterator	prop:6.17
+NC	org/eclipse/jgit/dircache/DirCacheCheckout	typeprop:描述符逐位对齐投票 probe2
+ND	org/eclipse/jgit/fnmatch/FileNameMatcher$1	anonmap:ND 的唯一引用者
+NH	org/eclipse/jgit/storage/pack/PackConfig	prop:7.14
+NJ	org/eclipse/jgit/transport/WalkEncryption	prop:5.0
+NJ$a	org/eclipse/jgit/transport/WalkEncryption$1	anonmap:NJ$a 的唯一引用者
+NJ$b	org/eclipse/jgit/transport/WalkEncryption$ObjectEncryptionV2	prop:5.75
+NK	org/eclipse/jgit/util/StringUtils	prop:5.28
+OA	org/eclipse/jgit/api/AddCommand	body:extends GitCommand,call()->DirCache,filepatterns/workingTreeIterator/update
+OC	org/eclipse/jgit/dircache/DirCacheEditor$1	anonmap:OC 的唯一引用者
+OD	org/eclipse/jgit/fnmatch/FileNameMatcher	prop:5.54
+OE	org/eclipse/jgit/lib/RefDatabase	prop:6.83
+OH	org/eclipse/jgit/internal/storage/pack/PackOutputStream	typeprop:描述符逐位对齐投票 0.75
+OI	org/eclipse/jgit/transport/ReceiveCommand
+OI$a	org/eclipse/jgit/transport/ReceiveCommand$Result	prop:5.5
+OI$b	org/eclipse/jgit/transport/ReceiveCommand$Type	prop:5.5
+OJ	org/eclipse/jgit/transport/WalkFetchConnection	seed:9.9
+OJ$a	org/eclipse/jgit/transport/WalkFetchConnection$RemotePack	prop:7.48
+OK	org/eclipse/jgit/util/SystemReader$Default$1	prop:4.5
+PA	org/eclipse/jgit/api/CheckoutCommand$1	anonmap:PA 的唯一引用者
+PC	org/eclipse/jgit/dircache/DirCacheEditor	typeprop:描述符逐位对齐投票 1/1
+PD	org/eclipse/jgit/fnmatch/GroupHead	seed:9.9
+PD$b	org/eclipse/jgit/fnmatch/GroupHead$CharacterRange	shape:先占位 GroupHead$1；strict 唯一（原 org/eclipse/jgit/fnmatch/GroupHead$1）
+PD$c	org/eclipse/jgit/fnmatch/GroupHead$2	anonmap:PD$c 的唯一引用者
+PD$d	org/eclipse/jgit/fnmatch/GroupHead$3	anonmap:PD$d 的唯一引用者
+PD$e	org/eclipse/jgit/fnmatch/GroupHead$4	anonmap:PD$e 的唯一引用者
+PD$f	org/eclipse/jgit/fnmatch/GroupHead$OneCharacterPattern	shape:先占位 GroupHead$5；strict 唯一（原 org/eclipse/jgit/fnmatch/GroupHead$5）
+PD$g	org/eclipse/jgit/fnmatch/GroupHead$PunctPattern	shape:先占位 GroupHead$6；loose 唯一（原 org/eclipse/jgit/fnmatch/GroupHead$6）
+PD$h	org/eclipse/jgit/fnmatch/GroupHead$7	anonmap:PD$h 的唯一引用者
+PD$i	org/eclipse/jgit/fnmatch/GroupHead$8	anonmap:PD$i 的唯一引用者
+PE	org/eclipse/jgit/lib/RefUpdate$1	anonmap:PE 的唯一引用者
+PG	org/eclipse/jgit/internal/storage/file/LargePackedWholeObject	prop:5.0
+PH	org/eclipse/jgit/internal/storage/pack/PackWriter$1$1	prop:5.83
+PI	org/eclipse/jgit/transport/BaseReceivePack$2	anonmap:PI 的唯一引用者
+PJ	org/eclipse/jgit/transport/WalkPushConnection$1	typeprop:描述符逐位对齐投票 0.75
+PK	org/eclipse/jgit/util/SystemReader$Default	prop:8.25
+QA	org/eclipse/jgit/api/CheckoutCommand	prop:7.57
+QC	org/eclipse/jgit/dircache/DirCacheEntry	typeprop:描述符逐位对齐投票 0.91
+QD	org/eclipse/jgit/fnmatch/Head	typeprop:描述符逐位对齐投票 1/1
+QE	org/eclipse/jgit/lib/RefUpdate$2	anonmap:QE 的唯一引用者
+QG	org/eclipse/jgit/internal/storage/file/LocalCachedPack	prop:6.62
+QI	org/eclipse/jgit/transport/BaseReceivePack$3	anonmap:QI 的唯一引用者
+QJ	org/eclipse/jgit/transport/WalkPushConnection	seed:9.9
+QK	org/eclipse/jgit/util/SystemReader	nbr:1.41
+RA	org/eclipse/jgit/api/CheckoutResult	prop:4.83
+RA$a	org/eclipse/jgit/api/CheckoutResult$Status	prop:5.5
+RC	org/eclipse/jgit/dircache/DirCacheIterator	typeprop:描述符逐位对齐投票 0.88
+RD	org/eclipse/jgit/fnmatch/LastHead	shape:先占位 FileNameMatcher$2；loose 唯一（原 org/eclipse/jgit/fnmatch/FileNameMatcher$2）
+RE	org/eclipse/jgit/lib/RefUpdate	prop:7.3
+RE$a	org/eclipse/jgit/lib/RefUpdate$Result	prop:5.5
+RF	org/eclipse/jgit/revwalk/StartGenerator$1	anonmap:RF 的唯一引用者
+RG	org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation$1	prop:4.5
+RH	org/eclipse/jgit/internal/storage/pack/PackWriter$3	prop:5.5
+RJ	org/eclipse/jgit/transport/WalkRemoteObjectDatabase	seed:9.9
+RJ$a	org/eclipse/jgit/transport/WalkRemoteObjectDatabase$FileStream	typeprop:描述符逐位对齐投票 3/3
+RK	org/eclipse/jgit/util/TemporaryBuffer	typeprop:描述符逐位对齐投票 2/2
+RK$b	org/eclipse/jgit/util/TemporaryBuffer$BlockInputStream	shape:先占位 TemporaryBuffer$1；loose 唯一（原 org/eclipse/jgit/util/TemporaryBuffer$1）
+RK$d	org/eclipse/jgit/util/TemporaryBuffer$LocalFile	prop:6.17
+SA	org/eclipse/jgit/api/CherryPickCommand	keyclass:类级 JGitText 键覆盖 1.00 (3/3)
+SC	org/eclipse/jgit/dircache/DirCacheTree$1	anonmap:SC 的唯一引用者
+SD	org/eclipse/jgit/fnmatch/FileNameMatcher$3	anonmap:SD 的唯一引用者
+SE	org/eclipse/jgit/lib/RefWriter	prop:5.2
+SF	org/eclipse/jgit/revwalk/DepthGenerator	typeprop:描述符逐位对齐投票 0.83
+SG	org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation	prop:4.83
+SH	org/eclipse/jgit/internal/storage/pack/PackWriter$4	prop:5.83
+SI	org/eclipse/jgit/transport/BaseReceivePack	seed:9.9
+SI$a	org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig	prop:6.75
+SJ	org/eclipse/jgit/transport/WalkTransport	typeprop:描述符逐位对齐投票 1/1
+SK	org/eclipse/jgit/dircache/DirCacheCheckout$1	anonmap:SK 的唯一引用者
+TA	org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$1	anonmap:TA 的唯一引用者
+TC	org/eclipse/jgit/dircache/DirCacheTree	typeprop:描述符逐位对齐投票 1/1
+TD	org/eclipse/jgit/fnmatch/FileNameMatcher$4	anonmap:TD 的唯一引用者
+TE	org/eclipse/jgit/lib/Repository$1	prop:4.5
+TF	org/eclipse/jgit/revwalk/DepthWalk	typeprop:描述符逐位对齐投票 2/2
+TF$b	org/eclipse/jgit/revwalk/DepthWalk$RevWalk	prop:6.88
+TF$c	org/eclipse/jgit/revwalk/DepthWalk$ObjectWalk	prop:8.0
+TG	org/eclipse/jgit/internal/storage/file/LocalObjectToPack	nbr:1.4
+TH	org/eclipse/jgit/internal/storage/pack/PackWriter	typeprop:描述符逐位对齐投票 1/1
+TH$a	org/eclipse/jgit/internal/storage/pack/PackWriter$1	anonmap:TH$a 的唯一引用者
+TH$b	org/eclipse/jgit/internal/storage/pack/PackWriter$PackingPhase	prop:5.0
+TI	org/eclipse/jgit/transport/RefAdvertiser	prop:7.79
+TJ	org/eclipse/jgit/treewalk/AbstractTreeIterator	typeprop:描述符逐位对齐投票 4/5
+UA	org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$2	prop:5.5
+UD	org/eclipse/jgit/ignore/IgnoreNode	typeprop:描述符逐位对齐投票 2/2
+UD$a	org/eclipse/jgit/ignore/IgnoreNode$MatchResult	prop:5.5
+UE	org/eclipse/jgit/lib/Repository	seed:9.9
+UG	org/eclipse/jgit/internal/storage/file/LockFile$1	prop:6.0
+UH	org/eclipse/jgit/internal/storage/pack/StoredObjectRepresentation	src:SG(LocalObjectRepresentation) 的父类 = StoredObjectRepresentation；BH.hasObject(ObjectToPack,UH)Z 再证
+UJ	org/eclipse/jgit/treewalk/CanonicalTreeParser	prop:7.43
+UK	org/eclipse/jgit/treewalk/WorkingTreeIterator$1	anonmap:UK 的唯一引用者
+VA	org/eclipse/jgit/api/CherryPickResult$CherryPickStatus$3	prop:5.0
+VC	org/eclipse/jgit/errors/CheckoutConflictException	keyclass:类级 JGitText 键覆盖 1.00 (2/2)
+VD	org/eclipse/jgit/ignore/IgnoreRule	prop:5.17
+VE	org/eclipse/jgit/internal/storage/dfs/DfsRepositoryBuilder	prop:4.5
+VF	org/eclipse/jgit/revwalk/StartGenerator$2	anonmap:VF 的唯一引用者
+VG	org/eclipse/jgit/internal/storage/file/LockFile$2	prop:5.0
+VH	org/eclipse/jgit/internal/storage/pack/ThreadSafeDeltaCache	prop:4.67
+WA	org/eclipse/jgit/api/CherryPickResult	prop:4.9
+WA$a	org/eclipse/jgit/api/CherryPickResult$CherryPickStatus	prop:5.0
+WC	org/eclipse/jgit/transport/WalkFetchConnection$1	anonmap:WC 的唯一引用者
+WD	org/eclipse/jgit/lib/AbbreviatedObjectId	seed:9.9
+WE$a	org/eclipse/jgit/lib/RepositoryCache$FileKey	prop:6.12
+WE$b	org/eclipse/jgit/lib/RepositoryCache$Key	typeprop:描述符逐位对齐投票 1/1
+WF	org/eclipse/jgit/revwalk/FollowFilter	prop:7.28
+WG	org/eclipse/jgit/internal/storage/file/LockFile	seed:9.9
+WH	org/eclipse/jgit/submodule/SubmoduleStatus	prop:4.83
+WI	org/eclipse/jgit/transport/RefSpec	typeprop:描述符逐位对齐投票 0.76
+WJ	org/eclipse/jgit/treewalk/FileTreeIterator	typeprop:描述符逐位对齐投票 0.80
+WJ$a	org/eclipse/jgit/treewalk/FileTreeIterator$FileEntry	typeprop:描述符逐位对齐投票 0.75
+XA	org/eclipse/jgit/api/CloneCommand	seed:9.9
+XE	org/eclipse/jgit/lib/RepositoryState$1	anonmap:XE 的唯一引用者
+XF	org/eclipse/jgit/revwalk/Generator	typeprop:描述符逐位对齐投票 1/1
+XG	org/eclipse/jgit/internal/storage/file/ObjectDirectory	typeprop:描述符逐位对齐投票 1/1
+XG$a	org/eclipse/jgit/internal/storage/file/ObjectDirectory$1	anonmap:XG$a 的唯一引用者
+XG$b	org/eclipse/jgit/internal/storage/file/ObjectDirectory$PackList	typeprop:描述符逐位对齐投票 0.82
+XH	org/eclipse/jgit/submodule/SubmoduleStatusType	prop:5.5
+XI	org/eclipse/jgit/transport/RemoteConfig	prop:8.95
+YA	org/eclipse/jgit/api/CommitCommand$1	anonmap:YA 的唯一引用者
+YC	org/eclipse/jgit/errors/CorruptObjectException	prop:4.5
+YD	org/eclipse/jgit/lib/AnyObjectId	prop:8.49
+YE	org/eclipse/jgit/lib/RepositoryState$2	anonmap:YE 的唯一引用者
+YF	org/eclipse/jgit/revwalk/StartGenerator$3	anonmap:YF 的唯一引用者
+YG	org/eclipse/jgit/internal/storage/file/ObjectDirectoryInserter	prop:6.7
+YH	org/eclipse/jgit/submodule/SubmoduleWalk	seed:9.9
+YI	org/eclipse/jgit/transport/RemoteRefUpdate	seed:9.9
+YI$a	org/eclipse/jgit/transport/RemoteRefUpdate$Status	prop:5.0
+YJ	org/eclipse/jgit/treewalk/TreeWalk	nbr:1.32
+YK	org/eclipse/jgit/util/io/StreamCopyThread	prop:5.5
+ZA	org/eclipse/jgit/api/CommitCommand	seed:9.9
+ZE	org/eclipse/jgit/lib/RepositoryState$3	anonmap:ZE 的唯一引用者
+ZF	org/eclipse/jgit/revwalk/MergeBaseGenerator	typeprop:描述符逐位对齐投票 0.78
+ZG	org/eclipse/jgit/internal/storage/file/ObjectDirectoryPackParser	seed:9.9
+ZH	org/eclipse/jgit/transport/AmazonS3$1	typeprop:描述符逐位对齐投票 0.75
+ZI	org/eclipse/jgit/transport/RemoteSession	typeprop:描述符逐位对齐投票 1/1
+ZJ	org/eclipse/jgit/treewalk/WorkingTreeIterator$2	anonmap:ZJ 的唯一引用者
+_A	org/eclipse/jgit/api/CreateBranchCommand	typeprop:描述符逐位对齐投票 1/1
+_A$a	org/eclipse/jgit/api/CreateBranchCommand$SetupUpstreamMode	prop:5.0
+_E	org/eclipse/jgit/lib/RepositoryState$4	anonmap:_E 的唯一引用者
+_F	org/eclipse/jgit/revwalk/ObjectWalk	typeprop:描述符逐位对齐投票 1/1
+_F$a	org/eclipse/jgit/revwalk/ObjectWalk$TreeVisit	typeprop:描述符逐位对齐投票 inner_cmp
+_G	org/eclipse/jgit/internal/storage/file/PackFile$2	anonmap:_G 的唯一引用者
+_H	org/eclipse/jgit/transport/AmazonS3	seed:9.9
+_H$a	org/eclipse/jgit/transport/AmazonS3$ListParser	seed:9.9
+_I	org/eclipse/jgit/transport/SideBandInputStream	prop:5.93
+_J	org/eclipse/jgit/treewalk/WorkingTreeIterator	prop:6.45
+_J$a	org/eclipse/jgit/treewalk/WorkingTreeIterator$Entry
+_J$b	org/eclipse/jgit/treewalk/WorkingTreeIterator$IteratorState	nbr:1.6
+_J$c	org/eclipse/jgit/treewalk/WorkingTreeIterator$MetadataDiff	prop:5.5
+_J$d	org/eclipse/jgit/treewalk/WorkingTreeIterator$PerDirectoryIgnoreNode	typeprop:描述符逐位对齐投票 1/1
+_J$e	org/eclipse/jgit/treewalk/WorkingTreeIterator$RootIgnoreNode	prop:5.62
+_K	org/eclipse/jgit/util/io/TimeoutInputStream	keyclass:类级 JGitText 键覆盖 1.00 (2/2)
+aB	org/eclipse/jgit/api/DeleteBranchCommand	seed:9.9
+aD	org/eclipse/jgit/errors/InvalidObjectIdException	seed:9.9
+aF	org/eclipse/jgit/lib/RepositoryState$5	anonmap:aF 的唯一引用者
+aG	org/eclipse/jgit/revwalk/StartGenerator$4	anonmap:aG 的唯一引用者
+aH	org/eclipse/jgit/internal/storage/file/PackFile	prop:6.96
+aH$a	org/eclipse/jgit/internal/storage/file/PackFile$3	anonmap:aH$a 的唯一引用者
+aI	org/eclipse/jgit/transport/BaseConnection	typeprop:描述符逐位对齐投票 2/2
+aJ	org/eclipse/jgit/transport/SideBandOutputStream	keyclass:类级 JGitText 键覆盖 0.67 (2/3)
+aK	org/eclipse/jgit/treewalk/WorkingTreeOptions$1	prop:4.5
+aL	org/eclipse/jgit/util/io/TimeoutOutputStream	typeprop:描述符逐位对齐投票 1/1
+bB	org/eclipse/jgit/api/FetchCommand	prop:8.1
+bE	org/eclipse/jgit/lib/BaseRepositoryBuilder	seed:9.9
+bF	org/eclipse/jgit/lib/RepositoryState$6	anonmap:bF 的唯一引用者
+bG	org/eclipse/jgit/revwalk/FollowFilter$1	anonmap:bG 的唯一引用者
+bH	org/eclipse/jgit/internal/storage/file/PackIndex	prop:4.59
+bH$a	org/eclipse/jgit/internal/storage/file/PackIndex$EntriesIterator	prop:5.5
+bH$b	org/eclipse/jgit/internal/storage/file/PackIndex$MutableEntry	nbr:1.46
+bI	org/eclipse/jgit/transport/BaseFetchConnection	typeprop:描述符逐位对齐投票 2/2
+bJ	org/eclipse/jgit/transport/SideBandProgressMonitor	prop:5.5
+bK	org/eclipse/jgit/treewalk/WorkingTreeOptions	prop:7.83
+cB	org/eclipse/jgit/api/Git	nbr:1.49
+cC	org/eclipse/jgit/diff/ContentSource	typeprop:描述符逐位对齐投票 1/1
+cC$b	org/eclipse/jgit/diff/ContentSource$1	anonmap:cC$b 的唯一引用者
+cC$c	org/eclipse/jgit/diff/ContentSource$Pair	typeprop:描述符逐位对齐投票 src:calculateModifyScore第一参数
+cC$d	org/eclipse/jgit/diff/ContentSource$WorkingTreeSource	prop:4.83
+cD	org/eclipse/jgit/errors/LargeObjectException	keyclass:类级 JGitText 键覆盖 1.00 (2/2)
+cE	org/eclipse/jgit/lib/BatchingProgressMonitor$1	prop:7.5
+cF	org/eclipse/jgit/lib/RepositoryState$7	anonmap:cF 的唯一引用者
+cH	org/eclipse/jgit/internal/storage/file/PackIndexV1$IndexV1Iterator$1	anonmap:cH 的唯一引用者
+cI	org/eclipse/jgit/transport/BasePackConnection	prop:7.23
+cJ	org/eclipse/jgit/transport/SshSessionFactory	typeprop:描述符逐位对齐投票 2/2
+cK	org/eclipse/jgit/diff/DiffFormatter$3	anonmap:cK 的唯一引用者
+dB	org/eclipse/jgit/api/GitCommand	prop:6.0
+dC	org/eclipse/jgit/diff/ContentSource$WorkingTreeSource$1	prop:4.5
+dF	org/eclipse/jgit/lib/RepositoryState$8	anonmap:dF 的唯一引用者
+dG	org/eclipse/jgit/revwalk/RevCommit	typeprop:描述符逐位对齐投票 0.86
+dH	org/eclipse/jgit/internal/storage/file/PackIndexV1	nbr:1.24
+dH$a	org/eclipse/jgit/internal/storage/file/PackIndexV1$IndexV1Iterator	nbr:1.35
+dI	org/eclipse/jgit/transport/BasePackFetchConnection$1	prop:4.5
+dJ	org/eclipse/jgit/transport/SshTransport	typeprop:描述符逐位对齐投票 2/2
+dK	org/eclipse/jgit/treewalk/filter/IndexDiffFilter	prop:6.5
+eB	org/eclipse/jgit/api/InitCommand	prop:9.5
+eC	org/eclipse/jgit/diff/DiffAlgorithm	typeprop:描述符逐位对齐投票 1/1
+eC$a	org/eclipse/jgit/diff/DiffAlgorithm$SupportedAlgorithm	prop:5.5
+eD	org/eclipse/jgit/errors/MissingBundlePrerequisiteException	typeprop:描述符逐位对齐投票 0.75
+eE	org/eclipse/jgit/lib/BatchingProgressMonitor	typeprop:描述符逐位对齐投票 1/1
+eE$a	org/eclipse/jgit/lib/BatchingProgressMonitor$Task	shape:先占位 BatchingProgressMonitor$2；loose 唯一（原 org/eclipse/jgit/lib/BatchingProgressMonitor$2）
+eF	org/eclipse/jgit/lib/RepositoryState$9	anonmap:eF 的唯一引用者
+eH	org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2$1	prop:4.5
+eI	org/eclipse/jgit/transport/BasePackFetchConnection	prop:6.97
+eI$a	org/eclipse/jgit/transport/BasePackFetchConnection$CancelledException	shape:extends Exception+私有构造+CancelledException(缺 $2 的 switchmap 静态数组)
+eI$b	org/eclipse/jgit/transport/BasePackFetchConnection$FetchConfig	prop:8.0
+eI$c	org/eclipse/jgit/transport/BasePackFetchConnection$MultiAck	prop:5.5
+eJ	org/eclipse/jgit/transport/TagOpt	seed:9.9
+eK	org/eclipse/jgit/treewalk/filter/NotIgnoredFilter	prop:8.5
+fB	org/eclipse/jgit/api/ListBranchCommand$1	prop:5.5
+fC	org/eclipse/jgit/diff/DiffConfig$1	prop:4.5
+fD	org/eclipse/jgit/errors/MissingObjectException	typeprop:描述符逐位对齐投票 key:missingObject
+fF	org/eclipse/jgit/lib/RepositoryState$10	anonmap:fF 的唯一引用者
+fG	org/eclipse/jgit/revwalk/RevFlag	prop:6.0
+fG$a	org/eclipse/jgit/revwalk/RevFlag$1	anonmap:fG$a 的唯一引用者
+fH	org/eclipse/jgit/internal/storage/file/PackIndexV2	prop:7.4
+fH$a	org/eclipse/jgit/internal/storage/file/PackIndexV2$EntriesIteratorV2	prop:5.0
+fI	org/eclipse/jgit/transport/BasePackFetchConnection$FetchConfig$1	prop:4.5
+fJ	org/eclipse/jgit/transport/TcpTransport	typeprop:描述符逐位对齐投票 1/1
+fK	org/eclipse/jgit/treewalk/filter/PathFilter	prop:5.5
+gB	org/eclipse/jgit/api/ListBranchCommand	prop:7.5
+gB$a	org/eclipse/jgit/api/ListBranchCommand$ListMode	prop:5.5
+gC	org/eclipse/jgit/diff/DiffConfig	seed:9.9
+gC$a	org/eclipse/jgit/diff/DiffConfig$RenameDetectionType	prop:5.0
+gD	org/eclipse/jgit/fnmatch/FileNameMatcher$5	anonmap:gD 的唯一引用者
+gE	org/eclipse/jgit/lib/Config	typeprop:描述符逐位对齐投票 24/25
+gE$a	org/eclipse/jgit/lib/Config$ConfigLine	prop:5.5
+gE$b	org/eclipse/jgit/lib/Config$SectionParser	typeprop:描述符逐位对齐投票 1/1
+gE$c	org/eclipse/jgit/lib/Config$ConfigSnapshot	typeprop:描述符逐位对齐投票 shape
+gE$d	org/eclipse/jgit/lib/Config$StringReader	shape:先占位 Config$1；strict 唯一（Config 的四个内部类至此全部定名）（原 org/eclipse/jgit/lib/Config$1）
+gF	org/eclipse/jgit/lib/RepositoryState$11	anonmap:gF 的唯一引用者
+gG	org/eclipse/jgit/revwalk/RevFlagSet$1	prop:5.83
+gI	org/eclipse/jgit/transport/BasePackPushConnection	prop:8.5
+gK	org/eclipse/jgit/treewalk/filter/PathFilterGroup$Group$1	anonmap:gK 的唯一引用者
+hB	org/eclipse/jgit/api/LogCommand	prop:8.25
+hC	org/eclipse/jgit/diff/DiffEntry	seed:9.9
+hC$a	org/eclipse/jgit/diff/DiffEntry$ChangeType	prop:5.0
+hC$b	org/eclipse/jgit/diff/DiffEntry$Side	typeprop:描述符逐位对齐投票 tshape
+hE	org/eclipse/jgit/lib/Constants	seed:9.9
+hF	org/eclipse/jgit/lib/RepositoryState$12	anonmap:hF 的唯一引用者
+hG	org/eclipse/jgit/revwalk/RevFlagSet	prop:5.25
+hI	org/eclipse/jgit/transport/BundleFetchConnection	seed:9.9
+hJ	org/eclipse/jgit/transport/TransferConfig$1	prop:4.5
+hK	org/eclipse/jgit/treewalk/filter/PathFilterGroup	typeprop:描述符逐位对齐投票 key:atLeastOnePathIsRequired
+hK$a	org/eclipse/jgit/treewalk/filter/PathFilterGroup$Group	prop:7.5
+hK$b	org/eclipse/jgit/treewalk/filter/PathFilterGroup$Single	prop:7.5
+iB	org/eclipse/jgit/api/MergeCommand	seed:9.9
+iC	org/eclipse/jgit/diff/DiffFormatter	seed:9.9
+iC$a	org/eclipse/jgit/diff/DiffFormatter$FormatResult	shape:先占位 DiffFormatter$1；loose 唯一（原 org/eclipse/jgit/diff/DiffFormatter$1）
+iE	org/eclipse/jgit/lib/CoreConfig$1	prop:4.5
+iF	org/eclipse/jgit/lib/RepositoryState	prop:5.5
+iG	org/eclipse/jgit/revwalk/RevObject	typeprop:描述符逐位对齐投票 1.00
+iI	org/eclipse/jgit/transport/Connection	typeprop:描述符逐位对齐投票 2/2
+iJ	org/eclipse/jgit/transport/TransferConfig	anonmap:iJ 的唯一引用者
+iK	org/eclipse/jgit/treewalk/filter/SkipWorkTreeFilter	prop:6.5
+jB	org/eclipse/jgit/api/MergeResult$MergeStatus$1	prop:5.5
+jC	org/eclipse/jgit/diff/Edit	typeprop:描述符逐位对齐投票 2/2
+jC$a	org/eclipse/jgit/diff/Edit$Type	prop:5.5
+jE	org/eclipse/jgit/lib/CoreConfig	prop:7.96
+jE$a	org/eclipse/jgit/lib/CoreConfig$AutoCRLF	prop:5.0
+jF	org/eclipse/jgit/lib/StoredConfig	typeprop:描述符逐位对齐投票 1/1
+jH	org/eclipse/jgit/internal/storage/file/PackInputStream	prop:4.83
+jI	org/eclipse/jgit/transport/CredentialItem	typeprop:描述符逐位对齐投票 1/1
+jI$d	org/eclipse/jgit/transport/CredentialItem$StringType	typeprop:描述符逐位对齐投票 1/1
+jJ	org/eclipse/jgit/transport/Transport	seed:9.9
+jJ$a	org/eclipse/jgit/transport/Transport$Operation	prop:5.0
+jK	org/eclipse/jgit/treewalk/filter/TreeFilter	nbr:1.43
+jK$a	org/eclipse/jgit/treewalk/filter/TreeFilter$1	anonmap:jK$a 的唯一引用者
+jK$b	org/eclipse/jgit/treewalk/filter/TreeFilter$AnyDiffFilter	prop:5.5
+kB	org/eclipse/jgit/api/MergeResult$MergeStatus$3	prop:5.0
+kC	org/eclipse/jgit/diff/EditList	prop:5.5
+kD	org/eclipse/jgit/internal/storage/file/ObjectDirectoryInserter$1	anonmap:kD 的唯一引用者
+kE	org/eclipse/jgit/lib/FileMode$1	anonmap:kE 的唯一引用者
+kF	org/eclipse/jgit/lib/SymbolicRef	prop:5.2
+kG	org/eclipse/jgit/revwalk/RevSort	prop:5.5
+kH	org/eclipse/jgit/internal/storage/file/PackLock	prop:6.75
+kI	org/eclipse/jgit/transport/CredentialsProvider	typeprop:描述符逐位对齐投票 0.76
+kJ	org/eclipse/jgit/transport/TransportAmazonS3$1	prop:6.33
+kK	org/eclipse/jgit/util/Base64	prop:5.0
+lB	org/eclipse/jgit/api/MergeResult$MergeStatus$4	prop:5.5
+lC	org/eclipse/jgit/diff/HashedSequence	typeprop:描述符逐位对齐投票 body
+lD	org/eclipse/jgit/internal/storage/file/PackFile$4	anonmap:lD 的唯一引用者
+lE	org/eclipse/jgit/lib/FileMode$2	anonmap:lE 的唯一引用者
+lF	org/eclipse/jgit/lib/ThreadSafeProgressMonitor	typeprop:描述符逐位对齐投票 0.85
+lG	org/eclipse/jgit/revwalk/RevTag	typeprop:描述符逐位对齐投票 1.00
+lH	org/eclipse/jgit/internal/storage/file/PackReverseIndex	body:ctor(PackIndex)+findObject(long)+findNextOffset(long,long),int[]/long[] 桶数组
+lI	org/eclipse/jgit/transport/CredentialsProviderUserInfo	prop:5.43
+lJ	org/eclipse/jgit/transport/TransportAmazonS3	prop:7.06
+lJ$a	org/eclipse/jgit/transport/TransportAmazonS3$DatabaseS3	prop:7.24
+lK	org/eclipse/jgit/util/BlockList	typeprop:描述符逐位对齐投票 0.96
+lK$a	org/eclipse/jgit/util/BlockList$MyIterator	shape:先占位 BlockList$1；loose 唯一（原 org/eclipse/jgit/util/BlockList$1）
+mB	org/eclipse/jgit/api/MergeResult$MergeStatus$5	prop:5.0
+mC	org/eclipse/jgit/diff/HashedSequenceComparator	typeprop:描述符逐位对齐投票 0.84
+mE	org/eclipse/jgit/lib/FileMode$3	anonmap:mE 的唯一引用者
+mF	org/eclipse/jgit/lib/TreeFormatter	prop:5.13
+mG	org/eclipse/jgit/revwalk/RevTree	typeprop:描述符逐位对齐投票 1/1
+mH	org/eclipse/jgit/internal/storage/file/RefDirectory$1	keyclass:类级 JGitText 键覆盖 1.00 (2/2)
+mI	org/eclipse/jgit/transport/SshSessionFactory$1	anonmap:mI 的唯一引用者
+mJ	org/eclipse/jgit/transport/TransportBundle	typeprop:描述符逐位对齐投票 1/1
+mK	org/eclipse/jgit/api/CommitCommand$2	anonmap:mK 的唯一引用者
+nB	org/eclipse/jgit/api/MergeResult$MergeStatus$8	prop:5.0
+nC	org/eclipse/jgit/diff/HashedSequencePair	typeprop:描述符逐位对齐投票 1.00
+nD	org/eclipse/jgit/errors/PackProtocolException	typeprop:描述符逐位对齐投票 2/2
+nE	org/eclipse/jgit/lib/FileMode$4	anonmap:nE 的唯一引用者
+nF	org/eclipse/jgit/lib/UserConfig$1	prop:4.5
+nG	org/eclipse/jgit/revwalk/RevWalk$1	anonmap:nG 的唯一引用者
+nH	org/eclipse/jgit/internal/storage/file/RefDirectory	typeprop:描述符逐位对齐投票 1/1
+nH$c	org/eclipse/jgit/internal/storage/file/RefDirectory$LooseRef	shape:interface extends Ref {getSnapShot()FileSnapshot; peel(ObjectIdRef)LooseRef}
+nH$e	org/eclipse/jgit/internal/storage/file/RefDirectory$LooseSymbolicRef	nbr:1.6
+nH$f	org/eclipse/jgit/internal/storage/file/RefDirectory$LooseNonTag	shape:extends BE$c+ctor(FileSnapshot,String,ObjectId) 3 参
+nI	org/eclipse/jgit/transport/FetchConnection	nbr:1.48
+nJ	org/eclipse/jgit/transport/TransportBundleFile$1	seed:9.9
+nK	org/eclipse/jgit/util/FS$1	prop:6.5
+oB	org/eclipse/jgit/api/MergeResult$MergeStatus$11	prop:5.0
+oC	org/eclipse/jgit/diff/HistogramDiff	nbr:1.6
+oC$a	org/eclipse/jgit/diff/HistogramDiff$State	prop:4.5
+oD	org/eclipse/jgit/transport/BasePackConnection$1	anonmap:oD 的唯一引用者
+oE	org/eclipse/jgit/lib/FileMode$5	anonmap:oE 的唯一引用者
+oF	org/eclipse/jgit/lib/UserConfig	prop:7.57
+oG	org/eclipse/jgit/revwalk/RevWalk$2	anonmap:oG 的唯一引用者
+oH	org/eclipse/jgit/internal/storage/file/RefDirectoryUpdate	prop:6.88
+oI	org/eclipse/jgit/transport/FetchHeadRecord	prop:6.74
+oJ	org/eclipse/jgit/transport/TransportBundleFile	typeprop:描述符逐位对齐投票 1.00
+pB	org/eclipse/jgit/api/MergeResult	typeprop:描述符逐位对齐投票 0.76
+pB$a	org/eclipse/jgit/api/MergeResult$MergeStatus	prop:5.0
+pC	org/eclipse/jgit/diff/HistogramDiffIndex	typeprop:描述符逐位对齐投票 0.75
+pE	org/eclipse/jgit/lib/FileMode$6	anonmap:pE 的唯一引用者
+pF	org/eclipse/jgit/merge/MergeAlgorithm	prop:4.5
+pG	org/eclipse/jgit/revwalk/RevWalk$3	prop:5.5
+pH	org/eclipse/jgit/internal/storage/file/ReflogEntryImpl	seed:9.9
+pI	org/eclipse/jgit/transport/FetchProcess	keyclass:类级 JGitText 键覆盖 0.60 (6/10)
+pJ	org/eclipse/jgit/transport/TransportGitAnon$1	anonmap:pJ 的唯一引用者
+pK	org/eclipse/jgit/util/FS	typeprop:描述符逐位对齐投票 7/8
+pK$a	org/eclipse/jgit/util/FS$Holder	shape:先占位 FS$2；strict 唯一（原 org/eclipse/jgit/util/FS$2）
+qB	org/eclipse/jgit/api/PullCommand	typeprop:描述符逐位对齐投票 1/1
+qC	org/eclipse/jgit/diff/LowLevelDiffAlgorithm	prop:4.5
+qE	org/eclipse/jgit/lib/FileMode$7	anonmap:qE 的唯一引用者
+qF$a	org/eclipse/jgit/merge/MergeChunk$ConflictState	prop:5.5
+qG	org/eclipse/jgit/revwalk/RevWalk	prop:8.59
+qH	org/eclipse/jgit/internal/storage/file/ReflogReaderImpl	prop:7.25
+qI	org/eclipse/jgit/transport/FetchResult	prop:5.5
+qJ	org/eclipse/jgit/transport/TransportGitAnon	seed:9.9
+qJ$a	org/eclipse/jgit/transport/TransportGitAnon$TcpFetchConnection	prop:7.17
+qJ$b	org/eclipse/jgit/transport/TransportGitAnon$TcpPushConnection	prop:6.75
+qK	org/eclipse/jgit/util/FS_POSIX$1	anonmap:qK 的唯一引用者
+rB	org/eclipse/jgit/api/PullResult	prop:7.75
+rC	org/eclipse/jgit/diff/MyersDiff$1	nbr:1.6
+rE	org/eclipse/jgit/lib/FileMode	typeprop:描述符逐位对齐投票 4/4
+rF	org/eclipse/jgit/merge/MergeFormatter	prop:5.5
+rG	org/eclipse/jgit/revwalk/StartGenerator$5	anonmap:rG 的唯一引用者
+rH	org/eclipse/jgit/internal/storage/file/UnpackedObject$1	prop:5.0
+rJ	org/eclipse/jgit/transport/TransportGitSsh$1	seed:9.9
+rK	org/eclipse/jgit/util/FS_POSIX	typeprop:描述符逐位对齐投票 1/1
+sB	org/eclipse/jgit/api/PushCommand	prop:8.25
+sC	org/eclipse/jgit/diff/MyersDiff	prop:4.5
+sC$a	org/eclipse/jgit/diff/MyersDiff$MiddleEdit	typeprop:描述符逐位对齐投票 1/1
+sC$a$a	org/eclipse/jgit/diff/MyersDiff$MiddleEdit$1	anonmap:sC$a$a 的唯一引用者
+sC$a$b	org/eclipse/jgit/diff/MyersDiff$MiddleEdit$EditPaths	keyclass:类级 JGitText 键覆盖 1.00 (2/2)
+sE	org/eclipse/jgit/lib/IndexDiff	prop:4.64
+sE$a	org/eclipse/jgit/lib/IndexDiff$ProgressReportingFilter	prop:5.5
+sF	org/eclipse/jgit/merge/MergeMessageFormatter	prop:5.62
+sG	org/eclipse/jgit/revwalk/TreeRevFilter	nbr:1.4
+sH	org/eclipse/jgit/internal/storage/file/UnpackedObject	keyclass:类级 JGitText 键覆盖 1.00 (6/6)
+sH$a	org/eclipse/jgit/internal/storage/file/UnpackedObject$LargeObject	prop:5.1
+sI	org/eclipse/jgit/transport/HttpTransport	typeprop:描述符逐位对齐投票 2/2
+sJ	org/eclipse/jgit/transport/TransportGitSsh$2	body:javap TransportGitSsh$2 = extends SshSessionFactory + field this$0:TransportGitSsh + ctor(TransportGitSsh) + getSession(URIish,CredentialsProvider,FS,int)RemoteSession
+sK	org/eclipse/jgit/util/FS$3	anonmap:sK 的唯一引用者
+tB	org/eclipse/jgit/api/RebaseCommand	typeprop:描述符逐位对齐投票 0.46
+tB$a	org/eclipse/jgit/api/RebaseCommand$2$1	anonmap:tB$a 的唯一引用者
+tB$b	org/eclipse/jgit/api/RebaseCommand$Operation	prop:5.0
+tB$c	org/eclipse/jgit/api/RebaseCommand$2	anonmap:tB$c 的唯一引用者
+tC	org/eclipse/jgit/diff/RawText	typeprop:描述符逐位对齐投票 0.95
+tD	org/eclipse/jgit/errors/StoredObjectRepresentationNotAvailableException	prop:4.5
+tE	org/eclipse/jgit/internal/storage/file/UnpackedObject$1$1	anonmap:tE 的唯一引用者
+tF	org/eclipse/jgit/merge/MergeResult$1	prop:6.0
+tG	org/eclipse/jgit/revwalk/StartGenerator	prop:4.5
+tI	org/eclipse/jgit/transport/JschConfigSessionFactory	seed:9.9
+tJ	org/eclipse/jgit/transport/TransportGitSsh	seed:9.9
+tJ$a	org/eclipse/jgit/transport/TransportGitSsh$ExtSession	prop:6.5
+tJ$b	org/eclipse/jgit/transport/TransportGitSsh$SshFetchConnection	typeprop:描述符逐位对齐投票 super=BasePackFetchConnection
+tJ$c	org/eclipse/jgit/transport/TransportGitSsh$SshPushConnection	typeprop:描述符逐位对齐投票 super=BasePackPushConnection
+tK	org/eclipse/jgit/util/FS_POSIX_Java6	prop:5.5
+uB	org/eclipse/jgit/api/RebaseResult$Status$1	anonmap:uB 的唯一引用者
+uD	org/eclipse/jgit/errors/TooLargeObjectInPackException	keyclass:类级 JGitText 键覆盖 1.00 (2/2)
+uE	org/eclipse/jgit/lib/MutableObjectId	nbr:1.34
+uF	org/eclipse/jgit/merge/MergeResult	prop:6.0
+uG	org/eclipse/jgit/revwalk/StartGenerator$6	anonmap:uG 的唯一引用者
+uH	org/eclipse/jgit/internal/storage/file/WindowCache	prop:4.7
+uH$a	org/eclipse/jgit/internal/storage/file/WindowCache$Entry	shape:先占位 WindowCache$1；loose 唯一（原 org/eclipse/jgit/internal/storage/file/WindowCache$1）
+uH$b	org/eclipse/jgit/internal/storage/file/WindowCache$2	anonmap:uH$b 的唯一引用者
+uH$c	org/eclipse/jgit/internal/storage/file/WindowCache$Ref	prop:5.25
+uI	org/eclipse/jgit/transport/JschSession$JschProcess$1	anonmap:uI 的唯一引用者
+uJ	org/eclipse/jgit/transport/TransportHttp$1	prop:6.83
+uK	org/eclipse/jgit/util/FS_Win32$1	anonmap:uK 的唯一引用者
+vB	org/eclipse/jgit/api/RebaseResult$Status$2	anonmap:vB 的唯一引用者
+vD	org/eclipse/jgit/errors/TranslationBundleException	typeprop:描述符逐位对齐投票 2/2
+vF	org/eclipse/jgit/merge/MergeStrategy	seed:9.9
+vG	org/eclipse/jgit/revwalk/filter/AndRevFilter	typeprop:描述符逐位对齐投票 1/1
+vG$a	org/eclipse/jgit/revwalk/filter/AndRevFilter$Binary	prop:8.0
+vH	org/eclipse/jgit/storage/file/WindowCacheConfig	typeprop:描述符逐位对齐投票 fieldshape
+vI	org/eclipse/jgit/transport/JschSession	prop:8.0
+vI$a	org/eclipse/jgit/transport/JschSession$JschProcess	prop:7.31
+vJ	org/eclipse/jgit/transport/TransportHttp$4	nest:dex 匿名内部类(EnclosingClass=xJ)
+vK	org/eclipse/jgit/util/FS_Win32	typeprop:描述符逐位对齐投票 1/1
+wB	org/eclipse/jgit/api/RebaseResult$Status$3	anonmap:wB 的唯一引用者
+wD	org/eclipse/jgit/errors/TranslationBundleLoadingException	prop:5.5
+wE	org/eclipse/jgit/lib/ObjectChecker	seed:9.9
+wF	org/eclipse/jgit/merge/Merger	prop:6.78
+wH	org/eclipse/jgit/internal/storage/file/WindowCursor	prop:6.61
+wI	org/eclipse/jgit/transport/LongMap	typeprop:描述符逐位对齐投票 0.89
+wI$a	org/eclipse/jgit/transport/LongMap$Node	shape:先占位 LongMap$1；loose 唯一（原 org/eclipse/jgit/transport/LongMap$1）
+wJ	org/eclipse/jgit/transport/TransportHttp$3	typeprop:描述符逐位对齐投票 0.75
+wK	org/eclipse/jgit/util/FS_Win32_Cygwin$1	prop:6.5
+xB	org/eclipse/jgit/api/RebaseResult$Status$4	anonmap:xB 的唯一引用者
+xD	org/eclipse/jgit/errors/TranslationStringMissingException	prop:6.5
+xE	org/eclipse/jgit/lib/ObjectDatabase	typeprop:描述符逐位对齐投票 1/1
+xF	org/eclipse/jgit/merge/ResolveMerger	typeprop:描述符逐位对齐投票 0.71
+xF$a	org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason	prop:5.0
+xG	org/eclipse/jgit/api/LogCommand$1	anonmap:xG 的唯一引用者
+xH	org/eclipse/jgit/internal/storage/file/WriteConfig$1	prop:4.5
+xI	org/eclipse/jgit/transport/OpenSshConfig$1	prop:6.5
+xJ	org/eclipse/jgit/transport/TransportHttp	seed:9.9
+xJ$a	org/eclipse/jgit/transport/TransportHttp$DummyX509TrustManager	shape:先占位 TransportHttp$2；$字母=命名内部类，与命名内部类更符（原 org/eclipse/jgit/transport/TransportHttp$2）
+xJ$b	org/eclipse/jgit/transport/TransportHttp$HttpConfig	prop:7.25
+xJ$c	org/eclipse/jgit/transport/TransportHttp$HttpObjectDB	seed:9.9
+xJ$d	org/eclipse/jgit/transport/TransportHttp$Service	prop:5.92
+xJ$d$b	org/eclipse/jgit/transport/TransportHttp$Service$HttpOutputStream	prop:4.5
+xJ$e	org/eclipse/jgit/transport/TransportHttp$SmartHttpFetchConnection	prop:5.0
+xJ$f	org/eclipse/jgit/transport/TransportHttp$SmartHttpPushConnection	prop:6.5
+xK	org/eclipse/jgit/util/FS_Win32_Cygwin$2	prop:6.5
+yB	org/eclipse/jgit/api/RebaseResult$Status$5	anonmap:yB 的唯一引用者
+yD	org/eclipse/jgit/errors/TransportException	prop:4.5
+yE	org/eclipse/jgit/lib/ObjectId	prop:6.07
+yF	org/eclipse/jgit/merge/StrategyOneSided	prop:4.67
+yF$a	org/eclipse/jgit/merge/StrategyOneSided$1	anonmap:yF$a 的唯一引用者
+yG	org/eclipse/jgit/revwalk/filter/RevFilter	nbr:1.51
+yG$a	org/eclipse/jgit/revwalk/filter/RevFilter$1	anonmap:yG$a 的唯一引用者
+yG$b	org/eclipse/jgit/revwalk/filter/RevFilter$MergeBaseFilter	seed:9.9
+yG$c	org/eclipse/jgit/revwalk/filter/RevFilter$NoMergesFilter	prop:5.5
+yG$d	org/eclipse/jgit/revwalk/filter/RevFilter$NoneFilter	prop:5.5
+yH	org/eclipse/jgit/internal/storage/file/WriteConfig	prop:6.58
+yI	org/eclipse/jgit/transport/OpenSshConfig	prop:6.0
+yI$a	org/eclipse/jgit/transport/OpenSshConfig$Host	typeprop:描述符逐位对齐投票 0.84
+yJ	org/eclipse/jgit/transport/TransportLocal$1	prop:6.88
+yK	org/eclipse/jgit/util/FS_Win32_Cygwin	prop:6.0
+zB	org/eclipse/jgit/api/RebaseResult$Status$6	anonmap:zB 的唯一引用者
+zE	org/eclipse/jgit/lib/ObjectIdOwnerMap$1	anonmap:zE 的唯一引用者
+zF	org/eclipse/jgit/merge/StrategyResolve	prop:6.25
+zG	org/eclipse/jgit/api/LogCommand$2	anonmap:zG 的唯一引用者
+zH	org/eclipse/jgit/internal/storage/pack/BaseSearch	typeprop:描述符逐位对齐投票 0.77
+zH$a	org/eclipse/jgit/internal/storage/pack/BaseSearch$2	anonmap:zH$a 的唯一引用者
+zI	org/eclipse/jgit/transport/OperationResult	typeprop:描述符逐位对齐投票 1/1
+zJ	org/eclipse/jgit/transport/TransportLocal	prop:6.11
+zJ$b	org/eclipse/jgit/transport/TransportLocal$2	anonmap:zJ$b 的唯一引用者
+zJ$c	org/eclipse/jgit/transport/TransportLocal$InternalLocalFetchConnection	seed:9.9
+zJ$d	org/eclipse/jgit/transport/TransportLocal$InternalLocalPushConnection	seed:9.9
+zK	org/eclipse/jgit/util/FileUtils	body:6 个 static File 方法 = delete/delete(int)/mkdir/mkdirs 与其重载(委托链+File.mkdirs/mkdir/delete)
+cC$a	org/eclipse/jgit/diff/ContentSource$2	nest:EnclosingClass 分组（父=abcd/cC）
+PC$a	org/eclipse/jgit/dircache/DirCacheEditor$2	nest:EnclosingClass 分组（父=abcd/PC）
+cD$a	org/eclipse/jgit/errors/LargeObjectException$1	nest:EnclosingClass 分组（父=abcd/cD）
+cD$b	org/eclipse/jgit/errors/LargeObjectException$OutOfMemory	anonmap:cD$b 的唯一引用者（分组 Labcd/Jk 与 cD$a/cD$c 同组，但该类无成员证据，暂不改）
+cD$c	org/eclipse/jgit/errors/LargeObjectException$3	nest:EnclosingClass 分组（父=abcd/cD）
+EG$a	org/eclipse/jgit/internal/storage/file/DeltaBaseCache$1	nest:EnclosingClass 分组（父=abcd/EG）
+GG$a	org/eclipse/jgit/internal/storage/file/FileObjectDatabase$AlternateHandle	nest:XG.tp()=myAlternates() 返回它的数组；该类 this$0=ObjectDirectory、另有 close()（原分组临时名 FileObjectDatabase$1）
+GG$b	org/eclipse/jgit/internal/storage/file/FileObjectDatabase$2	nest:EnclosingClass 分组（父=abcd/GG）
+RI	org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig$1	anonmap+成员:parse(Labcd/gE;)Labcd/SI$a;→ReceiveConfig，分组信号(a/b/a/c/q)因诱饵碰撞不可用
+nH$a	org/eclipse/jgit/internal/storage/file/RefDirectory$LooseUnpeeled	shape:extends BE$a(ObjectIdRef$Unpeeled)+ctor(FileSnapshot,String,ObjectId)+implements nH$c
+nH$b	org/eclipse/jgit/internal/storage/file/RefDirectory$LoosePeeledTag	shape:extends BE$b+ctor(FileSnapshot,String,ObjectId,ObjectId) 两 ObjectId
+nH$d	org/eclipse/jgit/internal/storage/file/RefDirectory$LooseScanner	shape:RefList<LooseRef>+int curIdx+Builder 字段+ctor(RefList) 对应 LooseScanner
+QH	org/eclipse/jgit/internal/storage/pack/PackWriter$5	nest:EnclosingClass 分组（父=abcd/TH）
+TH$c	org/eclipse/jgit/internal/storage/pack/PackWriter$6	nest:EnclosingClass 分组（父=abcd/TH）
+dE	org/eclipse/jgit/lib/BatchingProgressMonitor$3	nest:EnclosingClass 分组（父=abcd/eE）
+xc	org/eclipse/jgit/lib/BatchingProgressMonitor$4	nest:EnclosingClass 分组（父=abcd/eE）
+BE$a	org/eclipse/jgit/lib/ObjectIdRef$1	nest:EnclosingClass 分组（父=abcd/BE）
+BE$b	org/eclipse/jgit/lib/ObjectIdRef$2	nest:EnclosingClass 分组（父=abcd/BE）
+BE$c	org/eclipse/jgit/lib/ObjectIdRef$3	nest:EnclosingClass 分组（父=abcd/BE）
+EE$a	org/eclipse/jgit/lib/ObjectInserter$1	nest:EnclosingClass 分组（父=abcd/EE）
+FE$a	org/eclipse/jgit/lib/ObjectLoader$1	nest:EnclosingClass 分组（父=abcd/FE）
+JE$b	org/eclipse/jgit/lib/ObjectStream$1	nest:EnclosingClass 分组（父=abcd/JE）
+TF$a	org/eclipse/jgit/revwalk/DepthWalk$1	nest:EnclosingClass 分组（父=abcd/TF）
+TI$a	org/eclipse/jgit/transport/RefAdvertiser$1	nest:EnclosingClass 分组（父=abcd/TI）
+zJ$a	org/eclipse/jgit/transport/TransportLocal$3	nest:EnclosingClass 分组（父=abcd/zJ）
+XJ	org/eclipse/jgit/treewalk/NameConflictTreeWalk	shape:super=TreeWalk+3 字段 12 方法，全 oracle 唯一匹配
+RK$c	org/eclipse/jgit/util/TemporaryBuffer$Heap	shape:super=TemporaryBuffer+0 字段 2 方法，全 oracle 唯一匹配
+VJ	org/eclipse/jgit/treewalk/EmptyTreeIterator	shape:super=AbstractTreeIterator+0 字段 14 方法，全 oracle 唯一匹配
+nH$g	org/eclipse/jgit/internal/storage/file/RefDirectory$PackedRefList	shape:super=RefList；RefDirectory 剩余的唯一命名嵌套类（Loose* 六个已定名）
+AB	org/eclipse/jgit/api/RebaseResult	nest:AB$a 已定为 RebaseResult$Status ⇒ 其父探针 AB 只能是 RebaseResult
+com/jcraft/jsch/UserInfo	com/jcraft/jsch/UserInfo	identity:jsch 接口；其成员在 dex 里也被改了名（实现者 abcd/lI 一侧有映射），需要块来落成员
+com/jcraft/jsch/UIKeyboardInteractive	com/jcraft/jsch/UIKeyboardInteractive	identity:同上
+IH$a	org/eclipse/jgit/internal/storage/pack/DeltaWindow$ZipStream	shape:scan（字段/方法多重集+super 全库唯一）
+PD$a	org/eclipse/jgit/fnmatch/GroupHead$CharacterPattern	shape:scan（字段/方法多重集+super 全库唯一）
+UI	org/eclipse/jgit/transport/RefFilter$1	shape:scan（字段/方法多重集+super 全库唯一）
+VK$a	org/eclipse/jgit/util/io/InterruptTimer$AlarmState	shape:scan（字段/方法多重集+super 全库唯一）
+WK	org/eclipse/jgit/util/io/MessageWriter	shape:scan（字段/方法多重集+super 全库唯一）
+XK	org/eclipse/jgit/util/io/SafeBufferedOutputStream	shape:scan（字段/方法多重集+super 全库唯一）
+ZK	org/eclipse/jgit/util/io/TeeInputStream	shape:scan（字段/方法多重集+super 全库唯一）
+bL	org/eclipse/jgit/util/io/UnionInputStream$1	shape:scan（字段/方法多重集+super 全库唯一）
+jG$a	org/eclipse/jgit/revwalk/RevObjectList$Block	shape:scan（字段/方法多重集+super 全库唯一）
+Iz	org/eclipse/jgit/transport/http/JDKHttpConnectionFactory	shape:scan--loose（字段/方法多重集+super 全库唯一）
+LJ	org/eclipse/jgit/transport/UploadPackLogger	shape:scan--loose（字段/方法多重集+super 全库唯一）
+LP	org/eclipse/jgit/lib/IndexDiff$1	shape:scan--loose（字段/方法多重集+super 全库唯一）
+NE	org/eclipse/jgit/lib/RefComparator	shape:scan--loose（字段/方法多重集+super 全库唯一）
+NF	org/eclipse/jgit/revwalk/BlockObjQueue	shape:scan--loose（字段/方法多重集+super 全库唯一）
+RE$b	org/eclipse/jgit/lib/RefUpdate$Store	shape:scan--loose（字段/方法多重集+super 全库唯一）
+Sw	org/eclipse/jgit/treewalk/filter/TreeFilterMarker	shape:scan--loose（字段/方法多重集+super 全库唯一）
+TK	org/eclipse/jgit/util/io/DisabledOutputStream	shape:scan--loose（字段/方法多重集+super 全库唯一）
+VI	org/eclipse/jgit/transport/RefFilter	shape:scan--loose（字段/方法多重集+super 全库唯一）
+VK$b	org/eclipse/jgit/util/io/InterruptTimer$AlarmThread	shape:scan--loose（字段/方法多重集+super 全库唯一）
+_D	org/eclipse/jgit/lib/AsyncObjectSizeQueue	shape:scan--loose（字段/方法多重集+super 全库唯一）
+iL	org/eclipse/jgit/lib/CheckoutEntry	shape:scan--loose（字段/方法多重集+super 全库唯一）
+qF	org/eclipse/jgit/merge/MergeChunk	shape:scan--loose（字段/方法多重集+super 全库唯一）
+vE	org/eclipse/jgit/lib/NullProgressMonitor	shape:scan--loose（字段/方法多重集+super 全库唯一）
+xJ$d$a	org/eclipse/jgit/transport/TransportHttp$Service$HttpExecuteStream	shape:scan--loose（字段/方法多重集+super 全库唯一）
+SI$b	org/eclipse/jgit/transport/BaseReceivePack$Reporter	nest:strict 配对（父 abcd/SI 已知，形状+排除法）
+NF$b	org/eclipse/jgit/revwalk/BlockObjQueue$BlockFreeList	nest:loose 配对（父 abcd/NF 已知，形状+排除法）
+VK	org/eclipse/jgit/util/io/InterruptTimer	nest:VK$a=AlarmState、VK$b=AlarmThread、VK$c=AutoKiller 三个内部类全中 ⇒ 父探针只能是 InterruptTimer
+VK$c	org/eclipse/jgit/util/io/InterruptTimer$AutoKiller	shape:strict 唯一
+LF	org/eclipse/jgit/revwalk/AbstractRevQueue	body:static EMPTY_QUEUE+int outputType+abstract add/next+abstract everbodyHasFlag(int)+protected static describe(StringBuilder,RevCommit) 与 AbstractRevQueue 1:1
+QF	org/eclipse/jgit/revwalk/LIFORevQueue	body:QF extends LF(AbstractRevQueue)+两个 Block 字段+方法集较少 ⇒ LIFORevQueue
+OF	org/eclipse/jgit/revwalk/BlockRevQueue	body:单字段 free:OF$b(BlockFreeList)+shareFreeList(BlockRevQueue) ⇒ BlockRevQueue（此前误判 LIFORevQueue）
+GC	org/eclipse/jgit/diff/Subsequence	shape:唯一候选（super=diff/Sequence，3 字段 6 方法完全一致）+ 字段 base/begin/size
+OF$a	org/eclipse/jgit/revwalk/BlockRevQueue$Block	body:RevCommit[]+headIndex/tailIndex+自类型 next+9 个方法 ⇒ Block（且 OF$b.newBlock() 返回它）
+OF$b	org/eclipse/jgit/revwalk/BlockRevQueue$BlockFreeList	body:next:Block+newBlock()/freeBlock(Block) ⇒ BlockFreeList
+UF	org/eclipse/jgit/revwalk/FIFORevQueue	body:UF extends OF(BlockRevQueue)+两个 Block 字段 head/tail+unpop/toString ⇒ FIFORevQueue
+PF	org/eclipse/jgit/revwalk/BoundaryGenerator	body:字段 Generator g+ctor(RevWalk,Generator)+outputType()+next()+shareFreeList(BlockRevQueue) 1:1（原属"22 个回退幽灵类"）
+PF$a	org/eclipse/jgit/revwalk/BoundaryGenerator$InitialGenerator	body:4 字段 walk:RevWalk/held:FIFORevQueue/source:Generator/this$0:BoundaryGenerator + ctor(BoundaryGenerator,RevWalk,Generator) 1:1
+tH	org/eclipse/jgit/internal/storage/file/UnpackedObjectCache	body:volatile 字段类型 tH$a(Table)+isUnpacked/add/remove/clear 四方法 1:1
+tH$a	org/eclipse/jgit/internal/storage/file/UnpackedObjectCache$Table	body:AtomicReferenceArray<ObjectId>+int shift+int bits+ctor(int)+contains/add/index 1:1
+EC	org/eclipse/jgit/diff/SimilarityIndex	body:6 字段 hashedCnt/idSize/idGrowAt/idHashBits/idHash/静态 TableFullException + hash(ObjectLoader)/hash(byte[],int,int)/score 1:1
+EC$a	org/eclipse/jgit/diff/SimilarityIndex$TableFullException	nest:EC=SimilarityIndex 的静态常量类型只能是它自己的 TableFullException
+rI	org/eclipse/jgit/transport/HttpAuthMethod	body:abstract+static scanResponse(HttpConnection)+abstract authorize(String,String)+abstract configureRequest(HttpConnection)+authorize(URIish,CredentialsProvider) 与 HttpAuthMethod 对上；同包后 TransportHttp 的跨包访问消失
+IH	org/eclipse/jgit/internal/storage/pack/DeltaWindow	body:13 字段含 Deflater/RK$c(TemporaryBuffer$Heap)/IE(ObjectReader)/NH(PackConfig)/JH[] 窗口数组+18 方法 ⇒ DeltaWindow
+JH	org/eclipse/jgit/internal/storage/pack/DeltaWindowEntry	body:DeltaWindow 的字段 JH[] 窗口数组 + 单个 JH 当前项 ⇒ DeltaWindowEntry（同包内部类型）
+MG	org/eclipse/jgit/internal/storage/file/MG	place:extends ObjectStream$Filter+ctor(ObjectLoader,int,long,InputStream,ObjectDirectoryInserter,WindowCursor,File,ObjectId)+close()；真实身份未定，但它访问的 4 个类（ObjectDirectoryInserter/WindowCursor/FileObjectDatabase/ObjectDirectory）都在 internal/storage/file ⇒ 只挪包不改名，13 处跨包访问消失
+KP	org/eclipse/jgit/lib/KP	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+LC	org/eclipse/jgit/dircache/LC	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+MP	org/eclipse/jgit/lib/MP	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+NG	org/eclipse/jgit/internal/storage/file/NG	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+OG	org/eclipse/jgit/internal/storage/file/OG	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+Ww	org/eclipse/jgit/treewalk/filter/Ww	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+Ww$b	org/eclipse/jgit/treewalk/filter/Ww$b	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+Ww$c	org/eclipse/jgit/treewalk/filter/Ww$c	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+bC	org/eclipse/jgit/diff/bC	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+cG	org/eclipse/jgit/revwalk/cG	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+cL	org/eclipse/jgit/util/io/UnionInputStream	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+jG	org/eclipse/jgit/revwalk/RevObjectList	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+yc	org/eclipse/jgit/lib/yc	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+zC	org/eclipse/jgit/diff/zC	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
+GD	org/eclipse/jgit/events/GD	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+KJ	org/eclipse/jgit/transport/KJ	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+NI	org/eclipse/jgit/transport/NI	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+NP	org/eclipse/jgit/lib/NP	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+Tw	org/eclipse/jgit/treewalk/filter/Tw	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+Uw	org/eclipse/jgit/treewalk/filter/Uw	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+Vw	org/eclipse/jgit/treewalk/filter/Vw	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+XD	org/eclipse/jgit/internal/storage/file/XD	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+gJ	org/eclipse/jgit/transport/gJ	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+oK	org/eclipse/jgit/util/oK	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+uC	org/eclipse/jgit/diff/uC	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+vC	org/eclipse/jgit/diff/vC	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+wC	org/eclipse/jgit/diff/wC	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+xC	org/eclipse/jgit/diff/xC	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+yC	org/eclipse/jgit/diff/yC	place2:owner 仍在 abcd，但访问者已全在某包 ⇒ 只挪包、保留混淆名
+WE	org/eclipse/jgit/lib/RepositoryCache	nexus:字段 ConcurrentHashMap+WE$c[]；WE$b=Key(接口)被 WE$a=FileKey 实现；方法 (WE$b)UE 返回 ObjectReader
+Hz	org/eclipse/jgit/transport/http/Hz	place:整族与 Iz(JDKHttpConnectionFactory) 同包，否则跨包不可达；真名未定
+Hz$a	org/eclipse/jgit/transport/http/Hz$a	place:同族(Gz 的父类)
+Hz$b	org/eclipse/jgit/transport/http/Hz$b	place:同族(抽象 UrlConnectionFactory，静态单例)
+Hz$d	org/eclipse/jgit/transport/http/Hz$d	place:同族(Callable)
+Hz$e	org/eclipse/jgit/transport/http/Hz$e	place:同族(BufferedOutputStream 子类)
+Gz	org/eclipse/jgit/transport/http/Gz	place:extends Hz$a，必须同包

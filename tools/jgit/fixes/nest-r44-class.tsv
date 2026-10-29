@@ -1,0 +1,10 @@
+# —— 由 dex InnerClasses + 形状证据判定的 9 条 ——
+WE	-	org/eclipse/jgit/lib/RepositoryCache	nexus:字段 ConcurrentHashMap+WE$c[]；WE$b=Key(接口)被 WE$a=FileKey 实现；方法 (WE$b)UE 返回 ObjectReader
+jG	org/eclipse/jgit/revwalk/jG	org/eclipse/jgit/revwalk/RevObjectList	shape:extends AbstractList + 桥方法 (I)Labcd/iG; + 内层 jG$a=Block
+GG$a	org/eclipse/jgit/internal/storage/file/ObjectDirectory$AlternateHandle	org/eclipse/jgit/internal/storage/file/FileObjectDatabase$AlternateHandle	this$0 字段类型=GG；XG.tp()=myAlternates() 返回 GG$a[]，myAlternates 已补进 GG
+cD$b	org/eclipse/jgit/diff/DiffFormatter$2	org/eclipse/jgit/errors/LargeObjectException$OutOfMemory	shape:extends cD(LargeObjectException) + long,long + ctor(JJ) + getMessage()
+eI$c	org/eclipse/jgit/transport/GitProtocolConstants$MultiAck	org/eclipse/jgit/transport/BasePackFetchConnection$MultiAck	shape:Enum 3 常量+$VALUES；eI 代码里直接 abcd.eI.c.j6/eI.c.DW；GitProtocolConstants 不在 jar 内
+iJ	org/eclipse/jgit/transport/Transport$1	org/eclipse/jgit/transport/TransferConfig	shape:static final KEY:gE$b(Config$SectionParser) + boolean + ctor(Config) + isFsckObjects()；其 inner hJ=TransferConfig$1
+cL	org/eclipse/jgit/util/io/cL	org/eclipse/jgit/util/io/UnionInputStream	shape:extends InputStream + LinkedList + add/isEmpty/read/skip，与 oracle 逐一对应
+Yz	org/eclipse/jgit/api/ArchiveCommand$FormatEntry	-	否决:形状不符(仅 int+String)，且被 AIDE 自身 JSON 代码 cA/mA 引用，判为 shape--loose 假阳性
+Hz	-	org/eclipse/jgit/transport/http/Hz	place:与已 place 的 Hz$b/Hz$d/Hz$e 同族；真实身份未定(候选 JDKHttpConnection 不符:无 HttpConnection 接口)
