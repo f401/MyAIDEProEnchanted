@@ -241,13 +241,13 @@ abcd/AI org/eclipse/jgit/transport/PackParser
 	DW (JIJ)V whole
 	FH (I)V growEntries
 	Hw (I)V use
-	J8 ()V endInput
+	J8 ()V indexOneObject
 	Ws ()Z isAllowThin
-	XL ()V indexOneObject
+	XL ()V readPackHeader
 	aM ()J getPackSize
 	j6 (Labcd/AI$e;)I readFrom
 	j6 (Labcd/YD;I[B)V verifySafeObject
-	we ()V sync
+	we ()V doDeferredCheckBlobs
 	DW (J)V setMaxObjectSizeLimit
 	DW (Labcd/AI$e;[BII)V onObjectHeader
 	DW (Z)V setAllowThin
@@ -313,6 +313,15 @@ abcd/AI org/eclipse/jgit/transport/PackParser
 		static
 	j6 (Labcd/AI;I)V access$300
 		static
+	j3 ()V sync
+	J0 ()V endInput
+	XL allowThin
+	QX needNewObjectIds
+	Mr baseObjectIds
+	rN newObjectIds
+	Hw tempBuffer
+	v5 hdrBuf
+	tp bBase
 abcd/AI$a org/eclipse/jgit/transport/PackParser$1
 abcd/AI$b org/eclipse/jgit/transport/PackParser$DeltaVisit
 	DW id

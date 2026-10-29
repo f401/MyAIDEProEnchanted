@@ -15,3 +15,4 @@ abcd/gE$c	org/eclipse/jgit/lib/Config$ConfigSnapshot	dex 说 gE$c 嵌套于 gE
 abcd/eI$c	org/eclipse/jgit/transport/BasePackFetchConnection$MultiAck	3 常量枚举；eI 代码里直接 abcd.eI.c.j6
 abcd/HJ	format	AIDE 的 jgit 版本 format 带 3 个 boolean（4.x），3.7.1 是 format(boolean,boolean)
 abcd/RA	OK_RESULT	4.x 才有 OK_RESULT（3.7.1 只有 ERROR_RESULT/NOT_TRIED_RESULT）
+abcd/AI	needNewObjectIds	AIDE 的 jgit 把它做成字段（3.7.1 只有 needBaseObjectIds 字段，needNewObjectIds 是方法）
