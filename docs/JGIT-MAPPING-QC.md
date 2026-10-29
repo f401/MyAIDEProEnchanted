@@ -1306,3 +1306,61 @@ oracle `BoundaryGenerator$InitialGenerator` 的字段/构造器**逐项一致**�
 | `inherit_check` | 0 / 5 | **0 / 5** |
 | `verify_members` | 不一致 0 | 不一致 **0** |
 | FART | 一致 | **一致**（`r_v26.jar`，manifest `bf4a66ff…`） |
+
+---
+
+## 26. 第二十一轮：一次"越改越坏"的教训 —— `api/errors` 家族必须整批映射
+
+### 26.1 发现：`verify_members` 会**静默跳过**目标类不存在的映射
+
+给 `NB` 定名时我写成 `org/eclipse/jgit/api/GitAPIException`，`verify_members` 报"不一致 0"——
+因为它的循环里有 `if not new or new not in cls: continue`：**目标类在 oracle 里不存在就直接跳过**。
+而 jgit 3.7.1 的 `GitAPIException` 其实在 **`org.eclipse.jgit.api.errors`**（多一层包）。
+
+顺手做了一次全量排查：**73 条映射的目标类在 oracle 里根本不存在**。分两类：
+
+| 类别 | 数量 | 性质 |
+|---|---|---|
+| `Xxx$1`/`$2`… 这类**匿名类占位名** | ~65 | 正常。jgit 自己的匿名类编号在 R8 里会被内联/重排，`$4` 这类名字本来就不存在于 oracle |
+| **真错**（非 `$数字` 结尾） | 少数 | 如 `NB → api/GitAPIException`（包名错）、以及一批 `api/*Command$1` |
+
+`api/*Command$1` 那批很可疑：`BB → StatusCommand$1`、`IB → PullCommand$1`、`MB → PullCommand$2`、
+`OB → PullCommand$3`、`TB → CherryPickCommand$1`、`XB → DeleteBranchCommand$2`、`mK → CommitCommand$2`…
+jgit 的这些 Command 类**没有那么多匿名类**；它们更可能是**该命令会抛出的 `api/errors` 异常**
+（`anonmap` 的"唯一引用者"启发式把"被某命令抛出"误判成"是某命令的匿名内部类"）。
+
+### 26.2 一次翻车：只映射 `NB`/`LB` 反而把违规从 108 抬到 115
+
+把 `NB` 改到正确的 `api/errors/GitAPIException`、并补上 `LB → ConcurrentRefUpdateException` 之后：
+
+- 违规数 **108 → 115**（更差）；
+- FART 又出现 1 个类漂移。
+
+原因：`api/errors` 里还有 5~6 个子类（`abcd/PB` 等）**没映射**。`GitAPIException` 的构造器是
+`protected`，子类跨包访问本来合法，但工具推不出"未映射的 `abcd/PB` 是它的子类"，于是全算违规；
+同时 `FIFO/LIFO` 一类的解析链又被搅动。
+
+**处理：两条都撤销**（`NB`/`LB` 回到未映射），违规回到 **103**，确定性恢复。
+
+> 教训：**`api/errors` 是一个必须整批映射的家族**（父类 + 全部子类一起），
+> 单点映射只会让"protected 构造器 + 未映射子类"的组合更糟。
+
+### 26.3 本轮真正的产出
+
+1. `verify_members` 的**目标存在性漏洞**被记录（73 条里那批 `*Command$N` 需要重判）；
+2. 违规数从 108 微降到 **103**（撤销 `api` 那两条后的净结果）；
+3. 明确了下一条作业线：**先把 `api/errors` 全族按"ctor 签名"批量定名**，再回头啃 `MG`/`IH`/`rI`。
+
+### 26.4 基线
+
+| 指标 | §25 | 本轮 |
+|---|---|---|
+| 类映射 | 662 | **660** |
+| 成员映射 | 4047 | 4040 |
+| 方法覆盖 | 2623/3351 = 78.3% | **2623/3351 = 78.3%** |
+| 字段覆盖 | 1115/1585 = 70.3% | **1115/1585 = 70.3%** |
+| 完全覆盖类 | 374 | 374 |
+| **跨包不可达** | 108 | **103** |
+| `inherit_check` | 0 / 5 | **0 / 5** |
+| `verify_members` | 不一致 0 | 不一致 **0** |
+| FART | 一致 | **一致**（`r_v29.jar`，manifest `b034d82a…`） |
