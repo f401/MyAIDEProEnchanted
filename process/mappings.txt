@@ -162,12 +162,17 @@ abcd/vj abcd/vj
 abcd/AB$a org/eclipse/jgit/api/RebaseResult$Status
 	Hw ()Z isSuccessful
 	<init> (Ljava/lang/String;I)V <init>
-	Zo UNCOMMITTED_CHANGES
+	Zo FAST_FORWARD
 	VH $VALUES
 	valueOf (Ljava/lang/String;)Labcd/AB$a; valueOf
 		static
 	values ()[Labcd/AB$a; values
 		static
+	j6 OK
+	DW ABORTED
+	FH STOPPED
+	Hw FAILED
+	v5 UP_TO_DATE
 abcd/AC org/eclipse/jgit/diff/RenameDetector$1
 	j6 (Labcd/hC$a;)I sortOf
 	j6 (Labcd/hC;)Ljava/lang/String; nameOf
@@ -1121,6 +1126,10 @@ abcd/IK org/eclipse/jgit/util/RawParseUtils
 		static
 	v5 base10byte
 	u7 ([BI)Labcd/KE; parsePersonIdent
+		static
+	EQ ([BI)I parseTimeZoneOffset
+		static
+	VH ([BI)I parseHexInt16
 		static
 abcd/JC org/eclipse/jgit/dircache/DirCache$1
 	j6 (Labcd/QC;Labcd/QC;)I compare
@@ -5798,6 +5807,10 @@ abcd/AB org/eclipse/jgit/api/RebaseResult
 	Zo currentCommit
 	v5 status
 	j6 ()Labcd/AB$a; getStatus
+	j6 OK_RESULT
+	DW ABORTED_RESULT
+	FH UP_TO_DATE_RESULT
+	Hw FAST_FORWARD_RESULT
 abcd/com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
 abcd/com/jcraft/jsch/UIKeyboardInteractive com/jcraft/jsch/UIKeyboardInteractive
 abcd/IH$a org/eclipse/jgit/internal/storage/pack/DeltaWindow$ZipStream
