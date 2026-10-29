@@ -13,3 +13,5 @@ abcd/gE$a	org/eclipse/jgit/lib/Config$ConfigLine	dex 说 gE$a 嵌套于 gE；同
 abcd/gE$c	org/eclipse/jgit/lib/Config$ConfigSnapshot	dex 说 gE$c 嵌套于 gE
 # —— 类名：dex 判为 BasePackFetchConnection 的内部枚举 ——
 abcd/eI$c	org/eclipse/jgit/transport/BasePackFetchConnection$MultiAck	3 常量枚举；eI 代码里直接 abcd.eI.c.j6
+abcd/HJ	format	AIDE 的 jgit 版本 format 带 3 个 boolean（4.x），3.7.1 是 format(boolean,boolean)
+abcd/RA	OK_RESULT	4.x 才有 OK_RESULT（3.7.1 只有 ERROR_RESULT/NOT_TRIED_RESULT）

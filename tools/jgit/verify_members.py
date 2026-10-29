@@ -73,7 +73,9 @@ for l in open(TSRG):
                 if m['kind']=='f' and m['name']==new2: ok=True;break
             if ok: break
             for p in ([cc['sup']] if cc['sup'] else [])+list(cc['ifaces']): stack.append(p)
-        if not ok: bad.append((cur,new,'field',s[0],new2,'字段名不存在'))
+        if not ok:
+            if (cur,new2) in ALLOW: allow.append((cur,'',new2,ALLOW[(cur,new2)]))
+            else: bad.append((cur,new,'field',s[0],new2,'字段名不存在'))
     else:
         nm,ds,new2=s
         r=find(new,new2,norm(ds),'m')
