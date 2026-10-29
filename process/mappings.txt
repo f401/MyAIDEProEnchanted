@@ -1078,7 +1078,6 @@ abcd/IG org/eclipse/jgit/internal/storage/file/FileRepository
 	gn systemConfig
 	EQ ()Labcd/xE; getObjectDatabase
 	Zo ()Labcd/jF; getConfig
-	Mr ()V notifyIndexChanged
 abcd/IJ org/eclipse/jgit/transport/UploadPack
 	EQ pckIn
 	FH db
@@ -1616,11 +1615,11 @@ abcd/NH org/eclipse/jgit/storage/pack/PackConfig
 	Hw deltaBaseAsOffset
 abcd/NJ org/eclipse/jgit/transport/WalkEncryption
 	j6 (Ljava/net/HttpURLConnection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V validateImpl
-	DW (Ljava/net/HttpURLConnection;Ljava/lang/String;)V request
+	DW (Ljava/net/HttpURLConnection;Ljava/lang/String;)V validate
 	j6 (Ljava/lang/Throwable;)Ljava/io/IOException; error
 	j6 (Ljava/io/InputStream;)Ljava/io/InputStream; decrypt
 	j6 (Ljava/io/OutputStream;)Ljava/io/OutputStream; encrypt
-	j6 (Ljava/net/HttpURLConnection;Ljava/lang/String;)V validate
+	j6 (Ljava/net/HttpURLConnection;Ljava/lang/String;)V request
 	<init> ()V <init>
 	j6 NONE
 abcd/NJ$a org/eclipse/jgit/transport/WalkEncryption$NoEncryption
@@ -1629,7 +1628,7 @@ abcd/NJ$a org/eclipse/jgit/transport/WalkEncryption$NoEncryption
 	j6 (Ljava/io/InputStream;)Ljava/io/InputStream; decrypt
 	j6 (Ljava/io/OutputStream;)Ljava/io/OutputStream; encrypt
 abcd/NJ$b org/eclipse/jgit/transport/WalkEncryption$ObjectEncryptionV2
-	j6 (Ljava/net/HttpURLConnection;Ljava/lang/String;)V validate
+	j6 (Ljava/net/HttpURLConnection;Ljava/lang/String;)V request
 	j6 (Ljava/io/InputStream;)Ljava/io/InputStream; decrypt
 	j6 (Ljava/io/OutputStream;)Ljava/io/OutputStream; encrypt
 	Hw algorithmName
@@ -1638,7 +1637,7 @@ abcd/NJ$b org/eclipse/jgit/transport/WalkEncryption$ObjectEncryptionV2
 	<init> (Ljava/lang/String;Ljava/lang/String;)V <init>
 	FH salt
 	DW ITERATION_COUNT
-	DW (Ljava/net/HttpURLConnection;Ljava/lang/String;)V request
+	DW (Ljava/net/HttpURLConnection;Ljava/lang/String;)V validate
 abcd/NK org/eclipse/jgit/util/StringUtils
 	j6 (Ljava/lang/String;Ljava/lang/String;)Z equalsIgnoreCase
 		static
