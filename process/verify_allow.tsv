@@ -129,3 +129,48 @@ abcd/xJ$f	doPush	AIDE 版 doPush 去掉了 OutputStream 参数
 abcd/LF$a	add	oracle AbstractRevQueue$1 为空类（EMPTY_QUEUE 的内联实现位置不同）；探针为匿名队列实现，语义与 LF.add 一致
 abcd/LF$a	next	同上
 abcd/LF$a	anybodyHasFlag	同上
+# —— GG/XG/DG（FileObjectDatabase/ObjectDirectory/CachedObjectDirectory）的 "self-or-alternate" 家族 ——
+# 3.7.1 里这些是 ObjectDirectory 的 private 方法；AIDE 把基元提升到 GG（抽象）+ XG/DG 实现，
+# 名字取 3.7.1 的 ObjectDirectory 私有方法名与 5.13.3 的同族名（openPackedFromSelfOrAlternate 等）。
+abcd/GG	getPackedObjectSize	3.7.1 ObjectDirectory.getPackedObjectSize（private，packList 循环取 pack 尺寸）；AIDE 提升为 GG 抽象基元
+abcd/XG	getPackedObjectSize	同上，XG 的实现即 packList 循环（catch PackMismatch→scanPacks）
+abcd/DG	getPackedObjectSize	同上；DG 覆写：unpackedObjects 命中走 wrapped.j6(wH,String,YD)（loose size），否则 wrapped 的 pack 尺寸
+abcd/GG	openPackedObject	3.7.1 ObjectDirectory.openPackedObject：AIDE 做成 GG 抽象基元，XG=packList 循环、DG=按 unpackedObjects 分流
+abcd/XG	openPackedObject	同上（XG 实现：cache 命中先试 loose，再遍历 packList，PackMismatch 时 scanPacks 重扫）
+abcd/DG	openPackedObject	同上（DG 实现：unpackedObjects 命中→wrapped.openLooseObject，否则 wrapped.openPackedObject）
+abcd/GG	getPackedSizeFromSelfOrAlternate	3.7.1 ObjectDirectory 同名 private 方法（本类 pack 尺寸 → 递归 alternates → searchPacksAgain 重试）
+abcd/GG	getLooseSizeFromSelfOrAlternate	3.7.1 ObjectDirectory 同名 private 方法（String 版 getLooseObjectSize → 递归 alternates）
+abcd/GG	openPackedFromSelfOrAlternate	3.7.1 / 5.13.3 同名方法（本类 openPackedObject → 递归 alternates → we() 重扫）
+abcd/GG	openLooseFromSelfOrAlternate	3.7.1 / 5.13.3 同名方法（本类 openLooseObject → 递归 alternates）
+abcd/GG	hasPackedInSelfOrAlternate	3.7.1 ObjectDirectory 同名 private 方法（hasPackedObject → alternates → searchPacksAgain 重试）
+abcd/GG	hasLooseInSelfOrAlternate	3.7.1 ObjectDirectory 同名 private 方法（String 版：hasLooseObject → alternates）
+abcd/GG	hasLooseObject	AIDE 把 hasLooseInSelfOrAlternate 的 self 部分抽成独立抽象（XG=fileFor(name).exists()，DG=unpackedObjects.contains），与 hasPackedObject 对称命名
+abcd/XG	hasLooseObject	同上（XG 实现体为 fileFor(String).exists()）
+abcd/DG	hasLooseObject	同上（DG 实现体为 unpackedObjects.contains(ObjectId.fromString(name))）
+abcd/XG	scanCachedPacks	AIDE 自有的 objects/pack/cached-packs 索引解析（入参 XG$a=FileSnapshot+字节+LocalCachedPack 列表，未变则复用）；3.7.1 无此特性
+# —— 第三批内部方法（对象库/打包/传输/合并/重放 的内部实现，签名按 AIDE 改写）——
+abcd/IJ	parseWants	3.7.1 parseWants() 无参（内部读 wantIds）；AIDE 改成 parseWants(Set<RevObject>) 直接 markStart 提交，其余分支（wantNotValid/revWalk.reset）与 3.7.1 同
+abcd/LH	newObjectToPack	3.7.1 newObjectToPack(AnyObjectId,int)；AIDE 接口为单参 newObjectToPack(RevObject)
+abcd/LH	getCachedPacks	3.7.1 为 getCachedPacksAndUpdate(BitmapBuilder)；AIDE 无参版，wH 实现委托 odb.getCachedPacks
+abcd/wH	getCachedPacks	同上（WindowCursor 实现：return odb.getCachedPacks()）
+abcd/SI	updateRef	3.7.1 用 BatchRefUpdate.execute；AIDE 保留旧式逐条 updateRef(ReceiveCommand)，reportStatus 分支同 3.7.1 sendStatusReport
+abcd/TH	addCachedPack	AIDE 自有 cached-pack 复用：把 CachedPack 加入 cachedPacks、枚举其对象进 have 列表并 markStart/markUninteresting（3.7.1 无此方法）
+abcd/TH	isCachedPackReusable	同上：校验 CachedPack 的所有对象在 walk 中都带指定 RevFlag
+abcd/WF	create	3.7.1 create(String,DiffConfig)；AIDE 只取 path（DiffConfig 由调用方另设）
+abcd/ZA	createTemporaryIndex	3.7.1 createTemporaryIndex(ObjectId,DirCache,...) 多参；AIDE 两参 (headId,index)
+abcd/ZA	processOptions	3.7.1 processOptions(RepositoryState,RevWalk)；AIDE 去掉 RevWalk 参数
+abcd/tB	readTodoList	AIDE 自己解析 git-rebase-todo（3.7.1 走 Repository.readRebaseTodo）
+abcd/tB	checkoutCommit	3.7.1 checkoutCommit(String,RevCommit)；AIDE 单参（headName 取字段）
+abcd/tB	stop	3.7.1 stop(RevCommit,Status)；AIDE 固定 STOPPED（new RebaseResult(commit)）
+abcd/tB	updateHead	3.7.1 updateHead(String,RevCommit,RevCommit)；AIDE 去掉 onto 参数
+abcd/xF	add	3.7.1 add(byte[],CanonicalTreeParser,int,long,long)；AIDE 3 参（lastMod/len 由调用方置默认）
+abcd/xF	updateIndex	3.7.1 updateIndex(base,ours,theirs,result) 内部算 mergedFile；AIDE 把 File 作为参数传入
+abcd/xF	mkdirs	3.7.1 在 writeMergedFile 内联 parentFolder.mkdirs()；AIDE 抽成 mkdirs(File)，失败抛 cannotCreateDirectory
+abcd/IH	search	AIDE 把 DeltaWindow.search() 改成 search(ProgressMonitor,ObjectToPack[],int,int)（带切片区间）
+abcd/IH	next	环形窗口下标后继：i+1==toSearch.length ? 0 : i+1
+abcd/IH	prev	环形窗口下标前驱：i==0 ? length-1 : i-1
+abcd/IH	advanceCur	cur = next(cur)（3.7.1 是 toSearch[cur++] 线性推进，无此方法）
+abcd/IH	delta	3.7.1 delta(DeltaWindowEntry) 返回 boolean；AIDE 带 src 下标并返回 int 码（NEXT_RES=0/NEXT_SRC=1）
+abcd/IH	deltaSizeLimit	3.7.1 deltaSizeLimit(src) 用实例字段；AIDE 改成静态 deltaSizeLimit(res,int bestLen,src)
+abcd/IH	selectDeltaBase	3.7.1 selectDeltaBase(src,delta) 只记录；AIDE 返回 boolean 并比较新旧 delta 长度/深度决定是否替换
+abcd/aH	endWindowCache	PackFile 的引用计数递减方法（--useCount，归零则 doClose 并返回 true）；3.7.1 无 begin/endWindowCache，名字取 4.11.9 的 endWindowCache(boolean)
