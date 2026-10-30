@@ -1,0 +1,22 @@
+{
+  "name": "aide-pro-jgit",
+  "root": "..",
+  "probe_prefix": "abcd",
+  "probe_dir": "src/smali/abcd",
+  "smali_index": "process/truth/smali_index.tsv",
+  "class_map": "process/truth/jgit_map_clean.tsv",
+  "member_map": "process/truth/jgit_members_clean.tsrg",
+  "head": "process/truth/mappings_head.txt",
+  "out_tsrg": "process/mappings.txt",
+  "allow": "process/verify_allow.tsv",
+  "base_jars": ["process/base/merged_ok.jar"],
+  "input_jars": ["process/src/classes.jar", "process/src/classes2.jar", "process/src/classes3.jar",
+                 "process/src/classes4.jar", "process/src/classes5.jar", "process/src/zh.jar",
+                 "process/src/en.jar", "process/src/ndk.jar", "process/src/packagingservice.jar"],
+  "oracle_jars": [
+    {"label": "jgit-3.7.1", "path": "$HOME/out/oracle/jgit/j-3.7.1.201504261725-r.jar"},
+    {"label": "jgit-4.11.9", "path": "$HOME/out/oracle/jgit/j-4.11.9.201909030838-r.jar"},
+    {"label": "jgit-5.13.3", "path": "$HOME/out/oracle/jgit/org.eclipse.jgit-5.13.3.202401111512-r.jar"}
+  ],
+  "out_dir": "out"
+}

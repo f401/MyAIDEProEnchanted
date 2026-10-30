@@ -3,6 +3,8 @@
 把 AIDE Pro 里被混淆成 `abcd/*` 的 jgit（3.7.1 为基，混有 4.x/5.x 与 AIDE 自改）还原成真实类名/成员名。
 
 ```
+通用能力已抽到 tools/deob/（配置驱动，给下一个工程用）；本目录是**本项目**的专用脚本。
+
 tools/jgit/
 ├── paths.py / probelib.py / jvmbody.py / dexlib.py   共享底座（路径、成员清单、class/dex 解析）
 ├── pipeline/  改映射与构建（rebuild_tsrg / emit_tsrg2 / mapfix / tsvfix / validate_mappings /
