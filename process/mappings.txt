@@ -5915,6 +5915,23 @@ abcd/xF org/eclipse/jgit/merge/ResolveMerger
 	Zo ()Z failed
 	u7 tw
 	XL failingPaths
+	DW (I)Z nonTree
+		static
+	j6 (I)Z isGitLink
+	j6 (Labcd/yE;Labcd/UE;)Labcd/tC; getRawText
+		static
+	j6 (Labcd/UJ;Labcd/UJ;Labcd/UJ;Labcd/LC;Labcd/_J;)Z processEntry
+	EQ ()V cleanUp
+	we ()Z mergeImpl
+	tp ()V checkout
+	VH ()Ljava/util/Map; getFailingPaths
+	gn ()Ljava/util/Map; getMergeResults
+	u7 ()Ljava/util/List; getModifiedFiles
+	J0 modifiedFiles
+	J8 toBeDeleted
+	Mr inCore
+	Ws toBeCheckedOut
+	QX mergeResults
 abcd/xF$a org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason
 	<init> (Ljava/lang/String;I)V <init>
 	Hw $VALUES

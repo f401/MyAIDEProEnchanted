@@ -64,3 +64,4 @@ abcd/dB	callable	AIDE 的 GitCommand.callable 是普通 boolean（oracle 3.7.1/4
 abcd/OH	objectHeader	AIDE 版 objectHeader(int type,long len) 用字段 headerBuffer，3.7.1 是 static objectHeader(long,int,byte[])
 abcd/OH	getCRC	3.7.1 无该方法（CRC 只写不读），AIDE 版把 crc32.getValue() 暴露为 getCRC
 abcd/OH	resetCRC	3.7.1 在 writeHeader 里内联 crc32.reset()，AIDE 版抽成 resetCRC()
+abcd/xF	processEntry	AIDE 的 processEntry 是 5 参（3 树 + DirCacheBuildIterator + WorkingTreeIterator），3.7.1 末尾多一个 boolean
