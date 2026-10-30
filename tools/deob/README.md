@@ -17,18 +17,18 @@ python3 tools/deob/cli.py -p jobs/mylib/deob.json status  # 写入目标是否�
 ## 快速开始
 
 ```bash
-# 1) 写一份工程配置（示例见仓库 process/deob.json）
+# 1) 写一份工程配置（示例见仓库 jobs/jgit/deob.json）
 cat > myjob/deob.json <<'JSON'
 {
   "name": "myjob",
   "root": "..",
   "probe_prefix": "abcd",
   "probe_dir": "src/smali/abcd",
-  "smali_index": "process/truth/smali_index.tsv",
-  "class_map": "process/truth/class_map.tsv",
-  "member_map": "process/truth/members.tsrg",
-  "head": "process/truth/mappings_head.txt",
-  "out_tsrg": "process/mappings.txt",
+  "smali_index": "jobs/jgit/truth/smali_index.tsv",
+  "class_map": "jobs/jgit/truth/class_map.tsv",
+  "member_map": "jobs/jgit/truth/members.tsrg",
+  "head": "jobs/jgit/truth/mappings_head.txt",
+  "out_tsrg": "jobs/jgit/mappings.txt",
   "base_jars": ["process/base/merged.jar"],
   "input_jars": ["process/src/classes.jar"],
   "oracle_jars": [{"label": "v1", "path": "$HOME/oracle/v1.jar"}]

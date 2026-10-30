@@ -6,7 +6,7 @@
 tools/
 ├── deob/               通用反混淆工具链（配置驱动，新工程用这个；见 docs/GENERIC-TOOLS.md）
 ├── jgit/               本项目专用
-│   ├── paths.py            路径解析（process/truth 优先，回退 $HOME）
+│   ├── paths.py            路径解析（jobs/jgit/truth 优先，回退 $HOME）
 │   ├── probelib.py         smali/oracle 成员清单、描述符归一化、多版本 Oracle
 │   ├── jvmbody.py          class 解析 + 方法体特征
 │   ├── dexlib.py           最小 DEX 解析
@@ -31,14 +31,14 @@ tools/
 
 | 工具 | 作用 |
 |---|---|
-| `rebuild_tsrg.py` | **tsv/tsrg → `process/mappings.txt`**（类块顺序按 tsv；丢陈旧块、去重成员、查类目标重复） |
+| `rebuild_tsrg.py` | **tsv/tsrg → `jobs/jgit/mappings.txt`**（类块顺序按 tsv；丢陈旧块、去重成员、查类目标重复） |
 | `emit_tsrg2.py` | 单独重排/补 static 标记输出 TSRG2（`\t\tstatic` 必须紧跟**方法**行） |
 | `sync_maps.py` | 只重建 jgit 块、保留头部 |
 | `mapfix.py` | 声明式改**成员**映射（`探针 m/f 名 描述符 旧 新`，`-` 表空/删；同类互换安全） |
 | `tsvfix.py` | 声明式改**类**映射 |
 | `filter_head.py` | 清理 `mappings_head.txt` 中“已应用/不存在”的块与行 |
 | `validate_mappings.py` | **有效性**：类/成员是否存在、static 标记、类/成员目标重复、新名合法。期望 `✔ 无无效映射`（无需参数） |
-| `verify_members.py` | **一致性**：对着 oracle 校验名字+描述符（含 `process/verify_allow.tsv` 白名单）。期望 `不一致 0` |
+| `verify_members.py` | **一致性**：对着 oracle 校验名字+描述符（含 `jobs/jgit/verify_allow.tsv` 白名单）。期望 `不一致 0` |
 | `inherit_check.py` | **继承闭合**：`CONFLICT 0 / MISSING 0` |
 | `pkgclose.py` | **包归属**：并查集 + 不动点求每类该在哪个包；`--apply` 迭代到 0 |
 | `widen_access.py` | **跨包 access 放宽**（成员/类 → public，同签名虚方法 → protected）；`--report` 只看，`--map` 用于 FART 前 |

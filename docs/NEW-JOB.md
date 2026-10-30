@@ -91,7 +91,7 @@ java -jar process/ForgeAutoRenamingTool-1.0.8-all.jar \
 ## 7. 自检：这套路径还能用吗
 
 ```bash
-python3 tools/deob/selftest.py -p process/deob.json
+python3 tools/deob/selftest.py -p jobs/jgit/deob.json
 # PASS emit / validate / inherit / pkgs / cover / shape / q / index-fallback / isolation
 ```
 

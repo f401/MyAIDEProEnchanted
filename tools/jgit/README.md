@@ -25,9 +25,9 @@ tools/jgit/
 
 | 路径 | 内容 |
 |---|---|
-| `process/truth/jgit_map_clean.tsv` | **类映射唯一真相**（740 行），`探针<TAB>目标<TAB>证据` |
-| `process/truth/jgit_members_clean.tsrg` | 成员映射（5514 行），类行 `abcd/X 目标`，成员行 TAB 缩进 |
-| `process/truth/mappings_head.txt` | AIDE 侧改名块（TSRG2 头 20 行，**不含 jgit**） |
+| `jobs/jgit/truth/class_map.tsv` | **类映射唯一真相**（740 行），`探针<TAB>目标<TAB>证据` |
+| `jobs/jgit/truth/members.tsrg` | 成员映射（5514 行），类行 `abcd/X 目标`，成员行 TAB 缩进 |
+| `jobs/jgit/truth/mappings_head.txt` | AIDE 侧改名块（TSRG2 头 20 行，**不含 jgit**） |
 | `~/out/oracle/jgit/` | 官方 jgit jar：3.7.1 / 4.0.0 / 4.2.0 / 4.4.1 / 4.5.0 / 4.5.7 / 4.9.10 / 4.10.0 / 4.11.9 / 5.6.1 / 5.13.3（判据来源） |
 | `~/src/jgit/` | jgit 3.7.1 源码（`jgit-src.jar` 解出） |
 | `~/src/app_decomp/sources/abcd/*.java` | jadx 反编译的探针源码（辅助读码） |
@@ -35,6 +35,6 @@ tools/jgit/
 | `process/base/merged_pub.jar` | `widen_access.py` 产物（跨包 package-private 已放宽） |
 | `process/src/classes{,2,3,4,5}.jar` + `{en,zh,ndk,packagingservice}.jar` | 逐 dex 的 dex2jar 产物（FART 的 `--input`） |
 | `~/icd/orig/classes*.dex` | 原始 5 个 dex（dex 元数据来源） |
-| `src/smali/abcd/` | 探针 smali（文件名不可信，**必须查 `process/truth/smali_index.tsv`**） |
+| `src/smali/abcd/` | 探针 smali（文件名不可信，**必须查 `jobs/jgit/truth/smali_index.tsv`**） |
 
-当前产物：`process/mappings.txt`（TSRG2，6804 行 = 头 20 + jgit 6254）。
+当前产物：`jobs/jgit/mappings.txt`（TSRG2，6804 行 = 头 20 + jgit 6254）。

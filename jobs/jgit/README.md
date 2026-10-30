@@ -1,40 +1,43 @@
-# process — jgit 改名（TSRG2 + ForgeAutoRenamingTool）
+# jobs/jgit —— jgit 改名工程（本仓库已完成的那一个）
 
 ```
-process/
-├── truth/                           # ★ 唯一真相（已入库）
-│   ├── jgit_map_clean.tsv           #   类映射（探针 → 目标 + 证据）
-│   ├── jgit_members_clean.tsrg      #   成员映射（TSRG 块）
-│   ├── mappings_head.txt            #   TSRG2 头部（AIDE 侧改名 20 行）
-│   └── smali_index.tsv              #   类 → smali 真实文件名（大小写不敏感 FS 必须用）
-├── mappings.txt                     # TSRG2 改名表（由 truth/ 派生，别手改）
-├── verify_allow.tsv                 # 已知差异白名单（每行都要写理由）
-├── SHA256SUMS                       # 输入/工具指纹（sha256sum -c 可用）
-├── base/merged_ok.jar               # ★ 改名输入基线
-├── base/merged_pub.jar              # widen_access 产物（跨包 package-private 已放宽）
-├── src/classes{,2,3,4,5}.jar        # 5 个 dex 的 dex2jar 产物
+jobs/jgit/                          ← 本工程（真相 + 产物，全部自包含）
+├── deob.json                       # 通用 kit 的工程配置（deob cli 用它）
+├── truth/                          # ★ 唯一真相（已入库）
+│   ├── class_map.tsv               #   类映射（探针 → 目标 + 证据）
+│   ├── members.tsrg                #   成员映射（TSRG 块）
+│   ├── mappings_head.txt           #   TSRG2 头部（AIDE 侧改名 20 行）
+│   └── smali_index.tsv             #   类 → smali 真实文件名（大小写不敏感 FS 必须用）
+├── mappings.txt                    # TSRG2 产物（由 truth/ 派生，别手改）
+└── verify_allow.tsv                # 已知差异白名单（每行都要写理由）
+
+process/                            ← 构建输入（只读，不属于任何 job）
+├── base/merged_ok.jar              # ★ 改名输入基线
+├── base/merged_pub.jar             # widen_access 产物（跨包 package-private 已放宽）
+├── src/classes{,2,3,4,5}.jar       # 5 个 dex 的 dex2jar 产物
 ├── src/{en,zh,ndk,packagingservice}.jar
 ├── ForgeAutoRenamingTool-1.0.8-all.jar
-├── d8.jar / android.jar             # D8 与 API stub
-├── run.sh                           # 逐 jar + --lib 的历史流程
-└── output/                          # 历史产物（.gitignore）
+├── d8.jar / android.jar            # D8 与 API stub
+├── SHA256SUMS                      # 输入/工具指纹
+├── run.sh                          # 逐 jar + --lib 的历史流程
+└── output/                         # 历史产物（.gitignore）
 ```
 
 ## 1. mappings.txt 格式（TSRG2）
 
 ```
-tsrg2 left right                                  ← 表头（必须第一行）
+tsrg2 obf deobf                                   ← 表头（必须第一行）
 <混淆名> <真名>                                    ← 类行，顶格
 	<旧成员名> <描述符> <新成员名>                     ← 方法行，1 个 TAB
 		<参数序号> <新参数名>                          ← 参数名（可选），2 个 TAB
 	<旧字段名> <新字段名>                              ← 字段行，1 个 TAB
-		\tstatic                                    ← 静态**方法**的标记：单独一行、2 个 TAB
+		static                                    ← 静态**方法**的标记：单独一行、2 个 TAB
 ```
 
 三条纪律：
 
-1. **不要手改**：唯一真相是 `process/truth/jgit_map_clean.tsv`（类）与
-   `process/truth/jgit_members_clean.tsrg`（成员），改完跑 `tools/jgit/pipeline/rebuild_tsrg.py`。
+1. **不要手改**：唯一真相是 `jobs/jgit/truth/class_map.tsv`（类）与
+   `jobs/jgit/truth/members.tsrg`（成员），改完跑 `tools/jgit/pipeline/rebuild_tsrg.py`。
 2. **不许有重复目标**：类级重复会被 `rebuild_tsrg.py` 直接中止；成员级重复（同类内新名+描述符相同）
    会让 D8 报 `multiple definitions` 并任选一份丢弃。两道都靠 `validate_mappings.py` 兜。
 3. **static 标记只对方法有效**，跟在字段行后会报 `Invalid TSRG v2 line`。

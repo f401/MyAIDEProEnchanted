@@ -23,7 +23,7 @@ out/               中间产物（jar、dex、日志）
 
 ```bash
 # 1) 改 mapping（唯一真相是 tsv，不要手改 mappings.txt）
-python3 tools/jgit/pipeline/rebuild_tsrg.py          # tsv → tsrg → process/mappings.txt
+python3 tools/jgit/pipeline/rebuild_tsrg.py          # tsv → tsrg → jobs/jgit/mappings.txt
 # 2) 认证
 python3 tools/jgit/pipeline/validate_mappings.py     # 期望 ✔ 无无效映射
 python3 tools/jgit/pipeline/verify_members.py        # 期望 不一致 0
@@ -45,5 +45,5 @@ python3 tools/jgit/pipeline/inherit_check.py         # 期望 CONFLICT 0 / MISSI
 
 见 [docs/README.md](docs/README.md)。
 
-> ⚠️ `process/mappings.txt` 是派生产物；唯一真相是 `process/truth/jgit_map_clean.tsv`（类名）与
-> `process/truth/jgit_members_clean.tsrg`（成员）。改完必须跑 `rebuild_tsrg.py` 再跑认证。
+> ⚠️ `jobs/jgit/mappings.txt` 是派生产物；唯一真相是 `jobs/jgit/truth/class_map.tsv`（类名）与
+> `jobs/jgit/truth/members.tsrg`（成员）。改完必须跑 `rebuild_tsrg.py` 再跑认证。

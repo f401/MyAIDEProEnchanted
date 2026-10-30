@@ -18,7 +18,7 @@ TSV = _P.MAP
 TSRG_IN = _P.TSRG
 TSRG_OUT = _P.TSRG
 HEAD = _P.HEAD
-MAPS = '/storage/emulated/0/MyAIDEProEnchanted/process/mappings.txt'
+MAPS = _P.MAPPINGS
 
 # 1. 读旧 tsrg 块
 blocks = {}

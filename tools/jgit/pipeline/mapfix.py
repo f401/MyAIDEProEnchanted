@@ -7,7 +7,7 @@ for _sub in ('pipeline','naming','audit','inspect','stage','deob'):
     if _os.path.isdir(_p) and _p not in _sys.path:
         _sys.path.append(_p)
 import paths as _P  # noqa: E402
-"""mapfix.py — 声明式修成员映射（改 jgit_members_clean.tsrg）。
+"""mapfix.py — 声明式修成员映射（改 jobs/jgit/truth/members.tsrg）。
 
 每条编辑: probe ␉ m|f ␉ name ␉ desc ␉ old ␉ new      （字段描述符写 -，old/new 写 - 表示空）
 - 期望旧目标不匹配则 SKIP（防止表过期后误改）

@@ -80,10 +80,15 @@ def main():
 
     # 2) 新配置：新目录、无 head、无 smali_index（考验回退）
     cfg = dict(P.raw)
-    cfg.pop('head', None)
-    cfg.pop('smali_index', None)
+    cfg.pop('head', None)          # 新工程常常没有头部
+    cfg['smali_index'] = P.smali_index   # 大小写不敏感 FS 上必须有索引
     cfg['name'] = 'selftest'
     cfg['root'] = '../..'
+    # 只读输入一律用**绝对路径**（子集配置放在别的目录，相对路径会指向错地方）
+    cfg['probe_dir'] = P.probe_dir
+    cfg['base_jars'] = list(P.base_jars)
+    cfg['input_jars'] = list(P.input_jars)
+    cfg['oracle_jars'] = [{'label': l, 'path': p} for l, p in P.oracle_jars]
     cfg['class_map'] = 'out/selftest/truth/class_map.tsv'
     cfg['member_map'] = 'out/selftest/truth/members.tsrg'
     cfg['out_tsrg'] = 'out/selftest/mappings.txt'

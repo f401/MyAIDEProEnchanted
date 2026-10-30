@@ -6,21 +6,21 @@
 ## 铁律
 
 1. **唯一真相是两张表**，不要手改产物：
-   - 类名：`process/truth/jgit_map_clean.tsv`（`探针 <TAB> 目标 <TAB> 证据`）
-   - 成员：`process/truth/jgit_members_clean.tsrg`（TSRG 块）
-   - 派生产物：`process/mappings.txt`（TSRG2，FART 消费；用 `tools/jgit/pipeline/rebuild_tsrg.py` 生成）
+   - 类名：`jobs/jgit/truth/class_map.tsv`（`探针 <TAB> 目标 <TAB> 证据`）
+   - 成员：`jobs/jgit/truth/members.tsrg`（TSRG 块）
+   - 派生产物：`jobs/jgit/mappings.txt`（TSRG2，FART 消费；用 `tools/jgit/pipeline/rebuild_tsrg.py` 生成）
 2. **改完必须过认证流水线**（[docs/VERIFY.md](docs/VERIFY.md)）：validate / verify / inherit /
    pkgclose 全绿，`widen_access` 无遗漏，才允许构建。
 3. **覆写家族必须同名**；第三方接口（jsch 等）要么双侧一起改，要么都不改。
 4. 拿不准的身份**不要瞎猜**：留在 `abcd` 并标 `place:`；确认是 AIDE 自有的放 `abcd/aide/`。
-5. 任何一条白名单（`process/verify_allow.tsv`）都要写清“3.7.1 里是什么 / AIDE 改成什么”。
+5. 任何一条白名单（`jobs/jgit/verify_allow.tsv`）都要写清“3.7.1 里是什么 / AIDE 改成什么”。
 
 ## 标准流程
 
 ```bash
 python3 tools/jgit/pipeline/filter_head.py --apply     # 头部死块清理
-python3 tools/jgit/pipeline/rebuild_tsrg.py            # tsv/tsrg → process/mappings.txt（块顺序/去重）
-python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 补 TSRG2 的 `\t\tstatic` 标记
+python3 tools/jgit/pipeline/rebuild_tsrg.py            # tsv/tsrg → jobs/jgit/mappings.txt（块顺序/去重）
+python3 tools/jgit/pipeline/emit_tsrg2.py jobs/jgit/mappings.txt   # 补 TSRG2 的 `\t\tstatic` 标记
 python3 tools/jgit/pipeline/validate_mappings.py       # ✔ 无无效映射
 python3 tools/jgit/pipeline/verify_members.py          # 不一致 0
 python3 tools/jgit/pipeline/inherit_check.py           # CONFLICT 0 / MISSING 0

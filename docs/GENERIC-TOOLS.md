@@ -17,9 +17,9 @@
 ## 使用
 
 ```bash
-python3 tools/deob/cli.py -p process/deob.json validate
-python3 tools/deob/cli.py -p process/deob.json shape abcd/Zw      # 跨 3.7.1/4.11.9/5.13.3 找形状
-python3 tools/deob/cli.py -p process/deob.json widen process/base/merged_ok.jar --apply
+python3 tools/deob/cli.py -p jobs/jgit/deob.json validate
+python3 tools/deob/cli.py -p jobs/jgit/deob.json shape abcd/Zw      # 跨 3.7.1/4.11.9/5.13.3 找形状
+python3 tools/deob/cli.py -p jobs/jgit/deob.json widen process/base/merged_ok.jar --apply
 ```
 
 命令清单见 `tools/deob/README.md`；配置字段见 `tools/deob/config.py` 顶部注释。
