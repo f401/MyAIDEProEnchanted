@@ -105,7 +105,11 @@ for l in open(TSRG):
             elif (cur,new2) in ALLOW: allow.append((cur,norm(ds),new2,ALLOW[(cur,new2)]))
             else: bad.append((cur,new,'method',nm,norm(ds),new2))
         elif r is None: unk+=1
-susp=[x for x in NOT_IN_ORACLE if not re.search(r'\$\d+$',x[1]) and not x[1].startswith('com/jcraft') and (x[0],x[1]) not in ALLOW]
+susp=[x for x in NOT_IN_ORACLE
+      if not re.search(r'\$\d+$', x[1])                      # 匿名类编号占位
+      and not x[1].startswith('com/jcraft')                   # 第三方保留原名
+      and not x[1].startswith('abcd/')                        # 已判定非 jgit：搬回原包、不改名
+      and (x[0], x[1]) not in ALLOW]
 print('目标类不在 oracle（多为匿名类占位名，正常）%d 条；其中非 $数字 结尾、需人工确认 %d 条' % (len(NOT_IN_ORACLE), len(susp)))
 for x in susp[:10]: print('   ', x)
 try:
