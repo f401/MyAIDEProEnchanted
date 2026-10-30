@@ -96,3 +96,23 @@ abcd/tB	readFile	3.7.1 在 RebaseCommand$RebaseState.readFile(File,String) stati
 abcd/tB	createFile	3.7.1 在 RebaseState.createFile；body FileOutputStream+getBytes("UTF-8")+write('\n') 一致
 abcd/bB	removeDeletedRefs	3.7.1 是 Boolean（三态：null=默认true），AIDE 版改成 primitive boolean（call() 直接传给 Transport.setRemoveDeletedRefs(Z)）
 abcd/GG	searchPacksAgain	3.7.1 声明在 ObjectDirectory，AIDE 提升到 FileObjectDatabase（GG）；body 与 ObjectDirectory.searchPacksAgain 一致
+abcd/AE	access$300	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/MK	access$700	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/MK	access$800	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/MK	access$900	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/MK	access$1000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/MK	access$1100	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/MK	access$1200	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/MK	access$1300	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/MK	access$1400	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/MK	access$1500	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/SI	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/SI	access$100	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/TH$a	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/WG	access$200	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/lK	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/lK	access$100	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/sC$a	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/xJ$d	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/zJ$c	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/zJ$d	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可

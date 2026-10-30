@@ -202,6 +202,10 @@ abcd/AE org/eclipse/jgit/lib/ObjectIdOwnerMap
 	Hw bits
 	v5 mask
 	clear ()V clear
+	FH (Labcd/AE;)I access$200
+		static
+	j6 (Labcd/AE;)I access$300
+		static
 abcd/AE$a org/eclipse/jgit/lib/ObjectIdOwnerMap$Entry
 	tp next
 abcd/AF org/eclipse/jgit/merge/StrategySimpleTwoWayInCore
@@ -392,7 +396,14 @@ abcd/AK org/eclipse/jgit/util/HttpSupport
 		static
 	j6 (Ljava/lang/StringBuilder;Ljava/lang/String;)V encode
 		static
-abcd/BB org/eclipse/jgit/api/StatusCommand$1
+abcd/BB org/eclipse/jgit/api/Status
+	DW ()Ljava/util/Set; getChanged
+	FH ()Ljava/util/Set; getRemoved
+	Hw ()Ljava/util/Set; getConflicting
+	VH ()Ljava/util/Set; getUntracked
+	Zo ()Ljava/util/Set; getMissing
+	j6 ()Ljava/util/Set; getAdded
+	v5 ()Ljava/util/Set; getModified
 abcd/BC org/eclipse/jgit/diff/RenameDetector
 	DW ()Ljava/util/List; compute
 	v5 ()V reset
@@ -551,6 +562,7 @@ abcd/CK org/eclipse/jgit/util/IntList
 	j6 (II)V set
 	DW (II)V fillTo
 	toString ()Ljava/lang/String; toString
+	j6 ()V clear
 abcd/DB org/eclipse/jgit/api/SubmoduleInitCommand
 	FH paths
 	call ()Ljava/util/Collection; call
@@ -654,6 +666,7 @@ abcd/DK org/eclipse/jgit/util/LongList
 	j6 (J)V add
 	DW ()V grow
 	toString ()Ljava/lang/String; toString
+	j6 ()V clear
 abcd/EB org/eclipse/jgit/api/SubmoduleStatusCommand
 	j6 (Labcd/YH;)Labcd/WH; getStatus
 	FH paths
@@ -753,6 +766,7 @@ abcd/EI org/eclipse/jgit/transport/PacketLineOut
 	j6 (Z)V setFlushOnEnd
 	j6 ([B)V writePacket
 	DW ()V flush
+	j6 ()V end
 abcd/EJ org/eclipse/jgit/transport/TransportSftp$1
 	v5 ()Ljava/util/Set; getSchemes
 	DW ()Ljava/lang/String; getName
@@ -1344,6 +1358,7 @@ abcd/KD org/eclipse/jgit/events/RepositoryEvent
 	j6 ()Ljava/lang/Class; getListenerType
 	j6 (Labcd/UE;)V setRepository
 	toString ()Ljava/lang/String; toString
+	j6 (Labcd/LD;)V dispatch
 abcd/KE org/eclipse/jgit/lib/PersonIdent
 	j6 (Ljava/lang/StringBuilder;)V appendTimezone
 	FH ()Ljava/util/TimeZone; getTimeZone
@@ -1553,6 +1568,24 @@ abcd/MK org/eclipse/jgit/util/RefMap
 	DW packed
 	FH loose
 	Hw resolved
+	DW (Labcd/MK;Labcd/KK;)V access$700
+		static
+	FH (Labcd/MK;)Labcd/KK; access$800
+		static
+	FH (Labcd/MK;Labcd/KK;)V access$900
+		static
+	Hw (Labcd/MK;)Labcd/KK; access$1000
+		static
+	j6 (Labcd/MK;)I access$1100
+		static
+	j6 (Labcd/MK;I)V access$1200
+		static
+	j6 (Labcd/MK;Labcd/KK;)V access$1300
+		static
+	j6 (Labcd/MK;Z)V access$1400
+		static
+	v5 (Labcd/MK;)Labcd/KK; access$1500
+		static
 abcd/MK$a org/eclipse/jgit/util/RefMap$Ent
 	toString ()Ljava/lang/String; toString
 	equals (Ljava/lang/Object;)Z equals
@@ -2344,6 +2377,10 @@ abcd/SI org/eclipse/jgit/transport/BaseReceivePack
 	ei reportStatus
 	j6 (ZLabcd/SI$b;)V sendStatusReport
 	P8 unpackError
+	DW (Labcd/SI;)Ljava/io/OutputStream; access$000
+		static
+	j6 (Labcd/SI;)Labcd/EI; access$100
+		static
 abcd/SI$a org/eclipse/jgit/transport/BaseReceivePack$ReceiveConfig
 	<init> (Labcd/gE;)V <init>
 	j6 KEY
@@ -2509,6 +2546,8 @@ abcd/TH org/eclipse/jgit/internal/storage/pack/PackWriter
 		static
 	FH $SWITCH_TABLE$org$eclipse$jgit$internal$storage$pack$PackWriter$PackingPhase
 abcd/TH$a org/eclipse/jgit/internal/storage/pack/PackWriter$1
+	j6 (Labcd/TH$a;Labcd/TH$b;)V access$000
+		static
 abcd/TH$b org/eclipse/jgit/internal/storage/pack/PackWriter$PackingPhase
 	<init> (Ljava/lang/String;I)V <init>
 	Zo $VALUES
@@ -2854,6 +2893,8 @@ abcd/WG org/eclipse/jgit/internal/storage/file/LockFile
 	Hw haveLck
 	Zo needSnapshot
 	VH ()Z deleteRef
+	j6 (Labcd/WG;Ljava/io/FileOutputStream;)V access$200
+		static
 abcd/WH org/eclipse/jgit/submodule/SubmoduleStatus
 	j6 ()Ljava/lang/String; getPath
 	DW path
@@ -3945,6 +3986,8 @@ abcd/dG org/eclipse/jgit/revwalk/RevCommit
 	Mr ()Labcd/KE; getAuthorIdent
 	gW ()V reset
 	j3 ()V disposeBody
+	DW (Labcd/qG;)V parseHeaders
+	j6 (Labcd/qG;)V parseBody
 abcd/dH org/eclipse/jgit/internal/storage/file/PackIndexV1
 	FH ()Z hasCRC32Support
 	j6 (J)Labcd/yE; getObjectId
@@ -4606,6 +4649,7 @@ abcd/iG org/eclipse/jgit/revwalk/RevObject
 	j6 (Ljava/lang/StringBuilder;)V appendCoreFlags
 	getId ()Labcd/yE; getId
 	toString ()Ljava/lang/String; toString
+	j6 (Labcd/fG;)V add
 abcd/iI org/eclipse/jgit/transport/Connection
 	close ()V close
 	DW ()Ljava/util/Collection; getRefs
@@ -4984,6 +5028,10 @@ abcd/lK org/eclipse/jgit/util/BlockList
 	gn (I)I toBlockIndex
 		static
 	u7 (I)I toDirectoryIndex
+		static
+	Zo (I)I access$000
+		static
+	v5 (I)I access$100
 		static
 abcd/lK$a org/eclipse/jgit/util/BlockList$MyIterator
 	Hw block
@@ -5569,6 +5617,8 @@ abcd/sC$a org/eclipse/jgit/diff/MyersDiff$MiddleEdit
 	Hw endA
 	v5 beginB
 	Zo endB
+	j6 (Labcd/sC$a;)Labcd/sC; access$000
+		static
 abcd/sC$a$a org/eclipse/jgit/diff/MyersDiff$MiddleEdit$BackwardEditPaths
 	DW (I)I getLeft
 	FH (I)I getRight
@@ -5768,6 +5818,8 @@ abcd/tC org/eclipse/jgit/diff/RawText
 	DW ()Z isMissingNewlineAtEnd
 	j6 ()I size
 	j6 (Ljava/io/OutputStream;I)V writeLine
+	DW (I)I getStart
+	j6 (I)I getEnd
 abcd/tD org/eclipse/jgit/errors/StoredObjectRepresentationNotAvailableException
 	<init> (Labcd/MH;)V <init>
 abcd/tE org/eclipse/jgit/internal/storage/file/UnpackedObject$1$1
@@ -6240,6 +6292,8 @@ abcd/xJ$d org/eclipse/jgit/transport/TransportHttp$Service
 	v5 in
 	DW serviceName
 	FH requestType
+	j6 (Labcd/xJ$d;)Labcd/xJ; access$000
+		static
 abcd/xJ$d$b org/eclipse/jgit/transport/TransportHttp$Service$HttpOutputStream
 	Hw ()Ljava/io/OutputStream; overflow
 	Hw this$1
@@ -6459,11 +6513,15 @@ abcd/zJ$c org/eclipse/jgit/transport/TransportLocal$InternalLocalFetchConnection
 	ro worker
 	<init> (Labcd/zJ;)V <init>
 	close ()V close
+	j6 (Labcd/zJ$c;)Labcd/zJ; access$000
+		static
 abcd/zJ$d org/eclipse/jgit/transport/TransportLocal$InternalLocalPushConnection
 	gW this$0
 	yS worker
 	<init> (Labcd/zJ;)V <init>
 	close ()V close
+	j6 (Labcd/zJ$d;)Labcd/zJ; access$000
+		static
 abcd/zK org/eclipse/jgit/util/FileUtils
 	j6 (Ljava/io/File;Z)V mkdir
 		static
@@ -6516,7 +6574,13 @@ abcd/BE$b org/eclipse/jgit/lib/ObjectIdRef$2
 abcd/BE$c org/eclipse/jgit/lib/ObjectIdRef$3
 abcd/EE$a org/eclipse/jgit/lib/ObjectInserter$1
 abcd/FE$a org/eclipse/jgit/lib/ObjectLoader$1
+	DW ()J getSize
+	FH ()I getType
+	Hw ()Z isLarge
+	j6 ()[B getCachedBytes
+	v5 ()Labcd/JE; openStream
 abcd/JE$b org/eclipse/jgit/lib/ObjectStream$1
+	j6 ()J getSize
 abcd/TF$a org/eclipse/jgit/revwalk/DepthWalk$1
 abcd/TI$a org/eclipse/jgit/transport/RefAdvertiser$1
 abcd/zJ$a org/eclipse/jgit/transport/TransportLocal$3
