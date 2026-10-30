@@ -146,13 +146,13 @@ awk '!/^\t/ && NF>=2 {print $2}' process/mappings.txt | sort | uniq -d   # 期�
 
 | 文件 | 内容 |
 |---|---|
-| `~/out/work/jgit_map_clean.tsv` | 类映射 **711** 条（`探针<TAB>目标<TAB>证据`） |
-| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **6180** 行（方法 + 字段，派生文件） |
-| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **7518** 行，共 **7680** 行 |
+| `~/out/work/jgit_map_clean.tsv` | 类映射 **711** 条（`探针<TAB>目标<TAB>证据`；未识别的类用可读的 `Aide*` 自定义名） |
+| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **5514** 行（只放真实改名，恒等行已清） |
+| `process/mappings.txt` | TSRG2 产物 **6775** 行（类块 722 / 成员行 5522，static 标记 961） |
 | `process/base/merged_ok.jar` | **改名输入基线（已入库）** + `process/SHA256SUMS` 指纹 |
 | `process/base/merged_pub.jar` | widen_access 产物：跨包 package-private 已放宽（FART 用这个输入） |
 
-现状：方法 3167/3532 = **89.7%**、字段 1742/1855 = **93.9%**、类 622、完全覆盖类 479。
+现状：方法 3172/3533 = **89.8%**、字段 1741/1855 = **93.9%**、类 623、完全覆盖类 480；`validate_mappings` ✔ 无无效映射，`inherit_check` CONFLICT 0 / MISSING 0。
 第三方包（jsch 等）在 tsv 里直接写全名（`com/jcraft/jsch/UserInfo`），rebuild_tsrg 已支持无 `abcd/` 前缀的探针。
 计数别用 `grep '^[^\t]'`（BRE 里 `\t` 不是 TAB），用 `awk '!/^\t/'`。
 
