@@ -17,7 +17,7 @@ com/aide/ui/build/packagingservice/ExternalPackagingService$b com/aide/ui/build/
 com/aide/ui/build/packagingservice/ExternalPackagingService$e com/aide/ui/build/packagingservice/ExternalPackagingService$ApkArchiveStream
 	FH added
 	j6 (Ljava/lang/String;)Z has
-abcd/vj abcd/AideAssetProvider
+abcd/vj abcd/aide/AssetProvider
 abcd/AB$a org/eclipse/jgit/api/RebaseResult$Status
 	Hw ()Z isSuccessful
 	<init> (Ljava/lang/String;I)V <init>
@@ -6343,7 +6343,7 @@ abcd/_D org/eclipse/jgit/lib/AsyncObjectSizeQueue
 	v5 ()J getSize
 	DW ()Labcd/yE; getCurrent
 	Hw ()Labcd/yE; getObjectId
-abcd/iL abcd/AideCollectionFactory
+abcd/iL abcd/aide/CollectionFactory
 	DW ()Ljava/util/List; newList
 	j6 ()Ljava/util/Map; newMap
 abcd/qF org/eclipse/jgit/merge/MergeChunk
@@ -6568,7 +6568,7 @@ abcd/OG org/eclipse/jgit/internal/storage/file/AidePackedObjectLoader
 	j6 (Labcd/wH;)Ljava/io/InputStream; openStreamInternal
 	j6 (Labcd/OG;)Labcd/GG; getDatabase
 		static
-abcd/Ww abcd/AideHttpConnectionBase
+abcd/Ww abcd/aide/HttpConnectionBase
 	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V configureRequest
 	v5 ()Lorg/apache/http/client/HttpClient; getHttpClient
 abcd/bC org/eclipse/jgit/diff/AideWorkingTreeObjectLoader
@@ -6591,7 +6591,7 @@ abcd/jG org/eclipse/jgit/revwalk/RevObjectList
 	j6 (ILabcd/iG;)V add
 	j6 contents
 	DW size
-abcd/yc abcd/AideTimeProvider
+abcd/yc abcd/aide/TimeProvider
 	DW ()J getTime
 		static
 	j6 (J)J access$002
@@ -6665,7 +6665,7 @@ abcd/WE org/eclipse/jgit/lib/RepositoryCache
 	j6 (Labcd/WE$b;Z)Labcd/UE; open
 		static
 	FH openLocks
-abcd/Hz abcd/AideHttpRequest
+abcd/Hz abcd/aide/HttpRequest
 	QX ()Ljava/net/HttpURLConnection; createConnection
 	XL ()Ljava/net/Proxy; getProxy
 	j6 (Labcd/Hz;)I compareTo
@@ -6681,17 +6681,17 @@ abcd/Hz abcd/AideHttpRequest
 	j6 (Z)Labcd/Hz; setUseCaches
 	tp ()Ljava/net/HttpURLConnection; getConnection
 	we ()Labcd/Hz; setDoOutput
-abcd/Hz$a abcd/AideHttpUploadTask
+abcd/Hz$a abcd/aide/HttpUploadTask
 	j6 ()V close
-abcd/Hz$b abcd/AideHttpConnectionFactory
+abcd/Hz$b abcd/aide/HttpConnectionFactory
 	j6 (Ljava/net/URL;)Ljava/net/HttpURLConnection; create
 	j6 (Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection; create
-abcd/Hz$d abcd/AideHttpTask
+abcd/Hz$d abcd/aide/HttpTask
 	j6 ()V close
 	call ()Ljava/lang/Object; call
-abcd/Hz$e abcd/AideHttpBodyOutputStream
+abcd/Hz$e abcd/aide/HttpBodyOutputStream
 	j6 (Ljava/lang/String;)Labcd/Hz$e; write
-abcd/Gz abcd/AideHttpUpload
+abcd/Gz abcd/aide/HttpUpload
 	DW ()Labcd/Hz; call
 abcd/PC$b org/eclipse/jgit/dircache/DirCacheEditor$PathEdit
 	j6 (Labcd/QC;)V apply
@@ -6717,7 +6717,7 @@ abcd/aE org/eclipse/jgit/lib/AsyncOperation
 	j6 ()V release
 abcd/DD org/eclipse/jgit/events/ConfigChangedListener
 	j6 (Labcd/CD;)V onConfigChanged
-abcd/Zw abcd/AideHttpConnection
+abcd/Zw abcd/aide/HttpConnection
 	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V configureRequest
 	v5 ()Lorg/apache/http/client/HttpClient; getHttpClient
 abcd/GH org/eclipse/jgit/internal/storage/file/AideObjectStream
@@ -6759,17 +6759,46 @@ abcd/rI$b org/eclipse/jgit/transport/HttpAuthMethod$Digest
 abcd/rI$c org/eclipse/jgit/transport/HttpAuthMethod$None
 	j6 (Ljava/lang/String;Ljava/lang/String;)V authorize
 	j6 (Ljava/net/HttpURLConnection;)V configureRequest
-abcd/Tw abcd/AideDefaultHttpClient
-abcd/Uw abcd/AideHttpRequestInterceptor
-abcd/Vw abcd/AideHttpResponseInterceptor
-abcd/Sw abcd/AideConnPerRoute
-abcd/Ww$b abcd/AideConnectionReuseStrategy
-abcd/Ww$c abcd/AideKeepAliveStrategy
-abcd/Dw abcd/AideHttpTransport
-abcd/Dw$b abcd/AideHttpTransportCallback
-abcd/Gw abcd/AideHttpHelper
-abcd/Ez abcd/AideSslSocketFactoryProvider
-abcd/Jz abcd/AideSslSocketFactorySource
-abcd/Sz abcd/AideFabricTask
-abcd/dA abcd/AideFabricRequest
-abcd/jL abcd/AideJsonParser
+abcd/Tw abcd/aide/DefaultHttpClient
+abcd/Uw abcd/aide/HttpRequestInterceptor
+abcd/Vw abcd/aide/HttpResponseInterceptor
+abcd/Sw abcd/aide/ConnPerRoute
+abcd/Ww$b abcd/aide/ConnectionReuseStrategy
+abcd/Ww$c abcd/aide/KeepAliveStrategy
+abcd/Dw abcd/aide/HttpTransport
+abcd/Dw$b abcd/aide/HttpTransportCallback
+abcd/Gw abcd/aide/HttpHelper
+abcd/Ez abcd/aide/SslSocketFactoryProvider
+abcd/Jz abcd/aide/SslSocketFactorySource
+abcd/Sz abcd/aide/FabricTask
+abcd/dA abcd/aide/FabricRequest
+abcd/jL abcd/aide/JsonParser
+abcd/Zw$a abcd/aide/HttpConnection$a
+abcd/Zw$b abcd/aide/HttpConnection$b
+abcd/Ww$a abcd/aide/HttpConnectionBase$a
+abcd/Ww$d abcd/aide/HttpConnectionBase$d
+abcd/Ww$e abcd/aide/HttpConnectionBase$e
+abcd/Hz$c abcd/aide/HttpRequest$c
+abcd/Dw$a abcd/aide/HttpTransport$a
+abcd/Dw$c abcd/aide/HttpTransport$c
+abcd/Dw$d abcd/aide/HttpTransport$d
+abcd/Dw$e abcd/aide/HttpTransport$e
+abcd/Dw$f abcd/aide/HttpTransport$f
+abcd/Dw$g abcd/aide/HttpTransport$g
+abcd/Gw$a abcd/aide/HttpHelper$a
+abcd/Ji abcd/aide/Ji
+abcd/Di abcd/aide/Di
+abcd/Fi abcd/aide/Fi
+abcd/Gi abcd/aide/Gi
+abcd/Hi abcd/aide/Hi
+abcd/Ii abcd/aide/Ii
+abcd/Ai abcd/aide/Ai
+abcd/Ci abcd/aide/Ci
+abcd/Ei abcd/aide/Ei
+abcd/Ji$a abcd/aide/Ji$a
+abcd/vi abcd/aide/vi
+abcd/wi abcd/aide/wi
+abcd/xi abcd/aide/xi
+abcd/yi abcd/aide/yi
+abcd/zi abcd/aide/zi
+abcd/Bi abcd/aide/Bi
