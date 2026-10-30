@@ -19,7 +19,8 @@
 
 ```bash
 python3 tools/jgit/pipeline/filter_head.py --apply     # 头部死块清理
-python3 tools/jgit/pipeline/rebuild_tsrg.py            # tsv/tsrg → process/mappings.txt
+python3 tools/jgit/pipeline/rebuild_tsrg.py            # tsv/tsrg → process/mappings.txt（块顺序/去重）
+python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 补 TSRG2 的 `\t\tstatic` 标记
 python3 tools/jgit/pipeline/validate_mappings.py       # ✔ 无无效映射
 python3 tools/jgit/pipeline/verify_members.py          # 不一致 0
 python3 tools/jgit/pipeline/inherit_check.py           # CONFLICT 0 / MISSING 0

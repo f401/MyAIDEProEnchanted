@@ -28,6 +28,9 @@ python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独�
 
 > 头 20 行来自 `process/truth/mappings_head.txt`（AIDL / 首轮类改名），
 > jgit 块由 tsv+tsrg 生成。**不要手改 `mappings.txt`**。
+>
+> 等价一步到位（通用 kit，输出与本项目逐行一致）：
+> `python3 tools/deob/cli.py -p process/deob.json emit`
 
 ## 2. 跑认证流水线
 
