@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import paths as _P  # noqa: E402
 """class 文件解析 + 方法体特征（ldc 字符串 / 成员引用），用于成员级匹配。"""
 import struct
 

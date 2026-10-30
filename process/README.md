@@ -2,7 +2,12 @@
 
 ```
 process/
-├── mappings.txt                     # TSRG2 改名表（由 tsv/tsrg 派生，别手改）
+├── truth/                           # ★ 唯一真相（已入库）
+│   ├── jgit_map_clean.tsv           #   类映射（探针 → 目标 + 证据）
+│   ├── jgit_members_clean.tsrg      #   成员映射（TSRG 块）
+│   ├── mappings_head.txt            #   TSRG2 头部（AIDE 侧改名 20 行）
+│   └── smali_index.tsv              #   类 → smali 真实文件名（大小写不敏感 FS 必须用）
+├── mappings.txt                     # TSRG2 改名表（由 truth/ 派生，别手改）
 ├── verify_allow.tsv                 # 已知差异白名单（每行都要写理由）
 ├── SHA256SUMS                       # 输入/工具指纹（sha256sum -c 可用）
 ├── base/merged_ok.jar               # ★ 改名输入基线
@@ -28,8 +33,8 @@ tsrg2 left right                                  ← 表头（必须第一行�
 
 三条纪律：
 
-1. **不要手改**：唯一真相是 `~/out/work/jgit_map_clean.tsv`（类）与
-   `~/out/work/jgit_members_clean.tsrg`（成员），改完跑 `tools/jgit/rebuild_tsrg.py`。
+1. **不要手改**：唯一真相是 `process/truth/jgit_map_clean.tsv`（类）与
+   `process/truth/jgit_members_clean.tsrg`（成员），改完跑 `tools/jgit/pipeline/rebuild_tsrg.py`。
 2. **不许有重复目标**：类级重复会被 `rebuild_tsrg.py` 直接中止；成员级重复（同类内新名+描述符相同）
    会让 D8 报 `multiple definitions` 并任选一份丢弃。两道都靠 `validate_mappings.py` 兜。
 3. **static 标记只对方法有效**，跟在字段行后会报 `Invalid TSRG v2 line`。
@@ -45,7 +50,7 @@ java -Xmx900m -jar ForgeAutoRenamingTool-1.0.8-all.jar \
   --output ~/out/fart/r.jar \
   --map    mappings.txt                       # ② 改名
 
-python3 ../tools/jgit/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内容指纹
+python3 ../tools/jgit/pipeline/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内容指纹
 ```
 
 **判等用「内容 manifest」不要用整包 sha256**：FART 写 zip 的元数据不稳定，同一输入两次产出会差几个字节

@@ -5,15 +5,15 @@
 ```bash
 cd /storage/emulated/0/MyAIDEProEnchanted
 
-python3 tools/jgit/filter_head.py --apply     # 0) 清理 mappings_head.txt 的死块/死行
-python3 tools/jgit/rebuild_tsrg.py           # 1) tsv → tsrg → mappings.txt
-python3 tools/jgit/validate_mappings.py      # 2) 映射有效性（对着真实 jar）
-python3 tools/jgit/verify_members.py         # 3) 成员一致性（对着 oracle）
-python3 tools/jgit/inherit_check.py          # 4) 继承链闭合
-python3 tools/jgit/pkgclose.py               # 5) 包归属（访问图）
-python3 tools/jgit/coverage.py               # 6) 覆盖率口径
-python3 tools/jgit/widen_access.py process/base/merged_ok.jar \
-        --map ~/out/work/jgit_map_clean.tsv  # 7) 跨包 access 预演（不带 --apply 只看报告）
+python3 tools/jgit/pipeline/filter_head.py --apply     # 0) 清理 mappings_head.txt 的死块/死行
+python3 tools/jgit/pipeline/rebuild_tsrg.py           # 1) tsv → tsrg → mappings.txt
+python3 tools/jgit/pipeline/validate_mappings.py      # 2) 映射有效性（对着真实 jar）
+python3 tools/jgit/pipeline/verify_members.py         # 3) 成员一致性（对着 oracle）
+python3 tools/jgit/pipeline/inherit_check.py          # 4) 继承链闭合
+python3 tools/jgit/pipeline/pkgclose.py               # 5) 包归属（访问图）
+python3 tools/jgit/pipeline/coverage.py               # 6) 覆盖率口径
+python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar \
+        --map process/truth/jgit_map_clean.tsv  # 7) 跨包 access 预演（不带 --apply 只看报告）
 # 8) FART 两遍判等 + 冒烟（见 BUILD.md §3/§7）
 ```
 
@@ -81,9 +81,9 @@ python3 tools/jgit/widen_access.py process/base/merged_ok.jar \
 # 同一输入 + 同一 mapping 跑两次，内容指纹必须相同（--list 打印指纹，--check 比对）
 java -jar process/ForgeAutoRenamingTool-1.0.8-all.jar --input <jar> --output out/v1.jar --map process/mappings.txt --lib ...
 java -jar process/ForgeAutoRenamingTool-1.0.8-all.jar --input <jar> --output out/v2.jar --map process/mappings.txt --lib ...
-H1=$(python3 tools/jgit/jar_manifest.py out/v1.jar --list)
-H2=$(python3 tools/jgit/jar_manifest.py out/v2.jar --list)
-[ "$H1" = "$H2" ] && echo "内容一致 ✔" || python3 tools/jgit/jar_manifest.py out/v1.jar --check "$H2" 
+H1=$(python3 tools/jgit/pipeline/jar_manifest.py out/v1.jar --list)
+H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
+[ "$H1" = "$H2" ] && echo "内容一致 ✔" || python3 tools/jgit/pipeline/jar_manifest.py out/v1.jar --check "$H2" 
 ```
 
 指纹不同 = FART 沿继承链兜底（说明还有 MISSING 或名字不一致）→ 回到门 4。
@@ -99,4 +99,4 @@ H2=$(python3 tools/jgit/jar_manifest.py out/v2.jar --list)
 | 覆写“失效”（调用父类实现） | 跨包 package-private 虚方法 | `widen_access`（放 protected） |
 | FART 两遍产物不同 | 祖先成员未映射 / 子类改名 | `inherit_check` 补 MISSING |
 | D8 `multiple definitions` | 同一类里新名+描述符重复 | `validate_mappings` 的 `dup-member-target` |
-| D8 `Invalid input code with a call to <clinit>` | dex2jar 产物缺陷（非改名造成） | `tools/jgit/nop_clinit.py` 处理后重试 |
+| D8 `Invalid input code with a call to <clinit>` | dex2jar 产物缺陷（非改名造成） | `tools/jgit/pipeline/nop_clinit.py` 处理后重试 |

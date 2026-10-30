@@ -6,9 +6,9 @@
 ## 铁律
 
 1. **唯一真相是两张表**，不要手改产物：
-   - 类名：`~/out/work/jgit_map_clean.tsv`（`探针 <TAB> 目标 <TAB> 证据`）
-   - 成员：`~/out/work/jgit_members_clean.tsrg`（TSRG 块）
-   - 派生产物：`process/mappings.txt`（TSRG2，FART 消费；用 `tools/jgit/rebuild_tsrg.py` 生成）
+   - 类名：`process/truth/jgit_map_clean.tsv`（`探针 <TAB> 目标 <TAB> 证据`）
+   - 成员：`process/truth/jgit_members_clean.tsrg`（TSRG 块）
+   - 派生产物：`process/mappings.txt`（TSRG2，FART 消费；用 `tools/jgit/pipeline/rebuild_tsrg.py` 生成）
 2. **改完必须过认证流水线**（[docs/VERIFY.md](docs/VERIFY.md)）：validate / verify / inherit /
    pkgclose 全绿，`widen_access` 无遗漏，才允许构建。
 3. **覆写家族必须同名**；第三方接口（jsch 等）要么双侧一起改，要么都不改。
@@ -18,13 +18,13 @@
 ## 标准流程
 
 ```bash
-python3 tools/jgit/filter_head.py --apply     # 头部死块清理
-python3 tools/jgit/rebuild_tsrg.py            # tsv/tsrg → process/mappings.txt
-python3 tools/jgit/validate_mappings.py       # ✔ 无无效映射
-python3 tools/jgit/verify_members.py          # 不一致 0
-python3 tools/jgit/inherit_check.py           # CONFLICT 0 / MISSING 0
-python3 tools/jgit/pkgclose.py [--apply]      # 需要挪包 0
-python3 tools/jgit/coverage.py                # 记录指标
+python3 tools/jgit/pipeline/filter_head.py --apply     # 头部死块清理
+python3 tools/jgit/pipeline/rebuild_tsrg.py            # tsv/tsrg → process/mappings.txt
+python3 tools/jgit/pipeline/validate_mappings.py       # ✔ 无无效映射
+python3 tools/jgit/pipeline/verify_members.py          # 不一致 0
+python3 tools/jgit/pipeline/inherit_check.py           # CONFLICT 0 / MISSING 0
+python3 tools/jgit/pipeline/pkgclose.py [--apply]      # 需要挪包 0
+python3 tools/jgit/pipeline/coverage.py                # 记录指标
 ```
 
 构建（FART → access 放宽 → D8 → 回填 → 签名 → 冒烟）见 [docs/BUILD.md](docs/BUILD.md)；

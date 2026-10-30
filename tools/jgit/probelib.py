@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import paths as _P  # noqa: E402
 """probelib.py — 探针(smali) / oracle(class) 成员清单与描述符归一化。
 
 类映射唯一真相: ~/out/work/jgit_map_clean.tsv  (probe 无 abcd/ 前缀, 第二列 jgit 全名)
@@ -8,8 +11,8 @@ import os, re, struct, sys, zipfile
 
 HOME = os.path.expanduser('~')
 SMALI = '/storage/emulated/0/MyAIDEProEnchanted/src/smali/abcd'
-MAP = HOME + '/out/work/jgit_map_clean.tsv'
-TSRG = HOME + '/out/work/jgit_members_clean.tsrg'
+MAP = _P.MAP
+TSRG = _P.TSRG
 ORACLE_JAR = HOME + '/out/oracle/jgit/j-3.7.1.201504261725-r.jar'
 OVERS = [  # (标签, jar路径)
     ('3.7.1', HOME + '/out/oracle/jgit/j-3.7.1.201504261725-r.jar'),

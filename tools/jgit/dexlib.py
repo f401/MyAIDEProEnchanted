@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import paths as _P  # noqa: E402
 """dexlib.py —— 最小可用 DEX 解析器（无第三方依赖，只在需要元数据时用）
 
 能力：string / type / method 解析，class_defs 遍历，注解（含嵌套/数组/枚举）解码，

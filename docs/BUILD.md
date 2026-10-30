@@ -20,13 +20,13 @@ cd process && sha256sum -c SHA256SUMS      # 输入与工具指纹，全部 OK �
 唯一真相是两张表，`process/mappings.txt` 只是派生产物：
 
 ```bash
-# 类名真相:  ~/out/work/jgit_map_clean.tsv      (探针 <TAB> 目标 <TAB> 证据)
-# 成员真相:  ~/out/work/jgit_members_clean.tsrg (TSRG 块)
-python3 tools/jgit/rebuild_tsrg.py      # tsv → tsrg → process/mappings.txt（含头 20 行）
-python3 tools/jgit/emit_tsrg2.py process/mappings.txt   # 需要单独重排/补 static 标记时
+# 类名真相:  process/truth/jgit_map_clean.tsv      (探针 <TAB> 目标 <TAB> 证据)
+# 成员真相:  process/truth/jgit_members_clean.tsrg (TSRG 块)
+python3 tools/jgit/pipeline/rebuild_tsrg.py      # tsv → tsrg → process/mappings.txt（含头 20 行）
+python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独重排/补 static 标记时
 ```
 
-> 头 20 行来自 `~/out/work/mappings_head.txt`（AIDL / 首轮类改名），
+> 头 20 行来自 `process/truth/mappings_head.txt`（AIDL / 首轮类改名），
 > jgit 块由 tsv+tsrg 生成。**不要手改 `mappings.txt`**。
 
 ## 2. 跑认证流水线
@@ -61,11 +61,11 @@ done
 
 ```bash
 # 推荐：在 FART 之后，对每个产物 jar 跑（此时名字已是最终名，不需要 --map）
-python3 tools/jgit/widen_access.py out/classes_out.jar --out out/classes_pub.jar --apply
+python3 tools/jgit/pipeline/widen_access.py out/classes_out.jar --out out/classes_pub.jar --apply
 
 # 也可在 FART 之前对 merged_ok.jar 跑（需要 --map 才能算出"最终的包"）
-python3 tools/jgit/widen_access.py process/base/merged_ok.jar \
-        --map ~/out/work/jgit_map_clean.tsv --out process/base/merged_pub.jar --apply
+python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar \
+        --map process/truth/jgit_map_clean.tsv --out process/base/merged_pub.jar --apply
 # 不带 --apply 即 --report：只列出会被放宽的 class/成员
 ```
 

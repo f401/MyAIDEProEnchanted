@@ -1,5 +1,10 @@
 # 注意事项 / 坑
 
+## 0. 真相在哪
+
+`process/truth/{jgit_map_clean.tsv, jgit_members_clean.tsrg, mappings_head.txt, smali_index.tsv}` 是**唯一真相**
+（已入库）。工具通过 `tools/jgit/paths.py` 优先读这里，`$HOME/out/work/` 下的同名文件是旧副本，改它们无效。
+
 ## 1. 命名与归属约定
 
 | 情况 | 约定 | 例 |
@@ -60,7 +65,7 @@
 
 工作目录在 `/storage/emulated/0`（FUSE，大小写不敏感）：`qF$a.smali` 与 `qF$a.1.smali`、
 `abcd/ji` 与 `abcd/JI` 会互相覆盖/被加 `.1`/`.2` 后缀。**类名到文件名的映射必须查
-`~/out/work/smali_index.tsv`**，不要用 `类名.smali` 直接拼。
+`process/truth/smali_index.tsv`**，不要用 `类名.smali` 直接拼。
 
 ## 8. R8 剪枝与统计口径
 
@@ -71,7 +76,7 @@
 ## 9. dex2jar 产物缺陷
 
 `D8: Invalid input code with a call to <clinit>` 是 dex2jar 反编译的缺陷（与改名无关）。
-用 `tools/jgit/nop_clinit.py <in.jar> <out.jar>` 把显式 `invokestatic <clinit>` 换成 NOP 后重试。
+用 `tools/jgit/pipeline/nop_clinit.py <in.jar> <out.jar>` 把显式 `invokestatic <clinit>` 换成 NOP 后重试。
 
 ## 10. 构建 / 签名
 
