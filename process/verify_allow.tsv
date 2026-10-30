@@ -116,3 +116,16 @@ abcd/sC$a	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合�
 abcd/xJ$d	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
 abcd/zJ$c	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
 abcd/zJ$d	access$000	R8/ECJ 合成访问器（access$NNN）；oracle 同类合成物编号不同，按探针内顺序编号即可
+abcd/DG	hasPackedObject	AIDE 在 CachedObjectDirectory 重复声明父类方法（R8 继承桥）；3.7.1 CachedObjectDirectory 无此声明
+abcd/DG	getLooseObjectSize	同上（R8 继承桥）
+abcd/DG	newCachedFileObjectDatabase	同上（R8 继承桥）
+abcd/DG	searchPacksAgain	同上（R8 继承桥）
+abcd/DG	openPack	同上（R8 继承桥，2 参变体）
+abcd/DG	openLooseObject	同上（R8 继承桥，String 版）
+abcd/PI	sendString	匿名类编号错位：oracle BaseReceivePack$2 是 switch-map；探针 PI=Reporter 匿名子类，方法语义与 SI$b.sendString 一致
+abcd/YA	apply	匿名类编号错位：oracle CommitCommand$1 是 switch-map；探针 YA=DirCacheEditor$PathEdit 匿名子类，语义与 PC$b.apply 一致
+abcd/xJ$e	doFetch	AIDE 版 doFetch 去掉了 OutputStream 参数（3 参 vs 4 参）
+abcd/xJ$f	doPush	AIDE 版 doPush 去掉了 OutputStream 参数
+abcd/LF$a	add	oracle AbstractRevQueue$1 为空类（EMPTY_QUEUE 的内联实现位置不同）；探针为匿名队列实现，语义与 LF.add 一致
+abcd/LF$a	next	同上
+abcd/LF$a	anybodyHasFlag	同上
