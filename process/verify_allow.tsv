@@ -176,3 +176,4 @@ abcd/IH	selectDeltaBase	3.7.1 selectDeltaBase(src,delta) 只记录；AIDE 返回
 abcd/aH	endWindowCache	PackFile 的引用计数递减方法（--useCount，归零则 doClose 并返回 true）；3.7.1 无 begin/endWindowCache，名字取 4.11.9 的 endWindowCache(boolean)
 # —— 第四批（小类补齐）——
 abcd/gE	addValue	AIDE 在 Config 内部加的列表追加助手（null→singletonList，size==1→新建 2 元素 ArrayList，否则 add），3.7.1 无此方法
+abcd/pI	deleteTrackingRef	3.7.1 deleteTrackingRef(FetchResult,BatchRefUpdate,RefSpec,Ref)；AIDE 改成 (FetchResult,Repository,RevWalk,RefSpec,Ref)，删除逻辑随后者手写执行

@@ -5178,6 +5178,16 @@ abcd/mI org/eclipse/jgit/transport/SshSessionFactory$1
 	j6 (Labcd/yI$a;Lcom/jcraft/jsch/Session;)V configure
 abcd/mJ org/eclipse/jgit/transport/TransportBundle
 abcd/mK org/eclipse/jgit/api/CommitCommand$2
+	j6 (Ljava/lang/String;)Ljava/lang/String; clean
+		static
+	j6 (Ljava/lang/String;Labcd/yE;)Ljava/lang/String; insertId
+		static
+	j6 (Ljava/lang/String;Labcd/yE;Z)Ljava/lang/String; insertId
+		static
+	j6 (Labcd/yE;Labcd/yE;Labcd/KE;Labcd/KE;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; computeChangeId
+	j6 issuePattern
+	DW footerPattern
+	FH includeInFooterPattern
 abcd/nB org/eclipse/jgit/api/MergeResult$MergeStatus$8
 	Hw ()Z isSuccessful
 	toString ()Ljava/lang/String; toString
@@ -5487,6 +5497,11 @@ abcd/pI org/eclipse/jgit/transport/FetchProcess
 	Zo localUpdates
 	VH fetchHeadUpdates
 	gn packLocks
+	DW (Labcd/yE;)V removeTrackingRefUpdate
+	j6 (Labcd/yE;)V removeFetchHeadRecord
+	j6 (Labcd/WI;Labcd/yE;)Labcd/gJ; createUpdate
+	j6 (Labcd/qI;Labcd/qG;)V deleteStaleTrackingRefs
+	j6 (Labcd/qI;Labcd/UE;Labcd/qG;Labcd/WI;Labcd/ME;)V deleteTrackingRef
 abcd/pJ org/eclipse/jgit/transport/TransportGitAnon$1
 	DW (Labcd/HJ;Labcd/UE;Ljava/lang/String;)Labcd/jJ; open
 	DW ()Ljava/lang/String; getName
