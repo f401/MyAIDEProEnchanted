@@ -4029,6 +4029,7 @@ abcd/eI org/eclipse/jgit/transport/BasePackFetchConnection
 	we ()[I $SWITCH_TABLE$org$eclipse$jgit$transport$PacketLineIn$AckNackResult
 		static
 	aM $SWITCH_TABLE$org$eclipse$jgit$transport$PacketLineIn$AckNackResult
+	Mr reachableCommits
 abcd/eI$a org/eclipse/jgit/transport/BasePackFetchConnection$CancelledException
 abcd/eI$b org/eclipse/jgit/transport/BasePackFetchConnection$FetchConfig
 	DW allowOfsDelta
@@ -5038,6 +5039,10 @@ abcd/oF org/eclipse/jgit/lib/UserConfig
 		static
 	j6 KEY
 	Hw ()Ljava/lang/String; getDefaultUserName
+		static
+	DW (Labcd/gE;Ljava/lang/String;)Ljava/lang/String; getNameInternal
+		static
+	j6 (Labcd/gE;Ljava/lang/String;)Ljava/lang/String; getEmailInternal
 		static
 abcd/oG org/eclipse/jgit/revwalk/RevWalk$2
 	j6 ()V release
