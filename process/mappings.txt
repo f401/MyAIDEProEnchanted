@@ -598,8 +598,7 @@ abcd/DG org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
 	J0 ()[I $SWITCH_TABLE$org$eclipse$jgit$internal$storage$file$FileObjectDatabase$InsertLooseObjectResult
 		static
 	j6 $SWITCH_TABLE$org$eclipse$jgit$internal$storage$file$FileObjectDatabase$InsertLooseObjectResult
-	Hw (Labcd/wH;Labcd/YD;)Labcd/FE; openObject
-	v5 (Labcd/wH;Labcd/YD;)Labcd/FE; openLooseObject
+	v5 (Labcd/wH;Labcd/YD;)Labcd/FE; openObject
 abcd/DG$a org/eclipse/jgit/internal/storage/file/CachedObjectDirectory$UnpackedObjectId
 abcd/DH org/eclipse/jgit/internal/storage/pack/DeltaIndex$1
 abcd/DI org/eclipse/jgit/transport/PacketLineIn
@@ -867,6 +866,7 @@ abcd/GF org/eclipse/jgit/nls/TranslationBundle
 	effectiveLocale effectiveLocale
 	resourceBundle resourceBundle
 abcd/GG org/eclipse/jgit/internal/storage/file/FileObjectDatabase
+	we ()Z searchPacksAgain
 	EQ ()Labcd/GG; newCachedFileObjectDatabase
 	tp ()[Labcd/GG$a; myAlternates
 	DW (Labcd/wH;Labcd/YD;)J getObjectSize
@@ -886,6 +886,7 @@ abcd/GG org/eclipse/jgit/internal/storage/file/FileObjectDatabase
 	j6 (Labcd/wH;Ljava/lang/String;Labcd/YD;)J getLooseObjectSize
 	j6 (Ljava/io/File;Ljava/io/File;)Labcd/aH; openPack
 	j6 (Ljava/lang/String;)Ljava/io/File; fileFor
+	v5 (Labcd/wH;Labcd/YD;)Labcd/FE; openObject
 abcd/GG$c org/eclipse/jgit/internal/storage/file/FileObjectDatabase$InsertLooseObjectResult
 	<init> (Ljava/lang/String;I)V <init>
 	v5 $VALUES
@@ -1482,7 +1483,8 @@ abcd/ME$a org/eclipse/jgit/lib/Ref$Storage
 	Hw LOOSE_PACKED
 	VH loose
 	gn packed
-abcd/MF org/eclipse/jgit/internal/storage/pack/PackWriter$2
+abcd/MF org/eclipse/jgit/revwalk/AsyncRevObjectQueue
+	next ()Labcd/iG; next
 abcd/MH org/eclipse/jgit/internal/storage/pack/ObjectToPack
 	j6 (Z)V setDeltaAttempted
 	BT ()Z isDeltaRepresentation
@@ -4597,6 +4599,7 @@ abcd/iF org/eclipse/jgit/lib/RepositoryState
 		static
 	u7 APPLY
 abcd/iG org/eclipse/jgit/revwalk/RevObject
+	j6 (Labcd/qG;)V parseHeaders
 	EQ flags
 	DW (Labcd/fG;)Z has
 	aM ()I getType
@@ -4911,12 +4914,6 @@ abcd/lH org/eclipse/jgit/internal/storage/file/PackReverseIndex
 	DW nth
 	Hw offsetIndex
 abcd/lI org/eclipse/jgit/transport/CredentialsProviderUserInfo
-	DW (Ljava/lang/String;)V showMessage
-	j6 ()Ljava/lang/String; getPassphrase
-	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String; promptKeyboardInteractive
-	FH (Ljava/lang/String;)Z promptPassphrase
-	Hw (Ljava/lang/String;)Z promptPassword
-	j6 (Ljava/lang/String;)Z promptYesNo
 	DW provider
 	j6 uri
 	Hw passphrase
@@ -6683,6 +6680,7 @@ abcd/VK$c org/eclipse/jgit/util/io/InterruptTimer$AutoKiller
 	j6 state
 	finalize ()V finalize
 abcd/LF org/eclipse/jgit/revwalk/AbstractRevQueue
+	j6 (I)Z anybodyHasFlag
 	j6 (Ljava/lang/StringBuilder;Labcd/dG;)V describe
 		static
 	j6 (Labcd/dG;)V add
@@ -6912,3 +6910,10 @@ abcd/NF$a org/eclipse/jgit/revwalk/BlockObjQueue$Block
 	j6 ()V clear
 	FH headIndex
 abcd/LF$a org/eclipse/jgit/revwalk/AbstractRevQueue$1
+abcd/ZD org/eclipse/jgit/lib/AsyncObjectLoaderQueue
+	next ()Z next
+	DW ()Labcd/yE; getCurrent
+	FH ()Labcd/FE; open
+	j6 ()V release
+abcd/aE org/eclipse/jgit/lib/AsyncOperation
+	j6 ()V release
