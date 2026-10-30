@@ -838,6 +838,7 @@ abcd/FH org/eclipse/jgit/internal/storage/pack/DeltaIndexScanner
 	FH next
 	Hw tableMask
 	j6 ([BI)V scan
+	v5 entryCnt
 abcd/FJ org/eclipse/jgit/transport/TransportSftp$SftpObjectDB$1
 	j6 (Ljava/lang/String;Ljava/lang/String;)I compare
 	DW val$mtimes
@@ -2620,7 +2621,7 @@ abcd/UE org/eclipse/jgit/lib/Repository
 	FH ()V incrementOpen
 	Hw ()Ljava/util/Set; getAdditionalHaves
 	J8 ()Ljava/io/File; getDirectory
-	Mr ()V close
+	Mr ()V notifyIndexChanged
 	U2 ()Labcd/KC; readDirCache
 	VH ()Ljava/io/File; getIndexFile
 	Ws ()V doClose
@@ -3185,7 +3186,7 @@ abcd/YJ org/eclipse/jgit/treewalk/TreeWalk
 	J0 ()V reset
 	J8 ()V enterSubtree
 	VH ()Z isPostOrderTraversal
-	Ws ()V popEntriesEqual
+	Ws ()V skipEntriesEqual
 	Zo ()I getPathLength
 	gn ()Z isRecursive
 	j6 (Labcd/YD;)I addTree
@@ -3194,7 +3195,7 @@ abcd/YJ org/eclipse/jgit/treewalk/TreeWalk
 	j6 (Z)V setRecursive
 	j6 ([Labcd/YD;)V reset
 	u7 ()Z isSubtree
-	we ()V exitSubtree
+	we ()V popEntriesEqual
 	FH idBuffer
 	Hw filter
 	gn depth
@@ -3303,6 +3304,8 @@ abcd/ZG org/eclipse/jgit/internal/storage/file/ObjectDirectoryPackParser
 	Sf packHash
 	cn tmpPack
 	sG origHash
+	J0 ()V writeIdx
+	we ()V cleanupTemporaryFiles
 abcd/ZH org/eclipse/jgit/transport/AmazonS3$1
 	Zo this$0
 	tp val$monitor
@@ -4906,6 +4909,7 @@ abcd/lH org/eclipse/jgit/internal/storage/file/PackReverseIndex
 	j6 (JJ)J findNextOffset
 	j6 (J)Labcd/yE; findObject
 	DW nth
+	Hw offsetIndex
 abcd/lI org/eclipse/jgit/transport/CredentialsProviderUserInfo
 	DW (Ljava/lang/String;)V showMessage
 	j6 ()Ljava/lang/String; getPassphrase
@@ -4980,6 +4984,10 @@ abcd/lK org/eclipse/jgit/util/BlockList
 	remove (I)Ljava/lang/Object; remove
 	FH tailDirIdx
 	Hw tailBlkIdx
+	gn (I)I toBlockIndex
+		static
+	u7 (I)I toDirectoryIndex
+		static
 abcd/lK$a org/eclipse/jgit/util/BlockList$MyIterator
 	Hw block
 	v5 this$0
@@ -5017,6 +5025,7 @@ abcd/mF org/eclipse/jgit/lib/TreeFormatter
 	FH overflowBuffer
 abcd/mG org/eclipse/jgit/revwalk/RevTree
 	aM ()I getType
+	j6 (Labcd/qG;)V parseHeaders
 abcd/mH org/eclipse/jgit/internal/storage/file/RefDirectory$1
 	DW this$0
 	FH val$lck
@@ -5234,6 +5243,7 @@ abcd/pB org/eclipse/jgit/api/MergeResult
 	gn failingPaths
 	DW newHead
 	FH base
+	toString ()Ljava/lang/String; toString
 abcd/pB$a org/eclipse/jgit/api/MergeResult$MergeStatus
 	Hw ()Z isSuccessful
 	<init> (Ljava/lang/String;I)V <init>
@@ -5362,6 +5372,7 @@ abcd/pK org/eclipse/jgit/util/FS
 	Zo ()Ljava/io/File; userHome
 	gn ()Z supportsSymlinks
 	FH gitPrefix
+	DW userHome
 abcd/pK$a org/eclipse/jgit/util/FS$Holder
 	j6 value
 abcd/qB org/eclipse/jgit/api/PullCommand
@@ -5384,6 +5395,8 @@ abcd/qF$a org/eclipse/jgit/merge/MergeChunk$ConflictState
 		static
 	values ()[Labcd/qF$a; values
 		static
+	j6 NO_CONFLICT
+	DW FIRST_CONFLICTING_RANGE
 abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	FH ()I allocFlag
 	j6 (Labcd/kG;Z)V sort
@@ -5537,6 +5550,8 @@ abcd/sB org/eclipse/jgit/api/PushCommand
 	j6 (Labcd/LE;)Labcd/sB; setProgressMonitor
 	u7 receivePack
 	we thin
+	tp dryRun
+	EQ force
 abcd/sC org/eclipse/jgit/diff/MyersDiff
 	j6 (IIII)V calculateEdits
 	DW edits
@@ -5544,6 +5559,8 @@ abcd/sC org/eclipse/jgit/diff/MyersDiff
 	j6 INSTANCE
 	j6 (Labcd/jC;)V calculateEdits
 	FH cmp
+	Hw a
+	v5 b
 abcd/sC$a org/eclipse/jgit/diff/MyersDiff$MiddleEdit
 	VH edit
 	gn this$0
@@ -5719,6 +5736,10 @@ abcd/tB org/eclipse/jgit/api/RebaseCommand
 	EQ dir
 	j6 (Ljava/io/File;Ljava/lang/String;)Ljava/lang/String; readFile
 	j6 (Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)V createFile
+	tp ()Labcd/AB; initFilesAndRewind
+	call ()Labcd/AB; call
+	gn ()Labcd/dG; checkoutCurrentHead
+	u7 ()Labcd/dG; continueRebase
 abcd/tB$a org/eclipse/jgit/api/RebaseCommand$2$1
 	valueOf (Ljava/lang/String;)Labcd/tB$a; valueOf
 		static
@@ -5908,6 +5929,8 @@ abcd/uH$c org/eclipse/jgit/internal/storage/file/WindowCache$Ref
 abcd/uI org/eclipse/jgit/transport/JschSession$JschProcess$1
 	DW val$copier
 	j6 this$1
+	flush ()V flush
+	close ()V close
 abcd/uJ org/eclipse/jgit/transport/TransportHttp$1
 	DW ()Ljava/lang/String; getName
 	FH ()Ljava/util/Set; getRequiredFields
@@ -5998,6 +6021,7 @@ abcd/vK org/eclipse/jgit/util/FS_Win32
 	j6 (Ljava/io/File;Z)Z setExecute
 	DW ()Ljava/io/File; discoverGitPrefix
 	Hw ()Z retryFailedLockFileCommit
+	v5 ()Z supportsExecute
 abcd/wB org/eclipse/jgit/api/RebaseResult$Status$3
 	Hw ()Z isSuccessful
 abcd/wD org/eclipse/jgit/errors/TranslationBundleLoadingException
@@ -6135,6 +6159,8 @@ abcd/xF org/eclipse/jgit/merge/ResolveMerger
 	Mr inCore
 	Ws toBeCheckedOut
 	QX mergeResults
+	j3 implicitDirCache
+	J0 ()Z isIndexDirty
 abcd/xF$a org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason
 	<init> (Ljava/lang/String;I)V <init>
 	Hw $VALUES
@@ -6401,7 +6427,10 @@ abcd/zH org/eclipse/jgit/internal/storage/pack/BaseSearch
 	gn alreadyProcessed
 	DW M_TREE
 	j6 M_BLOB
+	Zo objectsMap
+	u7 treeCache
 abcd/zH$a org/eclipse/jgit/internal/storage/pack/BaseSearch$TreeWithData
+	EQ buf
 abcd/zI org/eclipse/jgit/transport/OperationResult
 	<init> ()V <init>
 	DW uri
@@ -6630,6 +6659,8 @@ abcd/vE org/eclipse/jgit/lib/NullProgressMonitor
 	j6 INSTANCE
 	j6 (Ljava/lang/String;I)V beginTask
 	isCancelled ()Z isCancelled
+	start (I)V start
+	update (I)V update
 abcd/xJ$d$a org/eclipse/jgit/transport/TransportHttp$Service$HttpExecuteStream
 	j6 this$1
 	read ()I read
@@ -6739,6 +6770,8 @@ abcd/tH$a org/eclipse/jgit/internal/storage/file/UnpackedObjectCache$Table
 	j6 ids
 	DW shift
 	FH bits
+	DW (Labcd/YD;)Z contains
+	j6 (Labcd/YD;)Z add
 abcd/EC org/eclipse/jgit/diff/SimilarityIndex
 	DW (J)J countOf
 		static
@@ -6836,6 +6869,7 @@ abcd/jG org/eclipse/jgit/revwalk/RevObjectList
 	size ()I size
 	j6 contents
 	DW size
+	clear ()V clear
 abcd/yc org/eclipse/jgit/lib/yc
 abcd/zC org/eclipse/jgit/diff/zC
 abcd/GD org/eclipse/jgit/events/GD
@@ -6857,6 +6891,7 @@ abcd/WE org/eclipse/jgit/lib/RepositoryCache
 		static
 	j6 cache
 	DW cacheMap
+	DW (Labcd/WE$b;Z)Labcd/UE; openRepository
 abcd/Hz org/eclipse/jgit/transport/http/Hz
 abcd/Hz$a org/eclipse/jgit/transport/http/Hz$a
 abcd/Hz$b org/eclipse/jgit/transport/http/Hz$b
