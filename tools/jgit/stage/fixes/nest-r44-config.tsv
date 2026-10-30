@@ -1,2 +1,0 @@
-gE$a	org/eclipse/jgit/lib/ConfigLine	org/eclipse/jgit/lib/Config$ConfigLine	dex:gE$a 的 outer=gE；同族 gE$b=Config$SectionParser / gE$d=Config$StringReader 均为嵌套；形状 6×String+forValue+match✓
-gE$c	org/eclipse/jgit/lib/ConfigSnapshot	org/eclipse/jgit/lib/Config$ConfigSnapshot	dex:gE$c 的 outer=gE；形状 (List,ConfigSnapshot) 构造+Map/List/baseState✓

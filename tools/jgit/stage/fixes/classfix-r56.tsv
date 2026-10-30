@@ -1,3 +1,0 @@
-yG$a	org/eclipse/jgit/revwalk/filter/RevFilter$1	org/eclipse/jgit/revwalk/filter/RevFilter$AllFilter	代码:include()=true, requiresCommitBody()=false, clone()=this, toString()="ALL"; oracle 的 RevFilter$1 是空类
-jK$a	org/eclipse/jgit/treewalk/filter/TreeFilter$1	org/eclipse/jgit/treewalk/filter/TreeFilter$AllFilter	代码:include(TreeWalk)=true, toString()="ALL"; oracle 的 TreeFilter$1 是空类
-UK	org/eclipse/jgit/treewalk/WorkingTreeIterator$1	org/eclipse/jgit/util/io/AutoCRLFInputStream	引用锚点:_J(WorkingTreeIterator)唯一引用;形状 byte[]×2+InputStream+int×2+boolean×2+read/close;oracle 的 WorkingTreeIterator$1 是 Comparator

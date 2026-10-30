@@ -1,6 +1,0 @@
-Hz	-	org/eclipse/jgit/transport/http/Hz	place:整族与 Iz(JDKHttpConnectionFactory) 同包，否则跨包不可达；真名未定
-Hz$a	-	org/eclipse/jgit/transport/http/Hz$a	place:同族(Gz 的父类)
-Hz$b	-	org/eclipse/jgit/transport/http/Hz$b	place:同族(抽象 UrlConnectionFactory，静态单例)
-Hz$d	-	org/eclipse/jgit/transport/http/Hz$d	place:同族(Callable)
-Hz$e	-	org/eclipse/jgit/transport/http/Hz$e	place:同族(BufferedOutputStream 子类)
-Gz	-	org/eclipse/jgit/transport/http/Gz	place:extends Hz$a，必须同包

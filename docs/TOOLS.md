@@ -3,17 +3,29 @@
 全部 Python 3、无第三方依赖。**默认 dry-run，落盘要加 `--apply`。**
 
 ```
-tools/jgit/
-├── paths.py            路径解析：仓库内 process/truth/ 优先，回退 $HOME 旧位置
-├── probelib.py         探针(smali)/oracle(class) 成员清单、描述符归一化、多版本 Oracle
-├── jvmbody.py          class 文件解析 + 方法体特征（ldc 字符串 / 成员引用）
-├── dexlib.py           最小 DEX 解析（无 baksmali 时读元数据）
-├── pipeline/           改映射与构建流水线（14）
-├── naming/             定名（类级 + 成员级，43）
-├── audit/              体检/审计（12）
-├── inspect/            读码与查看（23）
-└── stage/              一次性/特定阶段脚本（2）
+tools/
+├── deob/               通用反混淆工具链（配置驱动，新工程用这个；见 docs/GENERIC-TOOLS.md）
+├── jgit/               本项目专用
+│   ├── paths.py            路径解析（process/truth 优先，回退 $HOME）
+│   ├── probelib.py         smali/oracle 成员清单、描述符归一化、多版本 Oracle
+│   ├── jvmbody.py          class 解析 + 方法体特征
+│   ├── dexlib.py           最小 DEX 解析
+│   ├── pipeline/           本项目门禁（13）
+│   ├── naming/             定名分析器（34）
+│   ├── audit/              体检（12）
+│   ├── inspect/            读码/查看（14，读码类已整合到 deob 的 view）
+│   └── stage/              一次性脚本停放处（当前空，见 README）
+└── aide/               AIDE 侧归档（资源 ID / support→androidx / dex 差异）
 ```
+
+> **去重结果**
+> - `deob/` 提供通用等价实现：`emit / validate / inherit / pkgs / widen / cover / manifest / shape / q / prof / dump / hdr / elim / iface`。
+> - `jgit/pipeline/` **保留**（本项目门禁，带 `verify_allow.tsv` 白名单、R8 重写与 oracle 版本差异分类）：
+>   `rebuild_tsrg emit_tsrg2 filter_head mapfix tsvfix validate_mappings verify_members inherit_check pkgclose widen_access coverage jar_manifest nop_clinit`
+> - **已删除**（通用 kit 全覆盖或本身就是一次性）：`sync_maps`、`shapescan`、`shapefind`、
+>   `typefix`、`typeprop`、`typesolve`、`typeuse`、`vprobe`、`add_members`、`apply_types`、
+>   `inspect/` 的 `q hdr prof dump elim ifacemap shapeall body matchscore`、
+>   `stage/` 的全部历史脚本与 `stage/fixes/`（见 git log）。
 
 ## pipeline/ —— 改映射 & 构建（8 道门都在这）
 
@@ -40,7 +52,6 @@ tools/jgit/
 
 | 工具 | 证据 |
 |---|---|
-| `shapescan.py` / `shapefind.py` | 成员多重集 + super 唯一匹配（`--loose` 折叠类型；命中后**必须**读 body 复核） |
 | `classqc.py` | 已映射类的身份体检（目标类是不是判错了） |
 | `rescore.py` | 类级重打分（TF-IDF + 硬约束）复核整套映射 |
 | `keyclass.py` | 类级 JGitText 键集合（键名未混淆） |
@@ -68,9 +79,7 @@ tools/jgit/
 | `confield.py` / `constctx.py` / `initfill.py` | 常量：ConstantValue / 值+使用点 / 初始化配对 |
 | `override.py` / `closefam.py` | 覆写传播 / 家族闭合 |
 | `jgittext.py` | JGitText 消息键指纹 |
-| `add_members.py` / `apply_types.py` | 精确写入成员 / 批量加类映射 |
 | `conflict_fix.py` | 裁决“两成员落到同一名字+描述符” |
-| `refpick.py` / `vprobe.py` / `typefix.py` / `typeprop.py` / `typesolve.py` / `typeuse.py` | 引用类型与类型推导辅助 |
 | `findclasses.py` | 找“几乎确定是 jgit 但还没映射”的类 |
 
 ## audit/ —— 体检
@@ -89,7 +98,7 @@ tools/jgit/
 
 | 工具 | 用法 |
 |---|---|
-| `q.py <类...>` | 类名映射 + 每个成员的目标名 / `?`（**第一站**） |
+| （已迁至 `deob q`） | 类名映射 + 每个成员的目标名 / `?`（**第一站**） |
 | `dump.py <类> [方法正则...]` | 打印方法体 |
 | `prof.py <类...>` | 每方法一行：invoke 概要 + 读写的自有字段 |
 | `hdr.py <类...>` | 头部：类标志、super、ifaces、字段类型 |

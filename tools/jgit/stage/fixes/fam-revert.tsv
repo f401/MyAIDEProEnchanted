@@ -1,5 +1,0 @@
-JP	org/eclipse/jgit/lib/JP	-	撤销:186 类自包含加密族(零 jgit 引用/零外部依赖)，不该挪进 lib
-NP	org/eclipse/jgit/lib/NP	-	撤销:同上;NP 是 SHA1WITHRSA/OID 算法注册表
-KP	org/eclipse/jgit/lib/KP	-	撤销:同族(KP 字段类型 wN/MP$a/LP)
-MP	org/eclipse/jgit/lib/MP	-	撤销:同族(MP 是算法注册表工厂)
-LP	org/eclipse/jgit/lib/IndexDiff$1	-	撤销:同族(LP 含 exception on setup/GeneralSecurityException)，shape--loose 假阳性
