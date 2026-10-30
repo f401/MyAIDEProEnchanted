@@ -3885,6 +3885,8 @@ abcd/dG org/eclipse/jgit/revwalk/RevCommit
 	a8 ()Ljava/lang/String; getFullMessage
 	Ws commitTime
 	QX inDegree
+	U2 ()I getCommitTime
+	lg ()I getParentCount
 abcd/dH org/eclipse/jgit/internal/storage/file/PackIndexV1
 	FH ()Z hasCRC32Support
 	j6 (J)Labcd/yE; getObjectId
@@ -4907,6 +4909,12 @@ abcd/nC org/eclipse/jgit/diff/HashedSequencePair
 	j6 cmp
 	j6 (Labcd/CC;)Labcd/lC; wrap
 	FH ()Labcd/mC; getComparator
+	DW baseA
+	FH baseB
+	Hw cachedA
+	v5 cachedB
+	DW ()Labcd/lC; getB
+	j6 ()Labcd/lC; getA
 abcd/nD org/eclipse/jgit/errors/PackProtocolException
 abcd/nE org/eclipse/jgit/lib/FileMode$4
 	j6 (I)Z equals
@@ -6398,6 +6406,12 @@ abcd/iL org/eclipse/jgit/lib/CheckoutEntry
 abcd/qF org/eclipse/jgit/merge/MergeChunk
 	Hw conflictState
 	DW ()Labcd/qF$a; getConflictState
+	j6 sequenceIndex
+	DW begin
+	FH end
+	FH ()I getEnd
+	Hw ()I getSequenceIndex
+	j6 ()I getBegin
 abcd/vE org/eclipse/jgit/lib/NullProgressMonitor
 	j6 INSTANCE
 	j6 (Ljava/lang/String;I)V beginTask
