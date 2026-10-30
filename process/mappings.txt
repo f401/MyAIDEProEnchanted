@@ -4771,6 +4771,7 @@ abcd/lF org/eclipse/jgit/lib/ThreadSafeProgressMonitor
 	isCancelled ()Z isCancelled
 	v5 pendingUpdates
 	Hw workers
+	j6 (I)V workerUpdate
 abcd/lG org/eclipse/jgit/revwalk/RevTag
 	J0 buffer
 	J8 tagName
@@ -5113,6 +5114,12 @@ abcd/pC org/eclipse/jgit/diff/HistogramDiffIndex
 	Hw b
 	J0 lcs
 	we ptrShift
+	DW (J)I recNext
+		static
+	FH (J)I recPtr
+		static
+	j6 (J)I recCnt
+		static
 abcd/pE org/eclipse/jgit/lib/FileMode$6
 	j6 (I)Z equals
 abcd/pF org/eclipse/jgit/merge/MergeAlgorithm
@@ -6077,6 +6084,11 @@ abcd/yG org/eclipse/jgit/revwalk/filter/RevFilter
 	<init> ()V <init>
 	toString ()Ljava/lang/String; toString
 	j6 (Labcd/qG;Labcd/dG;)Z include
+	j6 ALL
+	DW NONE
+	FH NO_MERGES
+	Hw MERGE_BASE
+	clone ()Ljava/lang/Object; clone
 abcd/yG$a org/eclipse/jgit/revwalk/filter/RevFilter$AllFilter
 	clone ()Labcd/yG; clone
 	j6 (Labcd/qG;Labcd/dG;)Z include
@@ -6144,6 +6156,11 @@ abcd/yI$a org/eclipse/jgit/transport/OpenSshConfig$Host
 	v5 user
 	Zo preferredAuthentications
 	gn strictHostKeyChecking
+	FH ()I getPort
+	j6 ()Ljava/lang/String; getHostName
+	Zo ()Ljava/lang/String; getUser
+	Hw ()Ljava/lang/String; getPreferredAuthentications
+	v5 ()Ljava/lang/String; getStrictHostKeyChecking
 abcd/yJ org/eclipse/jgit/transport/TransportLocal$1
 	v5 ()Ljava/util/Set; getSchemes
 	DW ()Ljava/lang/String; getName
