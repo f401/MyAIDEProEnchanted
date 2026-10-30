@@ -4855,6 +4855,8 @@ abcd/lK org/eclipse/jgit/util/BlockList
 	get (I)Ljava/lang/Object; get
 	size ()I size
 	remove (I)Ljava/lang/Object; remove
+	FH tailDirIdx
+	Hw tailBlkIdx
 abcd/lK$a org/eclipse/jgit/util/BlockList$MyIterator
 	Hw block
 	v5 this$0
