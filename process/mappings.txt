@@ -4771,7 +4771,6 @@ abcd/lF org/eclipse/jgit/lib/ThreadSafeProgressMonitor
 	isCancelled ()Z isCancelled
 	v5 pendingUpdates
 	Hw workers
-	j6 (I)V workerUpdate
 abcd/lG org/eclipse/jgit/revwalk/RevTag
 	J0 buffer
 	J8 tagName
