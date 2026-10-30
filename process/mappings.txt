@@ -7261,7 +7261,7 @@ abcd/JH org/eclipse/jgit/internal/storage/pack/DeltaWindowEntry
 	j6 ()I depth
 abcd/MG org/eclipse/jgit/internal/storage/file/MG
 	close ()V close
-abcd/LC org/eclipse/jgit/dircache/LC
+abcd/LC org/eclipse/jgit/dircache/DirCacheBuildIterator
 	J0 ()V stopWalk
 	j6 (Labcd/IE;)Labcd/TJ; createSubtreeIterator
 	we ()V skip
@@ -7309,7 +7309,7 @@ abcd/bC org/eclipse/jgit/diff/bC
 	Hw ()Z isLarge
 	j6 ()[B getCachedBytes
 	v5 ()Labcd/JE; openStream
-abcd/cG org/eclipse/jgit/revwalk/cG
+abcd/cG org/eclipse/jgit/revwalk/RevBlob
 	aM ()I getType
 	j6 (Labcd/qG;)V parseHeaders
 abcd/cL org/eclipse/jgit/util/io/UnionInputStream
@@ -7356,9 +7356,12 @@ abcd/zC org/eclipse/jgit/diff/RawTextComparator
 	FH WS_IGNORE_LEADING
 	Hw WS_IGNORE_TRAILING
 	v5 WS_IGNORE_CHANGE
-abcd/GD org/eclipse/jgit/events/GD
+abcd/GD org/eclipse/jgit/events/ListenerHandle
 	toString ()Ljava/lang/String; toString
-abcd/KJ org/eclipse/jgit/transport/KJ
+	j6 parent
+	DW type
+	FH listener
+abcd/KJ org/eclipse/jgit/transport/UploadPackLogger$1
 	j6 (Labcd/TH$c;)V onPackStatistics
 abcd/NI org/eclipse/jgit/transport/PushResult
 	FH ()Ljava/util/Collection; getRemoteUpdates
@@ -7383,8 +7386,11 @@ abcd/gJ org/eclipse/jgit/transport/TrackingRefUpdate
 	j6 ()Ljava/lang/String; getLocalName
 	DW (Labcd/qG;)V update
 	j6 (Labcd/qG;)V forceUpdate
-abcd/oK org/eclipse/jgit/util/oK
+abcd/oK org/eclipse/jgit/util/FS$2
 	run ()V run
+	j6 val$p
+	FH val$gooblerFail
+	DW val$debug
 abcd/uC org/eclipse/jgit/diff/RawTextComparator$1
 	j6 ([BII)I hashRegion
 	j6 (Labcd/CC;ILabcd/CC;I)Z equals
