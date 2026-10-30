@@ -10,3 +10,4 @@
 # python 字节码
 __pycache__/
 *.pyc
+*.bak
