@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import os as _os, sys as _sys
-_sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_JG = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+_sys.path.insert(0, _JG)
+for _sub in ('pipeline','naming','audit','inspect','stage','deob'):
+    _p = _os.path.join(_JG, _sub)
+    if _os.path.isdir(_p) and _p not in _sys.path:
+        _sys.path.append(_p)
 import paths as _P  # noqa: E402
 """add_members.py —— 按 (kind, 探针名, 归一化描述符) 精确写入成员映射
 用法: 在脚本里 import 或直接改 SPECS。"""

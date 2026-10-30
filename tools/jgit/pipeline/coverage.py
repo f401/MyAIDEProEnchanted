@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import os as _os, sys as _sys
-_sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_JG = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+_sys.path.insert(0, _JG)
+for _sub in ('pipeline','naming','audit','inspect','stage','deob'):
+    _p = _os.path.join(_JG, _sub)
+    if _os.path.isdir(_p) and _p not in _sys.path:
+        _sys.path.append(_p)
 import paths as _P  # noqa: E402
 """精确覆盖率：分母 = oracle 成员中在 abcd 类里存在同形对应者的（R8 删掉的不入分母）。
 方法分母排除 <init>/<clinit>/ACC_SYNTHETIC/access$NNN/bridge/values/valueOf

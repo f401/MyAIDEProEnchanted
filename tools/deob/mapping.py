@@ -184,11 +184,11 @@ def emit_tsrg2(project, member_map=None, class_map=None, out=None):
     out = out or project.out_tsrg
     stat = static_index(project.base_jars + project.input_jars)
     targets = {}
-    lines = []
+    lines = ['tsrg2 obf deobf']
     if project.head and os.path.exists(project.head):
         for ln in open(project.head, encoding='utf-8'):
             ln = ln.rstrip('\n')
-            if ln or ln == '':
+            if ln.strip() and ln.strip() != 'tsrg2 obf deobf':
                 lines.append(ln)
     n_cls = n_mem = 0
     for probe_w, target, _ev in cm.rows:

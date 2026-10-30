@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import os as _os, sys as _sys
-_sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_JG = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+_sys.path.insert(0, _JG)
+for _sub in ('pipeline','naming','audit','inspect','stage','deob'):
+    _p = _os.path.join(_JG, _sub)
+    if _os.path.isdir(_p) and _p not in _sys.path:
+        _sys.path.append(_p)
 import paths as _P  # noqa: E402
 """类级重打分：TF-IDF 覆盖率打分 + 硬约束(kind/嵌套规则)，用于复核/纠错整套类映射。
 输出 ~/out/work/rescore.tsv: probe 当前目标 当前分 最佳目标 最佳分 第二 前三分

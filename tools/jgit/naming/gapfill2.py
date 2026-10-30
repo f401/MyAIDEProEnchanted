@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import os as _os, sys as _sys
-_sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_JG = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+_sys.path.insert(0, _JG)
+for _sub in ('pipeline','naming','audit','inspect','stage','deob'):
+    _p = _os.path.join(_JG, _sub)
+    if _os.path.isdir(_p) and _p not in _sys.path:
+        _sys.path.append(_p)
 import paths as _P  # noqa: E402
 """gapfill2.py [--apply]：多候选成员用方法体证据（字符串常量 + 引用成员对）定名。
 仅在 类别质量闸 通过 且 最佳分明显领先次佳 时才采纳。"""

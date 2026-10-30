@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import os as _os, sys as _sys
-_sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_JG = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+_sys.path.insert(0, _JG)
+for _sub in ('pipeline','naming','audit','inspect','stage','deob'):
+    _p = _os.path.join(_JG, _sub)
+    if _os.path.isdir(_p) and _p not in _sys.path:
+        _sys.path.append(_p)
 import paths as _P  # noqa: E402
 """gapinv.py — 缺口清单: 每个类的未映射成员 + 各 oracle 版本的候选, 并选最佳版本。
 
