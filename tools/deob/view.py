@@ -124,7 +124,7 @@ def iface(project, names):
         pr = smali.parse(path)
         known = collections.defaultdict(list)
         for sup in ([pr['super']] if pr['super'] else []) + list(pr['ifaces']):
-            if not sup or sup.startswith('Labcd/'):
+            if not sup or sup.startswith('L' + project.probe_prefix + '/'):
                 continue
             for k, v in real.get(sup.strip('L;'), {}).items():
                 known[k].extend(v)

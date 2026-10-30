@@ -5,6 +5,15 @@
 > 本项目（AIDE/jgit）自己的历史脚本仍在 `tools/jgit/`（含更多一次性/专用分析），
 > 通用能力已抽到这里；新工程请直接用 `tools/deob/`。
 
+## 隔离：一个依赖一个工程目录
+
+```bash
+python3 tools/deob/cli.py init --name mylib --prefix zz   # → jobs/mylib/（自包含）
+python3 tools/deob/cli.py -p jobs/mylib/deob.json status  # 写入目标是否都在本工程目录内
+```
+
+`process/` 是已完成的 jgit 工程，**新任务只读它**。完整步骤见 [../../docs/NEW-JOB.md](../../docs/NEW-JOB.md)。
+
 ## 快速开始
 
 ```bash

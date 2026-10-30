@@ -4,6 +4,8 @@
     python3 tools/deob/cli.py -p process/deob.json <命令> [参数]
 
 命令：
+    status                     打印工程配置 + 写入目标（并检查是否落在本工程目录内）
+    init --name X              新建**独立**工程目录（jobs/X：配置 + 空 truth + README）
     emit                       由 class_map + member_map 生成 TSRG2（out_tsrg）
     validate                   校验产物 TSRG2 与真实 jar（默认全绿的 8 项）
     inherit                    继承链闭合检查（CONFLICT / MISSING）
@@ -14,6 +16,7 @@
     q|prof|dump|hdr|elim|iface|shape <类...>   读码/定名辅助
 """
 import argparse
+import json
 import os
 import sys
 
@@ -25,7 +28,78 @@ import view as insp
 import mapping
 
 
+def _split_argv(argv):
+    """把 -p/--project 与其余参数分开（保持顺序）。"""
+    proj, rest = None, []
+    i = 0
+    while i < len(argv):
+        t = argv[i]
+        if t in ('-p', '--project') and i + 1 < len(argv):
+            proj = argv[i+1]; i += 2; continue
+        if t.startswith('--project='):
+            proj = t.split('=', 1)[1]; i += 1; continue
+        rest.append(t); i += 1
+    return proj, rest
+
+
+def _do_init(argv):
+    ip = argparse.ArgumentParser(prog='deob init')
+    ip.add_argument('name_pos', nargs='?')
+    ip.add_argument('--name')
+    ip.add_argument('--prefix')
+    ip.add_argument('--dir')
+    ip.add_argument('--probe-dir', dest='probe_dir')
+    ip.add_argument('--root', default='.')
+    ip.add_argument('--force', action='store_true')
+    ia = ip.parse_args(argv)
+    name = ia.name or ia.name_pos
+    if not name:
+        raise SystemExit('用法: deob init --name <名字> [--prefix zz] [--dir jobs/<名字>] [--probe-dir probe]')
+    prefix = ia.prefix or name
+    root = os.path.abspath(ia.root)
+    jdir = ia.dir or os.path.join('jobs', name)
+    jdir = jdir if os.path.isabs(jdir) else os.path.join(root, jdir)
+    if os.path.exists(jdir) and not ia.force:
+        raise SystemExit('目录已存在：%s（加 --force 覆盖配置）' % jdir)
+    os.makedirs(os.path.join(jdir, 'truth'), exist_ok=True)
+    cfg = {
+        'name': name, 'root': '.', 'probe_prefix': prefix,
+        'probe_dir': ia.probe_dir or 'probe',
+        'class_map': 'truth/class_map.tsv',
+        'member_map': 'truth/members.tsrg',
+        'out_tsrg': 'out/mappings.txt',
+        'base_jars': ['base/*.jar'], 'input_jars': [],
+        'oracle_jars': [{'label': 'v1', 'path': 'oracle/v1.jar'}],
+        'out_dir': 'out',
+    }
+    with open(os.path.join(jdir, 'deob.json'), 'w', encoding='utf-8') as f:
+        json.dump(cfg, f, ensure_ascii=False, indent=2)
+    for rel, txt in (('truth/class_map.tsv', '# 探针<TAB>目标[<TAB>证据]\n'),
+                     ('truth/members.tsrg', '')):
+        fp = os.path.join(jdir, rel)
+        if not os.path.exists(fp):
+            open(fp, 'w', encoding='utf-8').write(txt)
+    open(os.path.join(jdir, 'README.md'), 'w', encoding='utf-8').write(
+        '# %s —— 新依赖还原\n\n独立工程目录：本目录的 truth/ 与 out/ 只属于本工程，\n'
+        '与仓库里已完成的工程（process/）完全隔离。步骤见 docs/NEW-JOB.md。\n' % name)
+    print('已创建独立工程：%s' % jdir)
+    print('  配置 %s' % os.path.join(jdir, 'deob.json'))
+    print('  真相 truth/class_map.tsv, truth/members.tsrg')
+    print('  产物 out/mappings.txt')
+    for sub in ('oracle', 'base'):
+        print('  请放入 %s/' % sub)
+    print('下一步: python3 tools/deob/cli.py -p %s status' %
+          os.path.relpath(os.path.join(jdir, 'deob.json'), root))
+    return 0
+
+
 def main():
+    argv = sys.argv[1:]
+    if 'init' in argv:
+        proj, rest = _split_argv(argv)
+        rest = [x for x in rest if x != 'init']
+        # init 的 root 默认是**当前目录**（仓库根），不跟着 -p 走
+        return _do_init(rest)
     ap = argparse.ArgumentParser(prog='deob', add_help=True)
     ap.add_argument('-p', '--project', required=True, help='工程配置 JSON（例：process/deob.json）')
     ap.add_argument('cmd')
@@ -33,7 +107,8 @@ def main():
     ap.add_argument('--apply', action='store_true')
     ap.add_argument('--out')
     ap.add_argument('--map')
-    a = ap.parse_args()
+    a, _extra = ap.parse_known_args()
+    a.args = list(a.args) + list(_extra)
     P = config.load(a.project)
 
     if a.cmd == 'emit':
@@ -104,6 +179,20 @@ def main():
         h, n = checks.manifest(a.args[0])
         print(h)
         print('条目 %d' % n)
+
+    elif a.cmd == 'status':
+        cfg_dir = os.path.dirname(P.path)
+        print(P.describe())
+        print('  写入目标：')
+        for k, v in (('class_map', P.class_map), ('member_map', P.member_map),
+                     ('out_tsrg', P.out_tsrg), ('allow', P.allow)):
+            if not v:
+                continue
+            inside = os.path.commonpath([cfg_dir, os.path.abspath(v)]) == cfg_dir
+            print('    %-10s %-58s %s' % (k, v, '✔ 在工程目录内' if inside else '⚠ 在工程目录外（可能是别的工程！）'))
+        print('  只读：base_jars %d / input_jars %d / oracle %d' % (
+            len(P.base_jars), len(P.input_jars), len(P.oracle_jars)))
+
 
     elif a.cmd in ('q', 'prof', 'hdr', 'elim', 'iface', 'shape'):
         getattr(insp, a.cmd)(P, a.args)
