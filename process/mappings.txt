@@ -817,6 +817,15 @@ abcd/FC org/eclipse/jgit/diff/SimilarityRenameDetector
 	DW srcs
 	FH dsts
 	VH out
+	DW ()Ljava/util/List; getLeftOverSources
+	FH ()Ljava/util/List; getMatches
+	j6 ()Ljava/util/List; getLeftOverDestinations
+	DW (Ljava/util/List;)Ljava/util/List; compactSrcList
+		static
+	j6 (Ljava/util/List;)Ljava/util/List; compactDstList
+		static
+	j6 (J)I dstFile
+		static
 abcd/FD org/eclipse/jgit/events/IndexChangedListener
 	j6 (Labcd/ED;)V onIndexChanged
 abcd/FE org/eclipse/jgit/lib/ObjectLoader
