@@ -18,10 +18,10 @@
 
 | 脚本 | 作用 | 用法 |
 |---|---|---|
-| `res_id_guard.py` | **资源 ID 一致性守卫**：对比 git 版本或两个 APK 的 id 集合 | `python3 tools/res_id_guard.py --git HEAD` / `--apk old.apk new.apk`（退出码 0=一致） |
-| `arsc_names.py` | 解析 APK 的 `resources.arsc` → `id<TAB>type<TAB>name` | `python3 tools/arsc_names.py some.apk out.tsv` |
-| `rename_dummy.py` | 把 `APKTOOL_DUMMY_*` 批量改成 `<type>_<hex>`，**ID 一位不动** | `python3 tools/rename_dummy.py --apply` |
-| `audit_dummy.py` | 审计 dummy 的真实引用面（决定"能不能删"） | `python3 tools/audit_dummy.py` |
+| `res_id_guard.py` | **资源 ID 一致性守卫**：对比 git 版本或两个 APK 的 id 集合 | `python3 tools/aide/res_id_guard.py --git HEAD` / `--apk old.apk new.apk`（退出码 0=一致） |
+| `arsc_names.py` | 解析 APK 的 `resources.arsc` → `id<TAB>type<TAB>name` | `python3 tools/aide/arsc_names.py some.apk out.tsv` |
+| `rename_dummy.py` | 把 `APKTOOL_DUMMY_*` 批量改成 `<type>_<hex>`，**ID 一位不动** | `python3 tools/aide/rename_dummy.py --apply` |
+| `audit_dummy.py` | 审计 dummy 的真实引用面（决定"能不能删"） | `python3 tools/aide/audit_dummy.py` |
 
 **硬规则**：`res/values/public.xml` 是 ID 钉子，删/重排一行会让同 type 后续 entry index 前移。
 改动后必须跑 `res_id_guard.py`，要求 **id 集合逐条不变**。
@@ -41,7 +41,7 @@
 
 用法：
 ```bash
-python3 tools/cprewrite5.py <输入.jar> <输出.jar> <map.json> [迁移前的.jar]
+python3 tools/aide/cprewrite5.py <输入.jar> <输出.jar> <map.json> [迁移前的.jar]
 # map.json: {"classes":{old:new}, "members":{...}, "decls":{...}, "descs":{...}}
 ```
 
