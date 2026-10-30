@@ -25,6 +25,6 @@ for probe,oracle in mp.items():
 tot=sum(len(v) for v in res.values())
 obs=sum(1 for v in res.values() for x in v if x[4])
 print('unmapped classes %d methods %d (obfuscated-looking %d)' % (len(res),tot,obs))
-json.dump({k:v for k,v in res.items()}, open('allrem.json','w'))
+json.dump({k:v for k,v in res.items()}, open('out/allrem.json','w'))
 for c,v in sorted(res.items(), key=lambda t:-len(t[1])):
     print(len(v), c, mp[c], 'obs=%d'%sum(1 for x in v if x[4]))

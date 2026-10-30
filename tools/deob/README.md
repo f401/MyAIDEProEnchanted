@@ -29,7 +29,7 @@ cat > myjob/deob.json <<'JSON'
   "member_map": "jobs/jgit/truth/members.tsrg",
   "head": "jobs/jgit/truth/mappings_head.txt",
   "out_tsrg": "jobs/jgit/mappings.txt",
-  "base_jars": ["process/base/merged.jar"],
+  "base_jars": ["process/base/merged_ok.jar"],
   "input_jars": ["process/src/classes.jar"],
   "oracle_jars": [{"label": "v1", "path": "$HOME/oracle/v1.jar"}]
 }
