@@ -4,7 +4,6 @@ abcd/DG	getCachedPacks	DG.Zo()=return FH.Zo()，返回 Collection<? extends Cach
 abcd/GG	getCachedPacks	FileObjectDatabase 的抽象声明（XG/DG 共同实现）
 abcd/GG	newCachedFileObjectDatabase	3.7.1 声明在 ObjectDirectory
 abcd/GG	myAlternates	3.7.1 声明在 ObjectDirectory
-abcd/gE	save	3.7.1 声明在 StoredConfig
 abcd/eI	receivePack	3.7.1 是 receivePack(pm,OutputStream)，此处只有 (pm)
 abcd/eI	doFetch	3.7.1 是 doFetch(pm,want,have,OutputStream)，此处是 3 参
 abcd/nH	logFor	3.7.1 的 RefDirectory 无 logFor
@@ -65,3 +64,33 @@ abcd/OH	objectHeader	AIDE 版 objectHeader(int type,long len) 用字段 headerBu
 abcd/OH	getCRC	3.7.1 无该方法（CRC 只写不读），AIDE 版把 crc32.getValue() 暴露为 getCRC
 abcd/OH	resetCRC	3.7.1 在 writeHeader 里内联 crc32.reset()，AIDE 版抽成 resetCRC()
 abcd/xF	processEntry	AIDE 的 processEntry 是 5 参（3 树 + DirCacheBuildIterator + WorkingTreeIterator），3.7.1 末尾多一个 boolean
+abcd/gI	enableCapabilities	AIDE 版去掉 OutputStream 参数，用 getMessageWriter() 代替；功能体（report-status/delete-refs/ofs-delta/side-band-64k 四能力+SBIS重建）与 3.7.1 一致
+abcd/gI	writeCommands	AIDE 版去掉 OutputStream 参数；循环体（!capableDeleteRefs→REJECTED_NODELETE、sentCommand、writePack=!isDelete）与 3.7.1 一致
+abcd/gI	doPush	3.7.1 doPush(pm,Map,OutputStream)，AIDE 版去掉了 OutputStream 参数；body（writePack→writePack()、sentCommand→capableReport→readStatusReport、capableSideBand→in.read()）一致
+abcd/jJ	checkFetchedObjects	AIDE 把 3.7.1 的 objectChecker 语法糖实装为 boolean 字段（从 TransferConfig.isFsckObjects 初始化），oracle 无此字段
+abcd/jF	save	jF 是 StoredConfig 的 R8 剪枝残骸，只剩一个 abstract save()（FG 覆写它）；clear() 透传空壳被剪，load() 抽象声明因调用点直达具体类也被剪
+abcd/SI	service	AIDE 无独立 ReceivePack 类，ReceivePack.service() 的 R8 迁移产物；流程与 3.7.1 ReceivePack.service() 逐条对拍（advertise→hasError→recvCommands→hasCommands→enableCapabilities→needPack→receivePack→needCheckConnectivity→checkConnectivity→validate→execute→unlockPack→reportStatus→sendStatusReport→postReceive）
+abcd/SI	sendStatusReport	AIDE 版把 Throwable 参数改为读 unpackError 字段：(Z,Reporter) vs 3.7.1 (Z,Throwable,Reporter)；正文"unpack error "+getMessage 一致
+abcd/SI	preReceive	3.7.1 声明在 ReceivePack（合并进 SI）；executeCommands 里 filterCommands(NOT_ATTEMPTED)+II.onPreReceive 调用点
+abcd/SI	postReceive	3.7.1 声明在 ReceivePack（合并进 SI）；service 里 filterCommands(OK)+GI.onPostReceive 调用点
+abcd/SI	checkReceivedObjects	AIDE 把 3.7.1 的 objectChecker 语法糖实装为 boolean 字段（ctor 从 ReceiveConfig.fsckobjects 初始化），oracle 无此字段
+abcd/SI	reportStatus	3.7.1 声明在 ReceivePack（合并进 SI）；enableCapabilities 里 "report-status".contains 写入、service 里控制 sendStatusReport
+abcd/SI	unpackError	3.7.1 是 ReceivePack.service() 的局部变量；AIDE 提升为字段（service 的 catch 链写入、sendStatusReport 读取）
+abcd/XG	openLooseObject	3.7.1 签名 (WindowCursor,AnyObjectId)，AIDE 版把 AnyObjectId 换成 String 名字（body 一致：FileInputStream+UnpackedObject.open）
+abcd/XG	getLooseObjectSize	同上，3.7.1 是 (WindowCursor,AnyObjectId)，AIDE 用 String（body 一致：FileInputStream+UnpackedObject.getSize）
+abcd/XG	openPack	3.7.1 是 openPack(File)，AIDE 版 2 参 (packFile,idxFile)；body 校验 "pack-"+50位+".pack" 名一致
+abcd/XG	cachedPacks	AIDE 4.x cached-packs 特性：AtomicReference 缓存（ctor new AtomicReference(NO_PACKS) 之外的第三个 ref，配 cachedPacksFile 快照校验）
+abcd/XG	cachedPacksFile	AIDE 4.x cached-packs：new File(infoDirectory,"cached-packs")，getCachedPacks 读它做快照校验；3.7.1-5.13.3 均无
+abcd/GG	openLooseObject	抽象声明同 XG（String 版）
+abcd/GG	getLooseObjectSize	抽象声明同 XG（String 版）
+abcd/GG	hasPackedObject	3.7.1 FileObjectDatabase 无此抽象（在 ObjectDirectory 里），AIDE 提升到 GG
+abcd/GG	openPack	抽象声明同 XG（2 参版）
+abcd/nH	isLogAllRefUpdates	3.7.1 在 ReflogWriter，AIDE 合并进 RefDirectory；body = parent.getConfig().get(CoreConfig.KEY).isLogAllRefUpdates 逐字一致
+abcd/nH	shouldAutoCreateLog	3.7.1 在 ReflogWriter；body HEAD/refs/heads//refs/remotes//refs/stash 四项逐字一致
+abcd/nH	log	3.7.1 ReflogWriter.log(String,byte[])；AIDE 合并进 RefDirectory（logFor+isLogAllRefUpdates+shouldAutoCreateLog+FileOutputStream 一致）
+abcd/nH	logsRefsDir	3.7.1 在 ReflogWriter，4.9+ 起 in RefDirectory（probe 恰好是此布局：ctor "logs/refs/"）
+abcd/nH	logsDir	同上（ctor "logs"）
+abcd/qG	repo	3.7.1 RevWalk 用 (ObjectReader or) 构造，Repository 存在 ObjectReader 里；AIDE 版 RevWalk 直接持有 Repository（ctor (UE) 版本）
+abcd/tB	dir	3.7.1 在 RebaseCommand$RebaseState（private File dir），AIDE 把 RebaseState 合并进 RebaseCommand；ctor new File(getDirectory(),"rebase-merge")
+abcd/tB	readFile	3.7.1 在 RebaseCommand$RebaseState.readFile(File,String) static；body IO.readFully+prevLF+decode 一致
+abcd/tB	createFile	3.7.1 在 RebaseState.createFile；body FileOutputStream+getBytes("UTF-8")+write('\n') 一致
