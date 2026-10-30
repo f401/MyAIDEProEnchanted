@@ -1,10 +1,4 @@
-tsrg2 left right
-abcd/wu abcd/ApplicationUtils
-	j6 mApplication
-	FH mClassLock
-	j6 ()Landroid/app/Application; getApplication
-		static
-	j6 (Ljava/lang/Object;)Landroid/app/Application; getApplicationByContext
+tsrg2 obf deobf
 com/aide/ui/build/packagingservice/ExternalPackagingService com/aide/ui/build/packagingservice/ExternalPackagingService
 	Hw mBinder
 com/aide/ui/build/packagingservice/e com/aide/ui/build/packagingservice/IExternalPackagingService
@@ -23,142 +17,7 @@ com/aide/ui/build/packagingservice/ExternalPackagingService$b com/aide/ui/build/
 com/aide/ui/build/packagingservice/ExternalPackagingService$e com/aide/ui/build/packagingservice/ExternalPackagingService$ApkArchiveStream
 	FH added
 	j6 (Ljava/lang/String;)Z has
-com/aide/engine/service/n com/aide/engine/service/ICodeAnalysisEngineService
-com/aide/engine/service/n$a com/aide/engine/service/ICodeAnalysisEngineService$Stub
-com/aide/engine/service/n$a$a com/aide/engine/service/ICodeAnalysisEngineService$Stub$Proxy
-com/aide/common/h com/aide/common/AIDELog
-	DW (Ljava/lang/String;)V e
-		static
-	DW (Ljava/lang/Throwable;) e
-	j6 (Ljava/lang/Throwable;)V e2
-	j6 (Ljava/lang/String;Ljava/lang/Throwable;)V e
-	FH (Ljava/lang/String;)V I
-	Hw (Ljava/lang/String;)V w
-	j6 (Ljava/lang/String;)V d
-	j6 (Ljava/lang/Object;Ljava/lang/String;)V infoWithClassName
-abcd/Si abcd/BaseProjectConfig
-	DW (Ljava/lang/String;)Labcd/Si; newInstance
-abcd/Ri abcd/EclipseJavaProjectConfig
-	gn nodes
-abcd/Ri$a abcd/EclipseJavaProjectConfig$Node
-	v5 kind
-	Zo path
-	Vh exported
-	<init> (Ljava/lang/String;Ljava/lang/String;Z)V <init>
-	0 o kind
-	1 o path
-	2 o exported
-	FH ()Z isLibEntry
-	Hw ()Z isOutputEntry
-	Zo ()Z isSrcEntry
-abcd/Vl abcd/FileSystemUtils
-	DW mContext
-	a8 (Ljava/lang/String;)Z mkdirs
-		static
-	aM (Ljava/lang/String;)Z isDir
-	0 o path
-	DW (Ljava/io/File;)V deleteAll
-	FH (Ljava/lang/String;)V deleteAll
-	Hw ()Ljava/lang/String; getContextFileProvider
-	DW ()Ljava/lang/String; getInternalCacheDir
-	DW (Ljava/lang/String;)V createNewFileNotExists
-	FH ()Ljava/lang/String; getAvaCacheDir
-	Mr (Ljava/lang/String;)Z isFileSystemRoot
-	VH ()Ljava/lang/String; getExternalStorageDirectory
-	v5 ()Ljava/lang/String; getInternalFilesDir
-	u7 (Ljava/lang/String;)J fileLength
-	j6 (Landroid/content/Context;)V setContext
-	j6 (Ljava/io/Reader;)Ljava/lang/String; readFully
-	gW (Ljava/lang/String;)Z isZipOrJarAchieve
-	Zo (Ljava/lang/String;Ljava/lang/String;)V renameTo
-	j3 (Ljava/lang/String;)Z isFileButNotJarOrZip
-abcd/Ui abcd/IProject
-	gn ()Ljava/lang/String; getProjectAttribute
-abcd/lj abcd/EclipseJavaProject
-	FH (Ljava/lang/String;Z)Ljava/lang/String; getCompiledClassesOutputDir
-		static 
-	0 o projectRoot
-	1 o debugBuild
-abcd/Kl abcd/DoubleOutputStream
-	FH first
-	Hw second
-abcd/Ol abcd/ProcessExecutorWrapper
-	tp started
-	FH cmds
-	XL shouldRedirectErrorStream
-	QX workingDir
-	Hw envMap
-	J0 inputStream
-	J8 errorStream
-	we processInstance
-	FH ()Ljava/io/OutputStream; start
-abcd/Ll abcd/ProcessExitMonitor
-	FH processWrapper
-abcd/Vi abcd/ProjectFilesUtil
-	BT (Ljava/lang/String;)Z isGradleProject
-		static
-	tp (Ljava/lang/String;)Ljava/lang/String; generatedJavaDir
-	v5 (Ljava/lang/String;)Ljava/lang/String; getGradleConfigFile
-	vy (Ljava/lang/String;)Z containsNDKFiles
-	FH (Ljava/lang/String;)Ljava/lang/String; getBinaryTempDir
-	FH (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; getAndroidManifestXmlFile
-	DW (Ljava/lang/String;)Ljava/lang/String; getOutputApkDir
-	DW (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; getAndroidResDir
-	J8 (Ljava/lang/String;)Ljava/lang/String; getJniDir
-	we (Ljava/lang/String;)Ljava/lang/String; getInjectedManifestXmlFile
-	EQ (Ljava/lang/String;)Ljava/lang/String; generatedDir
-	J0 (Ljava/lang/String;)Ljava/lang/String; getJarDexDir
-	Mr (Ljava/lang/String;)Ljava/lang/String; getResDir
-	QX (Ljava/lang/String;)Ljava/lang/String; getAssetsDir
-	U2 (Ljava/lang/String;)Ljava/lang/String; getBuildApkPath
-	VH (Ljava/lang/String;)Ljava/lang/String; getEclipseProjectClasspathFile
-	Ws (Ljava/lang/String;)Ljava/lang/String; getLibraryJarsDir
-	XL (Ljava/lang/String;)Ljava/lang/String; getMergedManifestXmlFile
-	Zo (Ljava/lang/String;)Ljava/lang/String; getBinaryTempDirProxy
-	a8 (Ljava/lang/String;)Ljava/lang/String; getAaptOutputFilePath
-	j6 (Ljava/lang/String;Z)Ljava/lang/String; getCompiledJavaClassDir
-	lg (Ljava/lang/String;)Ljava/lang/String; getParentGradleConfigFile
-	rN (Ljava/lang/String;)Ljava/lang/String; getParentSettingsGradleConfigFile
-abcd/i abcd/as/graphics/drawable/TintAwareDrawable
-abcd/e abcd/as/graphics/drawable/WrappedDrawable
-abcd/d abcd/as/graphics/drawable/DrawableCompat
-	j6 IMPL
-	DW (Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable; wrap
-		static
-	j6 (Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V setTintList
-	j6 (Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V setTintMode
-	j6 (Landroid/graphics/drawable/Drawable;)Z isAutoMirrored
-	j6 (Landroid/graphics/drawable/Drawable;I)Z setLayoutDirection
-abcd/d$e abcd/as/graphics/drawable/DrawableCompat$BaseDrawableImpl
-	DW (Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable; wrap
-		static
-	j6 (Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V setTintList
-	j6 (Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V setTintMode
-	j6 (Landroid/graphics/drawable/Drawable;)Z isAutoMirrored
-	j6 (Landroid/graphics/drawable/Drawable;I)Z setLayoutDirection
-abcd/d$a abcd/as/graphics/drawable/DrawableCompat$MDrawableImpl
-abcd/d$b abcd/as/graphics/drawable/DrawableCompat$LollipopDrawableImpl
-abcd/d$c abcd/as/graphics/drawable/DrawableCompat$KitKatDrawableImpl
-abcd/d$d abcd/as/graphics/drawable/DrawableCompat$JellybeanMr1DrawableImpl
-abcd/f abcd/as/graphics/drawable/DrawableWrapperGingerbread
-	j6 DEFAULT_TINT_MODE
-	DW mCurrentColor
-	VH mDrawable
-	FH mCurrentMode
-	v5 mState
-abcd/f$a abcd/as/graphics/drawable/DrawableWrapperGingerbread$DrawableWrapperState
-	DW mDrawableState
-	FH mTint
-	Hw mTintMode
-	j6 mChangingConfigurations
-	j6 ()Z canConstantState
 abcd/vj abcd/vj
-	DW (Ljava/lang/String;Z)Ljava/lang/String; getAideCompilerRequirementFile
-		static
-	j6 (Landroid/content/res/AssetManager;Ljava/lang/String;)Ljava/io/InputStream; openAssetFileInputStream
-	j6 ([Ljava/lang/String;)Ljava/io/InputStream; loadAssetInputStream
-	j6 (Ljava/lang/String;)Ljava/io/InputStream; findDeviceCompatibilableFile
-	gn ()Ljava/lang/String; apkSourceDirLastModified
 abcd/AB$a org/eclipse/jgit/api/RebaseResult$Status
 	Hw ()Z isSuccessful
 	<init> (Ljava/lang/String;I)V <init>
@@ -1346,7 +1205,6 @@ abcd/JF org/eclipse/jgit/patch/HunkHeader
 	v5 newStartLine
 	Hw ()Labcd/JF$a; getOldImage
 	Hw old
-	Zo newStartLine
 	VH nContext
 abcd/JF$a org/eclipse/jgit/patch/HunkHeader$OldImage
 	DW ()I getStartLine
@@ -1736,13 +1594,13 @@ abcd/NH org/eclipse/jgit/storage/pack/PackConfig
 	FH ()I getDeltaSearchWindowSize
 	FH (I)V setDeltaSearchWindowSize
 	FH (Z)V setReuseObjects
-	Hw ()J getDeltaSearchMemoryLimit
-	Hw (I)V setDeltaSearchWindowSize
+	Hw ()J getDeltaCacheSize
+	Hw (I)V setDeltaCacheLimit
 	J0 ()Z isReuseDeltas
 	J8 ()Z isReuseObjects
 	VH ()Ljava/util/concurrent/Executor; getExecutor
-	VH (I)V setBigFileThreshold
-	Zo ()I getDeltaSearchWindowSize
+	VH (I)V setThreads
+	Zo ()I getDeltaCacheLimit
 	Zo (I)V setMaxDeltaDepth
 	gn ()I getIndexVersion
 	j6 ()I getBigFileThreshold
@@ -1755,7 +1613,6 @@ abcd/NH org/eclipse/jgit/storage/pack/PackConfig
 	v5 (I)V setIndexVersion
 	we ()Z isDeltaCompress
 	J0 executor
-	j6 maxDeltaDepth
 	tp deltaSearchWindowSize
 	<init> (Labcd/UE;)V <init>
 	DW reuseDeltas
@@ -3374,7 +3231,6 @@ abcd/YJ org/eclipse/jgit/treewalk/TreeWalk
 	Zo ()I getPathLength
 	gn ()Z isRecursive
 	j6 (Labcd/YD;)I addTree
-	j6 ()V skipEntriesEqual
 	j6 (Labcd/jK;)V setFilter
 	j6 (Z)V setRecursive
 	j6 ([Labcd/YD;)V reset
@@ -3842,7 +3698,6 @@ abcd/aH org/eclipse/jgit/internal/storage/file/PackFile
 	v5 hash
 abcd/aH$a org/eclipse/jgit/internal/storage/file/PackFile$3
 	DW (Labcd/aH;Labcd/wH;)Labcd/FE; create
-	j6 (Labcd/aH;Labcd/wH;)Labcd/FE; create
 abcd/aI org/eclipse/jgit/transport/BaseConnection
 	DW startedOperation
 	FH messageWriter
@@ -5451,7 +5306,6 @@ abcd/oF org/eclipse/jgit/lib/UserConfig
 		static
 	j6 (Labcd/gE;Ljava/lang/String;)Ljava/lang/String; getEmailInternal
 		static
-	DW authorName
 	FH authorEmail
 	VH isAuthorEmailImplicit
 	Zo isAuthorNameImplicit
@@ -5633,7 +5487,6 @@ abcd/pK org/eclipse/jgit/util/FS
 	FH ()Ljava/io/File; gitPrefix
 	VH ()Ljava/io/File; userHomeImpl
 	Zo ()Ljava/io/File; userHome
-	gn ()Z supportsSymlinks
 	FH gitPrefix
 	DW userHome
 	DW (Ljava/io/File;)Labcd/pK; detect
@@ -5670,7 +5523,6 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	J8 ()V finishDelayedFreeFlags
 	Ws ()Z getRewriteParents
 	DW (Labcd/kG;)V sort
-	EQ ()V finishDelayedFreeFlags
 	Hw ()V assertNotStarted
 	VH ()Labcd/yG; getRevFilter
 	Zo (I)V reset
@@ -5761,7 +5613,6 @@ abcd/rB org/eclipse/jgit/api/PullResult
 	toString ()Ljava/lang/String; toString
 	DW rebaseResult
 	j6 ()Labcd/pB; getMergeResult
-	FH rebaseResult
 abcd/rC org/eclipse/jgit/diff/MyersDiff$1
 	<init> ()V <init>
 	j6 (Labcd/kC;Labcd/mC;Labcd/lC;Labcd/lC;Labcd/jC;)V diffNonCommon
@@ -6484,7 +6335,6 @@ abcd/xF org/eclipse/jgit/merge/ResolveMerger
 	QX mergeResults
 	j3 implicitDirCache
 	J0 ()Z isIndexDirty
-	Hw ()Z mergeImpl
 	j6 ([BLabcd/UJ;I)Labcd/QC; add
 	j6 (Labcd/UJ;Labcd/UJ;Labcd/UJ;Labcd/uF;Ljava/io/File;)V updateIndex
 	j6 (Ljava/io/File;)V mkdirs
@@ -6575,7 +6425,6 @@ abcd/xJ$d org/eclipse/jgit/transport/TransportHttp$Service
 	j6 serviceName
 	Hw execute
 	v5 in
-	DW serviceName
 	FH requestType
 	j6 (Labcd/xJ$d;)Labcd/xJ; access$000
 		static
@@ -7036,8 +6885,6 @@ abcd/NF org/eclipse/jgit/revwalk/BlockObjQueue
 abcd/RE$b org/eclipse/jgit/lib/RefUpdate$Store
 	j6 this$0
 	j6 (Labcd/RE$a;)Labcd/RE$a; execute
-abcd/Sw abcd/Sw
-	getMaxForRoute (Lorg/apache/http/conn/routing/HttpRoute;)I getMaxForRoute
 abcd/TK org/eclipse/jgit/util/io/DisabledOutputStream
 	j6 INSTANCE
 	write (I)V write
@@ -7265,7 +7112,6 @@ abcd/JH org/eclipse/jgit/internal/storage/pack/DeltaWindowEntry
 	Hw ()I type
 	j6 ()I depth
 abcd/MG org/eclipse/jgit/internal/storage/file/MG
-	close ()V close
 abcd/LC org/eclipse/jgit/dircache/DirCacheBuildIterator
 	J0 ()V stopWalk
 	j6 (Labcd/IE;)Labcd/TJ; createSubtreeIterator
@@ -7304,10 +7150,6 @@ abcd/Ww abcd/Ww
 	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V configureRequest
 	u7 ()V u7
 	v5 ()Lorg/apache/http/client/HttpClient; getHttpClient
-abcd/Ww$b abcd/Ww$b
-	keepAlive (Lorg/apache/http/HttpResponse;Lorg/apache/http/protocol/HttpContext;)Z keepAlive
-abcd/Ww$c abcd/Ww$c
-	getKeepAliveDuration (Lorg/apache/http/HttpResponse;Lorg/apache/http/protocol/HttpContext;)J getKeepAliveDuration
 abcd/bC org/eclipse/jgit/diff/bC
 	DW ()J getSize
 	FH ()I getType
@@ -7372,18 +7214,10 @@ abcd/NI org/eclipse/jgit/transport/PushResult
 	FH ()Ljava/util/Collection; getRemoteUpdates
 	j6 (Ljava/util/Map;)V setRemoteUpdates
 	v5 remoteUpdates
-abcd/Tw abcd/Tw
-	createConnectionKeepAliveStrategy ()Lorg/apache/http/conn/ConnectionKeepAliveStrategy; createConnectionKeepAliveStrategy
-	createConnectionReuseStrategy ()Lorg/apache/http/ConnectionReuseStrategy; createConnectionReuseStrategy
-abcd/Uw abcd/Uw
-	process (Lorg/apache/http/HttpRequest;Lorg/apache/http/protocol/HttpContext;)V process
-abcd/Vw abcd/Vw
-	process (Lorg/apache/http/HttpResponse;Lorg/apache/http/protocol/HttpContext;)V process
 abcd/XD org/eclipse/jgit/internal/storage/file/XD
 	end ()V end
 	inflate ([B)I inflate
 	inflate ([BII)I inflate
-	j6 ()V end
 abcd/gJ org/eclipse/jgit/transport/TrackingRefUpdate
 	DW ()Labcd/yE; getNewObjectId
 	FH ()Labcd/yE; getOldObjectId
@@ -7501,7 +7335,6 @@ abcd/Hz$b abcd/Hz$b
 	j6 (Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection; create
 abcd/Hz$d abcd/Hz$d
 	call ()Ljava/lang/Object; call
-	DW ()Ljava/lang/Object; call
 	j6 ()V close
 abcd/Hz$e abcd/Hz$e
 	j6 (Ljava/lang/String;)Labcd/Hz$e; write
@@ -7529,7 +7362,6 @@ abcd/ZD org/eclipse/jgit/lib/AsyncObjectLoaderQueue
 	next ()Z next
 	DW ()Labcd/yE; getCurrent
 	FH ()Labcd/FE; open
-	j6 ()V release
 abcd/aE org/eclipse/jgit/lib/AsyncOperation
 	j6 ()V release
 abcd/DD org/eclipse/jgit/events/ConfigChangedListener
@@ -7556,99 +7388,8 @@ abcd/GH org/eclipse/jgit/internal/storage/file/GH
 	read ()I read
 	read ([BII)I read
 	skip (J)J skip
-abcd/Dw abcd/Dw
-	DW (Ljava/util/Map;Ljava/lang/String;)J DW
-		static
-	j6 (Ljava/lang/String;Ljava/io/InputStream;JZLjava/lang/String;Labcd/Fw;)Labcd/Dw$g; j6
-	j6 (Ljava/util/Map;Ljava/lang/String;)Z j6
-		static
-	DW (Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$g; DW
-	DW (Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$g; DW
-	DW ()V DW
-	DW (Ljava/lang/String;)V DW
-	FH ()Labcd/Zw; FH
-	j6 ()Labcd/Dw$a; j6
-	j6 (Ljava/lang/String;Ljava/lang/String;)Labcd/Dw$d; j6
-	j6 (Ljava/lang/String;)Labcd/Dw$e; j6
-	j6 (Ljava/lang/String;ILjava/lang/String;ZLjava/lang/String;)Labcd/Dw$e; j6
-	j6 (Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$e; j6
-	j6 (Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$e; j6
-	j6 j6
-	DW DW
-abcd/Dw$b abcd/Dw$b
-	j6 ()Labcd/Dw$e; j6
-	DW DW
-	j6 j6
-abcd/Ez abcd/Ez
-	DW ()Ljavax/net/ssl/SSLSocketFactory; DW
-	FH ()V FH
-	j6 ()Ljavax/net/ssl/SSLSocketFactory; j6
-	j6 (Ljava/lang/String;)Z j6
-	j6 (Labcd/Fz;Ljava/lang/String;)Labcd/Hz; j6
-	j6 (Labcd/Fz;Ljava/lang/String;Ljava/util/Map;)Labcd/Hz; j6
-	j6 (Labcd/Lz;)V j6
-	DW DW
-	FH FH
-	Hw Hw
-	j6 j6
-abcd/Gw abcd/Gw
-	DW (Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Labcd/Dw$f; DW
-		static
-	j6 (Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Ljava/lang/Object; j6
-		static
-	j6 (Lorg/apache/http/HttpResponse;)Ljava/lang/Object; j6
-		static
-	j6 (Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;)Ljava/lang/String; j6
-		static
-	j6 ([Ljava/lang/String;)Ljava/lang/String; j6
-		static
-	j6 (Labcd/Zw;Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse; j6
-		static
-	j6 (Labcd/Zw;Lorg/apache/http/client/methods/HttpUriRequest;I)Lorg/apache/http/HttpResponse; j6
-		static
-	j6 (Labcd/Zw;)Lorg/apache/http/client/HttpClient; j6
-		static
-	j6 (Lorg/apache/http/client/HttpClient;Labcd/Zw;)V j6
-		static
-	j6 (Lorg/apache/http/HttpRequest;)Z j6
-		static
-	j6 j6
-abcd/Jz abcd/Jz
-	j6 (Labcd/Fz;Ljava/lang/String;)Labcd/Hz; j6
-	j6 (Labcd/Fz;Ljava/lang/String;Ljava/util/Map;)Labcd/Hz; j6
-	j6 (Labcd/Lz;)V j6
 abcd/SG$a abcd/SG$a
 	DW ()I getFormat
-abcd/Sz abcd/Sz
-	DW (Labcd/Hz;Labcd/Vz;)Labcd/Hz; DW
-	j6 (Labcd/Hz;Labcd/Vz;)Labcd/Hz; j6
-	DW (Lio/fabric/sdk/android/l;)Ljava/lang/String; DW
-	j6 (Lio/fabric/sdk/android/l;)Ljava/lang/String; j6
-	j6 (Labcd/Vz;)Z j6
-abcd/dA abcd/dA
-	DW (Labcd/pA;)Ljava/util/Map; DW
-	DW (Ljava/lang/String;)Lorg/json/JSONObject; DW
-	j6 (Labcd/Hz;Labcd/pA;)Labcd/Hz; j6
-	j6 (Labcd/Hz;Ljava/lang/String;Ljava/lang/String;)V j6
-	j6 (Labcd/Hz;)Lorg/json/JSONObject; j6
-	j6 (Labcd/pA;)Lorg/json/JSONObject; j6
-	j6 (I)Z j6
-abcd/jL abcd/jL
-	DW (Labcd/iL;)Ljava/util/Map; DW
-	FH ()V FH
-	j6 (Ljava/util/LinkedList;)I j6
-	j6 (Labcd/iL;)Ljava/util/List; j6
-	DW ()V DW
-	DW (Ljava/io/Reader;)V DW
-	j6 ()I j6
-	j6 (Ljava/io/Reader;)Ljava/lang/Object; j6
-	j6 (Ljava/io/Reader;Labcd/iL;)Ljava/lang/Object; j6
-	j6 (Ljava/lang/String;)Ljava/lang/Object; j6
-	j6 (Ljava/lang/String;Labcd/iL;)Ljava/lang/Object; j6
-	DW DW
-	FH FH
-	Hw Hw
-	j6 j6
 abcd/rI$a org/eclipse/jgit/transport/HttpAuthMethod$Basic
 	j6 (Ljava/lang/String;Ljava/lang/String;)V authorize
 	j6 (Ljava/net/HttpURLConnection;)V configureRequest

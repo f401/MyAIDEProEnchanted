@@ -136,6 +136,8 @@ cd /storage/emulated/0/MyAIDEProEnchanted
 # 改完 ~/out/work/jgit_map_clean.tsv 后一步到位：
 python3 tools/jgit/rebuild_tsrg.py       # tsv → jgit_members_clean.tsrg → process/mappings.txt
 python3 tools/jgit/verify_members.py     # 期望：不一致 0
+python3 tools/jgit/filter_head.py --apply   # 清掉 mappings_head.txt 里"已应用/不存在"的块与行
+python3 tools/jgit/validate_mappings.py    # 校验：类/成员是否存在、重复目标、static 标记 → 期望 ✔ 无无效映射
 python3 tools/jgit/widen_access.py process/base/merged_ok.jar \
         --map ~/out/work/jgit_map_clean.tsv --out process/base/merged_pub.jar --apply
                                          # 跨包 package-private → public/protected（FART 前/后都能跑）
