@@ -1,47 +1,49 @@
 # AIDE Pro 个人魔改版
 
-*** 仅供学习交流使用 ***
+*** 仅供学习交流使用；请自行准备合法授权的签名私钥 ***
 
 ## 特性
 
 - 与 Termux 共享 UID（`sharedUserId=com.termux2`，刻意与真 Termux 脱钩）
-- 自定义终端环境变量
-- 更新 D8 版本
+- 自定义终端环境变量、更新 D8 版本
 - **jgit 反混淆**：把 AIDE 内置的 jgit 从 `abcd/*` 还原成真实类名/成员名（进行中）
 
-## 编译
+## 目录
 
-使用 **apktool m** 进入 `src` 目录回编译；签名需原作者私钥（不在仓库），
-详见 `AGENTS.md` §2 与 `docs/TEST-PLAN.md`。
-
-## 贡献 Mapping
-
-`process/mappings.txt` 是 TSRG2 格式的改名表，由
-[Minecraft Forge AutoRenamingTool](https://github.com/MinecraftForge/ForgeAutoRenamingTool) 消费。
-
-```bash
-cd process
-java -jar ForgeAutoRenamingTool-1.0.8-all.jar \
-  --input  <输入.jar> \
-  --output <输出.jar> \
-  --map    mappings.txt
+```
+src/               apktool 反编译产物（smali / res / AndroidManifest.xml 等）
+Dex/               原始 dex 与解析工具
+process/           改名工程：mappings.txt（TSRG2）、base/（改名基线 jar）、src/（逐 dex 的 jar）
+tools/jgit/        定名 / 校验 / 改名辅助工具（见 docs/TOOLS.md）
+docs/              文档（见 docs/README.md）
+out/               中间产物（jar、dex、日志）
 ```
 
-当前规模：**688 个类 / 4047 个成员**（方法 2623/3368 = 77.9%，字段 1116/1603 = 69.6%）。
+## 快速开始
 
-改名的输入基线 `process/base/merged_ok.jar` 已入库，指纹见 `process/SHA256SUMS`；
-复现与判等命令见 `process/README.md`（判等用**内容指纹**，不用整包 sha256）。
+```bash
+# 1) 改 mapping（唯一真相是 tsv，不要手改 mappings.txt）
+python3 tools/jgit/rebuild_tsrg.py          # tsv → tsrg → process/mappings.txt
+# 2) 认证
+python3 tools/jgit/validate_mappings.py     # 期望 ✔ 无无效映射
+python3 tools/jgit/verify_members.py        # 期望 不一致 0
+python3 tools/jgit/inherit_check.py         # 期望 CONFLICT 0 / MISSING 0
+# 3) 构建（详见 docs/BUILD.md）
+```
 
-> ⚠️ 不要直接编辑 `mappings.txt`：唯一真相是 `~/out/work/jgit_map_clean.tsv`，
-> 改完跑 `python3 tools/jgit/rebuild_tsrg.py` 重新生成。
+## 当前规模
+
+| 指标 | 值 |
+|---|---|
+| 类映射 | 740（其中 `abcd/aide/*` 53 个 AIDE 自有类） |
+| 成员映射 | 5514 行（只放真实改名） |
+| mappings.txt | 6804 行 / 类块 751 / 成员行 5522 / static 标记 961 |
+| 覆盖率 | 方法 3172/3533 = **89.8%**、字段 1741/1855 = **93.9%**、完全覆盖类 **480** |
+| 认证 | verify 不一致 0；inherit CONFLICT 0 / MISSING 0；validate ✔ 无无效映射 |
 
 ## 文档
 
-| 我想… | 看 |
-|---|---|
-| 出包（改名 → dex → 回填） | `docs/JGIT-PIPELINE.md` |
-| 搞清 dex 注解/元数据 | `docs/JGIT-METADATA.md` |
-| 某个类为什么这么命名 | `docs/JGIT-MAPPING-QC.md` |
-| 构建炸了先查有没有人踩过 | `docs/BUILD-PITFALLS.md` |
-| 全部文档索引 | `docs/README.md` |
-| 仓库硬性约束（**动手前必读**） | `AGENTS.md` |
+见 [docs/README.md](docs/README.md)。
+
+> ⚠️ `process/mappings.txt` 是派生产物；唯一真相是 `~/out/work/jgit_map_clean.tsv`（类名）与
+> `~/out/work/jgit_members_clean.tsrg`（成员）。改完必须跑 `rebuild_tsrg.py` 再跑认证。
