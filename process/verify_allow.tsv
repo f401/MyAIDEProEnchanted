@@ -94,3 +94,4 @@ abcd/qG	repo	3.7.1 RevWalk 用 (ObjectReader or) 构造，Repository 存在 Obje
 abcd/tB	dir	3.7.1 在 RebaseCommand$RebaseState（private File dir），AIDE 把 RebaseState 合并进 RebaseCommand；ctor new File(getDirectory(),"rebase-merge")
 abcd/tB	readFile	3.7.1 在 RebaseCommand$RebaseState.readFile(File,String) static；body IO.readFully+prevLF+decode 一致
 abcd/tB	createFile	3.7.1 在 RebaseState.createFile；body FileOutputStream+getBytes("UTF-8")+write('\n') 一致
+abcd/bB	removeDeletedRefs	3.7.1 是 Boolean（三态：null=默认true），AIDE 版改成 primitive boolean（call() 直接传给 Transport.setRemoveDeletedRefs(Z)）

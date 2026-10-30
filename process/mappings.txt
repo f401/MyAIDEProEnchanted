@@ -598,6 +598,8 @@ abcd/DG org/eclipse/jgit/internal/storage/file/CachedObjectDirectory
 	J0 ()[I $SWITCH_TABLE$org$eclipse$jgit$internal$storage$file$FileObjectDatabase$InsertLooseObjectResult
 		static
 	j6 $SWITCH_TABLE$org$eclipse$jgit$internal$storage$file$FileObjectDatabase$InsertLooseObjectResult
+	Hw (Labcd/wH;Labcd/YD;)Labcd/FE; openObject
+	v5 (Labcd/wH;Labcd/YD;)Labcd/FE; openLooseObject
 abcd/DG$a org/eclipse/jgit/internal/storage/file/CachedObjectDirectory$UnpackedObjectId
 abcd/DH org/eclipse/jgit/internal/storage/pack/DeltaIndex$1
 abcd/DI org/eclipse/jgit/transport/PacketLineIn
@@ -1521,6 +1523,8 @@ abcd/MI org/eclipse/jgit/transport/PushProcess
 	Hw toPush
 	v5 walker
 	DW ()Ljava/util/Map; prepareRemoteUpdates
+	FH ()V updateTrackingRefs
+	j6 ()V modifyUpdatesForDryRun
 abcd/MJ org/eclipse/jgit/transport/UploadPack$2
 abcd/MK org/eclipse/jgit/util/RefMap
 	VH entrySet
@@ -3631,6 +3635,7 @@ abcd/aH org/eclipse/jgit/internal/storage/file/PackFile
 	j6 (Labcd/aH;)I access$000
 		static
 	EQ packLastModified
+	v5 hash
 abcd/aH$a org/eclipse/jgit/internal/storage/file/PackFile$3
 abcd/aI org/eclipse/jgit/transport/BaseConnection
 	DW startedOperation
@@ -3683,6 +3688,9 @@ abcd/bB org/eclipse/jgit/api/FetchCommand
 	gn monitor
 	j6 (Labcd/LE;)Labcd/bB; setProgressMonitor
 	we thin
+	u7 checkFetchedObjects
+	tp removeDeletedRefs
+	EQ dryRun
 abcd/bE org/eclipse/jgit/lib/BaseRepositoryBuilder
 	j6 (Z)Labcd/bE; setMustExist
 	U2 ()Ljava/io/File; guessWorkTreeOrFail
@@ -4011,6 +4019,8 @@ abcd/eC$a org/eclipse/jgit/diff/DiffAlgorithm$SupportedAlgorithm
 		static
 	values ()[Labcd/eC$a; values
 		static
+	j6 MYERS
+	DW HISTOGRAM
 abcd/eD org/eclipse/jgit/errors/MissingBundlePrerequisiteException
 	j6 (Ljava/util/Map;)Ljava/lang/String; format
 		static
@@ -4029,6 +4039,8 @@ abcd/eE org/eclipse/jgit/lib/BatchingProgressMonitor
 	DW ()Ljava/util/concurrent/ScheduledThreadPoolExecutor; access$000
 		static
 	isCancelled ()Z isCancelled
+	start (I)V start
+	update (I)V update
 abcd/eE$a org/eclipse/jgit/lib/BatchingProgressMonitor$Task
 	Hw timerFuture
 	j6 taskName
@@ -4555,6 +4567,8 @@ abcd/iC org/eclipse/jgit/diff/DiffFormatter
 	Hw (Labcd/tC;I)Z isEndOfLineMissing
 abcd/iC$a org/eclipse/jgit/diff/DiffFormatter$FormatResult
 	j6 header
+	DW a
+	FH b
 abcd/iE org/eclipse/jgit/lib/CoreConfig$1
 	<init> ()V <init>
 	j6 (Labcd/gE;)Labcd/jE; parse
@@ -4773,6 +4787,8 @@ abcd/jK org/eclipse/jgit/treewalk/filter/TreeFilter
 	clone ()Labcd/jK; clone
 	<init> ()V <init>
 	toString ()Ljava/lang/String; toString
+	j6 ALL
+	DW ANY_DIFF
 abcd/jK$a org/eclipse/jgit/treewalk/filter/TreeFilter$AllFilter
 	clone ()Labcd/jK; clone
 	j6 (Labcd/YJ;)Z include
@@ -6491,6 +6507,8 @@ abcd/XJ org/eclipse/jgit/treewalk/NameConflictTreeWalk
 	QX ()Z isDirectoryFileConflict
 	tp ()Labcd/TJ; min
 	XL ()Labcd/TJ; fastMin
+	Ws ()V skipEntriesEqual
+	we ()V popEntriesEqual
 abcd/RK$c org/eclipse/jgit/util/TemporaryBuffer$Heap
 	Hw ()Ljava/io/OutputStream; overflow
 abcd/VJ org/eclipse/jgit/treewalk/EmptyTreeIterator
