@@ -694,6 +694,7 @@ abcd/EG org/eclipse/jgit/internal/storage/file/DeltaBaseCache
 		static
 	DW defaultMaxByteCount
 	j6 (Labcd/aH;J)Labcd/EG$a; get
+	FH (Labcd/EG$b;)V unlink
 abcd/EG$b org/eclipse/jgit/internal/storage/file/DeltaBaseCache$Slot
 	FH provider
 	Hw position
@@ -1097,6 +1098,7 @@ abcd/IG org/eclipse/jgit/internal/storage/file/FileRepository
 	gn systemConfig
 	EQ ()Labcd/xE; getObjectDatabase
 	Zo ()Labcd/jF; getConfig
+	Mr ()V notifyIndexChanged
 abcd/IJ org/eclipse/jgit/transport/UploadPack
 	EQ pckIn
 	FH db
@@ -1940,7 +1942,7 @@ abcd/QA org/eclipse/jgit/api/CheckoutCommand
 	VH ()V processOptions
 	Zo ()Labcd/yE; getStartPointObjectId
 	DW (Ljava/lang/String;)Labcd/QA; setName
-	DW (Z)Labcd/QA; setAllPaths
+	DW (Z)Labcd/QA; setForce
 	FH (Ljava/lang/String;)Labcd/QA; setStartPoint
 	Hw ()Labcd/QA; checkoutPaths
 	j6 (Ljava/lang/String;)Labcd/QA; addPath
@@ -1954,10 +1956,11 @@ abcd/QA org/eclipse/jgit/api/CheckoutCommand
 	u7 startCommit
 	Hw name
 	gn startPoint
-	v5 checkoutAllPaths
+	v5 force
 	FH ()[I $SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result
 		static
 	FH $SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result
+	Zo createBranch
 abcd/QC org/eclipse/jgit/dircache/DirCacheEntry
 	j6 nullpad
 	FH infoOffset
@@ -2814,7 +2817,7 @@ abcd/WF org/eclipse/jgit/revwalk/FollowFilter
 abcd/WG org/eclipse/jgit/internal/storage/file/LockFile
 	j6 (Labcd/yE;)V write
 	j6 ([B)V write
-	gn ()Z lockForAppend
+	gn ()Z renameLock
 	tp ()V copyCurrentContent
 	u7 ()V requireLock
 	DW (Z)V setNeedStatInformation
@@ -2822,7 +2825,7 @@ abcd/WG org/eclipse/jgit/internal/storage/file/LockFile
 	FH (Z)V setNeedSnapshot
 	Zo ()V waitForStatChange
 	j6 (Z)V setFSync
-	j6 ()Z deleteRef
+	j6 ()Z commit
 	v5 ()V saveStatInformation
 	v5 os
 	<init> (Ljava/io/File;Labcd/pK;)V <init>
@@ -2843,6 +2846,7 @@ abcd/WG org/eclipse/jgit/internal/storage/file/LockFile
 		static
 	Hw haveLck
 	Zo needSnapshot
+	VH ()Z deleteRef
 abcd/WH org/eclipse/jgit/submodule/SubmoduleStatus
 	j6 ()Ljava/lang/String; getPath
 	DW path
@@ -2920,6 +2924,8 @@ abcd/XA org/eclipse/jgit/api/CloneCommand
 	J8 noCheckout
 	VH directory
 	we bare
+	J0 cloneSubmodules
+	gn cloneAllBranches
 abcd/XE org/eclipse/jgit/lib/RepositoryState$1
 	Hw ()Z canCheckout
 abcd/XF org/eclipse/jgit/revwalk/Generator
@@ -3241,6 +3247,8 @@ abcd/ZA org/eclipse/jgit/api/CommitCommand
 	FH ()[I $SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result
 		static
 	FH $SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result
+	tp amend
+	EQ insertChangeId
 abcd/ZE org/eclipse/jgit/lib/RepositoryState$3
 	Hw ()Z canCheckout
 abcd/ZF org/eclipse/jgit/revwalk/MergeBaseGenerator
@@ -3921,6 +3929,9 @@ abcd/dG org/eclipse/jgit/revwalk/RevCommit
 	QX inDegree
 	U2 ()I getCommitTime
 	lg ()I getParentCount
+	Mr ()Labcd/KE; getAuthorIdent
+	gW ()V reset
+	j3 ()V disposeBody
 abcd/dH org/eclipse/jgit/internal/storage/file/PackIndexV1
 	FH ()Z hasCRC32Support
 	j6 (J)Labcd/yE; getObjectId
@@ -4366,6 +4377,9 @@ abcd/hC org/eclipse/jgit/diff/DiffEntry
 	j6 ()[I $SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$ChangeType
 		static
 	DW $SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$ChangeType
+	Zo newMode
+	v5 oldMode
+	gn score
 abcd/hC$a org/eclipse/jgit/diff/DiffEntry$ChangeType
 	<init> (Ljava/lang/String;I)V <init>
 	FH DELETE
@@ -4639,6 +4653,9 @@ abcd/jE$a org/eclipse/jgit/lib/CoreConfig$AutoCRLF
 		static
 	values ()[Labcd/jE$a; values
 		static
+	j6 FALSE
+	DW TRUE
+	FH INPUT
 abcd/jF org/eclipse/jgit/lib/StoredConfig
 	v5 ()V save
 abcd/jH org/eclipse/jgit/internal/storage/file/PackInputStream
@@ -5199,6 +5216,8 @@ abcd/pB org/eclipse/jgit/api/MergeResult
 	j6 (Ljava/lang/String;Labcd/uF;)V addConflict
 	Hw conflicts
 	gn failingPaths
+	DW newHead
+	FH base
 abcd/pB$a org/eclipse/jgit/api/MergeResult$MergeStatus
 	Hw ()Z isSuccessful
 	<init> (Ljava/lang/String;I)V <init>
@@ -5295,9 +5314,15 @@ abcd/pI org/eclipse/jgit/transport/FetchProcess
 	j6 ()[I $SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result
 		static
 	j6 $SWITCH_TABLE$org$eclipse$jgit$lib$RefUpdate$Result
+	Zo localUpdates
+	VH fetchHeadUpdates
+	gn packLocks
 abcd/pJ org/eclipse/jgit/transport/TransportGitAnon$1
 	DW (Labcd/HJ;Labcd/UE;Ljava/lang/String;)Labcd/jJ; open
 	DW ()Ljava/lang/String; getName
+	FH ()Ljava/util/Set; getRequiredFields
+	Hw ()Ljava/util/Set; getOptionalFields
+	v5 ()Ljava/util/Set; getSchemes
 abcd/pK org/eclipse/jgit/util/FS
 	DW ()Ljava/io/File; discoverGitPrefix
 	j6 (Ljava/io/File;)Z canExecute
@@ -5774,6 +5799,10 @@ abcd/tK org/eclipse/jgit/util/FS_POSIX_Java6
 	j6 (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method; needMethod
 		static
 	Hw ()Z retryFailedLockFileCommit
+	gn ()Z hasExecute
+		static
+	Hw canExecute
+	v5 setExecute
 abcd/uB org/eclipse/jgit/api/RebaseResult$Status$1
 	Hw ()Z isSuccessful
 abcd/uD org/eclipse/jgit/errors/TooLargeObjectInPackException
@@ -5889,6 +5918,8 @@ abcd/vF org/eclipse/jgit/merge/MergeStrategy
 	j6 (Labcd/vF;)V register
 		static
 	DW THEIRS
+	FH SIMPLE_TWO_WAY_IN_CORE
+	Hw RECURSIVE
 abcd/vG org/eclipse/jgit/revwalk/filter/AndRevFilter
 	j6 (Labcd/yG;Labcd/yG;)Labcd/yG; create
 		static
@@ -6328,6 +6359,10 @@ abcd/zE org/eclipse/jgit/lib/ObjectIdOwnerMap$1
 	hasNext ()Z hasNext
 	remove ()V remove
 	j6 found
+	DW dirIdx
+	FH tblIdx
+	next ()Labcd/AE$a; next
+	next ()Ljava/lang/Object; next
 abcd/zF org/eclipse/jgit/merge/StrategyResolve
 	j6 ()Ljava/lang/String; getName
 	j6 (Labcd/UE;)Labcd/CF; newMerger
@@ -6633,6 +6668,8 @@ abcd/GC org/eclipse/jgit/diff/Subsequence
 	j6 base
 	DW begin
 	FH size
+	DW (Labcd/CC;Labcd/jC;)Labcd/GC; b
+		static
 abcd/OF$a org/eclipse/jgit/revwalk/BlockRevQueue$Block
 	DW commits
 	j6 next
@@ -6676,6 +6713,9 @@ abcd/PF$a org/eclipse/jgit/revwalk/BoundaryGenerator$InitialGenerator
 abcd/tH org/eclipse/jgit/internal/storage/file/UnpackedObjectCache
 	DW (Labcd/YD;)Z isUnpacked
 	j6 table
+	FH (Labcd/YD;)V remove
+	j6 (Labcd/YD;)V add
+	j6 ()V clear
 abcd/tH$a org/eclipse/jgit/internal/storage/file/UnpackedObjectCache$Table
 	FH (Labcd/YD;)I index
 	j6 ids
@@ -6736,6 +6776,9 @@ abcd/IH org/eclipse/jgit/internal/storage/pack/DeltaWindow
 	Zo maxDepth
 	gn cur
 	we end
+	FH ()V search
+	Hw ()V keepInWindow
+	u7 deltaLen
 abcd/JH org/eclipse/jgit/internal/storage/pack/DeltaWindowEntry
 	DW ()Z empty
 	j6 (Labcd/MH;)V set
