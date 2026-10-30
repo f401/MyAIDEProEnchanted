@@ -21,7 +21,7 @@
 | 5 | 字符串常量 / JGitText 键 / 正则字面量 | `mK.<clinit>` 三条正则与 3.7.1 `ChangeIdUtil` 逐字节相同 |
 | 6 | 类型形状（成员多重集 + super 唯一匹配） | 只在 1–5 都用不上时用，且**必须再用 body 复核** |
 
-**形状巧合不算证据**：`shapescan --loose` 的命中必须回头读 body 确认（历史上 `Sw` 被 loose 形状判成
+**形状巧合不算证据**：`deob shape`（原 `shapescan --loose`）的命中必须回头读 body 确认（历史上 `Sw` 被 loose 形状判成
 `TreeFilterMarker`，实际是 apache 的 `ConnPerRoute`）。
 
 ## 2. 类名规则

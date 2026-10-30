@@ -9,10 +9,12 @@ tools/jgit/
 ├── paths.py / probelib.py / jvmbody.py / dexlib.py   共享底座（路径、成员清单、class/dex 解析）
 ├── pipeline/  改映射与构建（rebuild_tsrg / emit_tsrg2 / mapfix / tsvfix / validate_mappings /
 │              verify_members / inherit_check / pkgclose / widen_access / coverage / jar_manifest …）
-├── naming/    定名：类级（shapescan / shapefind / keyclass / guessprove …）+ 成员级（bodyfit / lcs / field* …）
+├── naming/    定名分析器：类级（keyclass / guessprove / graphfinger / rescore / sigmatch …）
+│              + 成员级（bodyfit / lcs / field* / const* / override / closefam / gapfill* …）
 ├── audit/     体检：access_audit / nestcheck / dupcheck / staticclash / deadmembers / apk_class_diff …
-├── inspect/   读码查看：q / dump / prof / hdr / body / fw / elim / ifacemap / shapeall …（人工定名第一站）
-└── stage/     一次性/特定阶段脚本（apply_batch1 / clsfix* / genident）
+├── inspect/   读码查看：allrem / fw / ctor / fielduse / deleg / autoname / dex* / inner*
+│              （q / prof / dump / hdr / elim / iface / shape 已整合到 `tools/deob/` 的 view）
+└── stage/     一次性脚本停放处（当前空，历史脚本见 git log）
 ```
 
 > **工具作用总表在 [docs/TOOLS.md](../../docs/TOOLS.md)；认证流水线在 [docs/VERIFY.md](../../docs/VERIFY.md)；
