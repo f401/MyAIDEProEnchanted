@@ -177,3 +177,40 @@ abcd/aH	endWindowCache	PackFile 的引用计数递减方法（--useCount，归�
 # —— 第四批（小类补齐）——
 abcd/gE	addValue	AIDE 在 Config 内部加的列表追加助手（null→singletonList，size==1→新建 2 元素 ArrayList，否则 add），3.7.1 无此方法
 abcd/pI	deleteTrackingRef	3.7.1 deleteTrackingRef(FetchResult,BatchRefUpdate,RefSpec,Ref)；AIDE 改成 (FetchResult,Repository,RevWalk,RefSpec,Ref)，删除逻辑随后者手写执行
+# —— 类名误判纠正（bG/cK/mK/NI/gJ）带来的签名差异 ——
+abcd/mK	computeChangeId	3.7.1 computeChangeId(ObjectId,ObjectId,PersonIdent,PersonIdent,String) 返回 ObjectId；AIDE 多一个 message 参数并直接返回 String
+abcd/gJ	delete	旧式 TrackingRefUpdate（包装 RefUpdate）才有 delete()/update()/forceUpdate()；3.7.1 起改为直接持有字段，故 3.7.1 无此三方法。gJ 的字段(RefUpdate+String)与六个委托方法(pI.localUpdates 使用)证明它是旧式形态
+abcd/gJ	update	同上（委托 refUpdate.update(RevWalk)）
+abcd/gJ	forceUpdate	同上（委托 refUpdate.forceUpdate(RevWalk)）
+# —— 第六批：剩余内部/匿名类方法（多数是 AIDE 侧签名与 3.7.1 不同，按上下文命名）——
+abcd/AH	deltaSize	BinaryDelta 3.7.1 只有 getBaseSize/getResultSize(J)/apply/format；AIDE 的 j6([B)J 直接读首部 varint 得 delta 大小
+abcd/AI	inflateAndHash	AIDE 把 inflate+MessageDigest 校验+delta 应用合成单方法 (AI$b,int,AI$d,ProgressMonitor)；3.7.1 无同形
+abcd/BH	getObjectSet	AIDE 给 CachedPack 加了 getObjectSet():Set（3.7.1 只有 getObjectCount/getDeltaCount/hasObject）
+abcd/QG	getObjectSet	同上（LocalCachedPack 覆写，返回 pack 内对象 Id 集合）
+abcd/DK	add	3.7.1 LongList.add(long)；AIDE 为 add(int index,long value)
+abcd/EG	release	3.7.1 DeltaBaseCache 用 releaseMemory()/unlink()；AIDE 抽出 release(Slot)
+abcd/HG	onConfigChanged	该类 implements DD(ConfigChangedListener) 并在回调里关掉 Repository；3.7.1 的 FileRepository$1 是另一个匿名类(load/isOutdated)，AIDE 复用编号
+abcd/IK	nextLineStart	3.7.1 RawParseUtils 的换行推进是 next/nextLF；AIDE 增加 nextLineStart(byte[],int) 变体
+abcd/OD	append	3.7.1 FileNameMatcher.append(char) 返回 FileNameMatcher；AIDE 版本返回 void
+abcd/QC	isEmptyPath	3.7.1 DirCacheEntry 无此静态方法；AIDE 增加 isEmptyPath(byte[])
+abcd/UJ	create	3.7.1 CanonicalTreeParser.reset(ObjectReader,AnyObjectId) 返回 void；AIDE 为返回 this 的静态工厂
+abcd/YH	create	3.7.1 SubmoduleWalk.setTree(AbstractTreeIterator) 返回 void；AIDE 为返回 this 的工厂
+abcd/_J	isModified	3.7.1 isModified(DirCacheEntry,ObjectId,...) 多参；AIDE 单参版本（内部用 workingTreeIterator 字段）
+abcd/_J	compare	3.7.1 对应 contentCheck(Entry,ObjectId)；AIDE 为单参版本（比较 entry 内容与当前工作区）
+abcd/_J$e	load	3.7.1 RootIgnoreNode.load(IgnoreNode,File) 无 throws 差异外与此一致，仅 AIDE 侧方法体写成 parseGitIgnore 语义
+abcd/sH	open	3.7.1 UnpackedObject.open(FileInputStream,File,AnyObjectId,WindowCursor) 四参；AIDE 为 open(InputStream,long,ObjectId)
+abcd/wE	check	3.7.1 ObjectChecker.check(int,String,byte[])；AIDE 为 check(byte[],int,int)Z（路径段校验）
+abcd/wF	createTreeIterator	3.7.1 Merger.openTree(AnyObjectId)；AIDE 用两个 int 直接构造 CanonicalTreeParser
+abcd/GC	fromEdit	3.7.1 Subsequence 只有构造器 (Sequence,Edit)；AIDE 加静态工厂 fromEdit
+abcd/EC	add	3.7.1 SimilarityIndex.add(int,int)；AIDE 为 add(long)
+abcd/IH	onLargeObject	3.7.1 DeltaWindow 无此方法；AIDE 在 delta() 的 LargeObjectException/IOException 分支调用的空实现钩子
+# —— 第七批：类名误判收尾 + AIDE/匿名类方法（全部成员均已登记）——
+abcd/iC	isBinary	3.7.1 DiffFormatter 无 isBinary(String)；AIDE 的私有钩子恒返回 false
+abcd/sG	setFollowPaths	3.7.1 TreeRevFilter 只有 updateFollowFilter(TreeWalk,RevCommit)；AIDE 改成 setFollowPaths(ObjectId[]) 重建 pathFilter
+abcd/xJ	configure	3.7.1 TransportHttp 无 configure(URLConnection)（4.x 才有）；AIDE 在此完成 SSLContext 装配
+abcd/rI	fromConnection	3.7.1 无 HttpAuthMethod；AIDE 自建：从 401/Proxy-Authenticate 头构造实例
+abcd/rI	apply	同上（把 Authorization 头写回连接）
+abcd/lI	DW	jsch UserInfo/UIKeyboardInteractive 的方法名也被混淆（com/jcraft/jsch/UserInfo 的 DW/FH/Hw/j6）；单边改名会 AbstractMethodError ⇒ 与 jsch 保持同名，登记为恒等映射
+abcd/lI	FH	同上（jsch 接口方法）
+abcd/lI	Hw	同上（jsch 接口方法）
+abcd/lI	j6	同上（jsch 接口方法）
