@@ -174,3 +174,5 @@ abcd/IH	delta	3.7.1 delta(DeltaWindowEntry) 返回 boolean；AIDE 带 src 下标
 abcd/IH	deltaSizeLimit	3.7.1 deltaSizeLimit(src) 用实例字段；AIDE 改成静态 deltaSizeLimit(res,int bestLen,src)
 abcd/IH	selectDeltaBase	3.7.1 selectDeltaBase(src,delta) 只记录；AIDE 返回 boolean 并比较新旧 delta 长度/深度决定是否替换
 abcd/aH	endWindowCache	PackFile 的引用计数递减方法（--useCount，归零则 doClose 并返回 true）；3.7.1 无 begin/endWindowCache，名字取 4.11.9 的 endWindowCache(boolean)
+# —— 第四批（小类补齐）——
+abcd/gE	addValue	AIDE 在 Config 内部加的列表追加助手（null→singletonList，size==1→新建 2 元素 ArrayList，否则 add），3.7.1 无此方法

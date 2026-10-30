@@ -1450,6 +1450,8 @@ abcd/KK org/eclipse/jgit/util/RefList
 	size ()I size
 	get (I)Labcd/ME; get
 	toString ()Ljava/lang/String; toString
+	DW (ILabcd/ME;)Labcd/KK; set
+	j6 (ILabcd/ME;)Labcd/KK; add
 abcd/KK$a org/eclipse/jgit/util/RefList$Builder
 	DW size
 	j6 list
@@ -3686,6 +3688,10 @@ abcd/_K org/eclipse/jgit/util/io/TimeoutInputStream
 	j6 myTimer
 	DW ()V beginRead
 	FH ()V endRead
+	Hw ()Ljava/io/InterruptedIOException; readTimedOut
+		static
+	j6 ()I getTimeout
+	read ()I read
 abcd/aB org/eclipse/jgit/api/DeleteBranchCommand
 	j6 ([Ljava/lang/String;)Labcd/aB; setBranchNames
 	Hw branchNames
@@ -4023,6 +4029,10 @@ abcd/cJ org/eclipse/jgit/transport/SshSessionFactory
 	j6 (Labcd/ZI;)V releaseSession
 	j6 (Labcd/HJ;Labcd/kI;Labcd/pK;I)Labcd/ZI; getSession
 abcd/cK org/eclipse/jgit/diff/DiffFormatter$3
+	j6 (Labcd/jK;Labcd/jK;)Labcd/jK; create
+		static
+	j6 (Ljava/util/Collection;)Labcd/jK; create
+		static
 abcd/dB org/eclipse/jgit/api/GitCommand
 	j6 ()V checkCallable
 	j6 (Z)V setCallable
@@ -4421,6 +4431,9 @@ abcd/gE org/eclipse/jgit/lib/Config
 		static
 	j6 (Labcd/gE$d;)Ljava/lang/String; readKeyName
 		static
+	j6 (Ljava/util/List;Ljava/lang/String;)Ljava/util/List; addValue
+		static
+	j6 (Labcd/DD;)Labcd/GD; addChangeListener
 abcd/gE$a org/eclipse/jgit/lib/Config$ConfigLine
 	j6 (Ljava/lang/String;)Labcd/gE$a; forValue
 	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z match
@@ -4768,6 +4781,8 @@ abcd/jC org/eclipse/jgit/diff/Edit
 	equals (Ljava/lang/Object;)Z equals
 	hashCode ()I hashCode
 	toString ()Ljava/lang/String; toString
+	DW ()V extendB
+	j6 ()V extendA
 abcd/jC$a org/eclipse/jgit/diff/Edit$Type
 	<init> (Ljava/lang/String;I)V <init>
 	v5 $VALUES
@@ -7092,6 +7107,8 @@ abcd/zC org/eclipse/jgit/diff/zC
 abcd/GD org/eclipse/jgit/events/GD
 abcd/KJ org/eclipse/jgit/transport/KJ
 abcd/NI org/eclipse/jgit/transport/NI
+	FH ()Ljava/util/Collection; getRemoteUpdates
+	j6 (Ljava/util/Map;)V setRemoteUpdates
 abcd/Tw org/eclipse/jgit/treewalk/filter/Tw
 abcd/Uw org/eclipse/jgit/treewalk/filter/Uw
 abcd/Vw org/eclipse/jgit/treewalk/filter/Vw
