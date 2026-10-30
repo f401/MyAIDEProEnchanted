@@ -6133,6 +6133,9 @@ abcd/xJ org/eclipse/jgit/transport/TransportHttp
 		static
 	j6 (Labcd/xJ;)Labcd/xJ$b; access$400
 		static
+	Mr userAgent
+	U2 PROTO_HTTP
+	a8 PROTO_FTP
 abcd/xJ$a org/eclipse/jgit/transport/TransportHttp$DummyX509TrustManager
 	getAcceptedIssuers ()[Ljava/security/cert/X509Certificate; getAcceptedIssuers
 	checkClientTrusted ([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V checkClientTrusted
