@@ -3642,6 +3642,9 @@ abcd/aJ org/eclipse/jgit/transport/SideBandOutputStream
 	j6 out
 	write (I)V write
 	write ([BII)V write
+	DW ()V writeBuffer
+	j6 ()V flushBuffer
+	flush ()V flush
 abcd/aK org/eclipse/jgit/treewalk/WorkingTreeOptions$1
 	<init> ()V <init>
 	j6 (Labcd/gE;)Labcd/bK; parse
@@ -4532,6 +4535,10 @@ abcd/iC org/eclipse/jgit/diff/DiffFormatter
 	j6 ()[I $SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$ChangeType
 		static
 	Hw $SWITCH_TABLE$org$eclipse$jgit$diff$DiffEntry$ChangeType
+	j6 noNewLine
+	DW EMPTY
+	FH BINARY
+	Hw (Labcd/tC;I)Z isEndOfLineMissing
 abcd/iC$a org/eclipse/jgit/diff/DiffFormatter$FormatResult
 	j6 header
 abcd/iE org/eclipse/jgit/lib/CoreConfig$1
@@ -5452,6 +5459,10 @@ abcd/rE org/eclipse/jgit/lib/FileMode
 	Hw EXECUTABLE_FILE
 	v5 SYMLINK
 	Zo MISSING
+	DW ()I getBits
+	FH ()I getObjectType
+	j6 ()I copyToLength
+	toString ()Ljava/lang/String; toString
 abcd/rF org/eclipse/jgit/merge/MergeFormatter
 	j6 (Ljava/io/OutputStream;Labcd/uF;Ljava/util/List;Ljava/lang/String;)V formatMerge
 	<init> ()V <init>
