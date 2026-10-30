@@ -50,8 +50,12 @@ out = []
 seen_target = {}
 dropped = []
 dup_member = 0
+def _key(probe):
+    # jsch 等第三方包在 APK 里未被混淆，tsv 里直接写全名；abcd/* 写裸名
+    return probe if '/' in probe else 'abcd/' + probe
+
 for probe, target in rows:
-    key = 'abcd/' + probe
+    key = _key(probe)
     if key not in blocks:
         print('  WARN 无成员块:', key, target)
         blocks[key] = []
@@ -76,9 +80,9 @@ for probe, target in rows:
 
 # 4. 丢弃的陈旧块
 for key in order:
-    if key not in ('abcd/' + r[0] for r in rows) and key not in set('abcd/' + r[0] for r in rows):
+    if key not in set(_key(r[0]) for r in rows):
         dropped.append((key, blocks[key] and None))
-dropped = [k for k in order if k not in set('abcd/' + r[0] for r in rows)]
+dropped = [k for k in order if k not in set(_key(r[0]) for r in rows)]
 print('tsv 类 %d, 输出类块 %d, 丢弃陈旧块 %d, 去重成员 %d' % (len(rows), len(rows), len(dropped), dup_member))
 for k in dropped:
     print('  DROP', k)

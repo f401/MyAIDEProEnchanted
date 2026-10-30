@@ -136,17 +136,22 @@ cd /storage/emulated/0/MyAIDEProEnchanted
 # 改完 ~/out/work/jgit_map_clean.tsv 后一步到位：
 python3 tools/jgit/rebuild_tsrg.py       # tsv → jgit_members_clean.tsrg → process/mappings.txt
 python3 tools/jgit/verify_members.py     # 期望：不一致 0
+python3 tools/jgit/widen_access.py process/base/merged_ok.jar \
+        --map ~/out/work/jgit_map_clean.tsv --out process/base/merged_pub.jar --apply
+                                         # 跨包 package-private → public/protected（FART 前/后都能跑）
 awk '!/^\t/ && NF>=2 {print $2}' process/mappings.txt | sort | uniq -d   # 期望：空（FART 遇重复目标会整体中止）
 ```
 
 | 文件 | 内容 |
 |---|---|
-| `~/out/work/jgit_map_clean.tsv` | 类映射 **688** 条（`探针<TAB>目标<TAB>证据`） |
-| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **4042** 条（方法 2753 + 字段 1289，派生文件） |
-| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **4702** 行 |
+| `~/out/work/jgit_map_clean.tsv` | 类映射 **711** 条（`探针<TAB>目标<TAB>证据`） |
+| `~/out/work/jgit_members_clean.tsrg` | 成员映射 **6180** 行（方法 + 字段，派生文件） |
+| `process/mappings.txt` | TSRG2 产物：head **162** 行 + jgit **7518** 行，共 **7680** 行 |
 | `process/base/merged_ok.jar` | **改名输入基线（已入库）** + `process/SHA256SUMS` 指纹 |
+| `process/base/merged_pub.jar` | widen_access 产物：跨包 package-private 已放宽（FART 用这个输入） |
 
-现状：方法 2623/3368 = **77.9%**、字段 1116/1603 = **69.6%**、完全覆盖类 372。
+现状：方法 3167/3532 = **89.7%**、字段 1742/1855 = **93.9%**、类 622、完全覆盖类 479。
+第三方包（jsch 等）在 tsv 里直接写全名（`com/jcraft/jsch/UserInfo`），rebuild_tsrg 已支持无 `abcd/` 前缀的探针。
 计数别用 `grep '^[^\t]'`（BRE 里 `\t` 不是 TAB），用 `awk '!/^\t/'`。
 
 改名与出 dex：

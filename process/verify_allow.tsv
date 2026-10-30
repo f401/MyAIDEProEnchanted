@@ -214,3 +214,16 @@ abcd/lI	DW	jsch UserInfo/UIKeyboardInteractive 的方法名也被混淆（com/jc
 abcd/lI	FH	同上（jsch 接口方法）
 abcd/lI	Hw	同上（jsch 接口方法）
 abcd/lI	j6	同上（jsch 接口方法）
+# —— 第八批：AIDE 自有类搬回 abcd + jsch 方法实名 + HttpAuthMethod 内嵌类 ——
+com/jcraft/jsch/UserInfo	showMessage	jsch 是第三方且整包保留原名；AIDE 侧实现者 abcd/lI 的方法名被混淆，两侧必须同名 ⇒ 同步改成 jsch 真名（showMessage/promptPassphrase/promptYesNo/getPassphrase/promptPassword），FART 会重写 jsch 内部 182 处引用
+com/jcraft/jsch/UIKeyboardInteractive	promptKeyboardInteractive	同上（RFC 4256 keyboard-interactive 唯一方法）
+abcd/lI	showMessage	lI = CredentialsProviderUserInfo：把 jgit CredentialsProvider 桥接成 jsch UserInfo；方法体用 jI$b(InformationalMessage) ⇒ showMessage
+abcd/lI	promptPassphrase	体内 newPrompt→jI$d(StringType) 且写入 passphrase 字段 ⇒ promptPassphrase
+abcd/lI	promptYesNo	体内用 jI$f(YesNoType) 并取其布尔值 ⇒ promptYesNo
+abcd/lI	promptPassword	体内用 jI$c(Password 的 char[]) 且写入 password 字段 ⇒ promptPassword
+abcd/lI	getPassphrase	返回 passphrase 字段 ⇒ getPassphrase
+abcd/rI	scanResponse	4.11+ HttpAuthMethod 的静态入口 scanResponse(HttpConnection)；AIDE 用 java.net.HttpURLConnection 版本，作用等价（解析 401/Proxy-Authenticate 头）
+abcd/rI	configureRequest	4.11+ HttpAuthMethod.configureRequest(HttpConnection)；AIDE 参数为 HttpURLConnection
+abcd/rI$a	configureRequest	HttpAuthMethod$Basic 的同一方法（AIDE 参数类型 HttpURLConnection）
+abcd/rI$b	configureRequest	HttpAuthMethod$Digest 的同一方法
+abcd/rI$c	configureRequest	HttpAuthMethod$None 的同一方法

@@ -5157,13 +5157,12 @@ abcd/lI org/eclipse/jgit/transport/CredentialsProviderUserInfo
 	j6 (Lcom/jcraft/jsch/Session;)Labcd/HJ; createURI
 		static
 	FH password
-	DW (Ljava/lang/String;)V DW
-	FH (Ljava/lang/String;)Z FH
-	Hw (Ljava/lang/String;)Z Hw
-	j6 ()Ljava/lang/String; j6
-	j6 (Ljava/lang/String;)Z j6
-	j6 (Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Z j6
-	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String; j6
+	DW (Ljava/lang/String;)V showMessage
+	FH (Ljava/lang/String;)Z promptPassphrase
+	Hw (Ljava/lang/String;)Z promptYesNo
+	j6 ()Ljava/lang/String; getPassphrase
+	j6 (Ljava/lang/String;)Z promptPassword
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String; promptKeyboardInteractive
 abcd/lJ org/eclipse/jgit/transport/TransportAmazonS3
 	DW ()V close
 	aM ()Ljava/util/Properties; loadProperties
@@ -6959,8 +6958,14 @@ abcd/AB org/eclipse/jgit/api/RebaseResult
 	DW ABORTED_RESULT
 	FH UP_TO_DATE_RESULT
 	Hw FAST_FORWARD_RESULT
-abcd/com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
-abcd/com/jcraft/jsch/UIKeyboardInteractive com/jcraft/jsch/UIKeyboardInteractive
+com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
+	DW (Ljava/lang/String;)V showMessage
+	FH (Ljava/lang/String;)Z promptPassphrase
+	Hw (Ljava/lang/String;)Z promptYesNo
+	j6 ()Ljava/lang/String; getPassphrase
+	j6 (Ljava/lang/String;)Z promptPassword
+com/jcraft/jsch/UIKeyboardInteractive com/jcraft/jsch/UIKeyboardInteractive
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String; promptKeyboardInteractive
 abcd/IH$a org/eclipse/jgit/internal/storage/pack/DeltaWindow$ZipStream
 	DW zbuf
 	FH outPtr
@@ -7031,7 +7036,7 @@ abcd/NF org/eclipse/jgit/revwalk/BlockObjQueue
 abcd/RE$b org/eclipse/jgit/lib/RefUpdate$Store
 	j6 this$0
 	j6 (Labcd/RE$a;)Labcd/RE$a; execute
-abcd/Sw org/eclipse/jgit/transport/http/Sw
+abcd/Sw abcd/Sw
 	getMaxForRoute (Lorg/apache/http/conn/routing/HttpRoute;)I getMaxForRoute
 abcd/TK org/eclipse/jgit/util/io/DisabledOutputStream
 	j6 INSTANCE
@@ -7045,7 +7050,7 @@ abcd/_D org/eclipse/jgit/lib/AsyncObjectSizeQueue
 	next ()Z next
 	DW ()Labcd/yE; getCurrent
 	Hw ()Labcd/yE; getObjectId
-abcd/iL org/eclipse/jgit/lib/iL
+abcd/iL abcd/iL
 	DW ()Ljava/util/List; newList
 	j6 ()Ljava/util/Map; newMap
 abcd/qF org/eclipse/jgit/merge/MergeChunk
@@ -7213,9 +7218,9 @@ abcd/EC$a org/eclipse/jgit/diff/SimilarityIndex$TableFullException
 abcd/rI org/eclipse/jgit/transport/HttpAuthMethod
 	j6 (Ljava/lang/String;Ljava/lang/String;)V authorize
 	j6 (Labcd/HJ;Labcd/kI;)Z authorize
-	DW (Ljava/net/HttpURLConnection;)Labcd/rI; fromConnection
+	DW (Ljava/net/HttpURLConnection;)Labcd/rI; scanResponse
 		static
-	j6 (Ljava/net/HttpURLConnection;)V apply
+	j6 (Ljava/net/HttpURLConnection;)V configureRequest
 abcd/IH org/eclipse/jgit/internal/storage/pack/DeltaWindow
 	DW (Labcd/JH;)V clear
 	FH (Labcd/JH;)Labcd/EH; index
@@ -7280,7 +7285,7 @@ abcd/OG org/eclipse/jgit/internal/storage/file/OG
 	j6 (Labcd/wH;)Ljava/io/InputStream; openStreamInternal
 	j6 (Labcd/OG;)Labcd/GG; getDatabase
 		static
-abcd/Ww org/eclipse/jgit/transport/http/Ww
+abcd/Ww abcd/Ww
 	getLocale ()Ljava/util/Locale; getLocale
 	DW (Ljava/lang/String;)Ljava/lang/String; DW
 		static
@@ -7296,12 +7301,12 @@ abcd/Ww org/eclipse/jgit/transport/http/Ww
 	j6 (Labcd/Xw;)V j6
 	j6 (Ljava/lang/String;)V j6
 	j6 (Lorg/apache/http/HttpRequest;)V j6
-	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V j6
+	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V configureRequest
 	u7 ()V u7
-	v5 ()Lorg/apache/http/client/HttpClient; v5
-abcd/Ww$b org/eclipse/jgit/transport/http/Ww$b
+	v5 ()Lorg/apache/http/client/HttpClient; getHttpClient
+abcd/Ww$b abcd/Ww$b
 	keepAlive (Lorg/apache/http/HttpResponse;Lorg/apache/http/protocol/HttpContext;)Z keepAlive
-abcd/Ww$c org/eclipse/jgit/transport/http/Ww$c
+abcd/Ww$c abcd/Ww$c
 	getKeepAliveDuration (Lorg/apache/http/HttpResponse;Lorg/apache/http/protocol/HttpContext;)J getKeepAliveDuration
 abcd/bC org/eclipse/jgit/diff/bC
 	DW ()J getSize
@@ -7334,7 +7339,7 @@ abcd/jG org/eclipse/jgit/revwalk/RevObjectList
 	j6 contents
 	DW size
 	clear ()V clear
-abcd/yc org/eclipse/jgit/lib/yc
+abcd/yc abcd/yc
 	DW ()J getTime
 		static
 	j6 (J)J access$002
@@ -7367,12 +7372,12 @@ abcd/NI org/eclipse/jgit/transport/PushResult
 	FH ()Ljava/util/Collection; getRemoteUpdates
 	j6 (Ljava/util/Map;)V setRemoteUpdates
 	v5 remoteUpdates
-abcd/Tw org/eclipse/jgit/transport/http/Tw
+abcd/Tw abcd/Tw
 	createConnectionKeepAliveStrategy ()Lorg/apache/http/conn/ConnectionKeepAliveStrategy; createConnectionKeepAliveStrategy
 	createConnectionReuseStrategy ()Lorg/apache/http/ConnectionReuseStrategy; createConnectionReuseStrategy
-abcd/Uw org/eclipse/jgit/transport/http/Uw
+abcd/Uw abcd/Uw
 	process (Lorg/apache/http/HttpRequest;Lorg/apache/http/protocol/HttpContext;)V process
-abcd/Vw org/eclipse/jgit/transport/http/Vw
+abcd/Vw abcd/Vw
 	process (Lorg/apache/http/HttpResponse;Lorg/apache/http/protocol/HttpContext;)V process
 abcd/XD org/eclipse/jgit/internal/storage/file/XD
 	end ()V end
@@ -7421,7 +7426,7 @@ abcd/WE org/eclipse/jgit/lib/RepositoryCache
 	j6 (Labcd/WE$b;Z)Labcd/UE; open
 		static
 	FH openLocks
-abcd/Hz org/eclipse/jgit/transport/http/Hz
+abcd/Hz abcd/Hz
 	toString ()Ljava/lang/String; toString
 	DW (Ljava/lang/CharSequence;Ljava/util/Map;Z)Labcd/Hz; DW
 		static
@@ -7433,11 +7438,11 @@ abcd/Hz org/eclipse/jgit/transport/http/Hz
 		static
 	Hw (Ljava/lang/CharSequence;)Labcd/Hz; Hw
 		static
-	QX ()Ljava/net/HttpURLConnection; QX
-	XL ()Ljava/net/Proxy; XL
+	QX ()Ljava/net/HttpURLConnection; createConnection
+	XL ()Ljava/net/Proxy; getProxy
 	Zo (Ljava/lang/String;)Ljava/lang/String; Zo
 		static
-	j6 (Labcd/Hz;)I j6
+	j6 (Labcd/Hz;)I compareTo
 		static
 	j6 (Ljava/lang/CharSequence;)Labcd/Hz; j6
 		static
@@ -7455,23 +7460,23 @@ abcd/Hz org/eclipse/jgit/transport/http/Hz
 	DW ()Ljava/io/BufferedInputStream; DW
 	DW (Ljava/lang/String;)Ljava/lang/String; DW
 	DW (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; DW
-	EQ ()Ljava/lang/String; EQ
+	EQ ()Ljava/lang/String; getRequestMethod
 	FH (Ljava/lang/String;)Labcd/Hz; FH
-	FH (Ljava/lang/String;Ljava/lang/String;)Labcd/Hz; FH
+	FH (Ljava/lang/String;Ljava/lang/String;)Labcd/Hz; setRequestProperty
 	FH ()Ljava/io/ByteArrayOutputStream; FH
 	Hw ()Ljava/lang/String; Hw
-	Hw (Ljava/lang/String;)Ljava/lang/String; Hw
+	Hw (Ljava/lang/String;)Ljava/lang/String; getHeaderField
 	Hw (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; Hw
 	J0 ()Labcd/Hz; J0
-	J8 ()Ljava/io/InputStream; J8
-	VH ()I VH
-	Ws ()Ljava/net/URL; Ws
+	J8 ()Ljava/io/InputStream; getInputStream
+	VH ()I getResponseCode
+	Ws ()Ljava/net/URL; getURL
 	Zo ()Labcd/Hz; Zo
 	Zo (Ljava/lang/CharSequence;)Labcd/Hz; Zo
 	Zo (Ljava/lang/String;Ljava/lang/String;)Labcd/Hz; Zo
 	gn ()Ljava/lang/String; gn
-	j6 (Ljava/lang/String;I)I j6
-	j6 (I)Labcd/Hz; j6
+	j6 (Ljava/lang/String;I)I getHeaderFieldInt
+	j6 (I)Labcd/Hz; setConnectTimeout
 	j6 (Ljava/io/InputStream;Ljava/io/OutputStream;)Labcd/Hz; j6
 	j6 (Ljava/lang/String;Ljava/lang/Number;)Labcd/Hz; j6
 	j6 (Ljava/lang/String;Ljava/lang/String;)Labcd/Hz; j6
@@ -7481,26 +7486,26 @@ abcd/Hz org/eclipse/jgit/transport/http/Hz
 	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)Labcd/Hz; j6
 	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Labcd/Hz; j6
 	j6 (Ljava/util/Map$Entry;)Labcd/Hz; j6
-	j6 (Z)Labcd/Hz; j6
+	j6 (Z)Labcd/Hz; setUseCaches
 	j6 ()Ljava/lang/String; j6
-	tp ()Ljava/net/HttpURLConnection; tp
+	tp ()Ljava/net/HttpURLConnection; getConnection
 	u7 ()I u7
 	v5 (Ljava/lang/String;)I v5
 	v5 ()Labcd/Hz; v5
 	v5 (Ljava/lang/String;Ljava/lang/String;)Labcd/Hz; v5
-	we ()Labcd/Hz; we
-abcd/Hz$a org/eclipse/jgit/transport/http/Hz$a
+	we ()Labcd/Hz; setDoOutput
+abcd/Hz$a abcd/Hz$a
 	j6 ()V close
-abcd/Hz$b org/eclipse/jgit/transport/http/Hz$b
+abcd/Hz$b abcd/Hz$b
 	j6 (Ljava/net/URL;)Ljava/net/HttpURLConnection; create
 	j6 (Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection; create
-abcd/Hz$d org/eclipse/jgit/transport/http/Hz$d
+abcd/Hz$d abcd/Hz$d
 	call ()Ljava/lang/Object; call
 	DW ()Ljava/lang/Object; call
 	j6 ()V close
-abcd/Hz$e org/eclipse/jgit/transport/http/Hz$e
+abcd/Hz$e abcd/Hz$e
 	j6 (Ljava/lang/String;)Labcd/Hz$e; write
-abcd/Gz org/eclipse/jgit/transport/http/Gz
+abcd/Gz abcd/Gz
 	DW ()Labcd/Hz; call
 	DW ()Ljava/lang/Object; call
 abcd/PC$b org/eclipse/jgit/dircache/DirCacheEditor$PathEdit
@@ -7529,7 +7534,7 @@ abcd/aE org/eclipse/jgit/lib/AsyncOperation
 	j6 ()V release
 abcd/DD org/eclipse/jgit/events/ConfigChangedListener
 	j6 (Labcd/CD;)V onConfigChanged
-abcd/Zw org/eclipse/jgit/transport/http/Zw
+abcd/Zw abcd/Zw
 	DW ()Z DW
 	FH ()Labcd/Zw$a; FH
 	Hw ()Ljava/lang/String; Hw
@@ -7537,8 +7542,8 @@ abcd/Zw org/eclipse/jgit/transport/http/Zw
 	getLocale ()Ljava/util/Locale; getLocale
 	j6 ()Labcd/Zw$b; j6
 	j6 (Lorg/apache/http/HttpRequest;)V j6
-	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V j6
-	v5 ()Lorg/apache/http/client/HttpClient; v5
+	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V configureRequest
+	v5 ()Lorg/apache/http/client/HttpClient; getHttpClient
 abcd/GH org/eclipse/jgit/internal/storage/file/GH
 	DW ()J getObjectSize
 	FH ()Ljava/io/InputStream; openStream
@@ -7551,7 +7556,7 @@ abcd/GH org/eclipse/jgit/internal/storage/file/GH
 	read ()I read
 	read ([BII)I read
 	skip (J)J skip
-abcd/Dw org/eclipse/jgit/transport/http/Dw
+abcd/Dw abcd/Dw
 	DW (Ljava/util/Map;Ljava/lang/String;)J DW
 		static
 	j6 (Ljava/lang/String;Ljava/io/InputStream;JZLjava/lang/String;Labcd/Fw;)Labcd/Dw$g; j6
@@ -7570,11 +7575,11 @@ abcd/Dw org/eclipse/jgit/transport/http/Dw
 	j6 (Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$e; j6
 	j6 j6
 	DW DW
-abcd/Dw$b org/eclipse/jgit/transport/http/Dw$b
+abcd/Dw$b abcd/Dw$b
 	j6 ()Labcd/Dw$e; j6
 	DW DW
 	j6 j6
-abcd/Ez org/eclipse/jgit/transport/http/Ez
+abcd/Ez abcd/Ez
 	DW ()Ljavax/net/ssl/SSLSocketFactory; DW
 	FH ()V FH
 	j6 ()Ljavax/net/ssl/SSLSocketFactory; j6
@@ -7586,7 +7591,7 @@ abcd/Ez org/eclipse/jgit/transport/http/Ez
 	FH FH
 	Hw Hw
 	j6 j6
-abcd/Gw org/eclipse/jgit/transport/http/Gw
+abcd/Gw abcd/Gw
 	DW (Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Labcd/Dw$f; DW
 		static
 	j6 (Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Ljava/lang/Object; j6
@@ -7608,19 +7613,19 @@ abcd/Gw org/eclipse/jgit/transport/http/Gw
 	j6 (Lorg/apache/http/HttpRequest;)Z j6
 		static
 	j6 j6
-abcd/Jz org/eclipse/jgit/transport/http/Jz
+abcd/Jz abcd/Jz
 	j6 (Labcd/Fz;Ljava/lang/String;)Labcd/Hz; j6
 	j6 (Labcd/Fz;Ljava/lang/String;Ljava/util/Map;)Labcd/Hz; j6
 	j6 (Labcd/Lz;)V j6
-abcd/SG$a org/eclipse/jgit/internal/storage/file/SG$a
+abcd/SG$a abcd/SG$a
 	DW ()I getFormat
-abcd/Sz org/eclipse/jgit/transport/http/Sz
+abcd/Sz abcd/Sz
 	DW (Labcd/Hz;Labcd/Vz;)Labcd/Hz; DW
 	j6 (Labcd/Hz;Labcd/Vz;)Labcd/Hz; j6
 	DW (Lio/fabric/sdk/android/l;)Ljava/lang/String; DW
 	j6 (Lio/fabric/sdk/android/l;)Ljava/lang/String; j6
 	j6 (Labcd/Vz;)Z j6
-abcd/dA org/eclipse/jgit/transport/http/dA
+abcd/dA abcd/dA
 	DW (Labcd/pA;)Ljava/util/Map; DW
 	DW (Ljava/lang/String;)Lorg/json/JSONObject; DW
 	j6 (Labcd/Hz;Labcd/pA;)Labcd/Hz; j6
@@ -7628,7 +7633,7 @@ abcd/dA org/eclipse/jgit/transport/http/dA
 	j6 (Labcd/Hz;)Lorg/json/JSONObject; j6
 	j6 (Labcd/pA;)Lorg/json/JSONObject; j6
 	j6 (I)Z j6
-abcd/jL org/eclipse/jgit/lib/jL
+abcd/jL abcd/jL
 	DW (Labcd/iL;)Ljava/util/Map; DW
 	FH ()V FH
 	j6 (Ljava/util/LinkedList;)I j6
@@ -7644,32 +7649,32 @@ abcd/jL org/eclipse/jgit/lib/jL
 	FH FH
 	Hw Hw
 	j6 j6
-abcd/rI$a org/eclipse/jgit/transport/rI$a
+abcd/rI$a org/eclipse/jgit/transport/HttpAuthMethod$Basic
 	j6 (Ljava/lang/String;Ljava/lang/String;)V authorize
-	j6 (Ljava/net/HttpURLConnection;)V apply
-	DW DW
-	FH FH
-abcd/rI$b org/eclipse/jgit/transport/rI$b
-	DW (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; DW
+	j6 (Ljava/net/HttpURLConnection;)V configureRequest
+	DW user
+	FH pass
+abcd/rI$b org/eclipse/jgit/transport/HttpAuthMethod$Digest
+	DW (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; KD
 		static
-	DW (Ljava/lang/String;)Ljava/util/Map; DW
+	DW (Ljava/lang/String;)Ljava/util/Map; parse
 		static
-	j6 (Ljava/lang/String;)Ljava/lang/String; j6
+	j6 (Ljava/lang/String;)Ljava/lang/String; H
 		static
-	j6 (Ljava/net/URL;)Ljava/lang/String; j6
+	j6 (Ljava/net/URL;)Ljava/lang/String; uri
 		static
-	j6 ([B)Ljava/lang/String; j6
+	j6 ([B)Ljava/lang/String; LHEX
 		static
-	j6 ()Ljava/security/MessageDigest; j6
+	j6 ()Ljava/security/MessageDigest; newMD5
 		static
 	j6 (Ljava/lang/String;Ljava/lang/String;)V authorize
-	j6 (Ljava/net/HttpURLConnection;)V apply
-	DW DW
-	FH FH
-	Hw Hw
-	VH VH
-	Zo Zo
-	v5 v5
-abcd/rI$c org/eclipse/jgit/transport/rI$c
+	j6 (Ljava/net/HttpURLConnection;)V configureRequest
+	DW PRNG
+	FH LHEX
+	Hw params
+	VH user
+	Zo pass
+	v5 requestCount
+abcd/rI$c org/eclipse/jgit/transport/HttpAuthMethod$None
 	j6 (Ljava/lang/String;Ljava/lang/String;)V authorize
-	j6 (Ljava/net/HttpURLConnection;)V apply
+	j6 (Ljava/net/HttpURLConnection;)V configureRequest
