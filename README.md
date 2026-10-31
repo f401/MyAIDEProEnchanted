@@ -37,7 +37,7 @@ python3 tools/jgit/pipeline/inherit_check.py         # 期望 CONFLICT 0 / MISSI
 |---|---|
 | 类映射 | 740（其中 `abcd/aide/*` 53 个 AIDE 自有类） |
 | 成员映射 | 5538 行（只放真实改名） |
-| mappings.txt | 10090 行 / 类块 751 / 成员行 5546 / static 标记 530 / 参数行 3262 |
+| mappings.txt | 10094 行 = 表头 1 + 头部 20 + 类块 733 + 成员行 5547 + `static` 531 + 参数行 3262 |
 | 覆盖率 | 方法 3501/3533 = **99.1%**、字段 1848/1855 = **99.6%**、完全覆盖类 **604** |
 | 参数名 | 1936 个方法（jgit 1919 / jsch 5 / aide 12）：1667 由 oracle LVT、122 由源码声明、15 由手工证据 |
 | 真相分表 | `jgit` 685 类 / `jsch` 2 类 / `aide` 53 类；`head` 20 行历史补丁 |

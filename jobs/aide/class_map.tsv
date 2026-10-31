@@ -51,3 +51,5 @@ xi	abcd/aide/ErrorTask	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/ai
 yi	abcd/aide/Settings$1$5	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
 zi	abcd/aide/Settings$1$6	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
 Bi	abcd/aide/Settings$1$2$1	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
+nj	abcd/aide/JavaScriptProject	body:".js"/"main.js"/"HelloJavaScript.zip"/"JavaScript Application"/"JavaScript Project Home:" 字符串常量；实现 abcd/IProject（来源 remote:6a355976）
+com/aide/ui/U	com/aide/UI	body:静态单例（MainActivity/Context/Handler/Debugger 字段 + 静态 Hw()[Labcd/IProject; 取全部工程）；AIDE 应用级 UI 门面（来源 remote:6a355976，简单名沿用作者判据）

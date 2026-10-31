@@ -14,3 +14,6 @@ __pycache__/
 
 # 构建中间产物（D8 dex / FART jar / 日志）
 /out/
+
+# 反混淆报告（成员定名等派生输出）
+/process/out/

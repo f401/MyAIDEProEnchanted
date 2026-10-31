@@ -112,7 +112,7 @@ python3 tools/jgit/pipeline/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内�
 
 | 文件 | 说明 |
 |---|---|
-| `mappings.txt` | 10090 行：表头 1 + 头部 20 + 类块 751 + 成员行 5546 + `static` 530 + 参数行 3262 |
+| `mappings.txt` | 10094 行 = 表头 1 + 头部 20 + 类块 733 + 成员行 5547 + `static` 531 + 参数行 3262 |
 | `jobs/jgit/params.tsv` | 3238 行：1919 个方法（含 139 个 `<init>`；oracle LVT 为主，抽象方法走源码） |
 | `jobs/jsch/params.tsv` | 9 行：5 个接口方法（jsch 0.1.55 源码声明） |
 | `jobs/aide/params.tsv` | 15 行：12 个方法（`params_manual.tsv`，每行都有判据） |

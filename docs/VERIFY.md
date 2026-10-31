@@ -50,7 +50,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 2 / aide 53`，合计 `类块 740`、`丢陈旧块 0`、`去重成员 0` |
 | 1' `paramfill` | `方法映射 3307 条：命中 2963（无参 1174 / jar 参数全 1667 / 源码补全 122 / 仍缺 0）`；`参数行 3034 条（1789 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3025 / jsch 9） |
 | 1'' `emit_tsrg2` | `9838 行，static 方法标记 530 / 参数行 3034` |
-| 2 `validate_mappings` | `类块 751 / 成员行 5522 / 参数行 3034 / 基线类 23635` → **✔ 无无效映射** |
+| 2 `validate_mappings` | `类块 753（含头部 20）/ 成员行 5547 / 参数行 3262 / 基线类 23635` → **✔ 无无效映射** |
 | 3 `verify_members` | `成员映射 5352 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 222` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
 | 5 `pkgclose` | `约束边 464 / 需要挪的类 0 / 真冲突 3 组`（真冲突交给门 7） |
@@ -126,7 +126,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 例如 `BinaryDelta.getBaseSize/getResultSize` 都 `([B)J`、`LongList.set/fillTo` 都 `(IJ)V`），
 映射无法再拆，属度量口径的固有局限。
 
-通用版 `deob cover` 分母略大（77.9%/93.6%），仅作参考。
+通用版 `deob cover` 分母略大（78.0%/94.9%），仅作参考。
 
 ## 门 7：`widen_access.py`
 
