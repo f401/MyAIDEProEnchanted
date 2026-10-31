@@ -6,7 +6,11 @@ for _sub in ('pipeline','naming','audit','inspect','stage','deob'):
     _p = _os.path.join(_JG, _sub)
     if _os.path.isdir(_p) and _p not in _sys.path:
         _sys.path.append(_p)
+_DE = _os.path.join(_os.path.dirname(_JG), 'deob')     # 通用 kit（tools/deob）
+if _os.path.isdir(_DE) and _DE not in _sys.path:
+    _sys.path.append(_DE)
 import paths as _P  # noqa: E402
+import params as _PRM  # noqa: E402
 """validate_mappings.py —— 校验 TSRG2 产物是否与基线 jar 一致（抓“无效映射”）。
 
 检查项（全部对着 process/base/merged_ok.jar，也就是 FART 的输入）：
@@ -83,7 +87,8 @@ def main():
     bad = collections.Counter(); detail = []
     seen_cls = {}; SEEN = set()
     cur = None; cur_ok = False; last_member = None
-    ncls = nmem = 0
+    ncls = nmem = npar = 0
+    PAR = set()
     for ln, line in enumerate(open(maps, encoding='utf-8'), 1):
         line = line.rstrip('\n')
         if not line:
@@ -105,13 +110,31 @@ def main():
             seen_cls[target] = probe
             continue
         body = line[1:]
-        if body.strip() == '\tstatic' or body.strip() == 'static':
+        if body.startswith('\t'):
+            head = body.strip().split(' ')
+            if head != ['static']:
+                # 参数行：`\t\t<实参序号> <obf名> <deobf名>`
+                npar += 1
+                if last_member is None or last_member[0] != 'm':
+                    bad['参数行位置非法'] += 1; detail.append((ln, 'param-pos', line)); continue
+                if len(head) != 3 or not head[0].isdigit():
+                    bad['参数行格式'] += 1; detail.append((ln, 'param-format', line)); continue
+                if head[1] != head[2]:
+                    bad['参数行两列不同名'] += 1; detail.append((ln, 'param-columns', line))
+                nargs = len(_PRM.desc_args(last_member[1][1]))
+                if int(head[0]) >= nargs:
+                    bad['参数序号越界'] += 1
+                    detail.append((ln, 'param-index', '%s 只有 %d 个参数' % (last_member[1][0], nargs)))
+                if (cur, last_member[1], head[0]) in PAR:
+                    bad['参数序号重复'] += 1; detail.append((ln, 'param-dup', line))
+                PAR.add((cur, last_member[1], head[0]))
+                if not re.fullmatch(r'[A-Za-z_$][A-Za-z0-9_$]*', head[2]):
+                    bad['参数名非法'] += 1; detail.append((ln, 'param-name', line))
+                continue
             # 元数据行：必须紧跟方法行
             if last_member is None or last_member[0] != 'm':
                 bad['static 位置非法'] += 1; detail.append((ln, 'static-pos', line))
-            elif not cur_ok:
-                pass
-            else:
+            elif cur_ok:
                 acc = info[cur]['methods'].get(last_member[1])
                 if acc is None or not (acc & 0x8):
                     bad['static 标记与 jar 不符'] += 1; detail.append((ln, 'static-mismatch', line))
@@ -138,7 +161,7 @@ def main():
             SEEN.add(key)
         if not re.fullmatch(r'[A-Za-z_$][A-Za-z0-9_$]*|<init>|<clinit>', new):
             bad['新名非法'] += 1; detail.append((ln, 'bad-name', line))
-    print('类块 %d / 成员行 %d / 基类 %d' % (ncls, nmem, len(info)))
+    print('类块 %d / 成员行 %d / 参数行 %d / 基类 %d' % (ncls, nmem, npar, len(info)))
     if not bad:
         print('✔ 无无效映射')
         return 0

@@ -56,7 +56,7 @@ python3 tools/aide/cprewrite5.py <输入.jar> <输出.jar> <map.json> [迁移前
 | `check_abstract.py` | 抽象方法实现完备性（`AbstractMethodError`） | **0** |
 | `fullscan.py` | 综合扫描：悬空类型 / 悬空成员 / 继承漏改 / 旧库残留 | 只剩 `support/v7`（原包既无实现） |
 
-配套用法：改动前后的类数、字节一致数、迁移目标存在数，见 `docs/MIGRATION-NOTES.md`。
+配套用法：改动前后的类数、字节一致数、迁移目标存在数（历史记录已并入 `git log`）。
 
 ---
 
@@ -85,4 +85,4 @@ python3 tools/aide/cprewrite5.py <输入.jar> <输出.jar> <map.json> [迁移前
 | `refs_final_map.json` | 引用级成员映射（含源码确认项：setNumber/setAutoCancel/setPriority/…） |
 | `members_full.json` | "描述符类内唯一"的成员映射（119 条，235 条歧义被跳过） |
 
-迁移产物（`migrated*.jar`、`merged*.jar`、dex）体积大，**不入库**，见 `docs/MIGRATION-NOTES.md`。
+迁移产物（`migrated*.jar`、`merged*.jar`、dex）体积大，**不入库**（历史记录见 `git log`）。

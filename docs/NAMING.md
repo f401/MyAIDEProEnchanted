@@ -93,6 +93,7 @@
 | 幽灵成员（dex 里不存在的名字+描述符） | `validate_mappings.py` 的 `no-method/no-field` |
 | 重复目标（类级 / 成员级） | `validate_mappings.py` 的 `dup-class-target` / `dup-member-target` |
 | `static` 标记跟错行 | `validate_mappings.py` 的 `static-mismatch` |
+| 参数行编造/序号越界/两列不同名 | `validate_mappings.py` 的 `param-*` 五项（见 §9） |
 | 名字循环置换写错顺序 | `mapfix.py` 支持“先释放目标名”，同类互换不会互相踩 |
 
 ## 7. 证据与白名单怎么写
@@ -111,3 +112,29 @@
 4. 改第三方接口单侧（jsch 等）。
 5. 手改 `jobs/jgit/mappings.txt`（它是派生产物）。
 6. 在 `abcd/aide/` 里留混淆类名。
+
+## 9. 参数名（TSRG2 参数行）
+
+参数名**不是**成员名，只提升可读性，但同样**不许猜**。只有两种来源：
+
+| 来源 | 判据 |
+|---|---|
+| oracle jar 的 `LocalVariableTable` | `(类, 方法名, 描述符)` 三元组**完全相等**；槽位按描述符换算成实参序号（0 起、不含 `this`、`long/double` 只占一个序号） |
+| 原始源码（`src_root`） | 仅当 oracle 里那条是抽象/接口方法（没有 `Code`）。只认**无方法体**（`;` 结尾）的声明；同名同参数个数多条时用形参类型与描述符逐个比对消歧，仍不唯一就留空 |
+
+三元组对不上就**不出行**：AIDE 自有类、合成方法（`access$NNN`）、被魔改过签名的方法
+都留空。当前基线：1667 个方法来自 LVT、117 个来自源码、0 个残缺；留空 350 个
+（无类映射 149 / 方法名不同 95 / 描述符不同 106）。
+
+写法（TSRG2，FART 1.0.8 内置 srgutils 实测）：
+
+```
+\t\t<实参序号> <旧参数名> <新参数名>     ← 3 段，两列各一个名字（我们两列写同一个）
+```
+
+- **必须 3 段**：只写「序号 + 名字」会报 `Invalid TSRG v2 line, too many parts`；
+- **顺序**：紧跟方法行（以及它的 `\t\tstatic` 标记行）之后；
+- 输入类若没有 `LocalVariableTable`（本项目就是这样），它只会改写 jar 内的
+  `fernflower_abstract_parameter_names.txt`——这是收益，不是风险（见 VERIFY.md 门 9）。
+
+禁止：拿 `var1/arg0` 占位、按现代变量名风格硬编、把方法名或字段名当参数名抄。

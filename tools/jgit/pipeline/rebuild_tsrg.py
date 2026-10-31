@@ -99,9 +99,11 @@ import shutil
 shutil.copyfile(TSRG_IN, TSRG_IN + '.bak')
 open(TSRG_OUT, 'w').write('\n'.join(out) + '\n')
 
-# 5. mappings.txt
-head = open(HEAD).read().rstrip('\n').split('\n')
-while head and head[-1] == '':
-    head.pop()
-open(MAPS, 'w').write('\n'.join(head) + '\n' + '\n'.join(out) + '\n')
-print('mappings.txt: 头 %d + jgit %d 行' % (len(head), len(out)))
+# 5. 派生品：参数名（truth/params.tsv）+ TSRG2（mappings.txt）
+#    static 标记和参数行都由 emit 统一加，这里不要再手拼 mappings.txt。
+import subprocess
+_HERE = os.path.dirname(os.path.abspath(__file__))
+for _cmd in (['paramfill.py', '--write'], ['emit_tsrg2.py', MAPS]):
+    _r = subprocess.run([sys.executable, os.path.join(_HERE, _cmd[0])] + _cmd[1:])
+    if _r.returncode:
+        raise SystemExit('派生失败：%s' % _cmd[0])

@@ -34,7 +34,7 @@ python3 tools/jgit/pipeline/emit_tsrg2.py jobs/jgit/mappings.txt   # 需要单�
 
 ## 2. 跑认证流水线
 
-见 [VERIFY.md](VERIFY.md)。**8 道门全绿再开始构建**。
+见 [VERIFY.md](VERIFY.md)。**9 道门全绿再开始构建**。
 
 ## 3. FART 改名（逐 jar）
 

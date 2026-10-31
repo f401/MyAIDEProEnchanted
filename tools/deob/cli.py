@@ -7,6 +7,7 @@
     status                     打印工程配置 + 写入目标（并检查是否落在本工程目录内）
     init --name X              新建**独立**工程目录（jobs/X：配置 + 空 truth + README）
     emit                       由 class_map + member_map 生成 TSRG2（out_tsrg）
+    params [--apply]           从 oracle jar 的 LVT / src_root 源码提取参数名（写 param_map）
     validate                   校验产物 TSRG2 与真实 jar（默认全绿的 8 项）
     inherit                    继承链闭合检查（CONFLICT / MISSING）
     pkgs [--apply]             包归属求解（同包才能访问 package-private）
@@ -26,6 +27,7 @@ import checks
 import config
 import view as insp
 import mapping
+import params as prm
 
 
 def _split_argv(argv):
@@ -67,6 +69,8 @@ def _do_init(argv):
         'probe_dir': ia.probe_dir or 'probe',
         'class_map': 'truth/class_map.tsv',
         'member_map': 'truth/members.tsrg',
+        'param_map': 'truth/params.tsv',      # 参数名（deob params --apply 写）
+        'src_root': None,                     # 有原始源码时填上：抽象方法参数名从源码读
         'out_tsrg': 'out/mappings.txt',
         'base_jars': ['base/*.jar'], 'input_jars': [],
         'oracle_jars': [{'label': 'v1', 'path': 'oracle/v1.jar'}],
@@ -115,9 +119,23 @@ def main():
         n_cls, n_mem, n_lines = mapping.emit_tsrg2(P)
         print('写出 %s：类块 %d / 成员行 %d / 共 %d 行' % (P.out_tsrg, n_cls, n_mem, n_lines))
 
+    elif a.cmd == 'params':
+        oracles = [p for _l, p in P.oracle_jars]
+        if '--oracle-dir' in a.args or any(x.startswith('--oracle-dir=') for x in a.args):
+            import glob as _g
+            dirs = [x.split('=', 1)[1] for x in a.args if x.startswith('--oracle-dir=')]
+            dirs += [x for x in a.args if not x.startswith('--') and os.path.isdir(x)]
+            for d in dirs:
+                oracles += sorted(_g.glob(os.path.join(d, '*.jar')))
+        if not P.param_map:
+            raise SystemExit('工程配置缺 param_map（参数名表输出路径）')
+        prm.fill(P.class_map, P.member_map, P.probe_prefix, oracles,
+                 P.param_map, P.src_root, write=a.apply)
+
     elif a.cmd == 'validate':
         bad, detail, stats = checks.validate(P)
-        print('类块 %d / 成员行 %d / 基线类 %d' % (stats['classes'], stats['members'], stats['base_classes']))
+        print('类块 %d / 成员行 %d / 参数行 %d / 基线类 %d' % (
+            stats['classes'], stats['members'], stats.get('params', 0), stats['base_classes']))
         if not bad:
             print('✔ 无无效映射')
             return 0
@@ -185,7 +203,7 @@ def main():
         print(P.describe())
         print('  写入目标：')
         for k, v in (('class_map', P.class_map), ('member_map', P.member_map),
-                     ('out_tsrg', P.out_tsrg), ('allow', P.allow)):
+                     ('param_map', P.param_map), ('out_tsrg', P.out_tsrg), ('allow', P.allow)):
             if not v:
                 continue
             inside = os.path.commonpath([cfg_dir, os.path.abspath(v)]) == cfg_dir

@@ -21,6 +21,7 @@ sys.path.insert(0, HERE)
 
 import config
 import mapping
+import params
 import smali
 import checks
 
@@ -66,9 +67,15 @@ def main():
             sup = sup.strip('L;') if sup else ''
             if sup and sup in cmap and sup not in kept:
                 kept.add(sup); frontier.append(sup)
+    # 描述符里引用到的类也要进子集类映射：否则 emit 的参数行与 params 重算对不上（类型换不了名）
+    import re as _re
+    refs = set(kept)
+    for _p in kept:
+        for _ln in mm.blocks.get(_p, []):
+            refs.update(t for t in _re.findall(r'L([\w/$]+);', _ln) if t in cmap)
     with open(sub_cm, 'w', encoding='utf-8') as f:
         for probe, target, ev in cm.rows:
-            if mapping.full(probe, P.probe_prefix) in kept:
+            if mapping.full(probe, P.probe_prefix) in refs:
                 f.write('%s\t%s\t%s\n' % (probe, target, ev))
     with open(sub_mm, 'w', encoding='utf-8') as f:
         for probe in mm.order:
@@ -77,6 +84,17 @@ def main():
             f.write('%s %s\n' % (probe, mm.target.get(probe, probe)))
             for ln in mm.blocks[probe]:
                 f.write('\t' + ln + '\n')
+    # 参数名子集（只留 kept 里的类）
+    sub_prm = os.path.join(truth, 'params.tsv')
+    n_par = 0
+    if P.param_map and os.path.exists(P.param_map):
+        rows = []
+        for (owner, name, desc), prs in params.load_tsv(P.param_map).items():
+            if owner not in kept:
+                continue
+            for i, nm, src in prs:
+                rows.append((owner, name, desc, i, nm, src))
+        n_par = params.save_tsv(sub_prm, rows)
 
     # 2) 新配置：新目录、无 head、无 smali_index（考验回退）
     cfg = dict(P.raw)
@@ -92,6 +110,7 @@ def main():
     cfg['class_map'] = 'out/selftest/truth/class_map.tsv'
     cfg['member_map'] = 'out/selftest/truth/members.tsrg'
     cfg['out_tsrg'] = 'out/selftest/mappings.txt'
+    cfg['param_map'] = 'out/selftest/truth/params.tsv' if n_par else None
     cfg['out_dir'] = 'out/selftest'
     cfg_path = os.path.join(work, 'deob.json')
     json.dump(cfg, open(cfg_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
@@ -115,9 +134,22 @@ def main():
     check('emit', r.returncode == 0, r.stdout.strip().splitlines()[-1] if r.stdout else r.stderr[-200:])
 
     S = config.load(cfg_path)
+    n_emit_par = 0
+    if os.path.exists(S.out_tsrg):
+        n_emit_par = sum(1 for ln in open(S.out_tsrg, encoding='utf-8') if ln.startswith('\t\t') and 'static' not in ln)
+    check('emit-params', n_emit_par == n_par, '参数行 %d（期望 %d）' % (n_emit_par, n_par))
     bad, detail, stats = checks.validate(S)
     check('validate', not bad, '类块 %d / 成员行 %d / 基线 %d' %
           (stats['classes'], stats['members'], stats['base_classes']))
+
+    import re as _re
+    r = sh(os.path.join('tools/deob/cli.py'), '-p', os.path.relpath(cfg_path, REPO), 'params')
+    out = (r.stdout or '') + (r.stderr or '')
+    m = _re.search(r'参数行 (\d+) 条', out)
+    same = bool(m) and int(m.group(1)) == n_par
+    check('params', r.returncode == 0 and same,
+          ('重算 %s 行 == 子集真相 %d 行（dry-run，未写盘）' % (m.group(1), n_par)) if m
+          else out.strip()[-120:])
 
     conf, miss = checks.inherit(S)
     check('inherit', not conf and not miss, 'CONFLICT %d / MISSING %d' % (len(conf), len(miss)))

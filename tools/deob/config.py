@@ -10,12 +10,14 @@
   probe_prefix    探针包前缀，默认 "abcd"（类描述符去壳后用于查 index）
   class_map       类映射 TSV：`探针 <TAB> 目标 [<TAB> 证据]`
   member_map      成员映射（TSRG 块文件）
+  param_map       可选的参数名表 TSV：`类 <TAB> 方法 <TAB> 描述符 <TAB> 序号 <TAB> 参数名 [<TAB> 来源]`
   head            可选的 TSRG2 头部行（原样拼在输出最前面）
   out_tsrg        生成的 TSRG2 输出路径
   allow           白名单 TSV：`探针 <TAB> 新名 <TAB> 理由`（可选）
   base_jars       改名输入 jar 列表（用于 static 标志、validate）
   input_jars      实际要改名的 jar（可 glob）
   oracle_jars     oracle 版本：{"label": "...", "path": "..."} 或 ["path", ...]
+  src_root        可选的原始源码根（如 "$HOME/src/jgit"）：抽象/接口方法的参数名从这里读声明
   out_dir         产物目录（默认 "out"）
   root            所有相对路径的基准（默认=配置文件所在目录）
 """
@@ -52,12 +54,14 @@ class Project:
         self.smali_index = _expand(c.get('smali_index'), self.root)
         self.class_map = _expand(c.get('class_map'), self.root)
         self.member_map = _expand(c.get('member_map'), self.root)
+        self.param_map = _expand(c.get('param_map'), self.root)
         self.head = _expand(c.get('head'), self.root)
         self.out_tsrg = _expand(c.get('out_tsrg'), self.root)
         self.allow = _expand(c.get('allow'), self.root)
         self.base_jars = _globs(c.get('base_jars'), self.root)
         self.input_jars = _globs(c.get('input_jars'), self.root)
         self.out_dir = _expand(c.get('out_dir') or 'out', self.root)
+        self.src_root = _expand(c.get('src_root'), self.root)
         oj = []
         for o in c.get('oracle_jars') or []:
             if isinstance(o, str):

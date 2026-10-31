@@ -9,7 +9,7 @@
 |---|---|---|
 | 路径 | 全部来自工程配置 JSON | 固定在本仓库 |
 | 用途 | 新工程起步、体检、构建通路 | 本项目的历史积累（含大量一次性别名分析脚本） |
-| 谁是权威 | 体检项以本项目脚本为准 | `pipeline/` 下的 8 道门 |
+| 谁是权威 | 体检项以本项目脚本为准 | `pipeline/` 下的 9 道门 |
 
 新工程建议：先 `tools/deob/` 跑通 `emit → validate → inherit → pkgs → widen`，
 再用 `tools/jgit/naming/` 里的专用分析器当**模板**改写。
@@ -32,6 +32,18 @@ python3 tools/deob/cli.py -p jobs/jgit/deob.json widen process/base/merged_ok.ja
    前三层是硬门，最后一层只是指标。
 3. **一切判据落到可复现的证据**：`body:`（方法体特征）/`shape:`（唯一形状+版本）/`prop:`（版本指纹）/
    `pkg:`（访问图）/`place:`（占位原因）/`name:`（自定名理由）。见 `docs/NAMING.md`。
+
+## 参数名（`tools/deob/params.py` + `javasrc.py`）
+
+| 能力 | 说明 |
+|---|---|
+| `params.jar_params(jar)` | 解析 class 的 `LocalVariableTable`，槽位按描述符换算成**实参序号**，得到 `{(owner,name,desc): {i: 参数名}}` |
+| `params.fill(...)` | 把上面 + `javasrc` 的结果挂到成员映射上，写 `param_map`（`deob params [--apply]` 就是它） |
+| `params.remap_desc(desc, 类映射)` | 描述符里的 `L混淆名;` → 真名（查 oracle 前必须换） |
+| `javasrc.lookup(src_root, 类, 方法, 描述符)` | 源码声明里的形参名：只认无方法体（`;`）的声明，多条时用类型消歧 |
+
+新依赖只要在 `deob.json` 里给 `param_map` +（可选）`src_root`，`deob params --apply` 即可；
+没有 LVT（strip 过的 jar）且没有源码时它什么都不写——**不猜**是设计，不是缺陷。
 
 ## 还留在 `tools/jgit/naming/` 的可移植分析器（建议按需搬）
 

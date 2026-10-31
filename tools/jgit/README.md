@@ -37,4 +37,4 @@ tools/jgit/
 | `~/icd/orig/classes*.dex` | 原始 5 个 dex（dex 元数据来源） |
 | `src/smali/abcd/` | 探针 smali（文件名不可信，**必须查 `jobs/jgit/truth/smali_index.tsv`**） |
 
-当前产物：`jobs/jgit/mappings.txt`（TSRG2，6804 行 = 头 20 + jgit 6254）。
+当前产物：`jobs/jgit/mappings.txt`（TSRG2，9829 行 = 表头 1 + 头部 20 + 类块 751 + 成员行 5522 + `static` 530 + 参数行 3025）。

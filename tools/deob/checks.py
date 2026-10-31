@@ -12,6 +12,7 @@ import fnmatch
 
 import jvm
 import mapping
+import params as params_mod
 import smali
 from oracle import Oracle, norm_desc, shape_of
 
@@ -71,7 +72,8 @@ def validate(project, tsrg=None):
     cur = None
     cur_ok = False
     last = None
-    n_cls = n_mem = 0
+    n_cls = n_mem = n_par = 0
+    par_seen = {}
     for ln, line in enumerate(open(tsrg, encoding='utf-8'), 1):
         line = line.rstrip('\n')
         if not line:
@@ -94,15 +96,47 @@ def validate(project, tsrg=None):
             seen_cls[target] = probe
             continue
         body = line[1:]
-        if body.strip() == 'static' or body.strip() == '\tstatic':
+        if body.startswith('\t'):
+            head = body.strip().split(' ')
+            if head == ['static']:
+                if last is None or last[0] != 'm':
+                    bad['static-position'] += 1
+                    detail.append((ln, 'static-pos', line))
+                elif cur_ok:
+                    acc = _member_vis(idx, cur, last[1], last[2], 'm')
+                    if acc is None or not (acc & 0x8):
+                        bad['static-mismatch'] += 1
+                        detail.append((ln, 'static-mismatch', line))
+                continue
+            # 参数行：`\t\t<实参序号> <obf名> <deobf名>`（srgutils 要求两列都给）
+            n_par += 1
             if last is None or last[0] != 'm':
-                bad['static-position'] += 1
-                detail.append((ln, 'static-pos', line))
-            elif cur_ok:
-                acc = _member_vis(idx, cur, last[1], last[2], 'm')
-                if acc is None or not (acc & 0x8):
-                    bad['static-mismatch'] += 1
-                    detail.append((ln, 'static-mismatch', line))
+                bad['param-position'] += 1
+                detail.append((ln, 'param-pos', line))
+                continue
+            if len(head) != 3:
+                bad['param-format'] += 1
+                detail.append((ln, 'param-format', line))
+                continue
+            if head[1] != head[2]:
+                bad['param-columns'] += 1
+                detail.append((ln, 'param-columns', line))
+            if not head[0].isdigit():
+                bad['param-format'] += 1
+                detail.append((ln, 'param-format', line))
+                continue
+            i_par = int(head[0])
+            n_args = len(params_mod.desc_args(last[2]))
+            if i_par >= n_args:
+                bad['param-index'] += 1
+                detail.append((ln, 'param-index', '%s %s%s 只有 %d 个参数' % (last[1], last[2], '', n_args)))
+            if (cur, last[1], last[2], i_par) in par_seen:
+                bad['param-dup'] += 1
+                detail.append((ln, 'param-dup', '%s %s 参数 %d' % (last[1], last[2], i_par)))
+            par_seen[(cur, last[1], last[2], i_par)] = 1
+            if not re.fullmatch(r'[A-Za-z_$][A-Za-z0-9_$]*', head[2]):
+                bad['param-name'] += 1
+                detail.append((ln, 'param-name', line))
             continue
         f = body.split(' ')
         n_mem += 1
@@ -128,7 +162,7 @@ def validate(project, tsrg=None):
         if not NAME_RE.fullmatch(new):
             bad['bad-name'] += 1
             detail.append((ln, 'bad-name', line))
-    return bad, detail, dict(classes=n_cls, members=n_mem, base_classes=len(idx))
+    return bad, detail, dict(classes=n_cls, members=n_mem, params=n_par, base_classes=len(idx))
 
 
 # ---------------------------------------------------------------- inherit

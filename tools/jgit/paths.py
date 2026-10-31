@@ -7,6 +7,7 @@
     jobs/jgit/truth/members.tsrg   成员映射（TSRG 块）
     jobs/jgit/truth/mappings_head.txt  TSRG2 头部（AIDE 侧改名 20 行）
     jobs/jgit/truth/smali_index.tsv   类描述符 → smali 真实文件名（大小写不敏感 FS 必用）
+    jobs/jgit/truth/params.tsv     方法参数名（oracle LVT / jgit 源码；见 pipeline/paramfill.py）
     jobs/jgit/mappings.txt         TSRG2 产物（派生，不要手改）
     jobs/jgit/verify_allow.tsv     已知差异白名单
 
@@ -32,6 +33,7 @@ _ALIAS = {
     'members.tsrg': 'jgit_members_clean.tsrg',
     'mappings_head.txt': 'mappings_head.txt',
     'smali_index.tsv': 'smali_index.tsv',
+    'params.tsv': 'params.tsv',
 }
 
 
@@ -46,6 +48,7 @@ MAP = _pick('class_map.tsv')
 TSRG = _pick('members.tsrg')
 HEAD = _pick('mappings_head.txt')
 SMALI_INDEX = _pick('smali_index.tsv')
+PARAMS = _pick('params.tsv')
 
 MAPPINGS = os.path.join(JOB, 'mappings.txt')
 ALLOW = os.path.join(JOB, 'verify_allow.tsv')

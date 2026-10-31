@@ -34,6 +34,13 @@ python3 tools/deob/cli.py -p jobs/mylib/deob.json status     # 看路径 + 隔�
 编辑 `jobs/mylib/deob.json`：把 `probe_dir` / `base_jars` / `input_jars` / `oracle_jars` 指到位。
 （探针包前缀 `probe_prefix` 决定 `zz/X` 这类类名怎么拼。）
 
+顺手补两个可选键：
+
+| 键 | 作用 |
+|---|---|
+| `param_map` | 参数名真相表（TSV）。给了它，`emit` 才会把 `\t\t<i> <名> <名>` 参数行写进 TSRG2 |
+| `src_root` | 原始源码根（如 `$HOME/src/jgit`）。抽象/接口方法没有 `LocalVariableTable` 时，从这里读声明形参名 |
+
 ## 3. 类级定名（先定类，再定成员）
 
 ```bash
@@ -69,7 +76,8 @@ $D iface zz/Foo           # 从真实父类/接口反推方法名
 ## 5. 体检（四层，前两层是硬门）
 
 ```bash
-$D emit        && python3 -c "pass"    # 生成 out/mappings.txt（含 \t\tstatic）
+$D params --apply                      # 参数名：oracle LVT / src_root 源码 → param_map（可复现，不猜）
+$D emit                                # 生成 out/mappings.txt（含 \t\tstatic 与参数行）
 $D validate                            # 期望 ✔ 无无效映射
 $D inherit                             # 期望 CONFLICT 0 / MISSING 0
 $D pkgs                                # 看需挪包；需要就 --apply 后重跑 emit
@@ -92,7 +100,7 @@ java -jar process/ForgeAutoRenamingTool-1.0.8-all.jar \
 
 ```bash
 python3 tools/deob/selftest.py -p jobs/jgit/deob.json
-# PASS emit / validate / inherit / pkgs / cover / shape / q / index-fallback / isolation
+# PASS emit / emit-params / validate / params / inherit / pkgs / cover / shape / q / index-fallback / isolation
 ```
 
 `isolation` 一项会验证**源工程的三张表哈希未变**——即"跑一遍通用链路不会污染已完成的工程"。
@@ -103,6 +111,6 @@ python3 tools/deob/selftest.py -p jobs/jgit/deob.json
 2. 放 oracle / base / smali
 3. 类级：`shape`+`q`+`hdr` → 写 `class_map.tsv`（带证据）
 4. 成员级：`prof`+`dump`+`elim`+`iface` → 写 `members.tsrg`（不写恒等）
-5. `emit → validate → inherit → pkgs → (widen)` 全绿
+5. `params --apply`（参数名）→ `emit` → `validate` → `inherit` → `pkgs` → `(widen)` 全绿
 6. FART → D8 → 出包 → 冒烟（`NoSuchMethod/IllegalAccess/AbstractMethod` 三类异常对照
    [VERIFY.md](VERIFY.md) 末尾速查表）

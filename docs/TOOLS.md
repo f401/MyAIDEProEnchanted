@@ -10,7 +10,7 @@ tools/
 │   ├── probelib.py         smali/oracle 成员清单、描述符归一化、多版本 Oracle
 │   ├── jvmbody.py          class 解析 + 方法体特征
 │   ├── dexlib.py           最小 DEX 解析
-│   ├── pipeline/           本项目门禁（13）
+│   ├── pipeline/           本项目门禁（14）
 │   ├── naming/             定名分析器（34）
 │   ├── audit/              体检（12）
 │   ├── inspect/            读码/查看（14，读码类已整合到 deob 的 view）
@@ -19,25 +19,26 @@ tools/
 ```
 
 > **去重结果**
-> - `deob/` 提供通用等价实现：`emit / validate / inherit / pkgs / widen / cover / manifest / shape / q / prof / dump / hdr / elim / iface`。
+> - `deob/` 提供通用等价实现：`emit / params / validate / inherit / pkgs / widen / cover / manifest / shape / q / prof / dump / hdr / elim / iface`。
 > - `jgit/pipeline/` **保留**（本项目门禁，带 `verify_allow.tsv` 白名单、R8 重写与 oracle 版本差异分类）：
->   `rebuild_tsrg emit_tsrg2 filter_head mapfix tsvfix validate_mappings verify_members inherit_check pkgclose widen_access coverage jar_manifest nop_clinit`
+>   `rebuild_tsrg paramfill emit_tsrg2 filter_head mapfix tsvfix validate_mappings verify_members inherit_check pkgclose widen_access coverage jar_manifest nop_clinit`
 > - **已删除**（通用 kit 全覆盖或本身就是一次性）：`sync_maps`、`shapescan`、`shapefind`、
 >   `typefix`、`typeprop`、`typesolve`、`typeuse`、`vprobe`、`add_members`、`apply_types`、
 >   `inspect/` 的 `q hdr prof dump elim ifacemap shapeall body matchscore`、
 >   `stage/` 的全部历史脚本与 `stage/fixes/`（见 git log）。
 
-## pipeline/ —— 改映射 & 构建（8 道门都在这）
+## pipeline/ —— 改映射 & 构建（9 道门都在这）
 
 | 工具 | 作用 |
 |---|---|
 | `rebuild_tsrg.py` | **tsv/tsrg → `jobs/jgit/mappings.txt`**（类块顺序按 tsv；丢陈旧块、去重成员、查类目标重复） |
-| `emit_tsrg2.py` | 单独重排/补 static 标记输出 TSRG2（`\t\tstatic` 必须紧跟**方法**行） |
+| `paramfill.py` | **参数名**：oracle jar 的 `LocalVariableTable`（+ 抽象方法的 jgit 源码声明）→ `truth/params.tsv`；`--write` 落盘 |
+| `emit_tsrg2.py` | 单独重排/补 static 标记**与参数行**输出 TSRG2（`\t\tstatic` 紧跟**方法**行，参数行再跟在后面） |
 | `sync_maps.py` | 只重建 jgit 块、保留头部 |
 | `mapfix.py` | 声明式改**成员**映射（`探针 m/f 名 描述符 旧 新`，`-` 表空/删；同类互换安全） |
 | `tsvfix.py` | 声明式改**类**映射 |
 | `filter_head.py` | 清理 `mappings_head.txt` 中“已应用/不存在”的块与行 |
-| `validate_mappings.py` | **有效性**：类/成员是否存在、static 标记、类/成员目标重复、新名合法。期望 `✔ 无无效映射`（无需参数） |
+| `validate_mappings.py` | **有效性**：类/成员是否存在、static 标记、类/成员目标重复、新名合法、参数行（3 段/序号/两列同名/不重复）。期望 `✔ 无无效映射`（无需参数） |
 | `verify_members.py` | **一致性**：对着 oracle 校验名字+描述符（含 `jobs/jgit/verify_allow.tsv` 白名单）。期望 `不一致 0` |
 | `inherit_check.py` | **继承闭合**：`CONFLICT 0 / MISSING 0` |
 | `pkgclose.py` | **包归属**：并查集 + 不动点求每类该在哪个包；`--apply` 迭代到 0 |

@@ -14,6 +14,7 @@ import zipfile
 import collections
 
 import jvm
+import params
 
 
 def full(probe, prefix):
@@ -178,11 +179,16 @@ def static_index(jars):
 
 
 def emit_tsrg2(project, member_map=None, class_map=None, out=None):
-    """写出 TSRG2：头部（可选）+ 按类映射顺序的块 + static 标记。返回行数。"""
+    """写出 TSRG2：头部（可选）+ 按类映射顺序的块 + static 标记 + 参数名。返回行数。
+
+    参数行是 `\t\t<实参序号> <名字> <名字>`：srgutils 的 TSRG2 解析器要求**两列名字都给**
+    （表头 `tsrg2 obf deobf` 有两列，参数行也必须是「序号 + 每列一个名字」共 3 段）。
+    """
     cm = class_map or ClassMap(project.class_map, project.probe_prefix).load()
     mm = member_map or MemberMap(project.member_map).load()
     out = out or project.out_tsrg
     stat = static_index(project.base_jars + project.input_jars)
+    pmap = params.load_tsv(project.param_map) if project.param_map and os.path.exists(project.param_map) else {}
     targets = {}
     lines = ['tsrg2 obf deobf']
     if project.head and os.path.exists(project.head):
@@ -205,6 +211,8 @@ def emit_tsrg2(project, member_map=None, class_map=None, out=None):
             if len(f) >= 3 and f[1].startswith('('):
                 if stat.get(probe, {}).get((f[0], f[1])) and f[-1] != f[0]:
                     lines.append('\t\tstatic')
+                for i, nm, _src in pmap.get((probe, f[0], f[1]), []):
+                    lines.append('\t\t%d %s %s' % (i, nm, nm))
     with open(out, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
     return n_cls, n_mem, len(lines)
