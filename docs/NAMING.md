@@ -60,6 +60,22 @@
 - 字段与方法是不同命名空间，可以同名（字段 `executor` + 方法 `getExecutor` 没问题）。
 - `static` 与 `virtual` 同名同描述符只能各自独立（见 `audit/staticclash.py`）。
 
+### 3b. 字段怎么定名（实测流程）
+
+字段名不能靠"类型像"，按下面三条走，命中即停：
+
+1. **读写点顺序对照**：把探针方法的字段写序列（`putfield` 顺序）与 oracle 同名方法的写序列并排，
+   类型能对上就按位置配。例：`PackWriter$Statistics` 的 16 个字段全部靠这个方法定名
+   （`writePack` 里 `VH,XL,EQ,...,we` ↔ `totalObjects,thinPackBytes,reusedBytes…`）。
+2. **源码语义核对**（顺序对上但仍有二选一时）：查 oracle 源码里该字段的赋值表达式。
+   例：`stats.totalBytes = out.length()` ↔ 探针 `EQ = PackOutputStream.getCount()`；
+   `stats.thinPackBytes += typeStat.bytes` ↔ 探针 `we += TH$c$a.v5`。
+3. **一字段对多名就留空**：AIDE 常把两个字段合并成一个（`Status.clean` 与
+   `hasUncommittedChanges` 都指向探针 `DW`；`TrackingRefUpdate.remoteName/localName` 都指向 `j6`），
+   这种**不猜**，保留混淆名。
+
+当前字段映射 1848/1855 = 99.6%，剩 7 个全是第 3 类的结构性缺口。
+
 ## 4. 编译器合成物清单
 
 | 合成物 | 规则 | 例 |

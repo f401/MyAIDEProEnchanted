@@ -214,6 +214,7 @@ abcd/BB org/eclipse/jgit/api/Status
 	Zo ()Ljava/util/Set; getMissing
 	j6 ()Ljava/util/Set; getAdded
 	v5 ()Ljava/util/Set; getModified
+	j6 diff
 abcd/BC org/eclipse/jgit/diff/RenameDetector
 	DW ()Ljava/util/List; compute
 	v5 ()V reset
@@ -931,6 +932,7 @@ abcd/IJ org/eclipse/jgit/transport/UploadPack
 	FH ()Ljava/util/Map; getAdvertisedOrDefaultRefs
 	j6 (Labcd/iG;)V addCommonBase
 	j6 (Ljava/util/Set;)V parseWants
+	ro statistics
 abcd/IJ$a org/eclipse/jgit/transport/UploadPack$RequestPolicy
 	<init> (Ljava/lang/String;I)V <init>
 	Hw REACHABLE_COMMIT_TIP
@@ -2134,6 +2136,8 @@ abcd/TH org/eclipse/jgit/internal/storage/pack/PackWriter
 	j6 (Labcd/BH;Labcd/fG;Labcd/_F;)Z isCachedPackReusable
 abcd/TH$a org/eclipse/jgit/internal/storage/pack/PackWriter$MutableState
 	j6 (Labcd/TH$a;Labcd/TH$b;)V access$000
+	j6 totalDeltaSearchBytes
+	DW phase
 abcd/TH$b org/eclipse/jgit/internal/storage/pack/PackWriter$PackingPhase
 	<init> (Ljava/lang/String;I)V <init>
 	Zo $VALUES
@@ -2714,6 +2718,7 @@ abcd/YI org/eclipse/jgit/transport/RemoteRefUpdate
 	j6 newObjectId
 	v5 srcRef
 	v5 ()Labcd/gJ; getTrackingRefUpdate
+	Hw trackingRefUpdate
 abcd/YI$a org/eclipse/jgit/transport/RemoteRefUpdate$Status
 	<init> (Ljava/lang/String;I)V <init>
 	Zo REJECTED_OTHER_REASON
@@ -3945,6 +3950,7 @@ abcd/iC org/eclipse/jgit/diff/DiffFormatter
 	FH BINARY
 	Hw (Labcd/tC;I)Z isEndOfLineMissing
 	FH (Ljava/lang/String;)Z isBinary
+	we comparator
 abcd/iC$a org/eclipse/jgit/diff/DiffFormatter$FormatResult
 	j6 header
 	DW a
@@ -4739,8 +4745,9 @@ abcd/rB org/eclipse/jgit/api/PullResult
 	DW ()Z isSuccessful
 	Hw fetchedFrom
 	j6 fetchResult
-	DW rebaseResult
+	DW mergeResult
 	j6 ()Labcd/pB; getMergeResult
+	FH rebaseResult
 abcd/rC org/eclipse/jgit/diff/MyersDiff$1
 	<init> ()V <init>
 	j6 (Labcd/kC;Labcd/mC;Labcd/lC;Labcd/lC;Labcd/jC;)V diffNonCommon
@@ -5685,6 +5692,22 @@ abcd/TH$c org/eclipse/jgit/internal/storage/pack/PackWriter$Statistics
 	j6 ()Ljava/lang/String; getMessage
 	FH reusedPacks
 	aM objectTypes
+	j6 interestingObjects
+	DW uninterestingObjects
+	Hw depth
+	v5 deltaSearchNonEdgeObjects
+	Zo deltasFound
+	VH totalObjects
+	gn totalDeltas
+	u7 reusedObjects
+	tp reusedDeltas
+	EQ totalBytes
+	we thinPackBytes
+	J0 timeCounting
+	J8 timeSearchingForReuse
+	Ws timeSearchingForSizes
+	QX timeCompressing
+	XL timeWriting
 abcd/dE org/eclipse/jgit/lib/BatchingProgressMonitor$3
 abcd/xc org/eclipse/jgit/lib/BatchingProgressMonitor$4
 abcd/BE$a org/eclipse/jgit/lib/ObjectIdRef$1
@@ -6008,6 +6031,7 @@ abcd/LC org/eclipse/jgit/dircache/DirCacheBuildIterator
 	J0 ()V stopWalk
 	j6 (Labcd/IE;)Labcd/TJ; createSubtreeIterator
 	we ()V skip
+	aM builder
 abcd/NG org/eclipse/jgit/internal/storage/file/AideSizedObjectStream
 	FH ()Ljava/io/InputStream; openStream
 	j6 ()J getSize

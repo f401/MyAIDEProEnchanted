@@ -10,8 +10,9 @@ import os
 import sys
 import zipfile
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'pipeline'))
-import fix_try  # noqa: E402
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__)))), 'deob'))
+import fixtry  # noqa: E402
 
 
 def main():
@@ -23,7 +24,7 @@ def main():
         if not info.filename.endswith('.class'):
             continue
         try:
-            fixes = fix_try.scan(z.read(info.filename))
+            fixes = fixtry.scan(z.read(info.filename))
         except Exception:
             continue
         for _off, old, new, nm, ds, t in fixes:

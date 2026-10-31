@@ -227,3 +227,4 @@ abcd/rI	configureRequest	4.11+ HttpAuthMethod.configureRequest(HttpConnection)�
 abcd/rI$a	configureRequest	HttpAuthMethod$Basic 的同一方法（AIDE 参数类型 HttpURLConnection）
 abcd/rI$b	configureRequest	HttpAuthMethod$Digest 的同一方法
 abcd/rI$c	configureRequest	HttpAuthMethod$None 的同一方法
+abcd/xF	isWorktreeDirty	AIDE 把 isWorktreeDirty(WorkingTreeIterator,DirCacheEntry) 改成无参 ()Z；body 读 tw/failingPaths/DIRTY_WORKTREE，与 3.7.1 的同名字段用法一致（J0 才是 isIndexDirty：读 inCore/DIRTY_INDEX）

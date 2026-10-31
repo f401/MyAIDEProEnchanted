@@ -349,15 +349,43 @@ class _CF:
         self.ifaces = [utf.get(cls.get(struct.unpack_from('>H', b, o+8+2*k)[0])) for k in range(ic)]
         p = o + 8 + 2*ic
         self.members = []
+        _codes = []
         for kind in ('f', 'm'):
             cnt = struct.unpack_from('>H', b, p)[0]; p += 2
             for _ in range(cnt):
                 a_off = p
                 acc, nm, ds, ac = struct.unpack_from('>HHHH', b, p); p += 8
+                code = None
                 for _ in range(ac):
-                    ln = struct.unpack_from('>I', b, p+2)[0]; p += 6 + ln
+                    an = struct.unpack_from('>H', b, p)[0]
+                    ln = struct.unpack_from('>I', b, p+2)[0]
+                    if kind == 'm' and utf.get(an) == 'Code':
+                        cl = struct.unpack_from('>I', b, p+10)[0]
+                        code = (p+14, cl)
+                    p += 6 + ln
                 self.members.append(dict(kind=kind, acc=acc, acc_off=a_off,
-                                         name=utf.get(nm), desc=utf.get(ds)))
+                                         name=utf.get(nm), desc=utf.get(ds), code=code))
+                if code:
+                    _codes.append(code)
+        # 类级访问：new / checkcast / instanceof / anewarray / multianewarray / ldc(class)
+        self.class_uses = set()
+        for off, ln in _codes:
+            code = b[off:off+ln]; i = 0
+            while i < len(code):
+                op = code[i]; idx = None
+                if op in (0xbb, 0xc0, 0xc1, 0xbd, 0x13):
+                    idx = struct.unpack_from('>H', code, i+1)[0]; step = 3
+                elif op == 0xc5:
+                    idx = struct.unpack_from('>H', code, i+1)[0]; step = 4
+                elif op == 0x12:
+                    idx = code[i+1]; step = 2
+                else:
+                    step = jvm.LEN.get(op, 1)
+                if idx is not None:
+                    n2 = utf.get(cls.get(idx))
+                    if n2:
+                        self.class_uses.add(n2)
+                i += step
         self.refs = []
         for tag, ci, ni in refs:
             ow = utf.get(cls.get(ci)); nn = nat.get(ni)
@@ -401,6 +429,28 @@ def widen(jar, out=None, class_map=None, apply_=False):
             widen_mem[owner].add((m['kind'], name, desc))
             widen_cls.add(owner)
             reasons.append('%s(%s) -> %s.%s%s [%s]' % (c.this, pa, owner, name, desc, pkg_after(owner)))
+        # 1b) 类级访问（new/checkcast/const-class…）：被访问的类要 public
+        for cn in getattr(c, 'class_uses', ()):
+            if cn == c.this or cn not in midx:
+                continue
+            if _pkg(cn) != pb or pkg_after(cn) == pa:
+                continue
+            oc = parsed.get(cn + '.class')
+            if not oc or struct.unpack_from('>H', oc.b, oc.acc_off)[0] & ACC_PUBLIC:
+                continue
+            widen_cls.add(cn)
+            reasons.append('CLASS %s -> %s [%s]' % (c.this, cn, pkg_after(cn)))
+        # 1c) 继承/实现：父类或接口本身要 public
+        for cn in ([c.sup] if c.sup else []) + list(c.ifaces):
+            if not cn or cn not in midx:
+                continue
+            if _pkg(cn) != pb or pkg_after(cn) == pa:
+                continue
+            oc = parsed.get(cn + '.class')
+            if not oc or struct.unpack_from('>H', oc.b, oc.acc_off)[0] & ACC_PUBLIC:
+                continue
+            widen_cls.add(cn)
+            reasons.append('SUPER %s -> %s [%s]' % (c.this, cn, pkg_after(cn)))
         for sup in ([c.sup] if c.sup else []) + list(c.ifaces):
             if not sup or sup not in midx or _pkg(sup) != pb or pkg_after(sup) == pa:
                 continue
@@ -451,6 +501,25 @@ def widen(jar, out=None, class_map=None, apply_=False):
     zo.close()
     stats['written'] = changed
     stats['out'] = out
+    # 自检：public 不能和 private/protected 并存（dex 校验会拒绝：
+    # "Field may have only one of public/protected/private"）
+    clash = 0
+    zc = zipfile.ZipFile(out)
+    for n2 in zc.namelist():
+        if not n2.endswith('.class'):
+            continue
+        d2 = zc.read(n2)
+        try:
+            c2 = _CF(d2)
+        except Exception:
+            continue
+        v = struct.unpack_from('>H', d2, c2.acc_off)[0] & 0x7
+        if v in (0x3, 0x5):
+            clash += 1
+        for m2 in c2.members:
+            if (m2['acc'] & 0x7) in (0x3, 0x5):
+                clash += 1
+    stats['clash'] = clash
     return stats, out
 
 

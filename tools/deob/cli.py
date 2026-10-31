@@ -8,6 +8,7 @@
     init --name X              新建**独立**工程目录（jobs/X：配置 + 空 truth + README）
     emit                       由 class_map + member_map 生成 TSRG2（out_tsrg）
     params [--apply]           从 oracle jar 的 LVT / src_root 源码提取参数名（写 param_map）
+    tryfix <jar> [--out F]     修"try 范围不含数组访问"的异常表（--apply 写盘）
     validate                   校验产物 TSRG2 与真实 jar（默认全绿的 8 项）
     inherit                    继承链闭合检查（CONFLICT / MISSING）
     pkgs [--apply]             包归属求解（同包才能访问 package-private）
@@ -28,6 +29,7 @@ import config
 import view as insp
 import mapping
 import params as prm
+import fixtry
 
 
 def _split_argv(argv):
@@ -117,6 +119,15 @@ def main():
     if a.cmd == 'emit':
         n_cls, n_mem, n_lines = mapping.emit_tsrg2(P)
         print('写出 %s：类块 %d / 成员行 %d / 共 %d 行' % (P.out_tsrg, n_cls, n_mem, n_lines))
+
+    elif a.cmd == 'tryfix':
+        if not a.args:
+            raise SystemExit('用法: tryfix <jar> [--out F] [--apply]')
+        jar = a.args[0]
+        out = a.out or (jar[:-4] + '_try.jar')
+        n = fixtry.fix(jar, out, write=a.apply, log=print)
+        print(('修 %d 条 → %s' % (n, out)) if a.apply
+              else '需要修 %d 条（加 --apply 写盘）' % n)
 
     elif a.cmd == 'params':
         oracles = [p for _l, p in P.oracle_jars]
