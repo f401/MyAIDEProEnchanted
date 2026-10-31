@@ -5,10 +5,22 @@
   "probe_dir": "../src/smali/abcd",
   "smali_index": "truth/smali_index.tsv",
   "parts": [
-    "truth/head",
-    "../jobs/jgit",
-    "../jobs/jsch",
-    "../jobs/aide"
+    {
+      "dir": "truth/head",
+      "probe_prefix": "abcd"
+    },
+    {
+      "dir": "../jobs/jgit",
+      "probe_prefix": "abcd"
+    },
+    {
+      "dir": "../jobs/jsch",
+      "probe_prefix": "com/jcraft/jsch"
+    },
+    {
+      "dir": "../jobs/aide",
+      "probe_prefix": "abcd"
+    }
   ],
   "src_root": [
     "$HOME/src/jgit",

@@ -268,7 +268,7 @@ def build_index(oracle_paths):
 
 
 def fill(class_map, member_map, prefix='abcd', oracle_paths=(), out_path=None,
-         src_root=None, write=False, log=print):
+         src_root=None, write=False, log=print, prefix_of=None):
     """把 oracle LVT / 源码声明里的参数名挂到成员映射上，可选落盘 out_path。
 
     class_map / member_map 是路径（真相文件）；oracle_paths 顺序即优先级；
@@ -278,7 +278,7 @@ def fill(class_map, member_map, prefix='abcd', oracle_paths=(), out_path=None,
     """
     import javasrc
     from mapping import ClassMap, MemberMap
-    cm = ClassMap(class_map, prefix).load()
+    cm = ClassMap(class_map, prefix, prefix_of).load()
     cdict = cm.dict
     mm = MemberMap(member_map).load()
     idx, labels = build_index(oracle_paths)

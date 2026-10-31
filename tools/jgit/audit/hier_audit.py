@@ -18,7 +18,7 @@ MAP=_P.MAP
 mp={}
 for l in open(MAP):
     f=l.rstrip('\n').split('\t')
-    if len(f)>1 and f[0]!='abcd_class': mp['abcd/'+f[0]]=f[1]
+    if len(f)>1 and f[0]!='abcd_class': mp[f[0] if '/' in f[0] else 'abcd/'+f[0]]=f[1]
 z=zipfile.ZipFile(ORACLE)
 on={}
 for n in z.namelist():

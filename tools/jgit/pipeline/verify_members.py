@@ -18,7 +18,7 @@ z=zipfile.ZipFile(HOME+'/out/oracle/jgit/j-3.7.1.201504261725-r.jar')
 mp={}
 for l in open(TSV):
     f=l.rstrip('\n').split('\t')
-    if len(f)>1 and f[0]!='abcd_class': mp['abcd/'+f[0]]=f[1]
+    if len(f)>1 and f[0]!='abcd_class': mp[f[0] if '/' in f[0] else 'abcd/'+f[0]]=f[1]
 cls={}
 for n in z.namelist():
     if not n.endswith('.class'): continue

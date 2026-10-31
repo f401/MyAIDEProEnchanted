@@ -39,6 +39,11 @@ def class_index(jars):
     return idx
 
 
+def _class_map(project):
+    return mapping.ClassMap(project.class_map, project.probe_prefix,
+                            getattr(project, 'class_map_prefix', None)).load()
+
+
 def _pkg(name):
     return name.rsplit('/', 1)[0] if '/' in name else ''
 
@@ -173,7 +178,7 @@ def inherit(project, limit=200):
     只比较**虚方法**（非 static / 非 private / 非 <init>）：同名同描述符的 static 或 private
     成员在不同类里只是巧合，不构成覆写。
     """
-    cm = mapping.ClassMap(project.class_map, project.probe_prefix).load()
+    cm = _class_map(project)
     mm = mapping.MemberMap(project.member_map).load()
     m_i, _ = mm.index()
     acc_i = {}
@@ -202,7 +207,7 @@ def inherit(project, limit=200):
     pmap = cm.dict                     # probe -> target
     conflicts, missing = [], []
     for probe_w, target, _ev in cm.rows:
-        probe = mapping.full(probe_w, project.probe_prefix)
+        probe = cm.full_probe(probe_w)
         path = idx.file_for(project.probe_dir, probe)
         if not os.path.exists(path):
             continue
@@ -253,7 +258,7 @@ class _DSU:
 
 def pkgs(project):
     """并查集求解每个未映射类该落哪个包（同包才能访问 package-private）。"""
-    cm = mapping.ClassMap(project.class_map, project.probe_prefix).load()
+    cm = _class_map(project)
     pmap = cm.dict
     idx = class_index(project.base_jars + project.input_jars)
     dsu = _DSU()
@@ -445,7 +450,7 @@ def widen(jar, out=None, class_map=None, apply_=False):
 
 def cover(project):
     """覆盖率：分母 = oracle 成员中在探针里有同形对应者；命中 = 映射到正确名字。"""
-    cm = mapping.ClassMap(project.class_map, project.probe_prefix).load()
+    cm = _class_map(project)
     mm = mapping.MemberMap(project.member_map).load()
     m_i, f_i = mm.index()
     idxs = smali.Index(project.smali_index)
@@ -453,7 +458,7 @@ def cover(project):
     tot_m = hit_m = tot_f = hit_f = 0
     per_class = []
     for probe_w, target, _ev in cm.rows:
-        probe = mapping.full(probe_w, project.probe_prefix)
+        probe = cm.full_probe(probe_w)
         label, om = ora.find(target)
         if not om:
             continue

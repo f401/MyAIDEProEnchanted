@@ -14,14 +14,15 @@ FW = re.compile(r'[is]put(?:-object|-wide|-boolean|-byte|-char|-short)?[^,]*, [^
 
 
 def _ctx(project):
-    cm = mapping.ClassMap(project.class_map, project.probe_prefix).load()
+    cm = mapping.ClassMap(project.class_map, project.probe_prefix,
+                          getattr(project, 'class_map_prefix', None)).load()
     mm = mapping.MemberMap(project.member_map).load()
     idx = smali.Index(project.smali_index)
     return cm, mm, idx
 
 
-def _path(project, idx, name):
-    probe = name if '/' in name else project.probe_prefix + '/' + name
+def _path(project, cm, idx, name):
+    probe = cm.full_probe(name)
     return probe, idx.file_for(project.probe_dir, probe)
 
 
@@ -30,7 +31,7 @@ def q(project, names):
     pmap = cm.dict
     m_i, f_i = mm.index()
     for name in names:
-        probe, path = _path(project, idx, name)
+        probe, path = _path(project, cm, idx, name)
         if not os.path.exists(path):
             print('!! 找不到', probe); continue
         pr = smali.parse(path)
@@ -46,7 +47,7 @@ def q(project, names):
 def prof(project, names):
     cm, mm, idx = _ctx(project)
     for name in names:
-        probe, path = _path(project, idx, name)
+        probe, path = _path(project, cm, idx, name)
         if not os.path.exists(path):
             continue
         pr = smali.parse(path)
@@ -64,7 +65,7 @@ def prof(project, names):
 
 def dump(project, name, pats=()):
     cm, mm, idx = _ctx(project)
-    probe, path = _path(project, idx, name)
+    probe, path = _path(project, cm, idx, name)
     pr = smali.parse(path)
     for (n, d), body in pr['body'].items():
         sig = n + d
@@ -78,7 +79,7 @@ def dump(project, name, pats=()):
 def hdr(project, names):
     cm, _, idx = _ctx(project)
     for name in names:
-        probe, path = _path(project, idx, name)
+        probe, path = _path(project, cm, idx, name)
         if not os.path.exists(path):
             continue
         pr = smali.parse(path)
@@ -95,7 +96,7 @@ def elim(project, names, maxver=2):
     ora = Oracle(project.oracle_jars)
     m_i, f_i = mm.index()
     for name in names:
-        probe, path = _path(project, idx, name)
+        probe, path = _path(project, cm, idx, name)
         target = cm.dict.get(probe)
         if not target:
             print('== %s 未映射类' % probe); continue
@@ -120,11 +121,11 @@ def iface(project, names):
     cm, mm, idx = _ctx(project)
     real = jvm_index(project)
     for name in names:
-        probe, path = _path(project, idx, name)
+        probe, path = _path(project, cm, idx, name)
         pr = smali.parse(path)
         known = collections.defaultdict(list)
         for sup in ([pr['super']] if pr['super'] else []) + list(pr['ifaces']):
-            if not sup or sup.startswith('L' + project.probe_prefix + '/'):
+            if not sup or any(sup.startswith('L' + pre + '/') for pre in cm.prefixes):
                 continue
             for k, v in real.get(sup.strip('L;'), {}).items():
                 known[k].extend(v)
@@ -163,7 +164,7 @@ def shape(project, names):
     ora = Oracle(project.oracle_jars)
     ix = SH.build_index(ora, cm.dict)
     for name in names:
-        probe, path = _path(project, idx, name)
+        probe, path = _path(project, cm, idx, name)
         if not os.path.exists(path):
             continue
         pr = smali.parse(path)

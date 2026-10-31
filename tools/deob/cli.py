@@ -132,7 +132,7 @@ def main():
                 out_map[p['class_map']] = p['param_map'] or os.path.join(
                     os.path.dirname(p['class_map']), 'params.tsv')
         prm.fill(P.class_map, P.member_map, P.probe_prefix, oracles,
-                 out_map, P.src_root, write=a.apply)
+                 out_map, P.src_root, write=a.apply, prefix_of=P.class_map_prefix)
 
     elif a.cmd == 'validate':
         bad, detail, stats = checks.validate(P)
@@ -168,18 +168,18 @@ def main():
             for c in conf:
                 print('   ', c)
         if a.apply and moves:
-            cm = mapping.ClassMap(P.class_map, P.probe_prefix).load()
+            cm = mapping.ClassMap(P.class_map, P.probe_prefix, P.class_map_prefix).load()
             for m, tgt in moves:
-                probe = m if m.startswith(P.probe_prefix + '/') else m
-                cm.set(probe.replace(P.probe_prefix + '/', ''), tgt,
-                       'pkg:并查集不动点（访问包私有 ⇒ 必须同包）')
+                cm.set(m, tgt, 'pkg:并查集不动点（访问包私有 ⇒ 必须同包）')
             cm.save()
             print('已写入 %d 条（按行来源写回各 part）' % len(moves))
 
     elif a.cmd == 'widen':
         if not a.args:
             raise SystemExit('用法: widen <jar> [--out F] [--apply]')
-        cm = mapping.ClassMap(a.map or P.class_map, P.probe_prefix).load().dict if (a.map or P.class_map) else None
+        cm = (mapping.ClassMap(a.map or P.class_map, P.probe_prefix,
+                               None if a.map else P.class_map_prefix).load().dict
+              if (a.map or P.class_map) else None)
         if a.map is None and not any(os.path.exists(x) for x in (P.class_map or [])):
             cm = None
         stats, out = checks.widen(a.args[0], a.out, cm, a.apply)

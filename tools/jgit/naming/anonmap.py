@@ -14,7 +14,7 @@ SRC='/storage/emulated/0/MyAIDEProEnchanted/src/smali/abcd'
 mp={}
 for l in open(_P.MAP):
     f=l.rstrip('\n').split('\t')
-    if len(f)>1 and f[0]!='abcd_class': mp['abcd/'+f[0]]=f[1]
+    if len(f)>1 and f[0]!='abcd_class': mp[f[0] if '/' in f[0] else 'abcd/'+f[0]]=f[1]
 REF=re.compile(r'L(abcd/[A-Za-z0-9_$]+);')
 refs=collections.defaultdict(set)     # owner -> set(referrer class)
 for f in os.listdir(SRC):

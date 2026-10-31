@@ -28,11 +28,21 @@
 """
 import hashlib
 import os
+import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 JOB = os.path.join(REPO, 'process')
 TRUTH = os.path.join(JOB, 'truth')
 HOME = os.path.expanduser('~')
+
+# 分表定义只写一份：直接读 process/deob.json（part 级 probe_prefix 也在里面）
+_DE = os.path.join(REPO, 'tools', 'deob')
+if _DE not in sys.path:
+    sys.path.insert(0, _DE)
+import config as _CFG  # noqa: E402
+PROJ = _CFG.load(os.path.join(JOB, 'deob.json'))
+PART_DIRS = [(p['name'], p['dir'] or os.path.dirname(p['class_map'])) for p in PROJ.parts]
+PART_PREFIX = {p['name']: p['probe_prefix'] for p in PROJ.parts}
 
 # 分表顺序 = 汇总顺序（与 process/deob.json 的 parts 一致）
 # 各依赖的真相在 jobs/<依赖>/；head 是 AIDE 自己的历史补丁，留在 process/truth/。
@@ -70,38 +80,50 @@ def _legacy(name):
     return os.path.join(HOME, 'out', 'work', _ALIAS.get(name, name))
 
 
-def _merged(name, files):
+def _merged(name, pairs, expand_prefix=False):
     """把多份 part 拼成一个**只读视图**（内容哈希做戳，变了才重建）。
 
-    60 多个只读脚本直接 `open(paths.MAP)` 就还能用；要写真相请用
-    `tools/deob/mapping.py` 的 ClassMap/MemberMap（它们知道每行来自哪个 part）。
+    `expand_prefix=True` 时把短名探针按**该 part 自己的前缀**展开成全名——
+    这样各 part 前缀不同也不会串味，60 多个只读脚本拿到的永远是全名。
+
+    要写真相请用 `tools/deob/mapping.py` 的 ClassMap/MemberMap（它们知道每行来自哪个 part）。
     """
-    files = [f for f in files if f and os.path.exists(f)]
-    if not files:
+    pairs = [(p, pre) for p, pre in pairs if p and os.path.exists(p)]
+    if not pairs:
         return _legacy(name)
-    if len(files) == 1:
-        return files[0]
+    if len(pairs) == 1 and not expand_prefix:
+        return pairs[0][0]
     dst_dir = os.path.join(HOME, 'out', 'work', 'merged')
     os.makedirs(dst_dir, exist_ok=True)
     dst = os.path.join(dst_dir, name)
     stamp = dst + '.sha'
     h = hashlib.sha256()
-    for f in files:
+    for f, pre in pairs:
+        h.update(f.encode('utf-8'))
+        h.update(pre.encode('utf-8'))
         h.update(open(f, 'rb').read())
     digest = h.hexdigest()
     if not (os.path.exists(dst) and os.path.exists(stamp)
             and open(stamp).read().strip() == digest):
         with open(dst, 'w', encoding='utf-8') as out:
-            for f in files:
-                out.write(open(f, encoding='utf-8').read())
+            for f, pre in pairs:
+                for line in open(f, encoding='utf-8'):
+                    if expand_prefix and line.strip() and not line.startswith('#'):
+                        col = line.rstrip('\n').split('\t')
+                        if len(col) > 1 and '/' not in col[0]:
+                            col[0] = pre + '/' + col[0]
+                            line = '\t'.join(col) + '\n'
+                    out.write(line)
         with open(stamp, 'w') as f:
             f.write(digest)
     return dst
 
 
-MAP = _merged('class_map.tsv', MAPS)
-TSRG = _merged('members.tsrg', TSRGS)
-PARAMS = _merged('params.tsv', PARAM_FILES)
+MAP = _merged('class_map.tsv',
+              [(p, PROJ.class_map_prefix.get(p, PROJ.probe_prefix)) for p in MAPS],
+              expand_prefix=True)
+TSRG = _merged('members.tsrg', [(p, '') for p in TSRGS])
+PARAMS = _merged('params.tsv', [(p, '') for p in PARAM_FILES])
 SMALI_INDEX = (os.path.join(TRUTH, 'smali_index.tsv')
                if os.path.exists(os.path.join(TRUTH, 'smali_index.tsv')) else _legacy('smali_index.tsv'))
 

@@ -123,7 +123,7 @@ def step_fart(P):
 
 def step_widen(P):
     import checks
-    cm = mapping.ClassMap(P.class_map, P.probe_prefix).load().dict
+    cm = mapping.ClassMap(P.class_map, P.probe_prefix, P.class_map_prefix).load().dict
     src = os.path.join(OUT, 'renamed'); dst = os.path.join(OUT, 'renamed_pub')
     os.makedirs(dst, exist_ok=True)
     for j in src_jars():

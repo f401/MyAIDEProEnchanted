@@ -29,7 +29,7 @@ class ClassMap:
     "一份大表拆成多个 part" 之后，改哪行就只动哪个文件。
     """
 
-    def __init__(self, path=None, prefix='abcd'):
+    def __init__(self, path=None, prefix='abcd', prefix_of=None):
         if path is None:
             self.paths = []
         elif isinstance(path, str):
@@ -37,12 +37,16 @@ class ClassMap:
         else:
             self.paths = [p for p in path if p]
         self.path = self.paths[0] if self.paths else None
-        self.prefix = prefix
+        self.prefix = prefix                        # 工程默认
+        self.prefix_of = dict(prefix_of or {})      # 文件 → 该 part 的前缀
         self.rows = []          # [(probe_as_written, target, evidence)]
         self.src_of = {}        # probe_as_written -> 文件
+        self.prefix_of_entry = {}   # probe_as_written -> 前缀
+        self.raw_of = {}        # 全名 -> probe_as_written
 
     def load(self):
         for p in self.paths:
+            pre = self.prefix_of.get(p, self.prefix)
             if not p or not os.path.exists(p):
                 continue
             for line in open(p, encoding='utf-8'):
@@ -55,7 +59,13 @@ class ClassMap:
                 probe = f[0]
                 self.rows.append((probe, f[1], f[2] if len(f) > 2 else ''))
                 self.src_of.setdefault(probe, p)
+                self.prefix_of_entry.setdefault(probe, pre)
+                self.raw_of.setdefault(full(probe, pre), probe)
         return self
+
+    def full_probe(self, probe):
+        """探针名（可能是短名）→ 全名；每个 part 用自己的前缀。"""
+        return full(probe, self.prefix_of_entry.get(probe, self.prefix))
 
     def save(self):
         groups = collections.OrderedDict((p, []) for p in self.paths)
@@ -73,18 +83,25 @@ class ClassMap:
 
     @property
     def dict(self):
-        return {full(p, self.prefix): t for p, t, _ in self.rows}
+        return {self.full_probe(p): t for p, t, _ in self.rows}
+
+    @property
+    def prefixes(self):
+        return set(self.prefix_of_entry.values()) or {self.prefix}
 
     def targets(self):
         return collections.Counter(t for _, t, _ in self.rows)
 
     def set(self, probe, target, evidence='', part_path=None):
+        probe = self.raw_of.get(probe, probe)       # 允许传全名
         for i, (p, t, e) in enumerate(self.rows):
             if p == probe:
                 self.rows[i] = (probe, target, evidence or e)
                 return
         self.rows.append((probe, target, evidence))
         self.src_of.setdefault(probe, part_path or self.path)
+        self.prefix_of_entry.setdefault(probe, self.prefix_of.get(part_path or self.path, self.prefix))
+        self.raw_of.setdefault(self.full_probe(probe), probe)
 
     def delete(self, probe):
         self.rows = [r for r in self.rows if r[0] != probe]
@@ -235,7 +252,8 @@ def emit_tsrg2(project, member_map=None, class_map=None, out=None):
     参数行是 `\t\t<实参序号> <名字> <名字>`：srgutils 的 TSRG2 解析器要求**两列名字都给**
     （表头 `tsrg2 obf deobf` 有两列，参数行也必须是「序号 + 每列一个名字」共 3 段）。
     """
-    cm = class_map or ClassMap(project.class_map, project.probe_prefix).load()
+    cm = class_map or ClassMap(project.class_map, project.probe_prefix,
+                               getattr(project, 'class_map_prefix', None)).load()
     mm = member_map or MemberMap(project.member_map).load()
     out = out or project.out_tsrg
     stat = static_index(project.base_jars + project.input_jars)
@@ -252,7 +270,7 @@ def emit_tsrg2(project, member_map=None, class_map=None, out=None):
                 lines.append(ln)
     n_cls = n_mem = 0
     for probe_w, target, _ev in cm.rows:
-        probe = full(probe_w, project.probe_prefix)
+        probe = cm.full_probe(probe_w)
         if target in targets:
             raise SystemExit('目标重复: %s 与 %s 都 -> %s' % (probe, targets[target], target))
         targets[target] = probe

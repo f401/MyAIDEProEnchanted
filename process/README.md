@@ -31,12 +31,15 @@ AIDE 自有类三个来源。它们各有各的 oracle、各有各的评审节�
 构建输入 + `mappings.txt`（按 `deob.json` 的 `parts` 顺序汇总）+ 本 APK 自己的东西
 （`head` 历史补丁、`smali_index`、`verify_allow`）。
 
-| part（目录） | 目标前缀 | 内容 |
-|---|---|---|
-| `process/truth/head` | `com/aide/ui/build/packaging*` | 首轮已应用的历史补丁 20 行，只原样输出 |
-| `jobs/jgit` | `org/eclipse/jgit/` | 685 类 / 5478 成员行 / 3025 参数行 |
-| `jobs/jsch` | `com/jcraft/jsch/` | 2 类 / 6 成员行 / 9 参数行（`UserInfo`、`UIKeyboardInteractive` 双侧改名） |
-| `jobs/aide` | `com/aide/`、`abcd/aide/` | 53 类 / 30 成员行（AIDE 自有类 → `abcd/aide/`） |
+| part（目录） | 探针前缀 | 目标前缀 | 内容 |
+|---|---|---|---|
+| `process/truth/head` | `abcd` | `com/aide/ui/build/packaging*` | 首轮已应用的历史补丁 20 行，只原样输出 |
+| `jobs/jgit` | `abcd` | `org/eclipse/jgit/` | 685 类 / 5478 成员行 / 3025 参数行 |
+| `jobs/jsch` | `com/jcraft/jsch` | `com/jcraft/jsch/` | 2 类 / 6 成员行 / 9 参数行（双侧改名） |
+| `jobs/aide` | `abcd` | `com/aide/`、`abcd/aide/` | 53 类 / 30 成员行（AIDE 自有类 → `abcd/aide/`） |
+
+**探针前缀是 part 级的**（`deob.json` 的 `parts[i].probe_prefix`）：不同依赖的混淆前缀不一定相同，
+短名探针会按各自 part 的前缀展开成全名；合并视图里永远是全名，只读脚本不用关心。
 
 以后再引入新依赖，就新建 `jobs/<名字>/` 并加进 `parts`（见 `../docs/NEW-JOB.md`）。
 

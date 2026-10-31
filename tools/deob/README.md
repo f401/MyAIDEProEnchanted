@@ -25,7 +25,7 @@ cat > myjob/deob.json <<'JSON'
   "root": ".",
   "probe_prefix": "zz",
   "probe_dir": "probe",
-  "parts": ["truth/main"],
+  "parts": [{"dir": "truth/main", "probe_prefix": "zz"}],
   "out_tsrg": "out/mappings.txt",
   "base_jars": ["base/merged.jar"],
   "input_jars": ["base/*.jar"],
@@ -64,6 +64,9 @@ python3 tools/deob/cli.py -p myjob/deob.json q abcd/X       # 成员与目标名
 
 ## 约定（与 `docs/NAMING.md` 一致）
 
+- `parts` 里每一项可以写成字符串（目录）或对象 `{"dir": ..., "probe_prefix": "..."}`：
+  **每个 part 的前缀可以不同**（一个 APK 里不同依赖的探针前缀常常不一样），
+  合并视图会按各自前缀把短名展开成全名，写回也按来源分文件。
 - 真相按依赖分 part：`truth/<part>/{class_map.tsv, members.tsrg, params.tsv}`，
   也可以放在工程目录外（如 `../jobs/<依赖>`），`parts` 里写相对 `root` 的路径即可；
   `out_tsrg` 永远由 `emit` 按 `parts` 顺序汇总生成。不要把所有依赖混成一张表。

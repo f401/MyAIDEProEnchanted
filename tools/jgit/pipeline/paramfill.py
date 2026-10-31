@@ -64,7 +64,7 @@ def main(argv):
             out_map[p['class_map']] = p['param_map'] or _os.path.join(
                 _os.path.dirname(p['class_map']), 'params.tsv')
     _PRM.fill(PROJ.class_map, PROJ.member_map, PROJ.probe_prefix, oracles,
-              out_map, src, write=write)
+              out_map, src, write=write, prefix_of=PROJ.class_map_prefix)
     return 0
 
 

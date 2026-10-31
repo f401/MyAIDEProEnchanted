@@ -36,6 +36,15 @@ python3 tools/deob/cli.py -p jobs/mylib/deob.json status     # 看路径 + 隔�
 
 编辑 `jobs/mylib/deob.json`：把 `probe_dir` / `base_jars` / `input_jars` / `oracle_jars` 指到位；
 `parts: ["truth/main"]` 就是"本工程只有一份真相"，要按依赖拆分时再加目录并排顺序。
+每项也可以写成对象，给**不同的探针前缀**（同一个 APK 里各依赖前缀常常不同）：
+
+```json
+"parts": [
+  {"dir": "truth/head",   "probe_prefix": "abcd"},
+  {"dir": "../jobs/jgit", "probe_prefix": "abcd"},
+  {"dir": "../jobs/jsch", "probe_prefix": "com/jcraft/jsch"}
+]
+```
 （探针包前缀 `probe_prefix` 决定 `zz/X` 这类类名怎么拼。）
 
 顺手补两个可选键：

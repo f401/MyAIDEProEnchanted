@@ -20,7 +20,7 @@ MODS={'public','private','protected','static','final','abstract','synthetic','co
 mp={}
 for l in open(_P.MAP):
     f=l.rstrip('\n').split('\t')
-    if len(f)>1 and f[0]!='abcd_class': mp['abcd/'+f[0]]=f[1]
+    if len(f)>1 and f[0]!='abcd_class': mp[f[0] if '/' in f[0] else 'abcd/'+f[0]]=f[1]
 def norm(d): return re.sub(r'L([A-Za-z0-9_$/$.]+);',lambda m:'L'+mp.get(m.group(1),m.group(1))+';',d)
 z=zipfile.ZipFile(ORACLE); ORC={}
 def orc(n):

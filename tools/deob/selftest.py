@@ -42,11 +42,11 @@ def main():
     os.makedirs(truth, exist_ok=True)
 
     # 1) 取子集：前 8 个"有 oracle 同形"的类 + 它们的成员映射
-    cm = mapping.ClassMap(P.class_map, P.probe_prefix).load()
+    cm = mapping.ClassMap(P.class_map, P.probe_prefix, P.class_map_prefix).load()
     mm = mapping.MemberMap(P.member_map).load()
     def weight(r):
-        return -len(mm.blocks.get(mapping.full(r[0], P.probe_prefix), []))
-    pick = sorted([r for r in cm.rows if mapping.full(r[0], P.probe_prefix) in mm.blocks],
+        return -len(mm.blocks.get(cm.full_probe(r[0]), []))
+    pick = sorted([r for r in cm.rows if cm.full_probe(r[0]) in mm.blocks],
                   key=weight)[:8]
     if not pick:
         print('FAIL 取不到子集（class_map/member_map 不匹配）'); return 1
@@ -55,7 +55,7 @@ def main():
     os.makedirs(sub_dir, exist_ok=True)
     sub_cm = os.path.join(sub_dir, 'class_map.tsv')
     sub_mm = os.path.join(sub_dir, 'members.tsrg')
-    kept = {mapping.full(p, P.probe_prefix) for p, _, _ in pick}
+    kept = {cm.full_probe(p) for p, _, _ in pick}
     # 补上这些类的**已映射祖先**（否则子集里必然报 MISSING，属于取样假象）
     _idx = smali.Index(P.smali_index)
     frontier = list(kept)
@@ -78,7 +78,7 @@ def main():
             refs.update(t for t in _re.findall(r'L([\w/$]+);', _ln) if t in cmap)
     with open(sub_cm, 'w', encoding='utf-8') as f:
         for probe, target, ev in cm.rows:
-            if mapping.full(probe, P.probe_prefix) in refs:
+            if cm.full_probe(probe) in refs:
                 f.write('%s\t%s\t%s\n' % (probe, target, ev))
     with open(sub_mm, 'w', encoding='utf-8') as f:
         for probe in mm.order:
@@ -179,7 +179,7 @@ def main():
 
     # 4) 前缀/索引回退：无 smali_index 时仍能定位类文件
     idx = smali.Index(None)
-    p0 = mapping.full(pick[0][0], P.probe_prefix)
+    p0 = cm.full_probe(pick[0][0])
     check('index-fallback', idx.file_for(P.probe_dir, p0).endswith('.smali'))
 
     # 5) 隔离：源工程的三张表必须一字未改（只读）

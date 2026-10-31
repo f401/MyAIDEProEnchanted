@@ -30,7 +30,7 @@ def load_map(path):
     for ln in open(path):
         f = ln.rstrip('\n').split('\t')
         if len(f) >= 2:
-            p2t['abcd/' + f[0]] = f[1]
+            p2t[f[0] if '/' in f[0] else 'abcd/'+f[0]] = f[1]
     return p2t
 
 

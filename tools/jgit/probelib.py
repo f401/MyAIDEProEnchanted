@@ -32,11 +32,12 @@ MODS = {'public', 'private', 'protected', 'static', 'final', 'abstract', 'synthe
 
 
 def load_map():
+    """探针全名 -> 真名；合并视图已按各 part 的前缀展开，含 `/` 的原样用。"""
     mp = {}
     for l in open(MAP):
         f = l.rstrip('\n').split('\t')
         if len(f) > 1 and f[0] != 'abcd_class':
-            mp['abcd/' + f[0]] = f[1]
+            mp[f[0] if '/' in f[0] else 'abcd/' + f[0]] = f[1]
     return mp
 
 

@@ -80,7 +80,7 @@ def main():
     for ln in open(tsv):
         f = ln.rstrip('\n').split('\t')
         if len(f) >= 2 and f[0] != 'abcd_class':
-            mp['abcd/' + f[0]] = f[1]
+            mp[f[0] if '/' in f[0] else 'abcd/'+f[0]] = f[1]
     z = zipfile.ZipFile(jar)
     edges, seen = [], set()
     for info in z.infolist():

@@ -133,7 +133,7 @@ def main():
         for l in open(TSV):
             f = l.rstrip('\n').split('\t')
             if len(f) > 1:
-                tsv['abcd/' + f[0]] = f[1]
+                tsv[f[0] if '/' in f[0] else 'abcd/'+f[0]] = f[1]
 
     if '--check' in sys.argv:
         print('\n与当前 tsv 的交叉检查：')

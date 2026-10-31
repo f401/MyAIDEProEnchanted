@@ -16,7 +16,7 @@ TSRG=_P.TSRG
 mp={}
 for l in open(_P.MAP):
     f=l.rstrip('\n').split('\t')
-    if len(f)>1 and f[0]!='abcd_class': mp['abcd/'+f[0]]=f[1]
+    if len(f)>1 and f[0]!='abcd_class': mp[f[0] if '/' in f[0] else 'abcd/'+f[0]]=f[1]
 SMALI='/storage/emulated/0/MyAIDEProEnchanted/src/smali/abcd'
 MODS={'public','private','protected','static','final','abstract','synthetic','constructor',
       'declared-synchronized','varargs','bridge','native','transient','volatile','strictfp'}

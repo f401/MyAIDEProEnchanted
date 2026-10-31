@@ -19,7 +19,8 @@
 字段（除 name 外都可省略）：
   probe_dir       smali 根目录（探针类源码），如 "src/smali"
   smali_index     可选：`类描述符 <TAB> 文件名` 索引（大小写不敏感 FS 必用）
-  probe_prefix    探针包前缀，默认 "abcd"（类描述符去壳后用于查 index）
+  probe_prefix    探针包前缀，默认 "abcd"；**每个 part 可以各写一个**（覆盖工程默认），
+                  例如一个 APK 里 jgit 用 `abcd`、另一个库用 `zz`
   parts           映射分表目录列表（见上）；每目录自动认 class_map.tsv / members.tsrg /
                   params.tsv / mappings_head.txt
   class_map       类映射 TSV：`探针 <TAB> 目标 [<TAB> 证据]`（可给列表，等价于单 part）
@@ -68,6 +69,9 @@ class Project:
         self.probe_prefix = (c.get('probe_prefix') or 'abcd').rstrip('/')
         self.smali_index = _expand(c.get('smali_index'), self.root)
         self.parts = self._parse_parts(c)
+        # 文件 → 该 part 的探针前缀（ClassMap/emit 用；短名探针按它展开）
+        self.class_map_prefix = {p['class_map']: p['probe_prefix']
+                                 for p in self.parts if p['class_map']}
         self.class_map = [p['class_map'] for p in self.parts if p['class_map']]
         self.member_map = [p['member_map'] for p in self.parts if p['member_map']]
         self.param_map = [p['param_map'] for p in self.parts if p['param_map']]
@@ -105,7 +109,9 @@ class Project:
                 if d and os.path.exists(os.path.join(d, nm)):
                     hd = os.path.join(d, nm)
                     break
-            out.append(dict(name=name, dir=d,
+            pre = ((item.get('probe_prefix') if not isinstance(item, str) else None)
+                   or self.probe_prefix).rstrip('/')
+            out.append(dict(name=name, dir=d, probe_prefix=pre,
                             class_map=cm if cm and os.path.exists(cm) else None,
                             member_map=mm if mm and os.path.exists(mm) else None,
                             param_map=pm if pm and os.path.exists(pm) else None,
@@ -113,7 +119,7 @@ class Project:
         if out:
             return out
         # 兼容老写法：单值（或列表）直接当一份 part
-        return [dict(name='default', dir=None,
+        return [dict(name='default', dir=None, probe_prefix=self.probe_prefix,
                      class_map=_expand(c.get('class_map'), self.root),
                      member_map=_expand(c.get('member_map'), self.root),
                      param_map=_expand(c.get('param_map'), self.root),
@@ -130,7 +136,8 @@ class Project:
         return None
 
     def describe(self):
-        parts = '\n'.join('    %-10s %s' % (p['name'], p['dir'] or '(单文件)') for p in self.parts)
+        parts = '\n'.join('    %-10s %-34s %s' % (p['name'], p['probe_prefix'],
+                                                   p['dir'] or '(单文件)') for p in self.parts)
         return ('工程 %s\n  probe_dir   %s\n  parts       %d\n%s\n  out_tsrg    %s\n'
                 '  base_jars   %d\n  input_jars  %d\n  oracle      %s' % (
                     self.name, self.probe_dir, len(self.parts), parts, self.out_tsrg,
