@@ -100,14 +100,27 @@ $D cover                               # 指标（分母=R8 未删的）
 
 ## 6. 改名与出包
 
-与 [BUILD.md](BUILD.md) 相同，只是把路径换成 `jobs/<名字>/`：
+与 [BUILD.md](BUILD.md) §3~§6 同一条链路，只是路径换成 `jobs/<名字>/`：
 
 ```bash
+P="python3 tools/deob/cli.py -p jobs/mylib/deob.json"
+
+# 1) 修"try 范围不含数组访问"的异常表（AIDE/dex2jar 产物必做，本项目基线 11 条）
+$P tryfix base/merged.jar --out out/merged_try.jar --apply
+
+# 2) access 放宽：必须在 FART **之前**、对**合并包**做（四类：成员引用/类级访问/继承/override）
+python3 tools/jgit/pipeline/widen_access.py out/merged_try.jar --out out/merged_pub.jar --apply
+
+# 3) FART 改名：合并包一次；assets 里的独立 jar 各自一次（以主包为 --lib）
 java -jar process/ForgeAutoRenamingTool-1.0.8-all.jar \
-  --input jobs/mylib/base/merged.jar --output jobs/mylib/out/renamed.jar \
-  --map jobs/mylib/out/mappings.txt --lib <依赖 jar> --lib process/android.jar
-# → widen（若 FART 前没做）→ D8 → 回填 dex → zipalign → apksigner → 冒烟
+  --input out/merged_pub.jar --output out/renamed.jar \
+  --map out/mappings.txt --lib process/android.jar
+
+# 4) D8 → 回填 → 签名 → 冒烟（见 BUILD §5~§7）
 ```
+
+两个坑：`widen` 放到 FART 之后做会得到 `类 0 / 成员 0`（名字已最终、没有映射可依）；
+逐 jar 做 widen 看不到别 jar 的引用，跨 jar 的 package-private 会漏。
 
 ## 7. 自检：这套路径还能用吗
 
