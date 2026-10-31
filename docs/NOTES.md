@@ -67,6 +67,11 @@ part 按来源分：`jgit` / `jsch` / `aide` / `head`，顺序见 `process/deob.
 - 同一输入同一 mapping 跑两次，产物必须**内容一致**（`jar_manifest.py` 比对）；不一致说明还有
   `MISSING`/名字不一致，FART 在沿继承链兜底。
 - FART 只认 mapping，不会“猜”；mapping 里没有的类/成员一律保持原样。
+- **改内部类名会自动同步 `InnerClasses` 的 `innerName`**（FART 用 ASM 处理），所以不需要手改；
+  但目标名必须保持 `Outer$Inner` 形状——把 `abcd/Hz$b` 改成 `abcd/aide/HttpConnectionFactory`
+  会让 D8 报 `Malformed inner-class attribute`，应写成 `abcd/aide/HttpRequest$HttpConnectionFactory`。
+- **类级访问也要放宽**：`new`/`checkcast`/`const-class`/`instanceof` 不产生成员引用，
+  `widen_access` 现在单独扫这些指令；漏了会 `IllegalAccessError: Illegal class access`。
 
 ## 7. 大小写不敏感文件系统
 

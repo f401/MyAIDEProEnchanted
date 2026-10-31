@@ -7,6 +7,7 @@ for _sub in ('pipeline','naming','audit','inspect','stage','deob'):
     if _os.path.isdir(_p) and _p not in _sys.path:
         _sys.path.append(_p)
 import paths as _P  # noqa: E402
+import jvm  # noqa: E402  （只借它的指令长度表）
 """widen_access.py —— 把"跨包访问 package-private 成员"的 access 放宽到 public/protected。
 
 为什么需要
@@ -85,17 +86,49 @@ def parse(b):
         for _ in range(cnt):
             a_off = p
             acc, nm, ds, ac = struct.unpack_from('>HHHH', b, p); p += 8
+            code_off = None
             for _ in range(ac):
-                ln = struct.unpack_from('>I', b, p + 2)[0]; p += 6 + ln
+                an = struct.unpack_from('>H', b, p)[0]
+                ln = struct.unpack_from('>I', b, p + 2)[0]
+                if kind == 'm' and utf.get(an) == 'Code':
+                    cl = struct.unpack_from('>I', b, p + 10)[0]
+                    code_off = (p + 14, cl)
+                p += 6 + ln
             members.append(dict(kind=kind, acc=acc, acc_off=a_off,
-                                name=utf.get(nm), desc=utf.get(ds)))
+                                name=utf.get(nm), desc=utf.get(ds), code_off=code_off))
     named_refs = []
     for idx, (tag, ci, ni) in refs.items():
         ow = utf.get(cls.get(ci)); nn = nat.get(ni)
         if not ow or not nn:
             continue
         named_refs.append(dict(tag=tag, owner=ow, name=utf.get(nn[0]), desc=utf.get(nn[1])))
-    return dict(acc_off=acc_off, acc=struct.unpack_from('>H', b, acc_off)[0],
+    # 类级访问：new / checkcast / instanceof / anewarray / multianewarray / ldc(class)
+    # 这些不会出现在 refs（成员引用）里，但对 package-private 类同样会触发 Illegal class access。
+    class_uses = set()
+    for m in members:
+        if m['kind'] != 'm' or not m['code_off']:
+            continue
+        off, ln = m['code_off']
+        code = b[off:off + ln]
+        i = 0
+        while i < len(code):
+            op = code[i]
+            idx = None
+            if op in (0xbb, 0xc0, 0xc1, 0xbd, 0x13):
+                idx = struct.unpack_from('>H', code, i + 1)[0]; step = 3
+            elif op == 0xc5:
+                idx = struct.unpack_from('>H', code, i + 1)[0]; step = 4
+            elif op == 0x12:
+                idx = code[i + 1]; step = 2
+            else:
+                step = jvm.LEN.get(op, 1)
+            if idx is not None:
+                nm2 = utf.get(cls.get(idx))
+                if nm2:
+                    class_uses.add(nm2)
+            i += step
+    return dict(class_uses=class_uses,
+                acc_off=acc_off, acc=struct.unpack_from('>H', b, acc_off)[0],
                 this=utf.get(cls.get(this_i)), sup=utf.get(cls.get(sup_i)),
                 ifaces=[utf.get(cls.get(x)) for x in iface_i],
                 members=members, refs=named_refs,
@@ -152,10 +185,22 @@ def main():
                 continue
             m = midx.get(r['owner'], {}).get((r['name'], r['desc']))
             if m is None: continue
-            if m['acc'] & ACC_PUBLIC: continue
+            if m['acc'] & (ACC_PUBLIC | ACC_PROTECTED): continue   # 已放宽（幂等）
             widen_self[r['owner']].add((m['kind'], m['name'], m['desc']))
             widen_class.add(r['owner'])
             reasons.append('%s(%s) -> %s.%s%s [%s]' % (this, pc, r['owner'], r['name'], r['desc'], po))
+        # 1b) 类级访问：别人 new/checkcast/const-class 我
+        for cn in d.get('class_uses', ()):
+            po = pkg(cn, mp)
+            if pc == po:
+                continue
+            if pb_c != pkg(cn, {}):
+                continue
+            pd = parsed.get(cn + '.class')
+            if pd is None or (pd['acc'] & ACC_PUBLIC):
+                continue                    # 已经 public：不用再放宽（保证幂等）
+            widen_class.add(cn)
+            reasons.append('CLASS %s -> %s [%s]' % (this, cn, po))
         # 2) 继承/覆写
         for sup in ([d['sup']] if d['sup'] else []) + list(d['ifaces']):
             if not sup or pkg(sup, mp) == pc: continue

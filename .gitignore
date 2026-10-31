@@ -11,3 +11,6 @@
 __pycache__/
 *.pyc
 *.bak
+
+# 构建中间产物（D8 dex / FART jar / 日志）
+/out/

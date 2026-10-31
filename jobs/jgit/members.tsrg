@@ -5352,7 +5352,7 @@ abcd/xF org/eclipse/jgit/merge/ResolveMerger
 	j6 (Labcd/yE;Labcd/UE;)Labcd/tC; getRawText
 	j6 (Labcd/UJ;Labcd/UJ;Labcd/UJ;Labcd/LC;Labcd/_J;)Z processEntry
 	EQ ()V cleanUp
-	we ()Z mergeImpl
+	we ()Z isWorktreeDirty
 	tp ()V checkout
 	VH ()Ljava/util/Map; getFailingPaths
 	gn ()Ljava/util/Map; getMergeResults
@@ -5368,6 +5368,7 @@ abcd/xF org/eclipse/jgit/merge/ResolveMerger
 	j6 (Labcd/UJ;Labcd/UJ;Labcd/UJ;Labcd/uF;Ljava/io/File;)V updateIndex
 	j6 (Ljava/io/File;)V mkdirs
 	aM inserter
+	Hw ()Z mergeImpl
 abcd/xF$a org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason
 	<init> (Ljava/lang/String;I)V <init>
 	Hw $VALUES

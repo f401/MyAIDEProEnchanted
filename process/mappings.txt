@@ -8742,7 +8742,7 @@ abcd/xF org/eclipse/jgit/merge/ResolveMerger
 		static
 	j6 (Labcd/UJ;Labcd/UJ;Labcd/UJ;Labcd/LC;Labcd/_J;)Z processEntry
 	EQ ()V cleanUp
-	we ()Z mergeImpl
+	we ()Z isWorktreeDirty
 	tp ()V checkout
 	VH ()Ljava/util/Map; getFailingPaths
 	gn ()Ljava/util/Map; getMergeResults
@@ -8758,6 +8758,7 @@ abcd/xF org/eclipse/jgit/merge/ResolveMerger
 	j6 (Labcd/UJ;Labcd/UJ;Labcd/UJ;Labcd/uF;Ljava/io/File;)V updateIndex
 	j6 (Ljava/io/File;)V mkdirs
 	aM inserter
+	Hw ()Z mergeImpl
 abcd/xF$a org/eclipse/jgit/merge/ResolveMerger$MergeFailureReason
 	<init> (Ljava/lang/String;I)V <init>
 		0 local local
@@ -10001,18 +10002,18 @@ abcd/Hz abcd/aide/HttpRequest
 		0 useCaches useCaches
 	tp ()Ljava/net/HttpURLConnection; getConnection
 	we ()Labcd/Hz; setDoOutput
-abcd/Hz$a abcd/aide/HttpUploadTask
+abcd/Hz$a abcd/aide/HttpRequest$HttpUploadTask
 	j6 ()V close
-abcd/Hz$b abcd/aide/HttpConnectionFactory
+abcd/Hz$b abcd/aide/HttpRequest$HttpConnectionFactory
 	j6 (Ljava/net/URL;)Ljava/net/HttpURLConnection; create
 		0 url url
 	j6 (Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection; create
 		0 url url
 		1 proxy proxy
-abcd/Hz$d abcd/aide/HttpTask
+abcd/Hz$d abcd/aide/HttpRequest$HttpTask
 	j6 ()V close
 	call ()Ljava/lang/Object; call
-abcd/Hz$e abcd/aide/HttpBodyOutputStream
+abcd/Hz$e abcd/aide/HttpRequest$HttpBodyOutputStream
 	j6 (Ljava/lang/String;)Labcd/Hz$e; write
 		0 value value
 abcd/Gz abcd/aide/HttpUpload
@@ -10025,10 +10026,10 @@ abcd/Tw abcd/aide/DefaultHttpClient
 abcd/Uw abcd/aide/HttpRequestInterceptor
 abcd/Vw abcd/aide/HttpResponseInterceptor
 abcd/Sw abcd/aide/ConnPerRoute
-abcd/Ww$b abcd/aide/ConnectionReuseStrategy
-abcd/Ww$c abcd/aide/KeepAliveStrategy
+abcd/Ww$b abcd/aide/HttpConnectionBase$ConnectionReuseStrategy
+abcd/Ww$c abcd/aide/HttpConnectionBase$KeepAliveStrategy
 abcd/Dw abcd/aide/HttpTransport
-abcd/Dw$b abcd/aide/HttpTransportCallback
+abcd/Dw$b abcd/aide/HttpTransport$HttpTransportCallback
 abcd/Gw abcd/aide/HttpHelper
 abcd/Ez abcd/aide/SslSocketFactoryProvider
 abcd/Jz abcd/aide/SslSocketFactorySource

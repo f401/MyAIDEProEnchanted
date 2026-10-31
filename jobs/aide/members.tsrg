@@ -23,15 +23,15 @@ abcd/Hz abcd/aide/HttpRequest
 	j6 (Z)Labcd/Hz; setUseCaches
 	tp ()Ljava/net/HttpURLConnection; getConnection
 	we ()Labcd/Hz; setDoOutput
-abcd/Hz$a abcd/aide/HttpUploadTask
+abcd/Hz$a abcd/aide/HttpRequest$HttpUploadTask
 	j6 ()V close
-abcd/Hz$b abcd/aide/HttpConnectionFactory
+abcd/Hz$b abcd/aide/HttpRequest$HttpConnectionFactory
 	j6 (Ljava/net/URL;)Ljava/net/HttpURLConnection; create
 	j6 (Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection; create
-abcd/Hz$d abcd/aide/HttpTask
+abcd/Hz$d abcd/aide/HttpRequest$HttpTask
 	j6 ()V close
 	call ()Ljava/lang/Object; call
-abcd/Hz$e abcd/aide/HttpBodyOutputStream
+abcd/Hz$e abcd/aide/HttpRequest$HttpBodyOutputStream
 	j6 (Ljava/lang/String;)Labcd/Hz$e; write
 abcd/Gz abcd/aide/HttpUpload
 	DW ()Labcd/Hz; call
@@ -42,10 +42,10 @@ abcd/Tw abcd/aide/DefaultHttpClient
 abcd/Uw abcd/aide/HttpRequestInterceptor
 abcd/Vw abcd/aide/HttpResponseInterceptor
 abcd/Sw abcd/aide/ConnPerRoute
-abcd/Ww$b abcd/aide/ConnectionReuseStrategy
-abcd/Ww$c abcd/aide/KeepAliveStrategy
+abcd/Ww$b abcd/aide/HttpConnectionBase$ConnectionReuseStrategy
+abcd/Ww$c abcd/aide/HttpConnectionBase$KeepAliveStrategy
 abcd/Dw abcd/aide/HttpTransport
-abcd/Dw$b abcd/aide/HttpTransportCallback
+abcd/Dw$b abcd/aide/HttpTransport$HttpTransportCallback
 abcd/Gw abcd/aide/HttpHelper
 abcd/Ez abcd/aide/SslSocketFactoryProvider
 abcd/Jz abcd/aide/SslSocketFactorySource

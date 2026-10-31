@@ -115,6 +115,25 @@ print('CONFLICT（祖先映射成别的名字 → 运行时分派错）: %d' % l
 for c in sorted(conflict)[:20]:
     print('  %-12s 继承 %-12s  %-6s %-22s 子=%s 祖先=%s' % c)
 
+# 2b. FART 会把「未映射的 override」按祖先的名字兜底改名。若同类的**另一个**方法已经被显式
+#     映射成同一新名 + 同一描述符，产物里就会留下两个同名同签字的方法（D8 报
+#     "Ignoring an implementation of ... because it has multiple definitions"）。
+dup = []
+for p, km in list(maps.items()):
+    explicit = {(new, desc): nm for (nm, desc), new in km.items()}
+    anc = ancestors(p)
+    for (nm, desc) in decl.get(p, set()):
+        if (nm, desc) in km:
+            continue                        # 已经显式映射，不参与兜底
+        for a in anc:
+            got = maps.get(a, {}).get((nm, desc))
+            if got and (got, desc) in explicit and explicit[(got, desc)] != nm:
+                dup.append((p, nm, desc, got, explicit[(got, desc)]))
+                break
+print('DUPTARGET（未映射的 override 兜底后与显式映射撞车 → 产物重复方法）: %d' % len(dup))
+for d in sorted(dup)[:20]:
+    print('  %-12s %s%s 兜底→%s；显式已把 %s 也叫 %s' % d)
+
 # 去重：同一个 (祖先,键) 被多个子类继承，只补一次
 uniq = {}
 for p, a, nm, desc, new in missing:
