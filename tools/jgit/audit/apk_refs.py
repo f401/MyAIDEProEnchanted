@@ -32,6 +32,27 @@ def renamed_classes(project):
     return {cm.full_probe(p): t for p, t, _e in cm.rows if t != cm.full_probe(p)}
 
 
+def asset_shapes(apk):
+    """assets/data/functions 下的 jar/zip 必须是 `zip(classes.dex)`（原包就是这样）。
+
+    踩过：把改名后的 **class-jar** 直接塞进 `packagingservice.zip` / `ndk.zip`，
+    运行期加载不到里面的类 ⇒ `NoClassDefFoundError: … IExternalPackagingServiceListener$Stub`。
+    """
+    bad = []
+    with zipfile.ZipFile(apk) as z:
+        for n in z.namelist():
+            if not n.startswith('assets/data/functions/') or not n.endswith(('.jar', '.zip')):
+                continue
+            try:
+                names = zipfile.ZipFile(io.BytesIO(z.read(n))).namelist()
+            except Exception:
+                bad.append((n, '不是 zip'))
+                continue
+            if 'classes.dex' not in names:
+                bad.append((n, '是 class-jar' if any(x.endswith('.class') for x in names) else str(names[:2])))
+    return bad
+
+
 def scan(apk, probes):
     bad = collections.Counter()
     where = collections.defaultdict(list)
@@ -75,7 +96,13 @@ def main():
     P = config.load(a.project)
     probes = renamed_classes(P)
     bad, where = scan(a.apk, probes)
+    shapes = asset_shapes(a.apk)
     print('产物 %s（探针里被改名的类 %d 个）' % (os.path.basename(a.apk), len(probes)))
+    if shapes:
+        print('✘ assets 格式不对（原包都是 zip(classes.dex)，不能换成 class-jar）：')
+        for n, why in shapes:
+            print('   %-56s %s' % (n, why))
+        return 1
     if not bad:
         print('✔ 产物里没有旧类名残留')
         return 0

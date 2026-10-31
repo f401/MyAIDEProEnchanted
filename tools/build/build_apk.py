@@ -14,6 +14,7 @@
 """
 import argparse
 import glob
+import io
 import os
 import sys
 import re
@@ -204,8 +205,11 @@ def step_dex(P):
                                  for f in sorted(glob.glob(os.path.join(out, '*.dex')))))
 
 
-ASSET_MAP = {'en.jar': 'assets/data/functions/lang/en.jar',
-             'zh.jar': 'assets/data/functions/lang/zh.jar',
+# key = `process/src/<key>.jar` 与 `out/build/renamed/<key>.jar` 的基名；
+# value = APK 里的条目名。注意：原包里这四个条目**都是 zip(classes.dex)**（不是 class-jar），
+# 回填时格式必须保持——否则应用动态加载不到里面的类（踩过：IExternalPackagingServiceListener$Stub）。
+ASSET_MAP = {'en': 'assets/data/functions/lang/en.jar',
+             'zh': 'assets/data/functions/lang/zh.jar',
              'ndk': 'assets/data/functions/runtime/ndk.zip',
              'packagingservice': 'assets/data/functions/runtime/packagingservice.zip'}
 
@@ -229,6 +233,36 @@ def step_jdkrefs(P):
     if r.returncode != 0:
         raise SystemExit('✘ 有 JDK/Android 引用被改名改坏（见上）——先修 mapping 再打包')
     return 0
+
+
+def asset_dex_dir():
+    return os.path.join(OUT, 'assetdex')
+
+
+def step_assetdex(P):
+    """assets 的 4 个包在原包里都是 `zip(classes.dex)`；FART 出来是 class-jar，
+    必须各自 D8 成 dex 再打成 zip —— 直接塞 jar 进去，运行期就找不到里面的类
+    （真机：`NoClassDefFoundError: … IExternalPackagingServiceListener$Stub`）。
+    """
+    out = asset_dex_dir(); os.makedirs(out, exist_ok=True)
+    for key in ASSET_MAP:
+        src = os.path.join(OUT, 'renamed', key + '.jar')
+        if not os.path.exists(src):
+            print('  ⚠ 缺 %s，跳过 %s' % (os.path.basename(src), key))
+            continue
+        d = os.path.join(out, key)
+        shutil.rmtree(d, ignore_errors=True); os.makedirs(d)
+        sh(['java', '-Xmx1200m', '-cp', os.path.join(REPO, 'process', 'd8.jar'),
+            'com.android.tools.r8.D8', '--release', '--min-api', '26', '--thread-count', '2',
+            '--lib', os.path.join(REPO, 'process', 'android.jar'), '--output', d, src])
+        dex = os.path.join(d, 'classes.dex')
+        if not os.path.exists(dex):
+            raise SystemExit('D8 没产出 %s/classes.dex' % key)
+        zp = os.path.join(out, key + '.zip')
+        with zipfile.ZipFile(zp, 'w', zipfile.ZIP_DEFLATED) as zo:
+            zo.write(dex, 'classes.dex')
+        print('  %-20s → %s（%dKB，zip(classes.dex)）' % (
+            key, os.path.basename(zp), os.path.getsize(zp) // 1024))
 
 
 def step_apkrefs(P):
@@ -259,11 +293,24 @@ def step_repack(P):
     payload = {}
     for i, f in enumerate(newdex, 1):
         payload['classes.dex' if i == 1 else 'classes%d.dex' % i] = open(f, 'rb').read()
-    renamed = os.path.join(OUT, 'renamed')
     for key, entry in ASSET_MAP.items():
-        src = [p for p in glob.glob(os.path.join(renamed, '*.jar')) if os.path.basename(p) == key + '.jar']
-        if src and entry in z.namelist():
-            payload[entry] = open(src[0], 'rb').read()
+        zp = os.path.join(asset_dex_dir(), key + '.zip')
+        if not os.path.exists(zp):
+            raise SystemExit('缺 %s，先跑 assetdex' % zp)
+        if entry in z.namelist():
+            old = z.read(entry)
+            try:
+                old_names = zipfile.ZipFile(io.BytesIO(old)).namelist()
+            except Exception:
+                old_names = []
+            if 'classes.dex' not in old_names:
+                raise SystemExit('底包里 %s 不是 zip(classes.dex)，别乱换' % entry)
+            data = open(zp, 'rb').read()
+            if 'classes.dex' not in zipfile.ZipFile(io.BytesIO(data)).namelist():
+                raise SystemExit('%s 不是 dex-zip' % zp)
+            payload[entry] = data
+            print('  资产 %-18s ← %s（%dKB，zip(classes.dex)）' % (
+                key, os.path.basename(zp), len(data) // 1024))
     zo = zipfile.ZipFile(dst, 'w', zipfile.ZIP_DEFLATED)
     written = 0
     dropped_sig = 0
@@ -354,8 +401,8 @@ def main():
         _APK_OVERRIDE = a.apk if os.path.isabs(a.apk) else os.path.join(REPO, a.apk)
     P = config.load(a.project)
     os.makedirs(OUT, exist_ok=True)
-    steps = (['plan', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'repack', 'apkrefs',
-              'sign', 'verify']
+    steps = (['plan', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'assetdex', 'repack',
+              'apkrefs', 'sign', 'verify']
              if a.step == 'all' else [a.step])
     apk, dexes, du, ju, assets = plan()
     for s in steps:
@@ -374,6 +421,8 @@ def main():
             step_dex(P)
         elif s == 'repack':
             step_repack(P)
+        elif s == 'assetdex':
+            step_assetdex(P)
         elif s == 'apkrefs':
             step_apkrefs(P)
         elif s == 'sign':

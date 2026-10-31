@@ -214,3 +214,36 @@ adb shell pm path aidepro.top        # 拿到 base.apk 路径
 adb pull <路径> /tmp/installed.apk
 python3 tools/jgit/audit/apk_refs.py /tmp/installed.apk    # 期望 ✔
 ```
+
+## 13. assets 里那 4 个包必须是 `zip(classes.dex)`（不是 class-jar）
+
+原包里 `assets/data/functions/{lang/en.jar, lang/zh.jar, runtime/ndk.zip, runtime/packagingservice.zip}`
+**四个都是 `zip(classes.dex)`** —— 它们是运行时动态加载的 dex 包，不是编译期 classpath 的 jar。
+FART 出来的是 class-jar，`step_repack` 当初直接把 jar 塞进去了，于是运行期加载不到里面的类：
+
+```
+java.lang.NoClassDefFoundError: Failed resolution of:
+  Lcom/aide/ui/build/packagingservice/IExternalPackagingServiceListener$Stub;
+    at com.aide.ui.build.f.<clinit>
+```
+
+同时还有第二个 bug：`ASSET_MAP` 的键写成 `'en.jar'`、查找时又拼 `key + '.jar'` ⇒ 永远匹配不上，
+**en/zh 两个包其实一直没被换**（只是碰巧保住了原来的 dex，所以没炸）。
+
+修法（`build_apk.py`）：
+
+| 步 | 做什么 |
+|---|---|
+| `assetdex`（新增，`dex` 之后） | 把 `out/build/renamed/<key>.jar` 各自 **D8** 成 `out/build/assetdex/<key>/classes.dex`，再打成 `out/build/assetdex/<key>.zip`（zip 里只有 classes.dex） |
+| `repack` | 资产条目改用上面那个 zip，并**断言底包条目本来就是 `zip(classes.dex)`**，格式不对就中止 |
+| `apkrefs` | 顺带检查 `assets/data/functions/**` 下每个 jar/zip 是不是 `zip(classes.dex)` |
+
+`ASSET_MAP` 的键改成裸名（`en` / `zh` / `ndk` / `packagingservice`），值仍是 APK 里的条目名。
+
+体检复现（当前那份签名包）：
+
+```
+✘ assets 格式不对（原包都是 zip(classes.dex)，不能换成 class-jar）：
+   assets/data/functions/runtime/ndk.zip              是 class-jar
+   assets/data/functions/runtime/packagingservice.zip 是 class-jar
+```

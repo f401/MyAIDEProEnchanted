@@ -158,6 +158,18 @@ python3 tools/jgit/audit/jdk_refs.py out/build/renamed/merged.jar --base process
 780 条 JDK 引用，装机即 `NoSuchMethodError: CharSequence.getLongname`）。`build_apk.py all`
 已把这一步串在 `fart` 和 `dex` 之间。
 
+## 5b'. 资产包：`assetdex`（`dex` 之后、`repack` 之前）
+
+`assets/data/functions/` 下的 4 个包在原包里**都是 `zip(classes.dex)`**（运行时动态加载，
+不是编译期 classpath 的 jar）。FART 出来是 class-jar，必须各自 D8 成 dex 再 zip：
+
+```bash
+python3 tools/build/build_apk.py assetdex     # → out/build/assetdex/<key>.zip（zip(classes.dex)）
+```
+
+直接把 class-jar 塞进 `ndk.zip` / `packagingservice.zip` 的后果：
+运行期 `NoClassDefFoundError: … IExternalPackagingServiceListener$Stub`（见 NOTES §13）。
+
 ## 5c. 产物门禁：`apkrefs`（回填之后、签名之前）
 
 ```bash

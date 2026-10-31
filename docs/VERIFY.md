@@ -56,7 +56,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 5 `pkgclose` | `约束边 717 / 需要挪的类 0 / 真冲突 7 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |
 | 6 `coverage` | 方法 **3501/3533 = 99.1%**、字段 **1848/1855 = 99.6%**、类 623、完全覆盖 **604**；未入分母：方法 890 / 字段 496；未命中明细 39 条 → `~/out/work/cov_miss.tsv` |
 | 7 `widen_access --report` | `跨包需放宽：类 31 / 成员 58`（`--apply` 改写对应 class） |
-| 12 `tools/jgit/audit/apk_refs.py`（构建链 `apkrefs` 步） | **产物里不许有"旧类名"残留**：class_map 里被改名的旧名 `L旧名;` 在 dex / 嵌套 jar 里一个都不许有（踩过：`com/aide/ui/U` 的引用留在产物里 → `NoClassDefFoundError: Failed resolution of: Lcom/aide/ui/U;`，见 NOTES §12） |
+| 12 `tools/jgit/audit/apk_refs.py`（构建链 `apkrefs` 步） | **产物里不许有"旧类名"残留**：class_map 里被改名的旧名 `L旧名;` 在 dex / 嵌套 jar 里一个都不许有（另含 `assets/data/functions/**` 格式检查：必须仍是 `zip(classes.dex)`；踩过 `com/aide/ui/U` 引用残留 → NOTES §12、资产格式 → NOTES §13） |
 | 11 `tools/jgit/audit/jdk_refs.py`（构建链 `jdkrefs` 步） | **改名前后指向 `java/`/`javax/`/`android/`… 的引用必须一模一样**；踩过一次 `toString→getLongname` 被 FART 传播到 `java.lang.Object` / `CharSequence`，780 条 JDK 引用被改坏，装机即崩（见 NOTES §11） |
 | 10 `deob mgraph --pkg=com/jcraft/jsch` | `调用图自证：530 个方法 / 2462 条已定名引用，未对上 6 条（0.2%），可疑方法 4 个`（4 条均已知：1 条 AIDE 改的方法体 + 3 条 `Compression.stream` 类型被换成 `abcd/Oy`，见 NOTES §9/§10） |
 
