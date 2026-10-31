@@ -1,40 +1,44 @@
-# process —— 已落地的 jgit 改名工程（构建输入 + 真相 + 产物）
+# process —— 已落地的改名工程（构建输入 + 汇总产物；真相在各依赖的 jobs/ 下）
 
 ```
-process/                            ← 一个目录全包：输入、真相、产物
-├── deob.json                       #   通用 kit 的工程配置（parts 顺序 / oracle / jar 列表）
-├── truth/                          # ★ 唯一真相（已入库）
-│   ├── head/mappings_head.txt      #   历史补丁：AIDE 首轮改名 20 行（原样拼在最前）
-│   ├── jgit/{class_map.tsv, members.tsrg, params.tsv}   # 685 类 / 5478 行 / 3025 参数行
-│   ├── jsch/{class_map.tsv, members.tsrg}               # 2 类 / 6 行（jsch 接口双侧改名）
-│   ├── aide/{class_map.tsv, members.tsrg}               # 53 类 / 30 行（AIDE 自有 → abcd/aide）
-│   └── smali_index.tsv             #   类 → smali 真实文件名（大小写不敏感 FS 必须用）
-├── mappings.txt                    # TSRG2 汇总产物（由 truth/ 按 part 顺序派生，别手改）
-├── verify_allow.tsv                # 已知差异白名单（每行都要写理由）
+process/                          ← 已落地工程：构建输入 + 汇总产物（真相在各依赖的 jobs/ 下）
+├── deob.json                     #   通用 kit 配置：parts 顺序（../jobs/jgit 等）/ oracle / jar 列表
+├── mappings.txt                  # TSRG2 汇总产物（按 parts 顺序拼，9838 行）
+├── verify_allow.tsv              # 已知差异白名单（每行都要写理由）
+├── truth/
+│   ├── head/mappings_head.txt    #   历史补丁：AIDE 首轮改名 20 行（原样拼在最前）
+│   └── smali_index.tsv           #   类 → smali 真实文件名（大小写不敏感 FS 必须用）
 │
-├── base/merged_ok.jar              # ★ 改名输入基线
-├── base/merged_pub.jar             # widen_access 产物（跨包 package-private 已放宽）
-├── src/classes{,2,3,4,5}.jar       # 5 个 dex 的 dex2jar 产物
+├── base/merged_ok.jar            # ★ 改名输入基线
+├── base/merged_pub.jar           # widen_access 产物（跨包 package-private 已放宽）
+├── src/classes{,2,3,4,5}.jar     # 5 个 dex 的 dex2jar 产物
 ├── src/{en,zh,ndk,packagingservice}.jar
 ├── ForgeAutoRenamingTool-1.0.8-all.jar
-├── d8.jar / android.jar            # D8 与 API stub
-├── SHA256SUMS                      # 输入/工具指纹
-├── run.sh                          # 逐 jar + --lib 的历史流程
-└── output/                         # 历史产物（.gitignore）
+├── d8.jar / android.jar          # D8 与 API stub
+├── SHA256SUMS                    # 输入/工具指纹
+├── run.sh                        # 逐 jar + --lib 的历史流程
+└── output/                       # 历史产物（.gitignore）
+
+jobs/                             ← 一个依赖一个目录：真相（可单独复用/评审）
+├── jgit/{class_map.tsv, members.tsrg, params.tsv}   # 685 类 / 5478 行 / 3025 参数行
+├── jsch/{class_map.tsv, members.tsrg, params.tsv}   # 2 类 / 6 行 / 9 参数行（接口方法）
+└── aide/{class_map.tsv, members.tsrg}               # 53 类 / 30 行（AIDE 自有类，无 params）
 ```
 
-**为什么 truth 按 part 分开**：这一个 APK 里同时改名了 jgit、jsch（第三方接口双侧改名）、
-AIDE 自有类三个来源。合成一张表会互相污染（改一处要通读整表、评审看不出是谁的、也没法整份复用）。
-现在按来源分目录，`mappings.txt` 只是**按 `deob.json` 的 `parts` 顺序汇总**的产物：
+**为什么真相不在 process/ 里**：这一个 APK 里同时改名了 jgit、jsch（第三方接口双侧改名）、
+AIDE 自有类三个来源。它们各有各的 oracle、各有各的评审节奏，合成一张表会互相污染；
+放在 `jobs/<依赖>/` 下就能单独改动、单独复用。`process/` 只负责"这个 APK 的落地"：
+构建输入 + `mappings.txt`（按 `deob.json` 的 `parts` 顺序汇总）+ 本 APK 自己的东西
+（`head` 历史补丁、`smali_index`、`verify_allow`）。
 
-| part | 目标前缀 | 内容 |
+| part（目录） | 目标前缀 | 内容 |
 |---|---|---|
-| `head` | `com/aide/ui/build/packaging*` | 首轮已应用的历史补丁，只原样输出 |
-| `jgit` | `org/eclipse/jgit/` | 685 类 / 5478 成员行 / 3025 参数行 |
-| `jsch` | `com/jcraft/jsch/` | 2 类 / 6 成员行（`UserInfo`、`UIKeyboardInteractive` 双侧改名） |
-| `aide` | `com/aide/`、`abcd/aide/` | 53 类 / 30 成员行（AIDE 自有类 → `abcd/aide/`） |
+| `process/truth/head` | `com/aide/ui/build/packaging*` | 首轮已应用的历史补丁 20 行，只原样输出 |
+| `jobs/jgit` | `org/eclipse/jgit/` | 685 类 / 5478 成员行 / 3025 参数行 |
+| `jobs/jsch` | `com/jcraft/jsch/` | 2 类 / 6 成员行 / 9 参数行（`UserInfo`、`UIKeyboardInteractive` 双侧改名） |
+| `jobs/aide` | `com/aide/`、`abcd/aide/` | 53 类 / 30 成员行（AIDE 自有类 → `abcd/aide/`） |
 
-`jobs/<名字>/` 只放**还没落地**的新依赖工程（见 `../docs/NEW-JOB.md`）。
+以后再引入新依赖，就新建 `jobs/<名字>/` 并加进 `parts`（见 `../docs/NEW-JOB.md`）。
 
 ## 1. mappings.txt 格式（TSRG2）
 
@@ -63,13 +67,13 @@ tsrg2 obf deobf                                   ← 表头（必须第一行�
 
 三条纪律：
 
-1. **不要手改**：唯一真相是 `process/truth/<part>/class_map.tsv`（类）、
-   `process/truth/<part>/members.tsrg`（成员）、`process/truth/<part>/params.tsv`（参数名）。
+1. **不要手改**：唯一真相是 `jobs/<依赖>/class_map.tsv`（类）、
+   `jobs/<依赖>/members.tsrg`（成员）、`jobs/<依赖>/params.tsv`（参数名）。
    改完按顺序跑：
    ```bash
    python3 tools/jgit/pipeline/rebuild_tsrg.py     # 重建 members.tsrg，并自动派生下面两步
    #   内部依次调用：
-   #   paramfill.py --write    → truth/<part>/params.tsv（参数名，见 §4）
+   #   paramfill.py --write    → jobs/<依赖>/params.tsv（参数名，见 §4）
    #   emit_tsrg2.py <mappings.txt> → TSRG2（static 标记 + 参数行）
    ```
    也可以只用通用 kit：`python3 tools/deob/cli.py -p process/deob.json emit`
@@ -105,11 +109,12 @@ python3 tools/jgit/pipeline/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内�
 
 | 文件 | 说明 |
 |---|---|
-| `mappings.txt` | 9829 行：表头 1 + 头部 20 + 类块 751 + 成员行 5522 + `static` 530 + 参数行 3025 |
-| `truth/jgit/params.tsv` | 3025 行：1784 个方法的参数名（1667 条来自 oracle 的 LocalVariableTable，117 条来自 jgit 源码） |
+| `mappings.txt` | 9838 行：表头 1 + 头部 20 + 类块 751 + 成员行 5522 + `static` 530 + 参数行 3034 |
+| `jobs/jgit/params.tsv` | 3025 行：1784 个方法（1667 条来自 oracle LVT，117 条来自 jgit 源码） |
+| `jobs/jsch/params.tsv` | 9 行：5 个接口方法（jsch 0.1.55 源码声明） |
 | `base/merged_pub.jar` | 由 `widen_access.py` 生成（当前改写 11 个 class） |
 
-## 4. 参数名（`truth/<part>/params.tsv`）
+## 4. 参数名（`jobs/<依赖>/params.tsv`）
 
 参数名不是猜的，来源只有两条，且都可复现：
 
@@ -117,24 +122,28 @@ python3 tools/jgit/pipeline/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内�
    `members.tsrg` 里的新名、目标描述符 = 该行描述符按类映射逐类换名；
    `(类, 方法, 描述符)` 三者**完全相等**时才取那条方法的 LVT，
    槽位换算成实参序号（0 起、不含 `this`、`long/double` 只占一个序号）。
-2. **jgit 源码**（`~/src/jgit`）：只用于 oracle 里那条是抽象/接口方法、没有 `Code` 的情况。
+2. **该依赖的源码**（`src_root` 列表：`~/src/jgit`、`~/out/oracle/jsch/src`）：
+   只用于 oracle 里那条是抽象/接口方法、没有 `Code` 的情况。
    只认**无方法体**（`;` 结尾）的声明；同名同参数个数有多条时，用形参类型和描述符逐个比对消歧，
    消歧不掉就留空。
 
-三元组对不上就**不出行**：AIDE 自有类（149）、方法名被合成/合过（95）、
-签名被魔改（106）——这些参数名留空，不编。
+三元组对不上就**不出行**：AIDE 自有类、方法名被合成/合过、签名被魔改——这些参数名留空，不编。
 
 ```
-1667 个方法从 oracle LVT 拿到全名
+1667 个方法从 oracle LVT 拿到全名          （jgit）
  117 个方法（抽象/接口）从 jgit 源码补全
+   5 个方法（jsch 接口）从 jsch 0.1.55 源码补全
    0 个方法仍是残缺
 ```
+
+`jobs/aide` 没有 `params.tsv`：那 53 个类是 AIDE 自己写的，没有 oracle；探针本身也没有调试信息
+（`merged_ok.jar` 全库无 `LocalVariableTable`，smali 里 `.param` 数量 = 0），拿不到真名就留空。
 
 重跑：
 
 ```bash
 python3 tools/jgit/pipeline/paramfill.py            # 只统计
-python3 tools/jgit/pipeline/paramfill.py --write    # 写 truth/<part>/params.tsv（按类来源分表）
+python3 tools/jgit/pipeline/paramfill.py --write    # 写 jobs/<依赖>/params.tsv（按类来源分表）
 ```
 
 （`rebuild_tsrg.py` 会自动跑这一句，再跑 `emit_tsrg2.py`。）

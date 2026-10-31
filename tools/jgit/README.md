@@ -25,9 +25,9 @@ tools/jgit/
 
 | 路径 | 内容 |
 |---|---|
-| `process/truth/<part>/class_map.tsv` | **类映射唯一真相**（`探针<TAB>目标<TAB>证据`）：`jgit` 685 / `jsch` 2 / `aide` 53 |
-| `process/truth/<part>/members.tsrg` | 成员映射（共 5514 行），类行 `abcd/X 目标`，成员行 TAB 缩进 |
-| `process/truth/<part>/params.tsv` | 参数名（仅 `jgit` 有：3025 行 / 1784 个方法） |
+| `jobs/jgit/{class_map.tsv,members.tsrg,params.tsv}` | jgit 的真相：685 类 / 5478 成员行 / 3025 参数行 |
+| `jobs/jsch/{class_map.tsv,members.tsrg,params.tsv}` | jsch 的真相：2 类 / 6 成员行 / 9 参数行（接口方法） |
+| `jobs/aide/{class_map.tsv,members.tsrg}` | AIDE 自有类：53 类 / 30 成员行（无 oracle，故无 params） |
 | `process/truth/head/mappings_head.txt` | AIDE 侧改名块（TSRG2 头 20 行，**不含 jgit**） |
 | `~/out/oracle/jgit/` | 官方 jgit jar：3.7.1 / 4.0.0 / 4.2.0 / 4.4.1 / 4.5.0 / 4.5.7 / 4.9.10 / 4.10.0 / 4.11.9 / 5.6.1 / 5.13.3（判据来源） |
 | `~/src/jgit/` | jgit 3.7.1 源码（`jgit-src.jar` 解出） |
@@ -42,4 +42,4 @@ tools/jgit/
 > `paths.MAP / TSRG / PARAMS` 是给只读脚本用的**合并视图**（`$HOME/out/work/merged/`，
 > 内容哈希做戳）；要写真相用 `tools/deob/mapping.py` 的 ClassMap/MemberMap（按来源写回各 part）。
 
-当前产物：`process/mappings.txt`（TSRG2，9829 行 = 表头 1 + 头部 20 + 类块 751 + 成员行 5522 + `static` 530 + 参数行 3025）。
+当前产物：`process/mappings.txt`（TSRG2，9838 行 = 表头 1 + 头部 20 + 类块 751 + 成员行 5522 + `static` 530 + 参数行 3034）。

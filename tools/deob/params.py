@@ -272,7 +272,8 @@ def fill(class_map, member_map, prefix='abcd', oracle_paths=(), out_path=None,
     """把 oracle LVT / 源码声明里的参数名挂到成员映射上，可选落盘 out_path。
 
     class_map / member_map 是路径（真相文件）；oracle_paths 顺序即优先级；
-    src_root 给了才会走“抽象/接口方法 → 源码声明”的兜底。
+    src_root 可以是一个目录或目录列表（多个依赖各一份源码）；给了才会走
+    “抽象/接口方法 → 源码声明”的兜底。
     返回统计 dict。
     """
     import javasrc
@@ -319,7 +320,12 @@ def fill(class_map, member_map, prefix='abcd', oracle_paths=(), out_path=None,
         if nargs == 0:
             st['noarg'] += 1
         elif len(got) < nargs:
-            cand = javasrc.lookup(src_root, owner, new, ddesc) if src_root else None
+            roots = [src_root] if isinstance(src_root, str) else list(src_root or [])
+            cand = None
+            for _r in roots:
+                cand = javasrc.lookup(_r, owner, new, ddesc)
+                if cand:
+                    break
             if cand and all(got.get(i, cand[i]) == cand[i] for i in sorted(got)):
                 for i, nm in enumerate(cand):
                     got.setdefault(i, nm)

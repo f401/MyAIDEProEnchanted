@@ -4,9 +4,9 @@
 **为什么分**：一个 APK 里往往同时改名了多个依赖（jgit / jsch / AIDE 自有类…）。
 把它们塞进同一张 tsv，改动时冲突、评审时看不清、复用也只能整份搬。按 part 分开后：
 
-    process/truth/<part>/class_map.tsv   探针 <TAB> 目标 <TAB> 证据
-    process/truth/<part>/members.tsrg    TSRG 块
-    process/truth/<part>/params.tsv      参数名（可选）
+    jobs/<part>/class_map.tsv   探针 <TAB> 目标 <TAB> 证据
+    jobs/<part>/members.tsrg    TSRG 块
+    jobs/<part>/params.tsv      参数名（可选）
 
 `process/deob.json` 的 `parts` 决定拼接顺序；`mappings.txt` 由各 part 汇总生成。
 
@@ -151,8 +151,8 @@ def split(src, out, prefix='abcd', write=False, log=print):
 
 def main(argv):
     ap = argparse.ArgumentParser()
-    ap.add_argument('--src', default='process/truth')
-    ap.add_argument('--out', default=None, help='默认同 --src（就地拆）')
+    ap.add_argument('--src', default='process/truth', help='单份 truth 目录（含 class_map.tsv 等）')
+    ap.add_argument('--out', default='jobs', help='拆出的 part 目录放这里（默认 jobs/）')
     ap.add_argument('--prefix', default='abcd')
     ap.add_argument('--write', action='store_true')
     ap.add_argument('--report', action='store_true')

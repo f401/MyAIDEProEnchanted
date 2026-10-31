@@ -3,11 +3,11 @@
 **已落地的工程就在 `process/`**（构建输入 + 已确认的真相 + 产物，一个目录全包）：
 
     process/deob.json              工程配置（通用 kit 用）
-    process/truth/<part>/class_map.tsv   类映射（探针 <TAB> 目标 <TAB> 证据）
-    process/truth/<part>/members.tsrg   成员映射（TSRG 块）
-    process/truth/<part>/params.tsv     方法参数名（可缺；oracle LVT / jgit 源码）
-    process/truth/head/mappings_head.txt  TSRG2 头部（AIDE 侧改名 20 行）
-    process/truth/smali_index.tsv  类描述符 → smali 真实文件名（大小写不敏感 FS 必用）
+    jobs/jgit/{class_map.tsv, members.tsrg, params.tsv}   依赖 jgit 的真相
+    jobs/jsch/{class_map.tsv, members.tsrg, params.tsv}   依赖 jsch 的真相
+    jobs/aide/{class_map.tsv, members.tsrg}               AIDE 自有类（→ abcd/aide/）
+    process/truth/head/mappings_head.txt  历史补丁（AIDE 首轮改名 20 行）
+    process/truth/smali_index.tsv         类描述符 → smali 真实文件名（大小写不敏感 FS 必用）
 
     process/mappings.txt           TSRG2 产物（由 truth/ 派生，别手改）
     process/verify_allow.tsv       已知差异白名单
@@ -35,11 +35,19 @@ TRUTH = os.path.join(JOB, 'truth')
 HOME = os.path.expanduser('~')
 
 # 分表顺序 = 汇总顺序（与 process/deob.json 的 parts 一致）
-PARTS = ['head', 'jgit', 'jsch', 'aide']
+# 各依赖的真相在 jobs/<依赖>/；head 是 AIDE 自己的历史补丁，留在 process/truth/。
+PART_DIRS = [
+    ('head', os.path.join(TRUTH, 'head')),
+    ('jgit', os.path.join(REPO, 'jobs', 'jgit')),
+    ('jsch', os.path.join(REPO, 'jobs', 'jsch')),
+    ('aide', os.path.join(REPO, 'jobs', 'aide')),
+]
+PARTS = [n for n, _ in PART_DIRS]
 
 
 def _part_file(part, name):
-    p = os.path.join(TRUTH, part, name)
+    d = dict(PART_DIRS).get(part)
+    p = os.path.join(d, name) if d else os.path.join(TRUTH, part, name)
     return p if os.path.exists(p) else None
 
 

@@ -1,0 +1,11 @@
+# 参数名：从 oracle jar 的 LocalVariableTable 取（index 是实参序号，0 起、不含 this）
+# owner	name	desc	index	param	src
+com/jcraft/jsch/UIKeyboardInteractive	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String;	0	destination	jsch-0.1.55+src
+com/jcraft/jsch/UIKeyboardInteractive	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String;	1	name	jsch-0.1.55+src
+com/jcraft/jsch/UIKeyboardInteractive	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String;	2	instruction	jsch-0.1.55+src
+com/jcraft/jsch/UIKeyboardInteractive	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String;	3	prompt	jsch-0.1.55+src
+com/jcraft/jsch/UIKeyboardInteractive	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String;	4	echo	jsch-0.1.55+src
+com/jcraft/jsch/UserInfo	DW	(Ljava/lang/String;)V	0	message	jsch-0.1.55+src
+com/jcraft/jsch/UserInfo	FH	(Ljava/lang/String;)Z	0	message	jsch-0.1.55+src
+com/jcraft/jsch/UserInfo	Hw	(Ljava/lang/String;)Z	0	message	jsch-0.1.55+src
+com/jcraft/jsch/UserInfo	j6	(Ljava/lang/String;)Z	0	message	jsch-0.1.55+src

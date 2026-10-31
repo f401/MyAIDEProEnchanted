@@ -6,7 +6,7 @@
     python3 tools/build/build_apk.py fart|widen|dex|repack|sign|verify
 
 约定：
-  * 输入 jar 在 process/src/，mapping 在 process/mappings.txt（由 process/truth/<part>/ 汇总生成），
+  * 输入 jar 在 process/src/，mapping 在 process/mappings.txt（由 jobs/<依赖>/ 与 process/truth/head 汇总生成），
     APK 用仓库根目录下的原包。
   * 每个 dex 与 src jar 的对应关系由**类集合重叠**自动判定（`plan` 会打印，可人工核对）。
   * 输出：out/build/{renamed,dex,apk}/；签名用 `--ks` 指定的 keystore（缺省则不签）。

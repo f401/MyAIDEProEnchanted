@@ -11,6 +11,7 @@ if _os.path.isdir(_DE) and _DE not in _sys.path:
     _sys.path.append(_DE)
 import paths as _P  # noqa: E402
 import params as _PRM  # noqa: E402
+import config as _CFG  # noqa: E402
 """paramfill.py —— 生成各 part 的 `truth/<part>/params.tsv`（入口；实现是 `tools/deob/params.py::fill`）。
 
 判据（都可复现，不接受形状巧合，详见 docs/VERIFY.md 门 9）：
@@ -44,11 +45,26 @@ ORACLE = [
 ]
 
 
+PROJ = _CFG.load(_P.CONFIG)
+
+
 def main(argv):
     write = '--write' in argv
-    src = None if '--no-src' in argv else _P.SRC_JGIT
-    oracles = [_os.path.join(_P.ORACLE_DIR, n) for n in ORACLE]
-    _PRM.fill(_P.MAP, _P.TSRG, 'abcd', oracles, _P.PARAMS, src, write=write)
+    src = None if '--no-src' in argv else PROJ.src_root
+    # 配置里的 oracle（jgit + jsch）+ $HOME/out/oracle/jgit 下的更多 jgit 版本（补漏）
+    oracles = [p for _l, p in PROJ.oracle_jars]
+    for n in ORACLE:
+        x = _os.path.join(_P.ORACLE_DIR, n)
+        if x not in oracles:
+            oracles.append(x)
+    # 每个 part 的参数写回自己的 params.tsv（没有就建在同目录）
+    out_map = {}
+    for p in PROJ.parts:
+        if p['class_map']:
+            out_map[p['class_map']] = p['param_map'] or _os.path.join(
+                _os.path.dirname(p['class_map']), 'params.tsv')
+    _PRM.fill(PROJ.class_map, PROJ.member_map, PROJ.probe_prefix, oracles,
+              out_map, src, write=write)
     return 0
 
 

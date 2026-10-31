@@ -2,7 +2,7 @@
 
 ## 0. 真相在哪
 
-`process/truth/<part>/{class_map.tsv, members.tsrg, params.tsv}` 是**唯一真相**（已入库），
+`jobs/<依赖>/{class_map.tsv, members.tsrg, params.tsv}` 是**唯一真相**（已入库），
 part 按来源分：`jgit` / `jsch` / `aide` / `head`，顺序见 `process/deob.json` 的 `parts`；
 `process/truth/smali_index.tsv` 是全局索引。工具通过 `tools/jgit/paths.py` 优先读这里，`$HOME/out/work/` 下的同名文件是旧副本，改它们无效。
 

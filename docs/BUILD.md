@@ -20,9 +20,9 @@ cd process && sha256sum -c SHA256SUMS      # 输入与工具指纹，全部 OK �
 唯一真相是两张表，`process/mappings.txt` 只是派生产物：
 
 ```bash
-# 类名真相:  process/truth/<part>/class_map.tsv  (探针 <TAB> 目标 <TAB> 证据)
-# 成员真相:  process/truth/<part>/members.tsrg   (TSRG 块)
-# 参数真相:  process/truth/<part>/params.tsv     (可缺；part = jgit/jsch/aide)
+# 类名真相:  jobs/<依赖>/class_map.tsv  (探针 <TAB> 目标 <TAB> 证据)
+# 成员真相:  jobs/<依赖>/members.tsrg   (TSRG 块)
+# 参数真相:  jobs/<依赖>/params.tsv     (可缺；part = jgit/jsch/aide)
 python3 tools/jgit/pipeline/rebuild_tsrg.py      # tsv → tsrg → process/mappings.txt（含头 20 行）
 python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独重排/补 static 标记时
 ```

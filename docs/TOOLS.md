@@ -31,7 +31,7 @@ tools/
 
 | 工具 | 作用 |
 |---|---|
-| `rebuild_tsrg.py` | **逐 part 重建 `truth/<part>/members.tsrg`**（类块顺序按该 part 的 tsv；丢陈旧块、去重成员、查类目标重复），最后自动串 `paramfill` + `emit_tsrg2` |
+| `rebuild_tsrg.py` | **逐 part 重建 `jobs/<依赖>/members.tsrg`**（类块顺序按该 part 的 tsv；丢陈旧块、去重成员、查类目标重复），最后自动串 `paramfill` + `emit_tsrg2` |
 | `paramfill.py` | **参数名**：oracle jar 的 `LocalVariableTable`（+ 抽象方法的 jgit 源码声明）→ 各 part 的 `params.tsv`；`--write` 落盘 |
 | `emit_tsrg2.py` | 单独重排/补 static 标记**与参数行**输出 TSRG2（`\t\tstatic` 紧跟**方法**行，参数行再跟在后面） |
 | `sync_maps.py` | 只重建 jgit 块、保留头部 |

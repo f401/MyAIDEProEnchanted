@@ -17,7 +17,7 @@ cd /storage/emulated/0/MyAIDEProEnchanted
 python3 tools/jgit/pipeline/filter_head.py --apply    # 0) 清 mappings_head.txt 的死块/死行
 python3 tools/jgit/pipeline/rebuild_tsrg.py           # 1) **逐 part** 重建 members.tsrg（块顺序/去重/类目标查重），
                                                       #    并自动接着跑 1a/1b 生成 mappings.txt
-python3 tools/jgit/pipeline/paramfill.py --write      # 1a) oracle LVT / jgit 源码 → truth/<part>/params.tsv（参数名）
+python3 tools/jgit/pipeline/paramfill.py --write      # 1a) oracle LVT / jgit 源码 → jobs/<依赖>/params.tsv（参数名）
 python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 1b) TSRG2：`\t\tstatic` 标记 + `\t\t<i> <名> <名>` 参数行
 python3 tools/jgit/pipeline/validate_mappings.py      # 2) 有效性（类/成员存在、static、重复目标）
 python3 tools/jgit/pipeline/verify_members.py         # 3) 一致性（对着 oracle + 白名单）
@@ -33,7 +33,7 @@ python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar \
 
 ```bash
 D="python3 tools/deob/cli.py -p process/deob.json"
-$D params --apply   # = 门 1'（oracle LVT / src_root 源码 → truth/<part>/params.tsv）
+$D params --apply   # = 门 1'（oracle LVT / src_root 源码 → jobs/<依赖>/params.tsv）
 $D emit          # = rebuild_tsrg + emit_tsrg2（输出与本项目产物逐行一致）
 $D validate      # = 门 2
 $D inherit       # = 门 4
@@ -48,9 +48,9 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 |---|---|
 | 0 `filter_head` | `保留块 19 / 删块 0 / 删行 0` |
 | 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 2 / aide 53`，合计 `类块 740`、`丢陈旧块 0`、`去重成员 0` |
-| 1' `paramfill` | `方法映射 3307 条：命中 2957（无参 1173 / jar 参数全 1667 / 源码补全 117 / 仍缺 0）`；`参数行 3025 条（1784 个方法）`，写 `truth/jgit/params.tsv` |
-| 1'' `emit_tsrg2` | `9829 行，static 方法标记 530 / 参数行 3025` |
-| 2 `validate_mappings` | `类块 751 / 成员行 5522 / 参数行 3025 / 基线类 23635` → **✔ 无无效映射** |
+| 1' `paramfill` | `方法映射 3307 条：命中 2963（无参 1174 / jar 参数全 1667 / 源码补全 122 / 仍缺 0）`；`参数行 3034 条（1789 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3025 / jsch 9） |
+| 1'' `emit_tsrg2` | `9838 行，static 方法标记 530 / 参数行 3034` |
+| 2 `validate_mappings` | `类块 751 / 成员行 5522 / 参数行 3034 / 基线类 23635` → **✔ 无无效映射** |
 | 3 `verify_members` | `成员映射 5352 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 222` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
 | 5 `pkgclose` | `约束边 464 / 需要挪的类 0 / 真冲突 3 组`（真冲突交给门 7） |
@@ -146,23 +146,29 @@ H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 
 1. oracle jar 里 `(类, 方法名, 描述符)` **三元组完全相等**的那条方法的 `LocalVariableTable`
    （槽位 → 实参序号：0 起、不含 `this`、`long/double` 只占一个序号）；
-2. 那条是抽象/接口方法（没有 `Code`，也就没有 LVT）时，退到 `~/src/jgit` 的同名源码：
-   只认**无方法体**（`;` 结尾）的声明，多条时用形参类型与描述符逐个比对消歧，仍不唯一就留空。
+2. 那条是抽象/接口方法（没有 `Code`，也就没有 LVT）时，退到该依赖的源码
+   （`src_root` 列表：`~/src/jgit`、`~/out/oracle/jsch/src`）：只认**无方法体**（`;` 结尾）
+   的声明，多条时用形参类型与描述符逐个比对消歧，仍不唯一就留空。
 
 三元组对不上（AIDE 改过签名、方法名被合过、AIDE 自有类、合成 `access$NNN`）一律**不出行**。
 
+**`jobs/aide` 没有 `params.tsv` 是故意的**：那 53 个类是 AIDE 自己写的，没有 oracle；
+探针本身也没有调试信息（`merged_ok.jar` 全库没有 `LocalVariableTable`，smali 里 `.param` 数量 = 0），
+拿不到真名就只能留空（那 30 个成员里有 12 个带参数）。编一个"看起来合理"的名字违反 NAMING §9。
+
 | 期望 | 说明 |
 |---|---|
-| `命中 2957（无参 1173 / jar 参数全 1667 / 源码补全 117 / 仍缺 0）` | 「仍缺 0」= 凡有参数的方法都拿到了名字 |
-| 未命中 `无类映射 149 / 方法名不同 95 / 描述符不同 106` | 没有 oracle 对应物，故意留空（不编语义） |
-| 重跑 `paramfill.py --write` 后各 `truth/<part>/params.tsv` 不变 | 幂等；成员改名后必须重跑（`rebuild_tsrg` 已自动串起来） |
+| `命中 2963（无参 1174 / jar 参数全 1667 / 源码补全 122 / 仍缺 0）` | 「仍缺 0」= 凡有参数、且有 oracle 对应的方法都拿到了名字 |
+| 未命中 `无类映射 143 / 方法名不同 95 / 描述符不同 106` | 没有 oracle 对应物，故意留空（不编语义） |
+| 参数行 `3034`（1789 个方法）：jgit 3025 / jsch 9 | jsch 的 5 个接口方法来自 0.1.55 源码声明 |
+| 重跑 `paramfill.py --write` 后各 `jobs/<依赖>/params.tsv` 不变 | 幂等；成员改名后必须重跑（`rebuild_tsrg` 已自动串起来） |
 
 **参数行对产物有没有副作用**（新旧 mapping 各跑一遍 FART 比 22763 个条目）：
 
 | 结果 | 说明 |
 |---|---|
 | 条目数/顺序一致，`.class` 逐字节相同 | 输入类没有 `LocalVariableTable`，FART 没东西可改 |
-| 唯一差异：`fernflower_abstract_parameter_names.txt`，117 行从 `varN` 变成真名（+213 字节） | 这是**收益**：Fernflower 反编译抽象方法时能显示真参数名 |
+| 唯一差异：`fernflower_abstract_parameter_names.txt`，122 行从 `varN` 变成真名（jgit 117 + jsch 5） | 这是**收益**：Fernflower 反编译抽象方法时能显示真参数名 |
 
 ## 一页速查
 
@@ -174,5 +180,5 @@ H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 | 覆写"失效"（调到父类实现） | 跨包 package-private 虚方法 | `widen_access`（放 protected） |
 | FART 两遍产物不同 | 祖先成员未映射 / 子类改名 | 门 4 `inherit_check` 补 MISSING |
 | D8 `multiple definitions` | 同类内新名+描述符重复 | 门 2 `dup-member-target` |
-| Fernflower 里抽象方法参数名还是 `varN` | 参数行没生成 / 没被 FART 吃到 | 门 9 `paramfill` + 检查 `truth/<part>/params.tsv` |
+| Fernflower 里抽象方法参数名还是 `varN` | 参数行没生成 / 没被 FART 吃到 | 门 9 `paramfill` + 检查 `jobs/<依赖>/params.tsv` |
 | D8 `Invalid input code with a call to <clinit>` | dex2jar 产物缺陷（非改名造成） | `tools/jgit/pipeline/nop_clinit.py` 处理后重试 |

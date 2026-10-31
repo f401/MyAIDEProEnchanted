@@ -31,7 +31,8 @@
   base_jars       改名输入 jar 列表（用于 static 标志、validate）
   input_jars      实际要改名的 jar（可 glob）
   oracle_jars     oracle 版本：{"label": "...", "path": "..."} 或 ["path", ...]
-  src_root        可选的原始源码根（如 "$HOME/src/jgit"）：抽象/接口方法的参数名从这里读声明
+  src_root        可选的原始源码根（如 "$HOME/src/jgit"，可给列表）：抽象/接口方法
+                  的参数名从这里读声明（多个依赖各一份源码时用列表）
   out_dir         产物目录（默认 "out"）
   root            所有相对路径的基准（默认=配置文件所在目录）
 """
@@ -76,7 +77,8 @@ class Project:
         self.base_jars = _globs(c.get('base_jars'), self.root)
         self.input_jars = _globs(c.get('input_jars'), self.root)
         self.out_dir = _expand(c.get('out_dir') or 'out', self.root)
-        self.src_root = _expand(c.get('src_root'), self.root)
+        _sr = c.get('src_root')
+        self.src_root = [_expand(x, self.root) for x in (list(_sr) if isinstance(_sr, list) else [x for x in [_sr] if x])]
         oj = []
         for o in c.get('oracle_jars') or []:
             if isinstance(o, str):

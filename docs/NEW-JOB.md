@@ -7,13 +7,13 @@
 
 | 目录 | 归属 | 谁可以写 |
 |---|---|---|
-| `process/` | **已完成的 jgit 工程** | 只在维护它时写；任何"新依赖"任务**只读** |
-| `jobs/<名字>/` | 新依赖工程（自包含） | 只有本工程的配置/真相/产物 |
+| `process/` | **已落地的工程**（构建输入 + 汇总 mapping + 本 APK 自己的补丁/白名单） | 维护它时写；新依赖任务**只读** |
+| `jobs/<依赖>/` | **一个依赖一个目录**：类映射 / 成员映射 / 参数名 | 只有本依赖的文件 |
 | `tools/deob/` | 通用工具 | 只读 |
 
-一个任务 = 一个 `jobs/<名字>/`，里面 `deob.json` + `truth/<part>/` + `oracle/` + `base/` + `out/`，
-与其他任务零共享。若同一个 APK 里同时改名了多个依赖（jgit + jsch + AIDE 自有类…），
-就在 `truth/` 下按依赖分成多个 part，用 `parts` 定拼接顺序（参考 `process/truth/{jgit,jsch,aide,head}`）。
+一个任务 = 一个 `jobs/<名字>/`，里面 `deob.json` + `truth/main/` + `oracle/` + `base/` + `out/`，
+与其他任务零共享。同一 APK 里改了多个依赖时，就是一个依赖一个目录，用 `parts` 定拼接顺序
+（本仓库：`jobs/jgit`、`jobs/jsch`、`jobs/aide` + `process/truth/head`）。
 
 `deob status` 会逐条打印"写入目标是否在工程目录内"，越界会标 ⚠。
 

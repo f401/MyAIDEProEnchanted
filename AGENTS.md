@@ -6,9 +6,9 @@
 ## 铁律
 
 1. **唯一真相是按 part 分开的三类表**，不要手改产物：
-   - 类名：`process/truth/<part>/class_map.tsv`（`探针 <TAB> 目标 <TAB> 证据`）
-   - 成员：`process/truth/<part>/members.tsrg`（TSRG 块）
-   - 参数：`process/truth/<part>/params.tsv`（可缺）
+   - 类名：`jobs/<依赖>/class_map.tsv`（`探针 <TAB> 目标 <TAB> 证据`）
+   - 成员：`jobs/<依赖>/members.tsrg`（TSRG 块）
+   - 参数：`jobs/<依赖>/params.tsv`（可缺）
    - part：`jgit` / `jsch` / `aide` / `head`，顺序见 `process/deob.json` 的 `parts`；**不要跨 part 混写**
    - 派生产物：`process/mappings.txt`（TSRG2，FART 消费；用 `tools/jgit/pipeline/rebuild_tsrg.py` 生成）
 2. **改完必须过认证流水线**（[docs/VERIFY.md](docs/VERIFY.md)）：validate / verify / inherit /

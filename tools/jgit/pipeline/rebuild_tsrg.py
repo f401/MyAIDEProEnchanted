@@ -11,9 +11,9 @@ import paths as _P  # noqa: E402
 
 分表结构（见 process/deob.json 的 `parts`）：
 
-    process/truth/<part>/class_map.tsv   类映射（顺序决定本 part 的块顺序）
-    process/truth/<part>/members.tsrg    成员映射（TSRG 块）
-    process/truth/<part>/params.tsv      参数名（由 paramfill 生成）
+    jobs/<依赖>/class_map.tsv   类映射（顺序决定本 part 的块顺序）
+    jobs/<依赖>/members.tsrg    成员映射（TSRG 块）
+    jobs/<依赖>/params.tsv      参数名（由 paramfill 生成；可缺）
 
 每个 part 单独处理、单独写回；**不碰别的 part**。备份写到 `$HOME/out/work/rebuild/`。
 处理完自动派生：`paramfill.py --write`（参数名）→ `emit_tsrg2.py process/mappings.txt`。
@@ -34,7 +34,7 @@ def _key(probe):
 
 
 def rebuild_part(part):
-    d = os.path.join(_P.TRUTH, part)
+    d = dict(_P.PART_DIRS)[part]
     tsv = os.path.join(d, 'class_map.tsv')
     tsrg = os.path.join(d, 'members.tsrg')
     if not (os.path.exists(tsv) and os.path.exists(tsrg)):

@@ -9734,12 +9734,21 @@ abcd/rI$c org/eclipse/jgit/transport/HttpAuthMethod$None
 	j6 (Ljava/net/HttpURLConnection;)V configureRequest
 com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
 	DW (Ljava/lang/String;)V showMessage
+		0 message message
 	FH (Ljava/lang/String;)Z promptPassphrase
+		0 message message
 	Hw (Ljava/lang/String;)Z promptYesNo
+		0 message message
 	j6 ()Ljava/lang/String; getPassphrase
 	j6 (Ljava/lang/String;)Z promptPassword
+		0 message message
 com/jcraft/jsch/UIKeyboardInteractive com/jcraft/jsch/UIKeyboardInteractive
 	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String; promptKeyboardInteractive
+		0 destination destination
+		1 name name
+		2 instruction instruction
+		3 prompt prompt
+		4 echo echo
 abcd/iL abcd/aide/CollectionFactory
 	DW ()Ljava/util/List; newList
 	j6 ()Ljava/util/Map; newMap

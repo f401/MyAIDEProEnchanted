@@ -54,7 +54,7 @@ python3 tools/deob/cli.py -p myjob/deob.json q abcd/X       # 成员与目标名
 | `smali.py` | 探针侧解析 + `类→文件名` 索引（大小写不敏感 FS 必用索引） |
 | `oracle.py` | 多版本 oracle jar 访问；描述符归一化（`norm_desc`）与形状（`shape_of`） |
 | `mapping.py` | 类映射 TSV + 成员映射 TSRG 的读写（**多文件/多 part**，写回按行来源）；`emit_tsrg2`；声明式编辑 |
-| `split_truth.py` | 把一份大 truth 按目标前缀拆成 `truth/<part>/`（jgit / jsch / aide） |
+| `split_truth.py` | 把一份大 truth 按目标前缀拆成 `truth/<part>/`（一个 part 就是一个依赖） |
 | `params.py` | 参数名：oracle `LocalVariableTable` 解析、槽位→实参序号、`fill()` 写各 part 的 `params.tsv` |
 | `javasrc.py` | 抽象/接口方法的参数名：从原始源码声明读（只认无方法体、类型消歧） |
 | `checks.py` | `validate / inherit / pkgs / widen / cover / manifest` |
@@ -64,9 +64,9 @@ python3 tools/deob/cli.py -p myjob/deob.json q abcd/X       # 成员与目标名
 
 ## 约定（与 `docs/NAMING.md` 一致）
 
-- 真相是 `truth/<part>/{class_map.tsv, members.tsrg, params.tsv}`（`parts` 定拼接顺序）；
-  `out_tsrg` 永远由 `emit` 按 part 顺序汇总生成。一个工程里改了多个依赖就分多个 part，
-  不要混成一张表。
+- 真相按依赖分 part：`truth/<part>/{class_map.tsv, members.tsrg, params.tsv}`，
+  也可以放在工程目录外（如 `../jobs/<依赖>`），`parts` 里写相对 `root` 的路径即可；
+  `out_tsrg` 永远由 `emit` 按 `parts` 顺序汇总生成。不要把所有依赖混成一张表。
 - 成员映射只写**真实改名**；恒等行除"祖先对齐"外不写。
 - `emit` 会按 base/input jar 的 access 自动补 `\t\tstatic`（只对方法有效）。
 - `validate` 会报 `class-not-in-base`（头部历史条目常见）、`no-method/no-field`（幽灵成员）、
