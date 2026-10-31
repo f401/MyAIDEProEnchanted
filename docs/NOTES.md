@@ -72,9 +72,11 @@ part 按来源分：`jgit` / `jsch` / `aide` / `head`，顺序见 `process/deob.
   会让 D8 报 `Malformed inner-class attribute`，应写成 `abcd/aide/HttpRequest$HttpConnectionFactory`。
 - **类级访问也要放宽**：`new`/`checkcast`/`const-class`/`instanceof` 不产生成员引用，
   `widen_access` 现在单独扫这些指令；漏了会 `IllegalAccessError: Illegal class access`。
-- **dex2jar 会把"用数组越界判 EOF"的 try 范围截短**：`try { return b[p]; } catch (AIOOBE)`
-  转出来后 `end_pc` 停在 `aload`、不含 `caload` → 运行期 `ArrayIndexOutOfBoundsException`。
-  用 `tools/jgit/pipeline/fix_try.py` 修（11 条基线），它必须在 `widen_access` **之前**跑。
+- **AIDE 的 dex 里"用数组越界判 EOF"的 try 范围不含 `aget`**（不是 dex2jar 转坏的）：
+  原始 `classes3.dex` 的 `try_item` 是 `start=0 count=8`（只 4 条指令），`aget-char` 在外；
+  smali 里 `:try_end_0` 也在 `aget-char` 之前。而 jgit 源码是
+  `try { return buf[pos++]; } catch (AIOOBE) { return -1; }` —— 越界必须被捕获。
+  用 `tools/jgit/pipeline/fix_try.py` 修回源码语义（11 条基线），必须在 `widen_access` 之前跑。
 - **放宽 access 时不能只 `| ACC_PUBLIC`**：原先是 `protected` 的会变成 `public protected`（0x5），
   dex 校验直接拒绝（`Field may have only one of public/protected/private`）。必须
   `acc & ~(private|protected) | public`；`widen_access` 写完后会自检冲突数。

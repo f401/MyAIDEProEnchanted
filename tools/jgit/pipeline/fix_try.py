@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """fix_try.py —— 修 dex2jar 转译造成的"异常表范围偏小"。
 
+**注意：不是 dex2jar 转坏的**——原始 dex 里就是这样（实测 `classes3.dex` 的
+`try_item`：`start=0 count=8`，只覆盖 4 条指令，`aget-char` 在范围外；smali 里
+`:try_end_0` 也在 `aget-char` 之前）。而 jgit 源码是
+`try { return buf[pos++]; } catch (ArrayIndexOutOfBoundsException) { return -1; }`，
+越界必须被捕获。所以这是 **AIDE 的编译产物偏离源码语义**，本工具把它修回源码语义。
+
 症状（实测）：
     java.lang.ArrayIndexOutOfBoundsException: length=292; index=292
       at org.eclipse.jgit.lib.Config$StringReader.read(Unknown Source:8)

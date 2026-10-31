@@ -43,7 +43,7 @@ python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独�
 跨包的 package-private 方法也不再构成 override。
 
 ```bash
-# 3a) 先修 dex2jar 转坏的异常表（11 条，见下面"为什么"）
+# 3a) 先把"try 范围不含数组访问"的异常表修回源码语义（11 条，见下面"为什么"）
 python3 tools/jgit/pipeline/fix_try.py process/base/merged_ok.jar \
         --out ~/out/merged_ok_try.jar --apply
 
@@ -52,7 +52,8 @@ python3 tools/jgit/pipeline/widen_access.py ~/out/merged_ok_try.jar \
         --out process/base/merged_pub.jar --apply        # 改写 29 个 class
 ```
 
-**3a 为什么需要**：dex2jar 转出来的 class 里，有些 `try` 的 `end_pc` 止于数组加载**之前**，
+**3a 为什么需要**：AIDE 的 dex 里，有些 `try` 的 `end_pc` 止于数组加载**之前**
+（实测 `classes3.dex` 的 `try_item` 是 `start=0 count=8`，`aget-char` 在范围外），
 而这类代码恰恰靠"故意越界"判 EOF：
 
 ```java
