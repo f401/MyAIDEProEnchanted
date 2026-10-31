@@ -185,7 +185,9 @@ def main():
                 continue
             m = midx.get(r['owner'], {}).get((r['name'], r['desc']))
             if m is None: continue
-            if m['acc'] & (ACC_PUBLIC | ACC_PROTECTED): continue   # 已放宽（幂等）
+            if m['acc'] & ACC_PUBLIC: continue        # 已 public（幂等）
+            # 注意：不能只升到 protected —— 构造器/静态方法的跨包调用需要 public，
+            # protected 只解决"跨包 override"。统一 public 最省事且只放宽不收紧。
             widen_self[r['owner']].add((m['kind'], m['name'], m['desc']))
             widen_class.add(r['owner'])
             reasons.append('%s(%s) -> %s.%s%s [%s]' % (this, pc, r['owner'], r['name'], r['desc'], po))
@@ -235,8 +237,8 @@ def main():
             for (kind, nm, ds) in widen_self.get(this, ()):
                 m = midx[this][(nm, ds)]
                 acc = struct.unpack_from('>H', b, m['acc_off'])[0]
-                if acc & (ACC_PUBLIC | ACC_PROTECTED): continue
-                new = (acc | ACC_PUBLIC) if kind == 'f' else (acc | ACC_PROTECTED)
+                if acc & ACC_PUBLIC: continue          # 只跳过已 public（protected 对跨包调用不够）
+                new = acc | ACC_PUBLIC
                 struct.pack_into('>H', b, m['acc_off'], new); touched = True
             if touched:
                 data = bytes(b); changed += 1

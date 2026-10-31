@@ -135,7 +135,8 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 列出的 class/成员都"确实会被跨包访问" | 只统计**本次映射造成**的（原本同包、现在不同包），不误伤原有代码 |
 
 有输出就带 `--apply`（产出 `process/base/merged_pub.jar`），否则运行期 `IllegalAccessError`。
-本项目当前：候选 27 类 / 56 成员，`--apply` 改写 14 个 class（含类级访问：`new`/`checkcast`/`const-class`）。
+本项目当前：候选 27 类 / 56 成员，`--apply` 改写 27 个 class（含类级访问：`new`/`checkcast`/`const-class`；
+成员一律升 `public`，`protected` 对构造器/静态方法的跨包调用不够）。
 
 **位置很关键**：只能在 **FART 之前、对 `merged_ok.jar`、带 `--map`** 跑。
 FART 之后再跑（名字已最终、没有映射）实测是 **类 0 / 成员 0**；FART 后**逐 jar** 跑则看不到
