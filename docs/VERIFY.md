@@ -46,11 +46,11 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 
 | 门 | 期望输出 |
 |---|---|
-| 0 `filter_head` | `保留块 19 / 删块 0 / 删行 0` |
+| 0 `filter_head` | `保留块 1 / 删块 0 / 删行 0`（head 只剩 `abcd/vj → abcd/aide/AssetProvider`；见 NOTES §15） |
 | 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 141 / aide 54`，合计 `类块 880`、`丢陈旧块 0`、`去重成员 0` |
 | 1' `paramfill` | `参数行 4022 条（2328 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3238 / jsch 784 / aide 15） |
-| 1'' `emit_tsrg2` | `12328 行，static 方法标记 591 / 参数行 4077` |
-| 2 `validate_mappings` | `类块 891（含头部 12）/ 成员行 6768 / 参数行 4077 / 基线类 23635` → **✔ 无无效映射** |
+| 1'' `emit_tsrg2` | `12310 行，static 方法标记 591 / 参数行 4077` |
+| 2 `validate_mappings` | `类块 881（含头部 1）/ 成员行 6760 / 参数行 4077 / 基线类 23636` → **✔ 无无效映射** |
 | 3 `verify_members` | `成员映射 5376 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 223` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
 | 5 `pkgclose` | `约束边 717 / 需要挪的类 0 / 真冲突 7 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |

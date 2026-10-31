@@ -35,12 +35,12 @@ python3 tools/jgit/pipeline/inherit_check.py         # 期望 CONFLICT 0 / MISSI
 
 | 指标 | 值 |
 |---|---|
-| 类映射 | 879（`jgit` 685 / `jsch` 141 / `aide` 54，其中 `abcd/aide/*` 54 个 AIDE 自有类） |
+| 类映射 | 880（`jgit` 685 / `jsch` 141 / `aide` 54，其中 `abcd/aide/*` 54 个 AIDE 自有类） |
 | 成员映射 | 6760 行（只放真实改名；jgit 5502 / jsch 1228 / aide 30） |
-| mappings.txt | 12328 行 = 表头 1 + 头部 12 + 类块 879 + 成员行 6768 + `static` 591 + 参数行 4077 |
+| mappings.txt | 12310 行 = 表头 1 + 头部 1 + 类块 880 + 成员行 6760 + `static` 591 + 参数行 4077 |
 | 覆盖率 | jgit：方法 3501/3533 = **99.1%**、字段 1848/1855 = **99.6%**、完全覆盖类 **604**；jsch：方法 **741/741 = 100%**、字段 **537/537 = 100%**（oracle 0.1.51 + 27 条读码定名） |
 | 参数名 | 2340 个方法（jgit 1919 / jsch 409 / aide 12）= 4077 行：3665 由 oracle LVT、357 由源码声明、15 由手工证据 |
-| 真相分表 | `jgit` 685 类 / `jsch` 141 类 / `aide` 55 类；`head` 12 行历史补丁 |
+| 真相分表 | `jgit` 685 类 / `jsch` 141 类 / `aide` 54 类；`head` 1 行历史补丁 |
 | 认证 | verify 不一致 0；inherit CONFLICT 0 / MISSING 0；validate ✔ 无无效映射；mgraph 未对上 0.2%（4 条均已知） |
 
 ## 文档

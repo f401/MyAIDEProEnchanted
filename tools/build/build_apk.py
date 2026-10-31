@@ -136,6 +136,27 @@ def plan():
     print('  交集 %d（dex 侧独有 %d / jar 侧独有 %d）' % (inter, len(du - ju), len(ju - du)))
     if du - ju:
         print('    dex 独有示例: %s' % ', '.join(sorted(du - ju)[:5]))
+    # 逐对检查 process/src/*.jar 是否真的和这个 APK 的 dex 对齐（含 assets 的 4 个包）
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import align_src
+        pairs = align_src.pairs(apk)
+        bad = []
+        for key, jar, data, where in pairs:
+            want = align_src.dex_classes(data)
+            have = align_src.jar_classes(jar) if os.path.exists(jar) else set()
+            if want != have:
+                bad.append((key, len(want), len(have), len(want - have), len(have - want)))
+        if bad:
+            for key, a, b, lo, hi in bad:
+                print('    ✘ %-22s dex %d / jar %d（少 %d / 多 %d）' % (key + '.jar', a, b, lo, hi))
+            raise SystemExit('process/src/*.jar 与 %s 没对齐：把 APK 路径传给 '
+                             '`python3 tools/build/align_src.py --apk <apk> --apply` 重建'
+                             % os.path.basename(apk))
+    except SystemExit:
+        raise
+    except Exception as e:
+        print('    （对齐检查跳过：%s）' % e)
     print('  资产 jar/zip: %s' % ', '.join('%s(%dKB)' % (k.split('/')[-1], v // 1024) for k, v in assets.items()))
     return apk, dexes, du, ju, assets
 

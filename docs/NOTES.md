@@ -275,3 +275,31 @@ java.lang.NoClassDefFoundError: Failed resolution of:
 
 > 教训：**资产 bundle 是运行期 dex 包，不是编译期 classpath**。它们的内部 `abcd/*` 名字
 > 不影响 app 的可读性，把它们塞进同一张 mapping 只会制造命名空间撞车。
+
+## 15. `process/src/*.jar` 必须和 APK 对齐（`align_src.py`）
+
+`process/src/*.jar` 是**手工准备**的 dex2jar 产物，很容易拿成别的版本 —— 真机上就是这样炸的：
+
+| jar | 原来（错版） | APK 里真实 | 后果 |
+|---|---|---|---|
+| `en.jar` | 11 类 | 12 类 | 少 1 |
+| `zh.jar` | 11 类 | 12 类 | 少 1 |
+| `packagingservice.jar` | 19 类（`packagingservice/{b,e,e$a,e$a$a,f,f$a,...}`） | 19 类（`IExternalPackagingService{,Listener}{,$Stub,$Stub$Proxy}` 等**真名**） | 少 8 / 多 8 —— 完全是另一个 AIDE 构建的类名 |
+
+判据写成一句话：**每个 jar 的类定义集合，必须等于对应 dex 的类定义集合**。
+
+```bash
+python3 tools/build/align_src.py                 # 体检（默认 APK = freely 原包）
+python3 tools/build/align_src.py --apply         # 用 process/dex2jar/* 里的 dex2jar 重建
+python3 tools/build/align_src.py --apk <x.apk> --apply   # 以后换包/换 jar 时用
+```
+
+`build_apk.py plan` 现在也会跑同一套逐对检查，**不对齐就直接中止**（`all` 的第一步）。
+
+顺带清掉了 head 里的历史垃圾：那 6 条 `packagingservice/{e,f,e$a,f$a,…}` 的类映射 +
+`ExternalPackagingService$b/$e` 的成员行，全部是从**错版 jar** 的类名推出来的；对齐后发现
+这些 probe 类在本 APK 里根本不存在（本包本来就用真名），`mappings_head.txt` 只剩 1 行
+（`abcd/vj → abcd/aide/AssetProvider`）。
+
+> 教训：手工准备的输入要能**一条命令重建 + 每次构建自动校验**；否则错版会静默传播到
+> FART/D8/回填，最后在真机上以 `NoClassDefFoundError` 的形式暴露。

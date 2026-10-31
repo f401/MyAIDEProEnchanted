@@ -11,7 +11,7 @@ process/                          ← 已落地工程：构建输入 + 汇总产
 │
 ├── base/merged_ok.jar            # ★ 改名输入基线
 ├── base/merged_pub.jar           # widen_access 产物（跨包 package-private 已放宽）
-├── src/classes{,2,3,4,5}.jar     # 5 个 dex 的 dex2jar 产物
+├── src/classes{,2,3,4,5}.jar     # 5 个 dex 的 dex2jar 产物（`tools/build/align_src.py` 可重建/校验）
 ├── src/{en,zh,ndk,packagingservice}.jar
 ├── ForgeAutoRenamingTool-1.0.8-all.jar
 ├── d8.jar / android.jar          # D8 与 API stub
@@ -112,7 +112,7 @@ python3 tools/jgit/pipeline/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内�
 
 | 文件 | 说明 |
 |---|---|
-| `mappings.txt` | 12328 行 = 表头 1 + 头部 12 + 类块 879 + 成员行 6768 + `static` 591 + 参数行 4077 |
+| `mappings.txt` | 12310 行 = 表头 1 + 头部 1 + 类块 880 + 成员行 6760 + `static` 591 + 参数行 4077 |
 | `jobs/jgit/params.tsv` | 3238 行：1919 个方法（含 139 个 `<init>`；oracle LVT 为主，抽象方法走源码） |
 | `jobs/jsch/params.tsv` | 824 行：409 个方法（jsch 0.1.51 的 LVT + 0.1.51 源码声明） |
 | `jobs/aide/params.tsv` | 15 行：12 个方法（`params_manual.tsv`，每行都有判据） |
