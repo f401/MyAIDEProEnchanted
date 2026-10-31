@@ -4,8 +4,9 @@ _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 import paths as _P  # noqa: E402
 """probelib.py — 探针(smali) / oracle(class) 成员清单与描述符归一化。
 
-类映射唯一真相: jobs/jgit/truth/class_map.tsv  (probe 无 abcd/ 前缀, 第二列 jgit 全名)
-成员映射权威产物: jobs/jgit/truth/members.tsrg
+类映射唯一真相: process/truth/<part>/class_map.tsv  (probe 无 abcd/ 前缀, 第二列真名)
+成员映射权威产物: process/truth/<part>/members.tsrg   (part: jgit/jsch/aide/head)
+这里读的是 paths.MAP / paths.TSRG —— 各 part 的**合并只读视图**。
 """
 import os, re, struct, sys, zipfile
 

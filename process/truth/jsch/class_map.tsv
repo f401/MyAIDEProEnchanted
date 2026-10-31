@@ -1,0 +1,2 @@
+com/jcraft/jsch/UserInfo	com/jcraft/jsch/UserInfo	identity:jsch 接口；其成员在 dex 里也被改了名（实现者 abcd/lI 一侧有映射），需要块来落成员
+com/jcraft/jsch/UIKeyboardInteractive	com/jcraft/jsch/UIKeyboardInteractive	identity:同上

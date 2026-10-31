@@ -1,17 +1,31 @@
 #!/usr/bin/env python3
 """config.py —— 反混淆工程配置（JSON）。
 
-一个"工程"= 一套待改名的探针 + 若干 oracle 版本 + 两张映射表。所有通用工具都从这里取路径，
-不再硬编码任何项目路径。
+一个"工程"= 一套待改名的探针 + 若干 oracle 版本 + 若干**映射分表**（part）。
+所有通用工具都从这里取路径，不再硬编码任何项目路径。
+
+**分表（parts）**：一个 APK 往往同时改名了多个依赖（jgit / jsch / AIDE 自有类…）。
+把它们的真相按 part 分目录放，`mappings.txt` 再按 `parts` 顺序汇总——这样改动、评审、复用
+都不会互相污染：
+
+    truth/jgit/{class_map.tsv, members.tsrg, params.tsv}
+    truth/jsch/{class_map.tsv, members.tsrg}
+    truth/head/mappings_head.txt        ← 原样拼在输出最前的历史补丁
+
+`parts` 里也可以直接写对象 `{"name": "...", "dir": "..."}`。没有 `parts` 时退化为
+老写法（`class_map` / `member_map` / `param_map` / `head` 各一个文件），代码里统一按
+**列表**访问（`project.class_map` 是路径列表）。
 
 字段（除 name 外都可省略）：
   probe_dir       smali 根目录（探针类源码），如 "src/smali"
   smali_index     可选：`类描述符 <TAB> 文件名` 索引（大小写不敏感 FS 必用）
   probe_prefix    探针包前缀，默认 "abcd"（类描述符去壳后用于查 index）
-  class_map       类映射 TSV：`探针 <TAB> 目标 [<TAB> 证据]`
-  member_map      成员映射（TSRG 块文件）
+  parts           映射分表目录列表（见上）；每目录自动认 class_map.tsv / members.tsrg /
+                  params.tsv / mappings_head.txt
+  class_map       类映射 TSV：`探针 <TAB> 目标 [<TAB> 证据]`（可给列表，等价于单 part）
+  member_map      成员映射（TSRG 块文件，可给列表）
   param_map       可选的参数名表 TSV：`类 <TAB> 方法 <TAB> 描述符 <TAB> 序号 <TAB> 参数名 [<TAB> 来源]`
-  head            可选的 TSRG2 头部行（原样拼在输出最前面）
+  head            可选的 TSRG2 头部行（原样拼在输出最前面；可给列表）
   out_tsrg        生成的 TSRG2 输出路径
   allow           白名单 TSV：`探针 <TAB> 新名 <TAB> 理由`（可选）
   base_jars       改名输入 jar 列表（用于 static 标志、validate）
@@ -52,10 +66,11 @@ class Project:
         self.probe_dir = _expand(c.get('probe_dir'), self.root)
         self.probe_prefix = (c.get('probe_prefix') or 'abcd').rstrip('/')
         self.smali_index = _expand(c.get('smali_index'), self.root)
-        self.class_map = _expand(c.get('class_map'), self.root)
-        self.member_map = _expand(c.get('member_map'), self.root)
-        self.param_map = _expand(c.get('param_map'), self.root)
-        self.head = _expand(c.get('head'), self.root)
+        self.parts = self._parse_parts(c)
+        self.class_map = [p['class_map'] for p in self.parts if p['class_map']]
+        self.member_map = [p['member_map'] for p in self.parts if p['member_map']]
+        self.param_map = [p['param_map'] for p in self.parts if p['param_map']]
+        self.head = [p['head'] for p in self.parts if p['head']]
         self.out_tsrg = _expand(c.get('out_tsrg'), self.root)
         self.allow = _expand(c.get('allow'), self.root)
         self.base_jars = _globs(c.get('base_jars'), self.root)
@@ -70,10 +85,53 @@ class Project:
                 oj.append((o.get('label') or os.path.basename(o['path'])[:20], _expand(o['path'], self.root)))
         self.oracle_jars = [x for x in oj if os.path.exists(x[1])]
 
+    def _parse_parts(self, c):
+        """→ [{'name','dir','class_map','member_map','param_map','head'}]（按输出顺序）。"""
+        out = []
+        for item in c.get('parts') or []:
+            if isinstance(item, str):
+                d = _expand(item, self.root)
+                name = os.path.basename(d.rstrip('/')) or d
+            else:
+                d = _expand(item.get('dir'), self.root)
+                name = item.get('name') or os.path.basename((d or '').rstrip('/'))
+            cm = os.path.join(d, 'class_map.tsv') if d else None
+            mm = os.path.join(d, 'members.tsrg') if d else None
+            pm = os.path.join(d, 'params.tsv') if d else None
+            hd = None
+            for nm in ('mappings_head.txt', 'head.txt'):
+                if d and os.path.exists(os.path.join(d, nm)):
+                    hd = os.path.join(d, nm)
+                    break
+            out.append(dict(name=name, dir=d,
+                            class_map=cm if cm and os.path.exists(cm) else None,
+                            member_map=mm if mm and os.path.exists(mm) else None,
+                            param_map=pm if pm and os.path.exists(pm) else None,
+                            head=hd))
+        if out:
+            return out
+        # 兼容老写法：单值（或列表）直接当一份 part
+        return [dict(name='default', dir=None,
+                     class_map=_expand(c.get('class_map'), self.root),
+                     member_map=_expand(c.get('member_map'), self.root),
+                     param_map=_expand(c.get('param_map'), self.root),
+                     head=_expand(c.get('head'), self.root))]
+
+    def part_of(self, probe_or_target):
+        """按目标全名找 part（写工具用；找不到返回 None）。"""
+        for p in self.parts:
+            if p['class_map'] and os.path.exists(p['class_map']):
+                for line in open(p['class_map'], encoding='utf-8'):
+                    f = line.rstrip('\n').split('\t')
+                    if len(f) > 1 and f[1] == probe_or_target:
+                        return p['name']
+        return None
+
     def describe(self):
-        return ('工程 %s\n  probe_dir   %s\n  class_map   %s\n  member_map  %s\n  out_tsrg    %s\n'
+        parts = '\n'.join('    %-10s %s' % (p['name'], p['dir'] or '(单文件)') for p in self.parts)
+        return ('工程 %s\n  probe_dir   %s\n  parts       %d\n%s\n  out_tsrg    %s\n'
                 '  base_jars   %d\n  input_jars  %d\n  oracle      %s' % (
-                    self.name, self.probe_dir, self.class_map, self.member_map, self.out_tsrg,
+                    self.name, self.probe_dir, len(self.parts), parts, self.out_tsrg,
                     len(self.base_jars), len(self.input_jars),
                     ', '.join('%s' % l for l, _ in self.oracle_jars) or '（无）'))
 

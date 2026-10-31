@@ -126,7 +126,7 @@ def main():
     for k, a in enumerate(args):
         if a == '--out': out = args[k+1]
         if a == '--map': mapf = args[k+1]
-    mp = load_map(mapf) if mapf else {}
+    mp = load_map(mapf or _P.MAP) if (mapf or os.path.exists(_P.MAP)) else {}
     z = zipfile.ZipFile(src)
     infos = {i.filename: i for i in z.infolist()}
     parsed = {}

@@ -2,43 +2,43 @@
 
 改完 mapping **必须**按顺序跑完下面 9 道门；全绿才允许构建。任何一道红了，按"失败处置"修，不要绕过。
 
-真相在 `jobs/jgit/truth/`（类映射 tsv / 成员映射 tsrg / 头部 / smali 索引），`jobs/jgit/mappings.txt` 是派生产物。
+真相在 `process/truth/`（类映射 tsv / 成员映射 tsrg / 头部 / smali 索引），`process/mappings.txt` 是派生产物。
 
 ## 两种等价入口
 
 | | 本项目门禁（带白名单/版本差异分类） | 通用 kit（配置驱动） |
 |---|---|---|
-| 入口 | `tools/jgit/pipeline/*.py` | `tools/deob/cli.py -p jobs/jgit/deob.json <cmd>` |
-| 配置 | 固定在本仓库 | `jobs/jgit/deob.json` |
+| 入口 | `tools/jgit/pipeline/*.py` | `tools/deob/cli.py -p process/deob.json <cmd>` |
+| 配置 | 固定在本仓库 | `process/deob.json` |
 | 适用 | 本项目的 9 道门（权威） | 新工程 / 交叉验证 |
 
 ```bash
 cd /storage/emulated/0/MyAIDEProEnchanted
 python3 tools/jgit/pipeline/filter_head.py --apply    # 0) 清 mappings_head.txt 的死块/死行
-python3 tools/jgit/pipeline/rebuild_tsrg.py           # 1) tsv/tsrg → members.tsrg（块顺序、去重、类目标查重），
+python3 tools/jgit/pipeline/rebuild_tsrg.py           # 1) **逐 part** 重建 members.tsrg（块顺序/去重/类目标查重），
                                                       #    并自动接着跑 1a/1b 生成 mappings.txt
-python3 tools/jgit/pipeline/paramfill.py --write      # 1a) oracle LVT / jgit 源码 → truth/params.tsv（参数名）
-python3 tools/jgit/pipeline/emit_tsrg2.py jobs/jgit/mappings.txt   # 1b) TSRG2：`\t\tstatic` 标记 + `\t\t<i> <名> <名>` 参数行
+python3 tools/jgit/pipeline/paramfill.py --write      # 1a) oracle LVT / jgit 源码 → truth/<part>/params.tsv（参数名）
+python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 1b) TSRG2：`\t\tstatic` 标记 + `\t\t<i> <名> <名>` 参数行
 python3 tools/jgit/pipeline/validate_mappings.py      # 2) 有效性（类/成员存在、static、重复目标）
 python3 tools/jgit/pipeline/verify_members.py         # 3) 一致性（对着 oracle + 白名单）
 python3 tools/jgit/pipeline/inherit_check.py          # 4) 继承链闭合
 python3 tools/jgit/pipeline/pkgclose.py               # 5) 包归属（访问图）
 python3 tools/jgit/pipeline/coverage.py               # 6) 覆盖率（只度量）
 python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar \
-        --map jobs/jgit/truth/class_map.tsv        # 7) 跨包 access 预演（不带 --apply 只看报告）
+                                                # 7) 跨包 access 预演（不带 --apply 只看报告；--map 缺省用合并视图）
 # 8) FART 两遍判等 + 冒烟（见 BUILD.md §3/§7）
 ```
 
 通用 kit 的等价命令：
 
 ```bash
-D="python3 tools/deob/cli.py -p jobs/jgit/deob.json"
-$D params --apply   # = 门 1'（oracle LVT / src_root 源码 → truth/params.tsv）
+D="python3 tools/deob/cli.py -p process/deob.json"
+$D params --apply   # = 门 1'（oracle LVT / src_root 源码 → truth/<part>/params.tsv）
 $D emit          # = rebuild_tsrg + emit_tsrg2（输出与本项目产物逐行一致）
 $D validate      # = 门 2
 $D inherit       # = 门 4
 $D pkgs          # = 门 5
-$D widen process/base/merged_ok.jar --map jobs/jgit/truth/class_map.tsv
+$D widen process/base/merged_ok.jar          # --map 缺省 = paths.MAP（合并视图）
 $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 ```
 
@@ -47,8 +47,8 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 门 | 期望输出 |
 |---|---|
 | 0 `filter_head` | `保留块 19 / 删块 0 / 删行 0` |
-| 1 `rebuild_tsrg` | `输出类块 740 == tsv 类`、`丢弃陈旧块 0`、`去重成员 0`、`头 20 + jgit 6254` |
-| 1' `paramfill` | `方法映射 3307 条：命中 2957（无参 1173 / jar 参数全 1667 / 源码补全 117 / 仍缺 0）`；`参数行 3025 条（1784 个方法）` |
+| 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 2 / aide 53`，合计 `类块 740`、`丢陈旧块 0`、`去重成员 0` |
+| 1' `paramfill` | `方法映射 3307 条：命中 2957（无参 1173 / jar 参数全 1667 / 源码补全 117 / 仍缺 0）`；`参数行 3025 条（1784 个方法）`，写 `truth/jgit/params.tsv` |
 | 1'' `emit_tsrg2` | `9829 行，static 方法标记 530 / 参数行 3025` |
 | 2 `validate_mappings` | `类块 751 / 成员行 5522 / 参数行 3025 / 基线类 23635` → **✔ 无无效映射** |
 | 3 `verify_members` | `成员映射 5352 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 222` |
@@ -89,7 +89,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 期望 | 说明 |
 |---|---|
 | `不一致 0`、`字段类型不符 0` | 不一致 = 改后的名字在 oracle 目标类里不存在/描述符不同 |
-| `已知R8签名重写 4`、`已知oracle版本差异 222` | 白名单项，见 `jobs/jgit/verify_allow.tsv`（每条都要写理由） |
+| `已知R8签名重写 4`、`已知oracle版本差异 222` | 白名单项，见 `process/verify_allow.tsv`（每条都要写理由） |
 
 新出现不一致时：要么改回正确名字，要么在 `verify_allow.tsv` 追加一行 `探针<TAB>新名<TAB>理由`
 （理由必须写清"3.7.1 里是什么、AIDE 改成了什么"）。
@@ -130,8 +130,8 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 
 ```bash
 J=process/ForgeAutoRenamingTool-1.0.8-all.jar
-java -jar $J --input <jar> --output out/v1.jar --map jobs/jgit/mappings.txt --lib ...
-java -jar $J --input <jar> --output out/v2.jar --map jobs/jgit/mappings.txt --lib ...
+java -jar $J --input <jar> --output out/v1.jar --map process/mappings.txt --lib ...
+java -jar $J --input <jar> --output out/v2.jar --map process/mappings.txt --lib ...
 H1=$(python3 tools/jgit/pipeline/jar_manifest.py out/v1.jar --list)
 H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 [ "$H1" = "$H2" ] && echo "内容一致 ✔" || python3 tools/jgit/pipeline/jar_manifest.py out/v1.jar --check "$H2"
@@ -155,7 +155,7 @@ H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 |---|---|
 | `命中 2957（无参 1173 / jar 参数全 1667 / 源码补全 117 / 仍缺 0）` | 「仍缺 0」= 凡有参数的方法都拿到了名字 |
 | 未命中 `无类映射 149 / 方法名不同 95 / 描述符不同 106` | 没有 oracle 对应物，故意留空（不编语义） |
-| 重跑 `paramfill.py --write` 后 `truth/params.tsv` 不变 | 幂等；成员改名后必须重跑（`rebuild_tsrg` 已自动串起来） |
+| 重跑 `paramfill.py --write` 后各 `truth/<part>/params.tsv` 不变 | 幂等；成员改名后必须重跑（`rebuild_tsrg` 已自动串起来） |
 
 **参数行对产物有没有副作用**（新旧 mapping 各跑一遍 FART 比 22763 个条目）：
 
@@ -174,5 +174,5 @@ H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 | 覆写"失效"（调到父类实现） | 跨包 package-private 虚方法 | `widen_access`（放 protected） |
 | FART 两遍产物不同 | 祖先成员未映射 / 子类改名 | 门 4 `inherit_check` 补 MISSING |
 | D8 `multiple definitions` | 同类内新名+描述符重复 | 门 2 `dup-member-target` |
-| Fernflower 里抽象方法参数名还是 `varN` | 参数行没生成 / 没被 FART 吃到 | 门 9 `paramfill` + 检查 `truth/params.tsv` |
+| Fernflower 里抽象方法参数名还是 `varN` | 参数行没生成 / 没被 FART 吃到 | 门 9 `paramfill` + 检查 `truth/<part>/params.tsv` |
 | D8 `Invalid input code with a call to <clinit>` | dex2jar 产物缺陷（非改名造成） | `tools/jgit/pipeline/nop_clinit.py` 处理后重试 |

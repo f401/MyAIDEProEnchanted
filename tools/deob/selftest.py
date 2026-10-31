@@ -50,8 +50,11 @@ def main():
                   key=weight)[:8]
     if not pick:
         print('FAIL 取不到子集（class_map/member_map 不匹配）'); return 1
-    sub_cm = os.path.join(truth, 'class_map.tsv')
-    sub_mm = os.path.join(truth, 'members.tsrg')
+    # 子集写成一个**独立的 part 目录**（新工程最常见的样子：一份 truth）
+    sub_dir = os.path.join(truth, 'subset')
+    os.makedirs(sub_dir, exist_ok=True)
+    sub_cm = os.path.join(sub_dir, 'class_map.tsv')
+    sub_mm = os.path.join(sub_dir, 'members.tsrg')
     kept = {mapping.full(p, P.probe_prefix) for p, _, _ in pick}
     # 补上这些类的**已映射祖先**（否则子集里必然报 MISSING，属于取样假象）
     _idx = smali.Index(P.smali_index)
@@ -85,9 +88,9 @@ def main():
             for ln in mm.blocks[probe]:
                 f.write('\t' + ln + '\n')
     # 参数名子集（只留 kept 里的类）
-    sub_prm = os.path.join(truth, 'params.tsv')
+    sub_prm = os.path.join(sub_dir, 'params.tsv')
     n_par = 0
-    if P.param_map and os.path.exists(P.param_map):
+    if P.param_map:
         rows = []
         for (owner, name, desc), prs in params.load_tsv(P.param_map).items():
             if owner not in kept:
@@ -107,18 +110,21 @@ def main():
     cfg['base_jars'] = list(P.base_jars)
     cfg['input_jars'] = list(P.input_jars)
     cfg['oracle_jars'] = [{'label': l, 'path': p} for l, p in P.oracle_jars]
-    cfg['class_map'] = 'out/selftest/truth/class_map.tsv'
-    cfg['member_map'] = 'out/selftest/truth/members.tsrg'
+    for _k in ('class_map', 'member_map', 'param_map'):
+        cfg.pop(_k, None)
+    cfg['parts'] = ['out/selftest/truth/subset']
     cfg['out_tsrg'] = 'out/selftest/mappings.txt'
-    cfg['param_map'] = 'out/selftest/truth/params.tsv' if n_par else None
     cfg['out_dir'] = 'out/selftest'
     cfg_path = os.path.join(work, 'deob.json')
     json.dump(cfg, open(cfg_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
 
     import hashlib
     src = {}
-    for k, v in (('class_map', P.class_map), ('member_map', P.member_map), ('out_tsrg', P.out_tsrg)):
-        src[k] = v
+    for _p in P.parts:                     # 所有 part 的 truth 都必须一字未改
+        for _k in ('class_map', 'member_map', 'param_map', 'head'):
+            if _p[_k]:
+                src['%s/%s' % (_p['name'], _k)] = _p[_k]
+    src['out_tsrg'] = P.out_tsrg
     def _h(p):
         return hashlib.sha256(open(p, 'rb').read()).hexdigest() if os.path.exists(p) else '-'
     before = {k: _h(v) for k, v in src.items()}

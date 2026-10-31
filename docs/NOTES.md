@@ -2,8 +2,9 @@
 
 ## 0. 真相在哪
 
-`jobs/jgit/truth/{jgit_map_clean.tsv, jgit_members_clean.tsrg, mappings_head.txt, smali_index.tsv}` 是**唯一真相**
-（已入库）。工具通过 `tools/jgit/paths.py` 优先读这里，`$HOME/out/work/` 下的同名文件是旧副本，改它们无效。
+`process/truth/<part>/{class_map.tsv, members.tsrg, params.tsv}` 是**唯一真相**（已入库），
+part 按来源分：`jgit` / `jsch` / `aide` / `head`，顺序见 `process/deob.json` 的 `parts`；
+`process/truth/smali_index.tsv` 是全局索引。工具通过 `tools/jgit/paths.py` 优先读这里，`$HOME/out/work/` 下的同名文件是旧副本，改它们无效。
 
 ## 1. 命名与归属约定
 
@@ -65,7 +66,7 @@
 
 工作目录在 `/storage/emulated/0`（FUSE，大小写不敏感）：`qF$a.smali` 与 `qF$a.1.smali`、
 `abcd/ji` 与 `abcd/JI` 会互相覆盖/被加 `.1`/`.2` 后缀。**类名到文件名的映射必须查
-`jobs/jgit/truth/smali_index.tsv`**，不要用 `类名.smali` 直接拼。
+`process/truth/smali_index.tsv`**，不要用 `类名.smali` 直接拼。
 
 ## 8. R8 剪枝与统计口径
 

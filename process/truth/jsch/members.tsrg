@@ -1,0 +1,8 @@
+com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
+	DW (Ljava/lang/String;)V showMessage
+	FH (Ljava/lang/String;)Z promptPassphrase
+	Hw (Ljava/lang/String;)Z promptYesNo
+	j6 ()Ljava/lang/String; getPassphrase
+	j6 (Ljava/lang/String;)Z promptPassword
+com/jcraft/jsch/UIKeyboardInteractive com/jcraft/jsch/UIKeyboardInteractive
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String; promptKeyboardInteractive

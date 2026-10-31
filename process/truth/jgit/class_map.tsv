@@ -609,8 +609,6 @@ RK$c	org/eclipse/jgit/util/TemporaryBuffer$Heap	shape:super=TemporaryBuffer+0 �
 VJ	org/eclipse/jgit/treewalk/EmptyTreeIterator	shape:super=AbstractTreeIterator+0 字段 14 方法，全 oracle 唯一匹配
 nH$g	org/eclipse/jgit/internal/storage/file/RefDirectory$PackedRefList	shape:super=RefList；RefDirectory 剩余的唯一命名嵌套类（Loose* 六个已定名）
 AB	org/eclipse/jgit/api/RebaseResult	nest:AB$a 已定为 RebaseResult$Status ⇒ 其父探针 AB 只能是 RebaseResult
-com/jcraft/jsch/UserInfo	com/jcraft/jsch/UserInfo	identity:jsch 接口；其成员在 dex 里也被改了名（实现者 abcd/lI 一侧有映射），需要块来落成员
-com/jcraft/jsch/UIKeyboardInteractive	com/jcraft/jsch/UIKeyboardInteractive	identity:同上
 IH$a	org/eclipse/jgit/internal/storage/pack/DeltaWindow$ZipStream	shape:scan（字段/方法多重集+super 全库唯一）
 PD$a	org/eclipse/jgit/fnmatch/GroupHead$CharacterPattern	shape:scan（字段/方法多重集+super 全库唯一）
 UI	org/eclipse/jgit/transport/RefFilter$1	shape:scan（字段/方法多重集+super 全库唯一）
@@ -629,7 +627,6 @@ TK	org/eclipse/jgit/util/io/DisabledOutputStream	shape:scan--loose（字段/方�
 VI	org/eclipse/jgit/transport/RefFilter	shape:scan--loose（字段/方法多重集+super 全库唯一）
 VK$b	org/eclipse/jgit/util/io/InterruptTimer$AlarmThread	shape:scan--loose（字段/方法多重集+super 全库唯一）
 _D	org/eclipse/jgit/lib/AsyncObjectSizeQueue	shape:scan--loose（字段/方法多重集+super 全库唯一）
-iL	abcd/aide/CollectionFactory	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 qF	org/eclipse/jgit/merge/MergeChunk	shape:scan--loose（字段/方法多重集+super 全库唯一）
 vE	org/eclipse/jgit/lib/NullProgressMonitor	shape:scan--loose（字段/方法多重集+super 全库唯一）
 xJ$d$a	org/eclipse/jgit/transport/TransportHttp$Service$HttpExecuteStream	shape:scan--loose（字段/方法多重集+super 全库唯一）
@@ -658,12 +655,10 @@ MG	org/eclipse/jgit/internal/storage/file/AidePackObjectStream	name:AIDE 自有/
 LC	org/eclipse/jgit/dircache/DirCacheBuildIterator	shape:scan-all(10 版) 唯一命中 3.7.1/4.0.0 的 DirCacheBuildIterator；字段 builder:DirCacheBuilder + createSubtreeIterator/skip/stopWalk 三方法 1:1（后并入 DirCacheCheckout 内部）
 NG	org/eclipse/jgit/internal/storage/file/AideSizedObjectStream	name:AIDE 自有/魔改变体，按作用自定义可读名
 OG	org/eclipse/jgit/internal/storage/file/AidePackedObjectLoader	name:AIDE 自有/魔改变体，按作用自定义可读名
-Ww	abcd/aide/HttpConnectionBase	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 bC	org/eclipse/jgit/diff/AideWorkingTreeObjectLoader	name:AIDE 自有/魔改变体，按作用自定义可读名
 cG	org/eclipse/jgit/revwalk/RevBlob	body:getType() 恒返回 3(OBJ_BLOB) + parseHeaders(RevWalk) 抛 MissingObjectException，与 RevBlob 1:1（无字段、parseBody 被剪枝）
 cL	org/eclipse/jgit/util/io/UnionInputStream	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
 jG	org/eclipse/jgit/revwalk/RevObjectList	place:access_audit --suggest：被踩 owner 全在同一包 ⇒ 只挪包、保留混淆名
-yc	abcd/aide/TimeProvider	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 zC	org/eclipse/jgit/diff/RawTextComparator	body:抽象 extends DC(SequenceComparator) + 5 个 RawTextComparator 类型静态字段(DEFAULT/WS_IGNORE_ALL/LEADING/TRAILING/CHANGE) + hash/hashRegion/reduceCommonStartEnd/findForwardLine/findReverseLine 与 3.7.1 逐位对应
 GD	org/eclipse/jgit/events/ListenerHandle	body:3 字段类型与 3.7.1 ListenerHandle 逐位对应（parent:ListenerList / type:Class / listener:RepositoryListener）+ HD.add(ListenerHandle) 参数类型；oracle 的 remove() 在 APK 里被内联/删除
 KJ	org/eclipse/jgit/transport/UploadPackLogger$1	shape:scan-all 唯一命中：无字段 + 唯一 onPackStatistics(Statistics) 空实现，即 UploadPack 内的 NULL logger
@@ -677,64 +672,14 @@ wC	org/eclipse/jgit/diff/RawTextComparator$3	body:zC.<clinit> 第 3 个实例 = 
 xC	org/eclipse/jgit/diff/RawTextComparator$4	body:zC.<clinit> 第 4 个实例 = WS_IGNORE_TRAILING
 yC	org/eclipse/jgit/diff/RawTextComparator$5	body:zC.<clinit> 第 5 个实例 = WS_IGNORE_CHANGE
 WE	org/eclipse/jgit/lib/RepositoryCache	nexus:字段 ConcurrentHashMap+WE$c[]；WE$b=Key(接口)被 WE$a=FileKey 实现；方法 (WE$b)UE 返回 ObjectReader
-Hz	abcd/aide/HttpRequest	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz$a	abcd/aide/HttpUploadTask	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz$b	abcd/aide/HttpConnectionFactory	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz$d	abcd/aide/HttpTask	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz$e	abcd/aide/HttpBodyOutputStream	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Gz	abcd/aide/HttpUpload	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 PC$b	org/eclipse/jgit/dircache/DirCacheEditor$PathEdit	dex:nest PC$b 是 PC(DirCacheEditor) 的成员；形状 String path + abstract apply(DirCacheEntry)；子类 PA/PC$a/YA 都映射成 apply
 NF$a	org/eclipse/jgit/revwalk/BlockObjQueue$Block	guessprove:引用锚点唯一(NF=BlockObjQueue)+形状(自引用next/int*2+RevObject[])+dex 命名
 LF$a	org/eclipse/jgit/revwalk/AbstractRevQueue$1	guessprove:LF=AbstractRevQueue 的匿名子类, 覆写 add/next/everbodyHasFlag; LF 证据含 static EMPTY_QUEUE
 ZD	org/eclipse/jgit/lib/AsyncObjectLoaderQueue	body:next()Z+getCurrent()+open()->ObjectLoader+release() 与 AsyncObjectLoaderQueue 1:1；oG(RevWalk$2).FH:ZD = parseAny 的 queue 字段
 aE	org/eclipse/jgit/lib/AsyncOperation	body:唯一抽象 void release()，子类 GE/HE(AnonymousObjectReader)/nG/oG(AsyncRevObjectQueue) 全部实现
 DD	org/eclipse/jgit/events/ConfigChangedListener	body:接口 extends LD(Listener) + 唯一方法 onConfigChanged(CD)；HD.addConfigChangedListener(DD) 的参数类型即 jgit 的 ConfigChangedListener
-Zw	abcd/aide/HttpConnection	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 GH	org/eclipse/jgit/internal/storage/file/AideObjectStream	name:AIDE 自有/魔改变体，按作用自定义可读名
 SG$a	org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation$1	body:extends SG(LocalObjectRepresentation) + 无字段 + getFormat() 恒返回 0(PACK_WHOLE)，与 3.7.1 LocalObjectRepresentation$1 1:1
 rI$a	org/eclipse/jgit/transport/HttpAuthMethod$Basic	body:2 个 String 字段(user/pass) + authorize(String,String)/apply(HttpURLConnection)，与 4.11.9 HttpAuthMethod$Basic 1:1
 rI$b	org/eclipse/jgit/transport/HttpAuthMethod$Digest	body:6 字段(Random/char[]/Map/String/String/int) + 10 方法，对应 4.11.9 HttpAuthMethod$Digest 的 PRNG/params/requestCount/user/pass/LHEX 与 uri/H/KD/newMD5/LHEX/parse
 rI$c	org/eclipse/jgit/transport/HttpAuthMethod$None	body:无实例字段 + 4 方法(authorize/apply/=ctor)，对应 4.11.9 HttpAuthMethod$None（静态 INSTANCE 被内联）
-Tw	abcd/aide/DefaultHttpClient	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Uw	abcd/aide/HttpRequestInterceptor	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Vw	abcd/aide/HttpResponseInterceptor	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Sw	abcd/aide/ConnPerRoute	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Ww$b	abcd/aide/ConnectionReuseStrategy	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Ww$c	abcd/aide/KeepAliveStrategy	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Dw	abcd/aide/HttpTransport	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Dw$b	abcd/aide/HttpTransportCallback	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Gw	abcd/aide/HttpHelper	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Ez	abcd/aide/SslSocketFactoryProvider	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Jz	abcd/aide/SslSocketFactorySource	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Sz	abcd/aide/FabricTask	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-dA	abcd/aide/FabricRequest	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-jL	abcd/aide/JsonParser	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Zw$a	abcd/aide/HttpConnection$a	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Zw$b	abcd/aide/HttpConnection$b	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Ww$a	abcd/aide/HttpConnectionBase$a	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Ww$d	abcd/aide/HttpConnectionBase$d	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Ww$e	abcd/aide/HttpConnectionBase$e	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Hz$c	abcd/aide/HttpRequest$c	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$a	abcd/aide/HttpTransport$a	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$c	abcd/aide/HttpTransport$c	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$d	abcd/aide/HttpTransport$d	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$e	abcd/aide/HttpTransport$e	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$f	abcd/aide/HttpTransport$f	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$g	abcd/aide/HttpTransport$g	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Gw$a	abcd/aide/HttpHelper$a	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Ji	abcd/aide/Settings	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Di	abcd/aide/Settings$1	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Fi	abcd/aide/Settings$2	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Gi	abcd/aide/Settings$3	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Hi	abcd/aide/Settings$4	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Ii	abcd/aide/Settings$5	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Ai	abcd/aide/Settings$1$1	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Ci	abcd/aide/Settings$1$2	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Ei	abcd/aide/Settings$2$1	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Ji$a	abcd/aide/Settings$Exception	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-vi	abcd/aide/Settings$1$3	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-wi	abcd/aide/Settings$1$4	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-xi	abcd/aide/ErrorTask	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-yi	abcd/aide/Settings$1$5	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-zi	abcd/aide/Settings$1$6	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
-Bi	abcd/aide/Settings$1$2$1	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名

@@ -22,28 +22,54 @@ def full(probe, prefix):
 
 
 class ClassMap:
+    """多文件类映射：`path` 可以是单文件或列表（列表顺序 = part 顺序 = 输出顺序）。
+
+    `rows` 仍是 `(探针, 目标, 证据)` 三元组；`src_of[探针]` 记住它来自哪个文件，
+    `save()` 按来源分文件写回（新增的行走 `part_path` / 第一个文件），这样
+    "一份大表拆成多个 part" 之后，改哪行就只动哪个文件。
+    """
+
     def __init__(self, path=None, prefix='abcd'):
-        self.path = path
+        if path is None:
+            self.paths = []
+        elif isinstance(path, str):
+            self.paths = [path]
+        else:
+            self.paths = [p for p in path if p]
+        self.path = self.paths[0] if self.paths else None
         self.prefix = prefix
         self.rows = []          # [(probe_as_written, target, evidence)]
+        self.src_of = {}        # probe_as_written -> 文件
 
     def load(self):
-        if not self.path or not os.path.exists(self.path):
-            return self
-        for line in open(self.path, encoding='utf-8'):
-            line = line.rstrip('\n')
-            if not line or line.startswith('#'):
+        for p in self.paths:
+            if not p or not os.path.exists(p):
                 continue
-            f = line.split('\t')
-            if len(f) < 2:
-                continue
-            self.rows.append((f[0], f[1], f[2] if len(f) > 2 else ''))
+            for line in open(p, encoding='utf-8'):
+                line = line.rstrip('\n')
+                if not line or line.startswith('#'):
+                    continue
+                f = line.split('\t')
+                if len(f) < 2:
+                    continue
+                probe = f[0]
+                self.rows.append((probe, f[1], f[2] if len(f) > 2 else ''))
+                self.src_of.setdefault(probe, p)
         return self
 
     def save(self):
-        with open(self.path, 'w', encoding='utf-8') as f:
-            for probe, target, ev in self.rows:
-                f.write('%s\t%s%s\n' % (probe, target, ('\t' + ev) if ev else ''))
+        groups = collections.OrderedDict((p, []) for p in self.paths)
+        for probe, target, ev in self.rows:
+            p = self.src_of.get(probe) or self.path
+            groups.setdefault(p, []).append((probe, target, ev))
+        for p, rows in groups.items():
+            if not p:
+                continue
+            os.makedirs(os.path.dirname(os.path.abspath(p)) or '.', exist_ok=True)
+            with open(p, 'w', encoding='utf-8') as f:
+                for probe, target, ev in rows:
+                    f.write('%s\t%s%s\n' % (probe, target, ('\t' + ev) if ev else ''))
+        return len(self.rows)
 
     @property
     def dict(self):
@@ -52,50 +78,74 @@ class ClassMap:
     def targets(self):
         return collections.Counter(t for _, t, _ in self.rows)
 
-    def set(self, probe, target, evidence=''):
+    def set(self, probe, target, evidence='', part_path=None):
         for i, (p, t, e) in enumerate(self.rows):
             if p == probe:
                 self.rows[i] = (probe, target, evidence or e)
                 return
         self.rows.append((probe, target, evidence))
+        self.src_of.setdefault(probe, part_path or self.path)
 
     def delete(self, probe):
         self.rows = [r for r in self.rows if r[0] != probe]
+        self.src_of.pop(probe, None)
 
 
 class MemberMap:
-    """blocks: 有序 [(probe, target, [line,...])]，line 为去掉前导 TAB 的原文。"""
+    """多文件成员映射（TSRG 块）。`path` 可为单文件或列表；写回按来源分文件。
+
+    blocks: 有序 [(probe, target, [line,...])]，line 为去掉前导 TAB 的原文。
+    """
 
     def __init__(self, path=None):
-        self.path = path
+        if path is None:
+            self.paths = []
+        elif isinstance(path, str):
+            self.paths = [path]
+        else:
+            self.paths = [p for p in path if p]
+        self.path = self.paths[0] if self.paths else None
         self.order = []
         self.blocks = {}
         self.target = {}
+        self.src_of = {}
 
     def load(self):
-        if not self.path or not os.path.exists(self.path):
-            return self
-        cur = None
-        for line in open(self.path, encoding='utf-8'):
-            line = line.rstrip('\n')
-            if not line.strip():
+        for path in self.paths:
+            if not path or not os.path.exists(path):
                 continue
-            if not line.startswith('\t'):
-                f = line.split(' ')
-                cur = f[0]
-                self.order.append(cur)
-                self.blocks[cur] = []
-                self.target[cur] = f[1] if len(f) > 1 else cur
-            else:
-                self.blocks[cur].append(line[1:])
+            cur = None
+            for line in open(path, encoding='utf-8'):
+                line = line.rstrip('\n')
+                if not line.strip():
+                    continue
+                if not line.startswith('\t'):
+                    f = line.split(' ')
+                    cur = f[0]
+                    if cur in self.blocks:      # 多文件里同名块：保留第一次（part 顺序即优先级）
+                        continue
+                    self.order.append(cur)
+                    self.blocks[cur] = []
+                    self.target[cur] = f[1] if len(f) > 1 else cur
+                    self.src_of[cur] = path
+                elif cur is not None:
+                    self.blocks[cur].append(line[1:])
         return self
 
     def save(self):
-        with open(self.path, 'w', encoding='utf-8') as f:
-            for probe in self.order:
-                f.write('%s %s\n' % (probe, self.target.get(probe, probe)))
-                for ln in self.blocks[probe]:
-                    f.write('\t' + ln + '\n')
+        groups = collections.OrderedDict((p, []) for p in self.paths)
+        for probe in self.order:
+            groups.setdefault(self.src_of.get(probe) or self.path, []).append(probe)
+        for path, probes in groups.items():
+            if not path:
+                continue
+            os.makedirs(os.path.dirname(os.path.abspath(path)) or '.', exist_ok=True)
+            with open(path, 'w', encoding='utf-8') as f:
+                for probe in probes:
+                    f.write('%s %s\n' % (probe, self.target.get(probe, probe)))
+                    for ln in self.blocks[probe]:
+                        f.write('\t' + ln + '\n')
+        return sum(len(self.blocks[p]) for p in self.order)
 
     def iter_members(self):
         """→ (probe, kind, name, desc, new)"""
@@ -148,11 +198,12 @@ class MemberMap:
         self.blocks[probe][i] = ' '.join(f)
         return 'OK'
 
-    def ensure_block(self, probe, target):
+    def ensure_block(self, probe, target, part_path=None):
         if probe not in self.blocks:
             self.order.append(probe)
             self.blocks[probe] = []
             self.target[probe] = target
+            self.src_of[probe] = part_path or self.path
 
 
 # ---------- static 标志（TSRG2 的 `\t\tstatic` 只对方法有效） ----------
@@ -188,11 +239,14 @@ def emit_tsrg2(project, member_map=None, class_map=None, out=None):
     mm = member_map or MemberMap(project.member_map).load()
     out = out or project.out_tsrg
     stat = static_index(project.base_jars + project.input_jars)
-    pmap = params.load_tsv(project.param_map) if project.param_map and os.path.exists(project.param_map) else {}
+    pmap = params.load_tsv(project.param_map)
     targets = {}
     lines = ['tsrg2 obf deobf']
-    if project.head and os.path.exists(project.head):
-        for ln in open(project.head, encoding='utf-8'):
+    heads = project.head if isinstance(project.head, (list, tuple)) else [project.head]
+    for hp in heads:
+        if not hp or not os.path.exists(hp):
+            continue
+        for ln in open(hp, encoding='utf-8'):
             ln = ln.rstrip('\n')
             if ln.strip() and ln.strip() != 'tsrg2 obf deobf':
                 lines.append(ln)

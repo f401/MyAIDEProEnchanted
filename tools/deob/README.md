@@ -12,25 +12,23 @@ python3 tools/deob/cli.py init --name mylib --prefix zz   # → jobs/mylib/（�
 python3 tools/deob/cli.py -p jobs/mylib/deob.json status  # 写入目标是否都在本工程目录内
 ```
 
-`process/` 是已完成的 jgit 工程，**新任务只读它**。完整步骤见 [../../docs/NEW-JOB.md](../../docs/NEW-JOB.md)。
+`process/` 是**已落地**的工程（构建输入 + 按 part 分开的真相 + 产物），新任务只读它。
+完整步骤见 [../../docs/NEW-JOB.md](../../docs/NEW-JOB.md)。
 
 ## 快速开始
 
 ```bash
-# 1) 写一份工程配置（示例见仓库 jobs/jgit/deob.json）
+# 1) 写一份工程配置（示例见仓库 process/deob.json）
 cat > myjob/deob.json <<'JSON'
 {
   "name": "myjob",
-  "root": "..",
-  "probe_prefix": "abcd",
-  "probe_dir": "src/smali/abcd",
-  "smali_index": "jobs/jgit/truth/smali_index.tsv",
-  "class_map": "jobs/jgit/truth/class_map.tsv",
-  "member_map": "jobs/jgit/truth/members.tsrg",
-  "head": "jobs/jgit/truth/mappings_head.txt",
-  "out_tsrg": "jobs/jgit/mappings.txt",
-  "base_jars": ["process/base/merged_ok.jar"],
-  "input_jars": ["process/src/classes.jar"],
+  "root": ".",
+  "probe_prefix": "zz",
+  "probe_dir": "probe",
+  "parts": ["truth/main"],
+  "out_tsrg": "out/mappings.txt",
+  "base_jars": ["base/merged.jar"],
+  "input_jars": ["base/*.jar"],
   "oracle_jars": [{"label": "v1", "path": "$HOME/oracle/v1.jar"}]
 }
 JSON
@@ -55,7 +53,10 @@ python3 tools/deob/cli.py -p myjob/deob.json q abcd/X       # 成员与目标名
 | `dex.py` | 最小 DEX 解析（无 baksmali 时读元数据/嵌套/注解） |
 | `smali.py` | 探针侧解析 + `类→文件名` 索引（大小写不敏感 FS 必用索引） |
 | `oracle.py` | 多版本 oracle jar 访问；描述符归一化（`norm_desc`）与形状（`shape_of`） |
-| `mapping.py` | 类映射 TSV + 成员映射 TSRG 的读写；`emit_tsrg2`；声明式编辑 |
+| `mapping.py` | 类映射 TSV + 成员映射 TSRG 的读写（**多文件/多 part**，写回按行来源）；`emit_tsrg2`；声明式编辑 |
+| `split_truth.py` | 把一份大 truth 按目标前缀拆成 `truth/<part>/`（jgit / jsch / aide） |
+| `params.py` | 参数名：oracle `LocalVariableTable` 解析、槽位→实参序号、`fill()` 写各 part 的 `params.tsv` |
+| `javasrc.py` | 抽象/接口方法的参数名：从原始源码声明读（只认无方法体、类型消歧） |
 | `checks.py` | `validate / inherit / pkgs / widen / cover / manifest` |
 | `shape.py` | 形状索引与跨版本候选（`find` / `overlap_index`） |
 | `view.py` | 读码命令：`q / prof / dump / hdr / elim / iface / shape` |
@@ -63,7 +64,9 @@ python3 tools/deob/cli.py -p myjob/deob.json q abcd/X       # 成员与目标名
 
 ## 约定（与 `docs/NAMING.md` 一致）
 
-- 真相是 `class_map`（TSV）与 `member_map`（TSRG）；`out_tsrg` 永远由 `emit` 生成。
+- 真相是 `truth/<part>/{class_map.tsv, members.tsrg, params.tsv}`（`parts` 定拼接顺序）；
+  `out_tsrg` 永远由 `emit` 按 part 顺序汇总生成。一个工程里改了多个依赖就分多个 part，
+  不要混成一张表。
 - 成员映射只写**真实改名**；恒等行除"祖先对齐"外不写。
 - `emit` 会按 base/input jar 的 access 自动补 `\t\tstatic`（只对方法有效）。
 - `validate` 会报 `class-not-in-base`（头部历史条目常见）、`no-method/no-field`（幽灵成员）、

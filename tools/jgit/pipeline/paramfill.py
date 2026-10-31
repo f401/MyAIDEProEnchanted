@@ -11,7 +11,7 @@ if _os.path.isdir(_DE) and _DE not in _sys.path:
     _sys.path.append(_DE)
 import paths as _P  # noqa: E402
 import params as _PRM  # noqa: E402
-"""paramfill.py —— 生成 `truth/params.tsv`（本工程入口；实现是通用 kit 的 `tools/deob/params.py::fill`）。
+"""paramfill.py —— 生成各 part 的 `truth/<part>/params.tsv`（入口；实现是 `tools/deob/params.py::fill`）。
 
 判据（都可复现，不接受形状巧合，详见 docs/VERIFY.md 门 9）：
   1) 目标类   = class_map.tsv 里该探针的真名；
@@ -25,7 +25,7 @@ import params as _PRM  # noqa: E402
 
 用法：
   python3 tools/jgit/pipeline/paramfill.py            # 只统计
-  python3 tools/jgit/pipeline/paramfill.py --write    # 写 jobs/jgit/truth/params.tsv
+  python3 tools/jgit/pipeline/paramfill.py --write    # 按类来源写 process/truth/<part>/params.tsv
   python3 tools/jgit/pipeline/paramfill.py --no-src   # 不查源码（对照用）
 """
 # oracle 优先顺序：AIDE 的 jgit 以 3.7.1 为基，其余版本只用来补 3.7.1 没有的类/方法。

@@ -11,8 +11,11 @@
 | `jobs/<名字>/` | 新依赖工程（自包含） | 只有本工程的配置/真相/产物 |
 | `tools/deob/` | 通用工具 | 只读 |
 
-一个任务 = 一个 `jobs/<名字>/`，里面 `deob.json` + `truth/` + `oracle/` + `base/` + `out/`，
-与其他任务零共享。`deob status` 会逐条打印"写入目标是否在工程目录内"，越界会标 ⚠。
+一个任务 = 一个 `jobs/<名字>/`，里面 `deob.json` + `truth/<part>/` + `oracle/` + `base/` + `out/`，
+与其他任务零共享。若同一个 APK 里同时改名了多个依赖（jgit + jsch + AIDE 自有类…），
+就在 `truth/` 下按依赖分成多个 part，用 `parts` 定拼接顺序（参考 `process/truth/{jgit,jsch,aide,head}`）。
+
+`deob status` 会逐条打印"写入目标是否在工程目录内"，越界会标 ⚠。
 
 ## 1. 准备输入
 
@@ -27,11 +30,12 @@ mkdir -p jobs/<名字>/{oracle,base}
 
 ```bash
 python3 tools/deob/cli.py init --name mylib --prefix zz --probe-dir probe
-# 生成 jobs/mylib/{deob.json, truth/class_map.tsv, truth/members.tsrg, README.md}
+# 生成 jobs/mylib/{deob.json, truth/main/class_map.tsv, truth/main/members.tsrg, README.md}
 python3 tools/deob/cli.py -p jobs/mylib/deob.json status     # 看路径 + 隔离检查
 ```
 
-编辑 `jobs/mylib/deob.json`：把 `probe_dir` / `base_jars` / `input_jars` / `oracle_jars` 指到位。
+编辑 `jobs/mylib/deob.json`：把 `probe_dir` / `base_jars` / `input_jars` / `oracle_jars` 指到位；
+`parts: ["truth/main"]` 就是"本工程只有一份真相"，要按依赖拆分时再加目录并排顺序。
 （探针包前缀 `probe_prefix` 决定 `zz/X` 这类类名怎么拼。）
 
 顺手补两个可选键：
@@ -56,9 +60,9 @@ $D hdr zz/Foo            # super / ifaces / 字段类型
 写进真相（**只有这一处**）：
 
 ```
-jobs/mylib/truth/class_map.tsv   →   Foo<TAB>com/example/Foo<TAB>body:...
-jobs/mylib/truth/members.tsrg    →   probe/X com/example/X
-                                    \t<旧名> <描述符> <新名>
+jobs/mylib/truth/main/class_map.tsv   →   Foo<TAB>com/example/Foo<TAB>body:...
+jobs/mylib/truth/main/members.tsrg    →   probe/X com/example/X
+                                          \t<旧名> <描述符> <新名>
 ```
 
 ## 4. 成员级定名
@@ -99,7 +103,7 @@ java -jar process/ForgeAutoRenamingTool-1.0.8-all.jar \
 ## 7. 自检：这套路径还能用吗
 
 ```bash
-python3 tools/deob/selftest.py -p jobs/jgit/deob.json
+python3 tools/deob/selftest.py -p process/deob.json
 # PASS emit / emit-params / validate / params / inherit / pkgs / cover / shape / q / index-fallback / isolation
 ```
 

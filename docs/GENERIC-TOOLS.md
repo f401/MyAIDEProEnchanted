@@ -10,6 +10,7 @@
 | 路径 | 全部来自工程配置 JSON | 固定在本仓库 |
 | 用途 | 新工程起步、体检、构建通路 | 本项目的历史积累（含大量一次性别名分析脚本） |
 | 谁是权威 | 体检项以本项目脚本为准 | `pipeline/` 下的 9 道门 |
+| 真相组织 | `process/truth/<part>/`（jgit / jsch / aide / head） | `parts` 列表，每项一个目录（`truth/main` 起步） |
 
 新工程建议：先 `tools/deob/` 跑通 `emit → validate → inherit → pkgs → widen`，
 再用 `tools/jgit/naming/` 里的专用分析器当**模板**改写。
@@ -17,9 +18,9 @@
 ## 使用
 
 ```bash
-python3 tools/deob/cli.py -p jobs/jgit/deob.json validate
-python3 tools/deob/cli.py -p jobs/jgit/deob.json shape abcd/Zw      # 跨 3.7.1/4.11.9/5.13.3 找形状
-python3 tools/deob/cli.py -p jobs/jgit/deob.json widen process/base/merged_ok.jar --apply
+python3 tools/deob/cli.py -p process/deob.json validate
+python3 tools/deob/cli.py -p process/deob.json shape abcd/Zw      # 跨 3.7.1/4.11.9/5.13.3 找形状
+python3 tools/deob/cli.py -p process/deob.json widen process/base/merged_ok.jar --apply
 ```
 
 命令清单见 `tools/deob/README.md`；配置字段见 `tools/deob/config.py` 顶部注释。

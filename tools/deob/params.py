@@ -4,7 +4,7 @@
 参数名不是猜的：oracle jar 里带 `-g` 编译的 LocalVariableTable，槽位 → 实参序号
 （0 起、不含 `this`、long/double 只占一个序号）就是把名字挂到哪个参数上的**证据**。
 
-TSRG2 里参数行（实测 FART 1.0.8 内置 srgutils 的解析器，见 jobs/jgit/README.md）：
+TSRG2 里参数行（实测 FART 1.0.8 内置 srgutils 的解析器，见 process/README.md）：
     \\t\\t<argIndex> <obf参数名> <deobf参数名>
 必须是 3 段（两个名字列都得给，缺一段报 "Invalid TSRG v2 line, too many parts"），
 索引是实参序号。输入类没有 LocalVariableTable 时这些行是安全的空操作（不报错）。
@@ -179,18 +179,22 @@ COLS = ('owner', 'name', 'desc', 'index', 'param', 'src')
 
 
 def load_tsv(path):
-    """→ {(owner, name, desc): [(index, param, src)]}"""
+    """→ {(owner, name, desc): [(index, param, src)]}；`path` 可以是单文件或文件列表。"""
+    paths = [path] if isinstance(path, str) else [x for x in (path or []) if x]
     out = {}
-    with open(path, encoding='utf-8') as f:
-        for line in f:
-            line = line.rstrip('\n')
-            if not line or line.startswith('#'):
-                continue
-            p = line.split('\t')
-            if len(p) < 5:
-                continue
-            key = (p[0], p[1], p[2])
-            out.setdefault(key, []).append((int(p[3]), p[4], p[5] if len(p) > 5 else ''))
+    for one in paths:
+        if not one or not os.path.exists(one):
+            continue
+        with open(one, encoding='utf-8') as f:
+            for line in f:
+                line = line.rstrip('\n')
+                if not line or line.startswith('#'):
+                    continue
+                p = line.split('\t')
+                if len(p) < 5:
+                    continue
+                key = (p[0], p[1], p[2])
+                out.setdefault(key, []).append((int(p[3]), p[4], p[5] if len(p) > 5 else ''))
     for v in out.values():
         v.sort()
     return out
@@ -273,7 +277,8 @@ def fill(class_map, member_map, prefix='abcd', oracle_paths=(), out_path=None,
     """
     import javasrc
     from mapping import ClassMap, MemberMap
-    cdict = ClassMap(class_map, prefix).load().dict
+    cm = ClassMap(class_map, prefix).load()
+    cdict = cm.dict
     mm = MemberMap(member_map).load()
     idx, labels = build_index(oracle_paths)
     log('oracle 索引（方法条目数）：%s' % (', '.join('%s=%d' % kv for kv in labels.items()) or '（无）'))
@@ -338,6 +343,22 @@ def fill(class_map, member_map, prefix='abcd', oracle_paths=(), out_path=None,
     st['rows'] = len(rows)
     st['methods_with_params'] = len({(r[0], r[1], r[2]) for r in rows})
     if write and out_path:
-        st['written'] = save_tsv(out_path, rows)
-        log('写出 %s：%d 行' % (out_path, st['written']))
+        # out_path 可以是单文件，也可以是 {class_map 文件: params 文件}（多 part 按来源分写）
+        written = 0
+        if isinstance(out_path, dict):
+            groups = {}
+            for r in rows:
+                f = out_path.get(cm.src_of.get(r[0])) or next(iter(out_path.values()))
+                groups.setdefault(f, []).append(r)
+            for f, rs in sorted(groups.items()):
+                written += save_tsv(f, rs)
+                log('写出 %s：%d 行' % (f, len(rs)))
+            for f in out_path.values():
+                if f not in groups and os.path.exists(f):
+                    save_tsv(f, [])
+                    log('清空 %s（本 part 没有参数名）' % f)
+        else:
+            written = save_tsv(out_path, rows)
+            log('写出 %s：%d 行' % (out_path, written))
+        st['written'] = written
     return st

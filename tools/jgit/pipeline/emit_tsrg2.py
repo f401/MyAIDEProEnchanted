@@ -32,9 +32,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from dupcheck import parse_class
 
 HOME = os.path.expanduser('~')
-TSRG = _P.TSRG
-HEAD = _P.HEAD
-PROBE = '/storage/emulated/0/MyAIDEProEnchanted/process/base/merged_ok.jar'
+TSRGS = _P.TSRGS          # 各 part 的 members.tsrg（顺序 = part 顺序）
+HEAD = _P.HEAD            # 历史补丁，原样拼在最前
+PROBE = os.path.join(_P.REPO, 'process', 'base', 'merged_ok.jar')
 
 
 def main():
@@ -53,12 +53,18 @@ def main():
             d[('f', nm, '')] = a
         acc[c['this']] = d
 
-    pmap = _PRM.load_tsv(_P.PARAMS) if _os.path.exists(_P.PARAMS) else {}
+    pmap = _PRM.load_tsv(_P.PARAM_FILES)
     out = []
     hdr = None
     stat = 0
     npar = 0
-    for path in (HEAD, TSRG):
+    # 历史补丁（探针已在 jar 里改名）：原样输出，不补 static / 参数行
+    if HEAD and _os.path.exists(HEAD):
+        for _ln in open(HEAD, encoding='utf-8'):
+            _ln = _ln.rstrip('\n')
+            if _ln.strip() and not _ln.startswith('tsrg2'):
+                out.append(_ln)
+    for path in TSRGS:
         cur = None
         for ln in open(path):
             ln = ln.rstrip('\n')

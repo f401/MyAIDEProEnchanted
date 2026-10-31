@@ -2,28 +2,30 @@
   "name": "aide-pro-jgit",
   "root": ".",
   "probe_prefix": "abcd",
-  "probe_dir": "../../src/smali/abcd",
+  "probe_dir": "../src/smali/abcd",
   "smali_index": "truth/smali_index.tsv",
-  "class_map": "truth/class_map.tsv",
-  "member_map": "truth/members.tsrg",
-  "param_map": "truth/params.tsv",
+  "parts": [
+    "truth/head",
+    "truth/jgit",
+    "truth/jsch",
+    "truth/aide"
+  ],
   "src_root": "$HOME/src/jgit",
-  "head": "truth/mappings_head.txt",
   "out_tsrg": "mappings.txt",
   "allow": "verify_allow.tsv",
   "base_jars": [
-    "../../process/base/merged_ok.jar"
+    "base/merged_ok.jar"
   ],
   "input_jars": [
-    "../../process/src/classes.jar",
-    "../../process/src/classes2.jar",
-    "../../process/src/classes3.jar",
-    "../../process/src/classes4.jar",
-    "../../process/src/classes5.jar",
-    "../../process/src/zh.jar",
-    "../../process/src/en.jar",
-    "../../process/src/ndk.jar",
-    "../../process/src/packagingservice.jar"
+    "src/classes.jar",
+    "src/classes2.jar",
+    "src/classes3.jar",
+    "src/classes4.jar",
+    "src/classes5.jar",
+    "src/zh.jar",
+    "src/en.jar",
+    "src/ndk.jar",
+    "src/packagingservice.jar"
   ],
   "oracle_jars": [
     {

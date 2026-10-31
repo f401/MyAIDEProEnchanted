@@ -7,7 +7,7 @@ for _sub in ('pipeline','naming','audit','inspect','stage','deob'):
     if _os.path.isdir(_p) and _p not in _sys.path:
         _sys.path.append(_p)
 import paths as _P  # noqa: E402
-"""tsvfix.py — 声明式修类映射（jobs/jgit/truth/class_map.tsv）。
+"""tsvfix.py — 声明式修类映射（process/truth/<part>/class_map.tsv；一次只改一个 part）。
 
 fix 行: probe ␉ old ␉ new ␉ 证据
   old='-' 表示新增;  new='-' 表示删除该行
