@@ -112,3 +112,35 @@
 `Proxy*.proxy_host/user/passwd`、`Session` 的 `compute_keys` 那 6 个 `byte[]`（AIDE 把签名改成
 `(KeyExchange)`，赋值顺序没法对照）、`ChannelX11.cookie/table`、
 `jcraft/Compression.compress/uncompress`（AIDE 还把手 jzlib 换成了自带的 `abcd/Oy`，字段类型都变了）。
+
+## 10. jsch 最后 27 条：按 jgit 的办法读码定名（判据逐条留档）
+
+工具判不出的 27 条，按 jgit 对 `Aide*` 变体的老办法处理：**读代码，按作用定名**，
+把判据写在这里（`members.tsrg` 里没有证据列，证据只能落文档 + commit）。
+
+| 位置 | 定名 | 判据（可复现） |
+|---|---|---|
+| `Session.EQ()V` | `sendKeepAliveMsg` | body 有 `i|80` + `keepalivemsg` + `Session.write`；同族 `noMoreSessionChannels` 只差那个字段名 |
+| `Session` 的 6 个 `byte[]` | `IVc2s`/`IVs2c`/`Ec2s`/`Es2c`/`MACc2s`/`MACs2c`/`s2cmac_result2` | `updateKeys` 里 **首个写入序** + **二次写入来源**（`digest` / `arraycopy` / `expandKey` / `getBlockSize`）与 oracle 8 条来源签名完全同构；`s2cmac_result2` 又被 `read()` 读（与 oracle 同） |
+| `Channel.j6([BII)V` / `DW([BII)V` | `write` / `write_ext` | 只调 `IO.put` 的是 `write`，调 `IO.put_ext` 的是 `write_ext` |
+| `Channel$1.j6()V` | `init` | 同类 `flush`/`close`/`write` 都是恒等，`()V` 只剩 `init` |
+| `ChannelAgentForwarding`/`ChannelX11.j6([BII)V` | `write` | 同 `Channel`：`Buffer.shift/arraycopy/putByte` + `getInt` 的写包体 |
+| `ChannelSftp.j6(String,String)V` | `rename` | 整数常量集 `{2,4,8,101}` 与 oracle `rename` **完全一致**（`symlink` 多 3/47、`hardlink` 多 47） |
+| `ChannelSftp.u7(String)V` | `rmdir` | 调 `sendRMDIR`（`rm` 调 `sendREMOVE`、`mkdir` 调 `sendMKDIR`） |
+| `ChannelSftp.v5(String)SftpATTRS` | `lstat` | body 调 `_lstat`；其余 `_stat`/`stat` 分别对 `we`/`tp` |
+| `DHGEX`/`DHGEX256` 的 `aM`/`j3` | `g`/`e` | `aM` 传给 `DH.setG([B)`、`j3` 传给 `DH.setF([B)`（`setF` 存的是服务端 DH 公钥 = 源码里的字段 `e`） |
+| `ChannelX11` 的 `er`/`rN` | `cookie`/`port` | `write()` 读 `er` 两次（oracle `write` 读 `cookie` 两次）；`run()` 读 `rN`（oracle `run` 读 `port`） |
+| `ProxyHTTP/SOCKS4/SOCKS5` 的 `j6`/`Zo`/`VH` | `proxy_host`/`user`/`passwd` | `connect()` 里 String 字段读序与 oracle 逐个位置对齐（`proxy_host, proxy_host, user, passwd, …`） |
+| `jcraft/Compression.DW/j6` | `uncompress`/`compress` | **字符串常量**：`"uncompress: inflate returnd "` / `"compress: deflate returnd "` |
+| `jcraft/Compression.FH(Labcd/Oy;)` | `stream` | AIDE 把 jzlib 的 `ZStream` 换成自带的 `abcd/Oy`；oracle 同字段就叫 `stream`（类型变了，`mgraph` 会因此报 3 条"未对上"，属已知差异） |
+
+顺带纠正了 4 处**引擎在换 oracle 后判错**的（都是 `mgraph` 逮到的）：
+
+- `Channel.FH(I)V` 与 `Zo(I)V`：一个写 `exitstatus`、一个写 `lwsize_max`，被对调了 ⇒ `setExitStatus` / `setLocalWindowSizeMax`；
+- `jce/DH`（连同抽象父类 `DH`）的 `DW([B)V`/`j6([B)V`：一个调 `setF(BigInteger)`、一个调 `setP(BigInteger)`，被对调了；
+- `Proxy*` 的 `VH`/`Zo`：原来 `VH=proxy_host` 站错了位置（`connect` 的读序对不上）；
+- `Session.EQ [B`：原来指向 `IVc2s`，按赋值来源应是 `Ec2s`。
+
+结论：**jsch 741 个方法 / 537 个字段全部有名字**（678+63 / 536+1，其余是恒等与合成）。
+`mgraph` 剩 4 条未对上，全部有解释（1 条 AIDE 改过的 `ChannelExec.getErrStream` 方法体、
+3 条 `Compression.stream` 的类型被换成 `abcd/Oy`）。

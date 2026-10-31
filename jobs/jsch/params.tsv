@@ -142,6 +142,8 @@ com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Lcom/jcraft/jsch/SftpProgressM
 com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Lcom/jcraft/jsch/SftpProgressMonitor;J)Ljava/io/InputStream;	0	src	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Lcom/jcraft/jsch/SftpProgressMonitor;J)Ljava/io/InputStream;	1	monitor	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Lcom/jcraft/jsch/SftpProgressMonitor;J)Ljava/io/InputStream;	2	skip	jsch-0.1.51
+com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Ljava/lang/String;)V	0	oldpath	jsch-0.1.51
+com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Ljava/lang/String;)V	1	newpath	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;[[B)Z	0	path	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;[[B)Z	1	utf8	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	j6	(Z)V	0	x0	jsch-0.1.51
@@ -167,7 +169,9 @@ com/jcraft/jsch/ChannelSftp	j6	([ILcom/jcraft/jsch/ChannelSftp$Header;)Z	0	ackid
 com/jcraft/jsch/ChannelSftp	j6	([ILcom/jcraft/jsch/ChannelSftp$Header;)Z	1	header	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	tp	(Ljava/lang/String;)Lcom/jcraft/jsch/SftpATTRS;	0	path	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	tp	([B)V	0	path	jsch-0.1.51
+com/jcraft/jsch/ChannelSftp	u7	(Ljava/lang/String;)V	0	path	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	u7	([B)V	0	path	jsch-0.1.51
+com/jcraft/jsch/ChannelSftp	v5	(Ljava/lang/String;)Lcom/jcraft/jsch/SftpATTRS;	0	path	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	v5	([B)V	0	path	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	we	(Ljava/lang/String;)Lcom/jcraft/jsch/SftpATTRS;	0	path	jsch-0.1.51
 com/jcraft/jsch/ChannelSftp	we	([B)V	0	path	jsch-0.1.51
@@ -789,8 +793,14 @@ com/jcraft/jsch/jce/TripleDESCTR	j6	([BII[BI)V	1	s1	jsch-0.1.51
 com/jcraft/jsch/jce/TripleDESCTR	j6	([BII[BI)V	2	len	jsch-0.1.51
 com/jcraft/jsch/jce/TripleDESCTR	j6	([BII[BI)V	3	bar	jsch-0.1.51
 com/jcraft/jsch/jce/TripleDESCTR	j6	([BII[BI)V	4	s2	jsch-0.1.51
+com/jcraft/jsch/jcraft/Compression	DW	([BI[I)[B	0	buffer	jsch-0.1.51
+com/jcraft/jsch/jcraft/Compression	DW	([BI[I)[B	1	start	jsch-0.1.51
+com/jcraft/jsch/jcraft/Compression	DW	([BI[I)[B	2	length	jsch-0.1.51
 com/jcraft/jsch/jcraft/Compression	j6	(II)V	0	type	jsch-0.1.51
 com/jcraft/jsch/jcraft/Compression	j6	(II)V	1	level	jsch-0.1.51
+com/jcraft/jsch/jcraft/Compression	j6	([BI[I)[B	0	buf	jsch-0.1.51
+com/jcraft/jsch/jcraft/Compression	j6	([BI[I)[B	1	start	jsch-0.1.51
+com/jcraft/jsch/jcraft/Compression	j6	([BI[I)[B	2	len	jsch-0.1.51
 com/jcraft/jsch/jcraft/HMAC	j6	(Ljava/security/MessageDigest;)V	0	md	jsch-0.1.51
 com/jcraft/jsch/jcraft/HMAC	j6	([B)V	0	key	jsch-0.1.51
 com/jcraft/jsch/jcraft/HMAC	j6	([BI)V	0	buf	jsch-0.1.51

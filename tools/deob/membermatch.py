@@ -289,6 +289,7 @@ def match_class(cls, pst, ocl, lookup, obf, min_score=0.30, min_lead=0.12,
     pb = collections.defaultdict(list)
     for (n, d, st, syn) in pm:
         pb[d].append((n, st, syn))
+    ocache = {}
     seqp, informative = {}, {}
     for (n, d, st, syn) in pm:
         seq = smali_seq(pst['body'][(n, d)], lookup, obf)[:2]
@@ -329,9 +330,33 @@ def match_class(cls, pst, ocl, lookup, obf, min_score=0.30, min_lead=0.12,
                 emit(n, d, m, 'desc:', 1.0, 1.0)
             continue
         # 重载：按方法体 token 对齐
-        cands = [m for m in ol if not (m['acc'] & 0x1000)]
-        psel = [x for x in pl if not x[2]]
+        # 探针名本身就在候选里 ⇒ 那是 identity（不需要映射），别让它被别的探针抢走
+        ident = {x[0] for x in pl}
+        cands = [m for m in ol if not (m['acc'] & 0x1000) and m['name'] not in ident]
+        # 只让"还没定名"的探针参与（已定的在 seen 里，别再掺和进来破坏 1:1 判断）
+        psel = [x for x in pl if not x[2] and not lookup.get(('c', cls, x[0], d))]
+        if not cands:
+            continue
         if not cands or not psel:
+            continue
+        # 调用集包含：某个探针的"已定名调用"只有唯一候选都包含 ⇒ 直接定死
+        for _ in range(3):
+            locked = []
+            for (pn, st0, _sy0) in psel:
+                need = probe_callees(pst, cls, pn, d, lookup)
+                if len(need) < 3:   # 1~2 条调用的"包含"太容易撞（实测会把别的成员挤掉）
+                    continue
+                sub = narrow_by_callees(ocl, cands, need, ocache)
+                if len(sub) == 1 and bool(sub[0]['acc'] & 8) == st0:
+                    emit(pn, d, sub[0], 'call:包含', 1.0, 1.0)
+                    locked.append(pn)
+                    cands = [m for m in cands if m is not sub[0]]
+            if not locked:
+                break
+            psel = [x for x in psel if x[0] not in locked]
+            if not psel or not cands:
+                break
+        if not psel or not cands:
             continue
         oseq = {m['name'] + m['desc']: oracle_seq(ocl, m['code'] or b'')[:2] for m in cands}
         vmax = max([votes.get(('c', cls, d, pn, o['name']), 0) for (pn, _s, _y) in psel
@@ -961,6 +986,45 @@ def closure_overrides(parsed, rows, log=None):
     if added and log:
         log('  覆写家族闭包：补 %d 条（祖先/接口同名同描述符）' % added)
     return added
+
+
+def probe_callees(pst, cls, name, desc, lookup):
+    """探针方法里**已定名**的调用/字段读（集合）。没定名的不进集合 —— 宁缺毋滥。"""
+    out = set()
+    for (kind, owner, n, d) in smali_seq(pst['body'][(name, desc)], {}, set())[2]:
+        if kind != 'c':            # 只看**调用**：字段读常常被 AIDE 扁平化（`io.in` → `io_in`），会误伤
+            continue
+        real = lookup.get(('c', owner, n, d))
+        if real:
+            out.add(real)
+    return out
+
+
+def oracle_callees(ocl, m):
+    if not m.get('code'):
+        return set()
+    return {x[2] for x in oracle_seq(ocl, m['code'])[2] if x[0] == 'c'}
+
+
+def narrow_by_callees(ocl, cands, need, ocache):
+    """**调用集包含**过滤：探针里已定名的调用/字段读，候选的 body 必须都有。
+
+    比"整体相似度"锋利得多：`ChannelSftp.rm` 与 `rmdir` 的 body 只差一条 `sendREMOVE`
+    vs `sendRMDIR`（18 条 token 里 1 条），相似度只差 0.06，会被 `--min-lead` 挡掉；
+    用"包含"就一句话判死 —— 探针调了 `sendRMDIR`，`rm` 的 body 里没有它。
+    """
+    if not need:
+        return cands
+    keep = []
+    for o in cands:
+        if not o.get('code'):       # 抽象方法没有 body，谈不上"包含"
+            continue
+        k = o['name'] + o['desc']
+        if k not in ocache:
+            ocache[k] = oracle_callees(ocl, o)
+        if need <= ocache[k]:
+            keep.append(o)
+    return keep or cands
 
 
 def eliminate(parsed, ocls, rows, lookup, log=None, min_score=0.05):
