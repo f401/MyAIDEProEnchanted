@@ -11,7 +11,7 @@ abcd/yc abcd/aide/TimeProvider
 abcd/Hz abcd/aide/HttpRequest
 	QX ()Ljava/net/HttpURLConnection; createConnection
 	XL ()Ljava/net/Proxy; getProxy
-	j6 (Labcd/Hz;)I compareTo
+	j6 (Labcd/Hz;)I access$000
 	EQ ()Ljava/lang/String; getRequestMethod
 	FH (Ljava/lang/String;Ljava/lang/String;)Labcd/Hz; setRequestProperty
 	Hw (Ljava/lang/String;)Ljava/lang/String; getHeaderField

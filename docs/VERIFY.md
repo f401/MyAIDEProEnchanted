@@ -54,7 +54,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 3 `verify_members` | `成员映射 5352 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 222` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
 | 5 `pkgclose` | `约束边 464 / 需要挪的类 0 / 真冲突 3 组`（真冲突交给门 7） |
-| 6 `coverage` | 方法 **3172/3533 = 89.8%**、字段 **1741/1855 = 93.9%**、类 623、完全覆盖 **480**；未入分母：方法 890 / 字段 496 |
+| 6 `coverage` | 方法 **3501/3533 = 99.1%**、字段 **1824/1855 = 98.3%**、类 623、完全覆盖 **598**；未入分母：方法 890 / 字段 496；未命中明细 63 条 → `~/out/work/cov_miss.tsv` |
 | 7 `widen_access --report` | `跨包需放宽：类 24 / 成员 56`（`--apply` 改写 11 个 class） |
 
 ## 门 0：`filter_head.py`
@@ -114,8 +114,19 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 
 ## 门 6：`coverage.py`
 
-只做度量，不做判定。分母 = oracle 里在 APK 中有同形对应者的成员（R8 删掉的**不入分母**）。
-口径见上表；通用版 `deob cover` 分母略大（77.9%/93.6%），仅作参考。
+只做度量，不做判定。口径：
+
+- **分母**只用 3.7.1（R8 是否删掉以它为参照）；
+- **命中判定放宽到"任一 oracle 版本里有"**——AIDE 的 jgit 是 3.7~4.x 混合版，
+  `verify_allow.tsv` 里 222 条"版本差异"其实都是真名，只在 3.7.1 里查会误判成未覆盖
+  （旧口径 89.8%，放宽后 99.1%）；
+- 未命中会写 `~/out/work/cov_miss.tsv`（探针 / 目标 / oracle 名 / 描述符 / 探针候选）。
+
+剩下的 63 条绝大多数是**同签名多方法**造成的假缺口（AIDE 把几个重载合成一个，
+例如 `BinaryDelta.getBaseSize/getResultSize` 都 `([B)J`、`LongList.set/fillTo` 都 `(IJ)V`），
+映射无法再拆，属度量口径的固有局限。
+
+通用版 `deob cover` 分母略大（77.9%/93.6%），仅作参考。
 
 ## 门 7：`widen_access.py`
 
@@ -160,8 +171,9 @@ H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 |---|---|
 | `命中 2963（无参 1174 / jar 参数全 1667 / 源码补全 122 / 仍缺 0）` | 「仍缺 0」= 凡有参数、且有 oracle 对应的方法都拿到了名字 |
 | 未命中 `无类映射 143 / 方法名不同 95 / 描述符不同 106` | 没有 oracle 对应物，故意留空（不编语义） |
-| 参数行 `3034`（1789 个方法）：jgit 3025 / jsch 9 | jsch 的 5 个接口方法来自 0.1.55 源码声明 |
+| 参数行 `3262`（1936 个方法）：jgit 3238 / jsch 9 / aide 15 | jgit 含 139 个构造器（`<init>` 的 LVT）；aide 的 15 行来自 `params_manual.tsv` |
 | 重跑 `paramfill.py --write` 后各 `jobs/<依赖>/params.tsv` 不变 | 幂等；成员改名后必须重跑（`rebuild_tsrg` 已自动串起来） |
+| `jobs/aide/params_manual.tsv` 15 行（每行都有判据） | 人工/证据行，`paramfill` 合并时 **manual 优先**（见 §9 末） |
 
 **参数行对产物有没有副作用**（新旧 mapping 各跑一遍 FART 比 22763 个条目）：
 

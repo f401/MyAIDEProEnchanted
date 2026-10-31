@@ -81,9 +81,33 @@ for l in open(TSRG):
     if len(s)==2: fmap[(cur,s[0])]=s[1]
     elif len(s)>=3: mmap[(cur,s[0],norm(s[1]))]=s[2]
 
+# 分母只用 3.7.1（R8 是否删掉以它为参照）；命中判定放宽到"任一 oracle 版本里有"，
+# 因为 AIDE 的 jgit 是 3.7~4.x 的混合版，222 条"版本差异"其实是真名（见 verify_allow.tsv）。
+ORACLE_DIR=HOME+'/out/oracle/jgit'
+EXTRA_JARS=['j-4.0.0.201506090130-r.jar','j-4.2.0.201601211800-r.jar',
+            'j-4.4.1.201607150455-r.jar','j-4.5.0.201609210915-r.jar',
+            'j-4.5.7.201904151645-r.jar','j-4.9.10.201904181027-r.jar',
+            'j-4.10.0.201712302008-r.jar','j-4.11.9.201909030838-r.jar',
+            'org.eclipse.jgit-5.6.1.202002131546-r.jar',
+            'org.eclipse.jgit-5.13.3.202401111512-r.jar']
+ZEX=[zipfile.ZipFile(ORACLE_DIR+'/'+n) for n in EXTRA_JARS if os.path.exists(ORACLE_DIR+'/'+n)]
+_extra={}
+def extra_of(new):
+    """→ (方法 {(name,desc)}, 字段 {name})：只来自非 3.7.1 的 oracle 版本。"""
+    if new in _extra: return _extra[new]
+    em=set(); ef=set()
+    for _z in ZEX:
+        try: d=_z.read(new+'.class')
+        except KeyError: continue
+        a,b=parse_class(d)
+        em |= {(x[0],x[1]) for x in a}
+        ef |= {x[0] for x in b}
+    _extra[new]=(em,ef)
+    return em,ef
+
 z=zipfile.ZipFile(ORACLE)
 onames={n[:-6] for n in z.namelist() if n.endswith('.class')}
-tm=tf=hm=hf=0; rows=[]; miss=[]
+tm=tf=hm=hf=0; rows=[]; miss=[]; missd=[]
 nopair_m=nopair_f=0
 for path in sorted(os.listdir(SRC)):
     if not path.endswith('.smali'): continue
@@ -111,7 +135,12 @@ for path in sorted(os.listdir(SRC)):
         if not cands:
             nopair_m+=1; continue
         tm+=1; ctm+=1
-        if any(mmap.get((old,pn,ds),pn)==nm for pn in cands): hm+=1; chm+=1
+        em,_ef=extra_of(new)
+        if any((mmap.get((old,pn,ds),pn)==nm) or ((mmap.get((old,pn,ds),pn),ds) in em)
+               for pn in cands):
+            hm+=1; chm+=1
+        else:
+            missd.append((old,new,'m',nm,ds,','.join('%s=>%s'%(pn,mmap.get((old,pn,ds),pn)) for pn in cands)))
     for nm,ds,acc in of:
         if acc&0x1000: continue
         if nm in ('this$0','$assertionsDisabled','serialVersionUID'): continue
@@ -120,7 +149,11 @@ for path in sorted(os.listdir(SRC)):
         if not cands:
             nopair_f+=1; continue
         tf+=1; ctf+=1
-        if any(fmap.get((old,pn),pn)==nm for pn in cands): hf+=1; chf+=1
+        _em,ef=extra_of(new)
+        if any((fmap.get((old,pn),pn)==nm) or (fmap.get((old,pn),pn) in ef) for pn in cands):
+            hf+=1; chf+=1
+        else:
+            missd.append((old,new,'f',nm,ds,','.join('%s=>%s'%(pn,fmap.get((old,pn),pn)) for pn in cands)))
     # 反查：tsrg 里已映射但不在分母（可能错了/重复）的条目
     rows.append((old,new,chm,ctm,chf,ctf))
     if chm<ctm or chf<ctf: miss.append((old,new,ctm-chm,ctf-chf))
@@ -128,6 +161,10 @@ for path in sorted(os.listdir(SRC)):
 print(f'方法 {hm}/{tm} = {100*hm/max(1,tm):.1f}%   字段 {hf}/{tf} = {100*hf/max(1,tf):.1f}%')
 print(f'（因 R8 删除/无同形对应而未入分母：方法 {nopair_m} 条，字段 {nopair_f} 条）')
 print(f'类数 {len(rows)}；完全覆盖类 {sum(1 for r in rows if r[2]==r[3] and r[4]==r[5])}')
+with open(HOME+'/out/work/cov_miss.tsv','w') as w:
+    w.write('probe\ttarget\tkind\toracleName\tdesc\tprobeCandidates\n')
+    for r in missd: w.write('\t'.join(map(str,r))+'\n')
+print('未命中明细 %d 条 -> ~/out/work/cov_miss.tsv' % len(missd))
 with open(HOME+'/out/work/cov_detail.tsv','w') as w:
     w.write('abcd\tjgit\t方法命中\t方法分母\t字段命中\t字段分母\n')
     for r in rows: w.write('\t'.join(map(str,r))+'\n')

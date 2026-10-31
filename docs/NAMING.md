@@ -121,6 +121,8 @@
 |---|---|
 | oracle jar 的 `LocalVariableTable` | `(类, 方法名, 描述符)` 三元组**完全相等**；槽位按描述符换算成实参序号（0 起、不含 `this`、`long/double` 只占一个序号） |
 | 原始源码（`src_root`） | 仅当 oracle 里那条是抽象/接口方法（没有 `Code`）。只认**无方法体**（`;` 结尾）的声明；同名同参数个数多条时用形参类型与描述符逐个比对消歧，仍不唯一就留空 |
+| 覆盖标准 API 的方法 | 参数名取该 API 的公开签名（如 `HttpURLConnection.setRequestProperty(String key, String value)`），在 `params_manual.tsv` 里写 `manual:jdk(...)` |
+| 无 oracle 但能读 body | 读 smali body 判断参数用途后命名（`manual:body(...)`），例如 `configureRequest(HttpUriRequest request)` |
 
 三元组对不上就**不出行**：AIDE 自有类、合成方法（`access$NNN`）、被魔改过签名的方法
 都留空。当前基线：1667 个方法来自 LVT、117 个来自源码、0 个残缺；留空 350 个
@@ -136,5 +138,8 @@
 - **顺序**：紧跟方法行（以及它的 `\t\tstatic` 标记行）之后；
 - 输入类若没有 `LocalVariableTable`（本项目就是这样），它只会改写 jar 内的
   `fernflower_abstract_parameter_names.txt`——这是收益，不是风险（见 VERIFY.md 门 9）。
+
+后两档写进 `jobs/<依赖>/params_manual.tsv`（格式同 `params.tsv`，`src` 列写判据），
+`paramfill` 合并时 **manual 优先**——所以人工补充不会被下次生成冲掉，也永远可追溯。
 
 禁止：拿 `var1/arg0` 占位、按现代变量名风格硬编、把方法名或字段名当参数名抄。

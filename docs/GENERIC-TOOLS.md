@@ -43,7 +43,10 @@ python3 tools/deob/cli.py -p process/deob.json widen process/base/merged_ok.jar 
 | `params.remap_desc(desc, 类映射)` | 描述符里的 `L混淆名;` → 真名（查 oracle 前必须换） |
 | `javasrc.lookup(src_root, 类, 方法, 描述符)` | 源码声明里的形参名：只认无方法体（`;`）的声明，多条时用类型消歧 |
 
-新依赖只要在 `deob.json` 里给 `param_map` +（可选）`src_root`，`deob params --apply` 即可；
+人工/证据行放 `truth/<part>/params_manual.tsv`（同格式，`src` 写判据），`deob params --apply`
+合并时 manual 优先；这样"自动取不到就手工补"也不会被下次重跑冲掉。
+
+新依赖只要在 `deob.json` 里给 `params` 目录（`parts`）+（可选）`src_root`，`deob params --apply` 即可；
 没有 LVT（strip 过的 jar）且没有源码时它什么都不写——**不猜**是设计，不是缺陷。
 
 ## 还留在 `tools/jgit/naming/` 的可移植分析器（建议按需搬）

@@ -200,6 +200,21 @@ def load_tsv(path):
     return out
 
 
+def merge_manual(rows, manual_path):
+    """把人工/证据行（`params_manual.tsv`，同格式）合并进来，**manual 优先**。
+
+    自动能拿到的参数名走 oracle LVT / 源码；oracle 和源码都没有的（AIDE 自有类）
+    才写进 manual —— 每一行都要在 `src` 列写清判据（body 特征 / JDK 签名 / 接口双侧一致）。
+    """
+    if not manual_path or not os.path.exists(manual_path):
+        return rows
+    out = {(r[0], r[1], r[2], r[3]): (r[4], r[5]) for r in rows}
+    for (owner, name, desc), prs in load_tsv(manual_path).items():
+        for i, nm, src in prs:
+            out[(owner, name, desc, i)] = (nm, src or 'manual')
+    return [(k[0], k[1], k[2], k[3], v[0], v[1]) for k, v in sorted(out.items())]
+
+
 def save_tsv(path, rows):
     """rows: [(owner, name, desc, index, param, src)]，按 (owner,name,desc,index) 排序。"""
     rows = sorted(set(rows), key=lambda r: (r[0], r[1], r[2], r[3]))
@@ -290,7 +305,11 @@ def fill(class_map, member_map, prefix='abcd', oracle_paths=(), out_path=None,
           'no_class': 0, 'no_name': 0, 'no_desc': 0}
     miss = {}
     for probe, kind, name, desc, new in mm.iter_members():
-        if kind != 'm' or new == name:
+        if kind != 'm':
+            continue
+        # 恒等行一般跳过（没改名 = 不关心）；但构造器/静态初始化永远是恒等，
+        # 它们的参数名照样能从 oracle 的 LVT 拿到，所以不能跳。
+        if new == name and not name.startswith('<'):
             continue
         st['methods'] += 1
         owner = cdict.get(probe)
@@ -357,10 +376,18 @@ def fill(class_map, member_map, prefix='abcd', oracle_paths=(), out_path=None,
                 f = out_path.get(cm.src_of.get(r[0])) or next(iter(out_path.values()))
                 groups.setdefault(f, []).append(r)
             for f, rs in sorted(groups.items()):
+                rs = merge_manual(rs, os.path.join(os.path.dirname(f), 'params_manual.tsv'))
                 written += save_tsv(f, rs)
                 log('写出 %s：%d 行' % (f, len(rs)))
             for f in out_path.values():
-                if f not in groups and os.path.exists(f):
+                if f in groups:
+                    continue
+                # 本 part 没有自动行：只可能是 manual（AIDE 自有类就是这种情况）
+                rs = merge_manual([], os.path.join(os.path.dirname(f), 'params_manual.tsv'))
+                if rs:
+                    written += save_tsv(f, rs)
+                    log('写出 %s：%d 行（全部来自 params_manual.tsv）' % (f, len(rs)))
+                elif os.path.exists(f):
                     save_tsv(f, [])
                     log('清空 %s（本 part 没有参数名）' % f)
         else:

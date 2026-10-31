@@ -1,0 +1,17 @@
+# 人工/证据行（paramfill 生成后合并，manual 优先）
+# owner	name	desc	index	param	src
+abcd/Ww	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	0	request	manual:body(HttpUriRequest.getParams→HttpConnectionParams.setSoTimeout)
+abcd/Zw	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	0	request	manual:接口方法,与实现 abcd/Ww 同名同签名(双侧一致)
+abcd/Hz	j6	(Ljava/lang/String;I)I	0	name	manual:jdk(HttpURLConnection.getHeaderFieldInt(String name,int Default))
+abcd/Hz	j6	(Ljava/lang/String;I)I	1	defaultValue	manual:jdk(同上,第 2 参是缺省值)
+abcd/Hz	FH	(Ljava/lang/String;Ljava/lang/String;)Labcd/Hz;	0	key	manual:jdk(setRequestProperty(String key,String value))
+abcd/Hz	FH	(Ljava/lang/String;Ljava/lang/String;)Labcd/Hz;	1	value	manual:jdk(同上)
+abcd/Hz	Hw	(Ljava/lang/String;)Ljava/lang/String;	0	name	manual:jdk(getHeaderField(String name))
+abcd/Hz	j6	(I)Labcd/Hz;	0	timeout	manual:jdk(setConnectTimeout(int timeout))
+abcd/Hz	j6	(Z)Labcd/Hz;	0	useCaches	manual:jdk(setUseCaches(boolean useCaches))
+abcd/Hz	j6	(Labcd/Hz;)I	0	x0	manual:body(iget Hz.tp -> 合成访问器)
+abcd/Hz$b	j6	(Ljava/net/URL;)Ljava/net/HttpURLConnection;	0	url	manual:工厂(URL -> 连接)
+abcd/Hz$b	j6	(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;	0	url	manual:工厂(URL+Proxy -> 连接)
+abcd/Hz$b	j6	(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;	1	proxy	manual:同上
+abcd/Hz$e	j6	(Ljava/lang/String;)Labcd/Hz$e;	0	value	manual:body(CharsetEncoder.encode(CharBuffer.wrap(p1)))
+abcd/yc	j6	(J)J	0	value	manual:合成访问器(写静态 long)
