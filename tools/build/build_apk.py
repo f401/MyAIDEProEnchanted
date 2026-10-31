@@ -19,6 +19,7 @@ import os
 import sys
 import re
 import shutil
+import tempfile
 import subprocess
 import sys
 import zipfile
@@ -231,20 +232,50 @@ def step_jdkrefs(P):
     return 0
 
 
+ASSET_REL = {'en': 'lang/en.jar', 'zh': 'lang/zh.jar',
+             'ndk': 'runtime/ndk.zip', 'packagingservice': 'runtime/packagingservice.zip'}
+
+
+def asset_zip(key):
+    """`src/` 树里那个原始 bundle（`zip(classes.dex)`）——回填时**原样**放进 APK。"""
+    return os.path.join(REPO, 'src', 'assets', 'data', 'functions', ASSET_REL[key])
+
+
 def sync_assets():
-    """把 `src/` 树里 assets 的 4 个 bundle 拷到 `process/src/<key>.jar`（打包脚本的输入）。"""
-    src_root = os.path.join(REPO, 'src', 'assets', 'data', 'functions')
-    for key, rel in (('en', 'lang/en.jar'), ('zh', 'lang/zh.jar'),
-                     ('ndk', 'runtime/ndk.zip'), ('packagingservice', 'runtime/packagingservice.zip')):
-        src = os.path.join(src_root, rel)
-        dst = os.path.join(REPO, 'process', 'src', key + '.jar')
+    """把树里 4 个 bundle 的 `classes.dex` **dex2jar** 成 `process/src/<key>.jar`（class jar）。
+
+    工具侧（validate / static 索引 / deob）要的是 class jar；回填 APK 时用的是树里那个
+    原始 dex-zip（见 `step_repack`），两者不要混。
+    """
+    jars = sorted(glob.glob(os.path.join(REPO, 'process', 'dex2jar', '*.jar')))
+    if not jars:
+        raise SystemExit('缺 process/dex2jar/*.jar（dex2jar 工具）')
+    for key in ASSET_REL:
+        src = asset_zip(key)
         if not os.path.exists(src):
             raise SystemExit('树里没有 %s' % src)
-        shutil.copyfile(src, dst)
-        with zipfile.ZipFile(dst) as zz:
+        with zipfile.ZipFile(src) as zz:
             if 'classes.dex' not in zz.namelist():
-                raise SystemExit('%s 不是 zip(classes.dex)' % dst)
-        print('  %-18s ← %s（%dKB）' % (dst, rel, os.path.getsize(dst) // 1024))
+                raise SystemExit('%s 不是 zip(classes.dex)' % src)
+            dex = zz.read('classes.dex')
+        dst = os.path.join(REPO, 'process', 'src', key + '.jar')
+        fd, tmp = tempfile.mkstemp(suffix='.dex'); os.close(fd)
+        try:
+            with open(tmp, 'wb') as f:
+                f.write(dex)
+            if os.path.exists(dst):
+                os.remove(dst)
+            r = subprocess.run(['java', '-Xmx1200m', '-cp', os.pathsep.join(jars),
+                                'com.googlecode.dex2jar.tools.Dex2jarCmd', '--force',
+                                '-o', dst, tmp], capture_output=True, text=True)
+            if r.returncode != 0 or not os.path.exists(dst):
+                print((r.stdout or '')[-600:]); print((r.stderr or '')[-600:])
+                raise SystemExit('dex2jar 失败：%s' % dst)
+        finally:
+            os.remove(tmp)
+        with zipfile.ZipFile(dst) as zz:
+            n = len([x for x in zz.namelist() if x.endswith('.class')])
+        print('  %-22s ← %s（%d 类）' % ('process/src/%s.jar' % key, ASSET_REL[key], n))
 
 
 def step_apkrefs(P):
@@ -281,15 +312,13 @@ def step_repack(P):
     for key, entry in ASSET_MAP.items():
         if entry not in z.namelist():
             continue
-        src = os.path.join(REPO, 'process', 'src', key + '.jar')
-        if not os.path.exists(src):
-            raise SystemExit('缺 %s（跑 `sync_assets` 或确认 src/assets/data/functions 下有它）' % src)
+        src = asset_zip(key)                      # 树里的原始 bundle：zip(classes.dex)
         with zipfile.ZipFile(src) as zz:
             if 'classes.dex' not in zz.namelist():
                 raise SystemExit('%s 不是 zip(classes.dex)' % src)
         payload[entry] = open(src, 'rb').read()
-        print('  资产 %-18s ← process/src/%s.jar（%dKB）' % (
-            key, key, os.path.getsize(src) // 1024))
+        print('  资产 %-18s ← src/assets/.../%s（%dKB，zip(classes.dex)）' % (
+            key, ASSET_REL[key], os.path.getsize(src) // 1024))
     zo = zipfile.ZipFile(dst, 'w', zipfile.ZIP_DEFLATED)
     written = 0
     dropped_sig = 0

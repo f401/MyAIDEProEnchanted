@@ -284,12 +284,19 @@ java.lang.NoClassDefFoundError: Failed resolution of:
 |---|---|
 | 类/成员映射（真相） | `jobs/<依赖>/` 三张表 |
 | FART 输入（`classes*.jar`） | `process/src/classes{,2,3,4,5}.jar`（dex2jar 产物），FART 只吃合并后的 `merged` |
-| **assets 的 4 个 bundle** | **`src/assets/data/functions/**` 里的原文件**，由 `build_apk.py sync_assets` 拷到 `process/src/<key>.jar` |
+| **assets 的 4 个 bundle（工具侧）** | `src/assets/data/functions/**` 里的 `classes.dex` → **dex2jar** → `process/src/<key>.jar`（class jar，`sync_assets`） |
+| **assets 回填 APK** | 仍是树里那个原始 **`zip(classes.dex)`**（`step_repack` 直接读 `src/assets/...`） |
 | 回填底包 | `src/AIDE Pro_2.8.7-freely_ac_src_src (2).apk`（树打出来的包） |
 
 ```bash
-python3 tools/build/build_apk.py sync_assets   # src/assets/... → process/src/{en,zh,ndk,packagingservice}.jar
+python3 tools/build/build_apk.py sync_assets
+#   src/assets/.../lang/en.jar!classes.dex        → process/src/en.jar        （12 类）
+#   src/assets/.../lang/zh.jar!classes.dex        → process/src/zh.jar        （12 类）
+#   src/assets/.../runtime/ndk.zip!classes.dex    → process/src/ndk.jar       （10 类）
+#   src/assets/.../runtime/packagingservice.zip!classes.dex → process/src/packagingservice.jar（19 类）
 ```
+
+两边格式不同是**故意的**：工具吃 class jar，APK 要 dex-zip。
 
 四个 bundle 都是 `zip(classes.dex)`（12 / 12 / 10 / 19 类），打包时按字节回填，
 不参与改名 —— 它们是**运行期动态加载的 dex 包**，内部 `abcd/*` 名字对可读性没有意义。
