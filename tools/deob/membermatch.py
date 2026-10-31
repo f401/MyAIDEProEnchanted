@@ -366,7 +366,8 @@ def match_class(cls, pst, ocl, lookup, obf, min_score=0.5, min_lead=0.08,
     return res
 
 
-def match_fields(cls, pst, ocl, p_usage, o_usage, lookup, votes=None, taken=None):
+def match_fields(cls, pst, ocl, p_usage, o_usage, lookup, votes=None, taken=None,
+                 p_src=None, o_src=None):
     """字段：描述符桶唯一 → 直接对上；否则用读写签名（usg）打分。
 
     → (匹配列表, 待人工列表)
@@ -395,8 +396,8 @@ def match_fields(cls, pst, ocl, p_usage, o_usage, lookup, votes=None, taken=None
             res.append(dict(probe=pl[0][0], desc=key[0], real=ol[0]['name'], ev='desc:',
                             score=1.0, lead=1.0))
             continue
-        cands = [m for m in ol if not (m['acc'] & 0x1000)]
-        psel = [x for x in pl if not x[1]]
+        cands = list(ol)                      # 合成字段（this$0 / val$handle…）也是真名，要能配
+        psel = list(pl)
         if not cands or not psel:
             continue
         mx = max([votes.get(('f', cls, key[0], pn, o['name']), 0) for (pn, _s) in psel
@@ -526,6 +527,76 @@ def order_votes(cls, pst, ocl, lookup, oseq_cache):
     return votes
 
 
+def field_sources_probe(pst, cls, lookup, obf=None):
+    """字段"赋值来源"签名：写这个字段之前紧邻的那条 token（已定名调用 / 字符串 / 整数 / 读的字段）。
+
+    `V_S = kex.getV_S()` 这种赋值在两侧是同构的（调用名一旦定下来就可比），
+    专治"同描述符一串字段 + 方法体写得不像"的情况（Session 的 6 个 `byte[]`、
+    Proxy 的 `proxy_host/user/passwd`、ChannelX11 的 cookie/table）。
+    """
+    out = collections.defaultdict(set)
+    for (n, d, st, syn) in pst['methods']:
+        last = None
+        for line in pst['body'][(n, d)].split('\n'):
+            t = line.strip()
+            if not t or t[0] in '.:#':
+                continue
+            op = t.split(None, 1)[0]
+            m = REF.search(t)
+            if op.startswith('invoke') and m:
+                owner, name, desc = m.group(1), m.group(2), m.group(3)
+                last = ('c', _key('c', owner, name, desc.lstrip(':'), lookup, obf or set()), desc)
+                continue
+            if op.startswith('const-string'):
+                ms = STR.match(t)
+                last = ('s', _unescape(ms.group(1)) if ms else '?', '')
+                continue
+            if op.startswith(('iget', 'sget')) and m:
+                last = ('r', _key('f', m.group(1), m.group(2), '', lookup, obf or set()), '')
+                continue
+            if op.startswith(('iput', 'sput')) and m:
+                owner, name, fdesc = m.group(1), m.group(2), m.group(3).lstrip(':')
+                if last:
+                    out[(owner, name, fdesc)].add(last)
+                last = None
+                continue
+            if op in INT_OPS:
+                last = ('i', t.rsplit(',', 1)[-1].strip(), '')
+                continue
+    return out
+
+
+def field_sources_oracle(ocl, cls):
+    out = collections.defaultdict(set)
+    for m in ocl['members']:
+        if m['kind'] != 'm' or not m['code']:
+            continue
+        last = None
+        for _off, op, ops in jvm.insns(m['code']):
+            if 0xb6 <= op <= 0xb9:
+                rm = ocl['refmap'].get(struct.unpack_from('>H', ops)[0])
+                if rm:
+                    last = ('c', rm[1], rm[2])
+                continue
+            if op in (0x12, 0x13):
+                idx = ops[0] if op == 0x12 else struct.unpack_from('>H', ops)[0]
+                c = jvm.const_of(ocl, idx)
+                if c:
+                    last = ('s' if c[0] == 'S' else 'i', c[1], '')
+                continue
+            if op in (0xb2, 0xb4):
+                rm = ocl['refmap'].get(struct.unpack_from('>H', ops)[0])
+                if rm:
+                    last = ('r', rm[1], '')
+                continue
+            if op in (0xb3, 0xb5):
+                rm = ocl['refmap'].get(struct.unpack_from('>H', ops)[0])
+                if rm and last:
+                    out[(rm[0], rm[1], rm[2])].add(last)
+                last = None
+    return out
+
+
 def usage_probe(pst, cls, lookup):
     """字段读写签名（探针侧）：{(owner,名,描述符): {(调用者类, 调用者真名, 读/写)}}"""
     out = collections.defaultdict(set)
@@ -594,6 +665,7 @@ def run(P, pkg, part=None, apply=False, report=None, rounds=8, sweeps=3,
     seed_rows = seed_from_truth(P, part, pkg)
     o_call = merge_calls(*[callsites_oracle(ocls[c], c) for c in ocls])
     o_usage = merge_calls(*[usage_oracle(ocls[c], c) for c in ocls])
+    o_src = merge_calls(*[field_sources_oracle(ocls[c], c) for c in ocls])
     oseq_cache = {}
     if seed_rows:
         log('沿用已有真相 %d 行（%d 个类块）' % (
@@ -633,12 +705,13 @@ def run(P, pkg, part=None, apply=False, report=None, rounds=8, sweeps=3,
 
         def run_fields(lookup, first):
             p_usage = merge_calls(*[usage_probe(parsed[c], c, lookup) for c in ocls])
+            p_src = merge_calls(*[field_sources_probe(parsed[c], c, lookup, obf) for c in ocls])
             votes = merge_counts(*[order_votes(c, parsed[c], ocls[c], lookup, oseq_cache)
                                    for c in ocls])
             n = 0
             for c in sorted(ocls):
                 fr, ft = match_fields(c, parsed[c], ocls[c], p_usage, o_usage, lookup, votes,
-                                      taken_f)
+                                      taken_f, p_src, o_src)
                 for r in fr:
                     k = (c, r['probe'], r['desc'])
                     if k in seen_f:
@@ -694,11 +767,11 @@ def run(P, pkg, part=None, apply=False, report=None, rounds=8, sweeps=3,
         known = {(x[0], x[1], x[2], x[3]) for x in extra}
         extra += [x for x in proof if (x[0], x[1], x[2], x[3]) not in known]
 
+    locked_all = collections.defaultdict(set)
+    for (c, k, old, d, new) in seed_rows + extra:
+        if _is_m(k):
+            locked_all[(c, d)].add(new)
     if ocls:
-        locked_all = collections.defaultdict(set)
-        for (c, k, old, d, new) in seed_rows + extra:
-            if _is_m(k):
-                locked_all[(c, d)].add(new)
         full_lookup = {('c' if _is_m(k) else 'f', c, old, d if _is_m(k) else ''): new
                        for (c, k, old, d, new) in seed_rows + extra}
         for r in rows_m:
@@ -726,9 +799,27 @@ def run(P, pkg, part=None, apply=False, report=None, rounds=8, sweeps=3,
     all_rows = seed_dicts + rows_m + rows_f
     # 顺序：先把覆写家族补全（FART 按 (名,描述符) 认覆写）→ 再统一/撤掉冲突 → 最后同类去重。
     # 不能反过来：撤掉之后如果又跑闭包，会把刚撤掉的名字从别的类再灌回来（死循环）。
-    closure_overrides(parsed, all_rows, log=log)
+    lookup_final = {}
+    for r in all_rows:
+        lookup_final[('c' if r['kind'] == 'method' else 'f', r['cls'], r['probe'],
+                      r['desc'] if r['kind'] == 'method' else '')] = r['real']
+    eliminate(parsed, ocls, all_rows, lookup_final, log=log)
+    closure_overrides(parsed, all_rows, log=log)        # 子类 → 祖先
+    closure_down(parsed, ocls, all_rows, log=log)       # 祖先（已证明）→ 子类/实现类
+    closure_overrides(parsed, all_rows, log=log)        # 再补一次向上（向下补出来的行也占位）
+    # 排除法/传播都可能引入"差一位"的错（例如 `setP ↔ setG`），再用调用图复核一次
+    lookup_final = {}
+    for r in all_rows:
+        lookup_final[('c' if r['kind'] == 'method' else 'f', r['cls'], r['probe'],
+                      r['desc'] if r['kind'] == 'method' else '')] = r['real']
+    fixed = repair_by_graph(parsed, ocls, all_rows, lookup_final, locked_all, oseq_cache, log=log)
+    if fixed:
+        log('  按调用图复核：又改判 %d 条' % fixed)
+        closure_overrides(parsed, all_rows, log=log)
+        closure_down(parsed, ocls, all_rows, log=log)
     unify_families(parsed, all_rows, log=log)
     dedupe_targets(all_rows, log=log)
+    todo, gap_stat = report_gap(parsed, ocls, all_rows, todo, log=log)
     stats = dict(classes=len(classes),
                  methods=sum(len(v['methods']) for v in parsed.values()),
                  fields=sum(len(v['fields']) for v in parsed.values()),
@@ -866,6 +957,76 @@ def closure_overrides(parsed, rows, log=None):
     return added
 
 
+def eliminate(parsed, ocls, rows, lookup, log=None, min_score=0.05):
+    """**排除法**：同一描述符桶里，探针侧只剩 1 个没定名、oracle 侧也只剩 1 个没被占用 ⇒ 就是它。
+
+    这是双射的直接推论（改名不改描述符、同类内一一对应），前提是两边剩余数量相等；
+    再加一条兜底：方法体 token 至少有一点重合（`score > min_score`），挡掉
+    "一边 AIDE 新增、一边被 ProGuard 删掉"正好抵消的巧合。
+    """
+    added = 0
+    for _ in range(6):
+        step = 0
+        for c in sorted(ocls):
+            pst, ocl = parsed.get(c), ocls.get(c)
+            if not pst or not ocl:
+                continue
+            used_m = {(r['probe'], r['desc']) for r in rows
+                      if r['kind'] == 'method' and r['cls'] == c}
+            used_f = {r['probe'] for r in rows if r['kind'] == 'field' and r['cls'] == c}
+            got_names = {r['real'] for r in rows if r['cls'] == c and r['kind'] == 'method'}
+            got_fnames = {r['real'] for r in rows if r['cls'] == c and r['kind'] == 'field'}
+            ob, fb = collections.defaultdict(list), collections.defaultdict(list)
+            for m in ocl['members']:
+                if m['kind'] == 'm':
+                    ob[m['desc']].append(m)
+                else:
+                    fb[(m['desc'], bool(m['acc'] & 8))].append(m)
+            pb, pfb = collections.defaultdict(list), collections.defaultdict(list)
+            for (n, d, st, syn) in pst['methods']:
+                if not syn and not n.startswith('<'):
+                    pb[d].append((n, st))
+            for (n, d, st, syn) in pst['fields']:
+                pfb[(d, st)].append(n)
+            # 方法
+            for d, plist in pb.items():
+                free_p = [x for x in plist if (x[0], d) not in used_m]
+                cands = [m for m in ob.get(d, [])
+                         if m['name'] not in got_names and m['name'] not in
+                         {n for (n, dd, st, sy) in pst['methods'] if dd == d}]
+                if len(free_p) == 1 and len(cands) == 1:
+                    n, st = free_p[0]
+                    m = cands[0]
+                    if bool(m['acc'] & 8) != st or not m['code']:
+                        continue
+                    sc = score(smali_seq(pst['body'][(n, d)], lookup, set())[:2],
+                               oracle_seq(ocl, m['code'])[:2])
+                    if sc <= min_score:
+                        continue
+                    rows.append(dict(cls=c, kind='method', probe=n, desc=d, real=m['name'],
+                                     ev='elim:%.2f' % sc, score=sc, lead=None))
+                    used_m.add((n, d))
+                    got_names.add(m['name'])
+                    step += 1
+            # 字段
+            for key, plist in pfb.items():
+                free_p = [x for x in plist if x not in used_f]
+                cands = [m for m in fb.get(key, [])
+                         if m['name'] not in got_fnames and m['name'] not in set(plist)]
+                if len(free_p) == 1 and len(cands) == 1:
+                    rows.append(dict(cls=c, kind='field', probe=free_p[0], desc=key[0],
+                                     real=cands[0]['name'], ev='elim:', score=None, lead=None))
+                    used_f.add(free_p[0])
+                    got_fnames.add(cands[0]['name'])
+                    step += 1
+        added += step
+        if not step:
+            break
+    if added and log:
+        log('  排除法：补 %d 条（同桶只剩一个没定名）' % added)
+    return added
+
+
 def _ev_rank(r):
     """证据强度：有方法体一致性 > 桶唯一 > 覆写外推。"""
     ev = r.get('ev') or ''
@@ -988,6 +1149,91 @@ def dedupe_targets(rows, log=None):
         if log:
             log('  去重目标：撤掉 %d 条' % dropped)
     return dropped
+
+
+def closure_down(parsed, ocls, rows, log=None, min_rank=3):
+    """**祖先已证明 ⇒ 覆写者同名**：接口/父类的方法名定了，子类和实现类里同名同描述符的
+    声明必须跟着定（Java 语义，覆写不允许换名字；FART 也按 (名,描述符) 认覆写）。
+
+    只从"证据够硬"的行往下推（`desc:` 桶唯一 = 证明），避免把弱猜测沿继承链放大。
+    """
+    subs = collections.defaultdict(set)
+    for c in parsed:
+        for anc in _supers(parsed, c):
+            subs[anc].add(c)
+    decl = {c: {(n, d) for (n, d, st, syn) in pst['methods']} for c, pst in parsed.items()}
+    mapped = {(r['cls'], r['probe'], r['desc']) for r in rows if r['kind'] == 'method'}
+    added = 0
+    for r in [x for x in rows if x['kind'] == 'method' and x['real'] != x['probe']
+              and _ev_rank(x) >= min_rank]:
+        stack = list(subs.get(r['cls'], ()))
+        seen = set()
+        while stack:
+            sub = stack.pop()
+            if sub in seen:
+                continue
+            seen.add(sub)
+            k = (sub, r['probe'], r['desc'])
+            if (r['probe'], r['desc']) in decl.get(sub, ()) and k not in mapped:
+                rows.append(dict(cls=sub, kind='method', probe=r['probe'], desc=r['desc'],
+                                 real=r['real'], ev='ovr:继承自 %s' % r['cls'].rsplit('/', 1)[-1],
+                                 score=None, lead=None))
+                mapped.add(k)
+                added += 1
+            stack.extend(subs.get(sub, ()))
+    if added and log:
+        log('  覆写向下传播：补 %d 条（祖先名字已证明）' % added)
+    return added
+
+
+def report_gap(parsed, ocls, rows, todo, log=None):
+    """按**最终状态**重算剩余缺口（原来只在第一轮记 TODO，定上的还挂在里面，数字很难看）。"""
+    mapped_m = {(r['cls'], r['probe'], r['desc']) for r in rows if r['kind'] == 'method'}
+    mapped_f = {(r['cls'], r['probe']) for r in rows if r['kind'] == 'field'}
+    gaps, ident, stat = [], [0], collections.Counter()
+    for c, pst in sorted(parsed.items()):
+        ocl = ocls.get(c)
+        if not ocl:
+            continue
+        ob, fb = collections.defaultdict(list), collections.defaultdict(list)
+        for m in ocl['members']:
+            if m['kind'] == 'm':
+                ob[m['desc']].append(m)
+            else:
+                fb[(m['desc'], bool(m['acc'] & 8))].append(m)
+        for (n, d, st, syn) in pst['methods']:
+            if syn or n.startswith('<') or (c, n, d) in mapped_m:
+                continue
+            cands = [m for m in ob.get(d, []) if not (m['acc'] & 0x1000)]
+            if any(m['name'] == n for m in cands):
+                ident[0] += 1
+                stat['identity（探针名本来就是真名）'] += 1
+                continue
+            if not cands:
+                gaps.append(dict(cls=c, kind='method', probe=n, desc=d,
+                                 why='no-oracle-descriptor', note='AIDE 改过签名'))
+            else:
+                gaps.append(dict(cls=c, kind='method', probe=n, desc=d, why='ambiguous',
+                                 note='%d 个同描述符候选：%s' % (
+                                     len(cands), ','.join(m['name'] for m in cands)[:80])))
+        for (n, d, st, syn) in pst['fields']:
+            if syn or (c, n) in mapped_f:
+                continue
+            cands = [m for m in fb.get((d, st), []) if not (m['acc'] & 0x1000)]
+            if any(m['name'] == n for m in cands):
+                ident[0] += 1
+                stat['identity（探针名本来就是真名）'] += 1
+                continue
+            if not cands:
+                gaps.append(dict(cls=c, kind='field', probe=n, desc=d,
+                                 why='no-oracle-descriptor', note='oracle 里没有同描述符字段'))
+            else:
+                gaps.append(dict(cls=c, kind='field', probe=n, desc=d, why='ambiguous',
+                                 note='%d 个同描述符候选：%s' % (
+                                     len(cands), ','.join(m['name'] for m in cands)[:80])))
+    if log:
+        log('  最终缺口：%d 条待人工 + %d 条 identity（无需映射）' % (len(gaps), ident[0]))
+    return gaps, stat
 
 
 def seed_from_truth(P, part_name, pkg):

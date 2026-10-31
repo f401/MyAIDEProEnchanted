@@ -34,6 +34,7 @@ com/jcraft/jsch/Channel	DW	([BII)V	2	l	jsch-0.1.55
 com/jcraft/jsch/Channel	FH	(I)V	0	status	jsch-0.1.55
 com/jcraft/jsch/Channel	Hw	(I)V	0	foo	jsch-0.1.55
 com/jcraft/jsch/Channel	VH	(I)V	0	foo	jsch-0.1.55
+com/jcraft/jsch/Channel	Zo	(I)V	0	foo	jsch-0.1.55
 com/jcraft/jsch/Channel	gn	(I)V	0	foo	jsch-0.1.55
 com/jcraft/jsch/Channel	j6	(I)V	0	connectTimeout	jsch-0.1.55
 com/jcraft/jsch/Channel	j6	(ILcom/jcraft/jsch/Session;)Lcom/jcraft/jsch/Channel;	0	id	jsch-0.1.55
@@ -54,11 +55,14 @@ com/jcraft/jsch/ChannelAgentForwarding	j6	([BII)V	1	s	jsch-0.1.55
 com/jcraft/jsch/ChannelAgentForwarding	j6	([BII)V	2	l	jsch-0.1.55
 com/jcraft/jsch/ChannelDirectTCPIP	DW	(Ljava/lang/String;)V	0	host	jsch-0.1.55
 com/jcraft/jsch/ChannelDirectTCPIP	FH	(Ljava/lang/String;)V	0	foo	jsch-0.1.55
+com/jcraft/jsch/ChannelDirectTCPIP	j6	(I)V	0	connectTimeout	jsch-0.1.55
 com/jcraft/jsch/ChannelDirectTCPIP	j6	(Ljava/io/InputStream;)V	0	in	jsch-0.1.55
 com/jcraft/jsch/ChannelDirectTCPIP	j6	(Ljava/io/OutputStream;)V	0	out	jsch-0.1.55
 com/jcraft/jsch/ChannelDirectTCPIP	tp	(I)V	0	port	jsch-0.1.55
 com/jcraft/jsch/ChannelDirectTCPIP	u7	(I)V	0	foo	jsch-0.1.55
 com/jcraft/jsch/ChannelExec	DW	(Ljava/lang/String;)V	0	command	jsch-0.1.55
+com/jcraft/jsch/ChannelExec	DW	(Z)V	0	x0	jsch-0.1.55
+com/jcraft/jsch/ChannelExec	j6	(Z)V	0	x0	jsch-0.1.55
 com/jcraft/jsch/ChannelForwardedTCPIP	DW	(Lcom/jcraft/jsch/Session;Ljava/lang/String;I)Lcom/jcraft/jsch/ChannelForwardedTCPIP$Config;	0	session	jsch-0.1.55
 com/jcraft/jsch/ChannelForwardedTCPIP	DW	(Lcom/jcraft/jsch/Session;Ljava/lang/String;I)Lcom/jcraft/jsch/ChannelForwardedTCPIP$Config;	1	address_to_bind	jsch-0.1.55
 com/jcraft/jsch/ChannelForwardedTCPIP	DW	(Lcom/jcraft/jsch/Session;Ljava/lang/String;I)Lcom/jcraft/jsch/ChannelForwardedTCPIP$Config;	2	rport	jsch-0.1.55
@@ -83,6 +87,7 @@ com/jcraft/jsch/ChannelSession	j6	(Z)V	0	enable	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	DW	(Lcom/jcraft/jsch/Buffer;I)V	0	buf	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	DW	(Lcom/jcraft/jsch/Buffer;I)V	1	i	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	DW	(Ljava/lang/String;)V	0	path	jsch-0.1.55
+com/jcraft/jsch/ChannelSftp	DW	(Z)V	0	x0	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	DW	([B)Z	0	path	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	EQ	(Ljava/lang/String;)[B	0	path	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	EQ	([B)V	0	path	jsch-0.1.55
@@ -141,6 +146,7 @@ com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Ljava/lang/String;)V	0	oldpath
 com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Ljava/lang/String;)V	1	newpath	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;[[B)Z	0	path	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;[[B)Z	1	utf8	jsch-0.1.55
+com/jcraft/jsch/ChannelSftp	j6	(Z)V	0	x0	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	j6	([B)Lcom/jcraft/jsch/SftpATTRS;	0	path	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	j6	([BI)V	0	path	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp	j6	([BI)V	1	mode	jsch-0.1.55
@@ -178,7 +184,10 @@ com/jcraft/jsch/ChannelSftp$RequestQueue	j6	(IJI)V	1	offset	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp$RequestQueue	j6	(IJI)V	2	length	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp$RequestQueue	j6	(Lcom/jcraft/jsch/ChannelSftp$Header;Lcom/jcraft/jsch/Buffer;)V	0	header	jsch-0.1.55
 com/jcraft/jsch/ChannelSftp$RequestQueue	j6	(Lcom/jcraft/jsch/ChannelSftp$Header;Lcom/jcraft/jsch/Buffer;)V	1	buf	jsch-0.1.55
+com/jcraft/jsch/ChannelShell	DW	(Z)V	0	x0	jsch-0.1.55
+com/jcraft/jsch/ChannelShell	j6	(Z)V	0	x0	jsch-0.1.55
 com/jcraft/jsch/ChannelSubsystem	DW	(Z)V	0	foo	jsch-0.1.55
+com/jcraft/jsch/ChannelSubsystem	j6	(Z)V	0	x0	jsch-0.1.55
 com/jcraft/jsch/ChannelX11	FH	(Lcom/jcraft/jsch/Session;)[B	0	session	jsch-0.1.55
 com/jcraft/jsch/ChannelX11	FH	([BII)[B	0	foo	jsch-0.1.55
 com/jcraft/jsch/ChannelX11	FH	([BII)[B	1	s	jsch-0.1.55
@@ -218,7 +227,7 @@ com/jcraft/jsch/ConfigRepository$1	j6	(Ljava/lang/String;)[Ljava/lang/String;	0	
 com/jcraft/jsch/ConfigRepository$2	j6	(Ljava/lang/String;)Lcom/jcraft/jsch/ConfigRepository$Config;	0	host	jsch-0.1.55
 com/jcraft/jsch/ConfigRepository$Config	j6	(Ljava/lang/String;)[Ljava/lang/String;	0	key	jsch-0.1.55+src
 com/jcraft/jsch/DH	DW	([B)V	0	f	jsch-0.1.55+src
-com/jcraft/jsch/DH	j6	([B)V	0	g	jsch-0.1.55+src
+com/jcraft/jsch/DH	j6	([B)V	0	p	jsch-0.1.55+src
 com/jcraft/jsch/DHG1	j6	(Lcom/jcraft/jsch/Buffer;)Z	0	_buf	jsch-0.1.55
 com/jcraft/jsch/DHG1	j6	(Lcom/jcraft/jsch/Session;[B[B[B[B)V	0	session	jsch-0.1.55
 com/jcraft/jsch/DHG1	j6	(Lcom/jcraft/jsch/Session;[B[B[B[B)V	1	V_S	jsch-0.1.55
@@ -291,6 +300,7 @@ com/jcraft/jsch/IdentityRepository	DW	([B)Z	0	blob	jsch-0.1.55+src
 com/jcraft/jsch/IdentityRepository	j6	([B)Z	0	identity	jsch-0.1.55+src
 com/jcraft/jsch/IdentityRepository$Wrapper	DW	([B)Z	0	blob	jsch-0.1.55
 com/jcraft/jsch/IdentityRepository$Wrapper	j6	(Lcom/jcraft/jsch/Identity;)V	0	identity	jsch-0.1.55
+com/jcraft/jsch/IdentityRepository$Wrapper	j6	([B)Z	0	identity	jsch-0.1.55
 com/jcraft/jsch/JSch	DW	(Lcom/jcraft/jsch/Session;)Z	0	session	jsch-0.1.55
 com/jcraft/jsch/JSch	DW	(Ljava/lang/String;)Ljava/lang/String;	0	key	jsch-0.1.55
 com/jcraft/jsch/JSch	j6	(Lcom/jcraft/jsch/HostKeyRepository;)V	0	hkrepo	jsch-0.1.55
@@ -602,6 +612,9 @@ com/jcraft/jsch/Util	DW	([B[B)Z	0	pattern	jsch-0.1.55
 com/jcraft/jsch/Util	DW	([B[B)Z	1	name	jsch-0.1.55
 com/jcraft/jsch/Util	FH	(Ljava/lang/String;)[B	0	str	jsch-0.1.55
 com/jcraft/jsch/Util	FH	([B)Ljava/lang/String;	0	str	jsch-0.1.55
+com/jcraft/jsch/Util	FH	([BII)[B	0	buf	jsch-0.1.55
+com/jcraft/jsch/Util	FH	([BII)[B	1	start	jsch-0.1.55
+com/jcraft/jsch/Util	FH	([BII)[B	2	length	jsch-0.1.55
 com/jcraft/jsch/Util	Hw	(Ljava/lang/String;)Ljava/lang/String;	0	path	jsch-0.1.55
 com/jcraft/jsch/Util	Hw	([B)[B	0	path	jsch-0.1.55
 com/jcraft/jsch/Util	j6	(B)I	0	b	jsch-0.1.55
@@ -715,6 +728,7 @@ com/jcraft/jsch/jce/DH	DW	(Ljava/math/BigInteger;)V	0	p	jsch-0.1.55
 com/jcraft/jsch/jce/DH	DW	([B)V	0	f	jsch-0.1.55
 com/jcraft/jsch/jce/DH	FH	(Ljava/math/BigInteger;)V	0	g	jsch-0.1.55
 com/jcraft/jsch/jce/DH	j6	(Ljava/math/BigInteger;)V	0	f	jsch-0.1.55
+com/jcraft/jsch/jce/DH	j6	([B)V	0	p	jsch-0.1.55
 com/jcraft/jsch/jce/HMAC	j6	([B)V	0	key	jsch-0.1.55
 com/jcraft/jsch/jce/HMAC	j6	([BI)V	0	buf	jsch-0.1.55
 com/jcraft/jsch/jce/HMAC	j6	([BI)V	1	offset	jsch-0.1.55
@@ -765,8 +779,14 @@ com/jcraft/jsch/jce/TripleDESCTR	j6	([BII[BI)V	1	s1	jsch-0.1.55
 com/jcraft/jsch/jce/TripleDESCTR	j6	([BII[BI)V	2	len	jsch-0.1.55
 com/jcraft/jsch/jce/TripleDESCTR	j6	([BII[BI)V	3	bar	jsch-0.1.55
 com/jcraft/jsch/jce/TripleDESCTR	j6	([BII[BI)V	4	s2	jsch-0.1.55
+com/jcraft/jsch/jcraft/Compression	DW	([BI[I)[B	0	buffer	jsch-0.1.55
+com/jcraft/jsch/jcraft/Compression	DW	([BI[I)[B	1	start	jsch-0.1.55
+com/jcraft/jsch/jcraft/Compression	DW	([BI[I)[B	2	length	jsch-0.1.55
 com/jcraft/jsch/jcraft/Compression	j6	(II)V	0	type	jsch-0.1.55
 com/jcraft/jsch/jcraft/Compression	j6	(II)V	1	level	jsch-0.1.55
+com/jcraft/jsch/jcraft/Compression	j6	([BI[I)[B	0	buf	jsch-0.1.55
+com/jcraft/jsch/jcraft/Compression	j6	([BI[I)[B	1	start	jsch-0.1.55
+com/jcraft/jsch/jcraft/Compression	j6	([BI[I)[B	2	len	jsch-0.1.55
 com/jcraft/jsch/jcraft/HMAC	j6	(Ljava/security/MessageDigest;)V	0	md	jsch-0.1.55
 com/jcraft/jsch/jcraft/HMAC	j6	([B)V	0	key	jsch-0.1.55
 com/jcraft/jsch/jcraft/HMAC	j6	([BI)V	0	buf	jsch-0.1.55

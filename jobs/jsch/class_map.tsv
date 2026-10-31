@@ -137,3 +137,4 @@ com/jcraft/jsch/jce/HMACMD5	com/jcraft/jsch/jce/HMACMD5	identity:类名未被混
 com/jcraft/jsch/jce/HMACSHA1	com/jcraft/jsch/jce/HMACSHA1	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jcraft/HMACMD5	com/jcraft/jsch/jcraft/HMACMD5	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jcraft/HMACSHA1	com/jcraft/jsch/jcraft/HMACSHA1	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+com/jcraft/jsch/ChannelShell	com/jcraft/jsch/ChannelShell	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）

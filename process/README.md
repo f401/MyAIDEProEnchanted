@@ -21,7 +21,7 @@ process/                          ← 已落地工程：构建输入 + 汇总产
 
 jobs/                             ← 一个依赖一个目录：真相（可单独复用/评审）
 ├── jgit/{class_map.tsv, members.tsrg, params.tsv}   # 685 类 / 5502 行 / 3238 参数行
-├── jsch/{class_map.tsv, members.tsrg, params.tsv}   # 139 类 / 1130 行 / 784 参数行（类名未混淆）
+├── jsch/{class_map.tsv, members.tsrg, params.tsv}   # 140 类 / 1170 行 / 807 参数行（类名未混淆）
 └── aide/{class_map.tsv, members.tsrg}               # 53 类 / 30 行（AIDE 自有类，无 params）
 ```
 
@@ -35,7 +35,7 @@ AIDE 自有类三个来源。它们各有各的 oracle、各有各的评审节�
 |---|---|---|---|
 | `process/truth/head` | `abcd` | `com/aide/ui/build/packaging*` | 首轮已应用的历史补丁 20 行，只原样输出 |
 | `jobs/jgit` | `abcd` | `org/eclipse/jgit/` | 685 类 / 5502 成员行 / 3238 参数行 |
-| `jobs/jsch` | `com/jcraft/jsch` | `com/jcraft/jsch/` | 139 类 / 1130 成员行 / 784 参数行（类名原样，成员双侧改名） |
+| `jobs/jsch` | `com/jcraft/jsch` | `com/jcraft/jsch/` | 140 类 / 1170 成员行 / 807 参数行（类名原样，成员双侧改名） |
 | `jobs/aide` | `abcd` | `com/aide/`、`abcd/aide/` | 53 类 / 30 成员行（AIDE 自有类 → `abcd/aide/`） |
 
 **探针前缀是 part 级的**（`deob.json` 的 `parts[i].probe_prefix`）：不同依赖的混淆前缀不一定相同，
@@ -112,9 +112,9 @@ python3 tools/jgit/pipeline/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内�
 
 | 文件 | 说明 |
 |---|---|
-| `mappings.txt` | 12193 行 = 表头 1 + 头部 12 + 类块 878 + 成员行 6671 + `static` 591 + 参数行 4040 |
+| `mappings.txt` | 12255 行 = 表头 1 + 头部 12 + 类块 879 + 成员行 6711 + `static` 592 + 参数行 4060 |
 | `jobs/jgit/params.tsv` | 3238 行：1919 个方法（含 139 个 `<init>`；oracle LVT 为主，抽象方法走源码） |
-| `jobs/jsch/params.tsv` | 784 行：409 个方法（jsch 0.1.55 的 LVT 678 + 源码声明 106） |
+| `jobs/jsch/params.tsv` | 807 行：409 个方法（jsch 0.1.55 的 LVT 701 + 源码声明 106） |
 | `jobs/aide/params.tsv` | 15 行：12 个方法（`params_manual.tsv`，每行都有判据） |
 | `base/merged_pub.jar` | 由 `widen_access.py` 生成（当前改写 11 个 class） |
 
