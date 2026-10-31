@@ -247,3 +247,31 @@ java.lang.NoClassDefFoundError: Failed resolution of:
    assets/data/functions/runtime/ndk.zip              是 class-jar
    assets/data/functions/runtime/packagingservice.zip 是 class-jar
 ```
+
+## 14. assets 的 4 个 bundle **不要改名**（真机 `NoClassDefFoundError: Labcd/wu;`）
+
+真机：`com.aide.UI.<init>` → `abcd.Kj.<clinit>` → 解析 `Labcd/wu;` 失败。
+
+查下去是两层问题：
+
+1. `process/src/{en,zh,ndk,packagingservice}.jar` 是**陈旧产物**（只有 11/10/19/11 个类），
+   里面 `abcd/Kj` 引用的 `abcd/wu` 在**本 APK 的任何 dex 里都不存在**（原包里也没有）。
+   拿它们当 FART 输入再 D8 回填，等于把资产包从 241 个类砍到 11 个 ⇒ 运行期找不到类。
+2. 这些 bundle 在原包里只引用了**一个**被改名的类：`com/aide/ui/U`（en/zh 各一处；
+   ndk/packagingservice 是 0 处）。而那条 `com/aide/ui/U → com/aide/UI` 正是我当初
+   "回迁远程老提交 `MappingFix`"时标注过**未经证实**的那条（远程那批 probe 类在当前 APK 里
+   根本不存在，只有 `nj` 和 `com/aide/ui/U` 在）。
+
+处置（放弃"把 bundle 也还原"这个不划算的目标）：
+
+| 动作 | 原因 |
+|---|---|
+| **撤销** `com/aide/ui/U → com/aide/UI`（连同它的成员行 `Hw ()[Labcd/IProject;`） | 它是唯一把 app 命名空间和 bundle 绑在一起的点；撤销后 bundle 侧 **0 处**引用被改名类 |
+| `step_fart` **不再改名** 4 个 bundle | 改了也读不懂（它们是语言/运行时数据包），还要为它准备正确的输入 —— 风险大、收益 0 |
+| `step_repack` 对这 4 个条目**原样照抄底包的 dex** | 底包（`src/…apk`）里的它们本来就是 `zip(classes.dex)`，跟原包一致 |
+| 删掉 `assetdex` 步 | 不再需要把 jar 转 dex |
+
+`apk_refs` 仍会检查 4 个条目的格式（必须 `zip(classes.dex)`），所以"抄错格式"也会被拦。
+
+> 教训：**资产 bundle 是运行期 dex 包，不是编译期 classpath**。它们的内部 `abcd/*` 名字
+> 不影响 app 的可读性，把它们塞进同一张 mapping 只会制造命名空间撞车。

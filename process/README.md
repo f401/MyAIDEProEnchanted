@@ -35,7 +35,7 @@ AIDE 自有类三个来源。它们各有各的 oracle、各有各的评审节�
 |---|---|---|---|
 | `process/truth/head` | `abcd` | `com/aide/ui/build/packaging*` | 首轮已应用的历史补丁 20 行，只原样输出 |
 | `jobs/jgit` | `abcd` | `org/eclipse/jgit/` | 685 类 / 5502 成员行 / 3238 参数行 |
-| `jobs/jsch` | `com/jcraft/jsch` | `com/jcraft/jsch/` | 141 类 / 1229 成员行 / 824 参数行（jsch 0.1.51；类名原样，成员双侧改名） |
+| `jobs/jsch` | `com/jcraft/jsch` | `com/jcraft/jsch/` | 141 类 / 1228 成员行 / 824 参数行（jsch 0.1.51；类名原样，成员双侧改名） |
 | `jobs/aide` | `abcd` | `com/aide/`、`abcd/aide/` | 53 类 / 30 成员行（AIDE 自有类 → `abcd/aide/`） |
 
 **探针前缀是 part 级的**（`deob.json` 的 `parts[i].probe_prefix`）：不同依赖的混淆前缀不一定相同，
@@ -112,7 +112,7 @@ python3 tools/jgit/pipeline/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内�
 
 | 文件 | 说明 |
 |---|---|
-| `mappings.txt` | 12332 行 = 表头 1 + 头部 12 + 类块 880 + 成员行 6770 + `static` 592 + 参数行 4077 |
+| `mappings.txt` | 12328 行 = 表头 1 + 头部 12 + 类块 879 + 成员行 6768 + `static` 591 + 参数行 4077 |
 | `jobs/jgit/params.tsv` | 3238 行：1919 个方法（含 139 个 `<init>`；oracle LVT 为主，抽象方法走源码） |
 | `jobs/jsch/params.tsv` | 824 行：409 个方法（jsch 0.1.51 的 LVT + 0.1.51 源码声明） |
 | `jobs/aide/params.tsv` | 15 行：12 个方法（`params_manual.tsv`，每行都有判据） |

@@ -180,11 +180,12 @@ def step_fart(P):
         raise SystemExit('缺少 %s，先跑 tryfix + widen' % pub)
     # 主 dex：合并包一次改名
     _fart(pub, os.path.join(out, 'merged.jar'), P, [])
-    # assets 的 4 个独立包（不在 merged 里）
-    for name in ASSET_JARS:
-        src = os.path.join(REPO, 'process', 'src', name + '.jar')
-        if os.path.exists(src):
-            _fart(src, os.path.join(out, name + '.jar'), P, [pub])
+    # assets 的 4 个独立包**不改名**：
+    #   * 原包里它们只引用 1 个被改名的类（`com/aide/ui/U`，那条改名已撤销 ⇒ 现在 0 个）；
+    #   * `process/src/{en,zh,ndk,packagingservice}.jar` 是**陈旧产物**（11/10/19 个类，
+    #     里面 `abcd/Kj` 引用的 `abcd/wu` 在本 APK 里根本不存在），拿它当输入会打出
+    #     `NoClassDefFoundError: Labcd/wu;`。
+    # 所以这 4 个条目回填时**原样照抄底包的 dex**（见 step_repack）。
 
 
 def step_dex(P):
@@ -235,36 +236,6 @@ def step_jdkrefs(P):
     return 0
 
 
-def asset_dex_dir():
-    return os.path.join(OUT, 'assetdex')
-
-
-def step_assetdex(P):
-    """assets 的 4 个包在原包里都是 `zip(classes.dex)`；FART 出来是 class-jar，
-    必须各自 D8 成 dex 再打成 zip —— 直接塞 jar 进去，运行期就找不到里面的类
-    （真机：`NoClassDefFoundError: … IExternalPackagingServiceListener$Stub`）。
-    """
-    out = asset_dex_dir(); os.makedirs(out, exist_ok=True)
-    for key in ASSET_MAP:
-        src = os.path.join(OUT, 'renamed', key + '.jar')
-        if not os.path.exists(src):
-            print('  ⚠ 缺 %s，跳过 %s' % (os.path.basename(src), key))
-            continue
-        d = os.path.join(out, key)
-        shutil.rmtree(d, ignore_errors=True); os.makedirs(d)
-        sh(['java', '-Xmx1200m', '-cp', os.path.join(REPO, 'process', 'd8.jar'),
-            'com.android.tools.r8.D8', '--release', '--min-api', '26', '--thread-count', '2',
-            '--lib', os.path.join(REPO, 'process', 'android.jar'), '--output', d, src])
-        dex = os.path.join(d, 'classes.dex')
-        if not os.path.exists(dex):
-            raise SystemExit('D8 没产出 %s/classes.dex' % key)
-        zp = os.path.join(out, key + '.zip')
-        with zipfile.ZipFile(zp, 'w', zipfile.ZIP_DEFLATED) as zo:
-            zo.write(dex, 'classes.dex')
-        print('  %-20s → %s（%dKB，zip(classes.dex)）' % (
-            key, os.path.basename(zp), os.path.getsize(zp) // 1024))
-
-
 def step_apkrefs(P):
     """**打出来的包**再体检一次：class_map 里被改名的旧类名不许残留。
 
@@ -293,25 +264,20 @@ def step_repack(P):
     payload = {}
     for i, f in enumerate(newdex, 1):
         payload['classes.dex' if i == 1 else 'classes%d.dex' % i] = open(f, 'rb').read()
+    # assets 的 4 个 bundle：**原样照抄底包**（它们是运行期动态加载的 dex 包，
+    # 内部名字不需要还原；一旦用我们自己的 jar 去替换，就会因为"陈旧产物/命名空间撞车"
+    # 打出一堆 NoClassDefFoundError。见 NOTES §14）
     for key, entry in ASSET_MAP.items():
-        zp = os.path.join(asset_dex_dir(), key + '.zip')
-        if not os.path.exists(zp):
-            raise SystemExit('缺 %s，先跑 assetdex' % zp)
-        if entry in z.namelist():
-            # 注意别叫 `old`：上面那个 `old` 是"底包里的旧 dex 文件名列表"，后面还要用
-            oldbytes = z.read(entry)
-            try:
-                old_names = zipfile.ZipFile(io.BytesIO(oldbytes)).namelist()
-            except Exception:
-                old_names = []
-            if 'classes.dex' not in old_names:
-                raise SystemExit('底包里 %s 不是 zip(classes.dex)，别乱换' % entry)
-            data = open(zp, 'rb').read()
-            if 'classes.dex' not in zipfile.ZipFile(io.BytesIO(data)).namelist():
-                raise SystemExit('%s 不是 dex-zip' % zp)
-            payload[entry] = data
-            print('  资产 %-18s ← %s（%dKB，zip(classes.dex)）' % (
-                key, os.path.basename(zp), len(data) // 1024))
+        if entry not in z.namelist():
+            continue
+        try:
+            names = zipfile.ZipFile(io.BytesIO(z.read(entry))).namelist()
+        except Exception:
+            names = []
+        if 'classes.dex' not in names:
+            raise SystemExit('底包里 %s 不是 zip(classes.dex)，别乱换' % entry)
+        print('  资产 %-18s 原样保留（%dKB，zip(classes.dex)）' % (
+            key, z.getinfo(entry).file_size // 1024))
     zo = zipfile.ZipFile(dst, 'w', zipfile.ZIP_DEFLATED)
     written = 0
     dropped_sig = 0
@@ -402,8 +368,8 @@ def main():
         _APK_OVERRIDE = a.apk if os.path.isabs(a.apk) else os.path.join(REPO, a.apk)
     P = config.load(a.project)
     os.makedirs(OUT, exist_ok=True)
-    steps = (['plan', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'assetdex', 'repack',
-              'apkrefs', 'sign', 'verify']
+    steps = (['plan', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'repack', 'apkrefs',
+              'sign', 'verify']
              if a.step == 'all' else [a.step])
     apk, dexes, du, ju, assets = plan()
     for s in steps:
@@ -422,8 +388,6 @@ def main():
             step_dex(P)
         elif s == 'repack':
             step_repack(P)
-        elif s == 'assetdex':
-            step_assetdex(P)
         elif s == 'apkrefs':
             step_apkrefs(P)
         elif s == 'sign':

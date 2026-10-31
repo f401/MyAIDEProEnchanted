@@ -158,17 +158,16 @@ python3 tools/jgit/audit/jdk_refs.py out/build/renamed/merged.jar --base process
 780 条 JDK 引用，装机即 `NoSuchMethodError: CharSequence.getLongname`）。`build_apk.py all`
 已把这一步串在 `fart` 和 `dex` 之间。
 
-## 5b'. 资产包：`assetdex`（`dex` 之后、`repack` 之前）
+## 5b'. 资产包：**原样保留，不改名**
 
-`assets/data/functions/` 下的 4 个包在原包里**都是 `zip(classes.dex)`**（运行时动态加载，
-不是编译期 classpath 的 jar）。FART 出来是 class-jar，必须各自 D8 成 dex 再 zip：
+`assets/data/functions/` 下的 4 个包是**运行期动态加载的 dex 包**（`zip(classes.dex)`），
+不是编译期 classpath。它们**不参与改名**，回填时原样照抄底包的字节：
 
-```bash
-python3 tools/build/build_apk.py assetdex     # → out/build/assetdex/<key>.zip（zip(classes.dex)）
-```
+- 原包里它们只引用 1 个被改名的类（`com/aide/ui/U`），而那条改名已撤销（见 NOTES §14）⇒ 现在 0 处；
+- `process/src/{en,zh,ndk,packagingservice}.jar` 是**陈旧产物**，绝不能当输入
+  （会把 241 个类砍成 11 个 ⇒ 运行期 `NoClassDefFoundError: Labcd/wu;`）。
 
-直接把 class-jar 塞进 `ndk.zip` / `packagingservice.zip` 的后果：
-运行期 `NoClassDefFoundError: … IExternalPackagingServiceListener$Stub`（见 NOTES §13）。
+`apkrefs` 会检查这 4 个条目仍是 `zip(classes.dex)`。
 
 ## 5c. 产物门禁：`apkrefs`（回填之后、签名之前）
 
