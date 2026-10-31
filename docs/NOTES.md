@@ -276,30 +276,27 @@ java.lang.NoClassDefFoundError: Failed resolution of:
 > 教训：**资产 bundle 是运行期 dex 包，不是编译期 classpath**。它们的内部 `abcd/*` 名字
 > 不影响 app 的可读性，把它们塞进同一张 mapping 只会制造命名空间撞车。
 
-## 15. `process/src/*.jar` 必须和 APK 对齐（`align_src.py`）
+## 15. 输入基准 = `src/` smali 树（assets bundle 也从树里同步）
 
-`process/src/*.jar` 是**手工准备**的 dex2jar 产物，很容易拿成别的版本 —— 真机上就是这样炸的：
+**约定（最终版）**：
 
-| jar | 原来（错版） | APK 里真实 | 后果 |
-|---|---|---|---|
-| `en.jar` | 11 类 | 12 类 | 少 1 |
-| `zh.jar` | 11 类 | 12 类 | 少 1 |
-| `packagingservice.jar` | 19 类（`packagingservice/{b,e,e$a,e$a$a,f,f$a,...}`） | 19 类（`IExternalPackagingService{,Listener}{,$Stub,$Stub$Proxy}` 等**真名**） | 少 8 / 多 8 —— 完全是另一个 AIDE 构建的类名 |
-
-判据写成一句话：**每个 jar 的类定义集合，必须等于对应 dex 的类定义集合**。
+| 东西 | 来源 |
+|---|---|
+| 类/成员映射（真相） | `jobs/<依赖>/` 三张表 |
+| FART 输入（`classes*.jar`） | `process/src/classes{,2,3,4,5}.jar`（dex2jar 产物），FART 只吃合并后的 `merged` |
+| **assets 的 4 个 bundle** | **`src/assets/data/functions/**` 里的原文件**，由 `build_apk.py sync_assets` 拷到 `process/src/<key>.jar` |
+| 回填底包 | `src/AIDE Pro_2.8.7-freely_ac_src_src (2).apk`（树打出来的包） |
 
 ```bash
-python3 tools/build/align_src.py                 # 体检（默认 APK = freely 原包）
-python3 tools/build/align_src.py --apply         # 用 process/dex2jar/* 里的 dex2jar 重建
-python3 tools/build/align_src.py --apk <x.apk> --apply   # 以后换包/换 jar 时用
+python3 tools/build/build_apk.py sync_assets   # src/assets/... → process/src/{en,zh,ndk,packagingservice}.jar
 ```
 
-`build_apk.py plan` 现在也会跑同一套逐对检查，**不对齐就直接中止**（`all` 的第一步）。
+四个 bundle 都是 `zip(classes.dex)`（12 / 12 / 10 / 19 类），打包时按字节回填，
+不参与改名 —— 它们是**运行期动态加载的 dex 包**，内部 `abcd/*` 名字对可读性没有意义。
 
-顺带清掉了 head 里的历史垃圾：那 6 条 `packagingservice/{e,f,e$a,f$a,…}` 的类映射 +
-`ExternalPackagingService$b/$e` 的成员行，全部是从**错版 jar** 的类名推出来的；对齐后发现
-这些 probe 类在本 APK 里根本不存在（本包本来就用真名），`mappings_head.txt` 只剩 1 行
-（`abcd/vj → abcd/aide/AssetProvider`）。
+之前那套"`process/src/*.jar` 和某个 APK 的 dex 逐对对齐"（`align_src.py`）已删除：
+基准不是某个 APK，而是 `src/` 这棵树本身；树木身就是自洽的，不需要再跟别的包比。
 
-> 教训：手工准备的输入要能**一条命令重建 + 每次构建自动校验**；否则错版会静默传播到
-> FART/D8/回填，最后在真机上以 `NoClassDefFoundError` 的形式暴露。
+> 历史教训（保留记录）：`process/src/{en,zh,ndk,packagingservice}.jar` 曾经是**另一个
+> AIDE 构建**的 dex2jar 产物（`packagingservice/{b,e,e$a,f,…}` 这些类名在本包根本不存在），
+> 拿它回填会把资产包从 241 个类砍到 11 个 ⇒ 真机 `NoClassDefFoundError: Labcd/wu;`。

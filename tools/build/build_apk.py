@@ -136,32 +136,10 @@ def plan():
     print('  交集 %d（dex 侧独有 %d / jar 侧独有 %d）' % (inter, len(du - ju), len(ju - du)))
     if du - ju:
         print('    dex 独有示例: %s' % ', '.join(sorted(du - ju)[:5]))
-    # 逐对检查 process/src/*.jar 是否真的和这个 APK 的 dex 对齐（含 assets 的 4 个包）
-    try:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        import align_src
-        pairs = align_src.pairs(apk)
-        bad = []
-        for key, jar, data, where in pairs:
-            want = align_src.dex_classes(data)
-            have = align_src.jar_classes(jar) if os.path.exists(jar) else set()
-            if want != have:
-                bad.append((key, len(want), len(have), len(want - have), len(have - want)))
-        if bad:
-            for key, a, b, lo, hi in bad:
-                print('    ✘ %-22s dex %d / jar %d（少 %d / 多 %d）' % (key + '.jar', a, b, lo, hi))
-            raise SystemExit('process/src/*.jar 与 %s 没对齐：把 APK 路径传给 '
-                             '`python3 tools/build/align_src.py --apk <apk> --apply` 重建'
-                             % os.path.basename(apk))
-    except SystemExit:
-        raise
-    except Exception as e:
-        print('    （对齐检查跳过：%s）' % e)
     print('  资产 jar/zip: %s' % ', '.join('%s(%dKB)' % (k.split('/')[-1], v // 1024) for k, v in assets.items()))
     return apk, dexes, du, ju, assets
 
 
-ASSET_JARS = ('zh', 'en', 'ndk', 'packagingservice')
 MERGED_OK = os.path.join(REPO, 'process', 'base', 'merged_ok.jar')
 
 
@@ -201,12 +179,8 @@ def step_fart(P):
         raise SystemExit('缺少 %s，先跑 tryfix + widen' % pub)
     # 主 dex：合并包一次改名
     _fart(pub, os.path.join(out, 'merged.jar'), P, [])
-    # assets 的 4 个独立包**不改名**：
-    #   * 原包里它们只引用 1 个被改名的类（`com/aide/ui/U`，那条改名已撤销 ⇒ 现在 0 个）；
-    #   * `process/src/{en,zh,ndk,packagingservice}.jar` 是**陈旧产物**（11/10/19 个类，
-    #     里面 `abcd/Kj` 引用的 `abcd/wu` 在本 APK 里根本不存在），拿它当输入会打出
-    #     `NoClassDefFoundError: Labcd/wu;`。
-    # 所以这 4 个条目回填时**原样照抄底包的 dex**（见 step_repack）。
+    # assets 的 4 个 bundle **不改名**：它们是运行期动态加载的 dex 包（src 树里 assets 的
+    # 那几份），内部 abcd/* 对可读性没意义；回填时直接用 `process/src/<key>.jar`（=树里文件）。
 
 
 def step_dex(P):
@@ -257,6 +231,22 @@ def step_jdkrefs(P):
     return 0
 
 
+def sync_assets():
+    """把 `src/` 树里 assets 的 4 个 bundle 拷到 `process/src/<key>.jar`（打包脚本的输入）。"""
+    src_root = os.path.join(REPO, 'src', 'assets', 'data', 'functions')
+    for key, rel in (('en', 'lang/en.jar'), ('zh', 'lang/zh.jar'),
+                     ('ndk', 'runtime/ndk.zip'), ('packagingservice', 'runtime/packagingservice.zip')):
+        src = os.path.join(src_root, rel)
+        dst = os.path.join(REPO, 'process', 'src', key + '.jar')
+        if not os.path.exists(src):
+            raise SystemExit('树里没有 %s' % src)
+        shutil.copyfile(src, dst)
+        with zipfile.ZipFile(dst) as zz:
+            if 'classes.dex' not in zz.namelist():
+                raise SystemExit('%s 不是 zip(classes.dex)' % dst)
+        print('  %-18s ← %s（%dKB）' % (dst, rel, os.path.getsize(dst) // 1024))
+
+
 def step_apkrefs(P):
     """**打出来的包**再体检一次：class_map 里被改名的旧类名不许残留。
 
@@ -285,20 +275,21 @@ def step_repack(P):
     payload = {}
     for i, f in enumerate(newdex, 1):
         payload['classes.dex' if i == 1 else 'classes%d.dex' % i] = open(f, 'rb').read()
-    # assets 的 4 个 bundle：**原样照抄底包**（它们是运行期动态加载的 dex 包，
-    # 内部名字不需要还原；一旦用我们自己的 jar 去替换，就会因为"陈旧产物/命名空间撞车"
-    # 打出一堆 NoClassDefFoundError。见 NOTES §14）
+    # assets 的 4 个 bundle：直接用 `process/src/<key>.jar`（= `src/` 树里 assets 的文件，
+    # 由 sync_assets 拷贝而来；它们是运行期动态加载的 dex 包 zip(classes.dex)）。
+    # 见 NOTES §14/§15。
     for key, entry in ASSET_MAP.items():
         if entry not in z.namelist():
             continue
-        try:
-            names = zipfile.ZipFile(io.BytesIO(z.read(entry))).namelist()
-        except Exception:
-            names = []
-        if 'classes.dex' not in names:
-            raise SystemExit('底包里 %s 不是 zip(classes.dex)，别乱换' % entry)
-        print('  资产 %-18s 原样保留（%dKB，zip(classes.dex)）' % (
-            key, z.getinfo(entry).file_size // 1024))
+        src = os.path.join(REPO, 'process', 'src', key + '.jar')
+        if not os.path.exists(src):
+            raise SystemExit('缺 %s（跑 `sync_assets` 或确认 src/assets/data/functions 下有它）' % src)
+        with zipfile.ZipFile(src) as zz:
+            if 'classes.dex' not in zz.namelist():
+                raise SystemExit('%s 不是 zip(classes.dex)' % src)
+        payload[entry] = open(src, 'rb').read()
+        print('  资产 %-18s ← process/src/%s.jar（%dKB）' % (
+            key, key, os.path.getsize(src) // 1024))
     zo = zipfile.ZipFile(dst, 'w', zipfile.ZIP_DEFLATED)
     written = 0
     dropped_sig = 0
@@ -389,15 +380,17 @@ def main():
         _APK_OVERRIDE = a.apk if os.path.isabs(a.apk) else os.path.join(REPO, a.apk)
     P = config.load(a.project)
     os.makedirs(OUT, exist_ok=True)
-    steps = (['plan', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'repack', 'apkrefs',
-              'sign', 'verify']
+    steps = (['plan', 'sync_assets', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'repack',
+              'apkrefs', 'sign', 'verify']
              if a.step == 'all' else [a.step])
     apk, dexes, du, ju, assets = plan()
     for s in steps:
         if s == 'plan':
             continue
         print('== %s' % s)
-        if s == 'tryfix':
+        if s == 'sync_assets':
+            sync_assets()
+        elif s == 'tryfix':
             step_tryfix(P)
         elif s == 'fart':
             step_fart(P)

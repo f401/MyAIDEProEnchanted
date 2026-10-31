@@ -33,17 +33,16 @@ python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独�
 > 等价一步到位（通用 kit，输出与本项目逐行一致）：
 > `python3 tools/deob/cli.py -p process/deob.json emit`
 
-## 1b. 先对齐输入 jar（`align_src.py`）
+## 1b. 先同步 assets bundle（`sync_assets`）
 
-`process/src/*.jar` 是 dex2jar 产物，必须和「要改的那个 APK」逐个 jar 对上
-（类定义集合相等，含 assets 里那 4 个包）：
+`src/assets/data/functions/` 下的 4 个包（`lang/en.jar`、`lang/zh.jar`、`runtime/ndk.zip`、
+`runtime/packagingservice.zip`）就是基准，打包脚本从 `process/src/<key>.jar` 取它们：
 
 ```bash
-python3 tools/build/align_src.py            # ✔ 全部对齐
-python3 tools/build/align_src.py --apply    # 不对就用 process/dex2jar/ 重建
+python3 tools/build/build_apk.py sync_assets    # 树 → process/src/（字节级拷贝，都是 zip(classes.dex)）
 ```
 
-`build_apk.py plan`（也就是 `all` 的第一步）会自动做这个检查，不对齐直接中止。
+`all` 已把这一步串在 `plan` 之后。**不再**做"和某个 APK 的 dex 逐对对齐"（那套已删除，见 NOTES §15）。
 
 ## 2. 跑认证流水线
 
