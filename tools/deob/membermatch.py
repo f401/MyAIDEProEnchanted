@@ -276,7 +276,7 @@ def assign(plist, olist, scorefn):
 
 
 # ---------------------------------------------------------------- 单类匹配
-def match_class(cls, pst, ocl, lookup, obf, min_score=0.5, min_lead=0.08,
+def match_class(cls, pst, ocl, lookup, obf, min_score=0.30, min_lead=0.12,
                 p_call=None, o_call=None, votes=None, taken=None):
     """返回 dict(method=[...], field=[...], todo=[...])；method 项含 kind/score/lead。"""
     res = dict(method=[], field=[], todo=[])
@@ -297,7 +297,8 @@ def match_class(cls, pst, ocl, lookup, obf, min_score=0.5, min_lead=0.08,
 
     def emit(pn, pd, ometh, ev, sc=None, lead=None):
         res['method'].append(dict(probe=pn, desc=pd, real=ometh['name'], ev=ev,
-                                  score=sc, lead=lead))
+                                  score=sc, lead=lead,
+                                  bodyless=not (seqp.get((pn, pd)) or ([],))[0]))
 
     for d, pl in pb.items():
         all_ol = ob.get(d, [])
@@ -630,7 +631,7 @@ def usage_oracle(ocl, cls):
 
 
 def run(P, pkg, part=None, apply=False, report=None, rounds=8, sweeps=3,
-        min_score=0.5, min_lead=0.08, log=print):
+        min_score=0.30, min_lead=0.12, log=print):
     """批量定名主流程。
 
     一次 `sweep` 内部（单调、只增不改判）：
@@ -815,6 +816,11 @@ def run(P, pkg, part=None, apply=False, report=None, rounds=8, sweeps=3,
     fixed = repair_by_graph(parsed, ocls, all_rows, lookup_final, locked_all, oseq_cache, log=log)
     if fixed:
         log('  按调用图复核：又改判 %d 条' % fixed)
+        lookup_final = {}
+        for r in all_rows:
+            lookup_final[('c' if r['kind'] == 'method' else 'f', r['cls'], r['probe'],
+                          r['desc'] if r['kind'] == 'method' else '')] = r['real']
+        eliminate(parsed, ocls, all_rows, lookup_final, log=log)   # 改判后可能又空出"最后一名"
         closure_overrides(parsed, all_rows, log=log)
         closure_down(parsed, ocls, all_rows, log=log)
     unify_families(parsed, all_rows, log=log)
@@ -974,7 +980,9 @@ def eliminate(parsed, ocls, rows, lookup, log=None, min_score=0.05):
             used_m = {(r['probe'], r['desc']) for r in rows
                       if r['kind'] == 'method' and r['cls'] == c}
             used_f = {r['probe'] for r in rows if r['kind'] == 'field' and r['cls'] == c}
-            got_names = {r['real'] for r in rows if r['cls'] == c and r['kind'] == 'method'}
+            # 方法的重载合法：占用按 (新名, 描述符) 算，不能只比名字
+            got_names = {(r['real'], r['desc']) for r in rows
+                         if r['cls'] == c and r['kind'] == 'method'}
             got_fnames = {r['real'] for r in rows if r['cls'] == c and r['kind'] == 'field'}
             ob, fb = collections.defaultdict(list), collections.defaultdict(list)
             for m in ocl['members']:
@@ -992,7 +1000,7 @@ def eliminate(parsed, ocls, rows, lookup, log=None, min_score=0.05):
             for d, plist in pb.items():
                 free_p = [x for x in plist if (x[0], d) not in used_m]
                 cands = [m for m in ob.get(d, [])
-                         if m['name'] not in got_names and m['name'] not in
+                         if (m['name'], m['desc']) not in got_names and m['name'] not in
                          {n for (n, dd, st, sy) in pst['methods'] if dd == d}]
                 if len(free_p) == 1 and len(cands) == 1:
                     n, st = free_p[0]
@@ -1006,7 +1014,7 @@ def eliminate(parsed, ocls, rows, lookup, log=None, min_score=0.05):
                     rows.append(dict(cls=c, kind='method', probe=n, desc=d, real=m['name'],
                                      ev='elim:%.2f' % sc, score=sc, lead=None))
                     used_m.add((n, d))
-                    got_names.add(m['name'])
+                    got_names.add((m['name'], m['desc']))
                     step += 1
             # 字段
             for key, plist in pfb.items():
@@ -1028,8 +1036,14 @@ def eliminate(parsed, ocls, rows, lookup, log=None, min_score=0.05):
 
 
 def _ev_rank(r):
-    """证据强度：有方法体一致性 > 桶唯一 > 覆写外推。"""
+    """证据强度：有方法体一致性 > 桶唯一 > 覆写外推。
+
+    空方法体（抽象方法/接口）用 `body` 打出来的分数没有意义（两边都空或者一边空），
+    这种行降到最低，免得在覆写族里打赢真正有 body 的类；但 `desc:`（桶唯一）仍是证明。
+    """
     ev = r.get('ev') or ''
+    if r.get('bodyless') and (ev.startswith(('body', 'elim', 'graph'))):
+        return 1
     if ev.startswith('graph'):
         return 5
     if ev.startswith('body'):

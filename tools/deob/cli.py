@@ -221,8 +221,8 @@ def main():
             rows, todo, stats = membermatch.run(
                 P, pkg, part=part, apply=a.apply, report=rep,
                 rounds=int(opt('rounds') or 4),
-                min_score=float(opt('min-score') or 0.5),
-                min_lead=float(opt('min-lead') or 0.08))
+                min_score=float(opt('min-score') or 0.30),
+                min_lead=float(opt('min-lead') or 0.12))
             print('类 %d / 方法 %d（已定名 %d）/ 字段 %d（已定名 %d）' % (
                 stats['classes'], stats['methods'], stats['mapped_m'],
                 stats['fields'], stats['mapped_f']))

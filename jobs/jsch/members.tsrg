@@ -16,28 +16,28 @@ com/jcraft/jsch/Buffer com/jcraft/jsch/Buffer
 	j6 (ILjava/lang/String;)[[B getBytes
 	J0 ()V rewind
 	we ()V reset
+	J8 ()V shift
 	v5 (I)V skip
 	FH (I)V putInt
 	Hw (I)V setOffSet
+	j6 (I)V checkFreeSize
 	Hw ([B)V putString
 	DW ([B)V putByte
+	FH ([B)V putMPInt
 	FH ([BII)V putString
 	DW ([BII)V putByte
+	j6 ([BII)V getByte
 	v5 ()J getLong
 	EQ ()J getUInt
 	FH ()I getInt
 	gn ()I getOffSet
-	tp ()[B getString
-	J8 ()V shift
-	j6 (I)V checkFreeSize
-	j6 ([B)V getByte
-	FH ([B)V putMPInt
-	j6 ([BII)V getByte
 	Hw ()I getLength
-	j6 ()I getByte
-	Zo ()[B getMPInt
-	VH ()[B getMPIntBits
 	u7 ()I getShort
+	j6 ()I getByte
+	tp ()[B getString
+	Zo ()[B getMPInt
+	j6 ([B)V getByte
+	VH ()[B getMPIntBits
 	DW buffer
 	FH index
 	j6 tmp
@@ -58,25 +58,25 @@ com/jcraft/jsch/Channel com/jcraft/jsch/Channel
 	we thread
 	we ()V init
 	QX ()V start
+	FH ()V eof
+	Ws ()V sendOpenConfirmation
+	DW ()V disconnect
+	J8 ()V sendChannelOpen
+	Hw ()V eof_remote
 	DW (Lcom/jcraft/jsch/Session;)V setSession
 	j6 (Lcom/jcraft/jsch/Session;)V disconnect
 	gn (I)V setRemotePacketSize
 	VH (I)V setRecipient
 	FH (I)V setExitStatus
+	j6 (I)V connect
+	DW (I)V sendOpenFailure
 	DW (J)V setRemoteWindowSize
 	j6 (J)V addRemoteWindowSize
 	DW ([BII)V write_ext
 	J0 ()Z isConnected
 	VH ()Ljava/io/InputStream; getExtInputStream
 	tp ()I getRecipient
-	DW ()V disconnect
-	Ws ()V sendOpenConfirmation
 	j6 ()V close
-	FH ()V eof
-	DW (I)V sendOpenFailure
-	j6 (I)V connect
-	J8 ()V sendChannelOpen
-	Hw ()V eof_remote
 	v5 (I)V setLocalWindowSize
 	Hw (I)V setLocalPacketSize
 	Zo ()I getExitStatus
@@ -88,10 +88,10 @@ com/jcraft/jsch/Channel com/jcraft/jsch/Channel
 	Ws close
 	XL open_confirmation
 	a8 notifyme
+	gn lmpsize
 	Hw recipient
 	tp rmpsize
 	QX connected
-	gn lmpsize
 	J0 eof_local
 	J8 eof_remote
 	Zo lwsize_max
@@ -111,6 +111,7 @@ com/jcraft/jsch/ChannelAgentForwarding com/jcraft/jsch/ChannelAgentForwarding
 	j6 ([BII)V write
 	sG init
 	vJ packet
+	Hw ()V eof_remote
 	yS SSH_AGENT_RSA_RESPONSE
 	vy SSH_AGENTC_ADD_RSA_IDENTITY
 	sh SSH2_AGENTC_REMOVE_IDENTITY
@@ -131,28 +132,27 @@ com/jcraft/jsch/ChannelAgentForwarding com/jcraft/jsch/ChannelAgentForwarding
 	Sf wbuf
 	ef rbuf
 	g3 mbuf
-	Hw ()V eof_remote
 com/jcraft/jsch/ChannelDirectTCPIP com/jcraft/jsch/ChannelDirectTCPIP
 	j6 (Ljava/io/InputStream;)V setInputStream
 	j6 (Ljava/io/OutputStream;)V setOutputStream
 	v5 ()Lcom/jcraft/jsch/Packet; genChannelOpenPacket
 	lg _type
+	we ()V init
 	DW (Ljava/lang/String;)V setHost
 	tp (I)V setPort
+	j6 (I)V connect
 	FH (Ljava/lang/String;)V setOrgIPAddress
 	u7 (I)V setOrgPort
 	gW originator_port
 	yS originator_IP_address
 	er port
 	rN host
-	j6 (I)V connect
-	we ()V init
 com/jcraft/jsch/ChannelExec com/jcraft/jsch/ChannelExec
 	aM ()Ljava/io/InputStream; getErrStream
 	KD command
-	DW (Ljava/lang/String;)V setCommand
-	we ()V init
 	QX ()V start
+	we ()V init
+	DW (Ljava/lang/String;)V setCommand
 	j6 (Z)V setAgentForwarding
 	DW (Z)V setPty
 com/jcraft/jsch/ChannelForwardedTCPIP com/jcraft/jsch/ChannelForwardedTCPIP
@@ -232,21 +232,20 @@ com/jcraft/jsch/ChannelSftp com/jcraft/jsch/ChannelSftp
 	Hw (Ljava/lang/String;)Ljava/util/Vector; ls
 	J0 (Ljava/lang/String;)Ljava/util/Vector; glob_remote
 	Ws (Ljava/lang/String;)Z isRemoteDir
+	J8 (Ljava/lang/String;)Z isPattern
 	j3 ()Ljava/lang/String; pwd
 	Mr ()Ljava/lang/String; getCwd
 	aM ()Ljava/lang/String; getHome
 	XL (Ljava/lang/String;)Ljava/lang/String; remoteAbsolutePath
 	QX (Ljava/lang/String;)Ljava/lang/String; isUnique
 	aM (Ljava/lang/String;)V setCwd
-	gn (Ljava/lang/String;)V rm
 	Zo (Ljava/lang/String;)V mkdir
+	DW (Ljava/lang/String;)V cd
 	j6 ([B[B)V sendRENAME
 	we (Ljava/lang/String;)Lcom/jcraft/jsch/SftpATTRS; _stat
-	j6 (Ljava/lang/String;Ljava/lang/String;)V rename
-	J8 (Ljava/lang/String;)Z isPattern
-	DW (Ljava/lang/String;)V cd
-	j6 ([BLcom/jcraft/jsch/SftpATTRS;)V sendMKDIR
 	tp (Ljava/lang/String;)Lcom/jcraft/jsch/SftpATTRS; _lstat
+	gn (Ljava/lang/String;)V rm
+	j6 ([BLcom/jcraft/jsch/SftpATTRS;)V sendMKDIR
 	KD file_separator
 	XX fEncoding
 	cb seq
@@ -265,9 +264,9 @@ com/jcraft/jsch/ChannelSftp com/jcraft/jsch/ChannelSftp
 	vJ opacket
 	br lcwd
 	g3 client_version
+	DW ()V disconnect
 	j6 (Z)V setAgentForwarding
 	DW (Z)V setPty
-	DW ()V disconnect
 com/jcraft/jsch/ChannelSftp$3 com/jcraft/jsch/ChannelSftp$3
 	j6 (Lcom/jcraft/jsch/ChannelSftp$LsEntry;)I select
 	DW val$v
@@ -333,12 +332,14 @@ com/jcraft/jsch/ConfigRepository com/jcraft/jsch/ConfigRepository
 com/jcraft/jsch/ConfigRepository$1 com/jcraft/jsch/ConfigRepository$1
 	j6 ()I getPort
 	j6 (Ljava/lang/String;)[Ljava/lang/String; getValues
+	DW ()Ljava/lang/String; getUser
 	FH ()Ljava/lang/String; getHostname
 com/jcraft/jsch/ConfigRepository$2 com/jcraft/jsch/ConfigRepository$2
 	j6 (Ljava/lang/String;)Lcom/jcraft/jsch/ConfigRepository$Config; getConfig
 com/jcraft/jsch/ConfigRepository$Config com/jcraft/jsch/ConfigRepository$Config
 	j6 ()I getPort
 	j6 (Ljava/lang/String;)[Ljava/lang/String; getValues
+	DW ()Ljava/lang/String; getUser
 	FH ()Ljava/lang/String; getHostname
 com/jcraft/jsch/DHG1 com/jcraft/jsch/DHG1
 	VH ()I getState
@@ -391,7 +392,7 @@ com/jcraft/jsch/GSSContext com/jcraft/jsch/GSSContext
 	DW ()Z isEstablished
 	j6 ()V dispose
 	j6 (Ljava/lang/String;Ljava/lang/String;)V create
-	j6 ([BII)[B getMIC
+	DW ([BII)[B getMIC
 com/jcraft/jsch/HASH com/jcraft/jsch/HASH
 	DW ()V init
 	FH ()[B digest
@@ -409,14 +410,14 @@ com/jcraft/jsch/IO com/jcraft/jsch/IO
 	j6 (Ljava/io/InputStream;Z)V setInputStream
 	j6 in
 	j6 ()V close
+	FH ()V out_close
 	DW (Ljava/io/OutputStream;)V setOutputStream
 	j6 (Ljava/io/OutputStream;)V setExtOutputStream
 	DW (Ljava/io/OutputStream;Z)V setOutputStream
 	j6 ([BII)V getByte
 	DW ([BII)V put
-	FH ()V out_close
-	j6 (Ljava/io/OutputStream;Z)V setExtOutputStream
 	FH ([BII)V put_ext
+	j6 (Ljava/io/OutputStream;Z)V setExtOutputStream
 	DW out
 	Hw in_dontclose
 	FH out_ext
@@ -523,12 +524,13 @@ com/jcraft/jsch/KeyPair com/jcraft/jsch/KeyPair
 	j6 ()V dispose
 	j6 (B)B a2b
 	DW ([BII)I writeSEQUENCE
+	j6 ([BII)I writeLength
 	DW ()[B forSSHAgent
 	Hw ()[B getPublicKeyBlob
 	FH ([B)Z parse
 	j6 ([B)Z decrypt
 	j6 ([BI[B)I writeINTEGER
-	j6 ([BII)I writeLength
+	FH ()[B getKeyTypeName
 	FH space
 	j6 cr
 	v5 header2
@@ -538,7 +540,6 @@ com/jcraft/jsch/KeyPair com/jcraft/jsch/KeyPair
 	Ws iv
 	J8 data
 	we passphrase
-	FH ()[B getKeyTypeName
 com/jcraft/jsch/KeyPair$ASN1 com/jcraft/jsch/KeyPair$ASN1
 	j6 ([I)I getLength
 	DW ()[Lcom/jcraft/jsch/KeyPair$ASN1; getContents
@@ -555,8 +556,8 @@ com/jcraft/jsch/KeyPairDSA com/jcraft/jsch/KeyPairDSA
 	er key_size
 	FH ()[B getKeyTypeName
 	Hw ()[B getPublicKeyBlob
-	Zo ()[B getPrivateKey
 	DW ()[B forSSHAgent
+	Zo ()[B getPrivateKey
 	j3 sshdss
 	aM end
 	XL begin
@@ -572,6 +573,7 @@ com/jcraft/jsch/KeyPairPKCS8 com/jcraft/jsch/KeyPairPKCS8
 	DW ()[B forSSHAgent
 	j6 ([B)Z decrypt
 	FH ([B)Z parse
+	FH ()[B getKeyTypeName
 	lg aes256cbc
 	a8 aes192cbc
 	U2 aes128cbc
@@ -622,9 +624,9 @@ com/jcraft/jsch/KnownHosts com/jcraft/jsch/KnownHosts
 	Zo hmacsha1
 	v5 pool
 	DW (Ljava/lang/String;)V sync
-	j6 ()Ljava/lang/String; getKnownHostsRepositoryID
-	j6 (Ljava/lang/String;)V setKnownHosts
 	FH (Ljava/lang/String;)V addInvalidLine
+	j6 (Ljava/lang/String;)V setKnownHosts
+	j6 ()Ljava/lang/String; getKnownHostsRepositoryID
 	j6 space
 	DW cr
 com/jcraft/jsch/KnownHosts$HashedHostKey com/jcraft/jsch/KnownHosts$HashedHostKey
@@ -662,6 +664,7 @@ com/jcraft/jsch/OpenSSHConfig$MyConfig com/jcraft/jsch/OpenSSHConfig$MyConfig
 	j6 (Ljava/lang/String;)[Ljava/lang/String; getValues
 	FH (Ljava/lang/String;)[Ljava/lang/String; multiFind
 	FH ()Ljava/lang/String; getHostname
+	DW ()Ljava/lang/String; getUser
 com/jcraft/jsch/PBKDF com/jcraft/jsch/PBKDF
 	j6 ([B[BII)[B getKey
 com/jcraft/jsch/Packet com/jcraft/jsch/Packet
@@ -824,7 +827,10 @@ com/jcraft/jsch/Session com/jcraft/jsch/Session
 	Ws ()V send_newkeys
 	tp (Ljava/lang/String;)V initDeflater
 	EQ (Ljava/lang/String;)V initInflater
+	v5 (Ljava/lang/String;)V setPassword
 	DW (Lcom/jcraft/jsch/Packet;)V write
+	j6 (Lcom/jcraft/jsch/Packet;)V encode
+	FH (Lcom/jcraft/jsch/Packet;)V _write
 	gn (Ljava/lang/String;)[Ljava/lang/String; checkCiphers
 	u7 (Ljava/lang/String;)[Ljava/lang/String; checkKexes
 	u7 ()Ljava/lang/String; getUserName
@@ -837,9 +843,6 @@ com/jcraft/jsch/Session com/jcraft/jsch/Session
 	Zo (Ljava/lang/String;)I setPortForwardingL
 	VH (Ljava/lang/String;)I setPortForwardingR
 	Hw (Ljava/lang/String;)V setHostKeyAlias
-	v5 (Ljava/lang/String;)V setPassword
-	FH (Lcom/jcraft/jsch/Packet;)V _write
-	j6 (Lcom/jcraft/jsch/Packet;)V encode
 	FH nomoresessions
 	DW keepalivemsg
 	aj auth_failures
@@ -865,18 +868,19 @@ com/jcraft/jsch/Session com/jcraft/jsch/Session
 	aM s2ccipher
 	jJ uncompress_len
 	wc compress_len
+	QX seqo
 	BT timeout
 	g3 serverAliveInterval
 	v5 V_C
+	x9 daemon_thread
 	OW org_host
 	XX username
 	rN deflater
-	QX seqo
+	Mz serverAliveCountMax
 	Hw V_S
 	Zo I_C
 	vJ hostKeyAlias
 	er inflater
-	Mz serverAliveCountMax
 com/jcraft/jsch/Session$GlobalRequestReply com/jcraft/jsch/Session$GlobalRequestReply
 	FH ()Ljava/lang/Thread; getThread
 	j6 (Ljava/lang/Thread;)V setThread
@@ -895,6 +899,8 @@ com/jcraft/jsch/SftpATTRS com/jcraft/jsch/SftpATTRS
 	j6 (Lcom/jcraft/jsch/Buffer;)V dump
 	DW size
 	gn extended
+	tp ()I length
+	v5 ()Ljava/lang/String; getPermissionsString
 	gn ()Z isDir
 	u7 ()Z isLink
 	j6 ()I getFlags
@@ -902,7 +908,6 @@ com/jcraft/jsch/SftpATTRS com/jcraft/jsch/SftpATTRS
 	FH ()I getMTime
 	DW ()I getGId
 	Hw ()Ljava/lang/String; getMtimeString
-	tp ()I length
 	j6 flags
 	v5 permissions
 	Zo atime
@@ -957,19 +962,19 @@ com/jcraft/jsch/Util com/jcraft/jsch/Util
 	j6 (Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; split
 	DW chars
 	DW ([BI[BI)Z glob0
+	j6 ([BI[BI)Z glob
 	j6 ([B[B)Z array_equals
 	DW ([B[B)Z glob
 	FH (Ljava/lang/String;)[B str2byte
 	DW (Ljava/lang/String;)[B fromFile
 	DW ([BII)[B fromBase64
+	FH ([BII)[B toBase64
 	j6 ([B)Ljava/lang/String; byte2str
 	FH ([B)Ljava/lang/String; toHex
 	j6 (Ljava/lang/String;)Ljava/lang/String; checkTilde
 	Hw (Ljava/lang/String;)Ljava/lang/String; unquote
-	j6 ([BI[BI)Z glob
 	FH empty
 	j6 b64
-	FH ([BII)[B toBase64
 com/jcraft/jsch/jce/AES128CBC com/jcraft/jsch/jce/AES128CBC
 	DW ()Z isCBC
 	j6 (I[B[B)V init
@@ -1116,8 +1121,6 @@ com/jcraft/jsch/jcraft/Compression com/jcraft/jsch/jcraft/Compression
 	DW type
 	v5 inflated_buf
 	Hw tmpbuf
-	DW ([BI[I)[B uncompress
-	j6 ([BI[I)[B compress
 com/jcraft/jsch/jcraft/HMAC com/jcraft/jsch/jcraft/HMAC
 	j6 ()I getBlockSize
 	j6 (Ljava/security/MessageDigest;)V setH
@@ -1143,7 +1146,7 @@ com/jcraft/jsch/jgss/GSSContextKrb5 com/jcraft/jsch/jgss/GSSContextKrb5
 	DW context
 	DW (Ljava/lang/String;Ljava/lang/String;)V setSystemProperty
 	j6 (Ljava/lang/String;Ljava/lang/String;)V create
-	j6 ([BII)[B getMIC
+	DW ([BII)[B getMIC
 	j6 useSubjectCredsOnly
 com/jcraft/jsch/Channel$1 com/jcraft/jsch/Channel$1
 	DW buffer
@@ -1211,12 +1214,12 @@ com/jcraft/jsch/ChannelSftp$RequestQueue$Request com/jcraft/jsch/ChannelSftp$Req
 	FH length
 com/jcraft/jsch/ChannelSubsystem com/jcraft/jsch/ChannelSubsystem
 	sh subsystem
+	QX ()V start
+	we ()V init
 	DW (Z)V setPty
 	cn want_reply
 	KD xforwading
 	ro pty
-	we ()V init
-	QX ()V start
 	j6 (Z)V setAgentForwarding
 com/jcraft/jsch/HostKey com/jcraft/jsch/HostKey
 	Zo key
@@ -1266,6 +1269,7 @@ com/jcraft/jsch/jce/DH com/jcraft/jsch/jce/DH
 	FH ()[B getK
 	FH (Ljava/math/BigInteger;)V setG
 	j6 (Ljava/math/BigInteger;)V setF
+	FH ([B)V setG
 	DW p
 	Zo K
 	FH e
@@ -1273,10 +1277,14 @@ com/jcraft/jsch/jce/DH com/jcraft/jsch/jce/DH
 	Hw e_array
 	j6 g
 	v5 f
-	j6 ([B)V setP
+com/jcraft/jsch/ChannelShell com/jcraft/jsch/ChannelShell
+	QX ()V start
+	we ()V init
+	j6 (Z)V setAgentForwarding
+	DW (Z)V setPty
 com/jcraft/jsch/DH com/jcraft/jsch/DH
 	DW ()V init
-	j6 ([B)V setP
+	FH ([B)V setG
 	DW ([B)V setF
 	j6 ()[B getE
 	FH ()[B getK
@@ -1303,8 +1311,3 @@ com/jcraft/jsch/jcraft/HMACMD5 com/jcraft/jsch/jcraft/HMACMD5
 com/jcraft/jsch/jcraft/HMACSHA1 com/jcraft/jsch/jcraft/HMACSHA1
 	j6 ()I getBlockSize
 	j6 ([BI)V doFinal
-com/jcraft/jsch/ChannelShell com/jcraft/jsch/ChannelShell
-	we ()V init
-	QX ()V start
-	j6 (Z)V setAgentForwarding
-	DW (Z)V setPty

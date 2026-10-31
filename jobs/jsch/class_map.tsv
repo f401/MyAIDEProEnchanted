@@ -129,6 +129,7 @@ com/jcraft/jsch/SftpException	com/jcraft/jsch/SftpException	identity:类名未�
 com/jcraft/jsch/SftpStatVFS	com/jcraft/jsch/SftpStatVFS	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/Util$1	com/jcraft/jsch/Util$1	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jce/DH	com/jcraft/jsch/jce/DH	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+com/jcraft/jsch/ChannelShell	com/jcraft/jsch/ChannelShell	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/DH	com/jcraft/jsch/DH	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/SignatureDSA	com/jcraft/jsch/SignatureDSA	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/SignatureRSA	com/jcraft/jsch/SignatureRSA	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
@@ -137,4 +138,3 @@ com/jcraft/jsch/jce/HMACMD5	com/jcraft/jsch/jce/HMACMD5	identity:类名未被混
 com/jcraft/jsch/jce/HMACSHA1	com/jcraft/jsch/jce/HMACSHA1	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jcraft/HMACMD5	com/jcraft/jsch/jcraft/HMACMD5	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jcraft/HMACSHA1	com/jcraft/jsch/jcraft/HMACSHA1	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
-com/jcraft/jsch/ChannelShell	com/jcraft/jsch/ChannelShell	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
