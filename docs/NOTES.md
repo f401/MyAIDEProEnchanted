@@ -72,6 +72,9 @@ part 按来源分：`jgit` / `jsch` / `aide` / `head`，顺序见 `process/deob.
   会让 D8 报 `Malformed inner-class attribute`，应写成 `abcd/aide/HttpRequest$HttpConnectionFactory`。
 - **类级访问也要放宽**：`new`/`checkcast`/`const-class`/`instanceof` 不产生成员引用，
   `widen_access` 现在单独扫这些指令；漏了会 `IllegalAccessError: Illegal class access`。
+- **放宽 access 时不能只 `| ACC_PUBLIC`**：原先是 `protected` 的会变成 `public protected`（0x5），
+  dex 校验直接拒绝（`Field may have only one of public/protected/private`）。必须
+  `acc & ~(private|protected) | public`；`widen_access` 写完后会自检冲突数。
 
 ## 7. 大小写不敏感文件系统
 

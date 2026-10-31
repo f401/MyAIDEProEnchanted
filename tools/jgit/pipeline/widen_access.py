@@ -245,12 +245,16 @@ def main():
             d = parsed[n]
             b = bytearray(data); this = d['this']; touched = False
             if this in widen_class and not (d['acc'] & ACC_PUBLIC):
-                struct.pack_into('>H', b, d['acc_off'], d['acc'] | ACC_PUBLIC); touched = True
+                # 清掉 private/protected，否则会同时带 public+protected → dex 校验失败
+                struct.pack_into('>H', b, d['acc_off'],
+                                 (d['acc'] & ~(ACC_PRIVATE | ACC_PROTECTED)) | ACC_PUBLIC)
+                touched = True
             for (kind, nm, ds) in widen_self.get(this, ()):
                 m = midx[this][(nm, ds)]
                 acc = struct.unpack_from('>H', b, m['acc_off'])[0]
                 if acc & ACC_PUBLIC: continue          # 只跳过已 public（protected 对跨包调用不够）
-                new = acc | ACC_PUBLIC
+                # 必须**清掉** private/protected：dex 校验只允许 public/protected/private 三者之一
+                new = (acc & ~(ACC_PRIVATE | ACC_PROTECTED)) | ACC_PUBLIC
                 struct.pack_into('>H', b, m['acc_off'], new); touched = True
             if touched:
                 data = bytes(b); changed += 1
@@ -261,6 +265,25 @@ def main():
         zo.writestr(info, data)
     zo.close()
     print('已写出 %s（改写 %d 个 class）' % (out, changed))
+    # 自检：public 不能和 private/protected 并存（dex 校验会拒绝：
+    # "Field may have only one of public/protected/private"）
+    zc = zipfile.ZipFile(out); clash = 0
+    for n2 in zc.namelist():
+        if not n2.endswith('.class'):
+            continue
+        d2 = zc.read(n2)
+        try:
+            c2 = parse(d2)
+        except Exception:
+            continue
+        if (struct.unpack_from('>H', d2, c2['acc_off'])[0] & 0x7) == 0x5 or \
+           (struct.unpack_from('>H', d2, c2['acc_off'])[0] & 0x7) == 0x3:
+            clash += 1
+        for m2 in c2['members']:
+            v = m2['acc'] & 0x7
+            if v in (0x3, 0x5):        # public+private / public+protected
+                clash += 1
+    print('  自检：public 与 private/protected 并存 %d 处（应为 0）' % clash)
 
 
 if __name__ == '__main__':

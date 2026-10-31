@@ -69,7 +69,10 @@ python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar \
 后两类**不会出现在成员引用里**，早先漏掉分别是 `IllegalAccessError: Illegal class access` 和
 `IllegalAccessError: superclass/interface access`。
 
-已经 `public`/`protected` 的会跳过，所以跑第二遍会得到 `类 0 / 成员 0`（幂等）。
+已经 `public` 的会跳过，所以跑第二遍会得到 `类 0 / 成员 0`（幂等）。
+放宽时**必须清掉原来的 `private`/`protected` 位**（`acc & ~0x6 | 0x1`）：
+三者只允许存在一个，否则 dex 校验直接拒绝
+（`Field may have only one of public/protected/private`）。工具写完会自检并打印冲突数（应为 0）。
 只有 **mappings 改了包归属**（类换了目标包）时才需要重跑；只改成员名不用。
 
 > 历史坑（[NOTES.md](NOTES.md) §6）：会让 FART 崩的是"把所有类都改成 public"的
