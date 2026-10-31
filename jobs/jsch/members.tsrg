@@ -393,6 +393,7 @@ com/jcraft/jsch/GSSContext com/jcraft/jsch/GSSContext
 	j6 ()V dispose
 	j6 (Ljava/lang/String;Ljava/lang/String;)V create
 	DW ([BII)[B getMIC
+	j6 ([BII)[B init
 com/jcraft/jsch/HASH com/jcraft/jsch/HASH
 	DW ()V init
 	FH ()[B digest
@@ -1148,6 +1149,7 @@ com/jcraft/jsch/jgss/GSSContextKrb5 com/jcraft/jsch/jgss/GSSContextKrb5
 	j6 (Ljava/lang/String;Ljava/lang/String;)V create
 	DW ([BII)[B getMIC
 	j6 useSubjectCredsOnly
+	j6 ([BII)[B init
 com/jcraft/jsch/Channel$1 com/jcraft/jsch/Channel$1
 	DW buffer
 	FH packet
@@ -1277,6 +1279,7 @@ com/jcraft/jsch/jce/DH com/jcraft/jsch/jce/DH
 	Hw e_array
 	j6 g
 	v5 f
+	j6 ([B)V setP
 com/jcraft/jsch/ChannelShell com/jcraft/jsch/ChannelShell
 	QX ()V start
 	we ()V init
@@ -1288,6 +1291,7 @@ com/jcraft/jsch/DH com/jcraft/jsch/DH
 	DW ([B)V setF
 	j6 ()[B getE
 	FH ()[B getK
+	j6 ([B)V setP
 com/jcraft/jsch/SignatureDSA com/jcraft/jsch/SignatureDSA
 	j6 ([B[B[B[B)V setPrvKey
 	DW ([B[B[B[B)V setPubKey

@@ -10634,6 +10634,10 @@ com/jcraft/jsch/GSSContext com/jcraft/jsch/GSSContext
 		0 message message
 		1 s s
 		2 l l
+	j6 ([BII)[B init
+		0 token token
+		1 s s
+		2 l l
 com/jcraft/jsch/HASH com/jcraft/jsch/HASH
 	DW ()V init
 	FH ()[B digest
@@ -11946,6 +11950,10 @@ com/jcraft/jsch/jgss/GSSContextKrb5 com/jcraft/jsch/jgss/GSSContextKrb5
 		1 s s
 		2 l l
 	j6 useSubjectCredsOnly
+	j6 ([BII)[B init
+		0 token token
+		1 s s
+		2 l l
 com/jcraft/jsch/Channel$1 com/jcraft/jsch/Channel$1
 	DW buffer
 	FH packet
@@ -11995,7 +12003,7 @@ com/jcraft/jsch/ChannelSftp$2 com/jcraft/jsch/ChannelSftp$2
 	EQ val$handle
 	VH request_max
 	FH rest_length
-	j6 offset
+	j6 val$skip
 	gn request_offset
 com/jcraft/jsch/ChannelSftp$Header com/jcraft/jsch/ChannelSftp$Header
 	Hw this$0
@@ -12084,6 +12092,8 @@ com/jcraft/jsch/jce/DH com/jcraft/jsch/jce/DH
 	Hw e_array
 	j6 g
 	v5 f
+	j6 ([B)V setP
+		0 p p
 com/jcraft/jsch/ChannelShell com/jcraft/jsch/ChannelShell
 	QX ()V start
 	we ()V init
@@ -12099,6 +12109,8 @@ com/jcraft/jsch/DH com/jcraft/jsch/DH
 		0 f f
 	j6 ()[B getE
 	FH ()[B getK
+	j6 ([B)V setP
+		0 p p
 com/jcraft/jsch/SignatureDSA com/jcraft/jsch/SignatureDSA
 	j6 ([B[B[B[B)V setPrvKey
 		0 x x

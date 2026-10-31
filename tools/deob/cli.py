@@ -217,7 +217,9 @@ def main():
         if a.cmd == 'mgraph':
             membermatch.verify_graph(P, pkg)
         else:
-            rep = a.out or os.path.join(P.out_dir, 'members_%s.tsv' % pkg.replace('/', '_'))
+            # 报告跟着 **part 自己的目录** 走（jobs/<依赖>/out/），不要写进 process/out：
+            # 一个依赖一个目录、自包含；单独拿 jobs/<依赖> 出来当工程时报告也在里面。
+            rep = a.out or membermatch.report_path(P, part, pkg)
             rows, todo, stats = membermatch.run(
                 P, pkg, part=part, apply=a.apply, report=rep,
                 rounds=int(opt('rounds') or 4),

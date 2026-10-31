@@ -17,3 +17,6 @@ __pycache__/
 
 # 反混淆报告（成员定名等派生输出）
 /process/out/
+
+# 各依赖 job 的核对报告（members / mgraph 输出）
+/jobs/*/out/

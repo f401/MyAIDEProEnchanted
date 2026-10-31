@@ -83,7 +83,7 @@ AIDE 里有一类依赖**只改了成员名、类名原样保留**（jsch 的 14
 
 ```bash
 python3 tools/deob/cli.py -p process/deob.json members --pkg=com/jcraft/jsch --part=jsch [--apply]
-# 报告：process/out/members_com_jcraft_jsch.tsv（每行带证据列与分数）
+# 报告：jobs/jsch/out/members_com_jcraft_jsch.tsv（跟着 part 目录走；每行带证据列与分数）
 python3 tools/deob/cli.py -p process/deob.json mgraph  --pkg=com/jcraft/jsch   # 门 10 自证
 ```
 
@@ -139,7 +139,7 @@ python3 tools/deob/cli.py -p process/deob.json mgraph  --pkg=com/jcraft/jsch   #
 | `no-oracle` | oracle 里没有同描述符的成员（AIDE 改过签名/新增）⇒ 不可判定，不算分母 |
 | 覆盖率 | `(已映射 + identity) / (已映射 + identity + 仍歧义)` |
 
-jsch 当前：方法 `(660+62)/733 = 98.5%`、字段 `(498+1)/519 = 96.1%`；
+jsch 当前：方法 `(664+62)/733 = 99.0%`（仅 7 条歧义）、字段 `(498+1)/519 = 96.1%`（20 条歧义）；
 另有 8 个方法 / 18 个字段属于 `no-oracle`（AIDE 魔改）。
 
 阈值：`--min-score 0.30 --min-lead 0.12`（默认值）。绝对分低了靠"互为最优 + 领先幅度"把关，

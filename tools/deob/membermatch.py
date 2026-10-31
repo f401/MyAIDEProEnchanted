@@ -1250,6 +1250,21 @@ def report_gap(parsed, ocls, rows, todo, log=None):
     return gaps, stat
 
 
+def report_path(P, part_name, pkg):
+    """报告落在**该 part 自己的目录**下：`jobs/<依赖>/out/members_<包>.tsv`。
+
+    没有指定 part（单工程）时退回工程的 `out_dir`。理由见 `jobs/README.md`：
+    一个依赖一个目录、自包含，别把某个 job 的核对报告塞进 `process/out`。
+    """
+    name = 'members_%s.tsv' % pkg.replace('/', '_')
+    for p in P.parts:
+        hit = (part_name and p['name'] == part_name) or \
+              (not part_name and p['probe_prefix'] and pkg.startswith(p['probe_prefix']))
+        if hit and p['dir']:
+            return os.path.join(p['dir'], 'out', name)
+    return os.path.join(P.out_dir, name)
+
+
 def seed_from_truth(P, part_name, pkg):
     """把目标 part 里**已经存在**的成员映射读出来当种子/占位（手判过的行不被覆盖）。"""
     import mapping

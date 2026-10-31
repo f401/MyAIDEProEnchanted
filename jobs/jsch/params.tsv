@@ -226,6 +226,7 @@ com/jcraft/jsch/ConfigRepository$2	j6	(Ljava/lang/String;)Lcom/jcraft/jsch/Confi
 com/jcraft/jsch/ConfigRepository$Config	j6	(Ljava/lang/String;)[Ljava/lang/String;	0	key	jsch-0.1.55+src
 com/jcraft/jsch/DH	DW	([B)V	0	f	jsch-0.1.55+src
 com/jcraft/jsch/DH	FH	([B)V	0	g	jsch-0.1.55+src
+com/jcraft/jsch/DH	j6	([B)V	0	p	jsch-0.1.55+src
 com/jcraft/jsch/DHG1	j6	(Lcom/jcraft/jsch/Buffer;)Z	0	_buf	jsch-0.1.55
 com/jcraft/jsch/DHG1	j6	(Lcom/jcraft/jsch/Session;[B[B[B[B)V	0	session	jsch-0.1.55
 com/jcraft/jsch/DHG1	j6	(Lcom/jcraft/jsch/Session;[B[B[B[B)V	1	V_S	jsch-0.1.55
@@ -253,6 +254,9 @@ com/jcraft/jsch/GSSContext	DW	([BII)[B	1	s	jsch-0.1.55+src
 com/jcraft/jsch/GSSContext	DW	([BII)[B	2	l	jsch-0.1.55+src
 com/jcraft/jsch/GSSContext	j6	(Ljava/lang/String;Ljava/lang/String;)V	0	user	jsch-0.1.55+src
 com/jcraft/jsch/GSSContext	j6	(Ljava/lang/String;Ljava/lang/String;)V	1	host	jsch-0.1.55+src
+com/jcraft/jsch/GSSContext	j6	([BII)[B	0	token	jsch-0.1.55+src
+com/jcraft/jsch/GSSContext	j6	([BII)[B	1	s	jsch-0.1.55+src
+com/jcraft/jsch/GSSContext	j6	([BII)[B	2	l	jsch-0.1.55+src
 com/jcraft/jsch/HostKey	DW	(Ljava/lang/String;)Z	0	_host	jsch-0.1.55
 com/jcraft/jsch/HostKey	j6	(Ljava/lang/String;)Z	0	_host	jsch-0.1.55
 com/jcraft/jsch/HostKeyRepository	j6	(Lcom/jcraft/jsch/HostKey;Lcom/jcraft/jsch/UserInfo;)V	0	hostkey	jsch-0.1.55+src
@@ -727,6 +731,7 @@ com/jcraft/jsch/jce/DH	DW	([B)V	0	f	jsch-0.1.55
 com/jcraft/jsch/jce/DH	FH	(Ljava/math/BigInteger;)V	0	g	jsch-0.1.55
 com/jcraft/jsch/jce/DH	FH	([B)V	0	g	jsch-0.1.55
 com/jcraft/jsch/jce/DH	j6	(Ljava/math/BigInteger;)V	0	f	jsch-0.1.55
+com/jcraft/jsch/jce/DH	j6	([B)V	0	p	jsch-0.1.55
 com/jcraft/jsch/jce/HMAC	j6	([B)V	0	key	jsch-0.1.55
 com/jcraft/jsch/jce/HMAC	j6	([BI)V	0	buf	jsch-0.1.55
 com/jcraft/jsch/jce/HMAC	j6	([BI)V	1	offset	jsch-0.1.55
@@ -799,3 +804,6 @@ com/jcraft/jsch/jgss/GSSContextKrb5	DW	([BII)[B	2	l	jsch-0.1.55
 com/jcraft/jsch/jgss/GSSContextKrb5	j6	(Ljava/lang/String;)Ljava/lang/String;	0	key	jsch-0.1.55
 com/jcraft/jsch/jgss/GSSContextKrb5	j6	(Ljava/lang/String;Ljava/lang/String;)V	0	user	jsch-0.1.55
 com/jcraft/jsch/jgss/GSSContextKrb5	j6	(Ljava/lang/String;Ljava/lang/String;)V	1	host	jsch-0.1.55
+com/jcraft/jsch/jgss/GSSContextKrb5	j6	([BII)[B	0	token	jsch-0.1.55
+com/jcraft/jsch/jgss/GSSContextKrb5	j6	([BII)[B	1	s	jsch-0.1.55
+com/jcraft/jsch/jgss/GSSContextKrb5	j6	([BII)[B	2	l	jsch-0.1.55
