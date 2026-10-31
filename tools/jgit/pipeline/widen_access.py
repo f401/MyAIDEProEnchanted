@@ -203,6 +203,18 @@ def main():
                 continue                    # 已经 public：不用再放宽（保证幂等）
             widen_class.add(cn)
             reasons.append('CLASS %s -> %s [%s]' % (this, cn, po))
+        # 1c) 继承/实现：父类或接口本身是 package-private 且映射后跨包
+        for cn in ([d['sup']] if d.get('sup') else []) + list(d.get('ifaces') or []):
+            po = pkg(cn, mp)
+            if pc == po:
+                continue
+            if pb_c != pkg(cn, {}):
+                continue
+            pd = parsed.get(cn + '.class')
+            if pd is None or (pd['acc'] & ACC_PUBLIC):
+                continue
+            widen_class.add(cn)
+            reasons.append('SUPER %s -> %s [%s]' % (this, cn, po))
         # 2) 继承/覆写
         for sup in ([d['sup']] if d['sup'] else []) + list(d['ifaces']):
             if not sup or pkg(sup, mp) == pc: continue

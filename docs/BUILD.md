@@ -43,19 +43,19 @@ python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独�
 跨包的 package-private 方法也不再构成 override。
 
 ```bash
-# 先看报告（不写盘）：当前基线 = 跨包需放宽 类 27 / 成员 56
+# 先看报告（不写盘）：当前基线 = 跨包需放宽 类 29 / 成员 56
 python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar
 
 # 写盘：产出 merged_pub.jar（--map 默认用 paths.MAP = 各 part 的合并视图，用来算"最终的包"）
 python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar \
-        --out process/base/merged_pub.jar --apply        # 改写 27 个 class
+        --out process/base/merged_pub.jar --apply        # 改写 29 个 class
 ```
 
 **为什么只能在"FART 之前 + 合并包 + `--map`"这个位置跑**（实测过另外两种，都是错的）：
 
 | 位置 | 结果 |
 |---|---|
-| **FART 前、对 `merged_ok.jar`、带 `--map`**（推荐） | 类 27 / 成员 56 → 改写 27 个 class |
+| **FART 前、对 `merged_ok.jar`、带 `--map`**（推荐） | 类 29 / 成员 56 → 改写 29 个 class |
 | FART 后、对产物跑（名字已最终，没有 `--map`） | **类 0 / 成员 0**（实测）——它只放宽"原本同包、映射后跨包"的成员，没有映射就无从判断 |
 | FART 后、**逐 jar** 跑 | 单 jar 看不到别 jar 的引用 → 跨 jar 的 package-private 全漏，运行期 `IllegalAccessError` |
 
@@ -63,8 +63,11 @@ python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar \
 
 - **成员引用**（`invoke*` / 字段读写）→ 成员与其 owner 类**一律放 `public`**
   （`protected` 只解决跨包 override，构造器/静态方法的跨包调用必须是 `public`）；
-- **类级访问**（`new` / `checkcast` / `instanceof` / `const-class` / `anewarray`）→ 被访问的类放 `public`。
-  这一类**不会出现在成员引用里**，早先漏掉会直接 `IllegalAccessError: Illegal class access`。
+- **类级访问**（`new` / `checkcast` / `instanceof` / `const-class` / `anewarray`）→ 被访问的类放 `public`；
+- **继承/实现**（`extends` / `implements` 一个 package-private 类或接口，映射后跨包）→ 父类/接口放 `public`。
+
+后两类**不会出现在成员引用里**，早先漏掉分别是 `IllegalAccessError: Illegal class access` 和
+`IllegalAccessError: superclass/interface access`。
 
 已经 `public`/`protected` 的会跳过，所以跑第二遍会得到 `类 0 / 成员 0`（幂等）。
 只有 **mappings 改了包归属**（类换了目标包）时才需要重跑；只改成员名不用。
