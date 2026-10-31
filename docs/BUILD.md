@@ -158,6 +158,16 @@ python3 tools/jgit/audit/jdk_refs.py out/build/renamed/merged.jar --base process
 780 条 JDK 引用，装机即 `NoSuchMethodError: CharSequence.getLongname`）。`build_apk.py all`
 已把这一步串在 `fart` 和 `dex` 之间。
 
+## 5c. 产物门禁：`apkrefs`（回填之后、签名之前）
+
+```bash
+python3 tools/jgit/audit/apk_refs.py "out/build/apk/<包名>.apk"
+# ✔ 产物里没有旧类名残留
+```
+
+不变量：**class_map 里被改名的旧类名，在产物的 dex / 嵌套 jar 里一个都不许有**。
+不合格就别签 —— 这类残留运行到那行就是 `NoClassDefFoundError: Failed resolution of: L旧名;`。
+
 ## 6. 回填 APK + 签名
 
 dex 数量会变，所以**不能**像以前那样 `cp` 固定几个；按下面的"多退少补"重写 zip：

@@ -187,3 +187,30 @@ FART 按 (名, 描述符) 认覆写，`toString` 在 `Object` 上声明、又被
 
 `jdk_refs` 是这条不变量最直接的检查：拿 `process/base/merged_pub.jar` 当基线，比 `out/build/renamed/merged.jar`；
 任何差异都说明有 JDK 引用被改坏 —— 这类 bug 编译、安装都不报，只在运行到那一行时炸。
+
+## 12. 产物里不许残留旧类名（`NoClassDefFoundError: Lcom/aide/ui/U;`）
+
+**症状**（真机）：`com.aide.UI.DW` 正在跑，调到 `abcd.gj.j6` 时报
+`NoClassDefFoundError: Failed resolution of: Lcom/aide/ui/U;`。
+
+判据很干脆：**class_map 里每个被改名的探针类，产物（dex + 嵌套 jar）里就不该再出现 `L旧名;`**。
+新增体检 [tools/jgit/audit/apk_refs.py](../tools/jgit/audit/apk_refs.py)，构建链放在 repack 之后、
+sign 之前（`build_apk.py` 的 `apkrefs` 步）——不合格就别签，先查 dex/assets 有没有换全。
+
+实测四份产物（同一份 mapping，740 个被改名的类）：
+
+| 产物 | 结果 |
+|---|---|
+| `out/build/apk/…_sign.apk`（21:45） | ✔ 无残留，含 `Lcom/aide/UI;` |
+| `out/build/apk/…src_src (2).apk`（21:43，未签） | ✔ 无残留 |
+| `out/build/apk/…orig_src.apk.orig`（21:24） | ✔ 无残留 |
+| 仓库根 `AIDE Pro_2.8.7-freely_ac_src.apk`（10-26，改造前的包） | ✘ 740 个旧名（它本来就没改名） |
+
+结论：**新产物是干净的**，报错的是手机上那个旧安装包 —— 覆盖安装前先 `adb uninstall aidepro.top`，
+再装 `out/build/apk/*_sign.apk`。要确认手机上装的是哪份：
+
+```bash
+adb shell pm path aidepro.top        # 拿到 base.apk 路径
+adb pull <路径> /tmp/installed.apk
+python3 tools/jgit/audit/apk_refs.py /tmp/installed.apk    # 期望 ✔
+```

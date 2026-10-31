@@ -231,6 +231,23 @@ def step_jdkrefs(P):
     return 0
 
 
+def step_apkrefs(P):
+    """**打出来的包**再体检一次：class_map 里被改名的旧类名不许残留。
+
+    踩过：`com/aide/ui/U → com/aide/UI` 改了、类也在，但产物里某处仍留着 `Lcom/aide/ui/U;`，
+    运行到那行就 `NoClassDefFoundError: Failed resolution of: Lcom/aide/ui/U;`。
+    """
+    apk = os.path.join(OUT, 'apk', os.path.basename(base_apk()))
+    if not os.path.exists(apk):
+        raise SystemExit('还没 repack：%s' % apk)
+    tool = os.path.join(REPO, 'tools', 'jgit', 'audit', 'apk_refs.py')
+    r = subprocess.run([sys.executable, tool, apk, '-p', P.path], capture_output=True, text=True)
+    print((r.stdout or '').rstrip())
+    if r.returncode != 0:
+        raise SystemExit('✘ 产物里还有旧类名残留（见上）——别签，先查是不是 dex/assets 没换全')
+    return 0
+
+
 def step_repack(P):
     apk = base_apk(); out = os.path.join(OUT, 'apk'); os.makedirs(out, exist_ok=True)
     dst = os.path.join(out, os.path.basename(apk))
@@ -337,7 +354,8 @@ def main():
         _APK_OVERRIDE = a.apk if os.path.isabs(a.apk) else os.path.join(REPO, a.apk)
     P = config.load(a.project)
     os.makedirs(OUT, exist_ok=True)
-    steps = (['plan', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'repack', 'sign', 'verify']
+    steps = (['plan', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'repack', 'apkrefs',
+              'sign', 'verify']
              if a.step == 'all' else [a.step])
     apk, dexes, du, ju, assets = plan()
     for s in steps:
@@ -356,6 +374,8 @@ def main():
             step_dex(P)
         elif s == 'repack':
             step_repack(P)
+        elif s == 'apkrefs':
+            step_apkrefs(P)
         elif s == 'sign':
             step_sign(os.path.join(OUT, 'apk', os.path.basename(base_apk())), a.ks)
         elif s == 'verify':
