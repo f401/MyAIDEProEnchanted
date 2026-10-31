@@ -79,3 +79,36 @@
 - `doFetch/doPush` 去掉 `OutputStream` 参数；`CommitCommand`/`RebaseCommand` 的私有方法少参。
 - `DeltaWindow` 重写成“环形下标窗口”（`next/prev/advanceCur`），`search` 带 `ProgressMonitor` + 区间。
 - 部分类整段是 AIDE 自写（HTTP 客户端一族、JSON 解析器、时间提供者），jgit 里根本不存在。
+
+## 9. oracle 版本要挑对（jsch 是 **0.1.51**，不是 0.1.55）
+
+一开始拿 0.1.55 当 oracle，剩下 53 条对不上，其中 26 条"oracle 里没有这个成员"。
+换版本后那 26 条**全部消失**，`mgraph` 也从 1.1% 掉到 0.0%。判定用三条可复现的判据：
+
+| 判据 | 做法 | 本例的读数 |
+|---|---|---|
+| ① 描述符多重集 Jaccard | probe 的 `(kind, desc, static)` 多重集 vs 每个候选 jar 同名类 | `DHGEX256`：0.1.50/0.1.51 = **74%**，0.1.53+ = **5%** |
+| ② 结构指纹（层次 + 字段数） | 直接比 `super` 和字段清单 | probe `DHGEX256.super = KeyExchange`、15 字段 ⇒ 0.1.50/0.1.51；0.1.53+ 是 `extends DHGEX`、零字段 |
+| ③ 只在相邻版本间才变的东西 | 挑"版本间有差"的类做判别 | `HostKey`：0.1.50/0.1.51 有 11 字段（无 ECDSA 常量），0.1.53+ 13 字段（`names` + ECDSA）；`Channel$MyPipedInputStream` 0.36 vs 0.82、`Channel$PassiveOutputStream` 0.17 vs 1.00 ⇒ 0.1.51 |
+
+前后对比（同一套工具、同一份探针）：
+
+| | oracle = 0.1.55 | oracle = 0.1.51 |
+|---|---|---|
+| "oracle 里没这个成员" | 26 | **1** |
+| 方法覆盖 | 99.0% | **99.2%** |
+| 字段覆盖 | 96.1% | **96.8%** |
+| `mgraph` 未对上引用 | 1.1%（26 条） | **0.0%**（0 条） |
+
+两条教训：
+
+1. **`mgraph` 的"未对上"如果整类成片出现**（`DHGEX256` 一次 22 条、`HostKey` 3 条），
+   先怀疑 oracle 版本，别急着写"AIDE 魔改"——之前那 26 条里我错标了很大一部分。
+2. **`oracle_jars` 的顺序就是优先级**：`membermatch.find()` 取第一个**含有该类**的 jar。
+   所以真版本（`jsch-0.1.51`）要排在兜底版本（`jsch-0.1.55`）前面；0.1.55 只用来兜
+   0.1.51 里没有的类（例如 ECDSA/ECDH 那批，AIDE 侧本来就被裁掉了）。
+
+剩下的 23 条是真对称（不是版本）：`ChannelSftp.put/get/symlink/hardlink/rename` 一族、
+`Proxy*.proxy_host/user/passwd`、`Session` 的 `compute_keys` 那 6 个 `byte[]`（AIDE 把签名改成
+`(KeyExchange)`，赋值顺序没法对照）、`ChannelX11.cookie/table`、
+`jcraft/Compression.compress/uncompress`（AIDE 还把手 jzlib 换成了自带的 `abcd/Oy`，字段类型都变了）。

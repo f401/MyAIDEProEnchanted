@@ -10555,8 +10555,19 @@ com/jcraft/jsch/ConfigRepository$Config com/jcraft/jsch/ConfigRepository$Config
 		0 key key
 	DW ()Ljava/lang/String; getUser
 	FH ()Ljava/lang/String; getHostname
+com/jcraft/jsch/DH com/jcraft/jsch/DH
+	DW ()V init
+	DW ([B)V setF
+		0 f f
+	FH ([B)V setG
+		0 g g
+	j6 ()[B getE
+	j6 ([B)V setP
+		0 p p
+	FH ()[B getK
 com/jcraft/jsch/DHG1 com/jcraft/jsch/DHG1
 	VH ()I getState
+	Zo ()Ljava/lang/String; getKeyType
 	j6 (Lcom/jcraft/jsch/Session;[B[B[B[B)V init
 		0 session session
 		1 V_S V_S
@@ -10576,8 +10587,10 @@ com/jcraft/jsch/DHG1 com/jcraft/jsch/DHG1
 	J0 I_S
 	EQ V_S
 	u7 state
+	gn type
 com/jcraft/jsch/DHG14 com/jcraft/jsch/DHG14
 	VH ()I getState
+	Zo ()Ljava/lang/String; getKeyType
 	j6 (Lcom/jcraft/jsch/Session;[B[B[B[B)V init
 		0 session session
 		1 V_S V_S
@@ -10597,8 +10610,10 @@ com/jcraft/jsch/DHG14 com/jcraft/jsch/DHG14
 	J0 I_S
 	EQ V_S
 	u7 state
+	gn type
 com/jcraft/jsch/DHGEX com/jcraft/jsch/DHGEX
 	VH ()I getState
+	Zo ()Ljava/lang/String; getKeyType
 	j6 (Lcom/jcraft/jsch/Session;[B[B[B[B)V init
 		0 session session
 		1 V_S V_S
@@ -10610,13 +10625,40 @@ com/jcraft/jsch/DHGEX com/jcraft/jsch/DHGEX
 	EQ dh
 	QX buf
 	XL packet
+	gn max
+	Zo min
+	VH preferred
 	we V_S
 	Ws I_C
 	J8 I_S
 	J0 V_C
 	Mr p
+	u7 type
 	tp state
-	u7 max
+com/jcraft/jsch/DHGEX256 com/jcraft/jsch/DHGEX256
+	VH ()I getState
+	Zo ()Ljava/lang/String; getKeyType
+	j6 (Lcom/jcraft/jsch/Session;[B[B[B[B)V init
+		0 session session
+		1 V_S V_S
+		2 V_C V_C
+		3 I_S I_S
+		4 I_C I_C
+	j6 (Lcom/jcraft/jsch/Buffer;)Z next
+		0 _buf _buf
+	EQ dh
+	QX buf
+	XL packet
+	gn max
+	Zo min
+	VH preferred
+	we V_S
+	Ws I_C
+	J8 I_S
+	J0 V_C
+	Mr p
+	u7 type
+	tp state
 com/jcraft/jsch/ForwardedTCPIPDaemon com/jcraft/jsch/ForwardedTCPIPDaemon
 	j6 (Lcom/jcraft/jsch/ChannelForwardedTCPIP;Ljava/io/InputStream;Ljava/io/OutputStream;)V setChannel
 		0 channel channel
@@ -10733,7 +10775,6 @@ com/jcraft/jsch/IdentityRepository com/jcraft/jsch/IdentityRepository
 		0 identity identity
 	DW ([B)Z remove
 		0 blob blob
-	removeAll ()V removeDupulicates
 com/jcraft/jsch/IdentityRepository$Wrapper com/jcraft/jsch/IdentityRepository$Wrapper
 	j6 ()Ljava/util/Vector; getIdentities
 	j6 (Lcom/jcraft/jsch/Identity;)V add
@@ -10815,10 +10856,11 @@ com/jcraft/jsch/KeyExchange com/jcraft/jsch/KeyExchange
 	v5 ()[B getK
 	Hw ()[B getHostKey
 	DW ()[B getH
+	Zo ()Ljava/lang/String; getKeyType
 	j6 ()Ljava/lang/String; getFingerPrint
 	v5 K_S
-	FH K
 	Hw H
+	FH K
 com/jcraft/jsch/KeyPair com/jcraft/jsch/KeyPair
 	VH ()Lcom/jcraft/jsch/HASH; genHash
 	Zo ()Lcom/jcraft/jsch/Cipher; genCipher
@@ -10852,6 +10894,10 @@ com/jcraft/jsch/KeyPair com/jcraft/jsch/KeyPair
 		0 data data
 	j6 (I)I countLength
 		0 len len
+	j6 ([BI[B)I writeINTEGER
+		0 buf buf
+		1 index index
+		2 data data
 	j6 (Lcom/jcraft/jsch/KeyPair;)V copy
 		0 kpair kpair
 	j6 ([B[B)[B genKey
@@ -10883,10 +10929,6 @@ com/jcraft/jsch/KeyPair com/jcraft/jsch/KeyPair
 		0 data data
 	j6 ([B)Z decrypt
 		0 _passphrase _passphrase
-	j6 ([BI[B)I writeINTEGER
-		0 buf buf
-		1 index index
-		2 data data
 	FH ()[B getKeyTypeName
 	FH space
 	j6 cr
@@ -10986,6 +11028,8 @@ com/jcraft/jsch/KnownHosts com/jcraft/jsch/KnownHosts
 		0 hosts hosts
 		1 host host
 	FH ()Lcom/jcraft/jsch/MAC; getHMACSHA1
+	j6 ([B)I getType
+		0 key key
 	DW (Ljava/lang/String;[B)Lcom/jcraft/jsch/HostKey; createHashedHostKey
 		0 host host
 		1 key key
@@ -11032,10 +11076,10 @@ com/jcraft/jsch/LocalIdentityRepository com/jcraft/jsch/LocalIdentityRepository
 	j6 ()Ljava/util/Vector; getIdentities
 	DW jsch
 	j6 identities
-	DW ([B)Z remove
-		0 blob blob
 	j6 ([B)Z add
 		0 identity identity
+	DW ([B)Z remove
+		0 blob blob
 	j6 (Lcom/jcraft/jsch/Identity;)V add
 		0 identity identity
 com/jcraft/jsch/Logger com/jcraft/jsch/Logger
@@ -11781,6 +11825,31 @@ com/jcraft/jsch/jce/BlowfishCBC com/jcraft/jsch/jce/BlowfishCBC
 	j6 cipher
 	j6 ()I getBlockSize
 	FH ()I getIVSize
+com/jcraft/jsch/jce/DH com/jcraft/jsch/jce/DH
+	DW ()V init
+	gn myKpairGen
+	u7 myKeyAgree
+	DW (Ljava/math/BigInteger;)V setP
+		0 p p
+	DW ([B)V setF
+		0 f f
+	j6 ()[B getE
+	FH (Ljava/math/BigInteger;)V setG
+		0 g g
+	j6 (Ljava/math/BigInteger;)V setF
+		0 f f
+	FH ([B)V setG
+		0 g g
+	DW p
+	Zo K
+	FH e
+	VH K_array
+	Hw e_array
+	j6 g
+	v5 f
+	j6 ([B)V setP
+		0 p p
+	FH ()[B getK
 com/jcraft/jsch/jce/HMAC com/jcraft/jsch/jce/HMAC
 	j6 ()I getBlockSize
 	j6 ([B)V init
@@ -12003,7 +12072,7 @@ com/jcraft/jsch/ChannelSftp$2 com/jcraft/jsch/ChannelSftp$2
 	EQ val$handle
 	VH request_max
 	FH rest_length
-	j6 val$skip
+	j6 offset
 	gn request_offset
 com/jcraft/jsch/ChannelSftp$Header com/jcraft/jsch/ChannelSftp$Header
 	Hw this$0
@@ -12038,9 +12107,11 @@ com/jcraft/jsch/HostKey com/jcraft/jsch/HostKey
 		0 _host _host
 	DW ()Ljava/lang/String; getHost
 	Hw ()Ljava/lang/String; getMarker
-	j6 ()Ljava/lang/String; getComment
 	v5 ()Ljava/lang/String; getType
+	j6 ()Ljava/lang/String; getComment
 	FH ()Ljava/lang/String; getKey
+	j6 sshdss
+	DW sshrsa
 	Hw host
 	VH comment
 	FH marker
@@ -12069,31 +12140,6 @@ com/jcraft/jsch/Util$1 com/jcraft/jsch/Util$1
 	FH val$_port
 	Hw val$ee
 	j6 val$sockp
-com/jcraft/jsch/jce/DH com/jcraft/jsch/jce/DH
-	gn myKpairGen
-	u7 myKeyAgree
-	DW ()V init
-	DW (Ljava/math/BigInteger;)V setP
-		0 p p
-	DW ([B)V setF
-		0 f f
-	j6 ()[B getE
-	FH ()[B getK
-	FH (Ljava/math/BigInteger;)V setG
-		0 g g
-	j6 (Ljava/math/BigInteger;)V setF
-		0 f f
-	FH ([B)V setG
-		0 g g
-	DW p
-	Zo K
-	FH e
-	VH K_array
-	Hw e_array
-	j6 g
-	v5 f
-	j6 ([B)V setP
-		0 p p
 com/jcraft/jsch/ChannelShell com/jcraft/jsch/ChannelShell
 	QX ()V start
 	we ()V init
@@ -12101,33 +12147,23 @@ com/jcraft/jsch/ChannelShell com/jcraft/jsch/ChannelShell
 		0 x0 x0
 	DW (Z)V setPty
 		0 x0 x0
-com/jcraft/jsch/DH com/jcraft/jsch/DH
-	DW ()V init
-	FH ([B)V setG
-		0 g g
-	DW ([B)V setF
-		0 f f
-	j6 ()[B getE
-	FH ()[B getK
-	j6 ([B)V setP
-		0 p p
 com/jcraft/jsch/SignatureDSA com/jcraft/jsch/SignatureDSA
-	j6 ([B[B[B[B)V setPrvKey
-		0 x x
-		1 p p
-		2 q q
-		3 g g
 	DW ([B[B[B[B)V setPubKey
 		0 y y
 		1 p p
 		2 q q
 		3 g g
+	j6 ([B[B[B[B)V setPrvKey
+		0 x x
+		1 p p
+		2 q q
+		3 g g
 com/jcraft/jsch/SignatureRSA com/jcraft/jsch/SignatureRSA
-	DW ([B[B)V setPrvKey
-		0 d d
-		1 n n
 	j6 ([B[B)V setPubKey
 		0 e e
+		1 n n
+	DW ([B[B)V setPrvKey
+		0 d d
 		1 n n
 com/jcraft/jsch/RequestWindowChange com/jcraft/jsch/RequestWindowChange
 	v5 height_rows

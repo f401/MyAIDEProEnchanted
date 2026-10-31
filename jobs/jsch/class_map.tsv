@@ -21,9 +21,11 @@ com/jcraft/jsch/ConfigRepository	com/jcraft/jsch/ConfigRepository	identity:类�
 com/jcraft/jsch/ConfigRepository$1	com/jcraft/jsch/ConfigRepository$1	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/ConfigRepository$2	com/jcraft/jsch/ConfigRepository$2	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/ConfigRepository$Config	com/jcraft/jsch/ConfigRepository$Config	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+com/jcraft/jsch/DH	com/jcraft/jsch/DH	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/DHG1	com/jcraft/jsch/DHG1	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/DHG14	com/jcraft/jsch/DHG14	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/DHGEX	com/jcraft/jsch/DHGEX	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+com/jcraft/jsch/DHGEX256	com/jcraft/jsch/DHGEX256	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/ForwardedTCPIPDaemon	com/jcraft/jsch/ForwardedTCPIPDaemon	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/GSSContext	com/jcraft/jsch/GSSContext	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/HASH	com/jcraft/jsch/HASH	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
@@ -90,6 +92,7 @@ com/jcraft/jsch/jce/ARCFOUR	com/jcraft/jsch/jce/ARCFOUR	identity:类名未被混
 com/jcraft/jsch/jce/ARCFOUR128	com/jcraft/jsch/jce/ARCFOUR128	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jce/ARCFOUR256	com/jcraft/jsch/jce/ARCFOUR256	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jce/BlowfishCBC	com/jcraft/jsch/jce/BlowfishCBC	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+com/jcraft/jsch/jce/DH	com/jcraft/jsch/jce/DH	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jce/HMAC	com/jcraft/jsch/jce/HMAC	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jce/HMACMD596	com/jcraft/jsch/jce/HMACMD596	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/jce/HMACSHA196	com/jcraft/jsch/jce/HMACSHA196	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
@@ -128,9 +131,7 @@ com/jcraft/jsch/Session$Forwarding	com/jcraft/jsch/Session$Forwarding	identity:�
 com/jcraft/jsch/SftpException	com/jcraft/jsch/SftpException	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/SftpStatVFS	com/jcraft/jsch/SftpStatVFS	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/Util$1	com/jcraft/jsch/Util$1	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
-com/jcraft/jsch/jce/DH	com/jcraft/jsch/jce/DH	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/ChannelShell	com/jcraft/jsch/ChannelShell	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
-com/jcraft/jsch/DH	com/jcraft/jsch/DH	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/SignatureDSA	com/jcraft/jsch/SignatureDSA	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/SignatureRSA	com/jcraft/jsch/SignatureRSA	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 com/jcraft/jsch/RequestWindowChange	com/jcraft/jsch/RequestWindowChange	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）

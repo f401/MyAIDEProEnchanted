@@ -93,6 +93,7 @@ python3 tools/deob/cli.py -p process/deob.json mgraph  --pkg=com/jcraft/jsch   #
 |---|---|
 | **报告跟着 part 走** | 写 `jobs/<依赖>/out/members_<包>.tsv`，不写 `process/out`（那是组装工程的 out_dir）。`--out` 可覆盖；单工程才退回工程自己的 `out_dir` |
 | **可以重复跑，会继续收敛** | 每一遍都以"文件里已知的名字"为种子，链条更全 ⇒ 又能多定几条（jsch：676 → 680 方法 / 499 字段）。跑到 `git diff` 为空就是幂等终态（jsch 3 遍） |
+| **oracle 版本先验** | 先确认探针用的是哪个版本（jsch 是 **0.1.51**，不是 0.1.55）。判据：每类描述符多重集 Jaccard + 结构指纹（层次/字段数）+ 只在相邻版本间才变的东西，见 [NOTES.md](NOTES.md) §9。`oracle_jars` 顺序 = 优先级，真版本排在兜底版本前面 |
 
 判据按硬度分三层，**命中即停**：
 
@@ -146,8 +147,8 @@ python3 tools/deob/cli.py -p process/deob.json mgraph  --pkg=com/jcraft/jsch   #
 | `no-oracle` | oracle 里没有同描述符的成员（AIDE 改过签名/新增）⇒ 不可判定，不算分母 |
 | 覆盖率 | `(已映射 + identity) / (已映射 + identity + 仍歧义)` |
 
-jsch 当前：方法 `(664+62)/733 = 99.0%`（仅 7 条歧义）、字段 `(498+1)/519 = 96.1%`（20 条歧义）；
-另有 8 个方法 / 18 个字段属于 `no-oracle`（AIDE 魔改）。
+jsch 当前（oracle 换成真版本 0.1.51 后）：方法 `(672+63)/741 = 99.2%`（仅 6 条歧义、**0 条无对应**）、
+字段 `(518+1)/536 = 96.8%`（17 条歧义、1 条无对应）；`mgraph` 未对上 **0.0%**。
 
 阈值：`--min-score 0.30 --min-lead 0.12`（默认值）。绝对分低了靠"互为最优 + 领先幅度"把关，
 再加上覆写族统一/去重/`mgraph` 三把安全阀；实测把阈值从 0.5/0.08 降到 0.30/0.12，

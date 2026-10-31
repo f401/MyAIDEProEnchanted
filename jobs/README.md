@@ -5,7 +5,7 @@
 | 目录 | 依赖 | 内容 |
 |---|---|---|
 | `jgit` | Eclipse JGit（AIDE 内置，魔改混合版） | 685 类 / 5502 成员行 / 3238 参数行 |
-| `jsch` | JSch 0.1.55（**类名没被混淆**，只有成员被改名；`UserInfo`/`UIKeyboardInteractive` 双侧一起改） | 140 类 / 1177 成员行 / 807 参数行 |
+| `jsch` | JSch **0.1.51**（版本判定见 [docs/NOTES.md](../docs/NOTES.md) §9；**类名没被混淆**，只有成员被改名；`UserInfo`/`UIKeyboardInteractive` 双侧一起改） | 141 类 / 1205 成员行 / 814 参数行 |
 | `aide` | AIDE 自有类（目标在 `abcd/aide/`） | 55 类 / 31 成员行 / 15 参数行（`params_manual.tsv`，每行写判据） |
 
 一个依赖就一个目录，**自包含**（可以嵌进某个 APK 的工程里当 part，也可以独立成工程）：

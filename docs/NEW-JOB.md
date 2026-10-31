@@ -114,7 +114,9 @@ $D mgraph  --pkg=com/example/lib                      # 调用图自证（门 10
 
 1. `deob.json` 里要有 `probe_roots`（一个 APK 的类常分散在 `smali`、`smali_classes2`…；
    `probe_dir` 只够放一个）；
-2. oracle jar 要**真是那个版本**（jsch 就是 `jsch-0.1.55`；差一个小版本，方法体就会整片对不上）；
+2. oracle jar 要**真是那个版本**（jsch 是 `0.1.51` 不是 `0.1.55`；差几个版本，`DHGEX256` 这种类会整类对不上）。
+   怎么验：每类"描述符多重集 Jaccard"打分 + 结构指纹（`super` / 字段数）+ 只在相邻版本间才变的类，
+   详见 [NOTES.md](NOTES.md) §9；`oracle_jars` 的**顺序就是优先级**（真版本在前，兜底版本在后）；
 3. `params` 那步用同一个 oracle（`deob params --apply` 会自动按 part 找得到，因为 jsch 的类只在那一个 jar 里）。
 
 类的**恒等行会自动补**（`members` 写成员时顺带给 `class_map.tsv` 补 `探针 探针` 行）——

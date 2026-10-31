@@ -47,16 +47,16 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 门 | 期望输出 |
 |---|---|
 | 0 `filter_head` | `保留块 19 / 删块 0 / 删行 0` |
-| 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 140 / aide 55`，合计 `类块 880`、`丢陈旧块 0`、`去重成员 0` |
+| 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 141 / aide 55`，合计 `类块 881`、`丢陈旧块 0`、`去重成员 0` |
 | 1' `paramfill` | `参数行 4022 条（2328 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3238 / jsch 784 / aide 15） |
-| 1'' `emit_tsrg2` | `12262 行，static 方法标记 592 / 参数行 4060` |
-| 2 `validate_mappings` | `类块 891（含头部 12）/ 成员行 6718 / 参数行 4060 / 基线类 23635` → **✔ 无无效映射** |
+| 1'' `emit_tsrg2` | `12298 行，static 方法标记 592 / 参数行 4067` |
+| 2 `validate_mappings` | `类块 892（含头部 12）/ 成员行 6746 / 参数行 4067 / 基线类 23635` → **✔ 无无效映射** |
 | 3 `verify_members` | `成员映射 5376 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 223` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
 | 5 `pkgclose` | `约束边 717 / 需要挪的类 0 / 真冲突 7 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |
 | 6 `coverage` | 方法 **3501/3533 = 99.1%**、字段 **1848/1855 = 99.6%**、类 623、完全覆盖 **604**；未入分母：方法 890 / 字段 496；未命中明细 39 条 → `~/out/work/cov_miss.tsv` |
 | 7 `widen_access --report` | `跨包需放宽：类 31 / 成员 58`（`--apply` 改写对应 class） |
-| 10 `deob mgraph --pkg=com/jcraft/jsch` | `调用图自证：517 个方法 / 2314 条已定名引用，未对上 26 条（1.1%），可疑方法 1 个`（AIDE 魔改方法体，见门 10） |
+| 10 `deob mgraph --pkg=com/jcraft/jsch` | `调用图自证：524 个方法 / 2397 条已定名引用，未对上 **0 条（0.0%）**，可疑方法 0 个`（换对 oracle 版本后全绿，见 NOTES §9） |
 
 ## 门 0：`filter_head.py`
 
@@ -127,7 +127,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 例如 `BinaryDelta.getBaseSize/getResultSize` 都 `([B)J`、`LongList.set/fillTo` 都 `(IJ)V`），
 映射无法再拆，属度量口径的固有局限。
 
-通用版 `deob cover` 分母略大（方法 77.9%、字段 94.2%，含 jsch 的 147 类），仅作参考。
+通用版 `deob cover` 分母略大（方法 78.1%、字段 94.0%，含 jsch 的 147 类），仅作参考。
 
 ## 门 7：`widen_access.py`
 
@@ -166,7 +166,7 @@ H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 |---|---|
 | `方法映射 4187 条：命中 3845（无参 1480 / jar 参数全 2130 / 源码补全 190 / 仍缺 45）` | 「仍缺 45」是参数名取不到但方法本身有 oracle 的（AIDE 魔改签名） |
 | 未命中 `无类映射 146 / 方法名不同 95 / 描述符不同 101` | 没有 oracle 对应物，故意留空（不编语义） |
-| 参数行 `4060`（`mappings.txt` 实际行数；`paramfill` 自报 4042 条 / 2340 个方法）= jgit 3238 / jsch 807 / aide 15 | jgit 含 139 个构造器（`<init>` 的 LVT）；aide 的 15 行来自 `params_manual.tsv` |
+| 参数行 `4067`（`mappings.txt` 实际行数）= jgit 3238 / jsch 814 / aide 15 | jgit 含 139 个构造器（`<init>` 的 LVT）；aide 的 15 行来自 `params_manual.tsv` |
 | 重跑 `paramfill.py --write` 后各 `jobs/<依赖>/params.tsv` 不变 | 幂等；成员改名后必须重跑（`rebuild_tsrg` 已自动串起来） |
 
 **参数行对产物有没有副作用**（新旧 mapping 各跑一遍 FART 比 22763 个条目）：

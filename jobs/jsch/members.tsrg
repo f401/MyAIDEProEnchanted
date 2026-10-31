@@ -341,8 +341,16 @@ com/jcraft/jsch/ConfigRepository$Config com/jcraft/jsch/ConfigRepository$Config
 	j6 (Ljava/lang/String;)[Ljava/lang/String; getValues
 	DW ()Ljava/lang/String; getUser
 	FH ()Ljava/lang/String; getHostname
+com/jcraft/jsch/DH com/jcraft/jsch/DH
+	DW ()V init
+	DW ([B)V setF
+	FH ([B)V setG
+	j6 ()[B getE
+	j6 ([B)V setP
+	FH ()[B getK
 com/jcraft/jsch/DHG1 com/jcraft/jsch/DHG1
 	VH ()I getState
+	Zo ()Ljava/lang/String; getKeyType
 	j6 (Lcom/jcraft/jsch/Session;[B[B[B[B)V init
 	j6 (Lcom/jcraft/jsch/Buffer;)Z next
 	QX buf
@@ -356,8 +364,10 @@ com/jcraft/jsch/DHG1 com/jcraft/jsch/DHG1
 	J0 I_S
 	EQ V_S
 	u7 state
+	gn type
 com/jcraft/jsch/DHG14 com/jcraft/jsch/DHG14
 	VH ()I getState
+	Zo ()Ljava/lang/String; getKeyType
 	j6 (Lcom/jcraft/jsch/Session;[B[B[B[B)V init
 	j6 (Lcom/jcraft/jsch/Buffer;)Z next
 	QX buf
@@ -371,20 +381,43 @@ com/jcraft/jsch/DHG14 com/jcraft/jsch/DHG14
 	J0 I_S
 	EQ V_S
 	u7 state
+	gn type
 com/jcraft/jsch/DHGEX com/jcraft/jsch/DHGEX
 	VH ()I getState
+	Zo ()Ljava/lang/String; getKeyType
 	j6 (Lcom/jcraft/jsch/Session;[B[B[B[B)V init
 	j6 (Lcom/jcraft/jsch/Buffer;)Z next
 	EQ dh
 	QX buf
 	XL packet
+	gn max
+	Zo min
+	VH preferred
 	we V_S
 	Ws I_C
 	J8 I_S
 	J0 V_C
 	Mr p
+	u7 type
 	tp state
-	u7 max
+com/jcraft/jsch/DHGEX256 com/jcraft/jsch/DHGEX256
+	VH ()I getState
+	Zo ()Ljava/lang/String; getKeyType
+	j6 (Lcom/jcraft/jsch/Session;[B[B[B[B)V init
+	j6 (Lcom/jcraft/jsch/Buffer;)Z next
+	EQ dh
+	QX buf
+	XL packet
+	gn max
+	Zo min
+	VH preferred
+	we V_S
+	Ws I_C
+	J8 I_S
+	J0 V_C
+	Mr p
+	u7 type
+	tp state
 com/jcraft/jsch/ForwardedTCPIPDaemon com/jcraft/jsch/ForwardedTCPIPDaemon
 	j6 (Lcom/jcraft/jsch/ChannelForwardedTCPIP;Ljava/io/InputStream;Ljava/io/OutputStream;)V setChannel
 	j6 ([Ljava/lang/Object;)V setArg
@@ -446,7 +479,6 @@ com/jcraft/jsch/IdentityRepository com/jcraft/jsch/IdentityRepository
 	j6 ()Ljava/util/Vector; getIdentities
 	j6 ([B)Z add
 	DW ([B)Z remove
-	removeAll ()V removeDupulicates
 com/jcraft/jsch/IdentityRepository$Wrapper com/jcraft/jsch/IdentityRepository$Wrapper
 	j6 ()Ljava/util/Vector; getIdentities
 	j6 (Lcom/jcraft/jsch/Identity;)V add
@@ -497,10 +529,11 @@ com/jcraft/jsch/KeyExchange com/jcraft/jsch/KeyExchange
 	v5 ()[B getK
 	Hw ()[B getHostKey
 	DW ()[B getH
+	Zo ()Ljava/lang/String; getKeyType
 	j6 ()Ljava/lang/String; getFingerPrint
 	v5 K_S
-	FH K
 	Hw H
+	FH K
 com/jcraft/jsch/KeyPair com/jcraft/jsch/KeyPair
 	VH ()Lcom/jcraft/jsch/HASH; genHash
 	Zo ()Lcom/jcraft/jsch/Cipher; genCipher
@@ -512,6 +545,7 @@ com/jcraft/jsch/KeyPair com/jcraft/jsch/KeyPair
 	j6 ([B[B[B)[B decrypt
 	DW ([B)[B getSignature
 	j6 (I)I countLength
+	j6 ([BI[B)I writeINTEGER
 	j6 (Lcom/jcraft/jsch/KeyPair;)V copy
 	j6 ([B[B)[B genKey
 	v5 ()Z isEncrypted
@@ -530,7 +564,6 @@ com/jcraft/jsch/KeyPair com/jcraft/jsch/KeyPair
 	Hw ()[B getPublicKeyBlob
 	FH ([B)Z parse
 	j6 ([B)Z decrypt
-	j6 ([BI[B)I writeINTEGER
 	FH ()[B getKeyTypeName
 	FH space
 	j6 cr
@@ -613,6 +646,7 @@ com/jcraft/jsch/KnownHosts com/jcraft/jsch/KnownHosts
 	DW ()V sync
 	DW (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; deleteSubString
 	FH ()Lcom/jcraft/jsch/MAC; getHMACSHA1
+	j6 ([B)I getType
 	DW (Ljava/lang/String;[B)Lcom/jcraft/jsch/HostKey; createHashedHostKey
 	j6 (Ljava/lang/String;[B)I check
 	j6 (Lcom/jcraft/jsch/HostKey;Lcom/jcraft/jsch/UserInfo;)V add
@@ -642,8 +676,8 @@ com/jcraft/jsch/LocalIdentityRepository com/jcraft/jsch/LocalIdentityRepository
 	j6 ()Ljava/util/Vector; getIdentities
 	DW jsch
 	j6 identities
-	DW ([B)Z remove
 	j6 ([B)Z add
+	DW ([B)Z remove
 	j6 (Lcom/jcraft/jsch/Identity;)V add
 com/jcraft/jsch/Logger com/jcraft/jsch/Logger
 	j6 (ILjava/lang/String;)V log
@@ -1046,6 +1080,25 @@ com/jcraft/jsch/jce/BlowfishCBC com/jcraft/jsch/jce/BlowfishCBC
 	j6 cipher
 	j6 ()I getBlockSize
 	FH ()I getIVSize
+com/jcraft/jsch/jce/DH com/jcraft/jsch/jce/DH
+	DW ()V init
+	gn myKpairGen
+	u7 myKeyAgree
+	DW (Ljava/math/BigInteger;)V setP
+	DW ([B)V setF
+	j6 ()[B getE
+	FH (Ljava/math/BigInteger;)V setG
+	j6 (Ljava/math/BigInteger;)V setF
+	FH ([B)V setG
+	DW p
+	Zo K
+	FH e
+	VH K_array
+	Hw e_array
+	j6 g
+	v5 f
+	j6 ([B)V setP
+	FH ()[B getK
 com/jcraft/jsch/jce/HMAC com/jcraft/jsch/jce/HMAC
 	j6 ()I getBlockSize
 	j6 ([B)V init
@@ -1230,9 +1283,11 @@ com/jcraft/jsch/HostKey com/jcraft/jsch/HostKey
 	DW (Ljava/lang/String;)Z isIncluded
 	DW ()Ljava/lang/String; getHost
 	Hw ()Ljava/lang/String; getMarker
-	j6 ()Ljava/lang/String; getComment
 	v5 ()Ljava/lang/String; getType
+	j6 ()Ljava/lang/String; getComment
 	FH ()Ljava/lang/String; getKey
+	j6 sshdss
+	DW sshrsa
 	Hw host
 	VH comment
 	FH marker
@@ -1261,43 +1316,17 @@ com/jcraft/jsch/Util$1 com/jcraft/jsch/Util$1
 	FH val$_port
 	Hw val$ee
 	j6 val$sockp
-com/jcraft/jsch/jce/DH com/jcraft/jsch/jce/DH
-	gn myKpairGen
-	u7 myKeyAgree
-	DW ()V init
-	DW (Ljava/math/BigInteger;)V setP
-	DW ([B)V setF
-	j6 ()[B getE
-	FH ()[B getK
-	FH (Ljava/math/BigInteger;)V setG
-	j6 (Ljava/math/BigInteger;)V setF
-	FH ([B)V setG
-	DW p
-	Zo K
-	FH e
-	VH K_array
-	Hw e_array
-	j6 g
-	v5 f
-	j6 ([B)V setP
 com/jcraft/jsch/ChannelShell com/jcraft/jsch/ChannelShell
 	QX ()V start
 	we ()V init
 	j6 (Z)V setAgentForwarding
 	DW (Z)V setPty
-com/jcraft/jsch/DH com/jcraft/jsch/DH
-	DW ()V init
-	FH ([B)V setG
-	DW ([B)V setF
-	j6 ()[B getE
-	FH ()[B getK
-	j6 ([B)V setP
 com/jcraft/jsch/SignatureDSA com/jcraft/jsch/SignatureDSA
-	j6 ([B[B[B[B)V setPrvKey
 	DW ([B[B[B[B)V setPubKey
+	j6 ([B[B[B[B)V setPrvKey
 com/jcraft/jsch/SignatureRSA com/jcraft/jsch/SignatureRSA
-	DW ([B[B)V setPrvKey
 	j6 ([B[B)V setPubKey
+	DW ([B[B)V setPrvKey
 com/jcraft/jsch/RequestWindowChange com/jcraft/jsch/RequestWindowChange
 	v5 height_rows
 	Zo width_pixels

@@ -30,6 +30,7 @@
   ],
   "src_root": [
     "$HOME/src/jgit",
+    "$HOME/out/oracle/jsch/src-0.1.51",
     "$HOME/out/oracle/jsch/src"
   ],
   "out_tsrg": "mappings.txt",
@@ -60,6 +61,10 @@
     {
       "label": "jgit-5.13.3",
       "path": "$HOME/out/oracle/jgit/org.eclipse.jgit-5.13.3.202401111512-r.jar"
+    },
+    {
+      "label": "jsch-0.1.51",
+      "path": "$HOME/out/oracle/jsch/jsch-0.1.51.jar"
     },
     {
       "label": "jsch-0.1.55",
