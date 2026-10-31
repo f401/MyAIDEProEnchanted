@@ -48,6 +48,15 @@ $D members --pkg=com/jcraft/jsch --part=jsch --apply    # 写 jobs/jsch/{class_m
 $D mgraph  --pkg=com/jcraft/jsch                        # 门 10：调用图自证
 ```
 
+工具契约（写工具/用工具的人都要知道）：
+
+| 契约 | 说明 |
+|---|---|
+| 报告路径 | `jobs/<依赖>/out/members_<包>.tsv`；跟着 `--part` 走，不写 `process/out`；`--out` 可覆盖 |
+| 幂等 | 同一份真相跑两遍结果不变（`members` 会先把文件里已有的行当种子并锁定） |
+| 可增量 | 但**不是一次到位**：每遍用上一遍定出的名字做种，跨类链条才能接上；判据是"重跑不再有新增" |
+| 只写本 part | `--apply` 只写该 part 的 `class_map.tsv` / `members.tsrg`，不动别的 part |
+
 | 判据 | 实现 | 可信度 |
 |---|---|---|
 | `desc:` 描述符桶唯一 | 改名不改描述符 + 单射 + ProGuard 只删不加 ⇒ **证明** | 硬 |

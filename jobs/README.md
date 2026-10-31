@@ -14,8 +14,14 @@
 jobs/<依赖>/
 ├── class_map.tsv    类映射（探针 <TAB> 目标 <TAB> 证据）
 ├── members.tsrg     成员映射（TSRG 块）
-└── params.tsv       参数名（deob params --apply 生成，可缺）
+├── params.tsv       参数名（deob params --apply 生成，可缺）
+└── out/             本 job 的核对报告（派生，已 gitignore；不进真相）
 ```
+
+**产物落点也按 part 走**：`deob members --part=<依赖>` / `deob mgraph` 的报告写
+`jobs/<依赖>/out/members_<包>.tsv`，**不写** `process/out`——那是"已落地工程"的 out_dir，
+把某个 job 的报告塞进去等于让依赖去污染组装工程。单工程（没有 `parts`）才退回工程自己的 `out_dir`；
+`--out` 可以显式覆盖。
 
 要单独跑成工程（新的 APK / 新的库）：
 

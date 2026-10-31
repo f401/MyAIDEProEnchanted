@@ -87,6 +87,13 @@ python3 tools/deob/cli.py -p process/deob.json members --pkg=com/jcraft/jsch --p
 python3 tools/deob/cli.py -p process/deob.json mgraph  --pkg=com/jcraft/jsch   # 门 10 自证
 ```
 
+两条工程约定（踩过一次，记下来）：
+
+| 约定 | 说明 |
+|---|---|
+| **报告跟着 part 走** | 写 `jobs/<依赖>/out/members_<包>.tsv`，不写 `process/out`（那是组装工程的 out_dir）。`--out` 可覆盖；单工程才退回工程自己的 `out_dir` |
+| **可以重复跑，会继续收敛** | 每一遍都以"文件里已知的名字"为种子，链条更全 ⇒ 又能多定几条（jsch：676 → 680 方法 / 499 字段）。跑到 `git diff` 为空就是幂等终态（jsch 3 遍） |
+
 判据按硬度分三层，**命中即停**：
 
 | 级别 | 证据 | 为什么可信 |
