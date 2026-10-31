@@ -43,13 +43,29 @@ python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独�
 跨包的 package-private 方法也不再构成 override。
 
 ```bash
-# 先看报告（不写盘）：当前基线 = 跨包需放宽 类 29 / 成员 56
-python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar
+# 3a) 先修 dex2jar 转坏的异常表（11 条，见下面"为什么"）
+python3 tools/jgit/pipeline/fix_try.py process/base/merged_ok.jar \
+        --out ~/out/merged_ok_try.jar --apply
 
-# 写盘：产出 merged_pub.jar（--map 默认用 paths.MAP = 各 part 的合并视图，用来算"最终的包"）
-python3 tools/jgit/pipeline/widen_access.py process/base/merged_ok.jar \
+# 3b) 再放宽 access（输入必须是 3a 的产物，否则会丢了异常表修复）
+python3 tools/jgit/pipeline/widen_access.py ~/out/merged_ok_try.jar \
         --out process/base/merged_pub.jar --apply        # 改写 29 个 class
 ```
+
+**3a 为什么需要**：dex2jar 转出来的 class 里，有些 `try` 的 `end_pc` 止于数组加载**之前**，
+而这类代码恰恰靠"故意越界"判 EOF：
+
+```java
+int read() { char[] b = buf; int p = pos; pos = p + 1;
+             try { return b[p]; }                       // caload 必须在 try 内
+             catch (ArrayIndexOutOfBoundsException e) { pos = buf.length; return -1; } }
+```
+
+`end_pc=17` 只覆盖到 `aload`（17），`caload` 在 19 → 越界异常不被捕获，运行时
+`ArrayIndexOutOfBoundsException: length=292; index=292`。`fix_try.py` 把 `end_pc` 后移到
+数组加载之后（`0..20`）。基线 11 条：`abcd/IK`×2、`abcd/gE$d`(Config$StringReader)、
+`abcd/hE`×4、`com/jcraft/jsch/Util`、`org/apache/tools/ant/Main`×2、
+`sun/reflect/.../SignatureParser`。
 
 **为什么只能在"FART 之前 + 合并包 + `--map`"这个位置跑**（实测过另外两种，都是错的）：
 
