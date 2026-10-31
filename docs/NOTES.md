@@ -19,6 +19,11 @@
   `validate_mappings.py` 抓显式的 `dup-member-target`；**FART 兜底造成的重复**由
   `inherit_check.py` 的 `DUPTARGET` 抓（未映射的 override 被祖先名字兜底后撞车）。
 - 幽灵成员（mapping 里有、dex 里没有）⇒ FART 静默忽略但会误导推理，`validate` 的 `no-method/no-field`。
+- **`<init>` / `<clinit>` 绝不能改名**：方法体里的 `invokespecial <init>` 仍按旧名找，
+  改成一个普通名字后，那段 `this(...)`/`super(...)` 就变成"在普通方法里调用未初始化引用"，
+  运行期 `VerifyError: Expected initialization on uninitialized reference`。
+  `validate` / `validate_mappings` 都会报 `special-rename`（基线里修掉过一例：
+  `RevWalk.<init>(ObjectReader)` 被误映射成 `parseBody`）。
 
 ## 3. FART 的坑
 

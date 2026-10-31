@@ -4682,7 +4682,6 @@ abcd/qG org/eclipse/jgit/revwalk/RevWalk
 	v5 freeFlags
 	VH carryFlags
 	Zo (Labcd/YD;)Labcd/iG; parseAny
-	<init> (Labcd/IE;)V parseBody
 	DW (Labcd/YD;)Labcd/cG; lookupCommit
 	v5 (Labcd/YD;)Labcd/mG; lookupTree
 	j6 (Labcd/YD;)Labcd/dG; createCommit

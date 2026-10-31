@@ -74,7 +74,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 
 ## 门 2：`validate_mappings.py`（无需参数）
 
-对着 `process/src/*.jar + base/merged_ok.jar` 校验：类存在、方法/字段存在、
+对着 `process/src/*.jar + base/merged_ok.jar` 校验：类存在、方法/字段存在、构造器没被改名、
 `\t\tstatic` 位置与 jar 一致、类目标不重复、成员目标（新名+描述符）不重复、新名合法，
 以及参数行（跟在方法行后、3 段、两列同名、序号在参数个数内、同一方法内不重复）。
 

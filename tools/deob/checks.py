@@ -167,6 +167,11 @@ def validate(project, tsrg=None):
         if not NAME_RE.fullmatch(new):
             bad['bad-name'] += 1
             detail.append((ln, 'bad-name', line))
+        if name.startswith('<') and new != name:
+            # 构造器/<clinit> 不能改名：字节码里 `invokespecial <init>` 仍按旧名找，
+            # 改名后方法体里就变成"在普通方法里调用 this(...)" → VerifyError
+            bad['special-rename'] += 1
+            detail.append((ln, 'special-rename', '%s %s -> %s' % (name, desc, new)))
     return bad, detail, dict(classes=n_cls, members=n_mem, params=n_par, base_classes=len(idx))
 
 

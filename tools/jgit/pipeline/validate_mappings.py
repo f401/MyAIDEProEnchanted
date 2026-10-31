@@ -161,6 +161,9 @@ def main():
             SEEN.add(key)
         if not re.fullmatch(r'[A-Za-z_$][A-Za-z0-9_$]*|<init>|<clinit>', new):
             bad['新名非法'] += 1; detail.append((ln, 'bad-name', line))
+        if isinstance(name, str) and name.startswith('<') and new != name:
+            # 构造器/<clinit> 改名 → 方法体里的 invokespecial 找不到 → VerifyError
+            bad['构造器被改名'] += 1; detail.append((ln, 'special-rename', '%s -> %s' % (name, new)))
     print('类块 %d / 成员行 %d / 参数行 %d / 基类 %d' % (ncls, nmem, npar, len(info)))
     if not bad:
         print('✔ 无无效映射')
