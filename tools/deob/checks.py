@@ -164,6 +164,31 @@ def validate(project, tsrg=None):
                 bad['dup-member-target'] += 1
                 detail.append((ln, 'dup-member-target', '%s -> %s' % (cur, new)))
             seen_mem.add(key)
+        if last and last[0] == 'm' and new != name:
+            # 契约方法改名：FART 会沿覆写链把改名传播到 JDK 接口上（踩过：`LsEntry.toString →
+            # getLongname` 让所有 `CharSequence.toString()` 变成 `getLongname`，启动即崩）。
+            # Object 契约（toString/equals/hashCode…）**一律**不许；接口契约（length/compareTo…）
+            # 只有本类真的实现了那个接口才危险（`AbbreviatedObjectId.length` 就是安全的）。
+            hit = None
+            for nm in (name, new):
+                if desc not in jvm.CONTRACT_SIGS.get(nm, ()):
+                    continue
+                iface = jvm.CONTRACT_IFACE.get(nm)
+                if iface is None:
+                    hit = nm
+                    break
+                ci = idx.get(cur)
+                ifs = set()
+                if ci:
+                    for d in ([ci.get('sup')] + list(ci.get('ifaces') or [])):
+                        if d:
+                            ifs.add(d[1:-1] if d.startswith('L') and d.endswith(';') else d)
+                if iface in ifs:
+                    hit = nm
+                    break
+            if hit:
+                bad['contract-rename'] += 1
+                detail.append((ln, 'contract-rename', '%s %s -> %s' % (cur, name, new)))
         if not NAME_RE.fullmatch(new):
             bad['bad-name'] += 1
             detail.append((ln, 'bad-name', line))

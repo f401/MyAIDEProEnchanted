@@ -3836,7 +3836,6 @@ abcd/WD org/eclipse/jgit/lib/AbbreviatedObjectId
 	j6 (II)I mask
 		0 word word
 		1 v v
-	FH ()I length
 	Hw ()Ljava/lang/String; name
 	j6 ()I getFirstByte
 	j6 ([II)I prefixCompare
@@ -3878,6 +3877,7 @@ abcd/WD org/eclipse/jgit/lib/AbbreviatedObjectId
 		0 bs bs
 		1 ptr ptr
 		2 end end
+	FH ()I length
 abcd/WE$a org/eclipse/jgit/lib/RepositoryCache$FileKey
 	j6 (Z)Labcd/UE; open
 		0 mustExist mustExist
@@ -10452,7 +10452,6 @@ com/jcraft/jsch/ChannelSftp$LsEntry com/jcraft/jsch/ChannelSftp$LsEntry
 	DW (Ljava/lang/String;)V setLongname
 		0 longname longname
 	Zo ()Ljava/lang/String; getFilename
-	toString ()Ljava/lang/String; getLongname
 	j6 filename
 	DW longname
 com/jcraft/jsch/ChannelSftp$LsEntrySelector com/jcraft/jsch/ChannelSftp$LsEntrySelector
@@ -11535,7 +11534,6 @@ com/jcraft/jsch/SftpATTRS com/jcraft/jsch/SftpATTRS
 		0 buf buf
 	DW size
 	gn extended
-	tp ()I length
 	v5 ()Ljava/lang/String; getPermissionsString
 	gn ()Z isDir
 	u7 ()Z isLink
@@ -11550,6 +11548,7 @@ com/jcraft/jsch/SftpATTRS com/jcraft/jsch/SftpATTRS
 	Hw gid
 	FH uid
 	VH mtime
+	tp ()I length
 com/jcraft/jsch/SftpProgressMonitor com/jcraft/jsch/SftpProgressMonitor
 	j6 (ILjava/lang/String;Ljava/lang/String;J)V init
 		0 op op

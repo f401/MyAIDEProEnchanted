@@ -297,7 +297,13 @@ def match_class(cls, pst, ocl, lookup, obf, min_score=0.30, min_lead=0.12,
         informative[(n, d)] = seq[0] != seq[1]
 
     def emit(pn, pd, ometh, ev, sc=None, lead=None):
-        res['method'].append(dict(probe=pn, desc=pd, real=ometh['name'], ev=ev,
+        real = ometh['name']
+        # 契约签名（`toString()String` / `length()I` / `equals(Object)Z` …）两头都不许动：
+        # FART 会顺着覆写链把这个改名传播到 JDK 接口上（已踩：`LsEntry.toString → getLongname`
+        # 让所有 `CharSequence.toString()` 调用点变成 `getLongname`，运行期 NoSuchMethodError）
+        if not contract_ok(pn, real, pd, ocl):
+            return
+        res['method'].append(dict(probe=pn, desc=pd, real=real, ev=ev,
                                   score=sc, lead=lead,
                                   bodyless=not (seqp.get((pn, pd)) or ([],))[0]))
 
@@ -333,8 +339,14 @@ def match_class(cls, pst, ocl, lookup, obf, min_score=0.30, min_lead=0.12,
         # 探针名本身就在候选里 ⇒ 那是 identity（不需要映射），别让它被别的探针抢走
         ident = {x[0] for x in pl}
         cands = [m for m in ol if not (m['acc'] & 0x1000) and m['name'] not in ident]
-        # 只让"还没定名"的探针参与（已定的在 seen 里，别再掺和进来破坏 1:1 判断）
-        psel = [x for x in pl if not x[2] and not lookup.get(('c', cls, x[0], d))]
+        # 只让"还没定名"的探针参与（已定的在 seen 里，别再掺和进来破坏 1:1 判断）；
+        # **探针名在 oracle 里同名同描述符存在 ⇒ 一律恒等**，不许被配到别的名字上去
+        # （`LsEntry.toString` 曾被配成 `getLongname`，FART 又把改名传播到
+        #  `java.lang.CharSequence`，运行期崩 `NoSuchMethodError: CharSequence.getLongname`）
+        psel = [x for x in pl if not x[2] and not lookup.get(('c', cls, x[0], d))
+                and not any(m['name'] == x[0] for m in ob.get(d, []))]
+        # 契约方法（Object / CharSequence / Comparable）绝不改名
+        psel = [x for x in psel if x[0] not in jvm.CONTRACT_NAMES]
         if not cands:
             continue
         if not cands or not psel:
@@ -918,6 +930,8 @@ def repair_by_graph(parsed, ocls, rows, lookup, locked_m, oseq_cache, rounds=3, 
                           if x in orefs.get((c, m['name'], m['desc']), ()))
                 if hit > best[0]:
                     best = (hit, m['name'])
+            if best[1] != r['real'] and not contract_ok(r['probe'], best[1], r['desc'], ocls.get(c)):
+                continue
             if best[1] != r['real']:
                 used.discard(cur_key)
                 used.add((c, best[1], r['desc']))
@@ -1027,6 +1041,40 @@ def narrow_by_callees(ocl, cands, need, ocache):
     return keep or cands
 
 
+def _iface_chain(ocl, name, seen=None):
+    """oracle 类里能否走到 `name` 这个接口（只在本 jar 内展开，JDK 名字直接比）。"""
+    if ocl is None:
+        return False
+    seen = seen or set()
+    for d in ([ocl.get('sup')] + list(ocl.get('ifaces') or [])):
+        if not d:
+            continue
+        d = d[1:-1] if d.startswith('L') and d.endswith(';') else d
+        if d == name:
+            return True
+    return False
+
+
+def contract_ok(probe, real, desc, ocl=None):
+    """契约签名两头都不许动（`toString()String` / `length()I` / `equals(Object)Z` …）。
+
+    FART 会沿覆写链把这种改名传播到 JDK 接口上：踩过一次 `LsEntry.toString → getLongname`，
+    结果所有 `CharSequence.toString()` 调用点被改成 `getLongname`，运行期
+    `NoSuchMethodError: No interface method getLongname() in class Ljava/lang/CharSequence;`。
+    """
+    if real == probe:
+        return True
+    for n in (probe, real):
+        if desc not in jvm.CONTRACT_SIGS.get(n, ()):
+            continue
+        iface = jvm.CONTRACT_IFACE.get(n)
+        if iface is None:            # Object 契约（toString/equals/hashCode…）：一律不许动
+            return False
+        if _iface_chain(ocl, iface):  # 接口契约：只有本类真的实现了它才危险
+            return False
+    return True
+
+
 def eliminate(parsed, ocls, rows, lookup, log=None, min_score=0.05):
     """**排除法**：同一描述符桶里，探针侧只剩 1 个没定名、oracle 侧也只剩 1 个没被占用 ⇒ 就是它。
 
@@ -1073,7 +1121,7 @@ def eliminate(parsed, ocls, rows, lookup, log=None, min_score=0.05):
                         continue
                     sc = score(smali_seq(pst['body'][(n, d)], lookup, set())[:2],
                                oracle_seq(ocl, m['code'])[:2])
-                    if sc <= min_score:
+                    if sc <= min_score or not contract_ok(n, m['name'], d, ocl):
                         continue
                     rows.append(dict(cls=c, kind='method', probe=n, desc=d, real=m['name'],
                                      ev='elim:%.2f' % sc, score=sc, lead=None))

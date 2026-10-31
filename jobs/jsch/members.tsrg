@@ -282,7 +282,6 @@ com/jcraft/jsch/ChannelSftp$LsEntry com/jcraft/jsch/ChannelSftp$LsEntry
 	j6 (Ljava/lang/String;)V setFilename
 	DW (Ljava/lang/String;)V setLongname
 	Zo ()Ljava/lang/String; getFilename
-	toString ()Ljava/lang/String; getLongname
 	j6 filename
 	DW longname
 com/jcraft/jsch/ChannelSftp$LsEntrySelector com/jcraft/jsch/ChannelSftp$LsEntrySelector
@@ -955,7 +954,6 @@ com/jcraft/jsch/SftpATTRS com/jcraft/jsch/SftpATTRS
 	j6 (Lcom/jcraft/jsch/Buffer;)V dump
 	DW size
 	gn extended
-	tp ()I length
 	v5 ()Ljava/lang/String; getPermissionsString
 	gn ()Z isDir
 	u7 ()Z isLink
@@ -970,6 +968,7 @@ com/jcraft/jsch/SftpATTRS com/jcraft/jsch/SftpATTRS
 	Hw gid
 	FH uid
 	VH mtime
+	tp ()I length
 com/jcraft/jsch/SftpProgressMonitor com/jcraft/jsch/SftpProgressMonitor
 	j6 (ILjava/lang/String;Ljava/lang/String;J)V init
 	j6 (J)Z count

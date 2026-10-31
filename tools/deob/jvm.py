@@ -2,6 +2,40 @@
 """class 文件解析 + 方法体特征（ldc 字符串 / 成员引用），用于成员级匹配。"""
 import struct
 
+CONTRACT_SIGS = {
+    # 契约名 → 该契约的**特征描述符**。只有名字+描述符都对上才算契约（`RawText.equals(RawText,int,RawText,int)`
+    # 这种同名的私有工具方法不受限）。
+    'toString': {'()Ljava/lang/String;'},
+    'equals': {'(Ljava/lang/Object;)Z'},
+    'hashCode': {'()I'},
+    'clone': {'()Ljava/lang/Object;'},
+    'finalize': {'()V'},
+    'length': {'()I'},
+    'charAt': {'(I)C'},
+    'subSequence': {'(II)Ljava/lang/CharSequence;'},
+    'compareTo': {'(Ljava/lang/Object;)I'},
+}
+
+# 哪些契约名"只有真的实现了那个接口才危险"（Object 的没有对应接口 ⇒ 永远危险）
+CONTRACT_IFACE = {
+    'length': 'java/lang/CharSequence', 'charAt': 'java/lang/CharSequence',
+    'subSequence': 'java/lang/CharSequence', 'chars': 'java/lang/CharSequence',
+    'codePoints': 'java/lang/CharSequence',
+    'compareTo': 'java/lang/Comparable',
+    'iterator': 'java/lang/Iterable', 'forEach': 'java/lang/Iterable',
+    'spliterator': 'java/lang/Iterable',
+}
+
+CONTRACT_NAMES = frozenset({
+    # Object / CharSequence / Comparable / Iterable 的方法：名字是**契约**，改名会把
+    # 改名传播到 java.lang.* 上（`LsEntry.toString` 曾被改成 `getLongname`，
+    # FART 顺着覆写链把 `CharSequence.toString` 也改了，运行期直接
+    # `NoSuchMethodError: No interface method getLongname() in class CharSequence`）。
+    'toString', 'equals', 'hashCode', 'clone', 'finalize',
+    'length', 'charAt', 'subSequence', 'chars', 'codePoints',
+    'compareTo', 'iterator', 'forEach', 'spliterator',
+})
+
 LEN={}
 for o in (0x10,0x15,0x16,0x17,0x18,0x19,0x36,0x37,0x38,0x39,0x3a,0xa9,0xbc): LEN[o]=2
 for o in (0x11,0x12,0x84,0xb2,0xb3,0xb4,0xb5,0xb6,0xb7,0xb8,0xb9,0xbb,0xbd,0xc0,0xc1): LEN[o]=3

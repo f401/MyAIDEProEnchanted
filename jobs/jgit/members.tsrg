@@ -2368,7 +2368,6 @@ abcd/WD org/eclipse/jgit/lib/AbbreviatedObjectId
 	DW ()Z isComplete
 	j6 ([BI)I prefixCompare
 	j6 (II)I mask
-	FH ()I length
 	Hw ()Ljava/lang/String; name
 	j6 ()I getFirstByte
 	j6 ([II)I prefixCompare
@@ -2386,6 +2385,7 @@ abcd/WD org/eclipse/jgit/lib/AbbreviatedObjectId
 	FH ([BII)I hexUInt32
 	j6 (Ljava/lang/String;)Labcd/WD; fromString
 	DW ([BII)Labcd/WD; fromHexString
+	FH ()I length
 abcd/WE$a org/eclipse/jgit/lib/RepositoryCache$FileKey
 	j6 (Z)Labcd/UE; open
 	j6 ()Ljava/io/File; getFile

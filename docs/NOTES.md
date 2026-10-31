@@ -144,3 +144,46 @@
 结论：**jsch 741 个方法 / 537 个字段全部有名字**（678+63 / 536+1，其余是恒等与合成）。
 `mgraph` 剩 4 条未对上，全部有解释（1 条 AIDE 改过的 `ChannelExec.getErrStream` 方法体、
 3 条 `Compression.stream` 的类型被换成 `abcd/Oy`）。
+
+## 11. 契约方法绝不许改名（一次真实崩溃的复盘）
+
+**症状**（真机）：
+
+```
+java.lang.NoSuchMethodError: No interface method getLongname()Ljava/lang/String;
+  in class Ljava/lang/CharSequence; or its super classes
+    at io.fabric.sdk.android.n.onPreExecute(...)
+```
+
+**根因**：jsch 侧把 `ChannelSftp$LsEntry.toString()Ljava/lang/String;` 改名成了 `getLongname`
+（探针里的 `toString` 与 oracle **同名同描述符**，本来就该按恒等、不写映射；oracle 的
+`getLongname()` 在 AIDE 里被裁掉了，所以那里根本没有"另一个方法"可配）。
+FART 按 (名, 描述符) 认覆写，`toString` 在 `Object` 上声明、又被 `CharSequence`/`Enum`/… 重声明，
+于是这个改名被**沿继承链传播到 JDK 类型**上：
+
+```
++ java/lang/Object.getLongname()Ljava/lang/String;        ×404
++ java/lang/CharSequence.getLongname()Ljava/lang/String;  ×116
++ java/io/StringWriter.getLongname()…                     ×52
++ org/json/JSONObject.getLongname()…                      ×58   …
+（合计 780 条 JDK/Android 引用被改坏）
+```
+
+**三条硬结论**：
+
+1. **`toString`/`equals`/`hashCode`/`clone`/`finalize` 一律不许改名**（它们在 `Object` 上声明，
+   每个类都继承，FART 必然会往外传播）。
+2. `length`/`charAt`/`compareTo`/`iterator` 这类"接口契约"**只有在本类真的实现了那个接口时才危险**
+   （`AbbreviatedObjectId.length()I` 就是安全的：它继承 `Object`，`Object` 没有 `length`）。
+   规则落在 `jvm.CONTRACT_SIGS` + `jvm.CONTRACT_IFACE`，`membermatch.contract_ok()` 两头把关。
+3. **探针名在 oracle 里同名同描述符存在 ⇒ 一律恒等**，不参与分配（`match_class` 里已按此过滤）。
+
+**门禁**（两道，都是新增）：
+
+| 门 | 判据 | 期望 |
+|---|---|---|
+| `validate` 的 `contract-rename` | 契约签名（带 iface 判断）不许改名 | 0 条 |
+| `jdk_refs.py`（构建链第 5 步 `jdkrefs`） | **改名前后，指向 `java/` `javax/` `android/`… 的引用（owner+名+描述符）必须一模一样** | `✔ JDK/Android 引用与改名前一模一样` |
+
+`jdk_refs` 是这条不变量最直接的检查：拿 `process/base/merged_pub.jar` 当基线，比 `out/build/renamed/merged.jar`；
+任何差异都说明有 JDK 引用被改坏 —— 这类 bug 编译、安装都不报，只在运行到那一行时炸。

@@ -146,6 +146,18 @@ java -Xmx1200m -cp process/d8.jar com.android.tools.r8.D8 \
 - **dex 个数不保证还是 5 个**（D8 按 64K 方法数自己分），回填要多退少补（见 §6）。
 - D8 报 `multiple definitions` / `Invalid input code with a call to <clinit>`：见 [NOTES.md](NOTES.md) §4/§5。
 
+## 5b. 名门禁：`jdkrefs`（FART 之后、D8 之前）
+
+```bash
+python3 tools/jgit/audit/jdk_refs.py out/build/renamed/merged.jar --base process/base/merged_pub.jar
+# ✔ JDK/Android 引用与改名前一模一样
+```
+
+不变量：**指向 `java/` `javax/` `android/`… 的引用，改名前后必须完全相同**。
+不一致 = 有改名被 FART 沿覆写链传播到了 JDK 类型上（真实事故：`toString→getLongname` 改坏了
+780 条 JDK 引用，装机即 `NoSuchMethodError: CharSequence.getLongname`）。`build_apk.py all`
+已把这一步串在 `fart` 和 `dex` 之间。
+
 ## 6. 回填 APK + 签名
 
 dex 数量会变，所以**不能**像以前那样 `cp` 固定几个；按下面的"多退少补"重写 zip：

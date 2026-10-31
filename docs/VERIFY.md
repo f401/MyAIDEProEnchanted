@@ -56,6 +56,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 5 `pkgclose` | `约束边 717 / 需要挪的类 0 / 真冲突 7 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |
 | 6 `coverage` | 方法 **3501/3533 = 99.1%**、字段 **1848/1855 = 99.6%**、类 623、完全覆盖 **604**；未入分母：方法 890 / 字段 496；未命中明细 39 条 → `~/out/work/cov_miss.tsv` |
 | 7 `widen_access --report` | `跨包需放宽：类 31 / 成员 58`（`--apply` 改写对应 class） |
+| 11 `tools/jgit/audit/jdk_refs.py`（构建链 `jdkrefs` 步） | **改名前后指向 `java/`/`javax/`/`android/`… 的引用必须一模一样**；踩过一次 `toString→getLongname` 被 FART 传播到 `java.lang.Object` / `CharSequence`，780 条 JDK 引用被改坏，装机即崩（见 NOTES §11） |
 | 10 `deob mgraph --pkg=com/jcraft/jsch` | `调用图自证：530 个方法 / 2462 条已定名引用，未对上 6 条（0.2%），可疑方法 4 个`（4 条均已知：1 条 AIDE 改的方法体 + 3 条 `Compression.stream` 类型被换成 `abcd/Oy`，见 NOTES §9/§10） |
 
 ## 门 0：`filter_head.py`
@@ -209,5 +210,6 @@ python3 tools/deob/cli.py -p process/deob.json mgraph --pkg=com/jcraft/jsch
 | 覆写"失效"（调到父类实现） | 跨包 package-private 虚方法 | `widen_access`（放 protected） |
 | FART 两遍产物不同 | 祖先成员未映射 / 子类改名 | 门 4 `inherit_check` 补 MISSING |
 | D8 `multiple definitions` | 同类内新名+描述符重复 | 门 2 `dup-member-target` |
+| `NoSuchMethodError: … in class Ljava/lang/CharSequence;`（或任何 JDK 类型） | 契约方法（`toString`/`equals`/`hashCode`/`length`…）被改名，FART 沿覆写链传播到 JDK | 门 11 `jdk_refs.py` + 门 2 `contract-rename`；把那条映射删掉（见 NOTES §11） |
 | Fernflower 里抽象方法参数名还是 `varN` | 参数行没生成 / 没被 FART 吃到 | 门 9 `paramfill` + 检查 `jobs/<依赖>/params.tsv` |
 | D8 `Invalid input code with a call to <clinit>` | dex2jar 产物缺陷（非改名造成） | `tools/jgit/pipeline/nop_clinit.py` 处理后重试 |

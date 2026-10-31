@@ -15,6 +15,7 @@
 import argparse
 import glob
 import os
+import sys
 import re
 import shutil
 import subprocess
@@ -209,6 +210,27 @@ ASSET_MAP = {'en.jar': 'assets/data/functions/lang/en.jar',
              'packagingservice': 'assets/data/functions/runtime/packagingservice.zip'}
 
 
+def step_jdkrefs(P):
+    """FART 之后立刻体检：**指向 JDK/Android 的引用改名前后必须一模一样**。
+
+    踩过：`LsEntry.toString → getLongname` 被 FART 沿覆写链传播到 `java.lang.Object.toString`
+    （再扩散到 `CharSequence`/`Enum`/`JSONObject`…），780 条 JDK 引用被改坏，
+    装机后一进 Crashlytics 初始化就 `NoSuchMethodError: CharSequence.getLongname`。
+    """
+    import subprocess
+    renamed = os.path.join(OUT, 'renamed', 'merged.jar')
+    base = os.path.join(REPO, 'process', 'base', 'merged_pub.jar')
+    if not os.path.exists(renamed):
+        raise SystemExit('缺少 %s，先跑 fart' % renamed)
+    tool = os.path.join(REPO, 'tools', 'jgit', 'audit', 'jdk_refs.py')
+    r = subprocess.run([sys.executable, tool, renamed, '--base', base],
+                       capture_output=True, text=True)
+    print((r.stdout or '').rstrip())
+    if r.returncode != 0:
+        raise SystemExit('✘ 有 JDK/Android 引用被改名改坏（见上）——先修 mapping 再打包')
+    return 0
+
+
 def step_repack(P):
     apk = base_apk(); out = os.path.join(OUT, 'apk'); os.makedirs(out, exist_ok=True)
     dst = os.path.join(out, os.path.basename(apk))
@@ -315,7 +337,7 @@ def main():
         _APK_OVERRIDE = a.apk if os.path.isabs(a.apk) else os.path.join(REPO, a.apk)
     P = config.load(a.project)
     os.makedirs(OUT, exist_ok=True)
-    steps = (['plan', 'tryfix', 'widen', 'fart', 'dex', 'repack', 'sign', 'verify']
+    steps = (['plan', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'repack', 'sign', 'verify']
              if a.step == 'all' else [a.step])
     apk, dexes, du, ju, assets = plan()
     for s in steps:
@@ -328,6 +350,8 @@ def main():
             step_fart(P)
         elif s == 'widen':
             step_widen(P)
+        elif s == 'jdkrefs':
+            step_jdkrefs(P)
         elif s == 'dex':
             step_dex(P)
         elif s == 'repack':
