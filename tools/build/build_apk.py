@@ -298,9 +298,10 @@ def step_repack(P):
         if not os.path.exists(zp):
             raise SystemExit('缺 %s，先跑 assetdex' % zp)
         if entry in z.namelist():
-            old = z.read(entry)
+            # 注意别叫 `old`：上面那个 `old` 是"底包里的旧 dex 文件名列表"，后面还要用
+            oldbytes = z.read(entry)
             try:
-                old_names = zipfile.ZipFile(io.BytesIO(old)).namelist()
+                old_names = zipfile.ZipFile(io.BytesIO(oldbytes)).namelist()
             except Exception:
                 old_names = []
             if 'classes.dex' not in old_names:
