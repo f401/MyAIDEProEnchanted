@@ -120,28 +120,15 @@ python3 tools/jgit/pipeline/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内�
 
 ## 4. 参数名（`jobs/<依赖>/params.tsv`）
 
-参数名不是猜的，来源只有两条，且都可复现：
-
-1. **oracle jar 的 `LocalVariableTable`**：目标类 = `class_map.tsv` 里的真名、目标方法 =
-   `members.tsrg` 里的新名、目标描述符 = 该行描述符按类映射逐类换名；
-   `(类, 方法, 描述符)` 三者**完全相等**时才取那条方法的 LVT，
-   槽位换算成实参序号（0 起、不含 `this`、`long/double` 只占一个序号）。
-2. **该依赖的源码**（`src_root` 列表：`~/src/jgit`、`~/out/oracle/jsch/src`）：
-   只用于 oracle 里那条是抽象/接口方法、没有 `Code` 的情况。
-   只认**无方法体**（`;` 结尾）的声明；同名同参数个数有多条时，用形参类型和描述符逐个比对消歧，
-   消歧不掉就留空。
-
-三元组对不上就**不出行**：AIDE 自有类、方法名被合成/合过、签名被魔改——这些参数名留空，不编。
+判据见 [docs/NAMING.md](../docs/NAMING.md) §9（oracle `LocalVariableTable` → 源码**无方法体**声明 →
+AIDE 自有类的 `params_manual.tsv` 人工证据行）。三条都要求可复现，拿不到就留空。
 
 ```
-1667 个方法从 oracle LVT 拿到全名          （jgit）
- 117 个方法（抽象/接口）从 jgit 源码补全
-   5 个方法（jsch 接口）从 jsch 0.1.55 源码补全
+1667 个方法从 oracle LVT 拿到全名（jgit）
+ 122 个方法从源码声明补全（jgit 117 + jsch 5）
+  12 个方法（aide）来自 params_manual.tsv，共 15 行参数
    0 个方法仍是残缺
 ```
-
-`jobs/aide` 没有 `params.tsv`：那 53 个类是 AIDE 自己写的，没有 oracle；探针本身也没有调试信息
-（`merged_ok.jar` 全库无 `LocalVariableTable`，smali 里 `.param` 数量 = 0），拿不到真名就留空。
 
 重跑：
 

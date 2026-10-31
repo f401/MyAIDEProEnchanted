@@ -34,7 +34,6 @@ tools/
 | `rebuild_tsrg.py` | **逐 part 重建 `jobs/<依赖>/members.tsrg`**（类块顺序按该 part 的 tsv；丢陈旧块、去重成员、查类目标重复），最后自动串 `paramfill` + `emit_tsrg2` |
 | `paramfill.py` | **参数名**：oracle jar 的 `LocalVariableTable`（+ 抽象方法的 jgit 源码声明）→ 各 part 的 `params.tsv`；`--write` 落盘 |
 | `emit_tsrg2.py` | 单独重排/补 static 标记**与参数行**输出 TSRG2（`\t\tstatic` 紧跟**方法**行，参数行再跟在后面） |
-| `sync_maps.py` | 只重建 jgit 块、保留头部 |
 | `mapfix.py` | 声明式改**成员**映射（`探针 m/f 名 描述符 旧 新`，`-` 表空/删；同类互换安全） |
 | `tsvfix.py` | 声明式改**类**映射 |
 | `filter_head.py` | 清理 `mappings_head.txt` 中“已应用/不存在”的块与行 |
@@ -42,8 +41,9 @@ tools/
 | `verify_members.py` | **一致性**：对着 oracle 校验名字+描述符（含 `process/verify_allow.tsv` 白名单）。期望 `不一致 0` |
 | `inherit_check.py` | **继承闭合**：`CONFLICT 0 / MISSING 0` |
 | `pkgclose.py` | **包归属**：并查集 + 不动点求每类该在哪个包；`--apply` 迭代到 0 |
-| `widen_access.py` | **跨包 access 放宽**（成员/类 → public，同签名虚方法 → protected）；`--report` 只看，`--map` 用于 FART 前 |
-| `coverage.py` | 覆盖率（分母=有同形对应者的 oracle 成员） |
+| `widen_access.py` | **跨包 access 放宽**（成员/类/父类/接口 → `public`；覆盖成员引用 + 类级访问 + 继承 + override 四类）；`--report` 只看，写完自检 access 冲突 |
+| `fix_try.py` | 把"try 范围不含数组访问"的异常表修回源码语义（`Config$StringReader` 那类靠越界判 EOF 的代码） |
+| `coverage.py` | 覆盖率（分母取 3.7.1；命中判定看**所有** oracle 版本；未命中写 `~/out/work/cov_miss.tsv`） |
 | `jar_manifest.py` | jar **内容指纹**（与 zip 布局无关），用于“两次 FART 是否一致” |
 | `nop_clinit.py` | 把方法体里显式 `invokestatic <clinit>` 换 NOP（D8 不收） |
 

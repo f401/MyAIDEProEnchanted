@@ -156,29 +156,17 @@ H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 指纹不同 = FART 沿继承链兜底（还有 MISSING 或名字不一致）→ 回门 4。
 最后按 BUILD.md §7 做安装冒烟（clone/commit/push）。
 
-## 门 9：参数名（`paramfill.py` + FART 副作用核对）
+## 门 9：参数名（`paramfill.py`）
 
-参数名只认**可复现的证据**：
-
-1. oracle jar 里 `(类, 方法名, 描述符)` **三元组完全相等**的那条方法的 `LocalVariableTable`
-   （槽位 → 实参序号：0 起、不含 `this`、`long/double` 只占一个序号）；
-2. 那条是抽象/接口方法（没有 `Code`，也就没有 LVT）时，退到该依赖的源码
-   （`src_root` 列表：`~/src/jgit`、`~/out/oracle/jsch/src`）：只认**无方法体**（`;` 结尾）
-   的声明，多条时用形参类型与描述符逐个比对消歧，仍不唯一就留空。
-
-三元组对不上（AIDE 改过签名、方法名被合过、AIDE 自有类、合成 `access$NNN`）一律**不出行**。
-
-**`jobs/aide` 没有 `params.tsv` 是故意的**：那 53 个类是 AIDE 自己写的，没有 oracle；
-探针本身也没有调试信息（`merged_ok.jar` 全库没有 `LocalVariableTable`，smali 里 `.param` 数量 = 0），
-拿不到真名就只能留空（那 30 个成员里有 12 个带参数）。编一个"看起来合理"的名字违反 NAMING §9。
+判据（oracle `LocalVariableTable` / 源码**无方法体**声明 / `params_manual.tsv` 的人工证据行）
+见 [NAMING.md](NAMING.md) §9。这里只给“跑什么、期望什么”。
 
 | 期望 | 说明 |
 |---|---|
 | `命中 2963（无参 1174 / jar 参数全 1667 / 源码补全 122 / 仍缺 0）` | 「仍缺 0」= 凡有参数、且有 oracle 对应的方法都拿到了名字 |
 | 未命中 `无类映射 143 / 方法名不同 95 / 描述符不同 106` | 没有 oracle 对应物，故意留空（不编语义） |
-| 参数行 `3262`（1936 个方法）：jgit 3238 / jsch 9 / aide 15 | jgit 含 139 个构造器（`<init>` 的 LVT）；aide 的 15 行来自 `params_manual.tsv` |
+| 参数行 `3262`（1936 个方法）= jgit 3238 / jsch 9 / aide 15 | jgit 含 139 个构造器（`<init>` 的 LVT）；aide 的 15 行来自 `params_manual.tsv` |
 | 重跑 `paramfill.py --write` 后各 `jobs/<依赖>/params.tsv` 不变 | 幂等；成员改名后必须重跑（`rebuild_tsrg` 已自动串起来） |
-| `jobs/aide/params_manual.tsv` 15 行（每行都有判据） | 人工/证据行，`paramfill` 合并时 **manual 优先**（见 §9 末） |
 
 **参数行对产物有没有副作用**（新旧 mapping 各跑一遍 FART 比 22763 个条目）：
 
