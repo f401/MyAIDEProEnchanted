@@ -56,8 +56,14 @@ part 按来源分：`jgit` / `jsch` / `aide` / `head`，顺序见 `process/deob.
 
 ## 6. FART 的坑
 
-- **输入必须是原始 jar**（`process/src/*.jar` 或 `base/merged_ok.jar`）。预先做类级 public 化
-  （`merged_pubcls.jar`）会让 FART 在个别类上崩；**access 放宽放到 FART 之后**做。
+- **输入必须是原始 jar**（`process/src/*.jar` 或 `base/merged_ok.jar`）。预先做**类级** public 化
+  （`merged_pubcls.jar`）会让 FART 在个别类上崩；但 `widen_access` 的产物（`merged_pub.jar`）
+  没问题——`FART(merged_pub.jar)` 实测 12.8s 正常通过。
+- **access 放宽必须在 FART 之前做**：`widen_access --map` 对 `merged_ok.jar` 跑，只放宽
+  "原本同包、映射后跨包"的成员。FART 之后再跑（名字已最终、没有映射）实测是 **类 0 / 成员 0**。
+- **不要逐 jar 出包**：`process/run.sh` 里的逐 jar 写法只是历史对照，逐 jar 的 widen 看不到
+  别 jar 的引用 → 跨 jar 的 package-private 会漏。正确链路：
+  `widen(merged_ok) → FART(merged_pub) → D8(mp_renamed) → 多退少补回填`（[BUILD.md](BUILD.md) §3~§6）。
 - 同一输入同一 mapping 跑两次，产物必须**内容一致**（`jar_manifest.py` 比对）；不一致说明还有
   `MISSING`/名字不一致，FART 在沿继承链兜底。
 - FART 只认 mapping，不会“猜”；mapping 里没有的类/成员一律保持原样。
