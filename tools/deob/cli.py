@@ -235,10 +235,18 @@ def main():
             print('报告 %s' % rep)
 
     elif a.cmd == 'cover':
-        r = checks.cover(P)
+        _opt = lambda name, dflt=None: next((x.split('=', 1)[1] for x in a.args
+                                             if x.startswith('--%s=' % name)), dflt)
+        _pkg = _opt('pkg')
+        r = checks.cover(P, pkg=_pkg)
         hm, tm = r['methods']; hf, tf = r['fields']
-        print('方法 %d/%d = %.1f%%   字段 %d/%d = %.1f%%' % (
-            hm, tm, 100.0*hm/max(1, tm), hf, tf, 100.0*hf/max(1, tf)))
+        r0 = checks.cover(P, pkg=_pkg, exclude_contract=False)
+        h0, t0 = r0['methods']; f0, t0f = r0['fields']
+        tag = ('（%s）' % _pkg) if _pkg else ''
+        print('方法 %d/%d = %.1f%%   字段 %d/%d = %.1f%%  %s'
+              % (hm, tm, 100.0*hm/max(1, tm), hf, tf, 100.0*hf/max(1, tf),
+                 '口径=剔除 构造器/静态块/合成器/JDK契约名' + tag))
+        print('  （不剔除时 %d/%d 方法、%d/%d 字段）' % (h0, t0, f0, t0f))
 
     elif a.cmd == 'manifest':
         h, n = checks.manifest(a.args[0])

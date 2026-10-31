@@ -59,6 +59,36 @@ def _unescape(s):
     return ''.join(out)
 
 
+_T2P = {}                      # oracle 类名 -> 探针类名（用于把 oracle 侧描述符翻回探针空间）
+_RE_TP = re.compile(r'L([A-Za-z0-9_$/\-]+);')
+
+
+def to_probe_name(n):
+    return _T2P.get(n, n) if n else n
+
+
+def to_probe_desc(d):
+    """把描述符里的 oracle 类型换回探针类型；未认领的类型原样保留。"""
+    if not d or not _T2P:
+        return d
+    return _RE_TP.sub(lambda m: 'L%s;' % _T2P.get(m.group(1), m.group(1)), d)
+
+
+def oracle_to_probe(o):
+    """就地改写一个 jvm.parse 结果，使其描述符/引用全部落在探针空间。"""
+    if not _T2P:
+        return o
+    for m in o['members']:
+        m['desc'] = to_probe_desc(m['desc'])
+    o['sup'] = to_probe_name(o['sup'])
+    o['ifaces'] = [to_probe_name(x) for x in o['ifaces']]
+    rm = o.get('refmap') or {}
+    for k, v in list(rm.items()):
+        if v and len(v) >= 3:
+            rm[k] = (to_probe_name(v[0]), v[1], to_probe_desc(v[2])) + tuple(v[3:])
+    return o
+
+
 def _short(owner):
     return owner.rsplit('/', 1)[-1]
 
@@ -688,13 +718,28 @@ def run(P, pkg, part=None, apply=False, report=None, rounds=8, sweeps=3,
     classes = probe_classes(roots, pkg)
     if not classes:
         raise SystemExit('在 probe_roots 下没找到 %s：%s' % (pkg, roots))
+    # 类名被混淆时：先按 class_map 把探针名翻成真名，再去 oracle 里找
+    import mapping as _mp
+    cmap = {}
+    for _p in P.parts:
+        if _p.get('probe_prefix') and pkg.startswith(_p['probe_prefix']) and _p.get('class_map'):
+            try:
+                cmap = _mp.ClassMap(_p['class_map'], P.probe_prefix, P.class_map_prefix).load().dict
+            except Exception:
+                cmap = {}
+            break
+    if cmap:
+        _T2P.update({v: k for k, v in cmap.items() if v})
+        log('class_map 回退：%d 条（oracle→探针 反查 %d 条）' % (len(cmap), len(_T2P)))
     obf = set(classes)
     parsed, ocls = {}, {}
     for c in sorted(classes):
         parsed[c] = smali.parse(classes[c])
         _label, raw = find(c)
+        if raw is None and cmap.get(c):
+            _label, raw = find(cmap[c])
         if raw is not None:
-            ocls[c] = jvm.parse(raw)
+            ocls[c] = oracle_to_probe(jvm.parse(raw))
     log('探针类 %d（oracle 命中 %d）' % (len(parsed), len(ocls)))
     log('探针方法 %d（非合成）/ 字段 %d' % (
         sum(1 for c in ocls for m in parsed[c]['methods'] if not m[3]),
@@ -1439,7 +1484,9 @@ def write_members(P, part_name, pkg, rows, log=print):
             st = mm.set(r['cls'], 'f', r['probe'], '', r['real'])
         if st in ('ADD', 'OK'):
             n += 1
-        if cm is not None:
+        # 只有**还没有类映射**的类才补 identity 行；已有真名的绝不能用自身覆盖
+        # （踩过：dx 这种类名被混淆的库，跑一次 members --apply 会把 448 条类映射全冲成 identity）
+        if cm is not None and not cm.dict.get(r['cls']):
             cm.set(r['cls'], r['cls'],
                    'identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）',
                    part_path=part['class_map'])
@@ -1464,6 +1511,9 @@ def verify_graph(P, pkg, log=print, limit=40, min_bad=0.3, jdkref=False):
         raise SystemExit('需要 members.tsrg')
     mmap, fmap = mm.index()
     cmap = cm.dict if cm else {}
+    # oracle 侧描述符/owner 必须翻回**探针空间**再和探针引用比对，否则
+    # `Lcom/android/dx/...` vs `Lcom/a/b/...` 永远对不上（同 members 的坑）。
+    _T2P.clear(); _T2P.update({v: k for k, v in cmap.items() if v})
     find, _ = oracle_lookup(P.oracle_jars)
     roots = P.probe_roots or ([P.probe_dir] if P.probe_dir else [])
     classes = probe_classes(roots, pkg)
@@ -1473,7 +1523,7 @@ def verify_graph(P, pkg, log=print, limit=40, min_bad=0.3, jdkref=False):
         label, raw = find(cmap.get(c, c))
         if raw is None:
             continue
-        ocl = jvm.parse(raw)
+        ocl = oracle_to_probe(jvm.parse(raw))
         oseq = {}
         for m in ocl['members']:
             if m['kind'] == 'm' and m['code']:

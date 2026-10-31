@@ -4,6 +4,10 @@
 
 真相在 `process/truth/`（类映射 tsv / 成员映射 tsrg / 头部 / smali 索引），`process/mappings.txt` 是派生产物。
 
+> **整包被混淆的库（类名也改了）**：类名还原 + 成员名还原 + 覆盖率口径 + 引用者消歧的完整流程
+> 见 [RESTORE-OBFUSCATED-LIB.md](RESTORE-OBFUSCATED-LIB.md)。本项目 `jobs/dx`（dx 1.16，448 类）
+> 就是按那份流程做的，`cover --pkg=com/a` 的口径（剔除 构造器/静态块/合成器/JDK契约名）也在那里。
+
 ## 两种等价入口
 
 | | 本项目门禁（带白名单/版本差异分类） | 通用 kit（配置驱动） |

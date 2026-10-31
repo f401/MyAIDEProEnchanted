@@ -172,3 +172,11 @@ python3 tools/deob/selftest.py -p process/deob.json
 5. `params --apply`（参数名）→ `emit` → `validate` → `inherit` → `pkgs` → `(widen)` 全绿
 6. FART → D8 → 出包 → 冒烟（`NoSuchMethod/IllegalAccess/AbstractMethod` 三类异常对照
    [VERIFY.md](VERIFY.md) 末尾速查表）
+
+---
+
+## 类名也被混淆的库
+
+上面的流程假定"类名还是真名"（只改成员）。如果包名/类名也被 R8 重写，
+先按 [RESTORE-OBFUSCATED-LIB.md](RESTORE-OBFUSCATED-LIB.md) 做类级还原
+（`classmatch → enumanchor → refmatch → decisive`），再回来做成员级。

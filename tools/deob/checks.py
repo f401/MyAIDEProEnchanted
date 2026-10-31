@@ -238,6 +238,8 @@ def inherit(project, limit=200):
     conflicts, missing = [], []
     for probe_w, target, _ev in cm.rows:
         probe = cm.full_probe(probe_w)
+        if pkg and not probe.startswith(pkg):
+            continue
         path = idx.file_for(getattr(project, "probe_search", None) or project.probe_dir, probe)
         if not os.path.exists(path):
             continue
@@ -550,50 +552,97 @@ def widen(jar, out=None, class_map=None, apply_=False):
 
 # ---------------------------------------------------------------- cover / manifest
 
-def cover(project):
-    """覆盖率：分母 = oracle 成员中在探针里有同形对应者；命中 = 映射到正确名字。"""
+# 「契约名」：这些名字被外部类型/覆写链钉死（JDK 接口、AIDE 框架回调），
+# 反混淆时本来就只能是这个名字，也不该被 FART 顺着覆写链改掉 —— 不计入覆盖率分母。
+CONTRACT_METHODS = {
+    'toString', 'equals', 'hashCode', 'clone', 'finalize', 'compareTo', 'compare',
+    'run', 'call', 'close', 'flush', 'main', 'destroy', 'start', 'stop',
+    'iterator', 'hasNext', 'next', 'remove', 'size', 'length', 'isEmpty', 'contains',
+    'write', 'read', 'get', 'set', 'add', 'put', 'clear', 'keys', 'keySet', 'entrySet',
+    'values', 'valueOf', 'ordinal', 'name', 'accept', 'charAt', 'getClass',
+    'printStackTrace', 'getMessage', 'getCause', 'getContext',
+}
+
+
+def _is_contract(n, acc):
+    """名字被外部钉死 / 合成器 → 不计入覆盖率分母（用户口径：clinit、init、toString 这一类）。"""
+    if n in ('<init>', '<clinit>'):
+        return True
+    if n in CONTRACT_METHODS or n.startswith('access$') or n.startswith('visit'):
+        return True
+    if acc & (0x1000 | 0x0040):      # ACC_SYNTHETIC | ACC_BRIDGE
+        return True
+    return False
+
+
+def cover(project, pkg=None, exclude_contract=True):
+    """覆盖率（**探针口径**）：分母 = 探针里有意义、且在 oracle 里能找到同形对应者的成员；
+    命中 = 名字判对（有改名行 → 命中映射值；本来就是真名 → 也算命中）。
+
+    排除（用户口径）：`<init>` / `<clinit>` / ACC_SYNTHETIC(access$NNN) / ACC_BRIDGE /
+    JDK 与框架契约名（`toString`/`equals`/`hashCode`/`run`/`compareTo`… 见 CONTRACT_METHODS）。
+    这些名字被外部类型钉死，既不该改也不该计入分母；把它们算进分母会把覆盖率压成假数字。
+    """
     cm = _class_map(project)
     mm = mapping.MemberMap(project.member_map).load()
     m_i, f_i = mm.index()
     idxs = smali.Index(project.smali_index)
     ora = Oracle(project.oracle_jars)
+    roots = getattr(project, "probe_roots", None) or [project.probe_dir]
+    cmap = cm.dict
     tot_m = hit_m = tot_f = hit_f = 0
-    per_class = []
+    per_class, miss = [], []
     for probe_w, target, _ev in cm.rows:
         probe = cm.full_probe(probe_w)
+        if pkg and not probe.startswith(pkg):
+            continue
         label, om = ora.find(target)
         if not om:
             continue
-        path = idxs.file_for(getattr(project, "probe_search", None) or project.probe_dir, probe)
-        if not os.path.exists(path):
+        path = idxs.file_for(roots, probe)
+        if not path or not os.path.exists(path):
             continue
         pr = smali.parse(path)
-        cmap = cm.dict
-        pmeth = collections.Counter((norm_desc(d, cmap), bool(s)) for n, d, s, _ in pr['methods']
-                                    if n not in ('<init>', '<clinit>'))
-        pfield = collections.Counter((norm_desc(d, cmap), bool(s)) for n, d, s, _ in pr['fields'])
-        cm_ = tot = ch = fcm = ftot = fch = 0
-        for n, d, s in om['methods']:
+        ometh = collections.defaultdict(set)      # (归一描述符, static) -> {oracle 名下候选}
+        for n, d, st in om['methods']:
             if n in ('<init>', '<clinit>'):
                 continue
-            nd = norm_desc(d, cmap)
-            if not pmeth.get((nd, bool(s))):
+            ometh[(norm_desc(d, cmap), bool(st))].add(n)
+        ofield = collections.defaultdict(set)
+        for n, d, st in om['fields']:
+            ofield[(norm_desc(d, cmap), bool(st))].add(n)
+        tot = ch = ftot = fch = 0
+        for n, d, st, syn in pr['methods']:
+            if n in ('<init>', '<clinit>'):
                 continue
+            # 合成访问器（access$NNN）名字由 R8 生成、oracle 编号不同，不入分母
+            if exclude_contract and (syn or _is_contract(n, 0)):
+                continue
+            cand = ometh.get((norm_desc(d, cmap), bool(st)))
+            if not cand:
+                continue                          # oracle 里没有同形者 → 不入分母
             tot += 1
-            if any((probe, pn, pd) in m_i and m_i[(probe, pn, pd)] == n and norm_desc(pd, cmap) == nd
-                   for pn, pd, _s, _y in pr['methods']):
+            got = m_i.get((probe, n, d))
+            if got in cand or (got is None and n in cand):
                 ch += 1
-        for n, d, s in om['fields']:
-            nd = norm_desc(d, cmap)
-            if not pfield.get((nd, bool(s))):
+            else:
+                miss.append((probe, 'method', n, d, got or '', '/'.join(sorted(cand))))
+        for n, d, st, _ in pr['fields']:
+            if exclude_contract and n.startswith('$') and n not in ('$VALUES',):
+                continue
+            cand = ofield.get((norm_desc(d, cmap), bool(st)))
+            if not cand:
                 continue
             ftot += 1
-            if any((probe, pn) in f_i and f_i[(probe, pn)] == n and norm_desc(pd, cmap) == nd
-                   for pn, pd, _s, _y in pr['fields']):
+            got = f_i.get((probe, n))
+            if got in cand or (got is None and n in cand):
                 fch += 1
+            else:
+                miss.append((probe, 'field', n, d, got or '', '/'.join(sorted(cand))))
         tot_m += tot; hit_m += ch; tot_f += ftot; hit_f += fch
         per_class.append((probe, target, tot, ch, ftot, fch))
-    return dict(methods=(hit_m, tot_m), fields=(hit_f, tot_f), per_class=per_class)
+    return dict(methods=(hit_m, tot_m), fields=(hit_f, tot_f),
+                per_class=per_class, miss=miss)
 
 
 def manifest(jar):

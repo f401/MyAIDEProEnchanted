@@ -51,6 +51,7 @@ PART_DIRS = [
     ('jgit', os.path.join(REPO, 'jobs', 'jgit')),
     ('jsch', os.path.join(REPO, 'jobs', 'jsch')),
     ('aide', os.path.join(REPO, 'jobs', 'aide')),
+    ('dx', os.path.join(REPO, 'jobs', 'dx')),
 ]
 PARTS = [n for n, _ in PART_DIRS]
 

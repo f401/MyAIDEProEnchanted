@@ -33,11 +33,16 @@ class Index:
         roots = [r for r in roots if r]
         name = self.map.get(probe)
         short = probe.split('/', 1)[1] if '/' in probe else probe
-        cands = ([name] if name else []) + [probe + '.smali']
+        # 先试**完整描述符路径**，再退索引里的裸文件名。
+        # （踩过：多个 probe_roots 时，索引只存裸名 `k.smali`，会在第一个根
+        #   `src/smali/abcd/k.smali` 里命中同名但无关的类把内容读错。）
+        cands = [probe + '.smali'] + ([name] if name and name != probe + '.smali' else [])
         if short != probe:
             cands.append(short + '.smali')
-        for r in roots:
-            for c in cands:
+        # 候选**按优先级**遍历、根作内层：否则第一个根里的裸名（`abcd/k.smali`）
+        # 会抢在别的根里的完整路径（`smali_classes2/com/a/b/g/k.smali`）前面。
+        for c in cands:
+            for r in roots:
                 p = os.path.join(r, c)
                 if os.path.exists(p):
                     return p

@@ -12308,3 +12308,7567 @@ abcd/yi abcd/aide/Settings$1$5
 abcd/zi abcd/aide/Settings$1$6
 abcd/Bi abcd/aide/Settings$1$2$1
 abcd/nj abcd/aide/JavaScriptProject
+com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
+	a ()I byteLength
+	b ()Lcom/a/b/e/c/a; getValue
+	a value
+	b byteLength
+com/a/b/a/a/c com/android/dx/cf/attrib/AttCode
+	d ()Lcom/a/b/a/b/k; getCode
+	e ()Lcom/a/b/a/b/h; getCatches
+	f ()Lcom/a/b/a/e/b; getAttributes
+	c code
+	d catches
+	e attributes
+	c ()I getMaxLocals
+	b ()I getMaxStack
+	a ()I byteLength
+	b maxLocals
+	a maxStack
+com/a/b/a/a/d com/android/dx/cf/attrib/AttConstantValue
+	a ()I byteLength
+	b ()Lcom/a/b/e/c/ag; getConstantValue
+	a constantValue
+com/a/b/a/a/f com/android/dx/cf/attrib/AttEnclosingMethod
+	a ()I byteLength
+	b ()Lcom/a/b/e/c/ae; getEnclosingClass
+	c ()Lcom/a/b/e/c/aa; getMethod
+	a type
+	b method
+com/a/b/a/a/g com/android/dx/cf/attrib/AttExceptions
+	a ()I byteLength
+	b ()Lcom/a/b/e/d/e; getExceptions
+	a exceptions
+com/a/b/a/a/h com/android/dx/cf/attrib/AttInnerClasses
+	a ()I byteLength
+	b ()Lcom/a/b/a/a/x; getInnerClasses
+	a innerClasses
+com/a/b/a/a/i com/android/dx/cf/attrib/AttLineNumberTable
+	a ()I byteLength
+	b ()Lcom/a/b/a/b/r; getLineNumbers
+	a lineNumbers
+com/a/b/a/a/p com/android/dx/cf/attrib/AttSignature
+	a ()I byteLength
+	b ()Lcom/a/b/e/c/ad; getSignature
+	a signature
+com/a/b/a/a/q com/android/dx/cf/attrib/AttSourceDebugExtension
+	a ()I byteLength
+	b ()Lcom/a/b/e/c/ad; getSmapString
+	a smapString
+com/a/b/a/a/r com/android/dx/cf/attrib/AttSourceFile
+	a ()I byteLength
+	b ()Lcom/a/b/e/c/ad; getSourceFile
+	a sourceFile
+com/a/b/a/a/t com/android/dx/cf/attrib/BaseAnnotations
+	a ()I byteLength
+	b ()Lcom/a/b/e/a/c; getAnnotations
+	a annotations
+	b byteLength
+com/a/b/a/a/u com/android/dx/cf/attrib/BaseAttribute
+	g ()Ljava/lang/String; getName
+	a name
+com/a/b/a/a/v com/android/dx/cf/attrib/BaseLocalVariables
+	a ()I byteLength
+	b ()Lcom/a/b/a/b/t; getLocalVariables
+	a localVariables
+com/a/b/a/a/w com/android/dx/cf/attrib/BaseParameterAnnotations
+	a ()I byteLength
+	b ()Lcom/a/b/e/a/d; getParameterAnnotations
+	a parameterAnnotations
+	b byteLength
+com/a/b/a/a/x com/android/dx/cf/attrib/InnerClassList
+	a (I)Lcom/a/b/a/a/y; get
+		0 n n
+	a (ILcom/a/b/e/c/ae;Lcom/a/b/e/c/ae;Lcom/a/b/e/c/ad;I)V set
+		0 n n
+		1 innerClass innerClass
+		2 outerClass outerClass
+		3 innerName innerName
+		4 accessFlags accessFlags
+com/a/b/a/a/y com/android/dx/cf/attrib/InnerClassList$Item
+	c ()Lcom/a/b/e/c/ad; getInnerName
+	d ()I getAccessFlags
+	c innerName
+	d accessFlags
+	b ()Lcom/a/b/e/c/ae; getOuterClass
+	a ()Lcom/a/b/e/c/ae; getInnerClass
+	b outerClass
+	a innerClass
+com/a/b/a/a/z com/android/dx/cf/attrib/RawAttribute
+	a ()I byteLength
+	a data
+	b pool
+com/a/b/a/b/a com/android/dx/cf/code/BaseMachine
+	a (Lcom/a/b/e/d/d;Lcom/a/b/e/d/d;)V throwLocalMismatch
+		static
+		0 found found
+		1 local local
+	a ()Lcom/a/b/e/d/a; getPrototype
+	a (ILcom/a/b/e/d/c;Lcom/a/b/e/b/o;)V localTarget
+		0 idx idx
+		1 type type
+		2 local local
+	a (Lcom/a/b/a/b/ao;)V auxSwitchArg
+		0 cases cases
+	a (Lcom/a/b/a/b/q;)V storeResults
+		0 frame frame
+	a (Lcom/a/b/a/b/q;Lcom/a/b/e/d/a;)V popArgs
+		0 frame frame
+		1 prototype prototype
+	a (Lcom/a/b/a/b/q;Lcom/a/b/e/d/c;)V popArgs
+		0 frame frame
+		1 type type
+	a (Lcom/a/b/a/b/q;Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;)V popArgs
+		0 frame frame
+		1 type1 type1
+		2 type2 type2
+	a (Lcom/a/b/a/b/q;Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;)V popArgs
+		0 frame frame
+		1 type1 type1
+		2 type2 type2
+		3 type3 type3
+	a (Lcom/a/b/e/c/a;)V auxCstArg
+		0 cst cst
+	a (Lcom/a/b/e/d/c;)V auxType
+		0 type type
+	a (Ljava/util/ArrayList;)V auxInitValues
+		0 initValues initValues
+	a (Z)V localInfo
+		0 local local
+	b (Z)Lcom/a/b/e/b/u; getLocalTarget
+		0 isMove isMove
+	d ()Lcom/a/b/e/d/c; getAuxType
+	f ()Lcom/a/b/e/c/a; getAuxCst
+	h ()Lcom/a/b/a/b/ao; getAuxCases
+	i ()Ljava/util/ArrayList; getInitValues
+	a prototype
+	d auxType
+	f auxCst
+	h auxCases
+	i auxInitValues
+	k localInfo
+	l localTarget
+	a (I)V auxIntArg
+		0 value value
+	a (Lcom/a/b/a/b/q;I)V popArgs
+		0 frame frame
+		1 count count
+	b (Lcom/a/b/a/b/q;I)V localArg
+		0 frame frame
+		1 idx idx
+	b (Lcom/a/b/e/d/d;)V addResult
+		0 result result
+	a (Lcom/a/b/e/d/d;)V setResult
+		0 result result
+	b ()V clearArgs
+	k ()V clearResult
+	c ()I argCount
+	l ()I resultCount
+	d (I)Lcom/a/b/e/d/d; result
+		0 n n
+	c (I)Lcom/a/b/e/d/d; arg
+		0 n n
+	b (I)V auxTargetArg
+		0 target target
+	e ()I getAuxInt
+	j ()I getLocalIndex
+	g ()I getAuxTarget
+	b args
+	n resultCount
+	m results
+	c argCount
+	e auxInt
+	j localIndex
+	g auxTarget
+com/a/b/a/b/aa com/android/dx/cf/code/ReturnAddress
+	a ()Lcom/a/b/e/d/c; getType
+	b ()Lcom/a/b/e/d/d; getFrameType
+	f ()Z isConstant
+	a subroutineAddress
+	g ()I getSubroutineAddress
+	c ()I getBasicType
+	d ()Ljava/lang/String; toHuman
+	e ()I getBasicFrameType
+com/a/b/a/b/ab com/android/dx/cf/code/Ropper
+	a (Lcom/a/b/a/b/o;Lcom/a/b/e/b/ah;Lcom/a/b/a/e/h;Lcom/a/b/c/a;)Lcom/a/b/e/b/ab; convert
+		static
+		0 method method
+		1 advice advice
+		2 methods methods
+		3 dexOptions dexOptions
+	a (Lcom/a/b/e/b/m;)Lcom/a/b/e/b/m; filterMoveReturnAddressInsns
+		0 insns insns
+	a (IILcom/a/b/a/b/ai;Lcom/a/b/a/b/q;[I)V mergeAndWorkAsNecessary
+		0 label label
+		1 pred pred
+		2 calledSubroutine calledSubroutine
+		3 frame frame
+		4 workSet workSet
+	a (ILcom/a/b/e/b/c;)V forEachNonSubBlockDepthFirst
+		0 firstLabel firstLabel
+		1 v v
+	a (Lcom/a/b/a/b/f;Lcom/a/b/a/b/q;[I)V processBlock
+		0 block block
+		1 frame frame
+		2 workSet workSet
+	a (Lcom/a/b/e/b/b;Lcom/a/b/e/b/c;Ljava/util/BitSet;)V forEachNonSubBlockDepthFirst0
+		0 next next
+		1 v v
+		2 visited visited
+	a (Lcom/a/b/e/b/b;Lcom/a/b/g/n;)V addBlock
+		0 block block
+		1 subroutines subroutines
+	a (Lcom/a/b/e/b/b;)Z isSubroutineCaller
+		0 bb bb
+	c (I)Lcom/a/b/e/b/b; labelToBlock
+		0 label label
+	d (I)V removeBlockAndSpecialSuccessors
+		0 idx idx
+	e (I)Lcom/a/b/a/b/ai; subroutineFromRetBlock
+		0 label label
+	g ()Lcom/a/b/e/b/u; getSynchReg
+	h ()Lcom/a/b/e/b/ab; getRopMethod
+	a method
+	b blocks
+	e machine
+	f sim
+	g startFrames
+	j catchInfos
+	l subroutines
+	n exceptionSetupLabelAllocator
+	b (I)I labelToResultIndex
+		0 label label
+	a (I)I getSpecialLabel
+		0 label label
+	a ()I getFirstTempStackReg
+	b ()I getMinimumUnreservedLabel
+	c ()I getAvailableLabel
+	f ()I getNormalRegCount
+	b (Lcom/a/b/e/b/b;Lcom/a/b/g/n;)Z addOrReplaceBlock
+		0 block block
+		1 subroutines subroutines
+	c (Lcom/a/b/e/b/b;Lcom/a/b/g/n;)Z addOrReplaceBlockNoDelete
+		0 block block
+		1 subroutines subroutines
+	d ()Z isSynchronized
+	e ()Z isStatic
+	i ()V doit
+	j ()V setFirstFrame
+	k ()V addSetupBlocks
+	l ()V addReturnBlock
+	m ()V addSynchExceptionHandlerBlock
+	n ()V addExceptionSetupBlocks
+	o ()V inlineSubroutines
+	p ()V deleteUnreachableBlocks
+	d maxLabel
+	h result
+	k synchNeedsExceptionHandler
+	c maxLocals
+	i resultSubroutines
+	m hasSubroutines
+	a (Lcom/a/b/a/b/ab;)Lcom/a/b/a/b/ag; access$000
+		static
+		0 x0 x0
+	a (Lcom/a/b/a/b/ab;I)Lcom/a/b/e/b/b; access$100
+		static
+	a (Lcom/a/b/a/b/ab;Lcom/a/b/e/b/m;)Lcom/a/b/e/b/m; access$200
+		static
+	a (Lcom/a/b/a/b/ab;IILcom/a/b/a/b/ai;Lcom/a/b/a/b/q;[I)V access$300
+		static
+		0 x0 x0
+		1 x1 x1
+		2 x2 x2
+		3 x3 x3
+		4 x4 x4
+		5 x5 x5
+	a (Lcom/a/b/a/b/ab;Z)V access$400
+		static
+	a (Lcom/a/b/a/b/ab;Lcom/a/b/e/b/b;)Z access$500
+		static
+	a (Lcom/a/b/a/b/ab;Lcom/a/b/e/b/b;Lcom/a/b/g/n;)Z access$600
+		static
+	b (Lcom/a/b/a/b/ab;)I access$700
+		static
+	b (Lcom/a/b/a/b/ab;I)Lcom/a/b/a/b/ai; access$800
+		static
+	b (Lcom/a/b/a/b/ab;Lcom/a/b/e/b/b;Lcom/a/b/g/n;)V access$900
+		static
+		0 x0 x0
+		1 x1 x1
+		2 x2 x2
+	c (Lcom/a/b/a/b/ab;)Lcom/a/b/a/b/o; access$1000
+		static
+com/a/b/a/b/ac com/android/dx/cf/code/Ropper$1
+	a (Lcom/a/b/e/b/b;)V visitBlock
+		0 b b
+	a this$0
+	b val$reachableSubroutineCallerLabels
+com/a/b/a/b/ad com/android/dx/cf/code/Ropper$2
+	a (Lcom/a/b/e/b/b;)V visitBlock
+		0 b b
+	a this$0
+	b val$reachableLabels
+com/a/b/a/b/ae com/android/dx/cf/code/Ropper$CatchInfo
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/a/b/af; getSetup
+		0 caughtType caughtType
+	a ()Ljava/util/Collection; getSetups
+	a this$0
+	b setups
+com/a/b/a/b/af com/android/dx/cf/code/Ropper$ExceptionHandlerSetup
+	a ()Lcom/a/b/e/d/c; getCaughtType
+	b ()I getLabel
+	a caughtType
+	b label
+com/a/b/a/b/ag com/android/dx/cf/code/Ropper$ExceptionSetupLabelAllocator
+	a ()I getNextLabel
+	a maxSetupLabel
+	b this$0
+com/a/b/a/b/ah com/android/dx/cf/code/Ropper$LabelAllocator
+	a ()I getNextLabel
+	c nextAvailableLabel
+com/a/b/a/b/ai com/android/dx/cf/code/Ropper$Subroutine
+	a ()I getStartBlock
+	a (Lcom/a/b/a/b/q;[I)V mergeToSuccessors
+		0 frame frame
+		1 workSet workSet
+	b ()Lcom/a/b/g/n; getSuccessors
+	a this$0
+	d startBlock
+	b (I)V addCallerBlock
+		0 label label
+	a (I)V addRetBlock
+		0 retBlock retBlock
+	b callerBlocks
+	c retBlocks
+	a (Lcom/a/b/a/b/ai;)I access$000
+		static
+	b (Lcom/a/b/a/b/ai;)Ljava/util/BitSet; access$100
+		static
+com/a/b/a/b/aj com/android/dx/cf/code/Ropper$SubroutineInliner
+	a (I)I mapOrAllocateLabel
+		0 origLabel origLabel
+	a (II)V copyBlock
+		0 origLabel origLabel
+		1 newLabel newLabel
+	b (II)Z involvedInSubroutine
+		0 label label
+		1 subroutineStart subroutineStart
+	a (Lcom/a/b/e/b/b;)V inlineSubroutineCalledFrom
+		0 b b
+	a this$0
+	b origLabelToCopiedLabel
+	c workList
+	f labelAllocator
+	g labelToSubroutines
+	d subroutineStart
+	e subroutineSuccessor
+com/a/b/a/b/ak com/android/dx/cf/code/RopperMachine
+	a (ILcom/a/b/e/c/a;)I jopToRopOpcode
+		0 jop jop
+		1 cst cst
+	a (Lcom/a/b/e/b/aa;Lcom/a/b/e/b/ad;Lcom/a/b/e/b/x;Lcom/a/b/e/d/e;Lcom/a/b/e/c/a;)Lcom/a/b/e/b/j; makeInvokePolymorphicInsn
+		0 rop rop
+		1 pos pos
+		2 sources sources
+		3 catches catches
+		4 cst cst
+	a (II)Lcom/a/b/e/b/x; getSources
+		0 opcode opcode
+		1 stackPointer stackPointer
+	a (Lcom/a/b/e/b/aa;Lcom/a/b/e/b/ad;)V updateReturnOp
+		0 op op
+		1 pos pos
+	a (Lcom/a/b/a/b/q;II)V run
+		0 frame frame
+		1 offset offset
+		2 opcode opcode
+	a (Lcom/a/b/e/d/e;)V startBlock
+		0 catches catches
+	m ()Ljava/util/ArrayList; getInsns
+	n ()Lcom/a/b/e/b/aa; getReturnOp
+	o ()Lcom/a/b/e/b/ad; getReturnPosition
+	w ()Lcom/a/b/a/b/aa; getReturnAddress
+	a ARRAY_REFLECT_TYPE
+	b MULTIANEWARRAY_METHOD
+	c ropper
+	d method
+	e methods
+	f advice
+	h insns
+	i catches
+	p returnAddress
+	q returnOp
+	r returnPosition
+	u ()Z hasJsr
+	v ()Z hasRet
+	q ()Z returns
+	p ()Z wereCatchesUsed
+	s ()I getExtraBlockCount
+	r ()I getPrimarySuccessorIndex
+	t ()Z canThrow
+	m extraBlockCount
+	l primarySuccessorIndex
+	g maxLocals
+	o blockCanThrow
+	k returns
+	j catchesUsed
+	n hasJsr
+com/a/b/a/b/al com/android/dx/cf/code/SimException
+com/a/b/a/b/am com/android/dx/cf/code/Simulator
+	a (ILcom/a/b/e/c/z;)V checkInvokeInterfaceSupported
+		0 opcode opcode
+		1 callee callee
+	a (Lcom/a/b/a/b/o;)V checkInterfaceMethodDeclaration
+		0 declaredMethod declaredMethod
+	a (Lcom/a/b/e/c/a;)V checkConstMethodHandleSupported
+		0 cst cst
+	a (Lcom/a/b/a/b/f;Lcom/a/b/a/b/q;)V simulate
+		0 bb bb
+		1 frame frame
+	a $assertionsDisabled
+	b machine
+	c code
+	d method
+	e localVariables
+	f visitor
+	g dexOptions
+	b ()Lcom/a/b/a/b/al; illegalTos
+		static
+	b (Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;)Lcom/a/b/e/d/c; requiredArrayTypeFor
+		static
+		0 impliedType impliedType
+		1 foundArrayType foundArrayType
+	a (I)V checkInvokeDynamicSupported
+		0 opcode opcode
+	b (I)V checkInvokeSignaturePolymorphic
+		0 opcode opcode
+	b (Ljava/lang/String;)V warn
+		0 reason reason
+	a (Ljava/lang/String;)V fail
+		0 reason reason
+	a (Lcom/a/b/a/b/am;)Lcom/a/b/a/b/x; access$000
+		static
+		0 x0 x0
+	a (Lcom/a/b/a/b/am;I)V access$100
+		static
+	a (Lcom/a/b/a/b/am;ILcom/a/b/e/c/z;)V access$200
+		static
+	a (Lcom/a/b/a/b/am;Lcom/a/b/e/c/a;)V access$300
+		static
+	a (Lcom/a/b/a/b/am;Ljava/lang/String;)V access$400
+		static
+	b (Lcom/a/b/a/b/am;)Lcom/a/b/a/b/t; access$500
+		static
+	b (Lcom/a/b/a/b/am;I)V access$600
+		static
+		0 x0 x0
+		1 x1 x1
+	a ()Lcom/a/b/a/b/al; access$IllegalTos
+		static
+	a (Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;)Lcom/a/b/e/d/c; access$RequiredArrayTypeFor
+		static
+com/a/b/a/b/an com/android/dx/cf/code/Simulator$SimVisitor
+	a (Lcom/a/b/e/d/c;)V checkReturnType
+		0 encountered encountered
+	a ()I getPreviousOffset
+	a (I)V setPreviousOffset
+		0 offset offset
+	a (III)V visitInvalid
+		0 opcode opcode
+		1 offset offset
+		2 length length
+	a (IIII)V visitBranch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 target target
+	a (IIIILcom/a/b/e/d/c;I)V visitLocal
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 idx idx
+		4 type type
+		5 value value
+	a (IIILcom/a/b/a/b/ao;I)V visitSwitch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cases cases
+		4 padding padding
+	a (IIILcom/a/b/e/c/a;I)V visitConstant
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cst cst
+		4 value value
+	a (IIILcom/a/b/e/d/c;)V visitNoArgs
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 type type
+	a (IILcom/a/b/e/c/ae;Ljava/util/ArrayList;)V visitNewarray
+		0 offset offset
+		1 length length
+		2 type type
+		3 initValues initValues
+	a (Lcom/a/b/a/b/q;)V setFrame
+		0 frame frame
+	a this$0
+	b machine
+	c frame
+	d previousOffset
+com/a/b/a/b/ao com/android/dx/cf/code/SwitchList
+	c (I)V setDefaultTarget
+		0 target target
+	a (II)V add
+		0 value value
+		1 target target
+	c size
+	a ()I size
+	b ()I getDefaultTarget
+	a (I)I getValue
+		0 n n
+	b (I)I getTarget
+		0 n n
+	f ()V removeSuperfluousDefaults
+	c_ ()V setImmutable
+	e ()Lcom/a/b/g/n; getValues
+	d ()Lcom/a/b/g/n; getTargets
+	b targets
+	a values
+com/a/b/a/b/ap com/android/dx/cf/code/ValueAwareMachine
+	a (Lcom/a/b/a/b/q;II)V run
+		0 frame frame
+		1 offset offset
+		2 opcode opcode
+com/a/b/a/b/b com/android/dx/cf/code/BasicBlocker
+	a (Lcom/a/b/a/b/o;)Lcom/a/b/a/b/g; identifyBlocks
+		static
+		0 method method
+	a (IZ)V addWorkIfNecessary
+		0 offset offset
+		1 blockStart blockStart
+	b ()Lcom/a/b/a/b/g; getBlockList
+	c ()V doit
+	a ()I getPreviousOffset
+	a (I)V setPreviousOffset
+		0 offset offset
+	a (III)V visitInvalid
+		0 opcode opcode
+		1 offset offset
+		2 length length
+	a (IIII)V visitBranch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 target target
+	a (IIIILcom/a/b/e/d/c;I)V visitLocal
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 idx idx
+		4 type type
+		5 value value
+	a (IIILcom/a/b/a/b/ao;I)V visitSwitch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cases cases
+		4 padding padding
+	a (IIILcom/a/b/e/c/a;I)V visitConstant
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cst cst
+		4 value value
+	a (IIILcom/a/b/e/d/c;)V visitNoArgs
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 type type
+	a (IILcom/a/b/e/c/ae;Ljava/util/ArrayList;)V visitNewarray
+		0 offset offset
+		1 length length
+		2 type type
+		3 intVals intVals
+	a method
+	e targetLists
+	f catchLists
+	g previousOffset
+	b (IIZ)V visitThrowing
+		0 offset offset
+		1 length length
+		2 nextIsLive nextIsLive
+	a (IIZ)V visitCommon
+		0 offset offset
+		1 length length
+		2 nextIsLive nextIsLive
+	b workSet
+	d blockSet
+	c liveSet
+com/a/b/a/b/c com/android/dx/cf/code/BootstrapMethodArgumentsList
+	a (I)Lcom/a/b/e/c/a; get
+		0 n n
+	a (ILcom/a/b/e/c/a;)V set
+		0 n n
+		1 cst cst
+com/a/b/a/b/d com/android/dx/cf/code/BootstrapMethodsList
+	a (I)Lcom/a/b/a/b/e; get
+		0 n n
+	a (ILcom/a/b/a/b/e;)V set
+		0 n n
+		1 item item
+	a (ILcom/a/b/e/c/ae;Lcom/a/b/e/c/y;Lcom/a/b/a/b/c;)V set
+		0 n n
+		1 declaringClass declaringClass
+		2 bootstrapMethodHandle bootstrapMethodHandle
+		3 arguments arguments
+	a EMPTY
+com/a/b/a/b/e com/android/dx/cf/code/BootstrapMethodsList$Item
+	a ()Lcom/a/b/e/c/y; getBootstrapMethodHandle
+	b ()Lcom/a/b/a/b/c; getBootstrapMethodArguments
+	a bootstrapMethodArgumentsList
+	b bootstrapMethodHandle
+	c declaringClass
+com/a/b/a/b/f com/android/dx/cf/code/ByteBlock
+	d ()Lcom/a/b/g/n; getSuccessors
+	e ()Lcom/a/b/a/b/h; getCatches
+	d successors
+	e catches
+	c ()I getEnd
+	b ()I getStart
+	a ()I getLabel
+	c end
+	b start
+	a label
+com/a/b/a/b/g com/android/dx/cf/code/ByteBlockList
+	a (ILcom/a/b/a/b/f;)V set
+		0 n n
+		1 bb bb
+	b (I)Lcom/a/b/a/b/f; labelToBlock
+		0 label label
+	a (I)Lcom/a/b/a/b/f; get
+		0 n n
+com/a/b/a/b/h com/android/dx/cf/code/ByteCatchList
+	a (Lcom/a/b/a/b/i;[Lcom/a/b/a/b/i;I)Z typeNotFound
+		static
+		0 item item
+		1 arr arr
+		2 count count
+	a ()I byteLength
+	a (I)Lcom/a/b/a/b/i; get
+		0 n n
+	a (IIIILcom/a/b/e/c/ae;)V set
+		0 n n
+		1 startPc startPc
+		2 endPc endPc
+		3 handlerPc handlerPc
+		4 exceptionClass exceptionClass
+	a (ILcom/a/b/a/b/i;)V set
+		0 n n
+		1 item item
+	a_ ()Lcom/a/b/e/d/e; toRopCatchList
+	b (I)Lcom/a/b/a/b/h; listFor
+		0 pc pc
+	c (I)Lcom/a/b/g/n; toTargetList
+		0 noException noException
+	a EMPTY
+com/a/b/a/b/i com/android/dx/cf/code/ByteCatchList$Item
+	a (I)Z covers
+		0 pc pc
+	d ()Lcom/a/b/e/c/ae; getExceptionClass
+	d exceptionClass
+	c ()I getHandlerPc
+	b ()I getEndPc
+	a ()I getStartPc
+	b endPc
+	a startPc
+	c handlerPc
+com/a/b/a/b/k com/android/dx/cf/code/BytecodeArray
+	a ()Lcom/a/b/g/e; getBytes
+	a (Lcom/a/b/a/b/n;)V forEach
+		0 visitor visitor
+	a ([ILcom/a/b/a/b/n;)V processWorkSet
+		0 workSet workSet
+		1 visitor visitor
+	a EMPTY_VISITOR
+	b bytes
+	c pool
+	a (ILcom/a/b/a/b/n;)I parseInstruction
+		0 offset offset
+		1 visitor visitor
+	d (ILcom/a/b/a/b/n;)I parseNewarray
+		0 offset offset
+		1 visitor visitor
+	e (ILcom/a/b/a/b/n;)I parseWide
+		0 offset offset
+		1 visitor visitor
+	c (ILcom/a/b/a/b/n;)I parseLookupswitch
+		0 offset offset
+		1 visitor visitor
+	b ()I size
+	c ()I byteLength
+	b (ILcom/a/b/a/b/n;)I parseTableswitch
+		0 offset offset
+		1 visitor visitor
+com/a/b/a/b/l com/android/dx/cf/code/BytecodeArray$BaseVisitor
+	a ()I getPreviousOffset
+	a (I)V setPreviousOffset
+		0 offset offset
+	a (III)V visitInvalid
+		0 opcode opcode
+		1 offset offset
+		2 length length
+	a (IIII)V visitBranch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 target target
+	a (IIIILcom/a/b/e/d/c;I)V visitLocal
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 idx idx
+		4 type type
+		5 value value
+	a (IIILcom/a/b/a/b/ao;I)V visitSwitch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cases cases
+		4 padding padding
+	a (IIILcom/a/b/e/c/a;I)V visitConstant
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cst cst
+		4 value value
+	a (IIILcom/a/b/e/d/c;)V visitNoArgs
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 type type
+	a (IILcom/a/b/e/c/ae;Ljava/util/ArrayList;)V visitNewarray
+		0 offset offset
+		1 length length
+		2 type type
+		3 initValues initValues
+	a previousOffset
+com/a/b/a/b/m com/android/dx/cf/code/BytecodeArray$ConstantParserVisitor
+	b ()V clear
+	a ()I getPreviousOffset
+	a (I)V setPreviousOffset
+		0 offset offset
+	a (III)V visitInvalid
+		0 opcode opcode
+		1 offset offset
+		2 length length
+	a (IIII)V visitBranch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 target target
+	a (IIIILcom/a/b/e/d/c;I)V visitLocal
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 idx idx
+		4 type type
+		5 value value
+	a (IIILcom/a/b/a/b/ao;I)V visitSwitch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cases cases
+		4 padding padding
+	a (IIILcom/a/b/e/c/a;I)V visitConstant
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cst cst
+		4 value value
+	a (IIILcom/a/b/e/d/c;)V visitNoArgs
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 type type
+	a (IILcom/a/b/e/c/ae;Ljava/util/ArrayList;)V visitNewarray
+		0 offset offset
+		1 length length
+		2 type type
+		3 initVals initVals
+	a cst
+	d this$0
+	b length
+	c value
+com/a/b/a/b/n com/android/dx/cf/code/BytecodeArray$Visitor
+	a ()I getPreviousOffset
+	a (I)V setPreviousOffset
+	a (III)V visitInvalid
+	a (IIII)V visitBranch
+	a (IIIILcom/a/b/e/d/c;I)V visitLocal
+	a (IIILcom/a/b/a/b/ao;I)V visitSwitch
+	a (IIILcom/a/b/e/c/a;I)V visitConstant
+	a (IIILcom/a/b/e/d/c;)V visitNoArgs
+	a (IILcom/a/b/e/c/ae;Ljava/util/ArrayList;)V visitNewarray
+com/a/b/a/b/o com/android/dx/cf/code/ConcreteMethod
+	a (I)Lcom/a/b/e/b/ad; makeSourcePosistion
+		0 offset offset
+	d ()Lcom/a/b/e/c/aa; getNat
+	h ()Lcom/a/b/a/e/b; getAttributes
+	i ()Lcom/a/b/e/c/ae; getDefiningClass
+	j ()Lcom/a/b/e/d/a; getEffectiveDescriptor
+	m ()Lcom/a/b/a/b/k; getCode
+	n ()Lcom/a/b/a/b/h; getCatches
+	o ()Lcom/a/b/a/b/t; getLocalVariables
+	a method
+	b classFile
+	c attCode
+	d lineNumbers
+	e localVariables
+	a ()Lcom/a/b/e/c/ad; getSourceFile
+	e ()Lcom/a/b/e/c/ad; getName
+	c ()Z isStaticMethod
+	b ()Z isDefaultOrStaticInterfaceMethod
+	l ()I getMaxLocals
+	k ()I getMaxStack
+	g ()I getAccessFlags
+	f ()Lcom/a/b/e/c/ad; getDescriptor
+com/a/b/a/b/p com/android/dx/cf/code/ExecutionStack
+	a (Ljava/lang/String;)Lcom/a/b/e/d/d; throwSimException
+		static
+		0 msg msg
+	b (Lcom/a/b/e/d/d;)Ljava/lang/String; stackElementString
+		static
+		0 type type
+	a ()Lcom/a/b/a/b/p; copy
+	a (Lcom/a/b/a/b/p;)Lcom/a/b/a/b/p; merge
+		0 other other
+	a (I)Lcom/a/b/e/d/d; peek
+		0 n n
+	a (ILcom/a/b/e/d/d;)V change
+		0 n n
+		1 type type
+	a (Lcom/a/a/a/b;)V annotate
+		0 ex ex
+	a (Lcom/a/b/e/d/c;)V makeInitialized
+		0 type type
+	a (Lcom/a/b/e/d/d;)V push
+		0 type type
+	b (I)Z peekLocal
+		0 n n
+	c (I)Lcom/a/b/e/d/c; peekType
+		0 n n
+	e ()Lcom/a/b/e/d/d; pop
+	a stack
+	b local
+	c stackPtr
+	b ()I size
+	d ()V setLocal
+	c ()V clear
+com/a/b/a/b/q com/android/dx/cf/code/Frame
+	a (Lcom/a/b/a/b/v;Lcom/a/b/g/n;)Lcom/a/b/a/b/v; adjustLocalsForSubroutines
+		static
+		0 locals locals
+		1 subroutines subroutines
+	a (Lcom/a/b/g/n;)Lcom/a/b/g/n; mergeSubroutineLists
+		0 otherSubroutines otherSubroutines
+	a ()Lcom/a/b/a/b/q; copy
+	a (Lcom/a/b/a/b/q;)Lcom/a/b/a/b/q; mergeWith
+		0 other other
+	a (Lcom/a/b/a/b/q;II)Lcom/a/b/a/b/q; mergeWithSubroutineCaller
+		0 other other
+		1 subLabel subLabel
+		2 predLabel predLabel
+	a (Lcom/a/b/e/c/ae;)Lcom/a/b/a/b/q; makeExceptionHandlerStartFrame
+		0 exceptionClass exceptionClass
+	a (Lcom/a/a/a/b;)V annotate
+		0 ex ex
+	a (Lcom/a/b/e/d/b;)V initializeWithParameters
+		0 params params
+	a (Lcom/a/b/e/d/c;)V makeInitialized
+		0 type type
+	b ()V setImmutable
+	c ()Lcom/a/b/a/b/v; getLocals
+	d ()Lcom/a/b/a/b/p; getStack
+	e ()Lcom/a/b/g/n; getSubroutines
+	a locals
+	b stack
+	c subroutines
+	b (II)Lcom/a/b/a/b/q; makeNewSubroutineStartFrame
+		0 subLabel subLabel
+		1 callerLabel callerLabel
+	a (II)Lcom/a/b/a/b/q; subFrameForLabel
+		0 startLabel startLabel
+		1 subLabel subLabel
+com/a/b/a/b/r com/android/dx/cf/code/LineNumberList
+	a (Lcom/a/b/a/b/r;Lcom/a/b/a/b/r;)Lcom/a/b/a/b/r; concat
+		static
+		0 list1 list1
+		1 list2 list2
+	a (I)Lcom/a/b/a/b/s; get
+		0 n n
+	a (III)V set
+		0 n n
+		1 startPc startPc
+		2 lineNumber lineNumber
+	a (ILcom/a/b/a/b/s;)V set
+		0 n n
+		1 item item
+	b (I)I pcToLine
+		0 pc pc
+	a EMPTY
+com/a/b/a/b/s com/android/dx/cf/code/LineNumberList$Item
+	b ()I getLineNumber
+	a ()I getStartPc
+	b lineNumber
+	a startPc
+com/a/b/a/b/t com/android/dx/cf/code/LocalVariableList
+	a (I)Lcom/a/b/a/b/u; get
+		0 n n
+	a (II)Lcom/a/b/a/b/u; pcAndIndexToLocal
+		0 pc pc
+		1 index index
+	a (Lcom/a/b/a/b/u;)Lcom/a/b/a/b/u; itemToLocal
+		0 item item
+	a (IIILcom/a/b/e/c/ad;Lcom/a/b/e/c/ad;Lcom/a/b/e/c/ad;I)V set
+		0 n n
+		1 startPc startPc
+		2 length length
+		3 name name
+		4 descriptor descriptor
+		5 signature signature
+		6 index index
+	a (ILcom/a/b/a/b/u;)V set
+		0 n n
+		1 item item
+	a EMPTY
+	b (Lcom/a/b/a/b/t;Lcom/a/b/a/b/t;)Lcom/a/b/a/b/t; mergeDescriptorsAndSignatures
+		static
+		0 descriptorList descriptorList
+		1 signatureList signatureList
+	a (Lcom/a/b/a/b/t;Lcom/a/b/a/b/t;)Lcom/a/b/a/b/t; concat
+		static
+		0 list1 list1
+		1 list2 list2
+com/a/b/a/b/u com/android/dx/cf/code/LocalVariableList$Item
+	a (Lcom/a/b/e/c/ad;)Lcom/a/b/a/b/u; withSignature
+		0 newSignature newSignature
+	a ()Lcom/a/b/e/b/o; getLocalItem
+	a (II)Z matchesPcAndIndex
+		0 pc pc
+		1 index index
+	a (Lcom/a/b/a/b/u;)Z matchesAllButType
+		0 other other
+	b ()Lcom/a/b/e/d/c; getType
+	c ()Lcom/a/b/e/c/ad; getSignature
+	f index
+	b length
+	a startPc
+	c name
+	d descriptor
+	e signature
+	b (Lcom/a/b/a/b/u;)Lcom/a/b/e/c/ad; access$000
+		static
+		0 x0 x0
+com/a/b/a/b/w com/android/dx/cf/code/LocalsArraySet
+	a (Lcom/a/b/a/b/w;)Lcom/a/b/a/b/w; mergeWithSet
+		0 other other
+	a (Lcom/a/b/a/b/z;)Lcom/a/b/a/b/w; mergeWithOne
+		0 other other
+	a ()Lcom/a/b/a/b/v; copy
+	a (Lcom/a/b/a/b/v;I)Lcom/a/b/a/b/w; mergeWithSubroutineCaller
+		0 other other
+		1 predLabel predLabel
+	a (ILcom/a/b/e/d/d;)V set
+		0 idx idx
+		1 type type
+	a (Lcom/a/a/a/b;)V annotate
+		0 ex ex
+	a (Lcom/a/b/e/b/u;)V set
+		0 spec spec
+	a (Lcom/a/b/e/d/c;)V makeInitialized
+		0 type type
+	b (Lcom/a/b/a/b/v;)Lcom/a/b/a/b/w; merge
+		0 other other
+	b ()Lcom/a/b/a/b/z; getPrimary
+	c_ ()V setImmutable
+	d ()Ljava/lang/String; toHuman
+	e ()I getMaxLocals
+	a primary
+	b secondaries
+	c (I)Lcom/a/b/a/b/v; getSecondaryForLabel
+		0 label label
+	b (I)Lcom/a/b/a/b/v; subArrayForLabel
+		0 subLabel subLabel
+	a (I)Lcom/a/b/e/d/d; get
+		0 idx idx
+	a (Lcom/a/b/a/b/v;)Lcom/a/b/a/b/v; merge
+com/a/b/a/b/x com/android/dx/cf/code/Machine
+	a ()Lcom/a/b/e/d/a; getPrototype
+	a (ILcom/a/b/e/d/c;Lcom/a/b/e/b/o;)V localTarget
+	a (Lcom/a/b/a/b/ao;)V auxSwitchArg
+	a (Lcom/a/b/a/b/q;II)V run
+	a (Lcom/a/b/a/b/q;Lcom/a/b/e/d/a;)V popArgs
+	a (Lcom/a/b/a/b/q;Lcom/a/b/e/d/c;)V popArgs
+	a (Lcom/a/b/a/b/q;Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;)V popArgs
+	a (Lcom/a/b/a/b/q;Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;)V popArgs
+	a (Lcom/a/b/e/c/a;)V auxCstArg
+	a (Lcom/a/b/e/d/c;)V auxType
+	a (Ljava/util/ArrayList;)V auxInitValues
+	a (Z)V localInfo
+	b ()V clearArgs
+	a (I)V auxIntArg
+	b (I)V auxTargetArg
+	b (Lcom/a/b/a/b/q;I)V localArg
+	a (Lcom/a/b/a/b/q;I)V popArgs
+com/a/b/a/b/y com/android/dx/cf/code/Merger
+	a (Lcom/a/b/a/b/p;Lcom/a/b/a/b/p;)Lcom/a/b/a/b/p; mergeStack
+		static
+		0 stack1 stack1
+		1 stack2 stack2
+	a (Lcom/a/b/a/b/z;Lcom/a/b/a/b/z;)Lcom/a/b/a/b/z; mergeLocals
+		static
+		0 locals1 locals1
+		1 locals2 locals2
+	a (Lcom/a/b/e/d/d;Lcom/a/b/e/d/d;)Lcom/a/b/e/d/d; mergeType
+		static
+		0 ft1 ft1
+		1 ft2 ft2
+	b (Lcom/a/b/e/d/d;Lcom/a/b/e/d/d;)Z isPossiblyAssignableFrom
+		static
+		0 supertypeBearer supertypeBearer
+		1 subtypeBearer subtypeBearer
+com/a/b/a/b/z com/android/dx/cf/code/OneLocalsArray
+	b (I)V invalidate
+		0 idx idx
+	a (ILjava/lang/String;)Lcom/a/b/e/d/d; throwSimException
+		static
+		0 idx idx
+		1 msg msg
+	a (Lcom/a/b/a/b/v;)Lcom/a/b/a/b/v; merge
+		0 other other
+	a (Lcom/a/b/a/b/v;I)Lcom/a/b/a/b/w; mergeWithSubroutineCaller
+		0 other other
+		1 predLabel predLabel
+	a (Lcom/a/b/a/b/z;)Lcom/a/b/a/b/z; merge
+		0 other other
+	a (ILcom/a/b/e/d/d;)V set
+		0 idx idx
+		1 type type
+	a (Lcom/a/a/a/b;)V annotate
+		0 ex ex
+	a (Lcom/a/b/e/b/u;)V set
+		0 spec spec
+	a (Lcom/a/b/e/d/c;)V makeInitialized
+		0 type type
+	d ()Ljava/lang/String; toHuman
+	f ()I getMaxLocals
+	a locals
+	c (I)Lcom/a/b/e/d/d; getOrNull
+		0 idx idx
+	a (I)Lcom/a/b/e/d/d; get
+		0 idx idx
+	b ()Lcom/a/b/a/b/z; getPrimary
+	e ()Lcom/a/b/a/b/z; copy
+	a ()Lcom/a/b/a/b/v; copy
+com/a/b/a/c/a com/android/dx/cf/cst/ConstantPoolParser
+	a (ILjava/util/BitSet;)Lcom/a/b/e/c/a; parse0
+		0 idx idx
+		1 wasUtf8 wasUtf8
+	a (I)Lcom/a/b/e/c/ad; parseUtf8
+		0 at at
+	b (I)I getMethodHandleTypeForKind
+		static
+		0 kind kind
+	a ()I getEndOffset
+	a (Lcom/a/b/a/e/j;)V setObserver
+		0 observer observer
+	b ()Lcom/a/b/e/c/af; getPool
+	a bytes
+	b pool
+	c offsets
+	d endOffset
+	e observer
+	d ()V parse
+	c ()V parseIfNecessary
+	e ()V determineOffsets
+com/a/b/a/d/a com/android/dx/cf/direct/AnnotationParser
+	a (ILjava/lang/String;)V parsed
+		0 length length
+		1 message message
+	b ()Lcom/a/b/e/a/e; parseElement
+	e (Lcom/a/b/e/a/b;)Lcom/a/b/e/a/a; parseAnnotation
+		0 visibility visibility
+	a cf
+	b pool
+	c bytes
+	d observer
+	e input
+	f parseCursor
+	b (I)V changeIndent
+		0 indent indent
+	a (I)V requireLength
+		0 requiredLength requiredLength
+	c (Lcom/a/b/e/a/b;)Lcom/a/b/e/a/d; parseAnnotationsList
+		0 visibility visibility
+	a (Lcom/a/b/e/a/b;)Lcom/a/b/e/a/d; parseParameterAttribute
+		0 visibility visibility
+	c ()Lcom/a/b/e/c/a; parseValue
+	a ()Lcom/a/b/e/c/a; parseValueAttribute
+	d ()Lcom/a/b/e/c/a; parseConstant
+	d (Lcom/a/b/e/a/b;)Lcom/a/b/e/a/c; parseAnnotations
+		0 visibility visibility
+	b (Lcom/a/b/e/a/b;)Lcom/a/b/e/a/c; parseAnnotationAttribute
+		0 visibility visibility
+com/a/b/a/d/c com/android/dx/cf/direct/AttributeListParser
+	a ()I getEndOffset
+	a (Lcom/a/b/a/e/j;)V setObserver
+		0 observer observer
+	b ()Lcom/a/b/a/e/k; getList
+	a cf
+	d attributeFactory
+	e list
+	g observer
+	d ()V parse
+	c ()V parseIfNecessary
+	f endOffset
+	c offset
+	b context
+com/a/b/a/d/d com/android/dx/cf/direct/CodeObserver
+	b (I)Ljava/lang/String; header
+		0 offset offset
+	a ()I getPreviousOffset
+	a (I)V setPreviousOffset
+		0 offset offset
+	a (III)V visitInvalid
+		0 opcode opcode
+		1 offset offset
+		2 length length
+	a (IIIILcom/a/b/e/d/c;I)V visitLocal
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 idx idx
+		4 type type
+		5 value value
+	a (IIILcom/a/b/a/b/ao;I)V visitSwitch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cases cases
+		4 padding padding
+	a (IIILcom/a/b/e/c/a;I)V visitConstant
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 cst cst
+		4 value value
+	a (IIILcom/a/b/e/d/c;)V visitNoArgs
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 type type
+	a (IILcom/a/b/e/c/ae;Ljava/util/ArrayList;)V visitNewarray
+		0 offset offset
+		1 length length
+		2 cst cst
+		3 intVals intVals
+	a bytes
+	b observer
+	b (IIIJ)V visitLiteralDouble
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 bits bits
+	a (IIIJ)V visitLiteralLong
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 value value
+	c (IIII)V visitLiteralFloat
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 bits bits
+	b (IIII)V visitLiteralInt
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 value value
+	a (IIII)V visitBranch
+		0 opcode opcode
+		1 offset offset
+		2 length length
+		3 target target
+com/a/b/a/d/e com/android/dx/cf/direct/DirectClassFile
+	a (Ljava/lang/Object;)Ljava/lang/String; stringOrNone
+		static
+		0 obj obj
+	a (I)Z isGoodMagic
+		0 magic magic
+	b (II)Z isGoodVersion
+		0 minorVersion minorVersion
+		1 majorVersion majorVersion
+	a (II)Lcom/a/b/e/d/e; makeTypeList
+		0 offset offset
+		1 size size
+	a ()Ljava/lang/String; getFilePath
+	a (Lcom/a/b/a/d/b;)V setAttributeFactory
+		0 attributeFactory attributeFactory
+	b ()Lcom/a/b/g/e; getBytes
+	g ()Lcom/a/b/e/c/b; getConstantPool
+	h ()Lcom/a/b/e/d/e; getInterfaces
+	i ()Lcom/a/b/a/e/e; getFields
+	j ()Lcom/a/b/a/e/h; getMethods
+	k ()Lcom/a/b/a/e/b; getAttributes
+	l ()Lcom/a/b/a/b/d; getBootstrapMethods
+	m ()Lcom/a/b/e/c/ad; getSourceFile
+	a filePath
+	b bytes
+	c strictParse
+	d pool
+	e accessFlags
+	h interfaces
+	i fields
+	j methods
+	k attributes
+	l attributeFactory
+	m observer
+	t ()V parse0
+	r ()V parseToEndIfNecessary
+	q ()V parseToInterfacesIfNecessary
+	s ()V parse
+	d ()I getAccessFlags
+	p ()I getMajorVersion0
+	o ()I getMinorVersion0
+	n ()I getMagic0
+	e ()Lcom/a/b/e/c/ae; getThisClass
+	f ()Lcom/a/b/e/c/ae; getSuperclass
+	c ()I getMagic
+	g superClass
+	f thisClass
+com/a/b/a/d/f com/android/dx/cf/direct/DirectClassFile$DcfTypeList
+	a (I)Lcom/a/b/e/d/c; getType
+		0 n n
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/d/e; withAddedType
+		0 type type
+	b_ ()Z isMutable
+	a bytes
+	b size
+	c pool
+	d_ ()I size
+com/a/b/a/d/g com/android/dx/cf/direct/FieldListParser
+	a (IILcom/a/b/e/c/aa;Lcom/a/b/a/e/b;)Lcom/a/b/a/e/f; set
+		0 n n
+		1 accessFlags accessFlags
+		2 nat nat
+		3 attributes attributes
+	a ()Lcom/a/b/a/e/m; getList
+	a (I)Ljava/lang/String; humanAccessFlags
+		0 accessFlags accessFlags
+	b ()Ljava/lang/String; humanName
+	c ()I getAttributeContext
+	a fields
+com/a/b/a/d/h com/android/dx/cf/direct/MemberListParser
+	a (IILcom/a/b/e/c/aa;Lcom/a/b/a/e/b;)Lcom/a/b/a/e/f; set
+	a (I)Ljava/lang/String; humanAccessFlags
+	a (Lcom/a/b/a/e/j;)V setObserver
+		0 observer observer
+	b ()Ljava/lang/String; humanName
+	g ()Lcom/a/b/e/c/ae; getDefiner
+	a cf
+	b definer
+	d attributeFactory
+	f observer
+	a ()V parse
+	e ()V parseIfNecessary
+	c ()I getAttributeContext
+	f ()I getCount
+	d ()I getEndOffset
+	c offset
+	e endOffset
+com/a/b/a/d/i com/android/dx/cf/direct/MethodListParser
+	a (IILcom/a/b/e/c/aa;Lcom/a/b/a/e/b;)Lcom/a/b/a/e/f; set
+		0 n n
+		1 accessFlags accessFlags
+		2 nat nat
+		3 attributes attributes
+	a ()Lcom/a/b/a/e/p; getList
+	a (I)Ljava/lang/String; humanAccessFlags
+		0 accessFlags accessFlags
+	b ()Ljava/lang/String; humanName
+	c ()I getAttributeContext
+	a methods
+com/a/b/a/d/j com/android/dx/cf/direct/StdAttributeFactory
+	a (Lcom/a/b/g/e;Lcom/a/b/e/c/b;Lcom/a/b/e/c/ae;IIILcom/a/b/a/e/j;)Lcom/a/b/a/b/d; parseBootstrapMethods
+		0 bytes bytes
+		1 constantPool constantPool
+		2 declaringClass declaringClass
+		3 numMethods numMethods
+		4 offset offset
+		5 length length
+		6 observer observer
+	a (Lcom/a/b/g/e;Lcom/a/b/e/c/b;Lcom/a/b/a/e/j;IZ)Lcom/a/b/a/b/t; parseLocalVariables
+		0 bytes bytes
+		1 pool pool
+		2 observer observer
+		3 count count
+		4 typeTable typeTable
+	a (I)Lcom/a/b/a/e/a; throwBadLength
+		static
+		0 expected expected
+	a (Lcom/a/b/a/d/e;ILjava/lang/String;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; parse0
+		0 cf cf
+		1 context context
+		2 name name
+		3 offset offset
+		4 length length
+		5 observer observer
+	a THE_ONE
+	b ()Lcom/a/b/a/e/a; throwTruncated
+		static
+	a ()Lcom/a/b/a/e/a; throwSeverelyTruncated
+		static
+	c (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; bootstrapMethods
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	d (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; code
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	h (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; exceptions
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	i (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; innerClasses
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	j (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; lineNumberTable
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	g (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; enclosingMethod
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	p (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; runtimeVisibleParameterAnnotations
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	o (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; runtimeInvisibleParameterAnnotations
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	n (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; runtimeVisibleAnnotations
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	m (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; runtimeInvisibleAnnotations
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	b (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; annotationDefault
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	l (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; localVariableTypeTable
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	k (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; localVariableTable
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	s (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; sourceFile
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	q (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; signature
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	e (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; constantValue
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	r (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; sourceDebugExtension
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	t (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; synthetic
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+	f (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; deprecated
+		0 cf cf
+		1 offset offset
+		2 length length
+		3 observer observer
+com/a/b/a/e/a com/android/dx/cf/iface/Attribute
+	a ()I byteLength
+	g ()Ljava/lang/String; getName
+com/a/b/a/e/d com/android/dx/cf/iface/Field
+	a ()Lcom/a/b/e/c/ag; getConstantValue
+com/a/b/a/e/f com/android/dx/cf/iface/Member
+	d ()Lcom/a/b/e/c/aa; getNat
+	g ()I getAccessFlags
+	h ()Lcom/a/b/a/e/b; getAttributes
+	i ()Lcom/a/b/e/c/ae; getDefiningClass
+	e ()Lcom/a/b/e/c/ad; getName
+	f ()Lcom/a/b/e/c/ad; getDescriptor
+com/a/b/a/e/g com/android/dx/cf/iface/Method
+	j ()Lcom/a/b/e/d/a; getEffectiveDescriptor
+com/a/b/a/e/i com/android/dx/cf/iface/ParseException
+com/a/b/a/e/j com/android/dx/cf/iface/ParseObserver
+	a (I)V changeIndent
+	a (Lcom/a/b/g/e;IILjava/lang/String;)V parsed
+	a (Lcom/a/b/g/e;ILjava/lang/String;Ljava/lang/String;)V startParsingMember
+	a (Lcom/a/b/g/e;ILjava/lang/String;Ljava/lang/String;Lcom/a/b/a/e/f;)V endParsingMember
+com/a/b/a/e/k com/android/dx/cf/iface/StdAttributeList
+	a (I)Lcom/a/b/a/e/a; get
+		0 n n
+	a (Lcom/a/b/a/e/a;)Lcom/a/b/a/e/a; findNext
+		0 attrib attrib
+	a (Ljava/lang/String;)Lcom/a/b/a/e/a; findFirst
+		0 name name
+	a (ILcom/a/b/a/e/a;)V set
+		0 n n
+		1 attribute attribute
+	b ()I byteLength
+com/a/b/a/e/l com/android/dx/cf/iface/StdField
+	a ()Lcom/a/b/e/c/ag; getConstantValue
+com/a/b/a/e/m com/android/dx/cf/iface/StdFieldList
+	a (I)Lcom/a/b/a/e/d; get
+		0 n n
+	a (ILcom/a/b/a/e/d;)V set
+		0 n n
+		1 field field
+com/a/b/a/e/n com/android/dx/cf/iface/StdMember
+	d ()Lcom/a/b/e/c/aa; getNat
+	g ()I getAccessFlags
+	h ()Lcom/a/b/a/e/b; getAttributes
+	i ()Lcom/a/b/e/c/ae; getDefiningClass
+	a definingClass
+	b accessFlags
+	c nat
+	d attributes
+	e ()Lcom/a/b/e/c/ad; getName
+	f ()Lcom/a/b/e/c/ad; getDescriptor
+com/a/b/a/e/o com/android/dx/cf/iface/StdMethod
+	j ()Lcom/a/b/e/d/a; getEffectiveDescriptor
+	a effectiveDescriptor
+com/a/b/a/e/p com/android/dx/cf/iface/StdMethodList
+	a (I)Lcom/a/b/a/e/g; get
+		0 n n
+	a (ILcom/a/b/a/e/g;)V set
+		0 n n
+		1 method method
+com/a/b/b/a/b com/android/dx/command/dexer/DxContext$1
+	a this$0
+com/a/b/c/a/a com/android/dx/dex/cf/AttributeTranslator
+	a (Lcom/a/b/a/d/e;)Lcom/a/b/e/a/a; translateAnnotationDefaults
+		static
+		0 cf cf
+	a (Lcom/a/b/a/d/e;Lcom/a/b/c/a/b;)Lcom/a/b/e/a/c; getClassAnnotations
+		static
+		0 cf cf
+		1 args args
+	a (Lcom/a/b/e/c/ae;Lcom/a/b/a/e/b;Z)Lcom/a/b/e/a/c; translateInnerClasses
+		static
+		0 thisClass thisClass
+		1 attribs attribs
+		2 needEnclosingClass needEnclosingClass
+	a (Lcom/a/b/a/e/g;)Lcom/a/b/e/d/e; getExceptions
+		static
+		0 method method
+	b (Lcom/a/b/a/e/g;)Lcom/a/b/e/a/c; getMethodAnnotations
+		static
+		0 method method
+	c (Lcom/a/b/a/e/g;)Lcom/a/b/e/a/d; getParameterAnnotations
+		static
+		0 method method
+	a (Lcom/a/b/a/e/b;)Lcom/a/b/e/a/c; getAnnotations
+		static
+		0 attribs attribs
+	b (Lcom/a/b/a/e/b;)Lcom/a/b/e/a/c; getAnnotations0
+		static
+		0 attribs attribs
+	e (Lcom/a/b/a/e/b;)Lcom/a/b/e/a/a; translateEnclosingMethod
+		static
+		0 attribs attribs
+	d (Lcom/a/b/a/e/b;)Lcom/a/b/e/a/a; getSourceDebugExtension
+		static
+		0 attribs attribs
+	c (Lcom/a/b/a/e/b;)Lcom/a/b/e/a/a; getSignature
+		static
+		0 attribs attribs
+com/a/b/c/a/b com/android/dx/dex/cf/CfOptions
+	a positionInfo
+	h warn
+	d optimize
+	b localInfo
+	g statistics
+	c strictNameCheck
+	f dontOptimizeListFile
+	e optimizeListFile
+com/a/b/c/a/c com/android/dx/dex/cf/CfTranslator
+	a (Lcom/a/b/e/c/ag;Lcom/a/b/e/d/c;)Lcom/a/b/e/c/ag; coerceConstant
+		static
+		0 constant constant
+		1 type type
+	a (Lcom/a/b/a/d/e;Lcom/a/b/c/c/l;Lcom/a/b/c/c/t;)V processFields
+		static
+		0 cf cf
+		1 out out
+		2 dexFile dexFile
+	a (Lcom/a/b/b/a/a;Lcom/a/b/a/d/e;Lcom/a/b/c/a/b;Lcom/a/b/c/a;Lcom/a/b/c/c/l;Lcom/a/b/c/c/t;)V processMethods
+		static
+		0 context context
+		1 cf cf
+		2 cfOptions cfOptions
+		3 dexOptions dexOptions
+		4 out out
+		5 dexFile dexFile
+	a (Lcom/a/b/b/a/a;Lcom/a/b/c/a/b;Lcom/a/b/c/a;Lcom/a/b/e/b/ab;Lcom/a/b/e/b/ab;Lcom/a/b/e/b/q;II)V updateDexStatistics
+		static
+		0 context context
+		1 cfOptions cfOptions
+		2 dexOptions dexOptions
+		3 optRmeth optRmeth
+		4 nonOptRmeth nonOptRmeth
+		5 locals locals
+		6 paramSize paramSize
+		7 originalByteCount originalByteCount
+	b (Lcom/a/b/b/a/a;Lcom/a/b/a/d/e;[BLcom/a/b/c/a/b;Lcom/a/b/c/a;Lcom/a/b/c/c/t;)Lcom/a/b/c/c/l; translate0
+		static
+		0 context context
+		1 cf cf
+		2 bytes bytes
+		3 cfOptions cfOptions
+		4 dexOptions dexOptions
+		5 dexFile dexFile
+	a (Lcom/a/b/b/a/a;Lcom/a/b/a/d/e;[BLcom/a/b/c/a/b;Lcom/a/b/c/a;Lcom/a/b/c/c/t;)Lcom/a/b/c/c/l; translate
+		static
+		0 context context
+		1 cf cf
+		2 bytes bytes
+		3 cfOptions cfOptions
+		4 dexOptions dexOptions
+		5 dexFile dexFile
+	a (Ljava/lang/String;[BLcom/a/b/c/a/b;Lcom/a/b/c/a;Lcom/a/b/c/c/t;)Lcom/a/b/c/c/l; translate
+		static
+com/a/b/c/a/d com/android/dx/dex/cf/CfTranslator$1
+	a (Lcom/a/b/e/c/a;)I getIndex
+		0 cst cst
+com/a/b/c/a/f com/android/dx/dex/cf/OptimizerOptions
+	b (Ljava/lang/String;)Ljava/util/HashSet; loadStringsFromFile
+		static
+		0 filename filename
+	a (Ljava/lang/String;Ljava/lang/String;)V loadOptimizeLists
+		0 optimizeListFile optimizeListFile
+		1 dontOptimizeListFile dontOptimizeListFile
+	a (Ljava/lang/String;)Z shouldOptimize
+		0 canonicalMethodName canonicalMethodName
+	c optimizeListsLoaded
+	b dontOptimizeList
+	a optimizeList
+com/a/b/c/b/a com/android/dx/dex/code/ArrayData
+	a ()I codeSize
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	a (Z)Ljava/lang/String; listingString0
+		0 noteIndices noteIndices
+	a (Lcom/a/b/g/a;)V writeTo
+		0 out out
+	b ()Ljava/lang/String; argString
+	a user
+	b values
+	c arrayType
+	e initLength
+	d elemWidth
+com/a/b/c/b/a/a com/android/dx/dex/code/form/Form10t
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	a (Lcom/a/b/c/b/am;)Z branchFits
+		0 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/aa com/android/dx/dex/code/form/SpecialFormat
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/b com/android/dx/dex/code/form/Form10x
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/c com/android/dx/dex/code/form/Form12x
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/d com/android/dx/dex/code/form/Form11x
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/e com/android/dx/dex/code/form/Form22b
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/f com/android/dx/dex/code/form/Form20t
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	a (Lcom/a/b/c/b/am;)Z branchFits
+		0 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/g com/android/dx/dex/code/form/Form11n
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/h com/android/dx/dex/code/form/Form21h
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/i com/android/dx/dex/code/form/Form21s
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/j com/android/dx/dex/code/form/Form21t
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	a (Lcom/a/b/c/b/am;)Z branchFits
+		0 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/k com/android/dx/dex/code/form/Form22x
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/l com/android/dx/dex/code/form/Form31i
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/m com/android/dx/dex/code/form/Form32x
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/n com/android/dx/dex/code/form/Form22t
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	a (Lcom/a/b/c/b/am;)Z branchFits
+		0 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/o com/android/dx/dex/code/form/Form21c
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/p com/android/dx/dex/code/form/Form22c
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/q com/android/dx/dex/code/form/Form30t
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	a (Lcom/a/b/c/b/am;)Z branchFits
+		0 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/r com/android/dx/dex/code/form/Form22s
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/s com/android/dx/dex/code/form/Form23x
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/t com/android/dx/dex/code/form/Form31t
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	a (Lcom/a/b/c/b/am;)Z branchFits
+		0 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/u com/android/dx/dex/code/form/Form31c
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/v com/android/dx/dex/code/form/Form35c
+	d (Lcom/a/b/e/b/x;)I wordCount
+		static
+		0 regs regs
+	e (Lcom/a/b/e/b/x;)Lcom/a/b/e/b/x; explicitize
+		static
+		0 orig orig
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/w com/android/dx/dex/code/form/Form3rc
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/x com/android/dx/dex/code/form/Form45cc
+	d (Lcom/a/b/e/b/x;)I wordCount
+		static
+		0 regs regs
+	e (Lcom/a/b/e/b/x;)Lcom/a/b/e/b/x; explicitize
+		static
+		0 orig orig
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/y com/android/dx/dex/code/form/Form4rcc
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/a/z com/android/dx/dex/code/form/Form51l
+	a ()I codeSize
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+		0 insn insn
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+		0 out out
+		1 insn insn
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	a THE_ONE
+com/a/b/c/b/aa com/android/dx/dex/code/OutputCollector
+	b ()V appendSuffixToOutput
+	a ()Lcom/a/b/c/b/ab; getFinisher
+	a (ILcom/a/b/c/b/h;)V reverseBranch
+		0 which which
+		1 newTarget newTarget
+	a finisher
+	b suffix
+	a (Lcom/a/b/c/b/l;)V add
+		0 insn insn
+	b (Lcom/a/b/c/b/l;)V addSuffix
+		0 insn insn
+com/a/b/c/b/ab com/android/dx/dex/code/OutputFinisher
+	a (Lcom/a/b/c/b/l;Lcom/a/b/c/b/n;)Lcom/a/b/c/b/n; findOpcodeForInsn
+		0 insn insn
+		1 guess guess
+	a (Lcom/a/b/c/b/i;Lcom/a/b/c/b/k;)V assignIndices
+		static
+		0 insn insn
+		1 callback callback
+	a (Lcom/a/b/c/b/y;Lcom/a/b/c/b/k;)V assignIndices
+		static
+		0 insn insn
+		1 callback callback
+	a (Ljava/util/HashSet;Lcom/a/b/c/b/l;)V addConstants
+		static
+		0 result result
+		1 insn insn
+	a (Ljava/util/HashSet;Lcom/a/b/e/b/u;)V addConstants
+		static
+		0 result result
+		1 spec spec
+	a (Lcom/a/b/e/b/u;)Z hasLocalInfo
+		static
+		0 spec spec
+	a ([Lcom/a/b/c/b/n;)Z reserveRegisters
+		0 opcodes opcodes
+	b ([Lcom/a/b/c/b/n;)I calculateReservedCount
+		0 opcodes opcodes
+	b (Lcom/a/b/c/b/l;)Z hasLocalInfo
+		static
+		0 insn insn
+	d (Lcom/a/b/c/b/l;)Lcom/a/b/c/b/n; findExpandedOpcodeForInsn
+		0 insn insn
+	d ([Lcom/a/b/c/b/n;)Ljava/util/ArrayList; performExpansion
+		0 opcodes opcodes
+	e ()[Lcom/a/b/c/b/n; makeOpcodesArray
+	a (ILcom/a/b/c/b/h;)V reverseBranch
+		0 which which
+		1 newTarget newTarget
+	a (Lcom/a/b/c/b/k;)V assignIndices
+		0 callback callback
+	c ()Ljava/util/HashSet; getAllConstants
+	d ()Lcom/a/b/c/b/m; finishProcessingAndGetList
+	a dexOptions
+	c insns
+	c (I)V shiftAllRegisters
+		0 delta delta
+	d (I)V shiftParameters
+		0 delta delta
+	b (I)V addReservedParameters
+		0 delta delta
+	a (Lcom/a/b/c/b/l;)V add
+		0 insn insn
+	c (Lcom/a/b/c/b/l;)V updateInfo
+		0 insn insn
+	c ([Lcom/a/b/c/b/n;)V massageInstructions
+		0 opcodes opcodes
+	e ([Lcom/a/b/c/b/n;)V align64bits
+		0 opcodes opcodes
+	f ()V assignAddressesAndFixBranches
+	g ()V assignAddresses
+	h ()Z fixBranches
+	b ()Z hasAnyLocalInfo
+	a ()Z hasAnyPositionInfo
+	a (I)V addReservedRegisters
+		0 delta delta
+	f reservedCount
+	e hasAnyLocalInfo
+	d hasAnyPositionInfo
+	b unreservedRegCount
+	h paramSize
+	g reservedParameterCount
+com/a/b/c/b/ad com/android/dx/dex/code/PositionList$Entry
+	a ()I getAddress
+	b ()Lcom/a/b/e/b/ad; getPosition
+	a address
+	b position
+com/a/b/c/b/ae com/android/dx/dex/code/RopToDop
+	a (Lcom/a/b/e/b/j;)Lcom/a/b/c/b/n; dopFor
+		static
+		0 insn insn
+	a MAP
+com/a/b/c/b/af com/android/dx/dex/code/RopTranslator
+	a ()Lcom/a/b/c/b/j; translateAndGetResult
+	a (Lcom/a/b/e/b/ab;ILcom/a/b/e/b/q;ILcom/a/b/c/a;)Lcom/a/b/c/b/j; translate
+		static
+		0 method method
+		1 positionInfo positionInfo
+		2 locals locals
+		3 paramSize paramSize
+		4 dexOptions dexOptions
+	a (Lcom/a/b/e/b/b;I)V outputBlock
+		0 block block
+		1 nextLabel nextLabel
+	a (Lcom/a/b/e/b/ab;I)Z calculateParamsAreInOrder
+		static
+		0 method method
+		1 paramSize paramSize
+	a dexOptions
+	b method
+	d locals
+	e addresses
+	f output
+	g translationVisitor
+	i order
+	k paramsAreInOrder
+	b (Lcom/a/b/e/b/j;)Lcom/a/b/e/b/x; getRegs
+		static
+		0 insn insn
+	b (Lcom/a/b/e/b/j;Lcom/a/b/e/b/u;)Lcom/a/b/e/b/x; getRegs
+		static
+		0 insn insn
+		1 resultReg resultReg
+	c ()V pickOrder
+	b ()V outputInstructions
+	c positionInfo
+	h regCount
+	j paramSize
+	a (Lcom/a/b/c/b/af;)Lcom/a/b/c/b/b; access$000
+		static
+	b (Lcom/a/b/c/b/af;)Z access$100
+		static
+	c (Lcom/a/b/c/b/af;)I access$200
+		static
+	d (Lcom/a/b/c/b/af;)I access$300
+		static
+		0 x0 x0
+	e (Lcom/a/b/c/b/af;)Lcom/a/b/e/b/ab; access$400
+		static
+	a (Lcom/a/b/e/b/j;)Lcom/a/b/e/b/x; access$GetRegs
+		static
+	a (Lcom/a/b/e/b/j;Lcom/a/b/e/b/u;)Lcom/a/b/e/b/x; access$GetRegs
+		static
+com/a/b/c/b/ag com/android/dx/dex/code/RopTranslator$1
+	a (Lcom/a/b/e/b/r;)V visitPlainCstInsn
+		0 insn insn
+	a val$paramsAreInOrder
+	c val$paramSize
+	b val$initialRegCount
+com/a/b/c/b/ah com/android/dx/dex/code/RopTranslator$LocalVariableAwareTranslationVisitor
+	a (Lcom/a/b/e/b/ae;)V visitSwitchInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/af;)V visitThrowingCstInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/ag;)V visitThrowingInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/j;)V addIntroductionIfNecessary
+		0 insn insn
+	a (Lcom/a/b/e/b/r;)V visitPlainCstInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/s;)V visitPlainInsn
+		0 insn insn
+	a this$0
+	c locals
+com/a/b/c/b/ai com/android/dx/dex/code/RopTranslator$TranslationVisitor
+	a ()Lcom/a/b/e/b/u; getNextMoveResultPseudo
+	a (Lcom/a/b/e/b/ae;)V visitSwitchInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/af;)V visitThrowingCstInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/ag;)V visitThrowingInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/b;Lcom/a/b/c/b/h;)V setBlock
+		0 block block
+		1 lastAddress lastAddress
+	a (Lcom/a/b/e/b/i;)V visitFillArrayDataInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/n;)V visitInvokePolymorphicInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/r;)V visitPlainCstInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/s;)V visitPlainInsn
+		0 insn insn
+	a output
+	b this$0
+	c block
+	d lastAddress
+	a (Lcom/a/b/c/b/l;)V addOutput
+		0 insn insn
+	b (Lcom/a/b/c/b/l;)V addOutputSuffix
+		0 insn insn
+com/a/b/c/b/aj com/android/dx/dex/code/SimpleInsn
+	a (Lcom/a/b/c/b/n;)Lcom/a/b/c/b/l; withOpcode
+		0 opcode opcode
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	b ()Ljava/lang/String; argString
+com/a/b/c/b/ak com/android/dx/dex/code/StdCatchBuilder
+	a (Lcom/a/b/e/b/b;Lcom/a/b/c/b/b;)Lcom/a/b/c/b/d; handlersFor
+		static
+		0 block block
+		1 addresses addresses
+	a (Lcom/a/b/e/b/ab;[ILcom/a/b/c/b/b;)Lcom/a/b/c/b/f; build
+		static
+		0 method method
+		1 order order
+		2 addresses addresses
+	a (Lcom/a/b/e/b/b;Lcom/a/b/e/b/b;Lcom/a/b/c/b/d;Lcom/a/b/c/b/b;)Lcom/a/b/c/b/g; makeEntry
+		static
+		0 start start
+		1 end end
+		2 handlers handlers
+		3 addresses addresses
+	a (Lcom/a/b/e/b/b;Lcom/a/b/e/b/b;Lcom/a/b/c/b/b;)Z rangeIsValid
+		static
+		0 start start
+		1 end end
+		2 addresses addresses
+	a ()Lcom/a/b/c/b/f; build
+	b ()Z hasAnyCatches
+	c ()Ljava/util/HashSet; getCatchTypes
+	a method
+	b order
+	c addresses
+com/a/b/c/b/al com/android/dx/dex/code/SwitchData
+	c (Lcom/a/b/g/n;)Z shouldPack
+		static
+		0 cases cases
+	a ()I codeSize
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	a (Z)Ljava/lang/String; listingString0
+		0 noteIndices noteIndices
+	a (Lcom/a/b/g/a;)V writeTo
+		0 out out
+	b ()Ljava/lang/String; argString
+	c ()Z isPacked
+	a user
+	b cases
+	c targets
+	d packed
+	b (Lcom/a/b/g/n;)J sparseCodeSize
+		static
+		0 cases cases
+	a (Lcom/a/b/g/n;)J packedCodeSize
+		static
+		0 cases cases
+com/a/b/c/b/am com/android/dx/dex/code/TargetInsn
+	a (Lcom/a/b/c/b/h;)Lcom/a/b/c/b/am; withNewTargetAndReversed
+		0 target target
+	a (Lcom/a/b/c/b/n;)Lcom/a/b/c/b/l; withOpcode
+		0 opcode opcode
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	b ()Ljava/lang/String; argString
+	c ()Lcom/a/b/c/b/h; getTarget
+	q ()Z hasTargetOffset
+	a target
+	e ()I getTargetOffset
+	d ()I getTargetAddress
+com/a/b/c/b/an com/android/dx/dex/code/VariableSizeInsn
+	a (Lcom/a/b/c/b/n;)Lcom/a/b/c/b/l; withOpcode
+		0 opcode opcode
+	d (I)Lcom/a/b/c/b/l; withRegisterOffset
+		0 delta delta
+com/a/b/c/b/ao com/android/dx/dex/code/ZeroSizeInsn
+	a ()I codeSize
+	a (Lcom/a/b/c/b/n;)Lcom/a/b/c/b/l; withOpcode
+		0 opcode opcode
+	a (Lcom/a/b/g/a;)V writeTo
+		0 out out
+	d (I)Lcom/a/b/c/b/l; withRegisterOffset
+		0 delta delta
+com/a/b/c/b/c com/android/dx/dex/code/CatchBuilder
+	a ()Lcom/a/b/c/b/f; build
+	b ()Z hasAnyCatches
+	c ()Ljava/util/HashSet; getCatchTypes
+com/a/b/c/b/d com/android/dx/dex/code/CatchHandlerList
+	a (Lcom/a/b/c/b/d;)I compareTo
+		0 other other
+	a (I)Lcom/a/b/c/b/e; get
+		0 n n
+	a (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; toHuman
+		0 prefix prefix
+		1 header header
+	a (ILcom/a/b/e/c/ae;I)V set
+		0 n n
+		1 exceptionType exceptionType
+		2 handler handler
+	d ()Ljava/lang/String; toHuman
+	e ()Z catchesAll
+	a EMPTY
+com/a/b/c/b/e com/android/dx/dex/code/CatchHandlerList$Entry
+	a (Lcom/a/b/c/b/e;)I compareTo
+		0 other other
+	a ()Lcom/a/b/e/c/ae; getExceptionType
+	a exceptionType
+	b handler
+	b ()I getHandler
+com/a/b/c/b/f com/android/dx/dex/code/CatchTable
+	a (Lcom/a/b/c/b/f;)I compareTo
+		0 other other
+	a (I)Lcom/a/b/c/b/g; get
+		0 n n
+	a (ILcom/a/b/c/b/g;)V set
+		0 n n
+		1 entry entry
+	a EMPTY
+com/a/b/c/b/g com/android/dx/dex/code/CatchTable$Entry
+	a (Lcom/a/b/c/b/g;)I compareTo
+		0 other other
+	c ()Lcom/a/b/c/b/d; getHandlers
+	c handlers
+	b ()I getEnd
+	a ()I getStart
+	b end
+	a start
+com/a/b/c/b/h com/android/dx/dex/code/CodeAddress
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	a (Z)Ljava/lang/String; listingString0
+		0 noteIndices noteIndices
+	b ()Ljava/lang/String; argString
+	c ()Z getBindsClosely
+	a bindsClosely
+com/a/b/c/b/i com/android/dx/dex/code/CstInsn
+	a (Lcom/a/b/c/b/n;)Lcom/a/b/c/b/l; withOpcode
+		0 opcode opcode
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	c ()Lcom/a/b/e/c/a; getConstant
+	a constant
+	b (I)V setClassIndex
+		0 index index
+	a (I)V setIndex
+		0 index index
+	g ()Ljava/lang/String; cstComment
+	b ()Ljava/lang/String; argString
+	f ()Ljava/lang/String; cstString
+	d ()I getIndex
+	e ()Z hasIndex
+	c classIndex
+	b index
+com/a/b/c/b/j com/android/dx/dex/code/DalvCode
+	j ()V finishProcessingIfNecessary
+	a (Lcom/a/b/c/b/k;)V assignIndices
+		0 callback callback
+	f ()Lcom/a/b/c/b/m; getInsns
+	g ()Lcom/a/b/c/b/f; getCatches
+	h ()Lcom/a/b/c/b/ac; getPositions
+	i ()Lcom/a/b/c/b/s; getLocals
+	a positionInfo
+	b unprocessedInsns
+	c unprocessedCatches
+	d catches
+	e positions
+	f locals
+	g insns
+	c ()Z hasAnyCatches
+	a ()Z hasPositions
+	b ()Z hasLocals
+	e ()Ljava/util/HashSet; getInsnConstants
+	d ()Ljava/util/HashSet; getCatchTypes
+com/a/b/c/b/k com/android/dx/dex/code/DalvCode$AssignIndicesCallback
+	a (Lcom/a/b/e/c/a;)I getIndex
+com/a/b/c/b/l com/android/dx/dex/code/DalvInsn
+	a (Lcom/a/b/e/b/ad;Lcom/a/b/e/b/u;Lcom/a/b/e/b/u;)Lcom/a/b/c/b/aj; makeMove
+		static
+		0 position position
+		1 dest dest
+		2 src src
+	a (Ljava/util/BitSet;)I getMinimumRegisterRequirement
+		0 compatRegs compatRegs
+	a (Lcom/a/b/c/b/n;)Lcom/a/b/c/b/l; withOpcode
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+	a (Lcom/a/b/f/ag;)Lcom/a/b/c/b/l; withMapper
+		0 mapper mapper
+	a (Ljava/lang/String;IZ)Ljava/lang/String; listingString
+		0 prefix prefix
+		1 width width
+		2 noteIndices noteIndices
+	a (Z)Ljava/lang/String; listingString0
+	a (Lcom/a/b/g/a;)V writeTo
+	c (I)V setAddress
+		0 address address
+	d (I)Lcom/a/b/c/b/l; withRegisterOffset
+	j ()Lcom/a/b/c/b/n; getOpcode
+	k ()Lcom/a/b/e/b/ad; getPosition
+	l ()Lcom/a/b/e/b/x; getRegisters
+	n ()Lcom/a/b/c/b/l; getLowRegVersion
+	a address
+	b opcode
+	c position
+	d registers
+	i ()I getAddress
+	a ()I codeSize
+	p ()I getNextAddress
+	d (Ljava/util/BitSet;)Lcom/a/b/c/b/l; expandedVersion
+		0 compatRegs compatRegs
+	c (Ljava/util/BitSet;)Lcom/a/b/c/b/l; expandedSuffix
+		0 compatRegs compatRegs
+	b (Ljava/util/BitSet;)Lcom/a/b/c/b/l; expandedPrefix
+		0 compatRegs compatRegs
+	g ()Ljava/lang/String; cstComment
+	f ()Ljava/lang/String; cstString
+	o ()Ljava/lang/String; identifierString
+	b ()Ljava/lang/String; argString
+	m ()Z hasResult
+	h ()Z hasAddress
+com/a/b/c/b/m com/android/dx/dex/code/DalvInsnList
+	a (Ljava/util/ArrayList;I)Lcom/a/b/c/b/m; makeImmutable
+		static
+		0 list list
+		1 regCount regCount
+	a (I)Lcom/a/b/c/b/l; get
+		0 n n
+	a (ILcom/a/b/c/b/l;)V set
+		0 n n
+		1 insn insn
+	a (Lcom/a/b/g/a;)V writeTo
+		0 out out
+	a regCount
+	g ()I getOutsSize
+	f ()I getRegistersSize
+	e ()I codeSize
+com/a/b/c/b/n com/android/dx/dex/code/Dop
+	c ()Lcom/a/b/c/b/r; getFormat
+	d ()Z hasResult
+	g ()Lcom/a/b/c/b/n; getOppositeTest
+	d format
+	e hasResult
+	a ()I getOpcode
+	b ()I getFamily
+	e ()Ljava/lang/String; getName
+	f ()I getNextOpcode
+	a opcode
+	b family
+	c nextOpcode
+com/a/b/c/b/o com/android/dx/dex/code/Dops
+	a (I)Lcom/a/b/c/b/n; get
+		static
+		0 opcode opcode
+	a (Lcom/a/b/c/b/n;Lcom/a/b/c/a;)Lcom/a/b/c/b/n; getNextOrNull
+		static
+		0 opcode opcode
+		1 options options
+	a (Lcom/a/b/c/b/n;)V set
+		static
+		0 opcode opcode
+	dr DOPS
+	i MOVE_OBJECT
+	f MOVE_WIDE
+	c MOVE
+	b NOP
+	az IGET
+	ak IF_LEZ
+	aj IF_GTZ
+	ai IF_GEZ
+	ah IF_LTZ
+	ag IF_NEZ
+	af IF_EQZ
+	ae IF_LE
+	ad IF_GT
+	ac IF_GE
+	ab IF_LT
+	aa IF_NE
+	aU SPUT
+	aN SGET
+	aG IPUT
+	a SPECIAL_FORMAT
+	Z IF_EQ
+	T SPARSE_SWITCH
+	S PACKED_SWITCH
+	N FILL_ARRAY_DATA
+	x CONST_WIDE_16
+	t CONST_4
+	s RETURN_OBJECT
+	r RETURN_WIDE
+	q RETURN
+	p RETURN_VOID
+	o MOVE_EXCEPTION
+	n MOVE_RESULT_OBJECT
+	m MOVE_RESULT_WIDE
+	l MOVE_RESULT
+	k MOVE_OBJECT_16
+	j MOVE_OBJECT_FROM16
+	h MOVE_WIDE_16
+	g MOVE_WIDE_FROM16
+	e MOVE_16
+	dq CONST_METHOD_TYPE
+	dp CONST_METHOD_HANDLE
+	dn INVOKE_CUSTOM
+	dl INVOKE_POLYMORPHIC
+	dk USHR_INT_LIT8
+	dj SHR_INT_LIT8
+	di SHL_INT_LIT8
+	dh XOR_INT_LIT8
+	dg OR_INT_LIT8
+	df AND_INT_LIT8
+	de REM_INT_LIT8
+	dd DIV_INT_LIT8
+	dc MUL_INT_LIT8
+	db RSUB_INT_LIT8
+	da ADD_INT_LIT8
+	d MOVE_FROM16
+	cz MUL_LONG_2ADDR
+	cy SUB_LONG_2ADDR
+	cx ADD_LONG_2ADDR
+	cw USHR_INT_2ADDR
+	cv SHR_INT_2ADDR
+	cu SHL_INT_2ADDR
+	ct XOR_INT_2ADDR
+	cs OR_INT_2ADDR
+	cr AND_INT_2ADDR
+	cq REM_INT_2ADDR
+	cp DIV_INT_2ADDR
+	co MUL_INT_2ADDR
+	cn SUB_INT_2ADDR
+	cm ADD_INT_2ADDR
+	cR REM_DOUBLE_2ADDR
+	cQ DIV_DOUBLE_2ADDR
+	cP MUL_DOUBLE_2ADDR
+	cO SUB_DOUBLE_2ADDR
+	cN ADD_DOUBLE_2ADDR
+	cM REM_FLOAT_2ADDR
+	cL DIV_FLOAT_2ADDR
+	cK MUL_FLOAT_2ADDR
+	cJ SUB_FLOAT_2ADDR
+	cI ADD_FLOAT_2ADDR
+	cH USHR_LONG_2ADDR
+	cG SHR_LONG_2ADDR
+	cF SHL_LONG_2ADDR
+	cE XOR_LONG_2ADDR
+	cD OR_LONG_2ADDR
+	cC AND_LONG_2ADDR
+	cB REM_LONG_2ADDR
+	cA DIV_LONG_2ADDR
+	bz FLOAT_TO_DOUBLE
+	by FLOAT_TO_LONG
+	bx FLOAT_TO_INT
+	bw LONG_TO_DOUBLE
+	bv LONG_TO_FLOAT
+	bu LONG_TO_INT
+	bt INT_TO_DOUBLE
+	bs INT_TO_FLOAT
+	br INT_TO_LONG
+	bq NEG_DOUBLE
+	bp NEG_FLOAT
+	bo NOT_LONG
+	bn NEG_LONG
+	bm NOT_INT
+	bl NEG_INT
+	bf INVOKE_INTERFACE
+	be INVOKE_STATIC
+	bd INVOKE_DIRECT
+	bc INVOKE_SUPER
+	bb INVOKE_VIRTUAL
+	ba SPUT_SHORT
+	bF INT_TO_SHORT
+	bE INT_TO_CHAR
+	bD INT_TO_BYTE
+	bC DOUBLE_TO_FLOAT
+	bB DOUBLE_TO_LONG
+	bA DOUBLE_TO_INT
+	ay APUT_SHORT
+	ax APUT_CHAR
+	aw APUT_BYTE
+	av APUT_BOOLEAN
+	au APUT_OBJECT
+	at APUT_WIDE
+	as APUT
+	ar AGET_SHORT
+	aq AGET_CHAR
+	ap AGET_BYTE
+	ao AGET_BOOLEAN
+	an AGET_OBJECT
+	am AGET_WIDE
+	al AGET
+	aZ SPUT_CHAR
+	aY SPUT_BYTE
+	aX SPUT_BOOLEAN
+	aW SPUT_OBJECT
+	aV SPUT_WIDE
+	aT SGET_SHORT
+	aS SGET_CHAR
+	aR SGET_BYTE
+	aQ SGET_BOOLEAN
+	aP SGET_OBJECT
+	aO SGET_WIDE
+	aM IPUT_SHORT
+	aL IPUT_CHAR
+	aK IPUT_BYTE
+	aJ IPUT_BOOLEAN
+	aI IPUT_OBJECT
+	aH IPUT_WIDE
+	aF IGET_SHORT
+	aE IGET_CHAR
+	aD IGET_BYTE
+	aC IGET_BOOLEAN
+	aB IGET_OBJECT
+	aA IGET_WIDE
+	Y CMP_LONG
+	X CMPG_DOUBLE
+	W CMPL_DOUBLE
+	V CMPG_FLOAT
+	U CMPL_FLOAT
+	P GOTO
+	O THROW
+	L FILLED_NEW_ARRAY
+	K NEW_ARRAY
+	J NEW_INSTANCE
+	I ARRAY_LENGTH
+	H INSTANCE_OF
+	G CHECK_CAST
+	F MONITOR_EXIT
+	E MONITOR_ENTER
+	D CONST_CLASS
+	B CONST_STRING
+	z CONST_WIDE
+	y CONST_WIDE_32
+	w CONST_HIGH16
+	v CONST
+	u CONST_16
+	do INVOKE_CUSTOM_RANGE
+	dm INVOKE_POLYMORPHIC_RANGE
+	cl REM_DOUBLE
+	ck DIV_DOUBLE
+	cj MUL_DOUBLE
+	ci SUB_DOUBLE
+	ch ADD_DOUBLE
+	cg REM_FLOAT
+	cf DIV_FLOAT
+	ce MUL_FLOAT
+	cd SUB_FLOAT
+	cc ADD_FLOAT
+	cb USHR_LONG
+	ca SHR_LONG
+	cZ XOR_INT_LIT16
+	cY OR_INT_LIT16
+	cX AND_INT_LIT16
+	cW REM_INT_LIT16
+	cV DIV_INT_LIT16
+	cU MUL_INT_LIT16
+	cT RSUB_INT
+	cS ADD_INT_LIT16
+	bk INVOKE_INTERFACE_RANGE
+	bj INVOKE_STATIC_RANGE
+	bi INVOKE_DIRECT_RANGE
+	bh INVOKE_SUPER_RANGE
+	bg INVOKE_VIRTUAL_RANGE
+	bZ SHL_LONG
+	bY XOR_LONG
+	bX OR_LONG
+	bW AND_LONG
+	bV REM_LONG
+	bU DIV_LONG
+	bT MUL_LONG
+	bS SUB_LONG
+	bR ADD_LONG
+	bQ USHR_INT
+	bP SHR_INT
+	bO SHL_INT
+	bN XOR_INT
+	bM OR_INT
+	bL AND_INT
+	bK REM_INT
+	bJ DIV_INT
+	bI MUL_INT
+	bH SUB_INT
+	bG ADD_INT
+	R GOTO_32
+	Q GOTO_16
+	M FILLED_NEW_ARRAY_RANGE
+	C CONST_STRING_JUMBO
+	A CONST_WIDE_HIGH16
+com/a/b/c/b/p com/android/dx/dex/code/FixedSizeInsn
+	a ()I codeSize
+	a (Z)Ljava/lang/String; listingString0
+		0 noteIndices noteIndices
+	a (Lcom/a/b/g/a;)V writeTo
+		0 out out
+	d (I)Lcom/a/b/c/b/l; withRegisterOffset
+		0 delta delta
+com/a/b/c/b/q com/android/dx/dex/code/HighRegisterPrefix
+	a (Lcom/a/b/e/b/u;I)Lcom/a/b/c/b/aj; moveInsnFor
+		static
+		0 src src
+		1 destIndex destIndex
+	c ()V calculateInsnsIfNecessary
+	a ()I codeSize
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	a (Z)Ljava/lang/String; listingString0
+		0 noteIndices noteIndices
+	a (Lcom/a/b/g/a;)V writeTo
+		0 out out
+	b ()Ljava/lang/String; argString
+	a insns
+com/a/b/c/b/r com/android/dx/dex/code/InsnFormat
+	b (I)Z unsignedFitsInNibble
+		static
+		0 value value
+	c (I)Z signedFitsInByte
+		static
+		0 value value
+	d (I)Z unsignedFitsInByte
+		static
+		0 value value
+	e (I)Z signedFitsInShort
+		static
+		0 value value
+	a (Lcom/a/b/e/c/v;)Ljava/lang/String; literalBitsString
+		static
+		0 value value
+	a (Lcom/a/b/e/c/v;I)Ljava/lang/String; literalBitsComment
+		static
+		0 value value
+		1 width width
+	a (II)S codeUnit
+		static
+		0 low low
+		1 high high
+	a (IIII)S codeUnit
+		static
+		0 n0 n0
+		1 n1 n1
+		2 n2 n2
+		3 n3 n3
+	a (Lcom/a/b/c/b/l;I)S opcodeUnit
+		static
+		0 insn insn
+		1 arg arg
+	a (Lcom/a/b/g/a;S)V write
+		static
+		0 out out
+		1 c0 c0
+	a (Lcom/a/b/g/a;SI)V write
+		static
+		0 out out
+		1 c0 c0
+		2 c1c2 c1c2
+	a (Lcom/a/b/g/a;SJ)V write
+		static
+		0 out out
+		1 c0 c0
+		2 c1c2c3c4 c1c2c3c4
+	a (Lcom/a/b/g/a;SS)V write
+		static
+		0 out out
+		1 c0 c0
+		2 c1 c1
+	a (Lcom/a/b/g/a;SSS)V write
+		static
+		0 out out
+		1 c0 c0
+		2 c1 c1
+		3 c2 c2
+	a (Lcom/a/b/g/a;SSSS)V write
+		static
+		0 out out
+		1 c0 c0
+		2 c1 c1
+		3 c2 c2
+		4 c3 c3
+	a (Lcom/a/b/g/a;SSSSS)V write
+		static
+		0 out out
+		1 c0 c0
+		2 c1 c1
+		3 c2 c2
+		4 c3 c3
+		5 c4 c4
+	b (II)I makeByte
+		static
+		0 low low
+		1 high high
+	c (Lcom/a/b/e/b/x;)Z isRegListSequential
+		static
+		0 list list
+	a ()I codeSize
+	a (Lcom/a/b/g/a;Lcom/a/b/c/b/l;)V writeTo
+	a (Lcom/a/b/c/b/am;)Z branchFits
+		0 insn insn
+	b (Lcom/a/b/c/b/l;)Z isCompatible
+	c (Lcom/a/b/c/b/l;)Ljava/util/BitSet; compatibleRegs
+		0 insn insn
+	b (Lcom/a/b/e/b/x;)Ljava/lang/String; regRangeString
+		static
+		0 list list
+	a (Lcom/a/b/e/b/x;)Ljava/lang/String; regListString
+		static
+		0 list list
+	f (I)Z unsignedFitsInShort
+		static
+		0 value value
+	a (I)Z signedFitsInNibble
+		static
+		0 value value
+	a (Lcom/a/b/c/b/l;)Ljava/lang/String; insnArgString
+	d (Lcom/a/b/c/b/l;)Ljava/lang/String; branchString
+		static
+		0 insn insn
+	a (Lcom/a/b/c/b/l;Z)Ljava/lang/String; listingString
+		0 insn insn
+		1 noteIndices noteIndices
+	b (Lcom/a/b/c/b/l;Z)Ljava/lang/String; insnCommentString
+	e (Lcom/a/b/c/b/l;)Ljava/lang/String; branchComment
+		static
+		0 insn insn
+com/a/b/c/b/t com/android/dx/dex/code/LocalList$Disposition
+	g $VALUES
+	b END_SIMPLY
+	c END_REPLACED
+	a START
+	f END_CLOBBERED_BY_NEXT
+	e END_CLOBBERED_BY_PREV
+	d END_MOVED
+com/a/b/c/b/u com/android/dx/dex/code/LocalList$Entry
+	a (Lcom/a/b/c/b/u;)I compareTo
+		0 other other
+	a (Lcom/a/b/c/b/t;)Lcom/a/b/c/b/u; withDisposition
+		0 disposition disposition
+	a (Lcom/a/b/e/b/u;)Z matches
+		0 otherSpec otherSpec
+	b ()Lcom/a/b/c/b/t; getDisposition
+	b (Lcom/a/b/c/b/u;)Z matches
+		0 other other
+	c ()Z isStart
+	f ()Lcom/a/b/e/c/ae; getType
+	h ()Lcom/a/b/e/b/u; getRegisterSpec
+	a address
+	b disposition
+	c spec
+	d type
+	a ()I getAddress
+	g ()I getRegister
+	e ()Lcom/a/b/e/c/ad; getSignature
+	d ()Lcom/a/b/e/c/ad; getName
+com/a/b/c/b/v com/android/dx/dex/code/LocalList$MakeState
+	a (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; filterSpec
+		static
+		0 orig orig
+	a (II)V aboutToProcess
+		0 address address
+		1 reg reg
+	c (ILcom/a/b/e/b/u;)Z checkForEmptyRange
+		0 address address
+		1 endedLocal endedLocal
+	a ()Lcom/a/b/c/b/s; finish
+	a (ILcom/a/b/e/b/u;Lcom/a/b/c/b/t;)V endLocal
+		0 address address
+		1 endedLocal endedLocal
+		2 disposition disposition
+	a (ILcom/a/b/e/b/z;)V snapshot
+		0 address address
+		1 specs specs
+	a result
+	c regs
+	d endIndices
+	b (ILcom/a/b/c/b/t;Lcom/a/b/e/b/u;)V addOrUpdateEnd
+		0 address address
+		1 disposition disposition
+		2 spec spec
+	a (ILcom/a/b/c/b/t;Lcom/a/b/e/b/u;)V add
+		0 address address
+		1 disposition disposition
+		2 spec spec
+	a (ILcom/a/b/e/b/u;)V startLocal
+		0 address address
+		1 startedLocal startedLocal
+	b (ILcom/a/b/e/b/u;)V endLocal
+		0 address address
+		1 endedLocal endedLocal
+	e lastAddress
+	b nullResultCount
+com/a/b/c/b/w com/android/dx/dex/code/LocalSnapshot
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	a (Lcom/a/b/f/ag;)Lcom/a/b/c/b/l; withMapper
+		0 mapper mapper
+	a (Z)Ljava/lang/String; listingString0
+		0 noteIndices noteIndices
+	b ()Ljava/lang/String; argString
+	c ()Lcom/a/b/e/b/z; getLocals
+	d (I)Lcom/a/b/c/b/l; withRegisterOffset
+		0 delta delta
+	a locals
+com/a/b/c/b/x com/android/dx/dex/code/LocalStart
+	a (Lcom/a/b/e/b/u;)Ljava/lang/String; localString
+		static
+		0 spec spec
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	a (Lcom/a/b/f/ag;)Lcom/a/b/c/b/l; withMapper
+		0 mapper mapper
+	a (Z)Ljava/lang/String; listingString0
+		0 noteIndices noteIndices
+	b ()Ljava/lang/String; argString
+	c ()Lcom/a/b/e/b/u; getLocal
+	d (I)Lcom/a/b/c/b/l; withRegisterOffset
+		0 delta delta
+	a local
+com/a/b/c/b/y com/android/dx/dex/code/MultiCstInsn
+	a (Lcom/a/b/c/b/n;)Lcom/a/b/c/b/l; withOpcode
+		0 opcode opcode
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	a (I)Lcom/a/b/e/c/a; getConstant
+		0 position position
+	a (II)V setIndex
+		0 position position
+		1 index index
+	b (I)I getIndex
+		0 position position
+	d ()Z hasClassIndex
+	e (I)Z hasIndex
+		0 position position
+	f (I)V setClassIndex
+		0 index index
+	a constants
+	b index
+	c classIndex
+	g ()Ljava/lang/String; cstComment
+	f ()Ljava/lang/String; cstString
+	b ()Ljava/lang/String; argString
+	c ()I getNumberOfConstants
+com/a/b/c/b/z com/android/dx/dex/code/OddSpacer
+	a ()I codeSize
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/c/b/l; withRegisters
+		0 registers registers
+	a (Z)Ljava/lang/String; listingString0
+		0 noteIndices noteIndices
+	a (Lcom/a/b/g/a;)V writeTo
+		0 out out
+	b ()Ljava/lang/String; argString
+com/a/b/c/c/a com/android/dx/dex/file/AnnotationItem
+	a ([Lcom/a/b/c/c/a;)V sortByTypeIdIndex
+		static
+		0 array array
+	a (Lcom/a/b/c/c/at;)I compareTo0
+		0 other other
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/g/a;Ljava/lang/String;)V annotateTo
+		0 out out
+		1 prefix prefix
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	b ()Ljava/lang/String; toHuman
+	a TYPE_ID_SORTER
+	b annotation
+	c type
+	d encodedForm
+	e $SWITCH_TABLE$com$android$dx$rop$annotation$AnnotationVisibility
+	a (Lcom/a/b/c/c/a;)Lcom/a/b/c/c/bd; access$000
+		static
+	c ()[I $SWITCH_TABLE$com$android$dx$rop$annotation$AnnotationVisibility
+		static
+com/a/b/c/c/aa com/android/dx/dex/file/FieldIdItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	b (Lcom/a/b/c/c/t;)I getTypoidIdx
+		0 file file
+	c ()Lcom/a/b/e/c/n; getFieldRef
+	d ()Ljava/lang/String; getTypoidName
+com/a/b/c/c/ab com/android/dx/dex/file/FieldIdsSection
+	a (Lcom/a/b/e/c/n;)Lcom/a/b/c/c/aa; intern
+		0 field field
+	a (Lcom/a/b/e/c/a;)Lcom/a/b/c/c/af; get
+		0 cst cst
+	a (Lcom/a/b/g/a;)V writeHeaderPart
+		0 out out
+	b (Lcom/a/b/e/c/n;)I indexOf
+		0 ref ref
+	b ()Ljava/util/Collection; items
+	a fieldIds
+com/a/b/c/c/ac com/android/dx/dex/file/HeaderItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	e_ ()I writeSize
+com/a/b/c/c/ae com/android/dx/dex/file/IdItem
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	e ()Lcom/a/b/e/c/ae; getDefiningClass
+	a type
+com/a/b/c/c/af com/android/dx/dex/file/IndexedItem
+	a (I)V setIndex
+		0 index index
+	f ()Z hasIndex
+	g ()I getIndex
+	h ()Ljava/lang/String; indexString
+	a index
+com/a/b/c/c/ag com/android/dx/dex/file/Item
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+	e_ ()I writeSize
+	i ()Ljava/lang/String; typeName
+com/a/b/c/c/ah com/android/dx/dex/file/ItemType
+	a ()I getMapValue
+	B $VALUES
+	y mapValue
+	d ()Ljava/lang/String; toHuman
+	b ()Ljava/lang/String; getTypeName
+	s TYPE_ENCODED_ARRAY_ITEM
+	o TYPE_CODE_ITEM
+	j TYPE_MAP_LIST
+	x TYPE_ANNOTATION_SET_REF_ITEM
+	u TYPE_MAP_ITEM
+	t TYPE_ANNOTATIONS_DIRECTORY_ITEM
+	r TYPE_ANNOTATION_ITEM
+	q TYPE_DEBUG_INFO_ITEM
+	p TYPE_STRING_DATA_ITEM
+	n TYPE_CLASS_DATA_ITEM
+	m TYPE_ANNOTATION_SET_ITEM
+	l TYPE_ANNOTATION_SET_REF_LIST
+	k TYPE_TYPE_LIST
+	i TYPE_METHOD_HANDLE_ITEM
+	h TYPE_CALL_SITE_ID_ITEM
+	g TYPE_CLASS_DEF_ITEM
+	f TYPE_METHOD_ID_ITEM
+	e TYPE_FIELD_ID_ITEM
+	d TYPE_PROTO_ID_ITEM
+	c TYPE_TYPE_ID_ITEM
+	b TYPE_STRING_ID_ITEM
+	a TYPE_HEADER_ITEM
+	w TYPE_EXCEPTION_HANDLER_ITEM
+	v TYPE_TYPE_ITEM
+	z typeName
+	A humanName
+com/a/b/c/c/ai com/android/dx/dex/file/MapItem
+	a ([Lcom/a/b/c/c/ax;Lcom/a/b/c/c/aq;)V addMap
+		static
+		0 sections sections
+		1 mapSection mapSection
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	a type
+	b section
+	e itemCount
+	b ()Ljava/lang/String; toHuman
+	c firstItem
+	d lastItem
+com/a/b/c/c/aj com/android/dx/dex/file/MemberIdItem
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	b (Lcom/a/b/c/c/t;)I getTypoidIdx
+	d ()Ljava/lang/String; getTypoidName
+	e_ ()I writeSize
+	j ()Lcom/a/b/e/c/x; getRef
+	a cst
+com/a/b/c/c/ak com/android/dx/dex/file/MemberIdsSection
+	d ()Ljava/lang/String; getTooManyMembersMessage
+	a ()V orderItems
+com/a/b/c/c/al com/android/dx/dex/file/MethodAnnotationStruct
+	a (Lcom/a/b/c/c/al;)I compareTo
+		0 other other
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	d ()Ljava/lang/String; toHuman
+	a method
+	b annotations
+com/a/b/c/c/am com/android/dx/dex/file/MethodHandleItem
+	b (Lcom/a/b/c/c/t;)I getTargetIndex
+		0 file file
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	e_ ()I writeSize
+	a ITEM_SIZE
+	b methodHandle
+com/a/b/c/c/an com/android/dx/dex/file/MethodHandlesSection
+	a (Lcom/a/b/e/c/a;)Lcom/a/b/c/c/af; get
+		0 cst cst
+	a ()V orderItems
+	a (Lcom/a/b/e/c/y;)V intern
+		0 methodHandle methodHandle
+	b (Lcom/a/b/e/c/y;)I indexOf
+		0 cstMethodHandle cstMethodHandle
+	b ()Ljava/util/Collection; items
+	a methodHandles
+com/a/b/c/c/ao com/android/dx/dex/file/MethodIdItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	b (Lcom/a/b/c/c/t;)I getTypoidIdx
+		0 file file
+	c ()Lcom/a/b/e/c/f; getMethodRef
+	d ()Ljava/lang/String; getTypoidName
+com/a/b/c/c/ap com/android/dx/dex/file/MethodIdsSection
+	a (Lcom/a/b/e/c/a;)Lcom/a/b/c/c/af; get
+		0 cst cst
+	a (Lcom/a/b/e/c/f;)Lcom/a/b/c/c/ao; intern
+		0 method method
+	a (Lcom/a/b/g/a;)V writeHeaderPart
+		0 out out
+	b (Lcom/a/b/e/c/f;)I indexOf
+		0 ref ref
+	b ()Ljava/util/Collection; items
+	a methodIds
+com/a/b/c/c/aq com/android/dx/dex/file/MixedItemSection
+	a (Lcom/a/b/c/c/ag;)I getAbsoluteItemOffset
+		0 item item
+	a (Lcom/a/b/c/c/at;)V add
+		0 item item
+	a (Lcom/a/b/g/a;Lcom/a/b/c/c/ah;Ljava/lang/String;)V writeIndexAnnotation
+		0 out out
+		1 itemType itemType
+		2 intro intro
+	b ()Ljava/util/Collection; items
+	a TYPE_SORTER
+	b items
+	c interns
+	d sort
+	e writeSize
+	d ()V placeItems
+	c ()V prepare0
+	a_ (Lcom/a/b/g/a;)V writeTo0
+		0 out out
+	b (Lcom/a/b/c/c/at;)Lcom/a/b/c/c/at; intern
+		0 item item
+	f_ ()I writeSize
+	f $SWITCH_TABLE$com$android$dx$dex$file$MixedItemSection$SortType
+	e ()[I $SWITCH_TABLE$com$android$dx$dex$file$MixedItemSection$SortType
+		static
+com/a/b/c/c/ar com/android/dx/merge/SortableType$1
+	a (Lcom/a/b/c/c/at;Lcom/a/b/c/c/at;)I compare
+com/a/b/c/c/as com/android/dx/dex/file/MixedItemSection$SortType
+	d $VALUES
+	c INSTANCE
+	b TYPE
+	a NONE
+com/a/b/c/c/at com/android/dx/dex/file/OffsettedItem
+	a (I)V setWriteSize
+		0 writeSize writeSize
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	b (Lcom/a/b/c/c/ax;I)I place
+		0 addedTo addedTo
+		1 offset offset
+	c addedTo
+	b (Lcom/a/b/c/c/at;)I getAbsoluteOffsetOr0
+		static
+		0 item item
+	c (Lcom/a/b/c/c/at;)I compareTo
+		0 other other
+	a (Lcom/a/b/c/c/at;)I compareTo0
+		0 other other
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+	b ()Ljava/lang/String; toHuman
+	g ()Ljava/lang/String; offsetString
+	f ()I getAlignment
+	e_ ()I writeSize
+	e ()I getAbsoluteOffset
+	b writeSize
+	d offset
+	a alignment
+com/a/b/c/c/au com/android/dx/dex/file/ParameterAnnotationStruct
+	a (Lcom/a/b/c/c/au;)I compareTo
+		0 other other
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	d ()Ljava/lang/String; toHuman
+	a method
+	b annotationsList
+	c annotationsItem
+com/a/b/c/c/av com/android/dx/dex/file/ProtoIdItem
+	a (Lcom/a/b/e/d/c;)C shortFormCharFor
+		static
+		0 type type
+	a (Lcom/a/b/e/d/a;)Lcom/a/b/e/c/ad; makeShortForm
+		static
+		0 prototype prototype
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	e_ ()I writeSize
+	a prototype
+	b shortForm
+	c parameterTypes
+com/a/b/c/c/aw com/android/dx/dex/file/ProtoIdsSection
+	a (Lcom/a/b/e/c/a;)Lcom/a/b/c/c/af; get
+		0 cst cst
+	a (Lcom/a/b/e/d/a;)Lcom/a/b/c/c/av; intern
+		0 prototype prototype
+	a ()V orderItems
+	b (Lcom/a/b/e/d/a;)I indexOf
+		0 prototype prototype
+	b ()Ljava/util/Collection; items
+	b (Lcom/a/b/g/a;)V writeHeaderPart
+		0 out out
+	a protoIds
+com/a/b/c/c/ax com/android/dx/dex/file/Section
+	a (I)V validateAlignment
+		static
+		0 alignment alignment
+	a (Lcom/a/b/c/c/ag;)I getAbsoluteItemOffset
+	b ()Ljava/util/Collection; items
+	f ()Lcom/a/b/c/c/t; getFile
+	a name
+	b file
+	e prepared
+	c (Lcom/a/b/g/a;)V writeTo
+		0 out out
+	a_ (Lcom/a/b/g/a;)V writeTo0
+	d (Lcom/a/b/g/a;)V align
+		0 out out
+	b (I)I setFileOffset
+		0 fileOffset fileOffset
+	c (I)I getAbsoluteOffset
+		0 relative relative
+	k ()V throwIfPrepared
+	j ()V throwIfNotPrepared
+	c ()V prepare0
+	i ()V prepare
+	h ()I getFileOffset
+	f_ ()I writeSize
+	g ()I getAlignment
+	c alignment
+	d fileOffset
+com/a/b/c/c/ay com/android/dx/dex/file/Statistics
+	a (Lcom/a/b/c/c/ag;)V add
+		0 item item
+	a (Lcom/a/b/c/c/ax;)V addAll
+		0 list list
+	a (Lcom/a/b/g/a;)V writeAnnotation
+		0 out out
+	a dataMap
+com/a/b/c/c/az com/android/dx/dex/file/Statistics$Data
+	a ()Ljava/lang/String; toHuman
+	a (Lcom/a/b/c/c/ag;)V add
+		0 item item
+	a (Lcom/a/b/g/a;)V writeAnnotation
+		0 out out
+	a name
+	e smallestSize
+	d largestSize
+	c totalSize
+	b count
+	a (Lcom/a/b/c/c/az;)Ljava/lang/String; access$000
+		static
+		0 x0 x0
+com/a/b/c/c/b com/android/dx/dex/file/AnnotationItem$TypeIdSorter
+	a (Lcom/a/b/c/c/a;Lcom/a/b/c/c/a;)I compare
+		0 item1 item1
+		1 item2 item2
+com/a/b/c/c/ba com/android/dx/dex/file/StringDataItem
+	a (Lcom/a/b/e/c/ad;)I writeSize
+		static
+		0 value value
+	a (Lcom/a/b/c/c/at;)I compareTo0
+		0 other other
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	b ()Ljava/lang/String; toHuman
+	a value
+com/a/b/c/c/bb com/android/dx/dex/file/StringIdItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	c ()Lcom/a/b/e/c/ad; getValue
+	a value
+	b data
+	e_ ()I writeSize
+com/a/b/c/c/bc com/android/dx/dex/file/StringIdsSection
+	a (Lcom/a/b/e/c/a;)Lcom/a/b/c/c/af; get
+		0 cst cst
+	a (Lcom/a/b/c/c/bb;)Lcom/a/b/c/c/bb; intern
+		0 string string
+	a (Lcom/a/b/e/c/ad;)Lcom/a/b/c/c/bb; intern
+		0 string string
+	a ()V orderItems
+	b (Lcom/a/b/e/c/ad;)I indexOf
+		0 string string
+	b ()Ljava/util/Collection; items
+	b (Lcom/a/b/g/a;)V writeHeaderPart
+		0 out out
+	a strings
+com/a/b/c/c/bd com/android/dx/dex/file/TypeIdItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	e_ ()I writeSize
+com/a/b/c/c/be com/android/dx/dex/file/TypeIdsSection
+	a (Lcom/a/b/e/c/a;)Lcom/a/b/c/c/af; get
+		0 cst cst
+	a (Lcom/a/b/e/c/ae;)Lcom/a/b/c/c/bd; intern
+		0 type type
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/c/c/bd; intern
+		0 type type
+	a ()V orderItems
+	b (Lcom/a/b/e/c/ae;)I indexOf
+		0 type type
+	b (Lcom/a/b/e/d/c;)I indexOf
+		0 type type
+	b ()Ljava/util/Collection; items
+	b (Lcom/a/b/g/a;)V writeHeaderPart
+		0 out out
+	a typeIds
+com/a/b/c/c/bf com/android/dx/dex/file/TypeListItem
+	a (Lcom/a/b/c/c/at;)I compareTo0
+		0 other other
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	b ()Ljava/lang/String; toHuman
+	c ()Lcom/a/b/e/d/e; getList
+	a list
+com/a/b/c/c/bh com/android/dx/dex/file/UniformListItem
+	d ()I headerSize
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	c ()Ljava/util/List; getItems
+	a itemType
+	b items
+	a (Ljava/util/List;)I getAlignment
+		static
+		0 items items
+	b (Ljava/util/List;)I writeSize
+		static
+		0 items items
+	b ()Ljava/lang/String; toHuman
+com/a/b/c/c/c com/android/dx/dex/file/AnnotationSetItem
+	a (Lcom/a/b/e/a/c;)I writeSize
+		static
+		0 annotations annotations
+	a (Lcom/a/b/c/c/at;)I compareTo0
+		0 other other
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	b ()Ljava/lang/String; toHuman
+	a annotations
+	b items
+com/a/b/c/c/d com/android/dx/dex/file/AnnotationSetRefItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	b ()Ljava/lang/String; toHuman
+	a annotations
+com/a/b/c/c/e com/android/dx/dex/file/AnnotationUtils
+	a (Lcom/a/b/e/a/a;)Lcom/a/b/e/a/a; makeAnnotationDefault
+		static
+		0 defaults defaults
+	a (Lcom/a/b/e/c/ad;I)Lcom/a/b/e/a/a; makeInnerClass
+		static
+		0 name name
+		1 accessFlags accessFlags
+	a (Lcom/a/b/e/c/ae;)Lcom/a/b/e/a/a; makeEnclosingClass
+		static
+		0 clazz clazz
+	a (Lcom/a/b/e/c/z;)Lcom/a/b/e/a/a; makeEnclosingMethod
+		static
+		0 method method
+	c (Lcom/a/b/e/d/e;)Lcom/a/b/e/c/d; makeCstArray
+		static
+		0 types types
+	a (Lcom/a/b/e/c/ad;)Lcom/a/b/e/a/a; makeSignature
+		static
+		0 signature signature
+	b (Lcom/a/b/e/c/ad;)Lcom/a/b/e/a/a; makeSourceDebugExtension
+		static
+		0 smapString smapString
+	b (Lcom/a/b/e/d/e;)Lcom/a/b/e/a/a; makeThrows
+		static
+		0 types types
+	a (Lcom/a/b/e/d/e;)Lcom/a/b/e/a/a; makeMemberClasses
+		static
+		0 types types
+	d INNER_CLASS_TYPE
+	c ENCLOSING_METHOD_TYPE
+	b ENCLOSING_CLASS_TYPE
+	a ANNOTATION_DEFAULT_TYPE
+	j NAME_STRING
+	i ACCESS_FLAGS_STRING
+	k VALUE_STRING
+	h THROWS_TYPE
+	g SOURCE_DEBUG_EXTENSION_TYPE
+	f SIGNATURE_TYPE
+	e MEMBER_CLASSES_TYPE
+com/a/b/c/c/f com/android/dx/dex/file/AnnotationsDirectoryItem
+	a (Ljava/util/ArrayList;)I listSize
+		static
+		0 list list
+	a (Lcom/a/b/c/c/at;)I compareTo0
+		0 other other
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/e/a/c;Lcom/a/b/c/c/t;)V setClassAnnotations
+		0 annotations annotations
+		1 dexFile dexFile
+	a (Lcom/a/b/e/c/n;Lcom/a/b/e/a/c;Lcom/a/b/c/c/t;)V addFieldAnnotations
+		0 field field
+		1 annotations annotations
+		2 dexFile dexFile
+	a (Lcom/a/b/e/c/z;Lcom/a/b/e/a/c;Lcom/a/b/c/c/t;)V addMethodAnnotations
+		0 method method
+		1 annotations annotations
+		2 dexFile dexFile
+	a (Lcom/a/b/e/c/z;Lcom/a/b/e/a/d;Lcom/a/b/c/c/t;)V addParameterAnnotations
+		0 method method
+		1 list list
+		2 dexFile dexFile
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	b ()Ljava/lang/String; toHuman
+	a classAnnotations
+	d ()Z isInternable
+	c ()Z isEmpty
+	b fieldAnnotations
+	d parameterAnnotations
+	c methodAnnotations
+com/a/b/c/c/g com/android/dx/dex/file/CallSiteIdItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	e_ ()I writeSize
+	a invokeDynamicRef
+	b data
+com/a/b/c/c/h com/android/dx/dex/file/CallSiteIdsSection
+	a (Lcom/a/b/e/c/a;)Lcom/a/b/c/c/af; get
+		0 cst cst
+	a (Lcom/a/b/e/c/i;)Lcom/a/b/c/c/i; getCallSiteItem
+		0 callSite callSite
+	a ()V orderItems
+	a (Lcom/a/b/e/c/i;Lcom/a/b/c/c/i;)V addCallSiteItem
+		0 callSite callSite
+		1 callSiteItem callSiteItem
+	a (Lcom/a/b/e/c/j;)V intern
+		0 cstRef cstRef
+	b ()Ljava/util/Collection; items
+	a callSiteIds
+	b callSites
+com/a/b/c/c/i com/android/dx/dex/file/CallSiteItem
+	a (Lcom/a/b/e/c/i;)I writeSize
+		static
+		0 value value
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	a value
+	b encodedForm
+	b ()Ljava/lang/String; toHuman
+com/a/b/c/c/j com/android/dx/dex/file/CatchStructs
+	a (Lcom/a/b/c/b/d;IILjava/lang/String;Ljava/io/PrintWriter;Lcom/a/b/g/a;)V annotateAndConsumeHandlers
+		static
+		0 handlers handlers
+		1 offset offset
+		2 size size
+		3 prefix prefix
+		4 printTo printTo
+		5 annotateTo annotateTo
+	a (Ljava/lang/String;Ljava/io/PrintWriter;Lcom/a/b/g/a;)V annotateEntries
+		0 prefix prefix
+		1 printTo printTo
+		2 annotateTo annotateTo
+	c ()V finishProcessingIfNecessary
+	a (Lcom/a/b/c/c/t;)V encode
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	a code
+	b table
+	c encodedHandlers
+	d encodedHandlerHeaderSize
+	e handlerOffsets
+	b ()I writeSize
+	a ()I triesSize
+com/a/b/c/c/k com/android/dx/dex/file/ClassDataItem
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;Ljava/lang/String;I)V encodeSize
+		static
+		0 file file
+		1 out out
+		2 label label
+		3 size size
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;Ljava/lang/String;Ljava/util/ArrayList;)V encodeList
+		static
+		0 file file
+		1 out out
+		2 label label
+		3 list list
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/w;)V addInstanceField
+		0 field field
+	a (Lcom/a/b/c/c/w;Lcom/a/b/e/c/a;)V addStaticField
+		0 field field
+		1 value value
+	b ()Ljava/lang/String; toHuman
+	c ()Z isEmpty
+	a thisClass
+	c staticValues
+	g staticValuesConstant
+	h encodedForm
+	b (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V encodeOutput
+		0 file file
+		1 out out
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	h ()Lcom/a/b/e/c/d; makeStaticValuesConstant
+	d ()Lcom/a/b/e/c/d; getStaticValuesConstant
+	b (Lcom/a/b/c/c/y;)V addVirtualMethod
+		0 method method
+	a (Lcom/a/b/c/c/y;)V addDirectMethod
+		0 method method
+	d instanceFields
+	b staticFields
+	f virtualMethods
+	e directMethods
+com/a/b/c/c/l com/android/dx/dex/file/ClassDefItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	a (Lcom/a/b/c/c/w;)V addInstanceField
+		0 field field
+	a (Lcom/a/b/c/c/w;Lcom/a/b/e/c/a;)V addStaticField
+		0 field field
+		1 value value
+	a (Lcom/a/b/e/a/c;Lcom/a/b/c/c/t;)V setClassAnnotations
+		0 annotations annotations
+		1 dexFile dexFile
+	a (Lcom/a/b/e/c/n;Lcom/a/b/e/a/c;Lcom/a/b/c/c/t;)V addFieldAnnotations
+		0 field field
+		1 annotations annotations
+		2 dexFile dexFile
+	a (Lcom/a/b/e/c/z;Lcom/a/b/e/a/c;Lcom/a/b/c/c/t;)V addMethodAnnotations
+		0 method method
+		1 annotations annotations
+		2 dexFile dexFile
+	a (Lcom/a/b/e/c/z;Lcom/a/b/e/a/d;Lcom/a/b/c/c/t;)V addParameterAnnotations
+		0 method method
+		1 list list
+		2 dexFile dexFile
+	e ()Lcom/a/b/e/d/e; getInterfaces
+	b accessFlags
+	d interfaces
+	e sourceFile
+	f classData
+	g staticValuesItem
+	h annotationsDirectory
+	b (Lcom/a/b/c/c/y;)V addVirtualMethod
+		0 method method
+	a (Lcom/a/b/c/c/y;)V addDirectMethod
+		0 method method
+	d ()Lcom/a/b/e/c/ae; getSuperclass
+	c ()Lcom/a/b/e/c/ae; getThisClass
+	e_ ()I writeSize
+	a thisClass
+	c superclass
+com/a/b/c/c/m com/android/dx/dex/file/ClassDefsSection
+	a (Lcom/a/b/e/d/c;II)I orderItems0
+		0 type type
+		1 idx idx
+		2 maxDepth maxDepth
+	a ()V orderItems
+	a (Lcom/a/b/c/c/l;)V add
+		0 clazz clazz
+	a (Lcom/a/b/g/a;)V writeHeaderPart
+		0 out out
+	b ()Ljava/util/Collection; items
+	a classDefs
+	b orderedDefs
+com/a/b/c/c/n com/android/dx/dex/file/CodeItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a ref
+	b code
+	c catches
+	d isStatic
+	e throwsList
+	f debugInfo
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	b (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeCodes
+		0 file file
+		1 out out
+	d ()I getOutsSize
+	c ()I getInsSize
+	b ()Ljava/lang/String; toHuman
+	h ()I getRegistersSize
+com/a/b/c/c/o com/android/dx/dex/file/CodeItem$1
+	a (Lcom/a/b/e/c/a;)I getIndex
+		0 cst cst
+	a this$0
+	b val$file
+com/a/b/c/c/p com/android/dx/dex/file/DebugInfoEncoder
+	a (I)I emitLocalsAtAddress
+		0 curLocalIdx curLocalIdx
+	a (II)I computeOpcode
+		static
+		0 deltaLines deltaLines
+		1 deltaAddress deltaAddress
+	a (ILjava/util/ArrayList;)I emitPositionsAtAddress
+		0 curPositionIdx curPositionIdx
+		1 sortedPositions sortedPositions
+	a (Lcom/a/b/c/b/u;)Ljava/lang/String; entryAnnotationString
+		0 e e
+	a (ILjava/lang/String;)V annotate
+		0 length length
+		1 message message
+	a (Lcom/a/b/c/b/ad;)V emitPosition
+		0 entry entry
+	a (Lcom/a/b/e/c/ad;)V emitStringIndex
+		0 string string
+	a (Lcom/a/b/e/c/ae;)V emitTypeIndex
+		0 type type
+	a (Ljava/util/ArrayList;Ljava/util/ArrayList;)V emitHeader
+		0 sortedPositions sortedPositions
+		1 methodArgs methodArgs
+	d ()I getParamBase
+	f ()V emitEndSequence
+	a (Ljava/lang/String;Ljava/io/PrintWriter;Lcom/a/b/g/a;Z)[B convertAndAnnotate
+		0 prefix prefix
+		1 debugPrint debugPrint
+		2 out out
+		3 consume consume
+	a positions
+	b locals
+	c output
+	d file
+	g desc
+	k annotateTo
+	l debugPrint
+	m prefix
+	o lastEntryForReg
+	b (I)V emitAdvanceLine
+		0 deltaLines deltaLines
+	c (I)V emitAdvancePc
+		0 deltaAddress deltaAddress
+	d (I)V emitUnsignedLeb128
+		0 n n
+	e (Lcom/a/b/c/b/u;)V emitLocalEnd
+		0 entry entry
+	b (Lcom/a/b/c/b/u;)V emitLocalRestart
+		0 entry entry
+	d (Lcom/a/b/c/b/u;)V emitLocalStartExtended
+		0 entry entry
+	c (Lcom/a/b/c/b/u;)V emitLocalStart
+		0 entry entry
+	b ()[B convert0
+	a ()[B convert
+	e ()Ljava/util/ArrayList; extractMethodArguments
+	c ()Ljava/util/ArrayList; buildSortedPositions
+	j line
+	i address
+	f regSize
+	h isStatic
+	n shouldConsume
+	e codeSize
+com/a/b/c/c/q com/android/dx/dex/file/DebugInfoEncoder$1
+	a (Lcom/a/b/c/b/ad;Lcom/a/b/c/b/ad;)I compare
+		0 a a
+		1 b b
+	a this$0
+com/a/b/c/c/r com/android/dx/dex/file/DebugInfoEncoder$2
+	a (Lcom/a/b/c/b/u;Lcom/a/b/c/b/u;)I compare
+		0 a a
+		1 b b
+	a this$0
+com/a/b/c/c/s com/android/dx/dex/file/DebugInfoItem
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;Ljava/lang/String;)V annotateTo
+		0 file file
+		1 out out
+		2 prefix prefix
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	b ()Ljava/lang/String; toHuman
+	a code
+	b encoded
+	c isStatic
+	d ref
+	b (Lcom/a/b/c/c/t;Ljava/lang/String;Ljava/io/PrintWriter;Lcom/a/b/g/a;Z)[B encode0
+		0 file file
+		1 prefix prefix
+		2 debugPrint debugPrint
+		3 out out
+		4 consume consume
+	a (Lcom/a/b/c/c/t;Ljava/lang/String;Ljava/io/PrintWriter;Lcom/a/b/g/a;Z)[B encode
+		0 file file
+		1 prefix prefix
+		2 debugPrint debugPrint
+		3 out out
+		4 consume consume
+com/a/b/c/c/t com/android/dx/dex/file/DexFile
+	a (ZZLcom/a/b/c/c/u;)Lcom/a/b/g/h; toDex0
+		0 annotate annotate
+		1 verbose verbose
+		2 storage storage
+	a ()Lcom/a/b/c/a; getDexOptions
+	a (Lcom/a/b/c/c/l;)V add
+		0 clazz clazz
+	a (Lcom/a/b/e/c/a;)V internIfAppropriate
+		0 cst cst
+	a (Ljava/io/Writer;Z)[B toDex
+		0 humanOut humanOut
+		1 verbose verbose
+	b ()I getFileSize
+	b (Lcom/a/b/e/c/a;)Lcom/a/b/c/c/af; findItemOrNull
+		0 cst cst
+	g ()Lcom/a/b/c/c/bc; getStringIds
+	h ()Lcom/a/b/c/c/m; getClassDefs
+	j ()Lcom/a/b/c/c/be; getTypeIds
+	k ()Lcom/a/b/c/c/aw; getProtoIds
+	l ()Lcom/a/b/c/c/ab; getFieldIds
+	m ()Lcom/a/b/c/c/ap; getMethodIds
+	n ()Lcom/a/b/c/c/an; getMethodHandles
+	o ()Lcom/a/b/c/c/h; getCallSiteIds
+	s ()Lcom/a/b/c/c/ay; getStatistics
+	a dexOptions
+	f stringIds
+	g typeIds
+	h protoIds
+	i fieldIds
+	j methodIds
+	k classDefs
+	m callSiteIds
+	n methodHandles
+	p header
+	q sections
+	a ([BI)V calcSignature
+		static
+		0 bytes bytes
+		1 len len
+	b ([BI)V calcChecksum
+		static
+		0 bytes bytes
+		1 len len
+	d ()Lcom/a/b/c/c/aq; getWordData
+	p ()Lcom/a/b/c/c/aq; getByteData
+	e ()Lcom/a/b/c/c/aq; getTypeLists
+	i ()Lcom/a/b/c/c/aq; getClassData
+	f ()Lcom/a/b/c/c/aq; getMap
+	c ()Lcom/a/b/c/c/aq; getStringData
+	r ()Lcom/a/b/c/c/ax; getLastDataSection
+	q ()Lcom/a/b/c/c/ax; getFirstDataSection
+	o byteData
+	l classData
+	e stringData
+	c typeLists
+	d map
+	b wordData
+	r fileSize
+	s dumpWidth
+com/a/b/c/c/v com/android/dx/dex/file/EncodedArrayItem
+	a (Lcom/a/b/c/c/at;)I compareTo0
+		0 other other
+	a ()Lcom/a/b/c/c/ah; itemType
+	a (Lcom/a/b/c/c/ax;I)V place0
+		0 addedTo addedTo
+		1 offset offset
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a_ (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo0
+		0 file file
+		1 out out
+	b ()Ljava/lang/String; toHuman
+	a array
+	b encodedForm
+com/a/b/c/c/w com/android/dx/dex/file/EncodedField
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;II)I encode
+		0 file file
+		1 out out
+		2 lastIndex lastIndex
+		3 dumpSeq dumpSeq
+	a (Lcom/a/b/c/c/w;)I compareTo
+		0 other other
+	a ()Lcom/a/b/e/c/n; getRef
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a field
+	d ()Ljava/lang/String; toHuman
+com/a/b/c/c/y com/android/dx/dex/file/EncodedMethod
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;II)I encode
+		0 file file
+		1 out out
+		2 lastIndex lastIndex
+		3 dumpSeq dumpSeq
+	a (Lcom/a/b/c/c/y;)I compareTo
+		0 other other
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a method
+	b code
+	d ()Ljava/lang/String; toHuman
+com/a/b/c/c/z com/android/dx/dex/file/FieldAnnotationStruct
+	a (Lcom/a/b/c/c/z;)I compareTo
+		0 other other
+	a (Lcom/a/b/c/c/t;)V addContents
+		0 file file
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;)V writeTo
+		0 file file
+		1 out out
+	d ()Ljava/lang/String; toHuman
+	a field
+	b annotations
+com/a/b/d/a com/android/dx/io/IndexType
+	o $VALUES
+	n PROTO_REF
+	m METHOD_HANDLE_REF
+	i CALL_SITE_REF
+	h METHOD_AND_PROTO_REF
+	g FIELD_REF
+	f METHOD_REF
+	e STRING_REF
+	d TYPE_REF
+	b NONE
+	k VTABLE_OFFSET
+	j INLINE_METHOD
+	a UNKNOWN
+	l FIELD_OFFSET
+	c VARIES
+com/a/b/d/b com/android/dx/io/OpcodeInfo
+	a (I)Lcom/a/b/d/c; get
+		static
+		0 opcode opcode
+	a (Lcom/a/b/d/c;)V set
+		static
+		0 opcode opcode
+	b (I)Ljava/lang/String; getName
+		static
+		0 opcode opcode
+	du INFO
+	z CONST_HIGH16
+	y CONST
+	x CONST_16
+	w CONST_4
+	v RETURN_OBJECT
+	u RETURN_WIDE
+	t RETURN
+	s RETURN_VOID
+	r MOVE_EXCEPTION
+	q MOVE_RESULT_OBJECT
+	p MOVE_RESULT_WIDE
+	o MOVE_RESULT
+	n MOVE_OBJECT_16
+	m MOVE_OBJECT_FROM16
+	l MOVE_OBJECT
+	k MOVE_WIDE_16
+	j MOVE_WIDE_FROM16
+	i MOVE_WIDE
+	h MOVE_16
+	g MOVE_FROM16
+	f MOVE
+	e NOP
+	dt CONST_METHOD_TYPE
+	ds CONST_METHOD_HANDLE
+	dr INVOKE_CUSTOM_RANGE
+	dq INVOKE_CUSTOM
+	dp INVOKE_POLYMORPHIC_RANGE
+	do INVOKE_POLYMORPHIC
+	dn USHR_INT_LIT8
+	dm SHR_INT_LIT8
+	dl SHL_INT_LIT8
+	dk XOR_INT_LIT8
+	dj OR_INT_LIT8
+	di AND_INT_LIT8
+	dh REM_INT_LIT8
+	dg DIV_INT_LIT8
+	df MUL_INT_LIT8
+	de RSUB_INT_LIT8
+	dd ADD_INT_LIT8
+	dc XOR_INT_LIT16
+	db OR_INT_LIT16
+	da AND_INT_LIT16
+	d FILL_ARRAY_DATA_PAYLOAD
+	cz USHR_INT_2ADDR
+	cy SHR_INT_2ADDR
+	cx SHL_INT_2ADDR
+	cw XOR_INT_2ADDR
+	cv OR_INT_2ADDR
+	cu AND_INT_2ADDR
+	ct REM_INT_2ADDR
+	cs DIV_INT_2ADDR
+	cr MUL_INT_2ADDR
+	cq SUB_INT_2ADDR
+	cp ADD_INT_2ADDR
+	co REM_DOUBLE
+	cn DIV_DOUBLE
+	cm MUL_DOUBLE
+	cl SUB_DOUBLE
+	ck ADD_DOUBLE
+	cj REM_FLOAT
+	ci DIV_FLOAT
+	ch MUL_FLOAT
+	cg SUB_FLOAT
+	cf ADD_FLOAT
+	ce USHR_LONG
+	cd SHR_LONG
+	cc SHL_LONG
+	cb XOR_LONG
+	ca OR_LONG
+	cZ REM_INT_LIT16
+	cY DIV_INT_LIT16
+	cX MUL_INT_LIT16
+	cW RSUB_INT
+	cV ADD_INT_LIT16
+	cU REM_DOUBLE_2ADDR
+	cT DIV_DOUBLE_2ADDR
+	cS MUL_DOUBLE_2ADDR
+	cR SUB_DOUBLE_2ADDR
+	cQ ADD_DOUBLE_2ADDR
+	cP REM_FLOAT_2ADDR
+	cO DIV_FLOAT_2ADDR
+	cN MUL_FLOAT_2ADDR
+	cM SUB_FLOAT_2ADDR
+	cL ADD_FLOAT_2ADDR
+	cK USHR_LONG_2ADDR
+	cJ SHR_LONG_2ADDR
+	cI SHL_LONG_2ADDR
+	cH XOR_LONG_2ADDR
+	cG OR_LONG_2ADDR
+	cF AND_LONG_2ADDR
+	cE REM_LONG_2ADDR
+	cD DIV_LONG_2ADDR
+	cC MUL_LONG_2ADDR
+	cB SUB_LONG_2ADDR
+	cA ADD_LONG_2ADDR
+	c SPARSE_SWITCH_PAYLOAD
+	bz LONG_TO_DOUBLE
+	by LONG_TO_FLOAT
+	bx LONG_TO_INT
+	bw INT_TO_DOUBLE
+	bv INT_TO_FLOAT
+	bu INT_TO_LONG
+	bt NEG_DOUBLE
+	bs NEG_FLOAT
+	br NOT_LONG
+	bq NEG_LONG
+	bp NOT_INT
+	bo NEG_INT
+	bn INVOKE_INTERFACE_RANGE
+	bm INVOKE_STATIC_RANGE
+	bl INVOKE_DIRECT_RANGE
+	bk INVOKE_SUPER_RANGE
+	bj INVOKE_VIRTUAL_RANGE
+	bi INVOKE_INTERFACE
+	bh INVOKE_STATIC
+	bg INVOKE_DIRECT
+	bf INVOKE_SUPER
+	be INVOKE_VIRTUAL
+	bd SPUT_SHORT
+	bc SPUT_CHAR
+	bb SPUT_BYTE
+	ba SPUT_BOOLEAN
+	bZ AND_LONG
+	bY REM_LONG
+	bX DIV_LONG
+	bW MUL_LONG
+	bV SUB_LONG
+	bU ADD_LONG
+	bT USHR_INT
+	bS SHR_INT
+	bR SHL_INT
+	bQ XOR_INT
+	bP OR_INT
+	bO AND_INT
+	bN REM_INT
+	bM DIV_INT
+	bL MUL_INT
+	bK SUB_INT
+	bJ ADD_INT
+	bI INT_TO_SHORT
+	bH INT_TO_CHAR
+	bG INT_TO_BYTE
+	bF DOUBLE_TO_FLOAT
+	bE DOUBLE_TO_LONG
+	bD DOUBLE_TO_INT
+	bC FLOAT_TO_DOUBLE
+	bB FLOAT_TO_LONG
+	bA FLOAT_TO_INT
+	b PACKED_SWITCH_PAYLOAD
+	az APUT_BYTE
+	ay APUT_BOOLEAN
+	ax APUT_OBJECT
+	aw APUT_WIDE
+	av APUT
+	au AGET_SHORT
+	at AGET_CHAR
+	as AGET_BYTE
+	ar AGET_BOOLEAN
+	aq AGET_OBJECT
+	ap AGET_WIDE
+	ao AGET
+	an IF_LEZ
+	am IF_GTZ
+	al IF_GEZ
+	ak IF_LTZ
+	aj IF_NEZ
+	ai IF_EQZ
+	ah IF_LE
+	ag IF_GT
+	af IF_GE
+	ae IF_LT
+	ad IF_NE
+	ac IF_EQ
+	ab CMP_LONG
+	aa CMPG_DOUBLE
+	aZ SPUT_OBJECT
+	aY SPUT_WIDE
+	aX SPUT
+	aW SGET_SHORT
+	aV SGET_CHAR
+	aU SGET_BYTE
+	aT SGET_BOOLEAN
+	aS SGET_OBJECT
+	aR SGET_WIDE
+	aQ SGET
+	aP IPUT_SHORT
+	aO IPUT_CHAR
+	aN IPUT_BYTE
+	aM IPUT_BOOLEAN
+	aL IPUT_OBJECT
+	aK IPUT_WIDE
+	aJ IPUT
+	aI IGET_SHORT
+	aH IGET_CHAR
+	aG IGET_BYTE
+	aF IGET_BOOLEAN
+	aE IGET_OBJECT
+	aD IGET_WIDE
+	aC IGET
+	aB APUT_SHORT
+	aA APUT_CHAR
+	a SPECIAL_FORMAT
+	Z CMPL_DOUBLE
+	Y CMPG_FLOAT
+	X CMPL_FLOAT
+	W SPARSE_SWITCH
+	V PACKED_SWITCH
+	U GOTO_32
+	T GOTO_16
+	S GOTO
+	R THROW
+	Q FILL_ARRAY_DATA
+	P FILLED_NEW_ARRAY_RANGE
+	O FILLED_NEW_ARRAY
+	N NEW_ARRAY
+	M NEW_INSTANCE
+	L ARRAY_LENGTH
+	K INSTANCE_OF
+	J CHECK_CAST
+	I MONITOR_EXIT
+	H MONITOR_ENTER
+	G CONST_CLASS
+	F CONST_STRING_JUMBO
+	E CONST_STRING
+	D CONST_WIDE_HIGH16
+	C CONST_WIDE
+	B CONST_WIDE_32
+	A CONST_WIDE_16
+com/a/b/e/a/a com/android/dx/rop/annotation/Annotation
+	a (Lcom/a/b/e/a/a;)I compareTo
+		0 other other
+	b ()Lcom/a/b/e/c/ae; getType
+	e ()Lcom/a/b/e/a/b; getVisibility
+	f ()Ljava/util/Collection; getNameValuePairs
+	a type
+	b visibility
+	c elements
+	a (Lcom/a/b/e/a/e;)V put
+		0 pair pair
+	b (Lcom/a/b/e/a/e;)V add
+		0 pair pair
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/a/b com/android/dx/rop/annotation/AnnotationVisibility
+	d ()Ljava/lang/String; toHuman
+	f $VALUES
+	e human
+	c SYSTEM
+	d EMBEDDED
+	b BUILD
+	a RUNTIME
+com/a/b/e/a/c com/android/dx/rop/annotation/Annotations
+	a (Lcom/a/b/e/a/c;Lcom/a/b/e/a/a;)Lcom/a/b/e/a/c; combine
+		static
+		0 annotations annotations
+		1 annotation annotation
+	a (Lcom/a/b/e/a/c;Lcom/a/b/e/a/c;)Lcom/a/b/e/a/c; combine
+		static
+		0 a1 a1
+		1 a2 a2
+	a (Lcom/a/b/e/a/c;)I compareTo
+		0 other other
+	a (Lcom/a/b/e/a/a;)V add
+		0 annotation annotation
+	b (Lcom/a/b/e/a/c;)V addAll
+		0 toAdd toAdd
+	d ()Ljava/util/Collection; getAnnotations
+	a EMPTY
+	b annotations
+	b ()I size
+com/a/b/e/a/d com/android/dx/rop/annotation/AnnotationsList
+	a (Lcom/a/b/e/a/d;Lcom/a/b/e/a/d;)Lcom/a/b/e/a/d; combine
+		static
+		0 list1 list1
+		1 list2 list2
+	a (I)Lcom/a/b/e/a/c; get
+		0 n n
+	a (ILcom/a/b/e/a/c;)V set
+		0 n n
+		1 a a
+	a EMPTY
+com/a/b/e/a/e com/android/dx/rop/annotation/NameValuePair
+	a (Lcom/a/b/e/a/e;)I compareTo
+		0 other other
+	a ()Lcom/a/b/e/c/ad; getName
+	b ()Lcom/a/b/e/c/a; getValue
+	a name
+	b value
+com/a/b/e/b/ab com/android/dx/rop/code/RopMethod
+	c ()V calcPredecessors
+	a ()Lcom/a/b/e/b/d; getBlocks
+	a (I)Lcom/a/b/g/n; labelToPredecessors
+		0 label label
+	b ()I getFirstLabel
+	a blocks
+	b firstLabel
+	c predecessors
+	d exitPredecessors
+com/a/b/e/b/ac com/android/dx/rop/code/Rops
+	a (ILcom/a/b/e/d/d;Lcom/a/b/e/d/e;Lcom/a/b/e/c/a;)Lcom/a/b/e/b/aa; ropFor
+		static
+		0 opcode opcode
+		1 dest dest
+		2 sources sources
+		3 cst cst
+	a (Lcom/a/b/e/d/d;I)Lcom/a/b/e/b/aa; opFilledNewArray
+		static
+		0 arrayType arrayType
+		1 count count
+	a (Lcom/a/b/e/d/d;Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opConv
+		static
+		0 dest dest
+		1 source source
+	a (Lcom/a/b/e/d/e;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;)Lcom/a/b/e/b/aa; pickIf
+		static
+		0 types types
+		1 intZ intZ
+		2 objZ objZ
+		3 intInt intInt
+		4 objObj objObj
+	a (Lcom/a/b/e/d/e;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;Lcom/a/b/e/b/aa;)Lcom/a/b/e/b/aa; pickBinaryOp
+		static
+		0 types types
+		1 int1 int1
+		2 long1 long1
+		3 float1 float1
+		4 double1 double1
+		5 int2 int2
+		6 long2 long2
+		7 float2 float2
+		8 double2 double2
+	a (Lcom/a/b/e/d/a;)Lcom/a/b/e/b/aa; opInvokeStatic
+		static
+		0 meth meth
+	g (Lcom/a/b/e/d/a;)Lcom/a/b/e/b/aa; opInvokeCustom
+		static
+		0 meth meth
+	f (Lcom/a/b/e/d/a;)Lcom/a/b/e/b/aa; opInvokePolymorphic
+		static
+		0 meth meth
+	e (Lcom/a/b/e/d/a;)Lcom/a/b/e/b/aa; opInvokeInterface
+		static
+		0 meth meth
+	d (Lcom/a/b/e/d/a;)Lcom/a/b/e/b/aa; opInvokeDirect
+		static
+		0 meth meth
+	c (Lcom/a/b/e/d/a;)Lcom/a/b/e/b/aa; opInvokeSuper
+		static
+		0 meth meth
+	b (Lcom/a/b/e/d/a;)Lcom/a/b/e/b/aa; opInvokeVirtual
+		static
+		0 meth meth
+	a (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opMove
+		static
+		0 type type
+	l (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opAget
+		static
+		0 type type
+	g (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opNeg
+		static
+		0 type type
+	i (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opCmpl
+		static
+		0 type type
+	h (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opNot
+		static
+		0 type type
+	t (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; throwBadType
+		static
+		0 type type
+	f (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opConst
+		static
+		0 type type
+	e (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opMoveResultPseudo
+		static
+		0 type type
+	c (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opMoveException
+		static
+		0 type type
+	n (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opNewArray
+		static
+		0 arrayType arrayType
+	k (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opReturn
+		static
+		0 type type
+	d (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opMoveResult
+		static
+		0 type type
+	r (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; throwBadTypes
+		static
+		0 types types
+	c (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opIfLt
+		static
+		0 types types
+	l (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opAnd
+		static
+		0 types types
+	a (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opIfEq
+		static
+		0 types types
+	g (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opAdd
+		static
+		0 types types
+	j (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opCmpg
+		static
+		0 type type
+	b (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opMoveParam
+		static
+		0 type type
+	s (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opMarkLocal
+		static
+		0 type type
+	q (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opGetStatic
+		static
+		0 type type
+	r (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opPutStatic
+		static
+		0 type type
+	p (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opPutField
+		static
+		0 type type
+	o (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opGetField
+		static
+		0 type type
+	m (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/aa; opAput
+		static
+		0 type type
+	f (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opIfLe
+		static
+		0 types types
+	e (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opIfGt
+		static
+		0 types types
+	d (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opIfGe
+		static
+		0 types types
+	q (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opUshr
+		static
+		0 types types
+	p (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opShr
+		static
+		0 types types
+	o (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opShl
+		static
+		0 types types
+	n (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opXor
+		static
+		0 types types
+	m (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opOr
+		static
+		0 types types
+	b (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opIfNe
+		static
+		0 types types
+	k (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opRem
+		static
+		0 types types
+	j (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opDiv
+		static
+		0 types types
+	i (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opMul
+		static
+		0 types types
+	h (Lcom/a/b/e/d/e;)Lcom/a/b/e/b/aa; opSub
+		static
+		0 types types
+	s GOTO
+	ci INSTANCE_OF
+	ch CHECK_CAST
+	bv TO_SHORT
+	bu TO_CHAR
+	bt TO_BYTE
+	bY NEW_INSTANCE
+	bC ARRAY_LENGTH
+	a NOP
+	J SWITCH
+	bk CONV_I2L
+	bj CONV_D2I
+	bi CONV_F2I
+	bh CONV_L2I
+	bD THROW
+	cY FILL_ARRAY_DATA
+	bw RETURN_VOID
+	bE MONITOR_ENTER
+	bF MONITOR_EXIT
+	z IF_EQZ_OBJECT
+	v IF_LTZ_INT
+	t IF_EQZ_INT
+	r CONST_OBJECT_NOTHROW
+	p CONST_DOUBLE
+	o CONST_FLOAT
+	n CONST_LONG
+	m CONST_INT
+	g MOVE_RETURN_ADDRESS
+	f MOVE_OBJECT
+	e MOVE_DOUBLE
+	d MOVE_FLOAT
+	c MOVE_LONG
+	bz RETURN_FLOAT
+	by RETURN_LONG
+	bx RETURN_INT
+	be CMPL_DOUBLE
+	bd CMPL_FLOAT
+	bc CMPL_LONG
+	bO AGET_SHORT
+	bN AGET_CHAR
+	bM AGET_BYTE
+	bL AGET_BOOLEAN
+	bK AGET_OBJECT
+	bJ AGET_DOUBLE
+	bI AGET_FLOAT
+	bH AGET_LONG
+	bG AGET_INT
+	bB RETURN_OBJECT
+	bA RETURN_DOUBLE
+	b MOVE_INT
+	aw ADD_CONST_INT
+	av NOT_LONG
+	au NOT_INT
+	aj AND_LONG
+	ai AND_INT
+	ah NEG_DOUBLE
+	ag NEG_FLOAT
+	af NEG_LONG
+	ae NEG_INT
+	aQ AND_CONST_INT
+	N ADD_DOUBLE
+	M ADD_FLOAT
+	L ADD_LONG
+	K ADD_INT
+	H IF_EQ_OBJECT
+	D IF_LT_INT
+	B IF_EQ_INT
+	q CONST_OBJECT
+	cg NEW_ARRAY_SHORT
+	cf NEW_ARRAY_CHAR
+	ce NEW_ARRAY_BYTE
+	cd NEW_ARRAY_BOOLEAN
+	cc NEW_ARRAY_DOUBLE
+	cb NEW_ARRAY_FLOAT
+	ca NEW_ARRAY_LONG
+	bZ NEW_ARRAY_INT
+	az ADD_CONST_DOUBLE
+	ay ADD_CONST_FLOAT
+	ax ADD_CONST_LONG
+	aR AND_CONST_LONG
+	l MOVE_PARAM_OBJECT
+	cw GET_STATIC_OBJECT
+	y IF_GTZ_INT
+	x IF_LEZ_INT
+	w IF_GEZ_INT
+	u IF_NEZ_INT
+	k MOVE_PARAM_DOUBLE
+	j MOVE_PARAM_FLOAT
+	i MOVE_PARAM_LONG
+	h MOVE_PARAM_INT
+	cv GET_STATIC_DOUBLE
+	cu GET_STATIC_FLOAT
+	ct GET_STATIC_LONG
+	cn GET_FIELD_OBJECT
+	cm GET_FIELD_DOUBLE
+	cl GET_FIELD_FLOAT
+	ck GET_FIELD_LONG
+	cO PUT_STATIC_OBJECT
+	cN PUT_STATIC_DOUBLE
+	cM PUT_STATIC_FLOAT
+	cL PUT_STATIC_LONG
+	cF PUT_FIELD_OBJECT
+	cE PUT_FIELD_DOUBLE
+	cD PUT_FIELD_FLOAT
+	cC PUT_FIELD_LONG
+	bg CMPG_DOUBLE
+	bf CMPG_FLOAT
+	ba USHR_CONST_INT
+	bX APUT_SHORT
+	bW APUT_CHAR
+	bV APUT_BYTE
+	bU APUT_BOOLEAN
+	bT APUT_OBJECT
+	bS APUT_DOUBLE
+	bR APUT_FLOAT
+	bQ APUT_LONG
+	bP APUT_INT
+	at USHR_LONG
+	as USHR_INT
+	ar SHR_LONG
+	aq SHR_INT
+	ap SHL_LONG
+	ao SHL_INT
+	an XOR_LONG
+	am XOR_INT
+	al OR_LONG
+	ak OR_INT
+	ad REM_DOUBLE
+	ac REM_FLOAT
+	ab REM_LONG
+	aa REM_INT
+	aY SHR_CONST_INT
+	aW SHL_CONST_INT
+	aU XOR_CONST_INT
+	aS OR_CONST_INT
+	aM REM_CONST_INT
+	aI DIV_CONST_INT
+	aE MUL_CONST_INT
+	aA SUB_CONST_INT
+	Z DIV_DOUBLE
+	Y DIV_FLOAT
+	X DIV_LONG
+	W DIV_INT
+	V MUL_DOUBLE
+	U MUL_FLOAT
+	T MUL_LONG
+	S MUL_INT
+	R SUB_DOUBLE
+	Q SUB_FLOAT
+	P SUB_LONG
+	O SUB_INT
+	I IF_NE_OBJECT
+	G IF_GT_INT
+	F IF_LE_INT
+	E IF_GE_INT
+	C IF_NE_INT
+	A IF_NEZ_OBJECT
+	cz GET_STATIC_CHAR
+	cy GET_STATIC_BYTE
+	cx GET_STATIC_BOOLEAN
+	cs GET_STATIC_INT
+	cr GET_FIELD_SHORT
+	cq GET_FIELD_CHAR
+	cp GET_FIELD_BYTE
+	co GET_FIELD_BOOLEAN
+	cj GET_FIELD_INT
+	cX MARK_LOCAL_OBJECT
+	cW MARK_LOCAL_DOUBLE
+	cV MARK_LOCAL_FLOAT
+	cU MARK_LOCAL_LONG
+	cT MARK_LOCAL_INT
+	cS PUT_STATIC_SHORT
+	cR PUT_STATIC_CHAR
+	cQ PUT_STATIC_BYTE
+	cP PUT_STATIC_BOOLEAN
+	cK PUT_STATIC_INT
+	cJ PUT_FIELD_SHORT
+	cI PUT_FIELD_CHAR
+	cH PUT_FIELD_BYTE
+	cG PUT_FIELD_BOOLEAN
+	cB PUT_FIELD_INT
+	cA GET_STATIC_SHORT
+	bs CONV_F2D
+	br CONV_L2D
+	bq CONV_I2D
+	bp CONV_D2F
+	bo CONV_L2F
+	bn CONV_I2F
+	bm CONV_D2L
+	bl CONV_F2L
+	bb USHR_CONST_LONG
+	aZ SHR_CONST_LONG
+	aX SHL_CONST_LONG
+	aV XOR_CONST_LONG
+	aT OR_CONST_LONG
+	aP REM_CONST_DOUBLE
+	aO REM_CONST_FLOAT
+	aN REM_CONST_LONG
+	aL DIV_CONST_DOUBLE
+	aK DIV_CONST_FLOAT
+	aJ DIV_CONST_LONG
+	aH MUL_CONST_DOUBLE
+	aG MUL_CONST_FLOAT
+	aF MUL_CONST_LONG
+	aD SUB_CONST_DOUBLE
+	aC SUB_CONST_FLOAT
+	aB SUB_CONST_LONG
+com/a/b/e/b/ad com/android/dx/rop/code/SourcePosition
+	a NO_INFO
+	b sourceFile
+	a ()I getLine
+	a (Lcom/a/b/e/b/ad;)Z sameLine
+		0 other other
+	b (Lcom/a/b/e/b/ad;)Z sameLineAndFile
+		0 other other
+	c address
+	d line
+com/a/b/e/b/ae com/android/dx/rop/code/SwitchInsn
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/x;)Lcom/a/b/e/b/j; withNewRegisters
+		0 result result
+		1 sources sources
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/b/j; withAddedCatch
+		0 type type
+	a ()Ljava/lang/String; getInlineString
+	a (Lcom/a/b/e/b/l;)V accept
+		0 visitor visitor
+	a (Lcom/a/b/e/b/j;)Z contentEquals
+		0 b b
+	b ()Lcom/a/b/e/d/e; getCatches
+	c ()Lcom/a/b/g/n; getCases
+	a cases
+com/a/b/e/b/af com/android/dx/rop/code/ThrowingCstInsn
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/x;)Lcom/a/b/e/b/j; withNewRegisters
+		0 result result
+		1 sources sources
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/b/j; withAddedCatch
+		0 type type
+	a ()Ljava/lang/String; getInlineString
+	a (Lcom/a/b/e/b/l;)V accept
+		0 visitor visitor
+	b ()Lcom/a/b/e/d/e; getCatches
+	a catches
+com/a/b/e/b/ag com/android/dx/rop/code/ThrowingInsn
+	a (Lcom/a/b/e/d/e;)Ljava/lang/String; toCatchString
+		static
+		0 catches catches
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/x;)Lcom/a/b/e/b/j; withNewRegisters
+		0 result result
+		1 sources sources
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/b/j; withAddedCatch
+		0 type type
+	a ()Ljava/lang/String; getInlineString
+	a (Lcom/a/b/e/b/l;)V accept
+		0 visitor visitor
+	b ()Lcom/a/b/e/d/e; getCatches
+	a catches
+com/a/b/e/b/ah com/android/dx/rop/code/TranslationAdvice
+	a ()I getMaxOptimalRegisterCount
+	a (Lcom/a/b/e/b/aa;Lcom/a/b/e/b/u;Lcom/a/b/e/b/u;)Z hasConstantOperation
+	a (Lcom/a/b/e/b/aa;Lcom/a/b/e/b/x;)Z requiresSourcesInOrder
+com/a/b/e/b/b com/android/dx/rop/code/BasicBlock
+	b ()Lcom/a/b/e/b/m; getInsns
+	c ()Lcom/a/b/g/n; getSuccessors
+	b insns
+	c successors
+	a ()I getLabel
+	d ()I getPrimarySuccessor
+	e ()I getSecondarySuccessor
+	g ()Lcom/a/b/e/b/j; getLastInsn
+	f ()Lcom/a/b/e/b/j; getFirstInsn
+	h ()Z canThrow
+	i ()Z hasExceptionHandlers
+	a label
+	d primarySuccessor
+com/a/b/e/b/c com/android/dx/rop/code/BasicBlock$Visitor
+	a (Lcom/a/b/e/b/b;)V visitBlock
+com/a/b/e/b/d com/android/dx/rop/code/BasicBlockList
+	a (Lcom/a/b/e/b/b;)Lcom/a/b/e/b/b; preferredSuccessorOf
+		0 block block
+	a (ILcom/a/b/e/b/b;)V set
+		0 n n
+		1 bb bb
+	a (Lcom/a/b/e/b/l;)V forEachInsn
+		0 visitor visitor
+	h ()Lcom/a/b/e/b/d; getMutableCopy
+	a regCount
+	b (I)Lcom/a/b/e/b/b; labelToBlock
+		0 label label
+	a (I)Lcom/a/b/e/b/b; get
+		0 n n
+	g ()I getEffectiveInstructionCount
+	e ()I getRegCount
+	f ()I getInstructionCount
+com/a/b/e/b/e com/android/dx/rop/code/BasicBlockList$RegCountVisitor
+	a (Lcom/a/b/e/b/j;)V visit
+		0 insn insn
+	a (Lcom/a/b/e/b/u;)V processReg
+		0 spec spec
+	a ()I getRegCount
+	a (Lcom/a/b/e/b/ae;)V visitSwitchInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/af;)V visitThrowingCstInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/ag;)V visitThrowingInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/i;)V visitFillArrayDataInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/n;)V visitInvokePolymorphicInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/r;)V visitPlainCstInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/s;)V visitPlainInsn
+		0 insn insn
+	a regCount
+com/a/b/e/b/f com/android/dx/rop/code/CstInsn
+	a ()Ljava/lang/String; getInlineString
+	a (Lcom/a/b/e/b/j;)Z contentEquals
+		0 b b
+	g_ ()Lcom/a/b/e/c/a; getConstant
+	a cst
+com/a/b/e/b/h com/android/dx/rop/code/Exceptions
+	b TYPE_ArrayIndexOutOfBoundsException
+	h TYPE_NullPointerException
+	g TYPE_NegativeArraySizeException
+	f TYPE_IllegalMonitorStateException
+	e TYPE_Error
+	d TYPE_ClassCastException
+	c TYPE_ArrayStoreException
+	a TYPE_ArithmeticException
+	i LIST_Error
+	p LIST_Error_Null_IllegalMonitorStateException
+	o LIST_Error_Null_ArrayIndex_ArrayStore
+	n LIST_Error_Null_ArrayIndexOutOfBounds
+	m LIST_Error_NullPointerException
+	k LIST_Error_ClassCastException
+	j LIST_Error_ArithmeticException
+	l LIST_Error_NegativeArraySizeException
+com/a/b/e/b/i com/android/dx/rop/code/FillArrayDataInsn
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/x;)Lcom/a/b/e/b/j; withNewRegisters
+		0 result result
+		1 sources sources
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/b/j; withAddedCatch
+		0 type type
+	a (Lcom/a/b/e/b/l;)V accept
+		0 visitor visitor
+	b ()Lcom/a/b/e/d/e; getCatches
+	c ()Ljava/util/ArrayList; getInitValues
+	e ()Lcom/a/b/e/c/a; getConstant
+	a initValues
+	b arrayType
+com/a/b/e/b/j com/android/dx/rop/code/Insn
+	a (Ljava/lang/Object;Ljava/lang/Object;)Z equalsHandleNulls
+		static
+		0 a a
+		1 b b
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/x;)Lcom/a/b/e/b/j; withNewRegisters
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/b/j; withAddedCatch
+	a (Lcom/a/b/e/b/l;)V accept
+	a (Lcom/a/b/e/b/j;)Z contentEquals
+		0 b b
+	b ()Lcom/a/b/e/d/e; getCatches
+	f ()Lcom/a/b/e/b/aa; getOpcode
+	g ()Lcom/a/b/e/b/ad; getPosition
+	j ()Lcom/a/b/e/b/x; getSources
+	k ()Z canThrow
+	a opcode
+	b position
+	c result
+	d sources
+	d ()Ljava/lang/String; toHuman
+	a ()Ljava/lang/String; getInlineString
+	a (Ljava/lang/String;)Ljava/lang/String; toStringWithInline
+		0 extra extra
+	b (Ljava/lang/String;)Ljava/lang/String; toHumanWithInline
+		0 extra extra
+	h ()Lcom/a/b/e/b/u; getResult
+	i ()Lcom/a/b/e/b/u; getLocalAssignment
+	l ()Lcom/a/b/e/b/j; withSourceLiteral
+com/a/b/e/b/k com/android/dx/rop/code/Insn$BaseVisitor
+	a (Lcom/a/b/e/b/ae;)V visitSwitchInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/af;)V visitThrowingCstInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/ag;)V visitThrowingInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/i;)V visitFillArrayDataInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/n;)V visitInvokePolymorphicInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/r;)V visitPlainCstInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/s;)V visitPlainInsn
+		0 insn insn
+com/a/b/e/b/l com/android/dx/rop/code/Insn$Visitor
+	a (Lcom/a/b/e/b/ae;)V visitSwitchInsn
+	a (Lcom/a/b/e/b/af;)V visitThrowingCstInsn
+	a (Lcom/a/b/e/b/ag;)V visitThrowingInsn
+	a (Lcom/a/b/e/b/i;)V visitFillArrayDataInsn
+	a (Lcom/a/b/e/b/n;)V visitInvokePolymorphicInsn
+	a (Lcom/a/b/e/b/r;)V visitPlainCstInsn
+	a (Lcom/a/b/e/b/s;)V visitPlainInsn
+com/a/b/e/b/n com/android/dx/rop/code/InvokePolymorphicInsn
+	a (Lcom/a/b/e/c/z;)Lcom/a/b/e/c/z; makePolymorphicMethod
+		static
+		0 callSiteMethod callSiteMethod
+	b (Lcom/a/b/e/c/z;)Lcom/a/b/e/c/ab; makeCallSiteProto
+		static
+		0 callSiteMethod callSiteMethod
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/x;)Lcom/a/b/e/b/j; withNewRegisters
+		0 result result
+		1 sources sources
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/b/j; withAddedCatch
+		0 type type
+	a ()Ljava/lang/String; getInlineString
+	a (Lcom/a/b/e/b/l;)V accept
+		0 visitor visitor
+	b ()Lcom/a/b/e/d/e; getCatches
+	m ()Lcom/a/b/e/c/ab; getCallSiteProto
+	d catches
+	g callSiteProto
+	e ()Lcom/a/b/e/c/z; getPolymorphicMethod
+	c ()Lcom/a/b/e/c/z; getCallSiteMethod
+	a DEFAULT_DESCRIPTOR
+	b VARHANDLE_SET_DESCRIPTOR
+	f polymorphicMethod
+	e callSiteMethod
+	c VARHANDLE_COMPARE_AND_SET_DESCRIPTOR
+com/a/b/e/b/o com/android/dx/rop/code/LocalItem
+	a (Lcom/a/b/e/c/ad;Lcom/a/b/e/c/ad;)Lcom/a/b/e/b/o; make
+		static
+		0 name name
+		1 signature signature
+	b (Lcom/a/b/e/c/ad;Lcom/a/b/e/c/ad;)I compareHandlesNulls
+		static
+		0 a a
+		1 b b
+	a (Lcom/a/b/e/b/o;)I compareTo
+		0 local local
+	a ()Lcom/a/b/e/c/ad; getName
+	b ()Lcom/a/b/e/c/ad; getSignature
+	b signature
+	a name
+com/a/b/e/b/p com/android/dx/rop/code/LocalVariableExtractor
+	a ()Lcom/a/b/e/b/q; doit
+	a (Lcom/a/b/e/b/ab;)Lcom/a/b/e/b/q; extract
+		static
+		0 method method
+	a (I)V processBlock
+		0 label label
+	a method
+	b blocks
+	c resultInfo
+	d workSet
+com/a/b/e/b/q com/android/dx/rop/code/LocalVariableInfo
+	a (Lcom/a/b/e/b/j;)Lcom/a/b/e/b/u; getAssignment
+		0 insn insn
+	a (Lcom/a/b/e/b/b;)Lcom/a/b/e/b/z; getStarts
+		0 block block
+	a (ILcom/a/b/e/b/z;)V setStarts
+		0 label label
+		1 specs specs
+	a (Lcom/a/b/e/b/j;Lcom/a/b/e/b/u;)V addAssignment
+		0 insn insn
+		1 spec spec
+	b ()I getAssignmentCount
+	b (ILcom/a/b/e/b/z;)Z mergeStarts
+		0 label label
+		1 specs specs
+	a regCount
+	b emptySet
+	c blockStarts
+	d insnAssignments
+	c (I)Lcom/a/b/e/b/z; getStarts0
+		0 label label
+	a (I)Lcom/a/b/e/b/z; getStarts
+		0 label label
+	b (I)Lcom/a/b/e/b/z; mutableCopyOfStarts
+		0 label label
+com/a/b/e/b/r com/android/dx/rop/code/PlainCstInsn
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/x;)Lcom/a/b/e/b/j; withNewRegisters
+		0 result result
+		1 sources sources
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/b/j; withAddedCatch
+		0 type type
+	a (Lcom/a/b/e/b/l;)V accept
+		0 visitor visitor
+	b ()Lcom/a/b/e/d/e; getCatches
+com/a/b/e/b/s com/android/dx/rop/code/PlainInsn
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/x;)Lcom/a/b/e/b/j; withNewRegisters
+		0 result result
+		1 sources sources
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/b/j; withAddedCatch
+		0 type type
+	a (Lcom/a/b/e/b/l;)V accept
+		0 visitor visitor
+	b ()Lcom/a/b/e/d/e; getCatches
+	l ()Lcom/a/b/e/b/j; withSourceLiteral
+com/a/b/e/b/u com/android/dx/rop/code/RegisterSpec
+	a (ILcom/a/b/e/d/d;)Lcom/a/b/e/b/u; make
+		static
+		0 reg reg
+		1 type type
+	a (I)Ljava/lang/String; regString
+		static
+		0 reg reg
+	a (Z)Ljava/lang/String; toString0
+		0 human human
+	e (ILcom/a/b/e/d/d;Lcom/a/b/e/b/o;)Z equals
+		0 reg reg
+		1 type type
+		2 local local
+	a (Lcom/a/b/e/b/o;)Lcom/a/b/e/b/u; withLocalItem
+		0 local local
+	a (Lcom/a/b/e/b/u;Z)Lcom/a/b/e/b/u; intersect
+		0 other other
+		1 localPrimary localPrimary
+	a (Lcom/a/b/e/d/d;)Lcom/a/b/e/b/u; withType
+		0 newType newType
+	a ()Lcom/a/b/e/d/c; getType
+	c (Lcom/a/b/e/b/u;)I compareTo
+		0 other other
+	i ()Lcom/a/b/e/b/o; getLocalItem
+	n ()Lcom/a/b/e/b/u; withSimpleType
+	a theInterns
+	b theInterningItem
+	c reg
+	d type
+	e local
+	b (ILcom/a/b/e/d/d;Lcom/a/b/e/b/o;)Lcom/a/b/e/b/u; makeLocalOptional
+		static
+		0 reg reg
+		1 type type
+		2 local local
+	a (ILcom/a/b/e/d/d;Lcom/a/b/e/b/o;)Lcom/a/b/e/b/u; make
+		static
+		0 reg reg
+		1 type type
+		2 local local
+	d (ILcom/a/b/e/d/d;Lcom/a/b/e/b/o;)Lcom/a/b/e/b/u; intern
+		static
+		0 reg reg
+		1 type type
+		2 local local
+	f (ILcom/a/b/e/d/d;Lcom/a/b/e/b/o;)I hashCodeOf
+		static
+		0 reg reg
+		1 type type
+		2 local local
+	a (Lcom/a/b/e/b/u;)Z equalsUsingSimpleType
+		0 other other
+	b (Lcom/a/b/e/b/u;)Z matchesVariable
+		0 other other
+	b (I)Lcom/a/b/e/b/u; withReg
+		0 newReg newReg
+	c (I)Lcom/a/b/e/b/u; withOffset
+		0 delta delta
+	h ()Lcom/a/b/e/d/d; getTypeBearer
+	b ()Lcom/a/b/e/d/d; getFrameType
+	g ()I getReg
+	k ()I getCategory
+	j ()I getNextReg
+	e ()I getBasicFrameType
+	m ()Ljava/lang/String; regString
+	d ()Ljava/lang/String; toHuman
+	o ()Z isEvenRegister
+	f ()Z isConstant
+	c ()I getBasicType
+	l ()Z isCategory2
+	a (Lcom/a/b/e/b/u;ILcom/a/b/e/d/d;Lcom/a/b/e/b/o;)Z access$000
+		static
+	c (ILcom/a/b/e/d/d;Lcom/a/b/e/b/o;)I access$HashCodeOf
+		static
+com/a/b/e/b/v com/android/dx/rop/code/RegisterSpec$1
+	a ()Lcom/a/b/e/b/w; initialValue
+com/a/b/e/b/w com/android/dx/rop/code/RegisterSpec$ForComparison
+	a ()Lcom/a/b/e/b/u; toRegisterSpec
+	a (ILcom/a/b/e/d/d;Lcom/a/b/e/b/o;)V set
+		0 reg reg
+		1 type type
+		2 local local
+	a reg
+	b type
+	c local
+	a (Lcom/a/b/e/b/w;)I access$000
+		static
+	b (Lcom/a/b/e/b/w;)Lcom/a/b/e/d/d; access$100
+		static
+	c (Lcom/a/b/e/b/w;)Lcom/a/b/e/b/o; access$200
+		static
+com/a/b/e/b/x com/android/dx/rop/code/RegisterSpecList
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/u;)Lcom/a/b/e/b/x; make
+		static
+		0 spec0 spec0
+		1 spec1 spec1
+	a (IZLjava/util/BitSet;)Lcom/a/b/e/b/x; withExpandedRegisters
+		0 base base
+		1 duplicateFirst duplicateFirst
+		2 compatRegs compatRegs
+	a (Ljava/util/BitSet;)Lcom/a/b/e/b/x; subset
+		0 exclusionSet exclusionSet
+	a (I)Lcom/a/b/e/d/c; getType
+		0 n n
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/d/e; withAddedType
+		0 type type
+	a (ILcom/a/b/e/b/u;)V set
+		0 n n
+		1 spec spec
+	c (I)I indexOfRegister
+		0 reg reg
+	d (I)Lcom/a/b/e/b/x; withOffset
+		0 delta delta
+	a EMPTY
+	a (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/x; make
+		static
+		0 spec spec
+	b (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/x; withFirst
+		0 spec spec
+	b (I)Lcom/a/b/e/b/u; get
+		0 n n
+	e ()I getWordCount
+	g ()Lcom/a/b/e/b/x; withoutLast
+	f ()Lcom/a/b/e/b/x; withoutFirst
+	a (Lcom/a/b/e/b/x;I)Ljava/lang/Object; access$000
+		static
+	a (Lcom/a/b/e/b/x;ILjava/lang/Object;)V access$100
+		static
+com/a/b/e/b/y com/android/dx/rop/code/RegisterSpecList$Expander
+	a ()Lcom/a/b/e/b/x; getResult
+	a (I)V expandRegister
+		0 regIdx regIdx
+	a (ILcom/a/b/e/b/u;)V expandRegister
+		0 regIdx regIdx
+		1 registerToExpand registerToExpand
+	a compatRegs
+	c base
+	e duplicateFirst
+	d result
+	b regSpecList
+	a (Lcom/a/b/e/b/y;)Lcom/a/b/e/b/x; access$000
+		static
+	a (Lcom/a/b/e/b/y;I)V access$100
+		static
+		0 x0 x0
+		1 x1 x1
+com/a/b/e/b/z com/android/dx/rop/code/RegisterSpecSet
+	a (I)Lcom/a/b/e/b/u; get
+		0 reg reg
+	a (Lcom/a/b/e/b/o;)Lcom/a/b/e/b/u; localItemToSpec
+		0 local local
+	a (Lcom/a/b/e/b/z;)V putAll
+		0 set set
+	a (Lcom/a/b/e/b/z;Z)V intersect
+		0 other other
+		1 localPrimary localPrimary
+	b (I)Lcom/a/b/e/b/z; withOffset
+		0 delta delta
+	e ()Lcom/a/b/e/b/z; mutableCopy
+	a EMPTY
+	b specs
+	c size
+	a (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; get
+		0 spec spec
+	b (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; findMatchingLocal
+		0 spec spec
+	b ()I getMaxSize
+	d ()I size
+	d (Lcom/a/b/e/b/u;)V put
+		0 spec spec
+	c (Lcom/a/b/e/b/u;)V remove
+		0 toRemove toRemove
+com/a/b/e/c/a com/android/dx/rop/cst/Constant
+	g ()Z isCategory2
+	h ()Ljava/lang/String; typeName
+	a (Lcom/a/b/e/c/a;)I compareTo
+		0 other other
+	b (Lcom/a/b/e/c/a;)I compareTo0
+com/a/b/e/c/aa com/android/dx/rop/cst/CstNat
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	c ()Lcom/a/b/e/d/c; getFieldType
+	a PRIMITIVE_TYPE_NAT
+	a ()Lcom/a/b/e/c/ad; getName
+	b ()Lcom/a/b/e/c/ad; getDescriptor
+	d ()Ljava/lang/String; toHuman
+	h ()Ljava/lang/String; typeName
+	e ()Z isInstanceInit
+	g ()Z isCategory2
+	f ()Z isClassInit
+	c descriptor
+	b name
+com/a/b/e/c/ab com/android/dx/rop/cst/CstProtoRef
+	a (Lcom/a/b/e/c/ad;)Lcom/a/b/e/c/ab; make
+		static
+		0 descriptor descriptor
+	a ()Lcom/a/b/e/d/c; getType
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	g ()Z isCategory2
+	i ()Lcom/a/b/e/d/a; getPrototype
+	a prototype
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/c/ac com/android/dx/rop/cst/CstShort
+	a (I)Lcom/a/b/e/c/ac; make
+		static
+		0 value value
+	a (S)Lcom/a/b/e/c/ac; make
+		static
+		0 value value
+	a ()Lcom/a/b/e/d/c; getType
+	a VALUE_0
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/c/ad com/android/dx/rop/cst/CstString
+	a (II)Ljava/lang/String; throwBadUtf8
+		static
+		0 value value
+		1 offset offset
+	a (Lcom/a/b/g/e;)Ljava/lang/String; utf8BytesToString
+		static
+		0 bytes bytes
+	a (Ljava/lang/String;)[B stringToUtf8Bytes
+		static
+		0 string string
+	a ()Lcom/a/b/e/d/c; getType
+	a (I)Ljava/lang/String; toQuoted
+		0 maxLength maxLength
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	g ()Z isCategory2
+	k ()Lcom/a/b/g/e; getBytes
+	a EMPTY_STRING
+	b string
+	c bytes
+	j ()Ljava/lang/String; getString
+	d ()Ljava/lang/String; toHuman
+	h ()Ljava/lang/String; typeName
+	i ()Ljava/lang/String; toQuoted
+	m ()I getUtf16Size
+	l ()I getUtf8Size
+com/a/b/e/c/ae com/android/dx/rop/cst/CstType
+	a (Lcom/a/b/e/c/ae;)V internInitial
+		static
+		0 cst cst
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	g ()Z isCategory2
+	j ()Lcom/a/b/e/c/ad; getDescriptor
+	u interns
+	v type
+	w descriptor
+	l ()V initInterns
+		static
+	b (Lcom/a/b/e/d/c;)Lcom/a/b/e/c/ae; intern
+		static
+		0 type type
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/c/ae; forBoxedPrimitiveType
+		static
+		0 primitiveType primitiveType
+	i ()Lcom/a/b/e/d/c; getClassType
+	a ()Lcom/a/b/e/d/c; getType
+	d ()Ljava/lang/String; toHuman
+	h ()Ljava/lang/String; typeName
+	k ()Ljava/lang/String; getPackageName
+	a OBJECT
+	q INT_ARRAY
+	s METHOD_HANDLE
+	r SHORT_ARRAY
+	p LONG_ARRAY
+	o FLOAT_ARRAY
+	n DOUBLE_ARRAY
+	m CHAR_ARRAY
+	l BYTE_ARRAY
+	k BOOLEAN_ARRAY
+	t VAR_HANDLE
+	j VOID
+	i SHORT
+	h INTEGER
+	g LONG
+	f FLOAT
+	e DOUBLE
+	d CHARACTER
+	c BYTE
+	b BOOLEAN
+com/a/b/e/c/af com/android/dx/rop/cst/StdConstantPool
+	a ()I size
+	a (ILcom/a/b/e/c/a;)V set
+		0 n n
+		1 cst cst
+	a entries
+	a (I)Lcom/a/b/e/c/a; get
+		0 n n
+	b (I)Lcom/a/b/e/c/a; get0Ok
+		0 n n
+	c (I)Lcom/a/b/e/c/a; getOrNull
+		0 n n
+	d (I)Lcom/a/b/e/c/a; throwInvalid
+		static
+		0 idx idx
+com/a/b/e/c/ag com/android/dx/rop/cst/TypedConstant
+	b ()Lcom/a/b/e/d/d; getFrameType
+	f ()Z isConstant
+	c ()I getBasicType
+	e ()I getBasicFrameType
+com/a/b/e/c/c com/android/dx/rop/cst/CstAnnotation
+	a ()Lcom/a/b/e/a/a; getAnnotation
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	g ()Z isCategory2
+	a annotation
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/c/d com/android/dx/rop/cst/CstArray
+	a ()Lcom/a/b/e/c/e; getList
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	g ()Z isCategory2
+	a list
+	d ()Ljava/lang/String; toHuman
+	h ()Ljava/lang/String; typeName
+com/a/b/e/c/e com/android/dx/rop/cst/CstArray$List
+	a (Lcom/a/b/e/c/e;)I compareTo
+		0 other other
+	a (I)Lcom/a/b/e/c/a; get
+		0 n n
+	a (ILcom/a/b/e/c/a;)V set
+		0 n n
+		1 a a
+com/a/b/e/c/f com/android/dx/rop/cst/CstBaseMethodRef
+	a (Z)Lcom/a/b/e/d/a; getPrototype
+		0 isStatic isStatic
+	a ()Lcom/a/b/e/d/c; getType
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	b (Z)I getParameterWordCount
+		0 isStatic isStatic
+	i ()Lcom/a/b/e/d/a; getPrototype
+	j ()Z isInstanceInit
+	l ()Z isSignaturePolymorphic
+	k ()Z isClassInit
+	a prototype
+	b instancePrototype
+com/a/b/e/c/g com/android/dx/rop/cst/CstBoolean
+	a (I)Lcom/a/b/e/c/g; make
+		static
+		0 value value
+	a ()Lcom/a/b/e/d/c; getType
+	h_ ()Z getValue
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+	a VALUE_FALSE
+	b VALUE_TRUE
+com/a/b/e/c/h com/android/dx/rop/cst/CstByte
+	a (B)Lcom/a/b/e/c/h; make
+		static
+		0 value value
+	a (I)Lcom/a/b/e/c/h; make
+		static
+		0 value value
+	a ()Lcom/a/b/e/d/c; getType
+	a VALUE_0
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/c/i com/android/dx/rop/cst/CstCallSite
+	a (Lcom/a/b/e/c/y;Lcom/a/b/e/c/aa;Lcom/a/b/a/b/c;)Lcom/a/b/e/c/i; make
+		static
+		0 bootstrapHandle bootstrapHandle
+		1 nat nat
+		2 optionalArguments optionalArguments
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	g ()Z isCategory2
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/c/j com/android/dx/rop/cst/CstCallSiteRef
+	a ()Lcom/a/b/e/d/a; getPrototype
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	b ()Lcom/a/b/e/d/c; getReturnType
+	c ()Lcom/a/b/e/c/i; getCallSite
+	g ()Z isCategory2
+	a invokeDynamic
+	b id
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/c/k com/android/dx/rop/cst/CstChar
+	a (C)Lcom/a/b/e/c/k; make
+		static
+		0 value value
+	a (I)Lcom/a/b/e/c/k; make
+		static
+		0 value value
+	a ()Lcom/a/b/e/d/c; getType
+	a VALUE_0
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/c/l com/android/dx/rop/cst/CstDouble
+	a (J)Lcom/a/b/e/c/l; make
+		static
+		0 bits bits
+	a ()Lcom/a/b/e/d/c; getType
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+	a VALUE_0
+	b VALUE_1
+com/a/b/e/c/m com/android/dx/rop/cst/CstEnumRef
+	a ()Lcom/a/b/e/d/c; getType
+	h ()Ljava/lang/String; typeName
+	i ()Lcom/a/b/e/c/n; getFieldRef
+	a fieldRef
+com/a/b/e/c/n com/android/dx/rop/cst/CstFieldRef
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/c/n; forPrimitiveType
+		static
+		0 primitiveType primitiveType
+	a ()Lcom/a/b/e/d/c; getType
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	h ()Ljava/lang/String; typeName
+com/a/b/e/c/o com/android/dx/rop/cst/CstFloat
+	a (I)Lcom/a/b/e/c/o; make
+		static
+		0 bits bits
+	a ()Lcom/a/b/e/d/c; getType
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+	a VALUE_0
+	c VALUE_2
+	b VALUE_1
+com/a/b/e/c/p com/android/dx/rop/cst/CstInteger
+	a (I)Lcom/a/b/e/c/p; make
+		static
+		0 value value
+	a ()Lcom/a/b/e/d/c; getType
+	i_ ()I getValue
+	h cache
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+	b VALUE_0
+	g VALUE_5
+	f VALUE_4
+	e VALUE_3
+	d VALUE_2
+	c VALUE_1
+	a VALUE_M1
+com/a/b/e/c/q com/android/dx/rop/cst/CstInterfaceMethodRef
+	h ()Ljava/lang/String; typeName
+	m ()Lcom/a/b/e/c/z; toMethodRef
+	a methodRef
+com/a/b/e/c/r com/android/dx/rop/cst/CstInvokeDynamic
+	a (ILcom/a/b/e/c/aa;)Lcom/a/b/e/c/r; make
+		static
+		0 bootstrapMethodIndex bootstrapMethodIndex
+		1 nat nat
+	a ()Lcom/a/b/e/c/j; addReference
+	a (Lcom/a/b/e/c/ae;)V setDeclaringClass
+		0 declaringClass declaringClass
+	a (Lcom/a/b/e/c/i;)V setCallSite
+		0 callSite callSite
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	b ()Ljava/util/List; getReferences
+	c ()I getBootstrapMethodIndex
+	e ()Lcom/a/b/e/c/aa; getNat
+	f ()Lcom/a/b/e/d/a; getPrototype
+	g ()Z isCategory2
+	i ()Lcom/a/b/e/d/c; getReturnType
+	j ()Lcom/a/b/e/c/ae; getDeclaringClass
+	k ()Lcom/a/b/e/c/i; getCallSite
+	a bootstrapMethodIndex
+	b nat
+	c prototype
+	d declaringClass
+	e callSite
+	f references
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/c/s com/android/dx/rop/cst/CstKnownNull
+	a ()Lcom/a/b/e/d/c; getType
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	k ()J getLongBits
+	a THE_ONE
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+	g ()Z isCategory2
+	j ()I getIntBits
+	i ()Z fitsInInt
+com/a/b/e/c/t com/android/dx/rop/cst/CstLiteral32
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	k ()J getLongBits
+	a bits
+	g ()Z isCategory2
+	j ()I getIntBits
+	i ()Z fitsInInt
+com/a/b/e/c/u com/android/dx/rop/cst/CstLiteral64
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	k ()J getLongBits
+	a bits
+	i ()Z fitsInInt
+	g ()Z isCategory2
+	j ()I getIntBits
+com/a/b/e/c/v com/android/dx/rop/cst/CstLiteralBits
+	j ()I getIntBits
+	k ()J getLongBits
+	i ()Z fitsInInt
+	l ()Z fitsIn16Bits
+	m ()Z fitsIn8Bits
+com/a/b/e/c/w com/android/dx/rop/cst/CstLong
+	a (J)Lcom/a/b/e/c/w; make
+		static
+		0 value value
+	a ()Lcom/a/b/e/d/c; getType
+	n ()J getValue
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+	a VALUE_0
+	b VALUE_1
+com/a/b/e/c/x com/android/dx/rop/cst/CstMemberRef
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	g ()Z isCategory2
+	n ()Lcom/a/b/e/c/ae; getDefiningClass
+	o ()Lcom/a/b/e/c/aa; getNat
+	a definingClass
+	b nat
+	d ()Ljava/lang/String; toHuman
+com/a/b/e/c/z com/android/dx/rop/cst/CstMethodRef
+	h ()Ljava/lang/String; typeName
+com/a/b/e/d/a com/android/dx/rop/type/Prototype
+	a (Lcom/a/b/e/d/c;I)Lcom/a/b/e/d/a; internInts
+		static
+		0 returnType returnType
+		1 count count
+	a (Ljava/lang/String;Lcom/a/b/e/d/c;ZZ)Lcom/a/b/e/d/a; intern
+		static
+		0 descriptor descriptor
+		1 definer definer
+		2 isStatic isStatic
+		3 isInit isInit
+	b (Lcom/a/b/e/d/a;)Lcom/a/b/e/d/a; putIntern
+		static
+		0 desc desc
+	c (Ljava/lang/String;)[Lcom/a/b/e/d/c; makeParameterArray
+		static
+		0 descriptor descriptor
+	a (Lcom/a/b/e/d/a;)I compareTo
+		0 other other
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/d/a; withFirstParameter
+		0 param param
+	b ()Lcom/a/b/e/d/c; getReturnType
+	a internTable
+	b descriptor
+	c returnType
+	b (Ljava/lang/String;)Lcom/a/b/e/d/a; fromDescriptor
+		static
+		0 descriptor descriptor
+	a (Ljava/lang/String;)Lcom/a/b/e/d/a; intern
+		static
+		0 descriptor descriptor
+	a ()Ljava/lang/String; getDescriptor
+	c ()Lcom/a/b/e/d/b; getParameterTypes
+	d ()Lcom/a/b/e/d/b; getParameterFrameTypes
+	d parameterTypes
+	e parameterFrameTypes
+com/a/b/e/d/b com/android/dx/rop/type/StdTypeList
+	a (Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;)Lcom/a/b/e/d/b; make
+		static
+		0 type0 type0
+		1 type1 type1
+	a (Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;)Lcom/a/b/e/d/b; make
+		static
+		0 type0 type0
+		1 type1 type1
+		2 type2 type2
+	a (Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;Lcom/a/b/e/d/c;)Lcom/a/b/e/d/b; make
+		static
+		0 type0 type0
+		1 type1 type1
+		2 type2 type2
+		3 type3 type3
+	a (Lcom/a/b/e/d/e;)Ljava/lang/String; toHuman
+		static
+		0 list list
+	a (Lcom/a/b/e/d/e;Lcom/a/b/e/d/e;)Z equalContents
+		static
+		0 list1 list1
+		1 list2 list2
+	b (Lcom/a/b/e/d/e;)I hashContents
+		static
+		0 list list
+	b (Lcom/a/b/e/d/e;Lcom/a/b/e/d/e;)I compareContents
+		static
+		0 list1 list1
+		1 list2 list2
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/d/e; withAddedType
+		0 type type
+	a (ILcom/a/b/e/d/c;)V set
+		0 n n
+		1 type type
+	e ()I getWordCount
+	c (Lcom/a/b/e/d/c;)Lcom/a/b/e/d/b; withFirst
+		0 type type
+	b (Lcom/a/b/e/d/c;)Lcom/a/b/e/d/b; make
+		static
+		0 type type
+	a (I)Lcom/a/b/e/d/c; getType
+		0 n n
+	b (I)Lcom/a/b/e/d/c; get
+		0 n n
+	a EMPTY
+	A SHORTARR_INT
+	h THROWABLE
+	b INT
+	z CHARARR_INT
+	y BYTEARR_INT
+	x BOOLEANARR_INT
+	w OBJECTARR_INT
+	v DOUBLEARR_INT
+	u FLOATARR_INT
+	t LONGARR_INT
+	s INTARR_INT
+	r LONG_INT
+	q DOUBLE_OBJECT
+	p FLOAT_OBJECT
+	o LONG_OBJECT
+	n INT_OBJECT
+	m OBJECT_OBJECT
+	l DOUBLE_DOUBLE
+	k FLOAT_FLOAT
+	j LONG_LONG
+	i INT_INT
+	g RETURN_ADDRESS
+	f OBJECT
+	e DOUBLE
+	d FLOAT
+	c LONG
+	J INT_SHORTARR_INT
+	I INT_CHARARR_INT
+	H INT_BYTEARR_INT
+	G INT_BOOLEANARR_INT
+	F OBJECT_OBJECTARR_INT
+	E DOUBLE_DOUBLEARR_INT
+	D FLOAT_FLOATARR_INT
+	C LONG_LONGARR_INT
+	B INT_INTARR_INT
+com/a/b/e/d/c com/android/dx/rop/type/Type
+	b (Lcom/a/b/e/d/c;)Lcom/a/b/e/d/c; putIntern
+		static
+		0 type type
+	a (Lcom/a/b/e/d/c;)I compareTo
+		0 other other
+	a (I)Lcom/a/b/e/d/c; asUninitialized
+		0 newAt newAt
+	N internTable
+	v ()V initInterns
+		static
+	a (Ljava/lang/String;)Lcom/a/b/e/d/c; intern
+		static
+		0 descriptor descriptor
+	c (Ljava/lang/String;)Lcom/a/b/e/d/c; internClassName
+		static
+		0 name name
+	b (Ljava/lang/String;)Lcom/a/b/e/d/c; internReturnType
+		static
+		0 descriptor descriptor
+	u ()Lcom/a/b/e/d/c; getComponentType
+	a ()Lcom/a/b/e/d/c; getType
+	s ()Lcom/a/b/e/d/c; getInitializedType
+	g ()Lcom/a/b/e/d/c; getFrameType
+	t ()Lcom/a/b/e/d/c; getArrayType
+	j ()I getCategory
+	c ()I getBasicType
+	e ()I getBasicFrameType
+	d ()Ljava/lang/String; toHuman
+	h ()Ljava/lang/String; getDescriptor
+	i ()Ljava/lang/String; getClassName
+	l ()Z isCategory2
+	r ()Z isUninitialized
+	o ()Z isReference
+	p ()Z isArray
+	m ()Z isIntlike
+	k ()Z isCategory1
+	f ()Z isConstant
+	q ()Z isArrayOrKnownNull
+	n ()Z isPrimitive
+	r OBJECT
+	f INT
+	i VOID
+	j KNOWN_NULL
+	p METHOD_TYPE
+	O descriptor
+	Q newAt
+	P basicType
+	U initializedType
+	g LONG
+	e FLOAT
+	d DOUBLE
+	E BOOLEAN_ARRAY
+	k RETURN_ADDRESS
+	b BYTE
+	M SHORT_ARRAY
+	K LONG_ARRAY
+	J INT_ARRAY
+	I FLOAT_ARRAY
+	H DOUBLE_ARRAY
+	G CHAR_ARRAY
+	F BYTE_ARRAY
+	u THROWABLE
+	o METHOD_HANDLE
+	h SHORT
+	c CHAR
+	z FLOAT_CLASS
+	y DOUBLE_CLASS
+	x CHARACTER_CLASS
+	w BYTE_CLASS
+	v BOOLEAN_CLASS
+	t STRING
+	s SERIALIZABLE
+	q VAR_HANDLE
+	n CLONEABLE
+	m CLASS
+	a BOOLEAN
+	L OBJECT_ARRAY
+	D VOID_CLASS
+	C SHORT_CLASS
+	B LONG_CLASS
+	A INTEGER_CLASS
+	l ANNOTATION
+	R className
+	T componentType
+	S arrayType
+	b ()Lcom/a/b/e/d/d; getFrameType
+com/a/b/e/d/d com/android/dx/rop/type/TypeBearer
+	a ()Lcom/a/b/e/d/c; getType
+	b ()Lcom/a/b/e/d/d; getFrameType
+	f ()Z isConstant
+	c ()I getBasicType
+	e ()I getBasicFrameType
+com/a/b/f/a com/android/dx/ssa/BasicRegisterMapper
+	a ()I getNewRegisterCount
+	a (I)I oldToNew
+		0 oldReg oldReg
+	a (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; map
+		0 registerSpec registerSpec
+	a (III)V addMapping
+		0 oldReg oldReg
+		1 newReg newReg
+		2 category category
+	a oldToNew
+	b runningCountNewRegisters
+com/a/b/f/a/a com/android/dx/ssa/back/FirstFitLocalCombiningAllocator
+	a (IILcom/a/b/f/a/c;)I findNextUnreservedRopReg
+		0 startReg startReg
+		1 width width
+		2 alignment alignment
+	a (ILcom/a/b/f/z;[ILjava/util/BitSet;)I fitPlanForRange
+		0 ropReg ropReg
+		1 insn insn
+		2 categoriesForIndex categoriesForIndex
+		3 outMovesRequired outMovesRequired
+	a (Lcom/a/b/f/z;I[ILjava/util/BitSet;)I findAnyFittingRange
+		0 insn insn
+		1 rangeLength rangeLength
+		2 categoriesForIndex categoriesForIndex
+		3 outMovesRequired outMovesRequired
+	a (II)V markReserved
+		0 ropReg ropReg
+		1 category category
+	a (Lcom/a/b/f/ac;)V processPhiInsn
+		0 insn insn
+	a (Lcom/a/b/f/z;)V adjustAndMapSourceRangeRange
+		0 insn insn
+	a (Lcom/a/b/e/b/u;I)Z canMapReg
+		0 ssaSpec ssaSpec
+		1 ropReg ropReg
+	a (Lcom/a/b/e/b/u;II)Z tryMapReg
+		0 ssaSpec ssaSpec
+		1 ropReg ropReg
+		2 maxAllowedCategory maxAllowedCategory
+	a (Ljava/util/ArrayList;I)Z canMapRegs
+		0 specs specs
+		1 ropReg ropReg
+	a (Ljava/util/ArrayList;IIZ)Z tryMapRegs
+		0 specs specs
+		1 ropReg ropReg
+		2 maxAllowedCategory maxAllowedCategory
+		3 markReserved markReserved
+	b (Lcom/a/b/f/z;)I findRangeAndAdjust
+		0 insn insn
+	b (Lcom/a/b/e/b/u;I)V addMapping
+		0 ssaSpec ssaSpec
+		1 ropReg ropReg
+	c (I)I getParameterIndexForReg
+		0 ssaReg ssaReg
+	d (I)Lcom/a/b/f/a/c; getAlignment
+		0 regCategory regCategory
+	e (I)Lcom/a/b/e/b/o; getLocalItemForReg
+		0 ssaReg ssaReg
+	a (Lcom/a/b/g/o;)Lcom/a/b/e/b/x; ssaSetToSpecs
+		0 ssaSet ssaSet
+	a ()Z wantsParamsMovedHigh
+	b ()Lcom/a/b/f/ag; allocateRegisters
+	c localVariables
+	h mapper
+	i paramRangeEnd
+	l minimizeRegisters
+	f (I)Z isEven
+		static
+		0 regNumger regNumger
+	e (II)Z spansParamRange
+		0 ssaReg ssaReg
+		1 category category
+	b (II)Z rangeContainsReserved
+		0 ropRangeStart ropRangeStart
+		1 width width
+	c (II)I findNextUnreservedRopReg
+		0 startReg startReg
+		1 regCategory regCategory
+	d (II)I findRopRegForLocal
+		0 startReg startReg
+		1 category category
+	c ()V handleLocalAssociatedParams
+	g ()V handleCheckCastResults
+	h ()V handlePhiInsns
+	f ()V handleInvokeRangeInsns
+	d ()V handleLocalAssociatedOther
+	e ()V handleUnassociatedParameters
+	i ()V handleNormalUnassociated
+	j ()V analyzeInstructions
+	f phiInsns
+	e invokeRangeInsns
+	d moveResultPseudoInsns
+	g ssaRegsMapped
+	j reservedRopRegs
+	k usedRopRegs
+	a (Lcom/a/b/f/a/a;)Ljava/util/Map; access$000
+		static
+		0 x0 x0
+	b (Lcom/a/b/f/a/a;)Ljava/util/ArrayList; access$100
+		static
+		0 x0 x0
+	c (Lcom/a/b/f/a/a;)Ljava/util/ArrayList; access$200
+		static
+		0 x0 x0
+	d (Lcom/a/b/f/a/a;)Ljava/util/ArrayList; access$300
+		static
+		0 x0 x0
+	a (I)Z access$IsEven
+		static
+com/a/b/f/a/b com/android/dx/ssa/back/FirstFitLocalCombiningAllocator$1
+	a (Lcom/a/b/f/an;)V processInsn
+		0 insn insn
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 insn insn
+	a this$0
+	a (Lcom/a/b/f/z;)V visitMoveInsn
+		0 insn insn
+	b (Lcom/a/b/f/z;)V visitNonMoveInsn
+		0 insn insn
+com/a/b/f/a/c com/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment
+	a (Ljava/util/BitSet;I)I nextClearBit
+	d $VALUES
+	c UNSPECIFIED
+	b ODD
+	a EVEN
+com/a/b/f/a/d com/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment$1
+	a (Ljava/util/BitSet;I)I nextClearBit
+		0 bitSet bitSet
+		1 startIdx startIdx
+com/a/b/f/a/e com/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment$2
+	a (Ljava/util/BitSet;I)I nextClearBit
+		0 bitSet bitSet
+		1 startIdx startIdx
+com/a/b/f/a/f com/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Alignment$3
+	a (Ljava/util/BitSet;I)I nextClearBit
+		0 bitSet bitSet
+		1 startIdx startIdx
+com/a/b/f/a/g com/android/dx/ssa/back/FirstFitLocalCombiningAllocator$Multiset
+	a (I)V add
+		0 element element
+	c size
+	b ()I getSize
+	a ()I getAndRemoveHighestCount
+	b count
+	a reg
+com/a/b/f/a/h com/android/dx/ssa/back/IdenticalBlockCombiner
+	a (ILcom/a/b/g/n;)V combineBlocks
+		0 alphaLabel alphaLabel
+		1 betaLabels betaLabels
+	a (Lcom/a/b/e/b/b;II)V replaceSucc
+		0 block block
+		1 oldLabel oldLabel
+		2 newLabel newLabel
+	a (Lcom/a/b/e/b/b;Lcom/a/b/e/b/b;)Z compareInsns
+		static
+		0 a a
+		1 b b
+	a ()Lcom/a/b/e/b/ab; process
+	a ropMethod
+	c newBlocks
+	b blocks
+com/a/b/f/a/k com/android/dx/ssa/back/LivenessAnalyzer$NextFunction
+	e $VALUES
+	c LIVE_OUT_AT_BLOCK
+	d DONE
+	b LIVE_OUT_AT_STATEMENT
+	a LIVE_IN_AT_STATEMENT
+com/a/b/f/a/l com/android/dx/ssa/back/RegisterAllocator
+	a (Lcom/a/b/f/an;Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; insertMoveBefore
+		0 insn insn
+		1 reg reg
+	a ()Z wantsParamsMovedHigh
+	b (I)Lcom/a/b/e/b/u; getDefinitionSpecForSsaReg
+		0 reg reg
+	b ()Lcom/a/b/f/ag; allocateRegisters
+	a ssaMeth
+	b interference
+com/a/b/f/a/m com/android/dx/ssa/back/SsaToRop
+	a ()Lcom/a/b/e/b/ab; convert
+	a (Lcom/a/b/f/ap;Z)Lcom/a/b/e/b/ab; convertToRopMethod
+		static
+		0 ssaMeth ssaMeth
+		1 minimizeRegisters minimizeRegisters
+	a (Ljava/util/ArrayList;)Lcom/a/b/e/b/m; convertInsns
+		0 ssaInsns ssaInsns
+	a (Lcom/a/b/f/aj;)V verifyValidExitPredecessor
+		0 b b
+	b (Lcom/a/b/f/aj;)Lcom/a/b/e/b/b; convertBasicBlock
+		0 block block
+	e ()Lcom/a/b/e/b/d; convertBasicBlocks
+	a ssaMeth
+	b minimizeRegisters
+	c interference
+	b ()V removeEmptyGotos
+	d ()V moveParametersToHighRegisters
+	c ()V removePhiFunctions
+com/a/b/f/a/n com/android/dx/ssa/back/SsaToRop$1
+	a (Lcom/a/b/f/aj;Lcom/a/b/f/aj;)V visitBlock
+		0 b b
+		1 parent parent
+	a this$0
+	b val$blocks
+com/a/b/f/a/o com/android/dx/ssa/back/SsaToRop$PhiVisitor
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 insn insn
+	a blocks
+com/a/b/f/ab com/android/dx/ssa/Optimizer$OptionalStep
+	f $VALUES
+	d CONST_COLLECTOR
+	e ESCAPE_ANALYSIS
+	c LITERAL_UPGRADE
+	b SCCP
+	a MOVE_PARAM_COMBINER
+com/a/b/f/ac com/android/dx/ssa/PhiInsn
+	a (Lcom/a/b/e/b/u;Lcom/a/b/f/aj;)V addPhiOperand
+		0 registerSpec registerSpec
+		1 predBlock predBlock
+	a (I)I predBlockIndexForSourcesIndex
+		0 sourcesIndex sourcesIndex
+	a ()Lcom/a/b/f/ac; clone
+	a (Ljava/lang/String;)Ljava/lang/String; toHumanWithInline
+		0 extra extra
+	a (ILcom/a/b/f/ap;)Ljava/util/List; predBlocksForReg
+		0 reg reg
+		1 ssaMeth ssaMeth
+	a (Lcom/a/b/e/b/u;)V removePhiRegister
+		0 registerSpec registerSpec
+	a (Lcom/a/b/e/d/d;Lcom/a/b/e/b/o;)V changeResultType
+		0 type type
+		1 local local
+	a (Lcom/a/b/f/ag;)V mapSourceRegisters
+		0 mapper mapper
+	a (Lcom/a/b/f/ao;)V accept
+		0 v v
+	a (Lcom/a/b/f/ap;)V updateSourcesToDefinitions
+		0 ssaMeth ssaMeth
+	b ()Lcom/a/b/e/b/x; getSources
+	d ()Ljava/lang/String; toHuman
+	e ()Lcom/a/b/e/b/aa; getOpcode
+	h ()I getRopResultReg
+	a ropResultReg
+	b operands
+	c sources
+	f ()Lcom/a/b/e/b/j; getOriginalRopInsn
+	c ()Lcom/a/b/e/b/j; toRopInsn
+	k ()Z canThrow
+	m ()Z hasSideEffect
+	l ()Z isPhiOrMove
+	n ()Lcom/a/b/f/an; clone
+com/a/b/f/ad com/android/dx/ssa/PhiInsn$Operand
+	a regSpec
+	b blockIndex
+	c ropLabel
+com/a/b/f/ae com/android/dx/ssa/PhiInsn$Visitor
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+com/a/b/f/af com/android/dx/ssa/PhiTypeResolver
+	a (Lcom/a/b/f/ap;)V process
+		static
+		0 ssaMeth ssaMeth
+	a ()V run
+	a (Lcom/a/b/e/b/o;Lcom/a/b/e/b/o;)Z equalsHandlesNulls
+		static
+		0 a a
+		1 b b
+	a (Lcom/a/b/f/ac;)Z resolveResultType
+		0 insn insn
+	a ssaMeth
+	b worklist
+com/a/b/f/ag com/android/dx/ssa/RegisterMapper
+	a ()I getNewRegisterCount
+	a (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; map
+	a (Lcom/a/b/e/b/x;)Lcom/a/b/e/b/x; map
+		0 sources sources
+	a (Lcom/a/b/e/b/z;)Lcom/a/b/e/b/z; map
+		0 sources sources
+com/a/b/f/ah com/android/dx/ssa/SCCP
+	a (Lcom/a/b/f/ap;)V process
+		static
+		0 ssaMethod ssaMethod
+	a (Lcom/a/b/f/an;I)Lcom/a/b/e/c/a; simulateMath
+		0 insn insn
+		1 resultType resultType
+	a (II)V addUsersToWorklist
+		0 reg reg
+		1 latticeValue latticeValue
+	a (Lcom/a/b/f/ac;)V simulatePhi
+		0 insn insn
+	a (IILcom/a/b/e/c/a;)Z setLatticeValueTo
+		0 reg reg
+		1 value value
+		2 cst cst
+	a ssaMeth
+	b regCount
+	c latticeValues
+	d latticeConstants
+	g executableBlocks
+	b ()V replaceConstants
+	a ()V run
+	c ()V replaceBranches
+	a (Lcom/a/b/f/aj;)V addBlockToWorklist
+		0 ssaBlock ssaBlock
+	b (Lcom/a/b/f/aj;)V simulateBlock
+		0 block block
+	a (Lcom/a/b/f/an;)V simulateBranch
+		0 insn insn
+	b (Lcom/a/b/f/an;)V simulateStmt
+		0 insn insn
+	c (Lcom/a/b/f/aj;)V simulatePhiBlock
+		0 block block
+	i varyingWorklist
+	h ssaWorklist
+	j branchWorklist
+	f cfgPhiWorklist
+	e cfgWorklist
+com/a/b/f/aj com/android/dx/ssa/SsaBasicBlock
+	a (Lcom/a/b/e/b/ab;ILcom/a/b/f/ap;)Lcom/a/b/f/aj; newFromRop
+		static
+		0 rmeth rmeth
+		1 basicBlockIndex basicBlockIndex
+		2 parent parent
+	a (Ljava/util/BitSet;Lcom/a/b/e/b/u;)V setRegsUsed
+		static
+		0 regsUsed regsUsed
+		1 rs rs
+	a (Ljava/util/List;)V scheduleUseBeforeAssigned
+		0 toSchedule toSchedule
+	b (Ljava/util/BitSet;Lcom/a/b/e/b/u;)Z checkRegUsed
+		static
+		0 regsUsed regsUsed
+		1 rs rs
+	a (II)V replaceSuccessor
+		0 oldIndex oldIndex
+		1 newIndex newIndex
+	a (Lcom/a/b/e/b/u;)V addPhiInsnForReg
+		0 resultSpec resultSpec
+	a (Lcom/a/b/f/ae;)V forEachPhiInsn
+		0 v v
+	a (Lcom/a/b/f/ao;)V forEachInsn
+		0 visitor visitor
+	b (Lcom/a/b/f/aj;)Lcom/a/b/f/aj; insertNewSuccessor
+		0 other other
+	d ()Ljava/util/List; getPhiInsns
+	o ()Lcom/a/b/f/ap; getParent
+	r ()Z isExitBlock
+	a LABEL_COMPARATOR
+	e successorList
+	h parent
+	b ()V removeAllPhiInsns
+	s ()V scheduleMovesFromPhis
+	e ()I getIndex
+	f ()I getRopLabel
+	l ()I getPrimarySuccessorRopLabel
+	t ()I getCountPhiInsns
+	c ()Ljava/util/ArrayList; getInsns
+	a ()Ljava/util/ArrayList; getDomChildren
+	b (I)V removeSuccessor
+		0 oldIndex oldIndex
+	a (I)V addPhiInsnForReg
+		0 reg reg
+	b (Lcom/a/b/e/b/j;)V replaceLastInsn
+		0 insn insn
+	a (Lcom/a/b/e/b/j;)V addInsnToHead
+		0 insn insn
+	a (Lcom/a/b/e/b/u;Lcom/a/b/e/b/u;)V addMoveToEnd
+		0 result result
+		1 source source
+	b (Lcom/a/b/e/b/u;Lcom/a/b/e/b/u;)V addMoveToBeginning
+		0 result result
+		1 source source
+	c (Lcom/a/b/f/aj;)V exitBlockFixup
+		0 exitBlock exitBlock
+	a (Lcom/a/b/f/aj;)V addDomChild
+		0 child child
+	g ()Ljava/lang/String; getRopLabelString
+	i ()Ljava/util/BitSet; getSuccessors
+	h ()Ljava/util/BitSet; getPredecessors
+	j ()Lcom/a/b/g/n; getSuccessorList
+	n ()Lcom/a/b/g/n; getRopLabelSuccessorList
+	m ()Lcom/a/b/f/aj; getPrimarySuccessor
+	p ()Lcom/a/b/f/aj; insertNewPredecessor
+	q ()Lcom/a/b/g/o; getLiveOutRegs
+	k ()I getPrimarySuccessorIndex
+	c (I)V addLiveOut
+		0 regV regV
+	d (I)V addLiveIn
+		0 regV regV
+	b insns
+	d successors
+	c predecessors
+	i index
+	f primarySuccessor
+	j domChildren
+	l movesFromPhisAtBeginning
+	k movesFromPhisAtEnd
+	g ropLabel
+	n liveOut
+	m liveIn
+	d (Lcom/a/b/f/aj;)I access$000
+		static
+		0 x0 x0
+com/a/b/f/ak com/android/dx/ssa/SsaBasicBlock$LabelComparator
+	a (Lcom/a/b/f/aj;Lcom/a/b/f/aj;)I compare
+		0 b1 b1
+		1 b2 b2
+com/a/b/f/al com/android/dx/ssa/SsaBasicBlock$Visitor
+	a (Lcom/a/b/f/aj;Lcom/a/b/f/aj;)V visitBlock
+com/a/b/f/an com/android/dx/ssa/SsaInsn
+	a (Lcom/a/b/e/b/j;Lcom/a/b/f/aj;)Lcom/a/b/f/an; makeFromRop
+		static
+		0 insn insn
+		1 block block
+	a (Lcom/a/b/e/b/o;)V setResultLocal
+		0 local local
+	a (Lcom/a/b/f/ao;)V accept
+	b ()Lcom/a/b/e/b/x; getSources
+	b (Lcom/a/b/e/b/u;)V setResult
+		0 result result
+	c (I)V changeResultReg
+		0 reg reg
+	e ()Lcom/a/b/e/b/aa; getOpcode
+	n ()Lcom/a/b/f/an; clone
+	p ()Lcom/a/b/f/aj; getBlock
+	a block
+	b result
+	b (Lcom/a/b/f/ag;)V mapRegisters
+		0 mapper mapper
+	a (Lcom/a/b/f/ag;)V mapSourceRegisters
+	b (I)Z isResultReg
+		0 reg reg
+	f ()Lcom/a/b/e/b/j; getOriginalRopInsn
+	c ()Lcom/a/b/e/b/j; toRopInsn
+	o ()Lcom/a/b/e/b/u; getResult
+	g ()Lcom/a/b/e/b/u; getLocalAssignment
+	k ()Z canThrow
+	i ()Z isNormalMoveInsn
+	j ()Z isMoveException
+	m ()Z hasSideEffect
+	l ()Z isPhiOrMove
+com/a/b/f/ao com/android/dx/ssa/SsaInsn$Visitor
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+	b (Lcom/a/b/f/z;)V visitNonMoveInsn
+	a (Lcom/a/b/f/z;)V visitMoveInsn
+com/a/b/f/ap com/android/dx/ssa/SsaMethod
+	a (Lcom/a/b/f/aj;)Lcom/a/b/f/an; getGoto
+		static
+		0 block block
+	a (Lcom/a/b/e/b/ab;IZ)Lcom/a/b/f/ap; newFromRopMethod
+		static
+		0 ropMethod ropMethod
+		1 paramWidth paramWidth
+		2 isStatic isStatic
+	a (Lcom/a/b/e/b/d;Lcom/a/b/g/n;)Ljava/util/BitSet; bitSetFromLabelList
+		static
+		0 blocks blocks
+		1 labelList labelList
+	a (Lcom/a/b/e/b/ab;)V convertRopToSsaBlocks
+		0 rmeth rmeth
+	b (Lcom/a/b/e/b/d;Lcom/a/b/g/n;)Lcom/a/b/g/n; indexListFromLabelList
+		static
+		0 ropBlocks ropBlocks
+		1 labelList labelList
+	a (Lcom/a/b/f/ag;)V mapRegisters
+		0 mapper mapper
+	a (Lcom/a/b/f/al;)V forEachBlockDepthFirstDom
+		0 v v
+	a (Lcom/a/b/f/an;Lcom/a/b/e/b/u;)V updateOneDefinition
+		0 insn insn
+		1 oldResult oldResult
+	a (Lcom/a/b/f/an;Lcom/a/b/e/b/u;Lcom/a/b/e/b/u;)V onSourceChanged
+		0 insn insn
+		1 oldSource oldSource
+		2 newSource newSource
+	a (Lcom/a/b/f/ao;)V forEachInsn
+		0 visitor visitor
+	a (Ljava/util/Set;)V deleteInsns
+		0 deletedInsns deletedInsns
+	a (ZLcom/a/b/f/al;)V forEachBlockDepthFirst
+		0 reverse reverse
+		1 v v
+	a (Lcom/a/b/e/b/u;)Z isRegALocal
+		0 spec spec
+	c (I)Lcom/a/b/f/an; getDefinitionForRegister
+		0 reg reg
+	d (I)Ljava/util/List; getUseListForRegister
+		0 reg reg
+	e (I)V setNewRegCount
+		0 newRegCount newRegCount
+	j ()Ljava/util/ArrayList; getBlocks
+	k ()Ljava/util/BitSet; computeReachability
+	m ()[Ljava/util/ArrayList; getUseListCopy
+	a blocks
+	j definitionList
+	k useList
+	l unmodifiableUseList
+	a (Lcom/a/b/f/an;Lcom/a/b/e/b/x;)V onSourcesChanged
+		0 insn insn
+		1 oldSources oldSources
+	b (Lcom/a/b/f/an;Lcom/a/b/e/b/x;)V removeFromUseList
+		0 insn insn
+		1 oldSources oldSources
+	l ()V onInsnsChanged
+	p ()V buildUseList
+	o ()V setBackMode
+	i ()V returnSpareRegisters
+	a ()V makeExitBlock
+	b (I)I borrowSpareRegister
+		0 category category
+	a (I)I blockIndexToRopLabel
+		0 bi bi
+	b (Lcom/a/b/f/an;)V onInsnRemoved
+		0 insn insn
+	a (Lcom/a/b/f/an;)V onInsnAdded
+		0 insn insn
+	f ()Lcom/a/b/f/aj; getExitBlock
+	d ()Lcom/a/b/f/aj; getEntryBlock
+	b ()Lcom/a/b/f/aj; makeNewGotoBlock
+	g ()I getRegCount
+	e ()I getExitBlockIndex
+	n ()I makeNewSsaReg
+	h ()I getParamWidth
+	c ()I getEntryBlockIndex
+	d registerCount
+	e spareRegisterBase
+	m backMode
+	i isStatic
+	c exitBlockIndex
+	g maxLabel
+	f borrowedSpareRegisters
+	b entryBlockIndex
+	h paramWidth
+	a (Lcom/a/b/f/ap;)[Lcom/a/b/f/an; access$000
+		static
+		0 x0 x0
+	b (Lcom/a/b/f/ap;)[Ljava/util/ArrayList; access$100
+		static
+		0 x0 x0
+com/a/b/f/aq com/android/dx/ssa/SsaMethod$1
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 phi phi
+	a this$0
+	b (Lcom/a/b/f/z;)V visitNonMoveInsn
+		0 insn insn
+	a (Lcom/a/b/f/z;)V visitMoveInsn
+		0 insn insn
+com/a/b/f/ar com/android/dx/ssa/SsaMethod$2
+	a (Lcom/a/b/f/an;)V addToUses
+		0 insn insn
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 phi phi
+	a this$0
+	a (Lcom/a/b/f/z;)V visitMoveInsn
+		0 insn insn
+	b (Lcom/a/b/f/z;)V visitNonMoveInsn
+		0 insn insn
+com/a/b/f/at com/android/dx/ssa/SsaRenamer$1
+	a (Lcom/a/b/f/aj;Lcom/a/b/f/aj;)V visitBlock
+		0 block block
+		1 unused unused
+	a this$0
+com/a/b/f/av com/android/dx/ssa/SsaRenamer$BlockRenamer$1
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 insn insn
+	a this$1
+com/a/b/f/aw com/android/dx/ssa/SsaRenamer$BlockRenamer$RenamingMapper
+	a ()I getNewRegisterCount
+	a (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; map
+		0 registerSpec registerSpec
+	a this$1
+com/a/b/f/c com/android/dx/ssa/ConstCollector$1
+	a (Lcom/a/b/e/c/a;Lcom/a/b/e/c/a;)I compare
+		0 a a
+		1 b b
+	a this$0
+	b val$countUses
+com/a/b/f/d com/android/dx/ssa/ConstCollector$2
+	a ()I getNewRegisterCount
+	a (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; map
+		0 registerSpec registerSpec
+	a this$0
+	c val$newReg
+	b val$origReg
+com/a/b/f/e com/android/dx/ssa/DeadCodeRemover
+	a (Lcom/a/b/f/ap;)V process
+		static
+		0 ssaMethod ssaMethod
+	a (ILjava/util/BitSet;)Z isCircularNoSideEffect
+		0 regV regV
+		1 set set
+	a ssaMeth
+	b regCount
+	c worklist
+	d useList
+	a ()V run
+	b ()V pruneDeadInstructions
+	b (Lcom/a/b/f/an;)Z hasSideEffect
+		static
+		0 insn insn
+	a (Lcom/a/b/f/an;)Z access$HasSideEffect
+		static
+com/a/b/f/f com/android/dx/ssa/DeadCodeRemover$NoSideEffectVisitor
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 phi phi
+	a noSideEffectRegs
+	a (Lcom/a/b/f/z;)V visitMoveInsn
+		0 insn insn
+	b (Lcom/a/b/f/z;)V visitNonMoveInsn
+		0 insn insn
+com/a/b/f/h com/android/dx/ssa/DomFront$DomInfo
+	a dominanceFrontiers
+	b idom
+com/a/b/f/j com/android/dx/ssa/Dominators$DFSInfo
+	a semidom
+	e bucket
+	d ancestor
+	c rep
+	b parent
+com/a/b/f/k com/android/dx/ssa/Dominators$DfsWalker
+	a (Lcom/a/b/f/aj;Lcom/a/b/f/aj;)V visitBlock
+		0 v v
+		1 parent parent
+	a this$0
+	b dfsNum
+com/a/b/f/l com/android/dx/ssa/EscapeAnalysis
+	a (Lcom/a/b/f/ap;)V process
+		static
+		0 ssaMethod ssaMethod
+	a (Lcom/a/b/e/b/u;)I findSetIndex
+		0 reg reg
+	a (Lcom/a/b/e/b/u;Lcom/a/b/f/an;Lcom/a/b/f/p;Ljava/util/ArrayList;)V processUse
+		0 def def
+		1 use use
+		2 escSet escSet
+		3 regWorklist regWorklist
+	a (Lcom/a/b/e/b/u;Lcom/a/b/f/p;)V processRegister
+		0 result result
+		1 escSet escSet
+	a (Lcom/a/b/f/an;Lcom/a/b/e/b/u;Ljava/util/HashSet;)V insertExceptionThrow
+		0 insn insn
+		1 index index
+		2 deletedInsns deletedInsns
+	a (Lcom/a/b/f/an;Lcom/a/b/f/an;ILjava/util/ArrayList;)V replaceDef
+		0 def def
+		1 prev prev
+		2 length length
+		3 newRegs newRegs
+	a (Lcom/a/b/f/an;Lcom/a/b/f/an;Ljava/util/ArrayList;Ljava/util/HashSet;)V replaceUse
+		0 use use
+		1 prev prev
+		2 newRegs newRegs
+		3 deletedInsns deletedInsns
+	a (Lcom/a/b/f/an;Lcom/a/b/f/p;Ljava/util/ArrayList;)V processPhiUse
+		0 use use
+		1 escSet escSet
+		2 regWorklist regWorklist
+	c (Lcom/a/b/f/an;)V processInsn
+		0 insn insn
+	d (Lcom/a/b/f/an;)Lcom/a/b/f/p; processMoveResultPseudoInsn
+		0 insn insn
+	a ssaMeth
+	b regCount
+	c latticeValues
+	a (Lcom/a/b/f/an;)Lcom/a/b/f/an; getInsnForMove
+		0 moveInsn moveInsn
+	b (Lcom/a/b/f/an;)Lcom/a/b/f/an; getMoveForInsn
+		0 insn insn
+	a ()V scalarReplacement
+	b ()V movePropagate
+	c ()V run
+	a (Lcom/a/b/f/an;Lcom/a/b/e/b/x;Lcom/a/b/e/b/u;ILcom/a/b/e/c/a;)V insertPlainInsnBefore
+		0 insn insn
+		1 newSources newSources
+		2 newResult newResult
+		3 newOpcode newOpcode
+		4 cst cst
+	b (Lcom/a/b/f/an;Lcom/a/b/e/b/x;Lcom/a/b/e/b/u;ILcom/a/b/e/c/a;)V insertThrowingInsnBefore
+		0 insn insn
+		1 newSources newSources
+		2 newResult newResult
+		3 newOpcode newOpcode
+		4 cst cst
+	a (Lcom/a/b/f/p;Lcom/a/b/f/p;)V addEdge
+		0 parentSet parentSet
+		1 childSet childSet
+	b (Lcom/a/b/f/p;Lcom/a/b/f/p;)V replaceNode
+		0 newNode newNode
+		1 oldNode oldNode
+	a (Lcom/a/b/f/l;)Lcom/a/b/f/ap; access$000
+		static
+		0 x0 x0
+	a (Lcom/a/b/f/l;Lcom/a/b/f/an;)V access$100
+		static
+		0 x0 x0
+		1 x1 x1
+com/a/b/f/m com/android/dx/ssa/EscapeAnalysis$1
+	a ()I getNewRegisterCount
+	a (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; map
+		0 registerSpec registerSpec
+	a this$0
+	c val$source
+	b val$result
+com/a/b/f/o com/android/dx/ssa/EscapeAnalysis$2$1
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 insn insn
+	a this$1
+	a (Lcom/a/b/f/z;)V visitMoveInsn
+		0 insn insn
+	b (Lcom/a/b/f/z;)V visitNonMoveInsn
+		0 insn insn
+com/a/b/f/p com/android/dx/ssa/EscapeAnalysis$EscapeSet
+	a regSet
+	b escape
+	e replaceableArray
+	d parentSets
+	c childSets
+com/a/b/f/q com/android/dx/ssa/EscapeAnalysis$EscapeState
+	f $VALUES
+	e GLOBAL
+	d INTER
+	c METHOD
+	b NONE
+	a TOP
+com/a/b/f/r com/android/dx/ssa/InterferenceRegisterMapper
+	a (II)V addInterfence
+		0 newReg newReg
+		1 oldReg oldReg
+	a (III)V addMapping
+		0 oldReg oldReg
+		1 newReg newReg
+		2 category category
+	a (Lcom/a/b/e/b/u;I)Z interferes
+		0 oldSpec oldSpec
+		1 newReg newReg
+	a (Lcom/a/b/e/b/x;II)Z areAnyPinned
+		0 oldSpecs oldSpecs
+		1 newReg newReg
+		2 targetCategory targetCategory
+	b (III)Z interferes
+		0 oldReg oldReg
+		1 newReg newReg
+		2 category category
+	a newRegInterference
+	b oldRegInterference
+com/a/b/f/s com/android/dx/ssa/LiteralOpUpgrader
+	a (Lcom/a/b/f/ap;)V process
+		static
+		0 ssaMethod ssaMethod
+	a ()V run
+	a (Lcom/a/b/f/z;Lcom/a/b/e/b/x;ILcom/a/b/e/c/a;)V replacePlainInsn
+		0 insn insn
+		1 newSources newSources
+		2 newOpcode newOpcode
+		3 cst cst
+	a (Lcom/a/b/f/z;)Z tryReplacingWithConstant
+		0 insn insn
+	a ssaMeth
+	b (Lcom/a/b/e/b/u;)Z isConstIntZeroOrKnownNull
+		static
+		0 spec spec
+	a (Lcom/a/b/f/s;Lcom/a/b/f/z;Lcom/a/b/e/b/x;ILcom/a/b/e/c/a;)V access$000
+		static
+	a (Lcom/a/b/f/s;Lcom/a/b/f/z;)Z access$100
+		static
+	a (Lcom/a/b/e/b/u;)Z access$IsConstIntZeroOrKnownNull
+		static
+com/a/b/f/t com/android/dx/ssa/LiteralOpUpgrader$1
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 insn insn
+	a this$0
+	b val$advice
+	b (Lcom/a/b/f/z;)V visitNonMoveInsn
+		0 insn insn
+	a (Lcom/a/b/f/z;)V visitMoveInsn
+		0 insn insn
+com/a/b/f/u com/android/dx/ssa/LocalVariableExtractor
+	a ()Lcom/a/b/f/v; doit
+	a (Lcom/a/b/f/ap;)Lcom/a/b/f/v; extract
+		static
+		0 method method
+	a (I)V processBlock
+		0 blockIndex blockIndex
+	a method
+	b blocks
+	c resultInfo
+	d workSet
+com/a/b/f/v com/android/dx/ssa/LocalVariableInfo
+	a (ILcom/a/b/e/b/z;)V setStarts
+		0 index index
+		1 specs specs
+	a (Lcom/a/b/f/an;Lcom/a/b/e/b/u;)V addAssignment
+		0 insn insn
+		1 spec spec
+	b (ILcom/a/b/e/b/z;)Z mergeStarts
+		0 index index
+		1 specs specs
+	a regCount
+	b emptySet
+	c blockStarts
+	d insnAssignments
+	c (I)Lcom/a/b/e/b/z; getStarts0
+		0 index index
+	a (I)Lcom/a/b/e/b/z; getStarts
+		0 index index
+	b (I)Lcom/a/b/e/b/z; mutableCopyOfStarts
+		0 index index
+com/a/b/f/w com/android/dx/ssa/MoveParamCombiner
+	a (Lcom/a/b/f/ap;)V process
+		static
+		0 ssaMethod ssaMethod
+	a (Lcom/a/b/f/z;)I getParamIndex
+		0 insn insn
+	a ()V run
+	a ssaMeth
+	a (Lcom/a/b/f/w;Lcom/a/b/f/z;)I access$000
+		static
+		0 x0 x0
+		1 x1 x1
+	a (Lcom/a/b/f/w;)Lcom/a/b/f/ap; access$100
+		static
+		0 x0 x0
+com/a/b/f/y com/android/dx/ssa/MoveParamCombiner$1$1
+	a ()I getNewRegisterCount
+	a (Lcom/a/b/e/b/u;)Lcom/a/b/e/b/u; map
+		0 registerSpec registerSpec
+	a this$1
+	c val$specA
+	b val$specB
+com/a/b/g/a com/android/dx/util/AnnotatedOutput
+	a (ILjava/lang/String;)V annotate
+	a (Ljava/lang/String;)V annotate
+	c ()V endAnnotation
+	d ()I getAnnotationWidth
+	a ()Z annotates
+	b ()Z isVerbose
+com/a/b/g/b com/android/dx/util/BitIntSet
+	a ()I elements
+	a (Lcom/a/b/g/o;)V merge
+		0 other other
+	b ()Lcom/a/b/g/m; iterator
+	b (I)Z has
+		0 value value
+	a bits
+	c (I)V ensureCapacity
+		0 value value
+	a (I)V add
+		0 value value
+com/a/b/g/c com/android/dx/util/BitIntSet$1
+	a ()Z hasNext
+	b ()I next
+	a this$0
+	b idx
+com/a/b/g/e com/android/dx/util/ByteArray
+	b (II)V checkOffsets
+		0 s s
+		1 e e
+	a ()I size
+	a (II)Lcom/a/b/g/e; slice
+		0 start start
+		1 end end
+	a ([BI)V getBytes
+		0 out out
+		1 offset offset
+	b ()Lcom/a/b/g/f; makeDataInputStream
+	c ()Lcom/a/b/g/g; makeInputStream
+	d (I)J getLong
+		0 off off
+	a bytes
+	f (I)I getUnsignedShort
+		0 off off
+	e (I)I getUnsignedByte
+		0 off off
+	h (I)I getUnsignedByte0
+		0 off off
+	g (I)I getByte0
+		0 off off
+	c (I)I getInt
+		0 off off
+	a (I)I getByte
+		0 off off
+	b (I)I getShort
+		0 off off
+	c size
+	b start
+	a (Lcom/a/b/g/e;)I access$000
+		static
+		0 x0 x0
+	a (Lcom/a/b/g/e;I)I access$100
+		static
+		0 x0 x0
+		1 x1 x1
+	b (Lcom/a/b/g/e;)[B access$200
+		static
+		0 x0 x0
+	c (Lcom/a/b/g/e;)I access$300
+		static
+		0 x0 x0
+com/a/b/g/f com/android/dx/util/ByteArray$MyDataInputStream
+	a wrapped
+com/a/b/g/g com/android/dx/util/ByteArray$MyInputStream
+	a this$0
+	c mark
+	b cursor
+com/a/b/g/h com/android/dx/util/ByteArrayAnnotatedOutput
+	a ([B)V write
+		0 bytes bytes
+	a (ILjava/lang/String;)V annotate
+		0 amt amt
+		1 msg msg
+	a (IZ)V enableAnnotations
+		0 annotationWidth annotationWidth
+		1 verbose verbose
+	a (J)V writeLong
+		0 value value
+	a (Lcom/a/b/g/e;)V write
+		0 bytes bytes
+	a (Ljava/io/Writer;)V writeAnnotationsTo
+		0 out out
+	a (Ljava/lang/String;)V annotate
+		0 msg msg
+	a ([BII)V write
+		0 bytes bytes
+		1 offset offset
+		2 length length
+	b data
+	e annotations
+	i ()V throwBounds
+		static
+	c ()V endAnnotation
+	h ()V finishAnnotating
+	i (I)V ensureCapacity
+		0 desiredSize desiredSize
+	a (I)V writeByte
+		0 value value
+	g (I)V writeZeroes
+		0 count count
+	h (I)V alignTo
+		0 alignment alignment
+	b (I)V assertCursor
+		0 expectedCursor expectedCursor
+	d (I)V writeInt
+		0 value value
+	b ()Z isVerbose
+	a ()Z annotates
+	g ()I getCursor
+	d ()I getAnnotationWidth
+	e (I)I writeUleb128
+		0 value value
+	f (I)I writeSleb128
+		0 value value
+	f ()[B toByteArray
+	e ()[B getArray
+	c (I)V writeShort
+		0 value value
+	a stretchy
+	d verbose
+	c cursor
+	g hexCols
+	f annotationWidth
+com/a/b/g/i com/android/dx/util/ByteArrayAnnotatedOutput$Annotation
+	c ()Ljava/lang/String; getText
+	c text
+	b ()I getEnd
+	a ()I getStart
+	b (I)V setEnd
+		0 end end
+	a (I)V setEndIfUnset
+		0 end end
+	a start
+	b end
+com/a/b/g/j com/android/dx/util/FixedSizeList
+	a (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String; toString0
+		0 prefix prefix
+		1 separator separator
+		2 suffix suffix
+		3 human human
+	a (ILjava/lang/Object;)V set0
+		0 n n
+		1 obj obj
+	i ()V shrinkToFit
+	a arr
+	a (I)Ljava/lang/Object; throwIndex
+		0 n n
+	f (I)Ljava/lang/Object; getOrNull0
+		0 n n
+	e (I)Ljava/lang/Object; get0
+		0 n n
+	a (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; toString
+		0 prefix prefix
+		1 separator separator
+		2 suffix suffix
+	d ()Ljava/lang/String; toHuman
+	d_ ()I size
+	b (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; toHuman
+		0 prefix prefix
+		1 separator separator
+		2 suffix suffix
+com/a/b/g/k com/android/dx/util/Hex
+	a ([BIIIII)Ljava/lang/String; dump
+		static
+		0 arr arr
+		1 offset offset
+		2 length length
+		3 outOffset outOffset
+		4 bpl bpl
+		5 addressLength addressLength
+	d (I)Ljava/lang/String; u2or4
+		static
+		0 v v
+	a (I)Ljava/lang/String; u4
+		static
+		0 v v
+	c (I)Ljava/lang/String; u2
+		static
+		0 v v
+	f (I)Ljava/lang/String; uNibble
+		static
+		0 v v
+	e (I)Ljava/lang/String; u1
+		static
+		0 v v
+	g (I)Ljava/lang/String; s4
+		static
+		0 v v
+	i (I)Ljava/lang/String; s1
+		static
+		0 v v
+	b (I)Ljava/lang/String; u3
+		static
+		0 v v
+	a (J)Ljava/lang/String; u8
+		static
+		0 v v
+	b (J)Ljava/lang/String; s8
+		static
+		0 v v
+	h (I)Ljava/lang/String; s2
+		static
+		0 v v
+com/a/b/g/l com/android/dx/util/IndentingWriter
+	a ()V bol
+	a prefix
+	e collectingIndent
+	c maxIndent
+	f indent
+	d column
+	b width
+com/a/b/g/m com/android/dx/util/IntIterator
+	a ()Z hasNext
+	b ()I next
+com/a/b/g/n com/android/dx/util/IntList
+	a (I)Lcom/a/b/g/n; makeImmutable
+		static
+		0 value value
+	a (II)Lcom/a/b/g/n; makeImmutable
+		static
+		0 value0 value0
+		1 value1 value1
+	f ()Lcom/a/b/g/n; mutableCopy
+	h (I)Z contains
+		0 value value
+	a EMPTY
+	b values
+	c size
+	d sorted
+	g ()V sort
+	h ()V growIfNeeded
+	c (I)V add
+		0 value value
+	d (I)V removeIndex
+		0 n n
+	e (I)V shrink
+		0 newSize newSize
+	b ()I size
+	e ()I pop
+	d ()I top
+	b (I)I get
+		0 n n
+	f (I)I indexOf
+		0 value value
+	g (I)I binarysearch
+		0 value value
+	b (II)V set
+		0 n n
+		1 value value
+	c (II)V insert
+		0 n n
+		1 value value
+com/a/b/g/p com/android/dx/util/LabeledItem
+	a ()I getLabel
+com/a/b/g/s com/android/dx/util/ListIntSet$1
+	a ()Z hasNext
+	b ()I next
+	a this$0
+	b idx
+com/a/b/g/t com/android/dx/util/MutabilityControl
+	a mutable
+	c_ ()V setImmutable
+	m ()V throwIfMutable
+	l ()V throwIfImmutable
+	b_ ()Z isImmutable
+	k ()Z isMutable
+com/a/b/g/w com/android/dx/util/ToHuman
+	d ()Ljava/lang/String; toHuman
+com/a/b/g/x com/android/dx/util/TwoColumnOutput
+	a (Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)Ljava/lang/String; toString
+		static
+		0 s1 s1
+		1 width1 width1
+		2 spacer spacer
+		3 s2 s2
+		4 width2 width2
+	a (Ljava/io/Writer;I)V writeSpaces
+		static
+		0 out out
+		1 amt amt
+	a (Ljava/lang/StringBuffer;Ljava/io/Writer;)V appendNewlineIfNecessary
+		static
+		0 buf buf
+		1 out out
+	a out
+	b leftWidth
+	c ()V flush
+	d ()V outputFullLines
+	f ()V flushRight
+	e ()V flushLeft
+	b ()Ljava/io/Writer; getRight
+	a ()Ljava/io/Writer; getLeft
+	d rightBuf
+	c leftBuf
+	f rightColumn
+	e leftColumn
+com/a/b/g/y com/android/dx/util/Warning
+com/a/b/d/a/a com/android/dx/io/instructions/InstructionCodec
+	K $VALUES
+	y FORMAT_35C
+	x FORMAT_31C
+	w FORMAT_31T
+	v FORMAT_31I
+	u FORMAT_32X
+	t FORMAT_30T
+	r FORMAT_22C
+	q FORMAT_22S
+	p FORMAT_22T
+	o FORMAT_22B
+	n FORMAT_23X
+	m FORMAT_21C
+	l FORMAT_21H
+	k FORMAT_21S
+	j FORMAT_21T
+	i FORMAT_22X
+	g FORMAT_20T
+	f FORMAT_10T
+	e FORMAT_11X
+	d FORMAT_11N
+	c FORMAT_12X
+	b FORMAT_10X
+	a FORMAT_00X
+	J FORMAT_FILL_ARRAY_DATA_PAYLOAD
+	I FORMAT_SPARSE_SWITCH_PAYLOAD
+	H FORMAT_PACKED_SWITCH_PAYLOAD
+	G FORMAT_4RCC
+	F FORMAT_45CC
+	E FORMAT_51L
+	B FORMAT_3RC
+	z FORMAT_35MS
+	s FORMAT_22CS
+	h FORMAT_20BC
+	D FORMAT_3RMI
+	C FORMAT_3RMS
+	A FORMAT_35MI
+com/a/b/d/a/b com/android/dx/io/instructions/InstructionCodec$1
+com/a/b/d/a/ah com/android/dx/io/instructions/InstructionCodec$6
+com/a/b/d/a/m com/android/dx/io/instructions/InstructionCodec$2
+com/a/b/d/a/af com/android/dx/io/instructions/InstructionCodec$4
+com/a/b/d/a/ag com/android/dx/io/instructions/InstructionCodec$5
+com/a/b/d/a/x com/android/dx/io/instructions/InstructionCodec$3
+com/a/b/d/a/aj com/android/dx/io/instructions/InstructionCodec$8
+com/a/b/d/a/ai com/android/dx/io/instructions/InstructionCodec$7
+com/a/b/d/a/f com/android/dx/io/instructions/InstructionCodec$13
+com/a/b/d/a/e com/android/dx/io/instructions/InstructionCodec$12
+com/a/b/d/a/d com/android/dx/io/instructions/InstructionCodec$11
+com/a/b/d/a/c com/android/dx/io/instructions/InstructionCodec$10
+com/a/b/d/a/h com/android/dx/io/instructions/InstructionCodec$15
+com/a/b/d/a/k com/android/dx/io/instructions/InstructionCodec$18
+com/a/b/d/a/l com/android/dx/io/instructions/InstructionCodec$19
+com/a/b/d/a/j com/android/dx/io/instructions/InstructionCodec$17
+com/a/b/d/a/i com/android/dx/io/instructions/InstructionCodec$16
+com/a/b/d/a/ak com/android/dx/io/instructions/InstructionCodec$9
+com/a/b/d/a/g com/android/dx/io/instructions/InstructionCodec$14
+com/a/b/d/a/n com/android/dx/io/instructions/InstructionCodec$20
+com/a/b/d/a/r com/android/dx/io/instructions/InstructionCodec$24
+com/a/b/d/a/p com/android/dx/io/instructions/InstructionCodec$22
+com/a/b/d/a/q com/android/dx/io/instructions/InstructionCodec$23
+com/a/b/d/a/o com/android/dx/io/instructions/InstructionCodec$21
+com/a/b/d/a/s com/android/dx/io/instructions/InstructionCodec$25
+com/a/b/d/a/u com/android/dx/io/instructions/InstructionCodec$27
+com/a/b/d/a/t com/android/dx/io/instructions/InstructionCodec$26
+com/a/b/d/a/v com/android/dx/io/instructions/InstructionCodec$28
+com/a/b/d/a/y com/android/dx/io/instructions/InstructionCodec$30
+com/a/b/d/a/w com/android/dx/io/instructions/InstructionCodec$29
+com/a/b/d/a/aa com/android/dx/io/instructions/InstructionCodec$32
+com/a/b/d/a/ab com/android/dx/io/instructions/InstructionCodec$33
+com/a/b/d/a/z com/android/dx/io/instructions/InstructionCodec$31
+com/a/b/d/a/ae com/android/dx/io/instructions/InstructionCodec$36
+com/a/b/d/a/ac com/android/dx/io/instructions/InstructionCodec$34
+com/a/b/d/a/ad com/android/dx/io/instructions/InstructionCodec$35
+com/a/a/b com/android/dex/DexFormat
+	a (I)Ljava/lang/String; apiToMagic
+		static
+		0 targetApiLevel targetApiLevel
+com/a/b/a/a/b com/android/dx/cf/attrib/AttBootstrapMethods
+	a ()I byteLength
+	b ()Lcom/a/b/a/b/d; getBootstrapMethods
+	a bootstrapMethods
+	b byteLength
+com/a/b/a/a/e com/android/dx/cf/attrib/AttDeprecated
+	a ()I byteLength
+com/a/b/a/a/s com/android/dx/cf/attrib/AttSynthetic
+	a ()I byteLength
+com/a/b/a/a/j com/android/dx/cf/attrib/AttLocalVariableTable
+com/a/b/a/a/k com/android/dx/cf/attrib/AttLocalVariableTypeTable
+com/a/b/a/a/l com/android/dx/cf/attrib/AttRuntimeInvisibleAnnotations
+com/a/b/a/a/n com/android/dx/cf/attrib/AttRuntimeVisibleAnnotations
+com/a/b/a/a/m com/android/dx/cf/attrib/AttRuntimeInvisibleParameterAnnotations
+com/a/b/a/a/o com/android/dx/cf/attrib/AttRuntimeVisibleParameterAnnotations
+com/a/b/a/b/j com/android/dx/cf/code/ByteOps
+	a (I)Ljava/lang/String; opName
+		static
+		0 opcode opcode
+	b (I)I opInfo
+		static
+		0 opcode opcode
+	a OPCODE_INFO
+	b OPCODE_NAMES
+com/a/b/a/d/b com/android/dx/cf/direct/AttributeFactory
+	a (Lcom/a/b/a/d/e;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; parse
+		0 cf cf
+		1 context context
+		2 offset offset
+		3 observer observer
+	a (Lcom/a/b/a/d/e;ILjava/lang/String;IILcom/a/b/a/e/j;)Lcom/a/b/a/e/a; parse0
+		0 cf cf
+		1 context context
+		2 name name
+		3 offset offset
+		4 length length
+		5 observer observer
+com/a/b/c/b/ac com/android/dx/dex/code/PositionList
+	a (Lcom/a/b/c/b/m;I)Lcom/a/b/c/b/ac; make
+		static
+		0 insns insns
+		1 howMuch howMuch
+	a (I)Lcom/a/b/c/b/ad; get
+		0 n n
+	a (ILcom/a/b/c/b/ad;)V set
+		0 n n
+		1 entry entry
+	a EMPTY
+com/a/b/c/b/s com/android/dx/dex/code/LocalList
+	a (Lcom/a/b/c/b/m;)Lcom/a/b/c/b/s; make
+		static
+		0 insns insns
+	a (I)Lcom/a/b/c/b/u; get
+		0 n n
+	a (ILcom/a/b/c/b/u;)V set
+		0 n n
+		1 entry entry
+	a EMPTY
+com/a/b/c/b/b com/android/dx/dex/code/BlockAddresses
+	a (Lcom/a/b/e/b/ab;)V setupArrays
+		0 method method
+	a (I)Lcom/a/b/c/b/h; getStart
+		0 label label
+	c (Lcom/a/b/e/b/b;)Lcom/a/b/c/b/h; getEnd
+		0 block block
+	b (Lcom/a/b/e/b/b;)Lcom/a/b/c/b/h; getLast
+		0 block block
+	a (Lcom/a/b/e/b/b;)Lcom/a/b/c/b/h; getStart
+		0 block block
+	c ends
+	b lasts
+	a starts
+com/a/b/c/c/bi com/android/dx/dex/file/ValueEncoder
+	a (Lcom/a/b/c/c/t;Lcom/a/b/e/a/a;)V addContents
+		static
+		0 file file
+		1 annotation annotation
+	a (Lcom/a/b/c/c/t;Lcom/a/b/e/c/a;)V addContents
+		static
+		0 file file
+		1 cst cst
+	b (Lcom/a/b/e/c/a;)Ljava/lang/String; constantToHuman
+		static
+		0 cst cst
+	c (Lcom/a/b/e/c/a;)I constantToValueType
+		static
+		0 cst cst
+	a (Lcom/a/b/e/a/a;Z)V writeAnnotation
+		0 annotation annotation
+		1 topLevel topLevel
+	a (Lcom/a/b/e/c/a;)V writeConstant
+		0 cst cst
+	a (Lcom/a/b/e/c/d;Z)V writeArray
+		0 array array
+		1 topLevel topLevel
+	a file
+	b out
+com/a/b/c/c/u com/android/dx/dex/file/DexFile$Storage
+	a (I)[B getStorage
+		0 requestedLength requestedLength
+	a storage
+com/a/b/c/c/ad com/android/dx/dex/file/HeaderSection
+	a ()V orderItems
+	b ()Ljava/util/Collection; items
+	a list
+com/a/b/c/c/bg com/android/dx/dex/file/UniformItemSection
+	a (Lcom/a/b/c/c/ag;)I getAbsoluteItemOffset
+		0 item item
+	a_ (Lcom/a/b/g/a;)V writeTo0
+		0 out out
+	f_ ()I writeSize
+	a ()V orderItems
+	c ()V prepare0
+com/a/b/c/c/x com/android/dx/dex/file/EncodedMember
+	a (Lcom/a/b/c/c/t;Lcom/a/b/g/a;II)I encode
+	b ()I getAccessFlags
+	a accessFlags
+com/a/b/e/b/a com/android/dx/rop/code/AccessFlags
+	a (III)Ljava/lang/String; humanHelper
+		static
+		0 flags flags
+		1 mask mask
+		2 what what
+	d (I)Ljava/lang/String; methodString
+		static
+		0 flags flags
+	c (I)Ljava/lang/String; fieldString
+		static
+		0 flags flags
+	a (I)Ljava/lang/String; classString
+		static
+		0 flags flags
+	b (I)Ljava/lang/String; innerClassString
+		static
+		0 flags flags
+	f (I)Z isStatic
+		static
+		0 flags flags
+	e (I)Z isPrivate
+		static
+		0 flags flags
+	g (I)Z isSynchronized
+		static
+		0 flags flags
+	h (I)Z isPublic
+		static
+		0 flags flags
+	i (I)Z isNative
+		static
+		0 flags flags
+	j (I)Z isAnnotation
+		static
+		0 flags flags
+com/a/b/e/b/aa com/android/dx/rop/code/Rop
+	b ()Lcom/a/b/e/d/c; getResult
+	b result
+	f isCallLike
+	g nickname
+	a ()I getOpcode
+	d ()I getBranchingness
+	c ()Lcom/a/b/e/d/e; getSources
+	e ()Z isCallLike
+	f ()Z isCommutative
+	h ()Z canThrow
+	g ()Ljava/lang/String; getNickname
+	e branchingness
+	a opcode
+	c sources
+	d exceptions
+com/a/b/e/b/t com/android/dx/rop/code/RegOps
+	a (I)Ljava/lang/String; opName
+		static
+		0 opcode opcode
+	b (I)I flippedIfOpcode
+		static
+		0 opcode opcode
+com/a/b/e/b/g com/android/dx/rop/code/DexTranslationAdvice
+	a (Lcom/a/b/e/b/x;)I totalRopWidth
+		0 sources sources
+	a ()I getMaxOptimalRegisterCount
+	a (Lcom/a/b/e/b/aa;Lcom/a/b/e/b/u;Lcom/a/b/e/b/u;)Z hasConstantOperation
+		0 opcode opcode
+		1 sourceA sourceA
+		2 sourceB sourceB
+	a (Lcom/a/b/e/b/aa;Lcom/a/b/e/b/x;)Z requiresSourcesInOrder
+		0 opcode opcode
+		1 sources sources
+	c disableSourcesInOrder
+	a THE_ONE
+	b NO_SOURCES_IN_ORDER
+com/a/b/e/b/m com/android/dx/rop/code/InsnList
+	a (I)Lcom/a/b/e/b/j; get
+		0 n n
+	a (ILcom/a/b/e/b/j;)V set
+		0 n n
+		1 insn insn
+	a (Lcom/a/b/e/b/l;)V forEach
+		0 visitor visitor
+	a (Lcom/a/b/e/b/m;)Z contentEquals
+		0 b b
+	e ()Lcom/a/b/e/b/j; getLast
+com/a/b/e/c/ah com/android/dx/rop/cst/Zeroes
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/c/a; zeroFor
+		static
+		0 type type
+com/a/b/e/c/y com/android/dx/rop/cst/CstMethodHandle
+	a (ILcom/a/b/e/c/a;)Lcom/a/b/e/c/y; make
+		static
+		0 type type
+		1 ref ref
+	c (I)Ljava/lang/String; getMethodHandleTypeName
+		static
+		0 type type
+	a ()Lcom/a/b/e/d/c; getType
+	b (Lcom/a/b/e/c/a;)I compareTo0
+		0 other other
+	i ()Lcom/a/b/e/c/a; getRef
+	j ()I getMethodHandleType
+	a TYPE_NAMES
+	b type
+	c ref
+	b (I)Z isInvocation
+		static
+		0 type type
+	a (I)Z isAccessor
+		static
+		0 type type
+	h ()Ljava/lang/String; typeName
+	d ()Ljava/lang/String; toHuman
+	k ()Z isAccessor
+	g ()Z isCategory2
+	l ()Z isInvocation
+com/a/b/e/c/b com/android/dx/rop/cst/ConstantPool
+	a ()I size
+	a (I)Lcom/a/b/e/c/a; get
+	b (I)Lcom/a/b/e/c/a; get0Ok
+	c (I)Lcom/a/b/e/c/a; getOrNull
+com/a/b/e/d/e com/android/dx/rop/type/TypeList
+	a (I)Lcom/a/b/e/d/c; getType
+	a (Lcom/a/b/e/d/c;)Lcom/a/b/e/d/e; withAddedType
+	b_ ()Z isMutable
+	d_ ()I size
+com/a/b/f/a/i com/android/dx/ssa/back/InterferenceGraph
+	a (I)V ensureCapacity
+		0 size size
+	a (II)V add
+		0 regV regV
+		1 regW regW
+	a (ILcom/a/b/g/o;)V mergeInterferenceSet
+		0 reg reg
+		1 set set
+	a interference
+com/a/b/f/a/j com/android/dx/ssa/back/LivenessAnalyzer
+	a (Lcom/a/b/f/ap;)Lcom/a/b/f/a/i; constructInterferenceGraph
+		static
+		0 ssaMeth ssaMeth
+	a (Lcom/a/b/f/a/i;Lcom/a/b/e/b/u;Lcom/a/b/e/b/x;)V coInterferePhiRegisters
+		static
+		0 interference interference
+		1 result result
+		2 sources sources
+	a (Lcom/a/b/f/ap;Lcom/a/b/f/a/i;)V coInterferePhis
+		static
+		0 ssaMeth ssaMeth
+		1 interference interference
+	d ssaMeth
+	e interference
+	f blockN
+	h nextFunction
+	a ()V run
+	d ()V liveOutAtBlock
+	c ()V handleTailRecursion
+	e ()V liveInAtStatement
+	f ()V liveOutAtStatement
+	a visitedBlocks
+	b liveOutBlocks
+	c regV
+	g statementIndex
+	i $SWITCH_TABLE$com$android$dx$ssa$back$LivenessAnalyzer$NextFunction
+	b ()[I $SWITCH_TABLE$com$android$dx$ssa$back$LivenessAnalyzer$NextFunction
+		static
+com/a/b/f/aa com/android/dx/ssa/Optimizer
+	a (Lcom/a/b/e/b/ab;IZLjava/util/EnumSet;)Lcom/a/b/e/b/ab; optimizeMinimizeRegisters
+		static
+		0 rmeth rmeth
+		1 paramWidth paramWidth
+		2 isStatic isStatic
+		3 steps steps
+	a (Lcom/a/b/e/b/ab;IZZLcom/a/b/e/b/ah;)Lcom/a/b/e/b/ab; optimize
+		static
+		0 rmeth rmeth
+		1 paramWidth paramWidth
+		2 isStatic isStatic
+		3 inPreserveLocals inPreserveLocals
+		4 inAdvice inAdvice
+	a (Lcom/a/b/e/b/ab;IZZLcom/a/b/e/b/ah;Ljava/util/EnumSet;)Lcom/a/b/e/b/ab; optimize
+		static
+		0 rmeth rmeth
+		1 paramWidth paramWidth
+		2 isStatic isStatic
+		3 inPreserveLocals inPreserveLocals
+		4 inAdvice inAdvice
+		5 steps steps
+	a (Lcom/a/b/f/ap;Ljava/util/EnumSet;)V runSsaFormSteps
+		static
+		0 ssaMeth ssaMeth
+		1 steps steps
+	a ()Z getPreserveLocals
+		static
+	b ()Lcom/a/b/e/b/ah; getAdvice
+		static
+	a preserveLocals
+	b advice
+com/a/b/f/ai com/android/dx/ssa/SetFactory
+	b (I)Lcom/a/b/g/o; makeInterferenceSet
+		static
+		0 countRegs countRegs
+	a (I)Lcom/a/b/g/o; makeDomFrontSet
+		static
+		0 szBlocks szBlocks
+	c (I)Lcom/a/b/g/o; makeLivenessSet
+		static
+		0 countRegs countRegs
+com/a/b/f/am com/android/dx/ssa/SsaConverter
+	a (Lcom/a/b/f/ap;I)V updateSsaMethod
+		static
+		0 ssaMeth ssaMeth
+		1 threshold threshold
+	a (Lcom/a/b/f/ap;Lcom/a/b/f/v;I)V placePhiFunctions
+		static
+		0 ssaMeth ssaMeth
+		1 localInfo localInfo
+		2 threshold threshold
+	a (Lcom/a/b/f/aj;)Z nodeNeedsUniquePredecessor
+		static
+		0 block block
+	a (Lcom/a/b/f/aj;Lcom/a/b/f/aj;)Z needsNewSuccessor
+		static
+		0 block block
+		1 succ succ
+	a (Lcom/a/b/e/b/ab;IZ)Lcom/a/b/f/ap; convertToSsaMethod
+		static
+		0 rmeth rmeth
+		1 paramWidth paramWidth
+		2 isStatic isStatic
+	c (Lcom/a/b/f/ap;)V edgeSplitMoveExceptionsAndResults
+		static
+		0 ssaMeth ssaMeth
+	d (Lcom/a/b/f/ap;)V edgeSplitSuccessors
+		static
+		0 result result
+	a (Lcom/a/b/f/ap;)V edgeSplit
+		static
+		0 result result
+	b (Lcom/a/b/f/ap;)V edgeSplitPredecessors
+		static
+		0 result result
+com/a/b/f/as com/android/dx/ssa/SsaRenamer
+	a (I)Lcom/a/b/e/b/o; getLocalForNewReg
+		0 ssaReg ssaReg
+	a (Lcom/a/b/e/b/u;)V setNameForSsaReg
+		0 ssaReg ssaReg
+	a ssaMeth
+	e startsForBlocks
+	f ssaRegToLocalItems
+	b (Ljava/lang/Object;Ljava/lang/Object;)Z equalsHandlesNulls
+		static
+		0 a a
+		1 b b
+	b ([Lcom/a/b/e/b/u;)[Lcom/a/b/e/b/u; dupArray
+		static
+		0 orig orig
+	c (I)Z isVersionZeroRegister
+		0 ssaReg ssaReg
+	b (I)Z isBelowThresholdRegister
+		0 ssaReg ssaReg
+	d threshold
+	c ropRegCount
+	b nextSsaReg
+	a (Lcom/a/b/f/as;)I access$000
+		static
+	a (Lcom/a/b/f/as;I)Lcom/a/b/e/b/o; access$100
+		static
+	a (Lcom/a/b/f/as;Lcom/a/b/e/b/u;)V access$200
+		static
+	b (Lcom/a/b/f/as;I)Z access$300
+		static
+	b (Lcom/a/b/f/as;)[[Lcom/a/b/e/b/u; access$400
+		static
+	c (Lcom/a/b/f/as;)I access$500
+		static
+	c (Lcom/a/b/f/as;I)V access$600
+		static
+	d (Lcom/a/b/f/as;)Lcom/a/b/f/ap; access$700
+		static
+	d (Lcom/a/b/f/as;I)Z access$800
+		static
+		0 x0 x0
+		1 x1 x1
+	a (Ljava/lang/Object;Ljava/lang/Object;)Z access$EqualsHandlesNulls
+		static
+	a ([Lcom/a/b/e/b/u;)[Lcom/a/b/e/b/u; access$DupArray
+		static
+com/a/b/f/au com/android/dx/ssa/SsaRenamer$BlockRenamer
+	a (ILcom/a/b/e/b/u;)V addMapping
+		0 ropReg ropReg
+		1 ssaReg ssaReg
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 phi phi
+	a (Lcom/a/b/f/an;)V processResultReg
+		0 insn insn
+	a this$0
+	b block
+	c currentMapping
+	d movesToKeep
+	e insnsToReplace
+	f mapper
+	a ()V process
+	b ()V updateSuccessorPhis
+	a (Lcom/a/b/f/z;)V visitMoveInsn
+		0 insn insn
+	b (Lcom/a/b/f/z;)V visitNonMoveInsn
+		0 insn insn
+	a (Lcom/a/b/f/au;)[Lcom/a/b/e/b/u; access$000
+		static
+	b (Lcom/a/b/f/au;)Lcom/a/b/f/aj; access$100
+		static
+	c (Lcom/a/b/f/au;)Lcom/a/b/f/as; access$200
+		static
+com/a/b/f/b com/android/dx/ssa/ConstCollector
+	a (Lcom/a/b/f/ap;)V process
+		static
+		0 ssaMethod ssaMethod
+	a ()V run
+	a (Ljava/util/HashMap;I)V updateConstUses
+		0 newRegs newRegs
+		1 origRegCount origRegCount
+	b ()Ljava/util/ArrayList; getConstsSortedByCountUse
+	a ssaMeth
+	a (Lcom/a/b/f/b;)Lcom/a/b/f/ap; access$000
+		static
+		0 x0 x0
+com/a/b/f/g com/android/dx/ssa/DomFront
+	a ()[Lcom/a/b/f/h; run
+	a meth
+	b nodes
+	c domInfos
+	c ()V calcDomFronts
+	b ()V buildDomTree
+com/a/b/f/i com/android/dx/ssa/Dominators
+	a (Lcom/a/b/f/ap;[Lcom/a/b/f/h;Z)Lcom/a/b/f/i; make
+		static
+		0 meth meth
+		1 domInfos domInfos
+		2 postdom postdom
+	a ()V run
+	b (Lcom/a/b/f/aj;)V compress
+		0 in in
+	c (Lcom/a/b/f/aj;)Lcom/a/b/f/aj; eval
+		0 v v
+	a postdom
+	b meth
+	d info
+	f domInfos
+	a (Lcom/a/b/f/aj;)Ljava/util/BitSet; getPreds
+		0 block block
+	c blocks
+	e vertex
+	a (Lcom/a/b/f/i;)Ljava/util/ArrayList; access$000
+		static
+	b (Lcom/a/b/f/i;)[Lcom/a/b/f/j; access$100
+		static
+com/a/b/f/n com/android/dx/ssa/EscapeAnalysis$2
+	a (Lcom/a/b/f/aj;Lcom/a/b/f/aj;)V visitBlock
+		0 block block
+		1 unused unused
+	a this$0
+	a (Lcom/a/b/f/n;)Lcom/a/b/f/l; access$000
+		static
+com/a/b/f/x com/android/dx/ssa/MoveParamCombiner$1
+	a (Lcom/a/b/f/ac;)V visitPhiInsn
+		0 phi phi
+	a this$0
+	b val$paramSpecs
+	c val$deletedInsns
+	b (Lcom/a/b/f/z;)V visitNonMoveInsn
+		0 insn insn
+	a (Lcom/a/b/f/z;)V visitMoveInsn
+		0 insn insn
+	a (Lcom/a/b/f/x;)Lcom/a/b/f/w; access$000
+		static
+com/a/b/f/z com/android/dx/ssa/NormalSsaInsn
+	a ()Lcom/a/b/f/z; clone
+	a (ILcom/a/b/e/b/u;)V changeOneSource
+		0 index index
+		1 newSpec newSpec
+	a (Lcom/a/b/e/b/x;)V setNewSources
+		0 newSources newSources
+	a (Lcom/a/b/f/ag;)V mapSourceRegisters
+		0 mapper mapper
+	a (Lcom/a/b/f/ao;)V accept
+		0 v v
+	b ()Lcom/a/b/e/b/x; getSources
+	d ()Ljava/lang/String; toHuman
+	e ()Lcom/a/b/e/b/aa; getOpcode
+	g ()Lcom/a/b/e/b/u; getLocalAssignment
+	h ()V upgradeToLiteral
+	a insn
+	f ()Lcom/a/b/e/b/j; getOriginalRopInsn
+	c ()Lcom/a/b/e/b/j; toRopInsn
+	m ()Z hasSideEffect
+	i ()Z isNormalMoveInsn
+	k ()Z canThrow
+	j ()Z isMoveException
+	l ()Z isPhiOrMove
+	n ()Lcom/a/b/f/an; clone
+com/a/b/g/d com/android/dx/util/Bits
+	a (II)I findFirst
+		static
+		0 value value
+		1 idx idx
+	a ([IIZ)V set
+		static
+		0 bits bits
+		1 idx idx
+		2 value value
+	a ([I[I)V or
+		static
+		0 a a
+		1 b b
+	a ([II)Z get
+		static
+		0 bits bits
+		1 idx idx
+	a ([III)Z anyInRange
+		static
+		0 bits bits
+		1 start start
+		2 end end
+	a (I)[I makeBitSet
+		static
+		0 max max
+	b ([I)Z isEmpty
+		static
+		0 bits bits
+	d ([II)I findFirst
+		static
+		0 bits bits
+		1 idx idx
+	c ([I)I bitCount
+		static
+		0 bits bits
+	a ([I)I getMax
+		static
+		0 bits bits
+	b ([II)V set
+		static
+		0 bits bits
+		1 idx idx
+	c ([II)V clear
+		static
+		0 bits bits
+		1 idx idx
+com/a/b/g/o com/android/dx/util/IntSet
+	a ()I elements
+	a (Lcom/a/b/g/o;)V merge
+	b ()Lcom/a/b/g/m; iterator
+	b (I)Z has
+	a (I)V add
+com/a/b/g/q com/android/dx/util/LabeledList
+	a (I)V removeLabel
+		0 oldLabel oldLabel
+	a (II)V addLabelIndex
+		0 label label
+		1 index index
+	a (ILcom/a/b/g/p;)V set
+		0 n n
+		1 item item
+	c (I)I indexOfLabel
+		0 label label
+	j ()I getMaxLabel
+	a labelToIndex
+	i ()V shrinkToFit
+	e ()V rebuildLabelToIndex
+com/a/b/g/r com/android/dx/util/ListIntSet
+	a ()I elements
+	a (Lcom/a/b/g/o;)V merge
+		0 other other
+	b ()Lcom/a/b/g/m; iterator
+	b (I)Z has
+		0 value value
+	a ints
+	a (I)V add
+		0 value value
+com/a/b/g/v com/android/dx/util/Output
+	a (J)V writeLong
+	a (Lcom/a/b/g/e;)V write
+	a ([B)V write
+	g ()I getCursor
+	a (I)V writeByte
+	b (I)V assertCursor
+	c (I)V writeShort
+	d (I)V writeInt
+	g (I)V writeZeroes
+	h (I)V alignTo
+	e (I)I writeUleb128
+com/a/b/a/b/v com/android/dx/cf/code/LocalsArray
+	a ()Lcom/a/b/a/b/v; copy
+	a (Lcom/a/b/a/b/v;)Lcom/a/b/a/b/v; merge
+	a (Lcom/a/b/a/b/v;I)Lcom/a/b/a/b/w; mergeWithSubroutineCaller
+	a (ILcom/a/b/e/d/d;)V set
+	a (Lcom/a/a/a/b;)V annotate
+	a (Lcom/a/b/e/b/u;)V set
+	a (Lcom/a/b/e/d/c;)V makeInitialized
+	b ()Lcom/a/b/a/b/z; getPrimary
+	a (I)Lcom/a/b/e/d/d; get
+com/a/b/a/e/b com/android/dx/cf/iface/AttributeList
+	a (Lcom/a/b/a/e/a;)Lcom/a/b/a/e/a; findNext
+	a (Ljava/lang/String;)Lcom/a/b/a/e/a; findFirst
+	b_ ()Z isMutable
+	b ()I byteLength
+com/a/b/a/e/e com/android/dx/cf/iface/FieldList
+	a (I)Lcom/a/b/a/e/d; get
+	d_ ()I size
+com/a/b/a/e/h com/android/dx/cf/iface/MethodList
+	a (I)Lcom/a/b/a/e/g; get
+	d_ ()I size
+com/a/b/a/e/c com/android/dx/cf/iface/ClassFile
+	m ()Lcom/a/b/e/c/ad; getSourceFile
+	d ()I getAccessFlags
+com/a/b/d/c com/android/dx/io/OpcodeInfo$Info
+	a ()I getOpcode
+	b ()Ljava/lang/String; getName
+	a opcode
+	b name
+	c format
+	d indexType
+com/a/b/d/d com/android/dx/io/Opcodes
+	a (I)Z isValidShape
+		static
+		0 opcode opcode
+com/a/b/b/a/a com/android/dx/command/dexer/DxContext
+	b codeStatistics
+	c optimizerOptions
+	f noop
+	e err
+	d out
+	a DEFAULT
+com/a/b/c/a com/android/dx/dex/DexOptions
+	a ()Ljava/lang/String; getMagic
+	a (I)Z apiIsSupported
+		0 apiLevel apiLevel
+	b minSdkVersion
+	e err
+	d allowAllInterfaceMethodInvokes
+	c forceJumbo
+	a ALIGN_64BIT_REGS_IN_OUTPUT_FINISHER
+com/a/b/c/a/e com/android/dx/dex/cf/CodeStatistics
+	a (I)V updateOriginalByteCount
+		0 count count
+	a (Lcom/a/b/c/b/j;Lcom/a/b/c/b/j;)V updateDexStatistics
+		0 nonOptCode nonOptCode
+		1 code code
+	a (Lcom/a/b/e/b/ab;Lcom/a/b/e/b/ab;)V updateRopStatistics
+		0 nonOptRmeth nonOptRmeth
+		1 rmeth rmeth
+	g runningOriginalBytes
+	f dexRunningTotalInsns
+	e dexRunningDeltaInsns
+	d dexRunningDeltaRegisters
+	c runningTotalInsns
+	b runningDeltaInsns
+	a runningDeltaRegisters
+com/a/a/a/a com/android/dex/util/ByteOutput
+	a (I)V writeByte
+com/a/a/a/b com/android/dex/util/ExceptionWithContext
+	a (Ljava/lang/String;)V addContext
+		0 str str
+	a (Ljava/lang/Throwable;Ljava/lang/String;)Lcom/a/a/a/b; withContext
+		static
+		0 ex ex
+		1 str str
+	a context
+com/a/a/a com/android/dex/DexException
+com/a/a/c com/android/dex/DexIndexOverflowException
+com/a/a/d com/android/dex/EncodedValueCodec
+	a (Lcom/a/a/a/a;IJ)V writeSignedIntegralValue
+		static
+		0 out out
+		1 type type
+		2 value value
+	b (Lcom/a/a/a/a;IJ)V writeUnsignedIntegralValue
+		static
+		0 out out
+		1 type type
+		2 value value
+	c (Lcom/a/a/a/a;IJ)V writeRightZeroExtendedValue
+		static
+		0 out out
+		1 type type
+		2 value value
+com/a/a/e com/android/dex/Leb128
+	a (I)I unsignedLeb128Size
+		static
+		0 value value
+	b (Lcom/a/a/a/a;I)V writeSignedLeb128
+		static
+		0 out out
+		1 value value
+	a (Lcom/a/a/a/a;I)V writeUnsignedLeb128
+		static
+		0 out out
+		1 value value
+com/a/b/g/u com/android/dx/util/MutabilityException

@@ -26,6 +26,10 @@
     {
       "dir": "../jobs/aide",
       "probe_prefix": "abcd"
+    },
+    {
+      "dir": "../jobs/dx",
+      "probe_prefix": "com/a"
     }
   ],
   "src_root": [
@@ -69,6 +73,14 @@
     {
       "label": "jsch-0.1.55",
       "path": "$HOME/out/oracle/jsch/jsch-0.1.55.jar"
+    },
+    {
+      "label": "dx-1.16",
+      "path": "$HOME/out/oracle/dx/dx-1.16.jar"
+    },
+    {
+      "label": "dx-1.7",
+      "path": "$HOME/out/oracle/dx/dx-1.7.jar"
     }
   ],
   "out_dir": "out"
