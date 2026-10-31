@@ -52,6 +52,9 @@ python3 tools/jgit/pipeline/widen_access.py ~/out/merged_ok_try.jar \
         --out process/base/merged_pub.jar --apply        # 改写 29 个 class
 ```
 
+`tools/build/build_apk.py all` 已经把这条链路内置（`tryfix → widen → fart → dex → repack`，
+D8 前还会对改名产物跑一次 `audit/trycheck.py`，不为 0 就中止）。
+
 **3a 为什么需要**：AIDE 的 dex 里，有些 `try` 的 `end_pc` 止于数组加载**之前**
 （实测 `classes3.dex` 的 `try_item` 是 `start=0 count=8`，`aget-char` 在范围外），
 而这类代码恰恰靠"故意越界"判 EOF：

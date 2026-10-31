@@ -28,7 +28,7 @@ python3 tools/jgit/pipeline/rebuild_tsrg.py          # tsv → tsrg → process/
 python3 tools/jgit/pipeline/validate_mappings.py     # 期望 ✔ 无无效映射
 python3 tools/jgit/pipeline/verify_members.py        # 期望 不一致 0
 python3 tools/jgit/pipeline/inherit_check.py         # 期望 CONFLICT 0 / MISSING 0
-# 3) 构建（详见 docs/BUILD.md）
+# 3) 构建（详见 docs/BUILD.md；一条命令：python3 tools/build/build_apk.py all）
 ```
 
 ## 当前规模

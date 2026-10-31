@@ -427,16 +427,19 @@ def widen(jar, out=None, class_map=None, apply_=False):
         if c:
             b = bytearray(data)
             touched = False
-            if c.this in widen_cls and not (struct.unpack_from('>H', b, c.acc_off)[0] & ACC_PUBLIC):
-                struct.pack_into('>H', b, c.acc_off,
-                                 struct.unpack_from('>H', b, c.acc_off)[0] | ACC_PUBLIC)
-                touched = True
+            if c.this in widen_cls:
+                a0 = struct.unpack_from('>H', b, c.acc_off)[0]
+                if not (a0 & ACC_PUBLIC):
+                    struct.pack_into('>H', b, c.acc_off, (a0 & ~(ACC_PRIVATE | ACC_PROTECTED)) | ACC_PUBLIC)
+                    touched = True
             for kind, nm, ds in widen_mem.get(c.this, ()):
                 m = midx[c.this].get((nm, ds))
                 acc = struct.unpack_from('>H', b, m['acc_off'])[0]
-                if acc & (ACC_PUBLIC | ACC_PROTECTED):
+                if acc & ACC_PUBLIC:
                     continue
-                struct.pack_into('>H', b, m['acc_off'], acc | (ACC_PUBLIC if kind == 'f' else ACC_PROTECTED))
+                # 必须清掉 private/protected（三者只能存在一个，否则 dex 校验拒绝）；统一 public
+                struct.pack_into('>H', b, m['acc_off'],
+                                 (acc & ~(ACC_PRIVATE | ACC_PROTECTED)) | ACC_PUBLIC)
                 touched = True
             if touched:
                 data = bytes(b); changed += 1

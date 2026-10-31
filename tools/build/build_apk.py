@@ -106,41 +106,64 @@ def plan():
     return apk, dexes, du, ju, assets
 
 
-def step_fart(P):
-    out = os.path.join(OUT, 'renamed'); os.makedirs(out, exist_ok=True)
-    jars = src_jars()
-    for j in jars:
-        dst = os.path.join(out, os.path.basename(j))
-        print('  %s' % os.path.basename(j))
-        cmd = ['java', '-Xmx900m', '-jar', os.path.join(REPO, 'process', 'ForgeAutoRenamingTool-1.0.8-all.jar'),
-               '--input', j, '--output', dst, '--map', P.out_tsrg]
-        for lib in jars:
-            if lib != j:
-                cmd += ['--lib', lib]
-        cmd += ['--lib', os.path.join(REPO, 'process', 'android.jar')]
-        sh(cmd)
+ASSET_JARS = ('zh', 'en', 'ndk', 'packagingservice')
+MERGED_OK = os.path.join(REPO, 'process', 'base', 'merged_ok.jar')
+
+
+def _fart(inp, out, P, libs):
+    cmd = ['java', '-Xmx900m', '-jar',
+           os.path.join(REPO, 'process', 'ForgeAutoRenamingTool-1.0.8-all.jar'),
+           '--input', inp, '--output', out, '--map', P.out_tsrg]
+    for lib in libs:
+        cmd += ['--lib', lib]
+    cmd += ['--lib', os.path.join(REPO, 'process', 'android.jar')]
+    sh(cmd)
+
+
+def step_tryfix(P):
+    """AIDE 的 dex 里有些 try 不含数组访问（`Config$StringReader` 靠越界判 EOF），
+    不修就会 `ArrayIndexOutOfBoundsException`。必须在 widen / FART 之前。"""
+    dst = os.path.join(OUT, 'merged_try.jar')
+    sh([sys.executable, os.path.join(REPO, 'tools', 'jgit', 'pipeline', 'fix_try.py'),
+        MERGED_OK, dst, '--apply'])
 
 
 def step_widen(P):
-    import checks
-    cm = mapping.ClassMap(P.class_map, P.probe_prefix, P.class_map_prefix).load().dict
-    src = os.path.join(OUT, 'renamed'); dst = os.path.join(OUT, 'renamed_pub')
-    os.makedirs(dst, exist_ok=True)
-    for j in src_jars():
-        i = os.path.join(src, os.path.basename(j))
-        o = os.path.join(dst, os.path.basename(j))
-        stats, _ = checks.widen(i, o, cm, True)
-        print('  %-22s 放宽 类%d 成员%d → 改写 %d' % (os.path.basename(j), stats['classes'],
-                                                     stats['members'], stats.get('written', 0)))
+    """用 pipeline 里的权威实现：成员引用 + 类级访问（new/checkcast/const-class）+
+    继承（extends/implements）+ override 四类一起放宽，且成员统一 public。"""
+    src = os.path.join(OUT, 'merged_try.jar')      # 先 tryfix 再 widen（顺序不能反）
+    dst = os.path.join(OUT, 'merged_pub.jar')
+    if not os.path.exists(src):
+        raise SystemExit('缺少 %s，先跑 tryfix' % src)
+    sh([sys.executable, os.path.join(REPO, 'tools', 'jgit', 'pipeline', 'widen_access.py'),
+        src, '--out', dst, '--apply'])
+
+
+def step_fart(P):
+    out = os.path.join(OUT, 'renamed'); os.makedirs(out, exist_ok=True)
+    pub = os.path.join(OUT, 'merged_pub.jar')
+    if not os.path.exists(pub):
+        raise SystemExit('缺少 %s，先跑 tryfix + widen' % pub)
+    # 主 dex：合并包一次改名
+    _fart(pub, os.path.join(out, 'merged.jar'), P, [])
+    # assets 的 4 个独立包（不在 merged 里）
+    for name in ASSET_JARS:
+        src = os.path.join(REPO, 'process', 'src', name + '.jar')
+        if os.path.exists(src):
+            _fart(src, os.path.join(out, name + '.jar'), P, [pub])
 
 
 def step_dex(P):
     out = os.path.join(OUT, 'dex'); os.makedirs(out, exist_ok=True)
     for f in glob.glob(os.path.join(out, '*.dex')):
         os.remove(f)
-    src = os.path.join(OUT, 'renamed_pub')
-    mains = [j for j in src_jars() if re.search(r'classes\d*\.jar$', j)]
-    inputs = [os.path.join(src, os.path.basename(j)) for j in mains]
+    src = os.path.join(OUT, 'renamed', 'merged.jar')
+    if not os.path.exists(src):
+        raise SystemExit('缺少 %s，先跑 fart' % src)
+    r = subprocess.run([sys.executable, os.path.join(REPO, 'tools', 'jgit', 'audit', 'trycheck.py'), src])
+    if r.returncode:
+        raise SystemExit('改名产物里还有 try 范围缺陷（见上），说明 tryfix 没生效')
+    inputs = [src]
     sh(['java', '-Xmx1200m', '-cp', os.path.join(REPO, 'process', 'd8.jar'),
         'com.android.tools.r8.D8', '--release', '--min-api', '26', '--thread-count', '2',
         '--lib', os.path.join(REPO, 'process', 'android.jar'), '--output', out] + inputs)
@@ -157,7 +180,7 @@ ASSET_MAP = {'en.jar': 'assets/data/functions/lang/en.jar',
 def step_repack(P):
     apk = apk_path(); out = os.path.join(OUT, 'apk'); os.makedirs(out, exist_ok=True)
     dst = os.path.join(out, os.path.basename(apk))
-    newdex = sorted(glob.glob(os.path.join(OUT, 'dex', '*.dex')))
+    newdex = sorted(glob.glob(os.path.join(OUT, 'dex', '*.dex')))  # 多退少补（数量会变）
     if not newdex:
         raise SystemExit('没有 dex 产物，先跑 dex 步骤')
     z = zipfile.ZipFile(apk)
@@ -165,7 +188,7 @@ def step_repack(P):
     payload = {}
     for i, f in enumerate(newdex, 1):
         payload['classes.dex' if i == 1 else 'classes%d.dex' % i] = open(f, 'rb').read()
-    renamed = os.path.join(OUT, 'renamed_pub')
+    renamed = os.path.join(OUT, 'renamed')
     for key, entry in ASSET_MAP.items():
         src = [p for p in glob.glob(os.path.join(renamed, '*.jar')) if os.path.basename(p) == key + '.jar']
         if src and entry in z.namelist():
@@ -248,13 +271,16 @@ def main():
         _APK_OVERRIDE = a.apk if os.path.isabs(a.apk) else os.path.join(REPO, a.apk)
     P = config.load(a.project)
     os.makedirs(OUT, exist_ok=True)
-    steps = ['plan', 'fart', 'widen', 'dex', 'repack', 'sign', 'verify'] if a.step == 'all' else [a.step]
+    steps = (['plan', 'tryfix', 'widen', 'fart', 'dex', 'repack', 'sign', 'verify']
+             if a.step == 'all' else [a.step])
     apk, dexes, du, ju, assets = plan()
     for s in steps:
         if s == 'plan':
             continue
         print('== %s' % s)
-        if s == 'fart':
+        if s == 'tryfix':
+            step_tryfix(P)
+        elif s == 'fart':
             step_fart(P)
         elif s == 'widen':
             step_widen(P)

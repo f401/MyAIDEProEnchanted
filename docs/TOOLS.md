@@ -44,6 +44,7 @@ tools/
 | `widen_access.py` | **跨包 access 放宽**（成员/类/父类/接口 → `public`；覆盖成员引用 + 类级访问 + 继承 + override 四类）；`--report` 只看，写完自检 access 冲突 |
 | `fix_try.py` | 把"try 范围不含数组访问"的异常表修回源码语义（`Config$StringReader` 那类靠越界判 EOF 的代码） |
 | `coverage.py` | 覆盖率（分母取 3.7.1；命中判定看**所有** oracle 版本；未命中写 `~/out/work/cov_miss.tsv`） |
+| `audit/trycheck.py` | 体检：jar 里还有没有"catch IndexOutOfBounds 但 try 不含数组访问"的方法（应为 0） |
 | `jar_manifest.py` | jar **内容指纹**（与 zip 布局无关），用于“两次 FART 是否一致” |
 | `nop_clinit.py` | 把方法体里显式 `invokestatic <clinit>` 换 NOP（D8 不收） |
 
