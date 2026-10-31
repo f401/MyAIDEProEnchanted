@@ -242,13 +242,18 @@ def step_verify(P):
     du = set()
     for d in [n for n in z2.namelist() if re.fullmatch(r'classes\d*\.dex', n)]:
         du |= dex_classes(z2.read(d))
-    ju = set()
-    for j in src_jars():
-        if re.search(r'classes\d*\.jar$', j):
-            ju |= jar_classes(os.path.join(OUT, 'renamed_pub', os.path.basename(j)))
+    # 主 dex 的类来自改名后的合并包（assets 的 4 个包是 jar/zip，不在 dex 里）
+    merged = os.path.join(OUT, 'renamed', 'merged.jar')
+    if not os.path.exists(merged):
+        raise SystemExit('缺少 %s，先跑 fart' % merged)
+    ju = jar_classes(merged)
     print('  新 dex 并集 %d 类 / 改名后 jar 并集 %d 类' % (len(du), len(ju)))
     miss = ju - du
-    extra = du - ju
+    # D8 会自己生成合成类（$$ExternalSyntheticBackport…、-$$Lambda$…），不算差异
+    raw_extra = du - ju
+    extra = {c for c in raw_extra if '$$ExternalSynthetic' not in c and '-$$Lambda$' not in c}
+    if len(raw_extra) - len(extra):
+        print('   （忽略 D8 生成的合成类 %d 个）' % (len(raw_extra) - len(extra)))
     ok = not miss and not extra
     if miss:
         print('    ✘ jar 里有但 dex 里没有: %d 例 %s' % (len(miss), sorted(miss)[:5]))
