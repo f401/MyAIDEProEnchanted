@@ -41,13 +41,16 @@ def sh(cmd, **kw):
 _APK_OVERRIDE = None
 
 
-def apk_path():
+def dex_apk():
+    """**源 APK**：dex 与 `process/src/classes*.jar` 对得上的那个（体检口径）。
+
+    用来验证"我们的 jar 确实来自这个包的 dex"，优先选 dex 数与 classes*.jar 数一致的。
+    """
     if _APK_OVERRIDE:
         return _APK_OVERRIDE
     cands = sorted(glob.glob(os.path.join(REPO, '*.apk'))) + sorted(glob.glob(os.path.join(REPO, '*.apk.orig')))
     if not cands:
         raise SystemExit('找不到 APK（仓库根目录放一个 .apk / .apk.orig）')
-    # 优先选 dex 数量与 process/src 里 classes*.jar 数量一致的
     import re as _re
     njars = len([j for j in src_jars() if _re.search(r'classes\d*\.jar$', j)])
     for c in cands:
@@ -59,6 +62,28 @@ def apk_path():
         except Exception:
             pass
     return cands[0]
+
+
+def base_apk():
+    """**回填底包**：`src/` 下 apktool 打出来的那个 APK。
+
+    为什么用它而不是源 APK：`src/` 是 apktool 反编译出来的树（`res/`、`AndroidManifest.xml`、
+    `assets/`），`src/*.apk` 是这棵树 `apktool b` 的产物 —— 资源/清单和树一致。
+    回填只换 dex 与 4 个 assets 包，其余条目按底包原样带过去，所以底包必须"和当前树同源"。
+    （源 APK 是**改造前**的原始包，拿它当底包会把 `src/` 里的资源改动丢掉。）
+    """
+    if _APK_OVERRIDE:
+        return _APK_OVERRIDE
+    cands = [p for p in glob.glob(os.path.join(REPO, 'src', '*.apk'))
+             if not p.endswith(('.bak', '.orig', '.aligned.apk', '.signed.apk'))]
+    if cands:
+        return max(cands, key=os.path.getmtime)      # 多个就取最新的
+    return dex_apk()
+
+
+def apk_path():
+    """兼容旧名字（历史脚本/文档里用过）：指向**回填底包**。"""
+    return base_apk()
 
 
 def src_jars():
@@ -82,8 +107,11 @@ def jar_classes(path):
 
 
 def plan():
-    """返回 (apk, dex_union, jar_union, assets)。只做体检，不改任何东西。"""
-    apk = apk_path()
+    """返回 (apk, dex_union, jar_union, assets)。只做体检，不改任何东西。
+
+    `apk` 是**源 APK**（dex↔jar 对齐用）；回填底包另见 `base_apk()`。
+    """
+    apk = dex_apk()
     z = zipfile.ZipFile(apk)
     dexes = [n for n in z.namelist() if re.fullmatch(r'classes\d*\.dex', n)]
     du = set()
@@ -95,7 +123,11 @@ def plan():
             ju |= jar_classes(j)
     assets = {n: z.getinfo(n).file_size for n in z.namelist()
               if n.endswith(('.jar', '.zip')) and n.startswith('assets/data/functions/')}
-    print('APK: %s' % os.path.basename(apk))
+    print('源 APK（dex↔jar 对齐）: %s' % os.path.basename(apk))
+    try:
+        print('回填底包（src/ 下的 apktool 产物）: %s' % os.path.basename(base_apk()))
+    except SystemExit:
+        pass
     print('  dex: %s → 并集 %d 类' % (', '.join('%s(%d)' % (d, len(dex_classes(z.read(d)))) for d in dexes), len(du)))
     print('  jar: %s → 并集 %d 类' % (', '.join(os.path.basename(j) for j in src_jars()), len(ju)))
     inter = len(du & ju)
@@ -178,7 +210,7 @@ ASSET_MAP = {'en.jar': 'assets/data/functions/lang/en.jar',
 
 
 def step_repack(P):
-    apk = apk_path(); out = os.path.join(OUT, 'apk'); os.makedirs(out, exist_ok=True)
+    apk = base_apk(); out = os.path.join(OUT, 'apk'); os.makedirs(out, exist_ok=True)
     dst = os.path.join(out, os.path.basename(apk))
     newdex = sorted(glob.glob(os.path.join(OUT, 'dex', '*.dex')))  # 多退少补（数量会变）
     if not newdex:
@@ -195,7 +227,13 @@ def step_repack(P):
             payload[entry] = open(src[0], 'rb').read()
     zo = zipfile.ZipFile(dst, 'w', zipfile.ZIP_DEFLATED)
     written = 0
+    dropped_sig = 0
     for info in z.infolist():
+        # 底包自带旧签名（src 那个是 META-INF/TERMUX.RSA）——不剔掉的话重新签名后
+        # 会同时存在两套 v1 签名，安装器直接判签名不符。反正后面要重签，全部丢掉。
+        if re.fullmatch(r'META-INF/[^/]+\.(SF|RSA|DSA|EC)', info.filename, re.I):
+            dropped_sig += 1
+            continue
         if info.filename in old:
             if info.filename in payload:
                 data = payload.pop(info.filename)
@@ -214,7 +252,8 @@ def step_repack(P):
         zi.compress_type = zipfile.ZIP_DEFLATED
         zo.writestr(zi, data); written += 1
     zo.close()
-    print('  旧 dex %d 个 → 新 dex %d 个；写入 %d 条目 → %s' % (len(old), len(newdex), written, dst))
+    print('  旧 dex %d 个 → 新 dex %d 个；写入 %d 条目（剔除旧签名 %d 个）→ %s' % (
+        len(old), len(newdex), written, dropped_sig, dst))
     return dst
 
 
@@ -234,7 +273,7 @@ def step_sign(apk, ks=None):
 
 
 def step_verify(P):
-    apk = apk_path(); z = zipfile.ZipFile(apk)
+    apk = base_apk()
     dst = os.path.join(OUT, 'apk', os.path.basename(apk))
     if not os.path.exists(dst):
         raise SystemExit('还没 repack')
@@ -294,7 +333,7 @@ def main():
         elif s == 'repack':
             step_repack(P)
         elif s == 'sign':
-            step_sign(os.path.join(OUT, 'apk', os.path.basename(apk_path())), a.ks)
+            step_sign(os.path.join(OUT, 'apk', os.path.basename(base_apk())), a.ks)
         elif s == 'verify':
             step_verify(P)
     return 0

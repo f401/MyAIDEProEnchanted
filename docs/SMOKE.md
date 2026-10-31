@@ -6,7 +6,8 @@
 
 | 项 | 说明 |
 |---|---|
-| 输入 APK | 自动选与 `process/src/classes*.jar` 数量一致的包（当前是 `AIDE Pro_2.8.7-freely_orig_src.apk.orig`，5 dex ↔ 5 jar，类集**完全一致**） |
+| 源 APK（体检） | 自动选与 `process/src/classes*.jar` 数量一致的包（当前是 `AIDE Pro_2.8.7-freely_orig_src.apk.orig`，5 dex ↔ 5 jar，类集**完全一致**） |
+| 回填底包 | `src/` 下 apktool 打出来的产物（`src/AIDE Pro_2.8.7-freely_ac_src_src (2).apk`）：和 `src/` 这棵树同源，回填只换 dex + 4 个 assets 包；底包自带的旧签名（`META-INF/TERMUX.RSA`）会被剔掉再重签 |
 | 构建产物 | `out/build/apk/<原包名>`（dex 已替换）；有 SDK 时再 zipalign + apksigner |
 | 签名 | 仓库不含原作者私钥。二选一：①用自己的 keystore 签（需**卸载**原 AIDE Pro，会丢应用数据）；②拿原私钥签（可覆盖安装） |
 | 设备 | 已连 adb（`adb devices`），或手机本地安装 |

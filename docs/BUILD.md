@@ -150,10 +150,20 @@ java -Xmx1200m -cp process/d8.jar com.android.tools.r8.D8 \
 
 dex 数量会变，所以**不能**像以前那样 `cp` 固定几个；按下面的"多退少补"重写 zip：
 
+底包用**哪一个 APK**要分清（搞错过一次）：
+
+| 角色 | 文件 | 用途 |
+|---|---|---|
+| **源 APK** | `AIDE Pro_2.8.7-freely_orig_src.apk.orig`（5 dex） | dex → `process/src/classes*.jar` 的来源，用于"jar 是否真出自这个包"的对齐体检 |
+| **回填底包** | `src/AIDE Pro_2.8.7-freely_ac_src_src (2).apk`（apktool 产物） | **回填时用它**：它和 `src/` 这棵树同源（`res/`、`AndroidManifest.xml`、`assets/` 一致） |
+
+拿源 APK 当底包会把 `src/` 里做过的资源改动全部丢掉（源包是**改造前**的包）。
+`build_apk.py` 里已按这个区分：`dex_apk()` = 源包（体检），`base_apk()` = `src/` 下的底包（repack/sign/verify）。
+
 ```bash
 python3 - <<'EOF'
-import zipfile, glob, os
-src = 'AIDE Pro_2.8.7-freely_orig_src.apk.orig'      # 未改名的原包
+import zipfile, glob, os, re
+src = 'src/AIDE Pro_2.8.7-freely_ac_src_src (2).apk'   # 底包：src/ 下的 apktool 产物
 dst = 'out/build/AIDE-repacked.apk'
 new = sorted(glob.glob('out/build/dex/*.dex'),
              key=lambda p: (0 if os.path.basename(p) == 'classes.dex'
@@ -170,6 +180,8 @@ for k, e in {'en.jar': 'assets/data/functions/lang/en.jar',
 z = zipfile.ZipFile(src); zo = zipfile.ZipFile(dst, 'w', zipfile.ZIP_DEFLATED)
 for info in z.infolist():
     n = info.filename
+    if re.fullmatch(r'META-INF/[^/]+\.(SF|RSA|DSA|EC)', n, re.I):
+        continue                                        # 底包自带旧签名（TERMUX.RSA）→ 重签前剔掉
     if n.startswith('classes') and n.endswith('.dex'):
         if n in payload: data = payload.pop(n)
         else: continue                                  # 旧 dex 多 → 丢掉
