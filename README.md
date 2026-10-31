@@ -35,13 +35,13 @@ python3 tools/jgit/pipeline/inherit_check.py         # 期望 CONFLICT 0 / MISSI
 
 | 指标 | 值 |
 |---|---|
-| 类映射 | 740（其中 `abcd/aide/*` 53 个 AIDE 自有类） |
-| 成员映射 | 5538 行（只放真实改名） |
-| mappings.txt | 10094 行 = 表头 1 + 头部 20 + 类块 733 + 成员行 5547 + `static` 531 + 参数行 3262 |
-| 覆盖率 | 方法 3501/3533 = **99.1%**、字段 1848/1855 = **99.6%**、完全覆盖类 **604** |
-| 参数名 | 1936 个方法（jgit 1919 / jsch 5 / aide 12）：1667 由 oracle LVT、122 由源码声明、15 由手工证据 |
-| 真相分表 | `jgit` 685 类 / `jsch` 2 类 / `aide` 53 类；`head` 20 行历史补丁 |
-| 认证 | verify 不一致 0；inherit CONFLICT 0 / MISSING 0；validate ✔ 无无效映射 |
+| 类映射 | 875（`jgit` 685 / `jsch` 135 / `aide` 55，其中 `abcd/aide/*` 55 个 AIDE 自有类） |
+| 成员映射 | 6663 行（只放真实改名；jgit 5502 / jsch 1130 / aide 31） |
+| mappings.txt | 12193 行 = 表头 1 + 头部 12 + 类块 878 + 成员行 6671 + `static` 591 + 参数行 4040 |
+| 覆盖率 | jgit：方法 3501/3533 = **99.1%**、字段 1848/1855 = **99.6%**、完全覆盖类 **604**；jsch：方法 642/897 = 71.6%、字段 488/537 = 90.9%（口径见 `deob members` 报告） |
+| 参数名 | 2340 个方法（jgit 1919 / jsch 409 / aide 12）= 4040 行：3665 由 oracle LVT、357 由源码声明、15 由手工证据 |
+| 真相分表 | `jgit` 685 类 / `jsch` 139 类 / `aide` 55 类；`head` 12 行历史补丁 |
+| 认证 | verify 不一致 0；inherit CONFLICT 0 / MISSING 0；validate ✔ 无无效映射；mgraph 未对上 1.2% |
 
 ## 文档
 

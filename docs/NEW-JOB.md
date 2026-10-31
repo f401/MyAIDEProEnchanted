@@ -98,6 +98,30 @@ $D widen base/merged.jar --apply       # 跨包 access 放宽（挪不了包的�
 $D cover                               # 指标（分母=R8 未删的）
 ```
 
+## 5b. 如果类名没被混淆（只有成员被改名）
+
+有些库只被改了成员名（jsch：`com/jcraft/jsch/*` 147 个类名原样，方法/字段变成 `j6/DW/FH…`）。
+这时第 3 步"类级定名"退化成恒等，直接走批量：
+
+```bash
+D="python3 tools/deob/cli.py -p jobs/mylib/deob.json"
+$D members --pkg=com/example/lib --part=main          # 出报告，先看数字与 TODO
+$D members --pkg=com/example/lib --part=main --apply  # 写 class_map.tsv + members.tsrg
+$D mgraph  --pkg=com/example/lib                      # 调用图自证（门 10）
+```
+
+三个前提，缺一个就会大面积对不上：
+
+1. `deob.json` 里要有 `probe_roots`（一个 APK 的类常分散在 `smali`、`smali_classes2`…；
+   `probe_dir` 只够放一个）；
+2. oracle jar 要**真是那个版本**（jsch 就是 `jsch-0.1.55`；差一个小版本，方法体就会整片对不上）；
+3. `params` 那步用同一个 oracle（`deob params --apply` 会自动按 part 找得到，因为 jsch 的类只在那一个 jar 里）。
+
+类的**恒等行会自动补**（`members` 写成员时顺带给 `class_map.tsv` 补 `探针 探针` 行）——
+TSRG2 的成员行必须挂在类行下面，否则 `emit` 不会输出这些块（这是最容易踩的一脚）。
+
+判据与边界见 [NAMING.md](NAMING.md) §3c；报告里 `TODO:` 开头的行就是"判不出、故意留空"的清单。
+
 ## 6. 改名与出包
 
 与 [BUILD.md](BUILD.md) §3~§6 同一条链路，只是路径换成 `jobs/<名字>/`：

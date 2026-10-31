@@ -192,7 +192,7 @@ class MemberMap:
                 continue
             if kind == 'm' and len(f) >= 3 and f[0] == name and f[1] == desc:
                 return i
-            if kind == 'f' and len(f) >= 2 and f[0] == name:
+            if kind == 'f' and len(f) == 2 and f[0] == name:
                 return i
         return None
 

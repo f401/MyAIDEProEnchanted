@@ -42,20 +42,21 @@ $D widen process/base/merged_ok.jar          # --map 缺省 = paths.MAP（合并
 $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 ```
 
-## 当前基线（九道门最近一次全绿）
+## 当前基线（十道门最近一次全绿）
 
 | 门 | 期望输出 |
 |---|---|
 | 0 `filter_head` | `保留块 19 / 删块 0 / 删行 0` |
-| 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 2 / aide 53`，合计 `类块 740`、`丢陈旧块 0`、`去重成员 0` |
-| 1' `paramfill` | `方法映射 3307 条：命中 2963（无参 1174 / jar 参数全 1667 / 源码补全 122 / 仍缺 0）`；`参数行 3034 条（1789 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3025 / jsch 9） |
-| 1'' `emit_tsrg2` | `9838 行，static 方法标记 530 / 参数行 3034` |
-| 2 `validate_mappings` | `类块 753（含头部 20）/ 成员行 5547 / 参数行 3262 / 基线类 23635` → **✔ 无无效映射** |
-| 3 `verify_members` | `成员映射 5352 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 222` |
+| 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 139 / aide 55`，合计 `类块 879`、`丢陈旧块 0`、`去重成员 0` |
+| 1' `paramfill` | `参数行 4022 条（2328 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3238 / jsch 784 / aide 15） |
+| 1'' `emit_tsrg2` | `12193 行，static 方法标记 591 / 参数行 4040` |
+| 2 `validate_mappings` | `类块 890（含头部 12）/ 成员行 6671 / 参数行 4040 / 基线类 23635` → **✔ 无无效映射** |
+| 3 `verify_members` | `成员映射 5376 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 223` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
-| 5 `pkgclose` | `约束边 464 / 需要挪的类 0 / 真冲突 3 组`（真冲突交给门 7） |
+| 5 `pkgclose` | `约束边 717 / 需要挪的类 0 / 真冲突 7 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |
 | 6 `coverage` | 方法 **3501/3533 = 99.1%**、字段 **1848/1855 = 99.6%**、类 623、完全覆盖 **604**；未入分母：方法 890 / 字段 496；未命中明细 39 条 → `~/out/work/cov_miss.tsv` |
-| 7 `widen_access --report` | `跨包需放宽：类 24 / 成员 56`（`--apply` 改写 11 个 class） |
+| 7 `widen_access --report` | `跨包需放宽：类 31 / 成员 58`（`--apply` 改写对应 class） |
+| 10 `deob mgraph --pkg=com/jcraft/jsch` | `调用图自证：488 个方法 / 2225 条已定名引用，未对上 27 条（1.2%），可疑方法 2 个`（jsch 侧一致性，见门 10 一节） |
 
 ## 门 0：`filter_head.py`
 
@@ -126,7 +127,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 例如 `BinaryDelta.getBaseSize/getResultSize` 都 `([B)J`、`LongList.set/fillTo` 都 `(IJ)V`），
 映射无法再拆，属度量口径的固有局限。
 
-通用版 `deob cover` 分母略大（78.0%/94.9%），仅作参考。
+通用版 `deob cover` 分母略大（方法 77.2%、字段 93.9%，含 jsch 的 147 类），仅作参考。
 
 ## 门 7：`widen_access.py`
 
@@ -163,9 +164,9 @@ H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 
 | 期望 | 说明 |
 |---|---|
-| `命中 2963（无参 1174 / jar 参数全 1667 / 源码补全 122 / 仍缺 0）` | 「仍缺 0」= 凡有参数、且有 oracle 对应的方法都拿到了名字 |
-| 未命中 `无类映射 143 / 方法名不同 95 / 描述符不同 106` | 没有 oracle 对应物，故意留空（不编语义） |
-| 参数行 `3262`（1936 个方法）= jgit 3238 / jsch 9 / aide 15 | jgit 含 139 个构造器（`<init>` 的 LVT）；aide 的 15 行来自 `params_manual.tsv` |
+| `方法映射 4187 条：命中 3845（无参 1480 / jar 参数全 2130 / 源码补全 190 / 仍缺 45）` | 「仍缺 45」是参数名取不到但方法本身有 oracle 的（AIDE 魔改签名） |
+| 未命中 `无类映射 146 / 方法名不同 95 / 描述符不同 101` | 没有 oracle 对应物，故意留空（不编语义） |
+| 参数行 `4040`（`mappings.txt` 实际行数；`paramfill` 自报 4022 条 / 2328 个方法）= jgit 3238 / jsch 784 / aide 15 | jgit 含 139 个构造器（`<init>` 的 LVT）；aide 的 15 行来自 `params_manual.tsv` |
 | 重跑 `paramfill.py --write` 后各 `jobs/<依赖>/params.tsv` 不变 | 幂等；成员改名后必须重跑（`rebuild_tsrg` 已自动串起来） |
 
 **参数行对产物有没有副作用**（新旧 mapping 各跑一遍 FART 比 22763 个条目）：
@@ -173,7 +174,30 @@ H2=$(python3 tools/jgit/pipeline/jar_manifest.py out/v2.jar --list)
 | 结果 | 说明 |
 |---|---|
 | 条目数/顺序一致，`.class` 逐字节相同 | 输入类没有 `LocalVariableTable`，FART 没东西可改 |
-| 唯一差异：`fernflower_abstract_parameter_names.txt`，122 行从 `varN` 变成真名（jgit 117 + jsch 5） | 这是**收益**：Fernflower 反编译抽象方法时能显示真参数名 |
+| 唯一差异：`fernflower_abstract_parameter_names.txt`，357 行从 `varN` 变成真名（jgit 251 + jsch 106） | 这是**收益**：Fernflower 反编译抽象方法时能显示真参数名 |
+
+## 门 10：`deob mgraph`（调用图自证）
+
+改完映射最容易留下的错不是"编造"，而是**错位**：同名同描述符的一族方法（四个 `setXxx(I)V`、
+`write`/`write_ext`、一堆 `getXxx()Ljava/lang/String;`）在方法体相似时会被配错一位。
+`mgraph` 把这种错误变成可复现的数字：
+
+```bash
+python3 tools/deob/cli.py -p process/deob.json mgraph --pkg=com/jcraft/jsch
+# 调用图自证：482 个方法 / 2218 条已定名引用，未对上 25 条（1.1%），可疑方法 1 个
+```
+
+判据：把探针方法里**已定名**的引用译成 `(种类, 名, 描述符)`，与 oracle 同一方法体的引用集比。
+对不上的比例超过 1/3 就列为可疑。
+
+- 只看**已定名**引用 + 非本依赖的类（JDK/Android）：本依赖里还没定名的引用无法判定，跳过；
+- **不比 owner**：继承来的字段，javac 记的 owner 可能是子类（`ChannelDirectTCPIP.io` vs `Channel.io`），
+  比 owner 会假报警；
+- AIDE 魔改过的方法体（crypto/provider 换实现、`DHG1.next` 之类）会有真实差异，这类算"已知差异"，
+  在报告里看得到、不强行改判。
+
+`deob members` 内部用同一套判据做**按图修复**（`repair_by_graph`）：非证明级的方法，
+如果另一个候选能对上更多引用，就改判（会打印 `改判 … → …（对上引用 1→2）`）。
 
 ## 一页速查
 

@@ -213,7 +213,7 @@ def inherit(project, limit=200):
     conflicts, missing = [], []
     for probe_w, target, _ev in cm.rows:
         probe = cm.full_probe(probe_w)
-        path = idx.file_for(project.probe_dir, probe)
+        path = idx.file_for(getattr(project, "probe_search", None) or project.probe_dir, probe)
         if not os.path.exists(path):
             continue
         pr = smali.parse(path)
@@ -232,7 +232,7 @@ def inherit(project, limit=200):
                     conflicts.append((probe, sup, name, desc, new, anc))
                 elif anc is None:
                     # 祖先是否声明了该成员但没映射？
-                    sp = idx.file_for(project.probe_dir, sup)
+                    sp = idx.file_for(getattr(project, "probe_search", None) or project.probe_dir, sup)
                     if not os.path.exists(sp):
                         continue
                     spr = smali.parse(sp)
@@ -539,7 +539,7 @@ def cover(project):
         label, om = ora.find(target)
         if not om:
             continue
-        path = idxs.file_for(project.probe_dir, probe)
+        path = idxs.file_for(getattr(project, "probe_search", None) or project.probe_dir, probe)
         if not os.path.exists(path):
             continue
         pr = smali.parse(path)

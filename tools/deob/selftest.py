@@ -46,7 +46,9 @@ def main():
     mm = mapping.MemberMap(P.member_map).load()
     def weight(r):
         return -len(mm.blocks.get(cm.full_probe(r[0]), []))
-    pick = sorted([r for r in cm.rows if cm.full_probe(r[0]) in mm.blocks],
+    pre = P.probe_prefix.rstrip('/') + '/'
+    pick = sorted([r for r in cm.rows
+                   if cm.full_probe(r[0]) in mm.blocks and cm.full_probe(r[0]).startswith(pre)],
                   key=weight)[:8]
     if not pick:
         print('FAIL 取不到子集（class_map/member_map 不匹配）'); return 1
@@ -62,7 +64,7 @@ def main():
     cmap = cm.dict
     while frontier:
         c = frontier.pop()
-        path = _idx.file_for(P.probe_dir, c)
+        path = _idx.file_for(getattr(P, "probe_search", None) or P.probe_dir, c)
         if not os.path.exists(path):
             continue
         pr = smali.parse(path)
@@ -180,7 +182,7 @@ def main():
     # 4) 前缀/索引回退：无 smali_index 时仍能定位类文件
     idx = smali.Index(None)
     p0 = cm.full_probe(pick[0][0])
-    check('index-fallback', idx.file_for(P.probe_dir, p0).endswith('.smali'))
+    check('index-fallback', idx.file_for(getattr(P, "probe_search", None) or P.probe_dir, p0).endswith('.smali'))
 
     # 5) 隔离：源工程的三张表必须一字未改（只读）
     import hashlib

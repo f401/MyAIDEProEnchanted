@@ -13,6 +13,8 @@
     inherit                    继承链闭合检查（CONFLICT / MISSING）
     pkgs [--apply]             包归属求解（同包才能访问 package-private）
     widen <jar> [--out F] [--apply]   跨包 access 放宽
+    members --pkg P [--part N] [--apply]   成员级批量定名（类身份已知时的重载/字段消歧）
+    mgraph --pkg P             调用图自证（探针 A→B 与 oracle A'→B' 逐条对照）
     cover                      覆盖率（分母=有同形对应者的 oracle 成员）
     manifest <jar>             jar 内容指纹
     q|prof|dump|hdr|elim|iface|shape <类...>   读码/定名辅助
@@ -199,6 +201,36 @@ def main():
             print('   ', r)
         if a.apply:
             print('已写出 %s（改写 %d 个 class）' % (stats['out'], stats['written']))
+
+    elif a.cmd in ('members', 'mgraph'):
+        import membermatch
+
+        def opt(name, default=None):
+            for x in a.args:
+                if x.startswith('--%s=' % name):
+                    return x.split('=', 1)[1]
+            return default
+        pkg = opt('pkg') or next((x for x in a.args if not x.startswith('-')), None)
+        if not pkg:
+            raise SystemExit('用法: members --pkg com/example/lib [--part 名字] [--apply]')
+        part = opt('part')
+        if a.cmd == 'mgraph':
+            membermatch.verify_graph(P, pkg)
+        else:
+            rep = a.out or os.path.join(P.out_dir, 'members_%s.tsv' % pkg.replace('/', '_'))
+            rows, todo, stats = membermatch.run(
+                P, pkg, part=part, apply=a.apply, report=rep,
+                rounds=int(opt('rounds') or 4),
+                min_score=float(opt('min-score') or 0.5),
+                min_lead=float(opt('min-lead') or 0.08))
+            print('类 %d / 方法 %d（已定名 %d）/ 字段 %d（已定名 %d）' % (
+                stats['classes'], stats['methods'], stats['mapped_m'],
+                stats['fields'], stats['mapped_f']))
+            by = {}
+            for t in todo:
+                by[t['why']] = by.get(t['why'], 0) + 1
+            print('待人工 %d：%s' % (len(todo), by or '无'))
+            print('报告 %s' % rep)
 
     elif a.cmd == 'cover':
         r = checks.cover(P)

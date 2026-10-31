@@ -57,7 +57,7 @@ def parse(b):
         ow=utf.get(cls.get(ci)); nn=nat.get(ni)
         if ow and nn: refmap[idx]=(ow,utf.get(nn[0]),utf.get(nn[1]),tag)
     return dict(acc_off=acc_off,this=utf.get(this),sup=utf.get(sup),
-                ifaces=[utf.get(x) for x in ifaces],members=members,refmap=refmap,utf=utf,strs=strs)
+                ifaces=[utf.get(x) for x in ifaces],members=members,refmap=refmap,utf=utf,strs=strs,ints=ints,clsidx=cls)
 
 def body_features(cl,code):
     """返回 (字符串集合, owner 集合)"""
@@ -116,3 +116,42 @@ def body_refs(cl,code):
             i+= 2 if op==0x12 else 3; continue
         i+=LEN.get(op,1)
     return out
+
+
+def insns(code):
+    """按偏移遍历指令 → (offset, opcode, operands)。处理 tableswitch/lookupswitch/wide 的对齐。"""
+    i = 0
+    n = len(code)
+    while i < n:
+        op = code[i]
+        if op == 0xaa:
+            pad = (4 - ((i + 1) % 4)) % 4
+            base = i + 1 + pad
+            lo = struct.unpack_from('>i', code, base + 4)[0]
+            hi = struct.unpack_from('>i', code, base + 8)[0]
+            yield i, op, ()
+            i = base + 12 + 4 * (hi - lo + 1)
+            continue
+        if op == 0xab:
+            pad = (4 - ((i + 1) % 4)) % 4
+            base = i + 1 + pad
+            npr = struct.unpack_from('>i', code, base + 4)[0]
+            yield i, op, ()
+            i = base + 8 + 8 * npr
+            continue
+        ln = LEN.get(op, 1)
+        ops = code[i+1:i+ln]
+        if op == 0xc4:                      # wide
+            ops = code[i+1:i+(6 if code[i+1] == 0x84 else 4)]
+            ln = 6 if code[i+1] == 0x84 else 4
+        yield i, op, ops
+        i += ln
+
+
+def const_of(cl, idx):
+    """常量池索引 → ('S', 字符串) / ('I', 整数) / None。"""
+    if idx in cl.get('strs', {}):
+        return ('S', cl['utf'].get(cl['strs'][idx]))
+    if idx in cl.get('ints', {}):
+        return ('I', cl['ints'][idx])
+    return None

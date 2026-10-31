@@ -40,6 +40,10 @@ python3 tools/deob/cli.py -p myjob/deob.json inherit     # CONFLICT / MISSING
 python3 tools/deob/cli.py -p myjob/deob.json pkgs        # 包归属求解（--apply 写入 tsv）
 python3 tools/deob/cli.py -p myjob/deob.json widen in.jar --apply   # 跨包 access 放宽
 python3 tools/deob/cli.py -p myjob/deob.json cover       # 覆盖率
+
+# 类名没被混淆、只有成员被改名时（jsch 那类库）：
+python3 tools/deob/cli.py -p myjob/deob.json members --pkg=com/example/lib --part=lib [--apply]
+python3 tools/deob/cli.py -p myjob/deob.json mgraph  --pkg=com/example/lib   # 调用图自证
 python3 tools/deob/cli.py -p myjob/deob.json shape abcd/X   # 形状候选（跨 oracle 版本）
 python3 tools/deob/cli.py -p myjob/deob.json q abcd/X       # 成员与目标名一览
 ```
@@ -58,6 +62,7 @@ python3 tools/deob/cli.py -p myjob/deob.json q abcd/X       # 成员与目标名
 | `params.py` | 参数名：oracle `LocalVariableTable` 解析、槽位→实参序号、`fill()` 写各 part 的 `params.tsv` |
 | `javasrc.py` | 抽象/接口方法的参数名：从原始源码声明读（只认无方法体、类型消歧） |
 | `checks.py` | `validate / inherit / pkgs / widen / cover / manifest` |
+| `membermatch.py` | 成员级批量定名（类身份已知时）：描述符桶证明 + 方法体 token + 读写签名 + 同序投票 + 按图修复；`members` / `mgraph` 两个命令都走它 |
 | `shape.py` | 形状索引与跨版本候选（`find` / `overlap_index`） |
 | `view.py` | 读码命令：`q / prof / dump / hdr / elim / iface / shape` |
 | `cli.py` | 统一入口 |

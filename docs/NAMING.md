@@ -76,6 +76,49 @@
 
 当前字段映射 1848/1855 = 99.6%，剩 7 个全是第 3 类的结构性缺口。
 
+### 3c. 类名没被混淆的库（`deob members` 批量定成员名）
+
+AIDE 里有一类依赖**只改了成员名、类名原样保留**（jsch 的 147 个 `com/jcraft/jsch/*` 就是）。
+这时"先定类名"这一步退化为恒等，剩下的全是成员级重载消歧，用统一入口跑：
+
+```bash
+python3 tools/deob/cli.py -p process/deob.json members --pkg=com/jcraft/jsch --part=jsch [--apply]
+# 报告：process/out/members_com_jcraft_jsch.tsv（每行带证据列与分数）
+python3 tools/deob/cli.py -p process/deob.json mgraph  --pkg=com/jcraft/jsch   # 门 10 自证
+```
+
+判据按硬度分三层，**命中即停**：
+
+| 级别 | 证据 | 为什么可信 |
+|---|---|---|
+| 1 | `desc:` 描述符桶唯一 | 改名**不改描述符**；同类内 `(旧名,描述符)→(新名,描述符)` 是单射；ProGuard 只删不加 ⇒ 某描述符两侧各只剩一个非合成成员时，二者**必**为同一成员。这是一条证明，不是形状巧合（jsch：410 方法 + 223 字段靠它） |
+| 2 | `body:` 方法体 token 对齐 | 两侧归一成同名 token 串（字符串常量 / 整数常量 / 调用与字段引用 / 类型字面量），丢掉寄存器、分支、偏移；序列相似度×0.5 + 多重集 Jaccard×0.5，取"互为最优 + 领先第二名"的对 |
+| 3 | `usg:` 字段读写签名 | 字段没有方法体 ⇒ 用"哪些（已对齐的）方法以读/写方式碰过它"当指纹 |
+
+两条**加强判据**（都是为了破"同描述符一族"的对称）：
+
+- **同序投票**（`order_votes`）：D8 会打乱**声明顺序**，但不会打乱**方法体里的语句顺序**。
+  `Channel.<init>` 的 24 次赋值与 oracle 构造器逐个位置对应，一次定出
+  `recipient/lwsize_max/lwsize/lmpsize/rmpsize/exitstatus/reply/connectTimeout/notifyme/index/id`；
+  同一方法里依次调用的几个 `setXxx(I)V` 也按调用顺序定。允许重复访问同一成员，只要
+  `p[i]==p[j] ⇔ o[i]==o[j]`（否则整组丢弃）。
+- **按图修复**（`repair_by_graph` → 证据写 `graph:N`）：把方法体里**已定名**的引用译成
+  `(种类, 名, 描述符)`，看 oracle 同一方法体能对上几条；另一个候选能多对上 ≥1 条就改判。
+  专治 `Channel.write ↔ write_ext` 这种"依赖的依赖还没定名时抢跑配错"。
+
+**顺序很重要，而且要多遍**：字段名要等方法定完（getter/setter 的 body 才能对齐），
+方法名又要等字段名（setter 写哪个字段才认得出来）。所以一轮内部是
+`字段预跑（构造器顺序）→ 方法 → 字段 → …`，外面再套**多遍扫描**：
+每遍把 `desc:` 级别的证明结果并进种子（种子不参与改判）重跑，越跑信息越全，3 遍内收敛。
+
+边界（这些**不猜**）：
+
+- AIDE 改过的方法体（crypto 换 provider、`DHG1.next` 之类）在 oracle 里对不上引用 ⇒ 留在 `TODO`；
+- 一个字段对多个名字、一个名字被两个字段争 ⇒ 留空；
+- 同一类里"新名 + 描述符"不许重复（`taken_*` 独占），跨轮次也不许（否则 `dup-member-target`）；
+- 探针名本身就在 oracle 里同名同描述符 ⇒ 一律按恒等处理（jsch 实测 0 例外，
+  但这条检查要留着，防止把 `run`/`close`/`flush` 这类没被改的名字改坏）。
+
 ## 4. 编译器合成物清单
 
 | 合成物 | 规则 | 例 |
@@ -141,8 +184,10 @@
 | 无 oracle 但能读 body | 读 smali body 判断参数用途后命名（`manual:body(...)`），例如 `configureRequest(HttpUriRequest request)` |
 
 三元组对不上就**不出行**：AIDE 自有类、合成方法（`access$NNN`）、被魔改过签名的方法
-都留空。当前基线：1667 个方法来自 LVT、117 个来自源码、0 个残缺；留空 350 个
-（无类映射 149 / 方法名不同 95 / 描述符不同 106）。
+都留空。当前基线（`paramfill.py`）：`方法映射 4187 条：命中 3845（无参 1480 / jar 参数全 2130 /
+源码补全 190 / 仍缺 45）`，`参数行 4022 条（2328 个方法）`（写出到 `mappings.txt` 后是 4040 行）；未命中 342 条
+（无类映射 146 / 方法名不同 95 / 描述符不同 101）——jsch 那 147 个类整包走 LVT（678 方法），
+所以 LVT 来源比 jgit 单干时多了近一倍。
 
 写法（TSRG2，FART 1.0.8 内置 srgutils 实测）：
 

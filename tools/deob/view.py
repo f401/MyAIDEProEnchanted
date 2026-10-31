@@ -23,7 +23,7 @@ def _ctx(project):
 
 def _path(project, cm, idx, name):
     probe = cm.full_probe(name)
-    return probe, idx.file_for(project.probe_dir, probe)
+    return probe, idx.file_for(getattr(project, "probe_search", None) or project.probe_dir, probe)
 
 
 def q(project, names):

@@ -3,6 +3,12 @@
   "root": ".",
   "probe_prefix": "abcd",
   "probe_dir": "../src/smali/abcd",
+  "probe_roots": [
+    "../src/smali",
+    "../src/smali_classes2",
+    "../src/smali_classes3",
+    "../src/smali_classes4"
+  ],
   "smali_index": "truth/smali_index.tsv",
   "parts": [
     {

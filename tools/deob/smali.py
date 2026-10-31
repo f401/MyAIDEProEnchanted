@@ -24,11 +24,24 @@ class Index:
                     self.map[f[0]] = f[1]
 
     def file_for(self, probe_dir, probe):
+        """类 → smali 文件。`probe_dir` 可以给**多个根**（一个 APK 常有 smali_classes2…）。
+
+        先按索引里的文件名在各根下找，再按"包路径 + .smali"直接拼；都找不到时
+        返回第一个根下的猜测路径（保持老行为，调用方用 os.path.exists 判）。
+        """
+        roots = list(probe_dir) if isinstance(probe_dir, (list, tuple)) else [probe_dir]
+        roots = [r for r in roots if r]
         name = self.map.get(probe)
-        if name:
-            return os.path.join(probe_dir, name)
         short = probe.split('/', 1)[1] if '/' in probe else probe
-        return os.path.join(probe_dir, short + '.smali')
+        cands = ([name] if name else []) + [probe + '.smali']
+        if short != probe:
+            cands.append(short + '.smali')
+        for r in roots:
+            for c in cands:
+                p = os.path.join(r, c)
+                if os.path.exists(p):
+                    return p
+        return os.path.join(roots[0] if roots else '.', cands[-1])
 
 
 def parse(path):

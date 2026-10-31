@@ -18,6 +18,8 @@
 
 字段（除 name 外都可省略）：
   probe_dir       smali 根目录（探针类源码），如 "src/smali"
+  probe_roots     可选：多个 smali 根（`src/smali`、`src/smali_classes2`…）。一个 APK 里
+                  不同依赖常被拆到不同 dex，`probe_dir` 只够放一个时用这个（含 probe_dir）
   smali_index     可选：`类描述符 <TAB> 文件名` 索引（大小写不敏感 FS 必用）
   probe_prefix    探针包前缀，默认 "abcd"；**每个 part 可以各写一个**（覆盖工程默认），
                   例如一个 APK 里 jgit 用 `abcd`、另一个库用 `zz`
@@ -66,6 +68,14 @@ class Project:
         self.root = os.path.abspath(os.path.join(base, c.get('root') or '.'))
         self.name = c.get('name', os.path.basename(self.root))
         self.probe_dir = _expand(c.get('probe_dir'), self.root)
+        _pr = c.get('probe_roots')
+        self.probe_roots = [_expand(x, self.root) for x in
+                            (list(_pr) if isinstance(_pr, list) else ([_pr] if _pr else []))]
+        if self.probe_dir and self.probe_dir not in self.probe_roots:
+            self.probe_roots.insert(0, self.probe_dir)
+        self.probe_roots = [d for d in self.probe_roots if d and os.path.isdir(d)]
+        # 给"类 → 文件"解析用：所有 smali 根（`file_for` 接受列表）
+        self.probe_search = list(self.probe_roots) or ([self.probe_dir] if self.probe_dir else [])
         self.probe_prefix = (c.get('probe_prefix') or 'abcd').rstrip('/')
         self.smali_index = _expand(c.get('smali_index'), self.root)
         self.parts = self._parse_parts(c)

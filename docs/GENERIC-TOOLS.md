@@ -34,6 +34,38 @@ python3 tools/deob/cli.py -p process/deob.json widen process/base/merged_ok.jar 
 3. **一切判据落到可复现的证据**：`body:`（方法体特征）/`shape:`（唯一形状+版本）/`prop:`（版本指纹）/
    `pkg:`（访问图）/`place:`（占位原因）/`name:`（自定名理由）。见 `docs/NAMING.md`。
 
+## 成员级批量定名（`membermatch.py` → `deob members` / `deob mgraph`）
+
+**什么时候用**：库的**类名没被混淆**（或已经定完了），只剩成员被改名成 `j6/DW/FH…`。
+这时"先定类名"退化成恒等，剩下的全是重载消歧。jsch（147 类 / 897 方法 / 537 字段）就是靠它跑完的。
+
+```bash
+# 先确认探针在哪个 smali 根下（一个 APK 常有 smali / smali_classes2…）
+#   deob.json 里给 "probe_roots": ["src/smali", "src/smali_classes2", ...]
+D="python3 tools/deob/cli.py -p process/deob.json"
+$D members --pkg=com/jcraft/jsch --part=jsch            # 只出报告，不写真相
+$D members --pkg=com/jcraft/jsch --part=jsch --apply    # 写 jobs/jsch/{class_map.tsv,members.tsrg}
+$D mgraph  --pkg=com/jcraft/jsch                        # 门 10：调用图自证
+```
+
+| 判据 | 实现 | 可信度 |
+|---|---|---|
+| `desc:` 描述符桶唯一 | 改名不改描述符 + 单射 + ProGuard 只删不加 ⇒ **证明** | 硬 |
+| `body:` 方法体 token 对齐 | 同名字符串/整数/引用/类型 + 序列相似度与多重集 Jaccard，取"互为最优 + 领先" | 中（重载消歧主力） |
+| `usg:` 字段读写签名 | 哪些已对齐方法以读/写碰过它 | 中 |
+| 同序投票 `order_votes` | 构造器赋值顺序 / 同一方法里同描述符方法的调用顺序（D8 只乱声明顺序，不乱语句顺序） | 强 |
+| 按图修复 `graph:N` | 已定名引用在 oracle 同方法体里能对上几条，多对上就改判 | 强（治错位） |
+
+实现要点（改工具的人看这几条就够）：
+
+- `lookup` 统一按 `(种类, owner, 名, 描述符)` 寻址：**字段忽略描述符**（TSRG 字段行只有两段）；
+- 顺序是 `字段预跑（构造器顺序）→ 方法 → 字段 → …`，外面套**多遍扫描**（证明级结果并进种子），
+  因为"字段名等成员名、成员名等字段名"是相互依赖的；
+- `taken_*` 保证同一目标名不被占两次（含跨轮次），种子（文件里已有的行）既占位也不改判；
+- 报告 `process/out/members_<pkg>.tsv`：每行 `类 / 种类 / 旧名 / 描述符 / 新名 / 证据 / 分数 / 领先`，
+  末尾是 `TODO:` 行（`no-oracle-descriptor` / `body-weak` / `usage-weak`）；
+- 探针名在 oracle 里同名同描述符时一律按恒等（不写映射），这条要保留。
+
 ## 参数名（`tools/deob/params.py` + `javasrc.py`）
 
 | 能力 | 说明 |
