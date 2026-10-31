@@ -61,9 +61,20 @@ def probe_classes(root, prefix):
                 methods.append(('M', ACC_STATIC if ' static ' in ' '+' '.join(tk[:-1])+' ' else 0,
                                 sig[sig.index('('):]))
             strs = set(unesc(m2.group(1)) for m2 in RE_CONST.finditer(t))
+            # 成员名也可能是"真名"（有些库只混淆类名）—— 此时名字本身就是最强指纹
+            fn = collections.Counter((ACC_STATIC if ' static ' in ' '+fm.group(1)+' ' else 0,
+                                      fm.group(3), fm.group(2)) for fm in RE_FIELD.finditer(t))
+            mn = collections.Counter()
+            for mm2 in RE_METHOD.finditer(t):
+                tk2 = mm2.group(1).split()
+                if not tk2 or '(' not in tk2[-1]:
+                    continue
+                sg = tk2[-1]
+                mn[(ACC_STATIC if ' static ' in ' '+' '.join(tk2[:-1])+' ' else 0,
+                    sg[sg.index('('):], sg[:sg.index('(')])] += 1
             out[name] = dict(name=name, acc=acc, sup=sm.group(1)[1:-1] if sm else None, strs=strs,
                              ifaces=[x[1:-1] for x in RE_IFACE.findall(t)],
-                             fields=fields, methods=methods)
+                             fields=fields, methods=methods, fn=fn, mn=mn)
     return out
 
 def oracle_classes(jar, pkgs):
@@ -83,11 +94,19 @@ def oracle_classes(jar, pkgs):
         for i in c['strs'].values():
             v = c['utf'].get(i)
             if v: ost.add(v)
+        ofn = collections.Counter((ACC_STATIC if (x['acc'] & ACC_STATIC) else 0, x['desc'], x['name'])
+                                  for x in c['members'] if x['kind'] == 'f')
+        omn = collections.Counter((ACC_STATIC if (x['acc'] & ACC_STATIC) else 0, x['desc'], x['name'])
+                                  for x in c['members'] if x['kind'] == 'm')
         out[c['this']] = dict(name=c['this'], acc=0, sup=c['sup'], ifaces=c['ifaces'],
-                              fields=f, methods=m, strs=ost)
+                              fields=f, methods=m, strs=ost, fn=ofn, mn=omn)
     return out
 
-def bags(c, own, m):
+def bags(c, own, m, names=False):
+    if names and c.get('fn') is not None:
+        f = collections.Counter((st, norm(d, own, m), n) for (st, d, n) in c['fn'].elements())
+        mm = collections.Counter((st, norm(d, own, m), n) for (st, d, n) in c['mn'].elements())
+        return f, mm
     f = collections.Counter((s, norm(d, own, m)) for _, s, d in c['fields'])
     mm = collections.Counter((s, norm(d, own, m)) for _, s, d in c['methods'])
     return f, mm
@@ -119,6 +138,8 @@ def main():
     ap.add_argument('--iter', type=int, default=6)
     ap.add_argument('--thr', type=float, default=0.55)
     ap.add_argument('--margin', type=float, default=0.12)
+    ap.add_argument('--names', action='store_true',
+                    help='成员名未被混淆时用它当指纹（名字+描述符多重集，精度接近精确匹配）')
     a = ap.parse_args()
     cfg = json.load(open(a.project)); base = os.path.dirname(os.path.abspath(a.project))
     ex = lambda x: os.path.normpath(os.path.join(base, os.path.expandvars(os.path.expanduser(x))))
@@ -138,8 +159,8 @@ def main():
         for it in range(a.iter):
             assigned = set(mapping.values())
             omap = {n: (n if n in assigned else '#') for n in oown}
-            ob = {n: bags(c, oown, omap) for n, c in orc.items()}
-            pb = {n: bags(c, own, mapping) for n, c in probe.items()}
+            ob = {n: bags(c, oown, omap, a.names) for n, c in orc.items()}
+            pb = {n: bags(c, own, mapping, a.names) for n, c in probe.items()}
             obucket = collections.defaultdict(list)
             for on, oc in orc.items():
                 obucket[(len(oc['fields']), len(oc['methods']))].append(on)
@@ -177,13 +198,13 @@ def main():
         # 第二轮：字符串证据补漏（形状没对上、但常量池高度吻合）
         assigned = set(mapping.values())
         omap = {n: (n if n in assigned else '#') for n in oown}
-        ob = {n: bags(c, oown, omap) for n, c in orc.items()}
+        ob = {n: bags(c, oown, omap, a.names) for n, c in orc.items()}
         pairs = []
         for pn, pc in probe.items():
             if pn in mapping: continue
             ps = pc.get('strs') or set()
             if len(ps) < 2: continue
-            pbag = bags(pc, own, mapping)
+            pbag = bags(pc, own, mapping, a.names)
             for on, oc in orc.items():
                 if on in assigned: continue
                 ss = simstr(ps, oc.get('strs') or set())

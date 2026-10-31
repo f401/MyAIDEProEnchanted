@@ -1,0 +1,48 @@
+io/fabric/sdk/android/ActivityLifecycleManager	io/fabric/sdk/android/ActivityLifecycleManager	shape:1.000/fabric
+io/fabric/sdk/android/ActivityLifecycleManager$a	io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper	shape:1.000/fabric
+io/fabric/sdk/android/ActivityLifecycleManager$b	io/fabric/sdk/android/ActivityLifecycleManager$Callbacks	shape:1.000/fabric
+io/fabric/sdk/android/Fabric	io/fabric/sdk/android/Fabric	shape:0.980/fabric
+io/fabric/sdk/android/Kit	io/fabric/sdk/android/Kit	shape:0.958/fabric
+io/fabric/sdk/android/a	io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1	shape:1.000/fabric
+io/fabric/sdk/android/b	io/fabric/sdk/android/SilentLogger	shape:0.941/fabric
+io/fabric/sdk/android/c	io/fabric/sdk/android/Fabric$1	shape:1.000/fabric
+io/fabric/sdk/android/d	io/fabric/sdk/android/Fabric$2	shape:1.000/fabric
+io/fabric/sdk/android/e	io/fabric/sdk/android/FabricContext	shape:1.000/fabric
+io/fabric/sdk/android/h	io/fabric/sdk/android/InitializationCallback	shape:1.000/fabric
+io/fabric/sdk/android/h$a	io/fabric/sdk/android/InitializationCallback$Empty	shape:1.000/fabric
+io/fabric/sdk/android/i	io/fabric/sdk/android/services/events/EventsStorageListener	shape:1.000/fabric
+io/fabric/sdk/android/j	io/fabric/sdk/android/InitializationTask	shape:0.800/fabric
+io/fabric/sdk/android/k	io/fabric/sdk/android/KitGroup	shape:1.000/fabric
+io/fabric/sdk/android/l	io/fabric/sdk/android/KitInfo	shape:1.000/fabric
+io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$a	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingConnection	shape:0.875/fabric
+io/fabric/sdk/android/services/common/C	io/fabric/sdk/android/services/common/SystemCurrentTimeProvider	shape:1.000/fabric
+io/fabric/sdk/android/services/common/D	io/fabric/sdk/android/services/common/TimingMetric	shape:0.900/fabric
+io/fabric/sdk/android/services/common/b	io/fabric/sdk/android/services/common/AdvertisingInfo	shape:1.000/fabric
+io/fabric/sdk/android/services/common/c	io/fabric/sdk/android/services/common/AdvertisingInfoProvider$1	shape:1.000/fabric
+io/fabric/sdk/android/services/common/g	io/fabric/sdk/android/services/common/BackgroundPriorityRunnable	shape:1.000/fabric
+io/fabric/sdk/android/services/common/h	io/fabric/sdk/android/services/common/CommonUtils$1	shape:1.000/fabric
+io/fabric/sdk/android/services/common/i$a	io/fabric/sdk/android/services/common/CommonUtils$Architecture	shape:1.000/fabric
+io/fabric/sdk/android/services/common/k	io/fabric/sdk/android/services/common/CurrentTimeProvider	shape:1.000/fabric
+io/fabric/sdk/android/services/common/l	io/fabric/sdk/android/services/common/DataCollectionArbiter	shape:0.812/fabric
+io/fabric/sdk/android/services/common/m	io/fabric/sdk/android/services/common/DeliveryMechanism	shape:0.929/fabric
+io/fabric/sdk/android/services/common/n	io/fabric/sdk/android/services/common/DeviceIdentifierProvider	shape:1.000/fabric
+io/fabric/sdk/android/services/common/p	io/fabric/sdk/android/services/common/ExecutorUtils$1	shape:1.000/fabric
+io/fabric/sdk/android/services/common/q	io/fabric/sdk/android/services/common/ExecutorUtils$2	shape:1.000/fabric
+io/fabric/sdk/android/services/common/s	io/fabric/sdk/android/services/common/FirebaseApp	shape:1.000/fabric
+io/fabric/sdk/android/services/common/v$a	io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType	shape:1.000/fabric
+io/fabric/sdk/android/services/common/w	io/fabric/sdk/android/services/common/InstallerPackageNameProvider$1	shape:1.000/fabric
+io/fabric/sdk/android/services/common/y	io/fabric/sdk/android/services/common/QueueFile$1	shape:1.000/fabric
+io/fabric/sdk/android/services/common/z	io/fabric/sdk/android/services/common/QueueFile	shape:0.864/fabric
+io/fabric/sdk/android/services/common/z$a	io/fabric/sdk/android/services/common/QueueFile$Element	shape:0.857/fabric
+io/fabric/sdk/android/services/common/z$b	io/fabric/sdk/android/services/common/QueueFile$ElementInputStream	shape:1.000/fabric
+io/fabric/sdk/android/services/common/z$c	io/fabric/sdk/android/services/common/QueueFile$ElementReader	shape:1.000/fabric
+io/fabric/sdk/android/Fabric$Builder	io/fabric/sdk/android/Fabric$Builder	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+io/fabric/sdk/android/services/common/AdvertisingInfoProvider	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+io/fabric/sdk/android/m	io/fabric/sdk/android/m	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+io/fabric/sdk/android/services/common/e	io/fabric/sdk/android/services/common/e	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+io/fabric/sdk/android/services/common/f	io/fabric/sdk/android/services/common/ApiKey	串 "io.fabric.ApiKey"/"@string/twitter_consumer_secret"（读的 meta-data 名就是自己的角色）；调用者 CrashlyticsCore/EnabledSessionAnalyticsManagerStrategy；oracle AAR 被 proguard 裁掉该类
+io/fabric/sdk/android/services/common/i	io/fabric/sdk/android/services/common/CommonUtils	47 个方法；串 "/proc/meminfo"、"MemTotal"、"Unexpected meminfo format while computing RAM: "；调用者 Answers/CLSUUID/CrashlyticsController
+io/fabric/sdk/android/services/common/v	io/fabric/sdk/android/services/common/IdManager	14 字段 21 方法；串 "com.crashlytics.CollectDeviceIdentifiers"、"Device ID collection disabled for "；调用者 AppData/CLSUUID/CrashlyticsController
+io/fabric/sdk/android/services/common/a	io/fabric/sdk/android/services/network/HttpRequestFactory	串 "requestFactory must not be null."、"url must not be null."、"http(s?)://[^\/]+"；调用者 DefaultCreateReportSpiCall/NativeCreateReportSpiCall/SessionAnalyticsFilesSender

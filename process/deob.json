@@ -30,6 +30,14 @@
     {
       "dir": "../jobs/dx",
       "probe_prefix": "com/a"
+    },
+    {
+      "dir": "../jobs/crashlytics",
+      "probe_prefix": "com/crashlytics"
+    },
+    {
+      "dir": "../jobs/fabric",
+      "probe_prefix": "io/fabric"
     }
   ],
   "src_root": [
@@ -81,6 +89,30 @@
     {
       "label": "dx-1.7",
       "path": "$HOME/out/oracle/dx/dx-1.7.jar"
+    },
+    {
+      "label": "crashlytics-core",
+      "path": "$HOME/out/oracle/crashlytics/crashlytics-core-2.7.0.jar"
+    },
+    {
+      "label": "crashlytics-answers",
+      "path": "$HOME/out/oracle/crashlytics/answers-1.4.7.jar"
+    },
+    {
+      "label": "crashlytics-beta",
+      "path": "$HOME/out/oracle/crashlytics/beta-1.2.10.jar"
+    },
+    {
+      "label": "crashlytics",
+      "path": "$HOME/out/oracle/crashlytics/crashlytics-2.9.9.jar"
+    },
+    {
+      "label": "fabric",
+      "path": "$HOME/out/oracle/crashlytics/fabric-1.4.8.jar"
+    },
+    {
+      "label": "crashlytics-all",
+      "path": "$HOME/out/oracle/crashlytics/crashlytics-all.jar"
     }
   ],
   "out_dir": "out"

@@ -52,3 +52,10 @@ yi	abcd/aide/Settings$1$5	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd
 zi	abcd/aide/Settings$1$6	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
 Bi	abcd/aide/Settings$1$2$1	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
 nj	abcd/aide/JavaScriptProject	body:".js"/"main.js"/"HelloJavaScript.zip"/"JavaScript Application"/"JavaScript Project Home:" 字符串常量；实现 abcd/IProject（来源 remote:6a355976）
+Af	abcd/aide/ActionNavigateMode	body:"Navigate mode" + 实现 isEnabled/isVisible/run（AIDE 动作接口 Hl）
+Ag	abcd/aide/ActionRefreshBuild	body:"Refresh Build" + 同动作接口（_l/Wl）
+Ae	abcd/aide/AndroidManifestConfig	extends BaseProjectConfig；XPath "//manifest"、"//manifest//uses-sdk"、"android:versionCode" ⇒ 解析 AndroidManifest
+Be	abcd/aide/MavenDependenciesConfig	extends BaseProjectConfig；串 "https://repo1.maven.org/maven2"、"mavenCentral"、"flatDir.dirs" ⇒ 依赖仓库配置
+Az	abcd/fabric/AnalyticsFilesManager	body:"deleting sent analytics file %s"、"Failed to close output stream" ⇒ Fabric EventsFilesManager
+Bz	abcd/fabric/TimeBasedFileRollOverRunnable	body:"Performing time based file roll over."+"Failed to roll over file"，implements Runnable
+Dj	abcd/aide/UninstallAppRunnable	body:"Uninstallation failed"，implements Runnable

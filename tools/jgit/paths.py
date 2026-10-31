@@ -52,6 +52,8 @@ PART_DIRS = [
     ('jsch', os.path.join(REPO, 'jobs', 'jsch')),
     ('aide', os.path.join(REPO, 'jobs', 'aide')),
     ('dx', os.path.join(REPO, 'jobs', 'dx')),
+    ('crashlytics', os.path.join(REPO, 'jobs', 'crashlytics')),
+    ('fabric', os.path.join(REPO, 'jobs', 'fabric')),
 ]
 PARTS = [n for n, _ in PART_DIRS]
 

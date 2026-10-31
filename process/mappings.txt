@@ -12308,6 +12308,13 @@ abcd/yi abcd/aide/Settings$1$5
 abcd/zi abcd/aide/Settings$1$6
 abcd/Bi abcd/aide/Settings$1$2$1
 abcd/nj abcd/aide/JavaScriptProject
+abcd/Af abcd/aide/ActionNavigateMode
+abcd/Ag abcd/aide/ActionRefreshBuild
+abcd/Ae abcd/aide/AndroidManifestConfig
+abcd/Be abcd/aide/MavenDependenciesConfig
+abcd/Az abcd/fabric/AnalyticsFilesManager
+abcd/Bz abcd/fabric/TimeBasedFileRollOverRunnable
+abcd/Dj abcd/aide/UninstallAppRunnable
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue
@@ -19872,3 +19879,1867 @@ com/a/a/e com/android/dex/Leb128
 		0 out out
 		1 value value
 com/a/b/g/u com/android/dx/util/MutabilityException
+com/crashlytics/android/Crashlytics com/crashlytics/android/Crashlytics
+com/crashlytics/android/CrashlyticsInitProvider$a com/crashlytics/android/CrashlyticsInitProvider$EnabledCheckStrategy
+	j6 (Landroid/content/Context;)Z isCrashlyticsEnabled
+com/crashlytics/android/a com/crashlytics/android/ManifestEnabledCheckStrategy
+	j6 (Landroid/content/Context;)Z isCrashlyticsEnabled
+		0 context context
+com/crashlytics/android/answers/C com/crashlytics/android/answers/SamplingEventFilter
+	j6 (Lcom/crashlytics/android/answers/I;)Z skipEvent
+		0 sessionEvent sessionEvent
+	j6 EVENTS_TYPE_TO_SAMPLE
+	DW samplingRate
+com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter
+	j6 ()Lcom/crashlytics/android/answers/u; getFirebaseAnalytics
+	j6 (Lcom/crashlytics/android/answers/I;)V processEvent
+		0 sessionEvent sessionEvent
+	DW eventMapper
+	FH eventLogger
+	j6 context
+com/crashlytics/android/answers/I$b com/crashlytics/android/answers/SessionEvent$Type
+	u7 $VALUES
+	gn PREDEFINED
+	VH CUSTOM
+	v5 CRASH
+	Zo INSTALL
+	j6 START
+	FH RESUME
+	Hw STOP
+	DW PAUSE
+com/crashlytics/android/answers/J com/crashlytics/android/answers/SessionEventMetadata
+	Hw limitAdTrackingEnabled
+	v5 betaDeviceToken
+	FH installationId
+	u7 appVersionCode
+	tp appVersionName
+	j6 appBundleId
+	gn deviceModel
+	Zo buildId
+	VH osVersion
+	DW executionId
+	EQ stringRepresentation
+com/crashlytics/android/answers/e com/crashlytics/android/answers/AnswersEventsHandler$2
+	j6 this$0
+com/crashlytics/android/answers/f com/crashlytics/android/answers/AnswersEventsHandler$3
+	j6 this$0
+com/crashlytics/android/answers/g com/crashlytics/android/answers/AnswersEventsHandler$4
+	j6 this$0
+com/crashlytics/android/answers/h com/crashlytics/android/answers/AnswersEventsHandler$5
+	j6 this$0
+com/crashlytics/android/answers/i com/crashlytics/android/answers/AnswersEventsHandler$6
+	DW val$flush
+	FH this$0
+	j6 val$eventBuilder
+com/crashlytics/android/answers/j com/crashlytics/android/answers/AnswersEventsHandler
+	j6 (Lcom/crashlytics/android/answers/I$a;ZZ)V processEvent
+		0 eventBuilder eventBuilder
+		1 sync sync
+		2 flush flush
+	DW context
+	FH filesManagerProvider
+	Hw metadataCollector
+	VH executor
+	Zo firebaseAnalyticsApiAdapter
+	gn strategy
+	j6 kit
+	j6 (Ljava/lang/Runnable;)V executeAsync
+		0 runnable runnable
+	DW (Ljava/lang/Runnable;)V executeSync
+		0 runnable runnable
+	j6 ()V disable
+	FH ()V flushEvents
+	DW ()V enable
+	j6 (Lcom/crashlytics/android/answers/I$a;)V processEventAsync
+		0 eventBuilder eventBuilder
+	FH (Lcom/crashlytics/android/answers/I$a;)V processEventSync
+		0 eventBuilder eventBuilder
+	DW (Lcom/crashlytics/android/answers/I$a;)V processEventAsyncAndFlush
+		0 eventBuilder eventBuilder
+com/crashlytics/android/answers/l com/crashlytics/android/answers/AnswersLifecycleCallbacks
+	DW backgroundManager
+	j6 analyticsManager
+	DW (Landroid/app/Activity;Landroid/os/Bundle;)V onActivityCreated
+		0 activity activity
+		1 bundle bundle
+com/crashlytics/android/answers/q com/crashlytics/android/answers/BackgroundManager
+	j6 (Lcom/crashlytics/android/answers/q$a;)V registerListener
+		0 listener listener
+	j6 (Z)V setFlushOnBackground
+		0 flushOnBackground flushOnBackground
+	DW listeners
+	Hw backgroundFutureRef
+	j6 executorService
+	DW ()V onActivityResumed
+	FH ()V notifyBackground
+	j6 ()V onActivityPaused
+	FH flushOnBackground
+	v5 inBackground
+com/crashlytics/android/answers/u com/crashlytics/android/answers/EventLogger
+	j6 (Ljava/lang/String;Landroid/os/Bundle;)V logEvent
+	j6 (Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V logEvent
+com/crashlytics/android/answers/v com/crashlytics/android/answers/FirebaseAnalyticsEvent
+	DW ()Landroid/os/Bundle; getEventParams
+	j6 ()Ljava/lang/String; getEventName
+	DW eventParams
+	j6 eventName
+com/crashlytics/android/answers/w com/crashlytics/android/answers/FirebaseAnalyticsEventMapper
+	DW (Lcom/crashlytics/android/answers/I;)Landroid/os/Bundle; mapPredefinedEvent
+		0 event event
+	DW (Ljava/lang/String;)Ljava/lang/Integer; mapBooleanValue
+		0 truthyString truthyString
+	j6 (Ljava/lang/String;Z)Ljava/lang/String; mapPredefinedEventName
+		0 name name
+		1 wasFailedEvent wasFailedEvent
+	j6 (Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Double;)V putDouble
+		0 bundle bundle
+		1 param param
+		2 doubleValue doubleValue
+	j6 (Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Integer;)V putInt
+		0 bundle bundle
+		1 param param
+		2 intValue intValue
+	j6 (Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Long;)V putLong
+		0 bundle bundle
+		1 param param
+		2 longValue longValue
+	j6 (Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V putString
+		0 bundle bundle
+		1 param param
+		2 stringValue stringValue
+	j6 (Landroid/os/Bundle;Ljava/util/Map;)V mapCustomEventAttributes
+		0 mutatedBundle mutatedBundle
+		1 customAttributes customAttributes
+	j6 (Lcom/crashlytics/android/answers/I;)Lcom/crashlytics/android/answers/v; mapEvent
+		0 event event
+	j6 EVENT_NAMES
+	j6 (Ljava/lang/Object;)Ljava/lang/Double; mapDouble
+		0 doubleObj doubleObj
+	DW (Ljava/lang/Object;)Ljava/lang/Double; mapPriceValue
+		0 o o
+	FH (Ljava/lang/String;)Ljava/lang/String; mapCustomEventName
+		0 eventName eventName
+	j6 (Ljava/lang/String;)Ljava/lang/String; mapAttribute
+		0 attributeName attributeName
+com/crashlytics/android/answers/x com/crashlytics/android/answers/KeepAllEventFilter
+	j6 (Lcom/crashlytics/android/answers/I;)Z skipEvent
+		0 sessionEvent sessionEvent
+com/crashlytics/android/core/A com/crashlytics/android/core/CrashlyticsController$18$1
+	j6 this$1
+com/crashlytics/android/core/B com/crashlytics/android/core/CrashlyticsController$18
+	j6 (Ljava/io/FileOutputStream;)V writeTo
+		0 arg arg
+	FH val$startedAtSeconds
+	Hw this$0
+	j6 val$sessionId
+	DW val$generator
+com/crashlytics/android/core/Ba com/crashlytics/android/core/NativeFileUtils
+	j6 (Ljava/io/File;Ljava/lang/String;)Ljava/io/File; filter
+		static
+		0 directory directory
+		1 extension extension
+	j6 (Landroid/content/Context;Ljava/lang/String;)[B processBinaryImages
+		static
+		0 context context
+		1 binaryImages binaryImages
+	j6 (Ljava/io/InputStream;)[B readBytes
+		static
+		0 inputStream inputStream
+	Hw (Ljava/io/File;)[B minidumpFromFile
+		static
+		0 file file
+	j6 (Ljava/io/File;)[B metadataJsonFromDirectory
+		static
+		0 directory directory
+	DW (Ljava/io/File;)[B minidumpFromDirectory
+		static
+		0 directory directory
+	FH (Ljava/io/File;)[B readFile
+		static
+		0 file file
+	j6 (Ljava/io/File;Landroid/content/Context;)[B binaryImagesJsonFromDirectory
+		static
+		0 directory directory
+		1 context context
+	DW (Ljava/io/File;Landroid/content/Context;)[B binaryImagesJsonFromBinaryLibsFile
+		static
+		0 file file
+		1 context context
+	FH (Ljava/io/File;Landroid/content/Context;)[B binaryImagesJsonFromMapsFile
+		static
+		0 file file
+		1 context context
+com/crashlytics/android/core/C com/crashlytics/android/core/CrashlyticsController$19
+	j6 (Lcom/crashlytics/android/core/h;)V writeTo
+		0 arg arg
+	Zo this$0
+	v5 val$deliveryMechanism
+	j6 val$appIdentifier
+	Hw val$installUuid
+	FH val$versionName
+	DW val$versionCode
+com/crashlytics/android/core/Ca com/crashlytics/android/core/NativeSessionReport
+	FH ()Ljava/io/File; getFile
+	Hw ()[Ljava/io/File; getFiles
+	j6 ()Ljava/util/Map; getCustomHeaders
+	j6 reportDirectory
+	DW ()Ljava/lang/String; getIdentifier
+com/crashlytics/android/core/D com/crashlytics/android/core/CrashlyticsController$1
+com/crashlytics/android/core/Da com/crashlytics/android/core/PinningInfoProvider
+	DW ()Ljava/io/InputStream; getKeyStoreStream
+	FH ()[Ljava/lang/String; getPins
+	j6 ()Ljava/lang/String; getKeyStorePassword
+com/crashlytics/android/core/DevicePowerStateListener com/crashlytics/android/core/DevicePowerStateListener
+	FH ()Z isPowerConnected
+	Hw receiversRegistered
+	gn isPowerConnected
+	v5 context
+	j6 ()V dispose
+	DW ()V initialize
+	j6 FILTER_BATTERY_CHANGED
+	FH FILTER_POWER_DISCONNECTED
+	DW FILTER_POWER_CONNECTED
+	Zo powerDisconnectedReceiver
+	VH powerConnectedReceiver
+com/crashlytics/android/core/E com/crashlytics/android/core/CrashlyticsController$20$1
+	j6 this$1
+com/crashlytics/android/core/F com/crashlytics/android/core/CrashlyticsController$20
+	j6 (Ljava/io/FileOutputStream;)V writeTo
+		0 arg arg
+	Zo this$0
+	v5 val$deliveryMechanism
+	j6 val$appIdentifier
+	Hw val$installUuid
+	FH val$versionName
+	DW val$versionCode
+com/crashlytics/android/core/Fa com/crashlytics/android/core/ProcMapEntry
+	j6 address
+	DW size
+	Hw path
+	FH perms
+com/crashlytics/android/core/G com/crashlytics/android/core/CrashlyticsController$21
+	j6 (Lcom/crashlytics/android/core/h;)V writeTo
+		0 arg arg
+	DW this$0
+	j6 val$isRooted
+com/crashlytics/android/core/H com/crashlytics/android/core/CrashlyticsController$22$1
+	j6 this$1
+com/crashlytics/android/core/Ha com/crashlytics/android/core/QueueFileLogStore$1
+	j6 (Ljava/io/InputStream;I)V read
+		0 in in
+		1 length length
+	DW val$offsetHolder
+	FH this$0
+	j6 val$logBytes
+com/crashlytics/android/core/I com/crashlytics/android/core/CrashlyticsController$22
+	j6 (Ljava/io/FileOutputStream;)V writeTo
+		0 arg arg
+	DW this$0
+	j6 val$isRooted
+com/crashlytics/android/core/Ia com/crashlytics/android/core/QueueFileLogStore
+	v5 ()Lcom/crashlytics/android/core/Ia$a; getLogBytes
+	DW ()Lcom/crashlytics/android/core/d; getLogAsByteString
+	FH ()[B getLogAsBytes
+	DW maxLogSize
+	j6 workingFile
+	j6 (JLjava/lang/String;)V writeToLog
+		0 timestamp timestamp
+		1 msg msg
+com/crashlytics/android/core/Ia$a com/crashlytics/android/core/QueueFileLogStore$LogBytes
+	DW offset
+	FH this$0
+	j6 bytes
+com/crashlytics/android/core/J com/crashlytics/android/core/CrashlyticsController$23
+	j6 (Lcom/crashlytics/android/core/h;)V writeTo
+		0 arg arg
+	Zo val$ids
+	gn this$0
+	v5 val$isEmulator
+	j6 val$arch
+	VH val$state
+	DW val$availableProcessors
+	Hw val$diskSpace
+	FH val$totalRam
+com/crashlytics/android/core/Ja com/crashlytics/android/core/RemoveRepeatsStrategy
+	j6 ([Ljava/lang/StackTraceElement;II)Z isRepeatingSequence
+		static
+		0 stacktrace stacktrace
+		1 prevIndex prevIndex
+		2 currentIndex currentIndex
+	j6 ([Ljava/lang/StackTraceElement;I)[Ljava/lang/StackTraceElement; trimRepeats
+		static
+		0 stacktrace stacktrace
+		1 maxRepetitions maxRepetitions
+	j6 ([Ljava/lang/StackTraceElement;)[Ljava/lang/StackTraceElement; getTrimmedStackTrace
+		0 stacktrace stacktrace
+	j6 maxRepetitions
+com/crashlytics/android/core/K com/crashlytics/android/core/CrashlyticsController$24$1
+	j6 this$1
+com/crashlytics/android/core/Ka com/crashlytics/android/core/Report
+	FH ()Ljava/io/File; getFile
+	Hw ()[Ljava/io/File; getFiles
+	j6 ()Ljava/util/Map; getCustomHeaders
+	DW ()Ljava/lang/String; getIdentifier
+com/crashlytics/android/core/Ka$a com/crashlytics/android/core/Report$Type
+	FH $VALUES
+	j6 JAVA
+	DW NATIVE
+com/crashlytics/android/core/L com/crashlytics/android/core/CrashlyticsController$24
+	j6 (Ljava/io/FileOutputStream;)V writeTo
+		0 arg arg
+	Zo val$ids
+	gn this$0
+	v5 val$isEmulator
+	j6 val$arch
+	VH val$state
+	DW val$availableProcessors
+	Hw val$diskSpace
+	FH val$totalRam
+com/crashlytics/android/core/La com/crashlytics/android/core/ReportUploader
+	DW ()Ljava/util/List; findReports
+	j6 (Lcom/crashlytics/android/core/Ka;)Z forceUpload
+		0 report report
+	DW RETRY_INTERVALS
+	j6 HEADER_INVALID_CLS_FILE
+	FH fileAccessLock
+	Hw createReportCall
+	Zo reportFilesProvider
+	gn uploadThread
+	v5 apiKey
+com/crashlytics/android/core/La$a com/crashlytics/android/core/ReportUploader$AlwaysSendCheck
+com/crashlytics/android/core/La$b com/crashlytics/android/core/AppMeasurementEventListenerRegistrar
+com/crashlytics/android/core/La$c com/crashlytics/android/core/ReportUploader$ReportFilesProvider
+	j6 ()[Ljava/io/File; getNativeReportFiles
+	FH ()[Ljava/io/File; getCompleteSessionFiles
+	DW ()[Ljava/io/File; getInvalidSessionFiles
+com/crashlytics/android/core/La$d com/crashlytics/android/core/ReportUploader$HandlingExceptionCheck
+com/crashlytics/android/core/La$e com/crashlytics/android/core/ReportUploader$Worker
+	FH this$0
+	j6 delay
+	j6 ()V onRun
+com/crashlytics/android/core/M com/crashlytics/android/core/CrashlyticsController$25
+	j6 (Lcom/crashlytics/android/core/h;)V writeTo
+		0 arg arg
+	DW this$0
+	j6 val$userMetaData
+com/crashlytics/android/core/Ma com/crashlytics/android/core/ResourceUnityVersionProvider
+	j6 ()Ljava/lang/String; getUnityVersion
+	DW fallback
+	FH hasRead
+	Hw unityVersion
+	j6 context
+com/crashlytics/android/core/N com/crashlytics/android/core/CrashlyticsController$2
+com/crashlytics/android/core/Na com/crashlytics/android/core/SessionProtobufHelper
+	j6 ()I getEventAppExecutionSignalSize
+		static
+	j6 (ILcom/crashlytics/android/core/d;IJJZLjava/util/Map;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;)I getSessionDeviceSize
+		static
+		0 arch arch
+		1 model model
+		2 availableProcessors availableProcessors
+		3 totalRam totalRam
+		4 diskSpace diskSpace
+		5 isEmulator isEmulator
+		6 ids ids
+		7 state state
+		8 manufacturer manufacturer
+		9 modelClass modelClass
+	j6 (JLjava/lang/String;Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILjava/util/Map;Landroid/app/ActivityManager$RunningAppProcessInfo;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Ljava/lang/Float;IZJJLcom/crashlytics/android/core/d;)I getSessionEventSize
+		static
+		0 eventTime eventTime
+		1 eventType eventType
+		2 exception exception
+		3 exceptionThread exceptionThread
+		4 exceptionStack exceptionStack
+		5 otherThreads otherThreads
+		6 otherStacks otherStacks
+		7 maxChainedExceptionsDepth maxChainedExceptionsDepth
+		8 customAttributes customAttributes
+		9 runningAppProcessInfo runningAppProcessInfo
+		10 orientation orientation
+		11 packageNameBytes packageNameBytes
+		12 optionalBuildIdBytes optionalBuildIdBytes
+		13 batteryLevel batteryLevel
+		14 batteryVelocity batteryVelocity
+		15 proximityEnabled proximityEnabled
+		16 heapAllocatedSize heapAllocatedSize
+		17 diskUsed diskUsed
+		18 log log
+	j6 (Lcom/crashlytics/android/core/Ra;II)I getEventAppExecutionExceptionSize
+		static
+		0 ex ex
+		1 chainDepth chainDepth
+		2 maxChainedExceptionsDepth maxChainedExceptionsDepth
+	j6 (Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;)I getEventAppExecutionSize
+		static
+		0 exception exception
+		1 exceptionThread exceptionThread
+		2 exceptionStack exceptionStack
+		3 otherThreads otherThreads
+		4 otherStacks otherStacks
+		5 maxChainedExceptionDepth maxChainedExceptionDepth
+		6 packageNameBytes packageNameBytes
+		7 optionalBuildIdBytes optionalBuildIdBytes
+	j6 (Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Ljava/util/Map;Landroid/app/ActivityManager$RunningAppProcessInfo;I)I getEventAppSize
+		static
+		0 exception exception
+		1 exceptionThread exceptionThread
+		2 exceptionStack exceptionStack
+		3 otherThreads otherThreads
+		4 otherStacks otherStacks
+		5 maxChainedExceptionsDepth maxChainedExceptionsDepth
+		6 packageNameBytes packageNameBytes
+		7 optionalBuildIdBytes optionalBuildIdBytes
+		8 customAttributes customAttributes
+		9 runningAppProcessInfo runningAppProcessInfo
+		10 orientation orientation
+	j6 (Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;)I getBinaryImageSize
+		static
+		0 packageNameBytes packageNameBytes
+		1 optionalBuildIdBytes optionalBuildIdBytes
+	j6 (Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;ILcom/crashlytics/android/core/d;)I getSessionAppSize
+		static
+		0 packageName packageName
+		1 apiKey apiKey
+		2 versionCode versionCode
+		3 versionName versionName
+		4 installUuid installUuid
+		5 deliveryMechanism deliveryMechanism
+		6 unityVersion unityVersion
+	j6 (Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Z)I getSessionOSSize
+		static
+		0 release release
+		1 codeName codeName
+		2 isRooted isRooted
+	j6 (Ljava/lang/Float;IZIJJ)I getEventDeviceSize
+		static
+		0 batteryLevel batteryLevel
+		1 batteryVelocity batteryVelocity
+		2 proximityEnabled proximityEnabled
+		3 orientation orientation
+		4 heapAllocatedSize heapAllocatedSize
+		5 diskUsed diskUsed
+	j6 (Ljava/lang/StackTraceElement;Z)I getFrameSize
+		static
+		0 element element
+		1 isCrashedThread isCrashedThread
+	j6 (Ljava/lang/String;Ljava/lang/String;)I getEventAppCustomAttributeSize
+		static
+		0 key key
+		1 value value
+	j6 (Ljava/lang/Thread;[Ljava/lang/StackTraceElement;IZ)I getThreadSize
+		static
+		0 thread thread
+		1 stackTraceElements stackTraceElements
+		2 importance importance
+		3 isCrashedThread isCrashedThread
+	j6 (Ljava/lang/String;)Lcom/crashlytics/android/core/d; stringToByteString
+		static
+		0 s s
+	j6 (Lcom/crashlytics/android/core/h;ILjava/lang/StackTraceElement;Z)V writeFrame
+		static
+		0 cos cos
+		1 fieldIndex fieldIndex
+		2 element element
+		3 isCrashedThread isCrashedThread
+	j6 (Lcom/crashlytics/android/core/h;ILjava/lang/String;IJJZLjava/util/Map;ILjava/lang/String;Ljava/lang/String;)V writeSessionDevice
+		static
+		0 cos cos
+		1 arch arch
+		2 model model
+		3 availableProcessors availableProcessors
+		4 totalRam totalRam
+		5 diskSpace diskSpace
+		6 isEmulator isEmulator
+		7 ids ids
+		8 state state
+		9 manufacturer manufacturer
+		10 modelClass modelClass
+	j6 (Lcom/crashlytics/android/core/h;JLjava/lang/String;Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;Ljava/util/Map;Lcom/crashlytics/android/core/ua;Landroid/app/ActivityManager$RunningAppProcessInfo;ILjava/lang/String;Ljava/lang/String;Ljava/lang/Float;IZJJ)V writeSessionEvent
+		static
+		0 cos cos
+		1 eventTime eventTime
+		2 eventType eventType
+		3 exception exception
+		4 exceptionThread exceptionThread
+		5 exceptionStack exceptionStack
+		6 otherThreads otherThreads
+		7 otherStacks otherStacks
+		8 customAttributes customAttributes
+		9 logFileManager logFileManager
+		10 runningAppProcessInfo runningAppProcessInfo
+		11 orientation orientation
+		12 packageName packageName
+		13 buildId buildId
+		14 batteryLevel batteryLevel
+		15 batteryVelocity batteryVelocity
+		16 proximityEnabled proximityEnabled
+		17 usedRamInBytes usedRamInBytes
+		18 diskUsedInBytes diskUsedInBytes
+	j6 (Lcom/crashlytics/android/core/h;Lcom/crashlytics/android/core/Ra;III)V writeSessionEventAppExecutionException
+		static
+		0 cos cos
+		1 exception exception
+		2 chainDepth chainDepth
+		3 maxChainedExceptionsDepth maxChainedExceptionsDepth
+		4 field field
+	j6 (Lcom/crashlytics/android/core/h;Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;)V writeSessionEventAppExecution
+		static
+		0 cos cos
+		1 exception exception
+		2 exceptionThread exceptionThread
+		3 exceptionStack exceptionStack
+		4 otherThreads otherThreads
+		5 otherStacks otherStacks
+		6 maxChainedExceptionsDepth maxChainedExceptionsDepth
+		7 packageNameBytes packageNameBytes
+		8 optionalBuildIdBytes optionalBuildIdBytes
+	j6 (Lcom/crashlytics/android/core/h;Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Ljava/util/Map;Landroid/app/ActivityManager$RunningAppProcessInfo;I)V writeSessionEventApp
+		static
+		0 cos cos
+		1 exception exception
+		2 exceptionThread exceptionThread
+		3 exceptionStack exceptionStack
+		4 otherThreads otherThreads
+		5 otherStacks otherStacks
+		6 maxChainedExceptionsDepth maxChainedExceptionsDepth
+		7 packageNameBytes packageNameBytes
+		8 optionalBuildIdBytes optionalBuildIdBytes
+		9 customAttributes customAttributes
+		10 runningAppProcessInfo runningAppProcessInfo
+		11 orientation orientation
+	j6 (Lcom/crashlytics/android/core/h;Lcom/crashlytics/android/core/d;)V writeSessionEventLog
+		static
+		0 cos cos
+		1 log log
+	j6 (Lcom/crashlytics/android/core/h;Ljava/lang/Float;IZIJJ)V writeSessionEventDevice
+		static
+		0 cos cos
+		1 batteryLevel batteryLevel
+		2 batteryVelocity batteryVelocity
+		3 proximityEnabled proximityEnabled
+		4 orientation orientation
+		5 heapAllocatedSize heapAllocatedSize
+		6 diskUsed diskUsed
+	j6 (Lcom/crashlytics/android/core/h;Ljava/lang/String;Ljava/lang/String;J)V writeBeginSession
+		static
+		0 cos cos
+		1 sessionId sessionId
+		2 generator generator
+		3 startedAtSeconds startedAtSeconds
+	j6 (Lcom/crashlytics/android/core/h;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V writeSessionUser
+		static
+		0 cos cos
+		1 id id
+		2 name name
+		3 email email
+	j6 (Lcom/crashlytics/android/core/h;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V writeSessionApp
+		static
+		0 cos cos
+		1 packageName packageName
+		2 apiKey apiKey
+		3 versionCode versionCode
+		4 versionName versionName
+		5 installUuid installUuid
+		6 deliveryMechanism deliveryMechanism
+		7 unityVersion unityVersion
+	j6 (Lcom/crashlytics/android/core/h;Ljava/lang/String;Ljava/lang/String;Z)V writeSessionOS
+		static
+		0 cos cos
+		1 osRelease osRelease
+		2 osCodeName osCodeName
+		3 isRooted isRooted
+	j6 (Lcom/crashlytics/android/core/h;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;IZ)V writeThread
+		static
+		0 cos cos
+		1 thread thread
+		2 stackTraceElements stackTraceElements
+		3 importance importance
+		4 isCrashedThread isCrashedThread
+	j6 (Lcom/crashlytics/android/core/h;Ljava/util/Map;)V writeSessionEventAppCustomAttributes
+		static
+		0 cos cos
+		1 customAttributes customAttributes
+	j6 (Lcom/crashlytics/android/core/d;)I getEventLogSize
+		static
+		0 log log
+	DW (Lcom/crashlytics/android/core/d;)I getSessionAppOrgSize
+		static
+		0 apiKey apiKey
+	DW UNITY_PLATFORM_BYTE_STRING
+	j6 SIGNAL_DEFAULT_BYTE_STRING
+com/crashlytics/android/core/O com/crashlytics/android/core/CrashlyticsController$3
+com/crashlytics/android/core/Oa com/crashlytics/android/core/SessionReport
+	FH ()Ljava/io/File; getFile
+	Hw ()[Ljava/io/File; getFiles
+	j6 ()Ljava/util/Map; getCustomHeaders
+	DW files
+	FH customHeaders
+	j6 file
+	DW ()Ljava/lang/String; getIdentifier
+com/crashlytics/android/core/P com/crashlytics/android/core/CrashlyticsController$4
+	j6 (Ljava/io/File;Ljava/io/File;)I compare
+		0 file1 file1
+		1 file2 file2
+com/crashlytics/android/core/Pa com/crashlytics/android/core/Sha1FileIdStrategy
+	j6 (Ljava/lang/String;)Ljava/lang/String; getFileSHA
+		static
+		0 path path
+	j6 (Ljava/io/File;)Ljava/lang/String; createId
+		0 file file
+com/crashlytics/android/core/Q com/crashlytics/android/core/CrashlyticsController$5
+	j6 (Ljava/io/File;Ljava/io/File;)I compare
+		0 file1 file1
+		1 file2 file2
+com/crashlytics/android/core/Qa com/crashlytics/android/core/StackTraceTrimmingStrategy
+	j6 ([Ljava/lang/StackTraceElement;)[Ljava/lang/StackTraceElement; getTrimmedStackTrace
+com/crashlytics/android/core/Ra com/crashlytics/android/core/TrimmedThrowableData
+	FH stacktrace
+	Hw cause
+	j6 localizedMessage
+	DW className
+com/crashlytics/android/core/S com/crashlytics/android/core/CrashlyticsController$6
+	j6 (Lcom/crashlytics/android/core/ia$b;Ljava/lang/Thread;Ljava/lang/Throwable;Z)V onUncaughtException
+		0 settingsDataProvider settingsDataProvider
+		1 thread thread
+		2 ex ex
+		3 firebaseCrashlyticsClientFlag firebaseCrashlyticsClientFlag
+	j6 this$0
+com/crashlytics/android/core/Sa com/crashlytics/android/core/UnityVersionProvider
+	j6 ()Ljava/lang/String; getUnityVersion
+com/crashlytics/android/core/T com/crashlytics/android/core/CrashlyticsController$7
+	DW val$thread
+	FH val$ex
+	Hw val$settingsDataProvider
+	Zo this$0
+	j6 val$time
+	v5 val$firebaseCrashlyticsClientFlag
+com/crashlytics/android/core/Ta com/crashlytics/android/core/UserMetaData
+	j6 EMPTY
+	Hw email
+	FH name
+	DW id
+com/crashlytics/android/core/U com/crashlytics/android/core/CrashlyticsController$8
+	DW val$msg
+	FH this$0
+	j6 val$timestamp
+com/crashlytics/android/core/Ua com/crashlytics/android/core/Utils$1
+com/crashlytics/android/core/V com/crashlytics/android/core/CrashlyticsController$9
+	DW val$thread
+	FH val$ex
+	Hw this$0
+	j6 val$now
+com/crashlytics/android/core/Va com/crashlytics/android/core/Utils
+	j6 (Ljava/io/File;ILjava/util/Comparator;)I capFileCount
+		static
+		0 directory directory
+		1 maxAllowed maxAllowed
+		2 sortComparator sortComparator
+	j6 (Ljava/io/File;Ljava/io/FilenameFilter;ILjava/util/Comparator;)I capFileCount
+		static
+		0 directory directory
+		1 filter filter
+		2 maxAllowed maxAllowed
+		3 sortComparator sortComparator
+	j6 ALL_FILES_FILTER
+com/crashlytics/android/core/W$a com/crashlytics/android/core/CrashlyticsController$AnySessionPartFileFilter
+com/crashlytics/android/core/W$b com/crashlytics/android/core/CrashlyticsController$CodedOutputStreamWriteAction
+	j6 (Lcom/crashlytics/android/core/h;)V writeTo
+com/crashlytics/android/core/W$d com/crashlytics/android/core/CrashlyticsController$FileNameContainsFilter
+	j6 string
+com/crashlytics/android/core/W$e com/crashlytics/android/core/CrashlyticsController$FileOutputStreamWriteAction
+	j6 (Ljava/io/FileOutputStream;)V writeTo
+com/crashlytics/android/core/W$f com/crashlytics/android/core/CrashlyticsController$InvalidPartFileFilter
+com/crashlytics/android/core/W$i com/crashlytics/android/core/CrashlyticsController$ReportUploaderFilesProvider
+	j6 this$0
+	DW ()[Ljava/io/File; getInvalidSessionFiles
+	FH ()[Ljava/io/File; getCompleteSessionFiles
+	j6 ()[Ljava/io/File; getNativeReportFiles
+com/crashlytics/android/core/W$j com/crashlytics/android/core/CrashlyticsController$ReportUploaderHandlingExceptionCheck
+	j6 this$0
+com/crashlytics/android/core/W$k com/crashlytics/android/core/CrashlyticsController$SendReportRunnable
+	DW report
+	FH reportUploader
+	j6 context
+com/crashlytics/android/core/W$l com/crashlytics/android/core/CrashlyticsController$SessionPartFileFilter
+	j6 sessionId
+com/crashlytics/android/core/X com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck$1
+	j6 (Z)V sendUserReportsWithoutPrompting
+		0 send send
+	j6 this$0
+com/crashlytics/android/core/Y com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck$2
+	DW this$0
+	j6 val$dialog
+com/crashlytics/android/core/Z com/crashlytics/android/core/CrashlyticsCore$1
+	Hw this$0
+com/crashlytics/android/core/a com/crashlytics/android/core/AppData
+	Hw packageName
+	DW buildId
+	j6 apiKey
+	v5 versionCode
+	Zo versionName
+	FH installerPackageName
+com/crashlytics/android/core/aa com/crashlytics/android/core/CrashlyticsCore$2
+	j6 this$0
+com/crashlytics/android/core/b com/crashlytics/android/core/ReportUploader$SendCheck
+com/crashlytics/android/core/ba com/crashlytics/android/core/CrashlyticsCore$3
+	j6 this$0
+com/crashlytics/android/core/c com/crashlytics/android/core/BinaryImagesConverter
+	DW (Ljava/lang/String;)Ljava/io/File; getLibraryFile
+		0 path path
+	DW (Lorg/json/JSONArray;)Ljava/lang/String; joinMapsEntries
+		static
+		0 array array
+	DW (Ljava/io/BufferedReader;)Lorg/json/JSONArray; parseProcMapsJsonFromStream
+		0 reader reader
+	FH (Ljava/lang/String;)Lorg/json/JSONObject; jsonFromMapEntryString
+		0 mapEntryString mapEntryString
+	Hw (Ljava/lang/String;)Lorg/json/JSONArray; parseProcMapsJsonFromString
+		0 rawProcMapsString rawProcMapsString
+	j6 (Ljava/io/File;)Ljava/io/File; correctDataPath
+		0 missingFile missingFile
+	j6 (Ljava/lang/String;Lcom/crashlytics/android/core/Fa;)Lorg/json/JSONObject; createBinaryImageJson
+		static
+		0 uuid uuid
+		1 mapEntry mapEntry
+	j6 (Lcom/crashlytics/android/core/Fa;)Z isRelevant
+		static
+		0 mapEntry mapEntry
+	j6 (Lorg/json/JSONArray;)[B generateBinaryImagesJsonString
+		static
+		0 binaryImages binaryImages
+	j6 (Ljava/io/BufferedReader;)[B convert
+		0 reader reader
+	j6 (Ljava/lang/String;)[B convert
+		0 raw raw
+	DW fileIdStrategy
+	j6 context
+com/crashlytics/android/core/c$a com/crashlytics/android/core/BinaryImagesConverter$FileIdStrategy
+	j6 (Ljava/io/File;)Ljava/lang/String; createId
+com/crashlytics/android/core/ca$a com/crashlytics/android/core/CrashlyticsCore$CrashMarkerCheck
+	j6 crashMarker
+com/crashlytics/android/core/ca$b com/crashlytics/android/core/CrashlyticsCore$NoOpListener
+	j6 ()V crashlyticsDidDetectCrashDuringPreviousExecution
+com/crashlytics/android/core/e com/crashlytics/android/core/CLSUUID
+	DW _clsId
+	j6 _sequenceNumber
+	j6 ([B)V populatePID
+		0 bytes bytes
+	DW ([B)V populateSequenceNumber
+		0 bytes bytes
+	FH ([B)V populateTime
+		0 bytes bytes
+	j6 (J)[B convertLongToFourByteBuffer
+		static
+		0 value value
+	DW (J)[B convertLongToTwoByteBuffer
+		static
+		0 value value
+com/crashlytics/android/core/f com/crashlytics/android/core/ClsFileOutputStream$1
+com/crashlytics/android/core/ga com/crashlytics/android/core/CrashlyticsNdkDataProvider
+	j6 ()Lcom/crashlytics/android/core/fa; getCrashlyticsNdkData
+com/crashlytics/android/core/h$a com/crashlytics/android/core/CrashlyticsListener
+com/crashlytics/android/core/ha com/crashlytics/android/core/CrashlyticsPinningInfoProvider
+	j6 pinningInfo
+com/crashlytics/android/core/i com/crashlytics/android/core/CompositeCreateReportSpiCall$1
+	j6 $SwitchMap$com$crashlytics$android$core$Report$Type
+com/crashlytics/android/core/ia com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler
+	j6 ()Z isHandlingException
+	DW settingsDataProvider
+	FH firebaseCrashlyticsClientFlag
+	Hw defaultHandler
+	j6 crashListener
+	v5 isHandlingException
+com/crashlytics/android/core/ia$a com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler$CrashListener
+	j6 (Lcom/crashlytics/android/core/ia$b;Ljava/lang/Thread;Ljava/lang/Throwable;Z)V onUncaughtException
+com/crashlytics/android/core/j com/crashlytics/android/core/CompositeCreateReportSpiCall
+	j6 (Lcom/crashlytics/android/core/ja;)Z invoke
+		0 requestData requestData
+	DW nativeReportSpiCall
+	j6 javaReportSpiCall
+com/crashlytics/android/core/ja com/crashlytics/android/core/CreateReportRequest
+	DW report
+	j6 apiKey
+com/crashlytics/android/core/k com/crashlytics/android/core/CrashPromptDialog$1
+	j6 val$latch
+com/crashlytics/android/core/ka com/crashlytics/android/core/CreateReportSpiCall
+	j6 (Lcom/crashlytics/android/core/ja;)Z invoke
+com/crashlytics/android/core/l com/crashlytics/android/core/CrashPromptDialog$2
+	j6 val$latch
+com/crashlytics/android/core/la com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar$1
+	j6 (Ljava/lang/Object;Ljava/lang/Object;)Z equalsImpl
+		0 proxy proxy
+		1 obj obj
+	j6 this$0
+com/crashlytics/android/core/m com/crashlytics/android/core/CrashPromptDialog$3
+	DW val$latch
+	j6 val$alwaysSendCallback
+com/crashlytics/android/core/n com/crashlytics/android/core/CrashPromptDialog
+	j6 (FI)I dipsToPixels
+		static
+		0 density density
+		1 dips dips
+	j6 (Landroid/app/Activity;Ljava/lang/String;)Landroid/widget/ScrollView; createDialogView
+		static
+		0 activity activity
+		1 message message
+	DW ()Z getOptIn
+	DW dialog
+	j6 latch
+	j6 ()V await
+	FH ()V show
+com/crashlytics/android/core/n$a com/crashlytics/android/core/CrashPromptDialog$AlwaysSendCallback
+	j6 (Z)V sendUserReportsWithoutPrompting
+com/crashlytics/android/core/n$b com/crashlytics/android/core/CrashPromptDialog$OptInLatch
+	j6 ()V await
+	DW ()Z getOptIn
+	j6 (Z)V setOptIn
+		0 optIn optIn
+	DW latch
+	j6 send
+com/crashlytics/android/core/oa com/crashlytics/android/core/DevicePowerStateListener$1
+	j6 this$0
+com/crashlytics/android/core/p com/crashlytics/android/core/CrashlyticsBackgroundWorker$1
+	DW this$0
+	j6 val$runnable
+com/crashlytics/android/core/pa com/crashlytics/android/core/DevicePowerStateListener$2
+	j6 this$0
+com/crashlytics/android/core/q com/crashlytics/android/core/CrashlyticsBackgroundWorker$2
+	DW this$0
+	j6 val$callable
+com/crashlytics/android/core/r com/crashlytics/android/core/CrashlyticsBackgroundWorker
+	DW (Ljava/util/concurrent/Callable;)Ljava/lang/Object; submitAndWait
+		0 callable callable
+	j6 (Ljava/lang/Runnable;)Ljava/util/concurrent/Future; submit
+		0 runnable runnable
+	j6 (Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future; submit
+		0 callable callable
+	j6 executorService
+com/crashlytics/android/core/ra com/crashlytics/android/core/FileLogStore
+	DW ()Lcom/crashlytics/android/core/d; getLogAsByteString
+	FH ()[B getLogAsBytes
+	j6 (JLjava/lang/String;)V writeToLog
+com/crashlytics/android/core/s com/crashlytics/android/core/CrashlyticsController$10
+	Hw this$0
+	j6 val$userId
+	FH val$userEmail
+	DW val$userName
+com/crashlytics/android/core/sa com/crashlytics/android/core/InvalidSessionReport
+	FH ()Ljava/io/File; getFile
+	Hw ()[Ljava/io/File; getFiles
+	j6 ()Ljava/util/Map; getCustomHeaders
+	DW customHeaders
+	FH identifier
+	j6 files
+	DW ()Ljava/lang/String; getIdentifier
+com/crashlytics/android/core/t com/crashlytics/android/core/CrashlyticsController$11
+	DW this$0
+	j6 val$keyData
+com/crashlytics/android/core/u com/crashlytics/android/core/CrashlyticsController$12
+	j6 this$0
+com/crashlytics/android/core/ua com/crashlytics/android/core/LogFileManager
+	j6 ()V clearLog
+	DW (Ljava/lang/String;)Ljava/io/File; getWorkingFileForSession
+		0 sessionId sessionId
+	j6 (Ljava/io/File;)Ljava/lang/String; getSessionIdForFile
+		0 workingFile workingFile
+	DW ()Lcom/crashlytics/android/core/d; getByteStringForLog
+	FH ()[B getBytesForLog
+	j6 (JLjava/lang/String;)V writeToLog
+		0 timestamp timestamp
+		1 msg msg
+	j6 (Ljava/io/File;I)V setLogFile
+		0 workingFile workingFile
+		1 maxLogSize maxLogSize
+	j6 (Ljava/lang/String;)V setCurrentSession
+		0 sessionId sessionId
+	j6 (Ljava/util/Set;)V discardOldLogFiles
+		0 sessionIdsToKeep sessionIdsToKeep
+	j6 NOOP_LOG_STORE
+	DW context
+	FH directoryProvider
+	Hw currentLog
+com/crashlytics/android/core/ua$a com/crashlytics/android/core/LogFileManager$DirectoryProvider
+	j6 ()Ljava/io/File; getLogFileDir
+com/crashlytics/android/core/ua$b com/crashlytics/android/core/LogFileManager$NoopLogStore
+	DW ()Lcom/crashlytics/android/core/d; getLogAsByteString
+	FH ()[B getLogAsBytes
+	j6 (JLjava/lang/String;)V writeToLog
+		0 timestamp timestamp
+		1 msg msg
+com/crashlytics/android/core/va com/crashlytics/android/core/ManifestUnityVersionProvider
+	j6 ()Ljava/lang/String; getUnityVersion
+	DW packageName
+	j6 context
+com/crashlytics/android/core/w com/crashlytics/android/core/CrashlyticsController$14
+	j6 this$0
+com/crashlytics/android/core/wa com/crashlytics/android/core/MetaDataStore$1
+	j6 val$userData
+com/crashlytics/android/core/x com/crashlytics/android/core/CrashlyticsController$15
+	DW this$0
+	j6 val$invalidSessionIds
+com/crashlytics/android/core/y com/crashlytics/android/core/CrashlyticsController$16
+	DW this$0
+	j6 val$ndkData
+com/crashlytics/android/core/ya com/crashlytics/android/core/MiddleOutFallbackStrategy
+	j6 ([Ljava/lang/StackTraceElement;)[Ljava/lang/StackTraceElement; getTrimmedStackTrace
+		0 stacktrace stacktrace
+	DW trimmingStrategies
+	FH middleOutStrategy
+	j6 maximumStackSize
+com/crashlytics/android/core/z com/crashlytics/android/core/CrashlyticsController$17
+	j6 (Lcom/crashlytics/android/core/h;)V writeTo
+		0 arg arg
+	FH val$startedAtSeconds
+	Hw this$0
+	j6 val$sessionId
+	DW val$generator
+com/crashlytics/android/core/za com/crashlytics/android/core/MiddleOutStrategy
+	j6 ([Ljava/lang/StackTraceElement;)[Ljava/lang/StackTraceElement; getTrimmedStackTrace
+		0 stacktrace stacktrace
+	j6 trimmedSize
+com/crashlytics/android/answers/A com/crashlytics/android/answers/RetryManager
+	DW (J)V recordRetry
+		0 timeNanos timeNanos
+	j6 ()V reset
+	j6 (J)Z canRetry
+		0 timeNanos timeNanos
+	j6 lastRetry
+com/crashlytics/android/answers/D com/crashlytics/android/answers/SessionAnalyticsFilesManager
+com/crashlytics/android/answers/E com/crashlytics/android/answers/SessionAnalyticsFilesSender
+	VH apiKey
+com/crashlytics/android/answers/F com/crashlytics/android/answers/SessionAnalyticsManager
+	Hw ()Z isFirstLaunch
+	j6 (J)V onInstall
+		0 installedAt installedAt
+	j6 (Landroid/app/Activity;Lcom/crashlytics/android/answers/I$b;)V onLifecycle
+		0 activity activity
+		1 type type
+	j6 (Ljava/lang/String;)V onError
+		0 sessionId sessionId
+	j6 (Ljava/lang/String;Ljava/lang/String;)V onCrash
+		0 sessionId sessionId
+		1 exceptionName exceptionName
+	DW eventsHandler
+	FH lifecycleManager
+	Hw backgroundManager
+	j6 installedAt
+	v5 preferenceManager
+	j6 ()V onBackground
+com/crashlytics/android/answers/I com/crashlytics/android/answers/SessionEvent
+	j6 (J)Lcom/crashlytics/android/answers/I$a; installEventBuilder
+		static
+		0 installedAt installedAt
+	j6 (Lcom/crashlytics/android/answers/I$b;Landroid/app/Activity;)Lcom/crashlytics/android/answers/I$a; lifecycleEventBuilder
+		static
+		0 type type
+		1 activity activity
+	j6 (Ljava/lang/String;)Lcom/crashlytics/android/answers/I$a; crashEventBuilder
+		static
+		0 sessionId sessionId
+	j6 (Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/answers/I$a; crashEventBuilder
+		static
+		0 sessionId sessionId
+		1 exceptionName exceptionName
+	DW timestamp
+	FH type
+	j6 sessionEventMetadata
+	gn predefinedAttributes
+	Zo customAttributes
+	Hw details
+	VH predefinedType
+	v5 customType
+	u7 stringRepresentation
+com/crashlytics/android/answers/K com/crashlytics/android/answers/SessionEventTransform
+	DW (Lcom/crashlytics/android/answers/I;)[B toBytes
+		0 event event
+	j6 (Lcom/crashlytics/android/answers/I;)Lorg/json/JSONObject; buildJsonForEvent
+		0 event event
+com/crashlytics/android/answers/b com/crashlytics/android/answers/Answers
+	DW analyticsManager
+	j6 firebaseEnabled
+com/crashlytics/android/answers/d com/crashlytics/android/answers/AnswersEventsHandler$1
+	DW val$protocolAndHostOverride
+	FH this$0
+com/crashlytics/android/answers/k com/crashlytics/android/answers/AnswersFilesManagerProvider
+	j6 ()Lcom/crashlytics/android/answers/D; getAnalyticsFilesManager
+	j6 context
+com/crashlytics/android/answers/m com/crashlytics/android/answers/AnswersPreferenceManager
+	j6 (Landroid/content/Context;)Lcom/crashlytics/android/answers/m; build
+		static
+		0 context context
+	DW ()V setAnalyticsLaunched
+	j6 ()Z hasAnalyticsLaunched
+com/crashlytics/android/answers/o com/crashlytics/android/answers/AppMeasurementEventLogger
+	DW (Landroid/content/Context;)Ljava/lang/Class; getClass
+		static
+		0 context context
+	DW (Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/reflect/Method; getLogEventMethod
+		static
+		0 context context
+		1 instanceClass instanceClass
+	j6 (Landroid/content/Context;)Lcom/crashlytics/android/answers/u; getEventLogger
+		static
+		0 context context
+	j6 (Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object; getInstance
+		static
+		0 context context
+		1 instanceClass instanceClass
+	j6 (Ljava/lang/String;Landroid/os/Bundle;)V logEvent
+		0 eventName eventName
+		1 metadata metadata
+	j6 (Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V logEvent
+		0 origin origin
+		1 eventName eventName
+		2 metadata metadata
+	DW logEventInstance
+	j6 logEventMethod
+com/crashlytics/android/answers/p com/crashlytics/android/answers/BackgroundManager$1
+	j6 this$0
+com/crashlytics/android/answers/s com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy
+	j6 (JJ)V scheduleTimeBasedFileRollOver
+		0 initialDelaySecs initialDelaySecs
+		1 frequencySecs frequencySecs
+	j6 (Lcom/crashlytics/android/answers/I$a;)V processEvent
+		0 builder builder
+	EQ eventFilter
+	FH context
+	Hw filesManager
+	J8 rolloverIntervalSeconds
+	VH metadata
+	Zo rolloverFutureRef
+	gn firebaseAnalyticsApiAdapter
+	j6 kit
+	v5 executorService
+	we customEventsEnabled
+	Ws forwardToFirebaseAnalyticsEnabled
+	QX includePurchaseEventsInForwardedEvents
+	J0 predefinedEventsEnabled
+com/crashlytics/android/answers/t com/crashlytics/android/answers/EventFilter
+	j6 (Lcom/crashlytics/android/answers/I;)Z skipEvent
+com/crashlytics/android/answers/z com/crashlytics/android/answers/RandomBackoff
+	j6 ()D randomJitter
+	DW random
+	FH jitterPercent
+com/crashlytics/android/core/Aa com/crashlytics/android/core/NativeCreateReportSpiCall
+	j6 (Lcom/crashlytics/android/core/ja;)Z invoke
+		0 requestData requestData
+com/crashlytics/android/core/Ea com/crashlytics/android/core/PreferenceManager
+	j6 (Z)V setShouldAlwaysSendReports
+		0 send send
+	j6 ()Z shouldAlwaysSendReports
+	DW kit
+com/crashlytics/android/core/Ga com/crashlytics/android/core/ProcMapEntryParser
+	j6 (Ljava/lang/String;)Lcom/crashlytics/android/core/Fa; parse
+		static
+		0 mapEntry mapEntry
+	j6 MAP_REGEX
+com/crashlytics/android/core/W com/crashlytics/android/core/CrashlyticsController
+	DW (Ljava/lang/String;)Lcom/crashlytics/android/core/Ta; getUserMetaData
+		0 sessionId sessionId
+	DW (Ljava/lang/String;Ljava/lang/String;)[B readFile
+		0 sessionId sessionId
+		1 tag tag
+	DW (Ljava/io/File;)[Ljava/io/File; listFiles
+		0 directory directory
+	DW ([Ljava/io/File;)[Ljava/io/File; ensureFileArrayNotNull
+		0 files files
+	FH (Ljava/io/File;)V recursiveDelete
+		0 f f
+	FH (Ljava/lang/String;)[Ljava/io/File; listSessionPartFilesFor
+		0 sessionId sessionId
+	j6 (Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/core/ka; getCreateReportSpiCall
+		0 reportsUrl reportsUrl
+		1 ndkReportsUrl ndkReportsUrl
+	j6 (Ljava/io/File;)Ljava/lang/String; getSessionIdFromSessionFile
+		static
+		0 sessionFile sessionFile
+	j6 (J)V recordFatalFirebaseEvent
+		0 timestamp timestamp
+	j6 (Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)V finalizeMostRecentNativeCrash
+		0 context context
+		1 latestDir latestDir
+		2 previousSessionId previousSessionId
+	j6 (Lcom/crashlytics/android/core/g;)V closeWithoutRenamingOrLog
+		0 fos fos
+	j6 (Lcom/crashlytics/android/core/h;Ljava/io/File;)V writeToCosFromFile
+		static
+		0 cos cos
+		1 file file
+	j6 (Lcom/crashlytics/android/core/h;Ljava/lang/String;)V writeInitialPartsTo
+		0 cos cos
+		1 sessionId sessionId
+	j6 (Lcom/crashlytics/android/core/h;Ljava/util/Date;Ljava/lang/Thread;Ljava/lang/Throwable;Ljava/lang/String;Z)V writeSessionEvent
+		0 cos cos
+		1 time time
+		2 thread thread
+		3 ex ex
+		4 eventType eventType
+		5 includeAllThreads includeAllThreads
+	j6 (Lcom/crashlytics/android/core/h;[Ljava/io/File;Ljava/lang/String;)V writeNonFatalEventsTo
+		static
+		0 cos cos
+		1 nonFatalFiles nonFatalFiles
+		2 sessionId sessionId
+	j6 (Ljava/io/File;Ljava/lang/String;I)V writeSessionPartsToSessionFile
+		0 sessionBeginFile sessionBeginFile
+		1 sessionId sessionId
+		2 maxLoggedExceptionsCount maxLoggedExceptionsCount
+	j6 (Ljava/io/File;Ljava/lang/String;[Ljava/io/File;Ljava/io/File;)V synthesizeSessionFile
+		0 sessionBeginFile sessionBeginFile
+		1 sessionId sessionId
+		2 nonFatalFiles nonFatalFiles
+		3 fatalFile fatalFile
+	j6 (Ljava/io/InputStream;Lcom/crashlytics/android/core/h;I)V copyToCodedOutputStream
+		static
+		0 inStream inStream
+		1 cos cos
+		2 bufferLength bufferLength
+	j6 (Ljava/lang/String;I)V trimSessionEventFiles
+		0 sessionId sessionId
+		1 limit limit
+	j6 (Ljava/lang/String;Ljava/lang/String;Lcom/crashlytics/android/core/W$b;)V writeSessionPartFile
+		0 sessionId sessionId
+		1 tag tag
+		2 writeAction writeAction
+	j6 (Ljava/lang/String;Ljava/lang/String;Lcom/crashlytics/android/core/W$e;)V writeFile
+		0 sessionId sessionId
+		1 tag tag
+		2 writeAction writeAction
+	j6 (Ljava/lang/String;Ljava/util/Date;)V writeBeginSession
+		0 sessionId sessionId
+		1 startedAt startedAt
+	j6 (Ljava/util/Set;)V recursiveDelete
+		0 files files
+	j6 ([Ljava/io/File;II)V closeOpenSessions
+		0 sessionBeginFiles sessionBeginFiles
+		1 beginIndex beginIndex
+		2 maxLoggedExceptionsCount maxLoggedExceptionsCount
+	j6 ([Ljava/io/File;Ljava/util/Set;)V retainSessions
+		0 files files
+		1 sessionIdsToKeep sessionIdsToKeep
+	j6 (Ljava/io/File;Ljava/io/FilenameFilter;)[Ljava/io/File; listFilesMatching
+		0 directory directory
+		1 filter filter
+	j6 (Ljava/io/FileFilter;)[Ljava/io/File; listFilesMatching
+		0 filter filter
+	j6 (Ljava/io/FilenameFilter;)[Ljava/io/File; listFilesMatching
+		0 filter filter
+	j6 (Ljava/lang/String;[Ljava/io/File;I)[Ljava/io/File; getTrimmedNonFatalFiles
+		0 sessionId sessionId
+		1 nonFatalFiles nonFatalFiles
+		2 maxLoggedExceptionsCount maxLoggedExceptionsCount
+	j6 (JLjava/lang/String;)V writeToLog
+		0 timestamp timestamp
+		1 msg msg
+	j6 (Lcom/crashlytics/android/core/ia$b;Ljava/lang/Thread;Ljava/lang/Throwable;Z)V handleUncaughtException
+		0 settingsDataProvider settingsDataProvider
+		1 thread thread
+		2 ex ex
+		3 firebaseCrashlyticsClientFlag firebaseCrashlyticsClientFlag
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V cacheUserData
+		0 userId userId
+		1 userName userName
+		2 userEmail userEmail
+	j6 (Ljava/lang/Thread$UncaughtExceptionHandler;Z)V enableExceptionHandling
+		0 defaultHandler defaultHandler
+		1 firebaseCrashlyticsClientFlag firebaseCrashlyticsClientFlag
+	j6 (Ljava/lang/Thread;Ljava/lang/Throwable;)V writeNonFatalException
+		0 thread thread
+		1 ex ex
+	j6 (Ljava/util/Map;)V cacheKeyData
+		0 keyData keyData
+	j6 ([Ljava/io/File;)V doCleanInvalidTempFiles
+		0 invalidFiles invalidFiles
+	j6 (Lcom/crashlytics/android/core/fa;)Z finalizeNativeReport
+		0 ndkData ndkData
+	FH SESSION_DIRECTORY_FILTER
+	VH SEND_AT_CRASHTIME_HEADER
+	Zo SESSION_FILE_PATTERN
+	gn INITIAL_SESSION_PART_TAGS
+	EQ backgroundWorker
+	J8 preferenceManager
+	Mr appMeasurementEventListenerRegistrar
+	QX appData
+	U2 devicePowerStateListener
+	XL logFileDirectoryProvider
+	a8 stackTraceTrimmingStrategy
+	aM logFileManager
+	er firebaseAnalyticsLogger
+	j3 reportFilesProvider
+	lg unityVersion
+	tp crashlyticsCore
+	u7 eventCounter
+	yS crashHandler
+	aM ()V trimInvalidSessionFiles
+	EQ ()V openSession
+	we ()V registerDevicePowerStateListener
+	J0 ()V doOpenSession
+	DW ()V cleanInvalidTempFiles
+	DW (I)V trimOpenSessions
+		0 maxOpenSessionCount maxOpenSessionCount
+	j6 (I)V trimSessionFiles
+		0 maxCompleteSessionsCount maxCompleteSessionsCount
+	j6 (Ljava/util/Date;Ljava/lang/Thread;Ljava/lang/Throwable;)V doWriteNonFatal
+		0 time time
+		1 thread thread
+		2 ex ex
+	DW (Ljava/util/Date;Ljava/lang/Thread;Ljava/lang/Throwable;)V writeFatal
+		0 time time
+		1 thread thread
+		2 ex ex
+	DW ([BLjava/io/File;)V gzipIfNotEmpty
+		0 content content
+		1 path path
+	j6 ([BLjava/io/File;)V gzip
+		0 bytes bytes
+		1 path path
+	FH (Ljava/lang/String;Ljava/lang/String;)V recordFatalExceptionAnswersEvent
+		static
+		0 sessionId sessionId
+		1 exceptionName exceptionName
+	j6 (Ljava/lang/String;)V deleteSessionPartFilesFor
+		0 sessionId sessionId
+	VH (Ljava/lang/String;)V writeSessionUser
+		0 sessionId sessionId
+	v5 (Ljava/lang/String;)V writeSessionDevice
+		0 sessionId sessionId
+	VH ()Z isHandlingException
+	J8 ()Z firebaseCrashExists
+	QX ()Ljava/lang/String; getCurrentSessionId
+	u7 ()[Ljava/io/File; listNativeSessionFileDirectories
+	tp ()[Ljava/io/File; listSessionBeginFiles
+	gn ()[Ljava/io/File; listCompleteSessionFiles
+	XL ()[Ljava/io/File; listSortedSessionBeginFiles
+	v5 ()Ljava/io/File; getInvalidFilesDir
+	Zo ()Ljava/io/File; getNonFatalSessionFilesDir
+	FH ()Ljava/io/File; getFatalSessionFilesDir
+	Hw ()Ljava/io/File; getFilesDir
+	Hw (Ljava/lang/String;Ljava/lang/String;)V recordLoggedExceptionAnswersEvent
+		static
+		0 sessionId sessionId
+		1 exceptionName exceptionName
+	Zo (Ljava/lang/String;)V writeSessionOS
+		0 sessionId sessionId
+	Hw (Ljava/lang/String;)V writeSessionApp
+		0 sessionId sessionId
+	Ws ()Ljava/lang/String; getPreviousSessionId
+	j6 SESSION_BEGIN_FILE_FILTER
+	DW SESSION_FILE_FILTER
+	v5 SMALLEST_FILE_NAME_FIRST
+	Hw LARGEST_FILE_NAME_FIRST
+com/crashlytics/android/core/W$g com/crashlytics/android/core/CrashlyticsController$LogFileDirectoryProvider
+	j6 ()Ljava/io/File; getLogFileDir
+com/crashlytics/android/core/W$h com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck
+	DW preferenceManager
+	j6 kit
+com/crashlytics/android/core/ca com/crashlytics/android/core/CrashlyticsCore
+	DW (ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String; formatLogMessage
+		static
+		0 priority priority
+		1 tag tag
+		2 msg msg
+	DW (Ljava/lang/String;)Ljava/lang/String; sanitizeAttribute
+		static
+		0 input input
+	j6 (Ljava/lang/String;)Z ensureFabricWithCalled
+		static
+		0 msg msg
+	j6 (Ljava/lang/String;Z)Z isBuildIdValid
+		static
+		0 buildId buildId
+		1 requiresBuildId requiresBuildId
+	J8 ()Lcom/crashlytics/android/core/fa; getNativeCrashData
+	j6 (Landroid/content/Context;)Z onPreExecute
+		0 context context
+	we ()Ljava/util/Map; getAttributes
+	DW attributes
+	EQ disabled
+	J8 backgroundWorker
+	Ws crashlyticsNdkDataProvider
+	Zo controller
+	j6 startTime
+	tp delay
+	we pinningInfo
+	j6 (ILjava/lang/String;Ljava/lang/String;)V doLog
+		0 priority priority
+		1 tag tag
+		2 msg msg
+	j6 (Ljava/net/URL;)Z internalVerifyPinning
+		0 url url
+	Hw crashMarker
+	FH initializationMarker
+	u7 userName
+	gn userEmail
+	VH userId
+com/crashlytics/android/core/d com/crashlytics/android/core/ByteString
+	j6 (Ljava/lang/String;)Lcom/crashlytics/android/core/d; copyFromUtf8
+		static
+		0 text text
+	j6 ([BII)Lcom/crashlytics/android/core/d; copyFrom
+		static
+		0 bytes bytes
+		1 offset offset
+		2 size size
+	j6 ()Ljava/io/InputStream; newInput
+	j6 ([BIII)V copyTo
+		0 target target
+		1 sourceOffset sourceOffset
+		2 targetOffset targetOffset
+		3 size size
+	j6 EMPTY
+	DW bytes
+	FH hash
+	DW ()I size
+com/crashlytics/android/core/da com/crashlytics/android/core/CrashlyticsFileMarker
+	Hw ()Ljava/io/File; getMarkerFile
+	j6 markerName
+	FH ()Z remove
+	DW ()Z isPresent
+	j6 ()Z create
+com/crashlytics/android/core/g com/crashlytics/android/core/ClsFileOutputStream
+	j6 TEMP_FILENAME_FILTER
+	DW root
+	v5 closed
+	j6 ()V closeInProgressStream
+	FH inProgress
+	Hw complete
+com/crashlytics/android/core/h com/crashlytics/android/core/CodedOutputStream
+	j6 (F)I computeFloatSizeNoTag
+		static
+		0 value value
+	j6 (IF)I computeFloatSize
+		static
+		0 fieldNumber fieldNumber
+		1 value value
+	j6 (IZ)I computeBoolSize
+		static
+		0 fieldNumber fieldNumber
+		1 value value
+	j6 (Lcom/crashlytics/android/core/d;)I computeBytesSizeNoTag
+		static
+		0 value value
+	j6 (Z)I computeBoolSizeNoTag
+		static
+		0 value value
+	j6 (Ljava/io/OutputStream;)Lcom/crashlytics/android/core/h; newInstance
+		static
+		0 output output
+	j6 (Ljava/io/OutputStream;I)Lcom/crashlytics/android/core/h; newInstance
+		static
+		0 output output
+		1 bufferSize bufferSize
+	DW (F)V writeFloatNoTag
+		0 value value
+	DW (IF)V writeFloat
+		0 fieldNumber fieldNumber
+		1 value value
+	DW (IZ)V writeBool
+		0 fieldNumber fieldNumber
+		1 value value
+	DW (Z)V writeBoolNoTag
+		0 value value
+	j6 (B)V writeRawByte
+		0 value value
+	j6 (Lcom/crashlytics/android/core/d;II)V writeRawBytes
+		0 value value
+		1 offset offset
+		2 length length
+	j6 ([B)V writeRawBytes
+		0 value value
+	Hw output
+	j6 buffer
+	FH (I)I computeRawVarint32Size
+		static
+		0 value value
+	Zo (I)I computeUInt32SizeNoTag
+		static
+		0 value value
+	Hw (I)I computeSInt32SizeNoTag
+		static
+		0 value value
+	DW (I)I computeInt32SizeNoTag
+		static
+		0 value value
+	v5 (I)I computeTagSize
+		static
+		0 fieldNumber fieldNumber
+	FH (II)I computeUInt32Size
+		static
+		0 fieldNumber fieldNumber
+		1 value value
+	j6 (II)I computeEnumSize
+		static
+		0 fieldNumber fieldNumber
+		1 value value
+	j6 (J)I computeRawVarint64Size
+		static
+		0 value value
+	j6 (IJ)I computeUInt64Size
+		static
+		0 fieldNumber fieldNumber
+		1 value value
+	j6 (ILcom/crashlytics/android/core/d;)I computeBytesSize
+		static
+		0 fieldNumber fieldNumber
+		1 value value
+	j6 ()V refreshBuffer
+	DW (IJ)V writeUInt64
+		0 fieldNumber fieldNumber
+		1 value value
+	DW (ILcom/crashlytics/android/core/d;)V writeBytes
+		0 fieldNumber fieldNumber
+		1 value value
+	DW (Lcom/crashlytics/android/core/d;)V writeBytesNoTag
+		0 value value
+	FH (Lcom/crashlytics/android/core/d;)V writeRawBytes
+		0 value value
+	tp (I)V writeRawByte
+		0 value value
+	u7 (I)V writeInt32NoTag
+		0 value value
+	J0 (I)V writeSInt32NoTag
+		0 value value
+	we (I)V writeRawVarint32
+		0 value value
+	FH (J)V writeRawVarint64
+		0 value value
+	VH (II)V writeUInt32
+		0 fieldNumber fieldNumber
+		1 value value
+	Zo (II)V writeTag
+		0 fieldNumber fieldNumber
+		1 wireType wireType
+	j6 ([BII)V writeRawBytes
+		0 value value
+		1 offset offset
+		2 length length
+	j6 (I)I computeEnumSizeNoTag
+		static
+		0 value value
+	VH (I)I encodeZigZag32
+		static
+		0 n n
+	DW (II)I computeSInt32Size
+		static
+		0 fieldNumber fieldNumber
+		1 value value
+	DW (J)I computeUInt64SizeNoTag
+		static
+		0 value value
+	J8 (I)V writeUInt32NoTag
+		0 value value
+	gn (I)V writeEnumNoTag
+		0 value value
+	EQ (I)V writeRawLittleEndian32
+		0 value value
+	Hw (J)V writeUInt64NoTag
+		0 value value
+	Hw (II)V writeEnum
+		0 fieldNumber fieldNumber
+		1 value value
+	v5 (II)V writeSInt32
+		0 fieldNumber fieldNumber
+		1 value value
+	DW limit
+	FH position
+com/crashlytics/android/core/ma com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar
+	j6 (Ljava/lang/String;)Ljava/lang/Class; getClass
+		0 clazz clazz
+	j6 (Ljava/lang/String;Landroid/os/Bundle;)Ljava/lang/String; serializeEvent
+		static
+		0 name name
+		1 params params
+	j6 ([Ljava/lang/Object;)Z validateOnEventArgTypes
+		static
+		0 args args
+	j6 ONEVENT_EXPECTED_ARGTYPES
+	DW crashlyticsCore
+	FH eventListenerProxy
+	DW (Ljava/lang/Class;)Ljava/lang/Object; getInstance
+		0 instanceClass instanceClass
+	j6 (Ljava/lang/Class;)Ljava/lang/Object; getOnEventListenerProxy
+		0 appMeasurementEventListenerClass appMeasurementEventListenerClass
+	DW (Lcom/crashlytics/android/core/ca;Ljava/lang/String;Landroid/os/Bundle;)V writeEventToUserLog
+		static
+		0 crashlyticsCore crashlyticsCore
+		1 name name
+		2 params params
+com/crashlytics/android/core/na com/crashlytics/android/core/DefaultCreateReportSpiCall
+	j6 (Lcom/crashlytics/android/core/ja;)Z invoke
+		0 requestData requestData
+com/crashlytics/android/core/o com/crashlytics/android/core/CrashTest
+	j6 ()V indexOutOfBounds
+com/crashlytics/android/core/qa com/crashlytics/android/core/DialogStringResolver
+	j6 (Ljava/lang/String;)Z isNullOrEmpty
+		0 s s
+	j6 context
+	DW (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; stringOrFallback
+		0 firstChoice firstChoice
+		1 fallback fallback
+	j6 (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; resourceOrFallbackValue
+		0 resourceName resourceName
+		1 settingsValue settingsValue
+	v5 ()Ljava/lang/String; getTitle
+	j6 ()Ljava/lang/String; getAlwaysSendButtonTitle
+	Hw ()Ljava/lang/String; getSendButtonTitle
+	FH ()Ljava/lang/String; getMessage
+	DW ()Ljava/lang/String; getCancelButtonTitle
+com/crashlytics/android/core/v com/crashlytics/android/core/CrashlyticsController$13
+	DW this$0
+com/crashlytics/android/core/xa com/crashlytics/android/core/MetaDataStore
+	j6 (Lcom/crashlytics/android/core/Ta;)Ljava/lang/String; userDataToJson
+		static
+		0 userData userData
+	j6 (Ljava/util/Map;)Ljava/lang/String; keysDataToJson
+		static
+		0 keyData keyData
+	j6 (Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String; valueOrNull
+		static
+		0 json json
+		1 key key
+	j6 (Ljava/lang/String;Lcom/crashlytics/android/core/Ta;)V writeUserData
+		0 sessionId sessionId
+		1 data data
+	j6 (Ljava/lang/String;Ljava/util/Map;)V writeKeyData
+		0 sessionId sessionId
+		1 keyData keyData
+	j6 UTF_8
+	DW filesDir
+	FH (Ljava/lang/String;)Lcom/crashlytics/android/core/Ta; readUserData
+		0 sessionId sessionId
+	Hw (Ljava/lang/String;)Lcom/crashlytics/android/core/Ta; jsonToUserData
+		static
+		0 json json
+	j6 (Ljava/lang/String;)Ljava/io/File; getKeysFileForSession
+		0 sessionId sessionId
+	DW (Ljava/lang/String;)Ljava/io/File; getUserDataFileForSession
+		0 sessionId sessionId
+com/crashlytics/android/answers/B com/crashlytics/android/answers/SamplingEventFilter$1
+com/crashlytics/android/answers/I$a com/crashlytics/android/answers/SessionEvent$Builder
+	j6 (Lcom/crashlytics/android/answers/J;)Lcom/crashlytics/android/answers/I; build
+		0 sessionEventMetadata sessionEventMetadata
+	DW timestamp
+	j6 type
+	DW (Ljava/util/Map;)Lcom/crashlytics/android/answers/I$a; details
+		0 details details
+	j6 (Ljava/util/Map;)Lcom/crashlytics/android/answers/I$a; customAttributes
+		0 customAttributes customAttributes
+	VH predefinedAttributes
+	v5 customAttributes
+	FH details
+	Zo predefinedType
+	Hw customType
+com/crashlytics/android/answers/q$a com/crashlytics/android/answers/BackgroundManager$Listener
+	j6 ()V onBackground
+com/crashlytics/android/core/W$c com/crashlytics/android/core/CrashlyticsController$DefaultSettingsDataProvider
+com/crashlytics/android/core/ia$b com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler$SettingsDataProvider
+com/crashlytics/android/core/fa com/crashlytics/android/core/CrashlyticsNdkData
+	j6 timestampedDirectories
+com/crashlytics/android/answers/G com/crashlytics/android/answers/SessionAnalyticsManagerStrategy
+	j6 (Lcom/crashlytics/android/answers/I$a;)V processEvent
+com/crashlytics/android/answers/L com/crashlytics/android/answers/SessionMetadataCollector
+	j6 ()Lcom/crashlytics/android/answers/J; getMetadata
+	j6 context
+	Hw versionName
+	FH versionCode
+com/crashlytics/android/answers/n com/crashlytics/android/answers/AnswersRetryFilesSender
+	j6 (Lcom/crashlytics/android/answers/E;)Lcom/crashlytics/android/answers/n; build
+		static
+		0 filesSender filesSender
+	DW retryManager
+	j6 filesSender
+com/crashlytics/android/answers/r com/crashlytics/android/answers/DisabledSessionAnalyticsManagerStrategy
+	j6 (Lcom/crashlytics/android/answers/I$a;)V processEvent
+		0 builder builder
+com/crashlytics/android/core/ea com/crashlytics/android/core/ea
+	j6 ()V crashlyticsDidDetectCrashDuringPreviousExecution
+io/fabric/sdk/android/ActivityLifecycleManager io/fabric/sdk/android/ActivityLifecycleManager
+	j6 ()V resetCallbacks
+	j6 (Lio/fabric/sdk/android/ActivityLifecycleManager$b;)Z registerCallbacks
+		0 callbacks callbacks
+	DW callbacksWrapper
+	j6 application
+io/fabric/sdk/android/ActivityLifecycleManager$a io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper
+	j6 ()V clearCallbacks
+	j6 (Lio/fabric/sdk/android/ActivityLifecycleManager$b;)Z registerLifecycleCallbacks
+		0 callbacks callbacks
+	DW application
+	j6 registeredCallbacks
+io/fabric/sdk/android/ActivityLifecycleManager$b io/fabric/sdk/android/ActivityLifecycleManager$Callbacks
+	DW (Landroid/app/Activity;)V onActivityStarted
+		0 activity activity
+	DW (Landroid/app/Activity;Landroid/os/Bundle;)V onActivityCreated
+		0 activity activity
+		1 bundle bundle
+	j6 (Landroid/app/Activity;)V onActivityStopped
+		0 activity activity
+	v5 (Landroid/app/Activity;)V onActivityDestroyed
+		0 activity activity
+io/fabric/sdk/android/Fabric io/fabric/sdk/android/Fabric
+io/fabric/sdk/android/Kit io/fabric/sdk/android/Kit
+io/fabric/sdk/android/a io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1
+	DW this$0
+	j6 val$callbacks
+io/fabric/sdk/android/b io/fabric/sdk/android/SilentLogger
+	j6 (ILjava/lang/String;Ljava/lang/String;)V log
+		0 priority priority
+		1 tag tag
+		2 msg msg
+	j6 (ILjava/lang/String;Ljava/lang/String;Z)V log
+		0 priority priority
+		1 tag tag
+		2 msg msg
+		3 forceLog forceLog
+	j6 (Ljava/lang/String;I)Z isLoggable
+		0 tag tag
+		1 level level
+	j6 logLevel
+io/fabric/sdk/android/c io/fabric/sdk/android/Fabric$1
+	j6 this$0
+io/fabric/sdk/android/d io/fabric/sdk/android/Fabric$2
+	j6 (Ljava/lang/Exception;)V failure
+		0 exception exception
+	j6 (Ljava/lang/Object;)V success
+		0 o o
+	DW val$size
+	FH this$0
+	j6 kitInitializedLatch
+io/fabric/sdk/android/e io/fabric/sdk/android/FabricContext
+	j6 componentPath
+	DW componentName
+io/fabric/sdk/android/h io/fabric/sdk/android/InitializationCallback
+	j6 (Ljava/lang/Exception;)V failure
+	j6 (Ljava/lang/Object;)V success
+	j6 EMPTY
+io/fabric/sdk/android/h$a io/fabric/sdk/android/InitializationCallback$Empty
+	j6 (Ljava/lang/Exception;)V failure
+		0 exception exception
+	j6 (Ljava/lang/Object;)V success
+		0 object object
+io/fabric/sdk/android/i io/fabric/sdk/android/services/events/EventsStorageListener
+io/fabric/sdk/android/j io/fabric/sdk/android/InitializationTask
+	j6 (Ljava/lang/String;)Lio/fabric/sdk/android/services/common/D; createAndStartTimingMetric
+		0 event event
+	QX kit
+io/fabric/sdk/android/k io/fabric/sdk/android/KitGroup
+io/fabric/sdk/android/l io/fabric/sdk/android/KitInfo
+	j6 ()Ljava/lang/String; getBuildType
+	FH ()Ljava/lang/String; getVersion
+	DW ()Ljava/lang/String; getIdentifier
+	j6 identifier
+	FH buildType
+	DW version
+io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$a io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingConnection
+	j6 ()Landroid/os/IBinder; getBinder
+	DW queue
+	j6 retrieved
+io/fabric/sdk/android/services/common/C io/fabric/sdk/android/services/common/SystemCurrentTimeProvider
+	j6 ()J getCurrentTimeMillis
+io/fabric/sdk/android/services/common/D io/fabric/sdk/android/services/common/TimingMetric
+	FH disabled
+	j6 ()V startMeasuring
+	FH ()V reportToLog
+	DW ()V stopMeasuring
+	j6 eventName
+	DW tag
+	v5 duration
+	Hw start
+io/fabric/sdk/android/services/common/b io/fabric/sdk/android/services/common/AdvertisingInfo
+	DW limitAdTrackingEnabled
+	j6 advertisingId
+io/fabric/sdk/android/services/common/c io/fabric/sdk/android/services/common/AdvertisingInfoProvider$1
+	j6 ()V onRun
+	DW this$0
+	j6 val$advertisingInfo
+io/fabric/sdk/android/services/common/g io/fabric/sdk/android/services/common/BackgroundPriorityRunnable
+	j6 ()V onRun
+io/fabric/sdk/android/services/common/h io/fabric/sdk/android/services/common/CommonUtils$1
+	j6 (Ljava/io/File;Ljava/io/File;)I compare
+		0 file0 file0
+		1 file1 file1
+io/fabric/sdk/android/services/common/i$a io/fabric/sdk/android/services/common/CommonUtils$Architecture
+	Hw ()Lio/fabric/sdk/android/services/common/i$a; getValue
+		static
+	EQ matcher
+	we $VALUES
+	gn UNKNOWN
+	DW X86_32
+io/fabric/sdk/android/services/common/k io/fabric/sdk/android/services/common/CurrentTimeProvider
+	j6 ()J getCurrentTimeMillis
+io/fabric/sdk/android/services/common/l io/fabric/sdk/android/services/common/DataCollectionArbiter
+	j6 (Landroid/content/Context;)Lio/fabric/sdk/android/services/common/l; getInstance
+		static
+		0 applicationContext applicationContext
+	j6 (Z)V setCrashlyticsDataCollectionEnabled
+		0 enabled enabled
+	DW instanceLock
+	j6 instance
+	FH sharedPreferences
+	Zo firebaseApp
+	j6 ()Z isDataCollectionEnabled
+	DW ()Z shouldAutoInitialize
+	Hw crashlyticsDataCollectionExplicitlySet
+	v5 crashlyticsDataCollectionEnabled
+	VH isUnity
+io/fabric/sdk/android/services/common/m io/fabric/sdk/android/services/common/DeliveryMechanism
+	v5 $VALUES
+	Zo id
+	j6 (Ljava/lang/String;)Lio/fabric/sdk/android/services/common/m; determineFrom
+		static
+		0 installerPackageName installerPackageName
+	DW USER_SIDELOAD
+	j6 DEVELOPER
+	Hw APP_STORE
+	FH TEST_DISTRIBUTION
+io/fabric/sdk/android/services/common/n io/fabric/sdk/android/services/common/DeviceIdentifierProvider
+	Hw ()Ljava/util/Map; getDeviceIdentifiers
+io/fabric/sdk/android/services/common/p io/fabric/sdk/android/services/common/ExecutorUtils$1
+	DW val$count
+	j6 val$threadNameTemplate
+io/fabric/sdk/android/services/common/q io/fabric/sdk/android/services/common/ExecutorUtils$2
+	j6 ()V onRun
+	DW val$service
+	FH val$terminationTimeout
+	Hw val$timeUnit
+	j6 val$serviceName
+io/fabric/sdk/android/services/common/s io/fabric/sdk/android/services/common/FirebaseApp
+	j6 ()Z isDataCollectionDefaultEnabled
+io/fabric/sdk/android/services/common/v$a io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType
+	gn $VALUES
+	u7 protobufIndex
+	DW WIFI_MAC_ADDRESS
+io/fabric/sdk/android/services/common/w io/fabric/sdk/android/services/common/InstallerPackageNameProvider$1
+	j6 (Landroid/content/Context;)Ljava/lang/String; load
+		0 context context
+io/fabric/sdk/android/services/common/y io/fabric/sdk/android/services/common/QueueFile$1
+	j6 (Ljava/io/InputStream;I)V read
+		0 in in
+		1 length length
+	DW val$builder
+	FH this$0
+	j6 first
+io/fabric/sdk/android/services/common/z io/fabric/sdk/android/services/common/QueueFile
+	j6 (Ljava/io/File;)V initialize
+		static
+		0 file file
+	DW (I)Lio/fabric/sdk/android/services/common/z$a; readElement
+		0 position position
+	DW (Ljava/io/File;)Ljava/io/RandomAccessFile; open
+		static
+		0 file file
+	Hw (I)I wrapPosition
+		0 position position
+	j6 ([BI)I readInt
+		static
+		0 buffer buffer
+		1 offset offset
+	j6 (IIII)V writeHeader
+		0 fileLength fileLength
+		1 elementCount elementCount
+		2 firstPosition firstPosition
+		3 lastPosition lastPosition
+	j6 ([B[I)V writeInts
+		static
+		0 buffer buffer
+		1 values values
+	DW ()Z isEmpty
+	j6 ([B)V add
+		0 data data
+	j6 (II)Z hasSpaceFor
+		0 dataSizeBytes dataSizeBytes
+		1 maxSizeBytes maxSizeBytes
+	j6 LOGGER
+	DW raf
+	VH buffer
+	FH ()V remove
+	v5 ()V readHeader
+	j6 ()V clear
+	DW (Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object; nonNull
+		static
+		0 t t
+		1 name name
+	DW (I[BII)V ringWrite
+		0 position position
+		1 buffer buffer
+		2 offset offset
+		3 count count
+	j6 ([BII)V add
+		0 data data
+		1 offset offset
+		2 count count
+	DW ([BII)V writeInt
+		static
+		0 buffer buffer
+		1 offset offset
+		2 value value
+	FH (I)V setLength
+		0 newLength newLength
+	j6 (I)V expandIfNecessary
+		0 dataLength dataLength
+	Zo ()I remainingBytes
+	Hw ()I usedBytes
+	j6 (Lio/fabric/sdk/android/services/common/z$c;)V forEach
+		0 reader reader
+	j6 (I[BII)V ringRead
+		0 position position
+		1 buffer buffer
+		2 offset offset
+		3 count count
+	Hw elementCount
+	FH fileLength
+	v5 first
+	Zo last
+io/fabric/sdk/android/services/common/z$a io/fabric/sdk/android/services/common/QueueFile$Element
+	j6 NULL
+	FH length
+	DW position
+io/fabric/sdk/android/services/common/z$b io/fabric/sdk/android/services/common/QueueFile$ElementInputStream
+	FH this$0
+	j6 position
+	DW remaining
+io/fabric/sdk/android/services/common/z$c io/fabric/sdk/android/services/common/QueueFile$ElementReader
+	j6 (Ljava/io/InputStream;I)V read
+io/fabric/sdk/android/Fabric$Builder io/fabric/sdk/android/Fabric$Builder
+	j6 ([Lio/fabric/sdk/android/Kit;)Lio/fabric/sdk/android/Fabric$Builder; kits
+		0 kits kits
+	j6 ()Lio/fabric/sdk/android/Fabric; build
+	DW kits
+	Hw handler
+	Zo debuggable
+	j6 context
+	u7 initializationCallback
+	gn appIdentifier
+	VH appInstallIdentifier
+io/fabric/sdk/android/services/common/AdvertisingInfoProvider io/fabric/sdk/android/services/common/AdvertisingInfoProvider
+	j6 (Lio/fabric/sdk/android/services/common/b;)Z isInfoValid
+		0 advertisingInfo advertisingInfo
+	j6 context
+	DW (Lio/fabric/sdk/android/services/common/b;)V refreshInfoIfNeededAsync
+		0 advertisingInfo advertisingInfo
+	FH (Lio/fabric/sdk/android/services/common/b;)V storeInfoToPreferences
+		0 infoToReturn infoToReturn
+	j6 ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfo
+	DW ()Lio/fabric/sdk/android/services/common/b; getInfoFromPreferences
+	v5 ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfoFromStrategies
+io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy
+	DW ()Ljava/lang/String; getAdvertisingId
+	FH ()Ljava/lang/Object; getInfo
+	Hw ()Z isLimitAdTrackingEnabled
+	j6 ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfo
+	j6 (Landroid/content/Context;)Z isGooglePlayServiceAvailable
+		0 context context
+	j6 context
+io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy
+	j6 ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfo
+	j6 context
+io/fabric/sdk/android/m io/fabric/sdk/android/m
+	j6 (ILjava/lang/String;Ljava/lang/String;)V log
+	j6 (ILjava/lang/String;Ljava/lang/String;Z)V log
+	j6 (Ljava/lang/String;I)Z isLoggable
+io/fabric/sdk/android/services/common/e io/fabric/sdk/android/services/common/e
+	j6 ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfo
+io/fabric/sdk/android/services/common/f io/fabric/sdk/android/services/common/ApiKey
+io/fabric/sdk/android/services/common/i io/fabric/sdk/android/services/common/CommonUtils
+io/fabric/sdk/android/services/common/v io/fabric/sdk/android/services/common/IdManager
+io/fabric/sdk/android/services/common/a io/fabric/sdk/android/services/network/HttpRequestFactory

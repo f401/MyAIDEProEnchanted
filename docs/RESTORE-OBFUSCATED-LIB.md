@@ -23,6 +23,11 @@ python3 tools/deob/cli.py -p process/deob.json status      # 看配置与写入�
 > 坑：`probe_prefix` 少一个父包（例如只写 `com/a/b`），`com/a/a/**` 这类"兄弟包"就会被
 > 当成外部类型，描述符永远对不上，命中率会假性偏低。
 
+> 坑（读 smali 时最容易踩）：本仓库在 **FUSE（大小写不敏感）** 上，`src/smali/abcd/Af.smali`
+> 里装的**可能是 `Labcd/AF;`**——和 jar 里真正的 `abcd/Af` 是两个不同的类。按"类名拼文件名"
+> 手读必错，必须走 `process/truth/smali_index.tsv`（`smali.Index.file_for`）并**用文件里的
+> `.class` 行确认**。批量分析优先读 `process/base/merged_ok.jar`（一个文件、快、大小写精确）。
+
 ---
 
 ## 1. 类名：结构指纹批量匹配 → `tools/deob/classmatch.py`

@@ -20,3 +20,4 @@ __pycache__/
 
 # 各依赖 job 的核对报告（members / mgraph 输出）
 /jobs/*/out/
+nohup.out
