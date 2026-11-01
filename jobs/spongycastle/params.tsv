@@ -410,6 +410,7 @@ abcd/PP	j6	(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/SecureRan
 abcd/PP	j6	(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/SecureRandom;)Ljava/math/BigInteger;	2	random	bcprov-jdk15on-1.47+src
 abcd/QL	j6	(Labcd/rL;)Labcd/UL;	0	v	bcprov-jdk15on-1.47+src
 abcd/QM	j6	(Ljava/lang/Object;)Labcd/QM;	0	o	bcprov-jdk15on-1.47+src
+abcd/QO	j6	([B)V	0	bytes	bcprov-jdk15on-1.47+src
 abcd/QP	j6	(Labcd/RP;)Ljava/util/Collection;	0	selector	bcprov-jdk15on-1.47+src
 abcd/RM	j6	(Ljava/util/Hashtable;)Ljava/util/Hashtable;	0	in	bcprov-jdk15on-1.47+src
 abcd/RO	j6	(Labcd/TO;)I	0	params	bcprov-jdk15on-1.47+src
@@ -556,6 +557,7 @@ abcd/dM	j6	(Labcd/CL;)V	0	out	bcprov-jdk15on-1.47+src
 abcd/dM	j6	(Labcd/EL;)Z	0	o	bcprov-jdk15on-1.47+src
 abcd/dM	j6	(Ljava/lang/Object;)Labcd/oL;	0	obj	bcprov-jdk15on-1.47+src
 abcd/dM	j6	(Z)Labcd/oL;	0	value	bcprov-jdk15on-1.47+src
+abcd/dO	j6	(Labcd/SP;)V	0	certStore	bcpkix-jdk15on-1.47+src
 abcd/dO	j6	(Labcd/kO;)V	0	infoGen	bcpkix-jdk15on-1.47+src
 abcd/eM	DW	([B)Labcd/sL;	0	enc	bcprov-jdk15on-1.47+src
 abcd/eM	j6	(Labcd/CL;)V	0	out	bcprov-jdk15on-1.47+src
@@ -574,6 +576,7 @@ abcd/fM	j6	(Labcd/rL;I)Labcd/EL;	1	index	bcprov-jdk15on-1.47+src
 abcd/fP	j6	(Labcd/oM;)Labcd/qL;	0	oid	bcprov-jdk15on-1.47+src
 abcd/fP	j6	(Labcd/zL;Labcd/qL;)V	0	oid	bcprov-jdk15on-1.47+src
 abcd/fP	j6	(Labcd/zL;Labcd/qL;)V	1	attribute	bcprov-jdk15on-1.47+src
+abcd/gO	j6	(Labcd/SP;)Ljava/util/List;	0	certStore	bcpkix-jdk15on-1.47+src
 abcd/gO	j6	(Ljava/io/OutputStream;)Ljava/io/OutputStream;	0	s	bcpkix-jdk15on-1.47+src
 abcd/gO	j6	(Ljava/io/OutputStream;Ljava/io/OutputStream;)Ljava/io/OutputStream;	0	s1	bcpkix-jdk15on-1.47+src
 abcd/gO	j6	(Ljava/io/OutputStream;Ljava/io/OutputStream;)Ljava/io/OutputStream;	1	s2	bcpkix-jdk15on-1.47+src

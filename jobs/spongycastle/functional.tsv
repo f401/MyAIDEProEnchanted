@@ -1,0 +1,62 @@
+# 按作用命名的成员（没有 oracle 对应物 / 同形不可分）：类	旧名	描述符	新名	判据
+abcd/AL	j6	()Labcd/EL;	getLoadedObject	方法体只把 toASN1Primitive() 转发出去（不 new DER/DL），即 InMemoryRepresentable 的实现
+abcd/LL	j6	()Labcd/EL;	getLoadedObject	方法体只转发 toASN1Primitive()；与接口 InMemoryRepresentable 同槽（famcheck 要求一致）
+abcd/CN	Zo	()Labcd/EL;	parsePublicKey	方法体：DERBitString.getBytes → ASN1InputStream 解析
+abcd/fM	v5	()I	encodedLength	方法体：toASN1Primitive().getEncoded().length
+abcd/aO	j6	()Labcd/UM;	getContentInfo	方法体：直接返回 ContentInfo 字段
+abcd/mN	v5	()Labcd/wN;	getPrivateKeyAlgorithm	方法体：直接返回 AlgorithmIdentifier 字段
+abcd/gO	j6	(Labcd/SP;)Ljava/util/List;	getCertificatesFromStore	方法体串 error processing certs（三个同形方法里只有取证书这个带）
+abcd/dO	j6	(Labcd/SP;)V	addCertificates	方法体：读证书 List 字段 + CMSUtils 取证书 + addAll
+abcd/QO	j6	([B)V	setOddParity	类里 ([B)V 只有两个：一个是 <init>，剩下的就是它
+abcd/TO	VH	Labcd/WO;	validationParms	DHParameters 五个字段里唯一还没定名的，类型是 DHValidationParms
+abcd/wO	DW	()I	getDigestSize	返回值常量 32（getDigestSize/getByteLength 同值，取接口主方法）
+abcd/zO	DW	()I	getDigestSize	返回值常量 16（同上，同值不可分）
+abcd/rM	DW	()Labcd/CL;	getDLSubStream	与祖先 ASN1OutputStream 的同名同描述符槽一致（famcheck）
+abcd/rM	j6	()Labcd/CL;	getDERSubStream	同上
+abcd/lN	CU		x509Certificate	重建 OID = 1.2.840.113549.1.9.22.1（oracle 源码里唯一）
+abcd/lN	Fd		pbewithSHAAnd40BitRC2_CBC	重建 OID = 1.2.840.113549.1.12.1.6（oracle 源码里唯一）
+abcd/dO	J8		digestAlgName1	值派生自 NISTObjectIdentifiers 的摘要 OID 名；两个同形常量按作用命名
+abcd/dO	aM		digestAlgName2	同上
+abcd/NP	DW		algorithmNameMap1	OperatorHelper 的 4 个 static Map 里未定名的 3 个，按作用命名
+abcd/NP	FH		algorithmNameMap2	同上
+abcd/NP	Hw		algorithmNameMap3	同上
+abcd/wO	XL		stateArray1	GOST3411Digest 的 state 缓冲（byte[]）
+abcd/wO	j3		stateArray2	同上
+abcd/LN	Sf		lookupTable1	X509Name 的符号/OID 查找表（Hashtable），内容不可分辨，按作用命名
+abcd/LN	cb		lookupTable2	同上
+abcd/LN	dx		lookupTable3	同上
+abcd/LN	ef		lookupTable4	同上
+abcd/LN	sG		lookupTable5	同上
+abcd/yO	$d2j$hex$2ed93388$decode_B	(Ljava/lang/String;)[B	decodeHexBytes	dex2jar 为超长十六进制串合成的解码器（oracle 里没有对应方法），按作用命名
+abcd/yO	$d2j$hex$2ed93388$decode_I	(Ljava/lang/String;)[I	decodeHexInts	同上
+abcd/yO	$d2j$hex$2ed93388$decode_J	(Ljava/lang/String;)[J	decodeHexLongs	同上
+abcd/yO	$d2j$hex$2ed93388$decode_S	(Ljava/lang/String;)[S	decodeHexShorts	同上
+abcd/NN	J0		oidConstant1	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/NN	J8		oidConstant2	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/NN	Mr		oidConstant3	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/NN	aM		oidConstant4	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/NN	j3		oidConstant5	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/uN	BT		oidConstant1	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/uN	KD		oidConstant2	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/uN	P8		oidConstant3	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/uN	SI		oidConstant4	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/uN	cn		oidConstant5	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/uN	ei		oidConstant6	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/uN	nw		oidConstant7	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/uN	u7		oidConstant8	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/uN	vy		oidConstant9	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/LN	SI		oidConstant1	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/LN	gW		oidConstant2	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/LN	gn		oidConstant3	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/LN	j6		oidConstant4	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/LN	ro		oidConstant5	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/lN	IS		oidConstant1	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/lN	Nh		oidConstant2	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/lN	ct		oidConstant3	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/lN	gG		oidConstant4	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/lN	ys		oidConstant5	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/SM	DW		oidConstant1	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/SM	FH		oidConstant2	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/SM	Hw		oidConstant3	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/SM	j6		oidConstant4	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/SM	v5		oidConstant5	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
