@@ -69,7 +69,7 @@ OID 常量表就是这么被换错的（`NN` 一度落到 `ISISMTTObjectIdentifi
 
 ```
 python3 tools/deob/cli.py -p process/deob.json members --pkg=abcd --part=spongycastle --apply
-类 253 / 方法 1329（已定名 783）/ 字段 1096（已定名 750）   ← 第一遍时的数字
+类 253 / 方法 1329（已定名 783）/ 字段 1096（已定名 750）   ← 第一遍时的数字（当时 `sP`/`rP` 还没定名，所以分母是 253/1329/1096；现状见 §8）
 待人工 374：ambiguous 369 + no-oracle-descriptor 5
 ```
 
@@ -176,12 +176,11 @@ public static final String DATA = CMSObjectIdentifiers.data.getId();
 
 ### 「按作用命名」都记在哪
 
-`jobs/spongycastle/functional.tsv` 一行一条：`类 / 旧名 / 描述符 / 新名 / 判据`，共 61 条 +
-3 个 synthetic 类。原则：**能靠证据定的不猜，猜不了的写清楚"为什么定不了"**——
+`jobs/spongycastle/functional.tsv` 一行一条：`类 / 旧名 / 描述符 / 新名 / 判据`，共 66 条（含 5 条 synthetic 类成员）。原则：**能靠证据定的不猜，猜不了的写清楚"为什么定不了"**——
 例如 `wO`/`zO` 的 `()I`（`getDigestSize`/`getByteLength` 返回值同是 32/16，程序上不可分）、
 `LN`/`uN` 里用 `Hashtable` 初始化的名字表（内容不可分辨）、`yO` 的 dex2jar 合成方法（oracle 里根本没有）。
 
-### 最后 4 个：2 个靠串定了，2+1 个按作用命名
+### 最后 5 个：2 个靠证据定了真名，3 个按作用命名
 
 | 探针 | 结论 | 判据 |
 |---|---|---|
@@ -193,26 +192,20 @@ public static final String DATA = CMSObjectIdentifiers.data.getId();
 
 按作用命名的类统一放在 `org/bouncycastle/synthetic/`，一眼能看出"这是我们的名字，不是 BC 的"。
 
-### 原先把 4 个当作"不可判"的原因
+### 当初为什么判不了（历史，现都已解决）
 
-都是"形状同族 + 引用者证据被上游错映射污染"的情况，宁缺勿错，先留着（它们仍是 `abcd/*`）：
+| 探针 | 形状 | 当时卡在哪 | 现在 |
+|---|---|---|---|
+| `sP` | 16×static String + String[] + 1 个对象字段 | 只被一个（可能错映射的）类读 | 串 `aACompromise`… 定成 `CertPathValidatorUtilities` |
+| `rP` | 只有 `<init>()`，被 `sP` 的静态字段引用 | 形状在 BC 里不唯一 | `CRL_UTIL` 的类型 → `PKIXCRLUtil` |
+| `VM` | `ASN1Object` 子类，2 字段 + `toASN1Primitive()` | 引用者与字段类型都指向未定名类 | 按作用命名 `synthetic/CertificateFieldCarrier` |
+| `eP` | 2 个 static `([…])[B` + 串 `DER` | 形状不唯一 | 按作用命名 `synthetic/DerEncoders` |
+| `kP` | `extends AlgorithmProvider`，只有 `<init>()`，无人引用 | 28 个 `*$Mappings` 同形、零证据 | 按作用命名 `synthetic/EmptyAlgorithmProvider` |
 
-| 探针 | 形状 | 卡在哪 |
-|---|---|---|
-| `VM` | `ASN1Object` 子类，2 字段，`<init>(x)` + `toASN1Primitive()` | 唯一引用者 `SignerInfoGeneratorBuilder` 与字段类型都还指向未定名类 |
-| `eP` | 2 个 static `([…])[B` 方法 + 串 `DER` | 参数类型落在未定名类上，形状在 BC 里不唯一 |
-| `kP` | `extends AlgorithmProvider`，只有 `<init>()`，无串、**无人引用** | 28 个 `*$Mappings` 同形；没有任何可分辨证据 |
-| `sP` | 16×static String + String[] + 1 个对象字段 | 只被一个（可能错映射的）类读 |
+## 9) 现状与下一步
 
-## 9) 下一步
+四个阶段都已完成（类 257/257、成员 0 待人工、参数 795 行），本 part 没有待办了。剩下两件事都在本 part 之外：
 
-1. 用 `refmatch --oneway` 的 **23** 条残留继续收错映射（每修一个"枢纽类"一次能清掉十几条：
-   55 → 48 → 41 → 30 → 25 → 23）。这一轮修掉的枢纽：`AN`=x509/Extensions、`CN`=SubjectPublicKeyInfo、
-   `sN`=x500/X500Name、`rN`=x500/RDN、`DN`=x509/TBSCertificate、`EN`=TBSCertificateStructure、
-   `yN`=x509/Certificate、`SN`=cert/X509CertificateHolder、`nN`=pkcs/RSASSAPSSparams、
-   `_O/bP/cP`=jcajce/{Default,Named,Provider}JcaJceHelper、`fO`=cms/CMSTypedData、
-   `SO/UO/VO/RO`=crypto/params/DH{Key,PrivateKey,PublicKey,KeyGeneration}Parameters、
-   `EM/vM`=DLSequence/DERSet（`sup` 是 ASN1Sequence 还是 ASN1Set 一眼分开）；
-2. 成员剩余 474 条：先补 ASN.1 覆写族（`toDERObject/toDLObject`、`getDER/DLSubStream`）——
-   判据是"方法体 new 的是哪个类"，所以要先把那几个 DER/DL 类定死；
-3. 参数名走 oracle 的 LocalVariableTable（`jobs/*/params.tsv` 的老路）。
+1. **打包装机验证**：`tools/build/build_apk.py` 那条链（`sync_assets → dex → repack → sign`）需要自己跑，
+   本机没有 `apksigner`/`zipalign`；建议先 `adb uninstall aidepro.top`。
+2. **下一个 part**：`jobs/dropbox/`（50 类，已切好、oracle 三版已备，尚未裁决）或 Cordova ~905 类。
