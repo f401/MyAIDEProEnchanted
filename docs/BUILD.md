@@ -36,11 +36,17 @@ python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独�
 ## 1b. 先同步 assets bundle（`sync_assets`）
 
 `src/assets/data/functions/` 下的 4 个包（`lang/en.jar`、`lang/zh.jar`、`runtime/ndk.zip`、
-`runtime/packagingservice.zip`）就是基准，打包脚本从 `process/src/<key>.jar` 取它们：
+`runtime/packagingservice.zip`，都是 `zip(classes.dex)`）才是基准；`process/src/<key>.jar`
+只是**给工具用的** class jar（dex2jar 产物），回填 APK 时 `step_repack` 直接取树里那 4 个 dex-zip：
 
 ```bash
-python3 tools/build/build_apk.py sync_assets    # 树 → process/src/（字节级拷贝，都是 zip(classes.dex)）
+python3 tools/build/build_apk.py sync_assets    # 树 → process/src/（dex2jar 成 class jar）
+SYNC_ASSETS_FORCE=1 python3 tools/build/build_apk.py sync_assets   # 强制重做
 ```
+
+**内容没变就跳过**：`process/src/.assets.sha256` 记着每个 bundle 的 `classes.dex` 指纹，
+指纹一致且目标 jar 存在时直接跳过（dex2jar 输出不是字节稳定的，每次重做都会让
+`process/src/*.jar` 在 git 里显示被改，纯噪声）。改过 `src/assets/**` 后指纹自动更新。
 
 `all` 已把这一步串在 `plan` 之后。**不再**做"和某个 APK 的 dex 逐对对齐"（那套已删除，见 NOTES §15）。
 
