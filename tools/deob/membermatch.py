@@ -720,14 +720,24 @@ def run(P, pkg, part=None, apply=False, report=None, rounds=8, sweeps=3,
         raise SystemExit('在 probe_roots 下没找到 %s：%s' % (pkg, roots))
     # 类名被混淆时：先按 class_map 把探针名翻成真名，再去 oracle 里找
     import mapping as _mp
+    # 同一前缀可能被多个 part 共用（例如 abcd/** 里 jgit/jsch/aide/spongycastle 各一块），
+    # 所以这里必须用**所有 part 合并**的类映射，否则只有第一个 part 的类能被翻译。
     cmap = {}
-    for _p in P.parts:
-        if _p.get('probe_prefix') and pkg.startswith(_p['probe_prefix']) and _p.get('class_map'):
-            try:
-                cmap = _mp.ClassMap(_p['class_map'], P.probe_prefix, P.class_map_prefix).load().dict
-            except Exception:
-                cmap = {}
-            break
+    try:
+        cmap = _mp.ClassMap(P.class_map, P.probe_prefix, P.class_map_prefix).load().dict
+    except Exception:
+        cmap = {}
+    if part:
+        # --part 给出时只看这个 part 自己的类（别的 part 一行都不动）
+        _cm = next((x.get('class_map') for x in P.parts if x.get('name') == part), None)
+        if _cm and os.path.exists(_cm):
+            mine = set()
+            for _ln in open(_cm, encoding='utf-8'):
+                _t = _ln.rstrip('\n').split('\t')
+                if len(_t) >= 2 and _t[1]:
+                    mine.add(_t[0] if '/' in _t[0] else pkg + '/' + _t[0])
+            classes = {c: v for c, v in classes.items() if c in mine}
+            log('--part=%s 限定：%d 个探针类' % (part, len(classes)))
     if cmap:
         _T2P.update({v: k for k, v in cmap.items() if v})
         log('class_map 回退：%d 条（oracle→探针 反查 %d 条）' % (len(cmap), len(_T2P)))
