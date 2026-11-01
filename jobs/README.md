@@ -1,12 +1,15 @@
 # jobs/ —— 一个依赖一个目录（真相）
 
-本仓库现在有三个（`process/deob.json` 的 `parts` 按这个顺序汇总）：
+本仓库现在有六个（`process/deob.json` 的 `parts` 按这个顺序汇总）：
 
-| 目录 | 依赖 | 内容 |
-|---|---|---|
-| `jgit` | Eclipse JGit（AIDE 内置，魔改混合版） | 685 类 / 5502 成员行 / 3238 参数行 |
-| `jsch` | JSch **0.1.51**（版本判定见 [docs/NOTES.md](../docs/NOTES.md) §9；**类名没被混淆**，只有成员被改名；`UserInfo`/`UIKeyboardInteractive` 双侧一起改） | 141 类 / 1228 成员行 / 824 参数行 |
-| `aide` | AIDE 自有类（目标在 `abcd/aide/`） | 54 类 / 30 成员行 / 15 参数行（`params_manual.tsv`，每行写判据） |
+| 目录 | 依赖 | 判据来源 | 内容 |
+|---|---|---|---|
+| `jgit` | Eclipse JGit（AIDE 内置，魔改混合版） | 多版本 oracle + 逐版本差异白名单 | 685 类 / 5502 成员行 / 3238 参数行 |
+| `jsch` | JSch **0.1.51**（类名没混淆，只有成员被改名；见 [docs/NOTES.md](../docs/NOTES.md) §9） | oracle 同名类 | 141 类 / 1228 成员行 / 824 参数行 |
+| `aide` | AIDE 自有类（目标在 `abcd/aide/`，**无 oracle**） | 常量串 / 引用者 / 实现关系，按作用命名 | 77 类 / 42 成员行 / 15 参数行 |
+| `dx` | dx **1.16 世系**（裁掉纯 CLI 子包） | 结构指纹 + 枚举锚点 + 引用集 + 实现者集合 | 448 类 / 4366 成员行 / 2321 参数行 |
+| `crashlytics` | crashlytics-core 2.7.0 / answers 1.4.7 / beta 1.2.10 / crashlytics 2.9.9 | 同上 + 常量串全集 + 外类锚定 | 176 类 / 815 成员行 / 590 参数行 |
+| `fabric` | fabric 1.4.8 | 同上（AAR 被 proguard 裁过，缺的按作用命名） | 64 类 / 331 成员行 / 204 参数行 |
 
 一个依赖就一个目录，**自包含**（可以嵌进某个 APK 的工程里当 part，也可以独立成工程）：
 
@@ -42,3 +45,28 @@ jobs/<名字>/
 
 顺序由 `process/deob.json` 的 `parts` 决定：`process/truth/head` → `../jobs/jgit` →
 `../jobs/jsch` → `../jobs/aide`。步骤见 [../docs/NEW-JOB.md](../docs/NEW-JOB.md)。
+
+---
+
+## 剩余待还原：`abcd` 里的 1983 类（截至 2026-11）
+
+`abcd/**` 共 2745 类，已还原 762（jgit 685 + aide 77）。剩下 1983 类没有 oracle
+（AIDE 自有 + 一些未公开的第三方），只能按 [docs/RESTORE-OBFUSCATED-LIB.md](../docs/RESTORE-OBFUSCATED-LIB.md)
+的"按作用命名"路线做。按常量串/引用的真实包先切成**可独立交付的部分**：
+
+| 部分 | 类数 | 方法 | 字段 | 证据密度 | 状态 |
+|---|---|---|---|---|---|
+| **引擎接入层**（`com/aide/engine`、`engine/service`） | 28 | 652 | 248 | 高（外部是真包名 + 串 "Could not bind to engine service"、"/enginecache"、ProjectService…） | **← 下一个做这个** |
+| 编译/诊断 | 18 | 624 | 276 | 中（`.java`、`SyntaxError`、`aapt`…） | 待办 |
+| 运行/调试 probe | 21 | 447 | 111 | 中（`Probe`、`classes.dex`、`appstate.json`…） | 待办 |
+| Trainer/教程 | 9 | 347 | 120 | 高（`$package_name$`、`$code_hint$`、Lesson…） | 待办 |
+| IAP/计费/licensing | 20 | 317 | 112 | 高（`aide_prime_monthly_0500`、`InAppProduct`、`LicenseService`…） | 待办 |
+| SCM/git 冲突 | 18 | 227 | 94 | 高（`Resolve conflict`、`Download conflict`） | 待办 |
+| Maven/AAR 依赖 | 3 | 45 | 14 | 高（`maven-metadata.xml`、`.exploded.aar`） | 待办（可并进 IAP 那轮一起） |
+| UI 面板/动作 | 117 | 1372 | 500 | 中（`input_method`、Dialog、Editor…） | 待办（最大，最后做） |
+| 无特征串的核心 | ~1700 | — | — | 低（只互相引用） | 只能按图结构逐个推，建议按"一个业务子系统一轮" |
+
+**每轮的固定动作**（与 dx/crashlytics 那几轮一致）：
+1. `tools/deob/cluster.py` 分诊 → 2. 常量串/实现关系/外类锚定出候选 →
+3. `class_map.tsv` 每行写判据 → 4. `members` 定成员 → 5. 过 6 道门
+（validate / inherit / famcheck / innercheck / assetcheck / cover）→ 6. 提交前调 `cover` 看真实分母。
