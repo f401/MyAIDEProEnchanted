@@ -575,6 +575,50 @@ def _is_contract(n, acc):
     return False
 
 
+_JAR_CACHE = {}
+
+
+def _probe_members_from_jar(project, needed):
+    """从 base_jars/input_jars 里按**精确类名**读探针成员。
+
+    为什么不用 smali：本仓库在 FUSE（大小写不敏感）上，`D.smali` 和 `d.smali` 是同一个文件，
+    按名字找 smali 会读到另一个类（踩过：cover 把 `core/D` 读成 `core/d`，凭空多出 8 个"缺口"）。
+    jar 里类名是精确的，且一次遍历就能建好索引。
+    """
+    import sys as _sys
+    _jg = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'jgit')
+    if _jg not in _sys.path:
+        _sys.path.insert(0, _jg)
+    import jvmbody
+    jars = []
+    for f in list(getattr(project, 'base_jars', []) or []) + list(getattr(project, 'input_jars', []) or []):
+        if f and os.path.exists(f) and f not in jars:
+            jars.append(f)
+    out = {}
+    for need in needed:
+        for f in jars:
+            key = (f, need)
+            if key in _JAR_CACHE:
+                c = _JAR_CACHE[key]
+            else:
+                try:
+                    z = _JAR_CACHE.get(('__zip__', f))
+                    if z is None:
+                        z = zipfile.ZipFile(f); _JAR_CACHE[('__zip__', f)] = z
+                    c = jvmbody.parse(z.read(need + '.class'))
+                except Exception:
+                    c = None
+                _JAR_CACHE[key] = c
+            if c:
+                meth = [(m['name'], m['desc'], bool(m['acc'] & 8), bool(m['acc'] & 0x1000))
+                        for m in c['members'] if m['kind'] == 'm']
+                fld = [(m['name'], m['desc'], bool(m['acc'] & 8), False)
+                       for m in c['members'] if m['kind'] == 'f']
+                out[need] = dict(methods=meth, fields=fld)
+                break
+    return out
+
+
 def cover(project, pkg=None, exclude_contract=True):
     """覆盖率（**探针口径**）：分母 = 探针里有意义、且在 oracle 里能找到同形对应者的成员；
     命中 = 名字判对（有改名行 → 命中映射值；本来就是真名 → 也算命中）。
@@ -590,6 +634,10 @@ def cover(project, pkg=None, exclude_contract=True):
     ora = Oracle(project.oracle_jars)
     roots = getattr(project, "probe_roots", None) or [project.probe_dir]
     cmap = cm.dict
+    need = [cm.full_probe(w) for w, _t, _e in cm.rows]
+    if pkg:
+        need = [x for x in need if x.startswith(pkg)]
+    jarmem = _probe_members_from_jar(project, need)
     tot_m = hit_m = tot_f = hit_f = 0
     per_class, miss = [], []
     for probe_w, target, _ev in cm.rows:
@@ -599,10 +647,21 @@ def cover(project, pkg=None, exclude_contract=True):
         label, om = ora.find(target)
         if not om:
             continue
-        path = idxs.file_for(roots, probe)
-        if not path or not os.path.exists(path):
-            continue
-        pr = smali.parse(path)
+        pr = jarmem.get(probe)
+        if pr is None:
+            path = idxs.file_for(roots, probe)
+            if not path or not os.path.exists(path):
+                continue
+            path_cls = None
+            try:
+                with open(path, encoding='utf-8', errors='replace') as fh:
+                    head = fh.read(400)
+                path_cls = re.search(r'^\.class\s+.*?(L[A-Za-z0-9_$/\-]+;)', head, re.M).group(1)[1:-1]
+            except Exception:
+                path_cls = None
+            if path_cls and path_cls != probe:
+                continue          # 大小写撞名的同名文件，读到的是别的类 → 跳过
+            pr = smali.parse(path)
         ometh = collections.defaultdict(set)      # (归一描述符, static) -> {oracle 名下候选}
         for n, d, st in om['methods']:
             if n in ('<init>', '<clinit>'):
@@ -612,33 +671,52 @@ def cover(project, pkg=None, exclude_contract=True):
         for n, d, st in om['fields']:
             ofield[(norm_desc(d, cmap), bool(st))].add(n)
         tot = ch = ftot = fch = 0
+        # **一对一**计数：同一个 (描述符, static) 桶里，探针比 oracle 多出来的成员不入分母
+        # （否则"3 个 ()V 方法 vs 1 个 run()"会被算成 3 个缺口，覆盖率永远到不了 100%）
+        pmeth = collections.defaultdict(list)
         for n, d, st, syn in pr['methods']:
             if n in ('<init>', '<clinit>'):
                 continue
-            # 合成访问器（access$NNN）名字由 R8 生成、oracle 编号不同，不入分母
             if exclude_contract and (syn or _is_contract(n, 0)):
                 continue
-            cand = ometh.get((norm_desc(d, cmap), bool(st)))
+            pmeth[(norm_desc(d, cmap), bool(st))].append((n, d))
+        for key, plist in pmeth.items():
+            cand = ometh.get(key)
             if not cand:
                 continue                          # oracle 里没有同形者 → 不入分母
-            tot += 1
-            got = m_i.get((probe, n, d))
-            if got in cand or (got is None and n in cand):
-                ch += 1
-            else:
-                miss.append((probe, 'method', n, d, got or '', '/'.join(sorted(cand))))
+            cap = min(len(plist), len(cand))
+            tot += cap
+            used_names, hits = set(), []
+            for (n, d) in plist:
+                got = m_i.get((probe, n, d))
+                if got is None:
+                    got = n if n in cand else None
+                if got in cand and got not in used_names:
+                    used_names.add(got); hits.append((n, d, got))
+                else:
+                    miss.append((probe, 'method', n, d, got or '', '/'.join(sorted(cand))))
+            ch += min(len(hits), cap)
+        pfield = collections.defaultdict(list)
         for n, d, st, _ in pr['fields']:
             if exclude_contract and n.startswith('$') and n not in ('$VALUES',):
                 continue
-            cand = ofield.get((norm_desc(d, cmap), bool(st)))
+            pfield[(norm_desc(d, cmap), bool(st))].append((n, d))
+        for key, plist in pfield.items():
+            cand = ofield.get(key)
             if not cand:
                 continue
-            ftot += 1
-            got = f_i.get((probe, n))
-            if got in cand or (got is None and n in cand):
-                fch += 1
-            else:
-                miss.append((probe, 'field', n, d, got or '', '/'.join(sorted(cand))))
+            cap = min(len(plist), len(cand))
+            ftot += cap
+            used_names, hits = set(), []
+            for (n, d) in plist:
+                got = f_i.get((probe, n))
+                if got is None:
+                    got = n if n in cand else None
+                if got in cand and got not in used_names:
+                    used_names.add(got); hits.append((n, d, got))
+                else:
+                    miss.append((probe, 'field', n, d, got or '', '/'.join(sorted(cand))))
+            fch += min(len(hits), cap)
         tot_m += tot; hit_m += ch; tot_f += ftot; hit_f += fch
         per_class.append((probe, target, tot, ch, ftot, fch))
     return dict(methods=(hit_m, tot_m), fields=(hit_f, tot_f),

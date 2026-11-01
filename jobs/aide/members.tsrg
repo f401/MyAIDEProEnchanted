@@ -89,3 +89,31 @@ abcd/Be abcd/aide/MavenDependenciesConfig
 abcd/Az abcd/fabric/AnalyticsFilesManager
 abcd/Bz abcd/fabric/TimeBasedFileRollOverRunnable
 abcd/Dj abcd/aide/UninstallAppRunnable
+abcd/Lz abcd/aide/PinningInfoProvider
+	j6 ()Ljava/lang/String; getKeyStorePassword
+	DW ()Ljava/io/InputStream; getKeyStoreStream
+	FH ()[Ljava/lang/String; getPins
+	Hw ()J getPinCreationTimeInMillis
+abcd/xz abcd/aide/EventsStrategy
+	j6 ()Z rollFileOver
+	DW ()V cancelTimeBasedFileRollOver
+abcd/wz abcd/aide/EventsHandler
+	j6 (Ljava/lang/String;)V onRollOver
+abcd/yz abcd/aide/FilesSender
+	j6 (Ljava/util/List;)Z send
+abcd/nz abcd/aide/RetryPolicy
+	j6 (I)J getDelayMillis
+abcd/uz abcd/aide/EventsFilesManager
+	FH ()Ljava/lang/String; generateUniqueRollOverFileName
+	Zo ()I getMaxByteSizePerFile
+	v5 ()I getMaxFilesToKeep
+abcd/aA abcd/aide/CachedSettingsIo
+abcd/bA abcd/aide/SettingsController
+abcd/cA abcd/aide/SettingsJsonTransform
+abcd/fA abcd/aide/AppIconLoader
+abcd/jA abcd/aide/DefaultSettingsSpiCall
+abcd/Mz abcd/aide/PinningTrustManager
+abcd/F abcd/aide/AnswersEventLogger
+abcd/Pz abcd/aide/FileStoreImpl
+abcd/Bw abcd/aide/BetaKit
+abcd/Rz abcd/aide/PreferenceStoreImpl

@@ -59,3 +59,19 @@ Be	abcd/aide/MavenDependenciesConfig	extends BaseProjectConfig；串 "https://re
 Az	abcd/fabric/AnalyticsFilesManager	body:"deleting sent analytics file %s"、"Failed to close output stream" ⇒ Fabric EventsFilesManager
 Bz	abcd/fabric/TimeBasedFileRollOverRunnable	body:"Performing time based file roll over."+"Failed to roll over file"，implements Runnable
 Dj	abcd/aide/UninstallAppRunnable	body:"Uninstallation failed"，implements Runnable
+Lz	abcd/aide/PinningInfoProvider	子类 abcd/ha=CrashlyticsPinningInfoProvider 实现它 ⇒ fabric PinningInfoProvider 接口
+xz	abcd/aide/EventsStrategy	子类 abcd/G=SessionAnalyticsManagerStrategy 实现它 ⇒ fabric EventsStrategy
+wz	abcd/aide/EventsHandler	子类 abcd/j=AnswersEventsHandler 实现它 ⇒ fabric services.events.EventsHandler
+yz	abcd/aide/FilesSender	子类 abcd/E=SessionAnalyticsFilesSender、abcd/n=AnswersRetryFilesSender 都实现它 ⇒ fabric FilesSender
+nz	abcd/aide/RetryPolicy	子类 abcd/z=RandomBackoff 实现它 ⇒ fabric RetryPolicy
+uz	abcd/aide/EventsFilesManager	子类 abcd/D=SessionAnalyticsFilesManager 继承；串 "One of the roll over listeners threw an exception"、"generated new file %s"
+aA	abcd/aide/CachedSettingsIo	串 "Reading cached settings..."、"com.crashlytics.settings.json"
+bA	abcd/aide/SettingsController	串 "Loaded cached settings: "、"Returning cached settings."
+cA	abcd/aide/SettingsJsonTransform	串 "identifier"/"status"/"reports_url"（settings JSON 字段）
+fA	abcd/aide/AppIconLoader	串 "App icon resource ID is "、"Failed to load icon"
+jA	abcd/aide/DefaultSettingsSpiCall	串 "Failed to force reload of settings from Crashlytics." + settings URL "https://settings.crashlytics.com/spi/v2/platforms/android/apps/%s/settings"
+Mz	abcd/aide/PinningTrustManager	implements X509TrustManager；串 "Certificate pins are stale, ("/" millis) falling back to system trust."
+F	abcd/aide/AnswersEventLogger	串 "startSession"、"logLevelEnd: "；引用 Crashlytics（AIDE 侧 Answers 调用封装）
+Pz	abcd/aide/FileStoreImpl	串 "Cannot get directory before context has been set. Call Fabric.with() first"、"Android/"；实现 abcd/Oz
+Bw	abcd/aide/BetaKit	sup=io.fabric.sdk.android.Kit；串 "Beta kit initializing..."、"com.crashlytics.sdk.android:beta"、版本 "1.2.10.27" ⇒ Fabric Beta Kit
+Rz	abcd/aide/PreferenceStoreImpl	实现 abcd/Qz；串与 abcd/Pz(FileStoreImpl) 同为 "Cannot get directory before context has been set. Call Fabric.with() first" ⇒ fabric services.persistence 的 PreferenceStore 实现

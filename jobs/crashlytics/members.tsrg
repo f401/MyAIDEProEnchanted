@@ -64,10 +64,17 @@ com/crashlytics/android/answers/j com/crashlytics/android/answers/AnswersEventsH
 	j6 (Lcom/crashlytics/android/answers/I$a;)V processEventAsync
 	FH (Lcom/crashlytics/android/answers/I$a;)V processEventSync
 	DW (Lcom/crashlytics/android/answers/I$a;)V processEventAsyncAndFlush
+	j6 (Ljava/lang/String;)V onRollOver
 com/crashlytics/android/answers/l com/crashlytics/android/answers/AnswersLifecycleCallbacks
 	DW backgroundManager
 	j6 analyticsManager
-	DW (Landroid/app/Activity;Landroid/os/Bundle;)V onActivityCreated
+	DW (Landroid/app/Activity;Landroid/os/Bundle;)V onActivitySaveInstanceState
+	v5 (Landroid/app/Activity;)V onActivityStopped
+	j6 (Landroid/app/Activity;)V onActivityDestroyed
+	Hw (Landroid/app/Activity;)V onActivityStarted
+	DW (Landroid/app/Activity;)V onActivityPaused
+	j6 (Landroid/app/Activity;Landroid/os/Bundle;)V onActivityCreated
+	FH (Landroid/app/Activity;)V onActivityResumed
 com/crashlytics/android/answers/q com/crashlytics/android/answers/BackgroundManager
 	j6 (Lcom/crashlytics/android/answers/q$a;)V registerListener
 	j6 (Z)V setFlushOnBackground
@@ -191,6 +198,11 @@ com/crashlytics/android/core/Ia com/crashlytics/android/core/QueueFileLogStore
 	DW maxLogSize
 	j6 workingFile
 	j6 (JLjava/lang/String;)V writeToLog
+	DW (JLjava/lang/String;)V doWriteToLog
+	Zo ()V openLogFile
+	FH logFile
+	Hw ()V deleteLogFile
+	j6 ()V closeLogFile
 com/crashlytics/android/core/Ia$a com/crashlytics/android/core/QueueFileLogStore$LogBytes
 	DW offset
 	FH this$0
@@ -241,17 +253,24 @@ com/crashlytics/android/core/La com/crashlytics/android/core/ReportUploader
 	Zo reportFilesProvider
 	gn uploadThread
 	v5 apiKey
+	VH handlingExceptionCheck
+	j6 (FLcom/crashlytics/android/core/La$d;)V uploadReports
 com/crashlytics/android/core/La$a com/crashlytics/android/core/ReportUploader$AlwaysSendCheck
-com/crashlytics/android/core/La$b com/crashlytics/android/core/AppMeasurementEventListenerRegistrar
+	j6 ()Z canSendReports
+com/crashlytics/android/core/La$b com/crashlytics/android/core/ReportUploader$HandlingExceptionCheck
+	j6 ()Z isHandlingException
 com/crashlytics/android/core/La$c com/crashlytics/android/core/ReportUploader$ReportFilesProvider
 	j6 ()[Ljava/io/File; getNativeReportFiles
 	FH ()[Ljava/io/File; getCompleteSessionFiles
 	DW ()[Ljava/io/File; getInvalidSessionFiles
-com/crashlytics/android/core/La$d com/crashlytics/android/core/ReportUploader$HandlingExceptionCheck
+com/crashlytics/android/core/La$d com/crashlytics/android/core/ReportUploader$SendCheck
+	j6 ()Z canSendReports
 com/crashlytics/android/core/La$e com/crashlytics/android/core/ReportUploader$Worker
 	FH this$0
 	j6 delay
 	j6 ()V onRun
+	DW ()V attemptUploadWithRetry
+	DW sendCheck
 com/crashlytics/android/core/M com/crashlytics/android/core/CrashlyticsController$25
 	j6 (Lcom/crashlytics/android/core/h;)V writeTo
 	DW this$0
@@ -296,6 +315,7 @@ com/crashlytics/android/core/Na com/crashlytics/android/core/SessionProtobufHelp
 	DW (Lcom/crashlytics/android/core/d;)I getSessionAppOrgSize
 	DW UNITY_PLATFORM_BYTE_STRING
 	j6 SIGNAL_DEFAULT_BYTE_STRING
+	j6 (Lio/fabric/sdk/android/services/common/v$a;Ljava/lang/String;)I getDeviceIdentifierSize
 com/crashlytics/android/core/O com/crashlytics/android/core/CrashlyticsController$3
 com/crashlytics/android/core/Oa com/crashlytics/android/core/SessionReport
 	FH ()Ljava/io/File; getFile
@@ -365,6 +385,7 @@ com/crashlytics/android/core/W$i com/crashlytics/android/core/CrashlyticsControl
 	j6 ()[Ljava/io/File; getNativeReportFiles
 com/crashlytics/android/core/W$j com/crashlytics/android/core/CrashlyticsController$ReportUploaderHandlingExceptionCheck
 	j6 this$0
+	j6 ()Z isHandlingException
 com/crashlytics/android/core/W$k com/crashlytics/android/core/CrashlyticsController$SendReportRunnable
 	DW report
 	FH reportUploader
@@ -386,9 +407,11 @@ com/crashlytics/android/core/a com/crashlytics/android/core/AppData
 	v5 versionCode
 	Zo versionName
 	FH installerPackageName
+	j6 (Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/core/a; create
 com/crashlytics/android/core/aa com/crashlytics/android/core/CrashlyticsCore$2
 	j6 this$0
-com/crashlytics/android/core/b com/crashlytics/android/core/ReportUploader$SendCheck
+com/crashlytics/android/core/b com/crashlytics/android/core/AppMeasurementEventListenerRegistrar
+	j6 ()Z register
 com/crashlytics/android/core/ba com/crashlytics/android/core/CrashlyticsCore$3
 	j6 this$0
 com/crashlytics/android/core/c com/crashlytics/android/core/BinaryImagesConverter
@@ -422,9 +445,13 @@ com/crashlytics/android/core/e com/crashlytics/android/core/CLSUUID
 com/crashlytics/android/core/f com/crashlytics/android/core/ClsFileOutputStream$1
 com/crashlytics/android/core/ga com/crashlytics/android/core/CrashlyticsNdkDataProvider
 	j6 ()Lcom/crashlytics/android/core/fa; getCrashlyticsNdkData
-com/crashlytics/android/core/h$a com/crashlytics/android/core/CrashlyticsListener
+com/crashlytics/android/core/h$a com/crashlytics/android/core/CodedOutputStream$OutOfSpaceException
 com/crashlytics/android/core/ha com/crashlytics/android/core/CrashlyticsPinningInfoProvider
 	j6 pinningInfo
+	DW ()Ljava/io/InputStream; getKeyStoreStream
+	FH ()[Ljava/lang/String; getPins
+	j6 ()Ljava/lang/String; getKeyStorePassword
+	Hw ()J getPinCreationTimeInMillis
 com/crashlytics/android/core/i com/crashlytics/android/core/CompositeCreateReportSpiCall$1
 	j6 $SwitchMap$com$crashlytics$android$core$Report$Type
 com/crashlytics/android/core/ia com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler
@@ -490,6 +517,8 @@ com/crashlytics/android/core/ra com/crashlytics/android/core/FileLogStore
 	DW ()Lcom/crashlytics/android/core/d; getLogAsByteString
 	FH ()[B getLogAsBytes
 	j6 (JLjava/lang/String;)V writeToLog
+	Hw ()V deleteLogFile
+	j6 ()V closeLogFile
 com/crashlytics/android/core/s com/crashlytics/android/core/CrashlyticsController$10
 	Hw this$0
 	j6 val$userId
@@ -528,6 +557,8 @@ com/crashlytics/android/core/ua$b com/crashlytics/android/core/LogFileManager$No
 	DW ()Lcom/crashlytics/android/core/d; getLogAsByteString
 	FH ()[B getLogAsBytes
 	j6 (JLjava/lang/String;)V writeToLog
+	j6 ()V closeLogFile
+	Hw ()V deleteLogFile
 com/crashlytics/android/core/va com/crashlytics/android/core/ManifestUnityVersionProvider
 	j6 ()Ljava/lang/String; getUnityVersion
 	DW packageName
@@ -562,8 +593,12 @@ com/crashlytics/android/answers/A com/crashlytics/android/answers/RetryManager
 	j6 (J)Z canRetry
 	j6 lastRetry
 com/crashlytics/android/answers/D com/crashlytics/android/answers/SessionAnalyticsFilesManager
+	FH ()Ljava/lang/String; generateUniqueRollOverFileName
+	Zo ()I getMaxByteSizePerFile
+	v5 ()I getMaxFilesToKeep
 com/crashlytics/android/answers/E com/crashlytics/android/answers/SessionAnalyticsFilesSender
 	VH apiKey
+	j6 (Ljava/util/List;)Z send
 com/crashlytics/android/answers/F com/crashlytics/android/answers/SessionAnalyticsManager
 	Hw ()Z isFirstLaunch
 	j6 (J)V onInstall
@@ -576,6 +611,9 @@ com/crashlytics/android/answers/F com/crashlytics/android/answers/SessionAnalyti
 	j6 installedAt
 	v5 preferenceManager
 	j6 ()V onBackground
+	FH ()V enable
+	DW ()V disable
+	j6 (Lio/fabric/sdk/android/Kit;Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;J)Lcom/crashlytics/android/answers/F; build
 com/crashlytics/android/answers/I com/crashlytics/android/answers/SessionEvent
 	j6 (J)Lcom/crashlytics/android/answers/I$a; installEventBuilder
 	j6 (Lcom/crashlytics/android/answers/I$b;Landroid/app/Activity;)Lcom/crashlytics/android/answers/I$a; lifecycleEventBuilder
@@ -596,6 +634,9 @@ com/crashlytics/android/answers/K com/crashlytics/android/answers/SessionEventTr
 com/crashlytics/android/answers/b com/crashlytics/android/answers/Answers
 	DW analyticsManager
 	j6 firebaseEnabled
+	Zo ()Ljava/lang/String; getOverridenSpiEndpoint
+	j6 (Lio/fabric/sdk/android/services/common/j$a;)V onException
+	j6 (Lio/fabric/sdk/android/services/common/j$b;)V onException
 com/crashlytics/android/answers/d com/crashlytics/android/answers/AnswersEventsHandler$1
 	DW val$protocolAndHostOverride
 	FH this$0
@@ -633,12 +674,19 @@ com/crashlytics/android/answers/s com/crashlytics/android/answers/EnabledSession
 	Ws forwardToFirebaseAnalyticsEnabled
 	QX includePurchaseEventsInForwardedEvents
 	J0 predefinedEventsEnabled
+	j6 ()Z rollFileOver
+	v5 ()V scheduleTimeBasedRollOverIfNeeded
+	DW ()V cancelTimeBasedFileRollOver
+	FH ()V sendEvents
+	Hw ()V deleteAllEvents
+	tp apiKey
 com/crashlytics/android/answers/t com/crashlytics/android/answers/EventFilter
 	j6 (Lcom/crashlytics/android/answers/I;)Z skipEvent
 com/crashlytics/android/answers/z com/crashlytics/android/answers/RandomBackoff
 	j6 ()D randomJitter
 	DW random
 	FH jitterPercent
+	j6 (I)J getDelayMillis
 com/crashlytics/android/core/Aa com/crashlytics/android/core/NativeCreateReportSpiCall
 	j6 (Lcom/crashlytics/android/core/ja;)Z invoke
 com/crashlytics/android/core/Ea com/crashlytics/android/core/PreferenceManager
@@ -692,7 +740,7 @@ com/crashlytics/android/core/W com/crashlytics/android/core/CrashlyticsControlle
 	gn INITIAL_SESSION_PART_TAGS
 	EQ backgroundWorker
 	J8 preferenceManager
-	Mr appMeasurementEventListenerRegistrar
+	Mr handlingExceptionCheck
 	QX appData
 	U2 devicePowerStateListener
 	XL logFileDirectoryProvider
@@ -738,11 +786,14 @@ com/crashlytics/android/core/W com/crashlytics/android/core/CrashlyticsControlle
 	DW SESSION_FILE_FILTER
 	v5 SMALLEST_FILE_NAME_FIRST
 	Hw LARGEST_FILE_NAME_FIRST
+	J0 idManager
+	rN appMeasurementEventListenerRegistrar
 com/crashlytics/android/core/W$g com/crashlytics/android/core/CrashlyticsController$LogFileDirectoryProvider
 	j6 ()Ljava/io/File; getLogFileDir
 com/crashlytics/android/core/W$h com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck
 	DW preferenceManager
 	j6 kit
+	j6 ()Z canSendReports
 com/crashlytics/android/core/ca com/crashlytics/android/core/CrashlyticsCore
 	DW (ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String; formatLogMessage
 	DW (Ljava/lang/String;)Ljava/lang/String; sanitizeAttribute
@@ -766,6 +817,15 @@ com/crashlytics/android/core/ca com/crashlytics/android/core/CrashlyticsCore
 	u7 userName
 	gn userEmail
 	VH userId
+	a8 ()V checkForPreviousCrash
+	Zo ()V createCrashMarker
+	lg ()V finishInitSynchronously
+	U2 ()V markInitializationStarted
+	Mr ()V markInitializationComplete
+	VH ()Z didPreviousInitializationFail
+	j3 ()Ljava/lang/String; getUserName
+	aM ()Ljava/lang/String; getUserIdentifier
+	Ws ()Ljava/lang/String; getUserEmail
 com/crashlytics/android/core/d com/crashlytics/android/core/ByteString
 	j6 (Ljava/lang/String;)Lcom/crashlytics/android/core/d; copyFromUtf8
 	j6 ([BII)Lcom/crashlytics/android/core/d; copyFrom
@@ -850,6 +910,7 @@ com/crashlytics/android/core/ma com/crashlytics/android/core/DefaultAppMeasureme
 	DW (Ljava/lang/Class;)Ljava/lang/Object; getInstance
 	j6 (Ljava/lang/Class;)Ljava/lang/Object; getOnEventListenerProxy
 	DW (Lcom/crashlytics/android/core/ca;Ljava/lang/String;Landroid/os/Bundle;)V writeEventToUserLog
+	j6 ()Z register
 com/crashlytics/android/core/na com/crashlytics/android/core/DefaultCreateReportSpiCall
 	j6 (Lcom/crashlytics/android/core/ja;)Z invoke
 com/crashlytics/android/core/o com/crashlytics/android/core/CrashTest
@@ -898,16 +959,33 @@ com/crashlytics/android/core/fa com/crashlytics/android/core/CrashlyticsNdkData
 	j6 timestampedDirectories
 com/crashlytics/android/answers/G com/crashlytics/android/answers/SessionAnalyticsManagerStrategy
 	j6 (Lcom/crashlytics/android/answers/I$a;)V processEvent
+	FH ()V sendEvents
+	Hw ()V deleteAllEvents
 com/crashlytics/android/answers/L com/crashlytics/android/answers/SessionMetadataCollector
 	j6 ()Lcom/crashlytics/android/answers/J; getMetadata
 	j6 context
 	Hw versionName
 	FH versionCode
+	DW idManager
 com/crashlytics/android/answers/n com/crashlytics/android/answers/AnswersRetryFilesSender
 	j6 (Lcom/crashlytics/android/answers/E;)Lcom/crashlytics/android/answers/n; build
 	DW retryManager
 	j6 filesSender
+	j6 (Ljava/util/List;)Z send
 com/crashlytics/android/answers/r com/crashlytics/android/answers/DisabledSessionAnalyticsManagerStrategy
 	j6 (Lcom/crashlytics/android/answers/I$a;)V processEvent
+	j6 ()Z rollFileOver
+	DW ()V cancelTimeBasedFileRollOver
+	FH ()V sendEvents
+	Hw ()V deleteAllEvents
 com/crashlytics/android/core/ea com/crashlytics/android/core/ea
 	j6 ()V crashlyticsDidDetectCrashDuringPreviousExecution
+com/crashlytics/android/answers/c com/crashlytics/android/answers/EventValueBase
+com/crashlytics/android/answers/y com/crashlytics/android/answers/EventValueBaseImpl
+com/crashlytics/android/answers/a com/crashlytics/android/answers/EventValueConstants
+com/crashlytics/android/answers/H com/crashlytics/android/answers/SyntheticPlaceholder
+com/crashlytics/android/core/Wa com/crashlytics/android/core/CodedOutputStreamBitSizes
+com/crashlytics/android/CrashlyticsInitProvider com/crashlytics/android/CrashlyticsInitProvider
+	j6 (Landroid/content/Context;)[Lio/fabric/sdk/android/Kit; shouldInitializeFabric
+	j6 (Landroid/content/Context;Lio/fabric/sdk/android/services/common/u;Lcom/crashlytics/android/CrashlyticsInitProvider$a;)Z shouldInitializeFabric
+com/crashlytics/android/core/ta com/crashlytics/android/core/SyntheticPlaceholder

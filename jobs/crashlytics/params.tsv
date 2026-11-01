@@ -1,12 +1,22 @@
 # 参数名：从 oracle jar 的 LocalVariableTable 取（index 是实参序号，0 起、不含 this）
 # owner	name	desc	index	param	src
+com/crashlytics/android/CrashlyticsInitProvider	j6	(Landroid/content/Context;Lio/fabric/sdk/android/services/common/u;Lcom/crashlytics/android/CrashlyticsInitProvider$a;)Z	0	context	crashlytics-2.9.9
+com/crashlytics/android/CrashlyticsInitProvider	j6	(Landroid/content/Context;Lio/fabric/sdk/android/services/common/u;Lcom/crashlytics/android/CrashlyticsInitProvider$a;)Z	1	firebaseInfo	crashlytics-2.9.9
+com/crashlytics/android/CrashlyticsInitProvider	j6	(Landroid/content/Context;Lio/fabric/sdk/android/services/common/u;Lcom/crashlytics/android/CrashlyticsInitProvider$a;)Z	2	enabledCheckStrategy	crashlytics-2.9.9
 com/crashlytics/android/a	j6	(Landroid/content/Context;)Z	0	context	crashlytics-2.9.9
 com/crashlytics/android/answers/A	DW	(J)V	0	timeNanos	answers-1.4.7
 com/crashlytics/android/answers/A	j6	(J)Z	0	timeNanos	answers-1.4.7
 com/crashlytics/android/answers/C	j6	(Lcom/crashlytics/android/answers/I;)Z	0	sessionEvent	answers-1.4.7
+com/crashlytics/android/answers/E	j6	(Ljava/util/List;)Z	0	files	answers-1.4.7
 com/crashlytics/android/answers/F	j6	(J)V	0	installedAt	answers-1.4.7
 com/crashlytics/android/answers/F	j6	(Landroid/app/Activity;Lcom/crashlytics/android/answers/I$b;)V	0	activity	answers-1.4.7
 com/crashlytics/android/answers/F	j6	(Landroid/app/Activity;Lcom/crashlytics/android/answers/I$b;)V	1	type	answers-1.4.7
+com/crashlytics/android/answers/F	j6	(Lio/fabric/sdk/android/Kit;Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;J)Lcom/crashlytics/android/answers/F;	0	kit	answers-1.4.7
+com/crashlytics/android/answers/F	j6	(Lio/fabric/sdk/android/Kit;Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;J)Lcom/crashlytics/android/answers/F;	1	context	answers-1.4.7
+com/crashlytics/android/answers/F	j6	(Lio/fabric/sdk/android/Kit;Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;J)Lcom/crashlytics/android/answers/F;	2	idManager	answers-1.4.7
+com/crashlytics/android/answers/F	j6	(Lio/fabric/sdk/android/Kit;Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;J)Lcom/crashlytics/android/answers/F;	3	versionCode	answers-1.4.7
+com/crashlytics/android/answers/F	j6	(Lio/fabric/sdk/android/Kit;Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;J)Lcom/crashlytics/android/answers/F;	4	versionName	answers-1.4.7
+com/crashlytics/android/answers/F	j6	(Lio/fabric/sdk/android/Kit;Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;J)Lcom/crashlytics/android/answers/F;	5	installedAt	answers-1.4.7
 com/crashlytics/android/answers/F	j6	(Ljava/lang/String;)V	0	sessionId	answers-1.4.7
 com/crashlytics/android/answers/F	j6	(Ljava/lang/String;Ljava/lang/String;)V	0	sessionId	answers-1.4.7
 com/crashlytics/android/answers/F	j6	(Ljava/lang/String;Ljava/lang/String;)V	1	exceptionName	answers-1.4.7
@@ -22,6 +32,8 @@ com/crashlytics/android/answers/I$a	j6	(Lcom/crashlytics/android/answers/J;)Lcom
 com/crashlytics/android/answers/I$a	j6	(Ljava/util/Map;)Lcom/crashlytics/android/answers/I$a;	0	customAttributes	answers-1.4.7
 com/crashlytics/android/answers/K	DW	(Lcom/crashlytics/android/answers/I;)[B	0	event	answers-1.4.7
 com/crashlytics/android/answers/K	j6	(Lcom/crashlytics/android/answers/I;)Lorg/json/JSONObject;	0	event	answers-1.4.7
+com/crashlytics/android/answers/b	j6	(Lio/fabric/sdk/android/services/common/j$a;)V	0	exception	answers-1.4.7
+com/crashlytics/android/answers/b	j6	(Lio/fabric/sdk/android/services/common/j$b;)V	0	exception	answers-1.4.7
 com/crashlytics/android/answers/j	DW	(Lcom/crashlytics/android/answers/I$a;)V	0	eventBuilder	answers-1.4.7
 com/crashlytics/android/answers/j	DW	(Ljava/lang/Runnable;)V	0	runnable	answers-1.4.7
 com/crashlytics/android/answers/j	FH	(Lcom/crashlytics/android/answers/I$a;)V	0	eventBuilder	answers-1.4.7
@@ -30,10 +42,19 @@ com/crashlytics/android/answers/j	j6	(Lcom/crashlytics/android/answers/I$a;ZZ)V	
 com/crashlytics/android/answers/j	j6	(Lcom/crashlytics/android/answers/I$a;ZZ)V	1	sync	answers-1.4.7
 com/crashlytics/android/answers/j	j6	(Lcom/crashlytics/android/answers/I$a;ZZ)V	2	flush	answers-1.4.7
 com/crashlytics/android/answers/j	j6	(Ljava/lang/Runnable;)V	0	runnable	answers-1.4.7
+com/crashlytics/android/answers/j	j6	(Ljava/lang/String;)V	0	rolledOverFile	answers-1.4.7
+com/crashlytics/android/answers/l	DW	(Landroid/app/Activity;)V	0	activity	answers-1.4.7
 com/crashlytics/android/answers/l	DW	(Landroid/app/Activity;Landroid/os/Bundle;)V	0	activity	answers-1.4.7
 com/crashlytics/android/answers/l	DW	(Landroid/app/Activity;Landroid/os/Bundle;)V	1	bundle	answers-1.4.7
+com/crashlytics/android/answers/l	FH	(Landroid/app/Activity;)V	0	activity	answers-1.4.7
+com/crashlytics/android/answers/l	Hw	(Landroid/app/Activity;)V	0	activity	answers-1.4.7
+com/crashlytics/android/answers/l	j6	(Landroid/app/Activity;)V	0	activity	answers-1.4.7
+com/crashlytics/android/answers/l	j6	(Landroid/app/Activity;Landroid/os/Bundle;)V	0	activity	answers-1.4.7
+com/crashlytics/android/answers/l	j6	(Landroid/app/Activity;Landroid/os/Bundle;)V	1	bundle	answers-1.4.7
+com/crashlytics/android/answers/l	v5	(Landroid/app/Activity;)V	0	activity	answers-1.4.7
 com/crashlytics/android/answers/m	j6	(Landroid/content/Context;)Lcom/crashlytics/android/answers/m;	0	context	answers-1.4.7
 com/crashlytics/android/answers/n	j6	(Lcom/crashlytics/android/answers/E;)Lcom/crashlytics/android/answers/n;	0	filesSender	answers-1.4.7
+com/crashlytics/android/answers/n	j6	(Ljava/util/List;)Z	0	files	answers-1.4.7
 com/crashlytics/android/answers/o	DW	(Landroid/content/Context;)Ljava/lang/Class;	0	context	answers-1.4.7
 com/crashlytics/android/answers/o	DW	(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/reflect/Method;	0	context	answers-1.4.7
 com/crashlytics/android/answers/o	DW	(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/reflect/Method;	1	instanceClass	answers-1.4.7
@@ -75,6 +96,7 @@ com/crashlytics/android/answers/w	j6	(Ljava/lang/String;)Ljava/lang/String;	0	at
 com/crashlytics/android/answers/w	j6	(Ljava/lang/String;Z)Ljava/lang/String;	0	name	answers-1.4.7
 com/crashlytics/android/answers/w	j6	(Ljava/lang/String;Z)Ljava/lang/String;	1	wasFailedEvent	answers-1.4.7
 com/crashlytics/android/answers/x	j6	(Lcom/crashlytics/android/answers/I;)Z	0	sessionEvent	answers-1.4.7
+com/crashlytics/android/answers/z	j6	(I)J	0	retries	answers-1.4.7
 com/crashlytics/android/core/Aa	j6	(Lcom/crashlytics/android/core/ja;)Z	0	requestData	crashlytics-core-2.7.0
 com/crashlytics/android/core/B	j6	(Ljava/io/FileOutputStream;)V	0	arg	crashlytics-core-2.7.0
 com/crashlytics/android/core/Ba	DW	(Ljava/io/File;)[B	0	directory	crashlytics-core-2.7.0
@@ -100,6 +122,8 @@ com/crashlytics/android/core/Ga	j6	(Ljava/lang/String;)Lcom/crashlytics/android/
 com/crashlytics/android/core/Ha	j6	(Ljava/io/InputStream;I)V	0	in	crashlytics-core-2.7.0
 com/crashlytics/android/core/Ha	j6	(Ljava/io/InputStream;I)V	1	length	crashlytics-core-2.7.0
 com/crashlytics/android/core/I	j6	(Ljava/io/FileOutputStream;)V	0	arg	crashlytics-core-2.7.0
+com/crashlytics/android/core/Ia	DW	(JLjava/lang/String;)V	0	timestamp	crashlytics-core-2.7.0
+com/crashlytics/android/core/Ia	DW	(JLjava/lang/String;)V	1	msg	crashlytics-core-2.7.0
 com/crashlytics/android/core/Ia	j6	(JLjava/lang/String;)V	0	timestamp	crashlytics-core-2.7.0
 com/crashlytics/android/core/Ia	j6	(JLjava/lang/String;)V	1	msg	crashlytics-core-2.7.0
 com/crashlytics/android/core/J	j6	(Lcom/crashlytics/android/core/h;)V	0	arg	crashlytics-core-2.7.0
@@ -110,6 +134,8 @@ com/crashlytics/android/core/Ja	j6	([Ljava/lang/StackTraceElement;II)Z	0	stacktr
 com/crashlytics/android/core/Ja	j6	([Ljava/lang/StackTraceElement;II)Z	1	prevIndex	crashlytics-core-2.7.0
 com/crashlytics/android/core/Ja	j6	([Ljava/lang/StackTraceElement;II)Z	2	currentIndex	crashlytics-core-2.7.0
 com/crashlytics/android/core/L	j6	(Ljava/io/FileOutputStream;)V	0	arg	crashlytics-core-2.7.0
+com/crashlytics/android/core/La	j6	(FLcom/crashlytics/android/core/La$d;)V	0	delay	crashlytics-core-2.7.0
+com/crashlytics/android/core/La	j6	(FLcom/crashlytics/android/core/La$d;)V	1	sendCheck	crashlytics-core-2.7.0
 com/crashlytics/android/core/La	j6	(Lcom/crashlytics/android/core/Ka;)Z	0	report	crashlytics-core-2.7.0
 com/crashlytics/android/core/M	j6	(Lcom/crashlytics/android/core/h;)V	0	arg	crashlytics-core-2.7.0
 com/crashlytics/android/core/Na	DW	(Lcom/crashlytics/android/core/d;)I	0	apiKey	crashlytics-core-2.7.0
@@ -273,6 +299,8 @@ com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/lang/T
 com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;IZ)V	4	isCrashedThread	crashlytics-core-2.7.0
 com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/util/Map;)V	0	cos	crashlytics-core-2.7.0
 com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/util/Map;)V	1	customAttributes	crashlytics-core-2.7.0
+com/crashlytics/android/core/Na	j6	(Lio/fabric/sdk/android/services/common/v$a;Ljava/lang/String;)I	0	type	crashlytics-core-2.7.0
+com/crashlytics/android/core/Na	j6	(Lio/fabric/sdk/android/services/common/v$a;Ljava/lang/String;)I	1	value	crashlytics-core-2.7.0
 com/crashlytics/android/core/Na	j6	(Ljava/lang/Float;IZIJJ)I	0	batteryLevel	crashlytics-core-2.7.0
 com/crashlytics/android/core/Na	j6	(Ljava/lang/Float;IZIJJ)I	1	batteryVelocity	crashlytics-core-2.7.0
 com/crashlytics/android/core/Na	j6	(Ljava/lang/Float;IZIJJ)I	2	proximityEnabled	crashlytics-core-2.7.0
@@ -404,6 +432,10 @@ com/crashlytics/android/core/W	j6	([Ljava/io/File;Ljava/util/Set;)V	0	files	cras
 com/crashlytics/android/core/W	j6	([Ljava/io/File;Ljava/util/Set;)V	1	sessionIdsToKeep	crashlytics-core-2.7.0
 com/crashlytics/android/core/W	v5	(Ljava/lang/String;)V	0	sessionId	crashlytics-core-2.7.0
 com/crashlytics/android/core/X	j6	(Z)V	0	send	crashlytics-core-2.7.0
+com/crashlytics/android/core/a	j6	(Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/core/a;	0	context	crashlytics-core-2.7.0
+com/crashlytics/android/core/a	j6	(Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/core/a;	1	idManager	crashlytics-core-2.7.0
+com/crashlytics/android/core/a	j6	(Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/core/a;	2	apiKey	crashlytics-core-2.7.0
+com/crashlytics/android/core/a	j6	(Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/core/a;	3	buildId	crashlytics-core-2.7.0
 com/crashlytics/android/core/c	DW	(Ljava/io/BufferedReader;)Lorg/json/JSONArray;	0	reader	crashlytics-core-2.7.0
 com/crashlytics/android/core/c	DW	(Ljava/lang/String;)Ljava/io/File;	0	path	crashlytics-core-2.7.0
 com/crashlytics/android/core/c	DW	(Lorg/json/JSONArray;)Ljava/lang/String;	0	array	crashlytics-core-2.7.0

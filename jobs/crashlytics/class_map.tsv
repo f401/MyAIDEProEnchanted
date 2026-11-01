@@ -42,9 +42,9 @@ com/crashlytics/android/core/Ka$a	com/crashlytics/android/core/Report$Type	shape
 com/crashlytics/android/core/L	com/crashlytics/android/core/CrashlyticsController$24	shape:1.000/crashlytics-core
 com/crashlytics/android/core/La	com/crashlytics/android/core/ReportUploader	shape:0.941/crashlytics-core
 com/crashlytics/android/core/La$a	com/crashlytics/android/core/ReportUploader$AlwaysSendCheck	shape:1.000/crashlytics-core
-com/crashlytics/android/core/La$b	com/crashlytics/android/core/AppMeasurementEventListenerRegistrar	shape:1.000/crashlytics-core
+com/crashlytics/android/core/La$b	com/crashlytics/android/core/ReportUploader$HandlingExceptionCheck	W$j(ReportUploaderHandlingExceptionCheck) 实现它且方法名 isHandlingException ⇒ 它是 HandlingExceptionCheck 接口
 com/crashlytics/android/core/La$c	com/crashlytics/android/core/ReportUploader$ReportFilesProvider	shape:1.000/crashlytics-core
-com/crashlytics/android/core/La$d	com/crashlytics/android/core/ReportUploader$HandlingExceptionCheck	shape:1.000/crashlytics-core
+com/crashlytics/android/core/La$d	com/crashlytics/android/core/ReportUploader$SendCheck	La$a(AlwaysSendCheck) 与 W$h(PrivacyDialogCheck) 都实现它，二者的方法名都是 canSendReports ⇒ SendCheck
 com/crashlytics/android/core/La$e	com/crashlytics/android/core/ReportUploader$Worker	shape:1.000/crashlytics-core
 com/crashlytics/android/core/M	com/crashlytics/android/core/CrashlyticsController$25	shape:1.000/crashlytics-core
 com/crashlytics/android/core/Ma	com/crashlytics/android/core/ResourceUnityVersionProvider	shape:1.000/crashlytics-core
@@ -79,7 +79,7 @@ com/crashlytics/android/core/Y	com/crashlytics/android/core/CrashlyticsControlle
 com/crashlytics/android/core/Z	com/crashlytics/android/core/CrashlyticsCore$1	shape:0.800/crashlytics-core
 com/crashlytics/android/core/a	com/crashlytics/android/core/AppData	shape:0.875/crashlytics-core
 com/crashlytics/android/core/aa	com/crashlytics/android/core/CrashlyticsCore$2	shape:1.000/crashlytics-core
-com/crashlytics/android/core/b	com/crashlytics/android/core/ReportUploader$SendCheck	shape:1.000/crashlytics-core
+com/crashlytics/android/core/b	com/crashlytics/android/core/AppMeasurementEventListenerRegistrar	ma(DefaultAppMeasurementEventListenerRegistrar) 实现它，方法名 register ⇒ 注册器接口；原判 SendCheck 是形状撞车
 com/crashlytics/android/core/ba	com/crashlytics/android/core/CrashlyticsCore$3	shape:1.000/crashlytics-core
 com/crashlytics/android/core/c	com/crashlytics/android/core/BinaryImagesConverter	shape:0.933/crashlytics-core
 com/crashlytics/android/core/c$a	com/crashlytics/android/core/BinaryImagesConverter$FileIdStrategy	shape:1.000/crashlytics-core
@@ -88,7 +88,7 @@ com/crashlytics/android/core/ca$b	com/crashlytics/android/core/CrashlyticsCore$N
 com/crashlytics/android/core/e	com/crashlytics/android/core/CLSUUID	shape:0.900/crashlytics-core
 com/crashlytics/android/core/f	com/crashlytics/android/core/ClsFileOutputStream$1	shape:1.000/crashlytics-core
 com/crashlytics/android/core/ga	com/crashlytics/android/core/CrashlyticsNdkDataProvider	shape:1.000/crashlytics-core
-com/crashlytics/android/core/h$a	com/crashlytics/android/core/CrashlyticsListener	shape:1.000/crashlytics-core
+com/crashlytics/android/core/h$a	com/crashlytics/android/core/CodedOutputStream$OutOfSpaceException	修正: extends IOException + 串 "CodedOutputStream was writing to a flat byte array and ran out of space." ⇒ 外层 h=CodedOutputStream 的内部异常类（原判 CrashlyticsListener 会让外层 InnerClasses 自相矛盾，D8 报 Malformed inner-class attribute）
 com/crashlytics/android/core/ha	com/crashlytics/android/core/CrashlyticsPinningInfoProvider	shape:1.000/crashlytics-core
 com/crashlytics/android/core/i	com/crashlytics/android/core/CompositeCreateReportSpiCall$1	shape:1.000/crashlytics-core
 com/crashlytics/android/core/ia	com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler	shape:1.000/crashlytics-core
@@ -167,3 +167,10 @@ com/crashlytics/android/answers/L	com/crashlytics/android/answers/SessionMetadat
 com/crashlytics/android/answers/n	com/crashlytics/android/answers/AnswersRetryFilesSender	shape:0.556 margin:0.556
 com/crashlytics/android/answers/r	com/crashlytics/android/answers/DisabledSessionAnalyticsManagerStrategy	shape:0.750 margin:0.607
 com/crashlytics/android/core/ea	com/crashlytics/android/core/ea	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+com/crashlytics/android/answers/c	com/crashlytics/android/answers/EventValueBase	按作用命名：public abstract、0 成员、被 answers/y 继承（FirebaseAnalyticsEventMapper 常量类的最顶层空基类）；oracle 里无对应物
+com/crashlytics/android/answers/y	com/crashlytics/android/answers/EventValueBaseImpl	按作用命名：public abstract、0 成员、extends EventValueBase、被 answers/a 继承
+com/crashlytics/android/answers/a	com/crashlytics/android/answers/EventValueConstants	按作用命名：唯一成员是 static BigDecimal，被 FirebaseAnalyticsEventMapper 直接读（事件值换算常量）
+com/crashlytics/android/answers/H	com/crashlytics/android/answers/SyntheticPlaceholder	按作用命名：ACC_SYNTHETIC、0 字段 0 方法、全工程零引用（R8 合成占位类）
+com/crashlytics/android/core/Wa	com/crashlytics/android/core/CodedOutputStreamBitSizes	按作用命名：4 个 int 字段由自己的 static (II)I 在 <clinit> 里初始化，被 CodedOutputStream 引用 ⇒ 位宽/尺寸查表
+com/crashlytics/android/CrashlyticsInitProvider	com/crashlytics/android/CrashlyticsInitProvider	identity:类名本来就是真名（未混淆）；串 "CrashlyticsInitProvider initialization successful" 自证
+com/crashlytics/android/core/ta	com/crashlytics/android/core/SyntheticPlaceholder	按作用命名：0 字段 0 方法、全工程零引用（R8 合成残留）；oracle 同形状空类有 3 个（ByteString$1/LogFileManager$1/WireFormat$1）无法区分

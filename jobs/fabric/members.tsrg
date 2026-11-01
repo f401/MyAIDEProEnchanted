@@ -9,22 +9,38 @@ io/fabric/sdk/android/ActivityLifecycleManager$a io/fabric/sdk/android/ActivityL
 	DW application
 	j6 registeredCallbacks
 io/fabric/sdk/android/ActivityLifecycleManager$b io/fabric/sdk/android/ActivityLifecycleManager$Callbacks
-	DW (Landroid/app/Activity;)V onActivityStarted
-	DW (Landroid/app/Activity;Landroid/os/Bundle;)V onActivityCreated
-	j6 (Landroid/app/Activity;)V onActivityStopped
-	v5 (Landroid/app/Activity;)V onActivityDestroyed
+	DW (Landroid/app/Activity;)V onActivityPaused
+	DW (Landroid/app/Activity;Landroid/os/Bundle;)V onActivitySaveInstanceState
+	j6 (Landroid/app/Activity;)V onActivityDestroyed
+	v5 (Landroid/app/Activity;)V onActivityStopped
+	FH (Landroid/app/Activity;)V onActivityResumed
+	Hw (Landroid/app/Activity;)V onActivityStarted
+	j6 (Landroid/app/Activity;Landroid/os/Bundle;)V onActivityCreated
 io/fabric/sdk/android/Fabric io/fabric/sdk/android/Fabric
 io/fabric/sdk/android/Kit io/fabric/sdk/android/Kit
 io/fabric/sdk/android/a io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1
 	DW this$0
 	j6 val$callbacks
-io/fabric/sdk/android/b io/fabric/sdk/android/SilentLogger
+io/fabric/sdk/android/b io/fabric/sdk/android/DefaultLogger
 	j6 (ILjava/lang/String;Ljava/lang/String;)V log
 	j6 (ILjava/lang/String;Ljava/lang/String;Z)V log
 	j6 (Ljava/lang/String;I)Z isLoggable
 	j6 logLevel
+	DW (Ljava/lang/String;Ljava/lang/String;)V w
+	DW (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V w
+	FH (Ljava/lang/String;Ljava/lang/String;)V e
+	FH (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V e
+	Hw (Ljava/lang/String;Ljava/lang/String;)V i
+	Hw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V i
+	j6 (Ljava/lang/String;Ljava/lang/String;)V d
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V d
+	v5 (Ljava/lang/String;Ljava/lang/String;)V v
+	v5 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V v
 io/fabric/sdk/android/c io/fabric/sdk/android/Fabric$1
 	j6 this$0
+	j6 (Landroid/app/Activity;Landroid/os/Bundle;)V onActivityCreated
+	FH (Landroid/app/Activity;)V onActivityResumed
+	Hw (Landroid/app/Activity;)V onActivityStarted
 io/fabric/sdk/android/d io/fabric/sdk/android/Fabric$2
 	j6 (Ljava/lang/Exception;)V failure
 	j6 (Ljava/lang/Object;)V success
@@ -85,6 +101,14 @@ io/fabric/sdk/android/services/common/i$a io/fabric/sdk/android/services/common/
 	we $VALUES
 	gn UNKNOWN
 	DW X86_32
+	FH ARM_UNKNOWN
+	Hw PPC
+	VH ARMV7
+	Zo ARMV6
+	j6 X86_64
+	tp ARM64
+	u7 ARMV7S
+	v5 PPC64
 io/fabric/sdk/android/services/common/k io/fabric/sdk/android/services/common/CurrentTimeProvider
 	j6 ()J getCurrentTimeMillis
 io/fabric/sdk/android/services/common/l io/fabric/sdk/android/services/common/DataCollectionArbiter
@@ -124,8 +148,15 @@ io/fabric/sdk/android/services/common/v$a io/fabric/sdk/android/services/common/
 	gn $VALUES
 	u7 protobufIndex
 	DW WIFI_MAC_ADDRESS
+	FH FONT_TOKEN
+	Hw ANDROID_ID
+	VH ANDROID_ADVERTISING_ID
+	Zo ANDROID_SERIAL
+	j6 BLUETOOTH_MAC_ADDRESS
+	v5 ANDROID_DEVICE_ID
 io/fabric/sdk/android/services/common/w io/fabric/sdk/android/services/common/InstallerPackageNameProvider$1
 	j6 (Landroid/content/Context;)Ljava/lang/String; load
+	j6 this$0
 io/fabric/sdk/android/services/common/y io/fabric/sdk/android/services/common/QueueFile$1
 	j6 (Ljava/io/InputStream;I)V read
 	DW val$builder
@@ -182,6 +213,7 @@ io/fabric/sdk/android/Fabric$Builder io/fabric/sdk/android/Fabric$Builder
 	u7 initializationCallback
 	gn appIdentifier
 	VH appInstallIdentifier
+	v5 logger
 io/fabric/sdk/android/services/common/AdvertisingInfoProvider io/fabric/sdk/android/services/common/AdvertisingInfoProvider
 	j6 (Lio/fabric/sdk/android/services/common/b;)Z isInfoValid
 	j6 context
@@ -200,13 +232,164 @@ io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy io/fabri
 io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy
 	j6 ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfo
 	j6 context
-io/fabric/sdk/android/m io/fabric/sdk/android/m
+io/fabric/sdk/android/m io/fabric/sdk/android/Logger
 	j6 (ILjava/lang/String;Ljava/lang/String;)V log
 	j6 (ILjava/lang/String;Ljava/lang/String;Z)V log
 	j6 (Ljava/lang/String;I)Z isLoggable
+	DW (Ljava/lang/String;Ljava/lang/String;)V w
+	DW (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V w
+	FH (Ljava/lang/String;Ljava/lang/String;)V e
+	FH (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V e
+	Hw (Ljava/lang/String;Ljava/lang/String;)V i
+	j6 (Ljava/lang/String;Ljava/lang/String;)V d
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V d
+	v5 (Ljava/lang/String;Ljava/lang/String;)V v
 io/fabric/sdk/android/services/common/e io/fabric/sdk/android/services/common/e
 	j6 ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfo
 io/fabric/sdk/android/services/common/f io/fabric/sdk/android/services/common/ApiKey
+	j6 ()Ljava/lang/String; buildApiKeyInstructions
+	v5 (Landroid/content/Context;)V logErrorOrThrowException
+	FH (Landroid/content/Context;)Ljava/lang/String; getApiKeyFromStrings
+	DW (Landroid/content/Context;)Ljava/lang/String; getApiKeyFromManifest
+	Hw (Landroid/content/Context;)Ljava/lang/String; getValue
+	j6 (Landroid/content/Context;)Ljava/lang/String; getApiKeyFromFirebaseAppId
 io/fabric/sdk/android/services/common/i io/fabric/sdk/android/services/common/CommonUtils
+	DW ()J getTotalRamInBytes
+	DW (Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String; getStringsFileValue
+	DW (Ljava/lang/String;)Z isNullOrEmpty
+	FH (Landroid/content/Context;Ljava/lang/String;)V logControlled
+	FH ()Z isDebuggerAttached
+	j6 ()I getCpuArchitectureInt
+	j6 (Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I getResourcesIdentifier
+	j6 (Landroid/content/Context;Z)I getBatteryVelocity
+	j6 (Landroid/content/Context;)J calculateFreeRamInBytes
+	j6 (Ljava/lang/String;)J calculateUsedDiskSpaceInBytes
+	j6 (Ljava/lang/String;Ljava/lang/String;I)J convertMemInfoToBytes
+	j6 (Ljava/lang/String;Landroid/content/Context;)Landroid/app/ActivityManager$RunningAppProcessInfo; getAppProcessInfo
+	j6 (Ljava/io/File;Ljava/lang/String;)Ljava/lang/String; extractFieldFromSystemFile
+	j6 (Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/String; hash
+	j6 (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; hash
+	j6 ([B)Ljava/lang/String; hexify
+	j6 ([BLjava/lang/String;)Ljava/lang/String; hash
+	j6 ([Ljava/lang/String;)Ljava/lang/String; createInstanceIdFrom
+	j6 (Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;)V logControlled
+	j6 (Landroid/content/Context;Ljava/lang/String;Ljava/lang/Throwable;)V logControlledError
+	j6 (Ljava/io/Closeable;)V closeQuietly
+	j6 (Ljava/io/Closeable;Ljava/lang/String;)V closeOrLog
+	j6 (Ljava/io/Flushable;Ljava/lang/String;)V flushOrLog
+	j6 (Ljava/io/InputStream;Ljava/io/OutputStream;[B)V copyStream
+	j6 (Landroid/content/Context;Ljava/lang/String;)Z checkPermission
+	j6 (Landroid/content/Context;Ljava/lang/String;Z)Z getBooleanResourceValue
+	u7 (Landroid/content/Context;)Landroid/content/SharedPreferences; getSharedPrefs
+	v5 (Landroid/content/Context;)Ljava/lang/Float; getBatteryLevel
+	DW HEX_VALUES
+	Hw FILE_MODIFIED_COMPARATOR
+	j6 clsTrace
+	DW (I)Ljava/lang/String; padWithZerosToMaxIntWidth
+	j6 (I)Ljava/lang/String; logPriorityToString
+	j6 (Ljava/io/InputStream;)Ljava/lang/String; sha1
+	DW (Ljava/io/InputStream;)Ljava/lang/String; streamToString
+	EQ (Landroid/content/Context;)Z isClsTrace
+	we (Landroid/content/Context;)Z isEmulator
+	DW (Landroid/content/Context;)Z canTryConnection
+	J0 (Landroid/content/Context;)Z isRooted
+	tp (Landroid/content/Context;)Z isAppDebuggable
+	VH (Landroid/content/Context;)Z getProximitySensorEnabled
+	gn (Landroid/content/Context;)Ljava/lang/String; getResourcePackageName
+	Ws (Landroid/content/Context;)Ljava/lang/String; resolveUnityEditorVersion
+	J8 (Landroid/content/Context;)Ljava/lang/String; resolveBuildId
+	FH (Landroid/content/Context;)Ljava/lang/String; getAppIconHashOrNull
+	FH (Ljava/lang/String;)Ljava/lang/String; sha1
+	Hw (Ljava/lang/String;)Ljava/lang/String; sha256
+	Hw (Landroid/content/Context;)I getAppIconResourceId
+	Zo (Landroid/content/Context;)I getDeviceState
+	FH totalRamInBytes
 io/fabric/sdk/android/services/common/v io/fabric/sdk/android/services/common/IdManager
+	DW (Landroid/content/SharedPreferences;)Ljava/lang/String; createInstallationUUID
+	j6 (Landroid/content/SharedPreferences;)V checkAdvertisingIdRotation
+	j6 (Landroid/content/SharedPreferences;Ljava/lang/String;)V flushInstallationIdIfNecessary
+	j6 (Ljava/util/Map;Lio/fabric/sdk/android/services/common/v$a;Ljava/lang/String;)V putNonNullIdInto
+	DW ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfo
+	v5 ()Ljava/util/Map; getDeviceIdentifiers
+	j6 ID_PATTERN
+	EQ advertisingInfoProvider
+	FH installationIdLock
+	VH appContext
+	tp kits
+	we advertisingInfo
+	j6 (Ljava/lang/String;)Ljava/lang/String; formatId
+	DW (Ljava/lang/String;)Ljava/lang/String; removeForwardSlashesIn
+	EQ ()Ljava/lang/Boolean; isLimitAdTrackingEnabled
+	J0 ()Ljava/lang/Boolean; explicitCheckLimitAdTracking
+	Hw ()Ljava/lang/String; getAppInstallIdentifier
+	FH ()Ljava/lang/String; getAppIdentifier
+	tp ()Ljava/lang/String; getOsVersionString
+	VH ()Ljava/lang/String; getModelName
+	u7 ()Ljava/lang/String; getOsDisplayVersionString
+	gn ()Ljava/lang/String; getOsBuildVersionString
+	Zo ()Ljava/lang/String; getInstallerPackageName
+	j6 ()Z canCollectUserIds
+	we ()Z shouldCollectHardwareIds
+	DW FORWARD_SLASH_REGEX
+	J0 fetchedAdvertisingInfo
+	u7 appInstallIdentifier
+	gn appIdentifier
+	v5 collectHardwareIds
+	Zo collectUserIds
+	Hw installerPackageNameProvider
+	J8 firebaseInfo
 io/fabric/sdk/android/services/common/a io/fabric/sdk/android/services/network/HttpRequestFactory
+io/fabric/sdk/android/f io/fabric/sdk/android/FabricKitsFinder
+	j6 (Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;)Lio/fabric/sdk/android/l; loadKitInfo
+	j6 ()Ljava/util/zip/ZipFile; loadApkFile
+	j6 apkFileName
+	FH ()Ljava/util/Map; findRegisteredKits
+	DW ()Ljava/util/Map; findImplicitKits
+io/fabric/sdk/android/n io/fabric/sdk/android/Onboarding
+	j6 (Ljava/util/Map;Ljava/util/Collection;)Ljava/util/Map; mergeKits
+	DW packageManager
+	EQ providedKits
+	Hw packageInfo
+	tp kitsFinder
+	Zo ()Ljava/lang/String; getOverridenSpiEndpoint
+io/fabric/sdk/android/services/common/r io/fabric/sdk/android/services/common/ExecutorUtils
+	DW (Ljava/lang/String;)Ljava/util/concurrent/ScheduledExecutorService; buildSingleThreadScheduledExecutorService
+	FH (Ljava/lang/String;)Ljava/util/concurrent/ThreadFactory; getNamedThreadFactory
+	j6 (Ljava/lang/String;)Ljava/util/concurrent/ExecutorService; buildSingleThreadExecutorService
+	j6 (Ljava/lang/String;Ljava/util/concurrent/ExecutorService;)V addDelayedShutdownHook
+	j6 (Ljava/lang/String;Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)V addDelayedShutdownHook
+io/fabric/sdk/android/services/common/u io/fabric/sdk/android/services/common/FirebaseInfo
+	j6 (Landroid/content/Context;)Ljava/lang/String; getApiKeyFromFirebaseAppId
+	j6 (Ljava/lang/String;)Ljava/lang/String; createApiKeyFromFirebaseAppId
+	v5 (Landroid/content/Context;)Z isFirebaseCrashlyticsEnabled
+	FH (Landroid/content/Context;)Z hasGoogleAppId
+	Hw (Landroid/content/Context;)Z isAutoInitializeFlagEnabled
+	DW (Landroid/content/Context;)Z hasApiKey
+io/fabric/sdk/android/services/common/t io/fabric/sdk/android/services/common/FirebaseAppImpl
+	j6 (Landroid/content/Context;)Lio/fabric/sdk/android/services/common/s; getInstance
+	j6 ()Z isDataCollectionDefaultEnabled
+	DW firebaseAppInstance
+	j6 isDataCollectionDefaultEnabledMethod
+io/fabric/sdk/android/services/common/x io/fabric/sdk/android/services/common/InstallerPackageNameProvider
+	j6 (Landroid/content/Context;)Ljava/lang/String; getInstallerPackageName
+io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$b io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingInterface
+	v5 ()Z isLimitAdTrackingEnabled
+	j6 binder
+io/fabric/sdk/android/services/common/B io/fabric/sdk/android/services/common/SafeToast$1
+	Hw this$0
+io/fabric/sdk/android/services/common/j io/fabric/sdk/android/services/common/Crash
+	j6 ()Ljava/lang/String; getExceptionName
+	DW ()Ljava/lang/String; getSessionId
+	j6 sessionId
+	DW exceptionName
+io/fabric/sdk/android/services/common/j$a io/fabric/sdk/android/services/common/Crash$LoggedException
+io/fabric/sdk/android/services/common/j$b io/fabric/sdk/android/services/common/Crash$FatalException
+io/fabric/sdk/android/g io/fabric/sdk/android/InitializationCallback$1
+io/fabric/sdk/android/services/common/d io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$1
+io/fabric/sdk/android/services/common/o io/fabric/sdk/android/services/common/ExecutorUtils$1$1
+	j6 ()V onRun
+	DW this$0
+	j6 val$runnable
+io/fabric/sdk/android/services/common/A io/fabric/sdk/android/services/common/ResponseParser
+	j6 (I)I parse
+io/fabric/sdk/android/services/common/SafeToast io/fabric/sdk/android/services/common/SafeToast

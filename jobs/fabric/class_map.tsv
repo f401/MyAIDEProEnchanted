@@ -4,7 +4,7 @@ io/fabric/sdk/android/ActivityLifecycleManager$b	io/fabric/sdk/android/ActivityL
 io/fabric/sdk/android/Fabric	io/fabric/sdk/android/Fabric	shape:0.980/fabric
 io/fabric/sdk/android/Kit	io/fabric/sdk/android/Kit	shape:0.958/fabric
 io/fabric/sdk/android/a	io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1	shape:1.000/fabric
-io/fabric/sdk/android/b	io/fabric/sdk/android/SilentLogger	shape:0.941/fabric
+io/fabric/sdk/android/b	io/fabric/sdk/android/DefaultLogger	body: 调 Landroid/util/Log;->d/e/i/v/w（SilentLogger 的话 body 是空的）
 io/fabric/sdk/android/c	io/fabric/sdk/android/Fabric$1	shape:1.000/fabric
 io/fabric/sdk/android/d	io/fabric/sdk/android/Fabric$2	shape:1.000/fabric
 io/fabric/sdk/android/e	io/fabric/sdk/android/FabricContext	shape:1.000/fabric
@@ -40,9 +40,25 @@ io/fabric/sdk/android/Fabric$Builder	io/fabric/sdk/android/Fabric$Builder	identi
 io/fabric/sdk/android/services/common/AdvertisingInfoProvider	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
-io/fabric/sdk/android/m	io/fabric/sdk/android/m	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+io/fabric/sdk/android/m	io/fabric/sdk/android/Logger	形状 11 方法 0 字段 = oracle Logger；原 identity 行是 write_members 旧 bug 的坏数据
 io/fabric/sdk/android/services/common/e	io/fabric/sdk/android/services/common/e	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
 io/fabric/sdk/android/services/common/f	io/fabric/sdk/android/services/common/ApiKey	串 "io.fabric.ApiKey"/"@string/twitter_consumer_secret"（读的 meta-data 名就是自己的角色）；调用者 CrashlyticsCore/EnabledSessionAnalyticsManagerStrategy；oracle AAR 被 proguard 裁掉该类
 io/fabric/sdk/android/services/common/i	io/fabric/sdk/android/services/common/CommonUtils	47 个方法；串 "/proc/meminfo"、"MemTotal"、"Unexpected meminfo format while computing RAM: "；调用者 Answers/CLSUUID/CrashlyticsController
 io/fabric/sdk/android/services/common/v	io/fabric/sdk/android/services/common/IdManager	14 字段 21 方法；串 "com.crashlytics.CollectDeviceIdentifiers"、"Device ID collection disabled for "；调用者 AppData/CLSUUID/CrashlyticsController
 io/fabric/sdk/android/services/common/a	io/fabric/sdk/android/services/network/HttpRequestFactory	串 "requestFactory must not be null."、"url must not be null."、"http(s?)://[^\/]+"；调用者 DefaultCreateReportSpiCall/NativeCreateReportSpiCall/SessionAnalyticsFilesSender
+io/fabric/sdk/android/f	io/fabric/sdk/android/FabricKitsFinder	串 "com.google.firebase.firebase-ads"/"com.google.android.gms.ads.AdView"（探测装了哪些 Kit）
+io/fabric/sdk/android/n	io/fabric/sdk/android/Onboarding	sup=io.fabric.sdk.android.Kit；串 "Failed to create app with Crashlytics service."
+io/fabric/sdk/android/services/common/r	io/fabric/sdk/android/services/common/ExecutorUtils	串 "Crashlytics Shutdown Hook for "
+io/fabric/sdk/android/services/common/u	io/fabric/sdk/android/services/common/FirebaseInfo	串 "google_app_id"/"io.fabric.auto_initialize"
+io/fabric/sdk/android/services/common/t	io/fabric/sdk/android/services/common/FirebaseAppImpl	串 "isDataCollectionDefaultEnabled"/"com.google.firebase.FirebaseApp"
+io/fabric/sdk/android/services/common/x	io/fabric/sdk/android/services/common/InstallerPackageNameProvider	串 "Failed to determine installer package name"
+io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$b	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingInterface	串 "com.google.android.gms.ads.identifier.internal.IAdvertisingIdService"
+io/fabric/sdk/android/services/common/B	io/fabric/sdk/android/services/common/SafeToast$1	构造器 (Lio/fabric/sdk/android/services/common/SafeToast;)V + run()V ⇒ SafeToast 里的那个 Runnable 内部类
+io/fabric/sdk/android/services/common/j	io/fabric/sdk/android/services/common/Crash	构造器 (String,String) + 两个 String getter ⇒ fabric Crash（sessionId/exceptionName）
+io/fabric/sdk/android/services/common/j$a	io/fabric/sdk/android/services/common/Crash$LoggedException	sup=Crash 的内部类、只有 (String,String) 构造器；与 $FatalException 形状完全相同（50/50，按声明序取 Logged）
+io/fabric/sdk/android/services/common/j$b	io/fabric/sdk/android/services/common/Crash$FatalException	同上
+io/fabric/sdk/android/g	io/fabric/sdk/android/InitializationCallback$1	0 字段 0 方法 + 与 InitializationCallback 同包、oracle 里唯一同形状且未占用（另外两个 0f/0m 候选都在别的子包）
+io/fabric/sdk/android/services/common/d	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$1	同上：0f/0m，唯一同包候选
+io/fabric/sdk/android/services/common/o	io/fabric/sdk/android/services/common/ExecutorUtils$1$1	oracle ExecutorUtils$1$1 = sup:BackgroundPriorityRunnable f=2 m=2，与探针 o 完全一致；ctor 收 (ExecutorUtils$1, Runnable)、run() 转调 Runnable.run()
+io/fabric/sdk/android/services/common/A	io/fabric/sdk/android/services/common/ResponseParser	全 fabric jar 里**唯一**的 static (I)I 方法 = ResponseParser.parse(int)；调用点正是 NativeCreateReportSpiCall/DefaultCreateReportSpiCall 拿响应码去解析
+io/fabric/sdk/android/services/common/SafeToast	io/fabric/sdk/android/services/common/SafeToast	identity:类名本来就是真名（未混淆）；sup=android.widget.Toast

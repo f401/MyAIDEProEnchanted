@@ -247,6 +247,20 @@ def main():
               % (hm, tm, 100.0*hm/max(1, tm), hf, tf, 100.0*hf/max(1, tf),
                  '口径=剔除 构造器/静态块/合成器/JDK契约名' + tag))
         print('  （不剔除时 %d/%d 方法、%d/%d 字段）' % (h0, t0, f0, t0f))
+        # 分母只含"已定名的类"，未定名的类根本不在统计里 —— 必须显式报出来
+        try:
+            import zipfile as _zf, re as _re
+            _z = _zf.ZipFile(P.base_jars[0])
+            _pref = _pkg
+            _mapped = set(P.class_map and __import__('mapping').ClassMap(
+                P.class_map, P.probe_prefix, P.class_map_prefix).load().dict or {})
+            _all = [n[:-6] for n in _z.namelist() if n.endswith('.class') and n[:-6].startswith(_pref + '/')]
+            _left = [c for c in _all if c not in _mapped]
+            if _left:
+                _obf = [c for c in _left if _re.fullmatch(r'[A-Za-z]{1,2}', c.split('/')[-1].split('$')[-1])]
+                print('  分母不含：%d 个类未定名（其中短名 %d 个）—— 覆盖率只统计已定名的类' % (len(_left), len(_obf)))
+        except Exception as _e:
+            print('  （未定名类统计失败：%s）' % _e)
 
     elif a.cmd == 'manifest':
         h, n = checks.manifest(a.args[0])

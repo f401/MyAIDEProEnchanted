@@ -143,6 +143,17 @@ python3 tools/deob/cli.py -p process/deob.json mgraph --pkg com/a
 > （`membermatch.oracle_to_probe()`），否则 `Lcom/android/dx/...` vs `Lcom/a/b/...` 永远不等，
 > 会把命中数打到 0、把缺口虚报成几千条。
 
+## 6b. 内部类归属（D8 `Malformed inner-class attribute` 的根因）
+
+```bash
+python3 tools/deob/innercheck.py            # 全 part
+```
+
+不变量：探针 `X$y` 映射成 `A$b` 时 `A` 必须等于 `map(X)`；**探针真内部类不许映射成顶层类**
+（FART 只改名字，会留下 `outer=X / inner=顶层类 / innerName=a` 这种自相矛盾的 InnerClasses 条目，
+D8 打 `Malformed inner-class attribute`，反射取 `getEnclosingClass/getSimpleName` 也会错）。
+反向（探针顶层 → 目标 `X$1`）是**正常**的：R8 把匿名类拍平成了顶层 `abcd/AC`。
+
 ## 7. 门禁
 
 ```bash
