@@ -22886,6 +22886,30 @@ abcd/LN org/bouncycastle/asn1/x509/X509Name
 	x9 added
 	ca values
 	I ordering
+	DW O
+	EQ SURNAME
+	FH OU
+	Hw T
+	J0 INITIALS
+	J8 GENERATION
+	KD DC
+	Mr DATE_OF_BIRTH
+	QX BUSINESS_CATEGORY
+	U2 PLACE_OF_BIRTH
+	Ws UNIQUE_IDENTIFIER
+	XL POSTAL_CODE
+	Zo SN
+	a8 GENDER
+	aM DN_QUALIFIER
+	er NAME_AT_BIRTH
+	j3 PSEUDONYM
+	lg COUNTRY_OF_CITIZENSHIP
+	rN COUNTRY_OF_RESIDENCE
+	tp ST
+	u7 L
+	v5 CN
+	we GIVENNAME
+	yS POSTAL_ADDRESS
 abcd/LO org/bouncycastle/crypto/generators/DHKeyPairGenerator
 	j6 (Labcd/uO;)V init
 	j6 ()Labcd/oO; generateKeyPair
@@ -22926,6 +22950,17 @@ abcd/NN org/bouncycastle/asn1/x509/X509ObjectIdentifiers
 	VH id_at_telephoneNumber
 	we id_ea_rsa
 	DW id_pkix
+	EQ ripemd160WithRSAEncryption
+	FH localityName
+	Hw stateOrProvinceName
+	QX id_ad
+	Ws id_ce
+	XL id_ad_caIssuers
+	Zo organizationalUnitName
+	j6 commonName
+	tp ripemd160
+	u7 id_SHA1
+	v5 organization
 abcd/NO org/bouncycastle/crypto/generators/DHParametersGenerator
 	j6 ()Labcd/TO; generateParameters
 	j6 (IILjava/security/SecureRandom;)V init
@@ -22995,6 +23030,10 @@ abcd/PM org/bouncycastle/asn1/bc/BCObjectIdentifiers
 	J8 bc_pbe_sha1_pkcs12_aes256_cbc
 	J0 bc_pbe_sha1_pkcs12_aes192_cbc
 	DW bc
+	Hw bc_pbe_sha256
+	VH bc_pbe_sha224
+	Zo bc_pbe_sha512
+	v5 bc_pbe_sha384
 abcd/PN org/bouncycastle/asn1/x9/DHValidationParms
 	j6 (Ljava/lang/Object;)Labcd/PN; getInstance
 		static
@@ -23030,6 +23069,23 @@ abcd/QN org/bouncycastle/asn1/x9/X9ObjectIdentifiers
 	ca id_dsa
 	we ecdsa_with_SHA2
 	BT ansi_X9_62
+	OW ansi_X9_42
+	P8 c2tnb239v2
+	Qq x9_63_scheme
+	SI c2onb239v5
+	VH ppBasis
+	Zo tpBasis
+	aM cTwoCurve
+	br dhpublicnumber
+	cb c2tnb431r1
+	cn c2tnb359v1
+	ei c2tnb239v3
+	gW c2onb191v5
+	nw c2onb239v4
+	ro c2pnb304w1
+	sh c2pnb368w1
+	v5 gnBasis
+	vy c2tnb239v1
 abcd/QO org/bouncycastle/crypto/params/DESParameters
 	DW DES_weak_keys
 abcd/QP org/bouncycastle/util/CollectionStore
@@ -23327,6 +23383,10 @@ abcd/aN org/bouncycastle/asn1/eac/EACObjectIdentifiers
 	J8 id_TA_RSA_PSS_SHA_1
 	J0 id_TA_RSA_v1_5_SHA_256
 	DW bsi_de
+	XL id_TA_RSA_PSS_SHA_512
+	rN id_EAC_ePassport
+	tp id_TA
+	v5 id_CA
 abcd/aO org/bouncycastle/cms/CMSSignedData
 	DW ()Labcd/WM; getSignedData
 	j6 HELPER
@@ -23361,6 +23421,9 @@ abcd/bM org/bouncycastle/asn1/DERBMPString
 	v5 ()I encodedLength
 abcd/bN org/bouncycastle/asn1/iana/IANAObjectIdentifiers
 	DW isakmpOakley
+	FH hmacSHA1
+	Hw hmacTIGER
+	v5 hmacRIPEMD160
 abcd/bO org/bouncycastle/cms/CMSSignedDataGenerator$1
 	j6 (Ljava/io/OutputStream;)V write
 	DW val$contentTypeOID
@@ -23428,6 +23491,19 @@ abcd/dM org/bouncycastle/asn1/DERBoolean
 abcd/dN org/bouncycastle/asn1/misc/MiscObjectIdentifiers
 	DW netscapeCertType
 	FH netscape
+	EQ verisignCzagExtension
+	Hw netscapeRevocationURL
+	J0 novell
+	J8 novellSecurityAttribs
+	QX entrustVersionExtension
+	VH netscapeCApolicyURL
+	Ws entrust
+	Zo netscapeRenewalURL
+	gn netscapeSSLServerName
+	tp verisign
+	u7 netscapeCertComment
+	v5 netscapeCARevocationURL
+	we verisignDnbDunsNumber
 abcd/dO org/bouncycastle/cms/CMSSignedGenerator
 	j6 (Labcd/kO;)V addSignerInfoGenerator
 	lg NO_PARAMS
@@ -23526,6 +23602,18 @@ abcd/hN org/bouncycastle/asn1/nist/NISTObjectIdentifiers
 	EQ id_aes128_wrap
 	Zo aes
 	BT nistAlgorithm
+	J0 id_aes128_CCM
+	J8 id_aes192_ECB
+	Mr id_aes192_CCM
+	QX id_aes192_OFB
+	U2 id_aes256_ECB
+	XL id_aes192_CFB
+	gW id_aes256_CCM
+	j3 id_aes192_GCM
+	lg id_aes256_OFB
+	rN id_aes256_CFB
+	we id_aes128_GCM
+	yS id_aes256_GCM
 abcd/hO org/bouncycastle/cms/DefaultCMSSignatureEncryptionAlgorithmFinder
 	j6 (Labcd/wN;)Labcd/wN; findEncryptionAlgorithm
 	j6 RSA_PKCS1d5
@@ -23662,6 +23750,32 @@ abcd/lN org/bouncycastle/asn1/pkcs/PKCSObjectIdentifiers
 	WB id_ct_compressedData
 	Sf signedAndEnvelopedData
 	Ev id_ct_authData
+	AE id_spq_ets_unotice
+	An bagtypes
+	BR id_spq_ets_uri
+	FN preferSignedData
+	Gj id_aa_ets_otherSigCert
+	Mz pkcs_9
+	P8 digestAlgorithm
+	QO id_aa_ets_escTimeStamp
+	QX pkcs_3
+	Za pkcs_12
+	aM pkcs_5
+	aq id_alg_PWRI_KEK
+	cT id_aa
+	e9 id_aa_ets_revocationValues
+	fN id_aa_ets_signerAttr
+	fY id_cti
+	gW encryptionAlgorithm
+	iW id_aa_signingCertificateV2
+	j6 pkcs_1
+	jO canNotDecryptAny
+	ko id_ct
+	oY sMIMECapabilitiesVersions
+	pO id_aa_ets_signerLocation
+	sM id_aa_ets_certCRLTimestamp
+	sg id_aa_ets_commitmentType
+	wc x509certType
 abcd/lO org/bouncycastle/cms/SignerInfoGeneratorBuilder
 	j6 (Labcd/vP;Labcd/XM;)Labcd/kO; createGenerator
 	j6 (Labcd/vP;Labcd/SN;)Labcd/kO; build
@@ -23756,6 +23870,17 @@ abcd/oN org/bouncycastle/asn1/teletrust/TeleTrusTObjectIdentifiers
 	VH rsaSignatureWithripemd128
 	v5 teleTrusTRSAsignatureAlgorithm
 	BT teleTrusTAlgorithm
+	Mr brainpoolP224t1
+	U2 brainpoolP256r1
+	a8 brainpoolP256t1
+	er brainpoolP384r1
+	gW brainpoolP512r1
+	j3 brainpoolP224r1
+	lg brainpoolP320r1
+	rN brainpoolP320t1
+	u7 ecSign
+	we ecc_brainpool
+	yS brainpoolP384t1
 abcd/oO org/bouncycastle/crypto/AsymmetricCipherKeyPair
 	j6 ()Labcd/qO; getPrivate
 	DW ()Labcd/qO; getPublic
@@ -23902,6 +24027,31 @@ abcd/uN org/bouncycastle/asn1/x500/style/BCStyle
 	j6 INSTANCE
 	sh DefaultSymbols
 	cb DefaultLookUp
+	DW C
+	EQ ST
+	FH O
+	Hw OU
+	J0 GIVENNAME
+	J8 INITIALS
+	Mr PSEUDONYM
+	QX UNIQUE_IDENTIFIER
+	U2 DATE_OF_BIRTH
+	VH SN
+	Ws GENERATION
+	XL BUSINESS_CATEGORY
+	Zo CN
+	a8 PLACE_OF_BIRTH
+	aM POSTAL_CODE
+	er COUNTRY_OF_RESIDENCE
+	gW POSTAL_ADDRESS
+	j3 DN_QUALIFIER
+	lg GENDER
+	rN COUNTRY_OF_CITIZENSHIP
+	ro DC
+	tp L
+	v5 T
+	we SURNAME
+	yS NAME_AT_BIRTH
 abcd/uO org/bouncycastle/crypto/KeyGenerationParameters
 	j6 ()Ljava/security/SecureRandom; getRandom
 	DW strength

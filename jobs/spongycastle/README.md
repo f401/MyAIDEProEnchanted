@@ -69,12 +69,21 @@ OID 常量表就是这么被换错的（`NN` 一度落到 `ISISMTTObjectIdentifi
 
 ```
 python3 tools/deob/cli.py -p process/deob.json members --pkg=abcd --part=spongycastle --apply
-类 253 / 方法 1329（已定名 744 = 56%）/ 字段 1096（已定名 692 = 63%）
-待人工 474：ambiguous 405 + no-oracle-descriptor 69
-→ jobs/spongycastle/members.tsrg = 1436 行成员映射
+类 253 / 方法 1329（已定名 783）/ 字段 1096（已定名 750）
+待人工 374：ambiguous 369 + no-oracle-descriptor 5
 ```
 
-`abcd` 整体覆盖率因此从 方法 79.7% / 字段 64.5% 升到 **98.3% / 86.9%**。
+**静态常量字段另走一条判据**（新工具 `tools/deob/constfields.py`）：`*ObjectIdentifiers` 这类
+常量表有上百个 `static final ASN1ObjectIdentifier`，描述符全一样（129 个同描述符候选），
+但它们在 `<clinit>` 里都是 `new ASN1ObjectIdentifier("1.2.840...")` 赋进去的——
+**那个串就是身份**。探针侧读 smali 的最后一条 `const-string`，oracle 侧读字节码的 `ldc`，
+再要求两边的字段描述符一致（翻真名后）：
+
+```
+spongycastle：按 clinit 常量串补了 150 个静态字段（跳过 163）
+```
+
+`abcd` 整体覆盖率：方法 79.7% → **98.6%**，字段 64.5% → **92.6%**。
 
 剩下 405 条 ambiguous 里一大类是 **ASN.1 覆写族**：`ASN1Primitive` 的
 `toDERObject()/toDLObject()`、`ASN1OutputStream` 的 `getDERSubStream()/getDLSubStream()`
@@ -84,11 +93,12 @@ python3 tools/deob/cli.py -p process/deob.json members --pkg=abcd --part=spongyc
 ## 6) 当前结果
 
 - **253 / 257 类已定名**（类块已进 `process/mappings.txt`，全库类块 1844）
-- 成员：方法 744/1329（56%）、字段 692/1096（63%）已定名
+- 成员：方法 783/1329（59%）、字段 900/1096（82%）已定名（其中 150 个字段是靠 `<clinit>` 常量串定的）
+- `refmatch --oneway` 残留 **2 条**：`yO`=LongDigest（探针多了 dex2jar 合成的 `$d2j$hex$…$decode_(String)` 方法）、`rP`（只被未定名的 `sP` 引用）
 - 门禁：`validate ✔ 无无效映射`、`inherit 0/0/0`、`famcheck 冲突 0 / 祖先未映射 0`、
   `innercheck ②0 ③0`（①1 条是 jgit 的老遗留）
 - 目标全都在 oracle 里存在、与包内已有类名 0 撞名、与其它 part 目标 0 撞名
-- `refmatch --oneway` 残留 **23** 条（探针引用了候选没有的类型），逐条都指向某个还需要修的枢纽类
+- `refmatch --oneway` 残留 2 条（见上，都已有解释）
 
 ### 还没定的 4 个（`VM` / `eP` / `kP` / `sP`）
 
