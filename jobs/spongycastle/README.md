@@ -61,9 +61,30 @@ SpongyCastle 就是把 BouncyCastle 换个包名重新打包，所以不需要�
 字符串证据必须是 Jaccard（`|A∩B|/|A∪B|`）。旧的 `|A∩B|/min(|A|,|B|)` 会让"很小的子集"也拿 1.0，
 OID 常量表就是这么被换错的（`NN` 一度落到 `ISISMTTObjectIdentifiers`，j=0.00）。
 
-## 5) 当前结果
+## 5) 成员名（第一遍，自动）
 
-- **253 / 257 已定名**（类块已进 `process/mappings.txt`，全库类块 1844）
+同版本 oracle 让成员级匹配特别好做：`--part` 现在会**只动本 part 的类**（顺手修了
+`membermatch` 的一个真 bug：它原来只取"第一个前缀匹配的 part"的类映射，`abcd/**` 共用
+前缀时只有 jgit 的类能被翻译）。
+
+```
+python3 tools/deob/cli.py -p process/deob.json members --pkg=abcd --part=spongycastle --apply
+类 253 / 方法 1329（已定名 744 = 56%）/ 字段 1096（已定名 692 = 63%）
+待人工 474：ambiguous 405 + no-oracle-descriptor 69
+→ jobs/spongycastle/members.tsrg = 1436 行成员映射
+```
+
+`abcd` 整体覆盖率因此从 方法 79.7% / 字段 64.5% 升到 **98.3% / 86.9%**。
+
+剩下 405 条 ambiguous 里一大类是 **ASN.1 覆写族**：`ASN1Primitive` 的
+`toDERObject()/toDLObject()`、`ASN1OutputStream` 的 `getDERSubStream()/getDLSubStream()`
+形状完全一样，只能靠"它 new 的是 DERSequence 还是 DLSequence"区分——这是**跨类依赖**，
+类名越全越好判定（现在先整族撤掉，不猜）。
+
+## 6) 当前结果
+
+- **253 / 257 类已定名**（类块已进 `process/mappings.txt`，全库类块 1844）
+- 成员：方法 744/1329（56%）、字段 692/1096（63%）已定名
 - 门禁：`validate ✔ 无无效映射`、`inherit 0/0/0`、`famcheck 冲突 0 / 祖先未映射 0`、
   `innercheck ②0 ③0`（①1 条是 jgit 的老遗留）
 - 目标全都在 oracle 里存在、与包内已有类名 0 撞名、与其它 part 目标 0 撞名
@@ -80,7 +101,7 @@ OID 常量表就是这么被换错的（`NN` 一度落到 `ISISMTTObjectIdentifi
 | `kP` | `extends AlgorithmProvider`，只有 `<init>()`，无串、**无人引用** | 28 个 `*$Mappings` 同形；没有任何可分辨证据 |
 | `sP` | 16×static String + String[] + 1 个对象字段 | 只被一个（可能错映射的）类读 |
 
-## 6) 下一步
+## 7) 下一步
 
 1. 用 `refmatch --oneway` 的 **23** 条残留继续收错映射（每修一个"枢纽类"一次能清掉十几条：
    55 → 48 → 41 → 30 → 25 → 23）。这一轮修掉的枢纽：`AN`=x509/Extensions、`CN`=SubjectPublicKeyInfo、
@@ -89,5 +110,6 @@ OID 常量表就是这么被换错的（`NN` 一度落到 `ISISMTTObjectIdentifi
    `_O/bP/cP`=jcajce/{Default,Named,Provider}JcaJceHelper、`fO`=cms/CMSTypedData、
    `SO/UO/VO/RO`=crypto/params/DH{Key,PrivateKey,PublicKey,KeyGeneration}Parameters、
    `EM/vM`=DLSequence/DERSet（`sup` 是 ASN1Sequence 还是 ASN1Set 一眼分开）；
-2. 再进成员名（1335 方法 / 1114 字段）——有同版本 oracle，方法按 (名字+描述符+所属类) 对齐即可；
+2. 成员剩余 474 条：先补 ASN.1 覆写族（`toDERObject/toDLObject`、`getDER/DLSubStream`）——
+   判据是"方法体 new 的是哪个类"，所以要先把那几个 DER/DL 类定死；
 3. 参数名走 oracle 的 LocalVariableTable（`jobs/*/params.tsv` 的老路）。
