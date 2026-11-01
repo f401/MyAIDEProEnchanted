@@ -90,10 +90,29 @@ spongycastle：按 clinit 常量串补了 150 个静态字段（跳过 163）
 形状完全一样，只能靠"它 new 的是 DERSequence 还是 DLSequence"区分——这是**跨类依赖**，
 类名越全越好判定（现在先整族撤掉，不猜）。
 
-## 6) 当前结果
+## 6) 参数名：oracle 没有 LocalVariableTable，改用官方 sources.jar
+
+BC 的发布 jar 是 `-g:none` 编的（2160 个类里带 LVT 的 **0 个**），所以走不通 LVT 那条老路。
+但 Maven 上有 `-sources.jar`：
+
+```
+bcprov-jdk15on-1.47-sources.jar → ~/out/oracle/spongycastle/src-1.47（1552 个 .java）
+```
+
+把它加进 `process/deob.json` 的 `src_root`，`paramfill` 的"源码补全"分支就能拿到形参名
+（只认声明、不猜）：
+
+```
+python3 tools/jgit/pipeline/paramfill.py --write
+→ jobs/spongycastle/params.tsv：784 条参数行 / 覆盖 449 个方法（已定名方法的 57%，
+  其余多数是本来就没有参数的方法）
+```
+
+## 7) 当前结果
 
 - **253 / 257 类已定名**（类块已进 `process/mappings.txt`，全库类块 1844）
-- 成员：方法 783/1329（59%）、字段 900/1096（82%）已定名（其中 150 个字段是靠 `<clinit>` 常量串定的）
+- 成员：方法 783/1329（59%）、字段 899/1096（82%）已定名（其中 150 个字段靠 `<clinit>` 常量串）
+- 参数：784 行 / 449 个方法（来自官方 sources.jar）
 - `refmatch --oneway` 残留 **2 条**：`yO`=LongDigest（探针多了 dex2jar 合成的 `$d2j$hex$…$decode_(String)` 方法）、`rP`（只被未定名的 `sP` 引用）
 - 门禁：`validate ✔ 无无效映射`、`inherit 0/0/0`、`famcheck 冲突 0 / 祖先未映射 0`、
   `innercheck ②0 ③0`（①1 条是 jgit 的老遗留）
@@ -111,7 +130,7 @@ spongycastle：按 clinit 常量串补了 150 个静态字段（跳过 163）
 | `kP` | `extends AlgorithmProvider`，只有 `<init>()`，无串、**无人引用** | 28 个 `*$Mappings` 同形；没有任何可分辨证据 |
 | `sP` | 16×static String + String[] + 1 个对象字段 | 只被一个（可能错映射的）类读 |
 
-## 7) 下一步
+## 8) 下一步
 
 1. 用 `refmatch --oneway` 的 **23** 条残留继续收错映射（每修一个"枢纽类"一次能清掉十几条：
    55 → 48 → 41 → 30 → 25 → 23）。这一轮修掉的枢纽：`AN`=x509/Extensions、`CN`=SubjectPublicKeyInfo、
