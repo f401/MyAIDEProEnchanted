@@ -132,10 +132,28 @@ javac 侧是 `bipush`，两边都要按"参数位置的整数字面量"来取才
 → 补了 10 个方法（CL 的 getDER/DLSubStream + SHA224/256 的 Sum0/Sum1/Theta0/Theta1）
 ```
 
+**静态常量的第三种写法**（`tools/deob/derivedfields.py`）：值既不是字面量也不是 OID 拼接，
+而是"取另一个 OID 常量再转一下"——
+
+```java
+public static final String DATA = CMSObjectIdentifiers.data.getId();
+```
+
+只要左边那个常量已经定名，**它指谁就是它的身份**：在 `<clinit>` 里配一对
+`sget-object` / `sput-object`（oracle 侧是 `getstatic`/`putstatic`）就能对齐 → 又补 24 个字段。
+
+三件套合起来覆盖了 SpongyCastle 里几乎所有静态常量表：
+
+| 工具 | 判据 | 个数 |
+|---|---|---|
+| `constfields.py` | `<clinit>` 里赋的字面量串 | 150 |
+| `oidfields.py` | 重建出来的**完整 OID**（`base.branch("1")` 链）| 116 |
+| `derivedfields.py` | 派生自哪个已定名常量 | 24 |
+
 ## 8) 当前结果
 
 - **253 / 257 类已定名**（类块已进 `process/mappings.txt`，全库类块 1844）
-- 成员：方法 **793**/1329（60%）、字段 **1022**/1096（93%）已定名
+- 成员：方法 **793**/1329（60%）、字段 **1039**/1096（95%）已定名
   （其中 150 个字段靠 `<clinit>` 常量串、116 个靠重建的完整 OID、10 个方法靠方法体指纹）
 - 参数：784 行 / 449 个方法（来自官方 sources.jar）
 - `refmatch --oneway` 残留 **2 条**：`yO`=LongDigest（探针多了 dex2jar 合成的 `$d2j$hex$…$decode_(String)` 方法）、`rP`（只被未定名的 `sP` 引用）
