@@ -46,6 +46,10 @@
     {
       "dir": "../jobs/zipsigner",
       "probe_prefix": "abcd"
+    },
+    {
+      "dir": "../jobs/dropbox",
+      "probe_prefix": "abcd"
     }
   ],
   "src_root": [
@@ -165,6 +169,26 @@
     {
       "label": "zs-1.11",
       "path": "$HOME/out/oracle/zipsigner/zs-all.jar"
+    },
+    {
+      "label": "dropbox-1.6",
+      "path": "$HOME/out/oracle/http/dropbox-core-sdk-1.6.jar"
+    },
+    {
+      "label": "dropbox-1.7.7",
+      "path": "$HOME/out/oracle/http/dropbox-core-sdk-1.7.7.jar"
+    },
+    {
+      "label": "dropbox-1.8.2",
+      "path": "$HOME/out/oracle/http/dropbox-core-sdk-1.8.2.jar"
+    },
+    {
+      "label": "httpclient-4.2.1",
+      "path": "$HOME/out/oracle/http/httpclient-4.2.1.jar"
+    },
+    {
+      "label": "httpcore-4.2.1",
+      "path": "$HOME/out/oracle/http/httpcore-4.2.1.jar"
     }
   ],
   "out_dir": "out"

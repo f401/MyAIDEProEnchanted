@@ -40,6 +40,10 @@ def main():
     ap.add_argument('--out', default='')
     ap.add_argument('--detail', default='')
     ap.add_argument('--top', type=int, default=15)
+    ap.add_argument('--directed', action='store_true',
+                    help='只沿"引用出去"的边走（库的连通块往往被宿主代码反向引用，无向会炸成全包）')
+    ap.add_argument('--prune-refs', default='',
+                    help='逗号分隔的包前缀：类只要引用了这些包就算"宿主代码"，从闭包里剔掉')
     a = ap.parse_args()
 
     z = zipfile.ZipFile(a.jar)
@@ -56,6 +60,10 @@ def main():
             body[c['this']] = c
     print('%s/** 解析到 %d 个类' % (P, len(body)))
 
+    prune = [x.strip() for x in (a.prune_refs or '').split(',') if x.strip()]
+
+    def is_app(deps):
+        return any(d.startswith(tuple(prune)) for d in deps)
     # 无向邻接（只在本前缀内走）
     adj = collections.defaultdict(set)
     outref = collections.defaultdict(collections.Counter)
@@ -91,12 +99,20 @@ def main():
 
     seen = set(seeds)
     q = collections.deque(seeds)
+    alldeps = {}
+    for cn, c in body.items():
+        alldeps[cn] = set(x[0] for x in (c.get('refmap') or {}).values() if x[0])
     while q:
         cur = q.popleft()
-        for nb in adj[cur]:
-            if nb not in seen:
-                seen.add(nb)
-                q.append(nb)
+        nbs = adj[cur] if not a.directed else set(
+            d for d in alldeps.get(cur, ()) if d in body)
+        for nb in nbs:
+            if nb in seen:
+                continue
+            if prune and is_app(alldeps.get(nb, ())):
+                continue        # 宿主侧的类不进来，也不继续往它后面走
+            seen.add(nb)
+            q.append(nb)
 
     rows = []
     agg = collections.Counter()
