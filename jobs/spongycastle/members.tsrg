@@ -759,6 +759,11 @@ abcd/PM org/bouncycastle/asn1/bc/BCObjectIdentifiers
 	VH bc_pbe_sha224
 	Zo bc_pbe_sha512
 	v5 bc_pbe_sha384
+	EQ bc_pbe_sha256_pkcs12
+	FH bc_pbe_sha1
+	gn bc_pbe_sha1_pkcs5
+	tp bc_pbe_sha256_pkcs5
+	u7 bc_pbe_sha1_pkcs12
 abcd/PN org/bouncycastle/asn1/x9/DHValidationParms
 	j6 (Ljava/lang/Object;)Labcd/PN; getInstance
 	DW ()Labcd/EL; toASN1Primitive

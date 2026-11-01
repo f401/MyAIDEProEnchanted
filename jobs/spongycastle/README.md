@@ -147,13 +147,13 @@ public static final String DATA = CMSObjectIdentifiers.data.getId();
 | 工具 | 判据 | 个数 |
 |---|---|---|
 | `constfields.py` | `<clinit>` 里赋的字面量串 | 150 |
-| `oidfields.py` | 重建出来的**完整 OID**（`base.branch("1")` 链）| 116 |
+| `oidfields.py` | 重建出来的**完整 OID**（`branch("1")` 链 / `SOME_STRING + ".1"` / `x.getId() + ".1"` + StringBuilder 拼接）| 121 |
 | `derivedfields.py` | 派生自哪个已定名常量 | 24 |
 
 ## 8) 当前结果
 
 - **253 / 257 类已定名**（类块已进 `process/mappings.txt`，全库类块 1844）
-- 成员：方法 **793**/1329（60%）、字段 **1039**/1096（95%）已定名
+- 成员：方法 **793**/1329（60%）、字段 **1044**/1096（95%）已定名
   （其中 150 个字段靠 `<clinit>` 常量串、116 个靠重建的完整 OID、10 个方法靠方法体指纹）
 - 参数：784 行 / 449 个方法（来自官方 sources.jar）
 - `refmatch --oneway` 残留 **2 条**：`yO`=LongDigest（探针多了 dex2jar 合成的 `$d2j$hex$…$decode_(String)` 方法）、`rP`（只被未定名的 `sP` 引用）

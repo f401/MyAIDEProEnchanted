@@ -28,6 +28,14 @@ RE_INIT = re.compile(r'^\s*invoke-direct\s+\{([vp]\d+)(?:,\s*([vp]\d+))?\},\s*L(
 RE_BRANCH = re.compile(r'^\s*invoke-virtual\s+\{([vp]\d+),\s*([vp]\d+)\},\s*L([A-Za-z0-9_$/]+);->([A-Za-z0-9_$]+)\(Ljava/lang/String;\)L([A-Za-z0-9_$/]+);\s*$')
 RE_MRES = re.compile(r'^\s*move-result-object\s+([vp]\d+)\s*$')
 RE_SPUT = re.compile(r'^\s*sput-object\s+([vp]\d+),\s*L([A-Za-z0-9_$/]+);->([A-Za-z0-9_$]+):(\S+)\s*$')
+# 探针侧的方法名是混淆的（getId → tp），所以只认"无参 + 返回 String"这个形状
+RE_GETID = re.compile(r'^\s*invoke-virtual\s+\{([vp]\d+)\},\s*L([A-Za-z0-9_$/]+);->[A-Za-z0-9_$<>]+\(\)Ljava/lang/String;\s*$')
+RE_SB_INIT = re.compile(r'^\s*invoke-direct\s+\{([vp]\d+)\},\s*Ljava/lang/StringBuilder;-><init>\(\)V\s*$')
+RE_SB_INIT1 = re.compile(r'^\s*invoke-direct\s+\{([vp]\d+),\s*([vp]\d+)\},\s*Ljava/lang/StringBuilder;-><init>\(Ljava/lang/String;\)V\s*$')
+RE_SVAL = re.compile(r'^\s*invoke-static\s+\{([vp]\d+)\},\s*Ljava/lang/String;->valueOf\(Ljava/lang/Object;\)Ljava/lang/String;\s*$')
+RE_SB_APP = re.compile(r'^\s*invoke-virtual\s+\{([vp]\d+),\s*([vp]\d+)\},\s*Ljava/lang/StringBuilder;->append\(Ljava/lang/String;\)Ljava/lang/StringBuilder;\s*$')
+RE_SB_STR = re.compile(r'^\s*invoke-virtual\s+\{([vp]\d+)\},\s*Ljava/lang/StringBuilder;->toString\(\)Ljava/lang/String;\s*$')
+RE_CONCAT = re.compile(r'^\s*invoke-virtual\s+\{([vp]\d+),\s*([vp]\d+)\},\s*Ljava/lang/String;->concat\(Ljava/lang/String;\)Ljava/lang/String;\s*$')
 RE_SGET = re.compile(r'^\s*sget-object\s+([vp]\d+),\s*L([A-Za-z0-9_$/]+);->([A-Za-z0-9_$]+):(\S+)\s*$')
 
 
@@ -60,16 +68,57 @@ def probe_oids(txt):
             reg[m.group(1)] = ('s', unesc(m.group(2)))
             continue
         m = RE_INIT.match(line)
-        if m:
+        if m and not m.group(3).startswith('java/'):
             src = reg.get(m.group(2) or '') or None
-            reg[m.group(1)] = ('oid', src[1]) if src and src[0] == 's' else None
+            reg[m.group(1)] = ('oid', src[1]) if src and src[0] in ('s', 'sb') else None
             continue
         m = RE_BRANCH.match(line)
-        if m:
+        if m and not m.group(3).startswith('java/'):    # StringBuilder.append 也是"单参返回自身"，别抢
             base = reg.get(m.group(1))
             arg = reg.get(m.group(2))
             if base and base[0] == 'oid' and arg and arg[0] == 's':
                 pending = ('oid', base[1] + '.' + arg[1])
+            else:
+                pending = None
+            continue
+        m = RE_GETID.match(line)
+        if m:
+            base = reg.get(m.group(1))
+            # 无参返回 String 的方法：OID 的 getId()、StringBuilder 的 toString() 都算
+            pending = ('s', base[1]) if base and base[0] in ('oid', 'sb') else None
+            continue
+        m = RE_SB_INIT.match(line)
+        if m:
+            reg[m.group(1)] = ('sb', '')
+            continue
+        m = RE_SB_INIT1.match(line)
+        if m:
+            arg = reg.get(m.group(2))
+            reg[m.group(1)] = ('sb', arg[1]) if arg and arg[0] in ('s', 'oid') else ('sb', '')
+            continue
+        m = RE_SVAL.match(line)
+        if m:
+            arg = reg.get(m.group(1))
+            pending = ('s', arg[1]) if arg and arg[0] in ('s', 'oid') else None
+            continue
+        m = RE_SB_APP.match(line)
+        if m:
+            base = reg.get(m.group(1)); arg = reg.get(m.group(2))
+            if base and base[0] == 'sb' and arg and arg[0] in ('s', 'oid'):
+                reg[m.group(1)] = ('sb', base[1] + arg[1])
+            continue
+        m = RE_SB_STR.match(line)
+        if m:
+            base = reg.get(m.group(1))
+            pending = ('s', base[1]) if base and base[0] == 'sb' else None
+            continue
+        m = RE_CONCAT.match(line)
+        if m:
+            base = reg.get(m.group(1)); arg = reg.get(m.group(2))
+            if base and arg and base[0] in ('s', 'oid') and arg[0] in ('s', 'oid'):
+                pending = ('s', base[1] + arg[1])
+            elif base and arg and base[0] == 'sb' and arg[0] in ('s', 'oid'):
+                pending = ('s', base[1] + arg[1])
             else:
                 pending = None
             continue
@@ -90,22 +139,44 @@ RE_JAVA_STR = re.compile(r'"([^"]*)"')
 
 
 def oracle_oids(src_text):
-    """Java 源码 → {field: oid}（按出现顺序求值 new ASN1ObjectIdentifier(...) / X.branch(...)）"""
-    known, out = {}, {}
-    for m in re.finditer(r'static\s+final\s+ASN1ObjectIdentifier\s+([A-Za-z0-9_$]+)\s*=\s*([^;]+);', src_text):
-        name, expr = m.group(1), m.group(2).strip()
-        val = None
-        mo = re.match(r'new\s+ASN1ObjectIdentifier\s*\(\s*"([^"]*)"\s*\)$', expr)
+    """Java 源码 → {field: oid}
+
+    支持的写法（BC 1.47 里全都出现过）：
+      new ASN1ObjectIdentifier("1.2.3")
+      new ASN1ObjectIdentifier(SOME_STRING + ".1")        SOME_STRING 是 static final String
+      new ASN1ObjectIdentifier(x.getId() + ".1")
+      x.branch("1")
+    """
+    sconst, known, out = {}, {}, {}
+    for m in re.finditer(r'static\s+final\s+String\s+([A-Za-z0-9_$]+)\s*=\s*"([^"]*)"\s*;', src_text):
+        sconst[m.group(1)] = m.group(2)
+
+    def ev(part):
+        part = part.strip()
+        mo = re.match(r'^"([^"]*)"$', part)
         if mo:
-            val = mo.group(1)
+            return mo.group(1)
+        mo = re.match(r'^([A-Za-z0-9_$]+)\.getId\(\)$', part)
+        if mo:
+            return known.get(mo.group(1))
+        mo = re.match(r'^([A-Za-z0-9_$]+)$', part)
+        if mo:
+            if mo.group(1) in known:
+                return known[mo.group(1)]
+            return sconst.get(mo.group(1))
+        return None
+
+    for m in re.finditer(r'static\s+final\s+ASN1ObjectIdentifier\s+([A-Za-z0-9_$]+)\s*=\s*([^;]+);', src_text):
+        name, expr = m.group(1), ' '.join(m.group(2).split())
+        val = None
+        mo = re.match(r'^new\s+ASN1ObjectIdentifier\s*\((.*)\)$', expr)
+        if mo:
+            parts = [ev(x) for x in mo.group(1).split('+')]
+            val = ''.join(parts) if all(x is not None for x in parts) else None
         else:
-            mo = re.match(r'new\s+ASN1ObjectIdentifier\s*\(\s*([A-Za-z0-9_$]+)\.getId\(\)\s*\+\s*"\.([0-9.]+)"\s*\)$', expr)
+            mo = re.match(r'^([A-Za-z0-9_$]+)\.branch\(\s*"([^"]*)"\s*\)$', expr)
             if mo and mo.group(1) in known:
                 val = known[mo.group(1)] + '.' + mo.group(2)
-            else:
-                mo = re.match(r'([A-Za-z0-9_$]+)\.branch\(\s*"([^"]*)"\s*\)$', expr)
-                if mo and mo.group(1) in known:
-                    val = known[mo.group(1)] + '.' + mo.group(2)
         if val is None:
             continue
         known[name] = val

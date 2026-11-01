@@ -147,6 +147,7 @@ def main():
         for n in z.namelist():
             if n.endswith('.class') and n[:-6] not in ojar:
                 ojar[n[:-6]] = z.read(n)
+    od_names = {}
     added = skip = 0
     for pn, on in sorted(cmap.items()):
         if pn not in blocks or on not in ojar:
@@ -164,6 +165,11 @@ def main():
         if not pd:
             continue
         od = oracle_derived(ojar[on])
+        if on not in od_names:
+            try:
+                od_names[on] = {m['name'] for m in jvmbody.parse(ojar[on])['members'] if m['kind'] == 'f'}
+            except Exception:
+                od_names[on] = set()
         back = collections.defaultdict(list)
         for f, v in od.items():
             back[v].append(f)
@@ -173,7 +179,15 @@ def main():
             real_owner = cmap.get(owner, owner)
             real_src = fmap.get((owner, src), src)
             cand = back.get((real_owner, real_src)) or []
-            if len(cand) != 1 or cand[0] in done[pn]:
+            if len(cand) != 1:
+                # 别名：`ETSIQC.QcCompliance = PKCSObjectIdentifiers.QcCompliance`
+                # oracle 不这么写，但"源字段的真名"如果也是本类的字段名，那就是它
+                if real_src in (od_names.get(on) or set()) and real_src not in done[pn]:
+                    cand = [real_src]
+                else:
+                    skip += 1
+                    continue
+            if cand[0] in done[pn]:
                 skip += 1
                 continue
             blocks[pn].append('\t%s %s' % (f, cand[0]))
