@@ -54,11 +54,8 @@ Bi	abcd/aide/Settings$1$2$1	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ ab
 nj	abcd/aide/JavaScriptProject	body:".js"/"main.js"/"HelloJavaScript.zip"/"JavaScript Application"/"JavaScript Project Home:" 字符串常量；实现 abcd/IProject（来源 remote:6a355976）
 Af	abcd/aide/ActionNavigateMode	body:"Navigate mode" + 实现 isEnabled/isVisible/run（AIDE 动作接口 Hl）
 Ag	abcd/aide/ActionRefreshBuild	body:"Refresh Build" + 同动作接口（_l/Wl）
-Ae	abcd/aide/AndroidManifestConfig	extends BaseProjectConfig；XPath "//manifest"、"//manifest//uses-sdk"、"android:versionCode" ⇒ 解析 AndroidManifest
-Be	abcd/aide/MavenDependenciesConfig	extends BaseProjectConfig；串 "https://repo1.maven.org/maven2"、"mavenCentral"、"flatDir.dirs" ⇒ 依赖仓库配置
 Az	abcd/fabric/AnalyticsFilesManager	body:"deleting sent analytics file %s"、"Failed to close output stream" ⇒ Fabric EventsFilesManager
 Bz	abcd/fabric/TimeBasedFileRollOverRunnable	body:"Performing time based file roll over."+"Failed to roll over file"，implements Runnable
-Dj	abcd/aide/UninstallAppRunnable	body:"Uninstallation failed"，implements Runnable
 Lz	abcd/aide/PinningInfoProvider	子类 abcd/ha=CrashlyticsPinningInfoProvider 实现它 ⇒ fabric PinningInfoProvider 接口
 xz	abcd/aide/EventsStrategy	子类 abcd/G=SessionAnalyticsManagerStrategy 实现它 ⇒ fabric EventsStrategy
 wz	abcd/aide/EventsHandler	子类 abcd/j=AnswersEventsHandler 实现它 ⇒ fabric services.events.EventsHandler
@@ -75,3 +72,6 @@ F	abcd/aide/AnswersEventLogger	串 "startSession"、"logLevelEnd: "；引用 Cra
 Pz	abcd/aide/FileStoreImpl	串 "Cannot get directory before context has been set. Call Fabric.with() first"、"Android/"；实现 abcd/Oz
 Bw	abcd/aide/BetaKit	sup=io.fabric.sdk.android.Kit；串 "Beta kit initializing..."、"com.crashlytics.sdk.android:beta"、版本 "1.2.10.27" ⇒ Fabric Beta Kit
 Rz	abcd/aide/PreferenceStoreImpl	实现 abcd/Qz；串与 abcd/Pz(FileStoreImpl) 同为 "Cannot get directory before context has been set. Call Fabric.with() first" ⇒ fabric services.persistence 的 PreferenceStore 实现
+Ae	abcd/aide/AndroidManifestConfig	extends BaseProjectConfig；XPath "//manifest"、"//manifest//uses-sdk"、"android:versionCode" ⇒ 解析 AndroidManifest
+Be	abcd/aide/MavenDependenciesConfig	extends BaseProjectConfig；串 "https://repo1.maven.org/maven2"、"mavenCentral"、"flatDir.dirs" ⇒ 依赖仓库配置
+Dj	abcd/aide/UninstallAppRunnable	body:"Uninstallation failed"，implements Runnable
