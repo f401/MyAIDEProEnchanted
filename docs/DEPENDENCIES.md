@@ -78,3 +78,37 @@ Backbone 相关 7 个（实现 `DefineHook`/`DefineAnalytics`/`EventData` 等，
 
 **引擎接入层（28 类 / 652 方法）** → 编译/诊断（18/624）→ 运行调试 probe（21/447）
 → Trainer(9/347) → IAP(20/317) → SCM(18/227) → UI(117/1372) → 无特征串核心(~1700)。
+
+---
+
+## 六、按 AIDE 授权页逐条核对（2026-11 实测）
+
+授权页（`src/assets/license.html` 只有 GPL 正文；条目来自 AIDE 官网/应用内"关于"页）→ 包内实况：
+
+| 授权页条目 | 包内实况 | 类数 | oracle |
+|---|---|---|---|
+| `aidl` / `aapt` / `android.jar` / `annotations.jar` / `framework.aidl` | `assets/`：`android.jar.jet`(5282 类)、`annotations.jar`、`framework.aidl`、`adrt/*.class` | — | 无需还原（是 AOSP 二进制/数据） |
+| `dx tool` | `com/a/**`（已还原 448 类）+ `assets/runtime/d8.apk` | 448 ✓ | 已完成 |
+| **kellinwood-logging-android-1.3 / -lib-1.0 / zipsigner-lib-1.11 / zipio-lib-1.6** | **混淆在 abcd**：以 `abcd/GA`(ZipSigner：`auto-testkey`、`^META-INF/(.*)[.](SF\|RSA\|DSA)$`) 为核的连通簇 **23 类 / 146 方法**；只有 `kellinwood/sigblock/*` 2 个类是真名 | 23 | Maven 无；只能从 GitHub 源码构建 |
+| `json_simple-1.1` | **包内没有**（`json_simple`/`JSONValue` 0 命中）；实际用的是 `org/json2/**`（真名，含 `HTTP`/`CookieList`/`CDL`） | 27 | 已真名，无需还原 |
+| `httpmime-4.0.3` / `httpcore-4.2.1` | `org/apache/http` **没有任何真名类**，只有 26 个 abcd 类引用它（`abcd/Dw`/`Dw$b`/`Dw$c`…）→ 库本身也被混淆了 | ~26+ | Maven 有 4.0.3 / 4.2.1 ✓ |
+| `android-support-v4.jar` | `android/support/**` 21 类（真名）；主体已被 AndroidX（1042 类）取代 | 21 | 真名 |
+| **Zip4j 1.3.1（改）** | **包内没有**（`net/lingala`/`zip4j` 0 命中） | 0 | Maven 有 ✓（但未使用） |
+| **PhoneGap / Apache Cordova** | 以 `abcd/rj`（串 `/.cordova`、`com.aide.phonegap`、`.html`）为核的连通簇 **905 类 / 8957 方法**，与 AIDE 自己的 class-file 工具链缠在一起（`rd` 229 方法含 `Synthetic`/`RuntimeVisibleAnnotations`、`Ba` 113 方法含 `Corrupted file`）→ 需先切分 | ~905 | 老 3.x 无 Maven（只有 14/15） |
+| `tetris-blast-sd` / `Libgdx` | **包内没有**（`badlogic`/`gdx` 0 命中） | 0 | — |
+| `org.eclipse.jgit-1.3.0` | 实际是**魔改混合版**（对 3.7.1/4.x/5.x 多版本回归） | 685 ✓ | 已完成 |
+| `jsch-0.1.46` | 实际 **0.1.51** | 141 ✓ | 已完成 |
+| **spongycastle（部分）** | `org/spongycastle/**` 14 类真名 + 以 `abcd/pP`（串 `BouncyCastle Security Provider v1.47`）为核的连通簇 **257 类 / 1335 方法** | 257 | `com.madgag.spongycastle:core`：**1.50.0.0 起才有**，1.47 无 Maven |
+| JKS keystore（Casey Marshall） | AIDE 把 `sun.*` 重打包成 `sun1/**`：121 类（真名） | 121 | JDK 内，无需还原 |
+| HTML DTDs | `src/assets/dtds/` ✓ | — | — |
+| NDK 示例模板 | `src/assets/templates/*.zip` ✓ | — | — |
+| Alternative Git Logo | `src/assets/` 图形 | — | — |
+
+### 由此多出来的三个"可还原"部分
+
+| 部分 | 类 | 方法 | oracle 状态 | 建议 |
+|---|---|---|---|---|
+| **SpongyCastle（crypto）** | 257 | 1335 | Maven 只有 1.50+（APK 是 1.47） | **最值钱**：可用 1.50 当近似 oracle + 多版本差异分类（jgit 那套 `verify_allow.tsv` 机制） |
+| zipsigner + zipio + kellinwood | 23 | 146 | Maven 无，只有 GitHub 源码 | 小但关键（APK 签名链路），可从源码 javac 出对照 jar |
+| Cordova/PhoneGap | ~905 | 8957 | 老 3.x 无 Maven | 体量最大，但要先把它和 AIDE 自己的 class-file 工具链切开 |
+| httpcore/httpmime | ~26 引用方 | — | Maven ✓ | 可并入任一轮一起做 |
