@@ -23290,6 +23290,10 @@ abcd/LN org/bouncycastle/asn1/x509/X509Name
 	we GIVENNAME
 	yS POSTAL_ADDRESS
 	VH STREET
+	P8 EmailAddress
+	ei UnstructuredName
+	nw UnstructuredAddress
+	vy NAME
 abcd/LO org/bouncycastle/crypto/generators/DHKeyPairGenerator
 	j6 (Labcd/uO;)V init
 		0 param param
@@ -24127,6 +24131,26 @@ abcd/dO org/bouncycastle/cms/CMSSignedGenerator
 	gW _signers
 	yS crls
 	er certs
+	DW DIGEST_SHA1
+	EQ DIGEST_RIPEMD256
+	FH DIGEST_SHA224
+	Hw DIGEST_SHA256
+	J0 ENCRYPTION_DSA
+	Mr ENCRYPTION_ECDSA_WITH_SHA256
+	QX ENCRYPTION_GOST3410
+	U2 ENCRYPTION_ECDSA_WITH_SHA384
+	VH DIGEST_MD5
+	Ws ENCRYPTION_RSA_PSS
+	XL ENCRYPTION_ECGOST3410
+	Zo DIGEST_SHA512
+	a8 ENCRYPTION_ECDSA_WITH_SHA512
+	gn DIGEST_GOST3411
+	j3 ENCRYPTION_ECDSA_WITH_SHA224
+	j6 DATA
+	tp DIGEST_RIPEMD160
+	u7 DIGEST_RIPEMD128
+	v5 DIGEST_SHA384
+	we ENCRYPTION_RSA
 abcd/dP org/bouncycastle/jcajce/provider/asymmetric/util/BaseKeyFactorySpi
 abcd/eM org/bouncycastle/asn1/DEREnumerated
 	DW ([B)Labcd/sL; fromOctetString
