@@ -108,7 +108,7 @@ Backbone 相关 7 个（实现 `DefineHook`/`DefineAnalytics`/`EventData` 等，
 
 | 部分 | 类 | 方法 | oracle 状态 | 建议 |
 |---|---|---|---|---|
-| **SpongyCastle（crypto）** | 257 | 1335 | Maven 只有 1.50+（APK 是 1.47） | **最值钱**：可用 1.50 当近似 oracle + 多版本差异分类（jgit 那套 `verify_allow.tsv` 机制） |
+| **SpongyCastle（crypto）** | 257 | 1335 | **已解决**：SpongyCastle 就是 BouncyCastle 换包名，直接下官方 `bcprov-jdk15on-1.47` + `bcpkix-jdk15on-1.47`（华为云镜像有）当**同版本** oracle | ✅ 已做 253/257，见 [jobs/spongycastle/README.md](../jobs/spongycastle/README.md) |
 | zipsigner + zipio + kellinwood | 23 | 146 | Maven 无，只有 GitHub 源码 | 小但关键（APK 签名链路），可从源码 javac 出对照 jar |
 | Cordova/PhoneGap | ~905 | 8957 | 老 3.x 无 Maven | 体量最大，但要先把它和 AIDE 自己的 class-file 工具链切开 |
 | httpcore/httpmime | ~26 引用方 | — | Maven ✓ | 可并入任一轮一起做 |

@@ -55,13 +55,17 @@ def oint(code):
                 c['l%d' % (op - 0x09)] += 1
         except Exception:
             break
+        # 跳转表/宽指令要算长度，越界就停（坏尾字节不要抛异常）
         if op == 0xaa:
             pad = (4 - ((i+1) % 4)) % 4; b0 = i+1+pad
+            if b0 + 12 > n: break
             d, lo, hi = struct.unpack_from('>iii', code, b0); i = b0+12+4*(hi-lo+1); continue
         if op == 0xab:
             pad = (4 - ((i+1) % 4)) % 4; b0 = i+1+pad
+            if b0 + 8 > n: break
             d, np_ = struct.unpack_from('>ii', code, b0); i = b0+8+8*np_; continue
         if op == 0xc4:
+            if i + 2 > n: break
             i += 6 if code[i+1] == 0x84 else 4; continue
         i += LEN.get(op, 1)
     return c

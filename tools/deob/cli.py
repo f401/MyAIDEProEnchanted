@@ -251,10 +251,12 @@ def main():
         try:
             import zipfile as _zf, re as _re
             _z = _zf.ZipFile(P.base_jars[0])
-            _pref = _pkg
+            _pref = _pkg or ''
             _mapped = set(P.class_map and __import__('mapping').ClassMap(
                 P.class_map, P.probe_prefix, P.class_map_prefix).load().dict or {})
-            _all = [n[:-6] for n in _z.namelist() if n.endswith('.class') and n[:-6].startswith(_pref + '/')]
+            _sel = (lambda x: x == _pref or x.startswith(_pref + '/')) if _pref \
+                else (lambda x: True)
+            _all = [n[:-6] for n in _z.namelist() if n.endswith('.class') and _sel(n[:-6])]
             _left = [c for c in _all if c not in _mapped]
             if _left:
                 _obf = [c for c in _left if _re.fullmatch(r'[A-Za-z]{1,2}', c.split('/')[-1].split('$')[-1])]

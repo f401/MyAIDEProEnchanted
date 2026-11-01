@@ -38,6 +38,10 @@
     {
       "dir": "../jobs/fabric",
       "probe_prefix": "io/fabric"
+    },
+    {
+      "dir": "../jobs/spongycastle",
+      "probe_prefix": "abcd"
     }
   ],
   "src_root": [
@@ -113,6 +117,42 @@
     {
       "label": "crashlytics-all",
       "path": "$HOME/out/oracle/crashlytics/crashlytics-all.jar"
+    },
+    {
+      "label": "sc-core-1.50",
+      "path": "$HOME/out/oracle/spongycastle/sc-core-1.50.0.0.jar"
+    },
+    {
+      "label": "sc-prov-1.50",
+      "path": "$HOME/out/oracle/spongycastle/sc-prov-1.50.0.0.jar"
+    },
+    {
+      "label": "sc-pkix-1.50",
+      "path": "$HOME/out/oracle/spongycastle/sc-pkix-1.50.0.0.jar"
+    },
+    {
+      "label": "bcprov-1.47",
+      "path": "$HOME/out/oracle/spongycastle/bcprov-jdk15on-1.47.jar"
+    },
+    {
+      "label": "bcpkix-1.47",
+      "path": "$HOME/out/oracle/spongycastle/bcpkix-jdk15on-1.47.jar"
+    },
+    {
+      "label": "bcprov-1.50",
+      "path": "$HOME/out/oracle/spongycastle/bcprov-jdk15on-1.50.jar"
+    },
+    {
+      "label": "bcpkix-1.50",
+      "path": "$HOME/out/oracle/spongycastle/bcpkix-jdk15on-1.50.jar"
+    },
+    {
+      "label": "bc-all-1.47",
+      "path": "$HOME/out/oracle/spongycastle/bc-all-1.47.jar"
+    },
+    {
+      "label": "sc-all-1.50",
+      "path": "$HOME/out/oracle/spongycastle/sc-all-1.50.jar"
     }
   ],
   "out_dir": "out"

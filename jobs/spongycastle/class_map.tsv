@@ -1,0 +1,253 @@
+abcd/AL	org/bouncycastle/asn1/ASN1OctetString	str:'failed to construct OCTET STRING from byte[]: ' 唯一
+abcd/AM	org/bouncycastle/asn1/DERUTF8String	tag:encode 写 0x0c (UTF8_STRING)
+abcd/AN	org/bouncycastle/asn1/pkcs/AuthenticatedSafe	shape:0.583
+abcd/AO	org/bouncycastle/crypto/digests/MD4Digest	str:'MD4'
+abcd/AP	org/bouncycastle/operator/DigestCalculatorProvider	impl:{BcDigestCalculatorProvider,JcaDigestCalculatorProviderBuilder$1} 唯一
+abcd/BL	org/bouncycastle/asn1/ASN1OctetStringParser	impl:{ASN1OctetString,BEROctetStringParser,DEROctetStringParser} 唯一
+abcd/BM	org/bouncycastle/asn1/DERUniversalString	str:'internal error encoding BitString' + 2 字段(含 static char[] table)
+abcd/BN	org/bouncycastle/asn1/x509/KeyUsage	str:'KeyUsage: 0x' 唯一
+abcd/BO	org/bouncycastle/crypto/digests/MD5Digest	str:'MD5'
+abcd/BP	org/bouncycastle/operator/OperatorCreationException	shape:1.000
+abcd/CL	org/bouncycastle/asn1/ASN1OutputStream	shape:0.576
+abcd/CL$a	org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream	shape:1.000
+abcd/CM	org/bouncycastle/asn1/DERVisibleString	tag:encode 写 0x1a (VISIBLE_STRING)
+abcd/CN	org/bouncycastle/asn1/esf/OtherRevVals	shape:0.727
+abcd/CO	org/bouncycastle/crypto/digests/RIPEMD128Digest	str:'RIPEMD128'
+abcd/CP	org/bouncycastle/operator/OperatorException	被 OperatorCreationException 继承；Exception 同形族唯一可承继者
+abcd/DL	org/bouncycastle/asn1/ASN1ParsingException	sup=IllegalStateException 的同类唯一
+abcd/DM	org/bouncycastle/asn1/DLOutputStream	shape:1.000
+abcd/DN	org/bouncycastle/asn1/tsp/TimeStampReq	shape:0.625
+abcd/DO	org/bouncycastle/crypto/digests/RIPEMD160Digest	str:'RIPEMD160'
+abcd/DP	org/bouncycastle/operator/OperatorStreamException	引用者 JcaContentSignerBuilder$SignatureOutputStream；无 ExtException 接口
+abcd/EL	org/bouncycastle/asn1/ASN1Primitive	str:'cannot recognise object in stream' 唯一
+abcd/EM	org/bouncycastle/asn1/DERSet	shape:0.579
+abcd/EN	org/bouncycastle/asn1/crmf/CertTemplate	shape:0.794
+abcd/EO	org/bouncycastle/crypto/digests/RIPEMD256Digest	str:'RIPEMD256'
+abcd/EP	org/bouncycastle/operator/RuntimeOperatorException	引用者 JcaContentSignerBuilder$1 用 (String,Throwable) 构造
+abcd/FL	org/bouncycastle/asn1/ASN1Sequence	shape:0.828
+abcd/FM	org/bouncycastle/asn1/DLSet	shape:0.941
+abcd/FN	org/bouncycastle/asn1/x509/Time	shape:0.867
+abcd/FO	org/bouncycastle/crypto/digests/SHA1Digest	str:'SHA-1'
+abcd/FP	org/bouncycastle/operator/bc/BcDigestCalculatorProvider$1	shape:1.000
+abcd/GL	org/bouncycastle/asn1/ASN1SetParser	impl:{BERSetParser,DERSetParser} 唯一
+abcd/GM	org/bouncycastle/asn1/DERTaggedObject	shape:0.588
+abcd/GN	org/bouncycastle/asn1/x509/V3TBSCertificateGenerator	shape:0.795
+abcd/GO	org/bouncycastle/crypto/digests/SHA224Digest	str:'SHA-224'
+abcd/GP	org/bouncycastle/operator/bc/BcDigestCalculatorProvider	shape:1.000
+abcd/GP$a	org/bouncycastle/operator/bc/BcDigestCalculatorProvider$DigestOutputStream	shape:0.692
+abcd/HL	org/bouncycastle/asn1/ASN1Set	shape:0.579
+abcd/HM	org/bouncycastle/asn1/DefiniteLengthInputStream	shape:0.941
+abcd/HN	org/bouncycastle/asn1/x509/X509CertificateStructure	shape:0.909
+abcd/HO	org/bouncycastle/crypto/digests/SHA256Digest	str:'SHA-256'
+abcd/HP	org/bouncycastle/operator/bc/BcUtil	str:'cannot recognise digest' 唯一 + ctor 造出全部摘要
+abcd/IL	org/bouncycastle/asn1/ASN1SequenceParser	impl:{BERSequenceParser,ocsp/Req} 与 GL/ML/nL 同族中唯一剩余
+abcd/IM	org/bouncycastle/asn1/InMemoryRepresentable	单方法()ASN1Primitive；实现者不含 ASN1Object（qL 才含）
+abcd/IN	org/bouncycastle/asn1/x509/X509Extension	shape:0.935
+abcd/IO	org/bouncycastle/crypto/digests/SHA384Digest	str:'SHA-384'
+abcd/IP	org/bouncycastle/operator/jcajce/JcaContentSignerBuilder$1	shape:0.857
+abcd/JL	org/bouncycastle/asn1/ASN1StreamParser	shape:0.515
+abcd/JM	org/bouncycastle/asn1/IndefiniteLengthInputStream	shape:0.750
+abcd/JN	org/bouncycastle/asn1/x509/X509Extensions	str:OID 串集 j=1.00（X509Extension j=0.91；原 SECNamedCurves j=0.00）
+abcd/JO	org/bouncycastle/crypto/digests/SHA512Digest	str:'SHA-512'
+abcd/JP	org/bouncycastle/operator/jcajce/JcaContentSignerBuilder	shape:0.900
+abcd/JP$a	org/bouncycastle/operator/jcajce/JcaContentSignerBuilder$SignatureOutputStream	shape:0.875
+abcd/KL	org/bouncycastle/asn1/ASN1String	shape:1.000
+abcd/KM	org/bouncycastle/asn1/LazyConstructionEnumeration	shape:1.000
+abcd/KN	org/bouncycastle/asn1/x509/ExtensionsGenerator	shape:0.556
+abcd/KO	org/bouncycastle/crypto/engines/GOST28147Engine	shape:0.747
+abcd/KP	org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$1$1	shape:1.000
+abcd/LL	org/bouncycastle/asn1/ASN1TaggedObject	shape:0.815
+abcd/LM	org/bouncycastle/asn1/LazyEncodedSequence	shape:0.917
+abcd/LN	org/bouncycastle/asn1/x509/X509Name	str:串集 j=0.94(94 串)；BCStyle 已归 uN
+abcd/LO	org/bouncycastle/crypto/generators/ElGamalKeyPairGenerator	shape:1.000
+abcd/LP	org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$1	shape:1.000
+abcd/ML	org/bouncycastle/asn1/ASN1TaggedObjectParser	impl:{ASN1TaggedObject} 唯一
+abcd/MM	org/bouncycastle/asn1/LimitedInputStream	shape:1.000
+abcd/MN	org/bouncycastle/asn1/x509/X509NameEntryConverter	shape:单方法 (ASN1ObjectIdentifier,String)ASN1Primitive；引用者 RFC4519Style
+abcd/MO	org/bouncycastle/crypto/generators/DHKeyGeneratorHelper	shape:0.700
+abcd/MP	org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder	shape:0.833
+abcd/MP$a	org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$DigestOutputStream	shape:1.000
+abcd/NL	org/bouncycastle/asn1/DERUTCTime	shape:extends ASN1UTCTime + ctor(byte[])；BC 里唯一这样的是 DERUTCTime
+abcd/NM	org/bouncycastle/asn1/OIDTokenizer	shape:0.786
+abcd/NN	org/bouncycastle/asn1/x509/X509ObjectIdentifiers	str:OID 串集 j=0.94（次名 0；原 ISISMTT j=0.00）
+abcd/NO	org/bouncycastle/crypto/generators/DHParametersGenerator	shape:0.833
+abcd/NP	org/bouncycastle/operator/jcajce/OperatorHelper	shape:4×Map + JcaJceHelper 字段 + getSignatureName(AlgorithmIdentifier)/getDigestAlgName(ASN1ObjectIdentifier)
+abcd/OL	org/bouncycastle/asn1/BERApplicationSpecific	shape:1.000
+abcd/OM	org/bouncycastle/asn1/StreamUtil	所有 ASN.1 字符串类 encodedLength 调 (I)I calculateBodyLength
+abcd/ON	org/bouncycastle/asn1/x9/DHDomainParameters	shape:0.722
+abcd/OO	org/bouncycastle/crypto/generators/DHParametersHelper	shape:0.571
+abcd/OP	org/bouncycastle/util/Arrays	被 DER* 字符串类调 ([B)I/([B[B)Z/([C)I/([C[C)Z/([B)[B
+abcd/PL	org/bouncycastle/asn1/BERApplicationSpecificParser	shape:0.833
+abcd/PM	org/bouncycastle/asn1/bc/BCObjectIdentifiers	shape:1.000
+abcd/PN	org/bouncycastle/asn1/crmf/SinglePubInfo	shape:0.778
+abcd/PO	org/bouncycastle/crypto/params/AsymmetricKeyParameter	shape:1.000
+abcd/PP	org/bouncycastle/util/BigIntegers	str:"'min' may not be greater than 'max'" 唯一
+abcd/QL	org/bouncycastle/asn1/BERFactory	shape:0.625
+abcd/QM	org/bouncycastle/asn1/crmf/PKIPublicationInfo	shape:0.900
+abcd/QN	org/bouncycastle/asn1/x9/X9ObjectIdentifiers	shape:1.000
+abcd/QO	org/bouncycastle/crypto/params/DESParameters	shape:extends KeyParameter + static byte[] + ctor(byte[])
+abcd/QP	org/bouncycastle/util/CollectionStore	shape:0.600
+abcd/RL	org/bouncycastle/asn1/BEROctetString$1	shape:0.889
+abcd/RM	org/bouncycastle/asn1/cms/AttributeTable	shape:Hashtable + (Hashtable)Hashtable + ()ASN1EncodableVector；全 jar 唯一
+abcd/RN	org/bouncycastle/util/StoreException	shape:1.000
+abcd/RO	org/bouncycastle/crypto/params/ElGamalKeyGenerationParameters	shape:1.000
+abcd/RP	org/bouncycastle/util/Selector	单方法 (Object)Z + java/lang/Cloneable
+abcd/SL	org/bouncycastle/asn1/BEROctetString	shape:0.667
+abcd/SM	org/bouncycastle/asn1/x509/qualified/ETSIQCObjectIdentifiers	shape:1.000
+abcd/SN	org/bouncycastle/cert/cmp/GeneralPKIMessage	shape:0.700
+abcd/SO	org/bouncycastle/crypto/params/ElGamalKeyParameters	shape:0.778
+abcd/SP	org/bouncycastle/util/Store	impl:{CollectionStore}，方法 (Selector)Collection
+abcd/TL	org/bouncycastle/asn1/BEROctetStringParser	shape:1.000
+abcd/TM	org/bouncycastle/asn1/icao/ICAOObjectIdentifiers	shape:1.000
+abcd/TN	org/bouncycastle/cert/jcajce/JcaCertStore	shape:0.500
+abcd/TO	org/bouncycastle/crypto/params/DHParameters	shape:0.667
+abcd/TP	org/bouncycastle/util/Strings	DERUTCTime/DERUTF8String 调 (String)[B/([B)String/([B)[C
+abcd/UL	org/bouncycastle/asn1/BERSequence	shape:0.692
+abcd/UM	org/bouncycastle/asn1/cms/ContentInfo	shape:0.857
+abcd/UN	org/bouncycastle/cert/jcajce/JcaX509CertificateHolder	shape:1.000
+abcd/UO	org/bouncycastle/crypto/params/DHPrivateKeyParameters	shape:0.889
+abcd/UP	org/bouncycastle/util/encoders/Encoder	impl:{HexEncoder} 唯一
+abcd/VL	org/bouncycastle/asn1/DERSetParser	shape:0.667
+abcd/VN	org/bouncycastle/util/test/TestFailedException	shape:0.750
+abcd/VO	org/bouncycastle/crypto/params/ElGamalPrivateKeyParameters	shape:1.000
+abcd/VP	org/bouncycastle/util/encoders/Hex	shape:static Encoder 字段 = new HexEncoder()；全 jar 唯一
+abcd/WL	org/bouncycastle/asn1/BERSet	shape:0.800
+abcd/WM	org/bouncycastle/asn1/cms/SignerInfo	shape:0.607
+abcd/WN	org/bouncycastle/cms/CMSAttributeTableGenerator	shape:单方法 getAttributes(Map)->RM(AttributeTable)
+abcd/WP	org/bouncycastle/util/encoders/HexEncoder	shape:Encoder 实现 + 2×byte[] 表；引用者 VP=util/encoders/Hex 的 static Encoder 字段 new 它
+abcd/XL	org/bouncycastle/asn1/BERSequenceParser	shape:0.800
+abcd/XM	org/bouncycastle/asn1/cms/SignerIdentifier	shape:0.727
+abcd/XN	org/bouncycastle/cms/CMSException	引用者 CMSUtils/SignerInfoGenerator 用 (String,Exception) 构造
+abcd/XO	org/bouncycastle/crypto/params/KeyParameter	shape:byte[] + ctor(byte[])；子类 QO=DESParameters
+abcd/XP	org/bouncycastle/util/io/Streams	ASN1InputStream/DERBitString/DefiniteLengthInputStream 调 pipe/drain/readAll
+abcd/YL	org/bouncycastle/asn1/BERTaggedObject	shape:0.625
+abcd/YM	org/bouncycastle/asn1/cmp/KeyRecRepContent	shape:0.737
+abcd/YN	org/bouncycastle/cms/CMSProcessable	shape:0.500
+abcd/YO	org/bouncycastle/crypto/params/ParametersWithSBox	shape:1.000
+abcd/YP	org/bouncycastle/util/io/TeeOutputStream	shape:1.000
+abcd/ZL	org/bouncycastle/asn1/BERTaggedObjectParser	shape:0.667
+abcd/ZM	org/bouncycastle/asn1/cms/Time	shape:0.571
+abcd/ZN	org/bouncycastle/cms/CMSProcessableByteArray	shape:0.750
+abcd/ZO	org/bouncycastle/crypto/util/Pack	全 jar 唯一含这组 bigEndian 转换方法
+abcd/ZP	org/bouncycastle/util/StreamParsingException	shape:1.000
+abcd/_L	org/bouncycastle/asn1/ConstructedOctetStream	shape:0.765
+abcd/_M	org/bouncycastle/asn1/cryptopro/CryptoProObjectIdentifiers	shape:0.957
+abcd/_N	org/bouncycastle/cms/CMSSignatureEncryptionAlgorithmFinder	impl:{DefaultCMSSignatureEncryptionAlgorithmFinder} 唯一
+abcd/_O	org/bouncycastle/eac/operator/jcajce/DefaultEACHelper	shape:0.667
+abcd/_P	org/bouncycastle/x509/X509Util	shape:0.359
+abcd/aM	org/bouncycastle/asn1/DERApplicationSpecific	shape:字段(int,byte[],boolean)+ctor(int,ASN1EncodableVector)/ctor(boolean,int,byte[])
+abcd/aN	org/bouncycastle/asn1/eac/EACObjectIdentifiers	shape:1.000
+abcd/aO	org/bouncycastle/crypto/params/MQVPrivateParameters	shape:0.750
+abcd/aP	org/bouncycastle/jcajce/JcaJceHelper	shape:createMessageDigest(String)/createSignature(String)；全 jar 唯一
+abcd/aQ	org/bouncycastle/x509/X509V1CertificateGenerator	shape:0.536
+abcd/bM	org/bouncycastle/asn1/DERBMPString	tag:encode 写 0x1e (BMP_STRING) + char[] 字段
+abcd/bN	org/bouncycastle/asn1/iana/IANAObjectIdentifiers	shape:1.000
+abcd/bO	org/bouncycastle/ocsp/OCSPReqGenerator$RequestObject	shape:0.833
+abcd/bP	org/bouncycastle/eac/operator/jcajce/NamedEACHelper	shape:0.750
+abcd/cM	org/bouncycastle/asn1/DERBitString	KeyUsage/NetscapeCertType 构造器参数类型
+abcd/cN	org/bouncycastle/asn1/kisa/KISAObjectIdentifiers	shape:1.000
+abcd/cO	org/bouncycastle/cms/CMSSignedDataGenerator	str:串集 j=1.00（原 TlsRSAUtils j=0.00）
+abcd/cO$a	org/bouncycastle/cms/CMSSignedDataGenerator$SignerInf	shape:0.583
+abcd/cP	org/bouncycastle/eac/operator/jcajce/ProviderEACHelper	shape:0.750
+abcd/dM	org/bouncycastle/asn1/DERBoolean	shape:0.735
+abcd/dN	org/bouncycastle/asn1/misc/MiscObjectIdentifiers	shape:1.000
+abcd/dO	org/bouncycastle/cms/CMSSignedGenerator	shape:24×static String 常量 + List/Map + addSigner(SignerInfoGenerator)/addCertificates(Store)
+abcd/dP	org/bouncycastle/jcajce/provider/asymmetric/util/BaseKeyFactorySpi	shape:1.000
+abcd/eM	org/bouncycastle/asn1/DEREnumerated	str:'ENUMERATED has zero length' + static cache 元素类型 ASN1Enumerated
+abcd/eN	org/bouncycastle/asn1/misc/NetscapeCertType	str:'NetscapeCertType: 0x' 唯一
+abcd/eO	org/bouncycastle/cms/CMSSignedHelper	shape:3×static Map + addEntries(DERObjectIdentifier,String,String) + fixAlgID + 同一批 OID 串(5849…)
+abcd/fM	org/bouncycastle/asn1/DERExternal	shape:0.757
+abcd/fN	org/bouncycastle/asn1/misc/NetscapeRevocationURL	shape:1.000
+abcd/fO	org/bouncycastle/util/io/pem/PemObjectGenerator	shape:1.000
+abcd/fP	org/bouncycastle/jcajce/provider/asymmetric/util/PKCS12BagAttributeCarrierImpl	shape:0.583
+abcd/gM	org/bouncycastle/asn1/DERExternalParser	shape:0.800
+abcd/gN	org/bouncycastle/asn1/misc/VerisignCzagExtension	shape:1.000
+abcd/gO	org/bouncycastle/cms/CMSUtils	str: 全 jar 唯一命中 {\" not found.\",\"error processing certs\",\"provider \"}
+abcd/gP	org/bouncycastle/jcajce/provider/config/ConfigurableProvider	impl:{BouncyCastleProvider} 唯一
+abcd/hM	org/bouncycastle/asn1/DERFactory	shape:0.875
+abcd/hN	org/bouncycastle/asn1/nist/NISTObjectIdentifiers	shape:1.000
+abcd/hO	org/bouncycastle/cms/DefaultCMSSignatureEncryptionAlgorithmFinder	shape:唯一实现 CMSSignatureEncryptionAlgorithmFinder 且 ctor()+Set 字段
+abcd/hP	org/bouncycastle/jcajce/provider/config/ProviderConfiguration	impl:{BouncyCastleProviderConfiguration} 唯一
+abcd/iM	org/bouncycastle/asn1/DERGeneralString	tag:encode 写 0x1b (GENERAL_STRING)
+abcd/iN	org/bouncycastle/asn1/ntt/NTTObjectIdentifiers	shape:1.000
+abcd/iO	org/bouncycastle/cms/DefaultSignedAttributeTableGenerator	shape:0.571
+abcd/iP	org/bouncycastle/jcajce/provider/config/ProviderConfigurationPermission	str:串集 j=1.00（原 PemHeader j=0.00）
+abcd/jM	org/bouncycastle/asn1/DERGeneralizedTime	shape:0.521
+abcd/jN	org/bouncycastle/asn1/oiw/OIWObjectIdentifiers	shape:1.000
+abcd/jO	org/bouncycastle/cms/NullOutputStream	shape:1.000
+abcd/jP	org/bouncycastle/jcajce/provider/util/AlgorithmProvider	shape:1.000
+abcd/kM	org/bouncycastle/asn1/DERIA5String	shape:0.792
+abcd/kN	org/bouncycastle/asn1/pkcs/DHParameter	shape:0.714
+abcd/kO	org/bouncycastle/cms/SignerInfoGenerator	shape:0.610
+abcd/lM	org/bouncycastle/asn1/DERInteger	shape:0.826
+abcd/lN	org/bouncycastle/asn1/pkcs/PKCSObjectIdentifiers	str:OID 串集 j=0.96(55 串)
+abcd/lO	org/bouncycastle/cms/SignerInfoGeneratorBuilder	shape:1.000
+abcd/lP	org/bouncycastle/jcajce/provider/util/AsymmetricKeyInfoConverter	shape:1.000
+abcd/mM	org/bouncycastle/asn1/DERNull	shape:1.000
+abcd/mN	org/bouncycastle/asn1/pkcs/PrivateKeyInfo	shape:0.778
+abcd/mO	org/bouncycastle/crypto/AsymmetricCipherKeyPair	shape:0.800
+abcd/mP	org/bouncycastle/jce/X509Principal	shape:0.333
+abcd/nL	org/bouncycastle/asn1/ASN1ApplicationSpecificParser	impl:{BERApplicationSpecificParser} 唯一
+abcd/nM	org/bouncycastle/asn1/DERNumericString	tag:encode 写 0x12 (NUMERIC_STRING)
+abcd/nN	org/bouncycastle/asn1/pkcs/RSAESOAEPparams	shape:0.731
+abcd/nO	org/bouncycastle/cms/jcajce/JcaSignerInfoGeneratorBuilder	shape:1.000
+abcd/nP	org/bouncycastle/jce/interfaces/PKCS12BagAttributeCarrier	impl:{X509CertificateObject} 唯一
+abcd/oL	org/bouncycastle/asn1/ASN1Boolean	shape:1.000
+abcd/oM	org/bouncycastle/asn1/DERObjectIdentifier	shape:0.598
+abcd/oN	org/bouncycastle/asn1/teletrust/TeleTrusTObjectIdentifiers	shape:1.000
+abcd/oO	org/bouncycastle/crypto/params/MQVPublicParameters	shape:1.000
+abcd/oP	org/bouncycastle/jce/provider/BouncyCastleProvider$1	shape:0.750
+abcd/pL	org/bouncycastle/asn1/ASN1Choice	impl:{Time,SignerIdentifier,AccessDescription} 全是 ASN1Choice 的实现者（第 4 个是别处错映射）
+abcd/pM	org/bouncycastle/asn1/DEROctetString	shape:0.600
+abcd/pN	org/bouncycastle/asn1/util/ASN1Dump	shape:0.684
+abcd/pO	org/bouncycastle/crypto/BlockCipher	shape:init(boolean,CipherParameters) + processBlock([BI[BI)I
+abcd/pP	org/bouncycastle/jce/provider/BouncyCastleProvider	str:'BouncyCastle Security Provider v1.47' 唯一
+abcd/qL	org/bouncycastle/asn1/ASN1Encodable	单方法()ASN1Primitive；实现者含 ASN1Object
+abcd/qM	org/bouncycastle/asn1/DEROctetStringParser	shape:1.000
+abcd/qN	org/bouncycastle/asn1/x500/AttributeTypeAndValue	shape:0.900
+abcd/qO	org/bouncycastle/crypto/CipherParameters	impl:{AsymmetricKeyParameter,DHParameters,MGFParameters,ParametersWithSBox} 都是 CipherParameters 实现者
+abcd/qP	org/bouncycastle/jce/provider/BouncyCastleProviderConfiguration	shape:0.667
+abcd/rL	org/bouncycastle/asn1/ASN1EncodableVector	shape:1.000
+abcd/rM	org/bouncycastle/asn1/DEROutputStream	shape:1.000
+abcd/rN	org/bouncycastle/asn1/isismtt/x509/AdmissionSyntax	shape:0.769
+abcd/rO	org/bouncycastle/crypto/DataLengthException	extends RuntimeCryptoException，单 (String) 构造器
+abcd/rP	org/bouncycastle/jcajce/provider/asymmetric/dsa/DSASigner$dsa224	shape:1.000
+abcd/sL	org/bouncycastle/asn1/ASN1Enumerated	extends DEREnumerated；DEREnumerated.cache 的元素类型
+abcd/sM	org/bouncycastle/asn1/DERPrintableString	tag:encode 写 0x13 (PRINTABLE_STRING)
+abcd/sN	org/bouncycastle/jcajce/provider/asymmetric/rsa/PSSSignatureSpi$NullPssDigest	shape:0.550
+abcd/sO	org/bouncycastle/crypto/Digest	shape:1.000
+abcd/tL	org/bouncycastle/asn1/ASN1Exception	引用者 ASN1InputStream/ASN1StreamParser；包私有构造器
+abcd/tM	org/bouncycastle/asn1/DERSequence	shape:0.800
+abcd/tN	org/bouncycastle/asn1/x500/X500NameStyle	shape:0.500
+abcd/tO	org/bouncycastle/crypto/ExtendedDigest	impl:{GeneralDigest,MD2Digest,LongDigest,GOST3411Digest} 唯一
+abcd/tP	org/bouncycastle/jce/provider/X509CertificateObject	shape:0.558
+abcd/uL	org/bouncycastle/asn1/eac/CertificationAuthorityReference	shape:0.500
+abcd/uM	org/bouncycastle/asn1/BERSetParser	shape:0.800
+abcd/uN	org/bouncycastle/asn1/x500/style/BCStyle	str:OID/属性名串集 j=0.99(94 串)
+abcd/uO	org/bouncycastle/crypto/KeyGenerationParameters	shape:0.800
+abcd/uP	org/bouncycastle/jce/provider/X509SignatureUtil	shape:0.857
+abcd/vL	org/bouncycastle/asn1/ASN1InputStream	shape:0.643
+abcd/vM	org/bouncycastle/asn1/DLSequence	shape:0.867
+abcd/vN	org/bouncycastle/asn1/x500/style/IETFUtils	str: 全 jar 唯一命中 {\"#\",\"DER\",\"Other value has no encoded form\",\"unknown encoding in name: \"}
+abcd/vO	org/bouncycastle/crypto/RuntimeCryptoException	sup=RuntimeException 且被 DataLengthException 继承
+abcd/vP	org/bouncycastle/operator/ContentSigner	shape:1.000
+abcd/wL	org/bouncycastle/asn1/ASN1Integer	shape:1.000
+abcd/wM	org/bouncycastle/asn1/DERSequenceParser	shape:0.800
+abcd/wN	org/bouncycastle/asn1/x509/AlgorithmIdentifier	shape:0.897
+abcd/wO	org/bouncycastle/crypto/digests/GOST3411Digest	shape:0.307
+abcd/wP	org/bouncycastle/operator/DefaultDigestAlgorithmIdentifierFinder	str:串集 j=1.00
+abcd/xL	org/bouncycastle/asn1/ASN1Null	shape:0.778
+abcd/xM	org/bouncycastle/asn1/DERT61String	tag:encode 写 0x14 (T61_STRING)
+abcd/xN	org/bouncycastle/asn1/x509/BasicConstraints	str:串集 j=1.00（原 PrivateKeyUsagePeriod j=0.00）
+abcd/xO	org/bouncycastle/crypto/digests/GeneralDigest	shape:0.700
+abcd/xP	org/bouncycastle/operator/DefaultSignatureAlgorithmIdentifierFinder	str:串集 j=1.00
+abcd/yL	org/bouncycastle/asn1/ASN1Object	shape:0.615
+abcd/yM	org/bouncycastle/asn1/DLTaggedObject	shape:0.667
+abcd/yN	org/bouncycastle/asn1/cms/CompressedData	shape:0.867
+abcd/yO	org/bouncycastle/crypto/digests/LongDigest	shape:0.456
+abcd/yP	org/bouncycastle/pkcs/PKCS12MacCalculatorBuilderProvider	shape:1.000
+abcd/zL	org/bouncycastle/asn1/ASN1ObjectIdentifier	shape:extends DERObjectIdentifier + ctor(String)/ctor(byte[]) + 串 "."；全包 OID 被引用 233 次
+abcd/zM	org/bouncycastle/asn1/ASN1UTCTime	shape:ASN1UTCTime（NL 以 ctor(byte[]) 继承它）
+abcd/zN	org/bouncycastle/asn1/x509/Extension	shape:0.878
+abcd/zO	org/bouncycastle/crypto/digests/MD2Digest	shape:0.931
+abcd/zP	org/bouncycastle/operator/DigestCalculator	shape:1.000

@@ -69,6 +69,8 @@ def main():
     ap.add_argument('--map', default='')
     ap.add_argument('--cand', default='')
     ap.add_argument('--out', default='')
+    ap.add_argument('--oneway', action='store_true',
+                    help='只查"探针引用了、oracle 候选没有"这一个方向（收缩只会让 oracle 更多，反方向不成立）')
     a = ap.parse_args()
     cfg = json.load(open(a.project))
     base = os.path.dirname(os.path.abspath(a.project))
@@ -130,7 +132,7 @@ def main():
             if not m <= ot:
                 return False
             back = (ot & rng)
-            if back:
+            if back and not a.oneway:
                 pb = set(cmap[t] for t in probe[pn]['trefs'] if t in cmap)
                 if not back <= pb:
                     return False
