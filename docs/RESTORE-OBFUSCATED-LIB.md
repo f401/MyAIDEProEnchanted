@@ -123,6 +123,40 @@ python3 tools/deob/cli.py -p process/deob.json members --pkg com/a --part dx --a
 | `static final` 且类型=自身 | `DEFAULT`/`INSTANCE` | 只被 `sget-object` 后当同类型参数传出 |
 | AIDE 加过参数的公开入口 | 沿用 oracle 同名方法 | 同位置、同返回、body 是"造对象 → 委托给无参数版" |
 
+## 5b. 静态常量表：一条描述符靠不住，得看「值」
+
+一个类里有上百个 `static final ASN1ObjectIdentifier` 或 `static final String` 时，
+描述符全都一样，"桶唯一"直接失效（见过 129 个同描述符候选）。四种写法要有四种判据：
+
+| 工具 | 判据 | 读法 |
+|---|---|---|
+| `constfields.py` | `<clinit>` 里赋的**字面量串** | smali 里"`sput` 前最后一条 `const-string`" / 字节码里 `ldc…putstatic` |
+| `oidfields.py` | 重建出的**完整 OID** | 探针侧跑寄存器机（`new X("…")` / `x.branch("1")` / `getId()+拼接` / `StringBuilder`），oracle 侧直接读官方 `-sources.jar` |
+| `derivedfields.py` | 值**派生自另一个已定名常量** | `sget-object`+`sput-object` 配对（`DATA = CMSObjectIdentifiers.data.getId()`）|
+| `groupmatch.py` | 同描述符**方法**组 | 方法体指纹：`(整数字面量, 被引成员{kind,owner→真名,描述符}, 字符串)` 三路 Jaccard |
+
+三条经验（都是用错之后总结出来的）：
+
+1. **"最后一条 const-string"会串位**。`new ASN1ObjectIdentifier(base + ".1")` 这种写法里，
+   最后一个串是 `.1`（下一个字段的尾巴），于是整类前后错一位。所以拿到更强的 OID 证据后，
+   一定要**回头把整块字段行重建一遍**（`oidfields --rebuild`）——这轮就靠它抓出 12 条移位错映射。
+2. **声明顺序不可信**。本来想用"ProGuard 不重排"来拆同描述符重载，实测在 dex 里顺序是乱的
+   （`SHA256Digest` 的 4 个 `(I)I` 与源码顺序不一致），按顺序对齐会全错。
+3. oracle 的发布 jar 常常是 `-g:none`（连 `LocalVariableTable` 都没有）→ 参数名走
+   Maven 上的 `-sources.jar`（`src_root` 里加一条就能吃到 `paramfill` 的源码分支）。
+
+## 5c. 什么时候"按作用命名"
+
+证据确实到不了就别猜：`functional.tsv` 一行一条记 `类/旧名/描述符/新名/判据`，
+写清"为什么定不了"。典型不可分：
+
+- 两个方法返回值常量相同（`getDigestSize`/`getByteLength` 都是 32）；
+- 同类型的多个 `Hashtable` 表，内容无法从字节码里对齐；
+- 反编译工具**合成**出来的方法（dex2jar 的 `$d2j$hex$…$decode_*`，oracle 里根本没有）；
+- 形状同族且零引用（28 个 `*$Mappings`）。
+
+纯"没有 oracle 对应物"的类，统一放进 `<库包名>/synthetic/` 下，一眼能看出是人起的名字。
+
 ## 6. 歧义：用引用者（调用点）消除
 
 两条独立路子，都只看"谁在用它"，不看 oracle 方法体：
