@@ -69,7 +69,7 @@ OID 常量表就是这么被换错的（`NN` 一度落到 `ISISMTTObjectIdentifi
 
 ```
 python3 tools/deob/cli.py -p process/deob.json members --pkg=abcd --part=spongycastle --apply
-类 253 / 方法 1329（已定名 783）/ 字段 1096（已定名 750）
+类 253 / 方法 1329（已定名 783）/ 字段 1096（已定名 750）   ← 第一遍时的数字
 待人工 374：ambiguous 369 + no-oracle-descriptor 5
 ```
 
@@ -163,13 +163,16 @@ public static final String DATA = CMSObjectIdentifiers.data.getId();
 ## 8) 当前结果
 
 - **257 / 257 类已定名**（254 个真名 + 3 个 `org/bouncycastle/synthetic/` 作用名），全部进 `process/mappings.txt`
-- **成员 0 待人工**：方法 1329 里 810 条需要改名的已全部定名（其余是"名字本来就没被混淆"的 identity），
-  字段 1096 / 1096 全部定名
-- 参数 792 行 / 449 个方法（来自官方 `-sources.jar`）
+- **成员 0 待人工**：part 现在覆盖 257 类 / **1335 方法 / 1114 字段**（`sP`/`rP` 定名后它们的方法也进来了），
+  其中 **813 条方法行 + 1114 条字段行**，其余是"名字本来就没被混淆"的 identity；
+  逐成员复核（扣掉 `<init>` 与 synthetic 的 `access$xxx`）后**漏 0 条**
+- `VM`/`eP`（两个 synthetic 类，没有 oracle 成员）的成员按作用命名：`toASN1Primitive` /
+  `versionField` / `nameField` / `encodePublicKeyInfo` / `encodeWithAlgorithm`（记在 `functional.tsv`）
+- 参数 **795 行** / 449 个方法（来自官方 `-sources.jar`）
 - `refmatch --oneway` 残留 **1 条**：`yO`=LongDigest 里的 `$d2j$hex$…$decode_*`（dex2jar 给超长十六进制串合成的辅助方法，oracle 里没有对应物，已在 `functional.tsv` 里按作用命名）
 - 门禁：`validate ✔ 无无效映射`、`inherit 0/0/0`、`famcheck 冲突 0 / 祖先未映射 0`、
   `innercheck ②0 ③0`（①1 条是 jgit 的老遗留）
-- `abcd` 整体：方法 **99.2%**、字段 **97.0%**（分母含 1730 个别的 part 还没定名的类）
+- `abcd` 整体：方法 **99.3%**、字段 **97.9%**（分母含别的 part 还没定名的类）
 
 ### 「按作用命名」都记在哪
 

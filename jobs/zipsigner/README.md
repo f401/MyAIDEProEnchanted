@@ -8,13 +8,13 @@
 ```
 python3 tools/deob/component.py --jar process/base/merged_ok.jar --prefix abcd \
     --seed abcd/GA --out jobs/zipsigner/classes.txt
-→ 切出 23 类 / 146 方法 / 93 字段
+→ 切出 23 类 / 146 方法 / 93 字段（外加真名包里的 `kellinwood/sigblock/a`，合计 24 类）
 ```
 
 簇内 23 类正好是三块：`kellinwood.zipio`（ZipInput/ZipOutput/ZioEntry/…）、
 `kellinwood.security.zipsigner`（ZipSigner/KeySet/ZipSignature/Base64/…）、
 `kellinwood.logging`（Logger/LogManager/NullLoggerFactory/…）。
-`kellinwood/sigblock/*` 在包里本来就是真名（只有 `sigblock/a` 一个例外，见 §5）。
+`kellinwood/sigblock/*` 在包里本来就是真名，只有 `sigblock/a` 一个例外（已定名，见 §4 末）。
 
 ## 2) oracle 是自己编的（Maven 上没有）
 
@@ -34,8 +34,9 @@ python3 tools/deob/component.py --jar process/base/merged_ok.jar --prefix abcd \
 
 ## 3) 结果
 
-- **23 / 23 类**、（方法/字段/参数）**0 待人工**
-- 方法 105 行改名（其余 41 条是"名字本来就没被混淆"的 identity）、字段 93/93、参数 94 行
+- **24 / 24 类**、（方法/字段/参数）**0 待人工**
+- 方法 108 行改名（其余是"名字本来就没被混淆"的 identity）、字段 94/94、参数 94 行
+- 逐成员复核（扣掉 `<init>` 与 synthetic）后**漏 0 条**
 - 门禁：`validate ✔`、`inherit 0/0/0`、`famcheck 冲突 0 / 祖先未映射 0`、`innercheck ②0 ③0`
 
 ## 4) 判据（`class_map.tsv` 第三列 / `functional.tsv`）
@@ -64,10 +65,12 @@ python3 tools/deob/component.py --jar process/base/merged_ok.jar --prefix abcd \
   → `aEncodeMethod`；`...Base64Encoder").getMethod("encode")` → `bEncodeMethod`。
   （membermatch 原本把 `FH` 判成 `aEncodeMethod`，与 `j6` 撞名，被这里纠正。）
 
-## 5) 遗留
+## 5) 两个特例（都已处理）
 
-- `kellinwood/sigblock/a`（真名包里的混淆名，1 个类）：sigblock 的源码在
-  `android-sun-jarsign-support` 模块里只有 `SignatureBlockWriter`，对不上，暂不动。
+- `kellinwood/sigblock/a`（真名包里的混淆名，1 个类）**已定名**：
+  它 `implements abcd/vP`（=`operator/ContentSigner`）且只有 `byte[]` + 三个 getter，
+  上游 sigblock 里没有对应类 → 按作用命名 `kellinwood/sigblock/SignatureContentSigner`，
+  成员 `getAlgorithmIdentifier`/`getSignature`/`getOutputStream`/`signature`。
 - `GA` 的 `j6([B[B X509Certificate OutputStream)V`：**AIDE 改过签名**（1.11 源码里没有这个 4 参方法），
   按作用命名为 `signZipData`，记在 `functional.tsv`。
 

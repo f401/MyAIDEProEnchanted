@@ -60,3 +60,8 @@ abcd/SM	FH		oidConstant2	OID 常量；重建/比对受阻（同一 OID 被两个
 abcd/SM	Hw		oidConstant3	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
 abcd/SM	j6		oidConstant4	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
 abcd/SM	v5		oidConstant5	OID 常量；重建/比对受阻（同一 OID 被两个探针字段重建出来），按作用命名
+abcd/VM	DW (Labcd/EL;)	toASN1Primitive	ASN1Object 的契约方法（同 part 40 多个类都是这个槽名）
+abcd/VM	DW	versionField	类型 ASN1Integer，ctor(Certificate) 里赋的是版本号 → 按作用命名
+abcd/VM	j6	nameField	ctor(Certificate) 里赋的是名字（X500Name）→ 按作用命名
+abcd/eP	j6 (Labcd/CN;)[B	encodePublicKeyInfo	synthetic:入参是 SubjectPublicKeyInfo、返回 DER 字节 → 按作用命名
+abcd/eP	j6 (Labcd/wN;Labcd/qL;)[B	encodeWithAlgorithm	synthetic:(AlgorithmIdentifier, ASN1Encodable)→DER → 按作用命名
