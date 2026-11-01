@@ -80,6 +80,8 @@ abcd/CL org/bouncycastle/asn1/ASN1OutputStream
 	j6 os
 	j6 (I)V write
 	DW (I)V writeLength
+	DW ()Labcd/CL; getDLSubStream
+	j6 ()Labcd/CL; getDERSubStream
 abcd/CL$a org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream
 	j6 (I)V write
 	DW first
@@ -340,6 +342,10 @@ abcd/GO org/bouncycastle/crypto/digests/SHA224Digest
 	VH H3
 	EQ H7
 	we H8
+	DW (I)I Sum1
+	j6 (I)I Sum0
+	FH (I)I Theta0
+	Hw (I)I Theta1
 abcd/GP org/bouncycastle/operator/bc/BcDigestCalculatorProvider
 	j6 (Labcd/wN;)Labcd/zP; get
 abcd/GP$a org/bouncycastle/operator/bc/BcDigestCalculatorProvider$DigestOutputStream
@@ -404,6 +410,10 @@ abcd/HO org/bouncycastle/crypto/digests/SHA256Digest
 	Zo H2
 	VH H3
 	EQ H7
+	DW (I)I Sum1
+	j6 (I)I Sum0
+	FH (I)I Theta0
+	Hw (I)I Theta1
 abcd/HP org/bouncycastle/operator/bc/BcUtil
 	j6 (Labcd/wN;)Labcd/sO; createDigest
 abcd/IL org/bouncycastle/asn1/ASN1SequenceParser
@@ -634,6 +644,7 @@ abcd/LN org/bouncycastle/asn1/x509/X509Name
 	v5 CN
 	we GIVENNAME
 	yS POSTAL_ADDRESS
+	VH STREET
 abcd/LO org/bouncycastle/crypto/generators/DHKeyPairGenerator
 	j6 (Labcd/uO;)V init
 	j6 ()Labcd/oO; generateKeyPair
@@ -792,6 +803,42 @@ abcd/QN org/bouncycastle/asn1/x9/X9ObjectIdentifiers
 	sh c2pnb368w1
 	v5 gnBasis
 	vy c2tnb239v1
+	CU mqv2
+	DW id_fieldType
+	EQ id_ecPublicKey
+	FH prime_field
+	Hw characteristic_two_field
+	I prime256v1
+	KD c2pnb272w1
+	Mr c2pnb163v2
+	Mz prime239v3
+	Sf prime192v3
+	U2 c2pnb163v3
+	XG dhOneFlow
+	XL ellipticCurve
+	XX x9_42_schemes
+	Xa mqv1
+	a8 c2pnb176w1
+	aj dhSinglePass_cofactorDH_sha1kdf_scheme
+	dx primeCurve
+	ef prime192v2
+	er c2tnb191v3
+	et dhHybridOneFlow
+	g3 prime239v2
+	gn id_ecSigType
+	j3 c2pnb163v1
+	jJ dhHybrid1
+	kQ dhStatic
+	lg c2tnb191v1
+	lp mqvSinglePass_sha1kdf_scheme
+	rN c2tnb191v2
+	sG prime192v1
+	sy dhSinglePass_stdDH_sha1kdf_scheme
+	tp id_publicKeyType
+	vJ prime239v1
+	wc dhHybrid2
+	yO dhEphem
+	yS c2onb191v4
 abcd/QO org/bouncycastle/crypto/params/DESParameters
 	DW DES_weak_keys
 abcd/QP org/bouncycastle/util/CollectionStore
@@ -1060,6 +1107,15 @@ abcd/aN org/bouncycastle/asn1/eac/EACObjectIdentifiers
 	rN id_EAC_ePassport
 	tp id_TA
 	v5 id_CA
+	EQ id_TA_RSA
+	FH id_PK_DH
+	Hw id_PK_ECDH
+	QX id_TA_RSA_v1_5_SHA_512
+	VH id_CA_DH_3DES_CBC_CBC
+	Zo id_CA_DH
+	aM id_TA_ECDSA
+	gn id_CA_ECDH
+	u7 id_CA_ECDH_3DES_CBC_CBC
 abcd/aO org/bouncycastle/cms/CMSSignedData
 	DW ()Labcd/WM; getSignedData
 	j6 HELPER
@@ -1271,6 +1327,9 @@ abcd/hN org/bouncycastle/asn1/nist/NISTObjectIdentifiers
 	rN id_aes256_CFB
 	we id_aes128_GCM
 	yS id_aes256_GCM
+	VH id_aes128_ECB
+	tp id_aes128_CFB
+	u7 id_aes128_OFB
 abcd/hO org/bouncycastle/cms/DefaultCMSSignatureEncryptionAlgorithmFinder
 	j6 (Labcd/wN;)Labcd/wN; findEncryptionAlgorithm
 	j6 RSA_PKCS1d5
@@ -1429,6 +1488,64 @@ abcd/lN org/bouncycastle/asn1/pkcs/PKCSObjectIdentifiers
 	sM id_aa_ets_certCRLTimestamp
 	sg id_aa_ets_commitmentType
 	wc x509certType
+	AL id_cti_ets_proofOfSender
+	AR pbeWithSHAAnd2_KeyTripleDES_CBC
+	Bx crlBag
+	Cz id_aa_ets_contentTimestamp
+	Eq crlTypes
+	Jl id_aa_signingCertificate
+	Jm certBag
+	KD id_hmacWithSHA1
+	MP pkcs_12PbeIds
+	Of pbeWithSHAAnd128BitRC4
+	PT pbeWithSHAAnd40BitRC4
+	Pa keyBag
+	Q6 id_aa_contentReference
+	Qq pkcs_9_at_messageDigest
+	TI pbeWithSHAAnd128BitRC2_CBC
+	VH srsaOAEPEncryptionSET
+	XG pkcs_9_at_friendlyName
+	XL dhKeyAgreement
+	XX pkcs_9_at_signingDescription
+	Xa sdsiCertificate
+	Z1 id_aa_contentHint
+	a5 id_aa_ets_archiveTimestamp
+	aX id_aa_ets_certValues
+	aj pkcs_9_at_counterSignature
+	b1 pbeWithSHAAnd3_KeyTripleDES_CBC
+	br pkcs_9_at_extendedCertificateAttributes
+	cb id_hmacWithSHA512
+	ce pkcs8ShroudedKeyBag
+	cn id_hmacWithSHA256
+	e3 id_aa_signatureTimeStampToken
+	eU id_aa_contentIdentifier
+	er id_PBES2
+	et certTypes
+	gn id_RSAES_OAEP
+	hK id_cti_ets_proofOfCreation
+	hz x509Crl
+	jJ pkcs_9_at_localKeyId
+	k2 id_cti_ets_proofOfReceipt
+	kQ pkcs_9_at_extensionRequest
+	kf id_aa_encrypKeyPref
+	lp pkcs_9_at_challengePassword
+	n5 id_aa_msgSigDigest
+	oa secretBag
+	oy id_aa_ets_revocationRefs
+	pN id_aa_ets_certificateRefs
+	q7 id_aa_receiptRequest
+	qP safeContentsBag
+	qp id_cti_ets_proofOfOrigin
+	ro id_hmacWithSHA224
+	sE id_aa_ets_sigPolicyId
+	sh id_hmacWithSHA384
+	sy pkcs_9_at_signingTime
+	tp id_pSpecified
+	w9 id_cti_ets_proofOfApproval
+	x9 pkcs_9_at_contentType
+	yO pkcs_9_at_smimeCapabilities
+	ye id_ct_TSTInfo
+	zh id_cti_ets_proofOfDelivery
 abcd/lO org/bouncycastle/cms/SignerInfoGeneratorBuilder
 	j6 (Labcd/vP;Labcd/XM;)Labcd/kO; createGenerator
 	j6 (Labcd/vP;Labcd/SN;)Labcd/kO; build
@@ -1528,6 +1645,14 @@ abcd/oN org/bouncycastle/asn1/teletrust/TeleTrusTObjectIdentifiers
 	u7 ecSign
 	we ecc_brainpool
 	yS brainpoolP384t1
+	EQ ecSignWithRipemd160
+	J0 ellipticCurve
+	J8 versionOne
+	QX brainpoolP160t1
+	Ws brainpoolP160r1
+	XL brainpoolP192r1
+	aM brainpoolP192t1
+	tp ecSignWithSha1
 abcd/oO org/bouncycastle/crypto/AsymmetricCipherKeyPair
 	j6 ()Labcd/qO; getPrivate
 	DW ()Labcd/qO; getPublic
@@ -1689,6 +1814,7 @@ abcd/uN org/bouncycastle/asn1/x500/style/BCStyle
 	v5 T
 	we SURNAME
 	yS NAME_AT_BIRTH
+	gn STREET
 abcd/uO org/bouncycastle/crypto/KeyGenerationParameters
 	j6 ()Ljava/security/SecureRandom; getRandom
 	DW strength

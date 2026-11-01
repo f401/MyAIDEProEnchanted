@@ -108,10 +108,35 @@ python3 tools/jgit/pipeline/paramfill.py --write
   其余多数是本来就没有参数的方法）
 ```
 
-## 7) 当前结果
+## 7) 同描述符重载组：**声明顺序不可信**，只能靠方法体
+
+剩下 23 个方法是"同描述符组"（`getDERSubStream/getDLSubStream`、SHA 的
+`Sum0/Sum1/Theta0/Theta1`…），描述符完全一样。第一直觉是用**声明顺序**（ProGuard 不重排）
+对齐——**实测是错的**：
+
+```
+SHA256Digest 的 4 个 (I)I，APK 里的顺序 ↔ 源码顺序：
+   探针 j6 的整数字面量 = [2,10,13,19,22,30] = Sum0     （顺序规则会判成 Theta1）
+   探针 DW       = [6,7,11,21,25,26]        = Sum1     （顺序规则会判成 Sum0）
+```
+
+所以 `orderfill.py` 写完就删了，改用 `groupmatch.py`：签名叫
+`(整数字面量, 被引成员{kind,owner→真名,描述符}, 字符串)` 的三路 Jaccard，
+组内要求**唯一最优 + 领先**。dex 里位移量是**指令内联字面量**（`shl-int/lit8 v0, p1, 0x13`），
+javac 侧是 `bipush`，两边都要按"参数位置的整数字面量"来取才可比。
+
+还有一个坑：桶键必须用**归一化后**的描述符（`()Labcd/CL;` → `()L…/ASN1OutputStream;`），
+否则两边根本对不上（`CL` 的 `getDER/DLSubStream` 就是因此才判出来的，分数 1.00）。
+
+```
+→ 补了 10 个方法（CL 的 getDER/DLSubStream + SHA224/256 的 Sum0/Sum1/Theta0/Theta1）
+```
+
+## 8) 当前结果
 
 - **253 / 257 类已定名**（类块已进 `process/mappings.txt`，全库类块 1844）
-- 成员：方法 783/1329（59%）、字段 899/1096（82%）已定名（其中 150 个字段靠 `<clinit>` 常量串）
+- 成员：方法 **793**/1329（60%）、字段 **1022**/1096（93%）已定名
+  （其中 150 个字段靠 `<clinit>` 常量串、116 个靠重建的完整 OID、10 个方法靠方法体指纹）
 - 参数：784 行 / 449 个方法（来自官方 sources.jar）
 - `refmatch --oneway` 残留 **2 条**：`yO`=LongDigest（探针多了 dex2jar 合成的 `$d2j$hex$…$decode_(String)` 方法）、`rP`（只被未定名的 `sP` 引用）
 - 门禁：`validate ✔ 无无效映射`、`inherit 0/0/0`、`famcheck 冲突 0 / 祖先未映射 0`、
@@ -130,7 +155,7 @@ python3 tools/jgit/pipeline/paramfill.py --write
 | `kP` | `extends AlgorithmProvider`，只有 `<init>()`，无串、**无人引用** | 28 个 `*$Mappings` 同形；没有任何可分辨证据 |
 | `sP` | 16×static String + String[] + 1 个对象字段 | 只被一个（可能错映射的）类读 |
 
-## 8) 下一步
+## 9) 下一步
 
 1. 用 `refmatch --oneway` 的 **23** 条残留继续收错映射（每修一个"枢纽类"一次能清掉十几条：
    55 → 48 → 41 → 30 → 25 → 23）。这一轮修掉的枢纽：`AN`=x509/Extensions、`CN`=SubjectPublicKeyInfo、
