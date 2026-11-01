@@ -47,7 +47,8 @@
   "src_root": [
     "$HOME/src/jgit",
     "$HOME/out/oracle/jsch/src-0.1.51",
-    "$HOME/out/oracle/jsch/src"
+    "$HOME/out/oracle/jsch/src",
+    "$HOME/out/oracle/spongycastle/src-1.47"
   ],
   "out_tsrg": "mappings.txt",
   "allow": "verify_allow.tsv",
