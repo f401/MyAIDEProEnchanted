@@ -21,3 +21,4 @@ abcd/wA	kellinwood/logging/NullLoggerFactory	shape:1.000
 abcd/xA	kellinwood/security/zipsigner/AutoKeyException	ref:ZipSigner 的 ctor 用 (String) 构造；extends RuntimeException
 abcd/yA	kellinwood/security/zipsigner/Base64	shape:0.605
 abcd/zA	kellinwood/security/zipsigner/HexDumpEncoder	shape:0.684
+kellinwood/sigblock/a	kellinwood/sigblock/SignatureContentSigner	shape:实现 abcd/vP(=operator/ContentSigner)：getAlgorithmIdentifier/getSignature/getOutputStream + byte[] 字段；kellinwood 上游没有对应类，按作用命名

@@ -456,6 +456,8 @@ abcd/IN org/bouncycastle/asn1/x509/X509Extension
 	vy auditIdentity
 	we deltaCRLIndicator
 	yS logoType
+	SI value
+	nw critical
 abcd/IO org/bouncycastle/crypto/digests/SHA384Digest
 	DW ()I getDigestSize
 	j6 ([BI)I doFinal
@@ -518,6 +520,8 @@ abcd/JN org/bouncycastle/asn1/x509/X509Extensions
 	vy AuditIdentity
 	we DeltaCRLIndicator
 	yS LogoType
+	SI ordering
+	nw extensions
 abcd/JO org/bouncycastle/crypto/digests/SHA512Digest
 	DW ()I getDigestSize
 	j6 ([BI)I doFinal
@@ -943,7 +947,8 @@ abcd/TO org/bouncycastle/crypto/params/DHParameters
 	Zo l
 	FH q
 	Hw j
-	VH Labcd/WO; validationParms
+	VH validationParms
+	j6 g
 abcd/TP org/bouncycastle/util/Strings
 	j6 ([B)[C asCharArray
 	FH (Ljava/lang/String;)Ljava/lang/String; toUpperCase
@@ -973,6 +978,9 @@ abcd/VL org/bouncycastle/asn1/DERSetParser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
 abcd/VM org/bouncycastle/synthetic/CertificateFieldCarrier
+	DW ()Labcd/EL; toASN1Primitive
+	DW versionField
+	j6 nameField
 abcd/VN org/bouncycastle/cms/CMSAbsentContent
 	j6 (Ljava/io/OutputStream;)V write
 	j6 type
@@ -1191,6 +1199,7 @@ abcd/bN org/bouncycastle/asn1/iana/IANAObjectIdentifiers
 	FH hmacSHA1
 	Hw hmacTIGER
 	v5 hmacRIPEMD160
+	j6 hmacMD5
 abcd/bO org/bouncycastle/cms/CMSSignedDataGenerator$1
 	j6 (Ljava/io/OutputStream;)V write
 	DW val$contentTypeOID
@@ -1319,6 +1328,8 @@ abcd/eO org/bouncycastle/cms/CMSSignedHelper
 	DW encryptionAlgs
 	Hw digestAliases
 abcd/eP org/bouncycastle/synthetic/DerEncoders
+	j6 (Labcd/CN;)[B encodePublicKeyInfo
+	j6 (Labcd/wN;Labcd/qL;)[B encodeWithAlgorithm
 abcd/fM org/bouncycastle/asn1/DERExternal
 	j6 (Labcd/rL;I)Labcd/EL; getObjFromVector
 	j6 (I)V setEncoding
@@ -1829,6 +1840,22 @@ abcd/sO org/bouncycastle/crypto/Digest
 	j6 ()Ljava/lang/String; getAlgorithmName
 	j6 (B)V update
 abcd/sP org/bouncycastle/jce/provider/CertPathValidatorUtilities
+	QX crlReasons
+	j6 CRL_UTIL
+	Zo NAME_CONSTRAINTS
+	J0 CRL_DISTRIBUTION_POINTS
+	we FRESHEST_CRL
+	v5 SUBJECT_ALTERNATIVE_NAME
+	tp DELTA_CRL_INDICATOR
+	gn INHIBIT_ANY_POLICY
+	Ws CRL_NUMBER
+	VH KEY_USAGE
+	J8 AUTHORITY_KEY_IDENTIFIER
+	Hw POLICY_MAPPINGS
+	FH BASIC_CONSTRAINTS
+	EQ POLICY_CONSTRAINTS
+	u7 ISSUING_DISTRIBUTION_POINT
+	DW CERTIFICATE_POLICIES
 abcd/tL org/bouncycastle/asn1/ASN1Exception
 	j6 cause
 abcd/tM org/bouncycastle/asn1/DERSequence
@@ -2134,6 +2161,9 @@ abcd/zN org/bouncycastle/asn1/x509/Extension
 	vy auditIdentity
 	we deltaCRLIndicator
 	yS logoType
+	KD value
+	SI critical
+	nw extnId
 abcd/zO org/bouncycastle/crypto/digests/MD2Digest
 	j6 ([BI)I doFinal
 	j6 ()Ljava/lang/String; getAlgorithmName

@@ -219,3 +219,8 @@ abcd/yA kellinwood/security/zipsigner/Base64
 abcd/zA kellinwood/security/zipsigner/HexDumpEncoder
 	j6 ([B)Ljava/lang/String; encode
 	j6 encoder
+kellinwood/sigblock/a kellinwood/sigblock/SignatureContentSigner
+	j6 signature
+	DW ()Labcd/wN; getAlgorithmIdentifier
+	FH ()[B getSignature
+	j6 ()Ljava/io/OutputStream; getOutputStream
