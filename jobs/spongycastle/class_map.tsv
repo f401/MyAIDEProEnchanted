@@ -16,12 +16,12 @@ abcd/CO	org/bouncycastle/crypto/digests/RIPEMD128Digest	str:'RIPEMD128'
 abcd/CP	org/bouncycastle/operator/OperatorException	被 OperatorCreationException 继承；Exception 同形族唯一可承继者
 abcd/DL	org/bouncycastle/asn1/ASN1ParsingException	sup=IllegalStateException 的同类唯一
 abcd/DM	org/bouncycastle/asn1/DLOutputStream	shape:1.000
-abcd/DN	org/bouncycastle/asn1/tsp/TimeStampReq	shape:0.625
+abcd/DN	org/bouncycastle/asn1/x509/TBSCertificate	shape:12 字段(seq/version/serialNumber/signature/issuer/startDate/endDate/subject/spki/issuerUniqueId/subjectUniqueId/extensions=**Extensions**)
 abcd/DO	org/bouncycastle/crypto/digests/RIPEMD160Digest	str:'RIPEMD160'
 abcd/DP	org/bouncycastle/operator/OperatorStreamException	引用者 JcaContentSignerBuilder$SignatureOutputStream；无 ExtException 接口
 abcd/EL	org/bouncycastle/asn1/ASN1Primitive	str:'cannot recognise object in stream' 唯一
-abcd/EM	org/bouncycastle/asn1/DERSet	shape:0.579
-abcd/EN	org/bouncycastle/asn1/crmf/CertTemplate	shape:0.794
+abcd/EM	org/bouncycastle/asn1/DLSequence	shape:sup=ASN1Sequence（Set 类不可能继承 ASN1Sequence）+ 6 方法；DERSequence 已被 tM 占，单向引用检查只对它成立
+abcd/EN	org/bouncycastle/asn1/x509/TBSCertificateStructure	shape:同 12 字段但 extensions 是 **X509Extensions** + getVersionNumber()；与 DN 成对
 abcd/EO	org/bouncycastle/crypto/digests/RIPEMD256Digest	str:'RIPEMD256'
 abcd/EP	org/bouncycastle/operator/RuntimeOperatorException	引用者 JcaContentSignerBuilder$1 用 (String,Throwable) 构造
 abcd/FL	org/bouncycastle/asn1/ASN1Sequence	shape:0.828
@@ -53,7 +53,7 @@ abcd/JP	org/bouncycastle/operator/jcajce/JcaContentSignerBuilder	shape:0.900
 abcd/JP$a	org/bouncycastle/operator/jcajce/JcaContentSignerBuilder$SignatureOutputStream	shape:0.875
 abcd/KL	org/bouncycastle/asn1/ASN1String	shape:1.000
 abcd/KM	org/bouncycastle/asn1/LazyConstructionEnumeration	shape:1.000
-abcd/KN	org/bouncycastle/asn1/x509/ExtensionsGenerator	shape:0.556
+abcd/KN	org/bouncycastle/asn1/x509/ExtensionsGenerator	shape:Vector+Hashtable + ctor() + isEmpty() + generate()->**Extensions**（不是 X509Extensions）
 abcd/KO	org/bouncycastle/crypto/engines/GOST28147Engine	shape:0.747
 abcd/KP	org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$1$1	shape:1.000
 abcd/LL	org/bouncycastle/asn1/ASN1TaggedObject	shape:0.815
@@ -94,7 +94,7 @@ abcd/RO	org/bouncycastle/crypto/params/DHKeyGenerationParameters	shape:ctor(Secu
 abcd/RP	org/bouncycastle/util/Selector	单方法 (Object)Z + java/lang/Cloneable
 abcd/SL	org/bouncycastle/asn1/BEROctetString	shape:0.667
 abcd/SM	org/bouncycastle/asn1/x509/qualified/ETSIQCObjectIdentifiers	shape:1.000
-abcd/SN	org/bouncycastle/cert/cmp/GeneralPKIMessage	shape:0.700
+abcd/SN	org/bouncycastle/cert/X509CertificateHolder	str+shape:"malformed data: " + 字段{X509 结构, Extensions} + parseBytes([B) + ctor([B)/ctor(x) + equals/hashCode
 abcd/SO	org/bouncycastle/crypto/params/DHKeyParameters	shape:extends AsymmetricKeyParameter + DHParameters 字段 + ctor(boolean,DHParameters)
 abcd/SP	org/bouncycastle/util/Store	impl:{CollectionStore}，方法 (Selector)Collection
 abcd/TL	org/bouncycastle/asn1/BEROctetStringParser	shape:1.000
@@ -133,7 +133,7 @@ abcd/ZP	org/bouncycastle/util/StreamParsingException	shape:1.000
 abcd/_L	org/bouncycastle/asn1/ConstructedOctetStream	shape:0.765
 abcd/_M	org/bouncycastle/asn1/cryptopro/CryptoProObjectIdentifiers	shape:0.957
 abcd/_N	org/bouncycastle/cms/CMSSignatureEncryptionAlgorithmFinder	impl:{DefaultCMSSignatureEncryptionAlgorithmFinder} 唯一
-abcd/_O	org/bouncycastle/eac/operator/jcajce/DefaultEACHelper	shape:0.667
+abcd/_O	org/bouncycastle/jcajce/DefaultJcaJceHelper	shape:实现 JcaJceHelper + 无字段 ctor()
 abcd/_P	org/bouncycastle/x509/X509Util	shape:0.359
 abcd/aM	org/bouncycastle/asn1/DERApplicationSpecific	shape:字段(int,byte[],boolean)+ctor(int,ASN1EncodableVector)/ctor(boolean,int,byte[])
 abcd/aN	org/bouncycastle/asn1/eac/EACObjectIdentifiers	shape:1.000
@@ -143,12 +143,12 @@ abcd/aQ	org/bouncycastle/x509/X509V1CertificateGenerator	shape:0.536
 abcd/bM	org/bouncycastle/asn1/DERBMPString	tag:encode 写 0x1e (BMP_STRING) + char[] 字段
 abcd/bN	org/bouncycastle/asn1/iana/IANAObjectIdentifiers	shape:1.000
 abcd/bO	org/bouncycastle/ocsp/OCSPReqGenerator$RequestObject	shape:0.833
-abcd/bP	org/bouncycastle/eac/operator/jcajce/NamedEACHelper	shape:0.750
+abcd/bP	org/bouncycastle/jcajce/NamedJcaJceHelper	shape:实现 JcaJceHelper + String 字段 + ctor(String)
 abcd/cM	org/bouncycastle/asn1/DERBitString	KeyUsage/NetscapeCertType 构造器参数类型
 abcd/cN	org/bouncycastle/asn1/kisa/KISAObjectIdentifiers	shape:1.000
 abcd/cO	org/bouncycastle/cms/CMSSignedDataGenerator	str:串集 j=1.00（原 TlsRSAUtils j=0.00）
 abcd/cO$a	org/bouncycastle/cms/CMSSignedDataGenerator$SignerInf	shape:0.583
-abcd/cP	org/bouncycastle/eac/operator/jcajce/ProviderEACHelper	shape:0.750
+abcd/cP	org/bouncycastle/jcajce/ProviderJcaJceHelper	shape:实现 JcaJceHelper + Provider 字段 + ctor(Provider)
 abcd/dM	org/bouncycastle/asn1/DERBoolean	shape:0.735
 abcd/dN	org/bouncycastle/asn1/misc/MiscObjectIdentifiers	shape:1.000
 abcd/dO	org/bouncycastle/cms/CMSSignedGenerator	shape:24×static String 常量 + List/Map + addSigner(SignerInfoGenerator)/addCertificates(Store)
@@ -158,7 +158,7 @@ abcd/eN	org/bouncycastle/asn1/misc/NetscapeCertType	str:'NetscapeCertType: 0x' �
 abcd/eO	org/bouncycastle/cms/CMSSignedHelper	shape:3×static Map + addEntries(DERObjectIdentifier,String,String) + fixAlgID + 同一批 OID 串(5849…)
 abcd/fM	org/bouncycastle/asn1/DERExternal	shape:0.757
 abcd/fN	org/bouncycastle/asn1/misc/NetscapeRevocationURL	shape:1.000
-abcd/fO	org/bouncycastle/util/io/pem/PemObjectGenerator	shape:1.000
+abcd/fO	org/bouncycastle/cms/CMSTypedData	shape:实现 CMSProcessable(YN) + getContentType()；实现者{CMSProcessableByteArray,CMSSignedDataGenerator$1}
 abcd/fP	org/bouncycastle/jcajce/provider/asymmetric/util/PKCS12BagAttributeCarrierImpl	shape:0.583
 abcd/gM	org/bouncycastle/asn1/DERExternalParser	shape:0.800
 abcd/gN	org/bouncycastle/asn1/misc/VerisignCzagExtension	shape:1.000
@@ -189,7 +189,7 @@ abcd/mO	org/bouncycastle/crypto/AsymmetricCipherKeyPair	shape:0.800
 abcd/mP	org/bouncycastle/jce/X509Principal	shape:0.333
 abcd/nL	org/bouncycastle/asn1/ASN1ApplicationSpecificParser	impl:{BERApplicationSpecificParser} 唯一
 abcd/nM	org/bouncycastle/asn1/DERNumericString	tag:encode 写 0x12 (NUMERIC_STRING)
-abcd/nN	org/bouncycastle/asn1/pkcs/RSAESOAEPparams	shape:0.731
+abcd/nN	org/bouncycastle/asn1/pkcs/RSASSAPSSparams	shape:8 字段(AlgorithmIdentifier/ASN1Integer 交替) + ctor(AlgorithmIdentifier,AlgorithmIdentifier,ASN1Integer,ASN1Integer) + 串 "unknown tag"
 abcd/nO	org/bouncycastle/cms/jcajce/JcaSignerInfoGeneratorBuilder	shape:1.000
 abcd/nP	org/bouncycastle/jce/interfaces/PKCS12BagAttributeCarrier	impl:{X509CertificateObject} 唯一
 abcd/oL	org/bouncycastle/asn1/ASN1Boolean	shape:1.000
@@ -227,7 +227,7 @@ abcd/uN	org/bouncycastle/asn1/x500/style/BCStyle	str:OID/属性名串集 j=0.99(
 abcd/uO	org/bouncycastle/crypto/KeyGenerationParameters	shape:0.800
 abcd/uP	org/bouncycastle/jce/provider/X509SignatureUtil	shape:0.857
 abcd/vL	org/bouncycastle/asn1/ASN1InputStream	shape:0.643
-abcd/vM	org/bouncycastle/asn1/DLSequence	shape:0.867
+abcd/vM	org/bouncycastle/asn1/DERSet	shape:sup=ASN1Set + 7 方法；DLSet 已被 FM 占
 abcd/vN	org/bouncycastle/asn1/x500/style/IETFUtils	str: 全 jar 唯一命中 {\"#\",\"DER\",\"Other value has no encoded form\",\"unknown encoding in name: \"}
 abcd/vO	org/bouncycastle/crypto/RuntimeCryptoException	sup=RuntimeException 且被 DataLengthException 继承
 abcd/vP	org/bouncycastle/operator/ContentSigner	shape:1.000
@@ -243,7 +243,7 @@ abcd/xO	org/bouncycastle/crypto/digests/GeneralDigest	shape:0.700
 abcd/xP	org/bouncycastle/operator/DefaultSignatureAlgorithmIdentifierFinder	str:串集 j=1.00
 abcd/yL	org/bouncycastle/asn1/ASN1Object	shape:0.615
 abcd/yM	org/bouncycastle/asn1/DLTaggedObject	shape:0.667
-abcd/yN	org/bouncycastle/asn1/cms/CompressedData	shape:0.867
+abcd/yN	org/bouncycastle/asn1/x509/Certificate	shape:4 字段{seq,tbsCert=TBSCertificate,sigAlgId,sig} + getTBSCertificate/getVersion()ASN1Integer/getSerialNumber/getIssuer + 串 "sequence wrong size for a certificate"
 abcd/yO	org/bouncycastle/crypto/digests/LongDigest	shape:0.456
 abcd/yP	org/bouncycastle/pkcs/PKCS12MacCalculatorBuilderProvider	shape:1.000
 abcd/zL	org/bouncycastle/asn1/ASN1ObjectIdentifier	shape:extends DERObjectIdentifier + ctor(String)/ctor(byte[]) + 串 "."；全包 OID 被引用 233 次

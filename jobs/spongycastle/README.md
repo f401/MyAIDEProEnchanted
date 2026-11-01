@@ -67,7 +67,7 @@ OID 常量表就是这么被换错的（`NN` 一度落到 `ISISMTTObjectIdentifi
 - 门禁：`validate ✔ 无无效映射`、`inherit 0/0/0`、`famcheck 冲突 0 / 祖先未映射 0`、
   `innercheck ②0 ③0`（①1 条是 jgit 的老遗留）
 - 目标全都在 oracle 里存在、与包内已有类名 0 撞名、与其它 part 目标 0 撞名
-- `refmatch --oneway` 残留 41 条（探针引用了候选没有的类型），逐条都指向某个还需要修的枢纽类
+- `refmatch --oneway` 残留 **23** 条（探针引用了候选没有的类型），逐条都指向某个还需要修的枢纽类
 
 ### 还没定的 4 个（`VM` / `eP` / `kP` / `sP`）
 
@@ -82,7 +82,12 @@ OID 常量表就是这么被换错的（`NN` 一度落到 `ISISMTTObjectIdentifi
 
 ## 6) 下一步
 
-1. 用 `refmatch --oneway` 的 41 条残留继续收错映射（每修一个"枢纽类"，一次能清掉十几条：
-   55 → 48 → 41 就是这么降下来的）；
+1. 用 `refmatch --oneway` 的 **23** 条残留继续收错映射（每修一个"枢纽类"一次能清掉十几条：
+   55 → 48 → 41 → 30 → 25 → 23）。这一轮修掉的枢纽：`AN`=x509/Extensions、`CN`=SubjectPublicKeyInfo、
+   `sN`=x500/X500Name、`rN`=x500/RDN、`DN`=x509/TBSCertificate、`EN`=TBSCertificateStructure、
+   `yN`=x509/Certificate、`SN`=cert/X509CertificateHolder、`nN`=pkcs/RSASSAPSSparams、
+   `_O/bP/cP`=jcajce/{Default,Named,Provider}JcaJceHelper、`fO`=cms/CMSTypedData、
+   `SO/UO/VO/RO`=crypto/params/DH{Key,PrivateKey,PublicKey,KeyGeneration}Parameters、
+   `EM/vM`=DLSequence/DERSet（`sup` 是 ASN1Sequence 还是 ASN1Set 一眼分开）；
 2. 再进成员名（1335 方法 / 1114 字段）——有同版本 oracle，方法按 (名字+描述符+所属类) 对齐即可；
 3. 参数名走 oracle 的 LocalVariableTable（`jobs/*/params.tsv` 的老路）。

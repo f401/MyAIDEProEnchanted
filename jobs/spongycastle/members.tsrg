@@ -16,12 +16,12 @@ abcd/CO org/bouncycastle/crypto/digests/RIPEMD128Digest
 abcd/CP org/bouncycastle/operator/OperatorException
 abcd/DL org/bouncycastle/asn1/ASN1ParsingException
 abcd/DM org/bouncycastle/asn1/DLOutputStream
-abcd/DN org/bouncycastle/asn1/tsp/TimeStampReq
+abcd/DN org/bouncycastle/asn1/x509/TBSCertificate
 abcd/DO org/bouncycastle/crypto/digests/RIPEMD160Digest
 abcd/DP org/bouncycastle/operator/OperatorStreamException
 abcd/EL org/bouncycastle/asn1/ASN1Primitive
-abcd/EM org/bouncycastle/asn1/DERSet
-abcd/EN org/bouncycastle/asn1/crmf/CertTemplate
+abcd/EM org/bouncycastle/asn1/DLSequence
+abcd/EN org/bouncycastle/asn1/x509/TBSCertificateStructure
 abcd/EO org/bouncycastle/crypto/digests/RIPEMD256Digest
 abcd/EP org/bouncycastle/operator/RuntimeOperatorException
 abcd/FL org/bouncycastle/asn1/ASN1Sequence
@@ -94,7 +94,7 @@ abcd/RO org/bouncycastle/crypto/params/DHKeyGenerationParameters
 abcd/RP org/bouncycastle/util/Selector
 abcd/SL org/bouncycastle/asn1/BEROctetString
 abcd/SM org/bouncycastle/asn1/x509/qualified/ETSIQCObjectIdentifiers
-abcd/SN org/bouncycastle/cert/cmp/GeneralPKIMessage
+abcd/SN org/bouncycastle/cert/X509CertificateHolder
 abcd/SO org/bouncycastle/crypto/params/DHKeyParameters
 abcd/SP org/bouncycastle/util/Store
 abcd/TL org/bouncycastle/asn1/BEROctetStringParser
@@ -133,7 +133,7 @@ abcd/ZP org/bouncycastle/util/StreamParsingException
 abcd/_L org/bouncycastle/asn1/ConstructedOctetStream
 abcd/_M org/bouncycastle/asn1/cryptopro/CryptoProObjectIdentifiers
 abcd/_N org/bouncycastle/cms/CMSSignatureEncryptionAlgorithmFinder
-abcd/_O org/bouncycastle/eac/operator/jcajce/DefaultEACHelper
+abcd/_O org/bouncycastle/jcajce/DefaultJcaJceHelper
 abcd/_P org/bouncycastle/x509/X509Util
 abcd/aM org/bouncycastle/asn1/DERApplicationSpecific
 abcd/aN org/bouncycastle/asn1/eac/EACObjectIdentifiers
@@ -143,12 +143,12 @@ abcd/aQ org/bouncycastle/x509/X509V1CertificateGenerator
 abcd/bM org/bouncycastle/asn1/DERBMPString
 abcd/bN org/bouncycastle/asn1/iana/IANAObjectIdentifiers
 abcd/bO org/bouncycastle/ocsp/OCSPReqGenerator$RequestObject
-abcd/bP org/bouncycastle/eac/operator/jcajce/NamedEACHelper
+abcd/bP org/bouncycastle/jcajce/NamedJcaJceHelper
 abcd/cM org/bouncycastle/asn1/DERBitString
 abcd/cN org/bouncycastle/asn1/kisa/KISAObjectIdentifiers
 abcd/cO org/bouncycastle/cms/CMSSignedDataGenerator
 abcd/cO$a org/bouncycastle/cms/CMSSignedDataGenerator$SignerInf
-abcd/cP org/bouncycastle/eac/operator/jcajce/ProviderEACHelper
+abcd/cP org/bouncycastle/jcajce/ProviderJcaJceHelper
 abcd/dM org/bouncycastle/asn1/DERBoolean
 abcd/dN org/bouncycastle/asn1/misc/MiscObjectIdentifiers
 abcd/dO org/bouncycastle/cms/CMSSignedGenerator
@@ -158,7 +158,7 @@ abcd/eN org/bouncycastle/asn1/misc/NetscapeCertType
 abcd/eO org/bouncycastle/cms/CMSSignedHelper
 abcd/fM org/bouncycastle/asn1/DERExternal
 abcd/fN org/bouncycastle/asn1/misc/NetscapeRevocationURL
-abcd/fO org/bouncycastle/util/io/pem/PemObjectGenerator
+abcd/fO org/bouncycastle/cms/CMSTypedData
 abcd/fP org/bouncycastle/jcajce/provider/asymmetric/util/PKCS12BagAttributeCarrierImpl
 abcd/gM org/bouncycastle/asn1/DERExternalParser
 abcd/gN org/bouncycastle/asn1/misc/VerisignCzagExtension
@@ -189,7 +189,7 @@ abcd/mO org/bouncycastle/crypto/AsymmetricCipherKeyPair
 abcd/mP org/bouncycastle/jce/X509Principal
 abcd/nL org/bouncycastle/asn1/ASN1ApplicationSpecificParser
 abcd/nM org/bouncycastle/asn1/DERNumericString
-abcd/nN org/bouncycastle/asn1/pkcs/RSAESOAEPparams
+abcd/nN org/bouncycastle/asn1/pkcs/RSASSAPSSparams
 abcd/nO org/bouncycastle/cms/jcajce/JcaSignerInfoGeneratorBuilder
 abcd/nP org/bouncycastle/jce/interfaces/PKCS12BagAttributeCarrier
 abcd/oL org/bouncycastle/asn1/ASN1Boolean
@@ -227,7 +227,7 @@ abcd/uN org/bouncycastle/asn1/x500/style/BCStyle
 abcd/uO org/bouncycastle/crypto/KeyGenerationParameters
 abcd/uP org/bouncycastle/jce/provider/X509SignatureUtil
 abcd/vL org/bouncycastle/asn1/ASN1InputStream
-abcd/vM org/bouncycastle/asn1/DLSequence
+abcd/vM org/bouncycastle/asn1/DERSet
 abcd/vN org/bouncycastle/asn1/x500/style/IETFUtils
 abcd/vO org/bouncycastle/crypto/RuntimeCryptoException
 abcd/vP org/bouncycastle/operator/ContentSigner
@@ -243,7 +243,7 @@ abcd/xO org/bouncycastle/crypto/digests/GeneralDigest
 abcd/xP org/bouncycastle/operator/DefaultSignatureAlgorithmIdentifierFinder
 abcd/yL org/bouncycastle/asn1/ASN1Object
 abcd/yM org/bouncycastle/asn1/DLTaggedObject
-abcd/yN org/bouncycastle/asn1/cms/CompressedData
+abcd/yN org/bouncycastle/asn1/x509/Certificate
 abcd/yO org/bouncycastle/crypto/digests/LongDigest
 abcd/yP org/bouncycastle/pkcs/PKCS12MacCalculatorBuilderProvider
 abcd/zL org/bouncycastle/asn1/ASN1ObjectIdentifier
