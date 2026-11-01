@@ -5,6 +5,7 @@ abcd/AL org/bouncycastle/asn1/ASN1OctetString
 	u7 ()[B getOctets
 	j6 string
 	gn ()Labcd/EL; toDLObject
+	VH ()Labcd/EL; toDERObject
 abcd/AM org/bouncycastle/asn1/DERUTF8String
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
@@ -145,6 +146,7 @@ abcd/DN org/bouncycastle/asn1/x509/TBSCertificate
 	gn subject
 	v5 issuer
 	FH version
+	VH ()Labcd/wL; getVersion
 abcd/DO org/bouncycastle/crypto/digests/RIPEMD160Digest
 	j6 (II)I RL
 	j6 (I[BI)V unpackWord
@@ -176,6 +178,7 @@ abcd/EL org/bouncycastle/asn1/ASN1Primitive
 	DW ()Labcd/EL; toASN1Primitive
 	v5 ()I encodedLength
 	gn ()Labcd/EL; toDLObject
+	VH ()Labcd/EL; toDERObject
 abcd/EM org/bouncycastle/asn1/DLSequence
 	j6 (Labcd/CL;)V encode
 	DW bodyLength
@@ -252,6 +255,7 @@ abcd/FL org/bouncycastle/asn1/ASN1Sequence
 	j6 seq
 	gn ()Labcd/EL; toDLObject
 	tp ()I size
+	VH ()Labcd/EL; toDERObject
 abcd/FM org/bouncycastle/asn1/DLSet
 	j6 (Labcd/CL;)V encode
 	FH bodyLength
@@ -262,6 +266,7 @@ abcd/FN org/bouncycastle/asn1/x509/Time
 	DW ()Labcd/EL; toASN1Primitive
 	v5 ()Ljava/util/Date; getDate
 	j6 time
+	Zo ()Ljava/lang/String; getTime
 abcd/FO org/bouncycastle/crypto/digests/SHA1Digest
 	DW ()I getDigestSize
 	DW ([BI)V processWord
@@ -287,7 +292,7 @@ abcd/FP org/bouncycastle/operator/bc/BcDigestCalculatorProvider$1
 	FH val$stream
 	j6 this$0
 abcd/GL org/bouncycastle/asn1/ASN1SetParser
-abcd/GM org/bouncycastle/asn1/DERTaggedObject
+abcd/GM org/bouncycastle/asn1/DLTaggedObject
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 	v5 ()I encodedLength
@@ -314,6 +319,7 @@ abcd/GN org/bouncycastle/asn1/x509/V3TBSCertificateGenerator
 	VH subject
 	Hw issuer
 	we subjectUniqueID
+	j6 version
 abcd/GO org/bouncycastle/crypto/digests/SHA224Digest
 	DW ()I getDigestSize
 	DW ([BI)V processWord
@@ -355,6 +361,7 @@ abcd/HL org/bouncycastle/asn1/ASN1Set
 	j6 set
 	gn ()Labcd/EL; toDLObject
 	tp ()I size
+	VH ()Labcd/EL; toDERObject
 abcd/HM org/bouncycastle/asn1/DefiniteLengthInputStream
 	DW ()[B toByteArray
 	FH EMPTY_BYTES
@@ -524,10 +531,11 @@ abcd/KM org/bouncycastle/asn1/LazyConstructionEnumeration
 	DW nextObj
 	j6 aIn
 	j6 ()Ljava/lang/Object; readObject
-abcd/KN org/bouncycastle/asn1/x509/ExtensionsGenerator
+abcd/KN org/bouncycastle/asn1/x509/X509ExtensionsGenerator
 	DW ()Z isEmpty
 	DW extOrdering
 	j6 extensions
+	j6 ()Labcd/JN; generate
 abcd/KO org/bouncycastle/crypto/engines/GOST28147Engine
 	j6 (II)I GOST28147_mainStep
 	j6 ([BI)I bytesToint
@@ -569,6 +577,7 @@ abcd/LL org/bouncycastle/asn1/ASN1TaggedObject
 	gn ()Labcd/EL; toDLObject
 	FH explicit
 	DW empty
+	VH ()Labcd/EL; toDERObject
 abcd/LM org/bouncycastle/asn1/LazyEncodedSequence
 	we ()V parse
 	j6 (I)Labcd/qL; getObjectAt
@@ -578,6 +587,7 @@ abcd/LM org/bouncycastle/asn1/LazyEncodedSequence
 	tp ()I size
 	v5 ()I encodedLength
 	gn ()Labcd/EL; toDLObject
+	VH ()Labcd/EL; toDERObject
 abcd/LN org/bouncycastle/asn1/x509/X509Name
 	FH (Ljava/lang/String;)Labcd/EL; decodeObject
 	j6 (Ljava/lang/Object;)Labcd/LN; getInstance
@@ -600,8 +610,10 @@ abcd/LN org/bouncycastle/asn1/x509/X509Name
 	x9 added
 	ca values
 	I ordering
-abcd/LO org/bouncycastle/crypto/generators/ElGamalKeyPairGenerator
+abcd/LO org/bouncycastle/crypto/generators/DHKeyPairGenerator
 	j6 (Labcd/uO;)V init
+	j6 ()Labcd/oO; generateKeyPair
+	j6 param
 abcd/LP org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$1
 	j6 (Labcd/wN;)Labcd/zP; get
 	j6 this$0
@@ -627,7 +639,7 @@ abcd/MP$a org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$Di
 	j6 ()[B getDigest
 	DW this$0
 	j6 dig
-abcd/NL org/bouncycastle/asn1/DERUTCTime
+abcd/NL org/bouncycastle/asn1/ASN1UTCTime
 abcd/NM org/bouncycastle/asn1/OIDTokenizer
 	DW ()Ljava/lang/String; nextToken
 	j6 ()Z hasMoreTokens
@@ -668,6 +680,7 @@ abcd/ON org/bouncycastle/asn1/x9/DHDomainParameters
 	FH q
 	j6 p
 	DW g
+	v5 validationParms
 abcd/OO org/bouncycastle/crypto/generators/DHParametersHelper
 	j6 (Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/SecureRandom;)Ljava/math/BigInteger; selectGenerator
 	j6 (IILjava/security/SecureRandom;)[Ljava/math/BigInteger; generateSafePrimes
@@ -692,10 +705,11 @@ abcd/PM org/bouncycastle/asn1/bc/BCObjectIdentifiers
 	J8 bc_pbe_sha1_pkcs12_aes256_cbc
 	J0 bc_pbe_sha1_pkcs12_aes192_cbc
 	DW bc
-abcd/PN org/bouncycastle/asn1/crmf/SinglePubInfo
+abcd/PN org/bouncycastle/asn1/x9/DHValidationParms
 	j6 (Ljava/lang/Object;)Labcd/PN; getInstance
 	DW ()Labcd/EL; toASN1Primitive
 	DW pubMethod
+	j6 seed
 abcd/PO org/bouncycastle/crypto/params/AsymmetricKeyParameter
 	j6 ()Z isPrivate
 	j6 privateKey
@@ -706,9 +720,12 @@ abcd/QL org/bouncycastle/asn1/BERFactory
 	j6 (Labcd/rL;)Labcd/UL; createSequence
 	DW EMPTY_SET
 	j6 EMPTY_SEQUENCE
-abcd/QM org/bouncycastle/asn1/crmf/PKIPublicationInfo
+abcd/QM org/bouncycastle/asn1/cms/Attribute
 	j6 (Ljava/lang/Object;)Labcd/QM; getInstance
 	DW ()Labcd/EL; toASN1Primitive
+	v5 ()Labcd/zL; getAttrType
+	DW attrValues
+	j6 attrType
 abcd/QN org/bouncycastle/asn1/x9/X9ObjectIdentifiers
 	u7 ecdsa_with_SHA1
 	Ws ecdsa_with_SHA384
@@ -731,7 +748,7 @@ abcd/RM org/bouncycastle/asn1/cms/AttributeTable
 	j6 (Ljava/util/Hashtable;)Ljava/util/Hashtable; copyTable
 	j6 ()Labcd/rL; toASN1EncodableVector
 	j6 attributes
-abcd/RN org/bouncycastle/util/StoreException
+abcd/RN org/bouncycastle/cert/CertIOException
 	j6 _e
 abcd/RO org/bouncycastle/crypto/params/DHKeyGenerationParameters
 	j6 (Labcd/TO;)I getStrength
@@ -764,7 +781,17 @@ abcd/TL org/bouncycastle/asn1/BEROctetStringParser
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/TM org/bouncycastle/asn1/icao/ICAOObjectIdentifiers
+abcd/TM org/bouncycastle/asn1/cms/CMSObjectIdentifiers
+	j6 data
+	DW signedData
+	v5 digestedData
+	u7 authEnvelopedData
+	tp timestampedData
+	gn compressedData
+	Zo encryptedData
+	VH authenticatedData
+	Hw signedAndEnvelopedData
+	FH envelopedData
 abcd/TN org/bouncycastle/cert/jcajce/JcaCertStore
 	j6 (Ljava/util/Collection;)Ljava/util/Collection; convertCerts
 abcd/TO org/bouncycastle/crypto/params/DHParameters
@@ -774,10 +801,11 @@ abcd/TO org/bouncycastle/crypto/params/DHParameters
 	Hw ()Ljava/math/BigInteger; getP
 	v5 ()Ljava/math/BigInteger; getQ
 	j6 ()Ljava/math/BigInteger; getG
-	DW g
+	DW p
 	v5 m
 	Zo l
 	FH q
+	Hw j
 abcd/TP org/bouncycastle/util/Strings
 	j6 ([B)[C asCharArray
 	FH (Ljava/lang/String;)Ljava/lang/String; toUpperCase
@@ -806,7 +834,9 @@ abcd/VL org/bouncycastle/asn1/DERSetParser
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/VN org/bouncycastle/util/test/TestFailedException
+abcd/VN org/bouncycastle/cms/CMSAbsentContent
+	j6 (Ljava/io/OutputStream;)V write
+	j6 type
 abcd/VO org/bouncycastle/crypto/params/DHPublicKeyParameters
 	FH ()Ljava/math/BigInteger; getY
 	FH y
@@ -818,10 +848,19 @@ abcd/VP org/bouncycastle/util/encoders/Hex
 abcd/WL org/bouncycastle/asn1/BERSet
 	j6 (Labcd/CL;)V encode
 	v5 ()I encodedLength
-abcd/WM org/bouncycastle/asn1/cms/SignerInfo
+abcd/WM org/bouncycastle/asn1/cms/SignedData
 	j6 (Ljava/lang/Object;)Labcd/WM; getInstance
 	DW ()Labcd/EL; toASN1Primitive
 	j6 version
+	j6 (Labcd/zL;Labcd/HL;Labcd/HL;Labcd/HL;)Labcd/wL; calculateVersion
+	j6 (Labcd/HL;)Z checkForVersion3
+	FH contentInfo
+	Zo signerInfos
+	DW digestAlgorithms
+	Hw certificates
+	gn crlsBer
+	VH certsBer
+	v5 crls
 abcd/WN org/bouncycastle/cms/CMSAttributeTableGenerator
 abcd/WP org/bouncycastle/util/encoders/HexEncoder
 	j6 ()V initialiseDecodingTable
@@ -854,9 +893,18 @@ abcd/YL org/bouncycastle/asn1/BERTaggedObject
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 	v5 ()I encodedLength
-abcd/YM org/bouncycastle/asn1/cmp/KeyRecRepContent
+abcd/YM org/bouncycastle/asn1/cms/SignerInfo
 	j6 (Ljava/lang/Object;)Labcd/YM; getInstance
 	DW ()Labcd/EL; toASN1Primitive
+	Zo ()Labcd/wL; getVersion
+	DW sid
+	Zo encryptedDigest
+	j6 version
+	v5 ()Labcd/wN; getDigestAlgorithm
+	v5 digEncryptionAlgorithm
+	FH digAlgorithm
+	VH unauthenticatedAttributes
+	Hw authenticatedAttributes
 abcd/YN org/bouncycastle/cms/CMSProcessable
 	j6 (Ljava/io/OutputStream;)V write
 abcd/YO org/bouncycastle/crypto/params/ParametersWithSBox
@@ -887,7 +935,7 @@ abcd/ZO org/bouncycastle/crypto/util/Pack
 	DW (J[BI)V longToLittleEndian
 	DW (I[BI)V intToLittleEndian
 	j6 ([BI)I bigEndianToInt
-abcd/ZP org/bouncycastle/util/StreamParsingException
+abcd/ZP org/bouncycastle/jce/exception/ExtCertificateEncodingException
 	j6 _e
 abcd/_L org/bouncycastle/asn1/ConstructedOctetStream
 	DW _first
@@ -952,11 +1000,16 @@ abcd/aN org/bouncycastle/asn1/eac/EACObjectIdentifiers
 	J8 id_TA_RSA_PSS_SHA_1
 	J0 id_TA_RSA_v1_5_SHA_256
 	DW bsi_de
-abcd/aO org/bouncycastle/crypto/params/MQVPrivateParameters
+abcd/aO org/bouncycastle/cms/CMSSignedData
+	DW ()Labcd/WM; getSignedData
+	j6 HELPER
+	DW signedData
+	FH contentInfo
+	Hw signedContent
 abcd/aP org/bouncycastle/jcajce/JcaJceHelper
 	DW (Ljava/lang/String;)Ljava/security/MessageDigest; createDigest
 	j6 (Ljava/lang/String;)Ljava/security/Signature; createSignature
-abcd/aQ org/bouncycastle/x509/X509V1CertificateGenerator
+abcd/aQ org/bouncycastle/x509/X509V3CertificateGenerator
 	j6 (Labcd/DN;[B)Ljava/security/cert/X509Certificate; generateJcaObject
 	j6 (Ljava/lang/String;)V setSignatureAlgorithm
 	j6 (Ljava/math/BigInteger;)V setSerialNumber
@@ -968,6 +1021,11 @@ abcd/aQ org/bouncycastle/x509/X509V1CertificateGenerator
 	j6 (Ljava/security/PrivateKey;Ljava/lang/String;Ljava/security/SecureRandom;)Ljava/security/cert/X509Certificate; generate
 	j6 (Ljavax/security/auth/x500/X500Principal;)V setSubjectDN
 	j6 (Ljava/security/PrivateKey;Ljava/lang/String;)Ljava/security/cert/X509Certificate; generate
+	j6 ()Labcd/DN; generateTbsCert
+	j6 tbsGen
+	v5 extGenerator
+	j6 (Ljava/util/Date;)V setNotAfter
+	DW (Ljava/util/Date;)V setNotBefore
 abcd/bM org/bouncycastle/asn1/DERBMPString
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
@@ -976,7 +1034,11 @@ abcd/bM org/bouncycastle/asn1/DERBMPString
 	v5 ()I encodedLength
 abcd/bN org/bouncycastle/asn1/iana/IANAObjectIdentifiers
 	DW isakmpOakley
-abcd/bO org/bouncycastle/ocsp/OCSPReqGenerator$RequestObject
+abcd/bO org/bouncycastle/cms/CMSSignedDataGenerator$1
+	j6 (Ljava/io/OutputStream;)V write
+	DW val$contentTypeOID
+	FH val$content
+	j6 this$0
 abcd/bP org/bouncycastle/jcajce/NamedJcaJceHelper
 	DW (Ljava/lang/String;)Ljava/security/MessageDigest; createDigest
 	j6 (Ljava/lang/String;)Ljava/security/Signature; createSignature
@@ -1000,6 +1062,9 @@ abcd/cN org/bouncycastle/asn1/kisa/KISAObjectIdentifiers
 	j6 id_seedCBC
 abcd/cO org/bouncycastle/cms/CMSSignedDataGenerator
 	ei signerInfs
+	j6 (Labcd/fO;Z)Labcd/aO; generate
+	j6 (Ljava/lang/String;Labcd/YN;ZLjava/lang/String;Z)Labcd/aO; generate
+	j6 (Ljava/lang/String;Labcd/YN;ZLjava/security/Provider;Z)Labcd/aO; generate
 abcd/cO$a org/bouncycastle/cms/CMSSignedDataGenerator$SignerInf
 	j6 (Ljava/security/SecureRandom;Ljava/security/Provider;Z)Labcd/kO; toSignerInfoGenerator
 	DW signerIdentifier
@@ -1093,6 +1158,7 @@ abcd/gO org/bouncycastle/cms/CMSUtils
 	j6 (Ljava/io/OutputStream;Ljava/io/OutputStream;)Ljava/io/OutputStream; getSafeTeeOutputStream
 	j6 (Ljava/util/Collection;Ljava/io/OutputStream;)Ljava/io/OutputStream; attachSignersToOutputStream
 	j6 (Ljava/lang/String;)Ljava/security/Provider; getProvider
+	j6 (Ljava/util/List;)Labcd/HL; createBerSetFromList
 abcd/gP org/bouncycastle/jcajce/provider/config/ConfigurableProvider
 	j6 (Ljava/lang/String;Ljava/lang/String;)V addAlgorithm
 abcd/hM org/bouncycastle/asn1/DERFactory
@@ -1198,6 +1264,8 @@ abcd/kO org/bouncycastle/cms/SignerInfoGenerator
 	v5 digester
 	DW sAttrGen
 	FH unsAttrGen
+	j6 (Labcd/zL;)Labcd/YM; generate
+	Zo digAlgFinder
 abcd/lM org/bouncycastle/asn1/DERInteger
 	j6 (Labcd/LL;Z)Labcd/wL; getInstance
 	j6 (Ljava/lang/Object;)Labcd/wL; getInstance
@@ -1237,6 +1305,16 @@ abcd/lN org/bouncycastle/asn1/pkcs/PKCSObjectIdentifiers
 	U2 pbeWithMD5AndDES_CBC
 	Mr pbeWithMD2AndRC2_CBC
 	Lz id_alg_CMS3DESwrap
+	vJ digestedData
+	sG signedData
+	mb id_ct_authEnvelopedData
+	jw id_ct_timestampedData
+	g3 encryptedData
+	ef envelopedData
+	dx data
+	WB id_ct_compressedData
+	Sf signedAndEnvelopedData
+	Ev id_ct_authData
 abcd/lO org/bouncycastle/cms/SignerInfoGeneratorBuilder
 	j6 (Labcd/vP;Labcd/XM;)Labcd/kO; createGenerator
 	j6 (Labcd/vP;Labcd/SN;)Labcd/kO; build
@@ -1263,7 +1341,11 @@ abcd/mN org/bouncycastle/asn1/pkcs/PrivateKeyInfo
 	FH attributes
 	j6 privKey
 	DW ()Labcd/EL; toASN1Primitive
-abcd/mO org/bouncycastle/crypto/AsymmetricCipherKeyPair
+abcd/mO org/bouncycastle/cms/SignerInformation
+	j6 ()Labcd/wN; getDigestAlgorithmID
+	j6 info
+	DW ()Labcd/YM; toASN1Structure
+	DW digestAlgorithm
 abcd/mP org/bouncycastle/jce/X509Principal
 	j6 (Labcd/vL;)Labcd/FL; readSequence
 	Hw ()[B getEncoded
@@ -1321,7 +1403,11 @@ abcd/oN org/bouncycastle/asn1/teletrust/TeleTrusTObjectIdentifiers
 	VH rsaSignatureWithripemd128
 	v5 teleTrusTRSAsignatureAlgorithm
 	BT teleTrusTAlgorithm
-abcd/oO org/bouncycastle/crypto/params/MQVPublicParameters
+abcd/oO org/bouncycastle/crypto/AsymmetricCipherKeyPair
+	j6 ()Labcd/qO; getPrivate
+	DW ()Labcd/qO; getPublic
+	j6 publicParam
+	DW privateParam
 abcd/oP org/bouncycastle/jce/provider/BouncyCastleProvider$1
 	j6 this$0
 abcd/pL org/bouncycastle/asn1/ASN1Choice
@@ -1437,7 +1523,7 @@ abcd/tP org/bouncycastle/jce/provider/X509CertificateObject
 	v5 hashValue
 	j6 ()I calculateHashCode
 	j6 (Ljava/lang/String;)[B getExtensionBytes
-abcd/uL org/bouncycastle/asn1/eac/CertificationAuthorityReference
+abcd/uL org/bouncycastle/asn1/ASN1GeneralizedTime
 abcd/uM org/bouncycastle/asn1/BERSetParser
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
@@ -1586,7 +1672,7 @@ abcd/yL org/bouncycastle/asn1/ASN1Object
 	Hw ()[B getEncoded
 	j6 (Ljava/lang/String;)[B getEncoded
 	DW ()Labcd/EL; toASN1Primitive
-abcd/yM org/bouncycastle/asn1/DLTaggedObject
+abcd/yM org/bouncycastle/asn1/DERTaggedObject
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 	v5 ()I encodedLength
@@ -1600,6 +1686,7 @@ abcd/yN org/bouncycastle/asn1/x509/Certificate
 	Hw sig
 	j6 seq
 	v5 ()Labcd/sN; getIssuer
+	Zo ()Labcd/wL; getVersion
 abcd/yO org/bouncycastle/crypto/digests/LongDigest
 	DW ([BI)V processWord
 	j6 (B)V update
@@ -1628,11 +1715,20 @@ abcd/yO org/bouncycastle/crypto/digests/LongDigest
 	Zo H1
 	VH H2
 	EQ H6
-abcd/yP org/bouncycastle/pkcs/PKCS12MacCalculatorBuilderProvider
+abcd/yP org/bouncycastle/operator/DigestAlgorithmIdentifierFinder
 	j6 (Labcd/wN;)Labcd/wN; find
 abcd/zL org/bouncycastle/asn1/ASN1ObjectIdentifier
 	DW (Ljava/lang/String;)Labcd/zL; branch
-abcd/zM org/bouncycastle/asn1/ASN1UTCTime
+abcd/zM org/bouncycastle/asn1/DERUTCTime
+	Zo ()Z isConstructed
+	j6 (Labcd/CL;)V encode
+	j6 (Labcd/EL;)Z asn1Equals
+	j6 time
+	u7 ()Ljava/util/Date; getAdjustedDate
+	EQ ()Ljava/util/Date; getDate
+	v5 ()I encodedLength
+	we ()Ljava/lang/String; getTime
+	tp ()Ljava/lang/String; getAdjustedTime
 abcd/zN org/bouncycastle/asn1/x509/Extension
 	DW ()Z isCritical
 	j6 ()Labcd/AL; getExtnValue

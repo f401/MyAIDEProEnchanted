@@ -74,7 +74,7 @@ def show(c, full=False):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('cmd', choices=['show', 'find', 'who', 'str', 'cand'])
+    ap.add_argument('cmd', choices=['show', 'find', 'who', 'str', 'cand', 'probe'])
     ap.add_argument('args', nargs='*')
     ap.add_argument('--jar', default=DEF_JAR)
     ap.add_argument('--pkgs', default='')
@@ -132,6 +132,40 @@ def main():
                     hits.add('extends ' + F(x))
             if hits:
                 print('%-56s %s' % (F(cn), sorted(hits)[:4]))
+    elif a.cmd == 'probe':
+        # 看**探针**类：成员/串 + 引用者（名字经 class_map 归一），人工定名用
+        cm = {}
+        if a.map:
+            for ln in open(os.path.expanduser(a.map), encoding='utf-8'):
+                t = ln.rstrip('\n').split('\t')
+                if len(t) >= 2 and t[1]:
+                    cm[t[0] if '/' in t[0] else 'abcd/' + t[0]] = t[1]
+        P = classes(a.probe_jar, 'abcd')
+        pin = collections.defaultdict(collections.Counter)
+        for cn, c in P.items():
+            for (ow, nm, ds, tag) in (c.get('refmap') or {}).values():
+                if ow and ow != cn:
+                    pin[ow][(cn, '%s%s' % (nm, ds))] += 1
+            for x in ([c['sup']] + list(c['ifaces'] or [])):
+                if x and x != cn:
+                    pin[x][(cn, '<extends>')] += 1
+        for pn in a.args:
+            pn = pn if '/' in pn else 'abcd/' + pn
+            c = P.get(pn)
+            if not c:
+                print('!! 没有', pn); continue
+            g = lambda x: F(cm.get(x, x) if x else '')
+            print('== %s -> %s  sup=%s if=%s' % (pn, cm.get(pn, '?'), g(c['sup']),
+                                                 [g(i) for i in (c['ifaces'] or [])]))
+            for m in c['members']:
+                print('   %s %-10s %-5s %s' % (m['kind'], m['name'],
+                                               'S' if m['acc'] & 8 else '', g(m['desc'])))
+            strs = sorted(set(c['utf'].get(i) for i in (c['strs'] or {}).values() if c['utf'].get(i)))
+            if strs:
+                print('   S %s' % strs[:6])
+            ins = sorted(set('%s | %s' % (cm.get(o, o), d) for (o, d) in pin.get(pn, {})))
+            if ins:
+                print('   IN %s' % ins[:8])
     elif a.cmd == 'cand':
         # 以探针类为输入，列 oracle 候选：描述符集包含 + 超类一致 + 字符串/接口证据
         cm = {}
