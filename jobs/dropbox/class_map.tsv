@@ -1,0 +1,4 @@
+abcd/Hw	com/dropbox/core/DbxSdkVersion	str:"1.6.2"（SDK 版本号常量）
+abcd/Iw	com/dropbox/core/http/SSLConfig	str:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 等套件表 + shape 0.63
+abcd/Jw	com/dropbox/core/DbxSessionStore	shape 0.67 三版一致（3 方法接口实现）
+abcd/Uw	com/dropbox/core/DbxClient$IODbxException	str:"Accept-Encoding"/"gzip" + shape 0.67 三版一致

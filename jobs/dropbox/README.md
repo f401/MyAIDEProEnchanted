@@ -46,7 +46,28 @@ abcd/yk$h    appfour 自己的 'Subscription WS Client' + api.appfour.com（不�
 不能靠单一版本收敛。下一步要么找到那份 fork 的源码，要么按"多版本交集 + 引用者 + 常量串"
 逐个裁决（和 jgit 的多版本回归一个套路）。
 
-## 4) 待办
+## 3b) 版本已定：**1.6.x**（不是 1.7/1.8）
+
+`abcd/Hw` 的常量串是 `1.6.2` —— 那是 SDK 的 `DbxSdkVersion` 版本号常量。加上形状分也是 1.6 最高
+（`Dw` 0.55 vs 1.7.7 的 0.38），所以**主 oracle 用 1.6**，另外两版只作参照。
+
+已经用证据定下的 4 个（写进 `class_map.tsv`）：
+
+| 探针 | 结论 | 判据 |
+|---|---|---|
+| `Hw` | `DbxSdkVersion` | 串 `1.6.2` |
+| `Iw` | `http/SSLConfig` | TLS 套件表（`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`…）+ 0.63 |
+| `Jw` | `DbxSessionStore` | 三版一致 0.67 |
+| `Uw` | `DbxClient$IODbxException` | 三版一致 0.67 + 串 `Accept-Encoding`/`gzip` |
+
+## 4) 为什么这块比 spongycastle 难
+
+50 个类里**一半以上是匿名内部类**（`Dw$a…$g`、`Ww$a…$e`、`Zw$a/$b`、`Fw$a$a`…）。
+它们的原名叫 `DbxClient$1`、`DbxEntry$File$1` 这种，形状只有 1~2 个方法，
+**形状指纹和常量串都不可用**，只能靠"外层类 + 出现顺序"，而顺序又不可靠（见 §3 的教训）。
+所以这批大概率走「按作用命名」：`DbxClient$UploadProgressListener1` 之类。
+
+## 5) 待办
 
 1. 先把 5 条一致的和冲突的逐个用 `ql probe`/`ql cand` 复核；
 2. 剩下 38 个（含 5 个 appfour 自有类）按作用命名收口；
