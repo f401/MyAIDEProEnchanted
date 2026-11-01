@@ -1,6 +1,6 @@
 abcd/AL org/bouncycastle/asn1/ASN1OctetString
 abcd/AM org/bouncycastle/asn1/DERUTF8String
-abcd/AN org/bouncycastle/asn1/pkcs/AuthenticatedSafe
+abcd/AN org/bouncycastle/asn1/x509/Extensions
 abcd/AO org/bouncycastle/crypto/digests/MD4Digest
 abcd/AP org/bouncycastle/operator/DigestCalculatorProvider
 abcd/BL org/bouncycastle/asn1/ASN1OctetStringParser
@@ -11,7 +11,7 @@ abcd/BP org/bouncycastle/operator/OperatorCreationException
 abcd/CL org/bouncycastle/asn1/ASN1OutputStream
 abcd/CL$a org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream
 abcd/CM org/bouncycastle/asn1/DERVisibleString
-abcd/CN org/bouncycastle/asn1/esf/OtherRevVals
+abcd/CN org/bouncycastle/asn1/x509/SubjectPublicKeyInfo
 abcd/CO org/bouncycastle/crypto/digests/RIPEMD128Digest
 abcd/CP org/bouncycastle/operator/OperatorException
 abcd/DL org/bouncycastle/asn1/ASN1ParsingException
@@ -90,12 +90,12 @@ abcd/QP org/bouncycastle/util/CollectionStore
 abcd/RL org/bouncycastle/asn1/BEROctetString$1
 abcd/RM org/bouncycastle/asn1/cms/AttributeTable
 abcd/RN org/bouncycastle/util/StoreException
-abcd/RO org/bouncycastle/crypto/params/ElGamalKeyGenerationParameters
+abcd/RO org/bouncycastle/crypto/params/DHKeyGenerationParameters
 abcd/RP org/bouncycastle/util/Selector
 abcd/SL org/bouncycastle/asn1/BEROctetString
 abcd/SM org/bouncycastle/asn1/x509/qualified/ETSIQCObjectIdentifiers
 abcd/SN org/bouncycastle/cert/cmp/GeneralPKIMessage
-abcd/SO org/bouncycastle/crypto/params/ElGamalKeyParameters
+abcd/SO org/bouncycastle/crypto/params/DHKeyParameters
 abcd/SP org/bouncycastle/util/Store
 abcd/TL org/bouncycastle/asn1/BEROctetStringParser
 abcd/TM org/bouncycastle/asn1/icao/ICAOObjectIdentifiers
@@ -109,7 +109,7 @@ abcd/UO org/bouncycastle/crypto/params/DHPrivateKeyParameters
 abcd/UP org/bouncycastle/util/encoders/Encoder
 abcd/VL org/bouncycastle/asn1/DERSetParser
 abcd/VN org/bouncycastle/util/test/TestFailedException
-abcd/VO org/bouncycastle/crypto/params/ElGamalPrivateKeyParameters
+abcd/VO org/bouncycastle/crypto/params/DHPublicKeyParameters
 abcd/VP org/bouncycastle/util/encoders/Hex
 abcd/WL org/bouncycastle/asn1/BERSet
 abcd/WM org/bouncycastle/asn1/cms/SignerInfo
@@ -209,12 +209,12 @@ abcd/qO org/bouncycastle/crypto/CipherParameters
 abcd/qP org/bouncycastle/jce/provider/BouncyCastleProviderConfiguration
 abcd/rL org/bouncycastle/asn1/ASN1EncodableVector
 abcd/rM org/bouncycastle/asn1/DEROutputStream
-abcd/rN org/bouncycastle/asn1/isismtt/x509/AdmissionSyntax
+abcd/rN org/bouncycastle/asn1/x500/RDN
 abcd/rO org/bouncycastle/crypto/DataLengthException
 abcd/rP org/bouncycastle/jcajce/provider/asymmetric/dsa/DSASigner$dsa224
 abcd/sL org/bouncycastle/asn1/ASN1Enumerated
 abcd/sM org/bouncycastle/asn1/DERPrintableString
-abcd/sN org/bouncycastle/jcajce/provider/asymmetric/rsa/PSSSignatureSpi$NullPssDigest
+abcd/sN org/bouncycastle/asn1/x500/X500Name
 abcd/sO org/bouncycastle/crypto/Digest
 abcd/tL org/bouncycastle/asn1/ASN1Exception
 abcd/tM org/bouncycastle/asn1/DERSequence

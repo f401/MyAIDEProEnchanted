@@ -1,6 +1,6 @@
 abcd/AL	org/bouncycastle/asn1/ASN1OctetString	str:'failed to construct OCTET STRING from byte[]: ' 唯一
 abcd/AM	org/bouncycastle/asn1/DERUTF8String	tag:encode 写 0x0c (UTF8_STRING)
-abcd/AN	org/bouncycastle/asn1/pkcs/AuthenticatedSafe	shape:0.583
+abcd/AN	org/bouncycastle/asn1/x509/Extensions	shape:Vector+Hashtable+getExtension(ASN1ObjectIdentifier)Extension+串 "Bad sequence size: "
 abcd/AO	org/bouncycastle/crypto/digests/MD4Digest	str:'MD4'
 abcd/AP	org/bouncycastle/operator/DigestCalculatorProvider	impl:{BcDigestCalculatorProvider,JcaDigestCalculatorProviderBuilder$1} 唯一
 abcd/BL	org/bouncycastle/asn1/ASN1OctetStringParser	impl:{ASN1OctetString,BEROctetStringParser,DEROctetStringParser} 唯一
@@ -11,7 +11,7 @@ abcd/BP	org/bouncycastle/operator/OperatorCreationException	shape:1.000
 abcd/CL	org/bouncycastle/asn1/ASN1OutputStream	shape:0.576
 abcd/CL$a	org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream	shape:1.000
 abcd/CM	org/bouncycastle/asn1/DERVisibleString	tag:encode 写 0x1a (VISIBLE_STRING)
-abcd/CN	org/bouncycastle/asn1/esf/OtherRevVals	shape:0.727
+abcd/CN	org/bouncycastle/asn1/x509/SubjectPublicKeyInfo	shape:字段{AlgorithmIdentifier,DERBitString}+ctor(AlgorithmIdentifier,ASN1Encodable)+getPublicKeyData；引用者全部调 getInstance(Object)
 abcd/CO	org/bouncycastle/crypto/digests/RIPEMD128Digest	str:'RIPEMD128'
 abcd/CP	org/bouncycastle/operator/OperatorException	被 OperatorCreationException 继承；Exception 同形族唯一可承继者
 abcd/DL	org/bouncycastle/asn1/ASN1ParsingException	sup=IllegalStateException 的同类唯一
@@ -90,12 +90,12 @@ abcd/QP	org/bouncycastle/util/CollectionStore	shape:0.600
 abcd/RL	org/bouncycastle/asn1/BEROctetString$1	shape:0.889
 abcd/RM	org/bouncycastle/asn1/cms/AttributeTable	shape:Hashtable + (Hashtable)Hashtable + ()ASN1EncodableVector；全 jar 唯一
 abcd/RN	org/bouncycastle/util/StoreException	shape:1.000
-abcd/RO	org/bouncycastle/crypto/params/ElGamalKeyGenerationParameters	shape:1.000
+abcd/RO	org/bouncycastle/crypto/params/DHKeyGenerationParameters	shape:ctor(SecureRandom,DHParameters) + getParameters()
 abcd/RP	org/bouncycastle/util/Selector	单方法 (Object)Z + java/lang/Cloneable
 abcd/SL	org/bouncycastle/asn1/BEROctetString	shape:0.667
 abcd/SM	org/bouncycastle/asn1/x509/qualified/ETSIQCObjectIdentifiers	shape:1.000
 abcd/SN	org/bouncycastle/cert/cmp/GeneralPKIMessage	shape:0.700
-abcd/SO	org/bouncycastle/crypto/params/ElGamalKeyParameters	shape:0.778
+abcd/SO	org/bouncycastle/crypto/params/DHKeyParameters	shape:extends AsymmetricKeyParameter + DHParameters 字段 + ctor(boolean,DHParameters)
 abcd/SP	org/bouncycastle/util/Store	impl:{CollectionStore}，方法 (Selector)Collection
 abcd/TL	org/bouncycastle/asn1/BEROctetStringParser	shape:1.000
 abcd/TM	org/bouncycastle/asn1/icao/ICAOObjectIdentifiers	shape:1.000
@@ -105,11 +105,11 @@ abcd/TP	org/bouncycastle/util/Strings	DERUTCTime/DERUTF8String 调 (String)[B/([
 abcd/UL	org/bouncycastle/asn1/BERSequence	shape:0.692
 abcd/UM	org/bouncycastle/asn1/cms/ContentInfo	shape:0.857
 abcd/UN	org/bouncycastle/cert/jcajce/JcaX509CertificateHolder	shape:1.000
-abcd/UO	org/bouncycastle/crypto/params/DHPrivateKeyParameters	shape:0.889
+abcd/UO	org/bouncycastle/crypto/params/DHPrivateKeyParameters	shape:extends DHKeyParameters + BigInteger + ctor(BigInteger,DHParameters)
 abcd/UP	org/bouncycastle/util/encoders/Encoder	impl:{HexEncoder} 唯一
 abcd/VL	org/bouncycastle/asn1/DERSetParser	shape:0.667
 abcd/VN	org/bouncycastle/util/test/TestFailedException	shape:0.750
-abcd/VO	org/bouncycastle/crypto/params/ElGamalPrivateKeyParameters	shape:1.000
+abcd/VO	org/bouncycastle/crypto/params/DHPublicKeyParameters	shape:extends DHKeyParameters + BigInteger（ElGamal 同形但 jsch 的 DH 链路用的是 DH）
 abcd/VP	org/bouncycastle/util/encoders/Hex	shape:static Encoder 字段 = new HexEncoder()；全 jar 唯一
 abcd/WL	org/bouncycastle/asn1/BERSet	shape:0.800
 abcd/WM	org/bouncycastle/asn1/cms/SignerInfo	shape:0.607
@@ -209,12 +209,12 @@ abcd/qO	org/bouncycastle/crypto/CipherParameters	impl:{AsymmetricKeyParameter,DH
 abcd/qP	org/bouncycastle/jce/provider/BouncyCastleProviderConfiguration	shape:0.667
 abcd/rL	org/bouncycastle/asn1/ASN1EncodableVector	shape:1.000
 abcd/rM	org/bouncycastle/asn1/DEROutputStream	shape:1.000
-abcd/rN	org/bouncycastle/asn1/isismtt/x509/AdmissionSyntax	shape:0.769
+abcd/rN	org/bouncycastle/asn1/x500/RDN	shape:单字段 ASN1Set + getFirst()/getTypesAndValues()/isMultiValued()；是被 X500Name.getRDNs() 返回的元素类型
 abcd/rO	org/bouncycastle/crypto/DataLengthException	extends RuntimeCryptoException，单 (String) 构造器
 abcd/rP	org/bouncycastle/jcajce/provider/asymmetric/dsa/DSASigner$dsa224	shape:1.000
 abcd/sL	org/bouncycastle/asn1/ASN1Enumerated	extends DEREnumerated；DEREnumerated.cache 的元素类型
 abcd/sM	org/bouncycastle/asn1/DERPrintableString	tag:encode 写 0x13 (PRINTABLE_STRING)
-abcd/sN	org/bouncycastle/jcajce/provider/asymmetric/rsa/PSSSignatureSpi$NullPssDigest	shape:0.550
+abcd/sN	org/bouncycastle/asn1/x500/X500Name	shape:5 字段{style,boolean,int,style,RDN[]} + ctor(ASN1Sequence)/ctor(style,ASN1Sequence) + getRDNs；implements ASN1Choice
 abcd/sO	org/bouncycastle/crypto/Digest	shape:1.000
 abcd/tL	org/bouncycastle/asn1/ASN1Exception	引用者 ASN1InputStream/ASN1StreamParser；包私有构造器
 abcd/tM	org/bouncycastle/asn1/DERSequence	shape:0.800
