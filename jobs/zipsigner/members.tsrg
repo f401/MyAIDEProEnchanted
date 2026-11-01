@@ -1,0 +1,221 @@
+abcd/AA kellinwood/security/zipsigner/HexEncoder
+	j6 ()V initialiseDecodingTable
+	j6 ([BIILjava/io/OutputStream;)I encode
+	DW decodingTable
+	j6 encodingTable
+abcd/BA kellinwood/security/zipsigner/KeySet
+	DW ()Ljava/security/PrivateKey; getPrivateKey
+	FH ()Ljava/security/cert/X509Certificate; getPublicKey
+	Hw ()[B getSigBlockTemplate
+	j6 (Ljava/security/PrivateKey;)V setPrivateKey
+	j6 (Ljava/security/cert/X509Certificate;)V setPublicKey
+	j6 ([B)V setSigBlockTemplate
+	DW publicKey
+	FH privateKey
+	Hw sigBlockTemplate
+	j6 ()Ljava/lang/String; getName
+	j6 (Ljava/lang/String;)V setName
+	j6 name
+abcd/CA kellinwood/security/zipsigner/ProgressEvent
+	j6 (Ljava/lang/String;)V setMessage
+	j6 message
+	j6 (I)V setPercentDone
+	DW (I)V setPriority
+	FH priority
+	DW percentDone
+abcd/DA kellinwood/security/zipsigner/ProgressHelper
+	j6 ()V initProgress
+	j6 (ILjava/lang/String;)V progress
+	FH progressEvent
+	Hw listeners
+	j6 (I)V setProgressCurrentItem
+	DW (I)V setProgressTotalItems
+	DW progressCurrentItem
+	j6 progressTotalItems
+abcd/EA kellinwood/security/zipsigner/ProgressListener
+	j6 (Labcd/CA;)V onProgress
+abcd/FA kellinwood/security/zipsigner/ZipSignature
+	j6 (Ljava/security/PrivateKey;)V initSign
+	j6 ([B)V update
+	j6 ()[B sign
+	Hw cipher
+	v5 md
+	j6 beforeAlgorithmIdBytes
+	FH afterAlgorithmIdBytes
+	DW algorithmIdBytes
+abcd/GA kellinwood/security/zipsigner/ZipSigner
+	j6 ([B[BLjava/security/cert/X509Certificate;Ljava/io/OutputStream;)V signZipData
+	j6 ([BLjava/lang/String;)Ljava/security/spec/KeySpec; decryptPrivateKey
+	j6 (Ljava/util/Map;)Ljava/util/jar/Manifest; addDigestsToManifest
+	j6 (Ljava/util/Map;Labcd/NA;)V copyFiles
+	j6 (Ljava/util/jar/Manifest;Ljava/io/OutputStream;)V generateSignatureFile
+	j6 (Ljava/util/jar/Manifest;Ljava/util/Map;Labcd/NA;J)V copyFiles
+	DW (Ljava/net/URL;)Ljava/security/cert/X509Certificate; readPublicKey
+	j6 (Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String; autoDetectKey
+	j6 (Ljava/net/URL;Ljava/lang/String;)Ljava/security/PrivateKey; readPrivateKey
+	j6 (Ljava/lang/String;Ljava/lang/String;)V signZip
+	j6 (Ljava/lang/String;Ljava/security/cert/X509Certificate;Ljava/security/PrivateKey;[B)V setKeys
+	j6 (Ljava/util/Map;Ljava/io/OutputStream;Ljava/lang/String;)V signZip
+	j6 (Ljava/io/InputStream;)[B readContentAsBytes
+	j6 (Ljava/net/URL;)[B readContentAsBytes
+	DW stripPattern
+	FH SUPPORTED_KEY_MODES
+	j6 log
+	Hw canceled
+	VH keySet
+	gn keymode
+	tp autoKeyObservable
+	v5 progressHelper
+	j6 (Ljava/lang/String;)V loadKeys
+	DW (Ljava/lang/String;)V setKeymode
+	u7 autoKeyDetect
+	Zo loadedKeys
+	j6 ()Labcd/tA; getLogger
+abcd/GA$a kellinwood/security/zipsigner/ZipSigner$AutoKeyObservable
+abcd/HA kellinwood/zipio/CentralEnd
+	DW (Labcd/LA;)V doRead
+	j6 (Labcd/LA;)Labcd/HA; read
+	j6 (Labcd/NA;)V write
+	j6 log
+	u7 fileComment
+	DW signature
+	Hw centralStartDisk
+	FH numberThisDisk
+	gn centralStartOffset
+	VH centralDirectorySize
+	Zo totalCentralEntries
+	v5 numCentralEntries
+	j6 ()Labcd/tA; getLogger
+abcd/IA kellinwood/zipio/ZioEntry
+	XL diskNumberStart
+	aM internalAttributes
+	Mr ()V readLocalHeader
+	DW (Labcd/LA;)V doRead
+	j6 (Labcd/LA;)Labcd/IA; read
+	J0 ()Ljava/io/OutputStream; getOutputStream
+	aM ()Labcd/LA; getZipInput
+	j3 ()Z isDirectory
+	j6 (Ljava/io/OutputStream;)Ljava/io/InputStream; getInputStream
+	j6 (J)V setTime
+	u7 ()Ljava/io/InputStream; getInputStream
+	DW log
+	j6 alignBytes
+	FH zipInput
+	U2 dataPosition
+	lg entryOut
+	DW ()S getCompression
+	DW (Labcd/NA;)V writeLocalEntry
+	j6 (Labcd/NA;)V write
+	EQ ()Ljava/lang/String; getName
+	j6 ()I getCompressedSize
+	QX ()I getSize
+	FH ()I getCrc32
+	gn ()J getDataPosition
+	XL ()J getTime
+	v5 ()[B getData
+	we size
+	Mr localHeaderOffset
+	EQ compressedSize
+	tp crc32
+	VH compression
+	J0 filename
+	QX fileComment
+	a8 data
+	J8 extraData
+	j3 externalAttributes
+	Ws numAlignBytes
+	u7 modificationDate
+	gn modificationTime
+	v5 versionRequired
+	Hw versionMadeBy
+	Zo generalPurposeBits
+	tp ()Labcd/tA; getLogger
+abcd/JA kellinwood/zipio/ZioEntryInputStream
+	j6 (Ljava/io/OutputStream;)V setMonitorStream
+	j6 (Z)V setReturnDummyByte
+	Hw log
+	VH monitor
+	j6 raf
+	j6 ([BII)I readBytes
+	DW size
+	FH offset
+	Zo returnDummyByte
+	v5 debug
+abcd/KA kellinwood/zipio/ZioEntryOutputStream
+	FH ()Ljava/io/OutputStream; getWrappedStream
+	DW crc
+	j6 ()I getCRC
+	DW ()I getSize
+	j6 size
+	FH crcValue
+	Hw wrapped
+	v5 downstream
+abcd/LA kellinwood/zipio/ZipInput
+	j6 (Ljava/lang/String;)Labcd/LA; read
+	DW (I)Ljava/lang/String; readString
+	FH ()I readInt
+	FH (I)J scanForEOCDR
+	Hw ()S readShort
+	j6 ()Ljava/util/Map; getEntries
+	j6 (J)V seek
+	j6 (I)[B readBytes
+	j6 log
+	DW inputFilename
+	FH in
+	Hw fileLength
+	VH centralEnd
+	Zo zioEntries
+	v5 scanIterations
+	v5 ()V doRead
+	DW ()J getFilePointer
+	Zo ()Labcd/tA; getLogger
+abcd/MA kellinwood/zipio/ZipListingHelper
+	j6 (Labcd/tA;)V listHeader
+	j6 (Labcd/tA;Labcd/IA;)V listEntry
+	j6 dateFormat
+abcd/NA kellinwood/zipio/ZipOutput
+	DW ()I getFilePointer
+	j6 (I)V writeInt
+	j6 (Labcd/IA;)V write
+	j6 (S)V writeShort
+	j6 ([B)V writeBytes
+	j6 ([BII)V writeBytes
+	j6 log
+	DW out
+	FH filePointer
+	Hw entriesWritten
+	v5 namesWritten
+	j6 ()V close
+	j6 (Ljava/lang/String;)V writeString
+	FH ()Labcd/tA; getLogger
+abcd/sA kellinwood/logging/LoggerFactory
+	j6 (Ljava/lang/String;)Labcd/tA; getLogger
+abcd/tA kellinwood/logging/Logger
+	Hw (Ljava/lang/String;)V info
+	j6 (Ljava/lang/String;Ljava/lang/Throwable;)V error
+	DW (Ljava/lang/String;)V debug
+	FH (Ljava/lang/String;)V warn
+	j6 (Ljava/lang/String;)V error
+abcd/uA kellinwood/logging/LogManager
+	j6 (Ljava/lang/String;)Labcd/tA; getLogger
+	j6 factory
+	DW loggers
+abcd/vA kellinwood/logging/NullLoggerFactory$1
+	Hw (Ljava/lang/String;)V info
+	DW (Ljava/lang/String;)V debug
+	FH (Ljava/lang/String;)V warn
+	j6 (Ljava/lang/String;)V error
+	j6 (Ljava/lang/String;Ljava/lang/Throwable;)V error
+abcd/wA kellinwood/logging/NullLoggerFactory
+	j6 (Ljava/lang/String;)Labcd/tA; getLogger
+	j6 logger
+abcd/xA kellinwood/security/zipsigner/AutoKeyException
+abcd/yA kellinwood/security/zipsigner/Base64
+	j6 aEncodeMethod
+	j6 ([B)Ljava/lang/String; encode
+	Hw logger
+	DW bEncoder
+	FH bEncodeMethod
+abcd/zA kellinwood/security/zipsigner/HexDumpEncoder
+	j6 ([B)Ljava/lang/String; encode
+	j6 encoder

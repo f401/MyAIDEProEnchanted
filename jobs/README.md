@@ -1,6 +1,6 @@
 # jobs/ —— 一个依赖一个目录（真相）
 
-本仓库现在有七个（`process/deob.json` 的 `parts` 按这个顺序汇总）：
+本仓库现在有九个（`process/deob.json` 的 `parts` 按这个顺序汇总）：
 
 | 目录 | 依赖 | 判据来源 | 内容 |
 |---|---|---|---|
@@ -10,6 +10,7 @@
 | `dx` | dx **1.16 世系**（裁掉纯 CLI 子包） | 结构指纹 + 枚举锚点 + 引用集 + 实现者集合 | 448 类 / 4366 成员行 / 2321 参数行 |
 | `crashlytics` | crashlytics-core 2.7.0 / answers 1.4.7 / beta 1.2.10 / crashlytics 2.9.9 | 同上 + 常量串全集 + 外类锚定 | 176 类 / 815 成员行 / 590 参数行 |
 | `fabric` | fabric 1.4.8 | 同上（AAR 被 proguard 裁过，缺的按作用命名） | 64 类 / 331 成员行 / 204 参数行 |
+| `zipsigner` | kellinwood zipsigner 1.11 / zipio 1.6 / logging（Maven 没有，**自己用上游源码 javac 编 oracle**）| 串 + 字段类型 + 调用点常量 + 同方法体内字段读取顺序 | 23 类 / 105 成员行 / 94 参数行 — 见 [zipsigner/README.md](zipsigner/README.md) |
 | `spongycastle` | SpongyCastle(=BouncyCastle) **1.47**；用官方 bcprov/bcpkix-jdk15on-1.47 当同版本 oracle | tag 常量 / 常量串 Jaccard / 实现者集合 / 形状包含 / 引用者 | 253 类（257 中 4 个待定）/ 成员行待做 — 见 [spongycastle/README.md](spongycastle/README.md) |
 
 一个依赖就一个目录，**自包含**（可以嵌进某个 APK 的工程里当 part，也可以独立成工程）：

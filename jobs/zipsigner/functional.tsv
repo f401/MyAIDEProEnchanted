@@ -1,0 +1,19 @@
+# 按作用/证据命名的成员：类	旧名(+描述符)	新名	判据
+abcd/IA	XL	diskNumberStart	doRead 里字段读取顺序与 oracle 逐项对齐：…compressedSize,size,**diskNumberStart,internalAttributes**,externalAttributes…（十来个已定名字段当锚点全一致）
+abcd/IA	aM	internalAttributes	同上
+abcd/yA	j6	aEncodeMethod	clinit: Class.forName("android.util.Base64").getMethod("encode")
+abcd/yA	FH	bEncodeMethod	clinit: Class.forName("org.bouncycastle.util.encoders.Base64Encoder").getMethod("encode")
+abcd/GA	j6 ()Labcd/tA;	getLogger	唯一返回 Logger 的无参方法，被本类内部调用
+abcd/HA	j6 ()Labcd/tA;	getLogger	同上（各 zipio 类各自的 getLogger）
+abcd/IA	tp ()Labcd/tA;	getLogger	同上
+abcd/LA	Zo ()Labcd/tA;	getLogger	同上
+abcd/NA	FH ()Labcd/tA;	getLogger	同上
+abcd/tA	DW (Ljava/lang/String;)V	debug	调用点串 "Signature Decrypted: \n" 在源码里是 log.debug
+abcd/tA	FH (Ljava/lang/String;)V	warn	四个级别里已定 error(j6)/debug(DW)/info(Hw)，剩下 warn
+abcd/tA	j6 (Ljava/lang/String;)V	error	与同名的 (String,Throwable) 是重载；调用点串 "signapk: Password for private key may be bad." 在源码里是 log.error
+abcd/vA	DW (Ljava/lang/String;)V	debug	vA 实现 tA(Logger)，按接口一致
+abcd/vA	FH (Ljava/lang/String;)V	warn	同上
+abcd/vA	j6 (Ljava/lang/String;)V	error	同上
+abcd/vA	j6 (Ljava/lang/String;Ljava/lang/Throwable;)V	error	同上
+abcd/GA	j6 ([B[BLjava/security/cert/X509Certificate;Ljava/io/OutputStream;)V	signZipData	AIDE 改过签名（1.11 源码里没有这个 4 参方法），按作用命名
+abcd/yA	FH	bEncodeMethod	clinit: Class.forName("org.bouncycastle.util.encoders.Base64Encoder").getMethod("encode")（覆盖 membermatch 的 aEncodeMethod）

@@ -1,0 +1,23 @@
+abcd/AA	kellinwood/security/zipsigner/HexEncoder	ref:被 HexDumpEncoder 调用 <init>/encode；2×byte[] 编码表
+abcd/BA	kellinwood/security/zipsigner/KeySet	shape:0.778
+abcd/CA	kellinwood/security/zipsigner/ProgressEvent	shape:0.583
+abcd/DA	kellinwood/security/zipsigner/ProgressHelper	shape:0.571
+abcd/EA	kellinwood/security/zipsigner/ProgressListener	shape:1.000
+abcd/FA	kellinwood/security/zipsigner/ZipSignature	shape:0.273
+abcd/GA	kellinwood/security/zipsigner/ZipSigner	shape:0.567
+abcd/GA$a	kellinwood/security/zipsigner/ZipSigner$AutoKeyObservable	shape:1.000
+abcd/HA	kellinwood/zipio/CentralEnd	shape:0.667
+abcd/IA	kellinwood/zipio/ZioEntry	shape:0.426
+abcd/JA	kellinwood/zipio/ZioEntryInputStream	shape:0.895
+abcd/KA	kellinwood/zipio/ZioEntryOutputStream	shape:0.895
+abcd/LA	kellinwood/zipio/ZipInput	shape:0.594
+abcd/MA	kellinwood/zipio/ZipListingHelper	str:" Length   Method    Size  Ratio   Date   Time   CRC-32    Name" 唯一
+abcd/NA	kellinwood/zipio/ZipOutput	shape:0.541
+abcd/sA	kellinwood/logging/LoggerFactory	shape:1.000
+abcd/tA	kellinwood/logging/Logger	ref:NullLoggerFactory$1 extends 它；一堆调用方拿它当 Logger；isDebugEnabled()
+abcd/uA	kellinwood/logging/LogManager	ref:static Map + static LoggerFactory 字段 + static getLogger(String)Logger
+abcd/vA	kellinwood/logging/NullLoggerFactory$1	ref:NullLoggerFactory 的匿名子类（extends Logger）
+abcd/wA	kellinwood/logging/NullLoggerFactory	shape:1.000
+abcd/xA	kellinwood/security/zipsigner/AutoKeyException	ref:ZipSigner 的 ctor 用 (String) 构造；extends RuntimeException
+abcd/yA	kellinwood/security/zipsigner/Base64	shape:0.605
+abcd/zA	kellinwood/security/zipsigner/HexDumpEncoder	shape:0.684

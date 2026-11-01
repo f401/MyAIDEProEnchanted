@@ -42,13 +42,20 @@
     {
       "dir": "../jobs/spongycastle",
       "probe_prefix": "abcd"
+    },
+    {
+      "dir": "../jobs/zipsigner",
+      "probe_prefix": "abcd"
     }
   ],
   "src_root": [
     "$HOME/src/jgit",
     "$HOME/out/oracle/jsch/src-0.1.51",
     "$HOME/out/oracle/jsch/src",
-    "$HOME/out/oracle/spongycastle/src-1.47"
+    "$HOME/out/oracle/spongycastle/src-1.47",
+    "$HOME/zstar/zip-signer-master/kellinwood-logging-lib/src/main/java",
+    "$HOME/zstar/zip-signer-master/zipio-lib/src/main/java",
+    "$HOME/zstar/zip-signer-master/zipsigner-lib/src/main/java"
   ],
   "out_tsrg": "mappings.txt",
   "allow": "verify_allow.tsv",
@@ -154,6 +161,10 @@
     {
       "label": "sc-all-1.50",
       "path": "$HOME/out/oracle/spongycastle/sc-all-1.50.jar"
+    },
+    {
+      "label": "zs-1.11",
+      "path": "$HOME/out/oracle/zipsigner/zs-all.jar"
     }
   ],
   "out_dir": "out"
