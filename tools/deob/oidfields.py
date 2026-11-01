@@ -190,6 +190,9 @@ def main():
     ap.add_argument('--part', required=True)
     ap.add_argument('--prefix', default='abcd')
     ap.add_argument('--apply', action='store_true')
+    ap.add_argument('--rebuild', action='store_true',
+                    help='这个类的**字段行整块重建**：OID 证据比"最后一条 const-string"硬，'
+                         '遇到移位/串位的旧行直接替换（只在两边都能完整重建时才动）')
     a = ap.parse_args()
     cfg = json.load(open(a.project))
     base = os.path.dirname(os.path.abspath(a.project))
@@ -278,6 +281,45 @@ def main():
             blocks[pn].append('\t%s %s' % (f, tgt))
             done[pn].add(f)
             added += 1
+    if a.rebuild:
+        fixed = 0
+        for pn, on in sorted(cmap.items()):
+            if pn not in blocks:
+                continue
+            fn = idx.get(pn)
+            txt = None
+            for r in roots:
+                p2 = os.path.join(r, a.prefix, fn or '')
+                if fn and os.path.exists(p2):
+                    txt = open(p2, encoding='utf-8', errors='replace').read()
+                    break
+            if txt is None:
+                continue
+            po = probe_oids(txt)
+            jf = next((os.path.join(s, on + '.java') for s in srcs
+                       if os.path.exists(os.path.join(s, on + '.java'))), None)
+            if not jf:
+                continue
+            oo = oracle_oids(open(jf, encoding='utf-8', errors='replace').read())
+            back = {v: k for k, v in oo.items()}
+            # 重建条件：绝大多数探针字段都能重建、推出的名字互不重复
+            ok = {f: back[v] for f, v in po.items() if v and back.get(v)}
+            if not po or len(ok) < 0.9 * len(po) or len(set(ok.values())) != len(ok):
+                continue
+            keep = [r for r in blocks[pn] if len(r.lstrip('\t').split(' ')) >= 3]
+            old = {r.lstrip('\t').split(' ')[0]: r.lstrip('\t').split(' ')[1]
+                   for r in blocks[pn] if len(r.lstrip('\t').split(' ')) == 2}
+            taken = set(ok.values())
+            for f, tgt in old.items():                    # 重建不了的字段保留旧行（但不许撞新目标）
+                if f not in ok and tgt not in taken:
+                    keep.append('\t%s %s' % (f, tgt))
+                    taken.add(tgt)
+            for f, tgt in sorted(ok.items()):
+                if old.get(f) != tgt:
+                    fixed += 1
+                keep.append('\t%s %s' % (f, tgt))
+            blocks[pn] = keep
+        print('%s：整块重建字段行，纠正 %d 条' % (a.part, fixed))
     print('%s：用完整 OID 补了 %d 个常量字段（跳过 %d，无源码 %d）' % (a.part, added, skip, nosrc))
     if a.apply:
         with open(tsrg_path, 'w', encoding='utf-8') as w:

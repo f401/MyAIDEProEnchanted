@@ -142,6 +142,16 @@ public static final String DATA = CMSObjectIdentifiers.data.getId();
 只要左边那个常量已经定名，**它指谁就是它的身份**：在 `<clinit>` 里配一对
 `sget-object` / `sput-object`（oracle 侧是 `getstatic`/`putstatic`）就能对齐 → 又补 24 个字段。
 
+**还要拿 OID 证据反查已有的行**：`oidfields --rebuild` 会整块重建一个常量类的字段行
+（OID 比"最后一条 const-string"硬）。
+这一步抓到了 **12 条移位/串位的错映射**——例如 `PM.DW`（OID `…22554.1`）被 constfields
+判成了 `bc`（`…22554`，那是 `j6` 的），`NN.DW`（`2.5.4.6`）被安到了 `id_pkix`。整块重建后
+
+```
+全局 OID 校验：不一致 4 → 0（NN/_M/lN 各有 1~2 条因"两个探针字段重建出同一个 OID"
+                                 被防冲突挡下，宁可留着也不强改）
+```
+
 三件套合起来覆盖了 SpongyCastle 里几乎所有静态常量表：
 
 | 工具 | 判据 | 个数 |
@@ -153,7 +163,7 @@ public static final String DATA = CMSObjectIdentifiers.data.getId();
 ## 8) 当前结果
 
 - **253 / 257 类已定名**（类块已进 `process/mappings.txt`，全库类块 1844）
-- 成员：方法 **793**/1329（60%）、字段 **1044**/1096（95%）已定名
+- 成员：方法 **793**/1329（60%）、字段 **1052**/1096（96%）已定名
   （其中 150 个字段靠 `<clinit>` 常量串、116 个靠重建的完整 OID、10 个方法靠方法体指纹）
 - 参数：784 行 / 449 个方法（来自官方 sources.jar）
 - `refmatch --oneway` 残留 **2 条**：`yO`=LongDigest（探针多了 dex2jar 合成的 `$d2j$hex$…$decode_(String)` 方法）、`rP`（只被未定名的 `sP` 引用）
