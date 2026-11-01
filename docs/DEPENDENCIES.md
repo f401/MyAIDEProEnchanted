@@ -89,7 +89,7 @@ Backbone 相关 7 个（实现 `DefineHook`/`DefineAnalytics`/`EventData` 等，
 |---|---|---|---|
 | `aidl` / `aapt` / `android.jar` / `annotations.jar` / `framework.aidl` | `assets/`：`android.jar.jet`(5282 类)、`annotations.jar`、`framework.aidl`、`adrt/*.class` | — | 无需还原（是 AOSP 二进制/数据） |
 | `dx tool` | `com/a/**`（已还原 448 类）+ `assets/runtime/d8.apk` | 448 ✓ | 已完成 |
-| **kellinwood-logging-android-1.3 / -lib-1.0 / zipsigner-lib-1.11 / zipio-lib-1.6** | **混淆在 abcd**：以 `abcd/GA`(ZipSigner：`auto-testkey`、`^META-INF/(.*)[.](SF\|RSA\|DSA)$`) 为核的连通簇 **23 类 / 146 方法**；只有 `kellinwood/sigblock/*` 2 个类是真名 | 23 | Maven 无；只能从 GitHub 源码构建 |
+| **kellinwood-logging-android-1.3 / -lib-1.0 / zipsigner-lib-1.11 / zipio-lib-1.6** | **混淆在 abcd**：以 `abcd/GA`(ZipSigner：`auto-testkey`、`^META-INF/(.*)[.](SF\|RSA\|DSA)$`) 为核的连通簇 **23 类 / 146 方法**；只有 `kellinwood/sigblock/*` 2 个类是真名 | 23 → **已做 23/23** | ✅ Maven 无 → 用 GitHub `kellinwood/zip-signer` 的源码 javac 自编 oracle（`zs-all.jar`，32 类），见 [jobs/zipsigner/README.md](../jobs/zipsigner/README.md) |
 | `json_simple-1.1` | **包内没有**（`json_simple`/`JSONValue` 0 命中）；实际用的是 `org/json2/**`（真名，含 `HTTP`/`CookieList`/`CDL`） | 27 | 已真名，无需还原 |
 | `httpmime-4.0.3` / `httpcore-4.2.1` | `org/apache/http` **没有任何真名类**，只有 26 个 abcd 类引用它（`abcd/Dw`/`Dw$b`/`Dw$c`…）→ 库本身也被混淆了 | ~26+ | Maven 有 4.0.3 / 4.2.1 ✓ |
 | `android-support-v4.jar` | `android/support/**` 21 类（真名）；主体已被 AndroidX（1042 类）取代 | 21 | 真名 |
