@@ -242,42 +242,27 @@ def asset_zip(key):
     return os.path.join(REPO, 'src', 'assets', 'data', 'functions', ASSET_REL[key])
 
 
-ASSET_HASH = os.path.join(REPO, 'process', 'src', '.assets.sha256')
-
-
-def _asset_hashes():
-    d = {}
-    if os.path.exists(ASSET_HASH):
-        for ln in open(ASSET_HASH, encoding='utf-8'):
-            t = ln.rstrip('\n').split('\t')
-            if len(t) == 2:
-                d[t[0]] = t[1]
-    return d
-
-
-def _save_asset_hashes(d):
-    with open(ASSET_HASH, 'w', encoding='utf-8') as f:
-        for k in sorted(d):
-            f.write('%s\t%s\n' % (k, d[k]))
-
-
 def sync_assets(force=False):
-    """把树里 4 个 bundle 的 `classes.dex` **dex2jar** 成 `process/src/<key>.jar`（class jar）。
+    """**默认什么都不做**：不再从 `src/assets/**` 复制或重建 `process/src/<key>.jar`。
 
-    工具侧（validate / static 索引 / deob）要的是 class jar；回填 APK 时用的是树里那个
-    原始 dex-zip（见 `step_repack`），两者不要混。
+    `process/src/{en,zh,ndk,packagingservice}.jar` 只是**给工具用**的 class jar
+    （validate / static 索引 / deob 要读 class 文件），而回填 APK 时 `step_repack`
+    直接取树里那 4 个 `zip(classes.dex)`——两边互不影响，所以这些 jar **不需要**
+    跟着资产变。
 
-    **内容没变就跳过**：`process/src/.assets.sha256` 记着每个 bundle 的 classes.dex 指纹，
-    指纹一致且目标 jar 存在时直接返回，不再每次 dex2jar（省时间、也不再让 git 一直显示
-    `process/src/*.jar` 被改动）。要强制重做：`SYNC_ASSETS_FORCE=1`。
+    历史上这里每次都 dex2jar 一遍：慢，而且 dex2jar 输出不是字节稳定的，
+    每跑一次 `process/src/*.jar` 就在 git 里显示被改（纯噪声）。现在默认冻结。
+
+    真要重建（例如换了一批资产、想让工具侧看到新代码）：
+        SYNC_ASSETS_FORCE=1 python3 tools/build/build_apk.py sync_assets
     """
-    force = force or bool(os.environ.get('SYNC_ASSETS_FORCE'))
+    if not (force or os.environ.get('SYNC_ASSETS_FORCE')):
+        print('  （跳过：process/src/*.jar 已冻结，不再从 src/assets 复制；'
+              '需要重建用 SYNC_ASSETS_FORCE=1）')
+        return
     jars = sorted(glob.glob(os.path.join(REPO, 'process', 'dex2jar', '*.jar')))
     if not jars:
         raise SystemExit('缺 process/dex2jar/*.jar（dex2jar 工具）')
-    old_hash = _asset_hashes()
-    new_hash = dict(old_hash)
-    skipped = 0
     for key in ASSET_REL:
         src = asset_zip(key)
         if not os.path.exists(src):
@@ -287,12 +272,6 @@ def sync_assets(force=False):
                 raise SystemExit('%s 不是 zip(classes.dex)' % src)
             dex = zz.read('classes.dex')
         dst = os.path.join(REPO, 'process', 'src', key + '.jar')
-        h = hashlib.sha256(dex).hexdigest()
-        if not force and old_hash.get(key) == h and os.path.exists(dst):
-            print('  %-22s 内容未变，跳过（sha256 %s）' % ('process/src/%s.jar' % key, h[:12]))
-            skipped += 1
-            continue
-        new_hash[key] = h
         fd, tmp = tempfile.mkstemp(suffix='.dex'); os.close(fd)
         try:
             with open(tmp, 'wb') as f:
@@ -310,9 +289,6 @@ def sync_assets(force=False):
         with zipfile.ZipFile(dst) as zz:
             n = len([x for x in zz.namelist() if x.endswith('.class')])
         print('  %-22s ← %s（%d 类）' % ('process/src/%s.jar' % key, ASSET_REL[key], n))
-    _save_asset_hashes(new_hash)
-    if skipped:
-        print('  （%d 个 bundle 未变化，已跳过 dex2jar；要强制重做：SYNC_ASSETS_FORCE=1）' % skipped)
 
 
 def step_apkrefs(P):

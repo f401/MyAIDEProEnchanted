@@ -33,22 +33,29 @@ python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独�
 > 等价一步到位（通用 kit，输出与本项目逐行一致）：
 > `python3 tools/deob/cli.py -p process/deob.json emit`
 
-## 1b. 先同步 assets bundle（`sync_assets`）
+## 1b. assets bundle：**默认冻结，不动 `process/src/*.jar`**
 
 `src/assets/data/functions/` 下的 4 个包（`lang/en.jar`、`lang/zh.jar`、`runtime/ndk.zip`、
-`runtime/packagingservice.zip`，都是 `zip(classes.dex)`）才是基准；`process/src/<key>.jar`
-只是**给工具用的** class jar（dex2jar 产物），回填 APK 时 `step_repack` 直接取树里那 4 个 dex-zip：
+`runtime/packagingservice.zip`，都是 `zip(classes.dex)`）是**回填用的基准**，
+`step_repack` 直接读它们；`process/src/<key>.jar` 只是**给工具用的** class jar
+（validate / static 索引 / deob 要读 class 文件），两边互不影响。
+
+所以这一步默认**什么都不做**：
 
 ```bash
-python3 tools/build/build_apk.py sync_assets    # 树 → process/src/（dex2jar 成 class jar）
-SYNC_ASSETS_FORCE=1 python3 tools/build/build_apk.py sync_assets   # 强制重做
+python3 tools/build/build_apk.py sync_assets     # 打印"跳过"，不写任何文件
+SYNC_ASSETS_FORCE=1 python3 tools/build/build_apk.py sync_assets   # 真要重建时
 ```
 
-**内容没变就跳过**：`process/src/.assets.sha256` 记着每个 bundle 的 `classes.dex` 指纹，
-指纹一致且目标 jar 存在时直接跳过（dex2jar 输出不是字节稳定的，每次重做都会让
-`process/src/*.jar` 在 git 里显示被改，纯噪声）。改过 `src/assets/**` 后指纹自动更新。
+理由：以前每次都 dex2jar 一遍 —— 慢，而且 dex2jar 输出**不是字节稳定的**，
+每跑一次 `process/src/*.jar` 就在 git 里显示被改（纯噪声）。冻结后这些 jar
+保持仓库里那一份，只有当**工具侧确实需要看到新资产代码**时才 `SYNC_ASSETS_FORCE=1`。
 
-`all` 已把这一步串在 `plan` 之后。**不再**做"和某个 APK 的 dex 逐对对齐"（那套已删除，见 NOTES §15）。
+> 注意：改了资产（`src/assets/**`）**必须**把资产自己也按 mapping 改一遍名字，
+> 否则 bundle 里留旧类名 → 运行期 `NoClassDefFoundError`。
+> 门禁：`python3 tools/deob/assetcheck.py`（类型 + 成员引用都查）。
+
+`all` 仍会调这一步（现在等价于空操作）。**不再**做"和某个 APK 的 dex 逐对对齐"（那套已删除，见 NOTES §15）。
 
 ## 2. 跑认证流水线
 
