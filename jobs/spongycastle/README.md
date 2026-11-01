@@ -162,17 +162,35 @@ public static final String DATA = CMSObjectIdentifiers.data.getId();
 
 ## 8) 当前结果
 
-- **253 / 257 类已定名**（类块已进 `process/mappings.txt`，全库类块 1844）
-- 成员：方法 **793**/1329（60%）、字段 **1052**/1096（96%）已定名
-  （其中 150 个字段靠 `<clinit>` 常量串、116 个靠重建的完整 OID、10 个方法靠方法体指纹）
-- 参数：784 行 / 449 个方法（来自官方 sources.jar）
-- `refmatch --oneway` 残留 **2 条**：`yO`=LongDigest（探针多了 dex2jar 合成的 `$d2j$hex$…$decode_(String)` 方法）、`rP`（只被未定名的 `sP` 引用）
+- **257 / 257 类已定名**（254 个真名 + 3 个 `org/bouncycastle/synthetic/` 作用名），全部进 `process/mappings.txt`
+- **成员 0 待人工**：方法 1329 里 810 条需要改名的已全部定名（其余是"名字本来就没被混淆"的 identity），
+  字段 1096 / 1096 全部定名
+- 参数 792 行 / 449 个方法（来自官方 `-sources.jar`）
+- `refmatch --oneway` 残留 **1 条**：`yO`=LongDigest 里的 `$d2j$hex$…$decode_*`（dex2jar 给超长十六进制串合成的辅助方法，oracle 里没有对应物，已在 `functional.tsv` 里按作用命名）
 - 门禁：`validate ✔ 无无效映射`、`inherit 0/0/0`、`famcheck 冲突 0 / 祖先未映射 0`、
   `innercheck ②0 ③0`（①1 条是 jgit 的老遗留）
-- 目标全都在 oracle 里存在、与包内已有类名 0 撞名、与其它 part 目标 0 撞名
-- `refmatch --oneway` 残留 2 条（见上，都已有解释）
+- `abcd` 整体：方法 **99.2%**、字段 **97.0%**（分母含 1730 个别的 part 还没定名的类）
 
-### 还没定的 4 个（`VM` / `eP` / `kP` / `sP`）
+### 「按作用命名」都记在哪
+
+`jobs/spongycastle/functional.tsv` 一行一条：`类 / 旧名 / 描述符 / 新名 / 判据`，共 61 条 +
+3 个 synthetic 类。原则：**能靠证据定的不猜，猜不了的写清楚"为什么定不了"**——
+例如 `wO`/`zO` 的 `()I`（`getDigestSize`/`getByteLength` 返回值同是 32/16，程序上不可分）、
+`LN`/`uN` 里用 `Hashtable` 初始化的名字表（内容不可分辨）、`yO` 的 dex2jar 合成方法（oracle 里根本没有）。
+
+### 最后 4 个：2 个靠串定了，2+1 个按作用命名
+
+| 探针 | 结论 | 判据 |
+|---|---|---|
+| `sP` | `jce/provider/CertPathValidatorUtilities` | 串 `aACompromise`/`privilegeWithdrawn`/`removeFromCRL`… 全 jar 只有 3 个类有，而"16×static String + 1×String[] + 1 个对象字段"只对得上它 |
+| `rP` | `jce/provider/PKIXCRLUtil` | `CertPathValidatorUtilities` 的那个对象字段就是 `CRL_UTIL`，类型即本类 |
+| `VM` | `org/bouncycastle/synthetic/CertificateFieldCarrier` | 2160 类里没有同形者 → **按作用命名** |
+| `eP` | `org/bouncycastle/synthetic/DerEncoders` | 两个 static `(…)[B` 编码器 + 串 `DER`，形状不唯一 → 按作用命名 |
+| `kP` | `org/bouncycastle/synthetic/EmptyAlgorithmProvider` | 28 个 `*$Mappings` 同形、且无人引用、零可分辨证据 → 按作用命名 |
+
+按作用命名的类统一放在 `org/bouncycastle/synthetic/`，一眼能看出"这是我们的名字，不是 BC 的"。
+
+### 原先把 4 个当作"不可判"的原因
 
 都是"形状同族 + 引用者证据被上游错映射污染"的情况，宁缺勿错，先留着（它们仍是 `abcd/*`）：
 

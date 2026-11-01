@@ -108,6 +108,7 @@ abcd/UN	org/bouncycastle/cert/jcajce/JcaX509CertificateHolder	shape:1.000
 abcd/UO	org/bouncycastle/crypto/params/DHPrivateKeyParameters	shape:extends DHKeyParameters + BigInteger + ctor(BigInteger,DHParameters)
 abcd/UP	org/bouncycastle/util/encoders/Encoder	impl:{HexEncoder} 唯一
 abcd/VL	org/bouncycastle/asn1/DERSetParser	shape:0.667
+abcd/VM	org/bouncycastle/synthetic/CertificateFieldCarrier	synthetic:ASN1Object 子类，ctor(Certificate)+2 字段(ASN1Integer/X500Name)+toASN1Primitive；2160 类 oracle 里无同形者，按作用命名
 abcd/VN	org/bouncycastle/cms/CMSAbsentContent	shape:实现 CMSTypedData + 只有 1 个 ASN1ObjectIdentifier 字段 + ctor(OID) + write(OutputStream) 空写；CMSTypedData 的 6 个实现者里唯一对得上
 abcd/VO	org/bouncycastle/crypto/params/DHPublicKeyParameters	shape:extends DHKeyParameters + BigInteger（ElGamal 同形但 jsch 的 DH 链路用的是 DH）
 abcd/VP	org/bouncycastle/util/encoders/Hex	shape:static Encoder 字段 = new HexEncoder()；全 jar 唯一
@@ -156,6 +157,7 @@ abcd/dP	org/bouncycastle/jcajce/provider/asymmetric/util/BaseKeyFactorySpi	shape
 abcd/eM	org/bouncycastle/asn1/DEREnumerated	str:'ENUMERATED has zero length' + static cache 元素类型 ASN1Enumerated
 abcd/eN	org/bouncycastle/asn1/misc/NetscapeCertType	str:'NetscapeCertType: 0x' 唯一
 abcd/eO	org/bouncycastle/cms/CMSSignedHelper	shape:3×static Map + addEntries(DERObjectIdentifier,String,String) + fixAlgID + 同一批 OID 串(5849…)
+abcd/eP	org/bouncycastle/synthetic/DerEncoders	synthetic:两个 static (…)[B 编码器 + 串 DER；形状在 oracle 里不唯一，按作用命名
 abcd/fM	org/bouncycastle/asn1/DERExternal	shape:0.757
 abcd/fN	org/bouncycastle/asn1/misc/NetscapeRevocationURL	shape:1.000
 abcd/fO	org/bouncycastle/cms/CMSTypedData	shape:实现 CMSProcessable(YN) + getContentType()；实现者{CMSProcessableByteArray,CMSSignedDataGenerator$1}
@@ -179,6 +181,7 @@ abcd/jP	org/bouncycastle/jcajce/provider/util/AlgorithmProvider	shape:1.000
 abcd/kM	org/bouncycastle/asn1/DERIA5String	shape:0.792
 abcd/kN	org/bouncycastle/asn1/pkcs/DHParameter	shape:0.714
 abcd/kO	org/bouncycastle/cms/SignerInfoGenerator	shape:0.610
+abcd/kP	org/bouncycastle/synthetic/EmptyAlgorithmProvider	synthetic:extends AlgorithmProvider 且只有空构造器、无人引用；28 个 *$Mappings 同形且零证据，按作用命名
 abcd/lM	org/bouncycastle/asn1/DERInteger	shape:0.826
 abcd/lN	org/bouncycastle/asn1/pkcs/PKCSObjectIdentifiers	str:OID 串集 j=0.96(55 串)
 abcd/lO	org/bouncycastle/cms/SignerInfoGeneratorBuilder	shape:1.000
@@ -211,11 +214,12 @@ abcd/rL	org/bouncycastle/asn1/ASN1EncodableVector	shape:1.000
 abcd/rM	org/bouncycastle/asn1/DEROutputStream	shape:1.000
 abcd/rN	org/bouncycastle/asn1/x500/RDN	shape:单字段 ASN1Set + getFirst()/getTypesAndValues()/isMultiValued()；是被 X500Name.getRDNs() 返回的元素类型
 abcd/rO	org/bouncycastle/crypto/DataLengthException	extends RuntimeCryptoException，单 (String) 构造器
-abcd/rP	org/bouncycastle/jcajce/provider/asymmetric/dsa/DSASigner$dsa224	shape:1.000
+abcd/rP	org/bouncycastle/jce/provider/PKIXCRLUtil	sP(CertPathValidatorUtilities) 的那个对象字段就是 CRL_UTIL，类型即本类
 abcd/sL	org/bouncycastle/asn1/ASN1Enumerated	extends DEREnumerated；DEREnumerated.cache 的元素类型
 abcd/sM	org/bouncycastle/asn1/DERPrintableString	tag:encode 写 0x13 (PRINTABLE_STRING)
 abcd/sN	org/bouncycastle/asn1/x500/X500Name	shape:5 字段{style,boolean,int,style,RDN[]} + ctor(ASN1Sequence)/ctor(style,ASN1Sequence) + getRDNs；implements ASN1Choice
 abcd/sO	org/bouncycastle/crypto/Digest	shape:1.000
+abcd/sP	org/bouncycastle/jce/provider/CertPathValidatorUtilities	str:全 jar 唯一命中 {aACompromise,privilegeWithdrawn,removeFromCRL…}（CRL 理由串）+ 16×static String + 1×String[] + 1 个对象字段
 abcd/tL	org/bouncycastle/asn1/ASN1Exception	引用者 ASN1InputStream/ASN1StreamParser；包私有构造器
 abcd/tM	org/bouncycastle/asn1/DERSequence	shape:0.800
 abcd/tN	org/bouncycastle/asn1/x500/X500NameStyle	shape:0.500

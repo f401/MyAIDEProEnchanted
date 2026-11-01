@@ -23714,6 +23714,7 @@ abcd/VL org/bouncycastle/asn1/DERSetParser
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
+abcd/VM org/bouncycastle/synthetic/CertificateFieldCarrier
 abcd/VN org/bouncycastle/cms/CMSAbsentContent
 	j6 (Ljava/io/OutputStream;)V write
 		0 zOut zOut
@@ -24222,6 +24223,7 @@ abcd/eO org/bouncycastle/cms/CMSSignedHelper
 	FH digestAlgs
 	DW encryptionAlgs
 	Hw digestAliases
+abcd/eP org/bouncycastle/synthetic/DerEncoders
 abcd/fM org/bouncycastle/asn1/DERExternal
 	j6 (Labcd/rL;I)Labcd/EL; getObjFromVector
 		0 v v
@@ -24430,6 +24432,7 @@ abcd/kO org/bouncycastle/cms/SignerInfoGenerator
 	j6 (Labcd/zL;)Labcd/YM; generate
 		0 contentType contentType
 	Zo digAlgFinder
+abcd/kP org/bouncycastle/synthetic/EmptyAlgorithmProvider
 abcd/lM org/bouncycastle/asn1/DERInteger
 	j6 (Labcd/LL;Z)Labcd/wL; getInstance
 		static
@@ -24846,7 +24849,7 @@ abcd/rN org/bouncycastle/asn1/x500/RDN
 	v5 ()Labcd/qN; getFirst
 	j6 values
 abcd/rO org/bouncycastle/crypto/DataLengthException
-abcd/rP org/bouncycastle/jcajce/provider/asymmetric/dsa/DSASigner$dsa224
+abcd/rP org/bouncycastle/jce/provider/PKIXCRLUtil
 abcd/sL org/bouncycastle/asn1/ASN1Enumerated
 abcd/sM org/bouncycastle/asn1/DERPrintableString
 	Zo ()Z isConstructed
@@ -24875,6 +24878,7 @@ abcd/sO org/bouncycastle/crypto/Digest
 	j6 ()Ljava/lang/String; getAlgorithmName
 	j6 (B)V update
 		0 in in
+abcd/sP org/bouncycastle/jce/provider/CertPathValidatorUtilities
 abcd/tL org/bouncycastle/asn1/ASN1Exception
 	j6 cause
 abcd/tM org/bouncycastle/asn1/DERSequence
