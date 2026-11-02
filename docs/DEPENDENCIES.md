@@ -94,7 +94,7 @@ Backbone 相关 7 个（实现 `DefineHook`/`DefineAnalytics`/`EventData` 等，
 | `httpmime-4.0.3` / `httpcore-4.2.1` | `org/apache/http` 没有真名类，19 个 abcd 类引用它；顺着切出来的是 **Dropbox Android SDK 1.6.2**（`com/dropbox/client2/**`：`/files_put/`、`parent_rev`、`api.dropbox.com`），Apache 只是它的下游依赖 | 49 | ✅ 已完成 49/49。oracle 用上游仓库 `lib/` 自带的官方 jar（**不是** Maven 上的 `dropbox-core-sdk`，那是另一个库）+ 三段根证书**逐字节**对上锁版本 → 见 [jobs/dropbox/README.md](../jobs/dropbox/README.md) |
 | `android-support-v4.jar` | `android/support/**` 21 类（真名）；主体已被 AndroidX（1042 类）取代 | 21 | 真名 |
 | **Zip4j 1.3.1（改）** | **包内没有**（`net/lingala`/`zip4j` 0 命中） | 0 | Maven 有 ✓（但未使用） |
-| **PhoneGap / Apache Cordova** | 以 `abcd/rj`（串 `/.cordova`、`com.aide.phonegap`、`.html`）为核的连通簇 **905 类 / 8957 方法**，与 AIDE 自己的 class-file 工具链缠在一起（`rd` 229 方法含 `Synthetic`/`RuntimeVisibleAnnotations`、`Ba` 113 方法含 `Corrupted file`）→ 需先切分 | ~905 | 老 3.x 无 Maven（只有 14/15） |
+| **PhoneGap / Apache Cordova** | **包内没有**：`CordovaWebView`/`CordovaActivity`/`/android_asset/www`/`deviceready`/`onDeviceReady`/`PluginManager`/`cordova.js`/`org.apache.cordova` 在 `merged_ok.jar` 里 **0 类命中**；`assets/` 没有 `www/`、没有 `cordova.js`，`templates/` 里也没有 PhoneGap 模板。含小写 `cordova` 串的只有 3 个类：`abcd/rj`（实现 `Labcd/IProject`，方法签名都是 `EngineSolution`/`File` → AIDE 自己的工程类型）、`abcd/sj`（只有 `.html/.htm/www/assets/index.html` 判定串）、`com/aide/ui/activities/o` | 0 | 无需还原（AIDE 的"PhoneGap 支持"= 把 www 目录当普通 HTML 工程打开） |
 | `tetris-blast-sd` / `Libgdx` | **包内没有**（`badlogic`/`gdx` 0 命中） | 0 | — |
 | `org.eclipse.jgit-1.3.0` | 实际是**魔改混合版**（对 3.7.1/4.x/5.x 多版本回归） | 685 ✓ | 已完成 |
 | `jsch-0.1.46` | 实际 **0.1.51** | 141 ✓ | 已完成 |
@@ -104,11 +104,16 @@ Backbone 相关 7 个（实现 `DefineHook`/`DefineAnalytics`/`EventData` 等，
 | NDK 示例模板 | `src/assets/templates/*.zip` ✓ | — | — |
 | Alternative Git Logo | `src/assets/` 图形 | — | — |
 
-### 由此多出来的三个"可还原"部分
+### 由此多出来的"可还原"部分（现在都已收口）
 
 | 部分 | 类 | 方法 | oracle 状态 | 建议 |
 |---|---|---|---|---|
-| **SpongyCastle（crypto）** | 257 | 1335 | **已解决**：SpongyCastle 就是 BouncyCastle 换包名，直接下官方 `bcprov-jdk15on-1.47` + `bcpkix-jdk15on-1.47`（华为云镜像有）当**同版本** oracle | ✅ 已做 253/257，见 [jobs/spongycastle/README.md](../jobs/spongycastle/README.md) |
-| zipsigner + zipio + kellinwood | 23 | 146 | Maven 无，只有 GitHub 源码 | 小但关键（APK 签名链路），可从源码 javac 出对照 jar |
-| Cordova/PhoneGap | ~905 | 8957 | 老 3.x 无 Maven | 体量最大，但要先把它和 AIDE 自己的 class-file 工具链切开 |
-| httpcore/httpmime | ~26 引用方 | — | Maven ✓ | 可并入任一轮一起做 |
+| **SpongyCastle（crypto）** | 257 | 1335 | **已解决**：SpongyCastle 就是 BouncyCastle 换包名，直接下官方 `bcprov-jdk15on-1.47` + `bcpkix-jdk15on-1.47`（华为云镜像有）当**同版本** oracle | ✅ **257/257 完成**，见 [jobs/spongycastle/README.md](../jobs/spongycastle/README.md) |
+| zipsigner + zipio + kellinwood | 24 | 146 | Maven 无，只有 GitHub 源码 | ✅ **24/24 完成**（源码 javac 出对照 jar），见 [jobs/zipsigner/README.md](../jobs/zipsigner/README.md) |
+| ~~Cordova/PhoneGap~~ | **0** | 0 | 包内没有（见上表那行证据） | ❌ 不存在这个 part：早先的"905 类"是无向连通分量把 AIDE 自己的 UI/engine 一起扫进来了 |
+| httpcore/httpmime | ~26 引用方 | — | Maven ✓ | ✅ 实际切出来的是 **Dropbox Android SDK 1.6.2**（49 类，全真名），见 [jobs/dropbox/README.md](../jobs/dropbox/README.md) |
+
+**结论：第三方库部分已经全部收口**（9 个 part / 1901 类 / 14734 成员行 / 8204 参数行 / 待人工 0）。
+剩下 1673 个未定名的 `abcd` 类是 **AIDE 与 appfour 自己的应用代码**：它们引用的外部包只有
+`com/appfour/backbone`(173)、`com/aide/common`(72)、`com/aide/engine`(43)、`com/aide/ui`(16)、
+`gms`(15)、`org/json`(7)…，super/ifaces 也全是这几家——**没有 oracle，只能按作用命名**。
