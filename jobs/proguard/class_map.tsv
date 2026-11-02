@@ -596,3 +596,4 @@ a/g/a/p	proguard/optimize/evaluation/InstructionUsageMarker$MyProducerMarker	ref
 a/g/a/r	proguard/optimize/evaluation/InstructionUsageMarker$MyVariableInitializationMarker	refs:Jaccard0.50(5 个公共引用)
 a/e/ae	proguard/io/ParentDataEntryWriter	pkg:互为最优 0.75
 a/g/a/d	proguard/optimize/evaluation/EvaluationShrinker$MyInstructionDeleter	pkg:互为最优 0.75
+a/d/a/v	proguard/evaluation/value/IdentifiedArrayReferenceValue	refs:Jaccard0.43(3 个公共引用)

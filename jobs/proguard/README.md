@@ -494,3 +494,46 @@ cover(a) 方法 7291/7331 = 99.5%   字段 4767/4859 = 98.1%
    需要**先啃被访问类型**（`classfile/attribute/**` 那 100 多个）；
 3. 如果继续，建议按"包"推进：先把 `classfile/attribute`（属性类，形状差异大、好定）
    补到 95%，再回来吃 `visitor`/`editor`（那时"访问什么类型"就全有名字了）。
+
+## 24) 第十三轮：599 类（79.1%）——类内判据正式到顶
+
+本轮按"先啃 attribute 再回头吃 visitor"的思路推，结果：
+
+```
+常量串新判据（针对未定名的 159 个）  +4（ConvertedByteValue / ConvertedCharacterValue /
+                                        ConvertedShortValue / FileWordReader，j=1.00 唯一）
+strict +7、引用集 +5                → 614 候选 → 验伪留 599（净增 1）
+```
+
+**结论：`strict` / 引用集 / 包内互为最优 / 常量串 这四类"类内信号"全部到顶**，
+剩下 158 个类的净增速已经降到"两轮迭代 +1 个类"。
+
+剩下的按包分布（已写进 [`todo_classes.txt`](todo_classes.txt) 方便人工收尾）：
+
+| 包 | 未定 | 为什么难 |
+|---|---|---|
+| `a/d/a` → `evaluation/value` | 30 | 全是 `XxxValue` 家族：方法集几乎相同，只差 Integer/Long/Float/Double 一种类型 |
+| `a/b/g` → `classfile/visitor` | 16 | 兄弟 visitor 引用的类型集合高度重合 |
+| `a/g/b` → `optimize/info` | 15 | `*ClassMarker` 家族，只有"标记什么"不同 |
+| `a/b/a/c` → `attribute/preverification` | 9 | `*Type` 家族 |
+| `a/b/a/a/a` → `attribute/annotation/target` | 7 | 6 个 `*TargetInfo` 成员集**完全相同** |
+| 其余零散 | ~80 | 单例/匿名类 |
+
+现状：
+
+```
+类映射   599 / 757（79.1%）
+成员行   5831
+参数行   5143
+cover(a) 方法 7299/7339 = 99.5%   字段 4769/4861 = 98.1%
+门禁     validate ✔（类块 2539 / 成员行 20565 / 参数行 13347）
+         inherit 0/0/0 · innercheck ②③ 0
+```
+
+## 25) 再往下只有两条路
+
+1. **跨类信号**：`who news it`（谁 `new-instance` 它 / 谁调用它）。实现成本中等，
+   但 `visitor`/`Value` 家族的分工确实只有调用点能分开；预期能把 158 压到 ~100；
+2. **人工按族收尾**：`todo_classes.txt` 里按包分好了，一族的类通常"看一个就知道其余"
+   （比如 `*TargetInfo` 6 个，按 `TargetInfo` 子类型逐一对应即可），配合
+   `README §11/§15` 的两条判据，人工半小时能收掉一大半。

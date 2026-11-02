@@ -2825,6 +2825,7 @@ a/d/a/ap	a	(La/d/a/av;)La/d/a/ap;	0	other	proguard-base-6.0.3
 a/d/a/ap	a	(La/d/a/aw;)La/d/a/ap;	0	other	proguard-base-6.0.3
 a/d/a/ap	a	(La/d/a/bc;)La/d/a/ap;	0	other	proguard-base-6.0.3
 a/d/a/ap	a	(La/d/a/bd;)La/d/a/bd;	0	other	proguard-base-6.0.3
+a/d/a/ap	a	(La/d/a/v;)I	0	other	proguard-base-6.0.3
 a/d/a/ap	a	(Ljava/lang/String;La/b/c;)I	0	otherType	proguard-base-6.0.3+src
 a/d/a/ap	a	(Ljava/lang/String;La/b/c;)I	1	otherReferencedClass	proguard-base-6.0.3+src
 a/d/a/ap	a	(Ljava/lang/String;La/b/c;La/d/a/be;Z)La/d/a/ap;	0	type	proguard-base-6.0.3+src
@@ -2837,6 +2838,7 @@ a/d/a/ap	b	(La/d/a/ap;)I	0	other	proguard-base-6.0.3+src
 a/d/a/ap	b	(La/d/a/av;)I	0	other	proguard-base-6.0.3
 a/d/a/ap	b	(La/d/a/aw;)I	0	other	proguard-base-6.0.3
 a/d/a/ap	b	(La/d/a/bc;)I	0	other	proguard-base-6.0.3
+a/d/a/ap	b	(La/d/a/v;)La/d/a/ap;	0	other	proguard-base-6.0.3
 a/d/a/ap	c	(La/d/a/ap;)I	0	other	proguard-base-6.0.3
 a/d/a/au	a	(La/d/a/bd;)La/d/a/bd;	0	other	proguard-base-6.0.3
 a/d/a/av	a	(La/d/a/a;)La/d/a/ap;	0	other	proguard-base-6.0.3
@@ -2845,6 +2847,7 @@ a/d/a/av	a	(La/d/a/ap;)La/d/a/ap;	0	other	proguard-base-6.0.3
 a/d/a/av	a	(La/d/a/av;)La/d/a/ap;	0	other	proguard-base-6.0.3
 a/d/a/av	a	(La/d/a/aw;)La/d/a/ap;	0	other	proguard-base-6.0.3
 a/d/a/av	a	(La/d/a/bc;)La/d/a/ap;	0	other	proguard-base-6.0.3
+a/d/a/av	a	(La/d/a/v;)I	0	other	proguard-base-6.0.3
 a/d/a/av	a	(Ljava/lang/String;La/b/c;)I	0	otherType	proguard-base-6.0.3
 a/d/a/av	a	(Ljava/lang/String;La/b/c;)I	1	otherReferencedClass	proguard-base-6.0.3
 a/d/a/av	a	(Ljava/lang/String;La/b/c;La/d/a/be;Z)La/d/a/ap;	0	type	proguard-base-6.0.3
@@ -2857,6 +2860,7 @@ a/d/a/av	b	(La/d/a/ap;)I	0	other	proguard-base-6.0.3
 a/d/a/av	b	(La/d/a/av;)I	0	other	proguard-base-6.0.3
 a/d/a/av	b	(La/d/a/aw;)I	0	other	proguard-base-6.0.3
 a/d/a/av	b	(La/d/a/bc;)I	0	other	proguard-base-6.0.3
+a/d/a/av	b	(La/d/a/v;)La/d/a/ap;	0	other	proguard-base-6.0.3
 a/d/a/aw	a	(La/b/c;La/b/c;Z)La/b/c;	0	class1	proguard-base-6.0.3
 a/d/a/aw	a	(La/b/c;La/b/c;Z)La/b/c;	1	class2	proguard-base-6.0.3
 a/d/a/aw	a	(La/b/c;La/b/c;Z)La/b/c;	2	interfaces	proguard-base-6.0.3
@@ -2905,6 +2909,9 @@ a/d/a/c	b	(Ljava/lang/String;La/b/c;ZZ)La/d/a/ap;	0	type	proguard-base-6.0.3
 a/d/a/c	b	(Ljava/lang/String;La/b/c;ZZ)La/d/a/ap;	1	referencedClass	proguard-base-6.0.3
 a/d/a/c	b	(Ljava/lang/String;La/b/c;ZZ)La/d/a/ap;	2	mayBeExtension	proguard-base-6.0.3
 a/d/a/c	b	(Ljava/lang/String;La/b/c;ZZ)La/d/a/ap;	3	mayBeNull	proguard-base-6.0.3
+a/d/a/v	a	(La/d/a/ap;)La/d/a/ap;	0	other	proguard-base-6.0.3
+a/d/a/v	a	(La/d/a/v;)I	0	other	proguard-base-6.0.3
+a/d/a/v	b	(La/d/a/ap;)I	0	other	proguard-base-6.0.3
 a/d/b	a	(La/b/c;La/b/b/h;Ljava/lang/String;)La/d/a/bd;	0	clazz	proguard-base-6.0.3
 a/d/b	a	(La/b/c;La/b/b/h;Ljava/lang/String;)La/d/a/bd;	1	invokeDynamicConstant	proguard-base-6.0.3
 a/d/b	a	(La/b/c;La/b/b/h;Ljava/lang/String;)La/d/a/bd;	2	type	proguard-base-6.0.3

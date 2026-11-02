@@ -29864,7 +29864,9 @@ a/d/a/ap proguard/evaluation/value/ReferenceValue
 		3 alwaysCast alwaysCast
 	f ()La/b/c; getReferencedClass
 	a (La/d/a/v;)I equal
+		0 other other
 	b (La/d/a/v;)La/d/a/ap; generalize
+		0 other other
 	a (La/d/a/aa;)I equal
 		0 other other
 	b (La/d/a/aa;)La/d/a/ap; generalize
@@ -30003,7 +30005,9 @@ a/d/a/av proguard/evaluation/value/TracedReferenceValue
 		3 alwaysCast alwaysCast
 	f ()La/b/c; getReferencedClass
 	a (La/d/a/v;)I equal
+		0 other other
 	b (La/d/a/v;)La/d/a/ap; generalize
+		0 other other
 	a (La/d/a/aa;)I equal
 		0 other other
 	b (La/d/a/aa;)La/d/a/ap; generalize
@@ -38084,3 +38088,13 @@ a/e/ae proguard/io/ParentDataEntryWriter
 a/g/a/d proguard/optimize/evaluation/EvaluationShrinker$MyInstructionDeleter
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
 	a this$0
+a/d/a/v proguard/evaluation/value/IdentifiedArrayReferenceValue
+	a (La/d/a/v;)I equal
+		0 other other
+	a (La/d/a/ap;)La/d/a/ap; generalize
+		0 other other
+	b (La/d/a/ap;)I equal
+		0 other other
+	d ()Z isSpecific
+	f valuefactory
+	g id

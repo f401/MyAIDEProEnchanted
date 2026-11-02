@@ -6421,3 +6421,10 @@ a/e/ae proguard/io/ParentDataEntryWriter
 a/g/a/d proguard/optimize/evaluation/EvaluationShrinker$MyInstructionDeleter
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
 	a this$0
+a/d/a/v proguard/evaluation/value/IdentifiedArrayReferenceValue
+	a (La/d/a/v;)I equal
+	a (La/d/a/ap;)La/d/a/ap; generalize
+	b (La/d/a/ap;)I equal
+	d ()Z isSpecific
+	f valuefactory
+	g id
