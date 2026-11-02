@@ -1,4 +1,6 @@
 com/crashlytics/android/Crashlytics com/crashlytics/android/Crashlytics
+	beta betaKit
+	setListener (Lcom/crashlytics/android/core/ea;)V setListener
 com/crashlytics/android/CrashlyticsInitProvider$a com/crashlytics/android/CrashlyticsInitProvider$EnabledCheckStrategy
 	j6 (Landroid/content/Context;)Z isCrashlyticsEnabled
 com/crashlytics/android/a com/crashlytics/android/ManifestEnabledCheckStrategy
@@ -65,6 +67,7 @@ com/crashlytics/android/answers/j com/crashlytics/android/answers/AnswersEventsH
 	FH (Lcom/crashlytics/android/answers/I$a;)V processEventSync
 	DW (Lcom/crashlytics/android/answers/I$a;)V processEventAsyncAndFlush
 	j6 (Ljava/lang/String;)V onRollOver
+	v5 sslSocketFactorySource
 com/crashlytics/android/answers/l com/crashlytics/android/answers/AnswersLifecycleCallbacks
 	DW backgroundManager
 	j6 analyticsManager
@@ -680,6 +683,8 @@ com/crashlytics/android/answers/s com/crashlytics/android/answers/EnabledSession
 	FH ()V sendEvents
 	Hw ()V deleteAllEvents
 	tp apiKey
+	DW sslSocketFactorySource
+	u7 filesSender
 com/crashlytics/android/answers/t com/crashlytics/android/answers/EventFilter
 	j6 (Lcom/crashlytics/android/answers/I;)Z skipEvent
 com/crashlytics/android/answers/z com/crashlytics/android/answers/RandomBackoff
@@ -687,8 +692,11 @@ com/crashlytics/android/answers/z com/crashlytics/android/answers/RandomBackoff
 	DW random
 	FH jitterPercent
 	j6 (I)J getDelayMillis
+	j6 retryPolicy
 com/crashlytics/android/core/Aa com/crashlytics/android/core/NativeCreateReportSpiCall
 	j6 (Lcom/crashlytics/android/core/ja;)Z invoke
+	j6 (Labcd/Hz;Lcom/crashlytics/android/core/Ka;)Labcd/Hz; applyMultipartDataTo
+	j6 (Labcd/Hz;Ljava/lang/String;)Labcd/Hz; applyHeadersTo
 com/crashlytics/android/core/Ea com/crashlytics/android/core/PreferenceManager
 	j6 (Z)V setShouldAlwaysSendReports
 	j6 ()Z shouldAlwaysSendReports
@@ -788,6 +796,8 @@ com/crashlytics/android/core/W com/crashlytics/android/core/CrashlyticsControlle
 	Hw LARGEST_FILE_NAME_FIRST
 	J0 idManager
 	rN appMeasurementEventListenerRegistrar
+	we sslSocketFactorySource
+	DW (Labcd/hA;)Z finalizeNativeReport
 com/crashlytics/android/core/W$g com/crashlytics/android/core/CrashlyticsController$LogFileDirectoryProvider
 	j6 ()Ljava/io/File; getLogFileDir
 com/crashlytics/android/core/W$h com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck
@@ -826,6 +836,9 @@ com/crashlytics/android/core/ca com/crashlytics/android/core/CrashlyticsCore
 	j3 ()Ljava/lang/String; getUserName
 	aM ()Ljava/lang/String; getUserIdentifier
 	Ws ()Ljava/lang/String; getUserEmail
+	setListener (Lcom/crashlytics/android/core/ea;)V setListener
+	J0 pinningInfoProvider
+	v5 listener
 com/crashlytics/android/core/d com/crashlytics/android/core/ByteString
 	j6 (Ljava/lang/String;)Lcom/crashlytics/android/core/d; copyFromUtf8
 	j6 ([BII)Lcom/crashlytics/android/core/d; copyFrom
@@ -913,6 +926,8 @@ com/crashlytics/android/core/ma com/crashlytics/android/core/DefaultAppMeasureme
 	j6 ()Z register
 com/crashlytics/android/core/na com/crashlytics/android/core/DefaultCreateReportSpiCall
 	j6 (Lcom/crashlytics/android/core/ja;)Z invoke
+	j6 (Labcd/Hz;Lcom/crashlytics/android/core/Ka;)Labcd/Hz; applyMultipartDataTo
+	j6 (Labcd/Hz;Lcom/crashlytics/android/core/ja;)Labcd/Hz; applyHeadersTo
 com/crashlytics/android/core/o com/crashlytics/android/core/CrashTest
 	j6 ()V indexOutOfBounds
 com/crashlytics/android/core/qa com/crashlytics/android/core/DialogStringResolver

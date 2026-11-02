@@ -18,6 +18,7 @@ io/fabric/sdk/android/ActivityLifecycleManager$b io/fabric/sdk/android/ActivityL
 	j6 (Landroid/app/Activity;Landroid/os/Bundle;)V onActivityCreated
 io/fabric/sdk/android/Fabric io/fabric/sdk/android/Fabric
 io/fabric/sdk/android/Kit io/fabric/sdk/android/Kit
+	dependsOnAnnotation bz
 io/fabric/sdk/android/a io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1
 	DW this$0
 	j6 val$callbacks
@@ -222,6 +223,8 @@ io/fabric/sdk/android/services/common/AdvertisingInfoProvider io/fabric/sdk/andr
 	j6 ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfo
 	DW ()Lio/fabric/sdk/android/services/common/b; getInfoFromPreferences
 	v5 ()Lio/fabric/sdk/android/services/common/b; getAdvertisingInfoFromStrategies
+	FH ()Lio/fabric/sdk/android/services/common/e; getAdvertisingInfo
+	Hw ()Lio/fabric/sdk/android/services/common/e; getAdvertisingInfoFromStrategies
 io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy
 	DW ()Ljava/lang/String; getAdvertisingId
 	FH ()Ljava/lang/Object; getInfo
@@ -339,6 +342,16 @@ io/fabric/sdk/android/services/common/v io/fabric/sdk/android/services/common/Id
 	Hw installerPackageNameProvider
 	J8 firebaseInfo
 io/fabric/sdk/android/services/common/a io/fabric/sdk/android/services/network/HttpRequestFactory
+	j6 (Ljava/lang/String;)Ljava/lang/String; formatUrl
+	DW ()Ljava/lang/String; getBaseUrl
+	j6 ()Labcd/Hz; createRequest
+	j6 (Ljava/util/Map;)Labcd/Hz; createRequestWithParams
+	j6 urlPattern
+	DW baseUrl
+	FH requestFactory
+	Hw sslSocketFactorySource
+	Zo kit
+	v5 urlPath
 io/fabric/sdk/android/f io/fabric/sdk/android/FabricKitsFinder
 	j6 (Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;)Lio/fabric/sdk/android/l; loadKitInfo
 	j6 ()Ljava/util/zip/ZipFile; loadApkFile
@@ -352,6 +365,16 @@ io/fabric/sdk/android/n io/fabric/sdk/android/Onboarding
 	Hw packageInfo
 	tp kitsFinder
 	Zo ()Ljava/lang/String; getOverridenSpiEndpoint
+	FH overridenSpiEndpoint
+	VH overridenSpiEndpoint2
+	gn overridenSpiEndpoint3
+	j6 sslSocketFactorySource
+	u7 overridenSpiEndpoint4
+	v5 overridenSpiEndpoint5
+	DW (Ljava/lang/String;Labcd/Wz;Ljava/util/Collection;)Z verifyKitDependencies
+	FH (Ljava/lang/String;Labcd/Wz;Ljava/util/Collection;)Z isKitVersionCompatible
+	j6 (Labcd/fA;Ljava/util/Collection;)Labcd/Vz; createKitsFinder
+	j6 (Labcd/Wz;Labcd/fA;Ljava/util/Collection;)Z isKitAccepted
 io/fabric/sdk/android/services/common/r io/fabric/sdk/android/services/common/ExecutorUtils
 	DW (Ljava/lang/String;)Ljava/util/concurrent/ScheduledExecutorService; buildSingleThreadScheduledExecutorService
 	FH (Ljava/lang/String;)Ljava/util/concurrent/ThreadFactory; getNamedThreadFactory
@@ -372,6 +395,8 @@ io/fabric/sdk/android/services/common/t io/fabric/sdk/android/services/common/Fi
 	j6 isDataCollectionDefaultEnabledMethod
 io/fabric/sdk/android/services/common/x io/fabric/sdk/android/services/common/InstallerPackageNameProvider
 	j6 (Landroid/content/Context;)Ljava/lang/String; getInstallerPackageName
+	DW qy
+	j6 sy
 io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$b io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingInterface
 	v5 ()Z isLimitAdTrackingEnabled
 	j6 binder
