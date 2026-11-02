@@ -422,3 +422,38 @@ cover(a) 方法 7115/7155 = 99.4%   字段 4713/4801 = 98.2%
 2. **访问者专项**：剩下的大头还是 `classfile/visitor`(79)、`classfile/editor`(74) 里的
    visitor/editor 家族，区分点只有"访问/编辑什么类型"——把被访问类型补齐就能批量定；
 3. **6 个 `*TargetInfo`**（成员集完全相同）这种，只能靠"谁 new 它"的调用点判。
+
+## 21) 第十一轮：590 类（78.0%）——新判据「引用集」
+
+`strict`/「包内互为最优」饱和后，换了一个**结构指纹**判据：
+
+```
+unmapped 探针类 P 的"引用集" = P 的 smali 里出现过的所有探针类型（翻译成 oracle 名）
+oracle 候选 O 的"引用集"   = O 的成员描述符 + 常量池里的 proguard/** 类型
+打分 = Jaccard(两个引用集)，要求 ≥0.25、公共引用 ≥3、领先 ≥0.05，且同包
+```
+
+实得 **33 个**，质量很好（几个例子）：
+
+```
+a/b/g/g   → classfile/visitor/ClassCleaner              Jaccard 0.67（37 个公共引用）
+a/b/g/bi  → classfile/visitor/ReferencedClassVisitor    Jaccard 0.76（29 个公共引用）
+a/b/c/bq  → classfile/editor/TargetInfoCopier           Jaccard 0.33（7 个）
+a/b/e/h   → classfile/io/ProgramClassWriter$StackMapFrameBodyWriter  Jaccard 0.60（9 个）
+```
+
+（去掉 1 个重复目标后 **590 类**。）
+
+**`groupmatch` 仍然 0 条**：它的实现要求"同描述符组两侧数量相等"，而 ProGuard 这份比
+6.0.3 官方便宜（757 vs 804 类、成员也有删），组大小基本对不上。记在这里，别再重复试。
+
+现状：
+
+```
+类映射   590 / 757（78.0%）
+成员行   5719
+参数行   5091
+cover(a) 方法 7264/7309 = 99.4%   字段 4756/4846 = 98.1%
+门禁     validate ✔（类块 2530 / 成员行 20453 / 参数行 13295）
+         inherit 0/0/0 · innercheck ②③ 0
+```
