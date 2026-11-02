@@ -29,7 +29,6 @@ a/g/a/f	proguard/optimize/evaluation/EvaluationShrinker$MyStackConsistencyFixer	
 a/g/c/m	proguard/optimize/peephole/InstructionSequenceReplacer$Catch	str:1.00
 a/g/c/n	proguard/optimize/peephole/InstructionSequenceReplacer$Label	str:1.00
 a/g/c/r	proguard/optimize/peephole/LineNumberLinearizer$MyLineNumberBlock	contain:唯一(+0)
-a/i/i	proguard/shrink/ShortestUsageMarker	str:1.00
 a/j/b	proguard/util/ArrayUtil	contain:唯一(+42)
 a/j/d	proguard/util/CollectionMatcher	contain:唯一(+0)
 a/j/e	proguard/util/ConstantMatcher	contain:唯一(+0)
@@ -44,7 +43,6 @@ a/r	proguard/FullyQualifiedClassNameChecker	str:1.00
 a/s	proguard/GPL	str:1.00
 a/x	proguard/Initializer	str:1.00
 a/a/c	proguard/backport/DefaultInterfaceMethodConverter$1	cm:score=0.750/lead=1.000
-a/a/e	proguard/backport/LambdaExpression	cm:score=0.800/lead=0.750
 a/ai	proguard/SeedPrinter	cm:score=0.636/lead=1.000
 a/ak	proguard/UpToDateChecker	cm:score=0.875/lead=1.000
 a/am	proguard/UpToDateChecker$ModificationTimeChecker	cm:score=0.842/lead=1.000
@@ -56,9 +54,7 @@ a/b/d/e	proguard/classfile/instruction/InstructionFactory	cm:score=0.800/lead=1.
 a/b/d/h	proguard/classfile/instruction/SimpleInstruction	cm:score=0.848/lead=0.750
 a/b/d/k	proguard/classfile/instruction/VariableInstruction	cm:score=0.704/lead=0.857
 a/b/f/c	proguard/classfile/util/ArrayInitializationMatcher	cm:score=0.867/lead=1.000
-a/b/g/bc	proguard/classfile/visitor/ParallelAllClassVisitor$MyClassVisitorThread	cm:score=0.800/lead=1.000
 a/d/a/au	proguard/evaluation/value/TopValue	cm:score=0.875/lead=1.000
-a/d/a/bc	proguard/evaluation/value/UnknownReferenceValue	cm:score=0.895/lead=1.000
 a/d/a/w	proguard/evaluation/value/IdentifiedDoubleValue	cm:score=1.000/lead=1.000
 a/d/a/x	proguard/evaluation/value/IdentifiedFloatValue	cm:score=1.000/lead=1.000
 a/d/a/y	proguard/evaluation/value/IdentifiedIntegerValue	cm:score=1.000/lead=1.000
@@ -67,13 +63,139 @@ a/d/j	proguard/evaluation/TracedStack	cm:score=0.921/lead=1.000
 a/e/ah	proguard/io/RenamedDataEntry	cm:score=0.800/lead=1.000
 a/e/e	proguard/io/ClassPathDataEntry	cm:score=0.786/lead=1.000
 a/f/l	proguard/obfuscate/MappingReader	cm:score=0.578/lead=1.000
-a/g/c/ah	proguard/optimize/peephole/WrapperClassMerger	cm:score=0.857/lead=1.000
-a/g/v	proguard/optimize/Optimizer$TimedClassPoolVisitor	cm:score=0.917/lead=1.000
 a/j/y	proguard/util/VariableStringMatcher	cm:score=0.743/lead=1.000
 a/b/a	proguard/classfile/ClassConstants	pkg+contain:唯一(+3)
 a/b/a/a/a/d	proguard/classfile/attribute/annotation/target/LocalVariableTargetElement	pkg+contain:唯一(+0)
 a/b/c/as	proguard/classfile/editor/InstructionSequenceBuilder$MyDummyClass	pkg+contain:唯一(+0)
-a/d/l	proguard/evaluation/Variables	pkg+str:1.00
 a/f/t	proguard/obfuscate/NameFactory	pkg+contain:唯一(+0)
 a/j/w	proguard/util/StringTransformer$1	pkg+contain:唯一(+0)
 a/j/x	proguard/util/StringUtil	pkg+contain:唯一(+6)
+a/aa	proguard/KeepClassSpecification	pkg:互为最优 0.62
+a/b/a/a/a/h	proguard/classfile/attribute/annotation/target/TargetInfo	pkg:互为最优 0.55
+a/b/a/a/g	proguard/classfile/attribute/annotation/ConstantElementValue	pkg:互为最优 0.82
+a/b/a/a/s	proguard/classfile/attribute/annotation/TypePathInfo	pkg:互为最优 1.00
+a/b/a/b	proguard/classfile/attribute/BootstrapMethodInfo	pkg:互为最优 0.86
+a/b/a/d/f	proguard/classfile/attribute/visitor/AttributeCounter	pkg:互为最优 0.76
+a/b/a/d/p	proguard/classfile/attribute/visitor/LineNumberRangeFinder	pkg:互为最优 0.82
+a/b/b/a/d	proguard/classfile/constant/visitor/ConstantCounter	pkg:互为最优 0.76
+a/b/b/b	proguard/classfile/constant/Constant	pkg:互为最优 0.86
+a/b/b/c	proguard/classfile/constant/DoubleConstant	pkg:互为最优 0.86
+a/b/b/e	proguard/classfile/constant/FloatConstant	pkg:互为最优 0.86
+a/b/b/f	proguard/classfile/constant/IntegerConstant	pkg:互为最优 0.82
+a/b/b/i	proguard/classfile/constant/LongConstant	pkg:互为最优 0.86
+a/b/b/s	proguard/classfile/constant/Utf8Constant	pkg:互为最优 0.82
+a/b/d/a/c	proguard/classfile/instruction/visitor/InstructionCounter	pkg:互为最优 0.76
+a/b/d/g	proguard/classfile/instruction/LookUpSwitchInstruction	pkg:互为最优 0.73
+a/b/d/j	proguard/classfile/instruction/TableSwitchInstruction	pkg:互为最优 0.73
+a/b/f/a	proguard/classfile/util/AccessUtil	pkg:互为最优 0.56
+a/b/f/z	proguard/classfile/util/WarningPrinter	pkg:互为最优 0.70
+a/b/g/ak	proguard/classfile/visitor/MemberCollector	pkg:互为最优 0.65
+a/b/g/h	proguard/classfile/visitor/ClassCollector	pkg:互为最优 0.65
+a/b/g/x	proguard/classfile/visitor/ExceptionCounter	pkg:互为最优 0.76
+a/c/b	proguard/configuration/ConfigurationLogger$MethodSignature	pkg:互为最优 0.61
+a/d	proguard/ClassPath	pkg:互为最优 0.65
+a/d/a/ad	proguard/evaluation/value/InstructionOffsetValue	pkg:互为最优 0.61
+a/e/al	proguard/io/ZipDataEntry	pkg:互为最优 0.65
+a/e/am	proguard/io/ZipOutput	pkg:互为最优 0.60
+a/e/aq	proguard/io/ZipOutput$ZipEntry$UncompressedZipEntryOutputStream	pkg:互为最优 0.57
+a/e/n	proguard/io/DataEntryRewriter	pkg:互为最优 0.68
+a/e/t	proguard/io/FileDataEntry	pkg:互为最优 0.80
+a/f	proguard/ClassSpecification	pkg:互为最优 0.82
+a/f/h	proguard/obfuscate/MapCleaner	pkg:互为最优 0.65
+a/f/i	proguard/obfuscate/MappingKeeper	pkg:互为最优 0.60
+a/f/m	proguard/obfuscate/MemberNameCollector	pkg:互为最优 0.65
+a/f/v	proguard/obfuscate/NumericNameFactory	pkg:互为最优 1.00
+a/f/y	proguard/obfuscate/PrefixingNameFactory	pkg:互为最优 0.62
+a/g/b/af	proguard/optimize/info/ProgramClassOptimizationInfoSetter	pkg:互为最优 0.76
+a/g/b/ai	proguard/optimize/info/ProgramMethodOptimizationInfo	pkg:互为最优 0.59
+a/g/b/q	proguard/optimize/info/MethodOptimizationInfo	pkg:互为最优 0.69
+a/g/b/r	proguard/optimize/info/MutableBoolean	pkg:互为最优 1.00
+a/h	proguard/Configuration	pkg:互为最优 0.96
+a/j/c	proguard/util/ClassNameParser	pkg:互为最优 0.58
+a/j/f	proguard/util/EmptyStringMatcher	pkg:互为最优 0.71
+a/j/i	proguard/util/FixedStringMatcher	pkg:互为最优 0.62
+a/j/o	proguard/util/NameParser	pkg:互为最优 0.60
+a/j/v	proguard/util/StringTransformer	pkg:互为最优 0.71
+a/j	proguard/ConfigurationConstants	pkg:互为最优 0.77
+a/ab	proguard/KeepClassSpecificationVisitorFactory	pkg:互为最优 0.55
+a/b/a/a/h	proguard/classfile/attribute/annotation/ElementValue	pkg:互为最优 0.59
+a/b/a/b/g	proguard/classfile/attribute/module/RequiresInfo	pkg:互为最优 0.82
+a/b/a/c/r	proguard/classfile/attribute/preverification/VerificationType	pkg:互为最优 0.70
+a/b/a/d/w	proguard/classfile/attribute/visitor/StackSizeComputer	pkg:互为最优 0.58
+a/b/a/i	proguard/classfile/attribute/ExceptionsAttribute	pkg:互为最优 0.65
+a/b/b/p	proguard/classfile/constant/PrimitiveArrayConstant	pkg:互为最优 0.76
+a/b/g/be	proguard/classfile/visitor/ParallelAllClassVisitor$MyThreadedClassVisitor	pkg:互为最优 0.58
+a/b/g/i	proguard/classfile/visitor/ClassCounter	pkg:互为最优 0.65
+a/b/g/r	proguard/classfile/visitor/ClassVersionSetter	pkg:互为最优 0.65
+a/a/a	proguard/backport/Backporter	pkg:互为最优 1.00
+a/a/e	proguard/backport/LambdaExpression	pkg:互为最优 0.92
+a/a/f	proguard/backport/LambdaExpressionCollector	pkg:互为最优 1.00
+a/a/h	proguard/backport/StaticInterfaceMethodConverter	pkg:互为最优 1.00
+a/ac	proguard/LibraryKeepChecker	pkg:互为最优 1.00
+a/ah	proguard/ProGuard	pkg:互为最优 0.97
+a/aj	proguard/Targeter	pkg:互为最优 1.00
+a/b	proguard/AssumeNoSideEffectsChecker	pkg:互为最优 1.00
+a/b/a/a/a	proguard/classfile/attribute/annotation/Annotation	pkg:互为最优 0.75
+a/b/a/a/a/e	proguard/classfile/attribute/annotation/target/LocalVariableTargetInfo	pkg:互为最优 0.75
+a/b/a/a/c	proguard/classfile/attribute/annotation/AnnotationElementValue	pkg:互为最优 0.75
+a/b/a/a/e	proguard/classfile/attribute/annotation/ArrayElementValue	pkg:互为最优 0.75
+a/b/a/a/j	proguard/classfile/attribute/annotation/ParameterAnnotationsAttribute	pkg:互为最优 0.75
+a/b/a/a/q	proguard/classfile/attribute/annotation/TypeAnnotation	pkg:互为最优 0.75
+a/b/a/c/c	proguard/classfile/attribute/preverification/FullFrame	pkg:互为最优 1.00
+a/b/a/c/g	proguard/classfile/attribute/preverification/MoreZeroFrame	pkg:互为最优 1.00
+a/b/a/c/j	proguard/classfile/attribute/preverification/SameOneFrame	pkg:互为最优 1.00
+a/b/a/d	proguard/classfile/attribute/CodeAttribute	pkg:互为最优 0.75
+a/b/c/av	proguard/classfile/editor/InterfaceDeleter	pkg:互为最优 0.75
+a/b/c/k	proguard/classfile/editor/BootstrapMethodInfoAdder	pkg:互为最优 0.75
+a/b/c/m	proguard/classfile/editor/BootstrapMethodsAttributeAdder	pkg:互为最优 1.00
+a/b/c/o	proguard/classfile/editor/BootstrapMethodsAttributeShrinker	pkg:互为最优 1.00
+a/b/c/u	proguard/classfile/editor/CodeAttributeComposer	pkg:互为最优 1.00
+a/b/c/v	proguard/classfile/editor/CodeAttributeEditor	pkg:互为最优 1.00
+a/b/f/p	proguard/classfile/util/InstructionSequenceMatcher	pkg:互为最优 0.75
+a/b/g/bc	proguard/classfile/visitor/ParallelAllClassVisitor$MyClassVisitorThread	pkg:互为最优 1.00
+a/b/k	proguard/classfile/ProgramClass	pkg:互为最优 1.00
+a/c/a	proguard/configuration/ConfigurationLogger	pkg:互为最优 0.79
+a/c/c	proguard/configuration/ConfigurationLoggingAdder	pkg:互为最优 1.00
+a/d/a	proguard/evaluation/BasicBranchUnit	pkg:互为最优 0.75
+a/d/a/ac	proguard/evaluation/value/InitialValueFactory	pkg:互为最优 1.00
+a/d/a/bc	proguard/evaluation/value/UnknownReferenceValue	pkg:互为最优 0.80
+a/d/a/bd	proguard/evaluation/value/Value	pkg:互为最优 0.77
+a/d/a/m	proguard/evaluation/value/ConvertedDoubleValue	pkg:互为最优 1.00
+a/d/a/n	proguard/evaluation/value/ConvertedFloatValue	pkg:互为最优 1.00
+a/d/a/o	proguard/evaluation/value/ConvertedIntegerValue	pkg:互为最优 1.00
+a/d/a/p	proguard/evaluation/value/ConvertedLongValue	pkg:互为最优 1.00
+a/d/k	proguard/evaluation/TracedVariables	pkg:互为最优 1.00
+a/d/l	proguard/evaluation/Variables	pkg:互为最优 1.00
+a/e/h	proguard/io/DataEntryCopier	pkg:互为最优 0.81
+a/f/ac	proguard/obfuscate/SpecialNameFactory	pkg:互为最优 0.75
+a/f/ad	proguard/obfuscate/UniqueMemberNameFactory	pkg:互为最优 0.75
+a/f/g	proguard/obfuscate/DictionaryNameFactory	pkg:互为最优 1.00
+a/f/s	proguard/obfuscate/MultiMappingProcessor	pkg:互为最优 0.75
+a/f/w	proguard/obfuscate/Obfuscator	pkg:互为最优 1.00
+a/g/a/ac	proguard/optimize/evaluation/SimpleEnumClassChecker	pkg:互为最优 1.00
+a/g/a/ad	proguard/optimize/evaluation/SimpleEnumClassSimplifier	pkg:互为最优 1.00
+a/g/a/ai	proguard/optimize/evaluation/TracedBranchUnit	pkg:互为最优 0.75
+a/g/a/i	proguard/optimize/evaluation/InitializationFinder	pkg:互为最优 1.00
+a/g/a/j	proguard/optimize/evaluation/InstructionUsageMarker	pkg:互为最优 1.00
+a/g/a/v	proguard/optimize/evaluation/PartialEvaluator	pkg:互为最优 1.00
+a/g/a/x	proguard/optimize/evaluation/PartialEvaluator$MyInstructionBlock	pkg:互为最优 0.75
+a/g/b/as	proguard/optimize/info/SimpleEnumMarker	pkg:互为最优 0.75
+a/g/c/ah	proguard/optimize/peephole/WrapperClassMerger	pkg:互为最优 1.00
+a/g/c/j	proguard/optimize/peephole/InstructionSequenceConstants	pkg:互为最优 1.00
+a/g/c/k	proguard/optimize/peephole/InstructionSequenceReplacer	pkg:互为最优 0.75
+a/g/c/p	proguard/optimize/peephole/InstructionSequencesReplacer	pkg:互为最优 0.75
+a/g/m	proguard/optimize/Optimizer	pkg:互为最优 1.00
+a/g/n	proguard/optimize/Optimizer$1	pkg:互为最优 1.00
+a/g/q	proguard/optimize/Optimizer$4	pkg:互为最优 1.00
+a/g/r	proguard/optimize/Optimizer$5	pkg:互为最优 1.00
+a/g/s	proguard/optimize/Optimizer$6	pkg:互为最优 1.00
+a/g/u	proguard/optimize/Optimizer$8	pkg:互为最优 1.00
+a/g/v	proguard/optimize/Optimizer$TimedClassPoolVisitor	pkg:互为最优 1.00
+a/i	proguard/ConfigurationChecker	pkg:互为最优 1.00
+a/i/h	proguard/shrink/ShortestUsageMark	pkg:互为最优 1.00
+a/i/i	proguard/shrink/ShortestUsageMarker	pkg:互为最优 1.00
+a/i/m	proguard/shrink/Shrinker	pkg:互为最优 1.00
+a/j/j	proguard/util/ListParser	pkg:互为最优 0.75
+a/j/m	proguard/util/MatchedStringMatcher	pkg:互为最优 0.75
+a/p	proguard/DuplicateClassPrinter	pkg:互为最优 1.00
+a/z	proguard/KeepClassMemberChecker	pkg:互为最优 1.00

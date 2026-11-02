@@ -129,3 +129,52 @@ a/b/a/a/a/a    → proguard/classfile/attribute/annotation/target/visitor   2 vs
    类的区分点全在"它 visit 什么类型"→ 用方法描述符里的类型 + 调用点；
 3. 每轮仍然：候选 → `members` 算命中率 → 保留 ≥60% 的 → 再迭代；
 4. 类级到 90% 后统一做成员级（现在做会让 `inherit_check` MISSING 变 33，门禁不允许）。
+
+## 9) 第三轮：**类型翻译**是卡点，201/757
+
+上一轮的"包约束 + 互为最优"只到 79，原因找到了：**描述符里的类型没翻译**。
+探针侧是 `La/b/c;`、oracle 侧是 `Lproguard/classfile/ClassFile;`，
+`Dice(方法描述符集)` 直接算就是 0 —— 形状再像也配不上。
+
+改法（与 `membermatch._wild` 同源）：
+
+```
+把 oracle 描述符按 class_map 反查回探针空间；
+探针描述符里的**未定名类型**当通配 L[^;]+; 去匹配 oracle：
+  match_frac = (能在 oracle 里找到对应的方法数) / (探针方法数)
+  score = 0.55*match_frac(方法) + 0.20*match_frac(字段) + 0.25*串 Jaccard
+```
+
+然后仍按"包内**互为最优** + 两边领先 ≥0.05 + score ≥0.60"取：
+
+```
+129 → 326 候选 → （members 命中率 ≥0.5 验伪）→ 201 定稿
+```
+
+**命中率阈值降到 0.5**：直方图是双峰的（≤0.4 共 17 个 = 配错；0.5 共 22 个 =
+成员被 AIDE 裁过/内联的对类；≥0.6 共 109 个）。0.5 那批抽查后确认是对类。
+
+证据分布（`class_map.tsv` 第 3 列）：`pkg`(互为最优) 129、`contain` 27、`cm` 22、
+`str` 17、`pkg+contain` 6。
+
+## 10) 第四轮：先补 9 个祖先，再一次性落成员
+
+本轮试跑成员级：201 个类能定 **1151/3673 方法、813/1125 字段**（1568 行），
+但 `inherit_check` 的 MISSING 变 **81 条（38 个祖先成员）**，来自这 9 个还没定名的祖先：
+
+```
+a/b/c      (editor)            15 个成员
+a/i/n      (shrink)             8
+a/e/g      (io)                 4
+a/d/a/ap   (evaluation/value)   3
+a/b/g/s    (classfile/visitor)  2
+a/b/f/w    (classfile/util)     2   ← 本轮反查到 proguard/classfile/util/SimplifiedVisitor
+a/d/c      (evaluation)         2
+a/e/ak     (io)                 1
+a/j/u      (util)               1
+```
+
+**下一轮顺序**：
+1. 用"子类覆写到的描述符集合（**同样要过通配**）+ 本包约束"把这 9 个祖先钉死；
+2. 祖先齐了再跑 `members --apply`，MISSING 应为 0，成员级一次落地；
+3. 剩下 556 个类继续"包内互为最优"迭代（每轮类型翻译都会更准，通配位越来越少）。
