@@ -215,3 +215,11 @@ a/g/c/f	proguard/optimize/peephole/GotoCommonCodeReplacer	pkg:互为最优 0.75
 a/g/c/j	proguard/optimize/peephole/InstructionSequenceConstants	pkg:互为最优 1.00
 a/g/u	proguard/optimize/Optimizer$8	pkg:互为最优 1.00
 a/h/a	proguard/preverify/CodePreverifier	pkg:互为最优 1.00
+a/b/a/a	proguard/classfile/attribute/Attribute	anc:后代祖先交集唯一(5 个后代)
+a/b/d/a/e	proguard/classfile/instruction/visitor/MultiInstructionVisitor	anc:后代祖先交集唯一(1 个后代)
+a/b/f/w	proguard/classfile/util/SimplifiedVisitor	anc:后代祖先交集唯一(35 个后代)
+a/d/a/c	proguard/evaluation/value/BasicValueFactory	anc:后代祖先交集唯一(1 个后代)
+a/d/a/d	proguard/evaluation/value/Category1Value	anc:后代祖先交集唯一(11 个后代)
+a/d/a/e	proguard/evaluation/value/Category2Value	anc:后代祖先交集唯一(4 个后代)
+a/g	proguard/ClassSpecificationVisitorFactory	anc:后代祖先交集唯一(1 个后代)
+a/i/n	proguard/shrink/UsageMarker	anc:后代祖先交集唯一(1 个后代)

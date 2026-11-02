@@ -213,3 +213,44 @@ a/d/a/bc 继承 a/d/a/bd   c()Z   子=mayBeExtension 祖先=isSpecific
    拿返回值 + 被谁调用（`if (v.isSpecific())`）交叉确认；
 2. 家族定死后再跑 `members --apply`，MISSING 才会真的归零；
 3. 剩 540 个类继续"包内互为最优"迭代（每轮已定名类型更多 → 通配位更少 → 更准）。
+
+## 13) 第五轮：`Value` 家族解决，225/757
+
+**两个互补判据**（都在 `a/d/a` 值域家族上验证）：
+
+1. **返回常量**：`()Z` 方法在字节码里是 `iconst_0/1 … ireturn`。拿探针的返回值去比 oracle 的
+   返回值，同常量且唯一 → 定名。实得 6 条（如 `a/d/a/bc.c()` ret=0 → `isParticular`、
+   `a/d/a/bc.h()` ret=1 → `mayBeExtension`）。
+2. **覆写集**：`Value.isSpecific()` 与 `isParticular()` 都 `()Z` 且都返回 false，光看方法体分不开。
+   改看"这个槽在**整个已映射家族**里被谁声明"：把探针里声明同名同描述符的类映射到 oracle，
+   和"oracle 里声明 `isSpecific()` 的类集合 / 声明 `isParticular()` 的类集合"取交集，
+   命中多的那个胜。实得 5 条，且与判据 1 在 `TypedReferenceValue` 上**互相印证**
+   （`c()` 既是 ret=0 的 `isParticular`，又在覆写集里命中 `isParticular` 6/6）。
+
+结果：**带着成员行跑也不再 CONFLICT / DUPTARGET**（这是上一轮的卡点）。
+
+**祖先类的新判据**（替掉上一轮那条错的）：
+> 未映射祖先 A 的候选 = （A 的每个已映射后代的 **oracle 祖先集合**）∩ 包约束 ∩ 标志集
+> 交集唯一 → 定名；交集 ≥2 时再用"成员描述符（通配）最佳"挑，要求领先 ≥0.05。
+
+实得 8 个：`a/b/a/a→Attribute`、`a/b/d/a/e→MultiInstructionVisitor`、
+`a/b/f/w→SimplifiedVisitor`、`a/d/a/c→BasicValueFactory`、`a/d/a/d→Category1Value`、
+`a/d/a/e→Category2Value`、`a/g→ClassSpecificationVisitorFactory`、`a/i/n→UsageMarker`。
+
+## 14) 现状与最后一个阻塞
+
+```
+类映射   225 / 757（29.7%）
+成员行   0     ← 试跑过：1065/2282 方法（47%）、632/730 字段（87%），共 ~1600 行
+参数行   0
+```
+
+**阻塞只剩一个**：`inherit_check` 的 MISSING 56 条（25 个"抽象/接口祖先"）。
+它们的候选交集 ≥2、成员最佳也分不出（`a/d/a/af`、`a/b/g/s` 这类），
+而只给子类改名、祖先留空会让 FART 的不确定性上升，所以成员行仍然清空。
+
+**下一轮**：
+1. 这 25 个祖先用**调用点**定（`usematch --profile`：谁调用它 / 它被谁 new）——
+   ProGuard 的 `Visitor`/`Unit` 家族调用点很集中；
+2. 齐了以后 `members --apply` + 我的两道补槽脚本（返回常量 / 覆写集），成员级一次落地；
+3. 剩 532 个类继续"包内互为最优"（已定名越多 → 通配越少 → 更准）。
