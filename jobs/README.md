@@ -4,11 +4,11 @@
 
 | 目录 | 依赖 | 判据来源 | 内容 |
 |---|---|---|---|
-| `jgit` | Eclipse JGit（AIDE 内置，魔改混合版） | 多版本 oracle（按类选最贴版本）+ 逐版本差异白名单 | 685 类 / 5562 成员行 / 3238 参数行，待人工 **0** |
+| `jgit` | Eclipse JGit（AIDE 内置，魔改混合版） | 多版本 oracle（按类选最贴版本）+ 逐版本差异白名单 | 685 类 / 5542 成员行 / 3238 参数行，待人工 **0** |
 | `jsch` | JSch **0.1.51**（类名没混淆，只有成员被改名；见 [docs/NOTES.md](../docs/NOTES.md) §9） | oracle 同名类 | 141 类 / 1228 成员行 / 824 参数行 |
 | `aide` | AIDE 自有类（目标在 `abcd/aide/`，**无 oracle**） | 常量串 / 引用者 / 实现关系，按作用命名 | 52 类 / 36 成员行 / 13 参数行（原 77 类里 25 个 HTTP/JSON 类查明是 Dropbox SDK + json-simple，已移交 `dropbox`） |
 | `dx` | dx **1.16 世系**（裁掉纯 CLI 子包） | 结构指纹 + 枚举锚点 + 引用集 + 实现者集合 | 448 类 / 4366 成员行 / 2321 参数行 |
-| `crashlytics` | crashlytics-core 2.7.0 / answers 1.4.7 / beta 1.2.10 / crashlytics 2.9.9 | 同上 + 常量串全集 + 外类锚定 | 176 类 / 842 成员行 / 590 参数行，待人工 **1**（见下） |
+| `crashlytics` | crashlytics-core 2.7.0 / answers 1.4.7 / beta 1.2.10 / crashlytics 2.9.9 | 同上 + 常量串全集 + 外类锚定 | 176 类 / 830 成员行 / 590 参数行，待人工 **1**（见下） |
 | `fabric` | fabric 1.4.8 | 同上（AAR 被 proguard 裁过，缺的按作用命名） | 64 类 / 356 成员行 / 204 参数行，待人工 **0** |
 | `zipsigner` | kellinwood zipsigner 1.11 / zipio 1.6 / logging（Maven 没有，**自己用上游源码 javac 编 oracle**）| 串 + 字段类型 + 调用点常量 + 同方法体内字段读取顺序 | **24 类** / 108 方法行 + 94 字段行 / 94 参数行，待人工 0 — 见 [zipsigner/README.md](zipsigner/README.md) |
 | `spongycastle` | SpongyCastle(=BouncyCastle) **1.47**；用官方 bcprov/bcpkix-jdk15on-1.47 当同版本 oracle | tag 常量 / 常量串 Jaccard / 实现者集合 / 形状包含 / 引用者 | **257 类** / 813 方法行 + 1114 字段行 / 795 参数行，成员待人工 0 — 见 [spongycastle/README.md](spongycastle/README.md) |
