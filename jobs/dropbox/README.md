@@ -121,6 +121,22 @@ this.displayName = (String) map.get("display_name");
 ⇒ 剩下的 69 条必须**逐条读方法体**：能靠端点串/JSON key/报错文案的就按证据，
 其余（匿名回调、线程体、策略实现）按作用命名。
 
+### 下一轮的"抄近路"清单（已经读出来的证据，别再重挖）
+
+| 类 | 成员 | 证据串 | 该叫什么 |
+|---|---|---|---|
+| `Ww`(DbxWebAuth) | `Hw()` | `api.dropbox.com` | `getApiHost` |
+| | `Zo()` | `api-content.dropbox.com` | `getContentHost` |
+| | `v5()` | `OfficialDropboxJavaSDK/` | `getUserAgent` |
+| | `j6(HttpRequest)` | `Authorization` / `Bearer ` | `addOAuth2Header` |
+| | `j6(Xw)` / `j6(String)` | `'oauth1AccessToken' must be non-null` 等 | `setOAuth1Token` / `setOAuth2Token` |
+| `Iw`(SSLConfig) | `v5()` | `BKS` | `getTrustStore` |
+| | `j6(SSLSocket)` | `Minimal TLS version 1 support required!` / `TLSv1` | `configureTls` |
+| | `DW`/`j6`/`FH` | 三个 `[B`/`[Ljava/lang/String;` | 内置 CA 证书表 `caCerts` / `caCertAliases` |
+| `Pw`(DbxException$ServerError) | 6 个字段 | `server`/`location` 出处 | `statusCode`/`requestId`/`body`/`headers`/`errorBody` |
+| `kL`(JsonReadException) | `j6`/`FH`/`DW` | `at position ` | `position`/`lineNumber`/`path` |
+| `Uw` | `process()` | `Accept-Encoding`/`gzip` | `process`（已是重写方法，改名即可）|
+
 ## 6) 待办
 
 1. 先把 5 条一致的和冲突的逐个用 `ql probe`/`ql cand` 复核；
