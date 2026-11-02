@@ -1,49 +1,49 @@
-abcd/Dw	com/dropbox/core/DbxClient	str:/files_put/ /fileops/create_folder /account/info（v1 API 路径集）+ shape 0.55
-abcd/Dw$a	com/dropbox/core/DbxClient$AccountInfoReader	按作用命名：解析 country/display_name/quota_info/referral_link（DbxAccountInfo 的 JSON 字段）
-abcd/Dw$b	com/dropbox/core/DbxClient$CompletionCallback	按作用命名：2 方法 2 字段，无串
-abcd/Dw$c	com/dropbox/core/DbxClient$MetadataResponseHandler	按作用命名：处理 Content-Type/X-Dropbox-Metadata/"Error parsing metadata."
-abcd/Dw$d	com/dropbox/core/DbxClient$EntityInputStream	按作用命名：继承 FilterInputStream + "Didn't get entity from HttpResponse"
-abcd/Dw$e	com/dropbox/core/DbxClient$EntryReader	按作用命名：解析 is_dir/is_deleted/rev/bytes/client_mtime（DbxEntry 的字段）
-abcd/Dw$f	com/dropbox/core/DbxClient$ValueHolder	按作用命名：1 方法 2 字段
-abcd/Dw$g	com/dropbox/core/DbxClient$SingleShotRunnable	按作用命名：单方法无字段
-abcd/Ew	com/dropbox/core/TaskRunnable	按作用命名：实现 DbxTask，单方法
-abcd/Fw	com/dropbox/core/HttpStreamCopier	按作用命名：2 个方法，配合 HttpEntityWrapper 使用
-abcd/Fw$a	com/dropbox/core/HttpStreamCopier$EntityWrapper	按作用命名：继承 HttpEntityWrapper + "'listener' is null"
-abcd/Fw$a$a	com/dropbox/core/HttpStreamCopier$EntityWrapper$CountingStream	按作用命名：继承 FilterOutputStream（计数写入）；外层是 Fw$a → 三层命名
-abcd/Gw	com/dropbox/core/DbxRequestUtil	str:"Params must have an even number of elements."（唯一位于这个类）/ 日期格式/URL 编码表
-abcd/Gw$a	com/dropbox/core/DbxRequestUtil$HttpMethod	按作用命名：枚举 GET/POST
-abcd/Hw	com/dropbox/core/DbxSdkVersion	str:"1.6.2"
-abcd/Iw	com/dropbox/core/http/SSLConfig	str:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 等套件表 + 继承 org/apache/http SSLSocketFactory
-abcd/Jw	com/dropbox/core/DbxException	被 6 个类继承的基异常（extends java/lang/Exception）
-abcd/Kw	com/dropbox/core/DbxException$BadState	按作用命名：DbxException 子类
-abcd/Lw	com/dropbox/core/DbxException$ParseError	按作用命名：DbxException 子类 + "failed to parse: "
-abcd/Mw	com/dropbox/core/DbxException$Wrapped	按作用命名：DbxException 子类，1 方法 1 字段
-abcd/Nw	com/dropbox/core/RetryingTask	按作用命名：继承 Kw + str:"Proxy may have been updated, try request again."
-abcd/Ow	com/dropbox/core/DbxException$NetworkIO	按作用命名：DbxException 子类，单方法
-abcd/Pw	com/dropbox/core/DbxException$ServerError	extends Jw + str:"DropboxServerException ("/"server"/"location"/"dropbox.com"
-abcd/Pw$a	com/dropbox/core/DbxException$ServerError$ErrorBody	按作用命名：解析 error/user_error
-abcd/Qw	com/dropbox/core/DelegatingTask	按作用命名：实现 DbxTask，单方法
-abcd/Rw	com/dropbox/core/DbxTask	接口（sup=Object、单方法），Ew 等 4 个类实现它
-abcd/Sw	com/dropbox/core/EntryListReader	按作用命名：2 方法 1 字段
-abcd/Tw	com/dropbox/core/DbxHttpClient	按作用命名：继承 org/apache/http DefaultHttpClient
-abcd/Uw	com/dropbox/core/DbxClient$IODbxException	str:"Accept-Encoding"/"gzip" + 三版 shape 0.67
-abcd/Vw	com/dropbox/core/GzipStreamCopier	按作用命名："gzip" + 2 方法 1 字段
-abcd/Ww	com/dropbox/core/DbxWebAuth	str:oauth_consumer_key/oauth_signature/"'appKeyPair' must be non-null"
-abcd/Ww$a	com/dropbox/core/DbxWebAuth$ConnectionManager	按作用命名：继承 ThreadSafeClientConnManager
-abcd/Ww$b	com/dropbox/core/DbxWebAuth$ReuseStrategy	按作用命名：继承 DefaultConnectionReuseStrategy + "Close"/"Connection"/"Keep-Alive"
-abcd/Ww$c	com/dropbox/core/DbxWebAuth$KeepAlivePolicy	按作用命名："Keep-Alive"/"timeout"
-abcd/Ww$d	com/dropbox/core/DbxWebAuth$EntityWrapper	按作用命名：继承 HttpEntityWrapper
-abcd/Ww$e	com/dropbox/core/DbxWebAuth$WorkerThread	按作用命名：继承 java/lang/Thread
-abcd/Zw	com/dropbox/core/AccessType	按作用命名：9 方法无字段（访问类型相关）
-abcd/Zw$a	com/dropbox/core/AccessType$Value	按作用命名：枚举 APP_FOLDER/AUTO/DROPBOX/sandbox/auto/dropbox
-abcd/Zw$b	com/dropbox/core/AccessType$Pair	按作用命名：2 字段，无方法
-abcd/_w	com/dropbox/core/DbxAppInfo	str:"'key' must be non-null"/"'secret' must be non-null"/"|" 检查
-abcd/dL	com/dropbox/core/ObjectList	按作用命名：继承 ArrayList
-abcd/eL	com/dropbox/core/SingleValueProvider	按作用命名：单方法
-abcd/fL	com/dropbox/core/ObjectMap	按作用命名：继承 HashMap
-abcd/hL	com/dropbox/core/DumpableObject	按作用命名：5 方法（toString/"null" 输出）
-abcd/iL	com/dropbox/core/StringPair	按作用命名：2 方法
-abcd/jL	com/dropbox/core/RequestSpec	按作用命名：12 方法 4 字段
-abcd/kL	com/dropbox/core/json/JsonReadException	extends Exception + str:"Unexpected character ("/"at position "
-abcd/lL	com/dropbox/core/json/JsonLexer	JFlex 生成的扫描器（"Error: pushback value was too large"/"Unkown internal scanner error"）+ 21 方法/21 字段
-abcd/mL	com/dropbox/core/json/JsonToken	枚举：COLON(:)/COMMA(,)/LEFT BRACE({)/RIGHT BRACE(})
+abcd/Dw	com/dropbox/client2/DropboxAPI	strmatch j=0.39 + 字段 SDK_VERSION/session + 串 Session must not be null./files_put//fileops/delete/account/info + 方法 accountInfo/metadata/putFile/delete/createFolder/getFileStream/chunkedUpload*
+abcd/Dw$a	com/dropbox/client2/DropboxAPI$Account	8 字段 country/display_name/uid/referral_link/quota_info/quota + implements Serializable + strmatch j=1.00
+abcd/Dw$b	com/dropbox/client2/DropboxAPI$BasicUploadRequest	public final + 实现 UploadRequest(Dw$g) + 字段(HttpUriRequest,Session) + upload() 返回 Entry；ChunkedUploadRequest 的 upload 返回 ChunkedUploadResponse 且 ctor 是 protected，不符
+abcd/Dw$c	com/dropbox/client2/DropboxAPI$DropboxFileInfo	X-Dropbox-Metadata / Error parsing metadata. / Error determining file size. + 字段(Entry,HttpResponse 派生) + strmatch j=1.00
+abcd/Dw$d	com/dropbox/client2/DropboxAPI$DropboxInputStream	extends java/io/FilterInputStream + ctor(HttpUriRequest,HttpResponse) + 字段(DropboxFileInfo,HttpUriRequest) + "Didn't get entity from HttpResponse"
+abcd/Dw$e	com/dropbox/client2/DropboxAPI$Entry	15 字段 + is_dir/rev/client_mtime/mime_type/thumb_exists 串(strmatch j=0.93) + 静态字段类型 JsonExtractor<Entry>(Rw)
+abcd/Dw$f	com/dropbox/client2/DropboxAPI$RequestAndResponse	字段(HttpUriRequest,HttpResponse) + ctor，shape 1.00（唯一 2 字段 1 方法的内嵌类）
+abcd/Dw$g	com/dropbox/client2/DropboxAPI$UploadRequest	public interface abstract + 唯一方法 upload()Entry（oracle 里另有 abort()，本 APK 已收缩）
+abcd/Ew	com/dropbox/client2/DropboxAPI$Entry$1	InnerClass 注解 EnclosingClass=Dw$e 且 name=null(匿名) + super=JsonExtractor + Signature Rw<Dw$e>
+abcd/Fw	com/dropbox/client2/ProgressListener	被 DropboxAPI/ProgressHttpEntity 引用（listener 参数类型）+ shape 0.667
+abcd/Fw$a	com/dropbox/client2/ProgressListener$ProgressHttpEntity	extends HttpEntityWrapper + "'listener' is null"（strmatch j=1.00，唯一）
+abcd/Fw$a$a	com/dropbox/client2/ProgressListener$ProgressHttpEntity$CountingOutputStream	extends java/io/FilterOutputStream（计数写入）+ InnerClass 两层，名对两层
+abcd/Gw	com/dropbox/client2/RESTUtility	strmatch j=0.89：Params must have an even number of elements./Bad response from Dropbox./UTF-8/%2F
+abcd/Gw$a	com/dropbox/client2/RESTUtility$RequestMethod	枚举 GET/POST（strmatch j=1.00）
+abcd/Hw	com/dropbox/client2/SdkVersion	唯一方法返回常量 "1.6.2"，与 oracle SdkVersion.get() 一致
+abcd/Iw	com/dropbox/client2/SecureSSLSocketFactory	extends org/apache/http/conn/ssl/SSLSocketFactory + Minimal TLS version 1 support required!/Only strict hostname verification (default) is supported!/BKS（strmatch j=0.94）
+abcd/Jw	com/dropbox/client2/exception/DropboxException	extends Exception + 3 个 ctor(无参/String/Throwable) + 被 Kw/Lw/Mw/Pw/Qw/Nw 继承
+abcd/Kw	com/dropbox/client2/exception/DropboxIOException	super=Jw + ctor(IOException)/ctor(String)
+abcd/Lw	com/dropbox/client2/exception/DropboxParseException	super=Jw + "failed to parse: " + 静态方法读 BufferedReader
+abcd/Mw	com/dropbox/client2/exception/DropboxPartialFileException	super=Jw + public final long bytesTransferred + ctor(long)
+abcd/Nw	com/dropbox/client2/exception/DropboxProxyChangeException	super=Kw(DropboxIOException) + "Proxy may have been updated, try request again."
+abcd/Ow	com/dropbox/client2/exception/DropboxSSLException	super=Kw + ctor(javax/net/ssl/SSLException)
+abcd/Pw	com/dropbox/client2/exception/DropboxServerException	strmatch j=0.91：DropboxServerException (/server/location/dropbox.com；oracle 25 个状态码常量被收缩成 6 个字段
+abcd/Pw$a	com/dropbox/client2/exception/DropboxServerException$Error	解析 error/user_error（strmatch j=1.00）
+abcd/Qw	com/dropbox/client2/exception/DropboxUnlinkedException	super=Jw + 只有无参 ctor + 被 RESTUtility 抛出
+abcd/Rw	com/dropbox/client2/jsonextract/JsonExtractor	public abstract 泛型<T> + 被 Entry 当静态字段类型、被 Ew 当超类
+abcd/Sw	com/dropbox/client2/session/AbstractSession$1	implements org/apache/http/conn/params/ConnPerRoute + 字段 this$0:AbstractSession + getMaxForRoute（源码里第一个匿名类）
+abcd/Tw	com/dropbox/client2/session/AbstractSession$2	extends DefaultHttpClient + 覆写 createConnectionKeepAliveStrategy/createConnectionReuseStrategy
+abcd/Uw	com/dropbox/client2/session/AbstractSession$3	Accept-Encoding/gzip + process(HttpRequest,HttpContext)（strmatch j=1.00）
+abcd/Vw	com/dropbox/client2/session/AbstractSession$4	gzip + process(HttpResponse) 里 new GzipDecompressingEntity(Ww$d)
+abcd/Ww	com/dropbox/client2/session/AbstractSession	strmatch j=0.95：OfficialDropboxJavaSDK/ + api.dropbox.com/api-content.dropbox.com + 'oauth1AccessToken'/'oauth2AccessToken'/'type' must be non-null + Bearer/OAuth oauth_version + 5 个内部类全对上
+abcd/Ww$a	com/dropbox/client2/session/AbstractSession$DBClientConnManager	extends org/apache/http/impl/conn/tsccm/ThreadSafeClientConnManager
+abcd/Ww$b	com/dropbox/client2/session/AbstractSession$DBConnectionReuseStrategy	extends DefaultConnectionReuseStrategy + Keep-Alive/timeout/Close（strmatch j=1.00）
+abcd/Ww$c	com/dropbox/client2/session/AbstractSession$DBKeepAliveStrategy	implements ConnectionKeepAliveStrategy + getKeepAliveDuration（strmatch j=1.00）
+abcd/Ww$d	com/dropbox/client2/session/AbstractSession$GzipDecompressingEntity	extends HttpEntityWrapper + 只被 Vw(AbstractSession$4) new
+abcd/Ww$e	com/dropbox/client2/session/AbstractSession$IdleConnectionCloserThread	extends java/lang/Thread + 静态单例字段
+abcd/Zw	com/dropbox/client2/session/Session	interface（无 super 类）+ 被 AbstractSession/RESTUtility/DropboxAPI 引用
+abcd/Zw$a	com/dropbox/client2/session/Session$AccessType	枚举 DROPBOX/dropbox/APP_FOLDER/sandbox/AUTO/auto（strmatch j=1.00）
+abcd/Zw$b	com/dropbox/client2/session/Session$ProxyInfo	2 字段(String,int) + 嵌套在 Session + 被 RESTUtility 用（ConnRoutePNames 路由代理）
+abcd/_w	com/dropbox/client2/session/TokenPair	'key'/'secret' must be non-null + "|" 拼串 + {key="..", secret=".."}（strmatch j=1.00）
+abcd/dL	org/json/simple/JSONArray	extends java/util/ArrayList + 被 JSONValue(hL)/JSONParser(jL)/Entry 引用
+abcd/eL	org/json/simple/JSONAware	单方法接口 toJSONString（shape 1.00）+ 被 dL/fL/hL 引用
+abcd/fL	org/json/simple/JSONObject	extends java/util/HashMap + 被 hL/jL 引用
+abcd/hL	org/json/simple/JSONValue	strmatch j=1.00（null/"\/\\b/\f 转义表等 11 串）
+abcd/iL	org/json/simple/parser/ContainerFactory	2 方法接口 createObjectContainer/createArrayContainer（shape 1.00）+ 被 JSONParser(jL) 引用
+abcd/jL	org/json/simple/parser/JSONParser	oracle 12 字段/16 方法收缩成 4 字段/12 方法，引用 Yylex/Yytoken/ParseException/JSONObject/JSONArray
+abcd/kL	org/json/simple/parser/ParseException	extends Exception + "at position "（strmatch j=1.00）
+abcd/lL	org/json/simple/parser/Yylex	JFlex 骨架串 "Error: pushback value was too large"/"Unkown internal scanner error"（strmatch j=0.88）
+abcd/mL	org/json/simple/parser/Yytoken	(int,Object) + toString 的 token 表 COLON/COMMA/LEFT BRACE（strmatch j=1.00）

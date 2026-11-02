@@ -1,144 +1,197 @@
-# jobs/dropbox —— Dropbox Java SDK（AIDE 的云同步后端）——**进行中**
+# jobs/dropbox —— Dropbox **Android** SDK 1.6.2 + json-simple 1.1（AIDE 的 Dropbox 后端）
 
-## 1) 这一簇其实是 Dropbox SDK，不是「httpcore/httpmime」
+## 1) 一句话结论
 
-授权页写的是 `httpmime-4.0.3` / `httpcore-4.2.1`，但顺着"谁引用 `org/apache/http/**`"去切，
-切出来的 50 个类**绝大多数是 Dropbox SDK 自己**（它内部用 Apache HttpClient）：
+这一簇 **49 个 `abcd/*` 类 = `com.dropbox.client2.**`（dropbox-android-sdk **1.6.2**）＋
+`org.json.simple.**`（json_simple **1.1**）**，一对一全定名，成员 **0 待人工**，
+参数名 **122 行**（36 个带参方法里 34 个拿全，剩 2 个见 §7）。
+
+> ⚠️ 早期版本的本 README 把它判成 `com.dropbox.core`（dropbox-core-sdk 1.6/1.7.7/1.8.2）。
+> **那是错的**，49 个类名全部指错了库。错因与纠正过程见 §6——这份文档现在的数字都是重做后的。
+
+## 2) 依赖真相
+
+| 项 | 值 |
+|---|---|
+| 库 | `com.dropbox.client2`（Dropbox **Android** SDK，不是 `com.dropbox.core`） |
+| 版本 | **1.6.2**（证据链见 §4） |
+| 附带库 | `org.json.simple`（json_simple **1.1**，SDK 的 JSON 依赖） |
+| oracle jar | `~/out/oracle/http/dropbox-android-sdk-1.6.2.jar`（78 类）<br>`~/out/oracle/http/json_simple-1.1.jar`（12 类） |
+| oracle 源码 | `~/dbxand/dropbox-android-sdk-master/src/main/java`（41 个 .java）<br>`~/out/oracle/http/js-src-1.1`（12 个 .java，json-simple 源码） |
+| 下载 | `https://gh-proxy.com/https://codeload.github.com/MariusVolkhart/dropbox-android-sdk/tar.gz/refs/heads/master`（该仓库 `lib/` 里**自带官方编译好的** `dropbox-android-sdk-1.6.2.jar` + `json_simple-1.1.jar` + `android.jar`）<br>json-simple 源码：华为云 `com/googlecode/json-simple/json-simple/1.1/json-simple-1.1-sources.jar` |
+| 注册位置 | `process/deob.json` → `oracle_jars`（`dropbox-android-1.6.2`、`json-simple-1.1`）+ `src_root` 两条 |
+
+**为什么不是 Maven 上的 `dropbox-core-sdk`**：那是 `com.dropbox.core` 的新一代 SDK（1.6/1.7/1.8…），
+和这份代码的类名、内部类、字段名**全都不一样**。Android SDK（`com.dropbox.client2`）2014 年后
+就不在 Maven 中央仓库了，只有这种随 SDK 包发行的 jar。
+
+## 3) 切簇
+
+授权页写的是 `httpmime-4.0.3` / `httpcore-4.2.1`，但顺着"引用 `org/apache/http/**`"切出来的是 Dropbox SDK
+（Apache HttpClient 只是它的下游）。宿主（AIDE UI/同步服务）会**反向**引用库类，所以不能用无向连通分量：
 
 ```
-abcd/Dw      DropboxAPI  串 '/files_put/'、'parent_rev'、'overwrite'、'sandbox'
-abcd/Pw      DropboxServerException 串 'server'、'location'、'dropbox.com'
-abcd/Gw      DropboxParseUtil       串 'EEE, dd MMM yyyy kk:mm:ss ZZZZZ'
-abcd/Iw      加密套件表 (TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 …) = SSLConfig
-abcd/Zw      APP_FOLDER / sandbox / DROPBOX
-abcd/yk$h    appfour 自己的 'Subscription WS Client' + api.appfour.com（不是 Dropbox）
-```
-
-所以这一簇的 oracle 应该是 `com.dropbox.core:dropbox-core-sdk`，Apache 只是它的下游依赖。
-
-## 2) 切法：这次不能用"无向连通分量"
-
-宿主（AIDE 的 UI/同步服务）反向引用库里的类，无向走一步就炸成 **1715 类**。
-`component.py` 为此加了两个开关：
-
-```
---directed     只沿"引用出去"的边走
---prune-refs   类只要引用了这些宿主包（com/aide、com/s1243808733、com/appfour…）就剔掉
+python3 tools/deob/component.py -p process/deob.json --prefix abcd \
+    --seed-string '/files_put/' --seed-string 'parent_rev' \
+    --directed \
+    --prune-refs com/aide,com/s1243808733,com/blankj,com/appfour,com/google,androidx,org/eclipse/jgit
 → 50 类 / 217 方法 / 116 字段
 ```
 
-## 3) oracle 与当前进度
+切出来 50 个，其中 **`abcd/yk$h` 不属于这两个库**（常量串 `Subscription WS Client`、
+`https://api.appfour.com/aideservices/sub`，字段类型是**未被混淆**的 `org/json/JSONObject`；
+它不引用本簇任何类、也不被任何簇内类引用）→ 从 `classes.txt` 剔除，保持 **49 类**。
+
+## 4) 版本锁定：1.6.2（四条独立证据）
+
+1. **版本常量**：`abcd/Hw` 只有一个方法，直接 `return "1.6.2"` ＝ `com/dropbox/client2/SdkVersion.get()`
+   （该仓库 master 的 `SdkVersion.java` 就是 `return "1.6.2";`）。
+2. **双 token 会话**：`abcd/Ww` 的方法体里有 `'oauth1AccessToken' must be non-null` **和**
+   `'oauth2AccessToken' must be non-null`，还有 `Bearer ` 与 `OAuth oauth_version="1.0"`。
+   1.5.4（更早的镜像版）的 `AbstractSession` 只有 OAuth1，没有这两条串 → 排除 1.5.x。
+3. **内部类集合**：`Ww` 的 5 个内部类逐一对应 1.6.2 的
+   `DBClientConnManager / DBConnectionReuseStrategy / DBKeepAliveStrategy /
+   GzipDecompressingEntity / IdleConnectionCloserThread`，外加 4 个匿名类 `$1..$4`
+   （`ConnPerRoute` / `DefaultHttpClient` / `HttpRequestInterceptor` / `HttpResponseInterceptor`）。
+4. **证书字节级一致**（最硬的一条）：`abcd/Iw`（`SecureSSLSocketFactory`）的
+   `GetRootKeyStoreBytes1/2/3()` 三段根证书，与 1.6.2 源码里 `new byte[]{...}` 的十进制字面量
+   **逐字节相等**：
+
+   ```
+   src  chunk1 len=6687 head=000000010000001421225bad   == probe DW (6687 B, 全等)
+   src  chunk2 len=3589 head=391c87bab8bd7b227ff6feac   == probe FH (3589 B, 全等)
+   src  chunk3 len=8156 head=0353ad9123631f169ccdb9b2   == probe Hw (8156 B, 全等)
+   probe j6() = DW+FH+Hw（<clinit> 里逐段 invoke-static 拼 → sRootKeyStoreBytes）
+   ```
+
+   这条同时证明"整簇就是 1.6.2"，也把 `GetRootKeyStoreBytes/1/2/3` 四个同形方法是
+   **按内容**而不是按猜测分开的（BKS 头魔数在第一段，所以 `DW`=`...Bytes1` 还能额外自证）。
+
+## 5) 类级判据（49 条怎么定的）
+
+工具：`classmatch --hard 1 --ints` 出候选 → `strmatch` 出常量串 Jaccard → `jvmbody` 形状/超类/内部类
+→ 人工裁决。**每条都写进 `class_map.tsv` 的第三列**，这里只列"判据类型 + 代表"：
+
+| 判据类型 | 例子 |
+|---|---|
+| 唯一常量串 | `Iw` = `SecureSSLSocketFactory`（`Minimal TLS version 1 support required!` / `Only strict hostname verification (default) is supported!` / `BKS`，j=0.94）<br>`Gw` = `RESTUtility`（`Params must have an even number of elements.`，j=0.89） |
+| 超类 + 内部类结构 | `Ww` = `AbstractSession`（11 字段收缩成 4，5 个内部类全中，j=0.95）<br>`Ww$b/$c` = `DBConnectionReuseStrategy/DBKeepAliveStrategy`（j=1.00） |
+| 枚举锚点 | `Zw$a` = `Session$AccessType`（`DROPBOX/dropbox`、`APP_FOLDER/sandbox`、`AUTO/auto`）<br>常量归属靠 `<clinit>`：`const-string "DROPBOX"` 后紧跟 `sput-object → j6` |
+| 泛型签名 + 匿名类注解 | `Rw` = `jsonextract/JsonExtractor`（`public abstract` + `Signature <T:...>`）<br>`Ew` = `DropboxAPI$Entry$1`（`InnerClass` 注解 `EnclosingClass=Labcd/Dw$e`、`name=null`） |
+| 返回类型细分 | `Dw$b` = `BasicUploadRequest`：`public final` + `upload()` 返回 `Entry`；<br>`ChunkedUploadRequest` 的 `upload()` 返回 `ChunkedUploadResponse`、ctor 是 `protected` → 不符 |
+| 依赖关系 | `iL` = `ContainerFactory`（2 方法接口，被 `JSONParser(jL)` 引用）、`eL` = `JSONAware`（被 `dL/fL/hL` 引用） |
+| JFlex/骨架串 | `lL` = `parser/Yylex`（`Error: pushback value was too large` / `Unkown internal scanner error`）<br>`kL` = `ParseException`（`at position `）、`mL` = `Yytoken` |
+
+成员级：`members --pkg=abcd --part=dropbox --apply` 用描述符 + 引用者 + 方法体指纹对齐，
+字段名/方法名/静态标记全部来自 oracle。举例：
 
 ```
-~/out/oracle/http/dropbox-core-sdk-{1.6,1.7.7,1.8.2}.jar   (112/161/182 类)
-~/out/oracle/http/httpclient-4.2.1.jar / httpcore-4.2.1.jar
+abcd/Dw      SDK_VERSION / session / accountInfo / metadata / putFile / delete /
+             createFolder / getFileStream / putFileRequest / getFileFromMapAsLong …
+abcd/Iw      sRootKeyStoreBytes / sAllowedCipherSuites / mSSLSocketFactory / loadKeyStore /
+             setSSLParameters / GetRootKeyStoreBytes{,1,2,3}
+abcd/Ww      appKeyPair / oauth1AccessToken / accessType / client / sign / unlink /
+             getAPIServer / getContentServer / getHttpClient / setRequestTimeout / buildOAuth1Header
+abcd/Pw      server / location / reason / body / error / parsedResponse
 ```
 
-`classmatch --ints` 三个版本各只收敛 12~13/50，且**两版之间只有 5 条一致**：
+## 6) 两次错，怎么错的、怎么改的
+
+**错 1：拿 `dropbox-core-sdk` 当 oracle（1.6 / 1.7.7 / 1.8.2 三版都试过）。**
+三个版本各只能收敛 12~13/50，且互相冲突 → 当时判成"AIDE 用的是 appfour 改过的老 fork，
+形状漂移太大"。真实原因简单得多：**那是另一个库**（`com.dropbox.core` vs `com.dropbox.client2`），
+描述符当然对不上。表现为 `members` 永远留 69 条 `no-oracle-descriptor` 消不掉——
+那不是"改过的 fork"，是"oracle 选错了"。
+
+**错 2：`jobs/aide` 早就把这 25 个类当成了 AIDE 自有 HTTP/JSON 工具。**
+早先 `aide` part 把 `Ww/Zw/Dw/Gw/Sw/Tw/Uw/Vw/iL/jL` 及其内部类命名为
+`abcd/aide/HttpConnectionBase`、`abcd/aide/HttpTransport`、`abcd/aide/HttpHelper`、
+`abcd/aide/CollectionFactory`、`abcd/aide/JsonParser`… 证据列写的是"已确认 AIDE 自有（不属任何依赖）"。
+真相是：它们是 Dropbox Android SDK 的 `AbstractSession/Session/DropboxAPI/RESTUtility/…`
+和 json-simple 的 `ContainerFactory/JSONParser`，AIDE 只是**用了**它们。
+纠正：从 `jobs/aide/{class_map.tsv,members.tsrg,params_manual.tsv}` 删掉这 25 类
+（25 行 / 25 块 / 2 行），归本 part 用真名。改完 `validate` 从 8 处无效映射 → **✔ 0**。
+
+教训（给下一个库）：
+
+* **"多版本都收敛不了"先怀疑 oracle 选错了库，不要先怀疑"魔改 fork"**；
+  判断办法：拿一个**唯一常量串**在候选 jar 里做 `strmatch`，j 值低于 0.5 就是别的库。
+* 一个探针类**只能被一个 part 命名**。`rebuild_tsrg` 是按 part 顺序后写覆盖，表面上不报错，
+  `validate` 才会以 `dup-member-target` / 参数重复的形式露出来。
+
+## 7) 现状与门禁
 
 ```
-一致: Nw=DbxWebAuth$BadStateException, Pw$a=HttpRequestor$Header, Qw=DbxTask,
-      Ww$b=DbxDeltaC$Entry$Reader, Ww$c=DbxAccountInfo$1
-冲突: 5 条（Dw/Ew/Kw/Uw/Vw… 两版给出不同答案）
+类映射   49 / 49（全部真名，无"按作用命名"）
+成员行   222（方法 113 + 字段 109），待人工 0
+参数行   122（62 个带参方法里 60 个拿全）
 ```
 
-结论：**AIDE 带的这份是 appfour 改过的老 fork**（或比 1.6 更早），形状漂移很大，
-不能靠单一版本收敛。下一步要么找到那份 fork 的源码，要么按"多版本交集 + 引用者 + 常量串"
-逐个裁决（和 jgit 的多版本回归一个套路）。
+门禁（全绿）：
 
-## 3b) 版本已定：**1.6.x**（不是 1.7/1.8）
+| 检查 | 结果 |
+|---|---|
+| `tools/jgit/pipeline/validate_mappings.py` | ✔ 无无效映射（类块 1897 / 成员行 14629 / 参数行 8201） |
+| `tools/jgit/pipeline/inherit_check.py` | CONFLICT 0 / DUPTARGET 0 / MISSING 0 |
+| `tools/deob/famcheck.py --jar …dropbox-android-sdk-1.6.2.jar --parts jobs/dropbox/class_map.tsv` | 覆写族冲突 0 / 祖先未映射 0 |
+| `tools/deob/innercheck.py` | ②内部/顶层错配 0、③同目标 0（①1 条是 jgit 老账 `abcd/tB$a`） |
+| `tools/deob/cli.py … cover --pkg=abcd` | 方法 99.3% / 字段 97.9%（全库） |
 
-`abcd/Hw` 的常量串是 `1.6.2` —— 那是 SDK 的 `DbxSdkVersion` 版本号常量。加上形状分也是 1.6 最高
-（`Dw` 0.55 vs 1.7.7 的 0.38），所以**主 oracle 用 1.6**，另外两版只作参照。
+参数名没拿全的 10 个方法，逐个交代：
 
-已经用证据定下的 4 个（写进 `class_map.tsv`）：
+* 8 个是 **dex2jar 合成器** `$d2j$hex$…$decode_{B,I,J,S}`（`Iw` 4 个、`lL` 4 个）。
+  oracle 里根本不存在，也不在覆盖率分母里（`cover` 的默认口径剔合成器），
+  方法名沿用 spongycastle 的先例（`decodeHexBytes/Ints/Longs/Shorts`），形参不命名。
+* 2 个在 `Ww`：`buildOAuth1Header(AppKeyPair, AccessTokenPair)` 和
+  `setAccessTokenPair(AccessTokenPair)`——形参类型 `Labcd/Yw;`/`Labcd/Xw;` **不在本 part 内**，
+  描述符翻译不到 oracle，jar 的 LVT 和源码补全都对不上。这两个写进
+  `jobs/dropbox/params_manual.tsv`，证据列直接引 1.6.2 源码行号。
 
-| 探针 | 结论 | 判据 |
-|---|---|---|
-| `Hw` | `DbxSdkVersion` | 串 `1.6.2` |
-| `Iw` | `http/SSLConfig` | TLS 套件表（`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`…）+ 0.63 |
-| `Jw` | `DbxSessionStore` | 三版一致 0.67 |
-| `Uw` | `DbxClient$IODbxException` | 三版一致 0.67 + 串 `Accept-Encoding`/`gzip` |
+## 8) 注意事项
 
-## 4) 为什么这块比 spongycastle 难
+* **文件系统大小写不敏感**（FUSE）：`abcd/kL` 的真实文件是 `kL.1.smali`，直接读
+  `smali/abcd/kL.smali` 会读到**另一个类** `abcd/KL`（本目录踩过一次，白看了一屏）。
+  一切路径走 `process/truth/smali_index.tsv`。
+* **不要在 FUSE 里 `grep -r smali*` 全库**（3193 个文件，几十秒起步且会超时）。
+  要引用者信息时，用 `usematch.py`/`refmatch.py`，或只扫本 part 的 49 个文件。
+* json-simple 1.1 的接口方法名**本来就拼错**：`ContainerFactory.creatArrayContainer`
+  （少一个 `e`，1.1 的已知 bug，1.1.1 才修）。`iL.j6` 映射成这个名字是**忠实于 oracle**，
+  不是我们的手误——改打包时如果编译不过，请改成 `create...` 并在这里记账。
+* `abcd/yk$h` 已从 `classes.txt` 剔除（appfour 自有）。给内部类贴外层名会破坏
+  `InnerClasses` 属性，`innercheck` ② 会直接报错——`yk$h` 的外层 `yk` 不在本 part。
 
-50 个类里**一半以上是匿名内部类**（`Dw$a…$g`、`Ww$a…$e`、`Zw$a/$b`、`Fw$a$a`…）。
-它们的原名叫 `DbxClient$1`、`DbxEntry$File$1` 这种，形状只有 1~2 个方法，
-**形状指纹和常量串都不可用**，只能靠"外层类 + 出现顺序"，而顺序又不可靠（见 §3 的教训）。
-所以这批大概率走「按作用命名」：`DbxClient$UploadProgressListener1` 之类。
-
-## 4b) 类名：49/50 已定（13 个真名 + 36 个按作用命名）
-
-- **13 个有证据的真名**：`DbxClient`(/files_put/ 等 v1 路径)、`DbxException`(基异常)、
-  `DbxException$ServerError`("DropboxServerException ("/server/location)、`DbxTask`(接口，4 个实现)、
-  `DbxAppInfo`('key'/'secret' 断言)、`DbxRequestUtil`("Params must have an even number of elements.")、
-  `DbxWebAuth`(oauth_consumer_key/oauth_signature)、`DbxSdkVersion`(串 `1.6.2`)、`SSLConfig`(TLS 套件表)、
-  `DbxSessionStore`、`DbxClient$IODbxException`、`json/JsonReadException`、`json/JsonToken`、`json/JsonLexer`(JFlex 扫描器)。
-- **36 个按作用命名**：一半是匿名内部类（`Dw$a`=DbxClient$AccountInfoReader、`Ww$b`=DbxWebAuth$ReuseStrategy…），
-  另一半是外包类（`Tw`=DbxHttpClient、`dV`=ObjectList…）。全部记在 `class_map.tsv` 第三列（写了为什么）。
-- `kellinwood/yk$h`（appfour 自有）**未纳入**：它是 `yk` 的内部类而 `yk` 不在本 part，
-  硬改顶层名会毁 `InnerClasses` 属性（innercheck ② 抓到的就是它）。
-
-## 5) 成员名这块要单独估工
-
-`members` 一跑：**方法 0/207、字段 3/109**。原因很清楚——36 个类是按作用命名的"新造类"，
-oracle 里根本没有这些名字，成员没法对齐；剩下 13 个真名类则因为 **v1 API 漂移**
-（`DbxClient` 在 1.6 里 50 多个方法，APK 只剩 16 个且描述符不同）也基本对不上。
-
-所以这个 part 的成员名只能**按作用命名**（约 330 条），不像 spongycastle/zipsigner 那样有据可依。
-
-**已经做完的**：`DbxClient`(=abcd/Dw) 这个核心类的 16 个成员全部定名，判据是**方法体里的端点串**：
+## 9) 复现命令
 
 ```
-"/account/info"        → getAccountInfo
-"/fileops/create_folder" → createFolder      "/fileops/delete"   → delete
-"/files/"              → getFileStream       "/metadata/"        → getMetadata
-"/files_put/"          → uploadFile          无串的分块上传 6 个 → uploadFileChunk/…（按作用命名）
+# 1) 切簇（见 §3）
+# 2) 类级候选
+python3 tools/deob/classmatch.py -p process/deob.json --prefix abcd \
+    --oracle dropbox-android-1.6.2,json-simple-1.1 \
+    --oracle-pkg com/dropbox,org/json/simple \
+    --only jobs/dropbox/classes.txt --hard 1 --ints --report jobs/dropbox/out/cm
+# 3) 常量串判据
+python3 tools/deob/strmatch.py -p process/deob.json --prefix abcd \
+    --oracle dropbox-android-1.6.2 --oracle-pkg com/dropbox \
+    --only jobs/dropbox/classes.txt --min 0.2 --top 2
+# 4) 成员（写 members.tsrg）
+python3 tools/deob/cli.py -p process/deob.json members --pkg=abcd --part=dropbox --apply
+# 5) 汇总 + 参数 + 门禁
+python3 tools/jgit/pipeline/rebuild_tsrg.py
+python3 tools/jgit/pipeline/validate_mappings.py
+python3 tools/jgit/pipeline/inherit_check.py
+python3 tools/deob/famcheck.py --jar ~/out/oracle/http/dropbox-android-sdk-1.6.2.jar \
+    --parts jobs/dropbox/class_map.tsv --prefix abcd
+python3 tools/deob/innercheck.py
+python3 tools/deob/cli.py -p process/deob.json cover --pkg=abcd
 ```
 
-记在 `functional.tsv`（16 行，一行一条判据）。字段 `j6`=`accessToken`、`DW`=`accessType`
-由构造器（`Session must not be null.`）与类型推出。
+## 10) 下一步
 
-**第二种判据：JSON key**（新工具 `tools/deob/jsonfields.py`）。struct 类的字段值都是从 Map 里取的：
+本 part 已收口。全库剩下的活（不在本目录）：
 
-```java
-this.country = (String) map.get("country");      // const-string "country" → Map.get → iput-object → j6
-this.displayName = (String) map.get("display_name");
-```
-
-于是"赋值前刚被 `Map.get` 用过的那个 key"就是字段名。要求 **`const-string` 之后必须真的出现
-`Map.get`**（否则会把 `SSLConfig` 里的 `"TLS"` 误当 key——这个假阳性第一版就撞上了）。
-这一轮补了 **16 个字段 + 1 个取值方法**（`Dw$e`=DbxClient$EntryReader 的 `path/rev/bytes/is_dir/…`、
-`Pw$a` 的 `error/user_error`、`Dw$a` 的 `country/displayName/…`）。
-
-当前：方法 15 条、字段 21 条已定名，`members` 报的待人工从 85 降到 **69**。
-
-**第三种尝试（`tools/deob/accessorfill.py`，补 0 条）**：想用"方法体只读写一个已定名字段"
-批量生成 `get<Field>`/`set<Field>`。结果一条都没配上——Dropbox 这边的取值器几乎都不是纯访问器，
-例如 `Dw$e.j6()String` 读 `gn`（path）之后还要 `const/16 0x2f`（'/') 取最后一段。
-工具留着给别的 part 用，但这条路在本 part 走不通。
-
-⇒ 剩下的 69 条必须**逐条读方法体**：能靠端点串/JSON key/报错文案的就按证据，
-其余（匿名回调、线程体、策略实现）按作用命名。
-
-### 下一轮的"抄近路"清单（已经读出来的证据，别再重挖）
-
-| 类 | 成员 | 证据串 | 该叫什么 |
-|---|---|---|---|
-| `Ww`(DbxWebAuth) | `Hw()` | `api.dropbox.com` | `getApiHost` |
-| | `Zo()` | `api-content.dropbox.com` | `getContentHost` |
-| | `v5()` | `OfficialDropboxJavaSDK/` | `getUserAgent` |
-| | `j6(HttpRequest)` | `Authorization` / `Bearer ` | `addOAuth2Header` |
-| | `j6(Xw)` / `j6(String)` | `'oauth1AccessToken' must be non-null` 等 | `setOAuth1Token` / `setOAuth2Token` |
-| `Iw`(SSLConfig) | `v5()` | `BKS` | `getTrustStore` |
-| | `j6(SSLSocket)` | `Minimal TLS version 1 support required!` / `TLSv1` | `configureTls` |
-| | `DW`/`j6`/`FH` | 三个 `[B`/`[Ljava/lang/String;` | 内置 CA 证书表 `caCerts` / `caCertAliases` |
-| `Pw`(DbxException$ServerError) | 6 个字段 | `server`/`location` 出处 | `statusCode`/`requestId`/`body`/`headers`/`errorBody` |
-| `kL`(JsonReadException) | `j6`/`FH`/`DW` | `at position ` | `position`/`lineNumber`/`path` |
-| `Uw` | `process()` | `Accept-Encoding`/`gzip` | `process`（已是重写方法，改名即可）|
-
-## 6) 待办
-
-1. 先把 5 条一致的和冲突的逐个用 `ql probe`/`ql cand` 复核；
-2. 剩下 38 个（含 5 个 appfour 自有类）按作用命名收口；
-3. 之后再做成员名/参数名（Dropbox SDK 的 sources jar 在 Maven 上也有）。
+1. **Cordova/PhoneGap ~905 类**：同样要 `component.py --directed --prune-refs` 才能和
+   AIDE 自己的 class-file 工具链（`rd` 229 方法、`Ba` 113 方法）切开。
+2. **jgit 遗留 1 条**：`abcd/tB$a → org/eclipse/jgit/api/RebaseCommand$2$1`（14 个 oracle 版本都没这个类）。
+3. **fabric `Onboarding` 的 6 个 String 字段**：6 路排列无法用现有判据区分。
+4. **`abcd` 剩余 1633 个短名类未定名**（覆盖率分母不含它们）。
+5. 打包装机验证（本机没有 `apksigner`/`zipalign`，建议先 `adb uninstall aidepro.top`）。
