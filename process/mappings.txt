@@ -25702,6 +25702,25 @@ kellinwood/sigblock/a kellinwood/sigblock/SignatureContentSigner
 	FH ()[B getSignature
 	j6 ()Ljava/io/OutputStream; getOutputStream
 abcd/Dw com/dropbox/core/DbxClient
+	j6 accessToken
+	DW accessType
+	j6 ()Labcd/Dw$a; getAccountInfo
+	j6 (Ljava/lang/String;)Labcd/Dw$e; createFolder
+	DW (Ljava/lang/String;)V delete
+		0 path path
+	j6 (Ljava/lang/String;Ljava/lang/String;)Labcd/Dw$d; getFileStream
+	j6 (Ljava/lang/String;ILjava/lang/String;ZLjava/lang/String;)Labcd/Dw$e; getMetadata
+	j6 (Ljava/lang/String;Ljava/io/InputStream;JZLjava/lang/String;Labcd/Fw;)Labcd/Dw$g; uploadFile
+	DW (Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$g; uploadFileChunk
+	DW (Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$g; uploadFileChunkWithRev
+	j6 (Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$e; uploadFileDirect
+	j6 (Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$e; uploadFileDirectWithRev
+	DW (Ljava/util/Map;Ljava/lang/String;)J chunkedUploadStart
+		static
+	j6 (Ljava/util/Map;Ljava/lang/String;)Z chunkedUploadAppend
+		static
+	FH ()Labcd/Zw; getSessionType
+	DW ()V close
 abcd/Dw$a com/dropbox/core/DbxClient$AccountInfoReader
 abcd/Dw$b com/dropbox/core/DbxClient$CompletionCallback
 abcd/Dw$c com/dropbox/core/DbxClient$MetadataResponseHandler

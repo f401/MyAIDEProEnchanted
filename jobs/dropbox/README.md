@@ -87,6 +87,18 @@ oracle 里根本没有这些名字，成员没法对齐；剩下 13 个真名类
 
 所以这个 part 的成员名只能**按作用命名**（约 330 条），不像 spongycastle/zipsigner 那样有据可依。
 
+**已经做完的**：`DbxClient`(=abcd/Dw) 这个核心类的 16 个成员全部定名，判据是**方法体里的端点串**：
+
+```
+"/account/info"        → getAccountInfo
+"/fileops/create_folder" → createFolder      "/fileops/delete"   → delete
+"/files/"              → getFileStream       "/metadata/"        → getMetadata
+"/files_put/"          → uploadFile          无串的分块上传 6 个 → uploadFileChunk/…（按作用命名）
+```
+
+记在 `functional.tsv`（16 行，一行一条判据）。字段 `j6`=`accessToken`、`DW`=`accessType`
+由构造器（`Session must not be null.`）与类型推出。
+
 ## 6) 待办
 
 1. 先把 5 条一致的和冲突的逐个用 `ql probe`/`ql cand` 复核；

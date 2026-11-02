@@ -1,0 +1,17 @@
+# 按作用命名：类	旧名	描述符	新名	判据
+abcd/Dw	j6	()Labcd/Dw$a;	getAccountInfo	方法体串 "/account/info"
+abcd/Dw	j6	(Ljava/lang/String;)Labcd/Dw$e;	createFolder	方法体串 "/fileops/create_folder"
+abcd/Dw	DW	(Ljava/lang/String;)V	delete	方法体串 "/fileops/delete"
+abcd/Dw	j6	(Ljava/lang/String;Ljava/lang/String;)Labcd/Dw$d;	getFileStream	方法体串 "/files/"，返回实体流 Dw$d
+abcd/Dw	j6	(Ljava/lang/String;ILjava/lang/String;ZLjava/lang/String;)Labcd/Dw$e;	getMetadata	方法体串 "/metadata/"
+abcd/Dw	j6	(Ljava/lang/String;Ljava/io/InputStream;JZLjava/lang/String;Labcd/Fw;)Labcd/Dw$g;	uploadFile	方法体串 "/files_put/"
+abcd/Dw	DW	(Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$g;	uploadFileChunk	按作用命名：无端点串，参数 (路径,流,长度,进度回调)
+abcd/Dw	DW	(Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$g;	uploadFileChunkWithRev	按作用命名：同上多一个 rev
+abcd/Dw	j6	(Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$e;	uploadFileDirect	按作用命名：无端点串，返回 entry
+abcd/Dw	j6	(Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$e;	uploadFileDirectWithRev	按作用命名：同上多一个 rev
+abcd/Dw	DW	(Ljava/util/Map;Ljava/lang/String;)J	chunkedUploadStart	按作用命名：无串，返回 long 会话句柄
+abcd/Dw	j6	(Ljava/util/Map;Ljava/lang/String;)Z	chunkedUploadAppend	按作用命名：无串，返回 boolean
+abcd/Dw	FH	()Labcd/Zw;	getSessionType	按作用命名：返回会话/访问类型
+abcd/Dw	DW	()V	close	按作用命名：无参无返回
+abcd/Dw	j6		accessToken	ctor(Session) 只判空；String 字段
+abcd/Dw	DW		accessType	ctor(Session) 的参数类型（访问类型）
