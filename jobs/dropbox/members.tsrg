@@ -1,82 +1,271 @@
-abcd/Dw com/dropbox/core/DbxClient
-	j6 accessToken
-	DW accessType
-	j6 ()Labcd/Dw$a; getAccountInfo
-	j6 (Ljava/lang/String;)Labcd/Dw$e; createFolder
+abcd/Dw com/dropbox/client2/DropboxAPI
+	DW ()V assertAuthenticated
+	DW (Ljava/util/Map;Ljava/lang/String;)J getFromMapAsLong
+	j6 (Ljava/lang/String;Ljava/io/InputStream;JZLjava/lang/String;Labcd/Fw;)Labcd/Dw$g; putFileRequest
+	j6 (Ljava/util/Map;Ljava/lang/String;)Z getFromMapAsBoolean
+	DW (Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$g; putFileOverwriteRequest
+	DW (Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$g; putFileRequest
 	DW (Ljava/lang/String;)V delete
+	FH ()Labcd/Zw; getSession
+	j6 ()Labcd/Dw$a; accountInfo
 	j6 (Ljava/lang/String;Ljava/lang/String;)Labcd/Dw$d; getFileStream
-	j6 (Ljava/lang/String;ILjava/lang/String;ZLjava/lang/String;)Labcd/Dw$e; getMetadata
-	j6 (Ljava/lang/String;Ljava/io/InputStream;JZLjava/lang/String;Labcd/Fw;)Labcd/Dw$g; uploadFile
-	DW (Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$g; uploadFileChunk
-	DW (Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$g; uploadFileChunkWithRev
-	j6 (Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$e; uploadFileDirect
-	j6 (Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$e; uploadFileDirectWithRev
-	DW (Ljava/util/Map;Ljava/lang/String;)J chunkedUploadStart
-	j6 (Ljava/util/Map;Ljava/lang/String;)Z chunkedUploadAppend
-	FH ()Labcd/Zw; getSessionType
-	DW ()V close
-abcd/Dw$a com/dropbox/core/DbxClient$AccountInfoReader
+	j6 (Ljava/lang/String;)Labcd/Dw$e; createFolder
+	j6 (Ljava/lang/String;ILjava/lang/String;ZLjava/lang/String;)Labcd/Dw$e; metadata
+	j6 (Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$e; putFileOverwrite
+	j6 (Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$e; putFile
+	j6 SDK_VERSION
+	DW session
+abcd/Dw$a com/dropbox/client2/DropboxAPI$Account
 	j6 country
-	DW displayName
 	VH referralLink
-	FH quotaInfo
-abcd/Dw$b com/dropbox/core/DbxClient$CompletionCallback
-abcd/Dw$c com/dropbox/core/DbxClient$MetadataResponseHandler
-abcd/Dw$d com/dropbox/core/DbxClient$EntityInputStream
-abcd/Dw$e com/dropbox/core/DbxClient$EntryReader
-	FH hash
-	Hw icon
-	Zo modified
-	VH clientMtime
-	gn path
+	DW displayName
+	v5 quotaShared
+	Zo uid
+	Hw quotaNormal
+	FH quota
+abcd/Dw$b com/dropbox/client2/DropboxAPI$BasicUploadRequest
+	j6 ()Labcd/Dw$e; upload
+	DW session
+	j6 request
+abcd/Dw$c com/dropbox/client2/DropboxAPI$DropboxFileInfo
+	j6 (Lorg/apache/http/HttpResponse;Labcd/Dw$e;)J parseFileSize
+	j6 (Lorg/apache/http/HttpResponse;)Labcd/Dw$e; parseXDropboxMetadata
+	DW fileSize
+	Hw metadata
+	j6 mimeType
+	FH charset
+abcd/Dw$d com/dropbox/client2/DropboxAPI$DropboxInputStream
+	DW info
+	j6 request
+abcd/Dw$e com/dropbox/client2/DropboxAPI$Entry
+	j6 JsonExtractor
+	DW bytes
+	Ws contents
+	j6 ()Ljava/lang/String; fileName
+	we rev
 	u7 root
 	tp size
+	Zo modified
+	VH clientMtime
+	Hw icon
+	FH hash
 	EQ mimeType
-	we rev
-	Ws contents
-	j6 ()Ljava/lang/String; getPath
-abcd/Dw$f com/dropbox/core/DbxClient$ValueHolder
-abcd/Dw$g com/dropbox/core/DbxClient$SingleShotRunnable
-abcd/Ew com/dropbox/core/TaskRunnable
-abcd/Fw com/dropbox/core/HttpStreamCopier
-abcd/Fw$a com/dropbox/core/HttpStreamCopier$EntityWrapper
-abcd/Fw$a$a com/dropbox/core/HttpStreamCopier$EntityWrapper$CountingStream
-abcd/Gw com/dropbox/core/DbxRequestUtil
-abcd/Gw$a com/dropbox/core/DbxRequestUtil$HttpMethod
-abcd/Hw com/dropbox/core/DbxSdkVersion
-abcd/Iw com/dropbox/core/http/SSLConfig
-abcd/Jw com/dropbox/core/DbxException
-abcd/Kw com/dropbox/core/DbxException$BadState
-abcd/Lw com/dropbox/core/DbxException$ParseError
-abcd/Mw com/dropbox/core/DbxException$Wrapped
-abcd/Nw com/dropbox/core/RetryingTask
-abcd/Ow com/dropbox/core/DbxException$NetworkIO
-abcd/Pw com/dropbox/core/DbxException$ServerError
-abcd/Pw$a com/dropbox/core/DbxException$ServerError$ErrorBody
-	j6 error
+	gn path
+	v5 isDir
+	J8 isDeleted
+	J0 thumbExists
+abcd/Dw$f com/dropbox/client2/DropboxAPI$RequestAndResponse
+	DW response
+	j6 request
+abcd/Dw$g com/dropbox/client2/DropboxAPI$UploadRequest
+	j6 ()Labcd/Dw$e; upload
+abcd/Ew com/dropbox/client2/DropboxAPI$Entry$1
+abcd/Fw com/dropbox/client2/ProgressListener
+	j6 ()J progressInterval
+	j6 (JJ)V onProgress
+abcd/Fw$a com/dropbox/client2/ProgressListener$ProgressHttpEntity
+	DW length
+	j6 listener
+abcd/Fw$a$a com/dropbox/client2/ProgressListener$ProgressHttpEntity$CountingOutputStream
+	Hw this$0
+	j6 lastListened
+	FH transferred
+	DW intervalMs
+abcd/Gw com/dropbox/client2/RESTUtility
+	DW (Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Labcd/Dw$f; streamRequest
+	j6 (Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Ljava/lang/Object; request
+	j6 (Lorg/apache/http/HttpResponse;)Ljava/lang/Object; parseAsJSON
+	j6 (Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;)Ljava/lang/String; buildURL
+	j6 ([Ljava/lang/String;)Ljava/lang/String; urlencode
+	j6 (Labcd/Zw;Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse; execute
+	j6 (Labcd/Zw;Lorg/apache/http/client/methods/HttpUriRequest;I)Lorg/apache/http/HttpResponse; execute
+	j6 (Labcd/Zw;)Lorg/apache/http/client/HttpClient; updatedHttpClient
+	j6 (Lorg/apache/http/client/HttpClient;Labcd/Zw;)V updateClientProxy
+	j6 (Lorg/apache/http/HttpRequest;)Z isRequestRepeatable
+	j6 dateFormat
+abcd/Gw$a com/dropbox/client2/RESTUtility$RequestMethod
+	FH $VALUES
+	j6 GET
+	DW POST
+abcd/Hw com/dropbox/client2/SdkVersion
+	j6 ()Ljava/lang/String; get
+abcd/Iw com/dropbox/client2/SecureSSLSocketFactory
+	$d2j$hex$a26a5c22$decode_B (Ljava/lang/String;)[B decodeHexBytes
+	$d2j$hex$a26a5c22$decode_I (Ljava/lang/String;)[I decodeHexInts
+	$d2j$hex$a26a5c22$decode_J (Ljava/lang/String;)[J decodeHexLongs
+	$d2j$hex$a26a5c22$decode_S (Ljava/lang/String;)[S decodeHexShorts
+	j6 (Ljavax/net/ssl/SSLSocket;)V setSSLParameters
+	v5 ()Ljava/security/KeyStore; loadKeyStore
+	DW sRootKeyStoreBytes
+	j6 sAllowedCipherSuites
+	FH mSSLSocketFactory
+	j6 ()[B GetRootKeyStoreBytes
+	Hw ()[B GetRootKeyStoreBytes3
+	FH ()[B GetRootKeyStoreBytes2
+	DW ()[B GetRootKeyStoreBytes1
+abcd/Jw com/dropbox/client2/exception/DropboxException
+abcd/Kw com/dropbox/client2/exception/DropboxIOException
+abcd/Lw com/dropbox/client2/exception/DropboxParseException
+	j6 (Ljava/io/BufferedReader;)Ljava/lang/String; stringifyBody
+abcd/Mw com/dropbox/client2/exception/DropboxPartialFileException
+	j6 bytesTransferred
+abcd/Nw com/dropbox/client2/exception/DropboxProxyChangeException
+abcd/Ow com/dropbox/client2/exception/DropboxSSLException
+abcd/Pw com/dropbox/client2/exception/DropboxServerException
+	j6 (Lorg/apache/http/HttpResponse;Ljava/lang/String;)Ljava/lang/String; getHeader
+	j6 (Lorg/apache/http/HttpResponse;)Z isValidWithNullBody
+	DW error
+	Zo parsedResponse
+	j6 body
+	v5 location
+	Hw server
+	FH reason
+abcd/Pw$a com/dropbox/client2/exception/DropboxServerException$Error
+	FH fields
 	DW userError
-abcd/Qw com/dropbox/core/DelegatingTask
-abcd/Rw com/dropbox/core/DbxTask
-abcd/Sw com/dropbox/core/EntryListReader
-abcd/Tw com/dropbox/core/DbxHttpClient
-abcd/Uw com/dropbox/core/DbxClient$IODbxException
-abcd/Vw com/dropbox/core/GzipStreamCopier
-abcd/Ww com/dropbox/core/DbxWebAuth
-abcd/Ww$a com/dropbox/core/DbxWebAuth$ConnectionManager
-abcd/Ww$b com/dropbox/core/DbxWebAuth$ReuseStrategy
-abcd/Ww$c com/dropbox/core/DbxWebAuth$KeepAlivePolicy
-abcd/Ww$d com/dropbox/core/DbxWebAuth$EntityWrapper
-abcd/Ww$e com/dropbox/core/DbxWebAuth$WorkerThread
-abcd/Zw com/dropbox/core/AccessType
-abcd/Zw$a com/dropbox/core/AccessType$Value
-abcd/Zw$b com/dropbox/core/AccessType$Pair
-abcd/_w com/dropbox/core/DbxAppInfo
-abcd/dL com/dropbox/core/ObjectList
-abcd/eL com/dropbox/core/SingleValueProvider
-abcd/fL com/dropbox/core/ObjectMap
-abcd/hL com/dropbox/core/DumpableObject
-abcd/iL com/dropbox/core/StringPair
-abcd/jL com/dropbox/core/RequestSpec
-abcd/kL com/dropbox/core/json/JsonReadException
-abcd/lL com/dropbox/core/json/JsonLexer
-abcd/mL com/dropbox/core/json/JsonToken
+	j6 error
+abcd/Qw com/dropbox/client2/exception/DropboxUnlinkedException
+abcd/Rw com/dropbox/client2/jsonextract/JsonExtractor
+abcd/Sw com/dropbox/client2/session/AbstractSession$1
+	j6 this$0
+abcd/Tw com/dropbox/client2/session/AbstractSession$2
+	j6 this$0
+abcd/Uw com/dropbox/client2/session/AbstractSession$3
+	j6 this$0
+abcd/Vw com/dropbox/client2/session/AbstractSession$4
+	j6 this$0
+abcd/Ww com/dropbox/client2/session/AbstractSession
+	j6 (Labcd/Yw;Labcd/Xw;)Ljava/lang/String; buildOAuth1Header
+	VH ()Labcd/Xw; getAccessTokenPair
+	gn ()Labcd/Yw; getAppKeyPair
+	j6 (Labcd/Xw;)V setAccessTokenPair
+	DW appKeyPair
+	FH oauth1AccessToken
+	DW (Ljava/lang/String;)Ljava/lang/String; encode
+	DW ()Z isLinked
+	FH ()Labcd/Zw$a; getAccessType
+	j6 ()Labcd/Zw$b; getProxyInfo
+	j6 (Ljava/lang/String;)V setOAuth2AccessToken
+	j6 (Lorg/apache/http/HttpRequest;)V sign
+	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V setRequestTimeout
+	u7 ()V unlink
+	v5 ()Lorg/apache/http/client/HttpClient; getHttpClient
+	Hw oauth2AccessToken
+	j6 accessType
+	v5 client
+	Zo ()Ljava/lang/String; getContentServer
+	Hw ()Ljava/lang/String; getAPIServer
+abcd/Ww$a com/dropbox/client2/session/AbstractSession$DBClientConnManager
+abcd/Ww$b com/dropbox/client2/session/AbstractSession$DBConnectionReuseStrategy
+abcd/Ww$c com/dropbox/client2/session/AbstractSession$DBKeepAliveStrategy
+abcd/Ww$d com/dropbox/client2/session/AbstractSession$GzipDecompressingEntity
+abcd/Ww$e com/dropbox/client2/session/AbstractSession$IdleConnectionCloserThread
+	j6 (Labcd/Ww$a;II)V ensureRunning
+	j6 thread
+	DW manager
+	Hw checkIntervalMs
+	FH idleTimeoutSeconds
+abcd/Zw com/dropbox/client2/session/Session
+	DW ()Z isLinked
+	FH ()Labcd/Zw$a; getAccessType
+	j6 ()Labcd/Zw$b; getProxyInfo
+	j6 (Lorg/apache/http/HttpRequest;)V sign
+	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V setRequestTimeout
+	v5 ()Lorg/apache/http/client/HttpClient; getHttpClient
+	Hw ()Ljava/lang/String; getAPIServer
+	Zo ()Ljava/lang/String; getContentServer
+abcd/Zw$a com/dropbox/client2/session/Session$AccessType
+	j6 DROPBOX
+	DW APP_FOLDER
+	FH AUTO
+	Hw $VALUES
+	v5 urlPart
+abcd/Zw$b com/dropbox/client2/session/Session$ProxyInfo
+	DW port
+	j6 host
+abcd/_w com/dropbox/client2/session/TokenPair
+	j6 (Labcd/_w;)Z equals
+	j6 key
+	DW secret
+abcd/dL org/json/simple/JSONArray
+	j6 (Ljava/util/List;)Ljava/lang/String; toJSONString
+	j6 ()Ljava/lang/String; toJSONString
+abcd/eL org/json/simple/JSONAware
+	j6 ()Ljava/lang/String; toJSONString
+abcd/fL org/json/simple/JSONObject
+	j6 (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/StringBuffer;)Ljava/lang/String; toJSONString
+	j6 (Ljava/util/Map;)Ljava/lang/String; toJSONString
+	j6 ()Ljava/lang/String; toJSONString
+abcd/hL org/json/simple/JSONValue
+	j6 (Ljava/lang/Object;)Ljava/lang/String; toJSONString
+	j6 (Ljava/lang/String;)Ljava/lang/String; escape
+	j6 (Ljava/lang/String;Ljava/lang/StringBuffer;)V escape
+	DW (Ljava/lang/String;)Ljava/lang/Object; parse
+	j6 (Ljava/io/Reader;)Ljava/lang/Object; parse
+abcd/iL org/json/simple/parser/ContainerFactory
+	DW ()Ljava/util/List; creatArrayContainer
+	j6 ()Ljava/util/Map; createObjectContainer
+abcd/jL org/json/simple/parser/JSONParser
+	DW (Labcd/iL;)Ljava/util/Map; createObjectContainer
+	j6 (Ljava/util/LinkedList;)I peekStatus
+	j6 (Labcd/iL;)Ljava/util/List; createArrayContainer
+	DW (Ljava/io/Reader;)V reset
+	j6 ()I getPosition
+	j6 (Ljava/io/Reader;)Ljava/lang/Object; parse
+	j6 (Ljava/io/Reader;Labcd/iL;)Ljava/lang/Object; parse
+	j6 (Ljava/lang/String;)Ljava/lang/Object; parse
+	j6 (Ljava/lang/String;Labcd/iL;)Ljava/lang/Object; parse
+	DW lexer
+	FH token
+	Hw status
+	j6 handlerStatusStack
+	DW ()V reset
+	FH ()V nextToken
+abcd/kL org/json/simple/parser/ParseException
+	DW unexpectedObject
+	j6 errorType
+	FH position
+abcd/lL org/json/simple/parser/Yylex
+	$d2j$hex$5dbb3b04$decode_B (Ljava/lang/String;)[B decodeHexBytes
+	$d2j$hex$5dbb3b04$decode_I (Ljava/lang/String;)[I decodeHexInts
+	$d2j$hex$5dbb3b04$decode_J (Ljava/lang/String;)[J decodeHexLongs
+	$d2j$hex$5dbb3b04$decode_S (Ljava/lang/String;)[S decodeHexShorts
+	j6 (Ljava/io/Reader;)V yyreset
+	Hw ()Z zzRefill
+	j6 (Ljava/lang/String;)[C zzUnpackCMap
+	DW (I)C yycharat
+	DW ()Labcd/mL; yylex
+	FH ()Ljava/lang/String; yytext
+	DW ZZ_CMAP
+	Zo ZZ_ERROR_MSG
+	EQ zzBuffer
+	U2 sb
+	gn zzReader
+	DW (Ljava/lang/String;I[I)I zzUnpackRowMap
+	j6 (I)V yybegin
+	FH (I)V zzScanError
+	v5 ()[I zzUnpackAction
+	Zo ()[I zzUnpackAttribute
+	VH ()[I zzUnpackRowMap
+	j6 ()I getPosition
+	j6 (Ljava/lang/String;I[I)I zzUnpackAction
+	FH (Ljava/lang/String;I[I)I zzUnpackAttribute
+	v5 ZZ_TRANS
+	j6 ZZ_LEXSTATE
+	VH ZZ_ATTRIBUTE
+	Hw ZZ_ROWMAP
+	FH ZZ_ACTION
+	J8 zzStartRead
+	tp zzLexicalState
+	aM yycolumn
+	QX yyline
+	J0 zzCurrentPos
+	Ws zzEndRead
+	we zzMarkedPos
+	XL yychar
+	u7 zzState
+	j3 zzAtBOL
+	Mr zzAtEOF
+abcd/mL org/json/simple/parser/Yytoken
+	DW value
+	j6 type

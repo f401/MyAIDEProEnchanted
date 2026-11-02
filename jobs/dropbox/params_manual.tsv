@@ -1,0 +1,7 @@
+# 人工/证据行（params.py 生成后合并，manual 优先）
+# 为什么需要 manual：这两个方法的形参类型（Labcd/Yw; Labcd/Xw;）不在本 part 里，
+# 描述符翻译不到 oracle，jar 的 LVT 与源码补全都对不上——但源码里形状唯一，直接照抄。
+# owner	name	desc	index	param	src
+abcd/Ww	j6	(Labcd/Yw;Labcd/Xw;)Ljava/lang/String;	0	appKeyPair	manual:src AbstractSession.java:241 `buildOAuth1Header(AppKeyPair appKeyPair, AccessTokenPair signingTokenPair)`（1.6.2 唯一 static 双参返回 String）
+abcd/Ww	j6	(Labcd/Yw;Labcd/Xw;)Ljava/lang/String;	1	signingTokenPair	manual:src 同上
+abcd/Ww	j6	(Labcd/Xw;)V	0	accessTokenPair	manual:src AbstractSession.java:168 `setAccessTokenPair(AccessTokenPair accessTokenPair)`（方法体含 '\''oauth1AccessToken'\'' must be non-null，与本行描述符一致）
