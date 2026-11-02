@@ -59,7 +59,9 @@
     "$HOME/out/oracle/spongycastle/src-1.47",
     "$HOME/zstar/zip-signer-master/kellinwood-logging-lib/src/main/java",
     "$HOME/zstar/zip-signer-master/zipio-lib/src/main/java",
-    "$HOME/zstar/zip-signer-master/zipsigner-lib/src/main/java"
+    "$HOME/zstar/zip-signer-master/zipsigner-lib/src/main/java",
+    "$HOME/dbxand/dropbox-android-sdk-master/src/main/java",
+    "$HOME/out/oracle/http/js-src-1.1"
   ],
   "out_tsrg": "mappings.txt",
   "allow": "verify_allow.tsv",
@@ -169,6 +171,14 @@
     {
       "label": "zs-1.11",
       "path": "$HOME/out/oracle/zipsigner/zs-all.jar"
+    },
+    {
+      "label": "dropbox-android-1.6.2",
+      "path": "$HOME/out/oracle/http/dropbox-android-sdk-1.6.2.jar"
+    },
+    {
+      "label": "json-simple-1.1",
+      "path": "$HOME/out/oracle/http/json_simple-1.1.jar"
     },
     {
       "label": "dropbox-1.6",
