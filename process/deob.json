@@ -50,6 +50,10 @@
     {
       "dir": "../jobs/dropbox",
       "probe_prefix": "abcd"
+    },
+    {
+      "dir": "../jobs/engine",
+      "probe_prefix": "abcd"
     }
   ],
   "src_root": [

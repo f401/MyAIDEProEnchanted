@@ -1,0 +1,38 @@
+abcd/IProject	abcd/IProject	identity:类名未被混淆（-keep）；AIDE 的工程接口（37 方法：getProjectType/getSourceFolders/编译入口）
+abcd/EclipseJavaProject	abcd/EclipseJavaProject	identity:类名未被混淆；实现 IProject，串 /.classpath、/AndroidManifest.xml、/bin/debug、/dex/classes.dex.zip + getCompiledClassesOutputDir
+abcd/Hd	abcd/aide/engine/JavaTypeTable	role:105 方法/49 字段，常量串全是 java.lang 类型名（Array/AutoCloseable/Boolean/Byte/Character/Class/Cloneable/Collection/Double/Enum/Error/Exception…）→ 类型名↔Class 映射与转换表
+abcd/Lk	abcd/aide/engine/FileHighlightingsCallback	sup=com/aide/engine/service/s$a（AIDL 回调 Stub）+ 两个方法都收 com/aide/engine/FileHighlightings
+abcd/Mk	abcd/aide/engine/EngineVersionCallback	sup=com/aide/engine/service/u$a + 唯一自实现方法 getVersion()J
+abcd/Nk	abcd/aide/engine/OpenFileTable	串 .java/.xml/.htm/.html/.css/.cpp/.hpp/.class + CurrentFiles/OpenFileService + "could not be loaded!"；方法 打开/关闭/查表（DW(String,Nk$a)V、J8()Nk$a、gn(String)Z）
+abcd/Nk$a	abcd/aide/engine/OpenFileTable$a	跟随父类进 abcd/aide/engine（作用待定，保留 $后缀）
+abcd/Nk$b	abcd/aide/engine/OpenFileTable$b	跟随父类（作用待定，保留 $后缀）
+abcd/Nk$c	abcd/aide/engine/OpenFileTable$c	跟随父类（作用待定，保留 $后缀）
+abcd/Te	abcd/aide/engine/ColorPickerCallback	implements com/a4455jkjh/colorpicker/** + 唯一自实现方法 a(I,String)V（颜色选择回调）
+abcd/Tj	abcd/aide/engine/EngineServiceConnection	implements android/content/ServiceConnection + 串 "Engine service connected to UI"/"Trying to restart engine service"
+abcd/Ue	abcd/aide/engine/ChooseColorAction	串 "Choose Color" + isEnabled()Z/run()Z + implements _l（AIDE 的 Action 接口）
+abcd/Wi	abcd/aide/engine/SolutionBuilder	串 AIDL/HTML/Java/Java Binary/JavaScript/android.jar + 收 EclipseJavaProjectConfig$Node 产出 com/aide/engine/EngineSolutionProject
+abcd/Xj	abcd/aide/engine/EngineServiceClient	串 "Could not bind to engine service"、"/enginecache" + 持有/绑定 com/aide/engine/service/ICodeAnalysisEngineService
+abcd/Yj	abcd/aide/engine/CodeAnalysisCallback	sup=com/aide/engine/service/p$a + 方法 j6(String,[Lcom/aide/engine/SyntaxError;Z)V（分析结果回调）
+abcd/Zj	abcd/aide/engine/EngineTask	role:仅 run()V + 4 字段 3 方法、implements Runnable，落在 engine 闭包内（具体职责无串可依）
+abcd/Zk	abcd/aide/engine/AppController	串 App init: From intent/Opened existing project/Opening project.../Project opened/ProjectService/isPremium/debug-aide + 静态方法 DW(Zk)V、ei(String)IProject
+abcd/ag	abcd/aide/engine/GoToNextErrorAction	串 "GoTo Next Error" + getName/isEnabled/run + implements Wl（Action）
+abcd/bg	abcd/aide/engine/GoToPreviousErrorAction	串 "GoTo Previous Error" + 同上
+abcd/ak	abcd/aide/engine/SyntaxErrorComparator1	role:两个 Comparator<SyntaxError> 之一（compare(Object,Object)I + j6(SyntaxError,SyntaxError)I）；形状无法区分先后，按探针名顺序编号
+abcd/bk	abcd/aide/engine/SyntaxErrorComparator2	role:另一个 Comparator<SyntaxError>（同上）
+abcd/ck	abcd/aide/engine/SyntaxErrorTable	串 ".java" + 51 方法全是 SyntaxError 相关（DW(String,[SyntaxError;)V 写入、DW(List,II)SyntaxError 定位、DW(String,SyntaxError)Z 判定）→ 按文件的语法错误表
+abcd/ck$a	abcd/aide/engine/SyntaxErrorTable$a	跟随父类（作用待定，保留 $后缀）
+abcd/ij	abcd/aide/engine/JavaEngineSolution	串 /rt.jar、/java、/javax、/org、/debug、/release、Java Binary + 产出 EngineSolution/EngineSolutionProject（Java 平台库版）
+abcd/mj	abcd/aide/engine/JavaScriptEngineSolution	串 "JavaScript" + 产出 EngineSolutionProject
+abcd/nj	abcd/aide/engine/JavaScriptProject	implements IProject + 串 JavaScript Application/HelloJavaScript.zip/MyJavaScriptApplication/main.js/JAVASCRIPT
+abcd/oj	abcd/aide/engine/NativeEngineSolution	串 /jni、/bin + 产出 EngineSolutionProject（NDK 原生工程）
+abcd/ol	abcd/aide/engine/ModifyFilesAction	串 "Modify Files" + implements Runnable + j6(List)V
+abcd/pj	abcd/aide/engine/CppProject	implements IProject + 串 C/C++ Application/CppHelloWorld.zip/MyNativeExecutable//jni/Android.mk
+abcd/qj	abcd/aide/engine/WebsiteEngineSolution	串 /www、HTML、JavaScript + 产出 EngineSolutionProject
+abcd/ql	abcd/aide/engine/ProjectTask	role:implements Runnable、3 方法 7 字段，无串可依（engine 闭包内的后台任务）
+abcd/rd	abcd/aide/engine/ClassFileParser	229 方法；常量串全是 class 文件属性名（AnnotationDefault/Code/ConstantValue/Deprecated/Exceptions/InnerClasses/LineNumberTable/LocalVariableTable/RuntimeVisibleAnnotations/Signature/SourceFile）
+abcd/rj	abcd/aide/engine/PhoneGapProject	implements IProject + 串 "Phonegap 3 Project Home:"、/.cordova、/www、com.aide.phonegap
+abcd/sl	abcd/aide/engine/ParseResultCallback	sup=com/aide/engine/service/t$a + j6(String,JIILcom/aide/engine/SourceEntity;)V
+abcd/tj	abcd/aide/engine/HtmlEngineSolution	串 HTML、JavaScript + 产出 EngineSolutionProject（HTML 模板版）
+abcd/uj	abcd/aide/engine/WebsiteProject	implements IProject + 串 Website/Website.zip/MyWebsite/WEBSITE/Html/Css/JavaScript
+abcd/ul	abcd/aide/engine/ProjectModel	role:27 方法 13 字段，方法全以自身类型为参数（DW(ul)String、FH(ul)ul$a、Zo(ul)Z）→ 一棵节点/模型树
+abcd/ul$a	abcd/aide/engine/ProjectModel$a	跟随父类（作用待定，保留 $后缀）

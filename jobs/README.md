@@ -1,6 +1,6 @@
 # jobs/ —— 一个依赖一个目录（真相）
 
-本仓库现在有十个（`process/deob.json` 的 `parts` 按这个顺序汇总）：
+本仓库现在有十一个（`process/deob.json` 的 `parts` 按这个顺序汇总）：
 
 | 目录 | 依赖 | 判据来源 | 内容 |
 |---|---|---|---|
@@ -13,6 +13,7 @@
 | `zipsigner` | kellinwood zipsigner 1.11 / zipio 1.6 / logging（Maven 没有，**自己用上游源码 javac 编 oracle**）| 串 + 字段类型 + 调用点常量 + 同方法体内字段读取顺序 | **24 类** / 108 方法行 + 94 字段行 / 94 参数行，待人工 0 — 见 [zipsigner/README.md](zipsigner/README.md) |
 | `spongycastle` | SpongyCastle(=BouncyCastle) **1.47**；用官方 bcprov/bcpkix-jdk15on-1.47 当同版本 oracle | tag 常量 / 常量串 Jaccard / 实现者集合 / 形状包含 / 引用者 | **257 类** / 813 方法行 + 1114 字段行 / 795 参数行，成员待人工 0 — 见 [spongycastle/README.md](spongycastle/README.md) |
 | `dropbox` | Dropbox **Android** SDK **1.6.2**（`com.dropbox.client2`）+ json-simple **1.1** | 上游 GitHub 仓库 `lib/` 自带的官方 jar + 源码（证书字节级比对锁版本） | **49 类** / 222 成员行（方法 113 + 字段 109）/ 122 参数行，待人工 0 — 见 [dropbox/README.md](dropbox/README.md) |
+| `engine` | AIDE 的「引擎接入层」（**AIDE 自有，无 oracle**） | 常量串 + 真名父类/接口 + 与 `com/aide/engine` 的调用形状，按作用命名 | **38 类**（2 identity + 36 作用名）/ 成员行 0（下一步）— 见 [engine/README.md](engine/README.md) |
 
 **全库「待人工」= 0**（2026-11 收口）：9 个 part 全部清零。最后一条
 `com/crashlytics/android/core/Z.v5()Labcd/cz;` 是靠**把它的祖先纳入 part** 解决的——
@@ -58,15 +59,15 @@ jobs/<名字>/
 
 ---
 
-## 剩余待还原：`abcd` 里的 1983 类（截至 2026-11）
+## 剩余待还原：`abcd` 里的 1637 类（截至 2026-11）
 
-`abcd/**` 共 2745 类，已还原 762（jgit 685 + aide 77）。剩下 1983 类没有 oracle
+`abcd/**` 共 2745 类，**已还原 1108**（9 个第三方 part + engine 38 类）。剩下 1637 类没有 oracle
 （AIDE 自有 + 一些未公开的第三方），只能按 [docs/RESTORE-OBFUSCATED-LIB.md](../docs/RESTORE-OBFUSCATED-LIB.md)
 的"按作用命名"路线做。按常量串/引用的真实包先切成**可独立交付的部分**：
 
 | 部分 | 类数 | 方法 | 字段 | 证据密度 | 状态 |
 |---|---|---|---|---|---|
-| **引擎接入层**（`com/aide/engine`、`engine/service`） | 28 | 652 | 248 | 高（外部是真包名 + 串 "Could not bind to engine service"、"/enginecache"、ProjectService…） | **← 下一个做这个** |
+| ~~引擎接入层~~（`com/aide/engine`、`engine/service`） | **38** | ~1000 | — | 高（外部是真包名 + 串 "Could not bind to engine service"、"/enginecache"、ProjectService…） | ✅ **类级完成**（38/38，按作用命名），成员级下一轮 → [jobs/engine](engine/README.md) |
 | 编译/诊断 | 18 | 624 | 276 | 中（`.java`、`SyntaxError`、`aapt`…） | 待办 |
 | 运行/调试 probe | 21 | 447 | 111 | 中（`Probe`、`classes.dex`、`appstate.json`…） | 待办 |
 | Trainer/教程 | 9 | 347 | 120 | 高（`$package_name$`、`$code_hint$`、Lesson…） | 待办 |
