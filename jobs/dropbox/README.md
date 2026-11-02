@@ -67,7 +67,27 @@ abcd/yk$h    appfour 自己的 'Subscription WS Client' + api.appfour.com（不�
 **形状指纹和常量串都不可用**，只能靠"外层类 + 出现顺序"，而顺序又不可靠（见 §3 的教训）。
 所以这批大概率走「按作用命名」：`DbxClient$UploadProgressListener1` 之类。
 
-## 5) 待办
+## 4b) 类名：49/50 已定（13 个真名 + 36 个按作用命名）
+
+- **13 个有证据的真名**：`DbxClient`(/files_put/ 等 v1 路径)、`DbxException`(基异常)、
+  `DbxException$ServerError`("DropboxServerException ("/server/location)、`DbxTask`(接口，4 个实现)、
+  `DbxAppInfo`('key'/'secret' 断言)、`DbxRequestUtil`("Params must have an even number of elements.")、
+  `DbxWebAuth`(oauth_consumer_key/oauth_signature)、`DbxSdkVersion`(串 `1.6.2`)、`SSLConfig`(TLS 套件表)、
+  `DbxSessionStore`、`DbxClient$IODbxException`、`json/JsonReadException`、`json/JsonToken`、`json/JsonLexer`(JFlex 扫描器)。
+- **36 个按作用命名**：一半是匿名内部类（`Dw$a`=DbxClient$AccountInfoReader、`Ww$b`=DbxWebAuth$ReuseStrategy…），
+  另一半是外包类（`Tw`=DbxHttpClient、`dV`=ObjectList…）。全部记在 `class_map.tsv` 第三列（写了为什么）。
+- `kellinwood/yk$h`（appfour 自有）**未纳入**：它是 `yk` 的内部类而 `yk` 不在本 part，
+  硬改顶层名会毁 `InnerClasses` 属性（innercheck ② 抓到的就是它）。
+
+## 5) 成员名这块要单独估工
+
+`members` 一跑：**方法 0/207、字段 3/109**。原因很清楚——36 个类是按作用命名的"新造类"，
+oracle 里根本没有这些名字，成员没法对齐；剩下 13 个真名类则因为 **v1 API 漂移**
+（`DbxClient` 在 1.6 里 50 多个方法，APK 只剩 16 个且描述符不同）也基本对不上。
+
+所以这个 part 的成员名只能**按作用命名**（约 330 条），不像 spongycastle/zipsigner 那样有据可依。
+
+## 6) 待办
 
 1. 先把 5 条一致的和冲突的逐个用 `ql probe`/`ql cand` 复核；
 2. 剩下 38 个（含 5 个 appfour 自有类）按作用命名收口；

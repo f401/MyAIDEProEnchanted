@@ -56,6 +56,7 @@ PART_DIRS = [
     ('fabric', os.path.join(REPO, 'jobs', 'fabric')),
     ('spongycastle', os.path.join(REPO, 'jobs', 'spongycastle')),
     ('zipsigner', os.path.join(REPO, 'jobs', 'zipsigner')),
+    ('dropbox', os.path.join(REPO, 'jobs', 'dropbox')),
 ]
 PARTS = [n for n, _ in PART_DIRS]
 

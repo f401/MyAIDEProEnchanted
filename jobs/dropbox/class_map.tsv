@@ -1,4 +1,49 @@
-abcd/Hw	com/dropbox/core/DbxSdkVersion	str:"1.6.2"（SDK 版本号常量）
-abcd/Iw	com/dropbox/core/http/SSLConfig	str:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 等套件表 + shape 0.63
-abcd/Jw	com/dropbox/core/DbxSessionStore	shape 0.67 三版一致（3 方法接口实现）
-abcd/Uw	com/dropbox/core/DbxClient$IODbxException	str:"Accept-Encoding"/"gzip" + shape 0.67 三版一致
+abcd/Dw	com/dropbox/core/DbxClient	str:/files_put/ /fileops/create_folder /account/info（v1 API 路径集）+ shape 0.55
+abcd/Dw$a	com/dropbox/core/DbxClient$AccountInfoReader	按作用命名：解析 country/display_name/quota_info/referral_link（DbxAccountInfo 的 JSON 字段）
+abcd/Dw$b	com/dropbox/core/DbxClient$CompletionCallback	按作用命名：2 方法 2 字段，无串
+abcd/Dw$c	com/dropbox/core/DbxClient$MetadataResponseHandler	按作用命名：处理 Content-Type/X-Dropbox-Metadata/"Error parsing metadata."
+abcd/Dw$d	com/dropbox/core/DbxClient$EntityInputStream	按作用命名：继承 FilterInputStream + "Didn't get entity from HttpResponse"
+abcd/Dw$e	com/dropbox/core/DbxClient$EntryReader	按作用命名：解析 is_dir/is_deleted/rev/bytes/client_mtime（DbxEntry 的字段）
+abcd/Dw$f	com/dropbox/core/DbxClient$ValueHolder	按作用命名：1 方法 2 字段
+abcd/Dw$g	com/dropbox/core/DbxClient$SingleShotRunnable	按作用命名：单方法无字段
+abcd/Ew	com/dropbox/core/TaskRunnable	按作用命名：实现 DbxTask，单方法
+abcd/Fw	com/dropbox/core/HttpStreamCopier	按作用命名：2 个方法，配合 HttpEntityWrapper 使用
+abcd/Fw$a	com/dropbox/core/HttpStreamCopier$EntityWrapper	按作用命名：继承 HttpEntityWrapper + "'listener' is null"
+abcd/Fw$a$a	com/dropbox/core/HttpStreamCopier$EntityWrapper$CountingStream	按作用命名：继承 FilterOutputStream（计数写入）；外层是 Fw$a → 三层命名
+abcd/Gw	com/dropbox/core/DbxRequestUtil	str:"Params must have an even number of elements."（唯一位于这个类）/ 日期格式/URL 编码表
+abcd/Gw$a	com/dropbox/core/DbxRequestUtil$HttpMethod	按作用命名：枚举 GET/POST
+abcd/Hw	com/dropbox/core/DbxSdkVersion	str:"1.6.2"
+abcd/Iw	com/dropbox/core/http/SSLConfig	str:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 等套件表 + 继承 org/apache/http SSLSocketFactory
+abcd/Jw	com/dropbox/core/DbxException	被 6 个类继承的基异常（extends java/lang/Exception）
+abcd/Kw	com/dropbox/core/DbxException$BadState	按作用命名：DbxException 子类
+abcd/Lw	com/dropbox/core/DbxException$ParseError	按作用命名：DbxException 子类 + "failed to parse: "
+abcd/Mw	com/dropbox/core/DbxException$Wrapped	按作用命名：DbxException 子类，1 方法 1 字段
+abcd/Nw	com/dropbox/core/RetryingTask	按作用命名：继承 Kw + str:"Proxy may have been updated, try request again."
+abcd/Ow	com/dropbox/core/DbxException$NetworkIO	按作用命名：DbxException 子类，单方法
+abcd/Pw	com/dropbox/core/DbxException$ServerError	extends Jw + str:"DropboxServerException ("/"server"/"location"/"dropbox.com"
+abcd/Pw$a	com/dropbox/core/DbxException$ServerError$ErrorBody	按作用命名：解析 error/user_error
+abcd/Qw	com/dropbox/core/DelegatingTask	按作用命名：实现 DbxTask，单方法
+abcd/Rw	com/dropbox/core/DbxTask	接口（sup=Object、单方法），Ew 等 4 个类实现它
+abcd/Sw	com/dropbox/core/EntryListReader	按作用命名：2 方法 1 字段
+abcd/Tw	com/dropbox/core/DbxHttpClient	按作用命名：继承 org/apache/http DefaultHttpClient
+abcd/Uw	com/dropbox/core/DbxClient$IODbxException	str:"Accept-Encoding"/"gzip" + 三版 shape 0.67
+abcd/Vw	com/dropbox/core/GzipStreamCopier	按作用命名："gzip" + 2 方法 1 字段
+abcd/Ww	com/dropbox/core/DbxWebAuth	str:oauth_consumer_key/oauth_signature/"'appKeyPair' must be non-null"
+abcd/Ww$a	com/dropbox/core/DbxWebAuth$ConnectionManager	按作用命名：继承 ThreadSafeClientConnManager
+abcd/Ww$b	com/dropbox/core/DbxWebAuth$ReuseStrategy	按作用命名：继承 DefaultConnectionReuseStrategy + "Close"/"Connection"/"Keep-Alive"
+abcd/Ww$c	com/dropbox/core/DbxWebAuth$KeepAlivePolicy	按作用命名："Keep-Alive"/"timeout"
+abcd/Ww$d	com/dropbox/core/DbxWebAuth$EntityWrapper	按作用命名：继承 HttpEntityWrapper
+abcd/Ww$e	com/dropbox/core/DbxWebAuth$WorkerThread	按作用命名：继承 java/lang/Thread
+abcd/Zw	com/dropbox/core/AccessType	按作用命名：9 方法无字段（访问类型相关）
+abcd/Zw$a	com/dropbox/core/AccessType$Value	按作用命名：枚举 APP_FOLDER/AUTO/DROPBOX/sandbox/auto/dropbox
+abcd/Zw$b	com/dropbox/core/AccessType$Pair	按作用命名：2 字段，无方法
+abcd/_w	com/dropbox/core/DbxAppInfo	str:"'key' must be non-null"/"'secret' must be non-null"/"|" 检查
+abcd/dL	com/dropbox/core/ObjectList	按作用命名：继承 ArrayList
+abcd/eL	com/dropbox/core/SingleValueProvider	按作用命名：单方法
+abcd/fL	com/dropbox/core/ObjectMap	按作用命名：继承 HashMap
+abcd/hL	com/dropbox/core/DumpableObject	按作用命名：5 方法（toString/"null" 输出）
+abcd/iL	com/dropbox/core/StringPair	按作用命名：2 方法
+abcd/jL	com/dropbox/core/RequestSpec	按作用命名：12 方法 4 字段
+abcd/kL	com/dropbox/core/json/JsonReadException	extends Exception + str:"Unexpected character ("/"at position "
+abcd/lL	com/dropbox/core/json/JsonLexer	JFlex 生成的扫描器（"Error: pushback value was too large"/"Unkown internal scanner error"）+ 21 方法/21 字段
+abcd/mL	com/dropbox/core/json/JsonToken	枚举：COLON(:)/COMMA(,)/LEFT BRACE({)/RIGHT BRACE(})
