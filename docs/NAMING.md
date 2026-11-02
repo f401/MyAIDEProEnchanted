@@ -279,3 +279,18 @@ AIDE 改过签名、ProGuard 把字段类型换成了别的类）。**不能一�
 - 同一类里"新名 + 描述符"不能重复（`dup-member-target`）→ 重载合法，撞名非法；
 - 覆写链上同名同描述符必须同新名（`inherit_check` CONFLICT/DUPTARGET/MISSING 三条都要 0）；
 - 字段行**只有两列**（`<旧名> <新名>`），写成三列会被当成方法行解析 → `no-method` 报错。
+
+### 最后一条是怎么解决（覆写链上的祖先不在 part 里）
+
+`com/crashlytics/android/core/Z.getPriority()` 一开始没法定名：它覆盖的是 fabric 的
+`PriorityProvider.getPriority()`，而那个祖先（`abcd/hz`）当时不在任何 part 里——
+只给实现者改名会让"父类 `v5()` / 子类 `getPriority()`"对不上槽，`inherit_check` 的
+MISSING 直接 +2（运行期可能调到父类实现）。
+
+解法不是硬改名，而是**把祖先一起纳入 part**：把 fabric 的
+`PriorityProvider`(`hz`) / `PriorityTask`(`jz`) / `Dependency`(`_y`) / `Task`(`lz`) /
+`Priority`(`cz`) 五类补进 `jobs/fabric/`（枚举常量按 `<clinit>` 里 `const-string` 后紧跟
+`sput-object` 定名），祖先和实现者就能同时拿到 `getPriority`。
+
+教训：**待人工清零不能只看实现者**；覆写链的祖先若不在任何 part 里，要么补进来，
+要么这一条就老实挂着——不许为了数字好看把链接断掉。

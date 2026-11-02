@@ -418,3 +418,32 @@ io/fabric/sdk/android/services/common/o io/fabric/sdk/android/services/common/Ex
 io/fabric/sdk/android/services/common/A io/fabric/sdk/android/services/common/ResponseParser
 	j6 (I)I parse
 io/fabric/sdk/android/services/common/SafeToast io/fabric/sdk/android/services/common/SafeToast
+abcd/cz io/fabric/sdk/android/services/concurrency/Priority
+	j6 LOW
+	DW NORMAL
+	FH HIGH
+	Hw IMMEDIATE
+	v5 $VALUES
+	j6 (Labcd/hz;Ljava/lang/Object;)I compare
+abcd/hz io/fabric/sdk/android/services/concurrency/PriorityProvider
+	v5 ()Labcd/cz; getPriority
+abcd/jz io/fabric/sdk/android/services/concurrency/PriorityTask
+	FH ()Ljava/util/Collection; getDependencies
+	j6 (Labcd/lz;)V addDependency
+	DW ()Z areDependenciesMet
+	j6 (Z)V setFinished
+	j6 ()Z isFinished
+	j6 (Ljava/lang/Throwable;)V setError
+	v5 ()Labcd/cz; getPriority
+	compareTo (Ljava/lang/Object;)I compareTo
+	j6 dependencies
+	DW hasRun
+	FH throwable
+abcd/_y io/fabric/sdk/android/services/concurrency/Dependency
+	DW ()Z areDependenciesMet
+	FH ()Ljava/util/Collection; getDependencies
+	j6 (Ljava/lang/Object;)V addDependency
+abcd/lz io/fabric/sdk/android/services/concurrency/Task
+	j6 (Ljava/lang/Throwable;)V setError
+	j6 (Z)V setFinished
+	j6 ()Z isFinished

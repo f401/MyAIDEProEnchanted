@@ -1,5 +1,8 @@
 # 参数名：从 oracle jar 的 LocalVariableTable 取（index 是实参序号，0 起、不含 this）
 # owner	name	desc	index	param	src
+abcd/jz	j6	(Labcd/lz;)V	0	task	fabric-1.4.8
+abcd/jz	j6	(Ljava/lang/Throwable;)V	0	throwable	fabric-1.4.8
+abcd/jz	j6	(Z)V	0	finished	fabric-1.4.8
 io/fabric/sdk/android/ActivityLifecycleManager	j6	(Lio/fabric/sdk/android/ActivityLifecycleManager$b;)Z	0	callbacks	fabric-1.4.8
 io/fabric/sdk/android/ActivityLifecycleManager$a	j6	(Lio/fabric/sdk/android/ActivityLifecycleManager$b;)Z	0	callbacks	fabric-1.4.8
 io/fabric/sdk/android/ActivityLifecycleManager$b	DW	(Landroid/app/Activity;)V	0	activity	fabric-1.4.8

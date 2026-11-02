@@ -62,3 +62,8 @@ io/fabric/sdk/android/services/common/d	io/fabric/sdk/android/services/common/Ad
 io/fabric/sdk/android/services/common/o	io/fabric/sdk/android/services/common/ExecutorUtils$1$1	oracle ExecutorUtils$1$1 = sup:BackgroundPriorityRunnable f=2 m=2，与探针 o 完全一致；ctor 收 (ExecutorUtils$1, Runnable)、run() 转调 Runnable.run()
 io/fabric/sdk/android/services/common/A	io/fabric/sdk/android/services/common/ResponseParser	全 fabric jar 里**唯一**的 static (I)I 方法 = ResponseParser.parse(int)；调用点正是 NativeCreateReportSpiCall/DefaultCreateReportSpiCall 拿响应码去解析
 io/fabric/sdk/android/services/common/SafeToast	io/fabric/sdk/android/services/common/SafeToast	identity:类名本来就是真名（未混淆）；sup=android.widget.Toast
+abcd/cz	io/fabric/sdk/android/services/concurrency/Priority	枚举 LOW/NORMAL/HIGH/IMMEDIATE（<clinit> 里 const-string 后紧跟 sput-object → j6/DW/FH/Hw）+ implements Comparator（compare(PriorityProvider,Object)）
+abcd/hz	io/fabric/sdk/android/services/concurrency/PriorityProvider	public abstract interface + extends java/lang/Comparable + 唯一方法 getPriority()Priority（被 PriorityTask/CrashlyticsCore$1 实现）
+abcd/jz	io/fabric/sdk/android/services/concurrency/PriorityTask	public + implements Dependency/PriorityProvider/Task；字段 dependencies/hasRun/throwable，方法 isFinished/setFinished/areDependenciesMet/setError/getDependencies/addDependency/getPriority
+abcd/_y	io/fabric/sdk/android/services/concurrency/Dependency	interface：areDependenciesMet()Z / getDependencies()Collection / addDependency(Object)（被 PriorityTask 实现）
+abcd/lz	io/fabric/sdk/android/services/concurrency/Task	interface：isFinished()Z / setFinished(Z)V / setError(Throwable)V（被 PriorityTask 实现）

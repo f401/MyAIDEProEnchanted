@@ -8,16 +8,17 @@
 | `jsch` | JSch **0.1.51**（类名没混淆，只有成员被改名；见 [docs/NOTES.md](../docs/NOTES.md) §9） | oracle 同名类 | 141 类 / 1228 成员行 / 824 参数行 |
 | `aide` | AIDE 自有类（目标在 `abcd/aide/`，**无 oracle**） | 常量串 / 引用者 / 实现关系，按作用命名 | 52 类 / 36 成员行 / 13 参数行（原 77 类里 25 个 HTTP/JSON 类查明是 Dropbox SDK + json-simple，已移交 `dropbox`） |
 | `dx` | dx **1.16 世系**（裁掉纯 CLI 子包） | 结构指纹 + 枚举锚点 + 引用集 + 实现者集合 | 448 类 / 4366 成员行 / 2321 参数行 |
-| `crashlytics` | crashlytics-core 2.7.0 / answers 1.4.7 / beta 1.2.10 / crashlytics 2.9.9 | 同上 + 常量串全集 + 外类锚定 | 176 类 / 830 成员行 / 590 参数行，待人工 **1**（见下） |
-| `fabric` | fabric 1.4.8 | 同上（AAR 被 proguard 裁过，缺的按作用命名） | 64 类 / 356 成员行 / 204 参数行，待人工 **0** |
+| `crashlytics` | crashlytics-core 2.7.0 / answers 1.4.7 / beta 1.2.10 / crashlytics 2.9.9 | 同上 + 常量串全集 + 外类锚定 | 176 类 / 831 成员行 / 590 参数行，待人工 **0** |
+| `fabric` | fabric 1.4.8 | 同上（AAR 被 proguard 裁过，缺的按作用命名） | **69 类** / 380 成员行 / 207 参数行，待人工 **0** |
 | `zipsigner` | kellinwood zipsigner 1.11 / zipio 1.6 / logging（Maven 没有，**自己用上游源码 javac 编 oracle**）| 串 + 字段类型 + 调用点常量 + 同方法体内字段读取顺序 | **24 类** / 108 方法行 + 94 字段行 / 94 参数行，待人工 0 — 见 [zipsigner/README.md](zipsigner/README.md) |
 | `spongycastle` | SpongyCastle(=BouncyCastle) **1.47**；用官方 bcprov/bcpkix-jdk15on-1.47 当同版本 oracle | tag 常量 / 常量串 Jaccard / 实现者集合 / 形状包含 / 引用者 | **257 类** / 813 方法行 + 1114 字段行 / 795 参数行，成员待人工 0 — 见 [spongycastle/README.md](spongycastle/README.md) |
 | `dropbox` | Dropbox **Android** SDK **1.6.2**（`com.dropbox.client2`）+ json-simple **1.1** | 上游 GitHub 仓库 `lib/` 自带的官方 jar + 源码（证书字节级比对锁版本） | **49 类** / 222 成员行（方法 113 + 字段 109）/ 122 参数行，待人工 0 — 见 [dropbox/README.md](dropbox/README.md) |
 
-**全库「待人工」= 1 条**（2026-11 收口）：只剩
-`com/crashlytics/android/core/Z.v5()Labcd/cz;`——它的祖先 `abcd/hz`（fabric 的 PriorityProvider）
-不在任何 part 里，贸然把它命名成 `getPriority` 会让覆写链断掉（`inherit_check` MISSING 会 +2），
-所以先留着；等 fabric 那边把 `hz`/`jz` 也纳入 part 再一起改。其余 8 个 part 都是 0。
+**全库「待人工」= 0**（2026-11 收口）：9 个 part 全部清零。最后一条
+`com/crashlytics/android/core/Z.v5()Labcd/cz;` 是靠**把它的祖先纳入 part** 解决的——
+把 fabric 的 `PriorityProvider / PriorityTask / Dependency / Task / Priority`
+（探针名 `abcd/hz / jz / _y / lz / cz`）补进 `jobs/fabric/`，覆写链才完整，
+`getPriority` 才能同时落在祖先与实现者身上（否则 `inherit_check` MISSING 会 +2）。
 收口规则见 [docs/NAMING.md](../docs/NAMING.md) §「收口」。
 
 一个依赖就一个目录，**自包含**（可以嵌进某个 APK 的工程里当 part，也可以独立成工程）：

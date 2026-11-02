@@ -403,6 +403,7 @@ com/crashlytics/android/core/Y com/crashlytics/android/core/CrashlyticsControlle
 	j6 val$dialog
 com/crashlytics/android/core/Z com/crashlytics/android/core/CrashlyticsCore$1
 	Hw this$0
+	v5 ()Labcd/cz; getPriority
 com/crashlytics/android/core/a com/crashlytics/android/core/AppData
 	Hw packageName
 	DW buildId
