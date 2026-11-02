@@ -208,4 +208,5 @@ public static final String DATA = CMSObjectIdentifiers.data.getId();
 
 1. **打包装机验证**：`tools/build/build_apk.py` 那条链（`sync_assets → dex → repack → sign`）需要自己跑，
    本机没有 `apksigner`/`zipalign`；建议先 `adb uninstall aidepro.top`。
-2. **下一个 part**：`jobs/dropbox/`（50 类，已切好、oracle 三版已备，尚未裁决）或 Cordova ~905 类。
+2. **下一个 part**：Cordova/PhoneGap ~905 类（要先和后端 class-file 工具链切开）。
+   （`jobs/dropbox/` 已完成：49 类全真名、成员 0 待人工，见 [../dropbox/README.md](../dropbox/README.md)。）
