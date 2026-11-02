@@ -1,7 +1,5 @@
 # 人工/证据行（paramfill 生成后合并，manual 优先）
 # owner	name	desc	index	param	src
-abcd/Ww	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	0	request	manual:body(HttpUriRequest.getParams→HttpConnectionParams.setSoTimeout)
-abcd/Zw	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	0	request	manual:接口方法,与实现 abcd/Ww 同名同签名(双侧一致)
 abcd/Hz	j6	(Ljava/lang/String;I)I	0	name	manual:jdk(HttpURLConnection.getHeaderFieldInt(String name,int Default))
 abcd/Hz	j6	(Ljava/lang/String;I)I	1	defaultValue	manual:jdk(同上,第 2 参是缺省值)
 abcd/Hz	FH	(Ljava/lang/String;Ljava/lang/String;)Labcd/Hz;	0	key	manual:jdk(setRequestProperty(String key,String value))

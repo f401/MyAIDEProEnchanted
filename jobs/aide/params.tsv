@@ -12,6 +12,4 @@ abcd/Hz$b	j6	(Ljava/net/URL;)Ljava/net/HttpURLConnection;	0	url	manual:工厂(UR
 abcd/Hz$b	j6	(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;	0	url	manual:工厂(URL+Proxy -> 连接)
 abcd/Hz$b	j6	(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;	1	proxy	manual:同上
 abcd/Hz$e	j6	(Ljava/lang/String;)Labcd/Hz$e;	0	value	manual:body(CharsetEncoder.encode(CharBuffer.wrap(p1)))
-abcd/Ww	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	0	request	manual:body(HttpUriRequest.getParams→HttpConnectionParams.setSoTimeout)
-abcd/Zw	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	0	request	manual:接口方法,与实现 abcd/Ww 同名同签名(双侧一致)
 abcd/yc	j6	(J)J	0	value	manual:合成访问器(写静态 long)

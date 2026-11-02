@@ -1,9 +1,3 @@
-abcd/iL abcd/aide/CollectionFactory
-	DW ()Ljava/util/List; newList
-	j6 ()Ljava/util/Map; newMap
-abcd/Ww abcd/aide/HttpConnectionBase
-	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V configureRequest
-	v5 ()Lorg/apache/http/client/HttpClient; getHttpClient
 abcd/yc abcd/aide/TimeProvider
 	DW ()J getTime
 	j6 (J)J access$002
@@ -35,36 +29,11 @@ abcd/Hz$e abcd/aide/HttpRequest$HttpBodyOutputStream
 	j6 (Ljava/lang/String;)Labcd/Hz$e; write
 abcd/Gz abcd/aide/HttpUpload
 	DW ()Labcd/Hz; call
-abcd/Zw abcd/aide/HttpConnection
-	j6 (Lorg/apache/http/client/methods/HttpUriRequest;)V configureRequest
-	v5 ()Lorg/apache/http/client/HttpClient; getHttpClient
-abcd/Tw abcd/aide/DefaultHttpClient
-abcd/Uw abcd/aide/HttpRequestInterceptor
-abcd/Vw abcd/aide/HttpResponseInterceptor
-abcd/Sw abcd/aide/ConnPerRoute
-abcd/Ww$b abcd/aide/HttpConnectionBase$ConnectionReuseStrategy
-abcd/Ww$c abcd/aide/HttpConnectionBase$KeepAliveStrategy
-abcd/Dw abcd/aide/HttpTransport
-abcd/Dw$b abcd/aide/HttpTransport$HttpTransportCallback
-abcd/Gw abcd/aide/HttpHelper
 abcd/Ez abcd/aide/SslSocketFactoryProvider
 abcd/Jz abcd/aide/SslSocketFactorySource
 abcd/Sz abcd/aide/FabricTask
 abcd/dA abcd/aide/FabricRequest
-abcd/jL abcd/aide/JsonParser
-abcd/Zw$a abcd/aide/HttpConnection$a
-abcd/Zw$b abcd/aide/HttpConnection$b
-abcd/Ww$a abcd/aide/HttpConnectionBase$a
-abcd/Ww$d abcd/aide/HttpConnectionBase$d
-abcd/Ww$e abcd/aide/HttpConnectionBase$e
 abcd/Hz$c abcd/aide/HttpRequest$c
-abcd/Dw$a abcd/aide/HttpTransport$a
-abcd/Dw$c abcd/aide/HttpTransport$c
-abcd/Dw$d abcd/aide/HttpTransport$d
-abcd/Dw$e abcd/aide/HttpTransport$e
-abcd/Dw$f abcd/aide/HttpTransport$f
-abcd/Dw$g abcd/aide/HttpTransport$g
-abcd/Gw$a abcd/aide/HttpHelper$a
 abcd/Ji abcd/aide/Settings
 abcd/Di abcd/aide/Settings$1
 abcd/Fi abcd/aide/Settings$2

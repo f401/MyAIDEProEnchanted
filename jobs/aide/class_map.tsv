@@ -1,5 +1,3 @@
-iL	abcd/aide/CollectionFactory	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Ww	abcd/aide/HttpConnectionBase	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 yc	abcd/aide/TimeProvider	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 Hz	abcd/aide/HttpRequest	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 Hz$a	abcd/aide/HttpRequest$HttpUploadTask	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
@@ -7,34 +5,11 @@ Hz$b	abcd/aide/HttpRequest$HttpConnectionFactory	pkg:已确认 AIDE 自有（不
 Hz$d	abcd/aide/HttpRequest$HttpTask	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 Hz$e	abcd/aide/HttpRequest$HttpBodyOutputStream	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 Gz	abcd/aide/HttpUpload	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Zw	abcd/aide/HttpConnection	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Tw	abcd/aide/DefaultHttpClient	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Uw	abcd/aide/HttpRequestInterceptor	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Vw	abcd/aide/HttpResponseInterceptor	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Sw	abcd/aide/ConnPerRoute	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Ww$b	abcd/aide/HttpConnectionBase$ConnectionReuseStrategy	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Ww$c	abcd/aide/HttpConnectionBase$KeepAliveStrategy	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Dw	abcd/aide/HttpTransport	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Dw$b	abcd/aide/HttpTransport$HttpTransportCallback	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Gw	abcd/aide/HttpHelper	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 Ez	abcd/aide/SslSocketFactoryProvider	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 Jz	abcd/aide/SslSocketFactorySource	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 Sz	abcd/aide/FabricTask	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 dA	abcd/aide/FabricRequest	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-jL	abcd/aide/JsonParser	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Zw$a	abcd/aide/HttpConnection$a	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Zw$b	abcd/aide/HttpConnection$b	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Ww$a	abcd/aide/HttpConnectionBase$a	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Ww$d	abcd/aide/HttpConnectionBase$d	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Ww$e	abcd/aide/HttpConnectionBase$e	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
 Hz$c	abcd/aide/HttpRequest$c	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$a	abcd/aide/HttpTransport$a	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$c	abcd/aide/HttpTransport$c	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$d	abcd/aide/HttpTransport$d	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$e	abcd/aide/HttpTransport$e	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$f	abcd/aide/HttpTransport$f	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Dw$g	abcd/aide/HttpTransport$g	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
-Gw$a	abcd/aide/HttpHelper$a	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
 Ji	abcd/aide/Settings	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
 Di	abcd/aide/Settings$1	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
 Fi	abcd/aide/Settings$2	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
