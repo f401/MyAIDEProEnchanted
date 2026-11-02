@@ -524,3 +524,45 @@ a/d/f	proguard/evaluation/InvocationUnit	iface:实现的接口集合唯一(6 个
 a/e/o	proguard/io/DataEntryWriter	iface:实现的接口集合唯一(2 个实现者)
 a/b/a/a/b/i	proguard/classfile/attribute/annotation/visitor/TypePathInfoVisitor	iface:唯一方法形参=(Clazz,TypeAnnotation,TypePathInfo)
 a/b/a/a/a/a	a/b/a/a/a/a	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
+a/b/a/a/a/c	proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo	strict:全类型已定名+成员集完全相等
+a/b/f/g	proguard/classfile/util/ClassSubHierarchyInitializer	strict:全类型已定名+成员集完全相等
+a/b/g/a	proguard/classfile/visitor/AllClassVisitor	strict:全类型已定名+成员集完全相等
+a/b/g/ab	proguard/classfile/visitor/FunctionalInterfaceFilter	strict:全类型已定名+成员集完全相等
+a/b/g/ah	proguard/classfile/visitor/MemberAccessFlagCleaner	strict:全类型已定名+成员集完全相等
+a/b/g/ai	proguard/classfile/visitor/MemberAccessFlagSetter	strict:全类型已定名+成员集完全相等
+a/b/g/an	proguard/classfile/visitor/MemberDescriptorReferencedClassVisitor	strict:全类型已定名+成员集完全相等
+a/b/g/ap	proguard/classfile/visitor/MemberToClassVisitor	strict:全类型已定名+成员集完全相等
+a/b/g/ar	proguard/classfile/visitor/MethodImplementationFilter	strict:全类型已定名+成员集完全相等
+a/e/w	proguard/io/IdleRewriter	strict:全类型已定名+成员集完全相等
+a/e/z	proguard/io/ManifestRewriter	strict:全类型已定名+成员集完全相等
+a/f/f	proguard/obfuscate/ClassRenamer	strict:全类型已定名+成员集完全相等
+a/f/r	proguard/obfuscate/MemberSpecialNameFilter	strict:全类型已定名+成员集完全相等
+a/g/b/e	proguard/optimize/info/CaughtClassMarker	strict:全类型已定名+成员集完全相等
+a/g/g	proguard/optimize/KeptClassFilter	strict:全类型已定名+成员集完全相等
+a/g/h	proguard/optimize/KeptMemberFilter	strict:全类型已定名+成员集完全相等
+a/g/k	proguard/optimize/OptimizationInfoClassFilter	strict:全类型已定名+成员集完全相等
+a/g/l	proguard/optimize/OptimizationInfoMemberFilter	strict:全类型已定名+成员集完全相等
+a/i/e	proguard/shrink/InnerUsageMarker	strict:全类型已定名+成员集完全相等
+a/i/f	proguard/shrink/InterfaceUsageMarker	strict:全类型已定名+成员集完全相等
+a/b/c/ag	proguard/classfile/editor/ConstantPoolShrinker	pkg:互为最优 0.75
+a/b/c/ar	proguard/classfile/editor/InstructionSequenceBuilder	pkg:互为最优 0.75
+a/b/c/bg	proguard/classfile/editor/MemberReferenceFixer	pkg:互为最优 0.75
+a/b/c/bj	proguard/classfile/editor/NamedAttributeDeleter	pkg:互为最优 0.75
+a/b/c/bu	proguard/classfile/editor/VariableRemapper	pkg:互为最优 0.75
+a/b/c/bv	proguard/classfile/editor/VariableSizeUpdater	pkg:互为最优 0.75
+a/b/c/c	proguard/classfile/editor/AccessFixer$MyReferencedClassAccessFixer	pkg:互为最优 0.75
+a/b/c/d	proguard/classfile/editor/AccessFixer$MyReferencedMemberAccessFixer	pkg:互为最优 0.75
+a/b/e/e	proguard/classfile/io/ProgramClassWriter$AttributeBodyWriter	pkg:互为最优 0.70
+a/b/g/ae	proguard/classfile/visitor/InitializerMethodFilter	pkg:互为最优 0.75
+a/b/g/u	proguard/classfile/visitor/DotClassClassVisitor	pkg:互为最优 0.75
+a/e/a	proguard/io/CascadingDataEntryWriter	pkg:互为最优 0.75
+a/e/af	proguard/io/PrefixAddingDataEntryWriter	pkg:互为最优 0.75
+a/e/ai	proguard/io/RenamedDataEntryReader	pkg:互为最优 0.75
+a/e/aj	proguard/io/RenamedDataEntryWriter	pkg:互为最优 0.75
+a/e/d	proguard/io/ClassMapDataEntryWriter	pkg:互为最优 0.75
+a/e/s	proguard/io/ExtraDataEntryWriter	pkg:互为最优 0.75
+a/e/v	proguard/io/FilteredDataEntryWriter	pkg:互为最优 0.75
+a/e/x	proguard/io/JarReader	pkg:互为最优 0.75
+a/g/a/s	proguard/optimize/evaluation/LivenessAnalyzer	pkg:互为最优 0.75
+a/g/b/k	proguard/optimize/info/EscapingClassMarker	pkg:互为最优 0.75
+a/g/w	proguard/optimize/ParameterShrinker	pkg:互为最优 0.75
