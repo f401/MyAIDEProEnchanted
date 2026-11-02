@@ -26354,6 +26354,12 @@ a/b/c/x proguard/classfile/editor/CodeAttributeEditor$Catch
 		1 offset offset
 	d endOffset
 	e catchType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/b/c/y proguard/classfile/editor/CodeAttributeEditor$CompositeInstruction
 	a this$0
 	a ()La/b/d/c; shrink
@@ -26369,6 +26375,12 @@ a/b/c/y proguard/classfile/editor/CodeAttributeEditor$CompositeInstruction
 	c ([BI)V writeInfo
 		0 code code
 		1 offset offset
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/b/c/z proguard/classfile/editor/CodeAttributeEditor$Label
 	a identifier
 	a ()La/b/d/c; shrink
@@ -26385,6 +26397,12 @@ a/b/c/z proguard/classfile/editor/CodeAttributeEditor$Label
 		0 code code
 		1 offset offset
 	j_ ()I offset
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/b/d/a proguard/classfile/instruction/BranchInstruction
 	a branchOffset
 	a ()La/b/d/c; shrink
@@ -26401,6 +26419,12 @@ a/b/d/a proguard/classfile/instruction/BranchInstruction
 		1 offset offset
 	g ()I branchOffsetSize
 	h ()I requiredBranchOffsetSize
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/b/d/c proguard/classfile/instruction/Instruction
 	a MAY_THROW_EXCEPTIONS
 	a ()La/b/d/c; shrink
@@ -26500,6 +26524,12 @@ a/b/d/c proguard/classfile/instruction/Instruction
 		0 clazz clazz
 	b (La/b/c;)I stackPushCount
 		0 clazz clazz
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/b/d/d proguard/classfile/instruction/InstructionConstants
 	a NAMES
 a/b/d/f proguard/classfile/instruction/InstructionUtil
@@ -26946,6 +26976,31 @@ a/g/a/f proguard/optimize/evaluation/EvaluationShrinker$MyStackConsistencyFixer
 		0 instructionOffset instructionOffset
 		1 topBefore topBefore
 		2 topAfter topAfter
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 switchInstruction switchInstruction
+	a a
 a/g/c/m proguard/optimize/peephole/InstructionSequenceReplacer$Catch
 	a ()La/b/d/c; shrink
 	a (I)I length
@@ -26962,6 +27017,12 @@ a/g/c/m proguard/optimize/peephole/InstructionSequenceReplacer$Catch
 		1 offset offset
 	d endOffset
 	e catchType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/g/c/n proguard/optimize/peephole/InstructionSequenceReplacer$Label
 	a identifier
 	a ()La/b/d/c; shrink
@@ -26977,6 +27038,12 @@ a/g/c/n proguard/optimize/peephole/InstructionSequenceReplacer$Label
 		0 code code
 		1 offset offset
 	g ()I offset
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/g/c/r proguard/optimize/peephole/LineNumberLinearizer$MyLineNumberBlock
 	a lineNumberShift
 	b enclosingLineNumber
@@ -27367,6 +27434,8 @@ a/r proguard/FullyQualifiedClassNameChecker
 		0 string string
 	a (La/b/c;)V visitAnyClass
 		0 clazz clazz
+	b b
+	c b2
 a/s proguard/GPL
 	a ()V check
 		static
@@ -27401,6 +27470,7 @@ a/x proguard/Initializer
 a/a/c proguard/backport/DefaultInterfaceMethodConverter$1
 	a (Ljava/lang/String;)Ljava/lang/String; transform
 		0 string string
+	a b
 a/ai proguard/SeedPrinter
 	a printWriter
 a/ak proguard/UpToDateChecker
@@ -27429,8 +27499,20 @@ a/am proguard/UpToDateChecker$ModificationTimeChecker
 a/b/a/c/e proguard/classfile/attribute/preverification/LessZeroFrame
 	a choppedVariablesCount
 	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/a;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrameVisitor stackMapFrameVisitor
 a/b/a/c/k proguard/classfile/attribute/preverification/SameZeroFrame
 	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/a;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrameVisitor stackMapFrameVisitor
 a/b/a/c/m proguard/classfile/attribute/preverification/StackMapFrame
 	a ()I getTag
 	a (Ljava/lang/Object;)V setVisitorInfo
@@ -27439,6 +27521,12 @@ a/b/a/c/m proguard/classfile/attribute/preverification/StackMapFrame
 	e u2offsetDelta
 	f visitorInfo
 	f ()Ljava/lang/Object; getVisitorInfo
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/a;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrameVisitor stackMapFrameVisitor
 a/b/c/l proguard/classfile/editor/BootstrapMethodRemapper
 	a bootstrapMethodIndexMap
 	a (I)I remapConstantIndex
@@ -27449,6 +27537,9 @@ a/b/c/l proguard/classfile/editor/BootstrapMethodRemapper
 	a (La/b/c;La/b/b/b;)V visitAnyConstant
 		0 clazz clazz
 		1 constant constant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+		0 clazz clazz
+		1 invokeDynamicConstant invokeDynamicConstant
 a/b/d/e proguard/classfile/instruction/InstructionFactory
 	a ([BI)La/b/d/c; create
 		static
@@ -27471,6 +27562,12 @@ a/b/d/h proguard/classfile/instruction/SimpleInstruction
 		1 offset offset
 	g ()I constantSize
 	h ()I requiredConstantSize
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/b/d/k proguard/classfile/instruction/VariableInstruction
 	a wide
 	a ()La/b/d/c; shrink
@@ -27494,6 +27591,12 @@ a/b/d/k proguard/classfile/instruction/VariableInstruction
 	i ()I requiredVariableIndexSize
 	j ()I constantSize
 	k ()I requiredConstantSize
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/b/f/c proguard/classfile/util/ArrayInitializationMatcher
 	a partialEvaluator
 	a ()I arrayInitializationStart
@@ -27515,6 +27618,17 @@ a/b/f/c proguard/classfile/util/ArrayInitializationMatcher
 	e CONSTANTS
 	f ARRAY_PRESTORE_INSTRUCTIONS
 	g arrayPreStoreMatcher
+	a (La/b/c;La/b/j;La/b/a/d;I)I skipPreStoreInstructions
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 startOffset startOffset
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)Z matchesArrayInitialization
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 newArrayOffset newArrayOffset
+		4 newArrayInstruction newArrayInstruction
 a/d/a/au proguard/evaluation/value/TopValue
 	a (La/d/a/bd;)La/d/a/bd; generalize
 		0 other other
@@ -27650,6 +27764,10 @@ a/aa proguard/KeepClassSpecification
 	r condition
 a/b/a/a/a/h proguard/classfile/attribute/annotation/target/TargetInfo
 	c u1targetType
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 targetInfoVisitor targetInfoVisitor
 a/b/a/a/g proguard/classfile/attribute/annotation/ConstantElementValue
 	a u1tag
 	a ()C getTag
@@ -27680,6 +27798,11 @@ a/b/a/d/p proguard/classfile/attribute/visitor/LineNumberRangeFinder
 	b highestLineNumber
 	b ()Z hasSource
 	c hasSource
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/m;)V visitLineNumberInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 lineNumberInfo lineNumberInfo
 a/b/b/a/d proguard/classfile/constant/visitor/ConstantCounter
 	a count
 	a ()I getCount
@@ -27745,6 +27868,12 @@ a/b/b/s proguard/classfile/constant/Utf8Constant
 a/b/d/a/c proguard/classfile/instruction/visitor/InstructionCounter
 	a count
 	a ()I getCount
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
 a/b/d/g proguard/classfile/instruction/LookUpSwitchInstruction
 	a cases
 	a ()La/b/d/c; shrink
@@ -27756,6 +27885,12 @@ a/b/d/g proguard/classfile/instruction/LookUpSwitchInstruction
 	c ([BI)V writeInfo
 		0 code code
 		1 offset offset
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/b/d/j proguard/classfile/instruction/TableSwitchInstruction
 	a lowCase
 	a ()La/b/d/c; shrink
@@ -27768,6 +27903,12 @@ a/b/d/j proguard/classfile/instruction/TableSwitchInstruction
 		0 code code
 		1 offset offset
 	e highCase
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instructionVisitor instructionVisitor
 a/b/f/a proguard/classfile/util/AccessUtil
 	a (I)I accessLevel
 		static
@@ -27802,6 +27943,9 @@ a/b/g/ak proguard/classfile/visitor/MemberCollector
 	b includeMemberName
 	c includeMemberDescriptor
 	d set
+	a (La/b/c;La/b/i;)V visitAnyMember
+		0 clazz clazz
+		1 member member
 a/b/g/h proguard/classfile/visitor/ClassCollector
 	a set
 	a (La/b/c;)V visitAnyClass
@@ -27809,6 +27953,11 @@ a/b/g/h proguard/classfile/visitor/ClassCollector
 a/b/g/x proguard/classfile/visitor/ExceptionCounter
 	a count
 	a ()I getCount
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
 a/c/b proguard/configuration/ConfigurationLogger$MethodSignature
 	a name
 	b parameters
@@ -27894,6 +28043,7 @@ a/e/am proguard/io/ZipOutput
 	f centralDirectoryOffset
 a/e/aq proguard/io/ZipOutput$ZipEntry$UncompressedZipEntryOutputStream
 	b crc32
+	a ao
 a/e/n proguard/io/DataEntryRewriter
 	a (Ljava/io/InputStream;Ljava/io/OutputStream;)V copyData
 		0 inputStream inputStream
@@ -27905,6 +28055,7 @@ a/e/n proguard/io/DataEntryRewriter
 		0 writer writer
 		1 word word
 	b charset
+	a b
 a/e/t proguard/io/FileDataEntry
 	a directory
 	a ()Ljava/lang/String; getName
@@ -27957,9 +28108,13 @@ a/f/i proguard/obfuscate/MappingKeeper
 		4 newFieldName newFieldName
 	b warningPrinter
 	c clazz
+	a b
 a/f/m proguard/obfuscate/MemberNameCollector
 	a allowAggressiveOverloading
 	b descriptorMap
+	a (La/b/c;La/b/i;)V visitAnyMember
+		0 clazz clazz
+		1 member member
 a/f/v proguard/obfuscate/NumericNameFactory
 	a index
 	a ()V reset
@@ -28091,6 +28246,13 @@ a/g/b/ai proguard/optimize/info/ProgramMethodOptimizationInfo
 		0 variableIndex variableIndex
 	z ()J getReturnedParameters
 	v ()J getUsedParameters
+	b (La/b/c;La/b/j;)V setProgramMethodOptimizationInfo
+		static
+		0 clazz clazz
+		1 method method
+	b (La/b/j;)La/g/b/ai; getProgramMethodOptimizationInfo
+		static
+		0 method method
 a/g/b/q proguard/optimize/info/MethodOptimizationInfo
 	A ()Z canBeMadePrivate
 	B ()Z hasNoExternalReturnValues
@@ -28135,6 +28297,13 @@ a/g/b/q proguard/optimize/info/MethodOptimizationInfo
 		0 variableIndex variableIndex
 	z ()J getReturnedParameters
 	v ()J getUsedParameters
+	a (La/b/j;)La/g/b/q; getMethodOptimizationInfo
+		static
+		0 method method
+	a (La/b/c;La/b/j;)V setMethodOptimizationInfo
+		static
+		0 clazz clazz
+		1 method method
 a/g/b/r proguard/optimize/info/MutableBoolean
 	a flag
 	a ()V set
@@ -28270,6 +28439,7 @@ a/b/a/a/h proguard/classfile/attribute/annotation/ElementValue
 	b (La/b/c;)Ljava/lang/String; getMethodName
 		0 clazz clazz
 	d referencedClass
+	e referencedMethod
 a/b/a/b/g proguard/classfile/attribute/module/RequiresInfo
 	a (Ljava/lang/Object;)V setVisitorInfo
 		0 visitorInfo visitorInfo
@@ -28284,6 +28454,26 @@ a/b/a/c/r proguard/classfile/attribute/preverification/VerificationType
 		0 visitorInfo visitorInfo
 	b visitorInfo
 	f ()Ljava/lang/Object; getVisitorInfo
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 instructionOffset instructionOffset
+		4 verificationTypeVisitor verificationTypeVisitor
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 instructionOffset instructionOffset
+		4 stackIndex stackIndex
+		5 verificationTypeVisitor verificationTypeVisitor
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 instructionOffset instructionOffset
+		4 variableIndex variableIndex
+		5 verificationTypeVisitor verificationTypeVisitor
 a/b/a/d/w proguard/classfile/attribute/visitor/StackSizeComputer
 	a evaluated
 	a ()I getMaxStackSize
@@ -28301,12 +28491,58 @@ a/b/a/d/w proguard/classfile/attribute/visitor/StackSizeComputer
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
 		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;I)V evaluateInstructionBlock
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 instructionOffset instructionOffset
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 switchInstruction switchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variableInstruction variableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
 a/b/a/i proguard/classfile/attribute/ExceptionsAttribute
 	c u2exceptionIndexTableLength
 	d u2exceptionIndexTable
 	a (La/b/c;La/b/b/a/f;)V exceptionEntriesAccept
 		0 clazz clazz
 		1 constantVisitor constantVisitor
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 method method
+		2 attributeVisitor attributeVisitor
 a/b/b/p proguard/classfile/constant/PrimitiveArrayConstant
 	a values
 	a ()I getTag
@@ -28315,6 +28551,10 @@ a/b/b/p proguard/classfile/constant/PrimitiveArrayConstant
 	a (La/b/c;La/b/b/a/f;)V accept
 		0 clazz clazz
 		1 constantVisitor constantVisitor
+	a (La/b/c;La/b/b/a/i;)V primitiveArrayElementsAccept
+		0 clazz clazz
+		1 primitiveArrayConstantElementVisitor primitiveArrayConstantElementVisitor
+	c ()I getLength
 a/b/g/be proguard/classfile/visitor/ParallelAllClassVisitor$MyThreadedClassVisitor
 	a executorService
 	a ()V awaitTermination
@@ -28353,6 +28593,10 @@ a/a/e proguard/backport/LambdaExpression
 	e ()Z invokesStaticInterfaceMethod
 	f ()Z needsAccessorMethod
 	k invokedMethodName
+	l invokedMethodDesc
+	n referencedInvokedMethod
+	j invokedClassName
+	h interfaceMethodDescriptor
 a/a/f proguard/backport/LambdaExpressionCollector
 	a lambdaExpressions
 	a (La/b/k;)V visitProgramClass
@@ -28378,6 +28622,18 @@ a/a/f proguard/backport/LambdaExpressionCollector
 		0 clazz clazz
 		1 constant constant
 	d referencedInvokedClass
+	b (La/b/k;I)La/b/b/k; getMethodTypeConstant
+		static
+		0 programClass programClass
+		1 constantIndex constantIndex
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+		0 clazz clazz
+		1 bootstrapMethodsAttribute bootstrapMethodsAttribute
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+		0 clazz clazz
+		1 invokeDynamicConstant invokeDynamicConstant
+	b referencedInvokeDynamicConstant
+	e referencedInvokedMethod
 a/ac proguard/LibraryKeepChecker
 	a (La/b/k;)V visitProgramClass
 		0 programClass programClass
@@ -28385,6 +28641,8 @@ a/ac proguard/LibraryKeepChecker
 		0 keepSpecifications keepSpecifications
 	c notePrinter
 	d keepName
+	a b
+	b b2
 a/ah proguard/ProGuard
 	a configuration
 	a ()V execute
@@ -28403,6 +28661,8 @@ a/ah proguard/ProGuard
 	q ()V preverify
 	s ()V writeOutput
 	t ()V dump
+	b b
+	c b2
 a/aj proguard/Targeter
 	a configuration
 a/b proguard/AssumeNoSideEffectsChecker
@@ -28427,9 +28687,22 @@ a/b/a/a/a proguard/classfile/attribute/annotation/Annotation
 a/b/a/a/a/e proguard/classfile/attribute/annotation/target/LocalVariableTargetInfo
 	a u2tableLength
 	b table
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 targetInfoVisitor targetInfoVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/a/a;)V targetElementsAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 localVariableTargetElementVisitor localVariableTargetElementVisitor
 a/b/a/a/c proguard/classfile/attribute/annotation/AnnotationElementValue
 	a annotationValue
 	a ()C getTag
+	a (La/b/c;La/b/a/a/b/f;)V annotationAccept
+		0 clazz clazz
+		1 annotationVisitor annotationVisitor
 a/b/a/a/e proguard/classfile/attribute/annotation/ArrayElementValue
 	a u2elementValuesCount
 	a ()C getTag
@@ -28438,22 +28711,71 @@ a/b/a/a/j proguard/classfile/attribute/annotation/ParameterAnnotationsAttribute
 	c u1parametersCount
 	d u2parameterAnnotationsCount
 	e parameterAnnotations
+	a (La/b/c;La/b/j;La/b/a/a/b/f;)V annotationsAccept
+		0 clazz clazz
+		1 method method
+		2 annotationVisitor annotationVisitor
 a/b/a/a/q proguard/classfile/attribute/annotation/TypeAnnotation
 	f targetInfo
 	g typePath
+	a (La/b/c;La/b/a/a/a/a/b;)V targetInfoAccept
+		0 clazz clazz
+		1 targetInfoVisitor targetInfoVisitor
 a/b/a/c/c proguard/classfile/attribute/preverification/FullFrame
 	a variablesCount
 	a ()I getTag
 	b variables
 	c stackCount
 	d stack
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/a;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrameVisitor stackMapFrameVisitor
+	b (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V stackAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 verificationTypeVisitor verificationTypeVisitor
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V variablesAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 verificationTypeVisitor verificationTypeVisitor
 a/b/a/c/g proguard/classfile/attribute/preverification/MoreZeroFrame
 	a additionalVariablesCount
 	a ()I getTag
 	b additionalVariables
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/a;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrameVisitor stackMapFrameVisitor
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V additionalVariablesAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 verificationTypeVisitor verificationTypeVisitor
 a/b/a/c/j proguard/classfile/attribute/preverification/SameOneFrame
 	a stackItem
 	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/a;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrameVisitor stackMapFrameVisitor
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V stackItemAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 verificationTypeVisitor verificationTypeVisitor
 a/b/a/d proguard/classfile/attribute/CodeAttribute
 	c u2maxStack
 	d u2maxLocals
@@ -28469,6 +28791,44 @@ a/b/a/d proguard/classfile/attribute/CodeAttribute
 	a (La/b/c;Ljava/lang/String;)La/b/a/a; getAttribute
 		0 clazz clazz
 		1 name name
+	a (La/b/c;La/b/j;IILa/b/a/d/l;)V exceptionsAccept
+		0 clazz clazz
+		1 method method
+		2 startOffset startOffset
+		3 endOffset endOffset
+		4 exceptionInfoVisitor exceptionInfoVisitor
+	a (La/b/c;La/b/j;IILa/b/d/a/d;)V instructionsAccept
+		0 clazz clazz
+		1 method method
+		2 startOffset startOffset
+		3 endOffset endOffset
+		4 instructionVisitor instructionVisitor
+	a (La/b/c;La/b/j;ILa/b/a/d/l;)V exceptionsAccept
+		0 clazz clazz
+		1 method method
+		2 offset offset
+		3 exceptionInfoVisitor exceptionInfoVisitor
+	a (La/b/c;La/b/j;ILa/b/d/a/d;)V instructionAccept
+		0 clazz clazz
+		1 method method
+		2 offset offset
+		3 instructionVisitor instructionVisitor
+	a (La/b/c;La/b/j;La/b/a/d/l;)V exceptionsAccept
+		0 clazz clazz
+		1 method method
+		2 exceptionInfoVisitor exceptionInfoVisitor
+	a (La/b/c;La/b/j;La/b/d/a/d;)V instructionsAccept
+		0 clazz clazz
+		1 method method
+		2 instructionVisitor instructionVisitor
+	b (La/b/c;La/b/j;La/b/a/d/i;)V attributesAccept
+		0 clazz clazz
+		1 method method
+		2 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 method method
+		2 attributeVisitor attributeVisitor
 a/b/c/av proguard/classfile/editor/InterfaceDeleter
 	a delete
 	a (La/b/k;)V visitProgramClass
@@ -28476,12 +28836,17 @@ a/b/c/av proguard/classfile/editor/InterfaceDeleter
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
 		1 attribute attribute
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+		0 clazz clazz
+		1 signatureAttribute signatureAttribute
 a/b/c/k proguard/classfile/editor/BootstrapMethodInfoAdder
 	a ()I getBootstrapMethodIndex
 	c bootstrapMethodIndex
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 		0 clazz clazz
 		1 bootstrapMethodInfo bootstrapMethodInfo
+	a ad
+	b n
 a/b/c/m proguard/classfile/editor/BootstrapMethodsAttributeAdder
 	a targetClass
 	a ()I getBootstrapMethodIndex
@@ -28489,6 +28854,7 @@ a/b/c/m proguard/classfile/editor/BootstrapMethodsAttributeAdder
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 		0 clazz clazz
 		1 bootstrapMethodInfo bootstrapMethodInfo
+	b ae
 a/b/c/o proguard/classfile/editor/BootstrapMethodsAttributeShrinker
 	a USED
 	a (La/b/a/b;)V markAsUsed
@@ -28510,6 +28876,22 @@ a/b/c/o proguard/classfile/editor/BootstrapMethodsAttributeShrinker
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 		0 clazz clazz
 		1 bootstrapMethodInfo bootstrapMethodInfo
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+		0 clazz clazz
+		1 bootstrapMethodsAttribute bootstrapMethodsAttribute
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
 a/b/c/u proguard/classfile/editor/CodeAttributeComposer
 	a allowExternalBranchTargets
 	a ()V reset
@@ -28561,6 +28943,98 @@ a/b/c/u proguard/classfile/editor/CodeAttributeComposer
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
 		1 attribute attribute
+	a ([La/b/a/o;II)I removeEmptyLocalVariables
+		0 localVariableInfos localVariableInfos
+		1 localVariableInfoCount localVariableInfoCount
+		2 maxLocals maxLocals
+	a ([La/b/a/q;II)I removeEmptyLocalVariableTypes
+		0 localVariableTypeInfos localVariableTypeInfos
+		1 localVariableTypeInfoCount localVariableTypeInfoCount
+		2 maxLocals maxLocals
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/m;)V visitAnyStackMapFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrame stackMapFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 verificationType verificationType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 switchInstruction switchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapAttribute stackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapTableAttribute stackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/m;)V visitLineNumberInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 lineNumberInfo lineNumberInfo
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 fullFrame fullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 moreZeroFrame moreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 sameOneFrame sameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 localVariableInfo localVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 localVariableTypeInfo localVariableTypeInfo
+	q stackSizeUpdater
+	r bv
 a/b/c/v proguard/classfile/editor/CodeAttributeEditor
 	a preOffsetInsertions
 	a ()Z isModified
@@ -28652,6 +29126,138 @@ a/b/c/v proguard/classfile/editor/CodeAttributeEditor
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
 		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;[BI)V moveInstructions
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 oldCode oldCode
+		4 oldLength oldLength
+	b (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V moveInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 oldOffset oldOffset
+		4 instruction instruction
+	c (La/b/c;La/b/j;La/b/a/d;)I updateInstructions
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/m;)V visitAnyStackMapFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrame stackMapFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 verificationType verificationType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 lookUpSwitchInstruction lookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 tableSwitchInstruction tableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variableInstruction variableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapAttribute stackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapTableAttribute stackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/m;)V visitLineNumberInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 lineNumberInfo lineNumberInfo
+	b (ILa/b/d/c;)V replaceInstruction
+		0 instructionOffset instructionOffset
+		1 instruction instruction
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 fullFrame fullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 moreZeroFrame moreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 sameOneFrame sameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 localVariableTargetInfo localVariableTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;La/b/a/a/a/d;)V visitLocalVariableTargetElement
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 localVariableTargetInfo localVariableTargetInfo
+		5 localVariableTargetElement localVariableTargetElement
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 localVariableInfo localVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 localVariableTypeInfo localVariableTypeInfo
+	p stackSizeUpdater
+	q bv
 a/b/f/p proguard/classfile/util/InstructionSequenceMatcher
 	a patternConstants
 	a ()V reset
@@ -28734,6 +29340,64 @@ a/b/f/p proguard/classfile/util/InstructionSequenceMatcher
 		0 clazz clazz
 		1 constantIndex1 constantIndex1
 		2 constantIndex2 constantIndex2
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+		0 clazz clazz
+		1 classConstant classConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+		0 clazz clazz
+		1 invokeDynamicConstant invokeDynamicConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+		0 clazz clazz
+		1 methodHandleConstant methodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+		0 clazz clazz
+		1 methodTypeConstant methodTypeConstant
+	a (ZLa/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V checkMatch
+		0 condition condition
+		1 clazz clazz
+		2 method method
+		3 codeAttribute codeAttribute
+		4 offset offset
+		5 instruction instruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 lookUpSwitchInstruction lookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 tableSwitchInstruction tableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variableInstruction variableInstruction
+	b (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)Z finalMatch
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+		0 clazz clazz
+		1 stringConstant stringConstant
 a/b/k proguard/classfile/ProgramClass
 	a u4version
 	a ()I getAccessFlags
@@ -28822,6 +29486,22 @@ a/b/k proguard/classfile/ProgramClass
 	b u2constantPoolCount
 	k u2methodsCount
 	i u2fieldsCount
+	r EMPTY_FIELDS
+	s EMPTY_METHODS
+	j fields
+	l methods
+	a (Ljava/lang/String;Ljava/lang/String;)La/b/d; findField
+		0 name name
+		1 descriptor descriptor
+	a (La/b/j;)Z mayHaveImplementations
+		0 method method
+	b (Ljava/lang/String;Ljava/lang/String;)La/b/j; findMethod
+		0 name name
+		1 descriptor descriptor
+	b (Ljava/lang/String;Ljava/lang/String;La/b/g/aq;)V fieldAccept
+		0 name name
+		1 descriptor descriptor
+		2 memberVisitor memberVisitor
 a/c/a proguard/configuration/ConfigurationLogger
 	a missingClasses
 	a ()V printConfiguration
@@ -28866,6 +29546,12 @@ a/c/a proguard/configuration/ConfigurationLogger
 a/c/c proguard/configuration/ConfigurationLoggingAdder
 	a configuration
 	b injectedClassMap
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
 a/d/a proguard/evaluation/BasicBranchUnit
 	a traceBranchTargets
 	a ()V reset
@@ -28977,6 +29663,7 @@ a/e/h proguard/io/DataEntryCopier
 	b buffer
 	a (La/e/g;)V read
 		0 dataEntry dataEntry
+	a o
 a/f/ac proguard/obfuscate/SpecialNameFactory
 	a nameFactory
 	a ()V reset
@@ -29033,6 +29720,10 @@ a/g/a/ad proguard/optimize/evaluation/SimpleEnumClassSimplifier
 		0 clazz clazz
 		1 attribute attribute
 	e initializerSimplifier
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
 a/g/a/ai proguard/optimize/evaluation/TracedBranchUnit
 	a ()V reset
 	c isFixed
@@ -29066,6 +29757,10 @@ a/g/a/i proguard/optimize/evaluation/InitializationFinder
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
 		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
 a/g/a/j proguard/optimize/evaluation/InstructionUsageMarker
 	a partialEvaluator
 	a (I)Z isTraced
@@ -29179,6 +29874,21 @@ a/g/a/j proguard/optimize/evaluation/InstructionUsageMarker
 	b (ZLa/b/d/a/d;)La/b/d/a/d; necessaryInstructionFilter
 		0 necessary necessary
 		1 instructionVisitor instructionVisitor
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	d ap
+	e o
+	f m
+	g p
+	h r
+	i q
+	j l
 a/g/a/v proguard/optimize/evaluation/PartialEvaluator
 	a (I)Z isTraced
 		0 instructionOffset instructionOffset
@@ -29246,6 +29956,70 @@ a/g/a/v proguard/optimize/evaluation/PartialEvaluator
 		1 attribute attribute
 	a valueFactory
 	d extraInstructionVisitor
+	a (La/b/c;La/b/j;La/b/a/d;II)V evaluateExceptionHandlers
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 startOffset startOffset
+		4 endOffset endOffset
+	a (La/b/c;La/b/j;La/b/a/d;La/d/k;)V initializeParameters
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 variables variables
+	a (La/b/c;La/b/j;La/b/a/d;La/d/k;La/d/j;II)V evaluateInstructionBlockAndExceptionHandlers
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 variables variables
+		4 stack stack
+		5 startOffset startOffset
+		6 endOffset endOffset
+	b (La/b/c;La/b/j;La/b/a/d;II)Z mayThrowExceptions
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 startOffset startOffset
+		4 endOffset endOffset
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	b (La/b/c;La/b/j;La/b/a/d;La/d/k;La/d/j;I)V evaluateSingleInstructionBlock
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 variables variables
+		4 stack stack
+		5 startOffset startOffset
+	c (La/b/c;La/b/j;La/b/a/d;La/d/k;La/d/j;I)V evaluateSubroutine
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 variables variables
+		4 stack stack
+		5 subroutineStart subroutineStart
+	a (La/b/c;La/b/j;La/b/a/d;La/d/k;La/d/j;I)V evaluateInstructionBlock
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 variables variables
+		4 stack stack
+		5 startOffset startOffset
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	f (I)Z isCreation
+		0 offset offset
+	e (I)Z isSubroutineReturning
+		0 instructionOffset instructionOffset
+	b f
 a/g/a/x proguard/optimize/evaluation/PartialEvaluator$MyInstructionBlock
 	a variables
 	b stack
@@ -29308,6 +30082,19 @@ a/g/c/k proguard/optimize/peephole/InstructionSequenceReplacer
 		0 clazz clazz
 		1 argument argument
 	g extraInstructionVisitor
+	a (La/b/c;La/b/j;La/b/a/d;II)I matchedArgument
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 argument argument
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	h o
 a/g/c/p proguard/optimize/peephole/InstructionSequencesReplacer
 	a EMPTY_INSTRUCTIONS
 	a ([La/b/b/b;[[[La/b/d/c;La/g/c/a;La/b/c/v;La/b/d/a/d;)[La/b/d/a/d; createInstructionSequenceReplacers
@@ -29414,6 +30201,7 @@ a/i/h proguard/shrink/ShortestUsageMark
 	a (La/b/c;)Z isCausedBy
 		0 clazz clazz
 	d clazz
+	e member
 a/i/i proguard/shrink/ShortestUsageMarker
 	a INITIAL_MARK
 	a (La/b/k;)V visitProgramClass
@@ -29435,6 +30223,16 @@ a/i/i proguard/shrink/ShortestUsageMarker
 		0 visitorAccepter visitorAccepter
 	g (La/b/o;)La/i/h; getShortestUsageMark
 		0 visitorAccepter visitorAccepter
+	b (La/b/k;La/b/l;)V markProgramFieldBody
+		0 programClass programClass
+		1 programField programField
+	b (La/b/k;La/b/n;)V markProgramMethodBody
+		0 programClass programClass
+		1 programMethod programMethod
+	a (La/b/c;La/b/j;)V markMethodHierarchy
+		0 clazz clazz
+		1 method method
+	c k
 a/i/m proguard/shrink/Shrinker
 	a configuration
 a/j/j proguard/util/ListParser
@@ -29521,14 +30319,43 @@ a/a/h proguard/backport/StaticInterfaceMethodConverter
 	c injectedClassNameMap
 	d modifiedClassVisitor
 	e extraMemberVisitor
+	a b
+	b b2
 a/b/a/c/l proguard/classfile/attribute/preverification/StackMapAttribute
 	c u2stackMapFramesCount
 	d stackMapFrames
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/a/a;)V stackMapFramesAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapFrameVisitor stackMapFrameVisitor
 a/b/a/c/n proguard/classfile/attribute/preverification/StackMapTableAttribute
 	c u2stackMapFramesCount
 	d stackMapFrames
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/a/a;)V stackMapFramesAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapFrameVisitor stackMapFrameVisitor
 a/b/c/aq proguard/classfile/editor/InstructionAdder
 	b codeAttributeComposer
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a ad
 a/b/c/at proguard/classfile/editor/InstructionWriter
 	a codeLength
 	a ()V ensureCodeAttributeEditor
@@ -29537,6 +30364,37 @@ a/b/c/at proguard/classfile/editor/InstructionWriter
 	b codeAttributeEditor
 	b (I)V extend
 		0 codeLength codeLength
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 switchInstruction switchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variableInstruction variableInstruction
+	b (ILa/b/d/c;)V replaceInstruction
+		0 instructionOffset instructionOffset
+		1 instruction instruction
 a/b/c/br proguard/classfile/editor/TypeAnnotationAdder
 	a EMPTY_ELEMENT_VALUES
 	b targetClass
@@ -29544,6 +30402,8 @@ a/b/c/br proguard/classfile/editor/TypeAnnotationAdder
 	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
 		0 clazz clazz
 		1 typeAnnotation typeAnnotation
+	d g
+	e ad
 a/b/c/bt proguard/classfile/editor/VariableEditor
 	a modified
 	a (I)V reset
@@ -29555,8 +30415,14 @@ a/b/c/bt proguard/classfile/editor/VariableEditor
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
 		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	d bu
 a/b/g/bc proguard/classfile/visitor/ParallelAllClassVisitor$MyClassVisitorThread
 	b classVisitor
+	a az
 a/d/a/a proguard/evaluation/value/ArrayReferenceValue
 	a (La/d/a/a;)La/d/a/ap; generalize
 		0 other other
@@ -29566,6 +30432,7 @@ a/d/a/a proguard/evaluation/value/ArrayReferenceValue
 		0 other other
 	b (La/d/a/ap;)I equal
 		0 other other
+	a ae
 a/d/a/av proguard/evaluation/value/TracedReferenceValue
 	a referenceValue
 	a (La/d/a/a;)La/d/a/ap; generalize
@@ -29728,6 +30595,45 @@ a/g/c/a proguard/optimize/peephole/BranchTargetFinder
 	a (La/b/c;La/b/b/b;)V visitAnyConstant
 		0 clazz clazz
 		1 constant constant
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 switchInstruction switchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variableInstruction variableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	m (I)Z isSubroutineReturning
+		0 offset offset
+	d (I)Z isTarget
+		0 offset offset
+	b (I)Z isCreation
+		0 offset offset
 a/g/c/f proguard/optimize/peephole/GotoCommonCodeReplacer
 	a (B)Z isPop
 		0 opcode opcode
@@ -29745,6 +30651,22 @@ a/g/c/f proguard/optimize/peephole/GotoCommonCodeReplacer
 		0 clazz clazz
 		1 attribute attribute
 	a extraInstructionVisitor
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
 a/g/c/j proguard/optimize/peephole/InstructionSequenceConstants
 	a VARIABLE_SEQUENCES
 	b ARITHMETIC_SEQUENCES
@@ -29759,6 +30681,7 @@ a/g/c/j proguard/optimize/peephole/InstructionSequenceConstants
 a/g/u proguard/optimize/Optimizer$8
 	b this$0
 	a ()La/b/g/s; createClassVisitor
+	a al
 a/h/a proguard/preverify/CodePreverifier
 	a microEdition
 	a (La/b/k;La/d/a/ap;)I createClassConstant
@@ -29777,6 +30700,35 @@ a/h/a proguard/preverify/CodePreverifier
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
 		1 attribute attribute
+	a (La/b/k;La/b/n;La/b/a/d;ILa/d/a/bd;La/d/a/bd;)La/b/a/c/r; correspondingVerificationType
+		0 programClass programClass
+		1 programMethod programMethod
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 value value
+		5 producerValue producerValue
+	a (La/b/k;La/b/n;La/b/a/d;ILa/d/j;)[La/b/a/c/r; correspondingVerificationTypes
+		0 programClass programClass
+		1 programMethod programMethod
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stack stack
+	a (La/b/k;La/b/n;La/b/a/d;ILa/d/k;)[La/b/a/c/r; correspondingVerificationTypes
+		0 programClass programClass
+		1 programMethod programMethod
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variables variables
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	b aa
+	e s
 a/b/a/a proguard/classfile/attribute/Attribute
 	a u2attributeNameIndex
 	a (Ljava/lang/Object;)V setVisitorInfo
@@ -29788,9 +30740,52 @@ a/b/a/a proguard/classfile/attribute/Attribute
 	a (La/b/c;La/b/a/d/i;)V accept
 		0 clazz clazz
 		1 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 field field
+		2 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 method method
+		2 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 attributeVisitor attributeVisitor
 a/b/d/a/e proguard/classfile/instruction/visitor/MultiInstructionVisitor
 	b instructionVisitorCount
 	a instructionVisitors
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 lookUpSwitchInstruction lookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 tableSwitchInstruction tableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variableInstruction variableInstruction
 a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	a (La/b/k;)V visitProgramClass
 		0 programClass programClass
@@ -29894,6 +30889,195 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	a (La/b/c;La/b/b/s;)V visitUtf8Constant
 		0 clazz clazz
 		1 utf8Constant utf8Constant
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+		0 clazz clazz
+		1 bootstrapMethodsAttribute bootstrapMethodsAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+		0 clazz clazz
+		1 classConstant classConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+		0 clazz clazz
+		1 invokeDynamicConstant invokeDynamicConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+		0 clazz clazz
+		1 methodHandleConstant methodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+		0 clazz clazz
+		1 methodTypeConstant methodTypeConstant
+	a (La/b/c;La/b/i;)V visitAnyMember
+		0 clazz clazz
+		1 member member
+	a (La/b/c;La/b/i;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 member member
+		2 annotation annotation
+	a (La/b/k;La/b/l;)V visitProgramField
+		0 programClass programClass
+		1 programField programField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	a (La/b/c;La/b/d;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 field field
+		2 annotation annotation
+	a (La/b/c;La/b/j;ILa/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 method method
+		2 parameterIndex parameterIndex
+		3 annotation annotation
+	a (La/b/c;La/b/j;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 method method
+		2 annotation annotation
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 parameterAnnotationsAttribute parameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 fullFrame fullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/e;)V visitLessZeroFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 lessZeroFrame lessZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 moreZeroFrame moreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 sameOneFrame sameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/k;)V visitSameZeroFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 sameZeroFrame sameZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/m;)V visitAnyStackMapFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrame stackMapFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 verificationType verificationType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 lookUpSwitchInstruction lookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 switchInstruction switchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 tableSwitchInstruction tableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variableInstruction variableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 annotation annotation
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 localVariableTargetInfo localVariableTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapAttribute stackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapTableAttribute stackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
+		0 clazz clazz
+		1 method method
+		2 exceptionsAttribute exceptionsAttribute
+	a (La/b/k;La/b/m;)V visitProgramMember
+		0 programClass programClass
+		1 programMember programMember
+	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
+		0 clazz clazz
+		1 annotationsAttribute annotationsAttribute
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+		0 clazz clazz
+		1 signatureAttribute signatureAttribute
+	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
+		0 clazz clazz
+		1 unknownAttribute unknownAttribute
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+		0 clazz clazz
+		1 stringConstant stringConstant
+	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
+		0 clazz clazz
+		1 field field
+		2 constantValueAttribute constantValueAttribute
+	a (La/b/c;La/b/d;La/b/a/u;)V visitSignatureAttribute
+		0 clazz clazz
+		1 field field
+		2 signatureAttribute signatureAttribute
+	a (La/b/c;La/b/i;La/b/a/u;)V visitSignatureAttribute
+		0 clazz clazz
+		1 member member
+		2 signatureAttribute signatureAttribute
+	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
+		0 clazz clazz
+		1 method method
+		2 signatureAttribute signatureAttribute
 a/d/a/c proguard/evaluation/value/BasicValueFactory
 	e REFERENCE_VALUE
 	e ()La/d/a/ap; createReferenceValue
@@ -29908,6 +31092,10 @@ a/d/a/c proguard/evaluation/value/BasicValueFactory
 		1 referencedClass referencedClass
 		2 mayBeExtension mayBeExtension
 		3 mayBeNull mayBeNull
+	a ae
+	b af
+	c u
+	d t
 a/d/a/d proguard/evaluation/value/Category1Value
 	a ()La/d/a/d; category1Value
 	b ()Z isCategory2
@@ -30022,17 +31210,196 @@ a/i/n proguard/shrink/UsageMarker
 		1 utf8Constant utf8Constant
 	f nonEmptyMethodUsageMarker
 	g parameterlessConstructorMarker
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+		0 clazz clazz
+		1 bootstrapMethodsAttribute bootstrapMethodsAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+		0 clazz clazz
+		1 classConstant classConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+		0 clazz clazz
+		1 invokeDynamicConstant invokeDynamicConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+		0 clazz clazz
+		1 methodHandleConstant methodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+		0 clazz clazz
+		1 methodTypeConstant methodTypeConstant
+	a (La/b/k;La/b/l;)V visitProgramField
+		0 programClass programClass
+		1 programField programField
+	b (La/b/k;La/b/l;)V markProgramFieldBody
+		0 programClass programClass
+		1 programField programField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	b (La/b/k;La/b/n;)V markProgramMethodBody
+		0 programClass programClass
+		1 programMethod programMethod
+	a (La/b/c;La/b/j;)V markMethodHierarchy
+		0 clazz clazz
+		1 method method
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 parameterAnnotationsAttribute parameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/m;)V visitAnyStackMapFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 stackMapFrame stackMapFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 verificationType verificationType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapAttribute stackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapTableAttribute stackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
+		0 clazz clazz
+		1 method method
+		2 exceptionsAttribute exceptionsAttribute
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+		0 clazz clazz
+		1 innerClassesInfo innerClassesInfo
+	a (La/b/c;La/b/j;ILa/b/a/t;)V visitParameterInfo
+		0 clazz clazz
+		1 method method
+		2 parameterIndex parameterIndex
+		3 parameterInfo parameterInfo
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 fullFrame fullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 moreZeroFrame moreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 sameOneFrame sameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 localVariableInfo localVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 localVariableTypeInfo localVariableTypeInfo
+	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
+		0 clazz clazz
+		1 annotationsAttribute annotationsAttribute
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+		0 clazz clazz
+		1 signatureAttribute signatureAttribute
+	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
+		0 clazz clazz
+		1 unknownAttribute unknownAttribute
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+		0 clazz clazz
+		1 stringConstant stringConstant
+	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
+		0 clazz clazz
+		1 field field
+		2 constantValueAttribute constantValueAttribute
+	c r
+	d q
+	e t
 a/b/a/a/b/h proguard/classfile/attribute/annotation/visitor/TypeAnnotationVisitor
 	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
 		0 clazz clazz
 		1 typeAnnotation typeAnnotation
 a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+		0 clazz clazz
+		1 bootstrapMethodsAttribute bootstrapMethodsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapAttribute stackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 stackMapTableAttribute stackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
+		0 clazz clazz
+		1 method method
+		2 exceptionsAttribute exceptionsAttribute
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+		0 clazz clazz
+		1 signatureAttribute signatureAttribute
+	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
+		0 clazz clazz
+		1 unknownAttribute unknownAttribute
+	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
+		0 clazz clazz
+		1 field field
+		2 constantValueAttribute constantValueAttribute
+	a (La/b/c;La/b/d;La/b/a/u;)V visitSignatureAttribute
+		0 clazz clazz
+		1 field field
+		2 signatureAttribute signatureAttribute
+	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
+		0 clazz clazz
+		1 method method
+		2 signatureAttribute signatureAttribute
 a/b/a/d/j proguard/classfile/attribute/visitor/BootstrapMethodInfoVisitor
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 		0 clazz clazz
 		1 bootstrapMethodInfo bootstrapMethodInfo
 a/b/a/d/l proguard/classfile/attribute/visitor/ExceptionInfoVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
 a/b/a/d/o proguard/classfile/attribute/visitor/LineNumberInfoVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/m;)V visitLineNumberInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 lineNumberInfo lineNumberInfo
 a/b/b/a/f proguard/classfile/constant/visitor/ConstantVisitor
 	a (La/b/c;La/b/b/c;)V visitDoubleConstant
 		0 clazz clazz
@@ -30052,6 +31419,21 @@ a/b/b/a/f proguard/classfile/constant/visitor/ConstantVisitor
 	a (La/b/c;La/b/b/s;)V visitUtf8Constant
 		0 clazz clazz
 		1 utf8Constant utf8Constant
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+		0 clazz clazz
+		1 classConstant classConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+		0 clazz clazz
+		1 invokeDynamicConstant invokeDynamicConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+		0 clazz clazz
+		1 methodHandleConstant methodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+		0 clazz clazz
+		1 methodTypeConstant methodTypeConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+		0 clazz clazz
+		1 stringConstant stringConstant
 a/b/c proguard/classfile/Clazz
 	a (ILa/b/b/a/f;)V constantPoolEntryAccept
 		0 index index
@@ -30115,8 +31497,50 @@ a/b/c proguard/classfile/Clazz
 		0 name name
 		1 descriptor descriptor
 		2 memberVisitor memberVisitor
+	a (Ljava/lang/String;Ljava/lang/String;)La/b/d; findField
+		0 name name
+		1 descriptor descriptor
+	b (Ljava/lang/String;Ljava/lang/String;)La/b/j; findMethod
+		0 name name
+		1 descriptor descriptor
 a/b/d/a/d proguard/classfile/instruction/visitor/InstructionVisitor
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 lookUpSwitchInstruction lookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 tableSwitchInstruction tableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variableInstruction variableInstruction
 a/b/g/aq proguard/classfile/visitor/MemberVisitor
+	a (La/b/k;La/b/l;)V visitProgramField
+		0 programClass programClass
+		1 programField programField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
 a/b/g/bb proguard/classfile/visitor/ParallelAllClassVisitor$ClassVisitorFactory
 	a ()La/b/g/s; createClassVisitor
 a/b/g/n proguard/classfile/visitor/ClassPoolVisitor
@@ -30166,3 +31590,1026 @@ a/b/a/b/a/d proguard/classfile/attribute/module/visitor/RequiresInfoVisitor
 	a (La/b/c;La/b/a/b/g;)V visitRequiresInfo
 		0 clazz clazz
 		1 requiresInfo requiresInfo
+a/ag proguard/ParseException
+a/al proguard/UpToDateChecker$1
+a/b/a/a/b/c proguard/classfile/attribute/annotation/visitor/AnnotationToAnnotatedClassVisitor
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 annotation annotation
+	a classVisitor
+	b lastVisitedClass
+a/b/a/c proguard/classfile/attribute/BootstrapMethodsAttribute
+	a (La/b/c;ILa/b/a/d/j;)V bootstrapMethodEntryAccept
+		0 clazz clazz
+		1 bootstrapMethodIndex bootstrapMethodIndex
+		2 bootstrapMethodInfoVisitor bootstrapMethodInfoVisitor
+	a (La/b/c;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/a/d/j;)V bootstrapMethodEntriesAccept
+		0 clazz clazz
+		1 bootstrapMethodInfoVisitor bootstrapMethodInfoVisitor
+	c u2bootstrapMethodsCount
+	d bootstrapMethods
+a/b/a/d/h proguard/classfile/attribute/visitor/AttributeToClassVisitor
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a classVisitor
+a/b/a/l proguard/classfile/attribute/InnerClassesInfo
+	a (Ljava/lang/Object;)V setVisitorInfo
+		0 visitorInfo visitorInfo
+	f ()Ljava/lang/Object; getVisitorInfo
+	e visitorInfo
+	a (La/b/c;La/b/b/a/f;)V innerClassConstantAccept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+	c (La/b/c;La/b/b/a/f;)V innerNameConstantAccept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+	b (La/b/c;La/b/b/a/f;)V outerClassConstantAccept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+	a u2innerClassIndex
+	c u2innerNameIndex
+	b u2outerClassIndex
+	d u2innerClassAccessFlags
+a/b/a/o proguard/classfile/attribute/LocalVariableInfo
+	a (La/b/g/s;)V referencedClassAccept
+		0 classVisitor classVisitor
+	a (Ljava/lang/Object;)V setVisitorInfo
+		0 visitorInfo visitorInfo
+	f ()Ljava/lang/Object; getVisitorInfo
+	f referencedClass
+	g visitorInfo
+	a (La/b/c;)Ljava/lang/String; getName
+		0 clazz clazz
+	b (La/b/c;)Ljava/lang/String; getDescriptor
+		0 clazz clazz
+	e u2index
+	b u2length
+	c u2nameIndex
+	d u2descriptorIndex
+	a u2startPC
+a/b/a/q proguard/classfile/attribute/LocalVariableTypeInfo
+	a (La/b/g/s;)V referencedClassesAccept
+		0 classVisitor classVisitor
+	a (Ljava/lang/Object;)V setVisitorInfo
+		0 visitorInfo visitorInfo
+	f ()Ljava/lang/Object; getVisitorInfo
+	f referencedClasses
+	g visitorInfo
+	a (La/b/c;)Ljava/lang/String; getName
+		0 clazz clazz
+	b (La/b/c;)Ljava/lang/String; getSignature
+		0 clazz clazz
+	e u2index
+	b u2length
+	c u2nameIndex
+	d u2signatureIndex
+	a u2startPC
+a/b/a/t proguard/classfile/attribute/ParameterInfo
+	a (La/b/c;)Ljava/lang/String; getName
+		0 clazz clazz
+	a (La/b/c;La/b/b/a/f;)V nameConstantAccept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+	a (Ljava/lang/Object;)V setVisitorInfo
+		0 visitorInfo visitorInfo
+	f ()Ljava/lang/Object; getVisitorInfo
+	c visitorInfo
+	a u2nameIndex
+	b u2accessFlags
+a/b/b/a proguard/classfile/constant/ClassConstant
+	a ()I getTag
+	a (La/b/c;)Ljava/lang/String; getName
+		0 clazz clazz
+	a (La/b/c;La/b/b/a/f;)V accept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+	a (La/b/g/s;)V referencedClassAccept
+		0 classVisitor classVisitor
+	a u2nameIndex
+	b referencedClass
+	c javaLangClassClass
+a/b/b/a/a proguard/classfile/constant/visitor/AllBootstrapMethodArgumentVisitor
+	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
+		0 clazz clazz
+		1 bootstrapMethodInfo bootstrapMethodInfo
+	a constantVisitor
+a/b/b/a/e proguard/classfile/constant/visitor/ConstantTagFilter
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+		0 clazz clazz
+		1 constant constant
+	a constantTagMask
+	b constantVisitor
+a/b/b/a/i proguard/classfile/constant/visitor/PrimitiveArrayConstantElementVisitor
+	a (La/b/c;La/b/b/p;IB)V visitByteArrayConstantElement
+		0 clazz clazz
+		1 primitiveArrayConstant primitiveArrayConstant
+		2 index index
+		3 value value
+	a (La/b/c;La/b/b/p;IC)V visitCharArrayConstantElement
+		0 clazz clazz
+		1 primitiveArrayConstant primitiveArrayConstant
+		2 index index
+		3 value value
+	a (La/b/c;La/b/b/p;ID)V visitDoubleArrayConstantElement
+		0 clazz clazz
+		1 primitiveArrayConstant primitiveArrayConstant
+		2 index index
+		3 value value
+	a (La/b/c;La/b/b/p;IF)V visitFloatArrayConstantElement
+		0 clazz clazz
+		1 primitiveArrayConstant primitiveArrayConstant
+		2 index index
+		3 value value
+	a (La/b/c;La/b/b/p;II)V visitIntArrayConstantElement
+		0 clazz clazz
+		1 primitiveArrayConstant primitiveArrayConstant
+		2 index index
+		3 value value
+	a (La/b/c;La/b/b/p;IJ)V visitLongArrayConstantElement
+		0 clazz clazz
+		1 primitiveArrayConstant primitiveArrayConstant
+		2 index index
+		3 value value
+	a (La/b/c;La/b/b/p;IS)V visitShortArrayConstantElement
+		0 clazz clazz
+		1 primitiveArrayConstant primitiveArrayConstant
+		2 index index
+		3 value value
+	a (La/b/c;La/b/b/p;IZ)V visitBooleanArrayConstantElement
+		0 clazz clazz
+		1 primitiveArrayConstant primitiveArrayConstant
+		2 index index
+		3 value value
+a/b/b/h proguard/classfile/constant/InvokeDynamicConstant
+	a (La/b/g/s;)V referencedClassesAccept
+		0 classVisitor classVisitor
+	c referencedClasses
+	b ()I getBootstrapMethodAttributeIndex
+	c ()I getNameAndTypeIndex
+	a ()I getTag
+	b (La/b/c;)Ljava/lang/String; getType
+		0 clazz clazz
+	a (La/b/c;)Ljava/lang/String; getName
+		0 clazz clazz
+	a (La/b/c;La/b/b/a/f;)V accept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+	a u2bootstrapMethodAttributeIndex
+	b u2nameAndTypeIndex
+	b (La/b/c;La/b/b/a/f;)V bootstrapMethodHandleAccept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+a/b/b/j proguard/classfile/constant/MethodHandleConstant
+	a (La/b/c;La/b/b/a/f;)V accept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+	c javaLangInvokeMethodHandleClass
+	b ()I getReferenceKind
+	c ()I getReferenceIndex
+	a ()I getTag
+	c (La/b/c;)Ljava/lang/String; getType
+		0 clazz clazz
+	b (La/b/c;)Ljava/lang/String; getName
+		0 clazz clazz
+	a (La/b/c;)Ljava/lang/String; getClassName
+		0 clazz clazz
+	b u2referenceIndex
+	a u1referenceKind
+a/b/b/k proguard/classfile/constant/MethodTypeConstant
+	a (La/b/c;)Ljava/lang/String; getType
+		0 clazz clazz
+	a (La/b/c;La/b/b/a/f;)V accept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+	a (La/b/g/s;)V referencedClassesAccept
+		0 classVisitor classVisitor
+	a u2descriptorIndex
+	b javaLangInvokeMethodTypeClass
+	c referencedClasses
+	a ()I getTag
+a/b/c/am proguard/classfile/editor/ExceptionInfoEditor
+	a codeAttribute
+	a (La/b/a/h;)V prependException
+		0 exceptionInfo exceptionInfo
+a/b/c/an proguard/classfile/editor/ExceptionsAttributeEditor
+	a (I)V addException
+		0 exceptionIndex exceptionIndex
+	a targetExceptionsAttribute
+a/b/c/ax proguard/classfile/editor/InterfacesEditor
+	b (I)I findInterfaceIndex
+		0 interfaceConstantIndex interfaceConstantIndex
+	a targetClass
+	a (I)V addInterface
+		0 interfaceConstantIndex interfaceConstantIndex
+a/b/c/bk proguard/classfile/editor/ParameterAnnotationsAttributeEditor
+	a (ILa/b/a/a/a;)V addAnnotation
+		0 parameterIndex parameterIndex
+		1 annotation annotation
+	a targetParameterAnnotationsAttribute
+a/b/c/s proguard/classfile/editor/ClassElementSorter
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	c attributeSorter
+	b constantPoolSorter
+	a interfaceSorter
+a/b/e/d proguard/classfile/io/ProgramClassWriter$1
+a/b/f/q proguard/classfile/util/ExternalTypeEnumeration
+	a descriptor
+	a ()Z hasMoreTypes
+	c ()Z hasMoreTypes2
+	d ()Z hasMoreTypes3
+	b index
+	c index2
+	d index3
+	e index4
+a/b/g/ba proguard/classfile/visitor/ParallelAllClassVisitor$1
+a/b/g/bf proguard/classfile/visitor/ParallelAllClassVisitor$MyThreadedClassVisitor$1
+	a val$clazz
+	b this$0
+a/b/i proguard/classfile/Member
+	a ()I getAccessFlags
+	a (La/b/c;La/b/g/aq;)V accept
+		0 clazz clazz
+		1 memberVisitor memberVisitor
+	a (La/b/g/s;)V referencedClassesAccept
+		0 classVisitor classVisitor
+	b (La/b/c;)Ljava/lang/String; getDescriptor
+		0 clazz clazz
+	a (La/b/c;)Ljava/lang/String; getName
+		0 clazz clazz
+a/b/l proguard/classfile/ProgramField
+	a (La/b/g/s;)V referencedClassesAccept
+		0 classVisitor classVisitor
+	a (La/b/k;La/b/a/d/i;)V attributesAccept
+		0 programClass programClass
+		1 attributeVisitor attributeVisitor
+	a (La/b/k;La/b/g/aq;)V accept
+		0 programClass programClass
+		1 memberVisitor memberVisitor
+	h EMPTY_ATTRIBUTES
+	a referencedClass
+a/b/n proguard/classfile/ProgramMethod
+	a (La/b/g/s;)V referencedClassesAccept
+		0 classVisitor classVisitor
+	a (La/b/k;La/b/a/d/i;)V attributesAccept
+		0 programClass programClass
+		1 attributeVisitor attributeVisitor
+	a (La/b/k;La/b/g/aq;)V accept
+		0 programClass programClass
+		1 memberVisitor memberVisitor
+	h EMPTY_ATTRIBUTES
+	a referencedClasses
+a/d/a/f proguard/evaluation/value/ComparisonValue
+	b value2
+	a value1
+a/e/ag proguard/io/PrefixStrippingDataEntryReader
+	a (La/e/g;)V read
+		0 dataEntry dataEntry
+	a prefix
+	b dataEntryReader
+a/e/an proguard/io/ZipOutput$1
+a/e/f proguard/io/ClassReader
+	a (La/e/g;)V read
+		0 dataEntry dataEntry
+	d warningPrinter
+	e classVisitor
+	c skipNonPublicLibraryClassMembers
+	b skipNonPublicLibraryClasses
+	a isLibrary
+a/e/i proguard/io/DataEntryDirectoryFilter
+	a (La/e/g;)Z accepts
+		0 dataEntry dataEntry
+a/e/j proguard/io/DataEntryFilter
+	a (La/e/g;)Z accepts
+		0 dataEntry dataEntry
+a/e/k proguard/io/DataEntryNameFilter
+	a (La/e/g;)Z accepts
+		0 dataEntry dataEntry
+	a stringMatcher
+a/e/q proguard/io/DirectoryPump
+	a (Ljava/io/File;La/e/m;)V readFiles
+		0 file file
+		1 dataEntryReader dataEntryReader
+	a (La/e/m;)V pumpDataEntries
+		0 dataEntryReader dataEntryReader
+	a directory
+a/f/d proguard/obfuscate/ClassObfuscator$1
+a/g/b/ao proguard/optimize/info/SideEffectClassMarker
+	b (La/b/c;)Z hasSideEffects
+		static
+		0 clazz clazz
+	c (La/b/c;)V markSideEffects
+		static
+		0 clazz clazz
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+a/g/b/v proguard/optimize/info/NoSideEffectClassMarker
+	b (La/b/c;)Z hasNoSideEffects
+		static
+		0 Clazz Clazz
+	a (La/b/c;)V visitAnyClass
+		0 clazz clazz
+	c (La/b/c;)V markNoSideEffects
+		static
+		0 Clazz Clazz
+a/g/c/b proguard/optimize/peephole/ClassFinalizer
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a extraClassVisitor
+a/g/y proguard/optimize/TailRecursionSimplifier$1
+a/j/p proguard/util/NotMatcher
+	a (Ljava/lang/String;II)Z matches
+		0 string string
+		1 beginOffset beginOffset
+		2 endOffset endOffset
+	a matcher
+a/j/s proguard/util/SettableMatcher
+	a (La/j/t;)V setMatcher
+		0 matcher matcher
+	a (Ljava/lang/String;II)Z matches
+		0 string string
+		1 beginOffset beginOffset
+		2 endOffset endOffset
+	a matcher
+a/q proguard/FileWordReader
+a/b/m proguard/classfile/ProgramMember
+	a ()I getAccessFlags
+	a (La/b/c;La/b/g/aq;)V accept
+		0 clazz clazz
+		1 memberVisitor memberVisitor
+	a (La/b/k;La/b/a/d/i;)V attributesAccept
+		0 programClass programClass
+		1 attributeVisitor attributeVisitor
+	a (La/b/k;La/b/g/aq;)V accept
+		0 programClass programClass
+		1 memberVisitor memberVisitor
+	a (Ljava/lang/Object;)V setVisitorInfo
+		0 visitorInfo visitorInfo
+	f ()Ljava/lang/Object; getVisitorInfo
+	f attributes
+	g visitorInfo
+	a (La/b/c;)Ljava/lang/String; getName
+		0 clazz clazz
+	b (La/b/c;)Ljava/lang/String; getDescriptor
+		0 clazz clazz
+	b u2accessFlags
+	e u2attributesCount
+	c u2nameIndex
+	d u2descriptorIndex
+a/b/a/a/b/f proguard/classfile/attribute/annotation/visitor/AnnotationVisitor
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 annotation annotation
+	a (La/b/c;La/b/d;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 field field
+		2 annotation annotation
+	a (La/b/c;La/b/j;ILa/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 method method
+		2 parameterIndex parameterIndex
+		3 annotation annotation
+	a (La/b/c;La/b/j;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 method method
+		2 annotation annotation
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 annotation annotation
+a/b/d proguard/classfile/Field
+a/b/j proguard/classfile/Method
+a/b/a/a/a/a/a proguard/classfile/attribute/annotation/target/visitor/LocalVariableTargetElementVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;La/b/a/a/a/d;)V visitLocalVariableTargetElement
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 localVariableTargetInfo localVariableTargetInfo
+		5 localVariableTargetElement localVariableTargetElement
+a/b/a/a/b/d proguard/classfile/attribute/annotation/visitor/AnnotationToAnnotatedMemberVisitor
+	a (La/b/c;La/b/i;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 member member
+		2 annotation annotation
+	a memberVisitor
+	b lastVisitedMember
+a/b/a/a/d proguard/classfile/attribute/annotation/AnnotationsAttribute
+	a (La/b/c;La/b/a/a/b/f;)V annotationsAccept
+		0 clazz clazz
+		1 annotationVisitor annotationVisitor
+	a (La/b/c;La/b/d;La/b/a/a/b/f;)V annotationsAccept
+		0 clazz clazz
+		1 field field
+		2 annotationVisitor annotationVisitor
+	a (La/b/c;La/b/j;La/b/a/a/b/f;)V annotationsAccept
+		0 clazz clazz
+		1 method method
+		2 annotationVisitor annotationVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/b/f;)V annotationsAccept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 annotationVisitor annotationVisitor
+	c u2annotationsCount
+	d annotations
+a/b/a/c/a/a proguard/classfile/attribute/preverification/visitor/StackMapFrameVisitor
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 fullFrame fullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/e;)V visitLessZeroFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 lessZeroFrame lessZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 moreZeroFrame moreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 sameOneFrame sameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/k;)V visitSameZeroFrame
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 sameZeroFrame sameZeroFrame
+a/b/a/d/b proguard/classfile/attribute/visitor/AllBootstrapMethodInfoVisitor
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+		0 clazz clazz
+		1 bootstrapMethodsAttribute bootstrapMethodsAttribute
+	a bootstrapMethodInfoVisitor
+a/b/a/d/c proguard/classfile/attribute/visitor/AllExceptionInfoVisitor
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a exceptionInfoVisitor
+a/b/a/d/m proguard/classfile/attribute/visitor/InnerClassesInfoVisitor
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+		0 clazz clazz
+		1 innerClassesInfo innerClassesInfo
+a/b/a/d/n proguard/classfile/attribute/visitor/InstructionToAttributeVisitor
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a attributeVisitor
+a/b/a/d/q proguard/classfile/attribute/visitor/LocalVariableInfoVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 localVariableInfo localVariableInfo
+a/b/a/d/r proguard/classfile/attribute/visitor/LocalVariableTypeInfoVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 localVariableTypeInfo localVariableTypeInfo
+a/b/a/d/u proguard/classfile/attribute/visitor/ParameterInfoVisitor
+	a (La/b/c;La/b/j;ILa/b/a/t;)V visitParameterInfo
+		0 clazz clazz
+		1 method method
+		2 parameterIndex parameterIndex
+		3 parameterInfo parameterInfo
+a/b/a/e proguard/classfile/attribute/ConstantValueAttribute
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 field field
+		2 attributeVisitor attributeVisitor
+	c u2constantValueIndex
+a/b/a/u proguard/classfile/attribute/SignatureAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 field field
+		2 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 method method
+		2 attributeVisitor attributeVisitor
+	a (La/b/g/s;)V referencedClassesAccept
+		0 classVisitor classVisitor
+	b (La/b/c;)Ljava/lang/String; getSignature
+		0 clazz clazz
+	c u2signatureIndex
+	d referencedClasses
+a/b/a/y proguard/classfile/attribute/UnknownAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 field field
+		2 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 method method
+		2 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 attributeVisitor attributeVisitor
+	c u4attributeLength
+	d info
+a/b/b/a/c proguard/classfile/constant/visitor/BootstrapMethodHandleTraveler
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
+		0 clazz clazz
+		1 bootstrapMethodInfo bootstrapMethodInfo
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+		0 clazz clazz
+		1 bootstrapMethodsAttribute bootstrapMethodsAttribute
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+		0 clazz clazz
+		1 constant constant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+		0 clazz clazz
+		1 invokeDynamicConstant invokeDynamicConstant
+	a bootstrapMethodAttributeIndex
+	b bootstrapMethodHandleVisitor
+a/b/b/a/g proguard/classfile/constant/visitor/ExceptClassConstantFilter
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+		0 clazz clazz
+		1 classConstant classConstant
+	a exceptClassName
+	b constantVisitor
+a/b/b/a/h proguard/classfile/constant/visitor/MethodrefTraveler
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+		0 clazz clazz
+		1 constant constant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+		0 clazz clazz
+		1 methodHandleConstant methodHandleConstant
+	a methodrefConstantVisitor
+a/b/b/r proguard/classfile/constant/StringConstant
+	a ()I getTag
+	a (La/b/c;)Ljava/lang/String; getString
+		0 clazz clazz
+	a (La/b/c;La/b/b/a/f;)V accept
+		0 clazz clazz
+		1 constantVisitor constantVisitor
+	a (La/b/g/aq;)V referencedMemberAccept
+		0 memberVisitor memberVisitor
+	a (La/b/g/s;)V referencedClassAccept
+		0 classVisitor classVisitor
+	a u2stringIndex
+	c referencedMember
+	b referencedClass
+	e javaLangStringClass
+a/b/c/aa proguard/classfile/editor/CodeAttributeEditorResetter
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a codeAttributeEditor
+a/b/c/bh proguard/classfile/editor/MemberRemover
+	a (La/b/c;)V visitAnyClass
+		0 clazz clazz
+	a (La/b/c;La/b/i;)V visitAnyMember
+		0 clazz clazz
+		1 member member
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a (La/b/k;La/b/l;)V visitProgramField
+		0 programClass programClass
+		1 programField programField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	b fieldsToRemove
+	a methodsToRemove
+a/b/c/bo proguard/classfile/editor/StackSizeUpdater
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a stackSizeComputer
+a/b/c/i proguard/classfile/editor/AttributeSorter
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a (La/b/k;La/b/m;)V visitProgramMember
+		0 programClass programClass
+		1 programMember programMember
+a/b/c/j proguard/classfile/editor/AttributesEditor
+	a (I[La/b/a/a;La/b/a/a;)Z replaceAttribute
+		0 attributesCount attributesCount
+		1 attributes attributes
+		2 attribute attribute
+	b (I[La/b/a/a;La/b/a/a;)[La/b/a/a; addAttribute
+		0 attributesCount attributesCount
+		1 attributes attributes
+		2 attribute attribute
+	c (I[La/b/a/a;Ljava/lang/String;)La/b/a/a; findAttribute
+		0 attributesCount attributesCount
+		1 attributes attributes
+		2 attributeName attributeName
+	a (Ljava/lang/String;)La/b/a/a; findAttribute
+		0 attributeName attributeName
+	a (La/b/a/a;)V addAttribute
+		0 attribute attribute
+	b (Ljava/lang/String;)V deleteAttribute
+		0 attributeName attributeName
+	a targetClass
+	b targetMember
+	c targetAttribute
+	d replaceAttributes
+	b (I[La/b/a/a;Ljava/lang/String;)I findAttributeIndex
+		0 attributesCount attributesCount
+		1 attributes attributes
+		2 attributeName attributeName
+	a (I[La/b/a/a;Ljava/lang/String;)I deleteAttribute
+		0 attributesCount attributesCount
+		1 attributes attributes
+		2 attributeName attributeName
+a/b/d/a/a proguard/classfile/instruction/visitor/AllInstructionVisitor
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a instructionVisitor
+a/b/f/e proguard/classfile/util/ArrayInitializationReplacer$ArrayInitializationFilter
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a acceptedVisitor
+a/b/f/u proguard/classfile/util/MethodLinker
+	a (La/b/i;)La/b/i; lastMember
+		static
+		0 member member
+	a (La/b/o;)La/b/o; lastVisitorAccepter
+		static
+		0 visitorAccepter visitorAccepter
+	a (La/b/i;La/b/i;)V link
+		static
+		0 member1 member1
+		1 member2 member2
+	a (La/b/c;)V visitAnyClass
+		0 clazz clazz
+	a (La/b/c;La/b/i;)V visitAnyMember
+		0 clazz clazz
+		1 member member
+	a memberMap
+a/b/g/bg proguard/classfile/visitor/ParameterVisitor
+	a (La/b/c;La/b/i;IIIILjava/lang/String;La/b/c;)V visitParameter
+		0 clazz clazz
+		1 member member
+		2 parameterIndex parameterIndex
+		3 parameterCount parameterCount
+		4 parameterOffset parameterOffset
+		5 parameterSize parameterSize
+		6 parameterType parameterType
+		7 referencedClass referencedClass
+a/b/g/v proguard/classfile/visitor/DynamicReturnedClassVisitor
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+		0 clazz clazz
+		1 constant constant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+		0 clazz clazz
+		1 invokeDynamicConstant invokeDynamicConstant
+	a classVisitor
+a/b/g/z proguard/classfile/visitor/ExceptionHandlerConstantVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	a constantVisitor
+a/d/d proguard/evaluation/ClassConstantValueFactory
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+		0 clazz clazz
+		1 classConstant classConstant
+a/e/l proguard/io/DataEntryParentFilter
+	a (La/e/g;)Z accepts
+		0 dataEntry dataEntry
+	a dataEntryFilter
+a/e/u proguard/io/FilteredDataEntryReader
+	a (La/e/g;)V read
+		0 dataEntry dataEntry
+	a dataEntryFilter
+	c rejectedDataEntryReader
+	b acceptedDataEntryReader
+a/f/p proguard/obfuscate/MemberObfuscator
+	a (Ljava/util/Map;Ljava/lang/String;)Ljava/util/Map; retrieveNameMap
+		static
+		0 descriptorMap descriptorMap
+		1 descriptor descriptor
+	a (La/b/i;)Z hasFixedNewMemberName
+		static
+		0 member member
+	b (La/b/i;)Ljava/lang/String; newMemberName
+		static
+		0 member member
+	a (La/b/c;La/b/i;)V visitAnyMember
+		0 clazz clazz
+		1 member member
+	a allowAggressiveOverloading
+	b nameFactory
+	c descriptorMap
+	b (La/b/i;Ljava/lang/String;)V setNewMemberName
+		static
+		0 member member
+		1 name name
+	a (La/b/i;Ljava/lang/String;)V setFixedNewMemberName
+		static
+		0 member member
+		1 name name
+a/f/z proguard/obfuscate/RenamedFlagSetter
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a (La/b/k;La/b/m;)V visitProgramMember
+		0 programClass programClass
+		1 programMember programMember
+a/g/aa proguard/optimize/WriteOnlyFieldFilter
+	a (La/b/k;La/b/l;)V visitProgramField
+		0 programClass programClass
+		1 programField programField
+	a writeOnlyFieldVisitor
+a/g/b proguard/optimize/ConstantMemberFilter
+	a (La/b/k;La/b/l;)V visitProgramField
+		0 programClass programClass
+		1 programField programField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	a constantMemberVisitor
+a/g/b/aa proguard/optimize/info/PackageVisibleMemberContainingClassMarker
+	b (La/b/c;)Z containsPackageVisibleMembers
+		static
+		0 clazz clazz
+	a (La/b/c;La/b/i;)V visitAnyMember
+		0 clazz clazz
+		1 member member
+	a (La/b/c;)V visitAnyClass
+		0 clazz clazz
+	c (La/b/c;)V setPackageVisibleMembers
+		static
+		0 clazz clazz
+a/g/b/ah proguard/optimize/info/ProgramMemberOptimizationInfoSetter
+	a (La/b/k;La/b/l;)V visitProgramField
+		0 programClass programClass
+		1 programField programField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	a overwrite
+a/g/b/au proguard/optimize/info/SynchronizedBlockMethodMarker
+	a (La/b/j;)Z hasSynchronizedBlock
+		static
+		0 method method
+	b (La/b/j;)V setHasSynchronizedBlock
+		static
+		0 method method
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+a/g/b/ay proguard/optimize/info/VariableUsageMarker
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 variableInstruction variableInstruction
+	a (I)Z isVariableUsed
+		0 variableIndex variableIndex
+	a variableUsed
+a/g/b/b proguard/optimize/info/BackwardBranchMarker
+	a (La/b/j;I)V markBackwardBranch
+		0 method method
+		1 branchOffset branchOffset
+	a (La/b/j;)Z branchesBackward
+		static
+		0 method method
+	b (La/b/j;)V setBranchesBackward
+		static
+		0 method method
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 branchInstruction branchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 switchInstruction switchInstruction
+a/g/b/c proguard/optimize/info/CatchExceptionMarker
+	a (La/b/j;)Z catchesExceptions
+		static
+		0 method method
+	b (La/b/j;)V markCatchException
+		static
+		0 method method
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+a/g/b/x proguard/optimize/info/NonEmptyStackReturnMarker
+	a (La/b/j;II)V markReturnWithNonEmptyStack
+		0 method method
+		1 offset offset
+		2 stackSize stackSize
+	a (La/b/j;)Z returnsWithNonEmptyStack
+		static
+		0 method method
+	b (La/b/j;)V setReturnsWithNonEmptyStack
+		static
+		0 method method
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 instruction instruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 offset offset
+		4 simpleInstruction simpleInstruction
+	a stackSizeComputer
+a/g/b/z proguard/optimize/info/OptimizationCodeAttributeFilter
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	b otherAttributeVisitor
+	a attributeVisitor
+a/g/c proguard/optimize/ConstantParameterFilter
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	a constantParameterVisitor
+a/g/c/ab proguard/optimize/peephole/UnreachableExceptionRemover
+	a ([La/b/a/h;I)I removeEmptyExceptions
+		0 exceptionInfos exceptionInfos
+		1 exceptionInfoCount exceptionInfoCount
+	a (La/b/c;La/b/j;La/b/a/d;II)Z mayThrowExceptions
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 startOffset startOffset
+		4 endOffset endOffset
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	a extraExceptionInfoVisitor
+a/g/c/s proguard/optimize/peephole/MemberPrivatizer
+	a (La/b/k;La/b/l;)V visitProgramField
+		0 programClass programClass
+		1 programField programField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	a extraMemberVisitor
+a/g/c/v proguard/optimize/peephole/PeepholeOptimizer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+	a branchTargetFinder
+	b codeAttributeEditor
+	c instructionVisitor
+a/g/j proguard/optimize/MethodStaticizer
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	a extraStaticMemberVisitor
+a/d/e proguard/evaluation/ConstantValueFactory
+	a (La/b/c;I)La/d/a/bd; constantValue
+		0 clazz clazz
+		1 constantIndex constantIndex
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+		0 clazz clazz
+		1 classConstant classConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+		0 clazz clazz
+		1 doubleConstant doubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+		0 clazz clazz
+		1 floatConstant floatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+		0 clazz clazz
+		1 integerConstant integerConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+		0 clazz clazz
+		1 longConstant longConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+		0 clazz clazz
+		1 methodHandleConstant methodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+		0 clazz clazz
+		1 methodTypeConstant methodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+		0 clazz clazz
+		1 primitiveArrayConstant primitiveArrayConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+		0 clazz clazz
+		1 stringConstant stringConstant
+	a valueFactory
+	b value
+a/b/a/a/a/a/b proguard/classfile/attribute/annotation/target/visitor/TargetInfoVisitor
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 localVariableTargetInfo localVariableTargetInfo
+a/b/a/c/a/b proguard/classfile/attribute/preverification/visitor/VerificationTypeVisitor
