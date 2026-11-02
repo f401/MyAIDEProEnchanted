@@ -25722,10 +25722,25 @@ abcd/Dw com/dropbox/core/DbxClient
 	FH ()Labcd/Zw; getSessionType
 	DW ()V close
 abcd/Dw$a com/dropbox/core/DbxClient$AccountInfoReader
+	j6 country
+	DW displayName
+	VH referralLink
+	FH quotaInfo
 abcd/Dw$b com/dropbox/core/DbxClient$CompletionCallback
 abcd/Dw$c com/dropbox/core/DbxClient$MetadataResponseHandler
 abcd/Dw$d com/dropbox/core/DbxClient$EntityInputStream
 abcd/Dw$e com/dropbox/core/DbxClient$EntryReader
+	FH hash
+	Hw icon
+	Zo modified
+	VH clientMtime
+	gn path
+	u7 root
+	tp size
+	EQ mimeType
+	we rev
+	Ws contents
+	j6 ()Ljava/lang/String; getPath
 abcd/Dw$f com/dropbox/core/DbxClient$ValueHolder
 abcd/Dw$g com/dropbox/core/DbxClient$SingleShotRunnable
 abcd/Ew com/dropbox/core/TaskRunnable
@@ -25744,6 +25759,8 @@ abcd/Nw com/dropbox/core/RetryingTask
 abcd/Ow com/dropbox/core/DbxException$NetworkIO
 abcd/Pw com/dropbox/core/DbxException$ServerError
 abcd/Pw$a com/dropbox/core/DbxException$ServerError$ErrorBody
+	j6 error
+	DW userError
 abcd/Qw com/dropbox/core/DelegatingTask
 abcd/Rw com/dropbox/core/DbxTask
 abcd/Sw com/dropbox/core/EntryListReader

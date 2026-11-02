@@ -99,6 +99,20 @@ oracle 里根本没有这些名字，成员没法对齐；剩下 13 个真名类
 记在 `functional.tsv`（16 行，一行一条判据）。字段 `j6`=`accessToken`、`DW`=`accessType`
 由构造器（`Session must not be null.`）与类型推出。
 
+**第二种判据：JSON key**（新工具 `tools/deob/jsonfields.py`）。struct 类的字段值都是从 Map 里取的：
+
+```java
+this.country = (String) map.get("country");      // const-string "country" → Map.get → iput-object → j6
+this.displayName = (String) map.get("display_name");
+```
+
+于是"赋值前刚被 `Map.get` 用过的那个 key"就是字段名。要求 **`const-string` 之后必须真的出现
+`Map.get`**（否则会把 `SSLConfig` 里的 `"TLS"` 误当 key——这个假阳性第一版就撞上了）。
+这一轮补了 **16 个字段 + 1 个取值方法**（`Dw$e`=DbxClient$EntryReader 的 `path/rev/bytes/is_dir/…`、
+`Pw$a` 的 `error/user_error`、`Dw$a` 的 `country/displayName/…`）。
+
+当前：方法 15 条、字段 21 条已定名，`members` 报的待人工从 85 降到 **69**。
+
 ## 6) 待办
 
 1. 先把 5 条一致的和冲突的逐个用 `ql probe`/`ql cand` 复核；
