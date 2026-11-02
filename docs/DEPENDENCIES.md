@@ -117,3 +117,38 @@ Backbone 相关 7 个（实现 `DefineHook`/`DefineAnalytics`/`EventData` 等，
 剩下 1673 个未定名的 `abcd` 类是 **AIDE 与 appfour 自己的应用代码**：它们引用的外部包只有
 `com/appfour/backbone`(173)、`com/aide/common`(72)、`com/aide/engine`(43)、`com/aide/ui`(16)、
 `gms`(15)、`org/json`(7)…，super/ifaces 也全是这几家——**没有 oracle，只能按作用命名**。
+
+## 六、全包清单（2026-11 复查：**前面几轮只看了 `abcd` + `com/a`**）
+
+`process/deob.json` 的探针前缀只有 `abcd` 和 `com/a`，所以"第三方库都收口了"这句话
+**只对这两个前缀成立**。把 `src/smali*` 四个根全量数一遍（共 ~21.8k 类）：
+
+| 顶包 | 类数 | 身份 | 状态 |
+|---|---|---|---|
+| `com` | 11309 | 绝大多数真名：com/google 5360、org/apache 2327、com/s1243808733 1307（魔改者）、com/aide 1129、com/sun 691、com/baidu 404、com/bumptech 395（Glide）、com/blankj 268、com/android 247、**com/a 448=dx**、com/crashlytics 176、com/jcraft 147(jsch)、com/a4455jkjh、com/termux 197… | dx/crashlytics/jsch 已完成；其余真名无需还原 |
+| `org` | 4225 | org/apache 2327、org/codehaus 489（Groovy）、**org/c 434 + org/a 117（身份未定）**、org/antlr 220、org/xutils 190、org/dom4j 190、org/objectweb 166（ASM）、org/json2… | org/c+org/a 待定 |
+| `abcd` | 2745 | AIDE 自身（已还原 1108：jgit/aide/dx/dropbox… + engine 38） | 剩 1637 类未定名 |
+| `androidx` | 1042 | 真名 | — |
+| **`a`** | **757** | **ProGuard**：串 `ProGuard, version`、`proguard.`、`http://proguard.sourceforge.net/manual/troubleshooting`、`Can't remap constant index [`、`org.apache.tools.maven`、`org.codehaus.groovy` | **未做（有 Maven oracle）** |
+| `sun` / `sun1` | 302 / 123 | JDK 内部类；`sun1` 是 `sun.*` 的副本（类名未混淆） | 只需认包名 |
+| `groovyjarjarantlr` | 224 | ANTLR 2（Groovy 自带，真名） | — |
+| `okhttp3` / `okio` | 215 / 46 | 真名 | — |
+| `utilcode` | 192 | BlankJ AndroidUtilCode + `android.support.v4`（包名被改，类名未混淆） | 只需认包名 |
+| `io` | 165 | io/github/zeroaicy 100（readclass）、io/fabric 64（已做） | fabric 已完成 |
+| `javax` | 96 | `javax.lang.model`（javac API，真名） | — |
+| **`c`** | **76** | **第二份 BouncyCastle**（ASN.1 层：`Extra data detected in stream`、`Bad sequence size:`、`can't recode value for oid`、`exception in content signer:`、OID 表 `1.2.840.113549.1.1`、`MD2WITHRSAENCRYPTION`） | **未做** |
+| `aidepro` | 65 | 应用自己的 `R$*` | — |
+| `tv` / `net` | 42 / 40 | tv/ouya/console（OUYA SDK）、net/margaritov colorpicker（真名） | — |
+| `zeroaicy` | 37 | `org.objectweb.asm` 移进 zeroaicy 包（真名） | — |
+| `android` | 21 | `android.support.annotation.Keep`、`android.support.customtabs.*`（真名） | — |
+| `r,p,q,v,w,x,b,n,l,e,m,j,u,h,t,y,o,g,s,k,f,i,d` | 各 1~8，合计 ~40 | 同属那份 BouncyCastle 的 ASN.1 子包（OID 表 + `badly formatted directory string`） | **未做** |
+| `java2` | 3 | `java.util.Base64` 的副本（包名改成 java2） | 只需认包名 |
+| `bin` | 2 | `bin.mt.file.content`：MT 管理器的 ContentProvider（不是 AIDE 的） | — |
+| `kellinwood` | 2 | 真名（zipsigner 已完成） | — |
+
+**结论修正**：第三方库里还剩
+1. **ProGuard（`a`，757 类）**——最大的一块，且 `net.sf.proguard:proguard-base 5.x/6.x` 在 Maven 有；
+2. **第二份 BouncyCastle（`c/r/p/q/...`，约 114 类）**——和 `abcd/pP` 那份 SpongyCastle 不是同一份（那份是 1.47，这份 OID/ASN.1 表另有一套，版本待锁）；
+3. **`org/c`(434) + `org/a`(117)**——纯数据模型 + 5 个按输入格式分的插件（`c/a/a`、`c/b/a/d`、`c/c/a/a`、`c/d/a`、`c/e/a/a`），有 `<illegal opcode>` 串和 `j_()`/`l_()` 风格方法名，**只被 `com/a*` 引用过一次**，身份未定（下一轮用"谁调用门面 `org/c/a/a/a`"顺藤摸瓜）。
+
+`sun1`/`utilcode`/`java2` 这三组只是**包名被改、类名没混淆**，认包名即可，不需要逐类定名。
