@@ -241,8 +241,6 @@ a/e/g	proguard/io/DataEntry	iface:实现的接口集合唯一(5 个实现者)
 a/e/m	proguard/io/DataEntryReader	iface:实现的接口集合唯一(2 个实现者)
 a/j/u	proguard/util/StringParser	iface:实现的接口集合唯一(3 个实现者)
 a/b/a/b/a/d	proguard/classfile/attribute/module/visitor/RequiresInfoVisitor	iface:唯一方法形参=RequiresInfo(已定名)
-a/ag	proguard/ParseException	strict:全类型已定名+成员集完全相等
-a/al	proguard/UpToDateChecker$1	strict:全类型已定名+成员集完全相等
 a/b/a/a/b/c	proguard/classfile/attribute/annotation/visitor/AnnotationToAnnotatedClassVisitor	strict:全类型已定名+成员集完全相等
 a/b/a/c	proguard/classfile/attribute/BootstrapMethodsAttribute	strict:全类型已定名+成员集完全相等
 a/b/a/d/h	proguard/classfile/attribute/visitor/AttributeToClassVisitor	strict:全类型已定名+成员集完全相等
@@ -262,33 +260,25 @@ a/b/c/an	proguard/classfile/editor/ExceptionsAttributeEditor	strict:全类型已
 a/b/c/ax	proguard/classfile/editor/InterfacesEditor	strict:全类型已定名+成员集完全相等
 a/b/c/bk	proguard/classfile/editor/ParameterAnnotationsAttributeEditor	strict:全类型已定名+成员集完全相等
 a/b/c/s	proguard/classfile/editor/ClassElementSorter	strict:全类型已定名+成员集完全相等
-a/b/e/d	proguard/classfile/io/ProgramClassWriter$1	strict:全类型已定名+成员集完全相等
 a/b/f/q	proguard/classfile/util/ExternalTypeEnumeration	strict:全类型已定名+成员集完全相等
-a/b/g/ba	proguard/classfile/visitor/ParallelAllClassVisitor$1	strict:全类型已定名+成员集完全相等
 a/b/g/bf	proguard/classfile/visitor/ParallelAllClassVisitor$MyThreadedClassVisitor$1	strict:全类型已定名+成员集完全相等
 a/b/i	proguard/classfile/Member	strict:全类型已定名+成员集完全相等
 a/b/l	proguard/classfile/ProgramField	strict:全类型已定名+成员集完全相等
 a/b/n	proguard/classfile/ProgramMethod	strict:全类型已定名+成员集完全相等
 a/d/a/f	proguard/evaluation/value/ComparisonValue	strict:全类型已定名+成员集完全相等
 a/e/ag	proguard/io/PrefixStrippingDataEntryReader	strict:全类型已定名+成员集完全相等
-a/e/an	proguard/io/ZipOutput$1	strict:全类型已定名+成员集完全相等
 a/e/f	proguard/io/ClassReader	strict:全类型已定名+成员集完全相等
 a/e/i	proguard/io/DataEntryDirectoryFilter	strict:全类型已定名+成员集完全相等
 a/e/j	proguard/io/DataEntryFilter	strict:全类型已定名+成员集完全相等
 a/e/k	proguard/io/DataEntryNameFilter	strict:全类型已定名+成员集完全相等
 a/e/q	proguard/io/DirectoryPump	strict:全类型已定名+成员集完全相等
-a/f/d	proguard/obfuscate/ClassObfuscator$1	strict:全类型已定名+成员集完全相等
 a/g/b/ao	proguard/optimize/info/SideEffectClassMarker	strict:全类型已定名+成员集完全相等
 a/g/b/v	proguard/optimize/info/NoSideEffectClassMarker	strict:全类型已定名+成员集完全相等
 a/g/c/b	proguard/optimize/peephole/ClassFinalizer	strict:全类型已定名+成员集完全相等
-a/g/y	proguard/optimize/TailRecursionSimplifier$1	strict:全类型已定名+成员集完全相等
 a/j/p	proguard/util/NotMatcher	strict:全类型已定名+成员集完全相等
 a/j/s	proguard/util/SettableMatcher	strict:全类型已定名+成员集完全相等
-a/q	proguard/FileWordReader	strict:全类型已定名+成员集完全相等
 a/b/m	proguard/classfile/ProgramMember	anc:后代祖先交集唯一(2 个后代)
 a/b/a/a/b/f	proguard/classfile/attribute/annotation/visitor/AnnotationVisitor	iface:实现的接口集合唯一(1 个实现者)
-a/b/d	proguard/classfile/Field	iface:实现的接口集合唯一(1 个实现者)
-a/b/j	proguard/classfile/Method	iface:实现的接口集合唯一(1 个实现者)
 a/b/a/a/a/a/a	proguard/classfile/attribute/annotation/target/visitor/LocalVariableTargetElementVisitor	strict:全类型已定名+成员集完全相等
 a/b/a/a/b/d	proguard/classfile/attribute/annotation/visitor/AnnotationToAnnotatedMemberVisitor	strict:全类型已定名+成员集完全相等
 a/b/a/a/d	proguard/classfile/attribute/annotation/AnnotationsAttribute	strict:全类型已定名+成员集完全相等
@@ -341,3 +331,14 @@ a/g/j	proguard/optimize/MethodStaticizer	strict:全类型已定名+成员集完�
 a/d/e	proguard/evaluation/ConstantValueFactory	anc:后代祖先交集唯一(1 个后代)
 a/b/a/a/a/a/b	proguard/classfile/attribute/annotation/target/visitor/TargetInfoVisitor	iface:实现的接口集合唯一(1 个实现者)
 a/b/a/c/a/b	proguard/classfile/attribute/preverification/visitor/VerificationTypeVisitor	iface:实现的接口集合唯一(4 个实现者)
+a/b/a/a/a/a	proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo	strict:全类型已定名+成员集完全相等
+a/b/a/a/a/c	proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo	strict:全类型已定名+成员集完全相等
+a/b/a/a/a/f	proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo	strict:全类型已定名+成员集完全相等
+a/b/a/a/a/g	proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo	strict:全类型已定名+成员集完全相等
+a/b/a/a/a/i	proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo	strict:全类型已定名+成员集完全相等
+a/b/a/a/a/l	proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo	strict:全类型已定名+成员集完全相等
+a/b/a/k	proguard/classfile/attribute/InnerClassesAttribute	strict:全类型已定名+成员集完全相等
+a/b/a/p	proguard/classfile/attribute/LocalVariableTableAttribute	strict:全类型已定名+成员集完全相等
+a/b/a/r	proguard/classfile/attribute/LocalVariableTypeTableAttribute	strict:全类型已定名+成员集完全相等
+a/b/a/s	proguard/classfile/attribute/MethodParametersAttribute	strict:全类型已定名+成员集完全相等
+a/b/c/g	proguard/classfile/editor/AnnotationsAttributeEditor	strict:全类型已定名+成员集完全相等

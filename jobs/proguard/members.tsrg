@@ -1463,6 +1463,8 @@ a/b/c/u proguard/classfile/editor/CodeAttributeComposer
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
 	q stackSizeUpdater
 	r bv
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
 a/b/c/v proguard/classfile/editor/CodeAttributeEditor
 	a preOffsetInsertions
 	a ()Z isModified
@@ -1533,6 +1535,8 @@ a/b/c/v proguard/classfile/editor/CodeAttributeEditor
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
 	p stackSizeUpdater
 	q bv
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
 a/b/f/p proguard/classfile/util/InstructionSequenceMatcher
 	a patternConstants
 	a ()V reset
@@ -2363,6 +2367,11 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	a (La/b/c;La/b/d;La/b/a/u;)V visitSignatureAttribute
 	a (La/b/c;La/b/i;La/b/a/u;)V visitSignatureAttribute
 	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
 a/d/a/c proguard/evaluation/value/BasicValueFactory
 	e REFERENCE_VALUE
 	e ()La/d/a/ap; createReferenceValue
@@ -2447,19 +2456,12 @@ a/i/n proguard/shrink/UsageMarker
 	c r
 	d q
 	e t
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
 a/b/a/a/b/h proguard/classfile/attribute/annotation/visitor/TypeAnnotationVisitor
 	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
-a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
-	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
-	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
-	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
-	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
-	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
-	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
-	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
-	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
-	a (La/b/c;La/b/d;La/b/a/u;)V visitSignatureAttribute
-	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
 a/b/a/d/j proguard/classfile/attribute/visitor/BootstrapMethodInfoVisitor
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 a/b/a/d/l proguard/classfile/attribute/visitor/ExceptionInfoVisitor
@@ -2522,14 +2524,8 @@ a/b/g/aq proguard/classfile/visitor/MemberVisitor
 	a (La/b/k;La/b/n;)V visitProgramMethod
 a/b/g/bb proguard/classfile/visitor/ParallelAllClassVisitor$ClassVisitorFactory
 	a ()La/b/g/s; createClassVisitor
-a/b/g/n proguard/classfile/visitor/ClassPoolVisitor
 a/b/g/s proguard/classfile/visitor/ClassVisitor
 	a (La/b/k;)V visitProgramClass
-a/d/a/be proguard/evaluation/value/ValueFactory
-	a (Ljava/lang/String;La/b/c;ZZ)La/d/a/bd; createValue
-	b (Ljava/lang/String;La/b/c;ZZ)La/d/a/ap; createReferenceValue
-	f ()La/d/a/ap; createReferenceValueNull
-	e ()La/d/a/ap; createReferenceValue
 a/d/c proguard/evaluation/BranchUnit
 	a (La/b/c;La/b/a/d;II)V branch
 	a (La/b/c;La/b/a/d;III)V branchConditionally
@@ -2547,8 +2543,6 @@ a/j/u proguard/util/StringParser
 	a (Ljava/lang/String;)La/j/t; parse
 a/b/a/b/a/d proguard/classfile/attribute/module/visitor/RequiresInfoVisitor
 	a (La/b/c;La/b/a/b/g;)V visitRequiresInfo
-a/ag proguard/ParseException
-a/al proguard/UpToDateChecker$1
 a/b/a/a/b/c proguard/classfile/attribute/annotation/visitor/AnnotationToAnnotatedClassVisitor
 	a (La/b/c;La/b/a/a/a;)V visitAnnotation
 	a classVisitor
@@ -2680,7 +2674,6 @@ a/b/c/s proguard/classfile/editor/ClassElementSorter
 	c attributeSorter
 	b constantPoolSorter
 	a interfaceSorter
-a/b/e/d proguard/classfile/io/ProgramClassWriter$1
 a/b/f/q proguard/classfile/util/ExternalTypeEnumeration
 	a descriptor
 	a ()Z hasMoreTypes
@@ -2690,7 +2683,6 @@ a/b/f/q proguard/classfile/util/ExternalTypeEnumeration
 	c index2
 	d index3
 	e index4
-a/b/g/ba proguard/classfile/visitor/ParallelAllClassVisitor$1
 a/b/g/bf proguard/classfile/visitor/ParallelAllClassVisitor$MyThreadedClassVisitor$1
 	a val$clazz
 	b this$0
@@ -2719,7 +2711,6 @@ a/e/ag proguard/io/PrefixStrippingDataEntryReader
 	a (La/e/g;)V read
 	a prefix
 	b dataEntryReader
-a/e/an proguard/io/ZipOutput$1
 a/e/f proguard/io/ClassReader
 	a (La/e/g;)V read
 	d warningPrinter
@@ -2738,7 +2729,6 @@ a/e/q proguard/io/DirectoryPump
 	a (Ljava/io/File;La/e/m;)V readFiles
 	a (La/e/m;)V pumpDataEntries
 	a directory
-a/f/d proguard/obfuscate/ClassObfuscator$1
 a/g/b/ao proguard/optimize/info/SideEffectClassMarker
 	b (La/b/c;)Z hasSideEffects
 	c (La/b/c;)V markSideEffects
@@ -2750,7 +2740,6 @@ a/g/b/v proguard/optimize/info/NoSideEffectClassMarker
 a/g/c/b proguard/optimize/peephole/ClassFinalizer
 	a (La/b/k;)V visitProgramClass
 	a extraClassVisitor
-a/g/y proguard/optimize/TailRecursionSimplifier$1
 a/j/p proguard/util/NotMatcher
 	a (Ljava/lang/String;II)Z matches
 	a matcher
@@ -2758,7 +2747,6 @@ a/j/s proguard/util/SettableMatcher
 	a (La/j/t;)V setMatcher
 	a (Ljava/lang/String;II)Z matches
 	a matcher
-a/q proguard/FileWordReader
 a/b/m proguard/classfile/ProgramMember
 	a ()I getAccessFlags
 	a (La/b/c;La/b/g/aq;)V accept
@@ -2780,8 +2768,6 @@ a/b/a/a/b/f proguard/classfile/attribute/annotation/visitor/AnnotationVisitor
 	a (La/b/c;La/b/j;ILa/b/a/a/a;)V visitAnnotation
 	a (La/b/c;La/b/j;La/b/a/a/a;)V visitAnnotation
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/a;)V visitAnnotation
-a/b/d proguard/classfile/Field
-a/b/j proguard/classfile/Method
 a/b/a/a/a/a/a proguard/classfile/attribute/annotation/target/visitor/LocalVariableTargetElementVisitor
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;La/b/a/a/a/d;)V visitLocalVariableTargetElement
 a/b/a/a/b/d proguard/classfile/attribute/annotation/visitor/AnnotationToAnnotatedMemberVisitor
@@ -3033,6 +3019,61 @@ a/d/e proguard/evaluation/ConstantValueFactory
 	a (La/b/c;La/b/b/r;)V visitStringConstant
 	a valueFactory
 	b value
-a/b/a/a/a/a/b proguard/classfile/attribute/annotation/target/visitor/TargetInfoVisitor
+a/b/a/a/a/a a/b/a/a/a/a
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+a/b/a/a/a/c a/b/a/a/a/c
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+a/b/a/a/a/f a/b/a/a/a/f
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+a/b/a/a/a/i a/b/a/a/a/i
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+a/b/a/a/a/l a/b/a/a/a/l
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+a/b/a/k a/b/a/k
+	a (La/b/c;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/a/d/m;)V innerClassEntriesAccept
+	c u2classesCount
+	d classes
+a/b/a/p a/b/a/p
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/q;)V localVariablesAccept
+	c u2localVariableTableLength
+	d localVariableTable
+a/b/a/r a/b/a/r
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/r;)V localVariablesAccept
+	c u2localVariableTypeTableLength
+	d localVariableTypeTable
+a/b/a/s a/b/a/s
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d/u;)V parametersAccept
+	c u1parametersCount
+	d parameters
+a/b/c/g a/b/c/g
+	a (La/b/a/a/a;)V addAnnotation
+	a targetAnnotationsAttribute
+a/b/a/a/a/a/b a/b/a/a/a/a/b
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
-a/b/a/c/a/b proguard/classfile/attribute/preverification/visitor/VerificationTypeVisitor
+a/b/a/a/a/g a/b/a/a/a/g
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+a/b/a/d/i a/b/a/d/i
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
+	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
+	a (La/b/c;La/b/d;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
+	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
+	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
+a/d/a/be a/d/a/be
+	a (Ljava/lang/String;La/b/c;ZZ)La/d/a/bd; createValue
+	b (Ljava/lang/String;La/b/c;ZZ)La/d/a/ap; createReferenceValue
+	f ()La/d/a/ap; createReferenceValueNull
+	e ()La/d/a/ap; createReferenceValue
