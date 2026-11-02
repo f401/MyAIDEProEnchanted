@@ -94,3 +94,38 @@ awk -F'\t' 'NR>1 && $5!=""' jobs/proguard/out/members_a.tsv | cut -f1 | sort | u
 python3 tools/jgit/pipeline/rebuild_tsrg.py && python3 tools/jgit/pipeline/validate_mappings.py
 python3 tools/jgit/pipeline/inherit_check.py && python3 tools/deob/innercheck.py
 ```
+
+## 7) 第二轮：**包结构 1:1 保真**（本轮最重要的发现）
+
+ProGuard 混淆时**保留了包层级**，只把每一层换成单字母。实测：
+
+```
+探针 33 个包  ↔  oracle 33 个包（数量相等，深度一一对应，类数几乎相等）
+a              → proguard                                   40 vs 41
+a/a            → proguard/backport                          10 vs 10
+a/b            → proguard/classfile                         15 vs 16
+a/b/c          → proguard/classfile/editor                  74 vs 78
+a/b/g          → proguard/classfile/visitor                 66 vs 79
+a/d/a          → proguard/evaluation/value                  57 vs 59
+a/g/b          → proguard/optimize/info                     52 vs 57
+a/b/a/a/a/a    → proguard/classfile/attribute/annotation/target/visitor   2 vs 2
+```
+
+完整 33 条落在 [`pkg_map.tsv`](pkg_map.tsv)（法：锚定已确认类的包 → 自顶向下按
+"类数差 + 子包数差"贪心配对，并列就不猜）。
+
+**用处**：类级候选面从 804 缩到"本包 4~78 个"，再叠 串/成员包含/标志 三条，
+一轮就多认 60 个（73 → 133）；过一遍成员命中率筛掉 52 个，**定稿 79**。
+
+**为什么成员命中率不能当唯一判据**：AIDE 这份 ProGuard 与官方 6.0.3 的**成员集不同**
+（757 vs 804 类，同一个类里也有成员被裁/内联），所以"类对了"也可能只有 40~60% 成员能对上。
+它更适合当**证伪**信号（一个类如果命中率 <30%，几乎一定是配错了）。
+
+## 8) 第三轮要做的（678 类）
+
+1. **包约束 + 引用图**：同一包里挑不出唯一时，用 `refmatch`（引用者/被引用者集合）
+   把候选砍到 1；ProGuard 的 visitor 族正好是"一个 visitor 只被少数几处 new/调用"；
+2. **visitor 族专项**：`classfile/visitor`(79)、`attribute/visitor`(23) 这些包里，
+   类的区分点全在"它 visit 什么类型"→ 用方法描述符里的类型 + 调用点；
+3. 每轮仍然：候选 → `members` 算命中率 → 保留 ≥60% 的 → 再迭代；
+4. 类级到 90% 后统一做成员级（现在做会让 `inherit_check` MISSING 变 33，门禁不允许）。
