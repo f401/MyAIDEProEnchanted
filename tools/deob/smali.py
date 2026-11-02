@@ -58,7 +58,7 @@ def parse(path):
     toks = m.group(1).split()
     desc = toks[-1]
     out = dict(descriptor=desc.rstrip(';').lstrip('L'), class_access=toks[:-1],
-               methods=[], fields=[], body={}, super=None, ifaces=[])
+               methods=[], fields=[], body={}, macc={}, super=None, ifaces=[])
     for mm in re.finditer(r'^\.method\s+([^\n]+)\n(.*?)^\.end method', t, re.M | re.S):
         toks = mm.group(1).split()
         sig = None
@@ -74,6 +74,8 @@ def parse(path):
         syn = 'synthetic' in toks or 'bridge' in toks
         out['methods'].append((nm, ds, st, syn))
         out['body'][(nm, ds)] = mm.group(2)
+        # 访问修饰符留着：`private`/`static` 的方法**不参与覆写族**（同名同描述符也只是同名而已）
+        out['macc'][(nm, ds)] = toks
     for mm in re.finditer(r'^\.field\s+([^\n]+)$', t, re.M):
         toks = mm.group(1).split()
         fld = None

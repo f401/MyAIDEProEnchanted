@@ -89,6 +89,61 @@ def oracle_to_probe(o):
     return o
 
 
+_RE_LTYPE = re.compile(r'L([A-Za-z0-9_$/\-]+);')
+
+
+def _known_probe_types():
+    """已在 class_map 里定名的探针类（这些类型必须逐字符对齐）。"""
+    return set(_T2P.values())
+
+
+def _desc_re(d, known):
+    """探针描述符 → 正则：**未定名**的探针类型当通配符。
+
+    踩坑背景：`Labcd/CH;` 这类还没定名的类型，oracle 侧描述符翻不回探针空间，
+    整个描述符桶就对不上 → 成员直接掉进 `no-oracle-descriptor`。
+    这里只放宽"还没定名"的那几个位，其余位仍逐字符对齐；
+    放宽后候选多于一个时，照旧要走方法体/调用集/读写签名打分 + 领先阈值。
+    """
+    out, i = [], 0
+    for m in _RE_LTYPE.finditer(d):
+        out.append(re.escape(d[i:m.start()]))
+        t = m.group(1)
+        pref = _probe_pref()
+        loose = bool(pref) and t.startswith(pref + '/') and t not in known
+        out.append(r'L[^;]+;' if loose else re.escape('L%s;' % t))
+        i = m.end()
+    out.append(re.escape(d[i:]))
+    return re.compile('^' + ''.join(out) + '$')
+
+
+def _probe_pref():
+    """探针类的包前缀（`abcd` / `com/a` …），用来区分"探针类没定名"和"JDK/三方类型"。"""
+    for v in _T2P.values():
+        return v.split('/', 1)[0]
+    return None
+
+
+def _wild(desc, om, known, static=None):
+    """精确桶取不到时，按"**未定名**的探针类型当通配符"再捞一遍候选。
+
+    只放宽探针空间的类型（`Labcd/xx;` 且 xx 还没进 class_map）——JDK / Apache 这类
+    外部类型必须逐字符对齐，否则 `Ljava/util/Set;` 会通配到任意字段上去（踩过）。
+    """
+    if not desc or 'L' not in desc:
+        return []
+    pref = _probe_pref()
+    loose = [m.group(1) for m in _RE_LTYPE.finditer(desc)
+             if pref and m.group(1).startswith(pref + '/') and m.group(1) not in known]
+    if not loose:
+        return []
+    rx = _desc_re(desc, known)
+    hit = [m for m in om if rx.match(m['desc'] or '')]
+    if static is not None:
+        hit = [m for m in hit if bool(m['acc'] & 8) == static]
+    return hit
+
+
 def _short(owner):
     return owner.rsplit('/', 1)[-1]
 
@@ -337,8 +392,9 @@ def match_class(cls, pst, ocl, lookup, obf, min_score=0.30, min_lead=0.12,
                                   score=sc, lead=lead,
                                   bodyless=not (seqp.get((pn, pd)) or ([],))[0]))
 
+    known = _known_probe_types()
     for d, pl in pb.items():
-        all_ol = ob.get(d, [])
+        all_ol = ob.get(d, []) or _wild(d, om, known)
         ol = [m for m in all_ol if m['name'] not in taken.get((cls, d), ())]
         if not all_ol:
             for (n, st, syn) in pl:
@@ -450,8 +506,9 @@ def match_fields(cls, pst, ocl, p_usage, o_usage, lookup, votes=None, taken=None
     pb = collections.defaultdict(list)
     for (n, d, st, syn) in pf:
         pb[(d, st)].append((n, syn))
+    known = _known_probe_types()
     for key, pl in pb.items():
-        all_ol = ob.get(key, [])
+        all_ol = ob.get(key, []) or _wild(key[0], of, known, key[1])
         ol = [m for m in all_ol if m['name'] not in taken.get(cls, ())]
         if not all_ol:
             for (n, syn) in pl:
@@ -511,13 +568,47 @@ def oracle_lookup(oracle_jars):
             if n.endswith('.class') and not n.startswith('META-INF'):
                 names.setdefault(n[:-6], l)
 
-    def find(cls):
+    def find(cls, pst=None):
+        """按类名找 oracle：多版本时选**与探针形状最贴**的那一版。
+
+        背景（jgit 这类混合版）：同一个类可能只存在于某一版，`第一个命中的 jar` 经常不是
+        探针那一版（例如 `DeltaTask` 在 3.7.1 就有，但 AIDE 用的是 5.13.3 的形状），
+        拿错版本会让整类描述符都对不上 → 整类掉进 `no-oracle-descriptor`。
+        打分口径：探针的成员描述符在该版本里能落桶（或未定名类型通配后能落桶）的条数，
+        取最高分；并列时按 `oracle_jars` 顺序（保持稳定）。
+        """
+        cands = []
         for l, z in zs:
             try:
-                return l, z.read(cls + '.class')
+                cands.append((l, z.read(cls + '.class')))
             except KeyError:
                 continue
-        return None, None
+        if not cands:
+            return None, None
+        if len(cands) == 1 or pst is None:
+            return cands[0]
+        known = _known_probe_types()
+        best, bs = cands[0], -1
+        for l, raw in cands:
+            try:
+                o = jvm.parse(raw)
+            except Exception:
+                continue
+            o = oracle_to_probe(o)
+            om = [m for m in o['members'] if m['kind'] == 'm']
+            of = [m for m in o['members'] if m['kind'] == 'f']
+            mset = {m['desc'] for m in om}
+            fset = {(m['desc'], bool(m['acc'] & 8)) for m in of}
+            sc = 0
+            for _n, d, _st, _sy in (pst.get('methods') or []):
+                if d in mset or _wild(d, om, known):
+                    sc += 1
+            for _n, d, st, _sy in (pst.get('fields') or []):
+                if (d, bool(st)) in fset or _wild(d, of, known, bool(st)):
+                    sc += 1
+            if sc > bs:
+                best, bs = (l, raw), sc
+        return best
     return find, names
 
 
@@ -745,9 +836,9 @@ def run(P, pkg, part=None, apply=False, report=None, rounds=8, sweeps=3,
     parsed, ocls = {}, {}
     for c in sorted(classes):
         parsed[c] = smali.parse(classes[c])
-        _label, raw = find(c)
+        _label, raw = find(c, parsed[c])
         if raw is None and cmap.get(c):
-            _label, raw = find(cmap[c])
+            _label, raw = find(cmap[c], parsed[c])
         if raw is not None:
             ocls[c] = oracle_to_probe(jvm.parse(raw))
     log('探针类 %d（oracle 命中 %d）' % (len(parsed), len(ocls)))
@@ -1251,10 +1342,17 @@ def unify_families(parsed, rows, log=None):
         if ra != rb:
             parent[rb] = ra
 
+    def _no_override(c, n, d):
+        """private / static 的方法不构成覆写关系（同名同描述符只是撞名）。"""
+        toks = (parsed.get(c, {}).get('macc') or {}).get((n, d)) or ()
+        return 'private' in toks or 'static' in toks
+
     for c, pst in parsed.items():
         for anc in _supers(parsed, c):
             for (n, d) in decl.get(c, ()):
                 if (n, d) not in decl.get(anc, ()):
+                    continue
+                if _no_override(c, n, d) or _no_override(anc, n, d):
                     continue
                 ka, kb = (c, n, d), (anc, n, d)
                 ra = idx.get(ka)
