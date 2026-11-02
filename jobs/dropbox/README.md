@@ -113,6 +113,14 @@ this.displayName = (String) map.get("display_name");
 
 当前：方法 15 条、字段 21 条已定名，`members` 报的待人工从 85 降到 **69**。
 
+**第三种尝试（`tools/deob/accessorfill.py`，补 0 条）**：想用"方法体只读写一个已定名字段"
+批量生成 `get<Field>`/`set<Field>`。结果一条都没配上——Dropbox 这边的取值器几乎都不是纯访问器，
+例如 `Dw$e.j6()String` 读 `gn`（path）之后还要 `const/16 0x2f`（'/') 取最后一段。
+工具留着给别的 part 用，但这条路在本 part 走不通。
+
+⇒ 剩下的 69 条必须**逐条读方法体**：能靠端点串/JSON key/报错文案的就按证据，
+其余（匿名回调、线程体、策略实现）按作用命名。
+
 ## 6) 待办
 
 1. 先把 5 条一致的和冲突的逐个用 `ql probe`/`ql cand` 复核；
