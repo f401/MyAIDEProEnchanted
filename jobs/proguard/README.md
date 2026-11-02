@@ -537,3 +537,43 @@ cover(a) 方法 7299/7339 = 99.5%   字段 4769/4861 = 98.1%
 2. **人工按族收尾**：`todo_classes.txt` 里按包分好了，一族的类通常"看一个就知道其余"
    （比如 `*TargetInfo` 6 个，按 `TargetInfo` 子类型逐一对应即可），配合
    `README §11/§15` 的两条判据，人工半小时能收掉一大半。
+
+## 26) 第十四轮：**引用者判据**（"谁 new/调用它"）→ 641 类（84.7%）
+
+上一轮我说"类内信号到顶、需要跨类信号"，本轮就把跨类信号做出来了，效果立竿见影。
+
+**判据：引用者集合 Jaccard**
+
+```
+探针侧：into[P] = {已映射的探针类 C : C 的 smali 里出现 La/P; }
+       （`new-instance` / `invoke-*` / 字段类型都算，因为都写在 smali 文本里）
+oracle 侧：ointo[O] = {O 的常量池 refmap 里出现的 owner 与描述符类型}
+打分 = Jaccard(translate(into[P]), ointo[O])，要求 ≥0.20、公共引用者 ≥2、领先 ≥0.05、同包
+```
+
+实得 **52 条**（去重后）→ 验伪留 **+29**；再跑一轮引用者 + strict + 引用集，再 **+13**
+（628 → 641）。质量样本：
+
+```
+a/b/b/d   → constant/FieldrefConstant        Jaccard 0.96（23 个公共引用者）
+a/b/a/d/k → attribute/visitor/DebugAttributeVisitor  Jaccard 0.88（7 个）
+a/b/a/d/g → attribute/visitor/AttributeNameFilter    Jaccard 0.86（6 个）
+a/b/a/c/i → attribute/preverification/ObjectType     Jaccard 0.75（9 个）
+```
+
+**注意**："引用者"和"被引用集"是**两个互补方向**：前者是"谁用我"，后者是"我用谁"。
+上一轮只用后者（`refs`），这轮补上前者（`who`），两者合起来把 158 压到 **116**。
+
+现状：
+
+```
+类映射   641 / 757（84.7%）
+成员行   6397
+参数行   5645
+cover(a) 方法 7748/7795 = 99.4%   字段 4837/4935 = 98.0%
+门禁     validate ✔（类块 2581 / 成员行 21131 / 参数行 13849）
+         inherit 0/0/0 · innercheck ②③ 0
+```
+
+剩 **116 类**（`todo_classes.txt` 已更新）：`evaluation/value` 家族 30、
+`classfile/visitor` 十几个、`optimize/info` 十几个，其余零散。

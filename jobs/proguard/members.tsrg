@@ -273,6 +273,9 @@ a/d/i proguard/evaluation/Stack
 	o ()V dup2_x1
 	p ()V dup2_x2
 	q ()V swap
+	d ()La/d/a/ae; ipop
+	f ()La/d/a/u; fpop
+	g ()La/d/a/t; dpop
 a/e proguard/ClassPathEntry
 	a file
 	a ()Ljava/lang/String; getName
@@ -1495,6 +1498,7 @@ a/b/c/u proguard/classfile/editor/CodeAttributeComposer
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
 a/b/c/v proguard/classfile/editor/CodeAttributeEditor
 	a preOffsetInsertions
 	a ()Z isModified
@@ -1572,6 +1576,8 @@ a/b/c/v proguard/classfile/editor/CodeAttributeEditor
 	a (ILa/b/d/c;)V insertBeforeInstruction
 	c (ILa/b/d/c;)V insertAfterInstruction
 	a (La/b/c;La/b/a/a/r;)V visitAnyTypeAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
 a/b/f/p proguard/classfile/util/InstructionSequenceMatcher
 	a patternConstants
 	a ()V reset
@@ -1626,6 +1632,7 @@ a/b/f/p proguard/classfile/util/InstructionSequenceMatcher
 	a (La/b/c;La/b/b/r;)V visitStringConstant
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/b/k proguard/classfile/ProgramClass
 	a u4version
 	a ()I getAccessFlags
@@ -1746,6 +1753,9 @@ a/d/a/bd proguard/evaluation/value/Value
 	k ()Ljava/lang/String; internalType
 	l_ ()La/d/a/ap; referenceValue
 	n_ ()La/d/a/ad; instructionOffsetValue
+	r ()La/d/a/ae; integerValue
+	i ()La/d/a/t; doubleValue
+	l ()La/d/a/u; floatValue
 a/d/a/m proguard/evaluation/value/ConvertedDoubleValue
 	a value
 a/d/a/n proguard/evaluation/value/ConvertedFloatValue
@@ -1777,6 +1787,9 @@ a/d/l proguard/evaluation/Variables
 	d (I)La/d/a/bd; load
 	i (I)La/d/a/ap; aload
 	j (I)La/d/a/ad; oload
+	e (I)La/d/a/ae; iload
+	g (I)La/d/a/u; fload
+	h (I)La/d/a/t; dload
 a/e/h proguard/io/DataEntryCopier
 	a (Ljava/io/InputStream;Ljava/io/OutputStream;)V copyData
 	b buffer
@@ -2121,6 +2134,14 @@ a/d/a/ap proguard/evaluation/value/ReferenceValue
 	b (La/d/a/v;)La/d/a/ap; generalize
 	a (La/d/a/aa;)I equal
 	b (La/d/a/aa;)La/d/a/ap; generalize
+	a (La/d/a/ae;La/d/a/be;)La/d/a/ae; integerArrayLoad
+	a (La/d/a/be;)La/d/a/ae; arrayLength
+	a (La/d/a/r;)La/d/a/ap; generalize
+	a (La/d/a/ae;La/d/a/bd;)V arrayStore
+	b (La/d/a/r;)I equal
+	e (La/d/a/ae;La/d/a/be;)La/d/a/ap; referenceArrayLoad
+	c (La/d/a/ae;La/d/a/be;)La/d/a/u; floatArrayLoad
+	d (La/d/a/ae;La/d/a/be;)La/d/a/t; doubleArrayLoad
 a/e/ak proguard/io/WrappedDataEntry
 	a ()Ljava/lang/String; getName
 	b ()Z isDirectory
@@ -2192,6 +2213,7 @@ a/d/a/a proguard/evaluation/value/ArrayReferenceValue
 	b (La/d/a/a;)I equal
 	b (La/d/a/ap;)I equal
 	a ae
+	a (La/d/a/be;)La/d/a/ae; arrayLength
 a/d/a/av proguard/evaluation/value/TracedReferenceValue
 	a referenceValue
 	a (La/d/a/a;)La/d/a/ap; generalize
@@ -2220,6 +2242,14 @@ a/d/a/av proguard/evaluation/value/TracedReferenceValue
 	b (La/d/a/v;)La/d/a/ap; generalize
 	a (La/d/a/aa;)I equal
 	b (La/d/a/aa;)La/d/a/ap; generalize
+	a (La/d/a/ae;La/d/a/be;)La/d/a/ae; integerArrayLoad
+	a (La/d/a/be;)La/d/a/ae; arrayLength
+	a (La/d/a/r;)La/d/a/ap; generalize
+	a (La/d/a/ae;La/d/a/bd;)V arrayStore
+	b (La/d/a/r;)I equal
+	e (La/d/a/ae;La/d/a/be;)La/d/a/ap; referenceArrayLoad
+	c (La/d/a/ae;La/d/a/be;)La/d/a/u; floatArrayLoad
+	d (La/d/a/ae;La/d/a/be;)La/d/a/t; doubleArrayLoad
 a/d/a/aw proguard/evaluation/value/TypedReferenceValue
 	a ALLOW_INCOMPLETE_CLASS_HIERARCHY
 	a (La/d/a/ap;)La/d/a/ap; generalize
@@ -2242,12 +2272,15 @@ a/d/a/aw proguard/evaluation/value/TypedReferenceValue
 	a (Ljava/lang/String;La/b/c;La/d/a/be;Z)La/d/a/ap; cast
 	f ()La/b/c; getReferencedClass
 	c referencedClass
+	e (La/d/a/ae;La/d/a/be;)La/d/a/ap; referenceArrayLoad
 a/d/a/ax proguard/evaluation/value/TypedReferenceValueFactory
 	f REFERENCE_VALUE_NULL
 	f ()La/d/a/ap; createReferenceValueNull
 	g REFERENCE_VALUE_JAVA_LANG_OBJECT_MAYBE_NULL
 	h REFERENCE_VALUE_JAVA_LANG_OBJECT_NOT_NULL
 	b (Ljava/lang/String;La/b/c;ZZ)La/d/a/ap; createReferenceValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;)La/d/a/ap; createArrayReferenceValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;La/d/a/bd;)La/d/a/ap; createArrayReferenceValue
 a/f/b proguard/obfuscate/AttributeUsageMarker
 	a USED
 	a (La/b/o;)Z isUsed
@@ -2297,6 +2330,7 @@ a/g/c/a proguard/optimize/peephole/BranchTargetFinder
 	b (I)Z isCreation
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
 	j (I)Z isSubroutineInvocation
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 a/g/c/f proguard/optimize/peephole/GotoCommonCodeReplacer
 	a (B)Z isPop
 	a (La/b/a/d;II)I commonByteCodeCount
@@ -2449,6 +2483,19 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/p;)V visitStackUninitializedThisType
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/p;)V visitVariablesUninitializedThisType
 	a (La/b/c;La/b/a/a/r;)V visitAnyTypeAnnotationsAttribute
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/d;La/b/a/a/q;La/b/a/a/a/b;)V visitEmptyTargetInfo
+	a (La/b/c;La/b/i;La/b/a/a/q;La/b/a/a/a/b;)V visitEmptyTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/i;)V visitStackObjectType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/q;)V visitStackUninitializedType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/i;)V visitVariablesObjectType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/q;)V visitVariablesUninitializedType
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
 a/d/a/c proguard/evaluation/value/BasicValueFactory
 	e REFERENCE_VALUE
 	e ()La/d/a/ap; createReferenceValue
@@ -2459,6 +2506,14 @@ a/d/a/c proguard/evaluation/value/BasicValueFactory
 	b af
 	c u
 	d t
+	a ()La/d/a/ae; createIntegerValue
+	a (I)La/d/a/ae; createIntegerValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;)La/d/a/ap; createArrayReferenceValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;La/d/a/bd;)La/d/a/ap; createArrayReferenceValue
+	a (D)La/d/a/t; createDoubleValue
+	a (F)La/d/a/u; createFloatValue
+	c ()La/d/a/u; createFloatValue
+	d ()La/d/a/t; createDoubleValue
 a/d/a/d proguard/evaluation/value/Category1Value
 	a ()La/d/a/d; category1Value
 	b ()Z isCategory2
@@ -2546,6 +2601,8 @@ a/i/n proguard/shrink/UsageMarker
 	a (La/b/e;La/b/f;)V visitLibraryField
 	a (La/b/e;La/b/h;)V visitLibraryMethod
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
 a/b/a/a/b/h proguard/classfile/attribute/annotation/visitor/TypeAnnotationVisitor
 	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
 a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
@@ -2584,6 +2641,10 @@ a/b/b/a/f proguard/classfile/constant/visitor/ConstantVisitor
 	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
 	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
 	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/b/c proguard/classfile/Clazz
 	a (ILa/b/b/a/f;)V constantPoolEntryAccept
 	a (La/b/a/d/i;)V attributesAccept
@@ -2641,6 +2702,14 @@ a/d/a/be proguard/evaluation/value/ValueFactory
 	b (Ljava/lang/String;La/b/c;ZZ)La/d/a/ap; createReferenceValue
 	f ()La/d/a/ap; createReferenceValueNull
 	e ()La/d/a/ap; createReferenceValue
+	a ()La/d/a/ae; createIntegerValue
+	a (I)La/d/a/ae; createIntegerValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;)La/d/a/ap; createArrayReferenceValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;La/d/a/bd;)La/d/a/ap; createArrayReferenceValue
+	a (D)La/d/a/t; createDoubleValue
+	a (F)La/d/a/u; createFloatValue
+	c ()La/d/a/u; createFloatValue
+	d ()La/d/a/t; createDoubleValue
 a/d/c proguard/evaluation/BranchUnit
 	a (La/b/c;La/b/a/d;II)V branch
 	a (La/b/c;La/b/a/d;III)V branchConditionally
@@ -3137,10 +3206,18 @@ a/d/e proguard/evaluation/ConstantValueFactory
 a/b/a/a/a/a/b proguard/classfile/attribute/annotation/target/visitor/TargetInfoVisitor
 	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
+	a (La/b/c;La/b/d;La/b/a/a/q;La/b/a/a/a/b;)V visitEmptyTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
 a/b/a/c/a/b proguard/classfile/attribute/preverification/visitor/VerificationTypeVisitor
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/p;)V visitUninitializedThisType
 	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/p;)V visitStackUninitializedThisType
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/p;)V visitVariablesUninitializedThisType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/i;)V visitStackObjectType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/q;)V visitStackUninitializedType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/i;)V visitVariablesObjectType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/q;)V visitVariablesUninitializedType
 a/b/a/k proguard/classfile/attribute/InnerClassesAttribute
 	a (La/b/c;La/b/a/d/i;)V accept
 	a (La/b/c;La/b/a/d/m;)V innerClassEntriesAccept
@@ -3197,6 +3274,7 @@ a/a/d proguard/backport/DefaultInterfaceMethodConverter$InvocationInstructionMat
 	a referencedClass
 	b referencedMethod
 	c constantVisitor
+	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
 a/a/g proguard/backport/LambdaExpressionConverter
 	a (La/a/e;)La/b/k; createLambdaClass
 	a (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; prependParameterToMethodDescriptor
@@ -3399,6 +3477,7 @@ a/b/c/ac proguard/classfile/editor/ComparableConstant
 	e otherConstant
 	d thisConstant
 	c thisIndex
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/b/c/ad proguard/classfile/editor/ConstantAdder
 	a ()I getConstantIndex
 	a (La/b/c;I)I addConstant
@@ -3417,6 +3496,10 @@ a/b/c/ad proguard/classfile/editor/ConstantAdder
 	a constantPoolEditor
 	b bootstrapMethodsAttributeAdder
 	c constantIndex
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/b/c/ae proguard/classfile/editor/ConstantPoolEditor
 	a (D)I addDoubleConstant
 	a (F)I addFloatConstant
@@ -3509,6 +3592,11 @@ a/b/c/af proguard/classfile/editor/ConstantPoolRemapper
 	a ([I)V setConstantIndexMap
 	a codeAttributeEditor
 	b constantIndexMap
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
 a/b/c/ah proguard/classfile/editor/ConstantPoolSorter
 	a (La/b/k;)V visitProgramClass
 	a constantIndexMap
@@ -3764,6 +3852,10 @@ a/b/d/b proguard/classfile/instruction/ConstantInstruction
 	b constant
 	e typeStackDelta
 	d parameterStackDelta
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/b/e proguard/classfile/LibraryClass
 	a (Ljava/lang/String;Ljava/lang/String;)La/b/d; findField
 	a (ILa/b/b/a/f;)V constantPoolEntryAccept
@@ -3840,6 +3932,7 @@ a/b/e/a proguard/classfile/io/LibraryClassReader
 	a (I)Ljava/lang/String; getClassName
 	e skipNonPublicClassMembers
 	d skipNonPublicClasses
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/b/e/b proguard/classfile/io/ProgramClassReader
 	a ()La/b/b/b; createConstant
 	b (La/b/c;)La/b/a/a; createAttribute
@@ -3908,6 +4001,11 @@ a/b/e/b proguard/classfile/io/ProgramClassReader
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 	a dataInput
 	a (La/b/c;La/b/a/a/r;)V visitAnyTypeAnnotationsAttribute
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/i;La/b/a/a/q;La/b/a/a/a/b;)V visitEmptyTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
 a/b/e/c proguard/classfile/io/ProgramClassWriter
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 	a (La/b/c;La/b/b/b;)V visitAnyConstant
@@ -3944,6 +4042,7 @@ a/b/e/f proguard/classfile/io/ProgramClassWriter$ConstantBodyWriter
 	a (La/b/c;La/b/b/s;)V visitUtf8Constant
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 	a this$0
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/b/e/g proguard/classfile/io/ProgramClassWriter$ElementValueBodyWriter
 	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
 	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
@@ -4062,6 +4161,7 @@ a/b/f/k proguard/classfile/util/DynamicClassReferenceInitializer
 	s dotClassJavacMatcher
 	r classForNameCastMatcher
 	q constantClassForNameMatcher
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 a/b/f/l proguard/classfile/util/DynamicMemberReferenceInitializer
 	a (La/b/c;ILa/b/c;Ljava/lang/String;Ljava/lang/String;ZZZ)V initializeDynamicMemberReference
 	a (La/b/c;La/b/c;Ljava/lang/String;Z)V printDynamicConstructorAccessNote
@@ -4109,6 +4209,8 @@ a/b/f/n proguard/classfile/util/DynamicMemberReferenceInitializer$MyDynamicMembe
 	c instructionOffset
 	h parameterIndex
 	g parameterCount
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 a/b/f/o proguard/classfile/util/EnumFieldReferenceInitializer
 	a (La/b/c;La/b/a/a/a;La/b/a/a/h;)V visitAnyElementValue
 	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
@@ -4122,6 +4224,7 @@ a/b/f/o proguard/classfile/util/EnumFieldReferenceInitializer
 	f referencedEnumField
 	c enumConstantName
 	b enumTypeName
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
 a/b/f/r proguard/classfile/util/MemberFinder
 	a ()La/b/c; correspondingClass
 	a (La/b/c;La/b/c;Ljava/lang/String;Ljava/lang/String;Z)La/b/i; findMember
@@ -4169,6 +4272,7 @@ a/b/f/y proguard/classfile/util/StringSharer
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 	a name
 	b type
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/b/g proguard/classfile/LibraryMember
 	a ()I getAccessFlags
 	a (La/b/c;La/b/g/aq;)V accept
@@ -4379,6 +4483,14 @@ a/b/g/p proguard/classfile/visitor/ClassPrinter
 	c ()V println
 	a (Ljava/lang/String;)V println
 	b (Ljava/lang/String;)V print
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/i;La/b/a/a/q;La/b/a/a/a/b;)V visitEmptyTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
 a/b/g/q proguard/classfile/visitor/ClassVersionFilter
 	a (La/b/e;)V visitLibraryClass
 	a (La/b/k;)V visitProgramClass
@@ -4469,6 +4581,7 @@ a/d/h proguard/evaluation/SimplifiedInvocationUnit
 	b isStatic
 	c isLoad
 	a (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getFieldValue
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
 a/e/ao proguard/io/ZipOutput$ZipEntry
 	a ()Ljava/io/OutputStream; createOutputStream
 	a this$0
@@ -4576,6 +4689,14 @@ a/g/a/aa proguard/optimize/evaluation/ReferenceTracingValueFactory
 	c traceValue
 	f ()La/d/a/ap; createReferenceValueNull
 	e ()La/d/a/ap; createReferenceValue
+	a ()La/d/a/ae; createIntegerValue
+	a (I)La/d/a/ae; createIntegerValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;)La/d/a/ap; createArrayReferenceValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;La/d/a/bd;)La/d/a/ap; createArrayReferenceValue
+	a (D)La/d/a/t; createDoubleValue
+	a (F)La/d/a/u; createFloatValue
+	c ()La/d/a/u; createFloatValue
+	d ()La/d/a/t; createDoubleValue
 a/g/a/ab proguard/optimize/evaluation/SimpleEnumArrayPropagator
 	a (La/b/j;La/d/a/bd;)V setMethodReturnValue
 	a (La/b/k;)V visitProgramClass
@@ -4884,6 +5005,7 @@ a/g/b/ac proguard/optimize/info/ParameterEscapeMarker
 	c runPartialEvaluator
 	h referencingOffset
 	i referencingPopCount
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
 a/g/b/ad proguard/optimize/info/ParameterUsageMarker
 	a (La/b/j;)I getParameterSize
 	a (La/b/j;J)V markUsedParameters
@@ -4940,6 +5062,7 @@ a/g/b/aj proguard/optimize/info/ReadWriteFieldMarker
 	c (La/b/d;)V markAsRead
 	c writing
 	b reading
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
 a/g/b/ak proguard/optimize/info/ReferenceEscapeChecker
 	d (I)V markExternalReferenceValue
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
@@ -4967,6 +5090,7 @@ a/g/b/ak proguard/optimize/info/ReferenceEscapeChecker
 	a instanceEscaping
 	i referencingPopCount
 	h referencingOffset
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
 a/g/b/al proguard/optimize/info/RepeatedClassPoolVisitor
 	a (La/b/b;)V visitClassPool
 	a repeatTrigger
@@ -4994,6 +5118,7 @@ a/g/b/ap proguard/optimize/info/SideEffectInstructionChecker
 	b includeReturnInstructions
 	d writingField
 	c includeArrayStoreInstructions
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
 a/g/b/aq proguard/optimize/info/SideEffectMethodMarker
 	a (La/b/c;La/b/j;)V markSideEffects
 	a (La/b/j;)Z hasSideEffects
@@ -5087,6 +5212,10 @@ a/g/c/ae proguard/optimize/peephole/WildcardConstantFilter
 	a (La/b/c;La/b/b/s;)V visitUtf8Constant
 	a constantVisitor
 	b wildcardChecker
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/g/c/ai proguard/optimize/peephole/WrapperClassUseSimplifier
 	a (La/b/c;I)Z isReferencingWrapperClass
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
@@ -5101,6 +5230,8 @@ a/g/c/ai proguard/optimize/peephole/WrapperClassUseSimplifier
 	b codeAttributeEditor
 	c wrappedClass
 	d popInstruction
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 a/g/c/c proguard/optimize/peephole/ClassMerger
 	a (La/b/c;La/b/c;)V setTargetClass
 	b (La/b/c;)La/b/c; getTargetClass
@@ -5455,15 +5586,19 @@ a/o proguard/DescriptorKeepChecker
 a/t proguard/GetAnnotationChecker
 	a (La/b/c;La/b/b/b;)V visitAnyConstant
 	a notePrinter
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 a/u proguard/GetEnclosingClassChecker
 	a (La/b/c;La/b/b/b;)V visitAnyConstant
 	a notePrinter
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 a/v proguard/GetEnclosingMethodChecker
 	a (La/b/c;La/b/b/b;)V visitAnyConstant
 	a notePrinter
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 a/w proguard/GetSignatureChecker
 	a (La/b/c;La/b/b/b;)V visitAnyConstant
 	a notePrinter
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 a/y proguard/InputReader
 	a (Ljava/lang/String;La/d;La/e/m;)V readInput
 	a (Ljava/lang/String;La/e;La/e/m;)V readInput
@@ -5714,6 +5849,8 @@ a/b/c/ag proguard/classfile/editor/ConstantPoolShrinker
 	a USED
 	b constantIndexMap
 	c constantPoolRemapper
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
 a/b/c/ar proguard/classfile/editor/InstructionSequenceBuilder
 	a ()La/b/c/ae; getConstantPoolEditor
 	a (I[I[I)La/b/c/ar; lookupswitch
@@ -5906,6 +6043,9 @@ a/b/c/bg proguard/classfile/editor/MemberReferenceFixer
 	b constantIndex
 	d stackSizesMayHaveChanged
 	c isInterfaceMethod
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
+	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
+	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 a/b/c/bj proguard/classfile/editor/NamedAttributeDeleter
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
@@ -5985,6 +6125,8 @@ a/b/e/e proguard/classfile/io/ProgramClassWriter$AttributeBodyWriter
 	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
 	a this$0
 	a (La/b/c;La/b/a/a/r;)V visitAnyTypeAnnotationsAttribute
+	a (La/b/c;La/b/i;La/b/a/a/q;La/b/a/a/a/b;)V visitEmptyTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
 a/b/g/ae proguard/classfile/visitor/InitializerMethodFilter
 	a (La/b/c;La/b/i;)La/b/g/aq; applicableMemberVisitor
 	a (La/b/e;La/b/f;)V visitLibraryField
@@ -6271,6 +6413,7 @@ a/g/a/m proguard/optimize/evaluation/InstructionUsageMarker$MyInitialUsageMarker
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/b/d;)V visitFieldrefConstant
 a/g/a/o proguard/optimize/evaluation/InstructionUsageMarker$MyParameterUsageMarker
 	a (La/b/c;La/b/i;)V visitAnyMember
 	a (La/b/k;La/b/n;)V visitProgramMethod
@@ -6297,6 +6440,7 @@ a/g/c/ag proguard/optimize/peephole/WildcardConstantFilter$MyWildcardChecker
 	a (La/b/c;La/b/b/r;)V visitStringConstant
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 	a containsWildcard
+	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 a/g/c/e proguard/optimize/peephole/ClassMerger$FieldOptimizationInfoCopier
 	a (La/b/k;La/b/l;)V visitProgramField
 	a (La/b/k;La/b/n;)V visitProgramMethod
@@ -6359,6 +6503,8 @@ a/b/e/h proguard/classfile/io/ProgramClassWriter$StackMapFrameBodyWriter
 a/b/e/i proguard/classfile/io/ProgramClassWriter$VerificationTypeBodyWriter
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
 	a this$0
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
 a/b/g/g proguard/classfile/visitor/ClassCleaner
 	a (La/b/o;)V clean
 	a (La/b/c;La/b/a/a/a;)V visitAnnotation
@@ -6428,3 +6574,465 @@ a/d/a/v proguard/evaluation/value/IdentifiedArrayReferenceValue
 	d ()Z isSpecific
 	f valuefactory
 	g id
+a/b/a/a/a/b proguard/classfile/attribute/annotation/target/EmptyTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+a/b/a/c/i proguard/classfile/attribute/preverification/ObjectType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+	a u2classIndex
+	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+a/b/a/c/q proguard/classfile/attribute/preverification/UninitializedType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+	a u2newInstructionOffset
+	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+a/b/b/d proguard/classfile/constant/FieldrefConstant
+	a ()I getTag
+	a (La/b/c;La/b/b/a/f;)V accept
+a/b/b/g proguard/classfile/constant/InterfaceMethodrefConstant
+	a ()I getTag
+	a (La/b/c;La/b/b/a/f;)V accept
+a/b/b/l proguard/classfile/constant/MethodrefConstant
+	a ()I getTag
+	a (La/b/c;La/b/b/a/f;)V accept
+a/b/b/n proguard/classfile/constant/NameAndTypeConstant
+	a (La/b/c;La/b/b/a/f;)V accept
+	a ()I getTag
+	b (La/b/c;)Ljava/lang/String; getType
+	a (La/b/c;)Ljava/lang/String; getName
+	b u2descriptorIndex
+	a u2nameIndex
+a/b/g/am proguard/classfile/visitor/MemberDescriptorFilter
+	a (Ljava/lang/String;)Z accepted
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a regularExpressionMatcher
+	b memberVisitor
+a/b/g/ao proguard/classfile/visitor/MemberNameFilter
+	a (Ljava/lang/String;)Z accepted
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a regularExpressionMatcher
+	b memberVisitor
+a/b/g/ax proguard/classfile/visitor/NamedFieldVisitor
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	c memberVisitor
+	b descriptor
+	a name
+a/b/g/ay proguard/classfile/visitor/NamedMethodVisitor
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	c memberVisitor
+	b descriptor
+	a name
+a/b/g/b proguard/classfile/visitor/AllFieldVisitor
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a memberVisitor
+a/b/g/bh proguard/classfile/visitor/ProgramClassFilter
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a classVisitor
+a/b/g/c proguard/classfile/visitor/AllMemberVisitor
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a memberVisitor
+a/b/g/d proguard/classfile/visitor/AllMethodVisitor
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a memberVisitor
+a/b/g/e proguard/classfile/visitor/BottomClassFilter
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a classVisitor
+a/b/g/m proguard/classfile/visitor/ClassPoolFiller
+	a (La/b/c;)V visitAnyClass
+	a classPool
+a/d/a/ae proguard/evaluation/value/IntegerValue
+	a (La/d/a/bd;)La/d/a/bd; generalize
+	k ()Ljava/lang/String; internalType
+	b (La/d/a/ae;)La/d/a/ae; add
+	a (La/d/a/ae;)La/d/a/ae; generalize
+	r (La/d/a/ae;)La/d/a/ae; xor
+	q (La/d/a/ae;)La/d/a/ae; or
+	p (La/d/a/ae;)La/d/a/ae; and
+	o (La/d/a/ae;)La/d/a/ae; unsignedShiftRightOf
+	n (La/d/a/ae;)La/d/a/ae; shiftRightOf
+	m (La/d/a/ae;)La/d/a/ae; shiftLeftOf
+	i (La/d/a/ae;)La/d/a/ae; remainderOf
+	g (La/d/a/ae;)La/d/a/ae; divideOf
+	e (La/d/a/ae;)La/d/a/ae; multiply
+	d (La/d/a/ae;)La/d/a/ae; subtractFrom
+	c (La/d/a/ae;)La/d/a/ae; subtract
+	a (La/d/a/as;)La/d/a/ae; generalize
+	e ()I value
+	j ()I computationalType
+	n ()La/d/a/ae; convertToShort
+	m ()La/d/a/ae; convertToCharacter
+	h ()La/d/a/ae; convertToByte
+	f ()La/d/a/ae; negate
+	r ()La/d/a/ae; integerValue
+	s (La/d/a/ae;)I equal
+	v (La/d/a/ae;)I notEqual
+	t (La/d/a/ae;)I lessThan
+	s (La/d/a/as;)I equal
+	f (La/d/a/ae;)La/d/a/ae; divide
+	e (La/d/a/as;)La/d/a/ae; multiply
+	d (La/d/a/as;)La/d/a/ae; subtractFrom
+	c (La/d/a/as;)La/d/a/ae; subtract
+	b (La/d/a/as;)La/d/a/ae; add
+	x (La/d/a/ae;)I greaterThanOrEqual
+	w (La/d/a/ae;)I greaterThan
+	u (La/d/a/ae;)I lessThanOrEqual
+	t (La/d/a/as;)I lessThan
+	h (La/d/a/ae;)La/d/a/ae; remainder
+	g (La/d/a/as;)La/d/a/ae; divideOf
+	f (La/d/a/as;)La/d/a/ae; divide
+	v (La/d/a/as;)I greaterThan
+	w (La/d/a/as;)I greaterThanOrEqual
+	u (La/d/a/as;)I lessThanOrEqual
+	j (La/d/a/ae;)La/d/a/ae; shiftLeft
+	i (La/d/a/as;)La/d/a/ae; remainderOf
+	h (La/d/a/as;)La/d/a/ae; remainder
+	r (La/d/a/as;)La/d/a/ae; xor
+	p ()La/d/a/u; convertToFloat
+	q ()La/d/a/t; convertToDouble
+	k (La/d/a/ae;)La/d/a/ae; shiftRight
+	j (La/d/a/as;)La/d/a/ae; shiftLeft
+	l (La/d/a/ae;)La/d/a/ae; unsignedShiftRight
+	k (La/d/a/as;)La/d/a/ae; shiftRight
+	m (La/d/a/as;)La/d/a/ae; shiftLeftOf
+	q (La/d/a/as;)La/d/a/ae; or
+	p (La/d/a/as;)La/d/a/ae; and
+	o (La/d/a/as;)La/d/a/ae; unsignedShiftRightOf
+	n (La/d/a/as;)La/d/a/ae; shiftRightOf
+	l (La/d/a/as;)La/d/a/ae; unsignedShiftRight
+a/d/a/ao proguard/evaluation/value/ParticularValueFactory
+	a (I)La/d/a/ae; createIntegerValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;)La/d/a/ap; createArrayReferenceValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;La/d/a/bd;)La/d/a/ap; createArrayReferenceValue
+	b (Ljava/lang/String;La/b/c;ZZ)La/d/a/ap; createReferenceValue
+	f POS_ZERO_FLOAT_BITS
+	g POS_ZERO_DOUBLE_BITS
+	h referenceValueFactory
+	f ()La/d/a/ap; createReferenceValueNull
+	e ()La/d/a/ap; createReferenceValue
+	q INTEGER_VALUE_5
+	p INTEGER_VALUE_4
+	o INTEGER_VALUE_3
+	n INTEGER_VALUE_2
+	m INTEGER_VALUE_1
+	k INTEGER_VALUE_M1
+	l INTEGER_VALUE_0
+	a (D)La/d/a/t; createDoubleValue
+	a (F)La/d/a/u; createFloatValue
+	v FLOAT_VALUE_2
+	u FLOAT_VALUE_1
+	t FLOAT_VALUE_0
+	x DOUBLE_VALUE_1
+	w DOUBLE_VALUE_0
+a/d/a/r proguard/evaluation/value/DetailedArrayReferenceValue
+	f (La/d/a/ae;La/d/a/be;)La/d/a/bd; arrayLoad
+	a (La/d/a/ae;La/d/a/be;)La/d/a/ae; integerArrayLoad
+	a (La/d/a/ap;)La/d/a/ap; generalize
+	a (La/d/a/ae;La/d/a/bd;)V arrayStore
+	b (La/d/a/ap;)I equal
+	c ()Z isParticular
+	e (La/d/a/ae;La/d/a/be;)La/d/a/ap; referenceArrayLoad
+	f values
+	c (La/d/a/ae;La/d/a/be;)La/d/a/u; floatArrayLoad
+	d (La/d/a/ae;La/d/a/be;)La/d/a/t; doubleArrayLoad
+a/g/b/ae proguard/optimize/info/ProgramClassOptimizationInfo
+	f (La/b/c;)La/g/b/ae; getProgramClassOptimizationInfo
+	a (La/g/b/f;)V merge
+	a (Z)V setSimpleEnum
+	v ()V setInvokesPackageVisibleMembers
+	u ()V setContainsPackageVisibleMembers
+	t ()V setSideEffects
+	s ()V setEscaping
+	r ()V setCaught
+	q ()V setDotClassed
+	p ()V setInstanceofed
+	o ()V setInstantiated
+	d (La/b/c;)V setTargetClass
+	c (La/b/c;)V setWrappedClass
+	e (La/b/c;)V setProgramClassOptimizationInfo
+	l ()Z invokesPackageVisibleMembers
+	k ()Z containsPackageVisibleMembers
+	i ()Z isEscaping
+	h ()Z isSimpleEnum
+	g ()Z isCaught
+	f ()Z isDotClassed
+	e ()Z isInstanceofed
+	d ()Z isInstantiated
+	c ()Z isKept
+	j ()Z hasSideEffects
+	m ()La/b/c; getWrappedClass
+	n ()La/b/c; getTargetClass
+	f isSimpleEnum
+	j invokesPackageVisibleMembers
+	i containsPackageVisibleMembers
+	h hasSideEffects
+	g isEscaping
+	e isCaught
+	d isDotClassed
+	c isInstanceofed
+	b isInstantiated
+	k mayBeMerged
+	l wrappedClass
+	m targetClass
+a/g/b/an proguard/optimize/info/SideEffectClassFilter
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a classVisitor
+a/g/b/f proguard/optimize/info/ClassOptimizationInfo
+	a ()V setNoSideEffects
+	a (La/b/c;)V setClassOptimizationInfo
+	b (La/b/c;)La/g/b/f; getClassOptimizationInfo
+	a hasNoSideEffects
+	l ()Z invokesPackageVisibleMembers
+	k ()Z containsPackageVisibleMembers
+	j ()Z hasSideEffects
+	i ()Z isEscaping
+	h ()Z isSimpleEnum
+	g ()Z isCaught
+	f ()Z isDotClassed
+	d ()Z isInstantiated
+	e ()Z isInstanceofed
+	c ()Z isKept
+	b ()Z hasNoSideEffects
+	n ()La/b/c; getTargetClass
+	m ()La/b/c; getWrappedClass
+a/g/b/i proguard/optimize/info/DynamicInvocationMarker
+	a (La/b/j;)Z invokesDynamically
+	b (La/b/j;)V setInvokesDynamically
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+a/g/b/o proguard/optimize/info/InstantiationClassMarker
+	b (La/b/c;)Z isInstantiated
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a filteredClassMarker
+	a (La/b/c;)V visitAnyClass
+	c (La/b/c;)V setInstantiated
+a/g/b/u proguard/optimize/info/NoExternalSideEffectMethodMarker
+	a (La/b/j;)Z hasNoExternalSideEffects
+	b (La/b/j;)V markNoExternalSideEffects
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/n;)V visitProgramMethod
+a/g/b/w proguard/optimize/info/NoSideEffectMethodMarker
+	a (La/b/j;)Z hasNoSideEffects
+	b (La/b/j;)V markNoSideEffects
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/n;)V visitProgramMethod
+a/j/h proguard/util/FileNameParser
+	a (Ljava/lang/String;)La/j/t; parse
+a/j/q proguard/util/OrMatcher
+	a (Ljava/lang/String;II)Z matches
+	b matcher2
+	a matcher1
+a/b/a/a/a/f proguard/classfile/attribute/annotation/target/OffsetTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+	a u2offset
+a/d/a/ab proguard/evaluation/value/IdentifiedValueFactory
+	a ()La/d/a/ae; createIntegerValue
+	a (Ljava/lang/String;La/b/c;La/d/a/ae;)La/d/a/ap; createArrayReferenceValue
+	b (Ljava/lang/String;La/b/c;ZZ)La/d/a/ap; createReferenceValue
+	c ()La/d/a/u; createFloatValue
+	d ()La/d/a/t; createDoubleValue
+	j referenceID
+	i doubleID
+	h floatID
+	f integerID
+	g longID
+a/d/a/aq proguard/evaluation/value/SpecificDoubleValue
+	d ()Z isSpecific
+	e ()La/d/a/t; negate
+	f ()La/d/a/ae; convertToInteger
+	h ()La/d/a/u; convertToFloat
+	j (La/d/a/aq;)La/d/a/ae; compare
+	j (La/d/a/t;)La/d/a/ae; compare
+	a (La/d/a/aq;)La/d/a/t; generalize
+	a (La/d/a/t;)La/d/a/t; generalize
+	b (La/d/a/t;)La/d/a/t; add
+	e (La/d/a/t;)La/d/a/t; multiply
+	d (La/d/a/t;)La/d/a/t; subtractFrom
+	c (La/d/a/t;)La/d/a/t; subtract
+	g (La/d/a/t;)La/d/a/t; divideOf
+	f (La/d/a/t;)La/d/a/t; divide
+	e (La/d/a/aq;)La/d/a/t; multiply
+	d (La/d/a/aq;)La/d/a/t; subtractFrom
+	c (La/d/a/aq;)La/d/a/t; subtract
+	b (La/d/a/aq;)La/d/a/t; add
+	g (La/d/a/aq;)La/d/a/t; divideOf
+	f (La/d/a/aq;)La/d/a/t; divide
+	i (La/d/a/aq;)La/d/a/t; remainderOf
+	h (La/d/a/aq;)La/d/a/t; remainder
+a/d/a/ar proguard/evaluation/value/SpecificFloatValue
+	d ()Z isSpecific
+	e ()La/d/a/u; negate
+	f ()La/d/a/ae; convertToInteger
+	h ()La/d/a/t; convertToDouble
+	j (La/d/a/ar;)La/d/a/ae; compare
+	j (La/d/a/u;)La/d/a/ae; compare
+	a (La/d/a/ar;)La/d/a/u; generalize
+	a (La/d/a/u;)La/d/a/u; generalize
+	b (La/d/a/u;)La/d/a/u; add
+	e (La/d/a/u;)La/d/a/u; multiply
+	d (La/d/a/u;)La/d/a/u; subtractFrom
+	c (La/d/a/u;)La/d/a/u; subtract
+	g (La/d/a/u;)La/d/a/u; divideOf
+	f (La/d/a/u;)La/d/a/u; divide
+	e (La/d/a/ar;)La/d/a/u; multiply
+	d (La/d/a/ar;)La/d/a/u; subtractFrom
+	c (La/d/a/ar;)La/d/a/u; subtract
+	b (La/d/a/ar;)La/d/a/u; add
+	g (La/d/a/ar;)La/d/a/u; divideOf
+	f (La/d/a/ar;)La/d/a/u; divide
+	i (La/d/a/ar;)La/d/a/u; remainderOf
+	h (La/d/a/ar;)La/d/a/u; remainder
+a/d/a/as proguard/evaluation/value/SpecificIntegerValue
+	d ()Z isSpecific
+	p ()La/d/a/u; convertToFloat
+	q ()La/d/a/t; convertToDouble
+	i (La/d/a/ae;)La/d/a/ae; remainderOf
+	h (La/d/a/ae;)La/d/a/ae; remainder
+	g (La/d/a/ae;)La/d/a/ae; divideOf
+	f (La/d/a/ae;)La/d/a/ae; divide
+	e (La/d/a/ae;)La/d/a/ae; multiply
+	d (La/d/a/ae;)La/d/a/ae; subtractFrom
+	c (La/d/a/ae;)La/d/a/ae; subtract
+	b (La/d/a/ae;)La/d/a/ae; add
+	a (La/d/a/ae;)La/d/a/ae; generalize
+	q (La/d/a/as;)La/d/a/ae; or
+	p (La/d/a/as;)La/d/a/ae; and
+	a (La/d/a/as;)La/d/a/ae; generalize
+	l (La/d/a/as;)La/d/a/ae; unsignedShiftRight
+	k (La/d/a/as;)La/d/a/ae; shiftRight
+	j (La/d/a/as;)La/d/a/ae; shiftLeft
+	h (La/d/a/as;)La/d/a/ae; remainder
+	f (La/d/a/as;)La/d/a/ae; divide
+	e (La/d/a/as;)La/d/a/ae; multiply
+	b (La/d/a/as;)La/d/a/ae; add
+	r (La/d/a/as;)La/d/a/ae; xor
+	c (La/d/a/as;)La/d/a/ae; subtract
+	f ()La/d/a/ae; negate
+	u (La/d/a/ae;)I lessThanOrEqual
+	t (La/d/a/ae;)I lessThan
+	s (La/d/a/ae;)I equal
+	s (La/d/a/as;)I equal
+	j (La/d/a/ae;)La/d/a/ae; shiftLeft
+	o (La/d/a/as;)La/d/a/ae; unsignedShiftRightOf
+	n (La/d/a/as;)La/d/a/ae; shiftRightOf
+	m (La/d/a/as;)La/d/a/ae; shiftLeftOf
+	i (La/d/a/as;)La/d/a/ae; remainderOf
+	g (La/d/a/as;)La/d/a/ae; divideOf
+	d (La/d/a/as;)La/d/a/ae; subtractFrom
+	t (La/d/a/as;)I lessThan
+	k (La/d/a/ae;)La/d/a/ae; shiftRight
+	u (La/d/a/as;)I lessThanOrEqual
+	r (La/d/a/ae;)La/d/a/ae; xor
+	q (La/d/a/ae;)La/d/a/ae; or
+	p (La/d/a/ae;)La/d/a/ae; and
+	o (La/d/a/ae;)La/d/a/ae; unsignedShiftRightOf
+	n (La/d/a/ae;)La/d/a/ae; shiftRightOf
+	m (La/d/a/ae;)La/d/a/ae; shiftLeftOf
+	l (La/d/a/ae;)La/d/a/ae; unsignedShiftRight
+a/d/a/ai proguard/evaluation/value/NegatedIntegerValue
+	f ()La/d/a/ae; negate
+	a integerValue
+a/d/a/i proguard/evaluation/value/CompositeIntegerValue
+	b operation
+	c integerValue2
+	a integerValue1
+a/g/b/n proguard/optimize/info/InstanceofClassMarker
+	b (La/b/c;)Z isInstanceofed
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a filteredClassMarker
+	a (La/b/c;)V visitAnyClass
+	c (La/b/c;)V setInstanceofed
+a/i/q proguard/shrink/UsageMarker$MyDefaultMethodUsageMarker
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a this$0
+a/i/t proguard/shrink/UsageMarker$MyPossiblyUsedMemberUsageMarker
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a this$0
+a/j/a proguard/util/AndMatcher
+	a (Ljava/lang/String;II)Z matches
+	b matcher2
+	a matcher1
+a/d/a/t proguard/evaluation/value/DoubleValue
+	a (La/d/a/bd;)La/d/a/bd; generalize
+	f ()La/d/a/ae; convertToInteger
+	h ()La/d/a/u; convertToFloat
+	j ()I computationalType
+	k ()Ljava/lang/String; internalType
+	m_ ()D value
+	a (La/d/a/aq;)La/d/a/t; generalize
+	i (La/d/a/t;)La/d/a/t; remainderOf
+	g (La/d/a/t;)La/d/a/t; divideOf
+	e (La/d/a/t;)La/d/a/t; multiply
+	d (La/d/a/t;)La/d/a/t; subtractFrom
+	b (La/d/a/t;)La/d/a/t; add
+	a (La/d/a/t;)La/d/a/t; generalize
+	c (La/d/a/t;)La/d/a/t; subtract
+	e ()La/d/a/t; negate
+	i ()La/d/a/t; doubleValue
+	k (La/d/a/aq;)La/d/a/ae; compareReverse
+	j (La/d/a/aq;)La/d/a/ae; compare
+	j (La/d/a/t;)La/d/a/ae; compare
+	k (La/d/a/t;)La/d/a/ae; compareReverse
+	e (La/d/a/aq;)La/d/a/t; multiply
+	d (La/d/a/aq;)La/d/a/t; subtractFrom
+	c (La/d/a/aq;)La/d/a/t; subtract
+	b (La/d/a/aq;)La/d/a/t; add
+	f (La/d/a/t;)La/d/a/t; divide
+	g (La/d/a/aq;)La/d/a/t; divideOf
+	f (La/d/a/aq;)La/d/a/t; divide
+	h (La/d/a/t;)La/d/a/t; remainder
+	i (La/d/a/aq;)La/d/a/t; remainderOf
+	h (La/d/a/aq;)La/d/a/t; remainder
+a/d/a/u proguard/evaluation/value/FloatValue
+	a (La/d/a/bd;)La/d/a/bd; generalize
+	f ()La/d/a/ae; convertToInteger
+	h ()La/d/a/t; convertToDouble
+	j ()I computationalType
+	k ()Ljava/lang/String; internalType
+	o_ ()F value
+	a (La/d/a/ar;)La/d/a/u; generalize
+	i (La/d/a/u;)La/d/a/u; remainderOf
+	g (La/d/a/u;)La/d/a/u; divideOf
+	e (La/d/a/u;)La/d/a/u; multiply
+	d (La/d/a/u;)La/d/a/u; subtractFrom
+	b (La/d/a/u;)La/d/a/u; add
+	a (La/d/a/u;)La/d/a/u; generalize
+	c (La/d/a/u;)La/d/a/u; subtract
+	e ()La/d/a/u; negate
+	l ()La/d/a/u; floatValue
+	k (La/d/a/ar;)La/d/a/ae; compareReverse
+	j (La/d/a/ar;)La/d/a/ae; compare
+	j (La/d/a/u;)La/d/a/ae; compare
+	k (La/d/a/u;)La/d/a/ae; compareReverse
+	e (La/d/a/ar;)La/d/a/u; multiply
+	d (La/d/a/ar;)La/d/a/u; subtractFrom
+	c (La/d/a/ar;)La/d/a/u; subtract
+	b (La/d/a/ar;)La/d/a/u; add
+	f (La/d/a/u;)La/d/a/u; divide
+	g (La/d/a/ar;)La/d/a/u; divideOf
+	f (La/d/a/ar;)La/d/a/u; divide
+	h (La/d/a/u;)La/d/a/u; remainder
+	i (La/d/a/ar;)La/d/a/u; remainderOf
+	h (La/d/a/ar;)La/d/a/u; remainder

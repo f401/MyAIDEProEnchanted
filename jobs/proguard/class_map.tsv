@@ -597,3 +597,45 @@ a/g/a/r	proguard/optimize/evaluation/InstructionUsageMarker$MyVariableInitializa
 a/e/ae	proguard/io/ParentDataEntryWriter	pkg:互为最优 0.75
 a/g/a/d	proguard/optimize/evaluation/EvaluationShrinker$MyInstructionDeleter	pkg:互为最优 0.75
 a/d/a/v	proguard/evaluation/value/IdentifiedArrayReferenceValue	refs:Jaccard0.43(3 个公共引用)
+a/b/a/a/a/b	proguard/classfile/attribute/annotation/target/EmptyTargetInfo	who:引用者Jaccard0.83(5 公共引用者)
+a/b/a/c/i	proguard/classfile/attribute/preverification/ObjectType	who:引用者Jaccard0.75(9 公共引用者)
+a/b/a/c/q	proguard/classfile/attribute/preverification/UninitializedType	who:引用者Jaccard0.70(7 公共引用者)
+a/b/b/d	proguard/classfile/constant/FieldrefConstant	who:引用者Jaccard0.96(23 公共引用者)
+a/b/b/g	proguard/classfile/constant/InterfaceMethodrefConstant	who:引用者Jaccard0.92(12 公共引用者)
+a/b/b/l	proguard/classfile/constant/MethodrefConstant	who:引用者Jaccard0.91(21 公共引用者)
+a/b/b/n	proguard/classfile/constant/NameAndTypeConstant	who:引用者Jaccard0.92(22 公共引用者)
+a/b/g/am	proguard/classfile/visitor/MemberDescriptorFilter	who:引用者Jaccard0.80(4 公共引用者)
+a/b/g/ao	proguard/classfile/visitor/MemberNameFilter	who:引用者Jaccard0.80(4 公共引用者)
+a/b/g/ax	proguard/classfile/visitor/NamedFieldVisitor	who:引用者Jaccard0.75(3 公共引用者)
+a/b/g/ay	proguard/classfile/visitor/NamedMethodVisitor	who:引用者Jaccard0.75(6 公共引用者)
+a/b/g/b	proguard/classfile/visitor/AllFieldVisitor	who:引用者Jaccard0.83(5 公共引用者)
+a/b/g/bh	proguard/classfile/visitor/ProgramClassFilter	who:引用者Jaccard0.67(2 公共引用者)
+a/b/g/c	proguard/classfile/visitor/AllMemberVisitor	who:引用者Jaccard0.80(4 公共引用者)
+a/b/g/d	proguard/classfile/visitor/AllMethodVisitor	who:引用者Jaccard0.79(22 公共引用者)
+a/b/g/e	proguard/classfile/visitor/BottomClassFilter	who:引用者Jaccard0.67(2 公共引用者)
+a/b/g/m	proguard/classfile/visitor/ClassPoolFiller	who:引用者Jaccard0.83(5 公共引用者)
+a/d/a/ae	proguard/evaluation/value/IntegerValue	who:引用者Jaccard0.33(15 公共引用者)
+a/d/a/ao	proguard/evaluation/value/ParticularValueFactory	who:引用者Jaccard0.50(6 公共引用者)
+a/d/a/r	proguard/evaluation/value/DetailedArrayReferenceValue	who:引用者Jaccard0.50(2 公共引用者)
+a/g/b/ae	proguard/optimize/info/ProgramClassOptimizationInfo	who:引用者Jaccard0.71(10 公共引用者)
+a/g/b/an	proguard/optimize/info/SideEffectClassFilter	who:引用者Jaccard0.67(2 公共引用者)
+a/g/b/f	proguard/optimize/info/ClassOptimizationInfo	who:引用者Jaccard0.75(12 公共引用者)
+a/g/b/i	proguard/optimize/info/DynamicInvocationMarker	who:引用者Jaccard0.67(2 公共引用者)
+a/g/b/o	proguard/optimize/info/InstantiationClassMarker	who:引用者Jaccard0.50(2 公共引用者)
+a/g/b/u	proguard/optimize/info/NoExternalSideEffectMethodMarker	who:引用者Jaccard0.67(2 公共引用者)
+a/g/b/w	proguard/optimize/info/NoSideEffectMethodMarker	who:引用者Jaccard0.67(2 公共引用者)
+a/j/h	proguard/util/FileNameParser	who:引用者Jaccard0.50(3 公共引用者)
+a/j/q	proguard/util/OrMatcher	who:引用者Jaccard0.75(3 公共引用者)
+a/b/a/a/a/f	proguard/classfile/attribute/annotation/target/OffsetTargetInfo	who:引用者Jaccard0.75(6 公共引用者)
+a/d/a/ab	proguard/evaluation/value/IdentifiedValueFactory	who:引用者Jaccard0.50(2 公共引用者)
+a/d/a/aq	proguard/evaluation/value/SpecificDoubleValue	who:引用者Jaccard0.29(2 公共引用者)
+a/d/a/ar	proguard/evaluation/value/SpecificFloatValue	who:引用者Jaccard0.29(2 公共引用者)
+a/d/a/as	proguard/evaluation/value/SpecificIntegerValue	who:引用者Jaccard0.36(4 公共引用者)
+a/d/a/ai	proguard/evaluation/value/NegatedIntegerValue	strict:全类型已定名+成员集完全相等
+a/d/a/i	proguard/evaluation/value/CompositeIntegerValue	strict:全类型已定名+成员集完全相等
+a/g/b/n	proguard/optimize/info/InstanceofClassMarker	strict:全类型已定名+成员集完全相等
+a/i/q	proguard/shrink/UsageMarker$MyDefaultMethodUsageMarker	strict:全类型已定名+成员集完全相等
+a/i/t	proguard/shrink/UsageMarker$MyPossiblyUsedMemberUsageMarker	strict:全类型已定名+成员集完全相等
+a/j/a	proguard/util/AndMatcher	strict:全类型已定名+成员集完全相等
+a/d/a/t	proguard/evaluation/value/DoubleValue	refs:Jaccard0.38(3 个公共引用)
+a/d/a/u	proguard/evaluation/value/FloatValue	refs:Jaccard0.38(3 个公共引用)
