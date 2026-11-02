@@ -588,3 +588,11 @@ a/g/c/ag	proguard/optimize/peephole/WildcardConstantFilter$MyWildcardChecker	ref
 a/g/c/e	proguard/optimize/peephole/ClassMerger$FieldOptimizationInfoCopier	refs:Jaccard0.43(3 个公共引用)
 a/g/c/z	proguard/optimize/peephole/TargetClassChanger	refs:Jaccard0.69(31 个公共引用)
 a/g/f	proguard/optimize/KeepMarker	refs:Jaccard0.53(9 个公共引用)
+a/b/e/h	proguard/classfile/io/ProgramClassWriter$StackMapFrameBodyWriter	refs:Jaccard0.67(10 个公共引用)
+a/b/e/i	proguard/classfile/io/ProgramClassWriter$VerificationTypeBodyWriter	refs:Jaccard0.45(5 个公共引用)
+a/b/g/g	proguard/classfile/visitor/ClassCleaner	refs:Jaccard0.69(38 个公共引用)
+a/g/a/e	proguard/optimize/evaluation/EvaluationShrinker$MyNonReturningSubroutineFixer	refs:Jaccard0.50(5 个公共引用)
+a/g/a/p	proguard/optimize/evaluation/InstructionUsageMarker$MyProducerMarker	refs:Jaccard0.67(8 个公共引用)
+a/g/a/r	proguard/optimize/evaluation/InstructionUsageMarker$MyVariableInitializationMarker	refs:Jaccard0.50(5 个公共引用)
+a/e/ae	proguard/io/ParentDataEntryWriter	pkg:互为最优 0.75
+a/g/a/d	proguard/optimize/evaluation/EvaluationShrinker$MyInstructionDeleter	pkg:互为最优 0.75

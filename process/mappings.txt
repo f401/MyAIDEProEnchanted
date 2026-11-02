@@ -29865,6 +29865,10 @@ a/d/a/ap proguard/evaluation/value/ReferenceValue
 	f ()La/b/c; getReferencedClass
 	a (La/d/a/v;)I equal
 	b (La/d/a/v;)La/d/a/ap; generalize
+	a (La/d/a/aa;)I equal
+		0 other other
+	b (La/d/a/aa;)La/d/a/ap; generalize
+		0 other other
 a/e/ak proguard/io/WrappedDataEntry
 	a ()Ljava/lang/String; getName
 	b ()Z isDirectory
@@ -30000,6 +30004,10 @@ a/d/a/av proguard/evaluation/value/TracedReferenceValue
 	f ()La/b/c; getReferencedClass
 	a (La/d/a/v;)I equal
 	b (La/d/a/v;)La/d/a/ap; generalize
+	a (La/d/a/aa;)I equal
+		0 other other
+	b (La/d/a/aa;)La/d/a/ap; generalize
+		0 other other
 a/d/a/aw proguard/evaluation/value/TypedReferenceValue
 	a ALLOW_INCOMPLETE_CLASS_HIERARCHY
 	a (La/d/a/ap;)La/d/a/ap; generalize
@@ -34470,6 +34478,7 @@ a/g/a/a proguard/optimize/evaluation/EvaluationShrinker
 	e staticInvocationFixer
 	f backwardBranchFixer
 	g nonReturningSubroutineFixer
+	i instructionDeleter
 a/g/a/aa proguard/optimize/evaluation/ReferenceTracingValueFactory
 	a (La/d/a/ap;)La/d/a/ap; trace
 		0 referenceValue referenceValue
@@ -37450,6 +37459,7 @@ a/b/c/ba proguard/classfile/editor/LineNumberTableAttributeTrimmer
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
 		1 attribute attribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
 a/b/g/bi proguard/classfile/visitor/ReferencedClassVisitor
 	a (La/b/c;La/b/a/a/a;)V visitAnnotation
 		0 clazz clazz
@@ -37515,10 +37525,18 @@ a/b/g/bi proguard/classfile/visitor/ReferencedClassVisitor
 		0 clazz clazz
 		1 refConstant refConstant
 	a classVisitor
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
 a/c/e proguard/configuration/ConfigurationLoggingInstructionSequenceReplacer
 	a (La/b/k;I)I matchedConstantIndex
 		0 programClass programClass
 		1 constantIndex constantIndex
+	a (La/b/c;La/b/j;La/b/a/d;II)I matchedArgument
 a/c/f proguard/configuration/ConfigurationLoggingInstructionSequencesReplacer
 	a ([La/b/b/b;[[[La/b/d/c;La/g/c/a;La/b/c/v;La/b/d/a/d;)[La/b/d/a/d; createInstructionSequenceReplacers
 		static
@@ -37535,6 +37553,8 @@ a/d/a/aa proguard/evaluation/value/IdentifiedReferenceValue
 	d ()Z isSpecific
 	a valuefactory
 	f id
+	a (La/d/a/aa;)I equal
+		0 other other
 a/e/y proguard/io/JarWriter
 	c ()I currentTime
 		static
@@ -37571,6 +37591,7 @@ a/f/a proguard/obfuscate/AttributeShrinker
 	a (La/b/k;La/b/m;)V visitProgramMember
 		0 programClass programClass
 		1 programMember programMember
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
 a/f/ab proguard/obfuscate/SourceFileRenamer
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
@@ -37666,6 +37687,8 @@ a/f/j proguard/obfuscate/MappingPrinter
 		1 programMethod programMethod
 	a ps
 	b printed
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
 a/f/u proguard/obfuscate/NameMarker
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 		0 clazz clazz
@@ -37697,6 +37720,8 @@ a/f/u proguard/obfuscate/NameMarker
 		1 programMethod programMethod
 	b (La/b/c;)V keepClassName
 		0 clazz clazz
+	a (La/b/c;La/b/d;)V keepFieldName
+	a (La/b/c;La/b/j;)V keepMethodName
 a/g/a/c proguard/optimize/evaluation/EvaluationShrinker$MyBackwardBranchFixer
 	a (I)I lastNecessaryInstructionOffset
 		0 instructionOffset instructionOffset
@@ -37704,6 +37729,7 @@ a/g/a/c proguard/optimize/evaluation/EvaluationShrinker$MyBackwardBranchFixer
 		0 instructionOffsets instructionOffsets
 		1 instructionOffset instructionOffset
 	a this$0
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
 a/g/a/g proguard/optimize/evaluation/EvaluationShrinker$MyStaticInvocationFixer
 	a (La/b/c;La/b/i;)V visitAnyMember
 		0 clazz clazz
@@ -37717,6 +37743,8 @@ a/g/a/g proguard/optimize/evaluation/EvaluationShrinker$MyStaticInvocationFixer
 	a this$0
 	b invocationOffset
 	c invocationInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
 a/g/a/m proguard/optimize/evaluation/InstructionUsageMarker$MyInitialUsageMarker
 	a (II)V createReverseDependencies
 		0 offset offset
@@ -37753,6 +37781,10 @@ a/g/a/m proguard/optimize/evaluation/InstructionUsageMarker$MyInitialUsageMarker
 	b reverseDependencyCreator
 	c referencingOffset
 	d referencingPopCount
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
 a/g/a/o proguard/optimize/evaluation/InstructionUsageMarker$MyParameterUsageMarker
 	a (La/b/c;La/b/i;)V visitAnyMember
 		0 clazz clazz
@@ -37766,6 +37798,8 @@ a/g/a/o proguard/optimize/evaluation/InstructionUsageMarker$MyParameterUsageMark
 	a this$0
 	b parameterSize
 	c usedParameters
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
 a/g/b/h proguard/optimize/info/DotClassMarker
 	b (La/b/c;)Z isDotClassed
 		static
@@ -37782,6 +37816,8 @@ a/g/b/h proguard/optimize/info/DotClassMarker
 	c (La/b/c;)V setDotClassed
 		static
 		0 clazz clazz
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
 a/g/c/ag proguard/optimize/peephole/WildcardConstantFilter$MyWildcardChecker
 	a (La/b/c;La/b/b/a;)V visitClassConstant
 		0 clazz clazz
@@ -37897,6 +37933,13 @@ a/g/c/z proguard/optimize/peephole/TargetClassChanger
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 		0 clazz clazz
 		1 refConstant refConstant
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
 a/g/f proguard/optimize/KeepMarker
 	a (La/b/a/d;)Z isKept
 		static
@@ -37923,3 +37966,121 @@ a/g/f proguard/optimize/KeepMarker
 	a (La/b/k;La/b/n;)V visitProgramMethod
 		0 programClass programClass
 		1 programMethod programMethod
+	a (La/b/d;)Z isKept
+		static
+	a (La/b/j;)Z isKept
+		static
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+a/b/e/h proguard/classfile/io/ProgramClassWriter$StackMapFrameBodyWriter
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/e;)V visitLessZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/k;)V visitSameZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
+	a this$0
+a/b/e/i proguard/classfile/io/ProgramClassWriter$VerificationTypeBodyWriter
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
+	a this$0
+a/b/g/g proguard/classfile/visitor/ClassCleaner
+	a (La/b/o;)V clean
+		0 visitorAccepter visitorAccepter
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+		0 clazz clazz
+		1 annotation annotation
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+		0 clazz clazz
+		1 annotation annotation
+		2 annotationElementValue annotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+		0 clazz clazz
+		1 annotation annotation
+		2 arrayElementValue arrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/h;)V visitAnyElementValue
+		0 clazz clazz
+		1 annotation annotation
+		2 elementValue elementValue
+	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
+		0 clazz clazz
+		1 annotationsAttribute annotationsAttribute
+	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+	a (La/b/c;La/b/a/a/r;)V visitAnyTypeAnnotationsAttribute
+		0 clazz clazz
+		1 typeAnnotationsAttribute typeAnnotationsAttribute
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+		0 clazz clazz
+		1 attribute attribute
+	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
+		0 clazz clazz
+		1 bootstrapMethodInfo bootstrapMethodInfo
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+		0 clazz clazz
+		1 bootstrapMethodsAttribute bootstrapMethodsAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+		0 clazz clazz
+		1 innerClassesAttribute innerClassesAttribute
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+		0 clazz clazz
+		1 innerClassesInfo innerClassesInfo
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+		0 clazz clazz
+		1 constant constant
+	a (La/b/c;La/b/j;ILa/b/a/t;)V visitParameterInfo
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/e;)V visitLessZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/k;)V visitSameZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
+	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
+	a (La/b/e;)V visitLibraryClass
+		0 libraryClass libraryClass
+	a (La/b/e;La/b/g;)V visitLibraryMember
+		0 libraryClass libraryClass
+		1 libraryMember libraryMember
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a (La/b/k;La/b/m;)V visitProgramMember
+		0 programClass programClass
+		1 programMember programMember
+a/g/a/e proguard/optimize/evaluation/EvaluationShrinker$MyNonReturningSubroutineFixer
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a this$0
+a/g/a/p proguard/optimize/evaluation/InstructionUsageMarker$MyProducerMarker
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a this$0
+a/g/a/r proguard/optimize/evaluation/InstructionUsageMarker$MyVariableInitializationMarker
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a this$0
+a/e/ae proguard/io/ParentDataEntryWriter
+	a ()V close
+	a (La/e/g;)Z createDirectory
+		0 dataEntry dataEntry
+	a (La/e/g;La/e/g;)Z sameOutputStream
+		0 dataEntry1 dataEntry1
+		1 dataEntry2 dataEntry2
+	b (La/e/g;)Ljava/io/OutputStream; createOutputStream
+		0 dataEntry dataEntry
+	a dataEntryWriter
+a/g/a/d proguard/optimize/evaluation/EvaluationShrinker$MyInstructionDeleter
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a this$0
