@@ -58,6 +58,7 @@ PART_DIRS = [
     ('zipsigner', os.path.join(REPO, 'jobs', 'zipsigner')),
     ('dropbox', os.path.join(REPO, 'jobs', 'dropbox')),
     ('engine', os.path.join(REPO, 'jobs', 'engine')),
+    ('proguard', os.path.join(REPO, 'jobs', 'proguard')),
 ]
 PARTS = [n for n, _ in PART_DIRS]
 

@@ -54,6 +54,10 @@
     {
       "dir": "../jobs/engine",
       "probe_prefix": "abcd"
+    },
+    {
+      "dir": "../jobs/proguard",
+      "probe_prefix": "a"
     }
   ],
   "src_root": [
@@ -65,7 +69,8 @@
     "$HOME/zstar/zip-signer-master/zipio-lib/src/main/java",
     "$HOME/zstar/zip-signer-master/zipsigner-lib/src/main/java",
     "$HOME/dbxand/dropbox-android-sdk-master/src/main/java",
-    "$HOME/out/oracle/http/js-src-1.1"
+    "$HOME/out/oracle/http/js-src-1.1",
+    "$HOME/out/oracle/proguard/src-6.0.3"
   ],
   "out_tsrg": "mappings.txt",
   "allow": "verify_allow.tsv",
@@ -203,6 +208,10 @@
     {
       "label": "httpcore-4.2.1",
       "path": "$HOME/out/oracle/http/httpcore-4.2.1.jar"
+    },
+    {
+      "label": "proguard-6.0.3",
+      "path": "$HOME/out/oracle/proguard/proguard-base-6.0.3.jar"
     }
   ],
   "out_dir": "out"
