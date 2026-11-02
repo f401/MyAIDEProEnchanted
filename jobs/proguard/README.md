@@ -178,3 +178,38 @@ a/j/u      (util)               1
 1. 用"子类覆写到的描述符集合（**同样要过通配**）+ 本包约束"把这 9 个祖先钉死；
 2. 祖先齐了再跑 `members --apply`，MISSING 应为 0，成员级一次落地；
 3. 剩下 556 个类继续"包内互为最优"迭代（每轮类型翻译都会更准，通配位越来越少）。
+
+## 11) 第四轮：217/757（一条错路要记下来）
+
+**继续"包内互为最优"**（类型翻译 + 通配）：198 → 352 候选 → 成员命中率验伪 → **217 定稿**。
+
+**错路（已回滚）**：想用"子类的 oracle 父/接口唯一"把 9 个祖先一次钉死。
+听起来很硬，实际不成立：
+
+```
+若 子类 C1..Cn 都 extends 探针类 P，且 Ci 的 oracle 目标是 Oi，
+则 P = "Oi 的共同父"   ← 错
+```
+
+因为探针里的"父"在 oracle 里可能是**兄弟层**（同一个 probe 类既是别人的父、又在 oracle 里
+处于更下一层）。实测立刻造出 **5 条 CONFLICT**：
+
+```
+a/d/a/aq 继承 a/d/a/bd   d()Z   子=isSpecific 祖先=isParticular
+a/d/a/bc 继承 a/d/a/bd   c()Z   子=mayBeExtension 祖先=isSpecific
+```
+
+这条规则产出的 25 条映射**全部撤掉**，只留分数硬的 2 条：
+`a/d/a/ap → ReferenceValue`(0.80)、`a/e/ak → WrappedDataEntry`(1.00)。
+
+## 12) 卡点：`Value` 家族的同形布尔方法
+
+`proguard/evaluation/value/Value` 同时有 `isSpecific()` 和 `isParticular()`（都是 `()Z`），
+子类里还出现 `mayBeExtension()` 也是 `()Z` —— 形状完全一样，**成员级一跑就三件套齐发**
+（CONFLICT 2 / DUPTARGET 1 / MISSING 86）。所以本轮成员行仍然清空，只交类级。
+
+下一轮必须先解决这一族：
+1. 用**方法体常量**定名：`isSpecific()`/`isCategory2()` 这类在本类里是 `return true/false`，
+   拿返回值 + 被谁调用（`if (v.isSpecific())`）交叉确认；
+2. 家族定死后再跑 `members --apply`，MISSING 才会真的归零；
+3. 剩 540 个类继续"包内互为最优"迭代（每轮已定名类型更多 → 通配位更少 → 更准）。

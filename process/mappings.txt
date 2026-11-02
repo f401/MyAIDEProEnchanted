@@ -26393,7 +26393,6 @@ a/b/g/r proguard/classfile/visitor/ClassVersionSetter
 a/a/a proguard/backport/Backporter
 a/a/e proguard/backport/LambdaExpression
 a/a/f proguard/backport/LambdaExpressionCollector
-a/a/h proguard/backport/StaticInterfaceMethodConverter
 a/ac proguard/LibraryKeepChecker
 a/ah proguard/ProGuard
 a/aj proguard/Targeter
@@ -26415,7 +26414,6 @@ a/b/c/o proguard/classfile/editor/BootstrapMethodsAttributeShrinker
 a/b/c/u proguard/classfile/editor/CodeAttributeComposer
 a/b/c/v proguard/classfile/editor/CodeAttributeEditor
 a/b/f/p proguard/classfile/util/InstructionSequenceMatcher
-a/b/g/bc proguard/classfile/visitor/ParallelAllClassVisitor$MyClassVisitorThread
 a/b/k proguard/classfile/ProgramClass
 a/c/a proguard/configuration/ConfigurationLogger
 a/c/c proguard/configuration/ConfigurationLoggingAdder
@@ -26435,7 +26433,6 @@ a/f/ad proguard/obfuscate/UniqueMemberNameFactory
 a/f/g proguard/obfuscate/DictionaryNameFactory
 a/f/s proguard/obfuscate/MultiMappingProcessor
 a/f/w proguard/obfuscate/Obfuscator
-a/g/a/ac proguard/optimize/evaluation/SimpleEnumClassChecker
 a/g/a/ad proguard/optimize/evaluation/SimpleEnumClassSimplifier
 a/g/a/ai proguard/optimize/evaluation/TracedBranchUnit
 a/g/a/i proguard/optimize/evaluation/InitializationFinder
@@ -26444,7 +26441,6 @@ a/g/a/v proguard/optimize/evaluation/PartialEvaluator
 a/g/a/x proguard/optimize/evaluation/PartialEvaluator$MyInstructionBlock
 a/g/b/as proguard/optimize/info/SimpleEnumMarker
 a/g/c/ah proguard/optimize/peephole/WrapperClassMerger
-a/g/c/j proguard/optimize/peephole/InstructionSequenceConstants
 a/g/c/k proguard/optimize/peephole/InstructionSequenceReplacer
 a/g/c/p proguard/optimize/peephole/InstructionSequencesReplacer
 a/g/m proguard/optimize/Optimizer
@@ -26452,7 +26448,6 @@ a/g/n proguard/optimize/Optimizer$1
 a/g/q proguard/optimize/Optimizer$4
 a/g/r proguard/optimize/Optimizer$5
 a/g/s proguard/optimize/Optimizer$6
-a/g/u proguard/optimize/Optimizer$8
 a/g/v proguard/optimize/Optimizer$TimedClassPoolVisitor
 a/i proguard/ConfigurationChecker
 a/i/h proguard/shrink/ShortestUsageMark
@@ -26462,3 +26457,24 @@ a/j/j proguard/util/ListParser
 a/j/m proguard/util/MatchedStringMatcher
 a/p proguard/DuplicateClassPrinter
 a/z proguard/KeepClassMemberChecker
+a/d/a/ap proguard/evaluation/value/ReferenceValue
+a/e/ak proguard/io/WrappedDataEntry
+a/a/h proguard/backport/StaticInterfaceMethodConverter
+a/b/a/c/l proguard/classfile/attribute/preverification/StackMapAttribute
+a/b/a/c/n proguard/classfile/attribute/preverification/StackMapTableAttribute
+a/b/c/aq proguard/classfile/editor/InstructionAdder
+a/b/c/at proguard/classfile/editor/InstructionWriter
+a/b/c/br proguard/classfile/editor/TypeAnnotationAdder
+a/b/c/bt proguard/classfile/editor/VariableEditor
+a/b/g/bc proguard/classfile/visitor/ParallelAllClassVisitor$MyClassVisitorThread
+a/d/a/a proguard/evaluation/value/ArrayReferenceValue
+a/d/a/av proguard/evaluation/value/TracedReferenceValue
+a/d/a/aw proguard/evaluation/value/TypedReferenceValue
+a/d/a/ax proguard/evaluation/value/TypedReferenceValueFactory
+a/f/b proguard/obfuscate/AttributeUsageMarker
+a/g/a/ac proguard/optimize/evaluation/SimpleEnumClassChecker
+a/g/c/a proguard/optimize/peephole/BranchTargetFinder
+a/g/c/f proguard/optimize/peephole/GotoCommonCodeReplacer
+a/g/c/j proguard/optimize/peephole/InstructionSequenceConstants
+a/g/u proguard/optimize/Optimizer$8
+a/h/a proguard/preverify/CodePreverifier

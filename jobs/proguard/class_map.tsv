@@ -130,7 +130,6 @@ a/b/g/r	proguard/classfile/visitor/ClassVersionSetter	pkg:互为最优 0.65
 a/a/a	proguard/backport/Backporter	pkg:互为最优 1.00
 a/a/e	proguard/backport/LambdaExpression	pkg:互为最优 0.92
 a/a/f	proguard/backport/LambdaExpressionCollector	pkg:互为最优 1.00
-a/a/h	proguard/backport/StaticInterfaceMethodConverter	pkg:互为最优 1.00
 a/ac	proguard/LibraryKeepChecker	pkg:互为最优 1.00
 a/ah	proguard/ProGuard	pkg:互为最优 0.97
 a/aj	proguard/Targeter	pkg:互为最优 1.00
@@ -152,7 +151,6 @@ a/b/c/o	proguard/classfile/editor/BootstrapMethodsAttributeShrinker	pkg:互为�
 a/b/c/u	proguard/classfile/editor/CodeAttributeComposer	pkg:互为最优 1.00
 a/b/c/v	proguard/classfile/editor/CodeAttributeEditor	pkg:互为最优 1.00
 a/b/f/p	proguard/classfile/util/InstructionSequenceMatcher	pkg:互为最优 0.75
-a/b/g/bc	proguard/classfile/visitor/ParallelAllClassVisitor$MyClassVisitorThread	pkg:互为最优 1.00
 a/b/k	proguard/classfile/ProgramClass	pkg:互为最优 1.00
 a/c/a	proguard/configuration/ConfigurationLogger	pkg:互为最优 0.79
 a/c/c	proguard/configuration/ConfigurationLoggingAdder	pkg:互为最优 1.00
@@ -172,7 +170,6 @@ a/f/ad	proguard/obfuscate/UniqueMemberNameFactory	pkg:互为最优 0.75
 a/f/g	proguard/obfuscate/DictionaryNameFactory	pkg:互为最优 1.00
 a/f/s	proguard/obfuscate/MultiMappingProcessor	pkg:互为最优 0.75
 a/f/w	proguard/obfuscate/Obfuscator	pkg:互为最优 1.00
-a/g/a/ac	proguard/optimize/evaluation/SimpleEnumClassChecker	pkg:互为最优 1.00
 a/g/a/ad	proguard/optimize/evaluation/SimpleEnumClassSimplifier	pkg:互为最优 1.00
 a/g/a/ai	proguard/optimize/evaluation/TracedBranchUnit	pkg:互为最优 0.75
 a/g/a/i	proguard/optimize/evaluation/InitializationFinder	pkg:互为最优 1.00
@@ -181,7 +178,6 @@ a/g/a/v	proguard/optimize/evaluation/PartialEvaluator	pkg:互为最优 1.00
 a/g/a/x	proguard/optimize/evaluation/PartialEvaluator$MyInstructionBlock	pkg:互为最优 0.75
 a/g/b/as	proguard/optimize/info/SimpleEnumMarker	pkg:互为最优 0.75
 a/g/c/ah	proguard/optimize/peephole/WrapperClassMerger	pkg:互为最优 1.00
-a/g/c/j	proguard/optimize/peephole/InstructionSequenceConstants	pkg:互为最优 1.00
 a/g/c/k	proguard/optimize/peephole/InstructionSequenceReplacer	pkg:互为最优 0.75
 a/g/c/p	proguard/optimize/peephole/InstructionSequencesReplacer	pkg:互为最优 0.75
 a/g/m	proguard/optimize/Optimizer	pkg:互为最优 1.00
@@ -189,7 +185,6 @@ a/g/n	proguard/optimize/Optimizer$1	pkg:互为最优 1.00
 a/g/q	proguard/optimize/Optimizer$4	pkg:互为最优 1.00
 a/g/r	proguard/optimize/Optimizer$5	pkg:互为最优 1.00
 a/g/s	proguard/optimize/Optimizer$6	pkg:互为最优 1.00
-a/g/u	proguard/optimize/Optimizer$8	pkg:互为最优 1.00
 a/g/v	proguard/optimize/Optimizer$TimedClassPoolVisitor	pkg:互为最优 1.00
 a/i	proguard/ConfigurationChecker	pkg:互为最优 1.00
 a/i/h	proguard/shrink/ShortestUsageMark	pkg:互为最优 1.00
@@ -199,3 +194,24 @@ a/j/j	proguard/util/ListParser	pkg:互为最优 0.75
 a/j/m	proguard/util/MatchedStringMatcher	pkg:互为最优 0.75
 a/p	proguard/DuplicateClassPrinter	pkg:互为最优 1.00
 a/z	proguard/KeepClassMemberChecker	pkg:互为最优 1.00
+a/d/a/ap	proguard/evaluation/value/ReferenceValue	anc:子类覆写+包最佳0.80
+a/e/ak	proguard/io/WrappedDataEntry	anc:子类覆写+包最佳1.00
+a/a/h	proguard/backport/StaticInterfaceMethodConverter	pkg:互为最优 1.00
+a/b/a/c/l	proguard/classfile/attribute/preverification/StackMapAttribute	pkg:互为最优 0.75
+a/b/a/c/n	proguard/classfile/attribute/preverification/StackMapTableAttribute	pkg:互为最优 0.75
+a/b/c/aq	proguard/classfile/editor/InstructionAdder	pkg:互为最优 0.75
+a/b/c/at	proguard/classfile/editor/InstructionWriter	pkg:互为最优 0.75
+a/b/c/br	proguard/classfile/editor/TypeAnnotationAdder	pkg:互为最优 0.75
+a/b/c/bt	proguard/classfile/editor/VariableEditor	pkg:互为最优 0.75
+a/b/g/bc	proguard/classfile/visitor/ParallelAllClassVisitor$MyClassVisitorThread	pkg:互为最优 1.00
+a/d/a/a	proguard/evaluation/value/ArrayReferenceValue	pkg:互为最优 0.75
+a/d/a/av	proguard/evaluation/value/TracedReferenceValue	pkg:互为最优 0.75
+a/d/a/aw	proguard/evaluation/value/TypedReferenceValue	pkg:互为最优 1.00
+a/d/a/ax	proguard/evaluation/value/TypedReferenceValueFactory	pkg:互为最优 1.00
+a/f/b	proguard/obfuscate/AttributeUsageMarker	pkg:互为最优 0.75
+a/g/a/ac	proguard/optimize/evaluation/SimpleEnumClassChecker	pkg:互为最优 1.00
+a/g/c/a	proguard/optimize/peephole/BranchTargetFinder	pkg:互为最优 1.00
+a/g/c/f	proguard/optimize/peephole/GotoCommonCodeReplacer	pkg:互为最优 0.75
+a/g/c/j	proguard/optimize/peephole/InstructionSequenceConstants	pkg:互为最优 1.00
+a/g/u	proguard/optimize/Optimizer$8	pkg:互为最优 1.00
+a/h/a	proguard/preverify/CodePreverifier	pkg:互为最优 1.00
