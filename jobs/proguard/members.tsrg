@@ -510,8 +510,8 @@ a/r proguard/FullyQualifiedClassNameChecker
 	d notePrinter
 	d (Ljava/lang/String;)Z containsWildCards
 	a (La/b/c;)V visitAnyClass
-	b b
-	c b2
+	b programClassPool
+	c libraryClassPool
 a/s proguard/GPL
 	a ()V check
 	a (Ljava/io/LineNumberReader;)Ljava/util/Set; unknownPackageNames
@@ -524,11 +524,13 @@ a/x proguard/Initializer
 	a (Ljava/lang/String;)Z containsWildCardReferences
 	a (Ljava/util/List;Z)La/j/t; createClassNoteExceptionMatcher
 	b (Ljava/util/List;Z)La/j/t; createClassMemberNoteExceptionMatcher
+	a (La/b/b;La/b/b;)V execute
 a/a/c proguard/backport/DefaultInterfaceMethodConverter$1
 	a (Ljava/lang/String;)Ljava/lang/String; transform
 	a b
 a/ai proguard/SeedPrinter
 	a printWriter
+	a (La/h;La/b/b;La/b/b;)V write
 a/ak proguard/UpToDateChecker
 	a configuration
 	a ()Z check
@@ -718,6 +720,7 @@ a/b/a/a/g proguard/classfile/attribute/annotation/ConstantElementValue
 	a u1tag
 	a ()C getTag
 	b u2constantValueIndex
+	a (La/b/c;La/b/a/a/a;La/b/a/a/b/g;)V accept
 a/b/a/a/s proguard/classfile/attribute/annotation/TypePathInfo
 	a u1typePathKind
 	b u1typeArgumentIndex
@@ -1172,6 +1175,7 @@ a/b/a/a/h proguard/classfile/attribute/annotation/ElementValue
 	b (La/b/c;)Ljava/lang/String; getMethodName
 	d referencedClass
 	e referencedMethod
+	a (La/b/c;La/b/a/a/a;La/b/a/a/b/g;)V accept
 a/b/a/b/g proguard/classfile/attribute/module/RequiresInfo
 	a (Ljava/lang/Object;)V setVisitorInfo
 	d visitorInfo
@@ -1207,6 +1211,7 @@ a/b/a/d/w proguard/classfile/attribute/visitor/StackSizeComputer
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
 	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
 	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
 a/b/a/i proguard/classfile/attribute/ExceptionsAttribute
 	c u2exceptionIndexTableLength
 	d u2exceptionIndexTable
@@ -1226,16 +1231,20 @@ a/b/g/be proguard/classfile/visitor/ParallelAllClassVisitor$MyThreadedClassVisit
 	a (La/b/k;)V visitProgramClass
 	b futures
 	a (La/b/c;)V submitClassToExecutorService
+	a (La/b/e;)V visitLibraryClass
 a/b/g/i proguard/classfile/visitor/ClassCounter
 	a count
 	a ()I getCount
 	a (La/b/k;)V visitProgramClass
+	a (La/b/e;)V visitLibraryClass
 a/b/g/r proguard/classfile/visitor/ClassVersionSetter
 	a classVersion
 	a (La/b/k;)V visitProgramClass
 	b newerClassVersions
+	a (La/b/e;)V visitLibraryClass
 a/a/a proguard/backport/Backporter
 	a configuration
+	a (La/b/b;La/b/b;La/j/n;)V execute
 a/a/e proguard/backport/LambdaExpression
 	a referencedClass
 	a ()Ljava/lang/String; getLambdaClassName
@@ -1274,13 +1283,16 @@ a/a/f proguard/backport/LambdaExpressionCollector
 	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
 	b referencedInvokeDynamicConstant
 	e referencedInvokedMethod
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/e;)V visitLibraryClass
 a/ac proguard/LibraryKeepChecker
 	a (La/b/k;)V visitProgramClass
 	a (Ljava/util/List;)V checkClassSpecifications
 	c notePrinter
 	d keepName
-	a b
-	b b2
+	a programClassPool
+	b libraryClassPool
+	a (La/b/e;)V visitLibraryClass
 a/ah proguard/ProGuard
 	a configuration
 	a ()V execute
@@ -1297,10 +1309,19 @@ a/ah proguard/ProGuard
 	q ()V preverify
 	s ()V writeOutput
 	t ()V dump
-	b b
-	c b2
+	b programClassPool
+	c libraryClassPool
+	h ()V addConfigurationLogging
+	g ()V backport
+	e ()V introducePrimitiveArrayConstants
+	f ()V expandPrimitiveArrayConstants
+	o ()V trimLineNumbers
+	n ()V linearizeLineNumbers
+	r ()V sortClassElements
+	p ()V clearPreverification
 a/aj proguard/Targeter
 	a configuration
+	a (La/b/b;)V execute
 a/b proguard/AssumeNoSideEffectsChecker
 	a notePrinter
 	a (Ljava/util/List;)V checkClassSpecifications
@@ -1315,6 +1336,7 @@ a/b/a/a/a proguard/classfile/attribute/annotation/Annotation
 	d referencedClasses
 	b (La/b/g/s;)V referencedClassAccept
 	a (La/b/g/s;)V referencedClassesAccept
+	a (La/b/c;La/b/a/a/b/g;)V elementValuesAccept
 a/b/a/a/a/e proguard/classfile/attribute/annotation/target/LocalVariableTargetInfo
 	a u2tableLength
 	b table
@@ -1324,10 +1346,13 @@ a/b/a/a/c proguard/classfile/attribute/annotation/AnnotationElementValue
 	a annotationValue
 	a ()C getTag
 	a (La/b/c;La/b/a/a/b/f;)V annotationAccept
+	a (La/b/c;La/b/a/a/a;La/b/a/a/b/g;)V accept
 a/b/a/a/e proguard/classfile/attribute/annotation/ArrayElementValue
 	a u2elementValuesCount
 	a ()C getTag
 	b elementValues
+	b (La/b/c;La/b/a/a/a;La/b/a/a/b/g;)V elementValuesAccept
+	a (La/b/c;La/b/a/a/a;La/b/a/a/b/g;)V accept
 a/b/a/a/j proguard/classfile/attribute/annotation/ParameterAnnotationsAttribute
 	c u1parametersCount
 	d u2parameterAnnotationsCount
@@ -1337,6 +1362,7 @@ a/b/a/a/q proguard/classfile/attribute/annotation/TypeAnnotation
 	f targetInfo
 	g typePath
 	a (La/b/c;La/b/a/a/a/a/b;)V targetInfoAccept
+	a (La/b/c;La/b/a/a/b/i;)V typePathInfosAccept
 a/b/a/c/c proguard/classfile/attribute/preverification/FullFrame
 	a variablesCount
 	a ()I getTag
@@ -1411,6 +1437,8 @@ a/b/c/o proguard/classfile/editor/BootstrapMethodsAttributeShrinker
 	a (La/b/k;La/b/n;)V visitProgramMethod
 	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/e;)V visitLibraryClass
 a/b/c/u proguard/classfile/editor/CodeAttributeComposer
 	a allowExternalBranchTargets
 	a ()V reset
@@ -1465,6 +1493,7 @@ a/b/c/u proguard/classfile/editor/CodeAttributeComposer
 	r bv
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
 a/b/c/v proguard/classfile/editor/CodeAttributeEditor
 	a preOffsetInsertions
 	a ()Z isModified
@@ -1537,6 +1566,10 @@ a/b/c/v proguard/classfile/editor/CodeAttributeEditor
 	q bv
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (ILa/b/d/c;)V insertBeforeInstruction
+	c (ILa/b/d/c;)V insertAfterInstruction
 a/b/f/p proguard/classfile/util/InstructionSequenceMatcher
 	a patternConstants
 	a ()V reset
@@ -1589,6 +1622,8 @@ a/b/f/p proguard/classfile/util/InstructionSequenceMatcher
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
 	b (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)Z finalMatch
 	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 a/b/k proguard/classfile/ProgramClass
 	a u4version
 	a ()I getAccessFlags
@@ -1674,6 +1709,7 @@ a/c/c proguard/configuration/ConfigurationLoggingAdder
 	a configuration
 	b injectedClassMap
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/b;La/b/b;La/j/n;)V execute
 a/d/a proguard/evaluation/BasicBranchUnit
 	a traceBranchTargets
 	a ()V reset
@@ -1768,6 +1804,7 @@ a/f/s proguard/obfuscate/MultiMappingProcessor
 	a (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V processFieldMapping
 a/f/w proguard/obfuscate/Obfuscator
 	a configuration
+	a (La/b/b;La/b/b;)V execute
 a/g/a/ad proguard/optimize/evaluation/SimpleEnumClassSimplifier
 	a CONSTANTS
 	a (La/b/k;)V visitProgramClass
@@ -1908,6 +1945,7 @@ a/g/b/as proguard/optimize/info/SimpleEnumMarker
 	a (La/b/k;)V visitProgramClass
 	a (La/b/c;)Z isSimpleEnum
 	b (La/b/c;)V setSimpleEnum
+	a (La/b/e;)V visitLibraryClass
 a/g/c/ah proguard/optimize/peephole/WrapperClassMerger
 	a allowAccessModification
 	a (La/b/k;)V visitProgramClass
@@ -1979,6 +2017,7 @@ a/g/m proguard/optimize/Optimizer
 	x codeSimplificationArithmetic
 	y codeSimplificationCast
 	z codeSimplificationField
+	a (La/b/b;La/b/b;La/j/n;)Z execute
 a/g/n proguard/optimize/Optimizer$1
 	a val$repeatTrigger
 	b this$0
@@ -2000,6 +2039,7 @@ a/g/v proguard/optimize/Optimizer$TimedClassPoolVisitor
 	a (II)Ljava/lang/String; getPadding
 	b message
 	c classPoolVisitor
+	a (La/b/b;)V visitClassPool
 a/i proguard/ConfigurationChecker
 	a configuration
 	a ()V check
@@ -2032,8 +2072,10 @@ a/i/i proguard/shrink/ShortestUsageMarker
 	b (La/b/k;La/b/n;)V markProgramMethodBody
 	a (La/b/c;La/b/j;)V markMethodHierarchy
 	c k
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 a/i/m proguard/shrink/Shrinker
 	a configuration
+	a (La/b/b;La/b/b;)La/b/b; execute
 a/j/j proguard/util/ListParser
 	a (Ljava/lang/String;)La/j/t; parse
 	a (Ljava/util/List;)La/j/t; parse
@@ -2047,6 +2089,7 @@ a/j/m proguard/util/MatchedStringMatcher
 a/p proguard/DuplicateClassPrinter
 	a notePrinter
 	a (La/b/k;)V visitProgramClass
+	a (La/b/e;)V visitLibraryClass
 a/z proguard/KeepClassMemberChecker
 	a notePrinter
 	a (Ljava/util/List;)V checkClassSpecifications
@@ -2086,8 +2129,9 @@ a/a/h proguard/backport/StaticInterfaceMethodConverter
 	c injectedClassNameMap
 	d modifiedClassVisitor
 	e extraMemberVisitor
-	a b
-	b b2
+	a programClassPool
+	b libraryClassPool
+	a (La/b/e;)V visitLibraryClass
 a/b/a/c/l proguard/classfile/attribute/preverification/StackMapAttribute
 	c u2stackMapFramesCount
 	d stackMapFrames
@@ -2102,6 +2146,7 @@ a/b/c/aq proguard/classfile/editor/InstructionAdder
 	b codeAttributeComposer
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
 	a ad
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
 a/b/c/at proguard/classfile/editor/InstructionWriter
 	a codeLength
 	a ()V ensureCodeAttributeEditor
@@ -2114,6 +2159,8 @@ a/b/c/at proguard/classfile/editor/InstructionWriter
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
 	b (ILa/b/d/c;)V replaceInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (ILa/b/d/c;)V insertBeforeInstruction
 a/b/c/br proguard/classfile/editor/TypeAnnotationAdder
 	a EMPTY_ELEMENT_VALUES
 	b targetClass
@@ -2200,6 +2247,7 @@ a/g/a/ac proguard/optimize/evaluation/SimpleEnumClassChecker
 	a (La/b/k;)V visitProgramClass
 	a simpleEnumMarker
 	b virtualMemberChecker
+	a (La/b/e;)V visitLibraryClass
 a/g/c/a proguard/optimize/peephole/BranchTargetFinder
 	a instructionMarks
 	a ()Z containsSubroutines
@@ -2237,6 +2285,8 @@ a/g/c/a proguard/optimize/peephole/BranchTargetFinder
 	m (I)Z isSubroutineReturning
 	d (I)Z isTarget
 	b (I)Z isCreation
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	j (I)Z isSubroutineInvocation
 a/g/c/f proguard/optimize/peephole/GotoCommonCodeReplacer
 	a (B)Z isPop
 	a (La/b/a/d;II)I commonByteCodeCount
@@ -2297,6 +2347,7 @@ a/b/d/a/e proguard/classfile/instruction/visitor/MultiInstructionVisitor
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
 a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	a (La/b/k;)V visitProgramClass
 	a (La/b/c;)V visitAnyClass
@@ -2372,6 +2423,21 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
 	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/p;)V visitUninitializedThisType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/g;)V visitLibraryMember
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/p;)V visitStackUninitializedThisType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/p;)V visitVariablesUninitializedThisType
 a/d/a/c proguard/evaluation/value/BasicValueFactory
 	e REFERENCE_VALUE
 	e ()La/d/a/ap; createReferenceValue
@@ -2400,6 +2466,7 @@ a/g proguard/ClassSpecificationVisitorFactory
 	a (Ljava/util/List;La/b/g/s;La/b/g/aq;)La/b/g/n; createClassPoolVisitor
 	a (Ljava/util/List;La/b/g/s;La/b/g/aq;La/b/g/aq;La/b/a/d/i;)La/b/g/n; createClassPoolVisitor
 	a (Ljava/util/List;Ljava/util/List;Ljava/util/List;La/b/g/s;La/b/g/aq;La/b/g/aq;La/b/a/d/i;Ljava/util/List;)La/b/g/s; createCombinedClassVisitor
+	a (Ljava/util/List;ZLa/b/g/at;La/b/g/aq;La/b/a/d/i;Ljava/util/List;)V addMemberVisitors
 a/i/n proguard/shrink/UsageMarker
 	a POSSIBLY_USED
 	a (La/b/k;)V visitProgramClass
@@ -2460,8 +2527,34 @@ a/i/n proguard/shrink/UsageMarker
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
 	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 a/b/a/a/b/h proguard/classfile/attribute/annotation/visitor/TypeAnnotationVisitor
 	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
+a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
+	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
+	a (La/b/c;La/b/d;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
+	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
+	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
 a/b/a/d/j proguard/classfile/attribute/visitor/BootstrapMethodInfoVisitor
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 a/b/a/d/l proguard/classfile/attribute/visitor/ExceptionInfoVisitor
@@ -2519,13 +2612,24 @@ a/b/d/a/d proguard/classfile/instruction/visitor/InstructionVisitor
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
 a/b/g/aq proguard/classfile/visitor/MemberVisitor
 	a (La/b/k;La/b/l;)V visitProgramField
 	a (La/b/k;La/b/n;)V visitProgramMethod
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
 a/b/g/bb proguard/classfile/visitor/ParallelAllClassVisitor$ClassVisitorFactory
 	a ()La/b/g/s; createClassVisitor
+a/b/g/n proguard/classfile/visitor/ClassPoolVisitor
+	a (La/b/b;)V visitClassPool
 a/b/g/s proguard/classfile/visitor/ClassVisitor
 	a (La/b/k;)V visitProgramClass
+	a (La/b/e;)V visitLibraryClass
+a/d/a/be proguard/evaluation/value/ValueFactory
+	a (Ljava/lang/String;La/b/c;ZZ)La/d/a/bd; createValue
+	b (Ljava/lang/String;La/b/c;ZZ)La/d/a/ap; createReferenceValue
+	f ()La/d/a/ap; createReferenceValueNull
+	e ()La/d/a/ap; createReferenceValue
 a/d/c proguard/evaluation/BranchUnit
 	a (La/b/c;La/b/a/d;II)V branch
 	a (La/b/c;La/b/a/d;III)V branchConditionally
@@ -3019,61 +3123,2405 @@ a/d/e proguard/evaluation/ConstantValueFactory
 	a (La/b/c;La/b/b/r;)V visitStringConstant
 	a valueFactory
 	b value
-a/b/a/a/a/a a/b/a/a/a/a
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
-a/b/a/a/a/c a/b/a/a/a/c
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
-a/b/a/a/a/f a/b/a/a/a/f
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
-a/b/a/a/a/i a/b/a/a/a/i
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
-a/b/a/a/a/l a/b/a/a/a/l
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
-a/b/a/k a/b/a/k
+a/b/a/a/a/a/b proguard/classfile/attribute/annotation/target/visitor/TargetInfoVisitor
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
+a/b/a/c/a/b proguard/classfile/attribute/preverification/visitor/VerificationTypeVisitor
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/p;)V visitUninitializedThisType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/p;)V visitStackUninitializedThisType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/p;)V visitVariablesUninitializedThisType
+a/b/a/k proguard/classfile/attribute/InnerClassesAttribute
 	a (La/b/c;La/b/a/d/i;)V accept
 	a (La/b/c;La/b/a/d/m;)V innerClassEntriesAccept
 	c u2classesCount
 	d classes
-a/b/a/p a/b/a/p
+a/b/a/p proguard/classfile/attribute/LocalVariableTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/q;)V localVariablesAccept
 	c u2localVariableTableLength
 	d localVariableTable
-a/b/a/r a/b/a/r
+a/b/a/r proguard/classfile/attribute/LocalVariableTypeTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/r;)V localVariablesAccept
 	c u2localVariableTypeTableLength
 	d localVariableTypeTable
-a/b/a/s a/b/a/s
+a/b/a/s proguard/classfile/attribute/MethodParametersAttribute
 	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
 	a (La/b/c;La/b/j;La/b/a/d/u;)V parametersAccept
 	c u1parametersCount
 	d parameters
-a/b/c/g a/b/c/g
+a/b/c/g proguard/classfile/editor/AnnotationsAttributeEditor
 	a (La/b/a/a/a;)V addAnnotation
 	a targetAnnotationsAttribute
-a/b/a/a/a/a/b a/b/a/a/a/a/b
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
-	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
-a/b/a/a/a/g a/b/a/a/a/g
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
-a/b/a/d/i a/b/a/d/i
+a/b/a/d/d proguard/classfile/attribute/visitor/AllInnerClassesInfoVisitor
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a innerClassesInfoVisitor
+a/b/c/ap proguard/classfile/editor/InnerClassesAttributeEditor
+	a (La/b/a/l;)V removeInnerClassesInfo
+	a targetInnerClassesAttribute
+	b (La/b/a/l;)I findInnerClassesInfoIndex
+a/b/c/bc proguard/classfile/editor/LocalVariableTableAttributeEditor
+	a (La/b/a/o;)V addLocalVariableInfo
+	a targetLocalVariableTableAttribute
+a/b/c/be proguard/classfile/editor/LocalVariableTypeTableAttributeEditor
+	a (La/b/a/q;)V addLocalVariableTypeInfo
+	a targetLocalVariableTypeTableAttribute
+a/a/b proguard/backport/DefaultInterfaceMethodConverter
+	a (La/b/k;La/b/k;La/b/n;)V replaceDefaultMethodInvocation
+	a (La/b/c;La/b/c;La/b/j;)Z callsDefaultMethodUsingSuper
+	a (La/b/c;Ljava/lang/String;Ljava/lang/String;)Z hasInheritedMethod
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a modifiedClassVisitor
+	b extraMemberVisitor
+	c implClasses
+	d hasDefaultMethods
+a/a/d proguard/backport/DefaultInterfaceMethodConverter$InvocationInstructionMatcher
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a referencedClass
+	b referencedMethod
+	c constantVisitor
+a/a/g proguard/backport/LambdaExpressionConverter
+	a (La/a/e;)La/b/k; createLambdaClass
+	a (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; prependParameterToMethodDescriptor
+	a (Ljava/lang/String;Ljava/lang/String;La/b/c/ab;)V convertToTargetType
+	a (La/b/c;La/b/j;)Z isDeserializationHook
+	a (La/b/i;I)Z hasFlag
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	c injectedClassNameMap
+	d extraClassVisitor
+	e lambdaExpressionMap
+	f codeAttributeEditor
+	g memberRemover
+	a (La/b/k;La/a/e;)V addAccessorMethod
+	b (La/b/k;La/a/e;)V completeStatelessLambdaClass
+	c (La/b/k;La/a/e;)V addBridgeMethods
+	d (La/b/k;La/a/e;)V completeCapturingLambdaClass
+	b libraryClassPool
+	a programClassPool
+a/a/i proguard/backport/StaticInterfaceMethodConverter$MyReferencedClassFilter
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/k;)V visitProgramClass
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a referencedClass
+	b classVisitor
+	c referenceClassFound
+a/a/j proguard/backport/StringConcatenationConverter
+	a (Ljava/lang/String;I)I nextArgIndex
+	b (Ljava/lang/String;)I typicalStringLengthFromType
+	c (Ljava/lang/String;)Ljava/lang/String; appendDescriptorFromInternalType
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a extraInstructionVisitor
+	b codeAttributeEditor
+	f concatenationRecipe
+	g concatenationConstants
+	a (Ljava/lang/String;)Z isStringConcatFactory
+	d estimatedStringLength
+	e referencedBootstrapMethodIndex
+a/af proguard/OutputWriter
+	a (La/b/b;La/e/o;)La/e/o; renameResourceFiles
+	a (La/b/b;)Ljava/util/Map; createPackagePrefixMap
+	a (La/n;La/b/b;La/d;III)V writeOutput
+	b (La/b/b;La/e/o;)La/e/m; adaptResourceFiles
+	a (La/b/b;La/j/n;)V execute
+	a configuration
+a/b/a/a/b proguard/classfile/attribute/annotation/AnnotationDefaultAttribute
+	a (La/b/c;La/b/a/a/b/g;)V defaultValueAccept
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+	c defaultValue
+a/b/a/a/b/b proguard/classfile/attribute/annotation/visitor/AllElementValueVisitor
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/d;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/j;ILa/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/j;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/a;)V visitAnnotation
+	a deep
+	b elementValueVisitor
+a/b/a/a/b/e proguard/classfile/attribute/annotation/visitor/AnnotationTypeFilter
+	a (Ljava/lang/String;)Z accepted
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/d;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/j;ILa/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/j;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/a;)V visitAnnotation
+	a regularExpressionMatcher
+	b annotationVisitor
+a/b/a/a/f proguard/classfile/attribute/annotation/ClassElementValue
+	a ()C getTag
+	a (La/b/c;)Ljava/lang/String; getClassName
+	a (La/b/c;La/b/a/a/a;La/b/a/a/b/g;)V accept
+	a (La/b/g/s;)V referencedClassesAccept
+	a u2classInfoIndex
+	b referencedClasses
+a/b/a/a/i proguard/classfile/attribute/annotation/EnumConstantElementValue
+	a ()C getTag
+	a (La/b/c;La/b/a/a/a;La/b/a/a/b/g;)V accept
+	a (La/b/g/s;)V referencedClassesAccept
+	g referencedClasses
+	h referencedField
+	a (La/b/c;)Ljava/lang/String; getTypeName
+	c (La/b/c;)Ljava/lang/String; getConstantName
+	a u2typeNameIndex
+	b u2constantNameIndex
+a/b/a/c/p proguard/classfile/attribute/preverification/UninitializedThisType
+	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+a/b/a/d/a proguard/classfile/attribute/visitor/AllAttributeVisitor
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/g;)V visitLibraryMember
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/m;)V visitProgramMember
+	a deep
+	b attributeVisitor
+a/b/a/d/e proguard/classfile/attribute/visitor/AllLineNumberInfoVisitor
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a lineNumberInfoVisitor
+a/b/a/g proguard/classfile/attribute/EnclosingMethodAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+	a (La/b/g/s;)V referencedClassAccept
+	e referencedClass
+	f referencedMethod
+	d (La/b/c;)Ljava/lang/String; getType
+	c (La/b/c;)Ljava/lang/String; getName
+	b (La/b/c;)Ljava/lang/String; getClassName
+	d u2nameAndTypeIndex
+	c u2classIndex
+a/b/a/n proguard/classfile/attribute/LineNumberTableAttribute
+	a (I)Ljava/lang/String; getSource
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/o;)V lineNumbersAccept
+	b (I)La/b/a/m; getLineNumberInfo
+	c u2lineNumberTableLength
+	d lineNumberTable
+	b ()I getHighestLineNumber
+	a ()I getLowestLineNumber
+a/b/b proguard/classfile/ClassPool
+	a ()V clear
+	a (Ljava/lang/String;)La/b/c; getClass
+	a (La/b/g/n;)V accept
+	a (Ljava/lang/String;La/b/g/s;)V classAccept
+	b ()Ljava/util/Iterator; classNames
+	c ()I size
+	a classes
+	a (La/b/c;)V addClass
+	a (La/b/g/s;)V classesAccept
+	b (La/b/g/s;)V classesAcceptAlphabetically
+a/b/b/a/b proguard/classfile/constant/visitor/AllConstantVisitor
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a constantVisitor
+a/b/b/q proguard/classfile/constant/RefConstant
+	a (La/b/g/aq;)V referencedMemberAccept
+	a (La/b/g/s;)V referencedClassAccept
+	c referencedClass
+	e referencedMember
+	c (La/b/c;)Ljava/lang/String; getType
+	b (La/b/c;)Ljava/lang/String; getName
+	a (La/b/c;)Ljava/lang/String; getClassName
+	c ()I getNameAndTypeIndex
+	b ()I getClassIndex
+	a u2classIndex
+	b u2nameAndTypeIndex
+a/b/c/a proguard/classfile/editor/AccessFixer
+	a (La/b/c;La/b/c;)Z inSamePackage
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	f referencingMethodAccessFlags
+	d methodHierarchyFixer
+	c referencedAnnotationMethodFixer
+	b referencedMemberFixer
+	a referencedClassFixer
+	e referencingClass
+	g referencedClass
+a/b/c/ac proguard/classfile/editor/ComparableConstant
+	a (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I compare
+	a (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I compare
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	b ()La/b/b/b; getConstant
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a PRIORITIES
+	b clazz
+	a ()I getIndex
+	f result
+	e otherConstant
+	d thisConstant
+	c thisIndex
+a/b/c/ad proguard/classfile/editor/ConstantAdder
+	a ()I getConstantIndex
+	a (La/b/c;I)I addConstant
+	a (La/b/c;La/b/b/b;)I addConstant
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	a constantPoolEditor
+	b bootstrapMethodsAttributeAdder
+	c constantIndex
+a/b/c/ae proguard/classfile/editor/ConstantPoolEditor
+	a (D)I addDoubleConstant
+	a (F)I addFloatConstant
+	a (I)I addIntegerConstant
+	a (II)I addMethodHandleConstant
+	a (II[La/b/c;)I addInvokeDynamicConstant
+	a (J)I addLongConstant
+	a (La/b/b/b;)I addConstant
+	a (Ljava/lang/Object;)I addPrimitiveArrayConstant
+	a (Ljava/lang/String;La/b/c;)I addClassConstant
+	a (Ljava/lang/String;La/b/c;La/b/i;)I addStringConstant
+	a (Ljava/lang/String;Ljava/lang/String;)I addNameAndTypeConstant
+	a (Ljava/lang/String;[La/b/c;)I addMethodTypeConstant
+	a ()La/b/k; getTargetClass
+	a targetClass
+	b constantReferenceInitializer
+	a (IILa/b/c;La/b/i;)I addFieldrefConstant
+	a (ILjava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)I addFieldrefConstant
+	c (Ljava/lang/String;)I addUtf8Constant
+	a (Ljava/lang/String;)I addModuleConstant
+	a (Ljava/lang/String;ILa/b/c;La/b/i;)I addFieldrefConstant
+	c (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)I addMethodrefConstant
+	a (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)I addFieldrefConstant
+	b (IILa/b/c;La/b/i;)I addInterfaceMethodrefConstant
+	b (ILjava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)I addInterfaceMethodrefConstant
+	b (Ljava/lang/String;)I addPackageConstant
+	c (Ljava/lang/String;ILa/b/c;La/b/i;)I addMethodrefConstant
+	b (Ljava/lang/String;ILa/b/c;La/b/i;)I addInterfaceMethodrefConstant
+	b (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)I addInterfaceMethodrefConstant
+	c (IILa/b/c;La/b/i;)I addMethodrefConstant
+	c (ILjava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)I addMethodrefConstant
+a/b/c/af proguard/classfile/editor/ConstantPoolRemapper
+	a (I)I remapConstantIndex
+	a ([II)V remapConstantIndexArray
+	b (La/b/k;La/b/m;)V visitMember
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
+	a (La/b/c;La/b/a/b/g;)V visitRequiresInfo
+	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
+	a (La/b/c;La/b/j;ILa/b/a/t;)V visitParameterInfo
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/m;)V visitAnyStackMapFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
+	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a ([I)V setConstantIndexMap
+	a codeAttributeEditor
+	b constantIndexMap
+a/b/c/ah proguard/classfile/editor/ConstantPoolSorter
+	a (La/b/k;)V visitProgramClass
+	a constantIndexMap
+	b comparableConstantPool
+	c newConstantPool
+	d constantPoolRemapper
+a/b/c/ai proguard/classfile/editor/ElementValueAdder
+	a (La/b/a/a/h;)V addElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a EMPTY_ELEMENT_VALUES
+	b targetClass
+	c targetAnnotationDefaultAttribute
+	d constantAdder
+	e elementValuesEditor
+a/b/c/aj proguard/classfile/editor/ElementValuesEditor
+	a (I[La/b/a/a/h;La/b/a/a/h;)Z replaceElementValue
+	b (I[La/b/a/a/h;La/b/a/a/h;)[La/b/a/a/h; addElementValue
+	a (La/b/a/a/h;)V addElementValue
+	a targetClass
+	b targetAnnotation
+	c targetArrayElementValue
+	d replaceElementValues
+	a (I[La/b/a/a/h;Ljava/lang/String;)I findElementValue
+a/b/c/ak proguard/classfile/editor/ExceptionAdder
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a constantAdder
+	b exceptionsAttributeEditor
+a/b/c/al proguard/classfile/editor/ExceptionInfoAdder
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a constantAdder
+	b codeAttributeComposer
+a/b/c/ao proguard/classfile/editor/InnerClassesAccessFixer
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a innerClassAccessFlags
+a/b/c/au proguard/classfile/editor/InterfaceAdder
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a constantAdder
+	b interfacesEditor
+a/b/c/ay proguard/classfile/editor/LineNumberInfoAdder
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/m;)V visitLineNumberInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a lineNumberTableAttributeEditor
+	b source
+a/b/c/az proguard/classfile/editor/LineNumberTableAttributeEditor
+	a (La/b/a/m;)V addLineNumberInfo
+	a targetLineNumberTableAttribute
+a/b/c/bb proguard/classfile/editor/LocalVariableInfoAdder
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a constantAdder
+	b localVariableTableAttributeEditor
+a/b/c/bd proguard/classfile/editor/LocalVariableTypeInfoAdder
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a constantAdder
+	b localVariableTypeTableAttributeEditor
+a/b/c/bf proguard/classfile/editor/MemberAdder
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a EMPTY_ATTRIBUTES
+	b targetClass
+	c nameTransformer
+	d extraMemberVisitor
+	e classEditor
+	f constantPoolEditor
+a/b/c/bi proguard/classfile/editor/MethodInvocationFixer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a codeAttributeEditor
+	d referencedMethod
+	b referencedClass
+	c referencedMethodClass
+a/b/c/bl proguard/classfile/editor/ParameterInfoAdder
+	a (La/b/c;La/b/j;ILa/b/a/t;)V visitParameterInfo
+	a constantAdder
+	b targetMethodParametersAttribute
+a/b/c/bm proguard/classfile/editor/SimplifiedClassEditor
+	a (ILjava/lang/String;Ljava/lang/String;I)La/b/c/ab; addMethod
+	a (ILjava/lang/String;Ljava/lang/String;[La/b/c;I)La/b/c/ab; addMethod
+	a (ILjava/lang/String;Ljava/lang/String;)La/b/c/bm; addField
+	a ()V finishEditing
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a programClass
+	b classEditor
+	c constantPoolEditor
+	d nameFactory
+	e methodComposers
+	f instructions
+a/b/c/bn proguard/classfile/editor/SimplifiedClassEditor$CodeComposer
+	j ()V finishEditing
+	a this$0
+	b method
+a/b/c/bs proguard/classfile/editor/VariableCleaner
+	a ([La/b/a/o;II)I removeUnusedLocalVariables
+	a ([La/b/a/q;II)I removeUnusedLocalVariableTypes
+	a (I)[I createMaxArray
+	b ([La/b/a/o;II)V trimLocalVariables
+	b ([La/b/a/q;II)V trimLocalVariableTypes
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	b deleteLocalVariableTypeTableAttribute
+	a deleteLocalVariableTableAttribute
+a/b/c/e proguard/classfile/editor/AccessFixer$MyReferencedMemberVisitor
+	a (La/b/c;La/b/a/a/a;La/b/a/a/h;)V visitAnyElementValue
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a this$0
+a/b/c/f proguard/classfile/editor/AnnotationAdder
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/j;ILa/b/a/a/a;)V visitAnnotation
+	a EMPTY_ELEMENT_VALUES
+	b targetClass
+	c targetAnnotationElementValue
+	d annotationsAttributeEditor
+	e parameterAnnotationsAttributeEditor
+	f constantAdder
+a/b/c/h proguard/classfile/editor/AttributeAdder
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
 	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
 	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
 	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
 	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
-	a (La/b/c;La/b/d;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
 	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
 	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
 	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
-	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
-a/d/a/be a/d/a/be
+	a EMPTY_BYTES
+	b EMPTY_INTS
+	c EMPTY_ATTRIBUTES
+	d EMPTY_EXCEPTIONS
+	e EMPTY_ANNOTATIONS
+	f targetClass
+	g targetMember
+	h targetCodeAttribute
+	i replaceAttributes
+	j constantAdder
+	k attributesEditor
+a/b/c/n proguard/classfile/editor/BootstrapMethodsAttributeEditor
+	a targetBootstrapMethodsAttribute
+	a (La/b/a/b;)I addBootstrapMethodInfo
+a/b/c/p proguard/classfile/editor/BootstrapMethodsAttributeShrinker$MethodHandlesLookupInnerClassRemover
+	a (La/b/a/l;)V markForRemoval
+	b (La/b/a/l;)Z shouldBeRemoved
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+	a (La/b/b/a;La/b/c;)Z isMethodHandleClass
+	a this$0
+	b methodHandleLookupMarker
+	c attributesEditor
+a/b/c/q proguard/classfile/editor/BridgeMethodFixer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a bridgedMethodName
+a/b/c/r proguard/classfile/editor/ClassEditor
+	c (La/b/d;)I findFieldIndex
+	c (La/b/j;)I findMethodIndex
+	a targetClass
+	a (I)V addInterface
+	a (La/b/d;)V addField
+	b (La/b/d;)V removeField
+	b (La/b/j;)V removeMethod
+	a (La/b/j;)V addMethod
+a/b/c/t proguard/classfile/editor/ClassReferenceFixer
+	a (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; newUniqueMemberName
+	a (Ljava/lang/String;[La/b/c;)Ljava/lang/String; newDescriptor
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a ensureUniqueMemberNames
+	a (Ljava/lang/String;La/b/c;)Ljava/lang/String; newDescriptor
+	b (Ljava/lang/String;La/b/c;)Ljava/lang/String; newClassName
+a/b/d/a/b proguard/classfile/instruction/visitor/InstructionConstantVisitor
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a constantVisitor
+a/b/d/b proguard/classfile/instruction/ConstantInstruction
+	a (I)I length
+	a ()La/b/d/c; shrink
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a/d;)V accept
+	b ()B canonicalOpcode
+	h ()I constantSize
+	g ()I constantIndexSize
+	i ()I requiredConstantIndexSize
+	a (La/b/c;)I stackPopCount
+	b (La/b/c;)I stackPushCount
+	c ([BI)V writeInfo
+	b ([BI)V readInfo
+	a constantIndex
+	b constant
+	e typeStackDelta
+	d parameterStackDelta
+a/b/e proguard/classfile/LibraryClass
+	a (Ljava/lang/String;Ljava/lang/String;)La/b/d; findField
+	a (ILa/b/b/a/f;)V constantPoolEntryAccept
+	a (La/b/a/d/i;)V attributesAccept
+	a (La/b/c;)V addSubClass
+	a (Ljava/lang/Object;)V setVisitorInfo
+	a (ZZZZLa/b/g/s;)V hierarchyAccept
+	a (La/b/j;)Z mayHaveImplementations
+	b (I)I getTag
+	b (Ljava/lang/String;Ljava/lang/String;)La/b/j; findMethod
+	e ()La/b/c; getSuperClass
+	f ()Ljava/lang/Object; getVisitorInfo
+	k (I)La/b/c; getInterface
+	a u2accessFlags
+	d interfaceNames
+	e fields
+	f methods
+	g superClass
+	j visitorInfo
+	a ()I getAccessFlags
+	d ()I getInterfaceCount
+	c (I)Ljava/lang/String; getString
+	a (I)Ljava/lang/String; getInterfaceName
+	b (La/b/g/aq;)V methodsAccept
+	a (La/b/g/aq;)V fieldsAccept
+	a (La/b/g/s;)V accept
+	d (La/b/g/s;)V subclassesAccept
+	c (La/b/g/s;)V interfacesAccept
+	b (La/b/g/s;)V superClassAccept
+	b (Ljava/lang/String;Ljava/lang/String;La/b/g/aq;)V fieldAccept
+	a (Ljava/lang/String;Ljava/lang/String;La/b/g/aq;)V methodAccept
+	a (Ljava/lang/String;)Z extends_
+	b ()Ljava/lang/String; getName
+	c ()Ljava/lang/String; getSuperName
+	c (La/b/c;)Z extendsOrImplements
+	b (La/b/c;)Z extends_
+	d (I)Ljava/lang/String; getStringString
+	e (I)Ljava/lang/String; getClassName
+	f (I)Ljava/lang/String; getName
+	c superClassName
+	b thisClassName
+	i subClasses
+	h interfaceClasses
+	g (I)Ljava/lang/String; getType
+	h (I)Ljava/lang/String; getRefClassName
+	i (I)Ljava/lang/String; getRefName
+	j (I)Ljava/lang/String; getRefType
+a/b/e/a proguard/classfile/io/LibraryClassReader
+	a (C)I primitiveSize
+	a ()La/b/b/b; createConstant
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/g;)V visitLibraryMember
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/m;)V visitProgramMember
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a EMPTY_LIBRARY_FIELDS
+	b EMPTY_LIBRARY_METHODS
+	c dataInput
+	f constantPool
+	b ()V skipAttributes
+	c ()V skipAttribute
+	b (I)Ljava/lang/String; getString
+	a (I)Ljava/lang/String; getClassName
+	e skipNonPublicClassMembers
+	d skipNonPublicClasses
+a/b/e/b proguard/classfile/io/ProgramClassReader
+	a ()La/b/b/b; createConstant
+	b (La/b/c;)La/b/a/a; createAttribute
+	b ()La/b/a/c/m; createStackMapFrame
+	c ()La/b/a/c/r; createVerificationType
+	d ()La/b/a/a/a/h; createTargetInfo
+	e ()La/b/a/a/h; createElementValue
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
+	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/s;)V visitTypePathInfo
+	a (La/b/c;La/b/a/b/g;)V visitRequiresInfo
+	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
+	a (La/b/c;La/b/j;ILa/b/a/t;)V visitParameterInfo
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/e;)V visitLessZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/k;)V visitSameZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/r;)V visitAnyVerificationType
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;La/b/a/a/a/d;)V visitLocalVariableTargetElement
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/m;)V visitLineNumberInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
+	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/g;)V visitLibraryMember
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a dataInput
+a/b/e/c proguard/classfile/io/ProgramClassWriter
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/g;)V visitLibraryMember
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a dataOutput
+	b constantBodyWriter
+	f elementValueBodyWriter
+a/b/e/f proguard/classfile/io/ProgramClassWriter$ConstantBodyWriter
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/p;IB)V visitByteArrayConstantElement
+	a (La/b/c;La/b/b/p;IC)V visitCharArrayConstantElement
+	a (La/b/c;La/b/b/p;ID)V visitDoubleArrayConstantElement
+	a (La/b/c;La/b/b/p;IF)V visitFloatArrayConstantElement
+	a (La/b/c;La/b/b/p;II)V visitIntArrayConstantElement
+	a (La/b/c;La/b/b/p;IJ)V visitLongArrayConstantElement
+	a (La/b/c;La/b/b/p;IS)V visitShortArrayConstantElement
+	a (La/b/c;La/b/b/p;IZ)V visitBooleanArrayConstantElement
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a this$0
+a/b/e/g proguard/classfile/io/ProgramClassWriter$ElementValueBodyWriter
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a this$0
+a/b/f proguard/classfile/LibraryField
+	a (La/b/e;La/b/g/aq;)V accept
+	a (La/b/g/s;)V referencedClassesAccept
+	a referencedClass
+a/b/f/b proguard/classfile/util/AllParameterVisitor
+	a (La/b/c;La/b/d;La/b/c;)V visitFieldType
+	a (La/b/c;La/b/j;[La/b/c;)V visitParameters
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a includeThisParameter
+	b parameterVisitor
+a/b/f/d proguard/classfile/util/ArrayInitializationReplacer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/k;)V visitProgramClass
+	a valueFactory
+	b partialEvaluator
+	c arrayInitializationMatcher
+	d codeAttributeEditor
+	e constantPoolEditor
+	i arrayInitializationEnd
+	h arrayInitializationStart
+	g lastInstructionStackPushCount
+	f lastInstructionOffset
+a/b/f/f proguard/classfile/util/ClassReferenceInitializer
+	b (La/b/c;La/b/a/a/a;La/b/a/a/h;)V initializeElementValue
+	b (La/b/c;Ljava/lang/String;)[La/b/c; findReferencedClasses
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	g memberFinder
+	a (La/b/c;Ljava/lang/String;)La/b/c; findReferencedClass
+	c (La/b/c;Ljava/lang/String;)La/b/c; findClass
+	b libraryClassPool
+	a programClassPool
+	d missingProgramMemberWarningPrinter
+	e missingLibraryMemberWarningPrinter
+	f dependencyWarningPrinter
+	c missingClassWarningPrinter
+a/b/f/h proguard/classfile/util/ClassSuperHierarchyInitializer
+	a (Ljava/lang/String;Ljava/lang/String;)La/b/c; findClass
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	b libraryClassPool
+	a programClassPool
+	d dependencyWarningPrinter
+	c missingWarningPrinter
+a/b/f/k proguard/classfile/util/DynamicClassReferenceInitializer
+	a (Ljava/lang/String;Ljava/lang/String;)La/b/c; findClass
+	a (La/b/c;I)Z isDotClassMethodref
+	a (La/b/c;La/b/j;La/b/a/d;La/b/f/p;I)Z isDotClassMethodCode
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	p noteExceptionMatcher
+	x isClassForNameInvocation
+	f DOT_CLASS_JIKES_CONSTANTS
+	d DOT_CLASS_JAVAC_CONSTANTS
+	a CLASS_FOR_NAME_CONSTANTS
+	j DOT_CLASS_JIKES_IMPLEMENTATION_INSTRUCTIONS2
+	i DOT_CLASS_JIKES_IMPLEMENTATION_INSTRUCTIONS
+	h DOT_CLASS_JAVAC_IMPLEMENTATION_INSTRUCTIONS
+	g DOT_CLASS_JIKES_INSTRUCTIONS
+	e DOT_CLASS_JAVAC_INSTRUCTIONS
+	c CLASS_FOR_NAME_CAST_INSTRUCTIONS
+	b CONSTANT_CLASS_FOR_NAME_INSTRUCTIONS
+	l libraryClassPool
+	k programClassPool
+	o notePrinter
+	n dependencyWarningPrinter
+	m missingNotePrinter
+	w dotClassJikesImplementationMatcher2
+	v dotClassJikesImplementationMatcher
+	u dotClassJavacImplementationMatcher
+	t dotClassJikesMatcher
+	s dotClassJavacMatcher
+	r classForNameCastMatcher
+	q constantClassForNameMatcher
+a/b/f/l proguard/classfile/util/DynamicMemberReferenceInitializer
+	a (La/b/c;ILa/b/c;Ljava/lang/String;Ljava/lang/String;ZZZ)V initializeDynamicMemberReference
+	a (La/b/c;La/b/c;Ljava/lang/String;Z)V printDynamicConstructorAccessNote
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;La/b/f/p;La/b/f/p;ZZZLjava/lang/String;)V matchGetMember
+	a (La/b/c;Ljava/lang/String;Ljava/lang/String;ZZZ)V printDynamicMemberAccessNote
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	c notePrinter
+	l dynamicMemberFinder
+	o codeAttributeEditor
+	p referencedClass
+	b libraryClassPool
+	a programClassPool
+	e noteMethodExceptionMatcher
+	d noteFieldExceptionMatcher
+	k unknownReferenceUpdaterMatcher
+	j unknownLongUpdaterMatcher
+	i unknownIntegerUpdaterMatcher
+	h knownReferenceUpdaterMatcher
+	g knownLongUpdaterMatcher
+	f knownItegerUpdaterMatcher
+	n declaredMemberFinder
+	m memberFinder
+a/b/f/n proguard/classfile/util/DynamicMemberReferenceInitializer$MyDynamicMemberFinder
+	a (La/b/c;ZZZ)V resolveMemberString
+	a ()V reset
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a this$0
+	e referencedClass
+	f memberName
+	i parameterTypes
+	b label
+	d memberNameInstructionOffset
+	c instructionOffset
+	h parameterIndex
+	g parameterCount
+a/b/f/o proguard/classfile/util/EnumFieldReferenceInitializer
+	a (La/b/c;La/b/a/a/a;La/b/a/a/h;)V visitAnyElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a enumFieldFinder
+	d enumConstantNameFound
+	e referencedEnumClass
+	f referencedEnumField
+	c enumConstantName
+	b enumTypeName
+a/b/f/r proguard/classfile/util/MemberFinder
+	a ()La/b/c; correspondingClass
+	a (La/b/c;La/b/c;Ljava/lang/String;Ljava/lang/String;Z)La/b/i; findMember
+	a (La/b/c;Ljava/lang/String;Ljava/lang/String;Z)La/b/i; findMember
+	a (La/b/c;La/b/c;Ljava/lang/String;Ljava/lang/String;)La/b/j; findMethod
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/c;La/b/j;)Z isOverriden
+	b searchHierarchy
+	c clazz
+	d member
+a/b/f/v proguard/classfile/util/PrimitiveArrayConstantReplacer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/p;IB)V visitByteArrayConstantElement
+	a (La/b/c;La/b/b/p;IC)V visitCharArrayConstantElement
+	a (La/b/c;La/b/b/p;ID)V visitDoubleArrayConstantElement
+	a (La/b/c;La/b/b/p;IF)V visitFloatArrayConstantElement
+	a (La/b/c;La/b/b/p;II)V visitIntArrayConstantElement
+	a (La/b/c;La/b/b/p;IJ)V visitLongArrayConstantElement
+	a (La/b/c;La/b/b/p;IS)V visitShortArrayConstantElement
+	a (La/b/c;La/b/b/p;IZ)V visitBooleanArrayConstantElement
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/k;)V visitProgramClass
+	a codeAttributeEditor
+	c classModified
+a/b/f/x proguard/classfile/util/StringReferenceInitializer
+	a (Ljava/lang/String;)La/b/c; findClass
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	b libraryClassPool
+	a programClassPool
+a/b/f/y proguard/classfile/util/StringSharer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a name
+	b type
+a/b/g proguard/classfile/LibraryMember
+	a ()I getAccessFlags
+	a (La/b/c;La/b/g/aq;)V accept
+	a (La/b/e;La/b/g/aq;)V accept
+	a (Ljava/lang/Object;)V setVisitorInfo
+	f ()Ljava/lang/Object; getVisitorInfo
+	b u2accessFlags
+	e visitorInfo
+	b (La/b/c;)Ljava/lang/String; getDescriptor
+	a (La/b/c;)Ljava/lang/String; getName
+	d descriptor
+	c name
+a/b/g/ag proguard/classfile/visitor/MemberAccessFilter
+	a (I)Z accepted
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	d memberVisitor
+	c requiredOneSetAccessFlags
+	b requiredUnsetAccessFlags
+	a requiredSetAccessFlags
+a/b/g/aj proguard/classfile/visitor/MemberClassAccessFilter
+	a (La/b/c;I)Z accepted
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a referencingClass
+	b memberVisitor
+a/b/g/al proguard/classfile/visitor/MemberCounter
+	a ()I getCount
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a count
+a/b/g/as proguard/classfile/visitor/MultiClassPoolVisitor
+	a ()V ensureArraySize
+	a (La/b/b;)V visitClassPool
+	a (La/b/g/n;)V addClassPoolVisitor
+	a classPoolVisitors
+	b classPoolVisitorCount
+a/b/g/at proguard/classfile/visitor/MultiClassVisitor
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/g/s;)V addClassVisitor
+	a (La/b/k;)V visitProgramClass
+	a classVisitors
+	b classVisitorCount
+a/b/g/au proguard/classfile/visitor/MultiConstantVisitor
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a constantVisitors
+	b constantVisitorCount
+a/b/g/av proguard/classfile/visitor/MultiMemberVisitor
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a memberVisitors
+	b memberVisitorCount
+a/b/g/aw proguard/classfile/visitor/NamedClassVisitor
+	a (La/b/b;)V visitClassPool
+	a classVisitor
+	b name
+a/b/g/az proguard/classfile/visitor/ParallelAllClassVisitor
+	a (La/b/b;)V visitClassPool
+	a THREAD_COUNT
+	b classVisitorFactory
+a/b/g/bd proguard/classfile/visitor/ParallelAllClassVisitor$MyThreadFactory
+	a this$0
+	b threadCounter
+a/b/g/bj proguard/classfile/visitor/ReferencedMemberVisitor
+	a (La/b/c;La/b/a/a/a;La/b/a/a/h;)V visitAnyElementValue
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	b memberVisitor
+a/b/g/bk proguard/classfile/visitor/SimilarMemberVisitor
+	a (La/b/c;)La/b/c; targetClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a targetClass
+	f memberVisitor
+	e visitOverridingMembers
+	d visitInterfaceMembers
+	c visitSuperMembers
+	b visitThisMember
+a/b/g/bl proguard/classfile/visitor/SimpleClassPrinter
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a printAccessModifiers
+	b pw
+a/b/g/bm proguard/classfile/visitor/SubclassFilter
+	a ([La/b/c;)Z present
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a subclass
+	b classVisitor
+a/b/g/f proguard/classfile/visitor/ClassAccessFilter
+	a (I)Z accepted
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	c classVisitor
+	b requiredUnsetAccessFlags
+	a requiredSetAccessFlags
+a/b/g/j proguard/classfile/visitor/ClassHierarchyTraveler
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	e classVisitor
+	d visitSubclasses
+	c visitInterfaces
+	b visitSuperClass
+	a visitThisClass
+a/b/g/k proguard/classfile/visitor/ClassNameFilter
+	a (Ljava/lang/String;)Z accepted
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a regularExpressionMatcher
+	b classVisitor
+a/b/g/l proguard/classfile/visitor/ClassPoolClassVisitor
+	a (La/b/b;)V visitClassPool
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a classPoolVisitor
+	b classPool
+a/b/g/o proguard/classfile/visitor/ClassPresenceFilter
+	a (La/b/c;)La/b/g/s; classFileVisitor
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a classPool
+	c missingClassVisitor
+	b presentClassVisitor
+a/b/g/p proguard/classfile/visitor/ClassPrinter
+	a (La/b/o;)Ljava/lang/String; visitorInfo
+	b (La/b/k;La/b/m;)V visitMember
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/s;)V visitTypePathInfo
+	a (La/b/c;La/b/a/b/g;)V visitRequiresInfo
+	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/a/y;)V visitUnknownAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
+	a (La/b/c;La/b/j;ILa/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/j;ILa/b/a/t;)V visitParameterInfo
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/c;)V visitFullFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/e;)V visitLessZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/g;)V visitMoreZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/j;)V visitSameOneFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/k;)V visitSameZeroFrame
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/p;)V visitUninitializedThisType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;La/b/a/a/a/d;)V visitLocalVariableTargetElement
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/l;)V visitStackMapAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/c/n;)V visitStackMapTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/m;)V visitLineNumberInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/c;La/b/j;La/b/a/i;)V visitExceptionsAttribute
+	a (La/b/c;La/b/j;La/b/a/s;)V visitMethodParametersAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a pw
+	b indentation
+	b ()V outdent
+	a ()V indent
+	c ()V println
+	a (Ljava/lang/String;)V println
+	b (Ljava/lang/String;)V print
+a/b/g/q proguard/classfile/visitor/ClassVersionFilter
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	c classVisitor
+	b maximumClassVersion
+	a minimumClassVersion
+a/b/g/w proguard/classfile/visitor/ExceptClassesFilter
+	a (La/b/c;)Z present
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a exceptClasses
+	b classVisitor
+a/b/h proguard/classfile/LibraryMethod
+	a (La/b/e;La/b/g/aq;)V accept
+	a (La/b/g/s;)V referencedClassesAccept
+	a referencedClasses
+a/c proguard/ClassMemberChecker
+	a (La/b/c;Ljava/util/List;Z)V checkMemberSpecifications
+	a (Ljava/lang/String;)Z containsWildCards
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a (Ljava/util/List;)V checkClassSpecifications
+	a programClassPool
+	b notePrinter
+a/c/d proguard/configuration/ConfigurationLoggingInstructionSequenceConstants
+	a RESOURCE
+	b CONSTANTS
+	c LOGGER_CLASS_NAME
+	l UNSATISFIED_LINK_ERROR
+	k RUNTIME_EXCEPTION
+	j IO_EXCEPTION
+	i NO_SUCH_FIELD_EXCEPTION
+	h NO_SUCH_METHOD_EXCEPTION
+	g CLASS_NOT_FOUND_EXCEPTION
+	f CATCH_END
+	e TRY_END
+	d TRY_START
+a/d/b proguard/evaluation/BasicInvocationUnit
+	a (La/b/c;La/b/b/h;Ljava/lang/String;)La/d/a/bd; getMethodReturnValue
+	a (La/b/c;La/b/j;ILjava/lang/String;La/b/c;)La/d/a/bd; getMethodParameterValue
+	a (La/b/c;La/b/b/q;ILa/d/a/bd;)V setMethodParameterValue
+	a (La/b/c;La/b/b/q;La/d/a/ap;)V setFieldClassValue
+	a (La/b/c;La/b/b/q;La/d/a/bd;)V setFieldValue
+	a (La/b/c;La/b/j;La/d/a/bd;)V setMethodReturnValue
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	b (La/b/c;La/b/b/a;)La/d/a/bd; getExceptionValue
+	a valueFactory
+	e returnTypeClass
+	b (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getMethodReturnValue
+	a (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getFieldValue
+a/d/g proguard/evaluation/Processor
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a variables
+	b stack
+	c valueFactory
+	d branchUnit
+	e invocationUnit
+	f alwaysCast
+	g constantValueFactory
+	h classConstantValueFactory
+a/d/h proguard/evaluation/SimplifiedInvocationUnit
+	a (La/b/c;La/b/b/h;Ljava/lang/String;)La/d/a/bd; getMethodReturnValue
+	a (La/b/c;La/b/j;ILjava/lang/String;La/b/c;)La/d/a/bd; getMethodParameterValue
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/b/q;ILa/d/a/bd;)V setMethodParameterValue
+	a (La/b/c;La/b/b/q;La/d/a/ap;)V setFieldClassValue
+	a (La/b/c;La/b/b/q;La/d/a/bd;)V setFieldValue
+	a (La/b/c;La/b/i;IIIILjava/lang/String;La/b/c;)V visitParameter
+	a (La/b/c;La/b/j;La/b/a/d;IILa/d/i;)V enterExceptionHandler
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;La/d/i;)V invokeMember
+	a (La/b/c;La/b/j;La/d/l;)V enterMethod
+	b (La/b/c;La/b/b/a;)La/d/a/bd; getExceptionValue
+	a parameterInitializer
+	d stack
+	e variables
+	b (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getMethodReturnValue
+	a (La/b/c;La/b/j;La/d/a/bd;)V setMethodReturnValue
+	b (La/b/c;La/b/j;La/d/a/bd;)V exitMethod
+	b isStatic
+	c isLoad
+	a (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getFieldValue
+a/e/ao proguard/io/ZipOutput$ZipEntry
+	a ()Ljava/io/OutputStream; createOutputStream
+	a this$0
+	b compressed
+	i extraField
+	b ()V writeCentralDirectoryFileHeader
+	c ()V writeLocalFileHeader
+	c modificationTime
+	j comment
+	h name
+	d crc
+	e compressedSize
+	f uncompressedSize
+	g offset
+a/e/ap proguard/io/ZipOutput$ZipEntry$CompressedZipEntryOutputStream
+	a this$1
+	b crc32
+a/e/b proguard/io/ClassDataEntryWriter
+	a ()V close
+	a (La/e/g;)Z createDirectory
+	a (La/e/g;La/e/g;)Z sameOutputStream
+	b (La/e/g;)Ljava/io/OutputStream; createOutputStream
+	a classPool
+	b dataEntryWriter
+a/e/r proguard/io/DirectoryWriter
+	c (La/e/g;)Ljava/io/File; getFile
+	a ()V close
+	a (La/e/g;)Z createDirectory
+	a (La/e/g;La/e/g;)Z sameOutputStream
+	b (La/e/g;)Ljava/io/OutputStream; createOutputStream
+	a baseFile
+	b isFile
+a/f/e proguard/obfuscate/ClassObfuscator$MyKeepCollector
+	a (Ljava/lang/String;Ljava/lang/String;Z)V mapPackageName
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+a/f/n proguard/obfuscate/MemberNameConflictFixer
+	a (La/b/c;La/b/i;Z)V visitMember
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a allowAggressiveOverloading
+	b descriptorMap
+	c warningPrinter
+	d memberObfuscator
+a/f/o proguard/obfuscate/MemberNameFilter
+	a (La/b/c;)Z hasName
+	a (La/b/c;La/b/j;)Z hasName
+	a (La/b/i;)Z hasName
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a memberVisitor
+a/f/x proguard/obfuscate/ParameterNameMarker
+	a (La/b/c;La/b/j;)Z hasParameters
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a attributeUsageMarker
+a/g/a proguard/optimize/BootstrapMethodArgumentShrinker
+	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a usedParameters
+a/g/a/a proguard/optimize/evaluation/EvaluationShrinker
+	a (I)B pushOpcode
+	a (IZZLa/b/d/c;)V insertInstruction
+	a (IZZLa/b/d/c;[La/b/d/c;)V insertInstructions
+	a (La/b/c;I)V replaceByInfiniteLoop
+	a (La/b/c;ILa/b/d/b;)V replaceByStaticInvocation
+	a (II)Z isAnyUnnecessaryInstructionBranchingOver
+	a (La/d/a/ad;I)Z isAnyLargerThan
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a instructionUsageMarker
+	b runInstructionUsageMarker
+	h stackConsistencyFixer
+	j codeAttributeEditor
+	a (IZZI)V insertPushInstructions
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	d extraAddedInstructionVisitor
+	c extraDeletedInstructionVisitor
+	b (IZZI)V insertPopInstructions
+a/g/a/aa proguard/optimize/evaluation/ReferenceTracingValueFactory
+	a (La/d/a/ap;)La/d/a/ap; trace
+	a (La/d/a/av;Ljava/lang/String;La/b/c;Z)La/d/a/av; cast
+	a (La/d/a/bd;)La/d/a/bd; trace
 	a (Ljava/lang/String;La/b/c;ZZ)La/d/a/bd; createValue
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
 	b (Ljava/lang/String;La/b/c;ZZ)La/d/a/ap; createReferenceValue
+	a valueFactory
+	b preserveTraceValueOnCasts
+	c traceValue
 	f ()La/d/a/ap; createReferenceValueNull
 	e ()La/d/a/ap; createReferenceValue
+a/g/a/ab proguard/optimize/evaluation/SimpleEnumArrayPropagator
+	a (La/b/j;La/d/a/bd;)V setMethodReturnValue
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	c valueFactory
+	d array
+	b methodArrayPropagator
+	a fieldArrayFinder
+a/g/a/ae proguard/optimize/evaluation/SimpleEnumDescriptorSimplifier
+	a (Ljava/lang/String;La/b/c;)Ljava/lang/String; simplifyDescriptor
+	a (Ljava/lang/String;[La/b/c;)Ljava/lang/String; simplifyDescriptor
+	b (La/b/c;)Z isSimpleEnum
+	b (Ljava/lang/String;[La/b/c;)[La/b/c; simplifyReferencedClasses
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+a/g/a/af proguard/optimize/evaluation/SimpleEnumUseChecker
+	a (La/b/c;I)V markConstantComplexEnumType
+	a (II)Z isPoppingSimpleEnumType
+	a (III)Z isPoppingIdenticalTypes
+	a (IILa/b/c;I)Z isPoppingExpectedType
+	a (IILjava/lang/String;)Z isPoppingExpectedType
+	a (ILa/b/c;I)Z isPoppingExpectedType
+	a (La/b/c;La/b/j;)Z isReturningSimpleEnumType
+	a (La/d/a/ap;)Z isSimpleEnumType
+	b (La/d/a/ap;)V markComplexEnumType
+	b (La/b/c;)Z isSimpleEnum
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/i;IIIILjava/lang/String;La/b/c;)V visitParameter
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a partialEvaluator
+	b methodCodeChecker
+	e complexEnumMarker
+	g invocationOffset
+	a (I)V checkMixedStackEntriesBefore
+	b (I)V checkMixedVariablesBefore
+	d (I)V markPushedComplexEnumType
+	c (I)V markPoppedComplexEnumType
+	c (Ljava/lang/String;Ljava/lang/String;)Z isMethodSkippedForCheckcast
+	b (Ljava/lang/String;Ljava/lang/String;)Z isUnsupportedMethod
+	a (Ljava/lang/String;Ljava/lang/String;)Z isSupportedMethod
+	b (II)V markPoppedComplexEnumType
+	c (II)V markStoredComplexEnumType
+	d parameterChecker
+	c invokedMethodChecker
+a/g/a/ag proguard/optimize/evaluation/SimpleEnumUseSimplifier
+	a (La/b/c;ILa/b/d/c;)V deleteInstruction
+	a (La/b/c;ILa/b/d/c;La/b/d/c;)V replaceInstruction
+	a (La/b/c;ILa/b/d/c;Ljava/lang/String;Ljava/lang/String;)V replaceSupportedMethod
+	a (La/b/c;ILa/b/d/c;[La/b/d/c;)V replaceInstructions
+	a (La/b/c;La/b/j;La/b/a/d;I)V replaceNullStackEntryProducers
+	a (La/b/c;I)Z isReferencingSimpleEnum
+	a (La/b/c;La/b/j;)Z isReturningSimpleEnum
+	b (La/b/c;)Z isSimpleEnum
+	c (II)V insertPopInstructions
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/i;IIIILjava/lang/String;La/b/c;)V visitParameter
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a extraInstructionVisitor
+	b partialEvaluator
+	c codeAttributeEditor
+	d nullParameterFixer
+	e invocationClazz
+	f invocationMethod
+	g invocationCodeAttribute
+	h invocationOffset
+	i isSimpleEnum
+	a (La/b/c;La/b/j;La/b/a/d;II)V replaceNullStackEntryProducers
+	b (La/b/c;La/b/j;La/b/a/d;II)V replaceNullVariableProducers
+	a (I)Z isPushingSimpleEnum
+	b (I)Z isPoppingSimpleEnum
+	a (II)Z isPoppingSimpleEnum
+	b (II)Z isPoppingSimpleEnumArray
+a/g/a/ah proguard/optimize/evaluation/StoringInvocationUnit
+	a (La/b/d;)La/d/a/bd; getFieldValue
+	a (La/b/j;)La/d/a/bd; getMethodReturnValue
+	a (La/b/j;I)La/d/a/bd; getMethodParameterValue
+	a (La/b/d;La/d/a/ap;)V generalizeFieldClassValue
+	a (La/b/d;La/d/a/bd;)V generalizeFieldValue
+	a (La/b/j;ILa/d/a/bd;)V generalizeMethodParameterValue
+	a (La/b/j;La/d/a/bd;)V generalizeMethodReturnValue
+	a (La/b/c;La/b/b/q;ILa/d/a/bd;)V setMethodParameterValue
+	a (La/b/c;La/b/b/q;La/d/a/ap;)V setFieldClassValue
+	a (La/b/c;La/b/b/q;La/d/a/bd;)V setFieldValue
+	a (La/b/c;La/b/j;La/d/a/bd;)V setMethodReturnValue
+	e storeFieldValues
+	g storeMethodReturnValues
+	f storeMethodParameterValues
+a/g/a/aj proguard/optimize/evaluation/VariableOptimizer
+	a (La/b/a/d;)V initializeArrays
+	a (III)Z areNonOverlapping
+	b (III)V updateLiveness
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a reuseThis
+	b extraVariableMemberVisitor
+	e variableCleaner
+	f variableMap
+	d (III)I lastLiveness
+	c (III)I firstLiveness
+a/g/a/h proguard/optimize/evaluation/EvaluationSimplifier
+	a (La/b/c;IILa/b/d/i;)V replaceSimpleEnumSwitchInstruction
+	a (La/b/c;ILa/b/d/a;)V replaceJsrInstruction
+	a (La/b/c;ILa/b/d/c;La/b/d/c;)V replaceInstruction
+	a (La/b/c;ILa/b/d/c;Ljava/lang/String;)V replaceByException
+	a (La/b/c;ILa/b/d/g;)V trimSwitchInstruction
+	a (La/b/c;ILa/b/d/i;)V cleanUpSwitchInstruction
+	a (La/b/c;ILa/b/d/j;)V trimSwitchInstruction
+	a (La/b/c;La/b/a/d;IILa/b/d/g;La/d/a/ap;)V replaceSimpleEnumSwitchInstruction
+	a (La/b/c;La/b/a/d;IILa/b/d/j;La/d/a/ap;)V replaceSimpleEnumSwitchInstruction
+	a (La/b/c;La/b/a/d;ILa/b/d/g;)V replaceSimpleEnumSwitchInstruction
+	a (La/b/c;La/b/a/d;ILa/b/d/j;)V replaceSimpleEnumSwitchInstruction
+	c (II)V insertPopInstructions
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a POS_ZERO_FLOAT_BITS
+	b POS_ZERO_DOUBLE_BITS
+	c extraInstructionVisitor
+	d partialEvaluator
+	e sideEffectInstructionChecker
+	f codeAttributeEditor
+	a (La/b/c;ILa/b/d/c;)V replaceAnyPushInstruction
+	f (La/b/c;ILa/b/d/c;)V replaceReferencePushInstruction
+	g (La/b/c;ILa/b/d/c;)V deleteReferencePopInstruction
+	h (La/b/c;ILa/b/d/c;)V replaceBranchInstruction
+	i (La/b/c;ILa/b/d/c;)V replaceByInfiniteLoop
+	e (La/b/c;ILa/b/d/c;)V replaceDoublePushInstruction
+	d (La/b/c;ILa/b/d/c;)V replaceFloatPushInstruction
+	c (La/b/c;ILa/b/d/c;)V replaceLongPushInstruction
+	b (La/b/c;ILa/b/d/c;)V replaceIntegerPushInstruction
+	a (La/b/c;ILa/b/d/c;BI)V replaceConstantPushInstruction
+	a (La/b/c;ILa/b/d/c;I)V replaceIntegerPushInstruction
+	b (La/b/c;ILa/b/d/c;I)V replaceLongPushInstruction
+	c (La/b/c;ILa/b/d/c;I)V replaceFloatPushInstruction
+	d (La/b/c;ILa/b/d/c;I)V replaceDoublePushInstruction
+	b (II)Z isNullReference
+	a (II)Z isDivisionByZero
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	b (La/b/c;ILa/b/d/c;BI)V replaceVariablePushInstruction
+a/g/a/n proguard/optimize/evaluation/InstructionUsageMarker$MyNecessaryInstructionFilter
+	a (I)Z shouldVisit
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a this$0
+	b necessary
+	c instructionVisitor
+a/g/a/t proguard/optimize/evaluation/LoadingInvocationUnit
+	a (La/b/c;La/b/j;ILjava/lang/String;La/b/c;)La/d/a/bd; getMethodParameterValue
+	b (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getMethodReturnValue
+	a (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getFieldValue
+	f loadMethodParameterValues
+	g loadMethodReturnValues
+	e loadFieldValues
+a/g/a/u proguard/optimize/evaluation/ParameterTracingInvocationUnit
+	a (La/b/c;La/b/j;La/d/a/ap;)Z mayReturnType
+	a (La/b/c;La/b/b/q;ILa/d/a/bd;)V setMethodParameterValue
+	b (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getMethodReturnValue
+	a parameters
+a/g/a/y proguard/optimize/evaluation/PartialEvaluator$MyTracedInstructionFilter
+	a (I)Z shouldVisit
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a this$0
+	b traced
+	c instructionVisitor
+a/g/a/z proguard/optimize/evaluation/ReferenceTracingInvocationUnit
+	a (La/d/a/bd;)La/d/a/bd; untrace
+	a (La/b/c;La/b/b/h;Ljava/lang/String;)La/d/a/bd; getMethodReturnValue
+	a (La/b/c;La/b/j;ILjava/lang/String;La/b/c;)La/d/a/bd; getMethodParameterValue
+	a (La/d/a/bd;I)La/d/a/bd; trace
+	a (La/d/a/bd;La/d/a/ad;)La/d/a/bd; trace
+	a (La/b/c;La/b/b/q;ILa/d/a/bd;)V setMethodParameterValue
+	a (La/b/c;La/b/b/q;La/d/a/ap;)V setFieldClassValue
+	a (La/b/c;La/b/b/q;La/d/a/bd;)V setFieldValue
+	a (La/b/c;La/b/j;La/b/a/d;IILa/d/i;)V enterExceptionHandler
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;La/d/i;)V invokeMember
+	a (La/b/c;La/b/j;La/d/a/bd;)V setMethodReturnValue
+	b (La/b/c;La/b/b/a;)La/d/a/bd; getExceptionValue
+	a invocationUnit
+	e offset
+	b (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getMethodReturnValue
+	a (La/b/c;La/b/b/q;Ljava/lang/String;)La/d/a/bd; getFieldValue
+a/g/b/a proguard/optimize/info/AccessMethodMarker
+	a (La/b/c;)V visitAnyClass
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a invokingMethod
+	c (La/b/j;)Z accessesProtectedCode
+	b (La/b/j;)Z accessesPackageCode
+	a (La/b/j;)Z accessesPrivateCode
+	e (La/b/j;)V setAccessesPackageCode
+	f (La/b/j;)V setAccessesProtectedCode
+	d (La/b/j;)V setAccessesPrivateCode
+a/g/b/ab proguard/optimize/info/PackageVisibleMemberInvokingClassMarker
+	b (La/b/c;)Z invokesPackageVisibleMembers
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/i;)V visitAnyMember
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a referencingClass
+	a (La/b/c;)V visitAnyClass
+	c (La/b/c;)V setInvokesPackageVisibleMembers
+a/g/b/ac proguard/optimize/info/ParameterEscapeMarker
+	a (La/b/c;La/b/j;II)V markReturnedParameters
+	a (La/b/c;La/b/j;La/d/a/ap;)Z mayReturnType
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/i;IIIILjava/lang/String;La/b/c;)V visitParameter
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a repeatTrigger
+	b partialEvaluator
+	d referenceEscapeChecker
+	f parameterMarker
+	g referencingMethod
+	b (La/b/j;)J getReturnedParameters
+	a (La/b/j;)J getEscapingParameters
+	b (La/b/j;II)V markModifiedParameters
+	a (La/b/j;II)V markEscapingParameters
+	a (La/b/j;J)V markEscapingParameters
+	b (La/b/j;J)V markReturnedParameters
+	c (La/b/j;J)V markModifiedParameters
+	b (La/b/j;La/d/a/ap;)V markReturnedParameters
+	c (La/b/j;La/d/a/ap;)V markModifiedParameters
+	a (La/b/j;La/d/a/ap;)V markEscapingParameters
+	c (La/b/j;I)Z isParameterModified
+	a (La/b/j;I)Z isParameterEscaping
+	b (La/b/j;I)Z isParameterReturned
+	e (La/b/j;)Z modifiesAnything
+	d (La/b/j;)Z returnsExternalValues
+	c (La/b/j;)Z returnsNewInstances
+	d (La/b/j;I)V markParameterEscaping
+	e (La/b/j;I)V markParameterReturned
+	f (La/b/j;I)V markParameterModified
+	h (La/b/j;)V markAnythingModified
+	f (La/b/j;)V markReturnsNewInstances
+	g (La/b/j;)V markReturnsExternalValues
+	k isReturnValueModified
+	j isReturnValueEscaping
+	e runReferenceEscapeChecker
+	c runPartialEvaluator
+	h referencingOffset
+	i referencingPopCount
+a/g/b/ad proguard/optimize/info/ParameterUsageMarker
+	a (La/b/j;)I getParameterSize
+	a (La/b/j;J)V markUsedParameters
+	b (La/b/j;)Z hasUnusedParameters
+	b (La/b/j;I)Z isParameterUsed
+	c (La/b/j;)J getUsedParameters
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	d partialEvaluator
+	a (La/b/j;I)V markParameterUsed
+	c (La/b/j;I)V setParameterSize
+	c analyzeCode
+	b markAllParameters
+	a markThisParameter
+a/g/b/ag proguard/optimize/info/ProgramFieldOptimizationInfo
+	b (La/b/d;)La/g/b/ag; getProgramFieldOptimizationInfo
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/d;La/b/a/e;)V visitConstantValueAttribute
+	a (La/d/a/ap;)V generalizeReferencedClass
+	a (La/d/a/bd;)V generalizeValue
+	e ()La/d/a/bd; getValue
+	a VALUE_FACTORY
+	b CONSTANT_VALUE_FACTORY
+	c INITIAL_VALUE_FACTORY
+	g referencedClass
+	h value
+	h ()V setCanNotBeMadePrivate
+	g ()V setRead
+	f ()V setWritten
+	b (La/b/c;La/b/d;)V resetValue
+	c (La/b/c;La/b/d;)V setProgramFieldOptimizationInfo
+	d ()Z canBeMadePrivate
+	c ()Z isRead
+	b ()Z isWritten
+	a ()Z isKept
+	f canBeMadePrivate
+	e isRead
+	d isWritten
+a/g/b/aj proguard/optimize/info/ReadWriteFieldMarker
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/k;La/b/l;)V visitProgramField
+	a repeatTrigger
+	a (La/b/d;)Z isRead
+	b (La/b/d;)Z isWritten
+	d (La/b/d;)V markAsWritten
+	c (La/b/d;)V markAsRead
+	c writing
+	b reading
+a/g/b/ak proguard/optimize/info/ReferenceEscapeChecker
+	d (I)V markExternalReferenceValue
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	e partialEvaluator
+	f runPartialEvaluator
+	g referencingMethod
+	a (II)V markEscapingReferenceValues
+	c (II)V markModifiedReferenceValues
+	b (II)V markReturnedReferenceValues
+	a (La/d/a/ap;)V markEscapingReferenceValues
+	c (I)Z isInstanceModified
+	a (I)Z isInstanceEscaping
+	b (I)Z isInstanceReturned
+	c (La/d/a/ap;)V markModifiedReferenceValues
+	b (La/d/a/ap;)V markReturnedReferenceValues
+	d externalInstance
+	c instanceModified
+	b instanceReturned
+	a instanceEscaping
+	i referencingPopCount
+	h referencingOffset
+a/g/b/al proguard/optimize/info/RepeatedClassPoolVisitor
+	a (La/b/b;)V visitClassPool
+	a repeatTrigger
+	b classPoolVisitor
+a/g/b/am proguard/optimize/info/SideEffectClassChecker
+	a (La/b/c;)Ljava/util/Set; sideEffectSuperClasses
+	a (La/b/c;La/b/c;)Z mayHaveSideEffects
+	a (La/b/c;La/b/c;La/b/i;)Z mayHaveSideEffects
+a/g/b/ap proguard/optimize/info/SideEffectInstructionChecker
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	b (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)Z hasSideEffects
+	a OPTIMIZE_CONSERVATIVELY
+	e referencingClass
+	f hasSideEffects
+	b includeReturnInstructions
+	d writingField
+	c includeArrayStoreInstructions
+a/g/b/aq proguard/optimize/info/SideEffectMethodMarker
+	a (La/b/c;La/b/j;)V markSideEffects
+	a (La/b/j;)Z hasSideEffects
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a repeatTrigger
+	b sideEffectInstructionChecker
+	c sideEffectClassMarker
+a/g/b/at proguard/optimize/info/SuperInvocationMarker
+	a (La/b/j;)Z invokesSuperMethods
+	b (La/b/j;)V setInvokesSuperMethods
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a invokesSuperMethods
+a/g/b/aw proguard/optimize/info/UnusedParameterOptimizationInfoUpdater
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/i;IIIILjava/lang/String;La/b/c;)V visitParameter
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	b unusedParameterRemover
+	a extraUnusedParameterMethodVisitor
+	d removedParameterCount
+	c removedParameterSize
+a/g/b/ax proguard/optimize/info/UsedParameterFilter
+	a (La/b/c;La/b/i;IIIILjava/lang/String;La/b/c;)V visitParameter
+	b unusedParameterVisitor
+	a usedParameterVisitor
+a/g/b/az proguard/optimize/info/WrapperClassMarker
+	a (La/b/c;La/b/c;)V setWrappedClass
+	b (La/b/c;)La/b/c; getWrappedClass
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a INITIALIZER_CONSTANTS
+	b INITIALIZER_INSTRUCTIONS
+	c INITIALIZER_MATCHER
+	d wrappedClass
+	e wrapCounter
+a/g/b/p proguard/optimize/info/MethodInvocationMarker
+	a (La/b/j;)I getInvocationCount
+	b (La/b/j;)V incrementInvocationCount
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/k;La/b/n;)V visitProgramMethod
+a/g/b/y proguard/optimize/info/NonPrivateMemberMarker
+	a (La/b/d;)Z canBeMadePrivate
+	a (La/b/j;)Z canBeMadePrivate
+	b (La/b/d;)V markCanNotBeMadePrivate
+	b (La/b/j;)V markCanNotBeMadePrivate
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
+	a filteredMemberMarker
+	b implementedMethodMarker
+a/g/c/aa proguard/optimize/peephole/UnreachableCodeRemover
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a extraInstructionVisitor
+	b reachableCodeMarker
+	c codeAttributeEditor
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+a/g/c/ac proguard/optimize/peephole/VariableShrinker
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a extraVariableMemberVisitor
+	b variableUsageMarker
+	c variableEditor
+a/g/c/ae proguard/optimize/peephole/WildcardConstantFilter
+	a (La/b/c;La/b/b/b;)Z containsWildcard
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/c;)V visitDoubleConstant
+	a (La/b/c;La/b/b/e;)V visitFloatConstant
+	a (La/b/c;La/b/b/f;)V visitIntegerConstant
+	a (La/b/c;La/b/b/h;)V visitInvokeDynamicConstant
+	a (La/b/c;La/b/b/i;)V visitLongConstant
+	a (La/b/c;La/b/b/j;)V visitMethodHandleConstant
+	a (La/b/c;La/b/b/k;)V visitMethodTypeConstant
+	a (La/b/c;La/b/b/p;)V visitPrimitiveArrayConstant
+	a (La/b/c;La/b/b/r;)V visitStringConstant
+	a (La/b/c;La/b/b/s;)V visitUtf8Constant
+	a constantVisitor
+a/g/c/ai proguard/optimize/peephole/WrapperClassUseSimplifier
+	a (La/b/c;I)Z isReferencingWrapperClass
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a extraInstructionVisitor
+	b codeAttributeEditor
+	c wrappedClass
+	d popInstruction
+a/g/c/c proguard/optimize/peephole/ClassMerger
+	a (La/b/c;La/b/c;)V setTargetClass
+	b (La/b/c;)La/b/c; getTargetClass
+	b (La/b/c;La/b/c;)Ljava/util/Set; subInterfaces
+	g (La/b/c;)Z hasNonCopiableAttributes
+	a (La/b/e;)V visitLibraryClass
+	a targetClass
+	e extraClassVisitor
+	f fieldOptimizationInfoCopier
+	c (La/b/c;La/b/k;)Z introducesUnwantedAbstractMethods
+	a (La/b/c;La/b/k;)Z isOnlySubClass
+	b (La/b/c;La/b/k;)Z introducesUnwantedFields
+	d (La/b/c;La/b/k;)Z overridesAnyMethods
+	f (La/b/c;)Ljava/util/Set; caughtSuperClasses
+	c (La/b/c;)Ljava/util/Set; indirectlyImplementedInterfaces
+	d (La/b/c;)Ljava/util/Set; sideEffectSuperClasses
+	f (La/b/c;La/b/c;)Z shadowsAnyMethods
+	c (La/b/c;La/b/c;)Z haveAnyIdenticalFields
+	e (La/b/c;La/b/c;)Z haveAnyIdenticalMethods
+	b (La/b/k;)V visitProgramClass0
+	a (La/b/k;)V visitProgramClass
+	e (La/b/c;)Ljava/util/Set; instanceofedSuperClasses
+	d (La/b/c;La/b/c;)Z shadowsAnyFields
+	d mergeWrapperClasses
+	c mergeInterfacesAggressively
+	b allowAccessModification
+a/g/c/o proguard/optimize/peephole/InstructionSequenceReplacer$MyReplacementInstructionFactory
+	a (La/b/c;La/b/a/d;I)La/b/d/c; create
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/g;)V visitLookUpSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/j;)V visitTableSwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/g/c/m;)V visitCatchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/g/c/n;)V visitLabelInstruction
+	a this$0
+	b replacementInstruction
+a/g/c/q proguard/optimize/peephole/LineNumberLinearizer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/m;)V visitLineNumberInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a enclosingLineNumbers
+	b previousLineNumberInfo
+	c highestUsedLineNumber
+	d currentLineNumberShift
+a/g/c/t proguard/optimize/peephole/MethodFinalizer
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a extraMemberVisitor
+	b memberFinder
+a/g/c/u proguard/optimize/peephole/MethodInliner
+	a (La/b/c;La/b/j;)V storeParameters
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/m;)V visitLineNumberInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	C source
+	i extraInlinedInvocationVisitor
+	j codeAttributeComposer
+	k accessMethodMarker
+	l methodInvocationMarker
+	m stackSizeComputer
+	n targetClass
+	o targetMethod
+	p constantAdder
+	q exceptionInfoAdder
+	t inliningMethods
+	c (La/b/c;La/b/j;La/b/a/d;)V copyCode
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	d MAXIMUM_RESULTING_CODE_LENGTH_JME
+	c MAXIMUM_RESULTING_CODE_LENGTH_JSE
+	b MAXIMUM_INLINED_CODE_LENGTH_android
+	a MAXIMUM_INLINED_CODE_LENGTH_JVM
+	v coveredByCatchAllHandler
+	s inlining
+	g allowAccessModification
+	u emptyInvokingStack
+	y variableOffset
+	w exceptionInfoCount
+	x uninitializedObjectCount
+	B copiedLineNumbers
+	h inlineSingleInvocations
+	f android
+	e microEdition
+	z inlined
+	A inlinedAny
+	D minimumLineNumberIndex
+	r estimatedResultingCodeLength
+a/g/c/w proguard/optimize/peephole/ReachableCodeMarker
+	a (La/b/c;La/b/j;La/b/a/d;I[I)V markBranchTargets
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/h;)V visitSimpleInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/i;)V visitAnySwitchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a (I)Z isReachable
+	a (II)Z isReachable
+	a isReachable
+	b (La/b/c;La/b/j;La/b/a/d;I)V markCode
+	a (La/b/c;La/b/j;La/b/a/d;I)V markBranchTarget
+	c evaluateExceptions
+	b next
+a/g/c/x proguard/optimize/peephole/RetargetedClassFilter
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	b otherClassVisitor
+	a retargetedClassVisitor
+a/g/c/y proguard/optimize/peephole/RetargetedInnerClassAttributeRemover
+	b (La/b/c;)V checkTarget
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/a/l;)V visitInnerClassesInfo
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/k;)V visitProgramClass
+	a retargeted
+a/g/d proguard/optimize/DuplicateInitializerFixer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a TYPES
+	b extraFixedInitializerVisitor
+a/g/e proguard/optimize/DuplicateInitializerInvocationFixer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a extraAddedInstructionVisitor
+	b codeAttributeEditor
+	c descriptor
+	d descriptorLengthDelta
+a/g/i proguard/optimize/MethodDescriptorShrinker
+	a (La/b/j;Ljava/lang/String;)Ljava/lang/String; shrinkDescriptor
+	a (La/b/j;Ljava/lang/String;[La/b/c;)[La/b/c; shrinkReferencedClasses
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a extraMemberVisitor
+a/g/t proguard/optimize/Optimizer$7
+	a ()La/b/g/s; createClassVisitor
+	l this$0
+	b val$libraryClassPool
+	a val$programClassPool
+	k val$codeSimplificationAndroidMathCounter
+	j val$codeSimplificationMathCounter
+	i val$codeSimplificationStringCounter
+	h val$codeSimplificationObjectCounter
+	g val$codeSimplificationBranchCounter
+	f val$codeSimplificationFieldCounter
+	e val$codeSimplificationCastCounter
+	d val$codeSimplificationArithmeticCounter
+	c val$codeSimplificationVariableCounter
+a/g/x proguard/optimize/TailRecursionSimplifier
+	a (La/b/c;La/b/j;)V storeParameters
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;)V visitConstantInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a extraTailRecursionVisitor
+	b codeAttributeComposer
+	c recursionChecker
+	d stackSizeComputer
+	e targetMethod
+	f inlinedAny
+a/g/z proguard/optimize/TailRecursionSimplifier$MyRecursionChecker
+	a (La/b/c;La/b/b/q;)V visitAnyMethodrefConstant
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a ()Z isRecursive
+	a this$0
+	b recursive
+a/h/b proguard/preverify/CodeSubroutineInliner
+	a (La/b/c;La/b/j;La/b/a/d;II)V inlineSubroutine
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/k;)V visitVariableInstruction
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+	a branchTargetFinder
+	b codeAttributeComposer
+	c subroutineExceptionInliner
+	b (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute0
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	e clipEnd
+	d clipStart
+a/i/a proguard/shrink/AnnotationUsageMarker
+	a (La/b/c;I)V markConstant
+	a (La/b/a/a/a;)Z isReferencedClassUsed
+	a (La/b/a/a/h;)Z isReferencedMethodUsed
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a usageMarker
+	d allClassesUsed
+	b attributeUsed
+	e methodUsed
+	c annotationUsed
+a/i/b proguard/shrink/ClassShrinker
+	a ([La/b/a/b;I)I shrinkBootstrapMethodArray
+	a ([La/b/b/b;I)I shrinkConstantPool
+	a ([La/b/o;I)I shrinkArray
+	a ([La/b/c;)[La/b/c; shrinkToNewArray
+	a ([La/b/b/b;[II)[Z shrinkFlags
+	a (La/b/c;La/b/a/a/a;)V visitAnnotation
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/h;)V visitAnyElementValue
+	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
+	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
+	a (La/b/c;La/b/j;La/b/a/a/j;)V visitAnyParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/m;)V visitProgramMember
+	a usageMarker
+	d constantPoolRemapper
+	e bootstrapMethodRemapper
+	c bootstrapMethodIndexMap
+	b constantIndexMap
+a/i/d proguard/shrink/ClassShrinker$MySignatureCleaner
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/u;)V visitSignatureAttribute
+	a this$0
+a/i/g proguard/shrink/LocalVariableTypeUsageMarker
+	a (La/b/c;I)V markConstant
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/o;)V visitLocalVariableInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/q;)V visitLocalVariableTypeInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a usageMarker
+	b tableUsed
+	c variableInfoUsed
+a/i/k proguard/shrink/ShortestUsageMarker$MyRecursiveCauseChecker
+	a (La/b/o;)V checkCause
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a this$0
+	b checkClass
+	c isRecursing
+a/i/l proguard/shrink/ShortestUsagePrinter
+	a (La/b/o;)V printReason
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/e;La/b/f;)V visitLibraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a shortestUsageMarker
+	b verbose
+	c ps
+a/i/p proguard/shrink/UsageMarker$MyBootStrapMethodUsageMarker
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
+	a (La/b/c;La/b/a/c;)V visitBootstrapMethodsAttribute
+	a this$0
+	b bootstrapMethodIndex
+a/i/r proguard/shrink/UsageMarker$MyInterfaceUsageMarker
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a this$0
+a/i/s proguard/shrink/UsageMarker$MyNonEmptyMethodUsageMarker
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a this$0
+a/i/u proguard/shrink/UsagePrinter
+	a ()V printClassNameHeader
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a usageMarker
+	b printUnusedItems
+	c ps
+	d className
+a/i/v proguard/shrink/UsedClassFilter
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a usageMarker
+	b classVisitor
+a/m proguard/DataEntryReaderFactory
+	a (La/e/m;ZZZLjava/util/List;Ljava/lang/String;)La/e/m; wrapInJarReader
+	a (Ljava/lang/String;La/e;La/e/m;)La/e/m; createDataEntryReader
+a/n proguard/DataEntryWriterFactory
+	a (La/e/o;ZZLjava/lang/String;Ljava/util/List;[BLjava/lang/String;)La/e/o; wrapInJarWriter
+	a (La/e;La/e/o;)La/e/o; createClassPathEntryWriter
+	a (La/d;II)La/e/o; createDataEntryWriter
+	a programClassPool
+	b extraClassNameMap
+a/o proguard/DescriptorKeepChecker
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a (La/b/k;La/b/l;)V visitProgramField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+	a (Ljava/util/List;)V checkClassSpecifications
+	c notePrinter
+	d referencingClass
+	e referencingMember
+	f isField
+	b libraryClassPool
+	a programClassPool
+a/t proguard/GetAnnotationChecker
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a notePrinter
+a/u proguard/GetEnclosingClassChecker
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a notePrinter
+a/v proguard/GetEnclosingMethodChecker
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a notePrinter
+a/w proguard/GetSignatureChecker
+	a (La/b/c;La/b/b/b;)V visitAnyConstant
+	a notePrinter
+a/y proguard/InputReader
+	a (Ljava/lang/String;La/d;La/e/m;)V readInput
+	a (Ljava/lang/String;La/e;La/e/m;)V readInput
+	a (La/b/b;La/b/b;)V execute
+	a (Ljava/lang/String;La/d;IILa/e/m;)V readInput
+	a FAVOR_LIBRARY_CLASSES
+	b configuration
+a/b/c/ab proguard/classfile/editor/CompactCodeAttributeComposer
+	a (La/b/c;La/b/a/a;)V visitAnyAttribute
+	a (La/b/c;La/b/j;La/b/a/d;)V visitCodeAttribute
+	a constantPoolEditor
+	b codeAttributeComposer
+	i ()La/b/c/ab; return_
+	b ()La/b/c/ab; aload_0
+	a ()La/b/c/ab; endCodeFragment
+	h ()La/b/c/ab; areturn
+	g ()La/b/c/ab; dreturn
+	f ()La/b/c/ab; freturn
+	e ()La/b/c/ab; lreturn
+	d ()La/b/c/ab; ireturn
+	c ()La/b/c/ab; dup
+	a (I)La/b/c/ab; beginCodeFragment
+	o (I)La/b/c/ab; checkcast
+	n (I)La/b/c/ab; new_
+	m (I)La/b/c/ab; invokestatic
+	l (I)La/b/c/ab; invokespecial
+	k (I)La/b/c/ab; invokevirtual
+	j (I)La/b/c/ab; putfield
+	i (I)La/b/c/ab; getfield
+	h (I)La/b/c/ab; putstatic
+	g (I)La/b/c/ab; getstatic
+	f (I)La/b/c/ab; aload
+	e (I)La/b/c/ab; dload
+	d (I)La/b/c/ab; fload
+	c (I)La/b/c/ab; lload
+	b (I)La/b/c/ab; iload
+	a (II)La/b/c/ab; invokeinterface
+	b (Ljava/lang/String;)La/b/c/ab; checkcast
+	a (Ljava/lang/String;)La/b/c/ab; new_
+	f (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)La/b/c/ab; invokespecial
+	i (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)La/b/c/ab; invokeinterface
+	a (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)La/b/c/ab; getstatic
+	a (La/b/d/c;)La/b/c/ab; add
+	a (IC)La/b/c/ab; load
+	a (ILjava/lang/String;)La/b/c/ab; load
+	c (Ljava/lang/String;)La/b/c/ab; return_
+	b (Ljava/lang/String;La/b/c;)La/b/c/ab; checkcast
+	a (Ljava/lang/String;La/b/c;)La/b/c/ab; new_
+	b (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)La/b/c/ab; putstatic
+	a (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)La/b/c/ab; getstatic
+	f (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)La/b/c/ab; invokespecial
+	g (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)La/b/c/ab; invokestatic
+	e (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)La/b/c/ab; invokevirtual
+	d (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)La/b/c/ab; putfield
+	c (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)La/b/c/ab; getfield
+	b (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)La/b/c/ab; putstatic
+	h (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;La/b/c;La/b/i;)La/b/c/ab; invokestaticinterface
+	g (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)La/b/c/ab; invokestatic
+	e (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)La/b/c/ab; invokevirtual
+	d (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)La/b/c/ab; putfield
+	c (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)La/b/c/ab; getfield
+a/g/b/l proguard/optimize/info/FieldOptimizationInfo
+	a (La/b/d;)La/g/b/l; getFieldOptimizationInfo
+	a (La/b/c;La/b/d;)V setFieldOptimizationInfo
+	e ()La/d/a/bd; getValue
+	d ()Z canBeMadePrivate
+	a ()Z isKept
+	c ()Z isRead
+	b ()Z isWritten
+a/b/a/a/b/g proguard/classfile/attribute/annotation/visitor/ElementValueVisitor
+	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/f;)V visitClassElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
+	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
+a/d/f proguard/evaluation/InvocationUnit
+	a (La/b/c;La/b/j;La/b/a/d;IILa/d/i;)V enterExceptionHandler
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/b;La/d/i;)V invokeMember
+	a (La/b/c;La/b/j;La/d/l;)V enterMethod
+	b (La/b/c;La/b/j;La/d/a/bd;)V exitMethod
+a/e/o proguard/io/DataEntryWriter
+	a ()V close
+	a (La/e/g;)Z createDirectory
+	a (La/e/g;La/e/g;)Z sameOutputStream
+	b (La/e/g;)Ljava/io/OutputStream; createOutputStream
+a/b/a/a/b/i proguard/classfile/attribute/annotation/visitor/TypePathInfoVisitor
+	a (La/b/c;La/b/a/a/q;La/b/a/a/s;)V visitTypePathInfo
+a/b/a/a/a/a a/b/a/a/a/a
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
