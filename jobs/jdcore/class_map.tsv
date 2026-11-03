@@ -75,3 +75,11 @@ org/c/a/a/b/f/a	org/jd/core/v1/model/token/AbstractNopTokenVisitor	src:整包"�
 org/c/a/a/b/f/b	org/jd/core/v1/model/token/BooleanConstantToken	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
 org/c/a/a/b/f/p	org/jd/core/v1/model/token/Token	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
 org/c/a/a/b/f/q	org/jd/core/v1/model/token/TokenVisitor	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
+org/c/a/a/b/f/d	org/jd/core/v1/model/token/DeclarationToken	src:签名唯一 —— 整包唯一 nm=7，且字段含 1 int + 3 String（对应 DeclarationToken 的 flags/name/descriptor/signature）
+org/c/a/a/b/f/o	org/jd/core/v1/model/token/TextToken	src:签名唯一 —— 全库唯一"String + 30+ 自身类型字段"（31 字段）
+org/c/a/a/b/f/h	org/jd/core/v1/model/token/LineNumberToken	src:签名唯一 —— 包内唯一 (I + 1 个自身类型字段, nm=5)
+org/c/a/a/b/f/i	org/jd/core/v1/model/token/NewLineToken	src:签名唯一 —— 包内唯一 (I + 2 个自身类型字段, nm=5)
+org/c/a/a/b/d/c/b	org/jd/core/v1/model/javasyntax/reference/AnnotationReference	src:签名唯一 —— 包内唯一 3 字段且 nm=10
+org/c/a/a/b/f/g	org/jd/core/v1/model/token/KeywordToken	src:创建点语义 —— 67 处创建，实参是关键字串（"do"/"import"/"public"…），KeywordToken 正是持关键字的 token
+org/c/a/a/b/f/e	org/jd/core/v1/model/token/EndBlockToken	src:创建点语义 —— 实参是块的**结束**符 "}" / "]"，对应 EndBlockToken
+org/c/a/a/b/f/l	org/jd/core/v1/model/token/StartBlockToken	src:创建点语义 —— 实参是块的**开始**符 "{" / "["，对应 StartBlockToken

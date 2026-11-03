@@ -46306,3 +46306,11 @@ org/c/a/a/b/f/p org/jd/core/v1/model/token/Token
 	a (Lorg/c/a/a/b/f/q;)V accept
 org/c/a/a/b/f/q org/jd/core/v1/model/token/TokenVisitor
 	a (Lorg/c/a/a/b/f/b;)V visit
+org/c/a/a/b/f/d org/jd/core/v1/model/token/DeclarationToken
+org/c/a/a/b/f/o org/jd/core/v1/model/token/TextToken
+org/c/a/a/b/f/h org/jd/core/v1/model/token/LineNumberToken
+org/c/a/a/b/f/i org/jd/core/v1/model/token/NewLineToken
+org/c/a/a/b/d/c/b org/jd/core/v1/model/javasyntax/reference/AnnotationReference
+org/c/a/a/b/f/g org/jd/core/v1/model/token/KeywordToken
+org/c/a/a/b/f/e org/jd/core/v1/model/token/EndBlockToken
+org/c/a/a/b/f/l org/jd/core/v1/model/token/StartBlockToken
