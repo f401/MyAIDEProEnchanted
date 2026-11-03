@@ -37056,13 +37056,18 @@ a/b/a/a/b/i proguard/classfile/attribute/annotation/visitor/TypePathInfoVisitor
 		0 clazz clazz
 		1 typeAnnotation typeAnnotation
 		2 typePathInfo typePathInfo
-a/b/a/a/a/a a/b/a/a/a/a
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
-a/b/a/a/a/c proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo
+a/b/a/a/a/a proguard/classfile/attribute/annotation/target/CatchTargetInfo
 	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
 		0 clazz clazz
 		1 typeAnnotation typeAnnotation
 		2 targetInfoVisitor targetInfoVisitor
+	a u2exceptionTableIndex
+a/b/a/a/a/c proguard/classfile/attribute/annotation/target/FormalParameterTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 targetInfoVisitor targetInfoVisitor
+	a u1formalParameterIndex
 a/b/f/g proguard/classfile/util/ClassSubHierarchyInitializer
 	a (La/b/c;La/b/c;)V addSubclass
 		0 subclass subclass
@@ -40651,3 +40656,36 @@ a/g/y proguard/optimize/TailRecursionSimplifier$1
 a/i/c proguard/shrink/ClassShrinker$1
 a/i/j proguard/shrink/ShortestUsageMarker$1
 a/i/o proguard/shrink/UsageMarker$1
+a/b/a/a/a/g proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 targetInfoVisitor targetInfoVisitor
+	a EXTENDS_INDEX
+	b u2superTypeIndex
+a/b/a/a/a/j proguard/classfile/attribute/annotation/target/TypeArgumentTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 targetInfoVisitor targetInfoVisitor
+	a u2offset
+	b u1typeArgumentIndex
+a/b/a/a/a/k proguard/classfile/attribute/annotation/target/TypeParameterBoundTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 targetInfoVisitor targetInfoVisitor
+	a u1typeParameterIndex
+	b u1boundIndex
+a/b/a/a/a/l proguard/classfile/attribute/annotation/target/TypeParameterTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 targetInfoVisitor targetInfoVisitor
+	a u1typeParameterIndex
+a/b/a/a/a/i proguard/classfile/attribute/annotation/target/ThrowsTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/a/b;)V accept
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 targetInfoVisitor targetInfoVisitor
+	a u2throwsTypeIndex

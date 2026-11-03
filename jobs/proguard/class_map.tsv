@@ -523,8 +523,8 @@ a/b/a/a/b/g	proguard/classfile/attribute/annotation/visitor/ElementValueVisitor	
 a/d/f	proguard/evaluation/InvocationUnit	iface:实现的接口集合唯一(6 个实现者)
 a/e/o	proguard/io/DataEntryWriter	iface:实现的接口集合唯一(2 个实现者)
 a/b/a/a/b/i	proguard/classfile/attribute/annotation/visitor/TypePathInfoVisitor	iface:唯一方法形参=(Clazz,TypeAnnotation,TypePathInfo)
-a/b/a/a/a/a	a/b/a/a/a/a	identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）
-a/b/a/a/a/c	proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo	strict:全类型已定名+成员集完全相等
+a/b/a/a/a/a	proguard/classfile/attribute/annotation/target/CatchTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x42→CatchTargetInfo；原判据 "identity" 被推翻
+a/b/a/a/a/c	proguard/classfile/attribute/annotation/target/FormalParameterTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x16→FormalParameterTargetInfo；原判据 "strict" 被推翻
 a/b/f/g	proguard/classfile/util/ClassSubHierarchyInitializer	strict:全类型已定名+成员集完全相等
 a/b/g/a	proguard/classfile/visitor/AllClassVisitor	strict:全类型已定名+成员集完全相等
 a/b/g/ab	proguard/classfile/visitor/FunctionalInterfaceFilter	strict:全类型已定名+成员集完全相等
@@ -717,3 +717,8 @@ a/g/y	proguard/optimize/TailRecursionSimplifier$1	csp:单点剪枝 —— 同包
 a/i/c	proguard/shrink/ClassShrinker$1	csp:单点剪枝 —— 同包 4 个候选里唯一相容（其余：inrefs×2、flags×1）
 a/i/j	proguard/shrink/ShortestUsageMarker$1	csp:单点剪枝 —— 同包 3 个候选里唯一相容（其余：flags×1、inrefs×1）
 a/i/o	proguard/shrink/UsageMarker$1	csp:单点剪枝 —— 同包 2 个候选里唯一相容（其余：flags×1）
+a/b/a/a/a/g	proguard/classfile/attribute/annotation/target/SuperTypeTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x10→SuperTypeTargetInfo
+a/b/a/a/a/j	proguard/classfile/attribute/annotation/target/TypeArgumentTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x47→TypeArgumentTargetInfo
+a/b/a/a/a/k	proguard/classfile/attribute/annotation/target/TypeParameterBoundTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x11→TypeParameterBoundTargetInfo
+a/b/a/a/a/l	proguard/classfile/attribute/annotation/target/TypeParameterTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x00→TypeParameterTargetInfo
+a/b/a/a/a/i	proguard/classfile/attribute/annotation/target/ThrowsTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x17→ThrowsTargetInfo
