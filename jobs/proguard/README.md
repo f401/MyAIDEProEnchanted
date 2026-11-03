@@ -986,3 +986,56 @@ cover(a) 方法 9588/9738 = 98.5%   字段 4945/5052 = 97.9%
 剩 **12 类**：`a/b/c/bp`、`a/b/g/{aa,af,t,y}`、`a/g/b/{ar,av,d,g,j,m}`。
 共同点：都是"同包多个候选 + 彼此形状几乎一样"的过滤器/标记（optimize/info 与 classfile/visitor），
 既不进 switch 也没有常量串，只能靠**谁的哪个方法被谁调用**（下一步：`calls:` 判据 = 被调用者集合）。
+
+## 36) 第二十二轮：剩 12 个靠"body 里调的是哪个 Marker"逐个读出来 → 756 类（99.9%）
+
+这一轮剩下的类都不进 switch、没有常量串，唯一还剩下的信号是**方法体里调了谁**。
+而且这些调用点几乎都指向**已定名的 Marker/Manager**，于是判据变成：
+"它调的那个 Marker 就是它筛的东西"。全部记 `src:`。
+
+### 36.1 `optimize/info` 六个（调 Marker 的过滤器）
+
+```
+a/g/b/ar → SimpleEnumFilter          调 La/g/b/as (SimpleEnumMarker)，两个 ClassVisitor 二选一
+a/g/b/j  → EscapingClassFilter       调 La/g/b/k  (EscapingClassMarker)
+a/g/b/d  → CaughtClassFilter         调 La/g/b/e  (CaughtClassMarker)
+a/g/b/m  → InstanceofClassFilter     调 La/g/b/n  (InstanceofClassMarker)
+a/g/b/av → UnusedParameterMethodFilter 调 La/g/b/ad (ParameterUsageMarker).hasUnusedParameters
+a/g/b/g  → CodeAttributeOptimizationInfo  ← 唯一形态：静态 setter(CodeAttribute)V + 静态 getter 返回自身 + isKept()Z，0 字段
+```
+
+### 36.2 `classfile/visitor` 四个（看 body 的"取反/递归/空实现"）
+
+```
+a/b/g/aa → ExceptionHandlerFilter      读 ExceptionInfo.u2handlerPC 与 start/end 字段比较（另一候选 ExceptionRangeFilter 是调 isApplicable(start,end)）
+a/b/g/y  → ExceptionExcludedOffsetFilter  isApplicable(offset) **取反**才委托（ExceptionOffsetFilter 不取反）
+a/b/g/t  → ConcreteClassDownTraveler   取 accessFlags 判 abstract/interface → 递归 subClasses[i].accept(this)
+a/b/g/af → LibraryClassFilter          visitProgramClass 是空实现，只有 visitLibraryClass 委托
+```
+
+### 36.3 `classfile/editor` 一个（接收者是谁）
+
+```
+a/b/c/bp → SubclassAdder   body: programClass.addSubClass(字段) —— 接收者=被访问的类
+                           SubclassToAdder 恰好相反（拿字段当接收者）
+```
+
+### 36.4 现状
+
+```
+类映射   756 / 757（99.9%）
+成员行   22217    参数行 19374
+门禁     validate ✔ · inherit 0/0/0 · famcheck 0/0 · innercheck ②③ 0
+```
+
+### 36.5 最后 1 个类 `a/j/l`：不是 ProGuard 源码里的类
+
+形态：`private static final StringBuilder` + `print(String)` / `printNewLine()` / `clear()` / `getText()`。
+而 6.0.3 的 `proguard/util/` 里**没有任何类持有 `StringBuilder` 静态字段**
+（`grep -rln "static final StringBuilder" proguard/` → 0 命中；
+`PrintWriterUtil` 是文件版，已由 `a/j/r` 的 `FileOutputStream→BufferedWriter→PrintWriter` 链确认）。
+
+结论：这是 **AIDE 魔改新增**（或另一版 ProGuard 带进来的）工具类，没有 oracle 可比，
+只能按作用命名 —— 建议 `proguard/util/StringBuilderUtil`（`print`/`printNewLine`/`clear`/`getText`）。
+未落库，留待确认是否要按作用名写进 `class_map.tsv`（会出现在产物里，属于"造名"，
+所以先只记录在这里）。

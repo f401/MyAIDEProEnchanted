@@ -45884,3 +45884,80 @@ a/e/c proguard/io/ClassFilter
 a/e/ac proguard/io/NameFilter
 a/e/ad proguard/io/NameFilteredDataEntryWriter
 a/e/p proguard/io/DirectoryFilter
+a/b/c/bp proguard/classfile/editor/SubclassAdder
+	a (La/b/e;)V visitLibraryClass
+		0 libraryClass libraryClass
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a subclass
+a/b/g/aa proguard/classfile/visitor/ExceptionHandlerFilter
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	c exceptionInfoVisitor
+a/b/g/y proguard/classfile/visitor/ExceptionExcludedOffsetFilter
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/h;)V visitExceptionInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 exceptionInfo exceptionInfo
+	a instructionOffset
+	b exceptionInfoVisitor
+a/b/g/t proguard/classfile/visitor/ConcreteClassDownTraveler
+	a (La/b/e;)V visitLibraryClass
+		0 libraryClass libraryClass
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a classVisitor
+a/b/g/af proguard/classfile/visitor/LibraryClassFilter
+	a (La/b/e;)V visitLibraryClass
+		0 libraryClass libraryClass
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a classVisitor
+a/g/b/ar proguard/optimize/info/SimpleEnumFilter
+	a (La/b/e;)V visitLibraryClass
+		0 libraryClass libraryClass
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+a/g/b/j proguard/optimize/info/EscapingClassFilter
+	a (La/b/e;)V visitLibraryClass
+		0 libraryClass libraryClass
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+a/g/b/d proguard/optimize/info/CaughtClassFilter
+	a (La/b/e;)V visitLibraryClass
+		0 libraryClass libraryClass
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a classVisitor
+a/g/b/m proguard/optimize/info/InstanceofClassFilter
+	a (La/b/e;)V visitLibraryClass
+		0 libraryClass libraryClass
+	a (La/b/k;)V visitProgramClass
+		0 programClass programClass
+	a classVisitor
+a/g/b/av proguard/optimize/info/UnusedParameterMethodFilter
+	a (La/b/e;La/b/f;)V visitLibraryField
+		0 libraryClass libraryClass
+		1 libraryField libraryField
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+		0 libraryClass libraryClass
+		1 libraryMethod libraryMethod
+	a (La/b/k;La/b/l;)V visitProgramField
+		0 programClass programClass
+		1 programField programField
+	a (La/b/k;La/b/n;)V visitProgramMethod
+		0 programClass programClass
+		1 programMethod programMethod
+	a memberVisitor
+a/g/b/g proguard/optimize/info/CodeAttributeOptimizationInfo
+	a ()Z isKept
+	a (La/b/a/d;)V setCodeAttributeOptimizationInfo
+		static
+		0 codeAttribute codeAttribute
+	b (La/b/a/d;)La/g/b/g; getCodeAttributeOptimizationInfo
+		static
+		0 codeAttribute codeAttribute

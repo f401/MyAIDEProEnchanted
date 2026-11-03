@@ -743,3 +743,14 @@ a/e/c	proguard/io/ClassFilter	src:常量串 ".class" = ClassConstants.CLASS_FILE
 a/e/ac	proguard/io/NameFilter	src:super=FilteredDataEntryReader 的未占用类里唯一 ≥3 方法的（NameFilter 4 个）
 a/e/ad	proguard/io/NameFilteredDataEntryWriter	src:super=FilteredDataEntryWriter 的未占用类只有它
 a/e/p	proguard/io/DirectoryFilter	src:super=FilteredDataEntryReader 里剩下的那个（1 ≤ 2）
+a/b/c/bp	proguard/classfile/editor/SubclassAdder	src:body=programClass.addSubClass(字段)，接收者是被访问的类；SubclassToAdder 反过来拿字段当接收者
+a/b/g/aa	proguard/classfile/visitor/ExceptionHandlerFilter	src:body 读 ExceptionInfo.u2handlerPC 与 start/end 两字段比较后委托；ExceptionRangeFilter 是调 isApplicable(start,end)
+a/b/g/y	proguard/classfile/visitor/ExceptionExcludedOffsetFilter	src:body 调 isApplicable(offset) 后**取反**才委托（ExceptionOffsetFilter 不取反）
+a/b/g/t	proguard/classfile/visitor/ConcreteClassDownTraveler	src:body 取 accessFlags 判 abstract/interface，命中才递归 subClasses[i].accept(this)，否则委托
+a/b/g/af	proguard/classfile/visitor/LibraryClassFilter	src:body 的 visitProgramClass 是空实现，只有 visitLibraryClass 委托
+a/g/b/ar	proguard/optimize/info/SimpleEnumFilter	src:body 调 La/g/b/as(SimpleEnumMarker) 选两个 ClassVisitor 之一
+a/g/b/j	proguard/optimize/info/EscapingClassFilter	src:body 调 La/g/b/k(EscapingClassMarker)
+a/g/b/d	proguard/optimize/info/CaughtClassFilter	src:body 调 La/g/b/e(CaughtClassMarker)
+a/g/b/m	proguard/optimize/info/InstanceofClassFilter	src:body 调 La/g/b/n(InstanceofClassMarker)
+a/g/b/av	proguard/optimize/info/UnusedParameterMethodFilter	src:body 调 La/g/b/ad(ParameterUsageMarker).hasUnusedParameters
+a/g/b/g	proguard/optimize/info/CodeAttributeOptimizationInfo	src:唯一形态：静态 setter(CodeAttribute)V + 静态 getter 返回自身 + isKept()Z，0 字段
