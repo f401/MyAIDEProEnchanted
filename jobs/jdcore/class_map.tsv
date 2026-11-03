@@ -5,3 +5,16 @@ org/c/a/a/c/c/a/a	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/Jav
 org/c/a/a/c/d/a	org/jd/core/v1/service/layouter/LayoutFragmentProcessor	src:ClassFileToJavaSourceDecompiler.java:24-29 字段 layouter 的声明类型就是它（字段顺序+类型双重锁定）
 org/c/a/a/c/e/a/a	org/jd/core/v1/service/tokenizer/javafragmenttotoken/JavaFragmentToTokenProcessor	src:ClassFileToJavaSourceDecompiler.java:24-29 字段 tokenizer 的声明类型就是它（字段顺序+类型双重锁定）
 org/c/a/a/c/f/a	org/jd/core/v1/service/writer/WriteTokenProcessor	src:ClassFileToJavaSourceDecompiler.java:24-29 字段 writer 的声明类型就是它（字段顺序+类型双重锁定）
+org/c/a/a/b/a/b/b	org/jd/core/v1/model/classfile/constant/ConstantClass	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x7/0x13/0x14 → pswitch → new-instance b
+org/c/a/a/b/a/b/c	org/jd/core/v1/model/classfile/constant/ConstantDouble	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x6 → pswitch → new-instance c
+org/c/a/a/b/a/b/d	org/jd/core/v1/model/classfile/constant/ConstantFloat	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x4 → pswitch → new-instance d
+org/c/a/a/b/a/b/e	org/jd/core/v1/model/classfile/constant/ConstantInteger	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x3 → pswitch → new-instance e
+org/c/a/a/b/a/b/f	org/jd/core/v1/model/classfile/constant/ConstantLong	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x5 → pswitch → new-instance f
+org/c/a/a/b/a/b/g	org/jd/core/v1/model/classfile/constant/ConstantMemberRef	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x9/0xa/0xb/0x11/0x12 → pswitch → new-instance g
+org/c/a/a/b/a/b/h	org/jd/core/v1/model/classfile/constant/ConstantMethodHandle	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0xf → pswitch → new-instance h
+org/c/a/a/b/a/b/i	org/jd/core/v1/model/classfile/constant/ConstantMethodType	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x10 → pswitch → new-instance i
+org/c/a/a/b/a/b/j	org/jd/core/v1/model/classfile/constant/ConstantNameAndType	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0xc → pswitch → new-instance j
+org/c/a/a/b/a/b/k	org/jd/core/v1/model/classfile/constant/ConstantString	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x8 → pswitch → new-instance k
+org/c/a/a/b/a/b/l	org/jd/core/v1/model/classfile/constant/ConstantUtf8	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x1 → pswitch → new-instance l
+org/c/a/a/b/a/b/a	org/jd/core/v1/model/classfile/constant/Constant	hier:abstract 基类，super=Object（13 个类的继承树与 oracle 同形：ConstantValue 的五个子类=Utf8/Double/Float/Integer/Long）
+org/c/a/a/b/a/b/m	org/jd/core/v1/model/classfile/constant/ConstantValue	hier:abstract，super=a（13 个类的继承树与 oracle 同形：ConstantValue 的五个子类=Utf8/Double/Float/Integer/Long）

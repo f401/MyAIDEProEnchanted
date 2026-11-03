@@ -18,3 +18,16 @@ org/c/a/a/c/e/a/a org/jd/core/v1/service/tokenizer/javafragmenttotoken/JavaFragm
 	a (Lorg/c/a/a/b/e/a;)V process
 org/c/a/a/c/f/a org/jd/core/v1/service/writer/WriteTokenProcessor
 	a (Lorg/c/a/a/b/e/a;)V process
+org/c/a/a/b/a/b/b org/jd/core/v1/model/classfile/constant/ConstantClass
+org/c/a/a/b/a/b/c org/jd/core/v1/model/classfile/constant/ConstantDouble
+org/c/a/a/b/a/b/d org/jd/core/v1/model/classfile/constant/ConstantFloat
+org/c/a/a/b/a/b/e org/jd/core/v1/model/classfile/constant/ConstantInteger
+org/c/a/a/b/a/b/f org/jd/core/v1/model/classfile/constant/ConstantLong
+org/c/a/a/b/a/b/g org/jd/core/v1/model/classfile/constant/ConstantMemberRef
+org/c/a/a/b/a/b/h org/jd/core/v1/model/classfile/constant/ConstantMethodHandle
+org/c/a/a/b/a/b/i org/jd/core/v1/model/classfile/constant/ConstantMethodType
+org/c/a/a/b/a/b/j org/jd/core/v1/model/classfile/constant/ConstantNameAndType
+org/c/a/a/b/a/b/k org/jd/core/v1/model/classfile/constant/ConstantString
+org/c/a/a/b/a/b/l org/jd/core/v1/model/classfile/constant/ConstantUtf8
+org/c/a/a/b/a/b/a org/jd/core/v1/model/classfile/constant/Constant
+org/c/a/a/b/a/b/m org/jd/core/v1/model/classfile/constant/ConstantValue

@@ -2467,7 +2467,7 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	a (La/b/c;La/b/d;La/b/a/u;)V visitSignatureAttribute
 	a (La/b/c;La/b/i;La/b/a/u;)V visitSignatureAttribute
 	a (La/b/c;La/b/j;La/b/a/u;)V visitSignatureAttribute
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitTypeParameterTargetInfo
 	a (La/b/c;La/b/a/k;)V visitInnerClassesAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/p;)V visitLocalVariableTableAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/r;)V visitLocalVariableTypeTableAttribute
@@ -2501,25 +2501,25 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/i;)V visitVariablesObjectType
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/q;)V visitVariablesUninitializedType
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
-	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
-	a (La/b/c;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
-	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
-	a (La/b/c;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
 	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
 	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
 	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
-	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/f;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
 	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
-	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/a/x;)V visitSyntheticAttribute
 	a (La/b/c;La/b/b/m;)V visitPackageConstant
 	a (La/b/c;La/b/b/o;)V visitModuleConstant
-	a (La/b/c;La/b/i;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
-	a (La/b/c;La/b/i;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
-	a (La/b/c;La/b/i;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
-	a (La/b/c;La/b/i;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
-	a (La/b/c;La/b/i;La/b/a/f;)V visitSyntheticAttribute
-	a (La/b/c;La/b/i;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/i;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/i;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/i;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/i;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/i;La/b/a/f;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/i;La/b/a/x;)V visitSyntheticAttribute
 	a (La/b/c;La/b/d;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
 	a (La/b/c;La/b/d;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
 	a (La/b/c;La/b/d;La/b/a/f;)V visitDeprecatedAttribute
@@ -2663,10 +2663,10 @@ a/i/n proguard/shrink/UsageMarker
 	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
 	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
 	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
-	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/f;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
 	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
-	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/a/x;)V visitSyntheticAttribute
 	a (La/b/c;La/b/b/m;)V visitPackageConstant
 	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/a/a/b/h proguard/classfile/attribute/annotation/visitor/TypeAnnotationVisitor
@@ -2689,17 +2689,17 @@ a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
 	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
 	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
-	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
-	a (La/b/c;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
-	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
-	a (La/b/c;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
 	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
 	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
 	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
-	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/f;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
 	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
-	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/a/x;)V visitSyntheticAttribute
 	a (La/b/c;La/b/d;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
 	a (La/b/c;La/b/d;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
 	a (La/b/c;La/b/d;La/b/a/f;)V visitDeprecatedAttribute
@@ -3295,7 +3295,7 @@ a/d/e proguard/evaluation/ConstantValueFactory
 	a valueFactory
 	b value
 a/b/a/a/a/a/b proguard/classfile/attribute/annotation/target/visitor/TargetInfoVisitor
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitTypeParameterTargetInfo
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
 	a (La/b/c;La/b/d;La/b/a/a/q;La/b/a/a/a/b;)V visitEmptyTargetInfo
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
@@ -3462,8 +3462,8 @@ a/b/a/a/b/b proguard/classfile/attribute/annotation/visitor/AllElementValueVisit
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/a;)V visitAnnotation
 	a deep
 	b elementValueVisitor
-	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
-	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
 a/b/a/a/b/e proguard/classfile/attribute/annotation/visitor/AnnotationTypeFilter
 	a (Ljava/lang/String;)Z accepted
 	a (La/b/c;La/b/a/a/a;)V visitAnnotation
@@ -3718,10 +3718,10 @@ a/b/c/af proguard/classfile/editor/ConstantPoolRemapper
 	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
 	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
 	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
-	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/f;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
 	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
-	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/a/x;)V visitSyntheticAttribute
 	a (La/b/c;La/b/b/m;)V visitPackageConstant
 	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/c/ah proguard/classfile/editor/ConstantPoolSorter
@@ -3883,14 +3883,14 @@ a/b/c/h proguard/classfile/editor/AttributeAdder
 	i replaceAttributes
 	j constantAdder
 	k attributesEditor
-	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
-	a (La/b/c;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
-	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
-	a (La/b/c;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
-	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/f;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
 	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
-	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/a/x;)V visitSyntheticAttribute
 a/b/c/n proguard/classfile/editor/BootstrapMethodsAttributeEditor
 	a targetBootstrapMethodsAttribute
 	a (La/b/a/b;)I addBootstrapMethodInfo
@@ -4087,7 +4087,7 @@ a/b/e/b proguard/classfile/io/ProgramClassReader
 	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
 	a (La/b/c;La/b/a/a/d;)V visitAnyAnnotationsAttribute
 	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitTypeParameterTargetInfo
 	a (La/b/c;La/b/a/a/q;La/b/a/a/s;)V visitTypePathInfo
 	a (La/b/c;La/b/a/b/g;)V visitRequiresInfo
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
@@ -4151,10 +4151,10 @@ a/b/e/b proguard/classfile/io/ProgramClassReader
 	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
 	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
 	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
-	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/f;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
 	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
-	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/a/x;)V visitSyntheticAttribute
 	a (La/b/c;La/b/b/m;)V visitPackageConstant
 	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/e/c proguard/classfile/io/ProgramClassWriter
@@ -4574,7 +4574,7 @@ a/b/g/p proguard/classfile/visitor/ClassPrinter
 	a (La/b/c;La/b/a/a/a;La/b/a/a/g;)V visitConstantElementValue
 	a (La/b/c;La/b/a/a/a;La/b/a/a/i;)V visitEnumConstantElementValue
 	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
-	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/l;)V visitTypeParameterTargetInfo
 	a (La/b/c;La/b/a/a/q;La/b/a/a/s;)V visitTypePathInfo
 	a (La/b/c;La/b/a/b/g;)V visitRequiresInfo
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
@@ -4644,20 +4644,20 @@ a/b/g/p proguard/classfile/visitor/ClassPrinter
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
-	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
-	a (La/b/c;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
-	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
-	a (La/b/c;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
 	a (La/b/c;La/b/a/b/a;)V visitExportsInfo
 	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
 	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
 	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
 	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
 	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
-	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/f;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
 	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
-	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/a/x;)V visitSyntheticAttribute
 	a (La/b/c;La/b/b/m;)V visitPackageConstant
 	a (La/b/c;La/b/b/o;)V visitModuleConstant
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a;)V visitDoubleType
@@ -6324,10 +6324,10 @@ a/b/e/e proguard/classfile/io/ProgramClassWriter$AttributeBodyWriter
 	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
 	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
 	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
-	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/f;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
 	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
-	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/a/x;)V visitSyntheticAttribute
 a/b/g/ae proguard/classfile/visitor/InitializerMethodFilter
 	a (La/b/c;La/b/i;)La/b/g/aq; applicableMemberVisitor
 	a (La/b/e;La/b/f;)V visitLibraryField

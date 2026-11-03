@@ -70,6 +70,32 @@ org/c/a/a/c/f/a  → .../writer/WriteTokenProcessor        ← f
 探针里对应的唯一 `a(Lorg/c/a/a/b/e/a;)V` 就是它。顺带确认 **`org/c/a/a/b/e/a` = `model/message/Message`**
 （原来贪心对齐把它当成了 `api/printer`，已修正 pkg_map）。
 
+## 第二批：`model/classfile/constant` 13 个类（`src:` + `hier:` 双证）
+
+`DeserializeClassFileProcessor` 旁边的 `org/c/a/a/c/b/a/a`（28 方法）就是常量池解析器，
+它的 `packed-switch`（起始 `0x1`，20 个条目）把 JVM 常量 tag 直接连到 `new-instance`：
+
+```
+tag 1  → b/l      tag 3  → b/e     tag 4  → b/d     tag 5  → b/f     tag 6  → b/c
+tag 7  → b/b      tag 8  → b/k     tag 9,10,11 → b/g   tag 12 → b/j
+tag 15 → b/h      tag 16 → b/i     tag 17,18 → b/g     tag 19,20 → b/b
+tag 2,13,14 → pswitch_0 = 抛 "Invalid constant pool entry"
+```
+
+对照 JVM 常量池定义（1=Utf8, 3=Integer, 4=Float, 5=Long, 6=Double, 7=Class, 8=String,
+9/10/11=Field/Method/InterfaceMethodref, 12=NameAndType, 15=MethodHandle, 16=MethodType）：
+
+```
+b/l=ConstantUtf8  b/e=ConstantInteger  b/d=ConstantFloat   b/f=ConstantLong  b/c=ConstantDouble
+b/b=ConstantClass b/k=ConstantString   b/g=ConstantMemberRef b/j=ConstantNameAndType
+b/h=ConstantMethodHandle  b/i=ConstantMethodType
+```
+
+剩下两个由**继承树**定死（`hier:`）：`b/a` 是 `abstract + super Object` → `Constant`；
+`b/m` 是 `abstract + super b/a` → `ConstantValue`；而 `b/{c,d,e,f,l}` 恰好都 `super b/m`
+（= ConstantValue 的五个子类 Utf8/Double/Float/Integer/Long），`b/{b,g,h,i,j,k}` 都 `super b/a`。
+两条独立证据（tag 分派 + 继承树）完全吻合。
+
 ## 下一步
 
 1. `api/*` 三个小包（Loader/Printer/Decompiler）用 `decompile(Loader,Printer,String)` 的形参类型钉死；
