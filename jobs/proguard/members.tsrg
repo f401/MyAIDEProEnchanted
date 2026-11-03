@@ -2520,6 +2520,34 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	a (La/b/c;La/b/i;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
 	a (La/b/c;La/b/i;La/b/a/f;)V visitSyntheticAttribute
 	a (La/b/c;La/b/i;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/d;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/d;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/d;La/b/a/f;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/d;La/b/a/x;)V visitSyntheticAttribute
+	a (La/b/c;La/b/j;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a;)V visitDoubleType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/b;)V visitFloatType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/d;)V visitIntegerType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/f;)V visitLongType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/h;)V visitNullType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/o;)V visitTopType
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/f;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/j;La/b/a/x;)V visitSyntheticAttribute
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a;)V visitStackDoubleType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/b;)V visitStackFloatType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/d;)V visitStackIntegerType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/f;)V visitStackLongType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/h;)V visitStackNullType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/o;)V visitStackTopType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a;)V visitVariablesDoubleType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/b;)V visitVariablesFloatType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/d;)V visitVariablesIntegerType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/f;)V visitVariablesLongType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/h;)V visitVariablesNullType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/o;)V visitVariablesTopType
 a/d/a/c proguard/evaluation/value/BasicValueFactory
 	e REFERENCE_VALUE
 	e ()La/d/a/ap; createReferenceValue
@@ -2672,6 +2700,16 @@ a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
 	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
 	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
 	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/d;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/d;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/d;La/b/a/f;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/d;La/b/a/x;)V visitSyntheticAttribute
+	a (La/b/c;La/b/j;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/m;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/f;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/j;La/b/a/x;)V visitSyntheticAttribute
 a/b/a/d/j proguard/classfile/attribute/visitor/BootstrapMethodInfoVisitor
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 a/b/a/d/l proguard/classfile/attribute/visitor/ExceptionInfoVisitor
@@ -3271,6 +3309,24 @@ a/b/a/c/a/b proguard/classfile/attribute/preverification/visitor/VerificationTyp
 	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/q;)V visitStackUninitializedType
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/i;)V visitVariablesObjectType
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/q;)V visitVariablesUninitializedType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a;)V visitDoubleType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/b;)V visitFloatType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/d;)V visitIntegerType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/f;)V visitLongType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/h;)V visitNullType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/o;)V visitTopType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a;)V visitStackDoubleType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/b;)V visitStackFloatType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/d;)V visitStackIntegerType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/f;)V visitStackLongType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/h;)V visitStackNullType
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/o;)V visitStackTopType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a;)V visitVariablesDoubleType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/b;)V visitVariablesFloatType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/d;)V visitVariablesIntegerType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/f;)V visitVariablesLongType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/h;)V visitVariablesNullType
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/o;)V visitVariablesTopType
 a/b/a/k proguard/classfile/attribute/InnerClassesAttribute
 	a (La/b/c;La/b/a/d/i;)V accept
 	a (La/b/c;La/b/a/d/m;)V innerClassEntriesAccept
@@ -4604,6 +4660,12 @@ a/b/g/p proguard/classfile/visitor/ClassPrinter
 	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/b/m;)V visitPackageConstant
 	a (La/b/c;La/b/b/o;)V visitModuleConstant
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a;)V visitDoubleType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/b;)V visitFloatType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/d;)V visitIntegerType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/f;)V visitLongType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/h;)V visitNullType
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/o;)V visitTopType
 a/b/g/q proguard/classfile/visitor/ClassVersionFilter
 	a (La/b/e;)V visitLibraryClass
 	a (La/b/k;)V visitProgramClass
@@ -7699,11 +7761,101 @@ a/h/c proguard/preverify/SubroutineInliner
 a/h/d proguard/preverify/Preverifier
 	a (La/b/b;)V execute
 	a configuration
-a/b/d proguard/classfile/Field
-a/b/j proguard/classfile/Method
 a/b/a/b/a/a proguard/classfile/attribute/module/visitor/ExportsInfoVisitor
 	a (La/b/c;La/b/a/b/a;)V visitExportsInfo
 a/b/a/b/a/b proguard/classfile/attribute/module/visitor/OpensInfoVisitor
 	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
 a/b/a/b/a/c proguard/classfile/attribute/module/visitor/ProvidesInfoVisitor
 	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
+a/b/a/f proguard/classfile/attribute/DeprecatedAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+a/b/a/x proguard/classfile/attribute/SyntheticAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+a/b/a/a/m proguard/classfile/attribute/annotation/RuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
+a/b/a/a/p proguard/classfile/attribute/annotation/RuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/d/i;)V accept
+a/b/a/c/a proguard/classfile/attribute/preverification/DoubleType
+	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+a/b/a/c/b proguard/classfile/attribute/preverification/FloatType
+	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+a/b/a/c/d proguard/classfile/attribute/preverification/IntegerType
+	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+a/b/a/c/f proguard/classfile/attribute/preverification/LongType
+	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+a/b/a/c/h proguard/classfile/attribute/preverification/NullType
+	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+a/b/a/c/o proguard/classfile/attribute/preverification/TopType
+	a ()I getTag
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/a/b;)V accept
+	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V stackAccept
+	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/a/b;)V variablesAccept
+a/b/g/ac proguard/classfile/visitor/ImplementedClassConstantFilter
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a implementedClass
+	b constantVisitor
+a/b/g/ad proguard/classfile/visitor/ImplementingClassConstantFilter
+	a (La/b/c;La/b/b/a;)V visitClassConstant
+	a implementingClass
+	b constantVisitor
+a/g/o proguard/optimize/Optimizer$2
+	a ()La/b/g/s; createClassVisitor
+	a this$0
+a/g/p proguard/optimize/Optimizer$3
+	a ()La/b/g/s; createClassVisitor
+	a this$0
+a/g/b/s proguard/optimize/info/NoEscapingParametersMethodMarker
+	a (La/b/j;)V markNoParameterEscaping
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/n;)V visitProgramMethod
+a/g/b/t proguard/optimize/info/NoExternalReturnValuesMethodMarker
+	a (La/b/j;)V markNoExternalReturnValues
+	a (La/b/c;La/b/i;)V visitAnyMember
+	a (La/b/e;La/b/h;)V visitLibraryMethod
+	a (La/b/k;La/b/n;)V visitProgramMethod
+a/g/c/ad proguard/optimize/peephole/HorizontalClassMerger
+	a (La/b/k;)V visitProgramClass
+	c extraClassVisitor
+	b mergeInterfacesAggressively
+	a allowAccessModification
+a/g/c/i proguard/optimize/peephole/VerticalClassMerger
+	a (La/b/k;)V visitProgramClass
+	c extraClassVisitor
+	b mergeInterfacesAggressively
+	a allowAccessModification
+a/g/c/g proguard/optimize/peephole/GotoGotoReplacer
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a codeAttributeEditor
+	b extraInstructionVisitor
+a/g/c/h proguard/optimize/peephole/GotoReturnReplacer
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/a;)V visitBranchInstruction
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+	a codeAttributeEditor
+	b extraInstructionVisitor

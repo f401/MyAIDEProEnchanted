@@ -673,8 +673,26 @@ a/g/a/l	proguard/optimize/evaluation/InstructionUsageMarker$MyExtraPopInstructio
 a/g/a/q	proguard/optimize/evaluation/InstructionUsageMarker$MyStackConsistencyMarker	bij:双射内最优指派(成员集重合0.30)
 a/h/c	proguard/preverify/SubroutineInliner	bij:双射内最优指派(成员集重合0.77)
 a/h/d	proguard/preverify/Preverifier	bij:双射内最优指派(成员集重合0.77)
-a/b/d	proguard/classfile/Field	iface:实现的接口集合唯一(2 个实现者)
-a/b/j	proguard/classfile/Method	iface:实现的接口集合唯一(2 个实现者)
 a/b/a/b/a/a	proguard/classfile/attribute/module/visitor/ExportsInfoVisitor	iface:唯一方法形参=ExportsInfo(a/b/a/b/a 已定名)
 a/b/a/b/a/b	proguard/classfile/attribute/module/visitor/OpensInfoVisitor	iface:唯一方法形参=OpensInfo(a/b/a/b/e 已定名)
 a/b/a/b/a/c	proguard/classfile/attribute/module/visitor/ProvidesInfoVisitor	iface:唯一方法形参=ProvidesInfo(a/b/a/b/f 已定名)
+a/b/a/f	proguard/classfile/attribute/DeprecatedAttribute	iso:同形组(2)按名序配对——无判别证据
+a/b/a/x	proguard/classfile/attribute/SyntheticAttribute	iso:同形组(2)按名序配对——无判别证据
+a/b/a/a/m	proguard/classfile/attribute/annotation/RuntimeInvisibleTypeAnnotationsAttribute	iso:同形组(2)按名序配对——无判别证据
+a/b/a/a/p	proguard/classfile/attribute/annotation/RuntimeVisibleTypeAnnotationsAttribute	iso:同形组(2)按名序配对——无判别证据
+a/b/a/c/a	proguard/classfile/attribute/preverification/DoubleType	iso:同形组(6)按名序配对——无判别证据
+a/b/a/c/b	proguard/classfile/attribute/preverification/FloatType	iso:同形组(6)按名序配对——无判别证据
+a/b/a/c/d	proguard/classfile/attribute/preverification/IntegerType	iso:同形组(6)按名序配对——无判别证据
+a/b/a/c/f	proguard/classfile/attribute/preverification/LongType	iso:同形组(6)按名序配对——无判别证据
+a/b/a/c/h	proguard/classfile/attribute/preverification/NullType	iso:同形组(6)按名序配对——无判别证据
+a/b/a/c/o	proguard/classfile/attribute/preverification/TopType	iso:同形组(6)按名序配对——无判别证据
+a/b/g/ac	proguard/classfile/visitor/ImplementedClassConstantFilter	iso:同形组(2)按名序配对——无判别证据
+a/b/g/ad	proguard/classfile/visitor/ImplementingClassConstantFilter	iso:同形组(2)按名序配对——无判别证据
+a/g/o	proguard/optimize/Optimizer$2	iso:同形组(2)按名序配对——无判别证据
+a/g/p	proguard/optimize/Optimizer$3	iso:同形组(2)按名序配对——无判别证据
+a/g/b/s	proguard/optimize/info/NoEscapingParametersMethodMarker	iso:同形组(2)按名序配对——无判别证据
+a/g/b/t	proguard/optimize/info/NoExternalReturnValuesMethodMarker	iso:同形组(2)按名序配对——无判别证据
+a/g/c/ad	proguard/optimize/peephole/HorizontalClassMerger	iso:同形组(2)按名序配对——无判别证据
+a/g/c/i	proguard/optimize/peephole/VerticalClassMerger	iso:同形组(2)按名序配对——无判别证据
+a/g/c/g	proguard/optimize/peephole/GotoGotoReplacer	iso:同形组(2)按名序配对——无判别证据
+a/g/c/h	proguard/optimize/peephole/GotoReturnReplacer	iso:同形组(2)按名序配对——无判别证据
