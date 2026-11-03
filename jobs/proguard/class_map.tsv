@@ -678,8 +678,8 @@ a/b/a/b/a/b	proguard/classfile/attribute/module/visitor/OpensInfoVisitor	iface:�
 a/b/a/b/a/c	proguard/classfile/attribute/module/visitor/ProvidesInfoVisitor	iface:唯一方法形参=ProvidesInfo(a/b/a/b/f 已定名)
 a/b/a/f	proguard/classfile/attribute/DeprecatedAttribute	iso:与 a/b/a/x 逐字节同形(仅类名不同)——源码唯一差别是 ATTRIBUTE_NAME 常量串，已被内联，无判别信息
 a/b/a/x	proguard/classfile/attribute/SyntheticAttribute	iso:与 a/b/a/f 逐字节同形(仅类名不同)——源码唯一差别是 ATTRIBUTE_NAME 常量串，已被内联，无判别信息
-a/b/a/a/m	proguard/classfile/attribute/annotation/RuntimeInvisibleTypeAnnotationsAttribute	iso:与 a/b/a/a/p 逐字节同形(仅类名不同)——源码唯一差别是 ATTRIBUTE_NAME 常量串，已被内联，无判别信息
-a/b/a/a/p	proguard/classfile/attribute/annotation/RuntimeVisibleTypeAnnotationsAttribute	iso:与 a/b/a/a/m 逐字节同形(仅类名不同)——源码唯一差别是 ATTRIBUTE_NAME 常量串，已被内联，无判别信息
+a/b/a/a/m	proguard/classfile/attribute/annotation/RuntimeInvisibleTypeAnnotationsAttribute	src:同上比较链 attributeName.equals("RuntimeInvisibleTypeAnnotations") 后紧跟 new-instance（原 iso 配对由此被证实）
+a/b/a/a/p	proguard/classfile/attribute/annotation/RuntimeVisibleTypeAnnotationsAttribute	src:同上比较链 attributeName.equals("RuntimeVisibleTypeAnnotations") 后紧跟 new-instance（原 iso 配对由此被证实）
 a/b/a/c/a	proguard/classfile/attribute/preverification/DoubleType	tag:getTag() 返常量 0x3=DOUBLE_TYPE（VerificationType.java:35-43）
 a/b/a/c/b	proguard/classfile/attribute/preverification/FloatType	tag:getTag() 返常量 0x2=FLOAT_TYPE（VerificationType.java:35-43）
 a/b/a/c/d	proguard/classfile/attribute/preverification/IntegerType	tag:getTag() 返常量 0x1=INTEGER_TYPE（VerificationType.java:35-43）
@@ -722,3 +722,7 @@ a/b/a/a/a/j	proguard/classfile/attribute/annotation/target/TypeArgumentTargetInf
 a/b/a/a/a/k	proguard/classfile/attribute/annotation/target/TypeParameterBoundTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x11→TypeParameterBoundTargetInfo
 a/b/a/a/a/l	proguard/classfile/attribute/annotation/target/TypeParameterTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x00→TypeParameterTargetInfo
 a/b/a/a/a/i	proguard/classfile/attribute/annotation/target/ThrowsTargetInfo	src:ProgramClassReader.java:1331-1358 sparse-switch（targetType 常量→new）——0x17→ThrowsTargetInfo
+a/b/a/a/n	proguard/classfile/attribute/annotation/RuntimeVisibleAnnotationsAttribute	src:ProgramClassReader.readAttribute（1276-1279）里 attributeName.equals("RuntimeVisibleAnnotations") 后紧跟 new-instance；常量串被内联，比较链的落点是硬证据
+a/b/a/a/k	proguard/classfile/attribute/annotation/RuntimeInvisibleAnnotationsAttribute	src:ProgramClassReader.readAttribute（1276-1279）里 attributeName.equals("RuntimeInvisibleAnnotations") 后紧跟 new-instance；常量串被内联，比较链的落点是硬证据
+a/b/a/a/o	proguard/classfile/attribute/annotation/RuntimeVisibleParameterAnnotationsAttribute	src:ProgramClassReader.readAttribute（1276-1279）里 attributeName.equals("RuntimeVisibleParameterAnnotations") 后紧跟 new-instance；常量串被内联，比较链的落点是硬证据
+a/b/a/a/l	proguard/classfile/attribute/annotation/RuntimeInvisibleParameterAnnotationsAttribute	src:ProgramClassReader.readAttribute（1276-1279）里 attributeName.equals("RuntimeInvisibleParameterAnnotations") 后紧跟 new-instance；常量串被内联，比较链的落点是硬证据

@@ -40689,3 +40689,19 @@ a/b/a/a/a/i proguard/classfile/attribute/annotation/target/ThrowsTargetInfo
 		1 typeAnnotation typeAnnotation
 		2 targetInfoVisitor targetInfoVisitor
 	a u2throwsTypeIndex
+a/b/a/a/n proguard/classfile/attribute/annotation/RuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+a/b/a/a/k proguard/classfile/attribute/annotation/RuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+		0 clazz clazz
+		1 attributeVisitor attributeVisitor
+	a (La/b/c;La/b/d;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+a/b/a/a/o proguard/classfile/attribute/annotation/RuntimeVisibleParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
+a/b/a/a/l proguard/classfile/attribute/annotation/RuntimeInvisibleParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/d/i;)V accept
