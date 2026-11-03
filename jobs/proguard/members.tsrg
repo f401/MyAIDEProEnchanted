@@ -7863,3 +7863,23 @@ a/b/g/bn proguard/classfile/visitor/SubclassTraveler
 	a (La/b/e;)V visitLibraryClass
 	a (La/b/k;)V visitProgramClass
 	a classVisitor
+a/ag proguard/ParseException
+a/al proguard/UpToDateChecker$1
+a/b/c/b proguard/classfile/editor/AccessFixer$1
+a/b/c/w proguard/classfile/editor/CodeAttributeEditor$1
+a/b/e/d proguard/classfile/io/ProgramClassWriter$1
+a/b/f/m proguard/classfile/util/DynamicMemberReferenceInitializer$1
+a/b/f/s proguard/classfile/util/MemberFinder$1
+a/b/g/ba proguard/classfile/visitor/ParallelAllClassVisitor$1
+a/e/an proguard/io/ZipOutput$1
+a/f/d proguard/obfuscate/ClassObfuscator$1
+a/g/a/b proguard/optimize/evaluation/EvaluationShrinker$1
+a/g/a/k proguard/optimize/evaluation/InstructionUsageMarker$1
+a/g/a/w proguard/optimize/evaluation/PartialEvaluator$1
+a/g/c/af proguard/optimize/peephole/WildcardConstantFilter$1
+a/g/c/d proguard/optimize/peephole/ClassMerger$1
+a/g/c/l proguard/optimize/peephole/InstructionSequenceReplacer$1
+a/g/y proguard/optimize/TailRecursionSimplifier$1
+a/i/c proguard/shrink/ClassShrinker$1
+a/i/j proguard/shrink/ShortestUsageMarker$1
+a/i/o proguard/shrink/UsageMarker$1

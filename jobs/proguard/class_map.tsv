@@ -697,3 +697,23 @@ a/g/c/i	proguard/optimize/peephole/HorizontalClassMerger	body:visitProgramClass 
 a/g/c/g	proguard/optimize/peephole/GotoGotoReplacer	body:比对 opcode==OP_GOTO 后 new BranchInstruction(合并跳转)；源码 GotoGotoReplacer
 a/g/c/h	proguard/optimize/peephole/GotoReturnReplacer	body:switch 命中 6 个 OP_*RETURN 后 new SimpleInstruction(替换为 return)；源码 GotoReturnReplacer
 a/b/g/bn	proguard/classfile/visitor/SubclassTraveler	body:visitProgramClass 只做 programClass.subclassesAccept(字段)——无包装无标志位；且该路径只被 a/g/c/i 引用；SubclassTraveler 源码逐项对应
+a/ag	proguard/ParseException	csp:单点剪枝 —— 同包 4 个候选里唯一相容（其余：flags×2、mskel×1）
+a/al	proguard/UpToDateChecker$1	csp:单点剪枝 —— 同包 3 个候选里唯一相容（其余：flags×2）
+a/b/c/b	proguard/classfile/editor/AccessFixer$1	csp:单点剪枝 —— 同包 8 个候选里唯一相容（其余：flags×6、inrefs×1）
+a/b/c/w	proguard/classfile/editor/CodeAttributeEditor$1	csp:单点剪枝 —— 同包 7 个候选里唯一相容（其余：flags×6）
+a/b/e/d	proguard/classfile/io/ProgramClassWriter$1	csp:单点剪枝 —— 同包 1 个候选里唯一相容（其余：）
+a/b/f/m	proguard/classfile/util/DynamicMemberReferenceInitializer$1	csp:单点剪枝 —— 同包 4 个候选里唯一相容（其余：flags×1、super×1、inrefs×1）
+a/b/f/s	proguard/classfile/util/MemberFinder$1	csp:单点剪枝 —— 同包 3 个候选里唯一相容（其余：flags×1、super×1）
+a/b/g/ba	proguard/classfile/visitor/ParallelAllClassVisitor$1	csp:单点剪枝 —— 同包 18 个候选里唯一相容（其余：flags×17）
+a/e/an	proguard/io/ZipOutput$1	csp:单点剪枝 —— 同包 11 个候选里唯一相容（其余：flags×9、super×1）
+a/f/d	proguard/obfuscate/ClassObfuscator$1	csp:单点剪枝 —— 同包 3 个候选里唯一相容（其余：flags×2）
+a/g/a/b	proguard/optimize/evaluation/EvaluationShrinker$1	csp:单点剪枝 —— 同包 3 个候选里唯一相容（其余：inrefs×2）
+a/g/a/k	proguard/optimize/evaluation/InstructionUsageMarker$1	csp:单点剪枝 —— 同包 2 个候选里唯一相容（其余：inrefs×1）
+a/g/a/w	proguard/optimize/evaluation/PartialEvaluator$1	csp:单点剪枝 —— 同包 1 个候选里唯一相容（其余：）
+a/g/c/af	proguard/optimize/peephole/WildcardConstantFilter$1	csp:单点剪枝 —— 同包 4 个候选里唯一相容（其余：inrefs×2、flags×1）
+a/g/c/d	proguard/optimize/peephole/ClassMerger$1	csp:单点剪枝 —— 同包 3 个候选里唯一相容（其余：flags×1、inrefs×1）
+a/g/c/l	proguard/optimize/peephole/InstructionSequenceReplacer$1	csp:单点剪枝 —— 同包 2 个候选里唯一相容（其余：flags×1）
+a/g/y	proguard/optimize/TailRecursionSimplifier$1	csp:单点剪枝 —— 同包 3 个候选里唯一相容（其余：flags×2）
+a/i/c	proguard/shrink/ClassShrinker$1	csp:单点剪枝 —— 同包 4 个候选里唯一相容（其余：inrefs×2、flags×1）
+a/i/j	proguard/shrink/ShortestUsageMarker$1	csp:单点剪枝 —— 同包 3 个候选里唯一相容（其余：flags×1、inrefs×1）
+a/i/o	proguard/shrink/UsageMarker$1	csp:单点剪枝 —— 同包 2 个候选里唯一相容（其余：flags×1）
