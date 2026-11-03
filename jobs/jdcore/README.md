@@ -124,6 +124,25 @@ InnerClasses→j
 顺带发现：`"Invalid element value type:"` 后面那一串 `new-instance`（`y,z,aa,ab,ac,ad,af,ag,ah,ai,aj,ak,al,am,an`）
 就是 `ElementValue*` 家族的分派表，下一轮直接按 element_value tag 读出来。
 
+## 第四批：`model/classfile/attribute` **包内 40/40 全部定名**
+
+剩余 15 个用"**字段类型多重集**"一次配完（全包 40 个类的字段类型组合互不相同），
+其中几处是**被已定名类的字段类型反查**，属硬判据：
+
+```
+AttributeLocalVariableTable 的字段类型是 [La/b/a/a/ah;  → ah = LocalVariable
+AttributeLocalVariableTypeTable 的字段是 [La/b/a/a/ai;  → ai = LocalVariableType
+Annotation(a) 的字段是 [La/b/a/a/ac;                   → ac = ElementValuePair
+ElementValueArrayValue(z) 的字段是 [La/b/a/a/x;         → x  = ElementValue（唯一只有 abstract accept(ElementValueVisitor)）
+ElementValueAnnotationValue(y) 的字段是 La/b/a/a/a;      → a  = Annotation
+```
+
+其余按字段组合唯一：`g=AttributeConstantValue`(ConstantValue)、`ad=ElementValuePrimitiveType`(I+ConstantValue)、
+`aa=ElementValueClassInfo`(String)、`ab=ElementValueEnumConstValue`(String+String)、
+`ae=ElementValueVisitor`(0 字段/5 方法)、`an=UnknownAttribute`(0/1，switch 的 default)、
+`h=AttributeDeprecated`、`u=AttributeSynthetic`（这两个 0 字段/1 方法**逐字节同形**，靠源码 `case` 顺序
+`:261 Deprecated` → `:320 Synthetic` 与创建点顺序 `h(1401)` → `u(1444)` 定；即使互换也不影响行为）。
+
 ## 第三条自动信号：创建点签名（`tools/deob/ctorsig.py`）—— 仍然不够
 
 思路：**谁 `new` 它 + 用什么构造器参数**是改名不变的关系，把两侧都抽出来做多重集匹配。

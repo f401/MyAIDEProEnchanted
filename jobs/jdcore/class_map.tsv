@@ -52,3 +52,18 @@ org/c/a/a/b/a/a/d	org/jd/core/v1/model/classfile/attribute/AttributeAnnotationDe
 org/c/a/a/b/a/a/l	org/jd/core/v1/model/classfile/attribute/AttributeLocalVariableTable	src:ClassFileDeserializer 的 case "LocalVariableTable" 分支 new AttributeLocalVariableTable(...)；字节码侧同一条 const-string 后紧跟 new-instance l
 org/c/a/a/b/a/a/k	org/jd/core/v1/model/classfile/attribute/AttributeLineNumberTable	src:ClassFileDeserializer 的 case "LineNumberTable" 分支 new AttributeLineNumberTable(...)；字节码侧同一条 const-string 后紧跟 new-instance k
 org/c/a/a/b/a/a/j	org/jd/core/v1/model/classfile/attribute/AttributeInnerClasses	src:ClassFileDeserializer 的 case "InnerClasses" 分支 new AttributeInnerClasses(...)；字节码侧同一条 const-string 后紧跟 new-instance j
+org/c/a/a/b/a/a/a	org/jd/core/v1/model/classfile/attribute/Annotation	src:字段=String+Annotation[]（=a↔ac 数组），与 Annotation 唯一相等
+org/c/a/a/b/a/a/aa	org/jd/core/v1/model/classfile/attribute/ElementValueClassInfo	src:字段=String、3 方法，唯一
+org/c/a/a/b/a/a/ab	org/jd/core/v1/model/classfile/attribute/ElementValueEnumConstValue	src:字段=String+String、4 方法，唯一
+org/c/a/a/b/a/a/ac	org/jd/core/v1/model/classfile/attribute/ElementValuePair	src:字段=String+ElementValue（=x），3 方法，唯一；且被 Annotation(a) 的数组字段引用
+org/c/a/a/b/a/a/ad	org/jd/core/v1/model/classfile/attribute/ElementValuePrimitiveType	src:字段=I+ConstantValue，唯一
+org/c/a/a/b/a/a/ae	org/jd/core/v1/model/classfile/attribute/ElementValueVisitor	src:0 字段/5 方法，接口族里唯一
+org/c/a/a/b/a/a/ah	org/jd/core/v1/model/classfile/attribute/LocalVariable	src:字段=III+String+String；被已定名的 AttributeLocalVariableTable(l) 的数组字段引用
+org/c/a/a/b/a/a/ai	org/jd/core/v1/model/classfile/attribute/LocalVariableType	src:同上形态；被已定名的 AttributeLocalVariableTypeTable(m) 的数组字段引用
+org/c/a/a/b/a/a/an	org/jd/core/v1/model/classfile/attribute/UnknownAttribute	src:0 字段/1 方法，属性 switch 的 default 分支（源码 :326）
+org/c/a/a/b/a/a/g	org/jd/core/v1/model/classfile/attribute/AttributeConstantValue	src:字段=ConstantValue，唯一
+org/c/a/a/b/a/a/h	org/jd/core/v1/model/classfile/attribute/AttributeDeprecated	src:0 字段/1 方法；源码 case 顺序 Deprecated(:261) 在 Synthetic(:320) 之前，对应创建点 h(1401) 在 u(1444) 之前
+org/c/a/a/b/a/a/u	org/jd/core/v1/model/classfile/attribute/AttributeSynthetic	src:同上顺序（Synthetic :320 对应 u(1444)）。注意 Deprecated/Synthetic 逐字节同形，此处靠顺序定，互换不影响行为
+org/c/a/a/b/a/a/x	org/jd/core/v1/model/classfile/attribute/ElementValue	src:唯一只有 abstract accept(ElementValueVisitor)
+org/c/a/a/b/a/a/y	org/jd/core/v1/model/classfile/attribute/ElementValueAnnotationValue	src:字段=Annotation（=a），3 方法
+org/c/a/a/b/a/a/z	org/jd/core/v1/model/classfile/attribute/ElementValueArrayValue	src:字段=ElementValue[]（=x[]），3 方法

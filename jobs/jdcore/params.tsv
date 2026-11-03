@@ -1,0 +1,7 @@
+# 参数名：从 oracle jar 的 LocalVariableTable 取（index 是实参序号，0 起、不含 this）
+# owner	name	desc	index	param	src
+org/c/a/a/b/a/a/aa	a	(Lorg/c/a/a/b/a/a/ae;)V	0	visitor	jd-core-1.1.3
+org/c/a/a/b/a/a/ab	a	(Lorg/c/a/a/b/a/a/ae;)V	0	visitor	jd-core-1.1.3
+org/c/a/a/b/a/a/ad	a	(Lorg/c/a/a/b/a/a/ae;)V	0	visitor	jd-core-1.1.3
+org/c/a/a/b/a/a/y	a	(Lorg/c/a/a/b/a/a/ae;)V	0	visitor	jd-core-1.1.3
+org/c/a/a/b/a/a/z	a	(Lorg/c/a/a/b/a/a/ae;)V	0	visitor	jd-core-1.1.3

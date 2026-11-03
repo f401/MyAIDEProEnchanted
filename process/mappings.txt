@@ -46244,3 +46244,48 @@ org/c/a/a/b/a/a/d org/jd/core/v1/model/classfile/attribute/AttributeAnnotationDe
 org/c/a/a/b/a/a/l org/jd/core/v1/model/classfile/attribute/AttributeLocalVariableTable
 org/c/a/a/b/a/a/k org/jd/core/v1/model/classfile/attribute/AttributeLineNumberTable
 org/c/a/a/b/a/a/j org/jd/core/v1/model/classfile/attribute/AttributeInnerClasses
+org/c/a/a/b/a/a/a org/jd/core/v1/model/classfile/attribute/Annotation
+	b ()[Lorg/c/a/a/b/a/a/ac; getElementValuePairs
+	b elementValuePairs
+org/c/a/a/b/a/a/aa org/jd/core/v1/model/classfile/attribute/ElementValueClassInfo
+	a (Lorg/c/a/a/b/a/a/ae;)V accept
+		0 visitor visitor
+org/c/a/a/b/a/a/ab org/jd/core/v1/model/classfile/attribute/ElementValueEnumConstValue
+	a (Lorg/c/a/a/b/a/a/ae;)V accept
+		0 visitor visitor
+org/c/a/a/b/a/a/ac org/jd/core/v1/model/classfile/attribute/ElementValuePair
+	b ()Lorg/c/a/a/b/a/a/x; getElementValue
+	b elementValue
+org/c/a/a/b/a/a/ad org/jd/core/v1/model/classfile/attribute/ElementValuePrimitiveType
+	a ()I getType
+	b ()Lorg/c/a/a/b/a/b/m; getConstValue
+	a (Lorg/c/a/a/b/a/a/ae;)V accept
+		0 visitor visitor
+	a type
+	b constValue
+org/c/a/a/b/a/a/ae org/jd/core/v1/model/classfile/attribute/ElementValueVisitor
+	a (Lorg/c/a/a/b/a/a/ad;)V visit
+	a (Lorg/c/a/a/b/a/a/aa;)V visit
+	a (Lorg/c/a/a/b/a/a/y;)V visit
+	a (Lorg/c/a/a/b/a/a/ab;)V visit
+	a (Lorg/c/a/a/b/a/a/z;)V visit
+org/c/a/a/b/a/a/ah org/jd/core/v1/model/classfile/attribute/LocalVariable
+org/c/a/a/b/a/a/ai org/jd/core/v1/model/classfile/attribute/LocalVariableType
+org/c/a/a/b/a/a/an org/jd/core/v1/model/classfile/attribute/UnknownAttribute
+org/c/a/a/b/a/a/g org/jd/core/v1/model/classfile/attribute/AttributeConstantValue
+	a ()Lorg/c/a/a/b/a/b/m; getConstantValue
+	a constantValue
+org/c/a/a/b/a/a/h org/jd/core/v1/model/classfile/attribute/AttributeDeprecated
+org/c/a/a/b/a/a/u org/jd/core/v1/model/classfile/attribute/AttributeSynthetic
+org/c/a/a/b/a/a/x org/jd/core/v1/model/classfile/attribute/ElementValue
+	a (Lorg/c/a/a/b/a/a/ae;)V accept
+org/c/a/a/b/a/a/y org/jd/core/v1/model/classfile/attribute/ElementValueAnnotationValue
+	a ()Lorg/c/a/a/b/a/a/a; getAnnotationValue
+	a (Lorg/c/a/a/b/a/a/ae;)V accept
+		0 visitor visitor
+	a annotationValue
+org/c/a/a/b/a/a/z org/jd/core/v1/model/classfile/attribute/ElementValueArrayValue
+	a ()[Lorg/c/a/a/b/a/a/x; getValues
+	a (Lorg/c/a/a/b/a/a/ae;)V accept
+		0 visitor visitor
+	a values
