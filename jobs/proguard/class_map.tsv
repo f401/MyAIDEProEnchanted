@@ -639,3 +639,22 @@ a/i/t	proguard/shrink/UsageMarker$MyPossiblyUsedMemberUsageMarker	strict:全类�
 a/j/a	proguard/util/AndMatcher	strict:全类型已定名+成员集完全相等
 a/d/a/t	proguard/evaluation/value/DoubleValue	refs:Jaccard0.38(3 个公共引用)
 a/d/a/u	proguard/evaluation/value/FloatValue	refs:Jaccard0.38(3 个公共引用)
+a/d/a/af	proguard/evaluation/value/LongValue	who:引用者Jaccard0.57(20 公共引用者)
+a/d/a/ak	proguard/evaluation/value/ParticularDoubleValue	who:引用者Jaccard0.33(2 公共引用者)
+a/d/a/al	proguard/evaluation/value/ParticularFloatValue	who:引用者Jaccard0.33(2 公共引用者)
+a/d/a/at	proguard/evaluation/value/SpecificLongValue	who:引用者Jaccard0.44(4 公共引用者)
+a/d/a/ag	proguard/evaluation/value/NegatedDoubleValue	strict:全类型已定名+成员集完全相等
+a/d/a/ah	proguard/evaluation/value/NegatedFloatValue	strict:全类型已定名+成员集完全相等
+a/d/a/aj	proguard/evaluation/value/NegatedLongValue	strict:全类型已定名+成员集完全相等
+a/d/a/ay	proguard/evaluation/value/UnknownDoubleValue	strict:全类型已定名+成员集完全相等
+a/d/a/az	proguard/evaluation/value/UnknownFloatValue	strict:全类型已定名+成员集完全相等
+a/d/a/ba	proguard/evaluation/value/UnknownIntegerValue	strict:全类型已定名+成员集完全相等
+a/d/a/bb	proguard/evaluation/value/UnknownLongValue	strict:全类型已定名+成员集完全相等
+a/d/a/g	proguard/evaluation/value/CompositeDoubleValue	strict:全类型已定名+成员集完全相等
+a/d/a/h	proguard/evaluation/value/CompositeFloatValue	strict:全类型已定名+成员集完全相等
+a/d/a/j	proguard/evaluation/value/CompositeLongValue	strict:全类型已定名+成员集完全相等
+a/d/a/am	proguard/evaluation/value/ParticularIntegerValue	pkg:互为最优 0.75
+a/d/a/an	proguard/evaluation/value/ParticularLongValue	pkg:互为最优 0.75
+a/d/a/k	proguard/evaluation/value/ConvertedByteValue	pkg:互为最优 1.00
+a/d/a/l	proguard/evaluation/value/ConvertedCharacterValue	pkg:互为最优 1.00
+a/d/a/q	proguard/evaluation/value/ConvertedShortValue	pkg:互为最优 1.00

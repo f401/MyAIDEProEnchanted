@@ -26821,6 +26821,7 @@ a/d/i proguard/evaluation/Stack
 	d ()La/d/a/ae; ipop
 	f ()La/d/a/u; fpop
 	g ()La/d/a/t; dpop
+	e ()La/d/a/af; lpop
 a/e proguard/ClassPathEntry
 	a file
 	a ()Ljava/lang/String; getName
@@ -29236,6 +29237,7 @@ a/d/a/bd proguard/evaluation/value/Value
 	r ()La/d/a/ae; integerValue
 	i ()La/d/a/t; doubleValue
 	l ()La/d/a/u; floatValue
+	k_ ()La/d/a/af; longValue
 a/d/a/m proguard/evaluation/value/ConvertedDoubleValue
 	a value
 a/d/a/n proguard/evaluation/value/ConvertedFloatValue
@@ -29292,6 +29294,8 @@ a/d/l proguard/evaluation/Variables
 	g (I)La/d/a/u; fload
 		0 index index
 	h (I)La/d/a/t; dload
+		0 index index
+	f (I)La/d/a/af; lload
 		0 index index
 a/e/h proguard/io/DataEntryCopier
 	a (Ljava/io/InputStream;Ljava/io/OutputStream;)V copyData
@@ -29910,6 +29914,9 @@ a/d/a/ap proguard/evaluation/value/ReferenceValue
 	d (La/d/a/ae;La/d/a/be;)La/d/a/t; doubleArrayLoad
 		0 indexValue indexValue
 		1 valueFactory valueFactory
+	b (La/d/a/ae;La/d/a/be;)La/d/a/af; longArrayLoad
+		0 indexValue indexValue
+		1 valueFactory valueFactory
 a/e/ak proguard/io/WrappedDataEntry
 	a ()Ljava/lang/String; getName
 	b ()Z isDirectory
@@ -30072,6 +30079,9 @@ a/d/a/av proguard/evaluation/value/TracedReferenceValue
 		0 indexValue indexValue
 		1 valueFactory valueFactory
 	d (La/d/a/ae;La/d/a/be;)La/d/a/t; doubleArrayLoad
+		0 indexValue indexValue
+		1 valueFactory valueFactory
+	b (La/d/a/ae;La/d/a/be;)La/d/a/af; longArrayLoad
 		0 indexValue indexValue
 		1 valueFactory valueFactory
 a/d/a/aw proguard/evaluation/value/TypedReferenceValue
@@ -30609,6 +30619,9 @@ a/d/a/c proguard/evaluation/value/BasicValueFactory
 		0 value value
 	c ()La/d/a/u; createFloatValue
 	d ()La/d/a/t; createDoubleValue
+	a (J)La/d/a/af; createLongValue
+		0 value value
+	b ()La/d/a/af; createLongValue
 a/d/a/d proguard/evaluation/value/Category1Value
 	a ()La/d/a/d; category1Value
 	b ()Z isCategory2
@@ -31031,6 +31044,9 @@ a/d/a/be proguard/evaluation/value/ValueFactory
 		0 value value
 	c ()La/d/a/u; createFloatValue
 	d ()La/d/a/t; createDoubleValue
+	a (J)La/d/a/af; createLongValue
+		0 value value
+	b ()La/d/a/af; createLongValue
 a/d/c proguard/evaluation/BranchUnit
 	a (La/b/c;La/b/a/d;II)V branch
 		0 clazz clazz
@@ -34789,6 +34805,9 @@ a/g/a/aa proguard/optimize/evaluation/ReferenceTracingValueFactory
 		0 value value
 	c ()La/d/a/u; createFloatValue
 	d ()La/d/a/t; createDoubleValue
+	a (J)La/d/a/af; createLongValue
+		0 value value
+	b ()La/d/a/af; createLongValue
 a/g/a/ab proguard/optimize/evaluation/SimpleEnumArrayPropagator
 	a (La/b/j;La/d/a/bd;)V setMethodReturnValue
 		static
@@ -38679,6 +38698,71 @@ a/d/a/ae proguard/evaluation/value/IntegerValue
 		0 other other
 	l (La/d/a/as;)La/d/a/ae; unsignedShiftRight
 		0 other other
+	o ()La/d/a/af; convertToLong
+	r (La/d/a/am;)La/d/a/ae; xor
+		0 other other
+	q (La/d/a/am;)La/d/a/ae; or
+		0 other other
+	p (La/d/a/am;)La/d/a/ae; and
+		0 other other
+	o (La/d/a/am;)La/d/a/ae; unsignedShiftRightOf
+		0 other other
+	n (La/d/a/am;)La/d/a/ae; shiftRightOf
+		0 other other
+	m (La/d/a/am;)La/d/a/ae; shiftLeftOf
+		0 other other
+	l (La/d/a/am;)La/d/a/ae; unsignedShiftRight
+		0 other other
+	k (La/d/a/am;)La/d/a/ae; shiftRight
+		0 other other
+	j (La/d/a/am;)La/d/a/ae; shiftLeft
+		0 other other
+	i (La/d/a/am;)La/d/a/ae; remainderOf
+		0 other other
+	h (La/d/a/am;)La/d/a/ae; remainder
+		0 other other
+	g (La/d/a/am;)La/d/a/ae; divideOf
+		0 other other
+	f (La/d/a/am;)La/d/a/ae; divide
+		0 other other
+	e (La/d/a/am;)La/d/a/ae; multiply
+		0 other other
+	d (La/d/a/am;)La/d/a/ae; subtractFrom
+		0 other other
+	c (La/d/a/am;)La/d/a/ae; subtract
+		0 other other
+	b (La/d/a/am;)La/d/a/ae; add
+		0 other other
+	a (La/d/a/am;)La/d/a/ae; generalize
+		0 other other
+	c (La/d/a/af;)La/d/a/af; unsignedShiftRightOf
+		0 other other
+	b (La/d/a/af;)La/d/a/af; shiftRightOf
+		0 other other
+	a (La/d/a/af;)La/d/a/af; shiftLeftOf
+		0 other other
+	a (La/d/a/an;)La/d/a/af; shiftLeftOf
+		0 other other
+	a (La/d/a/at;)La/d/a/af; shiftLeftOf
+		0 other other
+	u (La/d/a/am;)I lessThanOrEqual
+		0 other other
+	t (La/d/a/am;)I lessThan
+		0 other other
+	s (La/d/a/am;)I equal
+		0 other other
+	b (La/d/a/an;)La/d/a/af; shiftRightOf
+		0 other other
+	c (La/d/a/at;)La/d/a/af; unsignedShiftRightOf
+		0 other other
+	b (La/d/a/at;)La/d/a/af; shiftRightOf
+		0 other other
+	w (La/d/a/am;)I greaterThanOrEqual
+		0 other other
+	v (La/d/a/am;)I greaterThan
+		0 other other
+	c (La/d/a/an;)La/d/a/af; unsignedShiftRightOf
+		0 other other
 a/d/a/ao proguard/evaluation/value/ParticularValueFactory
 	a (I)La/d/a/ae; createIntegerValue
 		0 value value
@@ -38717,6 +38801,10 @@ a/d/a/ao proguard/evaluation/value/ParticularValueFactory
 	t FLOAT_VALUE_0
 	x DOUBLE_VALUE_1
 	w DOUBLE_VALUE_0
+	a (J)La/d/a/af; createLongValue
+		0 value value
+	s LONG_VALUE_1
+	r LONG_VALUE_0
 a/d/a/r proguard/evaluation/value/DetailedArrayReferenceValue
 	f (La/d/a/ae;La/d/a/be;)La/d/a/bd; arrayLoad
 		0 indexValue indexValue
@@ -38740,6 +38828,9 @@ a/d/a/r proguard/evaluation/value/DetailedArrayReferenceValue
 		0 indexValue indexValue
 		1 valueFactory valueFactory
 	d (La/d/a/ae;La/d/a/be;)La/d/a/t; doubleArrayLoad
+		0 indexValue indexValue
+		1 valueFactory valueFactory
+	b (La/d/a/ae;La/d/a/be;)La/d/a/af; longArrayLoad
 		0 indexValue indexValue
 		1 valueFactory valueFactory
 a/g/b/ae proguard/optimize/info/ProgramClassOptimizationInfo
@@ -38901,6 +38992,7 @@ a/d/a/ab proguard/evaluation/value/IdentifiedValueFactory
 	h floatID
 	f integerID
 	g longID
+	b ()La/d/a/af; createLongValue
 a/d/a/aq proguard/evaluation/value/SpecificDoubleValue
 	d ()Z isSpecific
 	e ()La/d/a/t; negate
@@ -38942,6 +39034,11 @@ a/d/a/aq proguard/evaluation/value/SpecificDoubleValue
 		0 other other
 	h (La/d/a/aq;)La/d/a/t; remainder
 		0 other other
+	g ()La/d/a/af; convertToLong
+	i (La/d/a/t;)La/d/a/t; remainderOf
+		0 other other
+	h (La/d/a/t;)La/d/a/t; remainder
+		0 other other
 a/d/a/ar proguard/evaluation/value/SpecificFloatValue
 	d ()Z isSpecific
 	e ()La/d/a/u; negate
@@ -38982,6 +39079,11 @@ a/d/a/ar proguard/evaluation/value/SpecificFloatValue
 	i (La/d/a/ar;)La/d/a/u; remainderOf
 		0 other other
 	h (La/d/a/ar;)La/d/a/u; remainder
+		0 other other
+	g ()La/d/a/af; convertToLong
+	i (La/d/a/u;)La/d/a/u; remainderOf
+		0 other other
+	h (La/d/a/u;)La/d/a/u; remainder
 		0 other other
 a/d/a/as proguard/evaluation/value/SpecificIntegerValue
 	d ()Z isSpecific
@@ -39071,6 +39173,22 @@ a/d/a/as proguard/evaluation/value/SpecificIntegerValue
 	m (La/d/a/ae;)La/d/a/ae; shiftLeftOf
 		0 other other
 	l (La/d/a/ae;)La/d/a/ae; unsignedShiftRight
+		0 other other
+	o ()La/d/a/af; convertToLong
+	a (La/d/a/af;)La/d/a/af; shiftLeftOf
+		0 other other
+	c (La/d/a/at;)La/d/a/af; unsignedShiftRightOf
+		0 other other
+	b (La/d/a/at;)La/d/a/af; shiftRightOf
+		0 other other
+	a (La/d/a/at;)La/d/a/af; shiftLeftOf
+		0 other other
+	n ()La/d/a/ae; convertToShort
+	m ()La/d/a/ae; convertToCharacter
+	h ()La/d/a/ae; convertToByte
+	b (La/d/a/af;)La/d/a/af; shiftRightOf
+		0 other other
+	c (La/d/a/af;)La/d/a/af; unsignedShiftRightOf
 		0 other other
 a/d/a/ai proguard/evaluation/value/NegatedIntegerValue
 	f ()La/d/a/ae; negate
@@ -39168,6 +39286,29 @@ a/d/a/t proguard/evaluation/value/DoubleValue
 		0 other other
 	h (La/d/a/aq;)La/d/a/t; remainder
 		0 other other
+	g ()La/d/a/af; convertToLong
+	i (La/d/a/ak;)La/d/a/t; remainderOf
+		0 other other
+	h (La/d/a/ak;)La/d/a/t; remainder
+		0 other other
+	g (La/d/a/ak;)La/d/a/t; divideOf
+		0 other other
+	f (La/d/a/ak;)La/d/a/t; divide
+		0 other other
+	e (La/d/a/ak;)La/d/a/t; multiply
+		0 other other
+	d (La/d/a/ak;)La/d/a/t; subtractFrom
+		0 other other
+	c (La/d/a/ak;)La/d/a/t; subtract
+		0 other other
+	b (La/d/a/ak;)La/d/a/t; add
+		0 other other
+	a (La/d/a/ak;)La/d/a/t; generalize
+		0 other other
+	k (La/d/a/ak;)La/d/a/ae; compareReverse
+		0 other other
+	j (La/d/a/ak;)La/d/a/ae; compare
+		0 other other
 a/d/a/u proguard/evaluation/value/FloatValue
 	a (La/d/a/bd;)La/d/a/bd; generalize
 		0 other other
@@ -39222,3 +39363,564 @@ a/d/a/u proguard/evaluation/value/FloatValue
 		0 other other
 	h (La/d/a/ar;)La/d/a/u; remainder
 		0 other other
+	g ()La/d/a/af; convertToLong
+	i (La/d/a/al;)La/d/a/u; remainderOf
+		0 other other
+	h (La/d/a/al;)La/d/a/u; remainder
+		0 other other
+	g (La/d/a/al;)La/d/a/u; divideOf
+		0 other other
+	f (La/d/a/al;)La/d/a/u; divide
+		0 other other
+	e (La/d/a/al;)La/d/a/u; multiply
+		0 other other
+	d (La/d/a/al;)La/d/a/u; subtractFrom
+		0 other other
+	c (La/d/a/al;)La/d/a/u; subtract
+		0 other other
+	b (La/d/a/al;)La/d/a/u; add
+		0 other other
+	a (La/d/a/al;)La/d/a/u; generalize
+		0 other other
+	k (La/d/a/al;)La/d/a/ae; compareReverse
+		0 other other
+	j (La/d/a/al;)La/d/a/ae; compare
+		0 other other
+a/d/a/af proguard/evaluation/value/LongValue
+	a (La/d/a/bd;)La/d/a/bd; generalize
+		0 other other
+	e ()J value
+	h ()La/d/a/ae; convertToInteger
+	j ()I computationalType
+	k ()Ljava/lang/String; internalType
+	m ()La/d/a/u; convertToFloat
+	n ()La/d/a/t; convertToDouble
+	a (La/d/a/ae;)La/d/a/af; shiftLeft
+		0 other other
+	l (La/d/a/af;)La/d/a/af; xor
+		0 other other
+	k (La/d/a/af;)La/d/a/af; or
+		0 other other
+	j (La/d/a/af;)La/d/a/af; and
+		0 other other
+	i (La/d/a/af;)La/d/a/af; remainderOf
+		0 other other
+	g (La/d/a/af;)La/d/a/af; divideOf
+		0 other other
+	e (La/d/a/af;)La/d/a/af; multiply
+		0 other other
+	d (La/d/a/af;)La/d/a/af; subtractFrom
+		0 other other
+	b (La/d/a/af;)La/d/a/af; add
+		0 other other
+	a (La/d/a/af;)La/d/a/af; generalize
+		0 other other
+	c (La/d/a/af;)La/d/a/af; subtract
+		0 other other
+	a (La/d/a/am;)La/d/a/af; shiftLeft
+		0 other other
+	a (La/d/a/an;)La/d/a/af; generalize
+		0 other other
+	f ()La/d/a/af; negate
+	k_ ()La/d/a/af; longValue
+	m (La/d/a/af;)La/d/a/ae; compare
+		0 other other
+	n (La/d/a/af;)La/d/a/ae; compareReverse
+		0 other other
+	n (La/d/a/an;)La/d/a/ae; compareReverse
+		0 other other
+	m (La/d/a/an;)La/d/a/ae; compare
+		0 other other
+	n (La/d/a/at;)La/d/a/ae; compareReverse
+		0 other other
+	c (La/d/a/ae;)La/d/a/af; unsignedShiftRight
+		0 other other
+	b (La/d/a/ae;)La/d/a/af; shiftRight
+		0 other other
+	h (La/d/a/af;)La/d/a/af; remainder
+		0 other other
+	f (La/d/a/af;)La/d/a/af; divide
+		0 other other
+	b (La/d/a/am;)La/d/a/af; shiftRight
+		0 other other
+	b (La/d/a/an;)La/d/a/af; add
+		0 other other
+	a (La/d/a/at;)La/d/a/af; generalize
+		0 other other
+	m (La/d/a/at;)La/d/a/ae; compare
+		0 other other
+	c (La/d/a/am;)La/d/a/af; unsignedShiftRight
+		0 other other
+	c (La/d/a/an;)La/d/a/af; subtract
+		0 other other
+	b (La/d/a/at;)La/d/a/af; add
+		0 other other
+	d (La/d/a/an;)La/d/a/af; subtractFrom
+		0 other other
+	e (La/d/a/an;)La/d/a/af; multiply
+		0 other other
+	d (La/d/a/at;)La/d/a/af; subtractFrom
+		0 other other
+	c (La/d/a/at;)La/d/a/af; subtract
+		0 other other
+	k (La/d/a/at;)La/d/a/af; or
+		0 other other
+	j (La/d/a/at;)La/d/a/af; and
+		0 other other
+	h (La/d/a/at;)La/d/a/af; remainder
+		0 other other
+	f (La/d/a/at;)La/d/a/af; divide
+		0 other other
+	e (La/d/a/at;)La/d/a/af; multiply
+		0 other other
+	l (La/d/a/at;)La/d/a/af; xor
+		0 other other
+	i (La/d/a/at;)La/d/a/af; remainderOf
+		0 other other
+	g (La/d/a/at;)La/d/a/af; divideOf
+		0 other other
+a/d/a/ak proguard/evaluation/value/ParticularDoubleValue
+	c ()Z isParticular
+	e ()La/d/a/t; negate
+	f ()La/d/a/ae; convertToInteger
+	g ()La/d/a/af; convertToLong
+	h ()La/d/a/u; convertToFloat
+	j (La/d/a/ak;)La/d/a/ae; compare
+		0 other other
+	j (La/d/a/t;)La/d/a/ae; compare
+		0 other other
+	m_ ()D value
+	a value
+	a (La/d/a/ak;)La/d/a/t; generalize
+		0 other other
+	b (La/d/a/ak;)La/d/a/t; add
+		0 other other
+	a (La/d/a/t;)La/d/a/t; generalize
+		0 other other
+	c (La/d/a/ak;)La/d/a/t; subtract
+		0 other other
+	i (La/d/a/t;)La/d/a/t; remainderOf
+		0 other other
+	h (La/d/a/t;)La/d/a/t; remainder
+		0 other other
+	g (La/d/a/t;)La/d/a/t; divideOf
+		0 other other
+	f (La/d/a/t;)La/d/a/t; divide
+		0 other other
+	e (La/d/a/t;)La/d/a/t; multiply
+		0 other other
+	d (La/d/a/t;)La/d/a/t; subtractFrom
+		0 other other
+	c (La/d/a/t;)La/d/a/t; subtract
+		0 other other
+	b (La/d/a/t;)La/d/a/t; add
+		0 other other
+	d (La/d/a/ak;)La/d/a/t; subtractFrom
+		0 other other
+	e (La/d/a/ak;)La/d/a/t; multiply
+		0 other other
+	i (La/d/a/ak;)La/d/a/t; remainderOf
+		0 other other
+	h (La/d/a/ak;)La/d/a/t; remainder
+		0 other other
+	g (La/d/a/ak;)La/d/a/t; divideOf
+		0 other other
+	f (La/d/a/ak;)La/d/a/t; divide
+		0 other other
+a/d/a/al proguard/evaluation/value/ParticularFloatValue
+	c ()Z isParticular
+	e ()La/d/a/u; negate
+	f ()La/d/a/ae; convertToInteger
+	g ()La/d/a/af; convertToLong
+	h ()La/d/a/t; convertToDouble
+	j (La/d/a/al;)La/d/a/ae; compare
+		0 other other
+	j (La/d/a/u;)La/d/a/ae; compare
+		0 other other
+	o_ ()F value
+	a value
+	a (La/d/a/al;)La/d/a/u; generalize
+		0 other other
+	b (La/d/a/al;)La/d/a/u; add
+		0 other other
+	a (La/d/a/u;)La/d/a/u; generalize
+		0 other other
+	c (La/d/a/al;)La/d/a/u; subtract
+		0 other other
+	i (La/d/a/u;)La/d/a/u; remainderOf
+		0 other other
+	h (La/d/a/u;)La/d/a/u; remainder
+		0 other other
+	g (La/d/a/u;)La/d/a/u; divideOf
+		0 other other
+	f (La/d/a/u;)La/d/a/u; divide
+		0 other other
+	e (La/d/a/u;)La/d/a/u; multiply
+		0 other other
+	d (La/d/a/u;)La/d/a/u; subtractFrom
+		0 other other
+	c (La/d/a/u;)La/d/a/u; subtract
+		0 other other
+	b (La/d/a/u;)La/d/a/u; add
+		0 other other
+	d (La/d/a/al;)La/d/a/u; subtractFrom
+		0 other other
+	e (La/d/a/al;)La/d/a/u; multiply
+		0 other other
+	i (La/d/a/al;)La/d/a/u; remainderOf
+		0 other other
+	h (La/d/a/al;)La/d/a/u; remainder
+		0 other other
+	g (La/d/a/al;)La/d/a/u; divideOf
+		0 other other
+	f (La/d/a/al;)La/d/a/u; divide
+		0 other other
+a/d/a/at proguard/evaluation/value/SpecificLongValue
+	d ()Z isSpecific
+	f ()La/d/a/af; negate
+	h ()La/d/a/ae; convertToInteger
+	m (La/d/a/af;)La/d/a/ae; compare
+		0 other other
+	m (La/d/a/at;)La/d/a/ae; compare
+		0 other other
+	m ()La/d/a/u; convertToFloat
+	n ()La/d/a/t; convertToDouble
+	a (La/d/a/ae;)La/d/a/af; shiftLeft
+		0 other other
+	a (La/d/a/af;)La/d/a/af; generalize
+		0 other other
+	k (La/d/a/at;)La/d/a/af; or
+		0 other other
+	j (La/d/a/at;)La/d/a/af; and
+		0 other other
+	a (La/d/a/at;)La/d/a/af; generalize
+		0 other other
+	h (La/d/a/at;)La/d/a/af; remainder
+		0 other other
+	f (La/d/a/at;)La/d/a/af; divide
+		0 other other
+	e (La/d/a/at;)La/d/a/af; multiply
+		0 other other
+	b (La/d/a/at;)La/d/a/af; add
+		0 other other
+	l (La/d/a/at;)La/d/a/af; xor
+		0 other other
+	c (La/d/a/at;)La/d/a/af; subtract
+		0 other other
+	b (La/d/a/ae;)La/d/a/af; shiftRight
+		0 other other
+	b (La/d/a/af;)La/d/a/af; add
+		0 other other
+	i (La/d/a/at;)La/d/a/af; remainderOf
+		0 other other
+	g (La/d/a/at;)La/d/a/af; divideOf
+		0 other other
+	d (La/d/a/at;)La/d/a/af; subtractFrom
+		0 other other
+	c (La/d/a/ae;)La/d/a/af; unsignedShiftRight
+		0 other other
+	c (La/d/a/af;)La/d/a/af; subtract
+		0 other other
+	d (La/d/a/af;)La/d/a/af; subtractFrom
+		0 other other
+	l (La/d/a/af;)La/d/a/af; xor
+		0 other other
+	k (La/d/a/af;)La/d/a/af; or
+		0 other other
+	j (La/d/a/af;)La/d/a/af; and
+		0 other other
+	i (La/d/a/af;)La/d/a/af; remainderOf
+		0 other other
+	g (La/d/a/af;)La/d/a/af; divideOf
+		0 other other
+	e (La/d/a/af;)La/d/a/af; multiply
+		0 other other
+	h (La/d/a/af;)La/d/a/af; remainder
+		0 other other
+	f (La/d/a/af;)La/d/a/af; divide
+		0 other other
+a/d/a/ag proguard/evaluation/value/NegatedDoubleValue
+	e ()La/d/a/t; negate
+	a doubleValue
+a/d/a/ah proguard/evaluation/value/NegatedFloatValue
+	e ()La/d/a/u; negate
+	a floatValue
+a/d/a/aj proguard/evaluation/value/NegatedLongValue
+	f ()La/d/a/af; negate
+	a longValue
+a/d/a/ay proguard/evaluation/value/UnknownDoubleValue
+	e ()La/d/a/t; negate
+	f ()La/d/a/ae; convertToInteger
+	g ()La/d/a/af; convertToLong
+	h ()La/d/a/u; convertToFloat
+	j (La/d/a/t;)La/d/a/ae; compare
+		0 other other
+	a (La/d/a/t;)La/d/a/t; generalize
+		0 other other
+	b (La/d/a/t;)La/d/a/t; add
+		0 other other
+	c (La/d/a/t;)La/d/a/t; subtract
+		0 other other
+	d (La/d/a/t;)La/d/a/t; subtractFrom
+		0 other other
+a/d/a/az proguard/evaluation/value/UnknownFloatValue
+	e ()La/d/a/u; negate
+	f ()La/d/a/ae; convertToInteger
+	g ()La/d/a/af; convertToLong
+	h ()La/d/a/t; convertToDouble
+	j (La/d/a/u;)La/d/a/ae; compare
+		0 other other
+	a (La/d/a/u;)La/d/a/u; generalize
+		0 other other
+	b (La/d/a/u;)La/d/a/u; add
+		0 other other
+	c (La/d/a/u;)La/d/a/u; subtract
+		0 other other
+	d (La/d/a/u;)La/d/a/u; subtractFrom
+		0 other other
+a/d/a/ba proguard/evaluation/value/UnknownIntegerValue
+	o ()La/d/a/af; convertToLong
+	p ()La/d/a/u; convertToFloat
+	q ()La/d/a/t; convertToDouble
+	a (La/d/a/ae;)La/d/a/ae; generalize
+		0 other other
+	a (La/d/a/af;)La/d/a/af; shiftLeftOf
+		0 other other
+	f ()La/d/a/ae; negate
+	s (La/d/a/ae;)I equal
+		0 other other
+	b (La/d/a/ae;)La/d/a/ae; add
+		0 other other
+	b (La/d/a/af;)La/d/a/af; shiftRightOf
+		0 other other
+	h ()La/d/a/ae; convertToByte
+	t (La/d/a/ae;)I lessThan
+		0 other other
+	c (La/d/a/ae;)La/d/a/ae; subtract
+		0 other other
+	c (La/d/a/af;)La/d/a/af; unsignedShiftRightOf
+		0 other other
+	m ()La/d/a/ae; convertToCharacter
+	u (La/d/a/ae;)I lessThanOrEqual
+		0 other other
+	d (La/d/a/ae;)La/d/a/ae; subtractFrom
+		0 other other
+	n ()La/d/a/ae; convertToShort
+a/d/a/bb proguard/evaluation/value/UnknownLongValue
+	f ()La/d/a/af; negate
+	h ()La/d/a/ae; convertToInteger
+	m (La/d/a/af;)La/d/a/ae; compare
+		0 other other
+	m ()La/d/a/u; convertToFloat
+	n ()La/d/a/t; convertToDouble
+	a (La/d/a/ae;)La/d/a/af; shiftLeft
+		0 other other
+	a (La/d/a/af;)La/d/a/af; generalize
+		0 other other
+	b (La/d/a/ae;)La/d/a/af; shiftRight
+		0 other other
+	b (La/d/a/af;)La/d/a/af; add
+		0 other other
+	c (La/d/a/ae;)La/d/a/af; unsignedShiftRight
+		0 other other
+	c (La/d/a/af;)La/d/a/af; subtract
+		0 other other
+	d (La/d/a/af;)La/d/a/af; subtractFrom
+		0 other other
+	l (La/d/a/af;)La/d/a/af; xor
+		0 other other
+	k (La/d/a/af;)La/d/a/af; or
+		0 other other
+	j (La/d/a/af;)La/d/a/af; and
+		0 other other
+	i (La/d/a/af;)La/d/a/af; remainderOf
+		0 other other
+	g (La/d/a/af;)La/d/a/af; divideOf
+		0 other other
+	e (La/d/a/af;)La/d/a/af; multiply
+		0 other other
+	h (La/d/a/af;)La/d/a/af; remainder
+		0 other other
+	f (La/d/a/af;)La/d/a/af; divide
+		0 other other
+a/d/a/g proguard/evaluation/value/CompositeDoubleValue
+	b operation
+	c doubleValue2
+	a doubleValue1
+a/d/a/h proguard/evaluation/value/CompositeFloatValue
+	b operation
+	c floatValue2
+	a floatValue1
+a/d/a/j proguard/evaluation/value/CompositeLongValue
+	a longValue1
+	b operation
+	c longValue2
+a/d/a/am proguard/evaluation/value/ParticularIntegerValue
+	c ()Z isParticular
+	o ()La/d/a/af; convertToLong
+	p ()La/d/a/u; convertToFloat
+	q ()La/d/a/t; convertToDouble
+	a value
+	a (La/d/a/ae;)La/d/a/ae; generalize
+		0 other other
+	a (La/d/a/am;)La/d/a/ae; generalize
+		0 other other
+	b (La/d/a/am;)La/d/a/ae; add
+		0 other other
+	a (La/d/a/af;)La/d/a/af; shiftLeftOf
+		0 other other
+	a (La/d/a/an;)La/d/a/af; shiftLeftOf
+		0 other other
+	e ()I value
+	h ()La/d/a/ae; convertToByte
+	f ()La/d/a/ae; negate
+	s (La/d/a/ae;)I equal
+		0 other other
+	s (La/d/a/am;)I equal
+		0 other other
+	r (La/d/a/ae;)La/d/a/ae; xor
+		0 other other
+	q (La/d/a/ae;)La/d/a/ae; or
+		0 other other
+	p (La/d/a/ae;)La/d/a/ae; and
+		0 other other
+	o (La/d/a/ae;)La/d/a/ae; unsignedShiftRightOf
+		0 other other
+	n (La/d/a/ae;)La/d/a/ae; shiftRightOf
+		0 other other
+	m (La/d/a/ae;)La/d/a/ae; shiftLeftOf
+		0 other other
+	l (La/d/a/ae;)La/d/a/ae; unsignedShiftRight
+		0 other other
+	k (La/d/a/ae;)La/d/a/ae; shiftRight
+		0 other other
+	j (La/d/a/ae;)La/d/a/ae; shiftLeft
+		0 other other
+	i (La/d/a/ae;)La/d/a/ae; remainderOf
+		0 other other
+	h (La/d/a/ae;)La/d/a/ae; remainder
+		0 other other
+	g (La/d/a/ae;)La/d/a/ae; divideOf
+		0 other other
+	f (La/d/a/ae;)La/d/a/ae; divide
+		0 other other
+	e (La/d/a/ae;)La/d/a/ae; multiply
+		0 other other
+	d (La/d/a/ae;)La/d/a/ae; subtractFrom
+		0 other other
+	c (La/d/a/ae;)La/d/a/ae; subtract
+		0 other other
+	b (La/d/a/ae;)La/d/a/ae; add
+		0 other other
+	c (La/d/a/am;)La/d/a/ae; subtract
+		0 other other
+	b (La/d/a/af;)La/d/a/af; shiftRightOf
+		0 other other
+	b (La/d/a/an;)La/d/a/af; shiftRightOf
+		0 other other
+	m ()La/d/a/ae; convertToCharacter
+	t (La/d/a/ae;)I lessThan
+		0 other other
+	t (La/d/a/am;)I lessThan
+		0 other other
+	d (La/d/a/am;)La/d/a/ae; subtractFrom
+		0 other other
+	c (La/d/a/af;)La/d/a/af; unsignedShiftRightOf
+		0 other other
+	c (La/d/a/an;)La/d/a/af; unsignedShiftRightOf
+		0 other other
+	n ()La/d/a/ae; convertToShort
+	u (La/d/a/ae;)I lessThanOrEqual
+		0 other other
+	u (La/d/a/am;)I lessThanOrEqual
+		0 other other
+	e (La/d/a/am;)La/d/a/ae; multiply
+		0 other other
+	r (La/d/a/am;)La/d/a/ae; xor
+		0 other other
+	q (La/d/a/am;)La/d/a/ae; or
+		0 other other
+	p (La/d/a/am;)La/d/a/ae; and
+		0 other other
+	o (La/d/a/am;)La/d/a/ae; unsignedShiftRightOf
+		0 other other
+	n (La/d/a/am;)La/d/a/ae; shiftRightOf
+		0 other other
+	m (La/d/a/am;)La/d/a/ae; shiftLeftOf
+		0 other other
+	l (La/d/a/am;)La/d/a/ae; unsignedShiftRight
+		0 other other
+	k (La/d/a/am;)La/d/a/ae; shiftRight
+		0 other other
+	j (La/d/a/am;)La/d/a/ae; shiftLeft
+		0 other other
+	i (La/d/a/am;)La/d/a/ae; remainderOf
+		0 other other
+	h (La/d/a/am;)La/d/a/ae; remainder
+		0 other other
+	g (La/d/a/am;)La/d/a/ae; divideOf
+		0 other other
+	f (La/d/a/am;)La/d/a/ae; divide
+		0 other other
+a/d/a/an proguard/evaluation/value/ParticularLongValue
+	c ()Z isParticular
+	e ()J value
+	f ()La/d/a/af; negate
+	h ()La/d/a/ae; convertToInteger
+	m (La/d/a/af;)La/d/a/ae; compare
+		0 other other
+	m ()La/d/a/u; convertToFloat
+	n ()La/d/a/t; convertToDouble
+	a value
+	a (La/d/a/ae;)La/d/a/af; shiftLeft
+		0 other other
+	a (La/d/a/af;)La/d/a/af; generalize
+		0 other other
+	a (La/d/a/am;)La/d/a/af; shiftLeft
+		0 other other
+	a (La/d/a/an;)La/d/a/af; generalize
+		0 other other
+	b (La/d/a/an;)La/d/a/af; add
+		0 other other
+	b (La/d/a/ae;)La/d/a/af; shiftRight
+		0 other other
+	b (La/d/a/af;)La/d/a/af; add
+		0 other other
+	b (La/d/a/am;)La/d/a/af; shiftRight
+		0 other other
+	c (La/d/a/an;)La/d/a/af; subtract
+		0 other other
+	c (La/d/a/ae;)La/d/a/af; unsignedShiftRight
+		0 other other
+	c (La/d/a/af;)La/d/a/af; subtract
+		0 other other
+	c (La/d/a/am;)La/d/a/af; unsignedShiftRight
+		0 other other
+	d (La/d/a/an;)La/d/a/af; subtractFrom
+		0 other other
+	d (La/d/a/af;)La/d/a/af; subtractFrom
+		0 other other
+	e (La/d/a/an;)La/d/a/af; multiply
+		0 other other
+	l (La/d/a/af;)La/d/a/af; xor
+		0 other other
+	k (La/d/a/af;)La/d/a/af; or
+		0 other other
+	j (La/d/a/af;)La/d/a/af; and
+		0 other other
+	i (La/d/a/af;)La/d/a/af; remainderOf
+		0 other other
+	g (La/d/a/af;)La/d/a/af; divideOf
+		0 other other
+	e (La/d/a/af;)La/d/a/af; multiply
+		0 other other
+	h (La/d/a/af;)La/d/a/af; remainder
+		0 other other
+	f (La/d/a/af;)La/d/a/af; divide
+		0 other other
+a/d/a/k proguard/evaluation/value/ConvertedByteValue
+	a value
+a/d/a/l proguard/evaluation/value/ConvertedCharacterValue
+	a value
+a/d/a/q proguard/evaluation/value/ConvertedShortValue
+	a value

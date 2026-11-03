@@ -577,3 +577,44 @@ cover(a) 方法 7748/7795 = 99.4%   字段 4837/4935 = 98.0%
 
 剩 **116 类**（`todo_classes.txt` 已更新）：`evaluation/value` 家族 30、
 `classfile/visitor` 十几个、`optimize/info` 十几个，其余零散。
+
+## 27) 第十五轮：660 类（87.2%）
+
+引用者判据再交替跑两轮：
+
+```
+第 1 遍：who +17、strict +18、refs +3、pkg +5 → 684 → 验伪留 660（+19）
+第 2 遍：who +13、strict +8、refs +3、pkg 0   → 684 → 验伪留 660（新增 24 全被剔）
+```
+
+`evaluation/value` 那 30 个 `XxxValue` 家族已经被 eating 掉了（引用者判据对它们很有效：
+每个 `XxxValue` 被哪几个 `ValueFactory`/算术指令用，签名很独特）。
+
+现状：
+
+```
+类映射   660 / 757（87.2%）
+成员行   6814
+参数行   5939
+cover(a) 方法 8144/8194 = 99.4%   字段 4858/4957 = 98.0%
+门禁     validate ✔（类块 2600 / 成员行 21520 / 参数行 14143）
+         inherit 0/0/0 · innercheck ②③ 0
+```
+
+剩 **97 类**，已经碎成"每包 5~8 个"的小堆（`todo_classes.txt`）：
+
+```
+a/b/g 8（visitor）      a/g/b 8（optimize/info）    a/b/a/c 7（preverification）
+a/g/c 7（peephole）     a/b/a/a 6（annotation）      a/b/a/b 6（module）
+a/b/a/a/a 5（target）   a/b/a/d 5（attribute/visitor）
+```
+
+## 28) 最后 97 类的性质
+
+四类"类内 + 引用关系"判据都用到顶了。剩下的特点是**同族内成员集、引用者集合、被引用集
+三者都几乎一样**（比如 `annotation/module` 的 4 个 `*InfoVisitor`）。
+把这 97 个逐个看下来，需要的是"这一族在 ProGuard 里到底有几个成员、各自对应哪个语义"的
+**领域知识**，而不是更多统计信号。
+
+建议：这部分作为"人工收尾包"——`todo_classes.txt` 已按包分好，每族看一个类就能推其余
+（配合 §11/§15/§26 的三条判据）。机器侧已经榨到 87.2%，成员级 99.4%/98.0%，可以收工了。
