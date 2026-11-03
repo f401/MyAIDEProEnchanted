@@ -67,3 +67,11 @@ org/c/a/a/b/a/a/u	org/jd/core/v1/model/classfile/attribute/AttributeSynthetic	sr
 org/c/a/a/b/a/a/x	org/jd/core/v1/model/classfile/attribute/ElementValue	src:唯一只有 abstract accept(ElementValueVisitor)
 org/c/a/a/b/a/a/y	org/jd/core/v1/model/classfile/attribute/ElementValueAnnotationValue	src:字段=Annotation（=a），3 方法
 org/c/a/a/b/a/a/z	org/jd/core/v1/model/classfile/attribute/ElementValueArrayValue	src:字段=ElementValue[]（=x[]），3 方法
+org/c/a/a/b/d/c/c	org/jd/core/v1/model/javasyntax/reference/AnnotationElementValue	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
+org/c/a/a/b/d/c/h	org/jd/core/v1/model/javasyntax/reference/InnerObjectReference	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
+org/c/a/a/b/d/c/l	org/jd/core/v1/model/javasyntax/reference/ElementValues	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
+org/c/a/a/b/d/c/n	org/jd/core/v1/model/javasyntax/reference/Reference	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
+org/c/a/a/b/f/a	org/jd/core/v1/model/token/AbstractNopTokenVisitor	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
+org/c/a/a/b/f/b	org/jd/core/v1/model/token/BooleanConstantToken	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
+org/c/a/a/b/f/p	org/jd/core/v1/model/token/Token	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
+org/c/a/a/b/f/q	org/jd/core/v1/model/token/TokenVisitor	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）

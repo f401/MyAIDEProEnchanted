@@ -46289,3 +46289,20 @@ org/c/a/a/b/a/a/z org/jd/core/v1/model/classfile/attribute/ElementValueArrayValu
 	a (Lorg/c/a/a/b/a/a/ae;)V accept
 		0 visitor visitor
 	a values
+org/c/a/a/b/d/c/c org/jd/core/v1/model/javasyntax/reference/AnnotationElementValue
+org/c/a/a/b/d/c/h org/jd/core/v1/model/javasyntax/reference/InnerObjectReference
+org/c/a/a/b/d/c/l org/jd/core/v1/model/javasyntax/reference/ElementValues
+	a $assertionsDisabled
+org/c/a/a/b/d/c/n org/jd/core/v1/model/javasyntax/reference/Reference
+org/c/a/a/b/f/a org/jd/core/v1/model/token/AbstractNopTokenVisitor
+	a (Lorg/c/a/a/b/f/b;)V visit
+		0 token token
+org/c/a/a/b/f/b org/jd/core/v1/model/token/BooleanConstantToken
+	a ()Z getValue
+	a (Lorg/c/a/a/b/f/q;)V accept
+		0 visitor visitor
+	a value
+org/c/a/a/b/f/p org/jd/core/v1/model/token/Token
+	a (Lorg/c/a/a/b/f/q;)V accept
+org/c/a/a/b/f/q org/jd/core/v1/model/token/TokenVisitor
+	a (Lorg/c/a/a/b/f/b;)V visit

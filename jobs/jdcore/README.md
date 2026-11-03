@@ -217,3 +217,15 @@ org/c/a/a/b/f    model/javasyntax/reference      →  model/token
 
 改完之后这两包的形状表已经能一一对上（`reference`：3 字段/10 方法、0/6、1Z/6 都是唯一解），
 下一轮直接按"字段类型多重集 + 引用者的字段类型反查"收，预计 15~17 个/包。
+
+## 第六批：reference / token 两包按"整包签名双向唯一"各收 4 个
+
+包对齐纠错后，用**整包"字段类型多重集 + 方法数"签名**做双向唯一（探针只有一个候选、候选也只有
+一个探针）就能安全落：
+
+```
+javasyntax/reference   probe 15 pool 17  双向唯一 4
+model/token            probe 17 pool 17  双向唯一 4
+```
+
+剩下的要靠"字段类型多重集"之外的证据（引用者的字段类型、`accept` 目标 visitor），下一轮做。
