@@ -344,11 +344,13 @@ def _backtrack(ctx, dom, assigned, limit=2):
         return None, rest
     sols = []
 
-    def dfs(i):
+    def dfs(i, cur):
         if len(sols) > limit:
             return
         if i == len(rest):
-            sols.append(dict(assigned))
+            sol = dict(assigned)
+            sol.update(cur)
+            sols.append(sol)
             return
         p = rest[i]
         for o in dom[p]:
@@ -357,11 +359,13 @@ def _backtrack(ctx, dom, assigned, limit=2):
             ctx.mapped[p] = o
             ctx.used.add(o)
             if ctx.unary(p, o) is None:
-                dfs(i + 1)
+                cur[p] = o
+                dfs(i + 1, cur)
+                del cur[p]
             ctx.used.discard(o)
             del ctx.mapped[p]
 
-    dfs(0)
+    dfs(0, {})
     if len(sols) == 1:
         return sols[0], rest
     return None, rest
@@ -400,7 +404,17 @@ def solve_pkg(args):
         probes = sorted(p for p in probe if _split(p) == pkg)
         pool = [o for o in oracle if _split(o) == opkg]
         free = [o for o in pool if o not in ctx.used]
-        if stall[pkg] <= len(free):
+        # 触发条件：账不平（未定名数 > 空位）**或** 有 stalled 探针在"同包候选里一个都不相容"
+        bad = stall[pkg] > len(free)
+        if not bad:
+            for p in todo:
+                if _split(p) != pkg:
+                    continue
+                cand = [o for o in free if ctx.unary(p, o) is None]
+                if not cand:
+                    bad = True
+                    break
+        if not bad:
             continue
         fixed = {p: mapped[p] for p in probes if p in mapped and ev.get(p) in STRONG}
         keep = set(fixed.values())
@@ -413,9 +427,11 @@ def solve_pkg(args):
         log = []
         a = _propagate(c2, dom, log)
         b, rest = _backtrack(c2, dom, a)
-        got = b if b is not None else (a if not rest else None)
-        report.append((pkg, len(vars_), len(pool), len(keep), len(a), len(rest),
-                       '唯一' if got is not None else '歧义'))
+        empty = [p for p in dom if not dom[p]]
+        got = b if b is not None else (a if not rest and not empty else None)
+        veredict = '唯一解' if b is not None else (
+            '歧义' if rest else ('域被剪空 %d 个' % len(empty) if empty else '仅传播'))
+        report.append((pkg, len(vars_), len(pool), len(keep), len(a), len(rest), veredict))
         if got is not None:
             for p, o in sorted(got.items()):
                 out[p] = o

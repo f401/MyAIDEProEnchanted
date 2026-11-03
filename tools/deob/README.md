@@ -81,3 +81,19 @@ python3 tools/deob/cli.py -p myjob/deob.json q abcd/X       # 成员与目标名
   `dup-class-target` / `dup-member-target`（FART/D8 会中止或任选其一）、`static-mismatch`。
 - `pkgs` 与 `widen` 是**分工**关系：能"挪同包"就挪（便宜）；挪不了（多包同一分量）再放宽 access。
 - `cover` 只是指标；口径与项目自带的 coverage 脚本可能略有差别，判定以项目脚本为准。
+
+## subgraph.py —— 剩余类的子图约束求解
+
+```bash
+python3 tools/deob/subgraph.py --part jobs/proguard --probe-prefix a build    # 建模型（缓存到 ~/tmp）
+python3 tools/deob/subgraph.py --part jobs/proguard --probe-prefix a solve    # 只解"未定名"的类
+python3 tools/deob/subgraph.py --part jobs/proguard --probe-prefix a solve --why a/b/a/d/g
+python3 tools/deob/subgraph.py --part jobs/proguard --probe-prefix a pkg      # 整包重解（会放开弱证据的类）
+```
+
+约束：类标志 / 父类 / 接口 / 成员计数 / 描述符骨架（未定名类型折叠成 `?`）/
+符号引用（owner+name+desc）/ **反向引用（谁引用我）**。
+求解：单点剪枝 → 双向唯一 → 回溯（回溯时把赋值并入映射再验一元约束）；只接受**唯一解**。
+
+局限（写在这里免得重复踩）：`mskel` 的 `?` 折叠对"整族缺链"很敏感，一族里只要有一个类
+定错，整包会被剪空；`pkg` 模式目前只报告，不 `--apply`。

@@ -9,6 +9,7 @@
 | [VERIFY.md](VERIFY.md) | **认证流水线**：9 道门 + 期望值 + 失败处置 + FART 两遍判等 |
 | [TOOLS.md](TOOLS.md) | **工具链**：`tools/jgit/` 目录树与逐个脚本的用途 |
 | [GENERIC-TOOLS.md](GENERIC-TOOLS.md) | **通用工具链**：`tools/deob/`（配置驱动，给下一个类似工程用） |
+| [IDENTITY.md](IDENTITY.md) | **第三方库身份确认**：每个包"是哪个库/哪个版本"的判据链（dropbox、ProGuard、jd-core、antlr4） |
 | [NOTES.md](NOTES.md) | **坑**：覆写一致性、重复目标、FART 的四类 access、dex 产物缺陷、AIDE 魔改先验 |
 
 > 历史逐轮记录已从仓库移除（见 `git log`）；这套文档是可直接照做的操作手册。

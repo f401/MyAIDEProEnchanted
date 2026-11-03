@@ -801,3 +801,75 @@ cover(a) 方法 8290/8372 = 99.0%   字段 4914/5021 = 97.9%
 **套了几层包装**和**调的是哪个 `accept` 重载**。名序配对这次正好把它配反了；
 如果当初就直接"按名序兜底"收工，这个错会一路带进产物（两个类的成员名虽然相同，
 但类名错会影响运行时的类型判断与日志/配置映射）。
+
+## 33) 第十九轮：子图约束求解（`csp:`）→ 719 类（95.0%）
+
+前十八轮都是"单类+包内信号"。这一轮把**剩余类当成一个约束系统**一起解：
+新工具 [`tools/deob/subgraph.py`](../../tools/deob/subgraph.py)（`build` / `solve` / `pkg`）。
+
+### 33.1 约束系统
+
+```
+变量   每个未定名探针类
+值域   同包的 oracle 未占用类（包映射 33:33 已验，所以前缀可用）
+约束   类标志（public/final/interface/abstract）
+       父类（已定名→精确；未定名→只要求落在同一目标包）
+       接口（已定名→⊆；未定名→包的**多重集**⊆）
+       成员计数 / static 位 / 描述符骨架（未定名类型折叠成 ?）
+       符号引用 owner+name+desc（改名不变）→ 只比"已定名那部分"的集合
+       **反向引用**（谁引用我）——本轮的主力判据
+求解   AC-3 式单点剪枝 + 双向唯一 + 回溯（回溯时把当前赋值并入映射再跑一元约束）
+```
+
+探针模型与 oracle 模型各建一次并缓存（`~/tmp/subgraph_{probe,oracle}_*.json`）：
+757 个探针类、804 个 oracle 类。
+
+### 33.2 本轮定下 20 个类
+
+全部是 **0 成员的匿名/合成类**，判据是 `inrefs`：探针的**已定名引用者集合**必须落在
+候选的引用者集合内。例如：
+
+```
+a/i/o   → UsageMarker$1        同包 4 候选：ShortestUsageMarker$1 / ClassShrinker$1 被 inrefs 剔除
+a/g/c/d → ClassMerger$1        同包 4 候选：NopRemover 被 flags 剔除，另两个被 inrefs 剔除
+a/ag    → ParseException       同包 4 候选：flags×2 + mskel×1 剔除
+```
+
+每条证据都按"同包 N 个候选中唯一相容（其余被 X×k / Y×k 剔除）"写进 `class_map.tsv`，
+共 20 条 `csp:`。这些类没有成员，所以覆盖率分母不变。
+
+**现状**：
+
+```
+类映射   719 / 757（95.0%）
+成员行   21900    参数行 14420
+cover(a) 方法 8290/8372 = 99.0%   字段 4914/5021 = 97.9%
+门禁     validate ✔ · inherit 0/0/0 · famcheck 0/0 · innercheck ②③ 0
+```
+
+### 33.3 剩 38 类：why 还是解不动
+
+`subgraph.py solve --why <类>` 会打印"每个候选卡在哪条判据"。剩下 38 个的共同形态是：
+
+1. **同包候选被剪空**：例如 `a/b/a/d/g`（attribute/visitor）的 5 个候选分别卡在
+   `refs` / `mskel` / `counts`——说明**这一族里已经有别的类被弱判据占了位置**；
+2. **整包账不平**：`pkg` 模式（把该包里弱证据的类一起放开重解）已经写好，
+   但在 10 个包里今天全部落到"域被剪空 / 歧义"，也就是**约束还不够细**：
+   `mskel` 把未定名类型一律折叠成 `?`，一旦链式缺失就会全族误杀。
+
+### 33.4 一个已经确认的"错位"
+
+`a/b/a/a/a/g`（2 个 int 字段，其中 `final` 那个在构造器里写 `0xffff`，另有 `(BI)V` 构造器）
+在 6.0.3 里只可能是 `SuperTypeTargetInfo`——源码 `SuperTypeTargetInfo.java:34` 就写着
+`public final int EXTENDS_INDEX = 65535;`。但 `SuperTypeTargetInfo` 现在被 `a/b/a/a/a/c`
+（`pkg:互为最优` 弱判据）占着。
+
+所以这 2 个类**疑似互换**。没在这一轮动手，因为：`c`/`g` 的成员名集合不同
+（`EXTENDS_INDEX`/`u2superTypeIndex` vs `u1typeParameterIndex`…），
+只改 `class_map.tsv` 会让 `members.tsrg` 里 `c` 的成员行挂错，必须class 名 + 成员块一起搬。
+正确做法是下一轮把 `pkg` 模式的判据补细（`mskel` 改成"只比形参种类"、`refs/inrefs` 容差可调），
+让整包解出唯一解后一次性搬。
+
+> 这就是"弱判据"的代价：`pkg:互为最优` 在包内候选 ≥ 探针时只是启发式，
+> 一旦遇到"同形不同义"的族（annotation/target 八个 `*TargetInfo` 就是），就会错位。
+> 本轮把这条写进结论：**弱判据占位要留 `pkg:` 前缀，方便后面被子图求解推翻。**
