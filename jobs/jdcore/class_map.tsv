@@ -18,3 +18,23 @@ org/c/a/a/b/a/b/k	org/jd/core/v1/model/classfile/constant/ConstantString	src:Con
 org/c/a/a/b/a/b/l	org/jd/core/v1/model/classfile/constant/ConstantUtf8	src:ConstantParser 的 packed-switch（起始 0x1）里 tag 0x1 → pswitch → new-instance l
 org/c/a/a/b/a/b/a	org/jd/core/v1/model/classfile/constant/Constant	hier:abstract 基类，super=Object（13 个类的继承树与 oracle 同形：ConstantValue 的五个子类=Utf8/Double/Float/Integer/Long）
 org/c/a/a/b/a/b/m	org/jd/core/v1/model/classfile/constant/ConstantValue	hier:abstract，super=a（13 个类的继承树与 oracle 同形：ConstantValue 的五个子类=Utf8/Double/Float/Integer/Long）
+org/c/a/a/a/a/a	org/jd/core/v1/api/loader/Loader	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/a/a/b	org/jd/core/v1/api/loader/LoaderException	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/af	org/jd/core/v1/model/classfile/attribute/InnerClass	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/ag	org/jd/core/v1/model/classfile/attribute/LineNumber	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/aj	org/jd/core/v1/model/classfile/attribute/MethodParameter	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/ak	org/jd/core/v1/model/classfile/attribute/ModuleInfo	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/al	org/jd/core/v1/model/classfile/attribute/PackageInfo	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/am	org/jd/core/v1/model/classfile/attribute/ServiceInfo	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/c	org/jd/core/v1/model/classfile/attribute/Attribute	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/s	org/jd/core/v1/model/classfile/attribute/AttributeSignature	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/t	org/jd/core/v1/model/classfile/attribute/AttributeSourceFile	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/v	org/jd/core/v1/model/classfile/attribute/BootstrapMethod	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/w	org/jd/core/v1/model/classfile/attribute/CodeException	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/c/i	org/jd/core/v1/model/javafragment/ImportsFragment$Import	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/d/a/ae	org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration$ModuleInfo	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/d/a/af	org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration$PackageInfo	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/d/a/ag	org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration$ServiceInfo	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/d/d/r	org/jd/core/v1/model/javasyntax/statement/Statement	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/c/b/a/b	org/jd/core/v1/service/deserializer/classfile/ClassFileFormatException	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/c/b/a/c	org/jd/core/v1/service/deserializer/classfile/ClassFileReader	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）

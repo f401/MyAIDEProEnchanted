@@ -102,3 +102,30 @@ b/h=ConstantMethodHandle  b/i=ConstantMethodType
 2. `model/classfile/attribute`(40) + `model/classfile/constant`(13)：读 `DeserializeClassFileProcessor` →
    `ClassFileParser`/`ConstantParser` 的 `switch`/比较链（和 ProGuard 那套一样）；
 3. `model/javasyntax/*`(160 类)：纯数据模型，靠"谁 new 它 + 字段类型"逐个读。
+
+## 批量求解尝试（结论：做不到"一次做完"，附诊断）
+
+对 434 个类跑了 `tools/deob/subgraph.py`（一元约束 + 双向唯一 + 回溯）**并加了一层
+"成员描述符合一匹配"**（把探针描述符里的未定名类型当变量，要求整类的成员多重集能与候选
+在**一致的替换**下对上）：
+
+```
+包                           probe  pool  唯一解
+org/c/a/a/b/a/a (attribute)     40    40     0
+org/c/a/a/b/a/b (constant)      13    13    13   ← 已由 tag 分派单独解掉
+org/c/a/a/b/d/a (declaration)   36    37     0
+org/c/a/a/b/d/b (converter/util)39    42     0
+org/c/a/a/b/d/d (statement)     35    35     0
+org/c/a/a/c/a/a/c (expression)  42    42     0
+…（其余 20 个包同样 0）
+合计唯一相容 24（含 20 个非数据模型类）
+```
+
+**为什么全是 0**：jd-core 的 `model/*` 是纯数据模型——大量类是
+`class X { int a; ConstantUtf8 b; }` 这种**同形**，成员形状（即使带类型变量）也无法区分。
+例如 `expression` 包里 42 个类，一半都是"2 个字段 + 3 个方法"的不同组合。
+真正能区分的只有**引用图**（谁 new 它、谁读它的字段），那需要带种子的图同构/二分匹配，
+不是现有 unary 约束能做的。
+
+已落地的是**能被唯一确定的那批**（40 类，20 条 `src:`/`hier:` + 20 条 `csp:`），
+门禁全绿。剩下的 394 类要么按族读源码（每族 1-2 轮），要么接受"按作用命名"。

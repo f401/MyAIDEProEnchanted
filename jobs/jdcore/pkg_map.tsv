@@ -35,3 +35,4 @@ org/c/a/a/c/e/a	org/jd/core/v1/service/tokenizer/javafragmenttotoken
 org/c/a/a/c/e/a/a	org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor
 org/c/a/a/c/f	org/jd/core/v1/service/writer
 org/c/a/a/d	org/jd/core/v1/service/layouter/util
+org/c/a/a/c/f/a	org/jd/core/v1/service/writer/visitor

@@ -103,7 +103,7 @@ def build(args):
             out[n] = m
         if (i + 1) % 200 == 0:
             print('  probe %d/%d' % (i + 1, len(names)), file=sys.stderr)
-    cache = os.path.join(os.path.expanduser('~'), 'tmp', 'subgraph_probe_%s.json' % args.probe_prefix)
+    cache = os.path.join(os.path.expanduser('~'), 'tmp', 'subgraph_probe_%s.json' % args.probe_prefix.replace('/','_'))
     json.dump(out, open(cache, 'w'), ensure_ascii=False)
     print('probe 模型 %d 个 → %s' % (len(out), cache))
 
@@ -123,7 +123,7 @@ def build(args):
                 orc[nm] = oracle_model(z.read(e))
             except Exception as ex:
                 print('skip', nm, ex, file=sys.stderr)
-    ocache = os.path.join(os.path.expanduser('~'), 'tmp', 'subgraph_oracle_%s.json' % args.oracle_label)
+    ocache = os.path.join(os.path.expanduser('~'), 'tmp', 'subgraph_oracle_%s.json' % args.oracle_label.replace('/','_'))
     json.dump(orc, open(ocache, 'w'), ensure_ascii=False)
     print('oracle 模型 %d 个 → %s' % (len(orc), ocache))
 
@@ -153,8 +153,8 @@ def _untuple(d):
 
 
 def load_models(tag, oracle_label):
-    ph = os.path.join(os.path.expanduser('~'), 'tmp', 'subgraph_probe_%s.json' % tag)
-    oh = os.path.join(os.path.expanduser('~'), 'tmp', 'subgraph_oracle_%s.json' % oracle_label)
+    ph = os.path.join(os.path.expanduser('~'), 'tmp', 'subgraph_probe_%s.json' % tag.replace('/','_'))
+    oh = os.path.join(os.path.expanduser('~'), 'tmp', 'subgraph_oracle_%s.json' % oracle_label.replace('/','_'))
     return (_untuple(json.load(open(ph, encoding='utf-8'))),
             _untuple(json.load(open(oh, encoding='utf-8'))))
 
