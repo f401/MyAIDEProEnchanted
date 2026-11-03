@@ -2844,6 +2844,8 @@ a/b/g/bl	a	(La/b/k;La/b/n;)V	1	programMethod	proguard-base-6.0.3
 a/b/g/bm	a	(La/b/e;)V	0	libraryClass	proguard-base-6.0.3
 a/b/g/bm	a	(La/b/k;)V	0	programClass	proguard-base-6.0.3
 a/b/g/bm	a	([La/b/c;)Z	0	subclasses	proguard-base-6.0.3
+a/b/g/bn	a	(La/b/e;)V	0	libraryClass	proguard-base-6.0.3
+a/b/g/bn	a	(La/b/k;)V	0	programClass	proguard-base-6.0.3
 a/b/g/c	a	(La/b/e;)V	0	libraryClass	proguard-base-6.0.3
 a/b/g/c	a	(La/b/k;)V	0	programClass	proguard-base-6.0.3
 a/b/g/d	a	(La/b/e;)V	0	libraryClass	proguard-base-6.0.3

@@ -7839,12 +7839,12 @@ a/g/b/t proguard/optimize/info/NoExternalReturnValuesMethodMarker
 	a (La/b/c;La/b/i;)V visitAnyMember
 	a (La/b/e;La/b/h;)V visitLibraryMethod
 	a (La/b/k;La/b/n;)V visitProgramMethod
-a/g/c/ad proguard/optimize/peephole/HorizontalClassMerger
+a/g/c/ad proguard/optimize/peephole/VerticalClassMerger
 	a (La/b/k;)V visitProgramClass
 	c extraClassVisitor
 	b mergeInterfacesAggressively
 	a allowAccessModification
-a/g/c/i proguard/optimize/peephole/VerticalClassMerger
+a/g/c/i proguard/optimize/peephole/HorizontalClassMerger
 	a (La/b/k;)V visitProgramClass
 	c extraClassVisitor
 	b mergeInterfacesAggressively
@@ -7859,3 +7859,7 @@ a/g/c/h proguard/optimize/peephole/GotoReturnReplacer
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
 	a codeAttributeEditor
 	b extraInstructionVisitor
+a/b/g/bn proguard/classfile/visitor/SubclassTraveler
+	a (La/b/e;)V visitLibraryClass
+	a (La/b/k;)V visitProgramClass
+	a classVisitor

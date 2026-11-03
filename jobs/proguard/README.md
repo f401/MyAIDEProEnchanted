@@ -711,3 +711,93 @@ cover(a) 方法 8288/8370 = 99.0%   字段 4913/5020 = 97.9%
 跑图同构/约束求解）。这是下一轮可以考虑的工具化方向；但从收益看：
 **类 92.2%、成员 99.0%/97.9%**，剩下的都是 `m=0` 的标记类或同形族，
 未定名不影响任何已定名类的成员语义。
+
+## 32) 第十八轮：699 类（92.3%）——把 20 条 `iso:` 逐组复核，抓出 1 组颠倒
+
+上一轮的 `iso:` 是"按名序配对、承认没有判别证据"。这一轮换了个角度：
+**同形 ≠ 同义**——`iso` 的结构签名只看成员集/标志，不看方法体，所以"同形组"里
+很可能藏着真实的判别信号。于是把 10 组（20 类）逐个拿 6.0.3 源码对照方法体复核。
+
+结果：**8 组拿到了真判据，1 组被证明是配错的，2 组确实逐字节同形**。
+
+### 32.1 先说错的那一组（已修）
+
+```a/g/c/ad 与 a/g/c/i 原先按名序配成 Horizontal / Vertical —— 反了```
+
+源码：
+
+```java
+// VerticalClassMerger.visitProgramClass
+programClass.subclassesAccept(new ClassMerger(programClass, ...));
+// HorizontalClassMerger.visitProgramClass
+programClass.superClassConstantAccept(new ReferencedClassVisitor(
+                                      new SubclassTraveler(
+                                      new ClassMerger(programClass, ...))));
+```
+
+字节码侧（`ProgramClass.a/b/k` 里两个重载的 body 自己就能区分：
+`b(ClassVisitor)` 迭代 `subClasses` 数组 = `subclassesAccept`；
+`b(ConstantVisitor)` 取 `superClass` 常量 accept = `superClassConstantAccept`）：
+
+```
+a/g/c/ad:  p1.b(v0)            其中 v0 = new a/g/c/c(...)          ← 零包装 → VerticalClassMerger
+a/g/c/i :  p1.b(bi(bn(v0)))    v0 = a/g/c/c, bn = a/b/g/bn, bi = ReferencedClassVisitor(已定名)
+                                                                ← 两层包装 → HorizontalClassMerger
+```
+
+已对调。两个类的 oracle 成员名集合完全相同（`visitProgramClass`/`allowClassModification`
+/`mergeInterfacesAggressively`/`extraClassVisitor`），所以 `members.tsrg` 不用动。
+
+### 32.2 又顺带定名 1 个类
+
+包装链里的 `a/b/g/bn` 因此也定死了：它的 `visitProgramClass` 只做
+`programClass.subclassesAccept(字段)`，无包装无标志位，且**只被 `a/g/c/i` 引用** →
+`classfile/visitor/SubclassTraveler`（形状逐项相等：`extends Object / implements ClassVisitor /
+1 个 ClassVisitor 字段 / ctor(ClassVisitor) / 两个 visit`）。同形的 `a/b/g/bm` 是 `SubclassFilter`
+（多一层 `ClassAccessFilter`），`a/b/g/e` 是 `BottomClassFilter`（先判 subClasses==null），互不冲突。
+
+### 32.3 升级成真判据的 8 组
+
+| 组 | 判据 | 内容 |
+|---|---|---|
+| preverification 九连 | `tag:` | `getTag()` 返常量：0=Top 1=Integer 2=Float 3=Double 4=Long 5=Null 6=UninitThis 7=Object 8=Uninit（`VerificationType.java:35-43`）。**六个"同形"类其实每个都带不同的常量** |
+| GotoGoto / GotoReturn | `body:` | 前者 `new BranchInstruction`（合并跳转），后者 `switch` 命中 6 个 `OP_*RETURN` 后 `new SimpleInstruction` |
+| Implemented / Implementing ClassConstantFilter | `recv:` | `extendsOrImplements` 的**接收者**不同：`classConstant.referencedClass` vs 自身字段（smali 里就是 `{v0,v1}` 与 `{v1,v0}`） |
+| Optimizer$2 / $3 | `body:` | 返回的链不同：`AllMethodVisitor(AllAttributeVisitor(EscapingClassMarker))` vs `AllMethodVisitor(OptimizationInfoMemberFilter(ParameterUsageMarker(...)))`（源码 `Optimizer.java:594/694`） |
+| NoEscaping / NoExternalReturnValues MethodMarker | `set:` | 调的 setter 写的字段不同（`f()` 只写 c、`g()` 只写 d）；字段语义由 `setNoSideEffects` 写 a,b,c / `setNoExternalSideEffects` 写 b,c 差分锚定 → c=hasNoEscapingParameters、d=hasNoExternalReturnValues |
+
+> 注意 preverification 那 6 个：上一轮我说"原理上无法区分"是**说错了**。
+> 当时只看了成员集，没看 `getTag()` 的返回常量。
+
+### 32.4 真·无法区分的 2 组（保持 `iso:`）
+
+```a/b/a/f ↔ a/b/a/x   (Deprecated/SyntheticAttribute)
+a/b/a/a/m ↔ a/b/a/a/p (Runtime{In,}visibleTypeAnnotationsAttribute)
+```
+
+`diff` 去掉类名后**零差异**（逐字节同形）。源码里的唯一差别就是 `ATTRIBUTE_NAME`
+那个 `static final String`，而 ProGuard 把它内联进使用点后类里不再有该串——
+字节码上确实没有判别信息。这两组继续挂 `iso:`，措辞改成"与 X 逐字节同形（仅类名不同）"。
+
+### 32.5 现状
+
+```
+类映射   699 / 757（92.3%）
+成员行   21900（validate 口径）    参数行 14420
+cover(a) 方法 8290/8372 = 99.0%   字段 4914/5021 = 97.9%
+门禁     validate ✔ 无无效映射 · inherit 0/0/0 · famcheck 0/0
+         innercheck ②③ 0（① 仍为 jgit 老账 abcd/tB$a 1 条）
+```
+
+`iso:` 从 **20 条降到 4 条**，其余 655 条全部有可复现判据。
+剩 **58 类**（`todo_classes.txt` 已按真实探针集重算：`a/*` 共 757，减 699）；
+性质与 §31 相同，还是那两类循环依赖。
+
+### 32.6 教训（写进方法论）
+
+**同形组必须逐组看方法体**。结构签名（成员集+标志+引用）会把
+"成员相同、语义相反"的类判成同形——`Horizontal/VerticalClassMerger` 就是活例：
+两个类字段、方法、父类、接口全部一样，唯一差别在 `visitProgramClass` 里
+**套了几层包装**和**调的是哪个 `accept` 重载**。名序配对这次正好把它配反了；
+如果当初就直接"按名序兜底"收工，这个错会一路带进产物（两个类的成员名虽然相同，
+但类名错会影响运行时的类型判断与日志/配置映射）。

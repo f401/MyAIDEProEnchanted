@@ -351,7 +351,7 @@ a/b/a/a/b/b	proguard/classfile/attribute/annotation/visitor/AllElementValueVisit
 a/b/a/a/b/e	proguard/classfile/attribute/annotation/visitor/AnnotationTypeFilter	pkg:互为最优 0.75
 a/b/a/a/f	proguard/classfile/attribute/annotation/ClassElementValue	pkg:互为最优 0.75
 a/b/a/a/i	proguard/classfile/attribute/annotation/EnumConstantElementValue	pkg:互为最优 0.75
-a/b/a/c/p	proguard/classfile/attribute/preverification/UninitializedThisType	pkg:互为最优 0.80
+a/b/a/c/p	proguard/classfile/attribute/preverification/UninitializedThisType	tag:getTag() 返常量 0x6=UNINITIALIZED_THIS_TYPE（VerificationType.java:35-43）
 a/b/a/d/a	proguard/classfile/attribute/visitor/AllAttributeVisitor	pkg:互为最优 0.75
 a/b/a/d/e	proguard/classfile/attribute/visitor/AllLineNumberInfoVisitor	pkg:互为最优 0.75
 a/b/a/g	proguard/classfile/attribute/EnclosingMethodAttribute	pkg:互为最优 0.75
@@ -598,8 +598,8 @@ a/e/ae	proguard/io/ParentDataEntryWriter	pkg:互为最优 0.75
 a/g/a/d	proguard/optimize/evaluation/EvaluationShrinker$MyInstructionDeleter	pkg:互为最优 0.75
 a/d/a/v	proguard/evaluation/value/IdentifiedArrayReferenceValue	refs:Jaccard0.43(3 个公共引用)
 a/b/a/a/a/b	proguard/classfile/attribute/annotation/target/EmptyTargetInfo	who:引用者Jaccard0.83(5 公共引用者)
-a/b/a/c/i	proguard/classfile/attribute/preverification/ObjectType	who:引用者Jaccard0.75(9 公共引用者)
-a/b/a/c/q	proguard/classfile/attribute/preverification/UninitializedType	who:引用者Jaccard0.70(7 公共引用者)
+a/b/a/c/i	proguard/classfile/attribute/preverification/ObjectType	tag:getTag() 返常量 0x7=OBJECT_TYPE（VerificationType.java:35-43）
+a/b/a/c/q	proguard/classfile/attribute/preverification/UninitializedType	tag:getTag() 返常量 0x8=UNINITIALIZED_TYPE（VerificationType.java:35-43）
 a/b/b/d	proguard/classfile/constant/FieldrefConstant	who:引用者Jaccard0.96(23 公共引用者)
 a/b/b/g	proguard/classfile/constant/InterfaceMethodrefConstant	who:引用者Jaccard0.92(12 公共引用者)
 a/b/b/l	proguard/classfile/constant/MethodrefConstant	who:引用者Jaccard0.91(21 公共引用者)
@@ -676,23 +676,24 @@ a/h/d	proguard/preverify/Preverifier	bij:双射内最优指派(成员集重合0.
 a/b/a/b/a/a	proguard/classfile/attribute/module/visitor/ExportsInfoVisitor	iface:唯一方法形参=ExportsInfo(a/b/a/b/a 已定名)
 a/b/a/b/a/b	proguard/classfile/attribute/module/visitor/OpensInfoVisitor	iface:唯一方法形参=OpensInfo(a/b/a/b/e 已定名)
 a/b/a/b/a/c	proguard/classfile/attribute/module/visitor/ProvidesInfoVisitor	iface:唯一方法形参=ProvidesInfo(a/b/a/b/f 已定名)
-a/b/a/f	proguard/classfile/attribute/DeprecatedAttribute	iso:同形组(2)按名序配对——无判别证据
-a/b/a/x	proguard/classfile/attribute/SyntheticAttribute	iso:同形组(2)按名序配对——无判别证据
-a/b/a/a/m	proguard/classfile/attribute/annotation/RuntimeInvisibleTypeAnnotationsAttribute	iso:同形组(2)按名序配对——无判别证据
-a/b/a/a/p	proguard/classfile/attribute/annotation/RuntimeVisibleTypeAnnotationsAttribute	iso:同形组(2)按名序配对——无判别证据
-a/b/a/c/a	proguard/classfile/attribute/preverification/DoubleType	iso:同形组(6)按名序配对——无判别证据
-a/b/a/c/b	proguard/classfile/attribute/preverification/FloatType	iso:同形组(6)按名序配对——无判别证据
-a/b/a/c/d	proguard/classfile/attribute/preverification/IntegerType	iso:同形组(6)按名序配对——无判别证据
-a/b/a/c/f	proguard/classfile/attribute/preverification/LongType	iso:同形组(6)按名序配对——无判别证据
-a/b/a/c/h	proguard/classfile/attribute/preverification/NullType	iso:同形组(6)按名序配对——无判别证据
-a/b/a/c/o	proguard/classfile/attribute/preverification/TopType	iso:同形组(6)按名序配对——无判别证据
-a/b/g/ac	proguard/classfile/visitor/ImplementedClassConstantFilter	iso:同形组(2)按名序配对——无判别证据
-a/b/g/ad	proguard/classfile/visitor/ImplementingClassConstantFilter	iso:同形组(2)按名序配对——无判别证据
-a/g/o	proguard/optimize/Optimizer$2	iso:同形组(2)按名序配对——无判别证据
-a/g/p	proguard/optimize/Optimizer$3	iso:同形组(2)按名序配对——无判别证据
-a/g/b/s	proguard/optimize/info/NoEscapingParametersMethodMarker	iso:同形组(2)按名序配对——无判别证据
-a/g/b/t	proguard/optimize/info/NoExternalReturnValuesMethodMarker	iso:同形组(2)按名序配对——无判别证据
-a/g/c/ad	proguard/optimize/peephole/HorizontalClassMerger	iso:同形组(2)按名序配对——无判别证据
-a/g/c/i	proguard/optimize/peephole/VerticalClassMerger	iso:同形组(2)按名序配对——无判别证据
-a/g/c/g	proguard/optimize/peephole/GotoGotoReplacer	iso:同形组(2)按名序配对——无判别证据
-a/g/c/h	proguard/optimize/peephole/GotoReturnReplacer	iso:同形组(2)按名序配对——无判别证据
+a/b/a/f	proguard/classfile/attribute/DeprecatedAttribute	iso:与 a/b/a/x 逐字节同形(仅类名不同)——源码唯一差别是 ATTRIBUTE_NAME 常量串，已被内联，无判别信息
+a/b/a/x	proguard/classfile/attribute/SyntheticAttribute	iso:与 a/b/a/f 逐字节同形(仅类名不同)——源码唯一差别是 ATTRIBUTE_NAME 常量串，已被内联，无判别信息
+a/b/a/a/m	proguard/classfile/attribute/annotation/RuntimeInvisibleTypeAnnotationsAttribute	iso:与 a/b/a/a/p 逐字节同形(仅类名不同)——源码唯一差别是 ATTRIBUTE_NAME 常量串，已被内联，无判别信息
+a/b/a/a/p	proguard/classfile/attribute/annotation/RuntimeVisibleTypeAnnotationsAttribute	iso:与 a/b/a/a/m 逐字节同形(仅类名不同)——源码唯一差别是 ATTRIBUTE_NAME 常量串，已被内联，无判别信息
+a/b/a/c/a	proguard/classfile/attribute/preverification/DoubleType	tag:getTag() 返常量 0x3=DOUBLE_TYPE（VerificationType.java:35-43）
+a/b/a/c/b	proguard/classfile/attribute/preverification/FloatType	tag:getTag() 返常量 0x2=FLOAT_TYPE（VerificationType.java:35-43）
+a/b/a/c/d	proguard/classfile/attribute/preverification/IntegerType	tag:getTag() 返常量 0x1=INTEGER_TYPE（VerificationType.java:35-43）
+a/b/a/c/f	proguard/classfile/attribute/preverification/LongType	tag:getTag() 返常量 0x4=LONG_TYPE（VerificationType.java:35-43）
+a/b/a/c/h	proguard/classfile/attribute/preverification/NullType	tag:getTag() 返常量 0x5=NULL_TYPE（VerificationType.java:35-43）
+a/b/a/c/o	proguard/classfile/attribute/preverification/TopType	tag:getTag() 返常量 0x0=TOP_TYPE（VerificationType.java:35-43）
+a/b/g/ac	proguard/classfile/visitor/ImplementedClassConstantFilter	recv:extendsOrImplements 接收者=p2.b(classConstant.referencedClass)，参数=自身字段；源码 ImplementedClassConstantFilter
+a/b/g/ad	proguard/classfile/visitor/ImplementingClassConstantFilter	recv:extendsOrImplements 接收者=自身字段，参数=p2.b(referencedClass)；源码 ImplementingClassConstantFilter
+a/g/o	proguard/optimize/Optimizer$2	body:返回 AllMethodVisitor(AllAttributeVisitor(EscapingClassMarker))＝markingEscapingClassVisitor；源码 Optimizer.java:594
+a/g/p	proguard/optimize/Optimizer$3	body:返回 AllMethodVisitor(OptimizationInfoMemberFilter(ParameterUsageMarker(!markingStatic,!removalParameter)))＝markingUsedParametersClassVisitor；源码 Optimizer.java:694
+a/g/b/s	proguard/optimize/info/NoEscapingParametersMethodMarker	set:调 MethodOptimizationInfo.f() 只写字段 c；c=hasNoEscapingParameters（由 setNoSideEffects 写 a,b,c / setNoExternalSideEffects 写 b,c 差分锚定）
+a/g/b/t	proguard/optimize/info/NoExternalReturnValuesMethodMarker	set:调 MethodOptimizationInfo.g() 只写字段 d；d=hasNoExternalReturnValues（同上差分锚定）
+a/g/c/ad	proguard/optimize/peephole/VerticalClassMerger	body:visitProgramClass 直接 programClass.subclassesAccept(new ClassMerger(...))——零包装；源码 VerticalClassMerger
+a/g/c/i	proguard/optimize/peephole/HorizontalClassMerger	body:visitProgramClass 走 superClassConstantAccept(ReferencedClassVisitor(SubclassTraveler(ClassMerger)))——两层包装；源码 HorizontalClassMerger
+a/g/c/g	proguard/optimize/peephole/GotoGotoReplacer	body:比对 opcode==OP_GOTO 后 new BranchInstruction(合并跳转)；源码 GotoGotoReplacer
+a/g/c/h	proguard/optimize/peephole/GotoReturnReplacer	body:switch 命中 6 个 OP_*RETURN 后 new SimpleInstruction(替换为 return)；源码 GotoReturnReplacer
+a/b/g/bn	proguard/classfile/visitor/SubclassTraveler	body:visitProgramClass 只做 programClass.subclassesAccept(字段)——无包装无标志位；且该路径只被 a/g/c/i 引用；SubclassTraveler 源码逐项对应
