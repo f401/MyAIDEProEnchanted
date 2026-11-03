@@ -1068,3 +1068,33 @@ cover(a) 方法 9611/9761 = 98.5%   字段 4954/5067 = 97.8%
 门禁     validate ✔ · inherit 0/0/0 · famcheck 0/0 · innercheck ②③ 0
 未命名成员 12 条（`a/b/a/d/i` 与 `a/b/a/a/a/a/b` 两个大接口各 6 条，都是被裁的 visit 重载）
 ```
+
+## 38) 第二十三轮：补完 22 个祖先成员名 → `MISSING 0`，方法 99.2%
+
+`inherit_check` 一直挂着三处"成员待补"（`AttributeVisitor` 6、`SimplifiedVisitor` 10、
+`TargetInfoVisitor` 6，按"受影响的方法行"计则是 50 条）。这轮把它们补齐：
+
+判据仍是**描述符反查唯一匹配**——oracle 成员的描述符经 `class_map` 反查回探针名，
+若在探针类里恰好只命中一个方法，就定名。因为类型已经基本定全，这一步对这三个
+"转发型/接口型"大类特别有效（它们的方法名就是 `visitXxxAttribute`，而 `Xxx` 都已定名）：
+
+```
+AttributeVisitor        44 个 visit 方法全定名（visitAnnotationDefaultAttribute … visitUnknownAttribute）
+SimplifiedVisitor      163 个转发方法全定名（它把每个 visitXxx 都转发给内部 visitor）
+TargetInfoVisitor       10 个 visit*TargetInfo（含 Field/Method/CodeAttribute 三种重载）
+```
+
+结果：
+
+```
+inherit: CONFLICT 0 ✓  DUPTARGET 0 ✓  MISSING 0 条 ✓
+cover(a): 方法 9679/9761 = 99.2%   字段 4954/5067 = 97.8%
+```
+
+### 踩坑记录（重要）
+
+第一版用"算好下标再逐个 `insert`"往 `members.tsrg` 里塞 196 行，**下标会随着插入而失效**，
+行被塞进了别的类块。`validate_mappings` 立刻报 `no-method`（`a/b/b/a/g` 里出现
+`a(...La/b/a/a/a/k;)V` 这种它根本没有的方法）——**这就是为什么必须跑门禁**。
+
+正确做法：把 tsrg 读成 `{类: 行列表}` 的字典，往对应块 append，最后按原顺序写回。

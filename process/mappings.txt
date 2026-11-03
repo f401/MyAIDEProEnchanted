@@ -31759,6 +31759,60 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 		3 offset offset
 		4 index index
 		5 topType topType
+	a (La/b/c;La/b/d;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+		0 clazz clazz
+		1 field field
+		2 runtimeVisibleAnnotationsAttribute runtimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 runtimeVisibleAnnotationsAttribute runtimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/d;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+		0 clazz clazz
+		1 field field
+		2 runtimeInvisibleAnnotationsAttribute runtimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 runtimeInvisibleAnnotationsAttribute runtimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/o;)V visitRuntimeVisibleParameterAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 runtimeVisibleParameterAnnotationsAttribute runtimeVisibleParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/l;)V visitRuntimeInvisibleParameterAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 runtimeInvisibleParameterAnnotationsAttribute runtimeInvisibleParameterAnnotationsAttribute
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/g;)V visitSuperTypeTargetInfo
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 superTypeTargetInfo superTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/k;)V visitTypeParameterBoundTargetInfo
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 typeParameterBoundTargetInfo typeParameterBoundTargetInfo
+	a (La/b/c;La/b/j;La/b/a/a/q;La/b/a/a/a/c;)V visitFormalParameterTargetInfo
+		0 clazz clazz
+		1 method method
+		2 typeAnnotation typeAnnotation
+		3 formalParameterTargetInfo formalParameterTargetInfo
+	a (La/b/c;La/b/j;La/b/a/a/q;La/b/a/a/a/i;)V visitThrowsTargetInfo
+		0 clazz clazz
+		1 method method
+		2 typeAnnotation typeAnnotation
+		3 throwsTargetInfo throwsTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/a;)V visitCatchTargetInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 catchTargetInfo catchTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/j;)V visitTypeArgumentTargetInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 typeArgumentTargetInfo typeArgumentTargetInfo
 a/d/a/c proguard/evaluation/value/BasicValueFactory
 	e REFERENCE_VALUE
 	e ()La/d/a/ap; createReferenceValue
@@ -32288,6 +32342,30 @@ a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
 		0 clazz clazz
 		1 method method
 		2 syntheticAttribute syntheticAttribute
+	a (La/b/c;La/b/d;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+		0 clazz clazz
+		1 field field
+		2 runtimeVisibleAnnotationsAttribute runtimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 runtimeVisibleAnnotationsAttribute runtimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/d;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+		0 clazz clazz
+		1 field field
+		2 runtimeInvisibleAnnotationsAttribute runtimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 runtimeInvisibleAnnotationsAttribute runtimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/o;)V visitRuntimeVisibleParameterAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 runtimeVisibleParameterAnnotationsAttribute runtimeVisibleParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/l;)V visitRuntimeInvisibleParameterAnnotationsAttribute
+		0 clazz clazz
+		1 method method
+		2 runtimeInvisibleParameterAnnotationsAttribute runtimeInvisibleParameterAnnotationsAttribute
 a/b/a/d/j proguard/classfile/attribute/visitor/BootstrapMethodInfoVisitor
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 		0 clazz clazz
@@ -33576,6 +33654,36 @@ a/b/a/a/a/a/b proguard/classfile/attribute/annotation/target/visitor/TargetInfoV
 		2 codeAttribute codeAttribute
 		3 typeAnnotation typeAnnotation
 		4 offsetTargetInfo offsetTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/g;)V visitSuperTypeTargetInfo
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 superTypeTargetInfo superTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/k;)V visitTypeParameterBoundTargetInfo
+		0 clazz clazz
+		1 typeAnnotation typeAnnotation
+		2 typeParameterBoundTargetInfo typeParameterBoundTargetInfo
+	a (La/b/c;La/b/j;La/b/a/a/q;La/b/a/a/a/c;)V visitFormalParameterTargetInfo
+		0 clazz clazz
+		1 method method
+		2 typeAnnotation typeAnnotation
+		3 formalParameterTargetInfo formalParameterTargetInfo
+	a (La/b/c;La/b/j;La/b/a/a/q;La/b/a/a/a/i;)V visitThrowsTargetInfo
+		0 clazz clazz
+		1 method method
+		2 typeAnnotation typeAnnotation
+		3 throwsTargetInfo throwsTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/a;)V visitCatchTargetInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 catchTargetInfo catchTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/j;)V visitTypeArgumentTargetInfo
+		0 clazz clazz
+		1 method method
+		2 codeAttribute codeAttribute
+		3 typeAnnotation typeAnnotation
+		4 typeArgumentTargetInfo typeArgumentTargetInfo
 a/b/a/c/a/b proguard/classfile/attribute/preverification/visitor/VerificationTypeVisitor
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/p;)V visitUninitializedThisType
 		0 clazz clazz

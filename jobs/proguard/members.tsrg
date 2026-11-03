@@ -2548,6 +2548,18 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/f;)V visitVariablesLongType
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/h;)V visitVariablesNullType
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/o;)V visitVariablesTopType
+	a (La/b/c;La/b/d;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/d;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/o;)V visitRuntimeVisibleParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/l;)V visitRuntimeInvisibleParameterAnnotationsAttribute
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/g;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/k;)V visitTypeParameterBoundTargetInfo
+	a (La/b/c;La/b/j;La/b/a/a/q;La/b/a/a/a/c;)V visitFormalParameterTargetInfo
+	a (La/b/c;La/b/j;La/b/a/a/q;La/b/a/a/a/i;)V visitThrowsTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/a;)V visitCatchTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/j;)V visitTypeArgumentTargetInfo
 a/d/a/c proguard/evaluation/value/BasicValueFactory
 	e REFERENCE_VALUE
 	e ()La/d/a/ap; createReferenceValue
@@ -2710,6 +2722,12 @@ a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/p;)V visitRuntimeVisibleTypeAnnotationsAttribute
 	a (La/b/c;La/b/j;La/b/a/f;)V visitDeprecatedAttribute
 	a (La/b/c;La/b/j;La/b/a/x;)V visitSyntheticAttribute
+	a (La/b/c;La/b/d;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/n;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/d;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/k;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/o;)V visitRuntimeVisibleParameterAnnotationsAttribute
+	a (La/b/c;La/b/j;La/b/a/a/l;)V visitRuntimeInvisibleParameterAnnotationsAttribute
 a/b/a/d/j proguard/classfile/attribute/visitor/BootstrapMethodInfoVisitor
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 a/b/a/d/l proguard/classfile/attribute/visitor/ExceptionInfoVisitor
@@ -3299,6 +3317,12 @@ a/b/a/a/a/a/b proguard/classfile/attribute/annotation/target/visitor/TargetInfoV
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/e;)V visitLocalVariableTargetInfo
 	a (La/b/c;La/b/d;La/b/a/a/q;La/b/a/a/a/b;)V visitEmptyTargetInfo
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/g;)V visitSuperTypeTargetInfo
+	a (La/b/c;La/b/a/a/q;La/b/a/a/a/k;)V visitTypeParameterBoundTargetInfo
+	a (La/b/c;La/b/j;La/b/a/a/q;La/b/a/a/a/c;)V visitFormalParameterTargetInfo
+	a (La/b/c;La/b/j;La/b/a/a/q;La/b/a/a/a/i;)V visitThrowsTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/a;)V visitCatchTargetInfo
+	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/j;)V visitTypeArgumentTargetInfo
 a/b/a/c/a/b proguard/classfile/attribute/preverification/visitor/VerificationTypeVisitor
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/p;)V visitUninitializedThisType
 	a (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/p;)V visitStackUninitializedThisType
