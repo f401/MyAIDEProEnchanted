@@ -1,218 +1,222 @@
 {
-  "name": "aide-pro-jgit",
-  "root": ".",
-  "probe_prefix": "abcd",
-  "probe_dir": "../src/smali/abcd",
-  "probe_roots": [
-    "../src/smali",
-    "../src/smali_classes2",
-    "../src/smali_classes3",
-    "../src/smali_classes4"
-  ],
-  "smali_index": "truth/smali_index.tsv",
-  "parts": [
-    {
-      "dir": "truth/head",
-      "probe_prefix": "abcd"
-    },
-    {
-      "dir": "../jobs/jgit",
-      "probe_prefix": "abcd"
-    },
-    {
-      "dir": "../jobs/jsch",
-      "probe_prefix": "com/jcraft/jsch"
-    },
-    {
-      "dir": "../jobs/aide",
-      "probe_prefix": "abcd"
-    },
-    {
-      "dir": "../jobs/dx",
-      "probe_prefix": "com/a"
-    },
-    {
-      "dir": "../jobs/crashlytics",
-      "probe_prefix": "com/crashlytics"
-    },
-    {
-      "dir": "../jobs/fabric",
-      "probe_prefix": "io/fabric"
-    },
-    {
-      "dir": "../jobs/spongycastle",
-      "probe_prefix": "abcd"
-    },
-    {
-      "dir": "../jobs/zipsigner",
-      "probe_prefix": "abcd"
-    },
-    {
-      "dir": "../jobs/dropbox",
-      "probe_prefix": "abcd"
-    },
-    {
-      "dir": "../jobs/engine",
-      "probe_prefix": "abcd"
-    },
-    {
-      "dir": "../jobs/proguard",
-      "probe_prefix": "a"
-    }
-  ],
-  "src_root": [
-    "$HOME/src/jgit",
-    "$HOME/out/oracle/jsch/src-0.1.51",
-    "$HOME/out/oracle/jsch/src",
-    "$HOME/out/oracle/spongycastle/src-1.47",
-    "$HOME/zstar/zip-signer-master/kellinwood-logging-lib/src/main/java",
-    "$HOME/zstar/zip-signer-master/zipio-lib/src/main/java",
-    "$HOME/zstar/zip-signer-master/zipsigner-lib/src/main/java",
-    "$HOME/dbxand/dropbox-android-sdk-master/src/main/java",
-    "$HOME/out/oracle/http/js-src-1.1",
-    "$HOME/out/oracle/proguard/src-6.0.3"
-  ],
-  "out_tsrg": "mappings.txt",
-  "allow": "verify_allow.tsv",
-  "base_jars": [
-    "base/merged_ok.jar"
-  ],
-  "input_jars": [
-    "src/classes.jar",
-    "src/classes2.jar",
-    "src/classes3.jar",
-    "src/classes4.jar",
-    "src/classes5.jar",
-    "src/zh.jar",
-    "src/en.jar",
-    "src/ndk.jar",
-    "src/packagingservice.jar"
-  ],
-  "oracle_jars": [
-    {
-      "label": "jgit-3.7.1",
-      "path": "$HOME/out/oracle/jgit/j-3.7.1.201504261725-r.jar"
-    },
-    {
-      "label": "jgit-4.11.9",
-      "path": "$HOME/out/oracle/jgit/j-4.11.9.201909030838-r.jar"
-    },
-    {
-      "label": "jgit-5.13.3",
-      "path": "$HOME/out/oracle/jgit/org.eclipse.jgit-5.13.3.202401111512-r.jar"
-    },
-    {
-      "label": "jsch-0.1.51",
-      "path": "$HOME/out/oracle/jsch/jsch-0.1.51.jar"
-    },
-    {
-      "label": "jsch-0.1.55",
-      "path": "$HOME/out/oracle/jsch/jsch-0.1.55.jar"
-    },
-    {
-      "label": "dx-1.16",
-      "path": "$HOME/out/oracle/dx/dx-1.16.jar"
-    },
-    {
-      "label": "dx-1.7",
-      "path": "$HOME/out/oracle/dx/dx-1.7.jar"
-    },
-    {
-      "label": "crashlytics-core",
-      "path": "$HOME/out/oracle/crashlytics/crashlytics-core-2.7.0.jar"
-    },
-    {
-      "label": "crashlytics-answers",
-      "path": "$HOME/out/oracle/crashlytics/answers-1.4.7.jar"
-    },
-    {
-      "label": "crashlytics-beta",
-      "path": "$HOME/out/oracle/crashlytics/beta-1.2.10.jar"
-    },
-    {
-      "label": "crashlytics",
-      "path": "$HOME/out/oracle/crashlytics/crashlytics-2.9.9.jar"
-    },
-    {
-      "label": "fabric",
-      "path": "$HOME/out/oracle/crashlytics/fabric-1.4.8.jar"
-    },
-    {
-      "label": "crashlytics-all",
-      "path": "$HOME/out/oracle/crashlytics/crashlytics-all.jar"
-    },
-    {
-      "label": "sc-core-1.50",
-      "path": "$HOME/out/oracle/spongycastle/sc-core-1.50.0.0.jar"
-    },
-    {
-      "label": "sc-prov-1.50",
-      "path": "$HOME/out/oracle/spongycastle/sc-prov-1.50.0.0.jar"
-    },
-    {
-      "label": "sc-pkix-1.50",
-      "path": "$HOME/out/oracle/spongycastle/sc-pkix-1.50.0.0.jar"
-    },
-    {
-      "label": "bcprov-1.47",
-      "path": "$HOME/out/oracle/spongycastle/bcprov-jdk15on-1.47.jar"
-    },
-    {
-      "label": "bcpkix-1.47",
-      "path": "$HOME/out/oracle/spongycastle/bcpkix-jdk15on-1.47.jar"
-    },
-    {
-      "label": "bcprov-1.50",
-      "path": "$HOME/out/oracle/spongycastle/bcprov-jdk15on-1.50.jar"
-    },
-    {
-      "label": "bcpkix-1.50",
-      "path": "$HOME/out/oracle/spongycastle/bcpkix-jdk15on-1.50.jar"
-    },
-    {
-      "label": "bc-all-1.47",
-      "path": "$HOME/out/oracle/spongycastle/bc-all-1.47.jar"
-    },
-    {
-      "label": "sc-all-1.50",
-      "path": "$HOME/out/oracle/spongycastle/sc-all-1.50.jar"
-    },
-    {
-      "label": "zs-1.11",
-      "path": "$HOME/out/oracle/zipsigner/zs-all.jar"
-    },
-    {
-      "label": "dropbox-android-1.6.2",
-      "path": "$HOME/out/oracle/http/dropbox-android-sdk-1.6.2.jar"
-    },
-    {
-      "label": "json-simple-1.1",
-      "path": "$HOME/out/oracle/http/json_simple-1.1.jar"
-    },
-    {
-      "label": "dropbox-1.6",
-      "path": "$HOME/out/oracle/http/dropbox-core-sdk-1.6.jar"
-    },
-    {
-      "label": "dropbox-1.7.7",
-      "path": "$HOME/out/oracle/http/dropbox-core-sdk-1.7.7.jar"
-    },
-    {
-      "label": "dropbox-1.8.2",
-      "path": "$HOME/out/oracle/http/dropbox-core-sdk-1.8.2.jar"
-    },
-    {
-      "label": "httpclient-4.2.1",
-      "path": "$HOME/out/oracle/http/httpclient-4.2.1.jar"
-    },
-    {
-      "label": "httpcore-4.2.1",
-      "path": "$HOME/out/oracle/http/httpcore-4.2.1.jar"
-    },
-    {
-      "label": "proguard-6.0.3",
-      "path": "$HOME/out/oracle/proguard/proguard-base-6.0.3.jar"
-    }
-  ],
-  "out_dir": "out"
+ "name": "aide-pro-jgit",
+ "root": ".",
+ "probe_prefix": "abcd",
+ "probe_dir": "../src/smali/abcd",
+ "probe_roots": [
+  "../src/smali",
+  "../src/smali_classes2",
+  "../src/smali_classes3",
+  "../src/smali_classes4"
+ ],
+ "smali_index": "truth/smali_index.tsv",
+ "parts": [
+  {
+   "dir": "truth/head",
+   "probe_prefix": "abcd"
+  },
+  {
+   "dir": "../jobs/jgit",
+   "probe_prefix": "abcd"
+  },
+  {
+   "dir": "../jobs/jsch",
+   "probe_prefix": "com/jcraft/jsch"
+  },
+  {
+   "dir": "../jobs/aide",
+   "probe_prefix": "abcd"
+  },
+  {
+   "dir": "../jobs/dx",
+   "probe_prefix": "com/a"
+  },
+  {
+   "dir": "../jobs/crashlytics",
+   "probe_prefix": "com/crashlytics"
+  },
+  {
+   "dir": "../jobs/fabric",
+   "probe_prefix": "io/fabric"
+  },
+  {
+   "dir": "../jobs/spongycastle",
+   "probe_prefix": "abcd"
+  },
+  {
+   "dir": "../jobs/zipsigner",
+   "probe_prefix": "abcd"
+  },
+  {
+   "dir": "../jobs/dropbox",
+   "probe_prefix": "abcd"
+  },
+  {
+   "dir": "../jobs/engine",
+   "probe_prefix": "abcd"
+  },
+  {
+   "dir": "../jobs/proguard",
+   "probe_prefix": "a"
+  },
+  {
+   "dir": "../jobs/jdcore",
+   "probe_prefix": "org/c/a/a"
+  }
+ ],
+ "src_root": [
+  "$HOME/src/jgit",
+  "$HOME/out/oracle/jsch/src-0.1.51",
+  "$HOME/out/oracle/jsch/src",
+  "$HOME/out/oracle/spongycastle/src-1.47",
+  "$HOME/zstar/zip-signer-master/kellinwood-logging-lib/src/main/java",
+  "$HOME/zstar/zip-signer-master/zipio-lib/src/main/java",
+  "$HOME/zstar/zip-signer-master/zipsigner-lib/src/main/java",
+  "$HOME/dbxand/dropbox-android-sdk-master/src/main/java",
+  "$HOME/out/oracle/http/js-src-1.1",
+  "$HOME/out/oracle/proguard/src-6.0.3"
+ ],
+ "out_tsrg": "mappings.txt",
+ "allow": "verify_allow.tsv",
+ "base_jars": [
+  "base/merged_ok.jar"
+ ],
+ "input_jars": [
+  "src/classes.jar",
+  "src/classes2.jar",
+  "src/classes3.jar",
+  "src/classes4.jar",
+  "src/classes5.jar",
+  "src/zh.jar",
+  "src/en.jar",
+  "src/ndk.jar",
+  "src/packagingservice.jar"
+ ],
+ "oracle_jars": [
+  {
+   "label": "jgit-3.7.1",
+   "path": "$HOME/out/oracle/jgit/j-3.7.1.201504261725-r.jar"
+  },
+  {
+   "label": "jgit-4.11.9",
+   "path": "$HOME/out/oracle/jgit/j-4.11.9.201909030838-r.jar"
+  },
+  {
+   "label": "jgit-5.13.3",
+   "path": "$HOME/out/oracle/jgit/org.eclipse.jgit-5.13.3.202401111512-r.jar"
+  },
+  {
+   "label": "jsch-0.1.51",
+   "path": "$HOME/out/oracle/jsch/jsch-0.1.51.jar"
+  },
+  {
+   "label": "jsch-0.1.55",
+   "path": "$HOME/out/oracle/jsch/jsch-0.1.55.jar"
+  },
+  {
+   "label": "dx-1.16",
+   "path": "$HOME/out/oracle/dx/dx-1.16.jar"
+  },
+  {
+   "label": "dx-1.7",
+   "path": "$HOME/out/oracle/dx/dx-1.7.jar"
+  },
+  {
+   "label": "crashlytics-core",
+   "path": "$HOME/out/oracle/crashlytics/crashlytics-core-2.7.0.jar"
+  },
+  {
+   "label": "crashlytics-answers",
+   "path": "$HOME/out/oracle/crashlytics/answers-1.4.7.jar"
+  },
+  {
+   "label": "crashlytics-beta",
+   "path": "$HOME/out/oracle/crashlytics/beta-1.2.10.jar"
+  },
+  {
+   "label": "crashlytics",
+   "path": "$HOME/out/oracle/crashlytics/crashlytics-2.9.9.jar"
+  },
+  {
+   "label": "fabric",
+   "path": "$HOME/out/oracle/crashlytics/fabric-1.4.8.jar"
+  },
+  {
+   "label": "crashlytics-all",
+   "path": "$HOME/out/oracle/crashlytics/crashlytics-all.jar"
+  },
+  {
+   "label": "sc-core-1.50",
+   "path": "$HOME/out/oracle/spongycastle/sc-core-1.50.0.0.jar"
+  },
+  {
+   "label": "sc-prov-1.50",
+   "path": "$HOME/out/oracle/spongycastle/sc-prov-1.50.0.0.jar"
+  },
+  {
+   "label": "sc-pkix-1.50",
+   "path": "$HOME/out/oracle/spongycastle/sc-pkix-1.50.0.0.jar"
+  },
+  {
+   "label": "bcprov-1.47",
+   "path": "$HOME/out/oracle/spongycastle/bcprov-jdk15on-1.47.jar"
+  },
+  {
+   "label": "bcpkix-1.47",
+   "path": "$HOME/out/oracle/spongycastle/bcpkix-jdk15on-1.47.jar"
+  },
+  {
+   "label": "bcprov-1.50",
+   "path": "$HOME/out/oracle/spongycastle/bcprov-jdk15on-1.50.jar"
+  },
+  {
+   "label": "bcpkix-1.50",
+   "path": "$HOME/out/oracle/spongycastle/bcpkix-jdk15on-1.50.jar"
+  },
+  {
+   "label": "bc-all-1.47",
+   "path": "$HOME/out/oracle/spongycastle/bc-all-1.47.jar"
+  },
+  {
+   "label": "sc-all-1.50",
+   "path": "$HOME/out/oracle/spongycastle/sc-all-1.50.jar"
+  },
+  {
+   "label": "zs-1.11",
+   "path": "$HOME/out/oracle/zipsigner/zs-all.jar"
+  },
+  {
+   "label": "dropbox-android-1.6.2",
+   "path": "$HOME/out/oracle/http/dropbox-android-sdk-1.6.2.jar"
+  },
+  {
+   "label": "json-simple-1.1",
+   "path": "$HOME/out/oracle/http/json_simple-1.1.jar"
+  },
+  {
+   "label": "dropbox-1.6",
+   "path": "$HOME/out/oracle/http/dropbox-core-sdk-1.6.jar"
+  },
+  {
+   "label": "dropbox-1.7.7",
+   "path": "$HOME/out/oracle/http/dropbox-core-sdk-1.7.7.jar"
+  },
+  {
+   "label": "dropbox-1.8.2",
+   "path": "$HOME/out/oracle/http/dropbox-core-sdk-1.8.2.jar"
+  },
+  {
+   "label": "httpclient-4.2.1",
+   "path": "$HOME/out/oracle/http/httpclient-4.2.1.jar"
+  },
+  {
+   "label": "httpcore-4.2.1",
+   "path": "$HOME/out/oracle/http/httpcore-4.2.1.jar"
+  },
+  {
+   "label": "proguard-6.0.3",
+   "path": "$HOME/out/oracle/proguard/proguard-base-6.0.3.jar"
+  }
+ ],
+ "out_dir": "out"
 }

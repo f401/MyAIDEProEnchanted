@@ -1,1 +1,7 @@
 org/c/a/a/a	org/jd/core/v1/ClassFileToJavaSourceDecompiler	src:6 个字段逐个 new 六个 processor（deserializer/converter/fragmenter/layouter/tokenizer/writer，源码 :24-29 同序）；decompile() 里 setHeader("mainInternalTypeName"/"loader"/"printer"/"maxLineNumber"/"configuration") 与源码 :34-36 逐字相同
+org/c/a/a/c/b/a/d	org/jd/core/v1/service/deserializer/classfile/DeserializeClassFileProcessor	src:ClassFileToJavaSourceDecompiler.java:24-29 字段 deserializer 的声明类型就是它（字段顺序+类型双重锁定）
+org/c/a/a/c/a/a/a	org/jd/core/v1/service/converter/classfiletojavasyntax/ClassFileToJavaSyntaxProcessor	src:ClassFileToJavaSourceDecompiler.java:24-29 字段 converter 的声明类型就是它（字段顺序+类型双重锁定）
+org/c/a/a/c/c/a/a	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/JavaSyntaxToJavaFragmentProcessor	src:ClassFileToJavaSourceDecompiler.java:24-29 字段 fragmenter 的声明类型就是它（字段顺序+类型双重锁定）
+org/c/a/a/c/d/a	org/jd/core/v1/service/layouter/LayoutFragmentProcessor	src:ClassFileToJavaSourceDecompiler.java:24-29 字段 layouter 的声明类型就是它（字段顺序+类型双重锁定）
+org/c/a/a/c/e/a/a	org/jd/core/v1/service/tokenizer/javafragmenttotoken/JavaFragmentToTokenProcessor	src:ClassFileToJavaSourceDecompiler.java:24-29 字段 tokenizer 的声明类型就是它（字段顺序+类型双重锁定）
+org/c/a/a/c/f/a	org/jd/core/v1/service/writer/WriteTokenProcessor	src:ClassFileToJavaSourceDecompiler.java:24-29 字段 writer 的声明类型就是它（字段顺序+类型双重锁定）

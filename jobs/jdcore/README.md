@@ -37,12 +37,42 @@ org/c/a/a/a → org/jd/core/v1/ClassFileToJavaSourceDecompiler
    照 ProGuard 那套"创建点 / switch 常量"读 `ConstantParser`/`ClassFileParser`；
 3. `model/javasyntax/*`（160 类）是纯数据模型，靠"谁构造它 + 字段类型"逐个读。
 
-## 接入状态（未完成）
+## 已接入（part 12）
 
-`jobs/jdcore/` 目前只是**种子**（1 条类映射 + 包对齐草表），**没有**注册进
-`process/deob.json` 的 `parts`。本轮试过注册（`{"dir": "../jobs/jdcore", "probe_prefix": "org/c/a/a"}`
-+ `tools/jgit/paths.py` 的 `PART_DIRS` 加一行），`rebuild_tsrg` 不报错但**没有枚举到这个 part**
-（输出仍是 `part 11`），原因没查（怀疑只枚举带 `members.tsrg` 的 part）。所以先回滚注册，
-等下一轮把 `members.tsrg` 建起来再一起接。
+`jobs/jdcore/` 已注册进 `process/deob.json` 的 `parts`（`probe_prefix: "org/c/a/a"`）
++ `tools/jgit/paths.py` 的 `PART_DIRS`。`rebuild_tsrg` 现在会枚举它：
 
-在那之前，本目录的数据**不被门禁覆盖**，引用时请注意。
+```
+jdcore 旧块 7 / tsv 7 / 输出块 7 / 丢陈旧块 0 / 去重成员 0
+```
+
+> 坑：`rebuild_part` 要求**同目录下 class_map.tsv 与 members.tsrg 都存在**；而且
+> **空块会被当成"陈旧块"丢掉**（第一版只有类名没成员行，7 个块全被 DROP）。
+> 所以每个类至少要写一条成员行。
+
+## 已定名 7 个（全部 `src:`）
+
+```
+org/c/a/a/a      → ClassFileToJavaSourceDecompiler     6 个字段 + decompile
+org/c/a/a/c/b/a/d→ .../deserializer/classfile/DeserializeClassFileProcessor   ← 字段 a 的类型
+org/c/a/a/c/a/a/a→ .../converter/classfiletojavasyntax/ClassFileToJavaSyntaxProcessor ← b
+org/c/a/a/c/c/a/a→ .../fragmenter/javasyntaxtojavafragment/JavaSyntaxToJavaFragmentProcessor ← c
+org/c/a/a/c/d/a  → .../layouter/LayoutFragmentProcessor   ← d
+org/c/a/a/c/e/a/a→ .../tokenizer/javafragmenttotoken/JavaFragmentToTokenProcessor ← e
+org/c/a/a/c/f/a  → .../writer/WriteTokenProcessor        ← f
+```
+
+判据是**字段声明类型**（源码 `:24-29`）：`protected DeserializeClassFileProcessor deserializer = new ...`
+六个字段名 `deserializer/converter/fragmenter/layouter/tokenizer/writer` 与探针字段 `a..f` 一一对应，
+所以这 6 个 processor 的类型不用猜——它们就是入口类里那 6 个字段的类型。
+
+成员行同理：6 个 processor 源码里**都只有一个** `process(Message)`（`grep -c "void process("` 各为 1），
+探针里对应的唯一 `a(Lorg/c/a/a/b/e/a;)V` 就是它。顺带确认 **`org/c/a/a/b/e/a` = `model/message/Message`**
+（原来贪心对齐把它当成了 `api/printer`，已修正 pkg_map）。
+
+## 下一步
+
+1. `api/*` 三个小包（Loader/Printer/Decompiler）用 `decompile(Loader,Printer,String)` 的形参类型钉死；
+2. `model/classfile/attribute`(40) + `model/classfile/constant`(13)：读 `DeserializeClassFileProcessor` →
+   `ClassFileParser`/`ConstantParser` 的 `switch`/比较链（和 ProGuard 那套一样）；
+3. `model/javasyntax/*`(160 类)：纯数据模型，靠"谁 new 它 + 字段类型"逐个读。

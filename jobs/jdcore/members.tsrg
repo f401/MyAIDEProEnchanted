@@ -1,0 +1,20 @@
+org/c/a/a/a org/jd/core/v1/ClassFileToJavaSourceDecompiler
+	a deserializer
+	b converter
+	c fragmenter
+	d layouter
+	e tokenizer
+	f writer
+	a (Lorg/c/a/a/a/a/a;Lorg/c/a/a/a/b/a;Ljava/lang/String;)V decompile
+org/c/a/a/c/b/a/d org/jd/core/v1/service/deserializer/classfile/DeserializeClassFileProcessor
+	a (Lorg/c/a/a/b/e/a;)V process
+org/c/a/a/c/a/a/a org/jd/core/v1/service/converter/classfiletojavasyntax/ClassFileToJavaSyntaxProcessor
+	a (Lorg/c/a/a/b/e/a;)V process
+org/c/a/a/c/c/a/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/JavaSyntaxToJavaFragmentProcessor
+	a (Lorg/c/a/a/b/e/a;)V process
+org/c/a/a/c/d/a org/jd/core/v1/service/layouter/LayoutFragmentProcessor
+	a (Lorg/c/a/a/b/e/a;)V process
+org/c/a/a/c/e/a/a org/jd/core/v1/service/tokenizer/javafragmenttotoken/JavaFragmentToTokenProcessor
+	a (Lorg/c/a/a/b/e/a;)V process
+org/c/a/a/c/f/a org/jd/core/v1/service/writer/WriteTokenProcessor
+	a (Lorg/c/a/a/b/e/a;)V process

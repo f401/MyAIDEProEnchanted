@@ -59,6 +59,7 @@ PART_DIRS = [
     ('dropbox', os.path.join(REPO, 'jobs', 'dropbox')),
     ('engine', os.path.join(REPO, 'jobs', 'engine')),
     ('proguard', os.path.join(REPO, 'jobs', 'proguard')),
+    ('jdcore', os.path.join(REPO, 'jobs', 'jdcore')),
 ]
 PARTS = [n for n, _ in PART_DIRS]
 
