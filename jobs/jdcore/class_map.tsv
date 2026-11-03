@@ -187,3 +187,7 @@ org/c/a/a/c/a/a/c/r	org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 org/c/a/a/c/c/a/b/a	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/CompilationUnitVisitor	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/c/c/a/b/i	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/StatementVisitor	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/d/e	org/jd/core/v1/util/DefaultStack	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/b/d/a/aj	org/jd/core/v1/model/javasyntax/declaration/VariableInitializer	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
+org/c/a/a/b/d/a/h	org/jd/core/v1/model/javasyntax/declaration/BaseLocalVariableDeclarator	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
+org/c/a/a/b/d/a/z	org/jd/core/v1/model/javasyntax/declaration/BaseMemberDeclaration	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
+org/c/a/a/b/d/e/n	org/jd/core/v1/model/javasyntax/type/TypeArgument	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
