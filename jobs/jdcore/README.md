@@ -103,6 +103,27 @@ b/h=ConstantMethodHandle  b/i=ConstantMethodType
    `ClassFileParser`/`ConstantParser` 的 `switch`/比较链（和 ProGuard 那套一样）；
 3. `model/javasyntax/*`(160 类)：纯数据模型，靠"谁 new 它 + 字段类型"逐个读。
 
+## 第三批：`model/classfile/attribute` 14 个（`src:` 双证）
+
+`org/c/a/a/c/b/a/a`（28 方法）就是 **`ClassFileDeserializer`**（它同时管常量池和属性）。
+两个方向同时命中：
+
+1. **源码**：`ClassFileDeserializer.java` 的 `switch (name) { case "Code": attributes.put(name, new AttributeCode(...)); … }`；
+2. **字节码**：同一条 `const-string "Code"` 后面紧跟 `new-instance Lorg/c/a/a/b/a/a/f;`。
+
+```
+Module→o  MethodParameters→n  RuntimeVisible(Parameter)Annotations→r/b  Code→f
+BootstrapMethods→e  LocalVariableTypeTable→m  ModulePackages→q  Exceptions→i
+ModuleMainClass→p  AnnotationDefault→d  LocalVariableTable→l  LineNumberTable→k
+InnerClasses→j
+```
+
+注意 jd-core 把 **Visible/Invisible 合成一个类**（`AttributeAnnotations`/`AttributeParameterAnnotations`），
+所以字节码里两个名字都指向同一个 `new-instance`——这也是为什么它俩在 oracle 里只有 1 个类。
+
+顺带发现：`"Invalid element value type:"` 后面那一串 `new-instance`（`y,z,aa,ab,ac,ad,af,ag,ah,ai,aj,ak,al,am,an`）
+就是 `ElementValue*` 家族的分派表，下一轮直接按 element_value tag 读出来。
+
 ## 批量求解尝试（结论：做不到"一次做完"，附诊断）
 
 对 434 个类跑了 `tools/deob/subgraph.py`（一元约束 + 双向唯一 + 回溯）**并加了一层

@@ -38,3 +38,17 @@ org/c/a/a/b/d/a/ag	org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration
 org/c/a/a/b/d/d/r	org/jd/core/v1/model/javasyntax/statement/Statement	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
 org/c/a/a/c/b/a/b	org/jd/core/v1/service/deserializer/classfile/ClassFileFormatException	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
 org/c/a/a/c/b/a/c	org/jd/core/v1/service/deserializer/classfile/ClassFileReader	csp:同包候选里唯一相容（subgraph unary + 成员描述符合一匹配，其余候选成员形状可互换）
+org/c/a/a/b/a/a/o	org/jd/core/v1/model/classfile/attribute/AttributeModule	src:ClassFileDeserializer 的 case "Module" 分支 new AttributeModule(...)；字节码侧同一条 const-string 后紧跟 new-instance o
+org/c/a/a/b/a/a/n	org/jd/core/v1/model/classfile/attribute/AttributeMethodParameters	src:ClassFileDeserializer 的 case "MethodParameters" 分支 new AttributeMethodParameters(...)；字节码侧同一条 const-string 后紧跟 new-instance n
+org/c/a/a/b/a/a/r	org/jd/core/v1/model/classfile/attribute/AttributeParameterAnnotations	src:ClassFileDeserializer 的 case "RuntimeVisibleParameterAnnotations" 分支 new AttributeParameterAnnotations(...)；字节码侧同一条 const-string 后紧跟 new-instance r
+org/c/a/a/b/a/a/b	org/jd/core/v1/model/classfile/attribute/AttributeAnnotations	src:ClassFileDeserializer 的 case "RuntimeVisibleAnnotations/InvisibleAnnotations" 分支 new AttributeAnnotations(...)；字节码侧同一条 const-string 后紧跟 new-instance b
+org/c/a/a/b/a/a/f	org/jd/core/v1/model/classfile/attribute/AttributeCode	src:ClassFileDeserializer 的 case "Code" 分支 new AttributeCode(...)；字节码侧同一条 const-string 后紧跟 new-instance f
+org/c/a/a/b/a/a/e	org/jd/core/v1/model/classfile/attribute/AttributeBootstrapMethods	src:ClassFileDeserializer 的 case "BootstrapMethods" 分支 new AttributeBootstrapMethods(...)；字节码侧同一条 const-string 后紧跟 new-instance e
+org/c/a/a/b/a/a/m	org/jd/core/v1/model/classfile/attribute/AttributeLocalVariableTypeTable	src:ClassFileDeserializer 的 case "LocalVariableTypeTable" 分支 new AttributeLocalVariableTypeTable(...)；字节码侧同一条 const-string 后紧跟 new-instance m
+org/c/a/a/b/a/a/q	org/jd/core/v1/model/classfile/attribute/AttributeModulePackages	src:ClassFileDeserializer 的 case "ModulePackages" 分支 new AttributeModulePackages(...)；字节码侧同一条 const-string 后紧跟 new-instance q
+org/c/a/a/b/a/a/i	org/jd/core/v1/model/classfile/attribute/AttributeExceptions	src:ClassFileDeserializer 的 case "Exceptions" 分支 new AttributeExceptions(...)；字节码侧同一条 const-string 后紧跟 new-instance i
+org/c/a/a/b/a/a/p	org/jd/core/v1/model/classfile/attribute/AttributeModuleMainClass	src:ClassFileDeserializer 的 case "ModuleMainClass" 分支 new AttributeModuleMainClass(...)；字节码侧同一条 const-string 后紧跟 new-instance p
+org/c/a/a/b/a/a/d	org/jd/core/v1/model/classfile/attribute/AttributeAnnotationDefault	src:ClassFileDeserializer 的 case "AnnotationDefault" 分支 new AttributeAnnotationDefault(...)；字节码侧同一条 const-string 后紧跟 new-instance d
+org/c/a/a/b/a/a/l	org/jd/core/v1/model/classfile/attribute/AttributeLocalVariableTable	src:ClassFileDeserializer 的 case "LocalVariableTable" 分支 new AttributeLocalVariableTable(...)；字节码侧同一条 const-string 后紧跟 new-instance l
+org/c/a/a/b/a/a/k	org/jd/core/v1/model/classfile/attribute/AttributeLineNumberTable	src:ClassFileDeserializer 的 case "LineNumberTable" 分支 new AttributeLineNumberTable(...)；字节码侧同一条 const-string 后紧跟 new-instance k
+org/c/a/a/b/a/a/j	org/jd/core/v1/model/classfile/attribute/AttributeInnerClasses	src:ClassFileDeserializer 的 case "InnerClasses" 分支 new AttributeInnerClasses(...)；字节码侧同一条 const-string 后紧跟 new-instance j

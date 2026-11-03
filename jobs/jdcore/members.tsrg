@@ -51,3 +51,17 @@ org/c/a/a/b/d/a/ag org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration
 org/c/a/a/b/d/d/r org/jd/core/v1/model/javasyntax/statement/Statement
 org/c/a/a/c/b/a/b org/jd/core/v1/service/deserializer/classfile/ClassFileFormatException
 org/c/a/a/c/b/a/c org/jd/core/v1/service/deserializer/classfile/ClassFileReader
+org/c/a/a/b/a/a/o org/jd/core/v1/model/classfile/attribute/AttributeModule
+org/c/a/a/b/a/a/n org/jd/core/v1/model/classfile/attribute/AttributeMethodParameters
+org/c/a/a/b/a/a/r org/jd/core/v1/model/classfile/attribute/AttributeParameterAnnotations
+org/c/a/a/b/a/a/b org/jd/core/v1/model/classfile/attribute/AttributeAnnotations
+org/c/a/a/b/a/a/f org/jd/core/v1/model/classfile/attribute/AttributeCode
+org/c/a/a/b/a/a/e org/jd/core/v1/model/classfile/attribute/AttributeBootstrapMethods
+org/c/a/a/b/a/a/m org/jd/core/v1/model/classfile/attribute/AttributeLocalVariableTypeTable
+org/c/a/a/b/a/a/q org/jd/core/v1/model/classfile/attribute/AttributeModulePackages
+org/c/a/a/b/a/a/i org/jd/core/v1/model/classfile/attribute/AttributeExceptions
+org/c/a/a/b/a/a/p org/jd/core/v1/model/classfile/attribute/AttributeModuleMainClass
+org/c/a/a/b/a/a/d org/jd/core/v1/model/classfile/attribute/AttributeAnnotationDefault
+org/c/a/a/b/a/a/l org/jd/core/v1/model/classfile/attribute/AttributeLocalVariableTable
+org/c/a/a/b/a/a/k org/jd/core/v1/model/classfile/attribute/AttributeLineNumberTable
+org/c/a/a/b/a/a/j org/jd/core/v1/model/classfile/attribute/AttributeInnerClasses
