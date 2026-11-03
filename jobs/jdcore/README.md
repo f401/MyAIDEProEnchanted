@@ -198,3 +198,22 @@ org/c/a/a/c/a/a/c (expression)  42    42     0
 
 已落地的是**能被唯一确定的那批**（40 类，20 条 `src:`/`hier:` + 20 条 `csp:`），
 门禁全绿。剩下的 394 类要么按族读源码（每族 1-2 轮），要么接受"按作用命名"。
+
+## 第五批：包对齐纠错（两行 pkg_map 是错的）
+
+按形状对表时发现两行配反了，已改：
+
+```
+org/c/a/a/b/d/c  model/token                    →  model/javasyntax/reference
+org/c/a/a/b/f    model/javasyntax/reference      →  model/token
+```
+
+证据：`model/token/TextToken` 有 **31 个字段**，而探针里唯一 30+ 字段的类是
+`org/c/a/a/b/f/o`（33 字段）→ `b/f` 是 token 包；反过来 `model/javasyntax/reference/AnnotationReference`
+是 3 字段/10 方法，而 `org/c/a/a/b/d/c/b` 恰好 3 字段/10 方法 → `b/d/c` 是 reference 包。
+
+> 教训（第二次了）：**计数对齐只能当候选**。这次的判定锚是"极端形态"——一个包里
+> 字段数最高/最低的那几个类，少数几个这样的锚就能整包纠偏。
+
+改完之后这两包的形状表已经能一一对上（`reference`：3 字段/10 方法、0/6、1Z/6 都是唯一解），
+下一轮直接按"字段类型多重集 + 引用者的字段类型反查"收，预计 15~17 个/包。
