@@ -1,0 +1,1 @@
+org/c/a/a/a	org/jd/core/v1/ClassFileToJavaSourceDecompiler	src:6 个字段逐个 new 六个 processor（deserializer/converter/fragmenter/layouter/tokenizer/writer，源码 :24-29 同序）；decompile() 里 setHeader("mainInternalTypeName"/"loader"/"printer"/"maxLineNumber"/"configuration") 与源码 :34-36 逐字相同
