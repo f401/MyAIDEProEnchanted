@@ -229,3 +229,24 @@ model/token            probe 17 pool 17  双向唯一 4
 ```
 
 剩下的要靠"字段类型多重集"之外的证据（引用者的字段类型、`accept` 目标 visitor），下一轮做。
+
+## 突破：`str:` —— 混淆不改字符串（+86），以及源码字面量匹配（+15）
+
+**判据一：`toString()` 里写死的类名。** jd-core 的数据模型几乎每个类都有
+`toString()` 返回 `"ClassName{..."`，而 ProGuard/R8 **不会改字符串内容**：
+
+```
+smali: const-string v1, "MethodInvocationExpression{'"   → 直接就是类名
+```
+
+全量扫 434 个探针类的 `const-string "Xxx{` → 与 oracle 未占用类的**简单名**唯一匹配 →
+一次定下 **86 个**（declaration/expression/statement/type/token 五个包的主要成员都在里面）。
+冲突（同一个名字被两个探针声称）一律跳过，交给后续判据。
+
+**判据二：源码字面量唯一匹配。** 把 jd-core **396 个 .java** 里的字符串字面量建索引，
+探针类的常量串在索引里只命中一个文件 → +15（`ByteCodeParser`、`TypeMaker`、
+`LoopStatementMaker`、`ControlFlowGraph`、`WatchDog`… 都是靠错误/调试串定的）。
+
+门禁：`validate ✔ · inherit CONFLICT 0 / MISSING 0`。
+
+当前 **189 / 434（43.5%）**。

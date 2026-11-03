@@ -169,3 +169,21 @@ org/c/a/a/c/a/a/a/c/j	org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 org/c/a/a/c/a/a/a/c/k	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/PrimitiveLocalVariable	str:toString() 里写死的类名字符串 "PrimitiveLocalVariable{"（混淆不改字符串）
 org/c/a/a/c/d/a/a	org/jd/core/v1/service/layouter/model/Section	str:toString() 里写死的类名字符串 "Section{"（混淆不改字符串）
 org/c/a/a/b/a/b	org/jd/core/v1/model/classfile/ConstantPool	str:字符串 "ConstantPool"（常量池容器；与本包 ClassFile/Field/Method 的三个 toString 串互不重叠）
+org/c/a/a/b/c/m	org/jd/core/v1/model/javafragment/TokensFragment	str:字符串里出现的唯一长类名 "TokensFragment"（混淆不改字符串）
+org/c/a/a/b/d/c/a	org/jd/core/v1/model/javasyntax/reference/ElementValue	str:字符串里出现的唯一长类名 "ElementValue"（混淆不改字符串）
+org/c/a/a/c/e/a/a/c	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/JavaFragmentFactory	str:字符串里出现的唯一长类名 "JavaFragmentFactory"（混淆不改字符串）
+org/c/a/a/b/b/b	org/jd/core/v1/model/fragment/EndMovableBlockFragment	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/b/b/c	org/jd/core/v1/model/fragment/FixedFragment	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/b/b/d	org/jd/core/v1/model/fragment/FlexibleFragment	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/b/b/i	org/jd/core/v1/model/fragment/StartMovableBlockFragment	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/b/c/h	org/jd/core/v1/model/javafragment/ImportsFragment	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/c/a/a/a/a/g	org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/ControlFlowGraph	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/c/a/a/c/ae	org/jd/core/v1/service/converter/classfiletojavasyntax/util/TypeMaker	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/c/a/a/c/ak	org/jd/core/v1/service/converter/classfiletojavasyntax/util/SwitchStatementMaker	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/c/a/a/c/an	org/jd/core/v1/service/converter/classfiletojavasyntax/util/TryWithResourcesStatementMaker	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/c/a/a/c/ao	org/jd/core/v1/service/converter/classfiletojavasyntax/util/WatchDog	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/c/a/a/c/d	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/c/a/a/c/r	org/jd/core/v1/service/converter/classfiletojavasyntax/util/LoopStatementMaker	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/c/c/a/b/a	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/CompilationUnitVisitor	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/c/c/a/b/i	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/StatementVisitor	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
+org/c/a/a/d/e	org/jd/core/v1/util/DefaultStack	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
