@@ -857,7 +857,7 @@ cover(a) 方法 8290/8372 = 99.0%   字段 4914/5021 = 97.9%
    但在 10 个包里今天全部落到"域被剪空 / 歧义"，也就是**约束还不够细**：
    `mskel` 把未定名类型一律折叠成 `?`，一旦链式缺失就会全族误杀。
 
-### 33.4 一个已经确认的"错位"
+### 33.4 一个已经确认的"错位"（已在 §34 修掉）
 
 `a/b/a/a/a/g`（2 个 int 字段，其中 `final` 那个在构造器里写 `0xffff`，另有 `(BI)V` 构造器）
 在 6.0.3 里只可能是 `SuperTypeTargetInfo`——源码 `SuperTypeTargetInfo.java:34` 就写着
@@ -873,3 +873,87 @@ cover(a) 方法 8290/8372 = 99.0%   字段 4914/5021 = 97.9%
 > 这就是"弱判据"的代价：`pkg:互为最优` 在包内候选 ≥ 探针时只是启发式，
 > 一旦遇到"同形不同义"的族（annotation/target 八个 `*TargetInfo` 就是），就会错位。
 > 本轮把这条写进结论：**弱判据占位要留 `pkg:` 前缀，方便后面被子图求解推翻。**
+
+## 34) 第二十轮：不再算形状，直接读源码找"创建点" → 728 类（96.1%）
+
+形状统计（成员集/计数/骨架/引用集）已经榨干。这一轮换法子：**去找这些类被 `new` 出来的地方**。
+改名改不掉两样东西——**常量，和被常量选中的 `new-instance`**；而 oracle 源码里那个常量
+对应哪个类，是写死的。于是判据变成"创建点"，`src:` 前缀。
+
+### 34.1 族一：`annotation/target` 十二个 `*TargetInfo`（修 7 处，含 2 处纠错）
+
+`ProgramClassReader` 里按 `u1targetType` 分派：
+
+```java
+case ANNOTATION_TARGET_Extends:  return new SuperTypeTargetInfo(u1targetType);
+case ANNOTATION_TARGET_Parameter → FormalParameterTargetInfo / Throws → ThrowsTargetInfo
+case ANNOTATION_TARGET_Catch:    return new CatchTargetInfo(u1targetType);   …
+```
+常量在 `ClassConstants.java:210-231`（`Extends=0x10`、`Parameter=0x16`、`Throws=0x17`、
+`Catch=0x42`、`Cast=0x47`…）。字节码侧就是一张 `sparse-switch`：
+
+```
+0x00,0x01→sswitch_0(a/b/a/a/a/l)   0x10→sswitch_1(g)   0x11,0x12→sswitch_2(k)
+0x13,0x14,0x15→sswitch_3(b)        0x16→sswitch_4(c)   0x17→sswitch_5(i)
+0x40,0x41→sswitch_6(e)             0x42→sswitch_7(a)   0x43..0x46→sswitch_8(f)
+0x47..0x4b→sswitch_9(j)
+```
+
+对照 `ClassConstants` 一次读完，整族 12 个类**全部落位**（新定 5 个 + 纠错 2 个）：
+
+```
+g = SuperTypeTargetInfo            EXTENDS_INDEX=65535（final 字段在**每个**构造器里写 0xffff，正是 g 的形态）
+j = TypeArgumentTargetInfo         k = TypeParameterBoundTargetInfo   l = TypeParameterTargetInfo
+i = ThrowsTargetInfo               （以上 5 个本轮新定）
+c = FormalParameterTargetInfo      ← 原来错标成 SuperTypeTargetInfo
+a = CatchTargetInfo                ← 原来是 "a/b/a/a/a/a" 占位
+```
+
+**§33.4 里那条"疑似互换"就是这么破的**：`EXTENDS_INDEX` 这个 final 常量把 g 钉死，
+而 0x16/0x42 两条说明 c、a 该是谁。字段名也一并补上（`u2superTypeIndex`、`u2offset`、
+`u1typeArgumentIndex`、`u1typeParameterIndex`、`u1boundIndex`、`u2throwsTypeIndex`、
+`u1formalParameterIndex`、`u2exceptionTableIndex`）。
+
+### 34.2 族二：`Runtime*AnnotationsAttribute`（4 个新定 + 2 个 iso 升级）
+
+`ProgramClassReader.readAttribute` 是一串 `attributeName.equals("…") ? new X() : …`，
+常量串被内联，落点就是答案：
+
+```
+"RuntimeVisibleAnnotations"          → a/b/a/a/n = RuntimeVisibleAnnotationsAttribute
+"RuntimeInvisibleAnnotations"        → a/b/a/a/k = RuntimeInvisibleAnnotationsAttribute
+"RuntimeVisibleParameterAnnotations" → a/b/a/a/o = RuntimeVisibleParameterAnnotationsAttribute
+"RuntimeInvisibleParameterAnnotations"→ a/b/a/a/l = RuntimeInvisibleParameterAnnotationsAttribute
+"RuntimeVisibleTypeAnnotations"      → a/b/a/a/p   ← §30 的 iso 配对由此**被证实**
+"RuntimeInvisibleTypeAnnotations"    → a/b/a/a/m   ← 同上
+```
+
+也就是说 `iso:` 那两对"无判别证据"里，TypeAnnotations 这一对其实一直有硬证据，
+只是当时没想到去读 `readAttribute`；证据列已从 `iso:` 改成 `src:`。
+剩下的 Deprecated/Synthetic 那一对仍无创建点（都是 `Attribute.Factory` 里按名字 new，
+但两个类名常量被内联后**没有任何分支差异**，确实无法区分）。
+
+### 34.3 现状
+
+```
+类映射   728 / 757（96.1%）
+成员行   21923    参数行 14442
+cover(a) 方法 8298/8407 = 98.7%   字段 4924/5030 = 97.9%
+门禁     validate ✔ · inherit 0/0/0 · famcheck 0/0 · innercheck ②③ 0
+```
+
+剩 **29 类**（`todo_classes.txt`）：
+
+```
+a/b/a/a/b/a  a/b/a/d/{g,k,s,t,v}  a/b/c/{bp,bq}  a/b/d  a/b/f/t
+a/b/g/{aa,af,t,y}  a/b/j  a/d/a/{b,s}  a/e/{ac,ad,c,p}
+a/g/b/{ar,av,d,g,j,m}  a/j/l  a/q
+```
+
+### 34.4 方法结论（写进流程）
+
+**先找创建点，再看形状**。创建点有三种，按硬度排序：
+
+1. `switch/if` 上的**常量**选 `new-instance`（本轮两族都是这种）；
+2. 工厂类（`XxxFactory`/`Reader`/`Writer`）里对 `new` 的位置 + 调用者语义；
+3. 真没有创建点时才退回形状/引用集（`iso:` 只能当兜底，且要留 `iso:` 前缀）。

@@ -1,8 +1,4 @@
 a/b/a/a/b/a
-a/b/a/a/k
-a/b/a/a/l
-a/b/a/a/n
-a/b/a/a/o
 a/b/a/d/g
 a/b/a/d/k
 a/b/a/d/s
