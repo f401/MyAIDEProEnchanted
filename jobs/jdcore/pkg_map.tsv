@@ -1,14 +1,14 @@
 org/c/a/a	org/jd/core/v1
 org/c/a/a/a/a	org/jd/core/v1/api/loader
 org/c/a/a/a/b	org/jd/core/v1/model/javasyntax
-org/c/a/a/b/a	org/jd/core/v1/service/converter/classfiletojavasyntax/processor
+org/c/a/a/b/a	org/jd/core/v1/model/classfile
 org/c/a/a/b/a/a	org/jd/core/v1/model/classfile/attribute
 org/c/a/a/b/a/b	org/jd/core/v1/model/classfile/constant
 org/c/a/a/b/b	org/jd/core/v1/model/fragment
 org/c/a/a/b/c	org/jd/core/v1/model/javafragment
 org/c/a/a/b/d	org/jd/core/v1/service/layouter/model
 org/c/a/a/b/d/a	org/jd/core/v1/model/javasyntax/declaration
-org/c/a/a/b/d/b	org/jd/core/v1/service/converter/classfiletojavasyntax/util
+org/c/a/a/b/d/b	org/jd/core/v1/model/javasyntax/expression
 org/c/a/a/b/d/c	org/jd/core/v1/model/javasyntax/reference
 org/c/a/a/b/d/d	org/jd/core/v1/model/javasyntax/statement
 org/c/a/a/b/d/e	org/jd/core/v1/model/javasyntax/type
@@ -16,7 +16,7 @@ org/c/a/a/b/e	org/jd/core/v1/api/printer
 org/c/a/a/b/f	org/jd/core/v1/model/token
 org/c/a/a/c/a/a	org/jd/core/v1/service/converter/classfiletojavasyntax
 org/c/a/a/c/a/a/a/a	org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg
-org/c/a/a/c/a/a/a/b/a	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor
+org/c/a/a/c/a/a/a/b/a	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration
 org/c/a/a/c/a/a/a/b/b	org/jd/core/v1/service/writer/visitor
 org/c/a/a/c/a/a/a/b/c	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement
 org/c/a/a/c/a/a/a/c	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable
@@ -34,5 +34,5 @@ org/c/a/a/c/d/c	org/jd/core/v1/service/layouter/visitor
 org/c/a/a/c/e/a	org/jd/core/v1/service/tokenizer/javafragmenttotoken
 org/c/a/a/c/e/a/a	org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor
 org/c/a/a/c/f	org/jd/core/v1/service/writer
-org/c/a/a/d	org/jd/core/v1/service/layouter/util
 org/c/a/a/c/f/a	org/jd/core/v1/service/writer/visitor
+org/c/a/a/d	org/jd/core/v1/service/layouter/util
