@@ -8237,3 +8237,9 @@ a/g/b/g proguard/optimize/info/CodeAttributeOptimizationInfo
 	a ()Z isKept
 	a (La/b/a/d;)V setCodeAttributeOptimizationInfo
 	b (La/b/a/d;)La/g/b/g; getCodeAttributeOptimizationInfo
+a/j/l proguard/util/StringBuilderUtil
+	a StringBuilder stringBuilder
+	a ()V printNewLine
+	a (Ljava/lang/String;)V print
+	b ()V clear
+	c ()Ljava/lang/String; getText

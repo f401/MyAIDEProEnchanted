@@ -45961,3 +45961,13 @@ a/g/b/g proguard/optimize/info/CodeAttributeOptimizationInfo
 	b (La/b/a/d;)La/g/b/g; getCodeAttributeOptimizationInfo
 		static
 		0 codeAttribute codeAttribute
+a/j/l proguard/util/StringBuilderUtil
+	a StringBuilder stringBuilder
+	a ()V printNewLine
+		static
+	a (Ljava/lang/String;)V print
+		static
+	b ()V clear
+		static
+	c ()Ljava/lang/String; getText
+		static

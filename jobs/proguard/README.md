@@ -1039,3 +1039,32 @@ a/b/c/bp → SubclassAdder   body: programClass.addSubClass(字段) —— 接�
 只能按作用命名 —— 建议 `proguard/util/StringBuilderUtil`（`print`/`printNewLine`/`clear`/`getText`）。
 未落库，留待确认是否要按作用名写进 `class_map.tsv`（会出现在产物里，属于"造名"，
 所以先只记录在这里）。
+
+## 37) 收官：757 / 757 —— 最后一个 `a/j/l` 按作用命名（`role:`）
+
+读它的 34 个调用点（`Backporter`/`ProGuard`/`OutputWriter`/`Obfuscator`/`Optimizer`/`Shrinker`…
+全是 ProGuard 的日志位），调用形态是 `a(String)`、`a()`、`b()`、`c()`：
+
+```
+a()      → append('\n')          printNewLine
+a(String)→ append(s)+append('\n') print
+b()      → setLength(0)           clear
+c()      → toString()             getText
+```
+
+**它不是 6.0.3 的类**（全库 `static final StringBuilder` 命中 0），是 AIDE 把 ProGuard 的
+`System.out` 日志改成"先攒进缓冲区再吐给 UI"的补丁类。所以只能按作用命名：
+
+```
+a/j/l → proguard/util/StringBuilderUtil   role:（无 oracle）+ 方法名由 body 判定
+```
+
+### ProGuard 部分终态
+
+```
+类映射   757 / 757（100%，其中 1 个是 role: 造名）
+成员行   22222    参数行 19374
+cover(a) 方法 9611/9761 = 98.5%   字段 4954/5067 = 97.8%
+门禁     validate ✔ · inherit 0/0/0 · famcheck 0/0 · innercheck ②③ 0
+未命名成员 12 条（`a/b/a/d/i` 与 `a/b/a/a/a/a/b` 两个大接口各 6 条，都是被裁的 visit 重载）
+```

@@ -754,3 +754,4 @@ a/g/b/d	proguard/optimize/info/CaughtClassFilter	src:body 调 La/g/b/e(CaughtCla
 a/g/b/m	proguard/optimize/info/InstanceofClassFilter	src:body 调 La/g/b/n(InstanceofClassMarker)
 a/g/b/av	proguard/optimize/info/UnusedParameterMethodFilter	src:body 调 La/g/b/ad(ParameterUsageMarker).hasUnusedParameters
 a/g/b/g	proguard/optimize/info/CodeAttributeOptimizationInfo	src:唯一形态：静态 setter(CodeAttribute)V + 静态 getter 返回自身 + isKept()Z，0 字段
+a/j/l	proguard/util/StringBuilderUtil	role:AIDE 魔改新增（6.0.3 全库无 static StringBuilder 字段）；34 个已定名类用它的 a(String)/a()/b()/c() 打日志 → 缓冲区。方法名按 body：a()=printNewLine、a(String)=print、b()=clear(setLength(0))、c()=getText(toString)
