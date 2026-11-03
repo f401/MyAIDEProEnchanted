@@ -124,6 +124,35 @@ InnerClasses→j
 顺带发现：`"Invalid element value type:"` 后面那一串 `new-instance`（`y,z,aa,ab,ac,ad,af,ag,ah,ai,aj,ak,al,am,an`）
 就是 `ElementValue*` 家族的分派表，下一轮直接按 element_value tag 读出来。
 
+## 第三条自动信号：创建点签名（`tools/deob/ctorsig.py`）—— 仍然不够
+
+思路：**谁 `new` 它 + 用什么构造器参数**是改名不变的关系，把两侧都抽出来做多重集匹配。
+
+```
+探针侧（读 smali 的 new-instance + 紧随 <init>）  1220 个创建点，覆盖 286 个类
+oracle 侧（读 class 字节码的 new + invokespecial <init>）1321 个创建点，覆盖 307 个类
+```
+
+匹配规则：创建者已定名→精确相等；未定名→当变量绑定；构造器描述符逐参合一（含变量一致）。
+和一元约束（标志/父类/接口/成员计数/引用集）叠加后**逐包求唯一解**：
+
+```
+包                          probe pool 唯一
+b/a/a attribute                26   26   0
+b/d/a declaration              33   34   0
+b/d/b converter/util           39   42   0
+b/d/d statement                34   34   0
+c/a/a/c expression             42   42   0
+…（其余 21 个包同样 0）        唯一合计 2
+```
+
+**结论：三条自动信号（形状 / 成员描述符合一 / 创建点签名）都定不住。**
+jd-core 的数据模型里，`new` 的位置往往只有一两处（工厂里），而一个包内几十个类的
+"被谁创建 + 什么参数"几乎同构。想一次做完只能人为指定双射，那就不是"判定"了。
+
+真正可行的只有**按族读源码**（方案 1）：每族先读工厂/分派点（`ClassFileDeserializer`
+这种 `case "Name"` 链），再按 tag/常量逐个落位——本轮的 `attribute` 14 类就是这么收的。
+
 ## 批量求解尝试（结论：做不到"一次做完"，附诊断）
 
 对 434 个类跑了 `tools/deob/subgraph.py`（一元约束 + 双向唯一 + 回溯）**并加了一层
