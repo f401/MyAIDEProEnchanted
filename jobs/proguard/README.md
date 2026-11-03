@@ -957,3 +957,32 @@ a/g/b/{ar,av,d,g,j,m}  a/j/l  a/q
 1. `switch/if` 上的**常量**选 `new-instance`（本轮两族都是这种）；
 2. 工厂类（`XxxFactory`/`Reader`/`Writer`）里对 `new` 的位置 + 调用者语义；
 3. 真没有创建点时才退回形状/引用集（`iso:` 只能当兜底，且要留 `iso:` 前缀）。
+
+## 35) 第二十一轮：按"源码结构 + 常量/字段类型"直读判定的批处理 → 745 类（98.4%）
+
+不再逐族做实验，而是把 `solve --why` 里"域被剪空"的那些类**逐个对着源码看形状**，
+一次收掉 17 个（16 个类 + 1 个顺带），全部写 `src:` 判据：
+
+| 判据形态 | 例子 |
+|---|---|
+| **字段类型反查**（最硬） | `a/b/j` = `Method`：`EnclosingMethodAttribute.referencedMethod` 与 `ElementValue.referencedMethod` 的类型是 `Method`，而 `a/b/a/a/i`(EnumConstantElementValue) 的 `referencedField` 类型是 `Field` → `a/b/d` = `Field`、`a/b/j` = `Method` |
+| **唯一 super + 计数** | `a/d/a/b`=ArrayReferenceValueFactory（super 恰为 TypedReferenceValueFactory，2/0）；`a/d/a/s`=DetailedArrayValueFactory；`a/q`=FileWordReader（super=LineWordReader）；`a/b/c/bq`=TargetInfoCopier（SimplifiedVisitor 里唯一 11/2） |
+| **常量串** | `a/e/c`=ClassFilter（`.class`）；`a/b/a/d/k`=DebugAttributeVisitor（`debug.time`，源码 `:92`） |
+| **计数双射** | `a/b/a/d` 五个：g=(48,2)↔AttributeNameFilter、s=(46,2)↔RequiredAttributeFilter、t=(45,1)↔NonEmptyAttributeFilter、k=(50,3)↔DebugAttributeVisitor(52,4)、v=(45,2)↔MultiAttributeVisitor(47,2) |
+| **包内唯一剩余** | `a/b/a/a/b/a`=AllAnnotationVisitor；`a/e/{c,ac,ad,p}`=ClassFilter/NameFilter/NameFilteredDataEntryWriter/DirectoryFilter |
+
+成员行同时补了 262 条，判据是**描述符唯一匹配**：把 oracle 成员描述符里的类型经
+`class_map` 反查回探针名，若由此得到的描述符在探针类里**恰好只有一个成员**，就直接定名。
+
+### 现状
+
+```
+类映射   745 / 757（98.4%）
+成员行   22185    参数行 19342
+cover(a) 方法 9588/9738 = 98.5%   字段 4945/5052 = 97.9%
+门禁     validate ✔ · inherit 0/0/0 · famcheck 0/0 · innercheck ②③ 0
+```
+
+剩 **12 类**：`a/b/c/bp`、`a/b/g/{aa,af,t,y}`、`a/g/b/{ar,av,d,g,j,m}`。
+共同点：都是"同包多个候选 + 彼此形状几乎一样"的过滤器/标记（optimize/info 与 classfile/visitor），
+既不进 switch 也没有常量串，只能靠**谁的哪个方法被谁调用**（下一步：`calls:` 判据 = 被调用者集合）。

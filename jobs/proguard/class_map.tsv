@@ -726,3 +726,20 @@ a/b/a/a/n	proguard/classfile/attribute/annotation/RuntimeVisibleAnnotationsAttri
 a/b/a/a/k	proguard/classfile/attribute/annotation/RuntimeInvisibleAnnotationsAttribute	src:ProgramClassReader.readAttribute（1276-1279）里 attributeName.equals("RuntimeInvisibleAnnotations") 后紧跟 new-instance；常量串被内联，比较链的落点是硬证据
 a/b/a/a/o	proguard/classfile/attribute/annotation/RuntimeVisibleParameterAnnotationsAttribute	src:ProgramClassReader.readAttribute（1276-1279）里 attributeName.equals("RuntimeVisibleParameterAnnotations") 后紧跟 new-instance；常量串被内联，比较链的落点是硬证据
 a/b/a/a/l	proguard/classfile/attribute/annotation/RuntimeInvisibleParameterAnnotationsAttribute	src:ProgramClassReader.readAttribute（1276-1279）里 attributeName.equals("RuntimeInvisibleParameterAnnotations") 后紧跟 new-instance；常量串被内联，比较链的落点是硬证据
+a/b/d	proguard/classfile/Field	src:对应 oracle 字段类型——EnclosingMethodAttribute.referencedMethod/ElementValue.referencedMethod 是 Method，EnumConstantElementValue.referencedField 是 Field；本类被 EnumConstantElementValue 的 F:h 引用
+a/b/j	proguard/classfile/Method	src:同上（referencedMethod: Method）；本类被 EnclosingMethodAttribute 的 F:f 引用
+a/b/a/a/b/a	proguard/classfile/attribute/annotation/visitor/AllAnnotationVisitor	src:该包唯一未占用类，且 17 方法/1 字段逐项相等
+a/b/f/t	proguard/classfile/util/MemberFinder$MemberFoundException	src:唯一 super=RuntimeException+2 方法/0 字段（另一个未占用类是 InternalTypeEnumeration 11/5）
+a/d/a/b	proguard/evaluation/value/ArrayReferenceValueFactory	src:唯一 super=TypedReferenceValueFactory 且 2 方法/0 字段
+a/d/a/s	proguard/evaluation/value/DetailedArrayValueFactory	src:唯一 super=IdentifiedValueFactory 且 2 方法/0 字段
+a/q	proguard/FileWordReader	src:唯一 super=LineWordReader（另一个候选取值 SubclassedClassFilter super=Object）
+a/b/c/bq	proguard/classfile/editor/TargetInfoCopier	src:唯一 super=SimplifiedVisitor 且 11 方法/2 字段
+a/b/a/d/g	proguard/classfile/attribute/visitor/AttributeNameFilter	src:45..52 的计数双射里唯一 (48,2) 配对（精确相等）
+a/b/a/d/k	proguard/classfile/attribute/visitor/DebugAttributeVisitor	src:唯一 ≥ (50,3) 的候选 (52,4)；且本类常量串 "debug.time" 与源码 DebugAttributeVisitor.java:92 System.getProperty("debug.time") 一致
+a/b/a/d/s	proguard/classfile/attribute/visitor/RequiredAttributeFilter	src:计数双射里唯一 (46,2) 配对（精确相等）
+a/b/a/d/t	proguard/classfile/attribute/visitor/NonEmptyAttributeFilter	src:计数双射里唯一 (45,1) 配对（精确相等）
+a/b/a/d/v	proguard/classfile/attribute/visitor/MultiAttributeVisitor	src:计数双射去掉其余四个后剩下的 (47,2)
+a/e/c	proguard/io/ClassFilter	src:常量串 ".class" = ClassConstants.CLASS_FILE_EXTENSION，ClassFilter 正是判后缀的那个过滤器
+a/e/ac	proguard/io/NameFilter	src:super=FilteredDataEntryReader 的未占用类里唯一 ≥3 方法的（NameFilter 4 个）
+a/e/ad	proguard/io/NameFilteredDataEntryWriter	src:super=FilteredDataEntryWriter 的未占用类只有它
+a/e/p	proguard/io/DirectoryFilter	src:super=FilteredDataEntryReader 里剩下的那个（1 ≤ 2）
