@@ -2501,6 +2501,25 @@ a/b/f/w proguard/classfile/util/SimplifiedVisitor
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/i;)V visitVariablesObjectType
 	b (La/b/c;La/b/j;La/b/a/d;IILa/b/a/c/q;)V visitVariablesUninitializedType
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
+	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
+	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
+	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
+	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
+	a (La/b/c;La/b/i;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/i;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/i;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/i;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/i;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/i;La/b/a/x;)V visitDeprecatedAttribute
 a/d/a/c proguard/evaluation/value/BasicValueFactory
 	e REFERENCE_VALUE
 	e ()La/d/a/ap; createReferenceValue
@@ -2610,6 +2629,18 @@ a/i/n proguard/shrink/UsageMarker
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
+	a (La/b/c;La/b/a/b/a;)V visitExportsInfo
+	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
+	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
+	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
+	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
+	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
+	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
+	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/a/a/b/h proguard/classfile/attribute/annotation/visitor/TypeAnnotationVisitor
 	a (La/b/c;La/b/a/a/q;)V visitTypeAnnotation
 a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
@@ -2630,6 +2661,17 @@ a/b/a/d/i proguard/classfile/attribute/visitor/AttributeVisitor
 	a (La/b/c;La/b/a/g;)V visitEnclosingMethodAttribute
 	a (La/b/c;La/b/j;La/b/a/a/b;)V visitAnnotationDefaultAttribute
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/n;)V visitLineNumberTableAttribute
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
+	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
+	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
+	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
+	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
 a/b/a/d/j proguard/classfile/attribute/visitor/BootstrapMethodInfoVisitor
 	a (La/b/c;La/b/a/b;)V visitBootstrapMethodInfo
 a/b/a/d/l proguard/classfile/attribute/visitor/ExceptionInfoVisitor
@@ -2652,6 +2694,8 @@ a/b/b/a/f proguard/classfile/constant/visitor/ConstantVisitor
 	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
 	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/c proguard/classfile/Clazz
 	a (ILa/b/b/a/f;)V constantPoolEntryAccept
 	a (La/b/a/d/i;)V attributesAccept
@@ -3362,6 +3406,8 @@ a/b/a/a/b/b proguard/classfile/attribute/annotation/visitor/AllElementValueVisit
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/a;)V visitAnnotation
 	a deep
 	b elementValueVisitor
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
 a/b/a/a/b/e proguard/classfile/attribute/annotation/visitor/AnnotationTypeFilter
 	a (Ljava/lang/String;)Z accepted
 	a (La/b/c;La/b/a/a/a;)V visitAnnotation
@@ -3487,6 +3533,8 @@ a/b/c/ac proguard/classfile/editor/ComparableConstant
 	d thisConstant
 	c thisIndex
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/c/ad proguard/classfile/editor/ConstantAdder
 	a ()I getConstantIndex
 	a (La/b/c;I)I addConstant
@@ -3509,6 +3557,8 @@ a/b/c/ad proguard/classfile/editor/ConstantAdder
 	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
 	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/c/ae proguard/classfile/editor/ConstantPoolEditor
 	a (D)I addDoubleConstant
 	a (F)I addFloatConstant
@@ -3606,6 +3656,18 @@ a/b/c/af proguard/classfile/editor/ConstantPoolRemapper
 	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
+	a (La/b/c;La/b/a/b/a;)V visitExportsInfo
+	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
+	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
+	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
+	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
+	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
+	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
+	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/c/ah proguard/classfile/editor/ConstantPoolSorter
 	a (La/b/k;)V visitProgramClass
 	a constantIndexMap
@@ -3765,6 +3827,14 @@ a/b/c/h proguard/classfile/editor/AttributeAdder
 	i replaceAttributes
 	j constantAdder
 	k attributesEditor
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
+	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
 a/b/c/n proguard/classfile/editor/BootstrapMethodsAttributeEditor
 	a targetBootstrapMethodsAttribute
 	a (La/b/a/b;)I addBootstrapMethodInfo
@@ -3865,6 +3935,8 @@ a/b/d/b proguard/classfile/instruction/ConstantInstruction
 	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
 	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/e proguard/classfile/LibraryClass
 	a (Ljava/lang/String;Ljava/lang/String;)La/b/d; findField
 	a (ILa/b/b/a/f;)V constantPoolEntryAccept
@@ -3942,6 +4014,8 @@ a/b/e/a proguard/classfile/io/LibraryClassReader
 	e skipNonPublicClassMembers
 	d skipNonPublicClasses
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/e/b proguard/classfile/io/ProgramClassReader
 	a ()La/b/b/b; createConstant
 	b (La/b/c;)La/b/a/a; createAttribute
@@ -4015,6 +4089,18 @@ a/b/e/b proguard/classfile/io/ProgramClassReader
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
+	a (La/b/c;La/b/a/b/a;)V visitExportsInfo
+	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
+	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
+	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
+	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
+	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
+	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
+	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/e/c proguard/classfile/io/ProgramClassWriter
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 	a (La/b/c;La/b/b/b;)V visitAnyConstant
@@ -4052,6 +4138,8 @@ a/b/e/f proguard/classfile/io/ProgramClassWriter$ConstantBodyWriter
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 	a this$0
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/e/g proguard/classfile/io/ProgramClassWriter$ElementValueBodyWriter
 	a (La/b/c;La/b/a/a/a;La/b/a/a/c;)V visitAnnotationElementValue
 	a (La/b/c;La/b/a/a/a;La/b/a/a/e;)V visitArrayElementValue
@@ -4500,6 +4588,22 @@ a/b/g/p proguard/classfile/visitor/ClassPrinter
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/q;)V visitUninitializedType
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
+	a (La/b/c;La/b/a/a/k;)V visitRuntimeVisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/m;)V visitRuntimeVisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/a/n;)V visitRuntimeInvisibleAnnotationsAttribute
+	a (La/b/c;La/b/a/a/p;)V visitRuntimeInvisibleTypeAnnotationsAttribute
+	a (La/b/c;La/b/a/b/a;)V visitExportsInfo
+	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
+	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
+	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
+	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
+	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
+	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
+	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/g/q proguard/classfile/visitor/ClassVersionFilter
 	a (La/b/e;)V visitLibraryClass
 	a (La/b/k;)V visitProgramClass
@@ -5227,6 +5331,8 @@ a/g/c/ae proguard/optimize/peephole/WildcardConstantFilter
 	a (La/b/c;La/b/b/g;)V visitInterfaceMethodrefConstant
 	a (La/b/c;La/b/b/l;)V visitMethodrefConstant
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/g/c/ai proguard/optimize/peephole/WrapperClassUseSimplifier
 	a (La/b/c;I)Z isReferencingWrapperClass
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
@@ -5862,6 +5968,16 @@ a/b/c/ag proguard/classfile/editor/ConstantPoolShrinker
 	c constantPoolRemapper
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
 	a (La/b/c;La/b/j;La/b/a/d;ILa/b/a/c/i;)V visitObjectType
+	a (La/b/c;La/b/a/b/a;)V visitExportsInfo
+	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
+	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
+	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
+	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
+	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/b/c/ar proguard/classfile/editor/InstructionSequenceBuilder
 	a ()La/b/c/ae; getConstantPoolEditor
 	a (I[I[I)La/b/c/ar; lookupswitch
@@ -6138,6 +6254,16 @@ a/b/e/e proguard/classfile/io/ProgramClassWriter$AttributeBodyWriter
 	a (La/b/c;La/b/a/a/r;)V visitAnyTypeAnnotationsAttribute
 	a (La/b/c;La/b/i;La/b/a/a/q;La/b/a/a/a/b;)V visitEmptyTargetInfo
 	a (La/b/c;La/b/j;La/b/a/d;La/b/a/a/q;La/b/a/a/a/f;)V visitOffsetTargetInfo
+	a (La/b/c;La/b/a/b/a;)V visitExportsInfo
+	a (La/b/c;La/b/a/b/b;)V visitModuleAttribute
+	a (La/b/c;La/b/a/b/c;)V visitModuleMainClassAttribute
+	a (La/b/c;La/b/a/b/d;)V visitModulePackagesAttribute
+	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
+	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo
+	a (La/b/c;La/b/a/f;)V visitSyntheticAttribute
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
+	a (La/b/c;La/b/a/x;)V visitDeprecatedAttribute
 a/b/g/ae proguard/classfile/visitor/InitializerMethodFilter
 	a (La/b/c;La/b/i;)La/b/g/aq; applicableMemberVisitor
 	a (La/b/e;La/b/f;)V visitLibraryField
@@ -6336,6 +6462,8 @@ a/f/ab proguard/obfuscate/SourceFileRenamer
 	a (La/b/c;La/b/a/a;)V visitAnyAttribute
 	a (La/b/k;)V visitProgramClass
 	a newSourceFileAttribute
+	a (La/b/c;La/b/a/v;)V visitSourceDirAttribute
+	a (La/b/c;La/b/a/w;)V visitSourceFileAttribute
 a/f/c proguard/obfuscate/ClassObfuscator
 	a (La/b/c;Ljava/lang/String;)V setNewClassName
 	a (Ljava/lang/String;Ljava/lang/String;)Z isNumericClassName
@@ -6452,6 +6580,8 @@ a/g/c/ag proguard/optimize/peephole/WildcardConstantFilter$MyWildcardChecker
 	b (La/b/c;La/b/b/q;)V visitAnyRefConstant
 	a containsWildcard
 	a (La/b/c;La/b/b/n;)V visitNameAndTypeConstant
+	a (La/b/c;La/b/b/m;)V visitPackageConstant
+	a (La/b/c;La/b/b/o;)V visitModuleConstant
 a/g/c/e proguard/optimize/peephole/ClassMerger$FieldOptimizationInfoCopier
 	a (La/b/k;La/b/l;)V visitProgramField
 	a (La/b/k;La/b/n;)V visitProgramMethod
@@ -7335,6 +7465,8 @@ a/d/a/ba proguard/evaluation/value/UnknownIntegerValue
 	f (La/d/a/ae;)La/d/a/ae; divide
 	g (La/d/a/ae;)La/d/a/ae; divideOf
 	h (La/d/a/ae;)La/d/a/ae; remainder
+	i (La/d/a/ae;)La/d/a/ae; remainderOf
+	j (La/d/a/ae;)La/d/a/ae; shiftLeft
 a/d/a/bb proguard/evaluation/value/UnknownLongValue
 	f ()La/d/a/af; negate
 	h ()La/d/a/ae; convertToInteger
@@ -7472,3 +7604,106 @@ a/d/a/l proguard/evaluation/value/ConvertedCharacterValue
 	a value
 a/d/a/q proguard/evaluation/value/ConvertedShortValue
 	a value
+a/b/a/v proguard/classfile/attribute/SourceDirAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+	c u2sourceDirIndex
+a/b/a/w proguard/classfile/attribute/SourceFileAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+	c u2sourceFileIndex
+a/b/a/b/a proguard/classfile/attribute/module/ExportsInfo
+	a (Ljava/lang/Object;)V setVisitorInfo
+	f ()Ljava/lang/Object; getVisitorInfo
+	d u2exportsToIndex
+	e visitorInfo
+	c u2exportsToCount
+	a u2exportsIndex
+	b u2exportsFlags
+a/b/a/b/b proguard/classfile/attribute/module/ModuleAttribute
+	a (La/b/c;La/b/a/b/a/d;)V requiresAccept
+	a (La/b/c;La/b/a/d/i;)V accept
+	g requires
+	i exports
+	k opens
+	m u2uses
+	o provides
+	l u2usesCount
+	e u2moduleVersionIndex
+	c u2moduleNameIndex
+	f u2requiresCount
+	d u2moduleFlags
+	n u2providesCount
+	j u2opensCount
+	h u2exportsCount
+	a (La/b/c;La/b/a/b/a/a;)V exportsAccept
+	a (La/b/c;La/b/a/b/a/b;)V opensAccept
+	a (La/b/c;La/b/a/b/a/c;)V providesAccept
+a/b/a/b/c proguard/classfile/attribute/module/ModuleMainClassAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+	c u2mainClass
+a/b/a/b/d proguard/classfile/attribute/module/ModulePackagesAttribute
+	a (La/b/c;La/b/a/d/i;)V accept
+	a (La/b/c;La/b/b/a/f;)V packagesAccept
+	c u2packagesCount
+	d u2packages
+a/b/a/b/e proguard/classfile/attribute/module/OpensInfo
+	a (Ljava/lang/Object;)V setVisitorInfo
+	f ()Ljava/lang/Object; getVisitorInfo
+	d u2opensToIndex
+	e visitorInfo
+	c u2opensToCount
+	a u2opensIndex
+	b u2opensFlags
+a/b/a/b/f proguard/classfile/attribute/module/ProvidesInfo
+	a (Ljava/lang/Object;)V setVisitorInfo
+	f ()Ljava/lang/Object; getVisitorInfo
+	c u2providesWithIndex
+	d visitorInfo
+	b u2providesWithCount
+	a u2providesIndex
+a/b/a/c/s proguard/classfile/attribute/preverification/VerificationTypeFactory
+	a ()La/b/a/c/d; createNullType
+	a (I)La/b/a/c/q; createUninitializedType
+	b ()La/b/a/c/f; createFloatType
+	b (I)La/b/a/c/i; createObjectType
+	c ()La/b/a/c/b; createLongType
+	d ()La/b/a/c/a; createIntegerType
+	e ()La/b/a/c/o; createDoubleType
+	f ()La/b/a/c/h; createTopType
+	g ()La/b/a/c/p; createUninitializedThisType
+	a NULL_TYPE
+	b FLOAT_TYPE
+	c LONG_TYPE
+	d INTEGER_TYPE
+	e DOUBLE_TYPE
+	f TOP_TYPE
+	g UNINITIALIZED_THIS_TYPE
+a/b/b/m proguard/classfile/constant/PackageConstant
+	a ()I getTag
+	a (La/b/c;)Ljava/lang/String; getName
+	a (La/b/c;La/b/b/a/f;)V accept
+	a u2nameIndex
+a/b/b/o proguard/classfile/constant/ModuleConstant
+	a ()I getTag
+	a (La/b/c;)Ljava/lang/String; getName
+	a (La/b/c;La/b/b/a/f;)V accept
+	a u2nameIndex
+a/g/a/l proguard/optimize/evaluation/InstructionUsageMarker$MyExtraPopInstructionMarker
+	a this$0
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+a/g/a/q proguard/optimize/evaluation/InstructionUsageMarker$MyStackConsistencyMarker
+	a this$0
+	a (La/b/c;La/b/j;La/b/a/d;ILa/b/d/c;)V visitAnyInstruction
+a/h/c proguard/preverify/SubroutineInliner
+	a (La/b/b;)V execute
+	a configuration
+a/h/d proguard/preverify/Preverifier
+	a (La/b/b;)V execute
+	a configuration
+a/b/d proguard/classfile/Field
+a/b/j proguard/classfile/Method
+a/b/a/b/a/a proguard/classfile/attribute/module/visitor/ExportsInfoVisitor
+	a (La/b/c;La/b/a/b/a;)V visitExportsInfo
+a/b/a/b/a/b proguard/classfile/attribute/module/visitor/OpensInfoVisitor
+	a (La/b/c;La/b/a/b/e;)V visitOpensInfo
+a/b/a/b/a/c proguard/classfile/attribute/module/visitor/ProvidesInfoVisitor
+	a (La/b/c;La/b/a/b/f;)V visitProvidesInfo

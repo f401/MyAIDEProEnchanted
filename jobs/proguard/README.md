@@ -618,3 +618,49 @@ a/b/a/a/a 5（target）   a/b/a/d 5（attribute/visitor）
 
 建议：这部分作为"人工收尾包"——`todo_classes.txt` 已按包分好，每族看一个类就能推其余
 （配合 §11/§15/§26 的三条判据）。机器侧已经榨到 87.2%，成员级 99.4%/98.0%，可以收工了。
+
+## 29) 第十六轮：680 类（89.8%）——双射内最优指派 + 访问者判据
+
+**判据 1：双射内最优指派（`bij:`）**
+
+先统计每个包"探针剩余数 vs oracle 未占用数"，**相等就是双射**（集合相同，只差一个排列）：
+
+```
+a/b/a/c 7=7   a/b/a/a 6=6   a/b/a/b 6=6   a/b/a/d 5=5   a/g/a 5=5
+a/b/a 4=4     a/b/b 2=2     a/h 2=2       a/b/a/a/b 1=1 a/b/e 1=1
+```
+
+对这些包用**匈牙利算法**求"成员集重合度之和最大"的那个排列，证据记 `bij:`，
+随后照常过成员命中率验伪（这轮 39 条候选留下 15 条）。
+
+**判据 2：访问者 = 它访问的类型（`visit:`）**
+
+双射把 6 个 module 类钉死后，3 个 visitor 立刻跟着定：
+
+```
+a/b/a/b/a = ExportsInfo   ⇒ a/b/a/b/a/a（唯一形参 ExportsInfo）  = ExportsInfoVisitor
+a/b/a/b/e = OpensInfo     ⇒ a/b/a/b/a/b                          = OpensInfoVisitor
+a/b/a/b/f = ProvidesInfo  ⇒ a/b/a/b/a/c                          = ProvidesInfoVisitor
+```
+
+现状：
+
+```
+类映射   680 / 757（89.8%）
+成员行   7021
+参数行   9896
+cover(a) 方法 9201/9249 = 99.5%   字段 4909/5010 = 98.0%
+门禁     validate ✔（类块 2620 / 成员行 21763 / 参数行 18100）
+         inherit 0/0/0 · innercheck ②③ 0
+```
+
+剩 **77 类**，集中在 6 个包：
+
+```
+a/b/g 8（classfile/visitor）   a/g/b 8（optimize/info）   a/g/c 7（optimize/peephole）
+a/b/a/a 6（annotation）        a/b/a/c 6（preverification） a/b/a/a/a 5（annotation/target）
+```
+
+`visit:` 判据本轮之外再跑已 **0 条**（能由"访问类型"推出的都推完了）。
+剩下的族里，oracle 未占用数 **大于** 探针数（例如 visitor 8 对 21），
+双射前提不成立，只能靠"这一族有哪几个成员、各对应哪个语义"的领域判断。

@@ -658,3 +658,23 @@ a/d/a/an	proguard/evaluation/value/ParticularLongValue	pkg:互为最优 0.75
 a/d/a/k	proguard/evaluation/value/ConvertedByteValue	pkg:互为最优 1.00
 a/d/a/l	proguard/evaluation/value/ConvertedCharacterValue	pkg:互为最优 1.00
 a/d/a/q	proguard/evaluation/value/ConvertedShortValue	pkg:互为最优 1.00
+a/b/a/v	proguard/classfile/attribute/SourceDirAttribute	bij:双射内最优指派(成员集重合0.65)
+a/b/a/w	proguard/classfile/attribute/SourceFileAttribute	bij:双射内最优指派(成员集重合0.65)
+a/b/a/b/a	proguard/classfile/attribute/module/ExportsInfo	bij:双射内最优指派(成员集重合0.70)
+a/b/a/b/b	proguard/classfile/attribute/module/ModuleAttribute	bij:双射内最优指派(成员集重合0.37)
+a/b/a/b/c	proguard/classfile/attribute/module/ModuleMainClassAttribute	bij:双射内最优指派(成员集重合0.58)
+a/b/a/b/d	proguard/classfile/attribute/module/ModulePackagesAttribute	bij:双射内最优指派(成员集重合0.77)
+a/b/a/b/e	proguard/classfile/attribute/module/OpensInfo	bij:双射内最优指派(成员集重合0.70)
+a/b/a/b/f	proguard/classfile/attribute/module/ProvidesInfo	bij:双射内最优指派(成员集重合0.70)
+a/b/a/c/s	proguard/classfile/attribute/preverification/VerificationTypeFactory	bij:双射内最优指派(成员集重合0.26)
+a/b/b/m	proguard/classfile/constant/PackageConstant	bij:双射内最优指派(成员集重合0.82)
+a/b/b/o	proguard/classfile/constant/ModuleConstant	bij:双射内最优指派(成员集重合0.82)
+a/g/a/l	proguard/optimize/evaluation/InstructionUsageMarker$MyExtraPopInstructionMarker	bij:双射内最优指派(成员集重合0.30)
+a/g/a/q	proguard/optimize/evaluation/InstructionUsageMarker$MyStackConsistencyMarker	bij:双射内最优指派(成员集重合0.30)
+a/h/c	proguard/preverify/SubroutineInliner	bij:双射内最优指派(成员集重合0.77)
+a/h/d	proguard/preverify/Preverifier	bij:双射内最优指派(成员集重合0.77)
+a/b/d	proguard/classfile/Field	iface:实现的接口集合唯一(2 个实现者)
+a/b/j	proguard/classfile/Method	iface:实现的接口集合唯一(2 个实现者)
+a/b/a/b/a/a	proguard/classfile/attribute/module/visitor/ExportsInfoVisitor	iface:唯一方法形参=ExportsInfo(a/b/a/b/a 已定名)
+a/b/a/b/a/b	proguard/classfile/attribute/module/visitor/OpensInfoVisitor	iface:唯一方法形参=OpensInfo(a/b/a/b/e 已定名)
+a/b/a/b/a/c	proguard/classfile/attribute/module/visitor/ProvidesInfoVisitor	iface:唯一方法形参=ProvidesInfo(a/b/a/b/f 已定名)
