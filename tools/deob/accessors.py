@@ -55,6 +55,21 @@ FIELDNAMES = {}
 FIELD_DESC = {}
 
 
+PRIM = {'Z': 'boolean', 'B': 'byte', 'C': 'char', 'S': 'short', 'I': 'int',
+        'J': 'long', 'F': 'float', 'D': 'double'}
+import re as _re
+
+
+def params_of(desc):
+    par = desc[desc.index('(') + 1:desc.rindex(')')]
+    out = []
+    for m in _re.finditer(r'L([\w/$]+);|\[+[ZBCSIJFD]|[ZBCSIJFD]', par):
+        v = m.group(0)
+        out.append(m.group(1).replace('/', '.') if v.startswith('L')
+                   else (v if v.startswith('[') else PRIM.get(v, v)))
+    return tuple(out)
+
+
 def analyse(body):
     """→ ('get'|'set', 字段名, 字段描述符) 或 None"""
     ops = [t for t in body]
@@ -131,9 +146,7 @@ def main():
             continue
         fname = m['f']
         existing = set((n, tuple(ps)) for n, d in m['m'] for ps in [()])   # (名, 参数) 粗查重
-        have = set()
-        for (old, desc), new in m['m'].items():
-            have.add((new, desc))
+        have = {(new, params_of(desc)) for (old, desc), new in m['m'].items()}
         for sig, body in c['mbody'].items():
             if sig is None:
                 continue

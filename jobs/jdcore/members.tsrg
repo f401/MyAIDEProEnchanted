@@ -1931,6 +1931,8 @@ org/c/a/a/c/a/a/c/o org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	i populateBlackListNamesVisitor
 	b ()Lorg/c/a/a/b/d/a/e; getFormalParameters
 	h formalParameters
+	a (IILorg/c/a/a/b/d/b/n;)Lorg/c/a/a/c/a/a/a/c/a; getLocalVariableInNullAssignment
+	a (Lorg/c/a/a/b/a/a;Ljava/util/List;ZII)V initLocalVariablesFromParameterTypes
 org/c/a/a/c/a/a/c/aa org/jd/core/v1/service/converter/classfiletojavasyntax/util/PrimitiveTypeUtil
 	b $assertionsDisabled
 	a (Lorg/c/a/a/b/d/e/k;Lorg/c/a/a/b/d/e/k;)Lorg/c/a/a/b/d/e/k; getCommonPrimitiveType
@@ -3115,6 +3117,7 @@ org/c/a/a/c/a/a/a/b/c/g org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	f ()Ljava/lang/String; getName
 	f localVariable
 org/c/a/a/c/a/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/AbstractLocalVariable
+	e ()I getFromOffset
 	a ()Lorg/c/a/a/c/a/a/a/c/b; getFrame
 	a (Ljava/lang/String;)V setName
 	a (Lorg/c/a/a/c/a/a/a/c/b;)V setFrame
@@ -3138,7 +3141,7 @@ org/c/a/a/c/a/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	f toOffset
 	d index
 	a (Lorg/c/a/a/c/a/a/a/c/g;)V addReference
-	h ()I getFromOffset
+	h ()I getDimension
 org/c/a/a/c/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/util/AggregateFieldsUtil
 	a (Ljava/util/List;)V aggregate
 	a (Ljava/util/List;Lorg/c/a/a/c/a/a/a/b/a/h;II)V aggregate

@@ -953,3 +953,44 @@ b/d/a/{ab,c,u} 的一次 3-循环纠正
 剩余 318 条的分布：`c/a/a/c/c`(ByteCodeParser) 18、`c/a/a/c/ac`(TypeMaker) 14、`c/a/a/a/c/j` 12、
 `c/a/a/a/c/a` 7、`c/a/a/c/o` 8 …… 逐方法体的节奏是每轮 5~10 条（每条要贴 P/O 方法体对比并判真伪），
 其中"高分假匹配"比例不低（本轮 9 条里 4 条被否），所以只能人工确认、不能批量落。
+
+## 第十八批：逐方法体（续）—— 三个 localvariable 类 → 成员 **69.1% / 89.2%**
+
+### 做法：把「探针未定名方法」与「oracle 未用名字」并排贴出来，逐条读方法体
+
+为此写了个一次性的检视脚本（思路已固化进 `bodymatch.py` 的候选池构造）：
+
+```
+c/a/a/c/o (LocalVariableMaker)      getLocalVariable / getLocalVariableInNullAssignment /
+                                    getExceptionLocalVariable / removeLocalVariable / store /
+                                    make / getFormalParameters / popFrame / pushFrame /
+                                    containsName / initLocalVariablesFromAttributes /
+                                    initLocalVariablesFromParameterTypes / searchCommonParentFrame
+c/a/a/a/c/j (ObjectLocalVariable)   accept（aload_0/aload_1/visitor.visit/return 逐条相同）
+c/a/a/a/c/a (AbstractLocalVariable) getFromOffset —— 判据是"方法体读字段 e，而字段 e 已定名 fromOffset"
+```
+
+### 两处必须记住的坑
+
+1. **`bodymatch --thr 1.0`（body 完全相同）并不安全**：探针侧两个 getter 各自读一个**未定名**的 int 字段时，
+   归一化后 token 完全一样，会同时匹配 `getFromOffset`／`getToOffset`。这类必须用
+   **字段名反查**（`e()` 读字段 `e`，而 `e` 已定名 `fromOffset` ⇒ `getFromOffset`）才能定，
+   本轮就是先被 1.0 分数骗了一次（把 `h()` 判成 getFromOffset），又用字段名纠正成 `e()`。
+2. `accessors.py` 的撞车检查拿 `(新名, 描述符字符串)` 和 `(新名, 参数元组)` 比，永远不相等 →
+   等于没检查。已改成统一用参数元组；不过修完仍然是 0 命中（说明"字段名已知的纯访问器"早就被
+   成员匹配吃干净了，这条路已到尽头）。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2296/3321 = 69.1%（已定名类内部 99.7%）
+字段  869/974  = 89.2%（已定名类内部 98.4%）
+待人工 315 = no-oracle-descriptor 276 + ambiguous 39
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0
+```
+
+剩余 315 的头部：`c/a/a/c/c`(ByteCodeParser) 18、`c/a/a/c/ac`(TypeMaker) 14、`c/a/a/a/c/k` 7、
+`c/a/a/a/c/d` 7、`b/d/a/t` 6、`c/a/a/a/b/a/m` 6。这些类的共同点是"每个类都有十几个
+形状相同、只差语义的重载"（例如 `isAssignableFrom` 的 11 个变体），逐方法体也只能确认
+到"这一组里是哪几个"，剩下的仍需人工读常量/字段差异。
