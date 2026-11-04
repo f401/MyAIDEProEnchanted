@@ -46185,18 +46185,31 @@ org/c/a/a/a org/jd/core/v1/ClassFileToJavaSourceDecompiler
 	e tokenizer
 	f writer
 	a (Lorg/c/a/a/a/a/a;Lorg/c/a/a/a/b/a;Ljava/lang/String;)V decompile
+		0 loader loader
+		1 printer printer
+		2 internalName internalName
+	a (Lorg/c/a/a/b/e/a;)V decompile
+		0 message message
 org/c/a/a/c/b/a/d org/jd/core/v1/service/deserializer/classfile/DeserializeClassFileProcessor
 	a (Lorg/c/a/a/b/e/a;)V process
+		0 message message
 org/c/a/a/c/a/a/a org/jd/core/v1/service/converter/classfiletojavasyntax/ClassFileToJavaSyntaxProcessor
 	a (Lorg/c/a/a/b/e/a;)V process
+		0 message message
+	a CONVERT_CLASS_FILE_PROCESSOR
+	b UPDATE_JAVA_SYNTAX_TREE_PROCESSOR
 org/c/a/a/c/c/a/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/JavaSyntaxToJavaFragmentProcessor
 	a (Lorg/c/a/a/b/e/a;)V process
+		0 message message
 org/c/a/a/c/d/a org/jd/core/v1/service/layouter/LayoutFragmentProcessor
 	a (Lorg/c/a/a/b/e/a;)V process
+		0 message message
 org/c/a/a/c/e/a/a org/jd/core/v1/service/tokenizer/javafragmenttotoken/JavaFragmentToTokenProcessor
 	a (Lorg/c/a/a/b/e/a;)V process
+		0 message message
 org/c/a/a/c/f/a org/jd/core/v1/service/writer/WriteTokenProcessor
 	a (Lorg/c/a/a/b/e/a;)V process
+		0 message message
 org/c/a/a/b/a/b/b org/jd/core/v1/model/classfile/constant/ConstantClass
 	b ()I getNameIndex
 	b nameIndex
@@ -46213,53 +46226,116 @@ org/c/a/a/b/a/b/f org/jd/core/v1/model/classfile/constant/ConstantLong
 	b ()J getValue
 	b value
 org/c/a/a/b/a/b/g org/jd/core/v1/model/classfile/constant/ConstantMemberRef
+	c ()I getNameAndTypeIndex
+	b ()I getClassIndex
+	c nameAndTypeIndex
+	b classIndex
 org/c/a/a/b/a/b/h org/jd/core/v1/model/classfile/constant/ConstantMethodHandle
 	b ()I getReferenceKind
+	c referenceKind
+	b referenceIndex
 org/c/a/a/b/a/b/i org/jd/core/v1/model/classfile/constant/ConstantMethodType
 	b ()I getDescriptorIndex
 	b descriptorIndex
 org/c/a/a/b/a/b/j org/jd/core/v1/model/classfile/constant/ConstantNameAndType
+	c ()I getDescriptorIndex
+	b ()I getNameIndex
+	c descriptorIndex
+	b nameIndex
 org/c/a/a/b/a/b/k org/jd/core/v1/model/classfile/constant/ConstantString
 	b ()I getStringIndex
 	b stringIndex
 org/c/a/a/b/a/b/l org/jd/core/v1/model/classfile/constant/ConstantUtf8
+	b ()Ljava/lang/String; getValue
+	b value
 org/c/a/a/b/a/b/a org/jd/core/v1/model/classfile/constant/Constant
 	a ()B getTag
 	a CONSTANT_Unknown
 org/c/a/a/b/a/b/m org/jd/core/v1/model/classfile/constant/ConstantValue
 org/c/a/a/a/a/a org/jd/core/v1/api/loader/Loader
+	a (Ljava/lang/String;)Z canLoad
+	b (Ljava/lang/String;)[B load
 org/c/a/a/a/a/b org/jd/core/v1/api/loader/LoaderException
 org/c/a/a/b/a/a/af org/jd/core/v1/model/classfile/attribute/InnerClass
 	c ()I getInnerAccessFlags
 	d innerAccessFlags
+	b ()Ljava/lang/String; getOuterTypeName
+	a ()Ljava/lang/String; getInnerTypeName
+	c innerName
+	b outerTypeName
+	a innerTypeName
 org/c/a/a/b/a/a/ag org/jd/core/v1/model/classfile/attribute/LineNumber
+	b ()I getLineNumber
+	a ()I getStartPc
+	b lineNumber
+	a startPc
 org/c/a/a/b/a/a/aj org/jd/core/v1/model/classfile/attribute/MethodParameter
 	b access
+	a name
 org/c/a/a/b/a/a/ak org/jd/core/v1/model/classfile/attribute/ModuleInfo
 	b ()I getFlags
 	b flags
+	c ()Ljava/lang/String; getVersion
+	a ()Ljava/lang/String; getName
+	c version
+	a name
 org/c/a/a/b/a/a/al org/jd/core/v1/model/classfile/attribute/PackageInfo
 	b ()I getFlags
 	b flags
+	c ()[Ljava/lang/String; getModuleInfoNames
+	a internalName
+	c moduleInfoNames
+	a ()Ljava/lang/String; getInternalName
 org/c/a/a/b/a/a/am org/jd/core/v1/model/classfile/attribute/ServiceInfo
+	b ()[Ljava/lang/String; getImplementationTypeNames
+	a interfaceTypeName
+	b implementationTypeNames
+	a ()Ljava/lang/String; getInterfaceTypeName
 org/c/a/a/b/a/a/c org/jd/core/v1/model/classfile/attribute/Attribute
 org/c/a/a/b/a/a/s org/jd/core/v1/model/classfile/attribute/AttributeSignature
+	a signature
+	a ()Ljava/lang/String; getSignature
 org/c/a/a/b/a/a/t org/jd/core/v1/model/classfile/attribute/AttributeSourceFile
+	a sourceFile
 org/c/a/a/b/a/a/v org/jd/core/v1/model/classfile/attribute/BootstrapMethod
 	a ()[I getBootstrapArguments
 	a bootstrapMethodRef
 	b bootstrapArguments
 org/c/a/a/b/a/a/w org/jd/core/v1/model/classfile/attribute/CodeException
+	b ()I getEndPc
+	a ()I getStartPc
+	d ()I getCatchType
+	c ()I getHandlerPc
+	a index
+	c endPc
+	b startPc
+	e catchType
+	d handlerPc
 org/c/a/a/b/c/i org/jd/core/v1/model/javafragment/ImportsFragment$Import
 	c ()I getCounter
 	d ()V incCounter
 	c counter
+	b ()Ljava/lang/String; getQualifiedName
+	a ()Ljava/lang/String; getInternalName
+	b qualifiedName
+	a internalName
 org/c/a/a/b/d/a/ae org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration$ModuleInfo
 	b ()I getFlags
 	b flags
+	a ()Ljava/lang/String; getName
+	c version
+	a name
 org/c/a/a/b/d/a/af org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration$PackageInfo
 	b flags
+	b ()Ljava/util/List; getModuleInfoNames
+	a internalName
+	c moduleInfoNames
+	a ()Ljava/lang/String; getInternalName
 org/c/a/a/b/d/a/ag org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration$ServiceInfo
+	b ()Ljava/util/List; getImplementationTypeNames
+	a interfaceTypeName
+	b implementationTypeNames
+	a ()Ljava/lang/String; getInterfaceTypeName
 org/c/a/a/b/d/d/r org/jd/core/v1/model/javasyntax/statement/Statement
 org/c/a/a/c/b/a/b org/jd/core/v1/service/deserializer/classfile/ClassFileFormatException
 org/c/a/a/c/b/a/c org/jd/core/v1/service/deserializer/classfile/ClassFileReader
@@ -46271,6 +46347,12 @@ org/c/a/a/c/b/a/c org/jd/core/v1/service/deserializer/classfile/ClassFileReader
 	g ()D readDouble
 	b JAVA_MAGIC_NUMBER
 	a data
+	a ([B)V readFully
+		0 target target
+	h ()Ljava/lang/String; readUTF8
+	c ()I readUnsignedShort
+	d ()I readInt
+	b ()I readUnsignedByte
 org/c/a/a/b/a/a/o org/jd/core/v1/model/classfile/attribute/AttributeModule
 	b ()I getFlags
 	d ()[Lorg/c/a/a/b/a/a/ak; getRequires
@@ -46278,6 +46360,16 @@ org/c/a/a/b/a/a/o org/jd/core/v1/model/classfile/attribute/AttributeModule
 	b flags
 	d requires
 	h provides
+	g ()[Ljava/lang/String; getUses
+	g uses
+	c ()Ljava/lang/String; getVersion
+	a ()Ljava/lang/String; getName
+	f ()[Lorg/c/a/a/b/a/a/al; getOpens
+	e ()[Lorg/c/a/a/b/a/a/al; getExports
+	c version
+	a name
+	f opens
+	e exports
 org/c/a/a/b/a/a/n org/jd/core/v1/model/classfile/attribute/AttributeMethodParameters
 	a parameters
 org/c/a/a/b/a/a/r org/jd/core/v1/model/classfile/attribute/AttributeParameterAnnotations
@@ -46287,6 +46379,11 @@ org/c/a/a/b/a/a/f org/jd/core/v1/model/classfile/attribute/AttributeCode
 	b ()[Lorg/c/a/a/b/a/a/w; getExceptionTable
 	c code
 	d exceptionTable
+	a (Ljava/lang/String;)Lorg/c/a/a/b/a/a/c; getAttribute
+		0 name name
+	e attributes
+	b maxLocals
+	a maxStack
 org/c/a/a/b/a/a/e org/jd/core/v1/model/classfile/attribute/AttributeBootstrapMethods
 	a ()[Lorg/c/a/a/b/a/a/v; getBootstrapMethods
 	a bootstrapMethods
@@ -46294,7 +46391,10 @@ org/c/a/a/b/a/a/m org/jd/core/v1/model/classfile/attribute/AttributeLocalVariabl
 	a ()[Lorg/c/a/a/b/a/a/ai; getLocalVariableTypeTable
 	a localVariableTypeTable
 org/c/a/a/b/a/a/q org/jd/core/v1/model/classfile/attribute/AttributeModulePackages
+	a packageNames
 org/c/a/a/b/a/a/i org/jd/core/v1/model/classfile/attribute/AttributeExceptions
+	a ()[Ljava/lang/String; getExceptionTypeNames
+	a exceptionTypeNames
 org/c/a/a/b/a/a/p org/jd/core/v1/model/classfile/attribute/AttributeModuleMainClass
 	a mainClass
 org/c/a/a/b/a/a/d org/jd/core/v1/model/classfile/attribute/AttributeAnnotationDefault
@@ -46312,15 +46412,25 @@ org/c/a/a/b/a/a/j org/jd/core/v1/model/classfile/attribute/AttributeInnerClasses
 org/c/a/a/b/a/a/a org/jd/core/v1/model/classfile/attribute/Annotation
 	b ()[Lorg/c/a/a/b/a/a/ac; getElementValuePairs
 	b elementValuePairs
+	a ()Ljava/lang/String; getDescriptor
+	a descriptor
 org/c/a/a/b/a/a/aa org/jd/core/v1/model/classfile/attribute/ElementValueClassInfo
 	a (Lorg/c/a/a/b/a/a/ae;)V accept
 		0 visitor visitor
+	a ()Ljava/lang/String; getClassInfo
+	a classInfo
 org/c/a/a/b/a/a/ab org/jd/core/v1/model/classfile/attribute/ElementValueEnumConstValue
 	a (Lorg/c/a/a/b/a/a/ae;)V accept
 		0 visitor visitor
+	b ()Ljava/lang/String; getConstName
+	a ()Ljava/lang/String; getDescriptor
+	b constName
+	a descriptor
 org/c/a/a/b/a/a/ac org/jd/core/v1/model/classfile/attribute/ElementValuePair
 	b ()Lorg/c/a/a/b/a/a/x; getElementValue
 	b elementValue
+	a ()Ljava/lang/String; getElementName
+	a elementName
 org/c/a/a/b/a/a/ad org/jd/core/v1/model/classfile/attribute/ElementValuePrimitiveType
 	a ()I getType
 	b ()Lorg/c/a/a/b/a/b/m; getConstValue
@@ -46335,7 +46445,27 @@ org/c/a/a/b/a/a/ae org/jd/core/v1/model/classfile/attribute/ElementValueVisitor
 	a (Lorg/c/a/a/b/a/a/ab;)V visit
 	a (Lorg/c/a/a/b/a/a/z;)V visit
 org/c/a/a/b/a/a/ah org/jd/core/v1/model/classfile/attribute/LocalVariable
+	e ()I getIndex
+	a ()I getStartPc
+	b ()I getLength
+	d ()Ljava/lang/String; getDescriptor
+	c ()Ljava/lang/String; getName
+	e index
+	b length
+	a startPc
+	d descriptor
+	c name
 org/c/a/a/b/a/a/ai org/jd/core/v1/model/classfile/attribute/LocalVariableType
+	e ()I getIndex
+	a ()I getStartPc
+	b ()I getLength
+	d ()Ljava/lang/String; getSignature
+	c ()Ljava/lang/String; getName
+	e index
+	b length
+	a startPc
+	d signature
+	c name
 org/c/a/a/b/a/a/an org/jd/core/v1/model/classfile/attribute/UnknownAttribute
 org/c/a/a/b/a/a/g org/jd/core/v1/model/classfile/attribute/AttributeConstantValue
 	a ()Lorg/c/a/a/b/a/b/m; getConstantValue
@@ -46354,11 +46484,16 @@ org/c/a/a/b/a/a/z org/jd/core/v1/model/classfile/attribute/ElementValueArrayValu
 	a (Lorg/c/a/a/b/a/a/ae;)V accept
 		0 visitor visitor
 	a values
-org/c/a/a/b/d/c/c org/jd/core/v1/model/javasyntax/reference/AnnotationElementValue
+org/c/a/a/b/d/c/c org/jd/core/v1/model/javasyntax/reference/AnnotationReferences
+	a (Lorg/c/a/a/b/d/c/o;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/c/h org/jd/core/v1/model/javasyntax/reference/InnerObjectReference
 org/c/a/a/b/d/c/l org/jd/core/v1/model/javasyntax/reference/ElementValues
 	a $assertionsDisabled
+	a (Lorg/c/a/a/b/d/c/o;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/c/n org/jd/core/v1/model/javasyntax/reference/Reference
+	a (Lorg/c/a/a/b/d/c/o;)V accept
 org/c/a/a/b/f/a org/jd/core/v1/model/token/AbstractNopTokenVisitor
 	a (Lorg/c/a/a/b/f/b;)V visit
 		0 token token
@@ -46415,9 +46550,44 @@ org/c/a/a/b/f/d org/jd/core/v1/model/token/DeclarationToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
 	a TYPE
+	d ()Ljava/lang/String; getDescriptor
+	c ()Ljava/lang/String; getName
+	b ()Ljava/lang/String; getInternalTypeName
+	c name
+	d descriptor
+	b internalTypeName
 org/c/a/a/b/f/o org/jd/core/v1/model/token/TextToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
+	G text
+	a ()Ljava/lang/String; getText
+	s SPACE
+	z SEMICOLON
+	g DOT
+	w SPACE_EQUAL_SPACE
+	v SPACE_COLON_SPACE
+	h DIMENSION_1
+	u SPACE_ARROW_SPACE
+	n LEFTRIGHTROUNDBRACKETS
+	j INFINITE_FOR
+	b COMMA
+	D EXCLAMATION
+	A SEMICOLON_SPACE
+	f DIAMOND
+	C SPACE_LEFTROUNDBRACKET
+	e COMMA_SPACE
+	c COLON
+	p RIGHTANGLEBRACKET
+	o LEFTANGLEBRACKET
+	r QUESTIONMARK_SPACE
+	i DIMENSION_2
+	d COLON_COLON
+	k LEFTRIGHTCURLYBRACKETS
+	a AT
+	x SPACE_QUESTION_SPACE
+	m RIGHTROUNDBRACKET
+	B VARARGS
+	l LEFTROUNDBRACKET
 org/c/a/a/b/f/h org/jd/core/v1/model/token/LineNumberToken
 	a ()I getLineNumber
 	a (Lorg/c/a/a/b/f/q;)V accept
@@ -46429,19 +46599,43 @@ org/c/a/a/b/f/i org/jd/core/v1/model/token/NewLineToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
 	c count
+	a NEWLINE_1
+	b NEWLINE_2
 org/c/a/a/b/d/c/b org/jd/core/v1/model/javasyntax/reference/AnnotationReference
 	d ()Lorg/c/a/a/b/d/e/i; getType
 	hashCode ()I hashCode
 	a type
+	f ()Lorg/c/a/a/b/d/c/f; getElementValuePairs
+	c elementValuePairs
+	a (Lorg/c/a/a/b/d/c/o;)V accept
+		0 visitor visitor
 org/c/a/a/b/f/g org/jd/core/v1/model/token/KeywordToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
+	a keyword
+	a ()Ljava/lang/String; getKeyword
 org/c/a/a/b/f/e org/jd/core/v1/model/token/EndBlockToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
+	g text
+	a ()Ljava/lang/String; getText
+	f END_DECLARATION_OR_STATEMENT_BLOCK
+	d END_PARAMETERS_BLOCK
+	a END_BLOCK
+	e END_RESOURCES_BLOCK
+	b END_ARRAY_BLOCK
+	c END_ARRAY_INITIALIZER_BLOCK
 org/c/a/a/b/f/l org/jd/core/v1/model/token/StartBlockToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
+	g text
+	a ()Ljava/lang/String; getText
+	f START_DECLARATION_OR_STATEMENT_BLOCK
+	d START_PARAMETERS_BLOCK
+	a START_BLOCK
+	e START_RESOURCES_BLOCK
+	b START_ARRAY_BLOCK
+	c START_ARRAY_INITIALIZER_BLOCK
 org/c/a/a/b/a/a org/jd/core/v1/model/classfile/ClassFile
 	a (I)V setAccessFlags
 		0 accessFlags accessFlags
@@ -46453,33 +46647,119 @@ org/c/a/a/b/a/a org/jd/core/v1/model/classfile/ClassFile
 	g fields
 	h methods
 	j outerClassFile
+	a (Ljava/lang/String;)Lorg/c/a/a/b/a/a/c; getAttribute
+		0 name name
+	a (Ljava/util/List;)V setInnerClassFiles
+		0 innerClassFiles innerClassFiles
+	f ()[Ljava/lang/String; getInterfaceTypeNames
+	j ()Ljava/util/List; getInnerClassFiles
+	f interfaceTypeNames
+	i attributes
+	k innerClassFiles
+	c ()I getAccessFlags
+	b ()I getMajorVersion
+	a ()I getMinorVersion
+	d ()Ljava/lang/String; getInternalTypeName
+	e ()Ljava/lang/String; getSuperTypeName
+	c accessFlags
+	d internalTypeName
+	e superTypeName
+	b minorVersion
+	a majorVersion
 org/c/a/a/b/a/c org/jd/core/v1/model/classfile/Field
 	a ()I getAccessFlags
 	a accessFlags
+	a (Ljava/lang/String;)Lorg/c/a/a/b/a/a/c; getAttribute
+		0 name name
+	d attributes
+	c ()Ljava/lang/String; getDescriptor
+	b ()Ljava/lang/String; getName
+	c descriptor
+	b name
 org/c/a/a/b/a/d org/jd/core/v1/model/classfile/Method
 	a ()I getAccessFlags
 	d ()Lorg/c/a/a/b/a/b; getConstants
 	a accessFlags
 	e constants
+	a (Ljava/lang/String;)Lorg/c/a/a/b/a/a/c; getAttribute
+		0 name name
+	d attributes
+	c ()Ljava/lang/String; getDescriptor
+	b ()Ljava/lang/String; getName
+	c descriptor
+	b name
 org/c/a/a/b/d/a/ac org/jd/core/v1/model/javasyntax/declaration/MethodDeclaration
 	a ()I getFlags
 	b flags
 	g ()Lorg/c/a/a/b/d/d/b; getStatements
 	i statements
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	e ()Lorg/c/a/a/b/d/e/f; getTypeParameters
+	d typeParameters
+	d ()Ljava/lang/String; getName
+	l ()Ljava/lang/String; getDescriptor
+	c name
+	h descriptor
+	b ()Lorg/c/a/a/b/d/c/d; getAnnotationReferences
+	o_ ()Lorg/c/a/a/b/d/e/l; getExceptionTypes
+	a annotationReferences
+	e exceptionTypes
 org/c/a/a/b/d/a/ad org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	a version
+	g ()Ljava/util/List; getProvides
+	f ()Ljava/util/List; getUses
+	e ()Ljava/util/List; getOpens
+	d ()Ljava/util/List; getExports
+	b ()Ljava/util/List; getRequires
+	f provides
+	e uses
+	d opens
+	c exports
+	b requires
 org/c/a/a/b/d/a/ah org/jd/core/v1/model/javasyntax/declaration/StaticInitializerDeclaration
 	g ()Lorg/c/a/a/b/d/d/b; getStatements
 	b statements
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	a descriptor
 org/c/a/a/b/d/a/b org/jd/core/v1/model/javasyntax/declaration/AnnotationDeclaration
+	a ()Lorg/c/a/a/b/d/a/d; getAnnotationDeclarators
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	a annotationDeclarators
 org/c/a/a/b/d/a/j org/jd/core/v1/model/javasyntax/declaration/ClassDeclaration
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/a/k org/jd/core/v1/model/javasyntax/declaration/ConstructorDeclaration
 	a ()I getFlags
 	b flags
 	g ()Lorg/c/a/a/b/d/d/b; getStatements
 	g statements
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	k_ ()Lorg/c/a/a/b/d/e/f; getTypeParameters
+	c typeParameters
+	f descriptor
+	f ()Ljava/lang/String; getDescriptor
+	b ()Lorg/c/a/a/b/d/c/d; getAnnotationReferences
+	a annotationReferences
 org/c/a/a/b/d/a/n org/jd/core/v1/model/javasyntax/declaration/EnumDeclaration
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	b ()Ljava/util/List; getConstants
+	b constants
 org/c/a/a/b/d/a/q org/jd/core/v1/model/javasyntax/declaration/FieldDeclaration
 	b flags
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	d ()Lorg/c/a/a/b/d/a/d; getFieldDeclarators
+	d fieldDeclarators
+	a ()I getFlags
+	b ()Lorg/c/a/a/b/d/c/d; getAnnotationReferences
+	a annotationReferences
 org/c/a/a/b/d/a/r org/jd/core/v1/model/javasyntax/declaration/FieldDeclarator
 	a (Lorg/c/a/a/b/d/a/q;)V setFieldDeclaration
 		0 fieldDeclaration fieldDeclaration
@@ -46490,15 +46770,46 @@ org/c/a/a/b/d/a/r org/jd/core/v1/model/javasyntax/declaration/FieldDeclarator
 	a fieldDeclaration
 	c dimension
 	d variableInitializer
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	b name
+	e ()Ljava/lang/String; getName
+	f ()I getDimension
 org/c/a/a/b/d/a/t org/jd/core/v1/model/javasyntax/declaration/FormalParameter
 	a (Z)V setFinal
 		0 fina1 fina1
+	a (Ljava/lang/String;)V setName
+		0 name name
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	e name
+	g ()Z isVarargs
+	e ()Z isFinal
+	i ()Ljava/lang/String; getName
+	b fina1
+	d varargs
+	d ()Lorg/c/a/a/b/d/c/d; getAnnotationReferences
+	a annotationReferences
 org/c/a/a/b/d/a/v org/jd/core/v1/model/javasyntax/declaration/InterfaceDeclaration
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	b ()Lorg/c/a/a/b/d/e/f; getTypeParameters
+	b typeParameters
 org/c/a/a/b/d/a/x org/jd/core/v1/model/javasyntax/declaration/LocalVariableDeclarator
 	a (I)V setDimension
 		0 dimension dimension
 	f ()Lorg/c/a/a/b/d/a/aj; getVariableInitializer
 	d variableInitializer
+	a (Ljava/lang/String;)V setName
+		0 name name
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	b name
+	e ()I getDimension
+	a ()I getLineNumber
+	d ()Ljava/lang/String; getName
+	c dimension
+	a lineNumber
 org/c/a/a/b/d/b/aa org/jd/core/v1/model/javasyntax/expression/NewArray
 	b ()I getPriority
 	d ()Lorg/c/a/a/b/d/b/f; getDimensionExpressionList
@@ -46512,12 +46823,20 @@ org/c/a/a/b/d/b/ae org/jd/core/v1/model/javasyntax/expression/ObjectTypeReferenc
 	a lineNumber
 	b type
 	c explicit
+	e ()I getLineNumber
+	b ()I getPriority
 org/c/a/a/b/d/b/af org/jd/core/v1/model/javasyntax/expression/PostOperatorExpression
 	b ()I getPriority
+	a operator
+	d ()Ljava/lang/String; getOperator
 org/c/a/a/b/d/b/ag org/jd/core/v1/model/javasyntax/expression/PreOperatorExpression
 	b ()I getPriority
+	a operator
+	d ()Ljava/lang/String; getOperator
 org/c/a/a/b/d/b/ah org/jd/core/v1/model/javasyntax/expression/StringConstantExpression
 	a EMPTY_STRING
+	c string
+	d ()Ljava/lang/String; getString
 org/c/a/a/b/d/b/ai org/jd/core/v1/model/javasyntax/expression/SuperConstructorInvocationExpression
 	b ()I getPriority
 	d ()Lorg/c/a/a/b/d/b/f; getParameters
@@ -46532,13 +46851,23 @@ org/c/a/a/b/d/b/al org/jd/core/v1/model/javasyntax/expression/ThisExpression
 	c explicit
 org/c/a/a/b/d/b/am org/jd/core/v1/model/javasyntax/expression/TypeReferenceDotClassExpression
 	a lineNumber
+	e ()I getLineNumber
+	b ()I getPriority
 org/c/a/a/b/d/b/e org/jd/core/v1/model/javasyntax/expression/ArrayExpression
 	b ()I getPriority
 org/c/a/a/b/d/b/g org/jd/core/v1/model/javasyntax/expression/BinaryOperatorExpression
 	b ()I getPriority
 	f priority
+	a (Ljava/lang/String;)V setOperator
+		0 operator operator
+	d operator
+	i ()Ljava/lang/String; getOperator
 org/c/a/a/b/d/b/h org/jd/core/v1/model/javasyntax/expression/BooleanExpression
 	d value
+	d ()Z isTrue
+	g ()Z isFalse
+	c FALSE
+	a TRUE
 org/c/a/a/b/d/b/i org/jd/core/v1/model/javasyntax/expression/CastExpression
 	g ()Z isExplicit
 	b ()I getPriority
@@ -46555,7 +46884,17 @@ org/c/a/a/b/d/b/l org/jd/core/v1/model/javasyntax/expression/DoubleConstantExpre
 org/c/a/a/b/d/b/m org/jd/core/v1/model/javasyntax/expression/EnumConstantReferenceExpression
 	d ()Lorg/c/a/a/b/d/e/i; getObjectType
 	a type
+	c name
+	g ()Ljava/lang/String; getName
 org/c/a/a/b/d/b/q org/jd/core/v1/model/javasyntax/expression/FieldReferenceExpression
+	a (Ljava/lang/String;)V setName
+		0 name name
+	i ()Ljava/lang/String; getName
+	g ()Ljava/lang/String; getInternalTypeName
+	j ()Ljava/lang/String; getDescriptor
+	e name
+	f descriptor
+	d internalTypeName
 org/c/a/a/b/d/b/r org/jd/core/v1/model/javasyntax/expression/FloatConstantExpression
 	d ()F getValue
 	a value
@@ -46565,6 +46904,8 @@ org/c/a/a/b/d/b/t org/jd/core/v1/model/javasyntax/expression/IntegerConstantExpr
 	d $assertionsDisabled
 org/c/a/a/b/d/b/v org/jd/core/v1/model/javasyntax/expression/LengthExpression
 org/c/a/a/b/d/b/w org/jd/core/v1/model/javasyntax/expression/LocalVariableReferenceExpression
+	a name
+	d ()Ljava/lang/String; getName
 org/c/a/a/b/d/b/x org/jd/core/v1/model/javasyntax/expression/LongConstantExpression
 	d ()J getValue
 	a value
@@ -46575,7 +46916,13 @@ org/c/a/a/b/d/b/y org/jd/core/v1/model/javasyntax/expression/MethodInvocationExp
 		0 parameters parameters
 	a parameters
 org/c/a/a/b/d/c/j org/jd/core/v1/model/javasyntax/reference/ElementValuePair
+	a name
+	d ()Ljava/lang/String; getName
+	a (Lorg/c/a/a/b/d/c/o;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/c/k org/jd/core/v1/model/javasyntax/reference/ElementValuePairs
+	a (Lorg/c/a/a/b/d/c/o;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/d/ad org/jd/core/v1/model/javasyntax/statement/ThrowStatement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
@@ -46587,11 +46934,25 @@ org/c/a/a/b/d/d/j org/jd/core/v1/model/javasyntax/statement/ForStatement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
 	e statements
+	a (Lorg/c/a/a/b/d/a/w;)V setDeclaration
+		0 declaration declaration
+	b ()Lorg/c/a/a/b/d/a/w; getDeclaration
+	a declaration
+	b (Lorg/c/a/a/b/d/b/f;)V setUpdate
+		0 update update
+	a (Lorg/c/a/a/b/d/b/f;)V setInit
+		0 init init
+	f ()Lorg/c/a/a/b/d/b/f; getUpdate
+	d ()Lorg/c/a/a/b/d/b/f; getInit
+	d update
+	b init
 org/c/a/a/b/d/d/m org/jd/core/v1/model/javasyntax/statement/LabelStatement
 	d ()Lorg/c/a/a/b/d/d/r; getStatement
 	b statement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
+	a label
+	b ()Ljava/lang/String; getLabel
 org/c/a/a/b/d/d/n org/jd/core/v1/model/javasyntax/statement/LambdaExpressionStatement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
@@ -46615,30 +46976,58 @@ org/c/a/a/b/d/e/h org/jd/core/v1/model/javasyntax/type/InnerObjectType
 	hashCode ()I hashCode
 	a outerType
 	b $assertionsDisabled
+	a (Lorg/c/a/a/b/d/e/e;)Lorg/c/a/a/b/d/e/i; createType
+		0 typeArguments typeArguments
+	a (Lorg/c/a/a/b/d/e/u;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/e/x org/jd/core/v1/model/javasyntax/type/WildcardExtendsTypeArgument
+	a (Lorg/c/a/a/b/d/e/u;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/e/y org/jd/core/v1/model/javasyntax/type/WildcardSuperTypeArgument
+	a (Lorg/c/a/a/b/d/e/u;)V accept
+		0 visitor visitor
 org/c/a/a/b/f/c org/jd/core/v1/model/token/CharacterConstantToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
+	b ()Ljava/lang/String; getOwnerInternalName
+	a ()Ljava/lang/String; getCharacter
+	a c
+	b ownerInternalName
 org/c/a/a/b/f/f org/jd/core/v1/model/token/EndMarkerToken
 	a ()I getType
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
 	e type
+	d IMPORT_STATEMENTS
+	c ERROR
+	b JAVADOC
+	a COMMENT
 org/c/a/a/b/f/j org/jd/core/v1/model/token/NumericConstantToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
+	a text
+	a ()Ljava/lang/String; getText
 org/c/a/a/b/f/k org/jd/core/v1/model/token/ReferenceToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
+	e ownerInternalName
+	e ()Ljava/lang/String; getOwnerInternalName
 org/c/a/a/b/f/m org/jd/core/v1/model/token/StartMarkerToken
 	a ()I getType
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
 	e type
+	d IMPORT_STATEMENTS
+	c ERROR
+	b JAVADOC
+	a COMMENT
 org/c/a/a/b/f/n org/jd/core/v1/model/token/StringConstantToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
+	b ()Ljava/lang/String; getOwnerInternalName
+	a ()Ljava/lang/String; getText
+	a text
+	b ownerInternalName
 org/c/a/a/c/a/a/a/a/a org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock
 	p ()Z mustInverseCondition
 	a (Z)V setInverseCondition
@@ -46650,8 +47039,81 @@ org/c/a/a/c/a/a/a/a/a org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 		1 nevv nevv
 	d (I)Z matchType
 		0 types types
+	q ()V inverseCondition
+	a (Ljava/lang/String;Lorg/c/a/a/c/a/a/a/a/a;)V addExceptionHandler
+		0 internalThrowableName internalThrowableName
+		1 basicBlock basicBlock
+	a (Ljava/util/HashSet;Lorg/c/a/a/c/a/a/a/a/a;)V replace
+		0 olds olds
+		1 nevv nevv
+	a (Lorg/c/a/a/d/c;)V setSwitchCases
+		0 switchCases switchCases
+	o ()Ljava/util/HashSet; getPredecessors
+	a TYPE_NAMES
+	x $assertionsDisabled
+	r inverseCondition
+	w predecessors
+	c (I)V setToOffset
+		0 toOffset toOffset
+	a (I)V setType
+		0 type type
+	b (I)V setFromOffset
+		0 fromOffset fromOffset
+	a (Lorg/c/a/a/c/a/a/a/a/a;)V setNext
+		0 next next
+	d (Lorg/c/a/a/c/a/a/a/a/a;)V setSub1
+		0 sub1 sub1
+	e (Lorg/c/a/a/c/a/a/a/a/a;)V setSub2
+		0 sub2 sub2
+	b (Lorg/c/a/a/c/a/a/a/a/a;)V setBranch
+		0 branch branch
+	c (Lorg/c/a/a/c/a/a/a/a/a;)V setCondition
+		0 condition condition
+	d ()I getFromOffset
+	c ()I getType
+	b ()I getIndex
+	e ()I getToOffset
+	h ()Lorg/c/a/a/c/a/a/a/a/a; getNext
+	i ()Lorg/c/a/a/c/a/a/a/a/a; getBranch
+	l ()Lorg/c/a/a/c/a/a/a/a/a; getCondition
+	k ()Lorg/c/a/a/d/c; getSwitchCases
+	j ()Lorg/c/a/a/d/c; getExceptionHandlers
+	r ()Ljava/lang/String; getTypeName
+	f ()I getFirstLineNumber
+	m ()Lorg/c/a/a/c/a/a/a/a/a; getSub1
+	n ()Lorg/c/a/a/c/a/a/a/a/a; getSub2
+	g ()I getLastLineNumber
+	b EMPTY_EXCEPTION_HANDLERS
+	c EMPTY_SWITCH_CASES
+	h END
+	i RETURN
+	e LOOP_START
+	l type
+	t sub2
+	s sub1
+	p branch
+	o next
+	u exceptionHandlers
+	v switchCases
+	g LOOP_END
+	f LOOP_CONTINUE
+	d SWITCH_BREAK
+	n toOffset
+	m fromOffset
+	k index
+	q condition
 org/c/a/a/c/a/a/a/a/h org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/Loop
 	hashCode ()I hashCode
+	b ()Ljava/util/HashSet; getMembers
+	b members
+	c ()Lorg/c/a/a/c/a/a/a/a/a; getEnd
+	a ()Lorg/c/a/a/c/a/a/a/a/a; getStart
+	b (Lorg/c/a/a/c/a/a/a/a/a;)V setEnd
+		0 end end
+	a (Lorg/c/a/a/c/a/a/a/a/a;)V setStart
+		0 start start
+	c end
+	a start
 org/c/a/a/c/a/a/a/b/a/a org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileAnnotationDeclaration
 	q_ ()I getFirstLineNumber
 	c firstLineNumber
@@ -46663,6 +47125,28 @@ org/c/a/a/c/a/a/a/b/a/b org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	g firstLineNumber
 	h outerType
 	j outerBodyDeclaration
+	a (Lorg/c/a/a/d/c;)V setSyntheticInnerFieldNames
+		0 syntheticInnerFieldNames syntheticInnerFieldNames
+	i syntheticInnerFieldNames
+	b (Ljava/lang/String;)Lorg/c/a/a/c/a/a/a/b/a/k; removeInnerType
+		0 internalName internalName
+	a (Ljava/util/List;)V setFieldDeclarations
+		0 fieldDeclarations fieldDeclarations
+	d (Ljava/util/List;)V updateFirstLineNumber
+		0 members members
+	c (Ljava/util/List;)V setInnerTypeDeclarations
+		0 innerTypeDeclarations innerTypeDeclarations
+	f ()Ljava/util/List; getMethodDeclarations
+	e ()Ljava/util/List; getFieldDeclarations
+	g ()Ljava/util/List; getInnerTypeDeclarations
+	j ()Lorg/c/a/a/d/c; getSyntheticInnerFieldNames
+	q_ ()I getFirstLineNumber
+	b (Ljava/util/List;)V setMethodDeclarations
+		0 methodDeclarations methodDeclarations
+	e innerTypeDeclarations
+	c fieldDeclarations
+	f innerTypeMap
+	d methodDeclarations
 org/c/a/a/c/a/a/a/b/a/c org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileClassDeclaration
 	q_ ()I getFirstLineNumber
 	a (I)V setFlags
@@ -46673,9 +47157,24 @@ org/c/a/a/c/a/a/a/b/a/f org/jd/core/v1/service/converter/classfiletojavasyntax/m
 		0 flags flags
 	q_ ()I getFirstLineNumber
 	d firstLineNumber
+	a (Ljava/util/List;)V setConstants
+		0 constants constants
 org/c/a/a/c/a/a/a/b/a/h org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileFieldDeclaration
 	e firstLineNumber
+	a (Lorg/c/a/a/b/d/a/d;)V setFieldDeclarators
+		0 fieldDeclarators fieldDeclarators
+	b (I)V setFirstLineNumber
+		0 firstLineNumber firstLineNumber
+	a (I)V setFlags
+		0 flags flags
+	q_ ()I getFirstLineNumber
 org/c/a/a/c/a/a/a/b/a/i org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileFormalParameter
+	a (Ljava/lang/String;)V setName
+		0 name name
+	f localVariable
+	a (Lorg/c/a/a/c/a/a/a/c/a;)V setLocalVariable
+		0 localVariable localVariable
+	i ()Ljava/lang/String; getName
 org/c/a/a/c/a/a/a/b/a/j org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileInterfaceDeclaration
 	q_ ()I getFirstLineNumber
 	a firstLineNumber
@@ -46693,6 +47192,11 @@ org/c/a/a/c/a/a/a/b/a/l org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	a (Lorg/c/a/a/b/d/d/b;)V setStatements
 		0 statements statements
 org/c/a/a/c/a/a/a/b/b/b org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/expression/ClassFileLocalVariableReferenceExpression
+	a (Lorg/c/a/a/c/a/a/a/c/a;)V setLocalVariable
+		0 localVariable localVariable
+	g ()Lorg/c/a/a/c/a/a/a/c/a; getLocalVariable
+	d localVariable
+	d ()Ljava/lang/String; getName
 org/c/a/a/c/a/a/a/b/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileBreakContinueStatement
 	e ()Z isContinueLabel
 	a (Z)V setContinueLabel
@@ -46703,9 +47207,17 @@ org/c/a/a/c/a/a/a/b/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	d statement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
+	d ()I getTargetOffset
+	b ()I getOffset
+	b targetOffset
+	a offset
 org/c/a/a/c/a/a/a/b/c/b org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileForEachStatement
+	e localVariable
+	d ()Ljava/lang/String; getName
 org/c/a/a/c/a/a/a/b/c/c org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileForStatement
 	j ()I getFromOffset
+	g fromOffset
+	f toOffset
 org/c/a/a/c/a/a/a/b/c/d org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileMonitorEnterStatement
 org/c/a/a/c/a/a/a/b/c/e org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileMonitorExitStatement
 org/c/a/a/c/a/a/a/c/e org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/GenericLocalVariable
@@ -46725,25 +47237,95 @@ org/c/a/a/c/d/a/a org/jd/core/v1/service/layouter/model/Section
 		0 force force
 	b fixedFragment
 	i $assertionsDisabled
+	a (II)Ljava/util/List; extract
+		0 index1 index1
+		1 index2 index2
+	a ()Lorg/c/a/a/d/c; getFlexibleFragments
+	a (Lorg/c/a/a/c/d/b/a;)Z releaseConstraints
+		0 holder holder
+	a flexibleFragments
+	g ()V resetLineCount
+	f ()V updateRate
+	a (Lorg/c/a/a/c/d/c/a;)Lorg/c/a/a/c/d/a/a; searchNextSection
+		0 visitor visitor
+	b (Lorg/c/a/a/c/d/c/a;)Lorg/c/a/a/c/d/a/a; searchPreviousSection
+		0 visitor visitor
+	a (Lorg/c/a/a/c/d/b/a;ILjava/util/List;)V addFragmentsAtBeginning
+		0 holder holder
+		1 index index
+		2 flexibleFragments flexibleFragments
+	b (Lorg/c/a/a/c/d/b/a;ILjava/util/List;)V addFragmentsAtEnd
+		0 holder holder
+		1 index index
+		2 flexibleFragments flexibleFragments
+	b (Lorg/c/a/a/d/c;Z)V compact
+		0 flexibleFragments flexibleFragments
+		1 force force
+	a (Lorg/c/a/a/d/c;Z)V expand
+		0 flexibleFragments flexibleFragments
+		1 force force
+	d ()Lorg/c/a/a/c/d/a/a; getNextSection
+	c ()Lorg/c/a/a/c/d/a/a; getPreviousSection
+	d nextSection
+	c previousSection
+	g lastLineCount
+	e targetLineCount
+	f rate
+	h delta
 org/c/a/a/b/a/b org/jd/core/v1/model/classfile/ConstantPool
 	a (I)Lorg/c/a/a/b/a/b/a; getConstant
 		0 index index
 	e (I)Lorg/c/a/a/b/a/b/m; getConstantValue
 		0 index index
 	a constants
+	d (I)Ljava/lang/String; getConstantUtf8
+		0 index index
+	b (I)Ljava/lang/String; getConstantTypeName
+		0 index index
+	c (I)Ljava/lang/String; getConstantString
+		0 index index
 org/c/a/a/b/c/m org/jd/core/v1/model/javafragment/LineNumberTokensFragment
 	a (Lorg/c/a/a/b/c/l;)V accept
 		0 visitor visitor
+	c ()Ljava/util/List; getTokens
+	d $assertionsDisabled
+	c tokens
+	a (Ljava/util/List;)I searchFirstLineNumber
+		static
+		0 tokens tokens
+	b (Ljava/util/List;)I searchLastLineNumber
+		static
+		0 tokens tokens
 org/c/a/a/b/b/b org/jd/core/v1/model/fragment/EndMovableBlockFragment
 	a (Lorg/c/a/a/b/b/f;)V accept
 		0 visitor visitor
 org/c/a/a/b/b/c org/jd/core/v1/model/fragment/FixedFragment
 	a (Lorg/c/a/a/b/b/f;)V accept
 		0 visitor visitor
+	b ()I getLastLineNumber
+	a ()I getFirstLineNumber
+	b lastLineNumber
+	a firstLineNumber
 org/c/a/a/b/b/d org/jd/core/v1/model/fragment/FlexibleFragment
 	a ()V resetLineCount
 	a (Lorg/c/a/a/b/b/f;)V accept
 		0 visitor visitor
+	f label
+	a (Z)Z incLineCount
+		0 force force
+	e ()I getLineCount
+	f ()I getWeight
+	d ()I getInitialLineCount
+	c ()I getMaximalLineCount
+	b ()I getMinimalLineCount
+	g ()Ljava/lang/String; getLabel
+	b (Z)Z decLineCount
+		0 force force
+	c initialLineCount
+	d lineCount
+	b maximalLineCount
+	e weight
+	a minimalLineCount
 org/c/a/a/b/b/i org/jd/core/v1/model/fragment/StartMovableBlockFragment
 	h ()I getType
 	g type
@@ -46755,29 +47337,83 @@ org/c/a/a/b/c/h org/jd/core/v1/model/javafragment/ImportsFragment
 	i $assertionsDisabled
 	a (Lorg/c/a/a/b/c/l;)V accept
 		0 visitor visitor
+	i ()V initLineCounts
+	a (Ljava/lang/String;Ljava/lang/String;)V addImport
+		0 internalName internalName
+		1 qualifiedName qualifiedName
+	a (Ljava/lang/String;)Z contains
+		0 internalName internalName
+	j ()Ljava/util/Collection; getImports
+	g COUNT_COMPARATOR
+	h importMap
 org/c/a/a/c/a/a/a/a/g org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/ControlFlowGraph
 org/c/a/a/c/a/a/c/ae org/jd/core/v1/service/converter/classfiletojavasyntax/util/TypeMaker
 org/c/a/a/c/a/a/c/ak org/jd/core/v1/service/converter/classfiletojavasyntax/util/SwitchStatementMaker
 	b $assertionsDisabled
+	a MINUS_ONE
 org/c/a/a/c/a/a/c/an org/jd/core/v1/service/converter/classfiletojavasyntax/util/TryWithResourcesStatementMaker
+	a (Lorg/c/a/a/c/a/a/c/o;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/c;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r; make
+		static
+		0 localVariableMaker localVariableMaker
+		1 statements statements
+		2 tryStatements tryStatements
+		3 catchClauses catchClauses
+		4 finallyStatements finallyStatements
+	a (Ljava/util/List;)Z checkThrowable
+		static
+		0 catchClauses catchClauses
+	a (Lorg/c/a/a/b/d/b/y;Lorg/c/a/a/c/a/a/a/c/a;)Z checkCloseInvocation
+		static
+		0 mie mie
+		1 lv lv
 org/c/a/a/c/a/a/c/ao org/jd/core/v1/service/converter/classfiletojavasyntax/util/WatchDog
 	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)V check
 		0 parent parent
 		1 child child
+	a ()V clear
+	a links
 org/c/a/a/c/a/a/c/r org/jd/core/v1/service/converter/classfiletojavasyntax/util/LoopStatementMaker
+	a (Lorg/c/a/a/b/d/d/u;I)Lorg/c/a/a/b/d/b/f; extractInit
+		static
+		0 statements statements
+		1 lineNumber lineNumber
+	a (IIILorg/c/a/a/b/d/d/r;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r; makeLabels
+		static
+		0 loopIndex loopIndex
+		1 continueOffset continueOffset
+		2 breakOffset breakOffset
+		3 loop loop
+		4 jumps jumps
+	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r; makeLoop
+		static
+		0 loopBasicBlock loopBasicBlock
+		1 statements statements
+		2 subStatements subStatements
+	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r; makeLoop
+		static
+		0 loopBasicBlock loopBasicBlock
+		1 statements statements
+		2 subStatements subStatements
+		3 jumps jumps
+	b (Lorg/c/a/a/b/d/d/u;I)Lorg/c/a/a/b/d/b/p; extractUpdate
+		static
+		0 statements statements
+		1 firstLineNumber firstLineNumber
 org/c/a/a/c/c/a/b/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/CompilationUnitVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/c/c;)V visit
-		0 reference reference
+		0 list list
 	a (Lorg/c/a/a/b/d/a/j;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/k;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/c/i;)V visit
+		0 reference reference
 	a (Lorg/c/a/a/b/d/c/l;)V visit
 		0 references references
 	a (Lorg/c/a/a/b/d/c/m;)V visit
+		0 reference reference
 	a (Lorg/c/a/a/b/d/c/k;)V visit
 		0 references references
 	a (Lorg/c/a/a/b/d/c/j;)V visit
@@ -46821,6 +47457,45 @@ org/c/a/a/c/c/a/b/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 		0 declarations declarations
 	a (Lorg/c/a/a/b/d/a/c;)V visit
 		0 declaration declaration
+	a (Ljava/lang/String;)V visitModuleDeclaration
+		0 internalTypeName internalTypeName
+	a (Lorg/c/a/a/b/d/a/ai;ILorg/c/a/a/b/f/g;)V buildFragmentsForTypeDeclaration
+		0 declaration declaration
+		1 flags flags
+		2 keyword keyword
+	a (Lorg/c/a/a/b/d/a/o;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/s;)V visit
+		0 declarators declarators
+	a (Lorg/c/a/a/b/d/a/w;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/b;)V visit
+		0 compilationUnit compilationUnit
+	a (Lorg/c/a/a/b/d/c/a;)V visit
+		0 reference reference
+	r annotationVisitor
+	s singleLineStatementVisitor
+	t mainInternalName
+	b (Lorg/c/a/a/b/d/c/b;)V visitAnnotationReference
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/b;)V visit
+		0 reference reference
+	o THROWS
+	g IMPLEMENTS
+	n STATIC
+	j PACKAGE
+	h INTERFACE
+	f ENUM
+	d CLASS
+	c ANNOTATION
+	e DEFAULT
+	b ABSTRACT
+	q COMMENT_SYNTHETIC
+	p COMMENT_BRIDGE
+	m PUBLIC
+	l PROTECTED
+	k PRIVATE
+	i NATIVE
 org/c/a/a/c/c/a/b/i org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/StatementVisitor
 	a (Lorg/c/a/a/b/d/d/h;)V visit
 		0 statement statement
@@ -46853,15 +47528,89 @@ org/c/a/a/c/c/a/b/i org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 		0 statement statement
 	a (Lorg/c/a/a/b/d/d/v;)V visit
 		0 resource resource
+	a (Lorg/c/a/a/b/d/d/a;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/aa;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ab;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ae;Lorg/c/a/a/b/c/w;)V visitTryStatement
+		0 statement statement
+		1 group group
+	a (Lorg/c/a/a/b/d/d/ah;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/b;Lorg/c/a/a/b/c/w;)V visitElseStatements
+		0 elseStatements elseStatements
+		1 group group
+	a (Lorg/c/a/a/b/d/d/c;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/d;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/e;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/f;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/u;)V visit
+		0 list list
+	b (Ljava/lang/String;)V visitComment
+		0 text text
+	T IF
+	U RETURN
+	S FOR
+	Y TRY
+	X THROW
+	R CATCH
+	Q FINAL
+	P ELSE
+	N DEFAULT
+	M CONTINUE
+	L FINALLY
+	K CASE
+	J BREAK
+	I ASSERT
 org/c/a/a/d/e org/jd/core/v1/util/DefaultStack
 	a ()I size
 	b ()Z isEmpty
 	b head
+	a (Lorg/c/a/a/d/e;)V copy
+		0 other other
+	a (Ljava/lang/Object;)V push
+		0 expression expression
+	a (Ljava/lang/Object;Ljava/lang/Object;)V replace
+		0 old old
+		1 nevv nevv
+	a elements
+	d ()Ljava/lang/Object; peek
+	c ()Ljava/lang/Object; pop
 org/c/a/a/b/d/a/aj org/jd/core/v1/model/javasyntax/declaration/VariableInitializer
-org/c/a/a/b/d/a/h org/jd/core/v1/model/javasyntax/declaration/BaseLocalVariableDeclarator
-org/c/a/a/b/d/a/z org/jd/core/v1/model/javasyntax/declaration/BaseMemberDeclaration
+org/c/a/a/b/d/a/h org/jd/core/v1/model/javasyntax/declaration/BaseTypeDeclaration
+org/c/a/a/b/d/a/z org/jd/core/v1/model/javasyntax/declaration/MemberDeclaration
 org/c/a/a/b/d/e/n org/jd/core/v1/model/javasyntax/type/TypeArgument
-org/c/a/a/c/a/a/a/c/d org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame
+org/c/a/a/c/a/a/a/c/d org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame$GenerateLocalVariableNameVisitor
+	a ()Ljava/lang/String; getName
+	a (Lorg/c/a/a/b/d/e/c;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/g;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/h;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/i;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/k;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/x;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/y;)V visit
+		0 type type
+	a INTEGER_NAMES
+	b sb
+	c blackListNames
+	d types
+	e name
 org/c/a/a/c/a/a/c/ag org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker
 	a (Lorg/c/a/a/c/a/a/a/a/a;)I countStartLoop
 		0 bb bb
@@ -46878,8 +47627,110 @@ org/c/a/a/c/a/a/c/ag org/jd/core/v1/service/converter/classfiletojavasyntax/util
 	n updateIntegerConstantTypeVisitor
 	o searchFirstLineNumberVisitor
 	p memberVisitor
+	a (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;)V changeEndLoopToStartLoop
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+	a (Lorg/c/a/a/c/a/a/c/ao;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/u; makeSubStatements
+		0 watchdog watchdog
+		1 basicBlock basicBlock
+		2 statements statements
+		3 jumps jumps
+		4 updateStatements updateStatements
+	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;)V parseByteCode
+		0 basicBlock basicBlock
+		1 statements statements
+	a (Lorg/c/a/a/c/a/a/c/ao;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;ZZ)V parseTry
+		0 watchdog watchdog
+		1 basicBlock basicBlock
+		2 statements statements
+		3 jumps jumps
+		4 jsr jsr
+		5 eclipse eclipse
+	b (Lorg/c/a/a/c/a/a/c/ao;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/u; makeSubStatements
+		0 watchdog watchdog
+		1 basicBlock basicBlock
+		2 statements statements
+		3 jumps jumps
+	a SWITCH_CASE_COMPARATOR
+	s $assertionsDisabled
+	g byteCodeParser
+	i internalTypeName
+	b (Lorg/c/a/a/b/d/d/u;)V replacePreOperatorWithPostOperator
+		0 statements statements
+	c (Lorg/c/a/a/b/d/d/u;)V updateJumpStatements
+		0 jumps jumps
+	a (Lorg/c/a/a/b/d/d/u;)V removeExceptionReference
+		0 catchStatements catchStatements
+	a (Lorg/c/a/a/c/a/a/c/ao;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)V makeStatements
+		0 watchdog watchdog
+		1 basicBlock basicBlock
+		2 statements statements
+		3 jumps jumps
+	d (Lorg/c/a/a/c/a/a/c/ao;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)V parseSwitch
+		0 watchdog watchdog
+		1 basicBlock basicBlock
+		2 statements statements
+		3 jumps jumps
+	f (Lorg/c/a/a/c/a/a/c/ao;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)V parseIf
+		0 watchdog watchdog
+		1 basicBlock basicBlock
+		2 statements statements
+		3 jumps jumps
+	g (Lorg/c/a/a/c/a/a/c/ao;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)V parseLoop
+		0 watchdog watchdog
+		1 basicBlock basicBlock
+		2 statements statements
+		3 jumps jumps
+	e (Lorg/c/a/a/c/a/a/c/ao;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)V parseJSR
+		0 watchdog watchdog
+		1 basicBlock basicBlock
+		2 statements statements
+		3 jumps jumps
+	q removeFinallyStatementsFlag
+	r mergeTryWithResourcesStatementFlag
 org/c/a/a/c/a/a/c/aj org/jd/core/v1/service/converter/classfiletojavasyntax/util/StringConcatenationUtil
 org/c/a/a/c/a/a/c/g org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeWriter
+	a (Ljava/lang/String;Lorg/c/a/a/b/a/d;)Ljava/lang/String; write
+		static
+		0 linePrefix linePrefix
+		1 method method
+	a (Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/c/a/a/b/a/b;[BII)V writeByteCode
+		static
+		0 linePrefix linePrefix
+		1 sb sb
+		2 constants constants
+		3 code code
+		4 fromOffset fromOffset
+		5 toOffset toOffset
+	a (Ljava/lang/StringBuilder;Lorg/c/a/a/b/a/b;Lorg/c/a/a/b/a/b/a;)V writeLDC
+		static
+		0 sb sb
+		1 constants constants
+		2 constant constant
+	a OPCODE_NAMES
+	b (Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/c/a/a/b/a/a/f;)V writeLocalVariableTable
+		static
+		0 linePrefix linePrefix
+		1 sb sb
+		2 attributeCode attributeCode
+	a (Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/c/a/a/b/a/a/f;)V writeLineNumberTable
+		static
+		0 linePrefix linePrefix
+		1 sb sb
+		2 attributeCode attributeCode
+	a (Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/c/a/a/b/a/b;Lorg/c/a/a/b/a/a/f;)V writeByteCode
+		static
+		0 linePrefix linePrefix
+		1 sb sb
+		2 constants constants
+		3 attributeCode attributeCode
+	b (Ljava/lang/String;Ljava/lang/StringBuilder;Lorg/c/a/a/b/a/b;Lorg/c/a/a/b/a/a/f;)V writeExceptionTable
+		static
+		0 linePrefix linePrefix
+		1 sb sb
+		2 constants constants
+		3 attributeCode attributeCode
 org/c/a/a/c/a/a/d/h org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitEnumVisitor
 	a (Lorg/c/a/a/b/d/a/k;)V visit
 		0 declaration declaration
@@ -46894,6 +47745,12 @@ org/c/a/a/c/a/a/d/h org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
 	d arguments
+	a ()Lorg/c/a/a/d/c; getConstants
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a constants
+	c index
+	b lineNumber
 org/c/a/a/c/a/a/d/r org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitStaticFieldVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 		0 declaration declaration
@@ -46914,6 +47771,10 @@ org/c/a/a/c/a/a/d/r org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
 	a searchFirstLineNumberVisitor
+	a (Ljava/lang/String;)V setInternalTypeName
+		0 internalTypeName internalTypeName
+	b internalTypeName
+	c fields
 org/c/a/a/c/c/a/b/j org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor
 	a (Lorg/c/a/a/b/d/e/x;)V visit
 		0 argument argument
@@ -46932,6 +47793,56 @@ org/c/a/a/c/c/a/b/j org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	aw loader
 	az importsFragment
 	aA tokens
+	a (Ljava/lang/String;Ljava/lang/String;)Z packageContainsType
+		static
+		0 internalPackageName internalPackageName
+		1 internalClassName internalClassName
+	a (Lorg/c/a/a/b/d/e/i;Ljava/lang/String;)Lorg/c/a/a/b/f/k; newTypeReferenceToken
+		0 ot ot
+		1 ownerInternalName ownerInternalName
+	a (Ljava/util/List;Lorg/c/a/a/b/f/o;)V buildTokensForList
+		0 list list
+		1 separator separator
+	a (Lorg/c/a/a/b/d/e/c;)V visit
+		0 arguments arguments
+	a (Lorg/c/a/a/b/d/e/e;)V visitTypeArgumentList
+		0 arguments arguments
+	a (Lorg/c/a/a/b/d/e/q;)V visit
+		0 parameter parameter
+	a (Lorg/c/a/a/b/d/e/r;)V visit
+		0 parameter parameter
+	a (Lorg/c/a/a/b/d/e/s;)V visit
+		0 parameters parameters
+	a (Lorg/c/a/a/b/d/e/v;)V visit
+		0 types types
+	c (Ljava/lang/String;)Lorg/c/a/a/b/f/o; newTextToken
+		0 text text
+	aD textTokenCache
+	ag EXTENDS
+	au VOID
+	aq SUPER
+	ap SHORT
+	aj LONG
+	ai INT
+	ah FLOAT
+	ae DOUBLE
+	ad CHAR
+	ac BYTE
+	ab BOOLEAN
+	av WITH
+	at USES
+	as TRANSITIVE
+	ar TO
+	ao REQUIRES
+	an PROVIDES
+	am OPENS
+	al OPEN
+	ak MODULE
+	af EXPORTS
+	ay majorVersion
+	aB maxLineNumber
+	ax internalPackageName
+	aC currentInternalTypeName
 org/c/a/a/c/e/a/a/a org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor
 	a (Lorg/c/a/a/b/c/h;)V visit
 		0 fragment fragment
@@ -46945,9 +47856,66 @@ org/c/a/a/c/e/a/a/a org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor
 		0 fragment fragment
 	a NAME_COMPARATOR
 	m unknownLineNumberTokenVisitor
+	a ()Lorg/c/a/a/d/c; getTokens
+	a (Lorg/c/a/a/b/c/a;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/b;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/c;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/d;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/e;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/f;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/g;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/o;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/p;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/q;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/r;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/s;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/u;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/v;Ljava/util/Collection;)V visit
+		0 fragment fragment
+		1 adds adds
+	a (Lorg/c/a/a/b/c/x;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/c/y;)V visit
+		0 fragment fragment
+	l knownLineNumberTokenVisitor
+	n tokens
+	c IMPORT
+	g WHILE
+	f TRY
+	e TRUE
+	d FOR
+	b DO
+	k TRY_TOKENS
+	h DO_TOKENS
+	j EMPTY_WHILE_TOKENS
+	i EMPTY_FOR_TOKENS
 org/c/a/a/b/c/z org/jd/core/v1/model/javafragment/TokensFragment
 	a (Lorg/c/a/a/b/c/l;)V accept
 		0 visitor visitor
+	a (Ljava/util/List;)I getLineCount
+		static
+		0 tokens tokens
+	h ()Ljava/util/List; getTokens
+	m tokens
+	h SEMICOLON
+	l RETURN_SEMICOLON
+	k END_DECLARATION_OR_STATEMENT_BLOCK_SEMICOLON
+	g COMMA
+	j END_DECLARATION_OR_STATEMENT_BLOCK
+	i START_DECLARATION_OR_STATEMENT_BLOCK
 org/c/a/a/c/a/a/a/a/e org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$SwitchCase
 	c ()Lorg/c/a/a/c/a/a/a/a/a; getBasicBlock
 	d ()Z isDefaultCase
@@ -46956,8 +47924,19 @@ org/c/a/a/c/a/a/a/a/e org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 		1 nevv nevv
 	c basicBlock
 	d defaultCase
+	a (Lorg/c/a/a/c/a/a/a/a/a;)V setBasicBlock
+		0 basicBlock basicBlock
+	a (Ljava/util/HashSet;Lorg/c/a/a/c/a/a/a/a/a;)V replace
+		0 olds olds
+		1 nevv nevv
+	b ()I getOffset
+	a ()I getValue
+	b offset
+	a value
 org/c/a/a/c/a/a/c/ap org/jd/core/v1/service/converter/classfiletojavasyntax/util/WatchDog$Link
 	hashCode ()I hashCode
+	b childIndex
+	a parentIndex
 org/c/a/a/c/c/a/b/k org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor$Tokens
 	b ()I getCurrentLineNumber
 	a (Lorg/c/a/a/b/f/p;)Z add
@@ -46974,6 +47953,10 @@ org/c/a/a/c/d/a/b org/jd/core/v1/service/layouter/model/Section$AutoGrowthList
 	hasNext ()Z hasNext
 	b iteratorIndex
 	c this$0
+	a ()Lorg/c/a/a/d/c; next
+	a (I)Lorg/c/a/a/d/c; get
+		0 index index
+	a elements
 org/c/a/a/c/a/a/a/b/a/d org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileConstructorDeclaration
 	j ()Lorg/c/a/a/c/a/a/a/b/a/b; getBodyDeclaration
 	k ()Lorg/c/a/a/b/a/a; getClassFile
@@ -46985,6 +47968,11 @@ org/c/a/a/c/a/a/a/b/a/d org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	l firstLineNumber
 	a (Lorg/c/a/a/b/d/d/b;)V setStatements
 		0 statements statements
+	a (I)V setFlags
+		0 flags flags
+	b (I)V setFirstLineNumber
+		0 firstLineNumber firstLineNumber
+	o_ ()Lorg/c/a/a/b/d/e/l; getParameterTypes
 org/c/a/a/c/a/a/a/b/a/m org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileStaticInitializerDeclaration
 	k ()Lorg/c/a/a/b/a/a; getClassFile
 	r_ ()Lorg/c/a/a/b/a/d; getMethod
@@ -46995,6 +47983,12 @@ org/c/a/a/c/a/a/a/b/a/m org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	f firstLineNumber
 	a (Lorg/c/a/a/b/d/d/b;)V setStatements
 		0 statements statements
+	q_ ()I getFirstLineNumber
+	b (I)V setFirstLineNumber
+		0 firstLineNumber firstLineNumber
+	a (I)V setFlags
+		0 flags flags
+	o_ ()Lorg/c/a/a/b/d/e/l; getParameterTypes
 org/c/a/a/c/a/a/d/g org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/GenerateParameterSuffixNameVisitor
 	a (Lorg/c/a/a/b/d/e/k;)V visit
 		0 type type
@@ -47005,6 +47999,8 @@ org/c/a/a/c/a/a/d/g org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/e/g;)V visit
 		0 type type
 	b $assertionsDisabled
+	a ()Ljava/lang/String; getSuffix
+	a suffix
 org/c/a/a/c/c/a/b/c org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/ExpressionVisitor
 	a (Lorg/c/a/a/b/d/b/e;)V visit
 		0 expression expression
@@ -47060,6 +48056,34 @@ org/c/a/a/c/c/a/b/c org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	E inExpressionFlag
 	b (Lorg/c/a/a/b/d/d/b;)V visitLambdaBody
 		0 statementList statementList
+	a ()Lorg/c/a/a/d/c; getFragments
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/n;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/p;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/b/s;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/z;)V visit
+		0 expression expression
+	C contextStack
+	D fragments
+	F currentMethodParamNames
+	G currentTypeName
+	H hexaExpressionVisitor
+	c ()V restoreContext
+	b ()V storeContext
+	A THIS
+	y NEW
+	z NULL
+	x LENGTH
+	w INSTANCEOF
+	v FALSE
+	u CLASS
+	B TRUE
 org/c/a/a/c/c/a/b/g org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/SearchImportsVisitor
 	a (Lorg/c/a/a/b/d/c/b;)V visit
 		0 reference reference
@@ -47118,8 +48142,27 @@ org/c/a/a/c/c/a/b/g org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	c maxLineNumber
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/s;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/z;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/c/a;)V visit
+		0 reference reference
+	a internalPackagePrefix
+	b (Lorg/c/a/a/b/d/e/i;)V add
+		0 type type
+	a (Lorg/c/a/a/b/d/e/i;)V visit
+		0 type type
+	d internalTypeNames
 org/c/a/a/c/a/a/c/ab org/jd/core/v1/service/converter/classfiletojavasyntax/util/SignatureFormatException
 org/c/a/a/c/a/a/c/n org/jd/core/v1/service/converter/classfiletojavasyntax/util/ExceptionUtil
+	a (Ljava/lang/Throwable;)Z printStackTrace
+		static
+		0 throwable throwable
 org/c/a/a/c/a/a/d/w org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/RemoveFinallyStatementsVisitor
 	a (Lorg/c/a/a/b/d/d/ag;)V visit
 		0 statement statement
@@ -47155,6 +48198,35 @@ org/c/a/a/c/a/a/d/w org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 		0 list list
 	b localVariableMaker
 	e $assertionsDisabled
+	a ()V init
+	a (Ljava/util/List;)V safeAcceptListStatement
+		0 list list
+	a (Lorg/c/a/a/b/d/d/a;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/aa;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ab;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ah;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/c;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/d;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/e;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/f;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+		0 statement statement
+	b (Lorg/c/a/a/b/d/d/u;)V removeFinallyStatements
+		0 list list
+	a (Lorg/c/a/a/b/d/d/u;)V visit
+		0 statements statements
+	c statementCountInFinally
+	d statementCountToRemove
 org/c/a/a/c/a/a/d/z org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SearchUndeclaredLocalVariableVisitor
 	c ()Z containsLineNumber
 	a (Lorg/c/a/a/b/d/b/g;)V visit
@@ -47170,6 +48242,13 @@ org/c/a/a/c/a/a/d/z org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/d/ae;)V visit
 		0 statement statement
 	b containsLineNumber
+	a ()V init
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+		0 statement statement
+	b ()Ljava/util/HashSet; getVariables
+	a variables
 org/c/a/a/c/a/a/d/d org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/CreateLocalVariableVisitor
 	a (II)V init
 		0 index index
@@ -47188,6 +48267,10 @@ org/c/a/a/c/a/a/d/d org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 		0 lv lv
 	a (Lorg/c/a/a/c/a/a/a/c/k;)V visit
 		0 lv lv
+	a ()Lorg/c/a/a/c/a/a/a/c/a; getLocalVariable
+	d localVariable
+	c offset
+	b index
 org/c/a/a/c/a/a/d/o org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateBridgeMethodVisitor$BodyDeclarationsVisitor
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
@@ -47209,6 +48292,8 @@ org/c/a/a/c/a/a/d/af org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 	d initStaticFieldVisitor
 	e initInstanceFieldVisitor
 	f initEnumVisitor
+	i removeDefaultConstructorVisitor
+	j typeDeclaration
 org/c/a/a/c/a/a/d/e org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/CreateParameterVisitor
 	a (Lorg/c/a/a/b/d/e/k;)V visit
 		0 type type
@@ -47219,6 +48304,12 @@ org/c/a/a/c/a/a/d/e org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/e/g;)V visit
 		0 type type
 	b index
+	a ()Lorg/c/a/a/c/a/a/a/c/a; getLocalVariable
+	a (ILjava/lang/String;)V init
+		0 index index
+		1 name name
+	c name
+	d localVariable
 org/c/a/a/c/a/a/d/m org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$UpdateNewExpressionVisitor$AddLocalClassDeclarationVisitor
 	a (Lorg/c/a/a/b/d/a/k;)V visit
 		0 declaration declaration
@@ -47230,13 +48321,19 @@ org/c/a/a/c/a/a/d/m org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 		0 statements statements
 	a searchFirstLineNumberVisitor
 	b lineNumber
+	a (Lorg/c/a/a/b/d/d/u;)V visit
+		0 list list
+	c this$0
 org/c/a/a/c/a/a/d/q org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInstanceFieldVisitor$Data
 	a declaration
 	c index
+	b statements
 org/c/a/a/c/a/a/d/u org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/RemoveBinaryOpReturnStatementsVisitor
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
 	a localVariableMaker
+	a (Lorg/c/a/a/b/d/d/u;)V visit
+		0 statements statements
 org/c/a/a/c/a/a/d/k org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitEnumVisitor$EnumConstantComparator
 org/c/a/a/c/a/a/d/s org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/MergeTryWithResourcesStatementVisitor
 	a (Lorg/c/a/a/b/d/d/ag;)V visit
@@ -47270,6 +48367,32 @@ org/c/a/a/c/a/a/d/s org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/d/v;)V visit
 		0 statement statement
 	a (Lorg/c/a/a/b/d/d/b;)V safeAccept
+		0 list list
+	a (Lorg/c/a/a/b/d/d/a;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/aa;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ab;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ah;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/c;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/d;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/e;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/f;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/u;)V visit
+		0 list list
+	b (Ljava/util/List;)V safeAcceptListStatement
+		0 list list
+	a (Ljava/util/List;)V acceptListStatement
 		0 list list
 org/c/a/a/c/a/a/d/i org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/PopulateBlackListNamesVisitor
 org/c/a/a/c/a/a/d/c org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/BindTypeArgumentsToTypeArgumentsVisitor
@@ -47330,6 +48453,38 @@ org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
 	j $assertionsDisabled
+	a (Lorg/c/a/a/b/d/a/p;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/w;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/d/a;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/c;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/d;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/f;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/e/c;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/r;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/v;)V visit
+		0 list list
+	a TYPES
+	b DIMENSION_TYPES
+	f TYPE_INTEGER_REFERENCE
+	e TYPE_SHORT_REFERENCE
+	d TYPE_BYTE_REFERENCE
+	c TYPE_CHARACTER_REFERENCE
 org/c/a/a/c/a/a/d/p org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInstanceFieldVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 		0 declaration declaration
@@ -47355,6 +48510,21 @@ org/c/a/a/c/a/a/d/p org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 		0 expression expression
 	a searchFirstLineNumberVisitor
 	e containsLocalVariableReference
+	a ()V updateFieldsAndConstructors
+	a (Ljava/util/ListIterator;)Lorg/c/a/a/b/d/b/ai; searchSuperConstructorCall
+		0 iterator iterator
+	a (Ljava/lang/String;ILjava/util/ListIterator;)V initPutFields
+		0 internalTypeName internalTypeName
+		1 firstLineNumber firstLineNumber
+		2 iterator iterator
+	a (Ljava/lang/String;Ljava/util/ListIterator;)V filterPutFields
+		0 internalTypeName internalTypeName
+		1 iterator iterator
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	b fieldDeclarators
+	d putFields
+	c datas
 org/c/a/a/c/a/a/c/m org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphReducer
 	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)V createIf
 		static
@@ -47392,6 +48562,126 @@ org/c/a/a/c/a/a/c/m org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 		1 end end
 		2 maxOffset maxOffset
 	a $assertionsDisabled
+	a (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; searchUpdateBlockAndCreateContinueLoop
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+		2 subBasicBlock subBasicBlock
+	a (Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;)Lorg/c/a/a/c/a/a/a/a/a; searchJsrTarget
+		static
+		0 basicBlock basicBlock
+		1 jsrTargets jsrTargets
+	a (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;ILjava/util/HashSet;)V visit
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+		2 maxOffset maxOffset
+		3 ends ends
+	b (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;)V replaceLoopStartWithSwitchBreak
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+	b (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)V changeEndLoopToJump
+		static
+		0 visited visited
+		1 target target
+		2 basicBlock basicBlock
+	c (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; searchUpdateBlockAndCreateContinueLoop
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+	a (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; getLastConditionalBranch
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)V updateConditionTernaryOperator
+		static
+		0 basicBlock basicBlock
+		1 nextNext nextNext
+	b (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)V convertGotoInTernaryOperatorToCondition
+		static
+		0 basicBlock basicBlock
+		1 next next
+	c (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;)Z reduceSwitchDeclaration
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+		2 jsrTargets jsrTargets
+	d (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;)Z reduceTryDeclaration
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+		2 jsrTargets jsrTargets
+	f (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;)Z reduceLoop
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+		2 jsrTargets jsrTargets
+	e (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;)Z reduceJsr
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+		2 jsrTargets jsrTargets
+	b (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;)Z reduceConditionalBranch
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+		2 jsrTargets jsrTargets
+	a (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;)Z reduce
+		static
+		0 visited visited
+		1 basicBlock basicBlock
+		2 jsrTargets jsrTargets
+	a (Lorg/c/a/a/c/a/a/a/a/a;)Z reduceConditionalBranch
+		static
+		0 basicBlock basicBlock
+	b (Lorg/c/a/a/c/a/a/a/a/a;)Z aggregateConditionalBranches
+		static
+		0 basicBlock basicBlock
+	f (Lorg/c/a/a/c/a/a/a/a/a;)Z containsFinally
+		static
+		0 basicBlock basicBlock
+	b (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;I)Z checkEclipseFinallyPattern
+		static
+		0 basicBlock basicBlock
+		1 finallyBB finallyBB
+		2 maxOffset maxOffset
+	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;I)Z checkJdk118TernaryOperatorPattern
+		static
+		0 next next
+		1 nextNext nextNext
+		2 ifByteCode ifByteCode
+	c (Lorg/c/a/a/c/a/a/a/a/a;I)Lorg/c/a/a/c/a/a/a/a/a; splitSequence
+		static
+		0 basicBlock basicBlock
+		1 maxOffset maxOffset
+	b (Lorg/c/a/a/c/a/a/a/a/a;I)Lorg/c/a/a/c/a/a/a/a/a; searchEndBlock
+		static
+		0 basicBlock basicBlock
+		1 maxOffset maxOffset
+	c (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; newJumpBasicBlock
+		static
+		0 bb bb
+		1 target target
+	d (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; clone
+		static
+		0 bb bb
+		1 next next
+	g (Lorg/c/a/a/c/a/a/a/a/a;)V removeJsrAndMergeSubTry
+		static
+		0 basicBlock basicBlock
+	h (Lorg/c/a/a/c/a/a/a/a/a;)V removePredecessors
+		static
+		0 basicBlock basicBlock
+	c (Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; createLeftCondition
+		static
+		0 basicBlock basicBlock
+	d (Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; createLeftInverseCondition
+		static
+		0 basicBlock basicBlock
+	e (Lorg/c/a/a/c/a/a/a/a/a;)V updateConditionTernaryOperator2
+		static
+		0 basicBlock basicBlock
 org/c/a/a/c/a/a/c/b org/jd/core/v1/service/converter/classfiletojavasyntax/util/AnnotationConverter
 	a (Lorg/c/a/a/b/a/a/a;)Lorg/c/a/a/b/d/c/b; convert
 		0 annotation annotation
@@ -47414,6 +48704,9 @@ org/c/a/a/c/a/a/c/ah org/jd/core/v1/service/converter/classfiletojavasyntax/util
 	a (Lorg/c/a/a/b/d/a/ac;)V visit
 		0 declaration declaration
 	b found
+	a (Ljava/lang/String;)V init
+		0 name name
+	a name
 org/c/a/a/c/a/a/c/k org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphMaker
 	a ([BII)Z checkILOADForIINC
 		static
@@ -47421,17 +48714,49 @@ org/c/a/a/c/a/a/c/k org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 		1 offset offset
 		2 index index
 	a MARK
+	b CODE_EXCEPTION_COMPARATOR
 org/c/a/a/c/a/a/c/o org/jd/core/v1/service/converter/classfiletojavasyntax/util/LocalVariableMaker
 	a (Lorg/c/a/a/b/a/d;)V initLocalVariablesFromAttributes
 		0 method method
 	k createParameterVisitor
 	l createLocalVariableVisitor
+	a (IILorg/c/a/a/b/d/e/i;)Lorg/c/a/a/c/a/a/a/c/a; getExceptionLocalVariable
+		0 index index
+		1 offset offset
+		2 type type
+	a (Lorg/c/a/a/c/a/a/a/c/b;Lorg/c/a/a/c/a/a/a/c/b;)Lorg/c/a/a/c/a/a/a/c/b; searchCommonParentFrame
+		0 frame1 frame1
+		1 frame2 frame2
+	a (Lorg/c/a/a/b/d/d/u;)V pushFrame
+		0 statements statements
+	a (Ljava/lang/String;)Z containsName
+		0 name name
+	a localVariableSet
+	d currentFrame
+	e localVariableCache
+	a (II)Lorg/c/a/a/c/a/a/a/c/a; getLocalVariable
+		0 index index
+		1 offset offset
+	c ()V popFrame
+	a ()V make
+	a (Lorg/c/a/a/c/a/a/a/c/a;)V removeLocalVariable
+		0 lv lv
+	b (Lorg/c/a/a/c/a/a/a/c/a;)V store
+		0 lv lv
+	b names
+	c blackListNames
 org/c/a/a/c/a/a/c/aa org/jd/core/v1/service/converter/classfiletojavasyntax/util/PrimitiveTypeUtil
 	a (Lorg/c/a/a/b/d/e/k;Lorg/c/a/a/b/d/e/k;)Lorg/c/a/a/b/d/e/k; getCommonPrimitiveType
 		static
 		0 pt1 pt1
 		1 pt2 pt2
 	b $assertionsDisabled
+	a (I)Lorg/c/a/a/b/d/e/k; getPrimitiveTypeFromValue
+		static
+		0 value value
+	c (I)Lorg/c/a/a/b/d/e/k; getPrimitiveTypeFromFlags
+		static
+		0 flags flags
 org/c/a/a/c/a/a/d/x org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SearchFirstLineNumberVisitor
 	b ()I getLineNumber
 	a (Lorg/c/a/a/b/d/b/e;)V visit
@@ -47498,6 +48823,23 @@ org/c/a/a/c/a/a/d/x org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/d/ae;)V visit
 		0 statement statement
 	a lineNumber
+	a ()V init
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/s;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/z;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/d/a;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/u;)V visit
+		0 statements statements
 org/c/a/a/b/d/d/t org/jd/core/v1/model/javasyntax/statement/StatementVisitor
 	a (Lorg/c/a/a/b/d/d/h;)V visit
 	a (Lorg/c/a/a/b/d/d/i;)V visit
@@ -47514,9 +48856,28 @@ org/c/a/a/b/d/d/t org/jd/core/v1/model/javasyntax/statement/StatementVisitor
 	a (Lorg/c/a/a/b/d/d/ae;)V visit
 	a (Lorg/c/a/a/b/d/d/v;)V visit
 	a (Lorg/c/a/a/b/d/d/af;)V visit
+	a (Lorg/c/a/a/b/d/d/a;)V visit
+	a (Lorg/c/a/a/b/d/d/aa;)V visit
+	a (Lorg/c/a/a/b/d/d/ab;)V visit
+	a (Lorg/c/a/a/b/d/d/ah;)V visit
+	a (Lorg/c/a/a/b/d/d/c;)V visit
+	a (Lorg/c/a/a/b/d/d/d;)V visit
+	a (Lorg/c/a/a/b/d/d/e;)V visit
+	a (Lorg/c/a/a/b/d/d/f;)V visit
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+	a (Lorg/c/a/a/b/d/d/u;)V visit
 org/c/a/a/b/d/d/ae org/jd/core/v1/model/javasyntax/statement/TryStatement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
+	a (Lorg/c/a/a/b/d/d/b;)V setTryStatements
+		0 tryStatements tryStatements
+	d ()Lorg/c/a/a/b/d/d/b; getTryStatements
+	f ()Lorg/c/a/a/b/d/d/b; getFinallyStatements
+	b (Lorg/c/a/a/b/d/d/b;)V setFinallyStatements
+		0 finallyStatements finallyStatements
+	b tryStatements
+	d finallyStatements
 org/c/a/a/b/d/d/ag org/jd/core/v1/model/javasyntax/statement/SwitchStatement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
@@ -47525,6 +48886,8 @@ org/c/a/a/b/d/d/i org/jd/core/v1/model/javasyntax/statement/ForEachStatement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
 	d statements
+	d ()Ljava/lang/String; getName
+	b name
 org/c/a/a/b/d/d/w org/jd/core/v1/model/javasyntax/statement/SwitchStatement$Block
 	b ()Lorg/c/a/a/b/d/d/b; getStatements
 	a statements
@@ -47544,6 +48907,8 @@ org/c/a/a/b/b/f org/jd/core/v1/model/fragment/FragmentVisitor
 	a (Lorg/c/a/a/b/b/g;)V visit
 	a (Lorg/c/a/a/b/b/i;)V visit
 	a (Lorg/c/a/a/b/b/c;)V visit
+	a (Lorg/c/a/a/b/b/a;)V visit
+	a (Lorg/c/a/a/b/b/h;)V visit
 org/c/a/a/b/b/g org/jd/core/v1/model/fragment/SpacerBetweenMovableBlocksFragment
 	a (I)V setInitialLineCount
 		0 initialLineCount initialLineCount
@@ -47554,26 +48919,43 @@ org/c/a/a/b/c/k org/jd/core/v1/model/javafragment/JavaFragment
 org/c/a/a/b/c/t org/jd/core/v1/model/javafragment/StartMovableJavaBlockFragment
 	a (Lorg/c/a/a/b/c/l;)V accept
 		0 visitor visitor
+	h START_MOVABLE_TYPE_BLOCK
+	j START_MOVABLE_METHOD_BLOCK
+	i START_MOVABLE_FIELD_BLOCK
 org/c/a/a/b/c/v org/jd/core/v1/model/javafragment/StartStatementsBlockFragment
 	a (Lorg/c/a/a/b/c/l;)V accept
 		0 visitor visitor
+	h ()Lorg/c/a/a/b/c/w; getGroup
+	g group
 org/c/a/a/b/d/a/ab org/jd/core/v1/model/javasyntax/declaration/FormalParameters
 	a $assertionsDisabled
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/a/c org/jd/core/v1/model/javasyntax/declaration/TypeDeclarations
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/a/i org/jd/core/v1/model/javasyntax/declaration/BodyDeclaration
+	a ()Ljava/lang/String; getInternalTypeName
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	a internalTypeName
 org/c/a/a/b/d/a/u org/jd/core/v1/model/javasyntax/declaration/ArrayVariableInitializer
-org/c/a/a/b/d/b/a org/jd/core/v1/model/javasyntax/expression/Expression
-	b ()I getLineNumber
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+org/c/a/a/b/d/b/a org/jd/core/v1/model/javasyntax/expression/AbstractLambdaExpression
+	b ()I getPriority
+	d ()Lorg/c/a/a/b/d/d/b; getStatements
+	a statements
 org/c/a/a/b/d/b/f org/jd/core/v1/model/javasyntax/expression/BaseExpression
-org/c/a/a/b/d/c/o org/jd/core/v1/model/javasyntax/reference/AbstractNopReferenceVisitor
+org/c/a/a/b/d/c/o org/jd/core/v1/model/javasyntax/reference/ReferenceVisitor
+	a (Lorg/c/a/a/b/d/c/a;)V visit
 	a (Lorg/c/a/a/b/d/c/b;)V visit
-		0 reference reference
-	a (Lorg/c/a/a/b/d/c/l;)V visit
-		0 references references
+	a (Lorg/c/a/a/b/d/c/c;)V visit
+	a (Lorg/c/a/a/b/d/c/i;)V visit
 	a (Lorg/c/a/a/b/d/c/j;)V visit
-		0 reference reference
 	a (Lorg/c/a/a/b/d/c/k;)V visit
-		0 references references
+	a (Lorg/c/a/a/b/d/c/l;)V visit
+	a (Lorg/c/a/a/b/d/c/m;)V visit
 org/c/a/a/b/d/d/af org/jd/core/v1/model/javasyntax/statement/TryStatement$CatchClause
 	b ()I getLineNumber
 	d ()Lorg/c/a/a/b/d/e/i; getType
@@ -47585,10 +48967,19 @@ org/c/a/a/b/d/d/af org/jd/core/v1/model/javasyntax/statement/TryStatement$CatchC
 	a lineNumber
 	b type
 	e statements
+	e ()Lorg/c/a/a/d/c; getOtherTypes
+	f ()Ljava/lang/String; getName
+	c otherTypes
+	d name
 org/c/a/a/b/d/d/v org/jd/core/v1/model/javasyntax/statement/TryStatement$Resource
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
-org/c/a/a/b/d/e/l org/jd/core/v1/model/javasyntax/type/AbstractNopTypeVisitor
+org/c/a/a/b/d/e/l org/jd/core/v1/model/javasyntax/type/BaseType
+	f ()Z isGeneric
+	e ()Ljava/lang/String; getDescriptor
+	d ()I getDimension
+	l ()Z isObject
+	m_ ()Z isPrimitive
 org/c/a/a/c/a/a/a/a/b org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ExceptionHandler
 	c ()Lorg/c/a/a/c/a/a/a/a/a; getBasicBlock
 	a (Lorg/c/a/a/c/a/a/a/a/a;)V setBasicBlock
@@ -47597,12 +48988,25 @@ org/c/a/a/c/a/a/a/a/b org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 		0 old old
 		1 nevv nevv
 	c basicBlock
+	a (Ljava/lang/String;)V addInternalThrowableName
+		0 internalThrowableName internalThrowableName
+	a (Ljava/util/HashSet;Lorg/c/a/a/c/a/a/a/a/a;)V replace
+		0 olds olds
+		1 nevv nevv
+	b ()Lorg/c/a/a/d/c; getOtherInternalThrowableNames
+	a internalThrowableName
+	b otherInternalThrowableNames
+	a ()Ljava/lang/String; getInternalThrowableName
 org/c/a/a/c/a/a/a/b/a/g org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileEnumDeclaration$ClassFileConstant
 	f ()I getIndex
 	f index
 org/c/a/a/c/a/a/a/b/a/k org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileMemberDeclaration
 	q_ ()I getFirstLineNumber
 org/c/a/a/c/a/a/a/b/c/f org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileTryStatement
+	j ()Z isEclipse
+	g ()Z isJsr
+	f eclipse
+	e jsr
 org/c/a/a/c/a/a/c/e org/jd/core/v1/service/converter/classfiletojavasyntax/util/MergeMembersUtil
 org/c/a/a/c/a/a/c/f org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser$MemberVisitor
 	a ()Z found
@@ -47611,6 +49015,11 @@ org/c/a/a/c/a/a/c/f org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	a (Lorg/c/a/a/b/d/a/ac;)V visit
 		0 declaration declaration
 	c found
+	a (Ljava/lang/String;Ljava/lang/String;)V init
+		0 name name
+		1 descriptor descriptor
+	a name
+	b descriptor
 org/c/a/a/c/d/c/a org/jd/core/v1/service/layouter/visitor/AbstractSearchMovableBlockFragmentVisitor
 	a (Lorg/c/a/a/b/b/d;)V visit
 		0 fragment fragment
@@ -47622,6 +49031,16 @@ org/c/a/a/c/d/c/a org/jd/core/v1/service/layouter/visitor/AbstractSearchMovableB
 		0 fragment fragment
 	a (Lorg/c/a/a/b/b/c;)V visit
 		0 fragment fragment
+	a (Lorg/c/a/a/b/b/a;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/b/h;)V visit
+		0 fragment fragment
+	b ()V resetIndex
+	a ()V reset
+	d ()I getIndex
+	c ()I getDepth
+	c index
+	b depth
 org/c/a/a/c/d/c/b org/jd/core/v1/service/layouter/visitor/AbstractStoreMovableBlockFragmentIndexVisitorAbstract
 	a (I)I getIndex
 		0 i i
@@ -47630,6 +49049,8 @@ org/c/a/a/c/d/c/b org/jd/core/v1/service/layouter/visitor/AbstractStoreMovableBl
 	d indexes
 	e size
 	f enabled
+	a ()V reset
+	g ()V storeIndex
 org/c/a/a/c/d/c/c org/jd/core/v1/service/layouter/visitor/BuildSectionsVisitor
 	a (Lorg/c/a/a/b/b/d;)V visit
 		0 fragment fragment
@@ -47642,6 +49063,13 @@ org/c/a/a/c/d/c/c org/jd/core/v1/service/layouter/visitor/BuildSectionsVisitor
 	a (Lorg/c/a/a/b/b/c;)V visit
 		0 fragment fragment
 	c previousSection
+	a ()Lorg/c/a/a/d/c; getSections
+	a (Lorg/c/a/a/b/b/a;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/b/h;)V visit
+		0 fragment fragment
+	b flexibleFragments
+	a sections
 org/c/a/a/c/d/c/d org/jd/core/v1/service/layouter/visitor/UpdateSpacerBetweenMovableBlocksVisitor
 	a (Lorg/c/a/a/b/b/i;)V visit
 		0 fragment fragment
@@ -47654,6 +49082,15 @@ org/c/a/a/c/d/c/d org/jd/core/v1/service/layouter/visitor/UpdateSpacerBetweenMov
 	a (Lorg/c/a/a/b/b/c;)V visit
 		0 fragment fragment
 	d lastSpacer
+	a ()V reset
+	a (Lorg/c/a/a/b/b/a;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/b/h;)V visit
+		0 fragment fragment
+	b spacers
+	a blocks
+	e depth
+	c lastStartMovableBlockFragmentType
 org/c/a/a/c/e/a/a/b org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor$ImportNameComparator
 	a (Lorg/c/a/a/b/c/i;Lorg/c/a/a/b/c/i;)I compare
 		0 tr1 tr1
@@ -47720,32 +49157,1890 @@ org/c/a/a/c/f/a/a org/jd/core/v1/service/writer/visitor/PrintTokenVisitor
 		0 token token
 	c ()I searchLineNumber
 	b searchLineNumberVisitor
+	a (Lorg/c/a/a/a/b/a;Ljava/util/List;)V start
+		0 printer printer
+		1 tokens tokens
+	a UNKNOWN_LINE_NUMBER
+	c printer
+	d tokens
+	b ()V prepareNewLine
+	a ()V end
+	e index
+	f newLineCount
 org/c/a/a/c/f/a/b org/jd/core/v1/service/writer/visitor/PrintTokenVisitor$SearchLineNumberVisitor
 	a (Lorg/c/a/a/b/f/h;)V visit
 		0 token token
 	a (Lorg/c/a/a/b/f/i;)V visit
 		0 token token
+	a ()V reset
+	b newLineCounter
+	a lineNumber
 org/c/a/a/b/c/l org/jd/core/v1/model/javafragment/JavaFragmentVisitor
 	a (Lorg/c/a/a/b/c/h;)V visit
 	a (Lorg/c/a/a/b/c/z;)V visit
 	a (Lorg/c/a/a/b/c/t;)V visit
 	a (Lorg/c/a/a/b/c/v;)V visit
 	a (Lorg/c/a/a/b/c/m;)V visit
+	a (Lorg/c/a/a/b/c/a;)V visit
+	a (Lorg/c/a/a/b/c/b;)V visit
+	a (Lorg/c/a/a/b/c/c;)V visit
+	a (Lorg/c/a/a/b/c/d;)V visit
+	a (Lorg/c/a/a/b/c/e;)V visit
+	a (Lorg/c/a/a/b/c/f;)V visit
+	a (Lorg/c/a/a/b/c/g;)V visit
+	a (Lorg/c/a/a/b/c/o;)V visit
+	a (Lorg/c/a/a/b/c/p;)V visit
+	a (Lorg/c/a/a/b/c/q;)V visit
+	a (Lorg/c/a/a/b/c/r;)V visit
+	a (Lorg/c/a/a/b/c/s;)V visit
+	a (Lorg/c/a/a/b/c/u;)V visit
+	a (Lorg/c/a/a/b/c/x;)V visit
+	a (Lorg/c/a/a/b/c/y;)V visit
 org/c/a/a/b/d/d/a org/jd/core/v1/model/javasyntax/statement/AssertStatement
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/d/ab org/jd/core/v1/model/javasyntax/statement/SwitchStatement$MultiLabelsBlock
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
+	d ()Ljava/util/List; getLabels
+	b labels
 org/c/a/a/b/d/d/aa org/jd/core/v1/model/javasyntax/statement/SwitchStatement$LabelBlock
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/d/u org/jd/core/v1/model/javasyntax/statement/Statements
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
+	a $assertionsDisabled
 org/c/a/a/b/d/d/k org/jd/core/v1/model/javasyntax/statement/IfElseStatement
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
+	b ()Lorg/c/a/a/b/d/d/b; getElseStatements
+	a elseStatements
 org/c/a/a/b/d/d/ah org/jd/core/v1/model/javasyntax/statement/TypeDeclarationStatement
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
+	b ()Lorg/c/a/a/b/d/a/ai; getTypeDeclaration
+	a typeDeclaration
 org/c/a/a/b/d/b/ab org/jd/core/v1/model/javasyntax/expression/NewExpression
+	a (Lorg/c/a/a/b/d/b/f;)V setParameters
+		0 parameters parameters
+	b ()I getPriority
+	g ()Lorg/c/a/a/b/d/e/i; getObjectType
+	j ()Lorg/c/a/a/b/d/b/f; getParameters
+	l ()Lorg/c/a/a/b/d/a/i; getBodyDeclaration
+	c type
+	d descriptor
+	e parameters
+	f bodyDeclaration
+	i ()Ljava/lang/String; getDescriptor
+	a (Lorg/c/a/a/b/d/e/i;)V setObjectType
+		0 type type
 org/c/a/a/b/d/b/z org/jd/core/v1/model/javasyntax/expression/MethodReferenceExpression
+	l ()Ljava/lang/String; getDescriptor
+	j ()Ljava/lang/String; getName
+	i ()Ljava/lang/String; getInternalTypeName
+	g descriptor
+	f name
+	e internalTypeName
 org/c/a/a/b/d/b/k org/jd/core/v1/model/javasyntax/expression/ConstructorReferenceExpression
+	g ()Lorg/c/a/a/b/d/e/i; getObjectType
+	i ()Ljava/lang/String; getDescriptor
+	d objectType
+	e descriptor
 org/c/a/a/b/d/b/p org/jd/core/v1/model/javasyntax/expression/Expressions
+	a $assertionsDisabled
 org/c/a/a/b/d/b/s org/jd/core/v1/model/javasyntax/expression/InstanceOfExpression
+	b ()I getPriority
 org/c/a/a/b/d/b/b org/jd/core/v1/model/javasyntax/expression/AbstractLineNumberExpression
+	b lineNumber
+	e ()I getLineNumber
+	b ()I getPriority
 org/c/a/a/b/d/b/d org/jd/core/v1/model/javasyntax/expression/AbstractNopExpressionVisitor
+	a (Lorg/c/a/a/b/d/b/aa;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ad;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ae;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/af;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ag;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ah;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ai;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/aj;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ak;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/al;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/am;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/e;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/g;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/h;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/i;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/j;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/l;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/m;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/p;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/q;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/r;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/s;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/t;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/v;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/w;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/x;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/y;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/z;)V visit
+		0 expression expression
 org/c/a/a/b/d/d/c org/jd/core/v1/model/javasyntax/statement/BreakStatement
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
+	b ()Ljava/lang/String; getLabel
+	a BREAK
+	c $assertionsDisabled
+	b label
 org/c/a/a/b/d/d/f org/jd/core/v1/model/javasyntax/statement/ContinueStatement
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
+	b ()Ljava/lang/String; getLabel
+	a CONTINUE
+	c $assertionsDisabled
+	b label
 org/c/a/a/b/d/e/g org/jd/core/v1/model/javasyntax/type/GenericType
+	f ()Z isGeneric
+	c $assertionsDisabled
+	a name
+	b dimension
+	b ()Ljava/lang/String; getName
+	e ()Ljava/lang/String; getDescriptor
+	d ()I getDimension
+	a (Lorg/c/a/a/b/d/e/u;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/e/i org/jd/core/v1/model/javasyntax/type/ObjectType
+	a (Lorg/c/a/a/b/d/e/e;)Lorg/c/a/a/b/d/e/i; createType
+		0 typeArguments typeArguments
+	k ()Lorg/c/a/a/b/d/e/e; getTypeArguments
+	l ()Z isObject
+	w $assertionsDisabled
+	t typeArguments
+	u dimension
+	d ()I getDimension
+	g ()Ljava/lang/String; getInternalName
+	j ()Ljava/lang/String; getName
+	e ()Ljava/lang/String; getDescriptor
+	i ()Ljava/lang/String; getQualifiedName
+	m TYPE_SHORT
+	k TYPE_MATH
+	j TYPE_LONG
+	i TYPE_INTEGER
+	h TYPE_FLOAT
+	g TYPE_DOUBLE
+	e TYPE_CHARACTER
+	d TYPE_BYTE
+	o TYPE_THROWABLE
+	q internalName
+	s name
+	r qualifiedName
+	l TYPE_OBJECT
+	v descriptor
+	a (Lorg/c/a/a/b/d/e/u;)V accept
+		0 visitor visitor
 org/c/a/a/b/d/e/k org/jd/core/v1/model/javasyntax/type/PrimitiveType
+	m_ ()Z isPrimitive
+	x $assertionsDisabled
+	b ()Ljava/lang/String; getName
+	e ()Ljava/lang/String; getDescriptor
+	f TYPE_INT
+	i TYPE_VOID
+	g TYPE_LONG
+	e TYPE_FLOAT
+	d TYPE_DOUBLE
+	r name
+	t flags
+	u leftFlags
+	n MAYBE_NEGATIVE_BYTE_TYPE
+	o MAYBE_NEGATIVE_SHORT_TYPE
+	k MAYBE_SHORT_TYPE
+	p MAYBE_INT_TYPE
+	m MAYBE_BOOLEAN_TYPE
+	l MAYBE_BYTE_TYPE
+	c TYPE_CHAR
+	j MAYBE_CHAR_TYPE
+	a TYPE_BOOLEAN
+	q MAYBE_NEGATIVE_BOOLEAN_TYPE
+	w descriptor
+	a (Lorg/c/a/a/b/d/e/u;)V accept
+		0 visitor visitor
+org/c/a/a/b/c/a org/jd/core/v1/model/javafragment/EndBlockFragment
+	a (I)V setLineCount
+		0 lineCount lineCount
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+	g start
+	a (Z)Z incLineCount
+		0 force force
+	b (Z)Z decLineCount
+		0 force force
+org/c/a/a/b/c/b org/jd/core/v1/model/javafragment/EndBlockInParameterFragment
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+org/c/a/a/b/c/c org/jd/core/v1/model/javafragment/EndBodyFragment
+	a (I)V setLineCount
+		0 lineCount lineCount
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+	h ()Lorg/c/a/a/b/c/s; getStartBodyFragment
+	g start
+	b (Z)Z decLineCount
+		0 force force
+	a (Z)Z incLineCount
+		0 force force
+org/c/a/a/b/c/d org/jd/core/v1/model/javafragment/EndBodyInParameterFragment
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+	a (Z)Z incLineCount
+		0 force force
+	b (Z)Z decLineCount
+		0 force force
+org/c/a/a/b/c/f org/jd/core/v1/model/javafragment/EndSingleStatementBlockFragment
+	a (I)V setLineCount
+		0 lineCount lineCount
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+	h ()Lorg/c/a/a/b/c/u; getStartSingleStatementBlockFragment
+	g start
+	a (Z)Z incLineCount
+		0 force force
+	b (Z)Z decLineCount
+		0 force force
+org/c/a/a/b/c/g org/jd/core/v1/model/javafragment/EndStatementsBlockFragment
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+	h ()Lorg/c/a/a/b/c/w; getGroup
+	g group
+org/c/a/a/b/c/o org/jd/core/v1/model/javafragment/SpaceSpacerFragment
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+org/c/a/a/b/c/p org/jd/core/v1/model/javafragment/SpacerBetweenMembersFragment
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+org/c/a/a/b/c/q org/jd/core/v1/model/javafragment/SpacerFragment
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+org/c/a/a/b/c/r org/jd/core/v1/model/javafragment/StartBlockFragment
+	a (Lorg/c/a/a/b/c/a;)V setEndArrayInitializerBlockFragment
+		0 end end
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+	g end
+	b (Z)Z decLineCount
+		0 force force
+	a (Z)Z incLineCount
+		0 force force
+org/c/a/a/b/c/s org/jd/core/v1/model/javafragment/StartBodyFragment
+	a (I)V setLineCount
+		0 lineCount lineCount
+	a (Lorg/c/a/a/b/c/c;)V setEndBodyFragment
+		0 end end
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+	g end
+	b (Z)Z decLineCount
+		0 force force
+	a (Z)Z incLineCount
+		0 force force
+org/c/a/a/b/c/u org/jd/core/v1/model/javafragment/StartSingleStatementBlockFragment
+	a (I)V setLineCount
+		0 lineCount lineCount
+	a (Lorg/c/a/a/b/c/f;)V setEndSingleStatementBlockFragment
+		0 end end
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+	h ()Lorg/c/a/a/b/c/f; getEndSingleStatementBlockFragment
+	g end
+	a (Z)Z incLineCount
+		0 force force
+	b (Z)Z decLineCount
+		0 force force
+org/c/a/a/b/c/x org/jd/core/v1/model/javafragment/StartStatementsDoWhileBlockFragment
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+org/c/a/a/b/c/y org/jd/core/v1/model/javafragment/StartStatementsTryBlockFragment
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+org/c/a/a/b/c/e org/jd/core/v1/model/javafragment/EndMovableJavaBlockFragment
+	a (Lorg/c/a/a/b/c/l;)V accept
+		0 visitor visitor
+	g END_MOVABLE_BLOCK
+org/c/a/a/b/c/j org/jd/core/v1/model/javafragment/ImportsFragment$ImportCountComparator
+	a (Lorg/c/a/a/b/c/i;Lorg/c/a/a/b/c/i;)I compare
+		0 tr1 tr1
+		1 tr2 tr2
+org/c/a/a/b/c/n org/jd/core/v1/model/javafragment/LineNumberTokensFragment$SearchLineNumberVisitor
+	a (Lorg/c/a/a/b/f/h;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/i;)V visit
+		0 token token
+	b newLineCounter
+	a lineNumber
+org/c/a/a/b/c/aa org/jd/core/v1/model/javafragment/TokensFragment$LineCountVisitor
+	a (Lorg/c/a/a/b/f/h;)V visit
+		0 token token
+	b $assertionsDisabled
+	a lineCount
+org/c/a/a/b/c/w org/jd/core/v1/model/javafragment/StartStatementsBlockFragment$Group
+	a (Lorg/c/a/a/b/b/d;)V add
+		0 fragment fragment
+	a ()I getMinimalLineCount
+	a fragments
+	b minimalLineCount
+org/c/a/a/b/d/a org/jd/core/v1/model/javasyntax/AbstractJavaSyntaxVisitor
+	a (Lorg/c/a/a/b/d/a/ab;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/ad;)V visit
+		0 declarations declarations
+	a (Lorg/c/a/a/b/d/a/ah;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/ai;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/c;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/k;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/o;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/p;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/q;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/r;)V visit
+		0 declarator declarator
+	a (Lorg/c/a/a/b/d/a/s;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/a/t;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/u;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/w;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/x;)V visit
+		0 declarator declarator
+	a (Lorg/c/a/a/b/d/b/aa;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ad;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ae;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/af;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ag;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ah;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ai;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/aj;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ak;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/al;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/am;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/e;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/f;)V safeAccept
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/g;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/h;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/i;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/j;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/l;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/m;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/p;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/b/q;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/r;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/s;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/t;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/v;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/w;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/x;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/y;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/z;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b;)V visit
+		0 compilationUnit compilationUnit
+	a (Lorg/c/a/a/b/d/c/a;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/b;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/i;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/j;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/k;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/c/l;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/c/m;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/n;)V safeAccept
+		0 reference reference
+	a (Lorg/c/a/a/b/d/d/a;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/aa;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ab;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ad;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ae;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/af;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ag;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ah;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/b;)V safeAccept
+		0 list list
+	a (Lorg/c/a/a/b/d/d/c;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/d;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/e;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/f;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/h;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/i;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/j;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/m;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/n;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/o;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/p;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/q;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/u;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/d/v;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/x;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/y;)V visit
+		0 statement statement
+	a (Ljava/util/List;)V acceptListDeclaration
+		0 list list
+	f (Ljava/util/List;)V safeAcceptListStatement
+		0 list list
+	c (Ljava/util/List;)V acceptListReference
+		0 list list
+	d (Ljava/util/List;)V acceptListStatement
+		0 list list
+	b (Ljava/util/List;)V acceptListExpression
+		0 list list
+	e (Ljava/util/List;)V safeAcceptListDeclaration
+		0 list list
+	a (Lorg/c/a/a/b/d/c/c;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/b/u;)V visit
+org/c/a/a/b/e/a org/jd/core/v1/model/message/Message
+	a ()Ljava/lang/Object; getBody
+	a (Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object; getHeader
+		0 name name
+		1 defaultValue defaultValue
+	b (Ljava/lang/String;Ljava/lang/Object;)V setHeader
+		0 name name
+		1 value value
+	a headers
+	b body
+	a (Ljava/lang/String;)Ljava/lang/Object; getHeader
+		0 name name
+	a (Ljava/lang/Object;)V setBody
+		0 body body
+org/c/a/a/a/b/a org/jd/core/v1/api/printer/Printer
+	a (III)V start
+	a (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V printDeclaration
+	a (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V printReference
+	a (Ljava/lang/String;Ljava/lang/String;)V printStringConstant
+	c ()V unindent
+	b ()V indent
+	a ()V end
+	d ()V endLine
+	d (I)V endMarker
+	c (I)V startMarker
+	a (I)V startLine
+	b (I)V extraLine
+	a (Ljava/lang/String;)V printText
+	c (Ljava/lang/String;)V printKeyword
+	b (Ljava/lang/String;)V printNumericConstant
+org/c/a/a/a/b/b org/jd/core/v1/api/printer/PlainTextPrinter
+org/c/a/a/c/c/a/a/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/CharacterUtil
+	a (I)Ljava/lang/String; escapeChar
+		static
+		0 c c
+org/c/a/a/c/c/a/a/b org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/JavaFragmentFactory
+	a ()Lorg/c/a/a/b/c/h; newImportsFragment
+		static
+	a (Ljava/util/List;I)V addSpacerBetweenEnumValues
+		static
+		0 fragments fragments
+		1 preferredLineCount preferredLineCount
+	a (Ljava/util/List;Lorg/c/a/a/b/c/u;)V addEndSingleStatementBlock
+		static
+		0 fragments fragments
+		1 start start
+	v (Ljava/util/List;)Lorg/c/a/a/b/c/u; addStartSingleStatementBlock
+		static
+		0 fragments fragments
+	e (Ljava/util/List;)V addSpacerAfterMemberAnnotations
+		static
+		0 fragments fragments
+	i (Ljava/util/List;)V addSpacerBeforeImplements
+		static
+		0 fragments fragments
+	l (Ljava/util/List;)V addSpacerBetweenMembers
+		static
+		0 fragments fragments
+	o (Ljava/util/List;)V addSpacerAfterSwitchBlock
+		static
+		0 fragments fragments
+	j (Ljava/util/List;)V addSpacerBetweenFieldDeclarators
+		static
+		0 fragments fragments
+	f (Ljava/util/List;)V addSpacerAfterSwitchLabel
+		static
+		0 fragments fragments
+	m (Ljava/util/List;)V addSpacerBetweenStatements
+		static
+		0 fragments fragments
+	h (Ljava/util/List;)V addSpacerBeforeExtends
+		static
+		0 fragments fragments
+	c (Ljava/util/List;)V addSpacerBeforeMainDeclaration
+		static
+		0 fragments fragments
+	b (Ljava/util/List;)V addSpacerAfterImports
+		static
+		0 fragments fragments
+	a (Ljava/util/List;)V addSpacerAfterPackage
+		static
+		0 fragments fragments
+	q (Ljava/util/List;)V addSpacerBetweenArrayInitializerBlock
+		static
+		0 fragments fragments
+	r (Ljava/util/List;)V addNewLineBetweenArrayInitializerBlock
+		static
+		0 fragments fragments
+	n (Ljava/util/List;)V addSpacerBetweenSwitchLabelBlock
+		static
+		0 fragments fragments
+	k (Ljava/util/List;)V addSpacerBetweenMemberAnnotations
+		static
+		0 fragments fragments
+	g (Ljava/util/List;)V addSpacerBetweenSwitchLabels
+		static
+		0 fragments fragments
+	d (Ljava/util/List;)V addSpacerAfterEndStatementsBlock
+		static
+		0 fragments fragments
+	c (Ljava/util/List;Lorg/c/a/a/b/c/r;)V addEndStatementsInLambdaBlock
+		static
+		0 fragments fragments
+		1 start start
+	b (Ljava/util/List;Lorg/c/a/a/b/c/r;)V addEndArrayInitializer
+		static
+		0 fragments fragments
+		1 start start
+	a (Ljava/util/List;Lorg/c/a/a/b/c/r;)V addEndArrayInitializerInParameter
+		static
+		0 fragments fragments
+		1 start start
+	c (Ljava/util/List;Lorg/c/a/a/b/c/s;)V addEndTypeBody
+		static
+		0 fragments fragments
+		1 start start
+	b (Ljava/util/List;Lorg/c/a/a/b/c/s;)V addEndMethodBody
+		static
+		0 fragments fragments
+		1 start start
+	a (Ljava/util/List;Lorg/c/a/a/b/c/s;)V addEndSingleStatementMethodBody
+		static
+		0 fragments fragments
+		1 start start
+	e (Ljava/util/List;Lorg/c/a/a/b/c/s;)V addEndSubTypeBody
+		static
+		0 fragments fragments
+		1 start start
+	d (Ljava/util/List;Lorg/c/a/a/b/c/s;)V addEndSubTypeBodyInParameter
+		static
+		0 fragments fragments
+		1 start start
+	a (Ljava/util/List;Lorg/c/a/a/b/c/w;)V addEndStatementsBlock
+		static
+		0 fragments fragments
+		1 group group
+	b (Ljava/util/List;Lorg/c/a/a/b/c/w;)V addStartStatementsBlock
+		static
+		0 fragments fragments
+		1 group group
+	x (Ljava/util/List;)Lorg/c/a/a/b/c/r; addStartStatementsInLambdaBlock
+		static
+		0 fragments fragments
+	p (Ljava/util/List;)Lorg/c/a/a/b/c/r; addStartArrayInitializerBlock
+		static
+		0 fragments fragments
+	u (Ljava/util/List;)Lorg/c/a/a/b/c/s; addStartTypeBody
+		static
+		0 fragments fragments
+	t (Ljava/util/List;)Lorg/c/a/a/b/c/s; addStartMethodBody
+		static
+		0 fragments fragments
+	s (Ljava/util/List;)Lorg/c/a/a/b/c/s; addStartSingleStatementMethodBody
+		static
+		0 fragments fragments
+	w (Ljava/util/List;)Lorg/c/a/a/b/c/w; addStartStatementsBlock
+		static
+		0 fragments fragments
+	z (Ljava/util/List;)Lorg/c/a/a/b/c/w; addStartStatementsTryBlock
+		static
+		0 fragments fragments
+	y (Ljava/util/List;)Lorg/c/a/a/b/c/w; addStartStatementsDoWhileBlock
+		static
+		0 fragments fragments
+org/c/a/a/c/c/a/a/c org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/StringUtil
+	a (Ljava/lang/String;)Ljava/lang/String; escapeString
+		static
+		0 s s
+org/c/a/a/d/a org/jd/core/v1/util/Base
+	j_ ()Z isList
+	l_ ()Lorg/c/a/a/d/c; getList
+	size ()I size
+org/c/a/a/d/b org/jd/core/v1/util/Base$1
+org/c/a/a/d/c org/jd/core/v1/util/DefaultList
+	f ()Lorg/c/a/a/d/c; emptyList
+		static
+	j_ ()Z isList
+	e ()Ljava/lang/Object; removeLast
+	d ()Ljava/lang/Object; getLast
+	h ()Ljava/lang/Object; getFirst
+org/c/a/a/d/d org/jd/core/v1/util/DefaultList$EmptyList
+org/c/a/a/c/d/b/a org/jd/core/v1/service/layouter/util/VisitorsHolder
+	b ()Lorg/c/a/a/c/d/c/a; getBackwardSearchVisitor
+	a ()Lorg/c/a/a/c/d/c/a; getForwardSearchVisitor
+	d ()Lorg/c/a/a/c/d/c/b; getForwardSearchEndIndexesVisitor
+	c ()Lorg/c/a/a/c/d/c/b; getBackwardSearchStartIndexesVisitor
+	b visitor8
+	a visitor7
+	d visitor10
+	c visitor9
+org/c/a/a/c/d/b/b org/jd/core/v1/service/layouter/util/VisitorsHolder$1
+	a (Lorg/c/a/a/b/b/b;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/b/i;)V visit
+		0 fragment fragment
+	a this$0
+org/c/a/a/c/d/b/c org/jd/core/v1/service/layouter/util/VisitorsHolder$2
+	a (Lorg/c/a/a/b/b/b;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/b/i;)V visit
+		0 fragment fragment
+	a this$0
+org/c/a/a/c/d/b/d org/jd/core/v1/service/layouter/util/VisitorsHolder$3
+	a (Lorg/c/a/a/b/b/b;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/b/i;)V visit
+		0 fragment fragment
+	a this$0
+org/c/a/a/c/d/b/e org/jd/core/v1/service/layouter/util/VisitorsHolder$4
+	a (Lorg/c/a/a/b/b/b;)V visit
+		0 fragment fragment
+	a (Lorg/c/a/a/b/b/i;)V visit
+		0 fragment fragment
+	a this$0
+org/c/a/a/b/d/c/i org/jd/core/v1/model/javasyntax/reference/ElementValueArrayInitializerElementValue
+	a (Lorg/c/a/a/b/d/c/o;)V accept
+		0 visitor visitor
+	d ()Lorg/c/a/a/b/d/c/e; getElementValueArrayInitializer
+	a elementValueArrayInitializer
+org/c/a/a/b/d/c/m org/jd/core/v1/model/javasyntax/reference/ExpressionElementValue
+	a (Lorg/c/a/a/b/d/c/o;)V accept
+		0 visitor visitor
+org/c/a/a/c/c/a/b/e org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/ExpressionVisitor$Fragments
+	a (Lorg/c/a/a/c/c/a/b/k;)V addTokensFragment
+		0 tokens tokens
+org/c/a/a/b/b/a org/jd/core/v1/model/fragment/EndFlexibleBlockFragment
+	a (Lorg/c/a/a/b/b/f;)V accept
+		0 visitor visitor
+org/c/a/a/b/b/h org/jd/core/v1/model/fragment/StartFlexibleBlockFragment
+	a (Lorg/c/a/a/b/b/f;)V accept
+		0 visitor visitor
+org/c/a/a/b/d/a/a org/jd/core/v1/model/javasyntax/declaration/AbstractNopDeclarationVisitor
+	a (Lorg/c/a/a/b/d/a/ab;)V visit
+		0 declarations declarations
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/ad;)V visit
+		0 declarations declarations
+	a (Lorg/c/a/a/b/d/a/ah;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/c;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/k;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/o;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/p;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/q;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/r;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/s;)V visit
+		0 declarations declarations
+	a (Lorg/c/a/a/b/d/a/t;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/u;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/w;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/x;)V visit
+		0 declarator declarator
+org/c/a/a/b/d/b/c org/jd/core/v1/model/javasyntax/expression/AbstractLineNumberTypeExpression
+org/c/a/a/b/d/d/e org/jd/core/v1/model/javasyntax/statement/CommentStatement
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
+	b ()Ljava/lang/String; getText
+	a text
+org/c/a/a/b/d/e/a org/jd/core/v1/model/javasyntax/type/AbstractNopTypeArgumentVisitor
+	a (Lorg/c/a/a/b/d/e/c;)V visit
+		0 arguments arguments
+	a (Lorg/c/a/a/b/d/e/g;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/h;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/i;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/k;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/x;)V visit
+		0 argument argument
+	a (Lorg/c/a/a/b/d/e/y;)V visit
+		0 argument argument
+org/c/a/a/b/d/e/j org/jd/core/v1/model/javasyntax/type/ObjectType$1
+org/c/a/a/c/a/a/a/a/c org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ImmutableBasicBlock
+	f ()I getFirstLineNumber
+	g ()I getLastLineNumber
+org/c/a/a/c/a/a/a/a/d org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ImmutableBasicBlock$1
+	a (Lorg/c/a/a/c/a/a/a/a/a;)Z add
+		0 e e
+org/c/a/a/c/a/a/a/b/b/a org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/expression/ClassFileCmpExpression
+org/c/a/a/c/a/a/a/c/c org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame$AbstractLocalVariableComparator
+	a (Lorg/c/a/a/c/a/a/a/c/a;Lorg/c/a/a/c/a/a/a/c/a;)I compare
+		0 alv1 alv1
+		1 alv2 alv2
+org/c/a/a/c/a/a/a/c/h org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/LocalVariableSet
+	a (I)Lorg/c/a/a/c/a/a/a/c/a; root
+		0 index index
+	a (IILorg/c/a/a/b/d/e/g;)V update
+		0 index index
+		1 offset offset
+		2 type type
+	a (IILorg/c/a/a/b/d/e/i;)V update
+		0 index index
+		1 offset offset
+		2 type type
+	a (ILorg/c/a/a/c/a/a/a/c/a;)V add
+		0 index index
+		1 newLV newLV
+	a (Lorg/c/a/a/c/a/a/a/c/b;)[Lorg/c/a/a/c/a/a/a/c/a; initialize
+		0 rootFrame rootFrame
+	c $assertionsDisabled
+	a array
+	b size
+	a (II)Lorg/c/a/a/c/a/a/a/c/a; remove
+		0 index index
+		1 offset offset
+	b (II)Lorg/c/a/a/c/a/a/a/c/a; get
+		0 index index
+		1 offset offset
+org/c/a/a/c/a/a/a/c/l org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/RootFrame
+	c ()V createDeclarations
+	a (I)Lorg/c/a/a/c/a/a/a/c/a; getLocalVariable
+		0 index index
+org/c/a/a/c/a/a/b/a org/jd/core/v1/service/converter/classfiletojavasyntax/processor/ConvertClassFileException
+org/c/a/a/c/a/a/b/b org/jd/core/v1/service/converter/classfiletojavasyntax/processor/ConvertClassFileProcessor
+	a ([Lorg/c/a/a/b/a/a/ak;)Ljava/util/List; convertModuleDeclarationModuleInfo
+		0 moduleInfos moduleInfos
+	a ([Lorg/c/a/a/b/a/a/al;)Ljava/util/List; convertModuleDeclarationPackageInfo
+		0 packageInfos packageInfos
+	a ([Lorg/c/a/a/b/a/a/am;)Ljava/util/List; convertModuleDeclarationServiceInfo
+		0 serviceInfos serviceInfos
+	a (Lorg/c/a/a/b/a/a;)Lorg/c/a/a/b/d/a/ad; convertModuleDeclaration
+		0 classFile classFile
+	a (Lorg/c/a/a/b/e/a;)V process
+		0 message message
+	a (Lorg/c/a/a/c/a/a/c/b;Lorg/c/a/a/b/a/a;)Lorg/c/a/a/b/d/c/d; convertAnnotationReferences
+		0 converter converter
+		1 classFile classFile
+	a (Lorg/c/a/a/c/a/a/c/b;Lorg/c/a/a/b/a/c;)Lorg/c/a/a/b/d/c/d; convertAnnotationReferences
+		0 converter converter
+		1 field field
+	a (Lorg/c/a/a/c/a/a/c/b;Lorg/c/a/a/b/a/d;)Lorg/c/a/a/b/d/c/d; convertAnnotationReferences
+		0 converter converter
+		1 method method
+org/c/a/a/c/a/a/b/c org/jd/core/v1/service/converter/classfiletojavasyntax/processor/UpdateJavaSyntaxTreeProcessor
+	a (Lorg/c/a/a/b/e/a;)V process
+		0 message message
+org/c/a/a/c/a/a/c/ai org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker$SwitchCaseComparator
+	a (Lorg/c/a/a/c/a/a/a/a/e;Lorg/c/a/a/c/a/a/a/a/e;)I compare
+		0 sc1 sc1
+		1 sc2 sc2
+org/c/a/a/c/a/a/c/d org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser$JsrReturnAddressExpression
+org/c/a/a/c/a/a/c/h org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphGotoReducer
+org/c/a/a/c/a/a/c/j org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphLoopReducer$LoopComparator
+	a (Lorg/c/a/a/c/a/a/a/a/h;Lorg/c/a/a/c/a/a/a/a/h;)I compare
+		0 loop1 loop1
+		1 loop2 loop2
+org/c/a/a/c/a/a/c/l org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphMaker$CodeExceptionComparator
+	a (Lorg/c/a/a/b/a/a/w;Lorg/c/a/a/b/a/a/w;)I compare
+		0 ce1 ce1
+		1 ce2 ce2
+org/c/a/a/c/a/a/c/u org/jd/core/v1/service/converter/classfiletojavasyntax/util/MergeMembersUtil$MemberDeclarationComparator
+	a (Lorg/c/a/a/c/a/a/a/b/a/k;Lorg/c/a/a/c/a/a/a/b/a/k;)I compare
+		0 md1 md1
+		1 md2 md2
+org/c/a/a/c/a/a/d/f org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/DeclaredSyntheticLocalVariableVisitor
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/q;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/t;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/w;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/b/aa;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ad;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ae;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/al;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/am;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/e;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/i;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/l;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/q;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/r;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/s;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/t;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/w;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/x;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/z;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/d/aa;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ab;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/af;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/i;)V visit
+		0 statement statement
+org/c/a/a/c/a/a/d/j org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/ah;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/k;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+		0 declaration declaration
+	c outerType
+	d syntheticInnerFieldNames
+org/c/a/a/c/a/a/d/v org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/RemoveDefaultConstructorVisitor
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/ah;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/k;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/q;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+		0 declaration declaration
+	b constructorCounter
+	c constructor
+org/c/a/a/c/b/a/a org/jd/core/v1/service/deserializer/classfile/ClassFileDeserializer
+	a (Lorg/c/a/a/c/b/a/c;)Lorg/c/a/a/b/a/a; loadClassFile
+		0 reader reader
+	b (Lorg/c/a/a/c/b/a/c;)[Lorg/c/a/a/b/a/b/a; loadConstants
+		0 reader reader
+	b (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/c; loadFields
+		0 reader reader
+		1 constants constants
+	c (Lorg/c/a/a/c/b/a/c;)[Lorg/c/a/a/b/a/a/v; loadBootstrapMethods
+		0 reader reader
+	c (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/d; loadMethods
+		0 reader reader
+		1 constants constants
+	d (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)Ljava/util/HashMap; loadAttributes
+		0 reader reader
+		1 constants constants
+	d (Lorg/c/a/a/c/b/a/c;)[B loadCode
+		0 reader reader
+	e (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)Lorg/c/a/a/b/a/a/x; loadElementValue
+		0 reader reader
+		1 constants constants
+	e (Lorg/c/a/a/c/b/a/c;)[Lorg/c/a/a/b/a/a/w; loadCodeExceptions
+		0 reader reader
+	f (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/ac; loadElementValuePairs
+		0 reader reader
+		1 constants constants
+	f (Lorg/c/a/a/c/b/a/c;)[Lorg/c/a/a/b/a/a/ag; loadLineNumbers
+		0 reader reader
+	g (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/x; loadElementValues
+		0 reader reader
+		1 constants constants
+	h (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)Lorg/c/a/a/b/a/b/m; loadConstantValue
+		0 reader reader
+		1 constants constants
+	j (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/af; loadInnerClasses
+		0 reader reader
+		1 constants constants
+	k (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/ah; loadLocalVariables
+		0 reader reader
+		1 constants constants
+	l (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/ai; loadLocalVariableTypes
+		0 reader reader
+		1 constants constants
+	m (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/aj; loadParameters
+		0 reader reader
+		1 constants constants
+	n (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/ak; loadModuleInfos
+		0 reader reader
+		1 constants constants
+	o (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/al; loadPackageInfos
+		0 reader reader
+		1 constants constants
+	q (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/am; loadServiceInfos
+		0 reader reader
+		1 constants constants
+	r (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Lorg/c/a/a/b/a/a/a; loadAnnotations
+		0 reader reader
+		1 constants constants
+	b (Lorg/c/a/a/a/a/a;Ljava/lang/String;)Lorg/c/a/a/b/a/a; innerLoadClassFile
+		0 loader loader
+		1 internalTypeName internalTypeName
+	a (Lorg/c/a/a/a/a/a;Ljava/lang/String;)Lorg/c/a/a/b/a/a; loadClassFile
+		0 loader loader
+		1 internalTypeName internalTypeName
+	p (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Ljava/lang/String; loadConstantClassNames
+		0 reader reader
+		1 constants constants
+	a (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Ljava/lang/String; loadInterfaces
+		0 reader reader
+		1 constants constants
+	i (Lorg/c/a/a/c/b/a/c;Lorg/c/a/a/b/a/b;)[Ljava/lang/String; loadExceptionTypeNames
+		0 reader reader
+		1 constants constants
+org/c/a/a/c/c/a/b/d org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/ExpressionVisitor$Context
+	c currentMethodParamNames
+	b currentTypeName
+	a currentInternalTypeName
+org/c/a/a/c/c/a/b/f org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/ExpressionVisitor$HexaExpressionVisitor
+	a (Lorg/c/a/a/b/d/b/aa;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ad;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ae;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/af;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ag;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ah;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ai;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/aj;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ak;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/al;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/am;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/e;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/g;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/h;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/i;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/j;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/l;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/m;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/p;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/q;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/r;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/s;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/t;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/v;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/w;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/x;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/y;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/z;)V visit
+		0 expression expression
+	a this$0
+org/c/a/a/c/c/a/b/h org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/SingleLineStatementVisitor
+	a ()V init
+	a (Lorg/c/a/a/b/d/b/aa;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ad;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ae;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/af;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ag;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ah;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ai;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/aj;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ak;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/al;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/am;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/e;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/g;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/h;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/i;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/j;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/l;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/m;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/q;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/r;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/s;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/t;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/v;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/w;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/x;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/y;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/z;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/d/a;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ad;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ae;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/af;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ah;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/h;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/i;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/j;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/m;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/n;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/o;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/p;)V visit
+		0 statement statement
+	b ()Z isSingleLineStatement
+	f (Ljava/util/List;)V safeAcceptListStatement
+		0 list list
+	b (Ljava/util/List;)V acceptListExpression
+		0 list list
+	d (Ljava/util/List;)V acceptListStatement
+		0 list list
+	b maxLineNumber
+	c statementCount
+	a minLineNumber
+org/c/a/a/c/e/a/a/c org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor$KnownLineNumberTokenVisitor
+	a (I)V reset
+		0 firstLineNumber firstLineNumber
+	a (Lorg/c/a/a/b/f/b;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/c;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/d;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/e;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/f;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/g;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/h;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/j;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/k;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/l;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/m;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/n;)V visit
+		0 token token
+	a (Lorg/c/a/a/b/f/o;)V visit
+		0 token token
+	c $assertionsDisabled
+	a currentLineNumber
+	b this$0
+org/c/a/a/b/d/a/ai org/jd/core/v1/model/javasyntax/declaration/TypeDeclaration
+	k ()I getFlags
+	h flags
+	l ()Ljava/lang/String; getInternalTypeName
+	m ()Ljava/lang/String; getName
+	j name
+	i internalTypeName
+	j ()Lorg/c/a/a/b/d/c/d; getAnnotationReferences
+	g annotationReferences
+org/c/a/a/b/d/a/o org/jd/core/v1/model/javasyntax/declaration/EnumDeclaration$Constant
+	a ()I getLineNumber
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	a (Lorg/c/a/a/b/d/b/f;)V setArguments
+		0 arguments arguments
+	c ()Ljava/lang/String; getName
+	d ()Lorg/c/a/a/b/d/b/f; getArguments
+	e ()Lorg/c/a/a/b/d/a/i; getBodyDeclaration
+	a lineNumber
+	c name
+	d arguments
+	e bodyDeclaration
+	b ()Lorg/c/a/a/b/d/c/d; getAnnotationReferences
+	b annotationReferences
+org/c/a/a/b/d/a/p org/jd/core/v1/model/javasyntax/declaration/ExpressionVariableInitializer
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+org/c/a/a/b/d/a/s org/jd/core/v1/model/javasyntax/declaration/FieldDeclarators
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	a (Lorg/c/a/a/b/d/a/q;)V setFieldDeclaration
+		0 fieldDeclaration fieldDeclaration
+	a $assertionsDisabled
+org/c/a/a/b/d/a/w org/jd/core/v1/model/javasyntax/declaration/LocalVariableDeclaration
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+		0 visitor visitor
+	a (Z)V setFinal
+		0 fina1 fina1
+	b ()Z isFinal
+	a fina1
+org/c/a/a/b/d/b org/jd/core/v1/model/javasyntax/CompilationUnit
+	a ()Lorg/c/a/a/b/d/a/h; getTypeDeclarations
+	a typeDeclarations
+org/c/a/a/b/d/b/n org/jd/core/v1/model/javasyntax/expression/CommentExpression
+	b ()I getPriority
+	e ()I getLineNumber
+org/c/a/a/b/d/d/d org/jd/core/v1/model/javasyntax/statement/ByteCodeStatement
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
+	b ()Ljava/lang/String; getText
+	a text
+org/c/a/a/b/d/d/l org/jd/core/v1/model/javasyntax/statement/IfStatement
+	a (Lorg/c/a/a/b/d/d/t;)V accept
+		0 visitor visitor
+	e ()Lorg/c/a/a/b/d/d/b; getStatements
+	c statements
+org/c/a/a/b/d/e/b org/jd/core/v1/model/javasyntax/type/AbstractTypeArgumentVisitor
+	a (Lorg/c/a/a/b/d/e/c;)V visit
+		0 arguments arguments
+	a (Lorg/c/a/a/b/d/e/g;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/h;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/i;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/k;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/x;)V visit
+		0 argument argument
+	a (Lorg/c/a/a/b/d/e/y;)V visit
+		0 argument argument
+	a (Lorg/c/a/a/b/d/e/r;)V visit
+	a (Lorg/c/a/a/b/d/e/v;)V visit
+	a (Lorg/c/a/a/b/d/e/q;)V visit
+	a (Lorg/c/a/a/b/d/e/s;)V visit
+org/c/a/a/c/a/a/a/b/c/g org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileTryStatement$CatchClause
+	f ()Ljava/lang/String; getName
+org/c/a/a/c/a/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/AbstractLocalVariable
+	a ()Lorg/c/a/a/c/a/a/a/c/b; getFrame
+	a (Ljava/lang/String;)V setName
+		0 name name
+	a (Lorg/c/a/a/c/a/a/a/c/b;)V setFrame
+		0 frame frame
+	a (Z)V setDeclared
+		0 declared declared
+	b ()Lorg/c/a/a/c/a/a/a/c/a; getNext
+	c ()Z isDeclared
+	g ()Ljava/lang/String; getName
+	i ()Lorg/c/a/a/d/c; getReferences
+	j $assertionsDisabled
+	a frame
+	b next
+	c declared
+	g name
+	i references
+	a (I)V setFromOffset
+		0 fromOffset fromOffset
+	b (I)V setToOffset
+		0 offset offset
+	a (Lorg/c/a/a/c/a/a/a/c/a;)V setNext
+		0 next next
+	d ()I getIndex
+	f ()I getToOffset
+	e fromOffset
+	f toOffset
+	d index
+org/c/a/a/c/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/util/AggregateFieldsUtil
+	a (Ljava/util/List;)V aggregate
+		static
+		0 fields fields
+	a (Ljava/util/List;Lorg/c/a/a/c/a/a/a/b/a/h;II)V aggregate
+		static
+		0 fields fields
+		1 firstField firstField
+		2 firstIndex firstIndex
+		3 lastIndex lastIndex
+org/c/a/a/c/a/a/c/am org/jd/core/v1/service/converter/classfiletojavasyntax/util/SynchronizedStatementMaker$RemoveMonitorExitVisitor
+	a (Lorg/c/a/a/b/d/d/u;)V visit
+		0 list list
+	a localVariable
+org/c/a/a/c/a/a/c/c org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser
+	a (Lorg/c/a/a/b/a/b;[BLorg/c/a/a/c/a/a/a/a/a;)I evalStackDepth
+		static
+		0 constants constants
+		1 code code
+		2 bb bb
+	a (Lorg/c/a/a/c/a/a/a/a/a;I)I searchNextOpcode
+		static
+		0 basicBlock basicBlock
+		1 maxOffset maxOffset
+	a (Lorg/c/a/a/b/d/d/b;)Lorg/c/a/a/b/d/d/b; prepareLambdaStatements
+		static
+		0 baseStatement baseStatement
+	a (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;I)V parseXRETURN
+		0 statements statements
+		1 stack stack
+		2 lineNumber lineNumber
+	a (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;ILorg/c/a/a/c/a/a/a/c/a;)V parseILOAD
+		static
+		0 statements statements
+		1 stack stack
+		2 lineNumber lineNumber
+		3 localVariable localVariable
+	a (Lorg/c/a/a/d/e;Lorg/c/a/a/b/a/b;ILorg/c/a/a/b/a/b/a;)V parseLDC
+		0 stack stack
+		1 constants constants
+		2 lineNumber lineNumber
+		3 constant constant
+	a (Lorg/c/a/a/d/e;[BI)V checkStack
+		static
+		0 stack stack
+		1 code code
+		2 offset offset
+	a (Ljava/lang/String;Lorg/c/a/a/c/a/a/a/a/a;)Z isAssertCondition
+		static
+		0 internalTypeName internalTypeName
+		1 basicBlock basicBlock
+	a (Lorg/c/a/a/d/e;Lorg/c/a/a/b/d/b/q;)Z stackContainsFieldReference
+		static
+		0 stack stack
+		1 fr fr
+	a (Lorg/c/a/a/d/e;Lorg/c/a/a/c/a/a/a/c/a;)Z stackContainsLocalVariableReference
+		static
+		0 stack stack
+		1 localVariable localVariable
+	c (Ljava/lang/String;)I countMethodParameters
+		static
+		0 descriptor descriptor
+	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;)V parse
+		0 basicBlock basicBlock
+		1 statements statements
+		2 stack stack
+	a $assertionsDisabled
+	b JSR_RETURN_ADDRESS_EXPRESSION
+	e localVariableMaker
+	f internalTypeName
+	g attributeBootstrapMethods
+	h bodyDeclaration
+	j memberVisitor
+	k searchFirstLineNumberVisitor
+	c (Lorg/c/a/a/c/a/a/a/a/a;)I evalStackDepth
+		static
+		0 bb bb
+	a (Lorg/c/a/a/c/a/a/a/a/a;)I getExceptionLocalVariableIndex
+		static
+		0 basicBlock basicBlock
+	a (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;Lorg/c/a/a/b/a/b;II)V parseInvokeDynamic
+		0 statements statements
+		1 stack stack
+		2 constants constants
+		3 lineNumber lineNumber
+		4 index index
+	b (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;Lorg/c/a/a/b/a/b;II)V parsePutStatic
+		0 statements statements
+		1 stack stack
+		2 constants constants
+		3 lineNumber lineNumber
+		4 index index
+	c (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;Lorg/c/a/a/b/a/b;II)V parsePutField
+		0 statements statements
+		1 stack stack
+		2 constants constants
+		3 lineNumber lineNumber
+		4 index index
+	a (Lorg/c/a/a/d/e;Lorg/c/a/a/b/a/b;II)V parseGetStatic
+		0 stack stack
+		1 constants constants
+		2 lineNumber lineNumber
+		3 index index
+	b (Lorg/c/a/a/d/e;Lorg/c/a/a/b/a/b;II)V parseGetField
+		0 stack stack
+		1 constants constants
+		2 lineNumber lineNumber
+		3 index index
+	b (Lorg/c/a/a/c/a/a/a/a/a;)I getLastOpcode
+		static
+		0 basicBlock basicBlock
+org/c/a/a/c/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphLoopReducer
+	a (ILjava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Ljava/util/BitSet; searchLoopMemberIndexes
+		static
+		0 length length
+		1 memberIndexes memberIndexes
+		2 current current
+		3 start start
+	a (Ljava/util/Set;Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; recheckEndBlock
+		static
+		0 members members
+		1 end end
+	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; newJumpBasicBlock
+		static
+		0 bb bb
+		1 target target
+	a (Lorg/c/a/a/c/a/a/a/a/h;)Lorg/c/a/a/c/a/a/a/a/a; reduceLoop
+		static
+		0 loop loop
+	a (Ljava/util/List;Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;Ljava/util/BitSet;)Lorg/c/a/a/c/a/a/a/a/h; makeLoop
+		static
+		0 list list
+		1 start start
+		2 searchZoneIndexes searchZoneIndexes
+		3 memberIndexes memberIndexes
+	a (Ljava/util/BitSet;Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;I)V recursiveForwardSearchLoopMemberIndexes
+		static
+		0 visited visited
+		1 searchZoneIndexes searchZoneIndexes
+		2 current current
+		3 maxOffset maxOffset
+	a (Ljava/util/BitSet;Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)V recursiveForwardSearchLoopMemberIndexes
+		static
+		0 visited visited
+		1 searchZoneIndexes searchZoneIndexes
+		2 current current
+		3 target target
+	a (Ljava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)V recursiveBackwardSearchLoopMemberIndexes
+		static
+		0 visited visited
+		1 current current
+		2 start start
+	a (Ljava/util/HashSet;Ljava/util/BitSet;Ljava/util/HashSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Z recursiveForwardSearchLastLoopMemberIndexes
+		static
+		0 members members
+		1 searchZoneIndexes searchZoneIndexes
+		2 set set
+		3 current current
+		4 end end
+	a LOOP_COMPARATOR
+	a (Lorg/c/a/a/c/a/a/a/a/a;)I checkMaxOffset
+		static
+		0 basicBlock basicBlock
+	c (Lorg/c/a/a/c/a/a/a/a/a;)I checkThrowBlockOffset
+		static
+		0 basicBlock basicBlock
+	b (Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;)Z inSearchZone
+		static
+		0 basicBlock basicBlock
+		1 searchZoneIndexes searchZoneIndexes
+	a (Lorg/c/a/a/c/a/a/a/a/a;Ljava/util/BitSet;)Z predecessorsInSearchZone
+		static
+		0 basicBlock basicBlock
+		1 searchZoneIndexes searchZoneIndexes
+	b (Lorg/c/a/a/c/a/a/a/a/a;)I checkSynchronizedBlockOffset
+		static
+		0 basicBlock basicBlock
+org/c/a/a/c/a/a/d/a org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/AbstractUpdateExpressionVisitor
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/k;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/o;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/p;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/q;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/r;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/t;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/w;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/x;)V visit
+		0 declarator declarator
+	a (Lorg/c/a/a/b/d/b/aa;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ad;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ae;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/af;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ag;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ah;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ai;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/aj;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/ak;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/al;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/am;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/e;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/g;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/i;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/j;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/k;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/l;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/m;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/q;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/r;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/s;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/t;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/v;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/w;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/x;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/y;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/z;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/c/a;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/b;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/i;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/m;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/d/a;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ad;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/af;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/ag;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/c;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/d;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/f;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/h;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/i;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/j;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/k;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/l;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/n;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/p;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/q;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/v;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/x;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/d/y;)V visit
+		0 statement statement
+	a (Lorg/c/a/a/b/d/e/c;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/h;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/i;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/r;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/v;)V visit
+		0 list list
+	a (Lorg/c/a/a/b/d/e/x;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/y;)V visit
+		0 type type
+	b (Lorg/c/a/a/b/d/b/f;)Lorg/c/a/a/b/d/b/f; updateBaseExpression
+		0 baseExpression baseExpression
+org/c/a/a/c/a/a/d/ae org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateIntegerConstantTypeVisitor$DimensionTypes
+org/c/a/a/c/a/a/d/ag org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateTypeVisitor
+	a (Lorg/c/a/a/b/a/a/ai;)V setLocalVariableType
+		0 localVariableType localVariableType
+	a (Lorg/c/a/a/b/d/e/g;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/h;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/i;)V visit
+		0 type type
+	a localVariableSet
+	b localVariableType
+org/c/a/a/c/a/a/d/l org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$UpdateNewExpressionVisitor
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/ah;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/k;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/d/u;)V visit
+		0 list list
+	a bodyDeclaration
+	b finalLocalVariableNameMap
+	c localClassDeclarations
+	d newExpressions
+	e lineNumber
+org/c/a/a/c/a/a/d/n org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$UpdateNewExpressionVisitor$UpdateParametersAndLocalVariablesVisitor
+	a (Lorg/c/a/a/b/d/a/t;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/w;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/x;)V visit
+		0 declarator declarator
+	a (Lorg/c/a/a/b/d/d/o;)V visit
+		0 statement statement
+	a fina1
+	b this$0
+org/c/a/a/c/a/a/d/y org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SearchLocalVariableReferenceVisitor
+	a (Lorg/c/a/a/b/d/b/w;)V visit
+		0 expression expression
+	a ()Z containsReference
+	a index
+	b found
+org/c/a/a/c/c/a/b/b org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/CompilationUnitVisitor$AnnotationVisitor
+	a (Lorg/c/a/a/b/d/c/a;)V visit
+		0 reference reference
+	a (Lorg/c/a/a/b/d/c/b;)V visit
+		0 reference reference
+	a this$0
+	a (Lorg/c/a/a/b/d/c/c;)V visit
+		0 list list
+org/c/a/a/c/c/a/b/l org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor$TypeReferenceToken
+	c ()Ljava/lang/String; getName
+	f importsFragment
+	g qualifiedName
+org/c/a/a/b/d/e/q org/jd/core/v1/model/javasyntax/type/TypeParameter
+	a identifier
+	d ()Ljava/lang/String; getIdentifier
+org/c/a/a/b/d/e/r org/jd/core/v1/model/javasyntax/type/TypeParameterWithTypeBounds
+org/c/a/a/b/d/e/s org/jd/core/v1/model/javasyntax/type/TypeParameters
+	a $assertionsDisabled
+org/c/a/a/b/d/e/c org/jd/core/v1/model/javasyntax/type/TypeArguments
+	a (Lorg/c/a/a/b/d/e/u;)V accept
+		0 visitor visitor
+org/c/a/a/b/d/e/v org/jd/core/v1/model/javasyntax/type/Types
+	a $assertionsDisabled
+org/c/a/a/b/d/c/a org/jd/core/v1/model/javasyntax/reference/AnnotationElementValue
+	a (Lorg/c/a/a/b/d/c/o;)V accept
+		0 visitor visitor
+org/c/a/a/c/a/a/a/c/b org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame
+	a (Ljava/util/HashSet;Ljava/util/HashSet;Lorg/c/a/a/b/d/b/g;)Lorg/c/a/a/b/d/d/o; newDeclarationStatement
+		0 undeclaredLocalVariables undeclaredLocalVariables
+		1 undeclaredLocalVariablesInStatement undeclaredLocalVariablesInStatement
+		2 boe boe
+	a (I)Lorg/c/a/a/c/a/a/a/c/a; getLocalVariable
+		0 index index
+	a ()Lorg/c/a/a/c/a/a/a/c/b; getParent
+	a (Ljava/util/HashSet;)V createNames
+		0 parentNames parentNames
+	a (Ljava/util/HashSet;Ljava/util/HashSet;Ljava/util/ListIterator;Lorg/c/a/a/b/d/d/h;)V createInlineDeclarations
+		0 undeclaredLocalVariables undeclaredLocalVariables
+		1 undeclaredLocalVariablesInStatement undeclaredLocalVariablesInStatement
+		2 iterator iterator
+		3 es es
+	a (Ljava/util/HashSet;Ljava/util/HashSet;Lorg/c/a/a/c/a/a/a/b/c/c;)V createInlineDeclarations
+		0 undeclaredLocalVariables undeclaredLocalVariables
+		1 undeclaredLocalVariablesInStatement undeclaredLocalVariablesInStatement
+		2 fs fs
+	a (Ljava/util/HashSet;Ljava/util/HashSet;Lorg/c/a/a/c/a/a/a/b/c/c;Lorg/c/a/a/b/d/b/p;)V updateForStatement
+		0 variablesToDeclare variablesToDeclare
+		1 foundVariables foundVariables
+		2 forStatement forStatement
+		3 init init
+	a (Lorg/c/a/a/c/a/a/a/c/b;)V addChild
+		0 child child
+	d ()Z createInlineDeclarations
+	e ()Ljava/util/HashMap; createMapForInlineDeclarations
+	a ABSTRACT_LOCAL_VARIABLE_COMPARATOR
+	h $assertionsDisabled
+	b localVariableArray
+	c newExpressions
+	d children
+	e parent
+	f statements
+	g exceptionLocalVariable
+	c ()V createDeclarations
+	b ()V close
+	f ()V createStartBlockDeclarations
+	b (Lorg/c/a/a/c/a/a/a/c/a;)V setExceptionLocalVariable
+		0 exceptionLocalVariable exceptionLocalVariable
+	a (Lorg/c/a/a/c/a/a/a/c/a;)V addLocalVariable
+		0 lv lv
+	d (Lorg/c/a/a/c/a/a/a/c/a;)V removeLocalVariable
+		0 lv lv
+	g ()V mergeDeclarations
+org/c/a/a/b/d/e/e org/jd/core/v1/model/javasyntax/type/BaseTypeArgument
+org/c/a/a/b/d/e/f org/jd/core/v1/model/javasyntax/type/BaseTypeParameter
+org/c/a/a/b/d/e/m org/jd/core/v1/model/javasyntax/type/AbstractType
+	f ()Z isGeneric
+	l ()Z isObject
+	m_ ()Z isPrimitive
+org/c/a/a/b/d/a/d org/jd/core/v1/model/javasyntax/declaration/BaseFieldDeclarator
+	a (Lorg/c/a/a/b/d/a/q;)V setFieldDeclaration
+org/c/a/a/b/d/a/m org/jd/core/v1/model/javasyntax/declaration/DeclarationVisitor
+	a (Lorg/c/a/a/b/d/a/ab;)V visit
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+	a (Lorg/c/a/a/b/d/a/ad;)V visit
+	a (Lorg/c/a/a/b/d/a/ah;)V visit
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+	a (Lorg/c/a/a/b/d/a/c;)V visit
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+	a (Lorg/c/a/a/b/d/a/k;)V visit
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+	a (Lorg/c/a/a/b/d/a/o;)V visit
+	a (Lorg/c/a/a/b/d/a/p;)V visit
+	a (Lorg/c/a/a/b/d/a/q;)V visit
+	a (Lorg/c/a/a/b/d/a/r;)V visit
+	a (Lorg/c/a/a/b/d/a/s;)V visit
+	a (Lorg/c/a/a/b/d/a/t;)V visit
+	a (Lorg/c/a/a/b/d/a/u;)V visit
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+	a (Lorg/c/a/a/b/d/a/w;)V visit
+	a (Lorg/c/a/a/b/d/a/x;)V visit
+org/c/a/a/b/d/c/f org/jd/core/v1/model/javasyntax/reference/BaseElementValuePair
+org/c/a/a/b/d/c/d org/jd/core/v1/model/javasyntax/reference/BaseAnnotationReference
+org/c/a/a/b/d/c/e org/jd/core/v1/model/javasyntax/reference/BaseElementValue
+org/c/a/a/b/d/e/u org/jd/core/v1/model/javasyntax/type/TypeArgumentVisitor
+	a (Lorg/c/a/a/b/d/e/c;)V visit
+	a (Lorg/c/a/a/b/d/e/g;)V visit
+	a (Lorg/c/a/a/b/d/e/h;)V visit
+	a (Lorg/c/a/a/b/d/e/i;)V visit
+	a (Lorg/c/a/a/b/d/e/k;)V visit
+	a (Lorg/c/a/a/b/d/e/x;)V visit
+	a (Lorg/c/a/a/b/d/e/y;)V visit
+	a (Lorg/c/a/a/b/d/e/q;)V visit
+	a (Lorg/c/a/a/b/d/e/r;)V visit
+	a (Lorg/c/a/a/b/d/e/s;)V visit
+	a (Lorg/c/a/a/b/d/e/v;)V visit
+org/c/a/a/c/a/a/a/b/a/e org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileConstructorOrMethodDeclaration
+	a ()I getFlags
+	a (I)V setFlags
+	a (Lorg/c/a/a/b/d/d/b;)V setStatements
+	g ()Lorg/c/a/a/b/d/d/b; getStatements
+	j ()Lorg/c/a/a/c/a/a/a/b/a/b; getBodyDeclaration
+	k ()Lorg/c/a/a/b/a/a; getClassFile
+	o_ ()Lorg/c/a/a/b/d/e/l; getParameterTypes
+	r_ ()Lorg/c/a/a/b/a/d; getMethod
