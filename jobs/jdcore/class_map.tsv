@@ -273,3 +273,4 @@ org/c/a/a/c/e/a/a/b	org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor
 org/c/a/a/c/e/a/a/d	org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor$UnknownLineNumberTokenVisitor	shape:整包 (方法数,字段数) 精确双射 (16, 2)
 org/c/a/a/c/f/a/a	org/jd/core/v1/service/writer/visitor/PrintTokenVisitor	shape:整包 (方法数,字段数) 精确双射 (20, 6)
 org/c/a/a/c/f/a/b	org/jd/core/v1/service/writer/visitor/PrintTokenVisitor$SearchLineNumberVisitor	shape:整包 (方法数,字段数) 精确双射 (4, 2)
+org/c/a/a/b/c/l	org/jd/core/v1/model/javafragment/JavaFragmentVisitor	shape:包内松弛双射（方法数 ±2、字段数相等，且两侧唯一）

@@ -739,3 +739,4 @@ org/c/a/a/c/e/a/a/b org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor
 org/c/a/a/c/e/a/a/d org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor$UnknownLineNumberTokenVisitor
 org/c/a/a/c/f/a/a org/jd/core/v1/service/writer/visitor/PrintTokenVisitor
 org/c/a/a/c/f/a/b org/jd/core/v1/service/writer/visitor/PrintTokenVisitor$SearchLineNumberVisitor
+org/c/a/a/b/c/l org/jd/core/v1/model/javafragment/JavaFragmentVisitor
