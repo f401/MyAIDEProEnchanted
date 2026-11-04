@@ -204,3 +204,8 @@ org/c/a/a/c/a/a/a/a/e	org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 org/c/a/a/c/a/a/c/ap	org/jd/core/v1/service/converter/classfiletojavasyntax/util/WatchDog$Link	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
 org/c/a/a/c/c/a/b/k	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor$Tokens	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
 org/c/a/a/c/d/a/b	org/jd/core/v1/service/layouter/model/Section$AutoGrowthList	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
+org/c/a/a/c/a/a/a/b/a/d	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileConstructorDeclaration	str:toString() 里写死的类名串（混淆不改字符串）
+org/c/a/a/c/a/a/a/b/a/m	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileStaticInitializerDeclaration	src:常量串按长度加权只命中这一个 oracle 源文件
+org/c/a/a/c/a/a/d/g	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/GenerateParameterSuffixNameVisitor	src:常量串按长度加权只命中这一个 oracle 源文件
+org/c/a/a/c/c/a/b/c	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/ExpressionVisitor	src:常量串按长度加权只命中这一个 oracle 源文件
+org/c/a/a/c/c/a/b/g	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/SearchImportsVisitor	src:常量串按长度加权只命中这一个 oracle 源文件
