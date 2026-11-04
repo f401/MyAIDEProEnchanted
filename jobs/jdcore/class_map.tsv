@@ -219,7 +219,6 @@ org/c/a/a/c/a/a/d/ad	org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 org/c/a/a/c/a/a/d/p	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInstanceFieldVisitor	shape:包内 (方法数,字段数) 唯一 —— 探针 (17,5) vs oracle (17,6)
 org/c/a/a/c/a/a/c/m	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphReducer	shape:包内 (方法数,字段数) 唯一且唯一候选 —— 探针 (38,1) vs oracle (38,1)
 org/c/a/a/c/a/a/c/b	org/jd/core/v1/service/converter/classfiletojavasyntax/util/AnnotationConverter	shape:包内 (方法数,字段数) 唯一且唯一候选 —— 探针 (11,3) vs oracle (11,3)
-org/c/a/a/c/a/a/c/v	org/jd/core/v1/service/converter/classfiletojavasyntax/util/SynchronizedStatementMaker	shape:包内 (方法数,字段数) 唯一且唯一候选 —— 探针 (3,1) vs oracle (3,1)
 org/c/a/a/c/a/a/c/ah	org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker$MemberVisitor	shape:包内 (方法数,字段数) 唯一且唯一候选 —— 探针 (5,2) vs oracle (5,2)
 org/c/a/a/c/a/a/c/k	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphMaker	shape:包内 (方法数,字段数) 唯一且唯一候选 —— 探针 (3,2) vs oracle (4,2)
 org/c/a/a/c/a/a/c/o	org/jd/core/v1/service/converter/classfiletojavasyntax/util/LocalVariableMaker	who:引用者集合交集 6 个（第二名 1）——探针 17/13 对应 oracle 18/12
@@ -356,7 +355,7 @@ org/c/a/a/b/d/a/p	org/jd/core/v1/model/javasyntax/declaration/ExpressionVariable
 org/c/a/a/b/d/a/s	org/jd/core/v1/model/javasyntax/declaration/FieldDeclarators	fp:javap 字节码指纹 0.44（与次优差 0.09；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/b/d/a/w	org/jd/core/v1/model/javasyntax/declaration/LocalVariableDeclaration	fp:javap 字节码指纹 0.43（与次优差 0.16；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/b/d/b	org/jd/core/v1/model/javasyntax/CompilationUnit	fp:javap 字节码指纹 0.38（与次优差 0.38；七项=指令/成员/串/对齐/整数/子类/创建点）
-org/c/a/a/b/d/b/n	org/jd/core/v1/model/javasyntax/expression/CommentExpression	fp:javap 字节码指纹 0.34（与次优差 0.11；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/b/n	org/jd/core/v1/model/javasyntax/expression/AbstractExpression	role:abstract class、implements b/d/b/f(=BaseExpression)、0 字段，6 个方法全是 Base/getXxx 的默认实现；直接子类是 AbstractLineNumberExpression / ObjectTypeReferenceExpression / TypeReferenceDotClassExpression。jd-core 1.1.3 的 expression 包 42 个类里没有这个抽象基类（魔改/新版），按作用命名。原判 CommentExpression 是错的：本类是 abstract 且 0 字段，CommentExpression 是 final 且有 1 个 String 字段
 org/c/a/a/b/d/d/d	org/jd/core/v1/model/javasyntax/statement/ByteCodeStatement	fp:javap 字节码指纹 0.43（与次优差 0.15；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/b/d/d/l	org/jd/core/v1/model/javasyntax/statement/IfStatement	fp:javap 字节码指纹 0.44（与次优差 0.08；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/b/d/e/b	org/jd/core/v1/model/javasyntax/type/AbstractTypeArgumentVisitor	fp:javap 字节码指纹 0.39（与次优差 0.20；七项=指令/成员/串/对齐/整数/子类/创建点）
@@ -391,3 +390,13 @@ org/c/a/a/b/d/c/d	org/jd/core/v1/model/javasyntax/reference/BaseAnnotationRefere
 org/c/a/a/b/d/c/e	org/jd/core/v1/model/javasyntax/reference/BaseElementValue	hier:interface extends b/d/c/n(=Reference) 与 org/c/a/a/d/a(=util/Base)、0 方法，实现者是 g 与 l(=ElementValues) —— oracle BaseElementValue 同形
 org/c/a/a/b/d/e/u	org/jd/core/v1/model/javasyntax/type/TypeArgumentVisitor	hier:直接子类型多重集 {AbstractNopTypeArgumentVisitor, AbstractTypeArgumentVisitor, Frame} —— 与 oracle TypeArgumentVisitor 一致（唯二实现者是这两个抽象访问器）
 org/c/a/a/c/a/a/a/b/a/e	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileConstructorOrMethodDeclaration	hier:本类是 interface extends k(=ClassFileMemberDeclaration)，实现者是 d(Constructor)/l(Method)/m(StaticInitializer) —— 与 oracle ClassFileConstructorOrMethodDeclaration（extends ClassFileMemberDeclaration，被 Method/Constructor 实现）同位置同方向；ClassFileTypeDeclaration 在 freelly 里被并掉了（4 个 *Declaration 直接 implements ClassFileMemberDeclaration）
+org/c/a/a/b/d/b/o	org/jd/core/v1/model/javasyntax/expression/ExpressionVisitor	hier:直接子类型多重集恰为 {AbstractNopExpressionVisitor, ExpressionVisitor$HexaExpressionVisitor, AbstractJavaSyntaxVisitor}（唯一），与 oracle ExpressionVisitor 完全相同
+org/c/a/a/b/d/d/z	org/jd/core/v1/model/javasyntax/statement/SwitchStatement$Label	hier:直接子类型多重集恰为 {SwitchStatement$DefaultLabel, SwitchStatement$ExpressionLabel}（唯一），与 oracle SwitchStatement$Label 相同（0 方法接口）
+org/c/a/a/b/d/e/o	org/jd/core/v1/model/javasyntax/type/TypeVisitable	hier:唯一直接子类型是 BaseType，与 oracle TypeVisitable 相同（唯一）
+org/c/a/a/c/a/a/a/c/g	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/LocalVariableReference	hier:直接子类型多重集恰为 {ClassFileFormalParameter, ClassFileLocalVariableReferenceExpression}（唯一），与 oracle LocalVariableReference 相同
+org/c/a/a/b/d/d/ai	org/jd/core/v1/model/javasyntax/statement/WhileStatement	src:创建点分布唯一 —— 本类同时被 StatementMaker(1 处) 与 LoopStatementMaker(3 处) 创建；oracle 里同时出现在这两个 maker 的只有 WhileStatement（StatementMaker.java:261、LoopStatementMaker.java:131/202/351）
+org/c/a/a/b/d/d/g	org/jd/core/v1/model/javasyntax/statement/DoWhileStatement	src:只被 LoopStatementMaker 创建（1 处）；oracle LoopStatementMaker.java:208 是唯一 new DoWhileStatement 的地方
+org/c/a/a/b/d/d/ac	org/jd/core/v1/model/javasyntax/statement/SynchronizedStatement	src:唯一创建者是 c/a/a/c/al —— 该类的方法是 (ListIterator,NewExpression)→Field/(Statements,NewExpression)→AbstractExpression，且调用 SynchronizedStatementMaker$RemoveMonitorExitVisitor.localVariable 与 LocalVariableMaker 构造器；oracle SynchronizedStatementMaker.java:73 正是 new SynchronizedStatement(monitor, tryStatements)
+org/c/a/a/b/d/a/y	org/jd/core/v1/model/javasyntax/declaration/LocalVariableDeclarators	fp:javap 字节码指纹 0.48（与次优差 0.16）；父类 DefaultList、字段 (boolean,static)，方法参数 (int, LocalVariableDeclarator>) 与 oracle LocalVariableDeclarators 一致
+org/c/a/a/b/d/b/ac	org/jd/core/v1/model/javasyntax/expression/NewInitializedArray	fp:javap 字节码指纹 0.33（与次优差 0.09）；创建点/指令对齐均指向 NewInitializedArray（三层数组常量表达式）
+org/c/a/a/c/a/a/c/al	org/jd/core/v1/service/converter/classfiletojavasyntax/util/SynchronizedStatementMaker	src:hier+signature:静态方法 (LocalVariableMaker, Statements, Statements)→Statement 与 oracle SynchronizedStatementMaker.make 逐参相同；字段 (static boolean) 正是 $assertionsDisabled；唯一创建者是它 new 的 ac(=SynchronizedStatement)，并调用 SynchronizedStatementMaker$RemoveMonitorExitVisitor.localVariable

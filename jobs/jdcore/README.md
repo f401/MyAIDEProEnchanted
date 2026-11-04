@@ -489,3 +489,69 @@ c/a/a/a/b/a/e  → **ClassFileConstructorOrMethodDeclaration**（实现者 d/l/m
 门禁：validate ✔ 无无效映射 · inherit CONFLICT 0 / DUPTARGET 0（MISSING 418 条=71 个祖先成员，
       全在未定名类） · famcheck 0/0 · innercheck ②③ 0 · audit kind 0 / hier 3（见上）
 ```
+
+## 第十批：子类多重集 + 调用点（callee）两把新钥匙 → **402/434（92.6%）**
+
+成员名一填起来，`bytefp` 的指纹立刻变准（折叠时用 `members.tsrg` 改名表）：
+
+```
+标定 rank-1 89.0% → 92.8%；thr=0.30/margin=0.06 时精度 98.1%
+按默认档落 2 条：b/d/a/y=LocalVariableDeclarators、b/d/b/ac=NewInitializedArray
+```
+
+### 钥匙一：`hier` —— **直接子类型多重集**（接口/抽象类的唯一可行判据）
+
+接口没有方法体，指纹全空；但"谁实现/继承我"是改名不变的。这个多重集**唯一**时就是硬判据
+（父子关系取 `javap` 头，接口的 `extends A, B` 展开）：
+
+```
+b/d/b/o → ExpressionVisitor            children={AbstractNopExpressionVisitor,
+                                       ExpressionVisitor$HexaExpressionVisitor, AbstractJavaSyntaxVisitor}
+b/d/d/z → SwitchStatement$Label        children={$DefaultLabel, $ExpressionLabel}
+b/d/e/o → TypeVisitable                children={BaseType}
+c/a/a/a/c/g → LocalVariableReference   children={ClassFileFormalParameter,
+                                       ClassFileLocalVariableReferenceExpression}
+```
+
+> `z` 在 freelly 里被改成了 **abstract class**（原版是 interface，extends Statement）——
+> `audit.py` 的 `kind` 会一直报这一条，属结构差异，不是判错。
+
+### 钥匙二：**创建点分布**（谁来 new 我，按"哪几个类"而不是"哪个位置"）
+
+同形簇（{If, While, DoWhile, Synchronized} 四个语句字段全同：`BaseExpression + BaseStatement`）
+只能靠 maker 分：
+
+```
+ai → WhileStatement        同时被 StatementMaker(1 处) 与 LoopStatementMaker(3 处) 创建；
+                           oracle 里同时出现在这两个 maker 的只有 WhileStatement
+g  → DoWhileStatement      只被 LoopStatementMaker 创建（oracle 该文件只有 1 处 new DoWhileStatement）
+ac → SynchronizedStatement 唯一创建者是 al；al 的静态方法签名 (LocalVariableMaker, Statements,
+                           Statements)→Statement 与 oracle synchronizedStatementMaker.make 逐参相同，
+                           且字段 (static boolean) 就是 $assertionsDisabled
+al → SynchronizedStatementMaker   ← 同时把老映射 v→SynchronizedStatementMaker **推翻撤销**
+                           （v 的 2 个静态方法返回 Field/AbstractExpression，与 maker 签名不符）
+```
+
+顺带纠正两处"抽象基类"：
+
+```
+b/d/b/n  CommentExpression → **AbstractExpression**（role:）
+         abstract、0 字段、implements BaseExpression，直接子类是 AbstractLineNumberExpression /
+         ObjectTypeReferenceExpression / TypeReferenceDotClassExpression；1.1.3 的 expression 包
+         42 个类里没有它（魔改/新版），CommentExpression 是 final 且有 1 个 String 字段
+b/d/e/m  Type → **AbstractType**（role:，同上一批）
+```
+
+### 状态
+
+```
+402/434 = 92.6%（32 个类未定名）
+成员：方法 2079/3321 = 62.6%、字段 787/974 = 80.8%（已定名类内部 99.5% / 98.1%）
+门禁：validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · audit kind 1(已知)
+      / hier 3(已知) · 成员行 2860
+```
+
+剩余 32 个集中在三块，且都已确认"同形"：`c/a/a/c`(util) 12↔12（其中 `ad/af` 与
+`TypeMaker$TypeTypes/$MethodTypes` 的字段**顺序**不同但多重集相同，指令流逐字一样——
+需要靠 TypeMaker 里的调用点区分）、`c/a/a/d`(visitor) 5、`b/d/e`(type) 5、
+`b/d/a`(declaration) 6。
