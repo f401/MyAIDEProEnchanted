@@ -46610,6 +46610,8 @@ org/c/a/a/b/d/c/b org/jd/core/v1/model/javasyntax/reference/AnnotationReference
 	c elementValuePairs
 	a (Lorg/c/a/a/b/d/c/o;)V accept
 		0 visitor visitor
+	e ()Lorg/c/a/a/b/d/c/g; getElementValue
+	b elementValue
 org/c/a/a/b/f/g org/jd/core/v1/model/token/KeywordToken
 	a (Lorg/c/a/a/b/f/q;)V accept
 		0 visitor visitor
@@ -46706,6 +46708,8 @@ org/c/a/a/b/d/a/ac org/jd/core/v1/model/javasyntax/declaration/MethodDeclaration
 	o_ ()Lorg/c/a/a/b/d/e/l; getExceptionTypes
 	a annotationReferences
 	e exceptionTypes
+	m ()Lorg/c/a/a/b/d/c/g; getDefaultAnnotationValue
+	j defaultAnnotationValue
 org/c/a/a/b/d/a/ad org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 		0 visitor visitor
@@ -46971,6 +46975,8 @@ org/c/a/a/b/d/c/j org/jd/core/v1/model/javasyntax/reference/ElementValuePair
 	d ()Ljava/lang/String; getName
 	a (Lorg/c/a/a/b/d/c/o;)V accept
 		0 visitor visitor
+	e ()Lorg/c/a/a/b/d/c/g; getElementValue
+	b elementValue
 org/c/a/a/b/d/c/k org/jd/core/v1/model/javasyntax/reference/ElementValuePairs
 	a (Lorg/c/a/a/b/d/c/o;)V accept
 		0 visitor visitor
@@ -48825,6 +48831,9 @@ org/c/a/a/c/a/a/c/b org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	a (Lorg/c/a/a/b/a/a/z;)V visit
 		0 elementValueArrayValue elementValueArrayValue
 	c $assertionsDisabled
+	a (Lorg/c/a/a/b/a/a/x;)Lorg/c/a/a/b/d/c/g; convert
+		0 ev ev
+	b elementValue
 org/c/a/a/c/a/a/c/ah org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker$MemberVisitor
 	a ()Z found
 	a (Lorg/c/a/a/b/d/a/r;)V visit
@@ -49152,7 +49161,6 @@ org/c/a/a/c/a/a/a/b/c/f org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	g ()Z isJsr
 	f eclipse
 	e jsr
-org/c/a/a/c/a/a/c/e org/jd/core/v1/service/converter/classfiletojavasyntax/util/MergeMembersUtil
 org/c/a/a/c/a/a/c/f org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser$MemberVisitor
 	a ()Z found
 	a (Lorg/c/a/a/b/d/a/r;)V visit
@@ -49882,6 +49890,8 @@ org/c/a/a/b/d/a org/jd/core/v1/model/javasyntax/AbstractJavaSyntaxVisitor
 		0 statement statement
 	a (Lorg/c/a/a/b/d/d/g;)V visit
 		0 statement statement
+	a (Lorg/c/a/a/b/d/a/l;)V safeAccept
+		0 declaration declaration
 org/c/a/a/b/e/a org/jd/core/v1/model/message/Message
 	a ()Ljava/lang/Object; getBody
 	a (Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object; getHeader
@@ -51469,3 +51479,7 @@ org/c/a/a/c/a/a/d/t org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 		0 type type
 	a blackListNames
 org/c/a/a/b/d/a/g org/jd/core/v1/model/javasyntax/declaration/BaseMemberDeclaration
+org/c/a/a/b/d/a/l org/jd/core/v1/model/javasyntax/declaration/Declaration
+	a (Lorg/c/a/a/b/d/a/m;)V accept
+org/c/a/a/b/d/a/aa org/jd/core/v1/model/javasyntax/declaration/AbstractMemberDeclaration
+org/c/a/a/b/d/c/g org/jd/core/v1/model/javasyntax/reference/ElementValue

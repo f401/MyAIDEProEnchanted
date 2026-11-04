@@ -692,3 +692,48 @@ g: 已定名 i(=BodyDeclaration) 的字段类型是 (String, g)，oracle BodyDec
 `c/a/a/a/a` 1。其中 `aa` 已查明是"abstract + implements MemberDeclaration + Base 默认方法 +
 直接父类是被 5 个 declaration 类继承的那个"，与 `i`(=BodyDeclaration) 形成一对"到底哪个是
 BodyDeclaration/BaseMemberDeclaration"的待解对，下一轮用 BodyDeclaration 的字段/构造器再对一次即可。
+
+## 第十三批：接口反查父类 + 常量内联 → **425/434（97.9%）**
+
+```
+l  → Declaration                 已定名 i(=BodyDeclaration) 的唯一接口就是本类，而 oracle
+                                 BodyDeclaration 的唯一接口正是 Declaration；它的 24 个
+                                 int 常量被内联掉（探针 0 字段）也符合
+g  → ElementValue                interface、0 方法、唯一父接口是 e(=BaseElementValue)；
+                                 oracle ElementValue 正是 extends BaseElementValue 的空接口
+                                 （6 个 byte 常量同样被内联）
+g(decl) → BaseMemberDeclaration   已定名 i(=BodyDeclaration) 的字段类型是 (String, g)，
+                                 与 oracle 的 (internalTypeName, memberDeclarations) 对齐
+aa → AbstractMemberDeclaration   role:abstract、implements MemberDeclaration、方法全是 Base
+                                 默认实现，且是 MethodDeclaration/FieldDeclaration/
+                                 ConstructorDeclaration/StaticInitializerDeclaration 的直接父类。
+                                 1.1.3 里这 4 个类**都直接 implements MemberDeclaration、没有公共
+                                 基类**（javap 逐个确认）⇒ freelly 新增，按作用命名
+```
+
+### 又撤销一条 count 判据
+
+```
+e → MergeMembersUtil   撤销：MergeMembersUtil 没有父类、只有 2 个静态方法 + 1 个静态比较器字段；
+                       而探针 e 是 extends AbstractJavaSyntaxVisitor、持 DefaultList 字段的访问器。
+                       原判据是"整包 (方法数,字段数) 精确双射 (5,1)"——计数撞车。留白。
+```
+
+### 状态
+
+```
+425/434 = 97.9%（9 个类未定名）
+成员行 2966；覆盖（已定名类内部）方法 2120/2131 = 99.5%、字段 815/832 = 98.0%
+门禁：validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
+```
+
+剩余 9：`c/a/a/c` 6（p/q 是 extends 表达式类 d 且持 BaseType 字段的一对；s 是 extends
+AbstractJavaSyntaxVisitor 的语句访问器；t 只有 3 个方法；v 持静态 Field 常量 + 2 个静态方法；
+e 已撤销）、`b/d/a/e`（extends Declaration + util/Base 的空接口，实现者是 FormalParameter 与
+ArrayVariableInitializer）、`b/d/e/d`（extends TypeArgumentVisitable + util/Base 的空接口，
+与 oracle 里任何接口的接口集都不完全一致）、`c/a/a/a/a/f`（持 DefaultList/Method/int[]，
+工作对象是 BasicBlock —— 与唯一空闲的 ControlFlowGraph$1 形状差太远，疑为 freelly 拆出的
+基本块解析器）。
+
+九类全部是"接口/被拆分类"，没有一个是靠相似度能定的；下一轮只能用 oracle 源码里对它们的
+**调用点语义**逐个确认（例如 `p`/`q` 的持有者是谁、`s` 被谁 `visit`），或者按 `role:` 收尾。
