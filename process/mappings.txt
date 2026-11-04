@@ -47628,11 +47628,11 @@ org/c/a/a/c/c/a/b/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	a (I)V buildTokensForTypeAccessFlags
 		0 flags flags
 	a (Lorg/c/a/a/b/d/a/u;)V visit
-		0 declaration declaration
+		0 declarations declarations
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/ab;)V visit
-		0 declarations declarations
+		0 list list
 	a (Lorg/c/a/a/b/d/a/c;)V visit
 		0 declaration declaration
 	a (Ljava/lang/String;)V visitModuleDeclaration
@@ -48675,7 +48675,30 @@ org/c/a/a/c/a/a/d/i org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/c/a/a/a/b/a/g;Lorg/c/a/a/c/a/a/a/b/a/g;)I compare
 		0 ec1 ec1
 		1 ec2 ec2
-org/c/a/a/c/a/a/d/c org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/BindTypeArgumentsToTypeArgumentsVisitor
+org/c/a/a/c/a/a/d/c org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/CreateInstructionsVisitor
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/ah;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/k;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/q;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/c/a/a/a/b/a/e;Lorg/c/a/a/c/a/a/c/o;)V createParametersVariablesAndStatements
+		0 comd comd
+		1 localVariableMaker localVariableMaker
+	c $assertionsDisabled
+	b typeMaker
 org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateIntegerConstantTypeVisitor
 	a (Lorg/c/a/a/b/d/d/j;)V visit
 		0 statement statement
@@ -48774,6 +48797,8 @@ org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 		0 expression expression
 	b (Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; updateBooleanExpression
 		0 expression expression
+	a (Lorg/c/a/a/b/d/a/c;)V visit
+		0 declaration declaration
 org/c/a/a/c/a/a/d/p org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInstanceFieldVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 		0 declaration declaration
@@ -49252,11 +49277,11 @@ org/c/a/a/b/c/v org/jd/core/v1/model/javafragment/StartStatementsBlockFragment
 		0 visitor visitor
 	h ()Lorg/c/a/a/b/c/w; getGroup
 	g group
-org/c/a/a/b/d/a/ab org/jd/core/v1/model/javasyntax/declaration/FormalParameters
-	a $assertionsDisabled
+org/c/a/a/b/d/a/ab org/jd/core/v1/model/javasyntax/declaration/MemberDeclarations
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 		0 visitor visitor
-org/c/a/a/b/d/a/c org/jd/core/v1/model/javasyntax/declaration/TypeDeclarations
+	a $assertionsDisabled
+org/c/a/a/b/d/a/c org/jd/core/v1/model/javasyntax/declaration/ArrayVariableInitializer
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 		0 visitor visitor
 org/c/a/a/b/d/a/i org/jd/core/v1/model/javasyntax/declaration/BodyDeclaration
@@ -49266,9 +49291,10 @@ org/c/a/a/b/d/a/i org/jd/core/v1/model/javasyntax/declaration/BodyDeclaration
 	a internalTypeName
 	b ()Lorg/c/a/a/b/d/a/g; getMemberDeclarations
 	b memberDeclarations
-org/c/a/a/b/d/a/u org/jd/core/v1/model/javasyntax/declaration/ArrayVariableInitializer
+org/c/a/a/b/d/a/u org/jd/core/v1/model/javasyntax/declaration/FormalParameters
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 		0 visitor visitor
+	a $assertionsDisabled
 org/c/a/a/b/d/b/a org/jd/core/v1/model/javasyntax/expression/AbstractLambdaExpression
 	b ()I getPriority
 	d ()Lorg/c/a/a/b/d/d/b; getStatements
@@ -49888,7 +49914,7 @@ org/c/a/a/b/c/w org/jd/core/v1/model/javafragment/StartStatementsBlockFragment$G
 	b minimalLineCount
 org/c/a/a/b/d/a org/jd/core/v1/model/javasyntax/AbstractJavaSyntaxVisitor
 	a (Lorg/c/a/a/b/d/a/ab;)V visit
-		0 list list
+		0 declarations declarations
 	a (Lorg/c/a/a/b/d/a/ac;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/ad;)V visit
@@ -49900,7 +49926,7 @@ org/c/a/a/b/d/a org/jd/core/v1/model/javasyntax/AbstractJavaSyntaxVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/c;)V visit
-		0 list list
+		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/j;)V visit
@@ -49922,7 +49948,7 @@ org/c/a/a/b/d/a org/jd/core/v1/model/javasyntax/AbstractJavaSyntaxVisitor
 	a (Lorg/c/a/a/b/d/a/t;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/u;)V visit
-		0 declaration declaration
+		0 list list
 	a (Lorg/c/a/a/b/d/a/v;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/w;)V visit
@@ -50361,7 +50387,7 @@ org/c/a/a/b/d/a/a org/jd/core/v1/model/javasyntax/declaration/AbstractNopDeclara
 	a (Lorg/c/a/a/b/d/a/t;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/u;)V visit
-		0 declaration declaration
+		0 declarations declarations
 	a (Lorg/c/a/a/b/d/a/v;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/w;)V visit
@@ -50371,6 +50397,7 @@ org/c/a/a/b/d/a/a org/jd/core/v1/model/javasyntax/declaration/AbstractNopDeclara
 	a (Lorg/c/a/a/b/d/a/y;)V visit
 		0 declarators declarators
 org/c/a/a/b/d/b/c org/jd/core/v1/model/javasyntax/expression/AbstractLineNumberTypeExpression
+	a (Lorg/c/a/a/b/d/e/l;)V setType
 org/c/a/a/b/d/d/e org/jd/core/v1/model/javasyntax/statement/CommentStatement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
@@ -51013,6 +51040,7 @@ org/c/a/a/c/a/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	d index
 	a (Lorg/c/a/a/c/a/a/a/c/g;)V addReference
 		0 reference reference
+	h ()I getFromOffset
 org/c/a/a/c/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/util/AggregateFieldsUtil
 	a (Ljava/util/List;)V aggregate
 		static
@@ -51387,6 +51415,7 @@ org/c/a/a/c/a/a/d/a org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 		0 statement statement
 	a (Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; updateExpression
 org/c/a/a/c/a/a/d/ae org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateIntegerConstantTypeVisitor$DimensionTypes
+	size ()I size
 org/c/a/a/c/a/a/d/ag org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateTypeVisitor
 	a (Lorg/c/a/a/b/a/a/ai;)V setLocalVariableType
 		0 localVariableType localVariableType
@@ -51448,7 +51477,9 @@ org/c/a/a/c/c/a/b/l org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 org/c/a/a/b/d/e/q org/jd/core/v1/model/javasyntax/type/TypeParameter
 	a identifier
 	d ()Ljava/lang/String; getIdentifier
+	a (Lorg/c/a/a/b/d/e/u;)V accept
 org/c/a/a/b/d/e/r org/jd/core/v1/model/javasyntax/type/TypeParameterWithTypeBounds
+	a (Lorg/c/a/a/b/d/e/u;)V accept
 org/c/a/a/b/d/e/s org/jd/core/v1/model/javasyntax/type/TypeParameters
 	a $assertionsDisabled
 org/c/a/a/b/d/e/c org/jd/core/v1/model/javasyntax/type/TypeArguments
@@ -51650,6 +51681,8 @@ org/c/a/a/b/d/b/ac org/jd/core/v1/model/javasyntax/expression/NewInitializedArra
 	a (Lorg/c/a/a/b/d/b/o;)V accept
 		0 visitor visitor
 	b ()I getPriority
+	d ()Lorg/c/a/a/b/d/a/c; getArrayInitializer
+	a arrayInitializer
 org/c/a/a/c/a/a/c/al org/jd/core/v1/service/converter/classfiletojavasyntax/util/SynchronizedStatementMaker
 	a (Lorg/c/a/a/c/a/a/c/o;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r; make
 		static
@@ -51809,6 +51842,11 @@ org/c/a/a/c/a/a/c/t org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 		0 result result
 		1 members members
 	a MEMBER_DECLARATION_COMPARATOR
+	a (Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lorg/c/a/a/b/d/a/ab; merge
+		static
+		0 fields fields
+		1 methods methods
+		2 innerTypes innerTypes
 org/c/a/a/c/a/a/c/p org/jd/core/v1/service/converter/classfiletojavasyntax/util/LocalVariableMaker$LocalVariableReferenceTypeSetter
 org/c/a/a/c/a/a/c/q org/jd/core/v1/service/converter/classfiletojavasyntax/util/LocalVariableMaker$LocalVariableReferenceTypeSetter$WithType
 org/c/a/a/c/a/a/c/v org/jd/core/v1/service/converter/classfiletojavasyntax/util/FieldAggregator

@@ -895,3 +895,61 @@ implements `BaseExpression`，被 AbstractLineNumberExpression 继承；同类�
 `AbstractType`/`Expression` 抽象类化/`LocalVariable` 接口/`ClassTypeResolver` 拆分等），
 oracle 端没有对应签名，靠名字反推没有依据；41 条 ambiguous 是"同描述符多个 oracle 成员"
 （`size()I` 可能是 getDimension/hashCode/getLineNumber…），只能逐条读方法体。
+
+## 第十七批：逐方法体（工具 + 协议）→ 成员 **69.0% / 89.2%**
+
+### 新工具 `tools/deob/bodymatch.py`：不管描述符，只比方法体 + 名字池约束
+
+```
+候选池 = 同类 oracle 方法里"还没被占用"的名字（占用情况由**探针类的映射**反推，见下）
+打分   = 归一化 token 多重集的 Jaccard；接受条件 = 分数 ≥ thr、与次佳差 ≥ margin、且双向唯一
+另有 --bijection 模式：类内"未定名方法 1 个 / oracle 未用名字 1 个"→ 双射强制，
+     再用"返回类型相同"做硬校验
+```
+
+**踩到的坑（很重要）**：第一版把"oracle 未用名字"算成 `{n for (o,n,d) in members if o==oracle类}` ——
+但 `members.tsrg` 的键是**探针类**，这么筛永远为空，于是候选池等于"整个 oracle 类"，
+出现了把已用名字再分配一次的危险候选（例如 6 个类同时抢 `getPriority`）。
+必须先建 `claimed[oracle类] = {已映射的真名}` 再取补集。修完之后候选从"看起来 274 条"降到真正可用的十几条。
+
+### 逐方法体确认的 5 条（每条都贴了 P/O 方法体对比）
+
+```
+b/d/b/c.a  → setType          P/O 逐条相同（aload_0/aload_1/putfield this.type/return）
+c/a/a/d/ae.size → size        P/O 逐条相同（iconst_0/ireturn）
+c/a/a/a/c/a.h  → getFromOffset 同形（读本类字段 ireturn），差别只是 oracle 侧那个字段名已知
+b/d/e/q.a, b/d/e/r.a → accept  同形（aload_0/aload_1/调 visitor.visit/return）；
+                              形参接口在 freelly 里是 TypeArgumentVisitor 而非 TypeParameterVisitor
+```
+
+同批**否决**了 4 条高分假匹配（`TypeMaker.makeFromSignature` 0.79、`ByteCodeParser.checkStack` 0.68、
+`TypeParameters.accept`、`CatchClause.addResources` 等）——方法体明显不同或 oracle 没有该名字。
+
+### 两个"看错一位"的整类纠正（由 audit 的 hier + 描述符重合率 0/10 揪出来）
+
+```
+c/a/a/d/c  BindTypeArgumentsToTypeArgumentsVisitor → **CreateInstructionsVisitor**
+           extends AbstractJavaSyntaxVisitor、字段 (类型解析器, TypeMaker)、ctor 两个参数、
+           9~10 个 visit(各种 declaration) —— 与 oracle CreateInstructionsVisitor 逐项对应
+           （原判据是"包内方法数/字段数唯一"，而 audit 早就报它父类不符；改判后 +10 方法 +2 字段）
+b/d/a/{ab,c,u} 的一次 3-循环纠正
+           ab: 接口 g(=BaseMemberDeclaration) → **MemberDeclarations**
+           c : 接口 aj(=VariableInitializer)  → **ArrayVariableInitializer**
+           u : 接口 e(=BaseFormalParameter)   → **FormalParameters**
+           （三个都是 extends DefaultList 的包装类，成员/字段数形状完全一样，只有实现的接口不同）
+```
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2293/3321 = 69.0%（已定名类内部 99.7%）
+字段  869/974  = 89.2%（已定名类内部 98.4%）
+待人工 318 = no-oracle-descriptor 278 + ambiguous 40
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+     · audit kind 1 / hier 5（全是 freelly 结构差异）
+```
+
+剩余 318 条的分布：`c/a/a/c/c`(ByteCodeParser) 18、`c/a/a/c/ac`(TypeMaker) 14、`c/a/a/a/c/j` 12、
+`c/a/a/a/c/a` 7、`c/a/a/c/o` 8 …… 逐方法体的节奏是每轮 5~10 条（每条要贴 P/O 方法体对比并判真伪），
+其中"高分假匹配"比例不低（本轮 9 条里 4 条被否），所以只能人工确认、不能批量落。
