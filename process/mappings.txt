@@ -46563,7 +46563,6 @@ org/c/a/a/b/d/b/t org/jd/core/v1/model/javasyntax/expression/IntegerConstantExpr
 	d ()I getValue
 	a value
 	d $assertionsDisabled
-org/c/a/a/b/d/b/u org/jd/core/v1/model/javasyntax/expression/LambdaIdentifiersExpression
 org/c/a/a/b/d/b/v org/jd/core/v1/model/javasyntax/expression/LengthExpression
 org/c/a/a/b/d/b/w org/jd/core/v1/model/javasyntax/expression/LocalVariableReferenceExpression
 org/c/a/a/b/d/b/x org/jd/core/v1/model/javasyntax/expression/LongConstantExpression
@@ -46575,10 +46574,8 @@ org/c/a/a/b/d/b/y org/jd/core/v1/model/javasyntax/expression/MethodInvocationExp
 	a (Lorg/c/a/a/b/d/b/f;)V setParameters
 		0 parameters parameters
 	a parameters
-org/c/a/a/b/d/c/i org/jd/core/v1/model/javasyntax/reference/ElementValueArrayInitializerElementValue
 org/c/a/a/b/d/c/j org/jd/core/v1/model/javasyntax/reference/ElementValuePair
 org/c/a/a/b/d/c/k org/jd/core/v1/model/javasyntax/reference/ElementValuePairs
-org/c/a/a/b/d/c/m org/jd/core/v1/model/javasyntax/reference/ExpressionElementValue
 org/c/a/a/b/d/d/ad org/jd/core/v1/model/javasyntax/statement/ThrowStatement
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
@@ -46613,22 +46610,11 @@ org/c/a/a/b/d/d/q org/jd/core/v1/model/javasyntax/statement/ReturnStatement
 	a RETURN
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
-org/c/a/a/b/d/e/g org/jd/core/v1/model/javasyntax/type/GenericType
-	f ()Z isGeneric
-	b dimension
-	c $assertionsDisabled
 org/c/a/a/b/d/e/h org/jd/core/v1/model/javasyntax/type/InnerObjectType
 	b ()Lorg/c/a/a/b/d/e/i; getOuterType
 	hashCode ()I hashCode
 	a outerType
 	b $assertionsDisabled
-org/c/a/a/b/d/e/i org/jd/core/v1/model/javasyntax/type/ObjectType
-	l ()Z isObject
-	u dimension
-	w $assertionsDisabled
-org/c/a/a/b/d/e/k org/jd/core/v1/model/javasyntax/type/PrimitiveType
-	m_ ()Z isPrimitive
-	x $assertionsDisabled
 org/c/a/a/b/d/e/x org/jd/core/v1/model/javasyntax/type/WildcardExtendsTypeArgument
 org/c/a/a/b/d/e/y org/jd/core/v1/model/javasyntax/type/WildcardSuperTypeArgument
 org/c/a/a/b/f/c org/jd/core/v1/model/token/CharacterConstantToken
@@ -46745,11 +46731,9 @@ org/c/a/a/b/a/b org/jd/core/v1/model/classfile/ConstantPool
 	e (I)Lorg/c/a/a/b/a/b/m; getConstantValue
 		0 index index
 	a constants
-org/c/a/a/b/c/m org/jd/core/v1/model/javafragment/TokensFragment
+org/c/a/a/b/c/m org/jd/core/v1/model/javafragment/LineNumberTokensFragment
 	a (Lorg/c/a/a/b/c/l;)V accept
 		0 visitor visitor
-org/c/a/a/b/d/c/a org/jd/core/v1/model/javasyntax/reference/ElementValue
-org/c/a/a/c/e/a/a/c org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/JavaFragmentFactory
 org/c/a/a/b/b/b org/jd/core/v1/model/fragment/EndMovableBlockFragment
 	a (Lorg/c/a/a/b/b/f;)V accept
 		0 visitor visitor
@@ -46780,7 +46764,6 @@ org/c/a/a/c/a/a/c/ao org/jd/core/v1/service/converter/classfiletojavasyntax/util
 	a (Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)V check
 		0 parent parent
 		1 child child
-org/c/a/a/c/a/a/c/d org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser
 org/c/a/a/c/a/a/c/r org/jd/core/v1/service/converter/classfiletojavasyntax/util/LoopStatementMaker
 org/c/a/a/c/c/a/b/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/CompilationUnitVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
@@ -46792,11 +46775,9 @@ org/c/a/a/c/c/a/b/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	a (Lorg/c/a/a/b/d/a/k;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/c/i;)V visit
-		0 reference reference
 	a (Lorg/c/a/a/b/d/c/l;)V visit
 		0 references references
 	a (Lorg/c/a/a/b/d/c/m;)V visit
-		0 reference reference
 	a (Lorg/c/a/a/b/d/c/k;)V visit
 		0 references references
 	a (Lorg/c/a/a/b/d/c/j;)V visit
@@ -46964,7 +46945,7 @@ org/c/a/a/c/e/a/a/a org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor
 		0 fragment fragment
 	a NAME_COMPARATOR
 	m unknownLineNumberTokenVisitor
-org/c/a/a/b/c/z org/jd/core/v1/model/javafragment/LineNumberTokensFragment
+org/c/a/a/b/c/z org/jd/core/v1/model/javafragment/TokensFragment
 	a (Lorg/c/a/a/b/c/l;)V accept
 		0 visitor visitor
 org/c/a/a/c/a/a/a/a/e org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$SwitchCase
@@ -47046,7 +47027,6 @@ org/c/a/a/c/c/a/b/c org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	a (Lorg/c/a/a/b/d/b/t;)V visit
 		0 expression expression
 	a (Lorg/c/a/a/b/d/b/u;)V visit
-		0 expression expression
 	a (Lorg/c/a/a/b/d/b/v;)V visit
 		0 expression expression
 	a (Lorg/c/a/a/b/d/b/w;)V visit
@@ -47106,7 +47086,6 @@ org/c/a/a/c/c/a/b/g org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	a (Lorg/c/a/a/b/d/b/t;)V visit
 		0 expression expression
 	a (Lorg/c/a/a/b/d/b/u;)V visit
-		0 expression expression
 	a (Lorg/c/a/a/b/d/b/v;)V visit
 		0 expression expression
 	a (Lorg/c/a/a/b/d/b/w;)V visit
@@ -47302,7 +47281,6 @@ org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 	a (Lorg/c/a/a/b/d/b/g;)V visit
 		0 expression expression
 	a (Lorg/c/a/a/b/d/b/u;)V visit
-		0 expression expression
 	a (Lorg/c/a/a/b/d/b/ai;)V visit
 		0 expression expression
 	a (Lorg/c/a/a/b/d/b/j;)V visit
@@ -47477,7 +47455,6 @@ org/c/a/a/c/a/a/d/x org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/b/t;)V visit
 		0 expression expression
 	a (Lorg/c/a/a/b/d/b/u;)V visit
-		0 expression expression
 	a (Lorg/c/a/a/b/d/b/v;)V visit
 		0 expression expression
 	a (Lorg/c/a/a/b/d/b/w;)V visit
@@ -47612,7 +47589,6 @@ org/c/a/a/b/d/d/v org/jd/core/v1/model/javasyntax/statement/TryStatement$Resourc
 	a (Lorg/c/a/a/b/d/d/t;)V accept
 		0 visitor visitor
 org/c/a/a/b/d/e/l org/jd/core/v1/model/javasyntax/type/AbstractNopTypeVisitor
-org/c/a/a/b/d/e/m org/jd/core/v1/model/javasyntax/type/TypeArgumentVisitor
 org/c/a/a/c/a/a/a/a/b org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ExceptionHandler
 	c ()Lorg/c/a/a/c/a/a/a/a/a; getBasicBlock
 	a (Lorg/c/a/a/c/a/a/a/a/a;)V setBasicBlock
@@ -47770,3 +47746,6 @@ org/c/a/a/b/d/b/b org/jd/core/v1/model/javasyntax/expression/AbstractLineNumberE
 org/c/a/a/b/d/b/d org/jd/core/v1/model/javasyntax/expression/AbstractNopExpressionVisitor
 org/c/a/a/b/d/d/c org/jd/core/v1/model/javasyntax/statement/BreakStatement
 org/c/a/a/b/d/d/f org/jd/core/v1/model/javasyntax/statement/ContinueStatement
+org/c/a/a/b/d/e/g org/jd/core/v1/model/javasyntax/type/GenericType
+org/c/a/a/b/d/e/i org/jd/core/v1/model/javasyntax/type/ObjectType
+org/c/a/a/b/d/e/k org/jd/core/v1/model/javasyntax/type/PrimitiveType

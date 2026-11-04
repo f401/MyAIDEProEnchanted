@@ -119,15 +119,12 @@ org/c/a/a/b/d/b/m	org/jd/core/v1/model/javasyntax/expression/EnumConstantReferen
 org/c/a/a/b/d/b/q	org/jd/core/v1/model/javasyntax/expression/FieldReferenceExpression	str:toString() 里写死的类名字符串 "FieldReferenceExpression{"（混淆不改字符串）
 org/c/a/a/b/d/b/r	org/jd/core/v1/model/javasyntax/expression/FloatConstantExpression	str:toString() 里写死的类名字符串 "FloatConstantExpression{"（混淆不改字符串）
 org/c/a/a/b/d/b/t	org/jd/core/v1/model/javasyntax/expression/IntegerConstantExpression	str:toString() 里写死的类名字符串 "IntegerConstantExpression{"（混淆不改字符串）
-org/c/a/a/b/d/b/u	org/jd/core/v1/model/javasyntax/expression/LambdaIdentifiersExpression	str:toString() 里写死的类名字符串 "LambdaIdentifiersExpression{"（混淆不改字符串）
 org/c/a/a/b/d/b/v	org/jd/core/v1/model/javasyntax/expression/LengthExpression	str:toString() 里写死的类名字符串 "LengthExpression{"（混淆不改字符串）
 org/c/a/a/b/d/b/w	org/jd/core/v1/model/javasyntax/expression/LocalVariableReferenceExpression	str:toString() 里写死的类名字符串 "LocalVariableReferenceExpression{"（混淆不改字符串）
 org/c/a/a/b/d/b/x	org/jd/core/v1/model/javasyntax/expression/LongConstantExpression	str:toString() 里写死的类名字符串 "LongConstantExpression{"（混淆不改字符串）
 org/c/a/a/b/d/b/y	org/jd/core/v1/model/javasyntax/expression/MethodInvocationExpression	str:toString() 里写死的类名字符串 "MethodInvocationExpression{"（混淆不改字符串）
-org/c/a/a/b/d/c/i	org/jd/core/v1/model/javasyntax/reference/ElementValueArrayInitializerElementValue	str:toString() 里写死的类名字符串 "ElementValueArrayInitializerElementValue{"（混淆不改字符串）
 org/c/a/a/b/d/c/j	org/jd/core/v1/model/javasyntax/reference/ElementValuePair	str:toString() 里写死的类名字符串 "ElementValuePair{"（混淆不改字符串）
 org/c/a/a/b/d/c/k	org/jd/core/v1/model/javasyntax/reference/ElementValuePairs	str:toString() 里写死的类名字符串 "ElementValuePairs{"（混淆不改字符串）
-org/c/a/a/b/d/c/m	org/jd/core/v1/model/javasyntax/reference/ExpressionElementValue	str:toString() 里写死的类名字符串 "ExpressionElementValue{"（混淆不改字符串）
 org/c/a/a/b/d/d/ad	org/jd/core/v1/model/javasyntax/statement/ThrowStatement	str:toString() 里写死的类名字符串 "ThrowStatement{"（混淆不改字符串）
 org/c/a/a/b/d/d/h	org/jd/core/v1/model/javasyntax/statement/ExpressionStatement	str:toString() 里写死的类名字符串 "ExpressionStatement{"（混淆不改字符串）
 org/c/a/a/b/d/d/j	org/jd/core/v1/model/javasyntax/statement/ForStatement	str:toString() 里写死的类名字符串 "ForStatement{"（混淆不改字符串）
@@ -136,10 +133,7 @@ org/c/a/a/b/d/d/n	org/jd/core/v1/model/javasyntax/statement/LambdaExpressionStat
 org/c/a/a/b/d/d/o	org/jd/core/v1/model/javasyntax/statement/LocalVariableDeclarationStatement	str:toString() 里写死的类名字符串 "LocalVariableDeclarationStatement{"（混淆不改字符串）
 org/c/a/a/b/d/d/p	org/jd/core/v1/model/javasyntax/statement/ReturnExpressionStatement	str:toString() 里写死的类名字符串 "ReturnExpressionStatement{"（混淆不改字符串）
 org/c/a/a/b/d/d/q	org/jd/core/v1/model/javasyntax/statement/ReturnStatement	str:toString() 里写死的类名字符串 "ReturnStatement{"（混淆不改字符串）
-org/c/a/a/b/d/e/g	org/jd/core/v1/model/javasyntax/type/GenericType	str:toString() 里写死的类名字符串 "GenericType{"（混淆不改字符串）
 org/c/a/a/b/d/e/h	org/jd/core/v1/model/javasyntax/type/InnerObjectType	str:toString() 里写死的类名字符串 "InnerObjectType{"（混淆不改字符串）
-org/c/a/a/b/d/e/i	org/jd/core/v1/model/javasyntax/type/ObjectType	str:toString() 里写死的类名字符串 "ObjectType{"（混淆不改字符串）
-org/c/a/a/b/d/e/k	org/jd/core/v1/model/javasyntax/type/PrimitiveType	str:toString() 里写死的类名字符串 "PrimitiveType{"（混淆不改字符串）
 org/c/a/a/b/d/e/x	org/jd/core/v1/model/javasyntax/type/WildcardExtendsTypeArgument	str:toString() 里写死的类名字符串 "WildcardExtendsTypeArgument{"（混淆不改字符串）
 org/c/a/a/b/d/e/y	org/jd/core/v1/model/javasyntax/type/WildcardSuperTypeArgument	str:toString() 里写死的类名字符串 "WildcardSuperTypeArgument{"（混淆不改字符串）
 org/c/a/a/b/f/c	org/jd/core/v1/model/token/CharacterConstantToken	str:toString() 里写死的类名字符串 "CharacterConstantToken{"（混淆不改字符串）
@@ -169,9 +163,7 @@ org/c/a/a/c/a/a/a/c/j	org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 org/c/a/a/c/a/a/a/c/k	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/PrimitiveLocalVariable	str:toString() 里写死的类名字符串 "PrimitiveLocalVariable{"（混淆不改字符串）
 org/c/a/a/c/d/a/a	org/jd/core/v1/service/layouter/model/Section	str:toString() 里写死的类名字符串 "Section{"（混淆不改字符串）
 org/c/a/a/b/a/b	org/jd/core/v1/model/classfile/ConstantPool	str:字符串 "ConstantPool"（常量池容器；与本包 ClassFile/Field/Method 的三个 toString 串互不重叠）
-org/c/a/a/b/c/m	org/jd/core/v1/model/javafragment/TokensFragment	str:字符串里出现的唯一长类名 "TokensFragment"（混淆不改字符串）
-org/c/a/a/b/d/c/a	org/jd/core/v1/model/javasyntax/reference/ElementValue	str:字符串里出现的唯一长类名 "ElementValue"（混淆不改字符串）
-org/c/a/a/c/e/a/a/c	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/JavaFragmentFactory	str:字符串里出现的唯一长类名 "JavaFragmentFactory"（混淆不改字符串）
+org/c/a/a/b/c/m	org/jd/core/v1/model/javafragment/LineNumberTokensFragment	shape+父类链:探针父=FixedFragment → oracle LineNumberTokensFragment(extends FixedFragment)；与 b/c/z 互换（原先反了）
 org/c/a/a/b/b/b	org/jd/core/v1/model/fragment/EndMovableBlockFragment	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/b/b/c	org/jd/core/v1/model/fragment/FixedFragment	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/b/b/d	org/jd/core/v1/model/fragment/FlexibleFragment	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
@@ -182,7 +174,6 @@ org/c/a/a/c/a/a/c/ae	org/jd/core/v1/service/converter/classfiletojavasyntax/util
 org/c/a/a/c/a/a/c/ak	org/jd/core/v1/service/converter/classfiletojavasyntax/util/SwitchStatementMaker	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/c/a/a/c/an	org/jd/core/v1/service/converter/classfiletojavasyntax/util/TryWithResourcesStatementMaker	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/c/a/a/c/ao	org/jd/core/v1/service/converter/classfiletojavasyntax/util/WatchDog	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
-org/c/a/a/c/a/a/c/d	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/c/a/a/c/r	org/jd/core/v1/service/converter/classfiletojavasyntax/util/LoopStatementMaker	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/c/c/a/b/a	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/CompilationUnitVisitor	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/c/c/a/b/i	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/StatementVisitor	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
@@ -199,7 +190,7 @@ org/c/a/a/c/a/a/d/h	org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 org/c/a/a/c/a/a/d/r	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitStaticFieldVisitor	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
 org/c/a/a/c/c/a/b/j	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
 org/c/a/a/c/e/a/a/a	org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
-org/c/a/a/b/c/z	org/jd/core/v1/model/javafragment/LineNumberTokensFragment	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
+org/c/a/a/b/c/z	org/jd/core/v1/model/javafragment/TokensFragment	shape+父类链:探针父=FlexibleFragment → oracle TokensFragment(extends FlexibleFragment)；与 b/c/m 互换
 org/c/a/a/c/a/a/a/a/e	org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$SwitchCase	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
 org/c/a/a/c/a/a/c/ap	org/jd/core/v1/service/converter/classfiletojavasyntax/util/WatchDog$Link	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
 org/c/a/a/c/c/a/b/k	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor$Tokens	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
@@ -258,7 +249,6 @@ org/c/a/a/b/d/c/o	org/jd/core/v1/model/javasyntax/reference/AbstractNopReference
 org/c/a/a/b/d/d/af	org/jd/core/v1/model/javasyntax/statement/TryStatement$CatchClause	shape:整包 (方法数,字段数) 精确双射 (8, 5)
 org/c/a/a/b/d/d/v	org/jd/core/v1/model/javasyntax/statement/TryStatement$Resource	shape:整包 (方法数,字段数) 精确双射 (6, 3)
 org/c/a/a/b/d/e/l	org/jd/core/v1/model/javasyntax/type/AbstractNopTypeVisitor	shape:整包 (方法数,字段数) 精确双射 (6, 0)
-org/c/a/a/b/d/e/m	org/jd/core/v1/model/javasyntax/type/TypeArgumentVisitor	shape:整包 (方法数,字段数) 精确双射 (9, 0)
 org/c/a/a/c/a/a/a/a/b	org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ExceptionHandler	shape:整包 (方法数,字段数) 精确双射 (9, 3)
 org/c/a/a/c/a/a/a/b/a/g	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileEnumDeclaration$ClassFileConstant	shape:整包 (方法数,字段数) 精确双射 (3, 1)
 org/c/a/a/c/a/a/a/b/a/k	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileMemberDeclaration	shape:整包 (方法数,字段数) 精确双射 (1, 0)
@@ -289,3 +279,6 @@ org/c/a/a/b/d/b/b	org/jd/core/v1/model/javasyntax/expression/AbstractLineNumberE
 org/c/a/a/b/d/b/d	org/jd/core/v1/model/javasyntax/expression/AbstractNopExpressionVisitor	shape:字段类型组合包内唯一 —— 0 字段、方法数 33 ≤ 36，且 ExpressionVisitor 已定名（探针 33/0 vs oracle 36/0）
 org/c/a/a/b/d/d/c	org/jd/core/v1/model/javasyntax/statement/BreakStatement	shape:字段类型组合唯一 —— 字段里有一个"自引用 static 常量"（本类类型）+ Z + String，与 BreakStatement 的 BREAK/$assertionsDisabled/label 逐一对应
 org/c/a/a/b/d/d/f	org/jd/core/v1/model/javasyntax/statement/ContinueStatement	shape:字段类型组合唯一 —— 同上（自引用常量 + Z + String），对应 CONTINUE/$assertionsDisabled/label
+org/c/a/a/b/d/e/g	org/jd/core/v1/model/javasyntax/type/GenericType	str:toString() 里写死的类名串 "GenericType{"（最强证据）；与父类链冲突的是父类映射，已撤掉父类那条弱判据
+org/c/a/a/b/d/e/i	org/jd/core/v1/model/javasyntax/type/ObjectType	str:toString() 里写死的类名串 "ObjectType{"（最强证据）；与父类链冲突的是父类映射，已撤掉父类那条弱判据
+org/c/a/a/b/d/e/k	org/jd/core/v1/model/javasyntax/type/PrimitiveType	str:toString() 里写死的类名串 "PrimitiveType{"（最强证据）；与父类链冲突的是父类映射，已撤掉父类那条弱判据
