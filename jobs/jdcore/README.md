@@ -833,3 +833,65 @@ interface、0 方法、extends t(=TypeArgumentVisitable) + org/c/a/a/d/a(=util/B
 
 至此 **jd-core（`org/c/a/a`，434 类）收工**：ProGuard 757/757、dropbox、JD-Core 全部定名，
 只剩一个 freelly 新增占位接口按实留白。
+
+## 第十六批：把成员名从 65.6%/84.8% 提到 **68.5%/88.8%**
+
+### 关键发现：`b/d/b/n` 就是 freelly 版的 `Expression`
+
+成员匹配大面积卡在"no-oracle-descriptor"，做了一次**签名用量**统计才发现原因：
+
+```
+把 b/d/b/n 折成 AbstractExpression（我上一批的 role: 判断）→ 待人工方法的描述符 0/343 命中
+把 b/d/b/n 折成 Expression                                  → 123/343 命中（+102！）
+```
+
+即 freelly 把 1.1.3 里的 **`Expression` 接口改写成了抽象类**（方法全是 abstract，
+implements `BaseExpression`，被 AbstractLineNumberExpression 继承；同类现象还有
+`SwitchStatement$Label` 被改成 abstract class）。改判后一次性解锁 **102 个方法 + 一批字段**。
+
+> 判据写进证据列：`shape+desc: 本类是 abstract class、implements BaseExpression、6 个方法全 abstract，
+> 正是 Expression 接口的方法集；把本类折成 Expression 后，待人工方法里有 102 个描述符与 oracle
+> 同类成员逐一相同（折成 AbstractExpression 时一个都不中）`。
+
+### 新工具 1：`tools/deob/fieldbind.py`（方法→字段）
+
+```
+对每对已定名 (P, O)：取探针方法 m（名字已定 = R，参数折叠后与 oracle 同名方法对上）
+  m 的方法体里属于本类的字段访问恰 1 个 f；oracle 同名方法里属于 O 的字段访问恰 1 个 F
+  ⇒ f ↔ F
+```
+
+命名了 `formalParameters`、`localVariable`、`lineCount`、`EMPTY_LIST` 等。
+**踩到的坑**：dex2jar 对"继承来的字段"有时不写 owner，会被误算成"自己的字段"，于是把父类字段写进子类块
+→ `validate` 报 `no-field`。修法：加一条硬校验（字段必须真的出现在本类/目标类的字段表里）。
+
+### 新工具 2：`tools/deob/accessors.py`（字段名 → getter/setter）
+
+```
+[aload_0, getfield this.F, ?return]        → get<F>（布尔字段 is<F>）
+[aload_0, aload_1, putfield this.F, return] → set<F>
+```
+
+只在方法体**恰好是 3~4 条指令**时命中。实测净增 0：这类访问器早前已被成员匹配覆盖；
+另外还踩到一个语义坑——`getstatic ObjectType.TYPE_STRING` 那种**静态常量**不是字段访问器
+（正确名字是 `getType` 而不是 `getTYPE_STRING`），已排除静态字段。工具保留，供后续新库使用。
+
+### 成员匹配阈值
+
+`--min-score=0.2 --min-lead=0.05`（比默认 0.3/0.12 松一档）再多 5 个方法 / 1 个字段，
+全部通过 `validate`。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2275/3321 = 68.5%（已定名类内部 2244/2256 = 99.5%）
+字段  865/974  = 88.8%（已定名类内部  858/873  = 98.3%）
+待人工 339：no-oracle-descriptor 298 + ambiguous 41
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
+```
+
+**天花板说明**：剩下的 298 条绝大多数是 freelly 的**新 API**（它基于比 1.1.3 更新的 jd-core：
+`AbstractType`/`Expression` 抽象类化/`LocalVariable` 接口/`ClassTypeResolver` 拆分等），
+oracle 端没有对应签名，靠名字反推没有依据；41 条 ambiguous 是"同描述符多个 oracle 成员"
+（`size()I` 可能是 getDimension/hashCode/getLineNumber…），只能逐条读方法体。

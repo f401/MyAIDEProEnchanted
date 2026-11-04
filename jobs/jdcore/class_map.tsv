@@ -354,7 +354,7 @@ org/c/a/a/b/d/a/p	org/jd/core/v1/model/javasyntax/declaration/ExpressionVariable
 org/c/a/a/b/d/a/s	org/jd/core/v1/model/javasyntax/declaration/FieldDeclarators	fp:javap 字节码指纹 0.44（与次优差 0.09；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/b/d/a/w	org/jd/core/v1/model/javasyntax/declaration/LocalVariableDeclaration	fp:javap 字节码指纹 0.43（与次优差 0.16；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/b/d/b	org/jd/core/v1/model/javasyntax/CompilationUnit	fp:javap 字节码指纹 0.38（与次优差 0.38；七项=指令/成员/串/对齐/整数/子类/创建点）
-org/c/a/a/b/d/b/n	org/jd/core/v1/model/javasyntax/expression/AbstractExpression	role:abstract class、implements b/d/b/f(=BaseExpression)、0 字段，6 个方法全是 Base/getXxx 的默认实现；直接子类是 AbstractLineNumberExpression / ObjectTypeReferenceExpression / TypeReferenceDotClassExpression。jd-core 1.1.3 的 expression 包 42 个类里没有这个抽象基类（魔改/新版），按作用命名。原判 CommentExpression 是错的：本类是 abstract 且 0 字段，CommentExpression 是 final 且有 1 个 String 字段
+org/c/a/a/b/d/b/n	org/jd/core/v1/model/javasyntax/expression/Expression	shape+desc:本类是 abstract class、implements b/d/b/f(=BaseExpression)、6 个方法全是 abstract（b()/e()/f()/h()/j_()/k_()），正是 1.1.3 里 Expression 接口的方法集；决定性证据是**签名用法**——把本类折成 Expression 后，待人工方法里有 102 个描述符与 oracle 同类成员逐一相同（折成 AbstractExpression 时一个都不中）。即 freelly 把 Expression 接口改写成了抽象类（同类现象还有 SwitchStatement$Label），故命名 Expression
 org/c/a/a/b/d/d/d	org/jd/core/v1/model/javasyntax/statement/ByteCodeStatement	fp:javap 字节码指纹 0.43（与次优差 0.15；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/b/d/d/l	org/jd/core/v1/model/javasyntax/statement/IfStatement	fp:javap 字节码指纹 0.44（与次优差 0.08；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/b/d/e/b	org/jd/core/v1/model/javasyntax/type/AbstractTypeArgumentVisitor	fp:javap 字节码指纹 0.39（与次优差 0.20；七项=指令/成员/串/对齐/整数/子类/创建点）
