@@ -1366,3 +1366,35 @@ b/d/b/e     NewArray            "createItemType : negative dimension"      ⇒ c
 | 同形重载（`newXxxOperatorExpression` ×4、`typeOnRight/Left`、`variableOnRight/Left`、`addVariableOnLeft/Right`、`parseSTORE/parseASTORE` 之外的 STORE 家族） | ≈55 | 差异只在实参语义，两侧都无字面量/`getstatic`，dx 又把 opcode switch 折叠成公共 handler |
 | freelly 新增的常量字段（`TextToken` 的 `/*`、`*/`；`PrimitiveType` 新增的 flag） | ≈10 | 只能按 `role:` 猜（本轮不动） |
 | `TypeMaker`/`MethodTypes` 的同型字段（HashMap×N、BaseType×N） | ≈25 | 描述符完全一样，使用点也被 dx 打散 |
+
+## 第二十七批：无对照成员按作用命名（`role:`）→ 字段 **95.4%**
+
+用户授权"实在没有对照的方法/字段，按作用命名"。为此写了 `tools/deob/rolefill2.py`，
+只保留**能落到具体名词**的模板（推不出作用的宁可留白），且**覆写一律跳过**：
+
+| 模板 | 触发条件 | 命名 | 例子 |
+|---|---|---|---|
+| S1 | 静态常量字段（类型就是本类），`<clinit>` 里由单个字符串初始化 | 该字符串的 SN 形式 | `"/*"`→`SLASH_STAR`、`"*/"`→`STAR_SLASH`、`"("`→`LPAREN` |
+| S2 | 字段类型**折叠后**是内部类 | `<该类型名>`（lowerCamel） | 持有 `BaseType` 的字段→`baseType`、`ClassTypeResolver`→`classTypeResolver`、`TypeMaker`→`typeMaker` |
+| M1 | 方法体只构造**一个**内部类 | `create<该类>` | `createBinaryOperatorExpression` |
+| M2 | 只读已定名字段 f 并返回 | `get<F>` | →`getType`、`getLocalVariable`、`getSignatureToType` |
+| M3 | 只写已定名字段 f | `set<F>` | — |
+| M5 | 方法体只有一次调用（纯委托） | 与被调方法同名 | →`getDimension`、`getCommonPrimitiveType` |
+| — | **是某个祖先的同名同描述符成员（覆写）** | **跳过**（必须与祖先同名，交给 `hinher`） | 本轮因此跳过 7 条 |
+| — | 基本类型/字符串/集合字段 | 跳过（推不出作用） | — |
+
+落地 53 条（另 7 条因覆写被跳过），**字段 877 → 929（95.4%）**、方法 2440 → 2450（73.8%）。
+完整清单在 `jobs/jdcore/out/role_members.tsv`（含每条用的模板与依据）。
+
+> 注意：命中的都是**结构化**作用名（"这个字段持有的类型"/"这个方法创建什么"/"它只是委托"），
+> 不含任何臆测语义；`TypeMaker` 的两个 HashMap 之类仍留白。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2450/3321 = 73.8%（已定名类内部 2265/2269 = 99.8%）
+字段  929/974  = 95.4%（已定名类内部 872/878 = 99.3%）
+待人工 161 = 方法 128 + 字段 33
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
+```
