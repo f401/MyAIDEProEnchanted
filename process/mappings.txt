@@ -46802,3 +46802,16 @@ org/c/a/a/b/d/a/aj org/jd/core/v1/model/javasyntax/declaration/VariableInitializ
 org/c/a/a/b/d/a/h org/jd/core/v1/model/javasyntax/declaration/BaseLocalVariableDeclarator
 org/c/a/a/b/d/a/z org/jd/core/v1/model/javasyntax/declaration/BaseMemberDeclaration
 org/c/a/a/b/d/e/n org/jd/core/v1/model/javasyntax/type/TypeArgument
+org/c/a/a/c/a/a/a/c/d org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame
+org/c/a/a/c/a/a/c/ag org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker
+org/c/a/a/c/a/a/c/aj org/jd/core/v1/service/converter/classfiletojavasyntax/util/StringConcatenationUtil
+org/c/a/a/c/a/a/c/g org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeWriter
+org/c/a/a/c/a/a/d/h org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitEnumVisitor
+org/c/a/a/c/a/a/d/r org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitStaticFieldVisitor
+org/c/a/a/c/c/a/b/j org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor
+org/c/a/a/c/e/a/a/a org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor
+org/c/a/a/b/c/z org/jd/core/v1/model/javafragment/LineNumberTokensFragment
+org/c/a/a/c/a/a/a/a/e org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$SwitchCase
+org/c/a/a/c/a/a/c/ap org/jd/core/v1/service/converter/classfiletojavasyntax/util/WatchDog$Link
+org/c/a/a/c/c/a/b/k org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor$Tokens
+org/c/a/a/c/d/a/b org/jd/core/v1/service/layouter/model/Section$AutoGrowthList

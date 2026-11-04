@@ -191,3 +191,16 @@ org/c/a/a/b/d/a/aj	org/jd/core/v1/model/javasyntax/declaration/VariableInitializ
 org/c/a/a/b/d/a/h	org/jd/core/v1/model/javasyntax/declaration/BaseLocalVariableDeclarator	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
 org/c/a/a/b/d/a/z	org/jd/core/v1/model/javasyntax/declaration/BaseMemberDeclaration	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
 org/c/a/a/b/d/e/n	org/jd/core/v1/model/javasyntax/type/TypeArgument	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
+org/c/a/a/c/a/a/a/c/d	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
+org/c/a/a/c/a/a/c/ag	org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
+org/c/a/a/c/a/a/c/aj	org/jd/core/v1/service/converter/classfiletojavasyntax/util/StringConcatenationUtil	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
+org/c/a/a/c/a/a/c/g	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeWriter	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
+org/c/a/a/c/a/a/d/h	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitEnumVisitor	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
+org/c/a/a/c/a/a/d/r	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitStaticFieldVisitor	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
+org/c/a/a/c/c/a/b/j	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
+org/c/a/a/c/e/a/a/a	org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
+org/c/a/a/b/c/z	org/jd/core/v1/model/javafragment/LineNumberTokensFragment	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
+org/c/a/a/c/a/a/a/a/e	org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$SwitchCase	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
+org/c/a/a/c/a/a/c/ap	org/jd/core/v1/service/converter/classfiletojavasyntax/util/WatchDog$Link	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
+org/c/a/a/c/c/a/b/k	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor$Tokens	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
+org/c/a/a/c/d/a/b	org/jd/core/v1/service/layouter/model/Section$AutoGrowthList	desc:本类"已定名类型的成员描述符"与候选的交集最大且唯一（≥2 条，内层类尤其有效）
