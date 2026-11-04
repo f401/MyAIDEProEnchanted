@@ -631,3 +631,64 @@ b/d/b/n     → AbstractExpression            （上一批）
 `b/d/e` 1、`c/a/a/a/a` 1。下一轮的主攻方向：`c/a/a/d` 的 19 个空闲 oracle 类用
 "子类型多重集 + 创建点分布"批量筛；`c/a/a/c` 的 5 个用 `StatementMaker`/`TypeMaker`
 剩余方法的 new 序列逐个对。
+
+## 第十二批：`this$0` 反查 + 静态字段序 + 参数类型 → **423/434（97.5%）**
+
+### 判据一：内层类的 `this$0`（外类）只有一个
+
+`ac` 与 `o` 同形（都是 `extends AbstractJavaSyntaxVisitor` + `visit(ClassDeclaration/Enum/Interface)`），
+靠 `final <外类>` 字段分：
+
+```
+ac.this$0 = ab   → ab 是 Step2 构造器里 new 的 UpdateBridgeMethodVisitor（见下）
+                 → ac = UpdateBridgeMethodVisitor$BodyDeclarationsVisitor
+o.this$0  = j    → j = InitInnerClassVisitor，它的两个直接内层类里 l 已定名 = UpdateNewExpressionVisitor
+                 → o = InitInnerClassVisitor$UpdateFieldReferencesVisitor
+                   （原判 BodyDeclarationsVisitor 已改判给 ac；o 另有 updateExpression 方法可佐证）
+```
+
+### 判据二：`<clinit>` 里的**字段声明顺序**
+
+```
+UpdateJavaSyntaxTreeStep2Visitor.<clinit> 只造两个静态访问器，源码字段顺序是
+(AGGREGATE_FIELDS_VISITOR, SORT_MEMBERS_VISITOR)；
+探针 af 的 <clinit> 造 [b, aa] 逐位对应 + b 另有硬证据（见下）→ aa = SortMembersVisitor。
+```
+
+`b = AggregateFieldsVisitor` 是 **callee** 判据：全库唯一调用 `AggregateFieldsUtil` 的类就是它。
+
+### 判据三：构造器签名 + `init()` 返回值
+
+```
+ab: (ClassFileBodyDeclaration)→boolean  = oracle UpdateBridgeMethodVisitor.init
+    (Expression)→Expression            = updateExpression
+    字段 (内层访问器, HashMap)           = (bodyDeclarationsVisitor, bridgeMethodDeclarations)
+  ⇒ ab = UpdateBridgeMethodVisitor（由 UpdateJavaSyntaxTreeStep2Visitor 构造器创建）
+```
+
+### 判据四：Comparator 的**参数类型**（推翻两条形状判据）
+
+```
+i: compare 的形参是 b/a/g = ClassFileEnumDeclaration$ClassFileConstant
+   → InitEnumVisitor$EnumConstantComparator   （原判 PopulateBlackListNamesVisitor 是 (方法数,字段数) 形状撞的）
+k: compare 的形参是 b/a/k = ClassFileMemberDeclaration，且本类在 visitor 包、无外类字段
+   → InitInnerClassVisitor$MemberDeclarationComparator
+     （util 包里同签名的 MergeMembersUtil$MemberDeclarationComparator 已定名给 u，两者不是同一个类）
+t: 字段 HashSet + 构造器(HashSet) + 3 个 visit(GenericType/InnerObjectType/ObjectType)，父类 = AbstractNopTypeArgumentVisitor
+   → PopulateBlackListNamesVisitor
+g: 已定名 i(=BodyDeclaration) 的字段类型是 (String, g)，oracle BodyDeclaration 的字段是
+   (internalTypeName, memberDeclarations:BaseMemberDeclaration) ⇒ g = BaseMemberDeclaration
+```
+
+### 状态
+
+```
+423/434 = 97.5%（11 个类未定名）
+成员：方法 2143/3321 = 64.5%、字段 814/974 = 83.6%（已定名类内部 99.5% / 97.9%）
+门禁：validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+```
+
+剩余 11：`c/a/a/c`(util) 5（p/q/s/t/v）、`b/d/a`(declaration) 3（aa/e/l）、`b/d/c` 1、`b/d/e` 1、
+`c/a/a/a/a` 1。其中 `aa` 已查明是"abstract + implements MemberDeclaration + Base 默认方法 +
+直接父类是被 5 个 declaration 类继承的那个"，与 `i`(=BodyDeclaration) 形成一对"到底哪个是
+BodyDeclaration/BaseMemberDeclaration"的待解对，下一轮用 BodyDeclaration 的字段/构造器再对一次即可。

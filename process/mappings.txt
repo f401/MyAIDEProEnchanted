@@ -47198,6 +47198,8 @@ org/c/a/a/c/a/a/a/b/a/b org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	c fieldDeclarations
 	f innerTypeMap
 	d methodDeclarations
+	a (Lorg/c/a/a/b/d/a/g;)V setMemberDeclarations
+		0 memberDeclarations memberDeclarations
 org/c/a/a/c/a/a/a/b/a/c org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileClassDeclaration
 	q_ ()I getFirstLineNumber
 	a (I)V setFlags
@@ -48376,13 +48378,18 @@ org/c/a/a/c/a/a/d/d org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	d localVariable
 	c offset
 	b index
-org/c/a/a/c/a/a/d/o org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateBridgeMethodVisitor$BodyDeclarationsVisitor
-	a (Lorg/c/a/a/b/d/a/i;)V visit
+org/c/a/a/c/a/a/d/o org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$UpdateFieldReferencesVisitor
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
 		0 declaration declaration
 	a (Lorg/c/a/a/b/d/a/ah;)V visit
 		0 declaration declaration
-	a (Lorg/c/a/a/b/d/a/ac;)V visit
+	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+		0 expression expression
+	a (Lorg/c/a/a/b/d/b/q;)V visit
+		0 expression expression
+	a this$0
 org/c/a/a/c/a/a/d/af org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateJavaSyntaxTreeStep2Visitor
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 		0 declaration declaration
@@ -48399,6 +48406,9 @@ org/c/a/a/c/a/a/d/af org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 	f initEnumVisitor
 	i removeDefaultConstructorVisitor
 	j typeDeclaration
+	a AGGREGATE_FIELDS_VISITOR
+	b SORT_MEMBERS_VISITOR
+	g replaceBridgeMethodVisitor
 org/c/a/a/c/a/a/d/e org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/CreateParameterVisitor
 	a (Lorg/c/a/a/b/d/e/k;)V visit
 		0 type type
@@ -48439,7 +48449,7 @@ org/c/a/a/c/a/a/d/u org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a localVariableMaker
 	a (Lorg/c/a/a/b/d/d/u;)V visit
 		0 statements statements
-org/c/a/a/c/a/a/d/k org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitEnumVisitor$EnumConstantComparator
+org/c/a/a/c/a/a/d/k org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$MemberDeclarationComparator
 org/c/a/a/c/a/a/d/s org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/MergeTryWithResourcesStatementVisitor
 	a (Lorg/c/a/a/b/d/d/ag;)V visit
 		0 statement statement
@@ -48505,7 +48515,10 @@ org/c/a/a/c/a/a/d/s org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 		0 statement statement
 	a (Lorg/c/a/a/b/d/d/g;)V visit
 		0 statement statement
-org/c/a/a/c/a/a/d/i org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/PopulateBlackListNamesVisitor
+org/c/a/a/c/a/a/d/i org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitEnumVisitor$EnumConstantComparator
+	a (Lorg/c/a/a/c/a/a/a/b/a/g;Lorg/c/a/a/c/a/a/a/b/a/g;)I compare
+		0 ec1 ec1
+		1 ec2 ec2
 org/c/a/a/c/a/a/d/c org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/BindTypeArgumentsToTypeArgumentsVisitor
 org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateIntegerConstantTypeVisitor
 	a (Lorg/c/a/a/b/d/d/j;)V visit
@@ -48861,6 +48874,7 @@ org/c/a/a/c/a/a/c/o org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	b names
 	c blackListNames
 	g typeMaker
+	i populateBlackListNamesVisitor
 org/c/a/a/c/a/a/c/aa org/jd/core/v1/service/converter/classfiletojavasyntax/util/PrimitiveTypeUtil
 	a (Lorg/c/a/a/b/d/e/k;Lorg/c/a/a/b/d/e/k;)Lorg/c/a/a/b/d/e/k; getCommonPrimitiveType
 		static
@@ -49067,6 +49081,8 @@ org/c/a/a/b/d/a/i org/jd/core/v1/model/javasyntax/declaration/BodyDeclaration
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 		0 visitor visitor
 	a internalTypeName
+	b ()Lorg/c/a/a/b/d/a/g; getMemberDeclarations
+	b memberDeclarations
 org/c/a/a/b/d/a/u org/jd/core/v1/model/javasyntax/declaration/ArrayVariableInitializer
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 		0 visitor visitor
@@ -50352,6 +50368,7 @@ org/c/a/a/c/a/a/d/j org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 		0 declaration declaration
 	c outerType
 	d syntheticInnerFieldNames
+	a updateFieldReferencesVisitor
 org/c/a/a/c/a/a/d/v org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/RemoveDefaultConstructorVisitor
 	a (Lorg/c/a/a/b/d/a/ac;)V visit
 		0 declaration declaration
@@ -51396,3 +51413,59 @@ org/c/a/a/b/d/e/p org/jd/core/v1/model/javasyntax/type/UnmodifiableTypes
 org/c/a/a/b/d/e/w org/jd/core/v1/model/javasyntax/type/DiamondTypeArgument
 	a (Lorg/c/a/a/b/d/e/u;)V accept
 		0 visitor visitor
+org/c/a/a/c/a/a/d/aa org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SortMembersVisitor
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+		0 declaration declaration
+org/c/a/a/c/a/a/d/b org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/AggregateFieldsVisitor
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+		0 declaration declaration
+org/c/a/a/c/a/a/d/ab org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateBridgeMethodVisitor
+	a (Lorg/c/a/a/c/a/a/a/b/a/b;)Z init
+		0 bodyDeclaration bodyDeclaration
+	a bodyDeclarationsVisitor
+	b bridgeMethodDeclarations
+org/c/a/a/c/a/a/d/ac org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateBridgeMethodVisitor$BodyDeclarationsVisitor
+	a (Lorg/c/a/a/b/d/b/f;I)Z checkLocalVariableReference
+		0 expression expression
+		1 index index
+	a (Lorg/c/a/a/c/a/a/a/b/a/l;)Z checkBridgeMethodDeclaration
+		0 bridgeMethodDeclaration bridgeMethodDeclaration
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+		0 declaration declaration
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+		0 declaration declaration
+	a map
+	b this$0
+org/c/a/a/c/a/a/d/t org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/PopulateBlackListNamesVisitor
+	a (Lorg/c/a/a/b/d/e/g;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/h;)V visit
+		0 type type
+	a (Lorg/c/a/a/b/d/e/i;)V visit
+		0 type type
+	a blackListNames
+org/c/a/a/b/d/a/g org/jd/core/v1/model/javasyntax/declaration/BaseMemberDeclaration

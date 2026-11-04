@@ -870,6 +870,7 @@ org/c/a/a/c/a/a/a/b/a/b org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	c fieldDeclarations
 	f innerTypeMap
 	d methodDeclarations
+	a (Lorg/c/a/a/b/d/a/g;)V setMemberDeclarations
 org/c/a/a/c/a/a/a/b/a/c org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileClassDeclaration
 	q_ ()I getFirstLineNumber
 	a (I)V setFlags
@@ -1585,10 +1586,13 @@ org/c/a/a/c/a/a/d/d org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	d localVariable
 	c offset
 	b index
-org/c/a/a/c/a/a/d/o org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateBridgeMethodVisitor$BodyDeclarationsVisitor
-	a (Lorg/c/a/a/b/d/a/i;)V visit
-	a (Lorg/c/a/a/b/d/a/ah;)V visit
+org/c/a/a/c/a/a/d/o org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$UpdateFieldReferencesVisitor
 	a (Lorg/c/a/a/b/d/a/ac;)V visit
+	a (Lorg/c/a/a/b/d/a/ah;)V visit
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+	a (Lorg/c/a/a/b/d/b/ab;)V visit
+	a (Lorg/c/a/a/b/d/b/q;)V visit
+	a this$0
 org/c/a/a/c/a/a/d/af org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateJavaSyntaxTreeStep2Visitor
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 	a (Lorg/c/a/a/b/d/a/b;)V visit
@@ -1600,6 +1604,9 @@ org/c/a/a/c/a/a/d/af org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 	f initEnumVisitor
 	i removeDefaultConstructorVisitor
 	j typeDeclaration
+	a AGGREGATE_FIELDS_VISITOR
+	b SORT_MEMBERS_VISITOR
+	g replaceBridgeMethodVisitor
 org/c/a/a/c/a/a/d/e org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/CreateParameterVisitor
 	a (Lorg/c/a/a/b/d/e/k;)V visit
 	a (Lorg/c/a/a/b/d/e/i;)V visit
@@ -1627,7 +1634,7 @@ org/c/a/a/c/a/a/d/u org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/a/i;)V visit
 	a localVariableMaker
 	a (Lorg/c/a/a/b/d/d/u;)V visit
-org/c/a/a/c/a/a/d/k org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitEnumVisitor$EnumConstantComparator
+org/c/a/a/c/a/a/d/k org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$MemberDeclarationComparator
 org/c/a/a/c/a/a/d/s org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/MergeTryWithResourcesStatementVisitor
 	a (Lorg/c/a/a/b/d/d/ag;)V visit
 	a (Lorg/c/a/a/b/d/d/ae;)V visit
@@ -1661,7 +1668,8 @@ org/c/a/a/c/a/a/d/s org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/d/ac;)V visit
 	a (Lorg/c/a/a/b/d/d/ai;)V visit
 	a (Lorg/c/a/a/b/d/d/g;)V visit
-org/c/a/a/c/a/a/d/i org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/PopulateBlackListNamesVisitor
+org/c/a/a/c/a/a/d/i org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitEnumVisitor$EnumConstantComparator
+	a (Lorg/c/a/a/c/a/a/a/b/a/g;Lorg/c/a/a/c/a/a/a/b/a/g;)I compare
 org/c/a/a/c/a/a/d/c org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/BindTypeArgumentsToTypeArgumentsVisitor
 org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateIntegerConstantTypeVisitor
 	a (Lorg/c/a/a/b/d/d/j;)V visit
@@ -1811,6 +1819,7 @@ org/c/a/a/c/a/a/c/o org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	b names
 	c blackListNames
 	g typeMaker
+	i populateBlackListNamesVisitor
 org/c/a/a/c/a/a/c/aa org/jd/core/v1/service/converter/classfiletojavasyntax/util/PrimitiveTypeUtil
 	a (Lorg/c/a/a/b/d/e/k;Lorg/c/a/a/b/d/e/k;)Lorg/c/a/a/b/d/e/k; getCommonPrimitiveType
 	b $assertionsDisabled
@@ -1952,6 +1961,8 @@ org/c/a/a/b/d/a/i org/jd/core/v1/model/javasyntax/declaration/BodyDeclaration
 	a ()Ljava/lang/String; getInternalTypeName
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 	a internalTypeName
+	b ()Lorg/c/a/a/b/d/a/g; getMemberDeclarations
+	b memberDeclarations
 org/c/a/a/b/d/a/u org/jd/core/v1/model/javasyntax/declaration/ArrayVariableInitializer
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 org/c/a/a/b/d/b/a org/jd/core/v1/model/javasyntax/expression/AbstractLambdaExpression
@@ -2730,6 +2741,7 @@ org/c/a/a/c/a/a/d/j org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/a/v;)V visit
 	c outerType
 	d syntheticInnerFieldNames
+	a updateFieldReferencesVisitor
 org/c/a/a/c/a/a/d/v org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/RemoveDefaultConstructorVisitor
 	a (Lorg/c/a/a/b/d/a/ac;)V visit
 	a (Lorg/c/a/a/b/d/a/ah;)V visit
@@ -3332,3 +3344,36 @@ org/c/a/a/b/d/e/t org/jd/core/v1/model/javasyntax/type/TypeArgumentVisitable
 org/c/a/a/b/d/e/p org/jd/core/v1/model/javasyntax/type/UnmodifiableTypes
 org/c/a/a/b/d/e/w org/jd/core/v1/model/javasyntax/type/DiamondTypeArgument
 	a (Lorg/c/a/a/b/d/e/u;)V accept
+org/c/a/a/c/a/a/d/aa org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SortMembersVisitor
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+org/c/a/a/c/a/a/d/b org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/AggregateFieldsVisitor
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+org/c/a/a/c/a/a/d/ab org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateBridgeMethodVisitor
+	a (Lorg/c/a/a/c/a/a/a/b/a/b;)Z init
+	a bodyDeclarationsVisitor
+	b bridgeMethodDeclarations
+org/c/a/a/c/a/a/d/ac org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateBridgeMethodVisitor$BodyDeclarationsVisitor
+	a (Lorg/c/a/a/b/d/b/f;I)Z checkLocalVariableReference
+	a (Lorg/c/a/a/c/a/a/a/b/a/l;)Z checkBridgeMethodDeclaration
+	a (Lorg/c/a/a/b/d/a/ac;)V visit
+	a (Lorg/c/a/a/b/d/a/b;)V visit
+	a (Lorg/c/a/a/b/d/a/i;)V visit
+	a (Lorg/c/a/a/b/d/a/j;)V visit
+	a (Lorg/c/a/a/b/d/a/n;)V visit
+	a (Lorg/c/a/a/b/d/a/v;)V visit
+	a map
+	b this$0
+org/c/a/a/c/a/a/d/t org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/PopulateBlackListNamesVisitor
+	a (Lorg/c/a/a/b/d/e/g;)V visit
+	a (Lorg/c/a/a/b/d/e/h;)V visit
+	a (Lorg/c/a/a/b/d/e/i;)V visit
+	a blackListNames
+org/c/a/a/b/d/a/g org/jd/core/v1/model/javasyntax/declaration/BaseMemberDeclaration
