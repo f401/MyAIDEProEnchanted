@@ -75,6 +75,9 @@ def main():
         clos[x] = out
         return out
 
+    onames = set(O)          # 只有 oracle 侧真实存在的类才参与"父类/接口"比对；
+                             # role: 命名的魔改新增类在 oracle 里没有对应，必然对不上，跳过。
+
     bad = collections.defaultdict(list)
     for p, o in cls.items():
         if p not in P or o not in O:
@@ -86,9 +89,9 @@ def main():
             bad['kind'].append((p, o, '%s → %s' % (kp, ko)))
             continue
         ps, os_ = pc.get('sup'), oc.get('sup')
-        if ps and ps in cls and os_ and cls[ps] != os_:
+        if ps and ps in cls and cls[ps] in onames and os_ and cls[ps] != os_:
             bad['hier'].append((p, o, '父类 %s→%s，oracle 父类 %s' % (ps, cls[ps], os_)))
-        pif = {cls[x] for x in (pc.get('ifaces') or []) if x in cls}
+        pif = {cls[x] for x in (pc.get('ifaces') or []) if x in cls and cls[x] in onames}
         oif = set(oc.get('ifaces') or [])
         for x in list(oif):
             oif |= closure(x)

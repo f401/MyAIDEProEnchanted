@@ -555,3 +555,79 @@ b/d/e/m  Type → **AbstractType**（role:，同上一批）
 `TypeMaker$TypeTypes/$MethodTypes` 的字段**顺序**不同但多重集相同，指令流逐字一样——
 需要靠 TypeMaker 里的调用点区分）、`c/a/a/d`(visitor) 5、`b/d/e`(type) 5、
 `b/d/a`(declaration) 6。
+
+## 第十一批：`--source` 工厂对齐打到 util 包 → **417/434（96.1%）**
+
+### 破局点：`src:` 字面量判据会**命中文件**而不是类
+
+`ae` 原来判成 `TypeMaker`（证据是"常量串只出现在 TypeMaker.java"）。本轮用
+`createmap.py --source TypeMaker.java --probe-class <候选>` 做**方法体级的 new 序列对齐**，
+发现 `ae` 的方法体里根本没有 `parseClassFileSignature`，而 `ac` 有：
+
+```
+ac.a(ClassFile)  ↔ TypeMaker.parseClassFileSignature
+   new 序列 探针 [af, v, ae, v]  ↔  oracle [TypeTypes, UnmodifiableTypes, SignatureReader, UnmodifiableTypes]
+             （v=Types 是已定名锚点，双向一致）
+```
+
+一处对齐同时定死 4 个类，并推翻一条旧判据：
+
+```
+ac → TypeMaker                  （原未定名）
+af → TypeMaker$TypeTypes        （对齐第 1 位）
+ae → TypeMaker$SignatureReader  （对齐第 3 位；toString 串 "SignatureReader{index="/", nextChars=" 同，
+                                 9 个方法也对得上。**原判 TypeMaker 是错的**——字面量在 TypeMaker.java
+                                 这个文件里，内层类的串也在这个文件，`src:` 天然分不清）
+ad → TypeMaker$MethodTypes      （TypeMaker 只有两个"1 方法内层类"，TypeTypes 已定死，剩它）
+```
+
+还有一处对齐把 `parseTypeParameter` 的 new 序列读出来 `[q, p, r, r]`：
+`r`=TypeParameterWithTypeBounds（已定名，双锚点）✓；`q` 有 toString `"TypeParameter{identifier="`
+→ `q`=TypeParameter ✓；`p` 落在 UnmodifiableTypes 的位置但字段/方法数差太远，
+判据不足，**留白不猜**。
+
+### 其他新判据
+
+```
+b/d/b/u → LambdaIdentifiersExpression   str:toString 串 "LambdaIdentifiersExpression{"/"->" 逐字相同
+                                        + 父类 = 已定名 AbstractLambdaExpression
+b/d/e/t → TypeArgumentVisitable         signature:唯一方法形参是 u(=TypeArgumentVisitor)
+b/d/e/p → UnmodifiableTypes             hier:oracle 里唯一 extends Types 的类
+b/d/e/w → DiamondTypeArgument           hier:实现 TypeArgument 的类里同包唯一（去 DIAMOND 单例的简化版）
+b/d/a/f → BaseLocalVariableDeclarator   hier:子类型多重集 {LocalVariableDeclarator, LocalVariableDeclarators}
+b/d/a/y → LocalVariableDeclarators      fp:0.48/0.16
+b/d/b/ac → NewInitializedArray          fp:0.33/0.09
+```
+
+### 4 个"魔改新增"类按作用命名（`role:`，都已标明无 oracle 对应）
+
+```
+w  → ClassTypeResolver                      Loader + 两个 String 缓存 + getObjectType(String)
+                                            + isRawTypeAssignable；由 ClassFileToJavaSyntaxProcessor 构造。
+                                            1.1.3 里这段逻辑在 TypeMaker 内部，freelly 拆成了独立类
+z  → ClassTypeResolver$TypeNameResolver     接口 (ClassFileReader, String, String) → String
+x  → ClassTypeResolver$1                    上面接口的实现 #1（持 ClassTypeResolver、由它构造）
+y  → ClassTypeResolver$2                    实现 #2（与 x 同形，无判别证据，按创建顺序编号）
+c/a/a/a/c/f → LocalVariable                 局部变量的可访问接口 (accept/getName/getType)
+b/d/d/s     → AbstractStatement             abstract + implements Statement + Base 默认实现
+b/d/e/m     → AbstractType                  （上一批）
+b/d/b/n     → AbstractExpression            （上一批）
+```
+
+### 状态
+
+```
+417/434 = 96.1%（17 个类未定名）
+成员：方法 2116/3321 = 63.7%、字段 802/974 = 82.3%（已定名类内部 99.5% / 97.9%）
+门禁：validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+      · audit kind 1 / hier 5（全部是 freelly 的结构差异，见下）
+```
+
+`audit.py` 也一并改进：父类/接口比对只对**oracle 侧真实存在**的类做（`role:` 命名的魔改类
+必然对不上，跳过），被跳过的已在上面逐条列明。
+
+剩余 17 个：`c/a/a/c`(util) 5（p/q/s/t/v，其中 v 的 2 个静态方法返回 Field/AbstractExpression、
+`w` 拆出去之前它属于 TypeMaker 的一部分）、`c/a/a/d`(visitor) 5、`b/d/a` 4、`b/d/c` 1、
+`b/d/e` 1、`c/a/a/a/a` 1。下一轮的主攻方向：`c/a/a/d` 的 19 个空闲 oracle 类用
+"子类型多重集 + 创建点分布"批量筛；`c/a/a/c` 的 5 个用 `StatementMaker`/`TypeMaker`
+剩余方法的 new 序列逐个对。

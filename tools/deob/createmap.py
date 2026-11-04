@@ -221,7 +221,10 @@ def source_align(part, srcpath, probe_cls, oracle_cls, apply=False, O=None):
             decided[x] = (y, v, sorted(set(wit[x])))
     bysimple = {}
     for k in (O or {}):
-        bysimple.setdefault(k.rsplit('/', 1)[-1], []).append(k)
+        sim = k.rsplit('/', 1)[-1]
+        bysimple.setdefault(sim, []).append(k)
+        if '$' in sim:                      # 源码里写的是内层类的简单名（new TypeTypes(...)）
+            bysimple.setdefault(sim.split('$')[-1], []).append(k)
     opkg = oracle_cls.rsplit('/', 1)[0]
     print('== %s（工厂 %s）' % (probe_cls.rsplit('/', 1)[-1], oracle_cls.rsplit('/', 1)[-1]))
     resolved = {}
