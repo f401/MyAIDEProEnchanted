@@ -277,3 +277,139 @@ b/d/a (declaration) 14   c/a/a/d (visitor) 14   b/d/b (expression) 11   其余 3
 共同点：包内 (方法数,字段数) 组合重复、无 `toString`、无字符串常量、父类也在这 158 个里。
 要再推进只有"逐个读源码比方法体"，每类 1~2 分钟；本仓库已把这批的**每一条已试判据与失败原因**
 记录在此，接手者不必重走。
+
+## 第八批（本会话）：`javap` 字节码指纹 + 创建点序列对齐 → **389/434（89.6%）**
+
+前三把钥匙（形状/成员描述符合一/创建点签名）失败的原因写在上面几节；本轮换了两个
+**方法体级**的判据，两个都可复现（两侧 jar + `javap` 就能重跑），并各自落成工具。
+
+### 工具 1：`tools/deob/bytefp.py`（字节码指纹类级匹配）
+
+把两侧 jar 都交给 `javap -p -c`，逐条指令归一化后比相似度：
+
+```
+指令多重集 0.22 · 成员描述符 0.12 · 常量串 0.05 · 方法级最佳对齐 0.36 ·
+整数字面量 0.07 · 子类/实现者 0.08 · 创建点签名 0.10
+```
+
+归一化的坑（都踩过，已在代码里处理）：
+
+1. `javap` 对**自身类**的引用不写 owner（`// Method a:(...)V`）→ 按当前类补回；
+2. `aload_0..3`/`istore_2` 这类寄存器变体 → 一律折成 `aload`/`istore`（dx 与 javac 分配不同）；
+3. 方法名（`"<init>"`/`"{}"`）带引号 → 去引号；
+4. 内部类名折叠：已定名折真名、未定名折 `~`（两侧一致），**迭代精化**（每落一批名就重折）；
+5. 父子关系一律取 `javap` 头（`extends`/`implements`），**接口的 `extends A, B` 要展开成多条**；
+   `jvmbody` 的 `sup` 在这里是错的（例：`c/d/b/d` 实际 extends `c/d/c/b`，jvmbody 报成 `c/d/b/a`）。
+
+标定（拿 283 个已定名类当留一验证集，`--test` 可复现）：
+
+```
+rank-1 命中 252/283 = 89.0%
+thr=0.30 + margin=0.06 → 覆盖 224/283、精度 96.9%
+thr=0.50 + margin=0.10 → 精度 98.9%；thr=0.55 → 精度 100%
+```
+
+落库分两档：`--thr 0.45 --margin 0.10`（+30，只取高余量）与默认 `0.30/0.06`（+24，97% 精度档）。
+`--cluster` 还会对"剩余数相等"的包给**穷举最优指派**（N≤9），并打印最优/次优总分差——
+差值 0 的包（如 statement 的 5↔5）**一律不落**，因为那是同形簇。
+
+### 工具 2：`tools/deob/createmap.py`（创建点序列对齐）
+
+思路：对每一对**已定名**的 `(探针类 P, oracle 类 O)`，先用**常量串序列**把方法配对
+（同一类里两个方法的串序列几乎不可能相同 ⇒ 配对唯一；无串的方法用参数描述符配），
+再把两侧方法体里 `new` 的**类序列按位置**对上；已定名的位置当锚点自检（不一致就整段丢弃），
+未定名的位置投票。跑完全部已定名类后，票数唯一且 ≥2 的落名。
+
+`--source <oracle 源码.java> --probe-class <探针类>` 是它的特例模式：直接拿 oracle **源码**
+里的 `new` 序列（先剥注释，否则被注释掉的 `new` 会算错个数）对探针字节码。
+
+### `model/javafragment` **27/27 整包收口**（本轮最大一块）
+
+`c/c/a/a/b` 由常量串（`"End method body"`/`"Spacer between members"`…）判定为
+`JavaFragmentFactory`，然后用 `--source` 把它的 39 个方法与 oracle 源码对齐，得到：
+
+```
+a=EndBlockFragment              b=EndBlockInParameterFragment   c=EndBodyFragment
+d=EndBodyInParameterFragment    e=EndMovableJavaBlockFragment   f=EndSingleStatementBlockFragment
+g=EndStatementsBlockFragment    j=ImportsFragment$ImportCountComparator
+n=LineNumberTokensFragment$SearchLineNumberVisitor   o=SpaceSpacerFragment
+p=SpacerBetweenMembersFragment  q=SpacerFragment               r=StartBlockFragment
+s=StartBodyFragment             u=StartSingleStatementBlockFragment
+w=StartStatementsBlockFragment$Group                  x=StartStatementsDoWhileBlockFragment
+y=StartStatementsTryBlockFragment                     aa=TokensFragment$LineCountVisitor
+```
+
+其中 15 条来自工厂的 `new` 序列逐位对应（判据 `src:`），4 条来自"父类 + 字段多重集"
+（`e`、`j`、`n`、`aa`：如 `j` 是包内唯一 `Comparator`、`aa` 的字段多重集
+`(boolean,int,static)` 在 oracle 同包唯一），1 条（`w`=Group）来自
+`StartStatementsBlockFragment.getGroup()` 的创建点。`x`/`y`（DoWhile/Try）由工厂里
+`addStartStatementsDoWhileBlock`/`addStartStatementsTryBlock` 分别创建定死。
+
+### 其他整包收口
+
+```
+c/d/b(5/5)  = layouter/util：VisitorsHolder + $1..$4（$1/$2 靠 visit() 里 depth 的 ±1 方向区分，
+              $3/$4 靠 storeIndex() 落在 Start/End 分支区分；顺序由 4 个 getter 的声明序 corroborate）
+d(5/5)      = util：Base / Base$1 / DefaultList / DefaultList$EmptyList / DefaultStack
+              （DefaultList 靠"父类 ArrayList + (static, 自身内部类型) 字段"，EmptyList 靠"父类=DefaultList"）
+c/c/a/a/(3) = fragmenter/util：CharacterUtil / JavaFragmentFactory / StringUtil（常量串转义表逐字相同）
+a/b(2)      = api/printer：Printer（decompile 第 2 形参）+ PlainTextPrinter（**role:**，jd-core 1.1.3 无此类，
+              freelly 魔改新增：Printer 的唯一实现，字段 StringBuilder+2boolean+3int）
+b/e/a       = model/message/Message（decompile 里 new 后立刻 setHeader("mainInternalTypeName",…)；字段 (HashMap,Object)）
+b/d/a,/b    = model/javasyntax：AbstractJavaSyntaxVisitor（104 个 visit 重载）+ CompilationUnit
+c/a/a/b(3)  = converter/…/processor：ConvertClassFileException / ConvertClassFileProcessor / UpdateJavaSyntaxTreeProcessor
+c/b/a/a     = ClassFileDeserializer（指纹 0.642、余量 0.642）
+```
+
+### `pkg_map.tsv` 修正 8 行（都是"没有已定名类反查"的包，只能靠结构判）
+
+```
+org/c/a/a/a/b   api/printer          （原 model/javasyntax）
+org/c/a/a/b/d   model/javasyntax     （原 service/layouter/model ← 那是 c/d/a）
+org/c/a/a/b/e   model/message        （原 api/printer）
+org/c/a/a/c/c/a/a  fragmenter/util   （原 service/writer/visitor）
+org/c/a/a/c/d/a service/layouter/model（原 model/javasyntax/expression）
+org/c/a/a/c/a/a/a/b/b  …/model/javasyntax/expression（原 service/writer/visitor）
+org/c/a/a/c/c/a/b  fragmenter/visitor（原 …/model/javasyntax/declaration）
+org/c/a/a/d     util                 （原 service/layouter/util）
+```
+
+### 一处**推翻旧判据**：`b/d/a/h`
+
+旧行是 `csp:` 判给 `BaseLocalVariableDeclarator`。但：
+
+* `b/d/a/h` 是 **0 方法**接口，`BaseLocalVariableDeclarator` 是 1 方法接口，`BaseTypeDeclaration` 才是 0 方法；
+* 已定名的 `b/d/b`(=CompilationUnit) 的唯一字段与构造参数都是 `b/d/a/h`，而 oracle
+  `CompilationUnit` 的字段类型正是 `BaseTypeDeclaration`。
+
+两条独立证据同时指向 `BaseTypeDeclaration` → 已改正。这是"弱判据（`csp:`）必须留前缀、便于被推翻"的又一例。
+
+## 当前进度与剩余
+
+**389 / 434 = 89.6%**（门禁：`validate ✔ · inherit CONFLICT 0/DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0`）。
+
+剩余 45 个按包分布（"free"= oracle 同包未占用）：
+
+```
+b/d/e  type            9   ↔ free 13   d o p t u w +（接口/抽象互指）
+b/d/a  declaration     5   ↔ free 6    aa e g l y
+b/d/d  statement       5   ↔ free 5    ac ai g s z   ← {DoWhile,If,Synchronized,While} 同形簇 + 2
+b/d/c  reference       4   ↔ free 6    d e g + 1
+b/d/b  expression      3   ↔ free 6    ac o u
+c/a/a/c util          12   ↔ free 12   ac ad af al p q s t w x y z
+c/a/a/d visitor        5   ↔ free 19   aa ab ac b t
+c/a/a/a/c localvar     4   ↔ free 4    b f g i（`--cluster` 给出的方案余量仅 0.07，未落）
+其余 1~3 个零散
+```
+
+**下一步最省力的三条**（按性价比排序）：
+
+1. `c/a/a/c`(util) 12↔12 与 `c/a/a/a/c`(localvar) 4↔4 已经**计数相等**：用
+   `createmap.py` 的创建点序列（多数创建者已定名）× `bytefp.py` 的包内穷举指派交叉验证，
+   两条都指向同一解才落；只对"差 ≥0.10 的位"落。
+2. `b/d/d` 的 4 个同形语句（DoWhile/If/Synchronized/While）**只能**靠 `StatementMaker`
+   /`LoopStatementMaker`/`SynchronizedStatementMaker` 的创建点区分 —— 这三个类在
+   `c/a/a/c` 未定名的 12 个里，所以必须先解 util 包。
+3. 接口簇一律用 `hier`：**直接子类型多重集**。本轮 `BaseTypeArgument`/`BaseTypeParameter`/
+   `Type`/`BaseFieldDeclarator`/`BaseElementValuePair` 5 个接口就是这么一次定的
+   （子类型多重集唯一）。注意父子关系要取 `javap` 头，`jvmbody` 的会错。

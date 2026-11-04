@@ -179,7 +179,7 @@ org/c/a/a/c/c/a/b/a	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 org/c/a/a/c/c/a/b/i	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/StatementVisitor	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/d/e	org/jd/core/v1/util/DefaultStack	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/b/d/a/aj	org/jd/core/v1/model/javasyntax/declaration/VariableInitializer	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
-org/c/a/a/b/d/a/h	org/jd/core/v1/model/javasyntax/declaration/BaseLocalVariableDeclarator	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
+org/c/a/a/b/d/a/h	org/jd/core/v1/model/javasyntax/declaration/BaseTypeDeclaration	shape:本类是 declaration 包里 0 方法接口，oracle BaseTypeDeclaration 是唯一的 0 方法接口；且已被定名的 b/d/b(=CompilationUnit) 其唯一字段与构造参数都是本类型 —— oracle CompilationUnit 的字段正是 BaseTypeDeclaration（原 csp: 判为 BaseLocalVariableDeclarator 有误，后者是 1 方法接口）
 org/c/a/a/b/d/a/z	org/jd/core/v1/model/javasyntax/declaration/BaseMemberDeclaration	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
 org/c/a/a/b/d/e/n	org/jd/core/v1/model/javasyntax/type/TypeArgument	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
 org/c/a/a/c/a/a/a/c/d	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
@@ -350,3 +350,40 @@ org/c/a/a/c/c/a/b/d	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 org/c/a/a/c/c/a/b/f	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/ExpressionVisitor$HexaExpressionVisitor	fp:javap 字节码指纹 0.47（与次优差 0.23；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/c/c/a/b/h	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/SingleLineStatementVisitor	fp:javap 字节码指纹 0.55（与次优差 0.34；七项=指令/成员/串/对齐/整数/子类/创建点）
 org/c/a/a/c/e/a/a/c	org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor$KnownLineNumberTokenVisitor	fp:javap 字节码指纹 0.49（与次优差 0.49；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/a/ai	org/jd/core/v1/model/javasyntax/declaration/TypeDeclaration	fp:javap 字节码指纹 0.41（与次优差 0.14；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/a/o	org/jd/core/v1/model/javasyntax/declaration/EnumDeclaration$Constant	fp:javap 字节码指纹 0.38（与次优差 0.07；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/a/p	org/jd/core/v1/model/javasyntax/declaration/ExpressionVariableInitializer	fp:javap 字节码指纹 0.32（与次优差 0.09；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/a/s	org/jd/core/v1/model/javasyntax/declaration/FieldDeclarators	fp:javap 字节码指纹 0.44（与次优差 0.09；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/a/w	org/jd/core/v1/model/javasyntax/declaration/LocalVariableDeclaration	fp:javap 字节码指纹 0.43（与次优差 0.16；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/b	org/jd/core/v1/model/javasyntax/CompilationUnit	fp:javap 字节码指纹 0.38（与次优差 0.38；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/b/n	org/jd/core/v1/model/javasyntax/expression/CommentExpression	fp:javap 字节码指纹 0.34（与次优差 0.11；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/d/d	org/jd/core/v1/model/javasyntax/statement/ByteCodeStatement	fp:javap 字节码指纹 0.43（与次优差 0.15；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/d/l	org/jd/core/v1/model/javasyntax/statement/IfStatement	fp:javap 字节码指纹 0.44（与次优差 0.08；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/e/b	org/jd/core/v1/model/javasyntax/type/AbstractTypeArgumentVisitor	fp:javap 字节码指纹 0.39（与次优差 0.20；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/a/b/c/g	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileTryStatement$CatchClause	fp:javap 字节码指纹 0.32（与次优差 0.32；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/a/c/a	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/AbstractLocalVariable	fp:javap 字节码指纹 0.39（与次优差 0.22；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/a	org/jd/core/v1/service/converter/classfiletojavasyntax/util/AggregateFieldsUtil	fp:javap 字节码指纹 0.31（与次优差 0.19；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/am	org/jd/core/v1/service/converter/classfiletojavasyntax/util/SynchronizedStatementMaker$RemoveMonitorExitVisitor	fp:javap 字节码指纹 0.36（与次优差 0.21；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/c	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser	fp:javap 字节码指纹 0.40（与次优差 0.28；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/i	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphLoopReducer	fp:javap 字节码指纹 0.44（与次优差 0.28；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/d/a	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/AbstractUpdateExpressionVisitor	fp:javap 字节码指纹 0.40（与次优差 0.07；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/d/ae	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateIntegerConstantTypeVisitor$DimensionTypes	fp:javap 字节码指纹 0.42（与次优差 0.22；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/d/ag	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateTypeVisitor	fp:javap 字节码指纹 0.34（与次优差 0.11；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/d/l	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$UpdateNewExpressionVisitor	fp:javap 字节码指纹 0.31（与次优差 0.13；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/d/n	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$UpdateNewExpressionVisitor$UpdateParametersAndLocalVariablesVisitor	fp:javap 字节码指纹 0.32（与次优差 0.14；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/d/y	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SearchLocalVariableReferenceVisitor	fp:javap 字节码指纹 0.31（与次优差 0.11；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/c/a/b/b	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/CompilationUnitVisitor$AnnotationVisitor	fp:javap 字节码指纹 0.34（与次优差 0.14；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/c/a/b/l	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/TypeVisitor$TypeReferenceToken	fp:javap 字节码指纹 0.37（与次优差 0.23；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/e/q	org/jd/core/v1/model/javasyntax/type/TypeParameter	shape+str:字段多重集 (String)、4 个方法、toString 常量串 'TypeParameter{' + '}' —— type 包里唯一字段是 String 的类（oracle TypeParameter）
+org/c/a/a/b/d/e/r	org/jd/core/v1/model/javasyntax/type/TypeParameterWithTypeBounds	str:toString 常量串含 ', typeBounds='（oracle 全库唯一），字段 1（父类型 TypeParameter，已定名 q），方法 4 —— 与 oracle TypeParameterWithTypeBounds 逐项相同
+org/c/a/a/b/d/e/s	org/jd/core/v1/model/javasyntax/type/TypeParameters	shape+str:父类 DefaultList、字段 (boolean,static int)、常量串 '&' —— oracle TypeParameters 同形（Types 虽也 (boolean,static)，但方法参数是 Type> 且串为 "Uses 'Type' implementation instead"）
+org/c/a/a/b/d/e/c	org/jd/core/v1/model/javasyntax/type/TypeArguments	hier:父类 DefaultList、0 字段、方法 2 —— type 包里继承 DefaultList 的三个类中唯一不带 (boolean,static) 字段的，即 oracle TypeArguments
+org/c/a/a/b/d/e/v	org/jd/core/v1/model/javasyntax/type/Types	shape:父类 DefaultList、字段 (boolean,static int)、方法参数 int（构造器签名 (int,Type>) 与 oracle Types 相同；与 s(=TypeParameters) 的差别是方法参数/泛型参数为 Type 而非 TypeParameter）
+org/c/a/a/b/d/c/a	org/jd/core/v1/model/javasyntax/reference/AnnotationElementValue	src:创建点序列对齐 1 票（在已定名 c/a/a/c/b 处理 ElementValueAnnotationValue 的同串方法体里，new 序列与 oracle 逐位对应）
+org/c/a/a/c/a/a/a/c/b	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame	src:创建点序列对齐 1 票（在已定名 c/a/a/c/o 的同串方法体里，new 序列与 oracle 逐位对应）
+org/c/a/a/b/d/e/e	org/jd/core/v1/model/javasyntax/type/BaseTypeArgument	hier:直接子类型多重集恰为 {TypeArgument, TypeArguments}（唯一），与 oracle BaseTypeArgument 相同 —— 父/接口关系取自 javap 头，不靠猜测
+org/c/a/a/b/d/e/f	org/jd/core/v1/model/javasyntax/type/BaseTypeParameter	hier:直接子类型多重集恰为 {TypeParameter, TypeParameters}（唯一），与 oracle BaseTypeParameter 相同
+org/c/a/a/b/d/e/m	org/jd/core/v1/model/javasyntax/type/Type	hier:直接子类型多重集恰为 {ObjectType, PrimitiveType, GenericType}（唯一），与 oracle Type 相同；这三个子类均已由字符串判据定名
+org/c/a/a/b/d/a/d	org/jd/core/v1/model/javasyntax/declaration/BaseFieldDeclarator	hier:直接子类型多重集恰为 {FieldDeclarator, FieldDeclarators}（唯一），与 oracle BaseFieldDeclarator 相同
+org/c/a/a/b/d/a/m	org/jd/core/v1/model/javasyntax/declaration/DeclarationVisitor	hier+shape:21 个方法的参数覆盖全部 declaration 类型，直接子类型 {AbstractJavaSyntaxVisitor, AbstractNopDeclarationVisitor} —— 与 oracle DeclarationVisitor 相同（唯一）
+org/c/a/a/b/d/c/f	org/jd/core/v1/model/javasyntax/reference/BaseElementValuePair	hier:直接子类型多重集恰为 {ElementValuePair, ElementValuePairs}（唯一），与 oracle BaseElementValuePair 相同

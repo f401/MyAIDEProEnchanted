@@ -142,8 +142,20 @@ def parse(path):
             cur = m.group(1).replace('.', '/')
             incode = False
             curm = None
+            sup = None
+            ifs = []
+            me = re.search(r'\bextends\s+([\w.$]+(?:\s*,\s*[\w.$]+)*)', ln)
+            if me:
+                ext = [x.strip().replace('.', '/') for x in me.group(1).split(',')]
+                sup = ext[0]
+                ifs = ext[1:] if len(ext) > 1 else []
+            mi = re.search(r'\bimplements\s+(.+?)\s*\{?$', ln)
+            if mi:
+                ifs = [x.strip().replace('.', '/') for x in mi.group(1).rstrip('{ ').split(',') if x.strip()]
+            acc = ln
             out[cur] = dict(fields=[], methods=[], inst=collections.Counter(),
-                            strs=set(), ints=collections.Counter(), mbody={})
+                            strs=set(), ints=collections.Counter(), mbody={},
+                            sup=sup, ifaces=ifs, decl=acc)
             continue
         if ln.startswith('  ') and not ln.startswith('    '):
             incode = False
@@ -291,8 +303,12 @@ class Feats:
                    for k, c in O.items()}
         self.ps = site_map({k: c['mbody'].values() for k, c in P.items()}, P, 'p', f)
         self.os = site_map({k: c['mbody'].values() for k, c in O.items()}, O, 'o', f)
-        self.ph = parents_map({k: v for k, v in meta.items() if k in P}, f, P)
-        self.oh = parents_map({k: v for k, v in meta.items() if k in O}, f, O)
+        # 父子关系一律用 javap 头（`extends`/`implements`），比 jvmbody 稳；
+        # 接口的 `extends A, B` 也已展开成多条。
+        pmeta = {k: (0, c.get('sup'), c.get('ifaces') or []) for k, c in P.items()}
+        ometa = {k: (0, c.get('sup'), c.get('ifaces') or []) for k, c in O.items()}
+        self.ph = parents_map(pmeta, f, P)
+        self.oh = parents_map(ometa, f, O)
         self.P, self.O = P, O
 
     def comps(self, pk, ok):
