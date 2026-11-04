@@ -144,7 +144,7 @@ def main():
     for pk, c in P.items():
         if not pk.startswith(a.prefix):
             continue
-        have_f = {n for (c2, n) in fmap if c2 == pk}
+        have_f = {n for (c2, n) in fmap if c2 == pk} | {v for (c2, n), v in fmap.items() if c2 == pk}
         taken = {v for (c2, o, d), v in mmap.items() if c2 == pk}
         # ---- 字段
         clinit = c['mbody'].get(('<clinit>', ())) or []
@@ -170,10 +170,24 @@ def main():
                 if folded and folded not in ('String', 'Boolean', 'Integer', 'Object', 'StringBuilder'):
                     cand = folded[:1].lower() + folded[1:]
                     ev = 'role:模板 S2 —— 无 oracle 对应字段；类型折叠后是 %s，按"该字段持有的类型"命名' % folded
+                elif tn in ('HashMap', 'LinkedHashMap', 'Map'):
+                    cand = 'cache'
+                    ev = 'role:模板 T3 —— 无 oracle 对应字段；类型 %s（容器），按"缓存"作用命名（同类依次编号）' % tn
+                elif tn in ('HashSet', 'LinkedHashSet', 'Set'):
+                    cand = 'names'
+                    ev = 'role:模板 T3 —— 无 oracle 对应字段；类型 %s（集合），按"名字集合"作用命名（同类依次编号）' % tn
+                elif tn in ('List', 'ArrayList', 'DefaultList'):
+                    cand = 'items'
+                    ev = 'role:模板 T3 —— 无 oracle 对应字段；类型 %s（列表），按"元素列表"作用命名（同类依次编号）' % tn
                 else:
-                    continue          # 基本类型/字符串/集合：推不出作用，留白
+                    continue          # 基本类型/字符串：推不出作用，留白
             if '$' in cand or cand in taken or cand in have_f:
-                continue            # 撞名/含 $ → 宁可留白
+                base_c, k = cand, 2
+                while ('%s%d' % (base_c, k)) in taken or ('%s%d' % (base_c, k)) in have_f:
+                    k += 1
+                if '$' in cand:
+                    continue
+                cand = '%s%d' % (base_c, k)
             rows.append((pk, 'f', nm, '', cand, ev))
             taken.add(cand)
         # ---- 方法

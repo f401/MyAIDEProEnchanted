@@ -1398,3 +1398,44 @@ b/d/b/e     NewArray            "createItemType : negative dimension"      ⇒ c
 待人工 161 = 方法 128 + 字段 33
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
 ```
+
+## 第二十八批：**类 434/434 = 100%**，字段 96.6%
+
+### 最后一个类：`b/d/e/d` → `role:TypeGroup`
+
+```
+interface、0 方法、extends b/d/e/t(=TypeArgumentVisitable) + org/c/a/a/d/a(=util/Base)
+出现在：TypeMaker$TypeTypes 第 4 字段、TypeMaker$MethodTypes 第 4 字段、
+        ClassFileEnum/Constructor/Class/MethodDeclaration 的构造形参位置
+```
+
+1.1.3 里这些位置都是 `BaseType`，但 `BaseType` 已被 6 个方法签名（createType/getDimension/
+getInternalName/isXxx×3）定死为 `b/d/e/l` ⇒ 本类是 freelly 新增的"类型组"接口，按作用命名 `TypeGroup`。
+**至此 434 个类全部有名。**
+
+### 再补两类 role 模板（`rolefill2.py`）
+
+```
+T3  集合/映射字段无对照、且类型是 HashMap/Set/List  → cache / names / items（同名字段依次编号）
+M2/M3 作用于"本轮新命名的字段"                        → get<F> / set<F>（字段先名字段后方法，自动级联）
+```
+
+又落地 38 条，**字段 929 → 941（96.6%）**、方法 2450 → 2475（74.5%）。
+
+### 踩到的坑：role 命名会撞名
+
+role 模板按"类型名"命名，同类里两个同型字段就会撞（`UpdateIntegerConstantTypeVisitor` 的 h/i 都成了
+`baseType`）。`validate` 报 `dup-member-target` 抓出来；修法两步：
+① 工具里把**已用的新名**也算进冲突集合；
+② 加了一个"字段重名自动编号"的收尾脚本（`baseType` → `baseType2`）。
+
+### 最终状态
+
+```
+类   434/434 = 100%
+方法 2475/3321 = 74.5%（已定名类内部 2265/2269 = 99.8%）
+字段  941/974  = 96.6%（已定名类内部 872/878 = 99.3%）
+待人工 129（全部是 freelly 新增的同形重载/无信息容器字段，按规则留白）
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+     · audit kind 2（Expression / SwitchStatement$Label 在 freelly 里被改成抽象类，已记录）
+```
