@@ -1254,3 +1254,37 @@ parseSTORE / parseASTORE                       (Statements,DefaultStack,int,Abst
 1. **同形重载**（≈60 条，ByteCodeParser/TypeMaker/PrimitiveLocalVariable 等）：只能靠调用点分析；
 2. **freelly 新增成员**（≈100 条）：oracle 端不存在，名字无据可依（除非按 `role:` 收）；
 3. **同形字段**（≈30 条，如 TypeMaker 的两个 HashMap、TextToken 的 `/*`、`*/`）：只能靠使用点语义或按 `role:`。
+
+## 第二十四批续：`parseSTORE`/`parseASTORE` 靠"方法体引用的**类型常量**"分开 → 方法 73.5%
+
+同描述符的两个 5 参方法，用**方法体里出现过的 class 常量**区分（这个指纹改名不变）：
+
+```
+探针 a：引用 BinaryOperatorExpression、ClassFileLocalVariableReferenceExpression
+探针 b：引用 NewArray、GenericLocalVariable          ← 唯一引用 NewArray 的
+oracle parseASTORE 独有：checkcast NewArray；parseSTORE 没有
+⇒ a = parseSTORE，b = parseASTORE
+```
+
+### 同批试过但失败的（已记录，避免重跑）
+
+1. **`toString` 标签串定字段**：写了 `tools/deob/tostring.py`（`ldc ", index="` 后面紧跟的那个 getfield
+   就是 `index`）。本库命中 9 条候选，但**全部无效** —— jd-core 的 `toString` 打的是**父类字段**
+   （`AbstractLocalVariable.next/index`），写进子类块就 `no-field`。工具保留了"字段必须真声明在本类"的硬校验，
+   本库净增 0。
+2. **调用点常量**：`parseSTORE`/`parseASTORE` 的 opcode、四个 `newXxxOperatorExpression` 的运算符
+   都是**形参传进来的**，方法体里既没有字面量也没有 `getstatic`；oracle 侧调用点同样不含整数字面量
+   （实参来自局部变量），所以"看调用点常量"这条路对这两族无效。
+3. 四个 `newXxxOperatorExpression` 在 oracle 侧引用的类型常量完全相同
+   （都只引用 `ClassFileLocalVariableReferenceExpression`），也没有 `PrimitiveLocalVariable` 之外的区别，
+   只能靠"调用者压栈的 opcode 分派表"反推 —— 留白。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2442/3321 = 73.5%（已定名类内部 99.8%）
+字段  877/974  = 90.0%（已定名类内部 99.3%）
+待人工 214 = 方法 137 + 字段 77（no-oracle-descriptor 199 + ambiguous 15）
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
+```

@@ -47399,7 +47399,6 @@ org/c/a/a/c/a/a/a/c/j org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 		0 visitor visitor
 	a (Lorg/c/a/a/b/d/e/i;)V setType
 	a (Lorg/c/a/a/b/d/e/l;)Z isAssignableFrom
-	b (Lorg/c/a/a/c/a/a/a/c/a;)Z isAssignableFrom
 	k ()Lorg/c/a/a/b/d/e/l; getType
 	toString ()Ljava/lang/String; toString
 org/c/a/a/c/a/a/a/c/k org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/PrimitiveLocalVariable
@@ -51308,6 +51307,20 @@ org/c/a/a/c/a/a/c/c org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	d (Lorg/c/a/a/b/d/b/n;)V reduceIntegerLocalVariableType
 		static
 		0 expression expression
+	a (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;ILorg/c/a/a/c/a/a/a/c/a;Lorg/c/a/a/b/d/b/n;)V parseSTORE
+		static
+		0 statements statements
+		1 stack stack
+		2 lineNumber lineNumber
+		3 localVariable localVariable
+		4 valueRef valueRef
+	b (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;ILorg/c/a/a/c/a/a/a/c/a;Lorg/c/a/a/b/d/b/n;)V parseASTORE
+		static
+		0 statements statements
+		1 stack stack
+		2 lineNumber lineNumber
+		3 localVariable localVariable
+		4 valueRef valueRef
 org/c/a/a/c/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphLoopReducer
 	a (ILjava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Ljava/util/BitSet; searchLoopMemberIndexes
 		static
