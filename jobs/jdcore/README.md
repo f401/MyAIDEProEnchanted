@@ -1084,3 +1084,60 @@ oracle <clinit>：同一个 "byte" 赋给 TYPE_BYTE                          ⇒
 待人工 240 = no-oracle-descriptor 215 + ambiguous 25
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0
 ```
+
+## 第二十一批：常量表按 putstatic 顺序 + 单候选强制 + TypeMaker 逐条 → 成员 **73.1% / 89.9%**
+
+### `clinitbind --by-order`：常量表按 `<clinit>` 里 putstatic 的先后顺序绑定
+
+```
+两侧 <clinit> 的 putstatic 序列逐位比较：串相同（都空也算一致）才继续，一旦对不上就停
+（不许整体平移 —— 长度不同时只吃"能对上"的前缀）
+```
+
+命中 3 条：`TextToken.SPACE_LEFTROUNDBRACKET`、`LoopStatementMaker` 静态字段、
+`TypeMaker.INTERNALNAME_TO_OBJECTPRIMITIVETYPE`。
+
+### "单候选强制"：该类该描述符下"探针 1 个 / oracle 候选 1 个 / 名字未占用"
+
+membermatch 把这些记成 ambiguous（因为同一个类里有别的探针方法共享描述符），但按
+**(类, 描述符)** 分组后如果只剩一对，就是 `desc:` 级别的证明。命中 6 条，全在 `ByteCodeParser`：
+
+```
+parsePUT / parseIINC / parseIF / newPreArithmeticOperatorExpression / newPostArithmeticOperatorExpression /
+reduceIntegerLocalVariableType
+```
+
+### `TypeMaker`（`c/a/a/c/ac`）逐条读方法体 → 14 条
+
+这个类的判据是**方法体里的字符常量**（`bipush 60 = '<'`、`76 = 'L'`、`58 = ':'`、`94 = '^'`、`91 = '['`）
+与 oracle 同名方法逐条相同：
+
+```
+countDimension            countDimension 的循环数 '['
+extractLocalClassName     Character 判断后截取类名
+parseTypeParameters       bipush 60 + SignatureReader + 断言
+parseTypeParameter        bipush 58 + 断言
+parseClassTypeSignature   bipush 76 + 断言
+parseExceptionSignature   bipush 94 + 断言
+parseReferenceTypeSignature  断言 + bipush 91 判定
+isATypeArguments          判失败抛 SignatureFormatException
+parseClassFileSignature   new TypeMaker$TypeTypes + ClassFile.internalTypeName
+parseFieldSignature       读 Field 的 "Signature" 属性（freelly 去掉了 ClassFile 形参）
+parseMethodSignature      读 Method 的 "Signature" 属性
+getExceptionTypeNames     读 Method 的 "Exceptions" 属性
+makeFromSignature         先查 HashMap 缓存再 new SignatureReader
+parseTypeArgument         tableswitch 分派（与 isATypeArgument 同为 switch，按"名字未占用 + 无其它候选"取此解）
+```
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2427/3321 = 73.1%（已定名类内部 2265/2269 = 99.8%）
+字段  876/974  = 89.9%（已定名类内部 99.2%）
+待人工 226 = no-oracle-descriptor 208 + ambiguous 18
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+```
+
+剩余 226 的头部：`c/a/a/a/c/j`(ObjectLocalVariable) 12、`c/a/a/a/c/a` 7、`c/a/a/a/c/k` 7、
+`c/a/a/c/c`(ByteCodeParser) 8、`c/a/a/d/ad` 6、`c/a/a/a/c/e` 6。

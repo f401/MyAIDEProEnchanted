@@ -51260,6 +51260,41 @@ org/c/a/a/c/a/a/c/c org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	b (Lorg/c/a/a/b/d/b/n;)Z isNegativeOne
 		static
 		0 expression expression
+	a (ILjava/lang/String;Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; newPreArithmeticOperatorExpression
+		static
+		0 lineNumber lineNumber
+		1 operator operator
+		2 expression expression
+	a (ILorg/c/a/a/b/d/b/n;Ljava/lang/String;)Lorg/c/a/a/b/d/b/n; newPostArithmeticOperatorExpression
+		static
+		0 lineNumber lineNumber
+		1 expression expression
+		2 operator operator
+	a (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;ILorg/c/a/a/b/d/b/q;Lorg/c/a/a/b/d/b/n;)V parsePUT
+		static
+		0 statements statements
+		1 stack stack
+		2 lineNumber lineNumber
+		3 fr fr
+		4 valueRef valueRef
+	a (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;ILorg/c/a/a/c/a/a/a/c/a;I)V parseIINC
+		static
+		0 statements statements
+		1 stack stack
+		2 lineNumber lineNumber
+		3 localVariable localVariable
+		4 count count
+	a (Lorg/c/a/a/d/e;ILorg/c/a/a/c/a/a/a/a/a;Ljava/lang/String;Ljava/lang/String;I)V parseIF
+		static
+		0 stack stack
+		1 lineNumber lineNumber
+		2 basicBlock basicBlock
+		3 operator1 operator1
+		4 operator2 operator2
+		5 priority priority
+	d (Lorg/c/a/a/b/d/b/n;)V reduceIntegerLocalVariableType
+		static
+		0 expression expression
 org/c/a/a/c/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphLoopReducer
 	a (ILjava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Ljava/util/BitSet; searchLoopMemberIndexes
 		static
@@ -51796,6 +51831,13 @@ org/c/a/a/c/a/a/c/ac org/jd/core/v1/service/converter/classfiletojavasyntax/util
 	f (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/n; parseTypeArgument
 		0 reader reader
 	e $assertionsDisabled
+	a (Ljava/lang/String;)Lorg/c/a/a/b/d/e/l; makeFromSignature
+	a (Lorg/c/a/a/b/a/c;)Lorg/c/a/a/b/d/e/l; parseFieldSignature
+	a (Lorg/c/a/a/c/a/a/c/ae;I)Lorg/c/a/a/b/d/e/l; parseClassTypeSignature
+	a (Ljava/lang/String;Lorg/c/a/a/b/a/d;)Lorg/c/a/a/c/a/a/c/ad; getExceptionTypeNames
+	a (Lorg/c/a/a/b/a/d;)Lorg/c/a/a/c/a/a/c/ad; parseMethodSignature
+	c (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/l; parseExceptionSignature
+	d (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/l; parseReferenceTypeSignature
 org/c/a/a/c/a/a/c/af org/jd/core/v1/service/converter/classfiletojavasyntax/util/TypeMaker$TypeTypes
 	b typeParameters
 	c interfaces

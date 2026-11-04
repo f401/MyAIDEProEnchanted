@@ -3258,6 +3258,12 @@ org/c/a/a/c/a/a/c/c org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	a (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; checkIfLastStatementIsAMultiAssignment
 	a (Lorg/c/a/a/b/d/b/n;)Z isPositiveOne
 	b (Lorg/c/a/a/b/d/b/n;)Z isNegativeOne
+	a (ILjava/lang/String;Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; newPreArithmeticOperatorExpression
+	a (ILorg/c/a/a/b/d/b/n;Ljava/lang/String;)Lorg/c/a/a/b/d/b/n; newPostArithmeticOperatorExpression
+	a (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;ILorg/c/a/a/b/d/b/q;Lorg/c/a/a/b/d/b/n;)V parsePUT
+	a (Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/d/e;ILorg/c/a/a/c/a/a/a/c/a;I)V parseIINC
+	a (Lorg/c/a/a/d/e;ILorg/c/a/a/c/a/a/a/a/a;Ljava/lang/String;Ljava/lang/String;I)V parseIF
+	d (Lorg/c/a/a/b/d/b/n;)V reduceIntegerLocalVariableType
 org/c/a/a/c/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphLoopReducer
 	a (ILjava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Ljava/util/BitSet; searchLoopMemberIndexes
 	a (Ljava/util/Set;Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; recheckEndBlock
@@ -3589,6 +3595,14 @@ org/c/a/a/c/a/a/c/ac org/jd/core/v1/service/converter/classfiletojavasyntax/util
 	e (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/e; parseTypeArguments
 	f (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/n; parseTypeArgument
 	e $assertionsDisabled
+	a (Ljava/lang/String;)Lorg/c/a/a/b/d/e/l; makeFromSignature
+	a (Lorg/c/a/a/b/a/c;)Lorg/c/a/a/b/d/e/l; parseFieldSignature
+	a (Lorg/c/a/a/c/a/a/c/ae;I)Lorg/c/a/a/b/d/e/l; parseClassTypeSignature
+	a (Ljava/lang/String;Lorg/c/a/a/b/a/d;)Lorg/c/a/a/c/a/a/c/ad; getExceptionTypeNames
+	a (Lorg/c/a/a/b/a/d;)Lorg/c/a/a/c/a/a/c/ad; parseMethodSignature
+	c (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/l; parseExceptionSignature
+	d (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/l; parseReferenceTypeSignature
+	c signatureToType
 org/c/a/a/c/a/a/c/af org/jd/core/v1/service/converter/classfiletojavasyntax/util/TypeMaker$TypeTypes
 	b typeParameters
 	c interfaces
