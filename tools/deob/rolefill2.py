@@ -238,16 +238,48 @@ def main():
                     if c2 == o2 and n2 == t0[4]:
                         rn = v2
                         break
-                if rn:
+                BAD = {'compare', 'add', 'addAll', 'get', 'equals', 'hashCode', 'toString',
+                       'iterator', 'size', 'length', 'set', 'remove', 'contains', 'put', 'pop', 'push'}
+                if rn and rn not in BAD:      # 纯委托给 JDK 契约名（compare/add…）的多半是桥方法，跳过
                     cand = rn
                     ev = 'role:模板 M5 —— 方法体只有一次调用（%s.%s），纯委托 ⇒ 与之同名' % (o2.rsplit('/', 1)[-1], rn)
             if is_override(pk, nm, ps):
                 continue            # 覆写：必须与祖先同名，交给 hinher；这里不猜
             if not cand:
-                continue
+                # ---- M7 兜底：按"方法体第一个已定名调用的动词 + 主要类型"命名
+                verb = None
+                for t in body:
+                    if t[0] == 'M' and t[4] != '<init>':
+                        o2 = t[2].replace('.', '/')
+                        rn = None
+                        for (c2, n2, d2), v2 in mmap.items():
+                            if c2 == o2 and n2 == t[4]:
+                                rn = v2
+                                break
+                        if rn:
+                            m2 = re.match(r'^(parse|visit|update|check|create|make|get|set|add|remove|'
+                                          r'convert|search|init|reduce|bind|load|find|accept|print|append|'
+                                          r'write|merge|split|sort|build|apply|resolve|replace)', rn)
+                            if m2:
+                                verb = m2.group(1)
+                                break
+                kinds = [fold(x) for x in news] + [fold(x) for x in ps if x.startswith('org.c.a.a')]
+                kinds = [x for x in kinds if x]
+                if not verb:
+                    verb = 'update' if ret == 'V' else ('check' if ret == 'Z' else 'get')
+                if not kinds:
+                    continue
+                cand = verb + cap(kinds[0])
+                ev = ('role:模板 M7（兜底）—— 无 oracle 对应方法；动词取自方法体第一个已定名调用的动作'
+                      '（否则按返回类型 %s），名词取它创建/接收的主要类型 %s' % (ret, kinds[0]))
             have_names = {n2 for (n2, d2) in have_m} | taken
-            if '$' in cand or cand in have_names:
-                continue            # 撞名/含 $ → 宁可留白
+            if '$' in cand:
+                continue
+            if cand in have_names:
+                base_c, k = cand, 2
+                while ('%s%d' % (base_c, k)) in have_names:
+                    k += 1
+                cand = '%s%d' % (base_c, k)
             rows.append((pk, 'm', nm, d0, cand, ev))
             taken.add(cand)
     rows = [r for r in rows if r[4] and re.match(r'^[A-Za-z_$][A-Za-z0-9_$]*$', r[4])]

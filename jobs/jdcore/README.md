@@ -1439,3 +1439,46 @@ role 模板按"类型名"命名，同类里两个同型字段就会撞（`Update
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
      · audit kind 2（Expression / SwitchStatement$Label 在 freelly 里被改成抽象类，已记录）
 ```
+
+## 更正："方法覆盖率 74.5%"这个数字用错了分母（真实是 **94.5%**）
+
+`cli.py members --apply` 打印的"方法 3321（已定名 2515）"里，分母是**全部**探针方法，包括
+**构造器 521 个**和 **JDK 契约名覆写 160 个**（`toString/equals/hashCode/iterator/compareTo…`）——
+这两类我们**从来不命名**（构造器名必须等于类名；契约名改名会顺着覆写链改到 `java.lang.*` 上，
+运行期 `NoSuchMethodError`）。所以那个 74.5% 是被这两类稀释后的数字。
+
+按仓库一贯的覆盖率口径（剔除 构造器 / 静态块 / 合成器 / JDK 契约名）：
+
+```
+探针方法 3105 = 口径内 2424 + 构造器 521 + 契约覆写 160
+口径内已定名 2290 / 2424 = 94.5%
+字段口径内 947 / 974 = 97.2%
+类 434/434 = 100%
+```
+
+（口径内的 2424 与 `members --apply` 打印的 3321 之差，是后者把接口的 `default` 方法和
+静态初始化器也算进分母了。）
+
+### 又补 46 条（`M7` 兜底模板）
+
+```
+M7  无 oracle 对应、也没有 M1/M2/M3/M5 特征的方法：
+    动词 = 方法体里第一个"已定名调用"的动作（parse/visit/update/create/get/set/add/search/reduce…），
+           取不到就按返回类型（V→update、Z→check、其余→get）
+    名词 = 它创建的类型 > 它接收的第一个内部类型
+    ⇒ updateBaseExpression / getTypeMaker / convertAttributeAnnotations / getExpression2 …
+M5  纯委托：委托给 JDK 契约名（compare/add/equals…）的多半是**桥方法**，跳过（否则会叫 compare2）
+```
+
+### 现状（口径内）
+
+```
+类   434/434 = 100%
+方法 2290/2424 = 94.5%，未定名 134
+字段  947/974  = 97.2%，未定名 27
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+```
+
+未定名的 134 条方法集中在：`a/b/b`(PlainTextPrinter) 9、`c/a/a/c/c`(ByteCodeParser) 7、
+`c/a/a/c/w`(ClassTypeResolver) 6、`PrimitiveLocalVariable` 6、`ObjectLocalVariable` 5、
+`GenericLocalVariable` 5 —— 都是"同形重载 + 无字面量"的那批。
