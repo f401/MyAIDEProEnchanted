@@ -287,3 +287,5 @@ org/c/a/a/b/d/b/p	org/jd/core/v1/model/javasyntax/expression/Expressions	shape:�
 org/c/a/a/b/d/b/s	org/jd/core/v1/model/javasyntax/expression/InstanceOfExpression	shape:字段类型组合包内唯一 —— 字段 (Type, Expression) → 8/2（探针 7/2 vs oracle 8/2）
 org/c/a/a/b/d/b/b	org/jd/core/v1/model/javasyntax/expression/AbstractLineNumberExpression	shape:字段类型组合包内唯一 —— 字段 (I) 且 4/1 精确（探针 4/1 vs oracle 4/1）
 org/c/a/a/b/d/b/d	org/jd/core/v1/model/javasyntax/expression/AbstractNopExpressionVisitor	shape:字段类型组合包内唯一 —— 0 字段、方法数 33 ≤ 36，且 ExpressionVisitor 已定名（探针 33/0 vs oracle 36/0）
+org/c/a/a/b/d/d/c	org/jd/core/v1/model/javasyntax/statement/BreakStatement	shape:字段类型组合唯一 —— 字段里有一个"自引用 static 常量"（本类类型）+ Z + String，与 BreakStatement 的 BREAK/$assertionsDisabled/label 逐一对应
+org/c/a/a/b/d/d/f	org/jd/core/v1/model/javasyntax/statement/ContinueStatement	shape:字段类型组合唯一 —— 同上（自引用常量 + Z + String），对应 CONTINUE/$assertionsDisabled/label
