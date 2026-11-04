@@ -1028,9 +1028,17 @@ org/c/a/a/c/a/a/a/c/e org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	j ()Lorg/c/a/a/b/d/e/g; getType
 	k type
 	a (Lorg/c/a/a/c/a/a/a/c/i;)V accept
+	b (Lorg/c/a/a/c/a/a/a/c/a;)Z isAssignableFrom
+	k ()Lorg/c/a/a/b/d/e/l; getType
+	toString ()Ljava/lang/String; toString
 org/c/a/a/c/a/a/a/c/j org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/ObjectLocalVariable
 	o $assertionsDisabled
 	a (Lorg/c/a/a/c/a/a/a/c/i;)V accept
+	a (Lorg/c/a/a/b/d/e/i;)V setType
+	a (Lorg/c/a/a/b/d/e/l;)Z isAssignableFrom
+	b (Lorg/c/a/a/c/a/a/a/c/a;)Z isAssignableFrom
+	k ()Lorg/c/a/a/b/d/e/l; getType
+	toString ()Ljava/lang/String; toString
 org/c/a/a/c/a/a/a/c/k org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/PrimitiveLocalVariable
 	a (Lorg/c/a/a/b/d/e/k;)V setType
 	k flags
@@ -3213,6 +3221,8 @@ org/c/a/a/c/a/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	d index
 	a (Lorg/c/a/a/c/a/a/a/c/g;)V addReference
 	h ()I getDimension
+	b (Lorg/c/a/a/c/a/a/a/c/a;)Z isAssignableFrom
+	a (Lorg/c/a/a/b/d/e/l;)Z isAssignableFrom
 org/c/a/a/c/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/util/AggregateFieldsUtil
 	a (Ljava/util/List;)V aggregate
 	a (Ljava/util/List;Lorg/c/a/a/c/a/a/a/b/a/h;II)V aggregate
@@ -3622,6 +3632,7 @@ org/c/a/a/c/a/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 org/c/a/a/c/a/a/a/c/f org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/LocalVariable
 	g ()Ljava/lang/String; getName
 	a (Lorg/c/a/a/c/a/a/a/c/i;)V accept
+	k ()Lorg/c/a/a/b/d/e/l; getType
 org/c/a/a/b/d/d/s org/jd/core/v1/model/javasyntax/statement/AbstractStatement
 	j_ ()Z isList
 	l_ ()Lorg/c/a/a/d/c; getList

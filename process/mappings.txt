@@ -47390,10 +47390,18 @@ org/c/a/a/c/a/a/a/c/e org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	k type
 	a (Lorg/c/a/a/c/a/a/a/c/i;)V accept
 		0 visitor visitor
+	b (Lorg/c/a/a/c/a/a/a/c/a;)Z isAssignableFrom
+	k ()Lorg/c/a/a/b/d/e/l; getType
+	toString ()Ljava/lang/String; toString
 org/c/a/a/c/a/a/a/c/j org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/ObjectLocalVariable
 	o $assertionsDisabled
 	a (Lorg/c/a/a/c/a/a/a/c/i;)V accept
 		0 visitor visitor
+	a (Lorg/c/a/a/b/d/e/i;)V setType
+	a (Lorg/c/a/a/b/d/e/l;)Z isAssignableFrom
+	b (Lorg/c/a/a/c/a/a/a/c/a;)Z isAssignableFrom
+	k ()Lorg/c/a/a/b/d/e/l; getType
+	toString ()Ljava/lang/String; toString
 org/c/a/a/c/a/a/a/c/k org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/PrimitiveLocalVariable
 	a (Lorg/c/a/a/b/d/e/k;)V setType
 		0 type type
@@ -51115,6 +51123,8 @@ org/c/a/a/c/a/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	a (Lorg/c/a/a/c/a/a/a/c/g;)V addReference
 		0 reference reference
 	h ()I getDimension
+	b (Lorg/c/a/a/c/a/a/a/c/a;)Z isAssignableFrom
+	a (Lorg/c/a/a/b/d/e/l;)Z isAssignableFrom
 org/c/a/a/c/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/util/AggregateFieldsUtil
 	a (Ljava/util/List;)V aggregate
 		static
@@ -51838,6 +51848,7 @@ org/c/a/a/c/a/a/c/ac org/jd/core/v1/service/converter/classfiletojavasyntax/util
 	a (Lorg/c/a/a/b/a/d;)Lorg/c/a/a/c/a/a/c/ad; parseMethodSignature
 	c (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/l; parseExceptionSignature
 	d (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/l; parseReferenceTypeSignature
+	c signatureToType
 org/c/a/a/c/a/a/c/af org/jd/core/v1/service/converter/classfiletojavasyntax/util/TypeMaker$TypeTypes
 	b typeParameters
 	c interfaces
@@ -51857,6 +51868,7 @@ org/c/a/a/c/a/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 org/c/a/a/c/a/a/a/c/f org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/LocalVariable
 	g ()Ljava/lang/String; getName
 	a (Lorg/c/a/a/c/a/a/a/c/i;)V accept
+	k ()Lorg/c/a/a/b/d/e/l; getType
 org/c/a/a/b/d/d/s org/jd/core/v1/model/javasyntax/statement/AbstractStatement
 	j_ ()Z isList
 	l_ ()Lorg/c/a/a/d/c; getList

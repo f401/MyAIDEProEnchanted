@@ -1141,3 +1141,43 @@ parseTypeArgument         tableswitch 分派（与 isATypeArgument 同为 switch
 
 剩余 226 的头部：`c/a/a/a/c/j`(ObjectLocalVariable) 12、`c/a/a/a/c/a` 7、`c/a/a/a/c/k` 7、
 `c/a/a/c/c`(ByteCodeParser) 8、`c/a/a/d/ad` 6、`c/a/a/a/c/e` 6。
+
+## 第二十二批：localvariable 三兄弟收口 → 成员 **73.4% / 89.9%**
+
+### 判据：按「返回类型 × 形参类型」的唯一性配对（针对"freelly 删掉了 Map 形参"这类改签名）
+
+oracle 的方法签名是 `(Map, Type)`，freelly 版的探针是 `(Type)` —— 描述符对不上，但**"返回类型 + 形参种类"
+仍然唯一**，而该类未用的 oracle 名字又是有限的，于是可以一一对上：
+
+```
+ObjectLocalVariable:
+  a(ObjectType)V        → setType         （该类未用名字里唯一 "V + Type 形参"）
+  a(LocalVariableVisitor)V → accept       （方法体 aload_0/aload_1/visitor.visit/return 逐条相同）
+  a(BaseType)Z          → isAssignableFrom （唯一 "Z + Type"）
+  b(AbstractLocalVariable)Z → isAssignableFrom （唯一 "Z + AbstractLocalVariable"）
+  k()BaseType           → getType          （唯一"无参且返回 Type"）
+  toString              → toString
+GenericLocalVariable: 同法再定 3 条（isAssignableFrom / getType / toString）
+AbstractLocalVariable: 至此 **0 条未定名**
+```
+
+### 记两个"走不通"的（避免重复劳动）
+
+1. **dx 会剥掉 assert 的消息串**：`typeOnLeft` 在 oracle 里带
+   `"unexpected type in ObjectLocalVariable.typeOnLeft(type)"`，但探针 jar 里全库搜不到任何
+   `in Xxx.yyy(` 形式的串（只有显式 `throw new Xxx("Invalid …")`）。所以"用断言串给方法命名"这条路只在
+   oracle 侧有效，跨侧用不了。
+2. **`{typeOnRight, typeOnLeft, variableOnRight, variableOnLeft}` 这 4 个名字对 4 个 V 方法仍是双射但不唯一**：
+   它们的差别在"读哪个字段/调哪个 helper"，而 oracle 侧的差异点（`typeOnLeft` 用 `getstatic ObjectType.TYPE_*`
+   + `Object.equals`，`typeOnRight` 用 `getfield/putfield this.type`）在探针侧被 dx 的寄存器/字段顺序打散，
+   本轮选择**留白不猜**（宁可 4 条空着，也不制造 4 条可能是错的）。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2438/3321 = 73.4%（已定名类内部 2265/2269 = 99.8%）
+字段  876/974  = 89.9%（已定名类内部 99.2%）
+待人工 219 = no-oracle-descriptor 201 + ambiguous 18
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0
+```
