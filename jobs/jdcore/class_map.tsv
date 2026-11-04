@@ -282,3 +282,71 @@ org/c/a/a/b/d/d/f	org/jd/core/v1/model/javasyntax/statement/ContinueStatement	sh
 org/c/a/a/b/d/e/g	org/jd/core/v1/model/javasyntax/type/GenericType	str:toString() 里写死的类名串 "GenericType{"（最强证据）；与父类链冲突的是父类映射，已撤掉父类那条弱判据
 org/c/a/a/b/d/e/i	org/jd/core/v1/model/javasyntax/type/ObjectType	str:toString() 里写死的类名串 "ObjectType{"（最强证据）；与父类链冲突的是父类映射，已撤掉父类那条弱判据
 org/c/a/a/b/d/e/k	org/jd/core/v1/model/javasyntax/type/PrimitiveType	str:toString() 里写死的类名串 "PrimitiveType{"（最强证据）；与父类链冲突的是父类映射，已撤掉父类那条弱判据
+org/c/a/a/b/c/a	org/jd/core/v1/model/javafragment/EndBlockFragment	src:oracle 源码 JavaFragmentFactory.java 的 addEndArrayInitializer、addEndStatementsInLambdaBlock 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/b	org/jd/core/v1/model/javafragment/EndBlockInParameterFragment	src:oracle 源码 JavaFragmentFactory.java 的 addEndArrayInitializerInParameter 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/c	org/jd/core/v1/model/javafragment/EndBodyFragment	src:oracle 源码 JavaFragmentFactory.java 的 addEndMethodBody、addEndSingleStatementMethodBody、addEndSubTypeBody、addEndTypeBody 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/d	org/jd/core/v1/model/javafragment/EndBodyInParameterFragment	src:oracle 源码 JavaFragmentFactory.java 的 addEndSubTypeBodyInParameter 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/f	org/jd/core/v1/model/javafragment/EndSingleStatementBlockFragment	src:oracle 源码 JavaFragmentFactory.java 的 addEndSingleStatementBlock 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/g	org/jd/core/v1/model/javafragment/EndStatementsBlockFragment	src:oracle 源码 JavaFragmentFactory.java 的 addEndStatementsBlock 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/o	org/jd/core/v1/model/javafragment/SpaceSpacerFragment	src:oracle 源码 JavaFragmentFactory.java 的 addEndArrayInitializerInParameter、addEndSubTypeBodyInParameter、addSpacerAfterMemberAnnotations、addSpacerAfterSwitchLabel、addSpacerBeforeExtends、addSpacerBeforeImplements、addSpacerBetweenArrayInitializerBlock、addSpacerBetweenEnumValues、addSpacerBetweenMemberAnnotations、addSpacerBetweenStatements、addSpacerBetweenSwitchLabels 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/p	org/jd/core/v1/model/javafragment/SpacerBetweenMembersFragment	src:oracle 源码 JavaFragmentFactory.java 的 addSpacerBetweenMembers 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/q	org/jd/core/v1/model/javafragment/SpacerFragment	src:oracle 源码 JavaFragmentFactory.java 的 addEndSingleStatementBlock、addEndStatementsBlock、addEndStatementsInLambdaBlock、addNewLineBetweenArrayInitializerBlock、addSpacerAfterEndStatementsBlock、addSpacerAfterImports、addSpacerAfterPackage、addSpacerBeforeMainDeclaration、addSpacerBetweenEnumValues、addSpacerBetweenFieldDeclarators、addSpacerBetweenSwitchLabelBlock、addStartSingleStatementBlock、addStartStatementsBlock、addStartStatementsDoWhileBlock、addStartStatementsInLambdaBlock、addStartStatementsTryBlock、addStartTypeBody 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/r	org/jd/core/v1/model/javafragment/StartBlockFragment	src:oracle 源码 JavaFragmentFactory.java 的 addStartArrayInitializerBlock、addStartStatementsInLambdaBlock 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/s	org/jd/core/v1/model/javafragment/StartBodyFragment	src:oracle 源码 JavaFragmentFactory.java 的 addStartMethodBody、addStartSingleStatementMethodBody、addStartTypeBody 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/u	org/jd/core/v1/model/javafragment/StartSingleStatementBlockFragment	src:oracle 源码 JavaFragmentFactory.java 的 addStartSingleStatementBlock 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/x	org/jd/core/v1/model/javafragment/StartStatementsDoWhileBlockFragment	src:oracle 源码 JavaFragmentFactory.java 的 addStartStatementsDoWhileBlock 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/y	org/jd/core/v1/model/javafragment/StartStatementsTryBlockFragment	src:oracle 源码 JavaFragmentFactory.java 的 addStartStatementsTryBlock 里 new 序列与探针同串方法体逐位对应
+org/c/a/a/b/c/e	org/jd/core/v1/model/javafragment/EndMovableJavaBlockFragment	hier:父类 = b/b/a(EndMovableBlockFragment)（javap 确认 extends），字段 2（1 个即该父类类型）含 static、方法 2 —— 与 oracle EndMovableJavaBlockFragment 同形（全包唯一继承 EndMovableBlockFragment 者）
+org/c/a/a/b/c/j	org/jd/core/v1/model/javafragment/ImportsFragment$ImportCountComparator	shape:本类是 javafragment 包里唯一 implements java.util.Comparator 的类（0 字段/4 方法，方法参数含 ImportsFragment$Import），oracle 同包唯一 Comparator 就是 ImportCountComparator
+org/c/a/a/b/c/n	org/jd/core/v1/model/javafragment/LineNumberTokensFragment$SearchLineNumberVisitor	shape:父类 = 已定名 AbstractNopTokenVisitor，字段多重集 (int,int)，方法参数引用 LineNumberToken/NewLineToken —— oracle 同包唯一 (int,int) 且父类相同的是 SearchLineNumberVisitor
+org/c/a/a/b/c/aa	org/jd/core/v1/model/javafragment/TokensFragment$LineCountVisitor	shape:父类 = 已定名 AbstractNopTokenVisitor，字段多重集 (boolean,int,static)（3 个，含 1 个 static）—— oracle 同包唯一同组合的是 TokensFragment$LineCountVisitor
+org/c/a/a/b/c/w	org/jd/core/v1/model/javafragment/StartStatementsBlockFragment$Group	src:由已定名 v(=StartStatementsBlockFragment) 的 getGroup() 里 new（创建点序列对齐 1 票）；本类字段 (int, FlexibleFragment) 与 oracle Group 逐一相同，且是 javafragment 包唯一 super=Object 的非片段类
+org/c/a/a/b/d/a	org/jd/core/v1/model/javasyntax/AbstractJavaSyntaxVisitor	src+pkg:本包(=model/javasyntax，与 b/d/{a,b,c,d,e} 五个子包=declaration/expression/reference/statement/type 同构)中唯一的 abstract、0 字段、方法参数覆盖全部 javasyntax 类型（104 个 visit 重载，oracle 116 个）
+org/c/a/a/b/e/a	org/jd/core/v1/model/message/Message	src:org/c/a/a/a=ClassFileToJavaSourceDecompiler 的 decompile() 里 new 它并立刻 setHeader("mainInternalTypeName",…)；本类字段恰为 (HashMap, Object)，与 oracle Message 的 (Map,Object) 一一对应
+org/c/a/a/a/b/a	org/jd/core/v1/api/printer/Printer	src:org/c/a/a/a.decompile 的第 2 形参类型即本类，oracle 该形参是 Printer；本类为 interface、15 个方法、参数类型 int/String 与 oracle Printer 完全一致
+org/c/a/a/a/b/b	org/jd/core/v1/api/printer/PlainTextPrinter	role:是 a/b/a(=Printer) 的唯一实现（6 字段 StringBuilder+2×boolean+3×int、常量串 "\\0"/"\\u"/"\\n" 是源码文本转义表）；jd-core 1.1.3 全库没有任何 Printer 实现类（对照 jd-cli 的 PlainTextPrinter 同形），属 freelly 魔改新增，按作用命名
+org/c/a/a/c/c/a/a/a	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/CharacterUtil	src:常量串集合 {\\0, \\', \\\\, \\b, \\f, \\n} 与 oracle CharacterUtil 逐一相同，方法参数类型 int
+org/c/a/a/c/c/a/a/b	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/JavaFragmentFactory	src:39 个静态方法与 oracle JavaFragmentFactory 的 40 个一一对应，常量串（"End method body"/"Spacer between members"…）逐字相同，且其中 15 个方法体的 new 序列与源码逐位一致
+org/c/a/a/c/c/a/a/c	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/StringUtil	src:常量串集合 {\\0, \\\", \\\\, \\b, \\f, \\n} 与 oracle StringUtil 相同（与 CharacterUtil 的差别仅在 \' vs \"），方法参数类型 String
+org/c/a/a/d/a	org/jd/core/v1/util/Base	hier+shape:pkg(=util，与 d/{a,b,c,d,e} 五类 5↔5) 中唯一 interface；0 字段/4 方法，oracle Base 是 util 里唯一接口
+org/c/a/a/d/b	org/jd/core/v1/util/Base$1	iso:util 包 5↔5，其余 4 个已由父类/字段硬判据定死，本类为唯一剩余（0 字段/2 方法，oracle Base$1 是 util 里唯一剩余的内层类；无判别证据）
+org/c/a/a/d/c	org/jd/core/v1/util/DefaultList	hier:父类 ArrayList + 2 字段（1 个 static、1 个是本类内部类型的单例）与 oracle DefaultList 相同；创建点序列对齐 8 票
+org/c/a/a/d/d	org/jd/core/v1/util/DefaultList$EmptyList	hier:父类 = c(=DefaultList) 且 implements Iterator —— oracle DefaultList$EmptyList 完全同形（util 包唯一继承 DefaultList 者）
+org/c/a/a/c/d/b/a	org/jd/core/v1/service/layouter/util/VisitorsHolder	src:4 个字段类型恰为 2×AbstractSearchMovableBlockFragmentVisitor + 2×AbstractStoreMovableBlockFragmentIndexVisitorAbstract，4 个 getter 各自 new 一个内部类 —— 与 oracle VisitorsHolder 逐项相同
+org/c/a/a/c/d/b/b	org/jd/core/v1/service/layouter/util/VisitorsHolder$1	refs:父类=AbstractSearchMovableBlockFragmentVisitor；visit(End) 里 depth-=1、index+=1，visit(Start) 里 depth+=1 —— 与 oracle $1（getForwardSearchVisitor）符号方向一致；且它由 holder 第 1 个 getter 创建
+org/c/a/a/c/d/b/c	org/jd/core/v1/service/layouter/util/VisitorsHolder$2	refs:父类同 $1，但 visit(End) 里 depth+=1、index+=1（方向与 b 相反）—— 对应 oracle $2（getBackwardSearchVisitor）；由 holder 第 2 个 getter 创建
+org/c/a/a/c/d/b/d	org/jd/core/v1/service/layouter/util/VisitorsHolder$3	refs:父类=AbstractStoreMovableBlockFragmentIndexVisitorAbstract，visit 里先读 enabled(f:Z) 再计数、并在 Start 分支调 storeIndex() —— oracle $3（getBackwardSearchStartIndexesVisitor）同构；由 holder 第 3 个 getter 创建
+org/c/a/a/c/d/b/e	org/jd/core/v1/service/layouter/util/VisitorsHolder$4	refs:父类同上、同样读 enabled，但 storeIndex() 落在 End 分支 —— oracle $4（getForwardSearchEndIndexesVisitor）同构；由 holder 第 4 个 getter 创建
+org/c/a/a/b/d/c/i	org/jd/core/v1/model/javasyntax/reference/ElementValueArrayInitializerElementValue	src:创建点序列对齐 3 票（在 c/a/a/c/b 处理 ElementValueArrayValue 的同串方法体里，new 序列与 oracle 逐位对应；该类被创建的位置恰是 oracle 里 new ElementValueArrayInitializerElementValue 的位置）
+org/c/a/a/b/d/c/m	org/jd/core/v1/model/javasyntax/reference/ExpressionElementValue	src:创建点序列对齐 10 票（ElementValuePrimitiveType/ElementValueEnumConstValue 等 4 个已定名类的同串方法体里 new 序列逐位一致）
+org/c/a/a/c/c/a/b/e	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/ExpressionVisitor$Fragments	src:创建点序列对齐 3 票（在已定名 EnumDeclaration/BaseStatement 相关方法体里 new 序列逐位一致）
+org/c/a/a/b/b/a	org/jd/core/v1/model/fragment/EndFlexibleBlockFragment	fp:javap 字节码指纹 0.71（与次优差 0.18；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/b/h	org/jd/core/v1/model/fragment/StartFlexibleBlockFragment	fp:javap 字节码指纹 0.72（与次优差 0.19；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/a/a	org/jd/core/v1/model/javasyntax/declaration/AbstractNopDeclarationVisitor	fp:javap 字节码指纹 0.63（与次优差 0.48；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/b/c	org/jd/core/v1/model/javasyntax/expression/AbstractLineNumberTypeExpression	fp:javap 字节码指纹 0.45（与次优差 0.15；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/d/e	org/jd/core/v1/model/javasyntax/statement/CommentStatement	fp:javap 字节码指纹 0.61（与次优差 0.18；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/e/a	org/jd/core/v1/model/javasyntax/type/AbstractNopTypeArgumentVisitor	fp:javap 字节码指纹 0.65（与次优差 0.19；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/b/d/e/j	org/jd/core/v1/model/javasyntax/type/ObjectType$1	fp:javap 字节码指纹 0.85（与次优差 0.63；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/a/a/c	org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ImmutableBasicBlock	fp:javap 字节码指纹 0.68（与次优差 0.37；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/a/a/d	org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ImmutableBasicBlock$1	fp:javap 字节码指纹 0.56（与次优差 0.35；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/a/b/b/a	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/expression/ClassFileCmpExpression	fp:javap 字节码指纹 0.49（与次优差 0.30；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/a/c/c	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame$AbstractLocalVariableComparator	fp:javap 字节码指纹 0.46（与次优差 0.30；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/a/c/h	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/LocalVariableSet	fp:javap 字节码指纹 0.52（与次优差 0.34；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/a/c/l	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/RootFrame	fp:javap 字节码指纹 0.54（与次优差 0.32；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/b/a	org/jd/core/v1/service/converter/classfiletojavasyntax/processor/ConvertClassFileException	fp:javap 字节码指纹 0.70（与次优差 0.41；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/b/b	org/jd/core/v1/service/converter/classfiletojavasyntax/processor/ConvertClassFileProcessor	fp:javap 字节码指纹 0.51（与次优差 0.31；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/b/c	org/jd/core/v1/service/converter/classfiletojavasyntax/processor/UpdateJavaSyntaxTreeProcessor	fp:javap 字节码指纹 0.54（与次优差 0.26；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/ai	org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker$SwitchCaseComparator	fp:javap 字节码指纹 0.54（与次优差 0.16；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/d	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser$JsrReturnAddressExpression	fp:javap 字节码指纹 0.52（与次优差 0.35；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/h	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphGotoReducer	fp:javap 字节码指纹 0.46（与次优差 0.28；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/j	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphLoopReducer$LoopComparator	fp:javap 字节码指纹 0.51（与次优差 0.11；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/l	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphMaker$CodeExceptionComparator	fp:javap 字节码指纹 0.59（与次优差 0.23；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/c/u	org/jd/core/v1/service/converter/classfiletojavasyntax/util/MergeMembersUtil$MemberDeclarationComparator	fp:javap 字节码指纹 0.49（与次优差 0.17；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/d/f	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/DeclaredSyntheticLocalVariableVisitor	fp:javap 字节码指纹 0.49（与次优差 0.18；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/d/j	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor	fp:javap 字节码指纹 0.47（与次优差 0.17；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/a/a/d/v	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/RemoveDefaultConstructorVisitor	fp:javap 字节码指纹 0.48（与次优差 0.15；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/b/a/a	org/jd/core/v1/service/deserializer/classfile/ClassFileDeserializer	fp:javap 字节码指纹 0.64（与次优差 0.64；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/c/a/b/d	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/ExpressionVisitor$Context	fp:javap 字节码指纹 0.53（与次优差 0.34；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/c/a/b/f	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/ExpressionVisitor$HexaExpressionVisitor	fp:javap 字节码指纹 0.47（与次优差 0.23；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/c/a/b/h	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/SingleLineStatementVisitor	fp:javap 字节码指纹 0.55（与次优差 0.34；七项=指令/成员/串/对齐/整数/子类/创建点）
+org/c/a/a/c/e/a/a/c	org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor$KnownLineNumberTokenVisitor	fp:javap 字节码指纹 0.49（与次优差 0.49；七项=指令/成员/串/对齐/整数/子类/创建点）
