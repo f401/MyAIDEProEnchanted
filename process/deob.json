@@ -61,6 +61,7 @@
   },
   {
    "dir": "../jobs/jdcore",
+   "allow_identity": false,
    "probe_prefix": "org/c/a/a"
   }
  ],

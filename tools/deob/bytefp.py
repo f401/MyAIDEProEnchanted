@@ -144,12 +144,13 @@ def parse(path):
             curm = None
             sup = None
             ifs = []
-            me = re.search(r'\bextends\s+([\w.$]+(?:\s*,\s*[\w.$]+)*)', ln)
+            hdr = re.sub(r'<[^<>]*(?:<[^<>]*>[^<>]*)*>', '', ln)   # 去掉泛型形参（里面的 extends 是上界）
+            me = re.search(r'\bextends\s+([\w.$]+(?:\s*,\s*[\w.$]+)*)', hdr)
             if me:
                 ext = [x.strip().replace('.', '/') for x in me.group(1).split(',')]
                 sup = ext[0]
                 ifs = ext[1:] if len(ext) > 1 else []
-            mi = re.search(r'\bimplements\s+(.+?)\s*\{?$', ln)
+            mi = re.search(r'\bimplements\s+(.+?)\s*\{?$', hdr)
             if mi:
                 ifs = [x.strip().replace('.', '/') for x in mi.group(1).rstrip('{ ').split(',') if x.strip()]
             acc = ln

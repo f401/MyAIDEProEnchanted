@@ -125,7 +125,11 @@ class Project:
                             class_map=cm if cm and os.path.exists(cm) else None,
                             member_map=mm if mm and os.path.exists(mm) else None,
                             param_map=pm if pm and os.path.exists(pm) else None,
-                            head=hd))
+                            head=hd,
+                            # 类名被混淆的库（jd-core 这种所有类都是 a/ab/abc）**不能**写
+                            # identity 类行——那等于把探针名当真名。part 里写 allow_identity:false 关掉。
+                            allow_identity=(True if isinstance(item, str)
+                                            else item.get('allow_identity', True))))
         if out:
             return out
         # 兼容老写法：单值（或列表）直接当一份 part

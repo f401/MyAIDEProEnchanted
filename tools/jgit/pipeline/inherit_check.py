@@ -132,7 +132,7 @@ for p, km in list(maps.items()):
                 break
 print('DUPTARGET（未映射的 override 兜底后与显式映射撞车 → 产物重复方法）: %d' % len(dup))
 for d in sorted(dup)[:20]:
-    print('  %-12s %s%s 兜底→%s；显式已把 %s 也叫 %s' % d)
+    print('  %-12s %s%s 兜底→%s；显式已把另一个成员 %s 也映射成该名字' % d)
 
 # 去重：同一个 (祖先,键) 被多个子类继承，只补一次
 uniq = {}

@@ -413,3 +413,79 @@ c/a/a/a/c localvar     4   ↔ free 4    b f g i（`--cluster` 给出的方案�
 3. 接口簇一律用 `hier`：**直接子类型多重集**。本轮 `BaseTypeArgument`/`BaseTypeParameter`/
    `Type`/`BaseFieldDeclarator`/`BaseElementValuePair` 5 个接口就是这么一次定的
    （子类型多重集唯一）。注意父子关系要取 `javap` 头，`jvmbody` 的会错。
+
+## 第九批：成员回填 + 一致性审计（本轮）→ **393/434（90.6%）**，方法名 59.9% / 字段名 80.0%
+
+### 工具 3：`tools/deob/audit.py`（**只报告、不改文件**的三方一致性审计）
+
+三类硬矛盾，全部可复现（两侧 jar + 已定映射）：
+
+```
+kind   接口/类/注解错配 —— 形状/计数判据最容易错的一类（接口没有方法体，指纹全是空的）
+hier   父类/接口矛盾 —— 父类已定名时必须同一个父类；接口按 **oracle 侧祖先闭包**判定，
+       因为"探针实现的是 A、oracle 实现的是 A 的子接口 B"不算矛盾（第一版没做闭包，误报 4 条）
+size   oracle 比探针**少**方法/字段（ProGuard 只删不加，所以这个方向不可能）
+```
+
+第一次跑就抓到 **4 条 kind 错配**，全是老判据（`shape:`/`csp:`）留下的：
+
+```
+b/d/b/a  → Expression（接口）        实为 AbstractLambdaExpression       ← 唯一 extends
+                                       AbstractLineNumberTypeExpression 且带 BaseStatement 字段
+b/d/c/o  → AbstractNopReferenceVisitor（类）  实为 ReferenceVisitor（接口，8 个 visit(X)）
+b/d/e/l  → AbstractNopTypeVisitor（类）       实为 BaseType（6 个方法签名逐一对应
+                                       createType/getDimension/getInternalName/isXxx）
+b/d/e/m  → Type（接口）              实为 AbstractType（**role:**：abstract、implements
+                                       BaseType，被 GenericType/ObjectType/PrimitiveType 继承；
+                                       jd-core 1.1.3 的 type 包 28 个类里没有它，属魔改/新版）
+```
+
+顺带修掉的三处：
+
+```
+b/d/c/c  AnnotationElementValue → **AnnotationReferences**（与 b/d/c/a 撞车 DUPTARGET；
+         真 AnnotationElementValue 是 a，其 toString 串 "AnnotationElementValue{type="）
+b/d/c/d / b/d/c/e  → BaseAnnotationReference / BaseElementValue（hier：唯一实现者分别
+         是 AnnotationReferences / ElementValues）
+c/a/a/a/c/d  Frame → **Frame$GenerateLocalVariableNameVisitor**（implements TypeArgumentVisitor，
+         字段 String[]+StringBuilder+HashSet+HashMap+String、构造器 (HashSet,HashMap) 全同；
+         原判来自"常量串命中 Frame.java"，与 c/b 撞车）
+b/d/a/z  BaseMemberDeclaration → **MemberDeclaration**（ClassFileMemberDeclaration 的直接父）
+c/a/a/a/b/a/e  → **ClassFileConstructorOrMethodDeclaration**（实现者 d/l/m = Constructor/
+         Method/StaticInitializer；ClassFileTypeDeclaration 在 freelly 里被并掉了）
+```
+
+> `hier` 还剩 3 条，都是**魔改本身的结构差异**，不是判错，已在此记录：
+> `c/a/a/d/c` 的父类在 freelly 里改成了 `AbstractJavaSyntaxVisitor`（原版是
+> `AbstractTypeArgumentVisitor`）；`b/d/a/c`(TypeDeclarations) 多实现一个 `VariableInitializer`；
+> `b/d/e/l`(BaseType) 多继承一个 `TypeArgument`。
+
+### 成员回填（`cli.py members --apply`）
+
+```
+成员行 1111 → 2762 行（400 个类块）
+方法 1989/3321 = 59.9%（此前 33%）         字段 779/974 = 80.0%（此前 25%）
+已定名类内部：方法 1922/1933 = 99.4%      字段 776/793 = 97.9%
+参数行 params.tsv 1615 行（rebuild_tsrg 顺带重算）
+待人工 608 条：no-oracle-descriptor 568（freelly 新增/成员被内联）+ ambiguous 40
+```
+
+**踩到的两个坑（都已修进工具）**：
+
+1. `membermatch.write_members()` 会给"没有类映射"的类补 **identity 类行**（`探针名 → 探针名`，
+   证据写"类名未被混淆"）。这对 jsch 这种类名真实的库是对的，对 jd-core 是**灾难**——
+   跑一次 `--apply` 就往 class_map 里塞 8 行假名。修法：`process/deob.json` 的 part 里加
+   `"allow_identity": false`，并让 `config.py` 把这个键透传下来（原来 `_parse_parts` 只挑固定键，
+   写了也不生效）。清掉这些行时记得**连成员块一起删**，否则 rebuild 会留 7 个"陈旧块"。
+2. `inherit_check.py` 打印 DUPTARGET 详情的格式串有 6 个占位符、元组只有 5 项 →
+   一有 DUPTARGET 就 `TypeError` 崩掉（等于"有错却看不到"）。已修。
+   修完立刻抓到一条真错：`org/c/a/a/d/a`(util/Base) 的 `size()I` 被填成 `getDimension`，
+   与祖先的兜底名撞车 → 改为 `size`（oracle Base 的 6 个 default 方法之一）。
+
+### 状态
+
+```
+393/434 = 90.6%（41 个类未定名）
+门禁：validate ✔ 无无效映射 · inherit CONFLICT 0 / DUPTARGET 0（MISSING 418 条=71 个祖先成员，
+      全在未定名类） · famcheck 0/0 · innercheck ②③ 0 · audit kind 0 / hier 3（见上）
+```

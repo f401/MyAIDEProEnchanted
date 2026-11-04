@@ -67,7 +67,7 @@ org/c/a/a/b/a/a/u	org/jd/core/v1/model/classfile/attribute/AttributeSynthetic	sr
 org/c/a/a/b/a/a/x	org/jd/core/v1/model/classfile/attribute/ElementValue	src:唯一只有 abstract accept(ElementValueVisitor)
 org/c/a/a/b/a/a/y	org/jd/core/v1/model/classfile/attribute/ElementValueAnnotationValue	src:字段=Annotation（=a），3 方法
 org/c/a/a/b/a/a/z	org/jd/core/v1/model/classfile/attribute/ElementValueArrayValue	src:字段=ElementValue[]（=x[]），3 方法
-org/c/a/a/b/d/c/c	org/jd/core/v1/model/javasyntax/reference/AnnotationElementValue	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
+org/c/a/a/b/d/c/c	org/jd/core/v1/model/javasyntax/reference/AnnotationReferences	hier:javap 头 extends org/c/a/a/d/c(=util/DefaultList) implements b/d/c/d(=BaseAnnotationReference)，构造器 ()/(int) + accept(ReferenceVisitor) —— 与 oracle AnnotationReferences 逐项相同。原判 AnnotationElementValue 与 b/d/c/a 撞车（DUPTARGET），而 a 的 toString 常量串 "AnnotationElementValue{type=" 才是 AnnotationElementValue
 org/c/a/a/b/d/c/h	org/jd/core/v1/model/javasyntax/reference/InnerObjectReference	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
 org/c/a/a/b/d/c/l	org/jd/core/v1/model/javasyntax/reference/ElementValues	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
 org/c/a/a/b/d/c/n	org/jd/core/v1/model/javasyntax/reference/Reference	src:整包"字段类型多重集+方法数"签名与候选双向唯一（包对齐已用极端形态锚定）
@@ -180,9 +180,9 @@ org/c/a/a/c/c/a/b/i	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 org/c/a/a/d/e	org/jd/core/v1/util/DefaultStack	src:该类的字符串常量在 oracle 源码里只出现在这一个文件（字面量唯一匹配）
 org/c/a/a/b/d/a/aj	org/jd/core/v1/model/javasyntax/declaration/VariableInitializer	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
 org/c/a/a/b/d/a/h	org/jd/core/v1/model/javasyntax/declaration/BaseTypeDeclaration	shape:本类是 declaration 包里 0 方法接口，oracle BaseTypeDeclaration 是唯一的 0 方法接口；且已被定名的 b/d/b(=CompilationUnit) 其唯一字段与构造参数都是本类型 —— oracle CompilationUnit 的字段正是 BaseTypeDeclaration（原 csp: 判为 BaseLocalVariableDeclarator 有误，后者是 1 方法接口）
-org/c/a/a/b/d/a/z	org/jd/core/v1/model/javasyntax/declaration/BaseMemberDeclaration	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
+org/c/a/a/b/d/a/z	org/jd/core/v1/model/javasyntax/declaration/MemberDeclaration	hier:k(=ClassFileMemberDeclaration) 的直接父接口就是本类，而 oracle ClassFileMemberDeclaration extends MemberDeclaration —— 原判 BaseMemberDeclaration 与 oracle 对不上（audit.py 抓出）
 org/c/a/a/b/d/e/n	org/jd/core/v1/model/javasyntax/type/TypeArgument	csp:同包唯一相容（一元约束 + 创建点/成员合一匹配）
-org/c/a/a/c/a/a/a/c/d	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
+org/c/a/a/c/a/a/a/c/d	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame$GenerateLocalVariableNameVisitor	src:implements u(=TypeArgumentVisitor)，字段 (String[], StringBuilder, HashSet, HashMap, String)、构造器 (HashSet, HashMap) 与 oracle Frame$GenerateLocalVariableNameVisitor 逐项相同。原判 Frame 是从常量串命中 Frame.java 得来的，与 c/b 撞车（DUPTARGET），已改判
 org/c/a/a/c/a/a/c/ag	org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
 org/c/a/a/c/a/a/c/aj	org/jd/core/v1/service/converter/classfiletojavasyntax/util/StringConcatenationUtil	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
 org/c/a/a/c/a/a/c/g	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeWriter	src:该类常量串按长度加权只命中上游这一个源文件（领先第二名 ≥2 倍）
@@ -243,12 +243,12 @@ org/c/a/a/b/d/a/ab	org/jd/core/v1/model/javasyntax/declaration/FormalParameters	
 org/c/a/a/b/d/a/c	org/jd/core/v1/model/javasyntax/declaration/TypeDeclarations	shape:整包 (方法数,字段数) 精确双射 (3, 1)
 org/c/a/a/b/d/a/i	org/jd/core/v1/model/javasyntax/declaration/BodyDeclaration	shape:整包 (方法数,字段数) 精确双射 (4, 2)
 org/c/a/a/b/d/a/u	org/jd/core/v1/model/javasyntax/declaration/ArrayVariableInitializer	shape:整包 (方法数,字段数) 精确双射 (4, 1)
-org/c/a/a/b/d/b/a	org/jd/core/v1/model/javasyntax/expression/Expression	shape:整包 (方法数,字段数) 精确双射 (3, 1)
+org/c/a/a/b/d/b/a	org/jd/core/v1/model/javasyntax/expression/AbstractLambdaExpression	hier:javap 头显示本类 extends b/d/b/c(=AbstractLineNumberTypeExpression) 且有一个 b/d/d/b(=BaseStatement) 字段 —— oracle expression 包里既继承 AbstractLineNumberTypeExpression 又带 BaseStatement 字段的只有 AbstractLambdaExpression（原 shape: 判成 Expression 是接口/类错配，tools/deob/audit.py 抓出）
 org/c/a/a/b/d/b/f	org/jd/core/v1/model/javasyntax/expression/BaseExpression	shape:整包 (方法数,字段数) 精确双射 (1, 0)
-org/c/a/a/b/d/c/o	org/jd/core/v1/model/javasyntax/reference/AbstractNopReferenceVisitor	shape:整包 (方法数,字段数) 精确双射 (8, 0)
+org/c/a/a/b/d/c/o	org/jd/core/v1/model/javasyntax/reference/ReferenceVisitor	kind:本类是 interface，8 个 visit(X) 的形参正是 reference 包里的 a/b/c/i/j/k/l/m 八类；oracle ReferenceVisitor 是同包唯一的这种接口（原判 AbstractNopReferenceVisitor 是 abstract class，audit.py 抓出）
 org/c/a/a/b/d/d/af	org/jd/core/v1/model/javasyntax/statement/TryStatement$CatchClause	shape:整包 (方法数,字段数) 精确双射 (8, 5)
 org/c/a/a/b/d/d/v	org/jd/core/v1/model/javasyntax/statement/TryStatement$Resource	shape:整包 (方法数,字段数) 精确双射 (6, 3)
-org/c/a/a/b/d/e/l	org/jd/core/v1/model/javasyntax/type/AbstractNopTypeVisitor	shape:整包 (方法数,字段数) 精确双射 (6, 0)
+org/c/a/a/b/d/e/l	org/jd/core/v1/model/javasyntax/type/BaseType	src:interface 的 6 个方法签名与 oracle BaseType 逐一对应：a(int)→createType(int)、d()→getDimension()、e()→getInternalName()、f()/l()/m_()→isGenericType()/isObjectType()/isPrimitiveType()（前判 TypeVisitor 是把接口/类搞反了，audit.py 抓出）
 org/c/a/a/c/a/a/a/a/b	org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ExceptionHandler	shape:整包 (方法数,字段数) 精确双射 (9, 3)
 org/c/a/a/c/a/a/a/b/a/g	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileEnumDeclaration$ClassFileConstant	shape:整包 (方法数,字段数) 精确双射 (3, 1)
 org/c/a/a/c/a/a/a/b/a/k	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileMemberDeclaration	shape:整包 (方法数,字段数) 精确双射 (1, 0)
@@ -383,7 +383,11 @@ org/c/a/a/b/d/c/a	org/jd/core/v1/model/javasyntax/reference/AnnotationElementVal
 org/c/a/a/c/a/a/a/c/b	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/Frame	src:创建点序列对齐 1 票（在已定名 c/a/a/c/o 的同串方法体里，new 序列与 oracle 逐位对应）
 org/c/a/a/b/d/e/e	org/jd/core/v1/model/javasyntax/type/BaseTypeArgument	hier:直接子类型多重集恰为 {TypeArgument, TypeArguments}（唯一），与 oracle BaseTypeArgument 相同 —— 父/接口关系取自 javap 头，不靠猜测
 org/c/a/a/b/d/e/f	org/jd/core/v1/model/javasyntax/type/BaseTypeParameter	hier:直接子类型多重集恰为 {TypeParameter, TypeParameters}（唯一），与 oracle BaseTypeParameter 相同
-org/c/a/a/b/d/e/m	org/jd/core/v1/model/javasyntax/type/Type	hier:直接子类型多重集恰为 {ObjectType, PrimitiveType, GenericType}（唯一），与 oracle Type 相同；这三个子类均已由字符串判据定名
+org/c/a/a/b/d/e/m	org/jd/core/v1/model/javasyntax/type/AbstractType	role:abstract class、implements l(=BaseType)，方法全是 BaseType/Base 的默认实现（size()/isXxx()/createType 转发）；GenericType/ObjectType/PrimitiveType 三个已定名类都 extends 它。jd-core 1.1.3 的 type 包 28 个类里没有这个抽象基类（是 freelly 魔改/新版本带来的），按作用命名
 org/c/a/a/b/d/a/d	org/jd/core/v1/model/javasyntax/declaration/BaseFieldDeclarator	hier:直接子类型多重集恰为 {FieldDeclarator, FieldDeclarators}（唯一），与 oracle BaseFieldDeclarator 相同
 org/c/a/a/b/d/a/m	org/jd/core/v1/model/javasyntax/declaration/DeclarationVisitor	hier+shape:21 个方法的参数覆盖全部 declaration 类型，直接子类型 {AbstractJavaSyntaxVisitor, AbstractNopDeclarationVisitor} —— 与 oracle DeclarationVisitor 相同（唯一）
 org/c/a/a/b/d/c/f	org/jd/core/v1/model/javasyntax/reference/BaseElementValuePair	hier:直接子类型多重集恰为 {ElementValuePair, ElementValuePairs}（唯一），与 oracle BaseElementValuePair 相同
+org/c/a/a/b/d/c/d	org/jd/core/v1/model/javasyntax/reference/BaseAnnotationReference	hier:interface extends b/d/c/n(=Reference)、0 方法，唯一实现者是 c(=AnnotationReferences) —— oracle BaseAnnotationReference 同形
+org/c/a/a/b/d/c/e	org/jd/core/v1/model/javasyntax/reference/BaseElementValue	hier:interface extends b/d/c/n(=Reference) 与 org/c/a/a/d/a(=util/Base)、0 方法，实现者是 g 与 l(=ElementValues) —— oracle BaseElementValue 同形
+org/c/a/a/b/d/e/u	org/jd/core/v1/model/javasyntax/type/TypeArgumentVisitor	hier:直接子类型多重集 {AbstractNopTypeArgumentVisitor, AbstractTypeArgumentVisitor, Frame} —— 与 oracle TypeArgumentVisitor 一致（唯二实现者是这两个抽象访问器）
+org/c/a/a/c/a/a/a/b/a/e	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileConstructorOrMethodDeclaration	hier:本类是 interface extends k(=ClassFileMemberDeclaration)，实现者是 d(Constructor)/l(Method)/m(StaticInitializer) —— 与 oracle ClassFileConstructorOrMethodDeclaration（extends ClassFileMemberDeclaration，被 Method/Constructor 实现）同位置同方向；ClassFileTypeDeclaration 在 freelly 里被并掉了（4 个 *Declaration 直接 implements ClassFileMemberDeclaration）

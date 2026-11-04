@@ -1594,7 +1594,7 @@ def write_members(P, part_name, pkg, rows, log=print):
             n += 1
         # 只有**还没有类映射**的类才补 identity 行；已有真名的绝不能用自身覆盖
         # （踩过：dx 这种类名被混淆的库，跑一次 members --apply 会把 448 条类映射全冲成 identity）
-        if cm is not None and not cm.dict.get(r['cls']):
+        if cm is not None and part.get('allow_identity', True) and not cm.dict.get(r['cls']):
             cm.set(r['cls'], r['cls'],
                    'identity:类名未被混淆；本类块只用来挂成员行（成员是双侧同时改的）',
                    part_path=part['class_map'])
