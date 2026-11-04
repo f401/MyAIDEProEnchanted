@@ -697,3 +697,6 @@ org/c/a/a/c/a/a/c/b org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 org/c/a/a/c/a/a/c/v org/jd/core/v1/service/converter/classfiletojavasyntax/util/SynchronizedStatementMaker
 org/c/a/a/c/a/a/c/ah org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker$MemberVisitor
 org/c/a/a/c/a/a/c/k org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphMaker
+org/c/a/a/c/a/a/c/o org/jd/core/v1/service/converter/classfiletojavasyntax/util/LocalVariableMaker
+org/c/a/a/c/a/a/c/aa org/jd/core/v1/service/converter/classfiletojavasyntax/util/PrimitiveTypeUtil
+org/c/a/a/c/a/a/d/x org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SearchFirstLineNumberVisitor

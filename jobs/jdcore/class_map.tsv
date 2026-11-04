@@ -231,3 +231,6 @@ org/c/a/a/c/a/a/c/b	org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 org/c/a/a/c/a/a/c/v	org/jd/core/v1/service/converter/classfiletojavasyntax/util/SynchronizedStatementMaker	shape:包内 (方法数,字段数) 唯一且唯一候选 —— 探针 (3,1) vs oracle (3,1)
 org/c/a/a/c/a/a/c/ah	org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker$MemberVisitor	shape:包内 (方法数,字段数) 唯一且唯一候选 —— 探针 (5,2) vs oracle (5,2)
 org/c/a/a/c/a/a/c/k	org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphMaker	shape:包内 (方法数,字段数) 唯一且唯一候选 —— 探针 (3,2) vs oracle (4,2)
+org/c/a/a/c/a/a/c/o	org/jd/core/v1/service/converter/classfiletojavasyntax/util/LocalVariableMaker	who:引用者集合交集 6 个（第二名 1）——探针 17/13 对应 oracle 18/12
+org/c/a/a/c/a/a/c/aa	org/jd/core/v1/service/converter/classfiletojavasyntax/util/PrimitiveTypeUtil	who:引用者交集 3（第二名 1），包内唯一
+org/c/a/a/c/a/a/d/x	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SearchFirstLineNumberVisitor	who:引用者交集 5（第二名 2）；且形状 48/1 ≤ oracle 51/1
