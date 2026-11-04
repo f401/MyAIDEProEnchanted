@@ -1331,3 +1331,38 @@ switch 表又被 dx 折叠。**要再往下只能逐条人工判断语义并接�
 待人工 213 = 方法 137 + 字段 76（no-oracle-descriptor 199 + ambiguous 14）
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
 ```
+
+## 第二十六批：**断言串直接点出方法名** → 方法 **73.7%**
+
+之前在第二十二批判定"dx 会剥掉 assert 消息串"，本轮发现**只对了一半**：
+
+* `"unexpected type in ObjectLocalVariable.typeOnLeft(type)"` 这种 `in 类.方法(参数)` 形式确实被剥掉了；
+* 但 `"方法名 : 说明"` 这种形式**原样保留**。全库扫一遍，命中 4 条方法名：
+
+```
+c/a/a/c/ag  StatementMaker      断言 "parseTry : problem with stack"        ⇒ parseTry
+c/a/a/a/c/k PrimitiveLocalVariable  "rightReduce : incompatible types"     ⇒ rightReduce
+b/d/b/t     FormalParameter     "setType : incompatible types"             ⇒ setType
+b/d/b/e     NewArray            "createItemType : negative dimension"      ⇒ createItemType
+```
+
+判据是 `str:` 级——**字符串常量混淆改不了**，断言串里就写着方法名。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2446/3321 = 73.7%（已定名类内部 2265/2269 = 99.8%）
+字段  877/974  = 90.0%（已定名类内部 872/878 = 99.3%）
+待人工 210 = 方法 135 + 字段 75（no-oracle-descriptor 196 + ambiguous 14）
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
+```
+
+### 剩余 210 条的最终分类（已逐条看过，明确"为什么不命名"）
+
+| 类别 | 数量 | 为什么不能命名 |
+|---|---|---|
+| freelly 新增的辅助方法（`ByteCodeParser` 的 `Unexpected value expression` 系列、`LocalVariableMaker` 的 `SYNTHETIC_LOCAL_VARIABLE_` 系列、`LoopStatementMaker` 的 label 系列、`MergeMembersUtil`/`SwitchStatementMaker` 的 `$SWITCH_TABLE$` 合成器） | ≈120 | oracle 端没有对应方法名可借；方法体里也没有能倒推名字的断言串/常量 |
+| 同形重载（`newXxxOperatorExpression` ×4、`typeOnRight/Left`、`variableOnRight/Left`、`addVariableOnLeft/Right`、`parseSTORE/parseASTORE` 之外的 STORE 家族） | ≈55 | 差异只在实参语义，两侧都无字面量/`getstatic`，dx 又把 opcode switch 折叠成公共 handler |
+| freelly 新增的常量字段（`TextToken` 的 `/*`、`*/`；`PrimitiveType` 新增的 flag） | ≈10 | 只能按 `role:` 猜（本轮不动） |
+| `TypeMaker`/`MethodTypes` 的同型字段（HashMap×N、BaseType×N） | ≈25 | 描述符完全一样，使用点也被 dx 打散 |

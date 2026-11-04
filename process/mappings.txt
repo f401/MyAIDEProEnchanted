@@ -46930,6 +46930,8 @@ org/c/a/a/b/d/b/e org/jd/core/v1/model/javasyntax/expression/ArrayExpression
 	d ()Lorg/c/a/a/b/d/b/n; getExpression
 	d index
 	a expression
+	c (Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/e/l; createItemType
+		static
 org/c/a/a/b/d/b/g org/jd/core/v1/model/javasyntax/expression/BinaryOperatorExpression
 	b ()I getPriority
 	f priority
@@ -47409,6 +47411,7 @@ org/c/a/a/c/a/a/a/c/k org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	l $assertionsDisabled
 	a (Lorg/c/a/a/c/a/a/a/c/i;)V accept
 		0 visitor visitor
+	c (Lorg/c/a/a/b/d/e/l;)V rightReduce
 org/c/a/a/c/d/a/a org/jd/core/v1/service/layouter/model/Section
 	b ()Lorg/c/a/a/b/b/c; getFixedFragment
 	e ()I getRate
@@ -51128,6 +51131,7 @@ org/c/a/a/c/a/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	h ()I getDimension
 	b (Lorg/c/a/a/c/a/a/a/c/a;)Z isAssignableFrom
 	a (Lorg/c/a/a/b/d/e/l;)Z isAssignableFrom
+	c (Lorg/c/a/a/b/d/e/l;)V rightReduce
 org/c/a/a/c/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/util/AggregateFieldsUtil
 	a (Ljava/util/List;)V aggregate
 		static
