@@ -47761,3 +47761,10 @@ org/c/a/a/b/d/d/aa org/jd/core/v1/model/javasyntax/statement/SwitchStatement$Lab
 org/c/a/a/b/d/d/u org/jd/core/v1/model/javasyntax/statement/Statements
 org/c/a/a/b/d/d/k org/jd/core/v1/model/javasyntax/statement/IfElseStatement
 org/c/a/a/b/d/d/ah org/jd/core/v1/model/javasyntax/statement/TypeDeclarationStatement
+org/c/a/a/b/d/b/ab org/jd/core/v1/model/javasyntax/expression/NewExpression
+org/c/a/a/b/d/b/z org/jd/core/v1/model/javasyntax/expression/MethodReferenceExpression
+org/c/a/a/b/d/b/k org/jd/core/v1/model/javasyntax/expression/ConstructorReferenceExpression
+org/c/a/a/b/d/b/p org/jd/core/v1/model/javasyntax/expression/Expressions
+org/c/a/a/b/d/b/s org/jd/core/v1/model/javasyntax/expression/InstanceOfExpression
+org/c/a/a/b/d/b/b org/jd/core/v1/model/javasyntax/expression/AbstractLineNumberExpression
+org/c/a/a/b/d/b/d org/jd/core/v1/model/javasyntax/expression/AbstractNopExpressionVisitor

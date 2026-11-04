@@ -280,3 +280,10 @@ org/c/a/a/b/d/d/aa	org/jd/core/v1/model/javasyntax/statement/SwitchStatement$Lab
 org/c/a/a/b/d/d/u	org/jd/core/v1/model/javasyntax/statement/Statements	shape:字段类型组合包内唯一 —— 字段 (Z)，1 字段类里唯一带布尔（探针 4/1 vs oracle 6/1）
 org/c/a/a/b/d/d/k	org/jd/core/v1/model/javasyntax/statement/IfElseStatement	shape:字段类型组合包内唯一 —— 字段 (BaseStatement)，包内唯一（探针 3/1 vs oracle 3/1）
 org/c/a/a/b/d/d/ah	org/jd/core/v1/model/javasyntax/statement/TypeDeclarationStatement	shape:字段类型组合包内唯一 —— 字段为单个未定名类型，3/1 里唯一（探针 3/1 vs oracle 3/1）
+org/c/a/a/b/d/b/ab	org/jd/core/v1/model/javasyntax/expression/NewExpression	shape:字段类型组合包内唯一 —— 字段 (String, BodyDeclaration, BaseExpression, ObjectType) 且 nm=13 精确（探针 13/5 vs oracle 13/4）
+org/c/a/a/b/d/b/z	org/jd/core/v1/model/javasyntax/expression/MethodReferenceExpression	shape:字段类型组合包内唯一 —— 字段 (String,String,String,Expression) 4/4（探针 7/4 vs oracle 8/4）
+org/c/a/a/b/d/b/k	org/jd/core/v1/model/javasyntax/expression/ConstructorReferenceExpression	shape:字段类型组合包内唯一 —— 字段 (String, ObjectType) 2/2（探针 4/2 vs oracle 5/2）
+org/c/a/a/b/d/b/p	org/jd/core/v1/model/javasyntax/expression/Expressions	shape:字段类型组合包内唯一 —— 字段 (Z) 且 6/1 精确（探针 6/1 vs oracle 6/1）
+org/c/a/a/b/d/b/s	org/jd/core/v1/model/javasyntax/expression/InstanceOfExpression	shape:字段类型组合包内唯一 —— 字段 (Type, Expression) → 8/2（探针 7/2 vs oracle 8/2）
+org/c/a/a/b/d/b/b	org/jd/core/v1/model/javasyntax/expression/AbstractLineNumberExpression	shape:字段类型组合包内唯一 —— 字段 (I) 且 4/1 精确（探针 4/1 vs oracle 4/1）
+org/c/a/a/b/d/b/d	org/jd/core/v1/model/javasyntax/expression/AbstractNopExpressionVisitor	shape:字段类型组合包内唯一 —— 0 字段、方法数 33 ≤ 36，且 ExpressionVisitor 已定名（探针 33/0 vs oracle 36/0）
