@@ -46710,6 +46710,8 @@ org/c/a/a/b/d/a/ac org/jd/core/v1/model/javasyntax/declaration/MethodDeclaration
 	e exceptionTypes
 	m ()Lorg/c/a/a/b/d/c/g; getDefaultAnnotationValue
 	j defaultAnnotationValue
+	t_ ()Lorg/c/a/a/b/d/a/e; getFormalParameters
+	f formalParameters
 org/c/a/a/b/d/a/ad org/jd/core/v1/model/javasyntax/declaration/ModuleDeclaration
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 		0 visitor visitor
@@ -46751,6 +46753,8 @@ org/c/a/a/b/d/a/k org/jd/core/v1/model/javasyntax/declaration/ConstructorDeclara
 	f ()Ljava/lang/String; getDescriptor
 	b ()Lorg/c/a/a/b/d/c/d; getAnnotationReferences
 	a annotationReferences
+	p_ ()Lorg/c/a/a/b/d/a/e; getFormalParameters
+	d formalParameters
 org/c/a/a/b/d/a/n org/jd/core/v1/model/javasyntax/declaration/EnumDeclaration
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 		0 visitor visitor
@@ -47159,6 +47163,8 @@ org/c/a/a/c/a/a/a/a/a org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	m fromOffset
 	k index
 	q condition
+	a ()Lorg/c/a/a/c/a/a/a/a/f; getControlFlowGraph
+	j controlFlowGraph
 org/c/a/a/c/a/a/a/a/h org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/Loop
 	hashCode ()I hashCode
 	b ()Ljava/util/HashSet; getMembers
@@ -47250,6 +47256,8 @@ org/c/a/a/c/a/a/a/b/a/l org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	o firstLineNumber
 	a (Lorg/c/a/a/b/d/d/b;)V setStatements
 		0 statements statements
+	a (Lorg/c/a/a/b/d/a/e;)V setFormalParameters
+		0 formalParameters formalParameters
 org/c/a/a/c/a/a/a/b/b/b org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/expression/ClassFileLocalVariableReferenceExpression
 	a (Lorg/c/a/a/c/a/a/a/c/a;)V setLocalVariable
 		0 localVariable localVariable
@@ -47411,7 +47419,10 @@ org/c/a/a/b/c/h org/jd/core/v1/model/javafragment/ImportsFragment
 	j ()Ljava/util/Collection; getImports
 	g COUNT_COMPARATOR
 	h importMap
-org/c/a/a/c/a/a/a/a/g org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/ControlFlowGraph
+org/c/a/a/c/a/a/a/a/g org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/ControlFlowGraph$1
+	a (I)Lorg/c/a/a/c/a/a/a/a/a; remove
+		0 index index
+	a this$0
 org/c/a/a/c/a/a/c/ae org/jd/core/v1/service/converter/classfiletojavasyntax/util/TypeMaker$SignatureReader
 	a (I)Ljava/lang/String; substring
 		0 beginIndex beginIndex
@@ -47780,6 +47791,8 @@ org/c/a/a/c/a/a/c/ag org/jd/core/v1/service/converter/classfiletojavasyntax/util
 	q removeFinallyStatementsFlag
 	r mergeTryWithResourcesStatementFlag
 	e typeMaker
+	a (Lorg/c/a/a/c/a/a/a/a/f;)Lorg/c/a/a/b/d/d/u; make
+		0 cfg cfg
 org/c/a/a/c/a/a/c/aj org/jd/core/v1/service/converter/classfiletojavasyntax/util/StringConcatenationUtil
 org/c/a/a/c/a/a/c/g org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeWriter
 	a (Ljava/lang/String;Lorg/c/a/a/b/a/d;)Ljava/lang/String; write
@@ -48066,6 +48079,8 @@ org/c/a/a/c/a/a/a/b/a/d org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	b (I)V setFirstLineNumber
 		0 firstLineNumber firstLineNumber
 	o_ ()Lorg/c/a/a/b/d/e/l; getParameterTypes
+	a (Lorg/c/a/a/b/d/a/e;)V setFormalParameters
+		0 formalParameters formalParameters
 org/c/a/a/c/a/a/a/b/a/m org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileStaticInitializerDeclaration
 	k ()Lorg/c/a/a/b/a/a; getClassFile
 	r_ ()Lorg/c/a/a/b/a/d; getMethod
@@ -48082,6 +48097,8 @@ org/c/a/a/c/a/a/a/b/a/m org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	a (I)V setFlags
 		0 flags flags
 	o_ ()Lorg/c/a/a/b/d/e/l; getParameterTypes
+	a (Lorg/c/a/a/b/d/a/e;)V setFormalParameters
+		0 formalParameters formalParameters
 org/c/a/a/c/a/a/d/g org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/GenerateParameterSuffixNameVisitor
 	a (Lorg/c/a/a/b/d/e/k;)V visit
 		0 type type
@@ -48817,6 +48834,9 @@ org/c/a/a/c/a/a/c/m org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	e (Lorg/c/a/a/c/a/a/a/a/a;)V updateConditionTernaryOperator2
 		static
 		0 basicBlock basicBlock
+	a (Lorg/c/a/a/c/a/a/a/a/f;)Z reduce
+		static
+		0 cfg cfg
 org/c/a/a/c/a/a/c/b org/jd/core/v1/service/converter/classfiletojavasyntax/util/AnnotationConverter
 	a (Lorg/c/a/a/b/a/a/a;)Lorg/c/a/a/b/d/c/b; convert
 		0 annotation annotation
@@ -48852,6 +48872,9 @@ org/c/a/a/c/a/a/c/k org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 		2 index index
 	a MARK
 	b CODE_EXCEPTION_COMPARATOR
+	a (Lorg/c/a/a/b/a/d;)Lorg/c/a/a/c/a/a/a/a/f; make
+		static
+		0 method method
 org/c/a/a/c/a/a/c/o org/jd/core/v1/service/converter/classfiletojavasyntax/util/LocalVariableMaker
 	a (Lorg/c/a/a/b/a/d;)V initLocalVariablesFromAttributes
 		0 method method
@@ -48884,6 +48907,7 @@ org/c/a/a/c/a/a/c/o org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	c blackListNames
 	g typeMaker
 	i populateBlackListNamesVisitor
+	b ()Lorg/c/a/a/b/d/a/e; getFormalParameters
 org/c/a/a/c/a/a/c/aa org/jd/core/v1/service/converter/classfiletojavasyntax/util/PrimitiveTypeUtil
 	a (Lorg/c/a/a/b/d/e/k;Lorg/c/a/a/b/d/e/k;)Lorg/c/a/a/b/d/e/k; getCommonPrimitiveType
 		static
@@ -50294,6 +50318,9 @@ org/c/a/a/c/a/a/c/ai org/jd/core/v1/service/converter/classfiletojavasyntax/util
 		1 sc2 sc2
 org/c/a/a/c/a/a/c/d org/jd/core/v1/service/converter/classfiletojavasyntax/util/ByteCodeParser$JsrReturnAddressExpression
 org/c/a/a/c/a/a/c/h org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphGotoReducer
+	a (Lorg/c/a/a/c/a/a/a/a/f;)V reduce
+		static
+		0 cfg cfg
 org/c/a/a/c/a/a/c/j org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphLoopReducer$LoopComparator
 	a (Lorg/c/a/a/c/a/a/a/a/h;Lorg/c/a/a/c/a/a/a/a/h;)I compare
 		0 loop1 loop1
@@ -50909,6 +50936,10 @@ org/c/a/a/c/a/a/c/c org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 		static
 		0 basicBlock basicBlock
 	d typeMaker
+	a (Lorg/c/a/a/b/d/a/e;I)Ljava/util/List; prepareLambdaParameters
+		static
+		0 formalParameters formalParameters
+		1 parameterCount parameterCount
 org/c/a/a/c/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/util/ControlFlowGraphLoopReducer
 	a (ILjava/util/BitSet;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/c/a/a/a/a/a;)Ljava/util/BitSet; searchLoopMemberIndexes
 		static
@@ -50975,6 +51006,16 @@ org/c/a/a/c/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	b (Lorg/c/a/a/c/a/a/a/a/a;)I checkSynchronizedBlockOffset
 		static
 		0 basicBlock basicBlock
+	a (Lorg/c/a/a/c/a/a/a/a/f;[Ljava/util/BitSet;)Ljava/util/List; identifyNaturalLoops
+		static
+		0 cfg cfg
+		1 arrayOfDominatorIndexes arrayOfDominatorIndexes
+	a (Lorg/c/a/a/c/a/a/a/a/f;)[Ljava/util/BitSet; buildDominatorIndexes
+		static
+		0 cfg cfg
+	b (Lorg/c/a/a/c/a/a/a/a/f;)V reduce
+		static
+		0 cfg cfg
 org/c/a/a/c/a/a/d/a org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/AbstractUpdateExpressionVisitor
 	a (Lorg/c/a/a/b/d/a/ac;)V visit
 		0 declaration declaration
@@ -51306,6 +51347,7 @@ org/c/a/a/c/a/a/a/b/a/e org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	k ()Lorg/c/a/a/b/a/a; getClassFile
 	o_ ()Lorg/c/a/a/b/d/e/l; getParameterTypes
 	r_ ()Lorg/c/a/a/b/a/d; getMethod
+	a (Lorg/c/a/a/b/d/a/e;)V setFormalParameters
 org/c/a/a/b/d/b/o org/jd/core/v1/model/javasyntax/expression/ExpressionVisitor
 	a (Lorg/c/a/a/b/d/b/aa;)V visit
 	a (Lorg/c/a/a/b/d/b/ab;)V visit
@@ -51483,3 +51525,35 @@ org/c/a/a/b/d/a/l org/jd/core/v1/model/javasyntax/declaration/Declaration
 	a (Lorg/c/a/a/b/d/a/m;)V accept
 org/c/a/a/b/d/a/aa org/jd/core/v1/model/javasyntax/declaration/AbstractMemberDeclaration
 org/c/a/a/b/d/c/g org/jd/core/v1/model/javasyntax/reference/ElementValue
+org/c/a/a/b/d/a/e org/jd/core/v1/model/javasyntax/declaration/BaseFormalParameter
+org/c/a/a/c/a/a/a/a/f org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/ControlFlowGraph
+	a (I)I getLineNumber
+		0 offset offset
+	a ()Lorg/c/a/a/b/a/d; getMethod
+	a (II)Lorg/c/a/a/c/a/a/a/a/a; newBasicBlock
+		0 fromOffset fromOffset
+		1 toOffset toOffset
+	a (III)Lorg/c/a/a/c/a/a/a/a/a; newBasicBlock
+		0 type type
+		1 fromOffset fromOffset
+		2 toOffset toOffset
+	a (IIILjava/util/HashSet;)Lorg/c/a/a/c/a/a/a/a/a; newBasicBlock
+		0 type type
+		1 fromOffset fromOffset
+		2 toOffset toOffset
+		3 predecessors predecessors
+	a (IIIZ)Lorg/c/a/a/c/a/a/a/a/a; newBasicBlock
+		0 type type
+		1 fromOffset fromOffset
+		2 toOffset toOffset
+		3 inverseCondition inverseCondition
+	a (Lorg/c/a/a/c/a/a/a/a/a;)Lorg/c/a/a/c/a/a/a/a/a; newBasicBlock
+		0 original original
+	a ([I)V setOffsetToLineNumbers
+		0 offsetToLineNumbers offsetToLineNumbers
+	b ()Lorg/c/a/a/d/c; getBasicBlocks
+	c ()Lorg/c/a/a/c/a/a/a/a/a; getStart
+	a method
+	b list
+	c offsetToLineNumbers
+org/c/a/a/c/a/a/c/s org/jd/core/v1/service/converter/classfiletojavasyntax/util/LoopStatementMaker$RemoveLastContinueStatementVisitor

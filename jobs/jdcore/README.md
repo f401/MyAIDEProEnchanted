@@ -737,3 +737,47 @@ ArrayVariableInitializer）、`b/d/e/d`（extends TypeArgumentVisitable + util/B
 
 九类全部是"接口/被拆分类"，没有一个是靠相似度能定的；下一轮只能用 oracle 源码里对它们的
 **调用点语义**逐个确认（例如 `p`/`q` 的持有者是谁、`s` 被谁 `visit`），或者按 `role:` 收尾。
+
+## 第十四批：`this$0`/唯一静态字段再下一城 → **428/434（98.6%）**
+
+```
+e(decl) → BaseFormalParameter        字段反查：MethodDeclaration/ConstructorDeclaration 里那个字段的
+                                     类型就是本类，oracle 那两类的字段类型正是 BaseFormalParameter
+f(cfg)  → ControlFlowGraph           字段 (Method, DefaultList<BasicBlock>, int[]) + 构造器 (Method)
+                                     与 oracle 逐项相同；唯一创建者是 ControlFlowGraphMaker.make()
+g(cfg)  → ControlFlowGraph$1         extends util/DefaultList、this$0 = f(=ControlFlowGraph)、构造器 (f)
+                                     ⇒ ControlFlowGraph 的匿名内层类
+                                     ★ 原判 ControlFlowGraph 又是 src: 字面量"命中文件"的老坑
+                                       （内层类的串也在 ControlFlowGraph.java 里），已改判
+s(util) → LoopStatementMaker$RemoveLastContinueStatementVisitor
+                                     唯一创建者是 LoopStatementMaker 的 <clinit>，而 oracle 那个类
+                                     唯一的静态字段就是 new RemoveLastContinueStatementVisitor()
+```
+
+顺带确认两处"同形 MemberVisitor"没配反：
+
+```
+f(util) = ByteCodeParser$MemberVisitor   字段 (name, descriptor, found) + init(String,String)
+                                         —— oracle ByteCodeParser$MemberVisitor 正是 3 字段/双参 init
+e(util) 仍留白                          extends b/d/a/a、持 DefaultList，被 ByteCodeParser 创建，
+                                         但与 ByteCodeParser$MemberVisitor(f) 形状不同，判据不足
+```
+
+### 状态
+
+```
+428/434 = 98.6%（6 个类未定名）
+成员：方法 2147/3321 = 64.7%、字段 822/974 = 84.4%（已定名类内部 99.5% / 98.0%），成员行 3000+
+门禁：validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
+```
+
+剩余 6 个全部与 freelly 的拆分有关，且都已查明**没有 oracle 对应类**或**判据不足**：
+
+```
+c/a/a/c/p, q   extends b/d/b/d(=AbstractNopExpressionVisitor)、持 BaseType 字段、由 LocalVariableMaker
+               构造并存为它的字段 —— 一对"在表达式里替换类型"的访问器，1.1.3 无对应
+c/a/a/c/e      extends b/d/a/a、持 DefaultList、由 ByteCodeParser 创建（与 f=ByteCodeParser$MemberVisitor 不同形）
+c/a/a/c/t      仅 3 个方法，全部调用 ClassFileMemberDeclaration.()I（读修饰符），无创建者/无类型引用者
+c/a/a/c/v      持 static Field 常量 + 2 个静态方法 (ListIterator,NewExpression)→Field / (Statements,NewExpression)→AbstractExpression
+b/d/e/d        interface extends TypeArgumentVisitable + util/Base，与 oracle 里任何接口的接口集都不完全一致
+```
