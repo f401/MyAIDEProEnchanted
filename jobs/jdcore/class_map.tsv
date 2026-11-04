@@ -274,3 +274,9 @@ org/c/a/a/c/e/a/a/d	org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor
 org/c/a/a/c/f/a/a	org/jd/core/v1/service/writer/visitor/PrintTokenVisitor	shape:整包 (方法数,字段数) 精确双射 (20, 6)
 org/c/a/a/c/f/a/b	org/jd/core/v1/service/writer/visitor/PrintTokenVisitor$SearchLineNumberVisitor	shape:整包 (方法数,字段数) 精确双射 (4, 2)
 org/c/a/a/b/c/l	org/jd/core/v1/model/javafragment/JavaFragmentVisitor	shape:包内松弛双射（方法数 ±2、字段数相等，且两侧唯一）
+org/c/a/a/b/d/d/a	org/jd/core/v1/model/javasyntax/statement/AssertStatement	shape:字段类型组合包内唯一 —— 字段 (Expression, Expression)，包内唯一（探针 5/2 vs oracle 5/2）
+org/c/a/a/b/d/d/ab	org/jd/core/v1/model/javasyntax/statement/SwitchStatement$MultiLabelsBlock	shape:字段类型组合包内唯一 —— 字段 (java/util/List)，包内唯一（探针 4/1 vs oracle 4/1）
+org/c/a/a/b/d/d/aa	org/jd/core/v1/model/javasyntax/statement/SwitchStatement$LabelBlock	shape:字段类型组合包内唯一 —— 字段为唯一未定名类型，形状 4/1，包内唯一（探针 4/1 vs oracle 4/1）
+org/c/a/a/b/d/d/u	org/jd/core/v1/model/javasyntax/statement/Statements	shape:字段类型组合包内唯一 —— 字段 (Z)，1 字段类里唯一带布尔（探针 4/1 vs oracle 6/1）
+org/c/a/a/b/d/d/k	org/jd/core/v1/model/javasyntax/statement/IfElseStatement	shape:字段类型组合包内唯一 —— 字段 (BaseStatement)，包内唯一（探针 3/1 vs oracle 3/1）
+org/c/a/a/b/d/d/ah	org/jd/core/v1/model/javasyntax/statement/TypeDeclarationStatement	shape:字段类型组合包内唯一 —— 字段为单个未定名类型，3/1 里唯一（探针 3/1 vs oracle 3/1）

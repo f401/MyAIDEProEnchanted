@@ -1109,3 +1109,9 @@ org/c/a/a/b/c/l org/jd/core/v1/model/javafragment/JavaFragmentVisitor
 	a (Lorg/c/a/a/b/c/t;)V visit
 	a (Lorg/c/a/a/b/c/v;)V visit
 	a (Lorg/c/a/a/b/c/m;)V visit
+org/c/a/a/b/d/d/a org/jd/core/v1/model/javasyntax/statement/AssertStatement
+org/c/a/a/b/d/d/ab org/jd/core/v1/model/javasyntax/statement/SwitchStatement$MultiLabelsBlock
+org/c/a/a/b/d/d/aa org/jd/core/v1/model/javasyntax/statement/SwitchStatement$LabelBlock
+org/c/a/a/b/d/d/u org/jd/core/v1/model/javasyntax/statement/Statements
+org/c/a/a/b/d/d/k org/jd/core/v1/model/javasyntax/statement/IfElseStatement
+org/c/a/a/b/d/d/ah org/jd/core/v1/model/javasyntax/statement/TypeDeclarationStatement
