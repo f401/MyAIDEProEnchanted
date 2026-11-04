@@ -48852,6 +48852,8 @@ org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 		0 expression expression
 	a (Lorg/c/a/a/b/d/a/c;)V visit
 		0 declaration declaration
+	a (Ljava/util/List;Lorg/c/a/a/b/d/b/f;)Lorg/c/a/a/b/d/b/f; updateExpressions
+	a (Lorg/c/a/a/b/d/e/l;Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; updateExpression
 org/c/a/a/c/a/a/d/p org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInstanceFieldVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 		0 declaration declaration
@@ -49819,6 +49821,7 @@ org/c/a/a/b/d/e/i org/jd/core/v1/model/javasyntax/type/ObjectType
 	n TYPE_STRING
 	f TYPE_CLASS
 	c TYPE_BOOLEAN
+	p TYPE_UNDEFINED_OBJECT
 org/c/a/a/b/d/e/k org/jd/core/v1/model/javasyntax/type/PrimitiveType
 	m_ ()Z isPrimitive
 	x $assertionsDisabled

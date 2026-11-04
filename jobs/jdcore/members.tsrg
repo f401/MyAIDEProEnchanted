@@ -1880,6 +1880,8 @@ org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 	a (Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; safeUpdateBooleanExpression
 	b (Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; updateBooleanExpression
 	a (Lorg/c/a/a/b/d/a/c;)V visit
+	a (Ljava/util/List;Lorg/c/a/a/b/d/b/f;)Lorg/c/a/a/b/d/b/f; updateExpressions
+	a (Lorg/c/a/a/b/d/e/l;Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; updateExpression
 org/c/a/a/c/a/a/d/p org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInstanceFieldVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 	a (Lorg/c/a/a/b/d/a/j;)V visit
@@ -2487,6 +2489,7 @@ org/c/a/a/b/d/e/i org/jd/core/v1/model/javasyntax/type/ObjectType
 	n TYPE_STRING
 	f TYPE_CLASS
 	c TYPE_BOOLEAN
+	p TYPE_UNDEFINED_OBJECT
 org/c/a/a/b/d/e/k org/jd/core/v1/model/javasyntax/type/PrimitiveType
 	m_ ()Z isPrimitive
 	x $assertionsDisabled

@@ -1181,3 +1181,36 @@ AbstractLocalVariable: 至此 **0 条未定名**
 待人工 219 = no-oracle-descriptor 201 + ambiguous 18
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0
 ```
+
+## 第二十三批：字段破 90%，并修正一个检视脚本的假象 → 字段 **90.0%**
+
+### `ObjectType.TYPE_UNDEFINED_OBJECT`
+
+`ObjectType` 的 `<clinit>` 有 15 个常量、oracle 有 32 个（freelly 砍掉一半）。按"构造串"匹配掉 14 个之后，
+剩下 `p` 的串是 `java/lang/Object/java.lang.Object` —— 同串候选里 `TYPE_OBJECT` 已被 `l` 占用，
+未占用的只剩 `TYPE_UNDEFINED_OBJECT`（oracle 侧它的串完全相同）⇒ **p = TYPE_UNDEFINED_OBJECT**。
+
+### `UpdateIntegerConstantTypeVisitor` 两条
+
+```
+a(List, BaseExpression) → BaseExpression   → updateExpressions（唯一 "List + Expression → Expression"）
+a(BaseType, AbstractExpression) → …        → updateExpression （唯一 "Type + Expression → Expression"）
+```
+
+### 修正：检视脚本按**名字**过滤会造出"该类已全部定名"的假象
+
+`pair.py` / `inspect.py` 原先把"该类已映射的方法名"做集合，用 `name in have` 过滤 —— 但一个类里
+`a(List)`、`a(int,int)` 等**重载同名**，只要有一个 `a` 被定名，其余 `a(...)` 全被隐藏。
+于是出现过"ByteCodeParser 0 条未定名"的假象（真实是 14 条）。现在改为按 `(名字, 描述符)` 过滤。
+**教训**：任何"未定名清单"都必须以 `(名字, 描述符)` 为主键，名字在混淆库里不唯一。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2440/3321 = 73.5%（已定名类内部 2265/2269 = 99.8%）
+字段  877/974  = 90.0%（已定名类内部 99.3%）
+待人工 216 = no-oracle-descriptor 199 + ambiguous 17
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0
+剩余头部：c/a/a/c/c(ByteCodeParser) 14、c/a/a/a/c/j 8、c/a/a/a/c/k 7、c/a/a/c/ac 6、c/a/a/c/o 6、c/a/a/a/c/a 5
+```
