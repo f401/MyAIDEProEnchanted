@@ -21,7 +21,7 @@ org/c/a/a/c/a/a/a/b/b	org/jd/core/v1/service/writer/visitor
 org/c/a/a/c/a/a/a/b/c	org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement
 org/c/a/a/c/a/a/a/c	org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable
 org/c/a/a/c/a/a/b	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util
-org/c/a/a/c/a/a/c	org/jd/core/v1/model/javasyntax/expression
+org/c/a/a/c/a/a/c	org/jd/core/v1/service/converter/classfiletojavasyntax/util
 org/c/a/a/c/a/a/d	org/jd/core/v1/service/converter/classfiletojavasyntax/visitor
 org/c/a/a/c/b/a	org/jd/core/v1/service/deserializer/classfile
 org/c/a/a/c/c/a	org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment

@@ -675,3 +675,5 @@ org/c/a/a/c/c/a/b/g org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	a (Lorg/c/a/a/b/d/b/am;)V visit
 	b importsFragment
 	c maxLineNumber
+org/c/a/a/c/a/a/c/ab org/jd/core/v1/service/converter/classfiletojavasyntax/util/SignatureFormatException
+org/c/a/a/c/a/a/c/n org/jd/core/v1/service/converter/classfiletojavasyntax/util/ExceptionUtil
