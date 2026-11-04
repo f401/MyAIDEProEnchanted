@@ -377,6 +377,7 @@ org/c/a/a/b/f/o org/jd/core/v1/model/token/TextToken
 	B VARARGS
 	l LEFTROUNDBRACKET
 	q QUESTIONMARK
+	t SPACE_AND_SPACE
 org/c/a/a/b/f/h org/jd/core/v1/model/token/LineNumberToken
 	a ()I getLineNumber
 	a (Lorg/c/a/a/b/f/q;)V accept
@@ -1257,6 +1258,8 @@ org/c/a/a/c/c/a/b/i org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	a (Lorg/c/a/a/b/d/d/g;)V visit
 	Z WHILE
 	V SYNCHRONIZED
+	O DO
+	W SWITCH
 org/c/a/a/d/e org/jd/core/v1/util/DefaultStack
 	a ()I size
 	b ()Z isEmpty
@@ -2475,6 +2478,7 @@ org/c/a/a/b/d/e/i org/jd/core/v1/model/javasyntax/type/ObjectType
 	a (Lorg/c/a/a/b/d/e/u;)V accept
 	n TYPE_STRING
 	f TYPE_CLASS
+	c TYPE_BOOLEAN
 org/c/a/a/b/d/e/k org/jd/core/v1/model/javasyntax/type/PrimitiveType
 	m_ ()Z isPrimitive
 	x $assertionsDisabled
@@ -2505,6 +2509,8 @@ org/c/a/a/b/d/e/k org/jd/core/v1/model/javasyntax/type/PrimitiveType
 	g ()I getFlags
 	j ()I getRightFlags
 	v rightFlags
+	b TYPE_BYTE
+	h TYPE_SHORT
 org/c/a/a/b/c/a org/jd/core/v1/model/javafragment/EndBlockFragment
 	a (I)V setLineCount
 	a (Lorg/c/a/a/b/c/l;)V accept

@@ -1040,3 +1040,47 @@ A 的该成员已定名 R  ⇒  P 的这个成员必为 R
 `c/a/a/a/c/j`(ObjectLocalVariable) 12、`c/a/a/a/c/a` 7、`c/a/a/a/c/k` 7、`c/a/a/a/c/e` 6 ——
 基本全是"同一个类里十几个同形重载"（`isAssignableFrom` 家族、`typeOnRight/variableOnLeft` 家族），
 需要按**常量掩码/字段名差异**逐个分，无法靠继承或形状。
+
+## 第二十批：`<clinit>` 构造串 + 修一个通用解析 bug → 字段 **89.8%**
+
+### 修 bug：`static {};` 被当成"字段"，初始化块的 Code 挂到了上一个方法上
+
+`bytefp.parse()` 里成员行只认"带括号的方法"和"以 `;` 结尾的字段"，而 javap 把静态初始化块打印成
+`static {};` —— 于是它被当成字段，**它的 Code 被记到上一个方法的 mbody 里**：
+
+* 探针侧初始块常在字段之后、构造器之前 ⇒ `curm` 还是 None，正好落到 `mbody[None]`（看起来"正常"）；
+* oracle 侧初始块通常在**最后** ⇒ 它的字节码被并进最后一个方法，`<clinit>` 看起来是空的。
+
+这个 bug 影响 `bytefp`/`createmap`/`bodymatch` 所有读方法体的工具。现在 `static {};` / `{};` 会
+正确设置 `curm = ('<clinit>',())` / `('<init>',())`。
+
+### 新工具 `tools/deob/clinitbind.py`：常量表字段靠 `<clinit>` 构造串定名
+
+```
+探针 <clinit>：new PrimitiveType("byte", 16, 16, 112) → putstatic b   ⇒ b 的构造串 = "byte"
+oracle <clinit>：同一个 "byte" 赋给 TYPE_BYTE                          ⇒ b = TYPE_BYTE
+（两侧各自唯一才落；字符串常量混淆改不了）
+```
+
+命中 6 条：`ObjectType.TYPE_BOOLEAN`、`PrimitiveType.TYPE_BYTE`、`PrimitiveType.TYPE_SHORT`、
+`TextToken.SPACE_AND_SPACE`、`c/c/a/b/i` 的 `DO`/`SWITCH` 两个 token 常量。
+（其余常量字段早前已被其它判据定名，所以增量不大；但这条判据对**任何**常量表类都通用。）
+
+### 一条走不通的路（已记录，避免重复）
+
+`PrimitiveLocalVariable` 的 6 个 `isAssignableFrom/typeOnRight/typeOnLeft/variableOnRight/variableOnLeft`
+本以为能靠 `flags & FLAG_X` 的**常量掩码**区分，实测：
+
+* 探针侧确实有 `bipush 16/64/66/112…` 之类的掩码；
+* **oracle 侧这四个方法体里一个整数字面量都没有**（它比较的是 `this.flags` 与另一个 flags 的位组合），
+  所以掩码无法跨侧对齐。要分 `Right/Left` 只能再读"谁调谁/返回值语义"，本轮没有落。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2414/3321 = 72.7%（已定名类内部 99.8%）
+字段  875/974  = 89.8%（已定名类内部 98.4%）
+待人工 240 = no-oracle-descriptor 215 + ambiguous 25
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0
+```

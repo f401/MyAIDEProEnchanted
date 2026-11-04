@@ -169,6 +169,11 @@ def parse(path):
                 params = tuple(x.strip() for x in body[i + 1:j].split(',') if x.strip())
                 out[cur]['methods'].append((' '.join(head[:-1]), head[-1], params))
                 curm = (head[-1], params)
+            elif d.startswith('static {') or d.startswith('{'):
+                # javap 把静态/实例初始化块打印成 `static {};` / `{};`（没有参数列表），
+                # 之前会落到"字段"分支、把 Code 挂到上一个方法上 —— 初始化块的字符串常量
+                # （常量表的 new X("<名字>") 就在里面）是给静态字段定名的关键证据。
+                curm = ('<clinit>', ()) if d.startswith('static') else ('<init>', ())
             elif d.endswith(';'):
                 head = d[:-1].split()
                 if len(head) >= 2:
