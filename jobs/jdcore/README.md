@@ -1288,3 +1288,46 @@ oracle parseASTORE 独有：checkcast NewArray；parseSTORE 没有
 待人工 214 = 方法 137 + 字段 77（no-oracle-descriptor 199 + ambiguous 15）
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
 ```
+
+## 第二十五批：`remove`/`get` 反查 + 记录"switch 分派表"路线的失败 → 方法 **73.6%**
+
+### 新增：`ClassFileBodyDeclaration.getInnerTypeDeclaration`
+
+两个探针方法描述符完全相同（`(String)→ClassFileMemberDeclaration`），oracle 那侧对应的是
+`removeInnerType` 与 `getInnerTypeDeclaration`（后者返回更具体的 `ClassFileTypeDeclaration`，
+在 freelly 里被拍平了）。用**方法体里调的是 `Map.remove` 还是 `Map.get`** 区分：
+
+```
+b(String) 调 remove  ⇒ removeInnerType
+a(String) 调 get     ⇒ getInnerTypeDeclaration
+```
+
+### 失败记录：`switch` 分派表对齐（本来最有希望的一条）
+
+思路：`ByteCodeParser.parse` 在两侧都有一个 200 项的 opcode switch，**case 键是 JVM opcode 常量、
+混淆改不了**；按 case 键对齐，就能把"探针在 case X 调 a()"和"oracle 在 case X 调 parsePUT()"配对。
+
+实测：
+
+* oracle 侧 `parse` 有 **202 个 case**，每个 case 都直接调对应方法 ✓ 思路成立；
+* 探针侧 `parse` 的 `tableswitch` 有 **201 个 case，但目标全是同一个偏移（879）** —— dx 把 opcode
+  分派折叠成了一张跳转表 + 一个公共 handler，真正的分发在 handler 内部再做。
+
+⇒ **跨编译器的 switch 结构不可比**，这条路作废（已写进本节，避免重跑）。
+
+### 同形重载这条线的结论
+
+到目前为止，`ByteCodeParser` 剩下的 4 个 `newXxxOperatorExpression`、`PrimitiveLocalVariable` 的
+`typeOnRight/Left`+`variableOnRight/Left`、`AbstractLocalVariable` 的 `addVariableOnLeft/Right`
+都属于**"同描述符、差别只在实参语义"**：运算符/方向由调用者决定，两侧都没有字面量、没有 `getstatic`、
+switch 表又被 dx 折叠。**要再往下只能逐条人工判断语义并接受一定风险**，本仓库选择留白。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2443/3321 = 73.6%（已定名类内部 2265/2269 = 99.8%）
+字段  877/974  = 90.0%（已定名类内部 872/878 = 99.3%）
+待人工 213 = 方法 137 + 字段 76（no-oracle-descriptor 199 + ambiguous 14）
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0
+```

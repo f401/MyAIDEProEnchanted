@@ -960,6 +960,7 @@ org/c/a/a/c/a/a/a/b/a/b org/jd/core/v1/service/converter/classfiletojavasyntax/m
 	l_ ()Lorg/c/a/a/d/c; getList
 	j_ ()Z isList
 	size ()I size
+	a (Ljava/lang/String;)Lorg/c/a/a/c/a/a/a/b/a/k; getInnerTypeDeclaration
 org/c/a/a/c/a/a/a/b/a/c org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileClassDeclaration
 	q_ ()I getFirstLineNumber
 	a (I)V setFlags
