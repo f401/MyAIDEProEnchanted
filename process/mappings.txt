@@ -51852,6 +51852,7 @@ org/c/a/a/c/a/a/c/ac org/jd/core/v1/service/converter/classfiletojavasyntax/util
 	c (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/l; parseExceptionSignature
 	d (Lorg/c/a/a/c/a/a/c/ae;)Lorg/c/a/a/b/d/e/l; parseReferenceTypeSignature
 	c signatureToType
+	b (Lorg/c/a/a/b/a/d;)Lorg/c/a/a/c/a/a/c/ad; makeMethodTypes
 org/c/a/a/c/a/a/c/af org/jd/core/v1/service/converter/classfiletojavasyntax/util/TypeMaker$TypeTypes
 	b typeParameters
 	c interfaces

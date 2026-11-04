@@ -1214,3 +1214,43 @@ a(BaseType, AbstractExpression) → …        → updateExpression （唯一 "T
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0
 剩余头部：c/a/a/c/c(ByteCodeParser) 14、c/a/a/a/c/j 8、c/a/a/a/c/k 7、c/a/a/c/ac 6、c/a/a/c/o 6、c/a/a/a/c/a 5
 ```
+
+## 第二十四批：字段 90.0%、方法 73.5%；并说明"为什么 ByteCodeParser 剩下的不落"
+
+本轮新增 3 条：`UpdateIntegerConstantTypeVisitor.updateExpressions/updateExpression`、
+`TypeMaker.makeMethodTypes`（判据：它的返回类型就是已定名的 `c/a/a/c/ad` = `TypeMaker$MethodTypes`，唯一）。
+
+### `ByteCodeParser` 那 14 条为什么停手（已逐条看过方法体）
+
+剩下的是这几组**描述符完全相同**的重载：
+
+```
+newIntegerBinaryOperatorExpression            ┐
+newIntegerOrBooleanBinaryOperatorExpression   ├ 都是 (I,Expression,String,Expression,I)→Expression
+newIntegerComparisonOperatorExpression        │
+newIntegerOrBooleanComparisonOperatorExpression ┘
+parseSTORE / parseASTORE                       (Statements,DefaultStack,int,AbstractLocalVariable,Expression)→void
+```
+
+关键障碍：**运算符常量是形参传进来的**（第一个 `int` 就是 `IntegerOperator`/`BooleanOperator` 的常量），
+所以方法体里既没有 `getstatic IntegerOperator.*` 也没有可区分的字面量；两个 `parseSTORE` 的区别同样在
+**调用方**（`iastore` vs `aastore` 的 opcode）而不在被调方法里。要分只能做"调用点分析"：
+对每个调用点看它压栈的 opcode/常量，再按 oracle 里同名方法的调用者集合对齐 —— 这是下一批的活，
+本轮按"不许为数字好看硬凑"的原则留白。
+
+### 现状（阶段性总结）
+
+```
+类   433/434 = 99.8%        判据分布：src 131 / str 85 / shape 67 / fp 55 / hier 32 / csp 24 /
+方法 2441/3321 = 73.5%              role 13 / refs 4 / desc 4 / who 3
+字段  877/974  = 90.0%
+待人工 215 = 方法 138 + 字段 77（其中 no-oracle-descriptor 198、ambiguous 17）
+已定名类内部：方法 2265/2269 = 99.8%、字段 872/878 = 99.3%
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+成员行 3751，参数行 1814+
+```
+
+剩下的 215 条按"能不能判"分三类：
+1. **同形重载**（≈60 条，ByteCodeParser/TypeMaker/PrimitiveLocalVariable 等）：只能靠调用点分析；
+2. **freelly 新增成员**（≈100 条）：oracle 端不存在，名字无据可依（除非按 `role:` 收）；
+3. **同形字段**（≈30 条，如 TypeMaker 的两个 HashMap、TextToken 的 `/*`、`*/`）：只能靠使用点语义或按 `role:`。
