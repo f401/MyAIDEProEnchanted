@@ -936,6 +936,9 @@ org/c/a/a/c/a/a/c/r	a	(Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/
 org/c/a/a/c/a/a/c/r	a	(Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r;	3	jumps	jd-core-1.1.3
 org/c/a/a/c/a/a/c/r	b	(Lorg/c/a/a/b/d/d/u;I)Lorg/c/a/a/b/d/b/p;	0	statements	jd-core-1.1.3
 org/c/a/a/c/a/a/c/r	b	(Lorg/c/a/a/b/d/d/u;I)Lorg/c/a/a/b/d/b/p;	1	firstLineNumber	jd-core-1.1.3
+org/c/a/a/c/a/a/c/t	a	(Ljava/util/List;)V	0	members	jd-core-1.1.3
+org/c/a/a/c/a/a/c/t	a	(Ljava/util/List;Ljava/util/List;)V	0	result	jd-core-1.1.3
+org/c/a/a/c/a/a/c/t	a	(Ljava/util/List;Ljava/util/List;)V	1	members	jd-core-1.1.3
 org/c/a/a/c/a/a/c/u	a	(Lorg/c/a/a/c/a/a/a/b/a/k;Lorg/c/a/a/c/a/a/a/b/a/k;)I	0	md1	jd-core-1.1.3
 org/c/a/a/c/a/a/c/u	a	(Lorg/c/a/a/c/a/a/a/b/a/k;Lorg/c/a/a/c/a/a/a/b/a/k;)I	1	md2	jd-core-1.1.3
 org/c/a/a/c/a/a/d/a	a	(Lorg/c/a/a/b/d/a/ac;)V	0	declaration	jd-core-1.1.3

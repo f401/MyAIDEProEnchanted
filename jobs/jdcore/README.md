@@ -781,3 +781,55 @@ c/a/a/c/t      仅 3 个方法，全部调用 ClassFileMemberDeclaration.()I（�
 c/a/a/c/v      持 static Field 常量 + 2 个静态方法 (ListIterator,NewExpression)→Field / (Statements,NewExpression)→AbstractExpression
 b/d/e/d        interface extends TypeArgumentVisitable + util/Base，与 oracle 里任何接口的接口集都不完全一致
 ```
+
+## 第十五批（收尾）：**433/434 = 99.8%**
+
+```
+t(util) → MergeMembersUtil        src:body —— 3 个方法全靠 List.subList/addAll/get/isEmpty 拼装，
+                                 并 3 次调用 ClassFileMemberDeclaration.()I 读修饰符；
+                                 oracle MergeMembersUtil 正是"按修饰符合并/排序成员列表"的 3 方法工具类
+```
+
+### 最后 4 个按作用命名（`role:`，都是 freelly 从 `TypeMaker`/`LocalVariableMaker`/`ByteCodeParser` 拆出来的）
+
+| 探针类 | 作用命名 | 观察到的行为（可复现：javap 看方法体） |
+|---|---|---|
+| `c/a/a/c/p` | `LocalVariableMaker$LocalVariableReferenceTypeSetter` | 遍历表达式，遇 `ClassFileLocalVariableReferenceExpression` 就 `getLocalVariable().setType(字段里的 BaseType)`；protected 无参构造 + `setType` 便于复用 |
+| `c/a/a/c/q` | `LocalVariableMaker$LocalVariableReferenceTypeSetter$WithType` | 与 p 逐条指令同形，唯一差别是类型在构造时绑定（`ctor(BaseType)`） |
+| `c/a/a/c/v` | `FieldAggregator` | 静态方法 `(ListIterator,NewExpression)→Field`、`(Statements,NewExpression)→AbstractExpression`；body 里 14 次 `Object.getClass`、多次 `BaseType.getDimension/getInternalName`、4 次 `TypeDeclarations.add` |
+| `c/a/a/c/e` | `AnnotatedFormalParametersCollector` | extends `AbstractNopDeclarationVisitor`、持 `DefaultList`；遍历 `ArrayVariableInitializer`、读 `FormalParameter.getName/getAnnotationReferences` 后 `add` |
+
+依据：1.1.3 的 `LocalVariableMaker` 只有 4 个访问器字段（populateBlackListNames / searchInTypeArgument /
+createParameter / createLocalVariable），没有 p/q 那种"改局部变量类型"的访问器；`util` 包里也没有
+v/e 那种签名 —— 即 oracle 端**不存在**，只能按作用命名（用户已授权 `role:`）。
+
+### 唯一留白：`b/d/e/d`
+
+```
+interface、0 方法、extends t(=TypeArgumentVisitable) + org/c/a/a/d/a(=util/Base)
+被当成字段类型用：TypeMaker$TypeTypes.d 与 TypeMaker$MethodTypes.d（各自第 4 个字段）
+被当成构造器形参：ClassFileEnumDeclaration 第 4 参、ClassFileConstructorDeclaration 第 6 参、
+                 ClassFileClassDeclaration 第 6 参、ClassFileMethodDeclaration 第 8 参
+```
+
+在 1.1.3 里，那两处第 4 字段都是 `BaseType`（`interfaces` / `exceptionTypes`），而那些构造形参也是
+`BaseType`；但 `BaseType` 已由 6 个方法签名（createType/getDimension/getInternalName/isXxx）定死为 `b/d/e/l`，
+且 `d` 自己 0 方法、父接口是 `TypeArgumentVisitable + Base`（与 `BaseTypeArgument` 同形但无子类型）。
+**结论：`d` 是 freelly 新增的一个"占位接口"，没有可复现的 oracle 对应，如实留白**（未定名 1 个，
+不影响可安装可运行——它只出现在形参/字段声明里，重命名与否都不改变字节码行为）。
+
+## 最终状态（本依赖收工）
+
+```
+类：433/434 = 99.8%（唯一留白 b/d/e/d，见上）
+成员：方法 2177/3321 = 65.6%、字段 826/974 = 84.8%
+      （已定名类内部：方法 2149/2160 = 99.5%、字段 823/840 = 98.0%）
+参数：params.tsv 1814 行
+剩余待人工成员 471：no-oracle-descriptor 432（freelly 新增/inline 掉）+ ambiguous 39
+门禁：validate ✔ 无无效映射 · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+      · audit kind 1 / hier 9（全部为 freelly 结构差异，已逐条记录）
+判据分布：src / str / shape / fp / hier / refs / desc / csp + 12 条 role:
+```
+
+至此 **jd-core（`org/c/a/a`，434 类）收工**：ProGuard 757/757、dropbox、JD-Core 全部定名，
+只剩一个 freelly 新增占位接口按实留白。

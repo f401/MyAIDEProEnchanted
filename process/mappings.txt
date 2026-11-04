@@ -51557,3 +51557,16 @@ org/c/a/a/c/a/a/a/a/f org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	b list
 	c offsetToLineNumbers
 org/c/a/a/c/a/a/c/s org/jd/core/v1/service/converter/classfiletojavasyntax/util/LoopStatementMaker$RemoveLastContinueStatementVisitor
+org/c/a/a/c/a/a/c/t org/jd/core/v1/service/converter/classfiletojavasyntax/util/MergeMembersUtil
+	a (Ljava/util/List;)V sort
+		static
+		0 members members
+	a (Ljava/util/List;Ljava/util/List;)V merge
+		static
+		0 result result
+		1 members members
+	a MEMBER_DECLARATION_COMPARATOR
+org/c/a/a/c/a/a/c/p org/jd/core/v1/service/converter/classfiletojavasyntax/util/LocalVariableMaker$LocalVariableReferenceTypeSetter
+org/c/a/a/c/a/a/c/q org/jd/core/v1/service/converter/classfiletojavasyntax/util/LocalVariableMaker$LocalVariableReferenceTypeSetter$WithType
+org/c/a/a/c/a/a/c/v org/jd/core/v1/service/converter/classfiletojavasyntax/util/FieldAggregator
+org/c/a/a/c/a/a/c/e org/jd/core/v1/service/converter/classfiletojavasyntax/util/AnnotatedFormalParametersCollector
