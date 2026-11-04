@@ -994,3 +994,49 @@ c/a/a/a/c/a (AbstractLocalVariable) getFromOffset —— 判据是"方法体读�
 `c/a/a/a/c/d` 7、`b/d/a/t` 6、`c/a/a/a/b/a/m` 6。这些类的共同点是"每个类都有十几个
 形状相同、只差语义的重载"（例如 `isAssignableFrom` 的 11 个变体），逐方法体也只能确认
 到"这一组里是哪几个"，剩下的仍需人工读常量/字段差异。
+
+## 第十九批：祖先继承规则（`hinher.py`）→ 成员 **72.7% / 89.2%**
+
+### 判据（构造上就成立，不需要相似度）
+
+ProGuard/R8 必须让**同一虚方法在整条继承链上同名**，否则运行时分派就错。所以：
+
+```
+子类 P 有一个未定名成员 (n, d)；
+沿 P 的父类/接口链找到**声明了同一 (n, d)** 的祖先 A；
+A 的该成员已定名 R  ⇒  P 的这个成员必为 R
+（链上出现两个不同答案 ⇒ 跳过，绝不猜）
+```
+
+`tools/deob/hinher.py` 命中 1232 条，其中 1114 条与已有映射重复（说明之前的"覆写家族闭包"已经吃掉了大头），
+净增 **118 个方法**。**方法覆盖率 69.1% → 72.7%**。
+
+### 自证：`mgraph` 调用图对照
+
+```
+调用图自证：1708 个方法 / 5124 条已定名引用，未对上 108 条（2.1%），可疑方法 36 个
+```
+
+2.1% 的未对上几乎全是 freelly 的**结构差异**（例如 `ClassFileReader.readUnsignedByte` 里探针多引用了一个
+`JAVA_MAGIC_NUMBER` 常量、`ExpressionVisitor` 的子类把某些 token 常量挪了位置），不是名字判错。
+门禁同时保持：`validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0`。
+
+### 顺带确认的一类"接口方法"
+
+`c/a/a/a/b/a/m`(ClassFileStaticInitializerDeclaration) 里 `j_()Z`/`l_()DefaultList` 不是 getter，
+而是 `util/Base` 的 `isList()`/`getList()` 覆写 —— 判据是"与已定名接口 `util/Base` 的同名同描述符成员一致"。
+
+### 现状
+
+```
+类   433/434 = 99.8%
+方法 2414/3321 = 72.7%（已定名类内部 2265/2269 = 99.8%）
+字段  869/974  = 89.2%（已定名类内部 98.4%）
+待人工 246 = no-oracle-descriptor 215 + ambiguous 31
+回滚点：~/tmp/members.bak3.tsrg（hinher 之前）
+```
+
+剩余 246 集中在 `c/a/a/c/c`(ByteCodeParser) 20、`c/a/a/c/ac`(TypeMaker) 14、
+`c/a/a/a/c/j`(ObjectLocalVariable) 12、`c/a/a/a/c/a` 7、`c/a/a/a/c/k` 7、`c/a/a/a/c/e` 6 ——
+基本全是"同一个类里十几个同形重载"（`isAssignableFrom` 家族、`typeOnRight/variableOnLeft` 家族），
+需要按**常量掩码/字段名差异**逐个分，无法靠继承或形状。
