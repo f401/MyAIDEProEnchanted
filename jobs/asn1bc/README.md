@@ -4,10 +4,10 @@
 
 | 指标 | 值 |
 |---|---|
-| 类 | **76 / 76 = 100%**（`c` 包全部；含 1 个内部类块 `c/q$a`） |
-| 方法（cover 口径：剔除构造器/静态块/合成器/JDK 契约名，`--pkg=c/`） | **122 / 122 = 100.0%** |
-| 字段（同口径） | **50 / 50 = 100.0%** |
-| 待人工 | **0**（原先 14 条已全部落地，见 §3.1） |
+| 类 | **46 / 76 = 60.5%**（`c` 包共 76 个类；另在 `class_map` 里还挂了 32 个别的单字母包类，见 §4） |
+| 方法（cover 口径：剔除构造器/静态块/合成器/JDK 契约名，`--pkg=c/`） | **122 / 122 = 100.0%**（分母只含已定名的 46 个类） |
+| 字段（同口径） | **50 / 50 = 100.0%**（同上） |
+| 待人工 | 已定名的 46 个类里 **0**（§3.1）；**30 个类还没定名**，见 §4 |
 | 证据分布（`class_map.tsv` 第 3 列） | `contain` 44 / `str` 25 / `hier` 5 / `pkg+contain` 3 / `src` 1 |
 
 oracle：`bcprov-jdk15on-1.56`（`~/out/oracle/spongycastle/`，同一目录里也放着 1.47/1.50 的 BC 与 SpongyCastle）。
@@ -78,7 +78,25 @@ c/q$a(ImplicitOutputStream).l  first            boolean，写第一个 tag 时�
 `inherit_check` 在这里抓到 1 条 CONFLICT：`c/o.()Lc/s;` 我先按方法体叫 `parser`，但它的祖先 `c/bo` 同签名已叫
 `getLoadedObject` ⇒ 改回 `getLoadedObject`（覆写族同名规则又赢一次）。
 
-## 4. 遗留
+## 4. 遗留（含一处口径纠正）
+
+**纠正**：本 README 早先写"类 76/76 = 100%"，那是拿 `cli members` 打印的"探针类 76"当成了分母，
+实际 `class_map.tsv` 里只有 **46 个 `c/*`**（另有 32 行是 `v/c`、`x/a`、`y/a` 这类别的单字母包的类，
+本 part 的 `probe_prefix` 是 `c`，这些行的真实探针名要另行核对）。
+所以 `cover` 的 122/122 与 50/50 **只是那 46 个类**的口径。
+
+**30 个还没定名的 `c/*`**（用描述符包含 + 候选唯一性跑过一遍，`~/tmp` 脚本可复现）：
+
+```
+有唯一/少量候选(20 个):
+  c/ac→BERApplicationSpecificParser  c/am→BERTaggedObjectParser  c/z→ASN1TaggedObject
+  c/j→ASN1InputStream  c/ap/c/bl→DERBitString|DLBitString（两者同形，需创建点）
+  c/av,c/aw,c/ay,c/bb,c/be,c/bh,c/bj,c/bk→DER*String 八兄弟（同形族，靠串区分）
+  c/as→DERFactory|OID 常量类（4 个候选）  c/d,c/u,c/w→空类/接口（3 个候选，无判别证据）
+无候选(10 个):
+  c/ag,c/ai,c/ak,c/ba,c/bc,c/bd,c/bq,c/g,c/h,c/r
+  + c/aw$$ExternalSyntheticBackport0（R8 合成，直接按作用命名即可）
+```
 
 1. `innercheck` ① 还剩 2 条本 part 的外层不一致：`c/x/b$a`（`x/b` 缺类映射）、
    `c/x/a$a`（映射成 `util/Arrays$Iterator` 但外层是 `ByteUtils`）——需要先确认 `c/x/a`/`c/x/b` 到底是谁；
