@@ -92,7 +92,7 @@ jobs/<名字>/
 | 簇 | 类数 | 身份 | 状态 |
 |---|---|---|---|
 | `abcd/Dy…Oy` | **14** | **JZlib 1.1.1** | ✅ 本轮完成 → [jobs/jzlib](jzlib/README.md) |
-| `abcd/NB…` + `abcd/jI$*` | ~34 | **JGit 的异常/凭据族**（`GitAPIException` 子类、`CredentialItem$*`） | 待办：形状完全同构（都是 `<init>(String)`），只能靠**抛它们的调用点**区分 |
+| `abcd/NB…` + `abcd/jI$*` | 34 | **JGit 的异常/凭据族**（`GitAPIException` 子类、`CredentialItem$*`） | ❌ **已核实无判据**：全 APK 只有 2 个类引用它们、方法级 `new` 顺序对齐只投出 1 票；34 个类彼此连通、对外零引用（R8 保下来的死代码），且形状完全同构（都是 `<init>(String)`/`<init>(String,Throwable)`）⇒ 按规则保持原名 |
 
 ### B. 上游本来就是混淆的（拿不到"真名"，只能按作用命名）
 

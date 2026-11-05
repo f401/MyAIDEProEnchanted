@@ -6,7 +6,7 @@
 |---|---|
 | 类 | **14 / 14 = 100%** |
 | 方法 | 78 条定名 + 11 条 identity（原名就是对的）+ 22 条 oracle 里没有（R8 产物）；**只有 1 条待人工**（`Tree` 的一个 AIDE 改签名方法） |
-| 字段 | **169 / 189 = 89.4%**（余 20 条是"同一描述符几十个候选"的 int 字段，见 §4） |
+| 字段 | **170 / 189 = 89.9%**（余 19 条是"同一描述符几十个候选"的 int 字段，见 §4） |
 | 参数名 | **135 行**（jzlib-1.1.1 的 LocalVariableTable 直接给） |
 | 门禁 | `validate ✔` · `inherit CONFLICT 0 / DUPTARGET 0 / MISSING 0` · `famcheck 0/0` |
 
@@ -61,12 +61,28 @@ R8 把 jzlib 里没被用到的 `Deflater`/`Inflater`/`JZlib`/各种 Stream 裁�
 
 ## 4. 遗留
 
-1. **20 个 int 字段**没定：它们的描述符全是 `I`，而 oracle 同类里有 40 个（Deflate）/10 个（InfBlocks）/
+1. **19 个 int 字段**没定：它们的描述符全是 `I`，而 oracle 同类里有 40 个（Deflate）/10 个（InfBlocks）/
    9 个（InfCodes）/7 个（Inflate）/6 个（Tree 的 `[S`）/5 个（ZStream）同描述符字段，
    构造器顺序票也用过了（剩下这些不是在构造器里赋值的，例如 `Deflate.window`/`pending_buf` 在 `deflateInit` 里 new）。
    宁缺勿错：留原形，并在 `out/members_abcd.tsv` 里逐条列了候选集合，后续可以用"使用点语义"（谁读它、参与哪个公式）继续收。
 2. `abcd/Ny j6([SI[S[S)V`（`Tree.gen_bitlen` 一族）在 oracle 1.1.1 里没有同描述符方法（AIDE 改过签名），未定名。
 3. `Zd`… 无。jzlib 的 `params.tsv` 已从 oracle LVT 取到 135 行。
+
+## 4.1 为此新加的两个通用工具（`tools/deob/`）
+
+同描述符字段（Deflate 40 个 int、InfBlocks 10 个）靠桶分不开，所以补了两个"顺序/用法指纹"工具：
+
+| 工具 | 判据 | 在 jzlib 上的战绩 |
+|---|---|---|
+| `fieldorder.py` | **方法里 putfield 的顺序**（同一份源码、dx 不打乱语句顺序）→ 逐位对齐投票，取唯一最高票 | 16 个方法对参与投票，命中 `we→last_flush` 等 |
+| `fieldfp.py` | **指纹** = {(已定名方法真名, get/put, 该方法里出现的整数字面量)}，两侧要求逐项相等（Jaccard=1.00）且领先第二名 | `we→last_flush`(1.00 vs 0.60)；`I→bl_count`(1.00) 因为与同类已有的 `Mz→bl_count` **撞名**被工具自动剔除（说明这两个 `[S` 字段用法完全相同，是真正的孪生，不能猜） |
+
+两者都带"与同类已用名冲突则剔除"的护栏；用法：
+
+```bash
+python tools/deob/fieldfp.py jzlib --oracle-jar=$HOME/out/oracle/misc/jzlib-1.1.1.jar [--apply]
+python tools/deob/fieldorder.py jzlib --oracle-jar=$HOME/out/oracle/misc/jzlib-1.1.1.jar [--apply]
+```
 
 ## 5. 复现
 

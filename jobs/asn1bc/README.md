@@ -4,7 +4,7 @@
 
 | 指标 | 值 |
 |---|---|
-| 类 | **73 / 76 = 96.1%**（`c` 包；另在 `class_map` 里还挂了 32 个别的单字母包类，见 §4） |
+| 类 | **74 / 76 = 97.4%**（`c` 包；另在 `class_map` 里还挂了 32 个别的单字母包类，见 §4） |
 | 方法（cover 口径：剔除构造器/静态块/合成器/JDK 契约名，`--pkg=c/`） | **218 / 218 = 100.0%** |
 | 字段（同口径） | **77 / 77 = 100.0%** |
 | 参数名 | 88 行（bcprov-1.56 的 LVT） |
@@ -175,9 +175,25 @@ c/q.b()(=getDERSubStream) → new c/ba(os,0)   c/q.c()(=getDLSubStream) → new 
 ### 6.4 最终状态与遗留
 
 ```
-类   73/76 = 96.1%（未定名：c/h、c/r —— 两个 IOException/IllegalStateException 子类，
-                    同形带 int+Throwable+getCause，bcprov 1.56 里找不到对应；c/aw$$ExternalSyntheticBackport0 —— R8 合成）
+类   74/76 = 97.4%（未定名：c/h、c/r —— 见下）
 方法 218/218 = 100.0%
 字段  77/77  = 100.0%（c/bc.q、c/bd.r 是上面合并件的 flag 字段，属 R8 产物，按作用留空）
 参数  88 行
 门禁 validate ✔ · inherit 0-0-0 · famcheck 0-0 · innercheck ②③ 0
+
+### 6.5 最后两个类：`c/h`、`c/r` 为什么不定名
+
+两者是**孪生异常**：`c/h extends IOException`、`c/r extends IllegalStateException`，
+成员一模一样（`int a`、`Throwable b`、`(String)`、`(String,Throwable,int)`、`getCause()`）。
+
+* 在 **78 个 oracle jar**（bcprov/bcpkix/sc 各版本 + jgit 3.7/4.x/5.x + proguard + jd-core + antlr + jzlib…）
+  里按 `(String,Throwable,int)` 构造器全量搜，**只有一个**候选：
+  `org/eclipse/jgit/transport/ServiceMayNotContinueException`（extends IOException，字段 int+Throwable）；
+* 但 `c/r`（IllegalStateException 那一半）在所有 oracle 里**没有任何对应**；
+* 而且这两个类**在整个 APK 里无人引用**（扫描全 jar 常量池，引用数 0）—— 是 R8 保下来的死代码，
+  拿不到"谁 new 它 / 用什么消息"这类证据。
+
+按"宁缺勿错"：`c/h` 也不猜（形状单点匹配 + 死代码 + 落在 BC 包里，三者互相矛盾），两个都保持原形并在此记录。
+
+`c/aw$$ExternalSyntheticBackport0` 则按 **R8 命名约定**直接给出：`org/bouncycastle/asn1/DERIA5String$$ExternalSyntheticBackport0`
+（R8 的 backport 合成类形如 `<宿主>$$ExternalSyntheticBackport0`，宿主是 `c/aw`=DERIA5String）。

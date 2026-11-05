@@ -103,3 +103,4 @@ c/bc	org/bouncycastle/asn1/DERSequence	src:同上，DERSequence/DLSequence 合�
 c/bd	org/bouncycastle/asn1/DERSet	src:同上，DERSet/DLSet 合并；c/v.i()=toDERObject 用 flag 0、c/v.j()=toDLObject 用 1 ⇒ DERSet
 c/d	org/bouncycastle/asn1/ASN1Choice	kind:public interface 且 0 个成员；bcprov-1.56 的 asn1 包里 0 成员接口只有 ASN1Choice（ASN1String/InMemoryRepresentable 都是 1 个方法）
 c/bq	org/bouncycastle/asn1/LazyConstructionEnumeration	recv:implements Enumeration、字段是 ASN1InputStream + Object、构造器收 byte[]、私有 readObject()；与 oracle LazyConstructionEnumeration 逐项相同
+c/aw$$ExternalSyntheticBackport0	org/bouncycastle/asn1/DERIA5String$$ExternalSyntheticBackport0	name:R8 的 backport 合成类，名字本身就是 `<宿主>$$ExternalSyntheticBackport0`；宿主是 c/aw(=DERIA5String) ⇒ 保留 R8 的命名形状（方法体只有 Math.floorMod 的等价实现）

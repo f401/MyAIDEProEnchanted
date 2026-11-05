@@ -101,6 +101,7 @@ abcd/Gy com/jcraft/jzlib/Deflate
 	KD max_lazy_match
 	SI max_chain_length
 	Mr ins_h
+	we last_flush
 abcd/Gy$a com/jcraft/jzlib/Deflate$Config
 	v5 func
 	j6 good_length
