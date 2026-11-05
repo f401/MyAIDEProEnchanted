@@ -490,6 +490,8 @@ org/a/a/a/c/h org/antlr/v4/runtime/misc/Interval
 	e b
 	d a
 	a CREATOR
+	describeContents ()I describeContents
+	writeToParcel (Landroid/os/Parcel;I)V writeToParcel
 org/a/a/a/c/i org/antlr/v4/runtime/misc/IntervalSet$ParcelableCreator
 org/a/a/a/c/j org/antlr/v4/runtime/misc/IntervalSet
 	a (I)Lorg/a/a/a/c/j; of
@@ -664,6 +666,7 @@ org/a/a/a/p org/antlr/v4/runtime/Lexer
 	o _tokenStartCharPositionInLine
 	n _tokenStartLine
 	q _channel
+	a ()[Ljava/lang/String; getTokenNames
 org/a/a/a/q org/antlr/v4/runtime/LexerNoViableAltException
 	a ()Lorg/a/a/a/c; getInputStream
 	a startIndex

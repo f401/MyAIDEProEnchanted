@@ -5,9 +5,9 @@
 | 指标 | 值 |
 |---|---|
 | 类 | **76 / 76 = 100%**（`c` 包全部；含 1 个内部类块 `c/q$a`） |
-| 方法（cover 口径：剔除构造器/静态块/合成器/JDK 契约名，`--pkg=c/`） | **112 / 121 = 92.6%** |
-| 字段（同口径） | **49 / 49 = 100.0%** |
-| 待人工 | 14 条（`ambiguous` 9 + `no-oracle-descriptor` 5），见 `out/members_c.tsv` |
+| 方法（cover 口径：剔除构造器/静态块/合成器/JDK 契约名，`--pkg=c/`） | **122 / 122 = 100.0%** |
+| 字段（同口径） | **50 / 50 = 100.0%** |
+| 待人工 | **0**（原先 14 条已全部落地，见 §3.1） |
 | 证据分布（`class_map.tsv` 第 3 列） | `contain` 44 / `str` 25 / `hier` 5 / `pkg+contain` 3 / `src` 1 |
 
 oracle：`bcprov-jdk15on-1.56`（`~/out/oracle/spongycastle/`，同一目录里也放着 1.47/1.50 的 BC 与 SpongyCastle）。
@@ -44,13 +44,47 @@ BC 的 `ASN1Primitive` 家族里有 `toDERObject()` / `toDLObject()` 两个**同
 `body:1.00/+1.00`）。这样宁缺勿错 —— 覆写族里一半是 `toDERObject` 一半是 `toDLObject` 会在运行期
 `AbstractMethodError`，`inherit_check` 正是为这个写的。
 
+## 3.1 把最后 14 条做掉：靠"创建点"和"flag 值"判，不靠猜
+
+BC 里 `toDERObject()` / `toDLObject()` 是**同签名同族**，工具先整族撤掉了。这次用两条硬判据补回来：
+
+**(a) 创建点**：`toDERObject` 造 `DER*`、`toDLObject` 造 `DL*`
+
+```
+ASN1OctetString.toDERObject / toDLObject   两边都是 new DEROctetString（真同形，取 DER）
+ASN1Sequence.toDERObject                   new DERSequence   ←→  DLSequence
+ASN1TaggedObject.toDERObject               new DERTaggedObject ←→ DLTaggedObject
+ASN1BitString.toDERObject                  new DERBitString
+LazyEncodedSequence.toDERObject            parse() 后直接调 ASN1Sequence.toDERObject
+ASN1Primitive.i()                          return this（DER/DL/ASN1 三个候选都是 return this ⇒ 取族名）
+```
+
+**(b) R8 合并类的 flag 值**：`DEROutputStream` 与 `DLOutputStream` 被 R8 合成一个类 `c/ba(OutputStream, int)`。
+`ASN1OutputStream.c()/b()` 分别传 **1 / 0**；而 `ASN1Sequence.toDERObject()` 里 `new c/bc(0)` 是 DER ⇒ **0 = DER**，
+于是 `b()`=`getDERSubStream`、`c()`=`getDLSubStream`。两条独立证据（sequence 与 stream）指向同一个结论。
+
+其余：
+
+```
+c/aq(DERExternal).f()I        encodedLength   方法体 = getEncoded().length（getEncoded 已定名）
+c/bs(LimitedInputStream).i()V setParentEofDetect  读底层流、instanceof 后置 eof 标志位（AIDE 去掉了 boolean 形参）
+c/k(ASN1Integer).c(c/z)c/k    getInstance     调 c/z.k() 取 primitive 再 invokestatic b(Object)
+c/t(ASN1Sequence).c(c/z)c/t   getInstance     读 c/z.b(explicit) 并抛 "object implicit - explicit expected."
+c/n(ASN1ObjectIdentifier).a   pool            static ConcurrentHashMap（BC 的 OID 池）
+c/ab(BERApplicationSpecific).h tag             唯一实例 int，构造器第一个参数就是它
+c/q$a(ImplicitOutputStream).l  first            boolean，写第一个 tag 时要特殊处理（oracle 侧同名 first）
+```
+
+`inherit_check` 在这里抓到 1 条 CONFLICT：`c/o.()Lc/s;` 我先按方法体叫 `parser`，但它的祖先 `c/bo` 同签名已叫
+`getLoadedObject` ⇒ 改回 `getLoadedObject`（覆写族同名规则又赢一次）。
+
 ## 4. 遗留
 
-1. 14 条待人工：其中 9 条 `ambiguous` 全是上面那个覆写族（必须靠"谁调用了谁"来定性），
-   5 条 `no-oracle-descriptor` 是 `AIDE 改过签名` 的方法（oracle 侧同名但描述符不同）；
-2. `innercheck` ① 还剩 2 条本 part 的外层不一致：`c/x/b$a`（`x/b` 缺类映射）、
+1. `innercheck` ① 还剩 2 条本 part 的外层不一致：`c/x/b$a`（`x/b` 缺类映射）、
    `c/x/a$a`（映射成 `util/Arrays$Iterator` 但外层是 `ByteUtils`）——需要先确认 `c/x/a`/`c/x/b` 到底是谁；
-3. `params.tsv` 本 part 还没生成（当前 0 行）：`c/*` 的方法参数名可以从 `bcprov-jdk15on-1.56` 的 LVT 取一部分。
+2. `params.tsv` 只有 53 行（`bcprov-jdk15on-1.56` 的 LVT 取到的这批方法比较少），还能从 BC 源码补；
+3. 本 part 类是 R8 裁过的子集，`c/*` 引用的某些 BC 类在 APK 里不存在，所以 `audit` 会报"两侧 jar 缺类"，
+   属预期。
 
 ## 5. 复现
 

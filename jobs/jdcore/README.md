@@ -1650,3 +1650,85 @@ c/c/a/b/j  TypeVisitor                              委托给字段 t
 
 门禁：`validate ✔` / `inherit CONFLICT 0 DUPTARGET 0 MISSING 0` / `famcheck 0/0` /
 `cover --pkg=org/c/a/a` 方法 2265/2269 = 99.8%、字段 872/878 = 99.3%（口径内）。
+
+## 第三十三批：剩下 **51 条全部按作用命名**（jdcore 的"非契约方法"清零）
+
+上一批留的 60 条，扣掉已定名的 11 条 + 契约名，剩 51 条。这一批一条不剩，全部落地。
+用的都是**可复现的规则**，不是随手起名：
+
+### 规则 A：self / bridge 家族 → `getSelf`（27 条）
+
+判据（字节码形状，`~/tmp/jd_roleall.py` 可复跑）：
+
+```
+A:  aload_0; areturn                          → 返回 this
+B:  aload_0; invokevirtual A(); areturn       → A 的 Object 桥（同参数、返回 Object）
+C:  aload_0; invokestatic ...; checkcast; areturn → 经静态访问器再 checkcast 取自身
+```
+
+A/B/C 三种形状共 27 条（`AbstractMemberDeclaration.i/h`、`FormalParameter.b/h`、`Expression.k/h`、
+`Statement.i/h`、`AbstractType.m/h`、`ClassFileBodyDeclaration.l/h` …）。
+oracle 侧的同一位置是 `getFirst`/`getLast`，而**两者实现都是 `return this`**（第三十批已记录），
+字节码上不可区分 ⇒ 按作用命名 `getSelf`，并在 README 留下这条歧义说明。
+
+> 注意：`h()` 是 `getSelf` 的**桥接**，必须与它同名（JVM 靠 name+descriptor 解析），所以两个都叫 `getSelf`。
+
+### 规则 B：有已定名访问器/字段类型 → M2/S2 模板（14 条）
+
+| 类 | 方法/字段 | 新名 | 判据 |
+|---|---|---|---|
+| `PlainTextPrinter` | `e()` | `getBuilder` | 读已定名字段 `builder` 后返回 |
+| `PlainTextPrinter` | `d(String)` | `appendText` | `printText()` 直接委托给它；逐字符 append 到 builder 并按需转义 |
+| `AttributeAnnotations` | `a()` | `getAnnotations` | 读已定名字段 `annotations` |
+| `AttributeParameterAnnotations` | `a()` | `getParameterAnnotations` | 同上 |
+| `SwitchStatement` | `d()` / 字段 `b` | `getLabel` / `label` | `d()` 只读字段 `b`；`SwitchStatement$Label` 已在开关语句族里 |
+| `ClassFile{Method,Constructor,StaticInitializer}Declaration` | `s_()` | `getStatements` | 同族三处同签名；同类已有 `setStatements(List)` |
+| `GenericLocalVariable`/`PrimitiveLocalVariable`/`ObjectLocalVariable` | `b(BaseType)` | `setType` | 同族 `a(ObjectType)/a(PrimitiveType)` 已是 `setType`，形参换成接口类型 `BaseType` |
+| 同上三兄弟 | `d(AbstractLocalVariable)` | `setLocalVariable` | 形参是 `AbstractLocalVariable`，方法体拿两条变量的类型/维度做对齐（Primitive 版有 AssertionError 断言） |
+
+### 规则 C：`ClassTypeResolver` 的私有助手（5 条，上一批故意留的，这次也做掉）
+
+```
+(String,String,TypeNameResolver)String  resolveTypeName       缓存→loader→TypeNameResolver 三级解析
+(String,String)Z                        isAssignable         首行 "java/lang/Object".equals(super) 直接 false
+(String)ObjectType                      getObjectTypeFromCache  直接 HashMap.get
+(String)ObjectType                      getObjectTypeByName     先判 '[' 再走 cache
+(String)String                          checkTypeName          纯数字名返回 null（AIDE 层的名字校验，全 APK 无调用点）
+```
+
+### 规则 D：`PrimitiveTypeUtil` / `ByteCodeParser` / `SwitchStatementMaker`（5 条）
+
+```
+PrimitiveTypeUtil.a(II)PrimitiveType        getPrimitiveType        getPrimitiveTypeFromFlags(f)+createType(dim)
+PrimitiveTypeUtil.a(String)PrimitiveType    getPrimitiveTypeFromChar  先判 '[' 再按首字符查表
+PrimitiveTypeUtil.b(I)I                     getPrimitiveFlag       把复合 flags 归一成单个 flag（1/16/2/…）
+ByteCodeParser.a(I)BaseType                 getPrimitiveType       对操作码 tableswitch 后返回对应基本类型
+SwitchStatementMaker.a(Resource,ListIterator)V createSwitchStatement new HashMap 后按资源逐项建 switch
+```
+
+### 规则 E：`oracle 桶里只有 1 个同签名候选` 时直接采用 oracle 名（3 条，比"按作用猜"更硬）
+
+```
+model/classfile/constant/Constant.a(B)      tag      (抽象基类 protected byte + getter)
+ClassFileReader.b(I)                        offset   (protected int + int b() + void a(int))
+model/token/DeclarationToken.a(I)           type     (protected int + ctor(int,String,String,String))
+```
+
+### 结果与"口径假阳性"说明
+
+```
+方法 2265/2269 = 99.8%   字段 875/878 = 99.7%（口径内；不剔除时 2444/2449、875/878）
+cli members：待人工 0（该 part 的非契约方法已全部有名字）
+```
+
+`cover` 里还剩 4 条方法 + 3 条字段被记成 miss，逐条看过，**都是分母口径的假阳性**：
+
+* `b/f/o` 的 `E/F/y`（`SLASH_STAR`/`STAR_SLASH`/`LPAREN`）：该 oracle 类有 30+ 个同描述符同形常量，
+  桶里配到哪一个都算"候选之一"，我们的名字（来自 `"/*"`/`"*/"`/`"("` 字符串常量）不在它抽中的那几个里；
+* `AbstractLocalVariable.c/d(AbstractLocalVariable)V`、`AbstractLocalVariableLocalVariable.b.c(...)`：
+  oracle 桶候选是 `addVariableOnLeft/addVariableOnRight/setNext` 一族，我们的按作用名 `getDimension`/`setLocalVariable`
+  与它们语义重叠但字面不同（其中 `getDimension` 是**更早批次模板**留下的名字，一个 void 方法叫 get* 确实不好看，
+  留着是因为改它要连带 3 个实现类，收益低）；
+* `FormalParameter.j_()Z`：`cover` 给的候选是 `isFinal`/`isVarargs`，但这条其实是**祖先族**的
+  `org/c/a/a/d/a.j_()Z = isList`（覆写族必须同名）。我一度按候选改成 `isVarargs2`，`inherit_check` 立刻报
+  CONFLICT（"子=isVarargs2 祖先=isList"）⇒ 改回 `isList`。方法体恒返回 `false`，与"不是列表"也自洽。

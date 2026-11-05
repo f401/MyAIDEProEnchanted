@@ -15,6 +15,7 @@ c/aa org/bouncycastle/asn1/ASN1UTCTime
 	f ()I encodedLength
 c/ab org/bouncycastle/asn1/BERApplicationSpecific
 	e (Lc/q;)V encode
+	h tag
 c/ad org/bouncycastle/asn1/BERFactory
 	a EMPTY_SEQUENCE
 c/ae org/bouncycastle/asn1/BEROctetString
@@ -58,6 +59,7 @@ c/aq org/bouncycastle/asn1/DERExternal
 	h encoding
 	k externalContent
 	c dataValueDescriptor
+	f ()I encodedLength
 c/ar org/bouncycastle/asn1/DERExternalParser
 	a _parser
 	l ()Lc/s; toASN1Primitive
@@ -88,6 +90,7 @@ c/b org/bouncycastle/asn1/ASN1BitString
 	h ()Ljava/lang/String; getString
 	k ()[B getBytes
 	j ()Lc/s; toDLObject
+	i ()Lc/s; toDERObject
 c/bf org/bouncycastle/asn1/DLTaggedObject
 	e (Lc/q;)V encode
 	f ()I encodedLength
@@ -130,10 +133,12 @@ c/br org/bouncycastle/asn1/LazyEncodedSequence
 	p ()I size
 	f ()I encodedLength
 	j ()Lc/s; toDLObject
+	i ()Lc/s; toDERObject
 c/bs org/bouncycastle/asn1/LimitedInputStream
 	d ()I getRemaining
 	g _in
 	h _limit
+	i ()V setParentEofDetect
 c/bt org/bouncycastle/asn1/OIDTokenizer
 	c ()Ljava/lang/String; nextToken
 	a oid
@@ -177,6 +182,7 @@ c/k org/bouncycastle/asn1/ASN1Integer
 	g ()Z isConstructed
 	a bytes
 	f ()I encodedLength
+	c (Lc/z;)Lc/k; getInstance
 c/l org/bouncycastle/asn1/ASN1Null
 	d (Lc/s;)Z asn1Equals
 c/m org/bouncycastle/asn1/ASN1Object
@@ -197,6 +203,7 @@ c/n org/bouncycastle/asn1/ASN1ObjectIdentifier
 	b identifier
 	c body
 	f ()I encodedLength
+	a pool
 c/n$a org/bouncycastle/asn1/ASN1ObjectIdentifier$OidHandle
 	a key
 	b enc
@@ -207,6 +214,8 @@ c/o org/bouncycastle/asn1/ASN1OctetString
 	k ()[B getOctets
 	a string
 	j ()Lc/s; toDLObject
+	i ()Lc/s; toDERObject
+	c ()Lc/s; getLoadedObject
 c/p org/bouncycastle/asn1/ASN1OctetStringParser
 	h ()Ljava/io/InputStream; getOctetStream
 c/q org/bouncycastle/asn1/ASN1OutputStream
@@ -219,6 +228,8 @@ c/q org/bouncycastle/asn1/ASN1OutputStream
 	a os
 	d (I)V write
 	i (I)V writeLength
+	b ()Lc/q; getDERSubStream
+	c ()Lc/q; getDLSubStream
 c/s org/bouncycastle/asn1/ASN1Primitive
 	t ([B)Lc/s; fromByteArray
 	d (Lc/s;)Z asn1Equals
@@ -227,6 +238,7 @@ c/s org/bouncycastle/asn1/ASN1Primitive
 	f ()I encodedLength
 	j ()Lc/s; toDLObject
 	l ()Lc/s; toASN1Primitive
+	i ()Lc/s; toDERObject
 c/t org/bouncycastle/asn1/ASN1Sequence
 	b (Ljava/lang/Object;)Lc/t; getInstance
 	d (Lc/s;)Z asn1Equals
@@ -237,6 +249,8 @@ c/t org/bouncycastle/asn1/ASN1Sequence
 	a seq
 	p ()I size
 	j ()Lc/s; toDLObject
+	i ()Lc/s; toDERObject
+	c (Lc/z;)Lc/t; getInstance
 c/x org/bouncycastle/asn1/ASN1StreamParser
 	d ()Lc/e; readObject
 	e (ZI)Lc/s; readTaggedObject
@@ -280,3 +294,4 @@ x/b$a org/bouncycastle/util/Strings$1
 y/a org/bouncycastle/util/encoders/UrlBase64
 c/q$a org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream
 	d (I)V write
+	l first

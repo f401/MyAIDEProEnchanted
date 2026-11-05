@@ -201,10 +201,19 @@ org/a/a/a/h   (CodePointCharStream) e  / e()
 `Charset.forName("UTF_8")` / `Charset.forName("ISO_8859_1")` ⇒ 名字 `UTF_8` / `ISO_8859_1`
 （字符串常量就是权威写法，`StandardCharsets` 的字段名同形）。
 
-### 8.4 剩下 1 条**真歧义**，按规则不动
+### 8.4 最后 1 条：靠**祖先**定了（不是猜的）
 
-`org/a/a/a/p`(=Lexer) 的 `a()[Ljava/lang/String;` 有 3 个同描述符候选
-（`getChannelNames` / `getModeNames` / `getTokenNames`），而 4.7.2 源码里**这三个方法体都是 `return null;`**
-—— 字节码上完全同形，任何判据都选不出来。按用户规则"不确定处如实说"，保持原名。
+`org/a/a/a/p`(=Lexer) 的 `a()[Ljava/lang/String;` 本人候选是 3 个（`getChannelNames`/`getModeNames`/`getTokenNames`），
+4.7.2 源码里这三个**都是 `return null;`**、字节码完全同形。但它还有祖先 `org/a/a/a/u`(=Recognizer) 声明了同一个
+`(name, descriptor)`，而那条在更早批次已被定名为 **`getTokenNames`**（覆写族必须同名）⇒ 本类的这条也只能是
+`getTokenNames`。第一次我按"字母序第一个"填了 `getChannelNames`，`inherit_check` 立刻报 CONFLICT，
+改成 `getTokenNames` 后归零 —— 又一次证明"覆写族同名"这条规则比任何猜测都可靠。
+
+### 8.5 口径上的最后 1 条假阳性
+
+`c/h`(=`misc/Interval`) 的 `describeContents()I` / `writeToParcel(Parcel,int)V` 是 **Android `Parcelable` 契约名**，
+本来就是对的（oracle 的 `Interval` 不实现 Parcelable，所以 `cover` 把它记成 miss，候选是 `hashCode`/`length`）。
+为了在报告里显式记录这个判断，`members.tsrg` 里给这两条写了 **identity 映射**（`旧名 = 新名`），
+于是 `cli members` 的"待人工"变成 **0**；`cover` 仍显示 338/339，那 1 条就是它。
 
 （另：`items` 报告里 `c/h` 的 `writeToParcel` 被标 `AIDE 改过签名`，已在 §8.2 说明。）
