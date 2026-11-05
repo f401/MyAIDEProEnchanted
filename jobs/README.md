@@ -112,3 +112,40 @@ jobs/<名字>/
 
 > 教训：**"一个类里出现某个字符串"不等于"这个类属于那个库"**。判第三方库至少要"多类共享同组特征串（错误文案/URL/包名）+ 形状能和某个 oracle 对上"，
 > 本轮 jzlib 就是靠 4 条 zlib 判定文案 + 22 个 oracle 类形状全部对上才敢认的。
+
+## 又两处清点结论（2026-11-05 晚，含一个 497 类的大发现）
+
+### A. `abcd/*` 里藏着**第二份 dx/dex**（497 类）—— 已核实是**死代码**，不建议命名
+
+按引用连通块切出来一块 **497 类**的簇，字符串/形状与 **dx 1.16** 的类逐一对上（抽样 47 个，35 个
+Jaccard=1.00 且唯一）：
+
+```
+abcd/Cp  → com/android/dx/dex/file/MethodIdsSection      'method_ids_size: ' / 'cst == null'
+abcd/Ap  → com/android/dx/dex/file/MethodAnnotationStruct
+abcd/Es  → com/android/dex/DexFormat 的一支（CstLong / CstKnownNull / CstArray …）
+abcd/Fm  → com/android/dx/ssa/…BaseMachine（'local variable type mismatch: attempt to set or access…'）
+abcd/Fp$a→ MixedItemSection$SortType
+```
+
+但：**全 APK 对这块 497 个类的外部引用数 = 0**（扫描所有 class 的常量池）。
+也就是说 AIDE 真正用的是 `com/a/*` 那份（已在 `jobs/dx` 定名 448 类），这份是 R8 保下来的死副本。
+
+⇒ 结论：**不命名**。理由 ① 它和 `jobs/dx` 的目标名会完全撞车（同一个库同一份代码）；
+② 死代码，命名不改善运行/可读性收益，还会把 500 行映射噪声塞进真相表。
+（`newseq.py` 这类"创建点"工具也帮不上：没有活的调用点。）
+
+### B. IAP/计费那簇是**活的**，而且比表里的 20 类大得多（89 类）
+
+下面待办表里"IAP/计费/licensing 20 类"这一行，用线索串（`aide_prime_` / `appfour` / `InAppProduct`）
+在未定名的 `abcd/*` 里扫，实际命中 **89 类**，且**有 24 个外部引用者**（全部是未定名的 AIDE 自有代码，
+不是死代码）⇒ 这是"按作用命名"路线里**优先级最高、证据最足**的一块：
+
+* SKU 串：`aide_prime_monthly_0500`、`aide_prime_yearly_3000`、`aide_prime_monthly_0500_7days_trial`
+* 服务端：`https://api.appfour.com/aideservices/subscriptions/v1/registerPurchase`
+* 商店协议：`purchaseState`/`productId`/`packageName`/`purchaseTime`（Play Billing 的 JSON 字段）
+* 自身文案：`Internal error in in-app billing (JSON parse).`、`Error communicating with Play Store service.`
+* 与未混淆的 `com/aide/licensing`（19 类，license 校验）互相独立：那 19 类只引用
+  `abcd/ApplicationUtils` 等 4 个类，不碰这块
+
+（**纠正**：上一轮我把 `abcd/Jv…yk` 那 15 类说成"就是 IAP/计费 20 类"，实际那一行是 89 类。）
