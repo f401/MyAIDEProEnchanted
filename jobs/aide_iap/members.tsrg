@@ -11,3 +11,37 @@ abcd/qu$a$a com/android/vending/billing/IInAppBillingService$Stub$Proxy
 	j6 (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle; getBuyIntent
 	j6 (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle; getBuyIntentToReplaceSkus
 	j6 (ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle; getSkuDetails
+abcd/yk com/aide/billing/InAppBilling
+	EQ inAppBillingService
+	J0 handler
+	J8 executor
+	Mr pendingRequests
+	DW (Landroid/content/Intent;)Labcd/yk$d; parsePurchaseResult
+	j6 (Labcd/qu;ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle; getSkuDetails
+	j6 (Landroid/app/Activity;Landroid/content/IntentSender;)V launchBuyIntent
+	DW (Labcd/yk;)Landroid/os/Handler; getHandler
+abcd/yk$a com/aide/billing/InAppBilling$Listener
+	j6 (Ljava/lang/String;)V onError
+	j6 (Ljava/util/Map;)V onProducts
+abcd/yk$b com/aide/billing/InAppBilling$BillingException
+abcd/yk$c com/aide/billing/InAppBilling$BillingError
+abcd/yk$d com/aide/billing/InAppBilling$PurchaseResult
+abcd/yk$e com/aide/billing/InAppBilling$PurchaseStatus
+abcd/yk$f com/aide/billing/InAppBilling$ResponseCode
+abcd/yk$g com/aide/billing/InAppBilling$Purchase
+abcd/yk$h com/aide/billing/InAppBilling$SubscriptionWebServiceClient
+abcd/rk com/aide/billing/BuyIntentTask
+	j6 (Labcd/qu;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle; getBuyIntentToReplaceSkus
+abcd/pk com/aide/billing/PurchaseRequestTask
+abcd/ok com/aide/billing/BillingErrorTask
+abcd/Jv com/aide/billing/InAppPurchaseBackend
+	j6 (Ljava/lang/String;)Lcom/appfour/backbone/api/objects/InAppProduct; getInAppProduct
+	j6 (Landroid/app/Activity;Landroid/content/IntentSender;I)V launchBuyIntent
+	DW (Ljava/lang/String;)Labcd/Jv$a; getProductList
+abcd/Lv com/aide/billing/InstallReferrerReporter
+	j6 ()V reportInstallReferrer
+abcd/Kv com/aide/billing/InstallReferrerCallback
+abcd/cm com/aide/licensing/LicenseVerifier
+	j6 (Ljava/lang/String;Ljava/lang/String;)Labcd/cm$c; verifyLicense
+	j6 (Ljava/lang/String;)Ljava/security/PublicKey; getPublicKey
+	j6 (Ljava/security/PublicKey;Ljava/lang/String;Ljava/lang/String;)Z verifySignature

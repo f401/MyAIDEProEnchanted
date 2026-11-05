@@ -1,3 +1,19 @@
 abcd/qu	com/android/vending/billing/IInAppBillingService	src:interface extends android.os.IInterface，7 个方法全是 AIDL 形状；类里字符串写着 "com.android.vending.billing."；方法集与 Google Play 的 IInAppBillingService 逐一对上（见 README §2 的 txn→方法表）
 abcd/qu$a	com/android/vending/billing/IInAppBillingService$Stub	src:abstract class extends android.os.Binder implements abcd/qu(=IInAppBillingService)；有 static asInterface(IBinder)、asBinder()、onTransact(4 参) ⇒ AIDL 生成的 Stub
 abcd/qu$a$a	com/android/vending/billing/IInAppBillingService$Stub$Proxy	src:implements abcd/qu、持 android/os/IBinder 字段、构造器收 IBinder ⇒ AIDL 生成的 Stub$Proxy
+abcd/yk	com/aide/billing/InAppBilling	recv:持有 abcd/qu(=IInAppBillingService) 字段 + Handler + ThreadPoolExecutor + ArrayDeque(待处理请求) + AtomicReference；方法含 j6(qu,I,String,String,Bundle)Bundle(转发 getSkuDetails)、DW(Intent)yk$d(解析购买结果)；类里有 aide_prime_* 等 SKU 串 ⇒ Play 内购主控
+abcd/yk$a	com/aide/billing/InAppBilling$Listener	str:抽象回调，2 个方法 (String)V / (Map)V；被 abcd/ok、abcd/yk 当作回调字段 ⇒ 购买结果监听器
+abcd/yk$b	com/aide/billing/InAppBilling$BillingException	kind:extends Exception、构造器 (String)、2 个 boolean 字段；只在 abcd/yk 内部被抛 ⇒ 内购异常
+abcd/yk$c	com/aide/billing/InAppBilling$BillingError	kind:extends Exception、构造器 (ok) ⇒ 包一层错误的内购异常
+abcd/yk$d	com/aide/billing/InAppBilling$PurchaseResult	shape:字段 = yk$e(状态) + cm$c(签名校验结果) + ok(错误)，4 个构造器组合这三种 ⇒ 购买结果值对象
+abcd/yk$e	com/aide/billing/InAppBilling$PurchaseStatus	str:枚举常量 OK_PURCHASED / OK_ALREADY_OWNED / ERROR
+abcd/yk$f	com/aide/billing/InAppBilling$ResponseCode	str:枚举常量 RESULT_OK / RESULT_USER_CANCELED / RESULT_SERVICE_UNAVAILABLE / RESULT_BILLING_UNAVAILABLE / RESULT_ITEM_UNAVAILABLE / RESULT_DEVELOPER_ERROR / RESULT_ITEM_ALREADY_OWNED（就是 Play Billing 的响应码），另有 (I)yk$f 的静态查表
+abcd/yk$g	com/aide/billing/InAppBilling$Purchase	shape:6 个 String + 1 个 long 的纯数据对象，构造器 (String×5,long,String) ⇒ 一条购买记录
+abcd/yk$h	com/aide/billing/InAppBilling$SubscriptionWebServiceClient	str:'Subscription WS Client' + https://api.appfour.com/aideservices/subscriptions/v1/registerPurchase + 'isGenuine' ⇒ 订阅校验的 WebService 客户端（内部起 Thread）
+abcd/rk	com/aide/billing/BuyIntentTask	kind:implements Runnable，字段 = abcd/yk + String + 3 个 boolean；run() 里调 j6(qu,I,S,S,S,S)Bundle（getBuyIntentToReplaceSkus）；串 'BUY_INTENT'/'resp code for intent getting: ' ⇒ 发起购买 Intent 的任务
+abcd/pk	com/aide/billing/PurchaseRequestTask	kind:implements Runnable，字段 = abcd/yk + 2 个 boolean；串 'Requesting in-app purchases' / 'Requesting subscription purchases' / 'inapp' / 'subs' ⇒ 请求商品列表的任务
+abcd/ok	com/aide/billing/BillingErrorTask	kind:implements Runnable，字段 = abcd/yk + Set + yk$a + yk；串 'Internal error in in-app billing (JSON parse).'/'…(cancelled).'/'Error communicating with Play Store service.' ⇒ 失败时回调监听器并报错的任务
+abcd/Jv	com/aide/billing/InAppPurchaseBackend	recv:方法签名全部是 Play 内购的接线：j6(String)Lcom/appfour/backbone/api/objects/InAppProduct;（把 DETAILS_LIST 的 JSON 变成 InAppProduct）、j6(Activity,IntentSender,I)V（拉起购买）、j6(Bundle,Object,I,String,String,Bundle)V（onActivityResult 分支）；串含 productId/purchaseToken/orderId/DETAILS_LIST ⇒ 内购后端
+abcd/Lv	com/aide/billing/InstallReferrerReporter	str:'com.android.vending' + 'PlayInstallReferrer' + 'Class not found' ⇒ 反射调用安装来源接口的上报器（静态方法 j6()V）
+abcd/Kv	com/aide/billing/InstallReferrerCallback	hier:implements com/android/installreferrer/api/d(=InstallReferrerStateListener，库类在 APK 里是未混淆的)，字段是 com/android/installreferrer/api/b ⇒ AIDE 侧的回调实现
+abcd/cm	com/aide/licensing/LicenseVerifier	str:'Empty data.' / 'Empty signature.' / 'Signature does not match data.' + 'AIDEkeys' + 'com.aide.web'/'com.aide.trainer.java'/'com.aide.phonegap'（三个按包名区分的授权项）⇒ 授权签名校验器；j6(String,String)cm$c 是入口
