@@ -27,7 +27,7 @@ import argparse
 import collections
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from bytefp import disassemble, parse, load_tsv_map
+from bytefp import disassemble, parse, load_tsv_map, desc_from_params
 
 PRIM = {'Z': 'boolean', 'B': 'byte', 'C': 'char', 'S': 'short', 'I': 'int',
         'J': 'long', 'F': 'float', 'D': 'double'}
@@ -199,8 +199,7 @@ def main():
             ctor = pk.replace('/', '.')
             if nm in ('<init>', '<clinit>', ctor, 'toString', 'equals', 'hashCode'):
                 continue
-            descs = ['(' + ''.join('L%s;' % x.replace('.', '/') if x not in 'ZBCSIJFD' else x
-                                   for x in ps) + ')']
+            descs = ['(' + desc_from_params(ps) + ')']
             ds = [d for (n, d) in pb.get(pk, {}).get('methods', []) and
                   [(n, d) for acc, n, d in pb[pk]['methods']] if n == nm and d.startswith(descs[0])]
             if not ds:

@@ -262,6 +262,31 @@ def fold_class(c, cls, f, side, own):
     return fs, ms, inst
 
 
+_PRIM_DESC = {'boolean': 'Z', 'byte': 'B', 'char': 'C', 'short': 'S', 'int': 'I',
+              'long': 'J', 'float': 'F', 'double': 'D', 'void': 'V'}
+
+
+def desc_from_params(ps):
+    """javap 的形参名（'int' / 'java.lang.String' / 'int[]'）→ JVM 描述符形参串。
+
+    坑：老代码用 `x not in 'ZBCSIJFD'` 判断基本类型，因为 'int' 是 'ZBCSIJFD' 的子串，
+    会被误判成引用类型包成 `Lint;` —— 于是所有**带基本类型形参**的接口覆写都匹配不上。
+    """
+    out = ''
+    for x in ps:
+        if x in _PRIM_DESC:
+            out += _PRIM_DESC[x]
+        elif x.startswith('[') or x.endswith('[]'):
+            base = x.rstrip('[]').lstrip('[')
+            dims = x.count('[') + x.count('[]')
+            out += '[' * dims + (_PRIM_DESC.get(base) or 'L' + base.replace('.', '/') + ';')
+        elif x.endswith('...'):
+            out += '[L' + x[:-3].replace('.', '/') + ';'
+        else:
+            out += 'L' + x.replace('.', '/') + ';'
+    return out
+
+
 def jac(a, b):
     if not a and not b:
         return None

@@ -21,7 +21,7 @@ import collections
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bytefp
-from bytefp import disassemble, parse, load_tsv_map, Fold, jac, load_members
+from bytefp import disassemble, parse, load_tsv_map, Fold, jac, load_members, desc_from_params
 
 
 def load_mem(path):
@@ -198,8 +198,7 @@ def main():
         realdesc = {k: [(n, d) for acc, n, d in c['methods']] for k, c in pb.items()}
         n = 0
         for pk, old, params, new, s1, mg in final:
-            pdesc = '(' + ''.join('L%s;' % x.replace('.', '/') if x not in 'ZBCSIJFD' else x
-                                  for x in params) + ')'
+            pdesc = '(' + desc_from_params(params) + ')'
             d = [dd for (nn, dd) in realdesc.get(pk, []) if nn == old and dd[:dd.index(')') + 1] == pdesc]
             if not d:
                 continue

@@ -14,7 +14,7 @@ import argparse
 import collections
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from bytefp import disassemble, parse, load_tsv_map
+from bytefp import disassemble, parse, load_tsv_map, desc_from_params
 
 
 def load_mem(path):
@@ -98,13 +98,11 @@ def main():
             hit = set()
             for a2 in anc:
                 for (n2, d2), reals in by_m.get(a2, {}).items():
-                    if n2 == n and d2 == '(' + ''.join(
-                            'L%s;' % x.replace('.', '/') if x not in 'ZBCSIJFD' else x for x in ps) + ')*':
+                    if n2 == n and d2 == '(' + desc_from_params(ps) + ')':
                         hit |= reals
                 # 祖先声明里的同 (name,params) 直接用 key 精确比
                 for (n2, d2), reals in by_m.get(a2, {}).items():
-                    if n2 == n and d2.startswith('(' + ''.join(
-                            'L%s;' % x.replace('.', '/') if x not in 'ZBCSIJFD' else x for x in ps) + ')'):
+                    if n2 == n and d2.startswith('(' + desc_from_params(ps) + ')'):
                         hit |= reals
             if len(hit) == 1:
                 rows.append((pk, 'm', n, ps, hit.pop()))
@@ -144,7 +142,7 @@ def main():
         n_add = 0
         for pk, kind, n, ps, real in rows:
             if kind == 'm':
-                d = '(' + ''.join('L%s;' % x.replace('.', '/') if x not in 'ZBCSIJFD' else x for x in ps) + ')'
+                d = '(' + desc_from_params(ps) + ')'
                 cand = [dd for (nn, dd) in rd.get(pk, []) if nn == n and dd[:dd.index(')') + 1] == d]
                 if not cand:
                     continue

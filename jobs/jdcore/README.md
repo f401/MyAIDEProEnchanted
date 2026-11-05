@@ -1482,3 +1482,33 @@ M5  纯委托：委托给 JDK 契约名（compare/add/equals…）的多半是**
 未定名的 134 条方法集中在：`a/b/b`(PlainTextPrinter) 9、`c/a/a/c/c`(ByteCodeParser) 7、
 `c/a/a/c/w`(ClassTypeResolver) 6、`PrimitiveLocalVariable` 6、`ObjectLocalVariable` 5、
 `GenericLocalVariable` 5 —— 都是"同形重载 + 无字面量"的那批。
+
+## 第二十九批：修一个"基本类型形参"的判定 bug → 方法口径内 **96.3%**
+
+### bug：`x not in 'ZBCSIJFD'` 用子串判断基本类型
+
+五个工具（`hinher`/`bodymatch`/`rolefill2`/`accessors`/`fieldbind`）都这么把 javap 的形参名
+重新拼回描述符：
+
+```python
+'L%s;' % x.replace('.', '/') if x not in 'ZBCSIJFD' else x     # 错的
+```
+
+javap 里基本类型是**拼写出来的**（`int`、`boolean`…），而 `'int' not in 'ZBCSIJFD'` 是 **True**
+（子串判断！）→ 于是 `int` 被包成 `Lint;`，所有**带基本类型形参**的接口覆写都匹配不上。
+
+影响举例：`a/b/b`（`PlainTextPrinter`）实现了 `Printer`，但 `Printer` 的 15 个方法全都带 `int` 形参
+⇒ `hinher` 一条都没认出来。修法：在 `bytefp` 里加 `desc_from_params()`（按 `int/boolean/…/int[]/…`
+正确映射成 `I/Z/…/[I`），五个工具统一改用它。
+
+**一条 bug 修完：`hinher` 的候选 1263 → 1288，方法 2525 → 2562。**
+
+### 现状（口径内）
+
+```
+类   434/434 = 100%
+方法 2335/2424 = 96.33%（未定名 89）
+字段  947/974  = 97.23%（未定名 27）
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+剩余方法最大簇只有 5 条（ClassTypeResolver），其余 2~3 条零散
+```

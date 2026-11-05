@@ -22,7 +22,7 @@ import argparse
 import collections
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from bytefp import disassemble, parse, load_tsv_map
+from bytefp import disassemble, parse, load_tsv_map, desc_from_params
 
 
 def load_members(path):
@@ -211,8 +211,7 @@ def main():
         add = collections.defaultdict(list)
         for pk, old, params, cand, kind, fld, ver, fdesc in rows:
             # 返回类型：getter 就是字段类型（模式保证只有 getfield+return，无 cast），setter 是 V
-            pdesc = '(' + ''.join('L%s;' % x.replace('.', '/') if x not in 'ZBCSIJFD' else x
-                                  for x in params) + ')'
+            pdesc = '(' + desc_from_params(params) + ')'
             cand_desc = [d for (n, d) in realdesc.get(pk, [])
                          if n == old and d[:d.index(')') + 1] == pdesc]
             if not cand_desc:
