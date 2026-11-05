@@ -21,3 +21,27 @@ abcd/Fu	com/aide/backbone/adapters/UpdateClosureAdapter	src:由 abcd/Iu.onUpdate
 abcd/Gu	com/aide/backbone/adapters/NewVersionClosureAdapter	src:由 abcd/Iu.onNewVersion(OnVoidClosure) 里 new（与 Fu 同形）
 abcd/Hu	com/aide/backbone/adapters/ApplicationCreateClosureAdapter	src:由 abcd/Iu.onApplicationCreate(OnApplicationClosure) 里 new；j6 传 1 个实参
 abcd/zu	com/aide/backbone/adapters/ReferrerMarketImpressionClosureAdapter	src:由 abcd/Iu.onReferrerMarketImpression(OnMarketImpressionClosure) 里 new；实现 abcd/jv、字段 (Iu, OnMarketImpressionClosure)
+abcd/Ku	com/aide/backbone/adapters/OnEnterClosure0Adapter	src:implements abcd/jv、构造器是 (Labcd/Vu;JLcom/appfour/backbone/api/closures/OnEnterClosure0;)V —— 形参类型直接写明它包的是 OnEnterClosure0（Vu=EnterHookDefinition 的 onEnter 用）
+abcd/Mu	com/aide/backbone/adapters/OnEnterClosure1Adapter	src:implements abcd/jv、构造器是 (Labcd/Vu;JLcom/appfour/backbone/api/closures/OnEnterClosure1;)V —— 形参类型直接写明它包的是 OnEnterClosure1（Vu=EnterHookDefinition 的 onEnter 用）
+abcd/Ou	com/aide/backbone/adapters/OnEnterClosure2Adapter	src:implements abcd/jv、构造器是 (Labcd/Vu;JLcom/appfour/backbone/api/closures/OnEnterClosure2;)V —— 形参类型直接写明它包的是 OnEnterClosure2（Vu=EnterHookDefinition 的 onEnter 用）
+abcd/Qu	com/aide/backbone/adapters/OnEnterClosure3Adapter	src:implements abcd/jv、构造器是 (Labcd/Vu;JLcom/appfour/backbone/api/closures/OnEnterClosure3;)V —— 形参类型直接写明它包的是 OnEnterClosure3（Vu=EnterHookDefinition 的 onEnter 用）
+abcd/Su	com/aide/backbone/adapters/OnEnterClosure4Adapter	src:implements abcd/jv、构造器是 (Labcd/Vu;JLcom/appfour/backbone/api/closures/OnEnterClosure4;)V —— 形参类型直接写明它包的是 OnEnterClosure4（Vu=EnterHookDefinition 的 onEnter 用）
+abcd/Uu	com/aide/backbone/adapters/OnEnterClosure5Adapter	src:implements abcd/jv、构造器是 (Labcd/Vu;JLcom/appfour/backbone/api/closures/OnEnterClosure5;)V —— 形参类型直接写明它包的是 OnEnterClosure5（Vu=EnterHookDefinition 的 onEnter 用）
+abcd/Xu	com/aide/backbone/adapters/OnExceptionClosure0Adapter	src:implements abcd/jv、构造器是 (Labcd/hv;JLcom/appfour/backbone/api/closures/OnExceptionClosure0;)V —— 形参类型写明它包的是 OnExceptionClosure0（hv=AbstractHookDefinition）
+abcd/Zu	com/aide/backbone/adapters/OnExceptionClosure1Adapter	src:implements abcd/jv、构造器是 (Labcd/hv;JLcom/appfour/backbone/api/closures/OnExceptionClosure1;)V —— 形参类型写明它包的是 OnExceptionClosure1（hv=AbstractHookDefinition）
+abcd/av	com/aide/backbone/adapters/OnExceptionClosure2Adapter	src:implements abcd/jv、构造器是 (Labcd/hv;JLcom/appfour/backbone/api/closures/OnExceptionClosure2;)V —— 形参类型写明它包的是 OnExceptionClosure2（hv=AbstractHookDefinition）
+abcd/cv	com/aide/backbone/adapters/OnExceptionClosure3Adapter	src:implements abcd/jv、构造器是 (Labcd/hv;JLcom/appfour/backbone/api/closures/OnExceptionClosure3;)V —— 形参类型写明它包的是 OnExceptionClosure3（hv=AbstractHookDefinition）
+abcd/ev	com/aide/backbone/adapters/OnExceptionClosure4Adapter	src:implements abcd/jv、构造器是 (Labcd/hv;JLcom/appfour/backbone/api/closures/OnExceptionClosure4;)V —— 形参类型写明它包的是 OnExceptionClosure4（hv=AbstractHookDefinition）
+abcd/gv	com/aide/backbone/adapters/OnExceptionClosure5Adapter	src:implements abcd/jv、构造器是 (Labcd/hv;JLcom/appfour/backbone/api/closures/OnExceptionClosure5;)V —— 形参类型写明它包的是 OnExceptionClosure5（hv=AbstractHookDefinition）
+abcd/Ju	com/aide/backbone/adapters/OnEnterClosure0Invocation	src:implements abcd/lv$a（反射调用的封装），构造器首参是 abcd/Ku(=OnEnterClosure0Adapter) ⇒ 该适配器被调时的调用封装
+abcd/Lu	com/aide/backbone/adapters/OnEnterClosure1Invocation	src:implements abcd/lv$a（反射调用的封装），构造器首参是 abcd/Mu(=OnEnterClosure1Adapter) ⇒ 该适配器被调时的调用封装
+abcd/Nu	com/aide/backbone/adapters/OnEnterClosure2Invocation	src:implements abcd/lv$a（反射调用的封装），构造器首参是 abcd/Ou(=OnEnterClosure2Adapter) ⇒ 该适配器被调时的调用封装
+abcd/Pu	com/aide/backbone/adapters/OnEnterClosure3Invocation	src:implements abcd/lv$a（反射调用的封装），构造器首参是 abcd/Qu(=OnEnterClosure3Adapter) ⇒ 该适配器被调时的调用封装
+abcd/Ru	com/aide/backbone/adapters/OnEnterClosure4Invocation	src:implements abcd/lv$a（反射调用的封装），构造器首参是 abcd/Su(=OnEnterClosure4Adapter) ⇒ 该适配器被调时的调用封装
+abcd/Tu	com/aide/backbone/adapters/OnEnterClosure5Invocation	src:implements abcd/lv$a（反射调用的封装），构造器首参是 abcd/Uu(=OnEnterClosure5Adapter) ⇒ 该适配器被调时的调用封装
+abcd/Wu	com/aide/backbone/adapters/OnExceptionClosure0Invocation	src:implements abcd/lv$a，构造器首参是 abcd/Xu(=OnExceptionClosure0Adapter) ⇒ 该适配器被调时的调用封装
+abcd/Yu	com/aide/backbone/adapters/OnExceptionClosure1Invocation	src:implements abcd/lv$a，构造器首参是 abcd/Zu(=OnExceptionClosure1Adapter) ⇒ 该适配器被调时的调用封装
+abcd/_u	com/aide/backbone/adapters/OnExceptionClosure2Invocation	src:implements abcd/lv$a，构造器首参是 abcd/av(=OnExceptionClosure2Adapter) ⇒ 该适配器被调时的调用封装
+abcd/bv	com/aide/backbone/adapters/OnExceptionClosure3Invocation	src:implements abcd/lv$a，构造器首参是 abcd/cv(=OnExceptionClosure3Adapter) ⇒ 该适配器被调时的调用封装
+abcd/dv	com/aide/backbone/adapters/OnExceptionClosure4Invocation	src:implements abcd/lv$a，构造器首参是 abcd/ev(=OnExceptionClosure4Adapter) ⇒ 该适配器被调时的调用封装
+abcd/fv	com/aide/backbone/adapters/OnExceptionClosure5Invocation	src:implements abcd/lv$a，构造器首参是 abcd/gv(=OnExceptionClosure5Adapter) ⇒ 该适配器被调时的调用封装

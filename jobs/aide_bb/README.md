@@ -51,6 +51,21 @@ AIDE 侧对它的实现类是**混淆的 `abcd/*`**，但它们 `implements` 的
 `Vu` 是 **EnterHookDefinition**（`extends hv extends yu`，唯一新增 API 是 `onEnter(JJ,OnEnterClosureN)`），
 `hv` 补为 **AbstractHookDefinition**。
 
+## 1.2 `onEnter` / `onException` 两族适配器（24 个类）：**形参类型**就是判据
+
+`Vu`(=EnterHookDefinition) 的 `onEnter(long,long,OnEnterClosure0..5)` 与 `hv`(=AbstractHookDefinition)
+对应的 `OnExceptionClosure0..5`，各自需要一个 `abcd/jv` 适配器 + 一个 `abcd/lv$a` 调用封装：
+
+```
+OnEnterClosureN     Ku Mu Ou Qu Su Uu   ← 构造器 (Labcd/Vu;J…OnEnterClosureN;)V
+OnExceptionClosureN Xu Zu av cv ev gv   ← 构造器 (Labcd/hv;J…OnExceptionClosureN;)V
+调用封装 Ju Lu Nu Pu Ru Tu ← 构造器首参分别指向 Ku..Uu（implements abcd/lv$a）
+调用封装 Wu Yu _u bv dv fv ← 构造器首参分别指向 Xu..gv
+```
+
+判据只有一条但很硬：**构造器里那个闭包接口的类型**（`OnEnterClosure3` 就是 3 号，不用猜），
+而调用封装的首参类型又反过来钉住它属于哪个适配器。
+
 ## 2. 成员说明（本 part 暂时 0 行）
 
 这 7 个类里**大部分方法名本来就是对的** —— 它们实现的是未混淆框架接口，方法名被接口钉死
@@ -61,7 +76,7 @@ AIDE 侧对它的实现类是**混淆的 `abcd/*`**，但它们 `implements` 的
 ## 3. 状态
 
 ```
-类   23（`cli members` 不适用：无 oracle）
+类   47（`cli members` 不适用：无 oracle）
 成员 0 行（理由见 §2）
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 / MISSING 0
 ```
