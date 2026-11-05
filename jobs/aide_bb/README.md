@@ -28,6 +28,29 @@ AIDE 侧对它的实现类是**混淆的 `abcd/*`**，但它们 `implements` 的
 
 命名空间 `com/aide/backbone/*` 在 APK 里不存在（未混淆的是 `com/appfour/backbone/*`），不撞名。
 
+## 1.1 闭包适配器 9 个：靠**外层 API 方法**区分（形状完全一样）
+
+`abcd/Au..Hu` + `abcd/zu` 全部 implements `abcd/jv`（`EventData j6(Object[])`）、构造器都是
+`(Iu, <某个 Backbone 闭包>)`，`j6` 的字节码在**同形孪生**之间**逐字节相同**（Au≡Eu、Cu≡Du、Fu≡Gu）。
+唯一的判据是：它们都在 `abcd/Iu` 里被 `new`，而 `new` 所在的那个方法**名字没被混淆**——
+因为那是 Backbone 的 API 方法：
+
+| 适配器 | 被 `Iu` 的哪个方法 new | 包的闭包 |
+|---|---|---|
+| `Au` | `onReferrerMarketClick` | `OnMarketClosure` |
+| `Eu` | `onInstall` | `OnMarketClosure` |
+| `Bu` | `onCrash` | `OnCrashClosure`（`j6` 里传 2 个实参） |
+| `Cu` | `onInAppProductImpression` | `OnInAppProductClosure` |
+| `Du` | `onInAppProductPurchase` | `OnInAppProductClosure` |
+| `Fu` | `onUpdate` | `OnVoidClosure`（`j6` 里不传实参） |
+| `Gu` | `onNewVersion` | `OnVoidClosure` |
+| `Hu` | `onApplicationCreate` | `OnApplicationClosure`（传 1 个实参） |
+| `zu` | `onReferrerMarketImpression` | `OnMarketImpressionClosure` |
+
+顺带按证据修正了两个类的名字：`Iu` 是 **AbstractApi**（那一族 `onXxx(*Closure)DefineHook` 全在它身上），
+`Vu` 是 **EnterHookDefinition**（`extends hv extends yu`，唯一新增 API 是 `onEnter(JJ,OnEnterClosureN)`），
+`hv` 补为 **AbstractHookDefinition**。
+
 ## 2. 成员说明（本 part 暂时 0 行）
 
 这 7 个类里**大部分方法名本来就是对的** —— 它们实现的是未混淆框架接口，方法名被接口钉死
@@ -38,23 +61,14 @@ AIDE 侧对它的实现类是**混淆的 `abcd/*`**，但它们 `implements` 的
 ## 3. 状态
 
 ```
-类   13（`cli members` 不适用：无 oracle）
+类   23（`cli members` 不适用：无 oracle）
 成员 0 行（理由见 §2）
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 / MISSING 0
 ```
 
 ## 4. 下一刀（同一条线）
 
-**闭包适配器 8 个**：`abcd/Au..Hu` 都 implements `abcd/jv`（`EventData j6(Object[])`），
-构造器 `(Iu, <某个 Backbone 闭包>)` 直接暴露了它包的是谁：
-
-```
-Au, Eu → OnMarketClosure      Bu → OnCrashClosure        Cu, Du → OnInAppProductClosure
-Fu, Gu → OnVoidClosure        Hu → OnApplicationClosure   Ju → implements lv$a（另一族）
-```
-
-Au/Eu、Cu/Du、Fu/Gu 是**同形孪生**（同一个闭包接口），要靠 `j6(Object[])` 里**调用闭包时传的参数个数/类型**
-区分（例如 `OnVoidClosure` 的 `onVoid()` 与 `onVoid(EventData)`），下一轮照这个做。
+**闭包适配器已做完**（§1.1，9 个）。剩下 `abcd/Ju`（implements `lv$a`，由 `abcd/Ku` 创建，是另一族）。
 
 再往后：`abcd/*` 里还有 ~60 个未定名类引用 Backbone（`RuntimeDebug`/`UnknownClass`/`MarketReferrer`
 的实现、`Api` 相关），判据同样是"实现了框架哪个接口 + 方法签名逐一对上"。

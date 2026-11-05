@@ -5,9 +5,19 @@ abcd/lw$a	com/aide/backbone/OccurrencesDefinition$Hook	recv:implements DefineHoo
 abcd/lv	com/aide/backbone/ReflectionRuntime	recv:extends abcd/jw(=AnalyticsDefinition)、implements com/appfour/backbone/api/runtime/a；方法体是反射调用（j6(J)Class / j6(Class)Object / j6(Object,JJ)Object / j6(Object,[Object,JJ)Object）且串 'Field not found' / 'Invocation failed'
 abcd/Mv	com/aide/backbone/UISceneRuntime	recv:extends abcd/lv(=ReflectionRuntime)、implements runtime/a；方法全是 (UserTouchAction/UserActionWidget/UserActionWindow/UserNotificationAction/View/String) → String/int 的转换，串 'center'/'outside'/'top|'/'left'/'bottom|' 是 UIScene 的布局描述
 abcd/Xv	com/aide/backbone/EventDataImpl	hier:implements com/appfour/backbone/api/objects/EventData；方法 setCrash(Throwable,boolean)/setIsInstall(boolean)/setIsProperty(boolean) 就是 EventData 未改名的 setter，另有 (InAppProduct/Market/UserInputAction/UserLaunchAction/UserNotificationAction/UserTouchAction)→UIScene 的转换
-abcd/Vu	com/aide/backbone/RuntimeApiImpl	recv:方法里有 onEnter(JJ,OnEnterClosure0..5)DefineHook 六个重载 —— 就是 Backbone api/runtime/RuntimeApi 的方法族；另有 gn()J 返回时间戳
-abcd/Iu	com/aide/backbone/RuntimeContext	recv:extends abcd/Bv；被 abcd/Au..Hu 这些闭包适配器的构造器当作第一个参数接收 ⇒ 闭包运行时上下文
+abcd/Vu	com/aide/backbone/EnterHookDefinition	recv:extends abcd/hv(→yu=HookDefinition)；唯一新增 API 是 onEnter(long,long,OnEnterClosure0..5)DefineHook 六个重载
+abcd/Iu	com/aide/backbone/AbstractApi	shape:abstract class extends abcd/Bv；方法名是 Backbone Api 的那一族 onApplicationCreate/onCrash/onInAppProductImpression/onInAppProductPurchase/onInstall/onNewVersion/onReferrerMarketClick/onReferrerMarketImpression/onUpdate（全带 *Closure 形参），并各自 new 一个闭包适配器
 abcd/Bv	com/aide/backbone/RuntimeFlags	shape:17 个 boolean 字段 + 33 个方法（绝大多数是 ()Z getter）⇒ 运行时开关集合
 abcd/Iv	com/aide/backbone/NotificationFactory	str:串 'BACKBONE_INTENT'；方法造 PendingIntent(Context,I,Intent,I,Bundle) 与 UserNotification/UserNotificationAction 并读写 File ⇒ 通知/PendingIntent 工厂
 abcd/Gv	com/aide/backbone/ActivityLifecycleTracker	hier:implements android/app/Application$ActivityLifecycleCallbacks（8 个 onActivityXxx 全是接口方法，未改名）
 abcd/kv	com/aide/backbone/CallbackDispatcher	recv:40 个方法全是回调派发（含 DW(Activity,InAppProduct)V = onInAppProductPurchase），字段有 ThreadLocal 与 kv$b；串里直接列了 onActivityStarted/onInAppProductPurchase/onLongPress/onItemLongPress
+abcd/hv	com/aide/backbone/AbstractHookDefinition	shape:abstract class extends abcd/yu(=HookDefinition)，新增字段 Class<? extends Throwable> + 3 个 long + boolean；被 abcd/Vu 继承
+abcd/Au	com/aide/backbone/adapters/ReferrerMarketClickClosureAdapter	src:由 abcd/Iu.onReferrerMarketClick(OnMarketClosure) 里 new；实现 abcd/jv，j6(Object[]) 调 OnMarketClosure.getValue(Market)
+abcd/Eu	com/aide/backbone/adapters/InstallClosureAdapter	src:由 abcd/Iu.onInstall(OnMarketClosure) 里 new（与 Au 同形，靠外层 API 方法区分）
+abcd/Bu	com/aide/backbone/adapters/CrashClosureAdapter	src:由 abcd/Iu.onCrash(OnCrashClosure) 里 new；j6 里传 2 个实参调 OnCrashClosure.getValue(Thread,Throwable)
+abcd/Cu	com/aide/backbone/adapters/InAppProductImpressionClosureAdapter	src:由 abcd/Iu.onInAppProductImpression(OnInAppProductClosure) 里 new（与 Du 同形，靠外层 API 方法区分）
+abcd/Du	com/aide/backbone/adapters/InAppProductPurchaseClosureAdapter	src:由 abcd/Iu.onInAppProductPurchase(OnInAppProductClosure) 里 new
+abcd/Fu	com/aide/backbone/adapters/UpdateClosureAdapter	src:由 abcd/Iu.onUpdate(OnVoidClosure) 里 new；j6 里无实参调 OnVoidClosure.getValue()
+abcd/Gu	com/aide/backbone/adapters/NewVersionClosureAdapter	src:由 abcd/Iu.onNewVersion(OnVoidClosure) 里 new（与 Fu 同形）
+abcd/Hu	com/aide/backbone/adapters/ApplicationCreateClosureAdapter	src:由 abcd/Iu.onApplicationCreate(OnApplicationClosure) 里 new；j6 传 1 个实参
+abcd/zu	com/aide/backbone/adapters/ReferrerMarketImpressionClosureAdapter	src:由 abcd/Iu.onReferrerMarketImpression(OnMarketImpressionClosure) 里 new；实现 abcd/jv、字段 (Iu, OnMarketImpressionClosure)
