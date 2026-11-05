@@ -82,3 +82,33 @@ jobs/<名字>/
 1. `tools/deob/cluster.py` 分诊 → 2. 常量串/实现关系/外类锚定出候选 →
 3. `class_map.tsv` 每行写判据 → 4. `members` 定成员 → 5. 过 6 道门
 （validate / inherit / famcheck / innercheck / assetcheck / cover）→ 6. 提交前调 `cover` 看真实分母。
+
+## 第三方 lib 还剩什么（2026-11-05 清点，含三条**纠正**）
+
+`abcd/*` 2745 类现在已还原 **1122**（1108 + jzlib 14），剩 1623。按"能不能拿到真名"分三类：
+
+### A. 有官方 oracle、可做（本轮做了 jzlib）
+
+| 簇 | 类数 | 身份 | 状态 |
+|---|---|---|---|
+| `abcd/Dy…Oy` | **14** | **JZlib 1.1.1** | ✅ 本轮完成 → [jobs/jzlib](jzlib/README.md) |
+| `abcd/NB…` + `abcd/jI$*` | ~34 | **JGit 的异常/凭据族**（`GitAPIException` 子类、`CredentialItem$*`） | 待办：形状完全同构（都是 `<init>(String)`），只能靠**抛它们的调用点**区分 |
+
+### B. 上游本来就是混淆的（拿不到"真名"，只能按作用命名）
+
+| 簇 | 类数 | 身份 | 说明 |
+|---|---|---|---|
+| `abcd/Zx` | 30 | Play Services **Tasks**（`com.google.android.gms.tasks`） | 公开 API 是 `Task/Tasks/OnCompleteListener…`，内部是 `zz*`；要版本对齐才有意义 |
+| `abcd/px` / `abcd/tx` / `abcd/Nx` / `abcd/dx$a$a` | 6 / 5 / 5 / 3 | play-services 的 basement / ads-identifier / auth / externalreferrer | 同上 |
+| `abcd/uy` | 7 | Firebase Analytics | 同上 |
+
+### C. 不是第三方库 —— 三条**纠正**（此前清点时我按 1~3 个字符串猜错了）
+
+| 簇 | 我上次的猜测 | 实际是什么 |
+|---|---|---|
+| `abcd/Tz…oA`（11 类） | ~~Volley~~ | **AIDE 自己的缓存策略枚举 + 常量持有类**：`abcd/kA` 是 3 值枚举（`USE_CACHE`/`SKIP_CACHE_LOOKUP`/`IGNORE_CACHE_EXPIRATION`），其余 10 个只有 `<clinit>` 和若干常量字段，字段名是 `DW/FH/j6/v5` 这种混淆名 —— 属上表"UI/核心"那类 |
+| `abcd/Jv…yk`（15 类） | ~~json 库~~ | **AIDE 自己的 IAP/计费/订阅**：`aide_prime_monthly_0500`、`purchaseState`、`https://api.appfour.com/aideservices/subscriptions/v1/registerPurchase`、`OUYA check purchases failed` ⇒ 就是本表下面那行"IAP/计费/licensing 20 类" |
+| `abcd/bQ…hQ`（10 类） | ~~OUYA SDK~~ | **OUYA 的 AIDL 存根**（`tv.ouya.console.internal.IIapServiceDefinition` / `IStringListener` 的 `$Stub`/`$Stub$Proxy`）。APK 里 `tv/ouya/console/{api,api/store,util}` 42 类是未混淆的，但 `internal/` **不存在**未混淆副本 ⇒ 命名不会撞车，只是 AIDL 模板货，可读性收益低 |
+
+> 教训：**"一个类里出现某个字符串"不等于"这个类属于那个库"**。判第三方库至少要"多类共享同组特征串（错误文案/URL/包名）+ 形状能和某个 oracle 对上"，
+> 本轮 jzlib 就是靠 4 条 zlib 判定文案 + 22 个 oracle 类形状全部对上才敢认的。
