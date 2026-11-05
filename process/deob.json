@@ -230,6 +230,10 @@
   {
    "label": "antlr4-runtime-4.7.2",
    "path": "$HOME/out/oracle/antlr/antlr4-runtime-4.7.2.jar"
+  },
+  {
+   "label": "jd-core-1.1.4-src",
+   "path": "$HOME/out/oracle/jd/jd-core-1.1.4-src.jar"
   }
  ],
  "out_dir": "out"

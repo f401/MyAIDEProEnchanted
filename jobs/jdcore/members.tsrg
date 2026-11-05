@@ -182,7 +182,9 @@ org/c/a/a/b/a/a/o org/jd/core/v1/model/classfile/attribute/AttributeModule
 org/c/a/a/b/a/a/n org/jd/core/v1/model/classfile/attribute/AttributeMethodParameters
 	a parameters
 org/c/a/a/b/a/a/r org/jd/core/v1/model/classfile/attribute/AttributeParameterAnnotations
+	a parameterAnnotations
 org/c/a/a/b/a/a/b org/jd/core/v1/model/classfile/attribute/AttributeAnnotations
+	a annotations
 org/c/a/a/b/a/a/f org/jd/core/v1/model/classfile/attribute/AttributeCode
 	a ()[B getCode
 	b ()[Lorg/c/a/a/b/a/a/w; getExceptionTable
@@ -1230,6 +1232,7 @@ org/c/a/a/c/a/a/c/r org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	a (Lorg/c/a/a/c/a/a/c/o;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/b/n;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r; acceptLocalVariableMaker
 	a (Lorg/c/a/a/c/a/a/c/o;Lorg/c/a/a/c/a/a/a/a/a;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/b/n;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r; getLocalVariableMaker2
 	b (Lorg/c/a/a/c/a/a/c/o;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/b/n;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r; getLocalVariableMaker3
+	a VISITOR
 org/c/a/a/c/c/a/b/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/CompilationUnitVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 	a (Lorg/c/a/a/b/d/c/c;)V visit
@@ -1899,6 +1902,7 @@ org/c/a/a/c/a/a/d/s org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/d/g;)V visit
 org/c/a/a/c/a/a/d/i org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitEnumVisitor$EnumConstantComparator
 	a (Lorg/c/a/a/c/a/a/a/b/a/g;Lorg/c/a/a/c/a/a/a/b/a/g;)I compare
+	a INSTANCE
 org/c/a/a/c/a/a/d/c org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/CreateInstructionsVisitor
 	a (Lorg/c/a/a/b/d/a/ac;)V visit
 	a (Lorg/c/a/a/b/d/a/ah;)V visit
@@ -2085,11 +2089,14 @@ org/c/a/a/c/a/a/c/o org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	a (Lorg/c/a/a/b/d/b/n;)V updateExpression
 	a (Lorg/c/a/a/b/d/b/n;Lorg/c/a/a/b/d/e/l;)V visitExpression
 	b (IILorg/c/a/a/b/d/b/n;)Lorg/c/a/a/c/a/a/a/c/a; getExpression
+	j referenceTypeSetter
+	m referenceTypeSetterWithType
 org/c/a/a/c/a/a/c/aa org/jd/core/v1/service/converter/classfiletojavasyntax/util/PrimitiveTypeUtil
 	b $assertionsDisabled
 	a (Lorg/c/a/a/b/d/e/k;Lorg/c/a/a/b/d/e/k;)Lorg/c/a/a/b/d/e/k; getCommonPrimitiveType
 	a (I)Lorg/c/a/a/b/d/e/k; getPrimitiveTypeFromValue
 	c (I)Lorg/c/a/a/b/d/e/k; getPrimitiveTypeFromFlags
+	a PRIMITIVE_TYPES
 org/c/a/a/c/a/a/d/x org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SearchFirstLineNumberVisitor
 	b ()I getLineNumber
 	a (Lorg/c/a/a/b/d/b/e;)V visit
@@ -2869,6 +2876,8 @@ org/c/a/a/a/b/b org/jd/core/v1/api/printer/PlainTextPrinter
 	a (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V printDeclaration
 	b (I)V extraLine
 	c (I)V startMarker
+	a builder
+	f indent
 org/c/a/a/c/c/a/a/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/CharacterUtil
 	a (I)Ljava/lang/String; escapeChar
 org/c/a/a/c/c/a/a/b org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/JavaFragmentFactory
@@ -3370,6 +3379,7 @@ org/c/a/a/c/a/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	a (Lorg/c/a/a/b/d/e/l;)Z isAssignableFrom
 	c (Lorg/c/a/a/b/d/e/l;)V rightReduce
 	c (Lorg/c/a/a/c/a/a/a/c/a;)V getDimension
+	h dimension
 org/c/a/a/c/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/util/AggregateFieldsUtil
 	a (Ljava/util/List;)V aggregate
 	a (Ljava/util/List;Lorg/c/a/a/c/a/a/a/b/a/h;II)V aggregate

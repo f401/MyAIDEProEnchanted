@@ -147,3 +147,21 @@ python tools/deob/famcheck.py --jar process/base/merged_ok.jar --parts jobs/antl
 （本轮用来做闭包/包含求解的一次性脚本在 `~/tmp/antlr_{solve2,final,check,cache}.py`，
 `class_map.tsv` 第 3 列的 `str:` / `body:` / `hier:` / `contain:` / `src:` / `recv:` / `role:`
 就是逐条的判据。）
+
+## 7. `inherit_check` 抓到的真错（本 part 修掉 3 条）
+
+第一版 `cli members` 给 `IntStream(org/a/a/a/o)` 的三条 `()I` 判成了
+`b=mark / c=index / d=size`，而它的实现者 `CodePointCharStream(org/a/a/a/h)` 判成了
+`b=index / c=size / d=mark` —— 同一覆写家族名字不一致，`inherit_check` 直接报 3 条 CONFLICT。
+
+判据（可复现，靠**实现者**的方法体，不靠接口的猜）：
+
+```
+CodePointCharStream.b()  = getfield c(position)   ⇒ index()
+CodePointCharStream.c()  = getfield a(size)       ⇒ size()
+CodePointCharStream.d()  = iconst_m1; ireturn     ⇒ mark()   （IntStream.mark 返回 -1）
+```
+
+按覆写家族同名规则把 `IntStream` 的 `b/c/d` 改成 **index / size / mark**，CONFLICT 归零。
+这就是为什么 `class_map` 之后一定要跑 `inherit_check`：接口的 `()I` 三个同形方法，
+纯按描述符对齐是会错位的。

@@ -1541,3 +1541,59 @@ typeOnRight/Left 家族        ≈12  差异只在实参语义（前文已记）
 newXxxOperatorExpression×4     4  运算符是形参，方法体无字面量
 其余零散                     ≈31  含 PlainTextPrinter 的字符串转义表、ClassTypeResolver 的缓存助手等
 ```
+
+## 第三十一批：把"无 oracle 可对"这句话**证明掉**，并给 10 个字段按作用定名
+
+### 1) 先量化：未定名的 227 条里，真正"无 oracle"的只有 60 条
+
+`~/tmp/rem.pkl`（探针里**没有任何** `(名字, 描述符)` 可对的成员）先把 227 条方法摊开，按
+`checks.CONTRACT_METHODS` + `visit*` + `access$` 过滤后，**只剩 60 条**；其中
+`toString/equals/hashCode/compare` 这类契约名本来就**已经是正确名字**，不该动。
+所以"方法缺口 81" 与"227" 的区别在于分母口径，不是漏做。
+
+### 2) 把 jd-core 的**上游源码**拉下来编译，确认这 60 条是 AIDE 自己加的层
+
+* `jd-core` 的 master 分支 = **1.1.4**（`https://github.com/java-decompiler/jd-core`，
+  `build.gradle` 里 `version='1.1.4'`），main 代码零外部依赖 ⇒ `javac` 直接编过：
+  `javac -nowarn -proc:none -d ~/tmp/jdc114classes @srcs.txt` → 483 个 class
+  → `~/out/oracle/jd/jd-core-1.1.4-src.jar`（已登记进 `process/deob.json` 的 `oracle_jars`）。
+* 用它复核"12 个 `role:` 类"：`AbstractType` / `AbstractExpression` / `AbstractStatement` /
+  `AbstractMemberDeclaration` / `ClassTypeResolver` / `PlainTextPrinter` / `FieldAggregator` /
+  `AnnotatedFormalParametersCollector` / `TypeGroup` / `LocalVariableReferenceTypeSetter`
+  **1.1.4 里一个都没有**，1.1.3 也没有 ⇒ 这些类（以及那 60 条方法）是 **AIDE 加的抽象层**
+  （把 `Expression`/`Statement` 从 interface 改成 abstract class，并加了一批"返回自身视图"的
+  `Xxx(){return this;}` + `Object` 桥接方法）。**没有 oracle 可对，这句话现在是有证据的**。
+* 顺带：`1.1.4` 的 `FormalParameter` 只有 `getAnnotationReferences/isFinal/getType/isVarargs/getName/
+  setName/accept/toString`，**没有任何 `return this` 的方法** —— 与上面的结论一致。
+
+这 60 条的形态（全部无调用点，`~/tmp/rem_m.tsv` 可复现）：
+
+```
+12 对  h()Ljava/lang/Object;            = 桥接（方法体 aload_0 invokevirtual <具体>() areturn）
++     <x>()L<本类/父接口>;              = aload_0 areturn（return this）
+10    visitor 空实现 a(L...;)V          = return（Abstract*Visitor 的 visit 默认实现）
+ 5    ClassTypeResolver 的私有助手        = 缓存/名字解析
+余下   PrimitiveTypeUtil / ByteCodeParser / SwitchStatementMaker 等零散
+```
+
+**这 12 对不命名**：`getFirst`/`getLast` 在 oracle 里都是"返回 this"，两者**真同构**，
+改了只能靠猜（见第三十批记录）；按用户规则"不为数字好看破坏语义"，保持原形。
+
+### 3) 字段：27 → 17（新定名 10 条，全部有访问器/类型判据）
+
+| 类 | 字段 | 新名 | 判据（可复现） |
+|---|---|---|---|
+| `a/b/b`(PlainTextPrinter) | a | `builder` | 唯一 StringBuilder，被 `startLine/start/extraLine/printKeyword/endLine` 读写 |
+| `a/b/b`(PlainTextPrinter) | f | `indent` | 只被 `indent()`(+1)/`unindent()`(-1)/`startLine()` 读写 |
+| `b/a/a/b`(AttributeAnnotations) | a | `annotations` | 类型折叠后就是 `Annotation`，唯一数组字段 |
+| `b/a/a/r`(AttributeParameterAnnotations) | a | `parameterAnnotations` | 类型是 `AttributeAnnotations[]` |
+| `c/a/a/c/r`(LoopStatementMaker) | a | `VISITOR` | static final 内部类单例，被 4 个 make* 方法读 |
+| `c/a/a/d/i`(EnumConstantComparator) | a | `INSTANCE` | static、本类类型、protected 构造器、`<clinit>` 里 new 自己 |
+| `c/a/a/c/aa`(PrimitiveTypeUtil) | a | `PRIMITIVE_TYPES` | static final `PrimitiveType[]`，被 `getPrimitiveTypeFromFlags()` 读 |
+| `c/a/a/c/o`(LocalVariableMaker) | j | `referenceTypeSetter` | 类型就是 `LocalVariableReferenceTypeSetter`，被 `visitExpression()` 读两次 |
+| `c/a/a/c/o`(LocalVariableMaker) | m | `referenceTypeSetterWithType` | 类型是 `...$WithType`，被 `updateExpression()` 读 |
+| `c/a/a/a/c/a`(AbstractLocalVariable) | h | `dimension` | 被 `getDimension()` 读 |
+
+门禁：`validate ✔ 无无效映射` / `inherit CONFLICT 0 DUPTARGET 0 MISSING 0` / `famcheck 0/0` /
+`innercheck ②③ 0`；jdcore 口径内仍 方法 2265/2269 = 99.8%、字段 872/878 = 99.3%
+（10 个新名的字段本来就没有 oracle 对应者，不进分母）。

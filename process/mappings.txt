@@ -46373,7 +46373,9 @@ org/c/a/a/b/a/a/o org/jd/core/v1/model/classfile/attribute/AttributeModule
 org/c/a/a/b/a/a/n org/jd/core/v1/model/classfile/attribute/AttributeMethodParameters
 	a parameters
 org/c/a/a/b/a/a/r org/jd/core/v1/model/classfile/attribute/AttributeParameterAnnotations
+	a parameterAnnotations
 org/c/a/a/b/a/a/b org/jd/core/v1/model/classfile/attribute/AttributeAnnotations
+	a annotations
 org/c/a/a/b/a/a/f org/jd/core/v1/model/classfile/attribute/AttributeCode
 	a ()[B getCode
 	b ()[Lorg/c/a/a/b/a/a/w; getExceptionTable
@@ -47690,6 +47692,7 @@ org/c/a/a/c/a/a/c/r org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 		static
 	b (Lorg/c/a/a/c/a/a/c/o;Lorg/c/a/a/b/d/d/u;Lorg/c/a/a/b/d/b/n;Lorg/c/a/a/b/d/d/u;)Lorg/c/a/a/b/d/d/r; getLocalVariableMaker3
 		static
+	a VISITOR
 org/c/a/a/c/c/a/b/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/visitor/CompilationUnitVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 		0 declaration declaration
@@ -48822,6 +48825,7 @@ org/c/a/a/c/a/a/d/i org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/c/a/a/a/b/a/g;Lorg/c/a/a/c/a/a/a/b/a/g;)I compare
 		0 ec1 ec1
 		1 ec2 ec2
+	a INSTANCE
 org/c/a/a/c/a/a/d/c org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/CreateInstructionsVisitor
 	a (Lorg/c/a/a/b/d/a/ac;)V visit
 		0 declaration declaration
@@ -49233,6 +49237,8 @@ org/c/a/a/c/a/a/c/o org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	a (Lorg/c/a/a/b/d/b/n;)V updateExpression
 	a (Lorg/c/a/a/b/d/b/n;Lorg/c/a/a/b/d/e/l;)V visitExpression
 	b (IILorg/c/a/a/b/d/b/n;)Lorg/c/a/a/c/a/a/a/c/a; getExpression
+	j referenceTypeSetter
+	m referenceTypeSetterWithType
 org/c/a/a/c/a/a/c/aa org/jd/core/v1/service/converter/classfiletojavasyntax/util/PrimitiveTypeUtil
 	b $assertionsDisabled
 	a (Lorg/c/a/a/b/d/e/k;Lorg/c/a/a/b/d/e/k;)Lorg/c/a/a/b/d/e/k; getCommonPrimitiveType
@@ -49245,6 +49251,7 @@ org/c/a/a/c/a/a/c/aa org/jd/core/v1/service/converter/classfiletojavasyntax/util
 	c (I)Lorg/c/a/a/b/d/e/k; getPrimitiveTypeFromFlags
 		static
 		0 flags flags
+	a PRIMITIVE_TYPES
 org/c/a/a/c/a/a/d/x org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/SearchFirstLineNumberVisitor
 	b ()I getLineNumber
 	a (Lorg/c/a/a/b/d/b/e;)V visit
@@ -50361,6 +50368,8 @@ org/c/a/a/a/b/b org/jd/core/v1/api/printer/PlainTextPrinter
 	a (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V printDeclaration
 	b (I)V extraLine
 	c (I)V startMarker
+	a builder
+	f indent
 org/c/a/a/c/c/a/a/a org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/util/CharacterUtil
 	a (I)Ljava/lang/String; escapeChar
 		static
@@ -51282,6 +51291,7 @@ org/c/a/a/c/a/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	a (Lorg/c/a/a/b/d/e/l;)Z isAssignableFrom
 	c (Lorg/c/a/a/b/d/e/l;)V rightReduce
 	c (Lorg/c/a/a/c/a/a/a/c/a;)V getDimension
+	h dimension
 org/c/a/a/c/a/a/c/a org/jd/core/v1/service/converter/classfiletojavasyntax/util/AggregateFieldsUtil
 	a (Ljava/util/List;)V aggregate
 		static
@@ -52268,6 +52278,12 @@ org/c/a/a/c/a/a/c/e org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 org/c/a/a/b/d/e/d org/jd/core/v1/model/javasyntax/type/TypeGroup
 org/a/a/a/a org/antlr/v4/runtime/ANTLRErrorListener
 	a (Lorg/a/a/a/u;Ljava/lang/Object;IILjava/lang/String;Lorg/a/a/a/t;)V syntaxError
+		0 recognizer recognizer
+		1 offendingSymbol offendingSymbol
+		2 line line
+		3 charPositionInLine charPositionInLine
+		4 msg msg
+		5 e e
 org/a/a/a/a/a org/antlr/v4/runtime/atn/ATN
 	a ()I getNumberOfDecisions
 	a (Lorg/a/a/a/a/x;)I defineDecisionState
@@ -52391,6 +52407,7 @@ org/a/a/a/a/ac org/antlr/v4/runtime/atn/LexerATNSimulator$SimState
 	a index
 org/a/a/a/a/ad org/antlr/v4/runtime/atn/LexerAction
 	a (Lorg/a/a/a/p;)V execute
+		0 lexer lexer
 	a ()Z isPositionDependent
 org/a/a/a/a/ae org/antlr/v4/runtime/atn/LexerActionExecutor
 	a (Lorg/a/a/a/a/ae;Lorg/a/a/a/a/ad;)Lorg/a/a/a/a/ae; append
@@ -52541,7 +52558,9 @@ org/a/a/a/a/ax org/antlr/v4/runtime/atn/PredictionContext
 		static
 		0 parents parents
 	a (I)Lorg/a/a/a/a/ax; getParent
+		0 index index
 	b (I)I getReturnState
+		0 index index
 	d EMPTY
 	h $assertionsDisabled
 	b ()I size
@@ -52628,6 +52647,9 @@ org/a/a/a/a/bk org/antlr/v4/runtime/atn/TokensStartState
 org/a/a/a/a/bl org/antlr/v4/runtime/atn/Transition
 	a ()I getSerializationType
 	a (III)Z matches
+		0 symbol symbol
+		1 minVocabSymbol minVocabSymbol
+		2 maxVocabSymbol maxVocabSymbol
 	b ()Z isEpsilon
 	c ()Lorg/a/a/a/c/j; label
 	d serializationNames
@@ -52761,6 +52783,8 @@ org/a/a/a/a/j org/antlr/v4/runtime/atn/ATNDeserializer$2
 org/a/a/a/a/k org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializer
 	a ()I size
 	a ([CI)I readUnicode
+		0 data data
+		1 p p
 org/a/a/a/a/l org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializingMode
 	c $VALUES
 	a UNICODE_BMP
@@ -52857,11 +52881,22 @@ org/a/a/a/aa org/antlr/v4/runtime/Token
 	a ()I getType
 org/a/a/a/ab org/antlr/v4/runtime/TokenFactory
 	b (Lorg/a/a/a/c/m;ILjava/lang/String;IIIII)Lorg/a/a/a/aa; create
+		0 source source
+		1 type type
+		2 text text
+		3 channel channel
+		4 start start
+		5 stop stop
+		6 line line
+		7 charPositionInLine charPositionInLine
 org/a/a/a/ac org/antlr/v4/runtime/TokenSource
 org/a/a/a/ad org/antlr/v4/runtime/Vocabulary
 	c (I)Ljava/lang/String; getDisplayName
+		0 tokenType tokenType
 	a (I)Ljava/lang/String; getLiteralName
+		0 tokenType tokenType
 	b (I)Ljava/lang/String; getSymbolicName
+		0 tokenType tokenType
 org/a/a/a/ae org/antlr/v4/runtime/VocabularyImpl
 	a ([Ljava/lang/String;)Lorg/a/a/a/ad; fromTokenNames
 		static
@@ -52922,6 +52957,7 @@ org/a/a/a/b/e org/antlr/v4/runtime/dfa/DFAState$PredPrediction
 	b alt
 org/a/a/a/c org/antlr/v4/runtime/CharStream
 	a (Lorg/a/a/a/c/h;)Ljava/lang/String; getText
+		0 interval interval
 org/a/a/a/c/a org/antlr/v4/runtime/misc/AbstractEqualityComparator
 org/a/a/a/c/b org/antlr/v4/runtime/misc/Array2DHashSet
 	c (I)[Ljava/lang/Object; createBucket
@@ -52966,7 +53002,10 @@ org/a/a/a/c/d org/antlr/v4/runtime/misc/DoubleKeyMap
 	a data
 org/a/a/a/c/e org/antlr/v4/runtime/misc/EqualityComparator
 	a (Ljava/lang/Object;)I hashCode
+		0 obj obj
 	a (Ljava/lang/Object;Ljava/lang/Object;)Z equals
+		0 a a
+		1 b b
 org/a/a/a/c/f org/antlr/v4/runtime/misc/IntegerList
 	a ()Z isEmpty
 	d ()[I toArray
@@ -53215,11 +53254,14 @@ org/a/a/a/n org/antlr/v4/runtime/ConsoleErrorListener
 org/a/a/a/o org/antlr/v4/runtime/IntStream
 	a ()V consume
 	c (I)I LA
+		0 i i
 	a (I)V release
-	b ()I mark
+		0 marker marker
+	b ()I index
 	b (I)V seek
-	c ()I index
-	d ()I size
+		0 index index
+	c ()I size
+	d ()I mark
 org/a/a/a/p org/antlr/v4/runtime/Lexer
 	a (Ljava/lang/String;)Ljava/lang/String; getErrorDisplay
 		0 s s

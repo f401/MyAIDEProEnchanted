@@ -615,10 +615,10 @@ org/a/a/a/o org/antlr/v4/runtime/IntStream
 	a ()V consume
 	c (I)I LA
 	a (I)V release
-	b ()I mark
+	b ()I index
 	b (I)V seek
-	c ()I index
-	d ()I size
+	c ()I size
+	d ()I mark
 org/a/a/a/p org/antlr/v4/runtime/Lexer
 	a (Ljava/lang/String;)Ljava/lang/String; getErrorDisplay
 	a (Lorg/a/a/a/o;)V setInputStream
