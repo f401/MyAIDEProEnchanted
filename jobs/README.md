@@ -149,3 +149,17 @@ abcd/Fp$a→ MixedItemSection$SortType
   `abcd/ApplicationUtils` 等 4 个类，不碰这块
 
 （**纠正**：上一轮我把 `abcd/Jv…yk` 那 15 类说成"就是 IAP/计费 20 类"，实际那一行是 89 类。）
+
+## 新增 part 一览（2026-11-05，按开工顺序）
+
+| part | 库/对象 | 类 | 判据要点 | 状态 |
+|---|---|---|---|---|
+| `jdcore` | JD Core（AIDE 魔改版反编译器） | 434 | 多版本 oracle + 形状/串/创建点 + 作用命名 | 类 100%，方法 99.8% / 字段 99.7% |
+| `antlr` | ANTLR4 runtime **4.7.2** | 117 | 4 个序列化 UUID 锁版本；stateFactory 的 tableswitch 定状态类 | 方法 99.7% / 字段 100% |
+| `asn1bc` | BouncyCastle **1.56** 的 ASN.1 子集（`c/*`） | 76 | 串 + 描述符包含 + **encode 的 tag 常量** + R8 合并件的 flag | 类 74/76，方法/字段 100% |
+| `jzlib` | **JZlib 1.1.1**（`abcd/*` 里） | 14 | zlib 判定文案 + 形状；字段靠顺序票/用法指纹 | 字段 89.9% |
+| `aide_iap` | AIDE 的 **Play 内购**（AIDL + 骨架） | 19 | `onTransact` 的 txn 号定方法名；SKU 串/枚举/WebService 串 | 类 19，成员 29 行 |
+| `aide_bb` | AIDE 对 **Backbone 框架**的实现类 | 7 | implements 的是未混淆框架接口 ⇒ 实现者判据 | 类 7 |
+
+（`abcd/*` 里另外两块已核实**不做**：第二份 **dx（497 类）是死代码**、jgit 的异常/凭据族（34 类）
+形状全同构且零引用 —— 理由见上一节。）

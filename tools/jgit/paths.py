@@ -64,6 +64,7 @@ PART_DIRS = [
     ('asn1bc', os.path.join(REPO, 'jobs', 'asn1bc')),
     ('jzlib', os.path.join(REPO, 'jobs', 'jzlib')),
     ('aide_iap', os.path.join(REPO, 'jobs', 'aide_iap')),
+    ('aide_bb', os.path.join(REPO, 'jobs', 'aide_bb')),
 ]
 PARTS = [n for n, _ in PART_DIRS]
 

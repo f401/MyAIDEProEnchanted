@@ -54446,3 +54446,10 @@ abcd/cm com/aide/licensing/LicenseVerifier
 		static
 	j6 (Ljava/security/PublicKey;Ljava/lang/String;Ljava/lang/String;)Z verifySignature
 		static
+abcd/yu com/aide/backbone/HookDefinition
+abcd/jw com/aide/backbone/AnalyticsDefinition
+abcd/lw com/aide/backbone/OccurrencesDefinition
+abcd/lw$a com/aide/backbone/OccurrencesDefinition$Hook
+abcd/lv com/aide/backbone/ReflectionRuntime
+abcd/Mv com/aide/backbone/UISceneRuntime
+abcd/Xv com/aide/backbone/EventDataImpl
