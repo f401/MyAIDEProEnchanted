@@ -210,3 +210,60 @@ public static final String DATA = CMSObjectIdentifiers.data.getId();
    本机没有 `apksigner`/`zipalign`；建议先 `adb uninstall aidepro.top`。
 2. **下一个 part**：Cordova/PhoneGap ~905 类（要先和后端 class-file 工具链切开）。
    （`jobs/dropbox/` 已完成：49 类全真名、成员 0 待人工，见 [../dropbox/README.md](../dropbox/README.md)。）
+
+## 命名空间纠正：`org/bouncycastle/*` → **`org/spongycastle/*`**（257 个类全改）
+
+### 判据（一条就够，而且是库自己说的）
+
+`abcd/pP`（= Provider 类）的常量池里有这个**字符串字面量**：
+
+```
+org.spongycastle.jce.provider.JDKKeyStore$BouncyCastleStore
+org.spongycastle.jcajce.provider.digest.
+org.spongycastle.jcajce.provider.symmetric.
+org.spongycastle.jcajce.provider.asymmetric.
+```
+
+它是 `JDKKeyStore` 用**自己的包名**拼出来的 store 类型名（`"org.spongycastle.jce.provider.JDKKeyStore$" + type`）。
+一个类不会把自己的包名写错 ⇒ 这簇就是 **SpongyCastle**（BC 1.47 的再打包，包名换成 `org.spongycastle`），
+不是 `org.bouncycastle`。此前用 `bc-all-1.47` 做 oracle 是按**形状**匹配（SpongyCastle 只改包名不改类名/成员），
+所以类名对得上，但**包名写错了** —— 这是本轮发现并修掉的。
+
+### 为什么必须改（不改就装不出来）
+
+APK 里还有**第二份** BouncyCastle 的 ASN.1 子集（探针包 `c/*`，76 类，见 `jobs/asn1bc`，
+oracle 是 `bcprov-jdk15on-1.56`）。`jobs/asn1bc` 把这些类命名成 `org/bouncycastle/asn1/*` 之后，
+`validate_mappings.py` 立刻报 **30+ 条 `dup-class-target`**：
+
+```
+dup-class-target  org/bouncycastle/asn1/ASN1Primitive  与 abcd/EL
+dup-class-target  org/bouncycastle/asn1/ASN1Sequence   与 abcd/FL
+```
+
+同一个 APK 里两个类不能同名。把本 part 改成 `org/spongycastle/*` 后：
+
+* 与 `c/*` 那份（`org/bouncycastle/*`）**零重叠**、与 jar 里已存在的 14 个未混淆 `org/spongycastle/*` 类**零重叠**、
+  257 条自身**无重名**（三条都跑过）；
+* `validate_mappings.py` 恢复 `✔ 无无效映射`。
+
+### 影响面（怎么改的）
+
+```
+sed -i 's|org/bouncycastle/|org/spongycastle/|g' jobs/spongycastle/class_map.tsv jobs/spongycastle/members.tsrg
+```
+
+成员行（`members.tsrg`）用的是**探针描述符**（`Labcd/xx;`），所以只需改类头那 257 行；
+`params.tsv` 里 0 处 `org/bouncycastle`。
+
+**参数名的回填要跟着改源**：`params` 用 `class_map` 的目标名去找 oracle 的源码/LVT，
+目标改成 `org/spongycastle/*` 后就找不到 `src-1.47/org/bouncycastle/*.java` 了（BC 源码包里是 `org.bouncycastle`）。
+做法是给源码树做个别名（同内容、不同包名）：
+
+```
+$HOME/out/oracle/spongycastle/src-sc-1.47/org/spongycastle -> .../src-1.47/org/bouncycastle
+```
+
+再加进 `process/deob.json` 的 `src_root`。之后 `params --apply` 参数行 733 → **769**。
+（还有 26 行没回来：`sc-pkix-1.50` 的 LVT 与 1.47 源签名不完全一致，那几个方法优先命中了 1.50 的 jar。
+这 26 行只在 `abcd/cO`(CMSSignedDataGenerator) 这类 1.50 改过签名的方法上，属于**已知小缺口**，
+不影响构建：参数名是可选信息。）

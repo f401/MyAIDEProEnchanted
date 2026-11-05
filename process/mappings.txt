@@ -22337,7 +22337,7 @@ abcd/lz io/fabric/sdk/android/services/concurrency/Task
 	j6 (Ljava/lang/Throwable;)V setError
 	j6 (Z)V setFinished
 	j6 ()Z isFinished
-abcd/AL org/bouncycastle/asn1/ASN1OctetString
+abcd/AL org/spongycastle/asn1/ASN1OctetString
 	j6 (Ljava/lang/Object;)Labcd/AL; getInstance
 		static
 		0 obj obj
@@ -22349,7 +22349,7 @@ abcd/AL org/bouncycastle/asn1/ASN1OctetString
 	gn ()Labcd/EL; toDLObject
 	VH ()Labcd/EL; toDERObject
 	j6 ()Labcd/EL; getLoadedObject
-abcd/AM org/bouncycastle/asn1/DERUTF8String
+abcd/AM org/spongycastle/asn1/DERUTF8String
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
@@ -22357,7 +22357,7 @@ abcd/AM org/bouncycastle/asn1/DERUTF8String
 		0 o o
 	j6 string
 	v5 ()I encodedLength
-abcd/AN org/bouncycastle/asn1/x509/Extensions
+abcd/AN org/spongycastle/asn1/x509/Extensions
 	j6 (Ljava/lang/Object;)Labcd/AN; getInstance
 		static
 		0 obj obj
@@ -22366,7 +22366,7 @@ abcd/AN org/bouncycastle/asn1/x509/Extensions
 		0 oid oid
 	DW ordering
 	j6 extensions
-abcd/AO org/bouncycastle/crypto/digests/MD4Digest
+abcd/AO org/spongycastle/crypto/digests/MD4Digest
 	j6 (II)I rotateLeft
 		0 x x
 		1 n n
@@ -22403,12 +22403,12 @@ abcd/AO org/bouncycastle/crypto/digests/MD4Digest
 	Zo H3
 	VH H4
 	Hw H1
-abcd/AP org/bouncycastle/operator/DigestCalculatorProvider
+abcd/AP org/spongycastle/operator/DigestCalculatorProvider
 	j6 (Labcd/wN;)Labcd/zP; get
 		0 digestAlgorithmIdentifier digestAlgorithmIdentifier
-abcd/BL org/bouncycastle/asn1/ASN1OctetStringParser
+abcd/BL org/spongycastle/asn1/ASN1OctetStringParser
 	FH ()Ljava/io/InputStream; getOctetStream
-abcd/BM org/bouncycastle/asn1/DERUniversalString
+abcd/BM org/spongycastle/asn1/DERUniversalString
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
@@ -22418,8 +22418,8 @@ abcd/BM org/bouncycastle/asn1/DERUniversalString
 	j6 table
 	DW string
 	v5 ()I encodedLength
-abcd/BN org/bouncycastle/asn1/x509/KeyUsage
-abcd/BO org/bouncycastle/crypto/digests/MD5Digest
+abcd/BN org/spongycastle/asn1/x509/KeyUsage
+abcd/BO org/spongycastle/crypto/digests/MD5Digest
 	j6 (II)I rotateLeft
 		0 x x
 		1 n n
@@ -22460,8 +22460,8 @@ abcd/BO org/bouncycastle/crypto/digests/MD5Digest
 	Zo H3
 	VH H4
 	Hw H1
-abcd/BP org/bouncycastle/operator/OperatorCreationException
-abcd/CL org/bouncycastle/asn1/ASN1OutputStream
+abcd/BP org/spongycastle/operator/OperatorCreationException
+abcd/CL org/spongycastle/asn1/ASN1OutputStream
 	j6 (II)V writeTag
 		0 flags flags
 		1 tagNo tagNo
@@ -22477,24 +22477,24 @@ abcd/CL org/bouncycastle/asn1/ASN1OutputStream
 	j6 (Labcd/qL;)V writeObject
 		0 obj obj
 	j6 ([B)V write
-		0 tagNo tagNo
+		0 bytes bytes
 	j6 ([BII)V write
 		0 bytes bytes
 		1 off off
 		2 len len
 	j6 os
 	j6 (I)V write
-		0 tagNo tagNo
+		0 b b
 	DW (I)V writeLength
 		0 length length
 	DW ()Labcd/CL; getDLSubStream
 	j6 ()Labcd/CL; getDERSubStream
-abcd/CL$a org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream
+abcd/CL$a org/spongycastle/asn1/ASN1OutputStream$ImplicitOutputStream
 	j6 (I)V write
-		0 tagNo tagNo
+		0 b b
 	DW first
 	FH this$0
-abcd/CM org/bouncycastle/asn1/DERVisibleString
+abcd/CM org/spongycastle/asn1/DERVisibleString
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
@@ -22502,7 +22502,7 @@ abcd/CM org/bouncycastle/asn1/DERVisibleString
 		0 o o
 	j6 string
 	v5 ()I encodedLength
-abcd/CN org/bouncycastle/asn1/x509/SubjectPublicKeyInfo
+abcd/CN org/spongycastle/asn1/x509/SubjectPublicKeyInfo
 	j6 (Ljava/lang/Object;)Labcd/CN; getInstance
 		static
 		0 obj obj
@@ -22511,7 +22511,7 @@ abcd/CN org/bouncycastle/asn1/x509/SubjectPublicKeyInfo
 	DW ()Labcd/EL; toASN1Primitive
 	v5 ()Labcd/wN; getAlgorithm
 	Zo ()Labcd/EL; parsePublicKey
-abcd/CO org/bouncycastle/crypto/digests/RIPEMD128Digest
+abcd/CO org/spongycastle/crypto/digests/RIPEMD128Digest
 	j6 (II)I RL
 		0 x x
 		1 n n
@@ -22608,14 +22608,14 @@ abcd/CO org/bouncycastle/crypto/digests/RIPEMD128Digest
 	Zo H2
 	VH H3
 	Hw H0
-abcd/CP org/bouncycastle/operator/OperatorException
+abcd/CP org/spongycastle/operator/OperatorException
 	j6 cause
-abcd/DL org/bouncycastle/asn1/ASN1ParsingException
+abcd/DL org/spongycastle/asn1/ASN1ParsingException
 	j6 cause
-abcd/DM org/bouncycastle/asn1/DLOutputStream
+abcd/DM org/spongycastle/asn1/DLOutputStream
 	j6 (Labcd/qL;)V writeObject
 		0 obj obj
-abcd/DN org/bouncycastle/asn1/x509/TBSCertificate
+abcd/DN org/spongycastle/asn1/x509/TBSCertificate
 	j6 (Ljava/lang/Object;)Labcd/DN; getInstance
 		static
 		0 obj obj
@@ -22635,7 +22635,7 @@ abcd/DN org/bouncycastle/asn1/x509/TBSCertificate
 	v5 issuer
 	FH version
 	VH ()Labcd/wL; getVersion
-abcd/DO org/bouncycastle/crypto/digests/RIPEMD160Digest
+abcd/DO org/spongycastle/crypto/digests/RIPEMD160Digest
 	j6 (II)I RL
 		0 x x
 		1 n n
@@ -22681,9 +22681,9 @@ abcd/DO org/bouncycastle/crypto/digests/RIPEMD160Digest
 	Zo H2
 	VH H3
 	Hw H0
-abcd/DP org/bouncycastle/operator/OperatorStreamException
+abcd/DP org/spongycastle/operator/OperatorStreamException
 	j6 cause
-abcd/EL org/bouncycastle/asn1/ASN1Primitive
+abcd/EL org/spongycastle/asn1/ASN1Primitive
 	j6 ([B)Labcd/EL; fromByteArray
 		static
 		0 data data
@@ -22696,13 +22696,13 @@ abcd/EL org/bouncycastle/asn1/ASN1Primitive
 	v5 ()I encodedLength
 	gn ()Labcd/EL; toDLObject
 	VH ()Labcd/EL; toDERObject
-abcd/EM org/bouncycastle/asn1/DLSequence
+abcd/EM org/spongycastle/asn1/DLSequence
 	j6 (Labcd/CL;)V encode
 		0 out out
 	DW bodyLength
 	we ()I getBodyLength
 	v5 ()I encodedLength
-abcd/EN org/bouncycastle/asn1/x509/TBSCertificateStructure
+abcd/EN org/spongycastle/asn1/x509/TBSCertificateStructure
 	j6 (Ljava/lang/Object;)Labcd/EN; getInstance
 		static
 		0 obj obj
@@ -22730,7 +22730,7 @@ abcd/EN org/bouncycastle/asn1/x509/TBSCertificateStructure
 	v5 issuer
 	gn subject
 	FH serialNumber
-abcd/EO org/bouncycastle/crypto/digests/RIPEMD256Digest
+abcd/EO org/spongycastle/crypto/digests/RIPEMD256Digest
 	j6 (II)I RL
 		0 x x
 		1 n n
@@ -22831,9 +22831,9 @@ abcd/EO org/bouncycastle/crypto/digests/RIPEMD256Digest
 	VH H3
 	Hw H0
 	EQ H7
-abcd/EP org/bouncycastle/operator/RuntimeOperatorException
+abcd/EP org/spongycastle/operator/RuntimeOperatorException
 	j6 cause
-abcd/FL org/bouncycastle/asn1/ASN1Sequence
+abcd/FL org/spongycastle/asn1/ASN1Sequence
 	j6 (Labcd/LL;Z)Labcd/FL; getInstance
 		static
 		0 obj obj
@@ -22854,13 +22854,13 @@ abcd/FL org/bouncycastle/asn1/ASN1Sequence
 	gn ()Labcd/EL; toDLObject
 	tp ()I size
 	VH ()Labcd/EL; toDERObject
-abcd/FM org/bouncycastle/asn1/DLSet
+abcd/FM org/spongycastle/asn1/DLSet
 	j6 (Labcd/CL;)V encode
 		0 out out
 	FH bodyLength
 	we ()I getBodyLength
 	v5 ()I encodedLength
-abcd/FN org/bouncycastle/asn1/x509/Time
+abcd/FN org/spongycastle/asn1/x509/Time
 	j6 (Ljava/lang/Object;)Labcd/FN; getInstance
 		static
 		0 obj obj
@@ -22868,7 +22868,7 @@ abcd/FN org/bouncycastle/asn1/x509/Time
 	v5 ()Ljava/util/Date; getDate
 	j6 time
 	Zo ()Ljava/lang/String; getTime
-abcd/FO org/bouncycastle/crypto/digests/SHA1Digest
+abcd/FO org/spongycastle/crypto/digests/SHA1Digest
 	DW ()I getDigestSize
 	DW ([BI)V processWord
 		0 in in
@@ -22899,21 +22899,21 @@ abcd/FO org/bouncycastle/crypto/digests/SHA1Digest
 	Zo H3
 	VH H4
 	Hw H1
-abcd/FP org/bouncycastle/operator/bc/BcDigestCalculatorProvider$1
+abcd/FP org/spongycastle/operator/bc/BcDigestCalculatorProvider$1
 	DW ()Labcd/wN; getAlgorithmIdentifier
 	FH ()[B getDigest
 	j6 ()Ljava/io/OutputStream; getOutputStream
 	DW val$algorithm
 	FH val$stream
 	j6 this$0
-abcd/GL org/bouncycastle/asn1/ASN1SetParser
-abcd/GM org/bouncycastle/asn1/DLTaggedObject
+abcd/GL org/spongycastle/asn1/ASN1SetParser
+abcd/GM org/spongycastle/asn1/DLTaggedObject
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
 	v5 ()I encodedLength
 	v5 ZERO_BYTES
-abcd/GN org/bouncycastle/asn1/x509/V3TBSCertificateGenerator
+abcd/GN org/spongycastle/asn1/x509/V3TBSCertificateGenerator
 	j6 ()Labcd/DN; generateTBSCertificate
 	j6 (Labcd/AN;)V setExtensions
 		0 extensions extensions
@@ -22945,7 +22945,7 @@ abcd/GN org/bouncycastle/asn1/x509/V3TBSCertificateGenerator
 	Hw issuer
 	we subjectUniqueID
 	j6 version
-abcd/GO org/bouncycastle/crypto/digests/SHA224Digest
+abcd/GO org/spongycastle/crypto/digests/SHA224Digest
 	DW ()I getDigestSize
 	DW ([BI)V processWord
 		0 in in
@@ -22984,14 +22984,14 @@ abcd/GO org/bouncycastle/crypto/digests/SHA224Digest
 		0 x x
 	Hw (I)I Theta1
 		0 x x
-abcd/GP org/bouncycastle/operator/bc/BcDigestCalculatorProvider
+abcd/GP org/spongycastle/operator/bc/BcDigestCalculatorProvider
 	j6 (Labcd/wN;)Labcd/zP; get
 		0 algorithm algorithm
-abcd/GP$a org/bouncycastle/operator/bc/BcDigestCalculatorProvider$DigestOutputStream
+abcd/GP$a org/spongycastle/operator/bc/BcDigestCalculatorProvider$DigestOutputStream
 	j6 ()[B getDigest
 	DW this$0
 	j6 dig
-abcd/HL org/bouncycastle/asn1/ASN1Set
+abcd/HL org/spongycastle/asn1/ASN1Set
 	EQ ()V sort
 	j6 (Labcd/LL;Z)Labcd/HL; getInstance
 		static
@@ -23018,13 +23018,13 @@ abcd/HL org/bouncycastle/asn1/ASN1Set
 	gn ()Labcd/EL; toDLObject
 	tp ()I size
 	VH ()Labcd/EL; toDERObject
-abcd/HM org/bouncycastle/asn1/DefiniteLengthInputStream
+abcd/HM org/spongycastle/asn1/DefiniteLengthInputStream
 	DW ()[B toByteArray
 	FH EMPTY_BYTES
 	j6 ()I getRemaining
 	Hw _originalLength
 	v5 _remaining
-abcd/HN org/bouncycastle/asn1/x509/X509CertificateStructure
+abcd/HN org/spongycastle/asn1/x509/X509CertificateStructure
 	DW ()Labcd/EL; toASN1Primitive
 	J0 ()Labcd/EN; getTBSCertificate
 	J8 ()I getVersion
@@ -23040,7 +23040,7 @@ abcd/HN org/bouncycastle/asn1/x509/X509CertificateStructure
 	tp ()Labcd/FN; getStartDate
 	Zo ()Labcd/sN; getSubject
 	v5 ()Labcd/FN; getEndDate
-abcd/HO org/bouncycastle/crypto/digests/SHA256Digest
+abcd/HO org/spongycastle/crypto/digests/SHA256Digest
 	DW ()I getDigestSize
 	DW ([BI)V processWord
 		0 in in
@@ -23079,14 +23079,13 @@ abcd/HO org/bouncycastle/crypto/digests/SHA256Digest
 		0 x x
 	Hw (I)I Theta1
 		0 x x
-abcd/HP org/bouncycastle/operator/bc/BcUtil
+abcd/HP org/spongycastle/operator/bc/BcUtil
 	j6 (Labcd/wN;)Labcd/sO; createDigest
 		static
-		0 digAlg digAlg
-abcd/IL org/bouncycastle/asn1/ASN1SequenceParser
-abcd/IM org/bouncycastle/asn1/InMemoryRepresentable
+abcd/IL org/spongycastle/asn1/ASN1SequenceParser
+abcd/IM org/spongycastle/asn1/InMemoryRepresentable
 	j6 ()Labcd/EL; getLoadedObject
-abcd/IN org/bouncycastle/asn1/x509/X509Extension
+abcd/IN org/spongycastle/asn1/x509/X509Extension
 	j6 (Labcd/IN;)Labcd/EL; convertValueToObject
 		static
 		0 ext ext
@@ -23125,19 +23124,19 @@ abcd/IN org/bouncycastle/asn1/x509/X509Extension
 	yS logoType
 	SI value
 	nw critical
-abcd/IO org/bouncycastle/crypto/digests/SHA384Digest
+abcd/IO org/spongycastle/crypto/digests/SHA384Digest
 	DW ()I getDigestSize
 	j6 ([BI)I doFinal
 		0 out out
 		1 outOff outOff
 	j6 ()Ljava/lang/String; getAlgorithmName
-abcd/IP org/bouncycastle/operator/jcajce/JcaContentSignerBuilder$1
+abcd/IP org/spongycastle/operator/jcajce/JcaContentSignerBuilder$1
 	DW ()Labcd/wN; getAlgorithmIdentifier
 	FH ()[B getSignature
 	j6 ()Ljava/io/OutputStream; getOutputStream
 	DW this$0
 	j6 stream
-abcd/JL org/bouncycastle/asn1/ASN1StreamParser
+abcd/JL org/spongycastle/asn1/ASN1StreamParser
 	j6 (Z)V set00Check
 		0 enabled enabled
 	DW ()Labcd/rL; readVector
@@ -23150,7 +23149,7 @@ abcd/JL org/bouncycastle/asn1/ASN1StreamParser
 	DW _limit
 	FH tmpBuffers
 	j6 _in
-abcd/JM org/bouncycastle/asn1/IndefiniteLengthInputStream
+abcd/JM org/spongycastle/asn1/IndefiniteLengthInputStream
 	DW ()Z checkForEof
 	DW (Z)V setEofOn00
 		0 eofOn00 eofOn00
@@ -23158,7 +23157,7 @@ abcd/JM org/bouncycastle/asn1/IndefiniteLengthInputStream
 	Hw _b2
 	Zo _eofOn00
 	v5 _eofReached
-abcd/JN org/bouncycastle/asn1/x509/X509Extensions
+abcd/JN org/spongycastle/asn1/x509/X509Extensions
 	j6 (Ljava/lang/Object;)Labcd/JN; getInstance
 		static
 		0 obj obj
@@ -23199,13 +23198,13 @@ abcd/JN org/bouncycastle/asn1/x509/X509Extensions
 	yS LogoType
 	SI ordering
 	nw extensions
-abcd/JO org/bouncycastle/crypto/digests/SHA512Digest
+abcd/JO org/spongycastle/crypto/digests/SHA512Digest
 	DW ()I getDigestSize
 	j6 ([BI)I doFinal
 		0 out out
 		1 outOff outOff
 	j6 ()Ljava/lang/String; getAlgorithmName
-abcd/JP org/bouncycastle/operator/jcajce/JcaContentSignerBuilder
+abcd/JP org/spongycastle/operator/jcajce/JcaContentSignerBuilder
 	j6 (Ljava/security/Provider;)Labcd/JP; setProvider
 		0 provider provider
 	j6 (Ljava/security/SecureRandom;)Labcd/JP; setSecureRandom
@@ -23216,21 +23215,21 @@ abcd/JP org/bouncycastle/operator/jcajce/JcaContentSignerBuilder
 	FH signatureAlgorithm
 	Hw sigAlgId
 	j6 helper
-abcd/JP$a org/bouncycastle/operator/jcajce/JcaContentSignerBuilder$SignatureOutputStream
+abcd/JP$a org/spongycastle/operator/jcajce/JcaContentSignerBuilder$SignatureOutputStream
 	j6 ()[B getSignature
 	DW this$0
 	j6 sig
-abcd/KL org/bouncycastle/asn1/ASN1String
-abcd/KM org/bouncycastle/asn1/LazyConstructionEnumeration
+abcd/KL org/spongycastle/asn1/ASN1String
+abcd/KM org/spongycastle/asn1/LazyConstructionEnumeration
 	DW nextObj
 	j6 aIn
 	j6 ()Ljava/lang/Object; readObject
-abcd/KN org/bouncycastle/asn1/x509/X509ExtensionsGenerator
+abcd/KN org/spongycastle/asn1/x509/X509ExtensionsGenerator
 	DW ()Z isEmpty
 	DW extOrdering
 	j6 extensions
 	j6 ()Labcd/JN; generate
-abcd/KO org/bouncycastle/crypto/engines/GOST28147Engine
+abcd/KO org/spongycastle/crypto/engines/GOST28147Engine
 	j6 (II)I GOST28147_mainStep
 		0 n1 n1
 		1 key key
@@ -23277,14 +23276,14 @@ abcd/KO org/bouncycastle/crypto/engines/GOST28147Engine
 	Hw ESbox_B
 	FH ESbox_A
 	DW ESbox_Test
-abcd/KP org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$1$1
+abcd/KP org/spongycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$1$1
 	DW ()Labcd/wN; getAlgorithmIdentifier
 	FH ()[B getDigest
 	j6 ()Ljava/io/OutputStream; getOutputStream
 	DW val$algorithm
 	FH val$stream
 	j6 this$1
-abcd/LL org/bouncycastle/asn1/ASN1TaggedObject
+abcd/LL org/spongycastle/asn1/ASN1TaggedObject
 	j6 (Ljava/lang/Object;)Labcd/LL; getInstance
 		static
 		0 obj obj
@@ -23301,7 +23300,7 @@ abcd/LL org/bouncycastle/asn1/ASN1TaggedObject
 	DW empty
 	VH ()Labcd/EL; toDERObject
 	j6 ()Labcd/EL; getLoadedObject
-abcd/LM org/bouncycastle/asn1/LazyEncodedSequence
+abcd/LM org/spongycastle/asn1/LazyEncodedSequence
 	we ()V parse
 	j6 (I)Labcd/qL; getObjectAt
 		0 index index
@@ -23313,7 +23312,7 @@ abcd/LM org/bouncycastle/asn1/LazyEncodedSequence
 	v5 ()I encodedLength
 	gn ()Labcd/EL; toDLObject
 	VH ()Labcd/EL; toDERObject
-abcd/LN org/bouncycastle/asn1/x509/X509Name
+abcd/LN org/spongycastle/asn1/x509/X509Name
 	FH (Ljava/lang/String;)Labcd/EL; decodeObject
 		0 oValue oValue
 	j6 (Ljava/lang/Object;)Labcd/LN; getInstance
@@ -23388,27 +23387,27 @@ abcd/LN org/bouncycastle/asn1/x509/X509Name
 	gn oidConstant3
 	j6 oidConstant4
 	ro oidConstant5
-abcd/LO org/bouncycastle/crypto/generators/DHKeyPairGenerator
+abcd/LO org/spongycastle/crypto/generators/DHKeyPairGenerator
 	j6 (Labcd/uO;)V init
 		0 param param
 	j6 ()Labcd/oO; generateKeyPair
 	j6 param
-abcd/LP org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$1
+abcd/LP org/spongycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$1
 	j6 (Labcd/wN;)Labcd/zP; get
 		0 algorithm algorithm
 	j6 this$0
-abcd/ML org/bouncycastle/asn1/ASN1TaggedObjectParser
-abcd/MM org/bouncycastle/asn1/LimitedInputStream
+abcd/ML org/spongycastle/asn1/ASN1TaggedObjectParser
+abcd/MM org/spongycastle/asn1/LimitedInputStream
 	j6 ()I getRemaining
 	j6 (Z)V setParentEofDetect
 		0 on on
 	DW _limit
 	j6 _in
-abcd/MN org/bouncycastle/asn1/x509/X509NameEntryConverter
+abcd/MN org/spongycastle/asn1/x509/X509NameEntryConverter
 	j6 (Labcd/zL;Ljava/lang/String;)Labcd/EL; getConvertedValue
 		0 oid oid
 		1 value value
-abcd/MO org/bouncycastle/crypto/generators/DHKeyGeneratorHelper
+abcd/MO org/spongycastle/crypto/generators/DHKeyGeneratorHelper
 	j6 (Labcd/TO;Ljava/math/BigInteger;)Ljava/math/BigInteger; calculatePublic
 		0 dhParams dhParams
 		1 x x
@@ -23418,22 +23417,22 @@ abcd/MO org/bouncycastle/crypto/generators/DHKeyGeneratorHelper
 	j6 INSTANCE
 	FH TWO
 	DW ONE
-abcd/MP org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder
+abcd/MP org/spongycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder
 	j6 ()Labcd/AP; build
 	j6 (Ljava/lang/String;)Labcd/MP; setProvider
 		0 providerName providerName
 	j6 helper
-abcd/MP$a org/bouncycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$DigestOutputStream
+abcd/MP$a org/spongycastle/operator/jcajce/JcaDigestCalculatorProviderBuilder$DigestOutputStream
 	j6 ()[B getDigest
 	DW this$0
 	j6 dig
-abcd/NL org/bouncycastle/asn1/ASN1UTCTime
-abcd/NM org/bouncycastle/asn1/OIDTokenizer
+abcd/NL org/spongycastle/asn1/ASN1UTCTime
+abcd/NM org/spongycastle/asn1/OIDTokenizer
 	DW ()Ljava/lang/String; nextToken
 	j6 ()Z hasMoreTokens
 	DW index
 	j6 oid
-abcd/NN org/bouncycastle/asn1/x509/X509ObjectIdentifiers
+abcd/NN org/spongycastle/asn1/x509/X509ObjectIdentifiers
 	gn id_at_name
 	VH id_at_telephoneNumber
 	we id_ea_rsa
@@ -23454,7 +23453,7 @@ abcd/NN org/bouncycastle/asn1/x509/X509ObjectIdentifiers
 	Mr oidConstant3
 	aM oidConstant4
 	j3 oidConstant5
-abcd/NO org/bouncycastle/crypto/generators/DHParametersGenerator
+abcd/NO org/spongycastle/crypto/generators/DHParametersGenerator
 	j6 ()Labcd/TO; generateParameters
 	j6 (IILjava/security/SecureRandom;)V init
 		0 size size
@@ -23464,7 +23463,7 @@ abcd/NO org/bouncycastle/crypto/generators/DHParametersGenerator
 	Hw random
 	FH certainty
 	DW size
-abcd/NP org/bouncycastle/operator/jcajce/OperatorHelper
+abcd/NP org/spongycastle/operator/jcajce/OperatorHelper
 	FH (Labcd/wN;)Ljava/lang/String; getSignatureName
 		static
 		0 sigAlgId sigAlgId
@@ -23480,8 +23479,8 @@ abcd/NP org/bouncycastle/operator/jcajce/OperatorHelper
 	DW algorithmNameMap1
 	FH algorithmNameMap2
 	Hw algorithmNameMap3
-abcd/OL org/bouncycastle/asn1/BERApplicationSpecific
-abcd/OM org/bouncycastle/asn1/StreamUtil
+abcd/OL org/spongycastle/asn1/BERApplicationSpecific
+abcd/OM org/spongycastle/asn1/StreamUtil
 	j6 (Ljava/io/InputStream;)I findLimit
 		static
 		0 in in
@@ -23492,7 +23491,7 @@ abcd/OM org/bouncycastle/asn1/StreamUtil
 	DW (I)I calculateTagLength
 		static
 		0 tagNo tagNo
-abcd/ON org/bouncycastle/asn1/x9/DHDomainParameters
+abcd/ON org/spongycastle/asn1/x9/DHDomainParameters
 	j6 (Ljava/lang/Object;)Labcd/ON; getInstance
 		static
 		0 obj obj
@@ -23507,7 +23506,7 @@ abcd/ON org/bouncycastle/asn1/x9/DHDomainParameters
 	j6 p
 	DW g
 	v5 validationParms
-abcd/OO org/bouncycastle/crypto/generators/DHParametersHelper
+abcd/OO org/spongycastle/crypto/generators/DHParametersHelper
 	j6 (Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/SecureRandom;)Ljava/math/BigInteger; selectGenerator
 		static
 		0 p p
@@ -23520,7 +23519,7 @@ abcd/OO org/bouncycastle/crypto/generators/DHParametersHelper
 		2 random random
 	j6 ONE
 	DW TWO
-abcd/OP org/bouncycastle/util/Arrays
+abcd/OP org/spongycastle/util/Arrays
 	DW ([B)I hashCode
 		static
 		0 data data
@@ -23538,12 +23537,12 @@ abcd/OP org/bouncycastle/util/Arrays
 		static
 		0 a a
 		1 b b
-abcd/PL org/bouncycastle/asn1/BERApplicationSpecificParser
+abcd/PL org/spongycastle/asn1/BERApplicationSpecificParser
 	DW parser
 	j6 tag
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/PM org/bouncycastle/asn1/bc/BCObjectIdentifiers
+abcd/PM org/spongycastle/asn1/bc/BCObjectIdentifiers
 	DW bc_pbe
 	EQ bc_pbe_sha256_pkcs12
 	FH bc_pbe_sha1
@@ -23561,30 +23560,30 @@ abcd/PM org/bouncycastle/asn1/bc/BCObjectIdentifiers
 	u7 bc_pbe_sha1_pkcs12
 	v5 bc_pbe_sha384
 	we bc_pbe_sha1_pkcs12_aes128_cbc
-abcd/PN org/bouncycastle/asn1/x9/DHValidationParms
+abcd/PN org/spongycastle/asn1/x9/DHValidationParms
 	j6 (Ljava/lang/Object;)Labcd/PN; getInstance
 		static
 		0 obj obj
 	DW ()Labcd/EL; toASN1Primitive
 	DW pubMethod
 	j6 seed
-abcd/PO org/bouncycastle/crypto/params/AsymmetricKeyParameter
+abcd/PO org/spongycastle/crypto/params/AsymmetricKeyParameter
 	j6 ()Z isPrivate
 	j6 privateKey
-abcd/PP org/bouncycastle/util/BigIntegers
+abcd/PP org/spongycastle/util/BigIntegers
 	j6 (Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/SecureRandom;)Ljava/math/BigInteger; createRandomInRange
 		static
 		0 min min
 		1 max max
 		2 random random
 	j6 ZERO
-abcd/QL org/bouncycastle/asn1/BERFactory
+abcd/QL org/spongycastle/asn1/BERFactory
 	j6 (Labcd/rL;)Labcd/UL; createSequence
 		static
 		0 v v
 	DW EMPTY_SET
 	j6 EMPTY_SEQUENCE
-abcd/QM org/bouncycastle/asn1/cms/Attribute
+abcd/QM org/spongycastle/asn1/cms/Attribute
 	j6 (Ljava/lang/Object;)Labcd/QM; getInstance
 		static
 		0 o o
@@ -23592,7 +23591,7 @@ abcd/QM org/bouncycastle/asn1/cms/Attribute
 	v5 ()Labcd/zL; getAttrType
 	DW attrValues
 	j6 attrType
-abcd/QN org/bouncycastle/asn1/x9/X9ObjectIdentifiers
+abcd/QN org/spongycastle/asn1/x9/X9ObjectIdentifiers
 	u7 ecdsa_with_SHA1
 	BT c2pnb208w1
 	CU mqv2
@@ -23656,35 +23655,35 @@ abcd/QN org/bouncycastle/asn1/x9/X9ObjectIdentifiers
 	x9 id_dsa_with_sha1
 	yO dhEphem
 	yS c2onb191v4
-abcd/QO org/bouncycastle/crypto/params/DESParameters
+abcd/QO org/spongycastle/crypto/params/DESParameters
 	DW DES_weak_keys
 	j6 ([B)V setOddParity
 		static
 		0 bytes bytes
-abcd/QP org/bouncycastle/util/CollectionStore
+abcd/QP org/spongycastle/util/CollectionStore
 	j6 (Labcd/RP;)Ljava/util/Collection; getMatches
 		0 selector selector
 	j6 _local
-abcd/RL org/bouncycastle/asn1/BEROctetString$1
+abcd/RL org/spongycastle/asn1/BEROctetString$1
 	DW this$0
 	j6 counter
-abcd/RM org/bouncycastle/asn1/cms/AttributeTable
+abcd/RM org/spongycastle/asn1/cms/AttributeTable
 	j6 (Ljava/util/Hashtable;)Ljava/util/Hashtable; copyTable
 		0 in in
 	j6 ()Labcd/rL; toASN1EncodableVector
 	j6 attributes
-abcd/RN org/bouncycastle/cert/CertIOException
+abcd/RN org/spongycastle/cert/CertIOException
 	j6 _e
-abcd/RO org/bouncycastle/crypto/params/DHKeyGenerationParameters
+abcd/RO org/spongycastle/crypto/params/DHKeyGenerationParameters
 	j6 (Labcd/TO;)I getStrength
 		static
 		0 params params
 	DW ()Labcd/TO; getParameters
 	FH params
-abcd/RP org/bouncycastle/util/Selector
+abcd/RP org/spongycastle/util/Selector
 	j6 (Ljava/lang/Object;)Z match
 		0 obj obj
-abcd/SL org/bouncycastle/asn1/BEROctetString
+abcd/SL org/spongycastle/asn1/BEROctetString
 	EQ ()Ljava/util/Vector; generateOcts
 	j6 ([Labcd/AL;)[B toBytes
 		static
@@ -23696,31 +23695,31 @@ abcd/SL org/bouncycastle/asn1/BEROctetString
 	u7 ()[B getOctets
 	v5 ()I encodedLength
 	DW octs
-abcd/SM org/bouncycastle/asn1/x509/qualified/ETSIQCObjectIdentifiers
+abcd/SM org/spongycastle/asn1/x509/qualified/ETSIQCObjectIdentifiers
 	DW oidConstant1
 	FH oidConstant2
 	Hw oidConstant3
 	j6 oidConstant4
 	v5 oidConstant5
-abcd/SN org/bouncycastle/cert/X509CertificateHolder
+abcd/SN org/spongycastle/cert/X509CertificateHolder
 	j6 ([B)Labcd/yN; parseBytes
 		static
 		0 certEncoding certEncoding
 	j6 ()Labcd/yN; toASN1Structure
 	DW extensions
 	j6 x509Certificate
-abcd/SO org/bouncycastle/crypto/params/DHKeyParameters
+abcd/SO org/spongycastle/crypto/params/DHKeyParameters
 	DW ()Labcd/TO; getParameters
 	DW params
-abcd/SP org/bouncycastle/util/Store
+abcd/SP org/spongycastle/util/Store
 	j6 (Labcd/RP;)Ljava/util/Collection; getMatches
 		0 selector selector
-abcd/TL org/bouncycastle/asn1/BEROctetStringParser
+abcd/TL org/spongycastle/asn1/BEROctetStringParser
 	FH ()Ljava/io/InputStream; getOctetStream
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/TM org/bouncycastle/asn1/cms/CMSObjectIdentifiers
+abcd/TM org/spongycastle/asn1/cms/CMSObjectIdentifiers
 	j6 data
 	DW signedData
 	v5 digestedData
@@ -23731,11 +23730,11 @@ abcd/TM org/bouncycastle/asn1/cms/CMSObjectIdentifiers
 	VH authenticatedData
 	Hw signedAndEnvelopedData
 	FH envelopedData
-abcd/TN org/bouncycastle/cert/jcajce/JcaCertStore
+abcd/TN org/spongycastle/cert/jcajce/JcaCertStore
 	j6 (Ljava/util/Collection;)Ljava/util/Collection; convertCerts
 		static
 		0 collection collection
-abcd/TO org/bouncycastle/crypto/params/DHParameters
+abcd/TO org/spongycastle/crypto/params/DHParameters
 	j6 (I)I getDefaultMParam
 		static
 		0 lParam lParam
@@ -23751,7 +23750,7 @@ abcd/TO org/bouncycastle/crypto/params/DHParameters
 	Hw j
 	VH validationParms
 	j6 g
-abcd/TP org/bouncycastle/util/Strings
+abcd/TP org/spongycastle/util/Strings
 	j6 ([B)[C asCharArray
 		static
 		0 bytes bytes
@@ -23770,11 +23769,11 @@ abcd/TP org/bouncycastle/util/Strings
 	FH ([B)Ljava/lang/String; fromUTF8ByteArray
 		static
 		0 bytes bytes
-abcd/UL org/bouncycastle/asn1/BERSequence
+abcd/UL org/spongycastle/asn1/BERSequence
 	j6 (Labcd/CL;)V encode
 		0 out out
 	v5 ()I encodedLength
-abcd/UM org/bouncycastle/asn1/cms/ContentInfo
+abcd/UM org/spongycastle/asn1/cms/ContentInfo
 	j6 (Ljava/lang/Object;)Labcd/UM; getInstance
 		static
 		0 obj obj
@@ -23783,11 +23782,11 @@ abcd/UM org/bouncycastle/asn1/cms/ContentInfo
 	v5 ()Labcd/qL; getContent
 	DW content
 	j6 contentType
-abcd/UN org/bouncycastle/cert/jcajce/JcaX509CertificateHolder
-abcd/UO org/bouncycastle/crypto/params/DHPrivateKeyParameters
+abcd/UN org/spongycastle/cert/jcajce/JcaX509CertificateHolder
+abcd/UO org/spongycastle/crypto/params/DHPrivateKeyParameters
 	FH ()Ljava/math/BigInteger; getX
 	FH x
-abcd/UP org/bouncycastle/util/encoders/Encoder
+abcd/UP org/spongycastle/util/encoders/Encoder
 	j6 (Ljava/lang/String;Ljava/io/OutputStream;)I decode
 		0 data data
 		1 out out
@@ -23796,22 +23795,22 @@ abcd/UP org/bouncycastle/util/encoders/Encoder
 		1 off off
 		2 length length
 		3 out out
-abcd/VL org/bouncycastle/asn1/DERSetParser
+abcd/VL org/spongycastle/asn1/DERSetParser
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/VM org/bouncycastle/synthetic/CertificateFieldCarrier
+abcd/VM org/spongycastle/synthetic/CertificateFieldCarrier
 	DW ()Labcd/EL; toASN1Primitive
 	DW versionField
 	j6 nameField
-abcd/VN org/bouncycastle/cms/CMSAbsentContent
+abcd/VN org/spongycastle/cms/CMSAbsentContent
 	j6 (Ljava/io/OutputStream;)V write
 		0 zOut zOut
 	j6 type
-abcd/VO org/bouncycastle/crypto/params/DHPublicKeyParameters
+abcd/VO org/spongycastle/crypto/params/DHPublicKeyParameters
 	FH ()Ljava/math/BigInteger; getY
 	FH y
-abcd/VP org/bouncycastle/util/encoders/Hex
+abcd/VP org/spongycastle/util/encoders/Hex
 	j6 (Ljava/lang/String;)[B decode
 		static
 		0 data data
@@ -23824,11 +23823,11 @@ abcd/VP org/bouncycastle/util/encoders/Hex
 	j6 ([B)[B encode
 		static
 		0 data data
-abcd/WL org/bouncycastle/asn1/BERSet
+abcd/WL org/spongycastle/asn1/BERSet
 	j6 (Labcd/CL;)V encode
 		0 out out
 	v5 ()I encodedLength
-abcd/WM org/bouncycastle/asn1/cms/SignedData
+abcd/WM org/spongycastle/asn1/cms/SignedData
 	j6 (Ljava/lang/Object;)Labcd/WM; getInstance
 		static
 		0 o o
@@ -23848,8 +23847,8 @@ abcd/WM org/bouncycastle/asn1/cms/SignedData
 	gn crlsBer
 	VH certsBer
 	v5 crls
-abcd/WN org/bouncycastle/cms/CMSAttributeTableGenerator
-abcd/WP org/bouncycastle/util/encoders/HexEncoder
+abcd/WN org/spongycastle/cms/CMSAttributeTableGenerator
+abcd/WP org/spongycastle/util/encoders/HexEncoder
 	j6 ()V initialiseDecodingTable
 	j6 (C)Z ignore
 		0 c c
@@ -23863,23 +23862,23 @@ abcd/WP org/bouncycastle/util/encoders/HexEncoder
 		3 out out
 	DW decodingTable
 	j6 encodingTable
-abcd/XL org/bouncycastle/asn1/BERSequenceParser
+abcd/XL org/spongycastle/asn1/BERSequenceParser
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/XM org/bouncycastle/asn1/cms/SignerIdentifier
+abcd/XM org/spongycastle/asn1/cms/SignerIdentifier
 	j6 (Ljava/lang/Object;)Labcd/XM; getInstance
 		static
 		0 o o
 	DW ()Labcd/EL; toASN1Primitive
 	v5 ()Z isTagged
 	j6 id
-abcd/XN org/bouncycastle/cms/CMSException
+abcd/XN org/spongycastle/cms/CMSException
 	j6 e
-abcd/XO org/bouncycastle/crypto/params/KeyParameter
+abcd/XO org/spongycastle/crypto/params/KeyParameter
 	j6 ()[B getKey
 	j6 key
-abcd/XP org/bouncycastle/util/io/Streams
+abcd/XP org/spongycastle/util/io/Streams
 	j6 (Ljava/io/InputStream;[B)I readFully
 		static
 		0 inStr inStr
@@ -23898,12 +23897,12 @@ abcd/XP org/bouncycastle/util/io/Streams
 		static
 		0 inStr inStr
 	j6 BUFFER_SIZE
-abcd/YL org/bouncycastle/asn1/BERTaggedObject
+abcd/YL org/spongycastle/asn1/BERTaggedObject
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
 	v5 ()I encodedLength
-abcd/YM org/bouncycastle/asn1/cms/SignerInfo
+abcd/YM org/spongycastle/asn1/cms/SignerInfo
 	j6 (Ljava/lang/Object;)Labcd/YM; getInstance
 		static
 		0 o o
@@ -23917,32 +23916,32 @@ abcd/YM org/bouncycastle/asn1/cms/SignerInfo
 	FH digAlgorithm
 	VH unauthenticatedAttributes
 	Hw authenticatedAttributes
-abcd/YN org/bouncycastle/cms/CMSProcessable
+abcd/YN org/spongycastle/cms/CMSProcessable
 	j6 (Ljava/io/OutputStream;)V write
 		0 out out
-abcd/YO org/bouncycastle/crypto/params/ParametersWithSBox
+abcd/YO org/spongycastle/crypto/params/ParametersWithSBox
 	DW ()[B getSBox
 	j6 ()Labcd/qO; getParameters
 	DW sBox
 	j6 parameters
-abcd/YP org/bouncycastle/util/io/TeeOutputStream
+abcd/YP org/spongycastle/util/io/TeeOutputStream
 	j6 output1
 	DW output2
-abcd/ZL org/bouncycastle/asn1/BERTaggedObjectParser
+abcd/ZL org/spongycastle/asn1/BERTaggedObjectParser
 	DW _tagNumber
 	FH _parser
 	j6 _constructed
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/ZM org/bouncycastle/asn1/cms/Time
+abcd/ZM org/spongycastle/asn1/cms/Time
 	DW ()Labcd/EL; toASN1Primitive
 	j6 time
-abcd/ZN org/bouncycastle/cms/CMSProcessableByteArray
+abcd/ZN org/spongycastle/cms/CMSProcessableByteArray
 	j6 (Ljava/io/OutputStream;)V write
 		0 zOut zOut
 	DW bytes
 	j6 type
-abcd/ZO org/bouncycastle/crypto/util/Pack
+abcd/ZO org/spongycastle/crypto/util/Pack
 	DW ([BI)J bigEndianToLong
 		static
 		0 bs bs
@@ -23971,13 +23970,13 @@ abcd/ZO org/bouncycastle/crypto/util/Pack
 		static
 		0 bs bs
 		1 off off
-abcd/ZP org/bouncycastle/jce/exception/ExtCertificateEncodingException
+abcd/ZP org/spongycastle/jce/exception/ExtCertificateEncodingException
 	j6 _e
-abcd/_L org/bouncycastle/asn1/ConstructedOctetStream
+abcd/_L org/spongycastle/asn1/ConstructedOctetStream
 	DW _first
 	FH _currentStream
 	j6 _parser
-abcd/_M org/bouncycastle/asn1/cryptopro/CryptoProObjectIdentifiers
+abcd/_M org/spongycastle/asn1/cryptopro/CryptoProObjectIdentifiers
 	v5 gostR3411_94_with_gostR3410_94
 	Zo gostR3411_94_with_gostR3410_2001
 	j6 gostR3411
@@ -23999,15 +23998,15 @@ abcd/_M org/bouncycastle/asn1/cryptopro/CryptoProObjectIdentifiers
 	J8 gostR3410_94_CryptoPro_XchC
 	J0 gostR3410_94_CryptoPro_XchB
 	EQ gostR3410_94_CryptoPro_D
-abcd/_N org/bouncycastle/cms/CMSSignatureEncryptionAlgorithmFinder
+abcd/_N org/spongycastle/cms/CMSSignatureEncryptionAlgorithmFinder
 	j6 (Labcd/wN;)Labcd/wN; findEncryptionAlgorithm
 		0 signatureAlgorithm signatureAlgorithm
-abcd/_O org/bouncycastle/jcajce/DefaultJcaJceHelper
+abcd/_O org/spongycastle/jcajce/DefaultJcaJceHelper
 	DW (Ljava/lang/String;)Ljava/security/MessageDigest; createDigest
 		0 algorithm algorithm
 	j6 (Ljava/lang/String;)Ljava/security/Signature; createSignature
 		0 algorithm algorithm
-abcd/_P org/bouncycastle/x509/X509Util
+abcd/_P org/spongycastle/x509/X509Util
 	j6 (Labcd/wN;I)Labcd/nN; creatPSSParams
 		static
 		0 hashAlgId hashAlgId
@@ -24034,7 +24033,7 @@ abcd/_P org/bouncycastle/x509/X509Util
 	FH noParams
 	DW params
 	j6 algorithms
-abcd/aM org/bouncycastle/asn1/DERApplicationSpecific
+abcd/aM org/spongycastle/asn1/DERApplicationSpecific
 	j6 (I[B)[B replaceTagNumber
 		0 newTag newTag
 		1 input input
@@ -24051,7 +24050,7 @@ abcd/aM org/bouncycastle/asn1/DERApplicationSpecific
 	j6 isConstructed
 	u7 ()I getApplicationTag
 	v5 ()I encodedLength
-abcd/aN org/bouncycastle/asn1/eac/EACObjectIdentifiers
+abcd/aN org/spongycastle/asn1/eac/EACObjectIdentifiers
 	we id_TA_RSA_v1_5_SHA_1
 	DW id_PK
 	EQ id_TA_RSA
@@ -24076,19 +24075,19 @@ abcd/aN org/bouncycastle/asn1/eac/EACObjectIdentifiers
 	tp id_TA
 	u7 id_CA_ECDH_3DES_CBC_CBC
 	v5 id_CA
-abcd/aO org/bouncycastle/cms/CMSSignedData
+abcd/aO org/spongycastle/cms/CMSSignedData
 	DW ()Labcd/WM; getSignedData
 	j6 HELPER
 	DW signedData
 	FH contentInfo
 	Hw signedContent
 	j6 ()Labcd/UM; getContentInfo
-abcd/aP org/bouncycastle/jcajce/JcaJceHelper
+abcd/aP org/spongycastle/jcajce/JcaJceHelper
 	DW (Ljava/lang/String;)Ljava/security/MessageDigest; createDigest
 		0 algorithm algorithm
 	j6 (Ljava/lang/String;)Ljava/security/Signature; createSignature
 		0 algorithm algorithm
-abcd/aQ org/bouncycastle/x509/X509V3CertificateGenerator
+abcd/aQ org/spongycastle/x509/X509V3CertificateGenerator
 	j6 (Labcd/DN;[B)Ljava/security/cert/X509Certificate; generateJcaObject
 		0 tbsCert tbsCert
 		1 signature signature
@@ -24119,7 +24118,7 @@ abcd/aQ org/bouncycastle/x509/X509V3CertificateGenerator
 		0 date date
 	DW (Ljava/util/Date;)V setNotBefore
 		0 date date
-abcd/bM org/bouncycastle/asn1/DERBMPString
+abcd/bM org/spongycastle/asn1/DERBMPString
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
@@ -24127,25 +24126,24 @@ abcd/bM org/bouncycastle/asn1/DERBMPString
 		0 o o
 	j6 string
 	v5 ()I encodedLength
-abcd/bN org/bouncycastle/asn1/iana/IANAObjectIdentifiers
+abcd/bN org/spongycastle/asn1/iana/IANAObjectIdentifiers
 	DW isakmpOakley
 	FH hmacSHA1
 	Hw hmacTIGER
 	v5 hmacRIPEMD160
 	j6 hmacMD5
-abcd/bO org/bouncycastle/cms/CMSSignedDataGenerator$1
+abcd/bO org/spongycastle/cms/CMSSignedDataGenerator$1
 	j6 (Ljava/io/OutputStream;)V write
-		0 out out
 	DW val$contentTypeOID
 	FH val$content
 	j6 this$0
-abcd/bP org/bouncycastle/jcajce/NamedJcaJceHelper
+abcd/bP org/spongycastle/jcajce/NamedJcaJceHelper
 	DW (Ljava/lang/String;)Ljava/security/MessageDigest; createDigest
 		0 algorithm algorithm
 	j6 (Ljava/lang/String;)Ljava/security/Signature; createSignature
 		0 algorithm algorithm
 	j6 providerName
-abcd/cM org/bouncycastle/asn1/DERBitString
+abcd/cM org/spongycastle/asn1/DERBitString
 	DW ([B)Labcd/cM; fromOctetString
 		static
 		0 bytes bytes
@@ -24171,44 +24169,31 @@ abcd/cM org/bouncycastle/asn1/DERBitString
 	FH padBits
 	tp ()I getPadBits
 	v5 ()I encodedLength
-abcd/cN org/bouncycastle/asn1/kisa/KISAObjectIdentifiers
+abcd/cN org/spongycastle/asn1/kisa/KISAObjectIdentifiers
 	DW id_npki_app_cmsSeed_wrap
 	j6 id_seedCBC
-abcd/cO org/bouncycastle/cms/CMSSignedDataGenerator
+abcd/cO org/spongycastle/cms/CMSSignedDataGenerator
 	ei signerInfs
 	j6 (Labcd/fO;Z)Labcd/aO; generate
 		0 content content
 		1 encapsulate encapsulate
 	j6 (Ljava/lang/String;Labcd/YN;ZLjava/lang/String;Z)Labcd/aO; generate
-		0 eContentType eContentType
-		1 content content
-		2 encapsulate encapsulate
-		3 sigProvider sigProvider
-		4 addDefaultAttributes addDefaultAttributes
 	j6 (Ljava/lang/String;Labcd/YN;ZLjava/security/Provider;Z)Labcd/aO; generate
-		0 eContentType eContentType
-		1 content content
-		2 encapsulate encapsulate
-		3 sigProvider sigProvider
-		4 addDefaultAttributes addDefaultAttributes
-abcd/cO$a org/bouncycastle/cms/CMSSignedDataGenerator$SignerInf
+abcd/cO$a org/spongycastle/cms/CMSSignedDataGenerator$SignerInf
 	j6 (Ljava/security/SecureRandom;Ljava/security/Provider;Z)Labcd/kO; toSignerInfoGenerator
-		0 random random
-		1 sigProvider sigProvider
-		2 addDefaultAttributes addDefaultAttributes
 	DW signerIdentifier
 	j6 key
 	Hw encOID
 	FH digestOID
 	v5 sAttr
 	Zo unsAttr
-abcd/cP org/bouncycastle/jcajce/ProviderJcaJceHelper
+abcd/cP org/spongycastle/jcajce/ProviderJcaJceHelper
 	DW (Ljava/lang/String;)Ljava/security/MessageDigest; createDigest
 		0 algorithm algorithm
 	j6 (Ljava/lang/String;)Ljava/security/Signature; createSignature
 		0 algorithm algorithm
 	j6 provider
-abcd/dM org/bouncycastle/asn1/DERBoolean
+abcd/dM org/spongycastle/asn1/DERBoolean
 	DW ([B)Labcd/oL; fromOctetString
 		static
 		0 value value
@@ -24230,7 +24215,7 @@ abcd/dM org/bouncycastle/asn1/DERBoolean
 	DW FALSE_VALUE
 	Hw TRUE
 	FH FALSE
-abcd/dN org/bouncycastle/asn1/misc/MiscObjectIdentifiers
+abcd/dN org/spongycastle/asn1/misc/MiscObjectIdentifiers
 	DW netscapeCertType
 	EQ verisignCzagExtension
 	FH netscapeBaseURL
@@ -24247,7 +24232,7 @@ abcd/dN org/bouncycastle/asn1/misc/MiscObjectIdentifiers
 	u7 netscapeCertComment
 	v5 netscapeCARevocationURL
 	we verisignDnbDunsNumber
-abcd/dO org/bouncycastle/cms/CMSSignedGenerator
+abcd/dO org/spongycastle/cms/CMSSignedGenerator
 	j6 (Labcd/kO;)V addSignerInfoGenerator
 		0 infoGen infoGen
 	lg NO_PARAMS
@@ -24282,8 +24267,8 @@ abcd/dO org/bouncycastle/cms/CMSSignedGenerator
 		0 certStore certStore
 	J8 digestAlgName1
 	aM digestAlgName2
-abcd/dP org/bouncycastle/jcajce/provider/asymmetric/util/BaseKeyFactorySpi
-abcd/eM org/bouncycastle/asn1/DEREnumerated
+abcd/dP org/spongycastle/jcajce/provider/asymmetric/util/BaseKeyFactorySpi
+abcd/eM org/spongycastle/asn1/DEREnumerated
 	DW ([B)Labcd/sL; fromOctetString
 		static
 		0 enc enc
@@ -24296,29 +24281,25 @@ abcd/eM org/bouncycastle/asn1/DEREnumerated
 	j6 cache
 	DW bytes
 	v5 ()I encodedLength
-abcd/eN org/bouncycastle/asn1/misc/NetscapeCertType
-abcd/eO org/bouncycastle/cms/CMSSignedHelper
+abcd/eN org/spongycastle/asn1/misc/NetscapeCertType
+abcd/eO org/spongycastle/cms/CMSSignedHelper
 	j6 (Labcd/oM;Ljava/lang/String;Ljava/lang/String;)V addEntries
 		static
-		0 alias alias
-		1 digest digest
-		2 encryption encryption
 	j6 (Labcd/wN;)Labcd/wN; fixAlgID
 		0 algId algId
 	j6 INSTANCE
 	j6 (Ljava/lang/String;)Ljava/lang/String; getDigestAlgName
-		0 digestAlgOID digestAlgOID
 	DW (Ljava/lang/String;)Ljava/lang/String; getEncryptionAlgName
 		0 encryptionAlgOID encryptionAlgOID
 	FH digestAlgs
 	DW encryptionAlgs
 	Hw digestAliases
-abcd/eP org/bouncycastle/synthetic/DerEncoders
+abcd/eP org/spongycastle/synthetic/DerEncoders
 	j6 (Labcd/CN;)[B encodePublicKeyInfo
 		static
 	j6 (Labcd/wN;Labcd/qL;)[B encodeWithAlgorithm
 		static
-abcd/fM org/bouncycastle/asn1/DERExternal
+abcd/fM org/spongycastle/asn1/DERExternal
 	j6 (Labcd/rL;I)Labcd/EL; getObjFromVector
 		0 v v
 		1 index index
@@ -24340,23 +24321,22 @@ abcd/fM org/bouncycastle/asn1/DERExternal
 	v5 externalContent
 	FH dataValueDescriptor
 	v5 ()I encodedLength
-abcd/fN org/bouncycastle/asn1/misc/NetscapeRevocationURL
-abcd/fO org/bouncycastle/cms/CMSTypedData
-abcd/fP org/bouncycastle/jcajce/provider/asymmetric/util/PKCS12BagAttributeCarrierImpl
+abcd/fN org/spongycastle/asn1/misc/NetscapeRevocationURL
+abcd/fO org/spongycastle/cms/CMSTypedData
+abcd/fP org/spongycastle/jcajce/provider/asymmetric/util/PKCS12BagAttributeCarrierImpl
 	j6 (Labcd/oM;)Labcd/qL; getBagAttribute
-		0 oid oid
 	j6 ()Ljava/util/Enumeration; getBagAttributeKeys
 	j6 (Labcd/zL;Labcd/qL;)V setBagAttribute
 		0 oid oid
 		1 attribute attribute
 	DW pkcs12Ordering
 	j6 pkcs12Attributes
-abcd/gM org/bouncycastle/asn1/DERExternalParser
+abcd/gM org/spongycastle/asn1/DERExternalParser
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/gN org/bouncycastle/asn1/misc/VerisignCzagExtension
-abcd/gO org/bouncycastle/cms/CMSUtils
+abcd/gN org/spongycastle/asn1/misc/VerisignCzagExtension
+abcd/gO org/spongycastle/cms/CMSUtils
 	j6 (Ljava/io/OutputStream;)Ljava/io/OutputStream; getSafeOutputStream
 		static
 		0 s s
@@ -24370,18 +24350,17 @@ abcd/gO org/bouncycastle/cms/CMSUtils
 		1 s s
 	j6 (Ljava/lang/String;)Ljava/security/Provider; getProvider
 		static
-		0 providerName providerName
 	j6 (Ljava/util/List;)Labcd/HL; createBerSetFromList
 		static
 		0 derObjects derObjects
 	j6 (Labcd/SP;)Ljava/util/List; getCertificatesFromStore
 		static
 		0 certStore certStore
-abcd/gP org/bouncycastle/jcajce/provider/config/ConfigurableProvider
+abcd/gP org/spongycastle/jcajce/provider/config/ConfigurableProvider
 	j6 (Ljava/lang/String;Ljava/lang/String;)V addAlgorithm
 		0 key key
 		1 value value
-abcd/hM org/bouncycastle/asn1/DERFactory
+abcd/hM org/spongycastle/asn1/DERFactory
 	DW (Labcd/rL;)Labcd/HL; createSet
 		static
 		0 v v
@@ -24390,7 +24369,7 @@ abcd/hM org/bouncycastle/asn1/DERFactory
 		0 v v
 	DW EMPTY_SET
 	j6 EMPTY_SEQUENCE
-abcd/hN org/bouncycastle/asn1/nist/NISTObjectIdentifiers
+abcd/hN org/spongycastle/asn1/nist/NISTObjectIdentifiers
 	BT id_dsa_with_sha2
 	DW id_sha256
 	EQ id_aes128_wrap
@@ -24423,13 +24402,13 @@ abcd/hN org/bouncycastle/asn1/nist/NISTObjectIdentifiers
 	vy dsa_with_sha224
 	we id_aes128_GCM
 	yS id_aes256_GCM
-abcd/hO org/bouncycastle/cms/DefaultCMSSignatureEncryptionAlgorithmFinder
+abcd/hO org/spongycastle/cms/DefaultCMSSignatureEncryptionAlgorithmFinder
 	j6 (Labcd/wN;)Labcd/wN; findEncryptionAlgorithm
 		0 signatureAlgorithm signatureAlgorithm
 	j6 RSA_PKCS1d5
-abcd/hP org/bouncycastle/jcajce/provider/config/ProviderConfiguration
+abcd/hP org/spongycastle/jcajce/provider/config/ProviderConfiguration
 	j6 ()Ljavax/crypto/spec/DHParameterSpec; getDHDefaultParameters
-abcd/iM org/bouncycastle/asn1/DERGeneralString
+abcd/iM org/spongycastle/asn1/DERGeneralString
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
@@ -24437,23 +24416,23 @@ abcd/iM org/bouncycastle/asn1/DERGeneralString
 		0 o o
 	j6 string
 	v5 ()I encodedLength
-abcd/iN org/bouncycastle/asn1/ntt/NTTObjectIdentifiers
+abcd/iN org/spongycastle/asn1/ntt/NTTObjectIdentifiers
 	DW id_camellia192_cbc
 	FH id_camellia256_cbc
 	Hw id_camellia128_wrap
 	Zo id_camellia256_wrap
 	j6 id_camellia128_cbc
 	v5 id_camellia192_wrap
-abcd/iO org/bouncycastle/cms/DefaultSignedAttributeTableGenerator
+abcd/iO org/spongycastle/cms/DefaultSignedAttributeTableGenerator
 	j6 (Ljava/util/Map;)Ljava/util/Hashtable; createStandardAttributeTable
 		0 parameters parameters
 	j6 table
-abcd/iP org/bouncycastle/jcajce/provider/config/ProviderConfigurationPermission
+abcd/iP org/spongycastle/jcajce/provider/config/ProviderConfigurationPermission
 	j6 (Ljava/lang/String;)I calculateMask
 		0 actions actions
 	DW permissionMask
 	j6 actions
-abcd/jM org/bouncycastle/asn1/DERGeneralizedTime
+abcd/jM org/spongycastle/asn1/DERGeneralizedTime
 	j6 (I)Ljava/lang/String; convert
 		0 time time
 	j6 (Labcd/CL;)V encode
@@ -24467,7 +24446,7 @@ abcd/jM org/bouncycastle/asn1/DERGeneralizedTime
 	we ()Z hasFractionalSeconds
 	Zo ()Z isConstructed
 	v5 ()I encodedLength
-abcd/jN org/bouncycastle/asn1/oiw/OIWObjectIdentifiers
+abcd/jN org/spongycastle/asn1/oiw/OIWObjectIdentifiers
 	DW md5WithRSA
 	EQ sha1WithRSA
 	FH md4WithRSAEncryption
@@ -24480,9 +24459,9 @@ abcd/jN org/bouncycastle/asn1/oiw/OIWObjectIdentifiers
 	u7 idSHA1
 	v5 desCBC
 	we elGamalAlgorithm
-abcd/jO org/bouncycastle/cms/NullOutputStream
-abcd/jP org/bouncycastle/jcajce/provider/util/AlgorithmProvider
-abcd/kM org/bouncycastle/asn1/DERIA5String
+abcd/jO org/spongycastle/cms/NullOutputStream
+abcd/jP org/spongycastle/jcajce/provider/util/AlgorithmProvider
+abcd/kM org/spongycastle/asn1/DERIA5String
 	DW (Ljava/lang/String;)Z isIA5String
 		static
 		0 str str
@@ -24493,7 +24472,7 @@ abcd/kM org/bouncycastle/asn1/DERIA5String
 		0 o o
 	j6 string
 	v5 ()I encodedLength
-abcd/kN org/bouncycastle/asn1/pkcs/DHParameter
+abcd/kN org/spongycastle/asn1/pkcs/DHParameter
 	j6 (Ljava/lang/Object;)Labcd/kN; getInstance
 		static
 		0 obj obj
@@ -24504,13 +24483,10 @@ abcd/kN org/bouncycastle/asn1/pkcs/DHParameter
 	j6 p
 	FH l
 	DW g
-abcd/kO org/bouncycastle/cms/SignerInfoGenerator
+abcd/kO org/spongycastle/cms/SignerInfoGenerator
 	j6 (Labcd/RM;)Labcd/HL; getAttributeSet
 		0 attr attr
 	j6 (Labcd/oM;Labcd/wN;[B)Ljava/util/Map; getBaseParameters
-		0 contentType contentType
-		1 digAlgId digAlgId
-		2 hash hash
 	DW ()Ljava/io/OutputStream; getCalculatingOutputStream
 	j6 (Labcd/SN;)V setAssociatedCertificate
 		0 certHolder certHolder
@@ -24526,8 +24502,8 @@ abcd/kO org/bouncycastle/cms/SignerInfoGenerator
 	j6 (Labcd/zL;)Labcd/YM; generate
 		0 contentType contentType
 	Zo digAlgFinder
-abcd/kP org/bouncycastle/synthetic/EmptyAlgorithmProvider
-abcd/lM org/bouncycastle/asn1/DERInteger
+abcd/kP org/spongycastle/synthetic/EmptyAlgorithmProvider
+abcd/lM org/spongycastle/asn1/DERInteger
 	j6 (Labcd/LL;Z)Labcd/wL; getInstance
 		static
 		0 obj obj
@@ -24544,7 +24520,7 @@ abcd/lM org/bouncycastle/asn1/DERInteger
 	v5 ()I encodedLength
 	tp ()Ljava/math/BigInteger; getValue
 	u7 ()Ljava/math/BigInteger; getPositiveValue
-abcd/lN org/bouncycastle/asn1/pkcs/PKCSObjectIdentifiers
+abcd/lN org/spongycastle/asn1/pkcs/PKCSObjectIdentifiers
 	we sha256WithRSAEncryption
 	Ws sha224WithRSAEncryption
 	J8 sha512WithRSAEncryption
@@ -24674,7 +24650,7 @@ abcd/lN org/bouncycastle/asn1/pkcs/PKCSObjectIdentifiers
 	ct oidConstant3
 	gG oidConstant4
 	ys oidConstant5
-abcd/lO org/bouncycastle/cms/SignerInfoGeneratorBuilder
+abcd/lO org/spongycastle/cms/SignerInfoGeneratorBuilder
 	j6 (Labcd/vP;Labcd/XM;)Labcd/kO; createGenerator
 		0 contentSigner contentSigner
 		1 sigId sigId
@@ -24695,15 +24671,15 @@ abcd/lO org/bouncycastle/cms/SignerInfoGeneratorBuilder
 		0 signedGen signedGen
 	FH signedGen
 	Hw unsignedGen
-abcd/lP org/bouncycastle/jcajce/provider/util/AsymmetricKeyInfoConverter
-abcd/mM org/bouncycastle/asn1/DERNull
+abcd/lP org/spongycastle/jcajce/provider/util/AsymmetricKeyInfoConverter
+abcd/mM org/spongycastle/asn1/DERNull
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
 	v5 ()I encodedLength
 	DW zeroBytes
 	j6 INSTANCE
-abcd/mN org/bouncycastle/asn1/pkcs/PrivateKeyInfo
+abcd/mN org/spongycastle/asn1/pkcs/PrivateKeyInfo
 	j6 (Ljava/lang/Object;)Labcd/mN; getInstance
 		static
 		0 obj obj
@@ -24713,18 +24689,18 @@ abcd/mN org/bouncycastle/asn1/pkcs/PrivateKeyInfo
 	j6 privKey
 	DW ()Labcd/EL; toASN1Primitive
 	v5 ()Labcd/wN; getPrivateKeyAlgorithm
-abcd/mO org/bouncycastle/cms/SignerInformation
+abcd/mO org/spongycastle/cms/SignerInformation
 	j6 ()Labcd/wN; getDigestAlgorithmID
 	j6 info
 	DW ()Labcd/YM; toASN1Structure
 	DW digestAlgorithm
-abcd/mP org/bouncycastle/jce/X509Principal
+abcd/mP org/spongycastle/jce/X509Principal
 	j6 (Labcd/vL;)Labcd/FL; readSequence
 		static
 		0 aIn aIn
 	Hw ()[B getEncoded
-abcd/nL org/bouncycastle/asn1/ASN1ApplicationSpecificParser
-abcd/nM org/bouncycastle/asn1/DERNumericString
+abcd/nL org/spongycastle/asn1/ASN1ApplicationSpecificParser
+abcd/nM org/spongycastle/asn1/DERNumericString
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
@@ -24732,7 +24708,7 @@ abcd/nM org/bouncycastle/asn1/DERNumericString
 		0 o o
 	j6 string
 	v5 ()I encodedLength
-abcd/nN org/bouncycastle/asn1/pkcs/RSASSAPSSparams
+abcd/nN org/spongycastle/asn1/pkcs/RSASSAPSSparams
 	j6 (Ljava/lang/Object;)Labcd/nN; getInstance
 		static
 		0 obj obj
@@ -24746,7 +24722,7 @@ abcd/nN org/bouncycastle/asn1/pkcs/RSASSAPSSparams
 	VH saltLength
 	Zo maskGenAlgorithm
 	v5 hashAlgorithm
-abcd/nO org/bouncycastle/cms/jcajce/JcaSignerInfoGeneratorBuilder
+abcd/nO org/spongycastle/cms/jcajce/JcaSignerInfoGeneratorBuilder
 	j6 (Labcd/vP;Labcd/SN;)Labcd/kO; build
 		0 contentSigner contentSigner
 		1 certHolder certHolder
@@ -24763,9 +24739,9 @@ abcd/nO org/bouncycastle/cms/jcajce/JcaSignerInfoGeneratorBuilder
 		0 signedGen signedGen
 	DW (Labcd/WN;)Labcd/nO; setUnsignedAttributeGenerator
 		0 unsignedGen unsignedGen
-abcd/nP org/bouncycastle/jce/interfaces/PKCS12BagAttributeCarrier
-abcd/oL org/bouncycastle/asn1/ASN1Boolean
-abcd/oM org/bouncycastle/asn1/DERObjectIdentifier
+abcd/nP org/spongycastle/jce/interfaces/PKCS12BagAttributeCarrier
+abcd/oL org/spongycastle/asn1/ASN1Boolean
+abcd/oM org/spongycastle/asn1/DERObjectIdentifier
 	DW ([B)Labcd/zL; fromOctetString
 		static
 		0 enc enc
@@ -24794,7 +24770,7 @@ abcd/oM org/bouncycastle/asn1/DERObjectIdentifier
 	FH body
 	v5 ()I encodedLength
 	tp ()Ljava/lang/String; getId
-abcd/oN org/bouncycastle/asn1/teletrust/TeleTrusTObjectIdentifiers
+abcd/oN org/spongycastle/asn1/teletrust/TeleTrusTObjectIdentifiers
 	BT brainpoolP512t1
 	DW ripemd160
 	EQ ecSignWithRipemd160
@@ -24823,20 +24799,20 @@ abcd/oN org/bouncycastle/asn1/teletrust/TeleTrusTObjectIdentifiers
 	v5 teleTrusTRSAsignatureAlgorithm
 	we ecc_brainpool
 	yS brainpoolP384t1
-abcd/oO org/bouncycastle/crypto/AsymmetricCipherKeyPair
+abcd/oO org/spongycastle/crypto/AsymmetricCipherKeyPair
 	j6 ()Labcd/qO; getPrivate
 	DW ()Labcd/qO; getPublic
 	j6 publicParam
 	DW privateParam
-abcd/oP org/bouncycastle/jce/provider/BouncyCastleProvider$1
+abcd/oP org/spongycastle/jce/provider/BouncyCastleProvider$1
 	j6 this$0
-abcd/pL org/bouncycastle/asn1/ASN1Choice
-abcd/pM org/bouncycastle/asn1/DEROctetString
+abcd/pL org/spongycastle/asn1/ASN1Choice
+abcd/pM org/spongycastle/asn1/DEROctetString
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
 	v5 ()I encodedLength
-abcd/pN org/bouncycastle/asn1/util/ASN1Dump
+abcd/pN org/spongycastle/asn1/util/ASN1Dump
 	j6 (Ljava/lang/Object;)Ljava/lang/String; dumpAsString
 		static
 		0 obj obj
@@ -24866,7 +24842,7 @@ abcd/pN org/bouncycastle/asn1/util/ASN1Dump
 		1 verbose verbose
 		2 obj obj
 		3 buf buf
-abcd/pO org/bouncycastle/crypto/BlockCipher
+abcd/pO org/spongycastle/crypto/BlockCipher
 	j6 ([BI[BI)I processBlock
 		0 in in
 		1 inOff inOff
@@ -24875,7 +24851,7 @@ abcd/pO org/bouncycastle/crypto/BlockCipher
 	j6 (ZLabcd/qO;)V init
 		0 forEncryption forEncryption
 		1 params params
-abcd/pP org/bouncycastle/jce/provider/BouncyCastleProvider
+abcd/pP org/spongycastle/jce/provider/BouncyCastleProvider
 	j6 (Labcd/CN;)Ljava/security/PublicKey; getPublicKey
 		static
 		0 publicKeyInfo publicKeyInfo
@@ -24895,14 +24871,14 @@ abcd/pP org/bouncycastle/jce/provider/BouncyCastleProvider
 	gn DIGESTS
 	Zo ASYMMETRIC_GENERIC
 	VH ASYMMETRIC_CIPHERS
-abcd/qL org/bouncycastle/asn1/ASN1Encodable
+abcd/qL org/spongycastle/asn1/ASN1Encodable
 	DW ()Labcd/EL; toASN1Primitive
-abcd/qM org/bouncycastle/asn1/DEROctetStringParser
+abcd/qM org/spongycastle/asn1/DEROctetStringParser
 	FH ()Ljava/io/InputStream; getOctetStream
 	j6 stream
 	DW ()Labcd/EL; toASN1Primitive
 	j6 ()Labcd/EL; getLoadedObject
-abcd/qN org/bouncycastle/asn1/x500/AttributeTypeAndValue
+abcd/qN org/spongycastle/asn1/x500/AttributeTypeAndValue
 	j6 (Ljava/lang/Object;)Labcd/qN; getInstance
 		static
 		0 o o
@@ -24911,8 +24887,8 @@ abcd/qN org/bouncycastle/asn1/x500/AttributeTypeAndValue
 	v5 ()Labcd/zL; getType
 	DW value
 	j6 type
-abcd/qO org/bouncycastle/crypto/CipherParameters
-abcd/qP org/bouncycastle/jce/provider/BouncyCastleProviderConfiguration
+abcd/qO org/spongycastle/crypto/CipherParameters
+abcd/qP org/spongycastle/jce/provider/BouncyCastleProviderConfiguration
 	j6 ()Ljavax/crypto/spec/DHParameterSpec; getDHDefaultParameters
 	VH dhDefaultParams
 	j6 BC_EC_LOCAL_PERMISSION
@@ -24921,19 +24897,19 @@ abcd/qP org/bouncycastle/jce/provider/BouncyCastleProviderConfiguration
 	DW BC_EC_PERMISSION
 	Zo dhThreadSpec
 	v5 ecThreadSpec
-abcd/rL org/bouncycastle/asn1/ASN1EncodableVector
+abcd/rL org/spongycastle/asn1/ASN1EncodableVector
 	j6 ()I size
 	j6 (I)Labcd/qL; get
 		0 i i
 	j6 (Labcd/qL;)V add
 		0 obj obj
 	j6 v
-abcd/rM org/bouncycastle/asn1/DEROutputStream
+abcd/rM org/spongycastle/asn1/DEROutputStream
 	j6 (Labcd/qL;)V writeObject
 		0 obj obj
 	DW ()Labcd/CL; getDLSubStream
 	j6 ()Labcd/CL; getDERSubStream
-abcd/rN org/bouncycastle/asn1/x500/RDN
+abcd/rN org/spongycastle/asn1/x500/RDN
 	j6 (Ljava/lang/Object;)Labcd/rN; getInstance
 		static
 		0 obj obj
@@ -24942,10 +24918,10 @@ abcd/rN org/bouncycastle/asn1/x500/RDN
 	Zo ()[Labcd/qN; getTypesAndValues
 	v5 ()Labcd/qN; getFirst
 	j6 values
-abcd/rO org/bouncycastle/crypto/DataLengthException
-abcd/rP org/bouncycastle/jce/provider/PKIXCRLUtil
-abcd/sL org/bouncycastle/asn1/ASN1Enumerated
-abcd/sM org/bouncycastle/asn1/DERPrintableString
+abcd/rO org/spongycastle/crypto/DataLengthException
+abcd/rP org/spongycastle/jce/provider/PKIXCRLUtil
+abcd/sL org/spongycastle/asn1/ASN1Enumerated
+abcd/sM org/spongycastle/asn1/DERPrintableString
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
@@ -24953,7 +24929,7 @@ abcd/sM org/bouncycastle/asn1/DERPrintableString
 		0 o o
 	j6 string
 	v5 ()I encodedLength
-abcd/sN org/bouncycastle/asn1/x500/X500Name
+abcd/sN org/spongycastle/asn1/x500/X500Name
 	j6 (Ljava/lang/Object;)Labcd/sN; getInstance
 		static
 		0 obj obj
@@ -24964,7 +24940,7 @@ abcd/sN org/bouncycastle/asn1/x500/X500Name
 	FH hashCodeValue
 	Hw style
 	v5 rdns
-abcd/sO org/bouncycastle/crypto/Digest
+abcd/sO org/spongycastle/crypto/Digest
 	DW ()I getDigestSize
 	j6 ([BI)I doFinal
 		0 out out
@@ -24972,7 +24948,7 @@ abcd/sO org/bouncycastle/crypto/Digest
 	j6 ()Ljava/lang/String; getAlgorithmName
 	j6 (B)V update
 		0 in in
-abcd/sP org/bouncycastle/jce/provider/CertPathValidatorUtilities
+abcd/sP org/spongycastle/jce/provider/CertPathValidatorUtilities
 	QX crlReasons
 	j6 CRL_UTIL
 	Zo NAME_CONSTRAINTS
@@ -24989,15 +24965,15 @@ abcd/sP org/bouncycastle/jce/provider/CertPathValidatorUtilities
 	EQ POLICY_CONSTRAINTS
 	u7 ISSUING_DISTRIBUTION_POINT
 	DW CERTIFICATE_POLICIES
-abcd/tL org/bouncycastle/asn1/ASN1Exception
+abcd/tL org/spongycastle/asn1/ASN1Exception
 	j6 cause
-abcd/tM org/bouncycastle/asn1/DERSequence
+abcd/tM org/spongycastle/asn1/DERSequence
 	j6 (Labcd/CL;)V encode
 		0 out out
 	DW bodyLength
 	we ()I getBodyLength
 	v5 ()I encodedLength
-abcd/tN org/bouncycastle/asn1/x500/X500NameStyle
+abcd/tN org/spongycastle/asn1/x500/X500NameStyle
 	DW (Labcd/sN;)I calculateHashCode
 		0 name name
 	j6 (Labcd/sN;)Ljava/lang/String; toString
@@ -25005,8 +24981,8 @@ abcd/tN org/bouncycastle/asn1/x500/X500NameStyle
 	j6 (Labcd/sN;Labcd/sN;)Z areEqual
 		0 name1 name1
 		1 name2 name2
-abcd/tO org/bouncycastle/crypto/ExtendedDigest
-abcd/tP org/bouncycastle/jce/provider/X509CertificateObject
+abcd/tO org/spongycastle/crypto/ExtendedDigest
+abcd/tP org/spongycastle/jce/provider/X509CertificateObject
 	j6 (Ljava/security/PublicKey;Ljava/security/Signature;)V checkSignature
 		0 key key
 		1 signature signature
@@ -25022,17 +24998,15 @@ abcd/tP org/bouncycastle/jce/provider/X509CertificateObject
 	j6 ()I calculateHashCode
 	j6 (Ljava/lang/String;)[B getExtensionBytes
 		0 oid oid
-abcd/uL org/bouncycastle/asn1/ASN1GeneralizedTime
-abcd/uM org/bouncycastle/asn1/BERSetParser
+abcd/uL org/spongycastle/asn1/ASN1GeneralizedTime
+abcd/uM org/spongycastle/asn1/BERSetParser
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/uN org/bouncycastle/asn1/x500/style/BCStyle
+abcd/uN org/spongycastle/asn1/x500/style/BCStyle
 	j6 (Labcd/qL;)I calcHashCode
 		0 enc enc
 	j6 (Labcd/qN;Labcd/qN;)Z atvAreEqual
-		0 atv1 atv1
-		1 atv2 atv2
 	j6 (ZLabcd/rN;[Labcd/rN;)Z foundMatch
 		0 reverse reverse
 		1 rdn rdn
@@ -25085,11 +25059,11 @@ abcd/uN org/bouncycastle/asn1/x500/style/BCStyle
 	nw oidConstant7
 	u7 oidConstant8
 	vy oidConstant9
-abcd/uO org/bouncycastle/crypto/KeyGenerationParameters
+abcd/uO org/spongycastle/crypto/KeyGenerationParameters
 	j6 ()Ljava/security/SecureRandom; getRandom
 	DW strength
 	j6 random
-abcd/uP org/bouncycastle/jce/provider/X509SignatureUtil
+abcd/uP org/spongycastle/jce/provider/X509SignatureUtil
 	j6 (Labcd/oM;)Ljava/lang/String; getDigestAlgName
 		static
 		0 digestAlgOID digestAlgOID
@@ -25101,7 +25075,7 @@ abcd/uP org/bouncycastle/jce/provider/X509SignatureUtil
 		0 signature signature
 		1 params params
 	j6 derNull
-abcd/vL org/bouncycastle/asn1/ASN1InputStream
+abcd/vL org/spongycastle/asn1/ASN1InputStream
 	DW (Labcd/HM;)[C getBMPCharBuffer
 		static
 		0 defIn defIn
@@ -25135,13 +25109,13 @@ abcd/vL org/bouncycastle/asn1/ASN1InputStream
 		1 limit limit
 	DW ()I getLimit
 	FH ()I readLength
-abcd/vM org/bouncycastle/asn1/DERSet
+abcd/vM org/spongycastle/asn1/DERSet
 	j6 (Labcd/CL;)V encode
 		0 out out
 	FH bodyLength
 	we ()I getBodyLength
 	v5 ()I encodedLength
-abcd/vN org/bouncycastle/asn1/x500/style/IETFUtils
+abcd/vN org/spongycastle/asn1/x500/style/IETFUtils
 	FH (Ljava/lang/String;)Labcd/EL; decodeObject
 		static
 		0 oValue oValue
@@ -25162,17 +25136,17 @@ abcd/vN org/bouncycastle/asn1/x500/style/IETFUtils
 	DW (Ljava/lang/String;)Ljava/lang/String; stripInternalSpaces
 		static
 		0 str str
-abcd/vO org/bouncycastle/crypto/RuntimeCryptoException
-abcd/vP org/bouncycastle/operator/ContentSigner
+abcd/vO org/spongycastle/crypto/RuntimeCryptoException
+abcd/vP org/spongycastle/operator/ContentSigner
 	DW ()Labcd/wN; getAlgorithmIdentifier
 	FH ()[B getSignature
 	j6 ()Ljava/io/OutputStream; getOutputStream
-abcd/wL org/bouncycastle/asn1/ASN1Integer
-abcd/wM org/bouncycastle/asn1/DERSequenceParser
+abcd/wL org/spongycastle/asn1/ASN1Integer
+abcd/wM org/spongycastle/asn1/DERSequenceParser
 	j6 _parser
 	j6 ()Labcd/EL; getLoadedObject
 	DW ()Labcd/EL; toASN1Primitive
-abcd/wN org/bouncycastle/asn1/x509/AlgorithmIdentifier
+abcd/wN org/spongycastle/asn1/x509/AlgorithmIdentifier
 	j6 (Labcd/LL;Z)Labcd/wN; getInstance
 		static
 		0 obj obj
@@ -25187,7 +25161,7 @@ abcd/wN org/bouncycastle/asn1/x509/AlgorithmIdentifier
 	j6 objectId
 	Zo ()Labcd/zL; getObjectId
 	v5 ()Labcd/zL; getAlgorithm
-abcd/wO org/bouncycastle/crypto/digests/GOST3411Digest
+abcd/wO org/spongycastle/crypto/digests/GOST3411Digest
 	j6 ([B[BI[BI)V E
 		0 key key
 		1 s s
@@ -25238,15 +25212,15 @@ abcd/wO org/bouncycastle/crypto/digests/GOST3411Digest
 	DW ()I getDigestSize
 	XL stateArray1
 	j3 stateArray2
-abcd/wP org/bouncycastle/operator/DefaultDigestAlgorithmIdentifierFinder
+abcd/wP org/spongycastle/operator/DefaultDigestAlgorithmIdentifierFinder
 	j6 (Labcd/wN;)Labcd/wN; find
 		0 sigAlgId sigAlgId
 	j6 digestOids
 	DW digestNameToOids
-abcd/xL org/bouncycastle/asn1/ASN1Null
+abcd/xL org/spongycastle/asn1/ASN1Null
 	j6 (Labcd/EL;)Z asn1Equals
 		0 o o
-abcd/xM org/bouncycastle/asn1/DERT61String
+abcd/xM org/spongycastle/asn1/DERT61String
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
@@ -25254,7 +25228,7 @@ abcd/xM org/bouncycastle/asn1/DERT61String
 		0 o o
 	j6 string
 	v5 ()I encodedLength
-abcd/xN org/bouncycastle/asn1/x509/BasicConstraints
+abcd/xN org/spongycastle/asn1/x509/BasicConstraints
 	j6 (Ljava/lang/Object;)Labcd/xN; getInstance
 		static
 		0 obj obj
@@ -25263,7 +25237,7 @@ abcd/xN org/bouncycastle/asn1/x509/BasicConstraints
 	v5 ()Ljava/math/BigInteger; getPathLenConstraint
 	DW pathLenConstraint
 	j6 cA
-abcd/xO org/bouncycastle/crypto/digests/GeneralDigest
+abcd/xO org/spongycastle/crypto/digests/GeneralDigest
 	DW ([BI)V processWord
 		0 in in
 		1 inOff inOff
@@ -25276,7 +25250,7 @@ abcd/xO org/bouncycastle/crypto/digests/GeneralDigest
 	j6 xBuf
 	Hw ()V processBlock
 	FH ()V finish
-abcd/xP org/bouncycastle/operator/DefaultSignatureAlgorithmIdentifierFinder
+abcd/xP org/spongycastle/operator/DefaultSignatureAlgorithmIdentifierFinder
 	j6 (Labcd/wN;I)Labcd/nN; createPSSParams
 		static
 		0 hashAlgId hashAlgId
@@ -25297,18 +25271,18 @@ abcd/xP org/bouncycastle/operator/DefaultSignatureAlgorithmIdentifierFinder
 	v5 digestOids
 	j6 algorithms
 	FH params
-abcd/yL org/bouncycastle/asn1/ASN1Object
+abcd/yL org/spongycastle/asn1/ASN1Object
 	Hw ()[B getEncoded
 	j6 (Ljava/lang/String;)[B getEncoded
 		0 encoding encoding
 	DW ()Labcd/EL; toASN1Primitive
-abcd/yM org/bouncycastle/asn1/DERTaggedObject
+abcd/yM org/spongycastle/asn1/DERTaggedObject
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
 	v5 ()I encodedLength
 	v5 ZERO_BYTES
-abcd/yN org/bouncycastle/asn1/x509/Certificate
+abcd/yN org/spongycastle/asn1/x509/Certificate
 	j6 (Ljava/lang/Object;)Labcd/yN; getInstance
 		static
 		0 obj obj
@@ -25320,7 +25294,7 @@ abcd/yN org/bouncycastle/asn1/x509/Certificate
 	j6 seq
 	v5 ()Labcd/sN; getIssuer
 	Zo ()Labcd/wL; getVersion
-abcd/yO org/bouncycastle/crypto/digests/LongDigest
+abcd/yO org/spongycastle/crypto/digests/LongDigest
 	DW ([BI)V processWord
 		0 in in
 		1 inOff inOff
@@ -25371,13 +25345,13 @@ abcd/yO org/bouncycastle/crypto/digests/LongDigest
 		static
 	$d2j$hex$2ed93388$decode_S (Ljava/lang/String;)[S decodeHexShorts
 		static
-abcd/yP org/bouncycastle/operator/DigestAlgorithmIdentifierFinder
+abcd/yP org/spongycastle/operator/DigestAlgorithmIdentifierFinder
 	j6 (Labcd/wN;)Labcd/wN; find
 		0 sigAlgId sigAlgId
-abcd/zL org/bouncycastle/asn1/ASN1ObjectIdentifier
+abcd/zL org/spongycastle/asn1/ASN1ObjectIdentifier
 	DW (Ljava/lang/String;)Labcd/zL; branch
 		0 branchID branchID
-abcd/zM org/bouncycastle/asn1/DERUTCTime
+abcd/zM org/spongycastle/asn1/DERUTCTime
 	Zo ()Z isConstructed
 	j6 (Labcd/CL;)V encode
 		0 out out
@@ -25389,7 +25363,7 @@ abcd/zM org/bouncycastle/asn1/DERUTCTime
 	v5 ()I encodedLength
 	we ()Ljava/lang/String; getTime
 	tp ()Ljava/lang/String; getAdjustedTime
-abcd/zN org/bouncycastle/asn1/x509/Extension
+abcd/zN org/spongycastle/asn1/x509/Extension
 	DW ()Z isCritical
 	j6 ()Labcd/AL; getExtnValue
 	BT qCStatements
@@ -25426,7 +25400,7 @@ abcd/zN org/bouncycastle/asn1/x509/Extension
 	KD value
 	SI critical
 	nw extnId
-abcd/zO org/bouncycastle/crypto/digests/MD2Digest
+abcd/zO org/spongycastle/crypto/digests/MD2Digest
 	j6 ([BI)I doFinal
 		0 out out
 		1 outOff outOff
@@ -25445,7 +25419,7 @@ abcd/zO org/bouncycastle/crypto/digests/MD2Digest
 	FH xOff
 	VH COff
 	DW ()I getDigestSize
-abcd/zP org/bouncycastle/operator/DigestCalculator
+abcd/zP org/spongycastle/operator/DigestCalculator
 	DW ()Labcd/wN; getAlgorithmIdentifier
 	FH ()[B getDigest
 	j6 ()Ljava/io/OutputStream; getOutputStream
@@ -47928,6 +47902,7 @@ org/c/a/a/c/a/a/a/c/d org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	a (Lorg/c/a/a/b/d/e/v;)V visit
 	a (Lorg/c/a/a/b/d/e/l;)V updateBaseType
 	a (Lorg/c/a/a/b/d/e/l;Ljava/lang/String;)V getBaseType
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/c/ag org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker
 	a (Lorg/c/a/a/c/a/a/a/a/a;)I countStartLoop
 		0 bb bb
@@ -48199,6 +48174,7 @@ org/c/a/a/c/c/a/b/j org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	aC currentInternalTypeName
 	a (Lorg/c/a/a/b/d/e/w;)V visit
 		0 argument argument
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/e/a/a/a org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor
 	a (Lorg/c/a/a/b/c/h;)V visit
 		0 fragment fragment
@@ -48956,6 +48932,7 @@ org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 	g typeMaker
 	h baseType
 	i baseType2
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/d/p org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInstanceFieldVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 		0 declaration declaration
@@ -50652,6 +50629,7 @@ org/c/a/a/b/d/e/a org/jd/core/v1/model/javasyntax/type/AbstractNopTypeArgumentVi
 	a (Lorg/c/a/a/b/d/e/r;)V visit
 	a (Lorg/c/a/a/b/d/e/s;)V visit
 	a (Lorg/c/a/a/b/d/e/v;)V visit
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/b/d/e/j org/jd/core/v1/model/javasyntax/type/ObjectType$1
 org/c/a/a/c/a/a/a/a/c org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ImmutableBasicBlock
 	f ()I getFirstLineNumber
@@ -51251,6 +51229,7 @@ org/c/a/a/b/d/e/b org/jd/core/v1/model/javasyntax/type/AbstractTypeArgumentVisit
 		0 visitable visitable
 	a (Lorg/c/a/a/b/d/e/w;)V visit
 		0 argument argument
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/a/b/c/g org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileTryStatement$CatchClause
 	f ()Ljava/lang/String; getName
 	f localVariable
@@ -51730,8 +51709,10 @@ org/c/a/a/c/a/a/d/a org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/d/g;)V visit
 		0 statement statement
 	a (Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; updateExpression
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/d/ae org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateIntegerConstantTypeVisitor$DimensionTypes
 	size ()I size
+	a (I)Lorg/c/a/a/b/d/e/l; get
 org/c/a/a/c/a/a/d/ag org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateTypeVisitor
 	a (Lorg/c/a/a/b/a/a/ai;)V setLocalVariableType
 		0 localVariableType localVariableType
@@ -51932,6 +51913,7 @@ org/c/a/a/b/d/e/u org/jd/core/v1/model/javasyntax/type/TypeArgumentVisitor
 	a (Lorg/c/a/a/b/d/e/s;)V visit
 	a (Lorg/c/a/a/b/d/e/v;)V visit
 	a (Lorg/c/a/a/b/d/e/w;)V visit
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/a/b/a/e org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileConstructorOrMethodDeclaration
 	a ()I getFlags
 	a (I)V setFlags
@@ -52086,10 +52068,13 @@ org/c/a/a/c/a/a/c/w org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	a (Lorg/c/a/a/b/d/e/i;Lorg/c/a/a/b/d/e/i;)Z getObjectType
 	f (Ljava/lang/String;)Ljava/lang/String; getClassTypeResolver4
 org/c/a/a/c/a/a/c/z org/jd/core/v1/service/converter/classfiletojavasyntax/util/ClassTypeResolver$TypeNameResolver
+	a (Lorg/c/a/a/c/b/a/c;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; resolveTypeName
 org/c/a/a/c/a/a/c/x org/jd/core/v1/service/converter/classfiletojavasyntax/util/ClassTypeResolver$1
 	a classTypeResolver
+	a (Lorg/c/a/a/c/b/a/c;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; resolveTypeName
 org/c/a/a/c/a/a/c/y org/jd/core/v1/service/converter/classfiletojavasyntax/util/ClassTypeResolver$2
 	a classTypeResolver
+	a (Lorg/c/a/a/c/b/a/c;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; resolveTypeName
 org/c/a/a/b/d/a/f org/jd/core/v1/model/javasyntax/declaration/BaseLocalVariableDeclarator
 	a ()I getLineNumber
 org/c/a/a/c/a/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/LocalVariableVisitor
@@ -52770,6 +52755,9 @@ org/a/a/a/a/h org/antlr/v4/runtime/atn/ATNDeserializer
 	e ADDED_LEXER_ACTIONS
 	d ADDED_PRECEDENCE_TRANSITIONS
 	c BASE_SERIALIZED_UUID
+	i lexerActionTypeSwitchMap
+	a ()[I lexerActionTypeSwitchMap
+		static
 org/a/a/a/a/i org/antlr/v4/runtime/atn/ATNDeserializer$1
 	a ()I size
 	a ([CI)I readUnicode
@@ -53049,6 +53037,7 @@ org/a/a/a/c/h org/antlr/v4/runtime/misc/Interval
 	f creates
 	e b
 	d a
+	a CREATOR
 org/a/a/a/c/i org/antlr/v4/runtime/misc/IntervalSet$ParcelableCreator
 org/a/a/a/c/j org/antlr/v4/runtime/misc/IntervalSet
 	a (I)Lorg/a/a/a/c/j; of
@@ -53115,6 +53104,8 @@ org/a/a/a/d org/antlr/v4/runtime/CharStreams
 		static
 		0 r r
 		1 sourceName sourceName
+	a UTF_8
+	b ISO_8859_1
 org/a/a/a/e org/antlr/v4/runtime/CodePointBuffer
 	a (I)Lorg/a/a/a/f; builder
 		static
@@ -53131,6 +53122,9 @@ org/a/a/a/e org/antlr/v4/runtime/CodePointBuffer
 	d ()I arrayOffset
 	b ()I remaining
 	a ()I position
+	f typeSwitchMap
+	h ()[I typeSwitchMap
+		static
 org/a/a/a/f org/antlr/v4/runtime/CodePointBuffer$Builder
 	b (I)I roundUpToNextPowerOfTwo
 		static
@@ -53160,6 +53154,9 @@ org/a/a/a/f org/antlr/v4/runtime/CodePointBuffer$Builder
 		0 utf16In utf16In
 	b (Ljava/nio/CharBuffer;)V appendArray
 		0 utf16In utf16In
+	g typeSwitchMap
+	b ()[I typeSwitchMap
+		static
 org/a/a/a/g org/antlr/v4/runtime/CodePointBuffer$Type
 	a ()[Lorg/a/a/a/g; values
 		static
@@ -53184,6 +53181,9 @@ org/a/a/a/h org/antlr/v4/runtime/CodePointCharStream
 	b ()I index
 	a size
 	c position
+	e typeSwitchMap
+	e ()[I typeSwitchMap
+		static
 org/a/a/a/i org/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream
 	a (Lorg/a/a/a/c/h;)Ljava/lang/String; getText
 		0 interval interval
@@ -53369,3 +53369,345 @@ org/a/a/a/y org/antlr/v4/runtime/PositionSource
 	j ()I getLine
 	k ()I getCharPositionInLine
 org/a/a/a/z org/antlr/v4/runtime/AbstractTokenProducer
+c/a org/bouncycastle/asn1/ASN1ApplicationSpecific
+	d (Lc/s;)Z asn1Equals
+	e (Lc/q;)V encode
+	g ()Z isConstructed
+	a isConstructed
+	b tag
+	c octets
+	f ()I encodedLength
+c/aa org/bouncycastle/asn1/ASN1UTCTime
+	d (Lc/s;)Z asn1Equals
+	e (Lc/q;)V encode
+	g ()Z isConstructed
+	a time
+	b ()Ljava/lang/String; getTime
+	f ()I encodedLength
+c/ab org/bouncycastle/asn1/BERApplicationSpecific
+	e (Lc/q;)V encode
+c/ad org/bouncycastle/asn1/BERFactory
+	a EMPTY_SEQUENCE
+c/ae org/bouncycastle/asn1/BEROctetString
+	e (Lc/q;)V encode
+		0 out out
+	f ()I encodedLength
+	g ()Z isConstructed
+	k ()[B getOctets
+	p ()Ljava/util/Enumeration; getObjects
+	o octs
+c/af org/bouncycastle/asn1/BEROctetString$1
+	a counter
+	b this$0
+c/ah org/bouncycastle/asn1/BERSequence
+	e (Lc/q;)V encode
+		0 out out
+	f ()I encodedLength
+c/aj org/bouncycastle/asn1/BERSet
+	e (Lc/q;)V encode
+		0 out out
+	f ()I encodedLength
+c/al org/bouncycastle/asn1/BERTaggedObject
+	e (Lc/q;)V encode
+		0 out out
+	f ()I encodedLength
+	g ()Z isConstructed
+c/an org/bouncycastle/asn1/ConstructedOctetStream
+	a _parser
+	b _first
+	c _currentStream
+c/ao org/bouncycastle/asn1/DERBMPString
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	a string
+	f ()I encodedLength
+	h ()Ljava/lang/String; getString
+c/aq org/bouncycastle/asn1/DERExternal
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	o (Lc/f;I)Lc/s; getObjFromVector
+		0 v v
+		1 index index
+	a directReference
+	b indirectReference
+	h encoding
+	k externalContent
+	c dataValueDescriptor
+c/ar org/bouncycastle/asn1/DERExternalParser
+	a _parser
+	l ()Lc/s; toASN1Primitive
+	c ()Lc/s; getLoadedObject
+c/at org/bouncycastle/asn1/DERUTF8String
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	a string
+	f ()I encodedLength
+	h ()Ljava/lang/String; getString
+c/au org/bouncycastle/asn1/DERGeneralizedTime
+c/ax org/bouncycastle/asn1/DERNull
+	e (Lc/q;)V encode
+		0 out out
+	f ()I encodedLength
+	g ()Z isConstructed
+	a INSTANCE
+	b zeroBytes
+c/az org/bouncycastle/asn1/DEROctetString
+	e (Lc/q;)V encode
+		0 out out
+	f ()I encodedLength
+	g ()Z isConstructed
+c/b org/bouncycastle/asn1/ASN1BitString
+	d (Lc/s;)Z asn1Equals
+	a table
+	b data
+	c padBits
+	h ()Ljava/lang/String; getString
+	k ()[B getBytes
+	j ()Lc/s; toDLObject
+c/bf org/bouncycastle/asn1/DLTaggedObject
+	e (Lc/q;)V encode
+		0 out out
+	f ()I encodedLength
+	g ()Z isConstructed
+	o ZERO_BYTES
+c/bg org/bouncycastle/asn1/DERUTCTime
+c/bi org/bouncycastle/asn1/DERUniversalString
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	a table
+	b string
+	f ()I encodedLength
+	h ()Ljava/lang/String; getString
+c/bm org/bouncycastle/asn1/DERTaggedObject
+	e (Lc/q;)V encode
+		0 out out
+	f ()I encodedLength
+	g ()Z isConstructed
+	o ZERO_BYTES
+c/bn org/bouncycastle/asn1/DefiniteLengthInputStream
+	e ()[B toByteArray
+	a EMPTY_BYTES
+	d ()I getRemaining
+	b _originalLength
+	c _remaining
+c/bo org/bouncycastle/asn1/InMemoryRepresentable
+	c ()Lc/s; getLoadedObject
+c/bp org/bouncycastle/asn1/IndefiniteLengthInputStream
+	f ()Z checkForEof
+	a _b1
+	b _b2
+	c _eofReached
+	e _eofOn00
+c/br org/bouncycastle/asn1/LazyEncodedSequence
+	e (Lc/q;)V encode
+		0 out out
+	k (I)Lc/e; getObjectAt
+		0 index index
+	o ()Ljava/util/Enumeration; getObjects
+	r ()V parse
+	q encoded
+	p ()I size
+	f ()I encodedLength
+	j ()Lc/s; toDLObject
+c/bs org/bouncycastle/asn1/LimitedInputStream
+	d ()I getRemaining
+	g _in
+	h _limit
+c/bt org/bouncycastle/asn1/OIDTokenizer
+	c ()Ljava/lang/String; nextToken
+	a oid
+	b index
+c/bu org/bouncycastle/asn1/StreamUtil
+	d (Ljava/io/InputStream;)I findLimit
+		static
+		0 in in
+	a MAX_MEMORY
+	b (I)I calculateBodyLength
+		static
+		0 length length
+	c (I)I calculateTagLength
+		static
+		0 tagNo tagNo
+c/c org/bouncycastle/asn1/ASN1Boolean
+	d (Lc/s;)Z asn1Equals
+	e (Lc/q;)V encode
+	k value
+	f ()I encodedLength
+	g ()Z isConstructed
+	a TRUE_VALUE
+	b FALSE_VALUE
+	h TRUE
+	c FALSE
+c/e org/bouncycastle/asn1/ASN1Encodable
+	l ()Lc/s; toASN1Primitive
+c/f org/bouncycastle/asn1/ASN1EncodableVector
+	b (Lc/e;)V add
+		0 obj obj
+	c (I)Lc/e; get
+		0 i i
+	d ()I size
+	a v
+c/i org/bouncycastle/asn1/ASN1GeneralizedTime
+	b (I)Ljava/lang/String; convert
+	c ()Ljava/util/Date; getDate
+	d (Lc/s;)Z asn1Equals
+	e (Lc/q;)V encode
+	a time
+	f ()I encodedLength
+	k ()Z hasFractionalSeconds
+	g ()Z isConstructed
+	h ()Ljava/lang/String; getTime
+c/k org/bouncycastle/asn1/ASN1Integer
+	b (Ljava/lang/Object;)Lc/k; getInstance
+		static
+	d (Lc/s;)Z asn1Equals
+	e (Lc/q;)V encode
+	g ()Z isConstructed
+	a bytes
+	f ()I encodedLength
+c/l org/bouncycastle/asn1/ASN1Null
+	d (Lc/s;)Z asn1Equals
+		0 o o
+c/m org/bouncycastle/asn1/ASN1Object
+	m ()[B getEncoded
+	n (Ljava/lang/String;)[B getEncoded
+		0 encoding encoding
+	l ()Lc/s; toASN1Primitive
+c/n org/bouncycastle/asn1/ASN1ObjectIdentifier
+	h (Ljava/lang/Object;)Lc/n; getInstance
+		static
+	k (Ljava/lang/String;I)Z isValidBranchID
+		static
+	d (Lc/s;)Z asn1Equals
+	e (Lc/q;)V encode
+	g ()Z isConstructed
+	o (Ljava/io/ByteArrayOutputStream;)V doOutput
+	p ()[B getBody
+	q ()Lc/n; intern
+	r (Ljava/io/ByteArrayOutputStream;J)V writeField
+	s (Ljava/io/ByteArrayOutputStream;Ljava/math/BigInteger;)V writeField
+	b identifier
+	c body
+	f ()I encodedLength
+c/n$a org/bouncycastle/asn1/ASN1ObjectIdentifier$OidHandle
+	a key
+	b enc
+c/o org/bouncycastle/asn1/ASN1OctetString
+	b (Ljava/lang/Object;)Lc/o; getInstance
+		static
+		0 obj obj
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	h ()Ljava/io/InputStream; getOctetStream
+	k ()[B getOctets
+	a string
+	j ()Lc/s; toDLObject
+c/p org/bouncycastle/asn1/ASN1OctetStringParser
+	h ()Ljava/io/InputStream; getOctetStream
+c/q org/bouncycastle/asn1/ASN1OutputStream
+	e ([B)V write
+		0 tagNo tagNo
+	f (II[B)V writeEncoded
+		0 flags flags
+		1 tagNo tagNo
+		2 bytes bytes
+	g (I[B)V writeEncoded
+		0 tag tag
+		1 bytes bytes
+	h (Lc/s;)V writeImplicitObject
+		0 obj obj
+	j (Lc/e;)V writeObject
+		0 obj obj
+	k (II)V writeTag
+		0 flags flags
+		1 tagNo tagNo
+	a os
+	d (I)V write
+		0 tagNo tagNo
+	i (I)V writeLength
+		0 length length
+c/s org/bouncycastle/asn1/ASN1Primitive
+	t ([B)Lc/s; fromByteArray
+		static
+		0 data data
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	f ()I encodedLength
+	j ()Lc/s; toDLObject
+	l ()Lc/s; toASN1Primitive
+c/t org/bouncycastle/asn1/ASN1Sequence
+	b (Ljava/lang/Object;)Lc/t; getInstance
+		static
+		0 obj obj
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	g ()Z isConstructed
+	h (Ljava/util/Enumeration;)Lc/e; getNext
+		0 e e
+	k (I)Lc/e; getObjectAt
+		0 index index
+	o ()Ljava/util/Enumeration; getObjects
+	a seq
+	p ()I size
+	j ()Lc/s; toDLObject
+c/x org/bouncycastle/asn1/ASN1StreamParser
+	d ()Lc/e; readObject
+	e (ZI)Lc/s; readTaggedObject
+		0 constructed constructed
+		1 tag tag
+	f ()Lc/f; readVector
+	a _in
+	b _limit
+	c tmpBuffers
+c/y org/bouncycastle/asn1/ASN1String
+	h ()Ljava/lang/String; getString
+d/a org/bouncycastle/asn1/bc/BCObjectIdentifiers
+e/a org/bouncycastle/asn1/bsi/BSIObjectIdentifiers
+f/a org/bouncycastle/asn1/cryptopro/CryptoProObjectIdentifiers
+g/a org/bouncycastle/asn1/eac/EACObjectIdentifiers
+h/a org/bouncycastle/asn1/gnu/GNUObjectIdentifiers
+i/a org/bouncycastle/asn1/iso/ISOIECObjectIdentifiers
+j/a org/bouncycastle/asn1/kisa/KISAObjectIdentifiers
+k/a org/bouncycastle/asn1/nist/NISTObjectIdentifiers
+l/a org/bouncycastle/asn1/ntt/NTTObjectIdentifiers
+m/a org/bouncycastle/asn1/oiw/OIWObjectIdentifiers
+n/a org/bouncycastle/pqc/asn1/PQCObjectIdentifiers
+n/b org/bouncycastle/asn1/pkcs/RSASSAPSSparams
+o/a org/bouncycastle/asn1/teletrust/TeleTrusTObjectIdentifiers
+q/b org/bouncycastle/asn1/x500/style/BCStyle
+q/c org/bouncycastle/asn1/x500/style/IETFUtils
+q/d org/bouncycastle/asn1/x500/style/X500NameTokenizer
+r/a org/bouncycastle/asn1/x509/AlgorithmIdentifier
+r/b org/bouncycastle/asn1/crmf/PKIPublicationInfo
+r/c org/bouncycastle/asn1/x509/Extension
+r/d org/bouncycastle/asn1/x509/Extensions
+r/e org/bouncycastle/asn1/crmf/SinglePubInfo
+r/f org/bouncycastle/asn1/x509/TBSCertList$CRLEntry
+r/h org/bouncycastle/asn1/x509/X509ObjectIdentifiers
+s/a org/bouncycastle/asn1/x9/X9ObjectIdentifiers
+t/a org/bouncycastle/util/BigIntegers
+u/a org/bouncycastle/jcajce/util/MessageDigestUtils
+v/b org/bouncycastle/util/StreamParsingException
+v/c org/bouncycastle/util/StoreException
+x/a org/bouncycastle/pqc/math/linearalgebra/ByteUtils
+x/a$a org/bouncycastle/util/Arrays$Iterator
+x/b$a org/bouncycastle/util/Strings$1
+y/a org/bouncycastle/util/encoders/UrlBase64
+c/q$a org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream
+	d (I)V write
+		0 tagNo tagNo

@@ -67,6 +67,10 @@
   {
    "dir": "../jobs/antlr",
    "probe_prefix": "org/a/a/a"
+  },
+  {
+   "dir": "../jobs/asn1bc",
+   "probe_prefix": "c"
   }
  ],
  "src_root": [
@@ -80,7 +84,8 @@
   "$HOME/dbxand/dropbox-android-sdk-master/src/main/java",
   "$HOME/out/oracle/http/js-src-1.1",
   "$HOME/out/oracle/proguard/src-6.0.3",
-  "$HOME/out/oracle/antlr/src"
+  "$HOME/out/oracle/antlr/src",
+  "$HOME/out/oracle/spongycastle/src-sc-1.47"
  ],
  "out_tsrg": "mappings.txt",
  "allow": "verify_allow.tsv",
@@ -234,6 +239,10 @@
   {
    "label": "jd-core-1.1.4-src",
    "path": "$HOME/out/oracle/jd/jd-core-1.1.4-src.jar"
+  },
+  {
+   "label": "bcprov-jdk15on-1.56",
+   "path": "$HOME/out/oracle/spongycastle/bcprov-jdk15on-1.56.jar"
   }
  ],
  "out_dir": "out"

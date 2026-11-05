@@ -165,3 +165,46 @@ CodePointCharStream.d()  = iconst_m1; ireturn     ⇒ mark()   （IntStream.mark
 按覆写家族同名规则把 `IntStream` 的 `b/c/d` 改成 **index / size / mark**，CONFLICT 归零。
 这就是为什么 `class_map` 之后一定要跑 `inherit_check`：接口的 `()I` 三个同形方法，
 纯按描述符对齐是会错位的。
+
+## 8. 收尾：最后 10 条缺口全部落地
+
+`cli members` 留下的缺口是 2 条方法 + 8 个字段，逐个读完码都定住了：
+
+### 8.1 R8 的"枚举 switch 表"（4 个字段 + 4 个方法）
+
+四个类各有一对 `private static int[]` + `static int[] xxx()`：
+
+```
+org/a/a/a/a/h (ATNDeserializer)   i    / a()   ← 建表时 getstatic org/a/a/a/a/af(=LexerActionType).a..h, 按 ordinal 写 1..8
+org/a/a/a/e   (CodePointBuffer)   f    / h()
+org/a/a/a/f   (Builder)           g    / b()
+org/a/a/a/h   (CodePointCharStream) e  / e()
+```
+
+方法体是**逐字可读的模板**：`new int[Enum.values().length]` → `arr[CONST.ordinal()] = k` →
+`putstatic` → `getstatic` 缓存返回。这正是 `javac` 那个匿名 `Class$1` switch-map 的
+**R8 版实现**（表放在宿主类的静态字段里）。所以：
+
+* 字段/方法都命名 `typeSwitchMap`（`ATNDeserializer` 里叫 `lexerActionTypeSwitchMap`，因为它的枚举是 `LexerActionType`）；
+* oracle 侧不存在这些成员 ⇒ 证据写 `role:`（在 `class_map`/说明里），名字是"按作用"。
+
+### 8.2 `misc/Interval` 的 Parcelable 附加件
+
+`c/h` 的 `CREATOR`（`static final Parcelable$Creator`，`<clinit>` 里 `new IntervalSet$ParcelableCreator`）
+⇒ 名字 `CREATOR`（Android 约定名，不是猜）。同一类的 `describeContents()` / `writeToParcel(Parcel,int)`
+本来就已是正确名字（`Parcelable` 契约），`members` 报 `ambiguous` 只是"oracle 里没有同描述符成员"
+（oracle 的 `Interval` 不实现 Parcelable），**不动**。
+
+### 8.3 `CharStreams` 的两个 Charset 缓存
+
+`c`… 不，是 `org/a/a/a/d`(=CharStreams) 的 `static Charset a/b`，`<clinit>` 里
+`Charset.forName("UTF_8")` / `Charset.forName("ISO_8859_1")` ⇒ 名字 `UTF_8` / `ISO_8859_1`
+（字符串常量就是权威写法，`StandardCharsets` 的字段名同形）。
+
+### 8.4 剩下 1 条**真歧义**，按规则不动
+
+`org/a/a/a/p`(=Lexer) 的 `a()[Ljava/lang/String;` 有 3 个同描述符候选
+（`getChannelNames` / `getModeNames` / `getTokenNames`），而 4.7.2 源码里**这三个方法体都是 `return null;`**
+—— 字节码上完全同形，任何判据都选不出来。按用户规则"不确定处如实说"，保持原名。
+
+（另：`items` 报告里 `c/h` 的 `writeToParcel` 被标 `AIDE 改过签名`，已在 §8.2 说明。）

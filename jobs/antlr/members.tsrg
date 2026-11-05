@@ -293,6 +293,8 @@ org/a/a/a/a/h org/antlr/v4/runtime/atn/ATNDeserializer
 	e ADDED_LEXER_ACTIONS
 	d ADDED_PRECEDENCE_TRANSITIONS
 	c BASE_SERIALIZED_UUID
+	i lexerActionTypeSwitchMap
+	a ()[I lexerActionTypeSwitchMap
 org/a/a/a/a/i org/antlr/v4/runtime/atn/ATNDeserializer$1
 	a ()I size
 	a ([CI)I readUnicode
@@ -487,6 +489,7 @@ org/a/a/a/c/h org/antlr/v4/runtime/misc/Interval
 	f creates
 	e b
 	d a
+	a CREATOR
 org/a/a/a/c/i org/antlr/v4/runtime/misc/IntervalSet$ParcelableCreator
 org/a/a/a/c/j org/antlr/v4/runtime/misc/IntervalSet
 	a (I)Lorg/a/a/a/c/j; of
@@ -518,6 +521,8 @@ org/a/a/a/c/n org/antlr/v4/runtime/misc/Utils
 org/a/a/a/d org/antlr/v4/runtime/CharStreams
 	a (Ljava/io/Reader;)Lorg/a/a/a/h; fromReader
 	a (Ljava/io/Reader;Ljava/lang/String;)Lorg/a/a/a/h; fromReader
+	a UTF_8
+	b ISO_8859_1
 org/a/a/a/e org/antlr/v4/runtime/CodePointBuffer
 	a (I)Lorg/a/a/a/f; builder
 	c ()Lorg/a/a/a/g; getType
@@ -532,6 +537,8 @@ org/a/a/a/e org/antlr/v4/runtime/CodePointBuffer
 	d ()I arrayOffset
 	b ()I remaining
 	a ()I position
+	f typeSwitchMap
+	h ()[I typeSwitchMap
 org/a/a/a/f org/antlr/v4/runtime/CodePointBuffer$Builder
 	b (I)I roundUpToNextPowerOfTwo
 	a ()Lorg/a/a/a/e; build
@@ -550,6 +557,8 @@ org/a/a/a/f org/antlr/v4/runtime/CodePointBuffer$Builder
 	c (Ljava/nio/CharBuffer;)V appendArrayByte
 	e (Ljava/nio/CharBuffer;)V appendArrayInt
 	b (Ljava/nio/CharBuffer;)V appendArray
+	g typeSwitchMap
+	b ()[I typeSwitchMap
 org/a/a/a/g org/antlr/v4/runtime/CodePointBuffer$Type
 	a ()[Lorg/a/a/a/g; values
 	d $VALUES
@@ -568,6 +577,8 @@ org/a/a/a/h org/antlr/v4/runtime/CodePointCharStream
 	b ()I index
 	a size
 	c position
+	e typeSwitchMap
+	e ()[I typeSwitchMap
 org/a/a/a/i org/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream
 	a (Lorg/a/a/a/c/h;)Ljava/lang/String; getText
 	c (I)I LA

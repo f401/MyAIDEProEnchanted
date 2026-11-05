@@ -1,0 +1,78 @@
+c/a	org/bouncycastle/asn1/ASN1ApplicationSpecific	hier:超类是 c/ab（super/interface 位置唯一对应）
+c/aa	org/bouncycastle/asn1/ASN1UTCTime	contain:在已定映射下 9 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/ab	org/bouncycastle/asn1/BERApplicationSpecific	str:常量串集合 Jaccard=1.00（2 个串全部命中），第二名最高 0.33；串不受混淆影响
+c/ad	org/bouncycastle/asn1/BERFactory	contain:在已定映射下 1 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/ae	org/bouncycastle/asn1/BEROctetString	str:常量串集合 Jaccard=1.00（2 个串全部命中），第二名最高 0.67；串不受混淆影响
+c/af	org/bouncycastle/asn1/BEROctetString$1	contain:在已定映射下 3 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/ah	org/bouncycastle/asn1/BERSequence	contain:在已定映射下 4 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/aj	org/bouncycastle/asn1/BERSet	contain:在已定映射下 3 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/al	org/bouncycastle/asn1/BERTaggedObject	contain:在已定映射下 4 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/an	org/bouncycastle/asn1/ConstructedOctetStream	contain:在已定映射下 3 方法/3 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/ao	org/bouncycastle/asn1/DERBMPString	contain:在已定映射下 8 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/aq	org/bouncycastle/asn1/DERExternal	str:常量串集合 Jaccard=1.00（5 个串全部命中），第二名最高 0.20；串不受混淆影响
+c/ar	org/bouncycastle/asn1/DERExternalParser	contain:在已定映射下 3 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/at	org/bouncycastle/asn1/DERUTF8String	contain:在已定映射下 8 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/au	org/bouncycastle/asn1/DERGeneralizedTime	contain:在已定映射下 1 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/ax	org/bouncycastle/asn1/DERNull	contain:在已定映射下 5 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/az	org/bouncycastle/asn1/DEROctetString	contain:在已定映射下 4 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/b	org/bouncycastle/asn1/ASN1BitString	contain:在已定映射下 9 方法/3 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/bf	org/bouncycastle/asn1/DLTaggedObject	contain:在已定映射下 5 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/bg	org/bouncycastle/asn1/DERUTCTime	contain:在已定映射下 1 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/bi	org/bouncycastle/asn1/DERUniversalString	contain:在已定映射下 9 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/bm	org/bouncycastle/asn1/DERTaggedObject	contain:在已定映射下 5 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/bn	org/bouncycastle/asn1/DefiniteLengthInputStream	str:常量串集合 Jaccard=1.00（3 个串全部命中），第二名最高 0.00；串不受混淆影响
+c/bo	org/bouncycastle/asn1/InMemoryRepresentable	hier:接口是 c/p 的 InMemoryRepresentable（super/interface 位置唯一对应）
+c/bp	org/bouncycastle/asn1/IndefiniteLengthInputStream	contain:在已定映射下 4 方法/4 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/br	org/bouncycastle/asn1/LazyEncodedSequence	contain:在已定映射下 9 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/bs	org/bouncycastle/asn1/LimitedInputStream	hier:超类是 c/bn（super/interface 位置唯一对应）
+c/bt	org/bouncycastle/asn1/OIDTokenizer	contain:在已定映射下 2 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/bu	org/bouncycastle/asn1/StreamUtil	contain:在已定映射下 4 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/c	org/bouncycastle/asn1/ASN1Boolean	contain:在已定映射下 9 方法/5 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/e	org/bouncycastle/asn1/ASN1Encodable	hier:接口是 c/p 的 ASN1Encodable（super/interface 位置唯一对应）
+c/f	org/bouncycastle/asn1/ASN1EncodableVector	contain:在已定映射下 4 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/i	org/bouncycastle/asn1/ASN1GeneralizedTime	contain:在已定映射下 11 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/k	org/bouncycastle/asn1/ASN1Integer	str:常量串集合 Jaccard=1.00（3 个串全部命中），第二名最高 0.67；串不受混淆影响
+c/l	org/bouncycastle/asn1/ASN1Null	contain:在已定映射下 4 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/m	org/bouncycastle/asn1/ASN1Object	str:常量串集合 Jaccard=1.00（2 个串全部命中），第二名最高 0.67；串不受混淆影响
+c/n	org/bouncycastle/asn1/ASN1ObjectIdentifier	str:常量串集合 Jaccard=1.00（7 个串全部命中），第二名最高 0.12；串不受混淆影响
+c/n$a	org/bouncycastle/asn1/ASN1ObjectIdentifier$OidHandle	contain:在已定映射下 3 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/o	org/bouncycastle/asn1/ASN1OctetString	str:常量串集合 Jaccard=1.00（4 个串全部命中），第二名最高 0.33；串不受混淆影响
+c/p	org/bouncycastle/asn1/ASN1OctetStringParser	hier:接口是 c/o 的 ASN1OctetStringParser（super/interface 位置唯一对应）
+c/q	org/bouncycastle/asn1/ASN1OutputStream	contain:在已定映射下 11 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/s	org/bouncycastle/asn1/ASN1Primitive	str:常量串集合 Jaccard=1.00（2 个串全部命中），第二名最高 0.00；串不受混淆影响
+c/t	org/bouncycastle/asn1/ASN1Sequence	str:常量串集合 Jaccard=1.00（3 个串全部命中），第二名最高 0.33；串不受混淆影响
+c/x	org/bouncycastle/asn1/ASN1StreamParser	contain:在已定映射下 5 方法/3 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/y	org/bouncycastle/asn1/ASN1String	contain:在已定映射下 1 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+d/a	org/bouncycastle/asn1/bc/BCObjectIdentifiers	str:常量串集合 Jaccard=1.00（11 个串全部命中），第二名最高 0.23；串不受混淆影响
+e/a	org/bouncycastle/asn1/bsi/BSIObjectIdentifiers	str:常量串集合 Jaccard=1.00（9 个串全部命中），第二名最高 0.60；串不受混淆影响
+f/a	org/bouncycastle/asn1/cryptopro/CryptoProObjectIdentifiers	str:常量串集合 Jaccard=1.00（26 个串全部命中），第二名最高 0.12；串不受混淆影响
+g/a	org/bouncycastle/asn1/eac/EACObjectIdentifiers	str:常量串集合 Jaccard=1.00（11 个串全部命中），第二名最高 0.54；串不受混淆影响
+h/a	org/bouncycastle/asn1/gnu/GNUObjectIdentifiers	str:常量串集合 Jaccard=1.00（23 个串全部命中），第二名最高 0.00；串不受混淆影响
+i/a	org/bouncycastle/asn1/iso/ISOIECObjectIdentifiers	str:常量串集合 Jaccard=1.00（8 个串全部命中），第二名最高 0.12；串不受混淆影响
+j/a	org/bouncycastle/asn1/kisa/KISAObjectIdentifiers	str:常量串集合 Jaccard=1.00（5 个串全部命中），第二名最高 0.00；串不受混淆影响
+k/a	org/bouncycastle/asn1/nist/NISTObjectIdentifiers	str:常量串集合 Jaccard=1.00（33 个串全部命中），第二名最高 0.43；串不受混淆影响
+l/a	org/bouncycastle/asn1/ntt/NTTObjectIdentifiers	str:常量串集合 Jaccard=1.00（6 个串全部命中），第二名最高 0.00；串不受混淆影响
+m/a	org/bouncycastle/asn1/oiw/OIWObjectIdentifiers	str:常量串集合 Jaccard=1.00（12 个串全部命中），第二名最高 0.08；串不受混淆影响
+n/a	org/bouncycastle/pqc/asn1/PQCObjectIdentifiers	contain:在已定映射下 1 方法/21 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+n/b	org/bouncycastle/asn1/pkcs/RSASSAPSSparams	contain:在已定映射下 5 方法/8 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+o/a	org/bouncycastle/asn1/teletrust/TeleTrusTObjectIdentifiers	str:常量串集合 Jaccard=1.00（21 个串全部命中），第二名最高 0.58；串不受混淆影响
+q/b	org/bouncycastle/asn1/x500/style/BCStyle	contain:在已定映射下 3 方法/12 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+q/c	org/bouncycastle/asn1/x500/style/IETFUtils	contain:在已定映射下 6 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+q/d	org/bouncycastle/asn1/x500/style/X500NameTokenizer	pkg+contain:该探针类所在包（首字母 q）已由已定名类投票确定为 asn1/x500/style；在此包内做结构包含，候选唯一
+r/a	org/bouncycastle/asn1/x509/AlgorithmIdentifier	pkg+contain:该探针类所在包（首字母 r）已由已定名类投票确定为 asn1/x509；在此包内做结构包含，候选唯一
+r/b	org/bouncycastle/asn1/crmf/PKIPublicationInfo	contain:在已定映射下 2 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+r/c	org/bouncycastle/asn1/x509/Extension	contain:在已定映射下 5 方法/4 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+r/d	org/bouncycastle/asn1/x509/Extensions	contain:在已定映射下 3 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+r/e	org/bouncycastle/asn1/crmf/SinglePubInfo	contain:在已定映射下 3 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+r/f	org/bouncycastle/asn1/x509/TBSCertList$CRLEntry	contain:在已定映射下 3 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+r/h	org/bouncycastle/asn1/x509/X509ObjectIdentifiers	str:常量串集合 Jaccard=1.00（17 个串全部命中），第二名最高 0.14；串不受混淆影响
+s/a	org/bouncycastle/asn1/x9/X9ObjectIdentifiers	str:常量串集合 Jaccard=1.00（31 个串全部命中），第二名最高 0.61；串不受混淆影响
+t/a	org/bouncycastle/util/BigIntegers	contain:在已定映射下 1 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+u/a	org/bouncycastle/jcajce/util/MessageDigestUtils	str:常量串集合 Jaccard=1.00（17 个串全部命中），第二名最高 0.52；串不受混淆影响
+v/b	org/bouncycastle/util/StreamParsingException	pkg+contain:该探针类所在包（首字母 v）已由已定名类投票确定为 util；在此包内做结构包含，候选唯一
+v/c	org/bouncycastle/util/StoreException	contain:在已定映射下 2 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+x/a	org/bouncycastle/pqc/math/linearalgebra/ByteUtils	contain:在已定映射下 3 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+x/a$a	org/bouncycastle/util/Arrays$Iterator	str:常量串集合 Jaccard=1.00（2 个串全部命中），第二名最高 0.00；串不受混淆影响
+x/b$a	org/bouncycastle/util/Strings$1	contain:在已定映射下 2 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+y/a	org/bouncycastle/util/encoders/UrlBase64	contain:在已定映射下 3 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/q$a	org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream	src:c/q 已定名为 ASN1OutputStream；本类是它的唯一内部类（extends c/q、构造器收 OutputStream、方法 d(int) 写 implicit tag），oracle 侧 ASN1OutputStream 也只有一个内部类 ImplicitOutputStream

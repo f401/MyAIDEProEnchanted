@@ -1597,3 +1597,56 @@ newXxxOperatorExpression×4     4  运算符是形参，方法体无字面量
 门禁：`validate ✔ 无无效映射` / `inherit CONFLICT 0 DUPTARGET 0 MISSING 0` / `famcheck 0/0` /
 `innercheck ②③ 0`；jdcore 口径内仍 方法 2265/2269 = 99.8%、字段 872/878 = 99.3%
 （10 个新名的字段本来就没有 oracle 对应者，不进分母）。
+
+## 第三十二批：11 条"无 oracle"方法定名（visitor 族 + 名字解析族 + 协变 get）
+
+上一批把 60 条里"确实无从下手"的 12 对 self/bridge 留下了，这一批把**其中能靠同族证据定住的 11 条**做掉。
+
+### 1) 6 + 1 条 `(Lorg/c/a/a/b/d/e/p;)V` → `visit`
+
+`TypeArgumentVisitor(b/d/e/u)` 的 13 个方法里，12 个早已定名成 `visit`（按形参类型重载）：
+`visit(TypeArguments)`、`visit(GenericType)`、`visit(InnerObjectType)`、`visit(PrimitiveType)`、
+`visit(WildcardExtendsTypeArgument)` … 剩下的第 13 个 `a(Lb/d/e/p;)V` 与它们**同族同签名形态**，
+唯一区别是形参类型。同理 6 个实现/子类里的同签名方法也都是 `visit`：
+
+```
+b/d/e/u  TypeArgumentVisitor                     （接口自己声明的那个重载）
+b/d/e/b  AbstractTypeArgumentVisitor               遍历形参里的每个元素后递归 visit
+b/d/e/a  AbstractNopTypeArgumentVisitor            空实现
+c/a/a/d/a  AbstractUpdateExpressionVisitor          空实现
+c/a/a/d/ad UpdateIntegerConstantTypeVisitor         空实现
+c/a/a/a/c/d Frame$GenerateLocalVariableNameVisitor  空实现
+c/c/a/b/j  TypeVisitor                              委托给字段 t
+```
+
+判据是**同族一致性**（不是猜语义）：同族 12 个都叫 `visit`，第 13 个不可能叫别的。
+`inherit_check` 一开始报 `MISSING 6 条 / 1 个祖先成员`（因为我先命名了实现者、后命名接口），
+把 `b/d/e/u` 自己那条补上后归零 —— 这条正好证明"覆写族必须整族同名"。
+
+### 2) 3 条 `(Lorg/c/a/a/c/b/a/c;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` → `resolveTypeName`
+
+`c/a/a/c/z` 是 `ClassTypeResolver$TypeNameResolver`（上一批已按作用命名，接口，唯一方法就是这个），
+`c/a/a/c/x`、`c/a/a/c/y` 是它的两个匿名实现（`$1`/`$2`）。接口名就叫 TypeNameResolver ⇒
+方法按作用命名 `resolveTypeName`（形参 `(ClassFileReader, 类型名, 内部名)`，返回解析后的名字）。
+
+### 3) 1 条 `(I)Lorg/c/a/a/b/d/e/l;` → `get`
+
+`c/a/a/d/ae` = `UpdateIntegerConstantTypeVisitor$DimensionTypes`，**extends `java.util.AbstractList`**，
+已有 `size()` 和 `get(int)Ljava/lang/Object;`（契约名，本来就在）。这条是同参数、返回 `BaseType`
+的**协变实现** ⇒ 与 `get` 同名（JVM 允许同参数不同返回，这正是编译器给协变覆盖生成的那一对）。
+
+### 4) 还剩 5 条：`ClassTypeResolver` 的私有助手，**故意不做**
+
+`c/a/a/c/w` 自己就是 `role:` 命名的类，它的成员名已经是模板产物（`getCache2`/`getCache3`/
+`getClassTypeResolver4` 这种），5 个私有助手再叠一层"按作用命名"只会让名字更不可信。
+按"不确定处如实说"，留白并在此记录。它们是：
+
+```
+(String,String,TypeNameResolver)String  解析/缓存类型名
+(String,String)Z                        是否为 "java/lang/Object" 之类的判定
+(String)ObjectType ×2                   按名字取 ObjectType（走 cache/cache2）
+(String)String                          静态：按字符/数字拆前缀
+```
+
+门禁：`validate ✔` / `inherit CONFLICT 0 DUPTARGET 0 MISSING 0` / `famcheck 0/0` /
+`cover --pkg=org/c/a/a` 方法 2265/2269 = 99.8%、字段 872/878 = 99.3%（口径内）。

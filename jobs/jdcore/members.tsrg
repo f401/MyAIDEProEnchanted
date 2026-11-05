@@ -1379,6 +1379,7 @@ org/c/a/a/c/a/a/a/c/d org/jd/core/v1/service/converter/classfiletojavasyntax/mod
 	a (Lorg/c/a/a/b/d/e/v;)V visit
 	a (Lorg/c/a/a/b/d/e/l;)V updateBaseType
 	a (Lorg/c/a/a/b/d/e/l;Ljava/lang/String;)V getBaseType
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/c/ag org/jd/core/v1/service/converter/classfiletojavasyntax/util/StatementMaker
 	a (Lorg/c/a/a/c/a/a/a/a/a;)I countStartLoop
 	b (Lorg/c/a/a/c/a/a/a/a/a;)V createDoWhileContinue
@@ -1509,6 +1510,7 @@ org/c/a/a/c/c/a/b/j org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	ax internalPackageName
 	aC currentInternalTypeName
 	a (Lorg/c/a/a/b/d/e/w;)V visit
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/e/a/a/a org/jd/core/v1/service/tokenizer/javafragmenttotoken/visitor/TokenizeJavaFragmentVisitor
 	a (Lorg/c/a/a/b/c/h;)V visit
 	a (Lorg/c/a/a/b/c/z;)V visit
@@ -1976,6 +1978,7 @@ org/c/a/a/c/a/a/d/ad org/jd/core/v1/service/converter/classfiletojavasyntax/visi
 	g typeMaker
 	h baseType
 	i baseType2
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/d/p org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInstanceFieldVisitor
 	a (Lorg/c/a/a/b/d/a/b;)V visit
 	a (Lorg/c/a/a/b/d/a/j;)V visit
@@ -3020,6 +3023,7 @@ org/c/a/a/b/d/e/a org/jd/core/v1/model/javasyntax/type/AbstractNopTypeArgumentVi
 	a (Lorg/c/a/a/b/d/e/r;)V visit
 	a (Lorg/c/a/a/b/d/e/s;)V visit
 	a (Lorg/c/a/a/b/d/e/v;)V visit
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/b/d/e/j org/jd/core/v1/model/javasyntax/type/ObjectType$1
 org/c/a/a/c/a/a/a/a/c org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ImmutableBasicBlock
 	f ()I getFirstLineNumber
@@ -3346,6 +3350,7 @@ org/c/a/a/b/d/e/b org/jd/core/v1/model/javasyntax/type/AbstractTypeArgumentVisit
 	a (Lorg/c/a/a/b/d/e/s;)V visit
 	a (Lorg/c/a/a/b/d/e/t;)V safeAccept
 	a (Lorg/c/a/a/b/d/e/w;)V visit
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/a/b/c/g org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/statement/ClassFileTryStatement$CatchClause
 	f ()Ljava/lang/String; getName
 	f localVariable
@@ -3540,8 +3545,10 @@ org/c/a/a/c/a/a/d/a org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/d/ai;)V visit
 	a (Lorg/c/a/a/b/d/d/g;)V visit
 	a (Lorg/c/a/a/b/d/b/n;)Lorg/c/a/a/b/d/b/n; updateExpression
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/d/ae org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateIntegerConstantTypeVisitor$DimensionTypes
 	size ()I size
+	a (I)Lorg/c/a/a/b/d/e/l; get
 org/c/a/a/c/a/a/d/ag org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/UpdateTypeVisitor
 	a (Lorg/c/a/a/b/a/a/ai;)V setLocalVariableType
 	a (Lorg/c/a/a/b/d/e/g;)V visit
@@ -3690,6 +3697,7 @@ org/c/a/a/b/d/e/u org/jd/core/v1/model/javasyntax/type/TypeArgumentVisitor
 	a (Lorg/c/a/a/b/d/e/s;)V visit
 	a (Lorg/c/a/a/b/d/e/v;)V visit
 	a (Lorg/c/a/a/b/d/e/w;)V visit
+	a (Lorg/c/a/a/b/d/e/p;)V visit
 org/c/a/a/c/a/a/a/b/a/e org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileConstructorOrMethodDeclaration
 	a ()I getFlags
 	a (I)V setFlags
@@ -3819,10 +3827,13 @@ org/c/a/a/c/a/a/c/w org/jd/core/v1/service/converter/classfiletojavasyntax/util/
 	a (Lorg/c/a/a/b/d/e/i;Lorg/c/a/a/b/d/e/i;)Z getObjectType
 	f (Ljava/lang/String;)Ljava/lang/String; getClassTypeResolver4
 org/c/a/a/c/a/a/c/z org/jd/core/v1/service/converter/classfiletojavasyntax/util/ClassTypeResolver$TypeNameResolver
+	a (Lorg/c/a/a/c/b/a/c;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; resolveTypeName
 org/c/a/a/c/a/a/c/x org/jd/core/v1/service/converter/classfiletojavasyntax/util/ClassTypeResolver$1
 	a classTypeResolver
+	a (Lorg/c/a/a/c/b/a/c;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; resolveTypeName
 org/c/a/a/c/a/a/c/y org/jd/core/v1/service/converter/classfiletojavasyntax/util/ClassTypeResolver$2
 	a classTypeResolver
+	a (Lorg/c/a/a/c/b/a/c;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; resolveTypeName
 org/c/a/a/b/d/a/f org/jd/core/v1/model/javasyntax/declaration/BaseLocalVariableDeclarator
 	a ()I getLineNumber
 org/c/a/a/c/a/a/a/c/i org/jd/core/v1/service/converter/classfiletojavasyntax/model/localvariable/LocalVariableVisitor
