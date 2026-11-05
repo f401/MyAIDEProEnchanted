@@ -63,6 +63,10 @@
    "dir": "../jobs/jdcore",
    "allow_identity": false,
    "probe_prefix": "org/c/a/a"
+  },
+  {
+   "dir": "../jobs/antlr",
+   "probe_prefix": "org/a/a/a"
   }
  ],
  "src_root": [
@@ -75,7 +79,8 @@
   "$HOME/zstar/zip-signer-master/zipsigner-lib/src/main/java",
   "$HOME/dbxand/dropbox-android-sdk-master/src/main/java",
   "$HOME/out/oracle/http/js-src-1.1",
-  "$HOME/out/oracle/proguard/src-6.0.3"
+  "$HOME/out/oracle/proguard/src-6.0.3",
+  "$HOME/out/oracle/antlr/src"
  ],
  "out_tsrg": "mappings.txt",
  "allow": "verify_allow.tsv",
@@ -221,6 +226,10 @@
   {
    "label": "jd-core-1.1.3",
    "path": "$HOME/out/oracle/jd/jd-core-1.1.3.jar"
+  },
+  {
+   "label": "antlr4-runtime-4.7.2",
+   "path": "$HOME/out/oracle/antlr/antlr4-runtime-4.7.2.jar"
   }
  ],
  "out_dir": "out"

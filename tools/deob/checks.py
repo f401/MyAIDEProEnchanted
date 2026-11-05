@@ -238,6 +238,7 @@ def inherit(project, limit=200):
     conflicts, missing = [], []
     for probe_w, target, _ev in cm.rows:
         probe = cm.full_probe(probe_w)
+        pkg = getattr(project, "inherit_pkg", None)
         if pkg and not probe.startswith(pkg):
             continue
         path = idx.file_for(getattr(project, "probe_search", None) or project.probe_dir, probe)

@@ -1,0 +1,117 @@
+org/a/a/a/a	org/antlr/v4/runtime/ANTLRErrorListener	hier:接口是 org/a/a/a/s 的 ANTLRErrorListener（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/a/a	org/antlr/v4/runtime/atn/ATN	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.319，领先第二名 0.155（comps 0.29,0.25,0.00,0.62,0.00,0.00,0.00）
+org/a/a/a/a/aa	org/antlr/v4/runtime/atn/LexerATNConfig	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.364，领先第二名 0.174（comps 0.44,0.28,0.00,0.45,1.00,0.00,0.00）
+org/a/a/a/a/ab	org/antlr/v4/runtime/atn/LexerATNSimulator	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.391，领先第二名 0.172（comps 0.50,0.17,0.33,0.48,1.00,0.00,0.00）
+org/a/a/a/a/ac	org/antlr/v4/runtime/atn/LexerATNSimulator$SimState	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.447，领先第二名 0.222（comps 0.56,1.00,0.00,0.56,0.00,0.00,0.00）
+org/a/a/a/a/ad	org/antlr/v4/runtime/atn/LexerAction	hier:接口是 org/a/a/a/a/ao 的 LexerAction（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/a/ae	org/antlr/v4/runtime/atn/LexerActionExecutor	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.331，领先第二名 0.145（comps 0.54,0.31,0.00,0.49,0.00,0.00,0.00）
+org/a/a/a/a/af	org/antlr/v4/runtime/atn/LexerActionType	str:常量串集合 Jaccard=1.00（8 个串全部命中，两侧串集完全一致），第二名最高 0.00；串不受混淆影响，一锤定音
+org/a/a/a/a/ag	org/antlr/v4/runtime/atn/LexerChannelAction	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.580，领先第二名 0.061（comps 0.52,0.89,1.00,0.58,0.00,0.00,1.00）
+org/a/a/a/a/ah	org/antlr/v4/runtime/atn/LexerCustomAction	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.472，领先第二名 0.170（comps 0.44,0.80,0.00,0.49,0.00,0.00,1.00）
+org/a/a/a/a/ai	org/antlr/v4/runtime/atn/LexerIndexedCustomAction	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.393，领先第二名 0.179（comps 0.55,0.58,0.00,0.56,0.00,0.00,0.00）
+org/a/a/a/a/aj	org/antlr/v4/runtime/atn/LexerModeAction	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.580，领先第二名 0.061（comps 0.52,0.89,1.00,0.58,0.00,0.00,1.00）
+org/a/a/a/a/ak	org/antlr/v4/runtime/atn/LexerMoreAction	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.527，领先第二名 0.088（comps 0.61,0.78,1.00,0.69,0.00,0.00,0.00）
+org/a/a/a/a/al	org/antlr/v4/runtime/atn/LexerPopModeAction	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.529，领先第二名 0.127（comps 0.62,0.78,1.00,0.69,0.00,0.00,0.00）
+org/a/a/a/a/am	org/antlr/v4/runtime/atn/LexerPushModeAction	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.580，领先第二名 0.061（comps 0.52,0.89,1.00,0.58,0.00,0.00,1.00）
+org/a/a/a/a/an	org/antlr/v4/runtime/atn/LexerSkipAction	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.527，领先第二名 0.088（comps 0.61,0.78,1.00,0.69,0.00,0.00,0.00）
+org/a/a/a/a/ao	org/antlr/v4/runtime/atn/LexerTypeAction	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.580，领先第二名 0.061（comps 0.52,0.89,1.00,0.58,0.00,0.00,1.00）
+org/a/a/a/a/ap	org/antlr/v4/runtime/atn/LoopEndState	contain:在已定映射下，本类 1 个方法/1 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/a/aq	org/antlr/v4/runtime/atn/NotSetTransition	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.558，领先第二名 0.271（comps 0.68,0.60,0.00,0.74,1.00,0.00,0.00）
+org/a/a/a/a/ar	org/antlr/v4/runtime/atn/OrderedATNConfigSet	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.384，领先第二名 0.148（comps 0.46,1.00,0.00,0.46,0.00,0.00,0.00）
+org/a/a/a/a/as	org/antlr/v4/runtime/atn/OrderedATNConfigSet$LexerConfigHashSet	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.413，领先第二名 0.100（comps 0.33,1.00,0.00,0.33,0.00,0.00,1.00）
+org/a/a/a/a/at	org/antlr/v4/runtime/atn/PlusBlockStartState	contain:在已定映射下，本类 1 个方法/1 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/a/au	org/antlr/v4/runtime/atn/PlusLoopbackState	src:同上 stateFactory：case 11 → new 本类；stateType PLUS_LOOP_BACK=11 对应 PlusLoopbackState（超类 DecisionState 一致）
+org/a/a/a/a/av	org/antlr/v4/runtime/atn/PrecedencePredicateTransition	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.606，领先第二名 0.247（comps 0.53,0.62,1.00,0.82,1.00,0.00,0.00）
+org/a/a/a/a/aw	org/antlr/v4/runtime/atn/PredicateTransition	str:常量串集合 Jaccard=1.00（2 个串全部命中，两侧串集完全一致），第二名最高 0.50；串不受混淆影响，一锤定音
+org/a/a/a/a/ax	org/antlr/v4/runtime/atn/PredictionContext	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.534，领先第二名 0.315（comps 0.47,0.33,0.00,0.49,0.50,1.00,1.00）
+org/a/a/a/a/ay	org/antlr/v4/runtime/atn/PredictionContextCache	recv:ATNSimulator(org/a/a/a/a/m) 的字段类型就是本类（本类只被 a/m 与 LexerATNSimulator(a/ab) 引用）；oracle ATNSimulator 同字段类型是 PredictionContextCache，且本类只有一个 Map 字段、构造器里 new HashMap，与 PredictionContextCache 的 cache 字段一致
+org/a/a/a/a/az	org/antlr/v4/runtime/atn/RangeTransition	str:常量串集合 Jaccard=1.00（2 个串全部命中，两侧串集完全一致），第二名最高 0.50；串不受混淆影响，一锤定音
+org/a/a/a/a/b	org/antlr/v4/runtime/atn/ATNConfig	str:常量串集合 Jaccard=1.00（4 个串全部命中，两侧串集完全一致），第二名最高 0.17；串不受混淆影响，一锤定音
+org/a/a/a/a/ba	org/antlr/v4/runtime/atn/RuleStartState	contain:在已定映射下，本类 1 个方法/2 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/a/bb	org/antlr/v4/runtime/atn/RuleStopState	src:同上 stateFactory：case 7 → new 本类；stateType RULE_STOP=7 对应 RuleStopState（超类 ATNState 一致）
+org/a/a/a/a/bc	org/antlr/v4/runtime/atn/RuleTransition	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.508，领先第二名 0.136（comps 0.50,0.67,0.00,0.88,0.00,0.00,0.00）
+org/a/a/a/a/bd	org/antlr/v4/runtime/atn/SemanticContext	hier:超类是 org/a/a/a/a/be（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/a/be	org/antlr/v4/runtime/atn/SemanticContext$Predicate	str:常量串集合 Jaccard=1.00（3 个串全部命中，两侧串集完全一致），第二名最高 0.33；串不受混淆影响，一锤定音
+org/a/a/a/a/bf	org/antlr/v4/runtime/atn/SetTransition	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.446，领先第二名 0.199（comps 0.50,0.50,0.00,0.57,1.00,0.00,0.00）
+org/a/a/a/a/bg	org/antlr/v4/runtime/atn/SingletonPredictionContext	str:常量串集合 Jaccard=1.00（2 个串全部命中，两侧串集完全一致），第二名最高 0.50；串不受混淆影响，一锤定音
+org/a/a/a/a/bh	org/antlr/v4/runtime/atn/StarBlockStartState	src:同上 stateFactory：case 5 → new 本类；stateType STAR_BLOCK_START=5 对应 StarBlockStartState（超类 BlockStartState 一致）
+org/a/a/a/a/bi	org/antlr/v4/runtime/atn/StarLoopEntryState	contain:在已定映射下，本类 1 个方法/2 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/a/bj	org/antlr/v4/runtime/atn/StarLoopbackState	src:同上 stateFactory：case 9 → new 本类；stateType STAR_LOOP_BACK=9 对应 StarLoopbackState（超类 ATNState 一致）
+org/a/a/a/a/bk	org/antlr/v4/runtime/atn/TokensStartState	src:同上 stateFactory：case 6 → new 本类；stateType TOKEN_START=6 对应 TokensStartState（超类 DecisionState 一致）
+org/a/a/a/a/bl	org/antlr/v4/runtime/atn/Transition	str:常量串集合 Jaccard=1.00（12 个串全部命中，两侧串集完全一致），第二名最高 0.04；串不受混淆影响，一锤定音
+org/a/a/a/a/bm	org/antlr/v4/runtime/atn/Transition$1	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.623，领先第二名 0.478（comps 0.57,1.00,0.00,0.57,1.00,0.00,1.00）
+org/a/a/a/a/bn	org/antlr/v4/runtime/atn/WildcardTransition	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.713，领先第二名 0.388（comps 0.77,1.00,1.00,0.84,1.00,0.00,0.00）
+org/a/a/a/a/c	org/antlr/v4/runtime/atn/ATNConfigSet	str:常量串集合 Jaccard=1.00（6 个串全部命中，两侧串集完全一致），第二名最高 0.00；串不受混淆影响，一锤定音
+org/a/a/a/a/d	org/antlr/v4/runtime/atn/ATNConfigSet$AbstractConfigHashSet	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.414，领先第二名 0.215（comps 0.55,0.60,0.00,0.42,1.00,0.00,0.00）
+org/a/a/a/a/e	org/antlr/v4/runtime/atn/ATNConfigSet$ConfigEqualityComparator	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.367，领先第二名 0.092（comps 0.55,0.50,0.00,0.44,0.40,0.00,0.00）
+org/a/a/a/a/f	org/antlr/v4/runtime/atn/ATNConfigSet$ConfigHashSet	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.413，领先第二名 0.100（comps 0.33,1.00,0.00,0.33,0.00,0.00,1.00）
+org/a/a/a/a/g	org/antlr/v4/runtime/atn/ATNDeserializationOptions	contain:在已定映射下，本类 6 个方法/4 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/a/h	org/antlr/v4/runtime/atn/ATNDeserializer	str:常量串集合 Jaccard=1.00（10 个串全部命中，两侧串集完全一致），第二名最高 0.03；串不受混淆影响，一锤定音
+org/a/a/a/a/i	org/antlr/v4/runtime/atn/ATNDeserializer$1	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.800，领先第二名 0.232（comps 1.00,1.00,0.00,1.00,0.00,0.00,1.00）
+org/a/a/a/a/j	org/antlr/v4/runtime/atn/ATNDeserializer$2	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.800，领先第二名 0.232（comps 1.00,1.00,0.00,1.00,0.00,0.00,1.00）
+org/a/a/a/a/k	org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializer	hier:接口是 org/a/a/a/a/j 的 ATNDeserializer$UnicodeDeserializer（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/a/l	org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializingMode	str:常量串集合 Jaccard=1.00（2 个串全部命中，两侧串集完全一致），第二名最高 0.00；串不受混淆影响，一锤定音
+org/a/a/a/a/m	org/antlr/v4/runtime/atn/ATNSimulator	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.333，领先第二名 0.172（comps 0.12,0.14,0.00,0.50,1.00,0.50,0.00）
+org/a/a/a/a/n	org/antlr/v4/runtime/atn/ATNState	str:常量串集合 Jaccard=1.00（14 个串全部命中，两侧串集完全一致），第二名最高 0.04；串不受混淆影响，一锤定音
+org/a/a/a/a/o	org/antlr/v4/runtime/atn/ATNType	str:常量串集合 Jaccard=1.00（2 个串全部命中，两侧串集完全一致），第二名最高 0.00；串不受混淆影响，一锤定音
+org/a/a/a/a/p	org/antlr/v4/runtime/atn/AbstractPredicateTransition	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.495，领先第二名 0.246（comps 0.60,1.00,0.00,0.60,0.00,0.33,0.00）
+org/a/a/a/a/q	org/antlr/v4/runtime/atn/ActionTransition	str:常量串集合 Jaccard=1.00（2 个串全部命中，两侧串集完全一致），第二名最高 0.50；串不受混淆影响，一锤定音
+org/a/a/a/a/r	org/antlr/v4/runtime/atn/ArrayPredictionContext	str:常量串集合 Jaccard=1.00（6 个串全部命中，两侧串集完全一致），第二名最高 0.29；串不受混淆影响，一锤定音
+org/a/a/a/a/s	org/antlr/v4/runtime/atn/AtomTransition	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.430，领先第二名 0.177（comps 0.56,0.71,0.00,0.61,0.00,0.00,0.00）
+org/a/a/a/a/t	org/antlr/v4/runtime/atn/BasicBlockStartState	src:同上 stateFactory：case 3 → new 本类；stateType BLOCK_START=3 对应 BasicBlockStartState（本类超类 BlockStartState 一致）
+org/a/a/a/a/u	org/antlr/v4/runtime/atn/BasicState	src:ATNDeserializer(org/a/a/a/a/h).stateFactory 里 tableswitch 的 case 1 → new 本类；ANTLR 的 stateType 常量固定 BASIC=1（ATNState 源码），且本类超类是 ATNState、无可区分成员 ⇒ 只能取 BasicState
+org/a/a/a/a/v	org/antlr/v4/runtime/atn/BlockEndState	contain:在已定映射下，本类 1 个方法/1 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/a/w	org/antlr/v4/runtime/atn/BlockStartState	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.620，领先第二名 0.088（comps 1.00,0.33,0.00,1.00,0.00,0.00,0.00）
+org/a/a/a/a/x	org/antlr/v4/runtime/atn/DecisionState	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.534，领先第二名 0.224（comps 0.71,1.00,0.00,0.71,0.00,0.00,0.00）
+org/a/a/a/a/y	org/antlr/v4/runtime/atn/EmptyPredictionContext	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.707，领先第二名 0.388（comps 0.75,1.00,1.00,0.84,1.00,0.00,0.00）
+org/a/a/a/a/z	org/antlr/v4/runtime/atn/EpsilonTransition	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.587，领先第二名 0.199（comps 0.65,0.67,1.00,0.87,0.00,0.00,0.00）
+org/a/a/a/aa	org/antlr/v4/runtime/Token	contain:在已定映射下，本类 3 个方法/0 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/ab	org/antlr/v4/runtime/TokenFactory	hier:接口是 org/a/a/a/m 的 TokenFactory（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/ac	org/antlr/v4/runtime/TokenSource	hier:接口是 org/a/a/a/p 的 TokenSource（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/ad	org/antlr/v4/runtime/Vocabulary	hier:接口是 org/a/a/a/ae 的 Vocabulary（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/ae	org/antlr/v4/runtime/VocabularyImpl	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.548，领先第二名 0.360（comps 0.60,0.79,1.00,0.56,1.00,0.00,0.00）
+org/a/a/a/af	org/antlr/v4/runtime/WritableToken	contain:在已定映射下，本类 0 个方法/0 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/b	org/antlr/v4/runtime/BaseErrorListener	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.566，领先第二名 0.145（comps 0.57,0.17,0.00,1.00,0.00,0.33,0.33）
+org/a/a/a/b/a	org/antlr/v4/runtime/dfa/DFA	contain:在已定映射下，本类 4 个方法/5 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/b/b	org/antlr/v4/runtime/dfa/DFA$1	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.414，领先第二名 0.293（comps 0.65,0.14,0.00,0.70,0.00,0.00,0.00）
+org/a/a/a/b/c	org/antlr/v4/runtime/dfa/DFASerializer	str:常量串集合 Jaccard=1.00（6 个串全部命中，两侧串集完全一致），第二名最高 0.33；串不受混淆影响，一锤定音
+org/a/a/a/b/d	org/antlr/v4/runtime/dfa/DFAState	str:常量串集合 Jaccard=1.00（2 个串全部命中，两侧串集完全一致），第二名最高 0.50；串不受混淆影响，一锤定音
+org/a/a/a/b/e	org/antlr/v4/runtime/dfa/DFAState$PredPrediction	str:常量串集合 Jaccard=1.00（3 个串全部命中，两侧串集完全一致），第二名最高 0.40；串不受混淆影响，一锤定音
+org/a/a/a/c	org/antlr/v4/runtime/CharStream	hier:接口是 org/a/a/a/h 的 CharStream（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/c/a	org/antlr/v4/runtime/misc/AbstractEqualityComparator	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.820，领先第二名 0.120（comps 1.00,1.00,0.00,1.00,0.00,0.67,0.67）
+org/a/a/a/c/b	org/antlr/v4/runtime/misc/Array2DHashSet	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.431，领先第二名 0.139（comps 0.55,0.36,0.40,0.55,0.67,0.00,0.00）
+org/a/a/a/c/c	org/antlr/v4/runtime/misc/Array2DHashSet$SetIterator	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.360，领先第二名 0.153（comps 0.52,0.46,0.00,0.53,0.00,0.00,0.00）
+org/a/a/a/c/d	org/antlr/v4/runtime/misc/DoubleKeyMap	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.349，领先第二名 0.146（comps 0.48,0.00,0.00,0.67,0.00,0.00,0.00）
+org/a/a/a/c/e	org/antlr/v4/runtime/misc/EqualityComparator	hier:接口是 org/a/a/a/c/a 的 EqualityComparator（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/c/f	org/antlr/v4/runtime/misc/IntegerList	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.397，领先第二名 0.159（comps 0.30,0.47,0.00,0.57,1.00,0.00,0.00）
+org/a/a/a/c/g	org/antlr/v4/runtime/misc/IntegerStack	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.419，领先第二名 0.124（comps 0.34,0.50,0.00,0.72,0.00,0.00,0.25）
+org/a/a/a/c/h	org/antlr/v4/runtime/misc/Interval	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.367，领先第二名 0.173（comps 0.36,0.34,1.00,0.43,0.57,0.00,0.00）
+org/a/a/a/c/i	org/antlr/v4/runtime/misc/IntervalSet$ParcelableCreator	role:oracle 4.7.2 里没有对应类 ⇒ 按作用命名。role:oracle 无对应。事实：implements android.os.Parcelable$Creator，createFromParcel 读两个 int 后 new misc/IntervalSet(org/a/a/a/c/j)(int[])；同时被 misc/Interval(c/h) 的 CREATOR 字段引用（两者同形被 R8 合并）；IntervalSet 的 Parcelable 支持是 AIDE 加的，4.7.2 无 Creator 类。按作用命名
+org/a/a/a/c/j	org/antlr/v4/runtime/misc/IntervalSet	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.367，领先第二名 0.176（comps 0.26,0.25,0.82,0.56,0.50,0.00,0.04）
+org/a/a/a/c/k	org/antlr/v4/runtime/misc/MurmurHash	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.478，领先第二名 0.326（comps 0.51,0.62,0.00,0.69,0.61,0.00,0.00）
+org/a/a/a/c/l	org/antlr/v4/runtime/misc/ObjectEqualityComparator	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.362，领先第二名 0.125（comps 0.53,0.60,0.00,0.49,0.00,0.00,0.00）
+org/a/a/a/c/m	org/antlr/v4/runtime/misc/Pair	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.416，领先第二名 0.160（comps 0.50,0.33,1.00,0.48,0.00,0.00,0.43）
+org/a/a/a/c/n	org/antlr/v4/runtime/misc/Utils	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.345，领先第二名 0.223（comps 0.15,0.06,0.75,0.55,1.00,0.00,0.00）
+org/a/a/a/d	org/antlr/v4/runtime/CharStreams	src:常量串 "UTF_8"/"ISO_8859_1"/"<unknown>" + 方法 (Reader)CodePointCharStream、(Reader,String)CodePointCharStream、(I)CodePointBuffer$Builder + CharBuffer.allocate/reader.read/compact ⇒ CharStreams（oracle 同类方法逐个对应）
+org/a/a/a/e	org/antlr/v4/runtime/CodePointBuffer	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.380，领先第二名 0.158（comps 0.41,0.54,1.00,0.49,0.00,0.00,0.00）
+org/a/a/a/f	org/antlr/v4/runtime/CodePointBuffer$Builder	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.545，领先第二名 0.365（comps 0.61,0.69,1.00,0.58,1.00,0.00,0.00）
+org/a/a/a/g	org/antlr/v4/runtime/CodePointBuffer$Type	str:常量串集合 Jaccard=1.00（3 个串全部命中，两侧串集完全一致），第二名最高 0.00；串不受混淆影响，一锤定音
+org/a/a/a/h	org/antlr/v4/runtime/CodePointCharStream	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.412，领先第二名 0.117（comps 0.44,0.57,0.67,0.59,0.00,0.00,0.00）
+org/a/a/a/i	org/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.523，领先第二名 0.124（comps 0.57,0.44,1.00,0.62,1.00,0.00,0.00）
+org/a/a/a/j	org/antlr/v4/runtime/CodePointCharStream$CodePoint32BitCharStream	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.500，领先第二名 0.297（comps 0.60,0.62,1.00,0.67,0.00,0.00,0.00）
+org/a/a/a/k	org/antlr/v4/runtime/CodePointCharStream$CodePoint8BitCharStream	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.518，领先第二名 0.120（comps 0.56,0.44,1.00,0.61,1.00,0.00,0.00）
+org/a/a/a/l	org/antlr/v4/runtime/CommonToken	str:常量串集合 Jaccard=1.00（16 个串全部命中，两侧串集完全一致），第二名最高 0.38；串不受混淆影响，一锤定音
+org/a/a/a/m	org/antlr/v4/runtime/CommonTokenFactory	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.376，领先第二名 0.195（comps 0.56,0.27,0.00,0.61,0.00,0.00,0.00）
+org/a/a/a/n	org/antlr/v4/runtime/ConsoleErrorListener	str:常量串集合 Jaccard=1.00（3 个串全部命中，两侧串集完全一致），第二名最高 0.50；串不受混淆影响，一锤定音
+org/a/a/a/o	org/antlr/v4/runtime/IntStream	hier:接口是 org/a/a/a/c 的 IntStream（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/p	org/antlr/v4/runtime/Lexer	str:常量串集合 Jaccard=1.00（7 个串全部命中，两侧串集完全一致），第二名最高 0.33；串不受混淆影响，一锤定音
+org/a/a/a/q	org/antlr/v4/runtime/LexerNoViableAltException	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.417，领先第二名 0.173（comps 0.53,0.56,1.00,0.51,0.00,0.00,0.00）
+org/a/a/a/r	org/antlr/v4/runtime/ParserRuleContext	contain:在已定映射下，本类 1 个方法/0 个字段描述符全部能与 oracle 同签名成员一一配上（多出的 oracle 成员是 R8 裁剪/合并的结果），超类与接口逐位相等，候选唯一（其余候选无法包含）
+org/a/a/a/s	org/antlr/v4/runtime/ProxyErrorListener	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.370，领先第二名 0.231（comps 0.26,0.00,1.00,0.73,0.00,0.00,0.00）
+org/a/a/a/t	org/antlr/v4/runtime/RecognitionException	hier:超类是 org/a/a/a/q（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/u	org/antlr/v4/runtime/Recognizer	hier:超类是 org/a/a/a/p（该位置的 super/interface 描述符唯一对应，逐位对齐无歧义）
+org/a/a/a/v	org/antlr/v4/runtime/Recognizer$1	body:javap -p -c 指令流指纹（七项加权：指令.22/成员.12/串.05/方法对齐.36/整数.07/子类.08/创建点.10）得分 0.312，领先第二名 0.131（comps 0.54,0.00,0.00,0.54,0.00,0.00,0.00）
+org/a/a/a/w	org/antlr/v4/runtime/RuleContext	str:常量串集合 Jaccard=1.00（3 个串全部命中，两侧串集完全一致），第二名最高 0.50；串不受混淆影响，一锤定音
+org/a/a/a/x	org/antlr/v4/runtime/RuntimeMetaData	str:常量串集合 Jaccard=1.00（3 个串全部命中，两侧串集完全一致），第二名最高 0.00；串不受混淆影响，一锤定音
+org/a/a/a/y	org/antlr/v4/runtime/PositionSource	role:oracle 4.7.2 里没有对应类 ⇒ 按作用命名。role:无 oracle 对应（4.7.2 里没有这个接口）。事实：只有两个抽象方法 j()/k()，都无参返回 int；唯一实现者是 org/a/a/a/ac（=TokenSource，APK 里多出这一个父接口）与 org/a/a/a/z（抽象类）；本类无任何常量串。按作用命名（无判别证据，不猜具体语义）
+org/a/a/a/z	org/antlr/v4/runtime/AbstractTokenProducer	role:oracle 4.7.2 里没有对应类 ⇒ 按作用命名。role:无 oracle 对应。事实：abstract class implements y；字段含 StringBuilder、TokenFactory(org/a/a/a/ab)、int 起点/行/列；唯一返回 Token 的方法 f() 调 TokenFactory.create(CommonToken.EMPTY_SOURCE,type,text,channel,start,stop,line,col) ⇒ 是\"用 TokenFactory 造 token 的抽象词法器基类\"；全 APK 无任何类引用它（R8 保留的死代码）。按作用命名
