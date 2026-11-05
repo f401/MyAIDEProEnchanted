@@ -53509,7 +53509,7 @@ c/ar org/bouncycastle/asn1/DERExternalParser
 	a _parser
 	l ()Lc/s; toASN1Primitive
 	c ()Lc/s; getLoadedObject
-c/at org/bouncycastle/asn1/DERUTF8String
+c/at org/bouncycastle/asn1/DERGeneralString
 	d (Lc/s;)Z asn1Equals
 		0 o o
 	e (Lc/q;)V encode
@@ -53540,7 +53540,7 @@ c/b org/bouncycastle/asn1/ASN1BitString
 	k ()[B getBytes
 	j ()Lc/s; toDLObject
 	i ()Lc/s; toDERObject
-c/bf org/bouncycastle/asn1/DLTaggedObject
+c/bf org/bouncycastle/asn1/DERTaggedObject
 	e (Lc/q;)V encode
 		0 out out
 	f ()I encodedLength
@@ -53557,7 +53557,7 @@ c/bi org/bouncycastle/asn1/DERUniversalString
 	b string
 	f ()I encodedLength
 	h ()Ljava/lang/String; getString
-c/bm org/bouncycastle/asn1/DERTaggedObject
+c/bm org/bouncycastle/asn1/DLTaggedObject
 	e (Lc/q;)V encode
 		0 out out
 	f ()I encodedLength
@@ -53792,6 +53792,197 @@ c/q$a org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream
 	d (I)V write
 		0 tagNo tagNo
 	l first
+c/ac org/bouncycastle/asn1/BERApplicationSpecificParser
+	a tag
+	b parser
+	c ()Lc/s; getLoadedObject
+	l ()Lc/s; toASN1Primitive
+c/ag org/bouncycastle/asn1/BEROctetStringParser
+	h ()Ljava/io/InputStream; getOctetStream
+	c ()Lc/s; getLoadedObject
+	l ()Lc/s; toASN1Primitive
+c/ai org/bouncycastle/asn1/BERSequenceParser
+	b _parser
+	c ()Lc/s; getLoadedObject
+	l ()Lc/s; toASN1Primitive
+c/ak org/bouncycastle/asn1/BERSetParser
+	b _parser
+	c ()Lc/s; getLoadedObject
+	l ()Lc/s; toASN1Primitive
+c/am org/bouncycastle/asn1/BERTaggedObjectParser
+	a _constructed
+	b _tagNumber
+	d _parser
+	c ()Lc/s; getLoadedObject
+	l ()Lc/s; toASN1Primitive
+c/ap org/bouncycastle/asn1/DERBitString
+	o (Ljava/lang/Object;)Lc/ap; getInstance
+		static
+		0 obj obj
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	f ()I encodedLength
+c/bl org/bouncycastle/asn1/DLBitString
+	e (Lc/q;)V encode
+	f ()I encodedLength
+	g ()Z isConstructed
+c/as org/bouncycastle/asn1/DERFactory
+c/g org/bouncycastle/asn1/DEREnumerated
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	b bytes
+	f ()I encodedLength
+c/bh org/bouncycastle/asn1/DERUTF8String
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	a string
+	f ()I encodedLength
+	h ()Ljava/lang/String; getString
+c/ay org/bouncycastle/asn1/DERNumericString
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	a string
+	f ()I encodedLength
+	h ()Ljava/lang/String; getString
+c/bb org/bouncycastle/asn1/DERPrintableString
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	a string
+	f ()I encodedLength
+	h ()Ljava/lang/String; getString
+c/be org/bouncycastle/asn1/DERT61String
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	a string
+	f ()I encodedLength
+	h ()Ljava/lang/String; getString
+c/bj org/bouncycastle/asn1/DERVideotexString
+	d (Lc/s;)Z asn1Equals
+	e (Lc/q;)V encode
+	g ()Z isConstructed
+	h ()Ljava/lang/String; getString
+	a string
+	f ()I encodedLength
+c/aw org/bouncycastle/asn1/DERIA5String
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	a string
+	f ()I encodedLength
+	h ()Ljava/lang/String; getString
+c/av org/bouncycastle/asn1/DERGraphicString
+	d (Lc/s;)Z asn1Equals
+	e (Lc/q;)V encode
+	g ()Z isConstructed
+	h ()Ljava/lang/String; getString
+	a string
+	f ()I encodedLength
+c/bk org/bouncycastle/asn1/DERVisibleString
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	e (Lc/q;)V encode
+		0 out out
+	g ()Z isConstructed
+	a string
+	f ()I encodedLength
+	h ()Ljava/lang/String; getString
+c/j org/bouncycastle/asn1/ASN1InputStream
+	d (ILc/bn;[[B)Lc/s; createPrimitiveDERObject
+		static
+		0 tagNo tagNo
+		1 defIn defIn
+		2 tmpBuffers tmpBuffers
+	e (Lc/bn;[[B)[B getBuffer
+		static
+		0 defIn defIn
+		1 tmpBuffers tmpBuffers
+	h (Lc/bn;)Lc/f; buildDEREncodableVector
+		0 dIn dIn
+	i (III)Lc/s; buildObject
+		0 tag tag
+		1 tagNo tagNo
+		2 length length
+	j ()Lc/s; readObject
+	a limit
+	b lazyEvaluate
+	c tmpBuffers
+	f (Ljava/io/InputStream;I)I readLength
+		static
+		0 s s
+		1 limit limit
+	g (Ljava/io/InputStream;I)I readTagNumber
+		static
+		0 s s
+		1 tag tag
+c/z org/bouncycastle/asn1/ASN1TaggedObject
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	a tagNo
+	h obj
+	k ()Lc/s; getObject
+	b explicit
+	i ()Lc/s; toDERObject
+	j ()Lc/s; toDLObject
+	c ()Lc/s; getLoadedObject
+c/v org/bouncycastle/asn1/ASN1Set
+	q ()V sort
+	c (Ljava/lang/Object;)Lc/v; getInstance
+		static
+		0 obj obj
+	d (Lc/s;)Z asn1Equals
+		0 o o
+	g ()Z isConstructed
+	h (Ljava/util/Enumeration;)Lc/e; getNext
+		0 e e
+	k (I)Lc/e; getObjectAt
+		0 index index
+	o ()Ljava/util/Enumeration; getObjects
+	a set
+	b isSorted
+	p ()I size
+	i ()Lc/s; toDERObject
+	j ()Lc/s; toDLObject
+c/u org/bouncycastle/asn1/ASN1SequenceParser
+c/w org/bouncycastle/asn1/ASN1SetParser
+c/ba org/bouncycastle/asn1/DEROutputStream
+	j (Lc/e;)V writeObject
+		0 obj obj
+	b ()Lc/q; getDERSubStream
+	c ()Lc/q; getDLSubStream
+c/bc org/bouncycastle/asn1/DERSequence
+	e (Lc/q;)V encode
+		0 out out
+	s ()I getBodyLength
+	f ()I encodedLength
+	r bodyLength
+c/bd org/bouncycastle/asn1/DERSet
+	e (Lc/q;)V encode
+		0 out out
+	u ()I getBodyLength
+	f ()I encodedLength
+	s bodyLength
+c/d org/bouncycastle/asn1/ASN1Choice
+c/bq org/bouncycastle/asn1/LazyConstructionEnumeration
+	a aIn
+	c ()Ljava/lang/Object; readObject
 abcd/Dy com/jcraft/jzlib/Adler32
 	j6 (J)V reset
 		0 init init

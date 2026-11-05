@@ -4,10 +4,11 @@
 
 | 指标 | 值 |
 |---|---|
-| 类 | **46 / 76 = 60.5%**（`c` 包共 76 个类；另在 `class_map` 里还挂了 32 个别的单字母包类，见 §4） |
-| 方法（cover 口径：剔除构造器/静态块/合成器/JDK 契约名，`--pkg=c/`） | **122 / 122 = 100.0%**（分母只含已定名的 46 个类） |
-| 字段（同口径） | **50 / 50 = 100.0%**（同上） |
-| 待人工 | 已定名的 46 个类里 **0**（§3.1）；**30 个类还没定名**，见 §4 |
+| 类 | **73 / 76 = 96.1%**（`c` 包；另在 `class_map` 里还挂了 32 个别的单字母包类，见 §4） |
+| 方法（cover 口径：剔除构造器/静态块/合成器/JDK 契约名，`--pkg=c/`） | **218 / 218 = 100.0%** |
+| 字段（同口径） | **77 / 77 = 100.0%** |
+| 参数名 | 88 行（bcprov-1.56 的 LVT） |
+| 待人工 | **0**（`no-oracle-descriptor` 10 条是 AIDE 改签名/oracle 无同形）；只剩 3 个类没定名，见 §6 |
 | 证据分布（`class_map.tsv` 第 3 列） | `contain` 44 / `str` 25 / `hier` 5 / `pkg+contain` 3 / `src` 1 |
 
 oracle：`bcprov-jdk15on-1.56`（`~/out/oracle/spongycastle/`，同一目录里也放着 1.47/1.50 的 BC 与 SpongyCastle）。
@@ -116,3 +117,67 @@ python tools/deob/cli.py -p process/deob.json cover --pkg=c/
 python tools/deob/audit.py -p process/deob.json --part ../jobs/asn1bc \
        --oracle bcprov-jdk15on-1.56 --prefix c --oprefix org/bouncycastle
 ```
+
+## 6. 第二轮：把剩下的 30 个类收掉 27 个（新增两条硬判据）
+
+### 6.1 `encode()` 里的 **tag 常量** —— 一次定死整个 `DER*String` 家族
+
+BC 的字符串族（`DERUTF8String`/`IA5String`/`PrintableString`…）形状完全同构，只能靠
+`encode(ASN1OutputStream)` 写出去的 tag：
+
+```java
+bipush 12 → writeEncoded(12, string)   // UTF8String
+```
+
+于是把"方法体里 `writeEncoded(int,byte[])` 前一条整数字面量"当指纹，两侧各算一遍：
+
+| tag | 类 | | tag | 类 |
+|---|---|---|---|---|
+| 12 | `c/bh` = DERUTF8String | | 22 | `c/aw` = DERIA5String |
+| 18 | `c/ay` = DERNumericString | | 25 | `c/av` = DERGraphicString |
+| 19 | `c/bb` = DERPrintableString | | 26 | `c/bk` = DERVisibleString |
+| 20 | `c/be` = DERT61String | | 10 | `c/g` = DEREnumerated |
+| 21 | `c/bj` = DERVideotexString | | 3 | `c/ap`=DERBitString / `c/bl`=DLBitString（后者只有 4 方法且唯一外部引用是 StreamUtil） |
+
+> **顺手抓到一个真错**：`c/at` 原来被定名成 `DERUTF8String`，但它的 tag 是 **27 = GeneralString**，
+> tag 12 在 `c/bh` 上 ⇒ `c/at` 改为 `org/bouncycastle/asn1/DERGeneralString`。全类 tag 审计现在自洽。
+
+### 6.2 剩下的类靠"引用者 / 实现者 / 唯一候选"
+
+```
+c/j  ASN1InputStream        FilterInputStream + 'unknown tag '/'EOF encountered in middle of BIT STRING'
+c/z  ASN1TaggedObject       i()→new c/bf(=DERTaggedObject)、j()→new c/bm(=DLTaggedObject)
+c/v  ASN1Set                Iterable + 'cannot encode object added to SET'
+c/u  ASN1SequenceParser     0 方法接口，被 BERSequenceParser 实现
+c/w  ASN1SetParser          0 方法接口，被 BERSetParser 实现
+c/ac BERApplicationSpecificParser / c/ag BEROctetStringParser / c/ai BERSequenceParser /
+c/ak BERSetParser / c/am BERTaggedObjectParser
+c/as DERFactory             1 方法/2 字段，方法体直接引用 DERSequence 与 DERSet
+c/d  ASN1Choice             0 成员接口（bcprov-1.56 的 asn1 包里唯一）
+c/bq LazyConstructionEnumeration   Enumeration + ASN1InputStream 字段 + 构造器(byte[])
+```
+
+### 6.3 R8 把 **DER/DL 两两合并**（3 个类，各带一个 int flag）
+
+`DERSequence`+`DLSequence`、`DERSet`+`DLSet`、`DEROutputStream`+`DLOutputStream` 都只剩**一个类**，
+构造器多了一个 int。flag 语义靠"谁传 0/谁传 1"定：
+
+```
+c/t.i()(=toDERObject) → new c/bc(0)      c/t.j()(=toDLObject) → new c/bc(1)
+c/v.i()(=toDERObject) → new c/bd(0)      c/v.j()(=toDLObject) → new c/bd(1)
+c/q.b()(=getDERSubStream) → new c/ba(os,0)   c/q.c()(=getDLSubStream) → new c/ba(os,1)
+⇒ flag 0 = DER。三个合并件按 flag 0 命名 DERSequence / DERSet / DEROutputStream（DL 那份没有独立类）
+```
+
+**又一处纠正**：`c/bf`/`c/bm`（两个 `DERTaggedObject`/`DLTaggedObject` 同形件）原来被形状匹配**对调**了；
+用 `c/z.i()`(=toDERObject，因为 `c/o.i()` 造的是 DEROctetString) 里 new 的是 `c/bf` ⇒ `c/bf`=DERTaggedObject。
+
+### 6.4 最终状态与遗留
+
+```
+类   73/76 = 96.1%（未定名：c/h、c/r —— 两个 IOException/IllegalStateException 子类，
+                    同形带 int+Throwable+getCause，bcprov 1.56 里找不到对应；c/aw$$ExternalSyntheticBackport0 —— R8 合成）
+方法 218/218 = 100.0%
+字段  77/77  = 100.0%（c/bc.q、c/bd.r 是上面合并件的 flag 字段，属 R8 产物，按作用留空）
+参数  88 行
+门禁 validate ✔ · inherit 0-0-0 · famcheck 0-0 · innercheck ②③ 0

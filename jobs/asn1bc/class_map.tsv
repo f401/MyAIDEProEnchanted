@@ -11,15 +11,15 @@ c/an	org/bouncycastle/asn1/ConstructedOctetStream	contain:在已定映射下 3 �
 c/ao	org/bouncycastle/asn1/DERBMPString	contain:在已定映射下 8 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
 c/aq	org/bouncycastle/asn1/DERExternal	str:常量串集合 Jaccard=1.00（5 个串全部命中），第二名最高 0.20；串不受混淆影响
 c/ar	org/bouncycastle/asn1/DERExternalParser	contain:在已定映射下 3 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
-c/at	org/bouncycastle/asn1/DERUTF8String	contain:在已定映射下 8 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/at	org/bouncycastle/asn1/DERGeneralString	src:encode() 里 writeEncoded 的 tag 常量 = 27（=GeneralString）；原判 DERUTF8String 是错的（UTF8 的 tag 是 12，已被 c/bh 占）
 c/au	org/bouncycastle/asn1/DERGeneralizedTime	contain:在已定映射下 1 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
 c/ax	org/bouncycastle/asn1/DERNull	contain:在已定映射下 5 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
 c/az	org/bouncycastle/asn1/DEROctetString	contain:在已定映射下 4 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
 c/b	org/bouncycastle/asn1/ASN1BitString	contain:在已定映射下 9 方法/3 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
-c/bf	org/bouncycastle/asn1/DLTaggedObject	contain:在已定映射下 5 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/bf	org/bouncycastle/asn1/DERTaggedObject	src:c/z.i()(=toDERObject，由 c/o.i() 造 DEROctetString 定死) 里 new 的就是本类 ⇒ DERTaggedObject（原判 DL 是形状对调的产物）
 c/bg	org/bouncycastle/asn1/DERUTCTime	contain:在已定映射下 1 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
 c/bi	org/bouncycastle/asn1/DERUniversalString	contain:在已定映射下 9 方法/2 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
-c/bm	org/bouncycastle/asn1/DERTaggedObject	contain:在已定映射下 5 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+c/bm	org/bouncycastle/asn1/DLTaggedObject	src:c/z.j()(=toDLObject) 里 new 的就是本类 ⇒ DLTaggedObject
 c/bn	org/bouncycastle/asn1/DefiniteLengthInputStream	str:常量串集合 Jaccard=1.00（3 个串全部命中），第二名最高 0.00；串不受混淆影响
 c/bo	org/bouncycastle/asn1/InMemoryRepresentable	hier:接口是 c/p 的 InMemoryRepresentable（super/interface 位置唯一对应）
 c/bp	org/bouncycastle/asn1/IndefiniteLengthInputStream	contain:在已定映射下 4 方法/4 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
@@ -76,3 +76,30 @@ x/a$a	org/bouncycastle/util/Arrays$Iterator	str:常量串集合 Jaccard=1.00（2
 x/b$a	org/bouncycastle/util/Strings$1	contain:在已定映射下 2 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
 y/a	org/bouncycastle/util/encoders/UrlBase64	contain:在已定映射下 3 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
 c/q$a	org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream	src:c/q 已定名为 ASN1OutputStream；本类是它的唯一内部类（extends c/q、构造器收 OutputStream、方法 d(int) 写 implicit tag），oracle 侧 ASN1OutputStream 也只有一个内部类 ImplicitOutputStream
+c/ac	org/bouncycastle/asn1/BERApplicationSpecificParser	recv:实现 ASN1Encodable+InMemoryRepresentable，构造器只收 ASN1StreamParser、方法体只 new BERApplicationSpecific ⇒ BERApplicationSpecificParser
+c/ag	org/bouncycastle/asn1/BEROctetStringParser	str:唯一常量串 'IOException converting stream to byte array: '；实现 ASN1OctetStringParser；引用 BEROctetString/ConstructedOctetStream
+c/ai	org/bouncycastle/asn1/BERSequenceParser	hier:实现 u(=ASN1SequenceParser)；方法体引用 ASN1StreamParser + BERSequence
+c/ak	org/bouncycastle/asn1/BERSetParser	hier:实现 w(=ASN1SetParser)；方法体引用 ASN1StreamParser + BERSet
+c/am	org/bouncycastle/asn1/BERTaggedObjectParser	recv:实现 ASN1Encodable+InMemoryRepresentable，只引用 ASN1StreamParser（3 方法/3 字段）
+c/ap	org/bouncycastle/asn1/DERBitString	str:sup=ASN1BitString、7 方法、常量串 'encoding error in getInstance: '（DERBitString 独有）+ 引用 ASN1OctetString
+c/bl	org/bouncycastle/asn1/DLBitString	body:sup=ASN1BitString 但只有 4 方法，且唯一外部引用是 StreamUtil（DLBitString.encodedLength 用 StreamUtil）
+c/as	org/bouncycastle/asn1/DERFactory	refs:1 方法/2 字段，方法体直接引用 DERSequence(c/bc) 与 DERSet(c/bd) —— 就是 DERFactory 的两个空单例
+c/g	org/bouncycastle/asn1/DEREnumerated	src:encode() 里 writeEncoded 的 tag 常量 = 10（=ENUMERATED），与 oracle DEREnumerated 一致
+c/bh	org/bouncycastle/asn1/DERUTF8String	src:encode() 的 tag 常量 = 12（UTF8String）
+c/ay	org/bouncycastle/asn1/DERNumericString	src:encode() 的 tag 常量 = 18（NumericString）
+c/bb	org/bouncycastle/asn1/DERPrintableString	src:encode() 的 tag 常量 = 19（PrintableString）
+c/be	org/bouncycastle/asn1/DERT61String	src:encode() 的 tag 常量 = 20（T61String）
+c/bj	org/bouncycastle/asn1/DERVideotexString	src:encode() 的 tag 常量 = 21（VideotexString）
+c/aw	org/bouncycastle/asn1/DERIA5String	src:encode() 的 tag 常量 = 22（IA5String）
+c/av	org/bouncycastle/asn1/DERGraphicString	src:encode() 的 tag 常量 = 25（GraphicString）
+c/bk	org/bouncycastle/asn1/DERVisibleString	src:encode() 的 tag 常量 = 26（VisibleString）
+c/j	org/bouncycastle/asn1/ASN1InputStream	str:extends FilterInputStream；常量串 'unknown tag '/'EOF encountered in middle of BIT STRING'；引用 12 个已定名 ASN.1 类
+c/z	org/bouncycastle/asn1/ASN1TaggedObject	str:extends ASN1Primitive implements InMemoryRepresentable；串 '['/']'；引用 DERTaggedObject/DLTaggedObject
+c/v	org/bouncycastle/asn1/ASN1Set	str:extends ASN1Primitive implements Iterable；串 'cannot encode object added to SET'/'failed to construct set from byte[]: '
+c/u	org/bouncycastle/asn1/ASN1SequenceParser	hier:0 方法接口（ASN1Encodable+InMemoryRepresentable），被 c/ai(=BERSequenceParser) 实现
+c/w	org/bouncycastle/asn1/ASN1SetParser	hier:0 方法接口（ASN1Encodable+InMemoryRepresentable），被 c/ak(=BERSetParser) 实现
+c/ba	org/bouncycastle/asn1/DEROutputStream	src:DEROutputStream 与 DLOutputStream 被 R8 合并成一个类（构造器 (OutputStream,int)）；c/q.b()=getDERSubStream 传 flag 0、c/q.c()=getDLSubStream 传 1 ⇒ 本类按 flag 0 命名（合并件，DL 那份没有独立类）
+c/bc	org/bouncycastle/asn1/DERSequence	src:同上，DERSequence/DLSequence 合并成 (ASN1EncodableVector,int) 一个类；c/t.i()=toDERObject 用 flag 0、c/t.j()=toDLObject 用 1 ⇒ DERSequence
+c/bd	org/bouncycastle/asn1/DERSet	src:同上，DERSet/DLSet 合并；c/v.i()=toDERObject 用 flag 0、c/v.j()=toDLObject 用 1 ⇒ DERSet
+c/d	org/bouncycastle/asn1/ASN1Choice	kind:public interface 且 0 个成员；bcprov-1.56 的 asn1 包里 0 成员接口只有 ASN1Choice（ASN1String/InMemoryRepresentable 都是 1 个方法）
+c/bq	org/bouncycastle/asn1/LazyConstructionEnumeration	recv:implements Enumeration、字段是 ASN1InputStream + Object、构造器收 byte[]、私有 readObject()；与 oracle LazyConstructionEnumeration 逐项相同
