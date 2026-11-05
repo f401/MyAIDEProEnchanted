@@ -47176,6 +47176,7 @@ org/c/a/a/b/d/e/h org/jd/core/v1/model/javasyntax/type/InnerObjectType
 		0 typeArguments typeArguments
 	a (Lorg/c/a/a/b/d/e/u;)V accept
 		0 visitor visitor
+	a (I)Lorg/c/a/a/b/d/e/l; createType
 org/c/a/a/b/d/e/x org/jd/core/v1/model/javasyntax/type/WildcardExtendsTypeArgument
 	a (Lorg/c/a/a/b/d/e/u;)V accept
 		0 visitor visitor
@@ -49514,6 +49515,7 @@ org/c/a/a/b/d/e/l org/jd/core/v1/model/javasyntax/type/BaseType
 	d ()I getDimension
 	l ()Z isObject
 	m_ ()Z isPrimitive
+	a (I)Lorg/c/a/a/b/d/e/l; createType
 org/c/a/a/c/a/a/a/a/b org/jd/core/v1/service/converter/classfiletojavasyntax/model/cfg/BasicBlock$ExceptionHandler
 	c ()Lorg/c/a/a/c/a/a/a/a/a; getBasicBlock
 	a (Lorg/c/a/a/c/a/a/a/a/a;)V setBasicBlock
@@ -49913,6 +49915,7 @@ org/c/a/a/b/d/e/g org/jd/core/v1/model/javasyntax/type/GenericType
 	d ()I getDimension
 	a (Lorg/c/a/a/b/d/e/u;)V accept
 		0 visitor visitor
+	a (I)Lorg/c/a/a/b/d/e/l; createType
 org/c/a/a/b/d/e/i org/jd/core/v1/model/javasyntax/type/ObjectType
 	a (Lorg/c/a/a/b/d/e/e;)Lorg/c/a/a/b/d/e/i; createType
 		0 typeArguments typeArguments
@@ -49947,6 +49950,7 @@ org/c/a/a/b/d/e/i org/jd/core/v1/model/javasyntax/type/ObjectType
 	c TYPE_BOOLEAN
 	p TYPE_UNDEFINED_OBJECT
 	hashCode ()I hashCode
+	a (I)Lorg/c/a/a/b/d/e/l; createType
 org/c/a/a/b/d/e/k org/jd/core/v1/model/javasyntax/type/PrimitiveType
 	m_ ()Z isPrimitive
 	x $assertionsDisabled
@@ -49981,6 +49985,7 @@ org/c/a/a/b/d/e/k org/jd/core/v1/model/javasyntax/type/PrimitiveType
 	b TYPE_BYTE
 	h TYPE_SHORT
 	b (I)Lorg/c/a/a/b/d/e/k; createType
+	a (I)Lorg/c/a/a/b/d/e/l; createType
 org/c/a/a/b/c/a org/jd/core/v1/model/javafragment/EndBlockFragment
 	a (I)V setLineCount
 		0 lineCount lineCount

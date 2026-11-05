@@ -79,9 +79,11 @@ def main():
         return out
 
     # 预索引：类 → 成员 → 已定名集合
+    # 覆写的**形参必须完全相同、返回类型可以协变** ⇒ 只按 (名字, 形参部分) 建索引
     by_m = collections.defaultdict(lambda: collections.defaultdict(set))
     for (p2, n, d), real in mmap.items():
-        by_m[p2][(n, d)].add(real)
+        par = d[:d.index(')') + 1] if ')' in d else d
+        by_m[p2][(n, par)].add(real)
     by_f = collections.defaultdict(lambda: collections.defaultdict(set))
     for (p2, n), real in fmap.items():
         by_f[p2][n].add(real)

@@ -1512,3 +1512,32 @@ javap 里基本类型是**拼写出来的**（`int`、`boolean`…），而 `'in
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
 剩余方法最大簇只有 5 条（ClassTypeResolver），其余 2~3 条零散
 ```
+
+## 第三十批：`hinher` 允许**协变返回** → 方法口径内 **96.9%**
+
+覆写规则里"形参必须完全相同，返回类型可以**协变**"。`hinher` 之前按**整个描述符**建索引，
+于是 `BaseType.createType(int)`（返回 `BaseType`）与 `GenericType.createType(int)`（返回 `GenericType`）
+对不上，`createType` 这条覆写链全断了。
+
+修法：索引键改成 **(名字, 形参部分)**；再补上 `BaseType.a(int) → createType`（该类唯一剩余方法，
+oracle `BaseType` 唯一剩余方法也正是 `createType`）⇒ `hinher` 一次把 `createType` 推到
+`GenericType/ObjectType/PrimitiveType/InnerObjectType` 等全部实现者。
+
+### 最终状态（口径内；剔除 构造器 521 + JDK 契约覆写 160）
+
+```
+类   434/434 = 100%
+方法 2559/2640 = 96.93%（未定名 81）
+字段  947/974  = 97.23%（未定名 27）
+门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 · famcheck 0/0 · innercheck ②③ 0
+```
+
+剩余 81 条方法的构成（都已逐条看过）：
+
+```
+Base 的 getFirst/getLast 族  ≈34  实现者里 b(){return this;} / h(){return this.b();} 两种形态，
+                                  oracle 侧 getFirst/getLast 都是"返回 this"，**两者不可区分**（真同构）
+typeOnRight/Left 家族        ≈12  差异只在实参语义（前文已记）
+newXxxOperatorExpression×4     4  运算符是形参，方法体无字面量
+其余零散                     ≈31  含 PlainTextPrinter 的字符串转义表、ClassTypeResolver 的缓存助手等
+```
