@@ -7,7 +7,7 @@ abcd/Mv	com/aide/backbone/UISceneRuntime	recv:extends abcd/lv(=ReflectionRuntime
 abcd/Xv	com/aide/backbone/EventDataImpl	hier:implements com/appfour/backbone/api/objects/EventData；方法 setCrash(Throwable,boolean)/setIsInstall(boolean)/setIsProperty(boolean) 就是 EventData 未改名的 setter，另有 (InAppProduct/Market/UserInputAction/UserLaunchAction/UserNotificationAction/UserTouchAction)→UIScene 的转换
 abcd/Vu	com/aide/backbone/EnterHookDefinition	recv:extends abcd/hv(→yu=HookDefinition)；唯一新增 API 是 onEnter(long,long,OnEnterClosure0..5)DefineHook 六个重载
 abcd/Iu	com/aide/backbone/AbstractApi	shape:abstract class extends abcd/Bv；方法名是 Backbone Api 的那一族 onApplicationCreate/onCrash/onInAppProductImpression/onInAppProductPurchase/onInstall/onNewVersion/onReferrerMarketClick/onReferrerMarketImpression/onUpdate（全带 *Closure 形参），并各自 new 一个闭包适配器
-abcd/Bv	com/aide/backbone/RuntimeFlags	shape:17 个 boolean 字段 + 33 个方法（绝大多数是 ()Z getter）⇒ 运行时开关集合
+abcd/Bv	com/aide/backbone/ApiBase	recv:15 个闭包适配器（Av/mv/nv/ov/pv/qv/rv/sv/tv/uv/vv/wv/xv/yv/zv）全部在它的 onClick/onLongPress/onInput/onTouch/onNotificationShown/onNotificationAction/onLaunch/onActivityStart/onActivityStop/onActivityCreate/onWindowShown/onWindowHidden/onMenuItemSelected/onItemClick/onItemLongPress 里被 new ⇒ 这是注册闭包的 API 基类；另有 17 个 boolean 字段 + 33 个方法
 abcd/Iv	com/aide/backbone/NotificationFactory	str:串 'BACKBONE_INTENT'；方法造 PendingIntent(Context,I,Intent,I,Bundle) 与 UserNotification/UserNotificationAction 并读写 File ⇒ 通知/PendingIntent 工厂
 abcd/Gv	com/aide/backbone/ActivityLifecycleTracker	hier:implements android/app/Application$ActivityLifecycleCallbacks（8 个 onActivityXxx 全是接口方法，未改名）
 abcd/kv	com/aide/backbone/CallbackDispatcher	recv:40 个方法全是回调派发（含 DW(Activity,InAppProduct)V = onInAppProductPurchase），字段有 ThreadLocal 与 kv$b；串里直接列了 onActivityStarted/onInAppProductPurchase/onLongPress/onItemLongPress
@@ -45,3 +45,19 @@ abcd/_u	com/aide/backbone/adapters/OnExceptionClosure2Invocation	src:implements 
 abcd/bv	com/aide/backbone/adapters/OnExceptionClosure3Invocation	src:implements abcd/lv$a，构造器首参是 abcd/cv(=OnExceptionClosure3Adapter) ⇒ 该适配器被调时的调用封装
 abcd/dv	com/aide/backbone/adapters/OnExceptionClosure4Invocation	src:implements abcd/lv$a，构造器首参是 abcd/ev(=OnExceptionClosure4Adapter) ⇒ 该适配器被调时的调用封装
 abcd/fv	com/aide/backbone/adapters/OnExceptionClosure5Invocation	src:implements abcd/lv$a，构造器首参是 abcd/gv(=OnExceptionClosure5Adapter) ⇒ 该适配器被调时的调用封装
+
+abcd/Av	com/aide/backbone/adapters/OnClickListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnClickClosure...)；且它只在 abcd/Bv.onClick 里被 new ⇒ 包的是 onClick 闭包，按外层 API 方法命名
+abcd/mv	com/aide/backbone/adapters/OnLongPressListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnClickClosure...)；且它只在 abcd/Bv.onLongPress 里被 new ⇒ 包的是 onLongPress 闭包，按外层 API 方法命名
+abcd/nv	com/aide/backbone/adapters/OnInputListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnInputClosure...)；且它只在 abcd/Bv.onInput 里被 new ⇒ 包的是 onInput 闭包，按外层 API 方法命名
+abcd/ov	com/aide/backbone/adapters/OnTouchListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnTouchClosure...)；且它只在 abcd/Bv.onTouch 里被 new ⇒ 包的是 onTouch 闭包，按外层 API 方法命名
+abcd/pv	com/aide/backbone/adapters/OnNotificationShownListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnNotificationClosure...)；且它只在 abcd/Bv.onNotificationShown 里被 new ⇒ 包的是 onNotificationShown 闭包，按外层 API 方法命名
+abcd/qv	com/aide/backbone/adapters/OnNotificationActionListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnNotificationClosure...)；且它只在 abcd/Bv.onNotificationAction 里被 new ⇒ 包的是 onNotificationAction 闭包，按外层 API 方法命名
+abcd/rv	com/aide/backbone/adapters/OnLaunchListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnLaunchClosure...)；且它只在 abcd/Bv.onLaunch 里被 new ⇒ 包的是 onLaunch 闭包，按外层 API 方法命名
+abcd/sv	com/aide/backbone/adapters/OnActivityStartListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnActivityClosure...)；且它只在 abcd/Bv.onActivityStart 里被 new ⇒ 包的是 onActivityStart 闭包，按外层 API 方法命名
+abcd/tv	com/aide/backbone/adapters/OnActivityStopListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnActivityClosure...)；且它只在 abcd/Bv.onActivityStop 里被 new ⇒ 包的是 onActivityStop 闭包，按外层 API 方法命名
+abcd/uv	com/aide/backbone/adapters/OnActivityCreateListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnActivityClosure...)；且它只在 abcd/Bv.onActivityCreate 里被 new ⇒ 包的是 onActivityCreate 闭包，按外层 API 方法命名
+abcd/vv	com/aide/backbone/adapters/OnWindowShownListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnWindowClosure...)；且它只在 abcd/Bv.onWindowShown 里被 new ⇒ 包的是 onWindowShown 闭包，按外层 API 方法命名
+abcd/wv	com/aide/backbone/adapters/OnWindowHiddenListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnWindowClosure...)；且它只在 abcd/Bv.onWindowHidden 里被 new ⇒ 包的是 onWindowHidden 闭包，按外层 API 方法命名
+abcd/xv	com/aide/backbone/adapters/OnMenuItemSelectedListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnMenuItemSelectedClosure...)；且它只在 abcd/Bv.onMenuItemSelected 里被 new ⇒ 包的是 onMenuItemSelected 闭包，按外层 API 方法命名
+abcd/yv	com/aide/backbone/adapters/OnItemClickListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnItemClickClosure...)；且它只在 abcd/Bv.onItemClick 里被 new ⇒ 包的是 onItemClick 闭包，按外层 API 方法命名
+abcd/zv	com/aide/backbone/adapters/OnItemLongPressListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnItemClickClosure...)；且它只在 abcd/Bv.onItemLongPress 里被 new ⇒ 包的是 onItemLongPress 闭包，按外层 API 方法命名

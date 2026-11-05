@@ -66,6 +66,22 @@ OnExceptionClosureN Xu Zu av cv ev gv   ← 构造器 (Labcd/hv;J…OnExceptionC
 判据只有一条但很硬：**构造器里那个闭包接口的类型**（`OnEnterClosure3` 就是 3 号，不用猜），
 而调用封装的首参类型又反过来钉住它属于哪个适配器。
 
+## 1.3 UI/生命周期闭包监听器 15 个：判据是"谁 new 它"
+
+`abcd/Bv`（**ApiBase**，17 个 boolean + 33 个方法）里有一串**名字没被混淆**的 API 方法，
+每个方法里 `new` 一个 `abcd/jv` 适配器 —— 于是适配器的归属一目了然：
+
+```
+Av→onClick   mv→onLongPress   nv→onInput   ov→onTouch
+pv→onNotificationShown   qv→onNotificationAction   rv→onLaunch
+sv→onActivityStart  tv→onActivityStop  uv→onActivityCreate
+vv→onWindowShown  wv→onWindowHidden  xv→onMenuItemSelected
+yv→onItemClick  zv→onItemLongPress
+```
+
+（`mv` 包的是 `OnClickClosure` 但注册在 `onLongPress` 里，所以按**外层方法**叫 `OnLongPressListener`；
+`Bv` 因为持有这 15 个注册点，命名从 `RuntimeFlags` 修正为 **`ApiBase`**。）
+
 ## 2. 成员说明（本 part 暂时 0 行）
 
 这 7 个类里**大部分方法名本来就是对的** —— 它们实现的是未混淆框架接口，方法名被接口钉死
@@ -76,7 +92,7 @@ OnExceptionClosureN Xu Zu av cv ev gv   ← 构造器 (Labcd/hv;J…OnExceptionC
 ## 3. 状态
 
 ```
-类   47（`cli members` 不适用：无 oracle）
+类   62（`cli members` 不适用：无 oracle）
 成员 0 行（理由见 §2）
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 / MISSING 0
 ```
