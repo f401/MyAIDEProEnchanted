@@ -1,0 +1,14 @@
+abcd/Dy	com/jcraft/jzlib/Adler32	str:类里只有两个 static long 字段（无 int[]），与 Adler32 的 s1/s2 同形；实现 Fy(=Checksum)
+abcd/Ey	com/jcraft/jzlib/CRC32	src:static int[] 字段 + static int + <clinit> 建 crc_table，与 CRC32 的 crc_table/v/GF2_DIM 同形；实现 Fy(=Checksum)
+abcd/Fy	com/jcraft/jzlib/Checksum	hier:Dy/Ey 的接口就是这个类；jzlib 里唯一的"4 方法、0 字段"接口 ⇒ Checksum
+abcd/Gy	com/jcraft/jzlib/Deflate	body:41 方法/61 字段、sup=Object、implements Cloneable（jzlib 里只有 Deflate 与 GZIPHeader 这么干）+ 常量串含 z_errmsg 的 'need dictionary'/'stream end'
+abcd/Gy$a	com/jcraft/jzlib/Deflate$Config	shape:1 方法/5 字段，与 Deflate$Config 完全同形（唯一候选，且外层是 Deflate）
+abcd/Hy	com/jcraft/jzlib/GZIPHeader	shape:12 个实例字段的类型逐个相等（Z,Z,J,I,[B,[B,[B,Z,J,I,I,J）+ implements Cloneable ⇒ GZIPHeader（oracle 侧 R8 只裁掉了 15 个 OS_* 常量）
+abcd/Iy	com/jcraft/jzlib/InfBlocks	str:常量串 'too many length or distance symbols'/'invalid bit length repeat'/'invalid stored block lengths' 全部出自 InfBlocks
+abcd/Jy	com/jcraft/jzlib/InfCodes	str:常量串 'invalid distance code'/'invalid literal/length code' 出自 InfCodes
+abcd/Ky	com/jcraft/jzlib/InfTree	str:常量串 'oversubscribed literal/length tree'/'incomplete distance tree' 出自 InfTree
+abcd/Ly	com/jcraft/jzlib/Inflate	str:常量串 'unknown compression method'/'header crc mismatch'/'incorrect header check' 出自 Inflate 的 gzip 头解析分支
+abcd/Ly$a	com/jcraft/jzlib/Inflate$Return	shape:extends java/lang/Exception、1 方法/2 字段，与 Inflate$Return 完全同形（唯一候选）
+abcd/My	com/jcraft/jzlib/StaticTree	shape:2 方法（oracle 侧也是 2 个）+ 10 个 static 字段表
+abcd/Ny	com/jcraft/jzlib/Tree	shape:7 方法（oracle 侧也是 7 个）+ 11 个字段
+abcd/Oy	com/jcraft/jzlib/ZStream	recv:13 个字段的类型里有 Gy(=Deflate)/Ly(=Inflate)/Fy(=Checksum)，方法全是 inflateInit/inflate/flateEnd/deflate 一族 ⇒ ZStream

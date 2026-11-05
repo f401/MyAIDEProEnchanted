@@ -53792,3 +53792,403 @@ c/q$a org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream
 	d (I)V write
 		0 tagNo tagNo
 	l first
+abcd/Dy com/jcraft/jzlib/Adler32
+	j6 (J)V reset
+		0 init init
+	j6 s1
+	DW s2
+abcd/Ey com/jcraft/jzlib/CRC32
+	j6 crc_table
+	DW v
+	j6 (J)V reset
+		0 vv vv
+abcd/Fy com/jcraft/jzlib/Checksum
+	j6 (J)V reset
+abcd/Gy com/jcraft/jzlib/Deflate
+	DW z_errmsg
+	j6 config_table
+	FH strm
+	ca heap
+	et gheader
+	jJ bi_buf
+	j6 (IIIII)I deflateInit
+		0 level level
+		1 method method
+		2 windowBits windowBits
+		3 memLevel memLevel
+		4 strategy strategy
+	j6 ([SII[B)Z smaller
+		static
+		0 tree tree
+		1 n n
+		2 m m
+		3 depth depth
+	j6 ([B)[B dup
+		0 buf buf
+	j6 ([I)[I dup
+		0 buf buf
+	j6 ([S)[S dup
+		0 buf buf
+	FH (II)V send_bits
+		0 value value
+		1 length length
+	j6 (B)V put_byte
+		0 c c
+	j6 (III)V send_all_trees
+		0 lcodes lcodes
+		1 dcodes dcodes
+		2 blcodes blcodes
+	j6 (I[S)V send_code
+		0 c c
+		1 tree tree
+	j6 (Z)V flush_block_only
+		0 eof eof
+	j6 ([BII)V put_byte
+		0 p p
+		1 start start
+		2 len len
+	j6 ([S[S)V compress_block
+		0 ltree ltree
+		1 dtree dtree
+	j6 (II)Z _tr_tally
+		0 dist dist
+		1 lc lc
+	tp ()Labcd/Hy; getGZIPHeader
+	EQ ()V init_block
+	XL ()V tr_init
+	DW ()V bi_flush
+	FH ()V bi_windup
+	QX ()V set_data_type
+	j6 ()V _tr_align
+	J0 ()V lm_init
+	j6 (I)I deflate
+		0 flush flush
+	Hw (I)I deflate_stored
+		0 flush flush
+	DW (II)I deflateInit
+		0 level level
+		1 bits bits
+	j6 (IIZ)V _tr_flush_block
+		0 buf buf
+		1 stored_len stored_len
+		2 eof eof
+	DW (IIZ)V _tr_stored_block
+		0 buf buf
+		1 stored_len stored_len
+		2 eof eof
+	FH (IIZ)V copy_block
+		0 buf buf
+		1 len len
+		2 header header
+	FH ([SI)V send_tree
+		0 tree tree
+		1 max_code max_code
+	j6 ([SI)V pqdownheap
+		0 tree tree
+		1 k k
+	DW ([SI)V scan_tree
+		0 tree tree
+		1 max_code max_code
+	VH (I)V put_short
+		0 w w
+	Zo (I)V putShortMSB
+		0 b b
+	gn ()I deflateReset
+	v5 ()I build_bl_tree
+	u7 ()V fill_window
+	DW (I)I deflate_fast
+		0 flush flush
+	FH (I)I deflate_slow
+		0 flush flush
+	v5 (I)I longest_match
+		0 cur_match cur_match
+	u7 wrap
+	gn pending
+	EQ method
+	aM prev
+	j3 head
+	v5 pending_buf
+	g3 bl_desc
+	vJ d_desc
+	Sf l_desc
+	XG last_eob_len
+	wc bi_valid
+	XX opt_len
+	yO matches
+	OW last_lit
+	kQ static_len
+	ro level
+	Zo pending_buf_size
+	VH pending_out
+	tp data_type
+	dx dyn_ltree
+	sG dyn_dtree
+	ef bl_tree
+	sy depth
+	x9 heap_len
+	XL window_size
+	Qq heap_max
+	er block_start
+	U2 hash_size
+	J8 w_bits
+	br l_buf
+	Hw status
+	ei lookahead
+	lg hash_mask
+	a8 hash_bits
+	Mz bl_count
+	QX window
+	yS match_length
+	nw prev_length
+	gW prev_match
+	P8 match_start
+	BT match_available
+	vy strstart
+	Ws w_mask
+	J0 w_size
+	cn strategy
+	KD max_lazy_match
+	SI max_chain_length
+	Mr ins_h
+abcd/Gy$a com/jcraft/jzlib/Deflate$Config
+	v5 func
+	j6 good_length
+	Hw max_chain
+	FH nice_length
+	DW max_lazy
+abcd/Hy com/jcraft/jzlib/GZIPHeader
+	j6 (Labcd/Gy;)V put
+		0 d d
+	j6 (J)V setCRC
+		0 crc crc
+	j6 text
+	DW fhcrc
+	EQ done
+	we mtime
+	v5 os
+	tp time
+	FH crc
+	u7 hcrc
+	Hw xflags
+	Zo extra
+	VH name
+	gn comment
+abcd/Iy com/jcraft/jzlib/InfBlocks
+	QX codes
+	U2 window
+	er check
+	gW z
+	yS inftree
+	DW ()V reset
+	j6 ()V free
+	DW (I)I proc
+		0 r r
+	j6 (I)I inflate_flush
+		0 r r
+	j6 inflate_mask
+	DW border
+	u7 tb
+	tp bl
+	gn bb
+	Ws tdi
+	J8 tli
+	EQ bd
+	Mr hufts
+	a8 end
+	FH mode
+	we tl
+	J0 td
+	VH blens
+	aM bitk
+	Hw left
+	rN write
+	lg read
+abcd/Jy com/jcraft/jzlib/InfCodes
+	j6 inflate_mask
+	QX z
+	XL s
+	j6 (I)I proc
+		0 r r
+	j6 (II[II[IILabcd/Iy;Labcd/Oy;)I inflate_fast
+		0 bl bl
+		1 bd bd
+		2 tl tl
+		3 tl_index tl_index
+		4 td td
+		5 td_index td_index
+		6 s s
+		7 z z
+	j6 (II[II[II)V init
+		0 bl bl
+		1 bd bd
+		2 tl tl
+		3 tl_index tl_index
+		4 td td
+		5 td_index td_index
+	j6 (Labcd/Oy;)V free
+		0 z z
+	v5 tree_index
+	Ws dtree_index
+	J0 ltree_index
+	DW mode
+	FH len
+	EQ lbits
+	we ltree
+	J8 dtree
+	Hw tree
+	tp dbits
+abcd/Ky com/jcraft/jzlib/InfTree
+	j6 ([IIII[I[I[I[I[I[I[I)I huft_build
+		0 b b
+		1 bindex bindex
+		2 n n
+		3 s s
+		4 d d
+		5 e e
+		6 t t
+		7 m m
+		8 hp hp
+		9 hn hn
+		10 v v
+	j6 ([I[I[[I[[ILabcd/Oy;)I inflate_trees_fixed
+		static
+		0 bl bl
+		1 bd bd
+		2 tl tl
+		3 td td
+		4 z z
+	j6 (I)V initWorkArea
+		0 vsize vsize
+	j6 (II[I[I[I[I[I[ILabcd/Oy;)I inflate_trees_dynamic
+		0 nl nl
+		1 nd nd
+		2 c c
+		3 bl bl
+		4 bd bd
+		5 tl tl
+		6 td td
+		7 hp hp
+		8 z z
+	j6 ([I[I[I[ILabcd/Oy;)I inflate_trees_bits
+		0 c c
+		1 bb bb
+		2 tb tb
+		3 hp hp
+		4 z z
+	j6 fixed_tl
+	DW fixed_td
+	v5 cpdist
+	Zo cpdext
+	Hw cplext
+	FH cplens
+	we x
+	u7 c
+	tp r
+	gn v
+	VH hn
+	EQ u
+abcd/Ly com/jcraft/jzlib/Inflate
+	j6 mark
+	J0 crcbuf
+	J8 gheader
+	Ws tmp_string
+	tp z
+	u7 blocks
+	j6 (III)I readBytes
+		0 n n
+		1 r r
+		2 f f
+	j6 (IJ)V checksum
+		0 n n
+		1 v v
+	j6 (II)I readBytes
+		0 r r
+		1 f f
+	DW ()I inflateReset
+	j6 ()I inflateEnd
+	j6 (I)I inflate
+		0 f f
+	DW (I)I inflateInit
+		0 w w
+	DW (II)I readString
+		0 r r
+		1 f f
+	we need_bytes
+	VH wrap
+	Hw was
+	DW mode
+	v5 need
+	gn wbits
+abcd/Ly$a com/jcraft/jzlib/Inflate$Return
+	DW this$0
+	j6 r
+abcd/My com/jcraft/jzlib/StaticTree
+	VH extra_bits
+	Zo static_tree
+	v5 static_bl_desc
+	Hw static_d_desc
+	FH static_l_desc
+	u7 elems
+	tp max_length
+	gn extra_base
+	j6 static_ltree
+	DW static_dtree
+abcd/Ny com/jcraft/jzlib/Tree
+	EQ stat_desc
+	tp max_code
+	u7 dyn_tree
+	j6 (I)I d_code
+		static
+		0 dist dist
+	j6 (II)I bi_reverse
+		static
+		0 code code
+		1 len len
+	DW (Labcd/Gy;)V gen_bitlen
+		0 s s
+	j6 (Labcd/Gy;)V build_tree
+		0 s s
+	DW extra_dbits
+	j6 extra_lbits
+	gn base_dist
+	VH base_length
+	FH extra_blbits
+	Zo _length_code
+	v5 _dist_code
+	Hw bl_order
+abcd/Oy com/jcraft/jzlib/ZStream
+	EQ istate
+	J0 adler
+	tp dstate
+	u7 msg
+	j6 (IIZ)I deflateInit
+		0 level level
+		1 bits bits
+		2 nowrap nowrap
+	j6 ([BII)I read_buf
+		0 buf buf
+		1 start start
+		2 size size
+	j6 ()V flush_pending
+	DW ()I inflateInit
+	Hw (I)I inflateInit
+		0 w w
+	DW (I)I deflateInit
+		0 level level
+	j6 (I)I deflate
+		0 flush flush
+	FH (I)I inflate
+		0 f f
+	j6 (II)I deflateInit
+		0 level level
+		1 bits bits
+	j6 (IZ)I inflateInit
+		0 w w
+		1 nowrap nowrap
+	Hw total_in
+	j6 next_in
+	VH avail_out
+	gn total_out
+	v5 next_out
+	FH avail_in
+	we data_type

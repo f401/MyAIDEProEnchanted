@@ -62,6 +62,7 @@ PART_DIRS = [
     ('jdcore', os.path.join(REPO, 'jobs', 'jdcore')),
     ('antlr', os.path.join(REPO, 'jobs', 'antlr')),
     ('asn1bc', os.path.join(REPO, 'jobs', 'asn1bc')),
+    ('jzlib', os.path.join(REPO, 'jobs', 'jzlib')),
 ]
 PARTS = [n for n, _ in PART_DIRS]
 

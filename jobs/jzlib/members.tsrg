@@ -1,0 +1,261 @@
+abcd/Dy com/jcraft/jzlib/Adler32
+	j6 (J)V reset
+	j6 s1
+	DW s2
+abcd/Ey com/jcraft/jzlib/CRC32
+	j6 crc_table
+	DW v
+	j6 (J)V reset
+abcd/Fy com/jcraft/jzlib/Checksum
+	j6 (J)V reset
+abcd/Gy com/jcraft/jzlib/Deflate
+	DW z_errmsg
+	j6 config_table
+	FH strm
+	ca heap
+	et gheader
+	jJ bi_buf
+	j6 (IIIII)I deflateInit
+	j6 ([SII[B)Z smaller
+	j6 ([B)[B dup
+	j6 ([I)[I dup
+	j6 ([S)[S dup
+	FH (II)V send_bits
+	j6 (B)V put_byte
+	j6 (III)V send_all_trees
+	j6 (I[S)V send_code
+	j6 (Z)V flush_block_only
+	j6 ([BII)V put_byte
+	j6 ([S[S)V compress_block
+	j6 (II)Z _tr_tally
+	tp ()Labcd/Hy; getGZIPHeader
+	EQ ()V init_block
+	XL ()V tr_init
+	DW ()V bi_flush
+	FH ()V bi_windup
+	QX ()V set_data_type
+	j6 ()V _tr_align
+	J0 ()V lm_init
+	j6 (I)I deflate
+	Hw (I)I deflate_stored
+	DW (II)I deflateInit
+	j6 (IIZ)V _tr_flush_block
+	DW (IIZ)V _tr_stored_block
+	FH (IIZ)V copy_block
+	FH ([SI)V send_tree
+	j6 ([SI)V pqdownheap
+	DW ([SI)V scan_tree
+	VH (I)V put_short
+	Zo (I)V putShortMSB
+	gn ()I deflateReset
+	v5 ()I build_bl_tree
+	u7 ()V fill_window
+	DW (I)I deflate_fast
+	FH (I)I deflate_slow
+	v5 (I)I longest_match
+	u7 wrap
+	gn pending
+	EQ method
+	aM prev
+	j3 head
+	v5 pending_buf
+	g3 bl_desc
+	vJ d_desc
+	Sf l_desc
+	XG last_eob_len
+	wc bi_valid
+	XX opt_len
+	yO matches
+	OW last_lit
+	kQ static_len
+	ro level
+	Zo pending_buf_size
+	VH pending_out
+	tp data_type
+	dx dyn_ltree
+	sG dyn_dtree
+	ef bl_tree
+	sy depth
+	x9 heap_len
+	XL window_size
+	Qq heap_max
+	er block_start
+	U2 hash_size
+	J8 w_bits
+	br l_buf
+	Hw status
+	ei lookahead
+	lg hash_mask
+	a8 hash_bits
+	Mz bl_count
+	QX window
+	yS match_length
+	nw prev_length
+	gW prev_match
+	P8 match_start
+	BT match_available
+	vy strstart
+	Ws w_mask
+	J0 w_size
+	cn strategy
+	KD max_lazy_match
+	SI max_chain_length
+	Mr ins_h
+abcd/Gy$a com/jcraft/jzlib/Deflate$Config
+	v5 func
+	j6 good_length
+	Hw max_chain
+	FH nice_length
+	DW max_lazy
+abcd/Hy com/jcraft/jzlib/GZIPHeader
+	j6 (Labcd/Gy;)V put
+	j6 (J)V setCRC
+	j6 text
+	DW fhcrc
+	EQ done
+	we mtime
+	v5 os
+	tp time
+	FH crc
+	u7 hcrc
+	Hw xflags
+	Zo extra
+	VH name
+	gn comment
+abcd/Iy com/jcraft/jzlib/InfBlocks
+	QX codes
+	U2 window
+	er check
+	gW z
+	yS inftree
+	DW ()V reset
+	j6 ()V free
+	DW (I)I proc
+	j6 (I)I inflate_flush
+	j6 inflate_mask
+	DW border
+	u7 tb
+	tp bl
+	gn bb
+	Ws tdi
+	J8 tli
+	EQ bd
+	Mr hufts
+	a8 end
+	FH mode
+	we tl
+	J0 td
+	VH blens
+	aM bitk
+	Hw left
+	rN write
+	lg read
+abcd/Jy com/jcraft/jzlib/InfCodes
+	j6 inflate_mask
+	QX z
+	XL s
+	j6 (I)I proc
+	j6 (II[II[IILabcd/Iy;Labcd/Oy;)I inflate_fast
+	j6 (II[II[II)V init
+	j6 (Labcd/Oy;)V free
+	v5 tree_index
+	Ws dtree_index
+	J0 ltree_index
+	DW mode
+	FH len
+	EQ lbits
+	we ltree
+	J8 dtree
+	Hw tree
+	tp dbits
+abcd/Ky com/jcraft/jzlib/InfTree
+	j6 ([IIII[I[I[I[I[I[I[I)I huft_build
+	j6 ([I[I[[I[[ILabcd/Oy;)I inflate_trees_fixed
+	j6 (I)V initWorkArea
+	j6 (II[I[I[I[I[I[ILabcd/Oy;)I inflate_trees_dynamic
+	j6 ([I[I[I[ILabcd/Oy;)I inflate_trees_bits
+	j6 fixed_tl
+	DW fixed_td
+	v5 cpdist
+	Zo cpdext
+	Hw cplext
+	FH cplens
+	we x
+	u7 c
+	tp r
+	gn v
+	VH hn
+	EQ u
+abcd/Ly com/jcraft/jzlib/Inflate
+	j6 mark
+	J0 crcbuf
+	J8 gheader
+	Ws tmp_string
+	tp z
+	u7 blocks
+	j6 (III)I readBytes
+	j6 (IJ)V checksum
+	j6 (II)I readBytes
+	DW ()I inflateReset
+	j6 ()I inflateEnd
+	j6 (I)I inflate
+	DW (I)I inflateInit
+	DW (II)I readString
+	we need_bytes
+	VH wrap
+	Hw was
+	DW mode
+	v5 need
+	gn wbits
+abcd/Ly$a com/jcraft/jzlib/Inflate$Return
+	DW this$0
+	j6 r
+abcd/My com/jcraft/jzlib/StaticTree
+	VH extra_bits
+	Zo static_tree
+	v5 static_bl_desc
+	Hw static_d_desc
+	FH static_l_desc
+	u7 elems
+	tp max_length
+	gn extra_base
+	j6 static_ltree
+	DW static_dtree
+abcd/Ny com/jcraft/jzlib/Tree
+	EQ stat_desc
+	tp max_code
+	u7 dyn_tree
+	j6 (I)I d_code
+	j6 (II)I bi_reverse
+	DW (Labcd/Gy;)V gen_bitlen
+	j6 (Labcd/Gy;)V build_tree
+	DW extra_dbits
+	j6 extra_lbits
+	gn base_dist
+	VH base_length
+	FH extra_blbits
+	Zo _length_code
+	v5 _dist_code
+	Hw bl_order
+abcd/Oy com/jcraft/jzlib/ZStream
+	EQ istate
+	J0 adler
+	tp dstate
+	u7 msg
+	j6 (IIZ)I deflateInit
+	j6 ([BII)I read_buf
+	j6 ()V flush_pending
+	DW ()I inflateInit
+	Hw (I)I inflateInit
+	DW (I)I deflateInit
+	j6 (I)I deflate
+	FH (I)I inflate
+	j6 (II)I deflateInit
+	j6 (IZ)I inflateInit
+	Hw total_in
+	j6 next_in
+	VH avail_out
+	gn total_out
+	v5 next_out
+	FH avail_in
+	we data_type

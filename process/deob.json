@@ -71,6 +71,10 @@
   {
    "dir": "../jobs/asn1bc",
    "probe_prefix": "c"
+  },
+  {
+   "dir": "../jobs/jzlib",
+   "probe_prefix": "abcd"
   }
  ],
  "src_root": [
@@ -243,6 +247,10 @@
   {
    "label": "bcprov-jdk15on-1.56",
    "path": "$HOME/out/oracle/spongycastle/bcprov-jdk15on-1.56.jar"
+  },
+  {
+   "label": "jzlib-1.1.1",
+   "path": "$HOME/out/oracle/misc/jzlib-1.1.1.jar"
   }
  ],
  "out_dir": "out"
