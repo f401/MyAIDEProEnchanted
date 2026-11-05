@@ -1,0 +1,3 @@
+abcd/qu	com/android/vending/billing/IInAppBillingService	src:interface extends android.os.IInterface，7 个方法全是 AIDL 形状；类里字符串写着 "com.android.vending.billing."；方法集与 Google Play 的 IInAppBillingService 逐一对上（见 README §2 的 txn→方法表）
+abcd/qu$a	com/android/vending/billing/IInAppBillingService$Stub	src:abstract class extends android.os.Binder implements abcd/qu(=IInAppBillingService)；有 static asInterface(IBinder)、asBinder()、onTransact(4 参) ⇒ AIDL 生成的 Stub
+abcd/qu$a$a	com/android/vending/billing/IInAppBillingService$Stub$Proxy	src:implements abcd/qu、持 android/os/IBinder 字段、构造器收 IBinder ⇒ AIDL 生成的 Stub$Proxy

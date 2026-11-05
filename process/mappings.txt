@@ -54387,3 +54387,17 @@ abcd/Oy com/jcraft/jzlib/ZStream
 	v5 next_out
 	FH avail_in
 	we data_type
+abcd/qu com/android/vending/billing/IInAppBillingService
+	FH (ILjava/lang/String;Ljava/lang/String;)I isBillingSupported
+	j6 (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle; getBuyIntent
+	j6 (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle; getBuyIntentToReplaceSkus
+	j6 (ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle; getSkuDetails
+	DW (ILjava/lang/String;Ljava/lang/String;)I consumePurchase
+abcd/qu$a com/android/vending/billing/IInAppBillingService$Stub
+	j6 (Landroid/os/IBinder;)Labcd/qu; asInterface
+		static
+abcd/qu$a$a com/android/vending/billing/IInAppBillingService$Stub$Proxy
+	DW (ILjava/lang/String;Ljava/lang/String;)I consumePurchase
+	j6 (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle; getBuyIntent
+	j6 (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle; getBuyIntentToReplaceSkus
+	j6 (ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle; getSkuDetails
