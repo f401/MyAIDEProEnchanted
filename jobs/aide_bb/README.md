@@ -82,6 +82,36 @@ yv→onItemClick  zv→onItemLongPress
 （`mv` 包的是 `OnClickClosure` 但注册在 `onLongPress` 里，所以按**外层方法**叫 `OnLongPressListener`；
 `Bv` 因为持有这 15 个注册点，命名从 `RuntimeFlags` 修正为 **`ApiBase`**。）
 
+## 1.4 窗口运行时（10 类）：判据 = implements 的 **Android 框架接口**
+
+`Qv`(=WindowRuntime) 持有 5 个内部类，全部靠"实现的是哪个框架接口 + 构造器收谁"定：
+
+```
+Qv$a → WindowRuntime$Window            ctor 收 UserActionWindow
+Qv$b → WindowRuntime$TouchInterceptor  implements View$OnTouchListener（反射 PopupWindow 的 mTouchInterceptor）
+Qv$c → WindowRuntime$WindowFrameLayout extends android.widget.FrameLayout
+Qv$d → WindowRuntime$WindowCallback    implements Window$Callback（28 个接口方法未改名；反射 IME 高度）
+Qv$e → WindowRuntime$MenuReflector     14 个方法全是反射 com.android.internal.view.menu.*
+Rv   → WindowRuntime$GlobalLayoutListener  implements ViewTreeObserver$OnGlobalLayoutListener，ctor 收 Qv$d
+Pv   → WindowRuntime$ShowWindowTask    implements Runnable，ctor (Qv$a, UserAction…)
+Hv   → DecorViewHelper                 反射 com.android.internal.policy.DecorView / mWindow
+Hv$a → DecorViewHelper$InputConnectionHook  extends InputConnectionWrapper
+zw   → window/RectProvider             5 个方法 → android/graphics/Rect
+```
+
+## 1.5 运行时支撑（7 类）：常量串就是判据
+
+```
+ow → ProbeLoader            'Probe loading' / 'classes.dex' / 'assets/dev.probes' / 'Error loading probes'
+pw → AppState               'appstate.json' / 'has_occurred_for_app_version_' / 'I/O error accessing appstate'
+rw → Preferences            'last_run_version' / 'is_event_defined_' / 'probesdex_' / 'BACKBONE_' / 'is_developer'
+ww → DeveloperNotificationTask  Runnable + 'backbone developer notifications' / 'Probe notification'
+iw → EventRecorder          ') Event recording start: ' / ') Event: ' / ') Event error: '
+_v → EventContext           deviceWidth/deviceHeight/imeHeight/pressedKey/touchX/touchY… 13 个字段 + toJSON
+jv → ClosureInvoker         接口 EventData j6(Object[])，被 40+ 个闭包适配器 implements
+lv$a → ReflectionRuntime$Invocation  接口，被 12 个调用封装 implements
+```
+
 ## 2. 成员说明（本 part 暂时 0 行）
 
 这 7 个类里**大部分方法名本来就是对的** —— 它们实现的是未混淆框架接口，方法名被接口钉死
@@ -92,7 +122,7 @@ yv→onItemClick  zv→onItemLongPress
 ## 3. 状态
 
 ```
-类   62（`cli members` 不适用：无 oracle）
+类   81（`cli members` 不适用：无 oracle）
 成员 0 行（理由见 §2）
 门禁 validate ✔ · inherit CONFLICT 0 / DUPTARGET 0 / MISSING 0
 ```

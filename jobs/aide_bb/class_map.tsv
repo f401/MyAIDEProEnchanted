@@ -61,3 +61,22 @@ abcd/wv	com/aide/backbone/adapters/OnWindowHiddenListener	src:implements abcd/jv
 abcd/xv	com/aide/backbone/adapters/OnMenuItemSelectedListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnMenuItemSelectedClosure...)；且它只在 abcd/Bv.onMenuItemSelected 里被 new ⇒ 包的是 onMenuItemSelected 闭包，按外层 API 方法命名
 abcd/yv	com/aide/backbone/adapters/OnItemClickListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnItemClickClosure...)；且它只在 abcd/Bv.onItemClick 里被 new ⇒ 包的是 onItemClick 闭包，按外层 API 方法命名
 abcd/zv	com/aide/backbone/adapters/OnItemLongPressListener	src:implements abcd/jv；构造器收 (Bv 或 Bv, OnItemClickClosure...)；且它只在 abcd/Bv.onItemLongPress 里被 new ⇒ 包的是 onItemLongPress 闭包，按外层 API 方法命名
+abcd/jv	com/aide/backbone/ClosureInvoker	kind:interface，唯一方法 EventData j6(Object[])；被全部 40+ 个闭包适配器（Au/Hu/Ku/Xu/Av…zv）implements ⇒ 闭包调用器抽象
+abcd/lv$a	com/aide/backbone/ReflectionRuntime$Invocation	kind:interface（1 个方法），只被 abcd/lv(=ReflectionRuntime) 使用，且 12 个调用封装（Ju/Lu/Nu/Pu/Ru/Tu/Wu/Yu/_u/bv/dv/fv）implements 它 ⇒ ReflectionRuntime 的调用封装
+abcd/Qv	com/aide/backbone/window/WindowRuntime	recv:27 方法/4 字段；内部持有 Qv$a..Qv$e 并创建 Rv(GlobalLayoutListener)、Pv(Runnable)；是 Backbone UserActionWindow 的窗口运行时
+abcd/Qv$a	com/aide/backbone/window/WindowRuntime$Window	shape:构造器收 com/appfour/backbone/api/objects/UserActionWindow、10 方法/8 字段；被 Pv 当第一个参数接走
+abcd/Qv$b	com/aide/backbone/window/WindowRuntime$TouchInterceptor	hier:implements android/view/View$OnTouchListener；构造器收 (PopupWindow, UserAction…)；串 'mTouchInterceptor'（反射 PopupWindow 的触控拦截字段）
+abcd/Qv$c	com/aide/backbone/window/WindowRuntime$WindowFrameLayout	kind:extends android/widget/FrameLayout（3 方法/1 字段）⇒ 承载窗口内容的 FrameLayout
+abcd/Qv$d	com/aide/backbone/window/WindowRuntime$WindowCallback	hier:implements android/view/Window$Callback（28 个方法全是接口实现，未改名）；构造器收 (Window, UserAction…)；串 'input_method'/'getInputMethodWindowVisibleHeight'（反射 IME 高度）⇒ 窗口回调桥
+abcd/Qv$e	com/aide/backbone/window/WindowRuntime$MenuReflector	recv:14 个方法全是反射（串 'com.android.internal.view.menu' / 'getItemData'），只为窗口内菜单服务
+abcd/Hv	com/aide/backbone/window/DecorViewHelper	recv:25 方法/9 字段，串 'com.android.internal.policy.DecorView' + 'mWindow'（反射 Activity 的 DecorView/Window）+ 'android.intent.action.MAIN'/'LAUNCHER'（查启动 Intent）⇒ 装饰视图/窗口反射助手
+abcd/Hv$a	com/aide/backbone/window/DecorViewHelper$InputConnectionHook	kind:extends android/view/inputmethod/InputConnectionWrapper（4 方法覆写接口）；构造器 (InputConnection,boolean) ⇒ 包一层输入连接以监听 IME 事件
+abcd/Rv	com/aide/backbone/window/WindowRuntime$GlobalLayoutListener	hier:implements android/view/ViewTreeObserver$OnGlobalLayoutListener，构造器收 abcd/Qv$d(=WindowCallback)
+abcd/Pv	com/aide/backbone/window/WindowRuntime$ShowWindowTask	kind:implements Runnable，构造器 (Qv$a=Window, UserAction…) ⇒ 把"显示窗口"投递到主线程的任务
+abcd/ow	com/aide/backbone/ProbeLoader	str:'Probe loading' + 'classes.dex' + '.opt' + 'dev.builtin.apk'/'public.builtin.apk' + 'assets/dev.probes'/'assets/public.probes' + 'Error loading probes' + 'backbone probes event error: ' ⇒ 加载/优化"探针"dex 的类
+abcd/pw	com/aide/backbone/AppState	str:'appstate.json' + 'has_occurred_for_app_version_'/'…for_day_'/'…for_month_' + 'Reading appstate value elapsed ' + 'I/O error accessing appstate' ⇒ 应用状态（JSON）读写
+abcd/rw	com/aide/backbone/Preferences	str:键名 'last_run_version'/'is_event_defined_'/'probesdex_'/'has_fetched_referrer'/'BACKBONE_'/'is_developer'/'is_first_run' + 一个 SharedPreferences 字段 ⇒ 偏好封装
+abcd/ww	com/aide/backbone/DeveloperNotificationTask	kind:implements Runnable，构造器 (int,int,String)；串 'backbone developer notifications'/'Probe notification' ⇒ 发开发者通知的任务
+abcd/zw	com/aide/backbone/window/RectProvider	recv:5 个方法全是 ()/Activity/View/UserActionWidget/UserActionWindow → android/graphics/Rect（串 'window'）⇒ 取窗口/控件矩形的工具
+abcd/_v	com/aide/backbone/EventContext	shape:13 个字段是 'deviceWidth/deviceHeight/imeHeight/pressedKey/touchX/touchY/touchX2/touchY2' 等输入与设备状态；构造器 (String,String,Xv,long,CharSequence,int,…,long,long)，方法能 toJSONObject 并处理 UIScene/Throwable/StackTraceElement ⇒ 事件上下文
+abcd/iw	com/aide/backbone/EventRecorder	recv:方法 j6(lw,JJ)V / j6(lw,J,EventData)V / j6(lw,J,Throwable)V 是"记录事件/事件错误"，串 ') Event recording start: ' / ') Event: ' / ') Event error: '；字段是 iw$a 双缓冲 ⇒ 事件记录器
