@@ -35,7 +35,11 @@ from dupcheck import parse_class  # noqa: E402
               （`--param-index=lv` 才换成 LVT 槽位：实例 +1、long/double 占 2 槽，
                 那是 Tiny v2 的书面约定，loom/tiny-remapper 用）
 
+`--comments=none`：不写注释（**FART 1.0.8 的 Tiny v2 解析器不认额外列**，实测类行/方法行的
+注释列都报 `Invalid Tiny v2 line`）。打包链路因此用无注释版；带注释版给人/其它工具读。
+
 用法: python3 tools/jgit/pipeline/emit_tiny2.py [out.tiny] [--tsrg=<mappings.txt>]
+                                                [--param-index=arg|lv] [--comments=on|none]
 """
 import zipfile
 
@@ -186,12 +190,15 @@ def main():
     argv = [a for a in _sys.argv[1:]]
     tsrg = _P.MAPPINGS
     pmode = 'arg'
+    cmode = 'on'
     rest = []
     for a in argv:
         if a.startswith('--tsrg='):
             tsrg = a.split('=', 1)[1]
         elif a.startswith('--param-index='):
             pmode = a.split('=', 1)[1]
+        elif a.startswith('--comments='):
+            cmode = a.split('=', 1)[1]
         else:
             rest.append(a)
     if pmode not in ('arg', 'lv'):
@@ -203,9 +210,12 @@ def main():
     warn = []
     bad = fill_field_desc(classes, ftypes, warn)
 
-    cfiles = [_os.path.join(d, 'comments.tsv') for _, d in _P.PART_DIRS]
-    comments = load_comments(cfiles, warn)
-    ncom = apply_comments(classes, comments, warn)
+    if cmode == 'none':
+        ncom = 0
+    else:
+        cfiles = [_os.path.join(d, 'comments.tsv') for _, d in _P.PART_DIRS]
+        comments = load_comments(cfiles, warn)
+        ncom = apply_comments(classes, comments, warn)
 
     # TSRG2 的 `\t\tstatic` 只标在改过名的方法上（历史怪癖）：static 一律以 jar 为准
     nm = nf = npar = 0

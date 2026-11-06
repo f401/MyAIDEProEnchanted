@@ -1732,3 +1732,13 @@ cli members：待人工 0（该 part 的非契约方法已全部有名字）
 * `FormalParameter.j_()Z`：`cover` 给的候选是 `isFinal`/`isVarargs`，但这条其实是**祖先族**的
   `org/c/a/a/d/a.j_()Z = isList`（覆写族必须同名）。我一度按候选改成 `isVarargs2`，`inherit_check` 立刻报
   CONFLICT（"子=isVarargs2 祖先=isList"）⇒ 改回 `isList`。方法体恒返回 `false`，与"不是列表"也自洽。
+
+## 附：三处「改名改到 JDK 契约上」的纠正（2025-11）
+
+`Section$AutoGrowthList` 的桥接/接口方法原来被命名成 `next2` / `reverse`，以及一个
+`Comparator` 实现被命名成 `getClassFileMemberDeclaration2` —— 它们分别是
+`Iterator.next()Ljava/lang/Object;`、`Iterator.remove()V`、`Comparator.compare(...)I`，
+**必须与 JDK 同名**，否则 FART 的继承传播会把 `java/util/Iterator.next` 一起改名
+（实测：Tiny v2 输入时 `ControlFlowGraphMaker` 等 4 个类的常量池里出现
+`java/util/Iterator.next2`）。已按「与上游同名」处理（撤掉这三行映射 = 恒等）。
+撤掉后 FART 的 `Conflicting propagated mapping` 从 223 条降到 182 条。

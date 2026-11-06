@@ -10,6 +10,21 @@
 | 参数名 | 358 行（`params.tsv`，全部来自 oracle 源码 + 少量 jar LVT） |
 | 门禁 | `validate` ✔ 无无效映射 · `inherit_check` CONFLICT 0 / DUPTARGET 0 / MISSING 0 · `famcheck` 冲突 0 / 祖先未映射 0 · `innercheck` ②③ 0 · `audit` kind 0 / hier 0 / size 0 · `cover` 见上 |
 
+## 0.5 包名前缀：`org/antlr/v4/*` 会撞车（本 part 的类仍是这个名字）
+
+APK 里**同时有两份 antlr**：
+
+| 位置 | 版本 | 类数 | 包名 |
+|---|---|---|---|
+| `src/smali/org/antlr/v4/...`（未混淆） | **4.9.2**（`RuntimeMetaData.VERSION`） | 220 | `org.antlr.v4.*` |
+| `src/smali_classes3/org/a/a/a/...`（R8 混淆，**本 part**） | **4.7.2** | 117 | 探针 `org/a/a/a` → 目标 `org.antlr.v4.*` |
+
+把本 part 映射成 `org/antlr/v4/*` 会和那 220 个类**同名**，FART 直接
+`IllegalStateException: Duplicate entries detected: org/antlr/v4/runtime/...` 中止（实测）。
+所以给 4.9.2 那份加了版本前缀：`jobs/antlr492/`（220 类，`org/antlr/v4/X → org/antlr492/v4/X`，
+类名仍是真名，只改包）。两份互换名字，FART 正常；`validate_mappings` 的 `collide-existing`
+门禁也会盯着这类撞名（只在"对方原地不动"时报错）。
+
 ## 1. 版本锁定：4.7.2（不是"某个 4.x"）
 
 拿 `org/a/a/a/a/h`（= `atn/ATNDeserializer`）的常量串比对：

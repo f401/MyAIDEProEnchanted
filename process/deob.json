@@ -69,6 +69,10 @@
    "probe_prefix": "org/a/a/a"
   },
   {
+   "dir": "../jobs/antlr492",
+   "probe_prefix": "org/antlr"
+  },
+  {
    "dir": "../jobs/asn1bc",
    "probe_prefix": "c"
   },

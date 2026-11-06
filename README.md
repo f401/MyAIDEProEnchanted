@@ -33,6 +33,8 @@ python3 tools/jgit/pipeline/emit_tiny2.py            # → process/mappings.tiny
 python3 tools/jgit/pipeline/validate_tiny.py         # 期望 ✔ tiny 体检通过
 python3 tools/jgit/pipeline/tiny_roundtrip.py        # 期望 ✔ round-trip 一致（等价性硬判据）
 # 3) 构建（详见 docs/BUILD.md；一条命令：python3 tools/build/build_apk.py all）
+#    默认喂 FART 的是 Tiny v2（out/build/mappings.tiny，自动生成、无注释）；
+#    --map-format=tsrg 回退 TSRG2
 ```
 
 ## 当前规模

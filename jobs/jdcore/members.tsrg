@@ -1608,7 +1608,6 @@ org/c/a/a/c/c/a/b/k org/jd/core/v1/service/fragmenter/javasyntaxtojavafragment/v
 	b this$0
 	a (Lorg/c/a/a/b/d/b/n;)V addLineNumberToken
 org/c/a/a/c/d/a/b org/jd/core/v1/service/layouter/model/Section$AutoGrowthList
-	remove ()V reverse
 	b (I)V ensureCapacity
 	hasNext ()Z hasNext
 	b iteratorIndex
@@ -1616,7 +1615,6 @@ org/c/a/a/c/d/a/b org/jd/core/v1/service/layouter/model/Section$AutoGrowthList
 	a ()Lorg/c/a/a/d/c; next
 	a (I)Lorg/c/a/a/d/c; get
 	a elements
-	next ()Ljava/lang/Object; next2
 org/c/a/a/c/a/a/a/b/a/d org/jd/core/v1/service/converter/classfiletojavasyntax/model/javasyntax/declaration/ClassFileConstructorDeclaration
 	j ()Lorg/c/a/a/c/a/a/a/b/a/b; getBodyDeclaration
 	k ()Lorg/c/a/a/b/a/a; getClassFile
@@ -1895,7 +1893,6 @@ org/c/a/a/c/a/a/d/u org/jd/core/v1/service/converter/classfiletojavasyntax/visit
 	a (Lorg/c/a/a/b/d/d/u;)V visit
 org/c/a/a/c/a/a/d/k org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/InitInnerClassVisitor$MemberDeclarationComparator
 	a (Lorg/c/a/a/c/a/a/a/b/a/k;Lorg/c/a/a/c/a/a/a/b/a/k;)I getClassFileMemberDeclaration
-	compare (Ljava/lang/Object;Ljava/lang/Object;)I getClassFileMemberDeclaration2
 org/c/a/a/c/a/a/d/s org/jd/core/v1/service/converter/classfiletojavasyntax/visitor/MergeTryWithResourcesStatementVisitor
 	a (Lorg/c/a/a/b/d/d/ag;)V visit
 	a (Lorg/c/a/a/b/d/d/ae;)V visit

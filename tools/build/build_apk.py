@@ -6,7 +6,9 @@
     python3 tools/build/build_apk.py fart|widen|dex|repack|sign|verify
 
 约定：
-  * 输入 jar 在 process/src/，mapping 在 process/mappings.txt（由 jobs/<依赖>/ 与 process/truth/head 汇总生成），
+  * 输入 jar 在 process/src/，mapping **默认用 Tiny v2**（`process/mappings.tiny`，带注释）——
+    它是 process/mappings.txt（TSRG2，唯一真源，由 jobs/<依赖>/ 汇总生成）的派生品，FART 前
+    自动按需重新生成 + 跑一次 round-trip 等价门禁；要回退 TSRG2 用 `--map-format=tsrg`。
     APK 用仓库根目录下的原包。
   * 每个 dex 与 src jar 的对应关系由**类集合重叠**自动判定（`plan` 会打印，可人工核对）。
   * 输出：out/build/{renamed,dex,apk}/；签名用 `--ks` 指定的 keystore（缺省则不签）。
@@ -144,11 +146,46 @@ def plan():
 
 MERGED_OK = os.path.join(REPO, 'process', 'base', 'merged_ok.jar')
 
+# 打包用的 mapping 格式：默认 tiny（用户选定）；--map-format=tsrg 回退 TSRG2。
+# tiny 是派生品 —— 不写 process/，在 out/build/ 下重新生成，写之前先跑 round-trip 门禁。
+MAP_FORMAT = 'tiny'
+_MAP_OVERRIDE = None
+
+
+def map_file(P):
+    if _MAP_OVERRIDE:
+        return _MAP_OVERRIDE
+    if MAP_FORMAT == 'tsrg':
+        return P.out_tsrg
+    return os.path.join(OUT, 'mappings.tiny')
+
+
+def ensure_map(P):
+    """tiny 缺失或比源表（mappings.txt / 任一 comments.tsv）旧 → 重新生成 + 等价性体检。"""
+    dst = map_file(P)
+    if _MAP_OVERRIDE or MAP_FORMAT != 'tiny':
+        if not os.path.exists(dst):
+            raise SystemExit('mapping 不存在：%s' % dst)
+        return dst
+    os.makedirs(OUT, exist_ok=True)
+    srcs = [P.out_tsrg] + glob.glob(os.path.join(REPO, 'jobs', '*', 'comments.tsv'))
+    srcs += [os.path.join(REPO, 'process', 'base', 'merged_ok.jar')]
+    newest = max((os.path.getmtime(s) for s in srcs if os.path.exists(s)), default=0)
+    if (not os.path.exists(dst)) or os.path.getmtime(dst) < newest:
+        print('  tiny 缺失/过期 → 重新生成 %s' % dst)
+        # FART 1.0.8 的 Tiny v2 解析器不认注释列（实测：`Invalid Tiny v2 line`），
+        # 所以打包用的这份**不带注释**；process/mappings.tiny 那份留着给人读。
+        sh([sys.executable, os.path.join(REPO, 'tools', 'jgit', 'pipeline', 'emit_tiny2.py'),
+            dst, '--comments=none'])
+        sh([sys.executable, os.path.join(REPO, 'tools', 'jgit', 'pipeline', 'tiny_roundtrip.py'),
+            '--tiny=' + dst])
+    return dst
+
 
 def _fart(inp, out, P, libs):
     cmd = ['java', '-Xmx900m', '-jar',
            os.path.join(REPO, 'process', 'ForgeAutoRenamingTool-1.0.8-all.jar'),
-           '--input', inp, '--output', out, '--map', P.out_tsrg]
+           '--input', inp, '--output', out, '--map', map_file(P)]
     for lib in libs:
         cmd += ['--lib', lib]
     cmd += ['--lib', os.path.join(REPO, 'process', 'android.jar')]
@@ -416,8 +453,14 @@ def main():
     ap.add_argument('-p', '--project', default=os.path.join(REPO, 'process', 'deob.json'))
     ap.add_argument('--ks')
     ap.add_argument('--apk', help='指定要回填的 APK（默认自动选与 classes*.jar 数量一致的那个）')
+    ap.add_argument('--map-format', choices=('tiny', 'tsrg'), default='tiny',
+                    help='mapping 格式：tiny（默认，Tiny v2 + 注释）或 tsrg（TSRG2 回退）')
+    ap.add_argument('--map', help='直接用这个 mapping 文件（绕过上面的格式选择/自动生成）')
     a = ap.parse_args()
-    global _APK_OVERRIDE
+    global _APK_OVERRIDE, MAP_FORMAT, _MAP_OVERRIDE
+    MAP_FORMAT = a.map_format
+    if a.map:
+        _MAP_OVERRIDE = a.map if os.path.isabs(a.map) else os.path.join(REPO, a.map)
     if a.apk:
         _APK_OVERRIDE = a.apk if os.path.isabs(a.apk) else os.path.join(REPO, a.apk)
     P = config.load(a.project)
@@ -435,6 +478,7 @@ def main():
         elif s == 'tryfix':
             step_tryfix(P)
         elif s == 'fart':
+            ensure_map(P)
             step_fart(P)
         elif s == 'widen':
             step_widen(P)

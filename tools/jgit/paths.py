@@ -61,6 +61,7 @@ PART_DIRS = [
     ('proguard', os.path.join(REPO, 'jobs', 'proguard')),
     ('jdcore', os.path.join(REPO, 'jobs', 'jdcore')),
     ('antlr', os.path.join(REPO, 'jobs', 'antlr')),
+    ('antlr492', os.path.join(REPO, 'jobs', 'antlr492')),
     ('asn1bc', os.path.join(REPO, 'jobs', 'asn1bc')),
     ('jzlib', os.path.join(REPO, 'jobs', 'jzlib')),
     ('aide_iap', os.path.join(REPO, 'jobs', 'aide_iap')),

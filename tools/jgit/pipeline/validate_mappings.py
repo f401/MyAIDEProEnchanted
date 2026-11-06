@@ -19,6 +19,9 @@ import params as _PRM  # noqa: E402
   3. 字段行 `name new`：probe 类里必须真有该字段；
   4. `\\t\\tstatic` 元数据：必须紧跟在**方法**行后，且该方法在 jar 里是 static；
   5. 同一类里 target（新名+描述符）不能重复；类级 target 不能重复；
+     **目标类不能和基线 jar 里已有的类撞名**（踩过：jobs/antlr 把 117 个 4.7.2 类映射成
+     `org/antlr/v4/runtime/*`，而 APK 里本来就有一份未混淆的 antlr **4.9.2**（220 类，同包），
+     FART 直接 `Duplicate entries detected` 中止 —— 类目标之间不重复不代表与输入不重复）；
   6. 新名必须是合法 Java 标识符（方法可为 <init>）。
 输出汇总 + 明细，退出码非 0 表示有无效映射。
 
@@ -84,6 +87,17 @@ def main():
                     info[cn] = parse(z.read(n))
                 except Exception:
                     pass
+    # 预扫：基线类里哪些**会被改走**。撞名只在"对方留在原地"时才是错（例：APK 里同时有
+    # antlr 4.9.2（未混淆）与 4.7.2（混淆）：把 4.7.2 映射成 org/antlr/v4/* 的同时把 4.9.2
+    # 改成 org/antlr492/*，这是一次互换，FART 正常；只有 4.9.2 不动时才 Duplicate entries）。
+    moved = set()
+    for _line in open(maps, encoding='utf-8'):
+        _line = _line.rstrip('\n')
+        if not _line or _line.startswith('\t') or _line.startswith('tsrg2'):
+            continue
+        _f = _line.split(' ')
+        if len(_f) >= 2 and _f[0] != _f[1]:
+            moved.add(_f[0])
     bad = collections.Counter(); detail = []
     seen_cls = {}; seen_probe = {}; seen_member = {}; SEEN = set()
     cur = None; cur_ok = False; last_member = None
@@ -109,6 +123,10 @@ def main():
                 bad['类目标重复'] += 1; detail.append((ln, 'dup-class-target', '%s 与 %s' % (target, seen_cls[target])))
             seen_cls[target] = probe
             # 同一探针类在两个 part 各出现一次：TSRG2 是"后者覆盖前者"，tiny v2 直接非法
+            if probe != target and target in info and target not in moved:
+                bad['目标与基线类撞名'] += 1
+                detail.append((ln, 'collide-existing', '%s -> %s（基线 jar 里已有同名类）'
+                               % (probe, target)))
             if probe in seen_probe:
                 bad['类源重复'] += 1
                 detail.append((ln, 'dup-class-source', '%s 已在 L%d -> %s（本条 -> %s）'

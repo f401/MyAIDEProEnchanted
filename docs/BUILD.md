@@ -23,6 +23,16 @@ cd process && sha256sum -c SHA256SUMS      # 输入与工具指纹，全部 OK �
 # 类名真相:  jobs/<依赖>/class_map.tsv  (探针 <TAB> 目标 <TAB> 证据)
 # 成员真相:  jobs/<依赖>/members.tsrg   (TSRG 块)
 # 参数真相:  jobs/<依赖>/params.tsv     (可缺；part = jgit/jsch/aide)
+# 注释真相:  jobs/<依赖>/comments.tsv   (只进 Tiny v2，不进 TSRG2)
+
+# → process/mappings.txt（TSRG2，唯一真源派生）→ process/mappings.tiny（Tiny v2，带注释）
+# build_apk 默认喂 FART 的是 **Tiny v2**（out/build/mappings.tiny，自动生成、不带注释）；
+# 要回退 TSRG2 用 `--map-format=tsrg`，指定文件用 `--map=<path>`。
+
+> **FART 1.0.8 的 Tiny v2 解析器不认额外列**：类行/方法行带注释都会
+> `Invalid Tiny v2 line`，所以打包用的那份必须 `--comments=none`；带注释版只给人读。
+
+```bash
 python3 tools/jgit/pipeline/rebuild_tsrg.py      # tsv → tsrg → process/mappings.txt（含头 20 行）
 python3 tools/jgit/pipeline/emit_tsrg2.py process/mappings.txt   # 需要单独重排/补 static 标记时
 ```
@@ -131,14 +141,17 @@ cd /storage/emulated/0/MyAIDEProEnchanted
 java -Xmx900m -jar process/ForgeAutoRenamingTool-1.0.8-all.jar \
   --input  process/base/merged_pub.jar \
   --output ~/out/fart/mp_renamed.jar \
-  --map    process/mappings.txt \
+  --map    ~/out/build/mappings.tiny \
   --lib    process/android.jar
+
+> 手工跑时 `--map` 也可以直接给 `process/mappings.txt`（TSRG2，等价 —— 实测两边产出的
+> 22839 个条目**逐字节相同**），或 `process/mappings.tiny` 但要去掉注释列（`--comments=none`）。
 
 # assets 里那 4 个独立包不在 merged 里（zh 11 / en 11 / ndk 10 / packagingservice 19 个类），单独改名
 for j in zh en ndk packagingservice; do
   java -Xmx900m -jar process/ForgeAutoRenamingTool-1.0.8-all.jar \
     --input process/src/$j.jar --output ~/out/fart/src/${j}_out.jar \
-    --map process/mappings.txt --lib process/android.jar
+    --map out/build/mappings.tiny --lib process/android.jar   # 或 --map-format=tsrg 用 TSRG2
 done
 ```
 

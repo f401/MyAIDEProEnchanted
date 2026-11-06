@@ -37,7 +37,7 @@ tools/
 | `mapfix.py` | 声明式改**成员**映射（`探针 m/f 名 描述符 旧 新`，`-` 表空/删；同类互换安全） |
 | `tsvfix.py` | 声明式改**类**映射 |
 | `filter_head.py` | 清理 `mappings_head.txt` 中“已应用/不存在”的块与行 |
-| `validate_mappings.py` | **有效性**：类/成员是否存在、static 标记、类/成员目标重复、新名合法、参数行（3 段/序号/两列同名/不重复）。期望 `✔ 无无效映射`（无需参数） |
+| `validate_mappings.py` | **有效性**：类/成员是否存在、static 标记、类/成员目标重复、**目标与基线类撞名**（`collide-existing`，只在对方没被改走时才算）、**类源/成员源重复**（tiny 非法）、**字段行带类型**（TSRG v1 残留）、新名合法、参数行（3 段/序号/两列同名/不重复）。期望 `✔ 无无效映射`（无需参数） |
 | `verify_members.py` | **一致性**：对着 oracle 校验名字+描述符（含 `process/verify_allow.tsv` 白名单）。期望 `不一致 0` |
 | `inherit_check.py` | **继承闭合**：`CONFLICT 0 / MISSING 0` |
 | `pkgclose.py` | **包归属**：并查集 + 不动点求每类该在哪个包；`--apply` 迭代到 0 |
@@ -47,7 +47,7 @@ tools/
 | `audit/trycheck.py` | 体检：jar 里还有没有"catch IndexOutOfBounds 但 try 不含数组访问"的方法（应为 0） |
 | `jar_manifest.py` | jar **内容指纹**（与 zip 布局无关），用于“两次 FART 是否一致” |
 | `nop_clinit.py` | 把方法体里显式 `invokestatic <clinit>` 换 NOP（D8 不收） |
-| `emit_tiny2.py` | 由 `process/mappings.txt` + 各 part 的 `comments.tsv` 生成 **Tiny v2**（`process/mappings.tiny`）：列序换成 `desc name new`；参数下标默认按 **FART 实测约定**（0 起实参序号、实例与静态同号、long/double 算 1 个），`--param-index=lv` 才按 Tiny v2 书面约定换成 LVT 槽位；static 一律以 `process/base/merged_ok.jar` 为准 |
+| `emit_tiny2.py` | 由 `process/mappings.txt` + 各 part 的 `comments.tsv` 生成 **Tiny v2**（`process/mappings.tiny`；`--comments=none` 给 FART 用）：列序换成 `desc name new`；参数下标默认按 **FART 实测约定**（0 起实参序号、实例与静态同号、long/double 算 1 个），`--param-index=lv` 才按 Tiny v2 书面约定换成 LVT 槽位；static 一律以 `process/base/merged_ok.jar` 为准 |
 | `validate_tiny.py` | **Tiny 体检**：头行、类/成员唯一、类/成员在基线 jar 里存在、字段类型与 jar 一致、参数槽位落在合法集合、注释（换行/长度/证据前缀）。`--parts=a,b` 还查**注释覆盖率**；`--selftest` 钉死槽位换算 6 例 |
 | `tiny_roundtrip.py` | **迁移硬判据**：`tiny → TSRG2` 与 `process/mappings.txt` 逐行 diff 必须为空（证明 tiny 没丢/没串任何一条映射） |
 | `tinyv2.py` | Tiny v2 最小读写器（类/方法/字段/参数 + `c` 注释行），被上面三个共用 |
