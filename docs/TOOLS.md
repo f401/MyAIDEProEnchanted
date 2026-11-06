@@ -47,6 +47,27 @@ tools/
 | `audit/trycheck.py` | 体检：jar 里还有没有"catch IndexOutOfBounds 但 try 不含数组访问"的方法（应为 0） |
 | `jar_manifest.py` | jar **内容指纹**（与 zip 布局无关），用于“两次 FART 是否一致” |
 | `nop_clinit.py` | 把方法体里显式 `invokestatic <clinit>` 换 NOP（D8 不收） |
+| `emit_tiny2.py` | 由 `process/mappings.txt` + 各 part 的 `comments.tsv` 生成 **Tiny v2**（`process/mappings.tiny`）：列序换成 `desc name new`、参数序号换成 **LVT 槽位**（实例 +1 / long·double 占 2 槽）、static 一律以 `process/base/merged_ok.jar` 为准 |
+| `validate_tiny.py` | **Tiny 体检**：头行、类/成员唯一、类/成员在基线 jar 里存在、字段类型与 jar 一致、参数槽位落在合法集合、注释（换行/长度/证据前缀）。`--parts=a,b` 还查**注释覆盖率**；`--selftest` 钉死槽位换算 6 例 |
+| `tiny_roundtrip.py` | **迁移硬判据**：`tiny → TSRG2` 与 `process/mappings.txt` 逐行 diff 必须为空（证明 tiny 没丢/没串任何一条映射） |
+| `tinyv2.py` | Tiny v2 最小读写器（类/方法/字段/参数 + `c` 注释行），被上面三个共用 |
+
+## 注释表 `jobs/<part>/comments.tsv`
+
+TSRG2 / ProGuard 都没有“成员级注释”的位置，所以注释单独落盘、只喂给 Tiny v2：
+
+```
+kind	owner	name	desc	text
+c	abcd/Hz	-	-	src: 命中 fabric-1.4.8 HttpRequest（字段/方法逐个对上）
+m	abcd/Hz	QX	()Ljava/net/HttpURLConnection;	src: 与 fabric HttpRequest#createConnection 同形
+f	abcd/yk	EQ	-	recv: 持有 IInAppBillingService 字段
+```
+
+- `kind` = `c`(类) / `m`(方法) / `f`(字段)；类行与字段行的 `name`/`desc` 只是占位（写 `-`）
+- `owner` / `desc` 用**探针空间**（和 `members.tsrg` 一致，不要写改名后的名字）
+- `text` 里不许有 tab/换行，≤200 字符，且**必须带证据前缀**（`src:`/`role:`/`recv:`/`who:`/`kind:`/`shape:`/`str:`…）——`role:` 的必须写“为什么叫这个名”
+- 每条映射至多一条注释；`emit_tiny2.py` 会报“注释无对应映射”（改过名/删过的残留）
+- 覆盖率：`validate_tiny.py --parts=aide,engine,aide_bb,aide_iap` → 当前 189 类 / 64 成员 = **100%**
 
 ## naming/ —— 定名
 

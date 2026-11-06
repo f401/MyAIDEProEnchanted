@@ -1,0 +1,89 @@
+# 注释表：kind(c=类/m=方法/f=字段) \t owner(探针全名) \t name \t desc \t 注释
+# 类行的 name/desc 写 `-`；desc 必须用**探针空间**的描述符（和 members.tsrg 一致）
+c	abcd/yc	-	-	role: 全局时间源的读取端（静态初始化 new abcd/xc("Time getter")，getTime() 读锁保护静态 long）；AIDE 自有、无上游对应
+c	abcd/Hz	-	-	src: 命中 fabric-1.4.8 io/fabric/sdk/android/services/network/HttpRequest（字段 connection/url/httpProxyHost/httpProxyPort 逐个对上，createConnection/createProxy/encode 同形）；现名按作用取，非上游真名
+c	abcd/Hz$a	-	-	role: 上传任务抽象（Gz 继承它），持有请求体输入/输出流与请求对象，close() 收尾；对应 fabric HttpRequest 的分块发送内部类
+c	abcd/Hz$b	-	-	src: 对应 fabric HttpRequest$ConnectionFactory（createConnection 里 invokeinterface j6(URL[,Proxy]) 建连）
+c	abcd/Hz$c	-	-	contain: createConnection/encode 的 catch 里 new abcd/Hz$c(IOException) ⇒ IOException 包装异常；对应 fabric HttpRequest$HttpRequestException
+c	abcd/Hz$d	-	-	role: 一次请求的执行体（call() 返回请求对象），泛型任务接口的实现端；对应 fabric HttpRequest$Operation
+c	abcd/Hz$e	-	-	role: 请求体输出流（write(String) 返回自身，链式）；对应 fabric HttpRequest$RequestOutputStream
+c	abcd/Gz	-	-	role: 上传任务实现（extends abcd/Hz$a），构造接收 InputStream/OutputStream + 请求对象
+c	abcd/Ez	-	-	src: 命中 fabric-1.4.8 DefaultHttpRequestFactory（implements abcd/Jz；字段 PinningInfoProvider/SSLSocketFactory/kit，构造收 io.fabric.sdk.android.m）⇒ 现名 SslSocketFactoryProvider 不准
+c	abcd/Jz	-	-	src: 对应 fabric-1.4.8 HttpRequestFactory 接口（j6(Fz,String[,Map]) 造请求 + j6(Lz) 设 pinning）⇒ 现名 SslSocketFactorySource 不准
+c	abcd/Sz	-	-	role: fabric 的 SPI 调用基类派生（extends io.fabric.sdk.android.services.common.a，构造 (Kit,String,String,Jz,Fz)），implements abcd/Xz
+c	abcd/dA	-	-	role: SPI 调用实现（implements abcd/qA），j6(pA)→JSONObject 走请求再解析 JSON；构造 (Kit,String,String,Jz)
+c	abcd/Ji	-	-	role: AIDE 的设置门面（字段 Set<abcd/Ji$e>、Dw<com.dropbox.client2.android.a>、静态 abcd/Zw$a 单例）
+c	abcd/Di	-	-	role: Settings 的第 1 个匿名 Runnable（字段 final abcd/Ji，类名后缀=编译器编号，无上游对应）
+c	abcd/Fi	-	-	role: Settings 的第 2 个匿名 Runnable（字段 final abcd/Ji，类名后缀=编译器编号，无上游对应）
+c	abcd/Gi	-	-	role: Settings 的第 3 个匿名 Runnable（字段 final abcd/Ji，类名后缀=编译器编号，无上游对应）
+c	abcd/Hi	-	-	role: Settings 的第 4 个匿名 Runnable（字段 final abcd/Ji，类名后缀=编译器编号，无上游对应）
+c	abcd/Ii	-	-	role: Settings 的第 5 个匿名 Runnable（字段 final abcd/Ji，类名后缀=编译器编号，无上游对应）
+c	abcd/Ai	-	-	role: Settings$1 的第 1 个匿名 Runnable（字段 final abcd/Di，持有外层匿名类引用）
+c	abcd/Ci	-	-	role: Settings$1 的第 2 个匿名 Runnable（字段 final abcd/Di，持有外层匿名类引用）
+c	abcd/Ei	-	-	role: Settings$2 的第 1 个匿名 Runnable（字段 final abcd/Fi，持有外层匿名类引用）
+c	abcd/vi	-	-	role: Settings$1 的第 3 个匿名 Runnable（字段 final abcd/Di，持有外层匿名类引用）
+c	abcd/wi	-	-	role: Settings$1 的第 4 个匿名 Runnable（字段 final abcd/Di，持有外层匿名类引用）
+c	abcd/yi	-	-	role: Settings$1 的第 5 个匿名 Runnable（字段 final abcd/Di，持有外层匿名类引用）
+c	abcd/zi	-	-	role: Settings$1 的第 6 个匿名 Runnable（字段 final abcd/Di，持有外层匿名类引用）
+c	abcd/Bi	-	-	role: Settings$1$2 的第 1 个匿名 Runnable（字段 final abcd/Ci，持有外层匿名类引用）
+c	abcd/Ji$a	-	-	role: Settings 内部异常（extends RuntimeException；可见构造 abcd/Ji$a(abcd/Di) 只是编译器合成的外层引用参数）
+c	abcd/xi	-	-	role: 错误处理 Runnable（字段 abcd/Jw + abcd/Di=Settings$1）；AIDE 自有、无上游对应
+c	abcd/Af	-	-	body: 串 "Navigate mode" + implements abcd/Hl（isEnabled/isVisible/run）⇒ 切换导航模式的动作
+c	abcd/Ag	-	-	body: 串 "Refresh Build" + implements abcd/_l,abcd/Wl ⇒ 刷新构建的动作
+c	abcd/Az	-	-	src: 串 "deleting sent analytics file %s"/"Failed to close output stream" ⇒ fabric EventsFilesManager 的子类（FilesManager）
+c	abcd/Bz	-	-	body: 串 "Performing time based file roll over."/"Failed to roll over file" + implements Runnable ⇒ fabric 的定时 roll over 任务
+c	abcd/Lz	-	-	who: 子类 abcd/ha=CrashlyticsPinningInfoProvider 实现它；4 个方法与 fabric PinningInfoProvider 逐个同名 ⇒ fabric 接口
+c	abcd/xz	-	-	who: 子类 abcd/G=SessionAnalyticsManagerStrategy 实现 ⇒ fabric services.events.EventsStrategy
+c	abcd/wz	-	-	who: 子类 abcd/j=AnswersEventsHandler 实现 ⇒ fabric services.events.EventsHandler
+c	abcd/yz	-	-	who: 子类 abcd/E、abcd/n 都实现 ⇒ fabric services.events.FilesSender（唯一方法 send(List<File>)）
+c	abcd/nz	-	-	who: 子类 abcd/z=RandomBackoff 实现 ⇒ fabric services.concurrency.internal.RetryPolicy
+c	abcd/uz	-	-	who: 子类 abcd/D=SessionAnalyticsFilesManager 继承；串 "One of the roll over listeners threw an exception" ⇒ fabric EventsFilesManager
+c	abcd/aA	-	-	body: 串 "Reading cached settings..."/"com.crashlytics.settings.json" ⇒ crashlytics CachedSettingsIo
+c	abcd/bA	-	-	body: 串 "Loaded cached settings: "/"Returning cached settings." ⇒ crashlytics SettingsController
+c	abcd/cA	-	-	body: 串 "identifier"/"status"/"reports_url"（settings JSON 字段）⇒ crashlytics SettingsJsonTransform
+c	abcd/fA	-	-	body: 串 "App icon resource ID is "/"Failed to load icon" ⇒ crashlytics AppIconLoader
+c	abcd/jA	-	-	body: 串 "Failed to force reload of settings from Crashlytics." + settings URL ⇒ crashlytics DefaultSettingsSpiCall
+c	abcd/Mz	-	-	body: implements X509TrustManager + 串 "Certificate pins are stale, (" ⇒ crashlytics PinningTrustManager
+c	abcd/F	-	-	body: final 类，字段 com.google.firebase.analytics.FirebaseAnalytics + 串 "startSession"/"logLevelEnd: " ⇒ AIDE 自有的 Answers 事件上报封装
+c	abcd/Pz	-	-	body: 串 "Cannot get directory before context has been set. Call Fabric.with() first"/"Android/" ⇒ fabric FileStoreImpl
+c	abcd/Bw	-	-	src: 父类 io.fabric.sdk.android.Kit + 串 "Beta kit initializing..."/"com.crashlytics.sdk.android:beta"/"1.2.10.27" ⇒ fabric Beta Kit
+c	abcd/Rz	-	-	who: 实现 abcd/Qz，且与 abcd/Pz 同串 "Cannot get directory before context..." ⇒ fabric services.persistence.PreferenceStore 实现
+c	abcd/Ae	-	-	body: extends abcd/Si(BaseProjectConfig) + XPath "//manifest"、"//manifest//uses-sdk" ⇒ 解析 AndroidManifest 的工程配置
+c	abcd/Be	-	-	body: extends abcd/Si(BaseProjectConfig) + 串 "https://repo1.maven.org/maven2"/"mavenCentral"/"flatDir.dirs" ⇒ Maven 依赖仓库配置
+c	abcd/Dj	-	-	body: 串 "Uninstallation failed" + implements Runnable（字段 Activity + abcd/Kj）⇒ 卸载应用任务
+m	abcd/yc	DW	()J	role: 读全局时间源（锁保护静态 long）；静态初始化里 new abcd/xc("Time getter") 负责更新
+m	abcd/yc	j6	(J)J	role: 编译器生成的静态字段访问器（写 abcd/yc 的静态 long，返回旧值）
+m	abcd/yc	j6	()Ljava/lang/Object;	role: 编译器生成的静态字段访问器（读 Object 字段 DW）
+m	abcd/Hz	QX	()Ljava/net/HttpURLConnection;	src: 与 fabric HttpRequest#createConnection 同形（有代理走 Hz$b.j6(URL,Proxy)，再 setRequestMethod(请求方法字段)）
+m	abcd/Hz	XL	()Ljava/net/Proxy;	src: 对应 fabric HttpRequest#createProxy（new Proxy(HTTP, InetSocketAddress(代理主机, 端口))）；现名 getProxy 只是近似
+m	abcd/Hz	j6	(Labcd/Hz;)I	role: 合成访问器：供外部读内部类 abcd/Hz$… 的 int 字段
+m	abcd/Hz	EQ	()Ljava/lang/String;	recv: 名字对齐 java.net.HttpURLConnection#getRequestMethod；本类返回请求方法字段
+m	abcd/Hz	FH	(Ljava/lang/String;Ljava/lang/String;)Labcd/Hz;	recv: 链式 setter（返回 this），名字对齐 HttpURLConnection#setRequestProperty；上游 fabric 同类方法是 header(String,String)
+m	abcd/Hz	Hw	(Ljava/lang/String;)Ljava/lang/String;	recv: 对齐 HttpURLConnection#getHeaderField（族内一致：先 tp() 取连接再转发）
+m	abcd/Hz	J8	()Ljava/io/InputStream;	recv: 对齐 HttpURLConnection#getInputStream（先执行再取流）
+m	abcd/Hz	VH	()I	recv: 对齐 HttpURLConnection#getResponseCode；body: 先 invokevirtual v5() 执行再 tp().getResponseCode()（上游真名 code()）
+m	abcd/Hz	Ws	()Ljava/net/URL;	role: 返回请求 URL（字段 Hw 是 public final URL，与 fabric HttpRequest.url 对应）
+m	abcd/Hz	j6	(Ljava/lang/String;I)I	recv: 对齐 HttpURLConnection#getHeaderFieldInt
+m	abcd/Hz	j6	(I)Labcd/Hz;	recv: 链式 setter，对齐 HttpURLConnection#setConnectTimeout
+m	abcd/Hz	j6	(Z)Labcd/Hz;	recv: 链式 setter，对齐 HttpURLConnection#setUseCaches
+m	abcd/Hz	tp	()Ljava/net/HttpURLConnection;	src: 与 fabric HttpRequest#getConnection 同名同签名（必要时先执行请求）
+m	abcd/Hz	we	()Labcd/Hz;	recv: 无参链式 setter（返回 this）；名字对齐 HttpURLConnection#setDoOutput，方法体自行把 doOutput 置 true
+m	abcd/Hz$a	j6	()V	role: 上传任务收尾：关闭请求体流（子类 abcd/Gz 回调）
+m	abcd/Hz$b	j6	(Ljava/net/URL;)Ljava/net/HttpURLConnection;	body: createConnection 里 invokeinterface Hz$b.j6(URL) ⇒ 无代理建连
+m	abcd/Hz$b	j6	(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;	body: createConnection 里带代理建连（代理取自 XL()）
+m	abcd/Hz$d	j6	()V	role: 请求任务收尾：关闭流
+m	abcd/Hz$d	call	()Ljava/lang/Object;	recv: 泛型任务接口的 Object 桥接方法（业务实现在 DW()/call() 的协变版本）
+m	abcd/Hz$e	j6	(Ljava/lang/String;)Labcd/Hz$e;	role: 写请求体并返回自身（链式）；对应 fabric RequestOutputStream 的写入口
+m	abcd/Gz	DW	()Labcd/Hz;	role: 上传任务主体：把输入流写进请求体并返回请求对象
+m	abcd/Lz	j6	()Ljava/lang/String;	src: fabric PinningInfoProvider#getKeyStorePassword
+m	abcd/Lz	DW	()Ljava/io/InputStream;	src: fabric PinningInfoProvider#getKeyStoreStream
+m	abcd/Lz	FH	()[Ljava/lang/String;	src: fabric PinningInfoProvider#getPins
+m	abcd/Lz	Hw	()J	src: fabric PinningInfoProvider#getPinCreationTimeInMillis
+m	abcd/xz	j6	()Z	src: fabric FileRollOverManager#rollFileOver
+m	abcd/xz	DW	()V	src: fabric FileRollOverManager#cancelTimeBasedFileRollOver
+m	abcd/wz	j6	(Ljava/lang/String;)V	src: fabric EventsStorageListener#onRollOver
+m	abcd/yz	j6	(Ljava/util/List;)Z	src: fabric FilesSender#send(List<File>)（唯一方法）
+m	abcd/nz	j6	(I)J	src: fabric services.concurrency.internal.RetryPolicy#getDelayMillis
+m	abcd/uz	FH	()Ljava/lang/String;	src: fabric EventsFilesManager#generateUniqueRollOverFileName（protected abstract）
+m	abcd/uz	Zo	()I	src: fabric EventsFilesManager#getMaxByteSizePerFile
+m	abcd/uz	v5	()I	src: fabric EventsFilesManager#getMaxFilesToKeep

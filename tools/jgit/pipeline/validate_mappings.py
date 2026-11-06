@@ -85,7 +85,7 @@ def main():
                 except Exception:
                     pass
     bad = collections.Counter(); detail = []
-    seen_cls = {}; SEEN = set()
+    seen_cls = {}; seen_probe = {}; seen_member = {}; SEEN = set()
     cur = None; cur_ok = False; last_member = None
     ncls = nmem = npar = 0
     PAR = set()
@@ -108,6 +108,12 @@ def main():
             if target in seen_cls:
                 bad['类目标重复'] += 1; detail.append((ln, 'dup-class-target', '%s 与 %s' % (target, seen_cls[target])))
             seen_cls[target] = probe
+            # 同一探针类在两个 part 各出现一次：TSRG2 是"后者覆盖前者"，tiny v2 直接非法
+            if probe in seen_probe:
+                bad['类源重复'] += 1
+                detail.append((ln, 'dup-class-source', '%s 已在 L%d -> %s（本条 -> %s）'
+                               % (probe, seen_probe[probe][0], seen_probe[probe][1], target)))
+            seen_probe[probe] = (ln, target)
             continue
         body = line[1:]
         if body.startswith('\t'):
@@ -147,6 +153,11 @@ def main():
             if cur_ok and (name, desc) not in info[cur]['methods']:
                 bad['方法不存在'] += 1; detail.append((ln, 'no-method', '%s %s%s' % (cur, name, desc)))
         else:
+            if len(f) >= 3:
+                # TSRG v1 的 `名字 类型 新名` 写法：TSRG2 的字段行只有两段，多出的一段
+                # 会被 FART 当成方法行静默丢掉（踩过：proguard `a StringBuilder stringBuilder`）
+                bad['字段行带类型'] += 1
+                detail.append((ln, 'field-with-type', line))
             name, new = f[0], f[-1]
             last_member = ('f', (name, None))
             if cur_ok:
@@ -156,6 +167,12 @@ def main():
         # 同一类里 (新名,描述符) 不能重复（FART 遇重复目标会整体中止/任选其一）
         key = (cur, new, f[1] if len(f) >= 3 and f[1].startswith('(') else '')
         if cur_ok:
+            # 同一 (类, 名字, 描述符) 出现两次：tiny v2 不允许，TSRG2 静默取最后一条
+            src = (cur, name, f[1] if len(f) >= 3 and f[1].startswith('(') else '')
+            if src in seen_member:
+                bad['成员源重复'] += 1
+                detail.append((ln, 'dup-member-source', '%s %s 已在 L%d' % (cur, name, seen_member[src])))
+            seen_member[src] = ln
             if key in SEEN:
                 bad['成员目标重复'] += 1; detail.append((ln, 'dup-member-target', '%s -> %s' % (cur, new)))
             SEEN.add(key)

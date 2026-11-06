@@ -1,0 +1,82 @@
+# 注释表：kind(c=类/m=方法/f=字段) \t owner(探针全名) \t name \t desc \t 注释
+c	abcd/yu	-	-	hier: implements com/appfour/backbone/api/define/DefineHook + DefineHookRuntime（框架在 APK 里未混淆）；唯一方法 j6(J,EventData)V ⇒ 钩子定义基类
+c	abcd/jw	-	-	hier: implements DefineAnalytics；方法 defineEvent(String)→DefineOccurrences / undefineEvent(String) / onDefineEventError
+c	abcd/lw	-	-	hier: implements DefineOccurrences；方法 asEachOccurrenceOf / asFirstOccurrenceOf / asFirstOccurrencePerAppVersionOf（框架接口钉死）
+c	abcd/lw$a	-	-	recv: implements DefineHook、构造器收 abcd/lw、方法 j6(J,EventData)V / j6(J,Throwable)V 与 abcd/yu 同形 ⇒ lw 内部钩子
+c	abcd/lv	-	-	recv: extends abcd/jw(AnalyticsDefinition) + implements com/appfour/backbone/api/runtime/a；方法体全是反射调用 ⇒ 运行时反射层
+c	abcd/Mv	-	-	recv: extends abcd/lv(ReflectionRuntime) + implements runtime/a；方法参数全是 UserTouchAction/UserActionWidget/UserActionWindow ⇒ UI 场景运行时
+c	abcd/Xv	-	-	hier: implements com/appfour/backbone/api/objects/EventData；方法 setCrash(Throwable,boolean)/setIsInstall(boolean)… ⇒ 事件数据实现
+c	abcd/Vu	-	-	recv: extends abcd/hv(→yu=HookDefinition)；唯一新增 API 是 onEnter(long,long,OnEnterClosure0..5) 六个重载 ⇒ onEnter 钩子定义
+c	abcd/Iu	-	-	shape: abstract class extends abcd/Bv；方法名就是 Backbone Api 那族 onApplicationCreate/onCrash/onInAppProductImpression/… ⇒ 抽象 API 层
+c	abcd/Bv	-	-	recv: 15 个闭包适配器（Av/mv/nv/ov/pv/qv/rv/sv/tv/uv/vv/wv/xv/yv/zv）都在它的 onClick/onLongPress/onInput/… 里被 new ⇒ API 基类
+c	abcd/Iv	-	-	str: 串 "BACKBONE_INTENT"；造 PendingIntent(Context,I,Intent,I,Bundle) 与 UserNotification/UserNotificationAction ⇒ 通知工厂
+c	abcd/Gv	-	-	hier: implements android/app/Application$ActivityLifecycleCallbacks（8 个 onActivityXxx 全是接口方法，未改名）⇒ 生命周期跟踪
+c	abcd/kv	-	-	recv: 40 个方法全是回调派发（含 DW(Activity,InAppProduct)V=onInAppProductPurchase），字段有 ThreadLocal ⇒ 回调分发器
+c	abcd/hv	-	-	shape: abstract class extends abcd/yu(HookDefinition)，新增字段 Class<? extends Throwable> + 3 个 long + boolean；被 abcd/Vu 继承 ⇒ 异常钩子基类
+c	abcd/Au	-	-	src: 由 abcd/Iu.onReferrerMarketClick(OnMarketClosure) 里 new；implements abcd/jv，j6 调 OnMarketClosure.getValue(Market…)
+c	abcd/Eu	-	-	src: 由 abcd/Iu.onInstall(OnMarketClosure) 里 new（与 Au 同形，靠外层 API 方法区分）⇒ 安装事件闭包适配器
+c	abcd/Bu	-	-	src: 由 abcd/Iu.onCrash(OnCrashClosure) 里 new；j6 传 2 个实参调 OnCrashClosure.getValue(Thread,Throwable)
+c	abcd/Cu	-	-	src: 由 abcd/Iu.onInAppProductImpression(OnInAppProductClosure) 里 new（与 Du 同形，靠外层 API 方法区分）
+c	abcd/Du	-	-	src: 由 abcd/Iu.onInAppProductPurchase(OnInAppProductClosure) 里 new ⇒ 内购购买闭包适配器
+c	abcd/Fu	-	-	src: 由 abcd/Iu.onUpdate(OnVoidClosure) 里 new；j6 无实参调 OnVoidClosure.getValue()
+c	abcd/Gu	-	-	src: 由 abcd/Iu.onNewVersion(OnVoidClosure) 里 new（与 Fu 同形，靠外层 API 方法区分）
+c	abcd/Hu	-	-	src: 由 abcd/Iu.onApplicationCreate(OnApplicationClosure) 里 new；j6 传 1 个实参
+c	abcd/zu	-	-	src: 由 abcd/Iu.onReferrerMarketImpression(OnMarketImpressionClosure) 里 new；字段 (Iu, OnMarketImpressionClosure)
+c	abcd/Ku	-	-	src: implements abcd/jv，构造器 (abcd/Vu, J, com/appfour/backbone/api/closures/OnEnterClosure0) ⇒ 包的是 OnEnterClosure0（形参类型直接写明）
+c	abcd/Mu	-	-	src: implements abcd/jv，构造器 (abcd/Vu, J, com/appfour/backbone/api/closures/OnEnterClosure1) ⇒ 包的是 OnEnterClosure1（形参类型直接写明）
+c	abcd/Ou	-	-	src: implements abcd/jv，构造器 (abcd/Vu, J, com/appfour/backbone/api/closures/OnEnterClosure2) ⇒ 包的是 OnEnterClosure2（形参类型直接写明）
+c	abcd/Qu	-	-	src: implements abcd/jv，构造器 (abcd/Vu, J, com/appfour/backbone/api/closures/OnEnterClosure3) ⇒ 包的是 OnEnterClosure3（形参类型直接写明）
+c	abcd/Su	-	-	src: implements abcd/jv，构造器 (abcd/Vu, J, com/appfour/backbone/api/closures/OnEnterClosure4) ⇒ 包的是 OnEnterClosure4（形参类型直接写明）
+c	abcd/Uu	-	-	src: implements abcd/jv，构造器 (abcd/Vu, J, com/appfour/backbone/api/closures/OnEnterClosure5) ⇒ 包的是 OnEnterClosure5（形参类型直接写明）
+c	abcd/Xu	-	-	src: implements abcd/jv，构造器 (abcd/hv, J, com/appfour/backbone/api/closures/OnExceptionClosure0) ⇒ 包的是 OnExceptionClosure0（形参类型直接写明）
+c	abcd/Zu	-	-	src: implements abcd/jv，构造器 (abcd/hv, J, com/appfour/backbone/api/closures/OnExceptionClosure1) ⇒ 包的是 OnExceptionClosure1（形参类型直接写明）
+c	abcd/av	-	-	src: implements abcd/jv，构造器 (abcd/hv, J, com/appfour/backbone/api/closures/OnExceptionClosure2) ⇒ 包的是 OnExceptionClosure2（形参类型直接写明）
+c	abcd/cv	-	-	src: implements abcd/jv，构造器 (abcd/hv, J, com/appfour/backbone/api/closures/OnExceptionClosure3) ⇒ 包的是 OnExceptionClosure3（形参类型直接写明）
+c	abcd/ev	-	-	src: implements abcd/jv，构造器 (abcd/hv, J, com/appfour/backbone/api/closures/OnExceptionClosure4) ⇒ 包的是 OnExceptionClosure4（形参类型直接写明）
+c	abcd/gv	-	-	src: implements abcd/jv，构造器 (abcd/hv, J, com/appfour/backbone/api/closures/OnExceptionClosure5) ⇒ 包的是 OnExceptionClosure5（形参类型直接写明）
+c	abcd/Ju	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/Ku(=OnEnterClosure0Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/Lu	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/Mu(=OnEnterClosure1Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/Nu	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/Ou(=OnEnterClosure2Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/Pu	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/Qu(=OnEnterClosure3Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/Ru	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/Su(=OnEnterClosure4Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/Tu	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/Uu(=OnEnterClosure5Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/Wu	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/Xu(=OnExceptionClosure0Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/Yu	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/Zu(=OnExceptionClosure1Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/_u	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/av(=OnExceptionClosure2Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/bv	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/cv(=OnExceptionClosure3Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/dv	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/ev(=OnExceptionClosure4Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/fv	-	-	src: implements abcd/lv$a（反射调用封装），构造器首参是 abcd/gv(=OnExceptionClosure5Adapter) ⇒ 该适配器被调时的调用封装
+c	abcd/Av	-	-	src: implements abcd/jv，且只在 abcd/Bv.onClick 里被 new ⇒ 包的是 OnClickClosure，按外层 API 方法命名
+c	abcd/mv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onLongPress 里被 new ⇒ 包的是 OnClickClosure，按外层 API 方法命名
+c	abcd/nv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onInput 里被 new ⇒ 包的是 OnInputClosure，按外层 API 方法命名
+c	abcd/ov	-	-	src: implements abcd/jv，且只在 abcd/Bv.onTouch 里被 new ⇒ 包的是 OnTouchClosure，按外层 API 方法命名
+c	abcd/pv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onNotificationShown 里被 new ⇒ 包的是 OnNotificationClosure，按外层 API 方法命名
+c	abcd/qv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onNotificationAction 里被 new ⇒ 包的是 OnNotificationClosure，按外层 API 方法命名
+c	abcd/rv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onLaunch 里被 new ⇒ 包的是 OnLaunchClosure，按外层 API 方法命名
+c	abcd/sv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onActivityStart 里被 new ⇒ 包的是 OnActivityClosure，按外层 API 方法命名
+c	abcd/tv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onActivityStop 里被 new ⇒ 包的是 OnActivityClosure，按外层 API 方法命名
+c	abcd/uv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onActivityCreate 里被 new ⇒ 包的是 OnActivityClosure，按外层 API 方法命名
+c	abcd/vv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onWindowShown 里被 new ⇒ 包的是 OnWindowClosure，按外层 API 方法命名
+c	abcd/wv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onWindowHidden 里被 new ⇒ 包的是 OnWindowClosure，按外层 API 方法命名
+c	abcd/xv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onMenuItemSelected 里被 new ⇒ 包的是 OnMenuItemSelectedClosure，按外层 API 方法命名
+c	abcd/yv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onItemClick 里被 new ⇒ 包的是 OnItemClickClosure，按外层 API 方法命名
+c	abcd/zv	-	-	src: implements abcd/jv，且只在 abcd/Bv.onItemLongPress 里被 new ⇒ 包的是 OnItemClickClosure，按外层 API 方法命名
+c	abcd/jv	-	-	kind: interface，唯一方法 EventData j6(Object[])；被 40+ 个闭包适配器（Au/Hu/Ku/Xu/Av…zv）implements ⇒ 闭包调用器抽象
+c	abcd/lv$a	-	-	kind: interface（1 个方法），只被 abcd/lv(ReflectionRuntime) 使用，12 个调用封装（Ju…fv）implements 它
+c	abcd/Qv	-	-	recv: 27 方法/4 字段；内部持有 Qv$a..Qv$e 并创建 Rv(GlobalLayoutListener)、Pv(Runnable) ⇒ Backbone UserActionWindow 的窗口运行时
+c	abcd/Qv$a	-	-	shape: 构造器收 com/appfour/backbone/api/objects/UserActionWindow，10 方法/8 字段；被 abcd/Pv 当第一个参数接走 ⇒ 单个窗口的运行时状态
+c	abcd/Qv$b	-	-	hier: implements android/view/View$OnTouchListener；串 "mTouchInterceptor"（反射 PopupWindow）⇒ 窗口触摸拦截器
+c	abcd/Qv$c	-	-	kind: extends android/widget/FrameLayout（3 方法/1 字段）⇒ 承载窗口内容的 FrameLayout
+c	abcd/Qv$d	-	-	hier: implements android/view/Window$Callback（28 个方法全是接口实现，未改名）；串 "input_method"/"getInputMethod" ⇒ 窗口回调
+c	abcd/Qv$e	-	-	recv: 14 个方法全是反射（串 "com.android.internal.view.menu"/"getItemData"）⇒ 只服务于窗口内菜单的反射器
+c	abcd/Hv	-	-	recv: 25 方法/9 字段；串 "com.android.internal.policy.DecorView"+"mWindow" ⇒ 反射 Activity 的 DecorView/Window 的辅助类
+c	abcd/Hv$a	-	-	kind: extends android/view/inputmethod/InputConnectionWrapper（4 个覆写方法）；构造器 (InputConnection,boolean) ⇒ 给输入连接包一层以监听 IME
+c	abcd/Rv	-	-	hier: implements android/view/ViewTreeObserver$OnGlobalLayoutListener，构造器收 abcd/Qv$d(=WindowCallback) ⇒ 全局布局监听
+c	abcd/Pv	-	-	kind: implements Runnable，构造器 (abcd/Qv$a=Window, UserAction…) ⇒ 把"显示窗口"投递到主线程的任务
+c	abcd/ow	-	-	str: "Probe loading"+"classes.dex"+".opt"+"dev.builtin.apk"/"public.builtin.apk"+"assets/dev.probes" ⇒ 探针 dex 的加载器
+c	abcd/pw	-	-	str: "appstate.json"+"has_occurred_for_app_version_"/"_for_day_"/"_for_month_"+"Reading appstate value" ⇒ 事件频次状态存储
+c	abcd/rw	-	-	str: 键名 "last_run_version"/"is_event_defined_"/"probesdex_"/"has_fetched_referrer"/"BACKBONE_"/"is_developer" ⇒ 偏好设置读写
+c	abcd/ww	-	-	kind: implements Runnable，构造器 (int,int,String)；串 "backbone developer notifications"/"Probe notification" ⇒ 发开发者通知的任务
+c	abcd/zw	-	-	recv: 5 个方法全是 ()/Activity/View/UserActionWidget/UserActionWindow → android/graphics/Rect（串 "window"）⇒ 取窗口/控件矩形的工具
+c	abcd/_v	-	-	shape: 13 个字段是 deviceWidth/deviceHeight/imeHeight/pressedKey/touchX/touchY… 等输入与设备状态 ⇒ 事件上下文（构造器 (String,…)）
+c	abcd/iw	-	-	recv: j6(lw,JJ)V / j6(lw,J,EventData)V / j6(lw,J,Throwable)V 是"记录事件/事件错误"，串 ") Event recording" ⇒ 事件记录器

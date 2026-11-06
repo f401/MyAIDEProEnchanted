@@ -1,0 +1,48 @@
+# 注释表：kind(c=类/m=方法/f=字段) \t owner(探针全名) \t name \t desc \t 注释
+c	abcd/qu	-	-	src: AIDL 接口：extends android.os.IInterface，7 个方法全是 transaction 形状，方法集与 Google Play IInAppBillingService 逐一对上（类内串 "com.android.vending.billing."）
+c	abcd/qu$a	-	-	src: AIDL Stub：abstract extends android.os.Binder implements abcd/qu，含 static asInterface(IBinder)/asBinder()/onTransact(4 参)
+c	abcd/qu$a$a	-	-	src: AIDL Stub$Proxy：implements abcd/qu、持 android/os/IBinder 字段、构造器收 IBinder
+c	abcd/yk	-	-	recv: 内购门面：字段 IInAppBillingService + Handler + ThreadPoolExecutor + ArrayDeque(待处理请求) + AtomicReference；把 AIDL 调用转成后台任务
+c	abcd/yk$a	-	-	str: 抽象回调（onError(String) / onProducts(Map)），被 abcd/ok、abcd/yk 当回调字段 ⇒ 购买结果监听器
+c	abcd/yk$b	-	-	kind: extends Exception、(String) 构造器 + 2 个 boolean 字段，只在 abcd/yk 内部抛 ⇒ 内购异常
+c	abcd/yk$c	-	-	kind: extends Exception、构造器收 abcd/ok ⇒ 把后台任务的错误包成内购异常
+c	abcd/yk$d	-	-	shape: 字段 = yk$e(状态) + cm$c(签名校验结果) + ok(错误)，4 个构造器组合三种 ⇒ 购买结果值对象
+c	abcd/yk$e	-	-	str: 枚举常量 OK_PURCHASED / OK_ALREADY_OWNED / ERROR ⇒ 购买状态
+c	abcd/yk$f	-	-	str: 枚举常量 RESULT_OK / RESULT_USER_CANCELED / RESULT_SERVICE_UNAVAILABLE / RESULT_BILLING_UNAVAILABLE / RESULT_ITEM_UNAVAILABLE / RESULT_DEVELOPER_ERROR ⇒ Play 响应码
+c	abcd/yk$g	-	-	shape: 6 个 String + 1 个 long 的纯数据对象，构造器 (String×5, long, String) ⇒ 一条购买记录
+c	abcd/yk$h	-	-	str: "Subscription WS Client" + https://api.appfour.com/aideservices/subscriptions/v1/registerPurchase + "isGenuine" ⇒ 订阅校验 WebService 客户端（内部起 Thread）
+c	abcd/rk	-	-	kind: implements Runnable，字段 abcd/yk + String + 3 个 boolean；串 "BUY_INTENT"/"resp code for " ⇒ 触发购买的任务
+c	abcd/pk	-	-	kind: implements Runnable，字段 abcd/yk + 2 个 boolean；串 "Requesting in-app purchases"/"inapp"/"subs" ⇒ 请求商品列表的任务
+c	abcd/ok	-	-	kind: implements Runnable，字段 abcd/yk + Set + yk$a + yk；串 "Internal error in in-app billing (JSON parse)."/"…(cancelled)." ⇒ 处理内购错误的任务
+c	abcd/Jv	-	-	recv: Play 内购接线：j6(String)→InAppProduct（解析 DETAILS_LIST JSON）、j6(Activity,IntentSender,I)（拉起购买）、DW(String)→Jv$a（商品列表）
+c	abcd/Lv	-	-	str: "com.android.vending"/"PlayInstallReferrer"/"Class not found" ⇒ 用反射调 Play 安装来源接口的上报器
+c	abcd/Kv	-	-	hier: implements com/android/installreferrer/api/d(=InstallReferrerStateListener，该库在 APK 里未混淆)，字段是 com/android/installreferrer/api/b ⇒ AIDE 侧的回调实现
+c	abcd/cm	-	-	str: "Empty data."/"Empty signature."/"Signature does not match data." + "AIDEkeys" + 三个包名 ⇒ AIDE 的许可证签名校验器
+m	abcd/qu	FH	(ILjava/lang/String;Ljava/lang/String;)I	src: AIDL transaction 3 ⇒ IInAppBillingService#isBillingSupported(apiVersion, packageName, type)
+m	abcd/qu	j6	(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;	src: AIDL transaction 4 ⇒ IInAppBillingService#getBuyIntent(apiVersion, package, sku, type, developerPayload)
+m	abcd/qu	j6	(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;	src: AIDL transaction 5 ⇒ IInAppBillingService#getBuyIntentToReplaceSkus
+m	abcd/qu	j6	(ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;	src: AIDL transaction 2 ⇒ IInAppBillingService#getSkuDetails(apiVersion, package, type, Bundle of skus)
+m	abcd/qu	DW	(ILjava/lang/String;Ljava/lang/String;)I	src: AIDL transaction 6 ⇒ IInAppBillingService#consumePurchase(apiVersion, package, purchaseToken)
+m	abcd/qu$a	j6	(Landroid/os/IBinder;)Labcd/qu;	src: AIDL Stub 固定模板：queryLocalInterface 命中则强转，否则 new abcd/qu$a$a(IBinder)
+m	abcd/qu$a$a	DW	(ILjava/lang/String;Ljava/lang/String;)I	src: Stub$Proxy#consumePurchase（写 parcel → transact(6) → 读返回值）
+m	abcd/qu$a$a	j6	(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;	src: Stub$Proxy#getBuyIntent（transact(4)，返回值是 Bundle.CREATOR）
+m	abcd/qu$a$a	j6	(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;	src: Stub$Proxy#getBuyIntentToReplaceSkus（transact(5)）
+m	abcd/qu$a$a	j6	(ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;	src: Stub$Proxy#getSkuDetails（transact(2)）
+m	abcd/yk	DW	(Landroid/content/Intent;)Labcd/yk$d;	recv: 入参 Intent（"INAPP_PURCHASE_DATA"/"INAPP_DATA_SIGNATURE"）出参 yk$d ⇒ 解析购买结果
+m	abcd/yk	j6	(Labcd/qu;ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;	role: 把 getSkuDetails 的 AIDL 调用抽成一个方法（收 service + 4 个实参转发），供后台任务复用
+m	abcd/yk	j6	(Landroid/app/Activity;Landroid/content/IntentSender;)V	role: 用 startIntentSenderForResult 拉起 Play 的购买界面（BUY_INTENT 流程的末段）
+m	abcd/yk	DW	(Labcd/yk;)Landroid/os/Handler;	role: 编译器生成的合成访问器（外部读 handler 字段）
+m	abcd/yk$a	j6	(Ljava/lang/String;)V	kind: 抽象回调方法，入参 String ⇒ 错误消息回调
+m	abcd/yk$a	j6	(Ljava/util/Map;)V	kind: 抽象回调方法，入参 Map ⇒ 商品列表回调
+m	abcd/rk	j6	(Labcd/qu;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;	role: 转发 getBuyIntentToReplaceSkus（拼 developerPayload / 替换 sku 列表），结果交给 yk 处理
+m	abcd/Jv	j6	(Ljava/lang/String;)Lcom/appfour/backbone/api/objects/InAppProduct;	recv: 入参 DETAILS_LIST 的 JSON、出参 Backbone 的 InAppProduct ⇒ 商品详情解析
+m	abcd/Jv	j6	(Landroid/app/Activity;Landroid/content/IntentSender;I)V	recv: 与 abcd/yk 的同名同形方法一致 ⇒ 拉起购买界面（Activity + IntentSender + requestCode）
+m	abcd/Jv	DW	(Ljava/lang/String;)Labcd/Jv$a;	role: 按商品类型（"inapp"/"subs"）取商品列表，返回 Jv$a 结果对象
+m	abcd/Lv	j6	()V	role: 唯一入口：反射拿 PlayInstallReferrer 并上报安装来源（失败只打 "Class not found"）
+m	abcd/cm	j6	(Ljava/lang/String;Ljava/lang/String;)Labcd/cm$c;	recv: 入参 (data, signature) 出参 cm$c ⇒ 校验许可证签名并返回校验结果
+m	abcd/cm	j6	(Ljava/lang/String;)Ljava/security/PublicKey;	role: 用内置 "AIDEkeys" 的 Base64 公钥构造 PublicKey
+m	abcd/cm	j6	(Ljava/security/PublicKey;Ljava/lang/String;Ljava/lang/String;)Z	role: Signature 验签（SHA1withRSA），失败对应 "Signature does not match data."
+f	abcd/yk	EQ	-	recv: 持有 abcd/qu(=IInAppBillingService) 字段，所有内购请求都经它转发；名字来自字段类型
+f	abcd/yk	J0	-	role: 主线程 Handler，把 AIDL 结果与回调切回 UI 线程
+f	abcd/yk	J8	-	role: ThreadPoolExecutor，把 AIDL 调用放到后台执行
+f	abcd/yk	Mr	-	role: ArrayDeque 待处理请求队列（请求排队 + 串行化）

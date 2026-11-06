@@ -12314,7 +12314,6 @@ abcd/xi abcd/aide/ErrorTask
 abcd/yi abcd/aide/Settings$1$5
 abcd/zi abcd/aide/Settings$1$6
 abcd/Bi abcd/aide/Settings$1$2$1
-abcd/nj abcd/aide/JavaScriptProject
 abcd/Af abcd/aide/ActionNavigateMode
 abcd/Ag abcd/aide/ActionRefreshBuild
 abcd/Az abcd/fabric/AnalyticsFilesManager
@@ -46142,7 +46141,7 @@ a/g/b/g proguard/optimize/info/CodeAttributeOptimizationInfo
 		static
 		0 codeAttribute codeAttribute
 a/j/l proguard/util/StringBuilderUtil
-	a StringBuilder stringBuilder
+	a stringBuilder
 	a ()V printNewLine
 		static
 	a (Ljava/lang/String;)V print

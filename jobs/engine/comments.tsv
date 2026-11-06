@@ -1,0 +1,39 @@
+# 注释表：kind(c=类/m=方法/f=字段) \t owner(探针全名) \t name \t desc \t 注释
+c	abcd/IProject	-	-	src: identity（-keep，类名未被混淆）；AIDE 的工程接口，37 个方法：getProjectType/getSourceFolders/编译入口
+c	abcd/EclipseJavaProject	-	-	src: identity；implements abcd/IProject，串 "/.classpath"、"/AndroidManifest.xml"、"/bin/debug"、"/dex/classes.dex.zip" ⇒ Eclipse 布局的 Java 工程实现
+c	abcd/Hd	-	-	role: Java 类型表（105 方法/49 字段），常量串全是 java.lang 类型名（Array/AutoCloseable/Boolean/…）⇒ 编译器用的类型库
+c	abcd/Lk	-	-	src: 父类 com/aide/engine/service/s$a（AIDL 回调 Stub），两个方法都收 com/aide/engine/FileHighlightings ⇒ 文件高亮的 AIDL 回调实现
+c	abcd/Mk	-	-	src: 父类 com/aide/engine/service/u$a + 唯一自实现方法 getVersion()J ⇒ 引擎版本查询的 AIDL 回调
+c	abcd/Nk	-	-	body: 串 ".java/.xml/.htm/.html/.css/.cpp/.hpp/.class"+CurrentFiles/OpenFileService+"could not be loaded!"；方法为打开/关闭/查表 ⇒ 打开文件表
+c	abcd/Nk$a	-	-	kind: 内部接口（DW(int×6)/DW(FileHighlightings)/Hw()/J0()/VH()/Ws()）⇒ 单个打开文件的视图模型（行号与高亮状态）
+c	abcd/Nk$b	-	-	kind: 内部接口（j6(String)/DW(String)/FH(String)→Nk$a/getVisibleFile()）⇒ 文件表监听：打开/关闭/取当前文件
+c	abcd/Nk$c	-	-	kind: 内部接口，唯一方法 j6(FileHighlightings) ⇒ 高亮结果回调
+c	abcd/Te	-	-	hier: implements com/a4455jkjh/colorpicker/** + 唯一自实现方法 a(I,String)V ⇒ 颜色选择器的回调实现
+c	abcd/Tj	-	-	body: implements android/content/ServiceConnection + 串 "Engine service connected to UI"/"Trying to restart engine service" ⇒ 引擎服务绑定
+c	abcd/Ue	-	-	body: 串 "Choose Color" + implements abcd/_l（AIDE 的 Action 接口，isEnabled()Z/run()Z）⇒ 选色动作
+c	abcd/Wi	-	-	body: 串 AIDL/HTML/Java/Java Binary/JavaScript/android.jar；收 EclipseJavaProjectConfig$Node 产出 com/aide/engine/EngineSolutionProject ⇒ 各工程类型的 Solution 分发
+c	abcd/Xj	-	-	body: 串 "Could not bind to engine service"、"/enginecache" + 字段 com/aide/engine/service/ICodeAnalysisEngineService ⇒ 引擎服务客户端
+c	abcd/Yj	-	-	src: 父类 com/aide/engine/service/p$a + 唯一自实现方法 j6(String,[Lcom/aide/engine/SyntaxError;Z)V ⇒ 代码分析结果回调
+c	abcd/Zj	-	-	role: 引擎后台任务：Runnable，字段 (abcd/ck=SyntaxErrorTable, String 文件名)，对单个文件重算语法错误
+c	abcd/Zk	-	-	body: 串 "App init: From intent"/"Opened existing project"/"Project opened"/"/ProjectService"/"isPremium"/"debug-aide" ⇒ 应用级控制器
+c	abcd/ag	-	-	body: 串 "GoTo Next Error" + getName/isEnabled/run + implements abcd/Wl ⇒ 跳到下一个错误的动作
+c	abcd/bg	-	-	body: 串 "GoTo Previous Error" + 同上一族 ⇒ 跳到上一个错误的动作
+c	abcd/ak	-	-	role: SyntaxError 的 Comparator 之一（compare(Object,Object)I 桥梁 + j6(SyntaxError,SyntaxError)I）；两个同形类按探针名顺序编号 1/2
+c	abcd/bk	-	-	role: SyntaxError 的 Comparator 之二（与 abcd/ak 同形，形状无法区分先后，只按探针名编号）
+c	abcd/ck	-	-	body: 串 ".java" + 51 个方法全是 SyntaxError 相关（DW(String,[SyntaxError;)V 写入、DW(List,II) 定位）⇒ 语法错误表
+c	abcd/ck$a	-	-	kind: 内部接口（j6()V / j6(String)V）⇒ 错误表变化/单文件错误更新回调
+c	abcd/ij	-	-	body: 串 "/rt.jar"、"/java"、"/javax"、"/org"、"/debug"、"/release"、"Java Binary" ⇒ Java 平台库版 EngineSolution
+c	abcd/mj	-	-	body: 串 "JavaScript" + 产出 EngineSolutionProject ⇒ JavaScript 工程方案
+c	abcd/nj	-	-	body: implements abcd/IProject + 串 "JavaScript Application"/"HelloJavaScript.zip"/"MyJavaScriptApplication"/"main.js"/"JAVASCRIPT" ⇒ JS 工程实现（与 jobs/aide 的同名冲突已按 engine 侧收敛）
+c	abcd/oj	-	-	body: 串 "/jni"、"/bin" + 产出 EngineSolutionProject ⇒ NDK 原生工程方案
+c	abcd/ol	-	-	body: 串 "Modify Files" + implements Runnable + j6(List)V ⇒ 批量改文件的后台任务
+c	abcd/pj	-	-	body: implements abcd/IProject + 串 "C/C++ Application"/"CppHelloWorld.zip"/"MyNativeExecutable"/"/jni/Android.mk" ⇒ C/C++ 工程实现
+c	abcd/qj	-	-	body: 串 "/www"、"HTML"、"JavaScript" + 产出 EngineSolutionProject ⇒ 网站工程方案
+c	abcd/ql	-	-	role: 工程后台任务：Runnable，字段 (com.aide.engine.SourceEntity, String, abcd/sl=ParseResultCallback, int) ⇒ 对单个源码实体做解析
+c	abcd/rd	-	-	body: 229 方法，常量串全是 class 文件属性名（AnnotationDefault/Code/ConstantValue/InnerClasses/LineNumberTable/LocalVariableTable）⇒ 自带的 class 文件解析器
+c	abcd/rj	-	-	body: implements abcd/IProject + 串 "Phonegap 3 Project Home:"、"/.cordova"、"/www"、"com.aide.phonegap" ⇒ PhoneGap 工程实现
+c	abcd/sl	-	-	src: 父类 com/aide/engine/service/t$a + j6(String,JIILcom/aide/engine/SourceEntity;)V ⇒ 解析结果 AIDL 回调
+c	abcd/tj	-	-	body: 串 "HTML"、"JavaScript" + 产出 EngineSolutionProject ⇒ HTML 模板工程方案
+c	abcd/uj	-	-	body: implements abcd/IProject + 串 "Website"/"Website.zip"/"MyWebsite"/"WEBSITE"/"Html"/"Css" ⇒ 网站工程实现
+c	abcd/ul	-	-	role: 27 方法 13 字段，方法全以自身类型为参数（DW(ul)String、FH(ul)ul$a、Zo(ul)Z）⇒ 一棵模型/节点树
+c	abcd/ul$a	-	-	kind: 内部接口，唯一方法 FH()V ⇒ 模型变化的通知回调

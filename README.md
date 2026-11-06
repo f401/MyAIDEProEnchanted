@@ -28,6 +28,10 @@ python3 tools/jgit/pipeline/rebuild_tsrg.py          # tsv → tsrg → process/
 python3 tools/jgit/pipeline/validate_mappings.py     # 期望 ✔ 无无效映射
 python3 tools/jgit/pipeline/verify_members.py        # 期望 不一致 0
 python3 tools/jgit/pipeline/inherit_check.py         # 期望 CONFLICT 0 / MISSING 0
+# 2.5) Tiny v2（派生品，给人和工具读；打包仍用 mappings.txt）
+python3 tools/jgit/pipeline/emit_tiny2.py            # → process/mappings.tiny（含注释）
+python3 tools/jgit/pipeline/validate_tiny.py         # 期望 ✔ tiny 体检通过
+python3 tools/jgit/pipeline/tiny_roundtrip.py        # 期望 ✔ round-trip 一致（等价性硬判据）
 # 3) 构建（详见 docs/BUILD.md；一条命令：python3 tools/build/build_apk.py all）
 ```
 
