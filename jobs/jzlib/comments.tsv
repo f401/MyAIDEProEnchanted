@@ -1,0 +1,262 @@
+c	abcd/Dy	-	-	auto: 类：Adler32；src: jzlib-1.1.1 com/jcraft/jzlib/Adler32
+c	abcd/Ey	-	-	auto: 类：CRC32；src: jzlib-1.1.1 com/jcraft/jzlib/CRC32
+c	abcd/Fy	-	-	auto: 类：Checksum；src: jzlib-1.1.1 com/jcraft/jzlib/Checksum
+c	abcd/Gy	-	-	auto: 类：Deflate；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate
+c	abcd/Gy$a	-	-	auto: 类：Config（外层 Deflate）；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate$Config
+c	abcd/Hy	-	-	auto: 类：GZIPHeader；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader
+c	abcd/Iy	-	-	auto: 类：InfBlocks；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks
+c	abcd/Jy	-	-	auto: 类：InfCodes；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes
+c	abcd/Ky	-	-	auto: 类：InfTree；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree
+c	abcd/Ly	-	-	auto: 类：Inflate；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate
+c	abcd/Ly$a	-	-	auto: 类：Return（外层 Inflate）；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate$Return
+c	abcd/My	-	-	auto: 类：StaticTree；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree
+c	abcd/Ny	-	-	auto: 类：Tree；src: jzlib-1.1.1 com/jcraft/jzlib/Tree
+c	abcd/Oy	-	-	auto: 流：Z；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream
+m	abcd/Dy	j6	(J)V	auto: 执行 reset；src: jzlib-1.1.1 com/jcraft/jzlib/Adler32#reset
+f	abcd/Dy	j6	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/Adler32.s1
+f	abcd/Dy	DW	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/Adler32.s2
+f	abcd/Ey	j6	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/CRC32.crc_table
+f	abcd/Ey	DW	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/CRC32.v
+m	abcd/Ey	j6	(J)V	auto: 执行 reset；src: jzlib-1.1.1 com/jcraft/jzlib/CRC32#reset
+m	abcd/Fy	j6	(J)V	auto: 执行 reset；src: jzlib-1.1.1 com/jcraft/jzlib/Checksum#reset
+f	abcd/Gy	DW	-	auto: 字段([Ljava/lang/String;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.z_errmsg
+f	abcd/Gy	j6	-	auto: 字段([Labcd/Gy$a;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.config_table
+f	abcd/Gy	FH	-	auto: 字段(Labcd/Oy;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.strm
+f	abcd/Gy	ca	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.heap
+f	abcd/Gy	et	-	auto: 字段(Labcd/Hy;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.gheader
+f	abcd/Gy	jJ	-	auto: 字段(S)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.bi_buf
+m	abcd/Gy	j6	(IIIII)I	auto: 「deflateInit」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#deflateInit
+m	abcd/Gy	j6	([SII[B)Z	auto: 「smaller」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#smaller
+m	abcd/Gy	j6	([B)[B	auto: 「dup」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#dup
+m	abcd/Gy	j6	([I)[I	auto: 「dup」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#dup
+m	abcd/Gy	j6	([S)[S	auto: 「dup」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#dup
+m	abcd/Gy	FH	(II)V	auto: 执行 send_bits；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#send_bits
+m	abcd/Gy	j6	(B)V	auto: 执行 put_byte；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#put_byte
+m	abcd/Gy	j6	(III)V	auto: 执行 send_all_trees；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#send_all_trees
+m	abcd/Gy	j6	(I[S)V	auto: 执行 send_code；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#send_code
+m	abcd/Gy	j6	(Z)V	auto: 执行 flush_block_only；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#flush_block_only
+m	abcd/Gy	j6	([BII)V	auto: 执行 put_byte；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#put_byte
+m	abcd/Gy	j6	([S[S)V	auto: 执行 compress_block；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#compress_block
+m	abcd/Gy	j6	(II)Z	auto: 「_tr_tally」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#_tr_tally
+m	abcd/Gy	tp	()Labcd/Hy;	auto: 取 GZIPHeader；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#getGZIPHeader
+m	abcd/Gy	EQ	()V	auto: 执行 init_block；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#init_block
+m	abcd/Gy	XL	()V	auto: 执行 tr_init；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#tr_init
+m	abcd/Gy	DW	()V	auto: 执行 bi_flush；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#bi_flush
+m	abcd/Gy	FH	()V	auto: 执行 bi_windup；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#bi_windup
+m	abcd/Gy	QX	()V	auto: 执行 set_data_type；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#set_data_type
+m	abcd/Gy	j6	()V	auto: 执行 _tr_align；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#_tr_align
+m	abcd/Gy	J0	()V	auto: 执行 lm_init；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#lm_init
+m	abcd/Gy	j6	(I)I	auto: 「deflate」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#deflate
+m	abcd/Gy	Hw	(I)I	auto: 「deflate_stored」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#deflate_stored
+m	abcd/Gy	DW	(II)I	auto: 「deflateInit」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#deflateInit
+m	abcd/Gy	j6	(IIZ)V	auto: 执行 _tr_flush_block；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#_tr_flush_block
+m	abcd/Gy	DW	(IIZ)V	auto: 执行 _tr_stored_block；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#_tr_stored_block
+m	abcd/Gy	FH	(IIZ)V	auto: 执行 copy_block；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#copy_block
+m	abcd/Gy	FH	([SI)V	auto: 执行 send_tree；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#send_tree
+m	abcd/Gy	j6	([SI)V	auto: 执行 pqdownheap；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#pqdownheap
+m	abcd/Gy	DW	([SI)V	auto: 执行 scan_tree；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#scan_tree
+m	abcd/Gy	VH	(I)V	auto: 执行 put_short；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#put_short
+m	abcd/Gy	Zo	(I)V	auto: 放入 ShortMSB；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#putShortMSB
+m	abcd/Gy	gn	()I	auto: 「deflateReset」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#deflateReset
+m	abcd/Gy	v5	()I	auto: 「build_bl_tree」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#build_bl_tree
+m	abcd/Gy	u7	()V	auto: 执行 fill_window；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#fill_window
+m	abcd/Gy	DW	(I)I	auto: 「deflate_fast」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#deflate_fast
+m	abcd/Gy	FH	(I)I	auto: 「deflate_slow」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#deflate_slow
+m	abcd/Gy	v5	(I)I	auto: 「longest_match」；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate#longest_match
+f	abcd/Gy	u7	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.wrap
+f	abcd/Gy	gn	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.pending
+f	abcd/Gy	EQ	-	auto: 字段(B)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.method
+f	abcd/Gy	aM	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.prev
+f	abcd/Gy	j3	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.head
+f	abcd/Gy	v5	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.pending_buf
+f	abcd/Gy	g3	-	auto: 字段(Labcd/Ny;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.bl_desc
+f	abcd/Gy	vJ	-	auto: 字段(Labcd/Ny;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.d_desc
+f	abcd/Gy	Sf	-	auto: 字段(Labcd/Ny;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.l_desc
+f	abcd/Gy	XG	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.last_eob_len
+f	abcd/Gy	wc	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.bi_valid
+f	abcd/Gy	XX	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.opt_len
+f	abcd/Gy	yO	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.matches
+f	abcd/Gy	OW	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.last_lit
+f	abcd/Gy	kQ	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.static_len
+f	abcd/Gy	ro	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.level
+f	abcd/Gy	Zo	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.pending_buf_size
+f	abcd/Gy	VH	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.pending_out
+f	abcd/Gy	tp	-	auto: 字段(B)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.data_type
+f	abcd/Gy	dx	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.dyn_ltree
+f	abcd/Gy	sG	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.dyn_dtree
+f	abcd/Gy	ef	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.bl_tree
+f	abcd/Gy	sy	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.depth
+f	abcd/Gy	x9	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.heap_len
+f	abcd/Gy	XL	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.window_size
+f	abcd/Gy	Qq	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.heap_max
+f	abcd/Gy	er	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.block_start
+f	abcd/Gy	U2	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.hash_size
+f	abcd/Gy	J8	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.w_bits
+f	abcd/Gy	br	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.l_buf
+f	abcd/Gy	Hw	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.status
+f	abcd/Gy	ei	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.lookahead
+f	abcd/Gy	lg	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.hash_mask
+f	abcd/Gy	a8	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.hash_bits
+f	abcd/Gy	Mz	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.bl_count
+f	abcd/Gy	QX	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.window
+f	abcd/Gy	yS	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.match_length
+f	abcd/Gy	nw	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.prev_length
+f	abcd/Gy	gW	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.prev_match
+f	abcd/Gy	P8	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.match_start
+f	abcd/Gy	BT	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.match_available
+f	abcd/Gy	vy	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.strstart
+f	abcd/Gy	Ws	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.w_mask
+f	abcd/Gy	J0	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.w_size
+f	abcd/Gy	cn	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.strategy
+f	abcd/Gy	KD	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.max_lazy_match
+f	abcd/Gy	SI	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.max_chain_length
+f	abcd/Gy	Mr	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.ins_h
+f	abcd/Gy	we	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.last_flush
+f	abcd/Gy$a	v5	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate$Config.func
+f	abcd/Gy$a	j6	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate$Config.good_length
+f	abcd/Gy$a	Hw	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate$Config.max_chain
+f	abcd/Gy$a	FH	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate$Config.nice_length
+f	abcd/Gy$a	DW	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate$Config.max_lazy
+m	abcd/Hy	j6	(Labcd/Gy;)V	auto: 执行 put；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader#put
+m	abcd/Hy	j6	(J)V	auto: 设 CRC；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader#setCRC
+f	abcd/Hy	j6	-	auto: 字段(Z)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.text
+f	abcd/Hy	DW	-	auto: 字段(Z)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.fhcrc
+f	abcd/Hy	EQ	-	auto: 字段(Z)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.done
+f	abcd/Hy	we	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.mtime
+f	abcd/Hy	v5	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.os
+f	abcd/Hy	tp	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.time
+f	abcd/Hy	FH	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.crc
+f	abcd/Hy	u7	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.hcrc
+f	abcd/Hy	Hw	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.xflags
+f	abcd/Hy	Zo	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.extra
+f	abcd/Hy	VH	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.name
+f	abcd/Hy	gn	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.comment
+f	abcd/Iy	QX	-	auto: 字段(Labcd/Jy;)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.codes
+f	abcd/Iy	U2	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.window
+f	abcd/Iy	er	-	auto: 字段(Z)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.check
+f	abcd/Iy	gW	-	auto: 字段(Labcd/Oy;)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.z
+f	abcd/Iy	yS	-	auto: 字段(Labcd/Ky;)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.inftree
+m	abcd/Iy	DW	()V	auto: 执行 reset；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks#reset
+m	abcd/Iy	j6	()V	auto: 执行 free；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks#free
+m	abcd/Iy	DW	(I)I	auto: 「proc」；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks#proc
+m	abcd/Iy	j6	(I)I	auto: 「inflate_flush」；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks#inflate_flush
+f	abcd/Iy	j6	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.inflate_mask
+f	abcd/Iy	DW	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.border
+f	abcd/Iy	u7	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.tb
+f	abcd/Iy	tp	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.bl
+f	abcd/Iy	gn	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.bb
+f	abcd/Iy	Ws	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.tdi
+f	abcd/Iy	J8	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.tli
+f	abcd/Iy	EQ	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.bd
+f	abcd/Iy	Mr	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.hufts
+f	abcd/Iy	a8	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.end
+f	abcd/Iy	FH	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.mode
+f	abcd/Iy	we	-	auto: 字段([[I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.tl
+f	abcd/Iy	J0	-	auto: 字段([[I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.td
+f	abcd/Iy	VH	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.blens
+f	abcd/Iy	aM	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.bitk
+f	abcd/Iy	Hw	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.left
+f	abcd/Iy	rN	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.write
+f	abcd/Iy	lg	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.read
+f	abcd/Jy	j6	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.inflate_mask
+f	abcd/Jy	QX	-	auto: 字段(Labcd/Oy;)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.z
+f	abcd/Jy	XL	-	auto: 字段(Labcd/Iy;)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.s
+m	abcd/Jy	j6	(I)I	auto: 「proc」；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes#proc
+m	abcd/Jy	j6	(II[II[IILabcd/Iy;Labcd/Oy;)I	auto: 「inflate_fast」；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes#inflate_fast
+m	abcd/Jy	j6	(II[II[II)V	auto: 执行 init；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes#init
+m	abcd/Jy	j6	(Labcd/Oy;)V	auto: 执行 free；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes#free
+f	abcd/Jy	v5	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.tree_index
+f	abcd/Jy	Ws	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.dtree_index
+f	abcd/Jy	J0	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.ltree_index
+f	abcd/Jy	DW	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.mode
+f	abcd/Jy	FH	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.len
+f	abcd/Jy	EQ	-	auto: 字段(B)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.lbits
+f	abcd/Jy	we	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.ltree
+f	abcd/Jy	J8	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.dtree
+f	abcd/Jy	Hw	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.tree
+f	abcd/Jy	tp	-	auto: 字段(B)；src: jzlib-1.1.1 com/jcraft/jzlib/InfCodes.dbits
+m	abcd/Ky	j6	([IIII[I[I[I[I[I[I[I)I	auto: 「huft_build」；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree#huft_build
+m	abcd/Ky	j6	([I[I[[I[[ILabcd/Oy;)I	auto: 「inflate_trees_fixed」；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree#inflate_trees_fixed
+m	abcd/Ky	j6	(I)V	auto: 初始化 WorkArea；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree#initWorkArea
+m	abcd/Ky	j6	(II[I[I[I[I[I[ILabcd/Oy;)I	auto: 「inflate_trees_dynamic」；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree#inflate_trees_dynamic
+m	abcd/Ky	j6	([I[I[I[ILabcd/Oy;)I	auto: 「inflate_trees_bits」；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree#inflate_trees_bits
+f	abcd/Ky	j6	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.fixed_tl
+f	abcd/Ky	DW	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.fixed_td
+f	abcd/Ky	v5	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.cpdist
+f	abcd/Ky	Zo	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.cpdext
+f	abcd/Ky	Hw	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.cplext
+f	abcd/Ky	FH	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.cplens
+f	abcd/Ky	we	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.x
+f	abcd/Ky	u7	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.c
+f	abcd/Ky	tp	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.r
+f	abcd/Ky	gn	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.v
+f	abcd/Ky	VH	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.hn
+f	abcd/Ky	EQ	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfTree.u
+f	abcd/Ly	j6	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.mark
+f	abcd/Ly	J0	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.crcbuf
+f	abcd/Ly	J8	-	auto: 字段(Labcd/Hy;)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.gheader
+f	abcd/Ly	Ws	-	auto: 字段(Ljava/io/ByteArrayOutputStream;)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.tmp_string
+f	abcd/Ly	tp	-	auto: 字段(Labcd/Oy;)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.z
+f	abcd/Ly	u7	-	auto: 字段(Labcd/Iy;)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.blocks
+m	abcd/Ly	j6	(III)I	auto: 读取 Bytes；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate#readBytes
+m	abcd/Ly	j6	(IJ)V	auto: 执行 checksum；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate#checksum
+m	abcd/Ly	j6	(II)I	auto: 读取 Bytes；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate#readBytes
+m	abcd/Ly	DW	()I	auto: 「inflateReset」；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate#inflateReset
+m	abcd/Ly	j6	()I	auto: 「inflateEnd」；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate#inflateEnd
+m	abcd/Ly	j6	(I)I	auto: 「inflate」；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate#inflate
+m	abcd/Ly	DW	(I)I	auto: 「inflateInit」；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate#inflateInit
+m	abcd/Ly	DW	(II)I	auto: 读取 String；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate#readString
+f	abcd/Ly	we	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.need_bytes
+f	abcd/Ly	VH	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.wrap
+f	abcd/Ly	Hw	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.was
+f	abcd/Ly	DW	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.mode
+f	abcd/Ly	v5	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.need
+f	abcd/Ly	gn	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate.wbits
+f	abcd/Ly$a	DW	-	auto: 字段(Labcd/Ly;)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate$Return.this$0
+f	abcd/Ly$a	j6	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Inflate$Return.r
+f	abcd/My	VH	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.extra_bits
+f	abcd/My	Zo	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.static_tree
+f	abcd/My	v5	-	auto: 字段(Labcd/My;)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.static_bl_desc
+f	abcd/My	Hw	-	auto: 字段(Labcd/My;)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.static_d_desc
+f	abcd/My	FH	-	auto: 字段(Labcd/My;)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.static_l_desc
+f	abcd/My	u7	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.elems
+f	abcd/My	tp	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.max_length
+f	abcd/My	gn	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.extra_base
+f	abcd/My	j6	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.static_ltree
+f	abcd/My	DW	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/StaticTree.static_dtree
+f	abcd/Ny	EQ	-	auto: 字段(Labcd/My;)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.stat_desc
+f	abcd/Ny	tp	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.max_code
+f	abcd/Ny	u7	-	auto: 字段([S)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.dyn_tree
+m	abcd/Ny	j6	(I)I	auto: 「d_code」；src: jzlib-1.1.1 com/jcraft/jzlib/Tree#d_code
+m	abcd/Ny	j6	(II)I	auto: 「bi_reverse」；src: jzlib-1.1.1 com/jcraft/jzlib/Tree#bi_reverse
+m	abcd/Ny	DW	(Labcd/Gy;)V	auto: 执行 gen_bitlen；src: jzlib-1.1.1 com/jcraft/jzlib/Tree#gen_bitlen
+m	abcd/Ny	j6	(Labcd/Gy;)V	auto: 执行 build_tree；src: jzlib-1.1.1 com/jcraft/jzlib/Tree#build_tree
+f	abcd/Ny	DW	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.extra_dbits
+f	abcd/Ny	j6	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.extra_lbits
+f	abcd/Ny	gn	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.base_dist
+f	abcd/Ny	VH	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.base_length
+f	abcd/Ny	FH	-	auto: 字段([I)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.extra_blbits
+f	abcd/Ny	Zo	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree._length_code
+f	abcd/Ny	v5	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree._dist_code
+f	abcd/Ny	Hw	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.bl_order
+f	abcd/Oy	EQ	-	auto: 字段(Labcd/Ly;)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.istate
+f	abcd/Oy	J0	-	auto: 字段(Labcd/Fy;)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.adler
+f	abcd/Oy	tp	-	auto: 字段(Labcd/Gy;)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.dstate
+f	abcd/Oy	u7	-	auto: 字段(Ljava/lang/String;)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.msg
+m	abcd/Oy	j6	(IIZ)I	auto: 「deflateInit」；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#deflateInit
+m	abcd/Oy	j6	([BII)I	auto: 「read_buf」；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#read_buf
+m	abcd/Oy	j6	()V	auto: 执行 flush_pending；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#flush_pending
+m	abcd/Oy	DW	()I	auto: 「inflateInit」；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#inflateInit
+m	abcd/Oy	Hw	(I)I	auto: 「inflateInit」；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#inflateInit
+m	abcd/Oy	DW	(I)I	auto: 「deflateInit」；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#deflateInit
+m	abcd/Oy	j6	(I)I	auto: 「deflate」；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#deflate
+m	abcd/Oy	FH	(I)I	auto: 「inflate」；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#inflate
+m	abcd/Oy	j6	(II)I	auto: 「deflateInit」；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#deflateInit
+m	abcd/Oy	j6	(IZ)I	auto: 「inflateInit」；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream#inflateInit
+f	abcd/Oy	Hw	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.total_in
+f	abcd/Oy	j6	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.next_in
+f	abcd/Oy	VH	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.avail_out
+f	abcd/Oy	gn	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.total_out
+f	abcd/Oy	v5	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.next_out
+f	abcd/Oy	FH	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.avail_in
+f	abcd/Oy	we	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.data_type

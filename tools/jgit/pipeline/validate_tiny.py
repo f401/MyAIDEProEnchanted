@@ -32,7 +32,8 @@ from emit_tiny2 import jar_access  # noqa: E402
 """
 import re
 
-EVIDENCE = ('src:', 'body:', 'recv:', 'set:', 'tag:', 'shape:', 'who:', 'str:',
+EVIDENCE = ('src:', 'body:', 'recv:', 'set:', 'tag:', 'shape:', 'who:', 'str:', 'auto:',
+            'doc:',
             'strict:', 'refs:', 'iface:', 'csp:', 'pkg:', 'iso:', 'role:',
             'contain:', 'hier:', 'kind:', 'name:', 'field:', 'call:', 'new:')
 IDENT = re.compile(r'[A-Za-z_$][A-Za-z0-9_$]*')

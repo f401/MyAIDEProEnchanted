@@ -50,6 +50,7 @@ tools/
 | `emit_tiny2.py` | 由 `process/mappings.txt` + 各 part 的 `comments.tsv` 生成 **Tiny v2**（`process/mappings.tiny`；`--comments=none` 给 FART 用）：列序换成 `desc name new`；参数下标默认按 **FART 实测约定**（0 起实参序号、实例与静态同号、long/double 算 1 个），`--param-index=lv` 才按 Tiny v2 书面约定换成 LVT 槽位；static 一律以 `process/base/merged_ok.jar` 为准 |
 | `validate_tiny.py` | **Tiny 体检**：头行、类/成员唯一、类/成员在基线 jar 里存在、字段类型与 jar 一致、参数槽位落在合法集合、注释（换行/长度/证据前缀）。`--parts=a,b` 还查**注释覆盖率**；`--selftest` 钉死槽位换算 6 例 |
 | `tiny_roundtrip.py` | **迁移硬判据**：`tiny → TSRG2` 与 `process/mappings.txt` 逐行 diff 必须为空（证明 tiny 没丢/没串任何一条映射） |
+| `commentfill.py` | **批量补注释**：对缺注释的类/方法/字段生成 `auto:`（按名字模式给中文作用词）+ `src:`（该 (类,名字,描述符) 在上游某个 oracle jar 里确实存在）；有上游源码时优先用 **javadoc 首句**当 `doc:`。`--part=<name>`/`--all`，`--apply` 才落盘；不覆盖已有行 |
 | `tinyv2.py` | Tiny v2 最小读写器（类/方法/字段/参数 + `c` 注释行），被上面三个共用 |
 
 ### 实测记录：Tiny v2 的 `p` 下标到底怎么读（2025-11 FART 1.0.8）
@@ -80,7 +81,10 @@ f	abcd/yk	EQ	-	recv: 持有 IInAppBillingService 字段
 
 - `kind` = `c`(类) / `m`(方法) / `f`(字段)；类行与字段行的 `name`/`desc` 只是占位（写 `-`）
 - `owner` / `desc` 用**探针空间**（和 `members.tsrg` 一致，不要写改名后的名字）
-- `text` 里不许有 tab/换行，≤200 字符，且**必须带证据前缀**（`src:`/`role:`/`recv:`/`who:`/`kind:`/`shape:`/`str:`…）——`role:` 的必须写“为什么叫这个名”
+- `text` 里不许有 tab/换行，≤200 字符，且**必须带证据前缀**（`src:`/`role:`/`recv:`/`who:`/`kind:`/`shape:`/`str:`/`doc:`/**`auto:`**…）——`role:` 的必须写“为什么叫这个名”
+- 三种写法的分工：`doc:` = 上游 javadoc 首句（**原话**，最说明作用）；`src:` = 该三元组在上游 jar 里存在（可复现）；
+  `auto:` = 由标识符模式推出的中文作用词（get/set/is/on… / *Listener/*Exception…），**机械生成、不做语义猜测**
+- 覆盖率（`emit_tiny2` 报告）：类 3688/3688、方法 17581/17581、字段 9476/9476 = **100%**
 - 每条映射至多一条注释；`emit_tiny2.py` 会报“注释无对应映射”（改过名/删过的残留）
 - 覆盖率：`validate_tiny.py --parts=aide,engine,aide_bb,aide_iap` → 当前 189 类 / 64 成员 = **100%**
 

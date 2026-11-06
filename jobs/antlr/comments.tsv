@@ -1,0 +1,713 @@
+c	org/a/a/a/a	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/ANTLRErrorListener；doc: How to emit recognition errors.
+c	org/a/a/a/a/a	-	-	auto: 类：ATN；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN
+c	org/a/a/a/a/aa	-	-	auto: 配置：LexerATN；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNConfig
+c	org/a/a/a/a/ab	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator；doc: "dup" of ParserInterpreter
+c	org/a/a/a/a/ac	-	-	auto: 类：SimState（外层 LexerATNSimulator）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator$SimState
+c	org/a/a/a/a/ad	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerAction；doc: Represents a single action which can be executed following the successful match of a lexer rule. Lexer actio…
+c	org/a/a/a/a/ae	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionExecutor；doc: Represents an executor for a sequence of lexer actions which traversed during the matching operation of a le…
+c	org/a/a/a/a/af	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType；doc: Represents the serialization type of a LexerAction.
+c	org/a/a/a/a/ag	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerChannelAction；doc: Implements the channel lexer action by calling Lexer#setChannel with the assigned channel.
+c	org/a/a/a/a/ah	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerCustomAction；doc: Executes a custom lexer action by calling Recognizer#action with the rule and action indexes assigned to the…
+c	org/a/a/a/a/ai	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerIndexedCustomAction；doc: This implementation of LexerAction is used for tracking input offsets for position-dependent actions within…
+c	org/a/a/a/a/aj	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerModeAction；doc: Implements the mode lexer action by calling Lexer#mode with the assigned mode.
+c	org/a/a/a/a/ak	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerMoreAction；doc: Implements the more lexer action by calling Lexer#more.
+c	org/a/a/a/a/al	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPopModeAction；doc: Implements the popMode lexer action by calling Lexer#popMode.
+c	org/a/a/a/a/am	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPushModeAction；doc: Implements the pushMode lexer action by calling Lexer#pushMode with the assigned mode.
+c	org/a/a/a/a/an	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerSkipAction；doc: Implements the skip lexer action by calling Lexer#skip.
+c	org/a/a/a/a/ao	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerTypeAction；doc: Implements the type lexer action by calling Lexer#setType with the assigned type.
+c	org/a/a/a/a/ap	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LoopEndState；doc: Mark the end of a * or + loop.
+c	org/a/a/a/a/aq	-	-	auto: 类：NotSetTransition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/NotSetTransition
+c	org/a/a/a/a/ar	-	-	auto: 类：OrderedATNConfigSet；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/OrderedATNConfigSet
+c	org/a/a/a/a/as	-	-	auto: 类：LexerConfigHashSet（外层 OrderedATNConfigSet）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/OrderedATNConfigSet$LexerConfigHashSet
+c	org/a/a/a/a/at	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PlusBlockStartState；doc: Start of (A|B|...)+ loop. Technically a decision state, but we don't use for code generation; somebody might…
+c	org/a/a/a/a/au	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PlusLoopbackState；doc: Decision state for A+ and (A|B)+. It has two transitions: one to the loop back to start of the block and one…
+c	org/a/a/a/a/av	-	-	auto: 类：PrecedencePredicateTransition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PrecedencePredicateTransition
+c	org/a/a/a/a/aw	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredicateTransition；doc: TODO: this is old comment: A tree of semantic predicates from the grammar AST if label==SEMPRED.
+c	org/a/a/a/a/ax	-	-	auto: 上下文：Prediction；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext
+c	org/a/a/a/a/ay	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContextCache；doc: Used to cache PredictionContext objects. Its used for the shared context cash associated with contexts in DF…
+c	org/a/a/a/a/az	-	-	auto: 类：RangeTransition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RangeTransition
+c	org/a/a/a/a/b	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig；doc: A tuple: (ATN state, predicted alt, syntactic, semantic context).
+c	org/a/a/a/a/ba	-	-	auto: 类：RuleStartState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleStartState
+c	org/a/a/a/a/bb	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleStopState；doc: The last node in the ATN for a rule, unless that rule is the start symbol.
+c	org/a/a/a/a/bc	-	-	auto: 类：RuleTransition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleTransition
+c	org/a/a/a/a/bd	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SemanticContext；doc: A tree structure used to record the semantic context in which an ATN configuration is valid. It's either a s…
+c	org/a/a/a/a/be	-	-	auto: 类：Predicate（外层 SemanticContext）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SemanticContext$Predicate
+c	org/a/a/a/a/bf	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SetTransition；doc: A transition containing a set of values.
+c	org/a/a/a/a/bg	-	-	auto: 上下文：SingletonPrediction；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SingletonPredictionContext
+c	org/a/a/a/a/bh	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/StarBlockStartState；doc: The block that begins a closure loop.
+c	org/a/a/a/a/bi	-	-	auto: 类：StarLoopEntryState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/StarLoopEntryState
+c	org/a/a/a/a/bj	-	-	auto: 类：StarLoopbackState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/StarLoopbackState
+c	org/a/a/a/a/bk	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/TokensStartState；doc: The Tokens rule start state linking to each lexer rule start state
+c	org/a/a/a/a/bl	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/Transition；doc: An ATN transition between any two ATN states. Subclasses define atom, set, epsilon, action, predicate, rule…
+c	org/a/a/a/a/bm	-	-	auto: 匿名内部类（外层 Transition）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/Transition$1
+c	org/a/a/a/a/bn	-	-	auto: 类：WildcardTransition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/WildcardTransition
+c	org/a/a/a/a/c	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet；doc: Specialized Set that can track info about the set, with support for combining similar configurations using a…
+c	org/a/a/a/a/d	-	-	auto: 类：AbstractConfigHashSet（外层 ATNConfigSet）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet$AbstractConfigHashSet
+c	org/a/a/a/a/e	-	-	auto: 比较器：ConfigEquality（外层 ATNConfigSet）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet$ConfigEqualityComparator
+c	org/a/a/a/a/f	-	-	auto: 类：ConfigHashSet（外层 ATNConfigSet）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet$ConfigHashSet
+c	org/a/a/a/a/g	-	-	auto: 类：ATNDeserializationOptions；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializationOptions
+c	org/a/a/a/a/h	-	-	auto: 类：ATNDeserializer；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer
+c	org/a/a/a/a/i	-	-	auto: 匿名内部类（外层 ATNDeserializer）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$1
+c	org/a/a/a/a/j	-	-	auto: 匿名内部类（外层 ATNDeserializer）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$2
+c	org/a/a/a/a/k	-	-	auto: 类：UnicodeDeserializer（外层 ATNDeserializer）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializer
+c	org/a/a/a/a/l	-	-	auto: 类：UnicodeDeserializingMode（外层 ATNDeserializer）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializingMode
+c	org/a/a/a/a/m	-	-	auto: 类：ATNSimulator；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNSimulator
+c	org/a/a/a/a/n	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState；doc: The following images show the relation of states and ATNState#transitions for various grammar constructs.
+c	org/a/a/a/a/o	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNType；doc: Represents the type of recognizer an ATN applies to.
+c	org/a/a/a/a/p	-	-	auto: 类：AbstractPredicateTransition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/AbstractPredicateTransition
+c	org/a/a/a/a/q	-	-	auto: 类：ActionTransition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ActionTransition
+c	org/a/a/a/a/r	-	-	auto: 上下文：ArrayPrediction；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ArrayPredictionContext
+c	org/a/a/a/a/s	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/AtomTransition；doc: TODO: make all transitions sets? no, should remove set edges
+c	org/a/a/a/a/t	-	-	auto: 类：BasicBlockStartState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/BasicBlockStartState
+c	org/a/a/a/a/u	-	-	auto: 类：BasicState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/BasicState
+c	org/a/a/a/a/v	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/BlockEndState；doc: Terminal node of a simple (a|b|c) block.
+c	org/a/a/a/a/w	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/BlockStartState；doc: The start of a regular (...) block.
+c	org/a/a/a/a/x	-	-	auto: 类：DecisionState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/DecisionState
+c	org/a/a/a/a/y	-	-	auto: 上下文：EmptyPrediction；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EmptyPredictionContext
+c	org/a/a/a/a/z	-	-	auto: 类：EpsilonTransition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EpsilonTransition
+c	org/a/a/a/aa	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Token；doc: A token has properties: text, type, line, character position in the line (so we can ignore tabs), token chan…
+c	org/a/a/a/ab	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/TokenFactory；doc: The default mechanism for creating tokens. It's used by default in Lexer and the error handling strategy (to…
+c	org/a/a/a/ac	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/TokenSource；doc: A source of tokens must provide a sequence of tokens via #nextToken() and also must reveal it's source of ch…
+c	org/a/a/a/ad	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Vocabulary；doc: This interface provides information about the vocabulary used by a recognizer.
+c	org/a/a/a/ae	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl；doc: This class provides a default implementation of the Vocabulary interface.
+c	org/a/a/a/af	-	-	auto: 类：WritableToken；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/WritableToken
+c	org/a/a/a/b	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/BaseErrorListener；doc: Provides an empty default implementation of ANTLRErrorListener. The default implementation of each method do…
+c	org/a/a/a/b/a	-	-	auto: 类：DFA；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA
+c	org/a/a/a/b/b	-	-	auto: 匿名内部类（外层 DFA）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA$1
+c	org/a/a/a/b/c	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFASerializer；doc: A DFA walker that knows how to dump them to serialized strings.
+c	org/a/a/a/b/d	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState；doc: A DFA state represents a set of possible ATN configurations.
+c	org/a/a/a/b/e	-	-	auto: 类：PredPrediction（外层 DFAState）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState$PredPrediction
+c	org/a/a/a/c	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CharStream；doc: A source of characters for an ANTLR lexer.
+c	org/a/a/a/c/a	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/AbstractEqualityComparator；doc: This abstract base class is provided so performance-critical applications can use virtual- instead of interf…
+c	org/a/a/a/c/b	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet；doc: Set implementation with closed hashing (open addressing).
+c	org/a/a/a/c/c	-	-	auto: 迭代器：Set（外层 Array2DHashSet）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet$SetIterator
+c	org/a/a/a/c/d	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/DoubleKeyMap；doc: Sometimes we need to map a key to a value but key is two pieces of data.
+c	org/a/a/a/c/e	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/EqualityComparator；doc: This interface provides an abstract concept of object equality independent of Object#equals (object equality…
+c	org/a/a/a/c/f	-	-	auto: 类：IntegerList；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList
+c	org/a/a/a/c/g	-	-	auto: 类：IntegerStack；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerStack
+c	org/a/a/a/c/h	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval；doc: An immutable inclusive interval a..b
+c	org/a/a/a/c/i	-	-	auto: 类：ParcelableCreator（外层 IntervalSet）（上游未收录，名字来自 jobs/antlr 的判据）
+c	org/a/a/a/c/j	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet；doc: This class implements the IntSet backed by a sorted array of non-overlapping intervals. It is particularly e…
+c	org/a/a/a/c/k	-	-	auto: 类：MurmurHash；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/MurmurHash
+c	org/a/a/a/c/l	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/ObjectEqualityComparator；doc: This default implementation of EqualityComparator uses object equality for comparisons by calling Object#has…
+c	org/a/a/a/c/m	-	-	auto: 类：Pair；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Pair
+c	org/a/a/a/c/n	-	-	auto: 类：Utils；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Utils
+c	org/a/a/a/d	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CharStreams；doc: This class represents the primary interface for creating CharStreams from a variety of sources as of 4.7. Th…
+c	org/a/a/a/e	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer；doc: Wrapper for ByteBuffer / CharBuffer / IntBuffer.
+c	org/a/a/a/f	-	-	auto: 类：Builder（外层 CodePointBuffer）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder
+c	org/a/a/a/g	-	-	auto: 类：Type（外层 CodePointBuffer）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Type
+c	org/a/a/a/h	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream；doc: Alternative to ANTLRInputStream which treats the input as a series of Unicode code points, instead of a seri…
+c	org/a/a/a/i	-	-	auto: 流：CodePoint16BitChar（外层 CodePointCharStream）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream
+c	org/a/a/a/j	-	-	auto: 流：CodePoint32BitChar（外层 CodePointCharStream）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint32BitCharStream
+c	org/a/a/a/k	-	-	auto: 流：CodePoint8BitChar（外层 CodePointCharStream）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint8BitCharStream
+c	org/a/a/a/l	-	-	auto: 类：CommonToken；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken
+c	org/a/a/a/m	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonTokenFactory；doc: This default implementation of TokenFactory creates CommonToken objects.
+c	org/a/a/a/n	-	-	auto: 回调接口：ConsoleError；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/ConsoleErrorListener
+c	org/a/a/a/o	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/IntStream；doc: A simple stream of symbols whose values are represented as integers. This interface provides marked ranges w…
+c	org/a/a/a/p	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer；doc: A lexer is recognizer that draws input symbols from a character stream.
+c	org/a/a/a/q	-	-	auto: 异常类型：LexerNoViableAlt；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/LexerNoViableAltException
+c	org/a/a/a/r	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/ParserRuleContext；doc: A rule invocation record for parsing.
+c	org/a/a/a/s	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/ProxyErrorListener；doc: This implementation of ANTLRErrorListener dispatches all calls to a collection of delegate listeners. This r…
+c	org/a/a/a/t	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RecognitionException；doc: The root of the ANTLR exception hierarchy. In general, ANTLR tracks just 3 kinds of errors: prediction error…
+c	org/a/a/a/u	-	-	auto: 类：Recognizer；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer
+c	org/a/a/a/v	-	-	auto: 匿名内部类（外层 Recognizer）；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer$1
+c	org/a/a/a/w	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuleContext；doc: A rule context is a record of a single rule invocation.
+c	org/a/a/a/x	-	-	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuntimeMetaData；doc: This class provides access to the current version of the ANTLR 4 runtime library as compile-time and runtime…
+c	org/a/a/a/y	-	-	auto: 类：PositionSource（上游未收录，名字来自 jobs/antlr 的判据）
+c	org/a/a/a/z	-	-	auto: 类：AbstractTokenProducer（上游未收录，名字来自 jobs/antlr 的判据）
+m	org/a/a/a/a	a	(Lorg/a/a/a/u;Ljava/lang/Object;IILjava/lang/String;Lorg/a/a/a/t;)V	auto: 执行 syntaxError；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/ANTLRErrorListener#syntaxError
+m	org/a/a/a/a/a	a	()I	auto: 取 NumberOfDecisions；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN#getNumberOfDecisions
+m	org/a/a/a/a/a	a	(Lorg/a/a/a/a/x;)I	auto: 「defineDecisionState」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN#defineDecisionState
+m	org/a/a/a/a/a	a	(I)Lorg/a/a/a/a/x;	auto: 取 DecisionState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN#getDecisionState
+f	org/a/a/a/a/a	c	-	auto: 字段([Lorg/a/a/a/a/ba;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.ruleToStartState
+f	org/a/a/a/a/a	d	-	auto: 字段([Lorg/a/a/a/a/bb;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.ruleToStopState
+f	org/a/a/a/a/a	e	-	auto: 字段(Ljava/util/Map;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.modeNameToStartState
+f	org/a/a/a/a/a	f	-	auto: 字段(Lorg/a/a/a/a/o;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.grammarType
+f	org/a/a/a/a/a	g	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.maxTokenType
+f	org/a/a/a/a/a	h	-	auto: 字段([I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.ruleToTokenType
+f	org/a/a/a/a/a	i	-	auto: 字段([Lorg/a/a/a/a/ad;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.lexerActions
+m	org/a/a/a/a/a	a	(Lorg/a/a/a/a/n;)V	auto: 加入 State；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN#addState
+f	org/a/a/a/a/a	b	-	auto: 字段(Ljava/util/List;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.decisionToState
+f	org/a/a/a/a/a	j	-	auto: 字段(Ljava/util/List;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.modeToStartState
+f	org/a/a/a/a/a	a	-	auto: 字段(Ljava/util/List;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATN.states
+m	org/a/a/a/a/aa	a	(Lorg/a/a/a/a/aa;Lorg/a/a/a/a/n;)Z	auto: 检查 NonGreedyDecision；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNConfig#checkNonGreedyDecision
+m	org/a/a/a/a/aa	a	(Lorg/a/a/a/a/b;)Z	auto: 「equals」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNConfig#equals
+m	org/a/a/a/a/aa	c	()Lorg/a/a/a/a/ae;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNConfig#getLexerActionExecutor；doc: Gets the LexerActionExecutor capable of executing the embedded action(s) for the current configuration.
+m	org/a/a/a/a/aa	d	()Z	auto: 是否有 PassedThroughNonGreedyDecision；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNConfig#hasPassedThroughNonGreedyDecision
+f	org/a/a/a/a/aa	f	-	auto: 字段(Lorg/a/a/a/a/ae;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNConfig.lexerActionExecutor
+f	org/a/a/a/a/aa	g	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNConfig.passedThroughNonGreedyDecision
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/a/ac;Lorg/a/a/a/c;Lorg/a/a/a/a/c;I)I	auto: 「failOrAccept」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#failOrAccept
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;)I	auto: 「matchATN」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#matchATN
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;I)I	auto: 「match」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#match
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;Lorg/a/a/a/b/d;)I	auto: 「execATN」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#execATN
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;Lorg/a/a/a/a/aa;Lorg/a/a/a/a/bl;Lorg/a/a/a/a/c;ZZ)Lorg/a/a/a/a/aa;	auto: 取 EpsilonTarget；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#getEpsilonTarget
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;Lorg/a/a/a/a/n;)Lorg/a/a/a/a/c;	auto: 计算 StartState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#computeStartState
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/a/bl;I)Lorg/a/a/a/a/n;	auto: 取 ReachableTarget；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#getReachableTarget
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/a/c;)Lorg/a/a/a/b/d;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#addDFAState；doc: Add a new DFA state if there isn't one with this set of configurations already. This method also detects the…
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/b/d;I)Lorg/a/a/a/b/d;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#getExistingTargetState
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/b/d;ILorg/a/a/a/a/c;)Lorg/a/a/a/b/d;	auto: 加入 DFAEdge；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#addDFAEdge
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;Lorg/a/a/a/b/d;I)Lorg/a/a/a/b/d;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#computeTargetState
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/a/ac;Lorg/a/a/a/c;Lorg/a/a/a/b/d;)V	auto: 执行 captureSimState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#captureSimState
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/b/d;ILorg/a/a/a/b/d;)V	auto: 加入 DFAEdge；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#addDFAEdge
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;Lorg/a/a/a/a/ae;IIII)V	auto: 执行 accept；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#accept
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;Lorg/a/a/a/a/c;Lorg/a/a/a/a/c;I)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#getReachableConfigSet
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;IIZ)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#evaluatePredicate；doc: Evaluate a predicate specified in the lexer.
+m	org/a/a/a/a/ab	a	(Lorg/a/a/a/c;Lorg/a/a/a/a/aa;Lorg/a/a/a/a/c;ZZZ)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#closure；doc: Since the alternatives within any lexer decision are ordered by preference, this method stops pursuing the c…
+m	org/a/a/a/a/ab	b	(Lorg/a/a/a/c;)V	auto: 执行 consume；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#consume
+f	org/a/a/a/a/ab	f	-	auto: 字段(Lorg/a/a/a/p;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator.recog
+f	org/a/a/a/a/ab	j	-	auto: 字段([Lorg/a/a/a/b/a;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator.decisionToDFA
+f	org/a/a/a/a/ab	l	-	auto: 字段(Lorg/a/a/a/a/ac;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator.prevAccept
+m	org/a/a/a/a/ab	a	()V	auto: 执行 reset；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#reset
+m	org/a/a/a/a/ab	c	()I	auto: 取 CharPositionInLine；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#getCharPositionInLine
+m	org/a/a/a/a/ab	b	()I	auto: 取 Line；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator#getLine
+f	org/a/a/a/a/ab	m	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator.match_calls
+f	org/a/a/a/a/ab	n	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator.$assertionsDisabled
+f	org/a/a/a/a/ab	i	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator.charPositionInLine
+f	org/a/a/a/a/ab	h	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator.line
+f	org/a/a/a/a/ab	k	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator.mode
+f	org/a/a/a/a/ab	g	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator.startIndex
+m	org/a/a/a/a/ac	a	()V	auto: 执行 reset；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator$SimState#reset
+f	org/a/a/a/a/ac	d	-	auto: 字段(Lorg/a/a/a/b/d;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator$SimState.dfaState
+f	org/a/a/a/a/ac	c	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator$SimState.charPos
+f	org/a/a/a/a/ac	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator$SimState.line
+f	org/a/a/a/a/ac	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerATNSimulator$SimState.index
+m	org/a/a/a/a/ad	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerAction#execute；doc: Execute the lexer action in the context of the specified Lexer.
+m	org/a/a/a/a/ad	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerAction#isPositionDependent；doc: Gets whether the lexer action is position-dependent. Position-dependent actions may have different semantics…
+m	org/a/a/a/a/ae	a	(Lorg/a/a/a/a/ae;Lorg/a/a/a/a/ad;)Lorg/a/a/a/a/ae;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionExecutor#append；doc: Creates a LexerActionExecutor which executes the actions for the input lexerActionExecutor followed by a spe…
+m	org/a/a/a/a/ae	a	(I)Lorg/a/a/a/a/ae;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionExecutor#fixOffsetBeforeMatch；doc: Creates a LexerActionExecutor which encodes the current offset for position-dependent lexer actions.
+m	org/a/a/a/a/ae	a	(Lorg/a/a/a/p;Lorg/a/a/a/c;I)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionExecutor#execute；doc: Execute the actions encapsulated by this executor within the context of a particular Lexer.
+f	org/a/a/a/a/ae	a	-	auto: 字段([Lorg/a/a/a/a/ad;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionExecutor.lexerActions
+f	org/a/a/a/a/ae	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionExecutor.hashCode
+m	org/a/a/a/a/af	a	()[Lorg/a/a/a/a/af;	auto: 「values」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType#values
+f	org/a/a/a/a/af	i	-	auto: 字段([Lorg/a/a/a/a/af;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType.$VALUES
+f	org/a/a/a/a/af	h	-	auto: 字段(Lorg/a/a/a/a/af;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType.TYPE
+f	org/a/a/a/a/af	g	-	auto: 字段(Lorg/a/a/a/a/af;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType.SKIP
+f	org/a/a/a/a/af	f	-	auto: 字段(Lorg/a/a/a/a/af;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType.PUSH_MODE
+f	org/a/a/a/a/af	e	-	auto: 字段(Lorg/a/a/a/a/af;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType.POP_MODE
+f	org/a/a/a/a/af	d	-	auto: 字段(Lorg/a/a/a/a/af;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType.MORE
+f	org/a/a/a/a/af	c	-	auto: 字段(Lorg/a/a/a/a/af;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType.MODE
+f	org/a/a/a/a/af	b	-	auto: 字段(Lorg/a/a/a/a/af;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType.CUSTOM
+f	org/a/a/a/a/af	a	-	auto: 字段(Lorg/a/a/a/a/af;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerActionType.CHANNEL
+m	org/a/a/a/a/ag	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerChannelAction#execute；doc: {@inheritDoc} This action is implemented by calling Lexer#setChannel with the value provided by #getChannel.
+m	org/a/a/a/a/ag	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerChannelAction#isPositionDependent；doc: {@inheritDoc}
+m	org/a/a/a/a/ag	b	()Lorg/a/a/a/a/af;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerChannelAction#getActionType；doc: {@inheritDoc}
+f	org/a/a/a/a/ag	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerChannelAction.channel
+m	org/a/a/a/a/ah	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerCustomAction#execute；doc: {@inheritDoc} Custom actions are implemented by calling Lexer#action with the appropriate rule and action in…
+m	org/a/a/a/a/ah	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerCustomAction#isPositionDependent
+m	org/a/a/a/a/ah	b	()Lorg/a/a/a/a/af;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerCustomAction#getActionType；doc: {@inheritDoc}
+f	org/a/a/a/a/ah	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerCustomAction.actionIndex
+f	org/a/a/a/a/ah	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerCustomAction.ruleIndex
+m	org/a/a/a/a/ai	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerIndexedCustomAction#execute；doc: {@inheritDoc} This method calls #execute on the result of #getAction using the provided lexer.
+m	org/a/a/a/a/ai	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerIndexedCustomAction#isPositionDependent；doc: {@inheritDoc}
+m	org/a/a/a/a/ai	c	()Lorg/a/a/a/a/ad;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerIndexedCustomAction#getAction；doc: Gets the lexer action to execute.
+f	org/a/a/a/a/ai	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerIndexedCustomAction.offset
+f	org/a/a/a/a/ai	b	-	auto: 字段(Lorg/a/a/a/a/ad;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerIndexedCustomAction.action
+m	org/a/a/a/a/ai	b	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerIndexedCustomAction#getOffset
+m	org/a/a/a/a/aj	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerModeAction#execute；doc: {@inheritDoc} This action is implemented by calling Lexer#mode with the value provided by #getMode.
+m	org/a/a/a/a/aj	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerModeAction#isPositionDependent；doc: {@inheritDoc}
+m	org/a/a/a/a/aj	b	()Lorg/a/a/a/a/af;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerModeAction#getActionType；doc: {@inheritDoc}
+f	org/a/a/a/a/aj	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerModeAction.mode
+m	org/a/a/a/a/ak	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerMoreAction#execute；doc: {@inheritDoc} This action is implemented by calling Lexer#more.
+m	org/a/a/a/a/ak	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerMoreAction#isPositionDependent；doc: {@inheritDoc}
+m	org/a/a/a/a/ak	b	()Lorg/a/a/a/a/af;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerMoreAction#getActionType；doc: {@inheritDoc}
+f	org/a/a/a/a/ak	a	-	auto: 字段(Lorg/a/a/a/a/ak;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerMoreAction.INSTANCE
+m	org/a/a/a/a/al	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPopModeAction#execute；doc: {@inheritDoc} This action is implemented by calling Lexer#popMode.
+m	org/a/a/a/a/al	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPopModeAction#isPositionDependent；doc: {@inheritDoc}
+m	org/a/a/a/a/al	b	()Lorg/a/a/a/a/af;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPopModeAction#getActionType；doc: {@inheritDoc}
+f	org/a/a/a/a/al	a	-	auto: 字段(Lorg/a/a/a/a/al;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPopModeAction.INSTANCE
+m	org/a/a/a/a/am	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPushModeAction#execute；doc: {@inheritDoc} This action is implemented by calling Lexer#pushMode with the value provided by #getMode.
+m	org/a/a/a/a/am	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPushModeAction#isPositionDependent；doc: {@inheritDoc}
+m	org/a/a/a/a/am	b	()Lorg/a/a/a/a/af;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPushModeAction#getActionType；doc: {@inheritDoc}
+f	org/a/a/a/a/am	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerPushModeAction.mode
+m	org/a/a/a/a/an	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerSkipAction#execute；doc: {@inheritDoc} This action is implemented by calling Lexer#skip.
+m	org/a/a/a/a/an	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerSkipAction#isPositionDependent；doc: {@inheritDoc}
+m	org/a/a/a/a/an	b	()Lorg/a/a/a/a/af;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerSkipAction#getActionType；doc: {@inheritDoc}
+f	org/a/a/a/a/an	a	-	auto: 字段(Lorg/a/a/a/a/an;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerSkipAction.INSTANCE
+m	org/a/a/a/a/ao	a	(Lorg/a/a/a/p;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerTypeAction#execute；doc: {@inheritDoc} This action is implemented by calling Lexer#setType with the value provided by #getType.
+m	org/a/a/a/a/ao	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerTypeAction#isPositionDependent；doc: {@inheritDoc}
+m	org/a/a/a/a/ao	b	()Lorg/a/a/a/a/af;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerTypeAction#getActionType；doc: {@inheritDoc}
+f	org/a/a/a/a/ao	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LexerTypeAction.type
+f	org/a/a/a/a/ap	g	-	auto: 字段(Lorg/a/a/a/a/n;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/LoopEndState.loopBackState
+m	org/a/a/a/a/aq	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/NotSetTransition#getSerializationType
+m	org/a/a/a/a/aq	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/NotSetTransition#matches
+f	org/a/a/a/a/at	j	-	auto: 字段(Lorg/a/a/a/a/au;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PlusBlockStartState.loopBackState
+m	org/a/a/a/a/av	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PrecedencePredicateTransition#getSerializationType
+m	org/a/a/a/a/av	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PrecedencePredicateTransition#matches
+m	org/a/a/a/a/av	b	()Z	auto: 是否 Epsilon；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PrecedencePredicateTransition#isEpsilon
+f	org/a/a/a/a/av	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PrecedencePredicateTransition.precedence
+m	org/a/a/a/a/aw	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredicateTransition#getSerializationType
+m	org/a/a/a/a/aw	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredicateTransition#matches
+m	org/a/a/a/a/aw	b	()Z	auto: 是否 Epsilon；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredicateTransition#isEpsilon
+f	org/a/a/a/a/aw	c	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredicateTransition.isCtxDependent
+f	org/a/a/a/a/aw	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredicateTransition.predIndex
+f	org/a/a/a/a/aw	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredicateTransition.ruleIndex
+m	org/a/a/a/a/ax	a	(Lorg/a/a/a/a/ax;I)I	auto: 「calculateHashCode」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#calculateHashCode
+m	org/a/a/a/a/ax	a	([Lorg/a/a/a/a/ax;[I)I	auto: 「calculateHashCode」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#calculateHashCode
+m	org/a/a/a/a/ax	a	(Lorg/a/a/a/a/ax;Lorg/a/a/a/a/ax;ZLorg/a/a/a/c/d;)Lorg/a/a/a/a/ax;	auto: 「merge」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#merge
+m	org/a/a/a/a/ax	a	(Lorg/a/a/a/a/bg;Lorg/a/a/a/a/bg;Z)Lorg/a/a/a/a/ax;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#mergeRoot；doc: Handle case where at least one of a or b is #EMPTY. In the following diagrams, the symbol $ is used to repre…
+m	org/a/a/a/a/ax	a	(Lorg/a/a/a/a/bg;Lorg/a/a/a/a/bg;ZLorg/a/a/a/c/d;)Lorg/a/a/a/a/ax;	auto: 合并 Singletons；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#mergeSingletons
+m	org/a/a/a/a/ax	a	(Lorg/a/a/a/a/r;Lorg/a/a/a/a/r;ZLorg/a/a/a/c/d;)Lorg/a/a/a/a/ax;	auto: 合并 Arrays；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#mergeArrays
+m	org/a/a/a/a/ax	a	([Lorg/a/a/a/a/ax;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#combineCommonParents；doc: Make pass over all M parents; merge any equals() ones.
+m	org/a/a/a/a/ax	a	(I)Lorg/a/a/a/a/ax;	auto: 取 Parent；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#getParent
+m	org/a/a/a/a/ax	b	(I)I	auto: 取 ReturnState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#getReturnState
+f	org/a/a/a/a/ax	d	-	auto: 字段(Lorg/a/a/a/a/y;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext.EMPTY
+f	org/a/a/a/a/ax	h	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext.$assertionsDisabled
+m	org/a/a/a/a/ax	b	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#size
+m	org/a/a/a/a/ax	d	()I	auto: 「calculateEmptyHashCode」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#calculateEmptyHashCode
+m	org/a/a/a/a/ax	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#isEmpty；doc: This means only the #EMPTY (wildcard? not sure) context is in set.
+m	org/a/a/a/a/ax	c	()Z	auto: 是否有 EmptyPath；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext#hasEmptyPath
+f	org/a/a/a/a/ax	e	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext.globalNodeCount
+f	org/a/a/a/a/ax	g	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext.cachedHashCode
+f	org/a/a/a/a/ax	f	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContext.id
+f	org/a/a/a/a/ay	a	-	auto: 字段(Ljava/util/Map;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/PredictionContextCache.cache
+m	org/a/a/a/a/az	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RangeTransition#getSerializationType
+m	org/a/a/a/a/az	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RangeTransition#matches
+m	org/a/a/a/a/az	c	()Lorg/a/a/a/c/j;	auto: 「label」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RangeTransition#label
+f	org/a/a/a/a/az	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RangeTransition.to
+f	org/a/a/a/a/az	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RangeTransition.from
+m	org/a/a/a/a/b	a	(Lorg/a/a/a/u;Z)Ljava/lang/String;	auto: 转换为 String；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig#toString
+m	org/a/a/a/a/b	a	(Z)V	auto: 设 PrecedenceFilterSuppressed；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig#setPrecedenceFilterSuppressed
+m	org/a/a/a/a/b	a	(Lorg/a/a/a/a/b;)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig#equals；doc: An ATN configuration is equal to another if both have the same state, they predict the same alternative, and…
+m	org/a/a/a/a/b	b	()Z	auto: 是否 PrecedenceFilterSuppressed；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig#isPrecedenceFilterSuppressed
+f	org/a/a/a/a/b	a	-	auto: 字段(Lorg/a/a/a/a/n;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig.state
+f	org/a/a/a/a/b	c	-	auto: 字段(Lorg/a/a/a/a/ax;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig.context
+f	org/a/a/a/a/b	e	-	auto: 字段(Lorg/a/a/a/a/bd;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig.semanticContext
+m	org/a/a/a/a/b	a	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig#getOuterContextDepth；doc: This method gets the value of the #reachesIntoOuterContext field as it existed prior to the introduction of…
+f	org/a/a/a/a/b	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig.alt
+f	org/a/a/a/a/b	d	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfig.reachesIntoOuterContext
+f	org/a/a/a/a/ba	g	-	auto: 字段(Lorg/a/a/a/a/bb;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleStartState.stopState
+f	org/a/a/a/a/ba	h	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleStartState.isLeftRecursiveRule
+m	org/a/a/a/a/bc	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleTransition#getSerializationType
+m	org/a/a/a/a/bc	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleTransition#matches
+m	org/a/a/a/a/bc	b	()Z	auto: 是否 Epsilon；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleTransition#isEpsilon
+f	org/a/a/a/a/bc	c	-	auto: 字段(Lorg/a/a/a/a/n;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleTransition.followState
+f	org/a/a/a/a/bc	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleTransition.precedence
+f	org/a/a/a/a/bc	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/RuleTransition.ruleIndex
+f	org/a/a/a/a/bd	a	-	auto: 字段(Lorg/a/a/a/a/bd;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SemanticContext.NONE
+f	org/a/a/a/a/be	d	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SemanticContext$Predicate.isCtxDependent
+f	org/a/a/a/a/be	c	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SemanticContext$Predicate.predIndex
+f	org/a/a/a/a/be	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SemanticContext$Predicate.ruleIndex
+m	org/a/a/a/a/bf	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SetTransition#getSerializationType
+m	org/a/a/a/a/bf	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SetTransition#matches
+m	org/a/a/a/a/bf	c	()Lorg/a/a/a/c/j;	auto: 「label」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SetTransition#label
+f	org/a/a/a/a/bf	a	-	auto: 字段(Lorg/a/a/a/c/j;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SetTransition.set
+m	org/a/a/a/a/bg	b	(Lorg/a/a/a/a/ax;I)Lorg/a/a/a/a/bg;	auto: 「create」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SingletonPredictionContext#create
+m	org/a/a/a/a/bg	a	(I)Lorg/a/a/a/a/ax;	auto: 取 Parent；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SingletonPredictionContext#getParent
+m	org/a/a/a/a/bg	b	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SingletonPredictionContext#size
+m	org/a/a/a/a/bg	b	(I)I	auto: 取 ReturnState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SingletonPredictionContext#getReturnState
+f	org/a/a/a/a/bg	c	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SingletonPredictionContext.$assertionsDisabled
+f	org/a/a/a/a/bg	a	-	auto: 字段(Lorg/a/a/a/a/ax;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SingletonPredictionContext.parent
+f	org/a/a/a/a/bg	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/SingletonPredictionContext.returnState
+f	org/a/a/a/a/bi	g	-	auto: 字段(Lorg/a/a/a/a/bj;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/StarLoopEntryState.loopBackState
+f	org/a/a/a/a/bi	j	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/StarLoopEntryState.isPrecedenceDecision
+m	org/a/a/a/a/bl	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/Transition#getSerializationType
+m	org/a/a/a/a/bl	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/Transition#matches
+m	org/a/a/a/a/bl	b	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/Transition#isEpsilon；doc: Determines if the transition is an "epsilon" transition.
+m	org/a/a/a/a/bl	c	()Lorg/a/a/a/c/j;	auto: 「label」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/Transition#label
+f	org/a/a/a/a/bl	d	-	auto: 字段(Ljava/util/List;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/Transition.serializationNames
+f	org/a/a/a/a/bl	e	-	auto: 字段(Ljava/util/Map;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/Transition.serializationTypes
+f	org/a/a/a/a/bl	f	-	auto: 字段(Lorg/a/a/a/a/n;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/Transition.target
+m	org/a/a/a/a/bn	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/WildcardTransition#getSerializationType
+m	org/a/a/a/a/bn	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/WildcardTransition#matches
+m	org/a/a/a/a/c	a	(Z)V	auto: 设 Readonly；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet#setReadonly
+m	org/a/a/a/a/c	a	(Lorg/a/a/a/a/b;Lorg/a/a/a/c/d;)Z	auto: 「add」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet#add
+m	org/a/a/a/a/c	c	()[Lorg/a/a/a/a/b;	auto: 转换为 Array；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet#toArray
+f	org/a/a/a/a/c	b	-	auto: 字段(Lorg/a/a/a/a/d;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet.configLookup
+f	org/a/a/a/a/c	c	-	auto: 字段(Ljava/util/ArrayList;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet.configs
+f	org/a/a/a/a/c	e	-	auto: 字段(Ljava/util/BitSet;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet.conflictingAlts
+m	org/a/a/a/a/c	a	()Ljava/util/List;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet#elements；doc: Return a List holding list of configs
+m	org/a/a/a/a/c	a	(Lorg/a/a/a/a/b;)Z	auto: 「add」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet#add
+m	org/a/a/a/a/c	b	()Z	auto: 是否 Readonly；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet#isReadonly
+f	org/a/a/a/a/c	f	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet.hasSemanticContext
+f	org/a/a/a/a/c	h	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet.fullCtx
+f	org/a/a/a/a/c	a	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet.readonly
+f	org/a/a/a/a/c	i	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet.cachedHashCode
+f	org/a/a/a/a/c	g	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet.dipsIntoOuterContext
+f	org/a/a/a/a/c	d	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet.uniqueAlt
+m	org/a/a/a/a/d	a	(Ljava/lang/Object;)Lorg/a/a/a/a/b;	auto: 「asElementType」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet$AbstractConfigHashSet#asElementType
+m	org/a/a/a/a/d	a	(I)[[Lorg/a/a/a/a/b;	auto: 创建 Buckets；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet$AbstractConfigHashSet#createBuckets
+m	org/a/a/a/a/d	b	(I)[Lorg/a/a/a/a/b;	auto: 创建 Bucket；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet$AbstractConfigHashSet#createBucket
+m	org/a/a/a/a/e	a	(Lorg/a/a/a/a/b;)I	auto: 「hashCode」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet$ConfigEqualityComparator#hashCode
+m	org/a/a/a/a/e	a	(Lorg/a/a/a/a/b;Lorg/a/a/a/a/b;)Z	auto: 「equals」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet$ConfigEqualityComparator#equals
+f	org/a/a/a/a/e	a	-	auto: 字段(Lorg/a/a/a/a/e;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNConfigSet$ConfigEqualityComparator.INSTANCE
+m	org/a/a/a/a/g	a	()Lorg/a/a/a/a/g;	auto: 取 DefaultOptions；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializationOptions#getDefaultOptions
+f	org/a/a/a/a/g	a	-	auto: 字段(Lorg/a/a/a/a/g;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializationOptions.defaultOptions
+m	org/a/a/a/a/g	b	()V	auto: 生成 ReadOnly；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializationOptions#makeReadOnly
+m	org/a/a/a/a/g	d	()Z	auto: 是否 GenerateRuleBypassTransitions；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializationOptions#isGenerateRuleBypassTransitions
+m	org/a/a/a/a/g	c	()Z	auto: 是否 VerifyATN；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializationOptions#isVerifyATN
+f	org/a/a/a/a/g	d	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializationOptions.generateRuleBypassTransitions
+f	org/a/a/a/a/g	c	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializationOptions.verifyATN
+f	org/a/a/a/a/g	b	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializationOptions.readOnly
+m	org/a/a/a/a/h	a	(C)I	auto: 转换为 Int；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#toInt
+m	org/a/a/a/a/h	a	([CI)I	auto: 转换为 Int32；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#toInt32
+m	org/a/a/a/a/h	a	([CILjava/util/List;Lorg/a/a/a/a/k;)I	auto: 「deserializeSets」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#deserializeSets
+m	org/a/a/a/a/h	a	(Lorg/a/a/a/a/l;)Lorg/a/a/a/a/k;	auto: 取 UnicodeDeserializer；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#getUnicodeDeserializer
+m	org/a/a/a/a/h	a	(Ljava/util/UUID;Ljava/util/UUID;)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#isFeatureSupported；doc: Determines if a particular serialized representation of an ATN supports a particular feature, identified by…
+m	org/a/a/a/a/h	b	([CI)J	auto: 转换为 Long；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#toLong
+m	org/a/a/a/a/h	c	([CI)Ljava/util/UUID;	auto: 转换为 UUID；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#toUUID
+m	org/a/a/a/a/h	a	([C)Lorg/a/a/a/a/a;	auto: 「deserialize」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#deserialize
+m	org/a/a/a/a/h	a	(Lorg/a/a/a/a/af;II)Lorg/a/a/a/a/ad;	auto: 「lexerActionFactory」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#lexerActionFactory
+m	org/a/a/a/a/h	a	(Lorg/a/a/a/a/a;IIIIIILjava/util/List;)Lorg/a/a/a/a/bl;	auto: 「edgeFactory」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#edgeFactory
+m	org/a/a/a/a/h	a	(II)Lorg/a/a/a/a/n;	auto: 「stateFactory」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#stateFactory
+m	org/a/a/a/a/h	a	(Z)V	auto: 检查 Condition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#checkCondition
+m	org/a/a/a/a/h	a	(ZLjava/lang/String;)V	auto: 检查 Condition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#checkCondition
+f	org/a/a/a/a/h	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer.SERIALIZED_VERSION
+f	org/a/a/a/a/h	g	-	auto: 字段(Ljava/util/List;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer.SUPPORTED_UUIDS
+f	org/a/a/a/a/h	h	-	auto: 字段(Lorg/a/a/a/a/g;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer.deserializationOptions
+m	org/a/a/a/a/h	a	(Lorg/a/a/a/a/a;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#markPrecedenceDecisions
+m	org/a/a/a/a/h	b	(Lorg/a/a/a/a/a;)V	auto: 执行 verifyATN；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer#verifyATN
+f	org/a/a/a/a/h	b	-	auto: 字段(Ljava/util/UUID;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer.SERIALIZED_UUID
+f	org/a/a/a/a/h	f	-	auto: 字段(Ljava/util/UUID;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer.ADDED_UNICODE_SMP
+f	org/a/a/a/a/h	e	-	auto: 字段(Ljava/util/UUID;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer.ADDED_LEXER_ACTIONS
+f	org/a/a/a/a/h	d	-	auto: 字段(Ljava/util/UUID;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer.ADDED_PRECEDENCE_TRANSITIONS
+f	org/a/a/a/a/h	c	-	auto: 字段(Ljava/util/UUID;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer.BASE_SERIALIZED_UUID
+f	org/a/a/a/a/h	i	-	auto: 字段([I)（上游无同类型对应，按作用取名）
+m	org/a/a/a/a/h	a	()[I	auto: 「lexerActionTypeSwitchMap」（上游无同签名对应，按作用取名）
+m	org/a/a/a/a/i	a	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$1#size
+m	org/a/a/a/a/i	a	([CI)I	auto: 读取 Unicode；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$1#readUnicode
+m	org/a/a/a/a/j	a	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$2#size
+m	org/a/a/a/a/j	a	([CI)I	auto: 读取 Unicode；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$2#readUnicode
+m	org/a/a/a/a/k	a	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializer#size
+m	org/a/a/a/a/k	a	([CI)I	auto: 读取 Unicode；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializer#readUnicode
+f	org/a/a/a/a/l	c	-	auto: 字段([Lorg/a/a/a/a/l;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializingMode.$VALUES
+f	org/a/a/a/a/l	a	-	auto: 字段(Lorg/a/a/a/a/l;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializingMode.UNICODE_BMP
+f	org/a/a/a/a/l	b	-	auto: 字段(Lorg/a/a/a/a/l;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNDeserializer$UnicodeDeserializingMode.UNICODE_SMP
+f	org/a/a/a/a/m	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNSimulator.SERIALIZED_VERSION
+f	org/a/a/a/a/m	b	-	auto: 字段(Ljava/util/UUID;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNSimulator.SERIALIZED_UUID
+f	org/a/a/a/a/m	c	-	auto: 字段(Lorg/a/a/a/b/d;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNSimulator.ERROR
+f	org/a/a/a/a/m	d	-	auto: 字段(Lorg/a/a/a/a/a;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNSimulator.atn
+f	org/a/a/a/a/m	e	-	auto: 字段(Lorg/a/a/a/a/ay;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNSimulator.sharedContextCache
+m	org/a/a/a/a/n	a	(Lorg/a/a/a/a/bl;)V	auto: 加入 Transition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState#addTransition
+f	org/a/a/a/a/n	a	-	auto: 字段(Ljava/util/List;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState.serializationNames
+f	org/a/a/a/a/n	b	-	auto: 字段(Lorg/a/a/a/a/a;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState.atn
+f	org/a/a/a/a/n	e	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState.epsilonOnlyTransitions
+f	org/a/a/a/a/n	f	-	auto: 字段(Ljava/util/List;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState.transitions
+m	org/a/a/a/a/n	a	()I	auto: 取 NumberOfTransitions；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState#getNumberOfTransitions
+m	org/a/a/a/a/n	a	(I)Lorg/a/a/a/a/bl;	auto: 「transition」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState#transition
+m	org/a/a/a/a/n	b	(I)Lorg/a/a/a/a/bl;	auto: 移除 Transition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState#removeTransition
+m	org/a/a/a/a/n	b	(ILorg/a/a/a/a/bl;)V	auto: 设 Transition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState#setTransition
+m	org/a/a/a/a/n	a	(ILorg/a/a/a/a/bl;)V	auto: 加入 Transition；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState#addTransition
+m	org/a/a/a/a/n	b	()Z	auto: 「onlyHasEpsilonTransitions」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState#onlyHasEpsilonTransitions
+f	org/a/a/a/a/n	c	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState.stateNumber
+f	org/a/a/a/a/n	d	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNState.ruleIndex
+m	org/a/a/a/a/o	a	()[Lorg/a/a/a/a/o;	auto: 「values」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNType#values
+f	org/a/a/a/a/o	c	-	auto: 字段([Lorg/a/a/a/a/o;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNType.$VALUES
+f	org/a/a/a/a/o	b	-	auto: 字段(Lorg/a/a/a/a/o;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNType.PARSER
+f	org/a/a/a/a/o	a	-	auto: 字段(Lorg/a/a/a/a/o;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ATNType.LEXER
+m	org/a/a/a/a/q	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ActionTransition#getSerializationType
+m	org/a/a/a/a/q	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ActionTransition#matches
+m	org/a/a/a/a/q	b	()Z	auto: 是否 Epsilon；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ActionTransition#isEpsilon
+f	org/a/a/a/a/q	c	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ActionTransition.isCtxDependent
+f	org/a/a/a/a/q	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ActionTransition.actionIndex
+f	org/a/a/a/a/q	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ActionTransition.ruleIndex
+m	org/a/a/a/a/r	a	(I)Lorg/a/a/a/a/ax;	auto: 取 Parent；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ArrayPredictionContext#getParent
+m	org/a/a/a/a/r	a	()Z	auto: 是否 Empty；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ArrayPredictionContext#isEmpty
+m	org/a/a/a/a/r	b	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ArrayPredictionContext#size
+m	org/a/a/a/a/r	b	(I)I	auto: 取 ReturnState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ArrayPredictionContext#getReturnState
+f	org/a/a/a/a/r	c	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ArrayPredictionContext.$assertionsDisabled
+f	org/a/a/a/a/r	a	-	auto: 字段([Lorg/a/a/a/a/ax;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ArrayPredictionContext.parents
+f	org/a/a/a/a/r	b	-	auto: 字段([I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/ArrayPredictionContext.returnStates
+m	org/a/a/a/a/s	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/AtomTransition#getSerializationType
+m	org/a/a/a/a/s	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/AtomTransition#matches
+m	org/a/a/a/a/s	c	()Lorg/a/a/a/c/j;	auto: 「label」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/AtomTransition#label
+f	org/a/a/a/a/s	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/AtomTransition.label
+f	org/a/a/a/a/v	g	-	auto: 字段(Lorg/a/a/a/a/w;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/BlockEndState.startState
+f	org/a/a/a/a/w	g	-	auto: 字段(Lorg/a/a/a/a/v;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/BlockStartState.endState
+f	org/a/a/a/a/x	h	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/DecisionState.decision
+f	org/a/a/a/a/x	i	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/DecisionState.nonGreedy
+m	org/a/a/a/a/y	a	(I)Lorg/a/a/a/a/ax;	auto: 取 Parent；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EmptyPredictionContext#getParent
+m	org/a/a/a/a/y	a	()Z	auto: 是否 Empty；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EmptyPredictionContext#isEmpty
+m	org/a/a/a/a/y	b	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EmptyPredictionContext#size
+m	org/a/a/a/a/y	b	(I)I	auto: 取 ReturnState；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EmptyPredictionContext#getReturnState
+m	org/a/a/a/a/z	a	(III)Z	auto: 「matches」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EpsilonTransition#matches
+m	org/a/a/a/a/z	b	()Z	auto: 是否 Epsilon；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EpsilonTransition#isEpsilon
+f	org/a/a/a/a/z	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EpsilonTransition.outermostPrecedenceReturn
+m	org/a/a/a/a/z	a	()I	auto: 取 SerializationType；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/atn/EpsilonTransition#getSerializationType
+m	org/a/a/a/aa	d	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Token#getCharPositionInLine；doc: The index of the first character of this token relative to the beginning of the line at which it occurs, 0..…
+m	org/a/a/a/aa	c	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Token#getLine；doc: The line number on which the 1st character of this token was matched, line=1..n
+m	org/a/a/a/aa	a	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Token#getType；doc: Get the token type of the token
+m	org/a/a/a/ab	b	(Lorg/a/a/a/c/m;ILjava/lang/String;IIIII)Lorg/a/a/a/aa;	auto: 「create」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/TokenFactory#create
+m	org/a/a/a/ad	c	(I)Ljava/lang/String;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Vocabulary#getDisplayName；doc: Gets the display name of a token type.
+m	org/a/a/a/ad	a	(I)Ljava/lang/String;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Vocabulary#getLiteralName；doc: Gets the string literal associated with a token type. The string returned by this method, when not null, can…
+m	org/a/a/a/ad	b	(I)Ljava/lang/String;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Vocabulary#getSymbolicName；doc: Gets the symbolic name associated with a token type. The string returned by this method, when not null, can…
+m	org/a/a/a/ae	a	([Ljava/lang/String;)Lorg/a/a/a/ad;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl#fromTokenNames；doc: Returns a VocabularyImpl instance from the specified set of token names. This method acts as a compatibility…
+f	org/a/a/a/ae	a	-	auto: 字段(Lorg/a/a/a/ae;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl.EMPTY_VOCABULARY
+f	org/a/a/a/ae	b	-	auto: 字段([Ljava/lang/String;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl.EMPTY_NAMES
+f	org/a/a/a/ae	f	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl.maxTokenType
+m	org/a/a/a/ae	b	(I)Ljava/lang/String;	auto: 取 SymbolicName；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl#getSymbolicName
+m	org/a/a/a/ae	a	(I)Ljava/lang/String;	auto: 取 LiteralName；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl#getLiteralName
+m	org/a/a/a/ae	c	(I)Ljava/lang/String;	auto: 取 DisplayName；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl#getDisplayName
+f	org/a/a/a/ae	c	-	auto: 字段([Ljava/lang/String;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl.literalNames
+f	org/a/a/a/ae	e	-	auto: 字段([Ljava/lang/String;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl.displayNames
+f	org/a/a/a/ae	d	-	auto: 字段([Ljava/lang/String;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/VocabularyImpl.symbolicNames
+m	org/a/a/a/b	a	(Lorg/a/a/a/u;Ljava/lang/Object;IILjava/lang/String;Lorg/a/a/a/t;)V	auto: 执行 syntaxError；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/BaseErrorListener#syntaxError
+m	org/a/a/a/b/a	a	(Lorg/a/a/a/ad;)Ljava/lang/String;	auto: 转换为 String；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA#toString
+m	org/a/a/a/b/a	a	()Ljava/util/List;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA#getStates；doc: Return a list of all states in this DFA, ordered by state number.
+f	org/a/a/a/b/a	a	-	auto: 字段(Ljava/util/Map;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA.states
+f	org/a/a/a/b/a	b	-	auto: 字段(Lorg/a/a/a/b/d;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA.s0
+f	org/a/a/a/b/a	c	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA.decision
+f	org/a/a/a/b/a	d	-	auto: 字段(Lorg/a/a/a/a/x;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA.atnStartState
+f	org/a/a/a/b/a	e	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA.precedenceDfa
+m	org/a/a/a/b/b	a	(Lorg/a/a/a/b/d;Lorg/a/a/a/b/d;)I	auto: 「compare」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA$1#compare
+f	org/a/a/a/b/b	a	-	auto: 字段(Lorg/a/a/a/b/a;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFA$1.this$0
+m	org/a/a/a/b/c	a	(I)Ljava/lang/String;	auto: 取 EdgeLabel；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFASerializer#getEdgeLabel
+m	org/a/a/a/b/c	a	(Lorg/a/a/a/b/d;)Ljava/lang/String;	auto: 取 StateString；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFASerializer#getStateString
+f	org/a/a/a/b/c	a	-	auto: 字段(Lorg/a/a/a/b/a;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFASerializer.dfa
+f	org/a/a/a/b/c	b	-	auto: 字段(Lorg/a/a/a/ad;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFASerializer.vocabulary
+f	org/a/a/a/b/d	b	-	auto: 字段(Lorg/a/a/a/a/c;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState.configs
+f	org/a/a/a/b/d	c	-	auto: 字段([Lorg/a/a/a/b/d;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState.edges
+f	org/a/a/a/b/d	f	-	auto: 字段(Lorg/a/a/a/a/ae;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState.lexerActionExecutor
+f	org/a/a/a/b/d	h	-	auto: 字段([Lorg/a/a/a/b/e;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState.predicates
+f	org/a/a/a/b/d	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState.stateNumber
+f	org/a/a/a/b/d	e	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState.prediction
+f	org/a/a/a/b/d	d	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState.isAcceptState
+f	org/a/a/a/b/d	g	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState.requiresFullContext
+f	org/a/a/a/b/e	a	-	auto: 字段(Lorg/a/a/a/a/bd;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState$PredPrediction.pred
+f	org/a/a/a/b/e	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/dfa/DFAState$PredPrediction.alt
+m	org/a/a/a/c	a	(Lorg/a/a/a/c/h;)Ljava/lang/String;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CharStream#getText；doc: This method returns the text for a range of characters within this input stream. This method is guaranteed t…
+m	org/a/a/a/c/b	c	(I)[Ljava/lang/Object;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#createBucket；doc: Return an array of T with length capacity.
+m	org/a/a/a/c/b	d	(I)[[Ljava/lang/Object;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#createBuckets；doc: Return an array of T[] with length capacity.
+m	org/a/a/a/c/b	f	(Ljava/lang/Object;)I	auto: 取 Bucket；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#getBucket
+f	org/a/a/a/c/b	g	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet.$assertionsDisabled
+f	org/a/a/a/c/b	a	-	auto: 字段(Lorg/a/a/a/c/a;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet.comparator
+f	org/a/a/a/c/b	b	-	auto: 字段([[Ljava/lang/Object;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet.buckets
+m	org/a/a/a/c/b	a	()V	auto: 执行 expand；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#expand
+m	org/a/a/a/c/b	g	(Ljava/lang/Object;)Z	auto: 「containsFast」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#containsFast
+m	org/a/a/a/c/b	h	(Ljava/lang/Object;)Z	auto: 移除 Fast；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#removeFast
+m	org/a/a/a/c/b	b	(Ljava/lang/Object;)Ljava/lang/Object;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#asElementType；doc: Return o as an instance of the element type T. If o is non-null but known to not be an instance of T, this m…
+m	org/a/a/a/c/b	d	(Ljava/lang/Object;)Ljava/lang/Object;	auto: 取 OrAddImpl；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#getOrAddImpl
+m	org/a/a/a/c/b	e	(Ljava/lang/Object;)Ljava/lang/Object;	auto: 「get」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#get
+m	org/a/a/a/c/b	c	(Ljava/lang/Object;)Ljava/lang/Object;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet#getOrAdd；doc: Add o to set if not there; return existing value if already there. This method performs the same operation a…
+f	org/a/a/a/c/b	d	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet.threshold
+f	org/a/a/a/c/b	c	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet.n
+f	org/a/a/a/c/b	f	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet.initialBucketCapacity
+f	org/a/a/a/c/b	e	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet.currentPrime
+f	org/a/a/a/c/c	a	-	auto: 字段([Ljava/lang/Object;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet$SetIterator.data
+f	org/a/a/a/c/c	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet$SetIterator.nextIndex
+f	org/a/a/a/c/c	c	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet$SetIterator.removed
+f	org/a/a/a/c/c	d	-	auto: 字段(Lorg/a/a/a/c/b;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Array2DHashSet$SetIterator.this$0
+m	org/a/a/a/c/d	a	(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;	auto: 「get」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/DoubleKeyMap#get
+m	org/a/a/a/c/d	a	(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;	auto: 「put」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/DoubleKeyMap#put
+f	org/a/a/a/c/d	a	-	auto: 字段(Ljava/util/Map;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/DoubleKeyMap.data
+m	org/a/a/a/c/e	a	(Ljava/lang/Object;)I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/EqualityComparator#hashCode；doc: This method returns a hash code for the specified object.
+m	org/a/a/a/c/e	a	(Ljava/lang/Object;Ljava/lang/Object;)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/EqualityComparator#equals；doc: This method tests if two objects are equal.
+m	org/a/a/a/c/f	a	()Z	auto: 是否 Empty；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList#isEmpty
+m	org/a/a/a/c/f	d	()[I	auto: 转换为 Array；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList#toArray
+f	org/a/a/a/c/f	a	-	auto: 字段([I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList.EMPTY_DATA
+f	org/a/a/a/c/f	b	-	auto: 字段([I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList._data
+f	org/a/a/a/c/f	c	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList._size
+m	org/a/a/a/c/f	c	()V	auto: 执行 clear；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList#clear
+m	org/a/a/a/c/f	a	(I)V	auto: 执行 add；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList#add
+m	org/a/a/a/c/f	d	(I)V	auto: 执行 ensureCapacity；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList#ensureCapacity
+m	org/a/a/a/c/f	b	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList#size
+m	org/a/a/a/c/f	b	(I)I	auto: 「get」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList#get
+m	org/a/a/a/c/f	c	(I)I	auto: 移除 At；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerList#removeAt
+m	org/a/a/a/c/g	d	(I)V	auto: 执行 push；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerStack#push
+m	org/a/a/a/c/g	e	()I	auto: 「pop」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntegerStack#pop
+m	org/a/a/a/c/h	a	(II)Lorg/a/a/a/c/h;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval#of；doc: Interval objects are used readonly so share all with the same single value a==b up to some max size. Use an…
+f	org/a/a/a/c/h	b	-	auto: 字段(Lorg/a/a/a/c/h;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval.INVALID
+f	org/a/a/a/c/h	c	-	auto: 字段([Lorg/a/a/a/c/h;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval.cache
+m	org/a/a/a/c/h	d	(Lorg/a/a/a/c/h;)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval#adjacent；doc: Are two intervals adjacent such as 0..41 and 42..42?
+m	org/a/a/a/c/h	c	(Lorg/a/a/a/c/h;)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval#disjoint；doc: Are both ranges disjoint? I.e., no overlap?
+m	org/a/a/a/c/h	a	(Lorg/a/a/a/c/h;)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval#startsBeforeDisjoint；doc: Does this start completely before other? Disjoint
+m	org/a/a/a/c/h	b	(Lorg/a/a/a/c/h;)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval#startsAfterDisjoint；doc: Does this start completely after other? Disjoint
+m	org/a/a/a/c/h	e	(Lorg/a/a/a/c/h;)Lorg/a/a/a/c/h;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval#union；doc: Return the interval computed from combining this and other
+f	org/a/a/a/c/h	i	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval.outOfRange
+f	org/a/a/a/c/h	h	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval.hits
+f	org/a/a/a/c/h	g	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval.misses
+f	org/a/a/a/c/h	f	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval.creates
+f	org/a/a/a/c/h	e	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval.b
+f	org/a/a/a/c/h	d	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Interval.a
+f	org/a/a/a/c/h	a	-	auto: 字段(Landroid/os/Parcelable$Creator;)（上游无同类型对应，按作用取名）
+m	org/a/a/a/c/h	describeContents	()I	auto: 「describeContents」（上游无同签名对应，按作用取名）
+m	org/a/a/a/c/h	writeToParcel	(Landroid/os/Parcel;I)V	auto: 写出 ToParcel（上游无同签名对应，按作用取名）
+m	org/a/a/a/c/j	a	(I)Lorg/a/a/a/c/j;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet#of；doc: Create a set with a single element, el.
+m	org/a/a/a/c/j	a	(Z)Ljava/lang/String;	auto: 转换为 String；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet#toString
+m	org/a/a/a/c/j	a	(Lorg/a/a/a/c/h;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet#add；doc: Add a single element to the set. An isolated element is stored as a range el..el.
+m	org/a/a/a/c/j	b	(II)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet#add；doc: Add interval; i.e., add all integers from a to b to set.
+m	org/a/a/a/c/j	b	(Z)V	auto: 设 Readonly；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet#setReadonly
+m	org/a/a/a/c/j	c	(I)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet#contains；doc: {@inheritDoc}
+f	org/a/a/a/c/j	c	-	auto: 字段(Ljava/util/List;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet.intervals
+f	org/a/a/a/c/j	d	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet.readonly
+m	org/a/a/a/c/j	a	(II)Lorg/a/a/a/c/j;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet#of；doc: Create a set with all ints within range [a..b] (inclusive)
+m	org/a/a/a/c/j	a	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet#size
+m	org/a/a/a/c/j	b	(I)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet#add；doc: Add a single element to the set. An isolated element is stored as a range el..el.
+f	org/a/a/a/c/j	b	-	auto: 字段(Lorg/a/a/a/c/j;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet.EMPTY_SET
+f	org/a/a/a/c/j	a	-	auto: 字段(Lorg/a/a/a/c/j;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/IntervalSet.COMPLETE_CHAR_SET
+m	org/a/a/a/c/k	a	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/MurmurHash#initialize；doc: Initialize the hash using the default seed value.
+m	org/a/a/a/c/k	a	(I)I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/MurmurHash#initialize；doc: Initialize the hash using the specified seed.
+m	org/a/a/a/c/k	a	(ILjava/lang/Object;)I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/MurmurHash#update；doc: Update the intermediate hash value for the next input value.
+m	org/a/a/a/c/k	b	(II)I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/MurmurHash#finish；doc: Apply the final computation steps to the intermediate value hash to form the final result of the MurmurHash…
+m	org/a/a/a/c/k	a	(II)I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/MurmurHash#update；doc: Update the intermediate hash value for the next input value.
+m	org/a/a/a/c/l	a	(Ljava/lang/Object;)I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/ObjectEqualityComparator#hashCode；doc: {@inheritDoc} This implementation returns obj.Object#hashCode hashCode().
+m	org/a/a/a/c/l	a	(Ljava/lang/Object;Ljava/lang/Object;)Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/ObjectEqualityComparator#equals；doc: {@inheritDoc} This implementation relies on object equality. If both objects are null, this method returns t…
+f	org/a/a/a/c/l	a	-	auto: 字段(Lorg/a/a/a/c/l;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/ObjectEqualityComparator.INSTANCE
+m	org/a/a/a/c/n	a	(Ljava/lang/String;Z)Ljava/lang/String;	auto: 「escapeWhitespace」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/misc/Utils#escapeWhitespace
+m	org/a/a/a/d	a	(Ljava/io/Reader;)Lorg/a/a/a/h;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CharStreams#fromReader；doc: Creates a CharStream given a Reader. Closes the reader before returning.
+m	org/a/a/a/d	a	(Ljava/io/Reader;Ljava/lang/String;)Lorg/a/a/a/h;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CharStreams#fromReader；doc: Creates a CharStream given a Reader and its source name. Closes the reader before returning.
+f	org/a/a/a/d	a	-	auto: 字段(Ljava/nio/charset/Charset;)（上游无同类型对应，按作用取名）
+f	org/a/a/a/d	b	-	auto: 字段(Ljava/nio/charset/Charset;)（上游无同类型对应，按作用取名）
+m	org/a/a/a/e	a	(I)Lorg/a/a/a/f;	auto: 「builder」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer#builder
+m	org/a/a/a/e	c	()Lorg/a/a/a/g;	auto: 取 Type；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer#getType
+m	org/a/a/a/e	e	()[B	auto: 「byteArray」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer#byteArray
+m	org/a/a/a/e	f	()[C	auto: 「charArray」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer#charArray
+f	org/a/a/a/e	a	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer.$assertionsDisabled
+f	org/a/a/a/e	b	-	auto: 字段(Lorg/a/a/a/g;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer.type
+f	org/a/a/a/e	c	-	auto: 字段(Ljava/nio/ByteBuffer;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer.byteBuffer
+f	org/a/a/a/e	d	-	auto: 字段(Ljava/nio/CharBuffer;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer.charBuffer
+f	org/a/a/a/e	e	-	auto: 字段(Ljava/nio/IntBuffer;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer.intBuffer
+m	org/a/a/a/e	g	()[I	auto: 「intArray」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer#intArray
+m	org/a/a/a/e	d	()I	auto: 「arrayOffset」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer#arrayOffset
+m	org/a/a/a/e	b	()I	auto: 「remaining」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer#remaining
+m	org/a/a/a/e	a	()I	auto: 「position」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer#position
+f	org/a/a/a/e	f	-	auto: 字段([I)（上游无同类型对应，按作用取名）
+m	org/a/a/a/e	h	()[I	auto: 「typeSwitchMap」（上游无同签名对应，按作用取名）
+m	org/a/a/a/f	b	(I)I	auto: 「roundUpToNextPowerOfTwo」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#roundUpToNextPowerOfTwo
+m	org/a/a/a/f	a	()Lorg/a/a/a/e;	auto: 「build」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#build
+f	org/a/a/a/f	a	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder.$assertionsDisabled
+f	org/a/a/a/f	b	-	auto: 字段(Lorg/a/a/a/g;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder.type
+f	org/a/a/a/f	c	-	auto: 字段(Ljava/nio/ByteBuffer;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder.byteBuffer
+f	org/a/a/a/f	d	-	auto: 字段(Ljava/nio/CharBuffer;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder.charBuffer
+f	org/a/a/a/f	e	-	auto: 字段(Ljava/nio/IntBuffer;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder.intBuffer
+f	org/a/a/a/f	f	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder.prevHighSurrogate
+m	org/a/a/a/f	a	(I)V	auto: 执行 ensureRemaining；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#ensureRemaining
+m	org/a/a/a/f	c	(I)V	auto: 执行 byteToCharBuffer；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#byteToCharBuffer
+m	org/a/a/a/f	e	(I)V	auto: 执行 charToIntBuffer；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#charToIntBuffer
+m	org/a/a/a/f	d	(I)V	auto: 执行 byteToIntBuffer；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#byteToIntBuffer
+m	org/a/a/a/f	a	(Ljava/nio/CharBuffer;)V	auto: 执行 append；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#append
+m	org/a/a/a/f	d	(Ljava/nio/CharBuffer;)V	auto: 执行 appendArrayChar；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#appendArrayChar
+m	org/a/a/a/f	c	(Ljava/nio/CharBuffer;)V	auto: 执行 appendArrayByte；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#appendArrayByte
+m	org/a/a/a/f	e	(Ljava/nio/CharBuffer;)V	auto: 执行 appendArrayInt；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#appendArrayInt
+m	org/a/a/a/f	b	(Ljava/nio/CharBuffer;)V	auto: 执行 appendArray；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Builder#appendArray
+f	org/a/a/a/f	g	-	auto: 字段([I)（上游无同类型对应，按作用取名）
+m	org/a/a/a/f	b	()[I	auto: 「typeSwitchMap」（上游无同签名对应，按作用取名）
+m	org/a/a/a/g	a	()[Lorg/a/a/a/g;	auto: 「values」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Type#values
+f	org/a/a/a/g	d	-	auto: 字段([Lorg/a/a/a/g;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Type.$VALUES
+f	org/a/a/a/g	a	-	auto: 字段(Lorg/a/a/a/g;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Type.BYTE
+f	org/a/a/a/g	b	-	auto: 字段(Lorg/a/a/a/g;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Type.CHAR
+f	org/a/a/a/g	c	-	auto: 字段(Lorg/a/a/a/g;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointBuffer$Type.INT
+m	org/a/a/a/h	a	()V	auto: 执行 consume；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream#consume
+m	org/a/a/a/h	a	(Lorg/a/a/a/e;Ljava/lang/String;)Lorg/a/a/a/h;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream#fromBuffer；doc: Constructs a named CodePointCharStream which provides access to the Unicode code points stored in codePointB…
+f	org/a/a/a/h	d	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream.$assertionsDisabled
+f	org/a/a/a/h	b	-	auto: 字段(Ljava/lang/String;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream.name
+m	org/a/a/a/h	b	(I)V	auto: 执行 seek；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream#seek
+m	org/a/a/a/h	a	(I)V	auto: 执行 release；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream#release
+m	org/a/a/a/h	d	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream#mark；doc: mark/release do nothing; we have entire buffer
+m	org/a/a/a/h	c	()I	auto: 「size」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream#size
+m	org/a/a/a/h	b	()I	auto: 「index」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream#index
+f	org/a/a/a/h	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream.size
+f	org/a/a/a/h	c	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream.position
+f	org/a/a/a/h	e	-	auto: 字段([I)（上游无同类型对应，按作用取名）
+m	org/a/a/a/h	e	()[I	auto: 「typeSwitchMap」（上游无同签名对应，按作用取名）
+m	org/a/a/a/i	a	(Lorg/a/a/a/c/h;)Ljava/lang/String;	auto: 取 Text；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream#getText
+m	org/a/a/a/i	c	(I)I	auto: 「LA」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream#LA
+f	org/a/a/a/i	e	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream.$assertionsDisabled
+f	org/a/a/a/i	f	-	auto: 字段([C)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint16BitCharStream.charArray
+m	org/a/a/a/j	a	(Lorg/a/a/a/c/h;)Ljava/lang/String;	auto: 取 Text；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint32BitCharStream#getText
+m	org/a/a/a/j	c	(I)I	auto: 「LA」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint32BitCharStream#LA
+f	org/a/a/a/j	e	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint32BitCharStream.$assertionsDisabled
+f	org/a/a/a/j	f	-	auto: 字段([I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint32BitCharStream.intArray
+m	org/a/a/a/k	a	(Lorg/a/a/a/c/h;)Ljava/lang/String;	auto: 取 Text；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint8BitCharStream#getText
+m	org/a/a/a/k	c	(I)I	auto: 「LA」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint8BitCharStream#LA
+f	org/a/a/a/k	e	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint8BitCharStream.$assertionsDisabled
+f	org/a/a/a/k	f	-	auto: 字段([B)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CodePointCharStream$CodePoint8BitCharStream.byteArray
+m	org/a/a/a/l	a	(Lorg/a/a/a/u;)Ljava/lang/String;	auto: 转换为 String；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#toString
+m	org/a/a/a/l	a	(Ljava/lang/String;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#setText；doc: Explicitly set the text for this token. If {code text} is not null, then #getText will return this value rat…
+m	org/a/a/a/l	f	()Lorg/a/a/a/c;	auto: 取 InputStream；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#getInputStream
+f	org/a/a/a/l	a	-	auto: 字段(Lorg/a/a/a/c/m;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.EMPTY_SOURCE
+f	org/a/a/a/l	f	-	auto: 字段(Lorg/a/a/a/c/m;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.source
+f	org/a/a/a/l	g	-	auto: 字段(Ljava/lang/String;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.text
+m	org/a/a/a/l	e	()I	auto: 取 TokenIndex；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#getTokenIndex
+m	org/a/a/a/l	d	()I	auto: 取 CharPositionInLine；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#getCharPositionInLine
+m	org/a/a/a/l	c	()I	auto: 取 Line；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#getLine
+m	org/a/a/a/l	a	()I	auto: 取 Type；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#getType
+m	org/a/a/a/l	b	(I)V	auto: 设 CharPositionInLine；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#setCharPositionInLine
+m	org/a/a/a/l	a	(I)V	auto: 设 Line；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#setLine
+m	org/a/a/a/l	b	()Ljava/lang/String;	auto: 取 Text；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken#getText
+f	org/a/a/a/l	e	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.channel
+f	org/a/a/a/l	b	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.type
+f	org/a/a/a/l	j	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.stop
+f	org/a/a/a/l	i	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.start
+f	org/a/a/a/l	c	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.line
+f	org/a/a/a/l	d	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.charPositionInLine
+f	org/a/a/a/l	h	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonToken.index
+m	org/a/a/a/m	a	(Lorg/a/a/a/c/m;ILjava/lang/String;IIIII)Lorg/a/a/a/l;	auto: 「create」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonTokenFactory#create
+f	org/a/a/a/m	a	-	auto: 字段(Lorg/a/a/a/ab;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonTokenFactory.DEFAULT
+f	org/a/a/a/m	b	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/CommonTokenFactory.copyText
+m	org/a/a/a/n	a	(Lorg/a/a/a/u;Ljava/lang/Object;IILjava/lang/String;Lorg/a/a/a/t;)V	auto: 执行 syntaxError；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/ConsoleErrorListener#syntaxError
+f	org/a/a/a/n	a	-	auto: 字段(Lorg/a/a/a/n;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/ConsoleErrorListener.INSTANCE
+m	org/a/a/a/o	a	()V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/IntStream#consume；doc: Consumes the current symbol in the stream. This method has the following effects: Forward movement: The valu…
+m	org/a/a/a/o	c	(I)I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/IntStream#LA；doc: Gets the value of the symbol at offset i from the current position. When i==1, this method returns the value…
+m	org/a/a/a/o	a	(I)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/IntStream#release；doc: This method releases a marked range created by a call to #mark mark(). Calls to release() must appear in the…
+m	org/a/a/a/o	b	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/IntStream#index；doc: Return the index into the stream of the input symbol referred to by LA(1).
+m	org/a/a/a/o	b	(I)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/IntStream#seek；doc: Set the input cursor to the position indicated by index. If the specified index lies past the end of the str…
+m	org/a/a/a/o	c	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/IntStream#size；doc: Returns the total number of symbols in the stream, including a single EOF symbol.
+m	org/a/a/a/o	d	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/IntStream#mark；doc: A mark provides a guarantee that #seek seek() operations will be valid over a "marked range" extending from…
+m	org/a/a/a/p	a	(Ljava/lang/String;)Ljava/lang/String;	auto: 取 ErrorDisplay；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#getErrorDisplay
+m	org/a/a/a/p	a	(Lorg/a/a/a/o;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#setInputStream；doc: Set the char stream and reset the lexer
+f	org/a/a/a/p	i	-	auto: 字段(Lorg/a/a/a/c;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._input
+f	org/a/a/a/p	j	-	auto: 字段(Lorg/a/a/a/c/m;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._tokenFactorySourcePair
+f	org/a/a/a/p	k	-	auto: 字段(Lorg/a/a/a/ab;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._factory
+f	org/a/a/a/p	l	-	auto: 字段(Lorg/a/a/a/aa;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._token
+f	org/a/a/a/p	p	-	auto: 字段(Z)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._hitEOF
+f	org/a/a/a/p	s	-	auto: 字段(Lorg/a/a/a/c/g;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._modeStack
+f	org/a/a/a/p	u	-	auto: 字段(Ljava/lang/String;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._text
+m	org/a/a/a/p	d	(I)V	auto: 设 Channel；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#setChannel
+m	org/a/a/a/p	c	(I)V	auto: 设 Type；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#setType
+m	org/a/a/a/p	a	(I)V	auto: 执行 mode；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#mode
+m	org/a/a/a/p	b	(I)V	auto: 压入 Mode；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#pushMode
+m	org/a/a/a/p	b	(Lorg/a/a/a/q;)V	auto: 通知 Listeners；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#notifyListeners
+m	org/a/a/a/p	a	(Lorg/a/a/a/q;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#recover；doc: Lexers can normally match any char in it's vocabulary after matching a token, so do the easy thing and just…
+m	org/a/a/a/p	f	()V	auto: 执行 more；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#more
+m	org/a/a/a/p	e	()V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#skip；doc: Instruct the lexer to skip creating a token for current lexer rule and look for another token. nextToken() k…
+m	org/a/a/a/p	c	()V	auto: 执行 reset；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#reset
+m	org/a/a/a/p	i	()Lorg/a/a/a/aa;	auto: 发出 EOF；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#emitEOF
+m	org/a/a/a/p	h	()Lorg/a/a/a/aa;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#emit；doc: The standard method called to automatically emit a token at the outermost lexical rule. The token object sho…
+m	org/a/a/a/p	d	()Lorg/a/a/a/aa;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#nextToken；doc: Return a token from this source; i.e., match a token on the char stream.
+m	org/a/a/a/p	e	(I)Ljava/lang/String;	auto: 取 ErrorDisplay；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#getErrorDisplay
+m	org/a/a/a/p	g	()I	auto: 弹出 Mode；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#popMode
+m	org/a/a/a/p	l	()I	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#getCharIndex；doc: What is the index of the current character of lookahead?
+m	org/a/a/a/p	j	()I	auto: 取 Line；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#getLine
+m	org/a/a/a/p	a	(Lorg/a/a/a/aa;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#emit；doc: By default does not support multiple emits per nextToken invocation for efficiency reasons. Subclass and ove…
+m	org/a/a/a/p	k	()I	auto: 取 CharPositionInLine；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#getCharPositionInLine
+f	org/a/a/a/p	m	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._tokenStartCharIndex
+f	org/a/a/a/p	t	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._mode
+f	org/a/a/a/p	r	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._type
+f	org/a/a/a/p	o	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._tokenStartCharPositionInLine
+f	org/a/a/a/p	n	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._tokenStartLine
+f	org/a/a/a/p	q	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer._channel
+m	org/a/a/a/p	a	()[Ljava/lang/String;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Lexer#getTokenNames；doc: Used to print out token names like ID during debugging and error reporting. The generated parsers implement…
+m	org/a/a/a/q	a	()Lorg/a/a/a/c;	auto: 取 InputStream；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/LexerNoViableAltException#getInputStream
+f	org/a/a/a/q	a	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/LexerNoViableAltException.startIndex
+f	org/a/a/a/q	b	-	auto: 字段(Lorg/a/a/a/a/c;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/LexerNoViableAltException.deadEndConfigs
+m	org/a/a/a/s	a	(Lorg/a/a/a/u;Ljava/lang/Object;IILjava/lang/String;Lorg/a/a/a/t;)V	auto: 执行 syntaxError；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/ProxyErrorListener#syntaxError
+f	org/a/a/a/s	a	-	auto: 字段(Ljava/util/Collection;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/ProxyErrorListener.delegates
+m	org/a/a/a/t	b	()Lorg/a/a/a/o;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RecognitionException#getInputStream；doc: Gets the input stream which is the symbol source for the recognizer where this exception was thrown.
+f	org/a/a/a/t	a	-	auto: 字段(Lorg/a/a/a/u;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RecognitionException.recognizer
+f	org/a/a/a/t	b	-	auto: 字段(Lorg/a/a/a/w;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RecognitionException.ctx
+f	org/a/a/a/t	c	-	auto: 字段(Lorg/a/a/a/o;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RecognitionException.input
+f	org/a/a/a/t	d	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RecognitionException.offendingState
+m	org/a/a/a/u	a	(Lorg/a/a/a/w;II)Z	auto: 「sempred」；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer#sempred
+m	org/a/a/a/u	b	()Lorg/a/a/a/ad;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer#getVocabulary；doc: Get the vocabulary used by the recognizer.
+m	org/a/a/a/u	b	(Lorg/a/a/a/w;II)V	auto: 执行 action；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer#action
+m	org/a/a/a/u	m	()Lorg/a/a/a/a/m;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer#getInterpreter；doc: Get the ATN interpreter used by the recognizer for prediction.
+m	org/a/a/a/u	n	()Ljava/util/List;	auto: 取 ErrorListeners；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer#getErrorListeners
+m	org/a/a/a/u	o	()Lorg/a/a/a/a;	auto: 取 ErrorListenerDispatch；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer#getErrorListenerDispatch
+m	org/a/a/a/u	p	()I	auto: 取 State；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer#getState
+f	org/a/a/a/u	c	-	auto: 字段(Ljava/util/List;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer._listeners
+f	org/a/a/a/u	d	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer._stateNumber
+f	org/a/a/a/u	v	-	auto: 字段(Lorg/a/a/a/a/m;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer._interp
+m	org/a/a/a/u	a	()[Ljava/lang/String;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer#getTokenNames；doc: Used to print out token names like ID during debugging and error reporting. The generated parsers implement…
+f	org/a/a/a/u	b	-	auto: 字段(Ljava/util/Map;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer.ruleIndexMapCache
+f	org/a/a/a/u	a	-	auto: 字段(Ljava/util/Map;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer.tokenTypeMapCache
+f	org/a/a/a/v	a	-	auto: 字段(Lorg/a/a/a/u;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/Recognizer$1.this$0
+m	org/a/a/a/w	a	(Ljava/util/List;Lorg/a/a/a/w;)Ljava/lang/String;	auto: 转换为 String；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuleContext#toString
+m	org/a/a/a/w	a	()Z	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuleContext#isEmpty；doc: A context is empty if there is no invoking state; meaning nobody called current context.
+f	org/a/a/a/w	a	-	auto: 字段(Lorg/a/a/a/r;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuleContext.EMPTY
+f	org/a/a/a/w	b	-	auto: 字段(Lorg/a/a/a/w;)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuleContext.parent
+f	org/a/a/a/w	c	-	auto: 字段(I)；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuleContext.invokingState
+m	org/a/a/a/w	b	()I	auto: 取 RuleIndex；src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuleContext#getRuleIndex
+m	org/a/a/a/x	a	(Ljava/lang/String;)Ljava/lang/String;	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuntimeMetaData#getMajorMinorVersion；doc: Gets the major and minor version numbers from a version string. For details about the syntax of the input ve…
+m	org/a/a/a/x	a	(Ljava/lang/String;Ljava/lang/String;)V	src: antlr4-runtime-4.7.2 org/antlr/v4/runtime/RuntimeMetaData#checkVersion；doc: This method provides the ability to detect mismatches between the version of ANTLR 4 used to generate a pars…
+m	org/a/a/a/y	j	()I	auto: 取 Line（上游无同签名对应，按作用取名）
+m	org/a/a/a/y	k	()I	auto: 取 CharPositionInLine（上游无同签名对应，按作用取名）

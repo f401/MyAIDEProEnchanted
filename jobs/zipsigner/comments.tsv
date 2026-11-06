@@ -1,0 +1,226 @@
+c	abcd/AA	-	-	auto: 类：HexEncoder；src: zs-1.11 kellinwood/security/zipsigner/HexEncoder
+c	abcd/BA	-	-	auto: 类：KeySet；src: zs-1.11 kellinwood/security/zipsigner/KeySet
+c	abcd/CA	-	-	auto: 类：ProgressEvent；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent
+c	abcd/DA	-	-	auto: 辅助类：Progress；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper
+c	abcd/EA	-	-	auto: 回调接口：Progress；src: zs-1.11 kellinwood/security/zipsigner/ProgressListener
+c	abcd/FA	-	-	auto: 类：ZipSignature；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature
+c	abcd/GA	-	-	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner；doc: This is a modified copy of com.android.signapk.SignApk.java. It provides an API to sign JAR files (including…
+c	abcd/GA$a	-	-	auto: 类：AutoKeyObservable（外层 ZipSigner）；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner$AutoKeyObservable
+c	abcd/HA	-	-	auto: 类：CentralEnd；src: zs-1.11 kellinwood/zipio/CentralEnd
+c	abcd/IA	-	-	auto: 条目：Zio；src: zs-1.11 kellinwood/zipio/ZioEntry
+c	abcd/JA	-	-	src: zs-1.11 kellinwood/zipio/ZioEntryInputStream；doc: Input stream used to read just the data from a zip file entry.
+c	abcd/KA	-	-	auto: 流：ZioEntryOutput；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream
+c	abcd/LA	-	-	auto: 类：ZipInput；src: zs-1.11 kellinwood/zipio/ZipInput
+c	abcd/MA	-	-	auto: 辅助类：ZipListing；src: zs-1.11 kellinwood/zipio/ZipListingHelper
+c	abcd/NA	-	-	auto: 类：ZipOutput；src: zs-1.11 kellinwood/zipio/ZipOutput
+c	abcd/sA	-	-	auto: 工厂：Logger；src: zs-1.11 kellinwood/logging/LoggerFactory
+c	abcd/tA	-	-	auto: 类：Logger；src: zs-1.11 kellinwood/logging/Logger
+c	abcd/uA	-	-	auto: 管理器：Log；src: zs-1.11 kellinwood/logging/LogManager
+c	abcd/vA	-	-	auto: 匿名内部类（外层 NullLoggerFactory）；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1
+c	abcd/wA	-	-	auto: 工厂：NullLogger；src: zs-1.11 kellinwood/logging/NullLoggerFactory
+c	abcd/xA	-	-	auto: 异常类型：AutoKey；src: zs-1.11 kellinwood/security/zipsigner/AutoKeyException
+c	abcd/yA	-	-	auto: 类：Base64；src: zs-1.11 kellinwood/security/zipsigner/Base64
+c	abcd/zA	-	-	src: zs-1.11 kellinwood/security/zipsigner/HexDumpEncoder；doc: Produces the classic hex dump with an address column, hex data section (16 bytes per row) and right-column p…
+c	kellinwood/sigblock/a	-	-	auto: 类：SignatureContentSigner（上游未收录，名字来自 jobs/zipsigner 的判据）
+m	abcd/AA	j6	()V	auto: 执行 initialiseDecodingTable；src: zs-1.11 kellinwood/security/zipsigner/HexEncoder#initialiseDecodingTable
+m	abcd/AA	j6	([BIILjava/io/OutputStream;)I	src: zs-1.11 kellinwood/security/zipsigner/HexEncoder#encode；doc: encode the input data producing a Hex output stream.
+f	abcd/AA	DW	-	auto: 字段([B)；src: zs-1.11 kellinwood/security/zipsigner/HexEncoder.decodingTable
+f	abcd/AA	j6	-	auto: 字段([B)；src: zs-1.11 kellinwood/security/zipsigner/HexEncoder.encodingTable
+m	abcd/BA	DW	()Ljava/security/PrivateKey;	auto: 取 PrivateKey；src: zs-1.11 kellinwood/security/zipsigner/KeySet#getPrivateKey
+m	abcd/BA	FH	()Ljava/security/cert/X509Certificate;	auto: 取 PublicKey；src: zs-1.11 kellinwood/security/zipsigner/KeySet#getPublicKey
+m	abcd/BA	Hw	()[B	auto: 取 SigBlockTemplate；src: zs-1.11 kellinwood/security/zipsigner/KeySet#getSigBlockTemplate
+m	abcd/BA	j6	(Ljava/security/PrivateKey;)V	auto: 设 PrivateKey；src: zs-1.11 kellinwood/security/zipsigner/KeySet#setPrivateKey
+m	abcd/BA	j6	(Ljava/security/cert/X509Certificate;)V	auto: 设 PublicKey；src: zs-1.11 kellinwood/security/zipsigner/KeySet#setPublicKey
+m	abcd/BA	j6	([B)V	auto: 设 SigBlockTemplate；src: zs-1.11 kellinwood/security/zipsigner/KeySet#setSigBlockTemplate
+f	abcd/BA	DW	-	auto: 字段(Ljava/security/cert/X509Certificate;)；src: zs-1.11 kellinwood/security/zipsigner/KeySet.publicKey
+f	abcd/BA	FH	-	auto: 字段(Ljava/security/PrivateKey;)；src: zs-1.11 kellinwood/security/zipsigner/KeySet.privateKey
+f	abcd/BA	Hw	-	auto: 字段([B)；src: zs-1.11 kellinwood/security/zipsigner/KeySet.sigBlockTemplate
+m	abcd/BA	j6	()Ljava/lang/String;	auto: 取 Name；src: zs-1.11 kellinwood/security/zipsigner/KeySet#getName
+m	abcd/BA	j6	(Ljava/lang/String;)V	auto: 设 Name；src: zs-1.11 kellinwood/security/zipsigner/KeySet#setName
+f	abcd/BA	j6	-	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/security/zipsigner/KeySet.name
+m	abcd/CA	j6	(Ljava/lang/String;)V	auto: 设 Message；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent#setMessage
+f	abcd/CA	j6	-	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent.message
+m	abcd/CA	j6	(I)V	auto: 设 PercentDone；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent#setPercentDone
+m	abcd/CA	DW	(I)V	auto: 设 Priority；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent#setPriority
+f	abcd/CA	FH	-	auto: 字段(I)；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent.priority
+f	abcd/CA	DW	-	auto: 字段(I)；src: zs-1.11 kellinwood/security/zipsigner/ProgressEvent.percentDone
+m	abcd/DA	j6	()V	auto: 初始化 Progress；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper#initProgress
+m	abcd/DA	j6	(ILjava/lang/String;)V	auto: 执行 progress；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper#progress
+f	abcd/DA	FH	-	auto: 字段(Labcd/CA;)；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper.progressEvent
+f	abcd/DA	Hw	-	auto: 字段(Ljava/util/ArrayList;)；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper.listeners
+m	abcd/DA	j6	(I)V	auto: 设 ProgressCurrentItem；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper#setProgressCurrentItem
+m	abcd/DA	DW	(I)V	auto: 设 ProgressTotalItems；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper#setProgressTotalItems
+f	abcd/DA	DW	-	auto: 字段(I)；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper.progressCurrentItem
+f	abcd/DA	j6	-	auto: 字段(I)；src: zs-1.11 kellinwood/security/zipsigner/ProgressHelper.progressTotalItems
+m	abcd/EA	j6	(Labcd/CA;)V	src: zs-1.11 kellinwood/security/zipsigner/ProgressListener#onProgress；doc: Called to notify the listener that progress has been made during the zip signing operation.
+m	abcd/FA	j6	(Ljava/security/PrivateKey;)V	auto: 初始化 Sign；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature#initSign
+m	abcd/FA	j6	([B)V	auto: 执行 update；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature#update
+m	abcd/FA	j6	()[B	auto: 「sign」；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature#sign
+f	abcd/FA	Hw	-	auto: 字段(Ljavax/crypto/Cipher;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature.cipher
+f	abcd/FA	v5	-	auto: 字段(Ljava/security/MessageDigest;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature.md
+f	abcd/FA	j6	-	auto: 字段([B)；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature.beforeAlgorithmIdBytes
+f	abcd/FA	FH	-	auto: 字段([B)；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature.afterAlgorithmIdBytes
+f	abcd/FA	DW	-	auto: 字段([B)；src: zs-1.11 kellinwood/security/zipsigner/ZipSignature.algorithmIdBytes
+m	abcd/GA	j6	([B[BLjava/security/cert/X509Certificate;Ljava/io/OutputStream;)V	auto: 执行 signZipData（上游无同签名对应，按作用取名）
+m	abcd/GA	j6	([BLjava/lang/String;)Ljava/security/spec/KeySpec;	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#decryptPrivateKey；doc: Decrypt an encrypted PKCS 8 format private key.
+m	abcd/GA	j6	(Ljava/util/Map;)Ljava/util/jar/Manifest;	auto: 加入 DigestsToManifest；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#addDigestsToManifest
+m	abcd/GA	j6	(Ljava/util/Map;Labcd/NA;)V	auto: 复制 Files；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#copyFiles
+m	abcd/GA	j6	(Ljava/util/jar/Manifest;Ljava/io/OutputStream;)V	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#generateSignatureFile；doc: Write the signature file to the given output stream.
+m	abcd/GA	j6	(Ljava/util/jar/Manifest;Ljava/util/Map;Labcd/NA;J)V	auto: 复制 Files；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#copyFiles
+m	abcd/GA	DW	(Ljava/net/URL;)Ljava/security/cert/X509Certificate;	auto: 读取 PublicKey；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#readPublicKey
+m	abcd/GA	j6	(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;	auto: 「autoDetectKey」；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#autoDetectKey
+m	abcd/GA	j6	(Ljava/net/URL;Ljava/lang/String;)Ljava/security/PrivateKey;	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#readPrivateKey；doc: Read a PKCS 8 format private key.
+m	abcd/GA	j6	(Ljava/lang/String;Ljava/lang/String;)V	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#signZip；doc: Sign the file using the given public key cert, private key, and signature block template. The signature bloc…
+m	abcd/GA	j6	(Ljava/lang/String;Ljava/security/cert/X509Certificate;Ljava/security/PrivateKey;[B)V	auto: 设 Keys；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#setKeys
+m	abcd/GA	j6	(Ljava/util/Map;Ljava/io/OutputStream;Ljava/lang/String;)V	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#signZip；doc: Sign the input with the default test key and certificate.
+m	abcd/GA	j6	(Ljava/io/InputStream;)[B	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#readContentAsBytes；doc: Fetch the content at the specified URL and return it as a byte array.
+m	abcd/GA	j6	(Ljava/net/URL;)[B	src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#readContentAsBytes；doc: Fetch the content at the specified URL and return it as a byte array.
+f	abcd/GA	DW	-	auto: 字段(Ljava/util/regex/Pattern;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.stripPattern
+f	abcd/GA	FH	-	auto: 字段([Ljava/lang/String;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.SUPPORTED_KEY_MODES
+f	abcd/GA	j6	-	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.log
+f	abcd/GA	Hw	-	auto: 字段(Z)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.canceled
+f	abcd/GA	VH	-	auto: 字段(Labcd/BA;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.keySet
+f	abcd/GA	gn	-	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.keymode
+f	abcd/GA	tp	-	auto: 字段(Labcd/GA$a;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.autoKeyObservable
+f	abcd/GA	v5	-	auto: 字段(Labcd/DA;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.progressHelper
+m	abcd/GA	j6	(Ljava/lang/String;)V	auto: 加载 Keys；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#loadKeys
+m	abcd/GA	DW	(Ljava/lang/String;)V	auto: 设 Keymode；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner#setKeymode
+f	abcd/GA	u7	-	auto: 字段(Ljava/util/Map;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.autoKeyDetect
+f	abcd/GA	Zo	-	auto: 字段(Ljava/util/Map;)；src: zs-1.11 kellinwood/security/zipsigner/ZipSigner.loadedKeys
+m	abcd/GA	j6	()Labcd/tA;	auto: 取 Logger（上游无同签名对应，按作用取名）
+m	abcd/HA	DW	(Labcd/LA;)V	auto: 执行 doRead；src: zs-1.11 kellinwood/zipio/CentralEnd#doRead
+m	abcd/HA	j6	(Labcd/LA;)Labcd/HA;	auto: 「read」；src: zs-1.11 kellinwood/zipio/CentralEnd#read
+m	abcd/HA	j6	(Labcd/NA;)V	auto: 执行 write；src: zs-1.11 kellinwood/zipio/CentralEnd#write
+f	abcd/HA	j6	-	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/CentralEnd.log
+f	abcd/HA	u7	-	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/zipio/CentralEnd.fileComment
+f	abcd/HA	DW	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/CentralEnd.signature
+f	abcd/HA	Hw	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/CentralEnd.centralStartDisk
+f	abcd/HA	FH	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/CentralEnd.numberThisDisk
+f	abcd/HA	gn	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/CentralEnd.centralStartOffset
+f	abcd/HA	VH	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/CentralEnd.centralDirectorySize
+f	abcd/HA	Zo	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/CentralEnd.totalCentralEntries
+f	abcd/HA	v5	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/CentralEnd.numCentralEntries
+m	abcd/HA	j6	()Labcd/tA;	auto: 取 Logger（上游无同签名对应，按作用取名）
+f	abcd/IA	XL	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.diskNumberStart
+f	abcd/IA	aM	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.internalAttributes
+m	abcd/IA	Mr	()V	auto: 读取 LocalHeader；src: zs-1.11 kellinwood/zipio/ZioEntry#readLocalHeader
+m	abcd/IA	DW	(Labcd/LA;)V	auto: 执行 doRead；src: zs-1.11 kellinwood/zipio/ZioEntry#doRead
+m	abcd/IA	j6	(Labcd/LA;)Labcd/IA;	auto: 「read」；src: zs-1.11 kellinwood/zipio/ZioEntry#read
+m	abcd/IA	J0	()Ljava/io/OutputStream;	auto: 取 OutputStream；src: zs-1.11 kellinwood/zipio/ZioEntry#getOutputStream
+m	abcd/IA	aM	()Labcd/LA;	auto: 取 ZipInput；src: zs-1.11 kellinwood/zipio/ZioEntry#getZipInput
+m	abcd/IA	j3	()Z	auto: 是否 Directory；src: zs-1.11 kellinwood/zipio/ZioEntry#isDirectory
+m	abcd/IA	j6	(Ljava/io/OutputStream;)Ljava/io/InputStream;	auto: 取 InputStream；src: zs-1.11 kellinwood/zipio/ZioEntry#getInputStream
+m	abcd/IA	j6	(J)V	src: zs-1.11 kellinwood/zipio/ZioEntry#setTime；doc: Returns the entry's data.
+m	abcd/IA	u7	()Ljava/io/InputStream;	auto: 取 InputStream；src: zs-1.11 kellinwood/zipio/ZioEntry#getInputStream
+f	abcd/IA	DW	-	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/ZioEntry.log
+f	abcd/IA	j6	-	auto: 字段([B)；src: zs-1.11 kellinwood/zipio/ZioEntry.alignBytes
+f	abcd/IA	FH	-	auto: 字段(Labcd/LA;)；src: zs-1.11 kellinwood/zipio/ZioEntry.zipInput
+f	abcd/IA	U2	-	auto: 字段(J)；src: zs-1.11 kellinwood/zipio/ZioEntry.dataPosition
+f	abcd/IA	lg	-	auto: 字段(Labcd/KA;)；src: zs-1.11 kellinwood/zipio/ZioEntry.entryOut
+m	abcd/IA	DW	()S	auto: 取 Compression；src: zs-1.11 kellinwood/zipio/ZioEntry#getCompression
+m	abcd/IA	DW	(Labcd/NA;)V	auto: 写出 LocalEntry；src: zs-1.11 kellinwood/zipio/ZioEntry#writeLocalEntry
+m	abcd/IA	j6	(Labcd/NA;)V	auto: 执行 write；src: zs-1.11 kellinwood/zipio/ZioEntry#write
+m	abcd/IA	EQ	()Ljava/lang/String;	auto: 取 Name；src: zs-1.11 kellinwood/zipio/ZioEntry#getName
+m	abcd/IA	j6	()I	auto: 取 CompressedSize；src: zs-1.11 kellinwood/zipio/ZioEntry#getCompressedSize
+m	abcd/IA	QX	()I	auto: 取 Size；src: zs-1.11 kellinwood/zipio/ZioEntry#getSize
+m	abcd/IA	FH	()I	auto: 取 Crc32；src: zs-1.11 kellinwood/zipio/ZioEntry#getCrc32
+m	abcd/IA	gn	()J	auto: 取 DataPosition；src: zs-1.11 kellinwood/zipio/ZioEntry#getDataPosition
+m	abcd/IA	XL	()J	src: zs-1.11 kellinwood/zipio/ZioEntry#getTime；doc: Returns the entry's data.
+m	abcd/IA	v5	()[B	src: zs-1.11 kellinwood/zipio/ZioEntry#getData；doc: Returns the entry's data.
+f	abcd/IA	we	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntry.size
+f	abcd/IA	Mr	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntry.localHeaderOffset
+f	abcd/IA	EQ	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntry.compressedSize
+f	abcd/IA	tp	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntry.crc32
+f	abcd/IA	VH	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.compression
+f	abcd/IA	J0	-	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/zipio/ZioEntry.filename
+f	abcd/IA	QX	-	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/zipio/ZioEntry.fileComment
+f	abcd/IA	a8	-	auto: 字段([B)；src: zs-1.11 kellinwood/zipio/ZioEntry.data
+f	abcd/IA	J8	-	auto: 字段([B)；src: zs-1.11 kellinwood/zipio/ZioEntry.extraData
+f	abcd/IA	j3	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntry.externalAttributes
+f	abcd/IA	Ws	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.numAlignBytes
+f	abcd/IA	u7	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.modificationDate
+f	abcd/IA	gn	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.modificationTime
+f	abcd/IA	v5	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.versionRequired
+f	abcd/IA	Hw	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.versionMadeBy
+f	abcd/IA	Zo	-	auto: 字段(S)；src: zs-1.11 kellinwood/zipio/ZioEntry.generalPurposeBits
+m	abcd/IA	tp	()Labcd/tA;	auto: 取 Logger（上游无同签名对应，按作用取名）
+m	abcd/JA	j6	(Ljava/io/OutputStream;)V	auto: 设 MonitorStream；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream#setMonitorStream
+m	abcd/JA	j6	(Z)V	auto: 设 ReturnDummyByte；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream#setReturnDummyByte
+f	abcd/JA	Hw	-	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.log
+f	abcd/JA	VH	-	auto: 字段(Ljava/io/OutputStream;)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.monitor
+f	abcd/JA	j6	-	auto: 字段(Ljava/io/RandomAccessFile;)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.raf
+m	abcd/JA	j6	([BII)I	auto: 读取 Bytes；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream#readBytes
+f	abcd/JA	DW	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.size
+f	abcd/JA	FH	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.offset
+f	abcd/JA	Zo	-	auto: 字段(Z)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.returnDummyByte
+f	abcd/JA	v5	-	auto: 字段(Z)；src: zs-1.11 kellinwood/zipio/ZioEntryInputStream.debug
+m	abcd/KA	FH	()Ljava/io/OutputStream;	auto: 取 WrappedStream；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream#getWrappedStream
+f	abcd/KA	DW	-	auto: 字段(Ljava/util/zip/CRC32;)；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream.crc
+m	abcd/KA	j6	()I	auto: 取 CRC；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream#getCRC
+m	abcd/KA	DW	()I	auto: 取 Size；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream#getSize
+f	abcd/KA	j6	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream.size
+f	abcd/KA	FH	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream.crcValue
+f	abcd/KA	Hw	-	auto: 字段(Ljava/io/OutputStream;)；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream.wrapped
+f	abcd/KA	v5	-	auto: 字段(Ljava/io/OutputStream;)；src: zs-1.11 kellinwood/zipio/ZioEntryOutputStream.downstream
+m	abcd/LA	j6	(Ljava/lang/String;)Labcd/LA;	auto: 「read」；src: zs-1.11 kellinwood/zipio/ZipInput#read
+m	abcd/LA	DW	(I)Ljava/lang/String;	auto: 读取 String；src: zs-1.11 kellinwood/zipio/ZipInput#readString
+m	abcd/LA	FH	()I	auto: 读取 Int；src: zs-1.11 kellinwood/zipio/ZipInput#readInt
+m	abcd/LA	FH	(I)J	src: zs-1.11 kellinwood/zipio/ZipInput#scanForEOCDR；doc: Scan the end of the file for the end of central directory record (EOCDR).
+m	abcd/LA	Hw	()S	auto: 读取 Short；src: zs-1.11 kellinwood/zipio/ZipInput#readShort
+m	abcd/LA	j6	()Ljava/util/Map;	auto: 取 Entries；src: zs-1.11 kellinwood/zipio/ZipInput#getEntries
+m	abcd/LA	j6	(J)V	auto: 执行 seek；src: zs-1.11 kellinwood/zipio/ZipInput#seek
+m	abcd/LA	j6	(I)[B	auto: 读取 Bytes；src: zs-1.11 kellinwood/zipio/ZipInput#readBytes
+f	abcd/LA	j6	-	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/ZipInput.log
+f	abcd/LA	DW	-	auto: 字段(Ljava/lang/String;)；src: zs-1.11 kellinwood/zipio/ZipInput.inputFilename
+f	abcd/LA	FH	-	auto: 字段(Ljava/io/RandomAccessFile;)；src: zs-1.11 kellinwood/zipio/ZipInput.in
+f	abcd/LA	Hw	-	auto: 字段(J)；src: zs-1.11 kellinwood/zipio/ZipInput.fileLength
+f	abcd/LA	VH	-	auto: 字段(Labcd/HA;)；src: zs-1.11 kellinwood/zipio/ZipInput.centralEnd
+f	abcd/LA	Zo	-	auto: 字段(Ljava/util/Map;)；src: zs-1.11 kellinwood/zipio/ZipInput.zioEntries
+f	abcd/LA	v5	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZipInput.scanIterations
+m	abcd/LA	v5	()V	auto: 执行 doRead；src: zs-1.11 kellinwood/zipio/ZipInput#doRead
+m	abcd/LA	DW	()J	auto: 取 FilePointer；src: zs-1.11 kellinwood/zipio/ZipInput#getFilePointer
+m	abcd/LA	Zo	()Labcd/tA;	auto: 取 Logger（上游无同签名对应，按作用取名）
+m	abcd/MA	j6	(Labcd/tA;)V	auto: 执行 listHeader；src: zs-1.11 kellinwood/zipio/ZipListingHelper#listHeader
+m	abcd/MA	j6	(Labcd/tA;Labcd/IA;)V	auto: 执行 listEntry；src: zs-1.11 kellinwood/zipio/ZipListingHelper#listEntry
+f	abcd/MA	j6	-	auto: 字段(Ljava/text/DateFormat;)；src: zs-1.11 kellinwood/zipio/ZipListingHelper.dateFormat
+m	abcd/NA	DW	()I	auto: 取 FilePointer；src: zs-1.11 kellinwood/zipio/ZipOutput#getFilePointer
+m	abcd/NA	j6	(I)V	auto: 写出 Int；src: zs-1.11 kellinwood/zipio/ZipOutput#writeInt
+m	abcd/NA	j6	(Labcd/IA;)V	auto: 执行 write；src: zs-1.11 kellinwood/zipio/ZipOutput#write
+m	abcd/NA	j6	(S)V	auto: 写出 Short；src: zs-1.11 kellinwood/zipio/ZipOutput#writeShort
+m	abcd/NA	j6	([B)V	auto: 写出 Bytes；src: zs-1.11 kellinwood/zipio/ZipOutput#writeBytes
+m	abcd/NA	j6	([BII)V	auto: 写出 Bytes；src: zs-1.11 kellinwood/zipio/ZipOutput#writeBytes
+f	abcd/NA	j6	-	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/zipio/ZipOutput.log
+f	abcd/NA	DW	-	auto: 字段(Ljava/io/OutputStream;)；src: zs-1.11 kellinwood/zipio/ZipOutput.out
+f	abcd/NA	FH	-	auto: 字段(I)；src: zs-1.11 kellinwood/zipio/ZipOutput.filePointer
+f	abcd/NA	Hw	-	auto: 字段(Ljava/util/List;)；src: zs-1.11 kellinwood/zipio/ZipOutput.entriesWritten
+f	abcd/NA	v5	-	auto: 字段(Ljava/util/Set;)；src: zs-1.11 kellinwood/zipio/ZipOutput.namesWritten
+m	abcd/NA	j6	()V	auto: 执行 close；src: zs-1.11 kellinwood/zipio/ZipOutput#close
+m	abcd/NA	j6	(Ljava/lang/String;)V	auto: 写出 String；src: zs-1.11 kellinwood/zipio/ZipOutput#writeString
+m	abcd/NA	FH	()Labcd/tA;	auto: 取 Logger（上游无同签名对应，按作用取名）
+m	abcd/sA	j6	(Ljava/lang/String;)Labcd/tA;	auto: 取 Logger；src: zs-1.11 kellinwood/logging/LoggerFactory#getLogger
+m	abcd/tA	Hw	(Ljava/lang/String;)V	auto: 执行 info；src: zs-1.11 kellinwood/logging/Logger#info
+m	abcd/tA	j6	(Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 error；src: zs-1.11 kellinwood/logging/Logger#error
+m	abcd/tA	DW	(Ljava/lang/String;)V	auto: 执行 debug；src: zs-1.11 kellinwood/logging/Logger#debug
+m	abcd/tA	FH	(Ljava/lang/String;)V	auto: 执行 warn；src: zs-1.11 kellinwood/logging/Logger#warn
+m	abcd/tA	j6	(Ljava/lang/String;)V	auto: 执行 error；src: zs-1.11 kellinwood/logging/Logger#error
+m	abcd/uA	j6	(Ljava/lang/String;)Labcd/tA;	auto: 取 Logger；src: zs-1.11 kellinwood/logging/LogManager#getLogger
+f	abcd/uA	j6	-	auto: 字段(Labcd/sA;)；src: zs-1.11 kellinwood/logging/LogManager.factory
+f	abcd/uA	DW	-	auto: 字段(Ljava/util/Map;)；src: zs-1.11 kellinwood/logging/LogManager.loggers
+m	abcd/vA	Hw	(Ljava/lang/String;)V	auto: 执行 info；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#info
+m	abcd/vA	DW	(Ljava/lang/String;)V	auto: 执行 debug；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#debug
+m	abcd/vA	FH	(Ljava/lang/String;)V	auto: 执行 warn；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#warn
+m	abcd/vA	j6	(Ljava/lang/String;)V	auto: 执行 error；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#error
+m	abcd/vA	j6	(Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 error；src: zs-1.11 kellinwood/logging/NullLoggerFactory$1#error
+m	abcd/wA	j6	(Ljava/lang/String;)Labcd/tA;	auto: 取 Logger；src: zs-1.11 kellinwood/logging/NullLoggerFactory#getLogger
+f	abcd/wA	j6	-	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/logging/NullLoggerFactory.logger
+f	abcd/yA	j6	-	auto: 字段(Ljava/lang/reflect/Method;)；src: zs-1.11 kellinwood/security/zipsigner/Base64.aEncodeMethod
+m	abcd/yA	j6	([B)Ljava/lang/String;	auto: 「encode」；src: zs-1.11 kellinwood/security/zipsigner/Base64#encode
+f	abcd/yA	Hw	-	auto: 字段(Labcd/tA;)；src: zs-1.11 kellinwood/security/zipsigner/Base64.logger
+f	abcd/yA	DW	-	auto: 字段(Ljava/lang/Object;)；src: zs-1.11 kellinwood/security/zipsigner/Base64.bEncoder
+f	abcd/yA	FH	-	auto: 字段(Ljava/lang/reflect/Method;)；src: zs-1.11 kellinwood/security/zipsigner/Base64.bEncodeMethod
+m	abcd/zA	j6	([B)Ljava/lang/String;	auto: 「encode」；src: zs-1.11 kellinwood/security/zipsigner/HexDumpEncoder#encode
+f	abcd/zA	j6	-	auto: 字段(Labcd/AA;)；src: zs-1.11 kellinwood/security/zipsigner/HexDumpEncoder.encoder
+f	kellinwood/sigblock/a	j6	-	auto: 字段([B)（上游无同类型对应，按作用取名）
+m	kellinwood/sigblock/a	DW	()Labcd/wN;	auto: 取 AlgorithmIdentifier（上游无同签名对应，按作用取名）
+m	kellinwood/sigblock/a	FH	()[B	auto: 取 Signature（上游无同签名对应，按作用取名）
+m	kellinwood/sigblock/a	j6	()Ljava/io/OutputStream;	auto: 取 OutputStream（上游无同签名对应，按作用取名）

@@ -1,0 +1,1369 @@
+c	com/jcraft/jsch/UserInfo	-	-	auto: 类：UserInfo；src: jsch-0.1.51 com/jcraft/jsch/UserInfo
+c	com/jcraft/jsch/UIKeyboardInteractive	-	-	auto: 类：UIKeyboardInteractive；src: jsch-0.1.51 com/jcraft/jsch/UIKeyboardInteractive
+c	com/jcraft/jsch/Buffer	-	-	auto: 类：Buffer；src: jsch-0.1.51 com/jcraft/jsch/Buffer
+c	com/jcraft/jsch/Channel	-	-	auto: 类：Channel；src: jsch-0.1.51 com/jcraft/jsch/Channel
+c	com/jcraft/jsch/Channel$MyPipedInputStream	-	-	auto: 流：MyPipedInput（外层 Channel）；src: jsch-0.1.51 com/jcraft/jsch/Channel$MyPipedInputStream
+c	com/jcraft/jsch/ChannelAgentForwarding	-	-	auto: 类：ChannelAgentForwarding；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding
+c	com/jcraft/jsch/ChannelDirectTCPIP	-	-	auto: 类：ChannelDirectTCPIP；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP
+c	com/jcraft/jsch/ChannelExec	-	-	auto: 类：ChannelExec；src: jsch-0.1.51 com/jcraft/jsch/ChannelExec
+c	com/jcraft/jsch/ChannelForwardedTCPIP	-	-	auto: 类：ChannelForwardedTCPIP；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP
+c	com/jcraft/jsch/ChannelSession	-	-	auto: 会话：Channel；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession
+c	com/jcraft/jsch/ChannelSftp	-	-	auto: 类：ChannelSftp；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp
+c	com/jcraft/jsch/ChannelSftp$3	-	-	auto: 匿名内部类（外层 ChannelSftp）；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$3
+c	com/jcraft/jsch/ChannelSftp$LsEntry	-	-	auto: 条目：Ls（外层 ChannelSftp）；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry
+c	com/jcraft/jsch/ChannelSftp$LsEntrySelector	-	-	auto: 类：LsEntrySelector（外层 ChannelSftp）；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntrySelector
+c	com/jcraft/jsch/ChannelSftp$RequestQueue	-	-	auto: 类：RequestQueue（外层 ChannelSftp）；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue
+c	com/jcraft/jsch/ChannelX11	-	-	auto: 类：ChannelX11；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11
+c	com/jcraft/jsch/Cipher	-	-	auto: 类：Cipher；src: jsch-0.1.51 com/jcraft/jsch/Cipher
+c	com/jcraft/jsch/CipherNone	-	-	auto: 类：CipherNone；src: jsch-0.1.51 com/jcraft/jsch/CipherNone
+c	com/jcraft/jsch/Compression	-	-	auto: 类：Compression；src: jsch-0.1.51 com/jcraft/jsch/Compression
+c	com/jcraft/jsch/ConfigRepository	-	-	auto: 仓库：Config；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository
+c	com/jcraft/jsch/ConfigRepository$1	-	-	auto: 匿名内部类（外层 ConfigRepository）；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$1
+c	com/jcraft/jsch/ConfigRepository$2	-	-	auto: 匿名内部类（外层 ConfigRepository）；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$2
+c	com/jcraft/jsch/ConfigRepository$Config	-	-	auto: 类：Config（外层 ConfigRepository）；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$Config
+c	com/jcraft/jsch/DH	-	-	auto: 类：DH；src: jsch-0.1.51 com/jcraft/jsch/DH
+c	com/jcraft/jsch/DHG1	-	-	auto: 类：DHG1；src: jsch-0.1.51 com/jcraft/jsch/DHG1
+c	com/jcraft/jsch/DHG14	-	-	auto: 类：DHG14；src: jsch-0.1.51 com/jcraft/jsch/DHG14
+c	com/jcraft/jsch/DHGEX	-	-	auto: 类：DHGEX；src: jsch-0.1.51 com/jcraft/jsch/DHGEX
+c	com/jcraft/jsch/DHGEX256	-	-	auto: 类：DHGEX256；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256
+c	com/jcraft/jsch/ForwardedTCPIPDaemon	-	-	auto: 类：ForwardedTCPIPDaemon；src: jsch-0.1.51 com/jcraft/jsch/ForwardedTCPIPDaemon
+c	com/jcraft/jsch/GSSContext	-	-	auto: 上下文：GSS；src: jsch-0.1.51 com/jcraft/jsch/GSSContext
+c	com/jcraft/jsch/HASH	-	-	auto: 类：HASH；src: jsch-0.1.51 com/jcraft/jsch/HASH
+c	com/jcraft/jsch/HostKeyRepository	-	-	auto: 仓库：HostKey；src: jsch-0.1.51 com/jcraft/jsch/HostKeyRepository
+c	com/jcraft/jsch/IO	-	-	auto: 类：IO；src: jsch-0.1.51 com/jcraft/jsch/IO
+c	com/jcraft/jsch/Identity	-	-	auto: 类：Identity；src: jsch-0.1.51 com/jcraft/jsch/Identity
+c	com/jcraft/jsch/IdentityFile	-	-	auto: 类：IdentityFile；src: jsch-0.1.51 com/jcraft/jsch/IdentityFile
+c	com/jcraft/jsch/IdentityRepository	-	-	auto: 仓库：Identity；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository
+c	com/jcraft/jsch/IdentityRepository$Wrapper	-	-	auto: 类：Wrapper（外层 IdentityRepository）；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository$Wrapper
+c	com/jcraft/jsch/JSch	-	-	auto: 类：JSch；src: jsch-0.1.51 com/jcraft/jsch/JSch
+c	com/jcraft/jsch/JSch$1	-	-	auto: 匿名内部类（外层 JSch）；src: jsch-0.1.51 com/jcraft/jsch/JSch$1
+c	com/jcraft/jsch/JSchPartialAuthException	-	-	auto: 异常类型：JSchPartialAuth；src: jsch-0.1.51 com/jcraft/jsch/JSchPartialAuthException
+c	com/jcraft/jsch/KeyExchange	-	-	auto: 类：KeyExchange；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange
+c	com/jcraft/jsch/KeyPair	-	-	auto: 类：KeyPair；src: jsch-0.1.51 com/jcraft/jsch/KeyPair
+c	com/jcraft/jsch/KeyPair$ASN1	-	-	auto: 类：ASN1（外层 KeyPair）；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1
+c	com/jcraft/jsch/KeyPairDSA	-	-	auto: 类：KeyPairDSA；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA
+c	com/jcraft/jsch/KeyPairPKCS8	-	-	auto: 类：KeyPairPKCS8；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8
+c	com/jcraft/jsch/KeyPairRSA	-	-	auto: 类：KeyPairRSA；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA
+c	com/jcraft/jsch/KnownHosts	-	-	auto: 类：KnownHosts；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts
+c	com/jcraft/jsch/KnownHosts$HashedHostKey	-	-	auto: 类：HashedHostKey（外层 KnownHosts）；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts$HashedHostKey
+c	com/jcraft/jsch/LocalIdentityRepository	-	-	auto: 仓库：LocalIdentity；src: jsch-0.1.51 com/jcraft/jsch/LocalIdentityRepository
+c	com/jcraft/jsch/Logger	-	-	auto: 类：Logger；src: jsch-0.1.51 com/jcraft/jsch/Logger
+c	com/jcraft/jsch/MAC	-	-	auto: 类：MAC；src: jsch-0.1.51 com/jcraft/jsch/MAC
+c	com/jcraft/jsch/OpenSSHConfig	-	-	src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig；doc: This class implements ConfigRepository interface, and parses OpenSSH's configuration file. The following key…
+c	com/jcraft/jsch/OpenSSHConfig$MyConfig	-	-	auto: 配置：My（外层 OpenSSHConfig）；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig
+c	com/jcraft/jsch/PBKDF	-	-	auto: 类：PBKDF；src: jsch-0.1.51 com/jcraft/jsch/PBKDF
+c	com/jcraft/jsch/Packet	-	-	auto: 类：Packet；src: jsch-0.1.51 com/jcraft/jsch/Packet
+c	com/jcraft/jsch/PortWatcher	-	-	auto: 类：PortWatcher；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher
+c	com/jcraft/jsch/Proxy	-	-	auto: 类：Proxy；src: jsch-0.1.51 com/jcraft/jsch/Proxy
+c	com/jcraft/jsch/ProxyHTTP	-	-	auto: 类：ProxyHTTP；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP
+c	com/jcraft/jsch/ProxySOCKS4	-	-	auto: 类：ProxySOCKS4；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4
+c	com/jcraft/jsch/ProxySOCKS5	-	-	auto: 类：ProxySOCKS5；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5
+c	com/jcraft/jsch/Random	-	-	auto: 类：Random；src: jsch-0.1.51 com/jcraft/jsch/Random
+c	com/jcraft/jsch/Request	-	-	auto: 类：Request；src: jsch-0.1.51 com/jcraft/jsch/Request
+c	com/jcraft/jsch/RequestAgentForwarding	-	-	auto: 类：RequestAgentForwarding；src: jsch-0.1.51 com/jcraft/jsch/RequestAgentForwarding
+c	com/jcraft/jsch/RequestEnv	-	-	auto: 类：RequestEnv；src: jsch-0.1.51 com/jcraft/jsch/RequestEnv
+c	com/jcraft/jsch/RequestExec	-	-	auto: 类：RequestExec；src: jsch-0.1.51 com/jcraft/jsch/RequestExec
+c	com/jcraft/jsch/RequestPtyReq	-	-	auto: 类：RequestPtyReq；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq
+c	com/jcraft/jsch/RequestSftp	-	-	auto: 类：RequestSftp；src: jsch-0.1.51 com/jcraft/jsch/RequestSftp
+c	com/jcraft/jsch/RequestShell	-	-	auto: 类：RequestShell；src: jsch-0.1.51 com/jcraft/jsch/RequestShell
+c	com/jcraft/jsch/RequestSubsystem	-	-	auto: 类：RequestSubsystem；src: jsch-0.1.51 com/jcraft/jsch/RequestSubsystem
+c	com/jcraft/jsch/RequestX11	-	-	auto: 类：RequestX11；src: jsch-0.1.51 com/jcraft/jsch/RequestX11
+c	com/jcraft/jsch/ServerSocketFactory	-	-	auto: 工厂：ServerSocket；src: jsch-0.1.51 com/jcraft/jsch/ServerSocketFactory
+c	com/jcraft/jsch/Session	-	-	auto: 类：Session；src: jsch-0.1.51 com/jcraft/jsch/Session
+c	com/jcraft/jsch/Session$GlobalRequestReply	-	-	auto: 类：GlobalRequestReply（外层 Session）；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply
+c	com/jcraft/jsch/SftpATTRS	-	-	auto: 类：SftpATTRS；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS
+c	com/jcraft/jsch/SftpProgressMonitor	-	-	auto: 类：SftpProgressMonitor；src: jsch-0.1.51 com/jcraft/jsch/SftpProgressMonitor
+c	com/jcraft/jsch/Signature	-	-	auto: 类：Signature；src: jsch-0.1.51 com/jcraft/jsch/Signature
+c	com/jcraft/jsch/SocketFactory	-	-	auto: 工厂：Socket；src: jsch-0.1.51 com/jcraft/jsch/SocketFactory
+c	com/jcraft/jsch/UserAuth	-	-	auto: 类：UserAuth；src: jsch-0.1.51 com/jcraft/jsch/UserAuth
+c	com/jcraft/jsch/UserAuthGSSAPIWithMIC	-	-	auto: 类：UserAuthGSSAPIWithMIC；src: jsch-0.1.51 com/jcraft/jsch/UserAuthGSSAPIWithMIC
+c	com/jcraft/jsch/UserAuthKeyboardInteractive	-	-	auto: 类：UserAuthKeyboardInteractive；src: jsch-0.1.51 com/jcraft/jsch/UserAuthKeyboardInteractive
+c	com/jcraft/jsch/UserAuthNone	-	-	auto: 类：UserAuthNone；src: jsch-0.1.51 com/jcraft/jsch/UserAuthNone
+c	com/jcraft/jsch/UserAuthPassword	-	-	auto: 类：UserAuthPassword；src: jsch-0.1.51 com/jcraft/jsch/UserAuthPassword
+c	com/jcraft/jsch/UserAuthPublicKey	-	-	auto: 类：UserAuthPublicKey；src: jsch-0.1.51 com/jcraft/jsch/UserAuthPublicKey
+c	com/jcraft/jsch/Util	-	-	auto: 类：Util；src: jsch-0.1.51 com/jcraft/jsch/Util
+c	com/jcraft/jsch/jce/AES128CBC	-	-	auto: 类：AES128CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CBC
+c	com/jcraft/jsch/jce/AES128CTR	-	-	auto: 类：AES128CTR；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CTR
+c	com/jcraft/jsch/jce/AES192CBC	-	-	auto: 类：AES192CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CBC
+c	com/jcraft/jsch/jce/AES192CTR	-	-	auto: 类：AES192CTR；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CTR
+c	com/jcraft/jsch/jce/AES256CBC	-	-	auto: 类：AES256CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CBC
+c	com/jcraft/jsch/jce/AES256CTR	-	-	auto: 类：AES256CTR；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CTR
+c	com/jcraft/jsch/jce/ARCFOUR	-	-	auto: 类：ARCFOUR；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR
+c	com/jcraft/jsch/jce/ARCFOUR128	-	-	auto: 类：ARCFOUR128；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR128
+c	com/jcraft/jsch/jce/ARCFOUR256	-	-	auto: 类：ARCFOUR256；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR256
+c	com/jcraft/jsch/jce/BlowfishCBC	-	-	auto: 类：BlowfishCBC；src: jsch-0.1.51 com/jcraft/jsch/jce/BlowfishCBC
+c	com/jcraft/jsch/jce/DH	-	-	auto: 类：DH；src: jsch-0.1.51 com/jcraft/jsch/jce/DH
+c	com/jcraft/jsch/jce/HMAC	-	-	auto: 类：HMAC；src: jsch-0.1.51 com/jcraft/jsch/jce/HMAC
+c	com/jcraft/jsch/jce/HMACMD596	-	-	auto: 类：HMACMD596；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACMD596
+c	com/jcraft/jsch/jce/HMACSHA196	-	-	auto: 类：HMACSHA196；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACSHA196
+c	com/jcraft/jsch/jce/MD5	-	-	auto: 类：MD5；src: jsch-0.1.51 com/jcraft/jsch/jce/MD5
+c	com/jcraft/jsch/jce/PBKDF	-	-	auto: 类：PBKDF；src: jsch-0.1.51 com/jcraft/jsch/jce/PBKDF
+c	com/jcraft/jsch/jce/Random	-	-	auto: 类：Random；src: jsch-0.1.51 com/jcraft/jsch/jce/Random
+c	com/jcraft/jsch/jce/SHA1	-	-	auto: 类：SHA1；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA1
+c	com/jcraft/jsch/jce/SHA256	-	-	auto: 类：SHA256；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA256
+c	com/jcraft/jsch/jce/SignatureDSA	-	-	auto: 类：SignatureDSA；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureDSA
+c	com/jcraft/jsch/jce/SignatureRSA	-	-	auto: 类：SignatureRSA；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureRSA
+c	com/jcraft/jsch/jce/TripleDESCBC	-	-	auto: 类：TripleDESCBC；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCBC
+c	com/jcraft/jsch/jce/TripleDESCTR	-	-	auto: 类：TripleDESCTR；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCTR
+c	com/jcraft/jsch/jcraft/Compression	-	-	auto: 类：Compression；src: jsch-0.1.51 com/jcraft/jsch/jcraft/Compression
+c	com/jcraft/jsch/jcraft/HMAC	-	-	auto: 类：HMAC；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC
+c	com/jcraft/jsch/jcraft/HMACMD596	-	-	auto: 类：HMACMD596；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACMD596
+c	com/jcraft/jsch/jcraft/HMACSHA196	-	-	auto: 类：HMACSHA196；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACSHA196
+c	com/jcraft/jsch/jgss/GSSContextKrb5	-	-	auto: 类：GSSContextKrb5；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5
+c	com/jcraft/jsch/Channel$1	-	-	auto: 匿名内部类（外层 Channel）；src: jsch-0.1.51 com/jcraft/jsch/Channel$1
+c	com/jcraft/jsch/Channel$PassiveInputStream	-	-	auto: 流：PassiveInput（外层 Channel）；src: jsch-0.1.51 com/jcraft/jsch/Channel$PassiveInputStream
+c	com/jcraft/jsch/Channel$PassiveOutputStream	-	-	auto: 流：PassiveOutput（外层 Channel）；src: jsch-0.1.51 com/jcraft/jsch/Channel$PassiveOutputStream
+c	com/jcraft/jsch/ChannelForwardedTCPIP$Config	-	-	auto: 类：Config（外层 ChannelForwardedTCPIP）；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$Config
+c	com/jcraft/jsch/ChannelForwardedTCPIP$ConfigDaemon	-	-	auto: 类：ConfigDaemon（外层 ChannelForwardedTCPIP）；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$ConfigDaemon
+c	com/jcraft/jsch/ChannelForwardedTCPIP$ConfigLHost	-	-	auto: 类：ConfigLHost（外层 ChannelForwardedTCPIP）；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$ConfigLHost
+c	com/jcraft/jsch/ChannelSftp$1	-	-	auto: 匿名内部类（外层 ChannelSftp）；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1
+c	com/jcraft/jsch/ChannelSftp$2	-	-	auto: 匿名内部类（外层 ChannelSftp）；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2
+c	com/jcraft/jsch/ChannelSftp$Header	-	-	auto: 类：Header（外层 ChannelSftp）；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$Header
+c	com/jcraft/jsch/ChannelSftp$RequestQueue$OutOfOrderException	-	-	auto: 异常类型：OutOfOrder（外层 RequestQueue）（外层 ChannelSftp）；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue$OutOfOrderException
+c	com/jcraft/jsch/ChannelSftp$RequestQueue$Request	-	-	auto: 类：Request（外层 RequestQueue）（外层 ChannelSftp）；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue$Request
+c	com/jcraft/jsch/ChannelSubsystem	-	-	auto: 类：ChannelSubsystem；src: jsch-0.1.51 com/jcraft/jsch/ChannelSubsystem
+c	com/jcraft/jsch/HostKey	-	-	auto: 类：HostKey；src: jsch-0.1.51 com/jcraft/jsch/HostKey
+c	com/jcraft/jsch/JSchAuthCancelException	-	-	auto: 异常类型：JSchAuthCancel；src: jsch-0.1.51 com/jcraft/jsch/JSchAuthCancelException
+c	com/jcraft/jsch/JSchException	-	-	auto: 异常类型：JSch；src: jsch-0.1.51 com/jcraft/jsch/JSchException
+c	com/jcraft/jsch/KeyPair$ASN1Exception	-	-	auto: 异常类型：ASN1（外层 KeyPair）；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1Exception
+c	com/jcraft/jsch/RequestSignal	-	-	auto: 类：RequestSignal；src: jsch-0.1.51 com/jcraft/jsch/RequestSignal
+c	com/jcraft/jsch/Session$Forwarding	-	-	auto: 类：Forwarding（外层 Session）；src: jsch-0.1.51 com/jcraft/jsch/Session$Forwarding
+c	com/jcraft/jsch/SftpException	-	-	auto: 异常类型：Sftp；src: jsch-0.1.51 com/jcraft/jsch/SftpException
+c	com/jcraft/jsch/SftpStatVFS	-	-	auto: 类：SftpStatVFS；src: jsch-0.1.51 com/jcraft/jsch/SftpStatVFS
+c	com/jcraft/jsch/Util$1	-	-	auto: 匿名内部类（外层 Util）；src: jsch-0.1.51 com/jcraft/jsch/Util$1
+c	com/jcraft/jsch/ChannelShell	-	-	auto: 类：ChannelShell；src: jsch-0.1.51 com/jcraft/jsch/ChannelShell
+c	com/jcraft/jsch/SignatureDSA	-	-	auto: 类：SignatureDSA；src: jsch-0.1.51 com/jcraft/jsch/SignatureDSA
+c	com/jcraft/jsch/SignatureRSA	-	-	auto: 类：SignatureRSA；src: jsch-0.1.51 com/jcraft/jsch/SignatureRSA
+c	com/jcraft/jsch/RequestWindowChange	-	-	auto: 类：RequestWindowChange；src: jsch-0.1.51 com/jcraft/jsch/RequestWindowChange
+c	com/jcraft/jsch/jce/HMACMD5	-	-	auto: 类：HMACMD5；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACMD5
+c	com/jcraft/jsch/jce/HMACSHA1	-	-	auto: 类：HMACSHA1；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACSHA1
+c	com/jcraft/jsch/jcraft/HMACMD5	-	-	auto: 类：HMACMD5；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACMD5
+c	com/jcraft/jsch/jcraft/HMACSHA1	-	-	auto: 类：HMACSHA1；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACSHA1
+m	com/jcraft/jsch/UserInfo	DW	(Ljava/lang/String;)V	auto: 执行 showMessage；src: jsch-0.1.51 com/jcraft/jsch/UserInfo#showMessage
+m	com/jcraft/jsch/UserInfo	FH	(Ljava/lang/String;)Z	auto: 「promptPassphrase」；src: jsch-0.1.51 com/jcraft/jsch/UserInfo#promptPassphrase
+m	com/jcraft/jsch/UserInfo	Hw	(Ljava/lang/String;)Z	auto: 「promptYesNo」；src: jsch-0.1.51 com/jcraft/jsch/UserInfo#promptYesNo
+m	com/jcraft/jsch/UserInfo	j6	()Ljava/lang/String;	auto: 取 Passphrase；src: jsch-0.1.51 com/jcraft/jsch/UserInfo#getPassphrase
+m	com/jcraft/jsch/UserInfo	j6	(Ljava/lang/String;)Z	auto: 「promptPassword」；src: jsch-0.1.51 com/jcraft/jsch/UserInfo#promptPassword
+m	com/jcraft/jsch/UIKeyboardInteractive	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Z)[Ljava/lang/String;	auto: 「promptKeyboardInteractive」；src: jsch-0.1.51 com/jcraft/jsch/UIKeyboardInteractive#promptKeyboardInteractive
+m	com/jcraft/jsch/Buffer	j6	([[B)Lcom/jcraft/jsch/Buffer;	auto: 「fromBytes」；src: jsch-0.1.51 com/jcraft/jsch/Buffer#fromBytes
+m	com/jcraft/jsch/Buffer	DW	()B	auto: 取 Command；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getCommand
+m	com/jcraft/jsch/Buffer	DW	(I)I	auto: 取 Byte；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getByte
+m	com/jcraft/jsch/Buffer	j6	(B)V	auto: 放入 Byte；src: jsch-0.1.51 com/jcraft/jsch/Buffer#putByte
+m	com/jcraft/jsch/Buffer	j6	(J)V	auto: 放入 Long；src: jsch-0.1.51 com/jcraft/jsch/Buffer#putLong
+m	com/jcraft/jsch/Buffer	j6	([I[I)[B	auto: 取 String；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getString
+m	com/jcraft/jsch/Buffer	j6	(ILjava/lang/String;)[[B	auto: 取 Bytes；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getBytes
+m	com/jcraft/jsch/Buffer	J0	()V	auto: 执行 rewind；src: jsch-0.1.51 com/jcraft/jsch/Buffer#rewind
+m	com/jcraft/jsch/Buffer	we	()V	auto: 执行 reset；src: jsch-0.1.51 com/jcraft/jsch/Buffer#reset
+m	com/jcraft/jsch/Buffer	J8	()V	auto: 执行 shift；src: jsch-0.1.51 com/jcraft/jsch/Buffer#shift
+m	com/jcraft/jsch/Buffer	v5	(I)V	auto: 执行 skip；src: jsch-0.1.51 com/jcraft/jsch/Buffer#skip
+m	com/jcraft/jsch/Buffer	FH	(I)V	auto: 放入 Int；src: jsch-0.1.51 com/jcraft/jsch/Buffer#putInt
+m	com/jcraft/jsch/Buffer	Hw	(I)V	auto: 设 OffSet；src: jsch-0.1.51 com/jcraft/jsch/Buffer#setOffSet
+m	com/jcraft/jsch/Buffer	j6	(I)V	auto: 检查 FreeSize；src: jsch-0.1.51 com/jcraft/jsch/Buffer#checkFreeSize
+m	com/jcraft/jsch/Buffer	Hw	([B)V	auto: 放入 String；src: jsch-0.1.51 com/jcraft/jsch/Buffer#putString
+m	com/jcraft/jsch/Buffer	DW	([B)V	auto: 放入 Byte；src: jsch-0.1.51 com/jcraft/jsch/Buffer#putByte
+m	com/jcraft/jsch/Buffer	FH	([B)V	auto: 放入 MPInt；src: jsch-0.1.51 com/jcraft/jsch/Buffer#putMPInt
+m	com/jcraft/jsch/Buffer	FH	([BII)V	auto: 放入 String；src: jsch-0.1.51 com/jcraft/jsch/Buffer#putString
+m	com/jcraft/jsch/Buffer	DW	([BII)V	auto: 放入 Byte；src: jsch-0.1.51 com/jcraft/jsch/Buffer#putByte
+m	com/jcraft/jsch/Buffer	j6	([BII)V	auto: 取 Byte；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getByte
+m	com/jcraft/jsch/Buffer	v5	()J	auto: 取 Long；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getLong
+m	com/jcraft/jsch/Buffer	EQ	()J	auto: 取 UInt；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getUInt
+m	com/jcraft/jsch/Buffer	FH	()I	auto: 取 Int；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getInt
+m	com/jcraft/jsch/Buffer	gn	()I	auto: 取 OffSet；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getOffSet
+m	com/jcraft/jsch/Buffer	Hw	()I	auto: 取 Length；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getLength
+m	com/jcraft/jsch/Buffer	u7	()I	auto: 取 Short；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getShort
+m	com/jcraft/jsch/Buffer	j6	()I	auto: 取 Byte；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getByte
+m	com/jcraft/jsch/Buffer	tp	()[B	auto: 取 String；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getString
+m	com/jcraft/jsch/Buffer	Zo	()[B	auto: 取 MPInt；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getMPInt
+m	com/jcraft/jsch/Buffer	j6	([B)V	auto: 取 Byte；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getByte
+m	com/jcraft/jsch/Buffer	VH	()[B	auto: 取 MPIntBits；src: jsch-0.1.51 com/jcraft/jsch/Buffer#getMPIntBits
+f	com/jcraft/jsch/Buffer	DW	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Buffer.buffer
+f	com/jcraft/jsch/Buffer	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Buffer.index
+f	com/jcraft/jsch/Buffer	j6	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Buffer.tmp
+f	com/jcraft/jsch/Buffer	Hw	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Buffer.s
+m	com/jcraft/jsch/Channel	j6	(ILcom/jcraft/jsch/Session;)Lcom/jcraft/jsch/Channel;	auto: 取 Channel；src: jsch-0.1.51 com/jcraft/jsch/Channel#getChannel
+m	com/jcraft/jsch/Channel	j6	(Ljava/lang/String;)Lcom/jcraft/jsch/Channel;	auto: 取 Channel；src: jsch-0.1.51 com/jcraft/jsch/Channel#getChannel
+m	com/jcraft/jsch/Channel	j6	(Lcom/jcraft/jsch/Channel;)V	auto: 执行 del；src: jsch-0.1.51 com/jcraft/jsch/Channel#del
+m	com/jcraft/jsch/Channel	EQ	()Lcom/jcraft/jsch/Session;	auto: 取 Session；src: jsch-0.1.51 com/jcraft/jsch/Channel#getSession
+m	com/jcraft/jsch/Channel	j6	(Lcom/jcraft/jsch/Buffer;)V	auto: 取 Data；src: jsch-0.1.51 com/jcraft/jsch/Channel#getData
+m	com/jcraft/jsch/Channel	u7	()Ljava/io/OutputStream;	auto: 取 OutputStream；src: jsch-0.1.51 com/jcraft/jsch/Channel#getOutputStream
+m	com/jcraft/jsch/Channel	v5	()Lcom/jcraft/jsch/Packet;	auto: 「genChannelOpenPacket」；src: jsch-0.1.51 com/jcraft/jsch/Channel#genChannelOpenPacket
+f	com/jcraft/jsch/Channel	DW	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/Channel.pool
+f	com/jcraft/jsch/Channel	EQ	-	auto: 字段(Lcom/jcraft/jsch/IO;)；src: jsch-0.1.51 com/jcraft/jsch/Channel.io
+f	com/jcraft/jsch/Channel	U2	-	auto: 字段(Lcom/jcraft/jsch/Session;)；src: jsch-0.1.51 com/jcraft/jsch/Channel.session
+f	com/jcraft/jsch/Channel	u7	-	auto: 字段(J)；src: jsch-0.1.51 com/jcraft/jsch/Channel.rwsize
+f	com/jcraft/jsch/Channel	v5	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Channel.type
+f	com/jcraft/jsch/Channel	we	-	auto: 字段(Ljava/lang/Thread;)；src: jsch-0.1.51 com/jcraft/jsch/Channel.thread
+m	com/jcraft/jsch/Channel	J8	()V	auto: 执行 sendChannelOpen；src: jsch-0.1.51 com/jcraft/jsch/Channel#sendChannelOpen
+m	com/jcraft/jsch/Channel	we	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/Channel#init
+m	com/jcraft/jsch/Channel	FH	()V	auto: 执行 eof；src: jsch-0.1.51 com/jcraft/jsch/Channel#eof
+m	com/jcraft/jsch/Channel	Ws	()V	auto: 执行 sendOpenConfirmation；src: jsch-0.1.51 com/jcraft/jsch/Channel#sendOpenConfirmation
+m	com/jcraft/jsch/Channel	DW	()V	auto: 执行 disconnect；src: jsch-0.1.51 com/jcraft/jsch/Channel#disconnect
+m	com/jcraft/jsch/Channel	Hw	()V	auto: 执行 eof_remote；src: jsch-0.1.51 com/jcraft/jsch/Channel#eof_remote
+m	com/jcraft/jsch/Channel	DW	(Lcom/jcraft/jsch/Session;)V	auto: 设 Session；src: jsch-0.1.51 com/jcraft/jsch/Channel#setSession
+m	com/jcraft/jsch/Channel	j6	(Lcom/jcraft/jsch/Session;)V	auto: 执行 disconnect；src: jsch-0.1.51 com/jcraft/jsch/Channel#disconnect
+m	com/jcraft/jsch/Channel	gn	(I)V	auto: 设 RemotePacketSize；src: jsch-0.1.51 com/jcraft/jsch/Channel#setRemotePacketSize
+m	com/jcraft/jsch/Channel	VH	(I)V	auto: 设 Recipient；src: jsch-0.1.51 com/jcraft/jsch/Channel#setRecipient
+m	com/jcraft/jsch/Channel	FH	(I)V	auto: 设 ExitStatus；src: jsch-0.1.51 com/jcraft/jsch/Channel#setExitStatus
+m	com/jcraft/jsch/Channel	j6	(I)V	auto: 执行 connect；src: jsch-0.1.51 com/jcraft/jsch/Channel#connect
+m	com/jcraft/jsch/Channel	DW	(I)V	auto: 执行 sendOpenFailure；src: jsch-0.1.51 com/jcraft/jsch/Channel#sendOpenFailure
+m	com/jcraft/jsch/Channel	DW	(J)V	auto: 设 RemoteWindowSize；src: jsch-0.1.51 com/jcraft/jsch/Channel#setRemoteWindowSize
+m	com/jcraft/jsch/Channel	j6	(J)V	auto: 加入 RemoteWindowSize；src: jsch-0.1.51 com/jcraft/jsch/Channel#addRemoteWindowSize
+m	com/jcraft/jsch/Channel	DW	([BII)V	auto: 执行 write_ext；src: jsch-0.1.51 com/jcraft/jsch/Channel#write_ext
+m	com/jcraft/jsch/Channel	J0	()Z	auto: 是否 Connected；src: jsch-0.1.51 com/jcraft/jsch/Channel#isConnected
+m	com/jcraft/jsch/Channel	VH	()Ljava/io/InputStream;	auto: 取 InputStream；src: jsch-0.1.51 com/jcraft/jsch/Channel#getInputStream
+m	com/jcraft/jsch/Channel	tp	()I	auto: 取 Recipient；src: jsch-0.1.51 com/jcraft/jsch/Channel#getRecipient
+m	com/jcraft/jsch/Channel	j6	()V	auto: 执行 close；src: jsch-0.1.51 com/jcraft/jsch/Channel#close
+m	com/jcraft/jsch/Channel	QX	()V	auto: 执行 start；src: jsch-0.1.51 com/jcraft/jsch/Channel#start
+m	com/jcraft/jsch/Channel	Hw	(I)V	auto: 设 LocalPacketSize；src: jsch-0.1.51 com/jcraft/jsch/Channel#setLocalPacketSize
+m	com/jcraft/jsch/Channel	gn	()Ljava/io/InputStream;	auto: 取 ExtInputStream；src: jsch-0.1.51 com/jcraft/jsch/Channel#getExtInputStream
+m	com/jcraft/jsch/Channel	v5	(I)V	auto: 设 LocalWindowSize；src: jsch-0.1.51 com/jcraft/jsch/Channel#setLocalWindowSize
+m	com/jcraft/jsch/Channel	Zo	(I)V	auto: 设 LocalWindowSizeMax；src: jsch-0.1.51 com/jcraft/jsch/Channel#setLocalWindowSizeMax
+f	com/jcraft/jsch/Channel	j6	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.index
+f	com/jcraft/jsch/Channel	j3	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.reply
+f	com/jcraft/jsch/Channel	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.id
+f	com/jcraft/jsch/Channel	Mr	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.connectTimeout
+f	com/jcraft/jsch/Channel	VH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.lwsize
+f	com/jcraft/jsch/Channel	Ws	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Channel.close
+f	com/jcraft/jsch/Channel	XL	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Channel.open_confirmation
+f	com/jcraft/jsch/Channel	a8	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.notifyme
+f	com/jcraft/jsch/Channel	gn	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.lmpsize
+f	com/jcraft/jsch/Channel	Hw	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.recipient
+f	com/jcraft/jsch/Channel	QX	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Channel.connected
+f	com/jcraft/jsch/Channel	J0	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Channel.eof_local
+f	com/jcraft/jsch/Channel	J8	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Channel.eof_remote
+f	com/jcraft/jsch/Channel	tp	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.rmpsize
+f	com/jcraft/jsch/Channel	Zo	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.lwsize_max
+f	com/jcraft/jsch/Channel	aM	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel.exitstatus
+m	com/jcraft/jsch/Channel	Zo	()I	auto: 取 ExitStatus；src: jsch-0.1.51 com/jcraft/jsch/Channel#getExitStatus
+m	com/jcraft/jsch/Channel	j6	([BII)V	auto: 执行 write；src: jsch-0.1.51 com/jcraft/jsch/Channel#write
+m	com/jcraft/jsch/Channel$MyPipedInputStream	DW	()I	auto: 「freeSpace」；src: jsch-0.1.51 com/jcraft/jsch/Channel$MyPipedInputStream#freeSpace
+m	com/jcraft/jsch/Channel$MyPipedInputStream	j6	()V	auto: 更新 ReadSide；src: jsch-0.1.51 com/jcraft/jsch/Channel$MyPipedInputStream#updateReadSide
+m	com/jcraft/jsch/Channel$MyPipedInputStream	j6	(I)V	auto: 检查 Space；src: jsch-0.1.51 com/jcraft/jsch/Channel$MyPipedInputStream#checkSpace
+f	com/jcraft/jsch/Channel$MyPipedInputStream	FH	-	auto: 字段(Lcom/jcraft/jsch/Channel;)；src: jsch-0.1.51 com/jcraft/jsch/Channel$MyPipedInputStream.this$0
+f	com/jcraft/jsch/Channel$MyPipedInputStream	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel$MyPipedInputStream.max_buffer_size
+f	com/jcraft/jsch/Channel$MyPipedInputStream	j6	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel$MyPipedInputStream.BUFFER_SIZE
+m	com/jcraft/jsch/ChannelAgentForwarding	j6	([B)V	auto: 执行 send；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding#send
+f	com/jcraft/jsch/ChannelAgentForwarding	sG	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.init
+f	com/jcraft/jsch/ChannelAgentForwarding	vJ	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.packet
+m	com/jcraft/jsch/ChannelAgentForwarding	Hw	()V	auto: 执行 eof_remote；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding#eof_remote
+f	com/jcraft/jsch/ChannelAgentForwarding	yS	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH_AGENT_RSA_RESPONSE
+f	com/jcraft/jsch/ChannelAgentForwarding	vy	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH_AGENTC_ADD_RSA_IDENTITY
+f	com/jcraft/jsch/ChannelAgentForwarding	sh	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH2_AGENTC_REMOVE_IDENTITY
+f	com/jcraft/jsch/ChannelAgentForwarding	ro	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH2_AGENT_SIGN_RESPONSE
+f	com/jcraft/jsch/ChannelAgentForwarding	rN	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH_AGENT_RSA_IDENTITIES_ANSWER
+f	com/jcraft/jsch/ChannelAgentForwarding	nw	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH2_AGENTC_REQUEST_IDENTITIES
+f	com/jcraft/jsch/ChannelAgentForwarding	lg	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH_AGENTC_REQUEST_RSA_IDENTITIES
+f	com/jcraft/jsch/ChannelAgentForwarding	gW	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH_AGENT_FAILURE
+f	com/jcraft/jsch/ChannelAgentForwarding	er	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH_AGENTC_RSA_CHALLENGE
+f	com/jcraft/jsch/ChannelAgentForwarding	ei	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH_AGENTC_REMOVE_ALL_RSA_IDENTITIES
+f	com/jcraft/jsch/ChannelAgentForwarding	dx	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH2_AGENT_FAILURE
+f	com/jcraft/jsch/ChannelAgentForwarding	cn	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH2_AGENTC_ADD_IDENTITY
+f	com/jcraft/jsch/ChannelAgentForwarding	cb	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH2_AGENTC_REMOVE_ALL_IDENTITIES
+f	com/jcraft/jsch/ChannelAgentForwarding	SI	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH2_AGENT_IDENTITIES_ANSWER
+f	com/jcraft/jsch/ChannelAgentForwarding	P8	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH_AGENTC_REMOVE_RSA_IDENTITY
+f	com/jcraft/jsch/ChannelAgentForwarding	KD	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH2_AGENTC_SIGN_REQUEST
+f	com/jcraft/jsch/ChannelAgentForwarding	BT	-	auto: 字段(B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.SSH_AGENT_SUCCESS
+f	com/jcraft/jsch/ChannelAgentForwarding	Sf	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.wbuf
+f	com/jcraft/jsch/ChannelAgentForwarding	ef	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.rbuf
+f	com/jcraft/jsch/ChannelAgentForwarding	g3	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding.mbuf
+m	com/jcraft/jsch/ChannelAgentForwarding	j6	([BII)V	auto: 执行 write；src: jsch-0.1.51 com/jcraft/jsch/ChannelAgentForwarding#write
+m	com/jcraft/jsch/ChannelDirectTCPIP	j6	(Ljava/io/InputStream;)V	auto: 设 InputStream；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP#setInputStream
+m	com/jcraft/jsch/ChannelDirectTCPIP	j6	(Ljava/io/OutputStream;)V	auto: 设 OutputStream；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP#setOutputStream
+m	com/jcraft/jsch/ChannelDirectTCPIP	v5	()Lcom/jcraft/jsch/Packet;	auto: 「genChannelOpenPacket」；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP#genChannelOpenPacket
+f	com/jcraft/jsch/ChannelDirectTCPIP	lg	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP._type
+m	com/jcraft/jsch/ChannelDirectTCPIP	DW	(Ljava/lang/String;)V	auto: 设 Host；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP#setHost
+m	com/jcraft/jsch/ChannelDirectTCPIP	j6	(I)V	auto: 执行 connect；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP#connect
+m	com/jcraft/jsch/ChannelDirectTCPIP	tp	(I)V	auto: 设 Port；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP#setPort
+m	com/jcraft/jsch/ChannelDirectTCPIP	FH	(Ljava/lang/String;)V	auto: 设 OrgIPAddress；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP#setOrgIPAddress
+m	com/jcraft/jsch/ChannelDirectTCPIP	u7	(I)V	auto: 设 OrgPort；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP#setOrgPort
+f	com/jcraft/jsch/ChannelDirectTCPIP	gW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP.originator_port
+f	com/jcraft/jsch/ChannelDirectTCPIP	yS	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP.originator_IP_address
+f	com/jcraft/jsch/ChannelDirectTCPIP	er	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP.port
+f	com/jcraft/jsch/ChannelDirectTCPIP	rN	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP.host
+m	com/jcraft/jsch/ChannelDirectTCPIP	we	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/ChannelDirectTCPIP#init
+m	com/jcraft/jsch/ChannelExec	aM	()Ljava/io/InputStream;	auto: 取 ErrStream；src: jsch-0.1.51 com/jcraft/jsch/ChannelExec#getErrStream
+f	com/jcraft/jsch/ChannelExec	KD	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelExec.command
+m	com/jcraft/jsch/ChannelExec	QX	()V	auto: 执行 start；src: jsch-0.1.51 com/jcraft/jsch/ChannelExec#start
+m	com/jcraft/jsch/ChannelExec	we	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/ChannelExec#init
+m	com/jcraft/jsch/ChannelExec	DW	(Ljava/lang/String;)V	auto: 设 Command；src: jsch-0.1.51 com/jcraft/jsch/ChannelExec#setCommand
+m	com/jcraft/jsch/ChannelExec	j6	(Z)V	auto: 设 AgentForwarding；src: jsch-0.1.51 com/jcraft/jsch/ChannelExec#setAgentForwarding
+m	com/jcraft/jsch/ChannelExec	DW	(Z)V	auto: 设 Pty；src: jsch-0.1.51 com/jcraft/jsch/ChannelExec#setPty
+m	com/jcraft/jsch/ChannelForwardedTCPIP	DW	(Lcom/jcraft/jsch/Session;Ljava/lang/String;I)Lcom/jcraft/jsch/ChannelForwardedTCPIP$Config;	auto: 取 Port；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP#getPort
+m	com/jcraft/jsch/ChannelForwardedTCPIP	DW	(Ljava/lang/String;)Ljava/lang/String;	auto: 「normalize」；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP#normalize
+m	com/jcraft/jsch/ChannelForwardedTCPIP	FH	(Lcom/jcraft/jsch/Session;)V	auto: 执行 delPort；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP#delPort
+m	com/jcraft/jsch/ChannelForwardedTCPIP	j6	(Lcom/jcraft/jsch/Session;I)V	auto: 执行 delPort；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP#delPort
+m	com/jcraft/jsch/ChannelForwardedTCPIP	j6	(Lcom/jcraft/jsch/Session;Ljava/lang/String;I)V	auto: 执行 delPort；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP#delPort
+m	com/jcraft/jsch/ChannelForwardedTCPIP	j6	(Lcom/jcraft/jsch/Session;Ljava/lang/String;IILjava/lang/String;ILcom/jcraft/jsch/SocketFactory;)V	auto: 加入 Port；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP#addPort
+m	com/jcraft/jsch/ChannelForwardedTCPIP	j6	(Lcom/jcraft/jsch/Buffer;)V	auto: 取 Data；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP#getData
+f	com/jcraft/jsch/ChannelForwardedTCPIP	lg	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP.pool
+f	com/jcraft/jsch/ChannelForwardedTCPIP	er	-	auto: 字段(Lcom/jcraft/jsch/ForwardedTCPIPDaemon;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP.daemon
+f	com/jcraft/jsch/ChannelForwardedTCPIP	rN	-	auto: 字段(Ljava/net/Socket;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP.socket
+f	com/jcraft/jsch/ChannelForwardedTCPIP	yS	-	auto: 字段(Lcom/jcraft/jsch/ChannelForwardedTCPIP$Config;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP.config
+m	com/jcraft/jsch/ChannelSession	j6	(Ljava/lang/Object;)[B	auto: 转换为 ByteArray；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession#toByteArray
+f	com/jcraft/jsch/ChannelSession	lg	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession._session
+f	com/jcraft/jsch/ChannelSession	BT	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.ttype
+f	com/jcraft/jsch/ChannelSession	SI	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.terminal_mode
+f	com/jcraft/jsch/ChannelSession	yS	-	auto: 字段(Ljava/util/Hashtable;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.env
+m	com/jcraft/jsch/ChannelSession	XL	()V	auto: 执行 sendRequests；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession#sendRequests
+m	com/jcraft/jsch/ChannelSession	j6	(Z)V	src: jsch-0.1.51 com/jcraft/jsch/ChannelSession#setAgentForwarding；doc: Enable the agent forwarding.
+m	com/jcraft/jsch/ChannelSession	DW	(Z)V	src: jsch-0.1.51 com/jcraft/jsch/ChannelSession#setPty；doc: Allocate a Pseudo-Terminal.
+f	com/jcraft/jsch/ChannelSession	vy	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.tcol
+f	com/jcraft/jsch/ChannelSession	nw	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.thp
+f	com/jcraft/jsch/ChannelSession	ei	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.twp
+f	com/jcraft/jsch/ChannelSession	P8	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.trow
+f	com/jcraft/jsch/ChannelSession	er	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.xforwading
+f	com/jcraft/jsch/ChannelSession	rN	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.agent_forwarding
+f	com/jcraft/jsch/ChannelSession	gW	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSession.pty
+m	com/jcraft/jsch/ChannelSftp	DW	([B)Z	auto: 是否 Pattern；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#isPattern
+m	com/jcraft/jsch/ChannelSftp	EQ	(Ljava/lang/String;)[B	auto: 「_realpath」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#_realpath
+m	com/jcraft/jsch/ChannelSftp	FH	([BII)I	auto: 「fill」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#fill
+m	com/jcraft/jsch/ChannelSftp	FH	(J)V	auto: 执行 skip；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#skip
+m	com/jcraft/jsch/ChannelSftp	j6	([BJ[BII)I	auto: 「sendWRITE」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendWRITE
+m	com/jcraft/jsch/ChannelSftp	j6	(Lcom/jcraft/jsch/Buffer;Lcom/jcraft/jsch/ChannelSftp$Header;)Lcom/jcraft/jsch/ChannelSftp$Header;	auto: 「header」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#header
+m	com/jcraft/jsch/ChannelSftp	j6	([B)Lcom/jcraft/jsch/SftpATTRS;	auto: 「_stat」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#_stat
+m	com/jcraft/jsch/ChannelSftp	j6	(BI)V	auto: 放入 HEAD；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#putHEAD
+m	com/jcraft/jsch/ChannelSftp	j6	(B[B)V	auto: 执行 sendPacketPath；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendPacketPath
+m	com/jcraft/jsch/ChannelSftp	j6	(B[BLjava/lang/String;)V	auto: 执行 sendPacketPath；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendPacketPath
+m	com/jcraft/jsch/ChannelSftp	j6	(B[B[BLjava/lang/String;)V	auto: 执行 sendPacketPath；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendPacketPath
+m	com/jcraft/jsch/ChannelSftp	j6	(Lcom/jcraft/jsch/Buffer;BI)V	auto: 放入 HEAD；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#putHEAD
+m	com/jcraft/jsch/ChannelSftp	j6	([BI)V	auto: 执行 sendOPEN；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendOPEN
+m	com/jcraft/jsch/ChannelSftp	j6	([BJILcom/jcraft/jsch/ChannelSftp$RequestQueue;)V	auto: 执行 sendREAD；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendREAD
+m	com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;[[B)Z	auto: 是否 Pattern；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#isPattern
+m	com/jcraft/jsch/ChannelSftp	j6	([BLcom/jcraft/jsch/ChannelSftp$Header;)Z	auto: 「_sendCLOSE」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#_sendCLOSE
+m	com/jcraft/jsch/ChannelSftp	j6	([ILcom/jcraft/jsch/ChannelSftp$Header;)Z	auto: 检查 Status；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#checkStatus
+m	com/jcraft/jsch/ChannelSftp	FH	(Ljava/lang/String;)Ljava/io/InputStream;	auto: 「get」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#get
+m	com/jcraft/jsch/ChannelSftp	VH	(Ljava/lang/String;)Ljava/io/OutputStream;	auto: 「put」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#put
+m	com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Lcom/jcraft/jsch/SftpProgressMonitor;J)Ljava/io/InputStream;	auto: 「get」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#get
+m	com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Lcom/jcraft/jsch/SftpProgressMonitor;I)Ljava/io/OutputStream;	auto: 「put」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#put
+m	com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Lcom/jcraft/jsch/SftpProgressMonitor;IJ)Ljava/io/OutputStream;	src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#put；doc: Sends data from src file to dst file.
+m	com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Lcom/jcraft/jsch/ChannelSftp$LsEntrySelector;)V	src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#ls；doc: List files specified by the remote path.
+f	com/jcraft/jsch/ChannelSftp	cn	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.fs_is_bs
+f	com/jcraft/jsch/ChannelSftp	ro	-	auto: 字段(C)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.file_separatorc
+f	com/jcraft/jsch/ChannelSftp	ca	-	auto: 字段(Ljava/util/Hashtable;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.extensions
+f	com/jcraft/jsch/ChannelSftp	dx	-	auto: 字段([I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.ackid
+f	com/jcraft/jsch/ChannelSftp	x9	-	auto: 字段(Ljava/io/InputStream;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.io_in
+f	com/jcraft/jsch/ChannelSftp	yO	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp$RequestQueue;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.rq
+m	com/jcraft/jsch/ChannelSftp	U2	()V	auto: 执行 sendINIT；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendINIT
+m	com/jcraft/jsch/ChannelSftp	QX	()V	auto: 执行 start；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#start
+m	com/jcraft/jsch/ChannelSftp	we	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#init
+m	com/jcraft/jsch/ChannelSftp	DW	(Lcom/jcraft/jsch/Buffer;I)V	auto: 执行 throwStatusError；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#throwStatusError
+m	com/jcraft/jsch/ChannelSftp	j6	(Lcom/jcraft/jsch/Buffer;I)V	auto: 执行 fill；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#fill
+m	com/jcraft/jsch/ChannelSftp	v5	([B)V	auto: 执行 sendOPENA；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendOPENA
+m	com/jcraft/jsch/ChannelSftp	u7	([B)V	auto: 执行 sendREADDIR；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendREADDIR
+m	com/jcraft/jsch/ChannelSftp	tp	([B)V	auto: 执行 sendREALPATH；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendREALPATH
+m	com/jcraft/jsch/ChannelSftp	gn	([B)V	auto: 执行 sendOPENW；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendOPENW
+m	com/jcraft/jsch/ChannelSftp	Zo	([B)V	auto: 执行 sendOPENDIR；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendOPENDIR
+m	com/jcraft/jsch/ChannelSftp	VH	([B)V	auto: 执行 sendOPENR；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendOPENR
+m	com/jcraft/jsch/ChannelSftp	J0	([B)V	auto: 执行 sendSTAT；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendSTAT
+m	com/jcraft/jsch/ChannelSftp	FH	([B)V	auto: 执行 sendCLOSE；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendCLOSE
+m	com/jcraft/jsch/ChannelSftp	we	([B)V	auto: 执行 sendRMDIR；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendRMDIR
+m	com/jcraft/jsch/ChannelSftp	Hw	([B)V	src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendLSTAT；doc: List files specified by the remote path.
+m	com/jcraft/jsch/ChannelSftp	EQ	([B)V	auto: 执行 sendREMOVE；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendREMOVE
+m	com/jcraft/jsch/ChannelSftp	J0	(Ljava/lang/String;)Ljava/util/Vector;	auto: 「glob_remote」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#glob_remote
+m	com/jcraft/jsch/ChannelSftp	Hw	(Ljava/lang/String;)Ljava/util/Vector;	auto: 「ls」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#ls
+m	com/jcraft/jsch/ChannelSftp	Ws	(Ljava/lang/String;)Z	auto: 是否 RemoteDir；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#isRemoteDir
+m	com/jcraft/jsch/ChannelSftp	J8	(Ljava/lang/String;)Z	auto: 是否 Pattern；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#isPattern
+m	com/jcraft/jsch/ChannelSftp	aM	()Ljava/lang/String;	auto: 取 Home；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#getHome
+m	com/jcraft/jsch/ChannelSftp	j3	()Ljava/lang/String;	auto: 「pwd」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#pwd
+m	com/jcraft/jsch/ChannelSftp	Mr	()Ljava/lang/String;	auto: 取 Cwd；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#getCwd
+m	com/jcraft/jsch/ChannelSftp	XL	(Ljava/lang/String;)Ljava/lang/String;	auto: 「remoteAbsolutePath」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#remoteAbsolutePath
+m	com/jcraft/jsch/ChannelSftp	QX	(Ljava/lang/String;)Ljava/lang/String;	src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#isUnique；doc: This method will check if the given string can be expanded to the unique string. If it can be expanded to mu…
+m	com/jcraft/jsch/ChannelSftp	DW	(Ljava/lang/String;)V	auto: 执行 cd；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#cd
+m	com/jcraft/jsch/ChannelSftp	aM	(Ljava/lang/String;)V	auto: 设 Cwd；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#setCwd
+m	com/jcraft/jsch/ChannelSftp	Zo	(Ljava/lang/String;)V	auto: 执行 mkdir；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#mkdir
+m	com/jcraft/jsch/ChannelSftp	j6	([B[B)V	auto: 执行 sendRENAME；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendRENAME
+m	com/jcraft/jsch/ChannelSftp	tp	(Ljava/lang/String;)Lcom/jcraft/jsch/SftpATTRS;	auto: 「_lstat」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#_lstat
+m	com/jcraft/jsch/ChannelSftp	we	(Ljava/lang/String;)Lcom/jcraft/jsch/SftpATTRS;	auto: 「_stat」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#_stat
+m	com/jcraft/jsch/ChannelSftp	gn	(Ljava/lang/String;)V	auto: 执行 rm；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#rm
+m	com/jcraft/jsch/ChannelSftp	u7	(Ljava/lang/String;)V	auto: 执行 rmdir；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#rmdir
+m	com/jcraft/jsch/ChannelSftp	j6	([BLcom/jcraft/jsch/SftpATTRS;)V	auto: 执行 sendMKDIR；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#sendMKDIR
+m	com/jcraft/jsch/ChannelSftp	v5	(Ljava/lang/String;)Lcom/jcraft/jsch/SftpATTRS;	auto: 「lstat」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#lstat
+m	com/jcraft/jsch/ChannelSftp	j6	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 rename；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#rename
+f	com/jcraft/jsch/ChannelSftp	KD	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.file_separator
+f	com/jcraft/jsch/ChannelSftp	XX	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.fEncoding
+f	com/jcraft/jsch/ChannelSftp	cb	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.seq
+f	com/jcraft/jsch/ChannelSftp	sh	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.interactive
+f	com/jcraft/jsch/ChannelSftp	kQ	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.fEncoding_is_utf8
+f	com/jcraft/jsch/ChannelSftp	sG	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.buf
+f	com/jcraft/jsch/ChannelSftp	ef	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.packet
+f	com/jcraft/jsch/ChannelSftp	lp	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.cwd
+f	com/jcraft/jsch/ChannelSftp	OW	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.home
+f	com/jcraft/jsch/ChannelSftp	I	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.version
+f	com/jcraft/jsch/ChannelSftp	Mz	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.server_version
+f	com/jcraft/jsch/ChannelSftp	Qq	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.extension_posix_rename
+f	com/jcraft/jsch/ChannelSftp	sy	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.extension_statvfs
+f	com/jcraft/jsch/ChannelSftp	aj	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.extension_hardlink
+f	com/jcraft/jsch/ChannelSftp	Sf	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.obuf
+f	com/jcraft/jsch/ChannelSftp	vJ	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.opacket
+f	com/jcraft/jsch/ChannelSftp	br	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.lcwd
+f	com/jcraft/jsch/ChannelSftp	g3	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp.client_version
+m	com/jcraft/jsch/ChannelSftp	DW	()V	auto: 执行 disconnect；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#disconnect
+m	com/jcraft/jsch/ChannelSftp	j6	(Z)V	auto: 设 AgentForwarding；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#setAgentForwarding
+m	com/jcraft/jsch/ChannelSftp	DW	(Z)V	auto: 设 Pty；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp#setPty
+m	com/jcraft/jsch/ChannelSftp$3	j6	(Lcom/jcraft/jsch/ChannelSftp$LsEntry;)I	auto: 「select」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$3#select
+f	com/jcraft/jsch/ChannelSftp$3	DW	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$3.val$v
+f	com/jcraft/jsch/ChannelSftp$3	j6	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$3.this$0
+m	com/jcraft/jsch/ChannelSftp$LsEntry	Hw	()Lcom/jcraft/jsch/SftpATTRS;	auto: 取 Attrs；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry#getAttrs
+m	com/jcraft/jsch/ChannelSftp$LsEntry	j6	(Lcom/jcraft/jsch/SftpATTRS;)V	auto: 设 Attrs；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry#setAttrs
+f	com/jcraft/jsch/ChannelSftp$LsEntry	FH	-	auto: 字段(Lcom/jcraft/jsch/SftpATTRS;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry.attrs
+f	com/jcraft/jsch/ChannelSftp$LsEntry	Hw	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry.this$0
+m	com/jcraft/jsch/ChannelSftp$LsEntry	j6	(Ljava/lang/String;)V	auto: 设 Filename；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry#setFilename
+m	com/jcraft/jsch/ChannelSftp$LsEntry	DW	(Ljava/lang/String;)V	auto: 设 Longname；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry#setLongname
+m	com/jcraft/jsch/ChannelSftp$LsEntry	Zo	()Ljava/lang/String;	auto: 取 Filename；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry#getFilename
+f	com/jcraft/jsch/ChannelSftp$LsEntry	j6	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry.filename
+f	com/jcraft/jsch/ChannelSftp$LsEntry	DW	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntry.longname
+m	com/jcraft/jsch/ChannelSftp$LsEntrySelector	j6	(Lcom/jcraft/jsch/ChannelSftp$LsEntry;)I	auto: 「select」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$LsEntrySelector#select
+m	com/jcraft/jsch/ChannelSftp$RequestQueue	DW	()J	auto: 取 Offset；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue#getOffset
+m	com/jcraft/jsch/ChannelSftp$RequestQueue	FH	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue#init
+m	com/jcraft/jsch/ChannelSftp$RequestQueue	j6	(I)Lcom/jcraft/jsch/ChannelSftp$RequestQueue$Request;	auto: 「get」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue#get
+m	com/jcraft/jsch/ChannelSftp$RequestQueue	j6	(IJI)V	auto: 执行 add；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue#add
+m	com/jcraft/jsch/ChannelSftp$RequestQueue	j6	(Lcom/jcraft/jsch/ChannelSftp$Header;Lcom/jcraft/jsch/Buffer;)V	auto: 执行 cancel；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue#cancel
+f	com/jcraft/jsch/ChannelSftp$RequestQueue	Hw	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue.this$0
+f	com/jcraft/jsch/ChannelSftp$RequestQueue	j6	-	auto: 字段([Lcom/jcraft/jsch/ChannelSftp$RequestQueue$Request;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue.rrq
+m	com/jcraft/jsch/ChannelSftp$RequestQueue	j6	()I	auto: 「count」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue#count
+m	com/jcraft/jsch/ChannelSftp$RequestQueue	Hw	()I	auto: 「size」；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue#size
+f	com/jcraft/jsch/ChannelSftp$RequestQueue	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue.count
+f	com/jcraft/jsch/ChannelSftp$RequestQueue	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue.head
+m	com/jcraft/jsch/ChannelX11	FH	(Lcom/jcraft/jsch/Session;)[B	auto: 取 FakedCookie；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11#getFakedCookie
+m	com/jcraft/jsch/ChannelX11	FH	([BII)[B	auto: 加入 Cache；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11#addCache
+m	com/jcraft/jsch/ChannelX11	Hw	(Lcom/jcraft/jsch/Session;)V	auto: 移除 FakedCookie；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11#removeFakedCookie
+m	com/jcraft/jsch/ChannelX11	j6	([B[B)Z	auto: 「equals」；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11#equals
+f	com/jcraft/jsch/ChannelX11	lg	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11.host
+f	com/jcraft/jsch/ChannelX11	P8	-	auto: 字段(Ljava/net/Socket;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11.socket
+f	com/jcraft/jsch/ChannelX11	ei	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11.cache
+f	com/jcraft/jsch/ChannelX11	vy	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11.init
+f	com/jcraft/jsch/ChannelX11	BT	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11.table
+f	com/jcraft/jsch/ChannelX11	yS	-	auto: 字段(Ljava/util/Hashtable;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11.faked_cookie_pool
+f	com/jcraft/jsch/ChannelX11	gW	-	auto: 字段(Ljava/util/Hashtable;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11.faked_cookie_hex_pool
+m	com/jcraft/jsch/ChannelX11	j6	([BII)V	auto: 执行 write；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11#write
+f	com/jcraft/jsch/ChannelX11	er	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11.cookie
+f	com/jcraft/jsch/ChannelX11	rN	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelX11.port
+m	com/jcraft/jsch/Cipher	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/Cipher#isCBC
+m	com/jcraft/jsch/Cipher	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/Cipher#init
+m	com/jcraft/jsch/Cipher	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/Cipher#update
+m	com/jcraft/jsch/Cipher	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/Cipher#getIVSize
+m	com/jcraft/jsch/Cipher	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/Cipher#getBlockSize
+m	com/jcraft/jsch/CipherNone	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/CipherNone#isCBC
+m	com/jcraft/jsch/CipherNone	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/CipherNone#init
+m	com/jcraft/jsch/CipherNone	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/CipherNone#update
+m	com/jcraft/jsch/CipherNone	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/CipherNone#getBlockSize
+m	com/jcraft/jsch/CipherNone	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/CipherNone#getIVSize
+m	com/jcraft/jsch/Compression	j6	(II)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/Compression#init
+m	com/jcraft/jsch/Compression	DW	([BI[I)[B	auto: 「uncompress」；src: jsch-0.1.51 com/jcraft/jsch/Compression#uncompress
+m	com/jcraft/jsch/Compression	j6	([BI[I)[B	auto: 「compress」；src: jsch-0.1.51 com/jcraft/jsch/Compression#compress
+m	com/jcraft/jsch/ConfigRepository	j6	(Ljava/lang/String;)Lcom/jcraft/jsch/ConfigRepository$Config;	auto: 取 Config；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository#getConfig
+f	com/jcraft/jsch/ConfigRepository	DW	-	auto: 字段(Lcom/jcraft/jsch/ConfigRepository;)；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository.nullConfig
+f	com/jcraft/jsch/ConfigRepository	j6	-	auto: 字段(Lcom/jcraft/jsch/ConfigRepository$Config;)；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository.defaultConfig
+m	com/jcraft/jsch/ConfigRepository$1	j6	()I	auto: 取 Port；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$1#getPort
+m	com/jcraft/jsch/ConfigRepository$1	j6	(Ljava/lang/String;)[Ljava/lang/String;	auto: 取 Values；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$1#getValues
+m	com/jcraft/jsch/ConfigRepository$1	DW	()Ljava/lang/String;	auto: 取 User；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$1#getUser
+m	com/jcraft/jsch/ConfigRepository$1	FH	()Ljava/lang/String;	auto: 取 Hostname；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$1#getHostname
+m	com/jcraft/jsch/ConfigRepository$2	j6	(Ljava/lang/String;)Lcom/jcraft/jsch/ConfigRepository$Config;	auto: 取 Config；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$2#getConfig
+m	com/jcraft/jsch/ConfigRepository$Config	j6	()I	auto: 取 Port；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$Config#getPort
+m	com/jcraft/jsch/ConfigRepository$Config	j6	(Ljava/lang/String;)[Ljava/lang/String;	auto: 取 Values；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$Config#getValues
+m	com/jcraft/jsch/ConfigRepository$Config	DW	()Ljava/lang/String;	auto: 取 User；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$Config#getUser
+m	com/jcraft/jsch/ConfigRepository$Config	FH	()Ljava/lang/String;	auto: 取 Hostname；src: jsch-0.1.51 com/jcraft/jsch/ConfigRepository$Config#getHostname
+m	com/jcraft/jsch/DH	DW	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/DH#init
+m	com/jcraft/jsch/DH	DW	([B)V	auto: 设 F；src: jsch-0.1.51 com/jcraft/jsch/DH#setF
+m	com/jcraft/jsch/DH	FH	([B)V	auto: 设 G；src: jsch-0.1.51 com/jcraft/jsch/DH#setG
+m	com/jcraft/jsch/DH	j6	([B)V	auto: 设 P；src: jsch-0.1.51 com/jcraft/jsch/DH#setP
+m	com/jcraft/jsch/DH	FH	()[B	auto: 取 K；src: jsch-0.1.51 com/jcraft/jsch/DH#getK
+m	com/jcraft/jsch/DH	j6	()[B	auto: 取 E；src: jsch-0.1.51 com/jcraft/jsch/DH#getE
+m	com/jcraft/jsch/DHG1	VH	()I	auto: 取 State；src: jsch-0.1.51 com/jcraft/jsch/DHG1#getState
+m	com/jcraft/jsch/DHG1	Zo	()Ljava/lang/String;	auto: 取 KeyType；src: jsch-0.1.51 com/jcraft/jsch/DHG1#getKeyType
+m	com/jcraft/jsch/DHG1	j6	(Lcom/jcraft/jsch/Session;[B[B[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/DHG1#init
+m	com/jcraft/jsch/DHG1	j6	(Lcom/jcraft/jsch/Buffer;)Z	auto: 「next」；src: jsch-0.1.51 com/jcraft/jsch/DHG1#next
+f	com/jcraft/jsch/DHG1	QX	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.buf
+f	com/jcraft/jsch/DHG1	XL	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.packet
+f	com/jcraft/jsch/DHG1	tp	-	auto: 字段(Lcom/jcraft/jsch/DH;)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.dh
+f	com/jcraft/jsch/DHG1	Zo	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.g
+f	com/jcraft/jsch/DHG1	VH	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.p
+f	com/jcraft/jsch/DHG1	we	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.V_C
+f	com/jcraft/jsch/DHG1	Ws	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.e
+f	com/jcraft/jsch/DHG1	J8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.I_C
+f	com/jcraft/jsch/DHG1	J0	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.I_S
+f	com/jcraft/jsch/DHG1	EQ	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.V_S
+f	com/jcraft/jsch/DHG1	u7	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.state
+f	com/jcraft/jsch/DHG1	gn	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHG1.type
+m	com/jcraft/jsch/DHG14	VH	()I	auto: 取 State；src: jsch-0.1.51 com/jcraft/jsch/DHG14#getState
+m	com/jcraft/jsch/DHG14	Zo	()Ljava/lang/String;	auto: 取 KeyType；src: jsch-0.1.51 com/jcraft/jsch/DHG14#getKeyType
+m	com/jcraft/jsch/DHG14	j6	(Lcom/jcraft/jsch/Session;[B[B[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/DHG14#init
+m	com/jcraft/jsch/DHG14	j6	(Lcom/jcraft/jsch/Buffer;)Z	auto: 「next」；src: jsch-0.1.51 com/jcraft/jsch/DHG14#next
+f	com/jcraft/jsch/DHG14	QX	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.buf
+f	com/jcraft/jsch/DHG14	XL	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.packet
+f	com/jcraft/jsch/DHG14	tp	-	auto: 字段(Lcom/jcraft/jsch/DH;)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.dh
+f	com/jcraft/jsch/DHG14	Zo	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.g
+f	com/jcraft/jsch/DHG14	VH	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.p
+f	com/jcraft/jsch/DHG14	we	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.V_C
+f	com/jcraft/jsch/DHG14	Ws	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.e
+f	com/jcraft/jsch/DHG14	J8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.I_C
+f	com/jcraft/jsch/DHG14	J0	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.I_S
+f	com/jcraft/jsch/DHG14	EQ	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.V_S
+f	com/jcraft/jsch/DHG14	u7	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.state
+f	com/jcraft/jsch/DHG14	gn	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHG14.type
+m	com/jcraft/jsch/DHGEX	VH	()I	auto: 取 State；src: jsch-0.1.51 com/jcraft/jsch/DHGEX#getState
+m	com/jcraft/jsch/DHGEX	Zo	()Ljava/lang/String;	auto: 取 KeyType；src: jsch-0.1.51 com/jcraft/jsch/DHGEX#getKeyType
+m	com/jcraft/jsch/DHGEX	j6	(Lcom/jcraft/jsch/Session;[B[B[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/DHGEX#init
+m	com/jcraft/jsch/DHGEX	j6	(Lcom/jcraft/jsch/Buffer;)Z	auto: 「next」；src: jsch-0.1.51 com/jcraft/jsch/DHGEX#next
+f	com/jcraft/jsch/DHGEX	EQ	-	auto: 字段(Lcom/jcraft/jsch/DH;)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.dh
+f	com/jcraft/jsch/DHGEX	QX	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.buf
+f	com/jcraft/jsch/DHGEX	XL	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.packet
+f	com/jcraft/jsch/DHGEX	gn	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.max
+f	com/jcraft/jsch/DHGEX	Zo	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.min
+f	com/jcraft/jsch/DHGEX	VH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.preferred
+f	com/jcraft/jsch/DHGEX	we	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.V_S
+f	com/jcraft/jsch/DHGEX	Ws	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.I_C
+f	com/jcraft/jsch/DHGEX	J8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.I_S
+f	com/jcraft/jsch/DHGEX	J0	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.V_C
+f	com/jcraft/jsch/DHGEX	Mr	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.p
+f	com/jcraft/jsch/DHGEX	u7	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.type
+f	com/jcraft/jsch/DHGEX	tp	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.state
+f	com/jcraft/jsch/DHGEX	aM	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.g
+f	com/jcraft/jsch/DHGEX	j3	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX.e
+m	com/jcraft/jsch/DHGEX256	VH	()I	auto: 取 State；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256#getState
+m	com/jcraft/jsch/DHGEX256	Zo	()Ljava/lang/String;	auto: 取 KeyType；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256#getKeyType
+m	com/jcraft/jsch/DHGEX256	j6	(Lcom/jcraft/jsch/Session;[B[B[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256#init
+m	com/jcraft/jsch/DHGEX256	j6	(Lcom/jcraft/jsch/Buffer;)Z	auto: 「next」；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256#next
+f	com/jcraft/jsch/DHGEX256	EQ	-	auto: 字段(Lcom/jcraft/jsch/DH;)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.dh
+f	com/jcraft/jsch/DHGEX256	QX	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.buf
+f	com/jcraft/jsch/DHGEX256	XL	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.packet
+f	com/jcraft/jsch/DHGEX256	gn	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.max
+f	com/jcraft/jsch/DHGEX256	Zo	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.min
+f	com/jcraft/jsch/DHGEX256	VH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.preferred
+f	com/jcraft/jsch/DHGEX256	we	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.V_S
+f	com/jcraft/jsch/DHGEX256	Ws	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.I_C
+f	com/jcraft/jsch/DHGEX256	J8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.I_S
+f	com/jcraft/jsch/DHGEX256	J0	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.V_C
+f	com/jcraft/jsch/DHGEX256	Mr	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.p
+f	com/jcraft/jsch/DHGEX256	u7	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.type
+f	com/jcraft/jsch/DHGEX256	tp	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.state
+f	com/jcraft/jsch/DHGEX256	aM	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.g
+f	com/jcraft/jsch/DHGEX256	j3	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/DHGEX256.e
+m	com/jcraft/jsch/ForwardedTCPIPDaemon	j6	(Lcom/jcraft/jsch/ChannelForwardedTCPIP;Ljava/io/InputStream;Ljava/io/OutputStream;)V	auto: 设 Channel；src: jsch-0.1.51 com/jcraft/jsch/ForwardedTCPIPDaemon#setChannel
+m	com/jcraft/jsch/ForwardedTCPIPDaemon	j6	([Ljava/lang/Object;)V	auto: 设 Arg；src: jsch-0.1.51 com/jcraft/jsch/ForwardedTCPIPDaemon#setArg
+m	com/jcraft/jsch/GSSContext	DW	()Z	auto: 是否 Established；src: jsch-0.1.51 com/jcraft/jsch/GSSContext#isEstablished
+m	com/jcraft/jsch/GSSContext	j6	()V	auto: 执行 dispose；src: jsch-0.1.51 com/jcraft/jsch/GSSContext#dispose
+m	com/jcraft/jsch/GSSContext	j6	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 create；src: jsch-0.1.51 com/jcraft/jsch/GSSContext#create
+m	com/jcraft/jsch/GSSContext	DW	([BII)[B	auto: 取 MIC；src: jsch-0.1.51 com/jcraft/jsch/GSSContext#getMIC
+m	com/jcraft/jsch/GSSContext	j6	([BII)[B	auto: 「init」；src: jsch-0.1.51 com/jcraft/jsch/GSSContext#init
+m	com/jcraft/jsch/HASH	DW	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/HASH#init
+m	com/jcraft/jsch/HASH	FH	()[B	auto: 「digest」；src: jsch-0.1.51 com/jcraft/jsch/HASH#digest
+m	com/jcraft/jsch/HASH	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/HASH#getBlockSize
+m	com/jcraft/jsch/HostKeyRepository	j6	(Ljava/lang/String;[B)I	src: jsch-0.1.51 com/jcraft/jsch/HostKeyRepository#check；doc: Checks if host is included with the key.
+m	com/jcraft/jsch/HostKeyRepository	j6	()Ljava/lang/String;	src: jsch-0.1.51 com/jcraft/jsch/HostKeyRepository#getKnownHostsRepositoryID；doc: Returns id of this repository.
+m	com/jcraft/jsch/HostKeyRepository	j6	(Lcom/jcraft/jsch/HostKey;Lcom/jcraft/jsch/UserInfo;)V	src: jsch-0.1.51 com/jcraft/jsch/HostKeyRepository#add；doc: Adds a host key hostkey
+m	com/jcraft/jsch/HostKeyRepository	j6	(Ljava/lang/String;Ljava/lang/String;[B)V	src: jsch-0.1.51 com/jcraft/jsch/HostKeyRepository#remove；doc: Removes a host key if there exists a matched key with host, type and key.
+m	com/jcraft/jsch/HostKeyRepository	j6	(Ljava/lang/String;Ljava/lang/String;)[Lcom/jcraft/jsch/HostKey;	src: jsch-0.1.51 com/jcraft/jsch/HostKeyRepository#getHostKey；doc: Retuns a list for host keys managed in this repository.
+m	com/jcraft/jsch/IO	DW	()I	auto: 取 Byte；src: jsch-0.1.51 com/jcraft/jsch/IO#getByte
+m	com/jcraft/jsch/IO	j6	(Lcom/jcraft/jsch/Packet;)V	auto: 执行 put；src: jsch-0.1.51 com/jcraft/jsch/IO#put
+m	com/jcraft/jsch/IO	j6	(Ljava/io/InputStream;)V	auto: 设 InputStream；src: jsch-0.1.51 com/jcraft/jsch/IO#setInputStream
+m	com/jcraft/jsch/IO	j6	(Ljava/io/InputStream;Z)V	auto: 设 InputStream；src: jsch-0.1.51 com/jcraft/jsch/IO#setInputStream
+f	com/jcraft/jsch/IO	j6	-	auto: 字段(Ljava/io/InputStream;)；src: jsch-0.1.51 com/jcraft/jsch/IO.in
+m	com/jcraft/jsch/IO	j6	()V	auto: 执行 close；src: jsch-0.1.51 com/jcraft/jsch/IO#close
+m	com/jcraft/jsch/IO	FH	()V	auto: 执行 out_close；src: jsch-0.1.51 com/jcraft/jsch/IO#out_close
+m	com/jcraft/jsch/IO	DW	(Ljava/io/OutputStream;)V	auto: 设 OutputStream；src: jsch-0.1.51 com/jcraft/jsch/IO#setOutputStream
+m	com/jcraft/jsch/IO	j6	(Ljava/io/OutputStream;)V	auto: 设 ExtOutputStream；src: jsch-0.1.51 com/jcraft/jsch/IO#setExtOutputStream
+m	com/jcraft/jsch/IO	DW	(Ljava/io/OutputStream;Z)V	auto: 设 OutputStream；src: jsch-0.1.51 com/jcraft/jsch/IO#setOutputStream
+m	com/jcraft/jsch/IO	j6	([BII)V	auto: 取 Byte；src: jsch-0.1.51 com/jcraft/jsch/IO#getByte
+m	com/jcraft/jsch/IO	DW	([BII)V	auto: 执行 put；src: jsch-0.1.51 com/jcraft/jsch/IO#put
+m	com/jcraft/jsch/IO	FH	([BII)V	auto: 执行 put_ext；src: jsch-0.1.51 com/jcraft/jsch/IO#put_ext
+m	com/jcraft/jsch/IO	j6	(Ljava/io/OutputStream;Z)V	auto: 设 ExtOutputStream；src: jsch-0.1.51 com/jcraft/jsch/IO#setExtOutputStream
+f	com/jcraft/jsch/IO	DW	-	auto: 字段(Ljava/io/OutputStream;)；src: jsch-0.1.51 com/jcraft/jsch/IO.out
+f	com/jcraft/jsch/IO	Hw	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/IO.in_dontclose
+f	com/jcraft/jsch/IO	FH	-	auto: 字段(Ljava/io/OutputStream;)；src: jsch-0.1.51 com/jcraft/jsch/IO.out_ext
+f	com/jcraft/jsch/IO	v5	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/IO.out_dontclose
+f	com/jcraft/jsch/IO	Zo	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/IO.out_ext_dontclose
+m	com/jcraft/jsch/Identity	DW	([B)[B	src: jsch-0.1.51 com/jcraft/jsch/Identity#getSignature；doc: Signs on data with this identity, and returns the result.
+m	com/jcraft/jsch/Identity	FH	()[B	src: jsch-0.1.51 com/jcraft/jsch/Identity#getPublicKeyBlob；doc: Returns the public-key blob.
+m	com/jcraft/jsch/Identity	j6	([B)Z	src: jsch-0.1.51 com/jcraft/jsch/Identity#setPassphrase；doc: Decrypts this identity with the specified pass-phrase.
+m	com/jcraft/jsch/Identity	DW	()Z	src: jsch-0.1.51 com/jcraft/jsch/Identity#isEncrypted；doc: Returns true if this identity is cyphered.
+m	com/jcraft/jsch/Identity	j6	()Ljava/lang/String;	src: jsch-0.1.51 com/jcraft/jsch/Identity#getAlgName；doc: Returns the name of the key algorithm.
+m	com/jcraft/jsch/IdentityFile	j6	(Ljava/lang/String;Ljava/lang/String;Lcom/jcraft/jsch/JSch;)Lcom/jcraft/jsch/IdentityFile;	auto: 「newInstance」；src: jsch-0.1.51 com/jcraft/jsch/IdentityFile#newInstance
+m	com/jcraft/jsch/IdentityFile	j6	(Ljava/lang/String;[B[BLcom/jcraft/jsch/JSch;)Lcom/jcraft/jsch/IdentityFile;	auto: 「newInstance」；src: jsch-0.1.51 com/jcraft/jsch/IdentityFile#newInstance
+m	com/jcraft/jsch/IdentityFile	DW	([B)[B	src: jsch-0.1.51 com/jcraft/jsch/IdentityFile#getSignature；doc: Signs on data with this identity, and returns the result.
+m	com/jcraft/jsch/IdentityFile	FH	()[B	src: jsch-0.1.51 com/jcraft/jsch/IdentityFile#getPublicKeyBlob；doc: Returns the public-key blob.
+m	com/jcraft/jsch/IdentityFile	Hw	()Lcom/jcraft/jsch/KeyPair;	src: jsch-0.1.51 com/jcraft/jsch/IdentityFile#getKeyPair；doc: Returns an instance of KeyPair used in this Identity.
+m	com/jcraft/jsch/IdentityFile	j6	([B)Z	src: jsch-0.1.51 com/jcraft/jsch/IdentityFile#setPassphrase；doc: Decrypts this identity with the specified pass-phrase.
+f	com/jcraft/jsch/IdentityFile	DW	-	auto: 字段(Lcom/jcraft/jsch/KeyPair;)；src: jsch-0.1.51 com/jcraft/jsch/IdentityFile.kpair
+f	com/jcraft/jsch/IdentityFile	FH	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/IdentityFile.identity
+f	com/jcraft/jsch/IdentityFile	j6	-	auto: 字段(Lcom/jcraft/jsch/JSch;)；src: jsch-0.1.51 com/jcraft/jsch/IdentityFile.jsch
+m	com/jcraft/jsch/IdentityFile	DW	()Z	src: jsch-0.1.51 com/jcraft/jsch/IdentityFile#isEncrypted；doc: Returns true if this identity is cyphered.
+m	com/jcraft/jsch/IdentityFile	j6	()Ljava/lang/String;	src: jsch-0.1.51 com/jcraft/jsch/IdentityFile#getAlgName；doc: Returns the name of the key algorithm.
+m	com/jcraft/jsch/IdentityRepository	j6	()Ljava/util/Vector;	auto: 取 Identities；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository#getIdentities
+m	com/jcraft/jsch/IdentityRepository	j6	([B)Z	auto: 「add」；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository#add
+m	com/jcraft/jsch/IdentityRepository	DW	([B)Z	auto: 「remove」；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository#remove
+m	com/jcraft/jsch/IdentityRepository$Wrapper	j6	()Ljava/util/Vector;	auto: 取 Identities；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository$Wrapper#getIdentities
+m	com/jcraft/jsch/IdentityRepository$Wrapper	j6	(Lcom/jcraft/jsch/Identity;)V	auto: 执行 add；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository$Wrapper#add
+f	com/jcraft/jsch/IdentityRepository$Wrapper	DW	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository$Wrapper.cache
+f	com/jcraft/jsch/IdentityRepository$Wrapper	FH	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository$Wrapper.keep_in_cache
+f	com/jcraft/jsch/IdentityRepository$Wrapper	j6	-	auto: 字段(Lcom/jcraft/jsch/IdentityRepository;)；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository$Wrapper.ir
+m	com/jcraft/jsch/IdentityRepository$Wrapper	DW	()V	auto: 执行 check；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository$Wrapper#check
+m	com/jcraft/jsch/IdentityRepository$Wrapper	j6	([B)Z	auto: 「add」；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository$Wrapper#add
+m	com/jcraft/jsch/IdentityRepository$Wrapper	DW	([B)Z	auto: 「remove」；src: jsch-0.1.51 com/jcraft/jsch/IdentityRepository$Wrapper#remove
+m	com/jcraft/jsch/JSch	DW	(Ljava/lang/String;)Ljava/lang/String;	src: jsch-0.1.51 com/jcraft/jsch/JSch#getConfig；doc: Returns the config value for the specified key.
+m	com/jcraft/jsch/JSch	v5	()Lcom/jcraft/jsch/Logger;	auto: 取 Logger；src: jsch-0.1.51 com/jcraft/jsch/JSch#getLogger
+m	com/jcraft/jsch/JSch	DW	()Lcom/jcraft/jsch/HostKeyRepository;	src: jsch-0.1.51 com/jcraft/jsch/JSch#getHostKeyRepository；doc: Returns the current hostkey repository.
+m	com/jcraft/jsch/JSch	DW	(Lcom/jcraft/jsch/Session;)Z	auto: 移除 Session；src: jsch-0.1.51 com/jcraft/jsch/JSch#removeSession
+m	com/jcraft/jsch/JSch	FH	()Ljava/util/Vector;	src: jsch-0.1.51 com/jcraft/jsch/JSch#getIdentityNames；doc: Lists names of identities included in the identityRepository.
+m	com/jcraft/jsch/JSch	Hw	()Lcom/jcraft/jsch/IdentityRepository;	auto: 取 IdentityRepository；src: jsch-0.1.51 com/jcraft/jsch/JSch#getIdentityRepository
+m	com/jcraft/jsch/JSch	j6	()Lcom/jcraft/jsch/ConfigRepository;	auto: 取 ConfigRepository；src: jsch-0.1.51 com/jcraft/jsch/JSch#getConfigRepository
+m	com/jcraft/jsch/JSch	j6	(Ljava/lang/String;Ljava/lang/String;I)Lcom/jcraft/jsch/Session;	src: jsch-0.1.51 com/jcraft/jsch/JSch#getSession；doc: Instantiates the Session object with given username, host and port.
+m	com/jcraft/jsch/JSch	j6	(Lcom/jcraft/jsch/HostKeyRepository;)V	src: jsch-0.1.51 com/jcraft/jsch/JSch#setHostKeyRepository；doc: Sets the hostkey repository.
+m	com/jcraft/jsch/JSch	j6	(Lcom/jcraft/jsch/Identity;[B)V	src: jsch-0.1.51 com/jcraft/jsch/JSch#addIdentity；doc: Sets the private key, which will be referred in the public key authentication.
+m	com/jcraft/jsch/JSch	j6	(Lcom/jcraft/jsch/IdentityRepository;)V	src: jsch-0.1.51 com/jcraft/jsch/JSch#setIdentityRepository；doc: Sets the identityRepository, which will be referred in the public key authentication.
+m	com/jcraft/jsch/JSch	j6	(Lcom/jcraft/jsch/Session;)V	auto: 加入 Session；src: jsch-0.1.51 com/jcraft/jsch/JSch#addSession
+m	com/jcraft/jsch/JSch	j6	(Ljava/io/InputStream;)V	src: jsch-0.1.51 com/jcraft/jsch/JSch#setKnownHosts；doc: Sets the instance of KnownHosts, which refers to filename.
+m	com/jcraft/jsch/JSch	j6	(Ljava/lang/String;[B)V	src: jsch-0.1.51 com/jcraft/jsch/JSch#addIdentity；doc: Sets the private key, which will be referred in the public key authentication.
+f	com/jcraft/jsch/JSch	j6	-	auto: 字段(Ljava/util/Hashtable;)；src: jsch-0.1.51 com/jcraft/jsch/JSch.config
+f	com/jcraft/jsch/JSch	Hw	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/JSch.sessionPool
+f	com/jcraft/jsch/JSch	VH	-	auto: 字段(Lcom/jcraft/jsch/ConfigRepository;)；src: jsch-0.1.51 com/jcraft/jsch/JSch.configRepository
+f	com/jcraft/jsch/JSch	gn	-	auto: 字段(Lcom/jcraft/jsch/HostKeyRepository;)；src: jsch-0.1.51 com/jcraft/jsch/JSch.known_hosts
+m	com/jcraft/jsch/JSch	j6	(Ljava/lang/String;)V	src: jsch-0.1.51 com/jcraft/jsch/JSch#addIdentity；doc: Sets the private key, which will be referred in the public key authentication.
+f	com/jcraft/jsch/JSch	FH	-	auto: 字段(Lcom/jcraft/jsch/Logger;)；src: jsch-0.1.51 com/jcraft/jsch/JSch.logger
+f	com/jcraft/jsch/JSch	Zo	-	auto: 字段(Lcom/jcraft/jsch/IdentityRepository;)；src: jsch-0.1.51 com/jcraft/jsch/JSch.identityRepository
+f	com/jcraft/jsch/JSch	v5	-	auto: 字段(Lcom/jcraft/jsch/IdentityRepository;)；src: jsch-0.1.51 com/jcraft/jsch/JSch.defaultIdentityRepository
+f	com/jcraft/jsch/JSch	DW	-	auto: 字段(Lcom/jcraft/jsch/Logger;)；src: jsch-0.1.51 com/jcraft/jsch/JSch.DEVNULL
+m	com/jcraft/jsch/JSch$1	j6	(ILjava/lang/String;)V	auto: 执行 log；src: jsch-0.1.51 com/jcraft/jsch/JSch$1#log
+m	com/jcraft/jsch/JSchPartialAuthException	j6	()Ljava/lang/String;	auto: 取 Methods；src: jsch-0.1.51 com/jcraft/jsch/JSchPartialAuthException#getMethods
+f	com/jcraft/jsch/JSchPartialAuthException	DW	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/JSchPartialAuthException.methods
+m	com/jcraft/jsch/KeyExchange	j6	([B[B)[Ljava/lang/String;	auto: 「guess」；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#guess
+m	com/jcraft/jsch/KeyExchange	FH	()Lcom/jcraft/jsch/HASH;	auto: 取 Hash；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#getHash
+m	com/jcraft/jsch/KeyExchange	VH	()I	auto: 取 State；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#getState
+m	com/jcraft/jsch/KeyExchange	j6	(Lcom/jcraft/jsch/Session;[B[B[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#init
+m	com/jcraft/jsch/KeyExchange	j6	(Lcom/jcraft/jsch/Buffer;)Z	auto: 「next」；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#next
+m	com/jcraft/jsch/KeyExchange	j6	([B)[B	auto: 「normalize」；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#normalize
+f	com/jcraft/jsch/KeyExchange	DW	-	auto: 字段(Lcom/jcraft/jsch/HASH;)；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange.sha
+f	com/jcraft/jsch/KeyExchange	j6	-	auto: 字段(Lcom/jcraft/jsch/Session;)；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange.session
+m	com/jcraft/jsch/KeyExchange	v5	()[B	auto: 取 K；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#getK
+m	com/jcraft/jsch/KeyExchange	Hw	()[B	auto: 取 HostKey；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#getHostKey
+m	com/jcraft/jsch/KeyExchange	DW	()[B	auto: 取 H；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#getH
+m	com/jcraft/jsch/KeyExchange	Zo	()Ljava/lang/String;	auto: 取 KeyType；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#getKeyType
+m	com/jcraft/jsch/KeyExchange	j6	()Ljava/lang/String;	auto: 取 FingerPrint；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange#getFingerPrint
+f	com/jcraft/jsch/KeyExchange	v5	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange.K_S
+f	com/jcraft/jsch/KeyExchange	Hw	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange.H
+f	com/jcraft/jsch/KeyExchange	FH	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyExchange.K
+m	com/jcraft/jsch/KeyPair	VH	()Lcom/jcraft/jsch/HASH;	auto: 「genHash」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#genHash
+m	com/jcraft/jsch/KeyPair	Zo	()Lcom/jcraft/jsch/Cipher;	auto: 「genCipher」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#genCipher
+m	com/jcraft/jsch/KeyPair	j6	(Lcom/jcraft/jsch/JSch;Ljava/lang/String;Ljava/lang/String;)Lcom/jcraft/jsch/KeyPair;	auto: 「load」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#load
+m	com/jcraft/jsch/KeyPair	j6	(Lcom/jcraft/jsch/JSch;[B)Lcom/jcraft/jsch/KeyPair;	auto: 加载 PPK；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#loadPPK
+m	com/jcraft/jsch/KeyPair	j6	(Lcom/jcraft/jsch/JSch;[B[B)Lcom/jcraft/jsch/KeyPair;	auto: 「load」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#load
+m	com/jcraft/jsch/KeyPair	j6	(Lcom/jcraft/jsch/Buffer;Ljava/util/Hashtable;)Z	auto: 解析 Header；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#parseHeader
+m	com/jcraft/jsch/KeyPair	j6	(Lcom/jcraft/jsch/Buffer;I)[B	auto: 解析 Lines；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#parseLines
+m	com/jcraft/jsch/KeyPair	j6	([B[B[B)[B	auto: 「decrypt」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#decrypt
+m	com/jcraft/jsch/KeyPair	DW	([B)[B	auto: 取 Signature；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#getSignature
+m	com/jcraft/jsch/KeyPair	j6	(I)I	auto: 「countLength」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#countLength
+m	com/jcraft/jsch/KeyPair	j6	([BI[B)I	auto: 写出 INTEGER；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#writeINTEGER
+m	com/jcraft/jsch/KeyPair	j6	(Lcom/jcraft/jsch/KeyPair;)V	auto: 执行 copy；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#copy
+m	com/jcraft/jsch/KeyPair	j6	([B[B)[B	src: jsch-0.1.51 com/jcraft/jsch/KeyPair#genKey；doc: Returns the finger-print of the public key.
+m	com/jcraft/jsch/KeyPair	v5	()Z	auto: 是否 Encrypted；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#isEncrypted
+f	com/jcraft/jsch/KeyPair	DW	-	auto: 字段([[B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.header
+f	com/jcraft/jsch/KeyPair	EQ	-	auto: 字段(Lcom/jcraft/jsch/HASH;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.hash
+f	com/jcraft/jsch/KeyPair	J0	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.encrypted
+f	com/jcraft/jsch/KeyPair	VH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.vendor
+f	com/jcraft/jsch/KeyPair	gn	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.publicKeyComment
+f	com/jcraft/jsch/KeyPair	tp	-	auto: 字段(Lcom/jcraft/jsch/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.cipher
+f	com/jcraft/jsch/KeyPair	u7	-	auto: 字段(Lcom/jcraft/jsch/JSch;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.jsch
+m	com/jcraft/jsch/KeyPair	j6	()V	auto: 执行 dispose；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#dispose
+m	com/jcraft/jsch/KeyPair	j6	(B)B	auto: 「a2b」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#a2b
+m	com/jcraft/jsch/KeyPair	DW	([BII)I	auto: 写出 SEQUENCE；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#writeSEQUENCE
+m	com/jcraft/jsch/KeyPair	j6	([BII)I	auto: 写出 Length；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#writeLength
+m	com/jcraft/jsch/KeyPair	Hw	()[B	src: jsch-0.1.51 com/jcraft/jsch/KeyPair#getPublicKeyBlob；doc: Returns the blob of the public key.
+m	com/jcraft/jsch/KeyPair	FH	([B)Z	auto: 「parse」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#parse
+m	com/jcraft/jsch/KeyPair	j6	([B)Z	auto: 「decrypt」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#decrypt
+m	com/jcraft/jsch/KeyPair	FH	()[B	auto: 取 KeyTypeName；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#getKeyTypeName
+f	com/jcraft/jsch/KeyPair	FH	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.space
+f	com/jcraft/jsch/KeyPair	j6	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.cr
+f	com/jcraft/jsch/KeyPair	v5	-	auto: 字段([Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.header2
+f	com/jcraft/jsch/KeyPair	Zo	-	auto: 字段([Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.header3
+f	com/jcraft/jsch/KeyPair	Hw	-	auto: 字段([Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.header1
+f	com/jcraft/jsch/KeyPair	QX	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.publickeyblob
+f	com/jcraft/jsch/KeyPair	Ws	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.iv
+f	com/jcraft/jsch/KeyPair	J8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.data
+f	com/jcraft/jsch/KeyPair	we	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair.passphrase
+m	com/jcraft/jsch/KeyPair	DW	()[B	auto: 「forSSHAgent」；src: jsch-0.1.51 com/jcraft/jsch/KeyPair#forSSHAgent
+m	com/jcraft/jsch/KeyPair$ASN1	j6	([I)I	auto: 取 Length；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1#getLength
+m	com/jcraft/jsch/KeyPair$ASN1	DW	()[Lcom/jcraft/jsch/KeyPair$ASN1;	auto: 取 Contents；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1#getContents
+m	com/jcraft/jsch/KeyPair$ASN1	j6	()[B	auto: 取 Content；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1#getContent
+f	com/jcraft/jsch/KeyPair$ASN1	Hw	-	auto: 字段(Lcom/jcraft/jsch/KeyPair;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1.this$0
+f	com/jcraft/jsch/KeyPair$ASN1	j6	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1.buf
+f	com/jcraft/jsch/KeyPair$ASN1	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1.start
+f	com/jcraft/jsch/KeyPair$ASN1	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1.length
+m	com/jcraft/jsch/KeyPairDSA	j6	()V	auto: 执行 dispose；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA#dispose
+m	com/jcraft/jsch/KeyPairDSA	j6	(Lcom/jcraft/jsch/JSch;Lcom/jcraft/jsch/Buffer;)Lcom/jcraft/jsch/KeyPair;	auto: 「fromSSHAgent」；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA#fromSSHAgent
+m	com/jcraft/jsch/KeyPairDSA	DW	([B)[B	auto: 取 Signature；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA#getSignature
+m	com/jcraft/jsch/KeyPairDSA	FH	([B)Z	auto: 「parse」；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA#parse
+f	com/jcraft/jsch/KeyPairDSA	er	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA.key_size
+m	com/jcraft/jsch/KeyPairDSA	FH	()[B	auto: 取 KeyTypeName；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA#getKeyTypeName
+m	com/jcraft/jsch/KeyPairDSA	Hw	()[B	auto: 取 PublicKeyBlob；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA#getPublicKeyBlob
+m	com/jcraft/jsch/KeyPairDSA	Zo	()[B	auto: 取 PrivateKey；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA#getPrivateKey
+f	com/jcraft/jsch/KeyPairDSA	j3	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA.sshdss
+f	com/jcraft/jsch/KeyPairDSA	aM	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA.end
+f	com/jcraft/jsch/KeyPairDSA	XL	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA.begin
+f	com/jcraft/jsch/KeyPairDSA	rN	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA.prv_array
+f	com/jcraft/jsch/KeyPairDSA	Mr	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA.P_array
+f	com/jcraft/jsch/KeyPairDSA	a8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA.G_array
+f	com/jcraft/jsch/KeyPairDSA	U2	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA.Q_array
+f	com/jcraft/jsch/KeyPairDSA	lg	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA.pub_array
+m	com/jcraft/jsch/KeyPairDSA	DW	()[B	auto: 「forSSHAgent」；src: jsch-0.1.51 com/jcraft/jsch/KeyPairDSA#forSSHAgent
+m	com/jcraft/jsch/KeyPairPKCS8	DW	([B)[B	auto: 取 Signature；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8#getSignature
+m	com/jcraft/jsch/KeyPairPKCS8	Hw	([B)Lcom/jcraft/jsch/Cipher;	auto: 取 Cipher；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8#getCipher
+f	com/jcraft/jsch/KeyPairPKCS8	gW	-	auto: 字段(Lcom/jcraft/jsch/KeyPair;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.kpair
+m	com/jcraft/jsch/KeyPairPKCS8	FH	([B)Z	auto: 「parse」；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8#parse
+m	com/jcraft/jsch/KeyPairPKCS8	j6	([B)Z	auto: 「decrypt」；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8#decrypt
+m	com/jcraft/jsch/KeyPairPKCS8	FH	()[B	auto: 取 KeyTypeName；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8#getKeyTypeName
+m	com/jcraft/jsch/KeyPairPKCS8	Hw	()[B	auto: 取 PublicKeyBlob；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8#getPublicKeyBlob
+f	com/jcraft/jsch/KeyPairPKCS8	lg	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.aes256cbc
+f	com/jcraft/jsch/KeyPairPKCS8	a8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.aes192cbc
+f	com/jcraft/jsch/KeyPairPKCS8	U2	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.aes128cbc
+f	com/jcraft/jsch/KeyPairPKCS8	Mr	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.pbkdf2
+f	com/jcraft/jsch/KeyPairPKCS8	yS	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.end
+f	com/jcraft/jsch/KeyPairPKCS8	er	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.begin
+f	com/jcraft/jsch/KeyPairPKCS8	aM	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.dsaEncryption
+f	com/jcraft/jsch/KeyPairPKCS8	XL	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.rsaEncryption
+f	com/jcraft/jsch/KeyPairPKCS8	rN	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.pbeWithMD5AndDESCBC
+f	com/jcraft/jsch/KeyPairPKCS8	j3	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8.pbes2
+m	com/jcraft/jsch/KeyPairPKCS8	DW	()[B	auto: 「forSSHAgent」；src: jsch-0.1.51 com/jcraft/jsch/KeyPairPKCS8#forSSHAgent
+m	com/jcraft/jsch/KeyPairRSA	j6	()V	auto: 执行 dispose；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#dispose
+m	com/jcraft/jsch/KeyPairRSA	j6	(Lcom/jcraft/jsch/JSch;Lcom/jcraft/jsch/Buffer;)Lcom/jcraft/jsch/KeyPair;	auto: 「fromSSHAgent」；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#fromSSHAgent
+m	com/jcraft/jsch/KeyPairRSA	DW	([B)[B	auto: 取 Signature；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#getSignature
+m	com/jcraft/jsch/KeyPairRSA	FH	([B)Z	auto: 「parse」；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#parse
+f	com/jcraft/jsch/KeyPairRSA	BT	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.key_size
+m	com/jcraft/jsch/KeyPairRSA	gn	()[B	auto: 取 EQArray；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#getEQArray
+m	com/jcraft/jsch/KeyPairRSA	VH	()[B	auto: 取 EPArray；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#getEPArray
+m	com/jcraft/jsch/KeyPairRSA	Zo	()[B	auto: 取 CArray；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#getCArray
+m	com/jcraft/jsch/KeyPairRSA	FH	()[B	auto: 取 KeyTypeName；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#getKeyTypeName
+m	com/jcraft/jsch/KeyPairRSA	Hw	()[B	auto: 取 PublicKeyBlob；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#getPublicKeyBlob
+f	com/jcraft/jsch/KeyPairRSA	j3	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.sshrsa
+f	com/jcraft/jsch/KeyPairRSA	aM	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.end
+f	com/jcraft/jsch/KeyPairRSA	XL	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.begin
+f	com/jcraft/jsch/KeyPairRSA	a8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.prv_array
+f	com/jcraft/jsch/KeyPairRSA	Mr	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.n_array
+f	com/jcraft/jsch/KeyPairRSA	rN	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.q_array
+f	com/jcraft/jsch/KeyPairRSA	lg	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.p_array
+f	com/jcraft/jsch/KeyPairRSA	gW	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.c_array
+f	com/jcraft/jsch/KeyPairRSA	U2	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.pub_array
+f	com/jcraft/jsch/KeyPairRSA	yS	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.eq_array
+f	com/jcraft/jsch/KeyPairRSA	er	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA.ep_array
+m	com/jcraft/jsch/KeyPairRSA	DW	()[B	auto: 「forSSHAgent」；src: jsch-0.1.51 com/jcraft/jsch/KeyPairRSA#forSSHAgent
+m	com/jcraft/jsch/KnownHosts	DW	()V	auto: 执行 sync；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#sync
+m	com/jcraft/jsch/KnownHosts	DW	(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;	auto: 删除 SubString；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#deleteSubString
+m	com/jcraft/jsch/KnownHosts	FH	()Lcom/jcraft/jsch/MAC;	auto: 取 HMACSHA1；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#getHMACSHA1
+m	com/jcraft/jsch/KnownHosts	j6	([B)I	auto: 取 Type；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#getType
+m	com/jcraft/jsch/KnownHosts	DW	(Ljava/lang/String;[B)Lcom/jcraft/jsch/HostKey;	auto: 创建 HashedHostKey；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#createHashedHostKey
+m	com/jcraft/jsch/KnownHosts	j6	(Ljava/lang/String;[B)I	auto: 「check」；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#check
+m	com/jcraft/jsch/KnownHosts	j6	(Lcom/jcraft/jsch/HostKey;Lcom/jcraft/jsch/UserInfo;)V	auto: 执行 add；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#add
+m	com/jcraft/jsch/KnownHosts	j6	(Ljava/io/InputStream;)V	auto: 设 KnownHosts；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#setKnownHosts
+m	com/jcraft/jsch/KnownHosts	j6	(Ljava/io/OutputStream;)V	auto: 执行 dump；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#dump
+m	com/jcraft/jsch/KnownHosts	j6	(Ljava/lang/String;Ljava/lang/String;[B)V	auto: 执行 remove；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#remove
+m	com/jcraft/jsch/KnownHosts	j6	(Ljava/lang/String;Ljava/lang/String;)[Lcom/jcraft/jsch/HostKey;	auto: 取 HostKey；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#getHostKey
+f	com/jcraft/jsch/KnownHosts	FH	-	auto: 字段(Lcom/jcraft/jsch/JSch;)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts.jsch
+f	com/jcraft/jsch/KnownHosts	Hw	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts.known_hosts
+f	com/jcraft/jsch/KnownHosts	Zo	-	auto: 字段(Lcom/jcraft/jsch/MAC;)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts.hmacsha1
+f	com/jcraft/jsch/KnownHosts	v5	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts.pool
+m	com/jcraft/jsch/KnownHosts	DW	(Ljava/lang/String;)V	auto: 执行 sync；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#sync
+m	com/jcraft/jsch/KnownHosts	FH	(Ljava/lang/String;)V	auto: 加入 InvalidLine；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#addInvalidLine
+m	com/jcraft/jsch/KnownHosts	j6	(Ljava/lang/String;)V	auto: 设 KnownHosts；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#setKnownHosts
+m	com/jcraft/jsch/KnownHosts	j6	()Ljava/lang/String;	auto: 取 KnownHostsRepositoryID；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts#getKnownHostsRepositoryID
+f	com/jcraft/jsch/KnownHosts	j6	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts.space
+f	com/jcraft/jsch/KnownHosts	DW	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts.cr
+m	com/jcraft/jsch/KnownHosts$HashedHostKey	VH	()Z	auto: 是否 Hashed；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts$HashedHostKey#isHashed
+m	com/jcraft/jsch/KnownHosts$HashedHostKey	Zo	()V	auto: 执行 hash；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts$HashedHostKey#hash
+m	com/jcraft/jsch/KnownHosts$HashedHostKey	j6	(Ljava/lang/String;)Z	auto: 是否 Matched；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts$HashedHostKey#isMatched
+f	com/jcraft/jsch/KnownHosts$HashedHostKey	EQ	-	auto: 字段(Lcom/jcraft/jsch/KnownHosts;)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts$HashedHostKey.this$0
+f	com/jcraft/jsch/KnownHosts$HashedHostKey	gn	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts$HashedHostKey.hashed
+f	com/jcraft/jsch/KnownHosts$HashedHostKey	u7	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts$HashedHostKey.salt
+f	com/jcraft/jsch/KnownHosts$HashedHostKey	tp	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/KnownHosts$HashedHostKey.hash
+m	com/jcraft/jsch/LocalIdentityRepository	j6	()Ljava/util/Vector;	auto: 取 Identities；src: jsch-0.1.51 com/jcraft/jsch/LocalIdentityRepository#getIdentities
+f	com/jcraft/jsch/LocalIdentityRepository	DW	-	auto: 字段(Lcom/jcraft/jsch/JSch;)；src: jsch-0.1.51 com/jcraft/jsch/LocalIdentityRepository.jsch
+f	com/jcraft/jsch/LocalIdentityRepository	j6	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/LocalIdentityRepository.identities
+m	com/jcraft/jsch/LocalIdentityRepository	j6	([B)Z	auto: 「add」；src: jsch-0.1.51 com/jcraft/jsch/LocalIdentityRepository#add
+m	com/jcraft/jsch/LocalIdentityRepository	j6	(Lcom/jcraft/jsch/Identity;)V	auto: 执行 add；src: jsch-0.1.51 com/jcraft/jsch/LocalIdentityRepository#add
+m	com/jcraft/jsch/LocalIdentityRepository	DW	([B)Z	auto: 「remove」；src: jsch-0.1.51 com/jcraft/jsch/LocalIdentityRepository#remove
+m	com/jcraft/jsch/Logger	j6	(ILjava/lang/String;)V	auto: 执行 log；src: jsch-0.1.51 com/jcraft/jsch/Logger#log
+m	com/jcraft/jsch/MAC	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/MAC#getBlockSize
+m	com/jcraft/jsch/MAC	j6	([B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/MAC#init
+m	com/jcraft/jsch/MAC	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/MAC#doFinal
+m	com/jcraft/jsch/OpenSSHConfig	j6	(Ljava/lang/String;)Lcom/jcraft/jsch/ConfigRepository$Config;	auto: 取 Config；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig#getConfig
+f	com/jcraft/jsch/OpenSSHConfig	j6	-	auto: 字段(Ljava/util/Hashtable;)；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig.keymap
+f	com/jcraft/jsch/OpenSSHConfig	DW	-	auto: 字段(Ljava/util/Hashtable;)；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig.config
+f	com/jcraft/jsch/OpenSSHConfig	FH	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig.hosts
+m	com/jcraft/jsch/OpenSSHConfig$MyConfig	j6	()I	auto: 取 Port；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig#getPort
+f	com/jcraft/jsch/OpenSSHConfig$MyConfig	DW	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig._configs
+f	com/jcraft/jsch/OpenSSHConfig$MyConfig	FH	-	auto: 字段(Lcom/jcraft/jsch/OpenSSHConfig;)；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig.this$0
+f	com/jcraft/jsch/OpenSSHConfig$MyConfig	j6	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig.host
+m	com/jcraft/jsch/OpenSSHConfig$MyConfig	DW	(Ljava/lang/String;)Ljava/lang/String;	auto: 「find」；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig#find
+m	com/jcraft/jsch/OpenSSHConfig$MyConfig	j6	(Ljava/lang/String;)[Ljava/lang/String;	auto: 取 Values；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig#getValues
+m	com/jcraft/jsch/OpenSSHConfig$MyConfig	FH	(Ljava/lang/String;)[Ljava/lang/String;	auto: 「multiFind」；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig#multiFind
+m	com/jcraft/jsch/OpenSSHConfig$MyConfig	FH	()Ljava/lang/String;	auto: 取 Hostname；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig#getHostname
+m	com/jcraft/jsch/OpenSSHConfig$MyConfig	DW	()Ljava/lang/String;	auto: 取 User；src: jsch-0.1.51 com/jcraft/jsch/OpenSSHConfig$MyConfig#getUser
+m	com/jcraft/jsch/PBKDF	j6	([B[BII)[B	auto: 取 Key；src: jsch-0.1.51 com/jcraft/jsch/PBKDF#getKey
+m	com/jcraft/jsch/Packet	j6	(Lcom/jcraft/jsch/Random;)V	auto: 设 Random；src: jsch-0.1.51 com/jcraft/jsch/Packet#setRandom
+m	com/jcraft/jsch/Packet	j6	(III)I	auto: 「shift」；src: jsch-0.1.51 com/jcraft/jsch/Packet#shift
+m	com/jcraft/jsch/Packet	j6	()Lcom/jcraft/jsch/Buffer;	auto: 取 Buffer；src: jsch-0.1.51 com/jcraft/jsch/Packet#getBuffer
+m	com/jcraft/jsch/Packet	j6	(BIII)V	auto: 执行 unshift；src: jsch-0.1.51 com/jcraft/jsch/Packet#unshift
+m	com/jcraft/jsch/Packet	j6	(I)V	auto: 执行 padding；src: jsch-0.1.51 com/jcraft/jsch/Packet#padding
+f	com/jcraft/jsch/Packet	j6	-	auto: 字段(Lcom/jcraft/jsch/Random;)；src: jsch-0.1.51 com/jcraft/jsch/Packet.random
+f	com/jcraft/jsch/Packet	DW	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/Packet.buffer
+f	com/jcraft/jsch/Packet	FH	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Packet.ba4
+m	com/jcraft/jsch/Packet	DW	()V	auto: 执行 reset；src: jsch-0.1.51 com/jcraft/jsch/Packet#reset
+m	com/jcraft/jsch/PortWatcher	j6	(Lcom/jcraft/jsch/Session;Ljava/lang/String;I)Lcom/jcraft/jsch/PortWatcher;	auto: 取 Port；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher#getPort
+m	com/jcraft/jsch/PortWatcher	j6	(Lcom/jcraft/jsch/Session;Ljava/lang/String;ILjava/lang/String;ILcom/jcraft/jsch/ServerSocketFactory;)Lcom/jcraft/jsch/PortWatcher;	auto: 加入 Port；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher#addPort
+m	com/jcraft/jsch/PortWatcher	j6	(Ljava/lang/String;)Ljava/lang/String;	auto: 「normalize」；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher#normalize
+m	com/jcraft/jsch/PortWatcher	j6	(Lcom/jcraft/jsch/Session;)V	auto: 执行 delPort；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher#delPort
+m	com/jcraft/jsch/PortWatcher	j6	(I)V	auto: 设 ConnectTimeout；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher#setConnectTimeout
+f	com/jcraft/jsch/PortWatcher	DW	-	auto: 字段(Ljava/net/InetAddress;)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.anyLocalAddress
+f	com/jcraft/jsch/PortWatcher	j6	-	auto: 字段(Ljava/util/Vector;)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.pool
+f	com/jcraft/jsch/PortWatcher	FH	-	auto: 字段(Lcom/jcraft/jsch/Session;)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.session
+f	com/jcraft/jsch/PortWatcher	VH	-	auto: 字段(Ljava/net/InetAddress;)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.boundaddress
+f	com/jcraft/jsch/PortWatcher	Zo	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.host
+f	com/jcraft/jsch/PortWatcher	gn	-	auto: 字段(Ljava/lang/Runnable;)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.thread
+f	com/jcraft/jsch/PortWatcher	u7	-	auto: 字段(Ljava/net/ServerSocket;)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.ss
+f	com/jcraft/jsch/PortWatcher	Hw	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.lport
+f	com/jcraft/jsch/PortWatcher	tp	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.connectTimeout
+f	com/jcraft/jsch/PortWatcher	v5	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher.rport
+m	com/jcraft/jsch/PortWatcher	j6	()V	auto: 执行 delete；src: jsch-0.1.51 com/jcraft/jsch/PortWatcher#delete
+m	com/jcraft/jsch/Proxy	DW	()Ljava/io/InputStream;	auto: 取 InputStream；src: jsch-0.1.51 com/jcraft/jsch/Proxy#getInputStream
+m	com/jcraft/jsch/Proxy	j6	()Ljava/io/OutputStream;	auto: 取 OutputStream；src: jsch-0.1.51 com/jcraft/jsch/Proxy#getOutputStream
+m	com/jcraft/jsch/Proxy	j6	(Lcom/jcraft/jsch/SocketFactory;Ljava/lang/String;II)V	auto: 执行 connect；src: jsch-0.1.51 com/jcraft/jsch/Proxy#connect
+m	com/jcraft/jsch/ProxyHTTP	DW	()Ljava/io/InputStream;	auto: 取 InputStream；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP#getInputStream
+m	com/jcraft/jsch/ProxyHTTP	j6	()Ljava/io/OutputStream;	auto: 取 OutputStream；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP#getOutputStream
+m	com/jcraft/jsch/ProxyHTTP	j6	(Lcom/jcraft/jsch/SocketFactory;Ljava/lang/String;II)V	auto: 执行 connect；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP#connect
+f	com/jcraft/jsch/ProxyHTTP	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP.proxy_port
+f	com/jcraft/jsch/ProxyHTTP	FH	-	auto: 字段(Ljava/io/InputStream;)；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP.in
+f	com/jcraft/jsch/ProxyHTTP	Hw	-	auto: 字段(Ljava/io/OutputStream;)；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP.out
+f	com/jcraft/jsch/ProxyHTTP	v5	-	auto: 字段(Ljava/net/Socket;)；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP.socket
+f	com/jcraft/jsch/ProxyHTTP	VH	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP.passwd
+f	com/jcraft/jsch/ProxyHTTP	j6	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP.proxy_host
+f	com/jcraft/jsch/ProxyHTTP	Zo	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ProxyHTTP.user
+m	com/jcraft/jsch/ProxySOCKS4	DW	()Ljava/io/InputStream;	auto: 取 InputStream；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4#getInputStream
+m	com/jcraft/jsch/ProxySOCKS4	j6	()Ljava/io/OutputStream;	auto: 取 OutputStream；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4#getOutputStream
+m	com/jcraft/jsch/ProxySOCKS4	j6	(Lcom/jcraft/jsch/SocketFactory;Ljava/lang/String;II)V	auto: 执行 connect；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4#connect
+f	com/jcraft/jsch/ProxySOCKS4	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4.proxy_port
+f	com/jcraft/jsch/ProxySOCKS4	FH	-	auto: 字段(Ljava/io/InputStream;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4.in
+f	com/jcraft/jsch/ProxySOCKS4	Hw	-	auto: 字段(Ljava/io/OutputStream;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4.out
+f	com/jcraft/jsch/ProxySOCKS4	v5	-	auto: 字段(Ljava/net/Socket;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4.socket
+f	com/jcraft/jsch/ProxySOCKS4	Zo	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4.user
+f	com/jcraft/jsch/ProxySOCKS4	j6	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS4.proxy_host
+m	com/jcraft/jsch/ProxySOCKS5	j6	(Ljava/io/InputStream;[BI)V	auto: 执行 fill；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5#fill
+m	com/jcraft/jsch/ProxySOCKS5	DW	()Ljava/io/InputStream;	auto: 取 InputStream；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5#getInputStream
+m	com/jcraft/jsch/ProxySOCKS5	j6	()Ljava/io/OutputStream;	auto: 取 OutputStream；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5#getOutputStream
+m	com/jcraft/jsch/ProxySOCKS5	j6	(Lcom/jcraft/jsch/SocketFactory;Ljava/lang/String;II)V	auto: 执行 connect；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5#connect
+f	com/jcraft/jsch/ProxySOCKS5	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5.proxy_port
+f	com/jcraft/jsch/ProxySOCKS5	FH	-	auto: 字段(Ljava/io/InputStream;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5.in
+f	com/jcraft/jsch/ProxySOCKS5	Hw	-	auto: 字段(Ljava/io/OutputStream;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5.out
+f	com/jcraft/jsch/ProxySOCKS5	v5	-	auto: 字段(Ljava/net/Socket;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5.socket
+f	com/jcraft/jsch/ProxySOCKS5	VH	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5.passwd
+f	com/jcraft/jsch/ProxySOCKS5	j6	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5.proxy_host
+f	com/jcraft/jsch/ProxySOCKS5	Zo	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ProxySOCKS5.user
+m	com/jcraft/jsch/Random	j6	([BII)V	auto: 执行 fill；src: jsch-0.1.51 com/jcraft/jsch/Random#fill
+m	com/jcraft/jsch/Request	j6	(Lcom/jcraft/jsch/Packet;)V	auto: 执行 write；src: jsch-0.1.51 com/jcraft/jsch/Request#write
+m	com/jcraft/jsch/Request	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/Request#request
+m	com/jcraft/jsch/Request	j6	(Z)V	auto: 设 Reply；src: jsch-0.1.51 com/jcraft/jsch/Request#setReply
+m	com/jcraft/jsch/Request	j6	()Z	auto: 「waitForReply」；src: jsch-0.1.51 com/jcraft/jsch/Request#waitForReply
+f	com/jcraft/jsch/Request	DW	-	auto: 字段(Lcom/jcraft/jsch/Session;)；src: jsch-0.1.51 com/jcraft/jsch/Request.session
+f	com/jcraft/jsch/Request	FH	-	auto: 字段(Lcom/jcraft/jsch/Channel;)；src: jsch-0.1.51 com/jcraft/jsch/Request.channel
+f	com/jcraft/jsch/Request	j6	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Request.reply
+m	com/jcraft/jsch/RequestAgentForwarding	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/RequestAgentForwarding#request
+m	com/jcraft/jsch/RequestEnv	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/RequestEnv#request
+m	com/jcraft/jsch/RequestEnv	j6	([B[B)V	auto: 设 Env；src: jsch-0.1.51 com/jcraft/jsch/RequestEnv#setEnv
+f	com/jcraft/jsch/RequestEnv	v5	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/RequestEnv.value
+f	com/jcraft/jsch/RequestEnv	Hw	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/RequestEnv.name
+m	com/jcraft/jsch/RequestExec	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/RequestExec#request
+f	com/jcraft/jsch/RequestExec	Hw	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/RequestExec.command
+m	com/jcraft/jsch/RequestPtyReq	j6	(IIII)V	auto: 设 TSize；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq#setTSize
+m	com/jcraft/jsch/RequestPtyReq	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq#request
+m	com/jcraft/jsch/RequestPtyReq	j6	([B)V	auto: 设 TerminalMode；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq#setTerminalMode
+f	com/jcraft/jsch/RequestPtyReq	Hw	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq.ttype
+f	com/jcraft/jsch/RequestPtyReq	u7	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq.terminal_mode
+m	com/jcraft/jsch/RequestPtyReq	j6	(Ljava/lang/String;)V	auto: 设 TType；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq#setTType
+f	com/jcraft/jsch/RequestPtyReq	v5	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq.tcol
+f	com/jcraft/jsch/RequestPtyReq	gn	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq.thp
+f	com/jcraft/jsch/RequestPtyReq	Zo	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq.trow
+f	com/jcraft/jsch/RequestPtyReq	VH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/RequestPtyReq.twp
+m	com/jcraft/jsch/RequestSftp	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/RequestSftp#request
+m	com/jcraft/jsch/RequestShell	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/RequestShell#request
+m	com/jcraft/jsch/RequestSubsystem	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/RequestSubsystem#request
+m	com/jcraft/jsch/RequestSubsystem	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;Ljava/lang/String;Z)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/RequestSubsystem#request
+f	com/jcraft/jsch/RequestSubsystem	Hw	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/RequestSubsystem.subsystem
+m	com/jcraft/jsch/RequestX11	j6	(Lcom/jcraft/jsch/Session;Lcom/jcraft/jsch/Channel;)V	auto: 执行 request；src: jsch-0.1.51 com/jcraft/jsch/RequestX11#request
+m	com/jcraft/jsch/ServerSocketFactory	j6	(IILjava/net/InetAddress;)Ljava/net/ServerSocket;	auto: 创建 ServerSocket；src: jsch-0.1.51 com/jcraft/jsch/ServerSocketFactory#createServerSocket
+m	com/jcraft/jsch/Session	DW	(Lcom/jcraft/jsch/Buffer;)Lcom/jcraft/jsch/KeyExchange;	auto: 「receive_kexinit」；src: jsch-0.1.51 com/jcraft/jsch/Session#receive_kexinit
+m	com/jcraft/jsch/Session	j6	(Ljava/lang/String;I)I	auto: 「_setPortForwardingR」；src: jsch-0.1.51 com/jcraft/jsch/Session#_setPortForwardingR
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/Buffer;Lcom/jcraft/jsch/Cipher;Lcom/jcraft/jsch/MAC;II)V	auto: 执行 start_discard；src: jsch-0.1.51 com/jcraft/jsch/Session#start_discard
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/Buffer;Lcom/jcraft/jsch/KeyExchange;)V	auto: 执行 receive_newkeys；src: jsch-0.1.51 com/jcraft/jsch/Session#receive_newkeys
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/ChannelSession;)V	auto: 应用 ConfigChannel；src: jsch-0.1.51 com/jcraft/jsch/Session#applyConfigChannel
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/ConfigRepository$Config;Ljava/lang/String;)V	auto: 检查 Config；src: jsch-0.1.51 com/jcraft/jsch/Session#checkConfig
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/KeyExchange;)V	auto: 更新 Keys；src: jsch-0.1.51 com/jcraft/jsch/Session#updateKeys
+m	com/jcraft/jsch/Session	j6	(Ljava/lang/String;ILcom/jcraft/jsch/KeyExchange;)V	auto: 检查 Host；src: jsch-0.1.51 com/jcraft/jsch/Session#checkHost
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/Session;Ljava/lang/String;)Z	auto: 检查 Kex；src: jsch-0.1.51 com/jcraft/jsch/Session#checkKex
+m	com/jcraft/jsch/Session	j6	(Ljava/lang/String;)Z	auto: 检查 Cipher；src: jsch-0.1.51 com/jcraft/jsch/Session#checkCipher
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/Buffer;[B[B[BLcom/jcraft/jsch/HASH;I)[B	auto: 「expandKey」；src: jsch-0.1.51 com/jcraft/jsch/Session#expandKey
+m	com/jcraft/jsch/Session	we	(Ljava/lang/String;)Lcom/jcraft/jsch/Session$Forwarding;	src: jsch-0.1.51 com/jcraft/jsch/Session#parseForwarding；doc: The given argument may be "[bind_address:]port:host:hostport" or "[bind_address:]port host:hostport", which…
+m	com/jcraft/jsch/Session	DW	(Ljava/lang/String;)Ljava/lang/String;	auto: 取 Config；src: jsch-0.1.51 com/jcraft/jsch/Session#getConfig
+m	com/jcraft/jsch/Session	FH	(Ljava/lang/String;)Lcom/jcraft/jsch/Channel;	auto: 打开 Channel；src: jsch-0.1.51 com/jcraft/jsch/Session#openChannel
+m	com/jcraft/jsch/Session	FH	()Lcom/jcraft/jsch/HostKeyRepository;	src: jsch-0.1.51 com/jcraft/jsch/Session#getHostKeyRepository；doc: Gets the hostkeyRepository.
+m	com/jcraft/jsch/Session	Hw	()Lcom/jcraft/jsch/IdentityRepository;	src: jsch-0.1.51 com/jcraft/jsch/Session#getIdentityRepository；doc: Gets the identityRepository.
+m	com/jcraft/jsch/Session	Zo	()[B	auto: 取 SessionId；src: jsch-0.1.51 com/jcraft/jsch/Session#getSessionId
+m	com/jcraft/jsch/Session	gn	()Lcom/jcraft/jsch/UserInfo;	auto: 取 UserInfo；src: jsch-0.1.51 com/jcraft/jsch/Session#getUserInfo
+m	com/jcraft/jsch/Session	j6	(Ljava/lang/String;ILjava/lang/String;I)I	src: jsch-0.1.51 com/jcraft/jsch/Session#setPortForwardingL；doc: Registers the local port forwarding. If bind_address is an empty string or '*', the port should be available…
+m	com/jcraft/jsch/Session	j6	(Ljava/lang/String;ILjava/lang/String;ILcom/jcraft/jsch/ServerSocketFactory;)I	src: jsch-0.1.51 com/jcraft/jsch/Session#setPortForwardingL；doc: Registers the local port forwarding.
+m	com/jcraft/jsch/Session	j6	(Ljava/lang/String;ILjava/lang/String;ILcom/jcraft/jsch/ServerSocketFactory;I)I	src: jsch-0.1.51 com/jcraft/jsch/Session#setPortForwardingL；doc: Registers the local port forwarding.
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/Buffer;)Lcom/jcraft/jsch/Buffer;	auto: 「read」；src: jsch-0.1.51 com/jcraft/jsch/Session#read
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/Channel;)V	auto: 加入 Channel；src: jsch-0.1.51 com/jcraft/jsch/Session#addChannel
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/HostKeyRepository;)V	src: jsch-0.1.51 com/jcraft/jsch/Session#setHostKeyRepository；doc: Sets the hostkeyRepository, which will be referred in checking host keys.
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/IdentityRepository;)V	src: jsch-0.1.51 com/jcraft/jsch/Session#setIdentityRepository；doc: Sets the identityRepository, which will be referred in the public key authentication. The default value is n…
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/Packet;Lcom/jcraft/jsch/Channel;I)V	auto: 执行 write；src: jsch-0.1.51 com/jcraft/jsch/Session#write
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/UserInfo;)V	auto: 设 UserInfo；src: jsch-0.1.51 com/jcraft/jsch/Session#setUserInfo
+m	com/jcraft/jsch/Session	j6	(Ljava/lang/String;Ljava/lang/String;)V	auto: 设 Config；src: jsch-0.1.51 com/jcraft/jsch/Session#setConfig
+m	com/jcraft/jsch/Session	tp	()Z	auto: 是否 Connected；src: jsch-0.1.51 com/jcraft/jsch/Session#isConnected
+f	com/jcraft/jsch/Session	j6	-	auto: 字段(Lcom/jcraft/jsch/Random;)；src: jsch-0.1.51 com/jcraft/jsch/Session.random
+f	com/jcraft/jsch/Session	Eq	-	auto: 字段(Lcom/jcraft/jsch/Session$GlobalRequestReply;)；src: jsch-0.1.51 com/jcraft/jsch/Session.grr
+f	com/jcraft/jsch/Session	I	-	auto: 字段(Lcom/jcraft/jsch/IdentityRepository;)；src: jsch-0.1.51 com/jcraft/jsch/Session.identityRepository
+f	com/jcraft/jsch/Session	Qq	-	auto: 字段(J)；src: jsch-0.1.51 com/jcraft/jsch/Session.kex_start_time
+f	com/jcraft/jsch/Session	Sf	-	auto: 字段(Lcom/jcraft/jsch/UserInfo;)；src: jsch-0.1.51 com/jcraft/jsch/Session.userinfo
+f	com/jcraft/jsch/Session	XL	-	auto: 字段([Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/Session.guess
+f	com/jcraft/jsch/Session	Xa	-	auto: 字段(Ljava/lang/Runnable;)；src: jsch-0.1.51 com/jcraft/jsch/Session.thread
+f	com/jcraft/jsch/Session	ca	-	auto: 字段(Lcom/jcraft/jsch/HostKeyRepository;)；src: jsch-0.1.51 com/jcraft/jsch/Session.hostkeyRepository
+f	com/jcraft/jsch/Session	cb	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/Session.packet
+f	com/jcraft/jsch/Session	cn	-	auto: 字段(Ljava/io/OutputStream;)；src: jsch-0.1.51 com/jcraft/jsch/Session.out
+f	com/jcraft/jsch/Session	dx	-	auto: 字段(Lcom/jcraft/jsch/SocketFactory;)；src: jsch-0.1.51 com/jcraft/jsch/Session.socket_factory
+f	com/jcraft/jsch/Session	ef	-	auto: 字段(Lcom/jcraft/jsch/Proxy;)；src: jsch-0.1.51 com/jcraft/jsch/Session.proxy
+f	com/jcraft/jsch/Session	ei	-	auto: 字段(Ljava/lang/Thread;)；src: jsch-0.1.51 com/jcraft/jsch/Session.connectThread
+f	com/jcraft/jsch/Session	gW	-	auto: 字段(Ljava/net/Socket;)；src: jsch-0.1.51 com/jcraft/jsch/Session.socket
+f	com/jcraft/jsch/Session	hz	-	auto: 字段(Lcom/jcraft/jsch/HostKey;)；src: jsch-0.1.51 com/jcraft/jsch/Session.hostkey
+f	com/jcraft/jsch/Session	nw	-	auto: 字段(Ljava/lang/Object;)；src: jsch-0.1.51 com/jcraft/jsch/Session.lock
+f	com/jcraft/jsch/Session	ro	-	auto: 字段(Ljava/io/InputStream;)；src: jsch-0.1.51 com/jcraft/jsch/Session.in
+f	com/jcraft/jsch/Session	sG	-	auto: 字段(Ljava/util/Hashtable;)；src: jsch-0.1.51 com/jcraft/jsch/Session.config
+f	com/jcraft/jsch/Session	sh	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/Session.buf
+f	com/jcraft/jsch/Session	yO	-	auto: 字段(Lcom/jcraft/jsch/JSch;)；src: jsch-0.1.51 com/jcraft/jsch/Session.jsch
+f	com/jcraft/jsch/Session	yS	-	auto: 字段(Lcom/jcraft/jsch/IO;)；src: jsch-0.1.51 com/jcraft/jsch/Session.io
+m	com/jcraft/jsch/Session	J8	()V	auto: 执行 send_kexinit；src: jsch-0.1.51 com/jcraft/jsch/Session#send_kexinit
+m	com/jcraft/jsch/Session	Ws	()V	auto: 执行 send_newkeys；src: jsch-0.1.51 com/jcraft/jsch/Session#send_newkeys
+m	com/jcraft/jsch/Session	we	()V	src: jsch-0.1.51 com/jcraft/jsch/Session#applyConfig；doc: Gets the hostkeyRepository.
+m	com/jcraft/jsch/Session	j6	()V	auto: 执行 disconnect；src: jsch-0.1.51 com/jcraft/jsch/Session#disconnect
+m	com/jcraft/jsch/Session	J0	()V	auto: 执行 requestPortForwarding；src: jsch-0.1.51 com/jcraft/jsch/Session#requestPortForwarding
+m	com/jcraft/jsch/Session	tp	(Ljava/lang/String;)V	auto: 初始化 Deflater；src: jsch-0.1.51 com/jcraft/jsch/Session#initDeflater
+m	com/jcraft/jsch/Session	EQ	(Ljava/lang/String;)V	auto: 初始化 Inflater；src: jsch-0.1.51 com/jcraft/jsch/Session#initInflater
+m	com/jcraft/jsch/Session	v5	(Ljava/lang/String;)V	auto: 设 Password；src: jsch-0.1.51 com/jcraft/jsch/Session#setPassword
+m	com/jcraft/jsch/Session	j6	(Lcom/jcraft/jsch/Packet;)V	auto: 执行 encode；src: jsch-0.1.51 com/jcraft/jsch/Session#encode
+m	com/jcraft/jsch/Session	DW	(Lcom/jcraft/jsch/Packet;)V	auto: 执行 write；src: jsch-0.1.51 com/jcraft/jsch/Session#write
+m	com/jcraft/jsch/Session	FH	(Lcom/jcraft/jsch/Packet;)V	auto: 执行 _write；src: jsch-0.1.51 com/jcraft/jsch/Session#_write
+m	com/jcraft/jsch/Session	gn	(Ljava/lang/String;)[Ljava/lang/String;	auto: 检查 Ciphers；src: jsch-0.1.51 com/jcraft/jsch/Session#checkCiphers
+m	com/jcraft/jsch/Session	u7	(Ljava/lang/String;)[Ljava/lang/String;	auto: 检查 Kexes；src: jsch-0.1.51 com/jcraft/jsch/Session#checkKexes
+m	com/jcraft/jsch/Session	u7	()Ljava/lang/String;	auto: 取 UserName；src: jsch-0.1.51 com/jcraft/jsch/Session#getUserName
+m	com/jcraft/jsch/Session	DW	()Ljava/lang/String;	auto: 取 Host；src: jsch-0.1.51 com/jcraft/jsch/Session#getHost
+m	com/jcraft/jsch/Session	j6	(I)V	auto: 执行 connect；src: jsch-0.1.51 com/jcraft/jsch/Session#connect
+m	com/jcraft/jsch/Session	DW	(I)V	src: jsch-0.1.51 com/jcraft/jsch/Session#setServerAliveInterval；doc: Sets the interval to send a keep-alive message. If zero is specified, any keep-alive message must not be sen…
+m	com/jcraft/jsch/Session	FH	(I)V	auto: 设 Timeout；src: jsch-0.1.51 com/jcraft/jsch/Session#setTimeout
+m	com/jcraft/jsch/Session	VH	()I	auto: 取 Timeout；src: jsch-0.1.51 com/jcraft/jsch/Session#getTimeout
+m	com/jcraft/jsch/Session	v5	()I	auto: 取 Port；src: jsch-0.1.51 com/jcraft/jsch/Session#getPort
+m	com/jcraft/jsch/Session	VH	(Ljava/lang/String;)I	src: jsch-0.1.51 com/jcraft/jsch/Session#setPortForwardingR；doc: Registers the remote port forwarding. The argument should be in the format like "[bind_address:]port:host:ho…
+m	com/jcraft/jsch/Session	Zo	(Ljava/lang/String;)I	src: jsch-0.1.51 com/jcraft/jsch/Session#setPortForwardingL；doc: Registers the local port forwarding. The argument should be in the format like "[bind_address:]port:host:hos…
+m	com/jcraft/jsch/Session	Hw	(Ljava/lang/String;)V	auto: 设 HostKeyAlias；src: jsch-0.1.51 com/jcraft/jsch/Session#setHostKeyAlias
+f	com/jcraft/jsch/Session	FH	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.nomoresessions
+f	com/jcraft/jsch/Session	DW	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.keepalivemsg
+f	com/jcraft/jsch/Session	aj	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.auth_failures
+f	com/jcraft/jsch/Session	sy	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.max_auth_tries
+f	com/jcraft/jsch/Session	et	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.s2ccipher_size
+f	com/jcraft/jsch/Session	CU	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.c2scipher_size
+f	com/jcraft/jsch/Session	Ws	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.seqi
+f	com/jcraft/jsch/Session	br	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.port
+f	com/jcraft/jsch/Session	gn	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.session_id
+f	com/jcraft/jsch/Session	kQ	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.password
+f	com/jcraft/jsch/Session	a8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.s2cmac_result1
+f	com/jcraft/jsch/Session	VH	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.I_S
+f	com/jcraft/jsch/Session	EQ	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.Ec2s
+f	com/jcraft/jsch/Session	SI	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Session.x11_forwarding
+f	com/jcraft/jsch/Session	KD	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Session.agent_forwarding
+f	com/jcraft/jsch/Session	XG	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Session.in_kex
+f	com/jcraft/jsch/Session	vy	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Session.isConnected
+f	com/jcraft/jsch/Session	P8	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Session.isAuthed
+f	com/jcraft/jsch/Session	Mr	-	auto: 字段(Lcom/jcraft/jsch/MAC;)；src: jsch-0.1.51 com/jcraft/jsch/Session.s2cmac
+f	com/jcraft/jsch/Session	U2	-	auto: 字段(Lcom/jcraft/jsch/MAC;)；src: jsch-0.1.51 com/jcraft/jsch/Session.c2smac
+f	com/jcraft/jsch/Session	lp	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/Session.host
+f	com/jcraft/jsch/Session	j3	-	auto: 字段(Lcom/jcraft/jsch/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/Session.c2scipher
+f	com/jcraft/jsch/Session	aM	-	auto: 字段(Lcom/jcraft/jsch/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/Session.s2ccipher
+f	com/jcraft/jsch/Session	jJ	-	auto: 字段([I)；src: jsch-0.1.51 com/jcraft/jsch/Session.uncompress_len
+f	com/jcraft/jsch/Session	wc	-	auto: 字段([I)；src: jsch-0.1.51 com/jcraft/jsch/Session.compress_len
+f	com/jcraft/jsch/Session	QX	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.seqo
+f	com/jcraft/jsch/Session	BT	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.timeout
+f	com/jcraft/jsch/Session	g3	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.serverAliveInterval
+f	com/jcraft/jsch/Session	v5	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.V_C
+f	com/jcraft/jsch/Session	x9	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Session.daemon_thread
+f	com/jcraft/jsch/Session	OW	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/Session.org_host
+f	com/jcraft/jsch/Session	XX	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/Session.username
+f	com/jcraft/jsch/Session	rN	-	auto: 字段(Lcom/jcraft/jsch/Compression;)；src: jsch-0.1.51 com/jcraft/jsch/Session.deflater
+f	com/jcraft/jsch/Session	Mz	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session.serverAliveCountMax
+f	com/jcraft/jsch/Session	Hw	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.V_S
+f	com/jcraft/jsch/Session	Zo	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.I_C
+f	com/jcraft/jsch/Session	vJ	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/Session.hostKeyAlias
+f	com/jcraft/jsch/Session	er	-	auto: 字段(Lcom/jcraft/jsch/Compression;)；src: jsch-0.1.51 com/jcraft/jsch/Session.inflater
+m	com/jcraft/jsch/Session	EQ	()V	auto: 执行 sendKeepAliveMsg；src: jsch-0.1.51 com/jcraft/jsch/Session#sendKeepAliveMsg
+f	com/jcraft/jsch/Session	u7	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.IVc2s
+f	com/jcraft/jsch/Session	tp	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.IVs2c
+f	com/jcraft/jsch/Session	we	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.Es2c
+f	com/jcraft/jsch/Session	J0	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.MACc2s
+f	com/jcraft/jsch/Session	J8	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.MACs2c
+f	com/jcraft/jsch/Session	lg	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Session.s2cmac_result2
+m	com/jcraft/jsch/Session$GlobalRequestReply	FH	()Ljava/lang/Thread;	auto: 取 Thread；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply#getThread
+m	com/jcraft/jsch/Session$GlobalRequestReply	j6	(Ljava/lang/Thread;)V	auto: 设 Thread；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply#setThread
+f	com/jcraft/jsch/Session$GlobalRequestReply	Hw	-	auto: 字段(Lcom/jcraft/jsch/Session;)；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply.this$0
+f	com/jcraft/jsch/Session$GlobalRequestReply	j6	-	auto: 字段(Ljava/lang/Thread;)；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply.thread
+m	com/jcraft/jsch/Session$GlobalRequestReply	DW	()I	auto: 取 Reply；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply#getReply
+m	com/jcraft/jsch/Session$GlobalRequestReply	j6	(I)V	auto: 设 Port；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply#setPort
+m	com/jcraft/jsch/Session$GlobalRequestReply	DW	(I)V	auto: 设 Reply；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply#setReply
+m	com/jcraft/jsch/Session$GlobalRequestReply	j6	()I	auto: 取 Port；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply#getPort
+f	com/jcraft/jsch/Session$GlobalRequestReply	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply.reply
+f	com/jcraft/jsch/Session$GlobalRequestReply	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session$GlobalRequestReply.port
+m	com/jcraft/jsch/SftpATTRS	DW	(Lcom/jcraft/jsch/Buffer;)Lcom/jcraft/jsch/SftpATTRS;	auto: 取 ATTR；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#getATTR
+m	com/jcraft/jsch/SftpATTRS	j6	(I)Z	auto: 是否 Type；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#isType
+m	com/jcraft/jsch/SftpATTRS	Zo	()J	auto: 取 Size；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#getSize
+m	com/jcraft/jsch/SftpATTRS	j6	(Lcom/jcraft/jsch/Buffer;)V	auto: 执行 dump；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#dump
+f	com/jcraft/jsch/SftpATTRS	DW	-	auto: 字段(J)；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS.size
+f	com/jcraft/jsch/SftpATTRS	gn	-	auto: 字段([Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS.extended
+m	com/jcraft/jsch/SftpATTRS	v5	()Ljava/lang/String;	auto: 取 PermissionsString；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#getPermissionsString
+m	com/jcraft/jsch/SftpATTRS	gn	()Z	auto: 是否 Dir；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#isDir
+m	com/jcraft/jsch/SftpATTRS	u7	()Z	auto: 是否 Link；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#isLink
+m	com/jcraft/jsch/SftpATTRS	j6	()I	auto: 取 Flags；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#getFlags
+m	com/jcraft/jsch/SftpATTRS	VH	()I	auto: 取 UId；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#getUId
+m	com/jcraft/jsch/SftpATTRS	FH	()I	auto: 取 MTime；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#getMTime
+m	com/jcraft/jsch/SftpATTRS	DW	()I	auto: 取 GId；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#getGId
+m	com/jcraft/jsch/SftpATTRS	Hw	()Ljava/lang/String;	auto: 取 MtimeString；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#getMtimeString
+f	com/jcraft/jsch/SftpATTRS	j6	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS.flags
+f	com/jcraft/jsch/SftpATTRS	v5	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS.permissions
+f	com/jcraft/jsch/SftpATTRS	Zo	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS.atime
+f	com/jcraft/jsch/SftpATTRS	Hw	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS.gid
+f	com/jcraft/jsch/SftpATTRS	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS.uid
+f	com/jcraft/jsch/SftpATTRS	VH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS.mtime
+m	com/jcraft/jsch/SftpATTRS	tp	()I	auto: 「length」；src: jsch-0.1.51 com/jcraft/jsch/SftpATTRS#length
+m	com/jcraft/jsch/SftpProgressMonitor	j6	(ILjava/lang/String;Ljava/lang/String;J)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/SftpProgressMonitor#init
+m	com/jcraft/jsch/SftpProgressMonitor	j6	(J)Z	auto: 「count」；src: jsch-0.1.51 com/jcraft/jsch/SftpProgressMonitor#count
+m	com/jcraft/jsch/Signature	DW	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/Signature#init
+m	com/jcraft/jsch/Signature	DW	([B)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/Signature#update
+m	com/jcraft/jsch/Signature	j6	([B)Z	auto: 「verify」；src: jsch-0.1.51 com/jcraft/jsch/Signature#verify
+m	com/jcraft/jsch/Signature	j6	()[B	auto: 「sign」；src: jsch-0.1.51 com/jcraft/jsch/Signature#sign
+m	com/jcraft/jsch/SocketFactory	DW	(Ljava/net/Socket;)Ljava/io/OutputStream;	auto: 取 OutputStream；src: jsch-0.1.51 com/jcraft/jsch/SocketFactory#getOutputStream
+m	com/jcraft/jsch/SocketFactory	j6	(Ljava/net/Socket;)Ljava/io/InputStream;	auto: 取 InputStream；src: jsch-0.1.51 com/jcraft/jsch/SocketFactory#getInputStream
+m	com/jcraft/jsch/SocketFactory	j6	(Ljava/lang/String;I)Ljava/net/Socket;	auto: 创建 Socket；src: jsch-0.1.51 com/jcraft/jsch/SocketFactory#createSocket
+m	com/jcraft/jsch/UserAuth	j6	(Lcom/jcraft/jsch/Session;)Z	auto: 「start」；src: jsch-0.1.51 com/jcraft/jsch/UserAuth#start
+f	com/jcraft/jsch/UserAuth	DW	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/UserAuth.packet
+f	com/jcraft/jsch/UserAuth	FH	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/UserAuth.buf
+f	com/jcraft/jsch/UserAuth	Hw	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/UserAuth.username
+f	com/jcraft/jsch/UserAuth	j6	-	auto: 字段(Lcom/jcraft/jsch/UserInfo;)；src: jsch-0.1.51 com/jcraft/jsch/UserAuth.userinfo
+m	com/jcraft/jsch/UserAuthGSSAPIWithMIC	j6	(Lcom/jcraft/jsch/Session;)Z	auto: 「start」；src: jsch-0.1.51 com/jcraft/jsch/UserAuthGSSAPIWithMIC#start
+f	com/jcraft/jsch/UserAuthGSSAPIWithMIC	Zo	-	auto: 字段([Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/UserAuthGSSAPIWithMIC.supported_method
+f	com/jcraft/jsch/UserAuthGSSAPIWithMIC	v5	-	auto: 字段([[B)；src: jsch-0.1.51 com/jcraft/jsch/UserAuthGSSAPIWithMIC.supported_oid
+m	com/jcraft/jsch/UserAuthKeyboardInteractive	j6	(Lcom/jcraft/jsch/Session;)Z	auto: 「start」；src: jsch-0.1.51 com/jcraft/jsch/UserAuthKeyboardInteractive#start
+m	com/jcraft/jsch/UserAuthNone	j6	()Ljava/lang/String;	auto: 取 Methods；src: jsch-0.1.51 com/jcraft/jsch/UserAuthNone#getMethods
+m	com/jcraft/jsch/UserAuthNone	j6	(Lcom/jcraft/jsch/Session;)Z	auto: 「start」；src: jsch-0.1.51 com/jcraft/jsch/UserAuthNone#start
+f	com/jcraft/jsch/UserAuthNone	v5	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/UserAuthNone.methods
+m	com/jcraft/jsch/UserAuthPassword	j6	(Lcom/jcraft/jsch/Session;)Z	auto: 「start」；src: jsch-0.1.51 com/jcraft/jsch/UserAuthPassword#start
+f	com/jcraft/jsch/UserAuthPassword	v5	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/UserAuthPassword.SSH_MSG_USERAUTH_PASSWD_CHANGEREQ
+m	com/jcraft/jsch/UserAuthPublicKey	j6	(Lcom/jcraft/jsch/Session;)Z	auto: 「start」；src: jsch-0.1.51 com/jcraft/jsch/UserAuthPublicKey#start
+m	com/jcraft/jsch/Util	DW	(B)B	auto: 「val」；src: jsch-0.1.51 com/jcraft/jsch/Util#val
+m	com/jcraft/jsch/Util	DW	([B)V	auto: 执行 bzero；src: jsch-0.1.51 com/jcraft/jsch/Util#bzero
+m	com/jcraft/jsch/Util	DW	(Ljava/lang/String;Ljava/lang/String;)[B	auto: 「str2byte」；src: jsch-0.1.51 com/jcraft/jsch/Util#str2byte
+m	com/jcraft/jsch/Util	Hw	([B)[B	auto: 「unquote」；src: jsch-0.1.51 com/jcraft/jsch/Util#unquote
+m	com/jcraft/jsch/Util	j6	(B)I	auto: 「skipUTF8Char」；src: jsch-0.1.51 com/jcraft/jsch/Util#skipUTF8Char
+m	com/jcraft/jsch/Util	j6	(Lcom/jcraft/jsch/HASH;[B)Ljava/lang/String;	auto: 取 FingerPrint；src: jsch-0.1.51 com/jcraft/jsch/Util#getFingerPrint
+m	com/jcraft/jsch/Util	j6	(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;	auto: 「diffString」；src: jsch-0.1.51 com/jcraft/jsch/Util#diffString
+m	com/jcraft/jsch/Util	j6	([BII)Ljava/lang/String;	auto: 「byte2str」；src: jsch-0.1.51 com/jcraft/jsch/Util#byte2str
+m	com/jcraft/jsch/Util	j6	([BIILjava/lang/String;)Ljava/lang/String;	auto: 「byte2str」；src: jsch-0.1.51 com/jcraft/jsch/Util#byte2str
+m	com/jcraft/jsch/Util	j6	([BLjava/lang/String;)Ljava/lang/String;	auto: 「byte2str」；src: jsch-0.1.51 com/jcraft/jsch/Util#byte2str
+m	com/jcraft/jsch/Util	j6	(Ljava/lang/String;II)Ljava/net/Socket;	auto: 创建 Socket；src: jsch-0.1.51 com/jcraft/jsch/Util#createSocket
+m	com/jcraft/jsch/Util	j6	(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;	auto: 「split」；src: jsch-0.1.51 com/jcraft/jsch/Util#split
+f	com/jcraft/jsch/Util	DW	-	auto: 字段([Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/Util.chars
+m	com/jcraft/jsch/Util	DW	([BI[BI)Z	auto: 「glob0」；src: jsch-0.1.51 com/jcraft/jsch/Util#glob0
+m	com/jcraft/jsch/Util	j6	([BI[BI)Z	auto: 「glob」；src: jsch-0.1.51 com/jcraft/jsch/Util#glob
+m	com/jcraft/jsch/Util	j6	([B[B)Z	auto: 「array_equals」；src: jsch-0.1.51 com/jcraft/jsch/Util#array_equals
+m	com/jcraft/jsch/Util	DW	([B[B)Z	auto: 「glob」；src: jsch-0.1.51 com/jcraft/jsch/Util#glob
+m	com/jcraft/jsch/Util	FH	(Ljava/lang/String;)[B	auto: 「str2byte」；src: jsch-0.1.51 com/jcraft/jsch/Util#str2byte
+m	com/jcraft/jsch/Util	DW	(Ljava/lang/String;)[B	auto: 「fromFile」；src: jsch-0.1.51 com/jcraft/jsch/Util#fromFile
+m	com/jcraft/jsch/Util	DW	([BII)[B	auto: 「fromBase64」；src: jsch-0.1.51 com/jcraft/jsch/Util#fromBase64
+m	com/jcraft/jsch/Util	FH	([BII)[B	auto: 转换为 Base64；src: jsch-0.1.51 com/jcraft/jsch/Util#toBase64
+m	com/jcraft/jsch/Util	j6	([B)Ljava/lang/String;	auto: 「byte2str」；src: jsch-0.1.51 com/jcraft/jsch/Util#byte2str
+m	com/jcraft/jsch/Util	FH	([B)Ljava/lang/String;	auto: 转换为 Hex；src: jsch-0.1.51 com/jcraft/jsch/Util#toHex
+m	com/jcraft/jsch/Util	j6	(Ljava/lang/String;)Ljava/lang/String;	auto: 检查 Tilde；src: jsch-0.1.51 com/jcraft/jsch/Util#checkTilde
+m	com/jcraft/jsch/Util	Hw	(Ljava/lang/String;)Ljava/lang/String;	auto: 「unquote」；src: jsch-0.1.51 com/jcraft/jsch/Util#unquote
+f	com/jcraft/jsch/Util	FH	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Util.empty
+f	com/jcraft/jsch/Util	j6	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Util.b64
+m	com/jcraft/jsch/jce/AES128CBC	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CBC#isCBC
+m	com/jcraft/jsch/jce/AES128CBC	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CBC#init
+m	com/jcraft/jsch/jce/AES128CBC	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CBC#update
+f	com/jcraft/jsch/jce/AES128CBC	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CBC.cipher
+m	com/jcraft/jsch/jce/AES128CBC	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CBC#getIVSize
+m	com/jcraft/jsch/jce/AES128CBC	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CBC#getBlockSize
+m	com/jcraft/jsch/jce/AES128CTR	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CTR#isCBC
+m	com/jcraft/jsch/jce/AES128CTR	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CTR#init
+m	com/jcraft/jsch/jce/AES128CTR	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CTR#update
+f	com/jcraft/jsch/jce/AES128CTR	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CTR.cipher
+m	com/jcraft/jsch/jce/AES128CTR	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CTR#getIVSize
+m	com/jcraft/jsch/jce/AES128CTR	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES128CTR#getBlockSize
+m	com/jcraft/jsch/jce/AES192CBC	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CBC#isCBC
+m	com/jcraft/jsch/jce/AES192CBC	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CBC#init
+m	com/jcraft/jsch/jce/AES192CBC	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CBC#update
+f	com/jcraft/jsch/jce/AES192CBC	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CBC.cipher
+m	com/jcraft/jsch/jce/AES192CBC	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CBC#getBlockSize
+m	com/jcraft/jsch/jce/AES192CBC	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CBC#getIVSize
+m	com/jcraft/jsch/jce/AES192CTR	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CTR#isCBC
+m	com/jcraft/jsch/jce/AES192CTR	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CTR#init
+m	com/jcraft/jsch/jce/AES192CTR	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CTR#update
+f	com/jcraft/jsch/jce/AES192CTR	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CTR.cipher
+m	com/jcraft/jsch/jce/AES192CTR	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CTR#getBlockSize
+m	com/jcraft/jsch/jce/AES192CTR	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES192CTR#getIVSize
+m	com/jcraft/jsch/jce/AES256CBC	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CBC#isCBC
+m	com/jcraft/jsch/jce/AES256CBC	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CBC#init
+m	com/jcraft/jsch/jce/AES256CBC	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CBC#update
+f	com/jcraft/jsch/jce/AES256CBC	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CBC.cipher
+m	com/jcraft/jsch/jce/AES256CBC	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CBC#getBlockSize
+m	com/jcraft/jsch/jce/AES256CBC	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CBC#getIVSize
+m	com/jcraft/jsch/jce/AES256CTR	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CTR#isCBC
+m	com/jcraft/jsch/jce/AES256CTR	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CTR#init
+m	com/jcraft/jsch/jce/AES256CTR	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CTR#update
+f	com/jcraft/jsch/jce/AES256CTR	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CTR.cipher
+m	com/jcraft/jsch/jce/AES256CTR	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CTR#getBlockSize
+m	com/jcraft/jsch/jce/AES256CTR	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/AES256CTR#getIVSize
+m	com/jcraft/jsch/jce/ARCFOUR	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR#isCBC
+m	com/jcraft/jsch/jce/ARCFOUR	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR#init
+m	com/jcraft/jsch/jce/ARCFOUR	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR#update
+f	com/jcraft/jsch/jce/ARCFOUR	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR.cipher
+m	com/jcraft/jsch/jce/ARCFOUR	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR#getBlockSize
+m	com/jcraft/jsch/jce/ARCFOUR	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR#getIVSize
+m	com/jcraft/jsch/jce/ARCFOUR128	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR128#isCBC
+m	com/jcraft/jsch/jce/ARCFOUR128	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR128#init
+m	com/jcraft/jsch/jce/ARCFOUR128	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR128#update
+f	com/jcraft/jsch/jce/ARCFOUR128	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR128.cipher
+m	com/jcraft/jsch/jce/ARCFOUR128	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR128#getBlockSize
+m	com/jcraft/jsch/jce/ARCFOUR128	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR128#getIVSize
+m	com/jcraft/jsch/jce/ARCFOUR256	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR256#isCBC
+m	com/jcraft/jsch/jce/ARCFOUR256	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR256#init
+m	com/jcraft/jsch/jce/ARCFOUR256	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR256#update
+f	com/jcraft/jsch/jce/ARCFOUR256	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR256.cipher
+m	com/jcraft/jsch/jce/ARCFOUR256	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR256#getBlockSize
+m	com/jcraft/jsch/jce/ARCFOUR256	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/ARCFOUR256#getIVSize
+m	com/jcraft/jsch/jce/BlowfishCBC	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/BlowfishCBC#isCBC
+m	com/jcraft/jsch/jce/BlowfishCBC	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/BlowfishCBC#init
+m	com/jcraft/jsch/jce/BlowfishCBC	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/BlowfishCBC#update
+f	com/jcraft/jsch/jce/BlowfishCBC	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/BlowfishCBC.cipher
+m	com/jcraft/jsch/jce/BlowfishCBC	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/BlowfishCBC#getBlockSize
+m	com/jcraft/jsch/jce/BlowfishCBC	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/BlowfishCBC#getIVSize
+m	com/jcraft/jsch/jce/DH	DW	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/DH#init
+f	com/jcraft/jsch/jce/DH	gn	-	auto: 字段(Ljava/security/KeyPairGenerator;)；src: jsch-0.1.51 com/jcraft/jsch/jce/DH.myKpairGen
+f	com/jcraft/jsch/jce/DH	u7	-	auto: 字段(Ljavax/crypto/KeyAgreement;)；src: jsch-0.1.51 com/jcraft/jsch/jce/DH.myKeyAgree
+m	com/jcraft/jsch/jce/DH	DW	(Ljava/math/BigInteger;)V	auto: 设 P；src: jsch-0.1.51 com/jcraft/jsch/jce/DH#setP
+m	com/jcraft/jsch/jce/DH	DW	([B)V	auto: 设 F；src: jsch-0.1.51 com/jcraft/jsch/jce/DH#setF
+m	com/jcraft/jsch/jce/DH	FH	(Ljava/math/BigInteger;)V	auto: 设 G；src: jsch-0.1.51 com/jcraft/jsch/jce/DH#setG
+m	com/jcraft/jsch/jce/DH	FH	([B)V	auto: 设 G；src: jsch-0.1.51 com/jcraft/jsch/jce/DH#setG
+m	com/jcraft/jsch/jce/DH	j6	(Ljava/math/BigInteger;)V	auto: 设 F；src: jsch-0.1.51 com/jcraft/jsch/jce/DH#setF
+m	com/jcraft/jsch/jce/DH	j6	([B)V	auto: 设 P；src: jsch-0.1.51 com/jcraft/jsch/jce/DH#setP
+f	com/jcraft/jsch/jce/DH	DW	-	auto: 字段(Ljava/math/BigInteger;)；src: jsch-0.1.51 com/jcraft/jsch/jce/DH.p
+f	com/jcraft/jsch/jce/DH	Zo	-	auto: 字段(Ljava/math/BigInteger;)；src: jsch-0.1.51 com/jcraft/jsch/jce/DH.K
+f	com/jcraft/jsch/jce/DH	FH	-	auto: 字段(Ljava/math/BigInteger;)；src: jsch-0.1.51 com/jcraft/jsch/jce/DH.e
+f	com/jcraft/jsch/jce/DH	VH	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jce/DH.K_array
+f	com/jcraft/jsch/jce/DH	Hw	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jce/DH.e_array
+f	com/jcraft/jsch/jce/DH	j6	-	auto: 字段(Ljava/math/BigInteger;)；src: jsch-0.1.51 com/jcraft/jsch/jce/DH.g
+f	com/jcraft/jsch/jce/DH	v5	-	auto: 字段(Ljava/math/BigInteger;)；src: jsch-0.1.51 com/jcraft/jsch/jce/DH.f
+m	com/jcraft/jsch/jce/DH	FH	()[B	auto: 取 K；src: jsch-0.1.51 com/jcraft/jsch/jce/DH#getK
+m	com/jcraft/jsch/jce/DH	j6	()[B	auto: 取 E；src: jsch-0.1.51 com/jcraft/jsch/jce/DH#getE
+m	com/jcraft/jsch/jce/HMAC	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/HMAC#getBlockSize
+m	com/jcraft/jsch/jce/HMAC	j6	([B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/HMAC#init
+m	com/jcraft/jsch/jce/HMAC	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jce/HMAC#doFinal
+f	com/jcraft/jsch/jce/HMAC	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/jce/HMAC.bsize
+f	com/jcraft/jsch/jce/HMAC	Hw	-	auto: 字段(Ljavax/crypto/Mac;)；src: jsch-0.1.51 com/jcraft/jsch/jce/HMAC.mac
+f	com/jcraft/jsch/jce/HMAC	v5	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jce/HMAC.tmp
+f	com/jcraft/jsch/jce/HMAC	FH	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/jce/HMAC.algorithm
+f	com/jcraft/jsch/jce/HMAC	j6	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/jce/HMAC.name
+m	com/jcraft/jsch/jce/HMACMD596	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACMD596#getBlockSize
+m	com/jcraft/jsch/jce/HMACMD596	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACMD596#doFinal
+f	com/jcraft/jsch/jce/HMACMD596	Zo	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACMD596._buf16
+m	com/jcraft/jsch/jce/HMACSHA196	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACSHA196#getBlockSize
+m	com/jcraft/jsch/jce/HMACSHA196	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACSHA196#doFinal
+f	com/jcraft/jsch/jce/HMACSHA196	Zo	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACSHA196._buf20
+m	com/jcraft/jsch/jce/MD5	DW	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/MD5#init
+m	com/jcraft/jsch/jce/MD5	FH	()[B	auto: 「digest」；src: jsch-0.1.51 com/jcraft/jsch/jce/MD5#digest
+m	com/jcraft/jsch/jce/MD5	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/MD5#getBlockSize
+f	com/jcraft/jsch/jce/MD5	j6	-	auto: 字段(Ljava/security/MessageDigest;)；src: jsch-0.1.51 com/jcraft/jsch/jce/MD5.md
+m	com/jcraft/jsch/jce/PBKDF	j6	([B[BII)[B	auto: 取 Key；src: jsch-0.1.51 com/jcraft/jsch/jce/PBKDF#getKey
+m	com/jcraft/jsch/jce/Random	j6	([BII)V	auto: 执行 fill；src: jsch-0.1.51 com/jcraft/jsch/jce/Random#fill
+f	com/jcraft/jsch/jce/Random	DW	-	auto: 字段(Ljava/security/SecureRandom;)；src: jsch-0.1.51 com/jcraft/jsch/jce/Random.random
+f	com/jcraft/jsch/jce/Random	j6	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jce/Random.tmp
+m	com/jcraft/jsch/jce/SHA1	DW	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA1#init
+m	com/jcraft/jsch/jce/SHA1	FH	()[B	auto: 「digest」；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA1#digest
+m	com/jcraft/jsch/jce/SHA1	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA1#getBlockSize
+f	com/jcraft/jsch/jce/SHA1	j6	-	auto: 字段(Ljava/security/MessageDigest;)；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA1.md
+m	com/jcraft/jsch/jce/SHA256	DW	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA256#init
+m	com/jcraft/jsch/jce/SHA256	FH	()[B	auto: 「digest」；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA256#digest
+m	com/jcraft/jsch/jce/SHA256	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA256#getBlockSize
+f	com/jcraft/jsch/jce/SHA256	j6	-	auto: 字段(Ljava/security/MessageDigest;)；src: jsch-0.1.51 com/jcraft/jsch/jce/SHA256.md
+m	com/jcraft/jsch/jce/SignatureDSA	DW	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureDSA#init
+m	com/jcraft/jsch/jce/SignatureDSA	DW	([B)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureDSA#update
+m	com/jcraft/jsch/jce/SignatureDSA	j6	([B)Z	auto: 「verify」；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureDSA#verify
+m	com/jcraft/jsch/jce/SignatureDSA	j6	()[B	auto: 「sign」；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureDSA#sign
+f	com/jcraft/jsch/jce/SignatureDSA	DW	-	auto: 字段(Ljava/security/KeyFactory;)；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureDSA.keyFactory
+f	com/jcraft/jsch/jce/SignatureDSA	j6	-	auto: 字段(Ljava/security/Signature;)；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureDSA.signature
+m	com/jcraft/jsch/jce/SignatureDSA	j6	([B[B[B[B)V	auto: 设 PrvKey；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureDSA#setPrvKey
+m	com/jcraft/jsch/jce/SignatureDSA	DW	([B[B[B[B)V	auto: 设 PubKey；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureDSA#setPubKey
+m	com/jcraft/jsch/jce/SignatureRSA	DW	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureRSA#init
+m	com/jcraft/jsch/jce/SignatureRSA	DW	([B)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureRSA#update
+m	com/jcraft/jsch/jce/SignatureRSA	j6	([B)Z	auto: 「verify」；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureRSA#verify
+m	com/jcraft/jsch/jce/SignatureRSA	j6	()[B	auto: 「sign」；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureRSA#sign
+f	com/jcraft/jsch/jce/SignatureRSA	DW	-	auto: 字段(Ljava/security/KeyFactory;)；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureRSA.keyFactory
+f	com/jcraft/jsch/jce/SignatureRSA	j6	-	auto: 字段(Ljava/security/Signature;)；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureRSA.signature
+m	com/jcraft/jsch/jce/SignatureRSA	j6	([B[B)V	auto: 设 PubKey；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureRSA#setPubKey
+m	com/jcraft/jsch/jce/SignatureRSA	DW	([B[B)V	auto: 设 PrvKey；src: jsch-0.1.51 com/jcraft/jsch/jce/SignatureRSA#setPrvKey
+m	com/jcraft/jsch/jce/TripleDESCBC	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCBC#isCBC
+m	com/jcraft/jsch/jce/TripleDESCBC	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCBC#init
+m	com/jcraft/jsch/jce/TripleDESCBC	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCBC#update
+f	com/jcraft/jsch/jce/TripleDESCBC	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCBC.cipher
+m	com/jcraft/jsch/jce/TripleDESCBC	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCBC#getBlockSize
+m	com/jcraft/jsch/jce/TripleDESCBC	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCBC#getIVSize
+m	com/jcraft/jsch/jce/TripleDESCTR	DW	()Z	auto: 是否 CBC；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCTR#isCBC
+m	com/jcraft/jsch/jce/TripleDESCTR	j6	(I[B[B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCTR#init
+m	com/jcraft/jsch/jce/TripleDESCTR	j6	([BII[BI)V	auto: 执行 update；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCTR#update
+f	com/jcraft/jsch/jce/TripleDESCTR	j6	-	auto: 字段(Ljavax/crypto/Cipher;)；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCTR.cipher
+m	com/jcraft/jsch/jce/TripleDESCTR	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCTR#getBlockSize
+m	com/jcraft/jsch/jce/TripleDESCTR	FH	()I	auto: 取 IVSize；src: jsch-0.1.51 com/jcraft/jsch/jce/TripleDESCTR#getIVSize
+m	com/jcraft/jsch/jcraft/Compression	j6	(II)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jcraft/Compression#init
+f	com/jcraft/jsch/jcraft/Compression	j6	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/Compression.buffer_margin
+f	com/jcraft/jsch/jcraft/Compression	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/Compression.type
+f	com/jcraft/jsch/jcraft/Compression	v5	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/Compression.inflated_buf
+f	com/jcraft/jsch/jcraft/Compression	Hw	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/Compression.tmpbuf
+m	com/jcraft/jsch/jcraft/Compression	DW	([BI[I)[B	auto: 「uncompress」；src: jsch-0.1.51 com/jcraft/jsch/jcraft/Compression#uncompress
+m	com/jcraft/jsch/jcraft/Compression	j6	([BI[I)[B	auto: 「compress」；src: jsch-0.1.51 com/jcraft/jsch/jcraft/Compression#compress
+f	com/jcraft/jsch/jcraft/Compression	FH	-	auto: 字段(Labcd/Oy;)（上游无同类型对应，按作用取名）
+m	com/jcraft/jsch/jcraft/HMAC	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC#getBlockSize
+m	com/jcraft/jsch/jcraft/HMAC	j6	(Ljava/security/MessageDigest;)V	auto: 设 H；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC#setH
+m	com/jcraft/jsch/jcraft/HMAC	j6	([B)V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC#init
+m	com/jcraft/jsch/jcraft/HMAC	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC#doFinal
+f	com/jcraft/jsch/jcraft/HMAC	FH	-	auto: 字段(Ljava/security/MessageDigest;)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC.md
+f	com/jcraft/jsch/jcraft/HMAC	Hw	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC.bsize
+f	com/jcraft/jsch/jcraft/HMAC	j6	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC.k_ipad
+f	com/jcraft/jsch/jcraft/HMAC	DW	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC.k_opad
+f	com/jcraft/jsch/jcraft/HMAC	v5	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMAC.tmp
+m	com/jcraft/jsch/jcraft/HMACMD596	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACMD596#getBlockSize
+m	com/jcraft/jsch/jcraft/HMACMD596	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACMD596#doFinal
+f	com/jcraft/jsch/jcraft/HMACMD596	Zo	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACMD596._buf16
+m	com/jcraft/jsch/jcraft/HMACSHA196	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACSHA196#getBlockSize
+m	com/jcraft/jsch/jcraft/HMACSHA196	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACSHA196#doFinal
+f	com/jcraft/jsch/jcraft/HMACSHA196	Zo	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACSHA196._buf16
+m	com/jcraft/jsch/jgss/GSSContextKrb5	j6	()V	auto: 执行 dispose；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5#dispose
+m	com/jcraft/jsch/jgss/GSSContextKrb5	j6	(Ljava/lang/String;)Ljava/lang/String;	auto: 取 SystemProperty；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5#getSystemProperty
+m	com/jcraft/jsch/jgss/GSSContextKrb5	DW	()Z	auto: 是否 Established；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5#isEstablished
+f	com/jcraft/jsch/jgss/GSSContextKrb5	DW	-	auto: 字段(Lorg/ietf/jgss/GSSContext;)；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5.context
+m	com/jcraft/jsch/jgss/GSSContextKrb5	DW	(Ljava/lang/String;Ljava/lang/String;)V	auto: 设 SystemProperty；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5#setSystemProperty
+m	com/jcraft/jsch/jgss/GSSContextKrb5	j6	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 create；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5#create
+m	com/jcraft/jsch/jgss/GSSContextKrb5	DW	([BII)[B	auto: 取 MIC；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5#getMIC
+f	com/jcraft/jsch/jgss/GSSContextKrb5	j6	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5.useSubjectCredsOnly
+m	com/jcraft/jsch/jgss/GSSContextKrb5	j6	([BII)[B	auto: 「init」；src: jsch-0.1.51 com/jcraft/jsch/jgss/GSSContextKrb5#init
+f	com/jcraft/jsch/Channel$1	DW	-	auto: 字段(Lcom/jcraft/jsch/Buffer;)；src: jsch-0.1.51 com/jcraft/jsch/Channel$1.buffer
+f	com/jcraft/jsch/Channel$1	FH	-	auto: 字段(Lcom/jcraft/jsch/Packet;)；src: jsch-0.1.51 com/jcraft/jsch/Channel$1.packet
+f	com/jcraft/jsch/Channel$1	Hw	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/Channel$1.closed
+f	com/jcraft/jsch/Channel$1	j6	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Channel$1.dataLen
+f	com/jcraft/jsch/Channel$1	v5	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/Channel$1.b
+f	com/jcraft/jsch/Channel$1	VH	-	auto: 字段(Lcom/jcraft/jsch/Channel;)；src: jsch-0.1.51 com/jcraft/jsch/Channel$1.val$channel
+f	com/jcraft/jsch/Channel$1	Zo	-	auto: 字段(Lcom/jcraft/jsch/Channel;)；src: jsch-0.1.51 com/jcraft/jsch/Channel$1.this$0
+m	com/jcraft/jsch/Channel$1	j6	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/Channel$1#init
+f	com/jcraft/jsch/Channel$PassiveInputStream	Hw	-	auto: 字段(Lcom/jcraft/jsch/Channel;)；src: jsch-0.1.51 com/jcraft/jsch/Channel$PassiveInputStream.this$0
+f	com/jcraft/jsch/Channel$PassiveOutputStream	DW	-	auto: 字段(Lcom/jcraft/jsch/Channel;)；src: jsch-0.1.51 com/jcraft/jsch/Channel$PassiveOutputStream.this$0
+f	com/jcraft/jsch/Channel$PassiveOutputStream	j6	-	auto: 字段(Lcom/jcraft/jsch/Channel$MyPipedInputStream;)；src: jsch-0.1.51 com/jcraft/jsch/Channel$PassiveOutputStream._sink
+f	com/jcraft/jsch/ChannelForwardedTCPIP$Config	j6	-	auto: 字段(Lcom/jcraft/jsch/Session;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$Config.session
+f	com/jcraft/jsch/ChannelForwardedTCPIP$Config	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$Config.rport
+f	com/jcraft/jsch/ChannelForwardedTCPIP$Config	Hw	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$Config.address_to_bind
+f	com/jcraft/jsch/ChannelForwardedTCPIP$Config	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$Config.allocated_rport
+f	com/jcraft/jsch/ChannelForwardedTCPIP$Config	v5	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$Config.target
+f	com/jcraft/jsch/ChannelForwardedTCPIP$ConfigDaemon	Zo	-	auto: 字段([Ljava/lang/Object;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$ConfigDaemon.arg
+f	com/jcraft/jsch/ChannelForwardedTCPIP$ConfigLHost	VH	-	auto: 字段(Lcom/jcraft/jsch/SocketFactory;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$ConfigLHost.factory
+f	com/jcraft/jsch/ChannelForwardedTCPIP$ConfigLHost	Zo	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelForwardedTCPIP$ConfigLHost.lport
+f	com/jcraft/jsch/ChannelSftp$1	FH	-	auto: 字段([I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.ackid
+f	com/jcraft/jsch/ChannelSftp$1	J0	-	auto: 字段(Lcom/jcraft/jsch/SftpProgressMonitor;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.val$monitor
+f	com/jcraft/jsch/ChannelSftp$1	gn	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp$Header;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.header
+f	com/jcraft/jsch/ChannelSftp$1	tp	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.this$0
+f	com/jcraft/jsch/ChannelSftp$1	we	-	auto: 字段([J)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.val$_offset
+f	com/jcraft/jsch/ChannelSftp$1	j6	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.init
+f	com/jcraft/jsch/ChannelSftp$1	DW	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.isClosed
+f	com/jcraft/jsch/ChannelSftp$1	u7	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1._data
+f	com/jcraft/jsch/ChannelSftp$1	EQ	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.val$handle
+f	com/jcraft/jsch/ChannelSftp$1	Zo	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.ackcount
+f	com/jcraft/jsch/ChannelSftp$1	VH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.writecount
+f	com/jcraft/jsch/ChannelSftp$1	Hw	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1.startid
+f	com/jcraft/jsch/ChannelSftp$1	v5	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$1._ackid
+f	com/jcraft/jsch/ChannelSftp$2	DW	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.closed
+f	com/jcraft/jsch/ChannelSftp$2	Zo	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp$Header;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.header
+f	com/jcraft/jsch/ChannelSftp$2	tp	-	auto: 字段(Lcom/jcraft/jsch/SftpProgressMonitor;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.val$monitor
+f	com/jcraft/jsch/ChannelSftp$2	u7	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.this$0
+f	com/jcraft/jsch/ChannelSftp$2	v5	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.rest_byte
+f	com/jcraft/jsch/ChannelSftp$2	Hw	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2._data
+f	com/jcraft/jsch/ChannelSftp$2	EQ	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.val$handle
+f	com/jcraft/jsch/ChannelSftp$2	VH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.request_max
+f	com/jcraft/jsch/ChannelSftp$2	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.rest_length
+f	com/jcraft/jsch/ChannelSftp$2	j6	-	auto: 字段(J)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.offset
+f	com/jcraft/jsch/ChannelSftp$2	gn	-	auto: 字段(J)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$2.request_offset
+f	com/jcraft/jsch/ChannelSftp$Header	Hw	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$Header.this$0
+f	com/jcraft/jsch/ChannelSftp$Header	j6	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$Header.length
+f	com/jcraft/jsch/ChannelSftp$Header	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$Header.type
+f	com/jcraft/jsch/ChannelSftp$Header	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$Header.rid
+f	com/jcraft/jsch/ChannelSftp$RequestQueue$OutOfOrderException	DW	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp$RequestQueue;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue$OutOfOrderException.this$1
+f	com/jcraft/jsch/ChannelSftp$RequestQueue$OutOfOrderException	j6	-	auto: 字段(J)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue$OutOfOrderException.offset
+f	com/jcraft/jsch/ChannelSftp$RequestQueue$Request	Hw	-	auto: 字段(Lcom/jcraft/jsch/ChannelSftp$RequestQueue;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue$Request.this$1
+f	com/jcraft/jsch/ChannelSftp$RequestQueue$Request	j6	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue$Request.id
+f	com/jcraft/jsch/ChannelSftp$RequestQueue$Request	DW	-	auto: 字段(J)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue$Request.offset
+f	com/jcraft/jsch/ChannelSftp$RequestQueue$Request	FH	-	auto: 字段(J)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSftp$RequestQueue$Request.length
+f	com/jcraft/jsch/ChannelSubsystem	sh	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSubsystem.subsystem
+m	com/jcraft/jsch/ChannelSubsystem	QX	()V	auto: 执行 start；src: jsch-0.1.51 com/jcraft/jsch/ChannelSubsystem#start
+m	com/jcraft/jsch/ChannelSubsystem	we	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/ChannelSubsystem#init
+m	com/jcraft/jsch/ChannelSubsystem	DW	(Z)V	auto: 设 Pty；src: jsch-0.1.51 com/jcraft/jsch/ChannelSubsystem#setPty
+f	com/jcraft/jsch/ChannelSubsystem	cn	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSubsystem.want_reply
+f	com/jcraft/jsch/ChannelSubsystem	KD	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSubsystem.xforwading
+f	com/jcraft/jsch/ChannelSubsystem	ro	-	auto: 字段(Z)；src: jsch-0.1.51 com/jcraft/jsch/ChannelSubsystem.pty
+m	com/jcraft/jsch/ChannelSubsystem	j6	(Z)V	auto: 设 AgentForwarding；src: jsch-0.1.51 com/jcraft/jsch/ChannelSubsystem#setAgentForwarding
+f	com/jcraft/jsch/HostKey	Zo	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/HostKey.key
+f	com/jcraft/jsch/HostKey	v5	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/HostKey.type
+m	com/jcraft/jsch/HostKey	j6	(Ljava/lang/String;)Z	auto: 是否 Matched；src: jsch-0.1.51 com/jcraft/jsch/HostKey#isMatched
+m	com/jcraft/jsch/HostKey	DW	(Ljava/lang/String;)Z	auto: 是否 Included；src: jsch-0.1.51 com/jcraft/jsch/HostKey#isIncluded
+m	com/jcraft/jsch/HostKey	DW	()Ljava/lang/String;	auto: 取 Host；src: jsch-0.1.51 com/jcraft/jsch/HostKey#getHost
+m	com/jcraft/jsch/HostKey	Hw	()Ljava/lang/String;	auto: 取 Marker；src: jsch-0.1.51 com/jcraft/jsch/HostKey#getMarker
+m	com/jcraft/jsch/HostKey	v5	()Ljava/lang/String;	auto: 取 Type；src: jsch-0.1.51 com/jcraft/jsch/HostKey#getType
+m	com/jcraft/jsch/HostKey	j6	()Ljava/lang/String;	auto: 取 Comment；src: jsch-0.1.51 com/jcraft/jsch/HostKey#getComment
+m	com/jcraft/jsch/HostKey	FH	()Ljava/lang/String;	auto: 取 Key；src: jsch-0.1.51 com/jcraft/jsch/HostKey#getKey
+f	com/jcraft/jsch/HostKey	j6	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/HostKey.sshdss
+f	com/jcraft/jsch/HostKey	DW	-	auto: 字段([B)；src: jsch-0.1.51 com/jcraft/jsch/HostKey.sshrsa
+f	com/jcraft/jsch/HostKey	Hw	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/HostKey.host
+f	com/jcraft/jsch/HostKey	VH	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/HostKey.comment
+f	com/jcraft/jsch/HostKey	FH	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/HostKey.marker
+f	com/jcraft/jsch/JSchAuthCancelException	DW	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/JSchAuthCancelException.method
+f	com/jcraft/jsch/JSchException	j6	-	auto: 字段(Ljava/lang/Throwable;)；src: jsch-0.1.51 com/jcraft/jsch/JSchException.cause
+f	com/jcraft/jsch/KeyPair$ASN1Exception	j6	-	auto: 字段(Lcom/jcraft/jsch/KeyPair;)；src: jsch-0.1.51 com/jcraft/jsch/KeyPair$ASN1Exception.this$0
+f	com/jcraft/jsch/RequestSignal	Hw	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/RequestSignal.signal
+f	com/jcraft/jsch/Session$Forwarding	v5	-	auto: 字段(Lcom/jcraft/jsch/Session;)；src: jsch-0.1.51 com/jcraft/jsch/Session$Forwarding.this$0
+f	com/jcraft/jsch/Session$Forwarding	Hw	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session$Forwarding.hostport
+f	com/jcraft/jsch/Session$Forwarding	DW	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Session$Forwarding.port
+f	com/jcraft/jsch/Session$Forwarding	j6	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/Session$Forwarding.bind_address
+f	com/jcraft/jsch/Session$Forwarding	FH	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/Session$Forwarding.host
+f	com/jcraft/jsch/SftpException	DW	-	auto: 字段(Ljava/lang/Throwable;)；src: jsch-0.1.51 com/jcraft/jsch/SftpException.cause
+f	com/jcraft/jsch/SftpException	j6	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/SftpException.id
+f	com/jcraft/jsch/SftpStatVFS	DW	-	auto: 字段([Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/SftpStatVFS.extended
+f	com/jcraft/jsch/SftpStatVFS	j6	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/SftpStatVFS.flags
+f	com/jcraft/jsch/Util$1	DW	-	auto: 字段(Ljava/lang/String;)；src: jsch-0.1.51 com/jcraft/jsch/Util$1.val$_host
+f	com/jcraft/jsch/Util$1	FH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/Util$1.val$_port
+f	com/jcraft/jsch/Util$1	Hw	-	auto: 字段([Ljava/lang/Exception;)；src: jsch-0.1.51 com/jcraft/jsch/Util$1.val$ee
+f	com/jcraft/jsch/Util$1	j6	-	auto: 字段([Ljava/net/Socket;)；src: jsch-0.1.51 com/jcraft/jsch/Util$1.val$sockp
+m	com/jcraft/jsch/ChannelShell	QX	()V	auto: 执行 start；src: jsch-0.1.51 com/jcraft/jsch/ChannelShell#start
+m	com/jcraft/jsch/ChannelShell	we	()V	auto: 执行 init；src: jsch-0.1.51 com/jcraft/jsch/ChannelShell#init
+m	com/jcraft/jsch/ChannelShell	j6	(Z)V	auto: 设 AgentForwarding；src: jsch-0.1.51 com/jcraft/jsch/ChannelShell#setAgentForwarding
+m	com/jcraft/jsch/ChannelShell	DW	(Z)V	auto: 设 Pty；src: jsch-0.1.51 com/jcraft/jsch/ChannelShell#setPty
+m	com/jcraft/jsch/SignatureDSA	DW	([B[B[B[B)V	auto: 设 PubKey；src: jsch-0.1.51 com/jcraft/jsch/SignatureDSA#setPubKey
+m	com/jcraft/jsch/SignatureDSA	j6	([B[B[B[B)V	auto: 设 PrvKey；src: jsch-0.1.51 com/jcraft/jsch/SignatureDSA#setPrvKey
+m	com/jcraft/jsch/SignatureRSA	j6	([B[B)V	auto: 设 PubKey；src: jsch-0.1.51 com/jcraft/jsch/SignatureRSA#setPubKey
+m	com/jcraft/jsch/SignatureRSA	DW	([B[B)V	auto: 设 PrvKey；src: jsch-0.1.51 com/jcraft/jsch/SignatureRSA#setPrvKey
+f	com/jcraft/jsch/RequestWindowChange	v5	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/RequestWindowChange.height_rows
+f	com/jcraft/jsch/RequestWindowChange	Zo	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/RequestWindowChange.width_pixels
+f	com/jcraft/jsch/RequestWindowChange	VH	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/RequestWindowChange.height_pixels
+f	com/jcraft/jsch/RequestWindowChange	Hw	-	auto: 字段(I)；src: jsch-0.1.51 com/jcraft/jsch/RequestWindowChange.width_columns
+m	com/jcraft/jsch/jce/HMACMD5	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACMD5#getBlockSize
+m	com/jcraft/jsch/jce/HMACMD5	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACMD5#doFinal
+m	com/jcraft/jsch/jce/HMACSHA1	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACSHA1#getBlockSize
+m	com/jcraft/jsch/jce/HMACSHA1	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jce/HMACSHA1#doFinal
+m	com/jcraft/jsch/jcraft/HMACMD5	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACMD5#getBlockSize
+m	com/jcraft/jsch/jcraft/HMACMD5	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACMD5#doFinal
+m	com/jcraft/jsch/jcraft/HMACSHA1	j6	()I	auto: 取 BlockSize；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACSHA1#getBlockSize
+m	com/jcraft/jsch/jcraft/HMACSHA1	j6	([BI)V	auto: 执行 doFinal；src: jsch-0.1.51 com/jcraft/jsch/jcraft/HMACSHA1#doFinal

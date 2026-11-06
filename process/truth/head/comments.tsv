@@ -1,0 +1,2 @@
+# 注释表：kind(c=类/m=方法/f=字段) \t owner(探针全名) \t name \t desc \t 注释
+c	abcd/vj	-	-	auto: 提供者：Asset；src: head 历史补丁（process/truth/head/mappings_head.txt）—— 首轮改名、早于 part 体系，改名已写进基线 jar

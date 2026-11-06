@@ -1,0 +1,271 @@
+c	abcd/Dw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI；doc: Location of the Dropbox API functions.
+c	abcd/Dw$a	-	-	auto: 类：Account（外层 DropboxAPI）；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Account
+c	abcd/Dw$b	-	-	auto: 请求：BasicUpload（外层 DropboxAPI）；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$BasicUploadRequest
+c	abcd/Dw$c	-	-	auto: 类：DropboxFileInfo（外层 DropboxAPI）；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxFileInfo
+c	abcd/Dw$d	-	-	auto: 流：DropboxInput（外层 DropboxAPI）；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxInputStream
+c	abcd/Dw$e	-	-	auto: 类：Entry（外层 DropboxAPI）；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry
+c	abcd/Dw$f	-	-	auto: 响应：RequestAnd（外层 DropboxAPI）；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$RequestAndResponse
+c	abcd/Dw$g	-	-	auto: 请求：Upload（外层 DropboxAPI）；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$UploadRequest
+c	abcd/Ew	-	-	auto: 匿名内部类（外层 Entry）（外层 DropboxAPI）；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry$1
+c	abcd/Fw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener；doc: Receives file transfer progress updates for some API calls, e.g. getFile and putFile.
+c	abcd/Fw$a	-	-	auto: 类：ProgressHttpEntity（外层 ProgressListener）；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity
+c	abcd/Fw$a$a	-	-	auto: 流：CountingOutput（外层 ProgressHttpEntity）（外层 ProgressListener）；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity$CountingOutputStream
+c	abcd/Gw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility；doc: This class is mostly used internally by DropboxAPI for creating and executing REST requests to the Dropbox A…
+c	abcd/Gw$a	-	-	auto: 类：RequestMethod（外层 RESTUtility）；src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility$RequestMethod
+c	abcd/Hw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/SdkVersion；doc: Contains the SDK verison number.
+c	abcd/Iw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory；doc: Includes the following security features: - Pinned trusted root certificates - Strict hostname verification…
+c	abcd/Jw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxException；doc: A base for all exceptions from using the API. Catch this instead of specific subclasses when you want to dea…
+c	abcd/Kw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxIOException；doc: Encapsulates an IOExceptions when using the API, typically resulting from network-related issues.
+c	abcd/Lw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxParseException；doc: Indicates there was trouble parsing a response from Dropbox.
+c	abcd/Mw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxPartialFileException；doc: Used when only part of a file was transferred to/from Dropbox when using the API.
+c	abcd/Nw	-	-	auto: 异常类型：DropboxProxyChange；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxProxyChangeException
+c	abcd/Ow	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxSSLException；doc: Wraps any SSL-related exceptions thrown when using the API.
+c	abcd/Pw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException；doc: Wraps any non-200 HTTP responses from an API call. See the constants in this class for the meaning of each e…
+c	abcd/Pw$a	-	-	auto: 类：Error（外层 DropboxServerException）；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException$Error
+c	abcd/Qw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxUnlinkedException；doc: Thrown when the API can only be used when linked but it's not. This will happen either because you have not…
+c	abcd/Rw	-	-	auto: 类：JsonExtractor；src: dropbox-android-1.6.2 com/dropbox/client2/jsonextract/JsonExtractor
+c	abcd/Sw	-	-	auto: 匿名内部类（外层 AbstractSession）；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$1
+c	abcd/Tw	-	-	auto: 匿名内部类（外层 AbstractSession）；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$2
+c	abcd/Uw	-	-	auto: 匿名内部类（外层 AbstractSession）；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$3
+c	abcd/Vw	-	-	auto: 匿名内部类（外层 AbstractSession）；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$4
+c	abcd/Ww	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession；doc: Keeps track of a logged in user and contains configuration options for the DropboxAPI. This is a base class…
+c	abcd/Ww$a	-	-	auto: 管理器：DBClientConn（外层 AbstractSession）；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$DBClientConnManager
+c	abcd/Ww$b	-	-	auto: 类：DBConnectionReuseStrategy（外层 AbstractSession）；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$DBConnectionReuseStrategy
+c	abcd/Ww$c	-	-	auto: 类：DBKeepAliveStrategy（外层 AbstractSession）；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$DBKeepAliveStrategy
+c	abcd/Ww$d	-	-	auto: 类：GzipDecompressingEntity（外层 AbstractSession）；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$GzipDecompressingEntity
+c	abcd/Ww$e	-	-	auto: 类：IdleConnectionCloserThread（外层 AbstractSession）；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$IdleConnectionCloserThread
+c	abcd/Zw	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session；doc: Keeps track of a logged in user. Contains configuration options for the DropboxAPI.
+c	abcd/Zw$a	-	-	auto: 类：AccessType（外层 Session）；src: dropbox-android-1.6.2 com/dropbox/client2/session/Session$AccessType
+c	abcd/Zw$b	-	-	auto: 类：ProxyInfo（外层 Session）；src: dropbox-android-1.6.2 com/dropbox/client2/session/Session$ProxyInfo
+c	abcd/_w	-	-	src: dropbox-android-1.6.2 com/dropbox/client2/session/TokenPair；doc: Just two strings -- a "key" and a "secret". Used by OAuth in several places (consumer key/secret, request to…
+c	abcd/dL	-	-	src: json-simple-1.1 org/json/simple/JSONArray；doc: A JSON array. JSONObject supports java.util.List interface.
+c	abcd/eL	-	-	src: json-simple-1.1 org/json/simple/JSONAware；doc: Beans that support customized output of JSON text shall implement this interface.
+c	abcd/fL	-	-	src: json-simple-1.1 org/json/simple/JSONObject；doc: A JSON object. Key value pairs are unordered. JSONObject supports java.util.Map interface.
+c	abcd/hL	-	-	auto: 类：JSONValue；src: json-simple-1.1 org/json/simple/JSONValue
+c	abcd/iL	-	-	src: json-simple-1.1 org/json/simple/parser/ContainerFactory；doc: Container factory for creating containers for JSON object and JSON array.
+c	abcd/jL	-	-	src: json-simple-1.1 org/json/simple/parser/JSONParser；doc: Parser for JSON text. Please note that JSONParser is NOT thread-safe.
+c	abcd/kL	-	-	src: json-simple-1.1 org/json/simple/parser/ParseException；doc: ParseException explains why and where the error occurs in source JSON text.
+c	abcd/lL	-	-	auto: 类：Yylex；src: json-simple-1.1 org/json/simple/parser/Yylex
+c	abcd/mL	-	-	auto: 类：Yytoken；src: json-simple-1.1 org/json/simple/parser/Yytoken
+m	abcd/Dw	DW	()V	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#assertAuthenticated；doc: Throws a DropboxUnlinkedException if the session in this instance is not linked.
+m	abcd/Dw	DW	(Ljava/util/Map;Ljava/lang/String;)J	auto: 取 FromMapAsLong；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#getFromMapAsLong
+m	abcd/Dw	j6	(Ljava/lang/String;Ljava/io/InputStream;JZLjava/lang/String;Labcd/Fw;)Labcd/Dw$g;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#putFileRequest；doc: Creates a request to upload an InputStream to a Dropbox file.
+m	abcd/Dw	j6	(Ljava/util/Map;Ljava/lang/String;)Z	auto: 取 FromMapAsBoolean；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#getFromMapAsBoolean
+m	abcd/Dw	DW	(Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$g;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#putFileOverwriteRequest；doc: Creates a request to upload a file to Dropbox, which you can then upload() or abort(). The upload will overw…
+m	abcd/Dw	DW	(Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$g;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#putFileRequest；doc: Creates a request to upload a file to Dropbox, which you can then upload() or abort(). The upload will not o…
+m	abcd/Dw	DW	(Ljava/lang/String;)V	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#delete；doc: Deletes a file or folder (and all of the folder's contents). After deletion, metadata calls may still return…
+m	abcd/Dw	FH	()Labcd/Zw;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#getSession；doc: Returns the Session that this API is using.
+m	abcd/Dw	j6	()Labcd/Dw$a;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#accountInfo；doc: Returns the Account associated with the current Session.
+m	abcd/Dw	j6	(Ljava/lang/String;Ljava/lang/String;)Labcd/Dw$d;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#getFileStream；doc: Downloads a file from Dropbox. Returns a DropboxInputStream via which the file contents can be read from the…
+m	abcd/Dw	j6	(Ljava/lang/String;)Labcd/Dw$e;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#createFolder；doc: Creates a new Dropbox folder.
+m	abcd/Dw	j6	(Ljava/lang/String;ILjava/lang/String;ZLjava/lang/String;)Labcd/Dw$e;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#metadata；doc: Returns the metadata for a file, or for a directory and (optionally) its immediate children.
+m	abcd/Dw	j6	(Ljava/lang/String;Ljava/io/InputStream;JLabcd/Fw;)Labcd/Dw$e;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#putFileOverwrite；doc: Uploads a file to Dropbox. The upload will overwrite any existing version of the file. Use putFileRequest()…
+m	abcd/Dw	j6	(Ljava/lang/String;Ljava/io/InputStream;JLjava/lang/String;Labcd/Fw;)Labcd/Dw$e;	src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI#putFile；doc: Uploads a file to Dropbox. The upload will not overwrite any existing version of the file, unless the latest…
+f	abcd/Dw	j6	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI.SDK_VERSION
+f	abcd/Dw	DW	-	auto: 字段(Labcd/Zw;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI.session
+f	abcd/Dw$a	j6	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Account.country
+f	abcd/Dw$a	VH	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Account.referralLink
+f	abcd/Dw$a	DW	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Account.displayName
+f	abcd/Dw$a	v5	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Account.quotaShared
+f	abcd/Dw$a	Zo	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Account.uid
+f	abcd/Dw$a	Hw	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Account.quotaNormal
+f	abcd/Dw$a	FH	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Account.quota
+m	abcd/Dw$b	j6	()Labcd/Dw$e;	auto: 「upload」；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$BasicUploadRequest#upload
+f	abcd/Dw$b	DW	-	auto: 字段(Labcd/Zw;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$BasicUploadRequest.session
+f	abcd/Dw$b	j6	-	auto: 字段(Lorg/apache/http/client/methods/HttpUriRequest;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$BasicUploadRequest.request
+m	abcd/Dw$c	j6	(Lorg/apache/http/HttpResponse;Labcd/Dw$e;)J	auto: 解析 FileSize；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxFileInfo#parseFileSize
+m	abcd/Dw$c	j6	(Lorg/apache/http/HttpResponse;)Labcd/Dw$e;	auto: 解析 XDropboxMetadata；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxFileInfo#parseXDropboxMetadata
+f	abcd/Dw$c	DW	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxFileInfo.fileSize
+f	abcd/Dw$c	Hw	-	auto: 字段(Labcd/Dw$e;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxFileInfo.metadata
+f	abcd/Dw$c	j6	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxFileInfo.mimeType
+f	abcd/Dw$c	FH	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxFileInfo.charset
+f	abcd/Dw$d	DW	-	auto: 字段(Labcd/Dw$c;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxInputStream.info
+f	abcd/Dw$d	j6	-	auto: 字段(Lorg/apache/http/client/methods/HttpUriRequest;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$DropboxInputStream.request
+f	abcd/Dw$e	j6	-	auto: 字段(Labcd/Rw;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.JsonExtractor
+f	abcd/Dw$e	DW	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.bytes
+f	abcd/Dw$e	Ws	-	auto: 字段(Ljava/util/List;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.contents
+m	abcd/Dw$e	j6	()Ljava/lang/String;	auto: 「fileName」；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry#fileName
+f	abcd/Dw$e	we	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.rev
+f	abcd/Dw$e	u7	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.root
+f	abcd/Dw$e	tp	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.size
+f	abcd/Dw$e	Zo	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.modified
+f	abcd/Dw$e	VH	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.clientMtime
+f	abcd/Dw$e	Hw	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.icon
+f	abcd/Dw$e	FH	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.hash
+f	abcd/Dw$e	EQ	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.mimeType
+f	abcd/Dw$e	gn	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.path
+f	abcd/Dw$e	v5	-	auto: 字段(Z)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.isDir
+f	abcd/Dw$e	J8	-	auto: 字段(Z)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.isDeleted
+f	abcd/Dw$e	J0	-	auto: 字段(Z)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$Entry.thumbExists
+f	abcd/Dw$f	DW	-	auto: 字段(Lorg/apache/http/HttpResponse;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$RequestAndResponse.response
+f	abcd/Dw$f	j6	-	auto: 字段(Lorg/apache/http/client/methods/HttpUriRequest;)；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$RequestAndResponse.request
+m	abcd/Dw$g	j6	()Labcd/Dw$e;	auto: 「upload」；src: dropbox-android-1.6.2 com/dropbox/client2/DropboxAPI$UploadRequest#upload
+m	abcd/Fw	j6	()J	src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener#progressInterval；doc: Should return how often transferred bytes should be reported to this listener, in milliseconds. It is not gu…
+m	abcd/Fw	j6	(JJ)V	src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener#onProgress；doc: Gets called when some bytes have been transferred since the last time it was called and the progress interva…
+f	abcd/Fw$a	DW	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity.length
+f	abcd/Fw$a	j6	-	auto: 字段(Labcd/Fw;)；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity.listener
+f	abcd/Fw$a$a	Hw	-	auto: 字段(Labcd/Fw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity$CountingOutputStream.this$0
+f	abcd/Fw$a$a	j6	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity$CountingOutputStream.lastListened
+f	abcd/Fw$a$a	FH	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity$CountingOutputStream.transferred
+f	abcd/Fw$a$a	DW	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/ProgressListener$ProgressHttpEntity$CountingOutputStream.intervalMs
+m	abcd/Gw	DW	(Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Labcd/Dw$f;	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#streamRequest；doc: Creates and sends a request to the Dropbox API, and returns a RequestAndResponse containing the HttpUriReque…
+m	abcd/Gw	j6	(Labcd/Gw$a;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Labcd/Zw;)Ljava/lang/Object;	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#request；doc: Creates and sends a request to the Dropbox API, parses the response as JSON, and returns the result.
+m	abcd/Gw	j6	(Lorg/apache/http/HttpResponse;)Ljava/lang/Object;	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#parseAsJSON；doc: Reads in content from an HttpResponse and parses it as JSON.
+m	abcd/Gw	j6	(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;)Ljava/lang/String;	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#buildURL；doc: Creates a URL for a request to the Dropbox API.
+m	abcd/Gw	j6	([Ljava/lang/String;)Ljava/lang/String;	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#urlencode；doc: URL encodes an array of parameters into a query string.
+m	abcd/Gw	j6	(Labcd/Zw;Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#execute；doc: Executes an HttpUriRequest with the given Session and returns an HttpResponse.
+m	abcd/Gw	j6	(Labcd/Zw;Lorg/apache/http/client/methods/HttpUriRequest;I)Lorg/apache/http/HttpResponse;	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#execute；doc: Executes an HttpUriRequest with the given Session and returns an HttpResponse.
+m	abcd/Gw	j6	(Labcd/Zw;)Lorg/apache/http/client/HttpClient;	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#updatedHttpClient；doc: Gets the session's client and updates its proxy.
+m	abcd/Gw	j6	(Lorg/apache/http/client/HttpClient;Labcd/Zw;)V	src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#updateClientProxy；doc: Executes an HttpUriRequest with the given Session and returns an HttpResponse.
+m	abcd/Gw	j6	(Lorg/apache/http/HttpRequest;)Z	auto: 是否 RequestRepeatable；src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility#isRequestRepeatable
+f	abcd/Gw	j6	-	auto: 字段(Ljava/text/DateFormat;)；src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility.dateFormat
+f	abcd/Gw$a	FH	-	auto: 字段([Labcd/Gw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility$RequestMethod.$VALUES
+f	abcd/Gw$a	j6	-	auto: 字段(Labcd/Gw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility$RequestMethod.GET
+f	abcd/Gw$a	DW	-	auto: 字段(Labcd/Gw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/RESTUtility$RequestMethod.POST
+m	abcd/Hw	j6	()Ljava/lang/String;	src: dropbox-android-1.6.2 com/dropbox/client2/SdkVersion#get；doc: Returns the SDK version number.
+m	abcd/Iw	$d2j$hex$a26a5c22$decode_B	(Ljava/lang/String;)[B	auto: 解码 HexBytes（上游无同签名对应，按作用取名）
+m	abcd/Iw	$d2j$hex$a26a5c22$decode_I	(Ljava/lang/String;)[I	auto: 解码 HexInts（上游无同签名对应，按作用取名）
+m	abcd/Iw	$d2j$hex$a26a5c22$decode_J	(Ljava/lang/String;)[J	auto: 解码 HexLongs（上游无同签名对应，按作用取名）
+m	abcd/Iw	$d2j$hex$a26a5c22$decode_S	(Ljava/lang/String;)[S	auto: 解码 HexShorts（上游无同签名对应，按作用取名）
+m	abcd/Iw	j6	(Ljavax/net/ssl/SSLSocket;)V	auto: 设 SSLParameters；src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory#setSSLParameters
+m	abcd/Iw	v5	()Ljava/security/KeyStore;	auto: 加载 KeyStore；src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory#loadKeyStore
+f	abcd/Iw	DW	-	auto: 字段([B)；src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory.sRootKeyStoreBytes
+f	abcd/Iw	j6	-	auto: 字段([Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory.sAllowedCipherSuites
+f	abcd/Iw	FH	-	auto: 字段(Ljavax/net/ssl/SSLSocketFactory;)；src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory.mSSLSocketFactory
+m	abcd/Iw	j6	()[B	src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory#GetRootKeyStoreBytes
+m	abcd/Iw	Hw	()[B	src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory#GetRootKeyStoreBytes3；doc: Third (last) chunk of byte array containing root certificates
+m	abcd/Iw	FH	()[B	src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory#GetRootKeyStoreBytes2；doc: Second chunk of byte array containing root certificates
+m	abcd/Iw	DW	()[B	src: dropbox-android-1.6.2 com/dropbox/client2/SecureSSLSocketFactory#GetRootKeyStoreBytes1；doc: First chunk of byte array containing root certificates
+m	abcd/Lw	j6	(Ljava/io/BufferedReader;)Ljava/lang/String;	auto: 「stringifyBody」；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxParseException#stringifyBody
+f	abcd/Mw	j6	-	auto: 字段(J)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxPartialFileException.bytesTransferred
+m	abcd/Pw	j6	(Lorg/apache/http/HttpResponse;Ljava/lang/String;)Ljava/lang/String;	auto: 取 Header；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException#getHeader
+m	abcd/Pw	j6	(Lorg/apache/http/HttpResponse;)Z	src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException#isValidWithNullBody
+f	abcd/Pw	DW	-	auto: 字段(I)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException.error
+f	abcd/Pw	Zo	-	auto: 字段(Ljava/util/Map;)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException.parsedResponse
+f	abcd/Pw	j6	-	auto: 字段(Labcd/Pw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException.body
+f	abcd/Pw	v5	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException.location
+f	abcd/Pw	Hw	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException.server
+f	abcd/Pw	FH	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException.reason
+f	abcd/Pw$a	FH	-	auto: 字段(Ljava/util/Map;)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException$Error.fields
+f	abcd/Pw$a	DW	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException$Error.userError
+f	abcd/Pw$a	j6	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/exception/DropboxServerException$Error.error
+f	abcd/Sw	j6	-	auto: 字段(Labcd/Ww;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$1.this$0
+f	abcd/Tw	j6	-	auto: 字段(Labcd/Ww;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$2.this$0
+f	abcd/Uw	j6	-	auto: 字段(Labcd/Ww;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$3.this$0
+f	abcd/Vw	j6	-	auto: 字段(Labcd/Ww;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$4.this$0
+m	abcd/Ww	j6	(Labcd/Yw;Labcd/Xw;)Ljava/lang/String;	auto: 构建 OAuth1Header（上游无同签名对应，按作用取名）
+m	abcd/Ww	VH	()Labcd/Xw;	auto: 取 AccessTokenPair（上游无同签名对应，按作用取名）
+m	abcd/Ww	gn	()Labcd/Yw;	auto: 取 AppKeyPair（上游无同签名对应，按作用取名）
+m	abcd/Ww	j6	(Labcd/Xw;)V	auto: 设 AccessTokenPair（上游无同签名对应，按作用取名）
+f	abcd/Ww	DW	-	auto: 字段(Labcd/Yw;)（上游无同类型对应，按作用取名）
+f	abcd/Ww	FH	-	auto: 字段(Labcd/Xw;)（上游无同类型对应，按作用取名）
+m	abcd/Ww	DW	(Ljava/lang/String;)Ljava/lang/String;	auto: 「encode」；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#encode
+m	abcd/Ww	DW	()Z	auto: 是否 Linked；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#isLinked
+m	abcd/Ww	FH	()Labcd/Zw$a;	auto: 取 AccessType；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#getAccessType
+m	abcd/Ww	j6	()Labcd/Zw$b;	src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#getProxyInfo；doc: {@inheritDoc} The default implementation always returns null.
+m	abcd/Ww	j6	(Ljava/lang/String;)V	auto: 设 OAuth2AccessToken；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#setOAuth2AccessToken
+m	abcd/Ww	j6	(Lorg/apache/http/HttpRequest;)V	src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#sign；doc: Signs the request using either OAuth 1 or OAuth 2, depending on which token was set (setAccessTokenPair vs s…
+m	abcd/Ww	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#setRequestTimeout；doc: {@inheritDoc} The default implementation always sets a 30 second timeout.
+m	abcd/Ww	u7	()V	auto: 执行 unlink；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#unlink
+m	abcd/Ww	v5	()Lorg/apache/http/client/HttpClient;	src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#getHttpClient；doc: {@inheritDoc} The default implementation does all of this and more, including using a connection pool and ki…
+f	abcd/Ww	Hw	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession.oauth2AccessToken
+f	abcd/Ww	j6	-	auto: 字段(Labcd/Zw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession.accessType
+f	abcd/Ww	v5	-	auto: 字段(Lorg/apache/http/client/HttpClient;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession.client
+m	abcd/Ww	Zo	()Ljava/lang/String;	auto: 取 ContentServer；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#getContentServer
+m	abcd/Ww	Hw	()Ljava/lang/String;	auto: 取 APIServer；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession#getAPIServer
+m	abcd/Ww$e	j6	(Labcd/Ww$a;II)V	auto: 执行 ensureRunning；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$IdleConnectionCloserThread#ensureRunning
+f	abcd/Ww$e	j6	-	auto: 字段(Labcd/Ww$e;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$IdleConnectionCloserThread.thread
+f	abcd/Ww$e	DW	-	auto: 字段(Labcd/Ww$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$IdleConnectionCloserThread.manager
+f	abcd/Ww$e	Hw	-	auto: 字段(I)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$IdleConnectionCloserThread.checkIntervalMs
+f	abcd/Ww$e	FH	-	auto: 字段(I)；src: dropbox-android-1.6.2 com/dropbox/client2/session/AbstractSession$IdleConnectionCloserThread.idleTimeoutSeconds
+m	abcd/Zw	DW	()Z	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#isLinked；doc: Returns whether or not this session has a user's access token and secret.
+m	abcd/Zw	FH	()Labcd/Zw$a;	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getAccessType；doc: Returns what Dropbox access type to use (currently app folder or entire Dropbox).
+m	abcd/Zw	j6	()Labcd/Zw$b;	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getProxyInfo；doc: Will be called every time a request is made to Dropbox, in case the proxy changes between requests. Return n…
+m	abcd/Zw	j6	(Lorg/apache/http/HttpRequest;)V	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#sign；doc: OAuth signs the request with the currently-set tokens and secrets.
+m	abcd/Zw	j6	(Lorg/apache/http/client/methods/HttpUriRequest;)V	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#setRequestTimeout；doc: Will be called every time right before a request is sent to Dropbox. It should set the socket and connection…
+m	abcd/Zw	v5	()Lorg/apache/http/client/HttpClient;	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getHttpClient；doc: Will be called every time a request is made to Dropbox, in case you want to use a new client every time. How…
+m	abcd/Zw	Hw	()Ljava/lang/String;	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getAPIServer；doc: Returns the Dropbox API server. Changing this will break things.
+m	abcd/Zw	Zo	()Ljava/lang/String;	src: dropbox-android-1.6.2 com/dropbox/client2/session/Session#getContentServer；doc: Returns the Dropbox content server. Changing this will break things.
+f	abcd/Zw$a	j6	-	auto: 字段(Labcd/Zw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/Session$AccessType.DROPBOX
+f	abcd/Zw$a	DW	-	auto: 字段(Labcd/Zw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/Session$AccessType.APP_FOLDER
+f	abcd/Zw$a	FH	-	auto: 字段(Labcd/Zw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/Session$AccessType.AUTO
+f	abcd/Zw$a	Hw	-	auto: 字段([Labcd/Zw$a;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/Session$AccessType.$VALUES
+f	abcd/Zw$a	v5	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/Session$AccessType.urlPart
+f	abcd/Zw$b	DW	-	auto: 字段(I)；src: dropbox-android-1.6.2 com/dropbox/client2/session/Session$ProxyInfo.port
+f	abcd/Zw$b	j6	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/Session$ProxyInfo.host
+m	abcd/_w	j6	(Labcd/_w;)Z	auto: 「equals」；src: dropbox-android-1.6.2 com/dropbox/client2/session/TokenPair#equals
+f	abcd/_w	j6	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/TokenPair.key
+f	abcd/_w	DW	-	auto: 字段(Ljava/lang/String;)；src: dropbox-android-1.6.2 com/dropbox/client2/session/TokenPair.secret
+m	abcd/dL	j6	(Ljava/util/List;)Ljava/lang/String;	src: json-simple-1.1 org/json/simple/JSONArray#toJSONString；doc: Convert a list to JSON text. The result is a JSON array.
+m	abcd/dL	j6	()Ljava/lang/String;	auto: 转换为 JSONString；src: json-simple-1.1 org/json/simple/JSONArray#toJSONString
+m	abcd/eL	j6	()Ljava/lang/String;	auto: 转换为 JSONString；src: json-simple-1.1 org/json/simple/JSONAware#toJSONString
+m	abcd/fL	j6	(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/StringBuffer;)Ljava/lang/String;	auto: 转换为 JSONString；src: json-simple-1.1 org/json/simple/JSONObject#toJSONString
+m	abcd/fL	j6	(Ljava/util/Map;)Ljava/lang/String;	src: json-simple-1.1 org/json/simple/JSONObject#toJSONString；doc: Convert a map to JSON text. The result is a JSON object.
+m	abcd/fL	j6	()Ljava/lang/String;	auto: 转换为 JSONString；src: json-simple-1.1 org/json/simple/JSONObject#toJSONString
+m	abcd/hL	j6	(Ljava/lang/Object;)Ljava/lang/String;	src: json-simple-1.1 org/json/simple/JSONValue#toJSONString；doc: Convert an object to JSON text.
+m	abcd/hL	j6	(Ljava/lang/String;)Ljava/lang/String;	src: json-simple-1.1 org/json/simple/JSONValue#escape；doc: Escape quotes, \, /, \r, \n, \b, \f, \t and other control characters (U+0000 through U+001F).
+m	abcd/hL	j6	(Ljava/lang/String;Ljava/lang/StringBuffer;)V	auto: 执行 escape；src: json-simple-1.1 org/json/simple/JSONValue#escape
+m	abcd/hL	DW	(Ljava/lang/String;)Ljava/lang/Object;	src: json-simple-1.1 org/json/simple/JSONValue#parse；doc: Parse JSON text into java object from the input source.
+m	abcd/hL	j6	(Ljava/io/Reader;)Ljava/lang/Object;	src: json-simple-1.1 org/json/simple/JSONValue#parse；doc: Parse JSON text into java object from the input source.
+m	abcd/iL	DW	()Ljava/util/List;	auto: 「creatArrayContainer」；src: json-simple-1.1 org/json/simple/parser/ContainerFactory#creatArrayContainer
+m	abcd/iL	j6	()Ljava/util/Map;	auto: 创建 ObjectContainer；src: json-simple-1.1 org/json/simple/parser/ContainerFactory#createObjectContainer
+m	abcd/jL	DW	(Labcd/iL;)Ljava/util/Map;	auto: 创建 ObjectContainer；src: json-simple-1.1 org/json/simple/parser/JSONParser#createObjectContainer
+m	abcd/jL	j6	(Ljava/util/LinkedList;)I	auto: 查看栈顶 Status；src: json-simple-1.1 org/json/simple/parser/JSONParser#peekStatus
+m	abcd/jL	j6	(Labcd/iL;)Ljava/util/List;	auto: 创建 ArrayContainer；src: json-simple-1.1 org/json/simple/parser/JSONParser#createArrayContainer
+m	abcd/jL	DW	(Ljava/io/Reader;)V	src: json-simple-1.1 org/json/simple/parser/JSONParser#reset；doc: Reset the parser to the initial state with a new character reader.
+m	abcd/jL	j6	()I	auto: 取 Position；src: json-simple-1.1 org/json/simple/parser/JSONParser#getPosition
+m	abcd/jL	j6	(Ljava/io/Reader;)Ljava/lang/Object;	auto: 「parse」；src: json-simple-1.1 org/json/simple/parser/JSONParser#parse
+m	abcd/jL	j6	(Ljava/io/Reader;Labcd/iL;)Ljava/lang/Object;	src: json-simple-1.1 org/json/simple/parser/JSONParser#parse；doc: Parse JSON text into java object from the input source.
+m	abcd/jL	j6	(Ljava/lang/String;)Ljava/lang/Object;	auto: 「parse」；src: json-simple-1.1 org/json/simple/parser/JSONParser#parse
+m	abcd/jL	j6	(Ljava/lang/String;Labcd/iL;)Ljava/lang/Object;	src: json-simple-1.1 org/json/simple/parser/JSONParser#parse；doc: Parse JSON text into java object from the input source.
+f	abcd/jL	DW	-	auto: 字段(Labcd/lL;)；src: json-simple-1.1 org/json/simple/parser/JSONParser.lexer
+f	abcd/jL	FH	-	auto: 字段(Labcd/mL;)；src: json-simple-1.1 org/json/simple/parser/JSONParser.token
+f	abcd/jL	Hw	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/JSONParser.status
+f	abcd/jL	j6	-	auto: 字段(Ljava/util/LinkedList;)；src: json-simple-1.1 org/json/simple/parser/JSONParser.handlerStatusStack
+m	abcd/jL	DW	()V	src: json-simple-1.1 org/json/simple/parser/JSONParser#reset；doc: Reset the parser to the initial state without resetting the underlying reader.
+m	abcd/jL	FH	()V	auto: 取下一个 Token；src: json-simple-1.1 org/json/simple/parser/JSONParser#nextToken
+f	abcd/kL	DW	-	auto: 字段(Ljava/lang/Object;)；src: json-simple-1.1 org/json/simple/parser/ParseException.unexpectedObject
+f	abcd/kL	j6	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/ParseException.errorType
+f	abcd/kL	FH	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/ParseException.position
+m	abcd/lL	$d2j$hex$5dbb3b04$decode_B	(Ljava/lang/String;)[B	auto: 解码 HexBytes（上游无同签名对应，按作用取名）
+m	abcd/lL	$d2j$hex$5dbb3b04$decode_I	(Ljava/lang/String;)[I	auto: 解码 HexInts（上游无同签名对应，按作用取名）
+m	abcd/lL	$d2j$hex$5dbb3b04$decode_J	(Ljava/lang/String;)[J	auto: 解码 HexLongs（上游无同签名对应，按作用取名）
+m	abcd/lL	$d2j$hex$5dbb3b04$decode_S	(Ljava/lang/String;)[S	auto: 解码 HexShorts（上游无同签名对应，按作用取名）
+m	abcd/lL	j6	(Ljava/io/Reader;)V	src: json-simple-1.1 org/json/simple/parser/Yylex#yyreset；doc: Resets the scanner to read from a new input stream.
+m	abcd/lL	Hw	()Z	src: json-simple-1.1 org/json/simple/parser/Yylex#zzRefill；doc: Refills the input buffer.
+m	abcd/lL	j6	(Ljava/lang/String;)[C	src: json-simple-1.1 org/json/simple/parser/Yylex#zzUnpackCMap；doc: Translates characters to character classes
+m	abcd/lL	DW	(I)C	src: json-simple-1.1 org/json/simple/parser/Yylex#yycharat；doc: Returns the character at position pos from the matched text.
+m	abcd/lL	DW	()Labcd/mL;	src: json-simple-1.1 org/json/simple/parser/Yylex#yylex；doc: Resumes scanning until the next regular expression is matched, the end of input is encountered or an I/O-Err…
+m	abcd/lL	FH	()Ljava/lang/String;	src: json-simple-1.1 org/json/simple/parser/Yylex#yytext；doc: Returns the text matched by the current regular expression.
+f	abcd/lL	DW	-	auto: 字段([C)；src: json-simple-1.1 org/json/simple/parser/Yylex.ZZ_CMAP
+f	abcd/lL	Zo	-	auto: 字段([Ljava/lang/String;)；src: json-simple-1.1 org/json/simple/parser/Yylex.ZZ_ERROR_MSG
+f	abcd/lL	EQ	-	auto: 字段([C)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzBuffer
+f	abcd/lL	U2	-	auto: 字段(Ljava/lang/StringBuffer;)；src: json-simple-1.1 org/json/simple/parser/Yylex.sb
+f	abcd/lL	gn	-	auto: 字段(Ljava/io/Reader;)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzReader
+m	abcd/lL	DW	(Ljava/lang/String;I[I)I	auto: 「zzUnpackRowMap」；src: json-simple-1.1 org/json/simple/parser/Yylex#zzUnpackRowMap
+m	abcd/lL	j6	(I)V	src: json-simple-1.1 org/json/simple/parser/Yylex#yybegin；doc: Enters a new lexical state
+m	abcd/lL	FH	(I)V	src: json-simple-1.1 org/json/simple/parser/Yylex#zzScanError；doc: Reports an error that occured while scanning.
+m	abcd/lL	v5	()[I	src: json-simple-1.1 org/json/simple/parser/Yylex#zzUnpackAction；doc: Translates DFA states to action switch labels.
+m	abcd/lL	Zo	()[I	src: json-simple-1.1 org/json/simple/parser/Yylex#zzUnpackAttribute；doc: ZZ_ATTRIBUTE[aState] contains the attributes of state aState
+m	abcd/lL	VH	()[I	src: json-simple-1.1 org/json/simple/parser/Yylex#zzUnpackRowMap；doc: Translates a state to a row index in the transition table
+m	abcd/lL	j6	()I	auto: 取 Position；src: json-simple-1.1 org/json/simple/parser/Yylex#getPosition
+m	abcd/lL	j6	(Ljava/lang/String;I[I)I	auto: 「zzUnpackAction」；src: json-simple-1.1 org/json/simple/parser/Yylex#zzUnpackAction
+m	abcd/lL	FH	(Ljava/lang/String;I[I)I	auto: 「zzUnpackAttribute」；src: json-simple-1.1 org/json/simple/parser/Yylex#zzUnpackAttribute
+f	abcd/lL	v5	-	auto: 字段([I)；src: json-simple-1.1 org/json/simple/parser/Yylex.ZZ_TRANS
+f	abcd/lL	j6	-	auto: 字段([I)；src: json-simple-1.1 org/json/simple/parser/Yylex.ZZ_LEXSTATE
+f	abcd/lL	VH	-	auto: 字段([I)；src: json-simple-1.1 org/json/simple/parser/Yylex.ZZ_ATTRIBUTE
+f	abcd/lL	Hw	-	auto: 字段([I)；src: json-simple-1.1 org/json/simple/parser/Yylex.ZZ_ROWMAP
+f	abcd/lL	FH	-	auto: 字段([I)；src: json-simple-1.1 org/json/simple/parser/Yylex.ZZ_ACTION
+f	abcd/lL	J8	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzStartRead
+f	abcd/lL	tp	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzLexicalState
+f	abcd/lL	aM	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yylex.yycolumn
+f	abcd/lL	QX	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yylex.yyline
+f	abcd/lL	J0	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzCurrentPos
+f	abcd/lL	Ws	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzEndRead
+f	abcd/lL	we	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzMarkedPos
+f	abcd/lL	XL	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yylex.yychar
+f	abcd/lL	u7	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzState
+f	abcd/lL	j3	-	auto: 字段(Z)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzAtBOL
+f	abcd/lL	Mr	-	auto: 字段(Z)；src: json-simple-1.1 org/json/simple/parser/Yylex.zzAtEOF
+f	abcd/mL	DW	-	auto: 字段(Ljava/lang/Object;)；src: json-simple-1.1 org/json/simple/parser/Yytoken.value
+f	abcd/mL	j6	-	auto: 字段(I)；src: json-simple-1.1 org/json/simple/parser/Yytoken.type

@@ -1,0 +1,1007 @@
+c	com/crashlytics/android/Crashlytics	-	-	auto: 类：Crashlytics；src: crashlytics com/crashlytics/android/Crashlytics
+c	com/crashlytics/android/CrashlyticsInitProvider$a	-	-	auto: 类：EnabledCheckStrategy（外层 CrashlyticsInitProvider）；src: crashlytics com/crashlytics/android/CrashlyticsInitProvider$EnabledCheckStrategy
+c	com/crashlytics/android/a	-	-	auto: 类：ManifestEnabledCheckStrategy；src: crashlytics com/crashlytics/android/ManifestEnabledCheckStrategy
+c	com/crashlytics/android/answers/C	-	-	auto: 过滤器：SamplingEvent；src: crashlytics-answers com/crashlytics/android/answers/SamplingEventFilter
+c	com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter	-	-	auto: 适配器：FirebaseAnalyticsApi；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter
+c	com/crashlytics/android/answers/I$b	-	-	auto: 类：Type（外层 SessionEvent）；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type
+c	com/crashlytics/android/answers/J	-	-	auto: 类：SessionEventMetadata；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata
+c	com/crashlytics/android/answers/e	-	-	auto: 匿名内部类（外层 AnswersEventsHandler）；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$2
+c	com/crashlytics/android/answers/f	-	-	auto: 匿名内部类（外层 AnswersEventsHandler）；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$3
+c	com/crashlytics/android/answers/g	-	-	auto: 匿名内部类（外层 AnswersEventsHandler）；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$4
+c	com/crashlytics/android/answers/h	-	-	auto: 匿名内部类（外层 AnswersEventsHandler）；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$5
+c	com/crashlytics/android/answers/i	-	-	auto: 匿名内部类（外层 AnswersEventsHandler）；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$6
+c	com/crashlytics/android/answers/j	-	-	auto: 处理器：AnswersEvents；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler
+c	com/crashlytics/android/answers/l	-	-	auto: 类：AnswersLifecycleCallbacks；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks
+c	com/crashlytics/android/answers/q	-	-	auto: 管理器：Background；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager
+c	com/crashlytics/android/answers/u	-	-	auto: 类：EventLogger；src: crashlytics-answers com/crashlytics/android/answers/EventLogger
+c	com/crashlytics/android/answers/v	-	-	auto: 类：FirebaseAnalyticsEvent；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEvent
+c	com/crashlytics/android/answers/w	-	-	auto: 类：FirebaseAnalyticsEventMapper；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper
+c	com/crashlytics/android/answers/x	-	-	auto: 过滤器：KeepAllEvent；src: crashlytics-answers com/crashlytics/android/answers/KeepAllEventFilter
+c	com/crashlytics/android/core/A	-	-	auto: 匿名内部类（外层 18）（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$18$1
+c	com/crashlytics/android/core/B	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$18
+c	com/crashlytics/android/core/Ba	-	-	auto: 工具类：NativeFile；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils
+c	com/crashlytics/android/core/C	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$19
+c	com/crashlytics/android/core/Ca	-	-	auto: 类：NativeSessionReport；src: crashlytics-core com/crashlytics/android/core/NativeSessionReport
+c	com/crashlytics/android/core/D	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$1
+c	com/crashlytics/android/core/Da	-	-	auto: 提供者：PinningInfo；src: crashlytics-core com/crashlytics/android/core/PinningInfoProvider
+c	com/crashlytics/android/core/DevicePowerStateListener	-	-	auto: 回调接口：DevicePowerState；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener
+c	com/crashlytics/android/core/E	-	-	auto: 匿名内部类（外层 20）（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20$1
+c	com/crashlytics/android/core/F	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20
+c	com/crashlytics/android/core/Fa	-	-	auto: 条目：ProcMap；src: crashlytics-core com/crashlytics/android/core/ProcMapEntry
+c	com/crashlytics/android/core/G	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$21
+c	com/crashlytics/android/core/H	-	-	auto: 匿名内部类（外层 22）（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$22$1
+c	com/crashlytics/android/core/Ha	-	-	auto: 匿名内部类（外层 QueueFileLogStore）；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore$1
+c	com/crashlytics/android/core/I	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$22
+c	com/crashlytics/android/core/Ia	-	-	auto: 存储：QueueFileLog；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore
+c	com/crashlytics/android/core/Ia$a	-	-	auto: 类：LogBytes（外层 QueueFileLogStore）；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore$LogBytes
+c	com/crashlytics/android/core/J	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23
+c	com/crashlytics/android/core/Ja	-	-	auto: 类：RemoveRepeatsStrategy；src: crashlytics-core com/crashlytics/android/core/RemoveRepeatsStrategy
+c	com/crashlytics/android/core/K	-	-	auto: 匿名内部类（外层 24）（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24$1
+c	com/crashlytics/android/core/Ka	-	-	auto: 类：Report；src: crashlytics-core com/crashlytics/android/core/Report
+c	com/crashlytics/android/core/Ka$a	-	-	auto: 类：Type（外层 Report）；src: crashlytics-core com/crashlytics/android/core/Report$Type
+c	com/crashlytics/android/core/L	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24
+c	com/crashlytics/android/core/La	-	-	auto: 类：ReportUploader；src: crashlytics-core com/crashlytics/android/core/ReportUploader
+c	com/crashlytics/android/core/La$a	-	-	auto: 类：AlwaysSendCheck（外层 ReportUploader）；src: crashlytics-core com/crashlytics/android/core/ReportUploader$AlwaysSendCheck
+c	com/crashlytics/android/core/La$b	-	-	auto: 类：HandlingExceptionCheck（外层 ReportUploader）；src: crashlytics-core com/crashlytics/android/core/ReportUploader$HandlingExceptionCheck
+c	com/crashlytics/android/core/La$c	-	-	auto: 提供者：ReportFiles（外层 ReportUploader）；src: crashlytics-core com/crashlytics/android/core/ReportUploader$ReportFilesProvider
+c	com/crashlytics/android/core/La$d	-	-	auto: 类：SendCheck（外层 ReportUploader）；src: crashlytics-core com/crashlytics/android/core/ReportUploader$SendCheck
+c	com/crashlytics/android/core/La$e	-	-	auto: 类：Worker（外层 ReportUploader）；src: crashlytics-core com/crashlytics/android/core/ReportUploader$Worker
+c	com/crashlytics/android/core/M	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$25
+c	com/crashlytics/android/core/Ma	-	-	auto: 提供者：ResourceUnityVersion；src: crashlytics-core com/crashlytics/android/core/ResourceUnityVersionProvider
+c	com/crashlytics/android/core/N	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$2
+c	com/crashlytics/android/core/Na	-	-	auto: 辅助类：SessionProtobuf；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper
+c	com/crashlytics/android/core/O	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$3
+c	com/crashlytics/android/core/Oa	-	-	auto: 类：SessionReport；src: crashlytics-core com/crashlytics/android/core/SessionReport
+c	com/crashlytics/android/core/P	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$4
+c	com/crashlytics/android/core/Pa	-	-	auto: 类：Sha1FileIdStrategy；src: crashlytics-core com/crashlytics/android/core/Sha1FileIdStrategy
+c	com/crashlytics/android/core/Q	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$5
+c	com/crashlytics/android/core/Qa	-	-	auto: 类：StackTraceTrimmingStrategy；src: crashlytics-core com/crashlytics/android/core/StackTraceTrimmingStrategy
+c	com/crashlytics/android/core/Ra	-	-	auto: 类：TrimmedThrowableData；src: crashlytics-core com/crashlytics/android/core/TrimmedThrowableData
+c	com/crashlytics/android/core/S	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$6
+c	com/crashlytics/android/core/Sa	-	-	auto: 提供者：UnityVersion；src: crashlytics-core com/crashlytics/android/core/UnityVersionProvider
+c	com/crashlytics/android/core/T	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$7
+c	com/crashlytics/android/core/Ta	-	-	auto: 类：UserMetaData；src: crashlytics-core com/crashlytics/android/core/UserMetaData
+c	com/crashlytics/android/core/U	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$8
+c	com/crashlytics/android/core/Ua	-	-	auto: 匿名内部类（外层 Utils）；src: crashlytics-core com/crashlytics/android/core/Utils$1
+c	com/crashlytics/android/core/V	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$9
+c	com/crashlytics/android/core/Va	-	-	auto: 类：Utils；src: crashlytics-core com/crashlytics/android/core/Utils
+c	com/crashlytics/android/core/W$a	-	-	auto: 过滤器：AnySessionPartFile（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$AnySessionPartFileFilter
+c	com/crashlytics/android/core/W$b	-	-	auto: 动作：CodedOutputStreamWrite（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$CodedOutputStreamWriteAction
+c	com/crashlytics/android/core/W$d	-	-	auto: 过滤器：FileNameContains（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$FileNameContainsFilter
+c	com/crashlytics/android/core/W$e	-	-	auto: 动作：FileOutputStreamWrite（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$FileOutputStreamWriteAction
+c	com/crashlytics/android/core/W$f	-	-	auto: 过滤器：InvalidPartFile（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$InvalidPartFileFilter
+c	com/crashlytics/android/core/W$i	-	-	auto: 提供者：ReportUploaderFiles（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$ReportUploaderFilesProvider
+c	com/crashlytics/android/core/W$j	-	-	auto: 类：ReportUploaderHandlingExceptionCheck（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$ReportUploaderHandlingExceptionCheck
+c	com/crashlytics/android/core/W$k	-	-	auto: 任务：SendReport（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$SendReportRunnable
+c	com/crashlytics/android/core/W$l	-	-	auto: 过滤器：SessionPartFile（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$SessionPartFileFilter
+c	com/crashlytics/android/core/X	-	-	auto: 匿名内部类（外层 PrivacyDialogCheck）（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck$1
+c	com/crashlytics/android/core/Y	-	-	auto: 匿名内部类（外层 PrivacyDialogCheck）（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck$2
+c	com/crashlytics/android/core/Z	-	-	auto: 匿名内部类（外层 CrashlyticsCore）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$1
+c	com/crashlytics/android/core/a	-	-	auto: 类：AppData；src: crashlytics-core com/crashlytics/android/core/AppData
+c	com/crashlytics/android/core/aa	-	-	auto: 匿名内部类（外层 CrashlyticsCore）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$2
+c	com/crashlytics/android/core/b	-	-	auto: 类：AppMeasurementEventListenerRegistrar；src: crashlytics-core com/crashlytics/android/core/AppMeasurementEventListenerRegistrar
+c	com/crashlytics/android/core/ba	-	-	auto: 匿名内部类（外层 CrashlyticsCore）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$3
+c	com/crashlytics/android/core/c	-	-	auto: 类：BinaryImagesConverter；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter
+c	com/crashlytics/android/core/c$a	-	-	auto: 类：FileIdStrategy（外层 BinaryImagesConverter）；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter$FileIdStrategy
+c	com/crashlytics/android/core/ca$a	-	-	auto: 类：CrashMarkerCheck（外层 CrashlyticsCore）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$CrashMarkerCheck
+c	com/crashlytics/android/core/ca$b	-	-	auto: 回调接口：NoOp（外层 CrashlyticsCore）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$NoOpListener
+c	com/crashlytics/android/core/e	-	-	auto: 类：CLSUUID；src: crashlytics-core com/crashlytics/android/core/CLSUUID
+c	com/crashlytics/android/core/f	-	-	auto: 匿名内部类（外层 ClsFileOutputStream）；src: crashlytics-core com/crashlytics/android/core/ClsFileOutputStream$1
+c	com/crashlytics/android/core/ga	-	-	auto: 提供者：CrashlyticsNdkData；src: crashlytics-core com/crashlytics/android/core/CrashlyticsNdkDataProvider
+c	com/crashlytics/android/core/h$a	-	-	auto: 异常类型：OutOfSpace（外层 CodedOutputStream）；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream$OutOfSpaceException
+c	com/crashlytics/android/core/ha	-	-	auto: 提供者：CrashlyticsPinningInfo；src: crashlytics-core com/crashlytics/android/core/CrashlyticsPinningInfoProvider
+c	com/crashlytics/android/core/i	-	-	auto: 匿名内部类（外层 CompositeCreateReportSpiCall）；src: crashlytics-core com/crashlytics/android/core/CompositeCreateReportSpiCall$1
+c	com/crashlytics/android/core/ia	-	-	auto: 处理器：CrashlyticsUncaughtException；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler
+c	com/crashlytics/android/core/ia$a	-	-	auto: 回调接口：Crash（外层 CrashlyticsUncaughtExceptionHandler）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler$CrashListener
+c	com/crashlytics/android/core/j	-	-	auto: 类：CompositeCreateReportSpiCall；src: crashlytics-core com/crashlytics/android/core/CompositeCreateReportSpiCall
+c	com/crashlytics/android/core/ja	-	-	auto: 请求：CreateReport；src: crashlytics-core com/crashlytics/android/core/CreateReportRequest
+c	com/crashlytics/android/core/k	-	-	auto: 匿名内部类（外层 CrashPromptDialog）；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$1
+c	com/crashlytics/android/core/ka	-	-	auto: 类：CreateReportSpiCall；src: crashlytics-core com/crashlytics/android/core/CreateReportSpiCall
+c	com/crashlytics/android/core/l	-	-	auto: 匿名内部类（外层 CrashPromptDialog）；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$2
+c	com/crashlytics/android/core/la	-	-	auto: 匿名内部类（外层 DefaultAppMeasurementEventListenerRegistrar）；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar$1
+c	com/crashlytics/android/core/m	-	-	auto: 匿名内部类（外层 CrashPromptDialog）；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$3
+c	com/crashlytics/android/core/n	-	-	auto: 类：CrashPromptDialog；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog
+c	com/crashlytics/android/core/n$a	-	-	auto: 回调：AlwaysSend（外层 CrashPromptDialog）；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$AlwaysSendCallback
+c	com/crashlytics/android/core/n$b	-	-	auto: 类：OptInLatch（外层 CrashPromptDialog）；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$OptInLatch
+c	com/crashlytics/android/core/oa	-	-	auto: 匿名内部类（外层 DevicePowerStateListener）；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener$1
+c	com/crashlytics/android/core/p	-	-	auto: 匿名内部类（外层 CrashlyticsBackgroundWorker）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker$1
+c	com/crashlytics/android/core/pa	-	-	auto: 匿名内部类（外层 DevicePowerStateListener）；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener$2
+c	com/crashlytics/android/core/q	-	-	auto: 匿名内部类（外层 CrashlyticsBackgroundWorker）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker$2
+c	com/crashlytics/android/core/r	-	-	auto: 类：CrashlyticsBackgroundWorker；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker
+c	com/crashlytics/android/core/ra	-	-	auto: 存储：FileLog；src: crashlytics-core com/crashlytics/android/core/FileLogStore
+c	com/crashlytics/android/core/s	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$10
+c	com/crashlytics/android/core/sa	-	-	auto: 类：InvalidSessionReport；src: crashlytics-core com/crashlytics/android/core/InvalidSessionReport
+c	com/crashlytics/android/core/t	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$11
+c	com/crashlytics/android/core/u	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$12
+c	com/crashlytics/android/core/ua	-	-	auto: 管理器：LogFile；src: crashlytics-core com/crashlytics/android/core/LogFileManager
+c	com/crashlytics/android/core/ua$a	-	-	auto: 提供者：Directory（外层 LogFileManager）；src: crashlytics-core com/crashlytics/android/core/LogFileManager$DirectoryProvider
+c	com/crashlytics/android/core/ua$b	-	-	auto: 存储：NoopLog（外层 LogFileManager）；src: crashlytics-core com/crashlytics/android/core/LogFileManager$NoopLogStore
+c	com/crashlytics/android/core/va	-	-	auto: 提供者：ManifestUnityVersion；src: crashlytics-core com/crashlytics/android/core/ManifestUnityVersionProvider
+c	com/crashlytics/android/core/w	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$14
+c	com/crashlytics/android/core/wa	-	-	auto: 匿名内部类（外层 MetaDataStore）；src: crashlytics-core com/crashlytics/android/core/MetaDataStore$1
+c	com/crashlytics/android/core/x	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$15
+c	com/crashlytics/android/core/y	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$16
+c	com/crashlytics/android/core/ya	-	-	auto: 类：MiddleOutFallbackStrategy；src: crashlytics-core com/crashlytics/android/core/MiddleOutFallbackStrategy
+c	com/crashlytics/android/core/z	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$17
+c	com/crashlytics/android/core/za	-	-	auto: 类：MiddleOutStrategy；src: crashlytics-core com/crashlytics/android/core/MiddleOutStrategy
+c	com/crashlytics/android/answers/A	-	-	auto: 管理器：Retry；src: crashlytics-answers com/crashlytics/android/answers/RetryManager
+c	com/crashlytics/android/answers/D	-	-	auto: 管理器：SessionAnalyticsFiles；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsFilesManager
+c	com/crashlytics/android/answers/E	-	-	auto: 类：SessionAnalyticsFilesSender；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsFilesSender
+c	com/crashlytics/android/answers/F	-	-	auto: 管理器：SessionAnalytics；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager
+c	com/crashlytics/android/answers/I	-	-	auto: 类：SessionEvent；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent
+c	com/crashlytics/android/answers/K	-	-	auto: 类：SessionEventTransform；src: crashlytics-answers com/crashlytics/android/answers/SessionEventTransform
+c	com/crashlytics/android/answers/b	-	-	auto: 类：Answers；src: crashlytics-answers com/crashlytics/android/answers/Answers
+c	com/crashlytics/android/answers/d	-	-	auto: 匿名内部类（外层 AnswersEventsHandler）；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$1
+c	com/crashlytics/android/answers/k	-	-	auto: 提供者：AnswersFilesManager；src: crashlytics-answers com/crashlytics/android/answers/AnswersFilesManagerProvider
+c	com/crashlytics/android/answers/m	-	-	auto: 管理器：AnswersPreference；src: crashlytics-answers com/crashlytics/android/answers/AnswersPreferenceManager
+c	com/crashlytics/android/answers/o	-	-	auto: 类：AppMeasurementEventLogger；src: crashlytics-answers com/crashlytics/android/answers/AppMeasurementEventLogger
+c	com/crashlytics/android/answers/p	-	-	auto: 匿名内部类（外层 BackgroundManager）；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager$1
+c	com/crashlytics/android/answers/s	-	-	auto: 类：EnabledSessionAnalyticsManagerStrategy；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy
+c	com/crashlytics/android/answers/t	-	-	auto: 过滤器：Event；src: crashlytics-answers com/crashlytics/android/answers/EventFilter
+c	com/crashlytics/android/answers/z	-	-	auto: 类：RandomBackoff；src: crashlytics-answers com/crashlytics/android/answers/RandomBackoff
+c	com/crashlytics/android/core/Aa	-	-	auto: 类：NativeCreateReportSpiCall；src: crashlytics-core com/crashlytics/android/core/NativeCreateReportSpiCall
+c	com/crashlytics/android/core/Ea	-	-	auto: 管理器：Preference；src: crashlytics-core com/crashlytics/android/core/PreferenceManager
+c	com/crashlytics/android/core/Ga	-	-	auto: 解析器：ProcMapEntry；src: crashlytics-core com/crashlytics/android/core/ProcMapEntryParser
+c	com/crashlytics/android/core/W	-	-	auto: 类：CrashlyticsController；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController
+c	com/crashlytics/android/core/W$g	-	-	auto: 提供者：LogFileDirectory（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$LogFileDirectoryProvider
+c	com/crashlytics/android/core/W$h	-	-	auto: 类：PrivacyDialogCheck（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck
+c	com/crashlytics/android/core/ca	-	-	auto: 类：CrashlyticsCore；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore
+c	com/crashlytics/android/core/d	-	-	auto: 类：ByteString；src: crashlytics-core com/crashlytics/android/core/ByteString
+c	com/crashlytics/android/core/da	-	-	auto: 类：CrashlyticsFileMarker；src: crashlytics-core com/crashlytics/android/core/CrashlyticsFileMarker
+c	com/crashlytics/android/core/g	-	-	auto: 流：ClsFileOutput；src: crashlytics-core com/crashlytics/android/core/ClsFileOutputStream
+c	com/crashlytics/android/core/h	-	-	auto: 流：CodedOutput；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream
+c	com/crashlytics/android/core/ma	-	-	auto: 类：DefaultAppMeasurementEventListenerRegistrar；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar
+c	com/crashlytics/android/core/na	-	-	auto: 类：DefaultCreateReportSpiCall；src: crashlytics-core com/crashlytics/android/core/DefaultCreateReportSpiCall
+c	com/crashlytics/android/core/o	-	-	auto: 类：CrashTest；src: crashlytics-core com/crashlytics/android/core/CrashTest
+c	com/crashlytics/android/core/qa	-	-	auto: 解析器：DialogString；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver
+c	com/crashlytics/android/core/v	-	-	auto: 匿名内部类（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$13
+c	com/crashlytics/android/core/xa	-	-	auto: 存储：MetaData；src: crashlytics-core com/crashlytics/android/core/MetaDataStore
+c	com/crashlytics/android/answers/B	-	-	auto: 匿名内部类（外层 SamplingEventFilter）；src: crashlytics-answers com/crashlytics/android/answers/SamplingEventFilter$1
+c	com/crashlytics/android/answers/I$a	-	-	auto: 类：Builder（外层 SessionEvent）；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder
+c	com/crashlytics/android/answers/q$a	-	-	auto: 类：Listener（外层 BackgroundManager）；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager$Listener
+c	com/crashlytics/android/core/W$c	-	-	auto: 提供者：DefaultSettingsData（外层 CrashlyticsController）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$DefaultSettingsDataProvider
+c	com/crashlytics/android/core/ia$b	-	-	auto: 提供者：SettingsData（外层 CrashlyticsUncaughtExceptionHandler）；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler$SettingsDataProvider
+c	com/crashlytics/android/core/fa	-	-	auto: 类：CrashlyticsNdkData；src: crashlytics-core com/crashlytics/android/core/CrashlyticsNdkData
+c	com/crashlytics/android/answers/G	-	-	auto: 类：SessionAnalyticsManagerStrategy；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManagerStrategy
+c	com/crashlytics/android/answers/L	-	-	auto: 收集器：SessionMetadata；src: crashlytics-answers com/crashlytics/android/answers/SessionMetadataCollector
+c	com/crashlytics/android/answers/n	-	-	auto: 类：AnswersRetryFilesSender；src: crashlytics-answers com/crashlytics/android/answers/AnswersRetryFilesSender
+c	com/crashlytics/android/answers/r	-	-	auto: 类：DisabledSessionAnalyticsManagerStrategy；src: crashlytics-answers com/crashlytics/android/answers/DisabledSessionAnalyticsManagerStrategy
+c	com/crashlytics/android/core/ea	-	-	auto: 类：ea（上游未收录，名字来自 jobs/crashlytics 的判据）
+c	com/crashlytics/android/answers/c	-	-	auto: 类：EventValueBase（上游未收录，名字来自 jobs/crashlytics 的判据）
+c	com/crashlytics/android/answers/y	-	-	auto: 实现类：EventValueBase（上游未收录，名字来自 jobs/crashlytics 的判据）
+c	com/crashlytics/android/answers/a	-	-	auto: 类：EventValueConstants（上游未收录，名字来自 jobs/crashlytics 的判据）
+c	com/crashlytics/android/answers/H	-	-	auto: 类：SyntheticPlaceholder（上游未收录，名字来自 jobs/crashlytics 的判据）
+c	com/crashlytics/android/core/Wa	-	-	auto: 类：CodedOutputStreamBitSizes（上游未收录，名字来自 jobs/crashlytics 的判据）
+c	com/crashlytics/android/CrashlyticsInitProvider	-	-	auto: 提供者：CrashlyticsInit；src: crashlytics com/crashlytics/android/CrashlyticsInitProvider
+c	com/crashlytics/android/core/ta	-	-	auto: 类：SyntheticPlaceholder（上游未收录，名字来自 jobs/crashlytics 的判据）
+f	com/crashlytics/android/Crashlytics	beta	-	auto: 字段(Labcd/Bw;)（上游无同类型对应，按作用取名）
+m	com/crashlytics/android/Crashlytics	setListener	(Lcom/crashlytics/android/core/ea;)V	auto: 设 Listener（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/CrashlyticsInitProvider$a	j6	(Landroid/content/Context;)Z	auto: 是否 CrashlyticsEnabled；src: crashlytics com/crashlytics/android/CrashlyticsInitProvider$EnabledCheckStrategy#isCrashlyticsEnabled
+m	com/crashlytics/android/a	j6	(Landroid/content/Context;)Z	auto: 是否 CrashlyticsEnabled；src: crashlytics com/crashlytics/android/ManifestEnabledCheckStrategy#isCrashlyticsEnabled
+m	com/crashlytics/android/answers/C	j6	(Lcom/crashlytics/android/answers/I;)Z	auto: 「skipEvent」；src: crashlytics-answers com/crashlytics/android/answers/SamplingEventFilter#skipEvent
+f	com/crashlytics/android/answers/C	j6	-	auto: 字段(Ljava/util/Set;)；src: crashlytics-answers com/crashlytics/android/answers/SamplingEventFilter.EVENTS_TYPE_TO_SAMPLE
+f	com/crashlytics/android/answers/C	DW	-	auto: 字段(I)；src: crashlytics-answers com/crashlytics/android/answers/SamplingEventFilter.samplingRate
+m	com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter	j6	()Lcom/crashlytics/android/answers/u;	auto: 取 FirebaseAnalytics；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter#getFirebaseAnalytics
+m	com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter	j6	(Lcom/crashlytics/android/answers/I;)V	auto: 执行 processEvent；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter#processEvent
+f	com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter	DW	-	auto: 字段(Lcom/crashlytics/android/answers/w;)；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter.eventMapper
+f	com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter	FH	-	auto: 字段(Lcom/crashlytics/android/answers/u;)；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter.eventLogger
+f	com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter	j6	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsApiAdapter.context
+f	com/crashlytics/android/answers/I$b	u7	-	auto: 字段([Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type.$VALUES
+f	com/crashlytics/android/answers/I$b	gn	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type.PREDEFINED
+f	com/crashlytics/android/answers/I$b	VH	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type.CUSTOM
+f	com/crashlytics/android/answers/I$b	v5	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type.CRASH
+f	com/crashlytics/android/answers/I$b	Zo	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type.INSTALL
+f	com/crashlytics/android/answers/I$b	j6	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type.START
+f	com/crashlytics/android/answers/I$b	FH	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type.RESUME
+f	com/crashlytics/android/answers/I$b	Hw	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type.STOP
+f	com/crashlytics/android/answers/I$b	DW	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Type.PAUSE
+f	com/crashlytics/android/answers/J	Hw	-	auto: 字段(Ljava/lang/Boolean;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.limitAdTrackingEnabled
+f	com/crashlytics/android/answers/J	v5	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.betaDeviceToken
+f	com/crashlytics/android/answers/J	FH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.installationId
+f	com/crashlytics/android/answers/J	u7	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.appVersionCode
+f	com/crashlytics/android/answers/J	tp	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.appVersionName
+f	com/crashlytics/android/answers/J	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.appBundleId
+f	com/crashlytics/android/answers/J	gn	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.deviceModel
+f	com/crashlytics/android/answers/J	Zo	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.buildId
+f	com/crashlytics/android/answers/J	VH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.osVersion
+f	com/crashlytics/android/answers/J	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.executionId
+f	com/crashlytics/android/answers/J	EQ	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEventMetadata.stringRepresentation
+f	com/crashlytics/android/answers/e	j6	-	auto: 字段(Lcom/crashlytics/android/answers/j;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$2.this$0
+f	com/crashlytics/android/answers/f	j6	-	auto: 字段(Lcom/crashlytics/android/answers/j;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$3.this$0
+f	com/crashlytics/android/answers/g	j6	-	auto: 字段(Lcom/crashlytics/android/answers/j;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$4.this$0
+f	com/crashlytics/android/answers/h	j6	-	auto: 字段(Lcom/crashlytics/android/answers/j;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$5.this$0
+f	com/crashlytics/android/answers/i	DW	-	auto: 字段(Z)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$6.val$flush
+f	com/crashlytics/android/answers/i	FH	-	auto: 字段(Lcom/crashlytics/android/answers/j;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$6.this$0
+f	com/crashlytics/android/answers/i	j6	-	auto: 字段(Lcom/crashlytics/android/answers/I$a;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$6.val$eventBuilder
+m	com/crashlytics/android/answers/j	j6	(Lcom/crashlytics/android/answers/I$a;ZZ)V	auto: 执行 processEvent；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#processEvent
+f	com/crashlytics/android/answers/j	DW	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler.context
+f	com/crashlytics/android/answers/j	FH	-	auto: 字段(Lcom/crashlytics/android/answers/k;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler.filesManagerProvider
+f	com/crashlytics/android/answers/j	Hw	-	auto: 字段(Lcom/crashlytics/android/answers/L;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler.metadataCollector
+f	com/crashlytics/android/answers/j	VH	-	auto: 字段(Ljava/util/concurrent/ScheduledExecutorService;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler.executor
+f	com/crashlytics/android/answers/j	Zo	-	auto: 字段(Lcom/crashlytics/android/answers/FirebaseAnalyticsApiAdapter;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler.firebaseAnalyticsApiAdapter
+f	com/crashlytics/android/answers/j	gn	-	auto: 字段(Lcom/crashlytics/android/answers/G;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler.strategy
+f	com/crashlytics/android/answers/j	j6	-	auto: 字段(Lio/fabric/sdk/android/Kit;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler.kit
+m	com/crashlytics/android/answers/j	j6	(Ljava/lang/Runnable;)V	auto: 执行 Async；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#executeAsync
+m	com/crashlytics/android/answers/j	DW	(Ljava/lang/Runnable;)V	auto: 执行 Sync；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#executeSync
+m	com/crashlytics/android/answers/j	j6	()V	auto: 执行 disable；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#disable
+m	com/crashlytics/android/answers/j	FH	()V	auto: 冲刷 Events；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#flushEvents
+m	com/crashlytics/android/answers/j	DW	()V	auto: 执行 enable；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#enable
+m	com/crashlytics/android/answers/j	j6	(Lcom/crashlytics/android/answers/I$a;)V	auto: 执行 processEventAsync；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#processEventAsync
+m	com/crashlytics/android/answers/j	FH	(Lcom/crashlytics/android/answers/I$a;)V	auto: 执行 processEventSync；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#processEventSync
+m	com/crashlytics/android/answers/j	DW	(Lcom/crashlytics/android/answers/I$a;)V	auto: 执行 processEventAsyncAndFlush；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#processEventAsyncAndFlush
+m	com/crashlytics/android/answers/j	j6	(Ljava/lang/String;)V	auto: 执行 onRollOver；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler#onRollOver
+f	com/crashlytics/android/answers/j	v5	-	auto: 字段(Labcd/Jz;)（上游无同类型对应，按作用取名）
+f	com/crashlytics/android/answers/l	DW	-	auto: 字段(Lcom/crashlytics/android/answers/q;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks.backgroundManager
+f	com/crashlytics/android/answers/l	j6	-	auto: 字段(Lcom/crashlytics/android/answers/F;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks.analyticsManager
+m	com/crashlytics/android/answers/l	DW	(Landroid/app/Activity;Landroid/os/Bundle;)V	auto: 执行 onActivitySaveInstanceState；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks#onActivitySaveInstanceState
+m	com/crashlytics/android/answers/l	v5	(Landroid/app/Activity;)V	auto: 执行 onActivityStopped；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks#onActivityStopped
+m	com/crashlytics/android/answers/l	j6	(Landroid/app/Activity;)V	auto: 执行 onActivityDestroyed；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks#onActivityDestroyed
+m	com/crashlytics/android/answers/l	Hw	(Landroid/app/Activity;)V	auto: 执行 onActivityStarted；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks#onActivityStarted
+m	com/crashlytics/android/answers/l	DW	(Landroid/app/Activity;)V	auto: 执行 onActivityPaused；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks#onActivityPaused
+m	com/crashlytics/android/answers/l	j6	(Landroid/app/Activity;Landroid/os/Bundle;)V	auto: 执行 onActivityCreated；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks#onActivityCreated
+m	com/crashlytics/android/answers/l	FH	(Landroid/app/Activity;)V	auto: 执行 onActivityResumed；src: crashlytics-answers com/crashlytics/android/answers/AnswersLifecycleCallbacks#onActivityResumed
+m	com/crashlytics/android/answers/q	j6	(Lcom/crashlytics/android/answers/q$a;)V	auto: 注册 Listener；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager#registerListener
+m	com/crashlytics/android/answers/q	j6	(Z)V	auto: 设 FlushOnBackground；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager#setFlushOnBackground
+f	com/crashlytics/android/answers/q	DW	-	auto: 字段(Ljava/util/List;)；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager.listeners
+f	com/crashlytics/android/answers/q	Hw	-	auto: 字段(Ljava/util/concurrent/atomic/AtomicReference;)；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager.backgroundFutureRef
+f	com/crashlytics/android/answers/q	j6	-	auto: 字段(Ljava/util/concurrent/ScheduledExecutorService;)；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager.executorService
+m	com/crashlytics/android/answers/q	DW	()V	auto: 执行 onActivityResumed；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager#onActivityResumed
+m	com/crashlytics/android/answers/q	FH	()V	auto: 通知 Background；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager#notifyBackground
+m	com/crashlytics/android/answers/q	j6	()V	auto: 执行 onActivityPaused；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager#onActivityPaused
+f	com/crashlytics/android/answers/q	FH	-	auto: 字段(Z)；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager.flushOnBackground
+f	com/crashlytics/android/answers/q	v5	-	auto: 字段(Z)；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager.inBackground
+m	com/crashlytics/android/answers/u	j6	(Ljava/lang/String;Landroid/os/Bundle;)V	auto: 执行 logEvent；src: crashlytics-answers com/crashlytics/android/answers/EventLogger#logEvent
+m	com/crashlytics/android/answers/u	j6	(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V	auto: 执行 logEvent；src: crashlytics-answers com/crashlytics/android/answers/EventLogger#logEvent
+m	com/crashlytics/android/answers/v	DW	()Landroid/os/Bundle;	auto: 取 EventParams；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEvent#getEventParams
+m	com/crashlytics/android/answers/v	j6	()Ljava/lang/String;	auto: 取 EventName；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEvent#getEventName
+f	com/crashlytics/android/answers/v	DW	-	auto: 字段(Landroid/os/Bundle;)；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEvent.eventParams
+f	com/crashlytics/android/answers/v	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEvent.eventName
+m	com/crashlytics/android/answers/w	DW	(Lcom/crashlytics/android/answers/I;)Landroid/os/Bundle;	auto: 映射 PredefinedEvent；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#mapPredefinedEvent
+m	com/crashlytics/android/answers/w	DW	(Ljava/lang/String;)Ljava/lang/Integer;	auto: 映射 BooleanValue；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#mapBooleanValue
+m	com/crashlytics/android/answers/w	j6	(Ljava/lang/String;Z)Ljava/lang/String;	auto: 映射 PredefinedEventName；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#mapPredefinedEventName
+m	com/crashlytics/android/answers/w	j6	(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Double;)V	auto: 放入 Double；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#putDouble
+m	com/crashlytics/android/answers/w	j6	(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Integer;)V	auto: 放入 Int；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#putInt
+m	com/crashlytics/android/answers/w	j6	(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Long;)V	auto: 放入 Long；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#putLong
+m	com/crashlytics/android/answers/w	j6	(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)V	auto: 放入 String；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#putString
+m	com/crashlytics/android/answers/w	j6	(Landroid/os/Bundle;Ljava/util/Map;)V	auto: 映射 CustomEventAttributes；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#mapCustomEventAttributes
+m	com/crashlytics/android/answers/w	j6	(Lcom/crashlytics/android/answers/I;)Lcom/crashlytics/android/answers/v;	auto: 映射 Event；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#mapEvent
+f	com/crashlytics/android/answers/w	j6	-	auto: 字段(Ljava/util/Set;)；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper.EVENT_NAMES
+m	com/crashlytics/android/answers/w	j6	(Ljava/lang/Object;)Ljava/lang/Double;	auto: 映射 Double；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#mapDouble
+m	com/crashlytics/android/answers/w	DW	(Ljava/lang/Object;)Ljava/lang/Double;	auto: 映射 PriceValue；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#mapPriceValue
+m	com/crashlytics/android/answers/w	FH	(Ljava/lang/String;)Ljava/lang/String;	auto: 映射 CustomEventName；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#mapCustomEventName
+m	com/crashlytics/android/answers/w	j6	(Ljava/lang/String;)Ljava/lang/String;	auto: 映射 Attribute；src: crashlytics-answers com/crashlytics/android/answers/FirebaseAnalyticsEventMapper#mapAttribute
+m	com/crashlytics/android/answers/x	j6	(Lcom/crashlytics/android/answers/I;)Z	auto: 「skipEvent」；src: crashlytics-answers com/crashlytics/android/answers/KeepAllEventFilter#skipEvent
+f	com/crashlytics/android/core/A	j6	-	auto: 字段(Lcom/crashlytics/android/core/B;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$18$1.this$1
+m	com/crashlytics/android/core/B	j6	(Ljava/io/FileOutputStream;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$18#writeTo
+f	com/crashlytics/android/core/B	FH	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$18.val$startedAtSeconds
+f	com/crashlytics/android/core/B	Hw	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$18.this$0
+f	com/crashlytics/android/core/B	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$18.val$sessionId
+f	com/crashlytics/android/core/B	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$18.val$generator
+m	com/crashlytics/android/core/Ba	j6	(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;	auto: 「filter」；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#filter
+m	com/crashlytics/android/core/Ba	j6	(Landroid/content/Context;Ljava/lang/String;)[B	auto: 「processBinaryImages」；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#processBinaryImages
+m	com/crashlytics/android/core/Ba	j6	(Ljava/io/InputStream;)[B	auto: 读取 Bytes；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#readBytes
+m	com/crashlytics/android/core/Ba	Hw	(Ljava/io/File;)[B	auto: 「minidumpFromFile」；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#minidumpFromFile
+m	com/crashlytics/android/core/Ba	j6	(Ljava/io/File;)[B	auto: 「metadataJsonFromDirectory」；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#metadataJsonFromDirectory
+m	com/crashlytics/android/core/Ba	DW	(Ljava/io/File;)[B	auto: 「minidumpFromDirectory」；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#minidumpFromDirectory
+m	com/crashlytics/android/core/Ba	FH	(Ljava/io/File;)[B	auto: 读取 File；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#readFile
+m	com/crashlytics/android/core/Ba	j6	(Ljava/io/File;Landroid/content/Context;)[B	auto: 「binaryImagesJsonFromDirectory」；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#binaryImagesJsonFromDirectory
+m	com/crashlytics/android/core/Ba	DW	(Ljava/io/File;Landroid/content/Context;)[B	auto: 「binaryImagesJsonFromBinaryLibsFile」；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#binaryImagesJsonFromBinaryLibsFile
+m	com/crashlytics/android/core/Ba	FH	(Ljava/io/File;Landroid/content/Context;)[B	auto: 「binaryImagesJsonFromMapsFile」；src: crashlytics-core com/crashlytics/android/core/NativeFileUtils#binaryImagesJsonFromMapsFile
+m	com/crashlytics/android/core/C	j6	(Lcom/crashlytics/android/core/h;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$19#writeTo
+f	com/crashlytics/android/core/C	Zo	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$19.this$0
+f	com/crashlytics/android/core/C	v5	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$19.val$deliveryMechanism
+f	com/crashlytics/android/core/C	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$19.val$appIdentifier
+f	com/crashlytics/android/core/C	Hw	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$19.val$installUuid
+f	com/crashlytics/android/core/C	FH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$19.val$versionName
+f	com/crashlytics/android/core/C	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$19.val$versionCode
+m	com/crashlytics/android/core/Ca	FH	()Ljava/io/File;	auto: 取 File；src: crashlytics-core com/crashlytics/android/core/NativeSessionReport#getFile
+m	com/crashlytics/android/core/Ca	Hw	()[Ljava/io/File;	auto: 取 Files；src: crashlytics-core com/crashlytics/android/core/NativeSessionReport#getFiles
+m	com/crashlytics/android/core/Ca	j6	()Ljava/util/Map;	auto: 取 CustomHeaders；src: crashlytics-core com/crashlytics/android/core/NativeSessionReport#getCustomHeaders
+f	com/crashlytics/android/core/Ca	j6	-	auto: 字段(Ljava/io/File;)；src: crashlytics-core com/crashlytics/android/core/NativeSessionReport.reportDirectory
+m	com/crashlytics/android/core/Ca	DW	()Ljava/lang/String;	auto: 取 Identifier；src: crashlytics-core com/crashlytics/android/core/NativeSessionReport#getIdentifier
+m	com/crashlytics/android/core/Da	DW	()Ljava/io/InputStream;	auto: 取 KeyStoreStream；src: crashlytics-core com/crashlytics/android/core/PinningInfoProvider#getKeyStoreStream
+m	com/crashlytics/android/core/Da	FH	()[Ljava/lang/String;	auto: 取 Pins；src: crashlytics-core com/crashlytics/android/core/PinningInfoProvider#getPins
+m	com/crashlytics/android/core/Da	j6	()Ljava/lang/String;	auto: 取 KeyStorePassword；src: crashlytics-core com/crashlytics/android/core/PinningInfoProvider#getKeyStorePassword
+m	com/crashlytics/android/core/DevicePowerStateListener	FH	()Z	auto: 是否 PowerConnected；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener#isPowerConnected
+f	com/crashlytics/android/core/DevicePowerStateListener	Hw	-	auto: 字段(Ljava/util/concurrent/atomic/AtomicBoolean;)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener.receiversRegistered
+f	com/crashlytics/android/core/DevicePowerStateListener	gn	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener.isPowerConnected
+f	com/crashlytics/android/core/DevicePowerStateListener	v5	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener.context
+m	com/crashlytics/android/core/DevicePowerStateListener	j6	()V	auto: 执行 dispose；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener#dispose
+m	com/crashlytics/android/core/DevicePowerStateListener	DW	()V	auto: 执行 initialize；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener#initialize
+f	com/crashlytics/android/core/DevicePowerStateListener	j6	-	auto: 字段(Landroid/content/IntentFilter;)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener.FILTER_BATTERY_CHANGED
+f	com/crashlytics/android/core/DevicePowerStateListener	FH	-	auto: 字段(Landroid/content/IntentFilter;)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener.FILTER_POWER_DISCONNECTED
+f	com/crashlytics/android/core/DevicePowerStateListener	DW	-	auto: 字段(Landroid/content/IntentFilter;)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener.FILTER_POWER_CONNECTED
+f	com/crashlytics/android/core/DevicePowerStateListener	Zo	-	auto: 字段(Landroid/content/BroadcastReceiver;)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener.powerDisconnectedReceiver
+f	com/crashlytics/android/core/DevicePowerStateListener	VH	-	auto: 字段(Landroid/content/BroadcastReceiver;)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener.powerConnectedReceiver
+f	com/crashlytics/android/core/E	j6	-	auto: 字段(Lcom/crashlytics/android/core/F;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20$1.this$1
+m	com/crashlytics/android/core/F	j6	(Ljava/io/FileOutputStream;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20#writeTo
+f	com/crashlytics/android/core/F	Zo	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20.this$0
+f	com/crashlytics/android/core/F	v5	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20.val$deliveryMechanism
+f	com/crashlytics/android/core/F	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20.val$appIdentifier
+f	com/crashlytics/android/core/F	Hw	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20.val$installUuid
+f	com/crashlytics/android/core/F	FH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20.val$versionName
+f	com/crashlytics/android/core/F	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$20.val$versionCode
+f	com/crashlytics/android/core/Fa	j6	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/ProcMapEntry.address
+f	com/crashlytics/android/core/Fa	DW	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/ProcMapEntry.size
+f	com/crashlytics/android/core/Fa	Hw	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/ProcMapEntry.path
+f	com/crashlytics/android/core/Fa	FH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/ProcMapEntry.perms
+m	com/crashlytics/android/core/G	j6	(Lcom/crashlytics/android/core/h;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$21#writeTo
+f	com/crashlytics/android/core/G	DW	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$21.this$0
+f	com/crashlytics/android/core/G	j6	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$21.val$isRooted
+f	com/crashlytics/android/core/H	j6	-	auto: 字段(Lcom/crashlytics/android/core/I;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$22$1.this$1
+m	com/crashlytics/android/core/Ha	j6	(Ljava/io/InputStream;I)V	auto: 执行 read；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore$1#read
+f	com/crashlytics/android/core/Ha	DW	-	auto: 字段([I)；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore$1.val$offsetHolder
+f	com/crashlytics/android/core/Ha	FH	-	auto: 字段(Lcom/crashlytics/android/core/Ia;)；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore$1.this$0
+f	com/crashlytics/android/core/Ha	j6	-	auto: 字段([B)；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore$1.val$logBytes
+m	com/crashlytics/android/core/I	j6	(Ljava/io/FileOutputStream;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$22#writeTo
+f	com/crashlytics/android/core/I	DW	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$22.this$0
+f	com/crashlytics/android/core/I	j6	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$22.val$isRooted
+m	com/crashlytics/android/core/Ia	v5	()Lcom/crashlytics/android/core/Ia$a;	auto: 取 LogBytes；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore#getLogBytes
+m	com/crashlytics/android/core/Ia	DW	()Lcom/crashlytics/android/core/d;	auto: 取 LogAsByteString；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore#getLogAsByteString
+m	com/crashlytics/android/core/Ia	FH	()[B	auto: 取 LogAsBytes；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore#getLogAsBytes
+f	com/crashlytics/android/core/Ia	DW	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore.maxLogSize
+f	com/crashlytics/android/core/Ia	j6	-	auto: 字段(Ljava/io/File;)；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore.workingFile
+m	com/crashlytics/android/core/Ia	j6	(JLjava/lang/String;)V	auto: 写出 ToLog；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore#writeToLog
+m	com/crashlytics/android/core/Ia	DW	(JLjava/lang/String;)V	auto: 执行 doWriteToLog；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore#doWriteToLog
+m	com/crashlytics/android/core/Ia	Zo	()V	auto: 打开 LogFile；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore#openLogFile
+f	com/crashlytics/android/core/Ia	FH	-	auto: 字段(Lio/fabric/sdk/android/services/common/z;)（上游无同类型对应，按作用取名）
+m	com/crashlytics/android/core/Ia	Hw	()V	auto: 删除 LogFile；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore#deleteLogFile
+m	com/crashlytics/android/core/Ia	j6	()V	auto: 关闭 LogFile；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore#closeLogFile
+f	com/crashlytics/android/core/Ia$a	DW	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore$LogBytes.offset
+f	com/crashlytics/android/core/Ia$a	FH	-	auto: 字段(Lcom/crashlytics/android/core/Ia;)；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore$LogBytes.this$0
+f	com/crashlytics/android/core/Ia$a	j6	-	auto: 字段([B)；src: crashlytics-core com/crashlytics/android/core/QueueFileLogStore$LogBytes.bytes
+m	com/crashlytics/android/core/J	j6	(Lcom/crashlytics/android/core/h;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23#writeTo
+f	com/crashlytics/android/core/J	Zo	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23.val$ids
+f	com/crashlytics/android/core/J	gn	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23.this$0
+f	com/crashlytics/android/core/J	v5	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23.val$isEmulator
+f	com/crashlytics/android/core/J	j6	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23.val$arch
+f	com/crashlytics/android/core/J	VH	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23.val$state
+f	com/crashlytics/android/core/J	DW	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23.val$availableProcessors
+f	com/crashlytics/android/core/J	Hw	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23.val$diskSpace
+f	com/crashlytics/android/core/J	FH	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$23.val$totalRam
+m	com/crashlytics/android/core/Ja	j6	([Ljava/lang/StackTraceElement;II)Z	auto: 是否 RepeatingSequence；src: crashlytics-core com/crashlytics/android/core/RemoveRepeatsStrategy#isRepeatingSequence
+m	com/crashlytics/android/core/Ja	j6	([Ljava/lang/StackTraceElement;I)[Ljava/lang/StackTraceElement;	auto: 「trimRepeats」；src: crashlytics-core com/crashlytics/android/core/RemoveRepeatsStrategy#trimRepeats
+m	com/crashlytics/android/core/Ja	j6	([Ljava/lang/StackTraceElement;)[Ljava/lang/StackTraceElement;	auto: 取 TrimmedStackTrace；src: crashlytics-core com/crashlytics/android/core/RemoveRepeatsStrategy#getTrimmedStackTrace
+f	com/crashlytics/android/core/Ja	j6	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/RemoveRepeatsStrategy.maxRepetitions
+f	com/crashlytics/android/core/K	j6	-	auto: 字段(Lcom/crashlytics/android/core/L;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24$1.this$1
+m	com/crashlytics/android/core/Ka	FH	()Ljava/io/File;	auto: 取 File；src: crashlytics-core com/crashlytics/android/core/Report#getFile
+m	com/crashlytics/android/core/Ka	Hw	()[Ljava/io/File;	auto: 取 Files；src: crashlytics-core com/crashlytics/android/core/Report#getFiles
+m	com/crashlytics/android/core/Ka	j6	()Ljava/util/Map;	auto: 取 CustomHeaders；src: crashlytics-core com/crashlytics/android/core/Report#getCustomHeaders
+m	com/crashlytics/android/core/Ka	DW	()Ljava/lang/String;	auto: 取 Identifier；src: crashlytics-core com/crashlytics/android/core/Report#getIdentifier
+f	com/crashlytics/android/core/Ka$a	FH	-	auto: 字段([Lcom/crashlytics/android/core/Ka$a;)；src: crashlytics-core com/crashlytics/android/core/Report$Type.$VALUES
+f	com/crashlytics/android/core/Ka$a	j6	-	auto: 字段(Lcom/crashlytics/android/core/Ka$a;)；src: crashlytics-core com/crashlytics/android/core/Report$Type.JAVA
+f	com/crashlytics/android/core/Ka$a	DW	-	auto: 字段(Lcom/crashlytics/android/core/Ka$a;)；src: crashlytics-core com/crashlytics/android/core/Report$Type.NATIVE
+m	com/crashlytics/android/core/L	j6	(Ljava/io/FileOutputStream;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24#writeTo
+f	com/crashlytics/android/core/L	Zo	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24.val$ids
+f	com/crashlytics/android/core/L	gn	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24.this$0
+f	com/crashlytics/android/core/L	v5	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24.val$isEmulator
+f	com/crashlytics/android/core/L	j6	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24.val$arch
+f	com/crashlytics/android/core/L	VH	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24.val$state
+f	com/crashlytics/android/core/L	DW	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24.val$availableProcessors
+f	com/crashlytics/android/core/L	Hw	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24.val$diskSpace
+f	com/crashlytics/android/core/L	FH	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$24.val$totalRam
+m	com/crashlytics/android/core/La	DW	()Ljava/util/List;	auto: 查找 Reports；src: crashlytics-core com/crashlytics/android/core/ReportUploader#findReports
+m	com/crashlytics/android/core/La	j6	(Lcom/crashlytics/android/core/Ka;)Z	auto: 「forceUpload」；src: crashlytics-core com/crashlytics/android/core/ReportUploader#forceUpload
+f	com/crashlytics/android/core/La	DW	-	auto: 字段([S)；src: crashlytics-core com/crashlytics/android/core/ReportUploader.RETRY_INTERVALS
+f	com/crashlytics/android/core/La	j6	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-core com/crashlytics/android/core/ReportUploader.HEADER_INVALID_CLS_FILE
+f	com/crashlytics/android/core/La	FH	-	auto: 字段(Ljava/lang/Object;)；src: crashlytics-core com/crashlytics/android/core/ReportUploader.fileAccessLock
+f	com/crashlytics/android/core/La	Hw	-	auto: 字段(Lcom/crashlytics/android/core/ka;)；src: crashlytics-core com/crashlytics/android/core/ReportUploader.createReportCall
+f	com/crashlytics/android/core/La	Zo	-	auto: 字段(Lcom/crashlytics/android/core/La$c;)；src: crashlytics-core com/crashlytics/android/core/ReportUploader.reportFilesProvider
+f	com/crashlytics/android/core/La	gn	-	auto: 字段(Ljava/lang/Thread;)；src: crashlytics-core com/crashlytics/android/core/ReportUploader.uploadThread
+f	com/crashlytics/android/core/La	v5	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/ReportUploader.apiKey
+f	com/crashlytics/android/core/La	VH	-	auto: 字段(Lcom/crashlytics/android/core/La$b;)；src: crashlytics-core com/crashlytics/android/core/ReportUploader.handlingExceptionCheck
+m	com/crashlytics/android/core/La	j6	(FLcom/crashlytics/android/core/La$d;)V	auto: 执行 uploadReports；src: crashlytics-core com/crashlytics/android/core/ReportUploader#uploadReports
+m	com/crashlytics/android/core/La$a	j6	()Z	auto: 能否 SendReports；src: crashlytics-core com/crashlytics/android/core/ReportUploader$AlwaysSendCheck#canSendReports
+m	com/crashlytics/android/core/La$b	j6	()Z	auto: 是否 HandlingException；src: crashlytics-core com/crashlytics/android/core/ReportUploader$HandlingExceptionCheck#isHandlingException
+m	com/crashlytics/android/core/La$c	j6	()[Ljava/io/File;	auto: 取 NativeReportFiles；src: crashlytics-core com/crashlytics/android/core/ReportUploader$ReportFilesProvider#getNativeReportFiles
+m	com/crashlytics/android/core/La$c	FH	()[Ljava/io/File;	auto: 取 CompleteSessionFiles；src: crashlytics-core com/crashlytics/android/core/ReportUploader$ReportFilesProvider#getCompleteSessionFiles
+m	com/crashlytics/android/core/La$c	DW	()[Ljava/io/File;	auto: 取 InvalidSessionFiles；src: crashlytics-core com/crashlytics/android/core/ReportUploader$ReportFilesProvider#getInvalidSessionFiles
+m	com/crashlytics/android/core/La$d	j6	()Z	auto: 能否 SendReports；src: crashlytics-core com/crashlytics/android/core/ReportUploader$SendCheck#canSendReports
+f	com/crashlytics/android/core/La$e	FH	-	auto: 字段(Lcom/crashlytics/android/core/La;)；src: crashlytics-core com/crashlytics/android/core/ReportUploader$Worker.this$0
+f	com/crashlytics/android/core/La$e	j6	-	auto: 字段(F)；src: crashlytics-core com/crashlytics/android/core/ReportUploader$Worker.delay
+m	com/crashlytics/android/core/La$e	j6	()V	auto: 执行 onRun；src: crashlytics-core com/crashlytics/android/core/ReportUploader$Worker#onRun
+m	com/crashlytics/android/core/La$e	DW	()V	auto: 执行 attemptUploadWithRetry；src: crashlytics-core com/crashlytics/android/core/ReportUploader$Worker#attemptUploadWithRetry
+f	com/crashlytics/android/core/La$e	DW	-	auto: 字段(Lcom/crashlytics/android/core/La$d;)；src: crashlytics-core com/crashlytics/android/core/ReportUploader$Worker.sendCheck
+m	com/crashlytics/android/core/M	j6	(Lcom/crashlytics/android/core/h;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$25#writeTo
+f	com/crashlytics/android/core/M	DW	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$25.this$0
+f	com/crashlytics/android/core/M	j6	-	auto: 字段(Lcom/crashlytics/android/core/Ta;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$25.val$userMetaData
+m	com/crashlytics/android/core/Ma	j6	()Ljava/lang/String;	auto: 取 UnityVersion；src: crashlytics-core com/crashlytics/android/core/ResourceUnityVersionProvider#getUnityVersion
+f	com/crashlytics/android/core/Ma	DW	-	auto: 字段(Lcom/crashlytics/android/core/Sa;)；src: crashlytics-core com/crashlytics/android/core/ResourceUnityVersionProvider.fallback
+f	com/crashlytics/android/core/Ma	FH	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/ResourceUnityVersionProvider.hasRead
+f	com/crashlytics/android/core/Ma	Hw	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/ResourceUnityVersionProvider.unityVersion
+f	com/crashlytics/android/core/Ma	j6	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-core com/crashlytics/android/core/ResourceUnityVersionProvider.context
+m	com/crashlytics/android/core/Na	j6	()I	auto: 取 EventAppExecutionSignalSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getEventAppExecutionSignalSize
+m	com/crashlytics/android/core/Na	j6	(ILcom/crashlytics/android/core/d;IJJZLjava/util/Map;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;)I	auto: 取 SessionDeviceSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getSessionDeviceSize
+m	com/crashlytics/android/core/Na	j6	(JLjava/lang/String;Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILjava/util/Map;Landroid/app/ActivityManager$RunningAppProcessInfo;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Ljava/lang/Float;IZJJLcom/crashlytics/android/core/d;)I	auto: 取 SessionEventSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getSessionEventSize
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/Ra;II)I	auto: 取 EventAppExecutionExceptionSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getEventAppExecutionExceptionSize
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;)I	auto: 取 EventAppExecutionSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getEventAppExecutionSize
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Ljava/util/Map;Landroid/app/ActivityManager$RunningAppProcessInfo;I)I	auto: 取 EventAppSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getEventAppSize
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;)I	auto: 取 BinaryImageSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getBinaryImageSize
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;ILcom/crashlytics/android/core/d;)I	auto: 取 SessionAppSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getSessionAppSize
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Z)I	auto: 取 SessionOSSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getSessionOSSize
+m	com/crashlytics/android/core/Na	j6	(Ljava/lang/Float;IZIJJ)I	auto: 取 EventDeviceSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getEventDeviceSize
+m	com/crashlytics/android/core/Na	j6	(Ljava/lang/StackTraceElement;Z)I	auto: 取 FrameSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getFrameSize
+m	com/crashlytics/android/core/Na	j6	(Ljava/lang/String;Ljava/lang/String;)I	auto: 取 EventAppCustomAttributeSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getEventAppCustomAttributeSize
+m	com/crashlytics/android/core/Na	j6	(Ljava/lang/Thread;[Ljava/lang/StackTraceElement;IZ)I	auto: 取 ThreadSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getThreadSize
+m	com/crashlytics/android/core/Na	j6	(Ljava/lang/String;)Lcom/crashlytics/android/core/d;	auto: 「stringToByteString」；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#stringToByteString
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;ILjava/lang/StackTraceElement;Z)V	auto: 写出 Frame；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeFrame
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;ILjava/lang/String;IJJZLjava/util/Map;ILjava/lang/String;Ljava/lang/String;)V	auto: 写出 SessionDevice；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionDevice
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;JLjava/lang/String;Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;Ljava/util/Map;Lcom/crashlytics/android/core/ua;Landroid/app/ActivityManager$RunningAppProcessInfo;ILjava/lang/String;Ljava/lang/String;Ljava/lang/Float;IZJJ)V	auto: 写出 SessionEvent；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionEvent
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Lcom/crashlytics/android/core/Ra;III)V	auto: 写出 SessionEventAppExecutionException；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionEventAppExecutionException
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;)V	auto: 写出 SessionEventAppExecution；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionEventAppExecution
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Lcom/crashlytics/android/core/Ra;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;[Ljava/lang/Thread;Ljava/util/List;ILcom/crashlytics/android/core/d;Lcom/crashlytics/android/core/d;Ljava/util/Map;Landroid/app/ActivityManager$RunningAppProcessInfo;I)V	auto: 写出 SessionEventApp；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionEventApp
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Lcom/crashlytics/android/core/d;)V	auto: 写出 SessionEventLog；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionEventLog
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/lang/Float;IZIJJ)V	auto: 写出 SessionEventDevice；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionEventDevice
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/lang/String;Ljava/lang/String;J)V	auto: 写出 BeginSession；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeBeginSession
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V	auto: 写出 SessionUser；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionUser
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V	auto: 写出 SessionApp；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionApp
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/lang/String;Ljava/lang/String;Z)V	auto: 写出 SessionOS；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionOS
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/lang/Thread;[Ljava/lang/StackTraceElement;IZ)V	auto: 写出 Thread；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeThread
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/h;Ljava/util/Map;)V	auto: 写出 SessionEventAppCustomAttributes；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#writeSessionEventAppCustomAttributes
+m	com/crashlytics/android/core/Na	j6	(Lcom/crashlytics/android/core/d;)I	auto: 取 EventLogSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getEventLogSize
+m	com/crashlytics/android/core/Na	DW	(Lcom/crashlytics/android/core/d;)I	auto: 取 SessionAppOrgSize；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper#getSessionAppOrgSize
+f	com/crashlytics/android/core/Na	DW	-	auto: 字段(Lcom/crashlytics/android/core/d;)；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper.UNITY_PLATFORM_BYTE_STRING
+f	com/crashlytics/android/core/Na	j6	-	auto: 字段(Lcom/crashlytics/android/core/d;)；src: crashlytics-core com/crashlytics/android/core/SessionProtobufHelper.SIGNAL_DEFAULT_BYTE_STRING
+m	com/crashlytics/android/core/Na	j6	(Lio/fabric/sdk/android/services/common/v$a;Ljava/lang/String;)I	auto: 取 DeviceIdentifierSize（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/core/Oa	FH	()Ljava/io/File;	auto: 取 File；src: crashlytics-core com/crashlytics/android/core/SessionReport#getFile
+m	com/crashlytics/android/core/Oa	Hw	()[Ljava/io/File;	auto: 取 Files；src: crashlytics-core com/crashlytics/android/core/SessionReport#getFiles
+m	com/crashlytics/android/core/Oa	j6	()Ljava/util/Map;	auto: 取 CustomHeaders；src: crashlytics-core com/crashlytics/android/core/SessionReport#getCustomHeaders
+f	com/crashlytics/android/core/Oa	DW	-	auto: 字段([Ljava/io/File;)；src: crashlytics-core com/crashlytics/android/core/SessionReport.files
+f	com/crashlytics/android/core/Oa	FH	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-core com/crashlytics/android/core/SessionReport.customHeaders
+f	com/crashlytics/android/core/Oa	j6	-	auto: 字段(Ljava/io/File;)；src: crashlytics-core com/crashlytics/android/core/SessionReport.file
+m	com/crashlytics/android/core/Oa	DW	()Ljava/lang/String;	auto: 取 Identifier；src: crashlytics-core com/crashlytics/android/core/SessionReport#getIdentifier
+m	com/crashlytics/android/core/P	j6	(Ljava/io/File;Ljava/io/File;)I	auto: 「compare」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$4#compare
+m	com/crashlytics/android/core/Pa	j6	(Ljava/lang/String;)Ljava/lang/String;	auto: 取 FileSHA；src: crashlytics-core com/crashlytics/android/core/Sha1FileIdStrategy#getFileSHA
+m	com/crashlytics/android/core/Pa	j6	(Ljava/io/File;)Ljava/lang/String;	auto: 创建 Id；src: crashlytics-core com/crashlytics/android/core/Sha1FileIdStrategy#createId
+m	com/crashlytics/android/core/Q	j6	(Ljava/io/File;Ljava/io/File;)I	auto: 「compare」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$5#compare
+m	com/crashlytics/android/core/Qa	j6	([Ljava/lang/StackTraceElement;)[Ljava/lang/StackTraceElement;	auto: 取 TrimmedStackTrace；src: crashlytics-core com/crashlytics/android/core/StackTraceTrimmingStrategy#getTrimmedStackTrace
+f	com/crashlytics/android/core/Ra	FH	-	auto: 字段([Ljava/lang/StackTraceElement;)；src: crashlytics-core com/crashlytics/android/core/TrimmedThrowableData.stacktrace
+f	com/crashlytics/android/core/Ra	Hw	-	auto: 字段(Lcom/crashlytics/android/core/Ra;)；src: crashlytics-core com/crashlytics/android/core/TrimmedThrowableData.cause
+f	com/crashlytics/android/core/Ra	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/TrimmedThrowableData.localizedMessage
+f	com/crashlytics/android/core/Ra	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/TrimmedThrowableData.className
+m	com/crashlytics/android/core/S	j6	(Lcom/crashlytics/android/core/ia$b;Ljava/lang/Thread;Ljava/lang/Throwable;Z)V	auto: 执行 onUncaughtException；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$6#onUncaughtException
+f	com/crashlytics/android/core/S	j6	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$6.this$0
+m	com/crashlytics/android/core/Sa	j6	()Ljava/lang/String;	auto: 取 UnityVersion；src: crashlytics-core com/crashlytics/android/core/UnityVersionProvider#getUnityVersion
+f	com/crashlytics/android/core/T	DW	-	auto: 字段(Ljava/lang/Thread;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$7.val$thread
+f	com/crashlytics/android/core/T	FH	-	auto: 字段(Ljava/lang/Throwable;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$7.val$ex
+f	com/crashlytics/android/core/T	Hw	-	auto: 字段(Lcom/crashlytics/android/core/ia$b;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$7.val$settingsDataProvider
+f	com/crashlytics/android/core/T	Zo	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$7.this$0
+f	com/crashlytics/android/core/T	j6	-	auto: 字段(Ljava/util/Date;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$7.val$time
+f	com/crashlytics/android/core/T	v5	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$7.val$firebaseCrashlyticsClientFlag
+f	com/crashlytics/android/core/Ta	j6	-	auto: 字段(Lcom/crashlytics/android/core/Ta;)；src: crashlytics-core com/crashlytics/android/core/UserMetaData.EMPTY
+f	com/crashlytics/android/core/Ta	Hw	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/UserMetaData.email
+f	com/crashlytics/android/core/Ta	FH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/UserMetaData.name
+f	com/crashlytics/android/core/Ta	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/UserMetaData.id
+f	com/crashlytics/android/core/U	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$8.val$msg
+f	com/crashlytics/android/core/U	FH	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$8.this$0
+f	com/crashlytics/android/core/U	j6	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$8.val$timestamp
+f	com/crashlytics/android/core/V	DW	-	auto: 字段(Ljava/lang/Thread;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$9.val$thread
+f	com/crashlytics/android/core/V	FH	-	auto: 字段(Ljava/lang/Throwable;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$9.val$ex
+f	com/crashlytics/android/core/V	Hw	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$9.this$0
+f	com/crashlytics/android/core/V	j6	-	auto: 字段(Ljava/util/Date;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$9.val$now
+m	com/crashlytics/android/core/Va	j6	(Ljava/io/File;ILjava/util/Comparator;)I	auto: 「capFileCount」；src: crashlytics-core com/crashlytics/android/core/Utils#capFileCount
+m	com/crashlytics/android/core/Va	j6	(Ljava/io/File;Ljava/io/FilenameFilter;ILjava/util/Comparator;)I	auto: 「capFileCount」；src: crashlytics-core com/crashlytics/android/core/Utils#capFileCount
+f	com/crashlytics/android/core/Va	j6	-	auto: 字段(Ljava/io/FilenameFilter;)；src: crashlytics-core com/crashlytics/android/core/Utils.ALL_FILES_FILTER
+m	com/crashlytics/android/core/W$b	j6	(Lcom/crashlytics/android/core/h;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$CodedOutputStreamWriteAction#writeTo
+f	com/crashlytics/android/core/W$d	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$FileNameContainsFilter.string
+m	com/crashlytics/android/core/W$e	j6	(Ljava/io/FileOutputStream;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$FileOutputStreamWriteAction#writeTo
+f	com/crashlytics/android/core/W$i	j6	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$ReportUploaderFilesProvider.this$0
+m	com/crashlytics/android/core/W$i	DW	()[Ljava/io/File;	auto: 取 InvalidSessionFiles；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$ReportUploaderFilesProvider#getInvalidSessionFiles
+m	com/crashlytics/android/core/W$i	FH	()[Ljava/io/File;	auto: 取 CompleteSessionFiles；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$ReportUploaderFilesProvider#getCompleteSessionFiles
+m	com/crashlytics/android/core/W$i	j6	()[Ljava/io/File;	auto: 取 NativeReportFiles；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$ReportUploaderFilesProvider#getNativeReportFiles
+f	com/crashlytics/android/core/W$j	j6	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$ReportUploaderHandlingExceptionCheck.this$0
+m	com/crashlytics/android/core/W$j	j6	()Z	auto: 是否 HandlingException；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$ReportUploaderHandlingExceptionCheck#isHandlingException
+f	com/crashlytics/android/core/W$k	DW	-	auto: 字段(Lcom/crashlytics/android/core/Ka;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$SendReportRunnable.report
+f	com/crashlytics/android/core/W$k	FH	-	auto: 字段(Lcom/crashlytics/android/core/La;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$SendReportRunnable.reportUploader
+f	com/crashlytics/android/core/W$k	j6	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$SendReportRunnable.context
+f	com/crashlytics/android/core/W$l	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$SessionPartFileFilter.sessionId
+m	com/crashlytics/android/core/X	j6	(Z)V	auto: 执行 sendUserReportsWithoutPrompting；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck$1#sendUserReportsWithoutPrompting
+f	com/crashlytics/android/core/X	j6	-	auto: 字段(Lcom/crashlytics/android/core/W$h;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck$1.this$0
+f	com/crashlytics/android/core/Y	DW	-	auto: 字段(Lcom/crashlytics/android/core/W$h;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck$2.this$0
+f	com/crashlytics/android/core/Y	j6	-	auto: 字段(Lcom/crashlytics/android/core/n;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck$2.val$dialog
+f	com/crashlytics/android/core/Z	Hw	-	auto: 字段(Lcom/crashlytics/android/core/ca;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$1.this$0
+m	com/crashlytics/android/core/Z	v5	()Labcd/cz;	auto: 取 Priority（上游无同签名对应，按作用取名）
+f	com/crashlytics/android/core/a	Hw	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/AppData.packageName
+f	com/crashlytics/android/core/a	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/AppData.buildId
+f	com/crashlytics/android/core/a	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/AppData.apiKey
+f	com/crashlytics/android/core/a	v5	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/AppData.versionCode
+f	com/crashlytics/android/core/a	Zo	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/AppData.versionName
+f	com/crashlytics/android/core/a	FH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/AppData.installerPackageName
+m	com/crashlytics/android/core/a	j6	(Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/core/a;	auto: 「create」（上游无同签名对应，按作用取名）
+f	com/crashlytics/android/core/aa	j6	-	auto: 字段(Lcom/crashlytics/android/core/ca;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$2.this$0
+m	com/crashlytics/android/core/b	j6	()Z	auto: 「register」；src: crashlytics-core com/crashlytics/android/core/AppMeasurementEventListenerRegistrar#register
+f	com/crashlytics/android/core/ba	j6	-	auto: 字段(Lcom/crashlytics/android/core/ca;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$3.this$0
+m	com/crashlytics/android/core/c	DW	(Ljava/lang/String;)Ljava/io/File;	auto: 取 LibraryFile；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#getLibraryFile
+m	com/crashlytics/android/core/c	DW	(Lorg/json/JSONArray;)Ljava/lang/String;	auto: 「joinMapsEntries」；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#joinMapsEntries
+m	com/crashlytics/android/core/c	DW	(Ljava/io/BufferedReader;)Lorg/json/JSONArray;	auto: 解析 ProcMapsJsonFromStream；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#parseProcMapsJsonFromStream
+m	com/crashlytics/android/core/c	FH	(Ljava/lang/String;)Lorg/json/JSONObject;	auto: 「jsonFromMapEntryString」；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#jsonFromMapEntryString
+m	com/crashlytics/android/core/c	Hw	(Ljava/lang/String;)Lorg/json/JSONArray;	auto: 解析 ProcMapsJsonFromString；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#parseProcMapsJsonFromString
+m	com/crashlytics/android/core/c	j6	(Ljava/io/File;)Ljava/io/File;	auto: 「correctDataPath」；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#correctDataPath
+m	com/crashlytics/android/core/c	j6	(Ljava/lang/String;Lcom/crashlytics/android/core/Fa;)Lorg/json/JSONObject;	auto: 创建 BinaryImageJson；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#createBinaryImageJson
+m	com/crashlytics/android/core/c	j6	(Lcom/crashlytics/android/core/Fa;)Z	auto: 是否 Relevant；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#isRelevant
+m	com/crashlytics/android/core/c	j6	(Lorg/json/JSONArray;)[B	auto: 「generateBinaryImagesJsonString」；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#generateBinaryImagesJsonString
+m	com/crashlytics/android/core/c	j6	(Ljava/io/BufferedReader;)[B	auto: 「convert」；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#convert
+m	com/crashlytics/android/core/c	j6	(Ljava/lang/String;)[B	auto: 「convert」；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter#convert
+f	com/crashlytics/android/core/c	DW	-	auto: 字段(Lcom/crashlytics/android/core/c$a;)；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter.fileIdStrategy
+f	com/crashlytics/android/core/c	j6	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter.context
+m	com/crashlytics/android/core/c$a	j6	(Ljava/io/File;)Ljava/lang/String;	auto: 创建 Id；src: crashlytics-core com/crashlytics/android/core/BinaryImagesConverter$FileIdStrategy#createId
+f	com/crashlytics/android/core/ca$a	j6	-	auto: 字段(Lcom/crashlytics/android/core/da;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$CrashMarkerCheck.crashMarker
+m	com/crashlytics/android/core/ca$b	j6	()V	auto: 执行 crashlyticsDidDetectCrashDuringPreviousExecution；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore$NoOpListener#crashlyticsDidDetectCrashDuringPreviousExecution
+f	com/crashlytics/android/core/e	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CLSUUID._clsId
+f	com/crashlytics/android/core/e	j6	-	auto: 字段(Ljava/util/concurrent/atomic/AtomicLong;)；src: crashlytics-core com/crashlytics/android/core/CLSUUID._sequenceNumber
+m	com/crashlytics/android/core/e	j6	([B)V	auto: 执行 populatePID；src: crashlytics-core com/crashlytics/android/core/CLSUUID#populatePID
+m	com/crashlytics/android/core/e	DW	([B)V	auto: 执行 populateSequenceNumber；src: crashlytics-core com/crashlytics/android/core/CLSUUID#populateSequenceNumber
+m	com/crashlytics/android/core/e	FH	([B)V	auto: 执行 populateTime；src: crashlytics-core com/crashlytics/android/core/CLSUUID#populateTime
+m	com/crashlytics/android/core/e	j6	(J)[B	auto: 「convertLongToFourByteBuffer」；src: crashlytics-core com/crashlytics/android/core/CLSUUID#convertLongToFourByteBuffer
+m	com/crashlytics/android/core/e	DW	(J)[B	auto: 「convertLongToTwoByteBuffer」；src: crashlytics-core com/crashlytics/android/core/CLSUUID#convertLongToTwoByteBuffer
+m	com/crashlytics/android/core/ga	j6	()Lcom/crashlytics/android/core/fa;	auto: 取 CrashlyticsNdkData；src: crashlytics-core com/crashlytics/android/core/CrashlyticsNdkDataProvider#getCrashlyticsNdkData
+f	com/crashlytics/android/core/ha	j6	-	auto: 字段(Lcom/crashlytics/android/core/Da;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsPinningInfoProvider.pinningInfo
+m	com/crashlytics/android/core/ha	DW	()Ljava/io/InputStream;	auto: 取 KeyStoreStream；src: crashlytics-core com/crashlytics/android/core/CrashlyticsPinningInfoProvider#getKeyStoreStream
+m	com/crashlytics/android/core/ha	FH	()[Ljava/lang/String;	auto: 取 Pins；src: crashlytics-core com/crashlytics/android/core/CrashlyticsPinningInfoProvider#getPins
+m	com/crashlytics/android/core/ha	j6	()Ljava/lang/String;	auto: 取 KeyStorePassword；src: crashlytics-core com/crashlytics/android/core/CrashlyticsPinningInfoProvider#getKeyStorePassword
+m	com/crashlytics/android/core/ha	Hw	()J	auto: 取 PinCreationTimeInMillis；src: crashlytics-core com/crashlytics/android/core/CrashlyticsPinningInfoProvider#getPinCreationTimeInMillis
+f	com/crashlytics/android/core/i	j6	-	auto: 字段([I)；src: crashlytics-core com/crashlytics/android/core/CompositeCreateReportSpiCall$1.$SwitchMap$com$crashlytics$android$core$Report$Type
+m	com/crashlytics/android/core/ia	j6	()Z	auto: 是否 HandlingException；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler#isHandlingException
+f	com/crashlytics/android/core/ia	DW	-	auto: 字段(Lcom/crashlytics/android/core/ia$b;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler.settingsDataProvider
+f	com/crashlytics/android/core/ia	FH	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler.firebaseCrashlyticsClientFlag
+f	com/crashlytics/android/core/ia	Hw	-	auto: 字段(Ljava/lang/Thread$UncaughtExceptionHandler;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler.defaultHandler
+f	com/crashlytics/android/core/ia	j6	-	auto: 字段(Lcom/crashlytics/android/core/ia$a;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler.crashListener
+f	com/crashlytics/android/core/ia	v5	-	auto: 字段(Ljava/util/concurrent/atomic/AtomicBoolean;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler.isHandlingException
+m	com/crashlytics/android/core/ia$a	j6	(Lcom/crashlytics/android/core/ia$b;Ljava/lang/Thread;Ljava/lang/Throwable;Z)V	auto: 执行 onUncaughtException；src: crashlytics-core com/crashlytics/android/core/CrashlyticsUncaughtExceptionHandler$CrashListener#onUncaughtException
+m	com/crashlytics/android/core/j	j6	(Lcom/crashlytics/android/core/ja;)Z	auto: 「invoke」；src: crashlytics-core com/crashlytics/android/core/CompositeCreateReportSpiCall#invoke
+f	com/crashlytics/android/core/j	DW	-	auto: 字段(Lcom/crashlytics/android/core/Aa;)；src: crashlytics-core com/crashlytics/android/core/CompositeCreateReportSpiCall.nativeReportSpiCall
+f	com/crashlytics/android/core/j	j6	-	auto: 字段(Lcom/crashlytics/android/core/na;)；src: crashlytics-core com/crashlytics/android/core/CompositeCreateReportSpiCall.javaReportSpiCall
+f	com/crashlytics/android/core/ja	DW	-	auto: 字段(Lcom/crashlytics/android/core/Ka;)；src: crashlytics-core com/crashlytics/android/core/CreateReportRequest.report
+f	com/crashlytics/android/core/ja	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CreateReportRequest.apiKey
+f	com/crashlytics/android/core/k	j6	-	auto: 字段(Lcom/crashlytics/android/core/n$b;)；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$1.val$latch
+m	com/crashlytics/android/core/ka	j6	(Lcom/crashlytics/android/core/ja;)Z	auto: 「invoke」；src: crashlytics-core com/crashlytics/android/core/CreateReportSpiCall#invoke
+f	com/crashlytics/android/core/l	j6	-	auto: 字段(Lcom/crashlytics/android/core/n$b;)；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$2.val$latch
+m	com/crashlytics/android/core/la	j6	(Ljava/lang/Object;Ljava/lang/Object;)Z	auto: 相等判定 Impl；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar$1#equalsImpl
+f	com/crashlytics/android/core/la	j6	-	auto: 字段(Lcom/crashlytics/android/core/ma;)；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar$1.this$0
+f	com/crashlytics/android/core/m	DW	-	auto: 字段(Lcom/crashlytics/android/core/n$b;)；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$3.val$latch
+f	com/crashlytics/android/core/m	j6	-	auto: 字段(Lcom/crashlytics/android/core/n$a;)；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$3.val$alwaysSendCallback
+m	com/crashlytics/android/core/n	j6	(FI)I	auto: 「dipsToPixels」；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog#dipsToPixels
+m	com/crashlytics/android/core/n	j6	(Landroid/app/Activity;Ljava/lang/String;)Landroid/widget/ScrollView;	auto: 创建 DialogView；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog#createDialogView
+m	com/crashlytics/android/core/n	DW	()Z	auto: 取 OptIn；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog#getOptIn
+f	com/crashlytics/android/core/n	DW	-	auto: 字段(Landroid/app/AlertDialog$Builder;)；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog.dialog
+f	com/crashlytics/android/core/n	j6	-	auto: 字段(Lcom/crashlytics/android/core/n$b;)；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog.latch
+m	com/crashlytics/android/core/n	j6	()V	auto: 执行 await；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog#await
+m	com/crashlytics/android/core/n	FH	()V	auto: 执行 show；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog#show
+m	com/crashlytics/android/core/n$a	j6	(Z)V	auto: 执行 sendUserReportsWithoutPrompting；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$AlwaysSendCallback#sendUserReportsWithoutPrompting
+m	com/crashlytics/android/core/n$b	j6	()V	auto: 执行 await；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$OptInLatch#await
+m	com/crashlytics/android/core/n$b	DW	()Z	auto: 取 OptIn；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$OptInLatch#getOptIn
+m	com/crashlytics/android/core/n$b	j6	(Z)V	auto: 设 OptIn；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$OptInLatch#setOptIn
+f	com/crashlytics/android/core/n$b	DW	-	auto: 字段(Ljava/util/concurrent/CountDownLatch;)；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$OptInLatch.latch
+f	com/crashlytics/android/core/n$b	j6	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/CrashPromptDialog$OptInLatch.send
+f	com/crashlytics/android/core/oa	j6	-	auto: 字段(Lcom/crashlytics/android/core/DevicePowerStateListener;)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener$1.this$0
+f	com/crashlytics/android/core/p	DW	-	auto: 字段(Lcom/crashlytics/android/core/r;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker$1.this$0
+f	com/crashlytics/android/core/p	j6	-	auto: 字段(Ljava/lang/Runnable;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker$1.val$runnable
+f	com/crashlytics/android/core/pa	j6	-	auto: 字段(Lcom/crashlytics/android/core/DevicePowerStateListener;)；src: crashlytics-core com/crashlytics/android/core/DevicePowerStateListener$2.this$0
+f	com/crashlytics/android/core/q	DW	-	auto: 字段(Lcom/crashlytics/android/core/r;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker$2.this$0
+f	com/crashlytics/android/core/q	j6	-	auto: 字段(Ljava/util/concurrent/Callable;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker$2.val$callable
+m	com/crashlytics/android/core/r	DW	(Ljava/util/concurrent/Callable;)Ljava/lang/Object;	auto: 「submitAndWait」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker#submitAndWait
+m	com/crashlytics/android/core/r	j6	(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;	auto: 「submit」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker#submit
+m	com/crashlytics/android/core/r	j6	(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;	auto: 「submit」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker#submit
+f	com/crashlytics/android/core/r	j6	-	auto: 字段(Ljava/util/concurrent/ExecutorService;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsBackgroundWorker.executorService
+m	com/crashlytics/android/core/ra	DW	()Lcom/crashlytics/android/core/d;	auto: 取 LogAsByteString；src: crashlytics-core com/crashlytics/android/core/FileLogStore#getLogAsByteString
+m	com/crashlytics/android/core/ra	FH	()[B	auto: 取 LogAsBytes；src: crashlytics-core com/crashlytics/android/core/FileLogStore#getLogAsBytes
+m	com/crashlytics/android/core/ra	j6	(JLjava/lang/String;)V	auto: 写出 ToLog；src: crashlytics-core com/crashlytics/android/core/FileLogStore#writeToLog
+m	com/crashlytics/android/core/ra	Hw	()V	auto: 删除 LogFile；src: crashlytics-core com/crashlytics/android/core/FileLogStore#deleteLogFile
+m	com/crashlytics/android/core/ra	j6	()V	auto: 关闭 LogFile；src: crashlytics-core com/crashlytics/android/core/FileLogStore#closeLogFile
+f	com/crashlytics/android/core/s	Hw	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$10.this$0
+f	com/crashlytics/android/core/s	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$10.val$userId
+f	com/crashlytics/android/core/s	FH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$10.val$userEmail
+f	com/crashlytics/android/core/s	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$10.val$userName
+m	com/crashlytics/android/core/sa	FH	()Ljava/io/File;	auto: 取 File；src: crashlytics-core com/crashlytics/android/core/InvalidSessionReport#getFile
+m	com/crashlytics/android/core/sa	Hw	()[Ljava/io/File;	auto: 取 Files；src: crashlytics-core com/crashlytics/android/core/InvalidSessionReport#getFiles
+m	com/crashlytics/android/core/sa	j6	()Ljava/util/Map;	auto: 取 CustomHeaders；src: crashlytics-core com/crashlytics/android/core/InvalidSessionReport#getCustomHeaders
+f	com/crashlytics/android/core/sa	DW	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-core com/crashlytics/android/core/InvalidSessionReport.customHeaders
+f	com/crashlytics/android/core/sa	FH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/InvalidSessionReport.identifier
+f	com/crashlytics/android/core/sa	j6	-	auto: 字段([Ljava/io/File;)；src: crashlytics-core com/crashlytics/android/core/InvalidSessionReport.files
+m	com/crashlytics/android/core/sa	DW	()Ljava/lang/String;	auto: 取 Identifier；src: crashlytics-core com/crashlytics/android/core/InvalidSessionReport#getIdentifier
+f	com/crashlytics/android/core/t	DW	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$11.this$0
+f	com/crashlytics/android/core/t	j6	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$11.val$keyData
+f	com/crashlytics/android/core/u	j6	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$12.this$0
+m	com/crashlytics/android/core/ua	j6	()V	auto: 清空 Log；src: crashlytics-core com/crashlytics/android/core/LogFileManager#clearLog
+m	com/crashlytics/android/core/ua	DW	(Ljava/lang/String;)Ljava/io/File;	auto: 取 WorkingFileForSession；src: crashlytics-core com/crashlytics/android/core/LogFileManager#getWorkingFileForSession
+m	com/crashlytics/android/core/ua	j6	(Ljava/io/File;)Ljava/lang/String;	auto: 取 SessionIdForFile；src: crashlytics-core com/crashlytics/android/core/LogFileManager#getSessionIdForFile
+m	com/crashlytics/android/core/ua	DW	()Lcom/crashlytics/android/core/d;	auto: 取 ByteStringForLog；src: crashlytics-core com/crashlytics/android/core/LogFileManager#getByteStringForLog
+m	com/crashlytics/android/core/ua	FH	()[B	auto: 取 BytesForLog；src: crashlytics-core com/crashlytics/android/core/LogFileManager#getBytesForLog
+m	com/crashlytics/android/core/ua	j6	(JLjava/lang/String;)V	auto: 写出 ToLog；src: crashlytics-core com/crashlytics/android/core/LogFileManager#writeToLog
+m	com/crashlytics/android/core/ua	j6	(Ljava/io/File;I)V	auto: 设 LogFile；src: crashlytics-core com/crashlytics/android/core/LogFileManager#setLogFile
+m	com/crashlytics/android/core/ua	j6	(Ljava/lang/String;)V	auto: 设 CurrentSession；src: crashlytics-core com/crashlytics/android/core/LogFileManager#setCurrentSession
+m	com/crashlytics/android/core/ua	j6	(Ljava/util/Set;)V	auto: 执行 discardOldLogFiles；src: crashlytics-core com/crashlytics/android/core/LogFileManager#discardOldLogFiles
+f	com/crashlytics/android/core/ua	j6	-	auto: 字段(Lcom/crashlytics/android/core/ua$b;)；src: crashlytics-core com/crashlytics/android/core/LogFileManager.NOOP_LOG_STORE
+f	com/crashlytics/android/core/ua	DW	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-core com/crashlytics/android/core/LogFileManager.context
+f	com/crashlytics/android/core/ua	FH	-	auto: 字段(Lcom/crashlytics/android/core/ua$a;)；src: crashlytics-core com/crashlytics/android/core/LogFileManager.directoryProvider
+f	com/crashlytics/android/core/ua	Hw	-	auto: 字段(Lcom/crashlytics/android/core/ra;)；src: crashlytics-core com/crashlytics/android/core/LogFileManager.currentLog
+m	com/crashlytics/android/core/ua$a	j6	()Ljava/io/File;	auto: 取 LogFileDir；src: crashlytics-core com/crashlytics/android/core/LogFileManager$DirectoryProvider#getLogFileDir
+m	com/crashlytics/android/core/ua$b	DW	()Lcom/crashlytics/android/core/d;	auto: 取 LogAsByteString；src: crashlytics-core com/crashlytics/android/core/LogFileManager$NoopLogStore#getLogAsByteString
+m	com/crashlytics/android/core/ua$b	FH	()[B	auto: 取 LogAsBytes；src: crashlytics-core com/crashlytics/android/core/LogFileManager$NoopLogStore#getLogAsBytes
+m	com/crashlytics/android/core/ua$b	j6	(JLjava/lang/String;)V	auto: 写出 ToLog；src: crashlytics-core com/crashlytics/android/core/LogFileManager$NoopLogStore#writeToLog
+m	com/crashlytics/android/core/ua$b	j6	()V	auto: 关闭 LogFile；src: crashlytics-core com/crashlytics/android/core/LogFileManager$NoopLogStore#closeLogFile
+m	com/crashlytics/android/core/ua$b	Hw	()V	auto: 删除 LogFile；src: crashlytics-core com/crashlytics/android/core/LogFileManager$NoopLogStore#deleteLogFile
+m	com/crashlytics/android/core/va	j6	()Ljava/lang/String;	auto: 取 UnityVersion；src: crashlytics-core com/crashlytics/android/core/ManifestUnityVersionProvider#getUnityVersion
+f	com/crashlytics/android/core/va	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/ManifestUnityVersionProvider.packageName
+f	com/crashlytics/android/core/va	j6	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-core com/crashlytics/android/core/ManifestUnityVersionProvider.context
+f	com/crashlytics/android/core/w	j6	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$14.this$0
+f	com/crashlytics/android/core/wa	j6	-	auto: 字段(Lcom/crashlytics/android/core/Ta;)；src: crashlytics-core com/crashlytics/android/core/MetaDataStore$1.val$userData
+f	com/crashlytics/android/core/x	DW	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$15.this$0
+f	com/crashlytics/android/core/x	j6	-	auto: 字段(Ljava/util/Set;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$15.val$invalidSessionIds
+f	com/crashlytics/android/core/y	DW	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$16.this$0
+f	com/crashlytics/android/core/y	j6	-	auto: 字段(Lcom/crashlytics/android/core/fa;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$16.val$ndkData
+m	com/crashlytics/android/core/ya	j6	([Ljava/lang/StackTraceElement;)[Ljava/lang/StackTraceElement;	auto: 取 TrimmedStackTrace；src: crashlytics-core com/crashlytics/android/core/MiddleOutFallbackStrategy#getTrimmedStackTrace
+f	com/crashlytics/android/core/ya	DW	-	auto: 字段([Lcom/crashlytics/android/core/Qa;)；src: crashlytics-core com/crashlytics/android/core/MiddleOutFallbackStrategy.trimmingStrategies
+f	com/crashlytics/android/core/ya	FH	-	auto: 字段(Lcom/crashlytics/android/core/za;)；src: crashlytics-core com/crashlytics/android/core/MiddleOutFallbackStrategy.middleOutStrategy
+f	com/crashlytics/android/core/ya	j6	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/MiddleOutFallbackStrategy.maximumStackSize
+m	com/crashlytics/android/core/z	j6	(Lcom/crashlytics/android/core/h;)V	auto: 写出 To；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$17#writeTo
+f	com/crashlytics/android/core/z	FH	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$17.val$startedAtSeconds
+f	com/crashlytics/android/core/z	Hw	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$17.this$0
+f	com/crashlytics/android/core/z	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$17.val$sessionId
+f	com/crashlytics/android/core/z	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$17.val$generator
+m	com/crashlytics/android/core/za	j6	([Ljava/lang/StackTraceElement;)[Ljava/lang/StackTraceElement;	auto: 取 TrimmedStackTrace；src: crashlytics-core com/crashlytics/android/core/MiddleOutStrategy#getTrimmedStackTrace
+f	com/crashlytics/android/core/za	j6	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/MiddleOutStrategy.trimmedSize
+m	com/crashlytics/android/answers/A	DW	(J)V	auto: 执行 recordRetry；src: crashlytics-answers com/crashlytics/android/answers/RetryManager#recordRetry
+m	com/crashlytics/android/answers/A	j6	()V	auto: 执行 reset；src: crashlytics-answers com/crashlytics/android/answers/RetryManager#reset
+m	com/crashlytics/android/answers/A	j6	(J)Z	auto: 能否 Retry；src: crashlytics-answers com/crashlytics/android/answers/RetryManager#canRetry
+f	com/crashlytics/android/answers/A	j6	-	auto: 字段(J)；src: crashlytics-answers com/crashlytics/android/answers/RetryManager.lastRetry
+m	com/crashlytics/android/answers/D	FH	()Ljava/lang/String;	auto: 「generateUniqueRollOverFileName」；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsFilesManager#generateUniqueRollOverFileName
+m	com/crashlytics/android/answers/D	Zo	()I	auto: 取 MaxByteSizePerFile；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsFilesManager#getMaxByteSizePerFile
+m	com/crashlytics/android/answers/D	v5	()I	auto: 取 MaxFilesToKeep；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsFilesManager#getMaxFilesToKeep
+f	com/crashlytics/android/answers/E	VH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsFilesSender.apiKey
+m	com/crashlytics/android/answers/E	j6	(Ljava/util/List;)Z	auto: 「send」；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsFilesSender#send
+m	com/crashlytics/android/answers/F	Hw	()Z	auto: 是否 FirstLaunch；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager#isFirstLaunch
+m	com/crashlytics/android/answers/F	j6	(J)V	auto: 执行 onInstall；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager#onInstall
+m	com/crashlytics/android/answers/F	j6	(Landroid/app/Activity;Lcom/crashlytics/android/answers/I$b;)V	auto: 执行 onLifecycle；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager#onLifecycle
+m	com/crashlytics/android/answers/F	j6	(Ljava/lang/String;)V	auto: 执行 onError；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager#onError
+m	com/crashlytics/android/answers/F	j6	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 onCrash；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager#onCrash
+f	com/crashlytics/android/answers/F	DW	-	auto: 字段(Lcom/crashlytics/android/answers/j;)；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager.eventsHandler
+f	com/crashlytics/android/answers/F	FH	-	auto: 字段(Lio/fabric/sdk/android/ActivityLifecycleManager;)；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager.lifecycleManager
+f	com/crashlytics/android/answers/F	Hw	-	auto: 字段(Lcom/crashlytics/android/answers/q;)；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager.backgroundManager
+f	com/crashlytics/android/answers/F	j6	-	auto: 字段(J)；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager.installedAt
+f	com/crashlytics/android/answers/F	v5	-	auto: 字段(Lcom/crashlytics/android/answers/m;)；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager.preferenceManager
+m	com/crashlytics/android/answers/F	j6	()V	auto: 执行 onBackground；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager#onBackground
+m	com/crashlytics/android/answers/F	FH	()V	auto: 执行 enable；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager#enable
+m	com/crashlytics/android/answers/F	DW	()V	auto: 执行 disable；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManager#disable
+m	com/crashlytics/android/answers/F	j6	(Lio/fabric/sdk/android/Kit;Landroid/content/Context;Lio/fabric/sdk/android/services/common/v;Ljava/lang/String;Ljava/lang/String;J)Lcom/crashlytics/android/answers/F;	auto: 「build」（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/answers/I	j6	(J)Lcom/crashlytics/android/answers/I$a;	auto: 「installEventBuilder」；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent#installEventBuilder
+m	com/crashlytics/android/answers/I	j6	(Lcom/crashlytics/android/answers/I$b;Landroid/app/Activity;)Lcom/crashlytics/android/answers/I$a;	auto: 「lifecycleEventBuilder」；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent#lifecycleEventBuilder
+m	com/crashlytics/android/answers/I	j6	(Ljava/lang/String;)Lcom/crashlytics/android/answers/I$a;	auto: 「crashEventBuilder」；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent#crashEventBuilder
+m	com/crashlytics/android/answers/I	j6	(Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/answers/I$a;	auto: 「crashEventBuilder」；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent#crashEventBuilder
+f	com/crashlytics/android/answers/I	DW	-	auto: 字段(J)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent.timestamp
+f	com/crashlytics/android/answers/I	FH	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent.type
+f	com/crashlytics/android/answers/I	j6	-	auto: 字段(Lcom/crashlytics/android/answers/J;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent.sessionEventMetadata
+f	com/crashlytics/android/answers/I	gn	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent.predefinedAttributes
+f	com/crashlytics/android/answers/I	Zo	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent.customAttributes
+f	com/crashlytics/android/answers/I	Hw	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent.details
+f	com/crashlytics/android/answers/I	VH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent.predefinedType
+f	com/crashlytics/android/answers/I	v5	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent.customType
+f	com/crashlytics/android/answers/I	u7	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent.stringRepresentation
+m	com/crashlytics/android/answers/K	DW	(Lcom/crashlytics/android/answers/I;)[B	auto: 转换为 Bytes；src: crashlytics-answers com/crashlytics/android/answers/SessionEventTransform#toBytes
+m	com/crashlytics/android/answers/K	j6	(Lcom/crashlytics/android/answers/I;)Lorg/json/JSONObject;	auto: 构建 JsonForEvent；src: crashlytics-answers com/crashlytics/android/answers/SessionEventTransform#buildJsonForEvent
+f	com/crashlytics/android/answers/b	DW	-	auto: 字段(Lcom/crashlytics/android/answers/F;)；src: crashlytics-answers com/crashlytics/android/answers/Answers.analyticsManager
+f	com/crashlytics/android/answers/b	j6	-	auto: 字段(Z)；src: crashlytics-answers com/crashlytics/android/answers/Answers.firebaseEnabled
+m	com/crashlytics/android/answers/b	Zo	()Ljava/lang/String;	auto: 取 OverridenSpiEndpoint；src: crashlytics-answers com/crashlytics/android/answers/Answers#getOverridenSpiEndpoint
+m	com/crashlytics/android/answers/b	j6	(Lio/fabric/sdk/android/services/common/j$a;)V	auto: 执行 onException（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/answers/b	j6	(Lio/fabric/sdk/android/services/common/j$b;)V	auto: 执行 onException（上游无同签名对应，按作用取名）
+f	com/crashlytics/android/answers/d	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$1.val$protocolAndHostOverride
+f	com/crashlytics/android/answers/d	FH	-	auto: 字段(Lcom/crashlytics/android/answers/j;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersEventsHandler$1.this$0
+m	com/crashlytics/android/answers/k	j6	()Lcom/crashlytics/android/answers/D;	auto: 取 AnalyticsFilesManager；src: crashlytics-answers com/crashlytics/android/answers/AnswersFilesManagerProvider#getAnalyticsFilesManager
+f	com/crashlytics/android/answers/k	j6	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersFilesManagerProvider.context
+m	com/crashlytics/android/answers/m	j6	(Landroid/content/Context;)Lcom/crashlytics/android/answers/m;	auto: 「build」；src: crashlytics-answers com/crashlytics/android/answers/AnswersPreferenceManager#build
+m	com/crashlytics/android/answers/m	DW	()V	auto: 设 AnalyticsLaunched；src: crashlytics-answers com/crashlytics/android/answers/AnswersPreferenceManager#setAnalyticsLaunched
+m	com/crashlytics/android/answers/m	j6	()Z	auto: 是否有 AnalyticsLaunched；src: crashlytics-answers com/crashlytics/android/answers/AnswersPreferenceManager#hasAnalyticsLaunched
+m	com/crashlytics/android/answers/o	DW	(Landroid/content/Context;)Ljava/lang/Class;	auto: 取 Class；src: crashlytics-answers com/crashlytics/android/answers/AppMeasurementEventLogger#getClass
+m	com/crashlytics/android/answers/o	DW	(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/reflect/Method;	auto: 取 LogEventMethod；src: crashlytics-answers com/crashlytics/android/answers/AppMeasurementEventLogger#getLogEventMethod
+m	com/crashlytics/android/answers/o	j6	(Landroid/content/Context;)Lcom/crashlytics/android/answers/u;	auto: 取 EventLogger；src: crashlytics-answers com/crashlytics/android/answers/AppMeasurementEventLogger#getEventLogger
+m	com/crashlytics/android/answers/o	j6	(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;	auto: 取 Instance；src: crashlytics-answers com/crashlytics/android/answers/AppMeasurementEventLogger#getInstance
+m	com/crashlytics/android/answers/o	j6	(Ljava/lang/String;Landroid/os/Bundle;)V	auto: 执行 logEvent；src: crashlytics-answers com/crashlytics/android/answers/AppMeasurementEventLogger#logEvent
+m	com/crashlytics/android/answers/o	j6	(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V	auto: 执行 logEvent；src: crashlytics-answers com/crashlytics/android/answers/AppMeasurementEventLogger#logEvent
+f	com/crashlytics/android/answers/o	DW	-	auto: 字段(Ljava/lang/Object;)；src: crashlytics-answers com/crashlytics/android/answers/AppMeasurementEventLogger.logEventInstance
+f	com/crashlytics/android/answers/o	j6	-	auto: 字段(Ljava/lang/reflect/Method;)；src: crashlytics-answers com/crashlytics/android/answers/AppMeasurementEventLogger.logEventMethod
+f	com/crashlytics/android/answers/p	j6	-	auto: 字段(Lcom/crashlytics/android/answers/q;)；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager$1.this$0
+m	com/crashlytics/android/answers/s	j6	(JJ)V	auto: 执行 scheduleTimeBasedFileRollOver；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy#scheduleTimeBasedFileRollOver
+m	com/crashlytics/android/answers/s	j6	(Lcom/crashlytics/android/answers/I$a;)V	auto: 执行 processEvent；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy#processEvent
+f	com/crashlytics/android/answers/s	EQ	-	auto: 字段(Lcom/crashlytics/android/answers/t;)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.eventFilter
+f	com/crashlytics/android/answers/s	FH	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.context
+f	com/crashlytics/android/answers/s	Hw	-	auto: 字段(Lcom/crashlytics/android/answers/D;)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.filesManager
+f	com/crashlytics/android/answers/s	J8	-	auto: 字段(I)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.rolloverIntervalSeconds
+f	com/crashlytics/android/answers/s	VH	-	auto: 字段(Lcom/crashlytics/android/answers/J;)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.metadata
+f	com/crashlytics/android/answers/s	Zo	-	auto: 字段(Ljava/util/concurrent/atomic/AtomicReference;)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.rolloverFutureRef
+f	com/crashlytics/android/answers/s	gn	-	auto: 字段(Lcom/crashlytics/android/answers/FirebaseAnalyticsApiAdapter;)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.firebaseAnalyticsApiAdapter
+f	com/crashlytics/android/answers/s	j6	-	auto: 字段(Lio/fabric/sdk/android/Kit;)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.kit
+f	com/crashlytics/android/answers/s	v5	-	auto: 字段(Ljava/util/concurrent/ScheduledExecutorService;)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.executorService
+f	com/crashlytics/android/answers/s	we	-	auto: 字段(Z)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.customEventsEnabled
+f	com/crashlytics/android/answers/s	Ws	-	auto: 字段(Z)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.forwardToFirebaseAnalyticsEnabled
+f	com/crashlytics/android/answers/s	QX	-	auto: 字段(Z)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.includePurchaseEventsInForwardedEvents
+f	com/crashlytics/android/answers/s	J0	-	auto: 字段(Z)；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy.predefinedEventsEnabled
+m	com/crashlytics/android/answers/s	j6	()Z	auto: 「rollFileOver」；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy#rollFileOver
+m	com/crashlytics/android/answers/s	v5	()V	auto: 执行 scheduleTimeBasedRollOverIfNeeded；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy#scheduleTimeBasedRollOverIfNeeded
+m	com/crashlytics/android/answers/s	DW	()V	auto: 执行 cancelTimeBasedFileRollOver；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy#cancelTimeBasedFileRollOver
+m	com/crashlytics/android/answers/s	FH	()V	auto: 执行 sendEvents；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy#sendEvents
+m	com/crashlytics/android/answers/s	Hw	()V	auto: 删除 AllEvents；src: crashlytics-answers com/crashlytics/android/answers/EnabledSessionAnalyticsManagerStrategy#deleteAllEvents
+f	com/crashlytics/android/answers/s	tp	-	auto: 字段(Lio/fabric/sdk/android/services/common/f;)（上游无同类型对应，按作用取名）
+f	com/crashlytics/android/answers/s	DW	-	auto: 字段(Labcd/Jz;)（上游无同类型对应，按作用取名）
+f	com/crashlytics/android/answers/s	u7	-	auto: 字段(Labcd/yz;)（上游无同类型对应，按作用取名）
+m	com/crashlytics/android/answers/t	j6	(Lcom/crashlytics/android/answers/I;)Z	auto: 「skipEvent」；src: crashlytics-answers com/crashlytics/android/answers/EventFilter#skipEvent
+m	com/crashlytics/android/answers/z	j6	()D	auto: 「randomJitter」；src: crashlytics-answers com/crashlytics/android/answers/RandomBackoff#randomJitter
+f	com/crashlytics/android/answers/z	DW	-	auto: 字段(Ljava/util/Random;)；src: crashlytics-answers com/crashlytics/android/answers/RandomBackoff.random
+f	com/crashlytics/android/answers/z	FH	-	auto: 字段(D)；src: crashlytics-answers com/crashlytics/android/answers/RandomBackoff.jitterPercent
+m	com/crashlytics/android/answers/z	j6	(I)J	auto: 取 DelayMillis；src: crashlytics-answers com/crashlytics/android/answers/RandomBackoff#getDelayMillis
+f	com/crashlytics/android/answers/z	j6	-	auto: 字段(Labcd/nz;)（上游无同类型对应，按作用取名）
+m	com/crashlytics/android/core/Aa	j6	(Lcom/crashlytics/android/core/ja;)Z	auto: 「invoke」；src: crashlytics-core com/crashlytics/android/core/NativeCreateReportSpiCall#invoke
+m	com/crashlytics/android/core/Aa	j6	(Labcd/Hz;Lcom/crashlytics/android/core/Ka;)Labcd/Hz;	auto: 应用 MultipartDataTo（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/core/Aa	j6	(Labcd/Hz;Ljava/lang/String;)Labcd/Hz;	auto: 应用 HeadersTo（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/core/Ea	j6	(Z)V	auto: 设 ShouldAlwaysSendReports；src: crashlytics-core com/crashlytics/android/core/PreferenceManager#setShouldAlwaysSendReports
+m	com/crashlytics/android/core/Ea	j6	()Z	auto: 是否应 AlwaysSendReports；src: crashlytics-core com/crashlytics/android/core/PreferenceManager#shouldAlwaysSendReports
+f	com/crashlytics/android/core/Ea	DW	-	auto: 字段(Lcom/crashlytics/android/core/ca;)；src: crashlytics-core com/crashlytics/android/core/PreferenceManager.kit
+m	com/crashlytics/android/core/Ga	j6	(Ljava/lang/String;)Lcom/crashlytics/android/core/Fa;	auto: 「parse」；src: crashlytics-core com/crashlytics/android/core/ProcMapEntryParser#parse
+f	com/crashlytics/android/core/Ga	j6	-	auto: 字段(Ljava/util/regex/Pattern;)；src: crashlytics-core com/crashlytics/android/core/ProcMapEntryParser.MAP_REGEX
+m	com/crashlytics/android/core/W	DW	(Ljava/lang/String;)Lcom/crashlytics/android/core/Ta;	auto: 取 UserMetaData；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getUserMetaData
+m	com/crashlytics/android/core/W	DW	(Ljava/lang/String;Ljava/lang/String;)[B	auto: 读取 File；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#readFile
+m	com/crashlytics/android/core/W	DW	(Ljava/io/File;)[Ljava/io/File;	auto: 「listFiles」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#listFiles
+m	com/crashlytics/android/core/W	DW	([Ljava/io/File;)[Ljava/io/File;	auto: 「ensureFileArrayNotNull」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#ensureFileArrayNotNull
+m	com/crashlytics/android/core/W	FH	(Ljava/io/File;)V	auto: 执行 recursiveDelete；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#recursiveDelete
+m	com/crashlytics/android/core/W	FH	(Ljava/lang/String;)[Ljava/io/File;	auto: 「listSessionPartFilesFor」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#listSessionPartFilesFor
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/String;Ljava/lang/String;)Lcom/crashlytics/android/core/ka;	auto: 取 CreateReportSpiCall；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getCreateReportSpiCall
+m	com/crashlytics/android/core/W	j6	(Ljava/io/File;)Ljava/lang/String;	auto: 取 SessionIdFromSessionFile；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getSessionIdFromSessionFile
+m	com/crashlytics/android/core/W	j6	(J)V	auto: 执行 recordFatalFirebaseEvent；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#recordFatalFirebaseEvent
+m	com/crashlytics/android/core/W	j6	(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)V	auto: 执行 finalizeMostRecentNativeCrash；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#finalizeMostRecentNativeCrash
+m	com/crashlytics/android/core/W	j6	(Lcom/crashlytics/android/core/g;)V	auto: 关闭 WithoutRenamingOrLog；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#closeWithoutRenamingOrLog
+m	com/crashlytics/android/core/W	j6	(Lcom/crashlytics/android/core/h;Ljava/io/File;)V	auto: 写出 ToCosFromFile；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeToCosFromFile
+m	com/crashlytics/android/core/W	j6	(Lcom/crashlytics/android/core/h;Ljava/lang/String;)V	auto: 写出 InitialPartsTo；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeInitialPartsTo
+m	com/crashlytics/android/core/W	j6	(Lcom/crashlytics/android/core/h;Ljava/util/Date;Ljava/lang/Thread;Ljava/lang/Throwable;Ljava/lang/String;Z)V	auto: 写出 SessionEvent；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeSessionEvent
+m	com/crashlytics/android/core/W	j6	(Lcom/crashlytics/android/core/h;[Ljava/io/File;Ljava/lang/String;)V	auto: 写出 NonFatalEventsTo；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeNonFatalEventsTo
+m	com/crashlytics/android/core/W	j6	(Ljava/io/File;Ljava/lang/String;I)V	auto: 写出 SessionPartsToSessionFile；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeSessionPartsToSessionFile
+m	com/crashlytics/android/core/W	j6	(Ljava/io/File;Ljava/lang/String;[Ljava/io/File;Ljava/io/File;)V	auto: 执行 synthesizeSessionFile；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#synthesizeSessionFile
+m	com/crashlytics/android/core/W	j6	(Ljava/io/InputStream;Lcom/crashlytics/android/core/h;I)V	auto: 复制 ToCodedOutputStream；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#copyToCodedOutputStream
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/String;I)V	auto: 执行 trimSessionEventFiles；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#trimSessionEventFiles
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/String;Ljava/lang/String;Lcom/crashlytics/android/core/W$b;)V	auto: 写出 SessionPartFile；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeSessionPartFile
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/String;Ljava/lang/String;Lcom/crashlytics/android/core/W$e;)V	auto: 写出 File；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeFile
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/String;Ljava/util/Date;)V	auto: 写出 BeginSession；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeBeginSession
+m	com/crashlytics/android/core/W	j6	(Ljava/util/Set;)V	auto: 执行 recursiveDelete；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#recursiveDelete
+m	com/crashlytics/android/core/W	j6	([Ljava/io/File;II)V	auto: 关闭 OpenSessions；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#closeOpenSessions
+m	com/crashlytics/android/core/W	j6	([Ljava/io/File;Ljava/util/Set;)V	auto: 执行 retainSessions；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#retainSessions
+m	com/crashlytics/android/core/W	j6	(Ljava/io/File;Ljava/io/FilenameFilter;)[Ljava/io/File;	auto: 「listFilesMatching」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#listFilesMatching
+m	com/crashlytics/android/core/W	j6	(Ljava/io/FileFilter;)[Ljava/io/File;	auto: 「listFilesMatching」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#listFilesMatching
+m	com/crashlytics/android/core/W	j6	(Ljava/io/FilenameFilter;)[Ljava/io/File;	auto: 「listFilesMatching」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#listFilesMatching
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/String;[Ljava/io/File;I)[Ljava/io/File;	auto: 取 TrimmedNonFatalFiles；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getTrimmedNonFatalFiles
+m	com/crashlytics/android/core/W	j6	(JLjava/lang/String;)V	auto: 写出 ToLog；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeToLog
+m	com/crashlytics/android/core/W	j6	(Lcom/crashlytics/android/core/ia$b;Ljava/lang/Thread;Ljava/lang/Throwable;Z)V	auto: 处理 UncaughtException；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#handleUncaughtException
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 cacheUserData；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#cacheUserData
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/Thread$UncaughtExceptionHandler;Z)V	auto: 执行 enableExceptionHandling；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#enableExceptionHandling
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/Thread;Ljava/lang/Throwable;)V	auto: 写出 NonFatalException；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeNonFatalException
+m	com/crashlytics/android/core/W	j6	(Ljava/util/Map;)V	auto: 执行 cacheKeyData；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#cacheKeyData
+m	com/crashlytics/android/core/W	j6	([Ljava/io/File;)V	auto: 执行 doCleanInvalidTempFiles；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#doCleanInvalidTempFiles
+m	com/crashlytics/android/core/W	j6	(Lcom/crashlytics/android/core/fa;)Z	auto: 「finalizeNativeReport」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#finalizeNativeReport
+f	com/crashlytics/android/core/W	FH	-	auto: 字段(Ljava/io/FileFilter;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.SESSION_DIRECTORY_FILTER
+f	com/crashlytics/android/core/W	VH	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.SEND_AT_CRASHTIME_HEADER
+f	com/crashlytics/android/core/W	Zo	-	auto: 字段(Ljava/util/regex/Pattern;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.SESSION_FILE_PATTERN
+f	com/crashlytics/android/core/W	gn	-	auto: 字段([Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.INITIAL_SESSION_PART_TAGS
+f	com/crashlytics/android/core/W	EQ	-	auto: 字段(Lcom/crashlytics/android/core/r;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.backgroundWorker
+f	com/crashlytics/android/core/W	J8	-	auto: 字段(Lcom/crashlytics/android/core/Ea;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.preferenceManager
+f	com/crashlytics/android/core/W	Mr	-	auto: 字段(Lcom/crashlytics/android/core/La$b;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.handlingExceptionCheck
+f	com/crashlytics/android/core/W	QX	-	auto: 字段(Lcom/crashlytics/android/core/a;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.appData
+f	com/crashlytics/android/core/W	U2	-	auto: 字段(Lcom/crashlytics/android/core/DevicePowerStateListener;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.devicePowerStateListener
+f	com/crashlytics/android/core/W	XL	-	auto: 字段(Lcom/crashlytics/android/core/W$g;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.logFileDirectoryProvider
+f	com/crashlytics/android/core/W	a8	-	auto: 字段(Lcom/crashlytics/android/core/Qa;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.stackTraceTrimmingStrategy
+f	com/crashlytics/android/core/W	aM	-	auto: 字段(Lcom/crashlytics/android/core/ua;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.logFileManager
+f	com/crashlytics/android/core/W	er	-	auto: 字段(Lcom/crashlytics/android/answers/u;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.firebaseAnalyticsLogger
+f	com/crashlytics/android/core/W	j3	-	auto: 字段(Lcom/crashlytics/android/core/La$c;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.reportFilesProvider
+f	com/crashlytics/android/core/W	lg	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.unityVersion
+f	com/crashlytics/android/core/W	tp	-	auto: 字段(Lcom/crashlytics/android/core/ca;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.crashlyticsCore
+f	com/crashlytics/android/core/W	u7	-	auto: 字段(Ljava/util/concurrent/atomic/AtomicInteger;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.eventCounter
+f	com/crashlytics/android/core/W	yS	-	auto: 字段(Lcom/crashlytics/android/core/ia;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.crashHandler
+m	com/crashlytics/android/core/W	aM	()V	auto: 执行 trimInvalidSessionFiles；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#trimInvalidSessionFiles
+m	com/crashlytics/android/core/W	EQ	()V	auto: 打开 Session；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#openSession
+m	com/crashlytics/android/core/W	we	()V	auto: 注册 DevicePowerStateListener；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#registerDevicePowerStateListener
+m	com/crashlytics/android/core/W	J0	()V	auto: 执行 doOpenSession；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#doOpenSession
+m	com/crashlytics/android/core/W	DW	()V	auto: 执行 cleanInvalidTempFiles；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#cleanInvalidTempFiles
+m	com/crashlytics/android/core/W	DW	(I)V	auto: 执行 trimOpenSessions；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#trimOpenSessions
+m	com/crashlytics/android/core/W	j6	(I)V	auto: 执行 trimSessionFiles；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#trimSessionFiles
+m	com/crashlytics/android/core/W	j6	(Ljava/util/Date;Ljava/lang/Thread;Ljava/lang/Throwable;)V	auto: 执行 doWriteNonFatal；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#doWriteNonFatal
+m	com/crashlytics/android/core/W	DW	(Ljava/util/Date;Ljava/lang/Thread;Ljava/lang/Throwable;)V	auto: 写出 Fatal；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeFatal
+m	com/crashlytics/android/core/W	DW	([BLjava/io/File;)V	auto: 执行 gzipIfNotEmpty；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#gzipIfNotEmpty
+m	com/crashlytics/android/core/W	j6	([BLjava/io/File;)V	auto: 执行 gzip；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#gzip
+m	com/crashlytics/android/core/W	FH	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 recordFatalExceptionAnswersEvent；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#recordFatalExceptionAnswersEvent
+m	com/crashlytics/android/core/W	j6	(Ljava/lang/String;)V	auto: 删除 SessionPartFilesFor；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#deleteSessionPartFilesFor
+m	com/crashlytics/android/core/W	VH	(Ljava/lang/String;)V	auto: 写出 SessionUser；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeSessionUser
+m	com/crashlytics/android/core/W	v5	(Ljava/lang/String;)V	auto: 写出 SessionDevice；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeSessionDevice
+m	com/crashlytics/android/core/W	VH	()Z	auto: 是否 HandlingException；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#isHandlingException
+m	com/crashlytics/android/core/W	J8	()Z	auto: 「firebaseCrashExists」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#firebaseCrashExists
+m	com/crashlytics/android/core/W	QX	()Ljava/lang/String;	auto: 取 CurrentSessionId；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getCurrentSessionId
+m	com/crashlytics/android/core/W	u7	()[Ljava/io/File;	auto: 「listNativeSessionFileDirectories」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#listNativeSessionFileDirectories
+m	com/crashlytics/android/core/W	tp	()[Ljava/io/File;	auto: 「listSessionBeginFiles」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#listSessionBeginFiles
+m	com/crashlytics/android/core/W	gn	()[Ljava/io/File;	auto: 「listCompleteSessionFiles」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#listCompleteSessionFiles
+m	com/crashlytics/android/core/W	XL	()[Ljava/io/File;	auto: 「listSortedSessionBeginFiles」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#listSortedSessionBeginFiles
+m	com/crashlytics/android/core/W	v5	()Ljava/io/File;	auto: 取 InvalidFilesDir；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getInvalidFilesDir
+m	com/crashlytics/android/core/W	Zo	()Ljava/io/File;	auto: 取 NonFatalSessionFilesDir；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getNonFatalSessionFilesDir
+m	com/crashlytics/android/core/W	FH	()Ljava/io/File;	auto: 取 FatalSessionFilesDir；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getFatalSessionFilesDir
+m	com/crashlytics/android/core/W	Hw	()Ljava/io/File;	auto: 取 FilesDir；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getFilesDir
+m	com/crashlytics/android/core/W	Hw	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 recordLoggedExceptionAnswersEvent；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#recordLoggedExceptionAnswersEvent
+m	com/crashlytics/android/core/W	Zo	(Ljava/lang/String;)V	auto: 写出 SessionOS；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeSessionOS
+m	com/crashlytics/android/core/W	Hw	(Ljava/lang/String;)V	auto: 写出 SessionApp；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#writeSessionApp
+m	com/crashlytics/android/core/W	Ws	()Ljava/lang/String;	auto: 取 PreviousSessionId；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController#getPreviousSessionId
+f	com/crashlytics/android/core/W	j6	-	auto: 字段(Ljava/io/FilenameFilter;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.SESSION_BEGIN_FILE_FILTER
+f	com/crashlytics/android/core/W	DW	-	auto: 字段(Ljava/io/FilenameFilter;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.SESSION_FILE_FILTER
+f	com/crashlytics/android/core/W	v5	-	auto: 字段(Ljava/util/Comparator;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.SMALLEST_FILE_NAME_FIRST
+f	com/crashlytics/android/core/W	Hw	-	auto: 字段(Ljava/util/Comparator;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.LARGEST_FILE_NAME_FIRST
+f	com/crashlytics/android/core/W	J0	-	auto: 字段(Lio/fabric/sdk/android/services/common/v;)（上游无同类型对应，按作用取名）
+f	com/crashlytics/android/core/W	rN	-	auto: 字段(Lcom/crashlytics/android/core/b;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController.appMeasurementEventListenerRegistrar
+f	com/crashlytics/android/core/W	we	-	auto: 字段(Labcd/Jz;)（上游无同类型对应，按作用取名）
+m	com/crashlytics/android/core/W	DW	(Labcd/hA;)Z	auto: 「finalizeNativeReport」（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/core/W$g	j6	()Ljava/io/File;	auto: 取 LogFileDir；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$LogFileDirectoryProvider#getLogFileDir
+f	com/crashlytics/android/core/W$h	DW	-	auto: 字段(Lcom/crashlytics/android/core/Ea;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck.preferenceManager
+f	com/crashlytics/android/core/W$h	j6	-	auto: 字段(Lio/fabric/sdk/android/Kit;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck.kit
+m	com/crashlytics/android/core/W$h	j6	()Z	auto: 能否 SendReports；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$PrivacyDialogCheck#canSendReports
+m	com/crashlytics/android/core/ca	DW	(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;	auto: 格式化 LogMessage；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#formatLogMessage
+m	com/crashlytics/android/core/ca	DW	(Ljava/lang/String;)Ljava/lang/String;	auto: 「sanitizeAttribute」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#sanitizeAttribute
+m	com/crashlytics/android/core/ca	j6	(Ljava/lang/String;)Z	auto: 「ensureFabricWithCalled」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#ensureFabricWithCalled
+m	com/crashlytics/android/core/ca	j6	(Ljava/lang/String;Z)Z	auto: 是否 BuildIdValid；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#isBuildIdValid
+m	com/crashlytics/android/core/ca	J8	()Lcom/crashlytics/android/core/fa;	auto: 取 NativeCrashData；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#getNativeCrashData
+m	com/crashlytics/android/core/ca	j6	(Landroid/content/Context;)Z	auto: 「onPreExecute」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#onPreExecute
+m	com/crashlytics/android/core/ca	we	()Ljava/util/Map;	auto: 取 Attributes；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#getAttributes
+f	com/crashlytics/android/core/ca	DW	-	auto: 字段(Ljava/util/concurrent/ConcurrentHashMap;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.attributes
+f	com/crashlytics/android/core/ca	EQ	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.disabled
+f	com/crashlytics/android/core/ca	J8	-	auto: 字段(Lcom/crashlytics/android/core/r;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.backgroundWorker
+f	com/crashlytics/android/core/ca	Ws	-	auto: 字段(Lcom/crashlytics/android/core/ga;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.crashlyticsNdkDataProvider
+f	com/crashlytics/android/core/ca	Zo	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.controller
+f	com/crashlytics/android/core/ca	j6	-	auto: 字段(J)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.startTime
+f	com/crashlytics/android/core/ca	tp	-	auto: 字段(F)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.delay
+f	com/crashlytics/android/core/ca	we	-	auto: 字段(Lcom/crashlytics/android/core/Da;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.pinningInfo
+m	com/crashlytics/android/core/ca	j6	(ILjava/lang/String;Ljava/lang/String;)V	auto: 执行 doLog；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#doLog
+m	com/crashlytics/android/core/ca	j6	(Ljava/net/URL;)Z	auto: 「internalVerifyPinning」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#internalVerifyPinning
+f	com/crashlytics/android/core/ca	Hw	-	auto: 字段(Lcom/crashlytics/android/core/da;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.crashMarker
+f	com/crashlytics/android/core/ca	FH	-	auto: 字段(Lcom/crashlytics/android/core/da;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.initializationMarker
+f	com/crashlytics/android/core/ca	u7	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.userName
+f	com/crashlytics/android/core/ca	gn	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.userEmail
+f	com/crashlytics/android/core/ca	VH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore.userId
+m	com/crashlytics/android/core/ca	a8	()V	auto: 检查 ForPreviousCrash；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#checkForPreviousCrash
+m	com/crashlytics/android/core/ca	Zo	()V	auto: 创建 CrashMarker；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#createCrashMarker
+m	com/crashlytics/android/core/ca	lg	()V	auto: 执行 finishInitSynchronously；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#finishInitSynchronously
+m	com/crashlytics/android/core/ca	U2	()V	auto: 执行 markInitializationStarted；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#markInitializationStarted
+m	com/crashlytics/android/core/ca	Mr	()V	auto: 执行 markInitializationComplete；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#markInitializationComplete
+m	com/crashlytics/android/core/ca	VH	()Z	auto: 「didPreviousInitializationFail」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#didPreviousInitializationFail
+m	com/crashlytics/android/core/ca	j3	()Ljava/lang/String;	auto: 取 UserName；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#getUserName
+m	com/crashlytics/android/core/ca	aM	()Ljava/lang/String;	auto: 取 UserIdentifier；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#getUserIdentifier
+m	com/crashlytics/android/core/ca	Ws	()Ljava/lang/String;	auto: 取 UserEmail；src: crashlytics-core com/crashlytics/android/core/CrashlyticsCore#getUserEmail
+m	com/crashlytics/android/core/ca	setListener	(Lcom/crashlytics/android/core/ea;)V	auto: 设 Listener（上游无同签名对应，按作用取名）
+f	com/crashlytics/android/core/ca	J0	-	auto: 字段(Labcd/Jz;)（上游无同类型对应，按作用取名）
+f	com/crashlytics/android/core/ca	v5	-	auto: 字段(Lcom/crashlytics/android/core/ea;)（上游无同类型对应，按作用取名）
+m	com/crashlytics/android/core/d	j6	(Ljava/lang/String;)Lcom/crashlytics/android/core/d;	auto: 复制 FromUtf8；src: crashlytics-core com/crashlytics/android/core/ByteString#copyFromUtf8
+m	com/crashlytics/android/core/d	j6	([BII)Lcom/crashlytics/android/core/d;	auto: 复制 From；src: crashlytics-core com/crashlytics/android/core/ByteString#copyFrom
+m	com/crashlytics/android/core/d	j6	()Ljava/io/InputStream;	auto: 「newInput」；src: crashlytics-core com/crashlytics/android/core/ByteString#newInput
+m	com/crashlytics/android/core/d	j6	([BIII)V	auto: 复制 To；src: crashlytics-core com/crashlytics/android/core/ByteString#copyTo
+f	com/crashlytics/android/core/d	j6	-	auto: 字段(Lcom/crashlytics/android/core/d;)；src: crashlytics-core com/crashlytics/android/core/ByteString.EMPTY
+f	com/crashlytics/android/core/d	DW	-	auto: 字段([B)；src: crashlytics-core com/crashlytics/android/core/ByteString.bytes
+f	com/crashlytics/android/core/d	FH	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/ByteString.hash
+m	com/crashlytics/android/core/d	DW	()I	auto: 「size」；src: crashlytics-core com/crashlytics/android/core/ByteString#size
+m	com/crashlytics/android/core/da	Hw	()Ljava/io/File;	auto: 取 MarkerFile；src: crashlytics-core com/crashlytics/android/core/CrashlyticsFileMarker#getMarkerFile
+f	com/crashlytics/android/core/da	j6	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsFileMarker.markerName
+m	com/crashlytics/android/core/da	FH	()Z	auto: 「remove」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsFileMarker#remove
+m	com/crashlytics/android/core/da	DW	()Z	auto: 是否 Present；src: crashlytics-core com/crashlytics/android/core/CrashlyticsFileMarker#isPresent
+m	com/crashlytics/android/core/da	j6	()Z	auto: 「create」；src: crashlytics-core com/crashlytics/android/core/CrashlyticsFileMarker#create
+f	com/crashlytics/android/core/g	j6	-	auto: 字段(Ljava/io/FilenameFilter;)；src: crashlytics-core com/crashlytics/android/core/ClsFileOutputStream.TEMP_FILENAME_FILTER
+f	com/crashlytics/android/core/g	DW	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-core com/crashlytics/android/core/ClsFileOutputStream.root
+f	com/crashlytics/android/core/g	v5	-	auto: 字段(Z)；src: crashlytics-core com/crashlytics/android/core/ClsFileOutputStream.closed
+m	com/crashlytics/android/core/g	j6	()V	auto: 关闭 InProgressStream；src: crashlytics-core com/crashlytics/android/core/ClsFileOutputStream#closeInProgressStream
+f	com/crashlytics/android/core/g	FH	-	auto: 字段(Ljava/io/File;)；src: crashlytics-core com/crashlytics/android/core/ClsFileOutputStream.inProgress
+f	com/crashlytics/android/core/g	Hw	-	auto: 字段(Ljava/io/File;)；src: crashlytics-core com/crashlytics/android/core/ClsFileOutputStream.complete
+m	com/crashlytics/android/core/h	j6	(F)I	auto: 计算 FloatSizeNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeFloatSizeNoTag
+m	com/crashlytics/android/core/h	j6	(IF)I	auto: 计算 FloatSize；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeFloatSize
+m	com/crashlytics/android/core/h	j6	(IZ)I	auto: 计算 BoolSize；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeBoolSize
+m	com/crashlytics/android/core/h	j6	(Lcom/crashlytics/android/core/d;)I	auto: 计算 BytesSizeNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeBytesSizeNoTag
+m	com/crashlytics/android/core/h	j6	(Z)I	auto: 计算 BoolSizeNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeBoolSizeNoTag
+m	com/crashlytics/android/core/h	j6	(Ljava/io/OutputStream;)Lcom/crashlytics/android/core/h;	auto: 「newInstance」；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#newInstance
+m	com/crashlytics/android/core/h	j6	(Ljava/io/OutputStream;I)Lcom/crashlytics/android/core/h;	auto: 「newInstance」；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#newInstance
+m	com/crashlytics/android/core/h	DW	(F)V	auto: 写出 FloatNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeFloatNoTag
+m	com/crashlytics/android/core/h	DW	(IF)V	auto: 写出 Float；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeFloat
+m	com/crashlytics/android/core/h	DW	(IZ)V	auto: 写出 Bool；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeBool
+m	com/crashlytics/android/core/h	DW	(Z)V	auto: 写出 BoolNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeBoolNoTag
+m	com/crashlytics/android/core/h	j6	(B)V	auto: 写出 RawByte；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeRawByte
+m	com/crashlytics/android/core/h	j6	(Lcom/crashlytics/android/core/d;II)V	auto: 写出 RawBytes；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeRawBytes
+m	com/crashlytics/android/core/h	j6	([B)V	auto: 写出 RawBytes；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeRawBytes
+f	com/crashlytics/android/core/h	Hw	-	auto: 字段(Ljava/io/OutputStream;)；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream.output
+f	com/crashlytics/android/core/h	j6	-	auto: 字段([B)；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream.buffer
+m	com/crashlytics/android/core/h	FH	(I)I	auto: 计算 RawVarint32Size；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeRawVarint32Size
+m	com/crashlytics/android/core/h	Zo	(I)I	auto: 计算 UInt32SizeNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeUInt32SizeNoTag
+m	com/crashlytics/android/core/h	Hw	(I)I	auto: 计算 SInt32SizeNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeSInt32SizeNoTag
+m	com/crashlytics/android/core/h	DW	(I)I	auto: 计算 Int32SizeNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeInt32SizeNoTag
+m	com/crashlytics/android/core/h	v5	(I)I	auto: 计算 TagSize；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeTagSize
+m	com/crashlytics/android/core/h	FH	(II)I	auto: 计算 UInt32Size；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeUInt32Size
+m	com/crashlytics/android/core/h	j6	(II)I	auto: 计算 EnumSize；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeEnumSize
+m	com/crashlytics/android/core/h	j6	(J)I	auto: 计算 RawVarint64Size；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeRawVarint64Size
+m	com/crashlytics/android/core/h	j6	(IJ)I	auto: 计算 UInt64Size；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeUInt64Size
+m	com/crashlytics/android/core/h	j6	(ILcom/crashlytics/android/core/d;)I	auto: 计算 BytesSize；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeBytesSize
+m	com/crashlytics/android/core/h	j6	()V	auto: 执行 refreshBuffer；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#refreshBuffer
+m	com/crashlytics/android/core/h	DW	(IJ)V	auto: 写出 UInt64；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeUInt64
+m	com/crashlytics/android/core/h	DW	(ILcom/crashlytics/android/core/d;)V	auto: 写出 Bytes；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeBytes
+m	com/crashlytics/android/core/h	DW	(Lcom/crashlytics/android/core/d;)V	auto: 写出 BytesNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeBytesNoTag
+m	com/crashlytics/android/core/h	FH	(Lcom/crashlytics/android/core/d;)V	auto: 写出 RawBytes；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeRawBytes
+m	com/crashlytics/android/core/h	tp	(I)V	auto: 写出 RawByte；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeRawByte
+m	com/crashlytics/android/core/h	u7	(I)V	auto: 写出 Int32NoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeInt32NoTag
+m	com/crashlytics/android/core/h	J0	(I)V	auto: 写出 SInt32NoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeSInt32NoTag
+m	com/crashlytics/android/core/h	we	(I)V	auto: 写出 RawVarint32；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeRawVarint32
+m	com/crashlytics/android/core/h	FH	(J)V	auto: 写出 RawVarint64；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeRawVarint64
+m	com/crashlytics/android/core/h	VH	(II)V	auto: 写出 UInt32；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeUInt32
+m	com/crashlytics/android/core/h	Zo	(II)V	auto: 写出 Tag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeTag
+m	com/crashlytics/android/core/h	j6	([BII)V	auto: 写出 RawBytes；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeRawBytes
+m	com/crashlytics/android/core/h	j6	(I)I	auto: 计算 EnumSizeNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeEnumSizeNoTag
+m	com/crashlytics/android/core/h	VH	(I)I	auto: 编码 ZigZag32；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#encodeZigZag32
+m	com/crashlytics/android/core/h	DW	(II)I	auto: 计算 SInt32Size；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeSInt32Size
+m	com/crashlytics/android/core/h	DW	(J)I	auto: 计算 UInt64SizeNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#computeUInt64SizeNoTag
+m	com/crashlytics/android/core/h	J8	(I)V	auto: 写出 UInt32NoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeUInt32NoTag
+m	com/crashlytics/android/core/h	gn	(I)V	auto: 写出 EnumNoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeEnumNoTag
+m	com/crashlytics/android/core/h	EQ	(I)V	auto: 写出 RawLittleEndian32；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeRawLittleEndian32
+m	com/crashlytics/android/core/h	Hw	(J)V	auto: 写出 UInt64NoTag；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeUInt64NoTag
+m	com/crashlytics/android/core/h	Hw	(II)V	auto: 写出 Enum；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeEnum
+m	com/crashlytics/android/core/h	v5	(II)V	auto: 写出 SInt32；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream#writeSInt32
+f	com/crashlytics/android/core/h	DW	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream.limit
+f	com/crashlytics/android/core/h	FH	-	auto: 字段(I)；src: crashlytics-core com/crashlytics/android/core/CodedOutputStream.position
+m	com/crashlytics/android/core/ma	j6	(Ljava/lang/String;)Ljava/lang/Class;	auto: 取 Class；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar#getClass
+m	com/crashlytics/android/core/ma	j6	(Ljava/lang/String;Landroid/os/Bundle;)Ljava/lang/String;	auto: 「serializeEvent」；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar#serializeEvent
+m	com/crashlytics/android/core/ma	j6	([Ljava/lang/Object;)Z	auto: 校验 OnEventArgTypes；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar#validateOnEventArgTypes
+f	com/crashlytics/android/core/ma	j6	-	auto: 字段(Ljava/util/List;)；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar.ONEVENT_EXPECTED_ARGTYPES
+f	com/crashlytics/android/core/ma	DW	-	auto: 字段(Lcom/crashlytics/android/core/ca;)；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar.crashlyticsCore
+f	com/crashlytics/android/core/ma	FH	-	auto: 字段(Ljava/lang/Object;)；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar.eventListenerProxy
+m	com/crashlytics/android/core/ma	DW	(Ljava/lang/Class;)Ljava/lang/Object;	auto: 取 Instance；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar#getInstance
+m	com/crashlytics/android/core/ma	j6	(Ljava/lang/Class;)Ljava/lang/Object;	auto: 取 OnEventListenerProxy；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar#getOnEventListenerProxy
+m	com/crashlytics/android/core/ma	DW	(Lcom/crashlytics/android/core/ca;Ljava/lang/String;Landroid/os/Bundle;)V	auto: 写出 EventToUserLog；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar#writeEventToUserLog
+m	com/crashlytics/android/core/ma	j6	()Z	auto: 「register」；src: crashlytics-core com/crashlytics/android/core/DefaultAppMeasurementEventListenerRegistrar#register
+m	com/crashlytics/android/core/na	j6	(Lcom/crashlytics/android/core/ja;)Z	auto: 「invoke」；src: crashlytics-core com/crashlytics/android/core/DefaultCreateReportSpiCall#invoke
+m	com/crashlytics/android/core/na	j6	(Labcd/Hz;Lcom/crashlytics/android/core/Ka;)Labcd/Hz;	auto: 应用 MultipartDataTo（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/core/na	j6	(Labcd/Hz;Lcom/crashlytics/android/core/ja;)Labcd/Hz;	auto: 应用 HeadersTo（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/core/o	j6	()V	auto: 执行 indexOutOfBounds；src: crashlytics-core com/crashlytics/android/core/CrashTest#indexOutOfBounds
+m	com/crashlytics/android/core/qa	j6	(Ljava/lang/String;)Z	auto: 是否 NullOrEmpty；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver#isNullOrEmpty
+f	com/crashlytics/android/core/qa	j6	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver.context
+m	com/crashlytics/android/core/qa	DW	(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;	auto: 「stringOrFallback」；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver#stringOrFallback
+m	com/crashlytics/android/core/qa	j6	(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;	auto: 「resourceOrFallbackValue」；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver#resourceOrFallbackValue
+m	com/crashlytics/android/core/qa	v5	()Ljava/lang/String;	auto: 取 Title；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver#getTitle
+m	com/crashlytics/android/core/qa	j6	()Ljava/lang/String;	auto: 取 AlwaysSendButtonTitle；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver#getAlwaysSendButtonTitle
+m	com/crashlytics/android/core/qa	Hw	()Ljava/lang/String;	auto: 取 SendButtonTitle；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver#getSendButtonTitle
+m	com/crashlytics/android/core/qa	FH	()Ljava/lang/String;	auto: 取 Message；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver#getMessage
+m	com/crashlytics/android/core/qa	DW	()Ljava/lang/String;	auto: 取 CancelButtonTitle；src: crashlytics-core com/crashlytics/android/core/DialogStringResolver#getCancelButtonTitle
+f	com/crashlytics/android/core/v	DW	-	auto: 字段(Lcom/crashlytics/android/core/W;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsController$13.this$0
+m	com/crashlytics/android/core/xa	j6	(Lcom/crashlytics/android/core/Ta;)Ljava/lang/String;	auto: 「userDataToJson」；src: crashlytics-core com/crashlytics/android/core/MetaDataStore#userDataToJson
+m	com/crashlytics/android/core/xa	j6	(Ljava/util/Map;)Ljava/lang/String;	auto: 「keysDataToJson」；src: crashlytics-core com/crashlytics/android/core/MetaDataStore#keysDataToJson
+m	com/crashlytics/android/core/xa	j6	(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;	auto: 「valueOrNull」；src: crashlytics-core com/crashlytics/android/core/MetaDataStore#valueOrNull
+m	com/crashlytics/android/core/xa	j6	(Ljava/lang/String;Lcom/crashlytics/android/core/Ta;)V	auto: 写出 UserData；src: crashlytics-core com/crashlytics/android/core/MetaDataStore#writeUserData
+m	com/crashlytics/android/core/xa	j6	(Ljava/lang/String;Ljava/util/Map;)V	auto: 写出 KeyData；src: crashlytics-core com/crashlytics/android/core/MetaDataStore#writeKeyData
+f	com/crashlytics/android/core/xa	j6	-	auto: 字段(Ljava/nio/charset/Charset;)；src: crashlytics-core com/crashlytics/android/core/MetaDataStore.UTF_8
+f	com/crashlytics/android/core/xa	DW	-	auto: 字段(Ljava/io/File;)；src: crashlytics-core com/crashlytics/android/core/MetaDataStore.filesDir
+m	com/crashlytics/android/core/xa	FH	(Ljava/lang/String;)Lcom/crashlytics/android/core/Ta;	auto: 读取 UserData；src: crashlytics-core com/crashlytics/android/core/MetaDataStore#readUserData
+m	com/crashlytics/android/core/xa	Hw	(Ljava/lang/String;)Lcom/crashlytics/android/core/Ta;	auto: 「jsonToUserData」；src: crashlytics-core com/crashlytics/android/core/MetaDataStore#jsonToUserData
+m	com/crashlytics/android/core/xa	j6	(Ljava/lang/String;)Ljava/io/File;	auto: 取 KeysFileForSession；src: crashlytics-core com/crashlytics/android/core/MetaDataStore#getKeysFileForSession
+m	com/crashlytics/android/core/xa	DW	(Ljava/lang/String;)Ljava/io/File;	auto: 取 UserDataFileForSession；src: crashlytics-core com/crashlytics/android/core/MetaDataStore#getUserDataFileForSession
+m	com/crashlytics/android/answers/I$a	j6	(Lcom/crashlytics/android/answers/J;)Lcom/crashlytics/android/answers/I;	auto: 「build」；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder#build
+f	com/crashlytics/android/answers/I$a	DW	-	auto: 字段(J)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder.timestamp
+f	com/crashlytics/android/answers/I$a	j6	-	auto: 字段(Lcom/crashlytics/android/answers/I$b;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder.type
+m	com/crashlytics/android/answers/I$a	DW	(Ljava/util/Map;)Lcom/crashlytics/android/answers/I$a;	auto: 「details」；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder#details
+m	com/crashlytics/android/answers/I$a	j6	(Ljava/util/Map;)Lcom/crashlytics/android/answers/I$a;	auto: 「customAttributes」；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder#customAttributes
+f	com/crashlytics/android/answers/I$a	VH	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder.predefinedAttributes
+f	com/crashlytics/android/answers/I$a	v5	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder.customAttributes
+f	com/crashlytics/android/answers/I$a	FH	-	auto: 字段(Ljava/util/Map;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder.details
+f	com/crashlytics/android/answers/I$a	Zo	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder.predefinedType
+f	com/crashlytics/android/answers/I$a	Hw	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionEvent$Builder.customType
+m	com/crashlytics/android/answers/q$a	j6	()V	auto: 执行 onBackground；src: crashlytics-answers com/crashlytics/android/answers/BackgroundManager$Listener#onBackground
+f	com/crashlytics/android/core/fa	j6	-	auto: 字段(Ljava/util/TreeSet;)；src: crashlytics-core com/crashlytics/android/core/CrashlyticsNdkData.timestampedDirectories
+m	com/crashlytics/android/answers/G	j6	(Lcom/crashlytics/android/answers/I$a;)V	auto: 执行 processEvent；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManagerStrategy#processEvent
+m	com/crashlytics/android/answers/G	FH	()V	auto: 执行 sendEvents；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManagerStrategy#sendEvents
+m	com/crashlytics/android/answers/G	Hw	()V	auto: 删除 AllEvents；src: crashlytics-answers com/crashlytics/android/answers/SessionAnalyticsManagerStrategy#deleteAllEvents
+m	com/crashlytics/android/answers/L	j6	()Lcom/crashlytics/android/answers/J;	auto: 取 Metadata；src: crashlytics-answers com/crashlytics/android/answers/SessionMetadataCollector#getMetadata
+f	com/crashlytics/android/answers/L	j6	-	auto: 字段(Landroid/content/Context;)；src: crashlytics-answers com/crashlytics/android/answers/SessionMetadataCollector.context
+f	com/crashlytics/android/answers/L	Hw	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionMetadataCollector.versionName
+f	com/crashlytics/android/answers/L	FH	-	auto: 字段(Ljava/lang/String;)；src: crashlytics-answers com/crashlytics/android/answers/SessionMetadataCollector.versionCode
+f	com/crashlytics/android/answers/L	DW	-	auto: 字段(Lio/fabric/sdk/android/services/common/v;)（上游无同类型对应，按作用取名）
+m	com/crashlytics/android/answers/n	j6	(Lcom/crashlytics/android/answers/E;)Lcom/crashlytics/android/answers/n;	auto: 「build」；src: crashlytics-answers com/crashlytics/android/answers/AnswersRetryFilesSender#build
+f	com/crashlytics/android/answers/n	DW	-	auto: 字段(Lcom/crashlytics/android/answers/A;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersRetryFilesSender.retryManager
+f	com/crashlytics/android/answers/n	j6	-	auto: 字段(Lcom/crashlytics/android/answers/E;)；src: crashlytics-answers com/crashlytics/android/answers/AnswersRetryFilesSender.filesSender
+m	com/crashlytics/android/answers/n	j6	(Ljava/util/List;)Z	auto: 「send」；src: crashlytics-answers com/crashlytics/android/answers/AnswersRetryFilesSender#send
+m	com/crashlytics/android/answers/r	j6	(Lcom/crashlytics/android/answers/I$a;)V	auto: 执行 processEvent；src: crashlytics-answers com/crashlytics/android/answers/DisabledSessionAnalyticsManagerStrategy#processEvent
+m	com/crashlytics/android/answers/r	j6	()Z	auto: 「rollFileOver」；src: crashlytics-answers com/crashlytics/android/answers/DisabledSessionAnalyticsManagerStrategy#rollFileOver
+m	com/crashlytics/android/answers/r	DW	()V	auto: 执行 cancelTimeBasedFileRollOver；src: crashlytics-answers com/crashlytics/android/answers/DisabledSessionAnalyticsManagerStrategy#cancelTimeBasedFileRollOver
+m	com/crashlytics/android/answers/r	FH	()V	auto: 执行 sendEvents；src: crashlytics-answers com/crashlytics/android/answers/DisabledSessionAnalyticsManagerStrategy#sendEvents
+m	com/crashlytics/android/answers/r	Hw	()V	auto: 删除 AllEvents；src: crashlytics-answers com/crashlytics/android/answers/DisabledSessionAnalyticsManagerStrategy#deleteAllEvents
+m	com/crashlytics/android/core/ea	j6	()V	auto: 执行 crashlyticsDidDetectCrashDuringPreviousExecution（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/CrashlyticsInitProvider	j6	(Landroid/content/Context;)[Lio/fabric/sdk/android/Kit;	auto: 是否应 InitializeFabric（上游无同签名对应，按作用取名）
+m	com/crashlytics/android/CrashlyticsInitProvider	j6	(Landroid/content/Context;Lio/fabric/sdk/android/services/common/u;Lcom/crashlytics/android/CrashlyticsInitProvider$a;)Z	auto: 是否应 InitializeFabric（上游无同签名对应，按作用取名）

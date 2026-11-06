@@ -1,0 +1,449 @@
+c	io/fabric/sdk/android/ActivityLifecycleManager	-	-	auto: 管理器：ActivityLifecycle；src: fabric io/fabric/sdk/android/ActivityLifecycleManager
+c	io/fabric/sdk/android/ActivityLifecycleManager$a	-	-	auto: 类：ActivityLifecycleCallbacksWrapper（外层 ActivityLifecycleManager）；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper
+c	io/fabric/sdk/android/ActivityLifecycleManager$b	-	-	auto: 类：Callbacks（外层 ActivityLifecycleManager）；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$Callbacks
+c	io/fabric/sdk/android/Fabric	-	-	auto: 类：Fabric；src: fabric io/fabric/sdk/android/Fabric
+c	io/fabric/sdk/android/Kit	-	-	auto: 类：Kit；src: fabric io/fabric/sdk/android/Kit
+c	io/fabric/sdk/android/a	-	-	auto: 匿名内部类（外层 ActivityLifecycleCallbacksWrapper）（外层 ActivityLifecycleManager）；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1
+c	io/fabric/sdk/android/b	-	-	auto: 类：DefaultLogger；src: fabric io/fabric/sdk/android/DefaultLogger
+c	io/fabric/sdk/android/c	-	-	auto: 匿名内部类（外层 Fabric）；src: fabric io/fabric/sdk/android/Fabric$1
+c	io/fabric/sdk/android/d	-	-	auto: 匿名内部类（外层 Fabric）；src: fabric io/fabric/sdk/android/Fabric$2
+c	io/fabric/sdk/android/e	-	-	auto: 上下文：Fabric；src: fabric io/fabric/sdk/android/FabricContext
+c	io/fabric/sdk/android/h	-	-	auto: 回调：Initialization；src: fabric io/fabric/sdk/android/InitializationCallback
+c	io/fabric/sdk/android/h$a	-	-	auto: 类：Empty（外层 InitializationCallback）；src: fabric io/fabric/sdk/android/InitializationCallback$Empty
+c	io/fabric/sdk/android/i	-	-	auto: 回调接口：EventsStorage；src: fabric io/fabric/sdk/android/services/events/EventsStorageListener
+c	io/fabric/sdk/android/j	-	-	auto: 任务：Initialization；src: fabric io/fabric/sdk/android/InitializationTask
+c	io/fabric/sdk/android/k	-	-	auto: 类：KitGroup；src: fabric io/fabric/sdk/android/KitGroup
+c	io/fabric/sdk/android/l	-	-	auto: 类：KitInfo；src: fabric io/fabric/sdk/android/KitInfo
+c	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$a	-	-	auto: 类：AdvertisingConnection（外层 AdvertisingInfoServiceStrategy）；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingConnection
+c	io/fabric/sdk/android/services/common/C	-	-	auto: 提供者：SystemCurrentTime；src: fabric io/fabric/sdk/android/services/common/SystemCurrentTimeProvider
+c	io/fabric/sdk/android/services/common/D	-	-	auto: 类：TimingMetric；src: fabric io/fabric/sdk/android/services/common/TimingMetric
+c	io/fabric/sdk/android/services/common/b	-	-	auto: 类：AdvertisingInfo；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfo
+c	io/fabric/sdk/android/services/common/c	-	-	auto: 匿名内部类（外层 AdvertisingInfoProvider）；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider$1
+c	io/fabric/sdk/android/services/common/g	-	-	auto: 任务：BackgroundPriority；src: fabric io/fabric/sdk/android/services/common/BackgroundPriorityRunnable
+c	io/fabric/sdk/android/services/common/h	-	-	auto: 匿名内部类（外层 CommonUtils）；src: fabric io/fabric/sdk/android/services/common/CommonUtils$1
+c	io/fabric/sdk/android/services/common/i$a	-	-	auto: 类：Architecture（外层 CommonUtils）；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture
+c	io/fabric/sdk/android/services/common/k	-	-	auto: 提供者：CurrentTime；src: fabric io/fabric/sdk/android/services/common/CurrentTimeProvider
+c	io/fabric/sdk/android/services/common/l	-	-	auto: 类：DataCollectionArbiter；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter
+c	io/fabric/sdk/android/services/common/m	-	-	auto: 类：DeliveryMechanism；src: fabric io/fabric/sdk/android/services/common/DeliveryMechanism
+c	io/fabric/sdk/android/services/common/n	-	-	auto: 提供者：DeviceIdentifier；src: fabric io/fabric/sdk/android/services/common/DeviceIdentifierProvider
+c	io/fabric/sdk/android/services/common/p	-	-	auto: 匿名内部类（外层 ExecutorUtils）；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$1
+c	io/fabric/sdk/android/services/common/q	-	-	auto: 匿名内部类（外层 ExecutorUtils）；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$2
+c	io/fabric/sdk/android/services/common/s	-	-	auto: 类：FirebaseApp；src: fabric io/fabric/sdk/android/services/common/FirebaseApp
+c	io/fabric/sdk/android/services/common/v$a	-	-	auto: 类：DeviceIdentifierType（外层 IdManager）；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType
+c	io/fabric/sdk/android/services/common/w	-	-	auto: 匿名内部类（外层 InstallerPackageNameProvider）；src: fabric io/fabric/sdk/android/services/common/InstallerPackageNameProvider$1
+c	io/fabric/sdk/android/services/common/y	-	-	auto: 匿名内部类（外层 QueueFile）；src: fabric io/fabric/sdk/android/services/common/QueueFile$1
+c	io/fabric/sdk/android/services/common/z	-	-	auto: 类：QueueFile；src: fabric io/fabric/sdk/android/services/common/QueueFile
+c	io/fabric/sdk/android/services/common/z$a	-	-	auto: 类：Element（外层 QueueFile）；src: fabric io/fabric/sdk/android/services/common/QueueFile$Element
+c	io/fabric/sdk/android/services/common/z$b	-	-	auto: 流：ElementInput（外层 QueueFile）；src: fabric io/fabric/sdk/android/services/common/QueueFile$ElementInputStream
+c	io/fabric/sdk/android/services/common/z$c	-	-	auto: 读取器：Element（外层 QueueFile）；src: fabric io/fabric/sdk/android/services/common/QueueFile$ElementReader
+c	io/fabric/sdk/android/Fabric$Builder	-	-	auto: 类：Builder（外层 Fabric）；src: fabric io/fabric/sdk/android/Fabric$Builder
+c	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	-	-	auto: 提供者：AdvertisingInfo；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider
+c	io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	-	-	auto: 类：AdvertisingInfoReflectionStrategy；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy
+c	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy	-	-	auto: 类：AdvertisingInfoServiceStrategy；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy
+c	io/fabric/sdk/android/m	-	-	auto: 类：Logger；src: fabric io/fabric/sdk/android/Logger
+c	io/fabric/sdk/android/services/common/e	-	-	auto: 类：e（上游未收录，名字来自 jobs/fabric 的判据）
+c	io/fabric/sdk/android/services/common/f	-	-	auto: 类：ApiKey；src: fabric io/fabric/sdk/android/services/common/ApiKey
+c	io/fabric/sdk/android/services/common/i	-	-	auto: 工具类：Common；src: fabric io/fabric/sdk/android/services/common/CommonUtils
+c	io/fabric/sdk/android/services/common/v	-	-	auto: 管理器：Id；src: fabric io/fabric/sdk/android/services/common/IdManager
+c	io/fabric/sdk/android/services/common/a	-	-	auto: 工厂：HttpRequest；src: fabric io/fabric/sdk/android/services/network/HttpRequestFactory
+c	io/fabric/sdk/android/f	-	-	auto: 类：FabricKitsFinder；src: fabric io/fabric/sdk/android/FabricKitsFinder
+c	io/fabric/sdk/android/n	-	-	auto: 类：Onboarding；src: fabric io/fabric/sdk/android/Onboarding
+c	io/fabric/sdk/android/services/common/r	-	-	auto: 工具类：Executor；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils
+c	io/fabric/sdk/android/services/common/u	-	-	auto: 类：FirebaseInfo；src: fabric io/fabric/sdk/android/services/common/FirebaseInfo
+c	io/fabric/sdk/android/services/common/t	-	-	auto: 实现类：FirebaseApp；src: fabric io/fabric/sdk/android/services/common/FirebaseAppImpl
+c	io/fabric/sdk/android/services/common/x	-	-	auto: 提供者：InstallerPackageName；src: fabric io/fabric/sdk/android/services/common/InstallerPackageNameProvider
+c	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$b	-	-	auto: 类：AdvertisingInterface（外层 AdvertisingInfoServiceStrategy）；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingInterface
+c	io/fabric/sdk/android/services/common/B	-	-	auto: 匿名内部类（外层 SafeToast）；src: fabric io/fabric/sdk/android/services/common/SafeToast$1
+c	io/fabric/sdk/android/services/common/j	-	-	auto: 类：Crash；src: fabric io/fabric/sdk/android/services/common/Crash
+c	io/fabric/sdk/android/services/common/j$a	-	-	auto: 异常类型：Logged（外层 Crash）；src: fabric io/fabric/sdk/android/services/common/Crash$LoggedException
+c	io/fabric/sdk/android/services/common/j$b	-	-	auto: 异常类型：Fatal（外层 Crash）；src: fabric io/fabric/sdk/android/services/common/Crash$FatalException
+c	io/fabric/sdk/android/g	-	-	auto: 匿名内部类（外层 InitializationCallback）；src: fabric io/fabric/sdk/android/InitializationCallback$1
+c	io/fabric/sdk/android/services/common/d	-	-	auto: 匿名内部类（外层 AdvertisingInfoServiceStrategy）；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$1
+c	io/fabric/sdk/android/services/common/o	-	-	auto: 匿名内部类（外层 1）（外层 ExecutorUtils）；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$1$1
+c	io/fabric/sdk/android/services/common/A	-	-	auto: 解析器：Response；src: fabric io/fabric/sdk/android/services/common/ResponseParser
+c	io/fabric/sdk/android/services/common/SafeToast	-	-	auto: 类：SafeToast；src: fabric io/fabric/sdk/android/services/common/SafeToast
+c	abcd/cz	-	-	auto: 类：Priority；src: fabric io/fabric/sdk/android/services/concurrency/Priority
+c	abcd/hz	-	-	auto: 提供者：Priority；src: fabric io/fabric/sdk/android/services/concurrency/PriorityProvider
+c	abcd/jz	-	-	auto: 任务：Priority；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask
+c	abcd/_y	-	-	auto: 类：Dependency；src: fabric io/fabric/sdk/android/services/concurrency/Dependency
+c	abcd/lz	-	-	auto: 类：Task；src: fabric io/fabric/sdk/android/services/concurrency/Task
+m	io/fabric/sdk/android/ActivityLifecycleManager	j6	()V	auto: 重置 Callbacks；src: fabric io/fabric/sdk/android/ActivityLifecycleManager#resetCallbacks
+m	io/fabric/sdk/android/ActivityLifecycleManager	j6	(Lio/fabric/sdk/android/ActivityLifecycleManager$b;)Z	auto: 注册 Callbacks；src: fabric io/fabric/sdk/android/ActivityLifecycleManager#registerCallbacks
+f	io/fabric/sdk/android/ActivityLifecycleManager	DW	-	auto: 字段(Lio/fabric/sdk/android/ActivityLifecycleManager$a;)；src: fabric io/fabric/sdk/android/ActivityLifecycleManager.callbacksWrapper
+f	io/fabric/sdk/android/ActivityLifecycleManager	j6	-	auto: 字段(Landroid/app/Application;)；src: fabric io/fabric/sdk/android/ActivityLifecycleManager.application
+m	io/fabric/sdk/android/ActivityLifecycleManager$a	j6	()V	auto: 清空 Callbacks；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper#clearCallbacks
+m	io/fabric/sdk/android/ActivityLifecycleManager$a	j6	(Lio/fabric/sdk/android/ActivityLifecycleManager$b;)Z	auto: 注册 LifecycleCallbacks；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper#registerLifecycleCallbacks
+f	io/fabric/sdk/android/ActivityLifecycleManager$a	DW	-	auto: 字段(Landroid/app/Application;)；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper.application
+f	io/fabric/sdk/android/ActivityLifecycleManager$a	j6	-	auto: 字段(Ljava/util/Set;)；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper.registeredCallbacks
+m	io/fabric/sdk/android/ActivityLifecycleManager$b	DW	(Landroid/app/Activity;)V	auto: 执行 onActivityPaused；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$Callbacks#onActivityPaused
+m	io/fabric/sdk/android/ActivityLifecycleManager$b	DW	(Landroid/app/Activity;Landroid/os/Bundle;)V	auto: 执行 onActivitySaveInstanceState；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$Callbacks#onActivitySaveInstanceState
+m	io/fabric/sdk/android/ActivityLifecycleManager$b	j6	(Landroid/app/Activity;)V	auto: 执行 onActivityDestroyed；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$Callbacks#onActivityDestroyed
+m	io/fabric/sdk/android/ActivityLifecycleManager$b	v5	(Landroid/app/Activity;)V	auto: 执行 onActivityStopped；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$Callbacks#onActivityStopped
+m	io/fabric/sdk/android/ActivityLifecycleManager$b	FH	(Landroid/app/Activity;)V	auto: 执行 onActivityResumed；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$Callbacks#onActivityResumed
+m	io/fabric/sdk/android/ActivityLifecycleManager$b	Hw	(Landroid/app/Activity;)V	auto: 执行 onActivityStarted；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$Callbacks#onActivityStarted
+m	io/fabric/sdk/android/ActivityLifecycleManager$b	j6	(Landroid/app/Activity;Landroid/os/Bundle;)V	auto: 执行 onActivityCreated；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$Callbacks#onActivityCreated
+f	io/fabric/sdk/android/Kit	dependsOnAnnotation	-	auto: 字段(Labcd/bz;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/a	DW	-	auto: 字段(Lio/fabric/sdk/android/ActivityLifecycleManager$a;)；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1.this$0
+f	io/fabric/sdk/android/a	j6	-	auto: 字段(Lio/fabric/sdk/android/ActivityLifecycleManager$b;)；src: fabric io/fabric/sdk/android/ActivityLifecycleManager$ActivityLifecycleCallbacksWrapper$1.val$callbacks
+m	io/fabric/sdk/android/b	j6	(ILjava/lang/String;Ljava/lang/String;)V	auto: 执行 log；src: fabric io/fabric/sdk/android/DefaultLogger#log
+m	io/fabric/sdk/android/b	j6	(ILjava/lang/String;Ljava/lang/String;Z)V	auto: 执行 log；src: fabric io/fabric/sdk/android/DefaultLogger#log
+m	io/fabric/sdk/android/b	j6	(Ljava/lang/String;I)Z	auto: 是否 Loggable；src: fabric io/fabric/sdk/android/DefaultLogger#isLoggable
+f	io/fabric/sdk/android/b	j6	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/DefaultLogger.logLevel
+m	io/fabric/sdk/android/b	DW	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 w；src: fabric io/fabric/sdk/android/DefaultLogger#w
+m	io/fabric/sdk/android/b	DW	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 w；src: fabric io/fabric/sdk/android/DefaultLogger#w
+m	io/fabric/sdk/android/b	FH	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 e；src: fabric io/fabric/sdk/android/DefaultLogger#e
+m	io/fabric/sdk/android/b	FH	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 e；src: fabric io/fabric/sdk/android/DefaultLogger#e
+m	io/fabric/sdk/android/b	Hw	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 i；src: fabric io/fabric/sdk/android/DefaultLogger#i
+m	io/fabric/sdk/android/b	Hw	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 i；src: fabric io/fabric/sdk/android/DefaultLogger#i
+m	io/fabric/sdk/android/b	j6	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 d；src: fabric io/fabric/sdk/android/DefaultLogger#d
+m	io/fabric/sdk/android/b	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 d；src: fabric io/fabric/sdk/android/DefaultLogger#d
+m	io/fabric/sdk/android/b	v5	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 v；src: fabric io/fabric/sdk/android/DefaultLogger#v
+m	io/fabric/sdk/android/b	v5	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 v；src: fabric io/fabric/sdk/android/DefaultLogger#v
+f	io/fabric/sdk/android/c	j6	-	auto: 字段(Lio/fabric/sdk/android/Fabric;)；src: fabric io/fabric/sdk/android/Fabric$1.this$0
+m	io/fabric/sdk/android/c	j6	(Landroid/app/Activity;Landroid/os/Bundle;)V	auto: 执行 onActivityCreated；src: fabric io/fabric/sdk/android/Fabric$1#onActivityCreated
+m	io/fabric/sdk/android/c	FH	(Landroid/app/Activity;)V	auto: 执行 onActivityResumed；src: fabric io/fabric/sdk/android/Fabric$1#onActivityResumed
+m	io/fabric/sdk/android/c	Hw	(Landroid/app/Activity;)V	auto: 执行 onActivityStarted；src: fabric io/fabric/sdk/android/Fabric$1#onActivityStarted
+m	io/fabric/sdk/android/d	j6	(Ljava/lang/Exception;)V	auto: 执行 failure；src: fabric io/fabric/sdk/android/Fabric$2#failure
+m	io/fabric/sdk/android/d	j6	(Ljava/lang/Object;)V	auto: 执行 success；src: fabric io/fabric/sdk/android/Fabric$2#success
+f	io/fabric/sdk/android/d	DW	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/Fabric$2.val$size
+f	io/fabric/sdk/android/d	FH	-	auto: 字段(Lio/fabric/sdk/android/Fabric;)；src: fabric io/fabric/sdk/android/Fabric$2.this$0
+f	io/fabric/sdk/android/d	j6	-	auto: 字段(Ljava/util/concurrent/CountDownLatch;)；src: fabric io/fabric/sdk/android/Fabric$2.kitInitializedLatch
+f	io/fabric/sdk/android/e	j6	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/FabricContext.componentPath
+f	io/fabric/sdk/android/e	DW	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/FabricContext.componentName
+m	io/fabric/sdk/android/h	j6	(Ljava/lang/Exception;)V	auto: 执行 failure；src: fabric io/fabric/sdk/android/InitializationCallback#failure
+m	io/fabric/sdk/android/h	j6	(Ljava/lang/Object;)V	auto: 执行 success；src: fabric io/fabric/sdk/android/InitializationCallback#success
+f	io/fabric/sdk/android/h	j6	-	auto: 字段(Lio/fabric/sdk/android/h;)；src: fabric io/fabric/sdk/android/InitializationCallback.EMPTY
+m	io/fabric/sdk/android/h$a	j6	(Ljava/lang/Exception;)V	auto: 执行 failure；src: fabric io/fabric/sdk/android/InitializationCallback$Empty#failure
+m	io/fabric/sdk/android/h$a	j6	(Ljava/lang/Object;)V	auto: 执行 success；src: fabric io/fabric/sdk/android/InitializationCallback$Empty#success
+m	io/fabric/sdk/android/j	j6	(Ljava/lang/String;)Lio/fabric/sdk/android/services/common/D;	auto: 创建 AndStartTimingMetric；src: fabric io/fabric/sdk/android/InitializationTask#createAndStartTimingMetric
+f	io/fabric/sdk/android/j	QX	-	auto: 字段(Lio/fabric/sdk/android/Kit;)；src: fabric io/fabric/sdk/android/InitializationTask.kit
+m	io/fabric/sdk/android/l	j6	()Ljava/lang/String;	auto: 取 BuildType；src: fabric io/fabric/sdk/android/KitInfo#getBuildType
+m	io/fabric/sdk/android/l	FH	()Ljava/lang/String;	auto: 取 Version；src: fabric io/fabric/sdk/android/KitInfo#getVersion
+m	io/fabric/sdk/android/l	DW	()Ljava/lang/String;	auto: 取 Identifier；src: fabric io/fabric/sdk/android/KitInfo#getIdentifier
+f	io/fabric/sdk/android/l	j6	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/KitInfo.identifier
+f	io/fabric/sdk/android/l	FH	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/KitInfo.buildType
+f	io/fabric/sdk/android/l	DW	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/KitInfo.version
+m	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$a	j6	()Landroid/os/IBinder;	auto: 取 Binder；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingConnection#getBinder
+f	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$a	DW	-	auto: 字段(Ljava/util/concurrent/LinkedBlockingQueue;)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingConnection.queue
+f	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$a	j6	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingConnection.retrieved
+m	io/fabric/sdk/android/services/common/C	j6	()J	auto: 取 CurrentTimeMillis；src: fabric io/fabric/sdk/android/services/common/SystemCurrentTimeProvider#getCurrentTimeMillis
+f	io/fabric/sdk/android/services/common/D	FH	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/TimingMetric.disabled
+m	io/fabric/sdk/android/services/common/D	j6	()V	auto: 启动 Measuring；src: fabric io/fabric/sdk/android/services/common/TimingMetric#startMeasuring
+m	io/fabric/sdk/android/services/common/D	FH	()V	auto: 执行 reportToLog；src: fabric io/fabric/sdk/android/services/common/TimingMetric#reportToLog
+m	io/fabric/sdk/android/services/common/D	DW	()V	auto: 停止 Measuring；src: fabric io/fabric/sdk/android/services/common/TimingMetric#stopMeasuring
+f	io/fabric/sdk/android/services/common/D	j6	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/TimingMetric.eventName
+f	io/fabric/sdk/android/services/common/D	DW	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/TimingMetric.tag
+f	io/fabric/sdk/android/services/common/D	v5	-	auto: 字段(J)；src: fabric io/fabric/sdk/android/services/common/TimingMetric.duration
+f	io/fabric/sdk/android/services/common/D	Hw	-	auto: 字段(J)；src: fabric io/fabric/sdk/android/services/common/TimingMetric.start
+f	io/fabric/sdk/android/services/common/b	DW	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfo.limitAdTrackingEnabled
+f	io/fabric/sdk/android/services/common/b	j6	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfo.advertisingId
+m	io/fabric/sdk/android/services/common/c	j6	()V	auto: 执行 onRun；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider$1#onRun
+f	io/fabric/sdk/android/services/common/c	DW	-	auto: 字段(Lio/fabric/sdk/android/services/common/AdvertisingInfoProvider;)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider$1.this$0
+f	io/fabric/sdk/android/services/common/c	j6	-	auto: 字段(Lio/fabric/sdk/android/services/common/b;)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider$1.val$advertisingInfo
+m	io/fabric/sdk/android/services/common/g	j6	()V	auto: 执行 onRun；src: fabric io/fabric/sdk/android/services/common/BackgroundPriorityRunnable#onRun
+m	io/fabric/sdk/android/services/common/h	j6	(Ljava/io/File;Ljava/io/File;)I	auto: 「compare」；src: fabric io/fabric/sdk/android/services/common/CommonUtils$1#compare
+m	io/fabric/sdk/android/services/common/i$a	Hw	()Lio/fabric/sdk/android/services/common/i$a;	auto: 取 Value；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture#getValue
+f	io/fabric/sdk/android/services/common/i$a	EQ	-	auto: 字段(Ljava/util/Map;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.matcher
+f	io/fabric/sdk/android/services/common/i$a	we	-	auto: 字段([Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.$VALUES
+f	io/fabric/sdk/android/services/common/i$a	gn	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.UNKNOWN
+f	io/fabric/sdk/android/services/common/i$a	DW	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.X86_32
+f	io/fabric/sdk/android/services/common/i$a	FH	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.ARM_UNKNOWN
+f	io/fabric/sdk/android/services/common/i$a	Hw	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.PPC
+f	io/fabric/sdk/android/services/common/i$a	VH	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.ARMV7
+f	io/fabric/sdk/android/services/common/i$a	Zo	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.ARMV6
+f	io/fabric/sdk/android/services/common/i$a	j6	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.X86_64
+f	io/fabric/sdk/android/services/common/i$a	tp	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.ARM64
+f	io/fabric/sdk/android/services/common/i$a	u7	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.ARMV7S
+f	io/fabric/sdk/android/services/common/i$a	v5	-	auto: 字段(Lio/fabric/sdk/android/services/common/i$a;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils$Architecture.PPC64
+m	io/fabric/sdk/android/services/common/k	j6	()J	auto: 取 CurrentTimeMillis；src: fabric io/fabric/sdk/android/services/common/CurrentTimeProvider#getCurrentTimeMillis
+m	io/fabric/sdk/android/services/common/l	j6	(Landroid/content/Context;)Lio/fabric/sdk/android/services/common/l;	auto: 取 Instance；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter#getInstance
+m	io/fabric/sdk/android/services/common/l	j6	(Z)V	auto: 设 CrashlyticsDataCollectionEnabled；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter#setCrashlyticsDataCollectionEnabled
+f	io/fabric/sdk/android/services/common/l	DW	-	auto: 字段(Ljava/lang/Object;)；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter.instanceLock
+f	io/fabric/sdk/android/services/common/l	j6	-	auto: 字段(Lio/fabric/sdk/android/services/common/l;)；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter.instance
+f	io/fabric/sdk/android/services/common/l	FH	-	auto: 字段(Landroid/content/SharedPreferences;)；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter.sharedPreferences
+f	io/fabric/sdk/android/services/common/l	Zo	-	auto: 字段(Lio/fabric/sdk/android/services/common/s;)；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter.firebaseApp
+m	io/fabric/sdk/android/services/common/l	j6	()Z	auto: 是否 DataCollectionEnabled；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter#isDataCollectionEnabled
+m	io/fabric/sdk/android/services/common/l	DW	()Z	auto: 是否应 AutoInitialize；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter#shouldAutoInitialize
+f	io/fabric/sdk/android/services/common/l	Hw	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter.crashlyticsDataCollectionExplicitlySet
+f	io/fabric/sdk/android/services/common/l	v5	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter.crashlyticsDataCollectionEnabled
+f	io/fabric/sdk/android/services/common/l	VH	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/DataCollectionArbiter.isUnity
+f	io/fabric/sdk/android/services/common/m	v5	-	auto: 字段([Lio/fabric/sdk/android/services/common/m;)；src: fabric io/fabric/sdk/android/services/common/DeliveryMechanism.$VALUES
+f	io/fabric/sdk/android/services/common/m	Zo	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/services/common/DeliveryMechanism.id
+m	io/fabric/sdk/android/services/common/m	j6	(Ljava/lang/String;)Lio/fabric/sdk/android/services/common/m;	auto: 「determineFrom」；src: fabric io/fabric/sdk/android/services/common/DeliveryMechanism#determineFrom
+f	io/fabric/sdk/android/services/common/m	DW	-	auto: 字段(Lio/fabric/sdk/android/services/common/m;)；src: fabric io/fabric/sdk/android/services/common/DeliveryMechanism.USER_SIDELOAD
+f	io/fabric/sdk/android/services/common/m	j6	-	auto: 字段(Lio/fabric/sdk/android/services/common/m;)；src: fabric io/fabric/sdk/android/services/common/DeliveryMechanism.DEVELOPER
+f	io/fabric/sdk/android/services/common/m	Hw	-	auto: 字段(Lio/fabric/sdk/android/services/common/m;)；src: fabric io/fabric/sdk/android/services/common/DeliveryMechanism.APP_STORE
+f	io/fabric/sdk/android/services/common/m	FH	-	auto: 字段(Lio/fabric/sdk/android/services/common/m;)；src: fabric io/fabric/sdk/android/services/common/DeliveryMechanism.TEST_DISTRIBUTION
+m	io/fabric/sdk/android/services/common/n	Hw	()Ljava/util/Map;	auto: 取 DeviceIdentifiers；src: fabric io/fabric/sdk/android/services/common/DeviceIdentifierProvider#getDeviceIdentifiers
+f	io/fabric/sdk/android/services/common/p	DW	-	auto: 字段(Ljava/util/concurrent/atomic/AtomicLong;)；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$1.val$count
+f	io/fabric/sdk/android/services/common/p	j6	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$1.val$threadNameTemplate
+m	io/fabric/sdk/android/services/common/q	j6	()V	auto: 执行 onRun；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$2#onRun
+f	io/fabric/sdk/android/services/common/q	DW	-	auto: 字段(Ljava/util/concurrent/ExecutorService;)；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$2.val$service
+f	io/fabric/sdk/android/services/common/q	FH	-	auto: 字段(J)；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$2.val$terminationTimeout
+f	io/fabric/sdk/android/services/common/q	Hw	-	auto: 字段(Ljava/util/concurrent/TimeUnit;)；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$2.val$timeUnit
+f	io/fabric/sdk/android/services/common/q	j6	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$2.val$serviceName
+m	io/fabric/sdk/android/services/common/s	j6	()Z	auto: 是否 DataCollectionDefaultEnabled；src: fabric io/fabric/sdk/android/services/common/FirebaseApp#isDataCollectionDefaultEnabled
+f	io/fabric/sdk/android/services/common/v$a	gn	-	auto: 字段([Lio/fabric/sdk/android/services/common/v$a;)；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType.$VALUES
+f	io/fabric/sdk/android/services/common/v$a	u7	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType.protobufIndex
+f	io/fabric/sdk/android/services/common/v$a	DW	-	auto: 字段(Lio/fabric/sdk/android/services/common/v$a;)；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType.WIFI_MAC_ADDRESS
+f	io/fabric/sdk/android/services/common/v$a	FH	-	auto: 字段(Lio/fabric/sdk/android/services/common/v$a;)；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType.FONT_TOKEN
+f	io/fabric/sdk/android/services/common/v$a	Hw	-	auto: 字段(Lio/fabric/sdk/android/services/common/v$a;)；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType.ANDROID_ID
+f	io/fabric/sdk/android/services/common/v$a	VH	-	auto: 字段(Lio/fabric/sdk/android/services/common/v$a;)；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType.ANDROID_ADVERTISING_ID
+f	io/fabric/sdk/android/services/common/v$a	Zo	-	auto: 字段(Lio/fabric/sdk/android/services/common/v$a;)；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType.ANDROID_SERIAL
+f	io/fabric/sdk/android/services/common/v$a	j6	-	auto: 字段(Lio/fabric/sdk/android/services/common/v$a;)；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType.BLUETOOTH_MAC_ADDRESS
+f	io/fabric/sdk/android/services/common/v$a	v5	-	auto: 字段(Lio/fabric/sdk/android/services/common/v$a;)；src: fabric io/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType.ANDROID_DEVICE_ID
+m	io/fabric/sdk/android/services/common/w	j6	(Landroid/content/Context;)Ljava/lang/String;	auto: 「load」；src: fabric io/fabric/sdk/android/services/common/InstallerPackageNameProvider$1#load
+f	io/fabric/sdk/android/services/common/w	j6	-	auto: 字段(Lio/fabric/sdk/android/services/common/x;)；src: fabric io/fabric/sdk/android/services/common/InstallerPackageNameProvider$1.this$0
+m	io/fabric/sdk/android/services/common/y	j6	(Ljava/io/InputStream;I)V	auto: 执行 read；src: fabric io/fabric/sdk/android/services/common/QueueFile$1#read
+f	io/fabric/sdk/android/services/common/y	DW	-	auto: 字段(Ljava/lang/StringBuilder;)；src: fabric io/fabric/sdk/android/services/common/QueueFile$1.val$builder
+f	io/fabric/sdk/android/services/common/y	FH	-	auto: 字段(Lio/fabric/sdk/android/services/common/z;)；src: fabric io/fabric/sdk/android/services/common/QueueFile$1.this$0
+f	io/fabric/sdk/android/services/common/y	j6	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/QueueFile$1.first
+m	io/fabric/sdk/android/services/common/z	j6	(Ljava/io/File;)V	auto: 执行 initialize；src: fabric io/fabric/sdk/android/services/common/QueueFile#initialize
+m	io/fabric/sdk/android/services/common/z	DW	(I)Lio/fabric/sdk/android/services/common/z$a;	auto: 读取 Element；src: fabric io/fabric/sdk/android/services/common/QueueFile#readElement
+m	io/fabric/sdk/android/services/common/z	DW	(Ljava/io/File;)Ljava/io/RandomAccessFile;	auto: 「open」；src: fabric io/fabric/sdk/android/services/common/QueueFile#open
+m	io/fabric/sdk/android/services/common/z	Hw	(I)I	auto: 「wrapPosition」；src: fabric io/fabric/sdk/android/services/common/QueueFile#wrapPosition
+m	io/fabric/sdk/android/services/common/z	j6	([BI)I	auto: 读取 Int；src: fabric io/fabric/sdk/android/services/common/QueueFile#readInt
+m	io/fabric/sdk/android/services/common/z	j6	(IIII)V	auto: 写出 Header；src: fabric io/fabric/sdk/android/services/common/QueueFile#writeHeader
+m	io/fabric/sdk/android/services/common/z	j6	([B[I)V	auto: 写出 Ints；src: fabric io/fabric/sdk/android/services/common/QueueFile#writeInts
+m	io/fabric/sdk/android/services/common/z	DW	()Z	auto: 是否 Empty；src: fabric io/fabric/sdk/android/services/common/QueueFile#isEmpty
+m	io/fabric/sdk/android/services/common/z	j6	([B)V	auto: 执行 add；src: fabric io/fabric/sdk/android/services/common/QueueFile#add
+m	io/fabric/sdk/android/services/common/z	j6	(II)Z	auto: 是否有 SpaceFor；src: fabric io/fabric/sdk/android/services/common/QueueFile#hasSpaceFor
+f	io/fabric/sdk/android/services/common/z	j6	-	auto: 字段(Ljava/util/logging/Logger;)；src: fabric io/fabric/sdk/android/services/common/QueueFile.LOGGER
+f	io/fabric/sdk/android/services/common/z	DW	-	auto: 字段(Ljava/io/RandomAccessFile;)；src: fabric io/fabric/sdk/android/services/common/QueueFile.raf
+f	io/fabric/sdk/android/services/common/z	VH	-	auto: 字段([B)；src: fabric io/fabric/sdk/android/services/common/QueueFile.buffer
+m	io/fabric/sdk/android/services/common/z	FH	()V	auto: 执行 remove；src: fabric io/fabric/sdk/android/services/common/QueueFile#remove
+m	io/fabric/sdk/android/services/common/z	v5	()V	auto: 读取 Header；src: fabric io/fabric/sdk/android/services/common/QueueFile#readHeader
+m	io/fabric/sdk/android/services/common/z	j6	()V	auto: 执行 clear；src: fabric io/fabric/sdk/android/services/common/QueueFile#clear
+m	io/fabric/sdk/android/services/common/z	DW	(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;	auto: 「nonNull」；src: fabric io/fabric/sdk/android/services/common/QueueFile#nonNull
+m	io/fabric/sdk/android/services/common/z	DW	(I[BII)V	auto: 执行 ringWrite；src: fabric io/fabric/sdk/android/services/common/QueueFile#ringWrite
+m	io/fabric/sdk/android/services/common/z	j6	([BII)V	auto: 执行 add；src: fabric io/fabric/sdk/android/services/common/QueueFile#add
+m	io/fabric/sdk/android/services/common/z	DW	([BII)V	auto: 写出 Int；src: fabric io/fabric/sdk/android/services/common/QueueFile#writeInt
+m	io/fabric/sdk/android/services/common/z	FH	(I)V	auto: 设 Length；src: fabric io/fabric/sdk/android/services/common/QueueFile#setLength
+m	io/fabric/sdk/android/services/common/z	j6	(I)V	auto: 执行 expandIfNecessary；src: fabric io/fabric/sdk/android/services/common/QueueFile#expandIfNecessary
+m	io/fabric/sdk/android/services/common/z	Zo	()I	auto: 「remainingBytes」；src: fabric io/fabric/sdk/android/services/common/QueueFile#remainingBytes
+m	io/fabric/sdk/android/services/common/z	Hw	()I	auto: 「usedBytes」；src: fabric io/fabric/sdk/android/services/common/QueueFile#usedBytes
+m	io/fabric/sdk/android/services/common/z	j6	(Lio/fabric/sdk/android/services/common/z$c;)V	auto: 执行 forEach；src: fabric io/fabric/sdk/android/services/common/QueueFile#forEach
+m	io/fabric/sdk/android/services/common/z	j6	(I[BII)V	auto: 执行 ringRead；src: fabric io/fabric/sdk/android/services/common/QueueFile#ringRead
+f	io/fabric/sdk/android/services/common/z	Hw	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/services/common/QueueFile.elementCount
+f	io/fabric/sdk/android/services/common/z	FH	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/services/common/QueueFile.fileLength
+f	io/fabric/sdk/android/services/common/z	v5	-	auto: 字段(Lio/fabric/sdk/android/services/common/z$a;)；src: fabric io/fabric/sdk/android/services/common/QueueFile.first
+f	io/fabric/sdk/android/services/common/z	Zo	-	auto: 字段(Lio/fabric/sdk/android/services/common/z$a;)；src: fabric io/fabric/sdk/android/services/common/QueueFile.last
+f	io/fabric/sdk/android/services/common/z$a	j6	-	auto: 字段(Lio/fabric/sdk/android/services/common/z$a;)；src: fabric io/fabric/sdk/android/services/common/QueueFile$Element.NULL
+f	io/fabric/sdk/android/services/common/z$a	FH	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/services/common/QueueFile$Element.length
+f	io/fabric/sdk/android/services/common/z$a	DW	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/services/common/QueueFile$Element.position
+f	io/fabric/sdk/android/services/common/z$b	FH	-	auto: 字段(Lio/fabric/sdk/android/services/common/z;)；src: fabric io/fabric/sdk/android/services/common/QueueFile$ElementInputStream.this$0
+f	io/fabric/sdk/android/services/common/z$b	j6	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/services/common/QueueFile$ElementInputStream.position
+f	io/fabric/sdk/android/services/common/z$b	DW	-	auto: 字段(I)；src: fabric io/fabric/sdk/android/services/common/QueueFile$ElementInputStream.remaining
+m	io/fabric/sdk/android/services/common/z$c	j6	(Ljava/io/InputStream;I)V	auto: 执行 read；src: fabric io/fabric/sdk/android/services/common/QueueFile$ElementReader#read
+m	io/fabric/sdk/android/Fabric$Builder	j6	([Lio/fabric/sdk/android/Kit;)Lio/fabric/sdk/android/Fabric$Builder;	auto: 「kits」；src: fabric io/fabric/sdk/android/Fabric$Builder#kits
+m	io/fabric/sdk/android/Fabric$Builder	j6	()Lio/fabric/sdk/android/Fabric;	auto: 「build」；src: fabric io/fabric/sdk/android/Fabric$Builder#build
+f	io/fabric/sdk/android/Fabric$Builder	DW	-	auto: 字段([Lio/fabric/sdk/android/Kit;)；src: fabric io/fabric/sdk/android/Fabric$Builder.kits
+f	io/fabric/sdk/android/Fabric$Builder	Hw	-	auto: 字段(Landroid/os/Handler;)；src: fabric io/fabric/sdk/android/Fabric$Builder.handler
+f	io/fabric/sdk/android/Fabric$Builder	Zo	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/Fabric$Builder.debuggable
+f	io/fabric/sdk/android/Fabric$Builder	j6	-	auto: 字段(Landroid/content/Context;)；src: fabric io/fabric/sdk/android/Fabric$Builder.context
+f	io/fabric/sdk/android/Fabric$Builder	u7	-	auto: 字段(Lio/fabric/sdk/android/h;)；src: fabric io/fabric/sdk/android/Fabric$Builder.initializationCallback
+f	io/fabric/sdk/android/Fabric$Builder	gn	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/Fabric$Builder.appIdentifier
+f	io/fabric/sdk/android/Fabric$Builder	VH	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/Fabric$Builder.appInstallIdentifier
+f	io/fabric/sdk/android/Fabric$Builder	v5	-	auto: 字段(Lio/fabric/sdk/android/m;)；src: fabric io/fabric/sdk/android/Fabric$Builder.logger
+m	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	j6	(Lio/fabric/sdk/android/services/common/b;)Z	auto: 是否 InfoValid；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider#isInfoValid
+f	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	j6	-	auto: 字段(Landroid/content/Context;)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider.context
+m	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	DW	(Lio/fabric/sdk/android/services/common/b;)V	auto: 执行 refreshInfoIfNeededAsync；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider#refreshInfoIfNeededAsync
+m	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	FH	(Lio/fabric/sdk/android/services/common/b;)V	auto: 执行 storeInfoToPreferences；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider#storeInfoToPreferences
+m	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	j6	()Lio/fabric/sdk/android/services/common/b;	auto: 取 AdvertisingInfo；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider#getAdvertisingInfo
+m	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	DW	()Lio/fabric/sdk/android/services/common/b;	auto: 取 InfoFromPreferences；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider#getInfoFromPreferences
+m	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	v5	()Lio/fabric/sdk/android/services/common/b;	auto: 取 AdvertisingInfoFromStrategies；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoProvider#getAdvertisingInfoFromStrategies
+m	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	FH	()Lio/fabric/sdk/android/services/common/e;	auto: 取 AdvertisingInfo（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/services/common/AdvertisingInfoProvider	Hw	()Lio/fabric/sdk/android/services/common/e;	auto: 取 AdvertisingInfoFromStrategies（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	DW	()Ljava/lang/String;	auto: 取 AdvertisingId；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy#getAdvertisingId
+m	io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	FH	()Ljava/lang/Object;	auto: 取 Info；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy#getInfo
+m	io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	Hw	()Z	auto: 是否 LimitAdTrackingEnabled；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy#isLimitAdTrackingEnabled
+m	io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	j6	()Lio/fabric/sdk/android/services/common/b;	auto: 取 AdvertisingInfo；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy#getAdvertisingInfo
+m	io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	j6	(Landroid/content/Context;)Z	auto: 是否 GooglePlayServiceAvailable；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy#isGooglePlayServiceAvailable
+f	io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy	j6	-	auto: 字段(Landroid/content/Context;)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoReflectionStrategy.context
+m	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy	j6	()Lio/fabric/sdk/android/services/common/b;	auto: 取 AdvertisingInfo；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy#getAdvertisingInfo
+f	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy	j6	-	auto: 字段(Landroid/content/Context;)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy.context
+m	io/fabric/sdk/android/m	j6	(ILjava/lang/String;Ljava/lang/String;)V	auto: 执行 log；src: fabric io/fabric/sdk/android/Logger#log
+m	io/fabric/sdk/android/m	j6	(ILjava/lang/String;Ljava/lang/String;Z)V	auto: 执行 log；src: fabric io/fabric/sdk/android/Logger#log
+m	io/fabric/sdk/android/m	j6	(Ljava/lang/String;I)Z	auto: 是否 Loggable；src: fabric io/fabric/sdk/android/Logger#isLoggable
+m	io/fabric/sdk/android/m	DW	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 w；src: fabric io/fabric/sdk/android/Logger#w
+m	io/fabric/sdk/android/m	DW	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 w；src: fabric io/fabric/sdk/android/Logger#w
+m	io/fabric/sdk/android/m	FH	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 e；src: fabric io/fabric/sdk/android/Logger#e
+m	io/fabric/sdk/android/m	FH	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 e；src: fabric io/fabric/sdk/android/Logger#e
+m	io/fabric/sdk/android/m	Hw	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 i；src: fabric io/fabric/sdk/android/Logger#i
+m	io/fabric/sdk/android/m	j6	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 d；src: fabric io/fabric/sdk/android/Logger#d
+m	io/fabric/sdk/android/m	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 d；src: fabric io/fabric/sdk/android/Logger#d
+m	io/fabric/sdk/android/m	v5	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 v；src: fabric io/fabric/sdk/android/Logger#v
+m	io/fabric/sdk/android/services/common/e	j6	()Lio/fabric/sdk/android/services/common/b;	auto: 取 AdvertisingInfo（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/services/common/f	j6	()Ljava/lang/String;	auto: 构建 ApiKeyInstructions；src: fabric io/fabric/sdk/android/services/common/ApiKey#buildApiKeyInstructions
+m	io/fabric/sdk/android/services/common/f	v5	(Landroid/content/Context;)V	auto: 执行 logErrorOrThrowException；src: fabric io/fabric/sdk/android/services/common/ApiKey#logErrorOrThrowException
+m	io/fabric/sdk/android/services/common/f	FH	(Landroid/content/Context;)Ljava/lang/String;	auto: 取 ApiKeyFromStrings；src: fabric io/fabric/sdk/android/services/common/ApiKey#getApiKeyFromStrings
+m	io/fabric/sdk/android/services/common/f	DW	(Landroid/content/Context;)Ljava/lang/String;	auto: 取 ApiKeyFromManifest；src: fabric io/fabric/sdk/android/services/common/ApiKey#getApiKeyFromManifest
+m	io/fabric/sdk/android/services/common/f	Hw	(Landroid/content/Context;)Ljava/lang/String;	auto: 取 Value；src: fabric io/fabric/sdk/android/services/common/ApiKey#getValue
+m	io/fabric/sdk/android/services/common/f	j6	(Landroid/content/Context;)Ljava/lang/String;	auto: 取 ApiKeyFromFirebaseAppId；src: fabric io/fabric/sdk/android/services/common/ApiKey#getApiKeyFromFirebaseAppId
+m	io/fabric/sdk/android/services/common/i	DW	()J	auto: 取 TotalRamInBytes；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getTotalRamInBytes
+m	io/fabric/sdk/android/services/common/i	DW	(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;	auto: 取 StringsFileValue；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getStringsFileValue
+m	io/fabric/sdk/android/services/common/i	DW	(Ljava/lang/String;)Z	auto: 是否 NullOrEmpty；src: fabric io/fabric/sdk/android/services/common/CommonUtils#isNullOrEmpty
+m	io/fabric/sdk/android/services/common/i	FH	(Landroid/content/Context;Ljava/lang/String;)V	auto: 执行 logControlled；src: fabric io/fabric/sdk/android/services/common/CommonUtils#logControlled
+m	io/fabric/sdk/android/services/common/i	FH	()Z	auto: 是否 DebuggerAttached；src: fabric io/fabric/sdk/android/services/common/CommonUtils#isDebuggerAttached
+m	io/fabric/sdk/android/services/common/i	j6	()I	auto: 取 CpuArchitectureInt；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getCpuArchitectureInt
+m	io/fabric/sdk/android/services/common/i	j6	(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I	auto: 取 ResourcesIdentifier；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getResourcesIdentifier
+m	io/fabric/sdk/android/services/common/i	j6	(Landroid/content/Context;Z)I	auto: 取 BatteryVelocity；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getBatteryVelocity
+m	io/fabric/sdk/android/services/common/i	j6	(Landroid/content/Context;)J	auto: 「calculateFreeRamInBytes」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#calculateFreeRamInBytes
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/lang/String;)J	auto: 「calculateUsedDiskSpaceInBytes」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#calculateUsedDiskSpaceInBytes
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/lang/String;Ljava/lang/String;I)J	auto: 「convertMemInfoToBytes」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#convertMemInfoToBytes
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/lang/String;Landroid/content/Context;)Landroid/app/ActivityManager$RunningAppProcessInfo;	auto: 取 AppProcessInfo；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getAppProcessInfo
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/io/File;Ljava/lang/String;)Ljava/lang/String;	auto: 「extractFieldFromSystemFile」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#extractFieldFromSystemFile
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/String;	auto: 「hash」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#hash
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;	auto: 「hash」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#hash
+m	io/fabric/sdk/android/services/common/i	j6	([B)Ljava/lang/String;	auto: 「hexify」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#hexify
+m	io/fabric/sdk/android/services/common/i	j6	([BLjava/lang/String;)Ljava/lang/String;	auto: 「hash」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#hash
+m	io/fabric/sdk/android/services/common/i	j6	([Ljava/lang/String;)Ljava/lang/String;	auto: 创建 InstanceIdFrom；src: fabric io/fabric/sdk/android/services/common/CommonUtils#createInstanceIdFrom
+m	io/fabric/sdk/android/services/common/i	j6	(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;)V	auto: 执行 logControlled；src: fabric io/fabric/sdk/android/services/common/CommonUtils#logControlled
+m	io/fabric/sdk/android/services/common/i	j6	(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 logControlledError；src: fabric io/fabric/sdk/android/services/common/CommonUtils#logControlledError
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/io/Closeable;)V	auto: 关闭 Quietly；src: fabric io/fabric/sdk/android/services/common/CommonUtils#closeQuietly
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/io/Closeable;Ljava/lang/String;)V	auto: 关闭 OrLog；src: fabric io/fabric/sdk/android/services/common/CommonUtils#closeOrLog
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/io/Flushable;Ljava/lang/String;)V	auto: 冲刷 OrLog；src: fabric io/fabric/sdk/android/services/common/CommonUtils#flushOrLog
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/io/InputStream;Ljava/io/OutputStream;[B)V	auto: 复制 Stream；src: fabric io/fabric/sdk/android/services/common/CommonUtils#copyStream
+m	io/fabric/sdk/android/services/common/i	j6	(Landroid/content/Context;Ljava/lang/String;)Z	auto: 检查 Permission；src: fabric io/fabric/sdk/android/services/common/CommonUtils#checkPermission
+m	io/fabric/sdk/android/services/common/i	j6	(Landroid/content/Context;Ljava/lang/String;Z)Z	auto: 取 BooleanResourceValue；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getBooleanResourceValue
+m	io/fabric/sdk/android/services/common/i	u7	(Landroid/content/Context;)Landroid/content/SharedPreferences;	auto: 取 SharedPrefs；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getSharedPrefs
+m	io/fabric/sdk/android/services/common/i	v5	(Landroid/content/Context;)Ljava/lang/Float;	auto: 取 BatteryLevel；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getBatteryLevel
+f	io/fabric/sdk/android/services/common/i	DW	-	auto: 字段([C)；src: fabric io/fabric/sdk/android/services/common/CommonUtils.HEX_VALUES
+f	io/fabric/sdk/android/services/common/i	Hw	-	auto: 字段(Ljava/util/Comparator;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils.FILE_MODIFIED_COMPARATOR
+f	io/fabric/sdk/android/services/common/i	j6	-	auto: 字段(Ljava/lang/Boolean;)；src: fabric io/fabric/sdk/android/services/common/CommonUtils.clsTrace
+m	io/fabric/sdk/android/services/common/i	DW	(I)Ljava/lang/String;	auto: 「padWithZerosToMaxIntWidth」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#padWithZerosToMaxIntWidth
+m	io/fabric/sdk/android/services/common/i	j6	(I)Ljava/lang/String;	auto: 「logPriorityToString」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#logPriorityToString
+m	io/fabric/sdk/android/services/common/i	j6	(Ljava/io/InputStream;)Ljava/lang/String;	auto: 「sha1」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#sha1
+m	io/fabric/sdk/android/services/common/i	DW	(Ljava/io/InputStream;)Ljava/lang/String;	auto: 「streamToString」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#streamToString
+m	io/fabric/sdk/android/services/common/i	EQ	(Landroid/content/Context;)Z	auto: 是否 ClsTrace；src: fabric io/fabric/sdk/android/services/common/CommonUtils#isClsTrace
+m	io/fabric/sdk/android/services/common/i	we	(Landroid/content/Context;)Z	auto: 是否 Emulator；src: fabric io/fabric/sdk/android/services/common/CommonUtils#isEmulator
+m	io/fabric/sdk/android/services/common/i	DW	(Landroid/content/Context;)Z	auto: 能否 TryConnection；src: fabric io/fabric/sdk/android/services/common/CommonUtils#canTryConnection
+m	io/fabric/sdk/android/services/common/i	J0	(Landroid/content/Context;)Z	auto: 是否 Rooted；src: fabric io/fabric/sdk/android/services/common/CommonUtils#isRooted
+m	io/fabric/sdk/android/services/common/i	tp	(Landroid/content/Context;)Z	auto: 是否 AppDebuggable；src: fabric io/fabric/sdk/android/services/common/CommonUtils#isAppDebuggable
+m	io/fabric/sdk/android/services/common/i	VH	(Landroid/content/Context;)Z	auto: 取 ProximitySensorEnabled；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getProximitySensorEnabled
+m	io/fabric/sdk/android/services/common/i	gn	(Landroid/content/Context;)Ljava/lang/String;	auto: 取 ResourcePackageName；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getResourcePackageName
+m	io/fabric/sdk/android/services/common/i	Ws	(Landroid/content/Context;)Ljava/lang/String;	auto: 解析 UnityEditorVersion；src: fabric io/fabric/sdk/android/services/common/CommonUtils#resolveUnityEditorVersion
+m	io/fabric/sdk/android/services/common/i	J8	(Landroid/content/Context;)Ljava/lang/String;	auto: 解析 BuildId；src: fabric io/fabric/sdk/android/services/common/CommonUtils#resolveBuildId
+m	io/fabric/sdk/android/services/common/i	FH	(Landroid/content/Context;)Ljava/lang/String;	auto: 取 AppIconHashOrNull；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getAppIconHashOrNull
+m	io/fabric/sdk/android/services/common/i	FH	(Ljava/lang/String;)Ljava/lang/String;	auto: 「sha1」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#sha1
+m	io/fabric/sdk/android/services/common/i	Hw	(Ljava/lang/String;)Ljava/lang/String;	auto: 「sha256」；src: fabric io/fabric/sdk/android/services/common/CommonUtils#sha256
+m	io/fabric/sdk/android/services/common/i	Hw	(Landroid/content/Context;)I	auto: 取 AppIconResourceId；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getAppIconResourceId
+m	io/fabric/sdk/android/services/common/i	Zo	(Landroid/content/Context;)I	auto: 取 DeviceState；src: fabric io/fabric/sdk/android/services/common/CommonUtils#getDeviceState
+f	io/fabric/sdk/android/services/common/i	FH	-	auto: 字段(J)；src: fabric io/fabric/sdk/android/services/common/CommonUtils.totalRamInBytes
+m	io/fabric/sdk/android/services/common/v	DW	(Landroid/content/SharedPreferences;)Ljava/lang/String;	auto: 创建 InstallationUUID；src: fabric io/fabric/sdk/android/services/common/IdManager#createInstallationUUID
+m	io/fabric/sdk/android/services/common/v	j6	(Landroid/content/SharedPreferences;)V	auto: 检查 AdvertisingIdRotation；src: fabric io/fabric/sdk/android/services/common/IdManager#checkAdvertisingIdRotation
+m	io/fabric/sdk/android/services/common/v	j6	(Landroid/content/SharedPreferences;Ljava/lang/String;)V	auto: 冲刷 InstallationIdIfNecessary；src: fabric io/fabric/sdk/android/services/common/IdManager#flushInstallationIdIfNecessary
+m	io/fabric/sdk/android/services/common/v	j6	(Ljava/util/Map;Lio/fabric/sdk/android/services/common/v$a;Ljava/lang/String;)V	auto: 放入 NonNullIdInto；src: fabric io/fabric/sdk/android/services/common/IdManager#putNonNullIdInto
+m	io/fabric/sdk/android/services/common/v	DW	()Lio/fabric/sdk/android/services/common/b;	auto: 取 AdvertisingInfo；src: fabric io/fabric/sdk/android/services/common/IdManager#getAdvertisingInfo
+m	io/fabric/sdk/android/services/common/v	v5	()Ljava/util/Map;	auto: 取 DeviceIdentifiers；src: fabric io/fabric/sdk/android/services/common/IdManager#getDeviceIdentifiers
+f	io/fabric/sdk/android/services/common/v	j6	-	auto: 字段(Ljava/util/regex/Pattern;)；src: fabric io/fabric/sdk/android/services/common/IdManager.ID_PATTERN
+f	io/fabric/sdk/android/services/common/v	EQ	-	auto: 字段(Lio/fabric/sdk/android/services/common/AdvertisingInfoProvider;)；src: fabric io/fabric/sdk/android/services/common/IdManager.advertisingInfoProvider
+f	io/fabric/sdk/android/services/common/v	FH	-	auto: 字段(Ljava/util/concurrent/locks/ReentrantLock;)；src: fabric io/fabric/sdk/android/services/common/IdManager.installationIdLock
+f	io/fabric/sdk/android/services/common/v	VH	-	auto: 字段(Landroid/content/Context;)；src: fabric io/fabric/sdk/android/services/common/IdManager.appContext
+f	io/fabric/sdk/android/services/common/v	tp	-	auto: 字段(Ljava/util/Collection;)；src: fabric io/fabric/sdk/android/services/common/IdManager.kits
+f	io/fabric/sdk/android/services/common/v	we	-	auto: 字段(Lio/fabric/sdk/android/services/common/b;)；src: fabric io/fabric/sdk/android/services/common/IdManager.advertisingInfo
+m	io/fabric/sdk/android/services/common/v	j6	(Ljava/lang/String;)Ljava/lang/String;	auto: 格式化 Id；src: fabric io/fabric/sdk/android/services/common/IdManager#formatId
+m	io/fabric/sdk/android/services/common/v	DW	(Ljava/lang/String;)Ljava/lang/String;	auto: 移除 ForwardSlashesIn；src: fabric io/fabric/sdk/android/services/common/IdManager#removeForwardSlashesIn
+m	io/fabric/sdk/android/services/common/v	EQ	()Ljava/lang/Boolean;	auto: 是否 LimitAdTrackingEnabled；src: fabric io/fabric/sdk/android/services/common/IdManager#isLimitAdTrackingEnabled
+m	io/fabric/sdk/android/services/common/v	J0	()Ljava/lang/Boolean;	auto: 「explicitCheckLimitAdTracking」；src: fabric io/fabric/sdk/android/services/common/IdManager#explicitCheckLimitAdTracking
+m	io/fabric/sdk/android/services/common/v	Hw	()Ljava/lang/String;	auto: 取 AppInstallIdentifier；src: fabric io/fabric/sdk/android/services/common/IdManager#getAppInstallIdentifier
+m	io/fabric/sdk/android/services/common/v	FH	()Ljava/lang/String;	auto: 取 AppIdentifier；src: fabric io/fabric/sdk/android/services/common/IdManager#getAppIdentifier
+m	io/fabric/sdk/android/services/common/v	tp	()Ljava/lang/String;	auto: 取 OsVersionString；src: fabric io/fabric/sdk/android/services/common/IdManager#getOsVersionString
+m	io/fabric/sdk/android/services/common/v	VH	()Ljava/lang/String;	auto: 取 ModelName；src: fabric io/fabric/sdk/android/services/common/IdManager#getModelName
+m	io/fabric/sdk/android/services/common/v	u7	()Ljava/lang/String;	auto: 取 OsDisplayVersionString；src: fabric io/fabric/sdk/android/services/common/IdManager#getOsDisplayVersionString
+m	io/fabric/sdk/android/services/common/v	gn	()Ljava/lang/String;	auto: 取 OsBuildVersionString；src: fabric io/fabric/sdk/android/services/common/IdManager#getOsBuildVersionString
+m	io/fabric/sdk/android/services/common/v	Zo	()Ljava/lang/String;	auto: 取 InstallerPackageName；src: fabric io/fabric/sdk/android/services/common/IdManager#getInstallerPackageName
+m	io/fabric/sdk/android/services/common/v	j6	()Z	auto: 能否 CollectUserIds；src: fabric io/fabric/sdk/android/services/common/IdManager#canCollectUserIds
+m	io/fabric/sdk/android/services/common/v	we	()Z	auto: 是否应 CollectHardwareIds；src: fabric io/fabric/sdk/android/services/common/IdManager#shouldCollectHardwareIds
+f	io/fabric/sdk/android/services/common/v	DW	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/IdManager.FORWARD_SLASH_REGEX
+f	io/fabric/sdk/android/services/common/v	J0	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/IdManager.fetchedAdvertisingInfo
+f	io/fabric/sdk/android/services/common/v	u7	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/IdManager.appInstallIdentifier
+f	io/fabric/sdk/android/services/common/v	gn	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/IdManager.appIdentifier
+f	io/fabric/sdk/android/services/common/v	v5	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/IdManager.collectHardwareIds
+f	io/fabric/sdk/android/services/common/v	Zo	-	auto: 字段(Z)；src: fabric io/fabric/sdk/android/services/common/IdManager.collectUserIds
+f	io/fabric/sdk/android/services/common/v	Hw	-	auto: 字段(Lio/fabric/sdk/android/services/common/x;)；src: fabric io/fabric/sdk/android/services/common/IdManager.installerPackageNameProvider
+f	io/fabric/sdk/android/services/common/v	J8	-	auto: 字段(Lio/fabric/sdk/android/services/common/u;)；src: fabric io/fabric/sdk/android/services/common/IdManager.firebaseInfo
+m	io/fabric/sdk/android/services/common/a	j6	(Ljava/lang/String;)Ljava/lang/String;	auto: 格式化 Url（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/services/common/a	DW	()Ljava/lang/String;	auto: 取 BaseUrl（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/services/common/a	j6	()Labcd/Hz;	auto: 创建 Request（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/services/common/a	j6	(Ljava/util/Map;)Labcd/Hz;	auto: 创建 RequestWithParams（上游无同签名对应，按作用取名）
+f	io/fabric/sdk/android/services/common/a	j6	-	auto: 字段(Ljava/util/regex/Pattern;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/services/common/a	DW	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/services/common/a	FH	-	auto: 字段(Labcd/Jz;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/services/common/a	Hw	-	auto: 字段(Labcd/Fz;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/services/common/a	Zo	-	auto: 字段(Lio/fabric/sdk/android/Kit;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/services/common/a	v5	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+m	io/fabric/sdk/android/f	j6	(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;)Lio/fabric/sdk/android/l;	auto: 加载 KitInfo；src: fabric io/fabric/sdk/android/FabricKitsFinder#loadKitInfo
+m	io/fabric/sdk/android/f	j6	()Ljava/util/zip/ZipFile;	auto: 加载 ApkFile；src: fabric io/fabric/sdk/android/FabricKitsFinder#loadApkFile
+f	io/fabric/sdk/android/f	j6	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/FabricKitsFinder.apkFileName
+m	io/fabric/sdk/android/f	FH	()Ljava/util/Map;	auto: 查找 RegisteredKits；src: fabric io/fabric/sdk/android/FabricKitsFinder#findRegisteredKits
+m	io/fabric/sdk/android/f	DW	()Ljava/util/Map;	auto: 查找 ImplicitKits；src: fabric io/fabric/sdk/android/FabricKitsFinder#findImplicitKits
+m	io/fabric/sdk/android/n	j6	(Ljava/util/Map;Ljava/util/Collection;)Ljava/util/Map;	auto: 合并 Kits；src: fabric io/fabric/sdk/android/Onboarding#mergeKits
+f	io/fabric/sdk/android/n	DW	-	auto: 字段(Landroid/content/pm/PackageManager;)；src: fabric io/fabric/sdk/android/Onboarding.packageManager
+f	io/fabric/sdk/android/n	EQ	-	auto: 字段(Ljava/util/Collection;)；src: fabric io/fabric/sdk/android/Onboarding.providedKits
+f	io/fabric/sdk/android/n	Hw	-	auto: 字段(Landroid/content/pm/PackageInfo;)；src: fabric io/fabric/sdk/android/Onboarding.packageInfo
+f	io/fabric/sdk/android/n	tp	-	auto: 字段(Ljava/util/concurrent/Future;)；src: fabric io/fabric/sdk/android/Onboarding.kitsFinder
+m	io/fabric/sdk/android/n	Zo	()Ljava/lang/String;	auto: 取 OverridenSpiEndpoint；src: fabric io/fabric/sdk/android/Onboarding#getOverridenSpiEndpoint
+f	io/fabric/sdk/android/n	FH	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/n	VH	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/n	gn	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/n	j6	-	auto: 字段(Labcd/Jz;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/n	u7	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/n	v5	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+m	io/fabric/sdk/android/n	DW	(Ljava/lang/String;Labcd/Wz;Ljava/util/Collection;)Z	auto: 「verifyKitDependencies」（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/n	FH	(Ljava/lang/String;Labcd/Wz;Ljava/util/Collection;)Z	auto: 是否 KitVersionCompatible（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/n	j6	(Labcd/fA;Ljava/util/Collection;)Labcd/Vz;	auto: 创建 KitsFinder（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/n	j6	(Labcd/Wz;Labcd/fA;Ljava/util/Collection;)Z	auto: 是否 KitAccepted（上游无同签名对应，按作用取名）
+m	io/fabric/sdk/android/services/common/r	DW	(Ljava/lang/String;)Ljava/util/concurrent/ScheduledExecutorService;	auto: 构建 SingleThreadScheduledExecutorService；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils#buildSingleThreadScheduledExecutorService
+m	io/fabric/sdk/android/services/common/r	FH	(Ljava/lang/String;)Ljava/util/concurrent/ThreadFactory;	auto: 取 NamedThreadFactory；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils#getNamedThreadFactory
+m	io/fabric/sdk/android/services/common/r	j6	(Ljava/lang/String;)Ljava/util/concurrent/ExecutorService;	auto: 构建 SingleThreadExecutorService；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils#buildSingleThreadExecutorService
+m	io/fabric/sdk/android/services/common/r	j6	(Ljava/lang/String;Ljava/util/concurrent/ExecutorService;)V	auto: 加入 DelayedShutdownHook；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils#addDelayedShutdownHook
+m	io/fabric/sdk/android/services/common/r	j6	(Ljava/lang/String;Ljava/util/concurrent/ExecutorService;JLjava/util/concurrent/TimeUnit;)V	auto: 加入 DelayedShutdownHook；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils#addDelayedShutdownHook
+m	io/fabric/sdk/android/services/common/u	j6	(Landroid/content/Context;)Ljava/lang/String;	auto: 取 ApiKeyFromFirebaseAppId；src: fabric io/fabric/sdk/android/services/common/FirebaseInfo#getApiKeyFromFirebaseAppId
+m	io/fabric/sdk/android/services/common/u	j6	(Ljava/lang/String;)Ljava/lang/String;	auto: 创建 ApiKeyFromFirebaseAppId；src: fabric io/fabric/sdk/android/services/common/FirebaseInfo#createApiKeyFromFirebaseAppId
+m	io/fabric/sdk/android/services/common/u	v5	(Landroid/content/Context;)Z	auto: 是否 FirebaseCrashlyticsEnabled；src: fabric io/fabric/sdk/android/services/common/FirebaseInfo#isFirebaseCrashlyticsEnabled
+m	io/fabric/sdk/android/services/common/u	FH	(Landroid/content/Context;)Z	auto: 是否有 GoogleAppId；src: fabric io/fabric/sdk/android/services/common/FirebaseInfo#hasGoogleAppId
+m	io/fabric/sdk/android/services/common/u	Hw	(Landroid/content/Context;)Z	auto: 是否 AutoInitializeFlagEnabled；src: fabric io/fabric/sdk/android/services/common/FirebaseInfo#isAutoInitializeFlagEnabled
+m	io/fabric/sdk/android/services/common/u	DW	(Landroid/content/Context;)Z	auto: 是否有 ApiKey；src: fabric io/fabric/sdk/android/services/common/FirebaseInfo#hasApiKey
+m	io/fabric/sdk/android/services/common/t	j6	(Landroid/content/Context;)Lio/fabric/sdk/android/services/common/s;	auto: 取 Instance；src: fabric io/fabric/sdk/android/services/common/FirebaseAppImpl#getInstance
+m	io/fabric/sdk/android/services/common/t	j6	()Z	auto: 是否 DataCollectionDefaultEnabled；src: fabric io/fabric/sdk/android/services/common/FirebaseAppImpl#isDataCollectionDefaultEnabled
+f	io/fabric/sdk/android/services/common/t	DW	-	auto: 字段(Ljava/lang/Object;)；src: fabric io/fabric/sdk/android/services/common/FirebaseAppImpl.firebaseAppInstance
+f	io/fabric/sdk/android/services/common/t	j6	-	auto: 字段(Ljava/lang/reflect/Method;)；src: fabric io/fabric/sdk/android/services/common/FirebaseAppImpl.isDataCollectionDefaultEnabledMethod
+m	io/fabric/sdk/android/services/common/x	j6	(Landroid/content/Context;)Ljava/lang/String;	auto: 取 InstallerPackageName；src: fabric io/fabric/sdk/android/services/common/InstallerPackageNameProvider#getInstallerPackageName
+f	io/fabric/sdk/android/services/common/x	DW	-	auto: 字段(Labcd/Qy;)（上游无同类型对应，按作用取名）
+f	io/fabric/sdk/android/services/common/x	j6	-	auto: 字段(Labcd/Sy;)（上游无同类型对应，按作用取名）
+m	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$b	v5	()Z	auto: 是否 LimitAdTrackingEnabled；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingInterface#isLimitAdTrackingEnabled
+f	io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$b	j6	-	auto: 字段(Landroid/os/IBinder;)；src: fabric io/fabric/sdk/android/services/common/AdvertisingInfoServiceStrategy$AdvertisingInterface.binder
+f	io/fabric/sdk/android/services/common/B	Hw	-	auto: 字段(Lio/fabric/sdk/android/services/common/SafeToast;)；src: fabric io/fabric/sdk/android/services/common/SafeToast$1.this$0
+m	io/fabric/sdk/android/services/common/j	j6	()Ljava/lang/String;	auto: 取 ExceptionName；src: fabric io/fabric/sdk/android/services/common/Crash#getExceptionName
+m	io/fabric/sdk/android/services/common/j	DW	()Ljava/lang/String;	auto: 取 SessionId；src: fabric io/fabric/sdk/android/services/common/Crash#getSessionId
+f	io/fabric/sdk/android/services/common/j	j6	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/Crash.sessionId
+f	io/fabric/sdk/android/services/common/j	DW	-	auto: 字段(Ljava/lang/String;)；src: fabric io/fabric/sdk/android/services/common/Crash.exceptionName
+m	io/fabric/sdk/android/services/common/o	j6	()V	auto: 执行 onRun；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$1$1#onRun
+f	io/fabric/sdk/android/services/common/o	DW	-	auto: 字段(Lio/fabric/sdk/android/services/common/p;)；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$1$1.this$0
+f	io/fabric/sdk/android/services/common/o	j6	-	auto: 字段(Ljava/lang/Runnable;)；src: fabric io/fabric/sdk/android/services/common/ExecutorUtils$1$1.val$runnable
+m	io/fabric/sdk/android/services/common/A	j6	(I)I	auto: 「parse」；src: fabric io/fabric/sdk/android/services/common/ResponseParser#parse
+f	abcd/cz	j6	-	auto: 字段(Labcd/cz;)；src: fabric io/fabric/sdk/android/services/concurrency/Priority.LOW
+f	abcd/cz	DW	-	auto: 字段(Labcd/cz;)；src: fabric io/fabric/sdk/android/services/concurrency/Priority.NORMAL
+f	abcd/cz	FH	-	auto: 字段(Labcd/cz;)；src: fabric io/fabric/sdk/android/services/concurrency/Priority.HIGH
+f	abcd/cz	Hw	-	auto: 字段(Labcd/cz;)；src: fabric io/fabric/sdk/android/services/concurrency/Priority.IMMEDIATE
+f	abcd/cz	v5	-	auto: 字段([Labcd/cz;)；src: fabric io/fabric/sdk/android/services/concurrency/Priority.$VALUES
+m	abcd/cz	j6	(Labcd/hz;Ljava/lang/Object;)I	auto: 「compare」（上游无同签名对应，按作用取名）
+m	abcd/hz	v5	()Labcd/cz;	auto: 取 Priority；src: fabric io/fabric/sdk/android/services/concurrency/PriorityProvider#getPriority
+m	abcd/jz	FH	()Ljava/util/Collection;	auto: 取 Dependencies；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask#getDependencies
+m	abcd/jz	j6	(Labcd/lz;)V	auto: 加入 Dependency；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask#addDependency
+m	abcd/jz	DW	()Z	auto: 「areDependenciesMet」；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask#areDependenciesMet
+m	abcd/jz	j6	(Z)V	auto: 设 Finished；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask#setFinished
+m	abcd/jz	j6	()Z	auto: 是否 Finished；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask#isFinished
+m	abcd/jz	j6	(Ljava/lang/Throwable;)V	auto: 设 Error；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask#setError
+m	abcd/jz	v5	()Labcd/cz;	auto: 取 Priority；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask#getPriority
+m	abcd/jz	compareTo	(Ljava/lang/Object;)I	auto: 比较 To；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask#compareTo
+f	abcd/jz	j6	-	auto: 字段(Ljava/util/List;)；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask.dependencies
+f	abcd/jz	DW	-	auto: 字段(Ljava/util/concurrent/atomic/AtomicBoolean;)；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask.hasRun
+f	abcd/jz	FH	-	auto: 字段(Ljava/util/concurrent/atomic/AtomicReference;)；src: fabric io/fabric/sdk/android/services/concurrency/PriorityTask.throwable
+m	abcd/_y	DW	()Z	auto: 「areDependenciesMet」；src: fabric io/fabric/sdk/android/services/concurrency/Dependency#areDependenciesMet
+m	abcd/_y	FH	()Ljava/util/Collection;	auto: 取 Dependencies；src: fabric io/fabric/sdk/android/services/concurrency/Dependency#getDependencies
+m	abcd/_y	j6	(Ljava/lang/Object;)V	auto: 加入 Dependency；src: fabric io/fabric/sdk/android/services/concurrency/Dependency#addDependency
+m	abcd/lz	j6	(Ljava/lang/Throwable;)V	auto: 设 Error；src: fabric io/fabric/sdk/android/services/concurrency/Task#setError
+m	abcd/lz	j6	(Z)V	auto: 设 Finished；src: fabric io/fabric/sdk/android/services/concurrency/Task#setFinished
+m	abcd/lz	j6	()Z	auto: 是否 Finished；src: fabric io/fabric/sdk/android/services/concurrency/Task#isFinished
