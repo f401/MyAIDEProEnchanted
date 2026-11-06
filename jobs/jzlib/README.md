@@ -97,3 +97,21 @@ python tools/deob/famcheck.py --jar process/base/merged_ok.jar --parts jobs/jzli
 python tools/jgit/pipeline/rebuild_tsrg.py && python tools/jgit/pipeline/validate_mappings.py
 python tools/jgit/pipeline/inherit_check.py
 ```
+
+## 附：剩余 19 个 int/宽字段为什么还空着（2025-11）
+
+按「字段被哪些**真名方法**访问」做指纹（与 oracle 的字段访问集合求 Jaccard），只得到 2 个
+唯一命中，其余全部打平——jzlib 的 `proc`/`inflate` 这类方法一次摸十几个字段，方法级粒度
+区分不开：
+
+| 类 | 未定名 | 方法级指纹结果 |
+|---|---|---|
+| Deflate | `I:[S` `aj:[B` `cb` `lp` `rN` `sh` | `I`→`bl_count`/`aj`→`pending_buf` 与同类已用名撞车（`Mz`、`v5` 已占），其余 `cb/sh`/`rN` 分别在 `prev_length|nice_match|max_chain_length`、`hash_shift|hash_mask` 上打平 |
+| InfBlocks | `XL` `Zo` `j3` `v5` | 全部在 `proc` 里访问，`table/left/last` 与 `bitk/bitb` 三三打平 |
+| InfCodes | `VH` `Zo` `gn` `u7` | 全部只在 `proc` 里，`tree_index/need/lit` 打平 |
+| Inflate | `EQ` `FH` `Zo` | 只在 `inflate` 里，`method/flags` 打平 |
+| ZStream | `DW` `Zo` | 两个字段在本类方法里没有任何字段引用（只被外部类读写）→ 方法内指纹不可用，得看**引用者** |
+
+下一步（还没做）：把指纹从「方法集合」换成「方法内字段访问的**序列**」（`fieldorder.py` 的
+putfield 顺序思路），并给 ZStream 的两个索引字段做**引用者**分析（`next_in_index` 只在
+`Inflate#inflate` 里递增、`next_out_index` 只在输出拷贝处递增）。

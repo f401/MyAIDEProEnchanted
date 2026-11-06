@@ -228,3 +228,34 @@ abcd/rI$a	configureRequest	HttpAuthMethod$Basic 的同一方法（AIDE 参数类
 abcd/rI$b	configureRequest	HttpAuthMethod$Digest 的同一方法
 abcd/rI$c	configureRequest	HttpAuthMethod$None 的同一方法
 abcd/xF	isWorktreeDirty	AIDE 把 isWorktreeDirty(WorkingTreeIterator,DirCacheEntry) 改成无参 ()Z；body 读 tw/failingPaths/DIRTY_WORKTREE，与 3.7.1 的同名字段用法一致（J0 才是 isIndexDirty：读 inCore/DIRTY_INDEX）
+# —— 30 条「字段名不存在」的复核结论（2025-11）：字段类型定名 / 少数是新版本改名 ——
+abcd/DG	alternates	字段类型直接定名（探针字段 Hw 的类型 = org/eclipse/jgit/internal/storage/file/FileObjectDatabase$AlternateHandle[]）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/HH	deltaCache	字段类型直接定名（探针字段 FH 的类型 = org/eclipse/jgit/internal/storage/pack/DeltaCache）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/HH	progressMonitor	字段类型直接定名（探针字段 Hw 的类型 = org/eclipse/jgit/lib/ThreadSafeProgressMonitor）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/HH	items	字段类型直接定名（探针字段 VH 的类型 = org/eclipse/jgit/internal/storage/pack/ObjectToPack[]）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/HH	index	字段类型直接定名（探针字段 Zo 的类型 = I）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/HH	config	字段类型直接定名（探针字段 j6 的类型 = org/eclipse/jgit/storage/pack/PackConfig）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/HH	count	字段类型直接定名（探针字段 v5 的类型 = I）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/IJ	requestPolicy	字段类型直接定名（探针字段 nw 的类型 = org/eclipse/jgit/transport/UploadPack$RequestPolicy）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/OH	crc32	字段类型直接定名（探针字段 Hw 的类型 = Ljava/util/zip/CRC32;）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/PA	objectId	字段类型直接定名（探针字段 FH 的类型 = org/eclipse/jgit/lib/ObjectId）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/PA	fileMode	字段类型直接定名（探针字段 Hw 的类型 = org/eclipse/jgit/lib/FileMode）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/PA	file	字段类型直接定名（探针字段 v5 的类型 = Ljava/io/File;）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/PI	receivePack	字段类型直接定名（探针字段 j6 的类型 = org/eclipse/jgit/transport/BaseReceivePack）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/QG	objectSet	字段类型直接定名（探针字段 DW 的类型 = Ljava/util/Set;）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/QK	isMacOS	上游 4.10.0/4.11.9/4.2.0/4.4.1/4.5.0/4.5.7/4.9.10/org.eclipse.jgit-5.13.3.202401111512-r/org.eclipse.jgit-5.6.1 才有该字段（oracle 版本差异）；探针字段 DW 的类型 = Z
+abcd/YA	commitCommand	字段类型直接定名（探针字段 DW 的类型 = org/eclipse/jgit/api/CommitCommand）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/YA	dirCacheEntry	字段类型直接定名（探针字段 FH 的类型 = org/eclipse/jgit/dircache/DirCacheEntry）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/ZH	bucket	字段类型直接定名（探针字段 VH 的类型 = Ljava/lang/String;）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/ZH	key	字段类型直接定名（探针字段 gn 的类型 = Ljava/lang/String;）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/hK$a	comparator	字段类型直接定名（探针字段 FH 的类型 = Ljava/util/Comparator;）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/lH	longs	字段类型直接定名（探针字段 FH 的类型 = J[]）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/lH	ints	字段类型直接定名（探针字段 v5 的类型 = I[]）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/sG	repository	字段类型直接定名（探针字段 Zo 的类型 = org/eclipse/jgit/lib/Repository）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/xJ$d	value	字段类型直接定名（探针字段 DW 的类型 = Ljava/lang/String;）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/cD$b	size	字段类型直接定名（探针字段 DW 的类型 = J）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/cD$b	limit	字段类型直接定名（探针字段 FH 的类型 = J）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/EG$a	size	字段类型直接定名（探针字段 DW 的类型 = I）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/EG$a	data	字段类型直接定名（探针字段 j6 的类型 = B[]）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/rI	httpAuthMethod	字段类型直接定名（探针字段 j6 的类型 = org/eclipse/jgit/transport/HttpAuthMethod）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
+abcd/gJ	refUpdate	字段类型直接定名（探针字段 DW 的类型 = org/eclipse/jgit/lib/RefUpdate）；AIDE 的 jgit 该类比 3.7.1 多/改了字段，11 个 oracle 版本都没有这个字段名
