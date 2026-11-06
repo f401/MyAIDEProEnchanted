@@ -1,15 +1,16 @@
 yc	abcd/aide/TimeProvider	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz	abcd/aide/HttpRequest	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz$a	abcd/aide/HttpRequest$HttpUploadTask	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz$b	abcd/aide/HttpRequest$HttpConnectionFactory	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz$d	abcd/aide/HttpRequest$HttpTask	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz$e	abcd/aide/HttpRequest$HttpBodyOutputStream	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Gz	abcd/aide/HttpUpload	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Ez	abcd/aide/SslSocketFactoryProvider	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Jz	abcd/aide/SslSocketFactorySource	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
+Hz	abcd/aide/HttpRequest	src:fabric-1.4.8 io/fabric/sdk/android/services/network/HttpRequest —— 字段 connection/url/requestMethod/output/multipart/form/ignoreCloseExceptions/uncompress/bufferSize/httpProxyHost/httpProxyPort 与探针 FH/Hw/v5/Zo/gn/u7/VH/tp/we/EQ 逐个对上；createConnection/createProxy/code/header/stream/url/method/intHeader/connectTimeout/useCaches/openOutput 同形
+Hz$a	abcd/aide/HttpRequest$CloseOperation	src:fabric HttpRequest$CloseOperation（abstract、ctor (Closeable,boolean)、字段 Closeable+boolean、done() 覆写）
+Hz$b	abcd/aide/HttpRequest$ConnectionFactory	src:fabric HttpRequest$ConnectionFactory（interface，create(URL) / create(URL,Proxy)）
+Hz$d	abcd/aide/HttpRequest$Operation	src:fabric HttpRequest$Operation（abstract、implements Callable、abstract run() + done()、final call()）
+Hz$e	abcd/aide/HttpRequest$RequestOutputStream	src:fabric HttpRequest$RequestOutputStream（extends BufferedOutputStream、write(String) 返回自身）
+Gz	abcd/aide/HttpRequest$6	src:fabric HttpRequest$6 —— 唯一形参为 (HttpRequest, Closeable, boolean, InputStream, OutputStream) 的匿名 CloseOperation（对应 send(InputStream)），字段 val$input/val$output 与探针 FH/Hw 对上
+Ez	abcd/aide/DefaultHttpRequestFactory	src:fabric DefaultHttpRequestFactory（implements HttpRequestFactory；字段 Logger/PinningInfoProvider/SSLSocketFactory/boolean 与探针 j6/DW/FH/Hw 对上）
+Fz	abcd/aide/HttpMethod	str:枚举常量的名字字符串原样留在 <clinit> 里（j6=GET、DW=POST、FH=PUT、Hw=DELETE）+ 4 常量枚举、被 HttpRequestFactory.buildHttpRequest 当方法类型 ⇒ fabric HttpMethod
+Jz	abcd/aide/HttpRequestFactory	src:fabric HttpRequestFactory（interface；3 个方法 buildHttpRequest(HttpMethod,String[,Map]) / setPinningInfoProvider(PinningInfoProvider)；第 4 个 getPinningInfoProvider 被 R8 删）
 Sz	abcd/aide/FabricTask	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
 dA	abcd/aide/FabricRequest	pkg:已确认 AIDE 自有（不属任何依赖）⇒ 归入 abcd/aide 子包，类名按作用；跨包访问由 widen_access 放宽
-Hz$c	abcd/aide/HttpRequest$c	pkg:跟随父类进 abcd/aide（作用待定，保留 $后缀）
+Hz$c	abcd/aide/HttpRequest$HttpRequestException	src:fabric HttpRequest$HttpRequestException（extends RuntimeException、ctor (IOException)、getCause() 返回 IOException）
 Ji	abcd/aide/Settings	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
 Di	abcd/aide/Settings$1	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名
 Fi	abcd/aide/Settings$2	pkg:AIDE 自有（匿名 Runnable/内部类）⇒ abcd/aide，按编译器风格编号命名

@@ -40,7 +40,13 @@ def load_jar(path, prefixes):
         sup[cn] = c['sup'] or ''
         ifs[cn] = [x for x in (c['ifaces'] or []) if x]
         for m in c['members']:
-            if m['kind'] == 'm' and not m['name'].startswith('<'):
+            # 只有可被覆写的方法才算"覆写族"：private(0x2)/static(0x8) 不参与虚分派。
+            # 不排除会误报 —— 踩过：jgit PackParser#endInput(protected) 与
+            # ObjectDirectoryPackParser#writeIdx(private) 在 R8 后同用字母 J0，
+            # 被当成"子类没跟着改名"。同理 IntegerList#ensureCapacity(private) 与
+            # IntegerStack#push(public) 同用 d。
+            if (m['kind'] == 'm' and not m['name'].startswith('<')
+                    and not (m['acc'] & (0x2 | 0x8))):
                 decl[cn].add((m['name'], m['desc']))
     return sup, ifs, decl
 

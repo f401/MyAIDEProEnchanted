@@ -11663,50 +11663,61 @@ c	abcd/yc	abcd/aide/TimeProvider	role: 全局时间源的读取端（静态初�
 	m	(J)J	j6	access$002	role: 编译器生成的静态字段访问器（写 abcd/yc 的静态 long，返回旧值）
 		p	0	value	value
 	m	()Ljava/lang/Object;	j6	access$000	role: 编译器生成的静态字段访问器（读 Object 字段 DW）
-c	abcd/Hz	abcd/aide/HttpRequest	src: 命中 fabric-1.4.8 io/fabric/sdk/android/services/network/HttpRequest（字段 connection/url/httpProxyHost/httpProxyPort 逐个对上，createConnection/createProxy/encode 同形）；现名按作用取，非上游真名
-	m	()Ljava/net/HttpURLConnection;	QX	createConnection	src: 与 fabric HttpRequest#createConnection 同形（有代理走 Hz$b.j6(URL,Proxy)，再 setRequestMethod(请求方法字段)）
-	m	()Ljava/net/Proxy;	XL	getProxy	src: 对应 fabric HttpRequest#createProxy（new Proxy(HTTP, InetSocketAddress(代理主机, 端口))）；现名 getProxy 只是近似
-	m	(Labcd/Hz;)I	j6	access$000	role: 合成访问器：供外部读内部类 abcd/Hz$… 的 int 字段
+c	abcd/Hz	abcd/aide/HttpRequest	src: fabric-1.4.8 HttpRequest —— 11 个字段与探针 FH/Hw/v5/Zo/gn/u7/VH/tp/we/EQ 逐个对上；createConnection/createProxy/code/header/stream/url/method/intHeader/connectTimeout/useCaches/openOutput 同形
+	m	()Ljava/net/HttpURLConnection;	QX	createConnection	src: fabric HttpRequest#createConnection（有代理走 ConnectionFactory.create(URL,Proxy)，再 setRequestMethod(requestMethod)）
+	m	()Ljava/net/Proxy;	XL	createProxy	src: fabric HttpRequest#createProxy（new Proxy(HTTP, InetSocketAddress(httpProxyHost, httpProxyPort))）
+	m	(Labcd/Hz;)I	j6	access$000	contain: 合成访问器，读 abcd/Hz 的 int 字段 tp(=httpProxyPort)；对应 fabric HttpRequest#access$000
 		p	0	x0	x0
-	m	()Ljava/lang/String;	EQ	getRequestMethod	recv: 名字对齐 java.net.HttpURLConnection#getRequestMethod；本类返回请求方法字段
-	m	(Ljava/lang/String;Ljava/lang/String;)Labcd/Hz;	FH	setRequestProperty	recv: 链式 setter（返回 this），名字对齐 HttpURLConnection#setRequestProperty；上游 fabric 同类方法是 header(String,String)
+	m	()Ljava/lang/String;	EQ	method	src: fabric HttpRequest#method；body: tp().getRequestMethod()
+	m	(Ljava/lang/String;Ljava/lang/String;)Labcd/Hz;	FH	header	src: fabric HttpRequest#header(String,String)，链式返回 this
 		p	0	key	key
 		p	1	value	value
-	m	(Ljava/lang/String;)Ljava/lang/String;	Hw	getHeaderField	recv: 对齐 HttpURLConnection#getHeaderField（族内一致：先 tp() 取连接再转发）
+	m	(Ljava/lang/String;)Ljava/lang/String;	Hw	header	src: fabric HttpRequest#header(String)（先执行请求再读字段）
 		p	0	name	name
-	m	()Ljava/io/InputStream;	J8	getInputStream	recv: 对齐 HttpURLConnection#getInputStream（先执行再取流）
-	m	()I	VH	getResponseCode	recv: 对齐 HttpURLConnection#getResponseCode；body: 先 invokevirtual v5() 执行再 tp().getResponseCode()（上游真名 code()）
-	m	()Ljava/net/URL;	Ws	getURL	role: 返回请求 URL（字段 Hw 是 public final URL，与 fabric HttpRequest.url 对应）
-	m	(Ljava/lang/String;I)I	j6	getHeaderFieldInt	recv: 对齐 HttpURLConnection#getHeaderFieldInt
+	m	()Ljava/io/InputStream;	J8	stream	src: fabric HttpRequest#stream；body: code()<400 时 getInputStream，否则读 errorStream
+	m	()I	VH	code	src: fabric HttpRequest#code；body: 先执行请求再 getResponseCode
+	m	()Ljava/net/URL;	Ws	url	src: fabric HttpRequest#url（返回 public final url 字段）
+	m	(Ljava/lang/String;I)I	j6	intHeader	src: fabric HttpRequest#intHeader(String,int)
 		p	0	name	name
 		p	1	defaultValue	defaultValue
-	m	(I)Labcd/Hz;	j6	setConnectTimeout	recv: 链式 setter，对齐 HttpURLConnection#setConnectTimeout
+	m	(I)Labcd/Hz;	j6	connectTimeout	src: fabric HttpRequest#connectTimeout(int)；body: tp().setConnectTimeout(p1)
 		p	0	timeout	timeout
-	m	(Z)Labcd/Hz;	j6	setUseCaches	recv: 链式 setter，对齐 HttpURLConnection#setUseCaches
+	m	(Z)Labcd/Hz;	j6	useCaches	src: fabric HttpRequest#useCaches(boolean)；body: tp().setUseCaches(p1)
 		p	0	useCaches	useCaches
-	m	()Ljava/net/HttpURLConnection;	tp	getConnection	src: 与 fabric HttpRequest#getConnection 同名同签名（必要时先执行请求）
-	m	()Labcd/Hz;	we	setDoOutput	recv: 无参链式 setter（返回 this）；名字对齐 HttpURLConnection#setDoOutput，方法体自行把 doOutput 置 true
-c	abcd/Hz$a	abcd/aide/HttpRequest$HttpUploadTask	role: 上传任务抽象（Gz 继承它），持有请求体输入/输出流与请求对象，close() 收尾；对应 fabric HttpRequest 的分块发送内部类
-	m	()V	j6	close	role: 上传任务收尾：关闭请求体流（子类 abcd/Gz 回调）
-c	abcd/Hz$b	abcd/aide/HttpRequest$HttpConnectionFactory	src: 对应 fabric HttpRequest$ConnectionFactory（createConnection 里 invokeinterface j6(URL[,Proxy]) 建连）
-	m	(Ljava/net/URL;)Ljava/net/HttpURLConnection;	j6	create	body: createConnection 里 invokeinterface Hz$b.j6(URL) ⇒ 无代理建连
+	m	()Ljava/net/HttpURLConnection;	tp	getConnection	src: fabric HttpRequest#getConnection（必要时先执行请求，再返回 connection 字段）
+	m	()Labcd/Hz;	we	openOutput	src: fabric HttpRequest#openOutput（protected；output 为空时 setDoOutput(true) 并建 RequestOutputStream）
+c	abcd/Hz$a	abcd/aide/HttpRequest$CloseOperation	src: fabric HttpRequest$CloseOperation（abstract、ctor (Closeable,boolean)、字段 Closeable+boolean、done() 覆写）；Gz 继承它
+	m	()V	j6	done	src: fabric HttpRequest$CloseOperation#done（忽略/传播 Closeable 的 close 异常）
+c	abcd/Hz$b	abcd/aide/HttpRequest$ConnectionFactory	src: fabric HttpRequest$ConnectionFactory（interface；create(URL) / create(URL,Proxy)）
+	m	(Ljava/net/URL;)Ljava/net/HttpURLConnection;	j6	create	src: fabric HttpRequest$ConnectionFactory#create(URL)
 		p	0	url	url
-	m	(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;	j6	create	body: createConnection 里带代理建连（代理取自 XL()）
+	m	(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;	j6	create	src: fabric HttpRequest$ConnectionFactory#create(URL,Proxy)
 		p	0	url	url
 		p	1	proxy	proxy
-c	abcd/Hz$d	abcd/aide/HttpRequest$HttpTask	role: 一次请求的执行体（call() 返回请求对象），泛型任务接口的实现端；对应 fabric HttpRequest$Operation
-	m	()V	j6	close	role: 请求任务收尾：关闭流
-	m	()Ljava/lang/Object;	call	call	recv: 泛型任务接口的 Object 桥接方法（业务实现在 DW()/call() 的协变版本）
-c	abcd/Hz$e	abcd/aide/HttpRequest$HttpBodyOutputStream	role: 请求体输出流（write(String) 返回自身，链式）；对应 fabric HttpRequest$RequestOutputStream
-	m	(Ljava/lang/String;)Labcd/Hz$e;	j6	write	role: 写请求体并返回自身（链式）；对应 fabric RequestOutputStream 的写入口
+c	abcd/Hz$d	abcd/aide/HttpRequest$Operation	src: fabric HttpRequest$Operation（abstract、implements Callable、abstract run()+done()、final call()）
+	m	()V	j6	done	src: fabric HttpRequest$Operation#done（abstract，CloseOperation/FlushOperation 各自实现）
+	m	()Ljava/lang/Object;	call	call	src: fabric HttpRequest$Operation#call（final，run() 的包装：异常转 HttpRequestException）
+c	abcd/Hz$e	abcd/aide/HttpRequest$RequestOutputStream	src: fabric HttpRequest$RequestOutputStream（extends BufferedOutputStream、write(String) 返回自身）
+	m	(Ljava/lang/String;)Labcd/Hz$e;	j6	write	src: fabric HttpRequest$RequestOutputStream#write(String)（CharsetEncoder 编码后链式返回自身）
 		p	0	value	value
-c	abcd/Gz	abcd/aide/HttpUpload	role: 上传任务实现（extends abcd/Hz$a），构造接收 InputStream/OutputStream + 请求对象
-	m	()Labcd/Hz;	DW	call	role: 上传任务主体：把输入流写进请求体并返回请求对象
-c	abcd/Ez	abcd/aide/SslSocketFactoryProvider	src: 命中 fabric-1.4.8 DefaultHttpRequestFactory（implements abcd/Jz；字段 PinningInfoProvider/SSLSocketFactory/kit，构造收 io.fabric.sdk.android.m）⇒ 现名 SslSocketFactoryProvider 不准
-c	abcd/Jz	abcd/aide/SslSocketFactorySource	src: 对应 fabric-1.4.8 HttpRequestFactory 接口（j6(Fz,String[,Map]) 造请求 + j6(Lz) 设 pinning）⇒ 现名 SslSocketFactorySource 不准
+c	abcd/Gz	abcd/aide/HttpRequest$6	src: fabric HttpRequest$6 —— 全库唯一形参为 (HttpRequest,Closeable,boolean,InputStream,OutputStream) 的匿名 CloseOperation（send(InputStream) 里的那个），字段就对 val$input/val$output
+	m	()Labcd/Hz;	DW	run	src: fabric HttpRequest$6#run（把 val$input 拷进 val$output 后返回 HttpRequest）
+c	abcd/Ez	abcd/aide/DefaultHttpRequestFactory	src: fabric DefaultHttpRequestFactory（implements HttpRequestFactory；字段 Logger/PinningInfoProvider/SSLSocketFactory/boolean 与探针 j6/DW/FH/Hw 对上）
+	m	(Labcd/Fz;Ljava/lang/String;)Labcd/Hz;	j6	buildHttpRequest	src: fabric DefaultHttpRequestFactory#buildHttpRequest(HttpMethod,String)
+	m	(Labcd/Fz;Ljava/lang/String;Ljava/util/Map;)Labcd/Hz;	j6	buildHttpRequest	src: fabric DefaultHttpRequestFactory#buildHttpRequest(HttpMethod,String,Map)
+	m	(Labcd/Lz;)V	j6	setPinningInfoProvider	src: fabric DefaultHttpRequestFactory#setPinningInfoProvider（写下 pinningInfo 并重置 sslSocketFactory）
+c	abcd/Fz	abcd/aide/HttpMethod	str: 枚举常量名字符串留在 <clinit>（j6=GET、DW=POST、FH=PUT、Hw=DELETE）+ 4 常量枚举、被 buildHttpRequest 当方法类型 ⇒ fabric HttpMethod
+	f	Labcd/Fz;	j6	GET	str: <clinit> 里 ldc "GET" 后 putstatic 本字段 ⇒ HttpMethod.GET
+	f	Labcd/Fz;	DW	POST	str: <clinit> 里 ldc "POST" 后 putstatic 本字段 ⇒ HttpMethod.POST
+	f	Labcd/Fz;	FH	PUT	str: <clinit> 里 ldc "PUT" 后 putstatic 本字段 ⇒ HttpMethod.PUT
+	f	Labcd/Fz;	Hw	DELETE	str: <clinit> 里 ldc "DELETE" 后 putstatic 本字段 ⇒ HttpMethod.DELETE
+c	abcd/Jz	abcd/aide/HttpRequestFactory	src: fabric HttpRequestFactory 接口（buildHttpRequest(HttpMethod,String[,Map]) ×2 + setPinningInfoProvider；第 4 个 getPinningInfoProvider 被 R8 删）
+	m	(Labcd/Fz;Ljava/lang/String;)Labcd/Hz;	j6	buildHttpRequest	src: fabric HttpRequestFactory#buildHttpRequest(HttpMethod,String)
+	m	(Labcd/Fz;Ljava/lang/String;Ljava/util/Map;)Labcd/Hz;	j6	buildHttpRequest	src: fabric HttpRequestFactory#buildHttpRequest(HttpMethod,String,Map)
+	m	(Labcd/Lz;)V	j6	setPinningInfoProvider	src: fabric HttpRequestFactory#setPinningInfoProvider(PinningInfoProvider)
 c	abcd/Sz	abcd/aide/FabricTask	role: fabric 的 SPI 调用基类派生（extends io.fabric.sdk.android.services.common.a，构造 (Kit,String,String,Jz,Fz)），implements abcd/Xz
 c	abcd/dA	abcd/aide/FabricRequest	role: SPI 调用实现（implements abcd/qA），j6(pA)→JSONObject 走请求再解析 JSON；构造 (Kit,String,String,Jz)
-c	abcd/Hz$c	abcd/aide/HttpRequest$c	contain: createConnection/encode 的 catch 里 new abcd/Hz$c(IOException) ⇒ IOException 包装异常；对应 fabric HttpRequest$HttpRequestException
+c	abcd/Hz$c	abcd/aide/HttpRequest$HttpRequestException	src: fabric HttpRequest$HttpRequestException（extends RuntimeException、ctor (IOException)、getCause() 返回 IOException）
 c	abcd/Ji	abcd/aide/Settings	role: AIDE 的设置门面（字段 Set<abcd/Ji$e>、Dw<com.dropbox.client2.android.a>、静态 abcd/Zw$a 单例）
 c	abcd/Di	abcd/aide/Settings$1	role: Settings 的第 1 个匿名 Runnable（字段 final abcd/Ji，类名后缀=编译器编号，无上游对应）
 c	abcd/Fi	abcd/aide/Settings$2	role: Settings 的第 2 个匿名 Runnable（字段 final abcd/Ji，类名后缀=编译器编号，无上游对应）

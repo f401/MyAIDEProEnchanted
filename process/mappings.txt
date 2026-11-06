@@ -12255,49 +12255,60 @@ abcd/yc abcd/aide/TimeProvider
 		static
 abcd/Hz abcd/aide/HttpRequest
 	QX ()Ljava/net/HttpURLConnection; createConnection
-	XL ()Ljava/net/Proxy; getProxy
+	XL ()Ljava/net/Proxy; createProxy
 	j6 (Labcd/Hz;)I access$000
 		static
 		0 x0 x0
-	EQ ()Ljava/lang/String; getRequestMethod
-	FH (Ljava/lang/String;Ljava/lang/String;)Labcd/Hz; setRequestProperty
+	EQ ()Ljava/lang/String; method
+	FH (Ljava/lang/String;Ljava/lang/String;)Labcd/Hz; header
 		0 key key
 		1 value value
-	Hw (Ljava/lang/String;)Ljava/lang/String; getHeaderField
+	Hw (Ljava/lang/String;)Ljava/lang/String; header
 		0 name name
-	J8 ()Ljava/io/InputStream; getInputStream
-	VH ()I getResponseCode
-	Ws ()Ljava/net/URL; getURL
-	j6 (Ljava/lang/String;I)I getHeaderFieldInt
+	J8 ()Ljava/io/InputStream; stream
+	VH ()I code
+	Ws ()Ljava/net/URL; url
+	j6 (Ljava/lang/String;I)I intHeader
 		0 name name
 		1 defaultValue defaultValue
-	j6 (I)Labcd/Hz; setConnectTimeout
+	j6 (I)Labcd/Hz; connectTimeout
 		0 timeout timeout
-	j6 (Z)Labcd/Hz; setUseCaches
+	j6 (Z)Labcd/Hz; useCaches
 		0 useCaches useCaches
 	tp ()Ljava/net/HttpURLConnection; getConnection
-	we ()Labcd/Hz; setDoOutput
-abcd/Hz$a abcd/aide/HttpRequest$HttpUploadTask
-	j6 ()V close
-abcd/Hz$b abcd/aide/HttpRequest$HttpConnectionFactory
+	we ()Labcd/Hz; openOutput
+abcd/Hz$a abcd/aide/HttpRequest$CloseOperation
+	j6 ()V done
+abcd/Hz$b abcd/aide/HttpRequest$ConnectionFactory
 	j6 (Ljava/net/URL;)Ljava/net/HttpURLConnection; create
 		0 url url
 	j6 (Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection; create
 		0 url url
 		1 proxy proxy
-abcd/Hz$d abcd/aide/HttpRequest$HttpTask
-	j6 ()V close
+abcd/Hz$d abcd/aide/HttpRequest$Operation
+	j6 ()V done
 	call ()Ljava/lang/Object; call
-abcd/Hz$e abcd/aide/HttpRequest$HttpBodyOutputStream
+abcd/Hz$e abcd/aide/HttpRequest$RequestOutputStream
 	j6 (Ljava/lang/String;)Labcd/Hz$e; write
 		0 value value
-abcd/Gz abcd/aide/HttpUpload
-	DW ()Labcd/Hz; call
-abcd/Ez abcd/aide/SslSocketFactoryProvider
-abcd/Jz abcd/aide/SslSocketFactorySource
+abcd/Gz abcd/aide/HttpRequest$6
+	DW ()Labcd/Hz; run
+abcd/Ez abcd/aide/DefaultHttpRequestFactory
+	j6 (Labcd/Fz;Ljava/lang/String;)Labcd/Hz; buildHttpRequest
+	j6 (Labcd/Fz;Ljava/lang/String;Ljava/util/Map;)Labcd/Hz; buildHttpRequest
+	j6 (Labcd/Lz;)V setPinningInfoProvider
+abcd/Fz abcd/aide/HttpMethod
+	j6 GET
+	DW POST
+	FH PUT
+	Hw DELETE
+abcd/Jz abcd/aide/HttpRequestFactory
+	j6 (Labcd/Fz;Ljava/lang/String;)Labcd/Hz; buildHttpRequest
+	j6 (Labcd/Fz;Ljava/lang/String;Ljava/util/Map;)Labcd/Hz; buildHttpRequest
+	j6 (Labcd/Lz;)V setPinningInfoProvider
 abcd/Sz abcd/aide/FabricTask
 abcd/dA abcd/aide/FabricRequest
-abcd/Hz$c abcd/aide/HttpRequest$c
+abcd/Hz$c abcd/aide/HttpRequest$HttpRequestException
 abcd/Ji abcd/aide/Settings
 abcd/Di abcd/aide/Settings$1
 abcd/Fi abcd/aide/Settings$2
