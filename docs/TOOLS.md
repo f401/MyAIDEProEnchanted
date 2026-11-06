@@ -47,10 +47,25 @@ tools/
 | `audit/trycheck.py` | 体检：jar 里还有没有"catch IndexOutOfBounds 但 try 不含数组访问"的方法（应为 0） |
 | `jar_manifest.py` | jar **内容指纹**（与 zip 布局无关），用于“两次 FART 是否一致” |
 | `nop_clinit.py` | 把方法体里显式 `invokestatic <clinit>` 换 NOP（D8 不收） |
-| `emit_tiny2.py` | 由 `process/mappings.txt` + 各 part 的 `comments.tsv` 生成 **Tiny v2**（`process/mappings.tiny`）：列序换成 `desc name new`、参数序号换成 **LVT 槽位**（实例 +1 / long·double 占 2 槽）、static 一律以 `process/base/merged_ok.jar` 为准 |
+| `emit_tiny2.py` | 由 `process/mappings.txt` + 各 part 的 `comments.tsv` 生成 **Tiny v2**（`process/mappings.tiny`）：列序换成 `desc name new`；参数下标默认按 **FART 实测约定**（0 起实参序号、实例与静态同号、long/double 算 1 个），`--param-index=lv` 才按 Tiny v2 书面约定换成 LVT 槽位；static 一律以 `process/base/merged_ok.jar` 为准 |
 | `validate_tiny.py` | **Tiny 体检**：头行、类/成员唯一、类/成员在基线 jar 里存在、字段类型与 jar 一致、参数槽位落在合法集合、注释（换行/长度/证据前缀）。`--parts=a,b` 还查**注释覆盖率**；`--selftest` 钉死槽位换算 6 例 |
 | `tiny_roundtrip.py` | **迁移硬判据**：`tiny → TSRG2` 与 `process/mappings.txt` 逐行 diff 必须为空（证明 tiny 没丢/没串任何一条映射） |
 | `tinyv2.py` | Tiny v2 最小读写器（类/方法/字段/参数 + `c` 注释行），被上面三个共用 |
+
+### 实测记录：Tiny v2 的 `p` 下标到底怎么读（2025-11 FART 1.0.8）
+
+`$HOME/tmp/tinyfill` 里用 `javac -g` 造了两个类跑对照（实例方法 `(String,long,int)` LVT 槽
+1/2/4、静态方法 `(long,String,int)` 槽 0/2/3），tiny 里写 `p 0/1/2`：
+
+| 写法 | 结果 |
+|---|---|
+| `p 0` → `P0` | 第 1 个实参（实例方法的槽 1）被改名 ⇒ **0 基实参序号** |
+| `p 1` → `P1` | 第 2 个实参被改名（实例方法槽 2 是 long，也没按宽度跳） |
+| 静态方法 | 与实例**同号**，`p 0` 就是第一个参数 |
+
+结论：FART（内置 srgutils）按实参序号读，与 Tiny v2 书面约定（LVT 槽位）差 1，且在
+long/double 之后差得更多。本项目打包链路只有 FART ⇒ **默认按 FART**；`--param-index=lv`
+保留书面约定（loom / tiny-remapper 那侧用），两个方向都有 round-trip 门禁。
 
 ## 注释表 `jobs/<part>/comments.tsv`
 

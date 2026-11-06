@@ -23,14 +23,15 @@ from emit_tiny2 import jar_access  # noqa: E402
 
 注意 TSRG2 的两个历史怪癖，反向必须复刻，否则 diff 会假报警：
   1. `\\t\\tstatic` 只跟在**改过名**的静态方法后面（emit_tsrg2 的 p[2] != p[0]）；
-  2. 参数行是 `\\t\\t<实参序号> <名> <名>`（两列同名），不是 tiny 的 LVT 槽位。
+  2. 参数行是 `\\t\\t<实参序号> <名> <名>`（两列同名）；tiny 的 `p` 默认就写实参序号
+     （FART 约定），`--param-index=lv` 时反向从 LVT 槽位换算回来。
 
 用法: python3 tools/jgit/pipeline/tiny_roundtrip.py [--tiny=..] [--tsrg=..]
 """
 import zipfile
 
 
-def to_tsrg(classes, acc):
+def to_tsrg(classes, acc, pmode='arg'):
     out = ['tsrg2 obf deobf']
     npar = nst = 0
     for c in classes:
@@ -47,11 +48,15 @@ def to_tsrg(classes, acc):
             if m['params']:
                 args = _PRM.desc_args(m['desc'])
                 for p in m['params']:
-                    idx = [k for k in range(len(args))
-                           if _T.lv_index(args, k, st) == p['lv']]
+                    if pmode == 'lv':
+                        idx = [k for k in range(len(args))
+                               if _T.lv_index(args, k, st) == p['index']]
+                    else:
+                        idx = [p['index']] if 0 <= p['index'] < len(args) else []
                     if len(idx) != 1:
-                        raise SystemExit('%s.%s%s 的 lv=%d 对不上实参序号（候选 %r）'
-                                         % (c['official'], m['official'], m['desc'], p['lv'], idx))
+                        raise SystemExit('%s.%s%s 的 p=%d 对不上实参序号（候选 %r）'
+                                         % (c['official'], m['official'], m['desc'],
+                                            p['index'], idx))
                     out.append('\t\t%d %s %s' % (idx[0], p['official'], p['named']))
                     npar += 1
     return out, npar, nst
@@ -60,14 +65,17 @@ def to_tsrg(classes, acc):
 def main():
     tiny = _os.path.join(_P.JOB, 'mappings.tiny')
     tsrg = _P.MAPPINGS
+    pmode = 'arg'
     for a in _sys.argv[1:]:
         if a.startswith('--tiny='):
             tiny = a.split('=', 1)[1]
         elif a.startswith('--tsrg='):
             tsrg = a.split('=', 1)[1]
+        elif a.startswith('--param-index='):
+            pmode = a.split('=', 1)[1]
     ns, classes = _T.read(tiny)
     acc, _ft = jar_access(_P.BASE_OK)
-    got, npar, nst = to_tsrg(classes, acc)
+    got, npar, nst = to_tsrg(classes, acc, pmode)
     want = [ln.rstrip('\n') for ln in open(tsrg, encoding='utf-8') if ln.strip()]
     npad = sum(1 for ln in want if ln.startswith('\t\t') and not ln.strip() == 'static')
     if got == want:

@@ -29,9 +29,11 @@ from dupcheck import parse_class  # noqa: E402
                                     kind = c(类) / m(方法) / f(字段)；类行的 name/desc 写 `-`
                                     owner/desc 用**探针空间**（和 members.tsrg 一致）
 
-换算（tiny 与 TSRG2 唯一不兼容的地方）：
-    参数索引  实参序号(0 起) → LVT 槽位（实例方法 +1、long/double 占 2 槽）
+两个不兼容点：
     列序      name desc new → desc name new
+    参数索引  默认**原样**写实参序号（0 起）—— 实测 FART 1.0.8 就是这么读的
+              （`--param-index=lv` 才换成 LVT 槽位：实例 +1、long/double 占 2 槽，
+                那是 Tiny v2 的书面约定，loom/tiny-remapper 用）
 
 用法: python3 tools/jgit/pipeline/emit_tiny2.py [out.tiny] [--tsrg=<mappings.txt>]
 """
@@ -183,12 +185,17 @@ def apply_comments(classes, comments, warn):
 def main():
     argv = [a for a in _sys.argv[1:]]
     tsrg = _P.MAPPINGS
+    pmode = 'arg'
     rest = []
     for a in argv:
         if a.startswith('--tsrg='):
             tsrg = a.split('=', 1)[1]
+        elif a.startswith('--param-index='):
+            pmode = a.split('=', 1)[1]
         else:
             rest.append(a)
+    if pmode not in ('arg', 'lv'):
+        raise SystemExit('--param-index 只能是 arg（FART 约定，默认）或 lv（Tiny 书面约定）')
     dst = rest[0] if rest else _os.path.join(_P.JOB, 'mappings.tiny')
 
     acc, ftypes = jar_access(_P.BASE_OK)
@@ -214,7 +221,8 @@ def main():
                         raise SystemExit('%s.%s%s 参数序号 %d 越界（只有 %d 个参数）'
                                          % (c['official'], m['official'], m['desc'],
                                             p['argidx'], len(args)))
-                    p['lv'] = _T.lv_index(args, p['argidx'], m.get('static'))
+                    p['index'] = (_T.lv_index(args, p['argidx'], m.get('static'))
+                                  if pmode == 'lv' else p['argidx'])
                     npar += 1
             else:
                 nf += 1

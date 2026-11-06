@@ -9,10 +9,15 @@ Tiny v2 与我们 TSRG2 的**列序不同**，这是最容易写错的地方：
     TSRG2 :  \\t<名字> <描述符> <新名>
     Tiny  :  \\tm\\t<描述符>\\t<名字>\\t<新名>        ← 描述符在前！
 
-参数的索引也不同：
-    TSRG2 `\\t\\t<i> 名 名` 里 i 是**实参序号**（0 起、long/double 算 1 个）
-    Tiny  `\\t\\tp\\t<lv>\\t名\\t名` 里 lv 是 **LocalVariableTable 槽位**
-    （实例方法从 1 起、静态从 0 起、long/double 占 2 槽）→ 用 slots()/lv_index() 换算。
+参数的索引：**实测 FART 1.0.8（内置 srgutils）把 `p` 的下标当成"描述符实参序号"**
+（0 起、long/double 算 1 个、实例与静态**同号**），不是 LocalVariableTable 槽位：
+
+    javac -g 的 Beta.inst(String,long,int) → LVT 槽 1/2/4，tiny 里写 p 0/1/2
+    实测（$HOME/tmp/tinyfill，两份用例）：p 0 → 第 1 个实参，p 1 → 第 2 个，与 static 无关
+
+Tiny v2 的书面约定是 LVT 槽位（Yarn 那种实例方法从 1 起；long/double 占 2 槽），两个实现
+不一致。**本项目以 FART 为准**（打包链路只有它），需要书面约定时用 `--param-index=lv`
+（emit_tiny2 / tiny_roundtrip / validate_tiny 都认这个开关），换算用 slots()/lv_index()。
 
 注释（`c` 行）是本项目引入 tiny 的唯一理由：TSRG2/ProGuard 都没有"成员级注释"的位置。
 """
@@ -46,7 +51,7 @@ def slots(t):
 
 
 def lv_index(args, argidx, static):
-    """实参序号(0 起) → LVT 槽位。`args` 是 desc_args() 的返回。"""
+    """实参序号(0 起) → LocalVariableTable 槽位（仅 `--param-index=lv` 时用）。"""
     lv = 0 if static else 1
     for a in args[:argidx]:
         lv += slots(a)
@@ -108,7 +113,7 @@ def read(path):
                 continue
             if f[0] != 'p':
                 raise SystemExit('%s:%d 只支持 p 行（局部变量 v 不支持）：%r' % (path, ln, line))
-            mem['params'].append({'lv': int(f[1]), 'official': f[2],
+            mem['params'].append({'index': int(f[1]), 'official': f[2],
                                   'named': f[3] if w > 1 else '',
                                   'comment': unesc(f[2 + w]) if len(f) > 2 + w and f[2 + w] else ''})
     if ns is None:
@@ -129,7 +134,7 @@ def write(path, ns, classes):
                 row.append(esc(m['comment']))
             out.append('\t' + '\t'.join(row))
             for p in m.get('params') or []:
-                row = ['p', str(p['lv']), p['official'], p.get('named') or '']
+                row = ['p', str(p['index']), p['official'], p.get('named') or '']
                 if p.get('comment'):
                     row.append(esc(p['comment']))
                 out.append('\t\t' + '\t'.join(row))

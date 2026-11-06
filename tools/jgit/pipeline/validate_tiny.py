@@ -23,8 +23,8 @@ from emit_tiny2 import jar_access  # noqa: E402
   2. 类 official 唯一、named 唯一（两个都违反才是真错：前者是 tiny 的语法要求）；
   3. 类 / 方法 / 字段**必须真存在于** process/base/merged_ok.jar（抓转换时串行/错位）；
   4. 描述符格式；字段描述符类型必须与 jar 一致；
-  5. 参数 lv 槽位必须落在 `lv_index(args, k, static)` 的合法集合里、同一方法内不重复、
-     参数名是合法 Java 标识符 —— 这条专门防"long/double 宽度算错"；
+  5. 参数下标必须落在合法集合（默认按 FART 的"实参序号 0 起"；`--param-index=lv` 时按
+     LVT 槽位 lv_index(args,k,static)）、同一方法内不重复、参数名是合法 Java 标识符；
   6. 注释：不许换行、≤200 字符、必须带证据前缀（`src:`/`role:`/…）、每条映射至多一条；
   7. `--selftest`：用 6 个手算样例把 lv 换算钉死（防止正/反向错误互相抵消）。
 
@@ -63,9 +63,12 @@ def main():
     if '--selftest' in _sys.argv:
         return selftest()
     tiny = _os.path.join(_P.JOB, 'mappings.tiny')
+    pmode = 'arg'
     for a in _sys.argv[1:]:
         if a.startswith('--tiny='):
             tiny = a.split('=', 1)[1]
+        elif a.startswith('--param-index='):
+            pmode = a.split('=', 1)[1]
     ns, classes = _T.read(tiny)
     bad = {}
 
@@ -125,19 +128,20 @@ def main():
             if not IDENT.fullmatch(m['named'] or '') and m['named'] not in ('<init>', '<clinit>'):
                 err('方法新名非法', '%s.%s -> %r' % (o, m['official'], m['named']))
             args = _PRM.desc_args(d)
-            legal = {_T.lv_index(args, k, st): k for k in range(len(args))}
+            legal = ({_T.lv_index(args, k, st): k for k in range(len(args))}
+                     if pmode == 'lv' else {k: k for k in range(len(args))})
             seen_lv = set()
             for p in m['params']:
                 npar += 1
-                if p['lv'] not in legal:
-                    err('参数槽位非法', '%s.%s%s lv=%d（合法 %r；static=%s）'
-                        % (o, m['official'], d, p['lv'], sorted(legal), st))
-                if p['lv'] in seen_lv:
-                    err('参数槽位重复', '%s.%s%s lv=%d' % (o, m['official'], d, p['lv']))
-                seen_lv.add(p['lv'])
+                if p['index'] not in legal:
+                    err('参数下标非法', '%s.%s%s p=%d（合法 %r；static=%s、模式 %s）'
+                        % (o, m['official'], d, p['index'], sorted(legal), st, pmode))
+                if p['index'] in seen_lv:
+                    err('参数下标重复', '%s.%s%s p=%d' % (o, m['official'], d, p['index']))
+                seen_lv.add(p['index'])
                 if not IDENT.fullmatch(p['named'] or ''):
-                    err('参数名非法', '%s.%s%s lv=%d -> %r'
-                        % (o, m['official'], d, p['lv'], p['named']))
+                    err('参数名非法', '%s.%s%s p=%d -> %r'
+                        % (o, m['official'], d, p['index'], p['named']))
     print('类 %d / 方法 %d / 字段 %d / 参数 %d / 注释 %d' % (len(classes), nm, nf, npar, ncom))
     cov_bad = coverage(classes, bad)
     if cov_bad:
