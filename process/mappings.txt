@@ -12353,13 +12353,112 @@ abcd/cA abcd/aide/SettingsJsonTransform
 abcd/fA abcd/aide/AppIconLoader
 abcd/jA abcd/aide/DefaultSettingsSpiCall
 abcd/Mz abcd/aide/PinningTrustManager
-abcd/F abcd/aide/AnswersEventLogger
+abcd/F abcd/aide/Analytics
+	j6 (Landroid/content/Context;Labcd/G;)V initialize
+		static
+		0 context context
+		1 config config
+	j6 (Landroid/content/Context;)V endSession
+		static
+	DW (Landroid/content/Context;)V startSession
+		static
+	DW ()Z isInitialized
+		static
+	j6 ()V applyCollectionSetting
+		static
+	FH ()Z isCollectionEnabled
+		static
+	j6 (Ljava/lang/String;)V logEvent
+		static
+		0 name name
+	j6 (Ljava/lang/String;Ljava/util/Map;)V logEvent
+		static
+		0 name name
+		1 params params
+	DW (Ljava/lang/String;)V logLevelEnd
+		static
+		0 name name
+	FH (Ljava/lang/String;)V logLevelStart
+		static
+		0 name name
+	Hw (Ljava/lang/String;)V setOsArchitecture
+		static
+		0 arch arch
+	v5 (Ljava/lang/String;)V logPageView
+		static
+		0 name name
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; buildPlayStoreUrl
+		static
+		0 source source
+		1 packageName packageName
+		2 campaign campaign
+	j6 (Landroid/app/Activity;Ljava/lang/String;)V onActivityStop
+		static
+		0 activity activity
+		1 screenName screenName
+	DW (Landroid/app/Activity;Ljava/lang/String;)V onActivityStart
+		static
+		0 activity activity
+		1 screenName screenName
+	j6 (Landroid/app/Activity;Ljava/lang/String;Ljava/util/Map;)V onActivityStart
+		static
+		0 activity activity
+		1 screenName screenName
+		2 params params
+	DW config
+	FH firebaseAnalytics
+	Hw initialized
 abcd/Pz abcd/aide/FileStoreImpl
 abcd/Bw abcd/aide/BetaKit
 abcd/Rz abcd/aide/PreferenceStoreImpl
 abcd/Ae abcd/aide/AndroidManifestConfig
 abcd/Be abcd/aide/MavenDependenciesConfig
 abcd/Dj abcd/aide/UninstallAppRunnable
+abcd/G abcd/aide/AnalyticsConfig
+	j6 ()Z isEnabled
+abcd/ue abcd/aide/LicensingLog
+	DW (Ljava/lang/String;)V e
+		static
+		0 message message
+	FH (Ljava/lang/String;)V w
+		static
+		0 message message
+	j6 (Ljava/lang/String;Ljava/lang/Throwable;)V e
+		static
+		0 message message
+		1 throwable throwable
+	j6 (Ljava/lang/Throwable;)V e
+		static
+		0 throwable throwable
+abcd/mk abcd/aide/FileBrowserPreferences
+	j6 ()Ljava/lang/String; getCurrentDir
+	j6 (Ljava/lang/String;)V setCurrentDir
+		0 dir dir
+	j6 (Labcd/mk$a;)V setListener
+		0 listener listener
+	DW ()Ljava/lang/String; getAppProjectsDir
+	DW_ ()Ljava/lang/String; getDefaultProjectsDir
+	Hw ()V notifyDirChanged
+abcd/hm abcd/aide/editor/EditorRange
+	j6 ()I getEndColumn
+	DW ()I getEndLine
+	FH ()I getStartColumn
+	Hw ()I getStartLine
+	j6 (I)V setEndColumn
+		0 column column
+	DW (I)V setEndLine
+		0 line line
+	FH (I)V setStartColumn
+		0 column column
+	Hw (I)V setStartLine
+		0 line line
+	j6 (II)Z contains
+		0 line line
+		1 column column
+	FH startLine
+	Hw startColumn
+	v5 endLine
+	Zo endColumn
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue

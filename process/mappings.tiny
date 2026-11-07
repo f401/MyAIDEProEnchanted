@@ -11762,13 +11762,92 @@ c	abcd/cA	abcd/aide/SettingsJsonTransform	body: 串 "identifier"/"status"/"repor
 c	abcd/fA	abcd/aide/AppIconLoader	body: 串 "App icon resource ID is "/"Failed to load icon" ⇒ crashlytics AppIconLoader
 c	abcd/jA	abcd/aide/DefaultSettingsSpiCall	body: 串 "Failed to force reload of settings from Crashlytics." + settings URL ⇒ crashlytics DefaultSettingsSpiCall
 c	abcd/Mz	abcd/aide/PinningTrustManager	body: implements X509TrustManager + 串 "Certificate pins are stale, (" ⇒ crashlytics PinningTrustManager
-c	abcd/F	abcd/aide/AnswersEventLogger	body: final 类，字段 com.google.firebase.analytics.FirebaseAnalytics + 串 "startSession"/"logLevelEnd: " ⇒ AIDE 自有的 Answers 事件上报封装
+c	abcd/F	abcd/aide/Analytics	body: final 类，字段 com.google.firebase.analytics.FirebaseAnalytics + 串 "startSession"/"logLevelEnd: " ⇒ AIDE 自有的 Answers 事件上报封装
+	m	(Landroid/content/Context;Labcd/G;)V	j6	initialize	auto: 执行 initialize（上游无同签名对应，按作用取名）
+		p	0	context	context
+		p	1	config	config
+	m	(Landroid/content/Context;)V	j6	endSession	auto: 执行 endSession（上游无同签名对应，按作用取名）
+	m	(Landroid/content/Context;)V	DW	startSession	auto: 启动 Session（上游无同签名对应，按作用取名）
+	m	()Z	DW	isInitialized	auto: 是否 Initialized（上游无同签名对应，按作用取名）
+	m	()V	j6	applyCollectionSetting	auto: 应用 CollectionSetting（上游无同签名对应，按作用取名）
+	m	()Z	FH	isCollectionEnabled	auto: 是否 CollectionEnabled（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;)V	j6	logEvent	auto: 执行 logEvent（上游无同签名对应，按作用取名）
+		p	0	name	name
+	m	(Ljava/lang/String;Ljava/util/Map;)V	j6	logEvent	auto: 执行 logEvent（上游无同签名对应，按作用取名）
+		p	0	name	name
+		p	1	params	params
+	m	(Ljava/lang/String;)V	DW	logLevelEnd	auto: 执行 logLevelEnd（上游无同签名对应，按作用取名）
+		p	0	name	name
+	m	(Ljava/lang/String;)V	FH	logLevelStart	auto: 执行 logLevelStart（上游无同签名对应，按作用取名）
+		p	0	name	name
+	m	(Ljava/lang/String;)V	Hw	setOsArchitecture	auto: 设 OsArchitecture（上游无同签名对应，按作用取名）
+		p	0	arch	arch
+	m	(Ljava/lang/String;)V	v5	logPageView	auto: 执行 logPageView（上游无同签名对应，按作用取名）
+		p	0	name	name
+	m	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;	j6	buildPlayStoreUrl	auto: 构建 PlayStoreUrl（上游无同签名对应，按作用取名）
+		p	0	source	source
+		p	1	packageName	packageName
+		p	2	campaign	campaign
+	m	(Landroid/app/Activity;Ljava/lang/String;)V	j6	onActivityStop	auto: 执行 onActivityStop（上游无同签名对应，按作用取名）
+		p	0	activity	activity
+		p	1	screenName	screenName
+	m	(Landroid/app/Activity;Ljava/lang/String;)V	DW	onActivityStart	auto: 执行 onActivityStart（上游无同签名对应，按作用取名）
+		p	0	activity	activity
+		p	1	screenName	screenName
+	m	(Landroid/app/Activity;Ljava/lang/String;Ljava/util/Map;)V	j6	onActivityStart	auto: 执行 onActivityStart（上游无同签名对应，按作用取名）
+		p	0	activity	activity
+		p	1	screenName	screenName
+		p	2	params	params
+	f	Labcd/G;	DW	config	auto: 字段(Labcd/G;)（上游无同类型对应，按作用取名）
+	f	Lcom/google/firebase/analytics/FirebaseAnalytics;	FH	firebaseAnalytics	auto: 字段(Lcom/google/firebase/analytics/FirebaseAnalytics;)（上游无同类型对应，按作用取名）
+	f	Z	Hw	initialized	auto: 字段(Z)（上游无同类型对应，按作用取名）
 c	abcd/Pz	abcd/aide/FileStoreImpl	body: 串 "Cannot get directory before context has been set. Call Fabric.with() first"/"Android/" ⇒ fabric FileStoreImpl
 c	abcd/Bw	abcd/aide/BetaKit	src: 父类 io.fabric.sdk.android.Kit + 串 "Beta kit initializing..."/"com.crashlytics.sdk.android:beta"/"1.2.10.27" ⇒ fabric Beta Kit
 c	abcd/Rz	abcd/aide/PreferenceStoreImpl	who: 实现 abcd/Qz，且与 abcd/Pz 同串 "Cannot get directory before context..." ⇒ fabric services.persistence.PreferenceStore 实现
 c	abcd/Ae	abcd/aide/AndroidManifestConfig	body: extends abcd/Si(BaseProjectConfig) + XPath "//manifest"、"//manifest//uses-sdk" ⇒ 解析 AndroidManifest 的工程配置
 c	abcd/Be	abcd/aide/MavenDependenciesConfig	body: extends abcd/Si(BaseProjectConfig) + 串 "https://repo1.maven.org/maven2"/"mavenCentral"/"flatDir.dirs" ⇒ Maven 依赖仓库配置
 c	abcd/Dj	abcd/aide/UninstallAppRunnable	body: 串 "Uninstallation failed" + implements Runnable（字段 Activity + abcd/Kj）⇒ 卸载应用任务
+c	abcd/G	abcd/aide/AnalyticsConfig	auto: 配置：Analytics（上游未收录，名字来自 jobs/aide 的判据）
+	m	()Z	j6	isEnabled	auto: 是否 Enabled（上游无同签名对应，按作用取名）
+c	abcd/ue	abcd/aide/LicensingLog	auto: 类：LicensingLog（上游未收录，名字来自 jobs/aide 的判据）
+	m	(Ljava/lang/String;)V	DW	e	auto: 执行 e（上游无同签名对应，按作用取名）
+		p	0	message	message
+	m	(Ljava/lang/String;)V	FH	w	auto: 执行 w（上游无同签名对应，按作用取名）
+		p	0	message	message
+	m	(Ljava/lang/String;Ljava/lang/Throwable;)V	j6	e	auto: 执行 e（上游无同签名对应，按作用取名）
+		p	0	message	message
+		p	1	throwable	throwable
+	m	(Ljava/lang/Throwable;)V	j6	e	auto: 执行 e（上游无同签名对应，按作用取名）
+		p	0	throwable	throwable
+c	abcd/mk	abcd/aide/FileBrowserPreferences	auto: 类：FileBrowserPreferences（上游未收录，名字来自 jobs/aide 的判据）
+	m	()Ljava/lang/String;	j6	getCurrentDir	auto: 取 CurrentDir（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;)V	j6	setCurrentDir	auto: 设 CurrentDir（上游无同签名对应，按作用取名）
+		p	0	dir	dir
+	m	(Labcd/mk$a;)V	j6	setListener	auto: 设 Listener（上游无同签名对应，按作用取名）
+		p	0	listener	listener
+	m	()Ljava/lang/String;	DW	getAppProjectsDir	auto: 取 AppProjectsDir（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	DW_	getDefaultProjectsDir	auto: 取 DefaultProjectsDir（上游无同签名对应，按作用取名）
+	m	()V	Hw	notifyDirChanged	auto: 通知 DirChanged（上游无同签名对应，按作用取名）
+c	abcd/hm	abcd/aide/editor/EditorRange	auto: 类：EditorRange（上游未收录，名字来自 jobs/aide 的判据）
+	m	()I	j6	getEndColumn	auto: 取 EndColumn（上游无同签名对应，按作用取名）
+	m	()I	DW	getEndLine	auto: 取 EndLine（上游无同签名对应，按作用取名）
+	m	()I	FH	getStartColumn	auto: 取 StartColumn（上游无同签名对应，按作用取名）
+	m	()I	Hw	getStartLine	auto: 取 StartLine（上游无同签名对应，按作用取名）
+	m	(I)V	j6	setEndColumn	auto: 设 EndColumn（上游无同签名对应，按作用取名）
+		p	0	column	column
+	m	(I)V	DW	setEndLine	auto: 设 EndLine（上游无同签名对应，按作用取名）
+		p	0	line	line
+	m	(I)V	FH	setStartColumn	auto: 设 StartColumn（上游无同签名对应，按作用取名）
+		p	0	column	column
+	m	(I)V	Hw	setStartLine	auto: 设 StartLine（上游无同签名对应，按作用取名）
+		p	0	line	line
+	m	(II)Z	j6	contains	auto: 「contains」（上游无同签名对应，按作用取名）
+		p	0	line	line
+		p	1	column	column
+	f	I	FH	startLine	auto: 字段(I)（上游无同类型对应，按作用取名）
+	f	I	Hw	startColumn	auto: 字段(I)（上游无同类型对应，按作用取名）
+	f	I	v5	endLine	auto: 字段(I)（上游无同类型对应，按作用取名）
+	f	I	Zo	endColumn	auto: 字段(I)（上游无同类型对应，按作用取名）
 c	com/a/b/a/a/a	com/android/dx/cf/attrib/AttAnnotationDefault	auto: 类：AttAnnotationDefault；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault
 	m	()I	a	byteLength	auto: 「byteLength」；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#byteLength
 	m	()Lcom/a/b/e/c/a;	b	getValue	auto: 取 Value；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#getValue

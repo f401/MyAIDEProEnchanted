@@ -43,10 +43,14 @@ cA	abcd/aide/SettingsJsonTransform	串 "identifier"/"status"/"reports_url"（set
 fA	abcd/aide/AppIconLoader	串 "App icon resource ID is "、"Failed to load icon"
 jA	abcd/aide/DefaultSettingsSpiCall	串 "Failed to force reload of settings from Crashlytics." + settings URL "https://settings.crashlytics.com/spi/v2/platforms/android/apps/%s/settings"
 Mz	abcd/aide/PinningTrustManager	implements X509TrustManager；串 "Certificate pins are stale, ("/" millis) falling back to system trust."
-F	abcd/aide/AnswersEventLogger	串 "startSession"、"logLevelEnd: "；引用 Crashlytics（AIDE 侧 Answers 调用封装）
+F	abcd/aide/Analytics	body:FirebaseAnalytics.getInstance/getInstance + setAnalyticsCollectionEnabled + j6(String,Bundle) 埋点，并 Crashlytics.log 面包屑；串 "startSession"/"endSession"/"logEvent: "/"page view: "/"level_start"/"a_level_end"；引用者全在 com/aide/ui/(activities|ui) 的 onStart/onStop ⇒ AIDE 侧埋点门面（原判 Answers 不准，按正文纠正）
 Pz	abcd/aide/FileStoreImpl	串 "Cannot get directory before context has been set. Call Fabric.with() first"、"Android/"；实现 abcd/Oz
 Bw	abcd/aide/BetaKit	sup=io.fabric.sdk.android.Kit；串 "Beta kit initializing..."、"com.crashlytics.sdk.android:beta"、版本 "1.2.10.27" ⇒ Fabric Beta Kit
 Rz	abcd/aide/PreferenceStoreImpl	实现 abcd/Qz；串与 abcd/Pz(FileStoreImpl) 同为 "Cannot get directory before context has been set. Call Fabric.with() first" ⇒ fabric services.persistence 的 PreferenceStore 实现
 Ae	abcd/aide/AndroidManifestConfig	extends BaseProjectConfig；XPath "//manifest"、"//manifest//uses-sdk"、"android:versionCode" ⇒ 解析 AndroidManifest
 Be	abcd/aide/MavenDependenciesConfig	extends BaseProjectConfig；串 "https://repo1.maven.org/maven2"、"mavenCentral"、"flatDir.dirs" ⇒ 依赖仓库配置
 Dj	abcd/aide/UninstallAppRunnable	body:"Uninstallation failed"，implements Runnable
+G	abcd/aide/AnalyticsConfig	iface:唯一抽象方法 j6()Z；被 Analytics.initialize(Context,G) 接收，Analytics.j6()/FH() 把它当 setAnalyticsCollectionEnabled 的入参 ⇒ 埋点开关抽象
+ue	abcd/aide/LicensingLog	str:唯一常量 "aidelicensing"（Log tag）；DW(String)->Log.e、FH(String)->Log.w、j6(String,Throwable)/j6(Throwable)->Log.e；引用者 8 处全在 com/aide/licensing
+mk	abcd/aide/FileBrowserPreferences	str:"FileBrowserService"/"CurrentDir"/"/AppProjects"；j6() 读 getSharedPreferences("FileBrowserService").getString("CurrentDir") 且 FileSystemUtils.mkdirs，j6(String) 写回后通知监听者 ⇒ 文件浏览器当前目录持久化
+hm	abcd/aide/editor/EditorRange	body:4 个 int 字段 FH/Hw/v5/Zo（构造器直存、toString 按 FH,Hw,v5,Zo 逗号连接）；j6(II)Z 同行比列、跨行比行的包含判定；被 com/aide/ui/views/editor 引用 15 处 ⇒ 编辑器文本区间

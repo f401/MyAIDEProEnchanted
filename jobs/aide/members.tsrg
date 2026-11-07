@@ -89,10 +89,57 @@ abcd/cA abcd/aide/SettingsJsonTransform
 abcd/fA abcd/aide/AppIconLoader
 abcd/jA abcd/aide/DefaultSettingsSpiCall
 abcd/Mz abcd/aide/PinningTrustManager
-abcd/F abcd/aide/AnswersEventLogger
+abcd/F abcd/aide/Analytics
+	j6 (Landroid/content/Context;Labcd/G;)V initialize
+	j6 (Landroid/content/Context;)V endSession
+	DW (Landroid/content/Context;)V startSession
+	DW ()Z isInitialized
+	j6 ()V applyCollectionSetting
+	FH ()Z isCollectionEnabled
+	j6 (Ljava/lang/String;)V logEvent
+	j6 (Ljava/lang/String;Ljava/util/Map;)V logEvent
+	DW (Ljava/lang/String;)V logLevelEnd
+	FH (Ljava/lang/String;)V logLevelStart
+	Hw (Ljava/lang/String;)V setOsArchitecture
+	v5 (Ljava/lang/String;)V logPageView
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; buildPlayStoreUrl
+	j6 (Landroid/app/Activity;Ljava/lang/String;)V onActivityStop
+	DW (Landroid/app/Activity;Ljava/lang/String;)V onActivityStart
+	j6 (Landroid/app/Activity;Ljava/lang/String;Ljava/util/Map;)V onActivityStart
+	DW config
+	FH firebaseAnalytics
+	Hw initialized
 abcd/Pz abcd/aide/FileStoreImpl
 abcd/Bw abcd/aide/BetaKit
 abcd/Rz abcd/aide/PreferenceStoreImpl
 abcd/Ae abcd/aide/AndroidManifestConfig
 abcd/Be abcd/aide/MavenDependenciesConfig
 abcd/Dj abcd/aide/UninstallAppRunnable
+abcd/G abcd/aide/AnalyticsConfig
+	j6 ()Z isEnabled
+abcd/ue abcd/aide/LicensingLog
+	DW (Ljava/lang/String;)V e
+	FH (Ljava/lang/String;)V w
+	j6 (Ljava/lang/String;Ljava/lang/Throwable;)V e
+	j6 (Ljava/lang/Throwable;)V e
+abcd/mk abcd/aide/FileBrowserPreferences
+	j6 ()Ljava/lang/String; getCurrentDir
+	j6 (Ljava/lang/String;)V setCurrentDir
+	j6 (Labcd/mk$a;)V setListener
+	DW ()Ljava/lang/String; getAppProjectsDir
+	DW_ ()Ljava/lang/String; getDefaultProjectsDir
+	Hw ()V notifyDirChanged
+abcd/hm abcd/aide/editor/EditorRange
+	j6 ()I getEndColumn
+	DW ()I getEndLine
+	FH ()I getStartColumn
+	Hw ()I getStartLine
+	j6 (I)V setEndColumn
+	DW (I)V setEndLine
+	FH (I)V setStartColumn
+	Hw (I)V setStartLine
+	j6 (II)Z contains
+	FH startLine
+	Hw startColumn
+	v5 endLine
+	Zo endColumn

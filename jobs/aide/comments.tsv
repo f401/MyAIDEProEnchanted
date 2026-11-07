@@ -98,3 +98,50 @@ m	abcd/Hz	tp	()Ljava/net/HttpURLConnection;	src: fabric HttpRequest#getConnectio
 m	abcd/Hz$b	j6	(Ljava/net/URL;)Ljava/net/HttpURLConnection;	src: fabric HttpRequest$ConnectionFactory#create(URL)
 m	abcd/Hz$b	j6	(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;	src: fabric HttpRequest$ConnectionFactory#create(URL,Proxy)
 m	abcd/Hz$e	j6	(Ljava/lang/String;)Labcd/Hz$e;	src: fabric HttpRequest$RequestOutputStream#write(String)（CharsetEncoder 编码后链式返回自身）
+c	abcd/G	-	-	auto: 配置：Analytics（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/ue	-	-	auto: 类：LicensingLog（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/mk	-	-	auto: 类：FileBrowserPreferences（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/hm	-	-	auto: 类：EditorRange（上游未收录，名字来自 jobs/aide 的判据）
+m	abcd/F	j6	(Landroid/content/Context;Labcd/G;)V	auto: 执行 initialize（上游无同签名对应，按作用取名）
+m	abcd/F	j6	(Landroid/content/Context;)V	auto: 执行 endSession（上游无同签名对应，按作用取名）
+m	abcd/F	DW	(Landroid/content/Context;)V	auto: 启动 Session（上游无同签名对应，按作用取名）
+m	abcd/F	DW	()Z	auto: 是否 Initialized（上游无同签名对应，按作用取名）
+m	abcd/F	j6	()V	auto: 应用 CollectionSetting（上游无同签名对应，按作用取名）
+m	abcd/F	FH	()Z	auto: 是否 CollectionEnabled（上游无同签名对应，按作用取名）
+m	abcd/F	j6	(Ljava/lang/String;)V	auto: 执行 logEvent（上游无同签名对应，按作用取名）
+m	abcd/F	j6	(Ljava/lang/String;Ljava/util/Map;)V	auto: 执行 logEvent（上游无同签名对应，按作用取名）
+m	abcd/F	DW	(Ljava/lang/String;)V	auto: 执行 logLevelEnd（上游无同签名对应，按作用取名）
+m	abcd/F	FH	(Ljava/lang/String;)V	auto: 执行 logLevelStart（上游无同签名对应，按作用取名）
+m	abcd/F	Hw	(Ljava/lang/String;)V	auto: 设 OsArchitecture（上游无同签名对应，按作用取名）
+m	abcd/F	v5	(Ljava/lang/String;)V	auto: 执行 logPageView（上游无同签名对应，按作用取名）
+m	abcd/F	j6	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;	auto: 构建 PlayStoreUrl（上游无同签名对应，按作用取名）
+m	abcd/F	j6	(Landroid/app/Activity;Ljava/lang/String;)V	auto: 执行 onActivityStop（上游无同签名对应，按作用取名）
+m	abcd/F	DW	(Landroid/app/Activity;Ljava/lang/String;)V	auto: 执行 onActivityStart（上游无同签名对应，按作用取名）
+m	abcd/F	j6	(Landroid/app/Activity;Ljava/lang/String;Ljava/util/Map;)V	auto: 执行 onActivityStart（上游无同签名对应，按作用取名）
+f	abcd/F	DW	-	auto: 字段(Labcd/G;)（上游无同类型对应，按作用取名）
+f	abcd/F	FH	-	auto: 字段(Lcom/google/firebase/analytics/FirebaseAnalytics;)（上游无同类型对应，按作用取名）
+f	abcd/F	Hw	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+m	abcd/G	j6	()Z	auto: 是否 Enabled（上游无同签名对应，按作用取名）
+m	abcd/ue	DW	(Ljava/lang/String;)V	auto: 执行 e（上游无同签名对应，按作用取名）
+m	abcd/ue	FH	(Ljava/lang/String;)V	auto: 执行 w（上游无同签名对应，按作用取名）
+m	abcd/ue	j6	(Ljava/lang/String;Ljava/lang/Throwable;)V	auto: 执行 e（上游无同签名对应，按作用取名）
+m	abcd/ue	j6	(Ljava/lang/Throwable;)V	auto: 执行 e（上游无同签名对应，按作用取名）
+m	abcd/mk	j6	()Ljava/lang/String;	auto: 取 CurrentDir（上游无同签名对应，按作用取名）
+m	abcd/mk	j6	(Ljava/lang/String;)V	auto: 设 CurrentDir（上游无同签名对应，按作用取名）
+m	abcd/mk	j6	(Labcd/mk$a;)V	auto: 设 Listener（上游无同签名对应，按作用取名）
+m	abcd/mk	DW	()Ljava/lang/String;	auto: 取 AppProjectsDir（上游无同签名对应，按作用取名）
+m	abcd/mk	DW_	()Ljava/lang/String;	auto: 取 DefaultProjectsDir（上游无同签名对应，按作用取名）
+m	abcd/mk	Hw	()V	auto: 通知 DirChanged（上游无同签名对应，按作用取名）
+m	abcd/hm	j6	()I	auto: 取 EndColumn（上游无同签名对应，按作用取名）
+m	abcd/hm	DW	()I	auto: 取 EndLine（上游无同签名对应，按作用取名）
+m	abcd/hm	FH	()I	auto: 取 StartColumn（上游无同签名对应，按作用取名）
+m	abcd/hm	Hw	()I	auto: 取 StartLine（上游无同签名对应，按作用取名）
+m	abcd/hm	j6	(I)V	auto: 设 EndColumn（上游无同签名对应，按作用取名）
+m	abcd/hm	DW	(I)V	auto: 设 EndLine（上游无同签名对应，按作用取名）
+m	abcd/hm	FH	(I)V	auto: 设 StartColumn（上游无同签名对应，按作用取名）
+m	abcd/hm	Hw	(I)V	auto: 设 StartLine（上游无同签名对应，按作用取名）
+m	abcd/hm	j6	(II)Z	auto: 「contains」（上游无同签名对应，按作用取名）
+f	abcd/hm	FH	-	auto: 字段(I)（上游无同类型对应，按作用取名）
+f	abcd/hm	Hw	-	auto: 字段(I)（上游无同类型对应，按作用取名）
+f	abcd/hm	v5	-	auto: 字段(I)（上游无同类型对应，按作用取名）
+f	abcd/hm	Zo	-	auto: 字段(I)（上游无同类型对应，按作用取名）
