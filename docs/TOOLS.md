@@ -162,3 +162,16 @@ f	abcd/yk	EQ	-	recv: 持有 IInAppBillingService 字段
 |---|---|
 | `apply_batch1.py` | 早期第一批类级纠正的批量脚本（历史，可作“批量改法”范例） |
 | `clsfix.py` / `clsfix2.py` / `clsfix3.py` / `genident.py` | 本轮的类改名/恒等映射生成脚本（一次性，留作模板） |
+
+## deob/ 里"下一轮定名"用的 5 个新工具（2026-11）
+
+| 工具 | 干什么 | 关键判据 |
+|---|---|---|
+| `triage.py` | 把所有未映射探针排成一张分诊表（引用者数 / 引用者包 / 父类 / 接口 / 方法字段数 / 像人话的常量串 / 被引用的成员） | 都是不受改名影响的量；`--aide-only` 过滤掉 GMS/Firebase 的第三方混淆类 |
+| `refindex.py` | 建"真实命名类 → 混淆探针"的引用索引，按引用者数排序（**优先级**从这来） | 只统计 jar 里**真的定义了**的探针（`abcd/Kj` 这类"匿名类还在、外层丢了"的幽灵类型要排除） |
+| `who.py` | 逐调用点列出 `引用者#方法(描述符) -> 探针成员`，定名最硬的证据 | 调用者语义已知时，被调者语义基本就定了 |
+| `enumfields.py` | 枚举 `<clinit>` 里解「字段 → 常量名」（`--tsv` 直接出 members.tsrg 行） | 混淆器不改字符串字面量：`new-instance`/`const-string`/`sput-object` 三元组 |
+| `enumsearch.py` | 反过来：拿常量名去 oracle jar 里找"包含全部这些串"的 class | 常量名集合相等 ⇒ 同一个枚举（dx 的 `OptionalStep`/`ItemType`/`IndexType` 就是这么认出来的） |
+
+> 顺序：`triage` 挑目标 → `who` 看调用点 → `enumfields` 批量出枚举字段 → `enumsearch` 找 oracle 身份。
+> 全部只读、可重复跑；`triage` 输出在 `~/tmp/triage.tsv`，`refindex` 在 `~/tmp/refindex.tsv`。

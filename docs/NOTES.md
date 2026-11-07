@@ -307,3 +307,35 @@ python3 tools/build/build_apk.py sync_assets
 > 历史教训（保留记录）：`process/src/{en,zh,ndk,packagingservice}.jar` 曾经是**另一个
 > AIDE 构建**的 dex2jar 产物（`packagingservice/{b,e,e$a,f,…}` 这些类名在本包根本不存在），
 > 拿它回填会把资产包从 241 个类砍到 11 个 ⇒ 真机 `NoClassDefFoundError: Labcd/wu;`。
+
+## 16. `src/` 是**大小写不敏感**的 FUSE：文件名不可信，一切看 `.class` 行
+
+`/storage/emulated/0/...` 落在 FUSE 上，`abcd/Kj.smali` 和 `abcd/KJ.smali` 是同一个文件，
+apktool 写第二份时会覆盖第一份（碰撞的那份会带 `.1`/`.2` 后缀，但**后缀不保证谁是原主**）。
+症状与判据：
+
+- `ls smali/abcd | grep '^Kj'` 只有 `Kj$a..$e`，但 dex/jar 里根本没有 `Labcd/Kj;`
+  —— 这不是"魔改作者删了类"，而是 `Labcd/KJ;`（大写）覆盖了它，`Kj` 的 smali 丢了。
+- 反过来 `gj.smali` 里装的是 `Labcd/GJ;`（jsch 的 ChannelSftp 包装），`Labcd/gj;` 也在覆盖中丢失。
+
+**规则**：任何按文件名做的分析都先读第一行 `.class L...;` 核对；`tools/deob/enumfields.py`
+就是这么找文件的（`find_smali()` 按内容匹配）。**构建不受影响**：FART 是在 dex 上改名，
+不重新汇编 `src/`，所以丢 smali 只影响"读码证据"，不会让产物缺类。
+
+## 17. 同一份 dx 有两个副本：`com/a**` 与 `abcd/*`，只能给一份真名
+
+`abcd/nt$a`、`abcd/wp`、`abcd/mq` 的枚举常量集与 dx 1.16 的 `Optimizer$OptionalStep` /
+`ItemType` / `IndexType` **完全相同**（`tools/deob/enumsearch.py` 用常量名反查得到）。
+但 `jobs/dx` 已经把 `com/a/b/...` 那批映射到这些真名，再撞就是 `rebuild_tsrg` 中止，
+所以 `abcd` 这一份**保持混淆名**（记在 `jobs/dx/README.md` 的"双副本"小节）。
+同理 `abcd/Ht$a` = dx `LivenessAnalyzer$NextFunction`，`abcd/nt` = dx `Optimizer`。
+
+## 18. `pkgclose` 的「需要挪的类」会随改名增长，不是回归
+
+把 AIDE 自有类搬进 `abcd/aide/**` / `com/aide/**` 之后，它们的**包私有协作者**还留在
+`abcd`，于是 `pkgclose` 会列出一条"建议一起挪"。这不是新 bug：
+
+- 判定性的门是 `真冲突`（同一分量里多个固定包，挪包也解决不了），目前 18 组，全是
+  上游库本来就这样（proguard/spongycastle/jsch 的子包互访）；
+- 跨包访问由构建链 `widen_access --apply` 放宽成 public 兜底；
+- 「需要挪」清单是**下一轮该命名的协作者名单**，不是必须清零的门。
