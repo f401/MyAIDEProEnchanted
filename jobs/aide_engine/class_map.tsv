@@ -66,3 +66,6 @@ com/aide/engine/h	com/aide/engine/ErrorCallback	iface:方法 j6(String,SyntaxErr
 com/aide/engine/H	com/aide/engine/VersionCallback	iface:方法 getVersion()J + j6(long) + j6(Labcd/I;)；实现者 service/f
 com/aide/engine/m	com/aide/engine/HighlightingKind	enum:14 个常量的名字串原样在 <clinit>（PLAIN/KEYWORD/IDENTIFIER/NAMESPACE_IDENTIFIER/TYPE_IDENTIFIER/DELEGATE_IDENTIFIER/OPERATOR/SEPARATOR/LITERAL/PREPROCESSOR/COMMENT/DOC_COMMENT/SCRIPT_BACKGROUND/SCRIPT），每个还带一句英文显示名（"Plain"/"Keyword"/"Namespace/Package Identifier"…）；被 FileHighlightings.Hw 与 FindResult$Highlighting.VH 当字段类型 ⇒ 语法高亮的 token 种类
 com/aide/engine/q	com/aide/engine/SourceReader	iface:唯一方法 Labcd/Reader; j6(Ljava/io/InputStream;Ljava/lang/String;) = 按编码把字节流包成 Reader；被 Engine(c) 的 Ws/ye 两处调用 ⇒ 源文件读取器
+com/aide/engine/v	com/aide/engine/BinaryExpression	body:两个 Expression 子节点 + 一个 String；toString 按 左、运算符、右 拼接 ⇒ 二元运算表达式
+com/aide/engine/x	com/aide/engine/FieldAccessExpression	body:(Z,Z,String,String,Expression)；toString 的字面量顺序是 ""、"("、")."、"." ⇒ (owner).name.child 形式的字段访问
+com/aide/engine/y	com/aide/engine/MethodCallExpression	body:(Z,String,String,String,List<Expression>,Expression)；toString 里 "(" + ")." + "(" + "," + ")" + "." ⇒ (recv).name(arg,arg).child 形式的调用

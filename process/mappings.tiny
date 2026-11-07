@@ -53571,3 +53571,6 @@ c	com/aide/engine/m	com/aide/engine/HighlightingKind	auto: 类：HighlightingKin
 	f	Lcom/aide/engine/m;	J0	SCRIPT_BACKGROUND	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
 	f	Lcom/aide/engine/m;	J8	SCRIPT	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
 c	com/aide/engine/q	com/aide/engine/SourceReader	auto: 读取器：Source（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/v	com/aide/engine/BinaryExpression	auto: 类：BinaryExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/x	com/aide/engine/FieldAccessExpression	auto: 类：FieldAccessExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/y	com/aide/engine/MethodCallExpression	auto: 类：MethodCallExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
