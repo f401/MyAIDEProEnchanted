@@ -29,3 +29,41 @@ Nf	com/aide/ui/actions/FormatCodeAction	str:getName() 返回 "Format Code"；imp
 tg	com/aide/ui/actions/OrganizeImportsAction	str:getName() 返回 "Organize Imports"；implements abcd/Yl,abcd/Wl；同样注册在 com/aide/ui/V.<clinit>，AideMainActivity$6.onMenuItemClick 调 run()
 gg	com/aide/ui/actions/LearnCodeStyleAction	str:run() 里 "Learn Code Style" + "AIDE will learn the code style from this file and update the settings to match the formatting of the code in this file. Continue?"；implements abcd/Yl；isEnabled 走 U.er()/Nk.Zo()
 kh	com/aide/ui/build/BuildProgressDialog	str:自报类名 "BuilProgressDialog can not be cancelled"（原文拼写如此）+ "Building "/"构建 " 与 " 中..."/"..."；extends abcd/Hh、implements com/aide/ui/build/d$a，进度方法都转调 U.v5() 的 d（BuildService）
+Fg	com/aide/ui/actions/FilesRenameAction	str:getName() 返回 "Files - Rename"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Kg	com/aide/ui/actions/RunAction	str:getName() 返回 "Run"（字面量，混淆器不改）；implements abcd/am；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Mf	com/aide/ui/actions/FindUsagesAction	str:getName() 返回 "Find Usages"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Mg	com/aide/ui/actions/SearchAction	str:getName() 返回 "Search"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Og	com/aide/ui/actions/SearchInProjectAction	str:getName() 返回 "Search in Project"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Tg	com/aide/ui/actions/OpenEditorContextActionBarAction	str:getName() 返回 "Open Editor Context Action Bar"（字面量，混淆器不改）；implements abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Ug	com/aide/ui/actions/OpenEditorContextMenuAction	str:getName() 返回 "Open Editor Context Menu"（字面量，混淆器不改）；implements abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Ve	com/aide/ui/actions/LogCatClearAction	str:getName() 返回 "LogCat - Clear"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Vg	com/aide/ui/actions/FilesOpenContextMenuAction	str:getName() 返回 "Files - Open Context Menu"（字面量，混淆器不改）；implements abcd/am；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+We	com/aide/ui/actions/LogCatClearFilterAction	str:getName() 返回 "LogCat - Clear Filter"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Wf	com/aide/ui/actions/GoBackAction	str:getName() 返回 "Go Back"（字面量，混淆器不改）；implements abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Xf	com/aide/ui/actions/GoForwardAction	str:getName() 返回 "Go Forward"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Xg	com/aide/ui/actions/ShowOpenFilesAction	str:getName() 返回 "Show Open Files"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Yf	com/aide/ui/actions/GoToClassAction	str:getName() 返回 "GoTo Class"（字面量，混淆器不改）；implements abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Zf	com/aide/ui/actions/GoToDefinitionAction	str:getName() 返回 "GoTo Definition"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+_f	com/aide/ui/actions/GoToLineAction	str:getName() 返回 "GoTo Line"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+_g	com/aide/ui/actions/CodeCompletionAction	str:getName() 返回 "Code Completion"（字面量，混淆器不改）；implements abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+cg	com/aide/ui/actions/GoToSymbolAction	str:getName() 返回 "GoTo Symbol"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+dg	com/aide/ui/actions/InlineVariableAction	str:getName() 返回 "Inline Variable"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+eg	com/aide/ui/actions/IntroduceVariableAction	str:getName() 返回 "Introduce Variable"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+eh	com/aide/ui/actions/SurroundWithTryCatchAction	str:getName() 返回 "Surround with try-catch"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+hh	com/aide/ui/actions/UnOutcommentCodeAction	str:getName() 返回 "Un-Outcomment Code"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+if	com/aide/ui/actions/CreateConstructorAction	str:getName() 返回 "Create Constructor"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+ig	com/aide/ui/actions/ShowCurrentFileAction	str:getName() 返回 "Show Current File"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+ih	com/aide/ui/actions/UndoAction	str:getName() 返回 "Undo"（字面量，混淆器不改）；implements abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+kg	com/aide/ui/actions/ShowDebuggerAction	str:getName() 返回 "Show Debugger"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+lg	com/aide/ui/actions/ShowErrorsAction	str:getName() 返回 "Show Errors"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+mg	com/aide/ui/actions/ShowFilesAction	str:getName() 返回 "Show Files"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+ng	com/aide/ui/actions/ShowLogCatAction	str:getName() 返回 "Show LogCat"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+rf	com/aide/ui/actions/CutAction	str:getName() 返回 "Cut"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+ug	com/aide/ui/actions/OutcommentCodeAction	str:getName() 返回 "Outcomment Code"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+vg	com/aide/ui/actions/PasteAction	str:getName() 返回 "Paste"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+wf	com/aide/ui/actions/FilesDeleteAction	str:getName() 返回 "Files - Delete"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+wg	com/aide/ui/actions/LogCatPauseAction	str:getName() 返回 "LogCat - Pause"（字面量，混淆器不改）；implements abcd/_l,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+xf	com/aide/ui/actions/DeleteLineAction	str:getName() 返回 "Delete Line"（字面量，混淆器不改）；implements abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+xg	com/aide/ui/actions/PublishProjectAction	str:getName() 返回 "Publish Project"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+yf	com/aide/ui/actions/DesignAction	str:getName() 返回 "Design"（字面量，混淆器不改）；implements abcd/Wl,abcd/_l；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+yg	com/aide/ui/actions/RedoAction	str:getName() 返回 "Redo"（字面量，混淆器不改）；implements abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
