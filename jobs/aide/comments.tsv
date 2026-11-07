@@ -270,3 +270,5 @@ m	abcd/Sk	j6	()Ljava/util/List;	auto: 取 Templates（上游无同签名对应�
 m	abcd/Sk	j6	(Ljava/lang/String;)Ljava/util/List;	auto: 取 Templates（上游无同签名对应，按作用取名）
 m	abcd/za	DW	(Z)Z	auto: 写出 Jar（上游无同签名对应，按作用取名）
 c	abcd/uh	-	-	auto: 类：NewUserExperienceDialog（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/Rl	-	-	auto: 类：CommandRunner（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/Pl	-	-	auto: 结果：Command（上游未收录，名字来自 jobs/aide 的判据）

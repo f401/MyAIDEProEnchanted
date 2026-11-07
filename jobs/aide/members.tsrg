@@ -268,3 +268,5 @@ abcd/Sk abcd/aide/ProjectTemplates
 abcd/za abcd/aide/JarPackager
 	DW (Z)Z writeJar
 abcd/uh com/aide/ui/NewUserExperienceDialog
+abcd/Rl abcd/aide/build/CommandRunner
+abcd/Pl abcd/aide/build/CommandResult

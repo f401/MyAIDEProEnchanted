@@ -65,3 +65,5 @@ Dl	com/aide/trainer/LessonNotifications	str:"UpdateNotifications"/"UpdateTime"/"
 Sk	abcd/aide/ProjectTemplates	str:"$package_name$"/"$project_name$"/"$flavor_name$"/"Create project "/"template"/"templates/"；ZipInputStream 解模板 zip 并做变量替换，j6() 走 U.Hw().getTemplates()（IProject 的模板列表）⇒ 新建工程模板
 za	abcd/aide/JarPackager	str:".JAR"/"Writing "/"Touching "/"Creating "/".class"/"x.tmp"；字段 Deflater/Inflater/CRC32/ZipOutputStream，把工程里编译出的 .class 按目录打成 jar（c tor 收 abcd/La 工程）⇒ jar 打包器
 uh	com/aide/ui/NewUserExperienceDialog	str:"New user experience"/"cancelled"/"exit"；extends com/aide/common/ma(对话框基类)，j6(Activity) 里 AlertDialog$Builder + CustomExpandableListView + Sk.j6(工程模板) ⇒ 新用户引导/模板选择对话框
+Rl	abcd/aide/build/CommandRunner	body:j6(List cmd,String,Map env,Z,OutputStream,[B stdin) 里 new ProcessExecutorWrapper + ByteArrayOutputStream，返回 abcd/Pl；引用者全是构建链（AaptService、com/aide/ui/build/android/a、nativeexecutable/l、zeroaicy 的 runCmakeBuild 与 ZeroAicyR8Task.zipalignApk）⇒ 跑外部命令（aapt2/zipalign/cmake）
+Pl	abcd/aide/build/CommandResult	body:只有 DW()I（退出码）与 j6()[B（输出字节）两个方法，由 abcd/Rl 返回、被构建链 39 处读取 ⇒ 命令执行结果

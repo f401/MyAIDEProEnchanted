@@ -12028,6 +12028,8 @@ c	abcd/Sk	abcd/aide/ProjectTemplates	auto: 类：ProjectTemplates（上游未收
 c	abcd/za	abcd/aide/JarPackager	auto: 类：JarPackager（上游未收录，名字来自 jobs/aide 的判据）
 	m	(Z)Z	DW	writeJar	auto: 写出 Jar（上游无同签名对应，按作用取名）
 c	abcd/uh	com/aide/ui/NewUserExperienceDialog	auto: 类：NewUserExperienceDialog（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/Rl	abcd/aide/build/CommandRunner	auto: 类：CommandRunner（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/Pl	abcd/aide/build/CommandResult	auto: 结果：Command（上游未收录，名字来自 jobs/aide 的判据）
 c	com/a/b/a/a/a	com/android/dx/cf/attrib/AttAnnotationDefault	auto: 类：AttAnnotationDefault；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault
 	m	()I	a	byteLength	auto: 「byteLength」；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#byteLength
 	m	()Lcom/a/b/e/c/a;	b	getValue	auto: 取 Value；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#getValue
