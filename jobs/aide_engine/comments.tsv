@@ -54,3 +54,6 @@ c	com/aide/engine/service/h	-	-	auto: 适配器：BuildListener（上游未收�
 c	com/aide/engine/service/i	-	-	auto: 类：HighlightingDispatcher（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/j	-	-	auto: 适配器：RefactoringListener（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/k	-	-	auto: 适配器：UsageSearcher（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/z	-	-	auto: 类：CastExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/w	-	-	auto: 类：Literal（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/B	-	-	auto: 类：Name（上游未收录，名字来自 jobs/aide_engine 的判据）

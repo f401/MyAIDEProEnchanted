@@ -54,3 +54,6 @@ com/aide/engine/service/h com/aide/engine/service/BuildListenerAdapter
 com/aide/engine/service/i com/aide/engine/service/HighlightingDispatcher
 com/aide/engine/service/j com/aide/engine/service/RefactoringListenerAdapter
 com/aide/engine/service/k com/aide/engine/service/UsageSearcherAdapter
+com/aide/engine/z com/aide/engine/CastExpression
+com/aide/engine/w com/aide/engine/Literal
+com/aide/engine/B com/aide/engine/Name
