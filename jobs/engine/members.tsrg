@@ -157,3 +157,7 @@ abcd/ao com/aide/engine/InstructionPrinter
 abcd/hs com/aide/engine/NamedSpan
 abcd/cs com/aide/engine/ParameterTypeList
 abcd/Lt com/aide/engine/CodeWriter
+abcd/Zn com/aide/engine/FixedInstruction
+abcd/Vr com/aide/engine/ReferencePair
+abcd/ku com/aide/engine/ByteOutput
+abcd/Os com/aide/engine/MemberSignature

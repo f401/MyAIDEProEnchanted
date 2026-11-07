@@ -132,3 +132,7 @@ ao	com/aide/engine/InstructionPrinter	abstract，方法全是 protected static �
 hs	com/aide/engine/NamedSpan	body:final (Js 名字, int, int) + DW(hs)Z 比较 + 静态单例 ⇒ 具名区间（名字+起止）
 cs	com/aide/engine/ParameterTypeList	extends Xt、implements Ss；get(int)bs / j6(bs) / DW(bs) / Hw(int) / er() / 静态 j6(bs[,bs]) ⇒ 参数类型表
 Lt	com/aide/engine/CodeWriter	iface(extends ku):DW()Z / FH() / Hw()Z / j6()I / j6(int,String) / j6(String) ⇒ 字节码输出接口
+Zn	com/aide/engine/FixedInstruction	abstract:extends Vn；DW()I 与 DW(int)Vn 都是 final（定长操作数数组）、j6(Z)String 渲染、j6(Lt) 写回 ⇒ 定长操作数的指令（mo 是它的具体子类）
+Vr	com/aide/engine/ReferencePair	body:两个 Js 字段 + 私有 ctor + 静态 j6(Js,Js) 做 intern（内部表）+ compareTo/equals/hashCode + 两个 getter ⇒ 引用对
+ku	com/aide/engine/ByteOutput	iface(extends Tt):write(byte[]) / writeByte(int) / DW(int) / FH(int) / Hw(int) / j6(int) / j6(Pt) / v5() ⇒ 字节输出流
+Os	com/aide/engine/MemberSignature	body:static HashMap 做 **intern 表**；私有 ctor(String 名字, Qs 类型, Ps 方法类型) + 静态 DW(String)Qs[] 解析 + compareTo ⇒ 成员签名（名字+类型/方法类型）

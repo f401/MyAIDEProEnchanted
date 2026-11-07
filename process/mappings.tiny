@@ -25259,6 +25259,10 @@ c	abcd/ao	com/aide/engine/InstructionPrinter	auto: 类：InstructionPrinter（�
 c	abcd/hs	com/aide/engine/NamedSpan	auto: 类：NamedSpan（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/cs	com/aide/engine/ParameterTypeList	auto: 类：ParameterTypeList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Lt	com/aide/engine/CodeWriter	auto: 写出器：Code（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Zn	com/aide/engine/FixedInstruction	auto: 类：FixedInstruction（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Vr	com/aide/engine/ReferencePair	auto: 类：ReferencePair（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ku	com/aide/engine/ByteOutput	auto: 类：ByteOutput（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Os	com/aide/engine/MemberSignature	auto: 类：MemberSignature（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

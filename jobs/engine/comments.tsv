@@ -158,3 +158,7 @@ c	abcd/ao	-	-	auto: 类：InstructionPrinter（上游未收录，名字来自 jo
 c	abcd/hs	-	-	auto: 类：NamedSpan（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/cs	-	-	auto: 类：ParameterTypeList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Lt	-	-	auto: 写出器：Code（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Zn	-	-	auto: 类：FixedInstruction（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Vr	-	-	auto: 类：ReferencePair（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ku	-	-	auto: 类：ByteOutput（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Os	-	-	auto: 类：MemberSignature（上游未收录，名字来自 jobs/engine 的判据）
