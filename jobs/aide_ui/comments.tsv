@@ -13,3 +13,15 @@ c	abcd/Cl	-	-	auto: 类：LessonRunner（上游未收录，名字来自 jobs/aid
 c	abcd/Ck	-	-	auto: 任务：LicenseVerification（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Ki	-	-	auto: 类：LicensingServiceConnection（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Ah	-	-	auto: 任务：InitialCommit（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/rg	-	-	auto: 动作：ShowSearchResults（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/qf	-	-	auto: 动作：CreateSettersGetters（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Jg	-	-	auto: 动作：LogCatResume（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Rg	-	-	auto: 动作：ShowCodeHelp（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Se	-	-	auto: 动作：ShowCharacterPicker（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Qd	-	-	auto: 动作：JavaScriptComments（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/T	-	-	auto: 类：MoveClassesOperation（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Oi	-	-	auto: 类：LicenseChecker（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/uw	-	-	auto: 类：BackboneDataDir（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/vl	-	-	auto: 类：LicenseSignatureChecker（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ev	-	-	auto: 类：HookRegistry（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Bk	-	-	auto: 服务：Keybindings（上游未收录，名字来自 jobs/aide_ui 的判据）

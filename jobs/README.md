@@ -60,9 +60,9 @@ jobs/<名字>/
 
 ---
 
-## 剩余待还原：`abcd` 里 **1505** 类（ProGuard / BC-ASN.1 / jd-core / ANTLR 都已收口，见 `docs/DEPENDENCIES.md`）
+## 剩余待还原：`abcd` 里 **1493** 类（ProGuard / BC-ASN.1 / jd-core / ANTLR 都已收口，见 `docs/DEPENDENCIES.md`）
 
-`abcd/**` 共 2745 类，**已还原 1240**（18 个 part）。剩下 1505 类没有 oracle
+`abcd/**` 共 2745 类，**已还原 1252**（19 个 part）。剩下 1493 类没有 oracle
 （AIDE 自有 + 一些未公开的第三方），只能按 [docs/RESTORE-OBFUSCATED-LIB.md](../docs/RESTORE-OBFUSCATED-LIB.md)
 的"按作用命名"路线做。按常量串/引用的真实包先切成**可独立交付的部分**：
 
@@ -75,7 +75,7 @@ jobs/<名字>/
 | IAP/计费/licensing | 20 | 317 | 112 | 高（`aide_prime_monthly_0500`、`InAppProduct`、`LicenseService`…） | 待办 |
 | SCM/git 冲突 | 18 | 227 | 94 | 高（`Resolve conflict`、`Download conflict`） | 待办 |
 | Maven/AAR 依赖 | 3 | 45 | 14 | 高（`maven-metadata.xml`、`.exploded.aar`） | 1/3 完成（`MavenDependencyResolver`）；`Kj$a`/`Kj$b` 因外层 `abcd/Kj` 被 R8 删掉而暂缓 |
-| UI 面板/动作 | 117 | 1372 | 500 | 中（`input_method`、Dialog、Editor…） | **已开张**：动作族 15 类做完 → [jobs/aide_ui](aide_ui/README.md)；剩 ~102 类 |
+| UI 面板/动作 | 117 | 1372 | 500 | 中（`input_method`、Dialog、Editor…） | **已开张**：动作族 27 类做完 → [jobs/aide_ui](aide_ui/README.md)；剩 ~90 类 |
 | 无特征串的核心 | ~1700 | — | — | 低（只互相引用） | 只能按图结构逐个推，建议按"一个业务子系统一轮" |
 
 **每轮的固定动作**（与 dx/crashlytics 那几轮一致）：

@@ -53016,3 +53016,15 @@ c	abcd/Cl	com/aide/trainer/LessonRunner	auto: 类：LessonRunner（上游未收�
 c	abcd/Ck	com/aide/licensing/LicenseVerificationTask	auto: 任务：LicenseVerification（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Ki	com/aide/licensing/LicensingServiceConnection	auto: 类：LicensingServiceConnection（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Ah	com/aide/ui/scm/InitialCommitTask	auto: 任务：InitialCommit（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/rg	com/aide/ui/actions/ShowSearchResultsAction	auto: 动作：ShowSearchResults（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/qf	com/aide/ui/actions/CreateSettersGettersAction	auto: 动作：CreateSettersGetters（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Jg	com/aide/ui/actions/LogCatResumeAction	auto: 动作：LogCatResume（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Rg	com/aide/ui/actions/ShowCodeHelpAction	auto: 动作：ShowCodeHelp（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Se	com/aide/ui/actions/ShowCharacterPickerAction	auto: 动作：ShowCharacterPicker（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Qd	com/aide/ui/actions/JavaScriptCommentsAction	auto: 动作：JavaScriptComments（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/T	com/aide/refactor/MoveClassesOperation	auto: 类：MoveClassesOperation（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Oi	com/aide/licensing/LicenseChecker	auto: 类：LicenseChecker（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/uw	com/aide/backbone/BackboneDataDir	auto: 类：BackboneDataDir（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/vl	com/aide/licensing/LicenseSignatureChecker	auto: 类：LicenseSignatureChecker（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ev	com/aide/backbone/HookRegistry	auto: 类：HookRegistry（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Bk	com/aide/ui/KeybindingsService	auto: 服务：Keybindings（上游未收录，名字来自 jobs/aide_ui 的判据）

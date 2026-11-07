@@ -13,3 +13,15 @@ abcd/Cl com/aide/trainer/LessonRunner
 abcd/Ck com/aide/licensing/LicenseVerificationTask
 abcd/Ki com/aide/licensing/LicensingServiceConnection
 abcd/Ah com/aide/ui/scm/InitialCommitTask
+abcd/rg com/aide/ui/actions/ShowSearchResultsAction
+abcd/qf com/aide/ui/actions/CreateSettersGettersAction
+abcd/Jg com/aide/ui/actions/LogCatResumeAction
+abcd/Rg com/aide/ui/actions/ShowCodeHelpAction
+abcd/Se com/aide/ui/actions/ShowCharacterPickerAction
+abcd/Qd com/aide/ui/actions/JavaScriptCommentsAction
+abcd/T com/aide/refactor/MoveClassesOperation
+abcd/Oi com/aide/licensing/LicenseChecker
+abcd/uw com/aide/backbone/BackboneDataDir
+abcd/vl com/aide/licensing/LicenseSignatureChecker
+abcd/Ev com/aide/backbone/HookRegistry
+abcd/Bk com/aide/ui/KeybindingsService

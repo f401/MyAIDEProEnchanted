@@ -13,3 +13,15 @@ Cl	com/aide/trainer/LessonRunner	str:"$package_name$"/"$project_name$"/"$code_hi
 Ck	com/aide/licensing/LicenseVerificationTask	str:"Licensed verification failed" + implements abcd/g（AIDE 的任务接口）
 Ki	com/aide/licensing/LicensingServiceConnection	str:"Licensing service connected."/"Licensing service unexpectedly disconnected." + implements android/content/ServiceConnection
 Ah	com/aide/ui/scm/InitialCommitTask	str:"libs/*/*.so"、"Initial commit"；implements Runnable；引用 com/aide/ui/scm
+rg	com/aide/ui/actions/ShowSearchResultsAction	str:"Show Search Results" + implements abcd/Yl,abcd/Wl
+qf	com/aide/ui/actions/CreateSettersGettersAction	str:"Create Setters & Getters" + implements abcd/Yl,abcd/Wl
+Jg	com/aide/ui/actions/LogCatResumeAction	str:"LogCat - Resume" + implements abcd/_l,abcd/Wl
+Rg	com/aide/ui/actions/ShowCodeHelpAction	str:"Show Code Help" + implements abcd/_l,abcd/Wl
+Se	com/aide/ui/actions/ShowCharacterPickerAction	str:"Show Character Picker" + implements abcd/am（另一个 Action 接口）
+Qd	com/aide/ui/actions/JavaScriptCommentsAction	str:"JavaScript Comments" + implements abcd/na
+T	com/aide/refactor/MoveClassesOperation	str:"Select a class or namespace identifier in the code to be moved."、"All classes of namespace  "、" will be moved to the new namespace and all references will be updated."、"This class is defined outside of the project."；19 方法 4 字段
+Oi	com/aide/licensing/LicenseChecker	str:"Requesting license check"、"Binding to "、常量 NOT_LICENSED / OVER_GRACE_PERIOD / TEMPORARY_ERROR；21 方法 10 字段
+uw	com/aide/backbone/BackboneDataDir	str:"backbone"、"dataDir"、`ApplicationInfo`、`Build$VERSION.SDK_INT`；6 方法 1 字段（给 backbone 算数据目录）
+vl	com/aide/licensing/LicenseSignatureChecker	str:RSA 公钥 Base64（MIIBIjANBgkq…）+ "SHA1withRSA"；引用 abcd/Ek(license 控制器) 与 abcd/fL
+Ev	com/aide/backbone/HookRegistry	str:"Set onEnter "、"Set onThrow "、": container "、" class "、" method "；被 lv(ReflectionRuntime) 用 j6/DW 调用（按 id 存取 hook）
+Bk	com/aide/ui/KeybindingsService	str:"KeybindingsService_2" + implements abcd/Wl,abcd/Xl
