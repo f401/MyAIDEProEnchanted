@@ -129,7 +129,41 @@ FART 会沿覆写传播下去（`inherit_check` MISSING 0 已确认）。
 | `DW()` | `install` | 唯一调 `we()` 的入口（hook + 生命周期） |
 | `VH()` / `v5()` | `getCurrentActivity` / `getHandler` | 直接返回字段 |
 
-## 3.4 `Qv`(WindowRuntime) 26 个为什么没做
+## 3.4 `kv`(CallbackDispatcher) 28 个（判据：方法体里直接写着事件名）
+
+`kv` 的每个派发方法在拼 key 时会写事件名（`"onActivityStarted"`、`"onWindowShown"`…），
+这是**逐字证据**，28 个直接照抄：
+
+| 事件 | 方法 |
+|---|---|
+| 生命周期 | `onActivityCreated(Activity)`、`onActivityStarted(Activity)`、`onActivityStopped(Activity)`、`onApplicationCreate(Application)` |
+| 窗口 | `onWindowShown(UserActionWindow)`、`onWindowHidden(UserActionWindow)` |
+| 输入 | `onInput(UserInputAction)`、`onTouch(UserTouchAction)`、`onLongPress(UserTouchAction,View)`、`onClick(UserTouchAction,View)`、`onItemClick(UserTouchAction,View,Object,int,View)`、`onItemLongPress(...)`、`onMenuItemSelected(UserTouchAction,MenuItem)` |
+| 内购/安装 | `onInAppProductPurchase(Activity,InAppProduct)`、`onInAppProductImpression(Activity,InAppProduct)`、`onInstall(Market)` |
+| 通知/启动/更新 | `onNotification(UserNotification)`、`onNotificationAction(UserNotificationAction)`、`onLaunched(UserLaunchAction)`、`onUpdate()` |
+| 钩子 | `onEnter(long,Object,Object[])`、`onThrow(long,Throwable,Object,Object[])`、`onCrash(Thread,Throwable)` |
+| 其它 | `now()`（`System.currentTimeMillis`）、`log(String,CharSequence)`、`getThreadState()`（返回内部 ThreadLocal 状态）、`markHandledAt(long,long)`（`Set.add`）、`invokeHook(long,iv,Object[])`（`ThreadLocal` + `jv.j6` + `yu.DW/j6`） |
+
+剩 12 个没定：`DW/j6(abcd/iv)`、`DW/j6(UserActionWindow)`（无串、纯委派）、`DW(List)/j6(List)`
+（同名同描述符必须不同名，尚未区分）、`j6(MarketReferrer,JJ)`、`j6(Z)`、`v5()Z`、`Hw()` 之外的
+内部件等。
+
+## 3.5 `Qv`(WindowRuntime) 26 个为什么还没做（用 kv 的新名做了传递追踪）
+
+把 Qv 的每个方法沿"Qv 内部调用 → kv"追到深度 4，结果是**六条平行车道**：
+
+```
+DW/FH/Hw/Zo/j6/v5 (UserTouchAction)V   → 全部汇到 kv.onTouch
+DW/FH/j6 (UserTouchAction,View)V       → kv.onClick / kv.onLongPress
+```
+
+也就是说同一个事件在 Qv 里有 6 个同描述符的入口（`(UserTouchAction)V` 就有 6 个！），
+它们必须是**不同**的方法名，否则 `validate_mappings` 的 `dup-member-target` 直接报错。
+要区分这六条车道，得先弄清每条车道的语义差别（一个像"分发给已注册闭包"、一个像
+"写分析事件"、一个像"窗口内控件"…），这需要读 `Bv`(ApiBase) 的 15 个闭包字段与 `iv` 的定义，
+不是看串就能定的。**下一步**：先做 `Bv`/`iv` 的成员，再回头给 Qv 的六条车道命名。
+
+### 3.6.1 旧记录的原文（保留）
 
 它的方法全是**同一个分派阶梯**（`DW/FH/Hw/j6/Zo/v5` × `UserActionWindow/UserTouchAction/UserInputAction/MenuItem/View`），
 每个最终都转到 `kv`(CallbackDispatcher) 的某个方法上，而 `kv` 的 40 个方法也全是字母。

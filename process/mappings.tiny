@@ -52745,6 +52745,34 @@ c	abcd/Bv	com/aide/backbone/ApiBase	recv: 15 个闭包适配器（Av/mv/nv/ov/pv
 c	abcd/Iv	com/aide/backbone/NotificationFactory	str: 串 "BACKBONE_INTENT"；造 PendingIntent(Context,I,Intent,I,Bundle) 与 UserNotification/UserNotificationAction ⇒ 通知工厂
 c	abcd/Gv	com/aide/backbone/ActivityLifecycleTracker	hier: implements android/app/Application$ActivityLifecycleCallbacks（8 个 onActivityXxx 全是接口方法，未改名）⇒ 生命周期跟踪
 c	abcd/kv	com/aide/backbone/CallbackDispatcher	recv: 40 个方法全是回调派发（含 DW(Activity,InAppProduct)V=onInAppProductPurchase），字段有 ThreadLocal ⇒ 回调分发器
+	m	()J	DW	now	auto: 「now」（上游无同签名对应，按作用取名）
+	m	(Landroid/app/Activity;)V	DW	onActivityStarted	auto: 执行 onActivityStarted（上游无同签名对应，按作用取名）
+	m	(Landroid/app/Activity;Lcom/appfour/backbone/api/objects/InAppProduct;)V	DW	onInAppProductPurchase	auto: 执行 onInAppProductPurchase（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserTouchAction;Landroid/view/View;)V	DW	onLongPress	auto: 执行 onLongPress（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserTouchAction;Landroid/view/View;Ljava/lang/Object;ILandroid/view/View;)V	DW	onItemLongPress	auto: 执行 onItemLongPress（上游无同签名对应，按作用取名）
+	m	()V	FH	onUpdate	auto: 执行 onUpdate（上游无同签名对应，按作用取名）
+	m	(Landroid/app/Activity;)V	FH	onActivityStopped	auto: 执行 onActivityStopped（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserActionWindow;)V	FH	onWindowHidden	auto: 执行 onWindowHidden（上游无同签名对应，按作用取名）
+	m	()Labcd/kv$b;	Hw	getThreadState	auto: 取 ThreadState（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserActionWindow;)V	Hw	onWindowShown	auto: 执行 onWindowShown（上游无同签名对应，按作用取名）
+	m	(JJ)V	j6	markHandledAt	auto: 执行 markHandledAt（上游无同签名对应，按作用取名）
+	m	(JLabcd/iv;[Ljava/lang/Object;)V	j6	invokeHook	auto: 调用 Hook（上游无同签名对应，按作用取名）
+	m	(JLjava/lang/Object;[Ljava/lang/Object;)V	j6	onEnter	auto: 执行 onEnter（上游无同签名对应，按作用取名）
+	m	(JLjava/lang/Throwable;Ljava/lang/Object;[Ljava/lang/Object;)V	j6	onThrow	auto: 执行 onThrow（上游无同签名对应，按作用取名）
+	m	(Landroid/app/Activity;)V	j6	onActivityCreated	auto: 执行 onActivityCreated（上游无同签名对应，按作用取名）
+	m	(Landroid/app/Activity;Lcom/appfour/backbone/api/objects/InAppProduct;)V	j6	onInAppProductImpression	auto: 执行 onInAppProductImpression（上游无同签名对应，按作用取名）
+	m	(Landroid/app/Application;)V	j6	onApplicationCreate	auto: 执行 onApplicationCreate（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/Market;)V	j6	onInstall	auto: 执行 onInstall（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserInputAction;)V	j6	onInput	auto: 执行 onInput（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserLaunchAction;)V	j6	onLaunched	auto: 执行 onLaunched（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserNotification;)V	j6	onNotification	auto: 执行 onNotification（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserNotificationAction;)V	j6	onNotificationAction	auto: 执行 onNotificationAction（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserTouchAction;)V	j6	onTouch	auto: 执行 onTouch（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserTouchAction;Landroid/view/MenuItem;)V	j6	onMenuItemSelected	auto: 执行 onMenuItemSelected（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserTouchAction;Landroid/view/View;)V	j6	onClick	auto: 执行 onClick（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserTouchAction;Landroid/view/View;Ljava/lang/Object;ILandroid/view/View;)V	j6	onItemClick	auto: 执行 onItemClick（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;Ljava/lang/CharSequence;)V	j6	log	auto: 执行 log（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/Thread;Ljava/lang/Throwable;)V	j6	onCrash	auto: 执行 onCrash（上游无同签名对应，按作用取名）
 c	abcd/hv	com/aide/backbone/AbstractHookDefinition	shape: abstract class extends abcd/yu(HookDefinition)，新增字段 Class<? extends Throwable> + 3 个 long + boolean；被 abcd/Vu 继承 ⇒ 异常钩子基类
 c	abcd/Au	com/aide/backbone/adapters/ReferrerMarketClickClosureAdapter	src: 由 abcd/Iu.onReferrerMarketClick(OnMarketClosure) 里 new；implements abcd/jv，j6 调 OnMarketClosure.getValue(Market…)
 c	abcd/Eu	com/aide/backbone/adapters/InstallClosureAdapter	src: 由 abcd/Iu.onInstall(OnMarketClosure) 里 new（与 Au 同形，靠外层 API 方法区分）⇒ 安装事件闭包适配器
