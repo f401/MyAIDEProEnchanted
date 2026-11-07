@@ -350,3 +350,19 @@ apktool 写第二份时会覆盖第一份（碰撞的那份会带 `.1`/`.2` 后�
 实测 `Sa.j6([CII)` 是 `System.arraycopy` 填缓冲、`toString` 里 new 了 `Ta` 再调
 `j6(StringBuffer,String,Ta,I)` ⇒ 更像"源文本/区间"模型而不是词法器）。AIDE 引擎这一族没有 oracle，
 只能按方法形状+调用点定作用名，判不出来就留原名（NAMING §3.4）。
+
+## 20. assets 的 4 个 bundle 现在也过 FART（`assetdex` 步）
+
+§14 说的"bundle 不要改名"是当时的**权宜**：不改名 ⇒ 主 dex 里被 bundle 引用的类/成员
+就不能改名，`assetcheck` 会报红（曾累积 39 条，涉及 `abcd/Ea|la|na|pa|GA|Ek|Hd|Nk|Wi|Zk|ck`、
+`com/aide/ui/build/android/I`、`ApplicationUtils.j6`）。现在改成**两边一起改**：
+
+```
+zip(classes.dex) --dex2jar--> x.jar --FART(map=out/build/mappings.tiny, --lib merged_pub.jar)--> x-ren.jar --D8--> classes.dex
+```
+
+- 必须把 `out/build/merged_pub.jar` 当 `--lib` 传给 FART，否则 bundle 里引用的
+  `com/aide/common/AIDELog` / `abcd/GA` 之类会 "Can't Find Class" 直接 rc=1（packagingservice 踩过）。
+- 映射表必须是**新生成的** `--comments=none` 版；拿旧的 `out/build/mappings.tiny` 测会出现
+  "`abcd/Ea` 还在、`FileManager` 没有"的假象（表里根本没这条）。
+- D8 那一步没在本机跑过（打包验证归用户），失败时 `--allow-fail` 回落原 bundle。

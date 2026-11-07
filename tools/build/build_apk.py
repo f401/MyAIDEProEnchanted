@@ -218,6 +218,20 @@ def step_fart(P):
         raise SystemExit('缺少 %s，先跑 tryfix + widen' % pub)
     # 主 dex：合并包一次改名
     _fart(pub, os.path.join(out, 'merged.jar'), P, [])
+
+
+def step_assetdex(P):
+    """assets 的 4 个 bundle 也过一遍 FART（否则它们引用的旧类名会让 "Show Code Help" 崩）。
+
+    bundle 是运行期动态加载的 `zip(classes.dex)`，不能直接改名 ⇒ 走
+    `dex2jar → FART → D8 → zip` 这条链（tools/build/assets_rename.py）。
+    单个 bundle 失败只告警：这时 repack 回落到原 bundle（与改造前行为一致，不会更差）。
+    """
+    ensure_map(P)
+    out = os.path.join(OUT, 'assetdex')
+    print('  产出目录：%s' % out)
+    sh([sys.executable, os.path.join(REPO, 'tools', 'build', 'assets_rename.py'),
+        '--map', map_file(P), '--out', out, '--allow-fail'])
     # assets 的 4 个 bundle **不改名**：它们是运行期动态加载的 dex 包（src 树里 assets 的
     # 那几份），内部 abcd/* 对可读性没意义；回填时直接用 `process/src/<key>.jar`（=树里文件）。
 
@@ -363,6 +377,9 @@ def step_repack(P):
         if entry not in z.namelist():
             continue
         src = asset_zip(key)                      # 树里的原始 bundle：zip(classes.dex)
+        renamed = os.path.join(OUT, 'assetdex', key + '.zip')
+        if os.path.exists(renamed):               # assetdex 步的产物（已按映射改名）
+            src = renamed
         with zipfile.ZipFile(src) as zz:
             if 'classes.dex' not in zz.namelist():
                 raise SystemExit('%s 不是 zip(classes.dex)' % src)
@@ -465,7 +482,7 @@ def main():
         _APK_OVERRIDE = a.apk if os.path.isabs(a.apk) else os.path.join(REPO, a.apk)
     P = config.load(a.project)
     os.makedirs(OUT, exist_ok=True)
-    steps = (['plan', 'sync_assets', 'tryfix', 'widen', 'fart', 'jdkrefs', 'dex', 'repack',
+    steps = (['plan', 'sync_assets', 'tryfix', 'widen', 'fart', 'assetdex', 'jdkrefs', 'dex', 'repack',
               'apkrefs', 'sign', 'verify']
              if a.step == 'all' else [a.step])
     apk, dexes, du, ju, assets = plan()
@@ -482,6 +499,8 @@ def main():
             step_fart(P)
         elif s == 'widen':
             step_widen(P)
+        elif s == 'assetdex':
+            step_assetdex(P)
         elif s == 'jdkrefs':
             step_jdkrefs(P)
         elif s == 'dex':

@@ -20,9 +20,9 @@ python3 tools/jgit/pipeline/tiny_roundtrip.py        # 10) **等价性硬判据*
 python3 tools/jgit/pipeline/coverage.py              # 11) 覆盖率（只度量，不判定）
 ```
 
-期望值（当前基线）：`类块 3810 / 成员行 27430 / 参数行 22167`；`不一致 0`；
+期望值（当前基线）：`类块 3855 / 成员行 27430 / 参数行 22167`；`不一致 0`；
 `CONFLICT 0 / DUPTARGET 0 / MISSING 0`；`innercheck ① 0 / ② 0 / ③ 0`；`famcheck 0/0`；
-`注释 31240 = 类 3810 + 方法 17840 + 字段 9590`。
+`注释 31285 = 类 3855 + 方法 17840 + 字段 9590`。
 
 ## 两种等价入口
 
@@ -70,7 +70,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 141 / aide 54`，合计 `类块 880`、`丢陈旧块 0`、`去重成员 0` |
 | 1' `paramfill` | `参数行 4022 条（2328 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3238 / jsch 784 / aide 15） |
 | 1'' `emit_tsrg2` | `55480 行，static 方法标记 2073 / 参数行 22167` |
-| 2 `validate_mappings` | `类块 3810（含头部 1）/ 成员行 27430 / 参数行 22167 / 基线类 23636` → **✔ 无无效映射** |
+| 2 `validate_mappings` | `类块 3855（含头部 1）/ 成员行 27430 / 参数行 22167 / 基线类 23636` → **✔ 无无效映射** |
 | 3 `verify_members` | `成员映射 5376 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 223` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
 | 5 `pkgclose` | `需要挪的类 34 / 真冲突 18 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |
@@ -79,14 +79,15 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 12 `tools/jgit/audit/apk_refs.py`（构建链 `apkrefs` 步） | **产物里不许有"旧类名"残留**：class_map 里被改名的旧名 `L旧名;` 在 dex / 嵌套 jar 里一个都不许有（另含 `assets/data/functions/**` 格式检查：必须仍是 `zip(classes.dex)`；踩过 `com/aide/ui/U` 引用残留 → NOTES §12、资产格式 → NOTES §13） |
 | 12'' `tools/deob/assetcheck.py`（新增）| **资产包引用一致性**。`assets/data/functions/**` 的 4 个 bundle 不参与 FART 改名（构建时原样回填），所以它们**引用到的类/成员都不许改名**；否则运行到那行就是 `NoClassDefFoundError: L旧名;`（踩过：en/zh 语言包引用 `abcd/Be`，改名后崩）。要保留可读名就把 bundle 自己也过一遍 FART（见 RESTORE §8）。当前：en 12 类 / zh 12 / ndk 10 / packagingservice 19，**违规 39 条**（见下） |
 
-> **违规 39 条 = 已知债（不是新回归）**。en/zh 语言包里引用了这些被改名的符号：
+> **违规 39 条 → 已由构建链新增的 `assetdex` 步根治（待用户构建验证）**。en/zh 语言包里引用了这些被改名的符号：
 > `abcd/Ea→FileManager`、`abcd/la→FileType`、`abcd/na→LanguageServices`、`abcd/pa→Indenter`、
 > `abcd/Hd→JavaTypeTable`、`abcd/Nk→OpenFileTable`、`abcd/Wi→SolutionBuilder`、`abcd/Zk→AppController`、
 > `abcd/ck→SyntaxErrorTable`、`com/aide/ui/build/android/I→UsageSearch`、`abcd/GA→ZipSigner`、
 > `abcd/Ek.j6/Zo`、`abcd/GA.j6/DW`、`abcd/ApplicationUtils.j6`。
 > 影响面：**只有"Show Code Help"这条功能**（bundle 是离线 API 文档库），不影响编译/编辑/构建。
-> 根治办法是让 4 个 bundle 也过一遍 FART：`dex2jar → FART --map out/build/mappings.tiny → D8 → 回填 zip`，
-> 见 RESTORE §8；在它落地前**不要再把新命名的类塞进这条链**（先跑 `assetcheck` 看红）。 |
+> 已落地：`tools/build/assets_rename.py` + `build_apk.py` 的 `assetdex` 步（`dex2jar → FART → D8 → zip`），
+> `repack` 优先用 `out/build/assetdex/<key>.zip`；单个 bundle 失败只告警并回落原 bundle（不会更差）。
+> 实测 `en` bundle 经这一步后 `abcd/Ea→com/aide/engine/FileManager`、`abcd/na→LanguageServices` 全部换名。 |
 | 12' `tools/deob/innercheck.py`（新增）| **内部类归属不变量**：探针 `X$y` 若映射成 `A$b`，则 `A` 必须 = `map(X)`；探针内部类不许映射成顶层类（否则外层 `InnerClasses` 变成 `outer=X / inner=顶层类 / innerName=a` 的自相矛盾条目，D8 报 `Malformed inner-class attribute`）。当前：①外层归属不一致 0 ②内部类↔顶层错配 0 ③重复目标 0 |
 | 11 `tools/jgit/audit/jdk_refs.py`（构建链 `jdkrefs` 步） | **改名前后指向 `java/`/`javax/`/`android/`… 的引用必须一模一样**；踩过一次 `toString→getLongname` 被 FART 传播到 `java.lang.Object` / `CharSequence`，780 条 JDK 引用被改坏，装机即崩（见 NOTES §11） |
 | 10 `deob mgraph --pkg=com/jcraft/jsch` | `调用图自证：530 个方法 / 2462 条已定名引用，未对上 6 条（0.2%），可疑方法 4 个`（4 条均已知：1 条 AIDE 改的方法体 + 3 条 `Compression.stream` 类型被换成 `abcd/Oy`，见 NOTES §9/§10） |
