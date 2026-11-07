@@ -44,3 +44,33 @@ m	abcd/I	FH	(Labcd/Da;IIZ)V	auto: 加入 OverridingMethods（上游无同签名�
 m	abcd/I	Hw	(Labcd/Da;IIZ)V	auto: 加入 Inheritors（上游无同签名对应，按作用取名）
 m	abcd/I	j6	(Labcd/Da;II)V	auto: 加入 OverriddenMembers（上游无同签名对应，按作用取名）
 m	abcd/I	j6	(Labcd/Da;IIZ)V	auto: 加入 MethodsReturning（上游无同签名对应，按作用取名）
+c	abcd/la	-	-	auto: 类：FileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/vd	-	-	auto: 类：JavaFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/me	-	-	auto: 类：XmlFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/bd	-	-	auto: 类：HtmlFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Wc	-	-	auto: 类：DtdFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Mc	-	-	auto: 类：CssFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ud	-	-	auto: 类：JavaScriptFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Fc	-	-	auto: 类：CppFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ac	-	-	auto: 类：JavaBinaryFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/zc	-	-	auto: 类：AidlFileType（上游未收录，名字来自 jobs/engine 的判据）
+m	abcd/la	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/la	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+m	abcd/vd	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/vd	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+m	abcd/me	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/me	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+m	abcd/bd	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/bd	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+m	abcd/Wc	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/Wc	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+m	abcd/Mc	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/Mc	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+m	abcd/Ud	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/Ud	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+m	abcd/Fc	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/Fc	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+m	abcd/Ac	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/Ac	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+m	abcd/zc	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
+m	abcd/zc	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）

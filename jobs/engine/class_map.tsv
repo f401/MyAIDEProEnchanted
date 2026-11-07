@@ -38,3 +38,13 @@ abcd/ul	abcd/aide/engine/ProjectModel	role:27 方法 13 字段，方法全以自
 abcd/ul$a	abcd/aide/engine/ProjectModel$a	跟随父类（作用待定，保留 $后缀）
 V	abcd/aide/engine/RenameRefactoring	str:方法体里 "There already is a method with that name."/"There already is a class with that name."/"There already is a field with that name."/"There is an overridden method, which is defined outside the project."/"Code in included files will not be changed."；被 com/aide/engine/c$b.tp() 调用（重命名入口）⇒ 引擎侧重命名重构
 I	abcd/aide/engine/UsageSearch	str:五个检索入口分别拼 "Methods taking "/"Methods overriding "/"Properties overriding "/"Inheritors of "/"Overridden methods of "/"Overridden properties of "/"Methods returning "；被 com/aide/engine/c$b.J8() 调用 ⇒ 用法/继承检索
+la	com/aide/engine/FileType	iface:AIDE 的"文件类型"抽象（getName/getFilePatterns/parse/openReader/format 等 17 个方法）；9 个实现类的 getName() 分别是 "Java"/"XML"/"HTML"/"DTD"/"Css"/"JavaScript"/"C++"/"Java Binary"/"AIDL"
+vd	com/aide/engine/JavaFileType	str:j6() 返回 "Java"、Hw() 返回 ["*.java","*.json"]；implements abcd/la
+me	com/aide/engine/XmlFileType	str:j6() 返回 "XML"、Hw() 返回 ["*.xml","*.xsl","*.xslt","*.xsd","*.*proj",…,"*.pom"]；implements abcd/la
+bd	com/aide/engine/HtmlFileType	str:j6() 返回 "HTML"、Hw() 返回 ["*.html","*.htm","*.xhtml"]；implements abcd/la
+Wc	com/aide/engine/DtdFileType	str:j6() 返回 "DTD"、Hw() 返回 ["*.dtd"]，字段里还有 XHTML 1.0 的 DTD 常量串；implements abcd/la
+Mc	com/aide/engine/CssFileType	str:j6() 返回 "Css"、Hw() 返回 ["*.css"]；implements abcd/la
+Ud	com/aide/engine/JavaScriptFileType	str:j6() 返回 "JavaScript"、Hw() 返回 ["*.js"]；implements abcd/la
+Fc	com/aide/engine/CppFileType	str:j6() 返回 "C++"、Hw() 返回 ["*.cpp","*.cc","*.c","*.h",…,"*.gradle"]；implements abcd/la
+Ac	com/aide/engine/JavaBinaryFileType	str:j6() 返回 "Java Binary"、Hw() 返回 ["*.jar","*.war","*.ear","*.zip","*.class"]；implements abcd/la
+zc	com/aide/engine/AidlFileType	str:j6() 返回 "AIDL"、Hw() 返回 ["*.aidl"]；implements abcd/la

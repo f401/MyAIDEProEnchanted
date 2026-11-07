@@ -43,3 +43,33 @@ abcd/I abcd/aide/engine/UsageSearch
 	Hw (Labcd/Da;IIZ)V addInheritors
 	j6 (Labcd/Da;II)V addOverriddenMembers
 	j6 (Labcd/Da;IIZ)V addMethodsReturning
+abcd/la com/aide/engine/FileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/vd com/aide/engine/JavaFileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/me com/aide/engine/XmlFileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/bd com/aide/engine/HtmlFileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/Wc com/aide/engine/DtdFileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/Mc com/aide/engine/CssFileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/Ud com/aide/engine/JavaScriptFileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/Fc com/aide/engine/CppFileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/Ac com/aide/engine/JavaBinaryFileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/zc com/aide/engine/AidlFileType
+	j6 ()Ljava/lang/String; getName
+	Hw ()[Ljava/lang/String; getFilePatterns

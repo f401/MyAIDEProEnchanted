@@ -25141,6 +25141,36 @@ c	abcd/I	abcd/aide/engine/UsageSearch	auto: 类：UsageSearch（上游未收录�
 		p	0	file	file
 		p	1	line	line
 		p	2	column	column
+c	abcd/la	com/aide/engine/FileType	auto: 类：FileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/vd	com/aide/engine/JavaFileType	auto: 类：JavaFileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/me	com/aide/engine/XmlFileType	auto: 类：XmlFileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/bd	com/aide/engine/HtmlFileType	auto: 类：HtmlFileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/Wc	com/aide/engine/DtdFileType	auto: 类：DtdFileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/Mc	com/aide/engine/CssFileType	auto: 类：CssFileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/Ud	com/aide/engine/JavaScriptFileType	auto: 类：JavaScriptFileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/Fc	com/aide/engine/CppFileType	auto: 类：CppFileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/Ac	com/aide/engine/JavaBinaryFileType	auto: 类：JavaBinaryFileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/zc	com/aide/engine/AidlFileType	auto: 类：AidlFileType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
