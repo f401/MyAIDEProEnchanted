@@ -25248,6 +25248,10 @@ c	abcd/Ir	com/aide/engine/Visibility	auto: 类：Visibility（上游未收录，
 c	abcd/Lr	com/aide/engine/NamedReference	auto: 类：NamedReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ns	com/aide/engine/ReferenceArray	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rn	com/aide/engine/Model	auto: 类：Model（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ab	com/aide/engine/AstVisitor	auto: 访问者：Ast（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Wa	com/aide/engine/CommentTable	auto: 表：Comment（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/em	com/aide/engine/IntervalList	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Sl	com/aide/engine/RingBuffer	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

@@ -121,3 +121,7 @@ Ir	com/aide/engine/Visibility	enum:常量 RUNTIME/BUILD/SYSTEM/EMBEDDED 原样�
 Lr	com/aide/engine/NamedReference	body:(Js 名字, ms 引用) 两个 final 字段 + Hw()Js/Zo()ms 取值 + compareTo/equals/hashCode ⇒ 具名引用（方法/字段条目）
 ns	com/aide/engine/ReferenceArray	iface:ms get(int) + ms j6(int) ⇒ 按索引取引用的容器接口（Ls 实现它）
 Rn	com/aide/engine/Model	extends Xt、implements Comparable；Rn$a 是条目，get(int)Rn$a / j6(int,Rn$a) 存取、j6(Rn,Rn) 合并 ⇒ 构建器(Pn.build())产出的模型
+ab	com/aide/engine/AstVisitor	iface:j6(Aa)/DW(Aa)/j6(Aa)/DW(Aa,Ya)（访问 AST 节点）、DW(Da,I,I)（定位文件区间）、DW(String)/FH(String)（进出名字）、DW(Sa,ua)Z（对源文本+编译单元做一遍）、j6()（收尾）⇒ AST 遍历器
+Wa	com/aide/engine/CommentTable	body:五张 int[] + 一个 char[] + 若干 int；j6(IIIIII) 记录一段 ⇒ 源文本里的注释/空白区段表（Sa 用）
+em	com/aide/engine/IntervalList	body:<T> Serializable + Vector<em$b<T>>；DW(T,int,int) 按区间加、FH(int,int)Z 判断包含、DW(int,int)fm 取子区间迭代器、Hw(int,int)/DW(int,int,int) 等做区间运算 ⇒ 区间列表
+Sl	com/aide/engine/RingBuffer	body:<T> + List<T> + 两个 int；j6(T)T 入、FH()T 出、j6(int)T 取、DW()I/Hw()I 两个计数、j6() 清空、ctor(int) 定容 ⇒ 定容环形缓冲

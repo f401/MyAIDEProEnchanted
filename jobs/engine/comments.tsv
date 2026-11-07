@@ -147,3 +147,7 @@ c	abcd/Ir	-	-	auto: 类：Visibility（上游未收录，名字来自 jobs/engin
 c	abcd/Lr	-	-	auto: 类：NamedReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ns	-	-	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rn	-	-	auto: 类：Model（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ab	-	-	auto: 访问者：Ast（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Wa	-	-	auto: 表：Comment（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/em	-	-	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Sl	-	-	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）

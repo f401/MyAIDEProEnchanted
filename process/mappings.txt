@@ -26653,6 +26653,10 @@ abcd/Ir com/aide/engine/Visibility
 abcd/Lr com/aide/engine/NamedReference
 abcd/ns com/aide/engine/ReferenceArray
 abcd/Rn com/aide/engine/Model
+abcd/ab com/aide/engine/AstVisitor
+abcd/Wa com/aide/engine/CommentTable
+abcd/em com/aide/engine/IntervalList
+abcd/Sl com/aide/engine/RingBuffer
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
