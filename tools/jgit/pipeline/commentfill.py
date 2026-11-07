@@ -366,7 +366,7 @@ def fill_part(part, oracles, acc, ftypes, docs=None, apply=False, limit=3):
                     rows.append(('m', cur, name, desc, 'auto: %s（上游无同签名对应，按作用取名）' % g))
             elif len(p) == 2:
                 name, new = p[0], p[1]
-                key = ('f', cur, name, '-')
+                key = ('f', cur, name, '')     # load_comments 会把字段行的 desc 归一化成空
                 if key in have:
                     continue
                 n_mem += 1

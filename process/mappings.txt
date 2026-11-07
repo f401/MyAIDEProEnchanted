@@ -54226,6 +54226,7 @@ abcd/Ey com/jcraft/jzlib/CRC32
 abcd/Fy com/jcraft/jzlib/Checksum
 	j6 (J)V reset
 abcd/Gy com/jcraft/jzlib/Deflate
+	rN hash_shift
 	DW z_errmsg
 	j6 config_table
 	FH strm
@@ -54396,6 +54397,7 @@ abcd/Hy com/jcraft/jzlib/GZIPHeader
 	VH name
 	gn comment
 abcd/Iy com/jcraft/jzlib/InfBlocks
+	j3 bitb
 	QX codes
 	U2 window
 	er check
@@ -54579,6 +54581,7 @@ abcd/Ny com/jcraft/jzlib/Tree
 	v5 _dist_code
 	Hw bl_order
 abcd/Oy com/jcraft/jzlib/ZStream
+	DW next_in_index
 	EQ istate
 	J0 adler
 	tp dstate

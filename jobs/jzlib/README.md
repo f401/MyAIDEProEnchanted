@@ -98,20 +98,30 @@ python tools/jgit/pipeline/rebuild_tsrg.py && python tools/jgit/pipeline/validat
 python tools/jgit/pipeline/inherit_check.py
 ```
 
-## 附：剩余 19 个 int/宽字段为什么还空着（2025-11）
+## 附：字段定名收尾（19 → 16）
 
-按「字段被哪些**真名方法**访问」做指纹（与 oracle 的字段访问集合求 Jaccard），只得到 2 个
-唯一命中，其余全部打平——jzlib 的 `proc`/`inflate` 这类方法一次摸十几个字段，方法级粒度
-区分不开：
+`fieldfp`（方法级指纹）在这几个类上几乎全打平，所以换了判据：**同一方法里字段访问的
+先后顺序** —— 已知名字当锚点把两条序列切段，段内两边剩余元素个数相等就按序一一投票，
+不等就整段弃权（不猜）。工具：`tools/deob/fieldseq.py`（另有"紧邻已定名字段"的上下文
+指纹做兜底）。本轮据此定名 3 个：
 
-| 类 | 未定名 | 方法级指纹结果 |
+| 探针 | 类 | 字段 | 新名 | 票 |
+|---|---|---|---|---|
+| `abcd/Gy` | Deflate | `rN` | `hash_shift` | 2/2（上下文：夹在 `hash_mask`/`hash_bits` 之间） |
+| `abcd/Iy` | InfBlocks | `j3` | `bitb` | 10/10（序列对齐，`bitk` 的配对位） |
+| `abcd/Oy` | ZStream | `DW` | `next_in_index` | 48/48（跨类：`Inflate#inflate` 里排在 `next_in`/`avail_in` 之间） |
+
+剩下 **16 个定不了，不是判据不够，是上游对不上**：AIDE 的 jzlib 被 **R8 裁剪**过（未使用的
+字段被删），字段数与 1.1.1 差一半以上：
+
+| 类 | 探针字段 | 上游 1.1.1 |
 |---|---|---|
-| Deflate | `I:[S` `aj:[B` `cb` `lp` `rN` `sh` | `I`→`bl_count`/`aj`→`pending_buf` 与同类已用名撞车（`Mz`、`v5` 已占），其余 `cb/sh`/`rN` 分别在 `prev_length|nice_match|max_chain_length`、`hash_shift|hash_mask` 上打平 |
-| InfBlocks | `XL` `Zo` `j3` `v5` | 全部在 `proc` 里访问，`table/left/last` 与 `bitk/bitb` 三三打平 |
-| InfCodes | `VH` `Zo` `gn` `u7` | 全部只在 `proc` 里，`tree_index/need/lit` 打平 |
-| Inflate | `EQ` `FH` `Zo` | 只在 `inflate` 里，`method/flags` 打平 |
-| ZStream | `DW` `Zo` | 两个字段在本类方法里没有任何字段引用（只被外部类读写）→ 方法内指纹不可用，得看**引用者** |
+| Deflate | 61 | 114 |
+| InfBlocks | 27 | 47 |
+| InfCodes | 17 | 36 |
+| Inflate | 15 | 56 |
+| ZStream | 13 | 30 |
 
-下一步（还没做）：把指纹从「方法集合」换成「方法内字段访问的**序列**」（`fieldorder.py` 的
-putfield 顺序思路），并给 ZStream 的两个索引字段做**引用者**分析（`next_in_index` 只在
-`Inflate#inflate` 里递增、`next_out_index` 只在输出拷贝处递增）。
+于是"同名方法里两边字段访问条数普遍不等"（Deflate 32 个方法只有 12 个等长），等长区间不够
+投票。再进一步只能靠单类内的语义（如 `Inflate` 的 `EQ`/`FH`/`Zo` 是 `method`/`flags`/`marker`
+的某种排列，得读 GZIP 头解析分支）——那是 `role:` 级降级命名，暂时留空，`cover` 里如实计入未定名。

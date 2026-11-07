@@ -1,3 +1,4 @@
+
 c	abcd/Dy	-	-	auto: 类：Adler32；src: jzlib-1.1.1 com/jcraft/jzlib/Adler32
 c	abcd/Ey	-	-	auto: 类：CRC32；src: jzlib-1.1.1 com/jcraft/jzlib/CRC32
 c	abcd/Fy	-	-	auto: 类：Checksum；src: jzlib-1.1.1 com/jcraft/jzlib/Checksum
@@ -260,3 +261,6 @@ f	abcd/Oy	gn	-	auto: 字段(J)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.total
 f	abcd/Oy	v5	-	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.next_out
 f	abcd/Oy	FH	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.avail_in
 f	abcd/Oy	we	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.data_type
+f	abcd/Gy	rN	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.hash_shift
+f	abcd/Iy	j3	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.bitb
+f	abcd/Oy	DW	-	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.next_in_index

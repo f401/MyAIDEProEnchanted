@@ -52297,6 +52297,7 @@ c	abcd/Ey	com/jcraft/jzlib/CRC32	auto: 类：CRC32；src: jzlib-1.1.1 com/jcraft
 c	abcd/Fy	com/jcraft/jzlib/Checksum	auto: 类：Checksum；src: jzlib-1.1.1 com/jcraft/jzlib/Checksum
 	m	(J)V	j6	reset	auto: 执行 reset；src: jzlib-1.1.1 com/jcraft/jzlib/Checksum#reset
 c	abcd/Gy	com/jcraft/jzlib/Deflate	auto: 类：Deflate；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate
+	f	I	rN	hash_shift	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.hash_shift
 	f	[Ljava/lang/String;	DW	z_errmsg	auto: 字段([Ljava/lang/String;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.z_errmsg
 	f	[Labcd/Gy$a;	j6	config_table	auto: 字段([Labcd/Gy$a;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.config_table
 	f	Labcd/Oy;	FH	strm	auto: 字段(Labcd/Oy;)；src: jzlib-1.1.1 com/jcraft/jzlib/Deflate.strm
@@ -52466,6 +52467,7 @@ c	abcd/Hy	com/jcraft/jzlib/GZIPHeader	auto: 类：GZIPHeader；src: jzlib-1.1.1 
 	f	[B	VH	name	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.name
 	f	[B	gn	comment	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/GZIPHeader.comment
 c	abcd/Iy	com/jcraft/jzlib/InfBlocks	auto: 类：InfBlocks；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks
+	f	I	j3	bitb	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.bitb
 	f	Labcd/Jy;	QX	codes	auto: 字段(Labcd/Jy;)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.codes
 	f	[B	U2	window	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.window
 	f	Z	er	check	auto: 字段(Z)；src: jzlib-1.1.1 com/jcraft/jzlib/InfBlocks.check
@@ -52646,6 +52648,7 @@ c	abcd/Ny	com/jcraft/jzlib/Tree	auto: 类：Tree；src: jzlib-1.1.1 com/jcraft/j
 	f	[B	v5	_dist_code	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree._dist_code
 	f	[B	Hw	bl_order	auto: 字段([B)；src: jzlib-1.1.1 com/jcraft/jzlib/Tree.bl_order
 c	abcd/Oy	com/jcraft/jzlib/ZStream	auto: 流：Z；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream
+	f	I	DW	next_in_index	auto: 字段(I)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.next_in_index
 	f	Labcd/Ly;	EQ	istate	auto: 字段(Labcd/Ly;)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.istate
 	f	Labcd/Fy;	J0	adler	auto: 字段(Labcd/Fy;)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.adler
 	f	Labcd/Gy;	tp	dstate	auto: 字段(Labcd/Gy;)；src: jzlib-1.1.1 com/jcraft/jzlib/ZStream.dstate
