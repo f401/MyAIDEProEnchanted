@@ -43,3 +43,7 @@ c	com/aide/engine/t	-	-	auto: 类：ArrayAccess（上游未收录，名字来自
 c	com/aide/engine/u	-	-	auto: 类：FieldAccess（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/D	-	-	auto: 类：QualifiedName（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/d	-	-	auto: 管理器：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/c	-	-	auto: 类：Engine（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/l	-	-	auto: 类：CodeAnalysisEngineBinder（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/j	-	-	auto: 提供者：FileType（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/d	-	-	auto: 回调接口：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）

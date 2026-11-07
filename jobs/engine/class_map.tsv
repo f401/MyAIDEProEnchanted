@@ -60,3 +60,4 @@ Xc	com/aide/engine/DtdLanguage	str:j6() 返回 "DTD"；implements abcd/na
 nd	com/aide/engine/JavaCommentsLanguage	str:"Java Comments"/"J# Comments"；implements abcd/na（带 boolean 开关区分 J#）
 ne	com/aide/engine/MarkupLanguage	str:"HTML"/"XML"（同一实现按 boolean 选其一）；implements abcd/na
 Ea	com/aide/engine/FileManager	body:按路径/编号取文件（DW(String)Da、Hw(I)Da、j6(I)Da）、取文件类型与语言（Zo(Da)la、gn(Da)la、VH(I)na、j6(Da)na、v5()[la、j6([la)V）、开流（j6(InputStream,String)Reader、j6(Reader)Reader）以及一批每文件状态位（XL/Ws/J0/QX/we/aM(Da)Z）；ctor 收 (Ga,gb,ib,fb)，被 Scanner/SourceEntity/JarPackager 共用 ⇒ 工程文件管理器
+Sa	com/aide/engine/SourceText	body:字段 [C 文本缓冲 + 两个 [I 行索引 + J0:Labcd/pa(Indenter) + a8:Labcd/na(LanguageServices) + J8:Labcd/Da(文件) + v5:Labcd/La(工程)；j6([CII)I 用 System.arraycopy 装缓冲、Mr(I)[C / aM(I)String / lg(I)String 取文本、toString 里 new Ta 再 j6(StringBuffer,String,Ta,I) 重排；**Indenter(pa) 的每个方法第一参都是 Labcd/Sa;**（如 DW(Sa;I)I 取某行缩进）⇒ 它就是被缩进器消费的源文本模型

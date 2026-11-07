@@ -25183,6 +25183,7 @@ c	abcd/Xc	com/aide/engine/DtdLanguage	auto: 类：DtdLanguage（上游未收录�
 c	abcd/nd	com/aide/engine/JavaCommentsLanguage	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ne	com/aide/engine/MarkupLanguage	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ea	com/aide/engine/FileManager	auto: 管理器：File（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Sa	com/aide/engine/SourceText	auto: 类：SourceText（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
@@ -53451,3 +53452,7 @@ c	com/aide/engine/t	com/aide/engine/ArrayAccess	auto: 类：ArrayAccess（上游
 c	com/aide/engine/u	com/aide/engine/FieldAccess	auto: 类：FieldAccess（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/D	com/aide/engine/QualifiedName	auto: 类：QualifiedName（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/d	com/aide/engine/service/EngineProcessManager	auto: 管理器：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/c	com/aide/engine/Engine	auto: 类：Engine（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/l	com/aide/engine/service/CodeAnalysisEngineBinder	auto: 类：CodeAnalysisEngineBinder（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/j	com/aide/engine/FileTypeProvider	auto: 提供者：FileType（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/d	com/aide/engine/EngineProcessListener	auto: 回调接口：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）

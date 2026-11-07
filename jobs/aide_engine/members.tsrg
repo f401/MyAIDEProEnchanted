@@ -43,3 +43,7 @@ com/aide/engine/t com/aide/engine/ArrayAccess
 com/aide/engine/u com/aide/engine/FieldAccess
 com/aide/engine/D com/aide/engine/QualifiedName
 com/aide/engine/service/d com/aide/engine/service/EngineProcessManager
+com/aide/engine/c com/aide/engine/Engine
+com/aide/engine/service/l com/aide/engine/service/CodeAnalysisEngineBinder
+com/aide/engine/j com/aide/engine/FileTypeProvider
+com/aide/engine/d com/aide/engine/EngineProcessListener

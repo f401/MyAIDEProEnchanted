@@ -26588,6 +26588,7 @@ abcd/Xc com/aide/engine/DtdLanguage
 abcd/nd com/aide/engine/JavaCommentsLanguage
 abcd/ne com/aide/engine/MarkupLanguage
 abcd/Ea com/aide/engine/FileManager
+abcd/Sa com/aide/engine/SourceText
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
@@ -55524,3 +55525,7 @@ com/aide/engine/t com/aide/engine/ArrayAccess
 com/aide/engine/u com/aide/engine/FieldAccess
 com/aide/engine/D com/aide/engine/QualifiedName
 com/aide/engine/service/d com/aide/engine/service/EngineProcessManager
+com/aide/engine/c com/aide/engine/Engine
+com/aide/engine/service/l com/aide/engine/service/CodeAnalysisEngineBinder
+com/aide/engine/j com/aide/engine/FileTypeProvider
+com/aide/engine/d com/aide/engine/EngineProcessListener
