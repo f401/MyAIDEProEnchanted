@@ -94,3 +94,4 @@ abcd/ea com/aide/engine/CachedProject
 abcd/Ba com/aide/engine/CompilationContext
 abcd/Aa com/aide/engine/AstNode
 abcd/ua com/aide/engine/CompilationUnit
+abcd/Yb com/aide/engine/Scope
