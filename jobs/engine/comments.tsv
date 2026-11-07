@@ -96,3 +96,5 @@ c	abcd/Ba	-	-	auto: 上下文：Compilation（上游未收录，名字来自 job
 c	abcd/Aa	-	-	auto: 节点：Ast（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ua	-	-	auto: 类：CompilationUnit（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Yb	-	-	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ga	-	-	auto: 类：StringPool（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Fb	-	-	auto: 类：NodeMap（上游未收录，名字来自 jobs/engine 的判据）
