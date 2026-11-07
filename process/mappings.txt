@@ -12642,6 +12642,7 @@ abcd/za abcd/aide/JarPackager
 abcd/uh com/aide/ui/NewUserExperienceDialog
 abcd/Rl abcd/aide/build/CommandRunner
 abcd/Pl abcd/aide/build/CommandResult
+abcd/se abcd/aide/engine/Base64Codec
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue
@@ -55574,3 +55575,4 @@ com/aide/engine/m com/aide/engine/HighlightingKind
 	we DOC_COMMENT
 	J0 SCRIPT_BACKGROUND
 	J8 SCRIPT
+com/aide/engine/q com/aide/engine/SourceReader

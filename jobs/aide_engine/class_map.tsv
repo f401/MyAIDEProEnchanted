@@ -65,3 +65,4 @@ com/aide/engine/a	com/aide/engine/BuildCallback	iface:方法 (Set<String>,Map<St
 com/aide/engine/h	com/aide/engine/ErrorCallback	iface:方法 j6(String,SyntaxError[][,boolean]) + OW/XG/XX/aj/br/jJ/kQ 等阶段回调；实现者 service/g
 com/aide/engine/H	com/aide/engine/VersionCallback	iface:方法 getVersion()J + j6(long) + j6(Labcd/I;)；实现者 service/f
 com/aide/engine/m	com/aide/engine/HighlightingKind	enum:14 个常量的名字串原样在 <clinit>（PLAIN/KEYWORD/IDENTIFIER/NAMESPACE_IDENTIFIER/TYPE_IDENTIFIER/DELEGATE_IDENTIFIER/OPERATOR/SEPARATOR/LITERAL/PREPROCESSOR/COMMENT/DOC_COMMENT/SCRIPT_BACKGROUND/SCRIPT），每个还带一句英文显示名（"Plain"/"Keyword"/"Namespace/Package Identifier"…）；被 FileHighlightings.Hw 与 FindResult$Highlighting.VH 当字段类型 ⇒ 语法高亮的 token 种类
+com/aide/engine/q	com/aide/engine/SourceReader	iface:唯一方法 Labcd/Reader; j6(Ljava/io/InputStream;Ljava/lang/String;) = 按编码把字节流包成 Reader；被 Engine(c) 的 Ws/ye 两处调用 ⇒ 源文件读取器

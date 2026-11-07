@@ -270,3 +270,4 @@ abcd/za abcd/aide/JarPackager
 abcd/uh com/aide/ui/NewUserExperienceDialog
 abcd/Rl abcd/aide/build/CommandRunner
 abcd/Pl abcd/aide/build/CommandResult
+abcd/se abcd/aide/engine/Base64Codec

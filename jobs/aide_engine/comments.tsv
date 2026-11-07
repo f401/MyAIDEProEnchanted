@@ -79,3 +79,4 @@ f	com/aide/engine/m	EQ	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型�
 f	com/aide/engine/m	we	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
 f	com/aide/engine/m	J0	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
 f	com/aide/engine/m	J8	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+c	com/aide/engine/q	-	-	auto: 读取器：Source（上游未收录，名字来自 jobs/aide_engine 的判据）

@@ -12030,6 +12030,7 @@ c	abcd/za	abcd/aide/JarPackager	auto: 类：JarPackager（上游未收录，名�
 c	abcd/uh	com/aide/ui/NewUserExperienceDialog	auto: 类：NewUserExperienceDialog（上游未收录，名字来自 jobs/aide 的判据）
 c	abcd/Rl	abcd/aide/build/CommandRunner	auto: 类：CommandRunner（上游未收录，名字来自 jobs/aide 的判据）
 c	abcd/Pl	abcd/aide/build/CommandResult	auto: 结果：Command（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/se	abcd/aide/engine/Base64Codec	auto: 类：Base64Codec（上游未收录，名字来自 jobs/aide 的判据）
 c	com/a/b/a/a/a	com/android/dx/cf/attrib/AttAnnotationDefault	auto: 类：AttAnnotationDefault；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault
 	m	()I	a	byteLength	auto: 「byteLength」；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#byteLength
 	m	()Lcom/a/b/e/c/a;	b	getValue	auto: 取 Value；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#getValue
@@ -53501,3 +53502,4 @@ c	com/aide/engine/m	com/aide/engine/HighlightingKind	auto: 类：HighlightingKin
 	f	Lcom/aide/engine/m;	we	DOC_COMMENT	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
 	f	Lcom/aide/engine/m;	J0	SCRIPT_BACKGROUND	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
 	f	Lcom/aide/engine/m;	J8	SCRIPT	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+c	com/aide/engine/q	com/aide/engine/SourceReader	auto: 读取器：Source（上游未收录，名字来自 jobs/aide_engine 的判据）
