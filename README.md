@@ -9,17 +9,17 @@
 
 | 指标 | 值 |
 |---|---|
-| part | **19** 个（`head` + 18 个库/子系统，顺序见 `process/deob.json`） |
-| 类映射 | **3707** 类（每类都有可复现判据，写在 `class_map.tsv` 第 3 列） |
+| part | **20** 个（`head` + 19 个库/子系统，顺序见 `process/deob.json`） |
+| 类映射 | **3974** 类（每类都有可复现判据，写在 `class_map.tsv` 第 3 列） |
 | 成员映射 | **27444** 行（方法 + 字段，覆写链全部对齐） |
 | 参数名 | **22167** 行（oracle 的 LocalVariableTable / 上游源码声明 / 人工证据） |
-| 注释 | **31412** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
-| 产物 | `process/mappings.txt`（TSRG2，55480 行）· `process/mappings.tiny`（Tiny v2，53407 行） |
+| 注释 | **31418** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
+| 产物 | `process/mappings.txt`（TSRG2，55659 行）· `process/mappings.tiny`（Tiny v2，53586 行） |
 | 门禁 | validate ✔ · inherit 0/0/0 · innercheck 0/0/0 · famcheck 0/0 · verify 不一致 0 · round-trip 一致 |
 
-已还原的库：jgit(685) / proguard(757) / dx(448) / jdcore(434) / spongycastle(257) / antlr 4.7.2(117) /
-crashlytics(176) / jsch(141) / asn1bc(107) / fabric(69) / dropbox(49) / zipsigner(24) / jzlib(14) /
-antlr 4.9.2 副本(220) + AIDE 自有：aide(52) / aide_bb(85) / aide_ui(15) / aide_iap(19) / engine(38) / head(1)。
+已还原的库（括号内为类数）：proguard(757) / jgit(685) / dx(448) / jdcore(434) / spongycastle(257) /
+antlr 4.9.2(220) / crashlytics(176) / jsch(141) / antlr 4.7.2(117) / asn1bc(107) / aide_bb(85) / aide_ui(82) /
+aide_engine(71) / aide(70) / fabric(69) / dropbox(49) / zipsigner(24) / aide_iap(19) / jzlib(14) / head(1)。
 
 ## 快速开始
 

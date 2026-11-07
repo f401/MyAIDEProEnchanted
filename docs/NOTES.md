@@ -49,6 +49,9 @@
 
 `/storage/emulated/0` 是 FUSE（大小写不敏感）：`qF$a.smali` 与 `qF$a.1.smali`、`abcd/ji` 与 `abcd/JI`
 会互相覆盖。**类名到文件名的映射必须查 `process/truth/smali_index.tsv`**，不要用 `类名.smali` 直接拼。
+实测坑（2026-11）：`abcd/La`（Project）在 `abcd/La.1.smali`，`abcd/fa` 在 `fa.3.smali`，`abcd/lb` 在 `lb.3.smali`；
+而 `abcd/La.smali` 里装的是 `Labcd/LA;`、`ea.smali` 里装的是 `Labcd/EA;`——直接用「类名 + .smali」会读到别的类，
+把判据写错。**读之前先 `head -1` 看 `.class` 行，或先查索引。**
 
 ## 5. 覆盖率口径
 
