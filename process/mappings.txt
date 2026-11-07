@@ -54687,9 +54687,59 @@ abcd/Xv com/aide/backbone/EventDataImpl
 abcd/Vu com/aide/backbone/EnterHookDefinition
 abcd/Iu com/aide/backbone/AbstractApi
 abcd/Bv com/aide/backbone/ApiBase
+	u7 hasActivityCreateHooks
+	tp hasActivityStartHooks
+	EQ hasActivityStopHooks
+	XL hasInputHooks
+	aM hasLaunchHooks
+	Ws hasNotificationActionHooks
+	J8 hasNotificationShownHooks
+	QX hasTouchHooks
+	J0 hasWindowHiddenHooks
+	we hasWindowShownHooks
+	j3 hasClickHooks
+	a8 hasItemClickHooks
+	lg hasItemLongPressHooks
+	U2 hasLongPressHooks
+	Mr hasMenuItemSelectedHooks
+	er registeredViewTypes
+	rN registeredActivityClass
+	J0 ()Z hasActivityCreateHooks
+	J8 ()Z hasActivityStartHooks
+	Ws ()Z hasActivityStopHooks
+	XL ()Z hasInputHooks
+	Mr ()Z hasLaunchHooks
+	lg ()Z hasNotificationActionHooks
+	rN ()Z hasNotificationShownHooks
+	er ()Z hasTouchHooks
+	yS ()Z hasWindowHiddenHooks
+	gW ()Z hasWindowShownHooks
+	QX ()Z hasClickHooks
+	aM ()Z hasItemClickHooks
+	j3 ()Z hasItemLongPressHooks
+	U2 ()Z hasLongPressHooks
+	a8 ()Z hasMenuItemSelectedHooks
+	we ()I getRegisteredViewTypes
+	EQ ()Ljava/lang/Class; getRegisteredActivityClass
 abcd/Iv com/aide/backbone/NotificationFactory
 abcd/Gv com/aide/backbone/ActivityLifecycleTracker
 abcd/kv com/aide/backbone/CallbackDispatcher
+	DW (Labcd/iv;)V bindApi
+		static
+	j6 (Labcd/iv;)V collectApiHooks
+		static
+	DW (Ljava/util/List;)V bindApis
+		static
+	j6 (Ljava/util/List;)V collectApisHooks
+		static
+	j6 (Lcom/appfour/backbone/api/objects/MarketReferrer;JJ)V onReferrerMarket
+		static
+	j6 (Z)V setEnabled
+		static
+	v5 ()Z isDispatching
+		static
+	j6 ()V resetHandled
+		static
 	DW ()J now
 		static
 	DW (Landroid/app/Activity;)V onActivityStarted
@@ -54943,3 +54993,4 @@ com/appfour/backbone/api/runtime/b com/appfour/backbone/api/runtime/b
 		static
 	j6 (Lcom/appfour/backbone/api/runtime/a;)V setRuntime
 		static
+abcd/iv com/aide/backbone/ApiImpl

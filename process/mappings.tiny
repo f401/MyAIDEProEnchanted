@@ -52742,9 +52742,51 @@ c	abcd/Xv	com/aide/backbone/EventDataImpl	hier: implements com/appfour/backbone/
 c	abcd/Vu	com/aide/backbone/EnterHookDefinition	recv: extends abcd/hv(→yu=HookDefinition)；唯一新增 API 是 onEnter(long,long,OnEnterClosure0..5) 六个重载 ⇒ onEnter 钩子定义
 c	abcd/Iu	com/aide/backbone/AbstractApi	shape: abstract class extends abcd/Bv；方法名就是 Backbone Api 那族 onApplicationCreate/onCrash/onInAppProductImpression/… ⇒ 抽象 API 层
 c	abcd/Bv	com/aide/backbone/ApiBase	recv: 15 个闭包适配器（Av/mv/nv/ov/pv/qv/rv/sv/tv/uv/vv/wv/xv/yv/zv）都在它的 onClick/onLongPress/onInput/… 里被 new ⇒ API 基类
+	f	Z	u7	hasActivityCreateHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	tp	hasActivityStartHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	EQ	hasActivityStopHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	XL	hasInputHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	aM	hasLaunchHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	Ws	hasNotificationActionHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	J8	hasNotificationShownHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	QX	hasTouchHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	J0	hasWindowHiddenHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	we	hasWindowShownHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	j3	hasClickHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	a8	hasItemClickHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	lg	hasItemLongPressHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	U2	hasLongPressHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	Z	Mr	hasMenuItemSelectedHooks	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	f	I	er	registeredViewTypes	auto: 字段(I)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/Class;	rN	registeredActivityClass	auto: 字段(Ljava/lang/Class;)（上游无同类型对应，按作用取名）
+	m	()Z	J0	hasActivityCreateHooks	auto: 是否有 ActivityCreateHooks（上游无同签名对应，按作用取名）
+	m	()Z	J8	hasActivityStartHooks	auto: 是否有 ActivityStartHooks（上游无同签名对应，按作用取名）
+	m	()Z	Ws	hasActivityStopHooks	auto: 是否有 ActivityStopHooks（上游无同签名对应，按作用取名）
+	m	()Z	XL	hasInputHooks	auto: 是否有 InputHooks（上游无同签名对应，按作用取名）
+	m	()Z	Mr	hasLaunchHooks	auto: 是否有 LaunchHooks（上游无同签名对应，按作用取名）
+	m	()Z	lg	hasNotificationActionHooks	auto: 是否有 NotificationActionHooks（上游无同签名对应，按作用取名）
+	m	()Z	rN	hasNotificationShownHooks	auto: 是否有 NotificationShownHooks（上游无同签名对应，按作用取名）
+	m	()Z	er	hasTouchHooks	auto: 是否有 TouchHooks（上游无同签名对应，按作用取名）
+	m	()Z	yS	hasWindowHiddenHooks	auto: 是否有 WindowHiddenHooks（上游无同签名对应，按作用取名）
+	m	()Z	gW	hasWindowShownHooks	auto: 是否有 WindowShownHooks（上游无同签名对应，按作用取名）
+	m	()Z	QX	hasClickHooks	auto: 是否有 ClickHooks（上游无同签名对应，按作用取名）
+	m	()Z	aM	hasItemClickHooks	auto: 是否有 ItemClickHooks（上游无同签名对应，按作用取名）
+	m	()Z	j3	hasItemLongPressHooks	auto: 是否有 ItemLongPressHooks（上游无同签名对应，按作用取名）
+	m	()Z	U2	hasLongPressHooks	auto: 是否有 LongPressHooks（上游无同签名对应，按作用取名）
+	m	()Z	a8	hasMenuItemSelectedHooks	auto: 是否有 MenuItemSelectedHooks（上游无同签名对应，按作用取名）
+	m	()I	we	getRegisteredViewTypes	auto: 取 RegisteredViewTypes（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/Class;	EQ	getRegisteredActivityClass	auto: 取 RegisteredActivityClass（上游无同签名对应，按作用取名）
 c	abcd/Iv	com/aide/backbone/NotificationFactory	str: 串 "BACKBONE_INTENT"；造 PendingIntent(Context,I,Intent,I,Bundle) 与 UserNotification/UserNotificationAction ⇒ 通知工厂
 c	abcd/Gv	com/aide/backbone/ActivityLifecycleTracker	hier: implements android/app/Application$ActivityLifecycleCallbacks（8 个 onActivityXxx 全是接口方法，未改名）⇒ 生命周期跟踪
 c	abcd/kv	com/aide/backbone/CallbackDispatcher	recv: 40 个方法全是回调派发（含 DW(Activity,InAppProduct)V=onInAppProductPurchase），字段有 ThreadLocal ⇒ 回调分发器
+	m	(Labcd/iv;)V	DW	bindApi	auto: 执行 bindApi（上游无同签名对应，按作用取名）
+	m	(Labcd/iv;)V	j6	collectApiHooks	auto: 执行 collectApiHooks（上游无同签名对应，按作用取名）
+	m	(Ljava/util/List;)V	DW	bindApis	auto: 执行 bindApis（上游无同签名对应，按作用取名）
+	m	(Ljava/util/List;)V	j6	collectApisHooks	auto: 执行 collectApisHooks（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/MarketReferrer;JJ)V	j6	onReferrerMarket	auto: 执行 onReferrerMarket（上游无同签名对应，按作用取名）
+	m	(Z)V	j6	setEnabled	auto: 设 Enabled（上游无同签名对应，按作用取名）
+	m	()Z	v5	isDispatching	auto: 是否 Dispatching（上游无同签名对应，按作用取名）
+	m	()V	j6	resetHandled	auto: 重置 Handled（上游无同签名对应，按作用取名）
 	m	()J	DW	now	auto: 「now」（上游无同签名对应，按作用取名）
 	m	(Landroid/app/Activity;)V	DW	onActivityStarted	auto: 执行 onActivityStarted（上游无同签名对应，按作用取名）
 	m	(Landroid/app/Activity;Lcom/appfour/backbone/api/objects/InAppProduct;)V	DW	onInAppProductPurchase	auto: 执行 onInAppProductPurchase（上游无同签名对应，按作用取名）
@@ -52919,3 +52961,4 @@ c	com/appfour/backbone/api/runtime/a	com/appfour/backbone/api/runtime/a	auto: �
 c	com/appfour/backbone/api/runtime/b	com/appfour/backbone/api/runtime/b	auto: 类：b（上游未收录，名字来自 jobs/aide_bb 的判据）
 	m	()Lcom/appfour/backbone/api/runtime/a;	j6	getRuntime	auto: 取 Runtime（上游无同签名对应，按作用取名）
 	m	(Lcom/appfour/backbone/api/runtime/a;)V	j6	setRuntime	auto: 设 Runtime（上游无同签名对应，按作用取名）
+c	abcd/iv	com/aide/backbone/ApiImpl	auto: 实现类：Api（上游未收录，名字来自 jobs/aide_bb 的判据）

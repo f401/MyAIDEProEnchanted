@@ -129,6 +129,75 @@ FART 会沿覆写传播下去（`inherit_check` MISSING 0 已确认）。
 | `DW()` | `install` | 唯一调 `we()` 的入口（hook + 生命周期） |
 | `VH()` / `v5()` | `getCurrentActivity` / `getHandler` | 直接返回字段 |
 
+## 3.3.1 `Bv`(ApiBase) 34 个 + `iv` → ApiImpl（判据：`onXxx` 方法里 putfield 到哪个 flag）
+
+`Bv` 的 14 个 `onXxx(...)` 方法（它们实现的是 `DefineHook`，所以名字没被混淆）每个都**只置一个
+boolean 字段**，于是字段语义可以逐个钉死：
+
+| 字段 | 被谁置位 | 新名 |
+|---|---|---|
+| `u7`/`tp`/`EQ` | onActivityCreate / onActivityStart / onActivityStop | `hasActivityCreateHooks` / `hasActivityStartHooks` / `hasActivityStopHooks` |
+| `XL` | onInput | `hasInputHooks` |
+| `aM` | onLaunch | `hasLaunchHooks` |
+| `Ws`/`J8` | onNotificationAction / onNotificationShown | `hasNotificationActionHooks` / `hasNotificationShownHooks` |
+| `QX` | onTouch | `hasTouchHooks` |
+| `J0`/`we` | onWindowHidden / onWindowShown | `hasWindowHiddenHooks` / `hasWindowShownHooks` |
+| `j3` | onClick | `hasClickHooks` |
+| `a8` | onItemClick | `hasItemClickHooks` |
+| `lg`/`U2` | onItemLongPress / onLongPress | `hasItemLongPressHooks` / `hasLongPressHooks` |
+| `Mr` | onMenuItemSelected | `hasMenuItemSelectedHooks` |
+| `er`(int) | 被 onClick/onItemClick/onItemLongPress/onLongPress/onMenuItemSelected 共同写 | `registeredViewTypes` |
+| `rN`(Class) | 同上（记注册时的 Activity 类） | `registeredActivityClass` |
+
+17 个 getter 是这些 flag 的读取端（`J0()Z`→u7、`J8()Z`→tp、…、`we()I`→er、`EQ()Class`→rN），
+按同一套语义命名（`hasXxxHooks()` / `getRegisteredViewTypes()` / `getRegisteredActivityClass()`）。
+
+`abcd/iv`（原来没映射）：`extends abcd/Iu`(AbstractApi)、只有一个构造器，却出现在 `kv` 所有派发入口
+的参数位置上，且 `ow`(ProbeLoader) 用 `getDeclaredConstructor().newInstance()` 反射创建 probe
+⇒ 定名 **`com/aide/backbone/ApiImpl`**（ApiBase/AbstractApi 的对偶：SDK 侧 Api 的具体实现）。
+
+## 3.4 `kv`(CallbackDispatcher) 28 个（判据：方法体里直接写着事件名）
+
+`kv` 的每个派发方法在拼 key 时会写事件名（`"onActivityStarted"`、`"onWindowShown"`…），
+这是**逐字证据**，28 个直接照抄：
+
+| 事件 | 方法 |
+|---|---|
+| 生命周期 | `onActivityCreated(Activity)`、`onActivityStarted(Activity)`、`onActivityStopped(Activity)`、`onApplicationCreate(Application)` |
+| 窗口 | `onWindowShown(UserActionWindow)`、`onWindowHidden(UserActionWindow)` |
+| 输入 | `onInput(UserInputAction)`、`onTouch(UserTouchAction)`、`onLongPress(UserTouchAction,View)`、`onClick(UserTouchAction,View)`、`onItemClick(UserTouchAction,View,Object,int,View)`、`onItemLongPress(...)`、`onMenuItemSelected(UserTouchAction,MenuItem)` |
+| 内购/安装 | `onInAppProductPurchase(Activity,InAppProduct)`、`onInAppProductImpression(Activity,InAppProduct)`、`onInstall(Market)` |
+| 通知/启动/更新 | `onNotification(UserNotification)`、`onNotificationAction(UserNotificationAction)`、`onLaunched(UserLaunchAction)`、`onUpdate()` |
+| 钩子 | `onEnter(long,Object,Object[])`、`onThrow(long,Throwable,Object,Object[])`、`onCrash(Thread,Throwable)` |
+| 其它 | `now()`（`System.currentTimeMillis`）、`log(String,CharSequence)`、`getThreadState()`（返回内部 ThreadLocal 状态）、`markHandledAt(long,long)`（`Set.add`）、`invokeHook(long,iv,Object[])`（`ThreadLocal` + `jv.j6` + `yu.DW/j6`） |
+
+剩 12 个没定：`DW/j6(abcd/iv)`、`DW/j6(UserActionWindow)`（无串、纯委派）、`DW(List)/j6(List)`
+（同名同描述符必须不同名，尚未区分）、`j6(MarketReferrer,JJ)`、`j6(Z)`、`v5()Z`、`Hw()` 之外的
+内部件等。
+
+## 3.5 `Qv`(WindowRuntime) 26 个：查完了，结论是**语义不可区分**（不是没查）
+
+用 Bv 的新名和 kv 的新名把 26 个方法全部追了一遍（每个方法的完整调用链）：
+
+```
+v5(UserTouchAction) → kv.onTouch              ← 终点
+Hw(UserTouchAction) → kv.onTouch              ← 终点
+Zo(UserTouchAction) → kv.onTouch              ← 终点
+DW(UserTouchAction) → Qv.v5 → kv.onTouch      ← v5 的别名
+FH(UserTouchAction) → Qv.Hw → kv.onTouch      ← Hw 的别名
+j6(UserTouchAction) → Qv.Zo → kv.onTouch      ← Zo 的别名
+（UserActionWindow / UserInputAction / View / MenuItem 四族同理）
+```
+
+也就是说 `(UserTouchAction)V` 这 6 个方法是**三对同义别名**（两级别名 + 三个终点，全部落到
+`kv.onTouch`，中间不做任何额外的事）。它们描述符完全相同，要起不同名字只能编
+（`dispatchTouch`/`dispatchTouch2`/…），违反"每条命名要有可复现判据" ⇒ **保持原名不猜**，
+并把这条结论记在这里（以后有人再问"为什么 Qv 是字母"就有答案了）。
+
+`Qv` 里另外 8 个方法（`j6(View,Window)`/`j6(Window,Window)`/`j6(PopupWindow,Window)` 等）是
+**窗口挂载**入口：分别 new `Qv$c`(FrameLayout) / `Qv$d`(Window$Callback) / `Qv$b`(TouchInterceptor)
+并挂到对应窗口上 —— 这 8 个可以命名，但它们是私有流程的一部分，价值低于上面那块，留给下一轮。
+
 ## 3.4 `kv`(CallbackDispatcher) 28 个（判据：方法体里直接写着事件名）
 
 `kv` 的每个派发方法在拼 key 时会写事件名（`"onActivityStarted"`、`"onWindowShown"`…），

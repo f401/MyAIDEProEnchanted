@@ -186,3 +186,46 @@ m	abcd/kv	j6	(Lcom/appfour/backbone/api/objects/UserTouchAction;Landroid/view/Vi
 m	abcd/kv	j6	(Lcom/appfour/backbone/api/objects/UserTouchAction;Landroid/view/View;Ljava/lang/Object;ILandroid/view/View;)V	auto: 执行 onItemClick（上游无同签名对应，按作用取名）
 m	abcd/kv	j6	(Ljava/lang/String;Ljava/lang/CharSequence;)V	auto: 执行 log（上游无同签名对应，按作用取名）
 m	abcd/kv	j6	(Ljava/lang/Thread;Ljava/lang/Throwable;)V	auto: 执行 onCrash（上游无同签名对应，按作用取名）
+c	abcd/iv	-	-	auto: 实现类：Api（上游未收录，名字来自 jobs/aide_bb 的判据）
+f	abcd/Bv	u7	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	tp	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	EQ	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	XL	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	aM	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	Ws	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	J8	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	QX	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	J0	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	we	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	j3	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	a8	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	lg	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	U2	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	Mr	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+f	abcd/Bv	er	-	auto: 字段(I)（上游无同类型对应，按作用取名）
+f	abcd/Bv	rN	-	auto: 字段(Ljava/lang/Class;)（上游无同类型对应，按作用取名）
+m	abcd/Bv	J0	()Z	auto: 是否有 ActivityCreateHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	J8	()Z	auto: 是否有 ActivityStartHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	Ws	()Z	auto: 是否有 ActivityStopHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	XL	()Z	auto: 是否有 InputHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	Mr	()Z	auto: 是否有 LaunchHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	lg	()Z	auto: 是否有 NotificationActionHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	rN	()Z	auto: 是否有 NotificationShownHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	er	()Z	auto: 是否有 TouchHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	yS	()Z	auto: 是否有 WindowHiddenHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	gW	()Z	auto: 是否有 WindowShownHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	QX	()Z	auto: 是否有 ClickHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	aM	()Z	auto: 是否有 ItemClickHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	j3	()Z	auto: 是否有 ItemLongPressHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	U2	()Z	auto: 是否有 LongPressHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	a8	()Z	auto: 是否有 MenuItemSelectedHooks（上游无同签名对应，按作用取名）
+m	abcd/Bv	we	()I	auto: 取 RegisteredViewTypes（上游无同签名对应，按作用取名）
+m	abcd/Bv	EQ	()Ljava/lang/Class;	auto: 取 RegisteredActivityClass（上游无同签名对应，按作用取名）
+m	abcd/kv	DW	(Labcd/iv;)V	auto: 执行 bindApi（上游无同签名对应，按作用取名）
+m	abcd/kv	j6	(Labcd/iv;)V	auto: 执行 collectApiHooks（上游无同签名对应，按作用取名）
+m	abcd/kv	DW	(Ljava/util/List;)V	auto: 执行 bindApis（上游无同签名对应，按作用取名）
+m	abcd/kv	j6	(Ljava/util/List;)V	auto: 执行 collectApisHooks（上游无同签名对应，按作用取名）
+m	abcd/kv	j6	(Lcom/appfour/backbone/api/objects/MarketReferrer;JJ)V	auto: 执行 onReferrerMarket（上游无同签名对应，按作用取名）
+m	abcd/kv	j6	(Z)V	auto: 设 Enabled（上游无同签名对应，按作用取名）
+m	abcd/kv	v5	()Z	auto: 是否 Dispatching（上游无同签名对应，按作用取名）
+m	abcd/kv	j6	()V	auto: 重置 Handled（上游无同签名对应，按作用取名）
