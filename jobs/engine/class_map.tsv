@@ -65,3 +65,4 @@ La	com/aide/engine/Project	body:27 方法/29 字段，字段持有 Ea(FileManage
 Da	com/aide/engine/ProjectFile	body:XL() 用 VH(父) + 分隔符 + we(名字) 拼出路径、QX() 返回 VH、gn() 走 Ea.Zo(FileManager 取 FileType)、Hw() 读 tp:Cb 的偏移、Zo()/a8() 是大小与时间戳、er()/yS()/rN() 是若干状态位；被 EngineSolution.j6(La,Da,...) 转成 EngineSolution$File ⇒ 工程文件节点
 S	abcd/aide/engine/InlineMethodRefactoring	str:j6(Da,I,I) 里 "Select a method to inline."（同一句出现两次，另一处是错误提示）；与 V(RenameRefactoring) 同构：ctor(Labcd/ea)、字段 ea/Ga/Va/Ba/Q/Ea，被 com/aide/engine/c$b 的重构入口调用 ⇒ 内联方法重构
 W	abcd/aide/engine/ChangeSignatureRefactoring	str:"Select a method."、"This method is defined outside of the project."；j6(Da,II)List 按光标取出候选方法、j6(Sa,I) 用 ",\n"/"," 拼参数表、j6(Da,II,List×4) 拆分参数/局部/返回/异常 ⇒ 改方法签名
+ea	com/aide/engine/CachedProject	sup=abcd/La(Project)；新增 j6(Labcd/ec)/j6(Labcd/fc) 两个带 "END"/"END not found" 标记的读写方法（DataInput/DataOutput 包装），ctor 收 gb/ib/jb/db 等子系统 ⇒ 带持久化缓存的工程实现；重构类（RenameRefactoring/InlineMethodRefactoring 的 ctor）都拿它当入口
