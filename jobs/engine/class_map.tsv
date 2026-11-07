@@ -80,3 +80,12 @@ Rr	com/aide/engine/WellKnownTypes	body:全部字段是 static final 的类型常
 Qs	com/aide/engine/TypeConstant	body:implements Rs + Comparable<Qs>；static HashMap j6 是**按描述符注册的类型表**，DW(String)/FH(String)/j6(String) 三个静态入口按描述符取类型；J8()String 返回描述符、Hw() 取元素类型、U2() 取父/组件类型、Mr() 取大小；<clinit> 里 intern 了 Z/B/C/D/F/I/J/S/V（九种基本类型描述符）加 "<null>"/"<addr>" 与一批 Ljava/lang/*; 常量 ⇒ 类型常量（每个描述符一个单例）
 Rs	com/aide/engine/TypeInfo	iface:extends abcd/lu（aM()String 取显示名）；方法 Mr()I(大小)、U2()Labcd/Rs;(组件/父类型)、a8()Z、getType()Labcd/Qs;、j3()I；实现者是 Qs(基本类型常量) 与 Ps(引用类型常量) ⇒ 类型信息接口
 Ps	com/aide/engine/MethodType	body:静态工厂按"返回类型 + 若干参数类型"造对象：DW(Qs) 无参、j6(Qs,Qs) 一参、j6(Qs,Qs,Qs) 两参、j6(Qs,Qs,Qs,Qs) 三参；DW(Ss)String 拼签名（参数为空时用 "<empty>"、分隔符 ","）、DW(Ss,Ss)Z 比签名、j6(Ss)I 取参数个数；extends Xt、implements Ss ⇒ 方法/函数类型（返回+形参列表）
+Kb	com/aide/engine/IntIntMap	body:int[] 开放寻址 + 内部类 Kb$a(遍历器) + 序列化；DW(int)Z 查、FH(int)I 取、DW(int,int) 放 ⇒ int→int 映射
+Qb	com/aide/engine/LongIntMap	body:int[] + long[] 开放寻址 + 内部类 Qb$a + 序列化；DW(long)I/DW(long,int) 取放、FH(long)/j6(int) ⇒ long→int 映射
+Bb	com/aide/engine/ByteVector	body:唯一 byte[] + 一个 int(长度)；j6(byte) 追加、j6(int)byte 取、DW()I 长度、j6() 清空、toString ⇒ 可变字节数组
+Ab	com/aide/engine/NodeVector	body:泛型 <E extends Aa> + int[] + 长度 + Ba；FH(E) 追加、j6(int)E 取、Hw()I 大小、DW(E)Z 含、j6(int,int,Comparator) 排序 ⇒ AST 节点顺序表（对比 Yb=NodeList 的哈希表）
+Ss	com/aide/engine/TypeList	iface:size()I + getType(int)Labcd/Qs; + j6(Qs)Ss（追加一个类型）+ Zo()Z ⇒ 类型（形参）列表
+Js	com/aide/engine/DexString	body:final String + Pt；j6(String)byte[] 是 **MUTF-8 编码**、由 ct 造；equals/hashCode；实现 Rs ⇒ dex 字符串（带 MUTF-8 编解码）
+Ks	com/aide/engine/DexType	body:final + 一批 static final 常量（Object/String/Class… 由 Yo 持有）；实现 Rs ⇒ dex 类型引用
+Hs	com/aide/engine/DexReference	body:两个 Js 字段 (DW/FH) + getter J8()/VH()、DW(ms)I 比较、Hw()Z ⇒ (名字, 描述符) 二元引用（字段/方法引用）
+Yo	com/aide/engine/DexConstants	body:全是 static final 的 Ks/Js 常量；<clinit> 里 ldc 出 "Ldalvik/annotation/AnnotationDefault;"、"…/EnclosingClass;"、"…/EnclosingMethod;"、"…/InnerClass;"、"…/MemberClasses;"、"…/Signature;"、"…/Throws;" 与 "accessFlags"/"name"/"value" ⇒ DEX 注解/属性用的众所周知常量表

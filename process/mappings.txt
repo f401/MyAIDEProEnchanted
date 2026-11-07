@@ -26612,6 +26612,15 @@ abcd/Rr com/aide/engine/WellKnownTypes
 abcd/Qs com/aide/engine/TypeConstant
 abcd/Rs com/aide/engine/TypeInfo
 abcd/Ps com/aide/engine/MethodType
+abcd/Kb com/aide/engine/IntIntMap
+abcd/Qb com/aide/engine/LongIntMap
+abcd/Bb com/aide/engine/ByteVector
+abcd/Ab com/aide/engine/NodeVector
+abcd/Ss com/aide/engine/TypeList
+abcd/Js com/aide/engine/DexString
+abcd/Ks com/aide/engine/DexType
+abcd/Hs com/aide/engine/DexReference
+abcd/Yo com/aide/engine/DexConstants
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

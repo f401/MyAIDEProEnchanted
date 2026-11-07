@@ -106,3 +106,12 @@ c	abcd/Rr	-	-	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/e
 c	abcd/Qs	-	-	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rs	-	-	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ps	-	-	auto: 类：MethodType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Kb	-	-	auto: 类：IntIntMap（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Qb	-	-	auto: 类：LongIntMap（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Bb	-	-	auto: 类：ByteVector（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ab	-	-	auto: 类：NodeVector（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ss	-	-	auto: 类：TypeList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Js	-	-	auto: 类：DexString（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ks	-	-	auto: 类：DexType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Hs	-	-	auto: 类：DexReference（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Yo	-	-	auto: 类：DexConstants（上游未收录，名字来自 jobs/engine 的判据）

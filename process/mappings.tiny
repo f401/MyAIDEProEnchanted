@@ -25207,6 +25207,15 @@ c	abcd/Rr	com/aide/engine/WellKnownTypes	auto: 类：WellKnownTypes（上游未�
 c	abcd/Qs	com/aide/engine/TypeConstant	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rs	com/aide/engine/TypeInfo	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ps	com/aide/engine/MethodType	auto: 类：MethodType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Kb	com/aide/engine/IntIntMap	auto: 类：IntIntMap（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Qb	com/aide/engine/LongIntMap	auto: 类：LongIntMap（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Bb	com/aide/engine/ByteVector	auto: 类：ByteVector（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ab	com/aide/engine/NodeVector	auto: 类：NodeVector（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ss	com/aide/engine/TypeList	auto: 类：TypeList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Js	com/aide/engine/DexString	auto: 类：DexString（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ks	com/aide/engine/DexType	auto: 类：DexType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Hs	com/aide/engine/DexReference	auto: 类：DexReference（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Yo	com/aide/engine/DexConstants	auto: 类：DexConstants（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
