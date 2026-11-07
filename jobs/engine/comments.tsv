@@ -136,3 +136,11 @@ c	abcd/Pn	-	-	auto: 建造器：Model（上游未收录，名字来自 jobs/engi
 c	abcd/mm	-	-	auto: 类：ReferenceAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/om	-	-	auto: 类：AnnotationTableAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/rm	-	-	auto: 类：ValueAttribute（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Pt	-	-	auto: 类：ByteSlice（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Jr	-	-	auto: 类：ClassDef（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Kr	-	-	auto: 类：ClassDefList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Hr	-	-	auto: 类：MemberDef（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ls	-	-	auto: 类：ReferenceList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/yn	-	-	auto: 类：AttributeMap（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/In	-	-	auto: 类：Options（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ir	-	-	auto: 类：Visibility（上游未收录，名字来自 jobs/engine 的判据）

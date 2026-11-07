@@ -135,3 +135,11 @@ abcd/Pn com/aide/engine/ModelBuilder
 abcd/mm com/aide/engine/ReferenceAttribute
 abcd/om com/aide/engine/AnnotationTableAttribute
 abcd/rm com/aide/engine/ValueAttribute
+abcd/Pt com/aide/engine/ByteSlice
+abcd/Jr com/aide/engine/ClassDef
+abcd/Kr com/aide/engine/ClassDefList
+abcd/Hr com/aide/engine/MemberDef
+abcd/Ls com/aide/engine/ReferenceList
+abcd/yn com/aide/engine/AttributeMap
+abcd/In com/aide/engine/Options
+abcd/Ir com/aide/engine/Visibility

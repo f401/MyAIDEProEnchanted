@@ -25237,6 +25237,14 @@ c	abcd/Pn	com/aide/engine/ModelBuilder	auto: 建造器：Model（上游未收录
 c	abcd/mm	com/aide/engine/ReferenceAttribute	auto: 类：ReferenceAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/om	com/aide/engine/AnnotationTableAttribute	auto: 类：AnnotationTableAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/rm	com/aide/engine/ValueAttribute	auto: 类：ValueAttribute（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Pt	com/aide/engine/ByteSlice	auto: 类：ByteSlice（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Jr	com/aide/engine/ClassDef	auto: 类：ClassDef（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Kr	com/aide/engine/ClassDefList	auto: 类：ClassDefList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Hr	com/aide/engine/MemberDef	auto: 类：MemberDef（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ls	com/aide/engine/ReferenceList	auto: 类：ReferenceList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/yn	com/aide/engine/AttributeMap	auto: 类：AttributeMap（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/In	com/aide/engine/Options	auto: 类：Options（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ir	com/aide/engine/Visibility	auto: 类：Visibility（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

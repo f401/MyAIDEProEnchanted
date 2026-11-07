@@ -110,3 +110,11 @@ Pn	com/aide/engine/ModelBuilder	iface:DW()Z + build()Rn + j6()HashSet<Qs> ⇒ �
 mm	com/aide/engine/ReferenceAttribute	extends Am（具名属性），字段 Ks+Hs，方法 DW()Hs 取引用、Hw()I 取索引 ⇒ 带引用的属性
 om	com/aide/engine/AnnotationTableAttribute	extends Am，字段 Dm(注解元素表)，方法 j6()Dm 取表、Hw()I 取索引 ⇒ 带注解元素表的属性
 rm	com/aide/engine/ValueAttribute	extends Bm（带索引值的具名属性），ctor(Qm) ⇒ 承载一个 Qm 值的属性
+Pt	com/aide/engine/ByteSlice	body:byte[] + 两个 int（起止）；ctor(byte[])/(byte[],int,int)，static DW(Pt)byte[]/j6(Pt)I/FH(Pt)I 取内部值，VH(int)/gn(int) 做按位解码 ⇒ 一段字节切片（DexString 用它承载 MUTF-8）
+Jr	com/aide/engine/ClassDef	body:TreeMap<Ks,Hr>(按类型索引的成员) + static 默认实例；`j6(Jr,Hr)` 合并一个成员、`j6(Jr,Jr)` 合并两个类、DW(Jr)I/compareTo/equals ⇒ 一个类的定义
+Kr	com/aide/engine/ClassDefList	extends Xt；`Jr get(int)`/`j6(int,Jr)` 按索引存取、`j6(Kr,Kr)` 合并 ⇒ 类定义列表
+Hr	com/aide/engine/MemberDef	body:(Ks 类型, Ir 可见性, TreeMap<Js,Lr> 方法/重载) + getType()/compareTo/equals/aM() ⇒ 成员(字段/方法)定义
+Ls	com/aide/engine/ReferenceList	extends hu、implements ns；字段 ms[]；DW(int)/get(int)/j6(int) 取、j6(int,ms) 设 ⇒ 引用数组
+yn	com/aide/engine/AttributeMap	extends Xt、implements pn；get(int)on / j6(on)on / j6(String)on / j6(int,on) ⇒ 属性映射
+In	com/aide/engine/Options	body:若干 boolean + String + PrintStream + int ⇒ 编译/解析选项（verbose/debug 之类）
+Ir	com/aide/engine/Visibility	enum:常量 RUNTIME/BUILD/SYSTEM/EMBEDDED 原样在 <clinit>；implements abcd/lu(aM()String)、被 Hr(成员定义) 当可见性字段 ⇒ 注解/成员可见性
