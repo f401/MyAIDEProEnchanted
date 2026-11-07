@@ -12634,6 +12634,11 @@ abcd/Dl com/aide/trainer/LessonNotifications
 		3 now now
 		4 notificationId notificationId
 		5 lessonNames lessonNames
+abcd/Sk abcd/aide/ProjectTemplates
+	j6 ()Ljava/util/List; getTemplates
+	j6 (Ljava/lang/String;)Ljava/util/List; getTemplates
+abcd/za abcd/aide/JarPackager
+	DW (Z)Z writeJar
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue

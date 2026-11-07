@@ -12022,6 +12022,11 @@ c	abcd/Dl	com/aide/trainer/LessonNotifications	auto: 类：LessonNotifications�
 		p	3	now	now
 		p	4	notificationId	notificationId
 		p	5	lessonNames	lessonNames
+c	abcd/Sk	abcd/aide/ProjectTemplates	auto: 类：ProjectTemplates（上游未收录，名字来自 jobs/aide 的判据）
+	m	()Ljava/util/List;	j6	getTemplates	auto: 取 Templates（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;)Ljava/util/List;	j6	getTemplates	auto: 取 Templates（上游无同签名对应，按作用取名）
+c	abcd/za	abcd/aide/JarPackager	auto: 类：JarPackager（上游未收录，名字来自 jobs/aide 的判据）
+	m	(Z)Z	DW	writeJar	auto: 写出 Jar（上游无同签名对应，按作用取名）
 c	com/a/b/a/a/a	com/android/dx/cf/attrib/AttAnnotationDefault	auto: 类：AttAnnotationDefault；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault
 	m	()I	a	byteLength	auto: 「byteLength」；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#byteLength
 	m	()Lcom/a/b/e/c/a;	b	getValue	auto: 取 Value；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#getValue

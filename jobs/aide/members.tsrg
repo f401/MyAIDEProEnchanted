@@ -262,3 +262,8 @@ abcd/Kk com/aide/ui/NotificationChannels
 abcd/Dl com/aide/trainer/LessonNotifications
 	j6 (Landroid/app/NotificationManager;ILandroid/app/Notification;)V notify
 	j6 (ZLjava/lang/String;JJI[Ljava/lang/String;)V showNewLessonsNotification
+abcd/Sk abcd/aide/ProjectTemplates
+	j6 ()Ljava/util/List; getTemplates
+	j6 (Ljava/lang/String;)Ljava/util/List; getTemplates
+abcd/za abcd/aide/JarPackager
+	DW (Z)Z writeJar

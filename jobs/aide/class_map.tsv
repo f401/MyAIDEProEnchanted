@@ -62,3 +62,5 @@ lk	abcd/aide/AppInstaller	str:"Run app with root"/"Run app without root"/"applic
 el	abcd/aide/TrainerSampleInstaller	str:"Expanding sample..."/"正在导出示例中..."/"/Samples/"/"AIDESamples"/"AIDEWebSamples"/"Extract "；U.<init> 建单例，TrainerCourseActivity 用它判断示例是否已展开并解压 assets 里的示例 zip
 Kk	com/aide/ui/NotificationChannels	str:"Code Analysis Notifications"/"engine"/"Other Notifications"/"other"/"notification"；j6(Context,...) 里 new NotificationChannel(...).setDescription + NotificationManager.createNotificationChannel ⇒ Android O 通知渠道注册
 Dl	com/aide/trainer/LessonNotifications	str:"UpdateNotifications"/"UpdateTime"/"New "/" lessons!"/"Check out the new lessons"；用 SharedPreferences 记上次检查时间，NotificationManager.notify 发"新课程"通知
+Sk	abcd/aide/ProjectTemplates	str:"$package_name$"/"$project_name$"/"$flavor_name$"/"Create project "/"template"/"templates/"；ZipInputStream 解模板 zip 并做变量替换，j6() 走 U.Hw().getTemplates()（IProject 的模板列表）⇒ 新建工程模板
+za	abcd/aide/JarPackager	str:".JAR"/"Writing "/"Touching "/"Creating "/".class"/"x.tmp"；字段 Deflater/Inflater/CRC32/ZipOutputStream，把工程里编译出的 .class 按目录打成 jar（c tor 收 abcd/La 工程）⇒ jar 打包器

@@ -264,3 +264,8 @@ m	abcd/Kk	j6	()V	auto: 创建 Channels（上游无同签名对应，按作用取
 m	abcd/Kk	j6	(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V	auto: 创建 Channel（上游无同签名对应，按作用取名）
 m	abcd/Dl	j6	(Landroid/app/NotificationManager;ILandroid/app/Notification;)V	auto: 执行 notify（上游无同签名对应，按作用取名）
 m	abcd/Dl	j6	(ZLjava/lang/String;JJI[Ljava/lang/String;)V	auto: 执行 showNewLessonsNotification（上游无同签名对应，按作用取名）
+c	abcd/Sk	-	-	auto: 类：ProjectTemplates（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/za	-	-	auto: 类：JarPackager（上游未收录，名字来自 jobs/aide 的判据）
+m	abcd/Sk	j6	()Ljava/util/List;	auto: 取 Templates（上游无同签名对应，按作用取名）
+m	abcd/Sk	j6	(Ljava/lang/String;)Ljava/util/List;	auto: 取 Templates（上游无同签名对应，按作用取名）
+m	abcd/za	DW	(Z)Z	auto: 写出 Jar（上游无同签名对应，按作用取名）
