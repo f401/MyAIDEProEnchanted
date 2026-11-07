@@ -11,10 +11,10 @@
 |---|---|
 | part | **19** 个（`head` + 18 个库/子系统，顺序见 `process/deob.json`） |
 | 类映射 | **3707** 类（每类都有可复现判据，写在 `class_map.tsv` 第 3 列） |
-| 成员映射 | **27398** 行（方法 + 字段，覆写链全部对齐） |
-| 参数名 | **22152** 行（oracle 的 LocalVariableTable / 上游源码声明 / 人工证据） |
-| 注释 | **31181** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
-| 产物 | `process/mappings.txt`（TSRG2，55407 行）· `process/mappings.tiny`（Tiny v2，53334 行） |
+| 成员映射 | **27430** 行（方法 + 字段，覆写链全部对齐） |
+| 参数名 | **22167** 行（oracle 的 LocalVariableTable / 上游源码声明 / 人工证据） |
+| 注释 | **31239** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
+| 产物 | `process/mappings.txt`（TSRG2，55480 行）· `process/mappings.tiny`（Tiny v2，53407 行） |
 | 门禁 | validate ✔ · inherit 0/0/0 · innercheck 0/0/0 · famcheck 0/0 · verify 不一致 0 · round-trip 一致 |
 
 已还原的库：jgit(685) / proguard(757) / dx(448) / jdcore(434) / spongycastle(257) / antlr 4.7.2(117) /
