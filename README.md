@@ -11,9 +11,9 @@
 |---|---|
 | part | **19** 个（`head` + 18 个库/子系统，顺序见 `process/deob.json`） |
 | 类映射 | **3707** 类（每类都有可复现判据，写在 `class_map.tsv` 第 3 列） |
-| 成员映射 | **27430** 行（方法 + 字段，覆写链全部对齐） |
+| 成员映射 | **27444** 行（方法 + 字段，覆写链全部对齐） |
 | 参数名 | **22167** 行（oracle 的 LocalVariableTable / 上游源码声明 / 人工证据） |
-| 注释 | **31313** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
+| 注释 | **31335** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
 | 产物 | `process/mappings.txt`（TSRG2，55480 行）· `process/mappings.tiny`（Tiny v2，53407 行） |
 | 门禁 | validate ✔ · inherit 0/0/0 · innercheck 0/0/0 · famcheck 0/0 · verify 不一致 0 · round-trip 一致 |
 
