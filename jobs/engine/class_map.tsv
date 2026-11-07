@@ -95,3 +95,10 @@ pn	com/aide/engine/DexAttributes	iface:Hw()I + Zo()Z + j6(on)on + j6(String)on�
 qn	com/aide/engine/DexValue	iface:DW()Js(字符串引用) + j6()I(索引) ⇒ 一个带索引的常量值
 jn	com/aide/engine/DexEncodedValue	implements qn；字段 Pt/yn/Z/Ls/xn/Ks×2/Ss/String 覆盖各类值（类型标记 + 载荷）⇒ 编码后的注解值
 on	com/aide/engine/AttributeKey	iface:Hw()I + getName()String ⇒ 属性键（名字 + 序号）
+Dc	com/aide/engine/ClassLibrary	body:Hashtable<String,ZipFile> 是**jar 缓存**（按路径打开 zip）、十几张 Dc$a 池表 + double[]/qb；<clinit> 里 ldc 出 "java/lang/Boolean"+"parseBoolean"+"(Ljava/lang/String;)Z"、"java/lang/Byte"+"valueOf"+"(B)Ljava/lang/Byte;"、"java/lang/Short"+"valueOf"…、"java/lang/StringBuffer" ⇒ 类库/类路径：缓存 jar、持有常量池、记住装箱方法
+Ms	com/aide/engine/DexBaseType	abstract:extends ms + implements Rs，把 Mr()(大小)/U2()(组件/父)/a8()/j3() 都定成 final ⇒ 类型引用的抽象基类
+ms	com/aide/engine/DexBaseReference	abstract:implements lu + Comparable；抽象 DW(ms)I(比较)、Hw()Z、Zo()String；final j6(ms)I ⇒ 可比较引用的基类
+Am	com/aide/engine/NamedAttribute	abstract:implements on，唯一 String 字段 + getName() ⇒ 具名属性基类
+Bm	com/aide/engine/IndexedAttribute	abstract:extends Am，多了 Qm 字段 + Hw()I(索引) + j6()Qm ⇒ 带索引值的具名属性基类
+Xt	com/aide/engine/ArrayItem	body:Object[] + 一组 protected final 按下标取(DW(int)/FH(int))、aM() 渲染、DW(String,String,String)/j6(…) 拼字符串、equals/hashCode；extends hu ⇒ 数组承载的条目基类
+Dm	com/aide/engine/AnnotationElementTable	extends Xt；get(int)Dm$a 取元素、j6(int,Ks,Ks,Js,int) 以 (名字/类型/值/索引) 追加 ⇒ 注解元素表

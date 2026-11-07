@@ -26627,6 +26627,13 @@ abcd/pn com/aide/engine/DexAttributes
 abcd/qn com/aide/engine/DexValue
 abcd/jn com/aide/engine/DexEncodedValue
 abcd/on com/aide/engine/AttributeKey
+abcd/Dc com/aide/engine/ClassLibrary
+abcd/Ms com/aide/engine/DexBaseType
+abcd/ms com/aide/engine/DexBaseReference
+abcd/Am com/aide/engine/NamedAttribute
+abcd/Bm com/aide/engine/IndexedAttribute
+abcd/Xt com/aide/engine/ArrayItem
+abcd/Dm com/aide/engine/AnnotationElementTable
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

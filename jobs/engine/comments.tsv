@@ -121,3 +121,10 @@ c	abcd/pn	-	-	auto: 类：DexAttributes（上游未收录，名字来自 jobs/en
 c	abcd/qn	-	-	auto: 类：DexValue（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/jn	-	-	auto: 类：DexEncodedValue（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/on	-	-	auto: 类：AttributeKey（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Dc	-	-	auto: 类：ClassLibrary（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ms	-	-	auto: 类：DexBaseType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ms	-	-	auto: 类：DexBaseReference（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Am	-	-	auto: 类：NamedAttribute（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Bm	-	-	auto: 类：IndexedAttribute（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Xt	-	-	auto: 类：ArrayItem（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Dm	-	-	auto: 表：AnnotationElement（上游未收录，名字来自 jobs/engine 的判据）
