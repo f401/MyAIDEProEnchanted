@@ -47,3 +47,10 @@ com/aide/engine/c	com/aide/engine/Engine	body:262 方法/162 字段，代码里�
 com/aide/engine/service/l	com/aide/engine/service/CodeAnalysisEngineBinder	body:extends ICodeAnalysisEngineService$Stub（61 个 transact 方法）；由 CodeAnalysisEngineService.<init> new 出来存进 gn:ICodeAnalysisEngineService$Stub 字段（onBind 返回它）⇒ 引擎服务的 Binder 实现
 com/aide/engine/j	com/aide/engine/FileTypeProvider	iface:FH()J + j6(Labcd/La;Ljava/util/List;)[Labcd/la;（第二个参数/返回值按 class_map 换名后是 工程 + FileType[]） ⇒ 按工程取文件类型
 com/aide/engine/d	com/aide/engine/EngineProcessListener	iface:aj()V / j6(Throwable)V / sy()V；实现者 service/d 里带 "Engine process killed after OOM"/"...after shutdown" ⇒ 引擎进程生命周期回调
+com/aide/engine/service/e	com/aide/engine/service/CompletionDispatcher	body:实现 com/aide/engine/M(21 个引擎回调)，方法体只做转发：r(IGotoSymbolListener) 5 次、o(ICodeCompletionListener) 5 次、t(INavigationListener) 2 次、外加 CodeAnalysisEngineService 21 次 ⇒ 把引擎的补全/跳符号/导航事件分发给 AIDL 监听器
+com/aide/engine/service/f	com/aide/engine/service/OpenFileAdapter	body:实现 com/aide/engine/H(getVersion/j6(J)/j6(I))，方法体只调 u(IOpenFileInterface) 的 FH/getVersion/sE/ye ⇒ 打开文件接口的适配器
+com/aide/engine/service/g	com/aide/engine/service/EngineErrorDispatcher	body:实现 com/aide/engine/h(14 个方法，含 j6(String,SyntaxError[]) )，方法体只调 p(IEngineErrorListener) 5 次 ⇒ 引擎错误分发
+com/aide/engine/service/h	com/aide/engine/service/BuildListenerAdapter	body:实现 com/aide/engine/a(5 个方法)，方法体只调 m(IBuildListener) 2 次 ⇒ 构建事件适配器
+com/aide/engine/service/i	com/aide/engine/service/HighlightingDispatcher	body:实现 com/aide/engine/n(2 个方法)，方法体 new FileHighlightings 并调 s(IHighlightingListener) 2 次 ⇒ 高亮结果分发
+com/aide/engine/service/j	com/aide/engine/service/RefactoringListenerAdapter	body:实现 com/aide/engine/J(32 个方法)，对外只调 v(IRefactoringListener) 5 次（其余 29 次是自身私有辅助）⇒ 重构结果适配器
+com/aide/engine/service/k	com/aide/engine/service/UsageSearcherAdapter	body:实现 com/aide/engine/Q(3 个方法)，方法体只调 w(IUsageSearcherListener) 3 次 ⇒ 用法搜索结果适配器

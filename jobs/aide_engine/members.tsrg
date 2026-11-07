@@ -47,3 +47,10 @@ com/aide/engine/c com/aide/engine/Engine
 com/aide/engine/service/l com/aide/engine/service/CodeAnalysisEngineBinder
 com/aide/engine/j com/aide/engine/FileTypeProvider
 com/aide/engine/d com/aide/engine/EngineProcessListener
+com/aide/engine/service/e com/aide/engine/service/CompletionDispatcher
+com/aide/engine/service/f com/aide/engine/service/OpenFileAdapter
+com/aide/engine/service/g com/aide/engine/service/EngineErrorDispatcher
+com/aide/engine/service/h com/aide/engine/service/BuildListenerAdapter
+com/aide/engine/service/i com/aide/engine/service/HighlightingDispatcher
+com/aide/engine/service/j com/aide/engine/service/RefactoringListenerAdapter
+com/aide/engine/service/k com/aide/engine/service/UsageSearcherAdapter
