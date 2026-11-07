@@ -267,6 +267,49 @@ DW/FH/j6 (UserTouchAction,View)V       → kv.onClick / kv.onLongPress
 `DW/FH(Qv$a)F`（读的是 `VH/Zo` 两个 float，但哪个是 x 哪个是 y 还差一步）、`Qv$e`(MenuReflector)
 的 14 个反射方法（下一轮）。
 
+## 3.8 `Qv$e`(MenuReflector) 9 个 + `Qv$a` 触摸态 6 个 + `ApplicationUtils.installBackbone`
+
+**`Qv$e`** 是纯 View 层级/反射工具（判据=反射的 Android 内部 API 与遍历方式）：
+
+| 方法 | 新名 | 判据 |
+|---|---|---|
+| `DW(View)MenuItem` | `getMenuItem` | 反射 `com.android.internal.view.menu.MenuView$ItemView.getItemData` |
+| `DW/FH(View,View)F` | `getRelativeY` / `getRelativeX`（`DW/FH` 各一，见下） | `View.getParent()` 递归 + `getY`/`getX` |
+| `j6(View,View)F` | `getRelativeX` | 同上（`getX`） |
+| `DW(View,FF)View` | `findViewAt` | `getScrollX/Y` + `getX/Y` + 递归 |
+| `j6(View,FF)View` | `findChildAt` | `ViewGroup.getChildCount/getChildAt` |
+| `FH(View)Pair` | `getRecyclerItemPosition` | `RecyclerView.getChildAdapterPosition` |
+| `j6(View,FF,View)Pair` | `getListItemPosition` | `ListView.pointToPosition` |
+| `j6(View,Class)Pair` | `findAncestorOfType` | `Class.isInstance` + `getParent` 逐层 |
+| `j6(View)Object` | `getAdapter` | `AdapterView.getAdapter` / `RecyclerView.getAdapter` |
+
+**`Qv$a` 的触摸态**（判据是 `MotionEvent.getX/getY` 与字段的**出现顺序**，逐条比对）：
+
+```
+MotionEvent.getX → Qv$a.Zo   ⇒ Zo = lastTouchX
+MotionEvent.getY → Qv$a.VH   ⇒ VH = lastTouchY
+```
+
+于是 `DW(Qv$a)F`→`getTouchX`（读 Zo）、`FH(Qv$a)F`→`getTouchY`（读 VH）、
+`DW(MotionEvent)V`→`handleTouchEvent`（8 个字段 + `Handler.postDelayed/removeCallbacks` 做长按定时）、
+`j6(MotionEvent)V`→`onTouchEvent`（薄封装，只转调前者）。
+
+**`ApplicationUtils`**（原来是恒等未映射，这轮补类行 + 1 个方法）：它唯一的未名方法是 Backbone 的
+**启动引导** —— `j6(Object,J,String,String,String,String)V` → **`installBackbone`**。判据（body 里
+按顺序调了整套启动流程）：
+
+```
+rw.j6()/rw.DW()（偏好）· kv.j6(Z)=setEnabled · ow.j6(Z,J,S,S)=loadProbes
+Lv.j6()=reportInstallReferrer · Hv.u7()=installLifecycleCallbacks
+kv.j6(Application)=onApplicationCreate · kv.j6(Market)=onInstall · kv.FH()=onUpdate
+PackageManager.getInstallerPackageName → new Market(...)        ← 安装来源
+整段包在 try/catch 里，catch 打 "Runtime Error"
+```
+
+**仍然没名的一个**：`ApplicationUtils.DW()String`（`runtime/a.Ws()` 就是转调它）。它只在
+`installBackbone` 里被写、平时只读；同批写入的还有 `uw.DW(Context,String)`，但没有更硬的判据能
+确定它是"安装 id / 进程 id / 版本串"中的哪个 ⇒ 保持原名。
+
 ## 4. 下一步
 
 1. 找 Backbone SDK oracle（appfour/backbone 的 aar），一把解决 `runtime/*` + `closures/*` 的方法名；

@@ -52873,6 +52873,12 @@ c	abcd/Qv	com/aide/backbone/window/WindowRuntime	recv: 27 方法/4 字段；内�
 	m	(Landroid/view/Window;Lcom/appfour/backbone/api/objects/UserActionWindow;)V	j6	installWindowCallback	auto: 执行 installWindowCallback（上游无同签名对应，按作用取名）
 	m	(Landroid/widget/PopupWindow;Lcom/appfour/backbone/api/objects/UserActionWindow;)V	j6	installTouchInterceptor	auto: 执行 installTouchInterceptor（上游无同签名对应，按作用取名）
 c	abcd/Qv$a	com/aide/backbone/window/WindowRuntime$Window	shape: 构造器收 com/appfour/backbone/api/objects/UserActionWindow，10 方法/8 字段；被 abcd/Pv 当第一个参数接走 ⇒ 单个窗口的运行时状态
+	f	F	Zo	lastTouchX	auto: 字段(F)（上游无同类型对应，按作用取名）
+	f	F	VH	lastTouchY	auto: 字段(F)（上游无同类型对应，按作用取名）
+	m	(Labcd/Qv$a;)F	DW	getTouchX	auto: 取 TouchX（上游无同签名对应，按作用取名）
+	m	(Labcd/Qv$a;)F	FH	getTouchY	auto: 取 TouchY（上游无同签名对应，按作用取名）
+	m	(Landroid/view/MotionEvent;)V	DW	handleTouchEvent	auto: 处理 TouchEvent（上游无同签名对应，按作用取名）
+	m	(Landroid/view/MotionEvent;)V	j6	onTouchEvent	auto: 执行 onTouchEvent（上游无同签名对应，按作用取名）
 	f	Lcom/appfour/backbone/api/objects/UserActionWindow;	j6	window	auto: 字段(Lcom/appfour/backbone/api/objects/UserActionWindow;)（上游无同类型对应，按作用取名）
 	f	Landroid/os/Handler;	Hw	handler	auto: 字段(Landroid/os/Handler;)（上游无同类型对应，按作用取名）
 	f	Ljava/lang/Runnable;	v5	longPressRunnable	auto: 字段(Ljava/lang/Runnable;)（上游无同类型对应，按作用取名）
@@ -52893,6 +52899,15 @@ c	abcd/Qv$d	com/aide/backbone/window/WindowRuntime$WindowCallback	hier: implemen
 	m	()V	j6	updateImeHeight	auto: 更新 ImeHeight（上游无同签名对应，按作用取名）
 	m	(Labcd/Qv$d;)V	j6	setWindowState	auto: 设 WindowState（上游无同签名对应，按作用取名）
 c	abcd/Qv$e	com/aide/backbone/window/WindowRuntime$MenuReflector	recv: 14 个方法全是反射（串 "com.android.internal.view.menu"/"getItemData"）⇒ 只服务于窗口内菜单的反射器
+	m	(Landroid/view/View;)Landroid/view/MenuItem;	DW	getMenuItem	auto: 取 MenuItem（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;Landroid/view/View;)F	DW	getRelativeY	auto: 取 RelativeY（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;Landroid/view/View;)F	j6	getRelativeX	auto: 取 RelativeX（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;FF)Landroid/view/View;	DW	findViewAt	auto: 查找 ViewAt（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;FF)Landroid/view/View;	j6	findChildAt	auto: 查找 ChildAt（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;)Landroid/util/Pair;	FH	getRecyclerItemPosition	auto: 取 RecyclerItemPosition（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;FFLandroid/view/View;)Landroid/util/Pair;	j6	getListItemPosition	auto: 取 ListItemPosition（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;Ljava/lang/Class;)Landroid/util/Pair;	j6	findAncestorOfType	auto: 查找 AncestorOfType（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;)Ljava/lang/Object;	j6	getAdapter	auto: 取 Adapter（上游无同签名对应，按作用取名）
 c	abcd/Hv	com/aide/backbone/window/DecorViewHelper	recv: 25 方法/9 字段；串 "com.android.internal.policy.DecorView"+"mWindow" ⇒ 反射 Activity 的 DecorView/Window 的辅助类
 	m	(Landroid/view/View;)Landroid/view/Window;	DW	getWindow	auto: 取 Window（上游无同签名对应，按作用取名）
 	m	()V	DW	install	auto: 执行 install（上游无同签名对应，按作用取名）
@@ -52984,3 +52999,5 @@ c	com/appfour/backbone/api/runtime/b	com/appfour/backbone/api/runtime/b	auto: �
 	m	()Lcom/appfour/backbone/api/runtime/a;	j6	getRuntime	auto: 取 Runtime（上游无同签名对应，按作用取名）
 	m	(Lcom/appfour/backbone/api/runtime/a;)V	j6	setRuntime	auto: 设 Runtime（上游无同签名对应，按作用取名）
 c	abcd/iv	com/aide/backbone/ApiImpl	auto: 实现类：Api（上游未收录，名字来自 jobs/aide_bb 的判据）
+c	abcd/ApplicationUtils	abcd/ApplicationUtils	auto: 工具类：Application（上游未收录，名字来自 jobs/aide_bb 的判据）
+	m	(Ljava/lang/Object;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V	j6	installBackbone	auto: 执行 installBackbone（上游无同签名对应，按作用取名）

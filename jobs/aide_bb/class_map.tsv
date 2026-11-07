@@ -83,3 +83,4 @@ abcd/iw	com/aide/backbone/EventRecorder	recv:方法 j6(lw,JJ)V / j6(lw,J,EventDa
 com/appfour/backbone/api/runtime/a	com/appfour/backbone/api/runtime/a	src:恒等（类名本来就是真的）；这是 Backbone 的运行时接口，但**方法名被 R8 混淆**；实现类 abcd/lv(ReflectionRuntime)、abcd/Mv(UISceneRuntime) 的方法体给了每个方法的语义（反射/包信息/线程判断…）
 com/appfour/backbone/api/runtime/b	com/appfour/backbone/api/runtime/b	src:恒等；runtime/a 的单例持有者（private static a + getter/setter 两个方法），方法体只有读写静态字段
 abcd/iv	com/aide/backbone/ApiImpl	hier: extends abcd/Iu(=AbstractApi)、本身只有一个构造器；作参数类型出现在 kv 的所有派发入口（Labcd/iv;），且 ow(ProbeLoader) 用 getDeclaredConstructor().newInstance() 反射创建 probe ⇒ "Api 的具体实现类"（ApiBase/AbstractApi 的对偶）
+abcd/ApplicationUtils	abcd/ApplicationUtils	src:恒等（类名本来就是真的，R8 没改）：AIDE 的工具类，getApplication/getApplicationByContext 是公开名；唯一要命名的成员是 Backbone 的**启动引导**方法（见 members.tsrg 的 installBackbone）

@@ -251,3 +251,20 @@ f	abcd/Qv$d	j6	-	auto: 字段(Labcd/Qv$a;)（上游无同类型对应，按作�
 m	abcd/Qv$d	j6	()V	auto: 更新 ImeHeight（上游无同签名对应，按作用取名）
 m	abcd/Qv$d	j6	(Labcd/Qv$d;)V	auto: 设 WindowState（上游无同签名对应，按作用取名）
 m	com/appfour/backbone/api/runtime/a	DW	()I	auto: 取 ImeHeight（上游无同签名对应，按作用取名）
+c	abcd/ApplicationUtils	-	-	auto: 工具类：Application（上游未收录，名字来自 jobs/aide_bb 的判据）
+f	abcd/Qv$a	Zo	-	auto: 字段(F)（上游无同类型对应，按作用取名）
+f	abcd/Qv$a	VH	-	auto: 字段(F)（上游无同类型对应，按作用取名）
+m	abcd/Qv$a	DW	(Labcd/Qv$a;)F	auto: 取 TouchX（上游无同签名对应，按作用取名）
+m	abcd/Qv$a	FH	(Labcd/Qv$a;)F	auto: 取 TouchY（上游无同签名对应，按作用取名）
+m	abcd/Qv$a	DW	(Landroid/view/MotionEvent;)V	auto: 处理 TouchEvent（上游无同签名对应，按作用取名）
+m	abcd/Qv$a	j6	(Landroid/view/MotionEvent;)V	auto: 执行 onTouchEvent（上游无同签名对应，按作用取名）
+m	abcd/Qv$e	DW	(Landroid/view/View;)Landroid/view/MenuItem;	auto: 取 MenuItem（上游无同签名对应，按作用取名）
+m	abcd/Qv$e	DW	(Landroid/view/View;Landroid/view/View;)F	auto: 取 RelativeY（上游无同签名对应，按作用取名）
+m	abcd/Qv$e	j6	(Landroid/view/View;Landroid/view/View;)F	auto: 取 RelativeX（上游无同签名对应，按作用取名）
+m	abcd/Qv$e	DW	(Landroid/view/View;FF)Landroid/view/View;	auto: 查找 ViewAt（上游无同签名对应，按作用取名）
+m	abcd/Qv$e	j6	(Landroid/view/View;FF)Landroid/view/View;	auto: 查找 ChildAt（上游无同签名对应，按作用取名）
+m	abcd/Qv$e	FH	(Landroid/view/View;)Landroid/util/Pair;	auto: 取 RecyclerItemPosition（上游无同签名对应，按作用取名）
+m	abcd/Qv$e	j6	(Landroid/view/View;FFLandroid/view/View;)Landroid/util/Pair;	auto: 取 ListItemPosition（上游无同签名对应，按作用取名）
+m	abcd/Qv$e	j6	(Landroid/view/View;Ljava/lang/Class;)Landroid/util/Pair;	auto: 查找 AncestorOfType（上游无同签名对应，按作用取名）
+m	abcd/Qv$e	j6	(Landroid/view/View;)Ljava/lang/Object;	auto: 取 Adapter（上游无同签名对应，按作用取名）
+m	abcd/ApplicationUtils	j6	(Ljava/lang/Object;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 installBackbone（上游无同签名对应，按作用取名）

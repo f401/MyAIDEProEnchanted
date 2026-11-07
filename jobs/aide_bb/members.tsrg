@@ -139,6 +139,12 @@ abcd/Qv com/aide/backbone/window/WindowRuntime
 	j6 (Landroid/view/Window;Lcom/appfour/backbone/api/objects/UserActionWindow;)V installWindowCallback
 	j6 (Landroid/widget/PopupWindow;Lcom/appfour/backbone/api/objects/UserActionWindow;)V installTouchInterceptor
 abcd/Qv$a com/aide/backbone/window/WindowRuntime$Window
+	Zo lastTouchX
+	VH lastTouchY
+	DW (Labcd/Qv$a;)F getTouchX
+	FH (Labcd/Qv$a;)F getTouchY
+	DW (Landroid/view/MotionEvent;)V handleTouchEvent
+	j6 (Landroid/view/MotionEvent;)V onTouchEvent
 	j6 window
 	Hw handler
 	v5 longPressRunnable
@@ -159,6 +165,15 @@ abcd/Qv$d com/aide/backbone/window/WindowRuntime$WindowCallback
 	j6 ()V updateImeHeight
 	j6 (Labcd/Qv$d;)V setWindowState
 abcd/Qv$e com/aide/backbone/window/WindowRuntime$MenuReflector
+	DW (Landroid/view/View;)Landroid/view/MenuItem; getMenuItem
+	DW (Landroid/view/View;Landroid/view/View;)F getRelativeY
+	j6 (Landroid/view/View;Landroid/view/View;)F getRelativeX
+	DW (Landroid/view/View;FF)Landroid/view/View; findViewAt
+	j6 (Landroid/view/View;FF)Landroid/view/View; findChildAt
+	FH (Landroid/view/View;)Landroid/util/Pair; getRecyclerItemPosition
+	j6 (Landroid/view/View;FFLandroid/view/View;)Landroid/util/Pair; getListItemPosition
+	j6 (Landroid/view/View;Ljava/lang/Class;)Landroid/util/Pair; findAncestorOfType
+	j6 (Landroid/view/View;)Ljava/lang/Object; getAdapter
 abcd/Hv com/aide/backbone/window/DecorViewHelper
 	DW (Landroid/view/View;)Landroid/view/Window; getWindow
 	DW ()V install
@@ -250,3 +265,5 @@ com/appfour/backbone/api/runtime/b com/appfour/backbone/api/runtime/b
 	j6 ()Lcom/appfour/backbone/api/runtime/a; getRuntime
 	j6 (Lcom/appfour/backbone/api/runtime/a;)V setRuntime
 abcd/iv com/aide/backbone/ApiImpl
+abcd/ApplicationUtils abcd/ApplicationUtils
+	j6 (Ljava/lang/Object;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V installBackbone
