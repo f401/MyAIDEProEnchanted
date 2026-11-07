@@ -80,3 +80,13 @@ c	abcd/ww	-	-	kind: implements Runnable，构造器 (int,int,String)；串 "back
 c	abcd/zw	-	-	recv: 5 个方法全是 ()/Activity/View/UserActionWidget/UserActionWindow → android/graphics/Rect（串 "window"）⇒ 取窗口/控件矩形的工具
 c	abcd/_v	-	-	shape: 13 个字段是 deviceWidth/deviceHeight/imeHeight/pressedKey/touchX/touchY… 等输入与设备状态 ⇒ 事件上下文（构造器 (String,…)）
 c	abcd/iw	-	-	recv: j6(lw,JJ)V / j6(lw,J,EventData)V / j6(lw,J,Throwable)V 是"记录事件/事件错误"，串 ") Event recording" ⇒ 事件记录器
+m	abcd/zw	j6	()Landroid/graphics/Rect;	auto: 取 ScreenRect（上游无同签名对应，按作用取名）
+m	abcd/zw	j6	(Landroid/app/Activity;)Landroid/graphics/Rect;	auto: 取 ActivityRect（上游无同签名对应，按作用取名）
+m	abcd/zw	j6	(Landroid/view/View;)Landroid/graphics/Rect;	auto: 取 ViewRect（上游无同签名对应，按作用取名）
+m	abcd/zw	j6	(Lcom/appfour/backbone/api/objects/UserActionWidget;)Landroid/graphics/Rect;	auto: 取 WidgetRect（上游无同签名对应，按作用取名）
+m	abcd/zw	j6	(Lcom/appfour/backbone/api/objects/UserActionWindow;)Landroid/graphics/Rect;	auto: 取 WindowRect（上游无同签名对应，按作用取名）
+m	abcd/iw	DW	(J)J	auto: 「now」（上游无同签名对应，按作用取名）
+m	abcd/iw	j6	()Ljava/lang/String;	auto: 取 ProcessName（上游无同签名对应，按作用取名）
+m	abcd/iw	j6	(Labcd/lw;JJ)V	auto: 执行 recordStart（上游无同签名对应，按作用取名）
+m	abcd/iw	j6	(Labcd/lw;JLcom/appfour/backbone/api/objects/EventData;)V	auto: 执行 recordEvent（上游无同签名对应，按作用取名）
+m	abcd/iw	j6	(Labcd/lw;JLjava/lang/Throwable;)V	auto: 执行 recordError（上游无同签名对应，按作用取名）

@@ -205,6 +205,20 @@ c/q.b()(=getDERSubStream) → new c/ba(os,0)   c/q.c()(=getDLSubStream) → new 
 
 **现在这两个类是 asn1bc part 里唯一的未定名项（74/76 → 74 类已定名 + 这 2 个）。**
 
+### 6.5.1 引用者 `w/a`、`w/b`、`b/*` 的归属（2025-11 追查）
+
+`c/h` 的引用者里有个 `w/a`，顺着查下去：
+
+| 探针 | 形状 | 归属 |
+|---|---|---|
+| `w/a` | `extends OutputStream`、字段 `Signature`、三个 `write` 里 catch 后 new `c/h("exception in content signer: "+msg, e, ?)` | **bcpkix 的 `SignatureOutputStream`** 家族（bcpkix-1.47 / 1.50、sc-pkix-1.50 里 4 个同名内部类都带这条串）；具体是哪个外层匿名类，需要看它的 InnerClasses 才能定 |
+| `w/b` | 5 个 `HashMap` 静态字段 + `String g(AlgorithmIdentifier)` + `Signature h(AlgorithmIdentifier)` + 字段 `b/b` | 形状即 `org/bouncycastle/operator/jcajce/OperatorHelper`（1.47 的同名方法 `getSignatureName`/`createRawSignature` 对上；1.47 里字段声明成 `Map`，所以 HashMap 计数不同） |
+| `b/a` | `static StringBuilder a(String)` + `static c/n b(String)` | 未归属 |
+| `b/b` | `static int a(InputStream,byte[])` + `static X509Certificate b(Principal,KeyPair,Date,Date,BigInteger)`（自签证书） | 未归属：在所有 oracle 里按这个 5 参形状搜过，零命中（zipsigner 的 zs-all.jar 也没有） |
+
+⇒ `b/*`、`w/*` 一共 4 个类，仍是"无归属"状态（不在任何 part 里）。这不影响构建：它们名字保持
+原样，FART 不动它们；要定名得先找到 bcpkix/自签证书工具的对应版本或证据。
+
 ### 6.6 顺手修的两处（2025-11）
 
 | 探针 | 原来 | 现在 | 判据 |

@@ -54756,5 +54756,25 @@ abcd/pw com/aide/backbone/AppState
 abcd/rw com/aide/backbone/Preferences
 abcd/ww com/aide/backbone/DeveloperNotificationTask
 abcd/zw com/aide/backbone/window/RectProvider
+	j6 ()Landroid/graphics/Rect; getScreenRect
+		static
+	j6 (Landroid/app/Activity;)Landroid/graphics/Rect; getActivityRect
+		static
+	j6 (Landroid/view/View;)Landroid/graphics/Rect; getViewRect
+		static
+	j6 (Lcom/appfour/backbone/api/objects/UserActionWidget;)Landroid/graphics/Rect; getWidgetRect
+		static
+	j6 (Lcom/appfour/backbone/api/objects/UserActionWindow;)Landroid/graphics/Rect; getWindowRect
+		static
 abcd/_v com/aide/backbone/EventContext
 abcd/iw com/aide/backbone/EventRecorder
+	DW (J)J now
+		static
+	j6 ()Ljava/lang/String; getProcessName
+		static
+	j6 (Labcd/lw;JJ)V recordStart
+		static
+	j6 (Labcd/lw;JLcom/appfour/backbone/api/objects/EventData;)V recordEvent
+		static
+	j6 (Labcd/lw;JLjava/lang/Throwable;)V recordError
+		static

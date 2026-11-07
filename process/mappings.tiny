@@ -52811,5 +52811,15 @@ c	abcd/pw	com/aide/backbone/AppState	str: "appstate.json"+"has_occurred_for_app_
 c	abcd/rw	com/aide/backbone/Preferences	str: 键名 "last_run_version"/"is_event_defined_"/"probesdex_"/"has_fetched_referrer"/"BACKBONE_"/"is_developer" ⇒ 偏好设置读写
 c	abcd/ww	com/aide/backbone/DeveloperNotificationTask	kind: implements Runnable，构造器 (int,int,String)；串 "backbone developer notifications"/"Probe notification" ⇒ 发开发者通知的任务
 c	abcd/zw	com/aide/backbone/window/RectProvider	recv: 5 个方法全是 ()/Activity/View/UserActionWidget/UserActionWindow → android/graphics/Rect（串 "window"）⇒ 取窗口/控件矩形的工具
+	m	()Landroid/graphics/Rect;	j6	getScreenRect	auto: 取 ScreenRect（上游无同签名对应，按作用取名）
+	m	(Landroid/app/Activity;)Landroid/graphics/Rect;	j6	getActivityRect	auto: 取 ActivityRect（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;)Landroid/graphics/Rect;	j6	getViewRect	auto: 取 ViewRect（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserActionWidget;)Landroid/graphics/Rect;	j6	getWidgetRect	auto: 取 WidgetRect（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserActionWindow;)Landroid/graphics/Rect;	j6	getWindowRect	auto: 取 WindowRect（上游无同签名对应，按作用取名）
 c	abcd/_v	com/aide/backbone/EventContext	shape: 13 个字段是 deviceWidth/deviceHeight/imeHeight/pressedKey/touchX/touchY… 等输入与设备状态 ⇒ 事件上下文（构造器 (String,…)）
 c	abcd/iw	com/aide/backbone/EventRecorder	recv: j6(lw,JJ)V / j6(lw,J,EventData)V / j6(lw,J,Throwable)V 是"记录事件/事件错误"，串 ") Event recording" ⇒ 事件记录器
+	m	(J)J	DW	now	auto: 「now」（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	j6	getProcessName	auto: 取 ProcessName（上游无同签名对应，按作用取名）
+	m	(Labcd/lw;JJ)V	j6	recordStart	auto: 执行 recordStart（上游无同签名对应，按作用取名）
+	m	(Labcd/lw;JLcom/appfour/backbone/api/objects/EventData;)V	j6	recordEvent	auto: 执行 recordEvent（上游无同签名对应，按作用取名）
+	m	(Labcd/lw;JLjava/lang/Throwable;)V	j6	recordError	auto: 执行 recordError（上游无同签名对应，按作用取名）

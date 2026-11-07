@@ -77,5 +77,15 @@ abcd/pw com/aide/backbone/AppState
 abcd/rw com/aide/backbone/Preferences
 abcd/ww com/aide/backbone/DeveloperNotificationTask
 abcd/zw com/aide/backbone/window/RectProvider
+	j6 ()Landroid/graphics/Rect; getScreenRect
+	j6 (Landroid/app/Activity;)Landroid/graphics/Rect; getActivityRect
+	j6 (Landroid/view/View;)Landroid/graphics/Rect; getViewRect
+	j6 (Lcom/appfour/backbone/api/objects/UserActionWidget;)Landroid/graphics/Rect; getWidgetRect
+	j6 (Lcom/appfour/backbone/api/objects/UserActionWindow;)Landroid/graphics/Rect; getWindowRect
 abcd/_v com/aide/backbone/EventContext
 abcd/iw com/aide/backbone/EventRecorder
+	DW (J)J now
+	j6 ()Ljava/lang/String; getProcessName
+	j6 (Labcd/lw;JJ)V recordStart
+	j6 (Labcd/lw;JLcom/appfour/backbone/api/objects/EventData;)V recordEvent
+	j6 (Labcd/lw;JLjava/lang/Throwable;)V recordError
