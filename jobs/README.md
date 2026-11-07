@@ -6,7 +6,7 @@
 |---|---|---|---|
 | `jgit` | Eclipse JGit（AIDE 内置，魔改混合版） | 多版本 oracle（按类选最贴版本）+ 逐版本差异白名单 | 685 类 / 5542 成员行 / 3238 参数行，待人工 **0** |
 | `jsch` | JSch **0.1.51**（类名没混淆，只有成员被改名；见 [docs/NOTES.md](../docs/NOTES.md) §9） | oracle 同名类 | 141 类 / 1228 成员行 / 824 参数行 |
-| `aide` | AIDE 自有类（目标在 `abcd/aide/`，**无 oracle**） | 常量串 / 引用者 / 实现关系，按作用命名 | 60 类 / 185 成员行 / 68 参数行（原 77 类里 25 个 HTTP/JSON 类查明是 Dropbox SDK + json-simple，已移交 `dropbox`） |
+| `aide` | AIDE 自有类（目标在 `abcd/aide/`，**无 oracle**） | 常量串 / 引用者 / 实现关系，按作用命名 | 64 类 / 200 成员行 / 104 参数行（原 77 类里 25 个 HTTP/JSON 类查明是 Dropbox SDK + json-simple，已移交 `dropbox`） |
 | `dx` | dx **1.16 世系**（裁掉纯 CLI 子包） | 结构指纹 + 枚举锚点 + 引用集 + 实现者集合 | 448 类 / 4366 成员行 / 2321 参数行 |
 | `crashlytics` | crashlytics-core 2.7.0 / answers 1.4.7 / beta 1.2.10 / crashlytics 2.9.9 | 同上 + 常量串全集 + 外类锚定 | 176 类 / 831 成员行 / 590 参数行，待人工 **0** |
 | `fabric` | fabric 1.4.8 | 同上（AAR 被 proguard 裁过，缺的按作用命名） | **69 类** / 380 成员行 / 207 参数行，待人工 **0** |

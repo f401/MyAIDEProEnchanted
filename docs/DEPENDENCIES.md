@@ -19,15 +19,15 @@
 | | Dropbox Android SDK 1.6.2 + json-simple | `dropbox` | 49 | ✅ |
 | | zipsigner 1.11 / zipio 1.6 / kellinwood | `zipsigner` | 24 | ✅ |
 | | JZlib 1.1.1 | `jzlib` | 14 | ✅ |
-| 按作用命名（无 oracle） | AIDE 自有（UI/http/settings/licensing/格式化选项…） | `aide` | 60 | ✅ 类级 + 185 成员行 |
+| 按作用命名（无 oracle） | AIDE 自有（UI/http/settings/licensing/格式化选项…） | `aide` | 64 | ✅ 类级 + 200 成员行 |
 | | Backbone 实现层 | `aide_bb` | 85 | ✅ 类级 + 184 成员 |
-| | UI 动作族 | `aide_ui` | 27 | ✅ 类级 |
+| | UI 动作族 | `aide_ui` | 78 | ✅ 类级 |
 | | IAP/计费/licensing | `aide_iap` | 19 | ✅ |
 | | 引擎接入层 | `engine` | 38 | ✅ 类级 |
 | | 编辑器几何/格式化选项（新） | `aide`(editor 子包) | 4 | ✅ 类级 + 枚举常量 |
 | | 首轮历史补丁 | `head` | 1 | ✅ |
 
-合计：**3728 类 / 27383 成员行 / 22116 参数行 / 31111 条注释**；门禁全绿（见 `docs/VERIFY.md`）。
+合计：**3783 类 / 27398 成员行 / 22152 参数行 / 31181 条注释**；门禁全绿（见 `docs/VERIFY.md`）。
 
 统计方法（可重跑）：
 

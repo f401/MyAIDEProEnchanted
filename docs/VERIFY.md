@@ -20,9 +20,9 @@ python3 tools/jgit/pipeline/tiny_roundtrip.py        # 10) **等价性硬判据*
 python3 tools/jgit/pipeline/coverage.py              # 11) 覆盖率（只度量，不判定）
 ```
 
-期望值（当前基线）：`类块 3728 / 成员行 27383 / 参数行 22116`；`不一致 0`；
+期望值（当前基线）：`类块 3783 / 成员行 27398 / 参数行 22152`；`不一致 0`；
 `CONFLICT 0 / DUPTARGET 0 / MISSING 0`；`innercheck ① 0 / ② 0 / ③ 0`；`famcheck 0/0`；
-`注释 31111 = 类 3728 + 方法 17797 + 字段 9586`。
+`注释 31181 = 类 3783 + 方法 17812 + 字段 9586`。
 
 ## 两种等价入口
 
@@ -69,11 +69,11 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 0 `filter_head` | `保留块 1 / 删块 0 / 删行 0`（head 只剩 `abcd/vj → abcd/aide/AssetProvider`；见 NOTES §15） |
 | 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 141 / aide 54`，合计 `类块 880`、`丢陈旧块 0`、`去重成员 0` |
 | 1' `paramfill` | `参数行 4022 条（2328 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3238 / jsch 784 / aide 15） |
-| 1'' `emit_tsrg2` | `55300 行，static 方法标记 2072 / 参数行 22116` |
-| 2 `validate_mappings` | `类块 3728（含头部 1）/ 成员行 27383 / 参数行 22116 / 基线类 23636` → **✔ 无无效映射** |
+| 1'' `emit_tsrg2` | `55407 行，static 方法标记 2073 / 参数行 22152` |
+| 2 `validate_mappings` | `类块 3783（含头部 1）/ 成员行 27398 / 参数行 22152 / 基线类 23636` → **✔ 无无效映射** |
 | 3 `verify_members` | `成员映射 5376 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 223` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
-| 5 `pkgclose` | `需要挪的类 33 / 真冲突 18 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |
+| 5 `pkgclose` | `需要挪的类 34 / 真冲突 18 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |
 | 6 `coverage` | 方法 **3501/3533 = 99.1%**、字段 **1848/1855 = 99.6%**、类 623、完全覆盖 **604**；未入分母：方法 890 / 字段 496；未命中明细 39 条 → `~/out/work/cov_miss.tsv` |
 | 7 `widen_access --report` | `跨包需放宽：类 31 / 成员 58`（`--apply` 改写对应 class） |
 | 12 `tools/jgit/audit/apk_refs.py`（构建链 `apkrefs` 步） | **产物里不许有"旧类名"残留**：class_map 里被改名的旧名 `L旧名;` 在 dex / 嵌套 jar 里一个都不许有（另含 `assets/data/functions/**` 格式检查：必须仍是 `zip(classes.dex)`；踩过 `com/aide/ui/U` 引用残留 → NOTES §12、资产格式 → NOTES §13） |
