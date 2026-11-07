@@ -245,3 +245,15 @@ m	abcd/Ek	Hw	(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V	auto:
 m	abcd/Ek	j6	(Landroid/app/Activity;Ljava/lang/String;)Z	auto: 是否 FeatureLicensed（上游无同签名对应，按作用取名）
 m	abcd/Ek	DW	(Landroid/app/Activity;Ljava/lang/String;)Z	auto: 取 BooleanSetting（上游无同签名对应，按作用取名）
 m	abcd/Ek	j6	(Landroid/app/Activity;)Z	auto: 是否 DebuggerLicensed（上游无同签名对应，按作用取名）
+c	abcd/lk	-	-	auto: 类：AppInstaller（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/el	-	-	auto: 类：TrainerSampleInstaller（上游未收录，名字来自 jobs/aide 的判据）
+m	abcd/lk	DW	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 installWithRoot（上游无同签名对应，按作用取名）
+m	abcd/lk	j6	(Ljava/lang/String;)V	auto: 执行 installWithoutRoot（上游无同签名对应，按作用取名）
+m	abcd/lk	j6	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 installAndRun（上游无同签名对应，按作用取名）
+m	abcd/lk	j6	(ZLjava/lang/Runnable;Ljava/lang/Runnable;)V	auto: 执行 install（上游无同签名对应，按作用取名）
+m	abcd/el	FH	(Lcom/aide/ui/trainer/g$j;)Ljava/lang/String;	auto: 取 SampleDir（上游无同签名对应，按作用取名）
+m	abcd/el	j6	(Lcom/aide/ui/trainer/g$j;)Ljava/util/List;	auto: 取 SampleNames（上游无同签名对应，按作用取名）
+m	abcd/el	DW	(Lcom/aide/ui/trainer/g$j;)Z	auto: 是否 SampleInstalled（上游无同签名对应，按作用取名）
+m	abcd/el	j6	(Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;ZLjava/lang/Runnable;)V	auto: 执行 expandSample（上游无同签名对应，按作用取名）
+m	abcd/el	j6	(Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;Ljava/lang/Runnable;)V	auto: 执行 installSample（上游无同签名对应，按作用取名）
+m	abcd/el	j6	(Lcom/aide/ui/trainer/g$j;Ljava/util/List;Ljava/lang/String;)V	auto: 执行 extractSamples（上游无同签名对应，按作用取名）

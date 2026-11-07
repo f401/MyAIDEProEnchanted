@@ -25,3 +25,5 @@ uw	com/aide/backbone/BackboneDataDir	str:"backbone"、"dataDir"、`ApplicationIn
 vl	com/aide/licensing/LicenseSignatureChecker	str:RSA 公钥 Base64（MIIBIjANBgkq…）+ "SHA1withRSA"；引用 abcd/Ek(license 控制器) 与 abcd/fL
 Ev	com/aide/backbone/HookRegistry	str:"Set onEnter "、"Set onThrow "、": container "、" class "、" method "；被 lv(ReflectionRuntime) 用 j6/DW 调用（按 id 存取 hook）
 Bk	com/aide/ui/KeybindingsService	str:"KeybindingsService_2" + implements abcd/Wl,abcd/Xl
+Nf	com/aide/ui/actions/FormatCodeAction	str:getName() 返回 "Format Code"；implements abcd/Yl,abcd/Wl；被 com/aide/ui/V.<clinit> 注册成菜单项，com/s1243808733/aide/AideMainActivity$7.onMenuItemClick 调 run()
+tg	com/aide/ui/actions/OrganizeImportsAction	str:getName() 返回 "Organize Imports"；implements abcd/Yl,abcd/Wl；同样注册在 com/aide/ui/V.<clinit>，AideMainActivity$6.onMenuItemClick 调 run()

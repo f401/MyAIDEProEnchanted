@@ -12578,6 +12578,39 @@ abcd/Ek com/aide/licensing/LicensingManager
 		1 key key
 	j6 (Landroid/app/Activity;)Z isDebuggerLicensed
 		0 activity activity
+abcd/lk abcd/aide/AppInstaller
+	DW (Ljava/lang/String;Ljava/lang/String;)V installWithRoot
+		0 apkPath apkPath
+		1 packageName packageName
+	j6 (Ljava/lang/String;)V installWithoutRoot
+		0 apkPath apkPath
+	j6 (Ljava/lang/String;Ljava/lang/String;)V installAndRun
+		0 apkPath apkPath
+		1 packageName packageName
+	j6 (ZLjava/lang/Runnable;Ljava/lang/Runnable;)V install
+		0 withRoot withRoot
+		1 onSuccess onSuccess
+		2 onFailure onFailure
+abcd/el abcd/aide/TrainerSampleInstaller
+	FH (Lcom/aide/ui/trainer/g$j;)Ljava/lang/String; getSampleDir
+		0 lesson lesson
+	j6 (Lcom/aide/ui/trainer/g$j;)Ljava/util/List; getSampleNames
+		0 lesson lesson
+	DW (Lcom/aide/ui/trainer/g$j;)Z isSampleInstalled
+		0 lesson lesson
+	j6 (Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;ZLjava/lang/Runnable;)V expandSample
+		0 activity activity
+		1 lesson lesson
+		2 force force
+		3 onDone onDone
+	j6 (Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;Ljava/lang/Runnable;)V installSample
+		0 activity activity
+		1 lesson lesson
+		2 onDone onDone
+	j6 (Lcom/aide/ui/trainer/g$j;Ljava/util/List;Ljava/lang/String;)V extractSamples
+		0 lesson lesson
+		1 samples samples
+		2 targetDir targetDir
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue
@@ -55298,3 +55331,5 @@ abcd/uw com/aide/backbone/BackboneDataDir
 abcd/vl com/aide/licensing/LicenseSignatureChecker
 abcd/Ev com/aide/backbone/HookRegistry
 abcd/Bk com/aide/ui/KeybindingsService
+abcd/Nf com/aide/ui/actions/FormatCodeAction
+abcd/tg com/aide/ui/actions/OrganizeImportsAction

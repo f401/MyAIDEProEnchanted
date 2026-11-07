@@ -243,3 +243,15 @@ abcd/Ek com/aide/licensing/LicensingManager
 	j6 (Landroid/app/Activity;Ljava/lang/String;)Z isFeatureLicensed
 	DW (Landroid/app/Activity;Ljava/lang/String;)Z getBooleanSetting
 	j6 (Landroid/app/Activity;)Z isDebuggerLicensed
+abcd/lk abcd/aide/AppInstaller
+	DW (Ljava/lang/String;Ljava/lang/String;)V installWithRoot
+	j6 (Ljava/lang/String;)V installWithoutRoot
+	j6 (Ljava/lang/String;Ljava/lang/String;)V installAndRun
+	j6 (ZLjava/lang/Runnable;Ljava/lang/Runnable;)V install
+abcd/el abcd/aide/TrainerSampleInstaller
+	FH (Lcom/aide/ui/trainer/g$j;)Ljava/lang/String; getSampleDir
+	j6 (Lcom/aide/ui/trainer/g$j;)Ljava/util/List; getSampleNames
+	DW (Lcom/aide/ui/trainer/g$j;)Z isSampleInstalled
+	j6 (Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;ZLjava/lang/Runnable;)V expandSample
+	j6 (Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;Ljava/lang/Runnable;)V installSample
+	j6 (Lcom/aide/ui/trainer/g$j;Ljava/util/List;Ljava/lang/String;)V extractSamples

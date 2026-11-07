@@ -15,6 +15,7 @@ for p in ('tools/jgit', 'tools/deob'):
     if q not in sys.path:
         sys.path.insert(0, q)
 import jvmbody
+import jvmcode
 
 OBF = ('abcd/', 'a/', 'c/', 'b/')
 
@@ -45,7 +46,13 @@ def main():
             code = m.get('code')
             if not code:
                 continue
-            for (k, ow, nm, ds) in jvmbody.body_refs(c, code):
+            # 用 jvmcode.decode（JVM 指令正确长度）；jvmbody.body_refs 的 LEN 是近似表
+            # （ldc 当 3 字节、invokeinterface 当 3 字节），含 invokeinterface 的方法会串位造假引用。
+            for ev in jvmcode.decode(c, code):
+                if ev[0] not in ('invoke', 'sget', 'sput'):
+                    continue
+                k = 'm' if ev[0] == 'invoke' else 'f'
+                ow, nm, ds = ev[1], ev[2], ev[3]
                 if ow in want:
                     hits[ow].append((this, m.get('name'), m.get('desc'), k, nm, ds))
     for p in a.probes:

@@ -25,3 +25,5 @@ abcd/uw com/aide/backbone/BackboneDataDir
 abcd/vl com/aide/licensing/LicenseSignatureChecker
 abcd/Ev com/aide/backbone/HookRegistry
 abcd/Bk com/aide/ui/KeybindingsService
+abcd/Nf com/aide/ui/actions/FormatCodeAction
+abcd/tg com/aide/ui/actions/OrganizeImportsAction

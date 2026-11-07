@@ -25,3 +25,5 @@ c	abcd/uw	-	-	auto: 类：BackboneDataDir（上游未收录，名字来自 jobs/
 c	abcd/vl	-	-	auto: 类：LicenseSignatureChecker（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Ev	-	-	auto: 类：HookRegistry（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Bk	-	-	auto: 服务：Keybindings（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Nf	-	-	auto: 动作：FormatCode（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/tg	-	-	auto: 动作：OrganizeImports（上游未收录，名字来自 jobs/aide_ui 的判据）

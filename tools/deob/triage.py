@@ -88,10 +88,12 @@ def main():
         nm = len([m for m in mems if (m.get('desc') or '').startswith('(')])
         nf = len(mems) - nm
         utf = c.get('utf') or {}
+        esc = lambda x: x.replace('\\', '\\\\').replace('\n', '\\n').replace('\t', '\\t')
         strs = [s for s in utf.values()
                 if isinstance(s, str) and len(s) > 3
                 and not (s.startswith('L') and s.endswith(';'))
                 and not RE_FQCN.match(s) and RE_HUMAN.search(s)]
+        strs = [esc(x) for x in strs]
         seen = []
         for s in strs:
             if s not in seen:
