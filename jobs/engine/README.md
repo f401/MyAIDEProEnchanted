@@ -99,3 +99,21 @@ python3 tools/deob/component.py --jar process/base/merged_ok.jar --prefix abcd \
 `kb` 的 `DW()/Hw()/FH()/v5()` 走的是**符号跳转**那一路，`mb` 的位置类方法才是补全那一路。
 另：`com/aide/engine/c` 的字段 `b: List` 只有 `FH(c,List)` 这一个写入口、**全 jar 无人读**，
 `nb.j6()`/`DW()` 就是在填它——定名时不要假设它参与运行期逻辑。
+
+## 7) 仍待定名的（已侦察到的证据，下一轮直接接着做）
+
+### c$b 的 16 个桥接口：还剩 3 个
+| 探针 | 已知 | 缺哪一环 |
+|---|---|---|
+| `mb` | 3 方法全走 `M` 的“位置类”口：`j6(Da)`→`M.Zo(路径)`、`j6(Da,I×8)`→`M.j6(路径,I×8)`、`j6(na,I×4,Z)`→`M.j6(语言名,I×4,Z)`；**这三个在 `service/e` 里都是空实现**；调用者 `abcd/{Gd,be,re}`(Sa,I,I) 与 `abcd/Z` | 先确认这三口是否真的整条链都被忽略（若是，只能按“引擎内部的候选位置上报”命名） |
+| `nb` | `j6()` 建表 → `j6(Aa)`(`Aa.rN()` 为真时用 `SourceEntity(La,Aa,int)`)、`j6(Za)`、`j6(String)` 入表 → `DW()` 调 `c.FH(engine,list)` 写进 **`Engine.b`**；而 `b` 全 jar 无人读；调用者 `abcd/{Od,kd}`(带 `(nb,Da,I,I,String,List)`) | 同上：目标字段只写不读，只能按“声明/符号表填充”命名 |
+| `lb` | 空接口（0 方法），唯一实现 `c$b$m` 也是空；`La.aM:Labcd/lb;` 只在构造里赋值、**从不读** | 暂无判据 → **故意不命名**（不编造） |
+
+### com/aide/engine 包内还剩下的
+- `Ia`（97 方法，`extends Aa`）：字段 `ua J8`+`Da we`+`Ea/Ga/Ba`+`Ia$a Ws`；`Ia$a` 是 14 个 int / 9 个 boolean / 3×`Ab<Ya>` / 2×`Yb` / 3×`Cb` / `Ya vy` / `String cn` / `long KD` 的状态结构；方法里有 `SourceEntity` 用它做的分类判定（`hz/ko/et/oY/XG/vJ/…`）、子节点增删（`DW(Ya,int)`/`j6(int,Ya)`）、`Sf()/cn()→Yb<Ia>`、`FH()→ua`。倾向“**单个声明的 AST 模型**”，但还没到能下笔的程度。
+- `C` = `(String,int,int)` + clone/equals/hashCode：两处构造，一处 `(Da.XL(),1,1)`，一处 `(Da.XL(),Ia.J8(),Ia.Ws())` ⇒ 像“文件内的区间”，但 **line/col 与 offset 二义未定**。
+- `E` = `List<Integer> + 3×List<String>` 的载荷，由 `hb.aM()` 造、交 `J.j6(E)`；AIDL `v`(IRefactoringListener) 只有 `(String,List)/(List)/(String,String)/(String,Map)`，**对不上**，需再看 `service/j` 的同名方法走哪条。
+- `o` = `byte[][]` 二维字节缓冲（`DW(int,int)byte` / `j6(byte,int×4)` / `j6()`），用途未查。
+- `b` = 只有 `static final int[]`，被合成访问器构造器当占位参数（`c$b(...,Lcom/aide/engine/b;)V`）。
+- `P` = 无成员空类。
+- `c$a` / `c$c` = 两个枚举（11 个 / ≥13 个常量），要按常量语义定名。
