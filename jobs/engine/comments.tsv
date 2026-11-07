@@ -105,3 +105,4 @@ c	abcd/Cb	-	-	auto: 类：IntVector（上游未收录，名字来自 jobs/engine
 c	abcd/Rr	-	-	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Qs	-	-	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rs	-	-	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ps	-	-	auto: 类：MethodType（上游未收录，名字来自 jobs/engine 的判据）

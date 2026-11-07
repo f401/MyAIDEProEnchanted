@@ -104,3 +104,4 @@ abcd/Cb com/aide/engine/IntVector
 abcd/Rr com/aide/engine/WellKnownTypes
 abcd/Qs com/aide/engine/TypeConstant
 abcd/Rs com/aide/engine/TypeInfo
+abcd/Ps com/aide/engine/MethodType
