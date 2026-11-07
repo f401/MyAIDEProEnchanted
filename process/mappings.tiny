@@ -25192,6 +25192,7 @@ c	abcd/Da	com/aide/engine/ProjectFile	auto: 类：ProjectFile（上游未收录�
 c	abcd/S	abcd/aide/engine/InlineMethodRefactoring	auto: 类：InlineMethodRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/W	abcd/aide/engine/ChangeSignatureRefactoring	auto: 类：ChangeSignatureRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ea	com/aide/engine/CachedProject	auto: 类：CachedProject（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ba	com/aide/engine/CompilationContext	auto: 上下文：Compilation（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

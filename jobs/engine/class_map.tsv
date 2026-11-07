@@ -66,3 +66,4 @@ Da	com/aide/engine/ProjectFile	body:XL() 用 VH(父) + 分隔符 + we(名字) �
 S	abcd/aide/engine/InlineMethodRefactoring	str:j6(Da,I,I) 里 "Select a method to inline."（同一句出现两次，另一处是错误提示）；与 V(RenameRefactoring) 同构：ctor(Labcd/ea)、字段 ea/Ga/Va/Ba/Q/Ea，被 com/aide/engine/c$b 的重构入口调用 ⇒ 内联方法重构
 W	abcd/aide/engine/ChangeSignatureRefactoring	str:"Select a method."、"This method is defined outside of the project."；j6(Da,II)List 按光标取出候选方法、j6(Sa,I) 用 ",\n"/"," 拼参数表、j6(Da,II,List×4) 拆分参数/局部/返回/异常 ⇒ 改方法签名
 ea	com/aide/engine/CachedProject	sup=abcd/La(Project)；新增 j6(Labcd/ec)/j6(Labcd/fc) 两个带 "END"/"END not found" 标记的读写方法（DataInput/DataOutput 包装），ctor 收 gb/ib/jb/db 等子系统 ⇒ 带持久化缓存的工程实现；重构类（RenameRefactoring/InlineMethodRefactoring 的 ctor）都拿它当入口
+Ba	com/aide/engine/CompilationContext	body:被 **abcd/La(Project).<init>** 唯一创建，ctor(Ga,Ea,Va,ib)；字段持有 Ea(FileManager)、Va(类型表)、Qb/j3/aM(符号表)、qb(Mr/a8 两张名字表)、[Aa(源实体数组)、[I、Map gW；静态访问器 DW(Ba)Ga / FH(Ba)Va / j6(Ba)Ea；方法 j6(Na,II,Da,Fb) 处理源实体 ⇒ 一次编译会话的共享上下文

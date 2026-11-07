@@ -26597,6 +26597,7 @@ abcd/Da com/aide/engine/ProjectFile
 abcd/S abcd/aide/engine/InlineMethodRefactoring
 abcd/W abcd/aide/engine/ChangeSignatureRefactoring
 abcd/ea com/aide/engine/CachedProject
+abcd/Ba com/aide/engine/CompilationContext
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
