@@ -366,3 +366,20 @@ zip(classes.dex) --dex2jar--> x.jar --FART(map=out/build/mappings.tiny, --lib me
 - 映射表必须是**新生成的** `--comments=none` 版；拿旧的 `out/build/mappings.tiny` 测会出现
   "`abcd/Ea` 还在、`FileManager` 没有"的假象（表里根本没这条）。
 - D8 那一步没在本机跑过（打包验证归用户），失败时 `--allow-fail` 回落原 bundle。
+
+## 21. `com/aide/engine/X` 与 `com/aide/engine/service/X` **同短名不同物**
+
+`com/aide/engine/` 与 `com/aide/engine/service/` 下都有 `m/o/p/q/r/s/t/u/v/w`，但完全是两类东西：
+
+| 短名 | `com/aide/engine/X` | `com/aide/engine/service/X` |
+|---|---|---|
+| `m` | **枚举** HighlightingKind（PLAIN/KEYWORD/…） | **AIDL 接口** IBuildListener（DESCRIPTOR 里有真名） |
+| `u` | 表达式节点 FieldAccess（`toString` 拼 `.length`） | AIDL 接口 IOpenFileInterface |
+| `w` | 表达式节点 Literal（`toString` 拼 `null`） | AIDL 接口 IUsageSearcherListener |
+
+按 `.split('/')[-1]` 做统计会**把两类混在一起**（我就据此把 `u`/`w` 误当成回调接口，
+被 `validate_mappings` 的 `dup-class-source` 当场拦住）。**规则：拼目标名时必须用全限定名。**
+
+另外：`javap -p -c -cp process/base/merged_ok.jar <fqcn>` 在本机可用，读 `ldc` 常量
+（比如枚举常量名、AIDL DESCRIPTOR）比自写解码器快得多——它是这套"类文件是 dex2jar 产物"
+场景下最好用的只读工具。

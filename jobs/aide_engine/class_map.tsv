@@ -57,3 +57,11 @@ com/aide/engine/service/k	com/aide/engine/service/UsageSearcherAdapter	body:实�
 com/aide/engine/z	com/aide/engine/CastExpression	body:toString 依次拼 "(" + v5:Class.getName() + ") " + FH:Expression ⇒ 就是源码里的 (Type) expr 强转表达式
 com/aide/engine/w	com/aide/engine/Literal	body:只有一个 Object 字段，toString 走 FH.toString() 且字面量串是 "null" ⇒ 字面量表达式
 com/aide/engine/B	com/aide/engine/Name	body:只有一个 String 字段，toString 直接返回它；实现 com/aide/engine/s(Expression) ⇒ 名字/标识符表达式
+com/aide/engine/M	com/aide/engine/EngineCallback	iface:方法全是 (String 文件, long, int, int…) / (SourceEntity) / (String,int,int,K) 这类引擎→客户端通知；实现者 service/e
+com/aide/engine/J	com/aide/engine/ModificationCallback	iface:方法几乎全是 (List<Modification>)，另有 (String)；实现者 service/j
+com/aide/engine/Q	com/aide/engine/FindResultCallback	iface:方法 j6(List<FindResult>) + br() + DW(String)；实现者 service/k
+com/aide/engine/n	com/aide/engine/HighlightingCallback	iface:方法 (String,int,long,Labcd/m[],int[],int[],int[],int[],int)×2；实现者 service/i（并 new FileHighlightings）
+com/aide/engine/a	com/aide/engine/BuildCallback	iface:方法 (Set<String>,Map<String,byte[]>)、（Set,Set,Map）、(IOException)、j6()、VH(boolean)；实现者 service/h
+com/aide/engine/h	com/aide/engine/ErrorCallback	iface:方法 j6(String,SyntaxError[][,boolean]) + OW/XG/XX/aj/br/jJ/kQ 等阶段回调；实现者 service/g
+com/aide/engine/H	com/aide/engine/VersionCallback	iface:方法 getVersion()J + j6(long) + j6(Labcd/I;)；实现者 service/f
+com/aide/engine/m	com/aide/engine/HighlightingKind	enum:14 个常量的名字串原样在 <clinit>（PLAIN/KEYWORD/IDENTIFIER/NAMESPACE_IDENTIFIER/TYPE_IDENTIFIER/DELEGATE_IDENTIFIER/OPERATOR/SEPARATOR/LITERAL/PREPROCESSOR/COMMENT/DOC_COMMENT/SCRIPT_BACKGROUND/SCRIPT），每个还带一句英文显示名（"Plain"/"Keyword"/"Namespace/Package Identifier"…）；被 FileHighlightings.Hw 与 FindResult$Highlighting.VH 当字段类型 ⇒ 语法高亮的 token 种类

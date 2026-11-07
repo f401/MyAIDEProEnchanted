@@ -57,3 +57,25 @@ c	com/aide/engine/service/k	-	-	auto: 适配器：UsageSearcher（上游未收�
 c	com/aide/engine/z	-	-	auto: 类：CastExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/w	-	-	auto: 类：Literal（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/B	-	-	auto: 类：Name（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/M	-	-	auto: 回调：Engine（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/J	-	-	auto: 回调：Modification（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/Q	-	-	auto: 回调：FindResult（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/n	-	-	auto: 回调：Highlighting（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/a	-	-	auto: 回调：Build（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/h	-	-	auto: 回调：Error（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/H	-	-	auto: 回调：Version（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/m	-	-	auto: 类：HighlightingKind（上游未收录，名字来自 jobs/aide_engine 的判据）
+f	com/aide/engine/m	j6	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	DW	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	FH	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	Hw	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	v5	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	Zo	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	VH	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	gn	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	u7	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	tp	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	EQ	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	we	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	J0	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）
+f	com/aide/engine/m	J8	-	auto: 字段(Lcom/aide/engine/m;)（上游无同类型对应，按作用取名）

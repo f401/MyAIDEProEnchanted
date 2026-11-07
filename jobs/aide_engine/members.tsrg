@@ -57,3 +57,25 @@ com/aide/engine/service/k com/aide/engine/service/UsageSearcherAdapter
 com/aide/engine/z com/aide/engine/CastExpression
 com/aide/engine/w com/aide/engine/Literal
 com/aide/engine/B com/aide/engine/Name
+com/aide/engine/M com/aide/engine/EngineCallback
+com/aide/engine/J com/aide/engine/ModificationCallback
+com/aide/engine/Q com/aide/engine/FindResultCallback
+com/aide/engine/n com/aide/engine/HighlightingCallback
+com/aide/engine/a com/aide/engine/BuildCallback
+com/aide/engine/h com/aide/engine/ErrorCallback
+com/aide/engine/H com/aide/engine/VersionCallback
+com/aide/engine/m com/aide/engine/HighlightingKind
+	j6 PLAIN
+	DW KEYWORD
+	FH IDENTIFIER
+	Hw NAMESPACE_IDENTIFIER
+	v5 TYPE_IDENTIFIER
+	Zo DELEGATE_IDENTIFIER
+	VH OPERATOR
+	gn SEPARATOR
+	u7 LITERAL
+	tp PREPROCESSOR
+	EQ COMMENT
+	we DOC_COMMENT
+	J0 SCRIPT_BACKGROUND
+	J8 SCRIPT
