@@ -37,3 +37,10 @@ c	abcd/tj	-	-	body: 串 "HTML"、"JavaScript" + 产出 EngineSolutionProject ⇒
 c	abcd/uj	-	-	body: implements abcd/IProject + 串 "Website"/"Website.zip"/"MyWebsite"/"WEBSITE"/"Html"/"Css" ⇒ 网站工程实现
 c	abcd/ul	-	-	role: 27 方法 13 字段，方法全以自身类型为参数（DW(ul)String、FH(ul)ul$a、Zo(ul)Z）⇒ 一棵模型/节点树
 c	abcd/ul$a	-	-	kind: 内部接口，唯一方法 FH()V ⇒ 模型变化的通知回调
+c	abcd/V	-	-	auto: 类：RenameRefactoring（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/I	-	-	auto: 类：UsageSearch（上游未收录，名字来自 jobs/engine 的判据）
+m	abcd/I	DW	(Labcd/Da;IIZ)V	auto: 加入 MethodsTaking（上游无同签名对应，按作用取名）
+m	abcd/I	FH	(Labcd/Da;IIZ)V	auto: 加入 OverridingMethods（上游无同签名对应，按作用取名）
+m	abcd/I	Hw	(Labcd/Da;IIZ)V	auto: 加入 Inheritors（上游无同签名对应，按作用取名）
+m	abcd/I	j6	(Labcd/Da;II)V	auto: 加入 OverriddenMembers（上游无同签名对应，按作用取名）
+m	abcd/I	j6	(Labcd/Da;IIZ)V	auto: 加入 MethodsReturning（上游无同签名对应，按作用取名）

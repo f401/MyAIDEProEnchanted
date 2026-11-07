@@ -36,3 +36,10 @@ abcd/tj abcd/aide/engine/HtmlEngineSolution
 abcd/uj abcd/aide/engine/WebsiteProject
 abcd/ul abcd/aide/engine/ProjectModel
 abcd/ul$a abcd/aide/engine/ProjectModel$a
+abcd/V abcd/aide/engine/RenameRefactoring
+abcd/I abcd/aide/engine/UsageSearch
+	DW (Labcd/Da;IIZ)V addMethodsTaking
+	FH (Labcd/Da;IIZ)V addOverridingMethods
+	Hw (Labcd/Da;IIZ)V addInheritors
+	j6 (Labcd/Da;II)V addOverriddenMembers
+	j6 (Labcd/Da;IIZ)V addMethodsReturning

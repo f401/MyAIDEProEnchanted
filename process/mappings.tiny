@@ -25119,6 +25119,28 @@ c	abcd/tj	abcd/aide/engine/HtmlEngineSolution	body: 串 "HTML"、"JavaScript" + 
 c	abcd/uj	abcd/aide/engine/WebsiteProject	body: implements abcd/IProject + 串 "Website"/"Website.zip"/"MyWebsite"/"WEBSITE"/"Html"/"Css" ⇒ 网站工程实现
 c	abcd/ul	abcd/aide/engine/ProjectModel	role: 27 方法 13 字段，方法全以自身类型为参数（DW(ul)String、FH(ul)ul$a、Zo(ul)Z）⇒ 一棵模型/节点树
 c	abcd/ul$a	abcd/aide/engine/ProjectModel$a	kind: 内部接口，唯一方法 FH()V ⇒ 模型变化的通知回调
+c	abcd/V	abcd/aide/engine/RenameRefactoring	auto: 类：RenameRefactoring（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/I	abcd/aide/engine/UsageSearch	auto: 类：UsageSearch（上游未收录，名字来自 jobs/engine 的判据）
+	m	(Labcd/Da;IIZ)V	DW	addMethodsTaking	auto: 加入 MethodsTaking（上游无同签名对应，按作用取名）
+		p	0	file	file
+		p	1	line	line
+		p	2	column	column
+	m	(Labcd/Da;IIZ)V	FH	addOverridingMethods	auto: 加入 OverridingMethods（上游无同签名对应，按作用取名）
+		p	0	file	file
+		p	1	line	line
+		p	2	column	column
+	m	(Labcd/Da;IIZ)V	Hw	addInheritors	auto: 加入 Inheritors（上游无同签名对应，按作用取名）
+		p	0	file	file
+		p	1	line	line
+		p	2	column	column
+	m	(Labcd/Da;II)V	j6	addOverriddenMembers	auto: 加入 OverriddenMembers（上游无同签名对应，按作用取名）
+		p	0	file	file
+		p	1	line	line
+		p	2	column	column
+	m	(Labcd/Da;IIZ)V	j6	addMethodsReturning	auto: 加入 MethodsReturning（上游无同签名对应，按作用取名）
+		p	0	file	file
+		p	1	line	line
+		p	2	column	column
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

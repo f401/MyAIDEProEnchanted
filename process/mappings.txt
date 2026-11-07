@@ -26524,6 +26524,28 @@ abcd/tj abcd/aide/engine/HtmlEngineSolution
 abcd/uj abcd/aide/engine/WebsiteProject
 abcd/ul abcd/aide/engine/ProjectModel
 abcd/ul$a abcd/aide/engine/ProjectModel$a
+abcd/V abcd/aide/engine/RenameRefactoring
+abcd/I abcd/aide/engine/UsageSearch
+	DW (Labcd/Da;IIZ)V addMethodsTaking
+		0 file file
+		1 line line
+		2 column column
+	FH (Labcd/Da;IIZ)V addOverridingMethods
+		0 file file
+		1 line line
+		2 column column
+	Hw (Labcd/Da;IIZ)V addInheritors
+		0 file file
+		1 line line
+		2 column column
+	j6 (Labcd/Da;II)V addOverriddenMembers
+		0 file file
+		1 line line
+		2 column column
+	j6 (Labcd/Da;IIZ)V addMethodsReturning
+		0 file file
+		1 line line
+		2 column column
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

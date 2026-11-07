@@ -36,3 +36,5 @@ abcd/tj	abcd/aide/engine/HtmlEngineSolution	串 HTML、JavaScript + 产出 Engin
 abcd/uj	abcd/aide/engine/WebsiteProject	implements IProject + 串 Website/Website.zip/MyWebsite/WEBSITE/Html/Css/JavaScript
 abcd/ul	abcd/aide/engine/ProjectModel	role:27 方法 13 字段，方法全以自身类型为参数（DW(ul)String、FH(ul)ul$a、Zo(ul)Z）→ 一棵节点/模型树
 abcd/ul$a	abcd/aide/engine/ProjectModel$a	跟随父类（作用待定，保留 $后缀）
+V	abcd/aide/engine/RenameRefactoring	str:方法体里 "There already is a method with that name."/"There already is a class with that name."/"There already is a field with that name."/"There is an overridden method, which is defined outside the project."/"Code in included files will not be changed."；被 com/aide/engine/c$b.tp() 调用（重命名入口）⇒ 引擎侧重命名重构
+I	abcd/aide/engine/UsageSearch	str:五个检索入口分别拼 "Methods taking "/"Methods overriding "/"Properties overriding "/"Inheritors of "/"Overridden methods of "/"Overridden properties of "/"Methods returning "；被 com/aide/engine/c$b.J8() 调用 ⇒ 用法/继承检索
