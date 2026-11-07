@@ -86,8 +86,27 @@ python3 tools/jgit/pipeline/widen_access.py ~/out/merged_ok_try.jar \
         --out process/base/merged_pub.jar --apply        # 改写 29 个 class
 ```
 
-`tools/build/build_apk.py all` 已经把这条链路内置（`tryfix → widen → fart → dex → repack`，
-D8 前还会对改名产物跑一次 `audit/trycheck.py`，不为 0 就中止）。
+`tools/build/build_apk.py all` 已经把这条链路内置（`tryfix → widen → fart → assetdex → dex → repack`，
+D8 前还会对改名产物跑一次 `audit/trycheck.py`，不为 0 就中止）。`assetdex` 见 §3.5。
+
+
+### 3.5 `assetdex` 步：assets 的 4 个 bundle 也要改名
+
+`assets/data/functions/{lang/en.jar, lang/zh.jar, runtime/ndk.zip, runtime/packagingservice.zip}`
+是运行期动态加载的 `zip(classes.dex)`，历史上构建时**原样回填**。它们引用了主 dex 的类/成员
+（`abcd/Ea`、`abcd/la`、`abcd/na`、`abcd/GA`…），主 dex 改名后 bundle 里不改 ⇒ 运行到那行
+`NoClassDefFoundError`（`tools/deob/assetcheck.py` 报过 39 条，只影响 "Show Code Help"）。
+
+现在 `fart` 之后多一步 `assetdex`：
+
+```
+zip(classes.dex) --dex2jar--> x.jar --FART(--lib merged_pub.jar)--> x-ren.jar --D8--> classes.dex --> out/build/assetdex/<key>.zip
+```
+
+- `repack` **优先**用 `out/build/assetdex/<key>.zip`，没有就回落到树里的原 bundle。
+- 单个 bundle 失败只告警（`--allow-fail`），构建不中止；但 `assetcheck` 仍会红 ⇒ 别忽略。
+- 单独跑：`python3 tools/build/assets_rename.py --map out/build/mappings.tiny --out out/build/assetdex`
+  （`--no-d8` 只跑到 FART，用来确认改名是否生效）。
 
 **3a 为什么需要**：AIDE 的 dex 里，有些 `try` 的 `end_pc` 止于数组加载**之前**
 （实测 `classes3.dex` 的 `try_item` 是 `start=0 count=8`，`aget-char` 在范围外），
