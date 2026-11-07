@@ -84,3 +84,18 @@ python3 tools/deob/component.py --jar process/base/merged_ok.jar --prefix abcd \
 2. **参数名**：只有能从真名 API（`com/aide/engine/*` 的公开签名）反推的才填，其余留空；
 3. 之后再看 `docs/DEPENDENCIES.md` 里剩下的几个子系统（编译/诊断 18 类、probe 21 类、
    Trainer 9 类、IAP 20 类、SCM 18 类…），每轮照本文的切法做一块。
+
+## 6) `com/aide/engine/M` 是**混合**回调（下一轮定 c$b 剩余接口时必读）
+
+`M` 的唯一实现者是 `com/aide/engine/service/e`，它把方法分成两路：
+
+| M 的方法 | service/e 的去向 | 用途 |
+|---|---|---|
+| `j6(SourceEntity)` / `Hw(String)` / `j6(String,List)` / `DW(String,List)` / `v5(String)` | AIDL `service/r` = **IGotoSymbolListener** | 跳转符号（按分组名 + SourceEntity 列表） |
+| `j6(String,long,int,int)` 等位置类 | `CodeAnalysisEngineService` + AIDL `service/o` = **ICodeCompletionListener** | 补全位置/上下文 |
+| `VH(String)` / `j6(List<SourceEntity>)` | 只到 `CodeAnalysisEngineService` | 全局符号表 |
+
+所以**不能**把 `M` 当“补全回调”一把梭：`kb`/`nb`/`mb` 这三个桥接口按上表分路定名，
+`kb` 的 `DW()/Hw()/FH()/v5()` 走的是**符号跳转**那一路，`mb` 的位置类方法才是补全那一路。
+另：`com/aide/engine/c` 的字段 `b: List` 只有 `FH(c,List)` 这一个写入口、**全 jar 无人读**，
+`nb.j6()`/`DW()` 就是在填它——定名时不要假设它参与运行期逻辑。
