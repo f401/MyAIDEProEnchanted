@@ -239,6 +239,34 @@ DW/FH/j6 (UserTouchAction,View)V       → kv.onClick / kv.onLongPress
 也就是说：**Qv 的方法名必须由 kv 的语义决定**（谁对应 onWindowShown、谁对应 onTouch…），
 单独改 Qv 只能得到 `dispatchA/dispatchB` 这种没信息量的名字。下一步应先做 `kv`。
 
+## 3.7 `Qv` 家族的窗口挂载与状态（22 个，判据是 new 谁 / 反射什么 / 写哪个字段）
+
+`Qv`(WindowRuntime) 里那 8 个"窗口挂载"入口和 `Qv$a`~`Qv$d` 的成员，这轮做掉 22 个：
+
+| 类 | 方法/字段 | 新名 | 判据 |
+|---|---|---|---|
+| `Qv` | `j6(Window,UserActionWindow)` | `installWindowCallback` | `new Qv$d(window,uaw)` + `window.getCallback()` / `setCallback(...)` |
+| | `j6(PopupWindow,UserActionWindow)` | `installTouchInterceptor` | `new Qv$b(popup,uaw)` + `PopupWindow.setTouchInterceptor(...)` |
+| | `j6(View,UserActionWindow)` | `bindWindowToView` | 只转调 `Qv$c.j6(window)`（把窗口绑到我们的 FrameLayout 上） |
+| | 字段 `DW`(int) | `imeHeight` | `Qv$d.j6()` 反射 `getInputMethodWindowVisibleHeight` 后写它 |
+| | 字段 `Hw`(Map) | `windows` | 唯一在 `<clinit>` 里 `new HashMap` 的窗口表 |
+| `Qv$c`(FrameLayout) | `j6(UserActionWindow)` / 字段 `j6` | `bindWindow` / `windowState` | 造 `Qv$a` 并挂到自己的字段上 |
+| `Qv$b`(TouchInterceptor) | `j6(PopupWindow)` / 字段 `j6` | `readTouchInterceptor` / `windowState` | 反射 `mTouchInterceptor`（串 `Runtime Error`） |
+| `Qv$d`(Window$Callback) | `j6()` | `updateImeHeight` | 反射 `getInputMethodWindowVisibleHeight` + `getSystemService("input_method")`，写 `Qv.imeHeight` |
+| | `j6(Qv$d)` | `setWindowState` | 拷贝另一个实例的 `Qv$a` 字段 |
+| | 字段 `DW`/`FH`/`j6` | `wrappedCallback` / `window` / `windowState` | 分别是被包装的原 `Window$Callback`、`UserActionWindow`、窗口状态 |
+| `Qv$a`(窗口状态) | 字段 `j6`/`Hw`/`v5`/`gn` | `window` / `handler` / `longPressRunnable` / `longPressScheduled` | 类型 + `Handler.postDelayed/removeCallbacks` 的用法 |
+| | `j6(Context)Activity` | `getActivityFromContext` | `ContextWrapper.getBaseContext()` 递归（同 `Hv` 同名方法） |
+| | `j6(Qv$a)Z` / `j6(Qv$a,Z)Z` | `isLongPressScheduled` / `setLongPressScheduled` | 读/写 `gn` 字段 |
+
+**顺带补上了 `runtime/a` 最后一个空**：`DW()I` → **`getImeHeight`**（`Mv` 直接返回 `Qv.imeHeight`，
+而那个字段就是上面 `Qv$d.updateImeHeight` 写进去的输入法高度）。至此 `runtime/a` 26 个方法只剩
+`Ws()String` 一个没名（它转调 `ApplicationUtils.DW()String`，那个方法本身还叫 `DW`）。
+
+这轮**没做**的：`Qv` 的 6 通同义别名（§3.5，描述符相同、行为相同，不猜）、`Qv$a` 的
+`DW/FH(Qv$a)F`（读的是 `VH/Zo` 两个 float，但哪个是 x 哪个是 y 还差一步）、`Qv$e`(MenuReflector)
+的 14 个反射方法（下一轮）。
+
 ## 4. 下一步
 
 1. 找 Backbone SDK oracle（appfour/backbone 的 aar），一把解决 `runtime/*` + `closures/*` 的方法名；

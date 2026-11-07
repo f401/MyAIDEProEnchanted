@@ -52867,10 +52867,31 @@ c	abcd/zv	com/aide/backbone/adapters/OnItemLongPressListener	src: implements abc
 c	abcd/jv	com/aide/backbone/ClosureInvoker	kind: interface，唯一方法 EventData j6(Object[])；被 40+ 个闭包适配器（Au/Hu/Ku/Xu/Av…zv）implements ⇒ 闭包调用器抽象
 c	abcd/lv$a	com/aide/backbone/ReflectionRuntime$Invocation	kind: interface（1 个方法），只被 abcd/lv(ReflectionRuntime) 使用，12 个调用封装（Ju…fv）implements 它
 c	abcd/Qv	com/aide/backbone/window/WindowRuntime	recv: 27 方法/4 字段；内部持有 Qv$a..Qv$e 并创建 Rv(GlobalLayoutListener)、Pv(Runnable) ⇒ Backbone UserActionWindow 的窗口运行时
+	f	I	DW	imeHeight	auto: 字段(I)（上游无同类型对应，按作用取名）
+	f	Ljava/util/Map;	Hw	windows	auto: 字段(Ljava/util/Map;)（上游无同类型对应，按作用取名）
+	m	(Landroid/view/View;Lcom/appfour/backbone/api/objects/UserActionWindow;)V	j6	bindWindowToView	auto: 执行 bindWindowToView（上游无同签名对应，按作用取名）
+	m	(Landroid/view/Window;Lcom/appfour/backbone/api/objects/UserActionWindow;)V	j6	installWindowCallback	auto: 执行 installWindowCallback（上游无同签名对应，按作用取名）
+	m	(Landroid/widget/PopupWindow;Lcom/appfour/backbone/api/objects/UserActionWindow;)V	j6	installTouchInterceptor	auto: 执行 installTouchInterceptor（上游无同签名对应，按作用取名）
 c	abcd/Qv$a	com/aide/backbone/window/WindowRuntime$Window	shape: 构造器收 com/appfour/backbone/api/objects/UserActionWindow，10 方法/8 字段；被 abcd/Pv 当第一个参数接走 ⇒ 单个窗口的运行时状态
+	f	Lcom/appfour/backbone/api/objects/UserActionWindow;	j6	window	auto: 字段(Lcom/appfour/backbone/api/objects/UserActionWindow;)（上游无同类型对应，按作用取名）
+	f	Landroid/os/Handler;	Hw	handler	auto: 字段(Landroid/os/Handler;)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/Runnable;	v5	longPressRunnable	auto: 字段(Ljava/lang/Runnable;)（上游无同类型对应，按作用取名）
+	f	Z	gn	longPressScheduled	auto: 字段(Z)（上游无同类型对应，按作用取名）
+	m	(Landroid/content/Context;)Landroid/app/Activity;	j6	getActivityFromContext	auto: 取 ActivityFromContext（上游无同签名对应，按作用取名）
+	m	(Labcd/Qv$a;)Z	j6	isLongPressScheduled	auto: 是否 LongPressScheduled（上游无同签名对应，按作用取名）
+	m	(Labcd/Qv$a;Z)Z	j6	setLongPressScheduled	auto: 设 LongPressScheduled（上游无同签名对应，按作用取名）
 c	abcd/Qv$b	com/aide/backbone/window/WindowRuntime$TouchInterceptor	hier: implements android/view/View$OnTouchListener；串 "mTouchInterceptor"（反射 PopupWindow）⇒ 窗口触摸拦截器
+	f	Labcd/Qv$a;	j6	windowState	auto: 字段(Labcd/Qv$a;)（上游无同类型对应，按作用取名）
+	m	(Landroid/widget/PopupWindow;)Landroid/view/View$OnTouchListener;	j6	readTouchInterceptor	auto: 读取 TouchInterceptor（上游无同签名对应，按作用取名）
 c	abcd/Qv$c	com/aide/backbone/window/WindowRuntime$WindowFrameLayout	kind: extends android/widget/FrameLayout（3 方法/1 字段）⇒ 承载窗口内容的 FrameLayout
+	f	Labcd/Qv$a;	j6	windowState	auto: 字段(Labcd/Qv$a;)（上游无同类型对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/objects/UserActionWindow;)V	j6	bindWindow	auto: 执行 bindWindow（上游无同签名对应，按作用取名）
 c	abcd/Qv$d	com/aide/backbone/window/WindowRuntime$WindowCallback	hier: implements android/view/Window$Callback（28 个方法全是接口实现，未改名）；串 "input_method"/"getInputMethod" ⇒ 窗口回调
+	f	Landroid/view/Window$Callback;	DW	wrappedCallback	auto: 字段(Landroid/view/Window$Callback;)（上游无同类型对应，按作用取名）
+	f	Lcom/appfour/backbone/api/objects/UserActionWindow;	FH	window	auto: 字段(Lcom/appfour/backbone/api/objects/UserActionWindow;)（上游无同类型对应，按作用取名）
+	f	Labcd/Qv$a;	j6	windowState	auto: 字段(Labcd/Qv$a;)（上游无同类型对应，按作用取名）
+	m	()V	j6	updateImeHeight	auto: 更新 ImeHeight（上游无同签名对应，按作用取名）
+	m	(Labcd/Qv$d;)V	j6	setWindowState	auto: 设 WindowState（上游无同签名对应，按作用取名）
 c	abcd/Qv$e	com/aide/backbone/window/WindowRuntime$MenuReflector	recv: 14 个方法全是反射（串 "com.android.internal.view.menu"/"getItemData"）⇒ 只服务于窗口内菜单的反射器
 c	abcd/Hv	com/aide/backbone/window/DecorViewHelper	recv: 25 方法/9 字段；串 "com.android.internal.policy.DecorView"+"mWindow" ⇒ 反射 Activity 的 DecorView/Window 的辅助类
 	m	(Landroid/view/View;)Landroid/view/Window;	DW	getWindow	auto: 取 Window（上游无同签名对应，按作用取名）
@@ -52933,6 +52954,7 @@ c	abcd/iw	com/aide/backbone/EventRecorder	recv: j6(lw,JJ)V / j6(lw,J,EventData)V
 	m	(Labcd/lw;JLcom/appfour/backbone/api/objects/EventData;)V	j6	recordEvent	auto: 执行 recordEvent（上游无同签名对应，按作用取名）
 	m	(Labcd/lw;JLjava/lang/Throwable;)V	j6	recordError	auto: 执行 recordError（上游无同签名对应，按作用取名）
 c	com/appfour/backbone/api/runtime/a	com/appfour/backbone/api/runtime/a	auto: 类：a（上游未收录，名字来自 jobs/aide_bb 的判据）
+	m	()I	DW	getImeHeight	auto: 取 ImeHeight（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/Object;)Ljava/lang/String;	DW	getObjectDescription	auto: 取 ObjectDescription（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/Throwable;)Ljava/lang/String;	DW	getExceptionDescription	auto: 取 ExceptionDescription（上游无同签名对应，按作用取名）
 	m	()J	EQ	currentTimeMillis	auto: 「currentTimeMillis」（上游无同签名对应，按作用取名）

@@ -229,3 +229,25 @@ m	abcd/kv	j6	(Lcom/appfour/backbone/api/objects/MarketReferrer;JJ)V	auto: 执行
 m	abcd/kv	j6	(Z)V	auto: 设 Enabled（上游无同签名对应，按作用取名）
 m	abcd/kv	v5	()Z	auto: 是否 Dispatching（上游无同签名对应，按作用取名）
 m	abcd/kv	j6	()V	auto: 重置 Handled（上游无同签名对应，按作用取名）
+f	abcd/Qv	DW	-	auto: 字段(I)（上游无同类型对应，按作用取名）
+f	abcd/Qv	Hw	-	auto: 字段(Ljava/util/Map;)（上游无同类型对应，按作用取名）
+m	abcd/Qv	j6	(Landroid/view/View;Lcom/appfour/backbone/api/objects/UserActionWindow;)V	auto: 执行 bindWindowToView（上游无同签名对应，按作用取名）
+m	abcd/Qv	j6	(Landroid/view/Window;Lcom/appfour/backbone/api/objects/UserActionWindow;)V	auto: 执行 installWindowCallback（上游无同签名对应，按作用取名）
+m	abcd/Qv	j6	(Landroid/widget/PopupWindow;Lcom/appfour/backbone/api/objects/UserActionWindow;)V	auto: 执行 installTouchInterceptor（上游无同签名对应，按作用取名）
+f	abcd/Qv$a	j6	-	auto: 字段(Lcom/appfour/backbone/api/objects/UserActionWindow;)（上游无同类型对应，按作用取名）
+f	abcd/Qv$a	Hw	-	auto: 字段(Landroid/os/Handler;)（上游无同类型对应，按作用取名）
+f	abcd/Qv$a	v5	-	auto: 字段(Ljava/lang/Runnable;)（上游无同类型对应，按作用取名）
+f	abcd/Qv$a	gn	-	auto: 字段(Z)（上游无同类型对应，按作用取名）
+m	abcd/Qv$a	j6	(Landroid/content/Context;)Landroid/app/Activity;	auto: 取 ActivityFromContext（上游无同签名对应，按作用取名）
+m	abcd/Qv$a	j6	(Labcd/Qv$a;)Z	auto: 是否 LongPressScheduled（上游无同签名对应，按作用取名）
+m	abcd/Qv$a	j6	(Labcd/Qv$a;Z)Z	auto: 设 LongPressScheduled（上游无同签名对应，按作用取名）
+f	abcd/Qv$b	j6	-	auto: 字段(Labcd/Qv$a;)（上游无同类型对应，按作用取名）
+m	abcd/Qv$b	j6	(Landroid/widget/PopupWindow;)Landroid/view/View$OnTouchListener;	auto: 读取 TouchInterceptor（上游无同签名对应，按作用取名）
+f	abcd/Qv$c	j6	-	auto: 字段(Labcd/Qv$a;)（上游无同类型对应，按作用取名）
+m	abcd/Qv$c	j6	(Lcom/appfour/backbone/api/objects/UserActionWindow;)V	auto: 执行 bindWindow（上游无同签名对应，按作用取名）
+f	abcd/Qv$d	DW	-	auto: 字段(Landroid/view/Window$Callback;)（上游无同类型对应，按作用取名）
+f	abcd/Qv$d	FH	-	auto: 字段(Lcom/appfour/backbone/api/objects/UserActionWindow;)（上游无同类型对应，按作用取名）
+f	abcd/Qv$d	j6	-	auto: 字段(Labcd/Qv$a;)（上游无同类型对应，按作用取名）
+m	abcd/Qv$d	j6	()V	auto: 更新 ImeHeight（上游无同签名对应，按作用取名）
+m	abcd/Qv$d	j6	(Labcd/Qv$d;)V	auto: 设 WindowState（上游无同签名对应，按作用取名）
+m	com/appfour/backbone/api/runtime/a	DW	()I	auto: 取 ImeHeight（上游无同签名对应，按作用取名）

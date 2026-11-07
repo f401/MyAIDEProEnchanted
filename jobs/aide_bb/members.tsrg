@@ -133,10 +133,31 @@ abcd/zv com/aide/backbone/adapters/OnItemLongPressListener
 abcd/jv com/aide/backbone/ClosureInvoker
 abcd/lv$a com/aide/backbone/ReflectionRuntime$Invocation
 abcd/Qv com/aide/backbone/window/WindowRuntime
+	DW imeHeight
+	Hw windows
+	j6 (Landroid/view/View;Lcom/appfour/backbone/api/objects/UserActionWindow;)V bindWindowToView
+	j6 (Landroid/view/Window;Lcom/appfour/backbone/api/objects/UserActionWindow;)V installWindowCallback
+	j6 (Landroid/widget/PopupWindow;Lcom/appfour/backbone/api/objects/UserActionWindow;)V installTouchInterceptor
 abcd/Qv$a com/aide/backbone/window/WindowRuntime$Window
+	j6 window
+	Hw handler
+	v5 longPressRunnable
+	gn longPressScheduled
+	j6 (Landroid/content/Context;)Landroid/app/Activity; getActivityFromContext
+	j6 (Labcd/Qv$a;)Z isLongPressScheduled
+	j6 (Labcd/Qv$a;Z)Z setLongPressScheduled
 abcd/Qv$b com/aide/backbone/window/WindowRuntime$TouchInterceptor
+	j6 windowState
+	j6 (Landroid/widget/PopupWindow;)Landroid/view/View$OnTouchListener; readTouchInterceptor
 abcd/Qv$c com/aide/backbone/window/WindowRuntime$WindowFrameLayout
+	j6 windowState
+	j6 (Lcom/appfour/backbone/api/objects/UserActionWindow;)V bindWindow
 abcd/Qv$d com/aide/backbone/window/WindowRuntime$WindowCallback
+	DW wrappedCallback
+	FH window
+	j6 windowState
+	j6 ()V updateImeHeight
+	j6 (Labcd/Qv$d;)V setWindowState
 abcd/Qv$e com/aide/backbone/window/WindowRuntime$MenuReflector
 abcd/Hv com/aide/backbone/window/DecorViewHelper
 	DW (Landroid/view/View;)Landroid/view/Window; getWindow
@@ -199,6 +220,7 @@ abcd/iw com/aide/backbone/EventRecorder
 	j6 (Labcd/lw;JLcom/appfour/backbone/api/objects/EventData;)V recordEvent
 	j6 (Labcd/lw;JLjava/lang/Throwable;)V recordError
 com/appfour/backbone/api/runtime/a com/appfour/backbone/api/runtime/a
+	DW ()I getImeHeight
 	DW (Ljava/lang/Object;)Ljava/lang/String; getObjectDescription
 	DW (Ljava/lang/Throwable;)Ljava/lang/String; getExceptionDescription
 	EQ ()J currentTimeMillis
