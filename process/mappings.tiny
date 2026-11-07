@@ -53574,3 +53574,7 @@ c	com/aide/engine/q	com/aide/engine/SourceReader	auto: 读取器：Source（上�
 c	com/aide/engine/v	com/aide/engine/BinaryExpression	auto: 类：BinaryExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/x	com/aide/engine/FieldAccessExpression	auto: 类：FieldAccessExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/y	com/aide/engine/MethodCallExpression	auto: 类：MethodCallExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/ab	com/aide/engine/SourceEntityCollector	auto: 收集器：SourceEntity（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/fb	com/aide/engine/ReaderProvider	auto: 提供者：Reader（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/gb	com/aide/engine/VersionCache	auto: 缓存：Version（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/ib	com/aide/engine/FeatureFlags	auto: 类：FeatureFlags（上游未收录，名字来自 jobs/aide_engine 的判据）

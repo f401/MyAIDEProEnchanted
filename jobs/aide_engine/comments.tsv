@@ -83,3 +83,7 @@ c	com/aide/engine/q	-	-	auto: 读取器：Source（上游未收录，名字来�
 c	com/aide/engine/v	-	-	auto: 类：BinaryExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/x	-	-	auto: 类：FieldAccessExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/y	-	-	auto: 类：MethodCallExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/ab	-	-	auto: 收集器：SourceEntity（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/fb	-	-	auto: 提供者：Reader（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/gb	-	-	auto: 缓存：Version（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/ib	-	-	auto: 类：FeatureFlags（上游未收录，名字来自 jobs/aide_engine 的判据）

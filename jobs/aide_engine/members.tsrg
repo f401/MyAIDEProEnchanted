@@ -83,3 +83,7 @@ com/aide/engine/q com/aide/engine/SourceReader
 com/aide/engine/v com/aide/engine/BinaryExpression
 com/aide/engine/x com/aide/engine/FieldAccessExpression
 com/aide/engine/y com/aide/engine/MethodCallExpression
+com/aide/engine/ab com/aide/engine/SourceEntityCollector
+com/aide/engine/fb com/aide/engine/ReaderProvider
+com/aide/engine/gb com/aide/engine/VersionCache
+com/aide/engine/ib com/aide/engine/FeatureFlags
