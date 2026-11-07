@@ -80,3 +80,5 @@ abcd/ww	com/aide/backbone/DeveloperNotificationTask	kind:implements Runnable，�
 abcd/zw	com/aide/backbone/window/RectProvider	recv:5 个方法全是 ()/Activity/View/UserActionWidget/UserActionWindow → android/graphics/Rect（串 'window'）⇒ 取窗口/控件矩形的工具
 abcd/_v	com/aide/backbone/EventContext	shape:13 个字段是 'deviceWidth/deviceHeight/imeHeight/pressedKey/touchX/touchY/touchX2/touchY2' 等输入与设备状态；构造器 (String,String,Xv,long,CharSequence,int,…,long,long)，方法能 toJSONObject 并处理 UIScene/Throwable/StackTraceElement ⇒ 事件上下文
 abcd/iw	com/aide/backbone/EventRecorder	recv:方法 j6(lw,JJ)V / j6(lw,J,EventData)V / j6(lw,J,Throwable)V 是"记录事件/事件错误"，串 ') Event recording start: ' / ') Event: ' / ') Event error: '；字段是 iw$a 双缓冲 ⇒ 事件记录器
+com/appfour/backbone/api/runtime/a	com/appfour/backbone/api/runtime/a	src:恒等（类名本来就是真的）；这是 Backbone 的运行时接口，但**方法名被 R8 混淆**；实现类 abcd/lv(ReflectionRuntime)、abcd/Mv(UISceneRuntime) 的方法体给了每个方法的语义（反射/包信息/线程判断…）
+com/appfour/backbone/api/runtime/b	com/appfour/backbone/api/runtime/b	src:恒等；runtime/a 的单例持有者（private static a + getter/setter 两个方法），方法体只有读写静态字段

@@ -52803,6 +52803,25 @@ c	abcd/Qv$c	com/aide/backbone/window/WindowRuntime$WindowFrameLayout	kind: exten
 c	abcd/Qv$d	com/aide/backbone/window/WindowRuntime$WindowCallback	hier: implements android/view/Window$Callback（28 个方法全是接口实现，未改名）；串 "input_method"/"getInputMethod" ⇒ 窗口回调
 c	abcd/Qv$e	com/aide/backbone/window/WindowRuntime$MenuReflector	recv: 14 个方法全是反射（串 "com.android.internal.view.menu"/"getItemData"）⇒ 只服务于窗口内菜单的反射器
 c	abcd/Hv	com/aide/backbone/window/DecorViewHelper	recv: 25 方法/9 字段；串 "com.android.internal.policy.DecorView"+"mWindow" ⇒ 反射 Activity 的 DecorView/Window 的辅助类
+	m	(Landroid/view/View;)Landroid/view/Window;	DW	getWindow	auto: 取 Window（上游无同签名对应，按作用取名）
+	m	()V	DW	install	auto: 执行 install（上游无同签名对应，按作用取名）
+	m	(Landroid/content/Intent;)Z	DW	isLauncherIntent	auto: 是否 LauncherIntent（上游无同签名对应，按作用取名）
+	m	()Ljava/util/List;	EQ	collectWindows	auto: 「collectWindows」（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;)Z	FH	isViewOfWindowType	auto: 是否 ViewOfWindowType（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;)Z	Hw	isDecorView	auto: 是否 DecorView（上游无同签名对应，按作用取名）
+	m	()V	J0	refreshWindows	auto: 执行 refreshWindows（上游无同签名对应，按作用取名）
+	m	()Landroid/app/Activity;	VH	getCurrentActivity	auto: 取 CurrentActivity（上游无同签名对应，按作用取名）
+	m	()V	Zo	scheduleRefresh	auto: 执行 scheduleRefresh（上游无同签名对应，按作用取名）
+	m	()Lcom/appfour/backbone/api/objects/UserActionWindow;	gn	findWindow	auto: 查找 Window（上游无同签名对应，按作用取名）
+	m	(Landroid/content/Context;)Landroid/app/Activity;	j6	getActivityFromContext	auto: 取 ActivityFromContext（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;)Landroid/widget/PopupWindow;	j6	getPopupWindow	auto: 取 PopupWindow（上游无同签名对应，按作用取名）
+	m	(Landroid/view/Window;Landroid/widget/PopupWindow;Landroid/view/View;)Lcom/appfour/backbone/api/objects/UserActionWindow;	j6	createWindowAction	auto: 创建 WindowAction（上游无同签名对应，按作用取名）
+	m	()V	j6	refresh	auto: 执行 refresh（上游无同签名对应，按作用取名）
+	m	()V	tp	postRefresh	auto: 执行 postRefresh（上游无同签名对应，按作用取名）
+	m	()V	u7	installLifecycleCallbacks	auto: 执行 installLifecycleCallbacks（上游无同签名对应，按作用取名）
+	m	()Landroid/os/Handler;	v5	getHandler	auto: 取 Handler（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;)Lcom/appfour/backbone/api/objects/UserActionWindow;	v5	findWindowForView	auto: 查找 WindowForView（上游无同签名对应，按作用取名）
+	m	()V	we	hookInputConnection	auto: 执行 hookInputConnection（上游无同签名对应，按作用取名）
 c	abcd/Hv$a	com/aide/backbone/window/DecorViewHelper$InputConnectionHook	kind: extends android/view/inputmethod/InputConnectionWrapper（4 个覆写方法）；构造器 (InputConnection,boolean) ⇒ 给输入连接包一层以监听 IME
 c	abcd/Rv	com/aide/backbone/window/WindowRuntime$GlobalLayoutListener	hier: implements android/view/ViewTreeObserver$OnGlobalLayoutListener，构造器收 abcd/Qv$d(=WindowCallback) ⇒ 全局布局监听
 c	abcd/Pv	com/aide/backbone/window/WindowRuntime$ShowWindowTask	kind: implements Runnable，构造器 (abcd/Qv$a=Window, UserAction…) ⇒ 把"显示窗口"投递到主线程的任务
@@ -52843,3 +52862,32 @@ c	abcd/iw	com/aide/backbone/EventRecorder	recv: j6(lw,JJ)V / j6(lw,J,EventData)V
 	m	(Labcd/lw;JJ)V	j6	recordStart	auto: 执行 recordStart（上游无同签名对应，按作用取名）
 	m	(Labcd/lw;JLcom/appfour/backbone/api/objects/EventData;)V	j6	recordEvent	auto: 执行 recordEvent（上游无同签名对应，按作用取名）
 	m	(Labcd/lw;JLjava/lang/Throwable;)V	j6	recordError	auto: 执行 recordError（上游无同签名对应，按作用取名）
+c	com/appfour/backbone/api/runtime/a	com/appfour/backbone/api/runtime/a	auto: 类：a（上游未收录，名字来自 jobs/aide_bb 的判据）
+	m	(Ljava/lang/Object;)Ljava/lang/String;	DW	getObjectDescription	auto: 取 ObjectDescription（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/Throwable;)Ljava/lang/String;	DW	getExceptionDescription	auto: 取 ExceptionDescription（上游无同签名对应，按作用取名）
+	m	()J	EQ	currentTimeMillis	auto: 「currentTimeMillis」（上游无同签名对应，按作用取名）
+	m	()I	FH	getVersionCode	auto: 取 VersionCode（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	Hw	getAppLabelWithVersion	auto: 取 AppLabelWithVersion（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	J0	getCurrentProcessName	auto: 取 CurrentProcessName（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	J8	getVersionName	auto: 取 VersionName（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	QX	getPackageName	auto: 取 PackageName（上游无同签名对应，按作用取名）
+	m	()J	VH	getLastUpdateTime	auto: 取 LastUpdateTime（上游无同签名对应，按作用取名）
+	m	()Z	Zo	isMainThread	auto: 是否 MainThread（上游无同签名对应，按作用取名）
+	m	()Z	gn	isActivityProcess	auto: 是否 ActivityProcess（上游无同签名对应，按作用取名）
+	m	()J	j6	getFirstInstallTime	auto: 取 FirstInstallTime（上游无同签名对应，按作用取名）
+	m	(J)Ljava/lang/Class;	j6	getClassById	auto: 取 ClassById（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/Class;)Ljava/lang/Object;	j6	newInstance	auto: 「newInstance」（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/Object;JJ)Ljava/lang/Object;	j6	getFieldValue	auto: 取 FieldValue（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/Object;[Ljava/lang/Object;JJ)Ljava/lang/Object;	j6	invokeMethod	auto: 调用 Method（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/Throwable;)Ljava/lang/StackTraceElement;	j6	getTopStackFrame	auto: 取 TopStackFrame（上游无同签名对应，按作用取名）
+	m	(Landroid/view/View;)Ljava/lang/String;	j6	getViewName	auto: 取 ViewName（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/CharSequence;)Ljava/lang/String;	j6	resolveString	auto: 解析 String（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/Object;)Ljava/lang/String;	j6	describeObject	auto: 「describeObject」（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/Object;J)Z	j6	isInstanceOf	auto: 是否 InstanceOf（上游无同签名对应，按作用取名）
+	m	()Lcom/appfour/backbone/api/objects/EventData;	tp	newEventData	auto: 「newEventData」（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	u7	getAppLabel	auto: 取 AppLabel（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	v5	getScreenInfo	auto: 取 ScreenInfo（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	we	getHardwareFeatures	auto: 取 HardwareFeatures（上游无同签名对应，按作用取名）
+c	com/appfour/backbone/api/runtime/b	com/appfour/backbone/api/runtime/b	auto: 类：b（上游未收录，名字来自 jobs/aide_bb 的判据）
+	m	()Lcom/appfour/backbone/api/runtime/a;	j6	getRuntime	auto: 取 Runtime（上游无同签名对应，按作用取名）
+	m	(Lcom/appfour/backbone/api/runtime/a;)V	j6	setRuntime	auto: 设 Runtime（上游无同签名对应，按作用取名）

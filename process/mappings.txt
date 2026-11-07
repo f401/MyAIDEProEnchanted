@@ -54748,6 +54748,44 @@ abcd/Qv$c com/aide/backbone/window/WindowRuntime$WindowFrameLayout
 abcd/Qv$d com/aide/backbone/window/WindowRuntime$WindowCallback
 abcd/Qv$e com/aide/backbone/window/WindowRuntime$MenuReflector
 abcd/Hv com/aide/backbone/window/DecorViewHelper
+	DW (Landroid/view/View;)Landroid/view/Window; getWindow
+		static
+	DW ()V install
+		static
+	DW (Landroid/content/Intent;)Z isLauncherIntent
+		static
+	EQ ()Ljava/util/List; collectWindows
+		static
+	FH (Landroid/view/View;)Z isViewOfWindowType
+		static
+	Hw (Landroid/view/View;)Z isDecorView
+		static
+	J0 ()V refreshWindows
+		static
+	VH ()Landroid/app/Activity; getCurrentActivity
+		static
+	Zo ()V scheduleRefresh
+		static
+	gn ()Lcom/appfour/backbone/api/objects/UserActionWindow; findWindow
+		static
+	j6 (Landroid/content/Context;)Landroid/app/Activity; getActivityFromContext
+		static
+	j6 (Landroid/view/View;)Landroid/widget/PopupWindow; getPopupWindow
+		static
+	j6 (Landroid/view/Window;Landroid/widget/PopupWindow;Landroid/view/View;)Lcom/appfour/backbone/api/objects/UserActionWindow; createWindowAction
+		static
+	j6 ()V refresh
+		static
+	tp ()V postRefresh
+		static
+	u7 ()V installLifecycleCallbacks
+		static
+	v5 ()Landroid/os/Handler; getHandler
+		static
+	v5 (Landroid/view/View;)Lcom/appfour/backbone/api/objects/UserActionWindow; findWindowForView
+		static
+	we ()V hookInputConnection
+		static
 abcd/Hv$a com/aide/backbone/window/DecorViewHelper$InputConnectionHook
 abcd/Rv com/aide/backbone/window/WindowRuntime$GlobalLayoutListener
 abcd/Pv com/aide/backbone/window/WindowRuntime$ShowWindowTask
@@ -54817,4 +54855,35 @@ abcd/iw com/aide/backbone/EventRecorder
 	j6 (Labcd/lw;JLcom/appfour/backbone/api/objects/EventData;)V recordEvent
 		static
 	j6 (Labcd/lw;JLjava/lang/Throwable;)V recordError
+		static
+com/appfour/backbone/api/runtime/a com/appfour/backbone/api/runtime/a
+	DW (Ljava/lang/Object;)Ljava/lang/String; getObjectDescription
+	DW (Ljava/lang/Throwable;)Ljava/lang/String; getExceptionDescription
+	EQ ()J currentTimeMillis
+	FH ()I getVersionCode
+	Hw ()Ljava/lang/String; getAppLabelWithVersion
+	J0 ()Ljava/lang/String; getCurrentProcessName
+	J8 ()Ljava/lang/String; getVersionName
+	QX ()Ljava/lang/String; getPackageName
+	VH ()J getLastUpdateTime
+	Zo ()Z isMainThread
+	gn ()Z isActivityProcess
+	j6 ()J getFirstInstallTime
+	j6 (J)Ljava/lang/Class; getClassById
+	j6 (Ljava/lang/Class;)Ljava/lang/Object; newInstance
+	j6 (Ljava/lang/Object;JJ)Ljava/lang/Object; getFieldValue
+	j6 (Ljava/lang/Object;[Ljava/lang/Object;JJ)Ljava/lang/Object; invokeMethod
+	j6 (Ljava/lang/Throwable;)Ljava/lang/StackTraceElement; getTopStackFrame
+	j6 (Landroid/view/View;)Ljava/lang/String; getViewName
+	j6 (Ljava/lang/CharSequence;)Ljava/lang/String; resolveString
+	j6 (Ljava/lang/Object;)Ljava/lang/String; describeObject
+	j6 (Ljava/lang/Object;J)Z isInstanceOf
+	tp ()Lcom/appfour/backbone/api/objects/EventData; newEventData
+	u7 ()Ljava/lang/String; getAppLabel
+	v5 ()Ljava/lang/String; getScreenInfo
+	we ()Ljava/lang/String; getHardwareFeatures
+com/appfour/backbone/api/runtime/b com/appfour/backbone/api/runtime/b
+	j6 ()Lcom/appfour/backbone/api/runtime/a; getRuntime
+		static
+	j6 (Lcom/appfour/backbone/api/runtime/a;)V setRuntime
 		static

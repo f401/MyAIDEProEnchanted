@@ -73,6 +73,69 @@ public interface com.appfour.backbone.api.runtime.a extends ...define.DefineAnal
 
 合计已定名 **30** 个（§3 的 10 + 本节 20），剩下 270 个仍卡在 §2 的"接口名被混淆"和"无 oracle"上。
 
+## 3.2 `com/appfour/backbone/api/runtime/a`、`b`：整族 27 个（判据在实现类里）
+
+`runtime/a` 是 Backbone 的运行时接口，**类名没混淆、26 个方法名全是字母**；两个实现
+`lv`(ReflectionRuntime) / `Mv`(UISceneRuntime) 的方法体把每个方法的语义写得很清楚
+（反射、PackageManager、Looper、ActivityManager…）。做法：把 `runtime/a`、`runtime/b` 以
+**恒等映射**纳入本 part（否则没地方写方法行），再逐方法按实现体定名；实现类不用写行 ——
+FART 会沿覆写传播下去（`inherit_check` MISSING 0 已确认）。
+
+| 方法 | 新名 | 判据（`lv`/`Mv` 的实现体） |
+|---|---|---|
+| `j6()J` | `getFirstInstallTime` | `PackageInfo.firstInstallTime` |
+| `VH()J` | `getLastUpdateTime` | `PackageInfo.lastUpdateTime` |
+| `EQ()J` | `currentTimeMillis` | `System.currentTimeMillis()` |
+| `FH()I` / `J8()String` | `getVersionCode` / `getVersionName` | `getPackageInfo(...).versionCode/versionName` |
+| `QX()String` | `getPackageName` | `Application.getPackageName()` |
+| `u7()String` | `getAppLabel` | `ApplicationInfo.labelRes` + `getString` |
+| `Hw()String` | `getAppLabelWithVersion` | 拼 `label + " " + versionName` |
+| `J0()String` | `getCurrentProcessName` | 遍历 `RunningAppProcesses`，按 `pid` 取，截掉最后一个 `:` 之后 |
+| `gn()Z` | `isActivityProcess` | 同上 + `processName.contains(":activity")` |
+| `Zo()Z` | `isMainThread` | `Looper.getMainLooper().getThread() == Thread.currentThread()` |
+| `DW(Object)String` / `DW(Throwable)String` | `getObjectDescription` / `getExceptionDescription` | `Thread.getName()` 分派 / `Class.getName()` + 逐层 `getCause()` |
+| `j6(Object)String` | `describeObject` | 组合上面两个 |
+| `j6(Throwable)StackTraceElement` | `getTopStackFrame` | `getStackTrace()[0]` + 沿 cause 找 |
+| `j6(View)String` | `getViewName` | `View.getId()` 后按 id 名解析 |
+| `j6(CharSequence)String` | `resolveString` | `CharSequence.toString()` + `Dv.j6`/`Uv.j6`（资源/翻译） |
+| `v5()String` | `getScreenInfo` | `DisplayMetrics` + `Rect.width/height` + `"x"`/`"/"` |
+| `we()String` | `getHardwareFeatures` | `PackageManager` + 过滤 `android.hardware.`（排除 sensor）后排序 |
+| `tp()EventData` | `newEventData` | `new Xv(...)`（EventDataImpl） |
+| `j6(J)Class` / `j6(Class)Object` / `j6(Object,J)Z` | `getClassById` / `newInstance` / `isInstanceOf` | 都走 `Ev.j6/DW`（类注册表） |
+| `j6(Object,JJ)Object` | `getFieldValue` | `Field.setAccessible` + `Field.get`，串 `Field not found` |
+| `j6(Object,Object[],JJ)Object` | `invokeMethod` | `Method.setAccessible` + `invoke`，串 `Invocation failed` |
+| `runtime/b.j6()` / `j6(a)` | `getRuntime` / `setRuntime` | 只有 `private static a` 的读写 |
+
+没定名的 2 个：`DW()I`（只是读 `Qv.DW` 这个 int 字段，而该字段在哪赋值还没定位）、
+`Ws()String`（转调 `ApplicationUtils.DW()String`，那个方法本身还叫 DW）。
+
+## 3.3 `Hv`(DecorViewHelper) 19 个（判据是反射字段名/串）
+
+| 方法 | 新名 | 判据 |
+|---|---|---|
+| `DW(View)Window` | `getWindow` | 反射 `com.android.internal.policy.DecorView` 的 `mWindow` |
+| `j6(View)PopupWindow` | `getPopupWindow` | 反射 `this$0`（匿名 `OnClickListener` 的外层 PopupWindow） |
+| `j6(Window,PopupWindow,View)UserActionWindow` | `createWindowAction` | `WindowManager$LayoutParams.getTitle()`（串 `Toast` 分流）+ `new UserActionWindow` |
+| `we()` | `hookInputConnection` | 反射 `mInputConnection`/`mServedInputConnectionWrapper`，`getSystemService("input_method")` |
+| `u7()` | `installLifecycleCallbacks` | 反射 `android.view.WindowManagerImpl/Global` + `Application.registerActivityLifecycleCallbacks` |
+| `DW(Intent)Z` | `isLauncherIntent` | `ACTION_MAIN` + `CATEGORY_LAUNCHER` |
+| `Hw(View)Z` | `isDecorView` | `activity.getWindow().getDecorView() == view && view.isShown()` |
+| `FH(View)Z` | `isViewOfWindowType` | `getWindow(view)` + `UserActionWindow.getType()` |
+| `gn()UserActionWindow` | `findWindow` | 遍历窗口表按 `getActivity()`/`getType()` 匹配 |
+| `v5(View)UserActionWindow` | `findWindowForView` | `getWindow(view)` + `Qv.j6` + `kv.Hw` |
+| `j6(Context)Activity` | `getActivityFromContext` | `ContextWrapper.getBaseContext()` 递归 |
+| `EQ()List` / `J0()` / `j6()` / `refresh` | `collectWindows` / `refreshWindows` / `refresh` | 同一个刷新流程的三层（EQ 收集、J0 组合、j6 入口） |
+| `Zo()` / `tp()` | `scheduleRefresh` / `postRefresh` | `Handler.post/removeCallbacks` |
+| `DW()` | `install` | 唯一调 `we()` 的入口（hook + 生命周期） |
+| `VH()` / `v5()` | `getCurrentActivity` / `getHandler` | 直接返回字段 |
+
+## 3.4 `Qv`(WindowRuntime) 26 个为什么没做
+
+它的方法全是**同一个分派阶梯**（`DW/FH/Hw/j6/Zo/v5` × `UserActionWindow/UserTouchAction/UserInputAction/MenuItem/View`），
+每个最终都转到 `kv`(CallbackDispatcher) 的某个方法上，而 `kv` 的 40 个方法也全是字母。
+也就是说：**Qv 的方法名必须由 kv 的语义决定**（谁对应 onWindowShown、谁对应 onTouch…），
+单独改 Qv 只能得到 `dispatchA/dispatchB` 这种没信息量的名字。下一步应先做 `kv`。
+
 ## 4. 下一步
 
 1. 找 Backbone SDK oracle（appfour/backbone 的 aar），一把解决 `runtime/*` + `closures/*` 的方法名；
