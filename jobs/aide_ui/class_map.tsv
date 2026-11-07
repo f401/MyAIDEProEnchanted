@@ -27,3 +27,5 @@ Ev	com/aide/backbone/HookRegistry	str:"Set onEnter "、"Set onThrow "、": conta
 Bk	com/aide/ui/KeybindingsService	str:"KeybindingsService_2" + implements abcd/Wl,abcd/Xl
 Nf	com/aide/ui/actions/FormatCodeAction	str:getName() 返回 "Format Code"；implements abcd/Yl,abcd/Wl；被 com/aide/ui/V.<clinit> 注册成菜单项，com/s1243808733/aide/AideMainActivity$7.onMenuItemClick 调 run()
 tg	com/aide/ui/actions/OrganizeImportsAction	str:getName() 返回 "Organize Imports"；implements abcd/Yl,abcd/Wl；同样注册在 com/aide/ui/V.<clinit>，AideMainActivity$6.onMenuItemClick 调 run()
+gg	com/aide/ui/actions/LearnCodeStyleAction	str:run() 里 "Learn Code Style" + "AIDE will learn the code style from this file and update the settings to match the formatting of the code in this file. Continue?"；implements abcd/Yl；isEnabled 走 U.er()/Nk.Zo()
+kh	com/aide/ui/build/BuildProgressDialog	str:自报类名 "BuilProgressDialog can not be cancelled"（原文拼写如此）+ "Building "/"构建 " 与 " 中..."/"..."；extends abcd/Hh、implements com/aide/ui/build/d$a，进度方法都转调 U.v5() 的 d（BuildService）

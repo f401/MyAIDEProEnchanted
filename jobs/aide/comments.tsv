@@ -257,3 +257,10 @@ m	abcd/el	DW	(Lcom/aide/ui/trainer/g$j;)Z	auto: 是否 SampleInstalled（上游�
 m	abcd/el	j6	(Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;ZLjava/lang/Runnable;)V	auto: 执行 expandSample（上游无同签名对应，按作用取名）
 m	abcd/el	j6	(Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;Ljava/lang/Runnable;)V	auto: 执行 installSample（上游无同签名对应，按作用取名）
 m	abcd/el	j6	(Lcom/aide/ui/trainer/g$j;Ljava/util/List;Ljava/lang/String;)V	auto: 执行 extractSamples（上游无同签名对应，按作用取名）
+c	abcd/Kk	-	-	auto: 类：NotificationChannels（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/Dl	-	-	auto: 类：LessonNotifications（上游未收录，名字来自 jobs/aide 的判据）
+m	abcd/Kk	j6	(Landroid/content/Context;)V	auto: 创建 Channels（上游无同签名对应，按作用取名）
+m	abcd/Kk	j6	()V	auto: 创建 Channels（上游无同签名对应，按作用取名）
+m	abcd/Kk	j6	(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V	auto: 创建 Channel（上游无同签名对应，按作用取名）
+m	abcd/Dl	j6	(Landroid/app/NotificationManager;ILandroid/app/Notification;)V	auto: 执行 notify（上游无同签名对应，按作用取名）
+m	abcd/Dl	j6	(ZLjava/lang/String;JJI[Ljava/lang/String;)V	auto: 执行 showNewLessonsNotification（上游无同签名对应，按作用取名）

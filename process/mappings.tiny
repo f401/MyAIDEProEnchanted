@@ -12000,6 +12000,28 @@ c	abcd/el	abcd/aide/TrainerSampleInstaller	auto: 类：TrainerSampleInstaller（
 		p	0	lesson	lesson
 		p	1	samples	samples
 		p	2	targetDir	targetDir
+c	abcd/Kk	com/aide/ui/NotificationChannels	auto: 类：NotificationChannels（上游未收录，名字来自 jobs/aide 的判据）
+	m	(Landroid/content/Context;)V	j6	createChannels	auto: 创建 Channels（上游无同签名对应，按作用取名）
+		p	0	context	context
+	m	()V	j6	createChannels	auto: 创建 Channels（上游无同签名对应，按作用取名）
+	m	(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V	j6	createChannel	auto: 创建 Channel（上游无同签名对应，按作用取名）
+		p	0	context	context
+		p	1	id	id
+		p	2	name	name
+		p	3	description	description
+		p	4	importance	importance
+c	abcd/Dl	com/aide/trainer/LessonNotifications	auto: 类：LessonNotifications（上游未收录，名字来自 jobs/aide 的判据）
+	m	(Landroid/app/NotificationManager;ILandroid/app/Notification;)V	j6	notify	auto: 执行 notify（上游无同签名对应，按作用取名）
+		p	0	notificationManager	notificationManager
+		p	1	id	id
+		p	2	notification	notification
+	m	(ZLjava/lang/String;JJI[Ljava/lang/String;)V	j6	showNewLessonsNotification	auto: 执行 showNewLessonsNotification（上游无同签名对应，按作用取名）
+		p	0	enabled	enabled
+		p	1	lessonName	lessonName
+		p	2	lastCheck	lastCheck
+		p	3	now	now
+		p	4	notificationId	notificationId
+		p	5	lessonNames	lessonNames
 c	com/a/b/a/a/a	com/android/dx/cf/attrib/AttAnnotationDefault	auto: 类：AttAnnotationDefault；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault
 	m	()I	a	byteLength	auto: 「byteLength」；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#byteLength
 	m	()Lcom/a/b/e/c/a;	b	getValue	auto: 取 Value；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#getValue
@@ -53261,3 +53283,5 @@ c	abcd/Ev	com/aide/backbone/HookRegistry	auto: 类：HookRegistry（上游未收
 c	abcd/Bk	com/aide/ui/KeybindingsService	auto: 服务：Keybindings（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Nf	com/aide/ui/actions/FormatCodeAction	auto: 动作：FormatCode（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/tg	com/aide/ui/actions/OrganizeImportsAction	auto: 动作：OrganizeImports（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/gg	com/aide/ui/actions/LearnCodeStyleAction	auto: 动作：LearnCodeStyle（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/kh	com/aide/ui/build/BuildProgressDialog	auto: 类：BuildProgressDialog（上游未收录，名字来自 jobs/aide_ui 的判据）

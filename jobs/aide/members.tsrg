@@ -255,3 +255,10 @@ abcd/el abcd/aide/TrainerSampleInstaller
 	j6 (Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;ZLjava/lang/Runnable;)V expandSample
 	j6 (Landroid/app/Activity;Lcom/aide/ui/trainer/g$j;Ljava/lang/Runnable;)V installSample
 	j6 (Lcom/aide/ui/trainer/g$j;Ljava/util/List;Ljava/lang/String;)V extractSamples
+abcd/Kk com/aide/ui/NotificationChannels
+	j6 (Landroid/content/Context;)V createChannels
+	j6 ()V createChannels
+	j6 (Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V createChannel
+abcd/Dl com/aide/trainer/LessonNotifications
+	j6 (Landroid/app/NotificationManager;ILandroid/app/Notification;)V notify
+	j6 (ZLjava/lang/String;JJI[Ljava/lang/String;)V showNewLessonsNotification

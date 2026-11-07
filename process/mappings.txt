@@ -12611,6 +12611,29 @@ abcd/el abcd/aide/TrainerSampleInstaller
 		0 lesson lesson
 		1 samples samples
 		2 targetDir targetDir
+abcd/Kk com/aide/ui/NotificationChannels
+	j6 (Landroid/content/Context;)V createChannels
+		0 context context
+	j6 ()V createChannels
+	j6 (Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V createChannel
+		0 context context
+		1 id id
+		2 name name
+		3 description description
+		4 importance importance
+abcd/Dl com/aide/trainer/LessonNotifications
+	j6 (Landroid/app/NotificationManager;ILandroid/app/Notification;)V notify
+		static
+		0 notificationManager notificationManager
+		1 id id
+		2 notification notification
+	j6 (ZLjava/lang/String;JJI[Ljava/lang/String;)V showNewLessonsNotification
+		0 enabled enabled
+		1 lessonName lessonName
+		2 lastCheck lastCheck
+		3 now now
+		4 notificationId notificationId
+		5 lessonNames lessonNames
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue
@@ -55333,3 +55356,5 @@ abcd/Ev com/aide/backbone/HookRegistry
 abcd/Bk com/aide/ui/KeybindingsService
 abcd/Nf com/aide/ui/actions/FormatCodeAction
 abcd/tg com/aide/ui/actions/OrganizeImportsAction
+abcd/gg com/aide/ui/actions/LearnCodeStyleAction
+abcd/kh com/aide/ui/build/BuildProgressDialog

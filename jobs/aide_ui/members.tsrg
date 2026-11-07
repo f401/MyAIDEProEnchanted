@@ -27,3 +27,5 @@ abcd/Ev com/aide/backbone/HookRegistry
 abcd/Bk com/aide/ui/KeybindingsService
 abcd/Nf com/aide/ui/actions/FormatCodeAction
 abcd/tg com/aide/ui/actions/OrganizeImportsAction
+abcd/gg com/aide/ui/actions/LearnCodeStyleAction
+abcd/kh com/aide/ui/build/BuildProgressDialog
