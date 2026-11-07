@@ -52807,8 +52807,28 @@ c	abcd/Hv$a	com/aide/backbone/window/DecorViewHelper$InputConnectionHook	kind: e
 c	abcd/Rv	com/aide/backbone/window/WindowRuntime$GlobalLayoutListener	hier: implements android/view/ViewTreeObserver$OnGlobalLayoutListener，构造器收 abcd/Qv$d(=WindowCallback) ⇒ 全局布局监听
 c	abcd/Pv	com/aide/backbone/window/WindowRuntime$ShowWindowTask	kind: implements Runnable，构造器 (abcd/Qv$a=Window, UserAction…) ⇒ 把"显示窗口"投递到主线程的任务
 c	abcd/ow	com/aide/backbone/ProbeLoader	str: "Probe loading"+"classes.dex"+".opt"+"dev.builtin.apk"/"public.builtin.apk"+"assets/dev.probes" ⇒ 探针 dex 的加载器
+	m	()Ljava/io/File;	tp	getDownloadedProbesApk	auto: 取 DownloadedProbesApk（上游无同签名对应，按作用取名）
+	m	()Ljava/io/File;	u7	getCurrentProbesApk	auto: 取 CurrentProbesApk（上游无同签名对应，按作用取名）
+	m	()Ljava/io/File;	gn	getBuiltinProbesApk	auto: 取 BuiltinProbesApk（上游无同签名对应，按作用取名）
+	m	(Ljava/io/File;)Ljava/lang/ClassLoader;	FH	createProbesClassLoader	auto: 创建 ProbesClassLoader（上游无同签名对应，按作用取名）
+	m	(ZJLjava/lang/String;Ljava/lang/String;)V	j6	loadProbes	auto: 加载 Probes（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/Class;)V	j6	registerProbesClass	auto: 注册 ProbesClass（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/ClassLoader;Z)V	DW	loadAllProbes	auto: 加载 AllProbes（上游无同签名对应，按作用取名）
+	m	(Labcd/lw;JLjava/lang/Throwable;)V	j6	recordProbesError	auto: 执行 recordProbesError（上游无同签名对应，按作用取名）
 c	abcd/pw	com/aide/backbone/AppState	str: "appstate.json"+"has_occurred_for_app_version_"/"_for_day_"/"_for_month_"+"Reading appstate value" ⇒ 事件频次状态存储
+	m	()Ljava/io/File;	DW	getAppStateFile	auto: 取 AppStateFile（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;)Ljava/lang/String;	DW	appVersionKey	auto: 「appVersionKey」（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;)Ljava/lang/String;	FH	dayKey	auto: 「dayKey」（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;)Ljava/lang/String;	Hw	monthKey	auto: 「monthKey」（上游无同签名对应，按作用取名）
+	m	()V	gn	load	auto: 执行 load（上游无同签名对应，按作用取名）
+	m	()V	u7	save	auto: 执行 save（上游无同签名对应，按作用取名）
 c	abcd/rw	com/aide/backbone/Preferences	str: 键名 "last_run_version"/"is_event_defined_"/"probesdex_"/"has_fetched_referrer"/"BACKBONE_"/"is_developer" ⇒ 偏好设置读写
+	m	(Ljava/lang/String;J)V	DW	putLong	auto: 放入 Long（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;Z)V	DW	putBoolean	auto: 放入 Boolean（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;J)J	j6	getLong	auto: 取 Long（上游无同签名对应，按作用取名）
+	m	(Ljava/lang/String;Z)Z	j6	getBoolean	auto: 取 Boolean（上游无同签名对应，按作用取名）
+	m	()Landroid/content/SharedPreferences;	VH	getSharedPreferences	auto: 取 SharedPreferences（上游无同签名对应，按作用取名）
+	m	()Ljava/io/File;	FH	getPreferencesFile	auto: 取 PreferencesFile（上游无同签名对应，按作用取名）
 c	abcd/ww	com/aide/backbone/DeveloperNotificationTask	kind: implements Runnable，构造器 (int,int,String)；串 "backbone developer notifications"/"Probe notification" ⇒ 发开发者通知的任务
 c	abcd/zw	com/aide/backbone/window/RectProvider	recv: 5 个方法全是 ()/Activity/View/UserActionWidget/UserActionWindow → android/graphics/Rect（串 "window"）⇒ 取窗口/控件矩形的工具
 	m	()Landroid/graphics/Rect;	j6	getScreenRect	auto: 取 ScreenRect（上游无同签名对应，按作用取名）

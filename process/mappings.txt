@@ -54752,8 +54752,48 @@ abcd/Hv$a com/aide/backbone/window/DecorViewHelper$InputConnectionHook
 abcd/Rv com/aide/backbone/window/WindowRuntime$GlobalLayoutListener
 abcd/Pv com/aide/backbone/window/WindowRuntime$ShowWindowTask
 abcd/ow com/aide/backbone/ProbeLoader
+	tp ()Ljava/io/File; getDownloadedProbesApk
+		static
+	u7 ()Ljava/io/File; getCurrentProbesApk
+		static
+	gn ()Ljava/io/File; getBuiltinProbesApk
+		static
+	FH (Ljava/io/File;)Ljava/lang/ClassLoader; createProbesClassLoader
+		static
+	j6 (ZJLjava/lang/String;Ljava/lang/String;)V loadProbes
+		static
+	j6 (Ljava/lang/Class;)V registerProbesClass
+		static
+	DW (Ljava/lang/ClassLoader;Z)V loadAllProbes
+		static
+	j6 (Labcd/lw;JLjava/lang/Throwable;)V recordProbesError
+		static
 abcd/pw com/aide/backbone/AppState
+	DW ()Ljava/io/File; getAppStateFile
+		static
+	DW (Ljava/lang/String;)Ljava/lang/String; appVersionKey
+		static
+	FH (Ljava/lang/String;)Ljava/lang/String; dayKey
+		static
+	Hw (Ljava/lang/String;)Ljava/lang/String; monthKey
+		static
+	gn ()V load
+		static
+	u7 ()V save
+		static
 abcd/rw com/aide/backbone/Preferences
+	DW (Ljava/lang/String;J)V putLong
+		static
+	DW (Ljava/lang/String;Z)V putBoolean
+		static
+	j6 (Ljava/lang/String;J)J getLong
+		static
+	j6 (Ljava/lang/String;Z)Z getBoolean
+		static
+	VH ()Landroid/content/SharedPreferences; getSharedPreferences
+		static
+	FH ()Ljava/io/File; getPreferencesFile
+		static
 abcd/ww com/aide/backbone/DeveloperNotificationTask
 abcd/zw com/aide/backbone/window/RectProvider
 	j6 ()Landroid/graphics/Rect; getScreenRect

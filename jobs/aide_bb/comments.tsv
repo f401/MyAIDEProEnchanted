@@ -90,3 +90,23 @@ m	abcd/iw	j6	()Ljava/lang/String;	auto: 取 ProcessName（上游无同签名对�
 m	abcd/iw	j6	(Labcd/lw;JJ)V	auto: 执行 recordStart（上游无同签名对应，按作用取名）
 m	abcd/iw	j6	(Labcd/lw;JLcom/appfour/backbone/api/objects/EventData;)V	auto: 执行 recordEvent（上游无同签名对应，按作用取名）
 m	abcd/iw	j6	(Labcd/lw;JLjava/lang/Throwable;)V	auto: 执行 recordError（上游无同签名对应，按作用取名）
+m	abcd/ow	tp	()Ljava/io/File;	auto: 取 DownloadedProbesApk（上游无同签名对应，按作用取名）
+m	abcd/ow	u7	()Ljava/io/File;	auto: 取 CurrentProbesApk（上游无同签名对应，按作用取名）
+m	abcd/ow	gn	()Ljava/io/File;	auto: 取 BuiltinProbesApk（上游无同签名对应，按作用取名）
+m	abcd/ow	FH	(Ljava/io/File;)Ljava/lang/ClassLoader;	auto: 创建 ProbesClassLoader（上游无同签名对应，按作用取名）
+m	abcd/ow	j6	(ZJLjava/lang/String;Ljava/lang/String;)V	auto: 加载 Probes（上游无同签名对应，按作用取名）
+m	abcd/ow	j6	(Ljava/lang/Class;)V	auto: 注册 ProbesClass（上游无同签名对应，按作用取名）
+m	abcd/ow	DW	(Ljava/lang/ClassLoader;Z)V	auto: 加载 AllProbes（上游无同签名对应，按作用取名）
+m	abcd/ow	j6	(Labcd/lw;JLjava/lang/Throwable;)V	auto: 执行 recordProbesError（上游无同签名对应，按作用取名）
+m	abcd/pw	DW	()Ljava/io/File;	auto: 取 AppStateFile（上游无同签名对应，按作用取名）
+m	abcd/pw	DW	(Ljava/lang/String;)Ljava/lang/String;	auto: 「appVersionKey」（上游无同签名对应，按作用取名）
+m	abcd/pw	FH	(Ljava/lang/String;)Ljava/lang/String;	auto: 「dayKey」（上游无同签名对应，按作用取名）
+m	abcd/pw	Hw	(Ljava/lang/String;)Ljava/lang/String;	auto: 「monthKey」（上游无同签名对应，按作用取名）
+m	abcd/pw	gn	()V	auto: 执行 load（上游无同签名对应，按作用取名）
+m	abcd/pw	u7	()V	auto: 执行 save（上游无同签名对应，按作用取名）
+m	abcd/rw	DW	(Ljava/lang/String;J)V	auto: 放入 Long（上游无同签名对应，按作用取名）
+m	abcd/rw	DW	(Ljava/lang/String;Z)V	auto: 放入 Boolean（上游无同签名对应，按作用取名）
+m	abcd/rw	j6	(Ljava/lang/String;J)J	auto: 取 Long（上游无同签名对应，按作用取名）
+m	abcd/rw	j6	(Ljava/lang/String;Z)Z	auto: 取 Boolean（上游无同签名对应，按作用取名）
+m	abcd/rw	VH	()Landroid/content/SharedPreferences;	auto: 取 SharedPreferences（上游无同签名对应，按作用取名）
+m	abcd/rw	FH	()Ljava/io/File;	auto: 取 PreferencesFile（上游无同签名对应，按作用取名）

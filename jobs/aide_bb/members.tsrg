@@ -73,8 +73,28 @@ abcd/Hv$a com/aide/backbone/window/DecorViewHelper$InputConnectionHook
 abcd/Rv com/aide/backbone/window/WindowRuntime$GlobalLayoutListener
 abcd/Pv com/aide/backbone/window/WindowRuntime$ShowWindowTask
 abcd/ow com/aide/backbone/ProbeLoader
+	tp ()Ljava/io/File; getDownloadedProbesApk
+	u7 ()Ljava/io/File; getCurrentProbesApk
+	gn ()Ljava/io/File; getBuiltinProbesApk
+	FH (Ljava/io/File;)Ljava/lang/ClassLoader; createProbesClassLoader
+	j6 (ZJLjava/lang/String;Ljava/lang/String;)V loadProbes
+	j6 (Ljava/lang/Class;)V registerProbesClass
+	DW (Ljava/lang/ClassLoader;Z)V loadAllProbes
+	j6 (Labcd/lw;JLjava/lang/Throwable;)V recordProbesError
 abcd/pw com/aide/backbone/AppState
+	DW ()Ljava/io/File; getAppStateFile
+	DW (Ljava/lang/String;)Ljava/lang/String; appVersionKey
+	FH (Ljava/lang/String;)Ljava/lang/String; dayKey
+	Hw (Ljava/lang/String;)Ljava/lang/String; monthKey
+	gn ()V load
+	u7 ()V save
 abcd/rw com/aide/backbone/Preferences
+	DW (Ljava/lang/String;J)V putLong
+	DW (Ljava/lang/String;Z)V putBoolean
+	j6 (Ljava/lang/String;J)J getLong
+	j6 (Ljava/lang/String;Z)Z getBoolean
+	VH ()Landroid/content/SharedPreferences; getSharedPreferences
+	FH ()Ljava/io/File; getPreferencesFile
 abcd/ww com/aide/backbone/DeveloperNotificationTask
 abcd/zw com/aide/backbone/window/RectProvider
 	j6 ()Landroid/graphics/Rect; getScreenRect

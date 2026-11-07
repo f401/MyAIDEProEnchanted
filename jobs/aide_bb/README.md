@@ -50,6 +50,29 @@ public interface com.appfour.backbone.api.runtime.a extends ...define.DefineAnal
 | `iw` | `DW(J)J` | `now` | 按 `iw$a.DW(J)Z` 在两个时钟持有者之间选一个再取时间 |
 | `iw` | `j6()String` | `getProcessName` | `com/appfour/backbone/api/Api.getProcessName()`，空串则返回 null |
 
+## 3.1 第二批 20 个（`ow`/`pw`/`rw`，判据是**方法体里的串/键/文件名**）
+
+| 类 | 方法 | 新名 | 判据（body 里的字面量/调用） |
+|---|---|---|---|
+| `rw` Preferences | `DW(String,J)V` / `DW(String,Z)V` | `putLong` / `putBoolean` | `SharedPreferences$Editor.putLong/putBoolean` + `commit` |
+| | `j6(String,J)J` / `j6(String,Z)Z` | `getLong` / `getBoolean` | `SharedPreferences.getLong/getBoolean` |
+| | `VH()` | `getSharedPreferences` | `Application.getSharedPreferences` + 进程名拼键 |
+| | `FH()` | `getPreferencesFile` | `File(<base>, …)` + `Api.getProcessName` |
+| `pw` AppState | `DW()` | `getAppStateFile` | 串 `appstate.json` |
+| | `DW(String)` / `FH(String)` / `Hw(String)` | `appVersionKey` / `dayKey` / `monthKey` | 串 `has_occurred_for_app_version_` / `_for_day_` / `_for_month_` |
+| | `gn()` | `load` | `BufferedReader` + `FileReader` + `JSONObject`（读 `appstate.json`） |
+| | `u7()` | `save` | `File.createTempFile` + `BufferedWriter.flush/write` + `File.delete`（原子写） |
+| `ow` ProbeLoader | `tp()` | `getDownloadedProbesApk` | 串 `dev.download.apk` / `public.download.apk` |
+| | `u7()` | `getCurrentProbesApk` | 串 `dev.current.apk` / `public.current.apk` |
+| | `gn()` | `getBuiltinProbesApk` | 串 `dev.builtin.apk` / `public.builtin.apk` + `assets/dev.probes` / `assets/public.probes` |
+| | `FH(File)` | `createProbesClassLoader` | 串 `classes.dex` / `.dex` / `.opt` / `Error loading probes` |
+| | `j6(ZJString,String)V` | `loadProbes` | 串 `Opening downloaded probes ` / `Opening built-in probes ` / `Opening no probes` / `Waited for load ` |
+| | `j6(Class)V` | `registerProbesClass` | 串 `define` / `Probes` / `Opening ` + 反射 `getDeclaredMethod/setAccessible` |
+| | `DW(ClassLoader,Z)V` | `loadAllProbes` | 串 `Probe loading` |
+| | `j6(lw,J,Throwable)V` | `recordProbesError` | 串 `backbone probes event error: ` + 调 `iw.j6`(EventRecorder#recordError) |
+
+合计已定名 **30** 个（§3 的 10 + 本节 20），剩下 270 个仍卡在 §2 的"接口名被混淆"和"无 oracle"上。
+
 ## 4. 下一步
 
 1. 找 Backbone SDK oracle（appfour/backbone 的 aar），一把解决 `runtime/*` + `closures/*` 的方法名；
