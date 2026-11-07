@@ -78,3 +78,5 @@ jh	com/aide/ui/actions/GoPremiumAction	str:"go_premium_command" + U.U2()/Ek.j6�
 ze	com/aide/ui/build/RunTarget	iface:j6()I + Zo()abcd/ze$a；4 个实现者全是"构建目标"（com/aide/ui/build/android/B、com/aide/ui/build/java/h、com/aide/ui/build/javascript/a、abcd/Le），被 abcd/we 的 run_command_ 统计使用 ⇒ 运行目标
 ze$a	com/aide/ui/build/RunTarget$Type	enum:常量名原样在 <clinit>（ANDROID/JAVA/WEBSITE/JAVASCRIPT）；由 RunTarget.Zo() 返回，we 拼 "run_command_"+id+type ⇒ 运行目标类型
 zf	com/aide/ui/actions/EditModeAction	str:getName() 返回 "Edit mode"；implements abcd/Hl；isVisible 看 MainActivity.BT()/J8()，run() 调 MainActivity.v5() ⇒ 编辑模式开关动作
+Tl	com/aide/ui/DiagnosticMarker	body:public 字段 一个 String + 4 个 int；j6(Tl) 的判等是 "两条消息 String.equals 相同 && |Hw 之差| < 20"（bipush 20）⇒ 同一位置附近的同一条诊断；toString 拼 "msg (a,b-c)"；引用者全在 com/aide/ui、ui/debugger、ui/browsers ⇒ 编辑器/浏览器里的一条诊断标记
+we	com/aide/ui/RunTargetMenu	body:字段 HashMap + List + ze(RunTarget) + Activity + int；j6(ze) 里记 "run_command_" 计数（按 RunTarget 类型分类）、j6(ViewGroup) 把命令装进容器、j6(Z) 逐项 enable、FH()Z 同时看 U.U2()(许可证) 与 U.dx() ⇒ "运行"菜单（按 RunTarget 列出可运行目标）

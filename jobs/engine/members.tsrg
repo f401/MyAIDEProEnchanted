@@ -94,7 +94,7 @@ abcd/ea com/aide/engine/CachedProject
 abcd/Ba com/aide/engine/CompilationContext
 abcd/Aa com/aide/engine/AstNode
 abcd/ua com/aide/engine/CompilationUnit
-abcd/Yb com/aide/engine/Scope
+abcd/Yb com/aide/engine/NodeList
 abcd/Ga com/aide/engine/StringPool
 abcd/Fb com/aide/engine/NodeMap
 abcd/Ca com/aide/engine/FileCache

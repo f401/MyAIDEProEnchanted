@@ -26601,7 +26601,7 @@ abcd/ea com/aide/engine/CachedProject
 abcd/Ba com/aide/engine/CompilationContext
 abcd/Aa com/aide/engine/AstNode
 abcd/ua com/aide/engine/CompilationUnit
-abcd/Yb com/aide/engine/Scope
+abcd/Yb com/aide/engine/NodeList
 abcd/Ga com/aide/engine/StringPool
 abcd/Fb com/aide/engine/NodeMap
 abcd/Ca com/aide/engine/FileCache
@@ -55500,6 +55500,8 @@ abcd/ze$a com/aide/ui/build/RunTarget$Type
 	FH WEBSITE
 	Hw JAVASCRIPT
 abcd/zf com/aide/ui/actions/EditModeAction
+abcd/Tl com/aide/ui/DiagnosticMarker
+abcd/we com/aide/ui/RunTargetMenu
 com/aide/engine/G com/aide/engine/Modification$Creator
 com/aide/engine/L com/aide/engine/SourceEntity$Creator
 com/aide/engine/N com/aide/engine/SyntaxError$Creator

@@ -25196,7 +25196,7 @@ c	abcd/ea	com/aide/engine/CachedProject	auto: 类：CachedProject（上游未收
 c	abcd/Ba	com/aide/engine/CompilationContext	auto: 上下文：Compilation（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Aa	com/aide/engine/AstNode	auto: 节点：Ast（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ua	com/aide/engine/CompilationUnit	auto: 类：CompilationUnit（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Yb	com/aide/engine/Scope	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Yb	com/aide/engine/NodeList	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ga	com/aide/engine/StringPool	auto: 类：StringPool（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Fb	com/aide/engine/NodeMap	auto: 类：NodeMap（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ca	com/aide/engine/FileCache	auto: 缓存：File（上游未收录，名字来自 jobs/engine 的判据）
@@ -53427,6 +53427,8 @@ c	abcd/ze$a	com/aide/ui/build/RunTarget$Type	auto: 类：Type（外层 RunTarget
 	f	Labcd/ze$a;	FH	WEBSITE	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
 	f	Labcd/ze$a;	Hw	JAVASCRIPT	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
 c	abcd/zf	com/aide/ui/actions/EditModeAction	auto: 动作：EditMode（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Tl	com/aide/ui/DiagnosticMarker	auto: 类：DiagnosticMarker（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/we	com/aide/ui/RunTargetMenu	auto: 类：RunTargetMenu（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	com/aide/engine/G	com/aide/engine/Modification$Creator	auto: 类：Creator（外层 Modification）（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/L	com/aide/engine/SourceEntity$Creator	auto: 类：Creator（外层 SourceEntity）（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/N	com/aide/engine/SyntaxError$Creator	auto: 类：Creator（外层 SyntaxError）（上游未收录，名字来自 jobs/aide_engine 的判据）

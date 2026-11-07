@@ -82,3 +82,5 @@ abcd/ze$a com/aide/ui/build/RunTarget$Type
 	FH WEBSITE
 	Hw JAVASCRIPT
 abcd/zf com/aide/ui/actions/EditModeAction
+abcd/Tl com/aide/ui/DiagnosticMarker
+abcd/we com/aide/ui/RunTargetMenu
