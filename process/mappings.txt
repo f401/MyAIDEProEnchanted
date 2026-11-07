@@ -26598,6 +26598,8 @@ abcd/S abcd/aide/engine/InlineMethodRefactoring
 abcd/W abcd/aide/engine/ChangeSignatureRefactoring
 abcd/ea com/aide/engine/CachedProject
 abcd/Ba com/aide/engine/CompilationContext
+abcd/Aa com/aide/engine/AstNode
+abcd/ua com/aide/engine/CompilationUnit
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

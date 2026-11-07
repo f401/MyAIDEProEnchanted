@@ -93,3 +93,5 @@ c	abcd/S	-	-	auto: 类：InlineMethodRefactoring（上游未收录，名字来�
 c	abcd/W	-	-	auto: 类：ChangeSignatureRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ea	-	-	auto: 类：CachedProject（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ba	-	-	auto: 上下文：Compilation（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Aa	-	-	auto: 节点：Ast（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ua	-	-	auto: 类：CompilationUnit（上游未收录，名字来自 jobs/engine 的判据）
