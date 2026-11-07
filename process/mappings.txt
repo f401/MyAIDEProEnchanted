@@ -12540,6 +12540,44 @@ abcd/id abcd/aide/editor/JavaFormattingOption
 	Zo ()Ljava/lang/String; getCategory
 	j6 (Z)Ljava/lang/String; getSample
 		0 enabled enabled
+abcd/Ek com/aide/licensing/LicensingManager
+	DW ()J getFirstShopTime
+	er ()V initFirstShopTime
+	DW (J)V markDeveloperLicensed
+		0 time time
+	FH (J)V markPremiumLicensed
+		0 time time
+	Hw (J)V markUIDesignerLicensed
+		0 time time
+	j6 (J)V markDebuggerLicensed
+		0 time time
+	Mr ()Z wasPrimeLicensed
+	aM ()Z wasDebuggerLicensed
+	j3 ()Z wasDeveloperLicensed
+	Zo ()Z isPhoneGapInstalled
+	rN ()Z isWebEditionInstalled
+	FH ()V clearLicenses
+	J0 ()V showPremiumPage
+	Ws ()V showUIDesignerPage
+	FH (Landroid/app/Activity;Ljava/lang/String;)V showPremiumKeyPage
+		0 activity activity
+		1 linkId linkId
+	FH (Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V showEditionPage
+		0 activity activity
+		1 edition edition
+		2 linkId linkId
+	Hw (Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V hasPurchasedFeature
+		0 activity activity
+		1 featureId featureId
+		2 linkId linkId
+	j6 (Landroid/app/Activity;Ljava/lang/String;)Z isFeatureLicensed
+		0 activity activity
+		1 featureId featureId
+	DW (Landroid/app/Activity;Ljava/lang/String;)Z getBooleanSetting
+		0 activity activity
+		1 key key
+	j6 (Landroid/app/Activity;)Z isDebuggerLicensed
+		0 activity activity
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue

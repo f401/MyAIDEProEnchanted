@@ -222,3 +222,24 @@ abcd/id abcd/aide/editor/JavaFormattingOption
 	VH ()Ljava/lang/String; getPreferenceKey
 	Zo ()Ljava/lang/String; getCategory
 	j6 (Z)Ljava/lang/String; getSample
+abcd/Ek com/aide/licensing/LicensingManager
+	DW ()J getFirstShopTime
+	er ()V initFirstShopTime
+	DW (J)V markDeveloperLicensed
+	FH (J)V markPremiumLicensed
+	Hw (J)V markUIDesignerLicensed
+	j6 (J)V markDebuggerLicensed
+	Mr ()Z wasPrimeLicensed
+	aM ()Z wasDebuggerLicensed
+	j3 ()Z wasDeveloperLicensed
+	Zo ()Z isPhoneGapInstalled
+	rN ()Z isWebEditionInstalled
+	FH ()V clearLicenses
+	J0 ()V showPremiumPage
+	Ws ()V showUIDesignerPage
+	FH (Landroid/app/Activity;Ljava/lang/String;)V showPremiumKeyPage
+	FH (Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V showEditionPage
+	Hw (Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V hasPurchasedFeature
+	j6 (Landroid/app/Activity;Ljava/lang/String;)Z isFeatureLicensed
+	DW (Landroid/app/Activity;Ljava/lang/String;)Z getBooleanSetting
+	j6 (Landroid/app/Activity;)Z isDebuggerLicensed

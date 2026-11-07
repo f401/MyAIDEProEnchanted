@@ -11929,6 +11929,44 @@ c	abcd/id	abcd/aide/editor/JavaFormattingOption	auto: 类：JavaFormattingOption
 	m	()Ljava/lang/String;	Zo	getCategory	auto: 取 Category（上游无同签名对应，按作用取名）
 	m	(Z)Ljava/lang/String;	j6	getSample	auto: 取 Sample（上游无同签名对应，按作用取名）
 		p	0	enabled	enabled
+c	abcd/Ek	com/aide/licensing/LicensingManager	auto: 管理器：Licensing（上游未收录，名字来自 jobs/aide 的判据）
+	m	()J	DW	getFirstShopTime	auto: 取 FirstShopTime（上游无同签名对应，按作用取名）
+	m	()V	er	initFirstShopTime	auto: 初始化 FirstShopTime（上游无同签名对应，按作用取名）
+	m	(J)V	DW	markDeveloperLicensed	auto: 执行 markDeveloperLicensed（上游无同签名对应，按作用取名）
+		p	0	time	time
+	m	(J)V	FH	markPremiumLicensed	auto: 执行 markPremiumLicensed（上游无同签名对应，按作用取名）
+		p	0	time	time
+	m	(J)V	Hw	markUIDesignerLicensed	auto: 执行 markUIDesignerLicensed（上游无同签名对应，按作用取名）
+		p	0	time	time
+	m	(J)V	j6	markDebuggerLicensed	auto: 执行 markDebuggerLicensed（上游无同签名对应，按作用取名）
+		p	0	time	time
+	m	()Z	Mr	wasPrimeLicensed	auto: 「wasPrimeLicensed」（上游无同签名对应，按作用取名）
+	m	()Z	aM	wasDebuggerLicensed	auto: 「wasDebuggerLicensed」（上游无同签名对应，按作用取名）
+	m	()Z	j3	wasDeveloperLicensed	auto: 「wasDeveloperLicensed」（上游无同签名对应，按作用取名）
+	m	()Z	Zo	isPhoneGapInstalled	auto: 是否 PhoneGapInstalled（上游无同签名对应，按作用取名）
+	m	()Z	rN	isWebEditionInstalled	auto: 是否 WebEditionInstalled（上游无同签名对应，按作用取名）
+	m	()V	FH	clearLicenses	auto: 清空 Licenses（上游无同签名对应，按作用取名）
+	m	()V	J0	showPremiumPage	auto: 执行 showPremiumPage（上游无同签名对应，按作用取名）
+	m	()V	Ws	showUIDesignerPage	auto: 执行 showUIDesignerPage（上游无同签名对应，按作用取名）
+	m	(Landroid/app/Activity;Ljava/lang/String;)V	FH	showPremiumKeyPage	auto: 执行 showPremiumKeyPage（上游无同签名对应，按作用取名）
+		p	0	activity	activity
+		p	1	linkId	linkId
+	m	(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V	FH	showEditionPage	auto: 执行 showEditionPage（上游无同签名对应，按作用取名）
+		p	0	activity	activity
+		p	1	edition	edition
+		p	2	linkId	linkId
+	m	(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V	Hw	hasPurchasedFeature	auto: 是否有 PurchasedFeature（上游无同签名对应，按作用取名）
+		p	0	activity	activity
+		p	1	featureId	featureId
+		p	2	linkId	linkId
+	m	(Landroid/app/Activity;Ljava/lang/String;)Z	j6	isFeatureLicensed	auto: 是否 FeatureLicensed（上游无同签名对应，按作用取名）
+		p	0	activity	activity
+		p	1	featureId	featureId
+	m	(Landroid/app/Activity;Ljava/lang/String;)Z	DW	getBooleanSetting	auto: 取 BooleanSetting（上游无同签名对应，按作用取名）
+		p	0	activity	activity
+		p	1	key	key
+	m	(Landroid/app/Activity;)Z	j6	isDebuggerLicensed	auto: 是否 DebuggerLicensed（上游无同签名对应，按作用取名）
+		p	0	activity	activity
 c	com/a/b/a/a/a	com/android/dx/cf/attrib/AttAnnotationDefault	auto: 类：AttAnnotationDefault；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault
 	m	()I	a	byteLength	auto: 「byteLength」；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#byteLength
 	m	()Lcom/a/b/e/c/a;	b	getValue	auto: 取 Value；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#getValue

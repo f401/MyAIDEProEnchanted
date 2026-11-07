@@ -224,3 +224,24 @@ f	abcd/id	dx	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按
 m	abcd/id	VH	()Ljava/lang/String;	auto: 取 PreferenceKey（上游无同签名对应，按作用取名）
 m	abcd/id	Zo	()Ljava/lang/String;	auto: 取 Category（上游无同签名对应，按作用取名）
 m	abcd/id	j6	(Z)Ljava/lang/String;	auto: 取 Sample（上游无同签名对应，按作用取名）
+c	abcd/Ek	-	-	auto: 管理器：Licensing（上游未收录，名字来自 jobs/aide 的判据）
+m	abcd/Ek	DW	()J	auto: 取 FirstShopTime（上游无同签名对应，按作用取名）
+m	abcd/Ek	er	()V	auto: 初始化 FirstShopTime（上游无同签名对应，按作用取名）
+m	abcd/Ek	DW	(J)V	auto: 执行 markDeveloperLicensed（上游无同签名对应，按作用取名）
+m	abcd/Ek	FH	(J)V	auto: 执行 markPremiumLicensed（上游无同签名对应，按作用取名）
+m	abcd/Ek	Hw	(J)V	auto: 执行 markUIDesignerLicensed（上游无同签名对应，按作用取名）
+m	abcd/Ek	j6	(J)V	auto: 执行 markDebuggerLicensed（上游无同签名对应，按作用取名）
+m	abcd/Ek	Mr	()Z	auto: 「wasPrimeLicensed」（上游无同签名对应，按作用取名）
+m	abcd/Ek	aM	()Z	auto: 「wasDebuggerLicensed」（上游无同签名对应，按作用取名）
+m	abcd/Ek	j3	()Z	auto: 「wasDeveloperLicensed」（上游无同签名对应，按作用取名）
+m	abcd/Ek	Zo	()Z	auto: 是否 PhoneGapInstalled（上游无同签名对应，按作用取名）
+m	abcd/Ek	rN	()Z	auto: 是否 WebEditionInstalled（上游无同签名对应，按作用取名）
+m	abcd/Ek	FH	()V	auto: 清空 Licenses（上游无同签名对应，按作用取名）
+m	abcd/Ek	J0	()V	auto: 执行 showPremiumPage（上游无同签名对应，按作用取名）
+m	abcd/Ek	Ws	()V	auto: 执行 showUIDesignerPage（上游无同签名对应，按作用取名）
+m	abcd/Ek	FH	(Landroid/app/Activity;Ljava/lang/String;)V	auto: 执行 showPremiumKeyPage（上游无同签名对应，按作用取名）
+m	abcd/Ek	FH	(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 showEditionPage（上游无同签名对应，按作用取名）
+m	abcd/Ek	Hw	(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V	auto: 是否有 PurchasedFeature（上游无同签名对应，按作用取名）
+m	abcd/Ek	j6	(Landroid/app/Activity;Ljava/lang/String;)Z	auto: 是否 FeatureLicensed（上游无同签名对应，按作用取名）
+m	abcd/Ek	DW	(Landroid/app/Activity;Ljava/lang/String;)Z	auto: 取 BooleanSetting（上游无同签名对应，按作用取名）
+m	abcd/Ek	j6	(Landroid/app/Activity;)Z	auto: 是否 DebuggerLicensed（上游无同签名对应，按作用取名）
