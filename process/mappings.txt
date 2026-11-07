@@ -26671,6 +26671,13 @@ abcd/Os com/aide/engine/MemberSignature
 abcd/fb com/aide/engine/ReaderProvider
 abcd/gb com/aide/engine/FileContentCache
 abcd/ib com/aide/engine/FeatureFlags
+abcd/_a com/aide/engine/SourceEntityCollector
+abcd/bb com/aide/engine/SourceMetricsSink
+abcd/cb com/aide/engine/ExpressionBuilder
+abcd/db com/aide/engine/HighlightingReporter
+abcd/eb com/aide/engine/ErrorReporter
+abcd/hb com/aide/engine/RefactoringSink
+abcd/ob com/aide/engine/UsageSearchSink
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
