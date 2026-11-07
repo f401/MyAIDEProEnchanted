@@ -25182,6 +25182,7 @@ c	abcd/Gc	com/aide/engine/CppLanguage	auto: 类：CppLanguage（上游未收录�
 c	abcd/Xc	com/aide/engine/DtdLanguage	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/nd	com/aide/engine/JavaCommentsLanguage	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ne	com/aide/engine/MarkupLanguage	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ea	com/aide/engine/FileManager	auto: 管理器：File（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

@@ -339,3 +339,14 @@ apktool 写第二份时会覆盖第一份（碰撞的那份会带 `.1`/`.2` 后�
   上游库本来就这样（proguard/spongycastle/jsch 的子包互访）；
 - 跨包访问由构建链 `widen_access --apply` 放宽成 public 兜底；
 - 「需要挪」清单是**下一轮该命名的协作者名单**，不是必须清零的门。
+
+## 19. 包里那套 `com/sun/tools/javac` 是**真类**，不是被混淆的引擎
+
+`com/sun/tools/javac/**`（300+ 类，含 `parser/Scanner`、`tree/JCTree`、`jvm/ClassWriter`…）
+在 APK 里名称完好，引用者是 `com/google/googlejavaformat/**`（google-java-format 依赖 JDK 编译器树），
+和 AIDE 自己的 `abcd/**` 引擎**没有调用关系**。
+
+所以：**不要**拿 javac 的类名去套 `abcd/Sa|Ya|Yb|_b` 这一族（曾据此怀疑 `Sa`=Scanner，
+实测 `Sa.j6([CII)` 是 `System.arraycopy` 填缓冲、`toString` 里 new 了 `Ta` 再调
+`j6(StringBuffer,String,Ta,I)` ⇒ 更像"源文本/区间"模型而不是词法器）。AIDE 引擎这一族没有 oracle，
+只能按方法形状+调用点定作用名，判不出来就留原名（NAMING §3.4）。

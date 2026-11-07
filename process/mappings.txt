@@ -26587,6 +26587,7 @@ abcd/Gc com/aide/engine/CppLanguage
 abcd/Xc com/aide/engine/DtdLanguage
 abcd/nd com/aide/engine/JavaCommentsLanguage
 abcd/ne com/aide/engine/MarkupLanguage
+abcd/Ea com/aide/engine/FileManager
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

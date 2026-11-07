@@ -85,3 +85,4 @@ c	abcd/Gc	-	-	auto: 类：CppLanguage（上游未收录，名字来自 jobs/engi
 c	abcd/Xc	-	-	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/nd	-	-	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ne	-	-	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ea	-	-	auto: 管理器：File（上游未收录，名字来自 jobs/engine 的判据）
