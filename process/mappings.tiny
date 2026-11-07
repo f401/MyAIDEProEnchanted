@@ -11848,6 +11848,87 @@ c	abcd/hm	abcd/aide/editor/EditorRange	auto: 类：EditorRange（上游未收录
 	f	I	Hw	startColumn	auto: 字段(I)（上游无同类型对应，按作用取名）
 	f	I	v5	endLine	auto: 字段(I)（上游无同类型对应，按作用取名）
 	f	I	Zo	endColumn	auto: 字段(I)（上游无同类型对应，按作用取名）
+c	abcd/ha	abcd/aide/editor/NamedOption	auto: 类：NamedOption（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/Md	abcd/aide/editor/JavaScriptFormattingOption	auto: 类：JavaScriptFormattingOption（上游未收录，名字来自 jobs/aide 的判据）
+	f	Labcd/Md;	j6	BLOCK_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	DW	ARRAY_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	FH	BRACE_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	Hw	CASE_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	v5	CASELABEL_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	Zo	LABELLEFT_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	VH	NEXTLINE_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	gn	ARGUMENT_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	u7	PARAMETER_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	tp	ADJUST_NEWLINES	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	EQ	BLOCK_NEWLINE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	we	FUNCTION_NEWLINE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	J0	ELSE_NEWLINE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	J8	CATCH_NEWLINE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	Ws	FINALLY_NEWLINE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	QX	STATEMENT_WRAP	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	XL	ADJUST_SPACES	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	aM	BRACE_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	j3	PARAMETER_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	Mr	PARAMETERCOMMA_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	U2	KEYWORD_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	a8	CONDITION_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	lg	PAREN_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	rN	METHODCALL_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	er	ARGUMENT_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	yS	ARGUMENTCOMMA_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	gW	ARRAYMETHODCALL_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	BT	ARRAYARGUMENT_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	vy	BINARYOPERATOR_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Labcd/Md;	P8	ASSIGNMENTOPERATOR_SPACE	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/String;	KD	category	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/String;	ro	name	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/String;	cn	sampleEnabled	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/String;	sh	sampleDisabled	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+	m	()Ljava/lang/String;	VH	getPreferenceKey	auto: 取 PreferenceKey（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	Zo	getCategory	auto: 取 Category（上游无同签名对应，按作用取名）
+	m	(Z)Ljava/lang/String;	j6	getSample	auto: 取 Sample（上游无同签名对应，按作用取名）
+		p	0	enabled	enabled
+c	abcd/id	abcd/aide/editor/JavaFormattingOption	auto: 类：JavaFormattingOption（上游未收录，名字来自 jobs/aide 的判据）
+	f	Labcd/id;	j6	BLOCK_INDENT	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	DW	ARRAY_INDENT	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	FH	BRACE_INDENT	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	Hw	CASE_INDENT	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	v5	CASELABEL_INDENT	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	Zo	LABELLEFT_INDENT	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	VH	NEXTLINE_INDENT	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	gn	ARGUMENT_INDENT	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	u7	PARAMETER_INDENT	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	tp	ADJUST_NEWLINES	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	EQ	TYPE_NEWLINE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	we	METHOD_NEWLINE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	J0	BLOCK_NEWLINE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	J8	ELSE_NEWLINE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	Ws	CATCH_NEWLINE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	QX	FINALLY_NEWLINE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	XL	STATEMENT_WRAP	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	aM	ADJUST_SPACES	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	j3	BRACE_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	Mr	METHODNAME_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	U2	PARAMETER_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	a8	PARAMETERCOMMA_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	lg	KEYWORD_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	rN	CONDITION_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	er	PAREN_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	yS	METHODCALL_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	gW	ARGUMENT_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	BT	ARGUMENTCOMMA_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	vy	ARRAYMETHODCALL_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	P8	ARRAYARGUMENT_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	ei	BINARYOPERATOR_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Labcd/id;	nw	ASSIGNMENTOPERATOR_SPACE	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/String;	cn	category	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/String;	sh	name	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/String;	cb	sampleEnabled	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+	f	Ljava/lang/String;	dx	sampleDisabled	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+	m	()Ljava/lang/String;	VH	getPreferenceKey	auto: 取 PreferenceKey（上游无同签名对应，按作用取名）
+	m	()Ljava/lang/String;	Zo	getCategory	auto: 取 Category（上游无同签名对应，按作用取名）
+	m	(Z)Ljava/lang/String;	j6	getSample	auto: 取 Sample（上游无同签名对应，按作用取名）
+		p	0	enabled	enabled
 c	com/a/b/a/a/a	com/android/dx/cf/attrib/AttAnnotationDefault	auto: 类：AttAnnotationDefault；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault
 	m	()I	a	byteLength	auto: 「byteLength」；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#byteLength
 	m	()Lcom/a/b/e/c/a;	b	getValue	auto: 取 Value；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#getValue

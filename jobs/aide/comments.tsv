@@ -145,3 +145,82 @@ f	abcd/hm	FH	-	auto: 字段(I)（上游无同类型对应，按作用取名）
 f	abcd/hm	Hw	-	auto: 字段(I)（上游无同类型对应，按作用取名）
 f	abcd/hm	v5	-	auto: 字段(I)（上游无同类型对应，按作用取名）
 f	abcd/hm	Zo	-	auto: 字段(I)（上游无同类型对应，按作用取名）
+c	abcd/ha	-	-	auto: 类：NamedOption（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/Md	-	-	auto: 类：JavaScriptFormattingOption（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/id	-	-	auto: 类：JavaFormattingOption（上游未收录，名字来自 jobs/aide 的判据）
+f	abcd/Md	j6	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	DW	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	FH	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	Hw	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	v5	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	Zo	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	VH	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	gn	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	u7	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	tp	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	EQ	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	we	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	J0	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	J8	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	Ws	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	QX	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	XL	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	aM	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	j3	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	Mr	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	U2	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	a8	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	lg	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	rN	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	er	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	yS	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	gW	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	BT	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	vy	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	P8	-	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
+f	abcd/Md	KD	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	abcd/Md	ro	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	abcd/Md	cn	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	abcd/Md	sh	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+m	abcd/Md	VH	()Ljava/lang/String;	auto: 取 PreferenceKey（上游无同签名对应，按作用取名）
+m	abcd/Md	Zo	()Ljava/lang/String;	auto: 取 Category（上游无同签名对应，按作用取名）
+m	abcd/Md	j6	(Z)Ljava/lang/String;	auto: 取 Sample（上游无同签名对应，按作用取名）
+f	abcd/id	j6	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	DW	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	FH	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	Hw	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	v5	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	Zo	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	VH	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	gn	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	u7	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	tp	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	EQ	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	we	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	J0	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	J8	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	Ws	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	QX	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	XL	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	aM	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	j3	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	Mr	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	U2	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	a8	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	lg	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	rN	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	er	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	yS	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	gW	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	BT	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	vy	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	P8	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	ei	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	nw	-	auto: 字段(Labcd/id;)（上游无同类型对应，按作用取名）
+f	abcd/id	cn	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	abcd/id	sh	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	abcd/id	cb	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+f	abcd/id	dx	-	auto: 字段(Ljava/lang/String;)（上游无同类型对应，按作用取名）
+m	abcd/id	VH	()Ljava/lang/String;	auto: 取 PreferenceKey（上游无同签名对应，按作用取名）
+m	abcd/id	Zo	()Ljava/lang/String;	auto: 取 Category（上游无同签名对应，按作用取名）
+m	abcd/id	j6	(Z)Ljava/lang/String;	auto: 取 Sample（上游无同签名对应，按作用取名）

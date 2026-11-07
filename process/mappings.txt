@@ -12459,6 +12459,87 @@ abcd/hm abcd/aide/editor/EditorRange
 	Hw startColumn
 	v5 endLine
 	Zo endColumn
+abcd/ha abcd/aide/editor/NamedOption
+abcd/Md abcd/aide/editor/JavaScriptFormattingOption
+	j6 BLOCK_INDENT
+	DW ARRAY_INDENT
+	FH BRACE_INDENT
+	Hw CASE_INDENT
+	v5 CASELABEL_INDENT
+	Zo LABELLEFT_INDENT
+	VH NEXTLINE_INDENT
+	gn ARGUMENT_INDENT
+	u7 PARAMETER_INDENT
+	tp ADJUST_NEWLINES
+	EQ BLOCK_NEWLINE
+	we FUNCTION_NEWLINE
+	J0 ELSE_NEWLINE
+	J8 CATCH_NEWLINE
+	Ws FINALLY_NEWLINE
+	QX STATEMENT_WRAP
+	XL ADJUST_SPACES
+	aM BRACE_SPACE
+	j3 PARAMETER_SPACE
+	Mr PARAMETERCOMMA_SPACE
+	U2 KEYWORD_SPACE
+	a8 CONDITION_SPACE
+	lg PAREN_SPACE
+	rN METHODCALL_SPACE
+	er ARGUMENT_SPACE
+	yS ARGUMENTCOMMA_SPACE
+	gW ARRAYMETHODCALL_SPACE
+	BT ARRAYARGUMENT_SPACE
+	vy BINARYOPERATOR_SPACE
+	P8 ASSIGNMENTOPERATOR_SPACE
+	KD category
+	ro name
+	cn sampleEnabled
+	sh sampleDisabled
+	VH ()Ljava/lang/String; getPreferenceKey
+	Zo ()Ljava/lang/String; getCategory
+	j6 (Z)Ljava/lang/String; getSample
+		0 enabled enabled
+abcd/id abcd/aide/editor/JavaFormattingOption
+	j6 BLOCK_INDENT
+	DW ARRAY_INDENT
+	FH BRACE_INDENT
+	Hw CASE_INDENT
+	v5 CASELABEL_INDENT
+	Zo LABELLEFT_INDENT
+	VH NEXTLINE_INDENT
+	gn ARGUMENT_INDENT
+	u7 PARAMETER_INDENT
+	tp ADJUST_NEWLINES
+	EQ TYPE_NEWLINE
+	we METHOD_NEWLINE
+	J0 BLOCK_NEWLINE
+	J8 ELSE_NEWLINE
+	Ws CATCH_NEWLINE
+	QX FINALLY_NEWLINE
+	XL STATEMENT_WRAP
+	aM ADJUST_SPACES
+	j3 BRACE_SPACE
+	Mr METHODNAME_SPACE
+	U2 PARAMETER_SPACE
+	a8 PARAMETERCOMMA_SPACE
+	lg KEYWORD_SPACE
+	rN CONDITION_SPACE
+	er PAREN_SPACE
+	yS METHODCALL_SPACE
+	gW ARGUMENT_SPACE
+	BT ARGUMENTCOMMA_SPACE
+	vy ARRAYMETHODCALL_SPACE
+	P8 ARRAYARGUMENT_SPACE
+	ei BINARYOPERATOR_SPACE
+	nw ASSIGNMENTOPERATOR_SPACE
+	cn category
+	sh name
+	cb sampleEnabled
+	dx sampleDisabled
+	VH ()Ljava/lang/String; getPreferenceKey
+	Zo ()Ljava/lang/String; getCategory
+	j6 (Z)Ljava/lang/String; getSample
+		0 enabled enabled
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue

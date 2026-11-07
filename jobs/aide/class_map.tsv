@@ -54,3 +54,6 @@ G	abcd/aide/AnalyticsConfig	iface:唯一抽象方法 j6()Z；被 Analytics.initi
 ue	abcd/aide/LicensingLog	str:唯一常量 "aidelicensing"（Log tag）；DW(String)->Log.e、FH(String)->Log.w、j6(String,Throwable)/j6(Throwable)->Log.e；引用者 8 处全在 com/aide/licensing
 mk	abcd/aide/FileBrowserPreferences	str:"FileBrowserService"/"CurrentDir"/"/AppProjects"；j6() 读 getSharedPreferences("FileBrowserService").getString("CurrentDir") 且 FileSystemUtils.mkdirs，j6(String) 写回后通知监听者 ⇒ 文件浏览器当前目录持久化
 hm	abcd/aide/editor/EditorRange	body:4 个 int 字段 FH/Hw/v5/Zo（构造器直存、toString 按 FH,Hw,v5,Zo 逗号连接）；j6(II)Z 同行比列、跨行比行的包含判定；被 com/aide/ui/views/editor 引用 15 处 ⇒ 编辑器文本区间
+ha	abcd/aide/editor/NamedOption	iface:唯一方法 getName()Ljava/lang/String;，被 Md/id/le 三个"格式化选项"枚举实现（各自 getName 返回标题串）⇒ 选项命名接口
+Md	abcd/aide/editor/JavaScriptFormattingOption	enum:30 个常量名原样留在 <clinit>（BLOCK_INDENT/ARRAY_INDENT/…/ASSIGNMENTOPERATOR_SPACE），每个常量带 (组名 "JavaScript indentation options", 标题 "Indent block contents", 正例, 反例)；getPreferenceKey = "js_"+name() ⇒ JS 格式化选项
+id	abcd/aide/editor/JavaFormattingOption	enum:32 个同名常量，组名 "Java indentation options"，getPreferenceKey = "java_"+name() ⇒ Java 格式化选项
