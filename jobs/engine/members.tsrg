@@ -97,3 +97,7 @@ abcd/ua com/aide/engine/CompilationUnit
 abcd/Yb com/aide/engine/Scope
 abcd/Ga com/aide/engine/StringPool
 abcd/Fb com/aide/engine/NodeMap
+abcd/Ca com/aide/engine/FileCache
+abcd/ga com/aide/engine/AstProvider
+abcd/Za com/aide/engine/Position
+abcd/Cb com/aide/engine/IntVector

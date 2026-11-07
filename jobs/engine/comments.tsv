@@ -98,3 +98,7 @@ c	abcd/ua	-	-	auto: 类：CompilationUnit（上游未收录，名字来自 jobs/
 c	abcd/Yb	-	-	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ga	-	-	auto: 类：StringPool（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Fb	-	-	auto: 类：NodeMap（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ca	-	-	auto: 缓存：File（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ga	-	-	auto: 提供者：Ast（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Za	-	-	auto: 类：Position（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Cb	-	-	auto: 类：IntVector（上游未收录，名字来自 jobs/engine 的判据）
