@@ -13,7 +13,7 @@
 | `zipsigner` | kellinwood zipsigner 1.11 / zipio 1.6 / logging（Maven 没有，**自己用上游源码 javac 编 oracle**）| 串 + 字段类型 + 调用点常量 + 同方法体内字段读取顺序 | **24 类** / 108 方法行 + 94 字段行 / 94 参数行，待人工 0 — 见 [zipsigner/README.md](zipsigner/README.md) |
 | `spongycastle` | SpongyCastle(=BouncyCastle) **1.47**；用官方 bcprov/bcpkix-jdk15on-1.47 当同版本 oracle | tag 常量 / 常量串 Jaccard / 实现者集合 / 形状包含 / 引用者 | **257 类** / 813 方法行 + 1114 字段行 / 795 参数行，成员待人工 0 — 见 [spongycastle/README.md](spongycastle/README.md) |
 | `dropbox` | Dropbox **Android** SDK **1.6.2**（`com.dropbox.client2`）+ json-simple **1.1** | 上游 GitHub 仓库 `lib/` 自带的官方 jar + 源码（证书字节级比对锁版本） | **49 类** / 222 成员行（方法 113 + 字段 109）/ 122 参数行，待人工 0 — 见 [dropbox/README.md](dropbox/README.md) |
-| `engine` | AIDE 的「引擎接入层」（**AIDE 自有，无 oracle**） | 常量串 + 真名父类/接口 + 与 `com/aide/engine` 的调用形状，按作用命名 | **61 类**（含语言服务 11 + 文件类型 10）/ 成员行 25— 见 [engine/README.md](engine/README.md) |
+| `engine` | AIDE 的「引擎接入层」（**AIDE 自有，无 oracle**） | 常量串 + 真名父类/接口 + 与 `com/aide/engine` 的调用形状，按作用命名 | **62 类**（含语言服务 11 + 文件类型 10）/ 成员行 25— 见 [engine/README.md](engine/README.md) |
 | `proguard` | ProGuard **6.0.3**（`a/**`，AIDE 的混淆器） | Maven `net.sf.proguard:proguard-base:6.0.3`（版本串 `ProGuard, version 6.0.3` 实证） | **698 类**（92.2%）/ 7163 成员行 / 9896 参数行，成员级 cover 方法 99.0% · 字段 97.9%，剩余 59 类见 [todo_classes.txt](proguard/todo_classes.txt) — 见 [proguard/README.md](proguard/README.md) |
 
 **全库「待人工」= 0**（2026-11 收口）：9 个 part 全部清零。最后一条
