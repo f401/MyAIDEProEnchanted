@@ -162,3 +162,6 @@ c	abcd/Zn	-	-	auto: 类：FixedInstruction（上游未收录，名字来自 jobs
 c	abcd/Vr	-	-	auto: 类：ReferencePair（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ku	-	-	auto: 类：ByteOutput（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Os	-	-	auto: 类：MemberSignature（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/fb	-	-	iface: 唯一方法 Reader j6(InputStream,String) —— 按编码把字节流开成字符流；实现者 c$b$g 把 ProjectFile 映射成 Reader ⇒ 引擎分析期间读源码用（与 q=SourceReader 同签名，但 q 对外、fb 只在分析任务内部）
+c	abcd/gb	-	-	iface: DW(Da)Z 是否已缓存 / FH(Da)Reader 取正文 / Hw(Da)J 长度 / j6(Da)J 版本 / j6() 依 FileManager 重载过期项；实现者 c$b$h 用 wb 存 ProjectFile.id→I(char[]+长度+版本) ⇒ 项目文件正文缓存
+c	abcd/ib	-	-	iface: 8 个 ()Z 开关（I/OW/Qq/aj/ca/lp/sy/x9），实现者 c$b$j 逐个返回 ⇒ 分析任务的特性开关

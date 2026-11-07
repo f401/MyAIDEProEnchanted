@@ -69,7 +69,3 @@ com/aide/engine/q	com/aide/engine/SourceReader	iface:唯一方法 Labcd/Reader; 
 com/aide/engine/v	com/aide/engine/BinaryExpression	body:两个 Expression 子节点 + 一个 String；toString 按 左、运算符、右 拼接 ⇒ 二元运算表达式
 com/aide/engine/x	com/aide/engine/FieldAccessExpression	body:(Z,Z,String,String,Expression)；toString 的字面量顺序是 ""、"("、")."、"." ⇒ (owner).name.child 形式的字段访问
 com/aide/engine/y	com/aide/engine/MethodCallExpression	body:(Z,String,String,String,List<Expression>,Expression)；toString 里 "(" + ")." + "(" + "," + ")" + "." ⇒ (recv).name(arg,arg).child 形式的调用
-com/aide/engine/ab	com/aide/engine/SourceEntityCollector	iface:实现者 c$b$b 里是 ArrayList<SourceEntity>×2 + Map<ua,SourceEntity>；方法 j6(Aa)/DW(Aa)/DW(Aa,Ya)/DW(Da,I,I)/DW(String)/FH(String)/DW(Sa,ua)Z/j6() ⇒ 分析过程中收集源实体的回调
-com/aide/engine/fb	com/aide/engine/ReaderProvider	iface:唯一方法 Reader j6(InputStream,String)（按编码开流）；实现者 c$b$g ⇒ 源码读取器提供者（与已命名的 com/aide/engine/q=SourceReader 同签名，但 q 是引擎对外、fb 是分析任务内部用）
-com/aide/engine/gb	com/aide/engine/VersionCache	iface:实现者 c$b$h 持有 wb<I>、wb<H> 两份缓存 + 两个 abcd/_b ⇒ 版本/引擎信息缓存回调
-com/aide/engine/ib	com/aide/engine/FeatureFlags	iface:8 个 ()Z 方法（I/OW/Qq/aj/ca/lp/sy/x9）；实现者 c$b$j 逐个返回开关 ⇒ 分析特性开关

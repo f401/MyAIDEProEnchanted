@@ -121,7 +121,7 @@ Ir	com/aide/engine/Visibility	enum:常量 RUNTIME/BUILD/SYSTEM/EMBEDDED 原样�
 Lr	com/aide/engine/NamedReference	body:(Js 名字, ms 引用) 两个 final 字段 + Hw()Js/Zo()ms 取值 + compareTo/equals/hashCode ⇒ 具名引用（方法/字段条目）
 ns	com/aide/engine/ReferenceArray	iface:ms get(int) + ms j6(int) ⇒ 按索引取引用的容器接口（Ls 实现它）
 Rn	com/aide/engine/Model	extends Xt、implements Comparable；Rn$a 是条目，get(int)Rn$a / j6(int,Rn$a) 存取、j6(Rn,Rn) 合并 ⇒ 构建器(Pn.build())产出的模型
-ab	com/aide/engine/AstVisitor	iface:j6(Aa)/DW(Aa)/j6(Aa)/DW(Aa,Ya)（访问 AST 节点）、DW(Da,I,I)（定位文件区间）、DW(String)/FH(String)（进出名字）、DW(Sa,ua)Z（对源文本+编译单元做一遍）、j6()（收尾）⇒ AST 遍历器
+ab	com/aide/engine/AstVisitor	iface:22 个方法的遍历回调——j6/DW(Aa)（进/出 AST 节点）、DW(Aa,Ya)/j6(Aa,Ya[,Z])/j6(Aa,Z)/j6(Aa,String)/j6(Ya)/j6(Za)/j6(List<Za>)（按节点类型收窄）、DW(Da,I,I)/j6(Da[,I,I[,int[],int[]]])/j6(Da,na,I,I,I,Z,Z)（文件区间与签名）、DW(String)/FH(String)/j6(String)（过名字）、DW(Sa,ua)Z/j6(Sa,ua)Z（对 源文本+编译单元 走一遍）、j6()（收尾）⇒ AST 遍历器；实现者 c$b$b 把遍历结果收进 ArrayList<SourceEntity>×2 + Map<ua,SourceEntity>，即"收集实体"是实现者职责、不是接口职责
 Wa	com/aide/engine/CommentTable	body:五张 int[] + 一个 char[] + 若干 int；j6(IIIIII) 记录一段 ⇒ 源文本里的注释/空白区段表（Sa 用）
 em	com/aide/engine/IntervalList	body:<T> Serializable + Vector<em$b<T>>；DW(T,int,int) 按区间加、FH(int,int)Z 判断包含、DW(int,int)fm 取子区间迭代器、Hw(int,int)/DW(int,int,int) 等做区间运算 ⇒ 区间列表
 Sl	com/aide/engine/RingBuffer	body:<T> + List<T> + 两个 int；j6(T)T 入、FH()T 出、j6(int)T 取、DW()I/Hw()I 两个计数、j6() 清空、ctor(int) 定容 ⇒ 定容环形缓冲
@@ -136,3 +136,6 @@ Zn	com/aide/engine/FixedInstruction	abstract:extends Vn；DW()I 与 DW(int)Vn �
 Vr	com/aide/engine/ReferencePair	body:两个 Js 字段 + 私有 ctor + 静态 j6(Js,Js) 做 intern（内部表）+ compareTo/equals/hashCode + 两个 getter ⇒ 引用对
 ku	com/aide/engine/ByteOutput	iface(extends Tt):write(byte[]) / writeByte(int) / DW(int) / FH(int) / Hw(int) / j6(int) / j6(Pt) / v5() ⇒ 字节输出流
 Os	com/aide/engine/MemberSignature	body:static HashMap 做 **intern 表**；私有 ctor(String 名字, Qs 类型, Ps 方法类型) + 静态 DW(String)Qs[] 解析 + compareTo ⇒ 成员签名（名字+类型/方法类型）
+fb	com/aide/engine/ReaderProvider	iface:唯一方法 Reader j6(InputStream,String)（按编码把字节流开成字符流）；实现者 c$b$g 是文件→Reader ⇒ 源码读取器提供者
+gb	com/aide/engine/FileContentCache	iface:DW(Da)Z 是否已缓存 / FH(Da)Reader 取已缓存正文 / Hw(Da)J 长度 / j6(Da)J 版本 / j6() 依 Ea 把版本过期的项重载 / j6(Hashtable) 换掉上一张表；实现者 c$b$h 用 wb 存 ProjectFile.id→com.aide.engine.I（char[] 正文 + int 长度 + long 版本）⇒ 分析期间的项目文件**正文**缓存（与已命名的 Ca=FileCache 区分：Ca 缓存按文件的编译数据，这里缓存原文）
+ib	com/aide/engine/FeatureFlags	iface:8 个 ()Z 方法（I/OW/Qq/aj/ca/lp/sy/x9）；实现者 c$b$j 逐个返回开关 ⇒ 分析任务的特性开关

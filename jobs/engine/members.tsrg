@@ -161,3 +161,6 @@ abcd/Zn com/aide/engine/FixedInstruction
 abcd/Vr com/aide/engine/ReferencePair
 abcd/ku com/aide/engine/ByteOutput
 abcd/Os com/aide/engine/MemberSignature
+abcd/fb com/aide/engine/ReaderProvider
+abcd/gb com/aide/engine/FileContentCache
+abcd/ib com/aide/engine/FeatureFlags

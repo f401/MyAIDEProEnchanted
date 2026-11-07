@@ -25263,6 +25263,9 @@ c	abcd/Zn	com/aide/engine/FixedInstruction	auto: 类：FixedInstruction（上游
 c	abcd/Vr	com/aide/engine/ReferencePair	auto: 类：ReferencePair（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ku	com/aide/engine/ByteOutput	auto: 类：ByteOutput（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Os	com/aide/engine/MemberSignature	auto: 类：MemberSignature（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/fb	com/aide/engine/ReaderProvider	iface: 唯一方法 Reader j6(InputStream,String) —— 按编码把字节流开成字符流；实现者 c$b$g 把 ProjectFile 映射成 Reader ⇒ 引擎分析期间读源码用（与 q=SourceReader 同签名，但 q 对外、fb 只在分析任务内部）
+c	abcd/gb	com/aide/engine/FileContentCache	iface: DW(Da)Z 是否已缓存 / FH(Da)Reader 取正文 / Hw(Da)J 长度 / j6(Da)J 版本 / j6() 依 FileManager 重载过期项；实现者 c$b$h 用 wb 存 ProjectFile.id→I(char[]+长度+版本) ⇒ 项目文件正文缓存
+c	abcd/ib	com/aide/engine/FeatureFlags	iface: 8 个 ()Z 开关（I/OW/Qq/aj/ca/lp/sy/x9），实现者 c$b$j 逐个返回 ⇒ 分析任务的特性开关
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
@@ -53574,7 +53577,3 @@ c	com/aide/engine/q	com/aide/engine/SourceReader	auto: 读取器：Source（上�
 c	com/aide/engine/v	com/aide/engine/BinaryExpression	auto: 类：BinaryExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/x	com/aide/engine/FieldAccessExpression	auto: 类：FieldAccessExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/y	com/aide/engine/MethodCallExpression	auto: 类：MethodCallExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
-c	com/aide/engine/ab	com/aide/engine/SourceEntityCollector	auto: 收集器：SourceEntity（上游未收录，名字来自 jobs/aide_engine 的判据）
-c	com/aide/engine/fb	com/aide/engine/ReaderProvider	auto: 提供者：Reader（上游未收录，名字来自 jobs/aide_engine 的判据）
-c	com/aide/engine/gb	com/aide/engine/VersionCache	auto: 缓存：Version（上游未收录，名字来自 jobs/aide_engine 的判据）
-c	com/aide/engine/ib	com/aide/engine/FeatureFlags	auto: 类：FeatureFlags（上游未收录，名字来自 jobs/aide_engine 的判据）
