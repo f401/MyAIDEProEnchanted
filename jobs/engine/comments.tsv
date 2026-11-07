@@ -115,3 +115,9 @@ c	abcd/Js	-	-	auto: 类：DexString（上游未收录，名字来自 jobs/engine
 c	abcd/Ks	-	-	auto: 类：DexType（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Hs	-	-	auto: 类：DexReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Yo	-	-	auto: 类：DexConstants（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/tn	-	-	auto: 类：DexMember（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/un	-	-	auto: 类：DexAnnotation（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/pn	-	-	auto: 类：DexAttributes（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/qn	-	-	auto: 类：DexValue（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/jn	-	-	auto: 类：DexEncodedValue（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/on	-	-	auto: 类：AttributeKey（上游未收录，名字来自 jobs/engine 的判据）

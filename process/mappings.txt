@@ -26621,6 +26621,12 @@ abcd/Js com/aide/engine/DexString
 abcd/Ks com/aide/engine/DexType
 abcd/Hs com/aide/engine/DexReference
 abcd/Yo com/aide/engine/DexConstants
+abcd/tn com/aide/engine/DexMember
+abcd/un com/aide/engine/DexAnnotation
+abcd/pn com/aide/engine/DexAttributes
+abcd/qn com/aide/engine/DexValue
+abcd/jn com/aide/engine/DexEncodedValue
+abcd/on com/aide/engine/AttributeKey
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

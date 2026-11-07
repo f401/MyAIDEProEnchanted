@@ -89,3 +89,9 @@ Js	com/aide/engine/DexString	body:final String + Pt；j6(String)byte[] 是 **MUT
 Ks	com/aide/engine/DexType	body:final + 一批 static final 常量（Object/String/Class… 由 Yo 持有）；实现 Rs ⇒ dex 类型引用
 Hs	com/aide/engine/DexReference	body:两个 Js 字段 (DW/FH) + getter J8()/VH()、DW(ms)I 比较、Hw()Z ⇒ (名字, 描述符) 二元引用（字段/方法引用）
 Yo	com/aide/engine/DexConstants	body:全是 static final 的 Ks/Js 常量；<clinit> 里 ldc 出 "Ldalvik/annotation/AnnotationDefault;"、"…/EnclosingClass;"、"…/EnclosingMethod;"、"…/InnerClass;"、"…/MemberClasses;"、"…/Signature;"、"…/Throws;" 与 "accessFlags"/"name"/"value" ⇒ DEX 注解/属性用的众所周知常量表
+tn	com/aide/engine/DexMember	iface:DW()Ks(类型) + FH()Hs(引用) + Hw()Js(描述符串) + getName()Js + getAttributes()pn + j6()I(索引) ⇒ DEX/class 文件里"类/字段/方法"共有的成员描述（名字+类型+属性+索引）
+un	com/aide/engine/DexAnnotation	iface:extends tn，多一个 v5()Os ⇒ 带可见性的注解
+pn	com/aide/engine/DexAttributes	iface:Hw()I + Zo()Z + j6(on)on + j6(String)on（按 key 或按名字取属性）⇒ 成员上的属性集合
+qn	com/aide/engine/DexValue	iface:DW()Js(字符串引用) + j6()I(索引) ⇒ 一个带索引的常量值
+jn	com/aide/engine/DexEncodedValue	implements qn；字段 Pt/yn/Z/Ls/xn/Ks×2/Ss/String 覆盖各类值（类型标记 + 载荷）⇒ 编码后的注解值
+on	com/aide/engine/AttributeKey	iface:Hw()I + getName()String ⇒ 属性键（名字 + 序号）
