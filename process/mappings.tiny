@@ -25184,6 +25184,8 @@ c	abcd/nd	com/aide/engine/JavaCommentsLanguage	auto: 类：JavaCommentsLanguage�
 c	abcd/ne	com/aide/engine/MarkupLanguage	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ea	com/aide/engine/FileManager	auto: 管理器：File（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sa	com/aide/engine/SourceText	auto: 类：SourceText（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/La	com/aide/engine/Project	auto: 类：Project（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Da	com/aide/engine/ProjectFile	auto: 类：ProjectFile（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

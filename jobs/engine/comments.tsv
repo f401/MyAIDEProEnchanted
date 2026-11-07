@@ -87,3 +87,5 @@ c	abcd/nd	-	-	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 
 c	abcd/ne	-	-	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ea	-	-	auto: 管理器：File（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sa	-	-	auto: 类：SourceText（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/La	-	-	auto: 类：Project（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Da	-	-	auto: 类：ProjectFile（上游未收录，名字来自 jobs/engine 的判据）
