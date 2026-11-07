@@ -5010,7 +5010,7 @@ abcd/tB org/eclipse/jgit/api/RebaseCommand
 	FH (Labcd/dG;)Z checkoutCommit
 	Hw (Labcd/dG;)Labcd/AB; stop
 	j6 (Ljava/lang/String;Labcd/dG;)V updateHead
-abcd/tB$a org/eclipse/jgit/api/RebaseCommand$2$1
+abcd/tB$a org/eclipse/jgit/api/RebaseCommand$2
 	j6 pick
 	j6 (Ljava/lang/String;)Labcd/tB$a; parse
 	Hw ()Ljava/lang/String; toToken
@@ -5021,7 +5021,7 @@ abcd/tB$b org/eclipse/jgit/api/RebaseCommand$Operation
 	FH SKIP
 	Hw ABORT
 	j6 BEGIN
-abcd/tB$c org/eclipse/jgit/api/RebaseCommand$2
+abcd/tB$c org/eclipse/jgit/api/RebaseCommand$3
 abcd/tC org/eclipse/jgit/diff/RawText
 	j6 EMPTY_TEXT
 	DW content

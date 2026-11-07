@@ -490,9 +490,7 @@ c	abcd/sI	-	-	src: jgit-3.7.1 org/eclipse/jgit/transport/HttpTransport；doc: Th
 c	abcd/sJ	-	-	auto: 匿名内部类（外层 TransportGitSsh）；src: jgit-3.7.1 org/eclipse/jgit/transport/TransportGitSsh$2
 c	abcd/sK	-	-	auto: 匿名内部类（外层 FS）（上游未收录，名字来自 jobs/jgit 的判据）
 c	abcd/tB	-	-	src: jgit-3.7.1 org/eclipse/jgit/api/RebaseCommand；doc: A class used to execute a Rebase command. It has setters for all supported options and arguments of this com…
-c	abcd/tB$a	-	-	auto: 匿名内部类（外层 2）（外层 RebaseCommand）（上游未收录，名字来自 jobs/jgit 的判据）
 c	abcd/tB$b	-	-	auto: 类：Operation（外层 RebaseCommand）；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseCommand$Operation
-c	abcd/tB$c	-	-	auto: 匿名内部类（外层 RebaseCommand）（上游未收录，名字来自 jobs/jgit 的判据）
 c	abcd/tC	-	-	src: jgit-3.7.1 org/eclipse/jgit/diff/RawText；doc: A Sequence supporting UNIX formatted text in byte[] format.
 c	abcd/tD	-	-	src: jgit-3.7.1 org/eclipse/jgit/errors/StoredObjectRepresentationNotAvailableException；doc: A previously selected representation is no longer available.
 c	abcd/tE	-	-	auto: 匿名内部类（外层 1）（外层 UnpackedObject）（上游未收录，名字来自 jobs/jgit 的判据）
@@ -5203,9 +5201,6 @@ m	abcd/tB	EQ	()Ljava/util/List;	auto: 读取 TodoList（上游无同签名对应
 m	abcd/tB	FH	(Labcd/dG;)Z	auto: 「checkoutCommit」（上游无同签名对应，按作用取名）
 m	abcd/tB	Hw	(Labcd/dG;)Labcd/AB;	auto: 「stop」（上游无同签名对应，按作用取名）
 m	abcd/tB	j6	(Ljava/lang/String;Labcd/dG;)V	auto: 更新 Head（上游无同签名对应，按作用取名）
-f	abcd/tB$a	j6	-	auto: 字段(Labcd/tB$a;)（上游无同类型对应，按作用取名）
-m	abcd/tB$a	j6	(Ljava/lang/String;)Labcd/tB$a;	auto: 「parse」（上游无同签名对应，按作用取名）
-m	abcd/tB$a	Hw	()Ljava/lang/String;	auto: 转换为 Token（上游无同签名对应，按作用取名）
 m	abcd/tB$b	<init>	(Ljava/lang/String;I)V	auto: 构造器；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseCommand$Operation#<init>
 f	abcd/tB$b	v5	-	auto: 字段([Labcd/tB$b;)；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseCommand$Operation.$VALUES
 f	abcd/tB$b	DW	-	auto: 字段(Labcd/tB$b;)；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseCommand$Operation.CONTINUE
@@ -6225,3 +6220,8 @@ f	abcd/rI$b	Zo	-	auto: 字段(Ljava/lang/String;)；src: jgit-3.7.1 org/eclipse/
 f	abcd/rI$b	v5	-	auto: 字段(I)；src: jgit-3.7.1 org/eclipse/jgit/transport/HttpAuthMethod$Digest.requestCount
 m	abcd/rI$c	j6	(Ljava/lang/String;Ljava/lang/String;)V	auto: 执行 authorize；src: jgit-3.7.1 org/eclipse/jgit/transport/HttpAuthMethod$None#authorize
 m	abcd/rI$c	j6	(Ljava/net/HttpURLConnection;)V	auto: 执行 configureRequest（上游无同签名对应，按作用取名）
+c	abcd/tB$a	-	-	auto: 匿名内部类（外层 RebaseCommand）（上游未收录，名字来自 jobs/jgit 的判据）
+c	abcd/tB$c	-	-	auto: 匿名内部类（外层 RebaseCommand）（上游未收录，名字来自 jobs/jgit 的判据）
+f	abcd/tB$a	j6	-	auto: 字段(Labcd/tB$a;)（上游无同类型对应，按作用取名）
+m	abcd/tB$a	j6	(Ljava/lang/String;)Labcd/tB$a;	auto: 「parse」（上游无同签名对应，按作用取名）
+m	abcd/tB$a	Hw	()Ljava/lang/String;	auto: 转换为 Token（上游无同签名对应，按作用取名）

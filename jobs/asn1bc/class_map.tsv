@@ -71,7 +71,7 @@ t/a	org/bouncycastle/util/BigIntegers	contain:在已定映射下 1 方法/1 字�
 u/a	org/bouncycastle/jcajce/util/MessageDigestUtils	str:常量串集合 Jaccard=1.00（17 个串全部命中），第二名最高 0.52；串不受混淆影响
 v/b	org/bouncycastle/util/StreamParsingException	pkg+contain:该探针类所在包（首字母 v）已由已定名类投票确定为 util；在此包内做结构包含，候选唯一
 v/c	org/bouncycastle/util/StoreException	contain:在已定映射下 2 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
-x/a	org/bouncycastle/pqc/math/linearalgebra/ByteUtils	contain:在已定映射下 3 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
+x/a	org/bouncycastle/util/Arrays	body:3 个静态方法 areEqual(byte[],byte[])/clone(byte[])/hashCode(byte[])，且内部类 x/a$a 的 (T[] a,int b,hasNext/next/remove) 与 org/bouncycastle/util/Arrays$Iterator 逐项相同 ⇒ Arrays（原先误映射成 ByteUtils：ByteUtils 没有任何内部类）
 x/a$a	org/bouncycastle/util/Arrays$Iterator	str:常量串集合 Jaccard=1.00（2 个串全部命中），第二名最高 0.00；串不受混淆影响
 x/b$a	org/bouncycastle/util/Strings$1	contain:在已定映射下 2 方法/0 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
 y/a	org/bouncycastle/util/encoders/UrlBase64	contain:在已定映射下 3 方法/1 字段全被 oracle 同签名成员容纳，超类与接口逐位相等，候选唯一
@@ -104,3 +104,4 @@ c/bd	org/bouncycastle/asn1/DERSet	src:同上，DERSet/DLSet 合并；c/v.i()=toD
 c/d	org/bouncycastle/asn1/ASN1Choice	kind:public interface 且 0 个成员；bcprov-1.56 的 asn1 包里 0 成员接口只有 ASN1Choice（ASN1String/InMemoryRepresentable 都是 1 个方法）
 c/bq	org/bouncycastle/asn1/LazyConstructionEnumeration	recv:implements Enumeration、字段是 ASN1InputStream + Object、构造器收 byte[]、私有 readObject()；与 oracle LazyConstructionEnumeration 逐项相同
 c/aw$$ExternalSyntheticBackport0	org/bouncycastle/asn1/DERIA5String$$ExternalSyntheticBackport0	name:R8 的 backport 合成类，名字本身就是 `<宿主>$$ExternalSyntheticBackport0`；宿主是 c/aw(=DERIA5String) ⇒ 保留 R8 的命名形状（方法体只有 Math.floorMod 的等价实现）
+x/b	org/bouncycastle/util/Strings	body:静态 int 常量 + fromUTF8ByteArray/toUTF8ByteArray(String)/toUTF8ByteArray(char[],OutputStream)/toUpperCase/toLowerCase 逐个对上，内部类 x/b$a=PrivilegedAction<String> 即 Strings$1

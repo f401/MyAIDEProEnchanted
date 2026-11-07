@@ -288,7 +288,7 @@ t/a org/bouncycastle/util/BigIntegers
 u/a org/bouncycastle/jcajce/util/MessageDigestUtils
 v/b org/bouncycastle/util/StreamParsingException
 v/c org/bouncycastle/util/StoreException
-x/a org/bouncycastle/pqc/math/linearalgebra/ByteUtils
+x/a org/bouncycastle/util/Arrays
 x/a$a org/bouncycastle/util/Arrays$Iterator
 	b position
 	a dataArray
@@ -446,3 +446,4 @@ c/bq org/bouncycastle/asn1/LazyConstructionEnumeration
 	a aIn
 	c ()Ljava/lang/Object; readObject
 c/aw$$ExternalSyntheticBackport0 org/bouncycastle/asn1/DERIA5String$$ExternalSyntheticBackport0
+x/b org/bouncycastle/util/Strings

@@ -62,7 +62,15 @@ def main():
             continue
         if not pin:
             continue
-        pouter, oouter = p.rsplit('$', 1)[0], o.rsplit('$', 1)[0]
+        # R8 的合成后缀是 `$$ExternalSyntheticBackport0` 这种**双**美元；按最后一个 $ 切会把
+        # `c/aw$$X` 切成外层 `c/aw$`（不存在）→ 假报"外层没有类映射"。
+        def _outer(x):
+            core = x.split('$$', 1)[0] if '$$' in x else x
+            return core.rsplit('$', 1)[0] if '$' in core else None
+        pouter, oouter = _outer(p), _outer(o)
+        if pouter is None or oouter is None:
+            # `X$$ExternalSyntheticBackport0` 这类不是真内部类（两侧没有共同的外层概念）
+            continue
         exp = allrows.get(pouter)
         if exp is None:
             bad1.append((p, o, '外层 %s 没有类映射（无法校验）' % pouter))

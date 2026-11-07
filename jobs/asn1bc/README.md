@@ -181,19 +181,39 @@ c/q.b()(=getDERSubStream) → new c/ba(os,0)   c/q.c()(=getDLSubStream) → new 
 参数  88 行
 门禁 validate ✔ · inherit 0-0-0 · famcheck 0-0 · innercheck ②③ 0
 
-### 6.5 最后两个类：`c/h`、`c/r` 为什么不定名
+### 6.5 最后两个类：`c/h`、`c/r`（2025-11 复核，结论仍是"不定名"，但纠正了两处记录）
 
-两者是**孪生异常**：`c/h extends IOException`、`c/r extends IllegalStateException`，
-成员一模一样（`int a`、`Throwable b`、`(String)`、`(String,Throwable,int)`、`getCause()`）。
+两者是**孪生异常**：`c/h extends IOException`、`c/r extends IllegalStateException`，成员一模一样
+（`public final int a`、`public Throwable b`、`(String)`、`(String,Throwable,int)`、`getCause()`）。
 
-* 在 **78 个 oracle jar**（bcprov/bcpkix/sc 各版本 + jgit 3.7/4.x/5.x + proguard + jd-core + antlr + jzlib…）
-  里按 `(String,Throwable,int)` 构造器全量搜，**只有一个**候选：
-  `org/eclipse/jgit/transport/ServiceMayNotContinueException`（extends IOException，字段 int+Throwable）；
-* 但 `c/r`（IllegalStateException 那一半）在所有 oracle 里**没有任何对应**；
-* 而且这两个类**在整个 APK 里无人引用**（扫描全 jar 常量池，引用数 0）—— 是 R8 保下来的死代码，
-  拿不到"谁 new 它 / 用什么消息"这类证据。
+**纠正 1：它们不是死代码。** 逐类扫常量池（UTF8 里出现 `c/h` / `Lc/h;`）得到真实引用者：
 
-按"宁缺勿错"：`c/h` 也不猜（形状单点匹配 + 死代码 + 落在 BC 包里，三者互相矛盾），两个都保持原形并在此记录。
+| 类 | 引用它的类 |
+|---|---|
+| `c/h` | `c/al`(BERTaggedObject)、`c/ar`(DERExternalParser)、`c/j`(ASN1InputStream)、`c/x`(ASN1StreamParser)、`w/a`(未映射) |
+| `c/r` | `c/ac`、`c/ab`、`c/ag`、`c/am`、`c/ak`、`c/ar`(DERExternalParser) 等 11 个 ASN.1 类 |
+
+**纠正 2：形状不是 BC 的 ASN1Exception/ASN1ParsingException。** 这对类语义上很像 BC 的
+`org/bouncycastle/asn1/ASN1Exception`（extends IOException）与 `ASN1ParsingException`
+（extends IllegalStateException）——但 BC 1.47/1.50/1.56/1.64/1.68 **全部**是
+`private Throwable cause` + 构造器只有 `(String)`/`(String,Throwable)`，**没有 int、字段也不是 public**；
+全 APK 里也只有这两个类带 `(String,Throwable,int)` 构造器（扫过所有 class）。
+
+所以在**能拿到的 oracle 里没有任何版本对上**（78 个 jar 里形状单点匹配的只有 jgit 的
+`ServiceMayNotContinueException`，但引用者是 BC 的 ASN.1 代码，跨库不成立）。按"宁缺勿错"
+保持探针名：`c/h`、`c/r` 原样，`cover` 里如实计入未定名。
+
+**现在这两个类是 asn1bc part 里唯一的未定名项（74/76 → 74 类已定名 + 这 2 个）。**
+
+### 6.6 顺手修的两处（2025-11）
+
+| 探针 | 原来 | 现在 | 判据 |
+|---|---|---|---|
+| `x/a` | `pqc/math/linearalgebra/ByteUtils` | **`org/bouncycastle/util/Arrays`** | 内部类 `x/a$a`（`T[] a`、`int b`、`hasNext/next/remove`）与 `Arrays$Iterator` 逐项相同；`ByteUtils` **没有任何内部类** |
+| `x/b` | （未映射） | **`org/bouncycastle/util/Strings`** | 静态 int 常量 + `fromUTF8ByteArray`/`toUTF8ByteArray(String)`/`toUTF8ByteArray(char[],OutputStream)`/`toUpperCase`/`toLowerCase` 逐个对上；内部类 `x/b$a` = `PrivilegedAction<String>` 即 `Strings$1` |
+
+另外 `innercheck` 修了两个假报：`X$$ExternalSyntheticBackport0` 被按最后一个 `$` 切成外层 `X$`
+（不存在）；以及"一侧没有外层"的合成类不该参与外层一致性校验。修完 ①②③ 全 0。
 
 `c/aw$$ExternalSyntheticBackport0` 则按 **R8 命名约定**直接给出：`org/bouncycastle/asn1/DERIA5String$$ExternalSyntheticBackport0`
 （R8 的 backport 合成类形如 `<宿主>$$ExternalSyntheticBackport0`，宿主是 `c/aw`=DERIA5String）。

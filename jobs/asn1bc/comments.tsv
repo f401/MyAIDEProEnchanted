@@ -71,9 +71,6 @@ c	t/a	-	-	src: bcprov-1.47 org/bouncycastle/util/BigIntegers；doc: BigInteger u
 c	u/a	-	-	auto: 工具类：MessageDigest；src: bcprov-jdk15on-1.56 org/bouncycastle/jcajce/util/MessageDigestUtils
 c	v/b	-	-	auto: 异常类型：StreamParsing；src: bcprov-1.47 org/bouncycastle/util/StreamParsingException
 c	v/c	-	-	auto: 异常类型：Store；src: bcprov-1.47 org/bouncycastle/util/StoreException
-c	x/a	-	-	auto: 工具类：Byte；src: bcprov-1.50 org/bouncycastle/pqc/math/linearalgebra/ByteUtils
-c	x/a$a	-	-	auto: 类：Iterator（外层 Arrays）；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Arrays$Iterator
-c	x/b$a	-	-	auto: 匿名内部类（外层 Strings）；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Strings$1
 c	y/a	-	-	src: bcprov-1.47 org/bouncycastle/util/encoders/UrlBase64；doc: Convert binary data to and from UrlBase64 encoding. This is identical to Base64 encoding, except that the pa…
 c	c/q$a	-	-	auto: 流：ImplicitOutput（外层 ASN1OutputStream）；src: bcprov-1.47 org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream
 c	c/ac	-	-	auto: 解析器：BERApplicationSpecific；src: bcprov-1.47 org/bouncycastle/asn1/BERApplicationSpecificParser
@@ -321,8 +318,6 @@ f	c/x	a	-	auto: 字段(Ljava/io/InputStream;)；src: bcprov-1.47 org/bouncycastl
 f	c/x	b	-	auto: 字段(I)；src: bcprov-1.47 org/bouncycastle/asn1/ASN1StreamParser._limit
 f	c/x	c	-	auto: 字段([[B)；src: bcprov-1.47 org/bouncycastle/asn1/ASN1StreamParser.tmpBuffers
 m	c/y	h	()Ljava/lang/String;	auto: 取 String；src: bcprov-1.47 org/bouncycastle/asn1/ASN1String#getString
-f	x/a$a	b	-	auto: 字段(I)；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Arrays$Iterator.position
-f	x/a$a	a	-	auto: 字段([Ljava/lang/Object;)；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Arrays$Iterator.dataArray
 m	c/q$a	d	(I)V	auto: 执行 write；src: bcprov-1.47 org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream#write
 f	c/q$a	l	-	auto: 字段(Z)；src: bcprov-1.47 org/bouncycastle/asn1/ASN1OutputStream$ImplicitOutputStream.first
 f	c/ac	a	-	auto: 字段(I)；src: bcprov-1.47 org/bouncycastle/asn1/BERApplicationSpecificParser.tag
@@ -446,3 +441,9 @@ m	c/bd	f	()I	auto: 「encodedLength」；src: bcprov-1.47 org/bouncycastle/asn1/
 f	c/bd	s	-	auto: 字段(I)；src: bcprov-1.47 org/bouncycastle/asn1/DERSet.bodyLength
 f	c/bq	a	-	auto: 字段(Lc/j;)；src: bcprov-1.47 org/bouncycastle/asn1/LazyConstructionEnumeration.aIn
 m	c/bq	c	()Ljava/lang/Object;	auto: 读取 Object；src: bcprov-1.47 org/bouncycastle/asn1/LazyConstructionEnumeration#readObject
+c	x/a	-	-	src: bcprov-1.47 org/bouncycastle/util/Arrays；doc: General array utilities.
+c	x/a$a	-	-	auto: 类：Iterator（外层 Arrays）；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Arrays$Iterator
+c	x/b$a	-	-	auto: 匿名内部类（外层 Strings）；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Strings$1
+c	x/b	-	-	auto: 类：Strings；src: bcprov-1.47 org/bouncycastle/util/Strings
+f	x/a$a	b	-	auto: 字段(I)；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Arrays$Iterator.position
+f	x/a$a	a	-	auto: 字段([Ljava/lang/Object;)；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Arrays$Iterator.dataArray

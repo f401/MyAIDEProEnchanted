@@ -490,9 +490,9 @@ sI	org/eclipse/jgit/transport/HttpTransport	typeprop:描述符逐位对齐投票
 sJ	org/eclipse/jgit/transport/TransportGitSsh$2	body:javap TransportGitSsh$2 = extends SshSessionFactory + field this$0:TransportGitSsh + ctor(TransportGitSsh) + getSession(URIish,CredentialsProvider,FS,int)RemoteSession
 sK	org/eclipse/jgit/util/FS$3	anonmap:sK 的唯一引用者
 tB	org/eclipse/jgit/api/RebaseCommand	typeprop:描述符逐位对齐投票 0.46
-tB$a	org/eclipse/jgit/api/RebaseCommand$2$1	anonmap:tB$a 的唯一引用者
+tB$a	org/eclipse/jgit/api/RebaseCommand$2	hier:嵌套层数按探针类文件的 InnerClasses 定（`a=class abcd/tB$a of class abcd/tB`，单层）；上游 3.7.1/4.11.9/5.13.3 都没有 RebaseCommand$2/$2$1 ⇒ 索引只是占位，不能凭空多一层
 tB$b	org/eclipse/jgit/api/RebaseCommand$Operation	prop:5.0
-tB$c	org/eclipse/jgit/api/RebaseCommand$2	anonmap:tB$c 的唯一引用者
+tB$c	org/eclipse/jgit/api/RebaseCommand$3	hier:嵌套层数按探针类文件的 InnerClasses 定（`a=class abcd/tB$a of class abcd/tB`，单层）；上游 3.7.1/4.11.9/5.13.3 都没有 RebaseCommand$2/$2$1 ⇒ 索引只是占位，不能凭空多一层
 tC	org/eclipse/jgit/diff/RawText	typeprop:描述符逐位对齐投票 0.95
 tD	org/eclipse/jgit/errors/StoredObjectRepresentationNotAvailableException	prop:4.5
 tE	org/eclipse/jgit/internal/storage/file/UnpackedObject$1$1	anonmap:tE 的唯一引用者

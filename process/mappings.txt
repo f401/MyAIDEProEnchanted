@@ -8142,7 +8142,7 @@ abcd/tB org/eclipse/jgit/api/RebaseCommand
 	FH (Labcd/dG;)Z checkoutCommit
 	Hw (Labcd/dG;)Labcd/AB; stop
 	j6 (Ljava/lang/String;Labcd/dG;)V updateHead
-abcd/tB$a org/eclipse/jgit/api/RebaseCommand$2$1
+abcd/tB$a org/eclipse/jgit/api/RebaseCommand$2
 	j6 pick
 	j6 (Ljava/lang/String;)Labcd/tB$a; parse
 		static
@@ -8154,7 +8154,7 @@ abcd/tB$b org/eclipse/jgit/api/RebaseCommand$Operation
 	FH SKIP
 	Hw ABORT
 	j6 BEGIN
-abcd/tB$c org/eclipse/jgit/api/RebaseCommand$2
+abcd/tB$c org/eclipse/jgit/api/RebaseCommand$3
 abcd/tC org/eclipse/jgit/diff/RawText
 	j6 EMPTY_TEXT
 	DW content
@@ -54011,7 +54011,7 @@ t/a org/bouncycastle/util/BigIntegers
 u/a org/bouncycastle/jcajce/util/MessageDigestUtils
 v/b org/bouncycastle/util/StreamParsingException
 v/c org/bouncycastle/util/StoreException
-x/a org/bouncycastle/pqc/math/linearalgebra/ByteUtils
+x/a org/bouncycastle/util/Arrays
 x/a$a org/bouncycastle/util/Arrays$Iterator
 	b position
 	a dataArray
@@ -54213,6 +54213,7 @@ c/bq org/bouncycastle/asn1/LazyConstructionEnumeration
 	a aIn
 	c ()Ljava/lang/Object; readObject
 c/aw$$ExternalSyntheticBackport0 org/bouncycastle/asn1/DERIA5String$$ExternalSyntheticBackport0
+x/b org/bouncycastle/util/Strings
 abcd/Dy com/jcraft/jzlib/Adler32
 	j6 (J)V reset
 		0 init init

@@ -7721,7 +7721,7 @@ c	abcd/tB	org/eclipse/jgit/api/RebaseCommand	src: jgit-3.7.1 org/eclipse/jgit/ap
 	m	(Labcd/dG;)Z	FH	checkoutCommit	auto: 「checkoutCommit」（上游无同签名对应，按作用取名）
 	m	(Labcd/dG;)Labcd/AB;	Hw	stop	auto: 「stop」（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;Labcd/dG;)V	j6	updateHead	auto: 更新 Head（上游无同签名对应，按作用取名）
-c	abcd/tB$a	org/eclipse/jgit/api/RebaseCommand$2$1	auto: 匿名内部类（外层 2）（外层 RebaseCommand）（上游未收录，名字来自 jobs/jgit 的判据）
+c	abcd/tB$a	org/eclipse/jgit/api/RebaseCommand$2	auto: 匿名内部类（外层 RebaseCommand）（上游未收录，名字来自 jobs/jgit 的判据）
 	f	Labcd/tB$a;	j6	pick	auto: 字段(Labcd/tB$a;)（上游无同类型对应，按作用取名）
 	m	(Ljava/lang/String;)Labcd/tB$a;	j6	parse	auto: 「parse」（上游无同签名对应，按作用取名）
 	m	()Ljava/lang/String;	Hw	toToken	auto: 转换为 Token（上游无同签名对应，按作用取名）
@@ -7732,7 +7732,7 @@ c	abcd/tB$b	org/eclipse/jgit/api/RebaseCommand$Operation	auto: 类：Operation�
 	f	Labcd/tB$b;	FH	SKIP	auto: 字段(Labcd/tB$b;)；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseCommand$Operation.SKIP
 	f	Labcd/tB$b;	Hw	ABORT	auto: 字段(Labcd/tB$b;)；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseCommand$Operation.ABORT
 	f	Labcd/tB$b;	j6	BEGIN	auto: 字段(Labcd/tB$b;)；src: jgit-3.7.1 org/eclipse/jgit/api/RebaseCommand$Operation.BEGIN
-c	abcd/tB$c	org/eclipse/jgit/api/RebaseCommand$2	auto: 匿名内部类（外层 RebaseCommand）（上游未收录，名字来自 jobs/jgit 的判据）
+c	abcd/tB$c	org/eclipse/jgit/api/RebaseCommand$3	auto: 匿名内部类（外层 RebaseCommand）（上游未收录，名字来自 jobs/jgit 的判据）
 c	abcd/tC	org/eclipse/jgit/diff/RawText	src: jgit-3.7.1 org/eclipse/jgit/diff/RawText；doc: A Sequence supporting UNIX formatted text in byte[] format.
 	f	Labcd/tC;	j6	EMPTY_TEXT	auto: 字段(Labcd/tC;)；src: jgit-3.7.1 org/eclipse/jgit/diff/RawText.EMPTY_TEXT
 	f	[B	DW	content	auto: 字段([B)；src: jgit-3.7.1 org/eclipse/jgit/diff/RawText.content
@@ -52088,7 +52088,7 @@ c	t/a	org/bouncycastle/util/BigIntegers	src: bcprov-1.47 org/bouncycastle/util/B
 c	u/a	org/bouncycastle/jcajce/util/MessageDigestUtils	auto: 工具类：MessageDigest；src: bcprov-jdk15on-1.56 org/bouncycastle/jcajce/util/MessageDigestUtils
 c	v/b	org/bouncycastle/util/StreamParsingException	auto: 异常类型：StreamParsing；src: bcprov-1.47 org/bouncycastle/util/StreamParsingException
 c	v/c	org/bouncycastle/util/StoreException	auto: 异常类型：Store；src: bcprov-1.47 org/bouncycastle/util/StoreException
-c	x/a	org/bouncycastle/pqc/math/linearalgebra/ByteUtils	auto: 工具类：Byte；src: bcprov-1.50 org/bouncycastle/pqc/math/linearalgebra/ByteUtils
+c	x/a	org/bouncycastle/util/Arrays	src: bcprov-1.47 org/bouncycastle/util/Arrays；doc: General array utilities.
 c	x/a$a	org/bouncycastle/util/Arrays$Iterator	auto: 类：Iterator（外层 Arrays）；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Arrays$Iterator
 	f	I	b	position	auto: 字段(I)；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Arrays$Iterator.position
 	f	[Ljava/lang/Object;	a	dataArray	auto: 字段([Ljava/lang/Object;)；src: bcprov-jdk15on-1.56 org/bouncycastle/util/Arrays$Iterator.dataArray
@@ -52284,6 +52284,7 @@ c	c/bq	org/bouncycastle/asn1/LazyConstructionEnumeration	auto: 类：LazyConstru
 	f	Lc/j;	a	aIn	auto: 字段(Lc/j;)；src: bcprov-1.47 org/bouncycastle/asn1/LazyConstructionEnumeration.aIn
 	m	()Ljava/lang/Object;	c	readObject	auto: 读取 Object；src: bcprov-1.47 org/bouncycastle/asn1/LazyConstructionEnumeration#readObject
 c	c/aw$$ExternalSyntheticBackport0	org/bouncycastle/asn1/DERIA5String$$ExternalSyntheticBackport0	auto: 类：ExternalSyntheticBackport0（外层 ）（外层 DERIA5String）（上游未收录，名字来自 jobs/asn1bc 的判据）
+c	x/b	org/bouncycastle/util/Strings	auto: 类：Strings；src: bcprov-1.47 org/bouncycastle/util/Strings
 c	abcd/Dy	com/jcraft/jzlib/Adler32	auto: 类：Adler32；src: jzlib-1.1.1 com/jcraft/jzlib/Adler32
 	m	(J)V	j6	reset	auto: 执行 reset；src: jzlib-1.1.1 com/jcraft/jzlib/Adler32#reset
 		p	0	init	init
