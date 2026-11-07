@@ -118,3 +118,6 @@ Ls	com/aide/engine/ReferenceList	extends hu、implements ns；字段 ms[]；DW(i
 yn	com/aide/engine/AttributeMap	extends Xt、implements pn；get(int)on / j6(on)on / j6(String)on / j6(int,on) ⇒ 属性映射
 In	com/aide/engine/Options	body:若干 boolean + String + PrintStream + int ⇒ 编译/解析选项（verbose/debug 之类）
 Ir	com/aide/engine/Visibility	enum:常量 RUNTIME/BUILD/SYSTEM/EMBEDDED 原样在 <clinit>；implements abcd/lu(aM()String)、被 Hr(成员定义) 当可见性字段 ⇒ 注解/成员可见性
+Lr	com/aide/engine/NamedReference	body:(Js 名字, ms 引用) 两个 final 字段 + Hw()Js/Zo()ms 取值 + compareTo/equals/hashCode ⇒ 具名引用（方法/字段条目）
+ns	com/aide/engine/ReferenceArray	iface:ms get(int) + ms j6(int) ⇒ 按索引取引用的容器接口（Ls 实现它）
+Rn	com/aide/engine/Model	extends Xt、implements Comparable；Rn$a 是条目，get(int)Rn$a / j6(int,Rn$a) 存取、j6(Rn,Rn) 合并 ⇒ 构建器(Pn.build())产出的模型

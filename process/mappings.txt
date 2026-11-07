@@ -26650,6 +26650,9 @@ abcd/Ls com/aide/engine/ReferenceList
 abcd/yn com/aide/engine/AttributeMap
 abcd/In com/aide/engine/Options
 abcd/Ir com/aide/engine/Visibility
+abcd/Lr com/aide/engine/NamedReference
+abcd/ns com/aide/engine/ReferenceArray
+abcd/Rn com/aide/engine/Model
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

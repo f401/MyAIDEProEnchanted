@@ -144,3 +144,6 @@ c	abcd/Ls	-	-	auto: 类：ReferenceList（上游未收录，名字来自 jobs/en
 c	abcd/yn	-	-	auto: 类：AttributeMap（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/In	-	-	auto: 类：Options（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ir	-	-	auto: 类：Visibility（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Lr	-	-	auto: 类：NamedReference（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ns	-	-	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Rn	-	-	auto: 类：Model（上游未收录，名字来自 jobs/engine 的判据）
