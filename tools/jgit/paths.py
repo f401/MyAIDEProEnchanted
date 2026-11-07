@@ -66,6 +66,7 @@ PART_DIRS = [
     ('jzlib', os.path.join(REPO, 'jobs', 'jzlib')),
     ('aide_iap', os.path.join(REPO, 'jobs', 'aide_iap')),
     ('aide_bb', os.path.join(REPO, 'jobs', 'aide_bb')),
+    ('aide_ui', os.path.join(REPO, 'jobs', 'aide_ui')),
 ]
 PARTS = [n for n, _ in PART_DIRS]
 

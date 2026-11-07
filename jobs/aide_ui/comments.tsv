@@ -1,0 +1,15 @@
+c	abcd/Cf	-	-	auto: 动作：ExpandSelection（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Dg	-	-	auto: 动作：RenameInCode（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ef	-	-	auto: 动作：ExtractMethod（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Gg	-	-	auto: 动作：ReplaceTextually（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Kf	-	-	auto: 动作：FindExtendedUsages（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Lg	-	-	auto: 动作：SaveFiles（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Gf	-	-	auto: 动作：LogCatFilterByPriority（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Hf	-	-	auto: 动作：LogCatFilterByProcess（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/If	-	-	auto: 动作：LogCatFilterByTag（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Jf	-	-	auto: 动作：LogCatFilterCurrentApp（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Jk	-	-	auto: 解析器：MavenDependency（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Cl	-	-	auto: 类：LessonRunner（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ck	-	-	auto: 任务：LicenseVerification（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ki	-	-	auto: 类：LicensingServiceConnection（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ah	-	-	auto: 任务：InitialCommit（上游未收录，名字来自 jobs/aide_ui 的判据）

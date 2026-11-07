@@ -87,6 +87,10 @@
   {
    "dir": "../jobs/aide_bb",
    "probe_prefix": "abcd"
+  },
+  {
+   "dir": "../jobs/aide_ui",
+   "probe_prefix": "abcd"
   }
  ],
  "src_root": [

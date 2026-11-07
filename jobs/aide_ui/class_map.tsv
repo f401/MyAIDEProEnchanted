@@ -1,0 +1,15 @@
+Cf	com/aide/ui/actions/ExpandSelectionAction	str:"Expand Selection" + implements abcd/_l,abcd/Wl（AIDE 的 Action 接口）
+Dg	com/aide/ui/actions/RenameInCodeAction	str:"Rename in Code" + implements abcd/Yl,abcd/Wl
+Ef	com/aide/ui/actions/ExtractMethodAction	str:"Extract Method" + implements abcd/Yl,abcd/Wl
+Gg	com/aide/ui/actions/ReplaceTextuallyAction	str:"Replace Textually" + implements abcd/Yl,abcd/Wl
+Kf	com/aide/ui/actions/FindExtendedUsagesAction	str:"Find Extended Usages" + implements abcd/Yl,abcd/Wl
+Lg	com/aide/ui/actions/SaveFilesAction	str:"Save Files" + implements abcd/Yl,abcd/Wl
+Gf	com/aide/ui/actions/LogCatFilterByPriorityAction	str:"LogCat - Filter by Priority" + implements abcd/_l,abcd/Wl
+Hf	com/aide/ui/actions/LogCatFilterByProcessAction	str:"LogCat - Filter by Process" + implements abcd/_l,abcd/Wl
+If	com/aide/ui/actions/LogCatFilterByTagAction	str:"LogCat - Filter by Tag" + implements abcd/_l,abcd/Wl
+Jf	com/aide/ui/actions/LogCatFilterCurrentAppAction	str:"LogCat - Filter current App" + implements abcd/_l,abcd/Wl
+Jk	com/aide/maven/MavenDependencyResolver	str:"/maven-metadata.xml"、".exploded.aar"、"Extracted AAR "、"/.aide/maven"；方法 34 个，参数类型是 abcd/Be$g/Be$m（Be=MavenDependenciesConfig）
+Cl	com/aide/trainer/LessonRunner	str:"$package_name$"/"$project_name$"/"$code_hint$"/"Skip Lesson Dialog Shown"，引用 com/aide/ui/trainer(79 处)；72 方法 13 字段
+Ck	com/aide/licensing/LicenseVerificationTask	str:"Licensed verification failed" + implements abcd/g（AIDE 的任务接口）
+Ki	com/aide/licensing/LicensingServiceConnection	str:"Licensing service connected."/"Licensing service unexpectedly disconnected." + implements android/content/ServiceConnection
+Ah	com/aide/ui/scm/InitialCommitTask	str:"libs/*/*.so"、"Initial commit"；implements Runnable；引用 com/aide/ui/scm

@@ -1,0 +1,15 @@
+abcd/Cf com/aide/ui/actions/ExpandSelectionAction
+abcd/Dg com/aide/ui/actions/RenameInCodeAction
+abcd/Ef com/aide/ui/actions/ExtractMethodAction
+abcd/Gg com/aide/ui/actions/ReplaceTextuallyAction
+abcd/Kf com/aide/ui/actions/FindExtendedUsagesAction
+abcd/Lg com/aide/ui/actions/SaveFilesAction
+abcd/Gf com/aide/ui/actions/LogCatFilterByPriorityAction
+abcd/Hf com/aide/ui/actions/LogCatFilterByProcessAction
+abcd/If com/aide/ui/actions/LogCatFilterByTagAction
+abcd/Jf com/aide/ui/actions/LogCatFilterCurrentAppAction
+abcd/Jk com/aide/maven/MavenDependencyResolver
+abcd/Cl com/aide/trainer/LessonRunner
+abcd/Ck com/aide/licensing/LicenseVerificationTask
+abcd/Ki com/aide/licensing/LicensingServiceConnection
+abcd/Ah com/aide/ui/scm/InitialCommitTask
