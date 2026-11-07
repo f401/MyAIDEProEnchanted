@@ -53399,3 +53399,9 @@ c	abcd/Rf	com/aide/ui/actions/GitCreateBranchAction	auto: 动作：GitCreateBran
 c	abcd/Tf	com/aide/ui/actions/GitMergeBranchAction	auto: 动作：GitMergeBranch（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Vf	com/aide/ui/actions/GitPushAction	auto: 动作：GitPush（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/jh	com/aide/ui/actions/GoPremiumAction	auto: 动作：GoPremium（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/ze	com/aide/ui/build/RunTarget	auto: 类：RunTarget（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/ze$a	com/aide/ui/build/RunTarget$Type	auto: 类：Type（外层 RunTarget）（上游未收录，名字来自 jobs/aide_ui 的判据）
+	f	Labcd/ze$a;	j6	ANDROID	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
+	f	Labcd/ze$a;	DW	JAVA	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
+	f	Labcd/ze$a;	FH	WEBSITE	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
+	f	Labcd/ze$a;	Hw	JAVASCRIPT	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）

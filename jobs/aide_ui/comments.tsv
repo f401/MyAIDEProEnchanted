@@ -75,3 +75,9 @@ c	abcd/Rf	-	-	auto: 动作：GitCreateBranch（上游未收录，名字来自 jo
 c	abcd/Tf	-	-	auto: 动作：GitMergeBranch（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Vf	-	-	auto: 动作：GitPush（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/jh	-	-	auto: 动作：GoPremium（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/ze	-	-	auto: 类：RunTarget（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/ze$a	-	-	auto: 类：Type（外层 RunTarget）（上游未收录，名字来自 jobs/aide_ui 的判据）
+f	abcd/ze$a	j6	-	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
+f	abcd/ze$a	DW	-	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
+f	abcd/ze$a	FH	-	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
+f	abcd/ze$a	Hw	-	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）

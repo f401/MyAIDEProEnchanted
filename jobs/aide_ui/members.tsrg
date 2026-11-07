@@ -75,3 +75,9 @@ abcd/Rf com/aide/ui/actions/GitCreateBranchAction
 abcd/Tf com/aide/ui/actions/GitMergeBranchAction
 abcd/Vf com/aide/ui/actions/GitPushAction
 abcd/jh com/aide/ui/actions/GoPremiumAction
+abcd/ze com/aide/ui/build/RunTarget
+abcd/ze$a com/aide/ui/build/RunTarget$Type
+	j6 ANDROID
+	DW JAVA
+	FH WEBSITE
+	Hw JAVASCRIPT
