@@ -102,3 +102,6 @@ c	abcd/Ca	-	-	auto: 缓存：File（上游未收录，名字来自 jobs/engine �
 c	abcd/ga	-	-	auto: 提供者：Ast（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Za	-	-	auto: 类：Position（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Cb	-	-	auto: 类：IntVector（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Rr	-	-	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Qs	-	-	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Rs	-	-	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）

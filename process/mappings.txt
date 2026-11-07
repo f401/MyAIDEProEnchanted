@@ -26608,6 +26608,9 @@ abcd/Ca com/aide/engine/FileCache
 abcd/ga com/aide/engine/AstProvider
 abcd/Za com/aide/engine/Position
 abcd/Cb com/aide/engine/IntVector
+abcd/Rr com/aide/engine/WellKnownTypes
+abcd/Qs com/aide/engine/TypeConstant
+abcd/Rs com/aide/engine/TypeInfo
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

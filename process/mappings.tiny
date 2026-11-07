@@ -25203,6 +25203,9 @@ c	abcd/Ca	com/aide/engine/FileCache	auto: 缓存：File（上游未收录，名�
 c	abcd/ga	com/aide/engine/AstProvider	auto: 提供者：Ast（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Za	com/aide/engine/Position	auto: 类：Position（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Cb	com/aide/engine/IntVector	auto: 类：IntVector（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Rr	com/aide/engine/WellKnownTypes	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Qs	com/aide/engine/TypeConstant	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Rs	com/aide/engine/TypeInfo	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
