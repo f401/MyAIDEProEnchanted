@@ -25273,6 +25273,8 @@ c	abcd/db	com/aide/engine/HighlightingReporter	iface: 每文件语法高亮上�
 c	abcd/eb	com/aide/engine/ErrorReporter	iface: 分析期错误上报——唯一方法 j6(Da,String)，c$b$f 取 Da.XL() 后转给 p.j6(路径,消息)；调用者 abcd/ee
 c	abcd/hb	com/aide/engine/RefactoringSink	iface: 重构编辑动作接收端(38 个方法)——c$b$i 造 Modification 并 1:1 转给 J(service/j=RefactoringListenerAdapter)；含区间替换/插入与 rename/move 等无参动作
 c	abcd/ob	com/aide/engine/UsageSearchSink	iface: 用法搜索收集端——j6(Da,I×4) 报一处命中，c$b$p 累积后重读该行文本，最后调 Q.j6(List<FindResult>)/br()/DW()；调用者 abcd/fa(解析器)
+c	abcd/jb	com/aide/engine/SourceEntityTreeBuilder	iface: 实体表构建(带父子层次)——j6(Aa,I×8) 把表尾 N 个收进新实体的子表；j6(Da,I) 按(路径,版本)整表发 M.j6(路径,版本,表)；实现者 c$b$k，调用者 abcd/X
+c	abcd/kb	com/aide/engine/SymbolGroupReporter	iface: 按组名上报符号——DW/Hw/FH/v5 四个口全落到 r=IGotoSymbolListener；实现者 c$b$l 持"组名+ArrayList<SourceEntity>"，调用者 abcd/Y
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
@@ -53584,3 +53586,8 @@ c	com/aide/engine/q	com/aide/engine/SourceReader	auto: 读取器：Source（上�
 c	com/aide/engine/v	com/aide/engine/BinaryExpression	auto: 类：BinaryExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/x	com/aide/engine/FieldAccessExpression	auto: 类：FieldAccessExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/y	com/aide/engine/MethodCallExpression	auto: 类：MethodCallExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/I	com/aide/engine/FileContent	body: 文件正文值对象——char[] 正文 + int 长度 + long 版本；FileContentCache(abcd/gb) 的缓存值，H 的 j6(I) 也收它
+c	com/aide/engine/F	com/aide/engine/SourceMetricsListener	iface: 度量数据回调(引擎→客户端)——4 方法与 abcd/bb(SourceMetricsSink) 同形，只把 ProjectFile 换成路径；jar 里无实现者
+c	com/aide/engine/K	com/aide/engine/SourceMetricsAnalyzer	body: 源码行统计 + 折叠区间分析——遍历工程文件逐行统计(行长/空行/注释/代码/最大行宽)，非行首处向 IntervalList 记折叠点，结果经 abcd/bb 上报
+c	com/aide/engine/K$a	com/aide/engine/SourceMetricsAnalyzer$Metrics	body: 统计节点——9 个计数(int×8 + long×1)，j6(K$a) 逐项相加合并；外层 SourceMetricsAnalyzer
+c	com/aide/engine/p	com/aide/engine/ErrorListener	iface: 分析期错误输出——唯一方法 j6(路径,消息)，Engine 字段 Ev 持有，调用链 abcd/eb(ErrorReporter) ← abcd/ee(HTML/JS 属性检查)

@@ -69,3 +69,8 @@ com/aide/engine/q	com/aide/engine/SourceReader	iface:唯一方法 Labcd/Reader; 
 com/aide/engine/v	com/aide/engine/BinaryExpression	body:两个 Expression 子节点 + 一个 String；toString 按 左、运算符、右 拼接 ⇒ 二元运算表达式
 com/aide/engine/x	com/aide/engine/FieldAccessExpression	body:(Z,Z,String,String,Expression)；toString 的字面量顺序是 ""、"("、")."、"." ⇒ (owner).name.child 形式的字段访问
 com/aide/engine/y	com/aide/engine/MethodCallExpression	body:(Z,String,String,String,List<Expression>,Expression)；toString 里 "(" + ")." + "(" + "," + ")" + "." ⇒ (recv).name(arg,arg).child 形式的调用
+com/aide/engine/I	com/aide/engine/FileContent	body:字段 char[] FH + int Hw + long v5 + 无参 ctor；被 FileContentCache(abcd/gb) 当缓存值——FM(Da) 用它造 CharArrayReader(FH,0,Hw)、Hw(Da) 返回长度、j6(Da) 返回版本 v5；接口 H 的 j6(I) 也收它 ⇒ 「正文 + 长度 + 版本」的值对象
+com/aide/engine/F	com/aide/engine/SourceMetricsListener	iface:4 方法 j6(String,J,int×6)/DW(String,J,int×6)/j6(J,int×6)/j6()，与 abcd/bb(SourceMetricsSink) 一一对应（只把 ProjectFile 换成路径字符串），是同一份度量数据在「引擎→客户端」方向的回调；merged_ok.jar 里无实现者 ⇒ 客户端侧实现
+com/aide/engine/K	com/aide/engine/SourceMetricsAnalyzer	body:构造收 ea(CachedProject)；j6(List<String>) 用 _b 遍历工程文件，对每个路径 Ea.DW(path) → j6(Da,_b) 建 K$a 再逐级 merge，末尾上报 La.tp(=abcd/bb SourceMetricsSink)；j6(Sa,int,K$a) 逐行统计——Sa.QX/vy 求行长累加 FH、lp/ca/vJ 各 +1（空行/注释/代码）、gn 记最大行宽，且「非行首」时向 bc(IntervalList).DW(行号) 记一个折叠点 ⇒ 源码行统计 + 折叠区间分析
+com/aide/engine/K$a	com/aide/engine/SourceMetricsAnalyzer$Metrics	body:纯计数结构（int FH/VH/Zo/v5/u7/gn/tp/EQ + long Hw）；j6(K$a) 把 9 个字段逐项 add-int/add-long 合并 ⇒ 每文件、每目录的统计节点（外层是 SourceMetricsAnalyzer）
+com/aide/engine/p	com/aide/engine/ErrorListener	iface:唯一方法 j6(String 路径,String 消息)；Engine 持有在字段 Ev（c.Ev() 取值），无实现者（客户端注入）；唯一调用链 abcd/eb(ErrorReporter) 的实现者 c$b$f 用 Da.XL() 取路径后转给它，而 eb 的调用者 abcd/ee 是 HTML/JS 属性检查器 ⇒ 分析期错误输出

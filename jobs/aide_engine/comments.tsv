@@ -83,3 +83,8 @@ c	com/aide/engine/q	-	-	auto: 读取器：Source（上游未收录，名字来�
 c	com/aide/engine/v	-	-	auto: 类：BinaryExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/x	-	-	auto: 类：FieldAccessExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/y	-	-	auto: 类：MethodCallExpression（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/I	-	-	body: 文件正文值对象——char[] 正文 + int 长度 + long 版本；FileContentCache(abcd/gb) 的缓存值，H 的 j6(I) 也收它
+c	com/aide/engine/F	-	-	iface: 度量数据回调(引擎→客户端)——4 方法与 abcd/bb(SourceMetricsSink) 同形，只把 ProjectFile 换成路径；jar 里无实现者
+c	com/aide/engine/K	-	-	body: 源码行统计 + 折叠区间分析——遍历工程文件逐行统计(行长/空行/注释/代码/最大行宽)，非行首处向 IntervalList 记折叠点，结果经 abcd/bb 上报
+c	com/aide/engine/K$a	-	-	body: 统计节点——9 个计数(int×8 + long×1)，j6(K$a) 逐项相加合并；外层 SourceMetricsAnalyzer
+c	com/aide/engine/p	-	-	iface: 分析期错误输出——唯一方法 j6(路径,消息)，Engine 字段 Ev 持有，调用链 abcd/eb(ErrorReporter) ← abcd/ee(HTML/JS 属性检查)

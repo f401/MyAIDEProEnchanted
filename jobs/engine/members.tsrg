@@ -171,3 +171,5 @@ abcd/db com/aide/engine/HighlightingReporter
 abcd/eb com/aide/engine/ErrorReporter
 abcd/hb com/aide/engine/RefactoringSink
 abcd/ob com/aide/engine/UsageSearchSink
+abcd/jb com/aide/engine/SourceEntityTreeBuilder
+abcd/kb com/aide/engine/SymbolGroupReporter

@@ -172,3 +172,5 @@ c	abcd/db	-	-	iface: 每文件语法高亮上报——c$b$e 持 m[](Highlighting
 c	abcd/eb	-	-	iface: 分析期错误上报——唯一方法 j6(Da,String)，c$b$f 取 Da.XL() 后转给 p.j6(路径,消息)；调用者 abcd/ee
 c	abcd/hb	-	-	iface: 重构编辑动作接收端(38 个方法)——c$b$i 造 Modification 并 1:1 转给 J(service/j=RefactoringListenerAdapter)；含区间替换/插入与 rename/move 等无参动作
 c	abcd/ob	-	-	iface: 用法搜索收集端——j6(Da,I×4) 报一处命中，c$b$p 累积后重读该行文本，最后调 Q.j6(List<FindResult>)/br()/DW()；调用者 abcd/fa(解析器)
+c	abcd/jb	-	-	iface: 实体表构建(带父子层次)——j6(Aa,I×8) 把表尾 N 个收进新实体的子表；j6(Da,I) 按(路径,版本)整表发 M.j6(路径,版本,表)；实现者 c$b$k，调用者 abcd/X
+c	abcd/kb	-	-	iface: 按组名上报符号——DW/Hw/FH/v5 四个口全落到 r=IGotoSymbolListener；实现者 c$b$l 持"组名+ArrayList<SourceEntity>"，调用者 abcd/Y
