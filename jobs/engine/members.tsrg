@@ -88,3 +88,5 @@ abcd/Ea com/aide/engine/FileManager
 abcd/Sa com/aide/engine/SourceText
 abcd/La com/aide/engine/Project
 abcd/Da com/aide/engine/ProjectFile
+abcd/S abcd/aide/engine/InlineMethodRefactoring
+abcd/W abcd/aide/engine/ChangeSignatureRefactoring

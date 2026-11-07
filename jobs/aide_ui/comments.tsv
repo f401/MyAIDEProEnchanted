@@ -81,3 +81,4 @@ f	abcd/ze$a	j6	-	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作�
 f	abcd/ze$a	DW	-	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
 f	abcd/ze$a	FH	-	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
 f	abcd/ze$a	Hw	-	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
+c	abcd/zf	-	-	auto: 动作：EditMode（上游未收录，名字来自 jobs/aide_ui 的判据）

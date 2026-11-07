@@ -64,3 +64,4 @@ Kk	com/aide/ui/NotificationChannels	str:"Code Analysis Notifications"/"engine"/"
 Dl	com/aide/trainer/LessonNotifications	str:"UpdateNotifications"/"UpdateTime"/"New "/" lessons!"/"Check out the new lessons"；用 SharedPreferences 记上次检查时间，NotificationManager.notify 发"新课程"通知
 Sk	abcd/aide/ProjectTemplates	str:"$package_name$"/"$project_name$"/"$flavor_name$"/"Create project "/"template"/"templates/"；ZipInputStream 解模板 zip 并做变量替换，j6() 走 U.Hw().getTemplates()（IProject 的模板列表）⇒ 新建工程模板
 za	abcd/aide/JarPackager	str:".JAR"/"Writing "/"Touching "/"Creating "/".class"/"x.tmp"；字段 Deflater/Inflater/CRC32/ZipOutputStream，把工程里编译出的 .class 按目录打成 jar（c tor 收 abcd/La 工程）⇒ jar 打包器
+uh	com/aide/ui/NewUserExperienceDialog	str:"New user experience"/"cancelled"/"exit"；extends com/aide/common/ma(对话框基类)，j6(Activity) 里 AlertDialog$Builder + CustomExpandableListView + Sk.j6(工程模板) ⇒ 新用户引导/模板选择对话框

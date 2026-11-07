@@ -12639,6 +12639,7 @@ abcd/Sk abcd/aide/ProjectTemplates
 	j6 (Ljava/lang/String;)Ljava/util/List; getTemplates
 abcd/za abcd/aide/JarPackager
 	DW (Z)Z writeJar
+abcd/uh com/aide/ui/NewUserExperienceDialog
 com/a/b/a/a/a com/android/dx/cf/attrib/AttAnnotationDefault
 	a ()I byteLength
 	b ()Lcom/a/b/e/c/a; getValue
@@ -26591,6 +26592,8 @@ abcd/Ea com/aide/engine/FileManager
 abcd/Sa com/aide/engine/SourceText
 abcd/La com/aide/engine/Project
 abcd/Da com/aide/engine/ProjectFile
+abcd/S abcd/aide/engine/InlineMethodRefactoring
+abcd/W abcd/aide/engine/ChangeSignatureRefactoring
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
@@ -55482,6 +55485,7 @@ abcd/ze$a com/aide/ui/build/RunTarget$Type
 	DW JAVA
 	FH WEBSITE
 	Hw JAVASCRIPT
+abcd/zf com/aide/ui/actions/EditModeAction
 com/aide/engine/G com/aide/engine/Modification$Creator
 com/aide/engine/L com/aide/engine/SourceEntity$Creator
 com/aide/engine/N com/aide/engine/SyntaxError$Creator

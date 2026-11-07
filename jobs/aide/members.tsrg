@@ -267,3 +267,4 @@ abcd/Sk abcd/aide/ProjectTemplates
 	j6 (Ljava/lang/String;)Ljava/util/List; getTemplates
 abcd/za abcd/aide/JarPackager
 	DW (Z)Z writeJar
+abcd/uh com/aide/ui/NewUserExperienceDialog

@@ -12027,6 +12027,7 @@ c	abcd/Sk	abcd/aide/ProjectTemplates	auto: 类：ProjectTemplates（上游未收
 	m	(Ljava/lang/String;)Ljava/util/List;	j6	getTemplates	auto: 取 Templates（上游无同签名对应，按作用取名）
 c	abcd/za	abcd/aide/JarPackager	auto: 类：JarPackager（上游未收录，名字来自 jobs/aide 的判据）
 	m	(Z)Z	DW	writeJar	auto: 写出 Jar（上游无同签名对应，按作用取名）
+c	abcd/uh	com/aide/ui/NewUserExperienceDialog	auto: 类：NewUserExperienceDialog（上游未收录，名字来自 jobs/aide 的判据）
 c	com/a/b/a/a/a	com/android/dx/cf/attrib/AttAnnotationDefault	auto: 类：AttAnnotationDefault；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault
 	m	()I	a	byteLength	auto: 「byteLength」；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#byteLength
 	m	()Lcom/a/b/e/c/a;	b	getValue	auto: 取 Value；src: dx-1.16 com/android/dx/cf/attrib/AttAnnotationDefault#getValue
@@ -25186,6 +25187,8 @@ c	abcd/Ea	com/aide/engine/FileManager	auto: 管理器：File（上游未收录�
 c	abcd/Sa	com/aide/engine/SourceText	auto: 类：SourceText（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/La	com/aide/engine/Project	auto: 类：Project（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Da	com/aide/engine/ProjectFile	auto: 类：ProjectFile（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/S	abcd/aide/engine/InlineMethodRefactoring	auto: 类：InlineMethodRefactoring（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/W	abcd/aide/engine/ChangeSignatureRefactoring	auto: 类：ChangeSignatureRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
@@ -53409,6 +53412,7 @@ c	abcd/ze$a	com/aide/ui/build/RunTarget$Type	auto: 类：Type（外层 RunTarget
 	f	Labcd/ze$a;	DW	JAVA	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
 	f	Labcd/ze$a;	FH	WEBSITE	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
 	f	Labcd/ze$a;	Hw	JAVASCRIPT	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作用取名）
+c	abcd/zf	com/aide/ui/actions/EditModeAction	auto: 动作：EditMode（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	com/aide/engine/G	com/aide/engine/Modification$Creator	auto: 类：Creator（外层 Modification）（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/L	com/aide/engine/SourceEntity$Creator	auto: 类：Creator（外层 SourceEntity）（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/N	com/aide/engine/SyntaxError$Creator	auto: 类：Creator（外层 SyntaxError）（上游未收录，名字来自 jobs/aide_engine 的判据）
