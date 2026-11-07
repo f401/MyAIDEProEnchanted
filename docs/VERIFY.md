@@ -77,8 +77,17 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 6 `coverage` | 方法 **3501/3533 = 99.1%**、字段 **1848/1855 = 99.6%**、类 623、完全覆盖 **604**；未入分母：方法 890 / 字段 496；未命中明细 39 条 → `~/out/work/cov_miss.tsv` |
 | 7 `widen_access --report` | `跨包需放宽：类 31 / 成员 58`（`--apply` 改写对应 class） |
 | 12 `tools/jgit/audit/apk_refs.py`（构建链 `apkrefs` 步） | **产物里不许有"旧类名"残留**：class_map 里被改名的旧名 `L旧名;` 在 dex / 嵌套 jar 里一个都不许有（另含 `assets/data/functions/**` 格式检查：必须仍是 `zip(classes.dex)`；踩过 `com/aide/ui/U` 引用残留 → NOTES §12、资产格式 → NOTES §13） |
-| 12'' `tools/deob/assetcheck.py`（新增）| **资产包引用一致性**。`assets/data/functions/**` 的 4 个 bundle 不参与 FART 改名（构建时原样回填），所以它们**引用到的类/成员都不许改名**；否则运行到那行就是 `NoClassDefFoundError: L旧名;`（踩过：en/zh 语言包引用 `abcd/Be`，改名后崩）。要保留可读名就把 bundle 自己也过一遍 FART（见 RESTORE §8）。当前：en 12 类 / zh 12 / ndk 10 / packagingservice 19，违规 0 |
-| 12' `tools/deob/innercheck.py`（新增）| **内部类归属不变量**：探针 `X$y` 若映射成 `A$b`，则 `A` 必须 = `map(X)`；探针内部类不许映射成顶层类（否则外层 `InnerClasses` 变成 `outer=X / inner=顶层类 / innerName=a` 的自相矛盾条目，D8 报 `Malformed inner-class attribute`）。当前：①外层归属不一致 2 条（`abcd/tB$a` 为 jgit 历史遗留，待查）②内部类↔顶层错配 0 ③重复目标 0 |
+| 12'' `tools/deob/assetcheck.py`（新增）| **资产包引用一致性**。`assets/data/functions/**` 的 4 个 bundle 不参与 FART 改名（构建时原样回填），所以它们**引用到的类/成员都不许改名**；否则运行到那行就是 `NoClassDefFoundError: L旧名;`（踩过：en/zh 语言包引用 `abcd/Be`，改名后崩）。要保留可读名就把 bundle 自己也过一遍 FART（见 RESTORE §8）。当前：en 12 类 / zh 12 / ndk 10 / packagingservice 19，**违规 39 条**（见下） |
+
+> **违规 39 条 = 已知债（不是新回归）**。en/zh 语言包里引用了这些被改名的符号：
+> `abcd/Ea→FileManager`、`abcd/la→FileType`、`abcd/na→LanguageServices`、`abcd/pa→Indenter`、
+> `abcd/Hd→JavaTypeTable`、`abcd/Nk→OpenFileTable`、`abcd/Wi→SolutionBuilder`、`abcd/Zk→AppController`、
+> `abcd/ck→SyntaxErrorTable`、`com/aide/ui/build/android/I→UsageSearch`、`abcd/GA→ZipSigner`、
+> `abcd/Ek.j6/Zo`、`abcd/GA.j6/DW`、`abcd/ApplicationUtils.j6`。
+> 影响面：**只有"Show Code Help"这条功能**（bundle 是离线 API 文档库），不影响编译/编辑/构建。
+> 根治办法是让 4 个 bundle 也过一遍 FART：`dex2jar → FART --map out/build/mappings.tiny → D8 → 回填 zip`，
+> 见 RESTORE §8；在它落地前**不要再把新命名的类塞进这条链**（先跑 `assetcheck` 看红）。 |
+| 12' `tools/deob/innercheck.py`（新增）| **内部类归属不变量**：探针 `X$y` 若映射成 `A$b`，则 `A` 必须 = `map(X)`；探针内部类不许映射成顶层类（否则外层 `InnerClasses` 变成 `outer=X / inner=顶层类 / innerName=a` 的自相矛盾条目，D8 报 `Malformed inner-class attribute`）。当前：①外层归属不一致 0 ②内部类↔顶层错配 0 ③重复目标 0 |
 | 11 `tools/jgit/audit/jdk_refs.py`（构建链 `jdkrefs` 步） | **改名前后指向 `java/`/`javax/`/`android/`… 的引用必须一模一样**；踩过一次 `toString→getLongname` 被 FART 传播到 `java.lang.Object` / `CharSequence`，780 条 JDK 引用被改坏，装机即崩（见 NOTES §11） |
 | 10 `deob mgraph --pkg=com/jcraft/jsch` | `调用图自证：530 个方法 / 2462 条已定名引用，未对上 6 条（0.2%），可疑方法 4 个`（4 条均已知：1 条 AIDE 改的方法体 + 3 条 `Compression.stream` 类型被换成 `abcd/Oy`，见 NOTES §9/§10） |
 

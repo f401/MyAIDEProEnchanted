@@ -1,0 +1,45 @@
+com/aide/engine/G	com/aide/engine/Modification$Creator	body:implements Parcelable$Creator，createFromParcel(Parcel) 返回 Lcom/aide/engine/Modification; ⇒ Modification 的 CREATOR
+com/aide/engine/L	com/aide/engine/SourceEntity$Creator	body:implements Parcelable$Creator，createFromParcel 返回 Lcom/aide/engine/SourceEntity; ⇒ SourceEntity 的 CREATOR
+com/aide/engine/N	com/aide/engine/SyntaxError$Creator	body:implements Parcelable$Creator，createFromParcel 返回 Lcom/aide/engine/SyntaxError; ⇒ SyntaxError 的 CREATOR
+com/aide/engine/e	com/aide/engine/EngineSolution$Creator	body:implements Parcelable$Creator，createFromParcel 返回 Lcom/aide/engine/EngineSolution; ⇒ EngineSolution 的 CREATOR
+com/aide/engine/f	com/aide/engine/EngineSolution$File$Creator	body:implements Parcelable$Creator，createFromParcel 返回 Lcom/aide/engine/EngineSolution$File; ⇒ EngineSolution$File 的 CREATOR
+com/aide/engine/g	com/aide/engine/EngineSolutionProject$Creator	body:implements Parcelable$Creator，createFromParcel 返回 Lcom/aide/engine/EngineSolutionProject; ⇒ EngineSolutionProject 的 CREATOR
+com/aide/engine/k	com/aide/engine/FindResult$Creator	body:implements Parcelable$Creator，createFromParcel 返回 Lcom/aide/engine/FindResult; ⇒ FindResult 的 CREATOR
+com/aide/engine/l	com/aide/engine/FindResult$Highlighting$Creator	body:implements Parcelable$Creator，createFromParcel 返回 Lcom/aide/engine/FindResult$Highlighting; ⇒ FindResult$Highlighting 的 CREATOR
+com/aide/engine/i	com/aide/engine/FileHighlightings$Creator	body:implements Parcelable$Creator，createFromParcel 返回 Lcom/aide/engine/FileHighlightings; ⇒ FileHighlightings 的 CREATOR
+com/aide/engine/service/a	com/aide/engine/service/CharArray$Creator	body:implements Parcelable$Creator，createFromParcel 返回 Lcom/aide/engine/service/CharArray; ⇒ CharArray 的 CREATOR
+com/aide/engine/service/m	com/aide/engine/service/IBuildListener	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.IBuildListener"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/m$a	com/aide/engine/service/IBuildListener$Stub	body:extends Binder、implements IBuildListener，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/m$a$a	com/aide/engine/service/IBuildListener$Stub$Proxy	body:implements IBuildListener 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/service/o	com/aide/engine/service/ICodeCompletionListener	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.ICodeCompletionListener"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/o$a	com/aide/engine/service/ICodeCompletionListener$Stub	body:extends Binder、implements ICodeCompletionListener，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/o$a$a	com/aide/engine/service/ICodeCompletionListener$Stub$Proxy	body:implements ICodeCompletionListener 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/service/p	com/aide/engine/service/IEngineErrorListener	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.IEngineErrorListener"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/p$a	com/aide/engine/service/IEngineErrorListener$Stub	body:extends Binder、implements IEngineErrorListener，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/p$a$a	com/aide/engine/service/IEngineErrorListener$Stub$Proxy	body:implements IEngineErrorListener 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/service/q	com/aide/engine/service/IEngineListener	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.IEngineListener"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/q$a	com/aide/engine/service/IEngineListener$Stub	body:extends Binder、implements IEngineListener，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/q$a$a	com/aide/engine/service/IEngineListener$Stub$Proxy	body:implements IEngineListener 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/service/r	com/aide/engine/service/IGotoSymbolListener	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.IGotoSymbolListener"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/r$a	com/aide/engine/service/IGotoSymbolListener$Stub	body:extends Binder、implements IGotoSymbolListener，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/r$a$a	com/aide/engine/service/IGotoSymbolListener$Stub$Proxy	body:implements IGotoSymbolListener 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/service/s	com/aide/engine/service/IHighlightingListener	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.IHighlightingListener"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/s$a	com/aide/engine/service/IHighlightingListener$Stub	body:extends Binder、implements IHighlightingListener，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/s$a$a	com/aide/engine/service/IHighlightingListener$Stub$Proxy	body:implements IHighlightingListener 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/service/t	com/aide/engine/service/INavigationListener	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.INavigationListener"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/t$a	com/aide/engine/service/INavigationListener$Stub	body:extends Binder、implements INavigationListener，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/t$a$a	com/aide/engine/service/INavigationListener$Stub$Proxy	body:implements INavigationListener 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/service/u	com/aide/engine/service/IOpenFileInterface	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.IOpenFileInterface"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/u$a	com/aide/engine/service/IOpenFileInterface$Stub	body:extends Binder、implements IOpenFileInterface，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/u$a$a	com/aide/engine/service/IOpenFileInterface$Stub$Proxy	body:implements IOpenFileInterface 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/service/v	com/aide/engine/service/IRefactoringListener	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.IRefactoringListener"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/v$a	com/aide/engine/service/IRefactoringListener$Stub	body:extends Binder、implements IRefactoringListener，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/v$a$a	com/aide/engine/service/IRefactoringListener$Stub$Proxy	body:implements IRefactoringListener 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/service/w	com/aide/engine/service/IUsageSearcherListener	str:Stub 里的 DESCRIPTOR 常量 "com.aide.engine.service.IUsageSearcherListener"（AIDL 生成代码自带）⇒ 接口真名
+com/aide/engine/service/w$a	com/aide/engine/service/IUsageSearcherListener$Stub	body:extends Binder、implements IUsageSearcherListener，DESCRIPTOR 常量同父接口 ⇒ AIDL Stub
+com/aide/engine/service/w$a$a	com/aide/engine/service/IUsageSearcherListener$Stub$Proxy	body:implements IUsageSearcherListener 的代理（方法体里按 DESCRIPTOR 走 transact）⇒ AIDL Stub$Proxy
+com/aide/engine/s	com/aide/engine/Expression	iface:无方法标记接口，10 个实现都是"能渲染成源码文本"的表达式节点（各自 toString 拼出源码片段）
+com/aide/engine/t	com/aide/engine/ArrayAccess	body:字段 FH/Hw 都是 Lcom/aide/engine/s;，toString 依次拼 "["、"child"、"]" ⇒ 数组下标表达式
+com/aide/engine/u	com/aide/engine/FieldAccess	body:字段 FH 是子表达式，toString 拼 child + ".length" ⇒ 字段/属性访问表达式
+com/aide/engine/D	com/aide/engine/QualifiedName	body:两个 String 字段，toString 拼 "A . B"（串 " ."）⇒ 限定名（包名.类名）
+com/aide/engine/service/d	com/aide/engine/service/EngineProcessManager	str:"Engine process killed after OOM"/"Engine process killed after shutdown"；implements com/aide/engine/d，管引擎进程的生死与重连 ⇒ 引擎进程管理

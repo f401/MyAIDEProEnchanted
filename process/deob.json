@@ -91,6 +91,10 @@
   {
    "dir": "../jobs/aide_ui",
    "probe_prefix": "abcd"
+  },
+  {
+   "dir": "../jobs/aide_engine",
+   "probe_prefix": "com/aide/engine"
   }
  ],
  "src_root": [

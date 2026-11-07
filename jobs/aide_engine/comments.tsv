@@ -1,0 +1,45 @@
+c	com/aide/engine/G	-	-	auto: 类：Creator（外层 Modification）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/L	-	-	auto: 类：Creator（外层 SourceEntity）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/N	-	-	auto: 类：Creator（外层 SyntaxError）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/e	-	-	auto: 类：Creator（外层 EngineSolution）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/f	-	-	auto: 类：Creator（外层 File）（外层 EngineSolution）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/g	-	-	auto: 类：Creator（外层 EngineSolutionProject）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/k	-	-	auto: 类：Creator（外层 FindResult）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/l	-	-	auto: 类：Creator（外层 Highlighting）（外层 FindResult）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/i	-	-	auto: 类：Creator（外层 FileHighlightings）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/a	-	-	auto: 类：Creator（外层 CharArray）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/m	-	-	auto: 回调接口：IBuild（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/m$a	-	-	auto: 类：Stub（外层 IBuildListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/m$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 IBuildListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/o	-	-	auto: 回调接口：ICodeCompletion（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/o$a	-	-	auto: 类：Stub（外层 ICodeCompletionListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/o$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 ICodeCompletionListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/p	-	-	auto: 回调接口：IEngineError（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/p$a	-	-	auto: 类：Stub（外层 IEngineErrorListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/p$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 IEngineErrorListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/q	-	-	auto: 回调接口：IEngine（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/q$a	-	-	auto: 类：Stub（外层 IEngineListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/q$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 IEngineListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/r	-	-	auto: 回调接口：IGotoSymbol（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/r$a	-	-	auto: 类：Stub（外层 IGotoSymbolListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/r$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 IGotoSymbolListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/s	-	-	auto: 回调接口：IHighlighting（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/s$a	-	-	auto: 类：Stub（外层 IHighlightingListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/s$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 IHighlightingListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/t	-	-	auto: 回调接口：INavigation（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/t$a	-	-	auto: 类：Stub（外层 INavigationListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/t$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 INavigationListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/u	-	-	auto: 类：IOpenFileInterface（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/u$a	-	-	auto: 类：Stub（外层 IOpenFileInterface）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/u$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 IOpenFileInterface）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/v	-	-	auto: 回调接口：IRefactoring（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/v$a	-	-	auto: 类：Stub（外层 IRefactoringListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/v$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 IRefactoringListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/w	-	-	auto: 回调接口：IUsageSearcher（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/w$a	-	-	auto: 类：Stub（外层 IUsageSearcherListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/w$a$a	-	-	auto: 类：Proxy（外层 Stub）（外层 IUsageSearcherListener）（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/s	-	-	auto: 类：Expression（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/t	-	-	auto: 类：ArrayAccess（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/u	-	-	auto: 类：FieldAccess（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/D	-	-	auto: 类：QualifiedName（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/service/d	-	-	auto: 管理器：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）
