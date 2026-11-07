@@ -127,3 +127,11 @@ abcd/Am com/aide/engine/NamedAttribute
 abcd/Bm com/aide/engine/IndexedAttribute
 abcd/Xt com/aide/engine/ArrayItem
 abcd/Dm com/aide/engine/AnnotationElementTable
+abcd/gn com/aide/engine/AttributeFactory
+abcd/nn com/aide/engine/DexAttributeFactory
+abcd/Hn com/aide/engine/AttributeConverter
+abcd/Qm com/aide/engine/AnnotationSet
+abcd/Pn com/aide/engine/ModelBuilder
+abcd/mm com/aide/engine/ReferenceAttribute
+abcd/om com/aide/engine/AnnotationTableAttribute
+abcd/rm com/aide/engine/ValueAttribute

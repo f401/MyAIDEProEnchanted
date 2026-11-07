@@ -102,3 +102,11 @@ Am	com/aide/engine/NamedAttribute	abstract:implements on，唯一 String 字段 
 Bm	com/aide/engine/IndexedAttribute	abstract:extends Am，多了 Qm 字段 + Hw()I(索引) + j6()Qm ⇒ 带索引值的具名属性基类
 Xt	com/aide/engine/ArrayItem	body:Object[] + 一组 protected final 按下标取(DW(int)/FH(int))、aM() 渲染、DW(String,String,String)/j6(…) 拼字符串、equals/hashCode；extends hu ⇒ 数组承载的条目基类
 Dm	com/aide/engine/AnnotationElementTable	extends Xt；get(int)Dm$a 取元素、j6(int,Ks,Ks,Js,int) 以 (名字/类型/值/索引) 追加 ⇒ 注解元素表
+gn	com/aide/engine/AttributeFactory	body:public final on j6(jn,int,int,xn) + protected 变体 ⇒ 由 (值, 起, 止, 上下文) 造属性对象的工厂基类
+nn	com/aide/engine/DexAttributeFactory	extends gn，单例 j6；一堆 private on DW/FH/Hw/J0/EQ(jn,int,int,xn) 按不同种类造属性 ⇒ 具体属性工厂
+Hn	com/aide/engine/AttributeConverter	全是 static 方法：把 un/pn/jn 转成 Jr/Kr/Hr（j6(Ks,pn,Z)Jr、j6(jn,In)Jr、FH(un)Kr…）⇒ 属性/注解的转换工具
+Qm	com/aide/engine/AnnotationSet	extends Xt；Qm$a 是条目；DW(Qm,Qm)/j6(Qm,Qm) 是**并集/合并**、j6(int,int,int,Js,Js,Js,int) 追加条目、get(int)Qm$a ⇒ 注解/类型集合
+Pn	com/aide/engine/ModelBuilder	iface:DW()Z + build()Rn + j6()HashSet<Qs> ⇒ 构建器
+mm	com/aide/engine/ReferenceAttribute	extends Am（具名属性），字段 Ks+Hs，方法 DW()Hs 取引用、Hw()I 取索引 ⇒ 带引用的属性
+om	com/aide/engine/AnnotationTableAttribute	extends Am，字段 Dm(注解元素表)，方法 j6()Dm 取表、Hw()I 取索引 ⇒ 带注解元素表的属性
+rm	com/aide/engine/ValueAttribute	extends Bm（带索引值的具名属性），ctor(Qm) ⇒ 承载一个 Qm 值的属性
