@@ -150,3 +150,10 @@ abcd/ab com/aide/engine/AstVisitor
 abcd/Wa com/aide/engine/CommentTable
 abcd/em com/aide/engine/IntervalList
 abcd/Sl com/aide/engine/RingBuffer
+abcd/Vn com/aide/engine/Instruction
+abcd/ro com/aide/engine/OperandInstruction
+abcd/Sn com/aide/engine/InvokeInstruction
+abcd/ao com/aide/engine/InstructionPrinter
+abcd/hs com/aide/engine/NamedSpan
+abcd/cs com/aide/engine/ParameterTypeList
+abcd/Lt com/aide/engine/CodeWriter

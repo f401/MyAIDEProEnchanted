@@ -125,3 +125,10 @@ ab	com/aide/engine/AstVisitor	iface:j6(Aa)/DW(Aa)/j6(Aa)/DW(Aa,Ya)（访问 AST 
 Wa	com/aide/engine/CommentTable	body:五张 int[] + 一个 char[] + 若干 int；j6(IIIIII) 记录一段 ⇒ 源文本里的注释/空白区段表（Sa 用）
 em	com/aide/engine/IntervalList	body:<T> Serializable + Vector<em$b<T>>；DW(T,int,int) 按区间加、FH(int,int)Z 判断包含、DW(int,int)fm 取子区间迭代器、Hw(int,int)/DW(int,int,int) 等做区间运算 ⇒ 区间列表
 Sl	com/aide/engine/RingBuffer	body:<T> + List<T> + 两个 int；j6(T)T 入、FH()T 出、j6(int)T 取、DW()I/Hw()I 两个计数、j6() 清空、ctor(int) 定容 ⇒ 定容环形缓冲
+Vn	com/aide/engine/Instruction	abstract:字段 (Xn, hs, cs)；抽象 DW()I(操作数个数)/DW(int)Vn(第 i 个操作数)；DW(BitSet)Vn、EQ()String、静态工厂 j6(hs,bs,bs) 造 mo ⇒ 字节码指令基类
+ro	com/aide/engine/OperandInstruction	abstract:extends Vn；final DW()I、DW(int)Vn 线性取操作数、j6(Xn)Vn、j6(Lt) 写回 ⇒ 带操作数列表的指令
+Sn	com/aide/engine/InvokeInstruction	extends ro；j6(cs)Vn 以参数类型表索引操作数、另有 j6(Z)String 渲染 ⇒ 调用类指令
+ao	com/aide/engine/InstructionPrinter	abstract，方法全是 protected static 的字符串格式化：j6(Vn)String / j6(Ds)String / DW(Vn)String / gn(Vn)short ⇒ 指令反汇编器
+hs	com/aide/engine/NamedSpan	body:final (Js 名字, int, int) + DW(hs)Z 比较 + 静态单例 ⇒ 具名区间（名字+起止）
+cs	com/aide/engine/ParameterTypeList	extends Xt、implements Ss；get(int)bs / j6(bs) / DW(bs) / Hw(int) / er() / 静态 j6(bs[,bs]) ⇒ 参数类型表
+Lt	com/aide/engine/CodeWriter	iface(extends ku):DW()Z / FH() / Hw()Z / j6()I / j6(int,String) / j6(String) ⇒ 字节码输出接口

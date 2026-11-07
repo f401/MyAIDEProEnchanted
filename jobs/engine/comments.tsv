@@ -151,3 +151,10 @@ c	abcd/ab	-	-	auto: 访问者：Ast（上游未收录，名字来自 jobs/engine
 c	abcd/Wa	-	-	auto: 表：Comment（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/em	-	-	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sl	-	-	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Vn	-	-	auto: 类：Instruction（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ro	-	-	auto: 类：OperandInstruction（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Sn	-	-	auto: 类：InvokeInstruction（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ao	-	-	auto: 类：InstructionPrinter（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/hs	-	-	auto: 类：NamedSpan（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/cs	-	-	auto: 类：ParameterTypeList（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Lt	-	-	auto: 写出器：Code（上游未收录，名字来自 jobs/engine 的判据）
