@@ -27,7 +27,7 @@ tools/
 >   `inspect/` 的 `q hdr prof dump elim ifacemap shapeall body matchscore`、
 >   `stage/` 的全部历史脚本与 `stage/fixes/`（见 git log）。
 
-## pipeline/ —— 改映射 & 构建（9 道门都在这）
+## pipeline/ —— 改映射 & 构建（门禁大半在这，完整清单见 docs/VERIFY.md）
 
 | 工具 | 作用 |
 |---|---|

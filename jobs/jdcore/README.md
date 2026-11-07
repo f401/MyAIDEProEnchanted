@@ -1,6 +1,6 @@
 # jdcore —— JD-Core v1（`org.jd.core.v1`，Java 反编译器内核）434 类
 
-身份确认见 [docs/IDENTITY.md §1](../../docs/IDENTITY.md)。oracle：`~/out/oracle/jd/jd-core-1.1.3.jar`（470 类）
+身份确认见 [docs/DEPENDENCIES.md 附录](../../docs/DEPENDENCIES.md)。oracle：`~/out/oracle/jd/jd-core-1.1.3.jar`（470 类）
 + `jd-core-1.1.3-sources.jar` 源码。
 
 ## 包对齐（计数法，**候选**，未逐类验证）

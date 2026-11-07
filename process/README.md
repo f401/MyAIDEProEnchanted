@@ -3,7 +3,7 @@
 ```
 process/                          ← 已落地工程：构建输入 + 汇总产物（真相在各依赖的 jobs/ 下）
 ├── deob.json                     #   通用 kit 配置：parts 顺序（../jobs/jgit 等）/ oracle / jar 列表
-├── mappings.txt                  # TSRG2 汇总产物（按 parts 顺序拼，9838 行）
+├── mappings.txt                  # TSRG2 汇总产物（按 parts 顺序拼，55070 行）
 ├── verify_allow.tsv              # 已知差异白名单（每行都要写理由）
 ├── truth/
 │   ├── head/mappings_head.txt    #   历史补丁：AIDE 首轮改名 20 行（原样拼在最前）
@@ -20,9 +20,9 @@ process/                          ← 已落地工程：构建输入 + 汇总产
 └── output/                       # 历史产物（.gitignore）
 
 jobs/                             ← 一个依赖一个目录：真相（可单独复用/评审）
-├── jgit/{class_map.tsv, members.tsrg, params.tsv}   # 685 类 / 5502 行 / 3238 参数行
-├── jsch/{class_map.tsv, members.tsrg, params.tsv}   # 141 类 / 1229 行 / 824 参数行（jsch 0.1.51，类名未混淆）
-└── aide/{class_map.tsv, members.tsrg}               # 53 类 / 30 行（AIDE 自有类，无 params）
+├── jgit/{class_map.tsv, members.tsrg, params.tsv, comments.tsv}   # 685 类 / 5542 行 / 3238 参数行
+├── jsch/{…}   # 141 类 / 1228 行 / 824 参数行（jsch 0.1.51，类名未混淆）
+└── …（共 19 个 part，见上面的表）
 ```
 
 **为什么真相不在 process/ 里**：这一个 APK 里同时改名了 jgit、jsch（第三方接口双侧改名）、
@@ -31,12 +31,31 @@ AIDE 自有类三个来源。它们各有各的 oracle、各有各的评审节�
 构建输入 + `mappings.txt`（按 `deob.json` 的 `parts` 顺序汇总）+ 本 APK 自己的东西
 （`head` 历史补丁、`smali_index`、`verify_allow`）。
 
-| part（目录） | 探针前缀 | 目标前缀 | 内容 |
+| part（目录） | 探针前缀 | 目标 | 类数 |
 |---|---|---|---|
-| `process/truth/head` | `abcd` | `com/aide/ui/build/packaging*` | 首轮已应用的历史补丁 20 行，只原样输出 |
-| `jobs/jgit` | `abcd` | `org/eclipse/jgit/` | 685 类 / 5502 成员行 / 3238 参数行 |
-| `jobs/jsch` | `com/jcraft/jsch` | `com/jcraft/jsch/` | 141 类 / 1228 成员行 / 824 参数行（jsch 0.1.51；类名原样，成员双侧改名） |
-| `jobs/aide` | `abcd` | `com/aide/`、`abcd/aide/` | 53 类 / 30 成员行（AIDE 自有类 → `abcd/aide/`） |
+| `truth/head` | `abcd` | `abcd/aide/AssetProvider` | 1 |
+| `jobs/jgit` | `abcd` | `org/eclipse/jgit/**` | 685 |
+| `jobs/jsch` | `com/jcraft/jsch` | 原样（只改成员） | 141 |
+| `jobs/aide` | `abcd` | `abcd/aide/**`（AIDE 自有） | 52 |
+| `jobs/dx` | `com/a` | `com/android/dx/**` | 448 |
+| `jobs/crashlytics` | `com/crashlytics` | 原包名 | 176 |
+| `jobs/fabric` | `io/fabric` | 原包名 | 69 |
+| `jobs/spongycastle` | `abcd` | `org/spongycastle/**` | 257 |
+| `jobs/zipsigner` | `abcd` | `kellinwood/**` | 24 |
+| `jobs/dropbox` | `abcd` | `com/dropbox/client2/**` + `org/json/simple/**` | 49 |
+| `jobs/engine` | `abcd` | `abcd/aide/engine/**` | 38 |
+| `jobs/proguard` | `a` | `proguard/**` | 757 |
+| `jobs/jdcore` | `org/c/a/a` | `org/jd/core/v1/**` | 434 |
+| `jobs/antlr` | `org/a/a/a` | `org/antlr/v4/runtime/**`（4.7.2 混淆副本） | 117 |
+| `jobs/antlr492` | `org/antlr` | `org/antlr492/v4/**`（4.9.2 未混淆副本，只改包名避撞） | 220 |
+| `jobs/asn1bc` | `c`/`x` | `org/bouncycastle/**`（ASN.1 子集） | 107 |
+| `jobs/jzlib` | `abcd` | `com/jcraft/jzlib/**` | 14 |
+| `jobs/aide_iap` | `abcd` | `com/aide/billing/**` 等 | 19 |
+| `jobs/aide_bb` | `abcd` | `com/aide/backbone/**` | 85 |
+| `jobs/aide_ui` | `abcd` | `com/aide/ui/**`（动作族） | 15 |
+
+合计 **3707 类 / 27244 成员行 / 22065 参数行 / 30952 条注释**；`process/mappings.txt`（TSRG2）与
+`process/mappings.tiny`（Tiny v2，带注释）都是派生品，用 `rebuild_tsrg.py` + `emit_tiny2.py` 生成。
 
 **探针前缀是 part 级的**（`deob.json` 的 `parts[i].probe_prefix`）：不同依赖的混淆前缀不一定相同，
 短名探针会按各自 part 的前缀展开成全名；合并视图里永远是全名，只读脚本不用关心。
@@ -112,7 +131,7 @@ python3 tools/jgit/pipeline/jar_manifest.py ~/out/fart/r.jar --list   # ③ 内�
 
 | 文件 | 说明 |
 |---|---|
-| `mappings.txt` | 12310 行 = 表头 1 + 头部 1 + 类块 880 + 成员行 6760 + `static` 591 + 参数行 4077 |
+| `mappings.txt` | **55070 行**（TSRG2）= 表头 1 + 类块 3708 + 成员行 27244 + `static` 2052 + 参数行 22065；另有 `mappings.tiny` 53018 行（带 30952 条注释） |
 | `jobs/jgit/params.tsv` | 3238 行：1919 个方法（含 139 个 `<init>`；oracle LVT 为主，抽象方法走源码） |
 | `jobs/jsch/params.tsv` | 824 行：409 个方法（jsch 0.1.51 的 LVT + 0.1.51 源码声明） |
 | `jobs/aide/params.tsv` | 15 行：12 个方法（`params_manual.tsv`，每行都有判据） |

@@ -1,5 +1,33 @@
 # AIDE Pro 2.8.7（freely）里到底有哪些第三方依赖
 
+> **状态以本节为准（2026-11 更新）**；下面的长文是当时的勘查记录，保留作证据链。
+> 每个库的"凭什么认定"见各 `jobs/<part>/README.md`。
+
+| 类别 | 库 | part | 类数 | 状态 |
+|---|---|---|---|---|
+| 已还原（有 oracle） | Eclipse JGit（魔改混合 3.7.1+4.x/5.x） | `jgit` | 685 | ✅ |
+| | ProGuard 6.0.3 | `proguard` | 757 | ✅ |
+| | dx 1.16 世系 | `dx` | 448 | ✅ |
+| | JD-Core v1（1.1.3 结构） | `jdcore` | 434 | ✅ |
+| | SpongyCastle = BouncyCastle 1.47 | `spongycastle` | 257 | ✅ |
+| | ANTLR 4 runtime 4.7.2（混淆副本） | `antlr` | 117 | ✅ |
+| | ANTLR 4.9.2（**未混淆副本**，只改包名区分） | `antlr492` | 220 | ✅ |
+| | crashlytics-core/answers/beta | `crashlytics` | 176 | ✅ |
+| | JSch 0.1.51（只改成员） | `jsch` | 141 | ✅ |
+| | BouncyCastle ASN.1 子集（`c/*`） | `asn1bc` | 107（74 类定名 + 其余按作用） | ✅ |
+| | Fabric 1.4.8 | `fabric` | 69 | ✅ |
+| | Dropbox Android SDK 1.6.2 + json-simple | `dropbox` | 49 | ✅ |
+| | zipsigner 1.11 / zipio 1.6 / kellinwood | `zipsigner` | 24 | ✅ |
+| | JZlib 1.1.1 | `jzlib` | 14 | ✅ |
+| 按作用命名（无 oracle） | AIDE 自有（UI/http/settings…） | `aide` | 52 | ✅ 类级 + 主要成员 |
+| | Backbone 实现层 | `aide_bb` | 85 | ✅ 类级 + 184 成员 |
+| | UI 动作族（新开） | `aide_ui` | 15 | ✅ 类级 |
+| | IAP/计费/licensing | `aide_iap` | 19 | ✅ |
+| | 引擎接入层 | `engine` | 38 | ✅ 类级 |
+| | 首轮历史补丁 | `head` | 1 | ✅ |
+
+合计：**3707 类 / 27244 成员行 / 22065 参数行 / 30952 条注释**；门禁全绿（见 `docs/VERIFY.md`）。
+
 统计方法（可重跑）：
 
 ```bash
@@ -152,3 +180,39 @@ Backbone 相关 7 个（实现 `DefineHook`/`DefineAnalytics`/`EventData` 等，
 3. **`org/c`(434) + `org/a`(117)**——纯数据模型 + 5 个按输入格式分的插件（`c/a/a`、`c/b/a/d`、`c/c/a/a`、`c/d/a`、`c/e/a/a`），有 `<illegal opcode>` 串和 `j_()`/`l_()` 风格方法名，**只被 `com/a*` 引用过一次**，身份未定（下一轮用"谁调用门面 `org/c/a/a/a`"顺藤摸瓜）。
 
 `sun1`/`utilcode`/`java2` 这三组只是**包名被改、类名没混淆**，认包名即可，不需要逐类定名。
+
+---
+
+# 附录：两个"版本锁定"证据链（原 IDENTITY.md 并入）
+
+## 1) `org/c/a/a` = JD-Core v1
+
+四条独立判据：
+
+1. **入口类的字段布局**：`org/c/a/a/a` 恰好 **6 个字段**，构造器里逐个 `new` 出来：
+   `c/b/a/d`、`c/a/a/a`、`c/c/a/a`、`c/d/a`、`c/e/a/a`、`c/f/a`；
+   JD-Core 的 `ClassFileToJavaSourceDecompiler` 恰好 **6 个 processor 字段**
+   （deserializer / converter / fragmenter / layouter / tokenizer / writer）。
+2. **header 常量串**（ProGuard 改不了字符串内容）：该类的方法里 `const-string` 了
+   `"mainInternalTypeName"`、`"loader"`，其余类里还有 `"printer"`、`"maxLineNumber"`、
+   `"configuration"`——这五个正是 JD-Core v1 的 `Message` header 名
+   （`ClassFileToJavaSourceDecompiler.java:34-36`、`LayoutFragmentProcessor` 等）。
+3. **6 个 service 子包**：`org/c/a/a/c/{a..f}` 各含一个 `*Processor` 入口类，与上表六个 service 对应。
+4. **规模**：probe 434 ≤ `jd-core-1.1.3` 470，且最大包逐个"≤ 且接近"
+   （42≤47、40≤42、39≤42、35≤37、25≤29、17=17…）＝Shrinker 裁过。
+5. **引用者**：整个 APK 里只有 AIDE 自己的 `com/a`、`com/c` 引用它（反编译/查看源码 UI）。
+
+> 版本未逐版本二分。若要锁死小版本，拿 1.0.6/1.0.7/1.1.0-1.1.3 逐个跑
+> `tools/deob/shape.py` / `subgraph.py` 比形状差异即可。
+
+## 2) `org/a/a/a` = ANTLR 4 runtime 4.7.2
+
+1. **原版错误串**（逐字）：
+   `"Could not deserialize ATN with version %d (expected %d)."`、
+   `"ANTLR Runtime version %s used for parser compilation does not match the current runtime version %s"`、
+   `"ANTLR Tool version %s used for code generation does not match the current runtime version %s"`。
+2. **版本常量**：整个包里的唯一版本串是 `"4.7.2"`（官方只在 `RuntimeMetaData` 里出现）。
+3. **包形**：`org/antlr/v4/runtime` → `org/a/a/a`，子包 `atn`→`a`(66≤92)、`dfa`→`b`(5≤6)、
+   `misc`→`c`(14≤27)、`tree`(+pattern/xpath 共 36) **全被裁** → 117 = 220 − 103。
+4. **引用者**：`com/a4455jkjh/a/a`、`com/a4455jkjh/b/a`、`com/a4455jkjh/b/d`、`com/a4455jkjh/e/a`
+   ——AIDE 的 Java 语法解析前端（ANTLR4 语法驱动）。

@@ -1,12 +1,28 @@
-# 认证流水线
+> **当前门禁（2026-11）**：共 **11 道**，全绿才提交。真相现在是 `jobs/<part>/` 下的四张表
+> （`class_map.tsv` / `members.tsrg` / `params.tsv` / `comments.tsv`），`process/mappings.txt|.tiny`
+> 都是派生产物。
 
-改完 mapping **必须**按顺序跑完下面 9 道门；全绿才允许构建。任何一道红了，按"失败处置"修，不要绕过。
+```bash
+cd /storage/emulated/0/MyAIDEProEnchanted
+python3 tools/jgit/pipeline/rebuild_tsrg.py          # 1) 逐 part 重建 members.tsrg，并串 paramfill + emit_tsrg2
+python3 tools/jgit/pipeline/validate_mappings.py     # 2) 有效性：类/成员存在、static、重复目标、
+                                                     #    **collide-existing（与基线类撞名）**、dup-class-source、
+                                                     #    dup-member-source、field-with-type、参数行
+python3 tools/jgit/pipeline/verify_members.py        # 3) 一致性：对着 oracle + process/verify_allow.tsv 白名单
+python3 tools/jgit/pipeline/inherit_check.py         # 4) 继承闭合：CONFLICT / DUPTARGET / MISSING 全 0
+python3 tools/jgit/pipeline/pkgclose.py              # 5) 包归属（访问图）
+python3 tools/deob/innercheck.py                     # 6) 内部类/顶层类与外层归属：①②③ 全 0
+python3 tools/deob/famcheck.py --jar process/base/merged_ok.jar \
+        --parts jobs/*/members.tsrg                  # 7) 覆写族体检：冲突 0 / 祖先未映射 0
+python3 tools/jgit/pipeline/emit_tiny2.py            # 8) 派生产物：process/mappings.tiny（带注释，--comments=none 给 FART）
+python3 tools/jgit/pipeline/validate_tiny.py         # 9) Tiny 体检：语法/唯一性/desc/参数下标/注释；--parts=… 查注释覆盖
+python3 tools/jgit/pipeline/tiny_roundtrip.py        # 10) **等价性硬判据**：tiny→TSRG2 与 mappings.txt 逐行相同
+python3 tools/jgit/pipeline/coverage.py              # 11) 覆盖率（只度量，不判定）
+```
 
-真相在 `process/truth/`（类映射 tsv / 成员映射 tsrg / 头部 / smali 索引），`process/mappings.txt` 是派生产物。
-
-> **整包被混淆的库（类名也改了）**：类名还原 + 成员名还原 + 覆盖率口径 + 引用者消歧的完整流程
-> 见 [RESTORE-OBFUSCATED-LIB.md](RESTORE-OBFUSCATED-LIB.md)。本项目 `jobs/dx`（dx 1.16，448 类）
-> 就是按那份流程做的，`cover --pkg=com/a` 的口径（剔除 构造器/静态块/合成器/JDK契约名）也在那里。
+期望值（当前基线）：`类块 3708 / 成员行 27244 / 参数行 22065`；`不一致 0`；
+`CONFLICT 0 / DUPTARGET 0 / MISSING 0`；`innercheck ① 0 / ② 0 / ③ 0`；`famcheck 0/0`；
+`注释 30952 = 类 3708 + 方法 17735 + 字段 9509`。
 
 ## 两种等价入口
 
@@ -14,7 +30,7 @@
 |---|---|---|
 | 入口 | `tools/jgit/pipeline/*.py` | `tools/deob/cli.py -p process/deob.json <cmd>` |
 | 配置 | 固定在本仓库 | `process/deob.json` |
-| 适用 | 本项目的 9 道门（权威） | 新工程 / 交叉验证 |
+| 适用 | 本项目的门禁（权威） | 新工程 / 交叉验证 |
 
 ```bash
 cd /storage/emulated/0/MyAIDEProEnchanted
@@ -53,8 +69,8 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 0 `filter_head` | `保留块 1 / 删块 0 / 删行 0`（head 只剩 `abcd/vj → abcd/aide/AssetProvider`；见 NOTES §15） |
 | 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 141 / aide 54`，合计 `类块 880`、`丢陈旧块 0`、`去重成员 0` |
 | 1' `paramfill` | `参数行 4022 条（2328 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3238 / jsch 784 / aide 15） |
-| 1'' `emit_tsrg2` | `12310 行，static 方法标记 591 / 参数行 4077` |
-| 2 `validate_mappings` | `类块 881（含头部 1）/ 成员行 6760 / 参数行 4077 / 基线类 23636` → **✔ 无无效映射** |
+| 1'' `emit_tsrg2` | `55070 行，static 方法标记 2052 / 参数行 22065` |
+| 2 `validate_mappings` | `类块 3708（含头部 1）/ 成员行 27244 / 参数行 22065 / 基线类 23636` → **✔ 无无效映射** |
 | 3 `verify_members` | `成员映射 5376 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 223` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
 | 5 `pkgclose` | `约束边 717 / 需要挪的类 0 / 真冲突 7 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |

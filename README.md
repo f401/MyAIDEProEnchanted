@@ -1,59 +1,57 @@
-# AIDE Pro 个人魔改版
+# AIDE Pro 个人魔改版（反混淆 + 重新打包）
 
 *** 仅供学习交流使用；请自行准备合法授权的签名私钥 ***
 
-## 特性
+把 AIDE Pro 2.8.7（freely 魔改版）里被混淆的第三方库和 AIDE 自有类还原成**可读命名**，
+并产出**可安装可运行**的 APK。命名规则、判据、门禁、构建流程都在 [`docs/`](docs/README.md)。
 
-- 与 Termux 共享 UID（`sharedUserId=com.termux2`，刻意与真 Termux 脱钩）
-- 自定义终端环境变量、更新 D8 版本
-- **jgit 反混淆**：把 AIDE 内置的 jgit 从 `abcd/*` 还原成真实类名/成员名（进行中）
+## 现状（2026-11）
 
-## 目录
+| 指标 | 值 |
+|---|---|
+| part | **19** 个（`head` + 18 个库/子系统，顺序见 `process/deob.json`） |
+| 类映射 | **3707** 类（每类都有可复现判据，写在 `class_map.tsv` 第 3 列） |
+| 成员映射 | **27244** 行（方法 + 字段，覆写链全部对齐） |
+| 参数名 | **22065** 行（oracle 的 LocalVariableTable / 上游源码声明 / 人工证据） |
+| 注释 | **30952** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
+| 产物 | `process/mappings.txt`（TSRG2，55070 行）· `process/mappings.tiny`（Tiny v2，53018 行） |
+| 门禁 | validate ✔ · inherit 0/0/0 · innercheck 0/0/0 · famcheck 0/0 · verify 不一致 0 · round-trip 一致 |
 
-```
-src/               apktool 反编译产物（smali / res / AndroidManifest.xml 等）
-Dex/               原始 dex 与解析工具
-process/           已落地的改名工程：truth/（按 part 分开的真相）、mappings.txt、base/、src/
-tools/jgit/        定名 / 校验 / 改名辅助工具（见 docs/TOOLS.md）
-docs/              文档（见 docs/README.md）
-out/               中间产物（jar、dex、日志）
-```
+已还原的库：jgit(685) / proguard(757) / dx(448) / jdcore(434) / spongycastle(257) / antlr 4.7.2(117) /
+crashlytics(176) / jsch(141) / asn1bc(107) / fabric(69) / dropbox(49) / zipsigner(24) / jzlib(14) /
+antlr 4.9.2 副本(220) + AIDE 自有：aide(52) / aide_bb(85) / aide_ui(15) / aide_iap(19) / engine(38) / head(1)。
 
 ## 快速开始
 
 ```bash
-# 1) 改 mapping（唯一真相是 tsv，不要手改 mappings.txt）
-python3 tools/jgit/pipeline/rebuild_tsrg.py          # tsv → tsrg → process/mappings.txt
-# 2) 认证
-python3 tools/jgit/pipeline/validate_mappings.py     # 期望 ✔ 无无效映射
-python3 tools/jgit/pipeline/verify_members.py        # 期望 不一致 0
-python3 tools/jgit/pipeline/inherit_check.py         # 期望 CONFLICT 0 / MISSING 0
-# 2.5) Tiny v2（派生品，给人和工具读；打包仍用 mappings.txt）
-python3 tools/jgit/pipeline/emit_tiny2.py            # → process/mappings.tiny（含注释）
-python3 tools/jgit/pipeline/validate_tiny.py         # 期望 ✔ tiny 体检通过
-python3 tools/jgit/pipeline/tiny_roundtrip.py        # 期望 ✔ round-trip 一致（等价性硬判据）
-# 3) 构建（详见 docs/BUILD.md；一条命令：python3 tools/build/build_apk.py all）
-#    默认喂 FART 的是 Tiny v2（out/build/mappings.tiny，自动生成、无注释）；
-#    --map-format=tsrg 回退 TSRG2
+# 1) 改真相（唯一真相是 jobs/<part>/ 下的四张表，不要手改产物）
+python3 tools/jgit/pipeline/rebuild_tsrg.py        # tsv + tsrg → process/mappings.txt
+# 2) 门禁（全绿才提交；详见 docs/VERIFY.md）
+python3 tools/jgit/pipeline/validate_mappings.py   # ✔ 无无效映射
+python3 tools/jgit/pipeline/inherit_check.py       # CONFLICT 0 / MISSING 0
+python3 tools/jgit/pipeline/verify_members.py      # 不一致 0
+python3 tools/deob/innercheck.py                   # ①②③ 全 0
+python3 tools/jgit/pipeline/emit_tiny2.py          # → process/mappings.tiny（带注释）
+python3 tools/jgit/pipeline/validate_tiny.py       # ✔ tiny 体检通过
+python3 tools/jgit/pipeline/tiny_roundtrip.py      # ✔ 与 mappings.txt 逐行等价
+# 3) 打包（默认喂 FART 的是 Tiny v2；--map-format=tsrg 可回退）
+python3 tools/build/build_apk.py all
 ```
 
-## 当前规模
+## 目录
 
-| 指标 | 值 |
-|---|---|
-| 类映射 | 880（`jgit` 685 / `jsch` 141 / `aide` 54，其中 `abcd/aide/*` 54 个 AIDE 自有类） |
-| 成员映射 | 6760 行（只放真实改名；jgit 5502 / jsch 1228 / aide 30） |
-| mappings.txt | 12310 行 = 表头 1 + 头部 1 + 类块 880 + 成员行 6760 + `static` 591 + 参数行 4077 |
-| 覆盖率 | jgit：方法 3501/3533 = **99.1%**、字段 1848/1855 = **99.6%**、完全覆盖类 **604**；jsch：方法 **741/741 = 100%**、字段 **537/537 = 100%**（oracle 0.1.51 + 27 条读码定名） |
-| 参数名 | 2340 个方法（jgit 1919 / jsch 409 / aide 12）= 4077 行：3665 由 oracle LVT、357 由源码声明、15 由手工证据 |
-| 真相分表 | `jgit` 685 类 / `jsch` 141 类 / `aide` 54 类；`head` 1 行历史补丁 |
-| 认证 | verify 不一致 0；inherit CONFLICT 0 / MISSING 0；validate ✔ 无无效映射；mgraph 未对上 0.2%（4 条均已知） |
+```
+src/          apktool 反编译产物（smali / res / AndroidManifest.xml）
+process/      已落地的改名工程：deob.json、truth/、base/、src/、mappings.txt/.tiny（见 process/README.md）
+jobs/         一个依赖一个目录的**真相**（class_map.tsv / members.tsrg / params.tsv / comments.tsv）
+tools/        deob/（通用 kit）、jgit/（本项目专用）、build/（打包）、aide/（历史归档）
+docs/         全部文档（索引见 docs/README.md）
+out/          构建中间产物（gitignore）
+```
 
 ## 文档
 
-见 [docs/README.md](docs/README.md)。
-
-> ⚠️ `process/mappings.txt` 是派生产物；唯一真相是 `jobs/<依赖>/` 下的
-> `class_map.tsv`（类名）、`members.tsrg`（成员）、`params.tsv`（参数名）。
-> part 按来源分：`jgit` / `jsch` / `aide` / `head`（顺序与拼接见 `process/deob.json` 的 `parts`）。
-> 改完必须跑 `rebuild_tsrg.py`（逐 part 重建，并自动串 `paramfill` + `emit_tsrg2`）再跑认证。
+- 新人先读 [`docs/README.md`](docs/README.md)（索引）→ [`AGENTS.md`](AGENTS.md)（铁律）
+- 判据与命名：[`docs/NAMING.md`](docs/NAMING.md) · 认证：[`docs/VERIFY.md`](docs/VERIFY.md) · 构建：[`docs/BUILD.md`](docs/BUILD.md)
+- 依赖清单与身份确认：[`docs/DEPENDENCIES.md`](docs/DEPENDENCIES.md) · 坑：[`docs/NOTES.md`](docs/NOTES.md)
+- 剩余待还原清单：[`jobs/README.md`](jobs/README.md)

@@ -9,7 +9,7 @@
 |---|---|---|
 | 路径 | 全部来自工程配置 JSON | 固定在本仓库 |
 | 用途 | 新工程起步、体检、构建通路 | 本项目的历史积累（含大量一次性别名分析脚本） |
-| 谁是权威 | 体检项以本项目脚本为准 | `pipeline/` 下的 9 道门 |
+| 谁是权威 | 体检项以本项目脚本为准 | `pipeline/` + `tools/deob/{innercheck,famcheck}`，完整清单见 [VERIFY.md](VERIFY.md) |
 | 真相组织 | `jobs/<依赖>/`（jgit / jsch / aide / head） | `parts` 列表，每项一个目录，可各带 `probe_prefix` |
 
 新工程建议：先 `tools/deob/` 跑通 `emit → validate → inherit → pkgs → widen`，

@@ -1,6 +1,6 @@
 # jobs/ —— 一个依赖一个目录（真相）
 
-本仓库现在有十二个（`process/deob.json` 的 `parts` 按这个顺序汇总）：
+本仓库现在有 **19 个** part（`process/deob.json` 的 `parts` 按这个顺序汇总；下表只列 12 个早期的，后面新增的 `engine/jdcore/antlr/antlr492/asn1bc/jzlib/aide_iap/aide_bb/aide_ui` 见 `docs/DEPENDENCIES.md` 的状态总表）：
 
 | 目录 | 依赖 | 判据来源 | 内容 |
 |---|---|---|---|
@@ -60,9 +60,9 @@ jobs/<名字>/
 
 ---
 
-## 剩余待还原：`abcd` 里 1637 类 + `a`(ProGuard) 59 类 + `c/r/...`(BC) 114 类 + `org/c`+`org/a` 551 类
+## 剩余待还原：`abcd` 里 **1505** 类（ProGuard / BC-ASN.1 / jd-core / ANTLR 都已收口，见 `docs/DEPENDENCIES.md`）
 
-`abcd/**` 共 2745 类，**已还原 1108**（9 个第三方 part + engine 38 类）。剩下 1637 类没有 oracle
+`abcd/**` 共 2745 类，**已还原 1240**（18 个 part）。剩下 1505 类没有 oracle
 （AIDE 自有 + 一些未公开的第三方），只能按 [docs/RESTORE-OBFUSCATED-LIB.md](../docs/RESTORE-OBFUSCATED-LIB.md)
 的"按作用命名"路线做。按常量串/引用的真实包先切成**可独立交付的部分**：
 
@@ -74,8 +74,8 @@ jobs/<名字>/
 | Trainer/教程 | 9 | 347 | 120 | 高（`$package_name$`、`$code_hint$`、Lesson…） | 待办 |
 | IAP/计费/licensing | 20 | 317 | 112 | 高（`aide_prime_monthly_0500`、`InAppProduct`、`LicenseService`…） | 待办 |
 | SCM/git 冲突 | 18 | 227 | 94 | 高（`Resolve conflict`、`Download conflict`） | 待办 |
-| Maven/AAR 依赖 | 3 | 45 | 14 | 高（`maven-metadata.xml`、`.exploded.aar`） | 待办（可并进 IAP 那轮一起） |
-| UI 面板/动作 | 117 | 1372 | 500 | 中（`input_method`、Dialog、Editor…） | 待办（最大，最后做） |
+| Maven/AAR 依赖 | 3 | 45 | 14 | 高（`maven-metadata.xml`、`.exploded.aar`） | 1/3 完成（`MavenDependencyResolver`）；`Kj$a`/`Kj$b` 因外层 `abcd/Kj` 被 R8 删掉而暂缓 |
+| UI 面板/动作 | 117 | 1372 | 500 | 中（`input_method`、Dialog、Editor…） | **已开张**：动作族 15 类做完 → [jobs/aide_ui](aide_ui/README.md)；剩 ~102 类 |
 | 无特征串的核心 | ~1700 | — | — | 低（只互相引用） | 只能按图结构逐个推，建议按"一个业务子系统一轮" |
 
 **每轮的固定动作**（与 dx/crashlytics 那几轮一致）：

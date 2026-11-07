@@ -23,7 +23,7 @@ tools/jgit/
 
 ## 数据源
 
-仓库内的布局见 [process/README.md](README.md)（真相在 `jobs/<依赖>/`）。
+仓库内的布局见 [process/README.md](../../process/README.md)（真相在 `jobs/<依赖>/`）。
 这里只列**不在仓库里**、需要本机准备的东西：
 
 | 路径 | 内容 |
@@ -36,8 +36,8 @@ tools/jgit/
 探针 smali 在 `src/smali/abcd/`，但**文件名不可信**（大小写不敏感 FS），一律查
 `process/truth/smali_index.tsv`。
 
-> 分表顺序由 `process/deob.json` 的 `parts` 决定：`head → jgit → jsch → aide`。
+> 分表顺序由 `process/deob.json` 的 `parts` 决定：`head → jgit → jsch → aide → … → aide_ui`（共 19 个，见 `process/deob.json`）。
 > `paths.MAP / TSRG / PARAMS` 是给只读脚本用的**合并视图**（`$HOME/out/work/merged/`，
 > 内容哈希做戳）；要写真相用 `tools/deob/mapping.py` 的 ClassMap/MemberMap（按来源写回各 part）。
 
-当前产物：`process/mappings.txt`（TSRG2，9838 行 = 表头 1 + 头部 20 + 类块 751 + 成员行 5522 + `static` 530 + 参数行 3034）。
+当前产物：`process/mappings.txt`（TSRG2，55070 行）与 `process/mappings.tiny`（Tiny v2，53018 行，带 30952 条注释）。
