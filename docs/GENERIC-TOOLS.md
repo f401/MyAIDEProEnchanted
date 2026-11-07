@@ -108,3 +108,21 @@ $D mgraph  --pkg=com/jcraft/jsch                        # 门 10：调用图自�
 | `gapfill2.py` / `override.py` / `closefam.py` | 高 | 缺口补名 / 覆写传播 / 家族闭合 |
 | `jgittext.py` / `keyclass.py` | 低（jgit 专用） | 依赖 jgit 的 JGitText 资源键 |
 | `enclosing_groups.py` / `nestmatch.py` | 高 | dex 嵌套关系做兄弟聚类与 `Outer$N` 编号 |
+
+## 字段定名的顺序指纹（`tools/deob/fieldseq.py`）
+
+方法级指纹（`usg:`/`fieldfp`）在"大方法一次摸十几个字段"的类上会大量打平（jzlib 的
+`proc`/`inflate`：19 个字段只有 2 个唯一命中）。这时把判据换成**同一方法里字段访问的先后
+顺序**：
+
+1. 探针侧和 oracle 侧各取"某个方法对目标类的字段引用序列"（`jvmbody.body_refs`，按字节码顺序）；
+2. 用**已定名的字段**当锚点，把两条序列切成若干区间；
+3. 区间内两边剩余元素**个数相等**才按序一一投票，不等就整段弃权；
+4. 再加一层兜底：只看"紧邻的已定名字段"（prev/next），容忍两边字段条数不同（上下文指纹）；
+5. 票数 ≥ `--min-votes`（默认 2）且唯一领先才落盘。
+
+跨类也吃：`refs` 的 owner 指向目标类就算——`ZStream.next_in_index` 在本类方法里没人碰，
+靠 `Inflate#inflate` 里它夹在 `next_in`/`avail_in` 之间定下来（48/48 票）。
+
+坑：**比较方法前必须先把探针描述符换名**（`Labcd/…` → `Lorg/…`），否则一个方法都匹配不上
+（本项目踩过：32 个方法命中 0）。
