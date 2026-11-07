@@ -18,7 +18,6 @@ abcd/qf com/aide/ui/actions/CreateSettersGettersAction
 abcd/Jg com/aide/ui/actions/LogCatResumeAction
 abcd/Rg com/aide/ui/actions/ShowCodeHelpAction
 abcd/Se com/aide/ui/actions/ShowCharacterPickerAction
-abcd/Qd com/aide/ui/actions/JavaScriptCommentsAction
 abcd/T com/aide/refactor/MoveClassesOperation
 abcd/Oi com/aide/licensing/LicenseChecker
 abcd/uw com/aide/backbone/BackboneDataDir

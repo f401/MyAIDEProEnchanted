@@ -11848,7 +11848,7 @@ c	abcd/hm	abcd/aide/editor/EditorRange	auto: 类：EditorRange（上游未收录
 	f	I	Hw	startColumn	auto: 字段(I)（上游无同类型对应，按作用取名）
 	f	I	v5	endLine	auto: 字段(I)（上游无同类型对应，按作用取名）
 	f	I	Zo	endColumn	auto: 字段(I)（上游无同类型对应，按作用取名）
-c	abcd/ha	abcd/aide/editor/NamedOption	auto: 类：NamedOption（上游未收录，名字来自 jobs/aide 的判据）
+c	abcd/ha	abcd/aide/editor/FormattingOption	auto: 类：NamedOption（上游未收录，名字来自 jobs/aide 的判据）
 c	abcd/Md	abcd/aide/editor/JavaScriptFormattingOption	auto: 类：JavaScriptFormattingOption（上游未收录，名字来自 jobs/aide 的判据）
 	f	Labcd/Md;	j6	BLOCK_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
 	f	Labcd/Md;	DW	ARRAY_INDENT	auto: 字段(Labcd/Md;)（上游无同类型对应，按作用取名）
@@ -25171,6 +25171,17 @@ c	abcd/Ac	com/aide/engine/JavaBinaryFileType	auto: 类：JavaBinaryFileType（�
 c	abcd/zc	com/aide/engine/AidlFileType	auto: 类：AidlFileType（上游未收录，名字来自 jobs/engine 的判据）
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/na	com/aide/engine/LanguageServices	auto: 类：LanguageServices（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/pa	com/aide/engine/Indenter	auto: 类：Indenter（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/qa	com/aide/engine/Parser	auto: 类：Parser（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/yd	com/aide/engine/JavaLanguage	auto: 类：JavaLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Vd	com/aide/engine/JavaScriptLanguage	auto: 类：JavaScriptLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Qd	com/aide/engine/JavaScriptCommentsLanguage	auto: 类：JavaScriptCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Oc	com/aide/engine/CssLanguage	auto: 类：CssLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Gc	com/aide/engine/CppLanguage	auto: 类：CppLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Xc	com/aide/engine/DtdLanguage	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/nd	com/aide/engine/JavaCommentsLanguage	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ne	com/aide/engine/MarkupLanguage	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
@@ -53331,7 +53342,6 @@ c	abcd/qf	com/aide/ui/actions/CreateSettersGettersAction	auto: 动作：CreateSe
 c	abcd/Jg	com/aide/ui/actions/LogCatResumeAction	auto: 动作：LogCatResume（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Rg	com/aide/ui/actions/ShowCodeHelpAction	auto: 动作：ShowCodeHelp（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Se	com/aide/ui/actions/ShowCharacterPickerAction	auto: 动作：ShowCharacterPicker（上游未收录，名字来自 jobs/aide_ui 的判据）
-c	abcd/Qd	com/aide/ui/actions/JavaScriptCommentsAction	auto: 动作：JavaScriptComments（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/T	com/aide/refactor/MoveClassesOperation	auto: 类：MoveClassesOperation（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Oi	com/aide/licensing/LicenseChecker	auto: 类：LicenseChecker（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/uw	com/aide/backbone/BackboneDataDir	auto: 类：BackboneDataDir（上游未收录，名字来自 jobs/aide_ui 的判据）

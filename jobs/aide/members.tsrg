@@ -143,7 +143,7 @@ abcd/hm abcd/aide/editor/EditorRange
 	Hw startColumn
 	v5 endLine
 	Zo endColumn
-abcd/ha abcd/aide/editor/NamedOption
+abcd/ha abcd/aide/editor/FormattingOption
 abcd/Md abcd/aide/editor/JavaScriptFormattingOption
 	j6 BLOCK_INDENT
 	DW ARRAY_INDENT

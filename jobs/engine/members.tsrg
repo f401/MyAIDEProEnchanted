@@ -73,3 +73,14 @@ abcd/Ac com/aide/engine/JavaBinaryFileType
 abcd/zc com/aide/engine/AidlFileType
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/na com/aide/engine/LanguageServices
+abcd/pa com/aide/engine/Indenter
+abcd/qa com/aide/engine/Parser
+abcd/yd com/aide/engine/JavaLanguage
+abcd/Vd com/aide/engine/JavaScriptLanguage
+abcd/Qd com/aide/engine/JavaScriptCommentsLanguage
+abcd/Oc com/aide/engine/CssLanguage
+abcd/Gc com/aide/engine/CppLanguage
+abcd/Xc com/aide/engine/DtdLanguage
+abcd/nd com/aide/engine/JavaCommentsLanguage
+abcd/ne com/aide/engine/MarkupLanguage

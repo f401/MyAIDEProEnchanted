@@ -12459,7 +12459,7 @@ abcd/hm abcd/aide/editor/EditorRange
 	Hw startColumn
 	v5 endLine
 	Zo endColumn
-abcd/ha abcd/aide/editor/NamedOption
+abcd/ha abcd/aide/editor/FormattingOption
 abcd/Md abcd/aide/editor/JavaScriptFormattingOption
 	j6 BLOCK_INDENT
 	DW ARRAY_INDENT
@@ -26576,6 +26576,17 @@ abcd/Ac com/aide/engine/JavaBinaryFileType
 abcd/zc com/aide/engine/AidlFileType
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+abcd/na com/aide/engine/LanguageServices
+abcd/pa com/aide/engine/Indenter
+abcd/qa com/aide/engine/Parser
+abcd/yd com/aide/engine/JavaLanguage
+abcd/Vd com/aide/engine/JavaScriptLanguage
+abcd/Qd com/aide/engine/JavaScriptCommentsLanguage
+abcd/Oc com/aide/engine/CssLanguage
+abcd/Gc com/aide/engine/CppLanguage
+abcd/Xc com/aide/engine/DtdLanguage
+abcd/nd com/aide/engine/JavaCommentsLanguage
+abcd/ne com/aide/engine/MarkupLanguage
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
@@ -55404,7 +55415,6 @@ abcd/qf com/aide/ui/actions/CreateSettersGettersAction
 abcd/Jg com/aide/ui/actions/LogCatResumeAction
 abcd/Rg com/aide/ui/actions/ShowCodeHelpAction
 abcd/Se com/aide/ui/actions/ShowCharacterPickerAction
-abcd/Qd com/aide/ui/actions/JavaScriptCommentsAction
 abcd/T com/aide/refactor/MoveClassesOperation
 abcd/Oi com/aide/licensing/LicenseChecker
 abcd/uw com/aide/backbone/BackboneDataDir

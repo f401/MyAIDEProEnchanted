@@ -18,7 +18,6 @@ qf	com/aide/ui/actions/CreateSettersGettersAction	str:"Create Setters & Getters"
 Jg	com/aide/ui/actions/LogCatResumeAction	str:"LogCat - Resume" + implements abcd/_l,abcd/Wl
 Rg	com/aide/ui/actions/ShowCodeHelpAction	str:"Show Code Help" + implements abcd/_l,abcd/Wl
 Se	com/aide/ui/actions/ShowCharacterPickerAction	str:"Show Character Picker" + implements abcd/am（另一个 Action 接口）
-Qd	com/aide/ui/actions/JavaScriptCommentsAction	str:"JavaScript Comments" + implements abcd/na
 T	com/aide/refactor/MoveClassesOperation	str:"Select a class or namespace identifier in the code to be moved."、"All classes of namespace  "、" will be moved to the new namespace and all references will be updated."、"This class is defined outside of the project."；19 方法 4 字段
 Oi	com/aide/licensing/LicenseChecker	str:"Requesting license check"、"Binding to "、常量 NOT_LICENSED / OVER_GRACE_PERIOD / TEMPORARY_ERROR；21 方法 10 字段
 uw	com/aide/backbone/BackboneDataDir	str:"backbone"、"dataDir"、`ApplicationInfo`、`Build$VERSION.SDK_INT`；6 方法 1 字段（给 backbone 算数据目录）

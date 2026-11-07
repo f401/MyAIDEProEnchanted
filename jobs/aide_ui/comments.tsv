@@ -18,7 +18,6 @@ c	abcd/qf	-	-	auto: 动作：CreateSettersGetters（上游未收录，名字来�
 c	abcd/Jg	-	-	auto: 动作：LogCatResume（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Rg	-	-	auto: 动作：ShowCodeHelp（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Se	-	-	auto: 动作：ShowCharacterPicker（上游未收录，名字来自 jobs/aide_ui 的判据）
-c	abcd/Qd	-	-	auto: 动作：JavaScriptComments（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/T	-	-	auto: 类：MoveClassesOperation（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Oi	-	-	auto: 类：LicenseChecker（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/uw	-	-	auto: 类：BackboneDataDir（上游未收录，名字来自 jobs/aide_ui 的判据）

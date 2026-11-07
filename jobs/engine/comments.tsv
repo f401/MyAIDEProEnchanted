@@ -74,3 +74,14 @@ m	abcd/Ac	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，�
 m	abcd/Ac	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 m	abcd/zc	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
 m	abcd/zc	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+c	abcd/na	-	-	auto: 类：LanguageServices（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/pa	-	-	auto: 类：Indenter（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/qa	-	-	auto: 类：Parser（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/yd	-	-	auto: 类：JavaLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Vd	-	-	auto: 类：JavaScriptLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Qd	-	-	auto: 类：JavaScriptCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Oc	-	-	auto: 类：CssLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Gc	-	-	auto: 类：CppLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Xc	-	-	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/nd	-	-	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ne	-	-	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
