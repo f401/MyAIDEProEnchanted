@@ -53323,3 +53323,12 @@ c	abcd/xf	com/aide/ui/actions/DeleteLineAction	auto: 动作：DeleteLine（上�
 c	abcd/xg	com/aide/ui/actions/PublishProjectAction	auto: 动作：PublishProject（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/yf	com/aide/ui/actions/DesignAction	auto: 动作：Design（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/yg	com/aide/ui/actions/RedoAction	auto: 动作：Redo（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ye	com/aide/ui/actions/CloseAllTabsAction	auto: 动作：CloseAllTabs（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/_e	com/aide/ui/actions/CloseEditorAction	auto: 动作：CloseEditor（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/af	com/aide/ui/actions/CloseOtherTabsAction	auto: 动作：CloseOtherTabs（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/nf	com/aide/ui/actions/ShowCreateDialogAction	auto: 动作：ShowCreateDialog（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/hg	com/aide/ui/actions/ShowTrainerCourseAction	auto: 动作：ShowTrainerCourse（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Rf	com/aide/ui/actions/GitCreateBranchAction	auto: 动作：GitCreateBranch（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Tf	com/aide/ui/actions/GitMergeBranchAction	auto: 动作：GitMergeBranch（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Vf	com/aide/ui/actions/GitPushAction	auto: 动作：GitPush（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/jh	com/aide/ui/actions/GoPremiumAction	auto: 动作：GoPremium（上游未收录，名字来自 jobs/aide_ui 的判据）

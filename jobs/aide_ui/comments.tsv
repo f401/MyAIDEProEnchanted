@@ -67,3 +67,12 @@ c	abcd/xf	-	-	auto: 动作：DeleteLine（上游未收录，名字来自 jobs/ai
 c	abcd/xg	-	-	auto: 动作：PublishProject（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/yf	-	-	auto: 动作：Design（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/yg	-	-	auto: 动作：Redo（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ye	-	-	auto: 动作：CloseAllTabs（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/_e	-	-	auto: 动作：CloseEditor（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/af	-	-	auto: 动作：CloseOtherTabs（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/nf	-	-	auto: 动作：ShowCreateDialog（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/hg	-	-	auto: 动作：ShowTrainerCourse（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Rf	-	-	auto: 动作：GitCreateBranch（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Tf	-	-	auto: 动作：GitMergeBranch（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Vf	-	-	auto: 动作：GitPush（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/jh	-	-	auto: 动作：GoPremium（上游未收录，名字来自 jobs/aide_ui 的判据）

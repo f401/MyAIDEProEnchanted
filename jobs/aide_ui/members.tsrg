@@ -67,3 +67,12 @@ abcd/xf com/aide/ui/actions/DeleteLineAction
 abcd/xg com/aide/ui/actions/PublishProjectAction
 abcd/yf com/aide/ui/actions/DesignAction
 abcd/yg com/aide/ui/actions/RedoAction
+abcd/Ye com/aide/ui/actions/CloseAllTabsAction
+abcd/_e com/aide/ui/actions/CloseEditorAction
+abcd/af com/aide/ui/actions/CloseOtherTabsAction
+abcd/nf com/aide/ui/actions/ShowCreateDialogAction
+abcd/hg com/aide/ui/actions/ShowTrainerCourseAction
+abcd/Rf com/aide/ui/actions/GitCreateBranchAction
+abcd/Tf com/aide/ui/actions/GitMergeBranchAction
+abcd/Vf com/aide/ui/actions/GitPushAction
+abcd/jh com/aide/ui/actions/GoPremiumAction

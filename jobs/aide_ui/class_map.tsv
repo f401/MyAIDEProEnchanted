@@ -67,3 +67,12 @@ xf	com/aide/ui/actions/DeleteLineAction	str:getName() 返回 "Delete Line"（字
 xg	com/aide/ui/actions/PublishProjectAction	str:getName() 返回 "Publish Project"（字面量，混淆器不改）；implements abcd/Yl,abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
 yf	com/aide/ui/actions/DesignAction	str:getName() 返回 "Design"（字面量，混淆器不改）；implements abcd/Wl,abcd/_l；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
 yg	com/aide/ui/actions/RedoAction	str:getName() 返回 "Redo"（字面量，混淆器不改）；implements abcd/Wl；属 AIDE 动作族（abcd/Yl/abcd/Wl/abcd/_l/abcd/am）
+Ye	com/aide/ui/actions/CloseAllTabsAction	body:run() 只调 com/s1243808733/aide/FileTabListener.filetabMenuCloseAll()；implements abcd/Yl（无标签动作）
+_e	com/aide/ui/actions/CloseEditorAction	body:run() 只调 FileTabListener.editorMenuClose()；implements abcd/_l
+af	com/aide/ui/actions/CloseOtherTabsAction	body:run() 只调 FileTabListener.filetabMenuCloseOthers()；implements abcd/_l
+nf	com/aide/ui/actions/ShowCreateDialogAction	body:run() 只调 com/s1243808733/aide/MainListener.onShowCreateDialog()；implements abcd/_l
+hg	com/aide/ui/actions/ShowTrainerCourseAction	body:run() 调 U.lg() 后启动 com/aide/ui/activities/TrainerCourseActivity.j6()；implements abcd/Yl
+Rf	com/aide/ui/actions/GitCreateBranchAction	str:"git_create_branch"（同 action id/绑定键）+ 走 U.U2()(licensing) 与 com/aide/ui/scm 的 SCM 动作；implements abcd/Yl
+Tf	com/aide/ui/actions/GitMergeBranchAction	str:"git_merge_branch"；同上 SCM 动作族
+Vf	com/aide/ui/actions/GitPushAction	str:"git_push"；同上 SCM 动作族
+jh	com/aide/ui/actions/GoPremiumAction	str:"go_premium_command" + U.U2()/Ek.j6（打开 Premium 购买页）
