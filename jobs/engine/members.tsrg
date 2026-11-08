@@ -778,7 +778,7 @@ abcd/kb com/aide/codemodel/api/callback/SymbolSearcherCallback
 	j6 (Ljava/lang/String;)V VH
 abcd/Pk com/aide/licensing/OuyaKeyProvider
 abcd/Qg com/aide/ui/actions/OpenAndroidJarAction
-abcd/wb com/aide/engine/IntObjectMap
+abcd/wb com/aide/codemodel/api/collections/MapOfInt
 abcd/Fl com/aide/ui/editor/AutoIndentHelper
 abcd/ia com/aide/codemodel/api/abstraction/CodeRenderer
 	j6 (I)Ljava/lang/String; getModifiersString
@@ -1371,3 +1371,14 @@ abcd/mx com/aide/engine/NamedThreadFactory
 abcd/gd com/aide/engine/JavadocGenerator
 abcd/hr com/aide/engine/TableOfContents
 abcd/ay com/aide/engine/TaskUtils
+abcd/er com/aide/engine/InstructionFormat
+abcd/wp com/aide/engine/MapItemType
+abcd/Kb$a com/aide/codemodel/api/collections/MapOfIntInt$Iterator
+abcd/Sb$a com/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator
+abcd/qb$a com/aide/codemodel/api/collections/FunctionOfIntInt$Iterator
+abcd/sb$a com/aide/codemodel/api/collections/FunctionOfIntLong$Iterator
+abcd/wb$a com/aide/codemodel/api/collections/MapOfInt$Iterator
+abcd/hr$a com/aide/engine/TableOfContents$Section
+abcd/em$a com/aide/engine/IntervalList$Node
+abcd/Fb$a com/aide/engine/NodeMap$Entry
+abcd/Qm$a com/aide/engine/AnnotationSet$Entry

@@ -150,7 +150,7 @@ jb	com/aide/codemodel/api/callback/StructureCallback	shape:AIDE+ 2.3.5 的 .../S
 kb	com/aide/codemodel/api/callback/SymbolSearcherCallback	shape:AIDE+ 2.3.5 的 .../SymbolSearcherCallback——7:7 方法、形状集合全等（命中 19）：FH()/Hw()/v5()/DW(Entity)/gn(FileEntry)/VH(String)/Zo() ↔ 本类 FH()/Hw()/v5()/j6(Aa)/j6(Da)/j6(String)/DW()；实现者 c$b$l 持“组名 + ArrayList<SourceEntity>” ⇒ 符号搜索回调（此前叫 SymbolGroupReporter）
 Pk	com/aide/licensing/OuyaKeyProvider	body:字段 java.security.PublicKey + 两个 boolean；常量串只有 "RSA" 与 "Unable to read OUYA encryption key"，私有 Hw() 负责读/解析公钥；对外 j6()/DW()/FH() 三个入口；读取者 abcd/Ok（串 "OUYA check purchases failed: " + 商品 id "aide_full_30"，即 OUYA 内购校验）与 abcd/Ek(LicensingManager).a8()（经 U.yS() 取单例）⇒ OUYA 校验用的 RSA 公钥持有者
 Qg	com/aide/ui/actions/OpenAndroidJarAction	body:j6() 返回菜单串资源 0x7f0800b3；j6(Z)（isEnabled）→ 取 U.J8().FH() 的 basename 与 "android.jar" 比较；run() → U.vy().gW(路径)，而 abcd/Zk.gW(String) 是 FileSystemUtils.Hw(路径) 为真时调 com/aide/ui/aa.v5(路径)（打开文件）+ P8() ⇒ 打开 android.jar 的菜单动作
-wb	com/aide/engine/IntObjectMap	body:与已命名的 Kb(IntIntMap) 同构——字段 int[] VH/Zo/gn/v5 + int EQ/tp/u7 + T[] VH/gn，开放寻址；方法 j6(int,T) 存、DW(int)T 取、j6(int)Z 判存在、FH(int) 删、DW()I 取大小、FH(wb) 合并、j6() 清空，内部类 wb$a 是 key/value 遍历器（DW()/j6()Z/FH()I 键/Hw() 值）；唯一使用者 abcd/gb(FileContentCache) 用它做 ProjectFile.id→FileContent 的映射 ⇒ 以 int 为键、对象为值的哈希表
+wb	com/aide/codemodel/api/collections/MapOfInt	body:与已命名的 Kb(MapOfIntInt) 同构——int[] 键 + T[] 值 + 开放寻址 + 内部遍历器 wb$a；唯一使用者 FileContentCache；AIDE+ 里同名 MapOfInt（早前叫 IntObjectMap）
 Fl	com/aide/ui/editor/AutoIndentHelper	body:纯静态工具类，两个 j6(AIDEEditor,int|char,int,int)；输入 { 时取光标前文本（AIDEEditor.Hw(I) 取行文本、substring+trim）判断是否只剩空白，再用 AIDEEditor.FH(I) 取上一行缩进、gn(II) 设缩进；输入 } 时对前一个字符做 tp(II) 反缩进；私有 j6(String) 逐字符判缩进（该类常量串只有 "else if"）⇒ 编辑器的自动/智能缩进
 ia	com/aide/codemodel/api/abstraction/CodeRenderer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/CodeRenderer——6:6 方法、形状相似度 1.00（唯一最佳，次优差 +1.00）；渲染器：getHTMLString/getNameString/getModifiersString 一族；是 Language.gn() 的返回类型
 Ma	com/aide/codemodel/api/Modifiers	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/Modifiers——20:20 方法、形状相似度 1.00（唯一最佳，次优差 +0.95）；修饰符工具：20 个静态判定/取位方法
@@ -263,3 +263,14 @@ mx	com/aide/engine/NamedThreadFactory	str+body:字段 int 计数 + ThreadFactory
 gd	com/aide/engine/JavadocGenerator	str+body:字段 abcd/La(Model)+abcd/Va(SyntaxTreeSpace)+abcd/Ea(FileSpace)+abcd/Ga(IdentifierSpace)+abcd/yd(JavaLanguage)，常量串 "Select a place inside a class." / "Select a method to documentize." ⇒ 生成 Javadoc 注释的服务
 hr	com/aide/engine/TableOfContents	str+body:字段 List<hr$a> + abcd/ir + 计数；常量串 "TOC section already added" / "Last section already finished" / "No sections present" ⇒ 文档目录（TOC）的构建器
 ay	com/aide/engine/TaskUtils	str+body:全是静态方法：j6(T)Yx<T> 包装、j6(Yx) 取值、j6(Yx,long,TimeUnit) 限时等待、DW(Yx) 取值；常量串 "Task is already canceled" / "Task must not be null" / "TimeUnit must not be null" / "Timed out waiting for Task" ⇒ Task 工具方法集
+er	com/aide/engine/InstructionFormat	str:枚举常量 FORMAT_00X/FORMAT_10X/FORMAT_12X/FORMAT_11N/FORMAT_11X/FORMAT_10T… 正是 DEX 的指令格式表；被 abcd/Br(OpcodeFormatTable) 与 382 处引用 ⇒ 指令格式枚举
+wp	com/aide/engine/MapItemType	str:枚举常量 TYPE_HEADER_ITEM/TYPE_STRING_ID_ITEM/TYPE_TYPE_ID_ITEM/TYPE_PROTO_ID_ITEM/TYPE_FIELD_ID_ITEM/TYPE_METHOD_ID_ITEM… ⇒ DEX map_list 的条目类型枚举
+Kb$a	com/aide/codemodel/api/collections/MapOfIntInt$Iterator	body:字段回指 abcd/Kb(MapOfIntInt)，5 个方法即哈希表的遍历器；AIDE+ 里对应 MapOfIntInt$Iterator
+Sb$a	com/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator	body:字段回指 abcd/Sb(OrderedMapOfIntInt)，5 个方法 ⇒ 有序表的遍历器；AIDE+: OrderedMapOfIntInt$Iterator
+qb$a	com/aide/codemodel/api/collections/FunctionOfIntInt$Iterator	body:字段回指 abcd/qb(FunctionOfIntInt)，4 个方法 ⇒ 函数表的遍历器；AIDE+: FunctionOfIntInt$Iterator
+sb$a	com/aide/codemodel/api/collections/FunctionOfIntLong$Iterator	body:字段回指 abcd/sb(FunctionOfIntLong)，4 个方法 ⇒ 函数表的遍历器；AIDE+: FunctionOfIntLong$Iterator
+wb$a	com/aide/codemodel/api/collections/MapOfInt$Iterator	body:字段回指 abcd/wb(MapOfInt)，4 个方法 ⇒ int→对象表的遍历器；AIDE+: MapOfInt$Iterator
+hr$a	com/aide/engine/TableOfContents$Section	body:字段回指 abcd/hr(TableOfContents) + ir$a，28 个方法 ⇒ 目录里的一个章节
+em$a	com/aide/engine/IntervalList$Node	body:字段 int×2 + 父指针 em$a + 值 T + 自身类型 ⇒ 区间表的树节点
+Fb$a	com/aide/engine/NodeMap$Entry	body:字段 int×4 + 外层 NodeMap ⇒ 哈希表的桶条目
+Qm$a	com/aide/engine/AnnotationSet$Entry	body:字段 DexString×3 + int×3，构造 (int,int,Js,Js,Js,int) ⇒ 注解集里的一条元素（名字/类型/值）

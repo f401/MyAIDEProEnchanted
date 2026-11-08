@@ -176,7 +176,7 @@ c	abcd/jb	-	-	shape: AIDE+ 2.3.5 的 StructureCallback（6:6 逐条全等）—�
 c	abcd/kb	-	-	shape: AIDE+ 2.3.5 的 SymbolSearcherCallback（7:7 全等）——符号搜索；实现者 c$b$l 持"组名+ArrayList<SourceEntity>"
 c	abcd/Pk	-	-	body: OUYA 内购校验用的 RSA 公钥持有者——串 "RSA"/"Unable to read OUYA encryption key"，被 abcd/Ok(OUYA 校验) 与 LicensingManager 使用
 c	abcd/Qg	-	-	body: 打开 android.jar 的菜单动作——isEnabled 判断路径 basename 是 android.jar，run 经 Zk.gW 打开文件；串资源 0x7f0800b3
-c	abcd/wb	-	-	body: 以 int 为键、对象为值的开放寻址哈希表——字段/内部遍历器与 Kb(IntIntMap) 同构，唯一使用者是 FileContentCache
+c	abcd/wb	-	-	body: int→对象哈希表（与 MapOfIntInt 同构，带内部遍历器）；FileContentCache 用它存 ProjectFile.id→FileContent
 c	abcd/Fl	-	-	body: 编辑器自动缩进——输入 { 时按上一行缩进对齐、输入 } 时反缩进，判据是 AIDEEditor 的行文本 API + 常量串 "else if"
 c	abcd/ia	-	-	shape: AIDE+ 2.3.5 的 abstraction/CodeRenderer（6:6，1.00）——渲染器接口，Language.gn() 的返回类型
 c	abcd/Ma	-	-	shape: AIDE+ 2.3.5 的 api/Modifiers（20:20，1.00）——修饰符工具
@@ -1372,3 +1372,14 @@ c	abcd/mx	-	-	str/body: com/aide/engine/NamedThreadFactory——带名字与计�
 c	abcd/gd	-	-	str/body: com/aide/engine/JavadocGenerator——Javadoc 生成服务（字段是 Model/JavaLanguage 等）
 c	abcd/hr	-	-	str/body: com/aide/engine/TableOfContents——文档目录（TOC）构建器
 c	abcd/ay	-	-	str/body: com/aide/engine/TaskUtils——Task 工具方法集（包装/取值/限时等待）
+c	abcd/er	-	-	body/str: com/aide/engine/InstructionFormat——DEX 指令格式枚举（FORMAT_00X…）
+c	abcd/wp	-	-	body/str: com/aide/engine/MapItemType——DEX map_list 条目类型枚举
+c	abcd/Kb$a	-	-	body/str: com/aide/codemodel/api/collections/MapOfIntInt$Iterator——MapOfIntInt 的遍历器
+c	abcd/Sb$a	-	-	body/str: com/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator——OrderedMapOfIntInt 的遍历器
+c	abcd/qb$a	-	-	body/str: com/aide/codemodel/api/collections/FunctionOfIntInt$Iterator——FunctionOfIntInt 的遍历器
+c	abcd/sb$a	-	-	body/str: com/aide/codemodel/api/collections/FunctionOfIntLong$Iterator——FunctionOfIntLong 的遍历器
+c	abcd/wb$a	-	-	body/str: com/aide/codemodel/api/collections/MapOfInt$Iterator——MapOfInt 的遍历器
+c	abcd/hr$a	-	-	body/str: com/aide/engine/TableOfContents$Section——目录里的一个章节
+c	abcd/em$a	-	-	body: com/aide/engine/IntervalList$Node——区间表的树节点（父指针 + 值）
+c	abcd/Fb$a	-	-	body: com/aide/engine/NodeMap$Entry——NodeMap 的桶条目
+c	abcd/Qm$a	-	-	body: com/aide/engine/AnnotationSet$Entry——注解集里的一条元素
