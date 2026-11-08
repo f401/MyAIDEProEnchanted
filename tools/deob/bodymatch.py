@@ -194,8 +194,25 @@ def main():
                 blocks[cur].append(ln.rstrip('\n'))
         # 需要真实描述符：从 jvmbody 缓存取
         import pickle
-        pb, _ = pickle.load(open(os.path.join(H, 'tmp', 'bcache.pkl'), 'rb'))
-        realdesc = {k: [(n, d) for acc, n, d in c['methods']] for k, c in pb.items()}
+        try:
+            pb, _ = pickle.load(open(os.path.join(H, 'tmp', 'bcache.pkl'), 'rb'))
+            realdesc = {k: [(n, d) for acc, n, d in c['methods']] for k, c in pb.items()}
+        except Exception:
+            realdesc = {}
+        # bcache.pkl 只缓存了当初跑过的前缀（如 jd-core）；其余类直接从 jar 里读描述符
+        need = [pk for pk, _o, _p, _n, _s, _m in final if pk not in realdesc]
+        if need:
+            import zipfile as _zf
+            sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(
+                os.path.abspath(__file__))), 'jgit'))
+            import jvmbody as _jb
+            _z = _zf.ZipFile(ex('base/merged_ok.jar'))
+            for _pk in need:
+                try:
+                    _c = _jb.parse(_z.read(_pk + '.class'))['members']
+                    realdesc[_pk] = [(x['name'], x['desc']) for x in _c if x.get('kind') == 'm']
+                except Exception:
+                    pass
         n = 0
         for pk, old, params, new, s1, mg in final:
             pdesc = '(' + desc_from_params(params) + ')'

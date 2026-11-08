@@ -26553,35 +26553,176 @@ abcd/I abcd/aide/engine/UsageSearch
 abcd/la com/aide/codemodel/api/abstraction/CodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	v5 ()Ljava/util/List; getLanguages
+	DW ()V update
+	VH ()V closeArchive
+	Zo ()Labcd/ka; getDebugger
+	u7 ()Labcd/ja; getCodeCompiler
 abcd/vd com/aide/codemodel/language/java/JavaCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	VH ()V closeArchive
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	v5 ()Ljava/util/List; getLanguages
 abcd/me com/aide/codemodel/language/xml/XmlCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	DW ()V update
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	VH ()V closeArchive
+	Zo ()Labcd/ka; getDebugger
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	u7 ()Labcd/ja; getCodeCompiler
+	v5 ()Ljava/util/List; getLanguages
 abcd/bd com/aide/codemodel/language/html/HtmlCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	DW ()V update
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	VH ()V closeArchive
+	Zo ()Labcd/ka; getDebugger
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	u7 ()Labcd/ja; getCodeCompiler
+	v5 ()Ljava/util/List; getLanguages
 abcd/Wc com/aide/codemodel/language/dtd/DtdCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	DW ()V update
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	VH ()V closeArchive
+	Zo ()Labcd/ka; getDebugger
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	u7 ()Labcd/ja; getCodeCompiler
+	v5 ()Ljava/util/List; getLanguages
 abcd/Mc com/aide/codemodel/language/css/CssCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	DW ()V update
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	VH ()V closeArchive
+	Zo ()Labcd/ka; getDebugger
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	u7 ()Labcd/ja; getCodeCompiler
+	v5 ()Ljava/util/List; getLanguages
 abcd/Ud com/aide/codemodel/language/js/JavaScriptCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	DW ()V update
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	VH ()V closeArchive
+	Zo ()Labcd/ka; getDebugger
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	u7 ()Labcd/ja; getCodeCompiler
+	v5 ()Ljava/util/List; getLanguages
 abcd/Fc com/aide/codemodel/language/cpp/CppCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	DW ()V update
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	VH ()V closeArchive
+	Zo ()Labcd/ka; getDebugger
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	u7 ()Labcd/ja; getCodeCompiler
+	v5 ()Ljava/util/List; getLanguages
 abcd/Ac com/aide/codemodel/language/classfile/JavaBinaryCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	v5 ()Ljava/util/List; getLanguages
 abcd/zc com/aide/codemodel/language/aidl/AidlCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
+	DW (Ljava/lang/String;)J getArchiveVersion
+	DW ()V update
+	FH ()[Ljava/lang/String; getExtendFilePatterns
+	VH ()V closeArchive
+	Zo ()Labcd/ka; getDebugger
+	gn ()Z isSupportArchiveFile
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; getArchiveEntryReader
+	j6 (Labcd/Da;Labcd/na;)V processVersion
+	j6 (Ljava/lang/String;)[Ljava/lang/String; getArchiveEntries
+	tp ()Labcd/ma; getPreprocessor
+	u7 ()Labcd/ja; getCodeCompiler
+	v5 ()Ljava/util/List; getLanguages
 abcd/na com/aide/codemodel/api/abstraction/Language
+	DW ()V shrink
+	FH ()Labcd/ra; getTypeSystem
+	Hw ()Labcd/ga; getCodeAnalyzer
+	VH ()Labcd/oa; getSignatureAnalyzer
+	Zo ()Ljava/util/Set; getFormatOptionSet
+	gn ()Labcd/ia; getCodeRenderer
+	j6 ()Ljava/lang/String; getName
+	j6 (C)Z isParenChar
 abcd/pa com/aide/codemodel/api/abstraction/Syntax
+	EQ (Labcd/Sa;I)Z isChangedExpressionNode
+	U2 (I)Z isBlock
+	Zo (I)Z isLiteral
+	a8 (I)Z isParameters
+	aM (I)Z isArguments
+	gn (I)Z isTypeIdentifier
+	j3 (I)Z isFieldDeclaration
+	j6 (Labcd/Sa;)Labcd/Cb; getNamespaceNodePairs
+	rN (I)Z isClassBody
+	v5 (Labcd/Sa;)Labcd/Cb; getImportNodePairs
+	vy (I)Z isBooleanLiteral
+	DW (Labcd/Sa;)I getImportEndLine
+	j6 (I)Z isComment
+	lg (I)Z isOperator
+	tp (I)Z isSeparator
+	yS (I)Z isToken
+	u7 (I)Z isIdentifier
+	Hw (I)Z isClassDeclaration
+	P8 (I)Z isMemberDeclaration
+	XL (I)Z isMethodDeclaration
 abcd/qa com/aide/codemodel/api/abstraction/Tools
 abcd/yd com/aide/engine/JavaLanguage
 abcd/Vd com/aide/engine/JavaScriptLanguage
@@ -26590,23 +26731,228 @@ abcd/Oc com/aide/engine/CssLanguage
 abcd/Gc com/aide/engine/CppLanguage
 abcd/Xc com/aide/engine/DtdLanguage
 abcd/nd com/aide/codemodel/language/java/JSharpCommentsLanguage
+	DW ()V shrink
+	FH ()Labcd/ra; getTypeSystem
+	Hw ()Labcd/ga; getCodeAnalyzer
+	VH ()Labcd/oa; getSignatureAnalyzer
+	Zo ()Ljava/util/Set; getFormatOptionSet
+	gn ()Labcd/ia; getCodeRenderer
+	j6 ()Ljava/lang/String; getName
+	j6 (C)Z isParenChar
 abcd/ne com/aide/codemodel/language/xml/XmlLanguage
+	DW ()V shrink
+	FH ()Labcd/ra; getTypeSystem
+	VH ()Labcd/oa; getSignatureAnalyzer
+	Zo ()Ljava/util/Set; getFormatOptionSet
+	gn ()Labcd/ia; getCodeRenderer
+	j6 ()Ljava/lang/String; getName
+	j6 (C)Z isParenChar
 abcd/Ea com/aide/codemodel/api/FileSpace
+	FH (Labcd/Da;)J getSyntaxVersion
+	Hw ()Ljava/lang/String; getEncoding
+	j6 (Labcd/Da;Labcd/na;)I getFileEntryLanguageId
+	j6 (Labcd/na;)I getLanguageId
+	j6 (Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/Reader; createBomReader
+	j6 (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZ)V configureAssembly
+	j6 (Labcd/la;Ljava/util/List;)V configureCodeModelFilePatterns
+	j6 (Z)V update
+	j6 ([Labcd/la;)V configureCodeModels
+	j6 (Labcd/Da;Labcd/Da;)Z isReferableFrom
+	v5 (I)Labcd/la; getCodeModel
+	v5 ()[Labcd/la; getCodeModels
+	EQ ()V synchronize
+	DW (Labcd/Da;)I getAssembly
+	DW ()V close
+	DW (Labcd/ec;)V loadEntries
+	DW (Labcd/fc;)V storeEntries
+	FH ()V configure
+	Hw (I)Labcd/Da; getFileEntry
+	J8 (Labcd/Da;)Z noOutput
+	VH (Labcd/Da;)I getId
+	VH (I)Labcd/na; getLanguage
+	gn (Labcd/Da;)Labcd/la; getCodeModelWrapper
+	j6 (Labcd/Da;)I declareEntry
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
+	we (Labcd/Da;)Z isRJavaFileEntry
 abcd/Sa com/aide/codemodel/api/SyntaxTree
+	Eq (I)Z isMethodOrClassOrFieldDeclarationNode
+	J8 (III)V setAttribute
+	Xa (I)I getAttributeCount
+	j6 (Ljava/lang/StringBuffer;Ljava/lang/String;Labcd/Ta;I)V createString
+	DW (I)V declareContent
+	DW (ILabcd/Ya;)V declareAttrType
+	EQ (I)I getAttrVariableSlot
+	FH ()I getAttrDAIndexCount
+	J8 (I)I getDeclarationNumber
+	Mr ()J memSize
+	Mr (I)[C getLiteralChars
+	P8 (I)I getSyntaxTag
+	QX (II)Z isEnclosingNode
+	U2 (I)I getLiteralLen
+	U2 ()J totalSize
+	VH (I)I getAttrReferenceNode
+	Ws (I)I getEndColumn
+	XL (I)I getIdentifier
+	Zo (I)I getAttrReferenceKind
+	Zo (II)I getChildNode
+	a8 (I)I getLiteralOff
+	aM ()I getRootNode
+	aM (I)Ljava/lang/String; getIdentifierString
+	cb (I)Z hasRightSisterNode
+	cn (I)Z hasAttrValue
+	er (I)I getParentNode
+	gn (I)I getAttrTarget
+	j3 ()Z isEmpty
+	j6 (IIIII)I getSyntaxTagNodeAt
+	j6 (IZIII)I declareNode
+	j6 ()V clear
+	j6 (I)V declareAttrDAIndexCount
+	j6 (ILabcd/Ya;)V declareAttrInvocationType
+	j6 (J)V declareVersion
+	j6 (Labcd/Sa;)V copyInto
+	j6 (II)Z areEqual
+	lg (I)Ljava/lang/String; getLiteralString
+	ro (I)Z hasAttrType
+	sh (I)Z hasLeftSisterNode
+	tp (I)J getAttrValue
+	v5 (II)I getArgumentsNodeAt
+	v5 ()J getVersion
+	v5 (I)Labcd/Aa; getAttrReferenceEntity
+	we (I)I getChildCount
 abcd/La com/aide/codemodel/api/Model
 abcd/Da com/aide/codemodel/api/FileEntry
+	KD ()J fetchFileDiskVersion
+	SI ()J fetchDiskVersion
+	cn ()V init
+	j6 (Ljava/lang/String;Ljava/lang/String;)V addCustomEntry
+	DW ()J getArchiveVersion
+	EQ ()I getId
+	FH (Labcd/Da;)Z isReferable
+	J8 ()I getNameIdentifier
+	Mr ()J getSize
+	U2 ()Labcd/Da; getSuccessorFile
+	VH ()Ljava/lang/String; getExtensionString
+	XL ()Ljava/lang/String; getPathString
+	Zo ()J getDiskVersion
+	a8 ()J getVersion
+	aM ()Ljava/io/Reader; getReader
+	er ()Z isArchiveEntry
+	gW ()Z isOpen
+	j3 ()Ljava/lang/String; getRelativeArchivePath
+	j6 (Labcd/fc;)V store
+	lg ()Z canCodeAnalyzer
+	nw ()V synchronize
+	rN ()Z isArchive
+	tp ()Ljava/lang/String; getFullNameString
+	v5 ()J getSyntaxVersion
+	vy ()Z isRootDirectory
 abcd/S abcd/aide/engine/InlineMethodRefactoring
 abcd/W abcd/aide/engine/ChangeSignatureRefactoring
 abcd/ea com/aide/engine/CachedProject
 abcd/Ba com/aide/codemodel/api/EntitySpace
+	DW (J)D decodeDouble
+	DW (I)J encodeInt
+	DW (Labcd/Da;Labcd/na;I)Labcd/Ia; getMember
+	FH (J)F decodeFloat
+	FH (I)Labcd/Aa; getEntity
+	Hw (J)I decodeInt
+	j6 (D)J encodeDouble
+	j6 (F)J encodeFloat
+	j6 (Labcd/Da;Labcd/na;IJJLabcd/Ya;Labcd/Ya;)J foldBinaryOperation
+	j6 (Labcd/Da;Labcd/na;JLabcd/Ya;Labcd/Ya;)J foldConversion
+	j6 (Labcd/Da;Labcd/Aa;)V declareInheritanceDependence
+	j6 (Labcd/Ia;)V loadConstantValueOfField
+	j6 (Labcd/Ia;Labcd/Ya;)V declareExplicitOverridingTypeOfMember
+	j6 ()Z canDeclareOtherSuperClasstypes
+	j6 (J)Z decodeBoolean
+	Hw (Labcd/Aa;)I getId
+	Zo ()V loadNamespaces
+	j6 (Labcd/Aa;)I declareEntity
+	j6 (Labcd/Da;Labcd/na;Labcd/ua;)V loadSuperClasstypes
+	j6 (Labcd/ec;)V load
 abcd/Aa com/aide/codemodel/api/Entity
+	QX ()Labcd/na; getLanguage
+	Zo ()Labcd/Da; getFile
+	j6 (Labcd/na;)V configureLanguage
+	EQ ()I getId
+	FH ()Labcd/ua; getEnclosingClassType
+	Hw ()I getEndColumn
+	J0 ()I getIdentifierEndColumn
+	J8 ()I getIdentifierLine
+	KD ()Z isPrivate
+	Mr ()I getModifiersStartColumn
+	U2 ()I getModifiersStartLine
+	Ws ()I getIdentifierStartColumn
+	XL ()I getModifiers
+	aM ()I getModifiersEndColumn
+	j3 ()I getModifiersEndLine
+	j6 ()I getDeclarationNumber
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
+	tp ()Ljava/lang/String; getMemberString
+	v5 ()I getEndLine
+	we ()I getIdentifier
+	VH ()Ljava/lang/String; getFullyQualifiedNameString
+	a8 ()Ljava/lang/String; getIdentifierString
 abcd/ua com/aide/codemodel/api/ClassType
+	FH (Labcd/Ya;Labcd/Ia;Labcd/Ia;)Z haveMatchingOverrideMethodSignatures
+	DW (Labcd/Ia;)Labcd/Ya; getContainingTypeOfMember
+	Zo ()Labcd/Da; getFile
+	fN ()J lastAccessTime
+	hz ()Labcd/Aa; getContainer
+	j6 (Labcd/Da;)Labcd/Ya; getEnumBaseType
+	j6 ([Labcd/Ya;[I)Labcd/Ya; parameterize
+	j6 (IIIIIIIIIII)V declarePositions
+	j6 (Labcd/Ia;)V declareConstructor
+	j6 (IZ)Z existsMemberClassType
+	j6 (Labcd/Aa;)Z isVisible
+	v5 (I)Labcd/Ya; getSuperType
+	v5 (Labcd/Ya;)Z isSubClassTypeOf
+	Hw (Labcd/Ia;Labcd/Ia;)Z haveOverridingMemberModifiers
+	oy ()V loadNamespacesOrSyntax
+	sM ()V loadTypes
+	Cz ()V invalidateSyntaxData
+	EQ ()I getId
+	Eq ()I getAssembly
+	FH (Labcd/ua;)Z hasExactMatch
+	Gj ()Labcd/Ya; parameterizeCanonical
+	aj ()V declareSuperClasstypesLoaded
+	cT ()V invalidate
+	et ()Labcd/Yb; getAllPartialClasstypes
+	j6 ()I getDeclarationNumber
+	j6 (Labcd/Na;IZI)V declareSyntax
+	jw ()I getParametertypeCount
+	pO ()Z isToplevel
+	q7 ()Z isAbstract
+	sE ()Z isStatic
+	tp ()Ljava/lang/String; getMemberString
+	w9 ()Z hasInstanceOfEnclosingClassType
+	we ()I getIdentifier
+	ye ()Ljava/lang/String; getClassTypeIdentifierString
 abcd/Yb com/aide/engine/NodeList
 abcd/Ga com/aide/codemodel/api/IdentifierSpace
+	j6 (I[CI)I getChars
+	j6 (Ljava/lang/String;)I get
+	j6 (Ljava/lang/String;II)I get
+	j6 ([CII)I get
+	j6 (I)Ljava/lang/String; getString
+	j6 ()V clear
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
 abcd/Fb com/aide/engine/NodeMap
 abcd/Ca com/aide/codemodel/api/ErrorTable
+	FH (Labcd/Da;Labcd/na;)Z containsSemanticErrors
+	j6 (Labcd/Da;)V clearInspections
+	j6 (Labcd/ec;)V load
 abcd/ga com/aide/codemodel/api/abstraction/CodeAnalyzer
+	j6 (Labcd/Sa;IILjava/lang/String;)Labcd/Ya; analyzeTypeName
+	j6 (Labcd/Sa;Labcd/bc;)V analyzeEveryIdentifiers
 abcd/Za com/aide/codemodel/api/Variable
+	Hw ()I getIdentifier
+	VH ()I getStartColumn
+	Zo ()I getLine
+	j6 ()I getEndColumn
 abcd/Cb com/aide/engine/IntVector
 abcd/Rr com/aide/engine/WellKnownTypes
 abcd/Qs com/aide/engine/TypeConstant
@@ -26616,17 +26962,17 @@ abcd/Kb com/aide/codemodel/api/collections/MapOfIntInt
 	DW (I)Z contains
 	FH (I)I get
 	FH (Labcd/Kb;)V insert
-	toString ()Ljava/lang/String; toString
+	DW ()Labcd/Kb$a; createIterator
+	DW (II)V put
+	j6 (Labcd/fc;)V store
 abcd/Qb com/aide/codemodel/api/collections/MapOfLongInt
-	j6 ()V u7
 	DW (II)I get
 	DW (J)I get
 	FH (J)V remove
 	j6 (I)V clear
 	j6 (III)V put
-	j6 (II)Z DW
-	j6 (J)Z FH
-	toString ()Ljava/lang/String; toString
+	j6 (JI)V insert
+	j6 (Labcd/fc;)V store
 abcd/Bb com/aide/engine/ByteVector
 abcd/Ab com/aide/engine/NodeVector
 abcd/Ss com/aide/engine/TypeList
@@ -26641,6 +26987,13 @@ abcd/qn com/aide/engine/DexValue
 abcd/jn com/aide/engine/DexEncodedValue
 abcd/on com/aide/engine/AttributeKey
 abcd/Dc com/aide/codemodel/language/classfile/ClassFilePreProcessor
+	Zo (Ljava/lang/String;)Ljava/util/zip/ZipFile; getZipFile
+	DW (Ljava/lang/String;)J getFIleLastModifiedHash
+	DW ()V resetting
+	FH (Ljava/lang/String;)Z isPreProcessor
+	j6 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader; readZipEntry
+	j6 (Ljava/lang/String;Ljava/lang/String;)Ljava/util/List; listZipEntry
+	j6 ()V resetCache
 abcd/Ms com/aide/engine/DexBaseType
 abcd/ms com/aide/engine/DexBaseReference
 abcd/Am com/aide/engine/NamedAttribute
@@ -26669,15 +27022,20 @@ abcd/Rn com/aide/engine/Model
 abcd/ab com/aide/codemodel/api/callback/CodeCompleterCallback
 	j6 ()V listStarted
 	j6 (Labcd/Aa;Labcd/Ya;Z)V listElementEntityFound
-	j6 (Labcd/Aa;Ljava/lang/String;)V aM
 	j6 (Labcd/Aa;Z)V listElementEntityFound
-	j6 (Labcd/Da;)V QX
 	j6 (Labcd/Da;II[I[I)V parameterListFound
+	j6 (Labcd/Za;)V listElementVariableFound
+	j6 (Labcd/Aa;Ljava/lang/String;)V aM
+	j6 (Labcd/Da;)V QX
 	j6 (Labcd/Da;Labcd/na;IIIZZ)V J8
 	j6 (Labcd/Ya;)V Hw
-	j6 (Labcd/Za;)V listElementVariableFound
 	j6 (Ljava/util/List;)V v5
 abcd/Wa com/aide/codemodel/api/SyntaxTreeStyles
+	DW (I)I getStringLength
+	FH (I)I getStringStartOffset
+	Hw (I)Ljava/lang/String; getString
+	j6 ()V clear
+	j6 (I)V ensureCapacity
 abcd/em com/aide/engine/IntervalList
 abcd/Sl com/aide/engine/RingBuffer
 abcd/Vn com/aide/engine/Instruction
@@ -26703,7 +27061,6 @@ abcd/_a com/aide/codemodel/api/callback/APISearcherCallback
 	j6 (Ljava/lang/String;)V FH
 abcd/bb com/aide/codemodel/api/callback/CodeMetricsCallback
 	j6 ()V DW
-	j6 (JIIIIII)V j6
 abcd/cb com/aide/codemodel/api/callback/DebugMetadataCallback
 	j6 (Ljava/lang/Class;Ljava/lang/Class;)V Zo
 	j6 (Ljava/lang/Object;)V FH
@@ -26720,17 +27077,14 @@ abcd/hb com/aide/codemodel/api/callback/RefactoringCallback
 	j6 (Labcd/Da;Labcd/Da;)V lg
 	j6 (Labcd/na;Ljava/util/Set;)V EQ
 	j6 (Ljava/lang/String;Ljava/lang/String;)V FH
-	j6 (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;III)V j6
 	j6 (Ljava/lang/String;Ljava/util/Hashtable;)V v5
 abcd/ob com/aide/codemodel/api/callback/UsageSearcherCallback
-	j6 (Labcd/Da;IIII)V j6
 	j6 (Ljava/lang/String;)V FH
 abcd/jb com/aide/codemodel/api/callback/StructureCallback
 	j6 ()V Zo
 	j6 (Labcd/Aa;IIIIIII)V v5
 	j6 (Labcd/Aa;IIIIIIII)V Hw
 	j6 (Labcd/Da;I)V FH
-	j6 (Labcd/na;I)V j6
 	j6 (Ljava/lang/String;ZIIIIIIII)V DW
 abcd/kb com/aide/codemodel/api/callback/SymbolSearcherCallback
 	j6 (Labcd/Aa;)V DW
@@ -26741,76 +27095,206 @@ abcd/Qg com/aide/ui/actions/OpenAndroidJarAction
 abcd/wb com/aide/engine/IntObjectMap
 abcd/Fl com/aide/ui/editor/AutoIndentHelper
 abcd/ia com/aide/codemodel/api/abstraction/CodeRenderer
+	j6 (I)Ljava/lang/String; getModifiersString
+	FH (Labcd/Aa;)Ljava/lang/String; getFullyQualifiedNameString
+	j6 (Labcd/Aa;)Ljava/lang/String; getNameString
 abcd/Ma com/aide/codemodel/api/Modifiers
+	EQ (I)Z isOverride
+		static
+	FH (I)Z isCssPrivate
+		static
+	Hw (I)Z isConst
+		static
+	J0 (I)Z isProtected
+		static
+	J8 (I)Z isPublic
+		static
+	Zo (I)Z isNative
+		static
+	aM (I)Z isStatic
+		static
+	gn (I)Z isJavaPrivate
+		static
+	j3 (I)Z isVirtual
+		static
+	j6 (I)Z isAbstract
+		static
+	u7 (I)Z isNew
+		static
+	we (I)Z isPackagePrivate
+		static
 abcd/uc com/aide/codemodel/api/Lexer
 abcd/wc com/aide/codemodel/api/PositionalReader
+	j6 (Ljava/io/Reader;)V init
 abcd/va com/aide/codemodel/api/FormatOptionSetCache
 abcd/ma com/aide/codemodel/api/abstraction/Preprocessor
 abcd/Ib com/aide/codemodel/api/collections/MapOfIntArrayInt
-	j6 ()V gn
-	DW (I[I[III)I FH
-	j6 (I[I[IIII)V Zo
-	j6 ([IIII)V VH
-	j6 (I[I[III)Z j6
-	j6 ([III)Z DW
-	toString ()Ljava/lang/String; toString
+	j6 (Labcd/fc;)V store
 abcd/Ob com/aide/codemodel/api/collections/ArrayOf
-	DW ()V VH
-	DW (Labcd/Ob;)[Ljava/lang/Object; DW
-	j6 (Labcd/Ob;)[I j6
-	DW (I)Ljava/lang/Object; Hw
-	FH (I)V gn
-	j6 ()I u7
-	j6 (I)Z FH
-	toString ()Ljava/lang/String; toString
 abcd/Ia com/aide/codemodel/api/Member
+	j6 (Labcd/Da;Labcd/na;Labcd/Ya;Labcd/Ya;)Z isNoVarargsCall
+	j6 (Labcd/Ia;Labcd/Ia;)Z areDuplicateMethods
+	DW (Labcd/Ya;)I getMethodParametertypeCount
+	FH (Labcd/Ya;I)Labcd/Ya; getTypeOfParameter
+	Zo ()Labcd/Da; getFile
+	ca ()Labcd/Ya; getType
+	j6 (IIIIIIIIIII)V declarePositions
+	j6 (J)V declareValue
+	j6 (Labcd/Ia;)V declareOverriddenMember
+	j6 (Labcd/Ya;)V declareType
+	j6 (Ljava/lang/String;)V declareStringValue
+	sh ()J getConstantValue
+	EQ ()I getId
+	FH ()Labcd/ua; getEnclosingClassType
+	I ()Ljava/lang/String; getStringValue
+	XX ()Z isAbstract
+	br ()V invalidate
+	j6 ()I getDeclarationNumber
+	j6 (IILabcd/Ja;)V declareMethodParametertype
+	j6 (Labcd/ua;Labcd/ua;)Z isVisible
+	jw ()V invalidate2
+	tp ()Ljava/lang/String; getMemberString
 abcd/bc com/aide/codemodel/api/collections/SetOfInt
-	j6 (Labcd/bc;)[I j6
 	DW ()Z empty
-	equals (Ljava/lang/Object;)Z equals
 	j6 (I)Z contains
-	toString ()Ljava/lang/String; toString
+	v5 ()V rehash
+	DW (I)V put
+	FH ()I get
+	FH (I)V remove
+	Hw ()I size
+	j6 ()V clear
+	j6 (Labcd/fc;)V store
 abcd/vc com/aide/codemodel/api/LexerHelper
 abcd/Fd com/aide/codemodel/language/java/JavaSyntax
+	EQ (Labcd/Sa;I)Z isChangedExpressionNode
+	U2 (I)Z isBlock
+	Zo (I)Z isLiteral
+	a8 (I)Z isParameters
+	aM (I)Z isArguments
+	gn (I)Z isTypeIdentifier
+	j3 (I)Z isFieldDeclaration
+	j6 (Labcd/Sa;)Labcd/Cb; getNamespaceNodePairs
+	rN (I)Z isClassBody
+	v5 (Labcd/Sa;)Labcd/Cb; getImportNodePairs
+	vy (I)Z isBooleanLiteral
 abcd/Dd com/aide/codemodel/language/java/JavaLexer
 abcd/jd com/aide/codemodel/language/java/JavaCodeRenderer
+	FH (Labcd/Aa;)Ljava/lang/String; getFullyQualifiedNameString
+	j6 (I)Ljava/lang/String; getModifiersString
+	j6 (Labcd/Aa;)Ljava/lang/String; getNameString
 abcd/ae com/aide/codemodel/language/js/JavaScriptSyntax
+	DW (Labcd/Sa;)I getImportEndLine
+	EQ (Labcd/Sa;I)Z isChangedExpressionNode
+	Hw (I)Z isClassDeclaration
+	P8 (I)Z isMemberDeclaration
+	U2 (I)Z isBlock
+	XL (I)Z isMethodDeclaration
+	Zo (I)Z isLiteral
+	a8 (I)Z isParameters
+	aM (I)Z isArguments
+	gn (I)Z isTypeIdentifier
+	j3 (I)Z isFieldDeclaration
+	j6 (Labcd/Sa;)Labcd/Cb; getNamespaceNodePairs
+	v5 (Labcd/Sa;)Labcd/Cb; getImportNodePairs
+	vy (I)Z isBooleanLiteral
 abcd/Nd com/aide/codemodel/language/js/JavaScriptCodeRenderer
+	j6 (I)Ljava/lang/String; getModifiersString
 abcd/qe com/aide/codemodel/language/xml/XmlSyntax
+	DW (Labcd/Sa;)I getImportEndLine
+	Zo (I)Z isLiteral
+	j6 (Labcd/Sa;)Labcd/Cb; getNamespaceNodePairs
+	u7 (I)Z isIdentifier
+	v5 (Labcd/Sa;)Labcd/Cb; getImportNodePairs
+	yS (I)Z isToken
 abcd/oe com/aide/codemodel/language/xml/XmlLexer
 abcd/ie com/aide/codemodel/language/xml/XmlCodeAnalyzer
+	j6 (Labcd/Sa;IILjava/lang/String;)Labcd/Ya; analyzeTypeName
+	j6 (Labcd/Sa;Labcd/bc;)V analyzeEveryIdentifiers
 abcd/Qc com/aide/codemodel/language/css/CssParser
+	j6 ()V parser
 abcd/Pc com/aide/codemodel/language/css/CssLexer
 abcd/Zc com/aide/codemodel/language/dtd/DtdParser
+	j6 ()V parser
 abcd/ee com/aide/codemodel/language/html/HtmlPreprocessor
 abcd/Kc com/aide/codemodel/language/css/CssCodeAnalyzer
+	j6 (Labcd/Sa;IILjava/lang/String;)Labcd/Ya; analyzeTypeName
+	j6 (Labcd/Sa;Labcd/bc;)V analyzeEveryIdentifiers
 abcd/Ec com/aide/codemodel/language/classfile/JavaBinarySignatureAnalyzer
+	DW (Labcd/Sa;)J getDeclarationDigest
+	Hw (Labcd/Sa;)J getClassDeclarationDigest
+	v5 (Labcd/Sa;)J getPublicDeclarationDigest
 abcd/re com/aide/codemodel/language/xml/XmlTools
 abcd/oa com/aide/codemodel/api/abstraction/SignatureAnalyzer
+	DW (Labcd/Sa;)J getDeclarationDigest
+	Hw (Labcd/Sa;)J getClassDeclarationDigest
+	v5 (Labcd/Sa;)J getPublicDeclarationDigest
+	Hw (Labcd/Da;)V doLoadNamespaces
+	j6 (Labcd/Da;)V doLoadTypes
 abcd/be com/aide/codemodel/language/js/JavaScriptTools
 abcd/Gd com/aide/codemodel/language/java/JavaTools
 abcd/fm com/aide/ui/views/editor/Position
 abcd/Fe com/aide/ui/util/MavenDependencyVersion
+	j6 (Ljava/lang/String;Ljava/lang/String;)I compareTo
+		static
 abcd/Ub com/aide/codemodel/api/collections/RelationOfIntInt
-	j6 (I)V u7
-	j6 (J)V Zo
-	j6 (Labcd/bc;)V EQ
 	j6 (II)Z contains
-	toString ()Ljava/lang/String; toString
+	j6 ()V clear
+	j6 (Labcd/fc;)V store
 abcd/ec com/aide/codemodel/api/collections/StoreInputStream
 abcd/fc com/aide/codemodel/api/collections/StoreOutputStream
 abcd/Wl com/aide/ui/command/KeyStrokeCommand
 abcd/He com/aide/ui/util/MavenMetadataXml
+	j6 (Ljava/util/ArrayList;Ljava/lang/String;)Ljava/lang/String; getVersion
+		static
+	j6 (Ljava/lang/String;Ljava/lang/String;)Z matchVersion
+		static
+	FH (Ljava/lang/String;)Ljava/lang/String; getVersion
 abcd/BaseProjectConfig com/aide/ui/util/Configuration
 abcd/_d com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer
+	DW (Labcd/Sa;)J getDeclarationDigest
+	Hw (Labcd/Sa;)J getClassDeclarationDigest
+	j6 (Labcd/Da;)V doLoadTypes
+	v5 (Labcd/Sa;)J getPublicDeclarationDigest
 abcd/Ed com/aide/codemodel/language/java/JavaSignatureAnalyzer
+	Hw (Labcd/Da;)V doLoadNamespaces
+	DW (Labcd/Sa;)J getDeclarationDigest
+	Hw (Labcd/Sa;)J getClassDeclarationDigest
+	v5 (Labcd/Sa;)J getPublicDeclarationDigest
 abcd/ad com/aide/codemodel/language/dtd/DtdSyntax
+	DW (Labcd/Sa;)I getImportEndLine
+	Zo (I)Z isLiteral
+	j6 (Labcd/Sa;)Labcd/Cb; getNamespaceNodePairs
+	lg (I)Z isOperator
+	tp (I)Z isSeparator
+	u7 (I)Z isIdentifier
+	v5 (Labcd/Sa;)Labcd/Cb; getImportNodePairs
+	vy (I)Z isBooleanLiteral
 abcd/Tc com/aide/codemodel/language/css/CssSyntax
+	DW (Labcd/Sa;)I getImportEndLine
+	j6 (Labcd/Sa;)Labcd/Cb; getNamespaceNodePairs
+	j6 (I)Z isComment
+	u7 (I)Z isIdentifier
+	v5 (Labcd/Sa;)Labcd/Cb; getImportNodePairs
 abcd/Uc com/aide/codemodel/language/css/CssTools
 abcd/Ic com/aide/codemodel/language/cpp/CppSyntax
+	DW (Labcd/Sa;)I getImportEndLine
+	gn (I)Z isTypeIdentifier
+	j6 (Labcd/Sa;)Labcd/Cb; getNamespaceNodePairs
+	j6 (I)Z isComment
+	lg (I)Z isOperator
+	tp (I)Z isSeparator
+	v5 (Labcd/Sa;)Labcd/Cb; getImportNodePairs
+	vy (I)Z isBooleanLiteral
+	yS (I)Z isToken
 abcd/Jc com/aide/codemodel/language/cpp/CppTools
 abcd/pd com/aide/codemodel/language/java/JSharpCommentsSyntax
+	DW (Labcd/Sa;)I getImportEndLine
+	j6 (Labcd/Sa;)Labcd/Cb; getNamespaceNodePairs
+	v5 (Labcd/Sa;)Labcd/Cb; getImportNodePairs
 abcd/Sd com/aide/codemodel/language/js/JavaScriptCommentsSyntax
+	DW (Labcd/Sa;)I getImportEndLine
+	j6 (Labcd/Sa;)Labcd/Cb; getNamespaceNodePairs
+	v5 (Labcd/Sa;)Labcd/Cb; getImportNodePairs
 abcd/qd com/aide/codemodel/language/java/JSharpCommentsTools
 abcd/Td com/aide/codemodel/language/js/JavaScriptCommentsTools
 abcd/dd com/aide/codemodel/language/java/JavaCodeAnalyzer
@@ -26818,10 +27302,12 @@ abcd/_b com/aide/codemodel/api/collections/SetOfFileEntry
 	DW (I)V put
 	DW ()Labcd/Da; get
 	FH ()I size
-	equals (Ljava/lang/Object;)Z equals
 	j6 (I)Z contains
 	j6 (Labcd/Da;)Z contains
-	toString ()Ljava/lang/String; toString
+	Hw ()V rehash
+	FH (Labcd/Da;)V remove
+	j6 ()V clear
+	j6 (Labcd/fc;)V store
 abcd/Yc com/aide/codemodel/language/dtd/DtdLexer
 abcd/Hc com/aide/codemodel/language/cpp/CppLexer
 abcd/md com/aide/codemodel/language/java/JavaFormatterOption
@@ -26830,21 +27316,95 @@ abcd/Sb com/aide/codemodel/api/collections/OrderedMapOfIntInt
 	DW (I)V remove
 	j6 (I)Z contains
 	j6 (II)Z contains
-	toString ()Ljava/lang/String; toString
+	DW ()V rehash
+	DW (II)V insert
+	FH (II)V put
+	j6 ()V clear
+	j6 (Labcd/fc;)V store
 abcd/Mb com/aide/codemodel/api/collections/MapOfIntLong
+	j6 (Labcd/fc;)V store
 abcd/sb com/aide/codemodel/api/collections/FunctionOfIntLong
+	DW ()V rehash
+	DW (Labcd/sb;)[J getValues
+		static
+	j6 (Labcd/sb;)[I getKeys
+		static
+	j6 ()V clear
+	j6 (Labcd/fc;)V store
 abcd/qb com/aide/codemodel/api/collections/FunctionOfIntInt
+	DW ()V rehash
+	j6 ()V clear
+	j6 (Labcd/fc;)V store
 abcd/Ya com/aide/codemodel/api/Type
+	dx ()I getSemantic
+	j6 (Labcd/Da;Labcd/na;)Z isReferable
+	DW (Labcd/Ya;)Z isEqualTo
+	Hw (Labcd/Da;Labcd/na;Labcd/Ya;)Z isSubTypeOf
+	I ()Z isRawType
+	Sf ()Z isDelegateType
+	ca ()Z isSealedType
+	cn ()Z containsVariable
+	g3 ()Z isInterfaceType
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
+	j6 (Labcd/Ya;)Z containsType
+	vJ ()Z isEnumType
 abcd/Ja com/aide/codemodel/api/MethodParameterType
+	EQ ()I getId
+	j6 ()I getDeclarationNumber
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
+	we ()I getIdentifier
+	x9 ()I getBoundTypeCount
 abcd/Ka com/aide/codemodel/api/MethodParameterTypeVariable
+	EQ ()I getId
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
 abcd/Oa com/aide/codemodel/api/ParameterizedType
+	EQ ()I getId
+	FH (Labcd/Ya;)Labcd/Ya; replaceType
+	Qq ()[I getAbsoluteArgumentVariances
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
+	lp ()V invalidate
 abcd/Pa com/aide/codemodel/api/ParameterType
+	EQ ()I getId
+	j6 ()I getDeclarationNumber
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
+	we ()I getIdentifier
 abcd/Qa com/aide/codemodel/api/PointerType
+	EQ ()I getId
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
 abcd/Ra com/aide/codemodel/api/PrimitiveType
+	EQ ()I getId
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
 abcd/sa com/aide/codemodel/api/ArrayType
+	EQ ()I getId
+	Qq ()I getDimension
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
+	sy ()Labcd/Ya; getElementType
+	x9 ()Labcd/Ya; getComponentType
 abcd/Na com/aide/codemodel/api/Namespace
+	EQ ()I getId
+	QX ()Labcd/na; getLanguage
+	VH ()Ljava/lang/String; getFullyQualifiedNameString
+	a8 ()Ljava/lang/String; getIdentifierString
+	j6 (Labcd/Da;Labcd/na;I)Labcd/Yb; getAllPartialClassTypes
+	j6 (Labcd/Da;)V declareExists
+	j6 (Labcd/ec;)V load
+	j6 (Labcd/fc;)V store
+	sG ()Labcd/Na; getEnclosingNamespace
+	vJ ()Z isRoot
+	we ()I getIdentifier
 abcd/Va com/aide/codemodel/api/SyntaxTreeSpace
+	j6 (Labcd/Da;Labcd/na;Labcd/Sa;ZLjava/lang/String;II)V createSyntaxTree
+	j6 (Labcd/Sa;)V releaseSyntaxTree
 abcd/Jl com/aide/ui/command/FileBrowserCommand
+	j6 (Z)Z isVisible
 abcd/Sj com/aide/ui/services/EngineNotifyService
 abcd/nb com/aide/codemodel/api/callback/TemplateEvaluatorCallback
 	j6 (Labcd/Aa;)V DW
@@ -55852,7 +56412,6 @@ com/aide/engine/c$b$b com/aide/engine/Engine$DaemonTask$CodeCompleterCallback
 	j6 (Ljava/util/List;)V v5
 com/aide/engine/c$b$c com/aide/engine/Engine$DaemonTask$CodeMetricsCallback
 	j6 ()V DW
-	j6 (JIIIIII)V j6
 com/aide/engine/c$b$d com/aide/engine/Engine$DaemonTask$DebugMetadataCallback
 	j6 (Ljava/lang/Class;Ljava/lang/Class;)V Zo
 	j6 (Ljava/lang/Object;)V FH
@@ -55875,7 +56434,6 @@ com/aide/engine/c$b$i com/aide/engine/Engine$DaemonTask$RefactoringCallback
 	j6 (Labcd/Da;Labcd/Da;)V lg
 	j6 (Labcd/na;Ljava/util/Set;)V EQ
 	j6 (Ljava/lang/String;Ljava/lang/String;)V FH
-	j6 (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;III)V j6
 	j6 (Ljava/lang/String;Ljava/util/Hashtable;)V v5
 com/aide/engine/c$b$j com/aide/engine/Engine$DaemonTask$StopCallback
 com/aide/engine/c$b$k com/aide/engine/Engine$DaemonTask$StructureCallback
@@ -55883,7 +56441,6 @@ com/aide/engine/c$b$k com/aide/engine/Engine$DaemonTask$StructureCallback
 	j6 (Labcd/Aa;IIIIIII)V v5
 	j6 (Labcd/Aa;IIIIIIII)V Hw
 	j6 (Labcd/Da;I)V FH
-	j6 (Labcd/na;I)V j6
 	j6 (Ljava/lang/String;ZIIIIIIII)V DW
 com/aide/engine/c$b$l com/aide/engine/Engine$DaemonTask$SymbolSearcherCallback
 	j6 (Labcd/Aa;)V DW
@@ -55896,6 +56453,5 @@ com/aide/engine/c$b$o com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallbac
 	j6 (Labcd/Za;)V v5
 	j6 (Ljava/lang/String;)V Hw
 com/aide/engine/c$b$p com/aide/engine/Engine$DaemonTask$UsageSearcherCallback
-	j6 (Labcd/Da;IIII)V j6
 	j6 (Ljava/lang/String;)V FH
 com/aide/engine/service/x com/aide/engine/service/CodeModelFactory

@@ -271,6 +271,10 @@
   {
    "label": "jzlib-1.1.1",
    "path": "$HOME/out/oracle/misc/jzlib-1.1.1.jar"
+  },
+  {
+   "label": "aide-plus",
+   "path": "$HOME/out/oracle/aide-plus/aide-plus-2.3.5-engine.jar"
   }
  ],
  "out_dir": "out"

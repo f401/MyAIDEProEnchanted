@@ -106,7 +106,6 @@ com/aide/engine/c$b$b com/aide/engine/Engine$DaemonTask$CodeCompleterCallback
 	j6 (Ljava/util/List;)V v5
 com/aide/engine/c$b$c com/aide/engine/Engine$DaemonTask$CodeMetricsCallback
 	j6 ()V DW
-	j6 (JIIIIII)V j6
 com/aide/engine/c$b$d com/aide/engine/Engine$DaemonTask$DebugMetadataCallback
 	j6 (Ljava/lang/Class;Ljava/lang/Class;)V Zo
 	j6 (Ljava/lang/Object;)V FH
@@ -129,7 +128,6 @@ com/aide/engine/c$b$i com/aide/engine/Engine$DaemonTask$RefactoringCallback
 	j6 (Labcd/Da;Labcd/Da;)V lg
 	j6 (Labcd/na;Ljava/util/Set;)V EQ
 	j6 (Ljava/lang/String;Ljava/lang/String;)V FH
-	j6 (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;III)V j6
 	j6 (Ljava/lang/String;Ljava/util/Hashtable;)V v5
 com/aide/engine/c$b$j com/aide/engine/Engine$DaemonTask$StopCallback
 com/aide/engine/c$b$k com/aide/engine/Engine$DaemonTask$StructureCallback
@@ -137,7 +135,6 @@ com/aide/engine/c$b$k com/aide/engine/Engine$DaemonTask$StructureCallback
 	j6 (Labcd/Aa;IIIIIII)V v5
 	j6 (Labcd/Aa;IIIIIIII)V Hw
 	j6 (Labcd/Da;I)V FH
-	j6 (Labcd/na;I)V j6
 	j6 (Ljava/lang/String;ZIIIIIIII)V DW
 com/aide/engine/c$b$l com/aide/engine/Engine$DaemonTask$SymbolSearcherCallback
 	j6 (Labcd/Aa;)V DW
@@ -150,6 +147,5 @@ com/aide/engine/c$b$o com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallbac
 	j6 (Labcd/Za;)V v5
 	j6 (Ljava/lang/String;)V Hw
 com/aide/engine/c$b$p com/aide/engine/Engine$DaemonTask$UsageSearcherCallback
-	j6 (Labcd/Da;IIII)V j6
 	j6 (Ljava/lang/String;)V FH
 com/aide/engine/service/x com/aide/engine/service/CodeModelFactory
