@@ -14,7 +14,7 @@
 | 成员映射 | **27444** 行（方法 + 字段，覆写链全部对齐） |
 | 参数名 | **22167** 行（oracle 的 LocalVariableTable / 上游源码声明 / 人工证据） |
 | 注释 | **31516** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
-| 产物 | `process/mappings.txt`（TSRG2，55756 行）· `process/mappings.tiny`（Tiny v2，53684 行） |
+| 产物 | `process/mappings.txt`（TSRG2，55757 行）· `process/mappings.tiny`（Tiny v2，53684 行） |
 | 门禁 | validate ✔ · inherit 0/0/0 · innercheck 0/0/0 · famcheck 0/0 · verify 不一致 0 · round-trip 一致 |
 
 已还原的库（括号内为类数）：proguard(757) / jgit(685) / dx(448) / jdcore(434) / spongycastle(257) /
