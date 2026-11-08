@@ -25347,6 +25347,8 @@ c	abcd/Ra	com/aide/codemodel/api/PrimitiveType	body: AIDE+ 2.3.5 的 com/aide/co
 c	abcd/sa	com/aide/codemodel/api/ArrayType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ArrayType——数组类型
 c	abcd/Na	com/aide/codemodel/api/Namespace	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Namespace——命名空间
 c	abcd/Va	com/aide/codemodel/api/SyntaxTreeSpace	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/SyntaxTreeSpace——语法树空间
+c	abcd/Jl	com/aide/ui/command/FileBrowserCommand	body: AIDE+ 2.3.5 的 com/aide/ui/command/FileBrowserCommand——文件浏览器命令接口（图标/标题资源 + isVisible + run）
+c	abcd/Sj	com/aide/ui/services/EngineNotifyService	body: AIDE+ 2.3.5 的 com/aide/ui/services/EngineNotifyService——引擎状态通知服务（实现 ErrorService.ErrorListener 与 BuildService.BuildListener）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

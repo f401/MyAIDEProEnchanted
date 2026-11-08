@@ -220,3 +220,5 @@ Ra	com/aide/codemodel/api/PrimitiveType	body:5:6（少 1）、形状 0.20（唯�
 sa	com/aide/codemodel/api/ArrayType	body:9:10（少 1）、形状 0.22（唯一最佳）；字段「一个 Type(元素) + EntitySpace」⇒ 数组类型
 Na	com/aide/codemodel/api/Namespace	body:28:29（少 1）、形状 0.32（唯一最佳）⇒ 命名空间
 Va	com/aide/codemodel/api/SyntaxTreeSpace	body:25:26（少 1）、形状 0.56（次优差 +0.48）⇒ 语法树空间
+Jl	com/aide/ui/command/FileBrowserCommand	body:4:4、相似度 1.00（次优差 +0.75）；接口方法 DW()I/Zo()I/j6(Z)Z/run()Z ↔ getIconId/getNameId/isVisible(boolean)/run，且都 extends 同一个命令行基接口
+Sj	com/aide/ui/services/EngineNotifyService	body:9:9、相似度 1.00（次优差 +0.67）；implements ck$a + com.aide.ui.build.d$a ↔ ErrorService$ErrorListener + BuildService$BuildListener，两个 int + 两个 String 字段、私有 j6(int,String,String,int)、静态 j6(NotificationManager,int,Notification) 逐条对应

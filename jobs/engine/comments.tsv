@@ -246,3 +246,5 @@ c	abcd/Ra	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/PrimitiveType——�
 c	abcd/sa	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ArrayType——数组类型
 c	abcd/Na	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Namespace——命名空间
 c	abcd/Va	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/SyntaxTreeSpace——语法树空间
+c	abcd/Jl	-	-	body: AIDE+ 2.3.5 的 com/aide/ui/command/FileBrowserCommand——文件浏览器命令接口（图标/标题资源 + isVisible + run）
+c	abcd/Sj	-	-	body: AIDE+ 2.3.5 的 com/aide/ui/services/EngineNotifyService——引擎状态通知服务（实现 ErrorService.ErrorListener 与 BuildService.BuildListener）

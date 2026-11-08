@@ -245,3 +245,5 @@ abcd/Ra com/aide/codemodel/api/PrimitiveType
 abcd/sa com/aide/codemodel/api/ArrayType
 abcd/Na com/aide/codemodel/api/Namespace
 abcd/Va com/aide/codemodel/api/SyntaxTreeSpace
+abcd/Jl com/aide/ui/command/FileBrowserCommand
+abcd/Sj com/aide/ui/services/EngineNotifyService
