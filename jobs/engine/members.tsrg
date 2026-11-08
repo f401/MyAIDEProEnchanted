@@ -1331,3 +1331,5 @@ abcd/nb com/aide/codemodel/api/callback/TemplateEvaluatorCallback
 	j6 (Labcd/Aa;)V DW
 	j6 (Labcd/Za;)V v5
 	j6 (Ljava/lang/String;)V Hw
+abcd/Yl com/aide/ui/command/MenuItemCommand
+abcd/_l com/aide/ui/command/MenuCommand

@@ -1332,3 +1332,5 @@ m	abcd/Pa	J8	()I	auto: AIDE+ 2.3.5 ParameterType.getIdentifierLine——方法�
 m	abcd/Pa	Ws	()I	auto: AIDE+ 2.3.5 ParameterType.getIdentifierStartColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
 m	abcd/Pa	sh	()Labcd/Ya;	auto: AIDE+ 2.3.5 ParameterType.getErasedType——方法体指纹对位（thr 0.45，已过返回类型校验）
 m	abcd/Sj	FH	()V	auto: AIDE+ 2.3.5 EngineNotifyService.init——方法体指纹对位（thr 0.45，已过返回类型校验）
+c	abcd/Yl	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/command/MenuItemCommand——菜单项命令接口（getMenuItemId/isEnabled/run）
+c	abcd/_l	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/command/MenuCommand——菜单命令接口（在菜单项基础上加 isVisible(boolean)）
