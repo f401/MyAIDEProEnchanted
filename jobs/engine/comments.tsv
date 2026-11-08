@@ -1769,3 +1769,14 @@ m	abcd/ro	DW	()I	body: 恒返回 0 ⇒ 零字节伪指令
 m	abcd/do	we	()Labcd/ds;	body: 返回局部变量集合(ds=TypeList 构建态)
 m	abcd/eo	we	()Labcd/bs;	body: 返回该生效点对应的变量(TypeInfo)
 m	abcd/bo	we	()Labcd/bs;	body: 返回该失效点对应的变量(TypeInfo)
+c	abcd/au	-	-	body: com/aide/engine/IntSet——有序 int 集合（int[] + 计数）
+c	abcd/Or	-	-	body: com/aide/engine/BasicBlockList——基本块表
+c	abcd/du	-	-	body: com/aide/engine/LabeledList——按 label 索引的表（字段是标签集合）
+c	abcd/cu	-	-	iface: com/aide/engine/LabeledItem——DW() 取标签
+m	abcd/au	DW	(I)V	body: 先 J8()(throwIfImmutable) + gW()(扩容) 再插入 ⇒ 追加元素
+m	abcd/au	VH	(I)V	body: 把后面的元素前移一格、计数减一 ⇒ 删除元素
+m	abcd/au	Hw	(I)Z	body: v5(i) >= 0 ⇒ 是否存在
+m	abcd/au	FH	(I)I	body: 返回元素下标（线性/二分查找），找不到返回 -1
+m	abcd/au	lg	()Labcd/au;	body: new au(size) 再逐个加入 ⇒ 复制一份
+m	abcd/Or	gW	()Labcd/Or;	body: 直接 new Or(this) ⇒ 复制基本块表
+m	abcd/du	rN	()I	body: 返回 label 上界+1（fs 用它开前驱数组长度）

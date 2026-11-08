@@ -26865,6 +26865,17 @@ c	abcd/eo	com/aide/engine/LocalStart	str: com/aide/engine/LocalStart——"local
 	m	()Labcd/bs;	we	getLocal	body: 返回该生效点对应的变量(TypeInfo)
 c	abcd/bo	com/aide/engine/LocalEnd	str: com/aide/engine/LocalEnd——"local-end"
 	m	()Labcd/bs;	we	getLocal	body: 返回该失效点对应的变量(TypeInfo)
+c	abcd/au	com/aide/engine/IntSet	body: com/aide/engine/IntSet——有序 int 集合（int[] + 计数）
+	m	(I)V	DW	add	body: 先 J8()(throwIfImmutable) + gW()(扩容) 再插入 ⇒ 追加元素
+	m	(I)V	VH	remove	body: 把后面的元素前移一格、计数减一 ⇒ 删除元素
+	m	(I)Z	Hw	contains	body: v5(i) >= 0 ⇒ 是否存在
+	m	(I)I	FH	indexOf	body: 返回元素下标（线性/二分查找），找不到返回 -1
+	m	()Labcd/au;	lg	copy	body: new au(size) 再逐个加入 ⇒ 复制一份
+c	abcd/Or	com/aide/engine/BasicBlockList	body: com/aide/engine/BasicBlockList——基本块表
+	m	()Labcd/Or;	gW	copy	body: 直接 new Or(this) ⇒ 复制基本块表
+c	abcd/du	com/aide/engine/LabeledList	body: com/aide/engine/LabeledList——按 label 索引的表（字段是标签集合）
+	m	()I	rN	getMaxLabel	body: 返回 label 上界+1（fs 用它开前驱数组长度）
+c	abcd/cu	com/aide/engine/LabeledItem	iface: com/aide/engine/LabeledItem——DW() 取标签
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

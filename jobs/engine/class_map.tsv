@@ -397,3 +397,7 @@ On	com/aide/engine/BlockAddresses	body:三个 Sn[] 按块的 label 下标存放 
 do	com/aide/engine/LocalSnapshot	str:"locals == null" / "local-snapshot"；extends ZeroSizeInsn，字段 ds(TypeList 构建态)+we():ds ⇒ dx 的 LocalSnapshot（局部变量快照）
 eo	com/aide/engine/LocalStart	str:"local == null" / "local-start"；extends ZeroSizeInsn，字段 bs(TypeInfo)+we():bs ⇒ dx 的 LocalStart（变量生效点）
 bo	com/aide/engine/LocalEnd	str:"local == null" / "local-end"；extends ZeroSizeInsn，字段 bs(TypeInfo)+we():bs ⇒ dx 的 LocalEnd（变量失效点）
+au	com/aide/engine/IntSet	body:extends hu(MutabilityControl)；字段 int[] + int 计数；j6(int,int) 插入/移位、FH(int)I 返回下标、Hw(int)Z=contains、VH(int) 删除、lg() 复制、DW(int) 追加 ⇒ dx 的 IntSet（有序 int 集合）
+Or	com/aide/engine/BasicBlockList	body:extends du(带标签的列表)；get(int)Nr(BasicBlock)、v5(int)Nr 按 label 取块、j6(Nr)Nr 取主后继、gW() 复制 ⇒ dx 的 BasicBlockList
+du	com/aide/engine/LabeledList	body:extends Xt；字段 au(标签集合)；j6(int,cu) 带编号 set、Hw(int)、rN() 返回最大标签+1（fs 用它开前驱数组）⇒ dx 的 LabeledList
+cu	com/aide/engine/LabeledItem	iface:唯一方法 DW()I = 取标签 ⇒ 能放进 LabeledList 的条目（dx 的 LabeledItem）

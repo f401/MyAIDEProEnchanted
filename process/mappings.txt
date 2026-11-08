@@ -28296,6 +28296,17 @@ abcd/eo com/aide/engine/LocalStart
 	we ()Labcd/bs; getLocal
 abcd/bo com/aide/engine/LocalEnd
 	we ()Labcd/bs; getLocal
+abcd/au com/aide/engine/IntSet
+	DW (I)V add
+	VH (I)V remove
+	Hw (I)Z contains
+	FH (I)I indexOf
+	lg ()Labcd/au; copy
+abcd/Or com/aide/engine/BasicBlockList
+	gW ()Labcd/Or; copy
+abcd/du com/aide/engine/LabeledList
+	rN ()I getMaxLabel
+abcd/cu com/aide/engine/LabeledItem
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
