@@ -120,7 +120,7 @@ abcd/pn com/aide/engine/DexAttributes
 abcd/qn com/aide/engine/DexValue
 abcd/jn com/aide/engine/DexEncodedValue
 abcd/on com/aide/engine/AttributeKey
-abcd/Dc com/aide/engine/ClassLibrary
+abcd/Dc com/aide/codemodel/language/classfile/ClassFilePreProcessor
 abcd/Ms com/aide/engine/DexBaseType
 abcd/ms com/aide/engine/DexBaseReference
 abcd/Am com/aide/engine/NamedAttribute
@@ -214,3 +214,5 @@ abcd/fc com/aide/codemodel/api/collections/StoreOutputStream
 abcd/Wl com/aide/ui/command/KeyStrokeCommand
 abcd/He com/aide/ui/util/MavenMetadataXml
 abcd/BaseProjectConfig com/aide/ui/util/Configuration
+abcd/_d com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer
+abcd/Ed com/aide/codemodel/language/java/JavaSignatureAnalyzer

@@ -95,7 +95,7 @@ pn	com/aide/engine/DexAttributes	iface:Hw()I + Zo()Z + j6(on)on + j6(String)on�
 qn	com/aide/engine/DexValue	iface:DW()Js(字符串引用) + j6()I(索引) ⇒ 一个带索引的常量值
 jn	com/aide/engine/DexEncodedValue	implements qn；字段 Pt/yn/Z/Ls/xn/Ks×2/Ss/String 覆盖各类值（类型标记 + 载荷）⇒ 编码后的注解值
 on	com/aide/engine/AttributeKey	iface:Hw()I + getName()String ⇒ 属性键（名字 + 序号）
-Dc	com/aide/engine/ClassLibrary	body:Hashtable<String,ZipFile> 是**jar 缓存**（按路径打开 zip）、十几张 Dc$a 池表 + double[]/qb；<clinit> 里 ldc 出 "java/lang/Boolean"+"parseBoolean"+"(Ljava/lang/String;)Z"、"java/lang/Byte"+"valueOf"+"(B)Ljava/lang/Byte;"、"java/lang/Short"+"valueOf"…、"java/lang/StringBuffer" ⇒ 类库/类路径：缓存 jar、持有常量池、记住装箱方法
+Dc	com/aide/codemodel/language/classfile/ClassFilePreProcessor	body:49:49、相似度 0.73（次优差 +0.71）；且 abcd/Ac(JavaBinaryCodeModel) 的字段里就持有 Dc，与 AIDE+ 的 classfile/JavaBinaryCodeModel 持 ClassFilePreProcessor 一致（旧名 ClassLibrary）
 Ms	com/aide/engine/DexBaseType	abstract:extends ms + implements Rs，把 Mr()(大小)/U2()(组件/父)/a8()/j3() 都定成 final ⇒ 类型引用的抽象基类
 ms	com/aide/engine/DexBaseReference	abstract:implements lu + Comparable；抽象 DW(ms)I(比较)、Hw()Z、Zo()String；final j6(ms)I ⇒ 可比较引用的基类
 Am	com/aide/engine/NamedAttribute	abstract:implements on，唯一 String 字段 + getName() ⇒ 具名属性基类
@@ -189,3 +189,5 @@ fc	com/aide/codemodel/api/collections/StoreOutputStream	shape:AIDE+ 2.3.5 的 co
 Wl	com/aide/ui/command/KeyStrokeCommand	shape:AIDE+ 2.3.5 的 com/aide/ui/command/KeyStrokeCommand——4:4、相似度 0.75（次优差 +0.50）；接口方法 FH()com.aide.common.u ↔ getKeyStroke()、getName()/isEnabled()/run() 同名同形，且都 extends 一个命令行接口
 He	com/aide/ui/util/MavenMetadataXml	shape:AIDE+ 2.3.5 的 com/aide/ui/util/MavenMetadataXml——7:7、相似度 0.71（次优差 +0.43）；字段 List<String>、ctor()/私有 ctor(String)、静态 j6(ArrayList,String)String ↔ getVersion(ArrayList,String)、静态 j6(String,String)Z ↔ matchVersion、DW(String)He ↔ Zo(String)MavenMetadataXml、newInstance ↔ makeConfiguration
 BaseProjectConfig	com/aide/ui/util/Configuration	shape:AIDE+ 2.3.5 的 com/aide/ui/util/Configuration——3:4、相似度 1.00（次优差 +1.00）；字段 Map<String,Long> + Map<String,?> + String 路径，方法 j6(String)T ↔ getConfiguration(String)、protected abstract newInstance(String) ↔ makeConfiguration(String) 逐条对应
+_d	com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer	body:27:27、相似度 0.81（次优差 +0.19）；字段含 Vd(JavaScriptLanguage) ⇒ JS 的签名分析器
+Ed	com/aide/codemodel/language/java/JavaSignatureAnalyzer	body:27:27、相似度 0.78（次优差 +0.15）；字段含 yd(JavaLanguage)+dd+Hd ⇒ Java 的签名分析器

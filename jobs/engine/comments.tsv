@@ -121,7 +121,7 @@ c	abcd/pn	-	-	auto: 类：DexAttributes（上游未收录，名字来自 jobs/en
 c	abcd/qn	-	-	auto: 类：DexValue（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/jn	-	-	auto: 类：DexEncodedValue（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/on	-	-	auto: 类：AttributeKey（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Dc	-	-	auto: 类：ClassLibrary（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Dc	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/classfile/ClassFilePreProcessor——class 文件预处理器（被 JavaBinaryCodeModel 持有）
 c	abcd/Ms	-	-	auto: 类：DexBaseType（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ms	-	-	auto: 类：DexBaseReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Am	-	-	auto: 类：NamedAttribute（上游未收录，名字来自 jobs/engine 的判据）
@@ -215,3 +215,5 @@ c	abcd/fc	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/StoreOut
 c	abcd/Wl	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/command/KeyStrokeCommand——带快捷键的命令接口——getKeyStroke/getName/isEnabled/run
 c	abcd/He	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/util/MavenMetadataXml——Maven 元数据 XML（版本列表 + 版本比较 + 缓存路径）
 c	abcd/BaseProjectConfig	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/util/Configuration——按路径缓存的配置文件基类（Map<路径,实例> + Map<路径,时间戳>）
+c	abcd/_d	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer——JavaScript 签名分析器（字段含 JavaScriptLanguage）
+c	abcd/Ed	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaSignatureAnalyzer——Java 签名分析器（字段含 JavaLanguage）
