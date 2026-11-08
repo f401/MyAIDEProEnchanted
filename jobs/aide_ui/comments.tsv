@@ -84,3 +84,5 @@ f	abcd/ze$a	Hw	-	auto: 字段(Labcd/ze$a;)（上游无同类型对应，按作�
 c	abcd/zf	-	-	auto: 动作：EditMode（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Tl	-	-	auto: 类：DiagnosticMarker（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/we	-	-	auto: 类：RunTargetMenu（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ak	-	-	body: 诊断标记跳转/历史——两个 Stack<DiagnosticMarker> + 状态位，供 MainActivity/AIDEEditor 在错误间前后跳
+c	abcd/H	-	-	body: 应用偏好读写——18 个 (Context,String key,…) 静态方法，底层 SharedPreferences，含 double[] 打包

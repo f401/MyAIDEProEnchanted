@@ -54661,6 +54661,8 @@ c	abcd/ze$a	com/aide/ui/build/RunTarget$Type	auto: 类：Type（外层 RunTarget
 c	abcd/zf	com/aide/ui/actions/EditModeAction	auto: 动作：EditMode（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/Tl	com/aide/ui/DiagnosticMarker	auto: 类：DiagnosticMarker（上游未收录，名字来自 jobs/aide_ui 的判据）
 c	abcd/we	com/aide/ui/RunTargetMenu	auto: 类：RunTargetMenu（上游未收录，名字来自 jobs/aide_ui 的判据）
+c	abcd/Ak	com/aide/ui/DiagnosticNavigator	body: 诊断标记跳转/历史——两个 Stack<DiagnosticMarker> + 状态位，供 MainActivity/AIDEEditor 在错误间前后跳
+c	abcd/H	com/aide/ui/Preferences	body: 应用偏好读写——18 个 (Context,String key,…) 静态方法，底层 SharedPreferences，含 double[] 打包
 c	com/aide/engine/G	com/aide/engine/Modification$Creator	auto: 类：Creator（外层 Modification）（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/L	com/aide/engine/SourceEntity$Creator	auto: 类：Creator（外层 SourceEntity）（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/N	com/aide/engine/SyntaxError$Creator	auto: 类：Creator（外层 SyntaxError）（上游未收录，名字来自 jobs/aide_engine 的判据）

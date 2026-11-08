@@ -84,3 +84,5 @@ abcd/ze$a com/aide/ui/build/RunTarget$Type
 abcd/zf com/aide/ui/actions/EditModeAction
 abcd/Tl com/aide/ui/DiagnosticMarker
 abcd/we com/aide/ui/RunTargetMenu
+abcd/Ak com/aide/ui/DiagnosticNavigator
+abcd/H com/aide/ui/Preferences
