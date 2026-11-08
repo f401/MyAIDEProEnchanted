@@ -91,9 +91,9 @@ abcd/Da com/aide/codemodel/api/FileEntry
 abcd/S abcd/aide/engine/InlineMethodRefactoring
 abcd/W abcd/aide/engine/ChangeSignatureRefactoring
 abcd/ea com/aide/engine/CachedProject
-abcd/Ba com/aide/engine/CompilationContext
+abcd/Ba com/aide/codemodel/api/EntitySpace
 abcd/Aa com/aide/codemodel/api/Entity
-abcd/ua com/aide/engine/CompilationUnit
+abcd/ua com/aide/codemodel/api/ClassType
 abcd/Yb com/aide/engine/NodeList
 abcd/Ga com/aide/codemodel/api/IdentifierSpace
 abcd/Fb com/aide/engine/NodeMap
@@ -235,3 +235,13 @@ abcd/Sb com/aide/codemodel/api/collections/OrderedMapOfIntInt
 abcd/Mb com/aide/codemodel/api/collections/MapOfIntLong
 abcd/sb com/aide/codemodel/api/collections/FunctionOfIntLong
 abcd/qb com/aide/codemodel/api/collections/FunctionOfIntInt
+abcd/Ya com/aide/codemodel/api/Type
+abcd/Ja com/aide/codemodel/api/MethodParameterType
+abcd/Ka com/aide/codemodel/api/MethodParameterTypeVariable
+abcd/Oa com/aide/codemodel/api/ParameterizedType
+abcd/Pa com/aide/codemodel/api/ParameterType
+abcd/Qa com/aide/codemodel/api/PointerType
+abcd/Ra com/aide/codemodel/api/PrimitiveType
+abcd/sa com/aide/codemodel/api/ArrayType
+abcd/Na com/aide/codemodel/api/Namespace
+abcd/Va com/aide/codemodel/api/SyntaxTreeSpace

@@ -25193,9 +25193,9 @@ c	abcd/Da	com/aide/codemodel/api/FileEntry	shape: AIDE+ 2.3.5 的 com/aide/codem
 c	abcd/S	abcd/aide/engine/InlineMethodRefactoring	auto: 类：InlineMethodRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/W	abcd/aide/engine/ChangeSignatureRefactoring	auto: 类：ChangeSignatureRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ea	com/aide/engine/CachedProject	auto: 类：CachedProject（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Ba	com/aide/engine/CompilationContext	auto: 上下文：Compilation（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ba	com/aide/codemodel/api/EntitySpace	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/EntitySpace——实体空间（Entity/Member/Type 的宿主）
 c	abcd/Aa	com/aide/codemodel/api/Entity	shape: AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…) 构造与本类逐条对应
-c	abcd/ua	com/aide/engine/CompilationUnit	auto: 类：CompilationUnit（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ua	com/aide/codemodel/api/ClassType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ClassType——类类型（带父子链与成员表）
 c	abcd/Yb	com/aide/engine/NodeList	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ga	com/aide/codemodel/api/IdentifierSpace	shape: AIDE+ 2.3.5 的 api/IdentifierSpace（17:17，0.88）——标识符池（旧名 StringPool）
 c	abcd/Fb	com/aide/engine/NodeMap	auto: 类：NodeMap（上游未收录，名字来自 jobs/engine 的判据）
@@ -25337,6 +25337,16 @@ c	abcd/Sb	com/aide/codemodel/api/collections/OrderedMapOfIntInt	body: AIDE+ 2.3.
 c	abcd/Mb	com/aide/codemodel/api/collections/MapOfIntLong	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntLong——int→long 映射
 c	abcd/sb	com/aide/codemodel/api/collections/FunctionOfIntLong	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntLong——int→long 函数表
 c	abcd/qb	com/aide/codemodel/api/collections/FunctionOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntInt——int→int 函数表
+c	abcd/Ya	com/aide/codemodel/api/Type	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Type——类型基类（8 个子类：Class/Array/Pointer/Primitive/Parameterized/Parameter/MethodParameter/MethodParameterVariable）
+c	abcd/Ja	com/aide/codemodel/api/MethodParameterType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/MethodParameterType——方法参数类型
+c	abcd/Ka	com/aide/codemodel/api/MethodParameterTypeVariable	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/MethodParameterTypeVariable——方法参数变量
+c	abcd/Oa	com/aide/codemodel/api/ParameterizedType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ParameterizedType——参数化类型（泛型）
+c	abcd/Pa	com/aide/codemodel/api/ParameterType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ParameterType——参数类型
+c	abcd/Qa	com/aide/codemodel/api/PointerType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/PointerType——指针类型
+c	abcd/Ra	com/aide/codemodel/api/PrimitiveType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/PrimitiveType——基本类型
+c	abcd/sa	com/aide/codemodel/api/ArrayType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ArrayType——数组类型
+c	abcd/Na	com/aide/codemodel/api/Namespace	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Namespace——命名空间
+c	abcd/Va	com/aide/codemodel/api/SyntaxTreeSpace	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/SyntaxTreeSpace——语法树空间
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

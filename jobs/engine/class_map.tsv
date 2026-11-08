@@ -66,9 +66,9 @@ Da	com/aide/codemodel/api/FileEntry	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api
 S	abcd/aide/engine/InlineMethodRefactoring	str:j6(Da,I,I) 里 "Select a method to inline."（同一句出现两次，另一处是错误提示）；与 V(RenameRefactoring) 同构：ctor(Labcd/ea)、字段 ea/Ga/Va/Ba/Q/Ea，被 com/aide/engine/c$b 的重构入口调用 ⇒ 内联方法重构
 W	abcd/aide/engine/ChangeSignatureRefactoring	str:"Select a method."、"This method is defined outside of the project."；j6(Da,II)List 按光标取出候选方法、j6(Sa,I) 用 ",\n"/"," 拼参数表、j6(Da,II,List×4) 拆分参数/局部/返回/异常 ⇒ 改方法签名
 ea	com/aide/engine/CachedProject	sup=abcd/La(Project)；新增 j6(Labcd/ec)/j6(Labcd/fc) 两个带 "END"/"END not found" 标记的读写方法（DataInput/DataOutput 包装），ctor 收 gb/ib/jb/db 等子系统 ⇒ 带持久化缓存的工程实现；重构类（RenameRefactoring/InlineMethodRefactoring 的 ctor）都拿它当入口
-Ba	com/aide/engine/CompilationContext	body:被 **abcd/La(Project).<init>** 唯一创建，ctor(Ga,Ea,Va,ib)；字段持有 Ea(FileManager)、Va(类型表)、Qb/j3/aM(符号表)、qb(Mr/a8 两张名字表)、[Aa(源实体数组)、[I、Map gW；静态访问器 DW(Ba)Ga / FH(Ba)Va / j6(Ba)Ea；方法 j6(Na,II,Da,Fb) 处理源实体 ⇒ 一次编译会话的共享上下文
+Ba	com/aide/codemodel/api/EntitySpace	body:112:113（少 1）、形状 0.46（唯一最佳）；Type/Ia/Pa 等的公共字段类型就是它，对应 Type(FileSpace,EntitySpace) 的第二参（旧名 CompilationContext）
 Aa	com/aide/codemodel/api/Entity	shape:AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…[,int×n][,String][,boolean][,List]) 构造与本类 (La,Aa…) 逐条对应；本类 40 个方法即 Entity 的语义查询（rN/yS/vy/Zo…）
-ua	com/aide/engine/CompilationUnit	sup=abcd/Ya；字段 QX:Da(文件)、J0:Ba(CompilationContext)、we:Ea(FileManager)、Mr/U2:ua(父)、j3:Na、gW:ua$a；有 4 个返回 Labcd/Yb(Scope) 的方法(CU/Xa/aq/et) 与 pN()ua$a；工厂 DW(Da,na,I,Z,ua,Yb)Ya；而 Aa.FH() 正是返回它 ⇒ 一个源文件的编译单元(带包/导入等多个作用域)
+ua	com/aide/codemodel/api/ClassType	body:119:120（本构建少 1 个方法）、形状 0.60（唯一最佳）；字段含父子 ClassType、FileEntry、StringPool 与内部 ClassType$a ⇒ 类类型；Ia.FH() 返回它，正对应 Entity.getEnclosingClassType()
 Yb	com/aide/engine/NodeList	**更正**：javap 显示它是 `public class abcd.Yb<E extends abcd.Aa>`——泛型容器，带内部类 `Yb<E>.a`(迭代器)、多张 `[I` 开放寻址数组、`Ba`，方法 DW(E)/FH()/Hw()I(大小)/v5()(清空)/DW(Yb)(并入)/equals，且有 `j6(ec)/j6(fc)` 序列化。原来按"ua(CompilationUnit) 返回它 + enter/lookup 形状"判成 Scope 是**误判**，实际是 AST 节点列表。
 Ga	com/aide/codemodel/api/IdentifierSpace	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/IdentifierSpace——17:17 方法、形状相似度 0.88（唯一最佳，次优差 +0.88）；标识符池：按名字取/建 id（旧名 StringPool）
 Fb	com/aide/engine/NodeMap	body:泛型 <K extends Aa, V extends Aa>（AST 节点→AST 节点的映射），字段多张 [I 开放寻址数组 + 内部类 Fb$a(遍历器) + Ba(CompilationContext)；ctor 收 Ba 或 (Ba,ec) ⇒ 节点哈希表
@@ -210,3 +210,13 @@ Sb	com/aide/codemodel/api/collections/OrderedMapOfIntInt	body:14:15、相似度 
 Mb	com/aide/codemodel/api/collections/MapOfIntLong	body:13:13、相似度 0.69（次优差 +0.07）；字段 3 个 int[] + 2 个 long[] + 3 个 int + 迭代器，与 MapOfIntLong 对应
 sb	com/aide/codemodel/api/collections/FunctionOfIntLong	body:13:13、与 Mb 同形（0.62 并列）；两者对应 AIDE+ 的 MapOfIntLong/FunctionOfIntLong 两个槽位，Mb 更像 MapOfIntLong（0.69>0.62），故 sb 取 FunctionOfIntLong
 qb	com/aide/codemodel/api/collections/FunctionOfIntInt	body:13:14、0.62 与 MapOfIntInt 并列；但 MapOfIntInt 已由 Kb（17:18、0.65、5 个 int[]）占用 ⇒ 按唯一性取 FunctionOfIntInt
+Ya	com/aide/codemodel/api/Type	body:33:33、形状 0.55；构造 (Ea,Ba) 与 (Ea,Ba,int) ↔ Type(FileSpace,EntitySpace[,int])，字段只有 EntitySpace，且 8 个直接子类的数量与 AIDE+ 的 Type 子类一一对应 ⇒ 类型基类
+Ja	com/aide/codemodel/api/MethodParameterType	body:25:26（少 1）、形状 0.52（唯一最佳）；字段 FileEntry+StringPool+FileSpace+EntitySpace+Member+ArrayOf ⇒ 方法参数类型
+Ka	com/aide/codemodel/api/MethodParameterTypeVariable	body:7:8（少 1）、形状 0.14（唯一最佳）；字段 MethodParameterType + EntitySpace ⇒ 方法参数变量
+Oa	com/aide/codemodel/api/ParameterizedType	body:20:21（少 1）、形状 0.35（唯一最佳）；字段 ClassType + ArrayOf + EntitySpace ⇒ 参数化类型（泛型）
+Pa	com/aide/codemodel/api/ParameterType	body:24:25（少 1）、形状 0.58（唯一最佳）；字段 FileEntry+StringPool+FileSpace+ArrayOf+ClassType ⇒ 参数类型
+Qa	com/aide/codemodel/api/PointerType	body:6:7（少 1）、形状 0.17（唯一最佳）；字段「一个 Type + EntitySpace」⇒ 指针类型
+Ra	com/aide/codemodel/api/PrimitiveType	body:5:6（少 1）、形状 0.20（唯一最佳）；字段只有 EntitySpace+FileSpace、无内层类型 ⇒ 基本类型
+sa	com/aide/codemodel/api/ArrayType	body:9:10（少 1）、形状 0.22（唯一最佳）；字段「一个 Type(元素) + EntitySpace」⇒ 数组类型
+Na	com/aide/codemodel/api/Namespace	body:28:29（少 1）、形状 0.32（唯一最佳）⇒ 命名空间
+Va	com/aide/codemodel/api/SyntaxTreeSpace	body:25:26（少 1）、形状 0.56（次优差 +0.48）⇒ 语法树空间

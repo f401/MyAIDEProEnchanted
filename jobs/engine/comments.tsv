@@ -92,9 +92,9 @@ c	abcd/Da	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/FileEntry——工�
 c	abcd/S	-	-	auto: 类：InlineMethodRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/W	-	-	auto: 类：ChangeSignatureRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ea	-	-	auto: 类：CachedProject（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Ba	-	-	auto: 上下文：Compilation（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ba	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/EntitySpace——实体空间（Entity/Member/Type 的宿主）
 c	abcd/Aa	-	-	shape: AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…) 构造与本类逐条对应
-c	abcd/ua	-	-	auto: 类：CompilationUnit（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ua	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ClassType——类类型（带父子链与成员表）
 c	abcd/Yb	-	-	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ga	-	-	shape: AIDE+ 2.3.5 的 api/IdentifierSpace（17:17，0.88）——标识符池（旧名 StringPool）
 c	abcd/Fb	-	-	auto: 类：NodeMap（上游未收录，名字来自 jobs/engine 的判据）
@@ -236,3 +236,13 @@ c	abcd/Sb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/OrderedMa
 c	abcd/Mb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntLong——int→long 映射
 c	abcd/sb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntLong——int→long 函数表
 c	abcd/qb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntInt——int→int 函数表
+c	abcd/Ya	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Type——类型基类（8 个子类：Class/Array/Pointer/Primitive/Parameterized/Parameter/MethodParameter/MethodParameterVariable）
+c	abcd/Ja	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/MethodParameterType——方法参数类型
+c	abcd/Ka	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/MethodParameterTypeVariable——方法参数变量
+c	abcd/Oa	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ParameterizedType——参数化类型（泛型）
+c	abcd/Pa	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ParameterType——参数类型
+c	abcd/Qa	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/PointerType——指针类型
+c	abcd/Ra	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/PrimitiveType——基本类型
+c	abcd/sa	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ArrayType——数组类型
+c	abcd/Na	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Namespace——命名空间
+c	abcd/Va	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/SyntaxTreeSpace——语法树空间
