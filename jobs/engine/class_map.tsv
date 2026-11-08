@@ -446,3 +446,11 @@ Uq	com/aide/engine/Format5RC	str:er.<clinit> 里 new Uq("FORMAT_5RC",序) 就是
 Vq	com/aide/engine/FormatPackedSwitchPayload	str:er.<clinit> 里 new Vq("FORMAT_PACKED_SWITCH_PAYLOAD",序) 就是枚举常量 FORMAT_PACKED_SWITCH_PAYLOAD 的体 ⇒ 该格式的实例类
 Wq	com/aide/engine/FormatSparseSwitchPayload	str:er.<clinit> 里 new Wq("FORMAT_SPARSE_SWITCH_PAYLOAD",序) 就是枚举常量 FORMAT_SPARSE_SWITCH_PAYLOAD 的体 ⇒ 该格式的实例类
 Yq	com/aide/engine/FormatFillArrayDataPayload	str:er.<clinit> 里 new Yq("FORMAT_FILL_ARRAY_DATA_PAYLOAD",序) 就是枚举常量 FORMAT_FILL_ARRAY_DATA_PAYLOAD 的体 ⇒ 该格式的实例类
+to	com/aide/engine/Codec10X	body:FormatCodec 子类；1 code unit、无寄存器、无字面量谓词、write 只有 (Lt,S) ⇒ 10x（nop/return-void 一类无操作数）
+wo	com/aide/engine/Codec12X	body:FormatCodec 子类；1 code unit、FH(Vn) 读 2 个寄存器 ⇒ 12x（move vA,vB）
+uo	com/aide/engine/Codec11N	body:FormatCodec 子类；1 code unit、读 1 个寄存器 + isApplicable 用 Ds(字面量) 判定 ⇒ 11n（const/4）
+vo	com/aide/engine/Codec11X	body:FormatCodec 子类；1 code unit、读 1 个寄存器、无字面量判定 ⇒ 11x（move-result/return 一类 vAA）
+so	com/aide/engine/Codec10T	body:FormatCodec 子类；1 code unit、无寄存器、isApplicable 用 ao.j6(int)（8 位分支偏移）⇒ 10t（goto/if-*z 短跳）
+Io	com/aide/engine/Codec30T	body:FormatCodec 子类；3 code unit、write=(Lt,S,I) 且 isApplicable 无任何操作数约束、无寄存器 ⇒ 30t（goto/32）
+Ko	com/aide/engine/Codec31I	body:FormatCodec 子类；3 code unit、write=(Lt,S,I)、isApplicable 走 Ds(字面量) 的位宽判定 ⇒ 31i（const vAA,#32）
+Qo	com/aide/engine/Codec51L	body:FormatCodec 子类；5 code unit、write=(Lt,S,J)（跟一个 64 位常量）⇒ 51l（const-wide vAA,#64）

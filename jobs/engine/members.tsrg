@@ -1832,3 +1832,11 @@ abcd/Uq com/aide/engine/Format5RC
 abcd/Vq com/aide/engine/FormatPackedSwitchPayload
 abcd/Wq com/aide/engine/FormatSparseSwitchPayload
 abcd/Yq com/aide/engine/FormatFillArrayDataPayload
+abcd/to com/aide/engine/Codec10X
+abcd/wo com/aide/engine/Codec12X
+abcd/uo com/aide/engine/Codec11N
+abcd/vo com/aide/engine/Codec11X
+abcd/so com/aide/engine/Codec10T
+abcd/Io com/aide/engine/Codec30T
+abcd/Ko com/aide/engine/Codec31I
+abcd/Qo com/aide/engine/Codec51L

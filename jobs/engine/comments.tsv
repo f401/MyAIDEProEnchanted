@@ -1839,3 +1839,11 @@ c	abcd/Uq	-	-	str: com/aide/engine/Format5RC——er 枚举常量 FORMAT_5RC 的
 c	abcd/Vq	-	-	str: com/aide/engine/FormatPackedSwitchPayload——er 枚举常量 FORMAT_PACKED_SWITCH_PAYLOAD 的实例类
 c	abcd/Wq	-	-	str: com/aide/engine/FormatSparseSwitchPayload——er 枚举常量 FORMAT_SPARSE_SWITCH_PAYLOAD 的实例类
 c	abcd/Yq	-	-	str: com/aide/engine/FormatFillArrayDataPayload——er 枚举常量 FORMAT_FILL_ARRAY_DATA_PAYLOAD 的实例类
+c	abcd/to	-	-	body: com/aide/engine/Codec10X——FormatCodec 子类（1 code unit、无寄存器、无字面量谓词、write 只有 (Lt,S) ⇒ 10x（nop/return-void 一类无操作数））
+c	abcd/wo	-	-	body: com/aide/engine/Codec12X——FormatCodec 子类（1 code unit、FH(Vn) 读 2 个寄存器 ⇒ 12x（move vA,vB））
+c	abcd/uo	-	-	body: com/aide/engine/Codec11N——FormatCodec 子类（1 code unit、读 1 个寄存器 + isApplicable 用 Ds(字面量) 判定 ⇒ 11n（const/4））
+c	abcd/vo	-	-	body: com/aide/engine/Codec11X——FormatCodec 子类（1 code unit、读 1 个寄存器、无字面量判定 ⇒ 11x（move-result/return 一类 vAA））
+c	abcd/so	-	-	body: com/aide/engine/Codec10T——FormatCodec 子类（1 code unit、无寄存器、isApplicable 用 ao.j6(int)（8 位分支偏移）⇒ 10t（goto/if-*z 短跳））
+c	abcd/Io	-	-	body: com/aide/engine/Codec30T——FormatCodec 子类（3 code unit、write=(Lt,S,I) 且 isApplicable 无任何操作数约束、无寄存器 ⇒ 30t（goto/32））
+c	abcd/Ko	-	-	body: com/aide/engine/Codec31I——FormatCodec 子类（3 code unit、write=(Lt,S,I)、isApplicable 走 Ds(字面量) 的位宽判定 ⇒ 31i（const vAA,#32））
+c	abcd/Qo	-	-	body: com/aide/engine/Codec51L——FormatCodec 子类（5 code unit、write=(Lt,S,J)（跟一个 64 位常量）⇒ 51l（const-wide vAA,#64））
