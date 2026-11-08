@@ -1383,3 +1383,11 @@ c	abcd/hr$a	-	-	body/str: com/aide/engine/TableOfContents$Section——目录里
 c	abcd/em$a	-	-	body: com/aide/engine/IntervalList$Node——区间表的树节点（父指针 + 值）
 c	abcd/Fb$a	-	-	body: com/aide/engine/NodeMap$Entry——NodeMap 的桶条目
 c	abcd/Qm$a	-	-	body: com/aide/engine/AnnotationSet$Entry——注解集里的一条元素
+c	abcd/Ea$b	-	-	shape: com/aide/codemodel/api/FileSpace$ReaderWrap——FileSpace 的读取包装（3 方法）
+c	abcd/Ob$a	-	-	shape: com/aide/codemodel/api/collections/ArrayOf$Iterator——ArrayOf 的遍历器
+c	abcd/Mb$a	-	-	shape: com/aide/codemodel/api/collections/MapOfIntLong$Iterator——MapOfIntLong 的遍历器
+c	abcd/bc$a	-	-	shape: com/aide/codemodel/api/collections/SetOfInt$Iterator——SetOfInt 的遍历器
+c	abcd/_b$a	-	-	shape: com/aide/codemodel/api/collections/SetOfFileEntry$Iterator——SetOfFileEntry 的遍历器
+c	abcd/ua$a	-	-	shape: com/aide/codemodel/api/ClassType$Data——ClassType 的数据块
+c	abcd/Ia$a	-	-	shape: com/aide/codemodel/api/Member$Data——Member 的数据块
+c	abcd/Ba$a	-	-	shape: com/aide/codemodel/api/EntitySpace$FileInfo——EntitySpace 的文件信息

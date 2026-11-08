@@ -1382,3 +1382,11 @@ abcd/hr$a com/aide/engine/TableOfContents$Section
 abcd/em$a com/aide/engine/IntervalList$Node
 abcd/Fb$a com/aide/engine/NodeMap$Entry
 abcd/Qm$a com/aide/engine/AnnotationSet$Entry
+abcd/Ea$b com/aide/codemodel/api/FileSpace$ReaderWrap
+abcd/Ob$a com/aide/codemodel/api/collections/ArrayOf$Iterator
+abcd/Mb$a com/aide/codemodel/api/collections/MapOfIntLong$Iterator
+abcd/bc$a com/aide/codemodel/api/collections/SetOfInt$Iterator
+abcd/_b$a com/aide/codemodel/api/collections/SetOfFileEntry$Iterator
+abcd/ua$a com/aide/codemodel/api/ClassType$Data
+abcd/Ia$a com/aide/codemodel/api/Member$Data
+abcd/Ba$a com/aide/codemodel/api/EntitySpace$FileInfo

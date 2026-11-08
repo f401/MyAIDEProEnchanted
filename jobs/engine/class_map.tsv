@@ -274,3 +274,11 @@ hr$a	com/aide/engine/TableOfContents$Section	body:字段回指 abcd/hr(TableOfCo
 em$a	com/aide/engine/IntervalList$Node	body:字段 int×2 + 父指针 em$a + 值 T + 自身类型 ⇒ 区间表的树节点
 Fb$a	com/aide/engine/NodeMap$Entry	body:字段 int×4 + 外层 NodeMap ⇒ 哈希表的桶条目
 Qm$a	com/aide/engine/AnnotationSet$Entry	body:字段 DexString×3 + int×3，构造 (int,int,Js,Js,Js,int) ⇒ 注解集里的一条元素（名字/类型/值）
+Ea$b	com/aide/codemodel/api/FileSpace$ReaderWrap	shape:AIDE+ 2.3.5 的 FileSpace$ReaderWrap——3:3 方法、相似度 1.00；外层 Ea 已定名 FileSpace
+Ob$a	com/aide/codemodel/api/collections/ArrayOf$Iterator	shape:AIDE+ 的 ArrayOf$Iterator——6:6、0.67；字段回指 abcd/Ob(ArrayOf)
+Mb$a	com/aide/codemodel/api/collections/MapOfIntLong$Iterator	shape:AIDE+ 的 MapOfIntLong$Iterator——6:6、0.67；字段回指 abcd/Mb(MapOfIntLong)
+bc$a	com/aide/codemodel/api/collections/SetOfInt$Iterator	shape:AIDE+ 的 SetOfInt$Iterator——5:5、0.60；字段回指 abcd/bc(SetOfInt)
+_b$a	com/aide/codemodel/api/collections/SetOfFileEntry$Iterator	shape:AIDE+ 的 SetOfFileEntry$Iterator——5:5、0.40（唯一候选）；字段回指 abcd/_b(SetOfFileEntry)
+ua$a	com/aide/codemodel/api/ClassType$Data	shape:AIDE+ 的 ClassType$Data——2:2、0.50（唯一候选）；外层 ua 已定名 ClassType
+Ia$a	com/aide/codemodel/api/Member$Data	shape:AIDE+ 的 Member$Data——2:2、0.50（唯一候选）；外层 Ia 已定名 Member
+Ba$a	com/aide/codemodel/api/EntitySpace$FileInfo	shape:AIDE+ 的 EntitySpace$FileInfo——45:45、0.47（唯一候选）；字段是 bc(SetOfInt)+Ba+Ea+若干 boolean，外层 Ba 已定名 EntitySpace
