@@ -1746,3 +1746,7 @@ m	abcd/Qn	aM	()Ljava/lang/String;	body: 直接调 j6("","") ⇒ 渲染整张 han
 m	abcd/Qn	j6	(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;	str: 拼 "catch" 列表，每项一行，最后一项若 rN() 为真则写成 "<any>"（catch-all）
 m	abcd/Qn	rN	()Z	body: 判断最后一项是否无捕获类型 ⇒ 有 catch-all（finally）处理器
 m	abcd/Xt	aM	()Ljava/lang/String;	body: 拼 "短类名{元素,元素}"（用 DW(String,String,String) 的分隔符）⇒ 可读渲染
+m	abcd/Xt	DW	(I)Ljava/lang/Object;	str: 取元素；为空时抛 NullPointerException("unset:"+下标)
+m	abcd/Xt	FH	(I)Ljava/lang/Object;	body: 直接 aaload，不判空 ⇒ 允许 null 元素的取法
+m	abcd/Xt	j6	(ILjava/lang/Object;)V	body: 往 Object[] 指定下标写值
+m	abcd/Xt	lg	()V	body: 扫一遍数组把非空元素前移并记 count ⇒ 压紧数组（dx 的 shrinkToFit）

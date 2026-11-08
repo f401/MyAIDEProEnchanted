@@ -25836,6 +25836,10 @@ c	abcd/Am	com/aide/engine/NamedAttribute	auto: 类：NamedAttribute（上游未�
 c	abcd/Bm	com/aide/engine/IndexedAttribute	auto: 类：IndexedAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Xt	com/aide/engine/ArrayItem	auto: 类：ArrayItem（上游未收录，名字来自 jobs/engine 的判据）
 	m	()Ljava/lang/String;	aM	toHuman	body: 拼 "短类名{元素,元素}"（用 DW(String,String,String) 的分隔符）⇒ 可读渲染
+	m	(I)Ljava/lang/Object;	DW	get	str: 取元素；为空时抛 NullPointerException("unset:"+下标)
+	m	(I)Ljava/lang/Object;	FH	getOrNull	body: 直接 aaload，不判空 ⇒ 允许 null 元素的取法
+	m	(ILjava/lang/Object;)V	j6	set	body: 往 Object[] 指定下标写值
+	m	()V	lg	shrinkToFit	body: 扫一遍数组把非空元素前移并记 count ⇒ 压紧数组（dx 的 shrinkToFit）
 c	abcd/Dm	com/aide/engine/AnnotationElementTable	auto: 表：AnnotationElement（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/gn	com/aide/engine/AttributeFactory	auto: 工厂：Attribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/nn	com/aide/engine/DexAttributeFactory	auto: 工厂：DexAttribute（上游未收录，名字来自 jobs/engine 的判据）

@@ -734,6 +734,10 @@ abcd/Am com/aide/engine/NamedAttribute
 abcd/Bm com/aide/engine/IndexedAttribute
 abcd/Xt com/aide/engine/ArrayItem
 	aM ()Ljava/lang/String; toHuman
+	DW (I)Ljava/lang/Object; get
+	FH (I)Ljava/lang/Object; getOrNull
+	j6 (ILjava/lang/Object;)V set
+	lg ()V shrinkToFit
 abcd/Dm com/aide/engine/AnnotationElementTable
 abcd/gn com/aide/engine/AttributeFactory
 abcd/nn com/aide/engine/DexAttributeFactory
