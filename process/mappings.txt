@@ -27926,6 +27926,9 @@ abcd/Pm com/aide/engine/LineNumberTable
 abcd/Pm$a com/aide/engine/LineNumberTable$Entry
 abcd/zm com/aide/engine/EnclosingMethodAttribute
 abcd/Em com/aide/engine/RuntimeVisibleAnnotationsAttribute
+abcd/os com/aide/engine/AnnotationReference
+abcd/ps com/aide/engine/ArrayReference
+abcd/Dn com/aide/engine/AnnotationArray
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

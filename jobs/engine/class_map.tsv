@@ -294,3 +294,6 @@ Pm	com/aide/engine/LineNumberTable	body:extends ArrayItem；元素 Pm$a 是 (int
 Pm$a	com/aide/engine/LineNumberTable$Entry	body:两个 final int + 两个 getter，构造 (int,int) ⇒ 行号表的一条 (start_pc, line)
 zm	com/aide/engine/EnclosingMethodAttribute	body:extends NamedAttribute；字段 abcd/Jr(ClassDef) + int ⇒ 记录“定义在哪个类/方法里”的属性（EnclosingMethod）
 Em	com/aide/engine/RuntimeVisibleAnnotationsAttribute	body:extends NamedAttribute；字段 abcd/Pt(ByteSlice 原始字节) + abcd/ns(ReferenceArray 常量引用) + 两个 int ⇒ 注解属性的载荷形态（注解 = 原始字节 + 常量池引用）；同类形态也见于 StackMapTable，取更常见的注解属性
+os	com/aide/engine/AnnotationReference	str+body:extends DexBaseReference(ms)；持有 abcd/Hr(MemberDef)；方法 Zo()/aM() 里只出现常量串 "annotation == null" / "annotation"，equals/hashCode/toString 齐备 ⇒ 指向注解的引用
+ps	com/aide/engine/ArrayReference	str+body:extends DexBaseReference(ms)；持有 abcd/ps$a（int→ms 的表）；aM() 里出现 "list == null" / "array" / "{" / "," / "}" / "array{" ⇒ 指向数组/数组类型的引用（按 {a,b} 形式渲染）
+Dn	com/aide/engine/AnnotationArray	body:extends ArrayItem；元素类型是 abcd/un(=com/aide/engine/DexAnnotation)，get(int)/j6(int,un) 存取 ⇒ 注解的数组
