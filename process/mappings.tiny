@@ -25302,6 +25302,12 @@ c	abcd/Qc	com/aide/codemodel/language/css/CssParser	shape: AIDE+ 2.3.5 的 langu
 c	abcd/Pc	com/aide/codemodel/language/css/CssLexer	shape: AIDE+ 2.3.5 的 language/css/CssLexer（19:19，1.00）——CSS 词法器
 c	abcd/Zc	com/aide/codemodel/language/dtd/DtdParser	shape: AIDE+ 2.3.5 的 language/dtd/DtdParser（22:22，0.95）——DTD 解析器
 c	abcd/ee	com/aide/codemodel/language/html/HtmlPreprocessor	shape: AIDE+ 2.3.5 的 language/html/HtmlPreprocessor（6:6，0.83）——HTML 预处理/检查（onabort/onclick… 事件属性），经 abcd/eb 报错
+c	abcd/Kc	com/aide/codemodel/language/css/CssCodeAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssCodeAnalyzer（10:10，0.80）——CSS 代码分析器
+c	abcd/Ec	com/aide/codemodel/language/classfile/JavaBinarySignatureAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/classfile/JavaBinarySignatureAnalyzer（5:5，0.80）——class 文件（Java binary）的签名分析器
+c	abcd/re	com/aide/codemodel/language/xml/XmlTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlTools（53:53，0.72）——XML 工具集；字段含 abcd/ne(MarkupLanguage)，与 XML/HTML 家族一致
+c	abcd/oa	com/aide/codemodel/api/abstraction/SignatureAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/SignatureAnalyzer（14:14，0.71）——签名分析器：由 Language.VH() 返回
+c	abcd/be	com/aide/codemodel/language/js/JavaScriptTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptTools（51:51，0.71）——JavaScript 工具集；字段含 abcd/Vd(JavaScriptLanguage) 与 Ld/Od/Kd，整族一致
+c	abcd/Gd	com/aide/codemodel/language/java/JavaTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaTools（56:56，0.68）——Java 工具集；字段含 abcd/yd(JavaLanguage) 与 cd/ed/zd/kd/gd，整族一致
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

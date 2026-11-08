@@ -175,3 +175,9 @@ Qc	com/aide/codemodel/language/css/CssParser	shape:AIDE+ 2.3.5 的 com/aide/code
 Pc	com/aide/codemodel/language/css/CssLexer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssLexer——19:19 方法、形状相似度 1.00（唯一最佳，次优差 +1.00）；CSS 词法器
 Zc	com/aide/codemodel/language/dtd/DtdParser	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdParser——22:22 方法、形状相似度 0.95（唯一最佳，次优差 +0.86）；DTD 解析器
 ee	com/aide/codemodel/language/html/HtmlPreprocessor	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/html/HtmlPreprocessor——6:6 方法、形状相似度 0.83（唯一最佳，次优差 +0.83）；HTML 预处理/检查：串里是 onabort/onclick… 等事件属性名，经 abcd/eb(ErrorReporter) 报错
+Kc	com/aide/codemodel/language/css/CssCodeAnalyzer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssCodeAnalyzer——10:10 方法、形状相似度 0.80（唯一最佳，次优差 +0.80）；CSS 代码分析器
+Ec	com/aide/codemodel/language/classfile/JavaBinarySignatureAnalyzer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/classfile/JavaBinarySignatureAnalyzer——5:5 方法、形状相似度 0.80（唯一最佳，次优差 +0.80）；class 文件（Java binary）的签名分析器
+re	com/aide/codemodel/language/xml/XmlTools	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlTools——53:53 方法、形状相似度 0.72（唯一最佳，次优差 +0.72）；XML 工具集；字段含 abcd/ne(MarkupLanguage)，与 XML/HTML 家族一致
+oa	com/aide/codemodel/api/abstraction/SignatureAnalyzer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/SignatureAnalyzer——14:14 方法、形状相似度 0.71（唯一最佳，次优差 +0.71）；签名分析器：由 Language.VH() 返回
+be	com/aide/codemodel/language/js/JavaScriptTools	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptTools——51:51 方法、形状相似度 0.71（唯一最佳，次优差 +0.71）；JavaScript 工具集；字段含 abcd/Vd(JavaScriptLanguage) 与 Ld/Od/Kd，整族一致
+Gd	com/aide/codemodel/language/java/JavaTools	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaTools——56:56 方法、形状相似度 0.68（唯一最佳，次优差 +0.66）；Java 工具集；字段含 abcd/yd(JavaLanguage) 与 cd/ed/zd/kd/gd，整族一致

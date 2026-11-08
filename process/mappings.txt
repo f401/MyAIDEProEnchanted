@@ -26707,6 +26707,12 @@ abcd/Qc com/aide/codemodel/language/css/CssParser
 abcd/Pc com/aide/codemodel/language/css/CssLexer
 abcd/Zc com/aide/codemodel/language/dtd/DtdParser
 abcd/ee com/aide/codemodel/language/html/HtmlPreprocessor
+abcd/Kc com/aide/codemodel/language/css/CssCodeAnalyzer
+abcd/Ec com/aide/codemodel/language/classfile/JavaBinarySignatureAnalyzer
+abcd/re com/aide/codemodel/language/xml/XmlTools
+abcd/oa com/aide/codemodel/api/abstraction/SignatureAnalyzer
+abcd/be com/aide/codemodel/language/js/JavaScriptTools
+abcd/Gd com/aide/codemodel/language/java/JavaTools
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
