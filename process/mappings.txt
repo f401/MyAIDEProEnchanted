@@ -27929,6 +27929,13 @@ abcd/Em com/aide/engine/RuntimeVisibleAnnotationsAttribute
 abcd/os com/aide/engine/AnnotationReference
 abcd/ps com/aide/engine/ArrayReference
 abcd/Dn com/aide/engine/AnnotationArray
+abcd/c com/aide/engine/LinkedMap
+abcd/c$c com/aide/engine/LinkedMap$Entry
+abcd/c$d com/aide/engine/LinkedMap$EntryIterator
+abcd/c$e com/aide/engine/LinkedMap$DescendingIterator
+abcd/c$f com/aide/engine/LinkedMap$WeakKey
+abcd/kw com/aide/engine/BuildClassLoader
+abcd/kw$a com/aide/engine/BuildClassLoader$CompoundEnumeration
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

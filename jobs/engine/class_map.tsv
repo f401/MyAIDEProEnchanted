@@ -297,3 +297,10 @@ Em	com/aide/engine/RuntimeVisibleAnnotationsAttribute	body:extends NamedAttribut
 os	com/aide/engine/AnnotationReference	str+body:extends DexBaseReference(ms)；持有 abcd/Hr(MemberDef)；方法 Zo()/aM() 里只出现常量串 "annotation == null" / "annotation"，equals/hashCode/toString 齐备 ⇒ 指向注解的引用
 ps	com/aide/engine/ArrayReference	str+body:extends DexBaseReference(ms)；持有 abcd/ps$a（int→ms 的表）；aM() 里出现 "list == null" / "array" / "{" / "," / "}" / "array{" ⇒ 指向数组/数组类型的引用（按 {a,b} 形式渲染）
 Dn	com/aide/engine/AnnotationArray	body:extends ArrayItem；元素类型是 abcd/un(=com/aide/engine/DexAnnotation)，get(int)/j6(int,un) 存取 ⇒ 注解的数组
+c	com/aide/engine/LinkedMap	body:泛型 <K,V> 的链式 Map：字段 c$c 头/尾 + WeakHashMap<c$f,Boolean> + 计数；方法 iterator()/descendingIterator()/size()/toString()/FH():Map$Entry/j6():Map$Entry ⇒ 插入有序的链式映射
+c$c	com/aide/engine/LinkedMap$Entry	body:implements java.util.Map$Entry<K,V>，字段是两个前后指针 c$c ⇒ 链表节点
+c$d	com/aide/engine/LinkedMap$EntryIterator	body:implements Iterator，持 abcd/c(外层) 与当前 c$c，只实现 hasNext()/next():Map$Entry ⇒ 正向条目迭代器
+c$e	com/aide/engine/LinkedMap$DescendingIterator	body:abstract，持两个 c$c 指针 + 抽象 j6(c$c)c$c（前进方向），hasNext()/next():Map$Entry ⇒ 反向迭代器基类
+c$f	com/aide/engine/LinkedMap$WeakKey	body:空接口，唯一用途是作 WeakHashMap<c$f<K,V>,Boolean> 的弱键 ⇒ 弱引用键标记
+kw	com/aide/engine/BuildClassLoader	body:extends java.lang.ClassLoader；构造 (String,String,String,ClassLoader,boolean)，方法 getResource/getResources 返回 URL 枚举、loadClass 覆写 ⇒ 构建期用的类加载器
+kw$a	com/aide/engine/BuildClassLoader$CompoundEnumeration	body:implements Enumeration<E>，字段是 Enumeration<E>[] 并把它们串起来（hasMoreElements/nextElement）⇒ 复合枚举

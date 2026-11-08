@@ -26507,6 +26507,13 @@ c	abcd/Em	com/aide/engine/RuntimeVisibleAnnotationsAttribute	body: com/aide/engi
 c	abcd/os	com/aide/engine/AnnotationReference	str/body: com/aide/engine/AnnotationReference——注解引用（持有 MemberDef，渲染成 "annotation"）
 c	abcd/ps	com/aide/engine/ArrayReference	str/body: com/aide/engine/ArrayReference——数组引用（渲染成 array{…}）
 c	abcd/Dn	com/aide/engine/AnnotationArray	str/body: com/aide/engine/AnnotationArray——注解数组
+c	abcd/c	com/aide/engine/LinkedMap	body: com/aide/engine/LinkedMap——链式 Map（插入有序，支持正/反向迭代）
+c	abcd/c$c	com/aide/engine/LinkedMap$Entry	body: com/aide/engine/LinkedMap$Entry——链式 Map 的条目
+c	abcd/c$d	com/aide/engine/LinkedMap$EntryIterator	body: com/aide/engine/LinkedMap$EntryIterator——正向条目迭代器
+c	abcd/c$e	com/aide/engine/LinkedMap$DescendingIterator	body: com/aide/engine/LinkedMap$DescendingIterator——反向迭代器基类
+c	abcd/c$f	com/aide/engine/LinkedMap$WeakKey	body: com/aide/engine/LinkedMap$WeakKey——弱引用键标记
+c	abcd/kw	com/aide/engine/BuildClassLoader	body: com/aide/engine/BuildClassLoader——构建期类加载器
+c	abcd/kw$a	com/aide/engine/BuildClassLoader$CompoundEnumeration	body: com/aide/engine/BuildClassLoader$CompoundEnumeration——复合枚举
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
