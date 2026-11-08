@@ -25814,6 +25814,7 @@ c	abcd/tn	com/aide/engine/DexMember	auto: 类：DexMember（上游未收录，�
 	m	()Labcd/Js;	Hw	getDescriptor	body: 返回 nat.getDescriptor()——描述符串(Js=DexString)
 	m	()I	j6	getAccessFlags	body: 返回访问标志 int 字段
 c	abcd/un	com/aide/engine/DexAnnotation	auto: 类：DexAnnotation（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Labcd/Os;	v5	getSignature	iface: getSignature——成员签名（Os=MemberSignature）
 c	abcd/pn	com/aide/engine/DexAttributes	auto: 类：DexAttributes（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/qn	com/aide/engine/DexValue	auto: 类：DexValue（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/jn	com/aide/engine/DexEncodedValue	auto: 类：DexEncodedValue（上游未收录，名字来自 jobs/engine 的判据）
@@ -26515,7 +26516,9 @@ c	abcd/bs$a	com/aide/engine/TypeInfoFactory$Key	body: com/aide/engine/TypeInfoFa
 c	abcd/Wm	com/aide/engine/TypeInfoImpl	body: com/aide/engine/TypeInfoImpl——TypeInfo 的纯值实现（无池）
 c	abcd/Qt$a	com/aide/engine/CodeWriterImpl$Label	body: com/aide/engine/CodeWriterImpl$Label——写出器的标号/修补记录（可变偏移 + 标签名）
 c	abcd/Jm$a	com/aide/engine/ExceptionTable$Entry	body: 异常表条目——int×3 + DexType
-c	abcd/Mm	com/aide/engine/DexAnnotationImpl	body: com/aide/engine/DexAnnotationImpl——注解的实现类（保留 getName/getAttributes 真名）
+c	abcd/Mm	com/aide/engine/MethodBodyReader	str: com/aide/engine/MethodBodyReader——读 Code/LineNumberTable/LocalVariable( Type)Table 属性
+	m	()Labcd/Lm;	gn	getBytecodeParser	body: 从 jm(CodeAttribute) 取 Lm(BytecodeParser)
+	m	()Labcd/Os;	v5	getSignature	body: 委派成员(un).v5() 取 MemberSignature
 c	abcd/xm	com/aide/engine/SourceFileAttribute	str: NamedAttribute 的子类，常量串就是属性名（SourceFileAttribute）
 c	abcd/wm	com/aide/engine/SignatureAttribute	str: NamedAttribute 的子类，常量串就是属性名（SignatureAttribute）
 c	abcd/nm	com/aide/engine/ExceptionsAttribute	str: NamedAttribute 的子类，常量串就是属性名（ExceptionsAttribute）
@@ -26691,7 +26694,7 @@ c	abcd/fn	com/aide/engine/AnnotationParser	str: com/aide/engine/AnnotationParser
 c	abcd/Fm	com/aide/engine/LocalVariableChecker	str: com/aide/engine/LocalVariableChecker——局部变量类型一致性检查
 c	abcd/Zo	com/aide/engine/DexFileBuilder	str: com/aide/engine/DexFileBuilder——汇总各段并驻留字符串的 dex 构建器
 c	abcd/jp	com/aide/engine/DexSectionPlacer	str: com/aide/engine/DexSectionPlacer——段布局与摘要
-c	abcd/Zm	com/aide/engine/RopMethod	str: com/aide/engine/RopMethod——rop 方法模型
+c	abcd/Zm	com/aide/engine/BytecodeToRop	body: com/aide/engine/BytecodeToRop——把方法体字节码块图转成 RopMethod
 c	abcd/_m	com/aide/engine/RopTranslator	str: com/aide/engine/RopTranslator——rop 翻译器
 c	abcd/ho	com/aide/engine/InstructionWriter	str: com/aide/engine/InstructionWriter——指令写出（含 opcode 展开）
 c	abcd/xp	com/aide/engine/DexSectionList	str: com/aide/engine/DexSectionList——段内条目链
@@ -26876,6 +26879,13 @@ c	abcd/Or	com/aide/engine/BasicBlockList	body: com/aide/engine/BasicBlockList—
 c	abcd/du	com/aide/engine/LabeledList	body: com/aide/engine/LabeledList——按 label 索引的表（字段是标签集合）
 	m	()I	rN	getMaxLabel	body: 返回 label 上界+1（fs 用它开前驱数组长度）
 c	abcd/cu	com/aide/engine/LabeledItem	iface: com/aide/engine/LabeledItem——DW() 取标签
+c	abcd/fs	com/aide/engine/RopMethod	body: com/aide/engine/RopMethod——块表 + 参数宽度 + 懒算前驱/出口前驱
+	m	()Labcd/Or;	j6	getBlocks	body: 返回 j6(块表 Or=BasicBlockList)
+	m	(I)Labcd/au;	j6	getPredecessors	body: 懒算前驱后按下标取；为 null 时抛异常（label 无块）
+	f	Labcd/Or;	j6	blocks	body: 基本块表(Or=BasicBlockList)
+	f	I	DW	paramWidth	body: 构造传入的参数宽度（this 也算一格）
+	f	[Labcd/au;	FH	predecessors	body: 每个 label 的前驱集合（懒算，FH() 填充）
+	f	Labcd/au;	Hw	exitPredecessors	body: 出口块的前驱集合（懒算，FH() 填充）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

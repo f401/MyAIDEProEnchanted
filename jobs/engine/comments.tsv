@@ -1345,7 +1345,7 @@ c	abcd/bs$a	-	-	body: com/aide/engine/TypeInfoFactory$Key——驻留池的键�
 c	abcd/Wm	-	-	body: com/aide/engine/TypeInfoImpl——TypeInfo 的纯值实现（无池）
 c	abcd/Qt$a	-	-	body: com/aide/engine/CodeWriterImpl$Label——写出器的标号/修补记录（可变偏移 + 标签名）
 c	abcd/Jm$a	-	-	body: 异常表条目——int×3 + DexType
-c	abcd/Mm	-	-	body: com/aide/engine/DexAnnotationImpl——注解的实现类（保留 getName/getAttributes 真名）
+c	abcd/Mm	-	-	str: com/aide/engine/MethodBodyReader——读 Code/LineNumberTable/LocalVariable( Type)Table 属性
 c	abcd/xm	-	-	str: NamedAttribute 的子类，常量串就是属性名（SourceFileAttribute）
 c	abcd/wm	-	-	str: NamedAttribute 的子类，常量串就是属性名（SignatureAttribute）
 c	abcd/nm	-	-	str: NamedAttribute 的子类，常量串就是属性名（ExceptionsAttribute）
@@ -1512,7 +1512,7 @@ c	abcd/fn	-	-	str: com/aide/engine/AnnotationParser——注解/属性解析
 c	abcd/Fm	-	-	str: com/aide/engine/LocalVariableChecker——局部变量类型一致性检查
 c	abcd/Zo	-	-	str: com/aide/engine/DexFileBuilder——汇总各段并驻留字符串的 dex 构建器
 c	abcd/jp	-	-	str: com/aide/engine/DexSectionPlacer——段布局与摘要
-c	abcd/Zm	-	-	str: com/aide/engine/RopMethod——rop 方法模型
+c	abcd/Zm	-	-	body: com/aide/engine/BytecodeToRop——把方法体字节码块图转成 RopMethod
 c	abcd/_m	-	-	str: com/aide/engine/RopTranslator——rop 翻译器
 c	abcd/ho	-	-	str: com/aide/engine/InstructionWriter——指令写出（含 opcode 展开）
 c	abcd/xp	-	-	str: com/aide/engine/DexSectionList——段内条目链
@@ -1780,3 +1780,14 @@ m	abcd/au	FH	(I)I	body: 返回元素下标（线性/二分查找），找不到�
 m	abcd/au	lg	()Labcd/au;	body: new au(size) 再逐个加入 ⇒ 复制一份
 m	abcd/Or	gW	()Labcd/Or;	body: 直接 new Or(this) ⇒ 复制基本块表
 m	abcd/du	rN	()I	body: 返回 label 上界+1（fs 用它开前驱数组长度）
+
+c	abcd/fs	-	-	body: com/aide/engine/RopMethod——块表 + 参数宽度 + 懒算前驱/出口前驱
+m	abcd/fs	j6	()Labcd/Or;	body: 返回 j6(块表 Or=BasicBlockList)
+m	abcd/fs	j6	(I)Labcd/au;	body: 懒算前驱后按下标取；为 null 时抛异常（label 无块）
+f	abcd/fs	j6	-	body: 基本块表(Or=BasicBlockList)
+f	abcd/fs	DW	-	body: 构造传入的参数宽度（this 也算一格）
+f	abcd/fs	FH	-	body: 每个 label 的前驱集合（懒算，FH() 填充）
+f	abcd/fs	Hw	-	body: 出口块的前驱集合（懒算，FH() 填充）
+m	abcd/Mm	gn	()Labcd/Lm;	body: 从 jm(CodeAttribute) 取 Lm(BytecodeParser)
+m	abcd/Mm	v5	()Labcd/Os;	body: 委派成员(un).v5() 取 MemberSignature
+m	abcd/un	v5	()Labcd/Os;	iface: getSignature——成员签名（Os=MemberSignature）

@@ -712,6 +712,7 @@ abcd/tn com/aide/engine/DexMember
 	Hw ()Labcd/Js; getDescriptor
 	j6 ()I getAccessFlags
 abcd/un com/aide/engine/DexAnnotation
+	v5 ()Labcd/Os; getSignature
 abcd/pn com/aide/engine/DexAttributes
 abcd/qn com/aide/engine/DexValue
 abcd/jn com/aide/engine/DexEncodedValue
@@ -1413,7 +1414,9 @@ abcd/bs$a com/aide/engine/TypeInfoFactory$Key
 abcd/Wm com/aide/engine/TypeInfoImpl
 abcd/Qt$a com/aide/engine/CodeWriterImpl$Label
 abcd/Jm$a com/aide/engine/ExceptionTable$Entry
-abcd/Mm com/aide/engine/DexAnnotationImpl
+abcd/Mm com/aide/engine/MethodBodyReader
+	gn ()Labcd/Lm; getBytecodeParser
+	v5 ()Labcd/Os; getSignature
 abcd/xm com/aide/engine/SourceFileAttribute
 abcd/wm com/aide/engine/SignatureAttribute
 abcd/nm com/aide/engine/ExceptionsAttribute
@@ -1589,7 +1592,7 @@ abcd/fn com/aide/engine/AnnotationParser
 abcd/Fm com/aide/engine/LocalVariableChecker
 abcd/Zo com/aide/engine/DexFileBuilder
 abcd/jp com/aide/engine/DexSectionPlacer
-abcd/Zm com/aide/engine/RopMethod
+abcd/Zm com/aide/engine/BytecodeToRop
 abcd/_m com/aide/engine/RopTranslator
 abcd/ho com/aide/engine/InstructionWriter
 abcd/xp com/aide/engine/DexSectionList
@@ -1774,3 +1777,10 @@ abcd/Or com/aide/engine/BasicBlockList
 abcd/du com/aide/engine/LabeledList
 	rN ()I getMaxLabel
 abcd/cu com/aide/engine/LabeledItem
+abcd/fs com/aide/engine/RopMethod
+	j6 ()Labcd/Or; getBlocks
+	j6 (I)Labcd/au; getPredecessors
+	j6 blocks
+	DW paramWidth
+	FH predecessors
+	Hw exitPredecessors

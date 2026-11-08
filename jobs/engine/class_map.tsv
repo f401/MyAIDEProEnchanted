@@ -236,7 +236,7 @@ bs$a	com/aide/engine/TypeInfoFactory$Key	body:字段 Rs + Vr(ReferencePair) + in
 Wm	com/aide/engine/TypeInfoImpl	body:implements com/aide/engine/TypeInfo(Rs) 的纯值实现：只有 int + 构造器，Mr()/U2()/a8()/getType() 取各字段，equals/hashCode；**没有** bs 那样的静态池 ⇒ TypeInfo 的值对象
 Qt$a	com/aide/engine/CodeWriterImpl$Label	body:字段 int id + 可变 int 偏移 + String 标签名；构造 (int,int,String)/(int,String)，setter j6(int)/DW(int) 改偏移 ⇒ 写出器里的标号/修补记录
 Jm$a	com/aide/engine/ExceptionTable$Entry	body:字段 int×3 + abcd/Ks(DexType)；构造 (int,int,int,Ks)，j6(int)Z 比较 + 四个 getter ⇒ 异常表的 try/catch 条目
-Mm	com/aide/engine/DexAnnotationImpl	body:implements com/aide/engine/DexAnnotation；字段 (un,jm,Qm,Js,Pm,boolean)，两个构造器分别收 (int,Js,boolean,boolean) 与 (qn,boolean,boolean)；方法里保留了真名 getAttributes()/getName()，另有 Hw()/u7()/gn()/VH()/DW() 取各部件、EQ()/tp()/j6() 取数值、j6(int)hs 取元素 ⇒ 注解的实现类
+Mm	com/aide/engine/MethodBodyReader	str:构造里从属性表取 "Code" / "LineNumberTable" / "LocalVariableTable" / "LocalVariableTypeTable"，字段 jm(CodeAttribute)+Lm(BytecodeParser)+MemberSignature+AnnotationSet；implements un ⇒ class 文件方法的 Code 属性读取器（旧名 DexAnnotationImpl 是错的）
 xm	com/aide/engine/SourceFileAttribute	str:类常量串里就是 "SourceFile"（extends NamedAttribute）⇒ class 文件 SourceFile 属性
 wm	com/aide/engine/SignatureAttribute	str:常量串 "Signature"（extends NamedAttribute）⇒ 泛型签名属性
 nm	com/aide/engine/ExceptionsAttribute	str:常量串 "Exceptions" + 字段 Ss(TypeList) ⇒ throws 子句属性
@@ -331,7 +331,7 @@ fn	com/aide/engine/AnnotationParser	str:"truncated annotation attribute" / "cons
 Fm	com/aide/engine/LocalVariableChecker	str:"local variable type mismatch: attempt to set or access a value of type … using a local variable of type …" + "This is symptomatic of .class transformation tools" ⇒ 局部变量类型一致性检查
 Zo	com/aide/engine/DexFileBuilder	str:"uninternable instance" / " annotations directory" + 若干 ArrayList<Ap/op/Hp> 字段 ⇒ 汇总各段并驻留字符串的 dex 构建器
 jp	com/aide/engine/DexSectionPlacer	str:"bogus placement for section " / "...while writing section " / "unexpected digest write: " / "excess write of " ⇒ 段布局与摘要
-Zm	com/aide/engine/RopMethod	str:"advice == null"（dx 的 TranslationAdvice）/ "method == null" / "block == null" + ArrayList<Nr(BasicBlock)> ⇒ rop 方法模型
+Zm	com/aide/engine/BytecodeToRop	str:"advice == null"（dx 的 TranslationAdvice）/ "method == null" / "block == null"；字段 Frame[] + ArrayList<IntSet> + RopTranslator + 两个 boolean；静态工厂 j6(Mm 方法体, ls) 返回 fs(RopMethod)，内部把字节码块图重建成 rop 基本块图 ⇒ 旧名 RopMethod 是错的（RopMethod 是 fs）
 _m	com/aide/engine/RopTranslator	str:"ropper == null" / "advice == null" / "return op mismatch: " / "should not happen" ⇒ rop 翻译器
 ho	com/aide/engine/InstructionWriter	str:"No expanded opcode for " / "method too long" / "unpaired TargetInsn" / "unpaired TargetInsn (dangling)" ⇒ 指令写出（含 opcode 展开）
 xp	com/aide/engine/DexSectionList	str:"section == null" / "firstItem == null" / "lastItem == null" / "itemCount <= 0" ⇒ 段内条目链
@@ -401,3 +401,5 @@ au	com/aide/engine/IntSet	body:extends hu(MutabilityControl)；字段 int[] + in
 Or	com/aide/engine/BasicBlockList	body:extends du(带标签的列表)；get(int)Nr(BasicBlock)、v5(int)Nr 按 label 取块、j6(Nr)Nr 取主后继、gW() 复制 ⇒ dx 的 BasicBlockList
 du	com/aide/engine/LabeledList	body:extends Xt；字段 au(标签集合)；j6(int,cu) 带编号 set、Hw(int)、rN() 返回最大标签+1（fs 用它开前驱数组）⇒ dx 的 LabeledList
 cu	com/aide/engine/LabeledItem	iface:唯一方法 DW()I = 取标签 ⇒ 能放进 LabeledList 的条目（dx 的 LabeledItem）
+
+fs	com/aide/engine/RopMethod	body:构造 (Or blocks, int paramWidth)；懒算 au[] predecessors 与 au exitPredecessors（遍历块表，按 block.gn() 后继集反向累加，空则填 au.DW）；j6():Or 取块表、j6(int):au 取某 label 的前驱集（为空抛异常）⇒ dx 的 RopMethod
