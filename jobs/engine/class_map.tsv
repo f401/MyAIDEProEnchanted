@@ -306,3 +306,4 @@ kw	com/aide/engine/BuildClassLoader	body:extends java.lang.ClassLoader；构造 
 kw$a	com/aide/engine/BuildClassLoader$CompoundEnumeration	body:implements Enumeration<E>，字段是 Enumeration<E>[] 并把它们串起来（hasMoreElements/nextElement）⇒ 复合枚举
 mq	com/aide/engine/ReferenceKind	str:枚举常量 UNKNOWN/NONE/VARIES/TYPE_REF/STRING_REF/METHOD_REF/FIELD_REF/INLINE_METHOD…（10 个）；被 Ar(OpcodeInfoTable) 与 Br(OpcodeFormatTable) 在 <clinit> 里当查表值用 ⇒ 指令引用的种类
 Ar	com/aide/engine/OpcodeInfoTable	body:只有两个 static final int[] 查表；被 Br(OpcodeFormatTable) 的 <clinit> 引用，并与 er(InstructionFormat)/mq(ReferenceKind) 一起使用 ⇒ 每个 opcode 的「格式 + 引用种类」索引表
+Hh	com/aide/ui/ProgressDialog	body:abstract extends com/aide/common/ma；字段 android.app.AlertDialog；私有 DW(AlertDialog)ProgressBar 与 j6(AlertDialog)TextView 取控件，抽象 EQ():String / J0()，VH() 显示、J8() 收尾，另有取消路径 ⇒ 带进度条的对话框基类

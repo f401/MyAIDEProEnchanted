@@ -1486,3 +1486,4 @@ abcd/mq com/aide/engine/ReferenceKind
 	u7 VTABLE_OFFSET
 	tp FIELD_OFFSET
 abcd/Ar com/aide/engine/OpcodeInfoTable
+abcd/Hh com/aide/ui/ProgressDialog

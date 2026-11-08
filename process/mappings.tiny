@@ -26588,6 +26588,7 @@ c	abcd/mq	com/aide/engine/ReferenceKind	str: 指令引用种类枚举（TYPE_REF
 	f	Labcd/mq;	u7	VTABLE_OFFSET	auto: 枚举常量 VTABLE_OFFSET（名字取自该类 <clinit> 的 ldc 字符串）
 	f	Labcd/mq;	tp	FIELD_OFFSET	auto: 枚举常量 FIELD_OFFSET（名字取自该类 <clinit> 的 ldc 字符串）
 c	abcd/Ar	com/aide/engine/OpcodeInfoTable	body: 每 opcode 的「格式 + 引用种类」索引表（两张 int[]，被 OpcodeFormatTable 使用）
+c	abcd/Hh	com/aide/ui/ProgressDialog	body: com/aide/ui/ProgressDialog——带进度条的对话框基类
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
