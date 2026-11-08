@@ -288,3 +288,9 @@ Ze	com/aide/ui/CloseEditorTask	body:唯一方法 run()，字段是 CloseEditorAc
 Dk	com/aide/licensing/PrimeStatusTask	body:唯一方法 run()，字段是 abcd/Ek(LicensingManager)；常量串 "InAppBillingSettings"/"WasPrimeAtSomePoint"（偏好键），run() 里读 SharedPreferences 再调 Ek ⇒ 检查是否曾购买过高级版的任务
 Mj	com/aide/ui/NdkInstalledDialogTask	body:唯一方法 run()，字段是已命名的 abcd/Nj(NdkInstalledDialog)；本身带 "Google Play Store" 串 ⇒ 弹 NDK 提示框的任务
 _j	com/aide/ui/ShowSyntaxErrorsTask	body:唯一方法 run()，字段是 abcd/ck(SyntaxErrorTable) ⇒ 展示语法错误列表的任务
+Cm	com/aide/engine/InnerClassesAttribute	body:extends NamedAttribute；唯一字段是 abcd/Kr(ClassDefList) + int ⇒ class 文件里唯一“类列表”载荷的属性就是 InnerClasses
+pm	com/aide/engine/LineNumberTableAttribute	body:extends NamedAttribute；唯一字段是 abcd/Pm（int,int 对的表，带 merge 与空单例）⇒ 行号表属性
+Pm	com/aide/engine/LineNumberTable	body:extends ArrayItem；元素 Pm$a 是 (int,int) 对，静态 FH 是空表、静态 j6(Pm,Pm) 合并 ⇒ (start_pc, line) 的行号表
+Pm$a	com/aide/engine/LineNumberTable$Entry	body:两个 final int + 两个 getter，构造 (int,int) ⇒ 行号表的一条 (start_pc, line)
+zm	com/aide/engine/EnclosingMethodAttribute	body:extends NamedAttribute；字段 abcd/Jr(ClassDef) + int ⇒ 记录“定义在哪个类/方法里”的属性（EnclosingMethod）
+Em	com/aide/engine/RuntimeVisibleAnnotationsAttribute	body:extends NamedAttribute；字段 abcd/Pt(ByteSlice 原始字节) + abcd/ns(ReferenceArray 常量引用) + 两个 int ⇒ 注解属性的载荷形态（注解 = 原始字节 + 常量池引用）；同类形态也见于 StackMapTable，取更常见的注解属性

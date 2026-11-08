@@ -26498,6 +26498,12 @@ c	abcd/Ze	com/aide/ui/CloseEditorTask	str/body: com/aide/ui/CloseEditorTask—�
 c	abcd/Dk	com/aide/licensing/PrimeStatusTask	str/body: com/aide/licensing/PrimeStatusTask——检查是否曾购买高级版（读偏好 + LicensingManager）
 c	abcd/Mj	com/aide/ui/NdkInstalledDialogTask	str/body: com/aide/ui/NdkInstalledDialogTask——弹 NDK 已集成提示框的任务
 c	abcd/_j	com/aide/ui/ShowSyntaxErrorsTask	str/body: com/aide/ui/ShowSyntaxErrorsTask——展示语法错误列表的任务
+c	abcd/Cm	com/aide/engine/InnerClassesAttribute	body: com/aide/engine/InnerClassesAttribute——InnerClasses 属性（唯一载荷是类列表）
+c	abcd/pm	com/aide/engine/LineNumberTableAttribute	body: com/aide/engine/LineNumberTableAttribute——行号表属性
+c	abcd/Pm	com/aide/engine/LineNumberTable	body: com/aide/engine/LineNumberTable——(start_pc,line) 的表
+c	abcd/Pm$a	com/aide/engine/LineNumberTable$Entry	body: com/aide/engine/LineNumberTable$Entry——行号表条目
+c	abcd/zm	com/aide/engine/EnclosingMethodAttribute	body: com/aide/engine/EnclosingMethodAttribute——EnclosingMethod 属性
+c	abcd/Em	com/aide/engine/RuntimeVisibleAnnotationsAttribute	body: com/aide/engine/RuntimeVisibleAnnotationsAttribute——注解属性（原始字节 + 常量引用）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

@@ -27920,6 +27920,12 @@ abcd/Ze com/aide/ui/CloseEditorTask
 abcd/Dk com/aide/licensing/PrimeStatusTask
 abcd/Mj com/aide/ui/NdkInstalledDialogTask
 abcd/_j com/aide/ui/ShowSyntaxErrorsTask
+abcd/Cm com/aide/engine/InnerClassesAttribute
+abcd/pm com/aide/engine/LineNumberTableAttribute
+abcd/Pm com/aide/engine/LineNumberTable
+abcd/Pm$a com/aide/engine/LineNumberTable$Entry
+abcd/zm com/aide/engine/EnclosingMethodAttribute
+abcd/Em com/aide/engine/RuntimeVisibleAnnotationsAttribute
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
