@@ -245,3 +245,13 @@ lm	com/aide/engine/DeprecatedAttribute	str:常量串 "Deprecated"（extends Name
 ym	com/aide/engine/SyntheticAttribute	str:常量串 "Synthetic"（extends NamedAttribute）⇒ 编译器合成标记属性
 im	com/aide/engine/AnnotationDefaultAttribute	str:常量串 "AnnotationDefault"（extends NamedAttribute）⇒ 注解默认值属性
 jm	com/aide/engine/CodeAttribute	body:extends NamedAttribute；构造 (int max_stack, int max_locals, Lm 代码, Jm 异常表, pn 子属性)，字段正好是 Code 属性的五段 ⇒ class 文件的 Code 属性
+Gn	com/aide/engine/DexMapList	str+body:常量串 "Map is unsorted at " / "Unexpected map value for 0x"；字段是一串 Gn$a 表项 + int + byte[]，对外暴露各段的表项 ⇒ DEX 的 map_list（类型→偏移表），解析时校验有序性
+Br	com/aide/engine/OpcodeFormatTable	str+body:常量串 "Unknown opcode format" / "Jumbo opcodes not supported" / "Unexpected format"；private static final byte[] 格式表 + 静态 j6(er)byte（按 opcode 查格式）+ j6(short[], yr) 批量解 ⇒ DEX opcode 的格式查表
+Nn	com/aide/engine/InstructionTemplate	str+body:extends abcd/qo；字段 DexBaseReference + ArrayList<DexBaseReference> + int×2 + InvokeInstruction；方法 j6(cs)Vn 用参数列表造指令、j6()String 描述自己；常量串 "Unexpected constant type" / "Illegal number of init values" （对常量参数做校验）⇒ 调用点绑定用的指令模板
+Dv	com/aide/engine/StringResourceTable	str+body:static Map<Character,String> + 三个 HashMap<CharSequence,String> + 私有 DW(String)String；常量串 "String resources" / "Loading strings took " ⇒ 字符串资源表（含转义/占位符替换）
+Cv	com/aide/engine/StringResourceLoader	body:字段就是 abcd/Dv(StringResourceTable)，唯一方法 run() ⇒ 后台把字符串资源装进表的 Runnable
+Pi	com/aide/licensing/PremiumKeyChecker	str+body:extends abcd/Oi(=com/aide/licensing/LicenseChecker)；常量串 "Premium key valid" / "Premium key not valid"，覆写 j6(String)/j6(long)/Hw() 三个校验回调 ⇒ 高级版密钥校验器
+Xh	com/aide/ui/CreateKeystoreCallback	str+body:implements abcd/rh$a，字段 Activity + String + abcd/Yh，回调 j6(boolean,String)；常量串 "Create keystore" / "Failed to create keystore file " ⇒ 创建 keystore 的对话框回调
+Nj	com/aide/ui/NdkInstalledDialog	str+body:Runnable；常量串 "NDK installed" / "NDK Support package can be uninstalled" / "The NDK has been integrated into AIDE ... Open Play Store to uninstall?"，run() 里调 Kj(对话框工具) 弹 AlertDialog ⇒ NDK 已集成提示框
+Oh	com/aide/ui/DownloadErrorDialog	str+body:extends abcd/ma(Preprocessor) 但实际是对话框：私有 DW(AlertDialog)ListView / FH(AlertDialog)TextView、常量串 "Download error"/"下载错误"（按 Utils.isCN 二选一）⇒ 下载错误对话框
+Nv	com/aide/ui/RuntimeErrorHandler	str+body:implements java.lang.Thread$UncaughtExceptionHandler，唯一方法 uncaughtException(Thread,Throwable)；常量串 "Runtime Error"（弹错误框）⇒ 未捕获异常处理器

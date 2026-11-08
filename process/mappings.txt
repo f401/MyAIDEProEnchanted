@@ -27877,6 +27877,16 @@ abcd/lm com/aide/engine/DeprecatedAttribute
 abcd/ym com/aide/engine/SyntheticAttribute
 abcd/im com/aide/engine/AnnotationDefaultAttribute
 abcd/jm com/aide/engine/CodeAttribute
+abcd/Gn com/aide/engine/DexMapList
+abcd/Br com/aide/engine/OpcodeFormatTable
+abcd/Nn com/aide/engine/InstructionTemplate
+abcd/Dv com/aide/engine/StringResourceTable
+abcd/Cv com/aide/engine/StringResourceLoader
+abcd/Pi com/aide/licensing/PremiumKeyChecker
+abcd/Xh com/aide/ui/CreateKeystoreCallback
+abcd/Nj com/aide/ui/NdkInstalledDialog
+abcd/Oh com/aide/ui/DownloadErrorDialog
+abcd/Nv com/aide/ui/RuntimeErrorHandler
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

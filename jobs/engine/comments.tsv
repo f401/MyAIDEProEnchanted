@@ -1354,3 +1354,13 @@ c	abcd/lm	-	-	str: NamedAttribute 的子类，常量串就是属性名（Depreca
 c	abcd/ym	-	-	str: NamedAttribute 的子类，常量串就是属性名（SyntheticAttribute）
 c	abcd/im	-	-	str: NamedAttribute 的子类，常量串就是属性名（AnnotationDefaultAttribute）
 c	abcd/jm	-	-	body: Code 属性——(max_stack, max_locals, 代码, 异常表, 子属性)
+c	abcd/Gn	-	-	str/body: com/aide/engine/DexMapList——DEX map_list（类型→偏移表），解析时校验有序
+c	abcd/Br	-	-	str/body: com/aide/engine/OpcodeFormatTable——DEX opcode 的格式查表（含 jumbo 检测）
+c	abcd/Nn	-	-	str/body: com/aide/engine/InstructionTemplate——指令模板：用参数列表绑定出具体指令
+c	abcd/Dv	-	-	str/body: com/aide/engine/StringResourceTable——字符串资源表（转义/占位符替换）
+c	abcd/Cv	-	-	str/body: com/aide/engine/StringResourceLoader——字符串资源装载任务（Runnable）
+c	abcd/Pi	-	-	str/body: com/aide/licensing/PremiumKeyChecker——高级版密钥校验器（LicenseChecker 子类）
+c	abcd/Xh	-	-	str/body: com/aide/ui/CreateKeystoreCallback——创建 keystore 的对话框回调
+c	abcd/Nj	-	-	str/body: com/aide/ui/NdkInstalledDialog——NDK 已集成提示框（Runnable 里弹 AlertDialog）
+c	abcd/Oh	-	-	str/body: com/aide/ui/DownloadErrorDialog——下载错误对话框（列表 + 文案，按语言二选一）
+c	abcd/Nv	-	-	str: 未捕获异常处理器——Thread.UncaughtExceptionHandler，弹 "Runtime Error"
