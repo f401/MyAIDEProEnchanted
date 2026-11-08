@@ -26474,7 +26474,69 @@ c	abcd/gd	com/aide/engine/JavadocGenerator	str/body: com/aide/engine/JavadocGene
 c	abcd/hr	com/aide/engine/TableOfContents	str/body: com/aide/engine/TableOfContents——文档目录（TOC）构建器
 c	abcd/ay	com/aide/engine/TaskUtils	str/body: com/aide/engine/TaskUtils——Task 工具方法集（包装/取值/限时等待）
 c	abcd/er	com/aide/engine/InstructionFormat	body/str: com/aide/engine/InstructionFormat——DEX 指令格式枚举（FORMAT_00X…）
+	f	Labcd/er;	j6	FORMAT_00X
+	f	Labcd/er;	DW	FORMAT_10X
+	f	Labcd/er;	FH	FORMAT_12X
+	f	Labcd/er;	Hw	FORMAT_11N
+	f	Labcd/er;	v5	FORMAT_11X
+	f	Labcd/er;	Zo	FORMAT_10T
+	f	Labcd/er;	VH	FORMAT_20T
+	f	Labcd/er;	gn	FORMAT_20BC
+	f	Labcd/er;	u7	FORMAT_22X
+	f	Labcd/er;	tp	FORMAT_21T
+	f	Labcd/er;	EQ	FORMAT_21S
+	f	Labcd/er;	we	FORMAT_21H
+	f	Labcd/er;	J0	FORMAT_21C
+	f	Labcd/er;	J8	FORMAT_23X
+	f	Labcd/er;	Ws	FORMAT_22B
+	f	Labcd/er;	QX	FORMAT_22T
+	f	Labcd/er;	XL	FORMAT_22S
+	f	Labcd/er;	aM	FORMAT_22C
+	f	Labcd/er;	j3	FORMAT_22CS
+	f	Labcd/er;	Mr	FORMAT_30T
+	f	Labcd/er;	U2	FORMAT_32X
+	f	Labcd/er;	a8	FORMAT_31I
+	f	Labcd/er;	lg	FORMAT_31T
+	f	Labcd/er;	rN	FORMAT_31C
+	f	Labcd/er;	er	FORMAT_35C
+	f	Labcd/er;	yS	FORMAT_35MS
+	f	Labcd/er;	gW	FORMAT_35MI
+	f	Labcd/er;	BT	FORMAT_3RC
+	f	Labcd/er;	vy	FORMAT_3RMS
+	f	Labcd/er;	P8	FORMAT_3RMI
+	f	Labcd/er;	ei	FORMAT_51L
+	f	Labcd/er;	nw	FORMAT_33X
+	f	Labcd/er;	SI	FORMAT_32S
+	f	Labcd/er;	KD	FORMAT_40SC
+	f	Labcd/er;	ro	FORMAT_41C
+	f	Labcd/er;	cn	FORMAT_52C
+	f	Labcd/er;	sh	FORMAT_5RC
+	f	Labcd/er;	cb	FORMAT_PACKED_SWITCH_PAYLOAD
+	f	Labcd/er;	dx	FORMAT_SPARSE_SWITCH_PAYLOAD
+	f	Labcd/er;	sG	FORMAT_FILL_ARRAY_DATA_PAYLOAD
 c	abcd/wp	com/aide/engine/MapItemType	body/str: com/aide/engine/MapItemType——DEX map_list 条目类型枚举
+	f	Labcd/wp;	j6	header_item
+	f	Labcd/wp;	DW	string_id_item
+	f	Labcd/wp;	FH	type_id_item
+	f	Labcd/wp;	Hw	proto_id_item
+	f	Labcd/wp;	v5	field_id_item
+	f	Labcd/wp;	Zo	method_id_item
+	f	Labcd/wp;	VH	class_def_item
+	f	Labcd/wp;	gn	map_list
+	f	Labcd/wp;	u7	type_list
+	f	Labcd/wp;	tp	annotation_set_ref_list
+	f	Labcd/wp;	EQ	annotation_set_item
+	f	Labcd/wp;	we	class_data_item
+	f	Labcd/wp;	J0	code_item
+	f	Labcd/wp;	J8	string_data_item
+	f	Labcd/wp;	Ws	debug_info_item
+	f	Labcd/wp;	QX	annotation_item
+	f	Labcd/wp;	XL	encoded_array_item
+	f	Labcd/wp;	aM	annotations_directory_item
+	f	Labcd/wp;	j3	map_item
+	f	Labcd/wp;	Mr	type_item
+	f	Labcd/wp;	U2	exception_handler_item
+	f	Labcd/wp;	a8	annotation_set_ref_item
 c	abcd/Kb$a	com/aide/codemodel/api/collections/MapOfIntInt$Iterator	body/str: com/aide/codemodel/api/collections/MapOfIntInt$Iterator——MapOfIntInt 的遍历器
 c	abcd/Sb$a	com/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator	body/str: com/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator——OrderedMapOfIntInt 的遍历器
 c	abcd/qb$a	com/aide/codemodel/api/collections/FunctionOfIntInt$Iterator	body/str: com/aide/codemodel/api/collections/FunctionOfIntInt$Iterator——FunctionOfIntInt 的遍历器
@@ -26514,6 +26576,18 @@ c	abcd/c$e	com/aide/engine/LinkedMap$DescendingIterator	body: com/aide/engine/Li
 c	abcd/c$f	com/aide/engine/LinkedMap$WeakKey	body: com/aide/engine/LinkedMap$WeakKey——弱引用键标记
 c	abcd/kw	com/aide/engine/BuildClassLoader	body: com/aide/engine/BuildClassLoader——构建期类加载器
 c	abcd/kw$a	com/aide/engine/BuildClassLoader$CompoundEnumeration	body: com/aide/engine/BuildClassLoader$CompoundEnumeration——复合枚举
+c	abcd/mq	com/aide/engine/ReferenceKind	str: 指令引用种类枚举（TYPE_REF/STRING_REF/METHOD_REF/FIELD_REF/INLINE_METHOD…）
+	f	Labcd/mq;	j6	UNKNOWN
+	f	Labcd/mq;	DW	NONE
+	f	Labcd/mq;	FH	VARIES
+	f	Labcd/mq;	Hw	TYPE_REF
+	f	Labcd/mq;	v5	STRING_REF
+	f	Labcd/mq;	Zo	METHOD_REF
+	f	Labcd/mq;	VH	FIELD_REF
+	f	Labcd/mq;	gn	INLINE_METHOD
+	f	Labcd/mq;	u7	VTABLE_OFFSET
+	f	Labcd/mq;	tp	FIELD_OFFSET
+c	abcd/Ar	com/aide/engine/OpcodeInfoTable	body: 每 opcode 的「格式 + 引用种类」索引表（两张 int[]，被 OpcodeFormatTable 使用）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

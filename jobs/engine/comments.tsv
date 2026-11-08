@@ -1413,3 +1413,5 @@ c	abcd/c$e	-	-	body: com/aide/engine/LinkedMap$DescendingIterator——反向迭
 c	abcd/c$f	-	-	body: com/aide/engine/LinkedMap$WeakKey——弱引用键标记
 c	abcd/kw	-	-	body: com/aide/engine/BuildClassLoader——构建期类加载器
 c	abcd/kw$a	-	-	body: com/aide/engine/BuildClassLoader$CompoundEnumeration——复合枚举
+c	abcd/mq	-	-	str: 指令引用种类枚举（TYPE_REF/STRING_REF/METHOD_REF/FIELD_REF/INLINE_METHOD…）
+c	abcd/Ar	-	-	body: 每 opcode 的「格式 + 引用种类」索引表（两张 int[]，被 OpcodeFormatTable 使用）

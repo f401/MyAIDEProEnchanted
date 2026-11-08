@@ -1372,7 +1372,69 @@ abcd/gd com/aide/engine/JavadocGenerator
 abcd/hr com/aide/engine/TableOfContents
 abcd/ay com/aide/engine/TaskUtils
 abcd/er com/aide/engine/InstructionFormat
+	j6 FORMAT_00X
+	DW FORMAT_10X
+	FH FORMAT_12X
+	Hw FORMAT_11N
+	v5 FORMAT_11X
+	Zo FORMAT_10T
+	VH FORMAT_20T
+	gn FORMAT_20BC
+	u7 FORMAT_22X
+	tp FORMAT_21T
+	EQ FORMAT_21S
+	we FORMAT_21H
+	J0 FORMAT_21C
+	J8 FORMAT_23X
+	Ws FORMAT_22B
+	QX FORMAT_22T
+	XL FORMAT_22S
+	aM FORMAT_22C
+	j3 FORMAT_22CS
+	Mr FORMAT_30T
+	U2 FORMAT_32X
+	a8 FORMAT_31I
+	lg FORMAT_31T
+	rN FORMAT_31C
+	er FORMAT_35C
+	yS FORMAT_35MS
+	gW FORMAT_35MI
+	BT FORMAT_3RC
+	vy FORMAT_3RMS
+	P8 FORMAT_3RMI
+	ei FORMAT_51L
+	nw FORMAT_33X
+	SI FORMAT_32S
+	KD FORMAT_40SC
+	ro FORMAT_41C
+	cn FORMAT_52C
+	sh FORMAT_5RC
+	cb FORMAT_PACKED_SWITCH_PAYLOAD
+	dx FORMAT_SPARSE_SWITCH_PAYLOAD
+	sG FORMAT_FILL_ARRAY_DATA_PAYLOAD
 abcd/wp com/aide/engine/MapItemType
+	j6 header_item
+	DW string_id_item
+	FH type_id_item
+	Hw proto_id_item
+	v5 field_id_item
+	Zo method_id_item
+	VH class_def_item
+	gn map_list
+	u7 type_list
+	tp annotation_set_ref_list
+	EQ annotation_set_item
+	we class_data_item
+	J0 code_item
+	J8 string_data_item
+	Ws debug_info_item
+	QX annotation_item
+	XL encoded_array_item
+	aM annotations_directory_item
+	j3 map_item
+	Mr type_item
+	U2 exception_handler_item
+	a8 annotation_set_ref_item
 abcd/Kb$a com/aide/codemodel/api/collections/MapOfIntInt$Iterator
 abcd/Sb$a com/aide/codemodel/api/collections/OrderedMapOfIntInt$Iterator
 abcd/qb$a com/aide/codemodel/api/collections/FunctionOfIntInt$Iterator
@@ -1412,3 +1474,15 @@ abcd/c$e com/aide/engine/LinkedMap$DescendingIterator
 abcd/c$f com/aide/engine/LinkedMap$WeakKey
 abcd/kw com/aide/engine/BuildClassLoader
 abcd/kw$a com/aide/engine/BuildClassLoader$CompoundEnumeration
+abcd/mq com/aide/engine/ReferenceKind
+	j6 UNKNOWN
+	DW NONE
+	FH VARIES
+	Hw TYPE_REF
+	v5 STRING_REF
+	Zo METHOD_REF
+	VH FIELD_REF
+	gn INLINE_METHOD
+	u7 VTABLE_OFFSET
+	tp FIELD_OFFSET
+abcd/Ar com/aide/engine/OpcodeInfoTable

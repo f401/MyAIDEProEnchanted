@@ -304,3 +304,5 @@ c$e	com/aide/engine/LinkedMap$DescendingIterator	body:abstract，持两个 c$c �
 c$f	com/aide/engine/LinkedMap$WeakKey	body:空接口，唯一用途是作 WeakHashMap<c$f<K,V>,Boolean> 的弱键 ⇒ 弱引用键标记
 kw	com/aide/engine/BuildClassLoader	body:extends java.lang.ClassLoader；构造 (String,String,String,ClassLoader,boolean)，方法 getResource/getResources 返回 URL 枚举、loadClass 覆写 ⇒ 构建期用的类加载器
 kw$a	com/aide/engine/BuildClassLoader$CompoundEnumeration	body:implements Enumeration<E>，字段是 Enumeration<E>[] 并把它们串起来（hasMoreElements/nextElement）⇒ 复合枚举
+mq	com/aide/engine/ReferenceKind	str:枚举常量 UNKNOWN/NONE/VARIES/TYPE_REF/STRING_REF/METHOD_REF/FIELD_REF/INLINE_METHOD…（10 个）；被 Ar(OpcodeInfoTable) 与 Br(OpcodeFormatTable) 在 <clinit> 里当查表值用 ⇒ 指令引用的种类
+Ar	com/aide/engine/OpcodeInfoTable	body:只有两个 static final int[] 查表；被 Br(OpcodeFormatTable) 的 <clinit> 引用，并与 er(InstructionFormat)/mq(ReferenceKind) 一起使用 ⇒ 每个 opcode 的「格式 + 引用种类」索引表
