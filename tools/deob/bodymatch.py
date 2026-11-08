@@ -104,10 +104,22 @@ def main():
     #      再用"返回类型相同"做硬校验（fork 改的通常是参数，返回类型极少改）。
     bij = []
     if a.bijection:
-        import pickle as _pk
-        pbj, obj = _pk.load(open(os.path.join(H, 'tmp', 'bcache.pkl'), 'rb'))
-        rdesc = {k: [(n, d) for acc, n, d in c['methods']] for k, c in pbj.items()}
-        rdesc.update({k: [(n, d) for acc, n, d in c['methods']] for k, c in obj.items()})
+        # bcache.pkl 只缓存过 jd-core 的类；缺的直接从 jar 读描述符
+        import zipfile as _zf
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__))), 'jgit'))
+        import jvmbody as _jb
+        def _descs(jar, names):
+            z = _zf.ZipFile(jar); out = {}
+            for n in names:
+                try:
+                    ms = _jb.parse(z.read(n + '.class'))['members']
+                    out[n] = [(x['name'], x['desc']) for x in ms if x.get('kind') == 'm']
+                except Exception:
+                    pass
+            return out
+        rdesc = _descs(ex('base/merged_ok.jar'), list(P))
+        rdesc.update(_descs(ojar, list(O)))
         for pk, ok in cls.items():
             if pk not in P or ok not in O or pk not in rdesc or ok not in O:
                 continue

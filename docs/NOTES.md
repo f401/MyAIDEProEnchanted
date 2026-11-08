@@ -431,3 +431,64 @@ python3 tools/deob/xshape.py --oracle ~/out/oracle/aide-plus/aide-plus-2.3.5-eng
 `analyzeTypeName(SyntaxTree,int,int,String) : Type` 对应本工程的 `ga.j6(Sa,int,int,String) : Ya`
 ⇒ **`Sa` = SyntaxTree、`Ya` = Type**（不是早前以为的“源文本/节点”）。改名前先把
 `SyntaxTree` 的 58 个方法与 `Sa` 的方法集比一遍（`xshape.py --dump com.aide.codemodel.api.SyntaxTree`）。
+
+## 22. 用 AIDE+ 2.3.5 做「跨版本同源 oracle」的完整打法（2026-11 总结）
+
+设备上那份 `AIDE-Plus-2.3.5.0`（见 §21）能提供的东西到此基本挖完了，把方法与结论固化下来。
+
+### 22.1 六条锚（按可靠性从高到低）
+
+| 锚 | 做法 | 典型战果 |
+|---|---|---|
+| ① 构造器/方法数逐一相等 | 同一族的类方法数往往「恰好差 1」（版本差），先按方法数缩小候选 | `Type` 家族 9 个类一次全中 |
+| ② 字段持有者 | `Language` 必持 `Syntax/Tools/CodeAnalyzer`、`CodeModel` 必持 lexer/parser | 拆掉 `{ad,Tc}`、`{Yc,Hc}`、`{md,le}` 等全部并列 |
+| ③ 常量池引用者 | 扫 class 文件 `CONSTANT_Class`，回答「谁引用了我」 | `Yc`→DtdLexer（只被 DtdCodeModel 引用） |
+| ④ 枚举常量数 | `JavaFormatterOption` 1 个常量/6 方法，`JavaFormatOption` 32/9 | `md`/`le` 一数就分开 |
+| ⑤ 常量串 | `"J# Comments"`、`{"*.java","*.json"}` | 纠 `JSharpCommentsLanguage`、`getDefaultFilePatterns` |
+| ⑥ 方法体指纹 | `bodymatch.py`（token 多重集，双向唯一 + lead） | 一次 500+ 成员名 |
+
+唯一性消解（同族 N 个类对 N 个槽位时，用已占用的排除掉）也是常用手段，但只在前五条都失效时用。
+
+### 22.2 工具
+
+```bash
+# 类级：形状（方法数 + 折叠后的参数/返回多重集）
+python3 tools/deob/xshape.py --oracle ~/out/oracle/aide-plus/aide-plus-2.3.5-engine.jar \
+    --ours abcd/gb --cand com.aide.codemodel.api.callback.OpenFileCallback
+# 成员级：方法体指纹（需要先建反汇编缓存，见下）
+python3 tools/deob/bodymatch.py -p process/deob.json --part ../jobs/engine \
+    --oracle aide-plus --prefix abcd --oprefix com/aide/codemodel --thr 0.6 --margin 0.15 --apply
+# 成员名体检（必跑：门禁查不出「名字挑错了」）
+python3 tools/deob/memberaudit.py            # 可校验 1125 / 可疑 0
+```
+
+反汇编缓存（`javap -p -c`，按前缀建，按**jar 文件名**缓存，换前缀要先改名或删掉）：
+
+```bash
+python3 - <<'PY'
+import sys, os; sys.path.insert(0, 'tools/deob')
+from bytefp import disassemble
+H = os.path.expanduser('~')
+disassemble('process/base/merged_ok.jar', 'abcd', f'{H}/tmp/fp_abcd_merged_ok.jar.dis')          # 2745 类 / 35MB
+disassemble(f'{H}/out/oracle/aide-plus/aide-plus-2.3.5-engine.jar', 'com/aide',
+            f'{H}/tmp/fp_aide-plus-2.3.5-engine.jar.dis')                                       # 474 类 / 34MB
+PY
+```
+
+**坑**：
+- `bodymatch` 的 `--part` 是相对 `process/` 解析的，要么给绝对路径，要么写 `../jobs/engine`；
+- 它只遍历 `class_map.tsv` 里的类 ⇒ **真名类（`Modification`/`SourceEntity`…）会被跳过**，
+  要另做一份带**恒等映射**的临时 part；
+- engine part 的 class_map 用**短名**（`ua`），而工具要**全名**（`abcd/ua`），也要做临时 part；
+- `apply` 依赖 `~/tmp/bcache.pkl`（只缓存过 jd-core），已给它加了「缓存没有就从 jar 读」的 fallback。
+
+### 22.3 负结果（别再试）
+
+1. **UI 层不可对**：我们 82 个 `com/aide/ui/actions/*` 与 70 个 `abcd/aide/*` 在 AIDE+ 里**一个都不存在**
+   （它只有 `com/aide/ui/command` 下 5 个类），2.3.5 的 Action 机制与 2.8.7 完全不同；
+2. **参数名挖不到**：AIDE+ 的 dex `debug_info` 只有行号，`params` 全是 `None`；
+3. **方法顺序没保留**：R8 与 AIDE+ 的方法顺序无关（14 个唯一锚里只有 1 个索引相同）；
+4. **bijection 模式产不出东西**：我们的类大多已命名，「类内恰好剩 1 个」极少见（整轮只出 1 组）；
+5. **engine 内部字母类到顶**：`C/r/O/E/A` 的最近邻在 AIDE+ 里**也是字母**（`v/k/e0/…`），
+   拿不到真名；
+6. **阈值再降没性价比**：0.6→0.5 多 307 条，0.5→0.45 只多 118 条且要加返回类型校验才安全。
