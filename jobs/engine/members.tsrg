@@ -206,3 +206,4 @@ abcd/re com/aide/codemodel/language/xml/XmlTools
 abcd/oa com/aide/codemodel/api/abstraction/SignatureAnalyzer
 abcd/be com/aide/codemodel/language/js/JavaScriptTools
 abcd/Gd com/aide/codemodel/language/java/JavaTools
+abcd/fm com/aide/ui/views/editor/Position

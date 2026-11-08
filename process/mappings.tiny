@@ -25308,6 +25308,7 @@ c	abcd/re	com/aide/codemodel/language/xml/XmlTools	shape: AIDE+ 2.3.5 的 com/ai
 c	abcd/oa	com/aide/codemodel/api/abstraction/SignatureAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/SignatureAnalyzer（14:14，0.71）——签名分析器：由 Language.VH() 返回
 c	abcd/be	com/aide/codemodel/language/js/JavaScriptTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptTools（51:51，0.71）——JavaScript 工具集；字段含 abcd/Vd(JavaScriptLanguage) 与 Ld/Od/Kd，整族一致
 c	abcd/Gd	com/aide/codemodel/language/java/JavaTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaTools（56:56，0.68）——Java 工具集；字段含 abcd/yd(JavaLanguage) 与 cd/ed/zd/kd/gd，整族一致
+c	abcd/fm	com/aide/ui/views/editor/Position	shape: AIDE+ 2.3.5 的 com/aide/ui/views/editor/Position（4:4，1.00）——编辑器里的行列位置值对象
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

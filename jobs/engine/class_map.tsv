@@ -181,3 +181,4 @@ re	com/aide/codemodel/language/xml/XmlTools	shape:AIDE+ 2.3.5 的 com/aide/codem
 oa	com/aide/codemodel/api/abstraction/SignatureAnalyzer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/SignatureAnalyzer——14:14 方法、形状相似度 0.71（唯一最佳，次优差 +0.71）；签名分析器：由 Language.VH() 返回
 be	com/aide/codemodel/language/js/JavaScriptTools	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptTools——51:51 方法、形状相似度 0.71（唯一最佳，次优差 +0.71）；JavaScript 工具集；字段含 abcd/Vd(JavaScriptLanguage) 与 Ld/Od/Kd，整族一致
 Gd	com/aide/codemodel/language/java/JavaTools	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaTools——56:56 方法、形状相似度 0.68（唯一最佳，次优差 +0.66）；Java 工具集；字段含 abcd/yd(JavaLanguage) 与 cd/ed/zd/kd/gd，整族一致
+fm	com/aide/ui/views/editor/Position	shape:AIDE+ 2.3.5 的 com/aide/ui/views/editor/Position——4:4 方法、形状相似度 1.00（唯一最佳，次优差 +0.50）；字段两个 int + ctor(int,int) + 两个 getter + toString，与 Position(line,column) 完全一致
