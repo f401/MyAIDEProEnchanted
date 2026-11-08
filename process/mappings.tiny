@@ -26435,6 +26435,7 @@ c	abcd/nb	com/aide/codemodel/api/callback/TemplateEvaluatorCallback	shape: AIDE+
 	m	(Ljava/lang/String;)V	j6	Hw	auto: AIDE+ 2.3.5 TemplateEvaluatorCallback.Hw——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Yl	com/aide/ui/command/MenuItemCommand	shape: AIDE+ 2.3.5 的 com/aide/ui/command/MenuItemCommand——菜单项命令接口（getMenuItemId/isEnabled/run）
 c	abcd/_l	com/aide/ui/command/MenuCommand	shape: AIDE+ 2.3.5 的 com/aide/ui/command/MenuCommand——菜单命令接口（在菜单项基础上加 isVisible(boolean)）
+c	abcd/Jd	com/aide/codemodel/language/js/JavaScriptCodeAnalyzer	body: JavaScript 的 CodeAnalyzer——构造收 (Model, JavaScriptLanguage)，字段带 Stack 做嵌套作用域
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

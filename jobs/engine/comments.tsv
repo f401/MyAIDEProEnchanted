@@ -1334,3 +1334,4 @@ m	abcd/Pa	sh	()Labcd/Ya;	auto: AIDE+ 2.3.5 ParameterType.getErasedType——方�
 m	abcd/Sj	FH	()V	auto: AIDE+ 2.3.5 EngineNotifyService.init——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Yl	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/command/MenuItemCommand——菜单项命令接口（getMenuItemId/isEnabled/run）
 c	abcd/_l	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/command/MenuCommand——菜单命令接口（在菜单项基础上加 isVisible(boolean)）
+c	abcd/Jd	-	-	body: JavaScript 的 CodeAnalyzer——构造收 (Model, JavaScriptLanguage)，字段带 Stack 做嵌套作用域

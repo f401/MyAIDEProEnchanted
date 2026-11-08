@@ -126,3 +126,27 @@ python3 tools/deob/component.py --jar process/base/merged_ok.jar --prefix abcd \
 **但 crashlytics 2.9.9 / crashlytics-core 2.7.0 / fabric 1.4.8 三个 oracle 里都没有这些串**（strmatch 也 0 匹配），
 所以只能确定它是 Fabric 家族的「事件文件上报 Runnable」，无法确证该叫 `ReportUploader` 还是它的内部 `SendReportRunner`
 ⇒ 先留名。
+
+## 8) 父类型反查：139 个未命名类的“父类型已有真名”清单（2026-11）
+
+做法：把 `abcd/*` 里未命名的顶层类，按「父类/接口是否已命名」筛出来，再按父类型分组。
+凡是父类型已定的，类的语义范围就定了，只剩“具体是哪一种”。当前分组：
+
+| 父类型（真名） | 未命名子类 | 说明 |
+|---|---|---|
+| `InstructionPrinter`(Lt) | `No Bo Fo Lo Ao Co Do Eo Go Ho Io …`（约 11 个，6~8 方法） | DEX 各指令的打印器；要逐个看它读哪些指令字段 |
+| `ArrayItem` | `Jm Qn Wn du`（7~8 方法） | DEX 数组元素 |
+| `FixedInstruction` | `Tn po`（8 方法） | 固定长度指令 |
+| `DexBaseReference` | `os ps`（8 方法） | 引用常量 |
+| `DexAnnotation` | `Mm`（14 方法） | 注解实现（构造收 un/qn/Js） |
+| `TypeInfo` | `bs`(36) `Wm`(10) | 类型信息（`bs` 有 HashMap 单例池 + `Rs`/`Vr` 字段） |
+| `CodeWriter`(Lt) | `Qt`(26) | 被 `Vo/_o/ap/hp` 等 DEX 写出器大量使用（190 引用点），方法含 `writeByte(I)`/`gn()[B` |
+| `RunTarget`(ze) | `Le`(11) | 运行目标实现，`Zo()` 返回 `RunTarget$Type` |
+| `Task`+`Dependency`+`PriorityProvider` | `gz`(11) `ez`(10) | 带 `Collection<lz>` 的任务/依赖（`gz` 还能包 Runnable/Callable） |
+| `Configuration`(BaseProjectConfig 的真名) | `Je`(14) | 与 `He`(MavenMetadataXml) 同族，形状分曾给到 `ui/util/BuildGradleExt`(0.88) |
+
+已按此法定名的：`Jd → com/aide/codemodel/language/js/JavaScriptCodeAnalyzer`
+（implements CodeAnalyzer + 构造收 (Model, JavaScriptLanguage)，与 `dd`=JavaCodeAnalyzer 同族）。
+
+**注意**：`{Pf, pf}` 这对“菜单命令”仍是死结——两者都实现 MenuCommand+FileBrowserCommand、6 个方法形状全同，
+`run()` 分别调 `U.lg/J8/mk/ma` 与 `Zk.j6/gn/VH`，仅凭字节码分不出各自是哪个菜单项。
