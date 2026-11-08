@@ -28011,6 +28011,22 @@ abcd/mq com/aide/engine/ReferenceKind
 	tp FIELD_OFFSET
 abcd/Ar com/aide/engine/OpcodeInfoTable
 abcd/Hh com/aide/ui/ProgressDialog
+abcd/hp com/aide/engine/DebugInfoEncoder
+abcd/Qp com/aide/engine/TypeIdSection
+abcd/Cp com/aide/engine/MethodIdSection
+abcd/Xn com/aide/engine/OpcodeIterator
+abcd/oo com/aide/engine/SwitchPayloadBuilder
+abcd/Nm com/aide/engine/StackSimulator
+abcd/Sm com/aide/engine/SsaUpdater
+abcd/Vo com/aide/engine/AnnotationWriter
+abcd/Tp com/aide/engine/MapItemWriter
+abcd/Gp com/aide/engine/DexSection
+abcd/Fp com/aide/engine/DexFileWriter
+abcd/Hx com/aide/engine/TryWithResourcesDesugaring
+abcd/Nr com/aide/engine/BasicBlock
+abcd/Om com/aide/engine/Frame
+abcd/bp com/aide/engine/ClassDefItemBuilder
+abcd/Kp com/aide/engine/DexItem
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

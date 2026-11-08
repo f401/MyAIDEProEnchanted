@@ -307,3 +307,19 @@ kw$a	com/aide/engine/BuildClassLoader$CompoundEnumeration	body:implements Enumer
 mq	com/aide/engine/ReferenceKind	str:枚举常量 UNKNOWN/NONE/VARIES/TYPE_REF/STRING_REF/METHOD_REF/FIELD_REF/INLINE_METHOD…（10 个）；被 Ar(OpcodeInfoTable) 与 Br(OpcodeFormatTable) 在 <clinit> 里当查表值用 ⇒ 指令引用的种类
 Ar	com/aide/engine/OpcodeInfoTable	body:只有两个 static final int[] 查表；被 Br(OpcodeFormatTable) 的 <clinit> 引用，并与 er(InstructionFormat)/mq(ReferenceKind) 一起使用 ⇒ 每个 opcode 的「格式 + 引用种类」索引表
 Hh	com/aide/ui/ProgressDialog	body:abstract extends com/aide/common/ma；字段 android.app.AlertDialog；私有 DW(AlertDialog)ProgressBar 与 j6(AlertDialog)TextView 取控件，抽象 EQ():String / J0()，VH() 显示、J8() 收尾，另有取消路径 ⇒ 带进度条的对话框基类
+hp	com/aide/engine/DebugInfoEncoder	str:常量串全是 debug_info 的操作码文本——"%04x: advance pc" / "%04x: +local %s" / "%04x: +local restart %s" / "%04x: prologue end" ⇒ 调试信息编码器
+Qp	com/aide/engine/TypeIdSection	str:"type_ids_size:   " / "type_ids_off:    " / "too many type ids" / "not found: " ⇒ dex 的 type_ids 段
+Cp	com/aide/engine/MethodIdSection	str:"method_ids_size: " / "method_ids_off:  " / "not found" ⇒ dex 的 method_ids 段
+Xn	com/aide/engine/OpcodeIterator	str:"bogus nextOpcode" / "bogus family" / "bogus opcode: " / "format == null" ⇒ 按格式推进的 opcode 迭代器
+oo	com/aide/engine/SwitchPayloadBuilder	str:"too many cases" / "cases / targets mismatch" / "targets == null" / "cases == null" ⇒ switch 载荷构造
+Nm	com/aide/engine/StackSimulator	str:"stack: underflow" / "underlay stack:" / "overlay stack:" / "incompatible substitution: " ⇒ 栈模拟器
+Sm	com/aide/engine/SsaUpdater	str:"$Merging locals set for caller block " / "(locals array set; primary)" / "(Merging one locals against caller block " ⇒ SSA 的 locals 合并
+Vo	com/aide/engine/AnnotationWriter	str:"visibility: VISBILITY_" / " annotation" / "visibility: " ⇒ 注解写出器
+Tp	com/aide/engine/MapItemWriter	str:"item alignment mismatch" / "item size mismatch" / "items.size() == 0" / "itemType == null" ⇒ map_list 条目写出器
+Gp	com/aide/engine/DexSection	str:"writeSize is unknown" / "already written" / "offset < 0" ⇒ 带 offset/writeSize 的 dex 段基类
+Fp	com/aide/engine/DexFileWriter	str:"output size mismatch" / "incompatible item alignment" / "bogus place() result for " ⇒ dex 文件组装/写出
+Hx	com/aide/engine/TryWithResourcesDesugaring	str:"An error has occured when initializing the try-with-resources desugaring strategy. The default strategy will be used."（连 SDK_INT 反射失败的提示都在）⇒ try-with-resources 脱糖策略
+Nr	com/aide/engine/BasicBlock	str:"primarySuccessor " / " not in successors " / "primarySuccessor < -1" / "branch or can throw" ⇒ 控制流基本块
+Om	com/aide/engine/Frame	str:"Incompatible merged subroutines" / "can't return from non-subroutine" / "stack == null" / "locals == null" ⇒ 栈帧
+bp	com/aide/engine/ClassDefItemBuilder	str:"  class_idx:           " / "  access_flags:        " / "  superclass_idx:      " / "interfaces == null" ⇒ class_def 条目构造/打印
+Kp	com/aide/engine/DexItem	str:"invalid alignment" / "fileOffset already set" / "alignment mismatch: for " / "fileOffset < 0" ⇒ 带对齐与文件偏移的 dex 条目基类

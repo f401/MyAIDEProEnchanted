@@ -26589,6 +26589,22 @@ c	abcd/mq	com/aide/engine/ReferenceKind	str: 指令引用种类枚举（TYPE_REF
 	f	Labcd/mq;	tp	FIELD_OFFSET	auto: 枚举常量 FIELD_OFFSET（名字取自该类 <clinit> 的 ldc 字符串）
 c	abcd/Ar	com/aide/engine/OpcodeInfoTable	body: 每 opcode 的「格式 + 引用种类」索引表（两张 int[]，被 OpcodeFormatTable 使用）
 c	abcd/Hh	com/aide/ui/ProgressDialog	body: com/aide/ui/ProgressDialog——带进度条的对话框基类
+c	abcd/hp	com/aide/engine/DebugInfoEncoder	str: com/aide/engine/DebugInfoEncoder——调试信息编码器
+c	abcd/Qp	com/aide/engine/TypeIdSection	str: com/aide/engine/TypeIdSection——dex 的 type_ids 段
+c	abcd/Cp	com/aide/engine/MethodIdSection	str: com/aide/engine/MethodIdSection——dex 的 method_ids 段
+c	abcd/Xn	com/aide/engine/OpcodeIterator	str: com/aide/engine/OpcodeIterator——按格式推进的 opcode 迭代器
+c	abcd/oo	com/aide/engine/SwitchPayloadBuilder	str: com/aide/engine/SwitchPayloadBuilder——switch 载荷构造
+c	abcd/Nm	com/aide/engine/StackSimulator	str: com/aide/engine/StackSimulator——栈模拟器
+c	abcd/Sm	com/aide/engine/SsaUpdater	str: com/aide/engine/SsaUpdater——SSA 的 locals 合并
+c	abcd/Vo	com/aide/engine/AnnotationWriter	str: com/aide/engine/AnnotationWriter——注解写出器
+c	abcd/Tp	com/aide/engine/MapItemWriter	str: com/aide/engine/MapItemWriter——map_list 条目写出器
+c	abcd/Gp	com/aide/engine/DexSection	str: com/aide/engine/DexSection——带 offset/writeSize 的 dex 段基类
+c	abcd/Fp	com/aide/engine/DexFileWriter	str: com/aide/engine/DexFileWriter——dex 文件组装/写出
+c	abcd/Hx	com/aide/engine/TryWithResourcesDesugaring	str: com/aide/engine/TryWithResourcesDesugaring——try-with-resources 脱糖策略
+c	abcd/Nr	com/aide/engine/BasicBlock	str: com/aide/engine/BasicBlock——控制流基本块
+c	abcd/Om	com/aide/engine/Frame	str: com/aide/engine/Frame——栈帧
+c	abcd/bp	com/aide/engine/ClassDefItemBuilder	str: com/aide/engine/ClassDefItemBuilder——class_def 条目构造/打印
+c	abcd/Kp	com/aide/engine/DexItem	str: com/aide/engine/DexItem——带对齐与文件偏移的 dex 条目基类
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
