@@ -1339,3 +1339,10 @@ abcd/Qt com/aide/engine/CodeWriterImpl
 abcd/Jm com/aide/engine/SparseSwitchPayload
 abcd/Wn com/aide/engine/InstructionBlock
 abcd/Le com/aide/ui/build/RunTargetImpl
+abcd/bs com/aide/engine/TypeInfoFactory
+abcd/bs$a com/aide/engine/TypeInfoFactory$Key
+abcd/Wm com/aide/engine/TypeInfoImpl
+abcd/Qt$a com/aide/engine/CodeWriterImpl$Label
+abcd/Jm$a com/aide/engine/SparseSwitchPayload$Entry
+abcd/Mm com/aide/engine/DexAnnotationImpl
+abcd/Qn com/aide/engine/ArrayData

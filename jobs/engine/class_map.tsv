@@ -231,3 +231,10 @@ Qt	com/aide/engine/CodeWriterImpl	body:implements com/aide/engine/CodeWriter(Lt)
 Jm	com/aide/engine/SparseSwitchPayload	body:extends ArrayItem；元素类型 Jm$a 是「键→目标」二元组，私有静态 j6(Jm$a, Jm$a[], int) 在**有序键数组**上做二分查找，另有 get(int) / j6(int,Jm$a) / Hw()I 与 rN()TypeList ⇒ DEX 的 sparse-switch 载荷（键显式、需排序查找）
 Wn	com/aide/engine/InstructionBlock	body:extends ArrayItem；静态 j6(ArrayList<Vn>, int) 从指令列表造块，get(int)Vn 取指令、j6(Lt)V 把自己写进 CodeWriter，rN()I/yS()I 给出计数 ⇒ 一段可自写的指令块
 Le	com/aide/ui/build/RunTargetImpl	body:implements abcd/ze(=com/aide/ui/build/RunTarget) 且是**本工程唯一实现**；Zo() 返回 ze$a.FH（枚举第 3 个常量），j6()I 返回图标/编号、j6(String) 设名字、DW/FH/Hw/VH/gn/u7/v5 是各阶段动作 ⇒ 运行目标实现（具体是哪种运行目标需 ze$a 常量名，暂缺）
+bs	com/aide/engine/TypeInfoFactory	body:implements com/aide/engine/TypeInfo(Rs)+lu+Comparable；带 static HashMap<Object,bs> 驻留池与私有键类 bs$a，静态工厂 j6(int,Rs)/DW(int,Rs,Vr)/FH(int,Rs,Vr) 都返回 bs，实例 DW(int)/FH(int) 派生新值 ⇒ TypeInfo 的工厂 + 驻留实现
+bs$a	com/aide/engine/TypeInfoFactory$Key	body:字段 Rs + Vr(ReferencePair) + int，equals/hashCode，且 j6() 能反查出对应的 bs ⇒ 驻留池的键
+Wm	com/aide/engine/TypeInfoImpl	body:implements com/aide/engine/TypeInfo(Rs) 的纯值实现：只有 int + 构造器，Mr()/U2()/a8()/getType() 取各字段，equals/hashCode；**没有** bs 那样的静态池 ⇒ TypeInfo 的值对象
+Qt$a	com/aide/engine/CodeWriterImpl$Label	body:字段 int id + 可变 int 偏移 + String 标签名；构造 (int,int,String)/(int,String)，setter j6(int)/DW(int) 改偏移 ⇒ 写出器里的标号/修补记录
+Jm$a	com/aide/engine/SparseSwitchPayload$Entry	body:字段 int×3 + abcd/Ks；构造 (int,int,int,Ks)，j6(int)Z 比较、四个 getter ⇒ sparse-switch 的「键/目标/…」条目
+Mm	com/aide/engine/DexAnnotationImpl	body:implements com/aide/engine/DexAnnotation；字段 (un,jm,Qm,Js,Pm,boolean)，两个构造器分别收 (int,Js,boolean,boolean) 与 (qn,boolean,boolean)；方法里保留了真名 getAttributes()/getName()，另有 Hw()/u7()/gn()/VH()/DW() 取各部件、EQ()/tp()/j6() 取数值、j6(int)hs 取元素 ⇒ 注解的实现类
+Qn	com/aide/engine/ArrayData	body:extends ArrayItem；元素类型 Qn$a 是 (Ks 常量, int) 对，j6(int,Ks,int) 写入、get(int) 读出、aM()String 渲染、rN()Z 判空、j6(Qn)I/compareTo 比较，静态 FH 是空实例 ⇒ DEX 的数组数据载荷（fill-array-data）
