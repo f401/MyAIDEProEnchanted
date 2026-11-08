@@ -13,7 +13,7 @@
 | 类映射 | **4075** 类（每类都有可复现判据，写在 `class_map.tsv` 第 3 列） |
 | 成员映射 | **28431** 行（方法 + 字段，覆写链全部对齐） |
 | 参数名 | **22167** 行（oracle 的 LocalVariableTable / 上游源码声明 / 人工证据） |
-| 注释 | **31518** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
+| 注释 | **32506** 条（类 + 方法 + 字段，覆盖率 100%，进 Tiny v2 供人读） |
 | 产物 | `process/mappings.txt`（TSRG2，56766 行）· `process/mappings.tiny`（Tiny v2，53686 行） |
 | 门禁 | validate ✔ · inherit 0/0/0 · innercheck 0/0/0 · famcheck 0/0 · verify 不一致 0 · round-trip 一致 |
 
