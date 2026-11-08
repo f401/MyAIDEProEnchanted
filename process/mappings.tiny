@@ -25172,6 +25172,9 @@ c	abcd/vd	com/aide/codemodel/language/java/JavaCodeModel	shape: AIDE+ 2.3.5 的 
 	m	(Ljava/lang/String;)[Ljava/lang/String;	j6	getArchiveEntries
 	m	()Labcd/ma;	tp	getPreprocessor
 	m	()Ljava/util/List;	v5	getLanguages
+	m	()V	DW	update
+	m	()Labcd/ka;	Zo	getDebugger
+	m	()Labcd/ja;	u7	getCodeCompiler
 c	abcd/me	com/aide/codemodel/language/xml/XmlCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlCodeModel——XmlCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
@@ -25273,6 +25276,10 @@ c	abcd/Ac	com/aide/codemodel/language/classfile/JavaBinaryCodeModel	shape: AIDE+
 	m	(Ljava/lang/String;)[Ljava/lang/String;	j6	getArchiveEntries
 	m	()Labcd/ma;	tp	getPreprocessor
 	m	()Ljava/util/List;	v5	getLanguages
+	m	()V	DW	update
+	m	()V	VH	closeArchive
+	m	()Labcd/ka;	Zo	getDebugger
+	m	()Labcd/ja;	u7	getCodeCompiler
 c	abcd/zc	com/aide/codemodel/language/aidl/AidlCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/aidl/AidlCodeModel——AidlCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
@@ -25297,6 +25304,8 @@ c	abcd/na	com/aide/codemodel/api/abstraction/Language	shape: AIDE+ 2.3.5 的 abs
 	m	()Labcd/ia;	gn	getCodeRenderer
 	m	()Ljava/lang/String;	j6	getName
 	m	(C)Z	j6	isParenChar
+	m	()Labcd/qa;	u7	getTools
+	m	()Labcd/pa;	v5	getSyntax
 c	abcd/pa	com/aide/codemodel/api/abstraction/Syntax	shape: AIDE+ 2.3.5 的 abstraction/Syntax（58:58，0.97）——语言侧语法查询（旧名 Indenter）
 	m	(Labcd/Sa;I)Z	EQ	isChangedExpressionNode
 	m	(I)Z	U2	isBlock
@@ -25318,6 +25327,14 @@ c	abcd/pa	com/aide/codemodel/api/abstraction/Syntax	shape: AIDE+ 2.3.5 的 abstr
 	m	(I)Z	Hw	isClassDeclaration
 	m	(I)Z	P8	isMemberDeclaration
 	m	(I)Z	XL	isMethodDeclaration
+	m	(I)Z	BT	hasAttrValue
+	m	(I)Z	DW	hasAttrDAIndex
+	m	(I)Z	J0	isDocComment
+	m	(I)Z	Mr	isExpression
+	m	(I)Z	Ws	hasAttrVariableSlot
+	m	(I)Z	gW	hasAttrTarget
+	m	(I)Z	v5	hasAttrType
+	m	(I)I	J8	getTokenLength
 c	abcd/qa	com/aide/codemodel/api/abstraction/Tools	shape: AIDE+ 2.3.5 的 abstraction/Tools（48:48，0.65）——语言工具集；api/Parser 只有 24 方法（旧名 Parser）
 c	abcd/yd	com/aide/engine/JavaLanguage	auto: 类：JavaLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Vd	com/aide/engine/JavaScriptLanguage	auto: 类：JavaScriptLanguage（上游未收录，名字来自 jobs/engine 的判据）
@@ -25334,6 +25351,8 @@ c	abcd/nd	com/aide/codemodel/language/java/JSharpCommentsLanguage	shape: AIDE+ 2
 	m	()Labcd/ia;	gn	getCodeRenderer
 	m	()Ljava/lang/String;	j6	getName
 	m	(C)Z	j6	isParenChar
+	m	()Labcd/qa;	u7	getTools
+	m	()Labcd/pa;	v5	getSyntax
 c	abcd/ne	com/aide/codemodel/language/xml/XmlLanguage	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlLanguage——XmlLanguage
 	m	()V	DW	shrink
 	m	()Labcd/ra;	FH	getTypeSystem
@@ -25342,6 +25361,9 @@ c	abcd/ne	com/aide/codemodel/language/xml/XmlLanguage	shape: AIDE+ 2.3.5 的 com
 	m	()Labcd/ia;	gn	getCodeRenderer
 	m	()Ljava/lang/String;	j6	getName
 	m	(C)Z	j6	isParenChar
+	m	()Labcd/ga;	Hw	getCodeAnalyzer
+	m	()Labcd/qa;	u7	getTools
+	m	()Labcd/pa;	v5	getSyntax
 c	abcd/Ea	com/aide/codemodel/api/FileSpace	shape: AIDE+ 2.3.5 的 api/FileSpace（61:61，0.59）——文件空间，按名字/id 取 FileEntry（旧名 FileManager）
 	m	(Labcd/Da;)J	FH	getSyntaxVersion
 	m	()Ljava/lang/String;	Hw	getEncoding
@@ -25370,6 +25392,9 @@ c	abcd/Ea	com/aide/codemodel/api/FileSpace	shape: AIDE+ 2.3.5 的 api/FileSpace�
 	m	(Labcd/ec;)V	j6	load
 	m	(Labcd/fc;)V	j6	store
 	m	(Labcd/Da;)Z	we	isRJavaFileEntry
+	m	(Labcd/Da;)Z	QX	isCheckedSolutionFile
+	m	()Labcd/_b;	VH	getResourceFiles
+	m	()Labcd/_b;	u7	getSolutionFiles
 c	abcd/Sa	com/aide/codemodel/api/SyntaxTree	shape: AIDE+ 2.3.5 的 api/SyntaxTree（156:156，0.93）——语法树，按节点/位置查询（旧名 SourceText）
 	m	(I)Z	Eq	isMethodOrClassOrFieldDeclarationNode
 	m	(III)V	J8	setAttribute
@@ -25415,7 +25440,28 @@ c	abcd/Sa	com/aide/codemodel/api/SyntaxTree	shape: AIDE+ 2.3.5 的 api/SyntaxTre
 	m	()J	v5	getVersion
 	m	(I)Labcd/Aa;	v5	getAttrReferenceEntity
 	m	(I)I	we	getChildCount
+	m	(III)I	u7	getMethodNodeNear
+	m	(II)V	DW	declareAttrDAIndex
+	m	()Labcd/Cb;	EQ	getImportNodePairs
+	m	(I)Labcd/Ya;	Hw	getAttrInvocationType
+	m	(II)V	Hw	declareAttrVariableSlot
+	m	(I)I	J0	getClassDeclarationNode
+	m	()Labcd/na;	J8	getLanguage
+	m	(I)I	QX	getEndLine
+	m	()Labcd/Cb;	QX	getNamespaceNodePairs
+	m	(I)Z	SI	hasAttrInvocationType
+	m	(I)Z	Sf	isChangedExpressionNode
+	m	()Labcd/Da;	VH	getFile
+	m	()Labcd/La;	Ws	getModel
+	m	(I)Z	XG	isSyntheticNode
+	m	(III)Z	j6	afterPosition
+	m	(I)Z	jJ	isTokenNode
+	m	(I)Z	nw	getAttrDAIndex
+	m	(I)I	rN	getMemberDeclarationNode
+	m	()I	tp	getImportEndLine
+	m	(I)Labcd/Ya;	u7	getAttrType
 c	abcd/La	com/aide/codemodel/api/Model	shape: AIDE+ 2.3.5 的 Model——16 参构造即 12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory，字段全是 public final 回调
+	m	()[Labcd/la;	v5	getCodeModels
 c	abcd/Da	com/aide/codemodel/api/FileEntry	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/FileEntry——工程文件条目（id/全名/子项/版本），OpenFileCallback 以它作首参
 	m	()J	KD	fetchFileDiskVersion
 	m	()J	SI	fetchDiskVersion
@@ -25442,6 +25488,15 @@ c	abcd/Da	com/aide/codemodel/api/FileEntry	shape: AIDE+ 2.3.5 的 com/aide/codem
 	m	()Ljava/lang/String;	tp	getFullNameString
 	m	()J	v5	getSyntaxVersion
 	m	()Z	vy	isRootDirectory
+	m	(Labcd/Da;)Z	DW	isEnclosingDir
+	m	()I	FH	getAssembly
+	m	()I	Hw	getChildCount
+	m	()Labcd/Da;	QX	getParentDirectory
+	m	()Labcd/Da;	Ws	getParentArchive
+	m	()Labcd/la;	gn	getCodeModel
+	m	(Ljava/lang/String;)Labcd/Da;	j6	getEntry
+	m	()Z	j6	exists
+	m	()Z	yS	isDirectory
 c	abcd/S	abcd/aide/engine/InlineMethodRefactoring	auto: 类：InlineMethodRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/W	abcd/aide/engine/ChangeSignatureRefactoring	auto: 类：ChangeSignatureRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ea	com/aide/engine/CachedProject	auto: 类：CachedProject（上游未收录，名字来自 jobs/engine 的判据）
@@ -25466,6 +25521,15 @@ c	abcd/Ba	com/aide/codemodel/api/EntitySpace	body: AIDE+ 2.3.5 的 com/aide/code
 	m	(Labcd/Aa;)I	j6	declareEntity
 	m	(Labcd/Da;Labcd/na;Labcd/ua;)V	j6	loadSuperClasstypes
 	m	(Labcd/ec;)V	j6	load
+	m	(Labcd/Da;Labcd/na;)Labcd/Ba$a;	u7	getFileInfo
+	m	(Labcd/ec;)V	DW	loadEntries
+	m	(Labcd/Da;Labcd/na;)Labcd/Hb;	FH	getAllClasstypes
+	m	(Labcd/Da;Labcd/na;)V	VH	loadSyntax
+	m	(Labcd/Da;Labcd/na;)V	Zo	loadPositions
+	m	(Labcd/Da;Labcd/na;)V	gn	loadTypes
+	m	(Labcd/ua;Labcd/ua;)V	j6	declareSuperClasstype
+	m	(J)J	v5	encodeLong
+	m	(Labcd/Da;Labcd/na;)Labcd/ua;	v5	getRootClasstype
 c	abcd/Aa	com/aide/codemodel/api/Entity	shape: AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…) 构造与本类逐条对应
 	m	()Labcd/na;	QX	getLanguage
 	m	()Labcd/Da;	Zo	getFile
@@ -25490,6 +25554,17 @@ c	abcd/Aa	com/aide/codemodel/api/Entity	shape: AIDE+ 2.3.5 的 Entity——Sourc
 	m	()I	we	getIdentifier
 	m	()Ljava/lang/String;	VH	getFullyQualifiedNameString
 	m	()Ljava/lang/String;	a8	getIdentifierString
+	m	()Z	BT	isMethodParameterTypeVariable
+	m	()Z	P8	isParameterizedType
+	m	()Z	SI	isPrimitiveType
+	m	()Z	ei	isParameterType
+	m	()Z	gW	isMethodParameterType
+	m	()Z	lg	isArrayType
+	m	()Z	nw	isPointerType
+	m	()Z	rN	isClassType
+	m	()Z	ro	isType
+	m	()Z	vy	isNamespace
+	m	()Z	yS	isMember
 c	abcd/ua	com/aide/codemodel/api/ClassType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ClassType——类类型（带父子链与成员表）
 	m	(Labcd/Ya;Labcd/Ia;Labcd/Ia;)Z	FH	haveMatchingOverrideMethodSignatures
 	m	(Labcd/Ia;)Labcd/Ya;	DW	getContainingTypeOfMember
@@ -25525,6 +25600,44 @@ c	abcd/ua	com/aide/codemodel/api/ClassType	body: AIDE+ 2.3.5 的 com/aide/codemo
 	m	()Z	w9	hasInstanceOfEnclosingClassType
 	m	()I	we	getIdentifier
 	m	()Ljava/lang/String;	ye	getClassTypeIdentifierString
+	m	(Labcd/Ia;Labcd/Ia;)Z	DW	haveHidingFieldModifiers
+	m	(Labcd/Ia;Labcd/Ia;)Z	FH	haveHidingMethodModifiers
+	m	()Z	AL	hasCorruptedSupertypes
+	m	()Labcd/Yb;	CU	getAllSuperClassTypes
+	m	(I)Labcd/Ia;	DW	getInheritedMethod1
+	m	(Labcd/ua;)Z	DW	isSelfOrEnclosingMatches
+	m	(I)Labcd/Ia;	FH	getInheritedMethod2
+	m	(Labcd/Ya;)V	FH	declareDelegateOrEnumType
+	m	()Labcd/Hb;	FN	getDeclaredMemberClassTypes
+	m	(I)Labcd/Pa;	Hw	getParametertype
+	m	(Labcd/Ya;)V	Hw	declareSuperType
+	m	()Z	Jl	isLocal
+	m	()I	OW	getAbsoluteParametertypeCount
+	m	()V	Qq	declareCorruptedSuperTypes
+	m	()Z	Sf	isDelegateType
+	m	()I	XL	getModifiers
+	m	()Labcd/Yb;	Xa	getAllSuperTypes
+	m	()Z	Z1	isAnonymous
+	m	()Labcd/Yb;	aq	getDeclaredConstructors
+	m	()Z	ca	isSealedType
+	m	()Z	e3	isSealed
+	m	()Z	eU	isPartial
+	m	()Z	g3	isInterfaceType
+	m	()Z	hK	hasTypeparametersOfEnclosingClassType
+	m	(IILabcd/Pa;)V	j6	declareParametertype
+	m	(Labcd/ec;)V	j6	load
+	m	(Labcd/fc;)V	j6	store
+	m	()Labcd/Hb;	jJ	getAllMemberTypes
+	m	()Labcd/Hb;	jO	getDeclaredMemberFields
+	m	()Labcd/ua;	k2	getSuperClassType
+	m	()Labcd/Hb;	kQ	getAllMemberClassTypes
+	m	()Z	kf	hasDocumentation
+	m	()V	lp	declareSuperClasstypesLoading
+	m	()Labcd/Hb;	oY	getDeclaredMemberMethods
+	m	()Z	sg	isStructType
+	m	()V	sy	declareCycliclyDefined
+	m	()Z	vJ	isEnumType
+	m	()Z	x9	areSuperClasstypesLoaded
 c	abcd/Yb	com/aide/engine/NodeList	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ga	com/aide/codemodel/api/IdentifierSpace	shape: AIDE+ 2.3.5 的 api/IdentifierSpace（17:17，0.88）——标识符池（旧名 StringPool）
 	m	(I[CI)I	j6	getChars
@@ -25540,6 +25653,10 @@ c	abcd/Ca	com/aide/codemodel/api/ErrorTable	shape: AIDE+ 2.3.5 的 api/ErrorTabl
 	m	(Labcd/Da;Labcd/na;)Z	FH	containsSemanticErrors
 	m	(Labcd/Da;)V	j6	clearInspections
 	m	(Labcd/ec;)V	j6	load
+	m	(Labcd/Da;Labcd/na;I)I	Hw	getErrorFixesCount
+	m	(Labcd/Da;Labcd/na;Labcd/ua;Ljava/lang/String;)V	j6	addFixImport
+	m	(Labcd/Da;Labcd/na;ZII)V	j6	applyFix
+	m	(Labcd/Da;)I	v5	getInspectionCount
 c	abcd/ga	com/aide/codemodel/api/abstraction/CodeAnalyzer	shape: AIDE+ 2.3.5 的 abstraction/CodeAnalyzer——8:8 方法，analyzeTypeName/analyzeEveryIdentifiers 对得上
 	m	(Labcd/Sa;IILjava/lang/String;)Labcd/Ya;	j6	analyzeTypeName
 	m	(Labcd/Sa;Labcd/bc;)V	j6	analyzeEveryIdentifiers
@@ -25548,6 +25665,9 @@ c	abcd/Za	com/aide/codemodel/api/Variable	shape: AIDE+ 2.3.5 的 Variable——�
 	m	()I	VH	getStartColumn
 	m	()I	Zo	getLine
 	m	()I	j6	getEndColumn
+	m	()Labcd/Da;	DW	getFile
+	m	()Labcd/Ya;	gn	getType
+	m	()Labcd/na;	v5	getLanguage
 c	abcd/Cb	com/aide/engine/IntVector	auto: 类：IntVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rr	com/aide/engine/WellKnownTypes	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Qs	com/aide/engine/TypeConstant	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
@@ -25589,6 +25709,7 @@ c	abcd/Dc	com/aide/codemodel/language/classfile/ClassFilePreProcessor	shape: AID
 	m	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/Reader;	j6	readZipEntry
 	m	(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;	j6	listZipEntry
 	m	()V	j6	resetCache
+	m	()V	FH	init
 c	abcd/Ms	com/aide/engine/DexBaseType	auto: 类：DexBaseType（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ms	com/aide/engine/DexBaseReference	auto: 类：DexBaseReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Am	com/aide/engine/NamedAttribute	auto: 类：NamedAttribute（上游未收录，名字来自 jobs/engine 的判据）
@@ -25625,12 +25746,15 @@ c	abcd/ab	com/aide/codemodel/api/callback/CodeCompleterCallback	shape: AIDE+ 2.3
 	m	(Labcd/Da;Labcd/na;IIIZZ)V	j6	J8
 	m	(Labcd/Ya;)V	j6	Hw
 	m	(Ljava/util/List;)V	j6	v5
+	m	(Ljava/lang/String;)V	DW	listElementKeywordFound
+	m	(Ljava/lang/String;)V	j6	listElementUnknownIdentifierFound
 c	abcd/Wa	com/aide/codemodel/api/SyntaxTreeStyles	shape: AIDE+ 2.3.5 的 SyntaxTreeStyles——HighlighterCallback.addSyntaxTreeStyles(Language,SyntaxTreeStyles) ↔ db.j6(na,Wa)
 	m	(I)I	DW	getStringLength
 	m	(I)I	FH	getStringStartOffset
 	m	(I)Ljava/lang/String;	Hw	getString
 	m	()V	j6	clear
 	m	(I)V	j6	ensureCapacity
+	m	(IIIIII)V	j6	addSyntaxTag
 c	abcd/em	com/aide/engine/IntervalList	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sl	com/aide/engine/RingBuffer	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Vn	com/aide/engine/Instruction	auto: 类：Instruction（上游未收录，名字来自 jobs/engine 的判据）
@@ -25650,6 +25774,8 @@ c	abcd/gb	com/aide/codemodel/api/callback/OpenFileCallback	shape: AIDE+ 2.3.5 �
 	m	(Labcd/Da;)Z	DW	isOpenFile
 	m	(Labcd/Da;)Ljava/io/Reader;	FH	getOpenFileReader
 	m	()V	j6	update
+	m	(Labcd/Da;)J	Hw	getOpenFileSize
+	m	(Labcd/Da;)J	j6	getOpenFileVersion
 c	abcd/ib	com/aide/codemodel/api/callback/StopCallback	shape: AIDE+ 2.3.5 的 StopCallback（8:8 个 ()Z 全等）——是否停止/启用；实现者 c$b$j
 c	abcd/_a	com/aide/codemodel/api/callback/APISearcherCallback	shape: AIDE+ 2.3.5 的 APISearcherCallback（4:4 方法全等）——开表/收 Entity/记名字/收尾；实现者 c$b$a
 	m	(Labcd/Aa;)V	j6	DW
@@ -25665,6 +25791,7 @@ c	abcd/db	com/aide/codemodel/api/callback/HighlighterCallback	shape: AIDE+ 2.3.5
 	m	(Labcd/Da;)V	j6	fileFinished
 	m	(Labcd/Da;I)V	j6	unifedLineFound
 	m	(Labcd/na;Labcd/Wa;)V	j6	addSyntaxTreeStyles
+	m	()V	DW	releaseSyntaxTree
 c	abcd/eb	com/aide/engine/ErrorReporter	iface: 分析期错误上报——唯一方法 j6(Da,String)，c$b$f 取 Da.XL() 后转给 p.j6(路径,消息)；调用者 abcd/ee
 c	abcd/hb	com/aide/codemodel/api/callback/RefactoringCallback	shape: AIDE+ 2.3.5 的 RefactoringCallback（48:48 全等，命中 513）——重构编辑动作；实现者 c$b$i 造 Modification 后转 J
 	m	(Labcd/Da;III)V	j6	gW
@@ -25737,6 +25864,19 @@ c	abcd/Ia	com/aide/codemodel/api/Member	shape: AIDE+ 2.3.5 的 api/Member（96:9
 	m	(Labcd/ua;Labcd/ua;)Z	j6	isVisible
 	m	()V	jw	invalidate2
 	m	()Ljava/lang/String;	tp	getMemberString
+	m	()Labcd/Ia$a;	fY	data
+	m	()V	k2	loadTypes
+	m	()Z	CU	isExplicitOverriding
+	m	(I)Labcd/Ya;	DW	getException
+	m	()Z	Ev	isPropertyMethod
+	m	()Z	OW	hasVarargs
+	m	()Z	XG	isConstructor
+	m	(I)Labcd/Ja;	Zo	getMethodParameterType
+	m	()Z	hz	isField
+	m	(I)I	v5	getIdentifierOfParameter
+	m	()I	we	getIdentifier
+	m	()Z	yO	isConst
+	m	()Z	ye	isReadonly
 c	abcd/bc	com/aide/codemodel/api/collections/SetOfInt	shape: AIDE+ 2.3.5 的 collections/SetOfInt（16:16，0.69）——int 集合；K 用它记折叠点
 	m	()Z	DW	empty
 	m	(I)Z	j6	contains
@@ -25760,6 +25900,18 @@ c	abcd/Fd	com/aide/codemodel/language/java/JavaSyntax	shape: AIDE+ 2.3.5 的 lan
 	m	(I)Z	rN	isClassBody
 	m	(Labcd/Sa;)Labcd/Cb;	v5	getImportNodePairs
 	m	(I)Z	vy	isBooleanLiteral
+	m	(I)Z	BT	hasAttrValue
+	m	(I)Z	DW	hasAttrDAIndex
+	m	(I)Z	Hw	isClassDeclaration
+	m	(I)Z	J0	isDocComment
+	m	(I)Z	Mr	isExpression
+	m	(I)Z	P8	isMemberDeclaration
+	m	(I)Z	Ws	hasAttrVariableSlot
+	m	(I)Z	XL	isMethodDeclaration
+	m	(I)Z	gW	hasAttrTarget
+	m	(I)Z	j6	isComment
+	m	(I)Z	u7	isIdentifier
+	m	(I)Z	v5	hasAttrType
 c	abcd/Dd	com/aide/codemodel/language/java/JavaLexer	shape: AIDE+ 2.3.5 的 language/java/JavaLexer（7:7，0.86）——Java 词法器
 c	abcd/jd	com/aide/codemodel/language/java/JavaCodeRenderer	shape: AIDE+ 2.3.5 的 language/java/JavaCodeRenderer（8:8，0.88）——Java 渲染器
 	m	(Labcd/Aa;)Ljava/lang/String;	FH	getFullyQualifiedNameString
@@ -25780,6 +25932,16 @@ c	abcd/ae	com/aide/codemodel/language/js/JavaScriptSyntax	shape: AIDE+ 2.3.5 的
 	m	(Labcd/Sa;)Labcd/Cb;	j6	getNamespaceNodePairs
 	m	(Labcd/Sa;)Labcd/Cb;	v5	getImportNodePairs
 	m	(I)Z	vy	isBooleanLiteral
+	m	(I)Z	BT	hasAttrValue
+	m	(I)Z	DW	hasAttrDAIndex
+	m	(I)Z	J0	isDocComment
+	m	(I)Z	Mr	isExpression
+	m	(I)Z	Ws	hasAttrVariableSlot
+	m	(I)Z	gW	hasAttrTarget
+	m	(I)Z	j6	isComment
+	m	(I)Z	rN	isClassBody
+	m	(I)Z	u7	isIdentifier
+	m	(I)Z	v5	hasAttrType
 c	abcd/Nd	com/aide/codemodel/language/js/JavaScriptCodeRenderer	shape: AIDE+ 2.3.5 的 language/js/JavaScriptCodeRenderer（7:7，1.00）——JavaScript 渲染器
 	m	(I)Ljava/lang/String;	j6	getModifiersString
 c	abcd/qe	com/aide/codemodel/language/xml/XmlSyntax	shape: AIDE+ 2.3.5 的 language/xml/XmlSyntax（62:62，0.97）——XML 语法表
@@ -25789,6 +25951,27 @@ c	abcd/qe	com/aide/codemodel/language/xml/XmlSyntax	shape: AIDE+ 2.3.5 的 langu
 	m	(I)Z	u7	isIdentifier
 	m	(Labcd/Sa;)Labcd/Cb;	v5	getImportNodePairs
 	m	(I)Z	yS	isToken
+	m	(I)Z	BT	hasAttrValue
+	m	(I)Z	DW	hasAttrDAIndex
+	m	(Labcd/Sa;I)Z	EQ	isChangedExpressionNode
+	m	(I)Z	Hw	isClassDeclaration
+	m	(I)Z	J0	isDocComment
+	m	(I)I	J8	getTokenLength
+	m	(I)Z	Mr	isExpression
+	m	(I)Z	P8	isMemberDeclaration
+	m	(I)Z	U2	isBlock
+	m	(I)Z	Ws	hasAttrVariableSlot
+	m	(I)Z	XL	isMethodDeclaration
+	m	(I)Z	a8	isParameters
+	m	(I)Z	aM	isArguments
+	m	(I)Z	gW	hasAttrTarget
+	m	(I)Z	gn	isTypeIdentifier
+	m	(I)Z	j3	isFieldDeclaration
+	m	(I)Z	j6	isComment
+	m	(I)Z	lg	isOperator
+	m	(I)Z	rN	isClassBody
+	m	(I)Z	tp	isSeparator
+	m	(I)Z	v5	hasAttrType
 c	abcd/oe	com/aide/codemodel/language/xml/XmlLexer	shape: AIDE+ 2.3.5 的 language/xml/XmlLexer（21:21，1.00）——XML 词法器
 c	abcd/ie	com/aide/codemodel/language/xml/XmlCodeAnalyzer	shape: AIDE+ 2.3.5 的 language/xml/XmlCodeAnalyzer（21:21，0.86）——XML 代码分析器
 	m	(Labcd/Sa;IILjava/lang/String;)Labcd/Ya;	j6	analyzeTypeName
@@ -25806,6 +25989,7 @@ c	abcd/Ec	com/aide/codemodel/language/classfile/JavaBinarySignatureAnalyzer	shap
 	m	(Labcd/Sa;)J	DW	getDeclarationDigest
 	m	(Labcd/Sa;)J	Hw	getClassDeclarationDigest
 	m	(Labcd/Sa;)J	v5	getPublicDeclarationDigest
+	m	(Labcd/Da;)V	Hw	doLoadNamespaces
 c	abcd/re	com/aide/codemodel/language/xml/XmlTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlTools（53:53，0.72）——XML 工具集；字段含 abcd/ne(MarkupLanguage)，与 XML/HTML 家族一致
 c	abcd/oa	com/aide/codemodel/api/abstraction/SignatureAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/SignatureAnalyzer（14:14，0.71）——签名分析器：由 Language.VH() 返回
 	m	(Labcd/Sa;)J	DW	getDeclarationDigest
@@ -25813,9 +25997,13 @@ c	abcd/oa	com/aide/codemodel/api/abstraction/SignatureAnalyzer	shape: AIDE+ 2.3.
 	m	(Labcd/Sa;)J	v5	getPublicDeclarationDigest
 	m	(Labcd/Da;)V	Hw	doLoadNamespaces
 	m	(Labcd/Da;)V	j6	doLoadTypes
+	m	(Labcd/Da;)V	DW	doLoadSyntax
+	m	(Labcd/ua;)V	DW	doLoadSuperClassTypes
 c	abcd/be	com/aide/codemodel/language/js/JavaScriptTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptTools（51:51，0.71）——JavaScript 工具集；字段含 abcd/Vd(JavaScriptLanguage) 与 Ld/Od/Kd，整族一致
 c	abcd/Gd	com/aide/codemodel/language/java/JavaTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaTools（56:56，0.68）——Java 工具集；字段含 abcd/yd(JavaLanguage) 与 cd/ed/zd/kd/gd，整族一致
 c	abcd/fm	com/aide/ui/views/editor/Position	shape: AIDE+ 2.3.5 的 com/aide/ui/views/editor/Position（4:4，1.00）——编辑器里的行列位置值对象
+	m	()I	DW	getLine
+	m	()I	j6	getColumn
 c	abcd/Fe	com/aide/ui/util/MavenDependencyVersion	shape: AIDE+ 2.3.5 的 com/aide/ui/util/MavenDependencyVersion——Maven 依赖版本号——4 个 Integer 段 + 字符串版本 + compareTo(String,String)
 	m	(Ljava/lang/String;Ljava/lang/String;)I	j6	compareTo
 c	abcd/Ub	com/aide/codemodel/api/collections/RelationOfIntInt	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/RelationOfIntInt——int→int 关系表；构造收 StoreInputStream、store 写 StoreOutputStream
@@ -25829,12 +26017,18 @@ c	abcd/He	com/aide/ui/util/MavenMetadataXml	shape: AIDE+ 2.3.5 的 com/aide/ui/u
 	m	(Ljava/util/ArrayList;Ljava/lang/String;)Ljava/lang/String;	j6	getVersion
 	m	(Ljava/lang/String;Ljava/lang/String;)Z	j6	matchVersion
 	m	(Ljava/lang/String;)Ljava/lang/String;	FH	getVersion
+	m	(Ljava/lang/String;)Labcd/BaseProjectConfig;	newInstance	makeConfiguration
 c	abcd/BaseProjectConfig	com/aide/ui/util/Configuration	shape: AIDE+ 2.3.5 的 com/aide/ui/util/Configuration——按路径缓存的配置文件基类（Map<路径,实例> + Map<路径,时间戳>）
+	m	(Ljava/lang/String;)Labcd/BaseProjectConfig;	j6	getConfiguration
+	m	(Ljava/lang/String;)Labcd/BaseProjectConfig;	newInstance	makeConfiguration
 c	abcd/_d	com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer——JavaScript 签名分析器（字段含 JavaScriptLanguage）
 	m	(Labcd/Sa;)J	DW	getDeclarationDigest
 	m	(Labcd/Sa;)J	Hw	getClassDeclarationDigest
 	m	(Labcd/Da;)V	j6	doLoadTypes
 	m	(Labcd/Sa;)J	v5	getPublicDeclarationDigest
+	m	(Labcd/Da;)V	DW	doLoadSyntax
+	m	(Labcd/ua;)V	DW	doLoadSuperClassTypes
+	m	(Labcd/Da;)V	Hw	doLoadNamespaces
 c	abcd/Ed	com/aide/codemodel/language/java/JavaSignatureAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaSignatureAnalyzer——Java 签名分析器（字段含 JavaLanguage）
 	m	(Labcd/Da;)V	Hw	doLoadNamespaces
 	m	(Labcd/Sa;)J	DW	getDeclarationDigest
@@ -25849,12 +26043,49 @@ c	abcd/ad	com/aide/codemodel/language/dtd/DtdSyntax	shape: AIDE+ 2.3.5 的 com/a
 	m	(I)Z	u7	isIdentifier
 	m	(Labcd/Sa;)Labcd/Cb;	v5	getImportNodePairs
 	m	(I)Z	vy	isBooleanLiteral
+	m	(I)Z	BT	hasAttrValue
+	m	(I)Z	DW	hasAttrDAIndex
+	m	(Labcd/Sa;I)Z	EQ	isChangedExpressionNode
+	m	(I)Z	Hw	isClassDeclaration
+	m	(I)Z	J0	isDocComment
+	m	(I)Z	Mr	isExpression
+	m	(I)Z	P8	isMemberDeclaration
+	m	(I)Z	U2	isBlock
+	m	(I)Z	Ws	hasAttrVariableSlot
+	m	(I)Z	XL	isMethodDeclaration
+	m	(I)Z	a8	isParameters
+	m	(I)Z	aM	isArguments
+	m	(I)Z	gW	hasAttrTarget
+	m	(I)Z	gn	isTypeIdentifier
+	m	(I)Z	j3	isFieldDeclaration
+	m	(I)Z	rN	isClassBody
+	m	(I)Z	v5	hasAttrType
+	m	(I)Z	yS	isToken
 c	abcd/Tc	com/aide/codemodel/language/css/CssSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssSyntax——CSS 语法表
 	m	(Labcd/Sa;)I	DW	getImportEndLine
 	m	(Labcd/Sa;)Labcd/Cb;	j6	getNamespaceNodePairs
 	m	(I)Z	j6	isComment
 	m	(I)Z	u7	isIdentifier
 	m	(Labcd/Sa;)Labcd/Cb;	v5	getImportNodePairs
+	m	(I)Z	BT	hasAttrValue
+	m	(I)Z	DW	hasAttrDAIndex
+	m	(Labcd/Sa;I)Z	EQ	isChangedExpressionNode
+	m	(I)Z	Hw	isClassDeclaration
+	m	(I)Z	J0	isDocComment
+	m	(I)Z	Mr	isExpression
+	m	(I)Z	P8	isMemberDeclaration
+	m	(I)Z	U2	isBlock
+	m	(I)Z	Ws	hasAttrVariableSlot
+	m	(I)Z	XL	isMethodDeclaration
+	m	(I)Z	a8	isParameters
+	m	(I)Z	aM	isArguments
+	m	(I)Z	gW	hasAttrTarget
+	m	(I)Z	gn	isTypeIdentifier
+	m	(I)Z	j3	isFieldDeclaration
+	m	(I)Z	rN	isClassBody
+	m	(I)Z	tp	isSeparator
+	m	(I)Z	v5	hasAttrType
+	m	(I)Z	yS	isToken
 c	abcd/Uc	com/aide/codemodel/language/css/CssTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssTools——CSS 工具集
 c	abcd/Ic	com/aide/codemodel/language/cpp/CppSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppSyntax——C++ 语法表
 	m	(Labcd/Sa;)I	DW	getImportEndLine
@@ -25866,18 +26097,84 @@ c	abcd/Ic	com/aide/codemodel/language/cpp/CppSyntax	shape: AIDE+ 2.3.5 的 com/a
 	m	(Labcd/Sa;)Labcd/Cb;	v5	getImportNodePairs
 	m	(I)Z	vy	isBooleanLiteral
 	m	(I)Z	yS	isToken
+	m	(I)Z	BT	hasAttrValue
+	m	(I)Z	DW	hasAttrDAIndex
+	m	(Labcd/Sa;I)Z	EQ	isChangedExpressionNode
+	m	(I)Z	Hw	isClassDeclaration
+	m	(I)Z	J0	isDocComment
+	m	(I)I	J8	getTokenLength
+	m	(I)Z	Mr	isExpression
+	m	(I)Z	P8	isMemberDeclaration
+	m	(I)Z	U2	isBlock
+	m	(I)Z	Ws	hasAttrVariableSlot
+	m	(I)Z	XL	isMethodDeclaration
+	m	(I)Z	Zo	isLiteral
+	m	(I)Z	a8	isParameters
+	m	(I)Z	aM	isArguments
+	m	(I)Z	gW	hasAttrTarget
+	m	(I)Z	j3	isFieldDeclaration
+	m	(I)Z	rN	isClassBody
+	m	(I)Z	u7	isIdentifier
+	m	(I)Z	v5	hasAttrType
 c	abcd/Jc	com/aide/codemodel/language/cpp/CppTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppTools——C++ 工具集
 c	abcd/pd	com/aide/codemodel/language/java/JSharpCommentsSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsSyntax——J# 注释语法表
 	m	(Labcd/Sa;)I	DW	getImportEndLine
 	m	(Labcd/Sa;)Labcd/Cb;	j6	getNamespaceNodePairs
 	m	(Labcd/Sa;)Labcd/Cb;	v5	getImportNodePairs
+	m	(I)Z	BT	hasAttrValue
+	m	(I)Z	DW	hasAttrDAIndex
+	m	(Labcd/Sa;I)Z	EQ	isChangedExpressionNode
+	m	(I)Z	Hw	isClassDeclaration
+	m	(I)Z	J0	isDocComment
+	m	(I)I	J8	getTokenLength
+	m	(I)Z	Mr	isExpression
+	m	(I)Z	P8	isMemberDeclaration
+	m	(I)Z	U2	isBlock
+	m	(I)Z	Ws	hasAttrVariableSlot
+	m	(I)Z	XL	isMethodDeclaration
+	m	(I)Z	a8	isParameters
+	m	(I)Z	aM	isArguments
+	m	(I)Z	gW	hasAttrTarget
+	m	(I)Z	gn	isTypeIdentifier
+	m	(I)Z	j3	isFieldDeclaration
+	m	(I)Z	lg	isOperator
+	m	(I)Z	rN	isClassBody
+	m	(I)Z	tp	isSeparator
+	m	(I)Z	u7	isIdentifier
+	m	(I)Z	v5	hasAttrType
+	m	(I)Z	vy	isBooleanLiteral
+	m	(I)Z	yS	isToken
 c	abcd/Sd	com/aide/codemodel/language/js/JavaScriptCommentsSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsSyntax——JavaScript 注释语法表
 	m	(Labcd/Sa;)I	DW	getImportEndLine
 	m	(Labcd/Sa;)Labcd/Cb;	j6	getNamespaceNodePairs
 	m	(Labcd/Sa;)Labcd/Cb;	v5	getImportNodePairs
+	m	(I)Z	BT	hasAttrValue
+	m	(I)Z	DW	hasAttrDAIndex
+	m	(Labcd/Sa;I)Z	EQ	isChangedExpressionNode
+	m	(I)Z	Hw	isClassDeclaration
+	m	(I)Z	J0	isDocComment
+	m	(I)I	J8	getTokenLength
+	m	(I)Z	Mr	isExpression
+	m	(I)Z	P8	isMemberDeclaration
+	m	(I)Z	U2	isBlock
+	m	(I)Z	Ws	hasAttrVariableSlot
+	m	(I)Z	XL	isMethodDeclaration
+	m	(I)Z	a8	isParameters
+	m	(I)Z	aM	isArguments
+	m	(I)Z	gW	hasAttrTarget
+	m	(I)Z	gn	isTypeIdentifier
+	m	(I)Z	j3	isFieldDeclaration
+	m	(I)Z	lg	isOperator
+	m	(I)Z	rN	isClassBody
+	m	(I)Z	tp	isSeparator
+	m	(I)Z	u7	isIdentifier
+	m	(I)Z	v5	hasAttrType
+	m	(I)Z	vy	isBooleanLiteral
+	m	(I)Z	yS	isToken
 c	abcd/qd	com/aide/codemodel/language/java/JSharpCommentsTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsTools——J# 注释工具集
 c	abcd/Td	com/aide/codemodel/language/js/JavaScriptCommentsTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsTools——JavaScript 注释工具集
 c	abcd/dd	com/aide/codemodel/language/java/JavaCodeAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeAnalyzer——Java 代码分析器（被 JavaLanguage 持有）
+	m	(Labcd/Sa;Labcd/bc;)V	j6	analyzeEveryIdentifiers
 c	abcd/_b	com/aide/codemodel/api/collections/SetOfFileEntry	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/SetOfFileEntry——FileEntry 集合（字段与 SetOfFileEntry 逐个对应）
 	m	(I)V	DW	put
 	m	()Labcd/Da;	DW	get
@@ -25903,16 +26200,21 @@ c	abcd/Sb	com/aide/codemodel/api/collections/OrderedMapOfIntInt	body: AIDE+ 2.3.
 	m	(Labcd/fc;)V	j6	store
 c	abcd/Mb	com/aide/codemodel/api/collections/MapOfIntLong	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntLong——int→long 映射
 	m	(Labcd/fc;)V	j6	store
+	m	(I)V	FH	remove
 c	abcd/sb	com/aide/codemodel/api/collections/FunctionOfIntLong	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntLong——int→long 函数表
 	m	()V	DW	rehash
 	m	(Labcd/sb;)[J	DW	getValues
 	m	(Labcd/sb;)[I	j6	getKeys
 	m	()V	j6	clear
 	m	(Labcd/fc;)V	j6	store
+	m	(I)J	DW	get
+	m	(I)V	FH	remove
+	m	(I)Z	j6	contains
 c	abcd/qb	com/aide/codemodel/api/collections/FunctionOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntInt——int→int 函数表
 	m	()V	DW	rehash
 	m	()V	j6	clear
 	m	(Labcd/fc;)V	j6	store
+	m	(I)V	FH	remove
 c	abcd/Ya	com/aide/codemodel/api/Type	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Type——类型基类（8 个子类：Class/Array/Pointer/Primitive/Parameterized/Parameter/MethodParameter/MethodParameterVariable）
 	m	()I	dx	getSemantic
 	m	(Labcd/Da;Labcd/na;)Z	j6	isReferable
@@ -25927,6 +26229,7 @@ c	abcd/Ya	com/aide/codemodel/api/Type	body: AIDE+ 2.3.5 的 com/aide/codemodel/a
 	m	(Labcd/fc;)V	j6	store
 	m	(Labcd/Ya;)Z	j6	containsType
 	m	()Z	vJ	isEnumType
+	m	()Labcd/Ya;	sG	getSuperType
 c	abcd/Ja	com/aide/codemodel/api/MethodParameterType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/MethodParameterType——方法参数类型
 	m	()I	EQ	getId
 	m	()I	j6	getDeclarationNumber
@@ -25934,10 +26237,15 @@ c	abcd/Ja	com/aide/codemodel/api/MethodParameterType	body: AIDE+ 2.3.5 的 com/a
 	m	(Labcd/fc;)V	j6	store
 	m	()I	we	getIdentifier
 	m	()I	x9	getBoundTypeCount
+	m	()Labcd/ua;	FH	getEnclosingClassType
+	m	()Labcd/Da;	Zo	getFile
+	m	()V	aj	invalidate
+	m	(Labcd/Ya;I)Labcd/Ya;	j6	getBoundType
 c	abcd/Ka	com/aide/codemodel/api/MethodParameterTypeVariable	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/MethodParameterTypeVariable——方法参数变量
 	m	()I	EQ	getId
 	m	(Labcd/ec;)V	j6	load
 	m	(Labcd/fc;)V	j6	store
+	m	()Labcd/na;	QX	getLanguage
 c	abcd/Oa	com/aide/codemodel/api/ParameterizedType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ParameterizedType——参数化类型（泛型）
 	m	()I	EQ	getId
 	m	(Labcd/Ya;)Labcd/Ya;	FH	replaceType
@@ -25945,16 +26253,28 @@ c	abcd/Oa	com/aide/codemodel/api/ParameterizedType	body: AIDE+ 2.3.5 的 com/aid
 	m	(Labcd/ec;)V	j6	load
 	m	(Labcd/fc;)V	j6	store
 	m	()V	lp	invalidate
+	m	()Labcd/na;	QX	getLanguage
+	m	()Z	Sf	isDelegateType
+	m	()Labcd/Da;	Zo	getFile
+	m	()Labcd/ua;	aj	getClassType
+	m	()Z	ca	isSealedType
+	m	()Z	g3	isInterfaceType
+	m	()Z	vJ	isEnumType
+	m	()[Labcd/Ya;	x9	getAbsoluteArgumentTypes
 c	abcd/Pa	com/aide/codemodel/api/ParameterType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ParameterType——参数类型
 	m	()I	EQ	getId
 	m	()I	j6	getDeclarationNumber
 	m	(Labcd/ec;)V	j6	load
 	m	(Labcd/fc;)V	j6	store
 	m	()I	we	getIdentifier
+	m	()Labcd/ua;	FH	getEnclosingClassType
+	m	()Labcd/Da;	Zo	getFile
+	m	()V	lp	invalidate
 c	abcd/Qa	com/aide/codemodel/api/PointerType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/PointerType——指针类型
 	m	()I	EQ	getId
 	m	(Labcd/ec;)V	j6	load
 	m	(Labcd/fc;)V	j6	store
+	m	()Labcd/na;	QX	getLanguage
 c	abcd/Ra	com/aide/codemodel/api/PrimitiveType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/PrimitiveType——基本类型
 	m	()I	EQ	getId
 	m	(Labcd/ec;)V	j6	load
@@ -25966,6 +26286,7 @@ c	abcd/sa	com/aide/codemodel/api/ArrayType	body: AIDE+ 2.3.5 的 com/aide/codemo
 	m	(Labcd/fc;)V	j6	store
 	m	()Labcd/Ya;	sy	getElementType
 	m	()Labcd/Ya;	x9	getComponentType
+	m	()Labcd/na;	QX	getLanguage
 c	abcd/Na	com/aide/codemodel/api/Namespace	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Namespace——命名空间
 	m	()I	EQ	getId
 	m	()Labcd/na;	QX	getLanguage
@@ -25978,6 +26299,12 @@ c	abcd/Na	com/aide/codemodel/api/Namespace	body: AIDE+ 2.3.5 的 com/aide/codemo
 	m	()Labcd/Na;	sG	getEnclosingNamespace
 	m	()Z	vJ	isRoot
 	m	()I	we	getIdentifier
+	m	()Labcd/bc;	cn	getAllAssemblies
+	m	()V	ef	invalidate
+	m	(I)Labcd/Na;	j6	getMemberNamespace
+	m	(Labcd/Da;IZ)Labcd/Na;	j6	accessMemberNamespace
+	m	(IZ)Z	j6	existsMemberClassType
+	m	()Labcd/Hb;	sh	getAllMemberClassTypes
 c	abcd/Va	com/aide/codemodel/api/SyntaxTreeSpace	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/SyntaxTreeSpace——语法树空间
 	m	(Labcd/Da;Labcd/na;Labcd/Sa;ZLjava/lang/String;II)V	j6	createSyntaxTree
 	m	(Labcd/Sa;)V	j6	releaseSyntaxTree
@@ -54260,6 +54587,9 @@ c	com/aide/engine/u	com/aide/engine/FieldAccess	auto: 类：FieldAccess（上游
 c	com/aide/engine/D	com/aide/engine/QualifiedName	auto: 类：QualifiedName（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/d	com/aide/engine/service/EngineProcessManager	auto: 管理器：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/c	com/aide/engine/Engine	auto: 类：Engine（上游未收录，名字来自 jobs/aide_engine 的判据）
+	m	(Lcom/aide/engine/c;)Lcom/aide/engine/EngineSolution;	Of	getEngineSolution
+	m	()V	VH	shutdown
+	m	(Lcom/aide/engine/EngineSolution;)V	j6	setEngineSolution
 c	com/aide/engine/service/l	com/aide/engine/service/CodeAnalysisEngineBinder	auto: 类：CodeAnalysisEngineBinder（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/j	com/aide/engine/ICodeModelsFactory	shape: AIDE+ 2.3.5 的 com/aide/engine/ICodeModelsFactory——ICodeModelsFactory
 c	com/aide/engine/d	com/aide/engine/EngineProcessListener	auto: 回调接口：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）
@@ -54306,31 +54636,24 @@ c	com/aide/engine/K$a	com/aide/engine/SourceMetricsAnalyzer$Metrics	body: 统计
 c	com/aide/engine/p	com/aide/engine/ErrorListener	iface: 分析期错误输出——唯一方法 j6(路径,消息)，Engine 字段 Ev 持有，调用链 abcd/eb(ErrorReporter) ← abcd/ee(HTML/JS 属性检查)
 c	com/aide/engine/o	com/aide/engine/HighlightingGrid	body: 高亮网格——byte[][] 按行列存 HighlightingKind 序号，矩形填充/取值/左移删格；写入者编辑器文本变更回调和 DiffView，读取者 CodeEditText
 c	com/aide/engine/c$b	com/aide/engine/Engine$DaemonTask	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask——引擎的分析守护任务（Runnable，33 方法），持有 16 个回调适配器
+	m	(Lcom/aide/engine/c$b;)Labcd/ea;	j6	getAIDEModel
 c	com/aide/engine/c$b$a	com/aide/engine/Engine$DaemonTask$APISearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$APISearcherCallback——APISearcher 回调适配（→ Engine 的补全/符号接口）
-	m	(Labcd/Aa;)V	j6	DW
-	m	(Ljava/lang/String;)V	j6	FH
 c	com/aide/engine/c$b$b	com/aide/engine/Engine$DaemonTask$CodeCompleterCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$CodeCompleterCallback——补全回调适配（收 SourceEntity 列表）
 	m	()V	j6	listStarted
 	m	(Labcd/Aa;Labcd/Ya;Z)V	j6	listElementEntityFound
-	m	(Labcd/Aa;Ljava/lang/String;)V	j6	aM
 	m	(Labcd/Aa;Z)V	j6	listElementEntityFound
-	m	(Labcd/Da;)V	j6	QX
 	m	(Labcd/Da;II[I[I)V	j6	parameterListFound
-	m	(Labcd/Da;Labcd/na;IIIZZ)V	j6	J8
-	m	(Labcd/Ya;)V	j6	Hw
 	m	(Labcd/Za;)V	j6	listElementVariableFound
-	m	(Ljava/util/List;)V	j6	v5
+	m	(Ljava/lang/String;)V	DW	listElementKeywordFound
+	m	(Ljava/lang/String;)V	j6	listElementUnknownIdentifierFound
 c	com/aide/engine/c$b$c	com/aide/engine/Engine$DaemonTask$CodeMetricsCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$CodeMetricsCallback——代码度量回调适配
-	m	()V	j6	DW
 c	com/aide/engine/c$b$d	com/aide/engine/Engine$DaemonTask$DebugMetadataCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$DebugMetadataCallback——调试元数据回调适配
-	m	(Ljava/lang/Class;Ljava/lang/Class;)V	j6	Zo
-	m	(Ljava/lang/Object;)V	j6	FH
-	m	(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V	j6	VH
-	m	(ZZLjava/lang/String;Ljava/lang/String;)V	j6	DW
 c	com/aide/engine/c$b$e	com/aide/engine/Engine$DaemonTask$HighlighterCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$HighlighterCallback——语法高亮回调适配
 	m	(Labcd/Da;)V	j6	fileFinished
 	m	(Labcd/Da;I)V	j6	unifedLineFound
 	m	(Labcd/na;Labcd/Wa;)V	j6	addSyntaxTreeStyles
+	m	(I)V	j6	ensureExplicitCapacity
+	m	()V	DW	releaseSyntaxTree
 c	com/aide/engine/c$b$f	com/aide/engine/Engine$DaemonTask$f	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$f——错误上报适配（abcd/eb，≡AIDE+ 的 q2）
 c	com/aide/engine/c$b$g	com/aide/engine/Engine$DaemonTask$BomReaderFactory	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$BomReaderFactory——BOM/编码 Reader 工厂适配
 	m	(Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/Reader;	j6	createBomReader
@@ -54338,30 +54661,14 @@ c	com/aide/engine/c$b$h	com/aide/engine/Engine$DaemonTask$OpenFileCallback	shape
 	m	(Labcd/Da;)Z	DW	isOpenFile
 	m	(Labcd/Da;)Ljava/io/Reader;	FH	getOpenFileReader
 	m	()V	j6	update
+	m	(Labcd/Da;)J	Hw	getOpenFileSize
+	m	(Labcd/Da;)J	j6	getOpenFileVersion
 c	com/aide/engine/c$b$i	com/aide/engine/Engine$DaemonTask$RefactoringCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$RefactoringCallback——重构编辑动作适配（造 Modification 转 J）
-	m	(Labcd/Da;III)V	j6	gW
-	m	(Labcd/Da;IILjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V	j6	ei
-	m	(Labcd/Da;Labcd/Da;)V	j6	lg
-	m	(Labcd/na;Ljava/util/Set;)V	j6	EQ
-	m	(Ljava/lang/String;Ljava/lang/String;)V	j6	FH
-	m	(Ljava/lang/String;Ljava/util/Hashtable;)V	j6	v5
 c	com/aide/engine/c$b$j	com/aide/engine/Engine$DaemonTask$StopCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$StopCallback——停止/启用开关适配
 c	com/aide/engine/c$b$k	com/aide/engine/Engine$DaemonTask$StructureCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$StructureCallback——结构化大纲适配
-	m	()V	j6	Zo
-	m	(Labcd/Aa;IIIIIII)V	j6	v5
-	m	(Labcd/Aa;IIIIIIII)V	j6	Hw
-	m	(Labcd/Da;I)V	j6	FH
-	m	(Ljava/lang/String;ZIIIIIIII)V	j6	DW
 c	com/aide/engine/c$b$l	com/aide/engine/Engine$DaemonTask$SymbolSearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$SymbolSearcherCallback——符号搜索适配（组名+候选表）
-	m	(Labcd/Aa;)V	j6	DW
-	m	(Labcd/Da;)V	j6	gn
-	m	(Ljava/lang/String;)V	j6	VH
 c	com/aide/engine/c$b$m	com/aide/engine/Engine$DaemonTask$m	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$m——空标记适配（≡AIDE+ 的 x2，0 方法）
 c	com/aide/engine/c$b$n	com/aide/engine/Engine$DaemonTask$n	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$n——位置/区间上报适配（≡AIDE+ 的 y2）
 c	com/aide/engine/c$b$o	com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback——模板求值适配
-	m	(Labcd/Aa;)V	j6	DW
-	m	(Labcd/Za;)V	j6	v5
-	m	(Ljava/lang/String;)V	j6	Hw
 c	com/aide/engine/c$b$p	com/aide/engine/Engine$DaemonTask$UsageSearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$UsageSearcherCallback——用法搜索适配
-	m	(Ljava/lang/String;)V	j6	FH
 c	com/aide/engine/service/x	com/aide/engine/service/CodeModelFactory	shape: AIDE+ 2.3.5 的 com/aide/engine/service/CodeModelFactory——CodeModelFactory
