@@ -27169,6 +27169,9 @@ abcd/Hs com/aide/engine/DexReference
 	VH ()Labcd/Js; getDescriptor
 	Ws ()Z isClassInitializer
 	lg ()Z isInstanceInitializer
+	DW name
+	FH descriptor
+	aM ()Ljava/lang/String; toHuman
 abcd/Yo com/aide/engine/DexConstants
 abcd/tn com/aide/engine/DexMember
 abcd/un com/aide/engine/DexAnnotation
@@ -27188,6 +27191,7 @@ abcd/Dc com/aide/codemodel/language/classfile/ClassFilePreProcessor
 abcd/Ms com/aide/engine/DexBaseType
 abcd/ms com/aide/engine/DexBaseReference
 	Hw ()Z isCategory2
+	Zo ()Ljava/lang/String; getTypeName
 abcd/Am com/aide/engine/NamedAttribute
 abcd/Bm com/aide/engine/IndexedAttribute
 abcd/Xt com/aide/engine/ArrayItem
@@ -28080,10 +28084,15 @@ abcd/Fs com/aide/engine/DexMemberReference
 	we ()Labcd/Hs; getNameAndType
 	Hw ()Z isCategory2
 	aM ()Ljava/lang/String; toHuman
+	j6 definingClass
+	DW nat
 abcd/ws com/aide/engine/DexFieldReference
 	j6 (Labcd/Qs;)Labcd/ws; forPrimitiveType
 		static
 abcd/qs com/aide/engine/DexBaseMethodReference
+	J8 ()Labcd/Os; getSignature
+	Ws ()Z isClassInitializer
+	lg ()Z isInstanceInitializer
 abcd/Gs com/aide/engine/DexMethodReference
 abcd/zs com/aide/engine/DexInterfaceMethodReference
 abcd/vs com/aide/engine/DexEnumFieldReference
@@ -28093,10 +28102,13 @@ abcd/hu com/aide/engine/MutabilityControl
 	VH ()Z isImmutable
 	Zo ()Z isMutable
 	we ()V setImmutable
+	j6 mutable
 abcd/iu com/aide/engine/MutabilityException
 abcd/Ds com/aide/engine/DexLiteralBits
 abcd/Bs com/aide/engine/DexLiteral32
+	j6 bits
 abcd/Cs com/aide/engine/DexLiteral64
+	j6 bits
 abcd/As com/aide/engine/DexKnownNull
 abcd/rs com/aide/engine/DexBoolean
 abcd/ss com/aide/engine/DexByte

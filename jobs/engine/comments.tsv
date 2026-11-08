@@ -1584,3 +1584,15 @@ m	abcd/ws	j6	(Labcd/Qs;)Labcd/ws;	body: 定义类取 Ks.j6(Qs)，nat 固定为 H
 c	abcd/lu	-	-	iface: 只有一个 aM()String——把对象拼成人类可读串（dx 的 ToHuman）
 m	abcd/lu	aM	()Ljava/lang/String;	iface: toHuman——唯一抽象方法，实现类拼描述串
 m	abcd/ms	Hw	()Z	body: isCategory2——Cs(64 位字面量)返回 true、Bs(32 位)/Js/Ks/As 都返回 false
+m	abcd/ms	Zo	()Ljava/lang/String;	str: getTypeName——各常量返回自己的种类名（"field"/"enum"/"nat"/"int"/"long"/"known-null"/"method"/"ifaceMethod"…），dx 的 Constant.typeName()
+m	abcd/Hs	aM	()Ljava/lang/String;	body: toHuman——拼 name+":"+descriptor（实现 lu/ToHuman）
+f	abcd/Hs	DW	-	body: name——名字串；J8()/Ws()/lg() 都读它
+f	abcd/Hs	FH	-	body: descriptor——描述符串；VH() 返回它
+f	abcd/Fs	j6	-	body: definingClass——定义类（Ks=DexType）；VH() 返回它
+f	abcd/Fs	DW	-	body: nat——名字+描述符对（Hs=DexReference）；we() 返回它
+f	abcd/hu	j6	-	body: mutable——可变标志，构造默认 true；we() 置 false
+f	abcd/Bs	j6	-	body: bits——32 位字面量的原始 int 位
+f	abcd/Cs	j6	-	body: bits——64 位字面量的原始 long 位
+m	abcd/qs	J8	()Labcd/Os;	body: getSignature——用 nat 的描述符 intern 出 Os(MemberSignature)
+m	abcd/qs	Ws	()Z	body: isClassInitializer——直接委派 Hs.Ws()（名字=="<clinit>"）
+m	abcd/qs	lg	()Z	body: isInstanceInitializer——直接委派 Hs.lg()（名字=="<init>"）

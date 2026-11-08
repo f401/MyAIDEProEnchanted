@@ -25764,6 +25764,9 @@ c	abcd/Hs	com/aide/engine/DexReference	auto: 类：DexReference（上游未收�
 	m	()Labcd/Js;	VH	getDescriptor	body: 返回 FH(描述符)；qs.J8() 用它 intern 出 MemberSignature
 	m	()Z	Ws	isClassInitializer	str: 名字.equals("<clinit>")
 	m	()Z	lg	isInstanceInitializer	str: 名字.equals("<init>")
+	f	Labcd/Js;	DW	name	body: name——名字串；J8()/Ws()/lg() 都读它
+	f	Labcd/Js;	FH	descriptor	body: descriptor——描述符串；VH() 返回它
+	m	()Ljava/lang/String;	aM	toHuman	body: toHuman——拼 name+":"+descriptor（实现 lu/ToHuman）
 c	abcd/Yo	com/aide/engine/DexConstants	auto: 类：DexConstants（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/tn	com/aide/engine/DexMember	auto: 类：DexMember（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/un	com/aide/engine/DexAnnotation	auto: 类：DexAnnotation（上游未收录，名字来自 jobs/engine 的判据）
@@ -25783,6 +25786,7 @@ c	abcd/Dc	com/aide/codemodel/language/classfile/ClassFilePreProcessor	shape: AID
 c	abcd/Ms	com/aide/engine/DexBaseType	auto: 类：DexBaseType（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ms	com/aide/engine/DexBaseReference	auto: 类：DexBaseReference（上游未收录，名字来自 jobs/engine 的判据）
 	m	()Z	Hw	isCategory2	body: isCategory2——Cs(64 位字面量)返回 true、Bs(32 位)/Js/Ks/As 都返回 false
+	m	()Ljava/lang/String;	Zo	getTypeName	str: getTypeName——各常量返回自己的种类名（"field"/"enum"/"nat"/"int"/"long"/"known-null"/"method"/"ifaceMethod"…），dx 的 Constant.typeName()
 c	abcd/Am	com/aide/engine/NamedAttribute	auto: 类：NamedAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Bm	com/aide/engine/IndexedAttribute	auto: 类：IndexedAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Xt	com/aide/engine/ArrayItem	auto: 类：ArrayItem（上游未收录，名字来自 jobs/engine 的判据）
@@ -26658,9 +26662,14 @@ c	abcd/Fs	com/aide/engine/DexMemberReference	body: 成员引用基类——定�
 	m	()Labcd/Hs;	we	getNameAndType	body: 返回 DW(nat=名字+描述符对)；getType()/比较都要经它
 	m	()Z	Hw	isCategory2	body: 常量返回 false——成员引用不是双字宽
 	m	()Ljava/lang/String;	aM	toHuman	body: 拼 definingClass.toHuman()+"."+nat.toHuman()
+	f	Labcd/Ks;	j6	definingClass	body: definingClass——定义类（Ks=DexType）；VH() 返回它
+	f	Labcd/Hs;	DW	nat	body: nat——名字+描述符对（Hs=DexReference）；we() 返回它
 c	abcd/ws	com/aide/engine/DexFieldReference	str: 字段引用——Zo() 返回 "field"，被 FieldIdSection 的 TreeMap 当 key
 	m	(Labcd/Qs;)Labcd/ws;	j6	forPrimitiveType	body: 定义类取 Ks.j6(Qs)，nat 固定为 Hs.j6(Nat "TYPE"/"Ljava/lang/Class;") ⇒ 基本类型的 TYPE 字段伪引用（dx 同名方法）
 c	abcd/qs	com/aide/engine/DexBaseMethodReference	body: 方法引用基类（abstract）——J8() 取成员签名，子类按 typeName 分 "method"/"ifaceMethod"
+	m	()Labcd/Os;	J8	getSignature	body: getSignature——用 nat 的描述符 intern 出 Os(MemberSignature)
+	m	()Z	Ws	isClassInitializer	body: isClassInitializer——直接委派 Hs.Ws()（名字=="<clinit>"）
+	m	()Z	lg	isInstanceInitializer	body: isInstanceInitializer——直接委派 Hs.lg()（名字=="<init>"）
 c	abcd/Gs	com/aide/engine/DexMethodReference	str: 普通方法引用——Zo() 返回 "method"
 c	abcd/zs	com/aide/engine/DexInterfaceMethodReference	str: 接口方法引用——Zo() 返回 "ifaceMethod"，J8() 内部降级成 Gs
 c	abcd/vs	com/aide/engine/DexEnumFieldReference	str: 枚举字段引用——Zo() 返回 "enum"，懒建同 nat 的 ws(字段引用)
@@ -26670,10 +26679,13 @@ c	abcd/hu	com/aide/engine/MutabilityControl	str: 可变性守卫——J8()/Ws() 
 	m	()Z	VH	isImmutable	body: 返回 !j6（j6=可变标志，默认 true）
 	m	()Z	Zo	isMutable	body: 直接返回 j6（可变标志）
 	m	()V	we	setImmutable	body: 把 j6 置 false——之后 J8() 不再抛、Ws() 会抛
+	f	Z	j6	mutable	body: mutable——可变标志，构造默认 true；we() 置 false
 c	abcd/iu	com/aide/engine/MutabilityException	hier: 可变性异常——extends Vt(RuntimeException)，只由 hu 抛出
 c	abcd/Ds	com/aide/engine/DexLiteralBits	body: 字面量常量基类（abstract）——J8()/Ws()/lg() 取位
 c	abcd/Bs	com/aide/engine/DexLiteral32	body: 32 位字面量基类——final int 位，比较与取值全 final
+	f	I	j6	bits	body: bits——32 位字面量的原始 int 位
 c	abcd/Cs	com/aide/engine/DexLiteral64	body: 64 位字面量基类——final long 位，比较与取值全 final
+	f	J	j6	bits	body: bits——64 位字面量的原始 long 位
 c	abcd/As	com/aide/engine/DexKnownNull	str: 已知 null 常量——Zo() 返回 "known-null"，私有构造 + 单例
 c	abcd/rs	com/aide/engine/DexBoolean	str: boolean 常量——Zo() 返回 "boolean"
 c	abcd/ss	com/aide/engine/DexByte	str: byte 常量——Zo() 返回 "byte"
