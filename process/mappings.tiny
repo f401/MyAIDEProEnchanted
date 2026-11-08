@@ -25737,6 +25737,23 @@ c	abcd/Za	com/aide/codemodel/api/Variable	shape: AIDE+ 2.3.5 的 Variable——�
 c	abcd/Cb	com/aide/engine/IntVector	auto: 类：IntVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rr	com/aide/engine/WellKnownTypes	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Qs	com/aide/engine/TypeConstant	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	J8	getDescriptor	body: 直接返回 cb——dex 描述符原样
+	m	()Ljava/lang/String;	VH	getClassName	str: 把 L...; 去壳并把 / 换成 .；非引用类型抛 IllegalArgumentException("not an object type:")
+	m	()Labcd/Qs;	Hw	getArrayType	body: 懒建 "["+描述符 的数组类型（缓存 Sf）
+	m	()Labcd/Qs;	we	getComponentType	body: 数组取去掉一个 "[" 的元素类型（缓存 vJ），非数组抛异常
+	m	()Z	lg	isArray	body: 描述符首字符=='['
+	m	()Z	vy	isReference	body: basicType==9(引用)
+	m	()I	Zo	getCategory	body: basicType 为 long/double(7/4) 返回 2，否则 1 ⇒ 计算类别
+	m	()Z	BT	isPrimitive	body: basicType 0..8(九种基本类型) 返回 true
+	m	()Z	er	isCategory2	body: basicType 为 long(7)/double(4) 返回 true ⇒ 双字宽
+	m	()Labcd/Qs;	Ws	getInitializedType	str: 返回 g3；为空时抛 IllegalArgumentException("initialized type:")
+	m	()Ljava/lang/String;	aM	toHuman	str: void/boolean/byte/char/double/float/int/long/short 的字面名；引用类型走 getClassName() 或 元素.toHuman()+"[]"
+	f	Ljava/lang/String;	cb	descriptor	body: 描述符串——getDescriptor() 直接返回它，其余方法都解析它
+	f	I	dx	basicType	body: 基本类型编号 0..9（0 void/1 boolean/2 byte/3 char/4 double/5 float/6 int/7 long/8 short/9 引用）
+	f	Ljava/lang/String;	ef	className	body: getClassName() 的缓存
+	f	Labcd/Qs;	g3	initializedType	body: getInitializedType() 返回的已初始化类型
+	f	Labcd/Qs;	vJ	componentType	body: getComponentType() 的缓存
+	f	Labcd/Qs;	Sf	arrayType	body: getArrayType() 的缓存
 c	abcd/Rs	com/aide/engine/TypeInfo	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ps	com/aide/engine/MethodType	auto: 类：MethodType（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Kb	com/aide/codemodel/api/collections/MapOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntInt——int→int 哈希表（5 个 int[] + 迭代器）
@@ -25758,7 +25775,28 @@ c	abcd/Bb	com/aide/engine/ByteVector	auto: 类：ByteVector（上游未收录，
 c	abcd/Ab	com/aide/engine/NodeVector	auto: 类：NodeVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ss	com/aide/engine/TypeList	auto: 类：TypeList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Js	com/aide/engine/DexString	auto: 类：DexString（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	we	getString	body: 返回 DW(原串)
+	m	()I	J8	getUtf16Size	body: 返回 String.length() ⇒ UTF-16 长度
+	m	()I	Ws	getUtf8Size	body: 返回字节数组(FH)的长度 ⇒ MUTF-8 字节数
+	m	()Labcd/Pt;	VH	getBytes	body: 返回 FH(MUTF-8 字节数组，构造时编码)
+	m	()Ljava/lang/String;	aM	toHuman	body: 转义成可读串（\\' \\" \\\\ 与 \\uXXXX）
+	m	()Ljava/lang/String;	lg	toQuoted	body: '"'+toHuman()+'")' ⇒ 带引号的字符串字面量
+	m	()Ljava/lang/String;	Zo	getTypeName	str: 返回 "utf8"
+	m	(Ljava/lang/String;)[B	j6	encodeMutf8	body: 把 String 编码成 MUTF-8 字节（构造时调用）
+	m	(Labcd/Pt;)Ljava/lang/String;	j6	decodeMutf8	body: 把 MUTF-8 字节解码成 String（newarray char + 逐字节）
+	f	Ljava/lang/String;	DW	value	body: 原字符串
+	f	Labcd/Pt;	FH	bytes	body: MUTF-8 字节数组（Pt=ByteArray 包装）
 c	abcd/Ks	com/aide/engine/DexType	auto: 类：DexType（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Labcd/Qs;	VH	getClassType	body: 返回 Mr(Q=被包装的类型)；vs.getType() 就用它
+	m	()Labcd/Js;	we	getDescriptor	body: 懒建 new Js(类型.getDescriptor())（缓存 U2）
+	m	()Ljava/lang/String;	Zo	getTypeName	str: 返回 "type"
+	m	()Z	Hw	isCategory2	body: 恒 false——类型引用不是双字宽
+	m	()Ljava/lang/String;	aM	toHuman	body: 实现 lu/ToHuman——类型常量的可读串
+	m	(Labcd/Qs;)Labcd/Ks;	DW	intern	body: synchronized 在 HashMap 里按 Qs 取/放单例 ⇒ 类型常量 intern 表
+	m	(Labcd/Qs;)Labcd/Ks;	j6	forPrimitiveType	str: 按 basicType switch 产出九种基本类型常量，非基本类型抛 "not primitive:"
+	f	Ljava/util/HashMap;	j6	internTable	body: HashMap<Qs,Ks>——按类型 intern 出唯一 DexType
+	f	Labcd/Qs;	Mr	classType	body: 被包装的类型（getClassType() 返回它）
+	f	Labcd/Js;	U2	descriptor	body: getDescriptor() 的缓存（懒建）
 c	abcd/Hs	com/aide/engine/DexReference	auto: 类：DexReference（上游未收录，名字来自 jobs/engine 的判据）
 	m	()Labcd/Js;	J8	getName	body: 返回 DW(名字)——Ws()/lg() 都用它比 "<clinit>"/"<init>"
 	m	()Labcd/Js;	VH	getDescriptor	body: 返回 FH(描述符)；qs.J8() 用它 intern 出 MemberSignature

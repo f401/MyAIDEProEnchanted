@@ -635,6 +635,23 @@ abcd/Za com/aide/codemodel/api/Variable
 abcd/Cb com/aide/engine/IntVector
 abcd/Rr com/aide/engine/WellKnownTypes
 abcd/Qs com/aide/engine/TypeConstant
+	J8 ()Ljava/lang/String; getDescriptor
+	VH ()Ljava/lang/String; getClassName
+	Hw ()Labcd/Qs; getArrayType
+	we ()Labcd/Qs; getComponentType
+	lg ()Z isArray
+	vy ()Z isReference
+	Zo ()I getCategory
+	BT ()Z isPrimitive
+	er ()Z isCategory2
+	Ws ()Labcd/Qs; getInitializedType
+	aM ()Ljava/lang/String; toHuman
+	cb descriptor
+	dx basicType
+	ef className
+	g3 initializedType
+	vJ componentType
+	Sf arrayType
 abcd/Rs com/aide/engine/TypeInfo
 abcd/Ps com/aide/engine/MethodType
 abcd/Kb com/aide/codemodel/api/collections/MapOfIntInt
@@ -656,7 +673,28 @@ abcd/Bb com/aide/engine/ByteVector
 abcd/Ab com/aide/engine/NodeVector
 abcd/Ss com/aide/engine/TypeList
 abcd/Js com/aide/engine/DexString
+	we ()Ljava/lang/String; getString
+	J8 ()I getUtf16Size
+	Ws ()I getUtf8Size
+	VH ()Labcd/Pt; getBytes
+	aM ()Ljava/lang/String; toHuman
+	lg ()Ljava/lang/String; toQuoted
+	Zo ()Ljava/lang/String; getTypeName
+	j6 (Ljava/lang/String;)[B encodeMutf8
+	j6 (Labcd/Pt;)Ljava/lang/String; decodeMutf8
+	DW value
+	FH bytes
 abcd/Ks com/aide/engine/DexType
+	VH ()Labcd/Qs; getClassType
+	we ()Labcd/Js; getDescriptor
+	Zo ()Ljava/lang/String; getTypeName
+	Hw ()Z isCategory2
+	aM ()Ljava/lang/String; toHuman
+	DW (Labcd/Qs;)Labcd/Ks; intern
+	j6 (Labcd/Qs;)Labcd/Ks; forPrimitiveType
+	j6 internTable
+	Mr classType
+	U2 descriptor
 abcd/Hs com/aide/engine/DexReference
 	J8 ()Labcd/Js; getName
 	VH ()Labcd/Js; getDescriptor

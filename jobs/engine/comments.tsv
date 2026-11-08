@@ -1596,3 +1596,41 @@ f	abcd/Cs	j6	-	body: bits——64 位字面量的原始 long 位
 m	abcd/qs	J8	()Labcd/Os;	body: getSignature——用 nat 的描述符 intern 出 Os(MemberSignature)
 m	abcd/qs	Ws	()Z	body: isClassInitializer——直接委派 Hs.Ws()（名字=="<clinit>"）
 m	abcd/qs	lg	()Z	body: isInstanceInitializer——直接委派 Hs.lg()（名字=="<init>"）
+m	abcd/Qs	J8	()Ljava/lang/String;	body: 直接返回 cb——dex 描述符原样
+m	abcd/Qs	VH	()Ljava/lang/String;	str: 把 L...; 去壳并把 / 换成 .；非引用类型抛 IllegalArgumentException("not an object type:")
+m	abcd/Qs	Hw	()Labcd/Qs;	body: 懒建 "["+描述符 的数组类型（缓存 Sf）
+m	abcd/Qs	we	()Labcd/Qs;	body: 数组取去掉一个 "[" 的元素类型（缓存 vJ），非数组抛异常
+m	abcd/Qs	lg	()Z	body: 描述符首字符=='['
+m	abcd/Qs	vy	()Z	body: basicType==9(引用)
+m	abcd/Qs	Zo	()I	body: basicType 为 long/double(7/4) 返回 2，否则 1 ⇒ 计算类别
+m	abcd/Qs	BT	()Z	body: basicType 0..8(九种基本类型) 返回 true
+m	abcd/Qs	er	()Z	body: basicType 为 long(7)/double(4) 返回 true ⇒ 双字宽
+m	abcd/Qs	Ws	()Labcd/Qs;	str: 返回 g3；为空时抛 IllegalArgumentException("initialized type:")
+m	abcd/Qs	aM	()Ljava/lang/String;	str: void/boolean/byte/char/double/float/int/long/short 的字面名；引用类型走 getClassName() 或 元素.toHuman()+"[]"
+f	abcd/Qs	cb	-	body: 描述符串——getDescriptor() 直接返回它，其余方法都解析它
+f	abcd/Qs	dx	-	body: 基本类型编号 0..9（0 void/1 boolean/2 byte/3 char/4 double/5 float/6 int/7 long/8 short/9 引用）
+f	abcd/Qs	ef	-	body: getClassName() 的缓存
+f	abcd/Qs	g3	-	body: getInitializedType() 返回的已初始化类型
+f	abcd/Qs	vJ	-	body: getComponentType() 的缓存
+f	abcd/Qs	Sf	-	body: getArrayType() 的缓存
+m	abcd/Ks	VH	()Labcd/Qs;	body: 返回 Mr(Q=被包装的类型)；vs.getType() 就用它
+m	abcd/Ks	we	()Labcd/Js;	body: 懒建 new Js(类型.getDescriptor())（缓存 U2）
+m	abcd/Ks	Zo	()Ljava/lang/String;	str: 返回 "type"
+m	abcd/Ks	Hw	()Z	body: 恒 false——类型引用不是双字宽
+m	abcd/Ks	aM	()Ljava/lang/String;	body: 实现 lu/ToHuman——类型常量的可读串
+m	abcd/Ks	DW	(Labcd/Qs;)Labcd/Ks;	body: synchronized 在 HashMap 里按 Qs 取/放单例 ⇒ 类型常量 intern 表
+m	abcd/Ks	j6	(Labcd/Qs;)Labcd/Ks;	str: 按 basicType switch 产出九种基本类型常量，非基本类型抛 "not primitive:"
+f	abcd/Ks	j6	-	body: HashMap<Qs,Ks>——按类型 intern 出唯一 DexType
+f	abcd/Ks	Mr	-	body: 被包装的类型（getClassType() 返回它）
+f	abcd/Ks	U2	-	body: getDescriptor() 的缓存（懒建）
+m	abcd/Js	we	()Ljava/lang/String;	body: 返回 DW(原串)
+m	abcd/Js	J8	()I	body: 返回 String.length() ⇒ UTF-16 长度
+m	abcd/Js	Ws	()I	body: 返回字节数组(FH)的长度 ⇒ MUTF-8 字节数
+m	abcd/Js	VH	()Labcd/Pt;	body: 返回 FH(MUTF-8 字节数组，构造时编码)
+m	abcd/Js	aM	()Ljava/lang/String;	body: 转义成可读串（\' \" \\ 与 \uXXXX）
+m	abcd/Js	lg	()Ljava/lang/String;	body: '"'+toHuman()+'")' ⇒ 带引号的字符串字面量
+m	abcd/Js	Zo	()Ljava/lang/String;	str: 返回 "utf8"
+m	abcd/Js	j6	(Ljava/lang/String;)[B	body: 把 String 编码成 MUTF-8 字节（构造时调用）
+m	abcd/Js	j6	(Labcd/Pt;)Ljava/lang/String;	body: 把 MUTF-8 字节解码成 String（newarray char + 逐字节）
+f	abcd/Js	DW	-	body: 原字符串
+f	abcd/Js	FH	-	body: MUTF-8 字节数组（Pt=ByteArray 包装）
