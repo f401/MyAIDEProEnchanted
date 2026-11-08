@@ -150,3 +150,15 @@ python3 tools/deob/component.py --jar process/base/merged_ok.jar --prefix abcd \
 
 **注意**：`{Pf, pf}` 这对“菜单命令”仍是死结——两者都实现 MenuCommand+FileBrowserCommand、6 个方法形状全同，
 `run()` 分别调 `U.lg/J8/mk/ma` 与 `Zk.j6/gn/VH`，仅凭字节码分不出各自是哪个菜单项。
+
+### 8.1 `InstructionPrinter` 那 28 个子类：本轮探到的边界（别再重复试）
+
+- 基类 `ao`(InstructionPrinter) 的接口是 `VH(Vn)Z`（是否处理该指令）/`Zo(Vn)String`（打印）/`j6()I`；
+- **每个子类的 `j6()` 返回值聚在 1~5**（`iconst_1..iconst_5`），不是 DEX opcode（0x01 move、0x12 const/4…），
+  更像是「操作数格式/长度类别」——所以不能靠 opcode 常量直接定名；
+- 类里也**没有助记符常量串**（助记符在 `Instruction` 对象里），所以也拿不到 `move/from16` 这种名字；
+- 唯一直接可判的是 `abcd/To`：`VH` 恒 true + `Zo/j6` 抛 `RuntimeException("unsupported")`
+  ⇒ `com/aide/engine/UnsupportedInstructionPrinter`（本轮已定名）。
+
+要定其余 27 个，需要**逐个读 `Zo`/`VH` 的方法体**（它们对 `abcd/cs`(ParameterTypeList)、`abcd/bs`(TypeInfo)
+的字段做位运算），属于「一个类一轮」的成本，性价比低，建议放到最后收尾阶段再做。
