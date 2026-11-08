@@ -117,3 +117,12 @@ python3 tools/deob/component.py --jar process/base/merged_ok.jar --prefix abcd \
 - `b` = 只有 `static final int[]`，被合成访问器构造器当占位参数（`c$b(...,Lcom/aide/engine/b;)V`）。
 - `P` = 无成员空类。
 - `c$a` / `c$c` = 两个枚举（11 个 / ≥13 个常量），要按常量语义定名。
+
+### `abcd/dw`（Crashlytics/Fabric 的上报线程）——查过 oracle，仍不敢定名
+`run()` 里：拼 `?clientTime=...&formatVersion=2&deviceId=...&reportId=...&currentSessionId=...`，
+`POST` + `Content-Type: application/stream+json`，读 200/202 成功→删已发文件；410 GONE→写 "gone" 文件并置 `AtomicBoolean`；
+没文件时 `ReentrantLock`+`Condition` 等待；串里有
+`"No files ready for transmission - sleeping..."` / `"Found N files ready for transmission."` / `"Empty file encountered sending log files"`。
+**但 crashlytics 2.9.9 / crashlytics-core 2.7.0 / fabric 1.4.8 三个 oracle 里都没有这些串**（strmatch 也 0 匹配），
+所以只能确定它是 Fabric 家族的「事件文件上报 Runnable」，无法确证该叫 `ReportUploader` 还是它的内部 `SendReportRunner`
+⇒ 先留名。
