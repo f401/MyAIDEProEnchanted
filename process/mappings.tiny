@@ -25147,7 +25147,7 @@ c	abcd/I	abcd/aide/engine/UsageSearch	auto: 类：UsageSearch（上游未收录�
 		p	2	column	column
 c	abcd/la	com/aide/codemodel/api/abstraction/CodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/CodeModel——CodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 CodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 CodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	gn	isSupportArchiveFile	auto: AIDE+ 2.3.5 CodeModel.isSupportArchiveFile——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25162,7 +25162,7 @@ c	abcd/la	com/aide/codemodel/api/abstraction/CodeModel	shape: AIDE+ 2.3.5 的 co
 	m	()Labcd/ja;	u7	getCodeCompiler	auto: AIDE+ 2.3.5 CodeModel.getCodeCompiler——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/vd	com/aide/codemodel/language/java/JavaCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeModel——JavaCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 JavaCodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 JavaCodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	VH	closeArchive	auto: AIDE+ 2.3.5 JavaCodeModel.closeArchive——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25177,7 +25177,7 @@ c	abcd/vd	com/aide/codemodel/language/java/JavaCodeModel	shape: AIDE+ 2.3.5 的 
 	m	()Labcd/ja;	u7	getCodeCompiler	auto: AIDE+ 2.3.5 JavaCodeModel.getCodeCompiler——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/me	com/aide/codemodel/language/xml/XmlCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlCodeModel——XmlCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 XmlCodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	DW	update	auto: AIDE+ 2.3.5 XmlCodeModel.update——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 XmlCodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25192,7 +25192,7 @@ c	abcd/me	com/aide/codemodel/language/xml/XmlCodeModel	shape: AIDE+ 2.3.5 的 co
 	m	()Ljava/util/List;	v5	getLanguages	auto: AIDE+ 2.3.5 XmlCodeModel.getLanguages——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/bd	com/aide/codemodel/language/html/HtmlCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/html/HtmlCodeModel——HtmlCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 HtmlCodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	DW	update	auto: AIDE+ 2.3.5 HtmlCodeModel.update——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 HtmlCodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25207,7 +25207,7 @@ c	abcd/bd	com/aide/codemodel/language/html/HtmlCodeModel	shape: AIDE+ 2.3.5 的 
 	m	()Ljava/util/List;	v5	getLanguages	auto: AIDE+ 2.3.5 HtmlCodeModel.getLanguages——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Wc	com/aide/codemodel/language/dtd/DtdCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdCodeModel——DtdCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 DtdCodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	DW	update	auto: AIDE+ 2.3.5 DtdCodeModel.update——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 DtdCodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25222,7 +25222,7 @@ c	abcd/Wc	com/aide/codemodel/language/dtd/DtdCodeModel	shape: AIDE+ 2.3.5 的 co
 	m	()Ljava/util/List;	v5	getLanguages	auto: AIDE+ 2.3.5 DtdCodeModel.getLanguages——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Mc	com/aide/codemodel/language/css/CssCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssCodeModel——CssCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 CssCodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	DW	update	auto: AIDE+ 2.3.5 CssCodeModel.update——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 CssCodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25237,7 +25237,7 @@ c	abcd/Mc	com/aide/codemodel/language/css/CssCodeModel	shape: AIDE+ 2.3.5 的 co
 	m	()Ljava/util/List;	v5	getLanguages	auto: AIDE+ 2.3.5 CssCodeModel.getLanguages——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Ud	com/aide/codemodel/language/js/JavaScriptCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCodeModel——JavaScriptCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 JavaScriptCodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	DW	update	auto: AIDE+ 2.3.5 JavaScriptCodeModel.update——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 JavaScriptCodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25252,7 +25252,7 @@ c	abcd/Ud	com/aide/codemodel/language/js/JavaScriptCodeModel	shape: AIDE+ 2.3.5 
 	m	()Ljava/util/List;	v5	getLanguages	auto: AIDE+ 2.3.5 JavaScriptCodeModel.getLanguages——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Fc	com/aide/codemodel/language/cpp/CppCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppCodeModel——CppCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 CppCodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	DW	update	auto: AIDE+ 2.3.5 CppCodeModel.update——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 CppCodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25267,7 +25267,7 @@ c	abcd/Fc	com/aide/codemodel/language/cpp/CppCodeModel	shape: AIDE+ 2.3.5 的 co
 	m	()Ljava/util/List;	v5	getLanguages	auto: AIDE+ 2.3.5 CppCodeModel.getLanguages——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Ac	com/aide/codemodel/language/classfile/JavaBinaryCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/classfile/JavaBinaryCodeModel——JavaBinaryCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 JavaBinaryCodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 JavaBinaryCodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	gn	isSupportArchiveFile	auto: AIDE+ 2.3.5 JavaBinaryCodeModel.isSupportArchiveFile——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25282,7 +25282,7 @@ c	abcd/Ac	com/aide/codemodel/language/classfile/JavaBinaryCodeModel	shape: AIDE+
 	m	()Labcd/ja;	u7	getCodeCompiler	auto: AIDE+ 2.3.5 JavaBinaryCodeModel.getCodeCompiler——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/zc	com/aide/codemodel/language/aidl/AidlCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/aidl/AidlCodeModel——AidlCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
-	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
+	m	()[Ljava/lang/String;	Hw	getDefaultFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 	m	(Ljava/lang/String;)J	DW	getArchiveVersion	auto: AIDE+ 2.3.5 AidlCodeModel.getArchiveVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	DW	update	auto: AIDE+ 2.3.5 AidlCodeModel.update——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()[Ljava/lang/String;	FH	getExtendFilePatterns	auto: AIDE+ 2.3.5 AidlCodeModel.getExtendFilePatterns——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）

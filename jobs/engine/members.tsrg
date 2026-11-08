@@ -45,7 +45,7 @@ abcd/I abcd/aide/engine/UsageSearch
 	j6 (Labcd/Da;IIZ)V addMethodsReturning
 abcd/la com/aide/codemodel/api/abstraction/CodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	FH ()[Ljava/lang/String; getExtendFilePatterns
 	gn ()Z isSupportArchiveFile
@@ -60,7 +60,7 @@ abcd/la com/aide/codemodel/api/abstraction/CodeModel
 	u7 ()Labcd/ja; getCodeCompiler
 abcd/vd com/aide/codemodel/language/java/JavaCodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	FH ()[Ljava/lang/String; getExtendFilePatterns
 	VH ()V closeArchive
@@ -75,7 +75,7 @@ abcd/vd com/aide/codemodel/language/java/JavaCodeModel
 	u7 ()Labcd/ja; getCodeCompiler
 abcd/me com/aide/codemodel/language/xml/XmlCodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	DW ()V update
 	FH ()[Ljava/lang/String; getExtendFilePatterns
@@ -90,7 +90,7 @@ abcd/me com/aide/codemodel/language/xml/XmlCodeModel
 	v5 ()Ljava/util/List; getLanguages
 abcd/bd com/aide/codemodel/language/html/HtmlCodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	DW ()V update
 	FH ()[Ljava/lang/String; getExtendFilePatterns
@@ -105,7 +105,7 @@ abcd/bd com/aide/codemodel/language/html/HtmlCodeModel
 	v5 ()Ljava/util/List; getLanguages
 abcd/Wc com/aide/codemodel/language/dtd/DtdCodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	DW ()V update
 	FH ()[Ljava/lang/String; getExtendFilePatterns
@@ -120,7 +120,7 @@ abcd/Wc com/aide/codemodel/language/dtd/DtdCodeModel
 	v5 ()Ljava/util/List; getLanguages
 abcd/Mc com/aide/codemodel/language/css/CssCodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	DW ()V update
 	FH ()[Ljava/lang/String; getExtendFilePatterns
@@ -135,7 +135,7 @@ abcd/Mc com/aide/codemodel/language/css/CssCodeModel
 	v5 ()Ljava/util/List; getLanguages
 abcd/Ud com/aide/codemodel/language/js/JavaScriptCodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	DW ()V update
 	FH ()[Ljava/lang/String; getExtendFilePatterns
@@ -150,7 +150,7 @@ abcd/Ud com/aide/codemodel/language/js/JavaScriptCodeModel
 	v5 ()Ljava/util/List; getLanguages
 abcd/Fc com/aide/codemodel/language/cpp/CppCodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	DW ()V update
 	FH ()[Ljava/lang/String; getExtendFilePatterns
@@ -165,7 +165,7 @@ abcd/Fc com/aide/codemodel/language/cpp/CppCodeModel
 	v5 ()Ljava/util/List; getLanguages
 abcd/Ac com/aide/codemodel/language/classfile/JavaBinaryCodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	FH ()[Ljava/lang/String; getExtendFilePatterns
 	gn ()Z isSupportArchiveFile
@@ -180,7 +180,7 @@ abcd/Ac com/aide/codemodel/language/classfile/JavaBinaryCodeModel
 	u7 ()Labcd/ja; getCodeCompiler
 abcd/zc com/aide/codemodel/language/aidl/AidlCodeModel
 	j6 ()Ljava/lang/String; getName
-	Hw ()[Ljava/lang/String; getFilePatterns
+	Hw ()[Ljava/lang/String; getDefaultFilePatterns
 	DW (Ljava/lang/String;)J getArchiveVersion
 	DW ()V update
 	FH ()[Ljava/lang/String; getExtendFilePatterns
