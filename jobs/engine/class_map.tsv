@@ -323,3 +323,17 @@ Nr	com/aide/engine/BasicBlock	str:"primarySuccessor " / " not in successors " / 
 Om	com/aide/engine/Frame	str:"Incompatible merged subroutines" / "can't return from non-subroutine" / "stack == null" / "locals == null" ⇒ 栈帧
 bp	com/aide/engine/ClassDefItemBuilder	str:"  class_idx:           " / "  access_flags:        " / "  superclass_idx:      " / "interfaces == null" ⇒ class_def 条目构造/打印
 Kp	com/aide/engine/DexItem	str:"invalid alignment" / "fileOffset already set" / "alignment mismatch: for " / "fileOffset < 0" ⇒ 带对齐与文件偏移的 dex 条目基类
+rp	com/aide/engine/DexFileHeader	str:"magic: " / "file_size:       " / "header_size:     " / "endian_tag:      " / "link_size:       0" ⇒ DEX 文件头
+en	com/aide/engine/ConstantPool	str:"constant_pool_count: " / "unknown tag byte: " / "...while preparsing cst " / " at offset " ⇒ 常量池解析
+Up	com/aide/engine/TypeListItem	str:"  type_idx: " / "  size: " ⇒ dex 的 type_list 条目（size + type_idx[]）
+ep	com/aide/engine/CodeAttributeWriter	str:"  registers_size: " / "throwsList == null" / "code == null" / "...while writing instructions for " ⇒ Code 属性写出器
+fn	com/aide/engine/AnnotationParser	str:"truncated annotation attribute" / "constant_value: " / "num_elements: " / "type: " ⇒ 注解/属性解析
+Fm	com/aide/engine/LocalVariableChecker	str:"local variable type mismatch: attempt to set or access a value of type … using a local variable of type …" + "This is symptomatic of .class transformation tools" ⇒ 局部变量类型一致性检查
+Zo	com/aide/engine/DexFileBuilder	str:"uninternable instance" / " annotations directory" + 若干 ArrayList<Ap/op/Hp> 字段 ⇒ 汇总各段并驻留字符串的 dex 构建器
+jp	com/aide/engine/DexSectionPlacer	str:"bogus placement for section " / "...while writing section " / "unexpected digest write: " / "excess write of " ⇒ 段布局与摘要
+Zm	com/aide/engine/RopMethod	str:"advice == null"（dx 的 TranslationAdvice）/ "method == null" / "block == null" + ArrayList<Nr(BasicBlock)> ⇒ rop 方法模型
+_m	com/aide/engine/RopTranslator	str:"ropper == null" / "advice == null" / "return op mismatch: " / "should not happen" ⇒ rop 翻译器
+ho	com/aide/engine/InstructionWriter	str:"No expanded opcode for " / "method too long" / "unpaired TargetInsn" / "unpaired TargetInsn (dangling)" ⇒ 指令写出（含 opcode 展开）
+xp	com/aide/engine/DexSectionList	str:"section == null" / "firstItem == null" / "lastItem == null" / "itemCount <= 0" ⇒ 段内条目链
+Lm	com/aide/engine/BytecodeParser	str:"bad newarray code " / "low / high inversion" / "...at bytecode offset " / "pool == null" / "bytes == null" ⇒ 字节码解析（newarray/tableswitch 等）
+Xr	com/aide/engine/LabelFixup	str:"bogus label" / "specs == null" / "spec == null" / "insn == null" ⇒ 指令标签与修补

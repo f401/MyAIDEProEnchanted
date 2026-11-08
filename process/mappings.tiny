@@ -26605,6 +26605,20 @@ c	abcd/Nr	com/aide/engine/BasicBlock	str: com/aide/engine/BasicBlock——控制
 c	abcd/Om	com/aide/engine/Frame	str: com/aide/engine/Frame——栈帧
 c	abcd/bp	com/aide/engine/ClassDefItemBuilder	str: com/aide/engine/ClassDefItemBuilder——class_def 条目构造/打印
 c	abcd/Kp	com/aide/engine/DexItem	str: com/aide/engine/DexItem——带对齐与文件偏移的 dex 条目基类
+c	abcd/rp	com/aide/engine/DexFileHeader	str: com/aide/engine/DexFileHeader——DEX 文件头
+c	abcd/en	com/aide/engine/ConstantPool	str: com/aide/engine/ConstantPool——常量池解析
+c	abcd/Up	com/aide/engine/TypeListItem	str: com/aide/engine/TypeListItem——dex 的 type_list 条目（size + type_idx[]）
+c	abcd/ep	com/aide/engine/CodeAttributeWriter	str: com/aide/engine/CodeAttributeWriter——Code 属性写出器
+c	abcd/fn	com/aide/engine/AnnotationParser	str: com/aide/engine/AnnotationParser——注解/属性解析
+c	abcd/Fm	com/aide/engine/LocalVariableChecker	str: com/aide/engine/LocalVariableChecker——局部变量类型一致性检查
+c	abcd/Zo	com/aide/engine/DexFileBuilder	str: com/aide/engine/DexFileBuilder——汇总各段并驻留字符串的 dex 构建器
+c	abcd/jp	com/aide/engine/DexSectionPlacer	str: com/aide/engine/DexSectionPlacer——段布局与摘要
+c	abcd/Zm	com/aide/engine/RopMethod	str: com/aide/engine/RopMethod——rop 方法模型
+c	abcd/_m	com/aide/engine/RopTranslator	str: com/aide/engine/RopTranslator——rop 翻译器
+c	abcd/ho	com/aide/engine/InstructionWriter	str: com/aide/engine/InstructionWriter——指令写出（含 opcode 展开）
+c	abcd/xp	com/aide/engine/DexSectionList	str: com/aide/engine/DexSectionList——段内条目链
+c	abcd/Lm	com/aide/engine/BytecodeParser	str: com/aide/engine/BytecodeParser——字节码解析（newarray/tableswitch 等）
+c	abcd/Xr	com/aide/engine/LabelFixup	str: com/aide/engine/LabelFixup——指令标签与修补
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

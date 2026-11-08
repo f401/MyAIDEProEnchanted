@@ -1503,3 +1503,17 @@ abcd/Nr com/aide/engine/BasicBlock
 abcd/Om com/aide/engine/Frame
 abcd/bp com/aide/engine/ClassDefItemBuilder
 abcd/Kp com/aide/engine/DexItem
+abcd/rp com/aide/engine/DexFileHeader
+abcd/en com/aide/engine/ConstantPool
+abcd/Up com/aide/engine/TypeListItem
+abcd/ep com/aide/engine/CodeAttributeWriter
+abcd/fn com/aide/engine/AnnotationParser
+abcd/Fm com/aide/engine/LocalVariableChecker
+abcd/Zo com/aide/engine/DexFileBuilder
+abcd/jp com/aide/engine/DexSectionPlacer
+abcd/Zm com/aide/engine/RopMethod
+abcd/_m com/aide/engine/RopTranslator
+abcd/ho com/aide/engine/InstructionWriter
+abcd/xp com/aide/engine/DexSectionList
+abcd/Lm com/aide/engine/BytecodeParser
+abcd/Xr com/aide/engine/LabelFixup
