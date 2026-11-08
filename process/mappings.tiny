@@ -53626,3 +53626,20 @@ c	com/aide/engine/K	com/aide/engine/SourceMetricsAnalyzer	body: 源码行统计 
 c	com/aide/engine/K$a	com/aide/engine/SourceMetricsAnalyzer$Metrics	body: 统计节点——9 个计数(int×8 + long×1)，j6(K$a) 逐项相加合并；外层 SourceMetricsAnalyzer
 c	com/aide/engine/p	com/aide/engine/ErrorListener	iface: 分析期错误输出——唯一方法 j6(路径,消息)，Engine 字段 Ev 持有，调用链 abcd/eb(ErrorReporter) ← abcd/ee(HTML/JS 属性检查)
 c	com/aide/engine/o	com/aide/engine/HighlightingGrid	body: 高亮网格——byte[][] 按行列存 HighlightingKind 序号，矩形填充/取值/左移删格；写入者编辑器文本变更回调和 DiffView，读取者 CodeEditText
+c	com/aide/engine/c$b	com/aide/engine/Engine$DaemonTask	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask——引擎的分析守护任务（Runnable，33 方法），持有 16 个回调适配器
+c	com/aide/engine/c$b$a	com/aide/engine/Engine$DaemonTask$APISearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$APISearcherCallback——APISearcher 回调适配（→ Engine 的补全/符号接口）
+c	com/aide/engine/c$b$b	com/aide/engine/Engine$DaemonTask$CodeCompleterCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$CodeCompleterCallback——补全回调适配（收 SourceEntity 列表）
+c	com/aide/engine/c$b$c	com/aide/engine/Engine$DaemonTask$CodeMetricsCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$CodeMetricsCallback——代码度量回调适配
+c	com/aide/engine/c$b$d	com/aide/engine/Engine$DaemonTask$DebugMetadataCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$DebugMetadataCallback——调试元数据回调适配
+c	com/aide/engine/c$b$e	com/aide/engine/Engine$DaemonTask$HighlighterCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$HighlighterCallback——语法高亮回调适配
+c	com/aide/engine/c$b$f	com/aide/engine/Engine$DaemonTask$f	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$f——错误上报适配（abcd/eb，≡AIDE+ 的 q2）
+c	com/aide/engine/c$b$g	com/aide/engine/Engine$DaemonTask$BomReaderFactory	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$BomReaderFactory——BOM/编码 Reader 工厂适配
+c	com/aide/engine/c$b$h	com/aide/engine/Engine$DaemonTask$OpenFileCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$OpenFileCallback——已打开文件内容/版本适配
+c	com/aide/engine/c$b$i	com/aide/engine/Engine$DaemonTask$RefactoringCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$RefactoringCallback——重构编辑动作适配（造 Modification 转 J）
+c	com/aide/engine/c$b$j	com/aide/engine/Engine$DaemonTask$StopCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$StopCallback——停止/启用开关适配
+c	com/aide/engine/c$b$k	com/aide/engine/Engine$DaemonTask$StructureCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$StructureCallback——结构化大纲适配
+c	com/aide/engine/c$b$l	com/aide/engine/Engine$DaemonTask$SymbolSearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$SymbolSearcherCallback——符号搜索适配（组名+候选表）
+c	com/aide/engine/c$b$m	com/aide/engine/Engine$DaemonTask$m	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$m——空标记适配（≡AIDE+ 的 x2，0 方法）
+c	com/aide/engine/c$b$n	com/aide/engine/Engine$DaemonTask$n	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$n——位置/区间上报适配（≡AIDE+ 的 y2）
+c	com/aide/engine/c$b$o	com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback——模板求值适配
+c	com/aide/engine/c$b$p	com/aide/engine/Engine$DaemonTask$UsageSearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$UsageSearcherCallback——用法搜索适配
