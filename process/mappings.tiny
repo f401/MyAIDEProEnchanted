@@ -26886,6 +26886,14 @@ c	abcd/fs	com/aide/engine/RopMethod	body: com/aide/engine/RopMethod——块表 
 	f	I	DW	paramWidth	body: 构造传入的参数宽度（this 也算一格）
 	f	[Labcd/au;	FH	predecessors	body: 每个 label 的前驱集合（懒算，FH() 填充）
 	f	Labcd/au;	Hw	exitPredecessors	body: 出口块的前驱集合（懒算，FH() 填充）
+c	abcd/oq	com/aide/engine/Opcodes	str: com/aide/engine/Opcodes——操作码总表（编号 → 名字/格式/引用种类）
+	m	(I)Ljava/lang/String;	DW	getName	body: 查表返回操作码名字（"nop"/"move"/…）——Xn.getName() 就调它
+	m	(I)Labcd/oq$a;	j6	get	body: 按下标取 OpcodeInfo
+c	abcd/oq$a	com/aide/engine/Opcodes$OpcodeInfo	body: com/aide/engine/Opcodes$OpcodeInfo——一条操作码的元信息（值/名字/格式/引用种类）
+	m	()Ljava/lang/String;	FH	getName	body: 返回 DW(名字串)
+	m	()I	Hw	getValue	body: 返回 j6(操作码编号)
+	m	()Labcd/er;	j6	getFormat	body: 返回 FH(er=InstructionFormat 枚举)
+	m	()Labcd/mq;	DW	getReferenceKind	body: 返回 Hw(mq=ReferenceKind)
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

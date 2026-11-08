@@ -1791,3 +1791,11 @@ f	abcd/fs	Hw	-	body: 出口块的前驱集合（懒算，FH() 填充）
 m	abcd/Mm	gn	()Labcd/Lm;	body: 从 jm(CodeAttribute) 取 Lm(BytecodeParser)
 m	abcd/Mm	v5	()Labcd/Os;	body: 委派成员(un).v5() 取 MemberSignature
 m	abcd/un	v5	()Labcd/Os;	iface: getSignature——成员签名（Os=MemberSignature）
+m	abcd/oq	DW	(I)Ljava/lang/String;	body: 查表返回操作码名字（"nop"/"move"/…）——Xn.getName() 就调它
+m	abcd/oq	j6	(I)Labcd/oq$a;	body: 按下标取 OpcodeInfo
+m	abcd/oq$a	FH	()Ljava/lang/String;	body: 返回 DW(名字串)
+m	abcd/oq$a	Hw	()I	body: 返回 j6(操作码编号)
+m	abcd/oq$a	j6	()Labcd/er;	body: 返回 FH(er=InstructionFormat 枚举)
+m	abcd/oq$a	DW	()Labcd/mq;	body: 返回 Hw(mq=ReferenceKind)
+c	abcd/oq	-	-	str: com/aide/engine/Opcodes——操作码总表（编号 → 名字/格式/引用种类）
+c	abcd/oq$a	-	-	body: com/aide/engine/Opcodes$OpcodeInfo——一条操作码的元信息（值/名字/格式/引用种类）

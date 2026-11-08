@@ -28317,6 +28317,16 @@ abcd/fs com/aide/engine/RopMethod
 	DW paramWidth
 	FH predecessors
 	Hw exitPredecessors
+abcd/oq com/aide/engine/Opcodes
+	DW (I)Ljava/lang/String; getName
+		static
+	j6 (I)Labcd/oq$a; get
+		static
+abcd/oq$a com/aide/engine/Opcodes$OpcodeInfo
+	FH ()Ljava/lang/String; getName
+	Hw ()I getValue
+	j6 ()Labcd/er; getFormat
+	DW ()Labcd/mq; getReferenceKind
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

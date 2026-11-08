@@ -403,3 +403,5 @@ du	com/aide/engine/LabeledList	body:extends Xt；字段 au(标签集合)；j6(in
 cu	com/aide/engine/LabeledItem	iface:唯一方法 DW()I = 取标签 ⇒ 能放进 LabeledList 的条目（dx 的 LabeledItem）
 
 fs	com/aide/engine/RopMethod	body:构造 (Or blocks, int paramWidth)；懒算 au[] predecessors 与 au exitPredecessors（遍历块表，按 block.gn() 后继集反向累加，空则填 au.DW）；j6():Or 取块表、j6(int):au 取某 label 的前驱集（为空抛异常）⇒ dx 的 RopMethod
+oq	com/aide/engine/Opcodes	str:静态 oq$a[] 是**按编号索引的整张表**，<clinit> 逐条 new oq$a(编号, "nop"/"move"/"move/from16"/"packed-switch-payload"…, er=InstructionFormat, mq=ReferenceKind)；DW(int)String 取名字、j6(int) 取条目 ⇒ dalvik 操作码总表（dx 的 Opcodes）
+oq$a	com/aide/engine/Opcodes$OpcodeInfo	body:字段 (int 编号, String 名字, er InstructionFormat, mq ReferenceKind)；getter Hw()/FH()/j6()/DW()；在 oq.<clinit> 里逐条构造 ⇒ 单条操作码的元信息（值/名字/格式/引用种类）
