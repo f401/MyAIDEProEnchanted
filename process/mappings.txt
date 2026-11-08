@@ -26589,7 +26589,7 @@ abcd/Qd com/aide/engine/JavaScriptCommentsLanguage
 abcd/Oc com/aide/engine/CssLanguage
 abcd/Gc com/aide/engine/CppLanguage
 abcd/Xc com/aide/engine/DtdLanguage
-abcd/nd com/aide/engine/JavaCommentsLanguage
+abcd/nd com/aide/codemodel/language/java/JSharpCommentsLanguage
 abcd/ne com/aide/codemodel/language/xml/XmlLanguage
 abcd/Ea com/aide/codemodel/api/FileSpace
 abcd/Sa com/aide/codemodel/api/SyntaxTree
@@ -26723,6 +26723,15 @@ abcd/He com/aide/ui/util/MavenMetadataXml
 abcd/BaseProjectConfig com/aide/ui/util/Configuration
 abcd/_d com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer
 abcd/Ed com/aide/codemodel/language/java/JavaSignatureAnalyzer
+abcd/ad com/aide/codemodel/language/dtd/DtdSyntax
+abcd/Tc com/aide/codemodel/language/css/CssSyntax
+abcd/Uc com/aide/codemodel/language/css/CssTools
+abcd/Ic com/aide/codemodel/language/cpp/CppSyntax
+abcd/Jc com/aide/codemodel/language/cpp/CppTools
+abcd/pd com/aide/codemodel/language/java/JSharpCommentsSyntax
+abcd/Sd com/aide/codemodel/language/js/JavaScriptCommentsSyntax
+abcd/qd com/aide/codemodel/language/java/JSharpCommentsTools
+abcd/Td com/aide/codemodel/language/js/JavaScriptCommentsTools
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

@@ -25184,7 +25184,7 @@ c	abcd/Qd	com/aide/engine/JavaScriptCommentsLanguage	auto: 类：JavaScriptComme
 c	abcd/Oc	com/aide/engine/CssLanguage	auto: 类：CssLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Gc	com/aide/engine/CppLanguage	auto: 类：CppLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Xc	com/aide/engine/DtdLanguage	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/nd	com/aide/engine/JavaCommentsLanguage	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/nd	com/aide/codemodel/language/java/JSharpCommentsLanguage	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsLanguage——J# 注释语言（常量串 "J# Comments"）
 c	abcd/ne	com/aide/codemodel/language/xml/XmlLanguage	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlLanguage——XmlLanguage
 c	abcd/Ea	com/aide/codemodel/api/FileSpace	shape: AIDE+ 2.3.5 的 api/FileSpace（61:61，0.59）——文件空间，按名字/id 取 FileEntry（旧名 FileManager）
 c	abcd/Sa	com/aide/codemodel/api/SyntaxTree	shape: AIDE+ 2.3.5 的 api/SyntaxTree（156:156，0.93）——语法树，按节点/位置查询（旧名 SourceText）
@@ -25318,6 +25318,15 @@ c	abcd/He	com/aide/ui/util/MavenMetadataXml	shape: AIDE+ 2.3.5 的 com/aide/ui/u
 c	abcd/BaseProjectConfig	com/aide/ui/util/Configuration	shape: AIDE+ 2.3.5 的 com/aide/ui/util/Configuration——按路径缓存的配置文件基类（Map<路径,实例> + Map<路径,时间戳>）
 c	abcd/_d	com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer——JavaScript 签名分析器（字段含 JavaScriptLanguage）
 c	abcd/Ed	com/aide/codemodel/language/java/JavaSignatureAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaSignatureAnalyzer——Java 签名分析器（字段含 JavaLanguage）
+c	abcd/ad	com/aide/codemodel/language/dtd/DtdSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdSyntax——DTD 语法表
+c	abcd/Tc	com/aide/codemodel/language/css/CssSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssSyntax——CSS 语法表
+c	abcd/Uc	com/aide/codemodel/language/css/CssTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssTools——CSS 工具集
+c	abcd/Ic	com/aide/codemodel/language/cpp/CppSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppSyntax——C++ 语法表
+c	abcd/Jc	com/aide/codemodel/language/cpp/CppTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppTools——C++ 工具集
+c	abcd/pd	com/aide/codemodel/language/java/JSharpCommentsSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsSyntax——J# 注释语法表
+c	abcd/Sd	com/aide/codemodel/language/js/JavaScriptCommentsSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsSyntax——JavaScript 注释语法表
+c	abcd/qd	com/aide/codemodel/language/java/JSharpCommentsTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsTools——J# 注释工具集
+c	abcd/Td	com/aide/codemodel/language/js/JavaScriptCommentsTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsTools——JavaScript 注释工具集
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

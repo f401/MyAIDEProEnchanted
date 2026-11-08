@@ -83,7 +83,7 @@ c	abcd/Qd	-	-	auto: 类：JavaScriptCommentsLanguage（上游未收录，名字�
 c	abcd/Oc	-	-	auto: 类：CssLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Gc	-	-	auto: 类：CppLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Xc	-	-	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/nd	-	-	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/nd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsLanguage——J# 注释语言（常量串 "J# Comments"）
 c	abcd/ne	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlLanguage——XmlLanguage
 c	abcd/Ea	-	-	shape: AIDE+ 2.3.5 的 api/FileSpace（61:61，0.59）——文件空间，按名字/id 取 FileEntry（旧名 FileManager）
 c	abcd/Sa	-	-	shape: AIDE+ 2.3.5 的 api/SyntaxTree（156:156，0.93）——语法树，按节点/位置查询（旧名 SourceText）
@@ -217,3 +217,12 @@ c	abcd/He	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/util/MavenMetadataXml——Mave
 c	abcd/BaseProjectConfig	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/util/Configuration——按路径缓存的配置文件基类（Map<路径,实例> + Map<路径,时间戳>）
 c	abcd/_d	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer——JavaScript 签名分析器（字段含 JavaScriptLanguage）
 c	abcd/Ed	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaSignatureAnalyzer——Java 签名分析器（字段含 JavaLanguage）
+c	abcd/ad	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdSyntax——DTD 语法表
+c	abcd/Tc	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssSyntax——CSS 语法表
+c	abcd/Uc	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssTools——CSS 工具集
+c	abcd/Ic	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppSyntax——C++ 语法表
+c	abcd/Jc	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppTools——C++ 工具集
+c	abcd/pd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsSyntax——J# 注释语法表
+c	abcd/Sd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsSyntax——JavaScript 注释语法表
+c	abcd/qd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsTools——J# 注释工具集
+c	abcd/Td	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsTools——JavaScript 注释工具集
