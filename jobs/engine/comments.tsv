@@ -226,3 +226,5 @@ c	abcd/pd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpComm
 c	abcd/Sd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsSyntax——JavaScript 注释语法表
 c	abcd/qd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsTools——J# 注释工具集
 c	abcd/Td	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsTools——JavaScript 注释工具集
+c	abcd/dd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeAnalyzer——Java 代码分析器（被 JavaLanguage 持有）
+c	abcd/_b	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/SetOfFileEntry——FileEntry 集合（字段与 SetOfFileEntry 逐个对应）

@@ -200,3 +200,5 @@ pd	com/aide/codemodel/language/java/JSharpCommentsSyntax	字段:被 abcd/nd(JSha
 Sd	com/aide/codemodel/language/js/JavaScriptCommentsSyntax	字段:被 abcd/Qd(JavaScriptCommentsLanguage) 持有 ⇒ JavaScript 注释语法表
 qd	com/aide/codemodel/language/java/JSharpCommentsTools	字段:被 abcd/nd(JSharpCommentsLanguage) 持有 ⇒ J# 注释工具集
 Td	com/aide/codemodel/language/js/JavaScriptCommentsTools	字段:被 abcd/Qd(JavaScriptCommentsLanguage) 持有 ⇒ JavaScript 注释工具集
+dd	com/aide/codemodel/language/java/JavaCodeAnalyzer	body+字段:24:24、相似度 0.62（次优差 +0.58）；被 abcd/yd(JavaLanguage) 与 abcd/Ed(JavaSignatureAnalyzer) 持有，对应 Language.getCodeAnalyzer() ⇒ Java 代码分析器
+_b	com/aide/codemodel/api/collections/SetOfFileEntry	body:17:17、相似度 0.65（次优差 +0.35）；字段逐个对上——static final int[] ↔ SIZES、int[]×2 ↔ keys/Hw、int×3 ↔ count/sizeexp/slots、final abcd/Ea ↔ FileSpace、public final _b$a ↔ default_Iterator，构造 (Ea) ↔ (FileSpace) ⇒ FileEntry 集合

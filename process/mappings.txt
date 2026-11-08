@@ -26732,6 +26732,8 @@ abcd/pd com/aide/codemodel/language/java/JSharpCommentsSyntax
 abcd/Sd com/aide/codemodel/language/js/JavaScriptCommentsSyntax
 abcd/qd com/aide/codemodel/language/java/JSharpCommentsTools
 abcd/Td com/aide/codemodel/language/js/JavaScriptCommentsTools
+abcd/dd com/aide/codemodel/language/java/JavaCodeAnalyzer
+abcd/_b com/aide/codemodel/api/collections/SetOfFileEntry
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
