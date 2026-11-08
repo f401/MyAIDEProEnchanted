@@ -362,3 +362,24 @@ Bn	com/aide/engine/EncodedMember	body:字段 Ks(DexType) + int + Hs(DexReference
 in	com/aide/engine/InstructionDisassembler	str+body:private DW(int)/FH(int)/j6(...) 里拼的是反汇编注释——出现 " #" / " //" / ", #" / " // padding:" / ":"，并调用 Float.intBitsToFloat、Pt.v5(ByteSlice)、Qs.yS(Type) 等 ⇒ 指令反汇编输出
 Tr	com/aide/engine/Prototype	body:abstract；字段 es + hs(DexString=shorty 串) + bs(TypeInfo=返回类型) + cs(ParameterTypeList)；方法 DW():Ss(TypeList=参数类型表)、FH():String(shorty)、Hw()/VH():TypeInfo；构造 (es,hs,bs,cs) ⇒ 方法原型（dx 的 Prototype）
 ds	com/aide/engine/TypeListBuilder	body:static final ds DW 是空实例；字段 bs[](TypeInfo 数组) + int；方法 get(int)、FH(bs)/Hw(bs)、DW(int):ds、DW(bs):bs ⇒ 可变的类型表（Ss=TypeList 是它的不可变形态）
+Fs	com/aide/engine/DexMemberReference	body:abstract extends ms；构造 (Ks definingClass, Hs nat) 空值抛 "definingClass == null"/"nat == null"；aM() 拼 definingClass+"."+nat、VH() 取 definingClass、Hw() 恒 false ⇒ dx CstMemberRef（字段/方法引用共用基类）
+ws	com/aide/engine/DexFieldReference	str:Zo() 返回 "field"；getType() 取 nat 的字段类型；静态 j6(Qs) 用 Ks.j6(Qs)+Hs.j6(Nat TYPE/Ljava/lang/Class;) 造基本类型伪引用；被 qp(FieldIdSection) 的 TreeMap<ws,pp> 当 key ⇒ 字段引用
+qs	com/aide/engine/DexBaseMethodReference	body:abstract；J8()Os 由 Os.j6(描述符) intern 出成员签名，Ws()/lg() 委派 Hs.Ws()/lg()（"<clinit>"/"<init>" 判定），另有 DW(boolean)Os / j6(boolean)int；子类 Gs("method")、zs("ifaceMethod") ⇒ 方法引用基类
+Gs	com/aide/engine/DexMethodReference	str:Zo() 返回 "method"；extends qs，只补 (Ks,Hs) 构造 ⇒ 普通方法引用
+zs	com/aide/engine/DexInterfaceMethodReference	str:Zo() 返回 "ifaceMethod"；J8() 里 new Gs(定义类,nat) 把接口方法降级成普通方法引用 ⇒ 接口方法引用
+vs	com/aide/engine/DexEnumFieldReference	str:Zo() 返回 "enum"；构造只吃 Hs(nat)，用 nat 的字段类型 new Ks 当 definingClass；J8() 懒建同 nat 的 ws(字段引用) ⇒ dx CstEnumRef
+hu	com/aide/engine/MutabilityControl	str:J8() 抛 new iu("immutable instance")、Ws() 抛 new iu("mutable instance")；boolean j6 默认 true；VH()=!j6、Zo()=j6、we() 置 false ⇒ dx MutabilityControl（可变性守卫）
+iu	com/aide/engine/MutabilityException	hier:extends Vt(RuntimeException)；唯一成员是 (String) 构造 ⇒ 可变性异常（hu 用 "immutable instance"/"mutable instance" 抛）
+Ds	com/aide/engine/DexLiteralBits	body:abstract extends Ms；抽象 J8()Z/Ws()I/lg()J 是位访问；三个子类族 Bs(int 位)/Cs(long 位)/As(单例) ⇒ dx CstLiteralBits（字面量常量基类）
+Bs	com/aide/engine/DexLiteral32	body:abstract；字段 final int j6 + 构造(int)；Hw()/J8()/Ws()/lg()/equals/hashCode 全 final（按 int 位比较）⇒ 32 位字面量基类（dx CstLiteral32）
+Cs	com/aide/engine/DexLiteral64	body:abstract；字段 final long j6 + 构造(long)；同样把比较/取值定成 final（按 long 位）⇒ 64 位字面量基类（dx CstLiteral64）
+As	com/aide/engine/DexKnownNull	str:Zo() 返回 "known-null"；私有构造 + 唯一静态单例 j6 ⇒ 已知 null 常量（dx CstKnownNull）
+rs	com/aide/engine/DexBoolean	str:Zo() 返回 "boolean"；extends Bs(int 字面量) ⇒ boolean 常量
+ss	com/aide/engine/DexByte	str:Zo() 返回 "byte"；extends Bs ⇒ byte 常量
+ts	com/aide/engine/DexChar	str:Zo() 返回 "char"；extends Bs ⇒ char 常量
+Is	com/aide/engine/DexShort	str:Zo() 返回 "short"；extends Bs ⇒ short 常量
+ys	com/aide/engine/DexInt	str:Zo() 返回 "int"；extends Bs ⇒ int 常量
+xs	com/aide/engine/DexFloat	str:Zo() 返回 "float"；extends Bs ⇒ float 常量
+Es	com/aide/engine/DexLong	str:Zo() 返回 "long"；extends Cs(long 字面量) ⇒ long 常量
+us	com/aide/engine/DexDouble	str:Zo() 返回 "double"；extends Cs ⇒ double 常量
+lu	com/aide/engine/ToHuman	iface:唯一抽象方法 aM()Ljava/lang/String;；被 ms(DexBaseReference)/Fs/Js/Ks/Hs 等大量实现，实现体都是拼人类可读串 ⇒ dx 的 ToHuman（可读化接口）

@@ -25760,6 +25760,10 @@ c	abcd/Ss	com/aide/engine/TypeList	auto: 类：TypeList（上游未收录，名�
 c	abcd/Js	com/aide/engine/DexString	auto: 类：DexString（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ks	com/aide/engine/DexType	auto: 类：DexType（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Hs	com/aide/engine/DexReference	auto: 类：DexReference（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Labcd/Js;	J8	getName	body: 返回 DW(名字)——Ws()/lg() 都用它比 "<clinit>"/"<init>"
+	m	()Labcd/Js;	VH	getDescriptor	body: 返回 FH(描述符)；qs.J8() 用它 intern 出 MemberSignature
+	m	()Z	Ws	isClassInitializer	str: 名字.equals("<clinit>")
+	m	()Z	lg	isInstanceInitializer	str: 名字.equals("<init>")
 c	abcd/Yo	com/aide/engine/DexConstants	auto: 类：DexConstants（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/tn	com/aide/engine/DexMember	auto: 类：DexMember（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/un	com/aide/engine/DexAnnotation	auto: 类：DexAnnotation（上游未收录，名字来自 jobs/engine 的判据）
@@ -25778,6 +25782,7 @@ c	abcd/Dc	com/aide/codemodel/language/classfile/ClassFilePreProcessor	shape: AID
 	m	()V	FH	init	auto: AIDE+ 2.3.5 ClassFilePreProcessor.init——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Ms	com/aide/engine/DexBaseType	auto: 类：DexBaseType（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ms	com/aide/engine/DexBaseReference	auto: 类：DexBaseReference（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Z	Hw	isCategory2	body: isCategory2——Cs(64 位字面量)返回 true、Bs(32 位)/Js/Ks/As 都返回 false
 c	abcd/Am	com/aide/engine/NamedAttribute	auto: 类：NamedAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Bm	com/aide/engine/IndexedAttribute	auto: 类：IndexedAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Xt	com/aide/engine/ArrayItem	auto: 类：ArrayItem（上游未收录，名字来自 jobs/engine 的判据）
@@ -26648,6 +26653,38 @@ c	abcd/Tr	com/aide/engine/Prototype	body: 方法原型——参数类型表(Type
 	m	()Labcd/Ss;	DW	getParameterTypes	body: getParameterTypes——返回 Ss(TypeList)=参数类型表
 	m	()Ljava/lang/String;	FH	getShortyString	body: getShortyString——返回 shorty 串（构造器第二位就是 shorty 用的 DexString）
 c	abcd/ds	com/aide/engine/TypeListBuilder	body: 可变的类型表（TypeList 的构建态），空实例 DW
+c	abcd/Fs	com/aide/engine/DexMemberReference	body: 成员引用基类——定义类 + 名字描述符对；构造做空检查（"definingClass == null"/"nat == null"），aM() 拼 定义类.成员
+	m	()Labcd/Ks;	VH	getDefiningClass	body: 返回 j6(定义类)；qs/vs 里用来取定义类
+	m	()Labcd/Hs;	we	getNameAndType	body: 返回 DW(nat=名字+描述符对)；getType()/比较都要经它
+	m	()Z	Hw	isCategory2	body: 常量返回 false——成员引用不是双字宽
+	m	()Ljava/lang/String;	aM	toHuman	body: 拼 definingClass.toHuman()+"."+nat.toHuman()
+c	abcd/ws	com/aide/engine/DexFieldReference	str: 字段引用——Zo() 返回 "field"，被 FieldIdSection 的 TreeMap 当 key
+	m	(Labcd/Qs;)Labcd/ws;	j6	forPrimitiveType	body: 定义类取 Ks.j6(Qs)，nat 固定为 Hs.j6(Nat "TYPE"/"Ljava/lang/Class;") ⇒ 基本类型的 TYPE 字段伪引用（dx 同名方法）
+c	abcd/qs	com/aide/engine/DexBaseMethodReference	body: 方法引用基类（abstract）——J8() 取成员签名，子类按 typeName 分 "method"/"ifaceMethod"
+c	abcd/Gs	com/aide/engine/DexMethodReference	str: 普通方法引用——Zo() 返回 "method"
+c	abcd/zs	com/aide/engine/DexInterfaceMethodReference	str: 接口方法引用——Zo() 返回 "ifaceMethod"，J8() 内部降级成 Gs
+c	abcd/vs	com/aide/engine/DexEnumFieldReference	str: 枚举字段引用——Zo() 返回 "enum"，懒建同 nat 的 ws(字段引用)
+c	abcd/hu	com/aide/engine/MutabilityControl	str: 可变性守卫——J8()/Ws() 抛 MutabilityException("immutable instance"/"mutable instance")
+	m	()V	J8	throwIfImmutable	body: 可变标志为 true 时直接返回，否则抛 MutabilityException("immutable instance")
+	m	()V	Ws	throwIfMutable	body: 可变标志为 false 时返回，否则抛 MutabilityException("mutable instance")
+	m	()Z	VH	isImmutable	body: 返回 !j6（j6=可变标志，默认 true）
+	m	()Z	Zo	isMutable	body: 直接返回 j6（可变标志）
+	m	()V	we	setImmutable	body: 把 j6 置 false——之后 J8() 不再抛、Ws() 会抛
+c	abcd/iu	com/aide/engine/MutabilityException	hier: 可变性异常——extends Vt(RuntimeException)，只由 hu 抛出
+c	abcd/Ds	com/aide/engine/DexLiteralBits	body: 字面量常量基类（abstract）——J8()/Ws()/lg() 取位
+c	abcd/Bs	com/aide/engine/DexLiteral32	body: 32 位字面量基类——final int 位，比较与取值全 final
+c	abcd/Cs	com/aide/engine/DexLiteral64	body: 64 位字面量基类——final long 位，比较与取值全 final
+c	abcd/As	com/aide/engine/DexKnownNull	str: 已知 null 常量——Zo() 返回 "known-null"，私有构造 + 单例
+c	abcd/rs	com/aide/engine/DexBoolean	str: boolean 常量——Zo() 返回 "boolean"
+c	abcd/ss	com/aide/engine/DexByte	str: byte 常量——Zo() 返回 "byte"
+c	abcd/ts	com/aide/engine/DexChar	str: char 常量——Zo() 返回 "char"
+c	abcd/Is	com/aide/engine/DexShort	str: short 常量——Zo() 返回 "short"
+c	abcd/ys	com/aide/engine/DexInt	str: int 常量——Zo() 返回 "int"
+c	abcd/xs	com/aide/engine/DexFloat	str: float 常量——Zo() 返回 "float"
+c	abcd/Es	com/aide/engine/DexLong	str: long 常量——Zo() 返回 "long"
+c	abcd/us	com/aide/engine/DexDouble	str: double 常量——Zo() 返回 "double"
+c	abcd/lu	com/aide/engine/ToHuman	iface: 只有一个 aM()String——把对象拼成人类可读串（dx 的 ToHuman）
+	m	()Ljava/lang/String;	aM	toHuman	iface: toHuman——唯一抽象方法，实现类拼描述串
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

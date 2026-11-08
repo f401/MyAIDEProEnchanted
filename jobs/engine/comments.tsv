@@ -1547,3 +1547,40 @@ c	abcd/Tr	-	-	body: 方法原型——参数类型表(TypeList)+shorty 串+返�
 c	abcd/ds	-	-	body: 可变的类型表（TypeList 的构建态），空实例 DW
 m	abcd/Tr	DW	()Labcd/Ss;	body: getParameterTypes——返回 Ss(TypeList)=参数类型表
 m	abcd/Tr	FH	()Ljava/lang/String;	body: getShortyString——返回 shorty 串（构造器第二位就是 shorty 用的 DexString）
+c	abcd/Fs	-	-	body: 成员引用基类——定义类 + 名字描述符对；构造做空检查（"definingClass == null"/"nat == null"），aM() 拼 定义类.成员
+c	abcd/ws	-	-	str: 字段引用——Zo() 返回 "field"，被 FieldIdSection 的 TreeMap 当 key
+c	abcd/qs	-	-	body: 方法引用基类（abstract）——J8() 取成员签名，子类按 typeName 分 "method"/"ifaceMethod"
+c	abcd/Gs	-	-	str: 普通方法引用——Zo() 返回 "method"
+c	abcd/zs	-	-	str: 接口方法引用——Zo() 返回 "ifaceMethod"，J8() 内部降级成 Gs
+c	abcd/vs	-	-	str: 枚举字段引用——Zo() 返回 "enum"，懒建同 nat 的 ws(字段引用)
+c	abcd/hu	-	-	str: 可变性守卫——J8()/Ws() 抛 MutabilityException("immutable instance"/"mutable instance")
+c	abcd/iu	-	-	hier: 可变性异常——extends Vt(RuntimeException)，只由 hu 抛出
+c	abcd/Ds	-	-	body: 字面量常量基类（abstract）——J8()/Ws()/lg() 取位
+c	abcd/Bs	-	-	body: 32 位字面量基类——final int 位，比较与取值全 final
+c	abcd/Cs	-	-	body: 64 位字面量基类——final long 位，比较与取值全 final
+c	abcd/As	-	-	str: 已知 null 常量——Zo() 返回 "known-null"，私有构造 + 单例
+c	abcd/rs	-	-	str: boolean 常量——Zo() 返回 "boolean"
+c	abcd/ss	-	-	str: byte 常量——Zo() 返回 "byte"
+c	abcd/ts	-	-	str: char 常量——Zo() 返回 "char"
+c	abcd/Is	-	-	str: short 常量——Zo() 返回 "short"
+c	abcd/ys	-	-	str: int 常量——Zo() 返回 "int"
+c	abcd/xs	-	-	str: float 常量——Zo() 返回 "float"
+c	abcd/Es	-	-	str: long 常量——Zo() 返回 "long"
+c	abcd/us	-	-	str: double 常量——Zo() 返回 "double"
+m	abcd/hu	J8	()V	body: 可变标志为 true 时直接返回，否则抛 MutabilityException("immutable instance")
+m	abcd/hu	Ws	()V	body: 可变标志为 false 时返回，否则抛 MutabilityException("mutable instance")
+m	abcd/hu	VH	()Z	body: 返回 !j6（j6=可变标志，默认 true）
+m	abcd/hu	Zo	()Z	body: 直接返回 j6（可变标志）
+m	abcd/hu	we	()V	body: 把 j6 置 false——之后 J8() 不再抛、Ws() 会抛
+m	abcd/Fs	VH	()Labcd/Ks;	body: 返回 j6(定义类)；qs/vs 里用来取定义类
+m	abcd/Fs	we	()Labcd/Hs;	body: 返回 DW(nat=名字+描述符对)；getType()/比较都要经它
+m	abcd/Fs	Hw	()Z	body: 常量返回 false——成员引用不是双字宽
+m	abcd/Fs	aM	()Ljava/lang/String;	body: 拼 definingClass.toHuman()+"."+nat.toHuman()
+m	abcd/Hs	J8	()Labcd/Js;	body: 返回 DW(名字)——Ws()/lg() 都用它比 "<clinit>"/"<init>"
+m	abcd/Hs	VH	()Labcd/Js;	body: 返回 FH(描述符)；qs.J8() 用它 intern 出 MemberSignature
+m	abcd/Hs	Ws	()Z	str: 名字.equals("<clinit>")
+m	abcd/Hs	lg	()Z	str: 名字.equals("<init>")
+m	abcd/ws	j6	(Labcd/Qs;)Labcd/ws;	body: 定义类取 Ks.j6(Qs)，nat 固定为 Hs.j6(Nat "TYPE"/"Ljava/lang/Class;") ⇒ 基本类型的 TYPE 字段伪引用（dx 同名方法）
+c	abcd/lu	-	-	iface: 只有一个 aM()String——把对象拼成人类可读串（dx 的 ToHuman）
+m	abcd/lu	aM	()Ljava/lang/String;	iface: toHuman——唯一抽象方法，实现类拼描述串
+m	abcd/ms	Hw	()Z	body: isCategory2——Cs(64 位字面量)返回 true、Bs(32 位)/Js/Ks/As 都返回 false

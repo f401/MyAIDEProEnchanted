@@ -27165,6 +27165,10 @@ abcd/Ss com/aide/engine/TypeList
 abcd/Js com/aide/engine/DexString
 abcd/Ks com/aide/engine/DexType
 abcd/Hs com/aide/engine/DexReference
+	J8 ()Labcd/Js; getName
+	VH ()Labcd/Js; getDescriptor
+	Ws ()Z isClassInitializer
+	lg ()Z isInstanceInitializer
 abcd/Yo com/aide/engine/DexConstants
 abcd/tn com/aide/engine/DexMember
 abcd/un com/aide/engine/DexAnnotation
@@ -27183,6 +27187,7 @@ abcd/Dc com/aide/codemodel/language/classfile/ClassFilePreProcessor
 	FH ()V init
 abcd/Ms com/aide/engine/DexBaseType
 abcd/ms com/aide/engine/DexBaseReference
+	Hw ()Z isCategory2
 abcd/Am com/aide/engine/NamedAttribute
 abcd/Bm com/aide/engine/IndexedAttribute
 abcd/Xt com/aide/engine/ArrayItem
@@ -28070,6 +28075,39 @@ abcd/Tr com/aide/engine/Prototype
 	DW ()Labcd/Ss; getParameterTypes
 	FH ()Ljava/lang/String; getShortyString
 abcd/ds com/aide/engine/TypeListBuilder
+abcd/Fs com/aide/engine/DexMemberReference
+	VH ()Labcd/Ks; getDefiningClass
+	we ()Labcd/Hs; getNameAndType
+	Hw ()Z isCategory2
+	aM ()Ljava/lang/String; toHuman
+abcd/ws com/aide/engine/DexFieldReference
+	j6 (Labcd/Qs;)Labcd/ws; forPrimitiveType
+		static
+abcd/qs com/aide/engine/DexBaseMethodReference
+abcd/Gs com/aide/engine/DexMethodReference
+abcd/zs com/aide/engine/DexInterfaceMethodReference
+abcd/vs com/aide/engine/DexEnumFieldReference
+abcd/hu com/aide/engine/MutabilityControl
+	J8 ()V throwIfImmutable
+	Ws ()V throwIfMutable
+	VH ()Z isImmutable
+	Zo ()Z isMutable
+	we ()V setImmutable
+abcd/iu com/aide/engine/MutabilityException
+abcd/Ds com/aide/engine/DexLiteralBits
+abcd/Bs com/aide/engine/DexLiteral32
+abcd/Cs com/aide/engine/DexLiteral64
+abcd/As com/aide/engine/DexKnownNull
+abcd/rs com/aide/engine/DexBoolean
+abcd/ss com/aide/engine/DexByte
+abcd/ts com/aide/engine/DexChar
+abcd/Is com/aide/engine/DexShort
+abcd/ys com/aide/engine/DexInt
+abcd/xs com/aide/engine/DexFloat
+abcd/Es com/aide/engine/DexLong
+abcd/us com/aide/engine/DexDouble
+abcd/lu com/aide/engine/ToHuman
+	aM ()Ljava/lang/String; toHuman
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
