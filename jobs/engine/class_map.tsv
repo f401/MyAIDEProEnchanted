@@ -282,3 +282,9 @@ _b$a	com/aide/codemodel/api/collections/SetOfFileEntry$Iterator	shape:AIDE+ 的 
 ua$a	com/aide/codemodel/api/ClassType$Data	shape:AIDE+ 的 ClassType$Data——2:2、0.50（唯一候选）；外层 ua 已定名 ClassType
 Ia$a	com/aide/codemodel/api/Member$Data	shape:AIDE+ 的 Member$Data——2:2、0.50（唯一候选）；外层 Ia 已定名 Member
 Ba$a	com/aide/codemodel/api/EntitySpace$FileInfo	shape:AIDE+ 的 EntitySpace$FileInfo——45:45、0.47（唯一候选）；字段是 bc(SetOfInt)+Ba+Ea+若干 boolean，外层 Ba 已定名 EntitySpace
+Yh	com/aide/ui/ExportApkDialog	str+body:字段 3 个 String + 私有 DW(Activity,String,String) + static DW(Yh,AlertDialog)String；常量串 "ExportAPKDialog"/"DefaultAPKDir"/"DefaultKeyStore"（偏好键），且 abcd/Xh(CreateKeystoreCallback) 的构造收 Yh ⇒ 导出 APK 的对话框
+Xe	com/aide/ui/CloseAllTabsTask	body:唯一方法 run()，唯一字段是 abcd/Xe 里持有的 CloseAllTabsAction ⇒ 后台执行“关闭所有标签页”的 Runnable
+Ze	com/aide/ui/CloseEditorTask	body:唯一方法 run()，字段是 CloseEditorAction ⇒ 后台执行“关闭编辑器”的 Runnable
+Dk	com/aide/licensing/PrimeStatusTask	body:唯一方法 run()，字段是 abcd/Ek(LicensingManager)；常量串 "InAppBillingSettings"/"WasPrimeAtSomePoint"（偏好键），run() 里读 SharedPreferences 再调 Ek ⇒ 检查是否曾购买过高级版的任务
+Mj	com/aide/ui/NdkInstalledDialogTask	body:唯一方法 run()，字段是已命名的 abcd/Nj(NdkInstalledDialog)；本身带 "Google Play Store" 串 ⇒ 弹 NDK 提示框的任务
+_j	com/aide/ui/ShowSyntaxErrorsTask	body:唯一方法 run()，字段是 abcd/ck(SyntaxErrorTable) ⇒ 展示语法错误列表的任务

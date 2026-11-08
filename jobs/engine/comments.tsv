@@ -1391,3 +1391,9 @@ c	abcd/_b$a	-	-	shape: com/aide/codemodel/api/collections/SetOfFileEntry$Iterato
 c	abcd/ua$a	-	-	shape: com/aide/codemodel/api/ClassType$Data——ClassType 的数据块
 c	abcd/Ia$a	-	-	shape: com/aide/codemodel/api/Member$Data——Member 的数据块
 c	abcd/Ba$a	-	-	shape: com/aide/codemodel/api/EntitySpace$FileInfo——EntitySpace 的文件信息
+c	abcd/Yh	-	-	str/body: com/aide/ui/ExportApkDialog——导出 APK 对话框（偏好键 ExportAPKDialog/DefaultAPKDir/DefaultKeyStore）
+c	abcd/Xe	-	-	str/body: com/aide/ui/CloseAllTabsTask——后台执行“关闭所有标签页”
+c	abcd/Ze	-	-	str/body: com/aide/ui/CloseEditorTask——后台执行“关闭编辑器”
+c	abcd/Dk	-	-	str/body: com/aide/licensing/PrimeStatusTask——检查是否曾购买高级版（读偏好 + LicensingManager）
+c	abcd/Mj	-	-	str/body: com/aide/ui/NdkInstalledDialogTask——弹 NDK 已集成提示框的任务
+c	abcd/_j	-	-	str/body: com/aide/ui/ShowSyntaxErrorsTask——展示语法错误列表的任务

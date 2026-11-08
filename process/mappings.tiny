@@ -26492,6 +26492,12 @@ c	abcd/_b$a	com/aide/codemodel/api/collections/SetOfFileEntry$Iterator	shape: co
 c	abcd/ua$a	com/aide/codemodel/api/ClassType$Data	shape: com/aide/codemodel/api/ClassType$Data——ClassType 的数据块
 c	abcd/Ia$a	com/aide/codemodel/api/Member$Data	shape: com/aide/codemodel/api/Member$Data——Member 的数据块
 c	abcd/Ba$a	com/aide/codemodel/api/EntitySpace$FileInfo	shape: com/aide/codemodel/api/EntitySpace$FileInfo——EntitySpace 的文件信息
+c	abcd/Yh	com/aide/ui/ExportApkDialog	str/body: com/aide/ui/ExportApkDialog——导出 APK 对话框（偏好键 ExportAPKDialog/DefaultAPKDir/DefaultKeyStore）
+c	abcd/Xe	com/aide/ui/CloseAllTabsTask	str/body: com/aide/ui/CloseAllTabsTask——后台执行“关闭所有标签页”
+c	abcd/Ze	com/aide/ui/CloseEditorTask	str/body: com/aide/ui/CloseEditorTask——后台执行“关闭编辑器”
+c	abcd/Dk	com/aide/licensing/PrimeStatusTask	str/body: com/aide/licensing/PrimeStatusTask——检查是否曾购买高级版（读偏好 + LicensingManager）
+c	abcd/Mj	com/aide/ui/NdkInstalledDialogTask	str/body: com/aide/ui/NdkInstalledDialogTask——弹 NDK 已集成提示框的任务
+c	abcd/_j	com/aide/ui/ShowSyntaxErrorsTask	str/body: com/aide/ui/ShowSyntaxErrorsTask——展示语法错误列表的任务
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

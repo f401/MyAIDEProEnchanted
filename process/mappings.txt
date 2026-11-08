@@ -27914,6 +27914,12 @@ abcd/_b$a com/aide/codemodel/api/collections/SetOfFileEntry$Iterator
 abcd/ua$a com/aide/codemodel/api/ClassType$Data
 abcd/Ia$a com/aide/codemodel/api/Member$Data
 abcd/Ba$a com/aide/codemodel/api/EntitySpace$FileInfo
+abcd/Yh com/aide/ui/ExportApkDialog
+abcd/Xe com/aide/ui/CloseAllTabsTask
+abcd/Ze com/aide/ui/CloseEditorTask
+abcd/Dk com/aide/licensing/PrimeStatusTask
+abcd/Mj com/aide/ui/NdkInstalledDialogTask
+abcd/_j com/aide/ui/ShowSyntaxErrorsTask
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
