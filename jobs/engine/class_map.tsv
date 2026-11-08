@@ -360,3 +360,5 @@ xr	com/aide/engine/DexOverflowChecker	str:"Too many classes/methods/fields/strin
 Tn	com/aide/engine/ConstantInstruction	body:extends FixedInstruction；字段 int×2 + ms(DexBaseReference) 常量；构造 (Xn,hs,cs,ms)，FH(int)/Hw(int)/J0()/J8() 设置与查询 ⇒ 带常量引用的指令
 Bn	com/aide/engine/EncodedMember	body:字段 Ks(DexType) + int + Hs(DexReference) + pn(DexAttributes)；串 "attributes == null" / "nat == null" / "definingClass == null" ⇒ dex 的 encoded_field/encoded_method
 in	com/aide/engine/InstructionDisassembler	str+body:private DW(int)/FH(int)/j6(...) 里拼的是反汇编注释——出现 " #" / " //" / ", #" / " // padding:" / ":"，并调用 Float.intBitsToFloat、Pt.v5(ByteSlice)、Qs.yS(Type) 等 ⇒ 指令反汇编输出
+Tr	com/aide/engine/Prototype	body:abstract；字段 es + hs(DexString=shorty 串) + bs(TypeInfo=返回类型) + cs(ParameterTypeList)；方法 DW():Ss(TypeList=参数类型表)、FH():String(shorty)、Hw()/VH():TypeInfo；构造 (es,hs,bs,cs) ⇒ 方法原型（dx 的 Prototype）
+ds	com/aide/engine/TypeListBuilder	body:static final ds DW 是空实例；字段 bs[](TypeInfo 数组) + int；方法 get(int)、FH(bs)/Hw(bs)、DW(int):ds、DW(bs):bs ⇒ 可变的类型表（Ss=TypeList 是它的不可变形态）

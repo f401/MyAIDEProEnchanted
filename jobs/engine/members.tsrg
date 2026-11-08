@@ -1542,3 +1542,7 @@ abcd/xr com/aide/engine/DexOverflowChecker
 abcd/Tn com/aide/engine/ConstantInstruction
 abcd/Bn com/aide/engine/EncodedMember
 abcd/in com/aide/engine/InstructionDisassembler
+abcd/Tr com/aide/engine/Prototype
+	DW ()Labcd/Ss; getParameterTypes
+	FH ()Ljava/lang/String; getShortyString
+abcd/ds com/aide/engine/TypeListBuilder

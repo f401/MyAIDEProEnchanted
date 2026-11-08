@@ -1543,3 +1543,5 @@ c	abcd/Bn	-	-	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field
 c	abcd/in	-	-	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
 m	abcd/Gp	j6	(I)V	body: setWriteSize——方法体里是 "writeSize already set" / "writeSize < 0" 两处校验
 m	abcd/Gp	Ws	()Ljava/lang/String;	body: toHuman——用 Integer.toHexString + StringBuilder 拼十六进制段描述（dx 的 toHuman）
+c	abcd/Tr	-	-	body: 方法原型——参数类型表(TypeList)+shorty 串+返回类型，构造 (es,hs,bs,cs)
+c	abcd/ds	-	-	body: 可变的类型表（TypeList 的构建态），空实例 DW

@@ -26644,6 +26644,10 @@ c	abcd/xr	com/aide/engine/DexOverflowChecker	str/body: com/aide/engine/DexOverfl
 c	abcd/Tn	com/aide/engine/ConstantInstruction	str/body: com/aide/engine/ConstantInstruction——带常量引用的指令
 c	abcd/Bn	com/aide/engine/EncodedMember	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field/encoded_method
 c	abcd/in	com/aide/engine/InstructionDisassembler	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
+c	abcd/Tr	com/aide/engine/Prototype	body: 方法原型——参数类型表(TypeList)+shorty 串+返回类型，构造 (es,hs,bs,cs)
+	m	()Labcd/Ss;	DW	getParameterTypes
+	m	()Ljava/lang/String;	FH	getShortyString
+c	abcd/ds	com/aide/engine/TypeListBuilder	body: 可变的类型表（TypeList 的构建态），空实例 DW
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
