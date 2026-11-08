@@ -28041,6 +28041,20 @@ abcd/ho com/aide/engine/InstructionWriter
 abcd/xp com/aide/engine/DexSectionList
 abcd/Lm com/aide/engine/BytecodeParser
 abcd/Xr com/aide/engine/LabelFixup
+abcd/Op com/aide/engine/StringIdSection
+abcd/Jp com/aide/engine/ProtoIdSection
+abcd/qp com/aide/engine/FieldIdSection
+abcd/cp com/aide/engine/ClassDefSection
+abcd/Ip com/aide/engine/ProtoIdItem
+abcd/np com/aide/engine/CodeItem
+abcd/Ap com/aide/engine/MethodAnnotations
+abcd/Hp com/aide/engine/MethodAnnotationsDirectory
+abcd/ln com/aide/engine/ClassFileReader
+abcd/es com/aide/engine/RopExceptions
+abcd/yt com/aide/engine/SsaValue
+abcd/no com/aide/engine/BlockAddresses
+abcd/px com/aide/engine/BinderWrapper
+abcd/kk com/aide/engine/RootInstaller
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

@@ -1518,3 +1518,17 @@ c	abcd/ho	-	-	str: com/aide/engine/InstructionWriter——指令写出（含 opc
 c	abcd/xp	-	-	str: com/aide/engine/DexSectionList——段内条目链
 c	abcd/Lm	-	-	str: com/aide/engine/BytecodeParser——字节码解析（newarray/tableswitch 等）
 c	abcd/Xr	-	-	str: com/aide/engine/LabelFixup——指令标签与修补
+c	abcd/Op	-	-	str: com/aide/engine/StringIdSection——dex 的 string_ids 段
+c	abcd/Jp	-	-	str: com/aide/engine/ProtoIdSection——dex 的 proto_ids 段
+c	abcd/qp	-	-	str: com/aide/engine/FieldIdSection——dex 的 field_ids 段
+c	abcd/cp	-	-	str: com/aide/engine/ClassDefSection——dex 的 class_defs 段
+c	abcd/Ip	-	-	str: com/aide/engine/ProtoIdItem——proto_ids 的一个条目
+c	abcd/np	-	-	str: com/aide/engine/CodeItem——dex 的 code_item（方法字节码载体）
+c	abcd/Ap	-	-	str: com/aide/engine/MethodAnnotations——方法注解表
+c	abcd/Hp	-	-	str: com/aide/engine/MethodAnnotationsDirectory——方法注解目录
+c	abcd/ln	-	-	str: com/aide/engine/ClassFileReader——class 文件读取
+c	abcd/es	-	-	str: com/aide/engine/RopExceptions——rop 的异常/可抛出集合
+c	abcd/yt	-	-	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
+c	abcd/no	-	-	str: com/aide/engine/BlockAddresses——基本块地址表
+c	abcd/px	-	-	str: com/aide/engine/BinderWrapper——Binder 反射包装
+c	abcd/kk	-	-	str: com/aide/engine/RootInstaller——用 root 静默安装的助手

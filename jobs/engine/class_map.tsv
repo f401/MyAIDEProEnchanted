@@ -337,3 +337,17 @@ ho	com/aide/engine/InstructionWriter	str:"No expanded opcode for " / "method too
 xp	com/aide/engine/DexSectionList	str:"section == null" / "firstItem == null" / "lastItem == null" / "itemCount <= 0" ⇒ 段内条目链
 Lm	com/aide/engine/BytecodeParser	str:"bad newarray code " / "low / high inversion" / "...at bytecode offset " / "pool == null" / "bytes == null" ⇒ 字节码解析（newarray/tableswitch 等）
 Xr	com/aide/engine/LabelFixup	str:"bogus label" / "specs == null" / "spec == null" / "insn == null" ⇒ 指令标签与修补
+Op	com/aide/engine/StringIdSection	str:"string_ids_size: " / "string_ids_off:  " / "not found" / "string == null" ⇒ dex 的 string_ids 段
+Jp	com/aide/engine/ProtoIdSection	str:"proto_ids_size:  " / "proto_ids_off:   " / "too many proto ids" / "prototype == null" ⇒ dex 的 proto_ids 段
+qp	com/aide/engine/FieldIdSection	str:"field_ids_size:  " / "field_ids_off:   " / "not found" / "field == null" ⇒ dex 的 field_ids 段
+cp	com/aide/engine/ClassDefSection	str:"class_defs_size: " / "class_defs_off:  " / "class circularity with " / "already added: " ⇒ dex 的 class_defs 段
+Ip	com/aide/engine/ProtoIdItem	str:"  shorty_idx:      " / "  return_type_idx: " / "  parameters_off:  " ⇒ proto_ids 的一个条目
+np	com/aide/engine/CodeItem	str:"    method_idx:   " / "    access_flags: " / "    code_off:     " ⇒ dex 的 code_item（方法字节码载体）
+Ap	com/aide/engine/MethodAnnotations	str:"      method_idx:      " / "      annotations_off: " / "annotations == null" ⇒ 方法注解表
+Hp	com/aide/engine/MethodAnnotationsDirectory	str:"      method_idx:      " / "      annotations_off: " / "annotationsList == null" ⇒ 方法注解目录
+ln	com/aide/engine/ClassFileReader	str:"s_count: " / "access_flags: " / "attributeFactory == null" / "cf == null" ⇒ class 文件读取
+es	com/aide/engine/RopExceptions	str:"exceptions / branchingness mismatch" / "bogus branchingness" / "exceptions == null" / "sources == null" ⇒ rop 的异常/可抛出集合
+yt	com/aide/engine/SsaValue	str:"No use list in back mode" / "No def list in back mode" / "use not found" / "must be called at most once" ⇒ SSA 值的 use/def 表
+no	com/aide/engine/BlockAddresses	str:"weird successors list" / "addresses == null" / "order == null" / "method == null" ⇒ 基本块地址表
+px	com/aide/engine/BinderWrapper	str:"Could not access the field in remoteBinder." / "Binder object is null." / "IObjectWrapper declared field not private!" ⇒ Binder 反射包装
+kk	com/aide/engine/RootInstaller	str:"pm install -r data/data/aidepro.top/cache/rootinstall.apk" / "signatures do not match previously" / "pm: exited with " ⇒ 用 root 静默安装的助手

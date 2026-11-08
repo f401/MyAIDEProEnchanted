@@ -26619,6 +26619,20 @@ c	abcd/ho	com/aide/engine/InstructionWriter	str: com/aide/engine/InstructionWrit
 c	abcd/xp	com/aide/engine/DexSectionList	str: com/aide/engine/DexSectionList——段内条目链
 c	abcd/Lm	com/aide/engine/BytecodeParser	str: com/aide/engine/BytecodeParser——字节码解析（newarray/tableswitch 等）
 c	abcd/Xr	com/aide/engine/LabelFixup	str: com/aide/engine/LabelFixup——指令标签与修补
+c	abcd/Op	com/aide/engine/StringIdSection	str: com/aide/engine/StringIdSection——dex 的 string_ids 段
+c	abcd/Jp	com/aide/engine/ProtoIdSection	str: com/aide/engine/ProtoIdSection——dex 的 proto_ids 段
+c	abcd/qp	com/aide/engine/FieldIdSection	str: com/aide/engine/FieldIdSection——dex 的 field_ids 段
+c	abcd/cp	com/aide/engine/ClassDefSection	str: com/aide/engine/ClassDefSection——dex 的 class_defs 段
+c	abcd/Ip	com/aide/engine/ProtoIdItem	str: com/aide/engine/ProtoIdItem——proto_ids 的一个条目
+c	abcd/np	com/aide/engine/CodeItem	str: com/aide/engine/CodeItem——dex 的 code_item（方法字节码载体）
+c	abcd/Ap	com/aide/engine/MethodAnnotations	str: com/aide/engine/MethodAnnotations——方法注解表
+c	abcd/Hp	com/aide/engine/MethodAnnotationsDirectory	str: com/aide/engine/MethodAnnotationsDirectory——方法注解目录
+c	abcd/ln	com/aide/engine/ClassFileReader	str: com/aide/engine/ClassFileReader——class 文件读取
+c	abcd/es	com/aide/engine/RopExceptions	str: com/aide/engine/RopExceptions——rop 的异常/可抛出集合
+c	abcd/yt	com/aide/engine/SsaValue	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
+c	abcd/no	com/aide/engine/BlockAddresses	str: com/aide/engine/BlockAddresses——基本块地址表
+c	abcd/px	com/aide/engine/BinderWrapper	str: com/aide/engine/BinderWrapper——Binder 反射包装
+c	abcd/kk	com/aide/engine/RootInstaller	str: com/aide/engine/RootInstaller——用 root 静默安装的助手
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
