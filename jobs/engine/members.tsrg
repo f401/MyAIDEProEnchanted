@@ -74,8 +74,8 @@ abcd/zc com/aide/engine/AidlFileType
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
 abcd/na com/aide/codemodel/api/abstraction/Language
-abcd/pa com/aide/engine/Indenter
-abcd/qa com/aide/engine/Parser
+abcd/pa com/aide/codemodel/api/abstraction/Syntax
+abcd/qa com/aide/codemodel/api/abstraction/Tools
 abcd/yd com/aide/engine/JavaLanguage
 abcd/Vd com/aide/engine/JavaScriptLanguage
 abcd/Qd com/aide/engine/JavaScriptCommentsLanguage
@@ -84,8 +84,8 @@ abcd/Gc com/aide/engine/CppLanguage
 abcd/Xc com/aide/engine/DtdLanguage
 abcd/nd com/aide/engine/JavaCommentsLanguage
 abcd/ne com/aide/engine/MarkupLanguage
-abcd/Ea com/aide/engine/FileManager
-abcd/Sa com/aide/engine/SourceText
+abcd/Ea com/aide/codemodel/api/FileSpace
+abcd/Sa com/aide/codemodel/api/SyntaxTree
 abcd/La com/aide/codemodel/api/Model
 abcd/Da com/aide/codemodel/api/FileEntry
 abcd/S abcd/aide/engine/InlineMethodRefactoring
@@ -95,9 +95,9 @@ abcd/Ba com/aide/engine/CompilationContext
 abcd/Aa com/aide/codemodel/api/Entity
 abcd/ua com/aide/engine/CompilationUnit
 abcd/Yb com/aide/engine/NodeList
-abcd/Ga com/aide/engine/StringPool
+abcd/Ga com/aide/codemodel/api/IdentifierSpace
 abcd/Fb com/aide/engine/NodeMap
-abcd/Ca com/aide/engine/FileCache
+abcd/Ca com/aide/codemodel/api/ErrorTable
 abcd/ga com/aide/codemodel/api/abstraction/CodeAnalyzer
 abcd/Za com/aide/codemodel/api/Variable
 abcd/Cb com/aide/engine/IntVector
@@ -177,3 +177,26 @@ abcd/Pk com/aide/licensing/OuyaKeyProvider
 abcd/Qg com/aide/ui/actions/OpenAndroidJarAction
 abcd/wb com/aide/engine/IntObjectMap
 abcd/Fl com/aide/ui/editor/AutoIndentHelper
+abcd/ia com/aide/codemodel/api/abstraction/CodeRenderer
+abcd/Ma com/aide/codemodel/api/Modifiers
+abcd/uc com/aide/codemodel/api/Lexer
+abcd/wc com/aide/codemodel/api/PositionalReader
+abcd/va com/aide/codemodel/api/FormatOptionSetCache
+abcd/ma com/aide/codemodel/api/abstraction/Preprocessor
+abcd/Ib com/aide/codemodel/api/collections/MapOfIntArrayInt
+abcd/Ob com/aide/codemodel/api/collections/ArrayOf
+abcd/Ia com/aide/codemodel/api/Member
+abcd/bc com/aide/codemodel/api/collections/SetOfInt
+abcd/vc com/aide/codemodel/api/LexerHelper
+abcd/Fd com/aide/codemodel/language/java/JavaSyntax
+abcd/Dd com/aide/codemodel/language/java/JavaLexer
+abcd/jd com/aide/codemodel/language/java/JavaCodeRenderer
+abcd/ae com/aide/codemodel/language/js/JavaScriptSyntax
+abcd/Nd com/aide/codemodel/language/js/JavaScriptCodeRenderer
+abcd/qe com/aide/codemodel/language/xml/XmlSyntax
+abcd/oe com/aide/codemodel/language/xml/XmlLexer
+abcd/ie com/aide/codemodel/language/xml/XmlCodeAnalyzer
+abcd/Qc com/aide/codemodel/language/css/CssParser
+abcd/Pc com/aide/codemodel/language/css/CssLexer
+abcd/Zc com/aide/codemodel/language/dtd/DtdParser
+abcd/ee com/aide/codemodel/language/html/HtmlPreprocessor

@@ -25176,8 +25176,8 @@ c	abcd/zc	com/aide/engine/AidlFileType	auto: 类：AidlFileType（上游未收�
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 c	abcd/na	com/aide/codemodel/api/abstraction/Language	shape: AIDE+ 2.3.5 的 abstraction/Language——getName/isParenChar/getCodeAnalyzer/getSyntax/getTools/getFormatOptionSet 等一一对应
-c	abcd/pa	com/aide/engine/Indenter	auto: 类：Indenter（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/qa	com/aide/engine/Parser	auto: 类：Parser（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/pa	com/aide/codemodel/api/abstraction/Syntax	shape: AIDE+ 2.3.5 的 abstraction/Syntax（58:58，0.97）——语言侧语法查询（旧名 Indenter）
+c	abcd/qa	com/aide/codemodel/api/abstraction/Tools	shape: AIDE+ 2.3.5 的 abstraction/Tools（48:48，0.65）——语言工具集；api/Parser 只有 24 方法（旧名 Parser）
 c	abcd/yd	com/aide/engine/JavaLanguage	auto: 类：JavaLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Vd	com/aide/engine/JavaScriptLanguage	auto: 类：JavaScriptLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Qd	com/aide/engine/JavaScriptCommentsLanguage	auto: 类：JavaScriptCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
@@ -25186,8 +25186,8 @@ c	abcd/Gc	com/aide/engine/CppLanguage	auto: 类：CppLanguage（上游未收录�
 c	abcd/Xc	com/aide/engine/DtdLanguage	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/nd	com/aide/engine/JavaCommentsLanguage	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ne	com/aide/engine/MarkupLanguage	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Ea	com/aide/engine/FileManager	auto: 管理器：File（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Sa	com/aide/engine/SourceText	auto: 类：SourceText（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ea	com/aide/codemodel/api/FileSpace	shape: AIDE+ 2.3.5 的 api/FileSpace（61:61，0.59）——文件空间，按名字/id 取 FileEntry（旧名 FileManager）
+c	abcd/Sa	com/aide/codemodel/api/SyntaxTree	shape: AIDE+ 2.3.5 的 api/SyntaxTree（156:156，0.93）——语法树，按节点/位置查询（旧名 SourceText）
 c	abcd/La	com/aide/codemodel/api/Model	shape: AIDE+ 2.3.5 的 Model——16 参构造即 12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory，字段全是 public final 回调
 c	abcd/Da	com/aide/codemodel/api/FileEntry	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/FileEntry——工程文件条目（id/全名/子项/版本），OpenFileCallback 以它作首参
 c	abcd/S	abcd/aide/engine/InlineMethodRefactoring	auto: 类：InlineMethodRefactoring（上游未收录，名字来自 jobs/engine 的判据）
@@ -25197,9 +25197,9 @@ c	abcd/Ba	com/aide/engine/CompilationContext	auto: 上下文：Compilation（上
 c	abcd/Aa	com/aide/codemodel/api/Entity	shape: AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…) 构造与本类逐条对应
 c	abcd/ua	com/aide/engine/CompilationUnit	auto: 类：CompilationUnit（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Yb	com/aide/engine/NodeList	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Ga	com/aide/engine/StringPool	auto: 类：StringPool（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ga	com/aide/codemodel/api/IdentifierSpace	shape: AIDE+ 2.3.5 的 api/IdentifierSpace（17:17，0.88）——标识符池（旧名 StringPool）
 c	abcd/Fb	com/aide/engine/NodeMap	auto: 类：NodeMap（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Ca	com/aide/engine/FileCache	auto: 缓存：File（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ca	com/aide/codemodel/api/ErrorTable	shape: AIDE+ 2.3.5 的 api/ErrorTable（54:54，0.89）——按文件+语言的错误表（旧名 FileCache）
 c	abcd/ga	com/aide/codemodel/api/abstraction/CodeAnalyzer	shape: AIDE+ 2.3.5 的 abstraction/CodeAnalyzer——8:8 方法，analyzeTypeName/analyzeEveryIdentifiers 对得上
 c	abcd/Za	com/aide/codemodel/api/Variable	shape: AIDE+ 2.3.5 的 Variable——构造 (FileEntry,Language,int×4,Type) 与本类逐位相同；TemplateEvaluatorCallback.v5(Variable) ↔ nb.j6(Za)
 c	abcd/Cb	com/aide/engine/IntVector	auto: 类：IntVector（上游未收录，名字来自 jobs/engine 的判据）
@@ -25279,6 +25279,29 @@ c	abcd/Pk	com/aide/licensing/OuyaKeyProvider	body: OUYA 内购校验用的 RSA �
 c	abcd/Qg	com/aide/ui/actions/OpenAndroidJarAction	body: 打开 android.jar 的菜单动作——isEnabled 判断路径 basename 是 android.jar，run 经 Zk.gW 打开文件；串资源 0x7f0800b3
 c	abcd/wb	com/aide/engine/IntObjectMap	body: 以 int 为键、对象为值的开放寻址哈希表——字段/内部遍历器与 Kb(IntIntMap) 同构，唯一使用者是 FileContentCache
 c	abcd/Fl	com/aide/ui/editor/AutoIndentHelper	body: 编辑器自动缩进——输入 { 时按上一行缩进对齐、输入 } 时反缩进，判据是 AIDEEditor 的行文本 API + 常量串 "else if"
+c	abcd/ia	com/aide/codemodel/api/abstraction/CodeRenderer	shape: AIDE+ 2.3.5 的 abstraction/CodeRenderer（6:6，1.00）——渲染器接口，Language.gn() 的返回类型
+c	abcd/Ma	com/aide/codemodel/api/Modifiers	shape: AIDE+ 2.3.5 的 api/Modifiers（20:20，1.00）——修饰符工具
+c	abcd/uc	com/aide/codemodel/api/Lexer	shape: AIDE+ 2.3.5 的 api/Lexer（7:7，1.00）——词法器基类
+c	abcd/wc	com/aide/codemodel/api/PositionalReader	shape: AIDE+ 2.3.5 的 api/PositionalReader（9:9，1.00）——带位置的字符读取器
+c	abcd/va	com/aide/codemodel/api/FormatOptionSetCache	shape: AIDE+ 2.3.5 的 api/FormatOptionSetCache（3:3，1.00）——格式选项集合缓存
+c	abcd/ma	com/aide/codemodel/api/abstraction/Preprocessor	shape: AIDE+ 2.3.5 的 abstraction/Preprocessor（1:1，1.00）——预处理器，实现者 abcd/ee(HtmlPreprocessor)
+c	abcd/Ib	com/aide/codemodel/api/collections/MapOfIntArrayInt	shape: AIDE+ 2.3.5 的 collections/MapOfIntArrayInt（12:12，0.83）——int→int[] 映射
+c	abcd/Ob	com/aide/codemodel/api/collections/ArrayOf	shape: AIDE+ 2.3.5 的 collections/ArrayOf（11:11，0.82）——对象数组容器
+c	abcd/Ia	com/aide/codemodel/api/Member	shape: AIDE+ 2.3.5 的 api/Member（96:96，0.71）——成员（extends Entity），带子成员表/修饰符/类型查询
+c	abcd/bc	com/aide/codemodel/api/collections/SetOfInt	shape: AIDE+ 2.3.5 的 collections/SetOfInt（16:16，0.69）——int 集合；K 用它记折叠点
+c	abcd/vc	com/aide/codemodel/api/LexerHelper	shape: AIDE+ 2.3.5 的 api/LexerHelper（4:4，0.75）——词法辅助
+c	abcd/Fd	com/aide/codemodel/language/java/JavaSyntax	shape: AIDE+ 2.3.5 的 language/java/JavaSyntax（70:70，0.96）——Java 语法表
+c	abcd/Dd	com/aide/codemodel/language/java/JavaLexer	shape: AIDE+ 2.3.5 的 language/java/JavaLexer（7:7，0.86）——Java 词法器
+c	abcd/jd	com/aide/codemodel/language/java/JavaCodeRenderer	shape: AIDE+ 2.3.5 的 language/java/JavaCodeRenderer（8:8，0.88）——Java 渲染器
+c	abcd/ae	com/aide/codemodel/language/js/JavaScriptSyntax	shape: AIDE+ 2.3.5 的 language/js/JavaScriptSyntax（65:65，0.95）——JavaScript 语法表
+c	abcd/Nd	com/aide/codemodel/language/js/JavaScriptCodeRenderer	shape: AIDE+ 2.3.5 的 language/js/JavaScriptCodeRenderer（7:7，1.00）——JavaScript 渲染器
+c	abcd/qe	com/aide/codemodel/language/xml/XmlSyntax	shape: AIDE+ 2.3.5 的 language/xml/XmlSyntax（62:62，0.97）——XML 语法表
+c	abcd/oe	com/aide/codemodel/language/xml/XmlLexer	shape: AIDE+ 2.3.5 的 language/xml/XmlLexer（21:21，1.00）——XML 词法器
+c	abcd/ie	com/aide/codemodel/language/xml/XmlCodeAnalyzer	shape: AIDE+ 2.3.5 的 language/xml/XmlCodeAnalyzer（21:21，0.86）——XML 代码分析器
+c	abcd/Qc	com/aide/codemodel/language/css/CssParser	shape: AIDE+ 2.3.5 的 language/css/CssParser（12:12，0.92）——CSS 解析器
+c	abcd/Pc	com/aide/codemodel/language/css/CssLexer	shape: AIDE+ 2.3.5 的 language/css/CssLexer（19:19，1.00）——CSS 词法器
+c	abcd/Zc	com/aide/codemodel/language/dtd/DtdParser	shape: AIDE+ 2.3.5 的 language/dtd/DtdParser（22:22，0.95）——DTD 解析器
+c	abcd/ee	com/aide/codemodel/language/html/HtmlPreprocessor	shape: AIDE+ 2.3.5 的 language/html/HtmlPreprocessor（6:6，0.83）——HTML 预处理/检查（onabort/onclick… 事件属性），经 abcd/eb 报错
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

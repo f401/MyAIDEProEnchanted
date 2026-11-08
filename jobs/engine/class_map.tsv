@@ -49,8 +49,8 @@ Fc	com/aide/engine/CppFileType	str:j6() 返回 "C++"、Hw() 返回 ["*.cpp","*.c
 Ac	com/aide/engine/JavaBinaryFileType	str:j6() 返回 "Java Binary"、Hw() 返回 ["*.jar","*.war","*.ear","*.zip","*.class"]；implements abcd/la
 zc	com/aide/engine/AidlFileType	str:j6() 返回 "AIDL"、Hw() 返回 ["*.aidl"]；implements abcd/la
 na	com/aide/codemodel/api/abstraction/Language	shape:AIDE+ 2.3.5 的 abstraction/Language（10 方法）——j6()String↔getName、j6(char)Z↔isParenChar(char)、Hw()ga↔getCodeAnalyzer、u7()qa↔getSyntax、Zo()Set<? extends ha>↔getFormatOptionSet、VH()oa↔getTools、gn()ia↔getSignatureAnalyzer、DW()↔shrink
-pa	com/aide/engine/Indenter	iface:9 个实现；方法全是 (Sa,行号) / (行号) 的缩进判定（DW(Sa;I)I、FH(Sa;I)Z、EQ(I)Z…），被 na.v5() 返回
-qa	com/aide/engine/Parser	iface:8 个实现（含 com/a4455jkjh/b/g）；方法 DW/FH(Labcd/Sa;Labcd/Ta;III)Labcd/wb; 与 (Na)String，被 na.u7() 返回
+pa	com/aide/codemodel/api/abstraction/Syntax	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/Syntax——58:58 方法、形状相似度 0.97（唯一最佳，次优差 +0.97）；语法（语言侧）：DW(Sa[,I])/FH(Sa)/EQ(Sa,I) 全是「对语法树/位置」的查询（旧名 Indenter）
+qa	com/aide/codemodel/api/abstraction/Tools	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/Tools——48:48 方法、形状相似度 0.65（唯一最佳，次优差 +0.65）；语言工具集：参数为 (Sa,Ta,int…) 的解析/补全入口；注意 api/Parser 只有 24 个方法，方法数就不对（旧名 Parser）
 yd	com/aide/engine/JavaLanguage	str:j6() 返回 "Java"；implements abcd/na
 Vd	com/aide/engine/JavaScriptLanguage	str:j6() 返回 "JavaScript"；implements abcd/na
 Qd	com/aide/engine/JavaScriptCommentsLanguage	str:j6() 返回 "JavaScript Comments"；implements abcd/na
@@ -59,8 +59,8 @@ Gc	com/aide/engine/CppLanguage	str:j6() 返回 "C++"；implements abcd/na
 Xc	com/aide/engine/DtdLanguage	str:j6() 返回 "DTD"；implements abcd/na
 nd	com/aide/engine/JavaCommentsLanguage	str:"Java Comments"/"J# Comments"；implements abcd/na（带 boolean 开关区分 J#）
 ne	com/aide/engine/MarkupLanguage	str:"HTML"/"XML"（同一实现按 boolean 选其一）；implements abcd/na
-Ea	com/aide/engine/FileManager	body:按路径/编号取文件（DW(String)Da、Hw(I)Da、j6(I)Da）、取文件类型与语言（Zo(Da)la、gn(Da)la、VH(I)na、j6(Da)na、v5()[la、j6([la)V）、开流（j6(InputStream,String)Reader、j6(Reader)Reader）以及一批每文件状态位（XL/Ws/J0/QX/we/aM(Da)Z）；ctor 收 (Ga,gb,ib,fb)，被 Scanner/SourceEntity/JarPackager 共用 ⇒ 工程文件管理器
-Sa	com/aide/engine/SourceText	body:字段 [C 文本缓冲 + 两个 [I 行索引 + J0:Labcd/pa(Indenter) + a8:Labcd/na(LanguageServices) + J8:Labcd/Da(文件) + v5:Labcd/La(工程)；j6([CII)I 用 System.arraycopy 装缓冲、Mr(I)[C / aM(I)String / lg(I)String 取文本、toString 里 new Ta 再 j6(StringBuffer,String,Ta,I) 重排；**Indenter(pa) 的每个方法第一参都是 Labcd/Sa;**（如 DW(Sa;I)I 取某行缩进）⇒ 它就是被缩进器消费的源文本模型
+Ea	com/aide/codemodel/api/FileSpace	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/FileSpace——61:61 方法、形状相似度 0.59（唯一最佳，次优差 +0.59）；文件空间：DW(String)Da 取条目、Zo() 遍历、Hw(I)Da 按 id 取（旧名 FileManager）
+Sa	com/aide/codemodel/api/SyntaxTree	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/SyntaxTree——156:156 方法、形状相似度 0.93（唯一最佳，次优差 +0.93）；语法树：XG(I)Z/jJ(I)Z/lp(I)Z/g3(I)Z 等即语法树的节点/行查询（旧名 SourceText）
 La	com/aide/codemodel/api/Model	shape:AIDE+ 2.3.5 的 Model——其构造器就是「12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory」共 16 参，与本类 16 接口构造逐位同序；12 个 public final 回调字段同类；SourceEntity(Model,Entity) ↔ SourceEntity(La,Aa)
 Da	com/aide/codemodel/api/FileEntry	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/FileEntry——getId()/getFullNameString()/a8()List<String>/QX()/U2() 与本类 EQ()I/XL()String/a8() 等逐条对应；OpenFileCallback 的 5 个方法全以 FileEntry 作首参，SourceEntity(Model,FileEntry) 正对应本类 SourceEntity(ea,Da)
 S	abcd/aide/engine/InlineMethodRefactoring	str:j6(Da,I,I) 里 "Select a method to inline."（同一句出现两次，另一处是错误提示）；与 V(RenameRefactoring) 同构：ctor(Labcd/ea)、字段 ea/Ga/Va/Ba/Q/Ea，被 com/aide/engine/c$b 的重构入口调用 ⇒ 内联方法重构
@@ -70,9 +70,9 @@ Ba	com/aide/engine/CompilationContext	body:被 **abcd/La(Project).<init>** 唯�
 Aa	com/aide/codemodel/api/Entity	shape:AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…[,int×n][,String][,boolean][,List]) 构造与本类 (La,Aa…) 逐条对应；本类 40 个方法即 Entity 的语义查询（rN/yS/vy/Zo…）
 ua	com/aide/engine/CompilationUnit	sup=abcd/Ya；字段 QX:Da(文件)、J0:Ba(CompilationContext)、we:Ea(FileManager)、Mr/U2:ua(父)、j3:Na、gW:ua$a；有 4 个返回 Labcd/Yb(Scope) 的方法(CU/Xa/aq/et) 与 pN()ua$a；工厂 DW(Da,na,I,Z,ua,Yb)Ya；而 Aa.FH() 正是返回它 ⇒ 一个源文件的编译单元(带包/导入等多个作用域)
 Yb	com/aide/engine/NodeList	**更正**：javap 显示它是 `public class abcd.Yb<E extends abcd.Aa>`——泛型容器，带内部类 `Yb<E>.a`(迭代器)、多张 `[I` 开放寻址数组、`Ba`，方法 DW(E)/FH()/Hw()I(大小)/v5()(清空)/DW(Yb)(并入)/equals，且有 `j6(ec)/j6(fc)` 序列化。原来按"ua(CompilationUnit) 返回它 + enter/lookup 形状"判成 Scope 是**误判**，实际是 AST 节点列表。
-Ga	com/aide/engine/StringPool	body:j6(String)I 把字符串登记进池返回 id、j6(int)String 按 id 取回、j6(String,I,I)/j6([C,I,I)/j6(I,[C,I) 是子串登记、FH(I)I / Hw(I)I 返回同一个 id 的小写/大写变体、DW(I)I 是哈希；字段是 [C 字符表 + 多张 [I 索引表 + qb；另有 j6(ec)/j6(fc) 序列化 ⇒ 编译器的字符串驻留池
+Ga	com/aide/codemodel/api/IdentifierSpace	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/IdentifierSpace——17:17 方法、形状相似度 0.88（唯一最佳，次优差 +0.88）；标识符池：按名字取/建 id（旧名 StringPool）
 Fb	com/aide/engine/NodeMap	body:泛型 <K extends Aa, V extends Aa>（AST 节点→AST 节点的映射），字段多张 [I 开放寻址数组 + 内部类 Fb$a(遍历器) + Ba(CompilationContext)；ctor 收 Ba 或 (Ba,ec) ⇒ 节点哈希表
-Ca	com/aide/engine/FileCache	body:字段是两张 wb 缓存（wb<Ca$d>/wb<Ca$b>）+ Ca$a 监听器 + La(工程)/Ea(FileManager)/Ba(上下文)；v5(Da) 直接 wb.j6(Da.EQ())（**用文件 id 当 key 查缓存**），一批 DW(Da,na,...) 先问 Ca$a 再写缓存；另有 DW(Da,int)/FH(Da,int) 取每文件的行/偏移 ⇒ 按文件的编译数据缓存
+Ca	com/aide/codemodel/api/ErrorTable	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/ErrorTable——54:54 方法、形状相似度 0.89（唯一最佳，次优差 +0.89）；错误表：DW(Da,na,…) 按文件+语言记错误区间（旧名 FileCache）
 ga	com/aide/codemodel/api/abstraction/CodeAnalyzer	shape:AIDE+ 2.3.5 的 abstraction/CodeAnalyzer 8 方法与本类 8 方法逐条对应：analyzeTypeName(SyntaxTree,int,int,String)Type ↔ j6(Sa,int,int,String)Ya；analyzeEveryIdentifiers(SyntaxTree,SetOfInt) ↔ j6(Sa,bc)
 Za	com/aide/codemodel/api/Variable	shape:AIDE+ 2.3.5 的 Variable——构造 (FileEntry,Language,int,int,int,int,Type) 与本类 (Da,na,int,int,int,int,Ya) 逐位相同；TemplateEvaluatorCallback.v5(Variable) 正对应本类 nb.j6(Za)
 Cb	com/aide/engine/IntVector	body:唯一数组字段 int[] + 一个 int(长度)；DW(int)/FH(int)/Hw() 是取值/设值/长度，FH(int)/Hw(int) 是追加与扩容，j6() 清空，另有 equals 与 j6(ec)/j6(fc) 序列化 ⇒ 可变 int 数组
@@ -152,3 +152,26 @@ Pk	com/aide/licensing/OuyaKeyProvider	body:字段 java.security.PublicKey + 两�
 Qg	com/aide/ui/actions/OpenAndroidJarAction	body:j6() 返回菜单串资源 0x7f0800b3；j6(Z)（isEnabled）→ 取 U.J8().FH() 的 basename 与 "android.jar" 比较；run() → U.vy().gW(路径)，而 abcd/Zk.gW(String) 是 FileSystemUtils.Hw(路径) 为真时调 com/aide/ui/aa.v5(路径)（打开文件）+ P8() ⇒ 打开 android.jar 的菜单动作
 wb	com/aide/engine/IntObjectMap	body:与已命名的 Kb(IntIntMap) 同构——字段 int[] VH/Zo/gn/v5 + int EQ/tp/u7 + T[] VH/gn，开放寻址；方法 j6(int,T) 存、DW(int)T 取、j6(int)Z 判存在、FH(int) 删、DW()I 取大小、FH(wb) 合并、j6() 清空，内部类 wb$a 是 key/value 遍历器（DW()/j6()Z/FH()I 键/Hw() 值）；唯一使用者 abcd/gb(FileContentCache) 用它做 ProjectFile.id→FileContent 的映射 ⇒ 以 int 为键、对象为值的哈希表
 Fl	com/aide/ui/editor/AutoIndentHelper	body:纯静态工具类，两个 j6(AIDEEditor,int|char,int,int)；输入 { 时取光标前文本（AIDEEditor.Hw(I) 取行文本、substring+trim）判断是否只剩空白，再用 AIDEEditor.FH(I) 取上一行缩进、gn(II) 设缩进；输入 } 时对前一个字符做 tp(II) 反缩进；私有 j6(String) 逐字符判缩进（该类常量串只有 "else if"）⇒ 编辑器的自动/智能缩进
+ia	com/aide/codemodel/api/abstraction/CodeRenderer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/CodeRenderer——6:6 方法、形状相似度 1.00（唯一最佳，次优差 +1.00）；渲染器：getHTMLString/getNameString/getModifiersString 一族；是 Language.gn() 的返回类型
+Ma	com/aide/codemodel/api/Modifiers	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/Modifiers——20:20 方法、形状相似度 1.00（唯一最佳，次优差 +0.95）；修饰符工具：20 个静态判定/取位方法
+uc	com/aide/codemodel/api/Lexer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/Lexer——7:7 方法、形状相似度 1.00（唯一最佳，次优差 +0.86）；词法器基类：nextToken 一族的抽象
+wc	com/aide/codemodel/api/PositionalReader	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/PositionalReader——9:9 方法、形状相似度 1.00（唯一最佳，次优差 +0.78）；带位置的字符读取器
+va	com/aide/codemodel/api/FormatOptionSetCache	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/FormatOptionSetCache——3:3 方法、形状相似度 1.00（唯一最佳，次优差 +0.67）；格式选项集合的缓存
+ma	com/aide/codemodel/api/abstraction/Preprocessor	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/Preprocessor——1:1 方法、形状相似度 1.00（唯一最佳，次优差 +1.00）；预处理器：唯一方法处理一段源码；实现者 abcd/ee(HtmlPreprocessor)
+Ib	com/aide/codemodel/api/collections/MapOfIntArrayInt	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntArrayInt——12:12 方法、形状相似度 0.83（唯一最佳，次优差 +0.67）；int → int[] 的映射
+Ob	com/aide/codemodel/api/collections/ArrayOf	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/ArrayOf——11:11 方法、形状相似度 0.82（唯一最佳，次优差 +0.64）；对象数组容器（带内部遍历器）
+Ia	com/aide/codemodel/api/Member	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/Member——96:96 方法、形状相似度 0.71（唯一最佳，次优差 +0.71）；成员：extends Aa(Entity)，96 个方法里含子成员表/修饰符/类型查询
+bc	com/aide/codemodel/api/collections/SetOfInt	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/SetOfInt——16:16 方法、形状相似度 0.69（唯一最佳，次优差 +0.62）；int 集合：DW(I) 加、j6(I)Z 判存在；被 K 用来记折叠点
+vc	com/aide/codemodel/api/LexerHelper	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/LexerHelper——4:4 方法、形状相似度 0.75（唯一最佳，次优差 +0.75）；词法辅助（字符分类）
+Fd	com/aide/codemodel/language/java/JavaSyntax	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaSyntax——70:70 方法、形状相似度 0.96（唯一最佳，次优差 +0.96）；Java 语法：isKeyword/isIdentifier/取操作符优先级 一族
+Dd	com/aide/codemodel/language/java/JavaLexer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaLexer——7:7 方法、形状相似度 0.86（唯一最佳，次优差 +0.86）；Java 词法器
+jd	com/aide/codemodel/language/java/JavaCodeRenderer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeRenderer——8:8 方法、形状相似度 0.88（唯一最佳，次优差 +0.75）；Java 渲染器：把实体渲染成 HTML/名字串
+ae	com/aide/codemodel/language/js/JavaScriptSyntax	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptSyntax——65:65 方法、形状相似度 0.95（唯一最佳，次优差 +0.95）；JavaScript 语法
+Nd	com/aide/codemodel/language/js/JavaScriptCodeRenderer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCodeRenderer——7:7 方法、形状相似度 1.00（唯一最佳，次优差 +1.00）；JavaScript 渲染器
+qe	com/aide/codemodel/language/xml/XmlSyntax	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlSyntax——62:62 方法、形状相似度 0.97（唯一最佳，次优差 +0.97）；XML 语法
+oe	com/aide/codemodel/language/xml/XmlLexer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlLexer——21:21 方法、形状相似度 1.00（唯一最佳，次优差 +0.90）；XML 词法器
+ie	com/aide/codemodel/language/xml/XmlCodeAnalyzer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlCodeAnalyzer——21:21 方法、形状相似度 0.86（唯一最佳，次优差 +0.76）；XML 代码分析器
+Qc	com/aide/codemodel/language/css/CssParser	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssParser——12:12 方法、形状相似度 0.92（唯一最佳，次优差 +0.75）；CSS 解析器
+Pc	com/aide/codemodel/language/css/CssLexer	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssLexer——19:19 方法、形状相似度 1.00（唯一最佳，次优差 +1.00）；CSS 词法器
+Zc	com/aide/codemodel/language/dtd/DtdParser	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdParser——22:22 方法、形状相似度 0.95（唯一最佳，次优差 +0.86）；DTD 解析器
+ee	com/aide/codemodel/language/html/HtmlPreprocessor	shape:AIDE+ 2.3.5 的 com/aide/codemodel/language/html/HtmlPreprocessor——6:6 方法、形状相似度 0.83（唯一最佳，次优差 +0.83）；HTML 预处理/检查：串里是 onabort/onclick… 等事件属性名，经 abcd/eb(ErrorReporter) 报错
