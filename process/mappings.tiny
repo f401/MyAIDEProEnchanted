@@ -26645,8 +26645,8 @@ c	abcd/Tn	com/aide/engine/ConstantInstruction	str/body: com/aide/engine/Constant
 c	abcd/Bn	com/aide/engine/EncodedMember	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field/encoded_method
 c	abcd/in	com/aide/engine/InstructionDisassembler	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
 c	abcd/Tr	com/aide/engine/Prototype	body: 方法原型——参数类型表(TypeList)+shorty 串+返回类型，构造 (es,hs,bs,cs)
-	m	()Labcd/Ss;	DW	getParameterTypes
-	m	()Ljava/lang/String;	FH	getShortyString
+	m	()Labcd/Ss;	DW	getParameterTypes	body: getParameterTypes——返回 Ss(TypeList)=参数类型表
+	m	()Ljava/lang/String;	FH	getShortyString	body: getShortyString——返回 shorty 串（构造器第二位就是 shorty 用的 DexString）
 c	abcd/ds	com/aide/engine/TypeListBuilder	body: 可变的类型表（TypeList 的构建态），空实例 DW
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments

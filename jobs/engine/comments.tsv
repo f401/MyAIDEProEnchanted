@@ -1545,3 +1545,5 @@ m	abcd/Gp	j6	(I)V	body: setWriteSize——方法体里是 "writeSize already set
 m	abcd/Gp	Ws	()Ljava/lang/String;	body: toHuman——用 Integer.toHexString + StringBuilder 拼十六进制段描述（dx 的 toHuman）
 c	abcd/Tr	-	-	body: 方法原型——参数类型表(TypeList)+shorty 串+返回类型，构造 (es,hs,bs,cs)
 c	abcd/ds	-	-	body: 可变的类型表（TypeList 的构建态），空实例 DW
+m	abcd/Tr	DW	()Labcd/Ss;	body: getParameterTypes——返回 Ss(TypeList)=参数类型表
+m	abcd/Tr	FH	()Ljava/lang/String;	body: getShortyString——返回 shorty 串（构造器第二位就是 shorty 用的 DexString）
