@@ -25208,7 +25208,20 @@ c	abcd/Qs	com/aide/engine/TypeConstant	auto: 类：TypeConstant（上游未收�
 c	abcd/Rs	com/aide/engine/TypeInfo	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ps	com/aide/engine/MethodType	auto: 类：MethodType（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Kb	com/aide/codemodel/api/collections/MapOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntInt——int→int 哈希表（5 个 int[] + 迭代器）
+	m	(I)Z	DW	contains
+	m	(I)I	FH	get
+	m	(Labcd/Kb;)V	FH	insert
+	m	()Ljava/lang/String;	toString	toString
 c	abcd/Qb	com/aide/codemodel/api/collections/MapOfLongInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfLongInt——int→long 哈希表
+	m	()V	j6	u7
+	m	(II)I	DW	get
+	m	(J)I	DW	get
+	m	(J)V	FH	remove
+	m	(I)V	j6	clear
+	m	(III)V	j6	put
+	m	(II)Z	j6	DW
+	m	(J)Z	j6	FH
+	m	()Ljava/lang/String;	toString	toString
 c	abcd/Bb	com/aide/engine/ByteVector	auto: 类：ByteVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ab	com/aide/engine/NodeVector	auto: 类：NodeVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ss	com/aide/engine/TypeList	auto: 类：TypeList（上游未收录，名字来自 jobs/engine 的判据）
@@ -25286,9 +25299,29 @@ c	abcd/wc	com/aide/codemodel/api/PositionalReader	shape: AIDE+ 2.3.5 的 api/Pos
 c	abcd/va	com/aide/codemodel/api/FormatOptionSetCache	shape: AIDE+ 2.3.5 的 api/FormatOptionSetCache（3:3，1.00）——格式选项集合缓存
 c	abcd/ma	com/aide/codemodel/api/abstraction/Preprocessor	shape: AIDE+ 2.3.5 的 abstraction/Preprocessor（1:1，1.00）——预处理器，实现者 abcd/ee(HtmlPreprocessor)
 c	abcd/Ib	com/aide/codemodel/api/collections/MapOfIntArrayInt	shape: AIDE+ 2.3.5 的 collections/MapOfIntArrayInt（12:12，0.83）——int→int[] 映射
+	m	()V	j6	gn
+	m	(I[I[III)I	DW	FH
+	m	(I[I[IIII)V	j6	Zo
+	m	([IIII)V	j6	VH
+	m	(I[I[III)Z	j6	j6
+	m	([III)Z	j6	DW
+	m	()Ljava/lang/String;	toString	toString
 c	abcd/Ob	com/aide/codemodel/api/collections/ArrayOf	shape: AIDE+ 2.3.5 的 collections/ArrayOf（11:11，0.82）——对象数组容器
+	m	()V	DW	VH
+	m	(Labcd/Ob;)[Ljava/lang/Object;	DW	DW
+	m	(Labcd/Ob;)[I	j6	j6
+	m	(I)Ljava/lang/Object;	DW	Hw
+	m	(I)V	FH	gn
+	m	()I	j6	u7
+	m	(I)Z	j6	FH
+	m	()Ljava/lang/String;	toString	toString
 c	abcd/Ia	com/aide/codemodel/api/Member	shape: AIDE+ 2.3.5 的 api/Member（96:96，0.71）——成员（extends Entity），带子成员表/修饰符/类型查询
 c	abcd/bc	com/aide/codemodel/api/collections/SetOfInt	shape: AIDE+ 2.3.5 的 collections/SetOfInt（16:16，0.69）——int 集合；K 用它记折叠点
+	m	(Labcd/bc;)[I	j6	j6
+	m	()Z	DW	empty
+	m	(Ljava/lang/Object;)Z	equals	equals
+	m	(I)Z	j6	contains
+	m	()Ljava/lang/String;	toString	toString
 c	abcd/vc	com/aide/codemodel/api/LexerHelper	shape: AIDE+ 2.3.5 的 api/LexerHelper（4:4，0.75）——词法辅助
 c	abcd/Fd	com/aide/codemodel/language/java/JavaSyntax	shape: AIDE+ 2.3.5 的 language/java/JavaSyntax（70:70，0.96）——Java 语法表
 c	abcd/Dd	com/aide/codemodel/language/java/JavaLexer	shape: AIDE+ 2.3.5 的 language/java/JavaLexer（7:7，0.86）——Java 词法器
@@ -25311,6 +25344,11 @@ c	abcd/Gd	com/aide/codemodel/language/java/JavaTools	shape: AIDE+ 2.3.5 的 com/
 c	abcd/fm	com/aide/ui/views/editor/Position	shape: AIDE+ 2.3.5 的 com/aide/ui/views/editor/Position（4:4，1.00）——编辑器里的行列位置值对象
 c	abcd/Fe	com/aide/ui/util/MavenDependencyVersion	shape: AIDE+ 2.3.5 的 com/aide/ui/util/MavenDependencyVersion——Maven 依赖版本号——4 个 Integer 段 + 字符串版本 + compareTo(String,String)
 c	abcd/Ub	com/aide/codemodel/api/collections/RelationOfIntInt	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/RelationOfIntInt——int→int 关系表；构造收 StoreInputStream、store 写 StoreOutputStream
+	m	(I)V	j6	u7
+	m	(J)V	j6	Zo
+	m	(Labcd/bc;)V	j6	EQ
+	m	(II)Z	j6	contains
+	m	()Ljava/lang/String;	toString	toString
 c	abcd/ec	com/aide/codemodel/api/collections/StoreInputStream	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/StoreInputStream——存储输入流（RelationOfIntInt 的构造参数）
 c	abcd/fc	com/aide/codemodel/api/collections/StoreOutputStream	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/StoreOutputStream——存储输出流（RelationOfIntInt.store 的参数）
 c	abcd/Wl	com/aide/ui/command/KeyStrokeCommand	shape: AIDE+ 2.3.5 的 com/aide/ui/command/KeyStrokeCommand——带快捷键的命令接口——getKeyStroke/getName/isEnabled/run
@@ -25329,11 +25367,22 @@ c	abcd/qd	com/aide/codemodel/language/java/JSharpCommentsTools	shape: AIDE+ 2.3.
 c	abcd/Td	com/aide/codemodel/language/js/JavaScriptCommentsTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsTools——JavaScript 注释工具集
 c	abcd/dd	com/aide/codemodel/language/java/JavaCodeAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeAnalyzer——Java 代码分析器（被 JavaLanguage 持有）
 c	abcd/_b	com/aide/codemodel/api/collections/SetOfFileEntry	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/SetOfFileEntry——FileEntry 集合（字段与 SetOfFileEntry 逐个对应）
+	m	(I)V	DW	put
+	m	()Labcd/Da;	DW	get
+	m	()I	FH	size
+	m	(Ljava/lang/Object;)Z	equals	equals
+	m	(I)Z	j6	contains
+	m	(Labcd/Da;)Z	j6	contains
+	m	()Ljava/lang/String;	toString	toString
 c	abcd/Yc	com/aide/codemodel/language/dtd/DtdLexer	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdLexer——DTD 词法器（被 DtdCodeModel 引用）
 c	abcd/Hc	com/aide/codemodel/language/cpp/CppLexer	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppLexer——C++ 词法器（被 CppCodeModel 引用）
 c	abcd/md	com/aide/codemodel/language/java/JavaFormatterOption	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaFormatterOption——Java 格式化选项枚举（1 常量/6 方法）
 c	abcd/le	com/aide/codemodel/language/xml/XmlFormatterOption	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlFormatterOption——XML 格式化选项枚举（5 常量/6 方法）
 c	abcd/Sb	com/aide/codemodel/api/collections/OrderedMapOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/OrderedMapOfIntInt——有序 int→int 表（多两个 boolean[] 标记）
+	m	(I)V	DW	remove
+	m	(I)Z	j6	contains
+	m	(II)Z	j6	contains
+	m	()Ljava/lang/String;	toString	toString
 c	abcd/Mb	com/aide/codemodel/api/collections/MapOfIntLong	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntLong——int→long 映射
 c	abcd/sb	com/aide/codemodel/api/collections/FunctionOfIntLong	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntLong——int→long 函数表
 c	abcd/qb	com/aide/codemodel/api/collections/FunctionOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntInt——int→int 函数表
