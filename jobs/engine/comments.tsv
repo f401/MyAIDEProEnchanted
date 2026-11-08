@@ -1532,3 +1532,6 @@ c	abcd/yt	-	-	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
 c	abcd/no	-	-	str: com/aide/engine/BlockAddresses——基本块地址表
 c	abcd/px	-	-	str: com/aide/engine/BinderWrapper——Binder 反射包装
 c	abcd/kk	-	-	str: com/aide/engine/RootInstaller——用 root 静默安装的助手
+c	abcd/zd	-	-	str/body: com/aide/engine/ExtractMethodRefactoring——提取方法重构（含 return/break/continue 校验）
+c	abcd/qw	-	-	str: com/crashlytics/android/core/SessionDataStore——Fabric 会话 ID 存储（21 个静态 volatile 字段）
+c	abcd/mw	-	-	str: com/aide/engine/ProbeLoader——backbone 测试 probe 加载器

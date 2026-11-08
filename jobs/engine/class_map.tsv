@@ -351,3 +351,6 @@ yt	com/aide/engine/SsaValue	str:"No use list in back mode" / "No def list in bac
 no	com/aide/engine/BlockAddresses	str:"weird successors list" / "addresses == null" / "order == null" / "method == null" ⇒ 基本块地址表
 px	com/aide/engine/BinderWrapper	str:"Could not access the field in remoteBinder." / "Binder object is null." / "IObjectWrapper declared field not private!" ⇒ Binder 反射包装
 kk	com/aide/engine/RootInstaller	str:"pm install -r data/data/aidepro.top/cache/rootinstall.apk" / "signatures do not match previously" / "pm: exited with " ⇒ 用 root 静默安装的助手
+zd	com/aide/engine/ExtractMethodRefactoring	str+body:字段 Model(La)+SyntaxTreeSpace(Va)+IdentifierSpace(Ga)+JavaLanguage(yd)+EntitySpace(Ba)+内部 zd$a；常量串 "These statements contain return, break or continue statements." / "The variables … might be modified in those statements." ⇒ 提取方法（Extract Method）重构的前置校验/执行
+qw	com/crashlytics/android/core/SessionDataStore	str+body:21 个静态 volatile 字段（long/String/UUID/boolean 各若干 + 锁对象）+ 私有 FH():File；常量串 "Session ID file may be outdated." / "Could not touch session file" / "Session ID file is outdated - touching" ⇒ Fabric 的会话 ID 存储
+mw	com/aide/engine/ProbeLoader	str:"backbone test probes loaded" / "Opening new probes " / "Error loading probes" / "Checking " ⇒ backbone 测试 probe 的加载器

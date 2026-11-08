@@ -162,3 +162,30 @@ python3 tools/deob/component.py --jar process/base/merged_ok.jar --prefix abcd \
 
 要定其余 27 个，需要**逐个读 `Zo`/`VH` 的方法体**（它们对 `abcd/cs`(ParameterTypeList)、`abcd/bs`(TypeInfo)
 的字段做位运算），属于「一个类一轮」的成本，性价比低，建议放到最后收尾阶段再做。
+
+## 9) 类名收割现状（2026-11 末：4205 类）
+
+「类内英文文案」这条线一共扫出 **195 个**未命名类带英文句子，累计已吃掉约 50 个
+（见 `class_map.tsv` 里 `str:` 判据的行）。还剩约 145 个，情况分三类：
+
+1. **能继续吃**（串点明领域，约 20~30 个）：`it`(specs/bogus index)、`in`(" category-2"/" // padding:")、
+   `mw`("backbone test probes loaded")、`fu`…；逐个看 4~5 条串即可定。
+2. **串偏弱**：`cd`("protected/private/internal/readonly" 像 C# 关键字表)、`zd`(已定)、`no`(已定)…
+3. **Fabric/crashlytics 四件套**：`cw`/`dw`/`fw`/`qw`。
+   ⚠️ **`com/crashlytics/android/core/ReportUploader` 已被 `jobs/crashlytics` 的 `La` 占用**，
+   所以 `fw`(持 BlockingQueue + 锁) **不能**叫 ReportUploader；要用就得另起
+   `ReportUploaderQueue` 之类的名字，或干脆留给 crashlytics part 去处理（推荐后者）。
+   `qw`(21 个静态 volatile 会话字段 + "Session ID file may be outdated.") 对应 Fabric 的
+   `SessionDataStore`，这个名字目前**没被占用**，可以定。
+
+### 已定名的 DEX 骨架（便于后续对成员）
+```
+string/type/proto/field/method/class_def 六段：StringIdSection / TypeIdSection / ProtoIdSection /
+  FieldIdSection / MethodIdSection / ClassDefSection
+条目：ProtoIdItem / CodeItem / MapItemWriter / TypeListItem / MethodAnnotations(Archive) / DexItem
+布局：DexSection / DexSectionList / DexFileBuilder / DexSectionPlacer / DexFileWriter / DexFileHeader
+rop/SSA：RopMethod / RopTranslator / BasicBlock / Frame / StackSimulator / SsaUpdater / SsaValue /
+  BlockAddresses / RopExceptions
+opcode：InstructionFormat / ReferenceKind / OpcodeInfoTable / OpcodeFormatTable / OpcodeIterator /
+  InstructionWriter / BytecodeParser / LabelFixup
+```
