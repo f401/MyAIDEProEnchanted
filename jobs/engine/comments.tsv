@@ -1415,3 +1415,75 @@ c	abcd/kw	-	-	body: com/aide/engine/BuildClassLoader——构建期类加载器
 c	abcd/kw$a	-	-	body: com/aide/engine/BuildClassLoader$CompoundEnumeration——复合枚举
 c	abcd/mq	-	-	str: 指令引用种类枚举（TYPE_REF/STRING_REF/METHOD_REF/FIELD_REF/INLINE_METHOD…）
 c	abcd/Ar	-	-	body: 每 opcode 的「格式 + 引用种类」索引表（两张 int[]，被 OpcodeFormatTable 使用）
+f	abcd/er	j6	-	auto: 枚举常量 FORMAT_00X（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	DW	-	auto: 枚举常量 FORMAT_10X（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	FH	-	auto: 枚举常量 FORMAT_12X（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	Hw	-	auto: 枚举常量 FORMAT_11N（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	v5	-	auto: 枚举常量 FORMAT_11X（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	Zo	-	auto: 枚举常量 FORMAT_10T（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	VH	-	auto: 枚举常量 FORMAT_20T（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	gn	-	auto: 枚举常量 FORMAT_20BC（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	u7	-	auto: 枚举常量 FORMAT_22X（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	tp	-	auto: 枚举常量 FORMAT_21T（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	EQ	-	auto: 枚举常量 FORMAT_21S（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	we	-	auto: 枚举常量 FORMAT_21H（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	J0	-	auto: 枚举常量 FORMAT_21C（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	J8	-	auto: 枚举常量 FORMAT_23X（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	Ws	-	auto: 枚举常量 FORMAT_22B（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	QX	-	auto: 枚举常量 FORMAT_22T（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	XL	-	auto: 枚举常量 FORMAT_22S（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	aM	-	auto: 枚举常量 FORMAT_22C（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	j3	-	auto: 枚举常量 FORMAT_22CS（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	Mr	-	auto: 枚举常量 FORMAT_30T（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	U2	-	auto: 枚举常量 FORMAT_32X（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	a8	-	auto: 枚举常量 FORMAT_31I（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	lg	-	auto: 枚举常量 FORMAT_31T（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	rN	-	auto: 枚举常量 FORMAT_31C（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	er	-	auto: 枚举常量 FORMAT_35C（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	yS	-	auto: 枚举常量 FORMAT_35MS（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	gW	-	auto: 枚举常量 FORMAT_35MI（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	BT	-	auto: 枚举常量 FORMAT_3RC（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	vy	-	auto: 枚举常量 FORMAT_3RMS（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	P8	-	auto: 枚举常量 FORMAT_3RMI（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	ei	-	auto: 枚举常量 FORMAT_51L（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	nw	-	auto: 枚举常量 FORMAT_33X（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	SI	-	auto: 枚举常量 FORMAT_32S（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	KD	-	auto: 枚举常量 FORMAT_40SC（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	ro	-	auto: 枚举常量 FORMAT_41C（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	cn	-	auto: 枚举常量 FORMAT_52C（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	sh	-	auto: 枚举常量 FORMAT_5RC（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	cb	-	auto: 枚举常量 FORMAT_PACKED_SWITCH_PAYLOAD（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	dx	-	auto: 枚举常量 FORMAT_SPARSE_SWITCH_PAYLOAD（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/er	sG	-	auto: 枚举常量 FORMAT_FILL_ARRAY_DATA_PAYLOAD（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	j6	-	auto: 枚举常量 UNKNOWN（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	DW	-	auto: 枚举常量 NONE（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	FH	-	auto: 枚举常量 VARIES（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	Hw	-	auto: 枚举常量 TYPE_REF（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	v5	-	auto: 枚举常量 STRING_REF（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	Zo	-	auto: 枚举常量 METHOD_REF（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	VH	-	auto: 枚举常量 FIELD_REF（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	gn	-	auto: 枚举常量 INLINE_METHOD（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	u7	-	auto: 枚举常量 VTABLE_OFFSET（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/mq	tp	-	auto: 枚举常量 FIELD_OFFSET（名字取自该类 <clinit> 的 ldc 字符串）
+f	abcd/wp	j6	-	auto: 枚举/常量字段 header_item（名字取自该类 <clinit>）
+f	abcd/wp	DW	-	auto: 枚举/常量字段 string_id_item（名字取自该类 <clinit>）
+f	abcd/wp	FH	-	auto: 枚举/常量字段 type_id_item（名字取自该类 <clinit>）
+f	abcd/wp	Hw	-	auto: 枚举/常量字段 proto_id_item（名字取自该类 <clinit>）
+f	abcd/wp	v5	-	auto: 枚举/常量字段 field_id_item（名字取自该类 <clinit>）
+f	abcd/wp	Zo	-	auto: 枚举/常量字段 method_id_item（名字取自该类 <clinit>）
+f	abcd/wp	VH	-	auto: 枚举/常量字段 class_def_item（名字取自该类 <clinit>）
+f	abcd/wp	gn	-	auto: 枚举/常量字段 map_list（名字取自该类 <clinit>）
+f	abcd/wp	u7	-	auto: 枚举/常量字段 type_list（名字取自该类 <clinit>）
+f	abcd/wp	tp	-	auto: 枚举/常量字段 annotation_set_ref_list（名字取自该类 <clinit>）
+f	abcd/wp	EQ	-	auto: 枚举/常量字段 annotation_set_item（名字取自该类 <clinit>）
+f	abcd/wp	we	-	auto: 枚举/常量字段 class_data_item（名字取自该类 <clinit>）
+f	abcd/wp	J0	-	auto: 枚举/常量字段 code_item（名字取自该类 <clinit>）
+f	abcd/wp	J8	-	auto: 枚举/常量字段 string_data_item（名字取自该类 <clinit>）
+f	abcd/wp	Ws	-	auto: 枚举/常量字段 debug_info_item（名字取自该类 <clinit>）
+f	abcd/wp	QX	-	auto: 枚举/常量字段 annotation_item（名字取自该类 <clinit>）
+f	abcd/wp	XL	-	auto: 枚举/常量字段 encoded_array_item（名字取自该类 <clinit>）
+f	abcd/wp	aM	-	auto: 枚举/常量字段 annotations_directory_item（名字取自该类 <clinit>）
+f	abcd/wp	j3	-	auto: 枚举/常量字段 map_item（名字取自该类 <clinit>）
+f	abcd/wp	Mr	-	auto: 枚举/常量字段 type_item（名字取自该类 <clinit>）
+f	abcd/wp	U2	-	auto: 枚举/常量字段 exception_handler_item（名字取自该类 <clinit>）
+f	abcd/wp	a8	-	auto: 枚举/常量字段 annotation_set_ref_item（名字取自该类 <clinit>）
