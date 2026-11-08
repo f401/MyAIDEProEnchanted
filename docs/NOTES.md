@@ -426,3 +426,8 @@ python3 tools/deob/xshape.py --oracle ~/out/oracle/aide-plus/aide-plus-2.3.5-eng
 
 已据此改名的：12 个桥接口 → `com/aide/codemodel/api/callback/*`；核心类型
 `La→Model / Da→FileEntry / Aa→Entity / Za→Variable / na→Language / ga→CodeAnalyzer / Wa→SyntaxTreeStyles`。
+
+**下一步线索（已核对但还没改名）**：`CodeAnalyzer` 的
+`analyzeTypeName(SyntaxTree,int,int,String) : Type` 对应本工程的 `ga.j6(Sa,int,int,String) : Ya`
+⇒ **`Sa` = SyntaxTree、`Ya` = Type**（不是早前以为的“源文本/节点”）。改名前先把
+`SyntaxTree` 的 58 个方法与 `Sa` 的方法集比一遍（`xshape.py --dump com.aide.codemodel.api.SyntaxTree`）。

@@ -13,3 +13,5 @@ Cb	ListOfInt
 Yb	ArrayOf
 Ab	ArrayOf
 ha	FormatOption
+Sa	SyntaxTree
+Ya	Type
