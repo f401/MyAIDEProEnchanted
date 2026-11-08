@@ -1523,7 +1523,7 @@ c	abcd/Jp	-	-	str: com/aide/engine/ProtoIdSection——dex 的 proto_ids 段
 c	abcd/qp	-	-	str: com/aide/engine/FieldIdSection——dex 的 field_ids 段
 c	abcd/cp	-	-	str: com/aide/engine/ClassDefSection——dex 的 class_defs 段
 c	abcd/Ip	-	-	str: com/aide/engine/ProtoIdItem——proto_ids 的一个条目
-c	abcd/np	-	-	str: com/aide/engine/CodeItem——dex 的 code_item（方法字节码载体）
+c	abcd/np	-	-	str: com/aide/engine/EncodedMethod——dex 的 encoded_method（method_idx/access_flags/code_off）
 c	abcd/Ap	-	-	str: com/aide/engine/MethodAnnotations——方法注解表
 c	abcd/Hp	-	-	str: com/aide/engine/MethodAnnotationsDirectory——方法注解目录
 c	abcd/ln	-	-	str: com/aide/engine/ClassFileReader——class 文件读取
@@ -1542,7 +1542,7 @@ c	abcd/Tn	-	-	str/body: com/aide/engine/ConstantInstruction——带常量引用
 c	abcd/Bn	-	-	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field/encoded_method
 c	abcd/in	-	-	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
 m	abcd/Gp	j6	(I)V	body: setWriteSize——方法体里是 "writeSize already set" / "writeSize < 0" 两处校验
-m	abcd/Gp	Ws	()Ljava/lang/String;	body: toHuman——用 Integer.toHexString + StringBuilder 拼十六进制段描述（dx 的 toHuman）
+m	abcd/Gp	Ws	()Ljava/lang/String;	body: "["+Integer.toHexString(we())+"]" ⇒ 只拼十六进制偏移标签（旧名 toHuman 名不符实，已改）
 c	abcd/Tr	-	-	body: 方法原型——参数类型表(TypeList)+shorty 串+返回类型，构造 (es,hs,bs,cs)
 c	abcd/ds	-	-	body: 可变的类型表（TypeList 的构建态），空实例 DW
 m	abcd/Tr	DW	()Labcd/Ss;	body: getParameterTypes——返回 Ss(TypeList)=参数类型表
@@ -1634,3 +1634,73 @@ m	abcd/Js	j6	(Ljava/lang/String;)[B	body: 把 String 编码成 MUTF-8 字节（�
 m	abcd/Js	j6	(Labcd/Pt;)Ljava/lang/String;	body: 把 MUTF-8 字节解码成 String（newarray char + 逐字节）
 f	abcd/Js	DW	-	body: 原字符串
 f	abcd/Js	FH	-	body: MUTF-8 字节数组（Pt=ByteArray 包装）
+m	abcd/Ds	J8	()Z	body: 抽象——Bs 返回 true、Cs/As 按值判断 ⇒ 是否装得进 int
+m	abcd/Ds	VH	()Z	body: default 实现——J8() 且 (short)Ws()==Ws() ⇒ 装得进 short
+m	abcd/Ds	we	()Z	body: default 实现——J8() 且 (byte)Ws()==Ws() ⇒ 装得进 byte
+m	abcd/Ds	Ws	()I	body: 抽象——取 32 位原始位（Bs 直接返字段）
+m	abcd/Ds	lg	()J	body: 抽象——取 64 位原始位（Bs 用 i2l，Cs 直接返字段）
+m	abcd/Bs	J8	()Z	body: 恒 true——本身就是 32 位
+m	abcd/Bs	Ws	()I	body: 返回 j6(int 位)
+m	abcd/Bs	lg	()J	body: 返回 j6 的 i2l
+m	abcd/Cs	J8	()Z	body: (long)(int)v==v ⇒ 值装得进 int 才 true
+m	abcd/Cs	Ws	()I	body: 返回 (int)j6（截断低 32 位）
+m	abcd/Cs	lg	()J	body: 直接返回 j6(long 位)
+m	abcd/As	J8	()Z	body: 恒 true——null 常量取 0
+m	abcd/As	Ws	()I	body: 恒 0
+m	abcd/As	lg	()J	body: 恒 0L
+m	abcd/As	aM	()Ljava/lang/String;	str: 返回 "null"
+m	abcd/As	Hw	()Z	body: 恒 false
+m	abcd/ms	DW	(Labcd/ms;)I	body: 抽象——j6(ms) 先按类名比较，类名相同才调它 ⇒ 同类型内部的比较（dx 的 compareTo0）
+m	abcd/Qs	gW	()Z	body: basicType 为 boolean/byte/char/int/short(1,2,3,6,8) ⇒ 整型类（dx Type.isIntLike）
+m	abcd/Qs	yS	()Z	body: long/double(7/4) 返回 false，其余 true ⇒ 单字宽
+m	abcd/tn	DW	()Labcd/Ks;	body: 返回定义类字段(Ks=DexType)
+m	abcd/tn	FH	()Labcd/Hs;	body: 返回名字+描述符对(Hs=DexReference)
+m	abcd/tn	Hw	()Labcd/Js;	body: 返回 nat.getDescriptor()——描述符串(Js=DexString)
+m	abcd/tn	j6	()I	body: 返回访问标志 int 字段
+m	abcd/Bn	DW	()Labcd/Ks;	body: 返回定义类字段(Ks=DexType)
+m	abcd/Bn	FH	()Labcd/Hs;	body: 返回名字+描述符对(Hs=DexReference)
+m	abcd/Bn	Hw	()Labcd/Js;	body: 返回 nat.getDescriptor()——描述符串(Js=DexString)
+m	abcd/Bn	j6	()I	body: 返回访问标志 int 字段
+f	abcd/Bn	j6	-	body: 定义类(Ks=DexType)——DW() 返回它
+f	abcd/Bn	DW	-	body: 访问标志——j6() 返回它
+f	abcd/Bn	FH	-	body: 名字+描述符对(Hs=DexReference)——FH() 返回它
+f	abcd/Bn	Hw	-	body: 属性表(pn=DexAttributes)——getAttributes() 返回它
+
+c	abcd/lp	-	-	str: com/aide/engine/EncodedField——dex 的 encoded_field（field_idx/access_flags）
+c	abcd/mp	-	-	body: 编码成员基类——访问标志 + writeTo(jp,Lt,int,int) + toHuman
+m	abcd/mp	Hw	()I	body: 返回 j6(访问标志) 字段
+m	abcd/mp	j6	(Labcd/jp;Labcd/Lt;II)I	body: 抽象——把本条目写到 ByteOutput（jp=DexFileWriter 提供各 Section 索引，Lt=ByteOutput，int=上一索引/偏移）⇒ dx 的 writeTo
+f	abcd/mp	j6	-	body: 访问标志——Hw() 返回它
+m	abcd/lp	Zo	()Labcd/ws;	body: 返回 DW(字段引用)；写时用它取 FieldIdSection 索引
+m	abcd/lp	aM	()Ljava/lang/String;	body: 拼字段引用的人读串
+m	abcd/lp	j6	(Labcd/jp;Labcd/Lt;II)I	str: 先打 "    field_idx:"/"    access_flags:"，再写 idx 差与 access_flags ⇒ encoded_field 的写出
+m	abcd/lp	j6	(Labcd/lp;)I	body: 按字段引用比较（ms.j6(ms)）——排序用
+m	abcd/lp	j6	(Labcd/jp;)V	body: 在 FieldIdSection 里登记字段引用（占位/分配索引）
+f	abcd/lp	DW	-	body: 字段引用(ws=DexFieldReference)
+m	abcd/np	aM	()Ljava/lang/String;	body: 拼方法引用的人读串
+m	abcd/np	j6	(Labcd/jp;Labcd/Lt;II)I	str: 先打 "    method_idx:"/"    access_flags:"/"    code_off:"，再写 method_id 索引差、access_flags、code_off（code 段的 section 偏移）⇒ encoded_method 的写出
+m	abcd/np	j6	(Labcd/np;)I	body: 按方法引用比较（ms.j6(ms)）——排序用
+m	abcd/np	j6	(Labcd/jp;)V	body: 在 MethodIdSection 登记方法引用，并把 code 段(FH)登记进 DexFileWriter
+f	abcd/np	DW	-	body: 方法引用(Gs=DexMethodReference)
+f	abcd/np	FH	-	body: 代码段(ep=CodeAttributeWriter)——为 null 表示无 code
+m	abcd/ap	j6	(Labcd/lp;)V	body: 加到 gn(instanceFields)，空则抛 "field == null"
+m	abcd/ap	j6	(Labcd/lp;Labcd/ms;)V	body: 加到 Zo(staticFields) 与 VH(staticFieldValues)；已建 staticValues 时抛 "static fields already sorted"
+m	abcd/ap	j6	(Labcd/np;)V	body: 加到 u7(directMethods)，空则抛 "method == null"
+m	abcd/ap	DW	(Labcd/np;)V	body: 加到 tp(virtualMethods)，空则抛 "method == null"
+m	abcd/ap	j3	()Labcd/ps;	body: 返回 EQ(ps=静态值的 encoded_array)；为空时调 U2() 建
+m	abcd/ap	U2	()Labcd/ps;	body: 先 sort Zo(staticFields)，再从末尾跳过没有常量值的字段，最后按 ps$a 逐项编码 ⇒ 建 static_values
+m	abcd/ap	Mr	()Z	body: 四个列表(Zo/gn/u7/tp)全空返回 true
+m	abcd/ap	aM	()Ljava/lang/String;	body: 返回 toString()
+m	abcd/ap	DW	(Labcd/jp;Labcd/Lt;)V	body: 调试模式调 FH(jp,Lt) 打明细，否则直接输出缓存的 we(byte[])
+m	abcd/ap	FH	(Labcd/jp;Labcd/Lt;)V	str: 打 " class data for " 与 "static_fields"/"instance_fields"/"direct_methods"/"virtual_methods" 四段 ⇒ 调试用写出
+f	abcd/ap	v5	-	body: 定义类(Ks=DexType)——" class data for " 后面打的就是它
+f	abcd/ap	EQ	-	body: 静态字段值(ps)——j3() 返回、U2() 建
+f	abcd/ap	Zo	-	body: 静态字段表(lp)——对应 "static_fields"
+f	abcd/ap	gn	-	body: 实例字段表(lp)——对应 "instance_fields"
+f	abcd/ap	u7	-	body: 直接方法表(np)——对应 "direct_methods"
+f	abcd/ap	tp	-	body: 虚方法表(np)——对应 "virtual_methods"
+f	abcd/ap	VH	-	body: HashMap<lp,ms>——静态字段 → 常量值（建 static_values 用）
+f	abcd/ap	we	-	body: 已编码好的 class_data_item 字节（非调试写出直接输出它）
+
+m	abcd/Gp	aM	()Ljava/lang/String;	body: 抽象——各段的明细人读串（ap 实现为 toString）
+m	abcd/Gp	DW	(Labcd/jp;Labcd/Lt;)V	body: protected 抽象——真正的写出实现（public final j6(jp,Lt) 是包装：先写 section 大小/偏移再调它）

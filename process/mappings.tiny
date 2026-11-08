@@ -25754,6 +25754,8 @@ c	abcd/Qs	com/aide/engine/TypeConstant	auto: 类：TypeConstant（上游未收�
 	f	Labcd/Qs;	g3	initializedType	body: getInitializedType() 返回的已初始化类型
 	f	Labcd/Qs;	vJ	componentType	body: getComponentType() 的缓存
 	f	Labcd/Qs;	Sf	arrayType	body: getArrayType() 的缓存
+	m	()Z	gW	isIntLike	body: basicType 为 boolean/byte/char/int/short(1,2,3,6,8) ⇒ 整型类（dx Type.isIntLike）
+	m	()Z	yS	isCategory1	body: long/double(7/4) 返回 false，其余 true ⇒ 单字宽
 c	abcd/Rs	com/aide/engine/TypeInfo	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ps	com/aide/engine/MethodType	auto: 类：MethodType（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Kb	com/aide/codemodel/api/collections/MapOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntInt——int→int 哈希表（5 个 int[] + 迭代器）
@@ -25807,6 +25809,10 @@ c	abcd/Hs	com/aide/engine/DexReference	auto: 类：DexReference（上游未收�
 	m	()Ljava/lang/String;	aM	toHuman	body: toHuman——拼 name+":"+descriptor（实现 lu/ToHuman）
 c	abcd/Yo	com/aide/engine/DexConstants	auto: 类：DexConstants（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/tn	com/aide/engine/DexMember	auto: 类：DexMember（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Labcd/Ks;	DW	getDefiningClass	body: 返回定义类字段(Ks=DexType)
+	m	()Labcd/Hs;	FH	getNameAndType	body: 返回名字+描述符对(Hs=DexReference)
+	m	()Labcd/Js;	Hw	getDescriptor	body: 返回 nat.getDescriptor()——描述符串(Js=DexString)
+	m	()I	j6	getAccessFlags	body: 返回访问标志 int 字段
 c	abcd/un	com/aide/engine/DexAnnotation	auto: 类：DexAnnotation（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/pn	com/aide/engine/DexAttributes	auto: 类：DexAttributes（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/qn	com/aide/engine/DexValue	auto: 类：DexValue（上游未收录，名字来自 jobs/engine 的判据）
@@ -25825,6 +25831,7 @@ c	abcd/Ms	com/aide/engine/DexBaseType	auto: 类：DexBaseType（上游未收录�
 c	abcd/ms	com/aide/engine/DexBaseReference	auto: 类：DexBaseReference（上游未收录，名字来自 jobs/engine 的判据）
 	m	()Z	Hw	isCategory2	body: isCategory2——Cs(64 位字面量)返回 true、Bs(32 位)/Js/Ks/As 都返回 false
 	m	()Ljava/lang/String;	Zo	getTypeName	str: getTypeName——各常量返回自己的种类名（"field"/"enum"/"nat"/"int"/"long"/"known-null"/"method"/"ifaceMethod"…），dx 的 Constant.typeName()
+	m	(Labcd/ms;)I	DW	compareTo0	body: 抽象——j6(ms) 先按类名比较，类名相同才调它 ⇒ 同类型内部的比较（dx 的 compareTo0）
 c	abcd/Am	com/aide/engine/NamedAttribute	auto: 类：NamedAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Bm	com/aide/engine/IndexedAttribute	auto: 类：IndexedAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Xt	com/aide/engine/ArrayItem	auto: 类：ArrayItem（上游未收录，名字来自 jobs/engine 的判据）
@@ -26646,8 +26653,10 @@ c	abcd/Sm	com/aide/engine/SsaUpdater	str: com/aide/engine/SsaUpdater——SSA �
 c	abcd/Vo	com/aide/engine/AnnotationWriter	str: com/aide/engine/AnnotationWriter——注解写出器
 c	abcd/Tp	com/aide/engine/MapItemWriter	str: com/aide/engine/MapItemWriter——map_list 条目写出器
 c	abcd/Gp	com/aide/engine/DexSection	str: com/aide/engine/DexSection——带 offset/writeSize 的 dex 段基类
+	m	()Ljava/lang/String;	aM	toHuman	body: 抽象——各段的明细人读串（ap 实现为 toString）
+	m	(Labcd/jp;Labcd/Lt;)V	DW	writeTo0	body: protected 抽象——真正的写出实现（public final j6(jp,Lt) 是包装：先写 section 大小/偏移再调它）
 	m	(I)V	j6	setWriteSize	body: setWriteSize——方法体里是 "writeSize already set" / "writeSize < 0" 两处校验
-	m	()Ljava/lang/String;	Ws	toHuman	body: toHuman——用 Integer.toHexString + StringBuilder 拼十六进制段描述（dx 的 toHuman）
+	m	()Ljava/lang/String;	Ws	getHexOffset	body: "["+Integer.toHexString(we())+"]" ⇒ 只拼十六进制偏移标签（旧名 toHuman 名不符实，已改）
 c	abcd/Fp	com/aide/engine/DexFileWriter	str: com/aide/engine/DexFileWriter——dex 文件组装/写出
 c	abcd/Hx	com/aide/engine/TryWithResourcesDesugaring	str: com/aide/engine/TryWithResourcesDesugaring——try-with-resources 脱糖策略
 c	abcd/Nr	com/aide/engine/BasicBlock	str: com/aide/engine/BasicBlock——控制流基本块
@@ -26673,7 +26682,24 @@ c	abcd/Jp	com/aide/engine/ProtoIdSection	str: com/aide/engine/ProtoIdSection—�
 c	abcd/qp	com/aide/engine/FieldIdSection	str: com/aide/engine/FieldIdSection——dex 的 field_ids 段
 c	abcd/cp	com/aide/engine/ClassDefSection	str: com/aide/engine/ClassDefSection——dex 的 class_defs 段
 c	abcd/Ip	com/aide/engine/ProtoIdItem	str: com/aide/engine/ProtoIdItem——proto_ids 的一个条目
-c	abcd/np	com/aide/engine/CodeItem	str: com/aide/engine/CodeItem——dex 的 code_item（方法字节码载体）
+c	abcd/np	com/aide/engine/EncodedMethod	str: com/aide/engine/EncodedMethod——dex 的 encoded_method（method_idx/access_flags/code_off）
+	m	()Ljava/lang/String;	aM	toHuman	body: 拼方法引用的人读串
+	m	(Labcd/jp;Labcd/Lt;II)I	j6	writeTo	str: 先打 "    method_idx:"/"    access_flags:"/"    code_off:"，再写 method_id 索引差、access_flags、code_off（code 段的 section 偏移）⇒ encoded_method 的写出
+	m	(Labcd/np;)I	j6	compareTo0	body: 按方法引用比较（ms.j6(ms)）——排序用
+	m	(Labcd/jp;)V	j6	place	body: 在 MethodIdSection 登记方法引用，并把 code 段(FH)登记进 DexFileWriter
+	f	Labcd/Gs;	DW	method	body: 方法引用(Gs=DexMethodReference)
+	f	Labcd/ep;	FH	codeAttribute	body: 代码段(ep=CodeAttributeWriter)——为 null 表示无 code
+c	abcd/lp	com/aide/engine/EncodedField	str: com/aide/engine/EncodedField——dex 的 encoded_field（field_idx/access_flags）
+	m	()Labcd/ws;	Zo	getField	body: 返回 DW(字段引用)；写时用它取 FieldIdSection 索引
+	m	()Ljava/lang/String;	aM	toHuman	body: 拼字段引用的人读串
+	m	(Labcd/jp;Labcd/Lt;II)I	j6	writeTo	str: 先打 "    field_idx:"/"    access_flags:"，再写 idx 差与 access_flags ⇒ encoded_field 的写出
+	m	(Labcd/lp;)I	j6	compareTo0	body: 按字段引用比较（ms.j6(ms)）——排序用
+	m	(Labcd/jp;)V	j6	place	body: 在 FieldIdSection 里登记字段引用（占位/分配索引）
+	f	Labcd/ws;	DW	field	body: 字段引用(ws=DexFieldReference)
+c	abcd/mp	com/aide/engine/EncodedItem	body: 编码成员基类——访问标志 + writeTo(jp,Lt,int,int) + toHuman
+	m	()I	Hw	getAccessFlags	body: 返回 j6(访问标志) 字段
+	m	(Labcd/jp;Labcd/Lt;II)I	j6	writeTo	body: 抽象——把本条目写到 ByteOutput（jp=DexFileWriter 提供各 Section 索引，Lt=ByteOutput，int=上一索引/偏移）⇒ dx 的 writeTo
+	f	I	j6	accessFlags	body: 访问标志——Hw() 返回它
 c	abcd/Ap	com/aide/engine/MethodAnnotations	str: com/aide/engine/MethodAnnotations——方法注解表
 c	abcd/Hp	com/aide/engine/MethodAnnotationsDirectory	str: com/aide/engine/MethodAnnotationsDirectory——方法注解目录
 c	abcd/ln	com/aide/engine/ClassFileReader	str: com/aide/engine/ClassFileReader——class 文件读取
@@ -26687,9 +26713,35 @@ c	abcd/qw	com/crashlytics/android/core/SessionDataStore	str: com/crashlytics/and
 c	abcd/mw	com/aide/engine/ProbeLoader	str: com/aide/engine/ProbeLoader——backbone 测试 probe 加载器
 c	abcd/op	com/aide/engine/FieldAnnotations	str/body: com/aide/engine/FieldAnnotations——字段注解条目
 c	abcd/ap	com/aide/engine/ClassDataItem	str/body: com/aide/engine/ClassDataItem——dex 的 class_data_item
+	m	(Labcd/lp;)V	j6	addInstanceField	body: 加到 gn(instanceFields)，空则抛 "field == null"
+	m	(Labcd/lp;Labcd/ms;)V	j6	addStaticField	body: 加到 Zo(staticFields) 与 VH(staticFieldValues)；已建 staticValues 时抛 "static fields already sorted"
+	m	(Labcd/np;)V	j6	addDirectMethod	body: 加到 u7(directMethods)，空则抛 "method == null"
+	m	(Labcd/np;)V	DW	addVirtualMethod	body: 加到 tp(virtualMethods)，空则抛 "method == null"
+	m	()Labcd/ps;	j3	getStaticValues	body: 返回 EQ(ps=静态值的 encoded_array)；为空时调 U2() 建
+	m	()Labcd/ps;	U2	buildStaticValues	body: 先 sort Zo(staticFields)，再从末尾跳过没有常量值的字段，最后按 ps$a 逐项编码 ⇒ 建 static_values
+	m	()Z	Mr	isEmpty	body: 四个列表(Zo/gn/u7/tp)全空返回 true
+	m	()Ljava/lang/String;	aM	toHuman	body: 返回 toString()
+	m	(Labcd/jp;Labcd/Lt;)V	DW	writeTo0	body: 调试模式调 FH(jp,Lt) 打明细，否则直接输出缓存的 we(byte[])
+	m	(Labcd/jp;Labcd/Lt;)V	FH	writeToDebug	str: 打 " class data for " 与 "static_fields"/"instance_fields"/"direct_methods"/"virtual_methods" 四段 ⇒ 调试用写出
+	f	Labcd/Ks;	v5	definingClass	body: 定义类(Ks=DexType)——" class data for " 后面打的就是它
+	f	Labcd/ps;	EQ	staticValues	body: 静态字段值(ps)——j3() 返回、U2() 建
+	f	Ljava/util/ArrayList;	Zo	staticFields	body: 静态字段表(lp)——对应 "static_fields"
+	f	Ljava/util/ArrayList;	gn	instanceFields	body: 实例字段表(lp)——对应 "instance_fields"
+	f	Ljava/util/ArrayList;	u7	directMethods	body: 直接方法表(np)——对应 "direct_methods"
+	f	Ljava/util/ArrayList;	tp	virtualMethods	body: 虚方法表(np)——对应 "virtual_methods"
+	f	Ljava/util/HashMap;	VH	staticFieldValues	body: HashMap<lp,ms>——静态字段 → 常量值（建 static_values 用）
+	f	[B	we	bytes	body: 已编码好的 class_data_item 字节（非调试写出直接输出它）
 c	abcd/xr	com/aide/engine/DexOverflowChecker	str/body: com/aide/engine/DexOverflowChecker——构建期 dex 溢出检查（multidex 提示）
 c	abcd/Tn	com/aide/engine/ConstantInstruction	str/body: com/aide/engine/ConstantInstruction——带常量引用的指令
 c	abcd/Bn	com/aide/engine/EncodedMember	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field/encoded_method
+	m	()Labcd/Ks;	DW	getDefiningClass	body: 返回定义类字段(Ks=DexType)
+	m	()Labcd/Hs;	FH	getNameAndType	body: 返回名字+描述符对(Hs=DexReference)
+	m	()Labcd/Js;	Hw	getDescriptor	body: 返回 nat.getDescriptor()——描述符串(Js=DexString)
+	m	()I	j6	getAccessFlags	body: 返回访问标志 int 字段
+	f	Labcd/Ks;	j6	definingClass	body: 定义类(Ks=DexType)——DW() 返回它
+	f	I	DW	accessFlags	body: 访问标志——j6() 返回它
+	f	Labcd/Hs;	FH	nameAndType	body: 名字+描述符对(Hs=DexReference)——FH() 返回它
+	f	Labcd/pn;	Hw	attributes	body: 属性表(pn=DexAttributes)——getAttributes() 返回它
 c	abcd/in	com/aide/engine/InstructionDisassembler	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
 c	abcd/Tr	com/aide/engine/Prototype	body: 方法原型——参数类型表(TypeList)+shorty 串+返回类型，构造 (es,hs,bs,cs)
 	m	()Labcd/Ss;	DW	getParameterTypes	body: getParameterTypes——返回 Ss(TypeList)=参数类型表
@@ -26720,11 +26772,27 @@ c	abcd/hu	com/aide/engine/MutabilityControl	str: 可变性守卫——J8()/Ws() 
 	f	Z	j6	mutable	body: mutable——可变标志，构造默认 true；we() 置 false
 c	abcd/iu	com/aide/engine/MutabilityException	hier: 可变性异常——extends Vt(RuntimeException)，只由 hu 抛出
 c	abcd/Ds	com/aide/engine/DexLiteralBits	body: 字面量常量基类（abstract）——J8()/Ws()/lg() 取位
+	m	()Z	J8	fitsInInt	body: 抽象——Bs 返回 true、Cs/As 按值判断 ⇒ 是否装得进 int
+	m	()Z	VH	fitsInShort	body: default 实现——J8() 且 (short)Ws()==Ws() ⇒ 装得进 short
+	m	()Z	we	fitsInByte	body: default 实现——J8() 且 (byte)Ws()==Ws() ⇒ 装得进 byte
+	m	()I	Ws	getIntBits	body: 抽象——取 32 位原始位（Bs 直接返字段）
+	m	()J	lg	getLongBits	body: 抽象——取 64 位原始位（Bs 用 i2l，Cs 直接返字段）
 c	abcd/Bs	com/aide/engine/DexLiteral32	body: 32 位字面量基类——final int 位，比较与取值全 final
 	f	I	j6	bits	body: bits——32 位字面量的原始 int 位
+	m	()Z	J8	fitsInInt	body: 恒 true——本身就是 32 位
+	m	()I	Ws	getIntBits	body: 返回 j6(int 位)
+	m	()J	lg	getLongBits	body: 返回 j6 的 i2l
 c	abcd/Cs	com/aide/engine/DexLiteral64	body: 64 位字面量基类——final long 位，比较与取值全 final
 	f	J	j6	bits	body: bits——64 位字面量的原始 long 位
+	m	()Z	J8	fitsInInt	body: (long)(int)v==v ⇒ 值装得进 int 才 true
+	m	()I	Ws	getIntBits	body: 返回 (int)j6（截断低 32 位）
+	m	()J	lg	getLongBits	body: 直接返回 j6(long 位)
 c	abcd/As	com/aide/engine/DexKnownNull	str: 已知 null 常量——Zo() 返回 "known-null"，私有构造 + 单例
+	m	()Z	J8	fitsInInt	body: 恒 true——null 常量取 0
+	m	()I	Ws	getIntBits	body: 恒 0
+	m	()J	lg	getLongBits	body: 恒 0L
+	m	()Ljava/lang/String;	aM	toHuman	str: 返回 "null"
+	m	()Z	Hw	isCategory2	body: 恒 false
 c	abcd/rs	com/aide/engine/DexBoolean	str: boolean 常量——Zo() 返回 "boolean"
 c	abcd/ss	com/aide/engine/DexByte	str: byte 常量——Zo() 返回 "byte"
 c	abcd/ts	com/aide/engine/DexChar	str: char 常量——Zo() 返回 "char"

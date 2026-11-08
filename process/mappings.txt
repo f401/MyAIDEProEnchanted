@@ -27159,6 +27159,8 @@ abcd/Qs com/aide/engine/TypeConstant
 	g3 initializedType
 	vJ componentType
 	Sf arrayType
+	gW ()Z isIntLike
+	yS ()Z isCategory1
 abcd/Rs com/aide/engine/TypeInfo
 abcd/Ps com/aide/engine/MethodType
 abcd/Kb com/aide/codemodel/api/collections/MapOfIntInt
@@ -27216,6 +27218,10 @@ abcd/Hs com/aide/engine/DexReference
 	aM ()Ljava/lang/String; toHuman
 abcd/Yo com/aide/engine/DexConstants
 abcd/tn com/aide/engine/DexMember
+	DW ()Labcd/Ks; getDefiningClass
+	FH ()Labcd/Hs; getNameAndType
+	Hw ()Labcd/Js; getDescriptor
+	j6 ()I getAccessFlags
 abcd/un com/aide/engine/DexAnnotation
 abcd/pn com/aide/engine/DexAttributes
 abcd/qn com/aide/engine/DexValue
@@ -27234,6 +27240,7 @@ abcd/Ms com/aide/engine/DexBaseType
 abcd/ms com/aide/engine/DexBaseReference
 	Hw ()Z isCategory2
 	Zo ()Ljava/lang/String; getTypeName
+	DW (Labcd/ms;)I compareTo0
 abcd/Am com/aide/engine/NamedAttribute
 abcd/Bm com/aide/engine/IndexedAttribute
 abcd/Xt com/aide/engine/ArrayItem
@@ -28072,8 +28079,10 @@ abcd/Sm com/aide/engine/SsaUpdater
 abcd/Vo com/aide/engine/AnnotationWriter
 abcd/Tp com/aide/engine/MapItemWriter
 abcd/Gp com/aide/engine/DexSection
+	aM ()Ljava/lang/String; toHuman
+	DW (Labcd/jp;Labcd/Lt;)V writeTo0
 	j6 (I)V setWriteSize
-	Ws ()Ljava/lang/String; toHuman
+	Ws ()Ljava/lang/String; getHexOffset
 abcd/Fp com/aide/engine/DexFileWriter
 abcd/Hx com/aide/engine/TryWithResourcesDesugaring
 abcd/Nr com/aide/engine/BasicBlock
@@ -28099,7 +28108,24 @@ abcd/Jp com/aide/engine/ProtoIdSection
 abcd/qp com/aide/engine/FieldIdSection
 abcd/cp com/aide/engine/ClassDefSection
 abcd/Ip com/aide/engine/ProtoIdItem
-abcd/np com/aide/engine/CodeItem
+abcd/np com/aide/engine/EncodedMethod
+	aM ()Ljava/lang/String; toHuman
+	j6 (Labcd/jp;Labcd/Lt;II)I writeTo
+	j6 (Labcd/np;)I compareTo0
+	j6 (Labcd/jp;)V place
+	DW method
+	FH codeAttribute
+abcd/lp com/aide/engine/EncodedField
+	Zo ()Labcd/ws; getField
+	aM ()Ljava/lang/String; toHuman
+	j6 (Labcd/jp;Labcd/Lt;II)I writeTo
+	j6 (Labcd/lp;)I compareTo0
+	j6 (Labcd/jp;)V place
+	DW field
+abcd/mp com/aide/engine/EncodedItem
+	Hw ()I getAccessFlags
+	j6 (Labcd/jp;Labcd/Lt;II)I writeTo
+	j6 accessFlags
 abcd/Ap com/aide/engine/MethodAnnotations
 abcd/Hp com/aide/engine/MethodAnnotationsDirectory
 abcd/ln com/aide/engine/ClassFileReader
@@ -28113,9 +28139,35 @@ abcd/qw com/crashlytics/android/core/SessionDataStore
 abcd/mw com/aide/engine/ProbeLoader
 abcd/op com/aide/engine/FieldAnnotations
 abcd/ap com/aide/engine/ClassDataItem
+	j6 (Labcd/lp;)V addInstanceField
+	j6 (Labcd/lp;Labcd/ms;)V addStaticField
+	j6 (Labcd/np;)V addDirectMethod
+	DW (Labcd/np;)V addVirtualMethod
+	j3 ()Labcd/ps; getStaticValues
+	U2 ()Labcd/ps; buildStaticValues
+	Mr ()Z isEmpty
+	aM ()Ljava/lang/String; toHuman
+	DW (Labcd/jp;Labcd/Lt;)V writeTo0
+	FH (Labcd/jp;Labcd/Lt;)V writeToDebug
+	v5 definingClass
+	EQ staticValues
+	Zo staticFields
+	gn instanceFields
+	u7 directMethods
+	tp virtualMethods
+	VH staticFieldValues
+	we bytes
 abcd/xr com/aide/engine/DexOverflowChecker
 abcd/Tn com/aide/engine/ConstantInstruction
 abcd/Bn com/aide/engine/EncodedMember
+	DW ()Labcd/Ks; getDefiningClass
+	FH ()Labcd/Hs; getNameAndType
+	Hw ()Labcd/Js; getDescriptor
+	j6 ()I getAccessFlags
+	j6 definingClass
+	DW accessFlags
+	FH nameAndType
+	Hw attributes
 abcd/in com/aide/engine/InstructionDisassembler
 abcd/Tr com/aide/engine/Prototype
 	DW ()Labcd/Ss; getParameterTypes
@@ -28147,11 +28199,27 @@ abcd/hu com/aide/engine/MutabilityControl
 	j6 mutable
 abcd/iu com/aide/engine/MutabilityException
 abcd/Ds com/aide/engine/DexLiteralBits
+	J8 ()Z fitsInInt
+	VH ()Z fitsInShort
+	we ()Z fitsInByte
+	Ws ()I getIntBits
+	lg ()J getLongBits
 abcd/Bs com/aide/engine/DexLiteral32
 	j6 bits
+	J8 ()Z fitsInInt
+	Ws ()I getIntBits
+	lg ()J getLongBits
 abcd/Cs com/aide/engine/DexLiteral64
 	j6 bits
+	J8 ()Z fitsInInt
+	Ws ()I getIntBits
+	lg ()J getLongBits
 abcd/As com/aide/engine/DexKnownNull
+	J8 ()Z fitsInInt
+	Ws ()I getIntBits
+	lg ()J getLongBits
+	aM ()Ljava/lang/String; toHuman
+	Hw ()Z isCategory2
 abcd/rs com/aide/engine/DexBoolean
 abcd/ss com/aide/engine/DexByte
 abcd/ts com/aide/engine/DexChar

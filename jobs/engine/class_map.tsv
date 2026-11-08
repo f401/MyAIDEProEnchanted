@@ -342,7 +342,9 @@ Jp	com/aide/engine/ProtoIdSection	str:"proto_ids_size:  " / "proto_ids_off:   " 
 qp	com/aide/engine/FieldIdSection	str:"field_ids_size:  " / "field_ids_off:   " / "not found" / "field == null" ⇒ dex 的 field_ids 段
 cp	com/aide/engine/ClassDefSection	str:"class_defs_size: " / "class_defs_off:  " / "class circularity with " / "already added: " ⇒ dex 的 class_defs 段
 Ip	com/aide/engine/ProtoIdItem	str:"  shorty_idx:      " / "  return_type_idx: " / "  parameters_off:  " ⇒ proto_ids 的一个条目
-np	com/aide/engine/CodeItem	str:"    method_idx:   " / "    access_flags: " / "    code_off:     " ⇒ dex 的 code_item（方法字节码载体）
+np	com/aide/engine/EncodedMethod	str:"    method_idx:   " / "    access_flags: " / "    code_off:     "（正是 encoded_method 的三个字段）+ 写出时取 MethodIdSection 的 idx 差、access_flags(0x500 判断)、code_off ⇒ dex 的 encoded_method（旧名 CodeItem 是误判：code_item 的字段是 registers/ins/outs/tries/debug_info）
+lp	com/aide/engine/EncodedField	str:"    field_idx:" / "    access_flags:"；写时取 qp(FieldIdSection) 的 idx 差 + access_flags；被 ap(ClassDataItem) 当静态/实例字段元素 ⇒ dex 的 encoded_field
+mp	com/aide/engine/EncodedItem	body:abstract implements lu；字段 int(访问标志)+ final Hw()I 取它；抽象 j6(jp,Lt,int,int)I 是 writeTo（lp/np 各自实现）⇒ 编码成员条目的公共基类（访问标志 + 写出 + toHuman）
 Ap	com/aide/engine/MethodAnnotations	str:"      method_idx:      " / "      annotations_off: " / "annotations == null" ⇒ 方法注解表
 Hp	com/aide/engine/MethodAnnotationsDirectory	str:"      method_idx:      " / "      annotations_off: " / "annotationsList == null" ⇒ 方法注解目录
 ln	com/aide/engine/ClassFileReader	str:"s_count: " / "access_flags: " / "attributeFactory == null" / "cf == null" ⇒ class 文件读取
