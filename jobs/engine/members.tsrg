@@ -160,6 +160,16 @@ abcd/Lr com/aide/engine/NamedReference
 abcd/ns com/aide/engine/ReferenceArray
 abcd/Rn com/aide/engine/Model
 abcd/ab com/aide/codemodel/api/callback/CodeCompleterCallback
+	j6 ()V listStarted
+	j6 (Labcd/Aa;Labcd/Ya;Z)V listElementEntityFound
+	j6 (Labcd/Aa;Ljava/lang/String;)V aM
+	j6 (Labcd/Aa;Z)V listElementEntityFound
+	j6 (Labcd/Da;)V QX
+	j6 (Labcd/Da;II[I[I)V parameterListFound
+	j6 (Labcd/Da;Labcd/na;IIIZZ)V J8
+	j6 (Labcd/Ya;)V Hw
+	j6 (Labcd/Za;)V listElementVariableFound
+	j6 (Ljava/util/List;)V v5
 abcd/Wa com/aide/codemodel/api/SyntaxTreeStyles
 abcd/em com/aide/engine/IntervalList
 abcd/Sl com/aide/engine/RingBuffer
@@ -175,17 +185,50 @@ abcd/Vr com/aide/engine/ReferencePair
 abcd/ku com/aide/engine/ByteOutput
 abcd/Os com/aide/engine/MemberSignature
 abcd/fb com/aide/codemodel/api/BomReaderFactory
+	j6 (Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/Reader; createBomReader
 abcd/gb com/aide/codemodel/api/callback/OpenFileCallback
+	DW (Labcd/Da;)Z isOpenFile
+	FH (Labcd/Da;)Ljava/io/Reader; getOpenFileReader
+	j6 ()V update
 abcd/ib com/aide/codemodel/api/callback/StopCallback
 abcd/_a com/aide/codemodel/api/callback/APISearcherCallback
+	j6 (Labcd/Aa;)V DW
+	j6 (Ljava/lang/String;)V FH
 abcd/bb com/aide/codemodel/api/callback/CodeMetricsCallback
+	j6 ()V DW
+	j6 (JIIIIII)V j6
 abcd/cb com/aide/codemodel/api/callback/DebugMetadataCallback
+	j6 (Ljava/lang/Class;Ljava/lang/Class;)V Zo
+	j6 (Ljava/lang/Object;)V FH
+	j6 (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V VH
+	j6 (ZZLjava/lang/String;Ljava/lang/String;)V DW
 abcd/db com/aide/codemodel/api/callback/HighlighterCallback
+	j6 (Labcd/Da;)V fileFinished
+	j6 (Labcd/Da;I)V unifedLineFound
+	j6 (Labcd/na;Labcd/Wa;)V addSyntaxTreeStyles
 abcd/eb com/aide/engine/ErrorReporter
 abcd/hb com/aide/codemodel/api/callback/RefactoringCallback
+	j6 (Labcd/Da;III)V gW
+	j6 (Labcd/Da;IILjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V ei
+	j6 (Labcd/Da;Labcd/Da;)V lg
+	j6 (Labcd/na;Ljava/util/Set;)V EQ
+	j6 (Ljava/lang/String;Ljava/lang/String;)V FH
+	j6 (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;III)V j6
+	j6 (Ljava/lang/String;Ljava/util/Hashtable;)V v5
 abcd/ob com/aide/codemodel/api/callback/UsageSearcherCallback
+	j6 (Labcd/Da;IIII)V j6
+	j6 (Ljava/lang/String;)V FH
 abcd/jb com/aide/codemodel/api/callback/StructureCallback
+	j6 ()V Zo
+	j6 (Labcd/Aa;IIIIIII)V v5
+	j6 (Labcd/Aa;IIIIIIII)V Hw
+	j6 (Labcd/Da;I)V FH
+	j6 (Labcd/na;I)V j6
+	j6 (Ljava/lang/String;ZIIIIIIII)V DW
 abcd/kb com/aide/codemodel/api/callback/SymbolSearcherCallback
+	j6 (Labcd/Aa;)V DW
+	j6 (Labcd/Da;)V gn
+	j6 (Ljava/lang/String;)V VH
 abcd/Pk com/aide/licensing/OuyaKeyProvider
 abcd/Qg com/aide/ui/actions/OpenAndroidJarAction
 abcd/wb com/aide/engine/IntObjectMap
@@ -296,3 +339,7 @@ abcd/Na com/aide/codemodel/api/Namespace
 abcd/Va com/aide/codemodel/api/SyntaxTreeSpace
 abcd/Jl com/aide/ui/command/FileBrowserCommand
 abcd/Sj com/aide/ui/services/EngineNotifyService
+abcd/nb com/aide/codemodel/api/callback/TemplateEvaluatorCallback
+	j6 (Labcd/Aa;)V DW
+	j6 (Labcd/Za;)V v5
+	j6 (Ljava/lang/String;)V Hw

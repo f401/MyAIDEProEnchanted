@@ -248,3 +248,4 @@ c	abcd/Na	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Namespace——命名
 c	abcd/Va	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/SyntaxTreeSpace——语法树空间
 c	abcd/Jl	-	-	body: AIDE+ 2.3.5 的 com/aide/ui/command/FileBrowserCommand——文件浏览器命令接口（图标/标题资源 + isVisible + run）
 c	abcd/Sj	-	-	body: AIDE+ 2.3.5 的 com/aide/ui/services/EngineNotifyService——引擎状态通知服务（实现 ErrorService.ErrorListener 与 BuildService.BuildListener）
+c	abcd/nb	-	-	shape: AIDE+ 2.3.5 的 TemplateEvaluatorCallback（5:5 全等）——模板求值；实现者 c$b$o 把 Entity/Variable/名字都包成 SourceEntity

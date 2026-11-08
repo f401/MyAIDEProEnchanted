@@ -25262,6 +25262,16 @@ c	abcd/Lr	com/aide/engine/NamedReference	auto: 类：NamedReference（上游未�
 c	abcd/ns	com/aide/engine/ReferenceArray	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rn	com/aide/engine/Model	auto: 类：Model（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ab	com/aide/codemodel/api/callback/CodeCompleterCallback	shape: AIDE+ 2.3.5 的 CodeCompleterCallback（22:22 方法全等，含 parameterListFound 签名）——补全回调；实现者 c$b$b 收 SourceEntity 列表
+	m	()V	j6	listStarted
+	m	(Labcd/Aa;Labcd/Ya;Z)V	j6	listElementEntityFound
+	m	(Labcd/Aa;Ljava/lang/String;)V	j6	aM
+	m	(Labcd/Aa;Z)V	j6	listElementEntityFound
+	m	(Labcd/Da;)V	j6	QX
+	m	(Labcd/Da;II[I[I)V	j6	parameterListFound
+	m	(Labcd/Da;Labcd/na;IIIZZ)V	j6	J8
+	m	(Labcd/Ya;)V	j6	Hw
+	m	(Labcd/Za;)V	j6	listElementVariableFound
+	m	(Ljava/util/List;)V	j6	v5
 c	abcd/Wa	com/aide/codemodel/api/SyntaxTreeStyles	shape: AIDE+ 2.3.5 的 SyntaxTreeStyles——HighlighterCallback.addSyntaxTreeStyles(Language,SyntaxTreeStyles) ↔ db.j6(na,Wa)
 c	abcd/em	com/aide/engine/IntervalList	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sl	com/aide/engine/RingBuffer	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）
@@ -25277,17 +25287,50 @@ c	abcd/Vr	com/aide/engine/ReferencePair	auto: 类：ReferencePair（上游未收
 c	abcd/ku	com/aide/engine/ByteOutput	auto: 类：ByteOutput（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Os	com/aide/engine/MemberSignature	auto: 类：MemberSignature（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/fb	com/aide/codemodel/api/BomReaderFactory	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/BomReaderFactory（1:1）——createBomReader(InputStream,String)Reader
+	m	(Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/Reader;	j6	createBomReader
 c	abcd/gb	com/aide/codemodel/api/callback/OpenFileCallback	shape: AIDE+ 2.3.5 的 OpenFileCallback（5:5 逐条全等）——已打开文件的内容/长度/版本 + update()；实现者 c$b$h
+	m	(Labcd/Da;)Z	DW	isOpenFile
+	m	(Labcd/Da;)Ljava/io/Reader;	FH	getOpenFileReader
+	m	()V	j6	update
 c	abcd/ib	com/aide/codemodel/api/callback/StopCallback	shape: AIDE+ 2.3.5 的 StopCallback（8:8 个 ()Z 全等）——是否停止/启用；实现者 c$b$j
 c	abcd/_a	com/aide/codemodel/api/callback/APISearcherCallback	shape: AIDE+ 2.3.5 的 APISearcherCallback（4:4 方法全等）——开表/收 Entity/记名字/收尾；实现者 c$b$a
+	m	(Labcd/Aa;)V	j6	DW
+	m	(Ljava/lang/String;)V	j6	FH
 c	abcd/bb	com/aide/codemodel/api/callback/CodeMetricsCallback	shape: AIDE+ 2.3.5 的 CodeMetricsCallback（4:4 方法全等）——代码度量上报；实现者 c$b$c 转给 com/aide/engine/F，调用者 abcd/K
+	m	()V	j6	DW
+	m	(JIIIIII)V	j6	j6
 c	abcd/cb	com/aide/codemodel/api/callback/DebugMetadataCallback	shape: AIDE+ 2.3.5 的 DebugMetadataCallback（9:9 方法全等，含 Zo(Class,Class)/VH(boolean,String,String,String,int)）——调试元数据；实现者 c$b$d
+	m	(Ljava/lang/Class;Ljava/lang/Class;)V	j6	Zo
+	m	(Ljava/lang/Object;)V	j6	FH
+	m	(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V	j6	VH
+	m	(ZZLjava/lang/String;Ljava/lang/String;)V	j6	DW
 c	abcd/db	com/aide/codemodel/api/callback/HighlighterCallback	shape: AIDE+ 2.3.5 的 HighlighterCallback（10:11，少 releaseSyntaxTree）——语法高亮；实现者 c$b$e 持 m[]+4×int[]
+	m	(Labcd/Da;)V	j6	fileFinished
+	m	(Labcd/Da;I)V	j6	unifedLineFound
+	m	(Labcd/na;Labcd/Wa;)V	j6	addSyntaxTreeStyles
 c	abcd/eb	com/aide/engine/ErrorReporter	iface: 分析期错误上报——唯一方法 j6(Da,String)，c$b$f 取 Da.XL() 后转给 p.j6(路径,消息)；调用者 abcd/ee
 c	abcd/hb	com/aide/codemodel/api/callback/RefactoringCallback	shape: AIDE+ 2.3.5 的 RefactoringCallback（48:48 全等，命中 513）——重构编辑动作；实现者 c$b$i 造 Modification 后转 J
+	m	(Labcd/Da;III)V	j6	gW
+	m	(Labcd/Da;IILjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V	j6	ei
+	m	(Labcd/Da;Labcd/Da;)V	j6	lg
+	m	(Labcd/na;Ljava/util/Set;)V	j6	EQ
+	m	(Ljava/lang/String;Ljava/lang/String;)V	j6	FH
+	m	(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;III)V	j6	j6
+	m	(Ljava/lang/String;Ljava/util/Hashtable;)V	j6	v5
 c	abcd/ob	com/aide/codemodel/api/callback/UsageSearcherCallback	shape: AIDE+ 2.3.5 的 UsageSearcherCallback（4:4 全等）——用法搜索；实现者 c$b$p 累积后调 Q.j6(List<FindResult>)
+	m	(Labcd/Da;IIII)V	j6	j6
+	m	(Ljava/lang/String;)V	j6	FH
 c	abcd/jb	com/aide/codemodel/api/callback/StructureCallback	shape: AIDE+ 2.3.5 的 StructureCallback（6:6 逐条全等）——结构化大纲，实体带子表；实现者 c$b$k
+	m	()V	j6	Zo
+	m	(Labcd/Aa;IIIIIII)V	j6	v5
+	m	(Labcd/Aa;IIIIIIII)V	j6	Hw
+	m	(Labcd/Da;I)V	j6	FH
+	m	(Labcd/na;I)V	j6	j6
+	m	(Ljava/lang/String;ZIIIIIIII)V	j6	DW
 c	abcd/kb	com/aide/codemodel/api/callback/SymbolSearcherCallback	shape: AIDE+ 2.3.5 的 SymbolSearcherCallback（7:7 全等）——符号搜索；实现者 c$b$l 持"组名+ArrayList<SourceEntity>"
+	m	(Labcd/Aa;)V	j6	DW
+	m	(Labcd/Da;)V	j6	gn
+	m	(Ljava/lang/String;)V	j6	VH
 c	abcd/Pk	com/aide/licensing/OuyaKeyProvider	body: OUYA 内购校验用的 RSA 公钥持有者——串 "RSA"/"Unable to read OUYA encryption key"，被 abcd/Ok(OUYA 校验) 与 LicensingManager 使用
 c	abcd/Qg	com/aide/ui/actions/OpenAndroidJarAction	body: 打开 android.jar 的菜单动作——isEnabled 判断路径 basename 是 android.jar，run 经 Zk.gW 打开文件；串资源 0x7f0800b3
 c	abcd/wb	com/aide/engine/IntObjectMap	body: 以 int 为键、对象为值的开放寻址哈希表——字段/内部遍历器与 Kb(IntIntMap) 同构，唯一使用者是 FileContentCache
@@ -25398,6 +25441,10 @@ c	abcd/Na	com/aide/codemodel/api/Namespace	body: AIDE+ 2.3.5 的 com/aide/codemo
 c	abcd/Va	com/aide/codemodel/api/SyntaxTreeSpace	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/SyntaxTreeSpace——语法树空间
 c	abcd/Jl	com/aide/ui/command/FileBrowserCommand	body: AIDE+ 2.3.5 的 com/aide/ui/command/FileBrowserCommand——文件浏览器命令接口（图标/标题资源 + isVisible + run）
 c	abcd/Sj	com/aide/ui/services/EngineNotifyService	body: AIDE+ 2.3.5 的 com/aide/ui/services/EngineNotifyService——引擎状态通知服务（实现 ErrorService.ErrorListener 与 BuildService.BuildListener）
+c	abcd/nb	com/aide/codemodel/api/callback/TemplateEvaluatorCallback	shape: AIDE+ 2.3.5 的 TemplateEvaluatorCallback（5:5 全等）——模板求值；实现者 c$b$o 把 Entity/Variable/名字都包成 SourceEntity
+	m	(Labcd/Aa;)V	j6	DW
+	m	(Labcd/Za;)V	j6	v5
+	m	(Ljava/lang/String;)V	j6	Hw
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
@@ -53717,19 +53764,65 @@ c	com/aide/engine/p	com/aide/engine/ErrorListener	iface: 分析期错误输出�
 c	com/aide/engine/o	com/aide/engine/HighlightingGrid	body: 高亮网格——byte[][] 按行列存 HighlightingKind 序号，矩形填充/取值/左移删格；写入者编辑器文本变更回调和 DiffView，读取者 CodeEditText
 c	com/aide/engine/c$b	com/aide/engine/Engine$DaemonTask	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask——引擎的分析守护任务（Runnable，33 方法），持有 16 个回调适配器
 c	com/aide/engine/c$b$a	com/aide/engine/Engine$DaemonTask$APISearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$APISearcherCallback——APISearcher 回调适配（→ Engine 的补全/符号接口）
+	m	(Labcd/Aa;)V	j6	DW
+	m	(Ljava/lang/String;)V	j6	FH
 c	com/aide/engine/c$b$b	com/aide/engine/Engine$DaemonTask$CodeCompleterCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$CodeCompleterCallback——补全回调适配（收 SourceEntity 列表）
+	m	()V	j6	listStarted
+	m	(Labcd/Aa;Labcd/Ya;Z)V	j6	listElementEntityFound
+	m	(Labcd/Aa;Ljava/lang/String;)V	j6	aM
+	m	(Labcd/Aa;Z)V	j6	listElementEntityFound
+	m	(Labcd/Da;)V	j6	QX
+	m	(Labcd/Da;II[I[I)V	j6	parameterListFound
+	m	(Labcd/Da;Labcd/na;IIIZZ)V	j6	J8
+	m	(Labcd/Ya;)V	j6	Hw
+	m	(Labcd/Za;)V	j6	listElementVariableFound
+	m	(Ljava/util/List;)V	j6	v5
 c	com/aide/engine/c$b$c	com/aide/engine/Engine$DaemonTask$CodeMetricsCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$CodeMetricsCallback——代码度量回调适配
+	m	()V	j6	DW
+	m	(JIIIIII)V	j6	j6
 c	com/aide/engine/c$b$d	com/aide/engine/Engine$DaemonTask$DebugMetadataCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$DebugMetadataCallback——调试元数据回调适配
+	m	(Ljava/lang/Class;Ljava/lang/Class;)V	j6	Zo
+	m	(Ljava/lang/Object;)V	j6	FH
+	m	(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V	j6	VH
+	m	(ZZLjava/lang/String;Ljava/lang/String;)V	j6	DW
 c	com/aide/engine/c$b$e	com/aide/engine/Engine$DaemonTask$HighlighterCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$HighlighterCallback——语法高亮回调适配
+	m	(Labcd/Da;)V	j6	fileFinished
+	m	(Labcd/Da;I)V	j6	unifedLineFound
+	m	(Labcd/na;Labcd/Wa;)V	j6	addSyntaxTreeStyles
 c	com/aide/engine/c$b$f	com/aide/engine/Engine$DaemonTask$f	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$f——错误上报适配（abcd/eb，≡AIDE+ 的 q2）
 c	com/aide/engine/c$b$g	com/aide/engine/Engine$DaemonTask$BomReaderFactory	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$BomReaderFactory——BOM/编码 Reader 工厂适配
+	m	(Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/Reader;	j6	createBomReader
 c	com/aide/engine/c$b$h	com/aide/engine/Engine$DaemonTask$OpenFileCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$OpenFileCallback——已打开文件内容/版本适配
+	m	(Labcd/Da;)Z	DW	isOpenFile
+	m	(Labcd/Da;)Ljava/io/Reader;	FH	getOpenFileReader
+	m	()V	j6	update
 c	com/aide/engine/c$b$i	com/aide/engine/Engine$DaemonTask$RefactoringCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$RefactoringCallback——重构编辑动作适配（造 Modification 转 J）
+	m	(Labcd/Da;III)V	j6	gW
+	m	(Labcd/Da;IILjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V	j6	ei
+	m	(Labcd/Da;Labcd/Da;)V	j6	lg
+	m	(Labcd/na;Ljava/util/Set;)V	j6	EQ
+	m	(Ljava/lang/String;Ljava/lang/String;)V	j6	FH
+	m	(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;III)V	j6	j6
+	m	(Ljava/lang/String;Ljava/util/Hashtable;)V	j6	v5
 c	com/aide/engine/c$b$j	com/aide/engine/Engine$DaemonTask$StopCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$StopCallback——停止/启用开关适配
 c	com/aide/engine/c$b$k	com/aide/engine/Engine$DaemonTask$StructureCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$StructureCallback——结构化大纲适配
+	m	()V	j6	Zo
+	m	(Labcd/Aa;IIIIIII)V	j6	v5
+	m	(Labcd/Aa;IIIIIIII)V	j6	Hw
+	m	(Labcd/Da;I)V	j6	FH
+	m	(Labcd/na;I)V	j6	j6
+	m	(Ljava/lang/String;ZIIIIIIII)V	j6	DW
 c	com/aide/engine/c$b$l	com/aide/engine/Engine$DaemonTask$SymbolSearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$SymbolSearcherCallback——符号搜索适配（组名+候选表）
+	m	(Labcd/Aa;)V	j6	DW
+	m	(Labcd/Da;)V	j6	gn
+	m	(Ljava/lang/String;)V	j6	VH
 c	com/aide/engine/c$b$m	com/aide/engine/Engine$DaemonTask$m	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$m——空标记适配（≡AIDE+ 的 x2，0 方法）
 c	com/aide/engine/c$b$n	com/aide/engine/Engine$DaemonTask$n	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$n——位置/区间上报适配（≡AIDE+ 的 y2）
 c	com/aide/engine/c$b$o	com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback——模板求值适配
+	m	(Labcd/Aa;)V	j6	DW
+	m	(Labcd/Za;)V	j6	v5
+	m	(Ljava/lang/String;)V	j6	Hw
 c	com/aide/engine/c$b$p	com/aide/engine/Engine$DaemonTask$UsageSearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$UsageSearcherCallback——用法搜索适配
+	m	(Labcd/Da;IIII)V	j6	j6
+	m	(Ljava/lang/String;)V	j6	FH
 c	com/aide/engine/service/x	com/aide/engine/service/CodeModelFactory	shape: AIDE+ 2.3.5 的 com/aide/engine/service/CodeModelFactory——CodeModelFactory

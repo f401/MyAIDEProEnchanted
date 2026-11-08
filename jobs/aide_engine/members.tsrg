@@ -91,19 +91,65 @@ com/aide/engine/p com/aide/engine/ErrorListener
 com/aide/engine/o com/aide/engine/HighlightingGrid
 com/aide/engine/c$b com/aide/engine/Engine$DaemonTask
 com/aide/engine/c$b$a com/aide/engine/Engine$DaemonTask$APISearcherCallback
+	j6 (Labcd/Aa;)V DW
+	j6 (Ljava/lang/String;)V FH
 com/aide/engine/c$b$b com/aide/engine/Engine$DaemonTask$CodeCompleterCallback
+	j6 ()V listStarted
+	j6 (Labcd/Aa;Labcd/Ya;Z)V listElementEntityFound
+	j6 (Labcd/Aa;Ljava/lang/String;)V aM
+	j6 (Labcd/Aa;Z)V listElementEntityFound
+	j6 (Labcd/Da;)V QX
+	j6 (Labcd/Da;II[I[I)V parameterListFound
+	j6 (Labcd/Da;Labcd/na;IIIZZ)V J8
+	j6 (Labcd/Ya;)V Hw
+	j6 (Labcd/Za;)V listElementVariableFound
+	j6 (Ljava/util/List;)V v5
 com/aide/engine/c$b$c com/aide/engine/Engine$DaemonTask$CodeMetricsCallback
+	j6 ()V DW
+	j6 (JIIIIII)V j6
 com/aide/engine/c$b$d com/aide/engine/Engine$DaemonTask$DebugMetadataCallback
+	j6 (Ljava/lang/Class;Ljava/lang/Class;)V Zo
+	j6 (Ljava/lang/Object;)V FH
+	j6 (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V VH
+	j6 (ZZLjava/lang/String;Ljava/lang/String;)V DW
 com/aide/engine/c$b$e com/aide/engine/Engine$DaemonTask$HighlighterCallback
+	j6 (Labcd/Da;)V fileFinished
+	j6 (Labcd/Da;I)V unifedLineFound
+	j6 (Labcd/na;Labcd/Wa;)V addSyntaxTreeStyles
 com/aide/engine/c$b$f com/aide/engine/Engine$DaemonTask$f
 com/aide/engine/c$b$g com/aide/engine/Engine$DaemonTask$BomReaderFactory
+	j6 (Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/Reader; createBomReader
 com/aide/engine/c$b$h com/aide/engine/Engine$DaemonTask$OpenFileCallback
+	DW (Labcd/Da;)Z isOpenFile
+	FH (Labcd/Da;)Ljava/io/Reader; getOpenFileReader
+	j6 ()V update
 com/aide/engine/c$b$i com/aide/engine/Engine$DaemonTask$RefactoringCallback
+	j6 (Labcd/Da;III)V gW
+	j6 (Labcd/Da;IILjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V ei
+	j6 (Labcd/Da;Labcd/Da;)V lg
+	j6 (Labcd/na;Ljava/util/Set;)V EQ
+	j6 (Ljava/lang/String;Ljava/lang/String;)V FH
+	j6 (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;III)V j6
+	j6 (Ljava/lang/String;Ljava/util/Hashtable;)V v5
 com/aide/engine/c$b$j com/aide/engine/Engine$DaemonTask$StopCallback
 com/aide/engine/c$b$k com/aide/engine/Engine$DaemonTask$StructureCallback
+	j6 ()V Zo
+	j6 (Labcd/Aa;IIIIIII)V v5
+	j6 (Labcd/Aa;IIIIIIII)V Hw
+	j6 (Labcd/Da;I)V FH
+	j6 (Labcd/na;I)V j6
+	j6 (Ljava/lang/String;ZIIIIIIII)V DW
 com/aide/engine/c$b$l com/aide/engine/Engine$DaemonTask$SymbolSearcherCallback
+	j6 (Labcd/Aa;)V DW
+	j6 (Labcd/Da;)V gn
+	j6 (Ljava/lang/String;)V VH
 com/aide/engine/c$b$m com/aide/engine/Engine$DaemonTask$m
 com/aide/engine/c$b$n com/aide/engine/Engine$DaemonTask$n
 com/aide/engine/c$b$o com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback
+	j6 (Labcd/Aa;)V DW
+	j6 (Labcd/Za;)V v5
+	j6 (Ljava/lang/String;)V Hw
 com/aide/engine/c$b$p com/aide/engine/Engine$DaemonTask$UsageSearcherCallback
+	j6 (Labcd/Da;IIII)V j6
+	j6 (Ljava/lang/String;)V FH
 com/aide/engine/service/x com/aide/engine/service/CodeModelFactory
