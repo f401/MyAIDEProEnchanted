@@ -25275,6 +25275,8 @@ c	abcd/hb	com/aide/engine/RefactoringSink	iface: 重构编辑动作接收端(38 
 c	abcd/ob	com/aide/engine/UsageSearchSink	iface: 用法搜索收集端——j6(Da,I×4) 报一处命中，c$b$p 累积后重读该行文本，最后调 Q.j6(List<FindResult>)/br()/DW()；调用者 abcd/fa(解析器)
 c	abcd/jb	com/aide/engine/SourceEntityTreeBuilder	iface: 实体表构建(带父子层次)——j6(Aa,I×8) 把表尾 N 个收进新实体的子表；j6(Da,I) 按(路径,版本)整表发 M.j6(路径,版本,表)；实现者 c$b$k，调用者 abcd/X
 c	abcd/kb	com/aide/engine/SymbolGroupReporter	iface: 按组名上报符号——DW/Hw/FH/v5 四个口全落到 r=IGotoSymbolListener；实现者 c$b$l 持"组名+ArrayList<SourceEntity>"，调用者 abcd/Y
+c	abcd/Pk	com/aide/licensing/OuyaKeyProvider	body: OUYA 内购校验用的 RSA 公钥持有者——串 "RSA"/"Unable to read OUYA encryption key"，被 abcd/Ok(OUYA 校验) 与 LicensingManager 使用
+c	abcd/Qg	com/aide/ui/actions/OpenAndroidJarAction	body: 打开 android.jar 的菜单动作——isEnabled 判断路径 basename 是 android.jar，run 经 Zk.gW 打开文件；串资源 0x7f0800b3
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
@@ -53591,3 +53593,4 @@ c	com/aide/engine/F	com/aide/engine/SourceMetricsListener	iface: 度量数据回
 c	com/aide/engine/K	com/aide/engine/SourceMetricsAnalyzer	body: 源码行统计 + 折叠区间分析——遍历工程文件逐行统计(行长/空行/注释/代码/最大行宽)，非行首处向 IntervalList 记折叠点，结果经 abcd/bb 上报
 c	com/aide/engine/K$a	com/aide/engine/SourceMetricsAnalyzer$Metrics	body: 统计节点——9 个计数(int×8 + long×1)，j6(K$a) 逐项相加合并；外层 SourceMetricsAnalyzer
 c	com/aide/engine/p	com/aide/engine/ErrorListener	iface: 分析期错误输出——唯一方法 j6(路径,消息)，Engine 字段 Ev 持有，调用链 abcd/eb(ErrorReporter) ← abcd/ee(HTML/JS 属性检查)
+c	com/aide/engine/o	com/aide/engine/HighlightingGrid	body: 高亮网格——byte[][] 按行列存 HighlightingKind 序号，矩形填充/取值/左移删格；写入者编辑器文本变更回调和 DiffView，读取者 CodeEditText

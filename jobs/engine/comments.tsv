@@ -174,3 +174,5 @@ c	abcd/hb	-	-	iface: 重构编辑动作接收端(38 个方法)——c$b$i 造 Mo
 c	abcd/ob	-	-	iface: 用法搜索收集端——j6(Da,I×4) 报一处命中，c$b$p 累积后重读该行文本，最后调 Q.j6(List<FindResult>)/br()/DW()；调用者 abcd/fa(解析器)
 c	abcd/jb	-	-	iface: 实体表构建(带父子层次)——j6(Aa,I×8) 把表尾 N 个收进新实体的子表；j6(Da,I) 按(路径,版本)整表发 M.j6(路径,版本,表)；实现者 c$b$k，调用者 abcd/X
 c	abcd/kb	-	-	iface: 按组名上报符号——DW/Hw/FH/v5 四个口全落到 r=IGotoSymbolListener；实现者 c$b$l 持"组名+ArrayList<SourceEntity>"，调用者 abcd/Y
+c	abcd/Pk	-	-	body: OUYA 内购校验用的 RSA 公钥持有者——串 "RSA"/"Unable to read OUYA encryption key"，被 abcd/Ok(OUYA 校验) 与 LicensingManager 使用
+c	abcd/Qg	-	-	body: 打开 android.jar 的菜单动作——isEnabled 判断路径 basename 是 android.jar，run 经 Zk.gW 打开文件；串资源 0x7f0800b3

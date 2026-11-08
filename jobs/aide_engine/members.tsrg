@@ -88,3 +88,4 @@ com/aide/engine/F com/aide/engine/SourceMetricsListener
 com/aide/engine/K com/aide/engine/SourceMetricsAnalyzer
 com/aide/engine/K$a com/aide/engine/SourceMetricsAnalyzer$Metrics
 com/aide/engine/p com/aide/engine/ErrorListener
+com/aide/engine/o com/aide/engine/HighlightingGrid
