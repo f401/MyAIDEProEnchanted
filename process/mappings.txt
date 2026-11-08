@@ -27887,6 +27887,14 @@ abcd/Xh com/aide/ui/CreateKeystoreCallback
 abcd/Nj com/aide/ui/NdkInstalledDialog
 abcd/Oh com/aide/ui/DownloadErrorDialog
 abcd/Nv com/aide/ui/RuntimeErrorHandler
+abcd/Cj com/aide/ui/OfflineDocsInstalledDialog
+abcd/Fv com/aide/ui/RuntimeErrorDialog
+abcd/iq com/aide/engine/DexFileReader
+abcd/xd com/aide/engine/MethodInliner
+abcd/mx com/aide/engine/NamedThreadFactory
+abcd/gd com/aide/engine/JavadocGenerator
+abcd/hr com/aide/engine/TableOfContents
+abcd/ay com/aide/engine/TaskUtils
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

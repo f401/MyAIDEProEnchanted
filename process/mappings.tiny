@@ -26465,6 +26465,14 @@ c	abcd/Xh	com/aide/ui/CreateKeystoreCallback	str/body: com/aide/ui/CreateKeystor
 c	abcd/Nj	com/aide/ui/NdkInstalledDialog	str/body: com/aide/ui/NdkInstalledDialog——NDK 已集成提示框（Runnable 里弹 AlertDialog）
 c	abcd/Oh	com/aide/ui/DownloadErrorDialog	str/body: com/aide/ui/DownloadErrorDialog——下载错误对话框（列表 + 文案，按语言二选一）
 c	abcd/Nv	com/aide/ui/RuntimeErrorHandler	str: 未捕获异常处理器——Thread.UncaughtExceptionHandler，弹 "Runtime Error"
+c	abcd/Cj	com/aide/ui/OfflineDocsInstalledDialog	str/body: com/aide/ui/OfflineDocsInstalledDialog——离线文档安装完成提示框（Runnable）
+c	abcd/Fv	com/aide/ui/RuntimeErrorDialog	str/body: com/aide/ui/RuntimeErrorDialog——Runtime Error 弹框（Runnable；Nv 是异常处理器）
+c	abcd/iq	com/aide/engine/DexFileReader	str/body: com/aide/engine/DexFileReader——dex 读取器：从 apk/jar 里找 classes.dex
+c	abcd/xd	com/aide/engine/MethodInliner	str/body: com/aide/engine/MethodInliner——方法内联器（基于 codemodel 的 Model/IdentifierSpace/SyntaxTreeSpace）
+c	abcd/mx	com/aide/engine/NamedThreadFactory	str/body: com/aide/engine/NamedThreadFactory——带名字与计数的 ThreadFactory
+c	abcd/gd	com/aide/engine/JavadocGenerator	str/body: com/aide/engine/JavadocGenerator——Javadoc 生成服务（字段是 Model/JavaLanguage 等）
+c	abcd/hr	com/aide/engine/TableOfContents	str/body: com/aide/engine/TableOfContents——文档目录（TOC）构建器
+c	abcd/ay	com/aide/engine/TaskUtils	str/body: com/aide/engine/TaskUtils——Task 工具方法集（包装/取值/限时等待）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

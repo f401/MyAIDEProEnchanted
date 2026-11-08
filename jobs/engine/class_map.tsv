@@ -255,3 +255,11 @@ Xh	com/aide/ui/CreateKeystoreCallback	str+body:implements abcd/rh$a，字段 Act
 Nj	com/aide/ui/NdkInstalledDialog	str+body:Runnable；常量串 "NDK installed" / "NDK Support package can be uninstalled" / "The NDK has been integrated into AIDE ... Open Play Store to uninstall?"，run() 里调 Kj(对话框工具) 弹 AlertDialog ⇒ NDK 已集成提示框
 Oh	com/aide/ui/DownloadErrorDialog	str+body:extends abcd/ma(Preprocessor) 但实际是对话框：私有 DW(AlertDialog)ListView / FH(AlertDialog)TextView、常量串 "Download error"/"下载错误"（按 Utils.isCN 二选一）⇒ 下载错误对话框
 Nv	com/aide/ui/RuntimeErrorHandler	str+body:implements java.lang.Thread$UncaughtExceptionHandler，唯一方法 uncaughtException(Thread,Throwable)；常量串 "Runtime Error"（弹错误框）⇒ 未捕获异常处理器
+Cj	com/aide/ui/OfflineDocsInstalledDialog	str+body:Runnable，唯一方法 run()；常量串 "Offline docs installed" ⇒ 离线文档安装完成的提示框
+Fv	com/aide/ui/RuntimeErrorDialog	str+body:Runnable，唯一方法 run()；常量串 "Runtime Error"（与已命名的 Nv=RuntimeErrorHandler 分工：那个是线程异常处理器，这个是弹框）
+iq	com/aide/engine/DexFileReader	str+body:static final byte[] 魔数表 + byte[] 缓冲 + abcd/Gn(DexMapList) 字段；常量串 "Expected classes.dex in " ⇒ 从容器（apk/jar）里读 dex 的解析器
+xd	com/aide/engine/MethodInliner	str+body:字段 abcd/La(Model)+abcd/Ga(IdentifierSpace)+abcd/Va(SyntaxTreeSpace)；常量串 "Cannot inline this method." ⇒ 基于 codemodel 的方法内联器
+mx	com/aide/engine/NamedThreadFactory	str+body:字段 int 计数 + ThreadFactory + String 名字；常量串 "Name must not be null" ⇒ 给线程起名/计数的 ThreadFactory
+gd	com/aide/engine/JavadocGenerator	str+body:字段 abcd/La(Model)+abcd/Va(SyntaxTreeSpace)+abcd/Ea(FileSpace)+abcd/Ga(IdentifierSpace)+abcd/yd(JavaLanguage)，常量串 "Select a place inside a class." / "Select a method to documentize." ⇒ 生成 Javadoc 注释的服务
+hr	com/aide/engine/TableOfContents	str+body:字段 List<hr$a> + abcd/ir + 计数；常量串 "TOC section already added" / "Last section already finished" / "No sections present" ⇒ 文档目录（TOC）的构建器
+ay	com/aide/engine/TaskUtils	str+body:全是静态方法：j6(T)Yx<T> 包装、j6(Yx) 取值、j6(Yx,long,TimeUnit) 限时等待、DW(Yx) 取值；常量串 "Task is already canceled" / "Task must not be null" / "TimeUnit must not be null" / "Timed out waiting for Task" ⇒ Task 工具方法集

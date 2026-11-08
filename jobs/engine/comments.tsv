@@ -1364,3 +1364,11 @@ c	abcd/Xh	-	-	str/body: com/aide/ui/CreateKeystoreCallback——创建 keystore 
 c	abcd/Nj	-	-	str/body: com/aide/ui/NdkInstalledDialog——NDK 已集成提示框（Runnable 里弹 AlertDialog）
 c	abcd/Oh	-	-	str/body: com/aide/ui/DownloadErrorDialog——下载错误对话框（列表 + 文案，按语言二选一）
 c	abcd/Nv	-	-	str: 未捕获异常处理器——Thread.UncaughtExceptionHandler，弹 "Runtime Error"
+c	abcd/Cj	-	-	str/body: com/aide/ui/OfflineDocsInstalledDialog——离线文档安装完成提示框（Runnable）
+c	abcd/Fv	-	-	str/body: com/aide/ui/RuntimeErrorDialog——Runtime Error 弹框（Runnable；Nv 是异常处理器）
+c	abcd/iq	-	-	str/body: com/aide/engine/DexFileReader——dex 读取器：从 apk/jar 里找 classes.dex
+c	abcd/xd	-	-	str/body: com/aide/engine/MethodInliner——方法内联器（基于 codemodel 的 Model/IdentifierSpace/SyntaxTreeSpace）
+c	abcd/mx	-	-	str/body: com/aide/engine/NamedThreadFactory——带名字与计数的 ThreadFactory
+c	abcd/gd	-	-	str/body: com/aide/engine/JavadocGenerator——Javadoc 生成服务（字段是 Model/JavaLanguage 等）
+c	abcd/hr	-	-	str/body: com/aide/engine/TableOfContents——文档目录（TOC）构建器
+c	abcd/ay	-	-	str/body: com/aide/engine/TaskUtils——Task 工具方法集（包装/取值/限时等待）
