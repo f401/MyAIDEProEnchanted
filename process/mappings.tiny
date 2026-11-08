@@ -25248,7 +25248,7 @@ c	abcd/Ir	com/aide/engine/Visibility	auto: 类：Visibility（上游未收录，
 c	abcd/Lr	com/aide/engine/NamedReference	auto: 类：NamedReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ns	com/aide/engine/ReferenceArray	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rn	com/aide/engine/Model	auto: 类：Model（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/ab	com/aide/engine/AstVisitor	auto: 访问者：Ast（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ab	com/aide/codemodel/api/callback/CodeCompleterCallback	shape: AIDE+ 2.3.5 的 CodeCompleterCallback（22:22 方法全等，含 parameterListFound 签名）——补全回调；实现者 c$b$b 收 SourceEntity 列表
 c	abcd/Wa	com/aide/engine/CommentTable	auto: 表：Comment（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/em	com/aide/engine/IntervalList	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sl	com/aide/engine/RingBuffer	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）
@@ -25263,18 +25263,18 @@ c	abcd/Zn	com/aide/engine/FixedInstruction	auto: 类：FixedInstruction（上游
 c	abcd/Vr	com/aide/engine/ReferencePair	auto: 类：ReferencePair（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ku	com/aide/engine/ByteOutput	auto: 类：ByteOutput（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Os	com/aide/engine/MemberSignature	auto: 类：MemberSignature（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/fb	com/aide/engine/ReaderProvider	iface: 唯一方法 Reader j6(InputStream,String) —— 按编码把字节流开成字符流；实现者 c$b$g 把 ProjectFile 映射成 Reader ⇒ 引擎分析期间读源码用（与 q=SourceReader 同签名，但 q 对外、fb 只在分析任务内部）
-c	abcd/gb	com/aide/engine/FileContentCache	iface: DW(Da)Z 是否已缓存 / FH(Da)Reader 取正文 / Hw(Da)J 长度 / j6(Da)J 版本 / j6() 依 FileManager 重载过期项；实现者 c$b$h 用 wb 存 ProjectFile.id→I(char[]+长度+版本) ⇒ 项目文件正文缓存
-c	abcd/ib	com/aide/engine/FeatureFlags	iface: 8 个 ()Z 开关（I/OW/Qq/aj/ca/lp/sy/x9），实现者 c$b$j 逐个返回 ⇒ 分析任务的特性开关
-c	abcd/_a	com/aide/engine/SourceEntityCollector	iface: 作用域内 SourceEntity 收集器——j6() 开作用域(建 ArrayList + M.VH(""))、j6(Aa) 造 SourceEntity 入表、j6(String) 记名字、DW() 把表交给 M(补全回调)；实现者 c$b$a，调用者 abcd/I
-c	abcd/bb	com/aide/engine/SourceMetricsSink	iface: 代码度量上报——K$a 的 long+6 个 int（字符数/空行/注释/代码/最大行宽）经 c$b$c 转成 F.j6(路径,long,6×int)；唯一调用者 abcd/K 逐行统计 Sa
-c	abcd/cb	com/aide/engine/ExpressionBuilder	iface: 表达式栈构造——9 个方法各对应一种 Expression(w/B/z/y/x/u/v/t/A)，实现者 c$b$d 对 Engine 的 Stack push/pop；调用者 abcd/ud(源码→AST 解析器)
-c	abcd/db	com/aide/engine/HighlightingReporter	iface: 每文件语法高亮上报——c$b$e 持 m[](HighlightingKind)+4 个 int[]+计数，j6(na,Wa) 并入注释表区间，j6(Da) 调 n.j6(路径,…,Da.a8(),m[],4×int[],count)
+c	abcd/fb	com/aide/codemodel/api/BomReaderFactory	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/BomReaderFactory（1:1）——createBomReader(InputStream,String)Reader
+c	abcd/gb	com/aide/codemodel/api/callback/OpenFileCallback	shape: AIDE+ 2.3.5 的 OpenFileCallback（5:5 逐条全等）——已打开文件的内容/长度/版本 + update()；实现者 c$b$h
+c	abcd/ib	com/aide/codemodel/api/callback/StopCallback	shape: AIDE+ 2.3.5 的 StopCallback（8:8 个 ()Z 全等）——是否停止/启用；实现者 c$b$j
+c	abcd/_a	com/aide/codemodel/api/callback/APISearcherCallback	shape: AIDE+ 2.3.5 的 APISearcherCallback（4:4 方法全等）——开表/收 Entity/记名字/收尾；实现者 c$b$a
+c	abcd/bb	com/aide/codemodel/api/callback/CodeMetricsCallback	shape: AIDE+ 2.3.5 的 CodeMetricsCallback（4:4 方法全等）——代码度量上报；实现者 c$b$c 转给 com/aide/engine/F，调用者 abcd/K
+c	abcd/cb	com/aide/codemodel/api/callback/DebugMetadataCallback	shape: AIDE+ 2.3.5 的 DebugMetadataCallback（9:9 方法全等，含 Zo(Class,Class)/VH(boolean,String,String,String,int)）——调试元数据；实现者 c$b$d
+c	abcd/db	com/aide/codemodel/api/callback/HighlighterCallback	shape: AIDE+ 2.3.5 的 HighlighterCallback（10:11，少 releaseSyntaxTree）——语法高亮；实现者 c$b$e 持 m[]+4×int[]
 c	abcd/eb	com/aide/engine/ErrorReporter	iface: 分析期错误上报——唯一方法 j6(Da,String)，c$b$f 取 Da.XL() 后转给 p.j6(路径,消息)；调用者 abcd/ee
-c	abcd/hb	com/aide/engine/RefactoringSink	iface: 重构编辑动作接收端(38 个方法)——c$b$i 造 Modification 并 1:1 转给 J(service/j=RefactoringListenerAdapter)；含区间替换/插入与 rename/move 等无参动作
-c	abcd/ob	com/aide/engine/UsageSearchSink	iface: 用法搜索收集端——j6(Da,I×4) 报一处命中，c$b$p 累积后重读该行文本，最后调 Q.j6(List<FindResult>)/br()/DW()；调用者 abcd/fa(解析器)
-c	abcd/jb	com/aide/engine/SourceEntityTreeBuilder	iface: 实体表构建(带父子层次)——j6(Aa,I×8) 把表尾 N 个收进新实体的子表；j6(Da,I) 按(路径,版本)整表发 M.j6(路径,版本,表)；实现者 c$b$k，调用者 abcd/X
-c	abcd/kb	com/aide/engine/SymbolGroupReporter	iface: 按组名上报符号——DW/Hw/FH/v5 四个口全落到 r=IGotoSymbolListener；实现者 c$b$l 持"组名+ArrayList<SourceEntity>"，调用者 abcd/Y
+c	abcd/hb	com/aide/codemodel/api/callback/RefactoringCallback	shape: AIDE+ 2.3.5 的 RefactoringCallback（48:48 全等，命中 513）——重构编辑动作；实现者 c$b$i 造 Modification 后转 J
+c	abcd/ob	com/aide/codemodel/api/callback/UsageSearcherCallback	shape: AIDE+ 2.3.5 的 UsageSearcherCallback（4:4 全等）——用法搜索；实现者 c$b$p 累积后调 Q.j6(List<FindResult>)
+c	abcd/jb	com/aide/codemodel/api/callback/StructureCallback	shape: AIDE+ 2.3.5 的 StructureCallback（6:6 逐条全等）——结构化大纲，实体带子表；实现者 c$b$k
+c	abcd/kb	com/aide/codemodel/api/callback/SymbolSearcherCallback	shape: AIDE+ 2.3.5 的 SymbolSearcherCallback（7:7 全等）——符号搜索；实现者 c$b$l 持"组名+ArrayList<SourceEntity>"
 c	abcd/Pk	com/aide/licensing/OuyaKeyProvider	body: OUYA 内购校验用的 RSA 公钥持有者——串 "RSA"/"Unable to read OUYA encryption key"，被 abcd/Ok(OUYA 校验) 与 LicensingManager 使用
 c	abcd/Qg	com/aide/ui/actions/OpenAndroidJarAction	body: 打开 android.jar 的菜单动作——isEnabled 判断路径 basename 是 android.jar，run 经 Zk.gW 打开文件；串资源 0x7f0800b3
 c	abcd/wb	com/aide/engine/IntObjectMap	body: 以 int 为键、对象为值的开放寻址哈希表——字段/内部遍历器与 Kb(IntIntMap) 同构，唯一使用者是 FileContentCache
