@@ -733,6 +733,7 @@ abcd/ms com/aide/engine/DexBaseReference
 abcd/Am com/aide/engine/NamedAttribute
 abcd/Bm com/aide/engine/IndexedAttribute
 abcd/Xt com/aide/engine/ArrayItem
+	aM ()Ljava/lang/String; toHuman
 abcd/Dm com/aide/engine/AnnotationElementTable
 abcd/gn com/aide/engine/AttributeFactory
 abcd/nn com/aide/engine/DexAttributeFactory
@@ -753,6 +754,7 @@ abcd/Ir com/aide/engine/Visibility
 abcd/Lr com/aide/engine/NamedReference
 abcd/ns com/aide/engine/ReferenceArray
 abcd/Rn com/aide/engine/CatchTable
+	j6 (Labcd/Rn;)I compareTo0
 abcd/ab com/aide/codemodel/api/callback/CodeCompleterCallback
 	j6 ()V listStarted
 	j6 (Labcd/Aa;Labcd/Ya;Z)V listElementEntityFound
@@ -1542,6 +1544,8 @@ abcd/mq com/aide/engine/ReferenceKind
 abcd/Ar com/aide/engine/OpcodeInfoTable
 abcd/Hh com/aide/ui/ProgressDialog
 abcd/hp com/aide/engine/DebugInfoEncoder
+	j6 ()[B encode
+	j6 (Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B encode
 abcd/Qp com/aide/engine/TypeIdSection
 abcd/Cp com/aide/engine/MethodIdSection
 abcd/Xn com/aide/engine/OpcodeIterator
@@ -1603,7 +1607,9 @@ abcd/Hp com/aide/engine/MethodAnnotationsDirectory
 abcd/ln com/aide/engine/ClassFileReader
 abcd/es com/aide/engine/RopExceptions
 abcd/yt com/aide/engine/SsaValue
-abcd/no com/aide/engine/BlockAddresses
+abcd/no com/aide/engine/MethodCatches
+	j6 (Labcd/fs;[ILabcd/On;)Labcd/Rn; buildCatchTable
+	j6 (Labcd/Nr;Labcd/Nr;Labcd/Qn;Labcd/On;)Labcd/Rn$a; buildEntry
 abcd/px com/aide/engine/BinderWrapper
 abcd/kk com/aide/engine/RootInstaller
 abcd/zd com/aide/engine/ExtractMethodRefactoring
@@ -1719,6 +1725,10 @@ abcd/Un com/aide/engine/Code
 	Zo locals
 	v5 positions
 abcd/Qn com/aide/engine/CatchHandlerList
+	j6 (Labcd/Qn;)I compareTo0
+	aM ()Ljava/lang/String; toHuman
+	j6 (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; toHuman
+	rN ()Z isCatchAll
 abcd/io com/aide/engine/PositionTable
 	j6 (Labcd/Wn;I)Labcd/io; build
 abcd/co com/aide/engine/LocalVariableTable
@@ -1730,3 +1740,4 @@ abcd/vp com/aide/engine/Item
 	VH ()I writeSize
 	j6 (Labcd/jp;)V place
 	j6 (Labcd/jp;Labcd/Lt;)V writeTo
+abcd/On com/aide/engine/BlockAddresses

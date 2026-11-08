@@ -1529,7 +1529,7 @@ c	abcd/Hp	-	-	str: com/aide/engine/MethodAnnotationsDirectory——方法注解�
 c	abcd/ln	-	-	str: com/aide/engine/ClassFileReader——class 文件读取
 c	abcd/es	-	-	str: com/aide/engine/RopExceptions——rop 的异常/可抛出集合
 c	abcd/yt	-	-	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
-c	abcd/no	-	-	str: com/aide/engine/BlockAddresses——基本块地址表
+c	abcd/no	-	-	body: com/aide/engine/MethodCatches——从 RopMethod 算 catch table（implements Catches）
 c	abcd/px	-	-	str: com/aide/engine/BinderWrapper——Binder 反射包装
 c	abcd/kk	-	-	str: com/aide/engine/RootInstaller——用 root 静默安装的助手
 c	abcd/zd	-	-	str/body: com/aide/engine/ExtractMethodRefactoring——提取方法重构（含 return/break/continue 校验）
@@ -1734,3 +1734,15 @@ m	abcd/vp	j6	(Labcd/jp;)V	body: 分配偏移/登记到所属 Section（dx 的 pl
 m	abcd/vp	j6	(Labcd/jp;Labcd/Lt;)V	body: 真正写出（dx 的 writeTo）
 m	abcd/ap	Hw	()Labcd/wp;	body: 返回 wp.we = class_data_item ⇒ 覆盖 Item.getItemType
 m	abcd/ap	j6	(Labcd/jp;)V	body: 遍历字段/方法条目逐个 place，再算本段大小
+
+c	abcd/On	-	-	body: com/aide/engine/BlockAddresses——块 label → 起始/结束/最后指令
+m	abcd/no	j6	(Labcd/fs;[ILabcd/On;)Labcd/Rn;	body: 按 order 顺序扫块，收集异常边并合成 Rn(CatchTable)；ArrayList 预分配 order.length ⇒ 公开的建表入口（build() 就调它）
+m	abcd/no	j6	(Labcd/Nr;Labcd/Nr;Labcd/Qn;Labcd/On;)Labcd/Rn$a;	body: new Rn$a(On.DW(起块).getAddress(), On.j6(止块).getAddress(), handlers) ⇒ 造一个 (start,end,handlers) 区间项
+m	abcd/hp	j6	()[B	str: 调 FH() 取字节，IOException 包成 Vt("...while encoding debug info") ⇒ 产出 debug_info_item 字节
+m	abcd/hp	j6	(Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B	body: 先存 label/PrintWriter/ByteOutput/flag 四个调试字段，再调 j6() ⇒ 带调试输出的编码入口
+m	abcd/Rn	j6	(Labcd/Rn;)I	body: 按元素逐个比较（int 序列）——排序用
+m	abcd/Qn	j6	(Labcd/Qn;)I	body: 按元素逐个比较——排序用
+m	abcd/Qn	aM	()Ljava/lang/String;	body: 直接调 j6("","") ⇒ 渲染整张 handler 列表
+m	abcd/Qn	j6	(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;	str: 拼 "catch" 列表，每项一行，最后一项若 rN() 为真则写成 "<any>"（catch-all）
+m	abcd/Qn	rN	()Z	body: 判断最后一项是否无捕获类型 ⇒ 有 catch-all（finally）处理器
+m	abcd/Xt	aM	()Ljava/lang/String;	body: 拼 "短类名{元素,元素}"（用 DW(String,String,String) 的分隔符）⇒ 可读渲染

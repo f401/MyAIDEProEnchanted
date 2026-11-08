@@ -25835,6 +25835,7 @@ c	abcd/ms	com/aide/engine/DexBaseReference	auto: 类：DexBaseReference（上游
 c	abcd/Am	com/aide/engine/NamedAttribute	auto: 类：NamedAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Bm	com/aide/engine/IndexedAttribute	auto: 类：IndexedAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Xt	com/aide/engine/ArrayItem	auto: 类：ArrayItem（上游未收录，名字来自 jobs/engine 的判据）
+	m	()Ljava/lang/String;	aM	toHuman	body: 拼 "短类名{元素,元素}"（用 DW(String,String,String) 的分隔符）⇒ 可读渲染
 c	abcd/Dm	com/aide/engine/AnnotationElementTable	auto: 表：AnnotationElement（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/gn	com/aide/engine/AttributeFactory	auto: 工厂：Attribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/nn	com/aide/engine/DexAttributeFactory	auto: 工厂：DexAttribute（上游未收录，名字来自 jobs/engine 的判据）
@@ -25855,6 +25856,7 @@ c	abcd/Ir	com/aide/engine/Visibility	auto: 类：Visibility（上游未收录，
 c	abcd/Lr	com/aide/engine/NamedReference	auto: 类：NamedReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ns	com/aide/engine/ReferenceArray	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rn	com/aide/engine/CatchTable	body: com/aide/engine/CatchTable——(start,end,handlers) 三元组表
+	m	(Labcd/Rn;)I	j6	compareTo0	body: 按元素逐个比较（int 序列）——排序用
 c	abcd/ab	com/aide/codemodel/api/callback/CodeCompleterCallback	shape: AIDE+ 2.3.5 的 CodeCompleterCallback（22:22 方法全等，含 parameterListFound 签名）——补全回调；实现者 c$b$b 收 SourceEntity 列表
 	m	()V	j6	listStarted	auto: AIDE+ 2.3.5 CodeCompleterCallback.listStarted——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Aa;Labcd/Ya;Z)V	j6	listElementEntityFound	auto: AIDE+ 2.3.5 CodeCompleterCallback.listElementEntityFound——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26644,6 +26646,8 @@ c	abcd/mq	com/aide/engine/ReferenceKind	str: 指令引用种类枚举（TYPE_REF
 c	abcd/Ar	com/aide/engine/OpcodeInfoTable	body: 每 opcode 的「格式 + 引用种类」索引表（两张 int[]，被 OpcodeFormatTable 使用）
 c	abcd/Hh	com/aide/ui/ProgressDialog	body: com/aide/ui/ProgressDialog——带进度条的对话框基类
 c	abcd/hp	com/aide/engine/DebugInfoEncoder	str: com/aide/engine/DebugInfoEncoder——调试信息编码器
+	m	()[B	j6	encode	str: 调 FH() 取字节，IOException 包成 Vt("...while encoding debug info") ⇒ 产出 debug_info_item 字节
+	m	(Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B	j6	encode	body: 先存 label/PrintWriter/ByteOutput/flag 四个调试字段，再调 j6() ⇒ 带调试输出的编码入口
 c	abcd/Qp	com/aide/engine/TypeIdSection	str: com/aide/engine/TypeIdSection——dex 的 type_ids 段
 c	abcd/Cp	com/aide/engine/MethodIdSection	str: com/aide/engine/MethodIdSection——dex 的 method_ids 段
 c	abcd/Xn	com/aide/engine/OpcodeIterator	str: com/aide/engine/OpcodeIterator——按格式推进的 opcode 迭代器
@@ -26705,7 +26709,9 @@ c	abcd/Hp	com/aide/engine/MethodAnnotationsDirectory	str: com/aide/engine/Method
 c	abcd/ln	com/aide/engine/ClassFileReader	str: com/aide/engine/ClassFileReader——class 文件读取
 c	abcd/es	com/aide/engine/RopExceptions	str: com/aide/engine/RopExceptions——rop 的异常/可抛出集合
 c	abcd/yt	com/aide/engine/SsaValue	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
-c	abcd/no	com/aide/engine/BlockAddresses	str: com/aide/engine/BlockAddresses——基本块地址表
+c	abcd/no	com/aide/engine/MethodCatches	body: com/aide/engine/MethodCatches——从 RopMethod 算 catch table（implements Catches）
+	m	(Labcd/fs;[ILabcd/On;)Labcd/Rn;	j6	buildCatchTable	body: 按 order 顺序扫块，收集异常边并合成 Rn(CatchTable)；ArrayList 预分配 order.length ⇒ 公开的建表入口（build() 就调它）
+	m	(Labcd/Nr;Labcd/Nr;Labcd/Qn;Labcd/On;)Labcd/Rn$a;	j6	buildEntry	body: new Rn$a(On.DW(起块).getAddress(), On.j6(止块).getAddress(), handlers) ⇒ 造一个 (start,end,handlers) 区间项
 c	abcd/px	com/aide/engine/BinderWrapper	str: com/aide/engine/BinderWrapper——Binder 反射包装
 c	abcd/kk	com/aide/engine/RootInstaller	str: com/aide/engine/RootInstaller——用 root 静默安装的助手
 c	abcd/zd	com/aide/engine/ExtractMethodRefactoring	str/body: com/aide/engine/ExtractMethodRefactoring——提取方法重构（含 return/break/continue 校验）
@@ -26821,6 +26827,10 @@ c	abcd/Un	com/aide/engine/Code	body: com/aide/engine/Code——insns/positions/l
 	f	Labcd/co;	Zo	locals	body: tp() 里由 co.j6(块) 得到的局部变量表
 	f	Labcd/io;	v5	positions	body: tp() 里由 io.j6(块,positionInfo) 得到的位置表
 c	abcd/Qn	com/aide/engine/CatchHandlerList	body: com/aide/engine/CatchHandlerList——(捕获类型,跳转地址) 列表
+	m	(Labcd/Qn;)I	j6	compareTo0	body: 按元素逐个比较——排序用
+	m	()Ljava/lang/String;	aM	toHuman	body: 直接调 j6("","") ⇒ 渲染整张 handler 列表
+	m	(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;	j6	toHuman	str: 拼 "catch" 列表，每项一行，最后一项若 rN() 为真则写成 "<any>"（catch-all）
+	m	()Z	rN	isCatchAll	body: 判断最后一项是否无捕获类型 ⇒ 有 catch-all（finally）处理器
 c	abcd/io	com/aide/engine/PositionTable	body: com/aide/engine/PositionTable——位置/行号表
 	m	(Labcd/Wn;I)Labcd/io;	j6	build	body: 遍历指令块，按 positionInfo 种类(1/2/3) 收集 (行号,源文件) 项 ⇒ 建位置表
 c	abcd/co	com/aide/engine/LocalVariableTable	str: com/aide/engine/LocalVariableTable——变量活跃区间（START/END_* 六种标记）
@@ -26832,6 +26842,7 @@ c	abcd/vp	com/aide/engine/Item	iface: com/aide/engine/Item——条目类型/写
 	m	()I	VH	writeSize	body: 写出字节数（Gp 里未算出时抛 "writeSize is unknown"）
 	m	(Labcd/jp;)V	j6	place	body: 分配偏移/登记到所属 Section（dx 的 place）
 	m	(Labcd/jp;Labcd/Lt;)V	j6	writeTo	body: 真正写出（dx 的 writeTo）
+c	abcd/On	com/aide/engine/BlockAddresses	body: com/aide/engine/BlockAddresses——块 label → 起始/结束/最后指令
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
