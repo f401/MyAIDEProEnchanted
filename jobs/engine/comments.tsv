@@ -74,7 +74,7 @@ m	abcd/Ac	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，�
 m	abcd/Ac	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 m	abcd/zc	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
 m	abcd/zc	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/na	-	-	auto: 类：LanguageServices（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/na	-	-	shape: AIDE+ 2.3.5 的 abstraction/Language——getName/isParenChar/getCodeAnalyzer/getSyntax/getTools/getFormatOptionSet 等一一对应
 c	abcd/pa	-	-	auto: 类：Indenter（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/qa	-	-	auto: 类：Parser（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/yd	-	-	auto: 类：JavaLanguage（上游未收录，名字来自 jobs/engine 的判据）
@@ -87,20 +87,20 @@ c	abcd/nd	-	-	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 
 c	abcd/ne	-	-	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ea	-	-	auto: 管理器：File（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sa	-	-	auto: 类：SourceText（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/La	-	-	auto: 类：Project（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Da	-	-	auto: 类：ProjectFile（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/La	-	-	shape: AIDE+ 2.3.5 的 Model——16 参构造即 12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory，字段全是 public final 回调
+c	abcd/Da	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/FileEntry——工程文件条目（id/全名/子项/版本），OpenFileCallback 以它作首参
 c	abcd/S	-	-	auto: 类：InlineMethodRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/W	-	-	auto: 类：ChangeSignatureRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ea	-	-	auto: 类：CachedProject（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ba	-	-	auto: 上下文：Compilation（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Aa	-	-	auto: 节点：Ast（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Aa	-	-	shape: AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…) 构造与本类逐条对应
 c	abcd/ua	-	-	auto: 类：CompilationUnit（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Yb	-	-	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ga	-	-	auto: 类：StringPool（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Fb	-	-	auto: 类：NodeMap（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ca	-	-	auto: 缓存：File（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/ga	-	-	auto: 提供者：Ast（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Za	-	-	auto: 类：Position（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ga	-	-	shape: AIDE+ 2.3.5 的 abstraction/CodeAnalyzer——8:8 方法，analyzeTypeName/analyzeEveryIdentifiers 对得上
+c	abcd/Za	-	-	shape: AIDE+ 2.3.5 的 Variable——构造 (FileEntry,Language,int×4,Type) 与本类逐位相同；TemplateEvaluatorCallback.v5(Variable) ↔ nb.j6(Za)
 c	abcd/Cb	-	-	auto: 类：IntVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rr	-	-	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Qs	-	-	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
@@ -148,7 +148,7 @@ c	abcd/Lr	-	-	auto: 类：NamedReference（上游未收录，名字来自 jobs/e
 c	abcd/ns	-	-	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rn	-	-	auto: 类：Model（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ab	-	-	shape: AIDE+ 2.3.5 的 CodeCompleterCallback（22:22 方法全等，含 parameterListFound 签名）——补全回调；实现者 c$b$b 收 SourceEntity 列表
-c	abcd/Wa	-	-	auto: 表：Comment（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Wa	-	-	shape: AIDE+ 2.3.5 的 SyntaxTreeStyles——HighlighterCallback.addSyntaxTreeStyles(Language,SyntaxTreeStyles) ↔ db.j6(na,Wa)
 c	abcd/em	-	-	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sl	-	-	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Vn	-	-	auto: 类：Instruction（上游未收录，名字来自 jobs/engine 的判据）

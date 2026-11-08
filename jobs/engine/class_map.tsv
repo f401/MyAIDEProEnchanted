@@ -48,7 +48,7 @@ Ud	com/aide/engine/JavaScriptFileType	str:j6() 返回 "JavaScript"、Hw() 返回
 Fc	com/aide/engine/CppFileType	str:j6() 返回 "C++"、Hw() 返回 ["*.cpp","*.cc","*.c","*.h",…,"*.gradle"]；implements abcd/la
 Ac	com/aide/engine/JavaBinaryFileType	str:j6() 返回 "Java Binary"、Hw() 返回 ["*.jar","*.war","*.ear","*.zip","*.class"]；implements abcd/la
 zc	com/aide/engine/AidlFileType	str:j6() 返回 "AIDL"、Hw() 返回 ["*.aidl"]；implements abcd/la
-na	com/aide/engine/LanguageServices	iface:每种语言的"服务包"（10 个实现）：j6()String 是语言名、j6(C)Z 判标识符字符、Zo()Set<+ha> 取格式化选项、v5()pa/u7()qa/Hw()ga/VH()oa/FH()ra/gn()ia 分别给出缩进/解析/词法/… 的服务对象
+na	com/aide/codemodel/api/abstraction/Language	shape:AIDE+ 2.3.5 的 abstraction/Language（10 方法）——j6()String↔getName、j6(char)Z↔isParenChar(char)、Hw()ga↔getCodeAnalyzer、u7()qa↔getSyntax、Zo()Set<? extends ha>↔getFormatOptionSet、VH()oa↔getTools、gn()ia↔getSignatureAnalyzer、DW()↔shrink
 pa	com/aide/engine/Indenter	iface:9 个实现；方法全是 (Sa,行号) / (行号) 的缩进判定（DW(Sa;I)I、FH(Sa;I)Z、EQ(I)Z…），被 na.v5() 返回
 qa	com/aide/engine/Parser	iface:8 个实现（含 com/a4455jkjh/b/g）；方法 DW/FH(Labcd/Sa;Labcd/Ta;III)Labcd/wb; 与 (Na)String，被 na.u7() 返回
 yd	com/aide/engine/JavaLanguage	str:j6() 返回 "Java"；implements abcd/na
@@ -61,20 +61,20 @@ nd	com/aide/engine/JavaCommentsLanguage	str:"Java Comments"/"J# Comments"；impl
 ne	com/aide/engine/MarkupLanguage	str:"HTML"/"XML"（同一实现按 boolean 选其一）；implements abcd/na
 Ea	com/aide/engine/FileManager	body:按路径/编号取文件（DW(String)Da、Hw(I)Da、j6(I)Da）、取文件类型与语言（Zo(Da)la、gn(Da)la、VH(I)na、j6(Da)na、v5()[la、j6([la)V）、开流（j6(InputStream,String)Reader、j6(Reader)Reader）以及一批每文件状态位（XL/Ws/J0/QX/we/aM(Da)Z）；ctor 收 (Ga,gb,ib,fb)，被 Scanner/SourceEntity/JarPackager 共用 ⇒ 工程文件管理器
 Sa	com/aide/engine/SourceText	body:字段 [C 文本缓冲 + 两个 [I 行索引 + J0:Labcd/pa(Indenter) + a8:Labcd/na(LanguageServices) + J8:Labcd/Da(文件) + v5:Labcd/La(工程)；j6([CII)I 用 System.arraycopy 装缓冲、Mr(I)[C / aM(I)String / lg(I)String 取文本、toString 里 new Ta 再 j6(StringBuffer,String,Ta,I) 重排；**Indenter(pa) 的每个方法第一参都是 Labcd/Sa;**（如 DW(Sa;I)I 取某行缩进）⇒ 它就是被缩进器消费的源文本模型
-La	com/aide/engine/Project	body:27 方法/29 字段，字段持有 Ea(FileManager)、ab/Va/nb/_a/jb/mb/ib 等子系统；v5()[Labcd/la(FileType[]) 与 j6(Da,I,la,Z)/j6(Da,la)/j6(String)/j6(I,I) 是"往工程里加文件/取文件类型"；被 EngineSolution.j6(La,...) 消费、被 SourceEntity.<init>(La,...) 持有 ⇒ 引擎侧"活工程"模型
-Da	com/aide/engine/ProjectFile	body:XL() 用 VH(父) + 分隔符 + we(名字) 拼出路径、QX() 返回 VH、gn() 走 Ea.Zo(FileManager 取 FileType)、Hw() 读 tp:Cb 的偏移、Zo()/a8() 是大小与时间戳、er()/yS()/rN() 是若干状态位；被 EngineSolution.j6(La,Da,...) 转成 EngineSolution$File ⇒ 工程文件节点
+La	com/aide/codemodel/api/Model	shape:AIDE+ 2.3.5 的 Model——其构造器就是「12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory」共 16 参，与本类 16 接口构造逐位同序；12 个 public final 回调字段同类；SourceEntity(Model,Entity) ↔ SourceEntity(La,Aa)
+Da	com/aide/codemodel/api/FileEntry	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/FileEntry——getId()/getFullNameString()/a8()List<String>/QX()/U2() 与本类 EQ()I/XL()String/a8() 等逐条对应；OpenFileCallback 的 5 个方法全以 FileEntry 作首参，SourceEntity(Model,FileEntry) 正对应本类 SourceEntity(ea,Da)
 S	abcd/aide/engine/InlineMethodRefactoring	str:j6(Da,I,I) 里 "Select a method to inline."（同一句出现两次，另一处是错误提示）；与 V(RenameRefactoring) 同构：ctor(Labcd/ea)、字段 ea/Ga/Va/Ba/Q/Ea，被 com/aide/engine/c$b 的重构入口调用 ⇒ 内联方法重构
 W	abcd/aide/engine/ChangeSignatureRefactoring	str:"Select a method."、"This method is defined outside of the project."；j6(Da,II)List 按光标取出候选方法、j6(Sa,I) 用 ",\n"/"," 拼参数表、j6(Da,II,List×4) 拆分参数/局部/返回/异常 ⇒ 改方法签名
 ea	com/aide/engine/CachedProject	sup=abcd/La(Project)；新增 j6(Labcd/ec)/j6(Labcd/fc) 两个带 "END"/"END not found" 标记的读写方法（DataInput/DataOutput 包装），ctor 收 gb/ib/jb/db 等子系统 ⇒ 带持久化缓存的工程实现；重构类（RenameRefactoring/InlineMethodRefactoring 的 ctor）都拿它当入口
 Ba	com/aide/engine/CompilationContext	body:被 **abcd/La(Project).<init>** 唯一创建，ctor(Ga,Ea,Va,ib)；字段持有 Ea(FileManager)、Va(类型表)、Qb/j3/aM(符号表)、qb(Mr/a8 两张名字表)、[Aa(源实体数组)、[I、Map gW；静态访问器 DW(Ba)Ga / FH(Ba)Va / j6(Ba)Ea；方法 j6(Na,II,Da,Fb) 处理源实体 ⇒ 一次编译会话的共享上下文
-Aa	com/aide/engine/AstNode	body:9 个直接子类(Ja/Ka/Oa/Pa/Qa/Ra/sa/ua)；两个 **FH() 重载**分别返回 Labcd/Ba(CompilationContext) 与 Labcd/ua(CompilationUnit)；Zo() 返回 Da(ProjectFile)、a8()/u7() 的字符串由 na(LanguageServices).gn() 生成（名字/类型）、tp() 是种类、EQ/XL/Hw/J0/J8 是位置与修饰符、KD/rN/yS/vy/P8/lg 等一串 (Z) 判定 ⇒ 源树节点基类
+Aa	com/aide/codemodel/api/Entity	shape:AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…[,int×n][,String][,boolean][,List]) 构造与本类 (La,Aa…) 逐条对应；本类 40 个方法即 Entity 的语义查询（rN/yS/vy/Zo…）
 ua	com/aide/engine/CompilationUnit	sup=abcd/Ya；字段 QX:Da(文件)、J0:Ba(CompilationContext)、we:Ea(FileManager)、Mr/U2:ua(父)、j3:Na、gW:ua$a；有 4 个返回 Labcd/Yb(Scope) 的方法(CU/Xa/aq/et) 与 pN()ua$a；工厂 DW(Da,na,I,Z,ua,Yb)Ya；而 Aa.FH() 正是返回它 ⇒ 一个源文件的编译单元(带包/导入等多个作用域)
 Yb	com/aide/engine/NodeList	**更正**：javap 显示它是 `public class abcd.Yb<E extends abcd.Aa>`——泛型容器，带内部类 `Yb<E>.a`(迭代器)、多张 `[I` 开放寻址数组、`Ba`，方法 DW(E)/FH()/Hw()I(大小)/v5()(清空)/DW(Yb)(并入)/equals，且有 `j6(ec)/j6(fc)` 序列化。原来按"ua(CompilationUnit) 返回它 + enter/lookup 形状"判成 Scope 是**误判**，实际是 AST 节点列表。
 Ga	com/aide/engine/StringPool	body:j6(String)I 把字符串登记进池返回 id、j6(int)String 按 id 取回、j6(String,I,I)/j6([C,I,I)/j6(I,[C,I) 是子串登记、FH(I)I / Hw(I)I 返回同一个 id 的小写/大写变体、DW(I)I 是哈希；字段是 [C 字符表 + 多张 [I 索引表 + qb；另有 j6(ec)/j6(fc) 序列化 ⇒ 编译器的字符串驻留池
 Fb	com/aide/engine/NodeMap	body:泛型 <K extends Aa, V extends Aa>（AST 节点→AST 节点的映射），字段多张 [I 开放寻址数组 + 内部类 Fb$a(遍历器) + Ba(CompilationContext)；ctor 收 Ba 或 (Ba,ec) ⇒ 节点哈希表
 Ca	com/aide/engine/FileCache	body:字段是两张 wb 缓存（wb<Ca$d>/wb<Ca$b>）+ Ca$a 监听器 + La(工程)/Ea(FileManager)/Ba(上下文)；v5(Da) 直接 wb.j6(Da.EQ())（**用文件 id 当 key 查缓存**），一批 DW(Da,na,...) 先问 Ca$a 再写缓存；另有 DW(Da,int)/FH(Da,int) 取每文件的行/偏移 ⇒ 按文件的编译数据缓存
-ga	com/aide/engine/AstProvider	iface:8 个方法全部以 abcd/Sa(SourceText) 作第一参：j6(Sa,I,I,String)Labcd/Ya; 在给定区间建 AST 节点、DW/FH(Sa[,I]) 取/设、j6(Sa,bc)；由 LanguageServices(na).Hw() 返回 ⇒ 语言侧 AST 提供者
-Za	com/aide/engine/Position	body:6 个 final 字段 (Da 文件, na 语言, 4 个 int, Ya 节点) + 全 getter（DW()Da/FH()String/Hw()I/Zo()I/VH()I/gn()Ya），ctor(Da,na,int,int,int,int,Ya) ⇒ 源码位置（文件+语言+偏移/行列+所在节点）
+ga	com/aide/codemodel/api/abstraction/CodeAnalyzer	shape:AIDE+ 2.3.5 的 abstraction/CodeAnalyzer 8 方法与本类 8 方法逐条对应：analyzeTypeName(SyntaxTree,int,int,String)Type ↔ j6(Sa,int,int,String)Ya；analyzeEveryIdentifiers(SyntaxTree,SetOfInt) ↔ j6(Sa,bc)
+Za	com/aide/codemodel/api/Variable	shape:AIDE+ 2.3.5 的 Variable——构造 (FileEntry,Language,int,int,int,int,Type) 与本类 (Da,na,int,int,int,int,Ya) 逐位相同；TemplateEvaluatorCallback.v5(Variable) 正对应本类 nb.j6(Za)
 Cb	com/aide/engine/IntVector	body:唯一数组字段 int[] + 一个 int(长度)；DW(int)/FH(int)/Hw() 是取值/设值/长度，FH(int)/Hw(int) 是追加与扩容，j6() 清空，另有 equals 与 j6(ec)/j6(fc) 序列化 ⇒ 可变 int 数组
 Rr	com/aide/engine/WellKnownTypes	body:全部字段是 static final 的类型常量（Qs/Ps 两种），<clinit> 里逐个 ldc 出 "Ljava/lang/ArithmeticException;"、"…ArrayIndexOutOfBoundsException;"、"…ArrayStoreException;"、"…ClassCastException;"、"Ljava/lang/Error;"、"…IllegalMonitorStateException;"、"…NegativeArraySizeException;"、"…NullPointerException;" 等 ⇒ JVM 里"众所周知"的那些类型表（异常/标准类），供类型推导用
 Qs	com/aide/engine/TypeConstant	body:implements Rs + Comparable<Qs>；static HashMap j6 是**按描述符注册的类型表**，DW(String)/FH(String)/j6(String) 三个静态入口按描述符取类型；J8()String 返回描述符、Hw() 取元素类型、U2() 取父/组件类型、Mr() 取大小；<clinit> 里 intern 了 Z/B/C/D/F/I/J/S/V（九种基本类型描述符）加 "<null>"/"<addr>" 与一批 Ljava/lang/*; 常量 ⇒ 类型常量（每个描述符一个单例）
@@ -122,7 +122,7 @@ Lr	com/aide/engine/NamedReference	body:(Js 名字, ms 引用) 两个 final 字�
 ns	com/aide/engine/ReferenceArray	iface:ms get(int) + ms j6(int) ⇒ 按索引取引用的容器接口（Ls 实现它）
 Rn	com/aide/engine/Model	extends Xt、implements Comparable；Rn$a 是条目，get(int)Rn$a / j6(int,Rn$a) 存取、j6(Rn,Rn) 合并 ⇒ 构建器(Pn.build())产出的模型
 ab	com/aide/codemodel/api/callback/CodeCompleterCallback	shape:AIDE+ 2.3.5 的 .../CodeCompleterCallback——22:22 方法、形状集合全等（命中 24），两个唯一签名对得上：j6(Da,I,I,int[],int[]) ↔ parameterListFound(FileEntry,int,int,int[],int[])；j6(Da,na,I,I,I,Z,Z) ↔ J8(FileEntry,Language,int,int,int,boolean,boolean)；实现者 c$b$b 用 ArrayList<SourceEntity>×2 + Map<ua,SourceEntity> 收候选 ⇒ 补全回调（此前误判成 AstVisitor）
-Wa	com/aide/engine/CommentTable	body:五张 int[] + 一个 char[] + 若干 int；j6(IIIIII) 记录一段 ⇒ 源文本里的注释/空白区段表（Sa 用）
+Wa	com/aide/codemodel/api/SyntaxTreeStyles	shape:AIDE+ 2.3.5 的 SyntaxTreeStyles——HighlighterCallback.addSyntaxTreeStyles(Language,SyntaxTreeStyles) 正对应本类 db.j6(na,Wa)；字段同为「若干 int[] + 计数」
 em	com/aide/engine/IntervalList	body:<T> Serializable + Vector<em$b<T>>；DW(T,int,int) 按区间加、FH(int,int)Z 判断包含、DW(int,int)fm 取子区间迭代器、Hw(int,int)/DW(int,int,int) 等做区间运算 ⇒ 区间列表
 Sl	com/aide/engine/RingBuffer	body:<T> + List<T> + 两个 int；j6(T)T 入、FH()T 出、j6(int)T 取、DW()I/Hw()I 两个计数、j6() 清空、ctor(int) 定容 ⇒ 定容环形缓冲
 Vn	com/aide/engine/Instruction	abstract:字段 (Xn, hs, cs)；抽象 DW()I(操作数个数)/DW(int)Vn(第 i 个操作数)；DW(BitSet)Vn、EQ()String、静态工厂 j6(hs,bs,bs) 造 mo ⇒ 字节码指令基类

@@ -25175,7 +25175,7 @@ c	abcd/Ac	com/aide/engine/JavaBinaryFileType	auto: 类：JavaBinaryFileType（�
 c	abcd/zc	com/aide/engine/AidlFileType	auto: 类：AidlFileType（上游未收录，名字来自 jobs/engine 的判据）
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/na	com/aide/engine/LanguageServices	auto: 类：LanguageServices（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/na	com/aide/codemodel/api/abstraction/Language	shape: AIDE+ 2.3.5 的 abstraction/Language——getName/isParenChar/getCodeAnalyzer/getSyntax/getTools/getFormatOptionSet 等一一对应
 c	abcd/pa	com/aide/engine/Indenter	auto: 类：Indenter（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/qa	com/aide/engine/Parser	auto: 类：Parser（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/yd	com/aide/engine/JavaLanguage	auto: 类：JavaLanguage（上游未收录，名字来自 jobs/engine 的判据）
@@ -25188,20 +25188,20 @@ c	abcd/nd	com/aide/engine/JavaCommentsLanguage	auto: 类：JavaCommentsLanguage�
 c	abcd/ne	com/aide/engine/MarkupLanguage	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ea	com/aide/engine/FileManager	auto: 管理器：File（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sa	com/aide/engine/SourceText	auto: 类：SourceText（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/La	com/aide/engine/Project	auto: 类：Project（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Da	com/aide/engine/ProjectFile	auto: 类：ProjectFile（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/La	com/aide/codemodel/api/Model	shape: AIDE+ 2.3.5 的 Model——16 参构造即 12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory，字段全是 public final 回调
+c	abcd/Da	com/aide/codemodel/api/FileEntry	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/FileEntry——工程文件条目（id/全名/子项/版本），OpenFileCallback 以它作首参
 c	abcd/S	abcd/aide/engine/InlineMethodRefactoring	auto: 类：InlineMethodRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/W	abcd/aide/engine/ChangeSignatureRefactoring	auto: 类：ChangeSignatureRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ea	com/aide/engine/CachedProject	auto: 类：CachedProject（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ba	com/aide/engine/CompilationContext	auto: 上下文：Compilation（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Aa	com/aide/engine/AstNode	auto: 节点：Ast（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Aa	com/aide/codemodel/api/Entity	shape: AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…) 构造与本类逐条对应
 c	abcd/ua	com/aide/engine/CompilationUnit	auto: 类：CompilationUnit（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Yb	com/aide/engine/NodeList	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ga	com/aide/engine/StringPool	auto: 类：StringPool（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Fb	com/aide/engine/NodeMap	auto: 类：NodeMap（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ca	com/aide/engine/FileCache	auto: 缓存：File（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/ga	com/aide/engine/AstProvider	auto: 提供者：Ast（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Za	com/aide/engine/Position	auto: 类：Position（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ga	com/aide/codemodel/api/abstraction/CodeAnalyzer	shape: AIDE+ 2.3.5 的 abstraction/CodeAnalyzer——8:8 方法，analyzeTypeName/analyzeEveryIdentifiers 对得上
+c	abcd/Za	com/aide/codemodel/api/Variable	shape: AIDE+ 2.3.5 的 Variable——构造 (FileEntry,Language,int×4,Type) 与本类逐位相同；TemplateEvaluatorCallback.v5(Variable) ↔ nb.j6(Za)
 c	abcd/Cb	com/aide/engine/IntVector	auto: 类：IntVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rr	com/aide/engine/WellKnownTypes	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Qs	com/aide/engine/TypeConstant	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
@@ -25249,7 +25249,7 @@ c	abcd/Lr	com/aide/engine/NamedReference	auto: 类：NamedReference（上游未�
 c	abcd/ns	com/aide/engine/ReferenceArray	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rn	com/aide/engine/Model	auto: 类：Model（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ab	com/aide/codemodel/api/callback/CodeCompleterCallback	shape: AIDE+ 2.3.5 的 CodeCompleterCallback（22:22 方法全等，含 parameterListFound 签名）——补全回调；实现者 c$b$b 收 SourceEntity 列表
-c	abcd/Wa	com/aide/engine/CommentTable	auto: 表：Comment（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Wa	com/aide/codemodel/api/SyntaxTreeStyles	shape: AIDE+ 2.3.5 的 SyntaxTreeStyles——HighlighterCallback.addSyntaxTreeStyles(Language,SyntaxTreeStyles) ↔ db.j6(na,Wa)
 c	abcd/em	com/aide/engine/IntervalList	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sl	com/aide/engine/RingBuffer	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Vn	com/aide/engine/Instruction	auto: 类：Instruction（上游未收录，名字来自 jobs/engine 的判据）

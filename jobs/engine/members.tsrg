@@ -73,7 +73,7 @@ abcd/Ac com/aide/engine/JavaBinaryFileType
 abcd/zc com/aide/engine/AidlFileType
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/na com/aide/engine/LanguageServices
+abcd/na com/aide/codemodel/api/abstraction/Language
 abcd/pa com/aide/engine/Indenter
 abcd/qa com/aide/engine/Parser
 abcd/yd com/aide/engine/JavaLanguage
@@ -86,20 +86,20 @@ abcd/nd com/aide/engine/JavaCommentsLanguage
 abcd/ne com/aide/engine/MarkupLanguage
 abcd/Ea com/aide/engine/FileManager
 abcd/Sa com/aide/engine/SourceText
-abcd/La com/aide/engine/Project
-abcd/Da com/aide/engine/ProjectFile
+abcd/La com/aide/codemodel/api/Model
+abcd/Da com/aide/codemodel/api/FileEntry
 abcd/S abcd/aide/engine/InlineMethodRefactoring
 abcd/W abcd/aide/engine/ChangeSignatureRefactoring
 abcd/ea com/aide/engine/CachedProject
 abcd/Ba com/aide/engine/CompilationContext
-abcd/Aa com/aide/engine/AstNode
+abcd/Aa com/aide/codemodel/api/Entity
 abcd/ua com/aide/engine/CompilationUnit
 abcd/Yb com/aide/engine/NodeList
 abcd/Ga com/aide/engine/StringPool
 abcd/Fb com/aide/engine/NodeMap
 abcd/Ca com/aide/engine/FileCache
-abcd/ga com/aide/engine/AstProvider
-abcd/Za com/aide/engine/Position
+abcd/ga com/aide/codemodel/api/abstraction/CodeAnalyzer
+abcd/Za com/aide/codemodel/api/Variable
 abcd/Cb com/aide/engine/IntVector
 abcd/Rr com/aide/engine/WellKnownTypes
 abcd/Qs com/aide/engine/TypeConstant
@@ -147,7 +147,7 @@ abcd/Lr com/aide/engine/NamedReference
 abcd/ns com/aide/engine/ReferenceArray
 abcd/Rn com/aide/engine/Model
 abcd/ab com/aide/codemodel/api/callback/CodeCompleterCallback
-abcd/Wa com/aide/engine/CommentTable
+abcd/Wa com/aide/codemodel/api/SyntaxTreeStyles
 abcd/em com/aide/engine/IntervalList
 abcd/Sl com/aide/engine/RingBuffer
 abcd/Vn com/aide/engine/Instruction
