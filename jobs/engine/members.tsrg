@@ -207,3 +207,7 @@ abcd/oa com/aide/codemodel/api/abstraction/SignatureAnalyzer
 abcd/be com/aide/codemodel/language/js/JavaScriptTools
 abcd/Gd com/aide/codemodel/language/java/JavaTools
 abcd/fm com/aide/ui/views/editor/Position
+abcd/Fe com/aide/ui/util/MavenDependencyVersion
+abcd/Ub com/aide/codemodel/api/collections/RelationOfIntInt
+abcd/ec com/aide/codemodel/api/collections/StoreInputStream
+abcd/fc com/aide/codemodel/api/collections/StoreOutputStream
