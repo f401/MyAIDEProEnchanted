@@ -25395,6 +25395,10 @@ c	abcd/Ea	com/aide/codemodel/api/FileSpace	shape: AIDE+ 2.3.5 的 api/FileSpace�
 	m	(Labcd/Da;)Z	QX	isCheckedSolutionFile	auto: AIDE+ 2.3.5 FileSpace.isCheckedSolutionFile——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Labcd/_b;	VH	getResourceFiles	auto: AIDE+ 2.3.5 FileSpace.getResourceFiles——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Labcd/_b;	u7	getSolutionFiles	auto: AIDE+ 2.3.5 FileSpace.getSolutionFiles——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/Da;)Z	EQ	isSubProjectFileEntry	auto: AIDE+ 2.3.5 FileSpace.isSubProjectFileEntry——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;)Ljava/lang/String;	Hw	getDebugOutputPath	auto: AIDE+ 2.3.5 FileSpace.getDebugOutputPath——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;)Ljava/lang/String;	tp	getTargetVersion	auto: AIDE+ 2.3.5 FileSpace.getTargetVersion——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;)Ljava/lang/String;	v5	getReleaseOutputPath	auto: AIDE+ 2.3.5 FileSpace.getReleaseOutputPath——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Sa	com/aide/codemodel/api/SyntaxTree	shape: AIDE+ 2.3.5 的 api/SyntaxTree（156:156，0.93）——语法树，按节点/位置查询（旧名 SourceText）
 	m	(I)Z	Eq	isMethodOrClassOrFieldDeclarationNode	auto: AIDE+ 2.3.5 SyntaxTree.isMethodOrClassOrFieldDeclarationNode——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(III)V	J8	setAttribute	auto: AIDE+ 2.3.5 SyntaxTree.setAttribute——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25460,6 +25464,21 @@ c	abcd/Sa	com/aide/codemodel/api/SyntaxTree	shape: AIDE+ 2.3.5 的 api/SyntaxTre
 	m	(I)I	rN	getMemberDeclarationNode	auto: AIDE+ 2.3.5 SyntaxTree.getMemberDeclarationNode——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()I	tp	getImportEndLine	auto: AIDE+ 2.3.5 SyntaxTree.getImportEndLine——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Labcd/Ya;	u7	getAttrType	auto: AIDE+ 2.3.5 SyntaxTree.getAttrType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(I)I	BT	getStartColumn	auto: AIDE+ 2.3.5 SyntaxTree.getStartColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(IIII)I	DW	getBlockNodeAt	auto: AIDE+ 2.3.5 SyntaxTree.getBlockNodeAt——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(III)Z	DW	beforePosition	auto: AIDE+ 2.3.5 SyntaxTree.beforePosition——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(III)Z	FH	containsPosition	auto: AIDE+ 2.3.5 SyntaxTree.containsPosition——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()J	Hw	getClassDeclarationDigest	auto: AIDE+ 2.3.5 SyntaxTree.getClassDeclarationDigest——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(III)Z	Hw	containsPositionExt	auto: AIDE+ 2.3.5 SyntaxTree.containsPositionExt——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(IIII)I	VH	getMethodNodeAt	auto: AIDE+ 2.3.5 SyntaxTree.getMethodNodeAt——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(II)I	Ws	getTokenNodeAt	auto: AIDE+ 2.3.5 SyntaxTree.getTokenNodeAt——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()J	XL	getPublicDeclarationDigest	auto: AIDE+ 2.3.5 SyntaxTree.getPublicDeclarationDigest——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()J	Zo	getDeclarationDigest	auto: AIDE+ 2.3.5 SyntaxTree.getDeclarationDigest——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(I)I	gW	getRightSisterNode	auto: AIDE+ 2.3.5 SyntaxTree.getRightSisterNode——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(IIII)I	gn	getNodeAt	auto: AIDE+ 2.3.5 SyntaxTree.getNodeAt——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(I)I	j3	getLeftSisterNode	auto: AIDE+ 2.3.5 SyntaxTree.getLeftSisterNode——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(IIII)I	u7	getReadExpressionNodeAt	auto: AIDE+ 2.3.5 SyntaxTree.getReadExpressionNodeAt——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(I)I	vy	getStartLine	auto: AIDE+ 2.3.5 SyntaxTree.getStartLine——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/La	com/aide/codemodel/api/Model	shape: AIDE+ 2.3.5 的 Model——16 参构造即 12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory，字段全是 public final 回调
 	m	()[Labcd/la;	v5	getCodeModels	auto: AIDE+ 2.3.5 Model.getCodeModels——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Da	com/aide/codemodel/api/FileEntry	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/FileEntry——工程文件条目（id/全名/子项/版本），OpenFileCallback 以它作首参
@@ -25497,6 +25516,9 @@ c	abcd/Da	com/aide/codemodel/api/FileEntry	shape: AIDE+ 2.3.5 的 com/aide/codem
 	m	(Ljava/lang/String;)Labcd/Da;	j6	getEntry	auto: AIDE+ 2.3.5 FileEntry.getEntry——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	j6	exists	auto: AIDE+ 2.3.5 FileEntry.exists——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	yS	isDirectory	auto: AIDE+ 2.3.5 FileEntry.isDirectory——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Ljava/lang/String;)Labcd/Da;	DW	addDirectory	auto: AIDE+ 2.3.5 FileEntry.addDirectory——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Ljava/lang/String;)Labcd/Da;	FH	addFile	auto: AIDE+ 2.3.5 FileEntry.addFile——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(I)Labcd/Da;	j6	getChildEntry	auto: AIDE+ 2.3.5 FileEntry.getChildEntry——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/S	abcd/aide/engine/InlineMethodRefactoring	auto: 类：InlineMethodRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/W	abcd/aide/engine/ChangeSignatureRefactoring	auto: 类：ChangeSignatureRefactoring（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ea	com/aide/engine/CachedProject	auto: 类：CachedProject（上游未收录，名字来自 jobs/engine 的判据）
@@ -25530,6 +25552,10 @@ c	abcd/Ba	com/aide/codemodel/api/EntitySpace	body: AIDE+ 2.3.5 的 com/aide/code
 	m	(Labcd/ua;Labcd/ua;)V	j6	declareSuperClasstype	auto: AIDE+ 2.3.5 EntitySpace.declareSuperClasstype——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(J)J	v5	encodeLong	auto: AIDE+ 2.3.5 EntitySpace.encodeLong——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Da;Labcd/na;)Labcd/ua;	v5	getRootClasstype	auto: AIDE+ 2.3.5 EntitySpace.getRootClasstype——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	()Labcd/Na;	FH	getRootNamespace	auto: AIDE+ 2.3.5 EntitySpace.getRootNamespace——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;Labcd/na;I)Labcd/Pa;	Hw	getParametertype	auto: AIDE+ 2.3.5 EntitySpace.getParametertype——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;Labcd/na;I)Labcd/ua;	j6	getClassType	auto: AIDE+ 2.3.5 EntitySpace.getClassType——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()V	tp	update	auto: AIDE+ 2.3.5 EntitySpace.update——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Aa	com/aide/codemodel/api/Entity	shape: AIDE+ 2.3.5 的 Entity——SourceEntity 的 6 个 (Model,Entity…) 构造与本类逐条对应
 	m	()Labcd/na;	QX	getLanguage	auto: AIDE+ 2.3.5 Entity.getLanguage——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Labcd/Da;	Zo	getFile	auto: AIDE+ 2.3.5 Entity.getFile——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25565,6 +25591,7 @@ c	abcd/Aa	com/aide/codemodel/api/Entity	shape: AIDE+ 2.3.5 的 Entity——Sourc
 	m	()Z	ro	isType	auto: AIDE+ 2.3.5 Entity.isType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	vy	isNamespace	auto: AIDE+ 2.3.5 Entity.isNamespace——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	yS	isMember	auto: AIDE+ 2.3.5 Entity.isMember——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	()Ljava/lang/String;	u7	getHTMLString	auto: AIDE+ 2.3.5 Entity.getHTMLString——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/ua	com/aide/codemodel/api/ClassType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/ClassType——类类型（带父子链与成员表）
 	m	(Labcd/Ya;Labcd/Ia;Labcd/Ia;)Z	FH	haveMatchingOverrideMethodSignatures	auto: AIDE+ 2.3.5 ClassType.haveMatchingOverrideMethodSignatures——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Ia;)Labcd/Ya;	DW	getContainingTypeOfMember	auto: AIDE+ 2.3.5 ClassType.getContainingTypeOfMember——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25638,6 +25665,38 @@ c	abcd/ua	com/aide/codemodel/api/ClassType	body: AIDE+ 2.3.5 的 com/aide/codemo
 	m	()V	sy	declareCycliclyDefined	auto: AIDE+ 2.3.5 ClassType.declareCycliclyDefined——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	vJ	isEnumType	auto: AIDE+ 2.3.5 ClassType.isEnumType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	x9	areSuperClasstypesLoaded	auto: AIDE+ 2.3.5 ClassType.areSuperClasstypesLoaded——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	()V	QO	loadSyntax	auto: AIDE+ 2.3.5 ClassType.loadSyntax——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()V	aX	loadSuperClassTypes	auto: AIDE+ 2.3.5 ClassType.loadSuperClassTypes——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(ILabcd/Ia;)V	DW	declareMethod	auto: AIDE+ 2.3.5 ClassType.declareMethod——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/ua;	Ev	getEnclosingTopLevelClassType	auto: AIDE+ 2.3.5 ClassType.getEnclosingTopLevelClassType——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/ua;	FH	getEnclosingClassType	auto: AIDE+ 2.3.5 ClassType.getEnclosingClassType——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	Hw	getEndColumn	auto: AIDE+ 2.3.5 ClassType.getEndColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	J0	getIdentifierEndColumn	auto: AIDE+ 2.3.5 ClassType.getIdentifierEndColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	J8	getIdentifierLine	auto: AIDE+ 2.3.5 ClassType.getIdentifierLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	Mr	getModifiersStartColumn	auto: AIDE+ 2.3.5 ClassType.getModifiersStartColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Z	Q6	isDuplicate	auto: AIDE+ 2.3.5 ClassType.isDuplicate——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	U2	getModifiersStartLine	auto: AIDE+ 2.3.5 ClassType.getModifiersStartLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	WB	getInheritedMethodPairCount	auto: AIDE+ 2.3.5 ClassType.getInheritedMethodPairCount——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	Ws	getIdentifierStartColumn	auto: AIDE+ 2.3.5 ClassType.getIdentifierStartColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Hb;	XG	getAllMemberMethods	auto: AIDE+ 2.3.5 ClassType.getAllMemberMethods——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Hb;	XX	getAllExplicitMemberFields	auto: AIDE+ 2.3.5 ClassType.getAllExplicitMemberFields——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	aM	getModifiersEndColumn	auto: AIDE+ 2.3.5 ClassType.getModifiersEndColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Hb;	br	getAllExplicitMemberMethods	auto: AIDE+ 2.3.5 ClassType.getAllExplicitMemberMethods——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	fY	getStartColumn	auto: AIDE+ 2.3.5 ClassType.getStartColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Z	iW	isPackagePrivate	auto: AIDE+ 2.3.5 ClassType.isPackagePrivate——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	j3	getModifiersEndLine	auto: AIDE+ 2.3.5 ClassType.getModifiersEndLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(I)Labcd/Pa;	j6	getAbsoluteParameterType	auto: AIDE+ 2.3.5 ClassType.getAbsoluteParameterType——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(ILabcd/Ia;)V	j6	declareField	auto: AIDE+ 2.3.5 ClassType.declareField——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(ILabcd/ua;)V	j6	declareMemberClassType	auto: AIDE+ 2.3.5 ClassType.declareMemberClassType——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/ua;)V	j6	declareSuperClassType	auto: AIDE+ 2.3.5 ClassType.declareSuperClassType——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Ya;	ko	getDelegateOrEnumtype	auto: AIDE+ 2.3.5 ClassType.getDelegateOrEnumtype——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Na;	mb	getNamespace	auto: AIDE+ 2.3.5 ClassType.getNamespace——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Z	n5	isCycliclyDefined	auto: AIDE+ 2.3.5 ClassType.isCycliclyDefined——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	qp	getStartLine	auto: AIDE+ 2.3.5 ClassType.getStartLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	v5	getEndLine	auto: AIDE+ 2.3.5 ClassType.getEndLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Hb;	wc	getAllOperators	auto: AIDE+ 2.3.5 ClassType.getAllOperators——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Hb;	yO	getAllMemberFields	auto: AIDE+ 2.3.5 ClassType.getAllMemberFields——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	zh	getSupertypeCount	auto: AIDE+ 2.3.5 ClassType.getSupertypeCount——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Yb	com/aide/engine/NodeList	auto: 类：Scope（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ga	com/aide/codemodel/api/IdentifierSpace	shape: AIDE+ 2.3.5 的 api/IdentifierSpace（17:17，0.88）——标识符池（旧名 StringPool）
 	m	(I[CI)I	j6	getChars	auto: AIDE+ 2.3.5 IdentifierSpace.getChars——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25657,6 +25716,12 @@ c	abcd/Ca	com/aide/codemodel/api/ErrorTable	shape: AIDE+ 2.3.5 的 api/ErrorTabl
 	m	(Labcd/Da;Labcd/na;Labcd/ua;Ljava/lang/String;)V	j6	addFixImport	auto: AIDE+ 2.3.5 ErrorTable.addFixImport——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Da;Labcd/na;ZII)V	j6	applyFix	auto: AIDE+ 2.3.5 ErrorTable.applyFix——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Da;)I	v5	getInspectionCount	auto: AIDE+ 2.3.5 ErrorTable.getInspectionCount——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/Da;Labcd/na;IILjava/lang/String;)V	DW	addFixImplement	auto: AIDE+ 2.3.5 ErrorTable.addFixImplement——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;Labcd/na;IILjava/lang/String;)V	FH	addFixSurround	auto: AIDE+ 2.3.5 ErrorTable.addFixSurround——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;Labcd/na;I)Ljava/lang/String;	gn	getErrorText	auto: AIDE+ 2.3.5 ErrorTable.getErrorText——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;I)I	j6	getInspectionEndColumn	auto: AIDE+ 2.3.5 ErrorTable.getInspectionEndColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;Labcd/na;)V	j6	clearNonParserErrors	auto: AIDE+ 2.3.5 ErrorTable.clearNonParserErrors——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;Labcd/na;IILjava/lang/String;)V	j6	addFixAddThrows	auto: AIDE+ 2.3.5 ErrorTable.addFixAddThrows——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/ga	com/aide/codemodel/api/abstraction/CodeAnalyzer	shape: AIDE+ 2.3.5 的 abstraction/CodeAnalyzer——8:8 方法，analyzeTypeName/analyzeEveryIdentifiers 对得上
 	m	(Labcd/Sa;IILjava/lang/String;)Labcd/Ya;	j6	analyzeTypeName	auto: AIDE+ 2.3.5 CodeAnalyzer.analyzeTypeName——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Sa;Labcd/bc;)V	j6	analyzeEveryIdentifiers	auto: AIDE+ 2.3.5 CodeAnalyzer.analyzeEveryIdentifiers——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25668,6 +25733,7 @@ c	abcd/Za	com/aide/codemodel/api/Variable	shape: AIDE+ 2.3.5 的 Variable——�
 	m	()Labcd/Da;	DW	getFile	auto: AIDE+ 2.3.5 Variable.getFile——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Labcd/Ya;	gn	getType	auto: AIDE+ 2.3.5 Variable.getType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Labcd/na;	v5	getLanguage	auto: AIDE+ 2.3.5 Variable.getLanguage——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	()Ljava/lang/String;	FH	getHTMLString	auto: AIDE+ 2.3.5 Variable.getHTMLString——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Cb	com/aide/engine/IntVector	auto: 类：IntVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rr	com/aide/engine/WellKnownTypes	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Qs	com/aide/engine/TypeConstant	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
@@ -25877,6 +25943,28 @@ c	abcd/Ia	com/aide/codemodel/api/Member	shape: AIDE+ 2.3.5 的 api/Member（96:9
 	m	()I	we	getIdentifier	auto: AIDE+ 2.3.5 Member.getIdentifier——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	yO	isConst	auto: AIDE+ 2.3.5 Member.isConst——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	ye	isReadonly	auto: AIDE+ 2.3.5 Member.isReadonly——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	()V	qp	loadSyntax	auto: AIDE+ 2.3.5 Member.loadSyntax——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	Hw	getEndColumn	auto: AIDE+ 2.3.5 Member.getEndColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	J0	getIdentifierEndColumn	auto: AIDE+ 2.3.5 Member.getIdentifierEndColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	J8	getIdentifierLine	auto: AIDE+ 2.3.5 Member.getIdentifierLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	Mr	getModifiersStartColumn	auto: AIDE+ 2.3.5 Member.getModifiersStartColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	Mz	getStartLine	auto: AIDE+ 2.3.5 Member.getStartLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Z	Qq	hasConstantValue	auto: AIDE+ 2.3.5 Member.hasConstantValue——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	U2	getModifiersStartLine	auto: AIDE+ 2.3.5 Member.getModifiersStartLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(I)I	VH	getModifiersOfParameter	auto: AIDE+ 2.3.5 Member.getModifiersOfParameter——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Z	WB	isSetProperty	auto: AIDE+ 2.3.5 Member.isSetProperty——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	Ws	getIdentifierStartColumn	auto: AIDE+ 2.3.5 Member.getIdentifierStartColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	aM	getModifiersEndColumn	auto: AIDE+ 2.3.5 Member.getModifiersEndColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Z	aq	isGetProperty	auto: AIDE+ 2.3.5 Member.isGetProperty——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	cb	getExceptionCount	auto: AIDE+ 2.3.5 Member.getExceptionCount——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	j3	getModifiersEndLine	auto: AIDE+ 2.3.5 Member.getModifiersEndLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/ec;)V	j6	load	auto: AIDE+ 2.3.5 Member.load——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/fc;)V	j6	store	auto: AIDE+ 2.3.5 Member.store——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Z	lp	hasStringConstantValue	auto: AIDE+ 2.3.5 Member.hasStringConstantValue——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Z	mb	isStatic	auto: AIDE+ 2.3.5 Member.isStatic——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Z	oY	isMethod	auto: AIDE+ 2.3.5 Member.isMethod——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	v5	getEndLine	auto: AIDE+ 2.3.5 Member.getEndLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	vJ	getParameterCount	auto: AIDE+ 2.3.5 Member.getParameterCount——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/bc	com/aide/codemodel/api/collections/SetOfInt	shape: AIDE+ 2.3.5 的 collections/SetOfInt（16:16，0.69）——int 集合；K 用它记折叠点
 	m	()Z	DW	empty	auto: AIDE+ 2.3.5 SetOfInt.empty——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	j6	contains	auto: AIDE+ 2.3.5 SetOfInt.contains——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25887,6 +25975,7 @@ c	abcd/bc	com/aide/codemodel/api/collections/SetOfInt	shape: AIDE+ 2.3.5 的 col
 	m	()I	Hw	size	auto: AIDE+ 2.3.5 SetOfInt.size——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	j6	clear	auto: AIDE+ 2.3.5 SetOfInt.clear——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/fc;)V	j6	store	auto: AIDE+ 2.3.5 SetOfInt.store——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/bc;)V	DW	equals	auto: AIDE+ 2.3.5 SetOfInt.equals——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/vc	com/aide/codemodel/api/LexerHelper	shape: AIDE+ 2.3.5 的 api/LexerHelper（4:4，0.75）——词法辅助
 c	abcd/Fd	com/aide/codemodel/language/java/JavaSyntax	shape: AIDE+ 2.3.5 的 language/java/JavaSyntax（70:70，0.96）——Java 语法表
 	m	(Labcd/Sa;I)Z	EQ	isChangedExpressionNode	auto: AIDE+ 2.3.5 JavaSyntax.isChangedExpressionNode——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25912,6 +26001,7 @@ c	abcd/Fd	com/aide/codemodel/language/java/JavaSyntax	shape: AIDE+ 2.3.5 的 lan
 	m	(I)Z	j6	isComment	auto: AIDE+ 2.3.5 JavaSyntax.isComment——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	u7	isIdentifier	auto: AIDE+ 2.3.5 JavaSyntax.isIdentifier——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	v5	hasAttrType	auto: AIDE+ 2.3.5 JavaSyntax.hasAttrType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/Sa;)I	DW	getImportEndLine	auto: AIDE+ 2.3.5 JavaSyntax.getImportEndLine——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Dd	com/aide/codemodel/language/java/JavaLexer	shape: AIDE+ 2.3.5 的 language/java/JavaLexer（7:7，0.86）——Java 词法器
 c	abcd/jd	com/aide/codemodel/language/java/JavaCodeRenderer	shape: AIDE+ 2.3.5 的 language/java/JavaCodeRenderer（8:8，0.88）——Java 渲染器
 	m	(Labcd/Aa;)Ljava/lang/String;	FH	getFullyQualifiedNameString	auto: AIDE+ 2.3.5 JavaCodeRenderer.getFullyQualifiedNameString——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25944,6 +26034,8 @@ c	abcd/ae	com/aide/codemodel/language/js/JavaScriptSyntax	shape: AIDE+ 2.3.5 的
 	m	(I)Z	v5	hasAttrType	auto: AIDE+ 2.3.5 JavaScriptSyntax.hasAttrType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Nd	com/aide/codemodel/language/js/JavaScriptCodeRenderer	shape: AIDE+ 2.3.5 的 language/js/JavaScriptCodeRenderer（7:7，1.00）——JavaScript 渲染器
 	m	(I)Ljava/lang/String;	j6	getModifiersString	auto: AIDE+ 2.3.5 JavaScriptCodeRenderer.getModifiersString——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/Aa;)Ljava/lang/String;	FH	getFullyQualifiedNameString	auto: AIDE+ 2.3.5 JavaScriptCodeRenderer.getFullyQualifiedNameString——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Aa;)Ljava/lang/String;	j6	getNameString	auto: AIDE+ 2.3.5 JavaScriptCodeRenderer.getNameString——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/qe	com/aide/codemodel/language/xml/XmlSyntax	shape: AIDE+ 2.3.5 的 language/xml/XmlSyntax（62:62，0.97）——XML 语法表
 	m	(Labcd/Sa;)I	DW	getImportEndLine	auto: AIDE+ 2.3.5 XmlSyntax.getImportEndLine——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	Zo	isLiteral	auto: AIDE+ 2.3.5 XmlSyntax.isLiteral——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -25999,6 +26091,7 @@ c	abcd/oa	com/aide/codemodel/api/abstraction/SignatureAnalyzer	shape: AIDE+ 2.3.
 	m	(Labcd/Da;)V	j6	doLoadTypes	auto: AIDE+ 2.3.5 SignatureAnalyzer.doLoadTypes——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Da;)V	DW	doLoadSyntax	auto: AIDE+ 2.3.5 SignatureAnalyzer.doLoadSyntax——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/ua;)V	DW	doLoadSuperClassTypes	auto: AIDE+ 2.3.5 SignatureAnalyzer.doLoadSuperClassTypes——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/Da;)V	FH	doLoadPositions	auto: AIDE+ 2.3.5 SignatureAnalyzer.doLoadPositions——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/be	com/aide/codemodel/language/js/JavaScriptTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptTools（51:51，0.71）——JavaScript 工具集；字段含 abcd/Vd(JavaScriptLanguage) 与 Ld/Od/Kd，整族一致
 c	abcd/Gd	com/aide/codemodel/language/java/JavaTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaTools（56:56，0.68）——Java 工具集；字段含 abcd/yd(JavaLanguage) 与 cd/ed/zd/kd/gd，整族一致
 c	abcd/fm	com/aide/ui/views/editor/Position	shape: AIDE+ 2.3.5 的 com/aide/ui/views/editor/Position（4:4，1.00）——编辑器里的行列位置值对象
@@ -26029,11 +26122,16 @@ c	abcd/_d	com/aide/codemodel/language/js/JavaScriptSignatureAnalyzer	shape: AIDE
 	m	(Labcd/Da;)V	DW	doLoadSyntax	auto: AIDE+ 2.3.5 JavaScriptSignatureAnalyzer.doLoadSyntax——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/ua;)V	DW	doLoadSuperClassTypes	auto: AIDE+ 2.3.5 JavaScriptSignatureAnalyzer.doLoadSuperClassTypes——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Da;)V	Hw	doLoadNamespaces	auto: AIDE+ 2.3.5 JavaScriptSignatureAnalyzer.doLoadNamespaces——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/Da;)V	FH	doLoadPositions	auto: AIDE+ 2.3.5 JavaScriptSignatureAnalyzer.doLoadPositions——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Ed	com/aide/codemodel/language/java/JavaSignatureAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaSignatureAnalyzer——Java 签名分析器（字段含 JavaLanguage）
 	m	(Labcd/Da;)V	Hw	doLoadNamespaces	auto: AIDE+ 2.3.5 JavaSignatureAnalyzer.doLoadNamespaces——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Sa;)J	DW	getDeclarationDigest	auto: AIDE+ 2.3.5 JavaSignatureAnalyzer.getDeclarationDigest——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Sa;)J	Hw	getClassDeclarationDigest	auto: AIDE+ 2.3.5 JavaSignatureAnalyzer.getClassDeclarationDigest——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Sa;)J	v5	getPublicDeclarationDigest	auto: AIDE+ 2.3.5 JavaSignatureAnalyzer.getPublicDeclarationDigest——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/Da;)V	DW	doLoadSyntax	auto: AIDE+ 2.3.5 JavaSignatureAnalyzer.doLoadSyntax——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/ua;)V	DW	doLoadSuperClassTypes	auto: AIDE+ 2.3.5 JavaSignatureAnalyzer.doLoadSuperClassTypes——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;)V	FH	doLoadPositions	auto: AIDE+ 2.3.5 JavaSignatureAnalyzer.doLoadPositions——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(Labcd/Da;)V	j6	doLoadTypes	auto: AIDE+ 2.3.5 JavaSignatureAnalyzer.doLoadTypes——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/ad	com/aide/codemodel/language/dtd/DtdSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdSyntax——DTD 语法表
 	m	(Labcd/Sa;)I	DW	getImportEndLine	auto: AIDE+ 2.3.5 DtdSyntax.getImportEndLine——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	Zo	isLiteral	auto: AIDE+ 2.3.5 DtdSyntax.isLiteral——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26061,6 +26159,7 @@ c	abcd/ad	com/aide/codemodel/language/dtd/DtdSyntax	shape: AIDE+ 2.3.5 的 com/a
 	m	(I)Z	rN	isClassBody	auto: AIDE+ 2.3.5 DtdSyntax.isClassBody——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	v5	hasAttrType	auto: AIDE+ 2.3.5 DtdSyntax.hasAttrType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	yS	isToken	auto: AIDE+ 2.3.5 DtdSyntax.isToken——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(I)Z	j6	isComment	auto: AIDE+ 2.3.5 DtdSyntax.isComment——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Tc	com/aide/codemodel/language/css/CssSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssSyntax——CSS 语法表
 	m	(Labcd/Sa;)I	DW	getImportEndLine	auto: AIDE+ 2.3.5 CssSyntax.getImportEndLine——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Sa;)Labcd/Cb;	j6	getNamespaceNodePairs	auto: AIDE+ 2.3.5 CssSyntax.getNamespaceNodePairs——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26086,6 +26185,7 @@ c	abcd/Tc	com/aide/codemodel/language/css/CssSyntax	shape: AIDE+ 2.3.5 的 com/a
 	m	(I)Z	tp	isSeparator	auto: AIDE+ 2.3.5 CssSyntax.isSeparator——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	v5	hasAttrType	auto: AIDE+ 2.3.5 CssSyntax.hasAttrType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	yS	isToken	auto: AIDE+ 2.3.5 CssSyntax.isToken——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(I)Z	Zo	isLiteral	auto: AIDE+ 2.3.5 CssSyntax.isLiteral——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Uc	com/aide/codemodel/language/css/CssTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssTools——CSS 工具集
 c	abcd/Ic	com/aide/codemodel/language/cpp/CppSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppSyntax——C++ 语法表
 	m	(Labcd/Sa;)I	DW	getImportEndLine	auto: AIDE+ 2.3.5 CppSyntax.getImportEndLine——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26144,6 +26244,8 @@ c	abcd/pd	com/aide/codemodel/language/java/JSharpCommentsSyntax	shape: AIDE+ 2.3
 	m	(I)Z	v5	hasAttrType	auto: AIDE+ 2.3.5 JSharpCommentsSyntax.hasAttrType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	vy	isBooleanLiteral	auto: AIDE+ 2.3.5 JSharpCommentsSyntax.isBooleanLiteral——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	yS	isToken	auto: AIDE+ 2.3.5 JSharpCommentsSyntax.isToken——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(I)Z	Zo	isLiteral	auto: AIDE+ 2.3.5 JSharpCommentsSyntax.isLiteral——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(I)Z	j6	isComment	auto: AIDE+ 2.3.5 JSharpCommentsSyntax.isComment——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Sd	com/aide/codemodel/language/js/JavaScriptCommentsSyntax	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsSyntax——JavaScript 注释语法表
 	m	(Labcd/Sa;)I	DW	getImportEndLine	auto: AIDE+ 2.3.5 JavaScriptCommentsSyntax.getImportEndLine——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Sa;)Labcd/Cb;	j6	getNamespaceNodePairs	auto: AIDE+ 2.3.5 JavaScriptCommentsSyntax.getNamespaceNodePairs——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26171,10 +26273,13 @@ c	abcd/Sd	com/aide/codemodel/language/js/JavaScriptCommentsSyntax	shape: AIDE+ 2
 	m	(I)Z	v5	hasAttrType	auto: AIDE+ 2.3.5 JavaScriptCommentsSyntax.hasAttrType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	vy	isBooleanLiteral	auto: AIDE+ 2.3.5 JavaScriptCommentsSyntax.isBooleanLiteral——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)Z	yS	isToken	auto: AIDE+ 2.3.5 JavaScriptCommentsSyntax.isToken——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(I)Z	Zo	isLiteral	auto: AIDE+ 2.3.5 JavaScriptCommentsSyntax.isLiteral——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	(I)Z	j6	isComment	auto: AIDE+ 2.3.5 JavaScriptCommentsSyntax.isComment——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/qd	com/aide/codemodel/language/java/JSharpCommentsTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpCommentsTools——J# 注释工具集
 c	abcd/Td	com/aide/codemodel/language/js/JavaScriptCommentsTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsTools——JavaScript 注释工具集
 c	abcd/dd	com/aide/codemodel/language/java/JavaCodeAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeAnalyzer——Java 代码分析器（被 JavaLanguage 持有）
 	m	(Labcd/Sa;Labcd/bc;)V	j6	analyzeEveryIdentifiers	auto: AIDE+ 2.3.5 JavaCodeAnalyzer.analyzeEveryIdentifiers——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/Sa;IILjava/lang/String;)Labcd/Ya;	j6	analyzeTypeName	auto: AIDE+ 2.3.5 JavaCodeAnalyzer.analyzeTypeName——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/_b	com/aide/codemodel/api/collections/SetOfFileEntry	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/SetOfFileEntry——FileEntry 集合（字段与 SetOfFileEntry 逐个对应）
 	m	(I)V	DW	put	auto: AIDE+ 2.3.5 SetOfFileEntry.put——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Labcd/Da;	DW	get	auto: AIDE+ 2.3.5 SetOfFileEntry.get——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26185,6 +26290,7 @@ c	abcd/_b	com/aide/codemodel/api/collections/SetOfFileEntry	shape: AIDE+ 2.3.5 �
 	m	(Labcd/Da;)V	FH	remove	auto: AIDE+ 2.3.5 SetOfFileEntry.remove——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	j6	clear	auto: AIDE+ 2.3.5 SetOfFileEntry.clear——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/fc;)V	j6	store	auto: AIDE+ 2.3.5 SetOfFileEntry.store——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/_b;)V	FH	equals	auto: AIDE+ 2.3.5 SetOfFileEntry.equals——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Yc	com/aide/codemodel/language/dtd/DtdLexer	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdLexer——DTD 词法器（被 DtdCodeModel 引用）
 c	abcd/Hc	com/aide/codemodel/language/cpp/CppLexer	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppLexer——C++ 词法器（被 CppCodeModel 引用）
 c	abcd/md	com/aide/codemodel/language/java/JavaFormatterOption	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaFormatterOption——Java 格式化选项枚举（1 常量/6 方法）
@@ -26215,6 +26321,7 @@ c	abcd/qb	com/aide/codemodel/api/collections/FunctionOfIntInt	body: AIDE+ 2.3.5 
 	m	()V	j6	clear	auto: AIDE+ 2.3.5 FunctionOfIntInt.clear——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/fc;)V	j6	store	auto: AIDE+ 2.3.5 FunctionOfIntInt.store——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(I)V	FH	remove	auto: AIDE+ 2.3.5 FunctionOfIntInt.remove——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(I)I	DW	get	auto: AIDE+ 2.3.5 FunctionOfIntInt.get——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Ya	com/aide/codemodel/api/Type	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/Type——类型基类（8 个子类：Class/Array/Pointer/Primitive/Parameterized/Parameter/MethodParameter/MethodParameterVariable）
 	m	()I	dx	getSemantic	auto: AIDE+ 2.3.5 Type.getSemantic——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Da;Labcd/na;)Z	j6	isReferable	auto: AIDE+ 2.3.5 Type.isReferable——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26230,6 +26337,8 @@ c	abcd/Ya	com/aide/codemodel/api/Type	body: AIDE+ 2.3.5 的 com/aide/codemodel/a
 	m	(Labcd/Ya;)Z	j6	containsType	auto: AIDE+ 2.3.5 Type.containsType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Z	vJ	isEnumType	auto: AIDE+ 2.3.5 Type.isEnumType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Labcd/Ya;	sG	getSuperType	auto: AIDE+ 2.3.5 Type.getSuperType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	(Labcd/Da;Labcd/na;Labcd/Ya;)Z	FH	isImplicitConvertibleTo	auto: AIDE+ 2.3.5 Type.isImplicitConvertibleTo——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Ya;	sh	getErasedType	auto: AIDE+ 2.3.5 Type.getErasedType——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Ja	com/aide/codemodel/api/MethodParameterType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/MethodParameterType——方法参数类型
 	m	()I	EQ	getId	auto: AIDE+ 2.3.5 MethodParameterType.getId——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()I	j6	getDeclarationNumber	auto: AIDE+ 2.3.5 MethodParameterType.getDeclarationNumber——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26241,6 +26350,10 @@ c	abcd/Ja	com/aide/codemodel/api/MethodParameterType	body: AIDE+ 2.3.5 的 com/a
 	m	()Labcd/Da;	Zo	getFile	auto: AIDE+ 2.3.5 MethodParameterType.getFile——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	aj	invalidate	auto: AIDE+ 2.3.5 MethodParameterType.invalidate——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Ya;I)Labcd/Ya;	j6	getBoundType	auto: AIDE+ 2.3.5 MethodParameterType.getBoundType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	()I	J0	getIdentifierEndColumn	auto: AIDE+ 2.3.5 MethodParameterType.getIdentifierEndColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	J8	getIdentifierLine	auto: AIDE+ 2.3.5 MethodParameterType.getIdentifierLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	Ws	getIdentifierStartColumn	auto: AIDE+ 2.3.5 MethodParameterType.getIdentifierStartColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Ya;	sh	getErasedType	auto: AIDE+ 2.3.5 MethodParameterType.getErasedType——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Ka	com/aide/codemodel/api/MethodParameterTypeVariable	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/MethodParameterTypeVariable——方法参数变量
 	m	()I	EQ	getId	auto: AIDE+ 2.3.5 MethodParameterTypeVariable.getId——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/ec;)V	j6	load	auto: AIDE+ 2.3.5 MethodParameterTypeVariable.load——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26270,6 +26383,10 @@ c	abcd/Pa	com/aide/codemodel/api/ParameterType	body: AIDE+ 2.3.5 的 com/aide/co
 	m	()Labcd/ua;	FH	getEnclosingClassType	auto: AIDE+ 2.3.5 ParameterType.getEnclosingClassType——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()Labcd/Da;	Zo	getFile	auto: AIDE+ 2.3.5 ParameterType.getFile——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	()V	lp	invalidate	auto: AIDE+ 2.3.5 ParameterType.invalidate——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+	m	()I	J0	getIdentifierEndColumn	auto: AIDE+ 2.3.5 ParameterType.getIdentifierEndColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	J8	getIdentifierLine	auto: AIDE+ 2.3.5 ParameterType.getIdentifierLine——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()I	Ws	getIdentifierStartColumn	auto: AIDE+ 2.3.5 ParameterType.getIdentifierStartColumn——方法体指纹对位（thr 0.45，已过返回类型校验）
+	m	()Labcd/Ya;	sh	getErasedType	auto: AIDE+ 2.3.5 ParameterType.getErasedType——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/Qa	com/aide/codemodel/api/PointerType	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/PointerType——指针类型
 	m	()I	EQ	getId	auto: AIDE+ 2.3.5 PointerType.getId——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/ec;)V	j6	load	auto: AIDE+ 2.3.5 PointerType.load——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26311,6 +26428,7 @@ c	abcd/Va	com/aide/codemodel/api/SyntaxTreeSpace	body: AIDE+ 2.3.5 的 com/aide/
 c	abcd/Jl	com/aide/ui/command/FileBrowserCommand	body: AIDE+ 2.3.5 的 com/aide/ui/command/FileBrowserCommand——文件浏览器命令接口（图标/标题资源 + isVisible + run）
 	m	(Z)Z	j6	isVisible	auto: AIDE+ 2.3.5 FileBrowserCommand.isVisible——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 c	abcd/Sj	com/aide/ui/services/EngineNotifyService	body: AIDE+ 2.3.5 的 com/aide/ui/services/EngineNotifyService——引擎状态通知服务（实现 ErrorService.ErrorListener 与 BuildService.BuildListener）
+	m	()V	FH	init	auto: AIDE+ 2.3.5 EngineNotifyService.init——方法体指纹对位（thr 0.45，已过返回类型校验）
 c	abcd/nb	com/aide/codemodel/api/callback/TemplateEvaluatorCallback	shape: AIDE+ 2.3.5 的 TemplateEvaluatorCallback（5:5 全等）——模板求值；实现者 c$b$o 把 Entity/Variable/名字都包成 SourceEntity
 	m	(Labcd/Aa;)V	j6	DW	auto: AIDE+ 2.3.5 TemplateEvaluatorCallback.DW——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Za;)V	j6	v5	auto: AIDE+ 2.3.5 TemplateEvaluatorCallback.v5——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
