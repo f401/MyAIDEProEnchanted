@@ -1611,6 +1611,8 @@ abcd/qw com/crashlytics/android/core/SessionDataStore
 abcd/mw com/aide/engine/ProbeLoader
 abcd/op com/aide/engine/FieldAnnotations
 abcd/ap com/aide/engine/ClassDataItem
+	Hw ()Labcd/wp; getItemType
+	j6 (Labcd/jp;)V place
 	j6 (Labcd/lp;)V addInstanceField
 	j6 (Labcd/lp;Labcd/ms;)V addStaticField
 	j6 (Labcd/np;)V addDirectMethod
@@ -1723,3 +1725,8 @@ abcd/co com/aide/engine/LocalVariableTable
 	j6 (Labcd/Wn;)Labcd/co; build
 abcd/ip com/aide/engine/DebugInfoItemSection
 	DW (Labcd/jp;Labcd/Lt;)V writeTo0
+abcd/vp com/aide/engine/Item
+	Hw ()Labcd/wp; getItemType
+	VH ()I writeSize
+	j6 (Labcd/jp;)V place
+	j6 (Labcd/jp;Labcd/Lt;)V writeTo

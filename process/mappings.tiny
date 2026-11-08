@@ -26713,6 +26713,8 @@ c	abcd/qw	com/crashlytics/android/core/SessionDataStore	str: com/crashlytics/and
 c	abcd/mw	com/aide/engine/ProbeLoader	str: com/aide/engine/ProbeLoader——backbone 测试 probe 加载器
 c	abcd/op	com/aide/engine/FieldAnnotations	str/body: com/aide/engine/FieldAnnotations——字段注解条目
 c	abcd/ap	com/aide/engine/ClassDataItem	str/body: com/aide/engine/ClassDataItem——dex 的 class_data_item
+	m	()Labcd/wp;	Hw	getItemType	body: 返回 wp.we = class_data_item ⇒ 覆盖 Item.getItemType
+	m	(Labcd/jp;)V	j6	place	body: 遍历字段/方法条目逐个 place，再算本段大小
 	m	(Labcd/lp;)V	j6	addInstanceField	body: 加到 gn(instanceFields)，空则抛 "field == null"
 	m	(Labcd/lp;Labcd/ms;)V	j6	addStaticField	body: 加到 Zo(staticFields) 与 VH(staticFieldValues)；已建 staticValues 时抛 "static fields already sorted"
 	m	(Labcd/np;)V	j6	addDirectMethod	body: 加到 u7(directMethods)，空则抛 "method == null"
@@ -26825,6 +26827,11 @@ c	abcd/co	com/aide/engine/LocalVariableTable	str: com/aide/engine/LocalVariableT
 	m	(Labcd/Wn;)Labcd/co;	j6	build	body: 遍历指令块，遇到 do/eo 之类的变量起始/结束指令就往 co$c 里塞项，最后建表
 c	abcd/ip	com/aide/engine/DebugInfoItemSection	str: com/aide/engine/DebugInfoItemSection——写 debug_info_item
 	m	(Labcd/jp;Labcd/Lt;)V	DW	writeTo0	body: Gp.DW 的覆盖——写 debug_info_item（用 Un 的位置表/局部表/指令块）
+c	abcd/vp	com/aide/engine/Item	iface: com/aide/engine/Item——条目类型/写出大小/类型名/place/writeTo
+	m	()Labcd/wp;	Hw	getItemType	body: 返回 wp(MapItemType)——本条目在 map_list 里的类型号
+	m	()I	VH	writeSize	body: 写出字节数（Gp 里未算出时抛 "writeSize is unknown"）
+	m	(Labcd/jp;)V	j6	place	body: 分配偏移/登记到所属 Section（dx 的 place）
+	m	(Labcd/jp;Labcd/Lt;)V	j6	writeTo	body: 真正写出（dx 的 writeTo）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

@@ -1727,3 +1727,10 @@ f	abcd/Un	v5	-	body: tp() 里由 io.j6(块,positionInfo) 得到的位置表
 m	abcd/io	j6	(Labcd/Wn;I)Labcd/io;	body: 遍历指令块，按 positionInfo 种类(1/2/3) 收集 (行号,源文件) 项 ⇒ 建位置表
 m	abcd/co	j6	(Labcd/Wn;)Labcd/co;	body: 遍历指令块，遇到 do/eo 之类的变量起始/结束指令就往 co$c 里塞项，最后建表
 m	abcd/ip	DW	(Labcd/jp;Labcd/Lt;)V	body: Gp.DW 的覆盖——写 debug_info_item（用 Un 的位置表/局部表/指令块）
+c	abcd/vp	-	-	iface: com/aide/engine/Item——条目类型/写出大小/类型名/place/writeTo
+m	abcd/vp	Hw	()Labcd/wp;	body: 返回 wp(MapItemType)——本条目在 map_list 里的类型号
+m	abcd/vp	VH	()I	body: 写出字节数（Gp 里未算出时抛 "writeSize is unknown"）
+m	abcd/vp	j6	(Labcd/jp;)V	body: 分配偏移/登记到所属 Section（dx 的 place）
+m	abcd/vp	j6	(Labcd/jp;Labcd/Lt;)V	body: 真正写出（dx 的 writeTo）
+m	abcd/ap	Hw	()Labcd/wp;	body: 返回 wp.we = class_data_item ⇒ 覆盖 Item.getItemType
+m	abcd/ap	j6	(Labcd/jp;)V	body: 遍历字段/方法条目逐个 place，再算本段大小
