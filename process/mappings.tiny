@@ -25840,7 +25840,7 @@ c	abcd/gn	com/aide/engine/AttributeFactory	auto: 工厂：Attribute（上游未�
 c	abcd/nn	com/aide/engine/DexAttributeFactory	auto: 工厂：DexAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Hn	com/aide/engine/AttributeConverter	auto: 类：AttributeConverter（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Qm	com/aide/engine/AnnotationSet	auto: 类：AnnotationSet（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Pn	com/aide/engine/ModelBuilder	auto: 建造器：Model（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Pn	com/aide/engine/Catches	iface: com/aide/engine/Catches——未处理异常表（build() 产出捕获表，j6() 返回捕获类型）
 c	abcd/mm	com/aide/engine/ReferenceAttribute	auto: 类：ReferenceAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/om	com/aide/engine/AnnotationTableAttribute	auto: 类：AnnotationTableAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/rm	com/aide/engine/ValueAttribute	auto: 类：ValueAttribute（上游未收录，名字来自 jobs/engine 的判据）
@@ -25854,7 +25854,7 @@ c	abcd/In	com/aide/engine/Options	auto: 类：Options（上游未收录，名字
 c	abcd/Ir	com/aide/engine/Visibility	auto: 类：Visibility（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Lr	com/aide/engine/NamedReference	auto: 类：NamedReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ns	com/aide/engine/ReferenceArray	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Rn	com/aide/engine/Model	auto: 类：Model（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Rn	com/aide/engine/CatchTable	body: com/aide/engine/CatchTable——(start,end,handlers) 三元组表
 c	abcd/ab	com/aide/codemodel/api/callback/CodeCompleterCallback	shape: AIDE+ 2.3.5 的 CodeCompleterCallback（22:22 方法全等，含 parameterListFound 签名）——补全回调；实现者 c$b$b 收 SourceEntity 列表
 	m	()V	j6	listStarted	auto: AIDE+ 2.3.5 CodeCompleterCallback.listStarted——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
 	m	(Labcd/Aa;Labcd/Ya;Z)V	j6	listElementEntityFound	auto: AIDE+ 2.3.5 CodeCompleterCallback.listElementEntityFound——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
@@ -26803,6 +26803,28 @@ c	abcd/Es	com/aide/engine/DexLong	str: long 常量——Zo() 返回 "long"
 c	abcd/us	com/aide/engine/DexDouble	str: double 常量——Zo() 返回 "double"
 c	abcd/lu	com/aide/engine/ToHuman	iface: 只有一个 aM()String——把对象拼成人类可读串（dx 的 ToHuman）
 	m	()Ljava/lang/String;	aM	toHuman	iface: toHuman——唯一抽象方法，实现类拼描述串
+c	abcd/Un	com/aide/engine/Code	body: com/aide/engine/Code——insns/positions/locals/catches 的懒构建容器（dx 的 DalvCode）
+	m	()Labcd/Rn;	DW	getCatches	body: 先 tp() 再返回 Hw(CatchTable)——捕获表
+	m	()Ljava/util/HashSet;	FH	getConstants	body: 返回 ho(未处理指令表).DW() ⇒ 用到的常量集合
+	m	()Labcd/Wn;	Hw	getInstructionBlock	body: 先 tp() 再返回 VH(Wn=InstructionBlock)
+	m	()Labcd/io;	Zo	getPositions	body: 先 tp() 再返回 v5(io=PositionTable)
+	m	()Labcd/co;	v5	getLocals	body: 先 tp() 再返回 Zo(co=LocalVariableTable)
+	m	()Ljava/util/HashSet;	j6	getTypes	body: 委派 Pn(Catches).j6() ⇒ 捕获类型集合
+	m	(Labcd/Un$a;)V	j6	visitConstants	body: 委派 ho.j6(Un$a)——用访问者遍历常量（Un$a: int j6(ms)）
+	f	I	j6	positionInfo	body: 构造传入的 positionInfo——tp() 里交给 io.j6(块,positionInfo) 决定位置表种类
+	f	Labcd/ho;	DW	unprocessedInsns	body: ho=未处理指令表（构造串 "unprocessedInsns == null"）；tp() 用完置空
+	f	Labcd/Pn;	FH	unprocessedCatches	body: Pn=未处理异常表（构造串 "unprocessedCatches == null"）；tp() 用完置空
+	f	Labcd/Rn;	Hw	catches	body: tp() 里由 Pn.build() 得到的 CatchTable
+	f	Labcd/Wn;	VH	instructionBlock	body: tp() 里由 ho.j6() 得到的指令块
+	f	Labcd/co;	Zo	locals	body: tp() 里由 co.j6(块) 得到的局部变量表
+	f	Labcd/io;	v5	positions	body: tp() 里由 io.j6(块,positionInfo) 得到的位置表
+c	abcd/Qn	com/aide/engine/CatchHandlerList	body: com/aide/engine/CatchHandlerList——(捕获类型,跳转地址) 列表
+c	abcd/io	com/aide/engine/PositionTable	body: com/aide/engine/PositionTable——位置/行号表
+	m	(Labcd/Wn;I)Labcd/io;	j6	build	body: 遍历指令块，按 positionInfo 种类(1/2/3) 收集 (行号,源文件) 项 ⇒ 建位置表
+c	abcd/co	com/aide/engine/LocalVariableTable	str: com/aide/engine/LocalVariableTable——变量活跃区间（START/END_* 六种标记）
+	m	(Labcd/Wn;)Labcd/co;	j6	build	body: 遍历指令块，遇到 do/eo 之类的变量起始/结束指令就往 co$c 里塞项，最后建表
+c	abcd/ip	com/aide/engine/DebugInfoItemSection	str: com/aide/engine/DebugInfoItemSection——写 debug_info_item
+	m	(Labcd/jp;Labcd/Lt;)V	DW	writeTo0	body: Gp.DW 的覆盖——写 debug_info_item（用 Un 的位置表/局部表/指令块）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

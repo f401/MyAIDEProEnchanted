@@ -27249,7 +27249,7 @@ abcd/gn com/aide/engine/AttributeFactory
 abcd/nn com/aide/engine/DexAttributeFactory
 abcd/Hn com/aide/engine/AttributeConverter
 abcd/Qm com/aide/engine/AnnotationSet
-abcd/Pn com/aide/engine/ModelBuilder
+abcd/Pn com/aide/engine/Catches
 abcd/mm com/aide/engine/ReferenceAttribute
 abcd/om com/aide/engine/AnnotationTableAttribute
 abcd/rm com/aide/engine/ValueAttribute
@@ -27263,7 +27263,7 @@ abcd/In com/aide/engine/Options
 abcd/Ir com/aide/engine/Visibility
 abcd/Lr com/aide/engine/NamedReference
 abcd/ns com/aide/engine/ReferenceArray
-abcd/Rn com/aide/engine/Model
+abcd/Rn com/aide/engine/CatchTable
 abcd/ab com/aide/codemodel/api/callback/CodeCompleterCallback
 	j6 ()V listStarted
 	j6 (Labcd/Aa;Labcd/Ya;Z)V listElementEntityFound
@@ -28230,6 +28230,30 @@ abcd/Es com/aide/engine/DexLong
 abcd/us com/aide/engine/DexDouble
 abcd/lu com/aide/engine/ToHuman
 	aM ()Ljava/lang/String; toHuman
+abcd/Un com/aide/engine/Code
+	DW ()Labcd/Rn; getCatches
+	FH ()Ljava/util/HashSet; getConstants
+	Hw ()Labcd/Wn; getInstructionBlock
+	Zo ()Labcd/io; getPositions
+	v5 ()Labcd/co; getLocals
+	j6 ()Ljava/util/HashSet; getTypes
+	j6 (Labcd/Un$a;)V visitConstants
+	j6 positionInfo
+	DW unprocessedInsns
+	FH unprocessedCatches
+	Hw catches
+	VH instructionBlock
+	Zo locals
+	v5 positions
+abcd/Qn com/aide/engine/CatchHandlerList
+abcd/io com/aide/engine/PositionTable
+	j6 (Labcd/Wn;I)Labcd/io; build
+		static
+abcd/co com/aide/engine/LocalVariableTable
+	j6 (Labcd/Wn;)Labcd/co; build
+		static
+abcd/ip com/aide/engine/DebugInfoItemSection
+	DW (Labcd/jp;Labcd/Lt;)V writeTo0
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

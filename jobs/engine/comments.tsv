@@ -132,7 +132,7 @@ c	abcd/gn	-	-	auto: 工厂：Attribute（上游未收录，名字来自 jobs/eng
 c	abcd/nn	-	-	auto: 工厂：DexAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Hn	-	-	auto: 类：AttributeConverter（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Qm	-	-	auto: 类：AnnotationSet（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Pn	-	-	auto: 建造器：Model（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Pn	-	-	iface: com/aide/engine/Catches——未处理异常表（build() 产出捕获表，j6() 返回捕获类型）
 c	abcd/mm	-	-	auto: 类：ReferenceAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/om	-	-	auto: 类：AnnotationTableAttribute（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/rm	-	-	auto: 类：ValueAttribute（上游未收录，名字来自 jobs/engine 的判据）
@@ -146,7 +146,7 @@ c	abcd/In	-	-	auto: 类：Options（上游未收录，名字来自 jobs/engine �
 c	abcd/Ir	-	-	auto: 类：Visibility（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Lr	-	-	auto: 类：NamedReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ns	-	-	auto: 类：ReferenceArray（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Rn	-	-	auto: 类：Model（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Rn	-	-	body: com/aide/engine/CatchTable——(start,end,handlers) 三元组表
 c	abcd/ab	-	-	shape: AIDE+ 2.3.5 的 CodeCompleterCallback（22:22 方法全等，含 parameterListFound 签名）——补全回调；实现者 c$b$b 收 SourceEntity 列表
 c	abcd/Wa	-	-	shape: AIDE+ 2.3.5 的 SyntaxTreeStyles——HighlighterCallback.addSyntaxTreeStyles(Language,SyntaxTreeStyles) ↔ db.j6(na,Wa)
 c	abcd/em	-	-	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
@@ -1704,3 +1704,26 @@ f	abcd/ap	we	-	body: 已编码好的 class_data_item 字节（非调试写出直
 
 m	abcd/Gp	aM	()Ljava/lang/String;	body: 抽象——各段的明细人读串（ap 实现为 toString）
 m	abcd/Gp	DW	(Labcd/jp;Labcd/Lt;)V	body: protected 抽象——真正的写出实现（public final j6(jp,Lt) 是包装：先写 section 大小/偏移再调它）
+
+c	abcd/Un	-	-	body: com/aide/engine/Code——insns/positions/locals/catches 的懒构建容器（dx 的 DalvCode）
+c	abcd/Qn	-	-	body: com/aide/engine/CatchHandlerList——(捕获类型,跳转地址) 列表
+c	abcd/io	-	-	body: com/aide/engine/PositionTable——位置/行号表
+c	abcd/co	-	-	str: com/aide/engine/LocalVariableTable——变量活跃区间（START/END_* 六种标记）
+c	abcd/ip	-	-	str: com/aide/engine/DebugInfoItemSection——写 debug_info_item
+m	abcd/Un	DW	()Labcd/Rn;	body: 先 tp() 再返回 Hw(CatchTable)——捕获表
+m	abcd/Un	FH	()Ljava/util/HashSet;	body: 返回 ho(未处理指令表).DW() ⇒ 用到的常量集合
+m	abcd/Un	Hw	()Labcd/Wn;	body: 先 tp() 再返回 VH(Wn=InstructionBlock)
+m	abcd/Un	Zo	()Labcd/io;	body: 先 tp() 再返回 v5(io=PositionTable)
+m	abcd/Un	v5	()Labcd/co;	body: 先 tp() 再返回 Zo(co=LocalVariableTable)
+m	abcd/Un	j6	()Ljava/util/HashSet;	body: 委派 Pn(Catches).j6() ⇒ 捕获类型集合
+m	abcd/Un	j6	(Labcd/Un$a;)V	body: 委派 ho.j6(Un$a)——用访问者遍历常量（Un$a: int j6(ms)）
+f	abcd/Un	j6	-	body: 构造传入的 positionInfo——tp() 里交给 io.j6(块,positionInfo) 决定位置表种类
+f	abcd/Un	DW	-	body: ho=未处理指令表（构造串 "unprocessedInsns == null"）；tp() 用完置空
+f	abcd/Un	FH	-	body: Pn=未处理异常表（构造串 "unprocessedCatches == null"）；tp() 用完置空
+f	abcd/Un	Hw	-	body: tp() 里由 Pn.build() 得到的 CatchTable
+f	abcd/Un	VH	-	body: tp() 里由 ho.j6() 得到的指令块
+f	abcd/Un	Zo	-	body: tp() 里由 co.j6(块) 得到的局部变量表
+f	abcd/Un	v5	-	body: tp() 里由 io.j6(块,positionInfo) 得到的位置表
+m	abcd/io	j6	(Labcd/Wn;I)Labcd/io;	body: 遍历指令块，按 positionInfo 种类(1/2/3) 收集 (行号,源文件) 项 ⇒ 建位置表
+m	abcd/co	j6	(Labcd/Wn;)Labcd/co;	body: 遍历指令块，遇到 do/eo 之类的变量起始/结束指令就往 co$c 里塞项，最后建表
+m	abcd/ip	DW	(Labcd/jp;Labcd/Lt;)V	body: Gp.DW 的覆盖——写 debug_info_item（用 Un 的位置表/局部表/指令块）

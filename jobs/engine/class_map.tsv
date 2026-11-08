@@ -106,7 +106,7 @@ gn	com/aide/engine/AttributeFactory	body:public final on j6(jn,int,int,xn) + pro
 nn	com/aide/engine/DexAttributeFactory	extends gn，单例 j6；一堆 private on DW/FH/Hw/J0/EQ(jn,int,int,xn) 按不同种类造属性 ⇒ 具体属性工厂
 Hn	com/aide/engine/AttributeConverter	全是 static 方法：把 un/pn/jn 转成 Jr/Kr/Hr（j6(Ks,pn,Z)Jr、j6(jn,In)Jr、FH(un)Kr…）⇒ 属性/注解的转换工具
 Qm	com/aide/engine/AnnotationSet	extends Xt；Qm$a 是条目；DW(Qm,Qm)/j6(Qm,Qm) 是**并集/合并**、j6(int,int,int,Js,Js,Js,int) 追加条目、get(int)Qm$a ⇒ 注解/类型集合
-Pn	com/aide/engine/ModelBuilder	iface:DW()Z + build()Rn + j6()HashSet<Qs> ⇒ 构建器
+Pn	com/aide/engine/Catches	iface:实现者 no 的构造串是 "unprocessedCatches == null"；build() 产出 Rn(捕获表)、j6() 返回捕获类型集合 ⇒ 未处理异常表接口（dx 里喂给 DalvCode 的 catches）
 mm	com/aide/engine/ReferenceAttribute	extends Am（具名属性），字段 Ks+Hs，方法 DW()Hs 取引用、Hw()I 取索引 ⇒ 带引用的属性
 om	com/aide/engine/AnnotationTableAttribute	extends Am，字段 Dm(注解元素表)，方法 j6()Dm 取表、Hw()I 取索引 ⇒ 带注解元素表的属性
 rm	com/aide/engine/ValueAttribute	extends Bm（带索引值的具名属性），ctor(Qm) ⇒ 承载一个 Qm 值的属性
@@ -120,7 +120,7 @@ In	com/aide/engine/Options	body:若干 boolean + String + PrintStream + int ⇒ 
 Ir	com/aide/engine/Visibility	enum:常量 RUNTIME/BUILD/SYSTEM/EMBEDDED 原样在 <clinit>；implements abcd/lu(aM()String)、被 Hr(成员定义) 当可见性字段 ⇒ 注解/成员可见性
 Lr	com/aide/engine/NamedReference	body:(Js 名字, ms 引用) 两个 final 字段 + Hw()Js/Zo()ms 取值 + compareTo/equals/hashCode ⇒ 具名引用（方法/字段条目）
 ns	com/aide/engine/ReferenceArray	iface:ms get(int) + ms j6(int) ⇒ 按索引取引用的容器接口（Ls 实现它）
-Rn	com/aide/engine/Model	extends Xt、implements Comparable；Rn$a 是条目，get(int)Rn$a / j6(int,Rn$a) 存取、j6(Rn,Rn) 合并 ⇒ 构建器(Pn.build())产出的模型
+Rn	com/aide/engine/CatchTable	body:extends Xt(定长元素表)+Comparable；元素 Rn$a=(int,int,Qn) 即 (start_pc, end_pc, handlers)，Qn 里由 j6(地址,捕获类型,跳转地址) 填项 ⇒ dex 的 catch table（try/catch 区间表）
 ab	com/aide/codemodel/api/callback/CodeCompleterCallback	shape:AIDE+ 2.3.5 的 .../CodeCompleterCallback——22:22 方法、形状集合全等（命中 24），两个唯一签名对得上：j6(Da,I,I,int[],int[]) ↔ parameterListFound(FileEntry,int,int,int[],int[])；j6(Da,na,I,I,I,Z,Z) ↔ J8(FileEntry,Language,int,int,int,boolean,boolean)；实现者 c$b$b 用 ArrayList<SourceEntity>×2 + Map<ua,SourceEntity> 收候选 ⇒ 补全回调（此前误判成 AstVisitor）
 Wa	com/aide/codemodel/api/SyntaxTreeStyles	shape:AIDE+ 2.3.5 的 SyntaxTreeStyles——HighlighterCallback.addSyntaxTreeStyles(Language,SyntaxTreeStyles) 正对应本类 db.j6(na,Wa)；字段同为「若干 int[] + 计数」
 em	com/aide/engine/IntervalList	body:<T> Serializable + Vector<em$b<T>>；DW(T,int,int) 按区间加、FH(int,int)Z 判断包含、DW(int,int)fm 取子区间迭代器、Hw(int,int)/DW(int,int,int) 等做区间运算 ⇒ 区间列表
@@ -385,3 +385,9 @@ xs	com/aide/engine/DexFloat	str:Zo() 返回 "float"；extends Bs ⇒ float 常�
 Es	com/aide/engine/DexLong	str:Zo() 返回 "long"；extends Cs(long 字面量) ⇒ long 常量
 us	com/aide/engine/DexDouble	str:Zo() 返回 "double"；extends Cs ⇒ double 常量
 lu	com/aide/engine/ToHuman	iface:唯一抽象方法 aM()Ljava/lang/String;；被 ms(DexBaseReference)/Fs/Js/Ks/Hs 等大量实现，实现体都是拼人类可读串 ⇒ dx 的 ToHuman（可读化接口）
+
+Un	com/aide/engine/Code	body:构造 (int positionInfo, ho unprocessedInsns, Pn unprocessedCatches) 抛 "unprocessedInsns == null"/"unprocessedCatches == null"；tp() 懒构建 VH=ho.j6()(指令块)、v5=io.j6(块,positionInfo)(位置表)、Zo=co.j6(块)(局部变量表)、Hw=Pn.build()(捕获表) ⇒ 一个方法编译后的 Code（dx 的 DalvCode）
+Qn	com/aide/engine/CatchHandlerList	body:extends Xt；j6(int,Ks,int) 往表里塞 (地址,捕获类型 DexType,跳转地址)，元素 Qn$a、get(int) 取；被 CatchTable 的元素当 handlers 字段 ⇒ dex 的 catch_handler_list
+io	com/aide/engine/PositionTable	body:静态 j6(Wn,int) 按 positionInfo 种类(1/2/3) 从指令块建表，元素 io$a=(int,hs=DexString)；hp(DebugInfoEncoder) 的构造第一参就是它（dx: PositionList）⇒ 位置/行号表
+co	com/aide/engine/LocalVariableTable	str:枚举 co$a 常量 START / END_SIMPLY / END_REPLACED / END_MOVED / END_CLOBBERED_BY_PREV / END_CLOBBERED_BY_NEXT；元素 co$b=(int,co$a,bs,Ks)+名字与签名两串；静态 j6(Wn) 从指令块建表；hp 的构造第二参 ⇒ 局部变量表（活跃区间）
+ip	com/aide/engine/DebugInfoItemSection	str:"code == null" / "...while placing debug info for" / " debug info"；Hw() 返回 wp.Ws=debug_info_item；构造吃 (Un code, boolean, Gs method) ⇒ 写 debug_info_item 的段
