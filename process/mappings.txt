@@ -27860,16 +27860,23 @@ abcd/_l com/aide/ui/command/MenuCommand
 abcd/Jd com/aide/codemodel/language/js/JavaScriptCodeAnalyzer
 abcd/To com/aide/engine/UnsupportedInstructionPrinter
 abcd/Qt com/aide/engine/CodeWriterImpl
-abcd/Jm com/aide/engine/SparseSwitchPayload
+abcd/Jm com/aide/engine/ExceptionTable
 abcd/Wn com/aide/engine/InstructionBlock
 abcd/Le com/aide/ui/build/RunTargetImpl
 abcd/bs com/aide/engine/TypeInfoFactory
 abcd/bs$a com/aide/engine/TypeInfoFactory$Key
 abcd/Wm com/aide/engine/TypeInfoImpl
 abcd/Qt$a com/aide/engine/CodeWriterImpl$Label
-abcd/Jm$a com/aide/engine/SparseSwitchPayload$Entry
+abcd/Jm$a com/aide/engine/ExceptionTable$Entry
 abcd/Mm com/aide/engine/DexAnnotationImpl
-abcd/Qn com/aide/engine/ArrayData
+abcd/xm com/aide/engine/SourceFileAttribute
+abcd/wm com/aide/engine/SignatureAttribute
+abcd/nm com/aide/engine/ExceptionsAttribute
+abcd/km com/aide/engine/ConstantValueAttribute
+abcd/lm com/aide/engine/DeprecatedAttribute
+abcd/ym com/aide/engine/SyntheticAttribute
+abcd/im com/aide/engine/AnnotationDefaultAttribute
+abcd/jm com/aide/engine/CodeAttribute
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

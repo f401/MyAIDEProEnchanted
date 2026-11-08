@@ -1337,13 +1337,20 @@ c	abcd/_l	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/command/MenuCommand——菜单
 c	abcd/Jd	-	-	body: JavaScript 的 CodeAnalyzer——构造收 (Model, JavaScriptLanguage)，字段带 Stack 做嵌套作用域
 c	abcd/To	-	-	body: 兜底指令打印器——VH 恒 true，Zo/j6 抛 RuntimeException("unsupported")
 c	abcd/Qt	-	-	body: com/aide/engine/CodeWriterImpl——CodeWriter 的字节缓冲实现（writeByte/取字节/修补点表）
-c	abcd/Jm	-	-	body: com/aide/engine/SparseSwitchPayload——sparse-switch 载荷（键→目标有序数组 + 二分查找）
+c	abcd/Jm	-	-	body: 异常表——元素 (start,end,handler,DexType)，被 Code 属性持有
 c	abcd/Wn	-	-	body: com/aide/engine/InstructionBlock——可自写的指令块（从 ArrayList<Instruction> 构造）
 c	abcd/Le	-	-	body: com/aide/ui/build/RunTargetImpl——运行目标实现（本工程唯一 RunTarget 实现）
 c	abcd/bs	-	-	body: com/aide/engine/TypeInfoFactory——TypeInfo 的工厂 + 驻留实现（静态工厂 + HashMap 池 + 键类）
 c	abcd/bs$a	-	-	body: com/aide/engine/TypeInfoFactory$Key——驻留池的键（TypeInfo + ReferencePair + int）
 c	abcd/Wm	-	-	body: com/aide/engine/TypeInfoImpl——TypeInfo 的纯值实现（无池）
 c	abcd/Qt$a	-	-	body: com/aide/engine/CodeWriterImpl$Label——写出器的标号/修补记录（可变偏移 + 标签名）
-c	abcd/Jm$a	-	-	body: com/aide/engine/SparseSwitchPayload$Entry——sparse-switch 条目（int×3 + 常量）
+c	abcd/Jm$a	-	-	body: 异常表条目——int×3 + DexType
 c	abcd/Mm	-	-	body: com/aide/engine/DexAnnotationImpl——注解的实现类（保留 getName/getAttributes 真名）
-c	abcd/Qn	-	-	body: com/aide/engine/ArrayData——数组数据载荷（元素是 常量+int 对）
+c	abcd/xm	-	-	str: NamedAttribute 的子类，常量串就是属性名（SourceFileAttribute）
+c	abcd/wm	-	-	str: NamedAttribute 的子类，常量串就是属性名（SignatureAttribute）
+c	abcd/nm	-	-	str: NamedAttribute 的子类，常量串就是属性名（ExceptionsAttribute）
+c	abcd/km	-	-	str: NamedAttribute 的子类，常量串就是属性名（ConstantValueAttribute）
+c	abcd/lm	-	-	str: NamedAttribute 的子类，常量串就是属性名（DeprecatedAttribute）
+c	abcd/ym	-	-	str: NamedAttribute 的子类，常量串就是属性名（SyntheticAttribute）
+c	abcd/im	-	-	str: NamedAttribute 的子类，常量串就是属性名（AnnotationDefaultAttribute）
+c	abcd/jm	-	-	body: Code 属性——(max_stack, max_locals, 代码, 异常表, 子属性)

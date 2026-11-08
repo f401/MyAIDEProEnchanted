@@ -26438,16 +26438,23 @@ c	abcd/_l	com/aide/ui/command/MenuCommand	shape: AIDE+ 2.3.5 的 com/aide/ui/com
 c	abcd/Jd	com/aide/codemodel/language/js/JavaScriptCodeAnalyzer	body: JavaScript 的 CodeAnalyzer——构造收 (Model, JavaScriptLanguage)，字段带 Stack 做嵌套作用域
 c	abcd/To	com/aide/engine/UnsupportedInstructionPrinter	body: 兜底指令打印器——VH 恒 true，Zo/j6 抛 RuntimeException("unsupported")
 c	abcd/Qt	com/aide/engine/CodeWriterImpl	body: com/aide/engine/CodeWriterImpl——CodeWriter 的字节缓冲实现（writeByte/取字节/修补点表）
-c	abcd/Jm	com/aide/engine/SparseSwitchPayload	body: com/aide/engine/SparseSwitchPayload——sparse-switch 载荷（键→目标有序数组 + 二分查找）
+c	abcd/Jm	com/aide/engine/ExceptionTable	body: 异常表——元素 (start,end,handler,DexType)，被 Code 属性持有
 c	abcd/Wn	com/aide/engine/InstructionBlock	body: com/aide/engine/InstructionBlock——可自写的指令块（从 ArrayList<Instruction> 构造）
 c	abcd/Le	com/aide/ui/build/RunTargetImpl	body: com/aide/ui/build/RunTargetImpl——运行目标实现（本工程唯一 RunTarget 实现）
 c	abcd/bs	com/aide/engine/TypeInfoFactory	body: com/aide/engine/TypeInfoFactory——TypeInfo 的工厂 + 驻留实现（静态工厂 + HashMap 池 + 键类）
 c	abcd/bs$a	com/aide/engine/TypeInfoFactory$Key	body: com/aide/engine/TypeInfoFactory$Key——驻留池的键（TypeInfo + ReferencePair + int）
 c	abcd/Wm	com/aide/engine/TypeInfoImpl	body: com/aide/engine/TypeInfoImpl——TypeInfo 的纯值实现（无池）
 c	abcd/Qt$a	com/aide/engine/CodeWriterImpl$Label	body: com/aide/engine/CodeWriterImpl$Label——写出器的标号/修补记录（可变偏移 + 标签名）
-c	abcd/Jm$a	com/aide/engine/SparseSwitchPayload$Entry	body: com/aide/engine/SparseSwitchPayload$Entry——sparse-switch 条目（int×3 + 常量）
+c	abcd/Jm$a	com/aide/engine/ExceptionTable$Entry	body: 异常表条目——int×3 + DexType
 c	abcd/Mm	com/aide/engine/DexAnnotationImpl	body: com/aide/engine/DexAnnotationImpl——注解的实现类（保留 getName/getAttributes 真名）
-c	abcd/Qn	com/aide/engine/ArrayData	body: com/aide/engine/ArrayData——数组数据载荷（元素是 常量+int 对）
+c	abcd/xm	com/aide/engine/SourceFileAttribute	str: NamedAttribute 的子类，常量串就是属性名（SourceFileAttribute）
+c	abcd/wm	com/aide/engine/SignatureAttribute	str: NamedAttribute 的子类，常量串就是属性名（SignatureAttribute）
+c	abcd/nm	com/aide/engine/ExceptionsAttribute	str: NamedAttribute 的子类，常量串就是属性名（ExceptionsAttribute）
+c	abcd/km	com/aide/engine/ConstantValueAttribute	str: NamedAttribute 的子类，常量串就是属性名（ConstantValueAttribute）
+c	abcd/lm	com/aide/engine/DeprecatedAttribute	str: NamedAttribute 的子类，常量串就是属性名（DeprecatedAttribute）
+c	abcd/ym	com/aide/engine/SyntheticAttribute	str: NamedAttribute 的子类，常量串就是属性名（SyntheticAttribute）
+c	abcd/im	com/aide/engine/AnnotationDefaultAttribute	str: NamedAttribute 的子类，常量串就是属性名（AnnotationDefaultAttribute）
+c	abcd/jm	com/aide/engine/CodeAttribute	body: Code 属性——(max_stack, max_locals, 代码, 异常表, 子属性)
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
