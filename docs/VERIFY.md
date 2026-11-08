@@ -22,7 +22,7 @@ python3 tools/jgit/pipeline/coverage.py              # 11) 覆盖率（只度量
 
 期望值（当前基线）：`类块 4052 / 成员行 27444 / 参数行 22167`；`不一致 0`；
 `CONFLICT 0 / DUPTARGET 0 / MISSING 0`；`innercheck ① 0 / ② 0 / ③ 0`；`famcheck 0/0`；
-`注释 31496 = 类 3974 + 方法 17840 + 字段 9604`。
+`注释 31496 = 类 4052 + 方法 17840 + 字段 9604`。
 
 ## 两种等价入口
 
