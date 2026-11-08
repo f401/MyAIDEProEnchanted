@@ -106,8 +106,8 @@ c	abcd/Rr	-	-	auto: 类：WellKnownTypes（上游未收录，名字来自 jobs/e
 c	abcd/Qs	-	-	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rs	-	-	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ps	-	-	auto: 类：MethodType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Kb	-	-	auto: 类：IntIntMap（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Qb	-	-	auto: 类：LongIntMap（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Kb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntInt——int→int 哈希表（5 个 int[] + 迭代器）
+c	abcd/Qb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfLongInt——int→long 哈希表
 c	abcd/Bb	-	-	auto: 类：ByteVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ab	-	-	auto: 类：NodeVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ss	-	-	auto: 类：TypeList（上游未收录，名字来自 jobs/engine 的判据）
@@ -228,3 +228,11 @@ c	abcd/qd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JSharpComm
 c	abcd/Td	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsTools——JavaScript 注释工具集
 c	abcd/dd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeAnalyzer——Java 代码分析器（被 JavaLanguage 持有）
 c	abcd/_b	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/SetOfFileEntry——FileEntry 集合（字段与 SetOfFileEntry 逐个对应）
+c	abcd/Yc	-	-	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdLexer——DTD 词法器（被 DtdCodeModel 引用）
+c	abcd/Hc	-	-	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppLexer——C++ 词法器（被 CppCodeModel 引用）
+c	abcd/md	-	-	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaFormatterOption——Java 格式化选项枚举（1 常量/6 方法）
+c	abcd/le	-	-	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlFormatterOption——XML 格式化选项枚举（5 常量/6 方法）
+c	abcd/Sb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/OrderedMapOfIntInt——有序 int→int 表（多两个 boolean[] 标记）
+c	abcd/Mb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntLong——int→long 映射
+c	abcd/sb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntLong——int→long 函数表
+c	abcd/qb	-	-	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntInt——int→int 函数表

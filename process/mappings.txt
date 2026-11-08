@@ -26612,8 +26612,8 @@ abcd/Rr com/aide/engine/WellKnownTypes
 abcd/Qs com/aide/engine/TypeConstant
 abcd/Rs com/aide/engine/TypeInfo
 abcd/Ps com/aide/engine/MethodType
-abcd/Kb com/aide/engine/IntIntMap
-abcd/Qb com/aide/engine/LongIntMap
+abcd/Kb com/aide/codemodel/api/collections/MapOfIntInt
+abcd/Qb com/aide/codemodel/api/collections/MapOfLongInt
 abcd/Bb com/aide/engine/ByteVector
 abcd/Ab com/aide/engine/NodeVector
 abcd/Ss com/aide/engine/TypeList
@@ -26734,6 +26734,14 @@ abcd/qd com/aide/codemodel/language/java/JSharpCommentsTools
 abcd/Td com/aide/codemodel/language/js/JavaScriptCommentsTools
 abcd/dd com/aide/codemodel/language/java/JavaCodeAnalyzer
 abcd/_b com/aide/codemodel/api/collections/SetOfFileEntry
+abcd/Yc com/aide/codemodel/language/dtd/DtdLexer
+abcd/Hc com/aide/codemodel/language/cpp/CppLexer
+abcd/md com/aide/codemodel/language/java/JavaFormatterOption
+abcd/le com/aide/codemodel/language/xml/XmlFormatterOption
+abcd/Sb com/aide/codemodel/api/collections/OrderedMapOfIntInt
+abcd/Mb com/aide/codemodel/api/collections/MapOfIntLong
+abcd/sb com/aide/codemodel/api/collections/FunctionOfIntLong
+abcd/qb com/aide/codemodel/api/collections/FunctionOfIntInt
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

@@ -25207,8 +25207,8 @@ c	abcd/Rr	com/aide/engine/WellKnownTypes	auto: 类：WellKnownTypes（上游未�
 c	abcd/Qs	com/aide/engine/TypeConstant	auto: 类：TypeConstant（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Rs	com/aide/engine/TypeInfo	auto: 类：TypeInfo（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ps	com/aide/engine/MethodType	auto: 类：MethodType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Kb	com/aide/engine/IntIntMap	auto: 类：IntIntMap（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Qb	com/aide/engine/LongIntMap	auto: 类：LongIntMap（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Kb	com/aide/codemodel/api/collections/MapOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntInt——int→int 哈希表（5 个 int[] + 迭代器）
+c	abcd/Qb	com/aide/codemodel/api/collections/MapOfLongInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfLongInt——int→long 哈希表
 c	abcd/Bb	com/aide/engine/ByteVector	auto: 类：ByteVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ab	com/aide/engine/NodeVector	auto: 类：NodeVector（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Ss	com/aide/engine/TypeList	auto: 类：TypeList（上游未收录，名字来自 jobs/engine 的判据）
@@ -25329,6 +25329,14 @@ c	abcd/qd	com/aide/codemodel/language/java/JSharpCommentsTools	shape: AIDE+ 2.3.
 c	abcd/Td	com/aide/codemodel/language/js/JavaScriptCommentsTools	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCommentsTools——JavaScript 注释工具集
 c	abcd/dd	com/aide/codemodel/language/java/JavaCodeAnalyzer	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeAnalyzer——Java 代码分析器（被 JavaLanguage 持有）
 c	abcd/_b	com/aide/codemodel/api/collections/SetOfFileEntry	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/SetOfFileEntry——FileEntry 集合（字段与 SetOfFileEntry 逐个对应）
+c	abcd/Yc	com/aide/codemodel/language/dtd/DtdLexer	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdLexer——DTD 词法器（被 DtdCodeModel 引用）
+c	abcd/Hc	com/aide/codemodel/language/cpp/CppLexer	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppLexer——C++ 词法器（被 CppCodeModel 引用）
+c	abcd/md	com/aide/codemodel/language/java/JavaFormatterOption	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaFormatterOption——Java 格式化选项枚举（1 常量/6 方法）
+c	abcd/le	com/aide/codemodel/language/xml/XmlFormatterOption	body/shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlFormatterOption——XML 格式化选项枚举（5 常量/6 方法）
+c	abcd/Sb	com/aide/codemodel/api/collections/OrderedMapOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/OrderedMapOfIntInt——有序 int→int 表（多两个 boolean[] 标记）
+c	abcd/Mb	com/aide/codemodel/api/collections/MapOfIntLong	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/MapOfIntLong——int→long 映射
+c	abcd/sb	com/aide/codemodel/api/collections/FunctionOfIntLong	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntLong——int→long 函数表
+c	abcd/qb	com/aide/codemodel/api/collections/FunctionOfIntInt	body: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/FunctionOfIntInt——int→int 函数表
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

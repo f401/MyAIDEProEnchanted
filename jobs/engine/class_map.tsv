@@ -80,8 +80,8 @@ Rr	com/aide/engine/WellKnownTypes	body:全部字段是 static final 的类型常
 Qs	com/aide/engine/TypeConstant	body:implements Rs + Comparable<Qs>；static HashMap j6 是**按描述符注册的类型表**，DW(String)/FH(String)/j6(String) 三个静态入口按描述符取类型；J8()String 返回描述符、Hw() 取元素类型、U2() 取父/组件类型、Mr() 取大小；<clinit> 里 intern 了 Z/B/C/D/F/I/J/S/V（九种基本类型描述符）加 "<null>"/"<addr>" 与一批 Ljava/lang/*; 常量 ⇒ 类型常量（每个描述符一个单例）
 Rs	com/aide/engine/TypeInfo	iface:extends abcd/lu（aM()String 取显示名）；方法 Mr()I(大小)、U2()Labcd/Rs;(组件/父类型)、a8()Z、getType()Labcd/Qs;、j3()I；实现者是 Qs(基本类型常量) 与 Ps(引用类型常量) ⇒ 类型信息接口
 Ps	com/aide/engine/MethodType	body:静态工厂按"返回类型 + 若干参数类型"造对象：DW(Qs) 无参、j6(Qs,Qs) 一参、j6(Qs,Qs,Qs) 两参、j6(Qs,Qs,Qs,Qs) 三参；DW(Ss)String 拼签名（参数为空时用 "<empty>"、分隔符 ","）、DW(Ss,Ss)Z 比签名、j6(Ss)I 取参数个数；extends Xt、implements Ss ⇒ 方法/函数类型（返回+形参列表）
-Kb	com/aide/engine/IntIntMap	body:int[] 开放寻址 + 内部类 Kb$a(遍历器) + 序列化；DW(int)Z 查、FH(int)I 取、DW(int,int) 放 ⇒ int→int 映射
-Qb	com/aide/engine/LongIntMap	body:int[] + long[] 开放寻址 + 内部类 Qb$a + 序列化；DW(long)I/DW(long,int) 取放、FH(long)/j6(int) ⇒ long→int 映射
+Kb	com/aide/codemodel/api/collections/MapOfIntInt	body:17-18 个方法、字段 5 个 int[] + 3 个 int + 迭代器，与 AIDE+ 的 MapOfIntInt 一致（相似度 0.65，次优差 +0.30）（旧名 IntIntMap）
+Qb	com/aide/codemodel/api/collections/MapOfLongInt	body:14:14、相似度 0.86（次优差 +0.43）；字段 2 个 int[] + 2 个 long[] + 3 个 int + 迭代器，与 MapOfLongInt 逐条对应（旧名 LongIntMap）
 Bb	com/aide/engine/ByteVector	body:唯一 byte[] + 一个 int(长度)；j6(byte) 追加、j6(int)byte 取、DW()I 长度、j6() 清空、toString ⇒ 可变字节数组
 Ab	com/aide/engine/NodeVector	body:泛型 <E extends Aa> + int[] + 长度 + Ba；FH(E) 追加、j6(int)E 取、Hw()I 大小、DW(E)Z 含、j6(int,int,Comparator) 排序 ⇒ AST 节点顺序表（对比 Yb=NodeList 的哈希表）
 Ss	com/aide/engine/TypeList	iface:size()I + getType(int)Labcd/Qs; + j6(Qs)Ss（追加一个类型）+ Zo()Z ⇒ 类型（形参）列表
@@ -202,3 +202,11 @@ qd	com/aide/codemodel/language/java/JSharpCommentsTools	字段:被 abcd/nd(JShar
 Td	com/aide/codemodel/language/js/JavaScriptCommentsTools	字段:被 abcd/Qd(JavaScriptCommentsLanguage) 持有 ⇒ JavaScript 注释工具集
 dd	com/aide/codemodel/language/java/JavaCodeAnalyzer	body+字段:24:24、相似度 0.62（次优差 +0.58）；被 abcd/yd(JavaLanguage) 与 abcd/Ed(JavaSignatureAnalyzer) 持有，对应 Language.getCodeAnalyzer() ⇒ Java 代码分析器
 _b	com/aide/codemodel/api/collections/SetOfFileEntry	body:17:17、相似度 0.65（次优差 +0.35）；字段逐个对上——static final int[] ↔ SIZES、int[]×2 ↔ keys/Hw、int×3 ↔ count/sizeexp/slots、final abcd/Ea ↔ FileSpace、public final _b$a ↔ default_Iterator，构造 (Ea) ↔ (FileSpace) ⇒ FileEntry 集合
+Yc	com/aide/codemodel/language/dtd/DtdLexer	body:20 方法、形状与 DtdLexer 1.00；常量池里唯一引用者是 abcd/Wc(DtdCodeModel) ⇒ DTD 词法器（与 Hc 并列时靠引用者区分）
+Hc	com/aide/codemodel/language/cpp/CppLexer	body:20 方法、与 Yc 同形；常量池里唯一引用者是 abcd/Fc(CppCodeModel) ⇒ C++ 词法器
+md	com/aide/codemodel/language/java/JavaFormatterOption	body:枚举——1 个常量 + 6 方法，与 AIDE+ 的 java/JavaFormatterOption 完全一致（对照 java/JavaFormatOption 是 32 常量/9 方法）；被 abcd/ld 与 nd(JSharpCommentsLanguage) 引用
+le	com/aide/codemodel/language/xml/XmlFormatterOption	body:枚举——5 个常量 + 6 方法，与 AIDE+ 的 xml/XmlFormatterOption 完全一致；被 abcd/ke 与 ne(XmlLanguage) 引用
+Sb	com/aide/codemodel/api/collections/OrderedMapOfIntInt	body:14:15、相似度 0.64（次优差 +0.07）；字段 4 个 int[] + 2 个 boolean[] + 4 个 int + 迭代器，与 OrderedMapOfIntInt 的 EQ/FH/keys/values/VH/Zo 布局完全一致
+Mb	com/aide/codemodel/api/collections/MapOfIntLong	body:13:13、相似度 0.69（次优差 +0.07）；字段 3 个 int[] + 2 个 long[] + 3 个 int + 迭代器，与 MapOfIntLong 对应
+sb	com/aide/codemodel/api/collections/FunctionOfIntLong	body:13:13、与 Mb 同形（0.62 并列）；两者对应 AIDE+ 的 MapOfIntLong/FunctionOfIntLong 两个槽位，Mb 更像 MapOfIntLong（0.69>0.62），故 sb 取 FunctionOfIntLong
+qb	com/aide/codemodel/api/collections/FunctionOfIntInt	body:13:14、0.62 与 MapOfIntInt 并列；但 MapOfIntInt 已由 Kb（17:18、0.65、5 个 int[]）占用 ⇒ 按唯一性取 FunctionOfIntInt
