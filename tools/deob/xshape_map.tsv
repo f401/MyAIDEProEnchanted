@@ -1,0 +1,15 @@
+# 本工程探针类型名 <TAB> oracle 侧真名（跨版本形状比对用；增量补）
+Da	FileEntry
+La	Model
+Aa	Entity
+Za	Variable
+na	Language
+ga	CodeAnalyzer
+Wa	SyntaxTreeStyles
+Kb	MapOfIntInt
+Qb	MapOfLongInt
+wb	MapOfInt
+Cb	ListOfInt
+Yb	ArrayOf
+Ab	ArrayOf
+ha	FormatOption

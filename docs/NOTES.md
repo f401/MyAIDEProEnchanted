@@ -386,3 +386,43 @@ zip(classes.dex) --dex2jar--> x.jar --FART(map=out/build/mappings.tiny, --lib me
 另外：`javap -p -c -cp process/base/merged_ok.jar <fqcn>` 在本机可用，读 `ldc` 常量
 （比如枚举常量名、AIDL DESCRIPTOR）比自写解码器快得多——它是这套"类文件是 dex2jar 产物"
 场景下最好用的只读工具。
+
+## 21. AIDE+ 2.3.5：设备上现成的「同源未混淆」oracle
+
+`/storage/emulated/0/Download/AIDE-Plus-2.3.5.0-alpha03-2026-10-22-io.github.zeroaicy.aide.apk`
+这个构建（本机就有）和我们的 AIDE Pro 2.8.7 是同一套代码的两个版本，但它 **没混淆**：
+
+- `com/aide/codemodel/**` 共 **205 类全部是真名**，包括 `api/callback/` 的 12 个回调、
+  `api/collections/` 的 `MapOfIntInt/MapOfInt/ListOfInt/ArrayOf/SetOfInt…`、
+  `api/abstraction/` 的 `Language/CodeAnalyzer/Syntax/CodeRenderer/CodeModel/TypeSystem…`；
+- `com/aide/engine/**` 也留了大半：`Engine$DaemonTask$<Xxx>Callback`、`ICodeModelsFactory`、
+  `SourceEntity`/`SyntaxError`/`Modification`/`FindResult`/`StyleSpan`/`SyntaxStyleType`。
+
+**取用方式**（一次性，产物留在 `~/out/oracle/aide-plus/`）：
+
+```bash
+mkdir -p ~/tmp/aideplus && cd ~/tmp/aideplus
+unzip -o -q "/storage/emulated/0/Download/AIDE-Plus-2.3.5.0-alpha03-*.apk" 'classes*.dex'
+CP=$(ls /storage/emulated/0/MyAIDEProEnchanted/process/dex2jar/*.jar | tr '\n' ':')
+java -Xmx1200m -cp "$CP" com.googlecode.dex2jar.tools.Dex2jarCmd --force \
+     -o ~/out/oracle/aide-plus/aide-plus-2.3.5-engine.jar classes10.dex
+```
+
+引擎相关的类都在 **classes10.dex**（121 个 `com/aide/engine` 类）。
+
+**比对方式**：`tools/deob/xshape.py`（按「方法数 + 类型映射后的参数形状集合」打分，
+映射表 `tools/deob/xshape_map.tsv` 可增量补）：
+
+```bash
+python3 tools/deob/xshape.py --oracle ~/out/oracle/aide-plus/aide-plus-2.3.5-engine.jar \
+    --ours abcd/gb abcd/Za --cand com.aide.codemodel.api.callback.OpenFileCallback \
+    com.aide.codemodel.api.Variable
+# abcd/gb  n=5 -> OpenFileCallback(1.00/5)
+# abcd/Za  n=9 -> Variable(0.89/8)
+```
+
+注意：**方法数相同**是先决条件；版本差会让个别类多/少一两个方法（例如 `db` 10 : `HighlighterCallback` 11），
+这时看形状集合的命中数（`db` 命中 32）而不是要求 1.00。
+
+已据此改名的：12 个桥接口 → `com/aide/codemodel/api/callback/*`；核心类型
+`La→Model / Da→FileEntry / Aa→Entity / Za→Variable / na→Language / ga→CodeAnalyzer / Wa→SyntaxTreeStyles`。
