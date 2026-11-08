@@ -27306,6 +27306,18 @@ abcd/ro com/aide/engine/ZeroSizeInsn
 	DW ()I getSize
 abcd/Sn com/aide/engine/CodeAddress
 abcd/ao com/aide/engine/FormatCodec
+	DW (I)Z fitsIn4Bits
+		static
+	FH (I)Z fitsInShort
+		static
+	Hw (I)Z fitsInUnsigned8
+		static
+	Zo (I)Z fitsInUnsigned16
+		static
+	v5 (I)Z fitsInUnsigned4
+		static
+	j6 (I)Z fitsInByte
+		static
 abcd/hs com/aide/engine/NamedSpan
 abcd/cs com/aide/engine/ParameterTypeList
 abcd/Lt com/aide/engine/CodeWriter
@@ -28375,6 +28387,15 @@ abcd/so com/aide/engine/Codec10T
 abcd/Io com/aide/engine/Codec30T
 abcd/Ko com/aide/engine/Codec31I
 abcd/Qo com/aide/engine/Codec51L
+abcd/Ao com/aide/engine/Codec21S
+abcd/Bo com/aide/engine/Codec22X
+abcd/Co com/aide/engine/Codec22B
+abcd/Do com/aide/engine/Codec22C
+abcd/Eo com/aide/engine/Codec22S
+abcd/Fo com/aide/engine/Codec22T
+abcd/Go com/aide/engine/Codec22CS
+abcd/Ho com/aide/engine/Codec23X
+abcd/xo com/aide/engine/Codec20T
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

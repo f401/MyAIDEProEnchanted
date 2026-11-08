@@ -1847,3 +1847,18 @@ c	abcd/so	-	-	body: com/aide/engine/Codec10T——FormatCodec 子类（1 code un
 c	abcd/Io	-	-	body: com/aide/engine/Codec30T——FormatCodec 子类（3 code unit、write=(Lt,S,I) 且 isApplicable 无任何操作数约束、无寄存器 ⇒ 30t（goto/32））
 c	abcd/Ko	-	-	body: com/aide/engine/Codec31I——FormatCodec 子类（3 code unit、write=(Lt,S,I)、isApplicable 走 Ds(字面量) 的位宽判定 ⇒ 31i（const vAA,#32））
 c	abcd/Qo	-	-	body: com/aide/engine/Codec51L——FormatCodec 子类（5 code unit、write=(Lt,S,J)（跟一个 64 位常量）⇒ 51l（const-wide vAA,#64））
+c	abcd/Ao	-	-	body: com/aide/engine/Codec21S——FormatCodec 子类（2 unit、读 1 寄存器 + write 走 Ds(字面量)、isApplicable 用 FH(装得进 short) ⇒ 21s（const/16 vAA,#16））
+c	abcd/Bo	-	-	body: com/aide/engine/Codec22X——FormatCodec 子类（2 unit、读 1 寄存器、无字面量、isApplicable 用 Hw((v&255)==v，寄存器<256) ⇒ 22x（move/from16））
+c	abcd/Co	-	-	body: com/aide/engine/Codec22B——FormatCodec 子类（2 unit、读 2 寄存器 + Ds 字面量、isApplicable 用 j6(装得进 byte) ⇒ 22b（*-int/lit8））
+c	abcd/Do	-	-	body: com/aide/engine/Codec22C——FormatCodec 子类（2 unit、读 2 寄存器、无字面量、isApplicable 用 Zo((v&65535)==v，池下标<65536) ⇒ 22c（sget/sput 一类））
+c	abcd/Eo	-	-	body: com/aide/engine/Codec22S——FormatCodec 子类（2 unit、读 2 寄存器 + Ds 字面量、isApplicable 用 FH(装得进 short) ⇒ 22s（*-int/lit16））
+c	abcd/Fo	-	-	body: com/aide/engine/Codec22T——FormatCodec 子类（2 unit、读 2 寄存器、无字面量、isApplicable 只用 v5(寄存器<16) ⇒ 22t（if-test））
+c	abcd/Go	-	-	body: com/aide/engine/Codec22CS——FormatCodec 子类（2 unit、读 2 寄存器、无字面量、isApplicable 用 Hw+Zo(寄存器<256 且偏移<65536) ⇒ 22cs（iget/iput 类字段偏移））
+c	abcd/Ho	-	-	body: com/aide/engine/Codec23X——FormatCodec 子类（2 unit、读 3 个寄存器、无字面量 ⇒ 23x（cmp/aget/aput 一类））
+c	abcd/xo	-	-	body: com/aide/engine/Codec20T——FormatCodec 子类（2 unit、0 个寄存器、isApplicable 无任何操作数约束 ⇒ 20t（goto/16））
+m	abcd/ao	DW	(I)Z	body: -8 <= v <= 7 ⇒ 有符号 4 位（const/4、寄存器 nibble）
+m	abcd/ao	FH	(I)Z	body: (short)v == v ⇒ 有符号 16 位
+m	abcd/ao	Hw	(I)Z	body: (v & 255) == v ⇒ 无符号 8 位
+m	abcd/ao	Zo	(I)Z	body: (v & 65535) == v ⇒ 无符号 16 位
+m	abcd/ao	v5	(I)Z	body: (v & 15) == v ⇒ 无符号 4 位（寄存器编号 < 16）
+m	abcd/ao	j6	(I)Z	body: (byte)v == v ⇒ 有符号 8 位（lit8 类）
