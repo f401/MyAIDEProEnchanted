@@ -25313,6 +25313,9 @@ c	abcd/Fe	com/aide/ui/util/MavenDependencyVersion	shape: AIDE+ 2.3.5 的 com/aid
 c	abcd/Ub	com/aide/codemodel/api/collections/RelationOfIntInt	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/RelationOfIntInt——int→int 关系表；构造收 StoreInputStream、store 写 StoreOutputStream
 c	abcd/ec	com/aide/codemodel/api/collections/StoreInputStream	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/StoreInputStream——存储输入流（RelationOfIntInt 的构造参数）
 c	abcd/fc	com/aide/codemodel/api/collections/StoreOutputStream	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/collections/StoreOutputStream——存储输出流（RelationOfIntInt.store 的参数）
+c	abcd/Wl	com/aide/ui/command/KeyStrokeCommand	shape: AIDE+ 2.3.5 的 com/aide/ui/command/KeyStrokeCommand——带快捷键的命令接口——getKeyStroke/getName/isEnabled/run
+c	abcd/He	com/aide/ui/util/MavenMetadataXml	shape: AIDE+ 2.3.5 的 com/aide/ui/util/MavenMetadataXml——Maven 元数据 XML（版本列表 + 版本比较 + 缓存路径）
+c	abcd/BaseProjectConfig	com/aide/ui/util/Configuration	shape: AIDE+ 2.3.5 的 com/aide/ui/util/Configuration——按路径缓存的配置文件基类（Map<路径,实例> + Map<路径,时间戳>）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

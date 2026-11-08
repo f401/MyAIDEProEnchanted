@@ -26718,6 +26718,9 @@ abcd/Fe com/aide/ui/util/MavenDependencyVersion
 abcd/Ub com/aide/codemodel/api/collections/RelationOfIntInt
 abcd/ec com/aide/codemodel/api/collections/StoreInputStream
 abcd/fc com/aide/codemodel/api/collections/StoreOutputStream
+abcd/Wl com/aide/ui/command/KeyStrokeCommand
+abcd/He com/aide/ui/util/MavenMetadataXml
+abcd/BaseProjectConfig com/aide/ui/util/Configuration
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
