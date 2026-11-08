@@ -26636,6 +26636,11 @@ c	abcd/kk	com/aide/engine/RootInstaller	str: com/aide/engine/RootInstaller——
 c	abcd/zd	com/aide/engine/ExtractMethodRefactoring	str/body: com/aide/engine/ExtractMethodRefactoring——提取方法重构（含 return/break/continue 校验）
 c	abcd/qw	com/crashlytics/android/core/SessionDataStore	str: com/crashlytics/android/core/SessionDataStore——Fabric 会话 ID 存储（21 个静态 volatile 字段）
 c	abcd/mw	com/aide/engine/ProbeLoader	str: com/aide/engine/ProbeLoader——backbone 测试 probe 加载器
+c	abcd/op	com/aide/engine/FieldAnnotations	str/body: com/aide/engine/FieldAnnotations——字段注解条目
+c	abcd/ap	com/aide/engine/ClassDataItem	str/body: com/aide/engine/ClassDataItem——dex 的 class_data_item
+c	abcd/xr	com/aide/engine/DexOverflowChecker	str/body: com/aide/engine/DexOverflowChecker——构建期 dex 溢出检查（multidex 提示）
+c	abcd/Tn	com/aide/engine/ConstantInstruction	str/body: com/aide/engine/ConstantInstruction——带常量引用的指令
+c	abcd/Bn	com/aide/engine/EncodedMember	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field/encoded_method
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

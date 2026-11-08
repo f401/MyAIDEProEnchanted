@@ -1535,3 +1535,8 @@ c	abcd/kk	-	-	str: com/aide/engine/RootInstaller——用 root 静默安装的�
 c	abcd/zd	-	-	str/body: com/aide/engine/ExtractMethodRefactoring——提取方法重构（含 return/break/continue 校验）
 c	abcd/qw	-	-	str: com/crashlytics/android/core/SessionDataStore——Fabric 会话 ID 存储（21 个静态 volatile 字段）
 c	abcd/mw	-	-	str: com/aide/engine/ProbeLoader——backbone 测试 probe 加载器
+c	abcd/op	-	-	str/body: com/aide/engine/FieldAnnotations——字段注解条目
+c	abcd/ap	-	-	str/body: com/aide/engine/ClassDataItem——dex 的 class_data_item
+c	abcd/xr	-	-	str/body: com/aide/engine/DexOverflowChecker——构建期 dex 溢出检查（multidex 提示）
+c	abcd/Tn	-	-	str/body: com/aide/engine/ConstantInstruction——带常量引用的指令
+c	abcd/Bn	-	-	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field/encoded_method

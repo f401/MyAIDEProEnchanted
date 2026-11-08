@@ -1534,3 +1534,8 @@ abcd/kk com/aide/engine/RootInstaller
 abcd/zd com/aide/engine/ExtractMethodRefactoring
 abcd/qw com/crashlytics/android/core/SessionDataStore
 abcd/mw com/aide/engine/ProbeLoader
+abcd/op com/aide/engine/FieldAnnotations
+abcd/ap com/aide/engine/ClassDataItem
+abcd/xr com/aide/engine/DexOverflowChecker
+abcd/Tn com/aide/engine/ConstantInstruction
+abcd/Bn com/aide/engine/EncodedMember

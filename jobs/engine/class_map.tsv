@@ -354,3 +354,8 @@ kk	com/aide/engine/RootInstaller	str:"pm install -r data/data/aidepro.top/cache/
 zd	com/aide/engine/ExtractMethodRefactoring	str+body:字段 Model(La)+SyntaxTreeSpace(Va)+IdentifierSpace(Ga)+JavaLanguage(yd)+EntitySpace(Ba)+内部 zd$a；常量串 "These statements contain return, break or continue statements." / "The variables … might be modified in those statements." ⇒ 提取方法（Extract Method）重构的前置校验/执行
 qw	com/crashlytics/android/core/SessionDataStore	str+body:21 个静态 volatile 字段（long/String/UUID/boolean 各若干 + 锁对象）+ 私有 FH():File；常量串 "Session ID file may be outdated." / "Could not touch session file" / "Session ID file is outdated - touching" ⇒ Fabric 的会话 ID 存储
 mw	com/aide/engine/ProbeLoader	str:"backbone test probes loaded" / "Opening new probes " / "Error loading probes" / "Checking " ⇒ backbone 测试 probe 的加载器
+op	com/aide/engine/FieldAnnotations	str:"      field_idx:       " / "      annotations_off: " / "annotations == null" / "field == null"；形状是带 compareTo/equals 的值对象 ⇒ 字段注解条目
+ap	com/aide/engine/ClassDataItem	str:" class data for " / "thisClass == null"；字段是 HashMap<lp,ms> + ArrayList<lp>×2 + ArrayList<np>×2（静态/实例字段、直接/虚方法）⇒ dex 的 class_data_item
+xr	com/aide/engine/DexOverflowChecker	str:"Too many classes/methods/fields/strings. Consider using 'multiDexEnabled true' or 'minSdkVersion 21'" + 若干 HashMap<类型,Integer> 计数 ⇒ 构建期的 dex 溢出检查
+Tn	com/aide/engine/ConstantInstruction	body:extends FixedInstruction；字段 int×2 + ms(DexBaseReference) 常量；构造 (Xn,hs,cs,ms)，FH(int)/Hw(int)/J0()/J8() 设置与查询 ⇒ 带常量引用的指令
+Bn	com/aide/engine/EncodedMember	body:字段 Ks(DexType) + int + Hs(DexReference) + pn(DexAttributes)；串 "attributes == null" / "nat == null" / "definingClass == null" ⇒ dex 的 encoded_field/encoded_method

@@ -189,3 +189,18 @@ rop/SSA：RopMethod / RopTranslator / BasicBlock / Frame / StackSimulator / SsaU
 opcode：InstructionFormat / ReferenceKind / OpcodeInfoTable / OpcodeFormatTable / OpcodeIterator /
   InstructionWriter / BytecodeParser / LabelFixup
 ```
+
+### 9.1 成员级想借 dx oracle：**行不通**（2026-11 实测）
+
+想法：我们这批 DEX 骨架类（`rp`/`Op`/`qp`/`Gp`…）在 dx 里都有真名真成员，
+拿 `~/out/oracle/dx/dx-1.16.jar` 或 `dx-1.7.jar` 按形状对位，就能把成员名一起搬过来。
+
+实测（`cfp` 折叠描述符后按方法数+形状比）：
+* dx-1.16：`rp`(5 方法) 最好只到 `RegisterMapper(0.40)`、`Op`(8) 到 `ListIntSet(0.12)`；
+* dx-1.7：同样对不上（`op`→`MethodIdsSection(0.17)`）。
+
+原因：**我们这份不是原版 dx**——AIDE 把 dx 裁剪/改写过（方法数普遍比 dx 少），
+且 R8 还做了内联。所以这 400+ 个 dx 类的成员名只能靠「类内文案 + 字段访问」逐个推，
+不能指望 oracle 一把搬。
+
+同理，`jobs/dx` 里已经用掉的 `com/android/dx/*` 真名也**不能**再用于这批类（会撞名）。
