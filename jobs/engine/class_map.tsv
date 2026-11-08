@@ -128,7 +128,7 @@ Sl	com/aide/engine/RingBuffer	body:<T> + List<T> + 两个 int；j6(T)T 入、FH(
 Vn	com/aide/engine/Instruction	abstract:字段 (Xn, hs, cs)；抽象 DW()I(操作数个数)/DW(int)Vn(第 i 个操作数)；DW(BitSet)Vn、EQ()String、静态工厂 j6(hs,bs,bs) 造 mo ⇒ 字节码指令基类
 ro	com/aide/engine/ZeroSizeInsn	body:abstract extends Vn；DW()I 恒返回 0（写出大小 0）、j6(Lt) 空实现、DW(int) 用 cs.v5(i) 换寄存器 ⇒ dx 的 ZeroSizeInsn（零字节伪指令基类）；子类 CodeAddress / LocalStart / LocalEnd / LocalSnapshot
 Sn	com/aide/engine/CodeAddress	str:渲染串是 "code-address"；extends ZeroSizeInsn、构造只吃 hs、无写出 ⇒ dx 的 CodeAddress（块起始地址伪指令；BlockAddresses 就是拿它当块标签）
-ao	com/aide/engine/InstructionPrinter	abstract，方法全是 protected static 的字符串格式化：j6(Vn)String / j6(Ds)String / DW(Vn)String / gn(Vn)short ⇒ 指令反汇编器
+ao	com/aide/engine/FormatCodec	body:abstract；27 个子类各实现一种 dex 格式的 (VH 适用性判定 / j6():int 大小 / j6(Lt,Vn) 写出 / Zo(Vn) 与 j6(Vn,Z) 打印 / FH(Vn):BitSet 读的寄存器)；自身带一批 protected static 的写操作码与格式化辅助 ⇒ 按指令格式的编解码器
 hs	com/aide/engine/NamedSpan	body:final (Js 名字, int, int) + DW(hs)Z 比较 + 静态单例 ⇒ 具名区间（名字+起止）
 cs	com/aide/engine/ParameterTypeList	extends Xt、implements Ss；get(int)bs / j6(bs) / DW(bs) / Hw(int) / er() / 静态 j6(bs[,bs]) ⇒ 参数类型表
 Lt	com/aide/engine/CodeWriter	iface(extends ku):DW()Z / FH() / Hw()Z / j6()I / j6(int,String) / j6(String) ⇒ 字节码输出接口
@@ -405,3 +405,44 @@ cu	com/aide/engine/LabeledItem	iface:唯一方法 DW()I = 取标签 ⇒ 能放�
 fs	com/aide/engine/RopMethod	body:构造 (Or blocks, int paramWidth)；懒算 au[] predecessors 与 au exitPredecessors（遍历块表，按 block.gn() 后继集反向累加，空则填 au.DW）；j6():Or 取块表、j6(int):au 取某 label 的前驱集（为空抛异常）⇒ dx 的 RopMethod
 oq	com/aide/engine/Opcodes	str:静态 oq$a[] 是**按编号索引的整张表**，<clinit> 逐条 new oq$a(编号, "nop"/"move"/"move/from16"/"packed-switch-payload"…, er=InstructionFormat, mq=ReferenceKind)；DW(int)String 取名字、j6(int) 取条目 ⇒ dalvik 操作码总表（dx 的 Opcodes）
 oq$a	com/aide/engine/Opcodes$OpcodeInfo	body:字段 (int 编号, String 名字, er InstructionFormat, mq ReferenceKind)；getter Hw()/FH()/j6()/DW()；在 oq.<clinit> 里逐条构造 ⇒ 单条操作码的元信息（值/名字/格式/引用种类）
+
+Bq	com/aide/engine/Format00X	str:er.<clinit> 里 new Bq("FORMAT_00X",序) 就是枚举常量 FORMAT_00X 的体 ⇒ 该格式的实例类
+Mq	com/aide/engine/Format10X	str:er.<clinit> 里 new Mq("FORMAT_10X",序) 就是枚举常量 FORMAT_10X 的体 ⇒ 该格式的实例类
+Xq	com/aide/engine/Format12X	str:er.<clinit> 里 new Xq("FORMAT_12X",序) 就是枚举常量 FORMAT_12X 的体 ⇒ 该格式的实例类
+Zq	com/aide/engine/Format11N	str:er.<clinit> 里 new Zq("FORMAT_11N",序) 就是枚举常量 FORMAT_11N 的体 ⇒ 该格式的实例类
+_q	com/aide/engine/Format11X	str:er.<clinit> 里 new _q("FORMAT_11X",序) 就是枚举常量 FORMAT_11X 的体 ⇒ 该格式的实例类
+ar	com/aide/engine/Format10T	str:er.<clinit> 里 new ar("FORMAT_10T",序) 就是枚举常量 FORMAT_10T 的体 ⇒ 该格式的实例类
+br	com/aide/engine/Format20T	str:er.<clinit> 里 new br("FORMAT_20T",序) 就是枚举常量 FORMAT_20T 的体 ⇒ 该格式的实例类
+cr	com/aide/engine/Format20BC	str:er.<clinit> 里 new cr("FORMAT_20BC",序) 就是枚举常量 FORMAT_20BC 的体 ⇒ 该格式的实例类
+dr	com/aide/engine/Format22X	str:er.<clinit> 里 new dr("FORMAT_22X",序) 就是枚举常量 FORMAT_22X 的体 ⇒ 该格式的实例类
+rq	com/aide/engine/Format21T	str:er.<clinit> 里 new rq("FORMAT_21T",序) 就是枚举常量 FORMAT_21T 的体 ⇒ 该格式的实例类
+sq	com/aide/engine/Format21S	str:er.<clinit> 里 new sq("FORMAT_21S",序) 就是枚举常量 FORMAT_21S 的体 ⇒ 该格式的实例类
+tq	com/aide/engine/Format21H	str:er.<clinit> 里 new tq("FORMAT_21H",序) 就是枚举常量 FORMAT_21H 的体 ⇒ 该格式的实例类
+uq	com/aide/engine/Format21C	str:er.<clinit> 里 new uq("FORMAT_21C",序) 就是枚举常量 FORMAT_21C 的体 ⇒ 该格式的实例类
+vq	com/aide/engine/Format23X	str:er.<clinit> 里 new vq("FORMAT_23X",序) 就是枚举常量 FORMAT_23X 的体 ⇒ 该格式的实例类
+wq	com/aide/engine/Format22B	str:er.<clinit> 里 new wq("FORMAT_22B",序) 就是枚举常量 FORMAT_22B 的体 ⇒ 该格式的实例类
+xq	com/aide/engine/Format22T	str:er.<clinit> 里 new xq("FORMAT_22T",序) 就是枚举常量 FORMAT_22T 的体 ⇒ 该格式的实例类
+yq	com/aide/engine/Format22S	str:er.<clinit> 里 new yq("FORMAT_22S",序) 就是枚举常量 FORMAT_22S 的体 ⇒ 该格式的实例类
+zq	com/aide/engine/Format22C	str:er.<clinit> 里 new zq("FORMAT_22C",序) 就是枚举常量 FORMAT_22C 的体 ⇒ 该格式的实例类
+Aq	com/aide/engine/Format22CS	str:er.<clinit> 里 new Aq("FORMAT_22CS",序) 就是枚举常量 FORMAT_22CS 的体 ⇒ 该格式的实例类
+Cq	com/aide/engine/Format30T	str:er.<clinit> 里 new Cq("FORMAT_30T",序) 就是枚举常量 FORMAT_30T 的体 ⇒ 该格式的实例类
+Dq	com/aide/engine/Format32X	str:er.<clinit> 里 new Dq("FORMAT_32X",序) 就是枚举常量 FORMAT_32X 的体 ⇒ 该格式的实例类
+Eq	com/aide/engine/Format31I	str:er.<clinit> 里 new Eq("FORMAT_31I",序) 就是枚举常量 FORMAT_31I 的体 ⇒ 该格式的实例类
+Fq	com/aide/engine/Format31T	str:er.<clinit> 里 new Fq("FORMAT_31T",序) 就是枚举常量 FORMAT_31T 的体 ⇒ 该格式的实例类
+Gq	com/aide/engine/Format31C	str:er.<clinit> 里 new Gq("FORMAT_31C",序) 就是枚举常量 FORMAT_31C 的体 ⇒ 该格式的实例类
+Hq	com/aide/engine/Format35C	str:er.<clinit> 里 new Hq("FORMAT_35C",序) 就是枚举常量 FORMAT_35C 的体 ⇒ 该格式的实例类
+Iq	com/aide/engine/Format35MS	str:er.<clinit> 里 new Iq("FORMAT_35MS",序) 就是枚举常量 FORMAT_35MS 的体 ⇒ 该格式的实例类
+Jq	com/aide/engine/Format35MI	str:er.<clinit> 里 new Jq("FORMAT_35MI",序) 就是枚举常量 FORMAT_35MI 的体 ⇒ 该格式的实例类
+Kq	com/aide/engine/Format3RC	str:er.<clinit> 里 new Kq("FORMAT_3RC",序) 就是枚举常量 FORMAT_3RC 的体 ⇒ 该格式的实例类
+Lq	com/aide/engine/Format3RMS	str:er.<clinit> 里 new Lq("FORMAT_3RMS",序) 就是枚举常量 FORMAT_3RMS 的体 ⇒ 该格式的实例类
+Nq	com/aide/engine/Format3RMI	str:er.<clinit> 里 new Nq("FORMAT_3RMI",序) 就是枚举常量 FORMAT_3RMI 的体 ⇒ 该格式的实例类
+Oq	com/aide/engine/Format51L	str:er.<clinit> 里 new Oq("FORMAT_51L",序) 就是枚举常量 FORMAT_51L 的体 ⇒ 该格式的实例类
+Pq	com/aide/engine/Format33X	str:er.<clinit> 里 new Pq("FORMAT_33X",序) 就是枚举常量 FORMAT_33X 的体 ⇒ 该格式的实例类
+Qq	com/aide/engine/Format32S	str:er.<clinit> 里 new Qq("FORMAT_32S",序) 就是枚举常量 FORMAT_32S 的体 ⇒ 该格式的实例类
+Rq	com/aide/engine/Format40SC	str:er.<clinit> 里 new Rq("FORMAT_40SC",序) 就是枚举常量 FORMAT_40SC 的体 ⇒ 该格式的实例类
+Sq	com/aide/engine/Format41C	str:er.<clinit> 里 new Sq("FORMAT_41C",序) 就是枚举常量 FORMAT_41C 的体 ⇒ 该格式的实例类
+Tq	com/aide/engine/Format52C	str:er.<clinit> 里 new Tq("FORMAT_52C",序) 就是枚举常量 FORMAT_52C 的体 ⇒ 该格式的实例类
+Uq	com/aide/engine/Format5RC	str:er.<clinit> 里 new Uq("FORMAT_5RC",序) 就是枚举常量 FORMAT_5RC 的体 ⇒ 该格式的实例类
+Vq	com/aide/engine/FormatPackedSwitchPayload	str:er.<clinit> 里 new Vq("FORMAT_PACKED_SWITCH_PAYLOAD",序) 就是枚举常量 FORMAT_PACKED_SWITCH_PAYLOAD 的体 ⇒ 该格式的实例类
+Wq	com/aide/engine/FormatSparseSwitchPayload	str:er.<clinit> 里 new Wq("FORMAT_SPARSE_SWITCH_PAYLOAD",序) 就是枚举常量 FORMAT_SPARSE_SWITCH_PAYLOAD 的体 ⇒ 该格式的实例类
+Yq	com/aide/engine/FormatFillArrayDataPayload	str:er.<clinit> 里 new Yq("FORMAT_FILL_ARRAY_DATA_PAYLOAD",序) 就是枚举常量 FORMAT_FILL_ARRAY_DATA_PAYLOAD 的体 ⇒ 该格式的实例类

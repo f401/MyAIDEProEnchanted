@@ -25896,7 +25896,7 @@ c	abcd/Vn	com/aide/engine/Instruction	auto: 类：Instruction（上游未收录�
 c	abcd/ro	com/aide/engine/ZeroSizeInsn	body: com/aide/engine/ZeroSizeInsn——零字节伪指令（getSize 恒 0、writeTo 空）
 	m	()I	DW	getSize	body: 恒返回 0 ⇒ 零字节伪指令
 c	abcd/Sn	com/aide/engine/CodeAddress	str: com/aide/engine/CodeAddress——"code-address" 伪指令（块标签）
-c	abcd/ao	com/aide/engine/InstructionPrinter	auto: 类：InstructionPrinter（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ao	com/aide/engine/FormatCodec	body: com/aide/engine/FormatCodec——按 dex 指令格式的编解码器（大小/写出/打印/读寄存器）
 c	abcd/hs	com/aide/engine/NamedSpan	auto: 类：NamedSpan（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/cs	com/aide/engine/ParameterTypeList	auto: 类：ParameterTypeList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Lt	com/aide/engine/CodeWriter	auto: 写出器：Code（上游未收录，名字来自 jobs/engine 的判据）
@@ -26894,6 +26894,46 @@ c	abcd/oq$a	com/aide/engine/Opcodes$OpcodeInfo	body: com/aide/engine/Opcodes$Opc
 	m	()I	Hw	getValue	body: 返回 j6(操作码编号)
 	m	()Labcd/er;	j6	getFormat	body: 返回 FH(er=InstructionFormat 枚举)
 	m	()Labcd/mq;	DW	getReferenceKind	body: 返回 Hw(mq=ReferenceKind)
+c	abcd/Bq	com/aide/engine/Format00X	str: com/aide/engine/Format00X——er 枚举常量 FORMAT_00X 的实例类
+c	abcd/Mq	com/aide/engine/Format10X	str: com/aide/engine/Format10X——er 枚举常量 FORMAT_10X 的实例类
+c	abcd/Xq	com/aide/engine/Format12X	str: com/aide/engine/Format12X——er 枚举常量 FORMAT_12X 的实例类
+c	abcd/Zq	com/aide/engine/Format11N	str: com/aide/engine/Format11N——er 枚举常量 FORMAT_11N 的实例类
+c	abcd/_q	com/aide/engine/Format11X	str: com/aide/engine/Format11X——er 枚举常量 FORMAT_11X 的实例类
+c	abcd/ar	com/aide/engine/Format10T	str: com/aide/engine/Format10T——er 枚举常量 FORMAT_10T 的实例类
+c	abcd/br	com/aide/engine/Format20T	str: com/aide/engine/Format20T——er 枚举常量 FORMAT_20T 的实例类
+c	abcd/cr	com/aide/engine/Format20BC	str: com/aide/engine/Format20BC——er 枚举常量 FORMAT_20BC 的实例类
+c	abcd/dr	com/aide/engine/Format22X	str: com/aide/engine/Format22X——er 枚举常量 FORMAT_22X 的实例类
+c	abcd/rq	com/aide/engine/Format21T	str: com/aide/engine/Format21T——er 枚举常量 FORMAT_21T 的实例类
+c	abcd/sq	com/aide/engine/Format21S	str: com/aide/engine/Format21S——er 枚举常量 FORMAT_21S 的实例类
+c	abcd/tq	com/aide/engine/Format21H	str: com/aide/engine/Format21H——er 枚举常量 FORMAT_21H 的实例类
+c	abcd/uq	com/aide/engine/Format21C	str: com/aide/engine/Format21C——er 枚举常量 FORMAT_21C 的实例类
+c	abcd/vq	com/aide/engine/Format23X	str: com/aide/engine/Format23X——er 枚举常量 FORMAT_23X 的实例类
+c	abcd/wq	com/aide/engine/Format22B	str: com/aide/engine/Format22B——er 枚举常量 FORMAT_22B 的实例类
+c	abcd/xq	com/aide/engine/Format22T	str: com/aide/engine/Format22T——er 枚举常量 FORMAT_22T 的实例类
+c	abcd/yq	com/aide/engine/Format22S	str: com/aide/engine/Format22S——er 枚举常量 FORMAT_22S 的实例类
+c	abcd/zq	com/aide/engine/Format22C	str: com/aide/engine/Format22C——er 枚举常量 FORMAT_22C 的实例类
+c	abcd/Aq	com/aide/engine/Format22CS	str: com/aide/engine/Format22CS——er 枚举常量 FORMAT_22CS 的实例类
+c	abcd/Cq	com/aide/engine/Format30T	str: com/aide/engine/Format30T——er 枚举常量 FORMAT_30T 的实例类
+c	abcd/Dq	com/aide/engine/Format32X	str: com/aide/engine/Format32X——er 枚举常量 FORMAT_32X 的实例类
+c	abcd/Eq	com/aide/engine/Format31I	str: com/aide/engine/Format31I——er 枚举常量 FORMAT_31I 的实例类
+c	abcd/Fq	com/aide/engine/Format31T	str: com/aide/engine/Format31T——er 枚举常量 FORMAT_31T 的实例类
+c	abcd/Gq	com/aide/engine/Format31C	str: com/aide/engine/Format31C——er 枚举常量 FORMAT_31C 的实例类
+c	abcd/Hq	com/aide/engine/Format35C	str: com/aide/engine/Format35C——er 枚举常量 FORMAT_35C 的实例类
+c	abcd/Iq	com/aide/engine/Format35MS	str: com/aide/engine/Format35MS——er 枚举常量 FORMAT_35MS 的实例类
+c	abcd/Jq	com/aide/engine/Format35MI	str: com/aide/engine/Format35MI——er 枚举常量 FORMAT_35MI 的实例类
+c	abcd/Kq	com/aide/engine/Format3RC	str: com/aide/engine/Format3RC——er 枚举常量 FORMAT_3RC 的实例类
+c	abcd/Lq	com/aide/engine/Format3RMS	str: com/aide/engine/Format3RMS——er 枚举常量 FORMAT_3RMS 的实例类
+c	abcd/Nq	com/aide/engine/Format3RMI	str: com/aide/engine/Format3RMI——er 枚举常量 FORMAT_3RMI 的实例类
+c	abcd/Oq	com/aide/engine/Format51L	str: com/aide/engine/Format51L——er 枚举常量 FORMAT_51L 的实例类
+c	abcd/Pq	com/aide/engine/Format33X	str: com/aide/engine/Format33X——er 枚举常量 FORMAT_33X 的实例类
+c	abcd/Qq	com/aide/engine/Format32S	str: com/aide/engine/Format32S——er 枚举常量 FORMAT_32S 的实例类
+c	abcd/Rq	com/aide/engine/Format40SC	str: com/aide/engine/Format40SC——er 枚举常量 FORMAT_40SC 的实例类
+c	abcd/Sq	com/aide/engine/Format41C	str: com/aide/engine/Format41C——er 枚举常量 FORMAT_41C 的实例类
+c	abcd/Tq	com/aide/engine/Format52C	str: com/aide/engine/Format52C——er 枚举常量 FORMAT_52C 的实例类
+c	abcd/Uq	com/aide/engine/Format5RC	str: com/aide/engine/Format5RC——er 枚举常量 FORMAT_5RC 的实例类
+c	abcd/Vq	com/aide/engine/FormatPackedSwitchPayload	str: com/aide/engine/FormatPackedSwitchPayload——er 枚举常量 FORMAT_PACKED_SWITCH_PAYLOAD 的实例类
+c	abcd/Wq	com/aide/engine/FormatSparseSwitchPayload	str: com/aide/engine/FormatSparseSwitchPayload——er 枚举常量 FORMAT_SPARSE_SWITCH_PAYLOAD 的实例类
+c	abcd/Yq	com/aide/engine/FormatFillArrayDataPayload	str: com/aide/engine/FormatFillArrayDataPayload——er 枚举常量 FORMAT_FILL_ARRAY_DATA_PAYLOAD 的实例类
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

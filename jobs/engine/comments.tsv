@@ -154,7 +154,7 @@ c	abcd/Sl	-	-	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engin
 c	abcd/Vn	-	-	auto: 类：Instruction（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/ro	-	-	body: com/aide/engine/ZeroSizeInsn——零字节伪指令（getSize 恒 0、writeTo 空）
 c	abcd/Sn	-	-	str: com/aide/engine/CodeAddress——"code-address" 伪指令（块标签）
-c	abcd/ao	-	-	auto: 类：InstructionPrinter（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ao	-	-	body: com/aide/engine/FormatCodec——按 dex 指令格式的编解码器（大小/写出/打印/读寄存器）
 c	abcd/hs	-	-	auto: 类：NamedSpan（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/cs	-	-	auto: 类：ParameterTypeList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Lt	-	-	auto: 写出器：Code（上游未收录，名字来自 jobs/engine 的判据）
@@ -1799,3 +1799,43 @@ m	abcd/oq$a	j6	()Labcd/er;	body: 返回 FH(er=InstructionFormat 枚举)
 m	abcd/oq$a	DW	()Labcd/mq;	body: 返回 Hw(mq=ReferenceKind)
 c	abcd/oq	-	-	str: com/aide/engine/Opcodes——操作码总表（编号 → 名字/格式/引用种类）
 c	abcd/oq$a	-	-	body: com/aide/engine/Opcodes$OpcodeInfo——一条操作码的元信息（值/名字/格式/引用种类）
+c	abcd/Bq	-	-	str: com/aide/engine/Format00X——er 枚举常量 FORMAT_00X 的实例类
+c	abcd/Mq	-	-	str: com/aide/engine/Format10X——er 枚举常量 FORMAT_10X 的实例类
+c	abcd/Xq	-	-	str: com/aide/engine/Format12X——er 枚举常量 FORMAT_12X 的实例类
+c	abcd/Zq	-	-	str: com/aide/engine/Format11N——er 枚举常量 FORMAT_11N 的实例类
+c	abcd/_q	-	-	str: com/aide/engine/Format11X——er 枚举常量 FORMAT_11X 的实例类
+c	abcd/ar	-	-	str: com/aide/engine/Format10T——er 枚举常量 FORMAT_10T 的实例类
+c	abcd/br	-	-	str: com/aide/engine/Format20T——er 枚举常量 FORMAT_20T 的实例类
+c	abcd/cr	-	-	str: com/aide/engine/Format20BC——er 枚举常量 FORMAT_20BC 的实例类
+c	abcd/dr	-	-	str: com/aide/engine/Format22X——er 枚举常量 FORMAT_22X 的实例类
+c	abcd/rq	-	-	str: com/aide/engine/Format21T——er 枚举常量 FORMAT_21T 的实例类
+c	abcd/sq	-	-	str: com/aide/engine/Format21S——er 枚举常量 FORMAT_21S 的实例类
+c	abcd/tq	-	-	str: com/aide/engine/Format21H——er 枚举常量 FORMAT_21H 的实例类
+c	abcd/uq	-	-	str: com/aide/engine/Format21C——er 枚举常量 FORMAT_21C 的实例类
+c	abcd/vq	-	-	str: com/aide/engine/Format23X——er 枚举常量 FORMAT_23X 的实例类
+c	abcd/wq	-	-	str: com/aide/engine/Format22B——er 枚举常量 FORMAT_22B 的实例类
+c	abcd/xq	-	-	str: com/aide/engine/Format22T——er 枚举常量 FORMAT_22T 的实例类
+c	abcd/yq	-	-	str: com/aide/engine/Format22S——er 枚举常量 FORMAT_22S 的实例类
+c	abcd/zq	-	-	str: com/aide/engine/Format22C——er 枚举常量 FORMAT_22C 的实例类
+c	abcd/Aq	-	-	str: com/aide/engine/Format22CS——er 枚举常量 FORMAT_22CS 的实例类
+c	abcd/Cq	-	-	str: com/aide/engine/Format30T——er 枚举常量 FORMAT_30T 的实例类
+c	abcd/Dq	-	-	str: com/aide/engine/Format32X——er 枚举常量 FORMAT_32X 的实例类
+c	abcd/Eq	-	-	str: com/aide/engine/Format31I——er 枚举常量 FORMAT_31I 的实例类
+c	abcd/Fq	-	-	str: com/aide/engine/Format31T——er 枚举常量 FORMAT_31T 的实例类
+c	abcd/Gq	-	-	str: com/aide/engine/Format31C——er 枚举常量 FORMAT_31C 的实例类
+c	abcd/Hq	-	-	str: com/aide/engine/Format35C——er 枚举常量 FORMAT_35C 的实例类
+c	abcd/Iq	-	-	str: com/aide/engine/Format35MS——er 枚举常量 FORMAT_35MS 的实例类
+c	abcd/Jq	-	-	str: com/aide/engine/Format35MI——er 枚举常量 FORMAT_35MI 的实例类
+c	abcd/Kq	-	-	str: com/aide/engine/Format3RC——er 枚举常量 FORMAT_3RC 的实例类
+c	abcd/Lq	-	-	str: com/aide/engine/Format3RMS——er 枚举常量 FORMAT_3RMS 的实例类
+c	abcd/Nq	-	-	str: com/aide/engine/Format3RMI——er 枚举常量 FORMAT_3RMI 的实例类
+c	abcd/Oq	-	-	str: com/aide/engine/Format51L——er 枚举常量 FORMAT_51L 的实例类
+c	abcd/Pq	-	-	str: com/aide/engine/Format33X——er 枚举常量 FORMAT_33X 的实例类
+c	abcd/Qq	-	-	str: com/aide/engine/Format32S——er 枚举常量 FORMAT_32S 的实例类
+c	abcd/Rq	-	-	str: com/aide/engine/Format40SC——er 枚举常量 FORMAT_40SC 的实例类
+c	abcd/Sq	-	-	str: com/aide/engine/Format41C——er 枚举常量 FORMAT_41C 的实例类
+c	abcd/Tq	-	-	str: com/aide/engine/Format52C——er 枚举常量 FORMAT_52C 的实例类
+c	abcd/Uq	-	-	str: com/aide/engine/Format5RC——er 枚举常量 FORMAT_5RC 的实例类
+c	abcd/Vq	-	-	str: com/aide/engine/FormatPackedSwitchPayload——er 枚举常量 FORMAT_PACKED_SWITCH_PAYLOAD 的实例类
+c	abcd/Wq	-	-	str: com/aide/engine/FormatSparseSwitchPayload——er 枚举常量 FORMAT_SPARSE_SWITCH_PAYLOAD 的实例类
+c	abcd/Yq	-	-	str: com/aide/engine/FormatFillArrayDataPayload——er 枚举常量 FORMAT_FILL_ARRAY_DATA_PAYLOAD 的实例类

@@ -794,7 +794,7 @@ abcd/Vn com/aide/engine/Instruction
 abcd/ro com/aide/engine/ZeroSizeInsn
 	DW ()I getSize
 abcd/Sn com/aide/engine/CodeAddress
-abcd/ao com/aide/engine/InstructionPrinter
+abcd/ao com/aide/engine/FormatCodec
 abcd/hs com/aide/engine/NamedSpan
 abcd/cs com/aide/engine/ParameterTypeList
 abcd/Lt com/aide/engine/CodeWriter
@@ -1792,3 +1792,43 @@ abcd/oq$a com/aide/engine/Opcodes$OpcodeInfo
 	Hw ()I getValue
 	j6 ()Labcd/er; getFormat
 	DW ()Labcd/mq; getReferenceKind
+abcd/Bq com/aide/engine/Format00X
+abcd/Mq com/aide/engine/Format10X
+abcd/Xq com/aide/engine/Format12X
+abcd/Zq com/aide/engine/Format11N
+abcd/_q com/aide/engine/Format11X
+abcd/ar com/aide/engine/Format10T
+abcd/br com/aide/engine/Format20T
+abcd/cr com/aide/engine/Format20BC
+abcd/dr com/aide/engine/Format22X
+abcd/rq com/aide/engine/Format21T
+abcd/sq com/aide/engine/Format21S
+abcd/tq com/aide/engine/Format21H
+abcd/uq com/aide/engine/Format21C
+abcd/vq com/aide/engine/Format23X
+abcd/wq com/aide/engine/Format22B
+abcd/xq com/aide/engine/Format22T
+abcd/yq com/aide/engine/Format22S
+abcd/zq com/aide/engine/Format22C
+abcd/Aq com/aide/engine/Format22CS
+abcd/Cq com/aide/engine/Format30T
+abcd/Dq com/aide/engine/Format32X
+abcd/Eq com/aide/engine/Format31I
+abcd/Fq com/aide/engine/Format31T
+abcd/Gq com/aide/engine/Format31C
+abcd/Hq com/aide/engine/Format35C
+abcd/Iq com/aide/engine/Format35MS
+abcd/Jq com/aide/engine/Format35MI
+abcd/Kq com/aide/engine/Format3RC
+abcd/Lq com/aide/engine/Format3RMS
+abcd/Nq com/aide/engine/Format3RMI
+abcd/Oq com/aide/engine/Format51L
+abcd/Pq com/aide/engine/Format33X
+abcd/Qq com/aide/engine/Format32S
+abcd/Rq com/aide/engine/Format40SC
+abcd/Sq com/aide/engine/Format41C
+abcd/Tq com/aide/engine/Format52C
+abcd/Uq com/aide/engine/Format5RC
+abcd/Vq com/aide/engine/FormatPackedSwitchPayload
+abcd/Wq com/aide/engine/FormatSparseSwitchPayload
+abcd/Yq com/aide/engine/FormatFillArrayDataPayload
