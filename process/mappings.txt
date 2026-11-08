@@ -26682,6 +26682,8 @@ abcd/jb com/aide/engine/SourceEntityTreeBuilder
 abcd/kb com/aide/engine/SymbolGroupReporter
 abcd/Pk com/aide/licensing/OuyaKeyProvider
 abcd/Qg com/aide/ui/actions/OpenAndroidJarAction
+abcd/wb com/aide/engine/IntObjectMap
+abcd/Fl com/aide/ui/editor/AutoIndentHelper
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
