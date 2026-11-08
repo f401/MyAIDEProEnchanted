@@ -107,3 +107,25 @@ c	com/aide/engine/c$b$n	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$Daemon
 c	com/aide/engine/c$b$o	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback——模板求值适配
 c	com/aide/engine/c$b$p	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$UsageSearcherCallback——用法搜索适配
 c	com/aide/engine/service/x	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/service/CodeModelFactory——CodeModelFactory
+m	com/aide/engine/c	Of	(Lcom/aide/engine/c;)Lcom/aide/engine/EngineSolution;	auto: AIDE+ 2.3.5 Engine.getEngineSolution——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c	VH	()V	auto: AIDE+ 2.3.5 Engine.shutdown——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c	j6	(Lcom/aide/engine/EngineSolution;)V	auto: AIDE+ 2.3.5 Engine.setEngineSolution——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b	j6	(Lcom/aide/engine/c$b;)Labcd/ea;	auto: AIDE+ 2.3.5 Engine$DaemonTask.getAIDEModel——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$b	j6	()V	auto: AIDE+ 2.3.5 Engine$DaemonTask$CodeCompleterCallback.listStarted——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$b	j6	(Labcd/Aa;Labcd/Ya;Z)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$CodeCompleterCallback.listElementEntityFound——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$b	j6	(Labcd/Aa;Z)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$CodeCompleterCallback.listElementEntityFound——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$b	j6	(Labcd/Da;II[I[I)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$CodeCompleterCallback.parameterListFound——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$b	j6	(Labcd/Za;)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$CodeCompleterCallback.listElementVariableFound——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$b	DW	(Ljava/lang/String;)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$CodeCompleterCallback.listElementKeywordFound——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$b	j6	(Ljava/lang/String;)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$CodeCompleterCallback.listElementUnknownIdentifierFound——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$e	j6	(Labcd/Da;)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$HighlighterCallback.fileFinished——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$e	j6	(Labcd/Da;I)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$HighlighterCallback.unifedLineFound——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$e	j6	(Labcd/na;Labcd/Wa;)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$HighlighterCallback.addSyntaxTreeStyles——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$e	j6	(I)V	auto: AIDE+ 2.3.5 Engine$DaemonTask$HighlighterCallback.ensureExplicitCapacity——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$e	DW	()V	auto: AIDE+ 2.3.5 Engine$DaemonTask$HighlighterCallback.releaseSyntaxTree——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$g	j6	(Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/Reader;	auto: AIDE+ 2.3.5 Engine$DaemonTask$BomReaderFactory.createBomReader——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$h	DW	(Labcd/Da;)Z	auto: AIDE+ 2.3.5 Engine$DaemonTask$OpenFileCallback.isOpenFile——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$h	FH	(Labcd/Da;)Ljava/io/Reader;	auto: AIDE+ 2.3.5 Engine$DaemonTask$OpenFileCallback.getOpenFileReader——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$h	j6	()V	auto: AIDE+ 2.3.5 Engine$DaemonTask$OpenFileCallback.update——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$h	Hw	(Labcd/Da;)J	auto: AIDE+ 2.3.5 Engine$DaemonTask$OpenFileCallback.getOpenFileSize——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
+m	com/aide/engine/c$b$h	j6	(Labcd/Da;)J	auto: AIDE+ 2.3.5 Engine$DaemonTask$OpenFileCallback.getOpenFileVersion——按描述符/方法体指纹对位（判据见 jobs/*/class_map.tsv 的 shape:/body: 列）
