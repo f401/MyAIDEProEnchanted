@@ -782,8 +782,17 @@ abcd/Wa com/aide/codemodel/api/SyntaxTreeStyles
 abcd/em com/aide/engine/IntervalList
 abcd/Sl com/aide/engine/RingBuffer
 abcd/Vn com/aide/engine/Instruction
-abcd/ro com/aide/engine/OperandInstruction
-abcd/Sn com/aide/engine/InvokeInstruction
+	FH ()I getAddress
+	Zo ()Labcd/Xn; getOpcode
+	gn ()Labcd/cs; getRegisters
+	DW ()I getSize
+	u7 ()Z hasAddress
+	v5 ()I getNextAddress
+	j6 (I)V setAddress
+	j6 (Labcd/Lt;)V writeTo
+abcd/ro com/aide/engine/ZeroSizeInsn
+	DW ()I getSize
+abcd/Sn com/aide/engine/CodeAddress
 abcd/ao com/aide/engine/InstructionPrinter
 abcd/hs com/aide/engine/NamedSpan
 abcd/cs com/aide/engine/ParameterTypeList
@@ -1552,7 +1561,10 @@ abcd/hp com/aide/engine/DebugInfoEncoder
 	j6 (Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B encode
 abcd/Qp com/aide/engine/TypeIdSection
 abcd/Cp com/aide/engine/MethodIdSection
-abcd/Xn com/aide/engine/OpcodeIterator
+abcd/Xn com/aide/engine/Opcode
+	FH ()Ljava/lang/String; getName
+	DW ()Labcd/ao; getFormat
+	Zo ()Labcd/Xn; getNextOpcode
 abcd/oo com/aide/engine/SwitchPayloadBuilder
 abcd/Nm com/aide/engine/StackSimulator
 abcd/Sm com/aide/engine/SsaUpdater
@@ -1745,3 +1757,9 @@ abcd/vp com/aide/engine/Item
 	j6 (Labcd/jp;)V place
 	j6 (Labcd/jp;Labcd/Lt;)V writeTo
 abcd/On com/aide/engine/BlockAddresses
+abcd/do com/aide/engine/LocalSnapshot
+	we ()Labcd/ds; getLocals
+abcd/eo com/aide/engine/LocalStart
+	we ()Labcd/bs; getLocal
+abcd/bo com/aide/engine/LocalEnd
+	we ()Labcd/bs; getLocal

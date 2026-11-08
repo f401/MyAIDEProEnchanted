@@ -126,8 +126,8 @@ Wa	com/aide/codemodel/api/SyntaxTreeStyles	shape:AIDE+ 2.3.5 的 SyntaxTreeStyle
 em	com/aide/engine/IntervalList	body:<T> Serializable + Vector<em$b<T>>；DW(T,int,int) 按区间加、FH(int,int)Z 判断包含、DW(int,int)fm 取子区间迭代器、Hw(int,int)/DW(int,int,int) 等做区间运算 ⇒ 区间列表
 Sl	com/aide/engine/RingBuffer	body:<T> + List<T> + 两个 int；j6(T)T 入、FH()T 出、j6(int)T 取、DW()I/Hw()I 两个计数、j6() 清空、ctor(int) 定容 ⇒ 定容环形缓冲
 Vn	com/aide/engine/Instruction	abstract:字段 (Xn, hs, cs)；抽象 DW()I(操作数个数)/DW(int)Vn(第 i 个操作数)；DW(BitSet)Vn、EQ()String、静态工厂 j6(hs,bs,bs) 造 mo ⇒ 字节码指令基类
-ro	com/aide/engine/OperandInstruction	abstract:extends Vn；final DW()I、DW(int)Vn 线性取操作数、j6(Xn)Vn、j6(Lt) 写回 ⇒ 带操作数列表的指令
-Sn	com/aide/engine/InvokeInstruction	extends ro；j6(cs)Vn 以参数类型表索引操作数、另有 j6(Z)String 渲染 ⇒ 调用类指令
+ro	com/aide/engine/ZeroSizeInsn	body:abstract extends Vn；DW()I 恒返回 0（写出大小 0）、j6(Lt) 空实现、DW(int) 用 cs.v5(i) 换寄存器 ⇒ dx 的 ZeroSizeInsn（零字节伪指令基类）；子类 CodeAddress / LocalStart / LocalEnd / LocalSnapshot
+Sn	com/aide/engine/CodeAddress	str:渲染串是 "code-address"；extends ZeroSizeInsn、构造只吃 hs、无写出 ⇒ dx 的 CodeAddress（块起始地址伪指令；BlockAddresses 就是拿它当块标签）
 ao	com/aide/engine/InstructionPrinter	abstract，方法全是 protected static 的字符串格式化：j6(Vn)String / j6(Ds)String / DW(Vn)String / gn(Vn)short ⇒ 指令反汇编器
 hs	com/aide/engine/NamedSpan	body:final (Js 名字, int, int) + DW(hs)Z 比较 + 静态单例 ⇒ 具名区间（名字+起止）
 cs	com/aide/engine/ParameterTypeList	extends Xt、implements Ss；get(int)bs / j6(bs) / DW(bs) / Hw(int) / er() / 静态 j6(bs[,bs]) ⇒ 参数类型表
@@ -310,7 +310,7 @@ Hh	com/aide/ui/ProgressDialog	body:abstract extends com/aide/common/ma；字段 
 hp	com/aide/engine/DebugInfoEncoder	str:常量串全是 debug_info 的操作码文本——"%04x: advance pc" / "%04x: +local %s" / "%04x: +local restart %s" / "%04x: prologue end" ⇒ 调试信息编码器
 Qp	com/aide/engine/TypeIdSection	str:"type_ids_size:   " / "type_ids_off:    " / "too many type ids" / "not found: " ⇒ dex 的 type_ids 段
 Cp	com/aide/engine/MethodIdSection	str:"method_ids_size: " / "method_ids_off:  " / "not found" ⇒ dex 的 method_ids 段
-Xn	com/aide/engine/OpcodeIterator	str:"bogus nextOpcode" / "bogus family" / "bogus opcode: " / "format == null" ⇒ 按格式推进的 opcode 迭代器
+Xn	com/aide/engine/Opcode	str:"bogus nextOpcode"/"bogus family"/"bogus opcode:"/"format == null"；字段 (int 操作码, int, int nextOpcode, ao format, boolean)；FH() 用 oq.DW(int) 查操作码名 ⇒ 一条 dalvik 指令的操作码（dx 的 Dop）
 oo	com/aide/engine/SwitchPayloadBuilder	str:"too many cases" / "cases / targets mismatch" / "targets == null" / "cases == null" ⇒ switch 载荷构造
 Nm	com/aide/engine/StackSimulator	str:"stack: underflow" / "underlay stack:" / "overlay stack:" / "incompatible substitution: " ⇒ 栈模拟器
 Sm	com/aide/engine/SsaUpdater	str:"$Merging locals set for caller block " / "(locals array set; primary)" / "(Merging one locals against caller block " ⇒ SSA 的 locals 合并
@@ -394,3 +394,6 @@ ip	com/aide/engine/DebugInfoItemSection	str:"code == null" / "...while placing d
 vp	com/aide/engine/Item	iface:5 个抽象方法 = Hw()wp(条目类型) / VH()int(写出大小，Gp 里抛 "writeSize is unknown") / Zo()String(类型名) / j6(jp)(place) / j6(jp,Lt)(writeTo)；唯一实现者 Gp(DexSection) ⇒ dx 的 Item（可放进 map_list 的条目契约）
 
 On	com/aide/engine/BlockAddresses	body:三个 Sn[] 按块的 label 下标存放 起始/结束/最后 指令；构造时遍历 fs(RopMethod).j6()(块表) 逐个填；j6(Nr)/DW(Nr)/FH(Nr)/j6(int) 四个取值 ⇒ 基本块 → 指令 的地址表（dx 的 BlockAddresses）
+do	com/aide/engine/LocalSnapshot	str:"locals == null" / "local-snapshot"；extends ZeroSizeInsn，字段 ds(TypeList 构建态)+we():ds ⇒ dx 的 LocalSnapshot（局部变量快照）
+eo	com/aide/engine/LocalStart	str:"local == null" / "local-start"；extends ZeroSizeInsn，字段 bs(TypeInfo)+we():bs ⇒ dx 的 LocalStart（变量生效点）
+bo	com/aide/engine/LocalEnd	str:"local == null" / "local-end"；extends ZeroSizeInsn，字段 bs(TypeInfo)+we():bs ⇒ dx 的 LocalEnd（变量失效点）

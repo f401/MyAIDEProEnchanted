@@ -25884,8 +25884,17 @@ c	abcd/Wa	com/aide/codemodel/api/SyntaxTreeStyles	shape: AIDE+ 2.3.5 的 SyntaxT
 c	abcd/em	com/aide/engine/IntervalList	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sl	com/aide/engine/RingBuffer	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Vn	com/aide/engine/Instruction	auto: 类：Instruction（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/ro	com/aide/engine/OperandInstruction	auto: 类：OperandInstruction（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Sn	com/aide/engine/InvokeInstruction	auto: 类：InvokeInstruction（上游未收录，名字来自 jobs/engine 的判据）
+	m	()I	FH	getAddress	str: 返回地址；为负抛 RuntimeException("address not yet known")
+	m	()Labcd/Xn;	Zo	getOpcode	body: 返回 DW(Xn=Opcode)
+	m	()Labcd/cs;	gn	getRegisters	body: 返回 Hw(寄存器/类型列表 cs)
+	m	()I	DW	getSize	body: 抽象——本指令写出的字节数（ZeroSizeInsn 恒 0）
+	m	()Z	u7	hasAddress	body: 地址 >= 0 ⇒ 已经定过地址
+	m	()I	v5	getNextAddress	body: 返回 地址 + 本指令大小 ⇒ 下一条指令的地址（dx 的 getNextAddress）
+	m	(I)V	j6	setAddress	body: 写地址字段
+	m	(Labcd/Lt;)V	j6	writeTo	body: 抽象——把本指令写进 ByteOutput
+c	abcd/ro	com/aide/engine/ZeroSizeInsn	body: com/aide/engine/ZeroSizeInsn——零字节伪指令（getSize 恒 0、writeTo 空）
+	m	()I	DW	getSize	body: 恒返回 0 ⇒ 零字节伪指令
+c	abcd/Sn	com/aide/engine/CodeAddress	str: com/aide/engine/CodeAddress——"code-address" 伪指令（块标签）
 c	abcd/ao	com/aide/engine/InstructionPrinter	auto: 类：InstructionPrinter（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/hs	com/aide/engine/NamedSpan	auto: 类：NamedSpan（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/cs	com/aide/engine/ParameterTypeList	auto: 类：ParameterTypeList（上游未收录，名字来自 jobs/engine 的判据）
@@ -26654,7 +26663,10 @@ c	abcd/hp	com/aide/engine/DebugInfoEncoder	str: com/aide/engine/DebugInfoEncoder
 	m	(Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B	j6	encode	body: 先存 label/PrintWriter/ByteOutput/flag 四个调试字段，再调 j6() ⇒ 带调试输出的编码入口
 c	abcd/Qp	com/aide/engine/TypeIdSection	str: com/aide/engine/TypeIdSection——dex 的 type_ids 段
 c	abcd/Cp	com/aide/engine/MethodIdSection	str: com/aide/engine/MethodIdSection——dex 的 method_ids 段
-c	abcd/Xn	com/aide/engine/OpcodeIterator	str: com/aide/engine/OpcodeIterator——按格式推进的 opcode 迭代器
+c	abcd/Xn	com/aide/engine/Opcode	str: com/aide/engine/Opcode——操作码（名字/格式/下一个操作码）
+	m	()Ljava/lang/String;	FH	getName	body: 用 oq.DW(操作码值) 查名字
+	m	()Labcd/ao;	DW	getFormat	body: 返回 ao(格式/打印器)；构造时对空值抛 "format == null"
+	m	()Labcd/Xn;	Zo	getNextOpcode	str: 构造时校验 "bogus nextOpcode" ⇒ 同族的下一个操作码
 c	abcd/oo	com/aide/engine/SwitchPayloadBuilder	str: com/aide/engine/SwitchPayloadBuilder——switch 载荷构造
 c	abcd/Nm	com/aide/engine/StackSimulator	str: com/aide/engine/StackSimulator——栈模拟器
 c	abcd/Sm	com/aide/engine/SsaUpdater	str: com/aide/engine/SsaUpdater——SSA 的 locals 合并
@@ -26847,6 +26859,12 @@ c	abcd/vp	com/aide/engine/Item	iface: com/aide/engine/Item——条目类型/写
 	m	(Labcd/jp;)V	j6	place	body: 分配偏移/登记到所属 Section（dx 的 place）
 	m	(Labcd/jp;Labcd/Lt;)V	j6	writeTo	body: 真正写出（dx 的 writeTo）
 c	abcd/On	com/aide/engine/BlockAddresses	body: com/aide/engine/BlockAddresses——块 label → 起始/结束/最后指令
+c	abcd/do	com/aide/engine/LocalSnapshot	str: com/aide/engine/LocalSnapshot——"local-snapshot"
+	m	()Labcd/ds;	we	getLocals	body: 返回局部变量集合(ds=TypeList 构建态)
+c	abcd/eo	com/aide/engine/LocalStart	str: com/aide/engine/LocalStart——"local-start"
+	m	()Labcd/bs;	we	getLocal	body: 返回该生效点对应的变量(TypeInfo)
+c	abcd/bo	com/aide/engine/LocalEnd	str: com/aide/engine/LocalEnd——"local-end"
+	m	()Labcd/bs;	we	getLocal	body: 返回该失效点对应的变量(TypeInfo)
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
