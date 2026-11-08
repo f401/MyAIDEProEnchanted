@@ -28021,6 +28021,8 @@ abcd/Sm com/aide/engine/SsaUpdater
 abcd/Vo com/aide/engine/AnnotationWriter
 abcd/Tp com/aide/engine/MapItemWriter
 abcd/Gp com/aide/engine/DexSection
+	j6 (I)V setWriteSize
+	Ws ()Ljava/lang/String; toHuman
 abcd/Fp com/aide/engine/DexFileWriter
 abcd/Hx com/aide/engine/TryWithResourcesDesugaring
 abcd/Nr com/aide/engine/BasicBlock
@@ -28063,6 +28065,7 @@ abcd/ap com/aide/engine/ClassDataItem
 abcd/xr com/aide/engine/DexOverflowChecker
 abcd/Tn com/aide/engine/ConstantInstruction
 abcd/Bn com/aide/engine/EncodedMember
+abcd/in com/aide/engine/InstructionDisassembler
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

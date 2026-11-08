@@ -26599,6 +26599,8 @@ c	abcd/Sm	com/aide/engine/SsaUpdater	str: com/aide/engine/SsaUpdater——SSA �
 c	abcd/Vo	com/aide/engine/AnnotationWriter	str: com/aide/engine/AnnotationWriter——注解写出器
 c	abcd/Tp	com/aide/engine/MapItemWriter	str: com/aide/engine/MapItemWriter——map_list 条目写出器
 c	abcd/Gp	com/aide/engine/DexSection	str: com/aide/engine/DexSection——带 offset/writeSize 的 dex 段基类
+	m	(I)V	j6	setWriteSize	setWriteSize——方法体里是 "writeSize already set" / "writeSize < 0" 两处校验
+	m	()Ljava/lang/String;	Ws	toHuman	toHuman——用 Integer.toHexString + StringBuilder 拼十六进制段描述（dx 的 toHuman）
 c	abcd/Fp	com/aide/engine/DexFileWriter	str: com/aide/engine/DexFileWriter——dex 文件组装/写出
 c	abcd/Hx	com/aide/engine/TryWithResourcesDesugaring	str: com/aide/engine/TryWithResourcesDesugaring——try-with-resources 脱糖策略
 c	abcd/Nr	com/aide/engine/BasicBlock	str: com/aide/engine/BasicBlock——控制流基本块
@@ -26641,6 +26643,7 @@ c	abcd/ap	com/aide/engine/ClassDataItem	str/body: com/aide/engine/ClassDataItem�
 c	abcd/xr	com/aide/engine/DexOverflowChecker	str/body: com/aide/engine/DexOverflowChecker——构建期 dex 溢出检查（multidex 提示）
 c	abcd/Tn	com/aide/engine/ConstantInstruction	str/body: com/aide/engine/ConstantInstruction——带常量引用的指令
 c	abcd/Bn	com/aide/engine/EncodedMember	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field/encoded_method
+c	abcd/in	com/aide/engine/InstructionDisassembler	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

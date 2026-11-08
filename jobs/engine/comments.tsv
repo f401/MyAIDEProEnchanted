@@ -1540,3 +1540,6 @@ c	abcd/ap	-	-	str/body: com/aide/engine/ClassDataItem——dex 的 class_data_it
 c	abcd/xr	-	-	str/body: com/aide/engine/DexOverflowChecker——构建期 dex 溢出检查（multidex 提示）
 c	abcd/Tn	-	-	str/body: com/aide/engine/ConstantInstruction——带常量引用的指令
 c	abcd/Bn	-	-	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field/encoded_method
+c	abcd/in	-	-	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
+m	abcd/Gp	j6	(I)V	setWriteSize——方法体里是 "writeSize already set" / "writeSize < 0" 两处校验
+m	abcd/Gp	Ws	()Ljava/lang/String;	toHuman——用 Integer.toHexString + StringBuilder 拼十六进制段描述（dx 的 toHuman）
