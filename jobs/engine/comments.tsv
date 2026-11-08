@@ -1336,3 +1336,7 @@ c	abcd/Yl	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/command/MenuItemCommand——�
 c	abcd/_l	-	-	shape: AIDE+ 2.3.5 的 com/aide/ui/command/MenuCommand——菜单命令接口（在菜单项基础上加 isVisible(boolean)）
 c	abcd/Jd	-	-	body: JavaScript 的 CodeAnalyzer——构造收 (Model, JavaScriptLanguage)，字段带 Stack 做嵌套作用域
 c	abcd/To	-	-	body: 兜底指令打印器——VH 恒 true，Zo/j6 抛 RuntimeException("unsupported")
+c	abcd/Qt	-	-	body: com/aide/engine/CodeWriterImpl——CodeWriter 的字节缓冲实现（writeByte/取字节/修补点表）
+c	abcd/Jm	-	-	body: com/aide/engine/SparseSwitchPayload——sparse-switch 载荷（键→目标有序数组 + 二分查找）
+c	abcd/Wn	-	-	body: com/aide/engine/InstructionBlock——可自写的指令块（从 ArrayList<Instruction> 构造）
+c	abcd/Le	-	-	body: com/aide/ui/build/RunTargetImpl——运行目标实现（本工程唯一 RunTarget 实现）
