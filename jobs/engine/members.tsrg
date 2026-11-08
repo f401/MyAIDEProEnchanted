@@ -43,34 +43,34 @@ abcd/I abcd/aide/engine/UsageSearch
 	Hw (Labcd/Da;IIZ)V addInheritors
 	j6 (Labcd/Da;II)V addOverriddenMembers
 	j6 (Labcd/Da;IIZ)V addMethodsReturning
-abcd/la com/aide/engine/FileType
+abcd/la com/aide/codemodel/api/abstraction/CodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/vd com/aide/engine/JavaFileType
+abcd/vd com/aide/codemodel/language/java/JavaCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/me com/aide/engine/XmlFileType
+abcd/me com/aide/codemodel/language/xml/XmlCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/bd com/aide/engine/HtmlFileType
+abcd/bd com/aide/codemodel/language/html/HtmlCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Wc com/aide/engine/DtdFileType
+abcd/Wc com/aide/codemodel/language/dtd/DtdCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Mc com/aide/engine/CssFileType
+abcd/Mc com/aide/codemodel/language/css/CssCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Ud com/aide/engine/JavaScriptFileType
+abcd/Ud com/aide/codemodel/language/js/JavaScriptCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Fc com/aide/engine/CppFileType
+abcd/Fc com/aide/codemodel/language/cpp/CppCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Ac com/aide/engine/JavaBinaryFileType
+abcd/Ac com/aide/codemodel/language/classfile/JavaBinaryCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/zc com/aide/engine/AidlFileType
+abcd/zc com/aide/codemodel/language/aidl/AidlCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
 abcd/na com/aide/codemodel/api/abstraction/Language
@@ -83,7 +83,7 @@ abcd/Oc com/aide/engine/CssLanguage
 abcd/Gc com/aide/engine/CppLanguage
 abcd/Xc com/aide/engine/DtdLanguage
 abcd/nd com/aide/engine/JavaCommentsLanguage
-abcd/ne com/aide/engine/MarkupLanguage
+abcd/ne com/aide/codemodel/language/xml/XmlLanguage
 abcd/Ea com/aide/codemodel/api/FileSpace
 abcd/Sa com/aide/codemodel/api/SyntaxTree
 abcd/La com/aide/codemodel/api/Model

@@ -44,16 +44,16 @@ m	abcd/I	FH	(Labcd/Da;IIZ)V	auto: 加入 OverridingMethods（上游无同签名�
 m	abcd/I	Hw	(Labcd/Da;IIZ)V	auto: 加入 Inheritors（上游无同签名对应，按作用取名）
 m	abcd/I	j6	(Labcd/Da;II)V	auto: 加入 OverriddenMembers（上游无同签名对应，按作用取名）
 m	abcd/I	j6	(Labcd/Da;IIZ)V	auto: 加入 MethodsReturning（上游无同签名对应，按作用取名）
-c	abcd/la	-	-	auto: 类：FileType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/vd	-	-	auto: 类：JavaFileType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/me	-	-	auto: 类：XmlFileType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/bd	-	-	auto: 类：HtmlFileType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Wc	-	-	auto: 类：DtdFileType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Mc	-	-	auto: 类：CssFileType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Ud	-	-	auto: 类：JavaScriptFileType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Fc	-	-	auto: 类：CppFileType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/Ac	-	-	auto: 类：JavaBinaryFileType（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/zc	-	-	auto: 类：AidlFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/la	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/CodeModel——CodeModel
+c	abcd/vd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeModel——JavaCodeModel
+c	abcd/me	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlCodeModel——XmlCodeModel
+c	abcd/bd	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/html/HtmlCodeModel——HtmlCodeModel
+c	abcd/Wc	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdCodeModel——DtdCodeModel
+c	abcd/Mc	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssCodeModel——CssCodeModel
+c	abcd/Ud	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCodeModel——JavaScriptCodeModel
+c	abcd/Fc	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppCodeModel——CppCodeModel
+c	abcd/Ac	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/classfile/JavaBinaryCodeModel——JavaBinaryCodeModel
+c	abcd/zc	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/aidl/AidlCodeModel——AidlCodeModel
 m	abcd/la	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
 m	abcd/la	Hw	()[Ljava/lang/String;	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 m	abcd/vd	j6	()Ljava/lang/String;	auto: 取 Name（上游无同签名对应，按作用取名）
@@ -84,7 +84,7 @@ c	abcd/Oc	-	-	auto: 类：CssLanguage（上游未收录，名字来自 jobs/engi
 c	abcd/Gc	-	-	auto: 类：CppLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Xc	-	-	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/nd	-	-	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/ne	-	-	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ne	-	-	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlLanguage——XmlLanguage
 c	abcd/Ea	-	-	shape: AIDE+ 2.3.5 的 api/FileSpace（61:61，0.59）——文件空间，按名字/id 取 FileEntry（旧名 FileManager）
 c	abcd/Sa	-	-	shape: AIDE+ 2.3.5 的 api/SyntaxTree（156:156，0.93）——语法树，按节点/位置查询（旧名 SourceText）
 c	abcd/La	-	-	shape: AIDE+ 2.3.5 的 Model——16 参构造即 12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory，字段全是 public final 回调

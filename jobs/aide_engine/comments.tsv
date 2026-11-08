@@ -45,7 +45,7 @@ c	com/aide/engine/D	-	-	auto: 类：QualifiedName（上游未收录，名字来�
 c	com/aide/engine/service/d	-	-	auto: 管理器：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/c	-	-	auto: 类：Engine（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/l	-	-	auto: 类：CodeAnalysisEngineBinder（上游未收录，名字来自 jobs/aide_engine 的判据）
-c	com/aide/engine/j	-	-	auto: 提供者：FileType（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/j	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/ICodeModelsFactory——ICodeModelsFactory
 c	com/aide/engine/d	-	-	auto: 回调接口：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/e	-	-	auto: 类：CompletionDispatcher（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/f	-	-	auto: 适配器：OpenFile（上游未收录，名字来自 jobs/aide_engine 的判据）
@@ -106,3 +106,4 @@ c	com/aide/engine/c$b$m	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$Daemon
 c	com/aide/engine/c$b$n	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$n——位置/区间上报适配（≡AIDE+ 的 y2）
 c	com/aide/engine/c$b$o	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback——模板求值适配
 c	com/aide/engine/c$b$p	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$UsageSearcherCallback——用法搜索适配
+c	com/aide/engine/service/x	-	-	shape: AIDE+ 2.3.5 的 com/aide/engine/service/CodeModelFactory——CodeModelFactory

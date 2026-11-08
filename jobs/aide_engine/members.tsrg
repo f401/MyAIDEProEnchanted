@@ -45,7 +45,7 @@ com/aide/engine/D com/aide/engine/QualifiedName
 com/aide/engine/service/d com/aide/engine/service/EngineProcessManager
 com/aide/engine/c com/aide/engine/Engine
 com/aide/engine/service/l com/aide/engine/service/CodeAnalysisEngineBinder
-com/aide/engine/j com/aide/engine/FileTypeProvider
+com/aide/engine/j com/aide/engine/ICodeModelsFactory
 com/aide/engine/d com/aide/engine/EngineProcessListener
 com/aide/engine/service/e com/aide/engine/service/CompletionDispatcher
 com/aide/engine/service/f com/aide/engine/service/OpenFileAdapter
@@ -106,3 +106,4 @@ com/aide/engine/c$b$m com/aide/engine/Engine$DaemonTask$m
 com/aide/engine/c$b$n com/aide/engine/Engine$DaemonTask$n
 com/aide/engine/c$b$o com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback
 com/aide/engine/c$b$p com/aide/engine/Engine$DaemonTask$UsageSearcherCallback
+com/aide/engine/service/x com/aide/engine/service/CodeModelFactory

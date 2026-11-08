@@ -38,16 +38,16 @@ abcd/ul	abcd/aide/engine/ProjectModel	role:27 方法 13 字段，方法全以自
 abcd/ul$a	abcd/aide/engine/ProjectModel$a	跟随父类（作用待定，保留 $后缀）
 V	abcd/aide/engine/RenameRefactoring	str:方法体里 "There already is a method with that name."/"There already is a class with that name."/"There already is a field with that name."/"There is an overridden method, which is defined outside the project."/"Code in included files will not be changed."；被 com/aide/engine/c$b.tp() 调用（重命名入口）⇒ 引擎侧重命名重构
 I	abcd/aide/engine/UsageSearch	str:五个检索入口分别拼 "Methods taking "/"Methods overriding "/"Properties overriding "/"Inheritors of "/"Overridden methods of "/"Overridden properties of "/"Methods returning "；被 com/aide/engine/c$b.J8() 调用 ⇒ 用法/继承检索
-la	com/aide/engine/FileType	iface:AIDE 的"文件类型"抽象（getName/getFilePatterns/parse/openReader/format 等 17 个方法）；9 个实现类的 getName() 分别是 "Java"/"XML"/"HTML"/"DTD"/"Css"/"JavaScript"/"C++"/"Java Binary"/"AIDL"
-vd	com/aide/engine/JavaFileType	str:j6() 返回 "Java"、Hw() 返回 ["*.java","*.json"]；implements abcd/la
-me	com/aide/engine/XmlFileType	str:j6() 返回 "XML"、Hw() 返回 ["*.xml","*.xsl","*.xslt","*.xsd","*.*proj",…,"*.pom"]；implements abcd/la
-bd	com/aide/engine/HtmlFileType	str:j6() 返回 "HTML"、Hw() 返回 ["*.html","*.htm","*.xhtml"]；implements abcd/la
-Wc	com/aide/engine/DtdFileType	str:j6() 返回 "DTD"、Hw() 返回 ["*.dtd"]，字段里还有 XHTML 1.0 的 DTD 常量串；implements abcd/la
-Mc	com/aide/engine/CssFileType	str:j6() 返回 "Css"、Hw() 返回 ["*.css"]；implements abcd/la
-Ud	com/aide/engine/JavaScriptFileType	str:j6() 返回 "JavaScript"、Hw() 返回 ["*.js"]；implements abcd/la
-Fc	com/aide/engine/CppFileType	str:j6() 返回 "C++"、Hw() 返回 ["*.cpp","*.cc","*.c","*.h",…,"*.gradle"]；implements abcd/la
-Ac	com/aide/engine/JavaBinaryFileType	str:j6() 返回 "Java Binary"、Hw() 返回 ["*.jar","*.war","*.ear","*.zip","*.class"]；implements abcd/la
-zc	com/aide/engine/AidlFileType	str:j6() 返回 "AIDL"、Hw() 返回 ["*.aidl"]；implements abcd/la
+la	com/aide/codemodel/api/abstraction/CodeModel	shape:AIDE+ 2.3.5 的 abstraction/CodeModel——17:17、相似度 0.82（次优差 +0.64），接口无字段，方法即 makeCodeModel/取语言一族；ICodeModelsFactory.makeCodeModels() 返回 CodeModel[] 也指向它（旧名 FileType）
+vd	com/aide/codemodel/language/java/JavaCodeModel	body:字段含 yd(JavaLanguage)+Dd(JavaLexer)+Bd/nd/od/td/ud（整族 Java）；形状与 language/java/JavaCodeModel 18:18 相似度 0.83 ⇒ Java 的 CodeModel（旧名 JavaFileType）
+me	com/aide/codemodel/language/xml/XmlCodeModel	body:字段含 ne(XmlLanguage)+pe+vc；形状 18:18、0.83 ⇒ XML 的 CodeModel（旧名 XmlFileType）
+bd	com/aide/codemodel/language/html/HtmlCodeModel	body:字段含 ne(XmlLanguage)+Vd(JavaScriptLanguage)+Qd(JavaScriptCommentsLanguage)+ee(HtmlPreprocessor) ⇒ HTML 的 CodeModel（HTML = XML + JS/CSS 家族）（旧名 HtmlFileType）
+Wc	com/aide/codemodel/language/dtd/DtdCodeModel	body:字段含 Zc(DtdParser)+Sa(SyntaxTree)+Xc(Dtd 家族)+vc；25:25、相似度 0.80（次优差 +0.64）⇒ DTD 的 CodeModel（旧名 DtdFileType）
+Mc	com/aide/codemodel/language/css/CssCodeModel	body:字段含 Oc(CssLanguage)+Qc(CssParser)+vc；18:18、0.83 ⇒ CSS 的 CodeModel（旧名 CssFileType）
+Ud	com/aide/codemodel/language/js/JavaScriptCodeModel	body:字段含 Vd(JavaScriptLanguage)+Qd(JavaScriptCommentsLanguage)+Rd/Xd/Zd；18:18、0.83 ⇒ JavaScript 的 CodeModel（旧名 JavaScriptFileType）
+Fc	com/aide/codemodel/language/cpp/CppCodeModel	body:字段含 Gc(CppLanguage)+vc；18:18、0.83 ⇒ C++ 的 CodeModel（旧名 CppFileType）
+Ac	com/aide/codemodel/language/classfile/JavaBinaryCodeModel	body:字段与 vd 几乎相同（Bd/Dd/nd/od/td/ud）+ 自己的 Bc/Dc；两兄弟里带 class 文件语义的那个 ⇒ JavaBinaryCodeModel（旧名 JavaBinaryFileType）
+zc	com/aide/codemodel/language/aidl/AidlCodeModel	shape:AIDE+ 2.3.5 的 language/aidl/AidlCodeModel——18:18、0.83；无字段，是剩下唯一未配对的 CodeModel 子类（旧名 AidlFileType）
 na	com/aide/codemodel/api/abstraction/Language	shape:AIDE+ 2.3.5 的 abstraction/Language（10 方法）——j6()String↔getName、j6(char)Z↔isParenChar(char)、Hw()ga↔getCodeAnalyzer、u7()qa↔getSyntax、Zo()Set<? extends ha>↔getFormatOptionSet、VH()oa↔getTools、gn()ia↔getSignatureAnalyzer、DW()↔shrink
 pa	com/aide/codemodel/api/abstraction/Syntax	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/Syntax——58:58 方法、形状相似度 0.97（唯一最佳，次优差 +0.97）；语法（语言侧）：DW(Sa[,I])/FH(Sa)/EQ(Sa,I) 全是「对语法树/位置」的查询（旧名 Indenter）
 qa	com/aide/codemodel/api/abstraction/Tools	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/Tools——48:48 方法、形状相似度 0.65（唯一最佳，次优差 +0.65）；语言工具集：参数为 (Sa,Ta,int…) 的解析/补全入口；注意 api/Parser 只有 24 个方法，方法数就不对（旧名 Parser）
@@ -58,7 +58,7 @@ Oc	com/aide/engine/CssLanguage	str:j6() 返回 "CSS"；implements abcd/na
 Gc	com/aide/engine/CppLanguage	str:j6() 返回 "C++"；implements abcd/na
 Xc	com/aide/engine/DtdLanguage	str:j6() 返回 "DTD"；implements abcd/na
 nd	com/aide/engine/JavaCommentsLanguage	str:"Java Comments"/"J# Comments"；implements abcd/na（带 boolean 开关区分 J#）
-ne	com/aide/engine/MarkupLanguage	str:"HTML"/"XML"（同一实现按 boolean 选其一）；implements abcd/na
+ne	com/aide/codemodel/language/xml/XmlLanguage	body:字段含 ie(XmlCodeAnalyzer)+qe(XmlSyntax)+re(XmlTools)，正是 Language 的三大件；12:12 与 language/xml/XmlLanguage 对应（旧名 MarkupLanguage）
 Ea	com/aide/codemodel/api/FileSpace	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/FileSpace——61:61 方法、形状相似度 0.59（唯一最佳，次优差 +0.59）；文件空间：DW(String)Da 取条目、Zo() 遍历、Hw(I)Da 按 id 取（旧名 FileManager）
 Sa	com/aide/codemodel/api/SyntaxTree	shape:AIDE+ 2.3.5 的 com/aide/codemodel/api/SyntaxTree——156:156 方法、形状相似度 0.93（唯一最佳，次优差 +0.93）；语法树：XG(I)Z/jJ(I)Z/lp(I)Z/g3(I)Z 等即语法树的节点/行查询（旧名 SourceText）
 La	com/aide/codemodel/api/Model	shape:AIDE+ 2.3.5 的 Model——其构造器就是「12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory」共 16 参，与本类 16 接口构造逐位同序；12 个 public final 回调字段同类；SourceEntity(Model,Entity) ↔ SourceEntity(La,Aa)

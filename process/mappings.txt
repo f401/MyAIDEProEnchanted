@@ -26550,34 +26550,34 @@ abcd/I abcd/aide/engine/UsageSearch
 		0 file file
 		1 line line
 		2 column column
-abcd/la com/aide/engine/FileType
+abcd/la com/aide/codemodel/api/abstraction/CodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/vd com/aide/engine/JavaFileType
+abcd/vd com/aide/codemodel/language/java/JavaCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/me com/aide/engine/XmlFileType
+abcd/me com/aide/codemodel/language/xml/XmlCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/bd com/aide/engine/HtmlFileType
+abcd/bd com/aide/codemodel/language/html/HtmlCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Wc com/aide/engine/DtdFileType
+abcd/Wc com/aide/codemodel/language/dtd/DtdCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Mc com/aide/engine/CssFileType
+abcd/Mc com/aide/codemodel/language/css/CssCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Ud com/aide/engine/JavaScriptFileType
+abcd/Ud com/aide/codemodel/language/js/JavaScriptCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Fc com/aide/engine/CppFileType
+abcd/Fc com/aide/codemodel/language/cpp/CppCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/Ac com/aide/engine/JavaBinaryFileType
+abcd/Ac com/aide/codemodel/language/classfile/JavaBinaryCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
-abcd/zc com/aide/engine/AidlFileType
+abcd/zc com/aide/codemodel/language/aidl/AidlCodeModel
 	j6 ()Ljava/lang/String; getName
 	Hw ()[Ljava/lang/String; getFilePatterns
 abcd/na com/aide/codemodel/api/abstraction/Language
@@ -26590,7 +26590,7 @@ abcd/Oc com/aide/engine/CssLanguage
 abcd/Gc com/aide/engine/CppLanguage
 abcd/Xc com/aide/engine/DtdLanguage
 abcd/nd com/aide/engine/JavaCommentsLanguage
-abcd/ne com/aide/engine/MarkupLanguage
+abcd/ne com/aide/codemodel/language/xml/XmlLanguage
 abcd/Ea com/aide/codemodel/api/FileSpace
 abcd/Sa com/aide/codemodel/api/SyntaxTree
 abcd/La com/aide/codemodel/api/Model
@@ -55662,7 +55662,7 @@ com/aide/engine/D com/aide/engine/QualifiedName
 com/aide/engine/service/d com/aide/engine/service/EngineProcessManager
 com/aide/engine/c com/aide/engine/Engine
 com/aide/engine/service/l com/aide/engine/service/CodeAnalysisEngineBinder
-com/aide/engine/j com/aide/engine/FileTypeProvider
+com/aide/engine/j com/aide/engine/ICodeModelsFactory
 com/aide/engine/d com/aide/engine/EngineProcessListener
 com/aide/engine/service/e com/aide/engine/service/CompletionDispatcher
 com/aide/engine/service/f com/aide/engine/service/OpenFileAdapter
@@ -55723,3 +55723,4 @@ com/aide/engine/c$b$m com/aide/engine/Engine$DaemonTask$m
 com/aide/engine/c$b$n com/aide/engine/Engine$DaemonTask$n
 com/aide/engine/c$b$o com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback
 com/aide/engine/c$b$p com/aide/engine/Engine$DaemonTask$UsageSearcherCallback
+com/aide/engine/service/x com/aide/engine/service/CodeModelFactory

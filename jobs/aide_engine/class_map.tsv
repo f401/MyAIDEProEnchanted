@@ -45,7 +45,7 @@ com/aide/engine/D	com/aide/engine/QualifiedName	body:两个 String 字段，toSt
 com/aide/engine/service/d	com/aide/engine/service/EngineProcessManager	str:"Engine process killed after OOM"/"Engine process killed after shutdown"；implements com/aide/engine/d，管引擎进程的生死与重连 ⇒ 引擎进程管理
 com/aide/engine/c	com/aide/engine/Engine	body:262 方法/162 字段，代码里带 "Engine"/"os.name"/"WINDOWS" 串；由 com/aide/engine/service/CodeAnalysisEngineService.<init> new 出来存进 FH 字段，并把 service/c(实现 j)、service/d(实现 d)、service/e(实现 M) 注入 ⇒ 引擎主实现
 com/aide/engine/service/l	com/aide/engine/service/CodeAnalysisEngineBinder	body:extends ICodeAnalysisEngineService$Stub（61 个 transact 方法）；由 CodeAnalysisEngineService.<init> new 出来存进 gn:ICodeAnalysisEngineService$Stub 字段（onBind 返回它）⇒ 引擎服务的 Binder 实现
-com/aide/engine/j	com/aide/engine/FileTypeProvider	iface:FH()J + j6(Labcd/La;Ljava/util/List;)[Labcd/la;（第二个参数/返回值按 class_map 换名后是 工程 + FileType[]） ⇒ 按工程取文件类型
+com/aide/engine/j	com/aide/engine/ICodeModelsFactory	shape:AIDE+ 2.3.5 的 ICodeModelsFactory——2:2、逐条相同：long getId() ↔ FH()J、CodeModel[] makeCodeModels(Model,List) ↔ la[] j6(La,List)（旧名 FileTypeProvider）
 com/aide/engine/d	com/aide/engine/EngineProcessListener	iface:aj()V / j6(Throwable)V / sy()V；实现者 service/d 里带 "Engine process killed after OOM"/"...after shutdown" ⇒ 引擎进程生命周期回调
 com/aide/engine/service/e	com/aide/engine/service/CompletionDispatcher	body:实现 com/aide/engine/M(21 个引擎回调)，方法体只做转发：r(IGotoSymbolListener) 5 次、o(ICodeCompletionListener) 5 次、t(INavigationListener) 2 次、外加 CodeAnalysisEngineService 21 次 ⇒ 把引擎的补全/跳符号/导航事件分发给 AIDL 监听器
 com/aide/engine/service/f	com/aide/engine/service/OpenFileAdapter	body:实现 com/aide/engine/H(getVersion/j6(J)/j6(I))，方法体只调 u(IOpenFileInterface) 的 FH/getVersion/sE/ye ⇒ 打开文件接口的适配器
@@ -92,3 +92,4 @@ com/aide/engine/c$b$m	com/aide/engine/Engine$DaemonTask$m	shape:AIDE+ 2.3.5 的 
 com/aide/engine/c$b$n	com/aide/engine/Engine$DaemonTask$n	shape:AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$n——实现 abcd/mb；AIDE+ 的 Engine$DaemonTask$n 实现的 abcd/y2 方法集与 mb 相同（(FileEntry,I×8)/(FileEntry)/(Language,I×4,Z)）
 com/aide/engine/c$b$o	com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback	shape:AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback——实现 TemplateEvaluatorCallback（5 方法）
 com/aide/engine/c$b$p	com/aide/engine/Engine$DaemonTask$UsageSearcherCallback	shape:AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$UsageSearcherCallback——实现 UsageSearcherCallback（4 方法）
+com/aide/engine/service/x	com/aide/engine/service/CodeModelFactory	shape:AIDE+ 2.3.5 的 service/CodeModelFactory——4:4、逐条相同：create(Model,List)/create(List)/findCodeModel(String,List)/findCodeModels(List)→TreeMap

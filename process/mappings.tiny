@@ -25145,34 +25145,34 @@ c	abcd/I	abcd/aide/engine/UsageSearch	auto: 类：UsageSearch（上游未收录�
 		p	0	file	file
 		p	1	line	line
 		p	2	column	column
-c	abcd/la	com/aide/engine/FileType	auto: 类：FileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/la	com/aide/codemodel/api/abstraction/CodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/api/abstraction/CodeModel——CodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/vd	com/aide/engine/JavaFileType	auto: 类：JavaFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/vd	com/aide/codemodel/language/java/JavaCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/java/JavaCodeModel——JavaCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/me	com/aide/engine/XmlFileType	auto: 类：XmlFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/me	com/aide/codemodel/language/xml/XmlCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlCodeModel——XmlCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/bd	com/aide/engine/HtmlFileType	auto: 类：HtmlFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/bd	com/aide/codemodel/language/html/HtmlCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/html/HtmlCodeModel——HtmlCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/Wc	com/aide/engine/DtdFileType	auto: 类：DtdFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Wc	com/aide/codemodel/language/dtd/DtdCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/dtd/DtdCodeModel——DtdCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/Mc	com/aide/engine/CssFileType	auto: 类：CssFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Mc	com/aide/codemodel/language/css/CssCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/css/CssCodeModel——CssCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/Ud	com/aide/engine/JavaScriptFileType	auto: 类：JavaScriptFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ud	com/aide/codemodel/language/js/JavaScriptCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/js/JavaScriptCodeModel——JavaScriptCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/Fc	com/aide/engine/CppFileType	auto: 类：CppFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Fc	com/aide/codemodel/language/cpp/CppCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/cpp/CppCodeModel——CppCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/Ac	com/aide/engine/JavaBinaryFileType	auto: 类：JavaBinaryFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/Ac	com/aide/codemodel/language/classfile/JavaBinaryCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/classfile/JavaBinaryCodeModel——JavaBinaryCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
-c	abcd/zc	com/aide/engine/AidlFileType	auto: 类：AidlFileType（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/zc	com/aide/codemodel/language/aidl/AidlCodeModel	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/aidl/AidlCodeModel——AidlCodeModel
 	m	()Ljava/lang/String;	j6	getName	auto: 取 Name（上游无同签名对应，按作用取名）
 	m	()[Ljava/lang/String;	Hw	getFilePatterns	auto: 取 FilePatterns（上游无同签名对应，按作用取名）
 c	abcd/na	com/aide/codemodel/api/abstraction/Language	shape: AIDE+ 2.3.5 的 abstraction/Language——getName/isParenChar/getCodeAnalyzer/getSyntax/getTools/getFormatOptionSet 等一一对应
@@ -25185,7 +25185,7 @@ c	abcd/Oc	com/aide/engine/CssLanguage	auto: 类：CssLanguage（上游未收录�
 c	abcd/Gc	com/aide/engine/CppLanguage	auto: 类：CppLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Xc	com/aide/engine/DtdLanguage	auto: 类：DtdLanguage（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/nd	com/aide/engine/JavaCommentsLanguage	auto: 类：JavaCommentsLanguage（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/ne	com/aide/engine/MarkupLanguage	auto: 类：MarkupLanguage（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/ne	com/aide/codemodel/language/xml/XmlLanguage	shape: AIDE+ 2.3.5 的 com/aide/codemodel/language/xml/XmlLanguage——XmlLanguage
 c	abcd/Ea	com/aide/codemodel/api/FileSpace	shape: AIDE+ 2.3.5 的 api/FileSpace（61:61，0.59）——文件空间，按名字/id 取 FileEntry（旧名 FileManager）
 c	abcd/Sa	com/aide/codemodel/api/SyntaxTree	shape: AIDE+ 2.3.5 的 api/SyntaxTree（156:156，0.93）——语法树，按节点/位置查询（旧名 SourceText）
 c	abcd/La	com/aide/codemodel/api/Model	shape: AIDE+ 2.3.5 的 Model——16 参构造即 12 个 codemodel 回调 + 3 个 abcd 类 + BomReaderFactory，字段全是 public final 回调
@@ -53589,7 +53589,7 @@ c	com/aide/engine/D	com/aide/engine/QualifiedName	auto: 类：QualifiedName（�
 c	com/aide/engine/service/d	com/aide/engine/service/EngineProcessManager	auto: 管理器：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/c	com/aide/engine/Engine	auto: 类：Engine（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/l	com/aide/engine/service/CodeAnalysisEngineBinder	auto: 类：CodeAnalysisEngineBinder（上游未收录，名字来自 jobs/aide_engine 的判据）
-c	com/aide/engine/j	com/aide/engine/FileTypeProvider	auto: 提供者：FileType（上游未收录，名字来自 jobs/aide_engine 的判据）
+c	com/aide/engine/j	com/aide/engine/ICodeModelsFactory	shape: AIDE+ 2.3.5 的 com/aide/engine/ICodeModelsFactory——ICodeModelsFactory
 c	com/aide/engine/d	com/aide/engine/EngineProcessListener	auto: 回调接口：EngineProcess（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/e	com/aide/engine/service/CompletionDispatcher	auto: 类：CompletionDispatcher（上游未收录，名字来自 jobs/aide_engine 的判据）
 c	com/aide/engine/service/f	com/aide/engine/service/OpenFileAdapter	auto: 适配器：OpenFile（上游未收录，名字来自 jobs/aide_engine 的判据）
@@ -53650,3 +53650,4 @@ c	com/aide/engine/c$b$m	com/aide/engine/Engine$DaemonTask$m	shape: AIDE+ 2.3.5 �
 c	com/aide/engine/c$b$n	com/aide/engine/Engine$DaemonTask$n	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$n——位置/区间上报适配（≡AIDE+ 的 y2）
 c	com/aide/engine/c$b$o	com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$TemplateEvaluatorCallback——模板求值适配
 c	com/aide/engine/c$b$p	com/aide/engine/Engine$DaemonTask$UsageSearcherCallback	shape: AIDE+ 2.3.5 的 com/aide/engine/Engine$DaemonTask$UsageSearcherCallback——用法搜索适配
+c	com/aide/engine/service/x	com/aide/engine/service/CodeModelFactory	shape: AIDE+ 2.3.5 的 com/aide/engine/service/CodeModelFactory——CodeModelFactory
