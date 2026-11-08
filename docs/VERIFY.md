@@ -20,9 +20,9 @@ python3 tools/jgit/pipeline/tiny_roundtrip.py        # 10) **等价性硬判据*
 python3 tools/jgit/pipeline/coverage.py              # 11) 覆盖率（只度量，不判定）
 ```
 
-期望值（当前基线）：`类块 4081 / 成员行 28549 / 参数行 22167`；`不一致 0`；
+期望值（当前基线）：`类块 4085 / 成员行 28549 / 参数行 22167`；`不一致 0`；
 `CONFLICT 0 / DUPTARGET 0 / MISSING 0`；`innercheck ① 0 / ② 0 / ③ 0`；`famcheck 0/0`；
-`注释 32630 = 类 4081 + 方法 18945 + 字段 9604`。
+`注释 32634 = 类 4085 + 方法 18945 + 字段 9604`。
 
 ## 两种等价入口
 
@@ -70,7 +70,7 @@ $D cover         # ≈ 门 6（口径略严，判定以项目脚本为准）
 | 1 `rebuild_tsrg` | 逐 part：`jgit 685 / jsch 141 / aide 54`，合计 `类块 880`、`丢陈旧块 0`、`去重成员 0` |
 | 1' `paramfill` | `参数行 4022 条（2328 个方法）`，按类来源写各 part 的 `params.tsv`（jgit 3238 / jsch 784 / aide 15） |
 | 1'' `emit_tsrg2` | `55480 行，static 方法标记 2073 / 参数行 22167` |
-| 2 `validate_mappings` | `类块 4081（含头部 1）/ 成员行 28549 / 参数行 22167 / 基线类 23636` → **✔ 无无效映射** |
+| 2 `validate_mappings` | `类块 4085（含头部 1）/ 成员行 28549 / 参数行 22167 / 基线类 23636` → **✔ 无无效映射** |
 | 3 `verify_members` | `成员映射 5376 / 不一致 0 / 类型不符 0 / R8 重写 4 / 版本差异 223` |
 | 4 `inherit_check` | **CONFLICT 0 / MISSING 0** |
 | 5 `pkgclose` | `需要挪的类 34 / 真冲突 18 组`（真冲突交给门 7；jsch 的 `jce`/`jgss` 子包间是原库本来就有的包私有访问，不挪包） |
