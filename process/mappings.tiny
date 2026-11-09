@@ -26688,6 +26688,16 @@ c	abcd/hp	com/aide/engine/DebugInfoEncoder	str: com/aide/engine/DebugInfoEncoder
 	m	()Ljava/util/ArrayList;	v5	getLocals	body: 把 co(LocalVariableTable) 的项拷进 ArrayList<co$b> ⇒ 局部变量列表
 	m	()[B	j6	encode	str: 调 FH() 取字节，IOException 包成 Vt("...while encoding debug info") ⇒ 产出 debug_info_item 字节
 	m	(Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B	j6	encode	body: 先存 label/PrintWriter/ByteOutput/flag 四个调试字段，再调 j6() ⇒ 带调试输出的编码入口
+	m	(I)V	DW	emitAdvancePc	str: 打 "%04x: advance pc" ⇒ 发 DBG_ADVANCE_PC
+	m	(Labcd/co$b;)V	DW	emitLocalRestart	str: 打 "%04x: +local restart %s" ⇒ 发 DBG_RESTART_LOCAL
+	m	(Labcd/co$b;)V	FH	emitLocal	str: 打 "%04x: +local %s" ⇒ 发 DBG_START_LOCAL
+	m	(Labcd/co$b;)V	Hw	emitLocalExtended	str: 打 "%04x: +localx %s" ⇒ 发 DBG_START_LOCAL_EXTENDED（带签名）
+	m	(Labcd/co$b;)V	j6	emitEndLocal	str: 打 "%04x: -local %s" ⇒ 发 DBG_END_LOCAL
+	m	(Labcd/io$a;)V	j6	emitPosition	str: 打 "%04x: line %d"；地址非升序时抛 "Position entries must be in ascending address order" ⇒ 发一条行号位置（advance/set line）
+	m	()V	Hw	emitEndSequence	str: 打 "end sequence" ⇒ 发 DBG_END_SEQUENCE
+	m	()[B	FH	encodeBody	str: 主编码体（打 "%04x: prologue end" 等）⇒ 返回 debug_info_item 字节（public encode() 调它）
+	m	(Ljava/util/ArrayList;Ljava/util/ArrayList;)V	j6	encodeTo	str: 打 "line_start:" / "parameters_size: %04x" / "parameter" ⇒ 按位置表+局部表整体编码
+	m	(I)V	Hw	emitUleb128	str: 负数时抛 "Signed value where unsigned required:" ⇒ 写无符号 LEB128
 c	abcd/Qp	com/aide/engine/TypeIdSection	str: com/aide/engine/TypeIdSection——dex 的 type_ids 段
 c	abcd/Cp	com/aide/engine/MethodIdSection	str: com/aide/engine/MethodIdSection——dex 的 method_ids 段
 c	abcd/Xn	com/aide/engine/Opcode	str: com/aide/engine/Opcode——操作码（名字/格式/下一个操作码）
@@ -27028,6 +27038,8 @@ c	abcd/_n	com/aide/engine/InstructionSequence	str: com/aide/engine/InstructionSe
 c	abcd/Po	com/aide/engine/CodecJumbo	body: com/aide/engine/CodecJumbo——32 位索引的 jumbo 变体编解码器
 c	abcd/Yn	com/aide/engine/OpcodeConstants	body: com/aide/engine/OpcodeConstants——258 个 Opcode 常量 + 按编号取用
 	m	(I)Labcd/Xn;	j6	getByOpcode	body: 从 static Xn[] 按操作码编号取实例
+c	abcd/Cn	com/aide/engine/SignedEncodedMember	body: com/aide/engine/SignedEncodedMember——EncodedMember + MemberSignature
+	m	()Labcd/Os;	v5	getSignature	body: 返回 MemberSignature 字段
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

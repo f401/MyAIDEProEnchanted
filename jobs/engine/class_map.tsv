@@ -479,3 +479,4 @@ qo	com/aide/engine/ExpandableInstruction	body:abstract extends Vn；构造 (hs,c
 _n	com/aide/engine/InstructionSequence	str:"registers.size() == 0"；字段 mo[]（SimpleInstruction 数组）、DW()I 返回总字节数、j6(Lt) 逐条写出 ⇒ 就地展开成若干简单指令的序列指令
 Po	com/aide/engine/CodecJumbo	body:FormatCodec 子类；4 code unit、1~2 个寄存器、write (Lt,gn(Vn),Tn.J0(),reg)；由 OpcodeConstants 里 255/511/1023/5375 四个常量引用，查 Opcodes 名字表分别是 const-class/jumbo、check-cast/jumbo、new-instance/jumbo、sget/jumbo ⇒ 32 位索引的 jumbo 变体编解码器
 Yn	com/aide/engine/OpcodeConstants	body:258 个 static Xn(Opcode) 常量 + static Xn[] j6 注册表；j6(int) 按操作码编号取、j6(Xn,Fn) 造/取变体 ⇒ 全部操作码实例的常量表（oq=Opcodes 存的是名字/格式/引用种类元信息）
+Cn	com/aide/engine/SignedEncodedMember	body:extends Bn(EncodedMember) 并 implements un(MemberWithSignature)；唯一新增字段是 Os(MemberSignature) 与它的 getter ⇒ 带签名的编码成员

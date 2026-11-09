@@ -1933,3 +1933,15 @@ m	abcd/Wn	j6	(ILabcd/Vn;)V	body: 往指定下标放一条指令
 m	abcd/Wn	j6	(Labcd/Lt;)V	body: 逐条把指令写进 ByteOutput
 m	abcd/hp	DW	()Ljava/util/ArrayList;	body: 把 io(PositionTable) 的项拷进 ArrayList<io$a> ⇒ 位置/行号列表
 m	abcd/hp	v5	()Ljava/util/ArrayList;	body: 把 co(LocalVariableTable) 的项拷进 ArrayList<co$b> ⇒ 局部变量列表
+m	abcd/hp	DW	(I)V	str: 打 "%04x: advance pc" ⇒ 发 DBG_ADVANCE_PC
+m	abcd/hp	DW	(Labcd/co$b;)V	str: 打 "%04x: +local restart %s" ⇒ 发 DBG_RESTART_LOCAL
+m	abcd/hp	FH	(Labcd/co$b;)V	str: 打 "%04x: +local %s" ⇒ 发 DBG_START_LOCAL
+m	abcd/hp	Hw	(Labcd/co$b;)V	str: 打 "%04x: +localx %s" ⇒ 发 DBG_START_LOCAL_EXTENDED（带签名）
+m	abcd/hp	j6	(Labcd/co$b;)V	str: 打 "%04x: -local %s" ⇒ 发 DBG_END_LOCAL
+m	abcd/hp	j6	(Labcd/io$a;)V	str: 打 "%04x: line %d"；地址非升序时抛 "Position entries must be in ascending address order" ⇒ 发一条行号位置（advance/set line）
+m	abcd/hp	Hw	()V	str: 打 "end sequence" ⇒ 发 DBG_END_SEQUENCE
+m	abcd/hp	FH	()[B	str: 主编码体（打 "%04x: prologue end" 等）⇒ 返回 debug_info_item 字节（public encode() 调它）
+m	abcd/hp	j6	(Ljava/util/ArrayList;Ljava/util/ArrayList;)V	str: 打 "line_start:" / "parameters_size: %04x" / "parameter" ⇒ 按位置表+局部表整体编码
+m	abcd/hp	Hw	(I)V	str: 负数时抛 "Signed value where unsigned required:" ⇒ 写无符号 LEB128
+m	abcd/Cn	v5	()Labcd/Os;	body: 返回 MemberSignature 字段
+c	abcd/Cn	-	-	body: com/aide/engine/SignedEncodedMember——EncodedMember + MemberSignature

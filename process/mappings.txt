@@ -28121,6 +28121,16 @@ abcd/hp com/aide/engine/DebugInfoEncoder
 	v5 ()Ljava/util/ArrayList; getLocals
 	j6 ()[B encode
 	j6 (Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B encode
+	DW (I)V emitAdvancePc
+	DW (Labcd/co$b;)V emitLocalRestart
+	FH (Labcd/co$b;)V emitLocal
+	Hw (Labcd/co$b;)V emitLocalExtended
+	j6 (Labcd/co$b;)V emitEndLocal
+	j6 (Labcd/io$a;)V emitPosition
+	Hw ()V emitEndSequence
+	FH ()[B encodeBody
+	j6 (Ljava/util/ArrayList;Ljava/util/ArrayList;)V encodeTo
+	Hw (I)V emitUleb128
 abcd/Qp com/aide/engine/TypeIdSection
 abcd/Cp com/aide/engine/MethodIdSection
 abcd/Xn com/aide/engine/Opcode
@@ -28469,6 +28479,8 @@ abcd/Po com/aide/engine/CodecJumbo
 abcd/Yn com/aide/engine/OpcodeConstants
 	j6 (I)Labcd/Xn; getByOpcode
 		static
+abcd/Cn com/aide/engine/SignedEncodedMember
+	v5 ()Labcd/Os; getSignature
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine
