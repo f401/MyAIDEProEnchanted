@@ -28422,6 +28422,9 @@ abcd/po com/aide/engine/TargetInstruction
 abcd/mo com/aide/engine/SimpleInstruction
 	j6 (Labcd/Xn;)Labcd/Vn; withOpcode
 	j6 (Labcd/cs;)Labcd/Vn; withRegisters
+abcd/Ro com/aide/engine/Codec45CC
+abcd/So com/aide/engine/Codec4RCC
+abcd/fo com/aide/engine/SpacerInstruction
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

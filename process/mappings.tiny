@@ -26983,6 +26983,9 @@ c	abcd/po	com/aide/engine/TargetInstruction	body: com/aide/engine/TargetInstruct
 c	abcd/mo	com/aide/engine/SimpleInstruction	body: com/aide/engine/SimpleInstruction——只有操作码+操作数的指令
 	m	(Labcd/Xn;)Labcd/Vn;	j6	withOpcode	body: 换操作码后返回新指令（抽象 j6(Xn) 的实现）
 	m	(Labcd/cs;)Labcd/Vn;	j6	withRegisters	body: 换寄存器列表后返回新指令（抽象 j6(cs) 的实现）
+c	abcd/Ro	com/aide/engine/Codec45CC	body: com/aide/engine/Codec45CC——invoke-polymorphic 非 range
+c	abcd/So	com/aide/engine/Codec4RCC	body: com/aide/engine/Codec4RCC——invoke-polymorphic/range
+c	abcd/fo	com/aide/engine/SpacerInstruction	str: com/aide/engine/SpacerInstruction——"nop // spacer" 占位指令
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

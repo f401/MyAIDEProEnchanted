@@ -472,3 +472,6 @@ No	com/aide/engine/Codec3RC	body:FormatCodec 子类；3 unit、write (Lt,S,S,S)�
 Oo	com/aide/engine/Codec35C	body:FormatCodec 子类；3 unit、write (Lt,S,S,S) 并调 cs.rN()(寄存器列表个数) 后逐寄存器写 ⇒ 35c（invoke-* 非 range）
 po	com/aide/engine/TargetInstruction	body:extends Zn；唯一字段是 Sn(CodeAddress=分支目标)；we():Sn 取目标、j6(Sn):po 换目标、J0()=目标地址、Ws()=自己和目标都已定址 ⇒ 带分支目标的指令（dx 的 TargetInsn）
 mo	com/aide/engine/SimpleInstruction	body:extends Zn；构造 (Xn,hs,cs) 之后只补 j6(Xn)/j6(cs) 与打印，没有任何常量或目标字段 ⇒ 纯操作数指令（dx 的 SimpleInsn）
+Ro	com/aide/engine/Codec45CC	body:FormatCodec 子类；2 unit 索引 + 2 个单独寄存器、isApplicable 要求 Tn 的常量是 Ks(DexType) 或 ws(字段) 且寄存器号 <65536、write (Lt,S,I,S,S) ⇒ invoke-polymorphic 非 range（45cc）
+So	com/aide/engine/Codec4RCC	body:FormatCodec 子类；isApplicable 要求常量是 Gs(方法引用) 或 Ks，并用 ao.j6(cs) 判寄存器表 + cs.rN() 取个数、write (Lt,S,I,S,S) ⇒ invoke-polymorphic/range（4rcc）
+fo	com/aide/engine/SpacerInstruction	str:打印串是 "nop // spacer"；extends qo ⇒ 用来占位/对齐的空指令

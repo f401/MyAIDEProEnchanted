@@ -1888,3 +1888,6 @@ m	abcd/Vn	j6	(Labcd/Xn;)Labcd/Vn;	body: 抽象——换操作码后返回新指�
 m	abcd/Vn	j6	(Labcd/cs;)Labcd/Vn;	body: 抽象——换寄存器列表后返回新指令
 c	abcd/po	-	-	body: com/aide/engine/TargetInstruction——带 CodeAddress 分支目标的指令
 c	abcd/mo	-	-	body: com/aide/engine/SimpleInstruction——只有操作码+操作数的指令
+c	abcd/Ro	-	-	body: com/aide/engine/Codec45CC——invoke-polymorphic 非 range
+c	abcd/So	-	-	body: com/aide/engine/Codec4RCC——invoke-polymorphic/range
+c	abcd/fo	-	-	str: com/aide/engine/SpacerInstruction——"nop // spacer" 占位指令
