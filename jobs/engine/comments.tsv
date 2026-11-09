@@ -116,7 +116,7 @@ c	abcd/Ks	-	-	auto: 类：DexType（上游未收录，名字来自 jobs/engine �
 c	abcd/Hs	-	-	auto: 类：DexReference（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Yo	-	-	auto: 类：DexConstants（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/tn	-	-	auto: 类：DexMember（上游未收录，名字来自 jobs/engine 的判据）
-c	abcd/un	-	-	auto: 类：DexAnnotation（上游未收录，名字来自 jobs/engine 的判据）
+c	abcd/un	-	-	iface: com/aide/engine/MemberWithSignature——DexMember + getSignature()
 c	abcd/pn	-	-	auto: 类：DexAttributes（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/qn	-	-	auto: 类：DexValue（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/jn	-	-	auto: 类：DexEncodedValue（上游未收录，名字来自 jobs/engine 的判据）
@@ -1931,3 +1931,5 @@ m	abcd/qs	j6	(Z)I	body: 按 shorty/参数类型累加字数，非静态再加 th
 m	abcd/Wn	j6	(Ljava/util/ArrayList;I)Labcd/Wn;	body: 由指令列表 + outs 数构造 InstructionBlock
 m	abcd/Wn	j6	(ILabcd/Vn;)V	body: 往指定下标放一条指令
 m	abcd/Wn	j6	(Labcd/Lt;)V	body: 逐条把指令写进 ByteOutput
+m	abcd/hp	DW	()Ljava/util/ArrayList;	body: 把 io(PositionTable) 的项拷进 ArrayList<io$a> ⇒ 位置/行号列表
+m	abcd/hp	v5	()Ljava/util/ArrayList;	body: 把 co(LocalVariableTable) 的项拷进 ArrayList<co$b> ⇒ 局部变量列表

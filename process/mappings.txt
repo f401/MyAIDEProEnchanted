@@ -27222,7 +27222,7 @@ abcd/tn com/aide/engine/DexMember
 	FH ()Labcd/Hs; getNameAndType
 	Hw ()Labcd/Js; getDescriptor
 	j6 ()I getAccessFlags
-abcd/un com/aide/engine/DexAnnotation
+abcd/un com/aide/engine/MemberWithSignature
 	v5 ()Labcd/Os; getSignature
 abcd/pn com/aide/engine/DexAttributes
 abcd/qn com/aide/engine/DexValue
@@ -28117,6 +28117,8 @@ abcd/mq com/aide/engine/ReferenceKind
 abcd/Ar com/aide/engine/OpcodeInfoTable
 abcd/Hh com/aide/ui/ProgressDialog
 abcd/hp com/aide/engine/DebugInfoEncoder
+	DW ()Ljava/util/ArrayList; getPositions
+	v5 ()Ljava/util/ArrayList; getLocals
 	j6 ()[B encode
 	j6 (Ljava/lang/String;Ljava/io/PrintWriter;Labcd/Lt;Z)[B encode
 abcd/Qp com/aide/engine/TypeIdSection
