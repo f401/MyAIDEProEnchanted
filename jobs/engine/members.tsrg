@@ -783,6 +783,8 @@ abcd/Wa com/aide/codemodel/api/SyntaxTreeStyles
 abcd/em com/aide/engine/IntervalList
 abcd/Sl com/aide/engine/RingBuffer
 abcd/Vn com/aide/engine/Instruction
+	j6 (Labcd/Xn;)Labcd/Vn; withOpcode
+	j6 (Labcd/cs;)Labcd/Vn; withRegisters
 	FH ()I getAddress
 	Zo ()Labcd/Xn; getOpcode
 	gn ()Labcd/cs; getRegisters
@@ -1664,6 +1666,14 @@ abcd/ap com/aide/engine/ClassDataItem
 	we bytes
 abcd/xr com/aide/engine/DexOverflowChecker
 abcd/Tn com/aide/engine/ConstantInstruction
+	we ()Labcd/ms; getConstant
+	FH (I)V setClassIndex
+	Hw (I)V setIndex
+	J0 ()I getIndex
+	J8 ()Z hasIndex
+	VH classIndex
+	Zo index
+	v5 constant
 abcd/Bn com/aide/engine/EncodedMember
 	DW ()Labcd/Ks; getDefiningClass
 	FH ()Labcd/Hs; getNameAndType
@@ -1862,3 +1872,12 @@ abcd/Lo com/aide/engine/Codec31C
 abcd/Mo com/aide/engine/Codec32X
 abcd/No com/aide/engine/Codec3RC
 abcd/Oo com/aide/engine/Codec35C
+abcd/po com/aide/engine/TargetInstruction
+	we ()Labcd/Sn; getTarget
+	j6 (Labcd/Sn;)Labcd/po; withTarget
+	J0 ()I getTargetAddress
+	Ws ()Z hasTarget
+	v5 target
+abcd/mo com/aide/engine/SimpleInstruction
+	j6 (Labcd/Xn;)Labcd/Vn; withOpcode
+	j6 (Labcd/cs;)Labcd/Vn; withRegisters

@@ -470,3 +470,5 @@ Lo	com/aide/engine/Codec31C	body:FormatCodec 子类；3 unit、write (Lt,S,I) �
 Mo	com/aide/engine/Codec32X	body:FormatCodec 子类；3 unit、write (Lt,S,S,S) 只用寄存器 0/1 打包 ⇒ 32x（move/16、move-wide/16）
 No	com/aide/engine/Codec3RC	body:FormatCodec 子类；3 unit、write (Lt,S,S,S)、读 reg[0..3] 且带 Tn.J0() ⇒ 3rc（invoke-*/range，只写首寄存器+个数）
 Oo	com/aide/engine/Codec35C	body:FormatCodec 子类；3 unit、write (Lt,S,S,S) 并调 cs.rN()(寄存器列表个数) 后逐寄存器写 ⇒ 35c（invoke-* 非 range）
+po	com/aide/engine/TargetInstruction	body:extends Zn；唯一字段是 Sn(CodeAddress=分支目标)；we():Sn 取目标、j6(Sn):po 换目标、J0()=目标地址、Ws()=自己和目标都已定址 ⇒ 带分支目标的指令（dx 的 TargetInsn）
+mo	com/aide/engine/SimpleInstruction	body:extends Zn；构造 (Xn,hs,cs) 之后只补 j6(Xn)/j6(cs) 与打印，没有任何常量或目标字段 ⇒ 纯操作数指令（dx 的 SimpleInsn）

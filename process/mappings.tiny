@@ -25885,6 +25885,8 @@ c	abcd/Wa	com/aide/codemodel/api/SyntaxTreeStyles	shape: AIDE+ 2.3.5 的 SyntaxT
 c	abcd/em	com/aide/engine/IntervalList	auto: 类：IntervalList（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Sl	com/aide/engine/RingBuffer	auto: 类：RingBuffer（上游未收录，名字来自 jobs/engine 的判据）
 c	abcd/Vn	com/aide/engine/Instruction	auto: 类：Instruction（上游未收录，名字来自 jobs/engine 的判据）
+	m	(Labcd/Xn;)Labcd/Vn;	j6	withOpcode	body: 抽象——换操作码后返回新指令
+	m	(Labcd/cs;)Labcd/Vn;	j6	withRegisters	body: 抽象——换寄存器列表后返回新指令
 	m	()I	FH	getAddress	str: 返回地址；为负抛 RuntimeException("address not yet known")
 	m	()Labcd/Xn;	Zo	getOpcode	body: 返回 DW(Xn=Opcode)
 	m	()Labcd/cs;	gn	getRegisters	body: 返回 Hw(寄存器/类型列表 cs)
@@ -26766,6 +26768,14 @@ c	abcd/ap	com/aide/engine/ClassDataItem	str/body: com/aide/engine/ClassDataItem�
 	f	[B	we	bytes	body: 已编码好的 class_data_item 字节（非调试写出直接输出它）
 c	abcd/xr	com/aide/engine/DexOverflowChecker	str/body: com/aide/engine/DexOverflowChecker——构建期 dex 溢出检查（multidex 提示）
 c	abcd/Tn	com/aide/engine/ConstantInstruction	str/body: com/aide/engine/ConstantInstruction——带常量引用的指令
+	m	()Labcd/ms;	we	getConstant	str: 构造时对空值抛 "constant == null" ⇒ 取常量操作数
+	m	(I)V	FH	setClassIndex	str: 写 VH(类索引)；已设过抛 "class index already set"、负数抛 "index < 0"
+	m	(I)V	Hw	setIndex	str: 写 Zo(常量池/类型索引)；已设过抛 "index already set"、负数抛 "index < 0"
+	m	()I	J0	getIndex	str: 返回 Zo；未设时抛 "index not yet set for …"
+	m	()Z	J8	hasIndex	body: Zo >= 0 ⇒ 索引已定
+	f	I	VH	classIndex	body: 类索引（setClassIndex 写它）
+	f	I	Zo	index	body: 常量池/类型索引（setIndex 写、getIndex 读）
+	f	Labcd/ms;	v5	constant	body: 常量操作数(ms)，构造时非空校验
 c	abcd/Bn	com/aide/engine/EncodedMember	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field/encoded_method
 	m	()Labcd/Ks;	DW	getDefiningClass	body: 返回定义类字段(Ks=DexType)
 	m	()Labcd/Hs;	FH	getNameAndType	body: 返回名字+描述符对(Hs=DexReference)
@@ -26964,6 +26974,15 @@ c	abcd/Lo	com/aide/engine/Codec31C	body: com/aide/engine/Codec31C——FormatCod
 c	abcd/Mo	com/aide/engine/Codec32X	body: com/aide/engine/Codec32X——FormatCodec 子类（3 unit、write (Lt,S,S,S) 只用寄存器 0/1 打包 ⇒ 32x（move/16、move-wide/16））
 c	abcd/No	com/aide/engine/Codec3RC	body: com/aide/engine/Codec3RC——FormatCodec 子类（3 unit、write (Lt,S,S,S)、读 reg[0..3] 且带 Tn.J0() ⇒ 3rc（invoke-*/range，只写首寄存器+个数））
 c	abcd/Oo	com/aide/engine/Codec35C	body: com/aide/engine/Codec35C——FormatCodec 子类（3 unit、write (Lt,S,S,S) 并调 cs.rN()(寄存器列表个数) 后逐寄存器写 ⇒ 35c（invoke-* 非 range））
+c	abcd/po	com/aide/engine/TargetInstruction	body: com/aide/engine/TargetInstruction——带 CodeAddress 分支目标的指令
+	m	()Labcd/Sn;	we	getTarget	body: 返回 v5(CodeAddress 分支目标)
+	m	(Labcd/Sn;)Labcd/po;	j6	withTarget	body: 换一个分支目标后返回新指令
+	m	()I	J0	getTargetAddress	body: 返回 target.getAddress() ⇒ 跳转地址
+	m	()Z	Ws	hasTarget	body: 本指令与目标都已定址（u7() 皆真）
+	f	Labcd/Sn;	v5	target	body: 分支目标(CodeAddress)
+c	abcd/mo	com/aide/engine/SimpleInstruction	body: com/aide/engine/SimpleInstruction——只有操作码+操作数的指令
+	m	(Labcd/Xn;)Labcd/Vn;	j6	withOpcode	body: 换操作码后返回新指令（抽象 j6(Xn) 的实现）
+	m	(Labcd/cs;)Labcd/Vn;	j6	withRegisters	body: 换寄存器列表后返回新指令（抽象 j6(cs) 的实现）
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine
