@@ -326,7 +326,7 @@ Kp	com/aide/engine/DexItem	str:"invalid alignment" / "fileOffset already set" / 
 rp	com/aide/engine/DexFileHeader	str:"magic: " / "file_size:       " / "header_size:     " / "endian_tag:      " / "link_size:       0" ⇒ DEX 文件头
 en	com/aide/engine/ConstantPool	str:"constant_pool_count: " / "unknown tag byte: " / "...while preparsing cst " / " at offset " ⇒ 常量池解析
 Up	com/aide/engine/TypeListItem	str:"  type_idx: " / "  size: " ⇒ dex 的 type_list 条目（size + type_idx[]）
-ep	com/aide/engine/CodeAttributeWriter	str:"  registers_size: " / "throwsList == null" / "code == null" / "...while writing instructions for " ⇒ Code 属性写出器
+ep	com/aide/engine/CodeItemWriter	str:"  registers_size:" / "  ins_size:" / "  outs_size:" / "  tries_size:" / "  debug_off:" / "  insns_size:" / "  throws"；字段 (Gs 方法引用, Un code, boolean, Ss throwsList, ip=DebugInfoItemSection, _o=捕获表) ⇒ dex 的 code_item 写出器（旧名 CodeAttributeWriter 是误判：那些字段不是 class 文件 Code 属性的）
 fn	com/aide/engine/AnnotationParser	str:"truncated annotation attribute" / "constant_value: " / "num_elements: " / "type: " ⇒ 注解/属性解析
 Fm	com/aide/engine/LocalVariableChecker	str:"local variable type mismatch: attempt to set or access a value of type … using a local variable of type …" + "This is symptomatic of .class transformation tools" ⇒ 局部变量类型一致性检查
 Zo	com/aide/engine/DexFileBuilder	str:"uninternable instance" / " annotations directory" + 若干 ArrayList<Ap/op/Hp> 字段 ⇒ 汇总各段并驻留字符串的 dex 构建器

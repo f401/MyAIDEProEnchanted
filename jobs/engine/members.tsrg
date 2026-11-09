@@ -1610,7 +1610,11 @@ abcd/Kp com/aide/engine/DexItem
 abcd/rp com/aide/engine/DexFileHeader
 abcd/en com/aide/engine/ConstantPool
 abcd/Up com/aide/engine/TypeListItem
-abcd/ep com/aide/engine/CodeAttributeWriter
+abcd/ep com/aide/engine/CodeItemWriter
+	Hw ()Labcd/wp; getItemType
+	DW (Labcd/jp;Labcd/Lt;)V writeTo0
+	j6 (Labcd/jp;)V place
+	aM ()Ljava/lang/String; toHuman
 abcd/fn com/aide/engine/AnnotationParser
 abcd/Fm com/aide/engine/LocalVariableChecker
 abcd/Zo com/aide/engine/DexFileBuilder

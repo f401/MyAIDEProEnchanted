@@ -26712,7 +26712,11 @@ c	abcd/Kp	com/aide/engine/DexItem	str: com/aide/engine/DexItem——带对齐与
 c	abcd/rp	com/aide/engine/DexFileHeader	str: com/aide/engine/DexFileHeader——DEX 文件头
 c	abcd/en	com/aide/engine/ConstantPool	str: com/aide/engine/ConstantPool——常量池解析
 c	abcd/Up	com/aide/engine/TypeListItem	str: com/aide/engine/TypeListItem——dex 的 type_list 条目（size + type_idx[]）
-c	abcd/ep	com/aide/engine/CodeAttributeWriter	str: com/aide/engine/CodeAttributeWriter——Code 属性写出器
+c	abcd/ep	com/aide/engine/CodeItemWriter	str: com/aide/engine/CodeItemWriter——dex code_item（registers/ins/outs/tries/debug_off/insns_size + throws + try/catch）
+	m	()Labcd/wp;	Hw	getItemType	body: 返回 wp.J0 = code_item ⇒ 覆盖 Item.getItemType
+	m	(Labcd/jp;Labcd/Lt;)V	DW	writeTo0	body: Gp.writeTo0 的覆盖——写 code_item 各字段与指令
+	m	(Labcd/jp;)V	j6	place	body: Item.place——登记 debug_info/指令/捕获表所在段并算大小
+	m	()Ljava/lang/String;	aM	toHuman	body: 拼调试文本（"  registers_size:" 等各字段）
 c	abcd/fn	com/aide/engine/AnnotationParser	str: com/aide/engine/AnnotationParser——注解/属性解析
 c	abcd/Fm	com/aide/engine/LocalVariableChecker	str: com/aide/engine/LocalVariableChecker——局部变量类型一致性检查
 c	abcd/Zo	com/aide/engine/DexFileBuilder	str: com/aide/engine/DexFileBuilder——汇总各段并驻留字符串的 dex 构建器
@@ -26734,7 +26738,7 @@ c	abcd/np	com/aide/engine/EncodedMethod	str: com/aide/engine/EncodedMethod——
 	m	(Labcd/np;)I	j6	compareTo0	body: 按方法引用比较（ms.j6(ms)）——排序用
 	m	(Labcd/jp;)V	j6	place	body: 在 MethodIdSection 登记方法引用，并把 code 段(FH)登记进 DexFileWriter
 	f	Labcd/Gs;	DW	method	body: 方法引用(Gs=DexMethodReference)
-	f	Labcd/ep;	FH	codeAttribute	body: 代码段(ep=CodeAttributeWriter)——为 null 表示无 code
+	f	Labcd/ep;	FH	codeAttribute	body: 代码段(ep=CodeItemWriter)——为 null 表示无 code
 c	abcd/lp	com/aide/engine/EncodedField	str: com/aide/engine/EncodedField——dex 的 encoded_field（field_idx/access_flags）
 	m	()Labcd/ws;	Zo	getField	body: 返回 DW(字段引用)；写时用它取 FieldIdSection 索引
 	m	()Ljava/lang/String;	aM	toHuman	body: 拼字段引用的人读串

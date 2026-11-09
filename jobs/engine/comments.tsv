@@ -1507,7 +1507,7 @@ c	abcd/Kp	-	-	str: com/aide/engine/DexItem——带对齐与文件偏移的 dex 
 c	abcd/rp	-	-	str: com/aide/engine/DexFileHeader——DEX 文件头
 c	abcd/en	-	-	str: com/aide/engine/ConstantPool——常量池解析
 c	abcd/Up	-	-	str: com/aide/engine/TypeListItem——dex 的 type_list 条目（size + type_idx[]）
-c	abcd/ep	-	-	str: com/aide/engine/CodeAttributeWriter——Code 属性写出器
+c	abcd/ep	-	-	str: com/aide/engine/CodeItemWriter——dex code_item（registers/ins/outs/tries/debug_off/insns_size + throws + try/catch）
 c	abcd/fn	-	-	str: com/aide/engine/AnnotationParser——注解/属性解析
 c	abcd/Fm	-	-	str: com/aide/engine/LocalVariableChecker——局部变量类型一致性检查
 c	abcd/Zo	-	-	str: com/aide/engine/DexFileBuilder——汇总各段并驻留字符串的 dex 构建器
@@ -1682,7 +1682,7 @@ m	abcd/np	j6	(Labcd/jp;Labcd/Lt;II)I	str: 先打 "    method_idx:"/"    access_f
 m	abcd/np	j6	(Labcd/np;)I	body: 按方法引用比较（ms.j6(ms)）——排序用
 m	abcd/np	j6	(Labcd/jp;)V	body: 在 MethodIdSection 登记方法引用，并把 code 段(FH)登记进 DexFileWriter
 f	abcd/np	DW	-	body: 方法引用(Gs=DexMethodReference)
-f	abcd/np	FH	-	body: 代码段(ep=CodeAttributeWriter)——为 null 表示无 code
+f	abcd/np	FH	-	body: 代码段(ep=CodeItemWriter)——为 null 表示无 code
 m	abcd/ap	j6	(Labcd/lp;)V	body: 加到 gn(instanceFields)，空则抛 "field == null"
 m	abcd/ap	j6	(Labcd/lp;Labcd/ms;)V	body: 加到 Zo(staticFields) 与 VH(staticFieldValues)；已建 staticValues 时抛 "static fields already sorted"
 m	abcd/ap	j6	(Labcd/np;)V	body: 加到 u7(directMethods)，空则抛 "method == null"
@@ -1916,3 +1916,7 @@ f	abcd/Nn	VH	-	body: 常量操作数(ms)
 c	abcd/Po	-	-	body: com/aide/engine/CodecJumbo——32 位索引的 jumbo 变体编解码器
 c	abcd/Yn	-	-	body: com/aide/engine/OpcodeConstants——258 个 Opcode 常量 + 按编号取用
 m	abcd/Yn	j6	(I)Labcd/Xn;	body: 从 static Xn[] 按操作码编号取实例
+m	abcd/ep	Hw	()Labcd/wp;	body: 返回 wp.J0 = code_item ⇒ 覆盖 Item.getItemType
+m	abcd/ep	DW	(Labcd/jp;Labcd/Lt;)V	body: Gp.writeTo0 的覆盖——写 code_item 各字段与指令
+m	abcd/ep	j6	(Labcd/jp;)V	body: Item.place——登记 debug_info/指令/捕获表所在段并算大小
+m	abcd/ep	aM	()Ljava/lang/String;	body: 拼调试文本（"  registers_size:" 等各字段）
