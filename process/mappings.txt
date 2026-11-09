@@ -27971,6 +27971,12 @@ abcd/jm com/aide/engine/CodeAttribute
 abcd/Gn com/aide/engine/DexMapList
 abcd/Br com/aide/engine/OpcodeFormatTable
 abcd/Nn com/aide/engine/InstructionTemplate
+	DW ()I getSize
+	j6 (Labcd/cs;)Labcd/Vn; withRegisters
+	j6 (Labcd/Lt;)V writeTo
+	v5 target
+	Zo initValues
+	VH constant
 abcd/Dv com/aide/engine/StringResourceTable
 abcd/Cv com/aide/engine/StringResourceLoader
 abcd/Pi com/aide/licensing/PremiumKeyChecker
@@ -28111,7 +28117,15 @@ abcd/Xn com/aide/engine/Opcode
 	FH ()Ljava/lang/String; getName
 	DW ()Labcd/ao; getFormat
 	Zo ()Labcd/Xn; getNextOpcode
-abcd/oo com/aide/engine/SwitchPayloadBuilder
+abcd/oo com/aide/engine/SwitchInstruction
+	DW ()I getSize
+	j6 (Labcd/cs;)Labcd/Vn; withRegisters
+	j6 (Labcd/Lt;)V writeTo
+	we ()Z isPacked
+	VH targets
+	Zo cases
+	gn packed
+	v5 firstTarget
 abcd/Nm com/aide/engine/StackSimulator
 abcd/Sm com/aide/engine/SsaUpdater
 abcd/Vo com/aide/engine/AnnotationWriter

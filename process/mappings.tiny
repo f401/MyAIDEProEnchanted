@@ -26539,6 +26539,12 @@ c	abcd/jm	com/aide/engine/CodeAttribute	body: Code 属性——(max_stack, max_l
 c	abcd/Gn	com/aide/engine/DexMapList	str/body: com/aide/engine/DexMapList——DEX map_list（类型→偏移表），解析时校验有序
 c	abcd/Br	com/aide/engine/OpcodeFormatTable	str/body: com/aide/engine/OpcodeFormatTable——DEX opcode 的格式查表（含 jumbo 检测）
 c	abcd/Nn	com/aide/engine/InstructionTemplate	str/body: com/aide/engine/InstructionTemplate——指令模板：用参数列表绑定出具体指令
+	m	()I	DW	getSize	body: 展开后模板的总字节数
+	m	(Labcd/cs;)Labcd/Vn;	j6	withRegisters	body: 换寄存器后返回新指令
+	m	(Labcd/Lt;)V	j6	writeTo	body: 写出模板展开后的指令
+	f	Labcd/Sn;	v5	target	body: 分支目标(Sn=CodeAddress)
+	f	Ljava/util/ArrayList;	Zo	initValues	body: 初始化值列表(ArrayList<ms>)
+	f	Labcd/ms;	VH	constant	body: 常量操作数(ms)
 c	abcd/Dv	com/aide/engine/StringResourceTable	str/body: com/aide/engine/StringResourceTable——字符串资源表（转义/占位符替换）
 c	abcd/Cv	com/aide/engine/StringResourceLoader	str/body: com/aide/engine/StringResourceLoader——字符串资源装载任务（Runnable）
 c	abcd/Pi	com/aide/licensing/PremiumKeyChecker	str/body: com/aide/licensing/PremiumKeyChecker——高级版密钥校验器（LicenseChecker 子类）
@@ -26679,7 +26685,15 @@ c	abcd/Xn	com/aide/engine/Opcode	str: com/aide/engine/Opcode——操作码（�
 	m	()Ljava/lang/String;	FH	getName	body: 用 oq.DW(操作码值) 查名字
 	m	()Labcd/ao;	DW	getFormat	body: 返回 ao(格式/打印器)；构造时对空值抛 "format == null"
 	m	()Labcd/Xn;	Zo	getNextOpcode	str: 构造时校验 "bogus nextOpcode" ⇒ 同族的下一个操作码
-c	abcd/oo	com/aide/engine/SwitchPayloadBuilder	str: com/aide/engine/SwitchPayloadBuilder——switch 载荷构造
+c	abcd/oo	com/aide/engine/SwitchInstruction	str: com/aide/engine/SwitchInstruction——switch 指令（"packed"/"cases / targets mismatch"）
+	m	()I	DW	getSize	body: 返回 switch 指令的总字节数（含各 case 的 payload）
+	m	(Labcd/cs;)Labcd/Vn;	j6	withRegisters	body: 换寄存器后返回新指令
+	m	(Labcd/Lt;)V	j6	writeTo	body: 写出 opcode + payload（packed/sparse 由 isPacked() 决定）
+	m	()Z	we	isPacked	str: 打印时输出 "packed"/"sparse" ⇒ 是否为 packed-switch
+	f	[Labcd/Sn;	VH	targets	body: 各 case 的目标地址数组(Sn[])
+	f	Labcd/au;	Zo	cases	body: case 常量集合(au=IntSet)
+	f	Z	gn	packed	body: true=packed-switch，false=sparse-switch
+	f	Labcd/Sn;	v5	firstTarget	body: switch 的第一跳转目标(Sn)
 c	abcd/Nm	com/aide/engine/StackSimulator	str: com/aide/engine/StackSimulator——栈模拟器
 c	abcd/Sm	com/aide/engine/SsaUpdater	str: com/aide/engine/SsaUpdater——SSA 的 locals 合并
 c	abcd/Vo	com/aide/engine/AnnotationWriter	str: com/aide/engine/AnnotationWriter——注解写出器

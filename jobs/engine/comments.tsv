@@ -1492,7 +1492,7 @@ c	abcd/hp	-	-	str: com/aide/engine/DebugInfoEncoder——调试信息编码器
 c	abcd/Qp	-	-	str: com/aide/engine/TypeIdSection——dex 的 type_ids 段
 c	abcd/Cp	-	-	str: com/aide/engine/MethodIdSection——dex 的 method_ids 段
 c	abcd/Xn	-	-	str: com/aide/engine/Opcode——操作码（名字/格式/下一个操作码）
-c	abcd/oo	-	-	str: com/aide/engine/SwitchPayloadBuilder——switch 载荷构造
+c	abcd/oo	-	-	str: com/aide/engine/SwitchInstruction——switch 指令（"packed"/"cases / targets mismatch"）
 c	abcd/Nm	-	-	str: com/aide/engine/StackSimulator——栈模拟器
 c	abcd/Sm	-	-	str: com/aide/engine/SsaUpdater——SSA 的 locals 合并
 c	abcd/Vo	-	-	str: com/aide/engine/AnnotationWriter——注解写出器
@@ -1899,3 +1899,17 @@ m	abcd/_n	j6	(Labcd/Lt;)V	body: 逐条写出内部的 mo[](SimpleInstruction)
 m	abcd/_n	j6	(Labcd/cs;)Labcd/Vn;	body: 把新寄存器列表套到内部每条简单指令上
 c	abcd/qo	-	-	body: com/aide/engine/ExpandableInstruction——可展开伪指令基类（不到写出不知操作码/大小）
 c	abcd/_n	-	-	str: com/aide/engine/InstructionSequence——"registers.size() == 0"，就地展开成多条 SimpleInstruction
+m	abcd/oo	DW	()I	body: 返回 switch 指令的总字节数（含各 case 的 payload）
+m	abcd/oo	j6	(Labcd/cs;)Labcd/Vn;	body: 换寄存器后返回新指令
+m	abcd/oo	j6	(Labcd/Lt;)V	body: 写出 opcode + payload（packed/sparse 由 isPacked() 决定）
+m	abcd/oo	we	()Z	str: 打印时输出 "packed"/"sparse" ⇒ 是否为 packed-switch
+f	abcd/oo	VH	-	body: 各 case 的目标地址数组(Sn[])
+f	abcd/oo	Zo	-	body: case 常量集合(au=IntSet)
+f	abcd/oo	gn	-	body: true=packed-switch，false=sparse-switch
+f	abcd/oo	v5	-	body: switch 的第一跳转目标(Sn)
+m	abcd/Nn	DW	()I	body: 展开后模板的总字节数
+m	abcd/Nn	j6	(Labcd/cs;)Labcd/Vn;	body: 换寄存器后返回新指令
+m	abcd/Nn	j6	(Labcd/Lt;)V	body: 写出模板展开后的指令
+f	abcd/Nn	v5	-	body: 分支目标(Sn=CodeAddress)
+f	abcd/Nn	Zo	-	body: 初始化值列表(ArrayList<ms>)
+f	abcd/Nn	VH	-	body: 常量操作数(ms)

@@ -311,7 +311,7 @@ hp	com/aide/engine/DebugInfoEncoder	str:常量串全是 debug_info 的操作码�
 Qp	com/aide/engine/TypeIdSection	str:"type_ids_size:   " / "type_ids_off:    " / "too many type ids" / "not found: " ⇒ dex 的 type_ids 段
 Cp	com/aide/engine/MethodIdSection	str:"method_ids_size: " / "method_ids_off:  " / "not found" ⇒ dex 的 method_ids 段
 Xn	com/aide/engine/Opcode	str:"bogus nextOpcode"/"bogus family"/"bogus opcode:"/"format == null"；字段 (int 操作码, int, int nextOpcode, ao format, boolean)；FH() 用 oq.DW(int) 查操作码名 ⇒ 一条 dalvik 指令的操作码（dx 的 Dop）
-oo	com/aide/engine/SwitchPayloadBuilder	str:"too many cases" / "cases / targets mismatch" / "targets == null" / "cases == null" ⇒ switch 载荷构造
+oo	com/aide/engine/SwitchInstruction	str:"packed" / "too many cases" / "cases / targets mismatch" / "targets == null"；字段 Sn(分支目标) + au(cases=IntSet) + Sn[](各 case 目标) + boolean；extends qo ⇒ switch 指令（旧名 SwitchPayloadBuilder 不对：它是指令不是构造器）
 Nm	com/aide/engine/StackSimulator	str:"stack: underflow" / "underlay stack:" / "overlay stack:" / "incompatible substitution: " ⇒ 栈模拟器
 Sm	com/aide/engine/SsaUpdater	str:"$Merging locals set for caller block " / "(locals array set; primary)" / "(Merging one locals against caller block " ⇒ SSA 的 locals 合并
 Vo	com/aide/engine/AnnotationWriter	str:"visibility: VISBILITY_" / " annotation" / "visibility: " ⇒ 注解写出器
