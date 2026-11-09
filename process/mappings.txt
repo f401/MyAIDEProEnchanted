@@ -28447,6 +28447,10 @@ abcd/_n com/aide/engine/InstructionSequence
 	DW ()I getSize
 	j6 (Labcd/Lt;)V writeTo
 	j6 (Labcd/cs;)Labcd/Vn; withRegisters
+abcd/Po com/aide/engine/CodecJumbo
+abcd/Yn com/aide/engine/OpcodeConstants
+	j6 (I)Labcd/Xn; getByOpcode
+		static
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

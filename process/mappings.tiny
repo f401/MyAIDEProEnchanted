@@ -27008,6 +27008,9 @@ c	abcd/_n	com/aide/engine/InstructionSequence	str: com/aide/engine/InstructionSe
 	m	()I	DW	getSize	body: 返回展开后所有 SimpleInstruction 的字节数之和
 	m	(Labcd/Lt;)V	j6	writeTo	body: 逐条写出内部的 mo[](SimpleInstruction)
 	m	(Labcd/cs;)Labcd/Vn;	j6	withRegisters	body: 把新寄存器列表套到内部每条简单指令上
+c	abcd/Po	com/aide/engine/CodecJumbo	body: com/aide/engine/CodecJumbo——32 位索引的 jumbo 变体编解码器
+c	abcd/Yn	com/aide/engine/OpcodeConstants	body: com/aide/engine/OpcodeConstants——258 个 Opcode 常量 + 按编号取用
+	m	(I)Labcd/Xn;	j6	getByOpcode	body: 从 static Xn[] 按操作码编号取实例
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

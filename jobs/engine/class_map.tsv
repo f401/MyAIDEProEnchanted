@@ -477,3 +477,5 @@ So	com/aide/engine/Codec4RCC	body:FormatCodec 子类；isApplicable 要求常量
 fo	com/aide/engine/SpacerInstruction	str:打印串是 "nop // spacer"；extends qo ⇒ 用来占位/对齐的空指令
 qo	com/aide/engine/ExpandableInstruction	body:abstract extends Vn；构造 (hs,cs) 不带 Xn(操作码)，DW(int)/j6(Xn) 定成 final；子类 InstructionTemplate(Nn) / InstructionSequence(_n) / SpacerInstruction(fo) / switch(oo) 都要到写出时才展开 ⇒ 可展开伪指令基类
 _n	com/aide/engine/InstructionSequence	str:"registers.size() == 0"；字段 mo[]（SimpleInstruction 数组）、DW()I 返回总字节数、j6(Lt) 逐条写出 ⇒ 就地展开成若干简单指令的序列指令
+Po	com/aide/engine/CodecJumbo	body:FormatCodec 子类；4 code unit、1~2 个寄存器、write (Lt,gn(Vn),Tn.J0(),reg)；由 OpcodeConstants 里 255/511/1023/5375 四个常量引用，查 Opcodes 名字表分别是 const-class/jumbo、check-cast/jumbo、new-instance/jumbo、sget/jumbo ⇒ 32 位索引的 jumbo 变体编解码器
+Yn	com/aide/engine/OpcodeConstants	body:258 个 static Xn(Opcode) 常量 + static Xn[] j6 注册表；j6(int) 按操作码编号取、j6(Xn,Fn) 造/取变体 ⇒ 全部操作码实例的常量表（oq=Opcodes 存的是名字/格式/引用种类元信息）

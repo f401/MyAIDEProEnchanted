@@ -1913,3 +1913,6 @@ m	abcd/Nn	j6	(Labcd/Lt;)V	body: 写出模板展开后的指令
 f	abcd/Nn	v5	-	body: 分支目标(Sn=CodeAddress)
 f	abcd/Nn	Zo	-	body: 初始化值列表(ArrayList<ms>)
 f	abcd/Nn	VH	-	body: 常量操作数(ms)
+c	abcd/Po	-	-	body: com/aide/engine/CodecJumbo——32 位索引的 jumbo 变体编解码器
+c	abcd/Yn	-	-	body: com/aide/engine/OpcodeConstants——258 个 Opcode 常量 + 按编号取用
+m	abcd/Yn	j6	(I)Labcd/Xn;	body: 从 static Xn[] 按操作码编号取实例
