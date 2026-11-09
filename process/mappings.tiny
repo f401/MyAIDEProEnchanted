@@ -25895,6 +25895,7 @@ c	abcd/Vn	com/aide/engine/Instruction	auto: 类：Instruction（上游未收录�
 	m	()I	v5	getNextAddress	body: 返回 地址 + 本指令大小 ⇒ 下一条指令的地址（dx 的 getNextAddress）
 	m	(I)V	j6	setAddress	body: 写地址字段
 	m	(Labcd/Lt;)V	j6	writeTo	body: 抽象——把本指令写进 ByteOutput
+	m	(I)Labcd/Vn;	DW	withAddress	body: 抽象——换地址后返回新指令（子类 ro/qo/Zn 都定成 final）
 c	abcd/ro	com/aide/engine/ZeroSizeInsn	body: com/aide/engine/ZeroSizeInsn——零字节伪指令（getSize 恒 0、writeTo 空）
 	m	()I	DW	getSize	body: 恒返回 0 ⇒ 零字节伪指令
 c	abcd/Sn	com/aide/engine/CodeAddress	str: com/aide/engine/CodeAddress——"code-address" 伪指令（块标签）
@@ -26986,6 +26987,13 @@ c	abcd/mo	com/aide/engine/SimpleInstruction	body: com/aide/engine/SimpleInstruct
 c	abcd/Ro	com/aide/engine/Codec45CC	body: com/aide/engine/Codec45CC——invoke-polymorphic 非 range
 c	abcd/So	com/aide/engine/Codec4RCC	body: com/aide/engine/Codec4RCC——invoke-polymorphic/range
 c	abcd/fo	com/aide/engine/SpacerInstruction	str: com/aide/engine/SpacerInstruction——"nop // spacer" 占位指令
+c	abcd/qo	com/aide/engine/ExpandableInstruction	body: com/aide/engine/ExpandableInstruction——可展开伪指令基类（不到写出不知操作码/大小）
+	m	(I)Labcd/Vn;	DW	withAddress	body: final 覆盖——换地址
+	m	(Labcd/Xn;)Labcd/Vn;	j6	withOpcode	body: final 覆盖——换操作码
+c	abcd/_n	com/aide/engine/InstructionSequence	str: com/aide/engine/InstructionSequence——"registers.size() == 0"，就地展开成多条 SimpleInstruction
+	m	()I	DW	getSize	body: 返回展开后所有 SimpleInstruction 的字节数之和
+	m	(Labcd/Lt;)V	j6	writeTo	body: 逐条写出内部的 mo[](SimpleInstruction)
+	m	(Labcd/cs;)Labcd/Vn;	j6	withRegisters	body: 把新寄存器列表套到内部每条简单指令上
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

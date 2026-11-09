@@ -27304,6 +27304,7 @@ abcd/Vn com/aide/engine/Instruction
 	v5 ()I getNextAddress
 	j6 (I)V setAddress
 	j6 (Labcd/Lt;)V writeTo
+	DW (I)Labcd/Vn; withAddress
 abcd/ro com/aide/engine/ZeroSizeInsn
 	DW ()I getSize
 abcd/Sn com/aide/engine/CodeAddress
@@ -28425,6 +28426,13 @@ abcd/mo com/aide/engine/SimpleInstruction
 abcd/Ro com/aide/engine/Codec45CC
 abcd/So com/aide/engine/Codec4RCC
 abcd/fo com/aide/engine/SpacerInstruction
+abcd/qo com/aide/engine/ExpandableInstruction
+	DW (I)Labcd/Vn; withAddress
+	j6 (Labcd/Xn;)Labcd/Vn; withOpcode
+abcd/_n com/aide/engine/InstructionSequence
+	DW ()I getSize
+	j6 (Labcd/Lt;)V writeTo
+	j6 (Labcd/cs;)Labcd/Vn; withRegisters
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

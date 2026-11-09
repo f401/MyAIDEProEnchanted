@@ -1891,3 +1891,11 @@ c	abcd/mo	-	-	body: com/aide/engine/SimpleInstruction——只有操作码+操�
 c	abcd/Ro	-	-	body: com/aide/engine/Codec45CC——invoke-polymorphic 非 range
 c	abcd/So	-	-	body: com/aide/engine/Codec4RCC——invoke-polymorphic/range
 c	abcd/fo	-	-	str: com/aide/engine/SpacerInstruction——"nop // spacer" 占位指令
+m	abcd/Vn	DW	(I)Labcd/Vn;	body: 抽象——换地址后返回新指令（子类 ro/qo/Zn 都定成 final）
+m	abcd/qo	DW	(I)Labcd/Vn;	body: final 覆盖——换地址
+m	abcd/qo	j6	(Labcd/Xn;)Labcd/Vn;	body: final 覆盖——换操作码
+m	abcd/_n	DW	()I	body: 返回展开后所有 SimpleInstruction 的字节数之和
+m	abcd/_n	j6	(Labcd/Lt;)V	body: 逐条写出内部的 mo[](SimpleInstruction)
+m	abcd/_n	j6	(Labcd/cs;)Labcd/Vn;	body: 把新寄存器列表套到内部每条简单指令上
+c	abcd/qo	-	-	body: com/aide/engine/ExpandableInstruction——可展开伪指令基类（不到写出不知操作码/大小）
+c	abcd/_n	-	-	str: com/aide/engine/InstructionSequence——"registers.size() == 0"，就地展开成多条 SimpleInstruction

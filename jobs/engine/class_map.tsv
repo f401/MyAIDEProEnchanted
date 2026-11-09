@@ -475,3 +475,5 @@ mo	com/aide/engine/SimpleInstruction	body:extends Zn；构造 (Xn,hs,cs) 之后�
 Ro	com/aide/engine/Codec45CC	body:FormatCodec 子类；2 unit 索引 + 2 个单独寄存器、isApplicable 要求 Tn 的常量是 Ks(DexType) 或 ws(字段) 且寄存器号 <65536、write (Lt,S,I,S,S) ⇒ invoke-polymorphic 非 range（45cc）
 So	com/aide/engine/Codec4RCC	body:FormatCodec 子类；isApplicable 要求常量是 Gs(方法引用) 或 Ks，并用 ao.j6(cs) 判寄存器表 + cs.rN() 取个数、write (Lt,S,I,S,S) ⇒ invoke-polymorphic/range（4rcc）
 fo	com/aide/engine/SpacerInstruction	str:打印串是 "nop // spacer"；extends qo ⇒ 用来占位/对齐的空指令
+qo	com/aide/engine/ExpandableInstruction	body:abstract extends Vn；构造 (hs,cs) 不带 Xn(操作码)，DW(int)/j6(Xn) 定成 final；子类 InstructionTemplate(Nn) / InstructionSequence(_n) / SpacerInstruction(fo) / switch(oo) 都要到写出时才展开 ⇒ 可展开伪指令基类
+_n	com/aide/engine/InstructionSequence	str:"registers.size() == 0"；字段 mo[]（SimpleInstruction 数组）、DW()I 返回总字节数、j6(Lt) 逐条写出 ⇒ 就地展开成若干简单指令的序列指令
