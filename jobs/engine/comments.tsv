@@ -1920,3 +1920,14 @@ m	abcd/ep	Hw	()Labcd/wp;	body: 返回 wp.J0 = code_item ⇒ 覆盖 Item.getItemT
 m	abcd/ep	DW	(Labcd/jp;Labcd/Lt;)V	body: Gp.writeTo0 的覆盖——写 code_item 各字段与指令
 m	abcd/ep	j6	(Labcd/jp;)V	body: Item.place——登记 debug_info/指令/捕获表所在段并算大小
 m	abcd/ep	aM	()Ljava/lang/String;	body: 拼调试文本（"  registers_size:" 等各字段）
+m	abcd/ep	Mr	()I	body: 委派 code.getInstructionBlock().er() ⇒ 最大寄存器号+1（code_item 的 registers_size）
+m	abcd/ep	U2	()I	body: 委派 InstructionBlock.yS()（构造时传入的 outs 数）⇒ code_item 的 outs_size
+m	abcd/ep	j3	()I	body: 委派 method.getSignature 的 j6(isStatic) = 参数占用字数 ⇒ code_item 的 ins_size
+m	abcd/Wn	er	()I	body: 扫全部指令求最大寄存器号 ⇒ registers_size
+m	abcd/Wn	yS	()I	body: 返回构造传入的 FH(outs 数)
+m	abcd/Wn	rN	()I	body: 取最后一条指令的 getNextAddress() ⇒ 代码总长
+f	abcd/Wn	FH	-	body: 本块对外调用所需的最大出参字数
+m	abcd/qs	j6	(Z)I	body: 按 shorty/参数类型累加字数，非静态再加 this ⇒ 参数占用字数
+m	abcd/Wn	j6	(Ljava/util/ArrayList;I)Labcd/Wn;	body: 由指令列表 + outs 数构造 InstructionBlock
+m	abcd/Wn	j6	(ILabcd/Vn;)V	body: 往指定下标放一条指令
+m	abcd/Wn	j6	(Labcd/Lt;)V	body: 逐条把指令写进 ByteOutput

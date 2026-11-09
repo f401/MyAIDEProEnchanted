@@ -27951,6 +27951,14 @@ abcd/To com/aide/engine/UnsupportedInstructionPrinter
 abcd/Qt com/aide/engine/CodeWriterImpl
 abcd/Jm com/aide/engine/ExceptionTable
 abcd/Wn com/aide/engine/InstructionBlock
+	j6 (Ljava/util/ArrayList;I)Labcd/Wn; build
+		static
+	j6 (ILabcd/Vn;)V set
+	j6 (Labcd/Lt;)V writeTo
+	er ()I getRegistersSize
+	yS ()I getOutsSize
+	rN ()I getCodeSize
+	FH outsSize
 abcd/Le com/aide/ui/build/RunTargetImpl
 abcd/bs com/aide/engine/TypeInfoFactory
 abcd/bs$a com/aide/engine/TypeInfoFactory$Key
@@ -28149,6 +28157,9 @@ abcd/ep com/aide/engine/CodeItemWriter
 	DW (Labcd/jp;Labcd/Lt;)V writeTo0
 	j6 (Labcd/jp;)V place
 	aM ()Ljava/lang/String; toHuman
+	Mr ()I getRegistersSize
+	U2 ()I getOutsSize
+	j3 ()I getInsSize
 abcd/fn com/aide/engine/AnnotationParser
 abcd/Fm com/aide/engine/LocalVariableChecker
 abcd/Zo com/aide/engine/DexFileBuilder
@@ -28257,6 +28268,7 @@ abcd/qs com/aide/engine/DexBaseMethodReference
 	J8 ()Labcd/Os; getSignature
 	Ws ()Z isClassInitializer
 	lg ()Z isInstanceInitializer
+	j6 (Z)I getParameterWordCount
 abcd/Gs com/aide/engine/DexMethodReference
 abcd/zs com/aide/engine/DexInterfaceMethodReference
 abcd/vs com/aide/engine/DexEnumFieldReference

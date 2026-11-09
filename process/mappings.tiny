@@ -26519,6 +26519,13 @@ c	abcd/To	com/aide/engine/UnsupportedInstructionPrinter	body: 兜底指令打印
 c	abcd/Qt	com/aide/engine/CodeWriterImpl	body: com/aide/engine/CodeWriterImpl——CodeWriter 的字节缓冲实现（writeByte/取字节/修补点表）
 c	abcd/Jm	com/aide/engine/ExceptionTable	body: 异常表——元素 (start,end,handler,DexType)，被 Code 属性持有
 c	abcd/Wn	com/aide/engine/InstructionBlock	body: com/aide/engine/InstructionBlock——可自写的指令块（从 ArrayList<Instruction> 构造）
+	m	(Ljava/util/ArrayList;I)Labcd/Wn;	j6	build	body: 由指令列表 + outs 数构造 InstructionBlock
+	m	(ILabcd/Vn;)V	j6	set	body: 往指定下标放一条指令
+	m	(Labcd/Lt;)V	j6	writeTo	body: 逐条把指令写进 ByteOutput
+	m	()I	er	getRegistersSize	body: 扫全部指令求最大寄存器号 ⇒ registers_size
+	m	()I	yS	getOutsSize	body: 返回构造传入的 FH(outs 数)
+	m	()I	rN	getCodeSize	body: 取最后一条指令的 getNextAddress() ⇒ 代码总长
+	f	I	FH	outsSize	body: 本块对外调用所需的最大出参字数
 c	abcd/Le	com/aide/ui/build/RunTargetImpl	body: com/aide/ui/build/RunTargetImpl——运行目标实现（本工程唯一 RunTarget 实现）
 c	abcd/bs	com/aide/engine/TypeInfoFactory	body: com/aide/engine/TypeInfoFactory——TypeInfo 的工厂 + 驻留实现（静态工厂 + HashMap 池 + 键类）
 c	abcd/bs$a	com/aide/engine/TypeInfoFactory$Key	body: com/aide/engine/TypeInfoFactory$Key——驻留池的键（TypeInfo + ReferencePair + int）
@@ -26717,6 +26724,9 @@ c	abcd/ep	com/aide/engine/CodeItemWriter	str: com/aide/engine/CodeItemWriter—�
 	m	(Labcd/jp;Labcd/Lt;)V	DW	writeTo0	body: Gp.writeTo0 的覆盖——写 code_item 各字段与指令
 	m	(Labcd/jp;)V	j6	place	body: Item.place——登记 debug_info/指令/捕获表所在段并算大小
 	m	()Ljava/lang/String;	aM	toHuman	body: 拼调试文本（"  registers_size:" 等各字段）
+	m	()I	Mr	getRegistersSize	body: 委派 code.getInstructionBlock().er() ⇒ 最大寄存器号+1（code_item 的 registers_size）
+	m	()I	U2	getOutsSize	body: 委派 InstructionBlock.yS()（构造时传入的 outs 数）⇒ code_item 的 outs_size
+	m	()I	j3	getInsSize	body: 委派 method.getSignature 的 j6(isStatic) = 参数占用字数 ⇒ code_item 的 ins_size
 c	abcd/fn	com/aide/engine/AnnotationParser	str: com/aide/engine/AnnotationParser——注解/属性解析
 c	abcd/Fm	com/aide/engine/LocalVariableChecker	str: com/aide/engine/LocalVariableChecker——局部变量类型一致性检查
 c	abcd/Zo	com/aide/engine/DexFileBuilder	str: com/aide/engine/DexFileBuilder——汇总各段并驻留字符串的 dex 构建器
@@ -26822,6 +26832,7 @@ c	abcd/qs	com/aide/engine/DexBaseMethodReference	body: 方法引用基类（abst
 	m	()Labcd/Os;	J8	getSignature	body: getSignature——用 nat 的描述符 intern 出 Os(MemberSignature)
 	m	()Z	Ws	isClassInitializer	body: isClassInitializer——直接委派 Hs.Ws()（名字=="<clinit>"）
 	m	()Z	lg	isInstanceInitializer	body: isInstanceInitializer——直接委派 Hs.lg()（名字=="<init>"）
+	m	(Z)I	j6	getParameterWordCount	body: 按 shorty/参数类型累加字数，非静态再加 this ⇒ 参数占用字数
 c	abcd/Gs	com/aide/engine/DexMethodReference	str: 普通方法引用——Zo() 返回 "method"
 c	abcd/zs	com/aide/engine/DexInterfaceMethodReference	str: 接口方法引用——Zo() 返回 "ifaceMethod"，J8() 内部降级成 Gs
 c	abcd/vs	com/aide/engine/DexEnumFieldReference	str: 枚举字段引用——Zo() 返回 "enum"，懒建同 nat 的 ws(字段引用)
