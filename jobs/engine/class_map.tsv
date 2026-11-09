@@ -463,3 +463,10 @@ Fo	com/aide/engine/Codec22T	body:FormatCodec 子类；2 unit、读 2 寄存器�
 Go	com/aide/engine/Codec22CS	body:FormatCodec 子类；2 unit、读 2 寄存器、无字面量、isApplicable 用 Hw+Zo(寄存器<256 且偏移<65536) ⇒ 22cs（iget/iput 类字段偏移）
 Ho	com/aide/engine/Codec23X	body:FormatCodec 子类；2 unit、读 3 个寄存器、无字面量 ⇒ 23x（cmp/aget/aput 一类）
 xo	com/aide/engine/Codec20T	body:FormatCodec 子类；2 unit、0 个寄存器、isApplicable 无任何操作数约束 ⇒ 20t（goto/16）
+yo	com/aide/engine/Codec21C	body:FormatCodec 子类；2 unit、isApplicable 收到 Tn(常量指令) 且寄存器数 1 或 2、并检查常量是 Ks/ws/Js(DexType/字段/字符串 引用) ⇒ 21c（const-string/const-class 一类池引用）
+zo	com/aide/engine/Codec21H	body:FormatCodec 子类；2 unit、读 1 寄存器、常量强转 Ds 后取 `Ws() >>> 16`（高 16 位）⇒ 21h（const/high16）
+Jo	com/aide/engine/Codec31T	body:FormatCodec 子类；3 unit、write (Lt,S,I) 且第 3 个值来自 Tn.J0()（分支目标）⇒ 31t（if-testz/32、fill-array-data）
+Lo	com/aide/engine/Codec31C	body:FormatCodec 子类；3 unit、write (Lt,S,I) 但不取 J0（32 位是常量池下标）⇒ 31c（const-string/jumbo、const-class）
+Mo	com/aide/engine/Codec32X	body:FormatCodec 子类；3 unit、write (Lt,S,S,S) 只用寄存器 0/1 打包 ⇒ 32x（move/16、move-wide/16）
+No	com/aide/engine/Codec3RC	body:FormatCodec 子类；3 unit、write (Lt,S,S,S)、读 reg[0..3] 且带 Tn.J0() ⇒ 3rc（invoke-*/range，只写首寄存器+个数）
+Oo	com/aide/engine/Codec35C	body:FormatCodec 子类；3 unit、write (Lt,S,S,S) 并调 cs.rN()(寄存器列表个数) 后逐寄存器写 ⇒ 35c（invoke-* 非 range）

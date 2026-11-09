@@ -26957,6 +26957,13 @@ c	abcd/Fo	com/aide/engine/Codec22T	body: com/aide/engine/Codec22T——FormatCod
 c	abcd/Go	com/aide/engine/Codec22CS	body: com/aide/engine/Codec22CS——FormatCodec 子类（2 unit、读 2 寄存器、无字面量、isApplicable 用 Hw+Zo(寄存器<256 且偏移<65536) ⇒ 22cs（iget/iput 类字段偏移））
 c	abcd/Ho	com/aide/engine/Codec23X	body: com/aide/engine/Codec23X——FormatCodec 子类（2 unit、读 3 个寄存器、无字面量 ⇒ 23x（cmp/aget/aput 一类））
 c	abcd/xo	com/aide/engine/Codec20T	body: com/aide/engine/Codec20T——FormatCodec 子类（2 unit、0 个寄存器、isApplicable 无任何操作数约束 ⇒ 20t（goto/16））
+c	abcd/yo	com/aide/engine/Codec21C	body: com/aide/engine/Codec21C——FormatCodec 子类（2 unit、isApplicable 收到 Tn(常量指令) 且寄存器数 1 或 2、并检查常量是 Ks/ws/Js(DexType/字段/字符串 引用) ⇒ 21c（const-string/co）
+c	abcd/zo	com/aide/engine/Codec21H	body: com/aide/engine/Codec21H——FormatCodec 子类（2 unit、读 1 寄存器、常量强转 Ds 后取 `Ws() >>> 16`（高 16 位）⇒ 21h（const/high16））
+c	abcd/Jo	com/aide/engine/Codec31T	body: com/aide/engine/Codec31T——FormatCodec 子类（3 unit、write (Lt,S,I) 且第 3 个值来自 Tn.J0()（分支目标）⇒ 31t（if-testz/32、fill-array-data））
+c	abcd/Lo	com/aide/engine/Codec31C	body: com/aide/engine/Codec31C——FormatCodec 子类（3 unit、write (Lt,S,I) 但不取 J0（32 位是常量池下标）⇒ 31c（const-string/jumbo、const-class））
+c	abcd/Mo	com/aide/engine/Codec32X	body: com/aide/engine/Codec32X——FormatCodec 子类（3 unit、write (Lt,S,S,S) 只用寄存器 0/1 打包 ⇒ 32x（move/16、move-wide/16））
+c	abcd/No	com/aide/engine/Codec3RC	body: com/aide/engine/Codec3RC——FormatCodec 子类（3 unit、write (Lt,S,S,S)、读 reg[0..3] 且带 Tn.J0() ⇒ 3rc（invoke-*/range，只写首寄存器+个数））
+c	abcd/Oo	com/aide/engine/Codec35C	body: com/aide/engine/Codec35C——FormatCodec 子类（3 unit、write (Lt,S,S,S) 并调 cs.rN()(寄存器列表个数) 后逐寄存器写 ⇒ 35c（invoke-* 非 range））
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

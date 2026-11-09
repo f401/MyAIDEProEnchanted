@@ -1862,3 +1862,10 @@ m	abcd/ao	Hw	(I)Z	body: (v & 255) == v ⇒ 无符号 8 位
 m	abcd/ao	Zo	(I)Z	body: (v & 65535) == v ⇒ 无符号 16 位
 m	abcd/ao	v5	(I)Z	body: (v & 15) == v ⇒ 无符号 4 位（寄存器编号 < 16）
 m	abcd/ao	j6	(I)Z	body: (byte)v == v ⇒ 有符号 8 位（lit8 类）
+c	abcd/yo	-	-	body: com/aide/engine/Codec21C——FormatCodec 子类（2 unit、isApplicable 收到 Tn(常量指令) 且寄存器数 1 或 2、并检查常量是 Ks/ws/Js(DexType/字段/字符串 引用) ⇒ 21c（const-string/co）
+c	abcd/zo	-	-	body: com/aide/engine/Codec21H——FormatCodec 子类（2 unit、读 1 寄存器、常量强转 Ds 后取 `Ws() >>> 16`（高 16 位）⇒ 21h（const/high16））
+c	abcd/Jo	-	-	body: com/aide/engine/Codec31T——FormatCodec 子类（3 unit、write (Lt,S,I) 且第 3 个值来自 Tn.J0()（分支目标）⇒ 31t（if-testz/32、fill-array-data））
+c	abcd/Lo	-	-	body: com/aide/engine/Codec31C——FormatCodec 子类（3 unit、write (Lt,S,I) 但不取 J0（32 位是常量池下标）⇒ 31c（const-string/jumbo、const-class））
+c	abcd/Mo	-	-	body: com/aide/engine/Codec32X——FormatCodec 子类（3 unit、write (Lt,S,S,S) 只用寄存器 0/1 打包 ⇒ 32x（move/16、move-wide/16））
+c	abcd/No	-	-	body: com/aide/engine/Codec3RC——FormatCodec 子类（3 unit、write (Lt,S,S,S)、读 reg[0..3] 且带 Tn.J0() ⇒ 3rc（invoke-*/range，只写首寄存器+个数））
+c	abcd/Oo	-	-	body: com/aide/engine/Codec35C——FormatCodec 子类（3 unit、write (Lt,S,S,S) 并调 cs.rN()(寄存器列表个数) 后逐寄存器写 ⇒ 35c（invoke-* 非 range））
