@@ -1493,8 +1493,8 @@ c	abcd/Qp	-	-	str: com/aide/engine/TypeIdSection——dex 的 type_ids 段
 c	abcd/Cp	-	-	str: com/aide/engine/MethodIdSection——dex 的 method_ids 段
 c	abcd/Xn	-	-	str: com/aide/engine/Opcode——操作码（名字/格式/下一个操作码）
 c	abcd/oo	-	-	str: com/aide/engine/SwitchInstruction——switch 指令（"packed"/"cases / targets mismatch"）
-c	abcd/Nm	-	-	str: com/aide/engine/StackSimulator——栈模拟器
-c	abcd/Sm	-	-	str: com/aide/engine/SsaUpdater——SSA 的 locals 合并
+c	abcd/Nm	-	-	body:TypeBearer[] + boolean[] + int 栈指针，copy/push(j6(Rs))/(j6(int,Rs))/pop/peek/clear/size ⇒ dx ExecutionStack（原判 StackSimulator 有误）
+c	abcd/Sm	-	-	body:extends Rm；字段 OneLocalsArray primary + ArrayList<LocalsArray> secondaries，三个构造 (int)/(primary,secondaries)/(copy)，mergeWithSubroutineCaller/merge 返回自身类型 ⇒ dx LocalsArraySet
 c	abcd/Vo	-	-	str: com/aide/engine/AnnotationWriter——注解写出器
 c	abcd/Tp	-	-	str: com/aide/engine/MapItemWriter——map_list 条目写出器
 c	abcd/Gp	-	-	str: com/aide/engine/DexSection——带 offset/writeSize 的 dex 段基类
@@ -1708,7 +1708,7 @@ m	abcd/Gp	DW	(Labcd/jp;Labcd/Lt;)V	body: protected 抽象——真正的写出�
 c	abcd/Un	-	-	body: com/aide/engine/Code——insns/positions/locals/catches 的懒构建容器（dx 的 DalvCode）
 c	abcd/Qn	-	-	body: com/aide/engine/CatchHandlerList——(捕获类型,跳转地址) 列表
 c	abcd/io	-	-	body: com/aide/engine/PositionTable——位置/行号表
-c	abcd/co	-	-	str: com/aide/engine/LocalVariableTable——变量活跃区间（START/END_* 六种标记）
+c	abcd/co	-	-	body:extends Xt(ArrayItem)；静态 EMPTY、j6(Wn)=make(DalvInsnList)、get(int):co$b=Entry、set(int,Entry)；内部枚举 co$a 恰 6 常量=Disposition ⇒ dx LocalList（原判 LocalVariableTable 有误）
 c	abcd/ip	-	-	str: com/aide/engine/DebugInfoItemSection——写 debug_info_item
 m	abcd/Un	DW	()Labcd/Rn;	body: 先 tp() 再返回 Hw(CatchTable)——捕获表
 m	abcd/Un	FH	()Ljava/util/HashSet;	body: 返回 ho(未处理指令表).DW() ⇒ 用到的常量集合
@@ -2051,3 +2051,9 @@ c	abcd/_t	-	-	body:interface hasNext()/next():int，只从 bu.iterator() 返回 
 c	abcd/Nt	-	-	role:bu(IntList) 的唯一实现：int[] 数组 + add/iterator/contains(j6(int):boolean)/合并(j6(bu))；dx 的 IntList 是具体类，AIDE 拆成接口+实现，实现按作用取名
 c	abcd/Im	-	-	body:extends du(LabeledList)；(int) 构造 + get(int):Hm + j6(int,Hm)=set + v5(int)=labelToBlock 四件套与 dx 1.7 ByteBlockList 一一对应；串 "no such label:" 同源
 c	abcd/Hm	-	-	body:5 字段(label/start/end/successors:IntSet/catches:ExceptionTable) + 5 个 getter + toString；串 "label < 0"/"start < 0"/"end <= start"/"targets == null"/"successors["/"] =="/"catches == null" 与 dx 1.7 …
+c	abcd/_r	-	-	body:两个静态方法 DW(int):String + j6(int):int，与 dx 1.7 RegOps 的 opName(int)/flippedIfOpcode(int) 一一对应；25 条 opcode 名字符串(fill-array-data/move-result-pseudo/invoke-*/unknown-) 同源
+c	abcd/Rm	-	-	body:abstract extends hu(MutabilityControl) implements lu(ToHuman)；(boolean) 构造 + copy/annotate/makeInitialized/getMaxLocals/set×2/invalidate/getOrNull/get/getCategory1/2/merge/mergeWithSubroutineCal…
+c	abcd/Vm	-	-	body:extends Rm(LocalsArray)；TypeBearer[] + (int) 构造 + get/getOrNull/makeInitialized/invalidate/merge×2/mergeWithSubroutineCaller/set×2/getMaxLocals/throwSimException 共 16 方法与 dx OneLocalsArray 一一对应
+c	abcd/Um	-	-	body:4 个 static 方法：(TypeBearer,TypeBearer)→TypeBearer=mergeType、(Nm, Nm)→Nm=mergeStack、(Vm,Vm)→Vm=mergeLocals + boolean 判定 ⇒ dx Merger
+c	abcd/co$a	-	-	body:6 常量枚举，正是 dx LocalList$Disposition(START/END_SIMPLY/END_REPLACED/END_MOVED/END_CLOBBERED_BY_PREV/END_CLOBBERED_BY_NEXT)
+c	abcd/co$b	-	-	body:4 字段(address, Disposition, RegisterSpec, CstType) + compareTo/equals/isStart/getName/getSignature/getType(Js=DexString/Ks) ⇒ dx LocalList$Entry

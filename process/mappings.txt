@@ -28177,8 +28177,8 @@ abcd/oo com/aide/engine/SwitchInstruction
 	Zo cases
 	gn packed
 	v5 firstTarget
-abcd/Nm com/aide/engine/StackSimulator
-abcd/Sm com/aide/engine/SsaUpdater
+abcd/Nm com/aide/engine/ExecutionStack
+abcd/Sm com/aide/engine/LocalsArraySet
 abcd/Vo com/aide/engine/AnnotationWriter
 abcd/Tp com/aide/engine/MapItemWriter
 abcd/Gp com/aide/engine/DexSection
@@ -28395,7 +28395,7 @@ abcd/Qn com/aide/engine/CatchHandlerList
 abcd/io com/aide/engine/PositionTable
 	j6 (Labcd/Wn;I)Labcd/io; build
 		static
-abcd/co com/aide/engine/LocalVariableTable
+abcd/co com/aide/engine/LocalList
 	j6 (Labcd/Wn;)Labcd/co; build
 		static
 abcd/ip com/aide/engine/DebugInfoItemSection
@@ -28608,6 +28608,12 @@ abcd/_t com/aide/engine/IntIterator
 abcd/Nt com/aide/engine/IntListImpl
 abcd/Im com/aide/engine/ByteBlockList
 abcd/Hm com/aide/engine/ByteBlock
+abcd/_r com/aide/engine/RegOps
+abcd/Rm com/aide/engine/LocalsArray
+abcd/Vm com/aide/engine/OneLocalsArray
+abcd/Um com/aide/engine/Merger
+abcd/co$a com/aide/engine/LocalList$Disposition
+abcd/co$b com/aide/engine/LocalList$Entry
 a/a proguard/ArgumentWordReader
 	a arguments
 	a ()Ljava/lang/String; nextLine

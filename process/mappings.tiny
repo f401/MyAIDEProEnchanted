@@ -26744,8 +26744,8 @@ c	abcd/oo	com/aide/engine/SwitchInstruction	str: com/aide/engine/SwitchInstructi
 	f	Labcd/au;	Zo	cases	body: case 常量集合(au=IntSet)
 	f	Z	gn	packed	body: true=packed-switch，false=sparse-switch
 	f	Labcd/Sn;	v5	firstTarget	body: switch 的第一跳转目标(Sn)
-c	abcd/Nm	com/aide/engine/StackSimulator	str: com/aide/engine/StackSimulator——栈模拟器
-c	abcd/Sm	com/aide/engine/SsaUpdater	str: com/aide/engine/SsaUpdater——SSA 的 locals 合并
+c	abcd/Nm	com/aide/engine/ExecutionStack	body:TypeBearer[] + boolean[] + int 栈指针，copy/push(j6(Rs))/(j6(int,Rs))/pop/peek/clear/size ⇒ dx ExecutionStack（原判 StackSimulator 有误）
+c	abcd/Sm	com/aide/engine/LocalsArraySet	body:extends Rm；字段 OneLocalsArray primary + ArrayList<LocalsArray> secondaries，三个构造 (int)/(primary,secondaries)/(copy)，mergeWithSubroutineCaller/merge 返回自身类型 ⇒ dx LocalsArraySet
 c	abcd/Vo	com/aide/engine/AnnotationWriter	str: com/aide/engine/AnnotationWriter——注解写出器
 c	abcd/Tp	com/aide/engine/MapItemWriter	str: com/aide/engine/MapItemWriter——map_list 条目写出器
 c	abcd/Gp	com/aide/engine/DexSection	str: com/aide/engine/DexSection——带 offset/writeSize 的 dex 段基类
@@ -26958,7 +26958,7 @@ c	abcd/Qn	com/aide/engine/CatchHandlerList	body: com/aide/engine/CatchHandlerLis
 	m	()Z	rN	isCatchAll	body: 判断最后一项是否无捕获类型 ⇒ 有 catch-all（finally）处理器
 c	abcd/io	com/aide/engine/PositionTable	body: com/aide/engine/PositionTable——位置/行号表
 	m	(Labcd/Wn;I)Labcd/io;	j6	build	body: 遍历指令块，按 positionInfo 种类(1/2/3) 收集 (行号,源文件) 项 ⇒ 建位置表
-c	abcd/co	com/aide/engine/LocalVariableTable	str: com/aide/engine/LocalVariableTable——变量活跃区间（START/END_* 六种标记）
+c	abcd/co	com/aide/engine/LocalList	body:extends Xt(ArrayItem)；静态 EMPTY、j6(Wn)=make(DalvInsnList)、get(int):co$b=Entry、set(int,Entry)；内部枚举 co$a 恰 6 常量=Disposition ⇒ dx LocalList（原判 LocalVariableTable 有误）
 	m	(Labcd/Wn;)Labcd/co;	j6	build	body: 遍历指令块，遇到 do/eo 之类的变量起始/结束指令就往 co$c 里塞项，最后建表
 c	abcd/ip	com/aide/engine/DebugInfoItemSection	str: com/aide/engine/DebugInfoItemSection——写 debug_info_item
 	m	(Labcd/jp;Labcd/Lt;)V	DW	writeTo0	body: Gp.DW 的覆盖——写 debug_info_item（用 Un 的位置表/局部表/指令块）
@@ -27167,6 +27167,12 @@ c	abcd/_t	com/aide/engine/IntIterator	body:interface hasNext()/next():int，只�
 c	abcd/Nt	com/aide/engine/IntListImpl	role:bu(IntList) 的唯一实现：int[] 数组 + add/iterator/contains(j6(int):boolean)/合并(j6(bu))；dx 的 IntList 是具体类，AIDE 拆成接口+实现，实现按作用取名
 c	abcd/Im	com/aide/engine/ByteBlockList	body:extends du(LabeledList)；(int) 构造 + get(int):Hm + j6(int,Hm)=set + v5(int)=labelToBlock 四件套与 dx 1.7 ByteBlockList 一一对应；串 "no such label:" 同源
 c	abcd/Hm	com/aide/engine/ByteBlock	body:5 字段(label/start/end/successors:IntSet/catches:ExceptionTable) + 5 个 getter + toString；串 "label < 0"/"start < 0"/"end <= start"/"targets == null"/"successors["/"] =="/"catches == null" 与 dx 1.7 …
+c	abcd/_r	com/aide/engine/RegOps	body:两个静态方法 DW(int):String + j6(int):int，与 dx 1.7 RegOps 的 opName(int)/flippedIfOpcode(int) 一一对应；25 条 opcode 名字符串(fill-array-data/move-result-pseudo/invoke-*/unknown-) 同源
+c	abcd/Rm	com/aide/engine/LocalsArray	body:abstract extends hu(MutabilityControl) implements lu(ToHuman)；(boolean) 构造 + copy/annotate/makeInitialized/getMaxLocals/set×2/invalidate/getOrNull/get/getCategory1/2/merge/mergeWithSubroutineCal…
+c	abcd/Vm	com/aide/engine/OneLocalsArray	body:extends Rm(LocalsArray)；TypeBearer[] + (int) 构造 + get/getOrNull/makeInitialized/invalidate/merge×2/mergeWithSubroutineCaller/set×2/getMaxLocals/throwSimException 共 16 方法与 dx OneLocalsArray 一一对应
+c	abcd/Um	com/aide/engine/Merger	body:4 个 static 方法：(TypeBearer,TypeBearer)→TypeBearer=mergeType、(Nm, Nm)→Nm=mergeStack、(Vm,Vm)→Vm=mergeLocals + boolean 判定 ⇒ dx Merger
+c	abcd/co$a	com/aide/engine/LocalList$Disposition	body:6 常量枚举，正是 dx LocalList$Disposition(START/END_SIMPLY/END_REPLACED/END_MOVED/END_CLOBBERED_BY_PREV/END_CLOBBERED_BY_NEXT)
+c	abcd/co$b	com/aide/engine/LocalList$Entry	body:4 字段(address, Disposition, RegisterSpec, CstType) + compareTo/equals/isStart/getName/getSignature/getType(Js=DexString/Ks) ⇒ dx LocalList$Entry
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

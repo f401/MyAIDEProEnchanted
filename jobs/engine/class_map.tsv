@@ -312,8 +312,8 @@ Qp	com/aide/engine/TypeIdSection	str:"type_ids_size:   " / "type_ids_off:    " /
 Cp	com/aide/engine/MethodIdSection	str:"method_ids_size: " / "method_ids_off:  " / "not found" ⇒ dex 的 method_ids 段
 Xn	com/aide/engine/Opcode	str:"bogus nextOpcode"/"bogus family"/"bogus opcode:"/"format == null"；字段 (int 操作码, int, int nextOpcode, ao format, boolean)；FH() 用 oq.DW(int) 查操作码名 ⇒ 一条 dalvik 指令的操作码（dx 的 Dop）
 oo	com/aide/engine/SwitchInstruction	str:"packed" / "too many cases" / "cases / targets mismatch" / "targets == null"；字段 Sn(分支目标) + au(cases=IntSet) + Sn[](各 case 目标) + boolean；extends qo ⇒ switch 指令（旧名 SwitchPayloadBuilder 不对：它是指令不是构造器）
-Nm	com/aide/engine/StackSimulator	str:"stack: underflow" / "underlay stack:" / "overlay stack:" / "incompatible substitution: " ⇒ 栈模拟器
-Sm	com/aide/engine/SsaUpdater	str:"$Merging locals set for caller block " / "(locals array set; primary)" / "(Merging one locals against caller block " ⇒ SSA 的 locals 合并
+Nm	com/aide/engine/ExecutionStack	body:TypeBearer[] + boolean[] + int 栈指针，copy/push(j6(Rs))/(j6(int,Rs))/pop/peek/clear/size ⇒ dx ExecutionStack（原判 StackSimulator 有误）
+Sm	com/aide/engine/LocalsArraySet	body:extends Rm；字段 OneLocalsArray primary + ArrayList<LocalsArray> secondaries，三个构造 (int)/(primary,secondaries)/(copy)，mergeWithSubroutineCaller/merge 返回自身类型 ⇒ dx LocalsArraySet
 Vo	com/aide/engine/AnnotationWriter	str:"visibility: VISBILITY_" / " annotation" / "visibility: " ⇒ 注解写出器
 Tp	com/aide/engine/MapItemWriter	str:"item alignment mismatch" / "item size mismatch" / "items.size() == 0" / "itemType == null" ⇒ map_list 条目写出器
 Gp	com/aide/engine/DexSection	str:"writeSize is unknown" / "already written" / "offset < 0" ⇒ 带 offset/writeSize 的 dex 段基类
@@ -389,7 +389,7 @@ lu	com/aide/engine/ToHuman	iface:唯一抽象方法 aM()Ljava/lang/String;；被
 Un	com/aide/engine/Code	body:构造 (int positionInfo, ho unprocessedInsns, Pn unprocessedCatches) 抛 "unprocessedInsns == null"/"unprocessedCatches == null"；tp() 懒构建 VH=ho.j6()(指令块)、v5=io.j6(块,positionInfo)(位置表)、Zo=co.j6(块)(局部变量表)、Hw=Pn.build()(捕获表) ⇒ 一个方法编译后的 Code（dx 的 DalvCode）
 Qn	com/aide/engine/CatchHandlerList	body:extends Xt；j6(int,Ks,int) 往表里塞 (地址,捕获类型 DexType,跳转地址)，元素 Qn$a、get(int) 取；被 CatchTable 的元素当 handlers 字段 ⇒ dex 的 catch_handler_list
 io	com/aide/engine/PositionTable	body:静态 j6(Wn,int) 按 positionInfo 种类(1/2/3) 从指令块建表，元素 io$a=(int,hs=DexString)；hp(DebugInfoEncoder) 的构造第一参就是它（dx: PositionList）⇒ 位置/行号表
-co	com/aide/engine/LocalVariableTable	str:枚举 co$a 常量 START / END_SIMPLY / END_REPLACED / END_MOVED / END_CLOBBERED_BY_PREV / END_CLOBBERED_BY_NEXT；元素 co$b=(int,co$a,bs,Ks)+名字与签名两串；静态 j6(Wn) 从指令块建表；hp 的构造第二参 ⇒ 局部变量表（活跃区间）
+co	com/aide/engine/LocalList	body:extends Xt(ArrayItem)；静态 EMPTY、j6(Wn)=make(DalvInsnList)、get(int):co$b=Entry、set(int,Entry)；内部枚举 co$a 恰 6 常量=Disposition ⇒ dx LocalList（原判 LocalVariableTable 有误）
 ip	com/aide/engine/DebugInfoItemSection	str:"code == null" / "...while placing debug info for" / " debug info"；Hw() 返回 wp.Ws=debug_info_item；构造吃 (Un code, boolean, Gs method) ⇒ 写 debug_info_item 的段
 vp	com/aide/engine/Item	iface:5 个抽象方法 = Hw()wp(条目类型) / VH()int(写出大小，Gp 里抛 "writeSize is unknown") / Zo()String(类型名) / j6(jp)(place) / j6(jp,Lt)(writeTo)；唯一实现者 Gp(DexSection) ⇒ dx 的 Item（可放进 map_list 的条目契约）
 
@@ -548,3 +548,9 @@ _t	com/aide/engine/IntIterator	body:interface hasNext()/next():int，只从 bu.i
 Nt	com/aide/engine/IntListImpl	role:bu(IntList) 的唯一实现：int[] 数组 + add/iterator/contains(j6(int):boolean)/合并(j6(bu))；dx 的 IntList 是具体类，AIDE 拆成接口+实现，实现按作用取名
 Im	com/aide/engine/ByteBlockList	body:extends du(LabeledList)；(int) 构造 + get(int):Hm + j6(int,Hm)=set + v5(int)=labelToBlock 四件套与 dx 1.7 ByteBlockList 一一对应；串 "no such label:" 同源
 Hm	com/aide/engine/ByteBlock	body:5 字段(label/start/end/successors:IntSet/catches:ExceptionTable) + 5 个 getter + toString；串 "label < 0"/"start < 0"/"end <= start"/"targets == null"/"successors["/"] =="/"catches == null" 与 dx 1.7 …
+_r	com/aide/engine/RegOps	body:两个静态方法 DW(int):String + j6(int):int，与 dx 1.7 RegOps 的 opName(int)/flippedIfOpcode(int) 一一对应；25 条 opcode 名字符串(fill-array-data/move-result-pseudo/invoke-*/unknown-) 同源
+Rm	com/aide/engine/LocalsArray	body:abstract extends hu(MutabilityControl) implements lu(ToHuman)；(boolean) 构造 + copy/annotate/makeInitialized/getMaxLocals/set×2/invalidate/getOrNull/get/getCategory1/2/merge/mergeWithSubroutineCal…
+Vm	com/aide/engine/OneLocalsArray	body:extends Rm(LocalsArray)；TypeBearer[] + (int) 构造 + get/getOrNull/makeInitialized/invalidate/merge×2/mergeWithSubroutineCaller/set×2/getMaxLocals/throwSimException 共 16 方法与 dx OneLocalsArray 一一对应
+Um	com/aide/engine/Merger	body:4 个 static 方法：(TypeBearer,TypeBearer)→TypeBearer=mergeType、(Nm, Nm)→Nm=mergeStack、(Vm,Vm)→Vm=mergeLocals + boolean 判定 ⇒ dx Merger
+co$a	com/aide/engine/LocalList$Disposition	body:6 常量枚举，正是 dx LocalList$Disposition(START/END_SIMPLY/END_REPLACED/END_MOVED/END_CLOBBERED_BY_PREV/END_CLOBBERED_BY_NEXT)
+co$b	com/aide/engine/LocalList$Entry	body:4 字段(address, Disposition, RegisterSpec, CstType) + compareTo/equals/isStart/getName/getSignature/getType(Js=DexString/Ks) ⇒ dx LocalList$Entry
