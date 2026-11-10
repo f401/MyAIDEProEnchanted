@@ -27106,6 +27106,7 @@ c	abcd/Mn	com/aide/engine/ProGuardConfiguration	str:"Error with optimize list: "
 c	abcd/Kn	com/aide/engine/ClassFileToDexConverter	str:"can't coerce" / " to " / "...while processing"；静态 j6(String, byte[], Options, Fn): ClassDefItemBuilder，内部走 fs(
 c	abcd/Qi	com/aide/licensing/UiBuilderLicenseChecker	hier:extends Oi(LicenseChecker)；三个串 "com.aide.designer"（包名）+ 一段 RSA 公钥 + "com.aide.licensing.UiBuilderKeyLicensingS
 c	abcd/Gl	com/aide/ui/views/editor/HtmlTagCompleter	role:两个静态 j6(AIDEEditor, char|int, int, int): boolean，串 "<" / ">" / "</" ⇒ 编辑器里输入 < > 时自动补/配 HTML 标签
+c	abcd/Ox	com/aide/ui/util/GoogleSignInApi	str:"profile" / "email" / "SignIn.API"；字段全是 com.google.android.gms.common.api.Api/Api$a/Scope 与 com.google.android.
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

@@ -2011,3 +2011,4 @@ c	abcd/Mn	-	-	str:"Error with optimize list: " / "optimize and don't optimize li
 c	abcd/Kn	-	-	str:"can't coerce" / " to " / "...while processing"；静态 j6(String, byte[], Options, Fn): ClassDefItemBuilder，内部走 fs(
 c	abcd/Qi	-	-	hier:extends Oi(LicenseChecker)；三个串 "com.aide.designer"（包名）+ 一段 RSA 公钥 + "com.aide.licensing.UiBuilderKeyLicensingS
 c	abcd/Gl	-	-	role:两个静态 j6(AIDEEditor, char|int, int, int): boolean，串 "<" / ">" / "</" ⇒ 编辑器里输入 < > 时自动补/配 HTML 标签
+c	abcd/Ox	-	-	str:"profile" / "email" / "SignIn.API"；字段全是 com.google.android.gms.common.api.Api/Api$a/Scope 与 com.google.android.
