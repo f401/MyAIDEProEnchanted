@@ -683,3 +683,7 @@ SG$a	org/eclipse/jgit/internal/storage/file/LocalObjectRepresentation$1	body:ext
 rI$a	org/eclipse/jgit/transport/HttpAuthMethod$Basic	body:2 个 String 字段(user/pass) + authorize(String,String)/apply(HttpURLConnection)，与 4.11.9 HttpAuthMethod$Basic 1:1
 rI$b	org/eclipse/jgit/transport/HttpAuthMethod$Digest	body:6 字段(Random/char[]/Map/String/String/int) + 10 方法，对应 4.11.9 HttpAuthMethod$Digest 的 PRNG/params/requestCount/user/pass/LHEX 与 uri/H/KD/newMD5/LHEX/parse
 rI$c	org/eclipse/jgit/transport/HttpAuthMethod$None	body:无实例字段 + 4 方法(authorize/apply/=ctor)，对应 4.11.9 HttpAuthMethod$None（静态 INSTANCE 被内联）
+LD	org/eclipse/jgit/events/RepositoryListener	iface:空标记接口；DD(ConfigChangedListener)/FD/JD 都 extends 它，HD(ListenerList) 字段 ConcurrentMap<Class<? extends LD>,..> 且 addListener(Class<T extends LD>,T) ⇒ jgit RepositoryListener
+JD	org/eclipse/jgit/events/RefsChangedListener	iface:extends LD，唯一方法 j6(Labcd/ID;)V 即 onRefsChanged(RefsChangedEvent)（ID=RefsChangedEvent）；oracle 3.7.1 RefsChangedListener 同形
+CD	org/eclipse/jgit/events/ConfigChangedEvent	body:extends KD<DD>，三方法 getListenerType():Class<DD> / dispatch(DD) / 编译器桥 dispatch(LD)，与 3.7.1 ConfigChangedEvent 逐位一致
+ID	org/eclipse/jgit/events/RefsChangedEvent	body:extends KD<JD>，三方法 getListenerType():Class<JD> / dispatch(JD) / 桥 dispatch(LD)，与 3.7.1 RefsChangedEvent 逐位一致

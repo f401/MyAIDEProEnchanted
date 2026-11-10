@@ -6225,3 +6225,14 @@ abcd/rI$b org/eclipse/jgit/transport/HttpAuthMethod$Digest
 abcd/rI$c org/eclipse/jgit/transport/HttpAuthMethod$None
 	j6 (Ljava/lang/String;Ljava/lang/String;)V authorize
 	j6 (Ljava/net/HttpURLConnection;)V configureRequest
+abcd/LD org/eclipse/jgit/events/RepositoryListener
+abcd/JD org/eclipse/jgit/events/RefsChangedListener
+	j6 (Labcd/ID;)V onRefsChanged
+abcd/CD org/eclipse/jgit/events/ConfigChangedEvent
+	j6 ()Ljava/lang/Class; getListenerType
+	j6 (Labcd/DD;)V dispatch
+	j6 (Labcd/LD;)V dispatch
+abcd/ID org/eclipse/jgit/events/RefsChangedEvent
+	j6 ()Ljava/lang/Class; getListenerType
+	j6 (Labcd/JD;)V dispatch
+	j6 (Labcd/LD;)V dispatch

@@ -6225,3 +6225,14 @@ c	abcd/tB$c	-	-	auto: 匿名内部类（外层 RebaseCommand）（上游未收�
 f	abcd/tB$a	j6	-	auto: 字段(Labcd/tB$a;)（上游无同类型对应，按作用取名）
 m	abcd/tB$a	j6	(Ljava/lang/String;)Labcd/tB$a;	auto: 「parse」（上游无同签名对应，按作用取名）
 m	abcd/tB$a	Hw	()Ljava/lang/String;	auto: 转换为 Token（上游无同签名对应，按作用取名）
+c	abcd/LD	-	-	iface:空标记接口；DD(ConfigChangedListener)/FD/JD 都 extends 它，HD(ListenerList) 字段 ConcurrentMap<Class<? extends LD>,..> 且 addListener(Class<T extends LD>,T) ⇒ jgit RepositoryListener
+c	abcd/JD	-	-	iface:extends LD，唯一方法 j6(Labcd/ID;)V 即 onRefsChanged(RefsChangedEvent)（ID=RefsChangedEvent）；oracle 3.7.1 RefsChangedListener 同形
+c	abcd/CD	-	-	body:extends KD<DD>，三方法 getListenerType():Class<DD> / dispatch(DD) / 编译器桥 dispatch(LD)，与 3.7.1 ConfigChangedEvent 逐位一致
+c	abcd/ID	-	-	body:extends KD<JD>，三方法 getListenerType():Class<JD> / dispatch(JD) / 桥 dispatch(LD)，与 3.7.1 RefsChangedEvent 逐位一致
+m	abcd/JD	j6	(Labcd/ID;)V	src: jgit-3.7.1 org/eclipse/jgit/events/RefsChangedListener#onRefsChanged；iface 唯一方法，参数类型即 ID(RefsChangedEvent)
+m	abcd/CD	j6	()Ljava/lang/Class;	src: jgit-3.7.1 org/eclipse/jgit/events/ConfigChangedEvent#getListenerType；返回 DD.class
+m	abcd/CD	j6	(Labcd/DD;)V	src: jgit-3.7.1 org/eclipse/jgit/events/ConfigChangedEvent#dispatch(ConfigChangedListener)
+m	abcd/CD	j6	(Labcd/LD;)V	auto: 编译器协变桥，与父类 KD.j6(Labcd/LD;)V 同义（dispatch），APK 保留两份
+m	abcd/ID	j6	()Ljava/lang/Class;	src: jgit-3.7.1 org/eclipse/jgit/events/RefsChangedEvent#getListenerType；返回 JD.class
+m	abcd/ID	j6	(Labcd/JD;)V	src: jgit-3.7.1 org/eclipse/jgit/events/RefsChangedEvent#dispatch(RefsChangedListener)
+m	abcd/ID	j6	(Labcd/LD;)V	auto: 编译器协变桥，与父类 KD.j6(Labcd/LD;)V 同义（dispatch），APK 保留两份

@@ -759,6 +759,7 @@ c	abcd/ED	org/eclipse/jgit/events/IndexChangedEvent	src: jgit-3.7.1 org/eclipse/
 	m	(Labcd/FD;)V	j6	dispatch	auto: 执行 dispatch；src: jgit-3.7.1 org/eclipse/jgit/events/IndexChangedEvent#dispatch
 		p	0	listener	listener
 	m	(Labcd/LD;)V	j6	dispatch	auto: 执行 dispatch（上游无同签名对应，按作用取名）
+		p	0	x0	x0
 c	abcd/EE	org/eclipse/jgit/lib/ObjectInserter	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter；doc: Inserts objects into an existing ObjectDatabase.
 	m	(IJLjava/io/InputStream;)Labcd/yE;	j6	insert	src: jgit-3.7.1 org/eclipse/jgit/lib/ObjectInserter#insert；doc: Insert a single object into the store, returning its unique name.
 		p	0	objectType	objectType
@@ -1189,6 +1190,8 @@ c	abcd/HC	org/eclipse/jgit/diff/SubsequenceComparator	src: jgit-3.7.1 org/eclips
 	f	Labcd/DC;	j6	cmp	auto: 字段(Labcd/DC;)；src: jgit-3.7.1 org/eclipse/jgit/diff/SubsequenceComparator.cmp
 c	abcd/HD	org/eclipse/jgit/events/ListenerList	src: jgit-3.7.1 org/eclipse/jgit/events/ListenerList；doc: Manages a thread-safe list of RepositoryListeners.
 	m	(Ljava/lang/Class;Labcd/LD;)Labcd/GD;	j6	addListener	auto: 加入 Listener（上游无同签名对应，按作用取名）
+		p	0	type	type
+		p	1	listener	listener
 	m	(Labcd/KD;)V	j6	dispatch	src: jgit-3.7.1 org/eclipse/jgit/events/ListenerList#dispatch；doc: Dispatch an event to all interested listeners.
 		p	0	event	event
 	f	Ljava/util/concurrent/ConcurrentMap;	j6	lists	auto: 字段(Ljava/util/concurrent/ConcurrentMap;)；src: jgit-3.7.1 org/eclipse/jgit/events/ListenerList.lists
@@ -1731,6 +1734,7 @@ c	abcd/KD	org/eclipse/jgit/events/RepositoryEvent	src: jgit-3.7.1 org/eclipse/jg
 	m	(Labcd/UE;)V	j6	setRepository	src: jgit-3.7.1 org/eclipse/jgit/events/RepositoryEvent#setRepository；doc: Set the repository this event occurred on.
 		p	0	r	r
 	m	(Labcd/LD;)V	j6	dispatch	auto: 执行 dispatch（上游无同签名对应，按作用取名）
+		p	0	listener	listener
 c	abcd/KE	org/eclipse/jgit/lib/PersonIdent	src: jgit-3.7.1 org/eclipse/jgit/lib/PersonIdent；doc: A combination of a person identity and time in Git.
 	m	(Ljava/lang/StringBuilder;)V	j6	appendTimezone	auto: 执行 appendTimezone；src: jgit-3.7.1 org/eclipse/jgit/lib/PersonIdent#appendTimezone
 		p	0	r	r
@@ -9420,6 +9424,7 @@ c	abcd/aE	org/eclipse/jgit/lib/AsyncOperation	src: jgit-3.7.1 org/eclipse/jgit/l
 	m	()V	j6	release	src: jgit-3.7.1 org/eclipse/jgit/lib/AsyncOperation#release；doc: Release resources used by the operation, including cancellation.
 c	abcd/DD	org/eclipse/jgit/events/ConfigChangedListener	src: jgit-3.7.1 org/eclipse/jgit/events/ConfigChangedListener；doc: Receives ConfigChangedEvents.
 	m	(Labcd/CD;)V	j6	onConfigChanged	auto: 执行 onConfigChanged（上游无同签名对应，按作用取名）
+		p	0	event	event
 c	abcd/GH	org/eclipse/jgit/internal/storage/file/AideObjectStream	auto: 流：AideObject（上游未收录，名字来自 jobs/jgit 的判据）
 	m	()J	DW	getObjectSize	auto: 取 ObjectSize（上游无同签名对应，按作用取名）
 	m	()Ljava/io/InputStream;	FH	openStream	auto: 打开 Stream（上游无同签名对应，按作用取名）
@@ -9465,6 +9470,22 @@ c	abcd/rI$c	org/eclipse/jgit/transport/HttpAuthMethod$None	auto: 类：None（�
 		p	0	user	user
 		p	1	pass	pass
 	m	(Ljava/net/HttpURLConnection;)V	j6	configureRequest	auto: 执行 configureRequest（上游无同签名对应，按作用取名）
+c	abcd/LD	org/eclipse/jgit/events/RepositoryListener	iface:空标记接口；DD(ConfigChangedListener)/FD/JD 都 extends 它，HD(ListenerList) 字段 ConcurrentMap<Class<? extends LD>,..> 且 addListener(Class<T extends LD>,T) ⇒ jgit RepositoryListener
+c	abcd/JD	org/eclipse/jgit/events/RefsChangedListener	iface:extends LD，唯一方法 j6(Labcd/ID;)V 即 onRefsChanged(RefsChangedEvent)（ID=RefsChangedEvent）；oracle 3.7.1 RefsChangedListener 同形
+	m	(Labcd/ID;)V	j6	onRefsChanged	src: jgit-3.7.1 org/eclipse/jgit/events/RefsChangedListener#onRefsChanged；iface 唯一方法，参数类型即 ID(RefsChangedEvent)
+		p	0	event	event
+c	abcd/CD	org/eclipse/jgit/events/ConfigChangedEvent	body:extends KD<DD>，三方法 getListenerType():Class<DD> / dispatch(DD) / 编译器桥 dispatch(LD)，与 3.7.1 ConfigChangedEvent 逐位一致
+	m	()Ljava/lang/Class;	j6	getListenerType	src: jgit-3.7.1 org/eclipse/jgit/events/ConfigChangedEvent#getListenerType；返回 DD.class
+	m	(Labcd/DD;)V	j6	dispatch	src: jgit-3.7.1 org/eclipse/jgit/events/ConfigChangedEvent#dispatch(ConfigChangedListener)
+		p	0	listener	listener
+	m	(Labcd/LD;)V	j6	dispatch	auto: 编译器协变桥，与父类 KD.j6(Labcd/LD;)V 同义（dispatch），APK 保留两份
+		p	0	x0	x0
+c	abcd/ID	org/eclipse/jgit/events/RefsChangedEvent	body:extends KD<JD>，三方法 getListenerType():Class<JD> / dispatch(JD) / 桥 dispatch(LD)，与 3.7.1 RefsChangedEvent 逐位一致
+	m	()Ljava/lang/Class;	j6	getListenerType	src: jgit-3.7.1 org/eclipse/jgit/events/RefsChangedEvent#getListenerType；返回 JD.class
+	m	(Labcd/JD;)V	j6	dispatch	src: jgit-3.7.1 org/eclipse/jgit/events/RefsChangedEvent#dispatch(RefsChangedListener)
+		p	0	listener	listener
+	m	(Labcd/LD;)V	j6	dispatch	auto: 编译器协变桥，与父类 KD.j6(Labcd/LD;)V 同义（dispatch），APK 保留两份
+		p	0	x0	x0
 c	com/jcraft/jsch/UserInfo	com/jcraft/jsch/UserInfo	auto: 类：UserInfo；src: jsch-0.1.51 com/jcraft/jsch/UserInfo
 	m	(Ljava/lang/String;)V	DW	showMessage	auto: 执行 showMessage；src: jsch-0.1.51 com/jcraft/jsch/UserInfo#showMessage
 		p	0	message	message

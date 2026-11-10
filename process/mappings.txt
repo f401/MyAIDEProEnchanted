@@ -798,6 +798,7 @@ abcd/ED org/eclipse/jgit/events/IndexChangedEvent
 	j6 (Labcd/FD;)V dispatch
 		0 listener listener
 	j6 (Labcd/LD;)V dispatch
+		0 x0 x0
 abcd/EE org/eclipse/jgit/lib/ObjectInserter
 	j6 (IJLjava/io/InputStream;)Labcd/yE; insert
 		0 objectType objectType
@@ -1258,6 +1259,8 @@ abcd/HC org/eclipse/jgit/diff/SubsequenceComparator
 	j6 cmp
 abcd/HD org/eclipse/jgit/events/ListenerList
 	j6 (Ljava/lang/Class;Labcd/LD;)Labcd/GD; addListener
+		0 type type
+		1 listener listener
 	j6 (Labcd/KD;)V dispatch
 		0 event event
 	j6 lists
@@ -1847,6 +1850,7 @@ abcd/KD org/eclipse/jgit/events/RepositoryEvent
 	j6 (Labcd/UE;)V setRepository
 		0 r r
 	j6 (Labcd/LD;)V dispatch
+		0 listener listener
 abcd/KE org/eclipse/jgit/lib/PersonIdent
 	j6 (Ljava/lang/StringBuilder;)V appendTimezone
 		0 r r
@@ -9940,6 +9944,7 @@ abcd/aE org/eclipse/jgit/lib/AsyncOperation
 	j6 ()V release
 abcd/DD org/eclipse/jgit/events/ConfigChangedListener
 	j6 (Labcd/CD;)V onConfigChanged
+		0 event event
 abcd/GH org/eclipse/jgit/internal/storage/file/AideObjectStream
 	DW ()J getObjectSize
 	FH ()Ljava/io/InputStream; openStream
@@ -9991,6 +9996,22 @@ abcd/rI$c org/eclipse/jgit/transport/HttpAuthMethod$None
 		0 user user
 		1 pass pass
 	j6 (Ljava/net/HttpURLConnection;)V configureRequest
+abcd/LD org/eclipse/jgit/events/RepositoryListener
+abcd/JD org/eclipse/jgit/events/RefsChangedListener
+	j6 (Labcd/ID;)V onRefsChanged
+		0 event event
+abcd/CD org/eclipse/jgit/events/ConfigChangedEvent
+	j6 ()Ljava/lang/Class; getListenerType
+	j6 (Labcd/DD;)V dispatch
+		0 listener listener
+	j6 (Labcd/LD;)V dispatch
+		0 x0 x0
+abcd/ID org/eclipse/jgit/events/RefsChangedEvent
+	j6 ()Ljava/lang/Class; getListenerType
+	j6 (Labcd/JD;)V dispatch
+		0 listener listener
+	j6 (Labcd/LD;)V dispatch
+		0 x0 x0
 com/jcraft/jsch/UserInfo com/jcraft/jsch/UserInfo
 	DW (Ljava/lang/String;)V showMessage
 		0 message message
