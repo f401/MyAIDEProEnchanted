@@ -27091,6 +27091,15 @@ c	abcd/Ie	com/aide/ui/util/MavenDependency	hier:extends Si；常量串 groupId /
 c	abcd/En	com/aide/engine/DexFormat	body:两个静态 j6 (byte[]→int 判版本、int→String 取版本名)；串 "dex\\n" / "035" / "036" ⇒ dex 文件头魔数与版本工具
 c	abcd/Dt	com/aide/engine/SsaBasicBlock	str:"attempt to add invalid register mapping"；字段 4 个 BitSet + 多个 ArrayList<mt>/<ot> + 寄存器映射表 ⇒ SSA 形式的基本块（前驱/后
 c	abcd/Ee	com/aide/engine/DomWriter	str:"\\t" / "\\n" / "UTF8" / "&gt;"；方法 j6(org.w3c.dom.Document, Writer/OutputStream) + 私有 j6(Node,Writer,int,Str
+c	abcd/Pp	com/aide/engine/TypeIdItem	body:extends tp(同族 id 项基类)；串 "descriptor_idx:"；Hw() 返回 wp(类型 id 项) ⇒ dex 的 type_id_item（与 FieldIdItem/MethodId
+c	abcd/Mp	com/aide/engine/StringDataItem	body:extends Gp(DexSection)；构造吃 Js(DexString)、串 "utf16_size:" ⇒ dex 的 string_data_item（utf16 长度 + MUTF-8 数据）
+c	abcd/Rp	com/aide/engine/TypeListSection	body:extends Gp；构造吃 Ss(TypeList)、串 "type_list" / "  size:" / " //" ⇒ dex 的 type_list 段
+c	abcd/Kt	com/aide/engine/SsaToRop	str:"Exit block must have no insns when leaving SSA form" / "Exit predecessor must end in valid exit statement
+c	abcd/Gm	com/aide/engine/BytecodeVerifier	str:"flow of control falls off end of method"；字段 int[]×2 + Jm[](异常表) ⇒ 字节码控制流/栈图校验
+c	abcd/Ts	com/aide/engine/SsaRegisterMapper	str:"no mapping specified for register"；字段 au(IntSet) 做已分配集合、j6(int):int 查映射 ⇒ SSA 寄存器重编号映射
+c	abcd/Km	com/aide/engine/DalvikOpcodeTable	str:一整条 "00 - nop;01 - aconst_null;02 - iconst_m1;…" 的 dalvik 反汇编名表；static int[] + DW(int):String 取名、j6(int):i
+c	abcd/Ns	com/aide/engine/ZeroConstants	role:唯一方法 public static ms j6(Qs) 按类型造零常量，串 "no zero for type:" ⇒ 各基本类型的零值常量工厂
+c	abcd/Uv	com/aide/engine/ChecksumUtils	role:两个 ThreadLocal<java.util.zip.CRC32/Adler32> + public static String j6(CharSequence) ⇒ 计算并格式化校验和
 c	a/a	proguard/ArgumentWordReader	src: proguard-6.0.3 proguard/ArgumentWordReader；doc: A WordReader that returns words from an argument list.
 	f	[Ljava/lang/String;	a	arguments	auto: 字段([Ljava/lang/String;)；src: proguard-6.0.3 proguard/ArgumentWordReader.arguments
 	m	()Ljava/lang/String;	a	nextLine	auto: 取下一个 Line；src: proguard-6.0.3 proguard/ArgumentWordReader#nextLine

@@ -1989,3 +1989,12 @@ abcd/Ie com/aide/ui/util/MavenDependency
 abcd/En com/aide/engine/DexFormat
 abcd/Dt com/aide/engine/SsaBasicBlock
 abcd/Ee com/aide/engine/DomWriter
+abcd/Pp com/aide/engine/TypeIdItem
+abcd/Mp com/aide/engine/StringDataItem
+abcd/Rp com/aide/engine/TypeListSection
+abcd/Kt com/aide/engine/SsaToRop
+abcd/Gm com/aide/engine/BytecodeVerifier
+abcd/Ts com/aide/engine/SsaRegisterMapper
+abcd/Km com/aide/engine/DalvikOpcodeTable
+abcd/Ns com/aide/engine/ZeroConstants
+abcd/Uv com/aide/engine/ChecksumUtils
