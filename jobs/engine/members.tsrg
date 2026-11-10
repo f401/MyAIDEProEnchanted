@@ -2002,3 +2002,5 @@ abcd/Mr com/aide/engine/AccessFlags
 abcd/Lp com/aide/engine/SectionStatistics
 abcd/Mn com/aide/engine/ProGuardConfiguration
 abcd/Kn com/aide/engine/ClassFileToDexConverter
+abcd/Qi com/aide/licensing/UiBuilderLicenseChecker
+abcd/Gl com/aide/ui/views/editor/HtmlTagCompleter

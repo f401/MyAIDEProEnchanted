@@ -2009,3 +2009,5 @@ c	abcd/Mr	-	-	role:全静态 (int)→String/boolean：DW/FH 拼修饰符串（�
 c	abcd/Lp	-	-	role:HashMap<String,Lp$a> 按段名累加；j6(Kp=Item)/j6(vp)/j6(Lt) 三个重载登记，串 "\nstatistics:\n" 输出 ⇒ 各段大小/数量统计
 c	abcd/Mn	-	-	str:"Error with optimize list: " / "optimize and don't optimize lists  are mutually exclusive."；两个 static HashSet<S
 c	abcd/Kn	-	-	str:"can't coerce" / " to " / "...while processing"；静态 j6(String, byte[], Options, Fn): ClassDefItemBuilder，内部走 fs(
+c	abcd/Qi	-	-	hier:extends Oi(LicenseChecker)；三个串 "com.aide.designer"（包名）+ 一段 RSA 公钥 + "com.aide.licensing.UiBuilderKeyLicensingS
+c	abcd/Gl	-	-	role:两个静态 j6(AIDEEditor, char|int, int, int): boolean，串 "<" / ">" / "</" ⇒ 编辑器里输入 < > 时自动补/配 HTML 标签
