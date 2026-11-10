@@ -26782,7 +26782,7 @@ c	abcd/mp	com/aide/engine/EncodedItem	body: 编码成员基类——访问标志
 c	abcd/Ap	com/aide/engine/MethodAnnotations	str: com/aide/engine/MethodAnnotations——方法注解表
 c	abcd/Hp	com/aide/engine/MethodAnnotationsDirectory	str: com/aide/engine/MethodAnnotationsDirectory——方法注解目录
 c	abcd/ln	com/aide/engine/ClassFileReader	str: com/aide/engine/ClassFileReader——class 文件读取
-c	abcd/es	com/aide/engine/RopExceptions	str: com/aide/engine/RopExceptions——rop 的异常/可抛出集合
+c	abcd/es	com/aide/engine/Rop	body: body:字段 (int opcode, Qs type, Ss exceptions, Ss, int branchingness, boolean, String nickname)；字符串 "exceptions 
 c	abcd/yt	com/aide/engine/SsaValue	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
 c	abcd/no	com/aide/engine/MethodCatches	body: com/aide/engine/MethodCatches——从 RopMethod 算 catch table（implements Catches）
 	m	(Labcd/fs;[ILabcd/On;)Labcd/Rn;	j6	buildCatchTable	body: 按 order 顺序扫块，收集异常边并合成 Rn(CatchTable)；ArrayList 预分配 order.length ⇒ 公开的建表入口（build() 就调它）
@@ -26834,9 +26834,9 @@ c	abcd/Bn	com/aide/engine/EncodedMember	str/body: com/aide/engine/EncodedMember�
 	f	Labcd/Hs;	FH	nameAndType	body: 名字+描述符对(Hs=DexReference)——FH() 返回它
 	f	Labcd/pn;	Hw	attributes	body: 属性表(pn=DexAttributes)——getAttributes() 返回它
 c	abcd/in	com/aide/engine/InstructionDisassembler	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
-c	abcd/Tr	com/aide/engine/Prototype	body: 方法原型——参数类型表(TypeList)+shorty 串+返回类型，构造 (es,hs,bs,cs)
-	m	()Labcd/Ss;	DW	getParameterTypes	body: getParameterTypes——返回 Ss(TypeList)=参数类型表
-	m	()Ljava/lang/String;	FH	getShortyString	body: getShortyString——返回 shorty 串（构造器第二位就是 shorty 用的 DexString）
+c	abcd/Tr	com/aide/engine/Insn	body: body:abstract；字段 es(Rop 操作) + hs(结果寄存器) + bs(结果类型) + cs(源寄存器表)；DW():Ss 取异常类型表、j6(Qs) 加重捕获、j6(Tr$b) 是访问者、v5():e
+	m	()Labcd/Ss;	DW	getCatches	body: getCatches——返回异常类型表(Ss=TypeList)；ThrowingInsn 覆盖
+	m	()Ljava/lang/String;	FH	getConstantText	body: getConstantText——基类返回 null；CstInsn 覆盖为 constant.toHuman()
 c	abcd/ds	com/aide/engine/TypeListBuilder	body: 可变的类型表（TypeList 的构建态），空实例 DW
 c	abcd/Fs	com/aide/engine/DexMemberReference	body: 成员引用基类——定义类 + 名字描述符对；构造做空检查（"definingClass == null"/"nat == null"），aM() 拼 定义类.成员
 	m	()Labcd/Ks;	VH	getDefiningClass	body: 返回 j6(定义类)；qs/vs 里用来取定义类

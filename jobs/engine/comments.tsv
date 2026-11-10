@@ -1527,7 +1527,7 @@ c	abcd/np	-	-	str: com/aide/engine/EncodedMethod——dex 的 encoded_method（m
 c	abcd/Ap	-	-	str: com/aide/engine/MethodAnnotations——方法注解表
 c	abcd/Hp	-	-	str: com/aide/engine/MethodAnnotationsDirectory——方法注解目录
 c	abcd/ln	-	-	str: com/aide/engine/ClassFileReader——class 文件读取
-c	abcd/es	-	-	str: com/aide/engine/RopExceptions——rop 的异常/可抛出集合
+c	abcd/es	-	-	body: body:字段 (int opcode, Qs type, Ss exceptions, Ss, int branchingness, boolean, String nickname)；字符串 "exceptions 
 c	abcd/yt	-	-	str: com/aide/engine/SsaValue——SSA 值的 use/def 表
 c	abcd/no	-	-	body: com/aide/engine/MethodCatches——从 RopMethod 算 catch table（implements Catches）
 c	abcd/px	-	-	str: com/aide/engine/BinderWrapper——Binder 反射包装
@@ -1543,10 +1543,10 @@ c	abcd/Bn	-	-	str/body: com/aide/engine/EncodedMember——dex 的 encoded_field
 c	abcd/in	-	-	str: com/aide/engine/InstructionDisassembler——反汇编输出（" #"/" //"/" // padding:" 注释格式）
 m	abcd/Gp	j6	(I)V	body: setWriteSize——方法体里是 "writeSize already set" / "writeSize < 0" 两处校验
 m	abcd/Gp	Ws	()Ljava/lang/String;	body: "["+Integer.toHexString(we())+"]" ⇒ 只拼十六进制偏移标签（旧名 toHuman 名不符实，已改）
-c	abcd/Tr	-	-	body: 方法原型——参数类型表(TypeList)+shorty 串+返回类型，构造 (es,hs,bs,cs)
+c	abcd/Tr	-	-	body: body:abstract；字段 es(Rop 操作) + hs(结果寄存器) + bs(结果类型) + cs(源寄存器表)；DW():Ss 取异常类型表、j6(Qs) 加重捕获、j6(Tr$b) 是访问者、v5():e
 c	abcd/ds	-	-	body: 可变的类型表（TypeList 的构建态），空实例 DW
-m	abcd/Tr	DW	()Labcd/Ss;	body: getParameterTypes——返回 Ss(TypeList)=参数类型表
-m	abcd/Tr	FH	()Ljava/lang/String;	body: getShortyString——返回 shorty 串（构造器第二位就是 shorty 用的 DexString）
+m	abcd/Tr	DW	()Labcd/Ss;	body: getCatches——返回异常类型表(Ss=TypeList)；ThrowingInsn 覆盖
+m	abcd/Tr	FH	()Ljava/lang/String;	body: getConstantText——基类返回 null；CstInsn 覆盖为 constant.toHuman()
 c	abcd/Fs	-	-	body: 成员引用基类——定义类 + 名字描述符对；构造做空检查（"definingClass == null"/"nat == null"），aM() 拼 定义类.成员
 c	abcd/ws	-	-	str: 字段引用——Zo() 返回 "field"，被 FieldIdSection 的 TreeMap 当 key
 c	abcd/qs	-	-	body: 方法引用基类（abstract）——J8() 取成员签名，子类按 typeName 分 "method"/"ifaceMethod"

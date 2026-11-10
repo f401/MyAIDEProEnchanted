@@ -28215,7 +28215,7 @@ abcd/mp com/aide/engine/EncodedItem
 abcd/Ap com/aide/engine/MethodAnnotations
 abcd/Hp com/aide/engine/MethodAnnotationsDirectory
 abcd/ln com/aide/engine/ClassFileReader
-abcd/es com/aide/engine/RopExceptions
+abcd/es com/aide/engine/Rop
 abcd/yt com/aide/engine/SsaValue
 abcd/no com/aide/engine/MethodCatches
 	j6 (Labcd/fs;[ILabcd/On;)Labcd/Rn; buildCatchTable
@@ -28269,9 +28269,9 @@ abcd/Bn com/aide/engine/EncodedMember
 	FH nameAndType
 	Hw attributes
 abcd/in com/aide/engine/InstructionDisassembler
-abcd/Tr com/aide/engine/Prototype
-	DW ()Labcd/Ss; getParameterTypes
-	FH ()Ljava/lang/String; getShortyString
+abcd/Tr com/aide/engine/Insn
+	DW ()Labcd/Ss; getCatches
+	FH ()Ljava/lang/String; getConstantText
 abcd/ds com/aide/engine/TypeListBuilder
 abcd/Fs com/aide/engine/DexMemberReference
 	VH ()Labcd/Ks; getDefiningClass
