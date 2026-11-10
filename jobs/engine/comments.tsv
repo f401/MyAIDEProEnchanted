@@ -2012,3 +2012,8 @@ c	abcd/Kn	-	-	str:"can't coerce" / " to " / "...while processing"；静态 j6(St
 c	abcd/Qi	-	-	hier:extends Oi(LicenseChecker)；三个串 "com.aide.designer"（包名）+ 一段 RSA 公钥 + "com.aide.licensing.UiBuilderKeyLicensingS
 c	abcd/Gl	-	-	role:两个静态 j6(AIDEEditor, char|int, int, int): boolean，串 "<" / ">" / "</" ⇒ 编辑器里输入 < > 时自动补/配 HTML 标签
 c	abcd/Ox	-	-	str:"profile" / "email" / "SignIn.API"；字段全是 com.google.android.gms.common.api.Api/Api$a/Scope 与 com.google.android.
+c	abcd/Ur	-	-	body:extends Xt；get(int):Tr(Insn)、rN():Tr 取末条、j6(int,Tr) 放、j6(Tr$b) 遍历、j6(Ur) 比较 ⇒ 指令表（dx 的 InsnList）；BasicBlock.ge
+c	abcd/Pr	-	-	body:abstract extends Insn；字段 ms v5(常量) + tp():ms 取它 + FH() 覆盖为 constant.toHuman() ⇒ 带常量的指令基类（dx 的 CstInsn）
+c	abcd/Yr	-	-	body:extends CstInsn；构造 (Rop,结果,类型,源表,常量) ⇒ 只有单个常量的普通常量指令（dx 的 PlainCstInsn）
+c	abcd/Sr	-	-	body:extends Insn；字段 ArrayList<ms> + ms、EQ():ArrayList 与 tp():ms ⇒ 带多个常量池项的指令（dx 的 MultiCstInsn）
+c	abcd/Tr$b	-	-	iface:6 个 visit 方法分别收 Sr/Yr/Zr/is/js/ks 六种指令 ⇒ Insn 的访问者（dx 的 Insn$Visitor）

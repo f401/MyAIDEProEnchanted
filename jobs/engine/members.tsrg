@@ -2005,3 +2005,8 @@ abcd/Kn com/aide/engine/ClassFileToDexConverter
 abcd/Qi com/aide/licensing/UiBuilderLicenseChecker
 abcd/Gl com/aide/ui/views/editor/HtmlTagCompleter
 abcd/Ox com/aide/ui/util/GoogleSignInApi
+abcd/Ur com/aide/engine/InsnList
+abcd/Pr com/aide/engine/CstInsn
+abcd/Yr com/aide/engine/PlainCstInsn
+abcd/Sr com/aide/engine/MultiCstInsn
+abcd/Tr$b com/aide/engine/Insn$Visitor
